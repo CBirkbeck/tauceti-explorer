@@ -1,0 +1,2085 @@
+{
+  "roadmapId": "ArithmeticGaloisRepresentations",
+  "protocol": "blueprint-v1",
+  "part": "R01.2",
+  "scope": [
+    "ArithmeticGaloisRepresentations:R01.2"
+  ],
+  "status": "complete",
+  "summary": "Target-level completion of the local arithmetic layer: precise global restriction carriers and coherence, residual interpretation of the existing tame character, scalar monodromy, the Weil–Deligne carrier and linear operations, and distinct full/Frobenius/categorical semisimplifications. The parent nodes are retained as mathematical prerequisites and ancillary targets. Current Tau Ceti local-field implementations are imported rather than re-planned. No implementation is claimed.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Field.absoluteGaloisGroup.mapOfAlgebra",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+        "provides": "The continuous homomorphism G_L →ₜ* G_K induced by compatible algebraic closures.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:IsNilpotent.exp",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Nilpotent/Exp.lean",
+        "provides": "Exponential series in a Q-algebra, the finite sum for nilpotent elements.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:IsNilpotent.exp_add_of_commute",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Nilpotent/Exp.lean",
+        "provides": "exp(a + b) = exp a · exp b for commuting nilpotent a, b.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:LinearMap.trace",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Trace.lean",
+        "provides": "Trace of an endomorphism, independent of the basis, for modules with a finite basis; defined to be 0 when no finite basis exists, so it must NOT be used for non-free projective modules.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:MulAction.stabilizer",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
+        "provides": "The stabilizer subgroup of a point under a group action; used for decomposition groups.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Representation",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "Representation k G V := G →* (V →ₗ[k] V), the algebraic carrier underlying ContinuousRep.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Representation.IsIrreducible.algebraMap_intertwiningMap_bijective_of_isAlgClosed",
+        "kind": "theorem",
+        "module": "Mathlib/RepresentationTheory/Irreducible.lean",
+        "provides": "Schur's lemma: for ρ irreducible, [FiniteDimensional k V] [IsAlgClosed k]: Bijective (algebraMap k (IntertwiningMap ρ ρ)).",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Representation.IsSemisimpleRepresentation",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Semisimple.lean",
+        "provides": "Semisimplicity: every subrepresentation has a complement.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Representation.dual",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "Dual representation (dual ρ) g f = f ∘ ρ g⁻¹.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Representation.tprod",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "Tensor product representation g ↦ ρV g ⊗ ρW g.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/JordanChevalley/Multiplicative.lean",
+        "provides": "Multiplicative Jordan–Chevalley decomposition g = s·u (s semisimple, u unipotent, commuting) over a perfect field, finite dimension.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition_spec",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/JordanChevalley/Multiplicative.lean",
+        "provides": "For g : GeneralLinearGroup K V (K a perfect field, V finite-dimensional): IsSemisimple (jordanDecomposition g).1 ∧ IsUnipotent (jordanDecomposition g).2 ∧ Commute (jordanDecomposition g).1 (jordanDecomposition g).2 ∧ g = (jordanDecomposition g).1 * (jordanDecomposition g).2.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "tauceti:LinearMap.GeneralLinearGroup.semisimplePart",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/JordanChevalley/Multiplicative.lean",
+        "provides": "The semisimple factor of the multiplicative Jordan decomposition.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "tauceti:LinearMap.GeneralLinearGroup.unipotentPart",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/JordanChevalley/Multiplicative.lean",
+        "provides": "The unipotent factor of the multiplicative Jordan decomposition.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.rootsOfUnityEquivResidueFieldUnits",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
+        "provides": "Reduction is an isomorphism from the (q − 1)-st roots of unity of 𝒪[K] to 𝓀[K]ˣ, q = #𝓀[K], for a nonarchimedean local field K.",
+        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:AddSubgroup.inertia",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
+        "provides": "For an additive group M with a G-action and additive subgroup I, the subgroup of elements σ satisfying σx−x∈I for all x; specialize to O_{F̄} and its prime ideal.",
+        "checked": "Actual definition at lines 1175–1180 read at the pinned commit, 2026-10-09."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "deligne73",
+      "title": "Les constantes des équations fonctionnelles des fonctions L",
+      "authors": "Pierre Deligne",
+      "edition": "Modular Functions of One Variable II, LNM 349 (1973), pp. 501–597",
+      "url": "https://publications.ias.edu/sites/default/files/Number20.pdf",
+      "sha256": "b03f483c4eeca79b75e34b88f41406fe4c9e16ba621480ce859697c93e8d5844",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§3.12 p. 533; §§8.1–8.6 pp. 566–570; page images checked where formulas lose symbols."
+      ]
+    },
+    {
+      "id": "serre72",
+      "title": "Propriétés galoisiennes des points d’ordre fini des courbes elliptiques",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Inventiones mathematicae 15 (1972), pp. 259–331",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5874918517843398173_Serre_proprie_te_s_galoisiennes_des_courbes_elliptiques.pdf",
+      "sha256": "93970ed93730194af8bed0f1f59d29cbed061d20f34f4bcffc079ad8aedf01d5",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§1.3 Proposition 2, p. 264; §1.7, pp. 266–267, read on page images."
+      ]
+    },
+    {
+      "id": "bh06",
+      "title": "The Local Langlands Conjecture for GL(2)",
+      "authors": "Colin J. Bushnell and Guy Henniart",
+      "edition": "Grundlehren 335, Springer, 2006, maintainer-cleared edition",
+      "url": "https://doi.org/10.1007/3-540-31511-X",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§28.7; §§31.1–31.2 pp. 200–201; §§32.2–32.7 pp. 203–208."
+      ],
+      "access": "Read only from the maintainer-cleared library; no source file or passage is included in the deliverables."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/global-place-subgroup-carriers",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Decomposition and inertia at a global place",
+      "kind": "definition",
+      "statement": "D_w is the stabilizer of w under G_F acting on O_{F̄}; I_w consists of σ with σx−x in w for every x in O_{F̄}. Both are subgroups of G_F, with I_w ≤ D_w. These are specializations of MulAction.stabilizer and AddSubgroup.inertia, not new abstract group constructions. The global wild subgroup is the image of the existing local P_{F_v} under the parent completion comparison; its intrinsic finite-level characterization remains the parent node.",
+      "hypotheses": [
+        "F is a number field; F̄ is the fixed algebraic closure.",
+        "w is a maximal ideal of O_{F̄} above a nonzero finite prime v, except in the explicitly labelled bottom-ideal test."
+      ],
+      "proofSteps": [
+        "Use the action of algebraic-closure automorphisms on integral elements and pointwise ideals.",
+        "Define D by stabilizer and I by additive inertia; the residue action shows I ≤ D. Conjugating the ideal conjugates each subgroup.",
+        "At finite Galois levels use the parent decomposition comparison and NumberFieldArithmetic.decompositionHom. Compact inverse limits give the global comparison; the parent Krasner node supplies injectivity."
+      ],
+      "acceptance": [
+        "D_w is exactly the Mathlib stabilizer, including its action convention.",
+        "For a number field F, additive inertia at the zero ideal of O_{F̄} is trivial, since integral elements generate F̄ as a field.",
+        "For L=Q(i), i²=−1, the image of inertia above 2 in Gal(L/Q) has cardinality 2."
+      ],
+      "prerequisites": [
+        "mathlib:MulAction.stabilizer",
+        "mathlib:AddSubgroup.inertia",
+        "ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place",
+        "ArithmeticGaloisRepresentations:R01.2/algebraic-closure-of-a-completion-is-generated-by-the-global-closure",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne73",
+          "locator": "§3.12, printed p. 533 (Del-33)",
+          "match": "Local arithmetic representations are obtained by restricting at a chosen place of a global algebraic closure; the stabilizer and residue-kernel definitions make that restriction precise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticLocal.decompositionAt",
+          "role": "constructor",
+          "statement": "D_w = MulAction.stabilizer G_F w."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.inertiaAt",
+          "role": "constructor",
+          "statement": "I_w = AddSubgroup.inertia(w.toAddSubgroup, G_F)."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.mem_decompositionAt",
+          "role": "characterisation",
+          "statement": "σ ∈ D_w iff σw=w."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.mem_inertiaAt",
+          "role": "characterisation",
+          "statement": "σ ∈ I_w iff every σx−x lies in w."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.inertiaAt_le",
+          "role": "relation",
+          "statement": "I_w ≤ D_w."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.decompositionAt_conj",
+          "role": "functoriality",
+          "statement": "D_{σw} = σD_wσ⁻¹."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.inertiaAt_conj",
+          "role": "functoriality",
+          "statement": "I_{σw} = σI_wσ⁻¹."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticLocal.decompositionAt_stabilizer",
+          "kind": "compatibility",
+          "statement": "D_w is exactly the Mathlib stabilizer, including its action convention."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.inertiaAt_bottom",
+          "kind": "degenerate",
+          "statement": "For a number field F, additive inertia at the zero ideal of O_{F̄} is trivial, since integral elements generate F̄ as a field."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.inertiaAt_gaussian_two",
+          "kind": "computation",
+          "statement": "For L=Q(i), i²=−1, the image of inertia above 2 in Gal(L/Q) has cardinality 2."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§3.12, printed p. 533 (Del-33)",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.ArithmeticLocal"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/coherent-local-restriction",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Local restriction and coherent change of embedding",
+      "kind": "construction",
+      "statement": "For an embedding ι:F̄→F̄_v compatible with F→F_v, j_ι=Field.absoluteGaloisGroup.mapOfAlgebra for its specified algebra structure and ρ_ι=ρ∘j_ι on the R01.1 finite projective carrier. The uncurried action remains continuous. For ι′=ι∘g, j_ι′=conj(g⁻¹)∘j_ι and ρ(g):ρ_ι′→ρ_ι intertwines. These chosen isomorphisms compose when three embeddings are compared; the representation maps themselves need not be equal. Restriction of tensors, duals, twists and coefficient extensions is inherited from R01.1.",
+      "hypotheses": [
+        "F is a number field; F̄ is the fixed algebraic closure.",
+        "v is finite, ρ is an R01.1 jointly continuous representation over a topological commutative ring on a finite projective module.",
+        "ι is an actual closure embedding, not the unspecified choice made by Field.absoluteGaloisGroup.map."
+      ],
+      "proofSteps": [
+        "Use mapOfAlgebra, whose closure algebra structure is ι.",
+        "Compose the algebraic representation and its jointly continuous action with the continuous map j_ι.",
+        "From ι′=ιg obtain j_ι′(h)=g⁻¹j_ι(h)g; multiply by ρ(g) to obtain the intertwining equation. The multiplication law gives the coherence equation.",
+        "Import transitivity and the image D_w from the parent node. The parent local-restriction node retains the Mackey and finite-image comparisons."
+      ],
+      "acceptance": [
+        "Restricting the trivial representation remains trivial.",
+        "The underlying representation equals Mathlib composition, not a representation on a new carrier.",
+        "If ρ(g⁻¹j(h)g)≠ρ(j(h)) for some h, the two restriction homomorphisms are unequal despite the canonical intertwiner."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/global-place-subgroup-carriers",
+        "mathlib:Field.absoluteGaloisGroup.mapOfAlgebra",
+        "mathlib:Representation",
+        "ArithmeticGaloisRepresentations:R01.1/continuous-representation",
+        "ArithmeticGaloisRepresentations:R01.1/restriction-dual-tensor-twist",
+        "ArithmeticGaloisRepresentations:R01.2/local-restriction"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne73",
+          "locator": "§3.12, printed p. 533",
+          "match": "A chosen place yields the local restriction of a global representation; conjugation of places supplies the change-of-choice comparison."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticLocal.restrictAlong",
+          "role": "constructor",
+          "statement": "The underlying representation is ρ.comp j; specialize j to j_ι."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.restrictAlong_apply",
+          "role": "simp",
+          "statement": "ρ_j(h)=ρ(j(h))."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.restrictAlong_continuous",
+          "role": "compatibility",
+          "statement": "Joint continuity of ρ and continuity of j imply joint continuity of ρ_j."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.restrictAlong_id",
+          "role": "functoriality",
+          "statement": "Restriction along the identity is ρ."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.restrictAlong_comp",
+          "role": "functoriality",
+          "statement": "Restricting along j and then k equals restricting along j∘k."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.restrictAlong_change",
+          "role": "relation",
+          "statement": "ρ(g)ρ_{conj(g⁻¹)j}(h)=ρ_j(h)ρ(g)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticLocal.restrictAlong_trivial",
+          "kind": "degenerate",
+          "statement": "Restricting the trivial representation remains trivial."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.restrictAlong_agrees_comp",
+          "kind": "compatibility",
+          "statement": "The underlying representation equals Mathlib composition, not a representation on a new carrier."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.restrictAlong_conjugate_not_equal",
+          "kind": "non-example",
+          "statement": "If ρ(g⁻¹j(h)g)≠ρ(j(h)) for some h, the two restriction homomorphisms are unequal despite the canonical intertwiner."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§3.12, printed p. 533",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.ArithmeticLocal"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/local-restriction"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/residual-fundamental-character-bridge",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Residual fundamental characters",
+      "kind": "construction",
+      "statement": "Let K have residue characteristic p, let n>0 and choose in K̄ an unramified field U containing μ_{p^n−1}, with residue cardinality p^n (for K=Q_p take its unramified degree-n extension). The existing finite tame Kummer character has values in these integral roots of unity. Compose it with reduction and a specified embedding F_{p^n}→k of residual coefficient fields. This is θ_n:I_K→k×, with kernel containing wild inertia. The n fundamental characters are θ_n^{p^i}, 0≤i<n. The residual character, its Teichmüller lift and an ℓ-adic character are different objects. For general K with residue F_{p^f}, use an unramified extension of degree making n divide its absolute residue degree and select its F_{p^n} subfield; do not require a residue-p^n extension when f does not divide n.",
+      "hypotheses": [
+        "K is nonarchimedean local with residue characteristic p; n>0; k contains the specified finite residue subfield.",
+        "The finite tame components and their root formula come from LocalFieldsRamification Layer 4; the unramified fields and residue comparison come from Layer 2."
+      ],
+      "proofSteps": [
+        "Import the finite component of inertiaTameCharacter; its roots are unramified and integral.",
+        "Transport to an unramified U large enough to contain these roots; reduce using rootsOfUnityEquivResidueFieldUnits for U, then the selected residue embedding. For K=Q_p and U of degree n the whole unit group is the target.",
+        "Surjectivity, independence of uniformizer/root and transition under powering are imported finite-level properties, preserved by reduction.",
+        "For n=2 over Q_p, norm compatibility gives θ₂^{p+1}=θ₁; composition with residue Frobenius gives θ₂ and θ₂^p. Parent cyclotomic comparison gives θ₁=χ̄_p|I."
+      ],
+      "acceptance": [
+        "For the identity residue embedding, it equals rootsOfUnityEquivResidueFieldUnits composed with θ.",
+        "A trivial supplied component gives the trivial residual character.",
+        "If θ(σ) is the Teichmüller lift of a residue unit a, its residual value is ι(a)."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+        "tauceti:TauCeti.rootsOfUnityEquivResidueFieldUnits",
+        "ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre72",
+          "locator": "§1.3 Proposition 2, p. 264; §1.7 fundamental-character examples, p. 267",
+          "match": "Finite tame components become finite-field unit characters by reduction; residue-field embeddings give their conjugates."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamental",
+          "role": "constructor",
+          "statement": "Given U and the supplied component θ:I→μ_{#k_U−1}(O_U), compose its reduction with ι:k_U→k."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamental_apply",
+          "role": "simp",
+          "statement": "The value is ι applied to the residue of θ(σ)."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamental_order",
+          "role": "relation",
+          "statement": "Every value has order dividing #k_U−1."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamental_surjective",
+          "role": "universal-property",
+          "statement": "With identity residue embedding and surjective θ the character is onto k_U×."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamental_kernel",
+          "role": "characterisation",
+          "statement": "Its kernel equals the finite Kummer component’s kernel, because both reduction and ι are injective on these roots."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamental_identity",
+          "kind": "compatibility",
+          "statement": "For the identity residue embedding, it equals rootsOfUnityEquivResidueFieldUnits composed with θ."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamental_one",
+          "kind": "degenerate",
+          "statement": "A trivial supplied component gives the trivial residual character."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamental_teichmuller",
+          "kind": "computation",
+          "statement": "If θ(σ) is the Teichmüller lift of a residue unit a, its residual value is ι(a)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§1.3 Proposition 2, p. 264; §1.7 fundamental-character examples, p. 267",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.ArithmeticLocal"
+      },
+      "planet": {
+        "name": "Fundamental characters"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/finite-tame-character-level",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Level of a finite tame character",
+      "kind": "definition",
+      "statement": "For p prime, k of characteristic p and χ:I_t→k× with finite image, its level is the least positive n for which χ(σ)^{p^n−1}=1 for every σ. Equivalently it is the multiplicative order of p modulo the exponent m of the image, with the convention level(1)=1 when m=1. It is the length of the Frobenius orbit of χ. Thus a primitive level-two character has level 2 even when its norm to F_p× is trivial (in particular at p=2).",
+      "hypotheses": [
+        "p is prime; k is a field of characteristic p; χ has finite image. Continuous residual inertia characters have finite image because their coefficients are discrete and inertia is compact."
+      ],
+      "proofSteps": [
+        "A finite subgroup of a field’s units is cyclic, of order m prime to p.",
+        "The set of positive n with m dividing p^n−1 is nonempty; its least element divides precisely the other such n. Use this to prove the degree/divisibility API.",
+        "Frobenius χ↦χ^p has orbit length this least n. This distinguishes field of values from dimension or residue cardinality of K."
+      ],
+      "acceptance": [
+        "The trivial character has level 1, not 0.",
+        "If all values have order dividing p²−1 and one value has order p²−1, the level is 2.",
+        "A character fixed by the p-th power has level 1; a primitive level-two character cannot be the inertia restriction of a one-dimensional character of G_{Q_p}."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/residual-fundamental-character-bridge",
+        "ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre72",
+          "locator": "§1.7, pp. 266–267, finite characters and the fundamental-character examples",
+          "match": "The finite tame character group and its fundamental-character conjugates supply the finite-field interpretation; the minimal degree follows from their Frobenius orbit."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticLocal.tameLevel",
+          "role": "data",
+          "statement": "Least positive n with every value satisfying x^{p^n−1}=1; the prototype uses the infimum in N."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.tameLevel_pos",
+          "role": "characterisation",
+          "statement": "The finite-image, characteristic-p hypotheses imply a positive level."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.tameLevel_dvd_iff",
+          "role": "relation",
+          "statement": "For n>0, level χ divides n iff all values satisfy x^{p^n−1}=1."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.tameLevel_frobenius",
+          "role": "functoriality",
+          "statement": "level(χ^p)=level χ."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.tameLevel_one_iff",
+          "role": "characterisation",
+          "statement": "level χ=1 iff χ^p=χ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticLocal.tameLevel_trivial",
+          "kind": "degenerate",
+          "statement": "The trivial character has level 1, not 0."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.tameLevel_two",
+          "kind": "computation",
+          "statement": "If all values have order dividing p²−1 and one value has order p²−1, the level is 2."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.tameLevel_one_from_extension",
+          "kind": "non-example",
+          "statement": "A character fixed by the p-th power has level 1; a primitive level-two character cannot be the inertia restriction of a one-dimensional character of G_{Q_p}."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§1.7, pp. 266–267, finite characters and the fundamental-character examples",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.ArithmeticLocal"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Weil–Deligne object",
+      "kind": "definition",
+      "statement": "A Weil–Deligne object is (V,r,N), with r a representation of W_K whose inertia kernel is open, N a nilpotent Ω-linear endomorphism, and r(w)N=q^{deg(w)}Nr(w). Inertia is compact, so its image under r is finite. The coefficients of r are treated discretely for smoothness: joint ℓ-adic continuity of a Galois representation is a different condition. Arithmetic Φ has degree 1 and gives q; geometric F has degree −1 and gives q⁻¹. This replaces the bundled carrier of the parent at assembly.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "Take the underlying Mathlib Representation on a finite-dimensional space; record the open inertia kernel and nilpotent N.",
+        "Impose the scalar conjugation equation with arithmetic degree.",
+        "Cosets of the open kernel cover compact inertia, proving finite inertial image. The nilpotent zero operator includes every smooth Weil representation, including ramified ones."
+      ],
+      "acceptance": [
+        "The trivial smooth representation has N=0.",
+        "For q>1 and N≠0 the arithmetic relation cannot simultaneously hold with q⁻¹ in place of q.",
+        "A smooth ramified r with r(σ)≠1 stays ramified in (r,0); zero monodromy does not assert unramifiedness."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+        "mathlib:Representation",
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne73",
+          "locator": "Definition 8.4.1 and (8.4.1.1), printed p. 568 (Del-68)",
+          "match": "The object combines a smooth Weil action and nilpotent endomorphism with the Frobenius scaling relation."
+        },
+        {
+          "sourceId": "bh06",
+          "locator": "§31.1, pp. 200–201; §32.2, p. 203",
+          "match": "The carrier and its coefficient-field extension are described with a finite-dimensional smooth Weil representation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.WeilDeligneRep",
+          "role": "structure",
+          "statement": "Fields r, open_inertia_kernel, N, nilpotent and relation; V’s finite-dimensionality is a parameter."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.relation_arith",
+          "role": "relation",
+          "statement": "For deg Φ=1, r(Φ)N=qNr(Φ)."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.relation_geom",
+          "role": "relation",
+          "statement": "For deg F=−1, r(F)N=q⁻¹Nr(F)."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.relation_inertia",
+          "role": "relation",
+          "statement": "N commutes with the inertia action."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.finite_inertia_image",
+          "role": "characterisation",
+          "statement": "Open kernel on compact inertia implies finite inertia image."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.ext",
+          "role": "extensionality",
+          "statement": "On the same V, equality of r and N implies equality of objects."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.ofSmooth",
+          "role": "constructor",
+          "statement": "A smooth Weil representation r gives (r,0)."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.ofSmooth_N",
+          "role": "simp",
+          "statement": "The zero-monodromy inclusion has N=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.WeilDeligneRep.zero_monodromy",
+          "kind": "degenerate",
+          "statement": "The trivial smooth representation has N=0."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.arithmetic_sign",
+          "kind": "non-example",
+          "statement": "For q>1 and N≠0 the arithmetic relation cannot simultaneously hold with q⁻¹ in place of q."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.smooth_not_unramified",
+          "kind": "non-example",
+          "statement": "A smooth ramified r with r(σ)≠1 stays ramified in (r,0); zero monodromy does not assert unramifiedness."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "Definition 8.4.1 and (8.4.1.1), printed p. 568 (Del-68)",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.WeilDeligneRep"
+      },
+      "planet": {
+        "name": "Weil–Deligne representation"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Weil–Deligne morphisms",
+      "kind": "definition",
+      "statement": "A morphism (V,r,N)→(V′,r′,N′) is an Ω-linear map f with fr(w)=r′(w)f for all w and fN=N′f. Identity and composition are the underlying linear ones. An isomorphism has an invertible underlying linear map satisfying both equations. Kernels and cokernels inherit r and N, giving the abelian finite-length category used by semisimplification; these structural assertions remain proof steps, not independent planet nodes.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "Build the morphism structure from a linear map and the two explicit equations.",
+        "Identity, zero and composition satisfy both equations; associativity follows from linear composition.",
+        "Kernels and quotients are stable under r and N. Nilpotence descends, and the same open inertia kernel still acts trivially. Finite dimensionality bounds strict subobject chains."
+      ],
+      "acceptance": [
+        "Identity sends each vector to itself.",
+        "The zero linear map is a morphism between any two objects.",
+        "On the same vector space, when N≠N′ the identity linear map is not a WD morphism, even if the Weil actions agree."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "mathlib:Representation"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§31.1, p. 200; §31.2, p. 201; §32.2, p. 203",
+          "match": "Morphisms commute with both the Weil action and monodromy; the finite-dimensional category carries the usual linear operations."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom",
+          "role": "structure",
+          "statement": "A linear map with equivariant and monodromy equations."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Iso",
+          "role": "structure",
+          "statement": "A linear equivalence with the same equations."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.id",
+          "role": "constructor",
+          "statement": "Identity is a WD morphism."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.comp",
+          "role": "functoriality",
+          "statement": "Compose the underlying linear maps."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.ext",
+          "role": "extensionality",
+          "statement": "Morphisms are equal when their linear maps are equal."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.comp_apply",
+          "role": "simp",
+          "statement": "(g∘f)(v)=g(f(v))."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.comp_id",
+          "role": "functoriality",
+          "statement": "Composition with identity on the source preserves f."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.id_comp",
+          "role": "functoriality",
+          "statement": "Composition with identity on the target preserves f."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.id_value",
+          "kind": "computation",
+          "statement": "Identity sends each vector to itself."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.zero",
+          "kind": "degenerate",
+          "statement": "The zero linear map is a morphism between any two objects."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.requires_monodromy",
+          "kind": "non-example",
+          "statement": "On the same vector space, when N≠N′ the identity linear map is not a WD morphism, even if the Weil actions agree."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§31.1, p. 200; §31.2, p. 201; §32.2, p. 203",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.WeilDeligneRep"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-direct-sum",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Direct sum of Weil–Deligne objects",
+      "kind": "construction",
+      "statement": "D⊕D′ has underlying V×V′, diagonal Weil action and N⊕N′. This is a biproduct in WD_Ω(K).",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "Use the product representation, with each action and N acting componentwise.",
+        "Intersect the open inertia kernels; nilpotence is bounded by the maximum of the two exponents.",
+        "The coordinate inclusions and projections satisfy the two morphism equations."
+      ],
+      "acceptance": [
+        "The underlying dimension is dim V+dim V′.",
+        "N_sum(v,v′)=0 iff Nv=0 and N′v′=0.",
+        "If both monodromies vanish, the direct-sum monodromy vanishes."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§31.2, p. 201",
+          "match": "The additive category admits direct sums with componentwise monodromy."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.WeilDeligneRep.sum",
+          "role": "constructor",
+          "statement": "WD object on V×V′."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_r",
+          "role": "simp",
+          "statement": "r(w)(v,v′)=(r(w)v,r′(w)v′)."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_N",
+          "role": "simp",
+          "statement": "N(v,v′)=(Nv,N′v′)."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_inclusion",
+          "role": "universal-property",
+          "statement": "v↦(v,0) is a WD morphism."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_projection",
+          "role": "universal-property",
+          "statement": "(v,v′)↦v is a WD morphism."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sumFamily",
+          "role": "constructor",
+          "statement": "Finite direct sum on a dependent product of finite-dimensional spaces; the empty family gives the zero object."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sumFamily_r",
+          "role": "simp",
+          "statement": "The Weil action of the finite family is componentwise."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sumFamily_N",
+          "role": "simp",
+          "statement": "The monodromy of the finite family is componentwise."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_rank",
+          "kind": "computation",
+          "statement": "The underlying dimension is dim V+dim V′."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_kernel",
+          "kind": "characterisation",
+          "statement": "N_sum(v,v′)=0 iff Nv=0 and N′v′=0."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_zero",
+          "kind": "degenerate",
+          "statement": "If both monodromies vanish, the direct-sum monodromy vanishes."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§31.2, p. 201",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.WeilDeligneRep"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-tensor-product",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Tensor product of Weil–Deligne objects",
+      "kind": "construction",
+      "statement": "D⊗D′ has underlying V⊗ΩV′, the Mathlib tensor representation, and N⊗1+1⊗N′. Both summands are necessary. Tensoring WD morphisms gives WD morphisms.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "Use Representation.tprod for the action.",
+        "The two monodromy summands commute; if N^a=0 and N′^b=0 with a,b>0, the binomial expansion vanishes in degree a+b−1.",
+        "Tensor the scaling relations; their common scalar is q^{deg w}. Intersect inertia kernels and use tensor-product functoriality."
+      ],
+      "acceptance": [
+        "The dimension is dim V·dim V′.",
+        "Both zero monodromies give zero tensor monodromy.",
+        "If Nv⊗v′≠0, the tensor monodromy evaluated on v⊗v′ differs from v⊗N′v′; omitting the first summand fails."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier",
+        "mathlib:Representation.tprod"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§31.2, p. 201",
+          "match": "Tensor monodromy is the sum of the operators on the two factors."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.WeilDeligneRep.tensor",
+          "role": "constructor",
+          "statement": "The tensor WD object."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.tensor_r",
+          "role": "compatibility",
+          "statement": "The Weil representation equals Representation.tprod."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.tensor_N",
+          "role": "simp",
+          "statement": "N(v⊗v′)=Nv⊗v′+v⊗N′v′."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.tensor_map",
+          "role": "functoriality",
+          "statement": "1⊗f is a WD morphism for every WD morphism f."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.tensor_nilpotent_bound",
+          "role": "relation",
+          "statement": "N_tensor^{a+b−1}=0 if the positive nilpotence bounds are a and b."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.WeilDeligneRep.tensor_rank",
+          "kind": "computation",
+          "statement": "The dimension is dim V·dim V′."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.tensor_zero_N",
+          "kind": "degenerate",
+          "statement": "Both zero monodromies give zero tensor monodromy."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.tensor_both_summands",
+          "kind": "non-example",
+          "statement": "If Nv⊗v′≠0, the tensor monodromy evaluated on v⊗v′ differs from v⊗N′v′; omitting the first summand fails."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§31.2, p. 201",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.WeilDeligneRep"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-dual-object",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Dual Weil–Deligne object",
+      "kind": "construction",
+      "statement": "D∨ has underlying V∨, action r∨(w)(f)=f∘r(w⁻¹) and monodromy −N∨, so N_dual(f)(v)=−f(Nv). A morphism dualizes contravariantly.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "Use Representation.dual for the inverse-transpose action.",
+        "Define monodromy by negative transpose. The Leibniz identity for the evaluation pairing forces the minus sign.",
+        "Transpose the conjugation relation, and retain nilpotence and the open inertia kernel."
+      ],
+      "acceptance": [
+        "Zero N gives zero dual N.",
+        "If f(Nv)≠0, dual monodromy differs from the positive transpose.",
+        "(r∨(w)f)(r(w)v)=f(v)."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier",
+        "mathlib:Representation.dual"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§31.2, p. 201",
+          "match": "Dual monodromy has the negative transpose sign and tensor-compatible evaluation."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.WeilDeligneRep.dual",
+          "role": "constructor",
+          "statement": "The WD object on the linear dual."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.dual_r",
+          "role": "compatibility",
+          "statement": "Its Weil representation equals Mathlib Representation.dual."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.dual_N",
+          "role": "simp",
+          "statement": "N_dual(f)(v)=−f(Nv)."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.dual_map",
+          "role": "functoriality",
+          "statement": "f:D→D′ induces f∨:D′∨→D∨."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.dual_rank",
+          "role": "compatibility",
+          "statement": "The dual has the same dimension."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.WeilDeligneRep.dual_zero_N",
+          "kind": "degenerate",
+          "statement": "Zero N gives zero dual N."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.dual_negative_sign",
+          "kind": "non-example",
+          "statement": "If f(Nv)≠0, dual monodromy differs from the positive transpose."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.dual_pairing",
+          "kind": "compatibility",
+          "statement": "(r∨(w)f)(r(w)v)=f(v)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§31.2, p. 201",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.WeilDeligneRep"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Special Weil–Deligne representation",
+      "kind": "construction",
+      "statement": "Sp(n), n≥0, has basis e₀,…,e_{n−1}, r(w)e_i=q^{i deg(w)}e_i, N(e_i)=e_{i+1}, and N(e_{n−1})=0. Sp(0) is the zero object and Sp(1) is trivial. This is the unnormalised convention of the parent: the normalized Sp(n) in Bushnell–Henniart §31.1 is obtained by twisting this object by ω^{(1−n)/2}; classification absorbs that twist into the irreducible Weil factor. No square root of q is required here.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "Construct the diagonal Weil action and the single nilpotent Jordan string.",
+        "The next weight is q times the preceding weight, proving the arithmetic relation. Inertia acts trivially.",
+        "Powers of N shift by their exponent; N^n=0, and for n>0 its kernel is the final basis line."
+      ],
+      "acceptance": [
+        "Sp(0) has zero monodromy.",
+        "Sp(1) has trivial Weil action and N=0.",
+        "For Sp(2), N(e₀)=e₁, rather than the reverse shift or zero."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§31.1, p. 200, special representations; §31.2 Exercise, p. 201",
+          "match": "The special monodromy string is the building block for Frobenius-semisimple indecomposables; its normalization is translated by the stated character twist."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.WeilDeligneRep.special",
+          "role": "constructor",
+          "statement": "The unnormalised WD object Sp(n) on Fin n→Ω."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.special_r",
+          "role": "simp",
+          "statement": "At coordinate i, r(w) multiplies by q^{i deg(w)}."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.special_N",
+          "role": "simp",
+          "statement": "Coordinate 0 becomes 0; coordinate i>0 takes the former coordinate i−1."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.special_nilpotence",
+          "role": "relation",
+          "statement": "N^n=0."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.special_kernel",
+          "role": "characterisation",
+          "statement": "For n>0, ker N has dimension 1."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.special_inertia",
+          "role": "simp",
+          "statement": "Every inertia element acts as the identity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.WeilDeligneRep.special_zero",
+          "kind": "degenerate",
+          "statement": "Sp(0) has zero monodromy."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.special_one",
+          "kind": "computation",
+          "statement": "Sp(1) has trivial Weil action and N=0."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.special_two",
+          "kind": "computation",
+          "statement": "For Sp(2), N(e₀)=e₁, rather than the reverse shift or zero."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§31.1, p. 200, special representations; §31.2 Exercise, p. 201",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.WeilDeligneRep"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/canonical-local-monodromy-operator",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "The monodromy operator",
+      "kind": "construction",
+      "statement": "For K with residue cardinality q=p^f, ℓ≠p, E/Q_ℓ finite, V/E finite dimensional and a jointly continuous representation ρ of W_K, import the parent Grothendieck theorem. For an additive trivialisation t of t_ℓ, let N_t be its unique nilpotent endomorphism with ρ(σ)=exp(t(σ)N_t) on some open subgroup of inertia. The intrinsic operator is Z_ℓ(1)→End_E(V); the scalar N_t depends inversely on the trivialisation. Thus N_{at}=a⁻¹N_t. It obeys ρ(w)N_t=q^{deg(w)}N_tρ(w), is zero exactly when the inertia image is finite, and upon L/K restriction becomes e(L/K)N_t with compatible tame coordinates.",
+      "hypotheses": [
+        "K is nonarchimedean local with finite residue field; ℓ is prime different from p.",
+        "E is finite over Q_ℓ with its ℓ-adic topology; V is finite dimensional with module topology; the action is jointly continuous.",
+        "t is the actual tame character after a trivialisation, not an arbitrary homomorphism from inertia."
+      ],
+      "proofSteps": [
+        "Use the parent quasi-unipotence theorem and the existing tame character. Bushnell–Henniart §32.5 proves existence for finite residue fields: shrink to matrices congruent to 1 modulo ℓ², kill the prime-to-ℓ kernel, factor through t, and use the q-power eigenvalue permutation to obtain unipotence.",
+        "A nilpotent logarithm of a nonzero tame coordinate determines N uniquely. Finite exponential/logarithm inversion is the parent result and Mathlib exp API.",
+        "Compare ρ(σ)=exp(t(σ)N_t) after scaling t and conjugating by w; uniqueness gives the inverse scaling and arithmetic relation.",
+        "The suggested signature chooses from the explicit unique-existence witness. It does not purport to prove that witness for a fake Weil group."
+      ],
+      "acceptance": [
+        "A representation trivial on inertia has N=0.",
+        "When ρ|I=exp(tN₀) for nilpotent N₀, the chosen operator is N₀.",
+        "Two proofs of the unique-existence witness produce the same operator."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/grothendieck-quasi-unipotence",
+        "ArithmeticGaloisRepresentations:R01.2/nilpotent-exponential-and-unipotent-logarithm",
+        "ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+        "mathlib:IsNilpotent.exp",
+        "mathlib:IsNilpotent.exp_add_of_commute"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§32.5 Theorem and Lemma, pp. 204–205; §32.6 (32.6.1), pp. 205–206",
+          "match": "A continuous ℓ-adic Weil representation has a unique nilpotent operator controlling open inertia, and conjugation scales it by the Weil norm."
+        },
+        {
+          "sourceId": "deligne73",
+          "locator": "§8.1–8.2, printed pp. 566–567",
+          "match": "The intrinsic operator uses the Tate-twisted tame character before choosing a scalar coordinate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticLocal.monodromyOperator",
+          "role": "data",
+          "statement": "Choose the unique N supplied by Grothendieck’s explicit nilpotent/open-inertia exponential characterization."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.monodromyOperator_nilpotent",
+          "role": "projection",
+          "statement": "The chosen N is nilpotent."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.monodromyOperator_spec",
+          "role": "characterisation",
+          "statement": "There is an open J in inertia with ρ(σ)=exp(t(σ)N) for all σ∈J."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.monodromyOperator_unique",
+          "role": "universal-property",
+          "statement": "Any nilpotent operator with that open-inertia property equals the chosen operator."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.monodromyOperator_scale",
+          "role": "functoriality",
+          "statement": "For a≠0, changing t to at replaces N by a⁻¹N."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticLocal.monodromyOperator_zero",
+          "kind": "degenerate",
+          "statement": "A representation trivial on inertia has N=0."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.monodromyOperator_exp_generator",
+          "kind": "computation",
+          "statement": "When ρ|I=exp(tN₀) for nilpotent N₀, the chosen operator is N₀."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.monodromyOperator_witness_independent",
+          "kind": "characterisation",
+          "statement": "Two proofs of the unique-existence witness produce the same operator."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§32.5 Theorem and Lemma, pp. 204–205; §32.6 (32.6.1), pp. 205–206",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.ArithmeticLocal"
+      },
+      "planet": {
+        "name": "Monodromy operator"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/grothendieck-quasi-unipotence"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/corrected-weil-action-construction",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Weil–Deligne representation of an ℓ-adic representation",
+      "kind": "construction",
+      "statement": "Choose a geometric Frobenius F (degree −1) and the trivialisation t. Every w is uniquely F^nσ with σ∈I_K. Set r_{F,t}(F^nσ)=ρ(F^nσ)exp(−t(σ)N_t); retain N_t. This is a Weil–Deligne object. The correction has open kernel on inertia, is multiplicative by the tame equivariance and the monodromy relation, and leaves r(F)=ρ(F). It gives the parent exact fully faithful tensor equivalence for continuous ℓ-adic Weil representations. Only the bounded objects extend continuously to G_K; no assertion is made that every WD object comes from G_K.",
+      "hypotheses": [
+        "All monodromy-operator hypotheses hold; F is geometric and t uses the same choice as N_t."
+      ],
+      "proofSteps": [
+        "Use the unique F^nσ coordinates from arithmetic degree.",
+        "Apply exp_add_of_commute and the tame conjugation equation to multiply corrected operators.",
+        "On the open subgroup where ρ(σ)=exp(t(σ)N_t), the correction cancels; thus r has open inertia kernel.",
+        "Because exp(−tN_t) commutes with N_t, the conjugation relation is unchanged.",
+        "Import the parent inverse construction, exactness, tensor/dual/restriction/induction compatibility and inertia-invariants comparison instead of introducing a second equivalence node."
+      ],
+      "acceptance": [
+        "The corrected geometric Frobenius is exactly ρ(F).",
+        "For σ where ρ(σ)=exp(t(σ)N), corrected r(σ)=1.",
+        "With N=0, the object has monodromy zero and its Weil representation equals ρ."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/canonical-local-monodromy-operator",
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "mathlib:IsNilpotent.exp_add_of_commute",
+        "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+        "ArithmeticGaloisRepresentations:R01.2/ell-adic-representation-of-a-weil-deligne-representation"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§32.6 Theorem, formulas (32.6.2)–(32.6.3), pp. 206–207",
+          "match": "The exponential correction converts a continuous ℓ-adic action to a smooth Weil action and gives an equivalence."
+        },
+        {
+          "sourceId": "deligne73",
+          "locator": "§8.4.2, printed p. 569",
+          "match": "The scalar WD object is formed after choosing geometric Frobenius and a Tate-twist coordinate."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticLocal.ofEllAdic",
+          "role": "constructor",
+          "statement": "The corrected object (r_{F,t},N_t). The prototype takes N, its relation, tame equivariance and the explicit open corrected-kernel consequence as inputs."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.ofEllAdic_r",
+          "role": "simp",
+          "statement": "r(F^nσ)=ρ(F^nσ)exp(−t(σ)N)."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.ofEllAdic_N",
+          "role": "projection",
+          "statement": "The object’s monodromy is the supplied N_t."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.ofEllAdic_smooth",
+          "role": "characterisation",
+          "statement": "For N_t=0, the corrected Weil action is the original ρ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticLocal.ofEllAdic_frobenius",
+          "kind": "computation",
+          "statement": "The corrected geometric Frobenius is exactly ρ(F)."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.ofEllAdic_cancels_inertia",
+          "kind": "characterisation",
+          "statement": "For σ where ρ(σ)=exp(t(σ)N), corrected r(σ)=1."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.ofEllAdic_zero_operator",
+          "kind": "degenerate",
+          "statement": "With N=0, the object has monodromy zero and its Weil representation equals ρ."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§32.6 Theorem, formulas (32.6.2)–(32.6.3), pp. 206–207",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.ArithmeticLocal"
+      },
+      "planet": {
+        "name": "Weil–Deligne functor"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-choice-comparison",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Choice independence of the Weil–Deligne object",
+      "kind": "comparison",
+      "statement": "For geometric F′=Fτ, τ∈I_K, let A=exp((q−1)⁻¹t(τ)N_t). Then A r_{F,t}(w)=r_{F′,t}(w) A and A N_t=N_t A. For t′=at, a∈Q_ℓ×, r_{F,t′}=r_{F,t} and N_{t′}=a⁻¹N_t. For any nonzero b in the coefficient field, (r,bN) is isomorphic to (r,N), by an automorphism commuting with r. Consequently the isomorphism class WD(ρ) is independent of F and t; the rescaling isomorphism is not asserted canonical. Global change of embedding also preserves this class through coherent local restriction.",
+      "hypotheses": [
+        "The corrected object satisfies its stated local hypotheses, q>1; a is nonzero.",
+        "The rescaling lemma on generic (W,deg,q) additionally requires compact inertia and surjective degree; the genuine Weil group supplies both."
+      ],
+      "proofSteps": [
+        "For F′=Fτ compare the two coordinate formulas. Since ρ(F)Nρ(F)⁻¹=q⁻¹N, conjugation by exp(cN) contributes exp((q−1)cN), giving c=t(τ)/(q−1).",
+        "For t′=at use uniqueness of monodromy: the product t′N′ is unchanged.",
+        "Choose a power of Frobenius centralizing the finite inertial image. Split its generalized eigenvalues into q-power orbits, on which N moves by one step. Rescale those steps to obtain a commuting isomorphism from N to bN; descend the construction over the coefficient field as in the parent rescaling node.",
+        "Use the parent exact equivalence to transport global local-restriction isomorphisms."
+      ],
+      "acceptance": [
+        "For geometric F′=Fτ, τ∈I_K, let A=exp((q−1)⁻¹t(τ)N_t). Then A r_{F,t}(w)=r_{F′,t}(w) A and A N_t=N_t A. For t′=at, a∈Q_ℓ×, r_{F,t′}=r_{F,t} and N_{t′}=a⁻¹N_t. For any nonzero b in the coefficient field, (r,bN) is isomorphic to (r,N), by an automorphism commuting with r. Consequently the isomorphism class WD(ρ) is independent of F and t; the rescaling isomorphism is not asserted canonical. Global change of embedding also preserves this class through coherent local restriction."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/corrected-weil-action-construction",
+        "ArithmeticGaloisRepresentations:R01.2/coherent-local-restriction",
+        "ArithmeticGaloisRepresentations:R01.2/rescaling-the-monodromy-operator",
+        "mathlib:IsNilpotent.exp_add_of_commute"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§32.6, p. 207, change of Frobenius; §32.5, p. 204, uniqueness",
+          "match": "The geometric Frobenius change has the explicit exponential conjugator, and the tame-coordinate scaling follows from uniqueness."
+        },
+        {
+          "sourceId": "deligne73",
+          "locator": "Lemme 8.4.3, printed p. 569",
+          "match": "The WD isomorphism class is independent of Frobenius and the scalar Tate coordinate; the latter must be interpreted with the inverse scaling pinned here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor"
+      ],
+      "suggestedDeclarations": [
+        "TauCeti.ArithmeticLocal.changeFrobenius_iso",
+        "TauCeti.WeilDeligneRep.rescale_iso",
+        "TauCeti.ArithmeticLocal.monodromyOperator_scale"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-predicate",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Frobenius semisimplicity",
+      "kind": "definition",
+      "statement": "A WD object is Frobenius semisimple if r(w) is semisimple for every w of nonzero degree. With finite inertial image this is equivalent to semisimplicity of r(Φ) for one arithmetic lift, or to semisimplicity of r as a Weil representation. It imposes no condition N=0. The corresponding ℓ-adic condition is semisimplicity of off-inertia Frobenius operators after the exponential correction, as in the parent equivalence.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "A power of Frobenius commutes with the finite inertial image. Maschke’s theorem handles that finite image in characteristic zero.",
+        "The semisimple and unipotent Jordan factors show that semisimplicity at one degree-one lift is equivalent to semisimplicity at every nonzero degree.",
+        "This controls r alone; a nonzero nilpotent operator can still link distinct Frobenius weights."
+      ],
+      "acceptance": [
+        "Sp(2) is Frobenius semisimple and has nonzero N.",
+        "The trivial zero-monodromy object is Frobenius semisimple.",
+        "If r(Φ) is not semisimple for an arithmetic lift, the object is not Frobenius semisimple."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification",
+        "mathlib:Representation.IsSemisimpleRepresentation"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§28.7 Proposition, pp. 185–186; §32.7 Proposition and Theorem, p. 208",
+          "match": "Semisimplicity of the Weil action is detected at Frobenius, and is distinguished from semisimplicity of a Deligne object."
+        },
+        {
+          "sourceId": "deligne73",
+          "locator": "Definition 8.6, printed p. 570",
+          "match": "Frobenius semisimplicity describes the corrected Weil operators while retaining monodromy."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.WeilDeligneRep.IsFrobeniusSemisimple",
+          "role": "characterisation",
+          "statement": "Every r(w) with nonzero degree is a semisimple endomorphism."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.isFrobeniusSemisimple_iff_arith",
+          "role": "characterisation",
+          "statement": "For compact inertia and deg Φ=1, the predicate is equivalent to semisimplicity of r(Φ)."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.isFrobeniusSemisimple_iff_weil_semisimple",
+          "role": "compatibility",
+          "statement": "For compact inertia and surjective degree, it equals Mathlib semisimplicity of the Weil representation."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.isFrobeniusSemisimple_iso",
+          "role": "functoriality",
+          "statement": "The predicate is invariant under WD isomorphism."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.isFrobeniusSemisimple_special",
+          "role": "example",
+          "statement": "Every Sp(n) is Frobenius semisimple when q>1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.WeilDeligneRep.fss_special_nonzero_N",
+          "kind": "non-example",
+          "statement": "Sp(2) is Frobenius semisimple and has nonzero N."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.fss_trivial",
+          "kind": "degenerate",
+          "statement": "The trivial zero-monodromy object is Frobenius semisimple."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.fss_excludes_unipotent_frobenius",
+          "kind": "non-example",
+          "statement": "If r(Φ) is not semisimple for an arithmetic lift, the object is not Frobenius semisimple."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§28.7 Proposition, pp. 185–186; §32.7 Proposition and Theorem, p. 208",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.WeilDeligneRep"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification-construction",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Frobenius semisimplification",
+      "kind": "construction",
+      "statement": "For arithmetic Φ let r(Φ)=su be the existing multiplicative Jordan decomposition. Its unipotent part u commutes with r(W_K) and N. Define r^{Fss}(w)=r(w)u^{−deg(w)}, and D^{Fss}=(V,r^{Fss},N). This construction is independent of the arithmetic lift as an object on the same V, is idempotent, and keeps the full monodromy and inertial action.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "Use the pinned Jordan–Chevalley decomposition, not a new matrix theory.",
+        "A Frobenius power centralizes the finite inertial image. Its unipotent part centralizes that image and Frobenius; conjugation on N has nonzero scalar weight, so the unipotent factor acts trivially on N.",
+        "Centrality makes r^{Fss} multiplicative; its inertia action is unchanged and its Frobenius is s.",
+        "The unipotent part at another arithmetic lift is the same u; independence and idempotence follow."
+      ],
+      "acceptance": [
+        "Sp(2) is unchanged by Frobenius semisimplification.",
+        "The new Weil action on every inertia element is the old one.",
+        "The new arithmetic Frobenius is exactly the Tau Ceti semisimplePart of r(Φ)."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-predicate",
+        "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition",
+        "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition_spec",
+        "tauceti:LinearMap.GeneralLinearGroup.unipotentPart",
+        "tauceti:LinearMap.GeneralLinearGroup.semisimplePart",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne73",
+          "locator": "§8.5, (8.5.1), Definition 8.6, printed p. 570",
+          "match": "The unipotent Frobenius factor is removed from the Weil action while the nilpotent operator is retained."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.WeilDeligneRep.frobeniusUnit",
+          "role": "compatibility",
+          "statement": "r(Φ) as a GeneralLinearGroup unit, using r(Φ⁻¹) as inverse."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.frobeniusSemisimplify",
+          "role": "constructor",
+          "statement": "The object D^{Fss} on the same V; compact inertia and q>1 are explicit prototype inputs."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.frobeniusSemisimplify_r",
+          "role": "simp",
+          "statement": "r^{Fss}(w)=r(w)u_Φ^{−deg(w)}."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.frobeniusSemisimplify_N",
+          "role": "projection",
+          "statement": "N^{Fss}=N."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.frobeniusSemisimplify_fss",
+          "role": "characterisation",
+          "statement": "The resulting object is Frobenius semisimple."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.frobeniusSemisimplify_independent",
+          "role": "functoriality",
+          "statement": "Two arithmetic lifts give equal objects on V."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.frobeniusSemisimplify_id",
+          "role": "characterisation",
+          "statement": "For a Frobenius-semisimple object the result equals D."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.WeilDeligneRep.fss_preserves_special",
+          "kind": "computation",
+          "statement": "Sp(2) is unchanged by Frobenius semisimplification."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.fss_inertia_unchanged",
+          "kind": "compatibility",
+          "statement": "The new Weil action on every inertia element is the old one."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.fss_uses_jordan",
+          "kind": "compatibility",
+          "statement": "The new arithmetic Frobenius is exactly the Tau Ceti semisimplePart of r(Φ)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§8.5, (8.5.1), Definition 8.6, printed p. 570",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.WeilDeligneRep"
+      },
+      "planet": {
+        "name": "Frobenius semisimplification"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/categorical-semisimplification-construction",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Categorical semisimplification",
+      "kind": "construction",
+      "statement": "The semisimplification of D in the finite-length abelian WD category has isomorphism class (r^{ss},0), where r^{ss} is the semisimplification of its Weil representation. A chosen representative may be transported back onto V, but that representative and the transport are not canonical. In characteristic zero it is characterized up to isomorphism by N=0, semisimple r and tr r^{ss}(w)=tr r(w) for all w. No exact or canonical semisimplification functor is asserted.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "For a nonzero simple WD object, ker N is a nonzero stable subobject, so N=0. Its Weil action is then irreducible.",
+        "A WD composition series is also a filtration for r; additivity of trace identifies its sum of simple factors with the R01.1 semisimplification of r.",
+        "The parent Brauer–Nesbitt/semisimplification results give uniqueness up to isomorphism. Every subquotient retains the same open inertia kernel.",
+        "Choose a representative and linear transport to V only for the prototype; the mathematical output is the isomorphism class."
+      ],
+      "acceptance": [
+        "Categorical semisimplification kills the nonzero monodromy of Sp(2).",
+        "The trivial object is unchanged up to isomorphism.",
+        "Sp(2)^{Fss} is not isomorphic to Sp(2)^{ss}, because the former has nonzero monodromy and the latter has zero monodromy."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier",
+        "ArithmeticGaloisRepresentations:R01.1/semisimplification",
+        "ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt-traces",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification",
+        "mathlib:LinearMap.trace",
+        "mathlib:Representation.IsSemisimpleRepresentation"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§31.1–31.2, pp. 200–201; §32.7, p. 208",
+          "match": "The Deligne category and its nonzero-monodromy special objects distinguish categorical semisimplicity from Frobenius semisimplicity; the simple-object argument derives the zero-monodromy semisimplification."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.WeilDeligneRep.categoricalSemisimplify",
+          "role": "constructor",
+          "statement": "A chosen representative of the categorical semisimplification on V."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.categoricalSemisimplify_N",
+          "role": "projection",
+          "statement": "Its monodromy is zero."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.categoricalSemisimplify_r",
+          "role": "characterisation",
+          "statement": "Its Weil representation is semisimple."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.categoricalSemisimplify_trace",
+          "role": "relation",
+          "statement": "Its character equals the character of D.r."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.categoricalSemisimplify_unique",
+          "role": "universal-property",
+          "statement": "Any zero-monodromy semisimple object on V with the same character is isomorphic to it."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.WeilDeligneRep.ss_special_kills_N",
+          "kind": "computation",
+          "statement": "Categorical semisimplification kills the nonzero monodromy of Sp(2)."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.ss_trivial",
+          "kind": "degenerate",
+          "statement": "The trivial object is unchanged up to isomorphism."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.ss_not_fss_on_special",
+          "kind": "non-example",
+          "statement": "Sp(2)^{Fss} is not isomorphic to Sp(2)^{ss}, because the former has nonzero monodromy and the latter has zero monodromy."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.3 and R01.4",
+          "how": "Provides the local arithmetic input for conductor and inertial-type computations."
+        },
+        {
+          "where": "§31.1–31.2, pp. 200–201; §32.7, p. 208",
+          "how": "Supplies the object used in the cited comparison or construction."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Local",
+        "namespace": "TauCeti.WeilDeligneRep"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-special-block-classification",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Classification by special blocks",
+      "kind": "theorem",
+      "statement": "Over an algebraically closed characteristic-zero Ω, every nonzero indecomposable Frobenius-semisimple WD object is r₀⊗Sp(n), n≥1, for an irreducible smooth Weil representation r₀, viewed with zero monodromy. Every Frobenius-semisimple object is a finite direct sum of such blocks, and the pairs (isomorphism class of r₀,n) are unique up to permutation. The zero object corresponds to the empty sum. The r₀ factor absorbs the half-norm twist in the normalization used by Bushnell–Henniart.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K.",
+        "Ω is algebraically closed; indecomposable means that no nontrivial direct-sum decomposition exists."
+      ],
+      "proofSteps": [
+        "Use finite inertia image and Frobenius semisimplicity to decompose the Weil representation into irreducibles.",
+        "Monodromy is a morphism to the appropriate norm twist. Schur’s lemma makes it move among multiplicity spaces along norm-twist strings; q>1 in characteristic zero prevents a finite cycle.",
+        "Classify the resulting finite nilpotent strings by their lengths and initial irreducible Weil factor. A single string is r₀⊗Sp(n); multiple strings split as direct sums.",
+        "The multiplicities and ranks of powers of N along each twist orbit determine the strings uniquely. This supplies the finite-length decomposition argument rather than assuming an unstated general Krull–Schmidt theorem."
+      ],
+      "acceptance": [
+        "Over an algebraically closed characteristic-zero Ω, every nonzero indecomposable Frobenius-semisimple WD object is r₀⊗Sp(n), n≥1, for an irreducible smooth Weil representation r₀, viewed with zero monodromy. Every Frobenius-semisimple object is a finite direct sum of such blocks, and the pairs (isomorphism class of r₀,n) are unique up to permutation. The zero object corresponds to the empty sum. The r₀ factor absorbs the half-norm twist in the normalization used by Bushnell–Henniart."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object",
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-tensor-product",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-predicate",
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier",
+        "ArithmeticGaloisRepresentations:R01.1/semisimplification",
+        "mathlib:Representation.IsIrreducible.algebraMap_intertwiningMap_bijective_of_isAlgClosed"
+      ],
+      "sources": [
+        {
+          "sourceId": "bh06",
+          "locator": "§31.2 Exercise, p. 201; §31.1 normalization, p. 200",
+          "match": "The indecomposable Frobenius-semisimple objects are special blocks with an irreducible Weil factor, and decomposition is unique. The proof is outlined through their nilpotent strings."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Special-block classification"
+      },
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
+      ],
+      "suggestedDeclarations": [
+        "TauCeti.WeilDeligneRep.indecomposable_special",
+        "TauCeti.WeilDeligneRep.decomposition_special_blocks",
+        "TauCeti.WeilDeligneRep.special_block_unique"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.2/full-fss-ss-distinction",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.2"
+      ],
+      "title": "Full, Frobenius-semisimple and semisimple objects",
+      "kind": "application",
+      "statement": "For D=Sp(2), D^{Fss}=D, N(D)≠0 and N(D^{ss})=0, so D^{Fss} and D^{ss} are not isomorphic. To distinguish the full object from its Fss as well, take an unramified two-dimensional Weil action with arithmetic Frobenius a nontrivial unipotent Jordan block and N=0: Fss and ss are trivial while the full action is not. In general D, D^{Fss} and D^{ss} denote three separate operations; neither semisimplification may be silently substituted in conductor or inertial-type calculations.",
+      "hypotheses": [
+        "K is nonarchimedean local, with finite residue cardinality q>1.",
+        "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+      ],
+      "proofSteps": [
+        "Compute Sp(2) directly from its basis and use the Fss identity API.",
+        "Any WD isomorphism conjugates N and therefore preserves its rank; rank 1 cannot equal rank 0.",
+        "For the second example the degree map into Z is discrete and inertia acts trivially. The Jordan block’s semisimple part is the identity. Its invariant line shows that the original action is not semisimple."
+      ],
+      "acceptance": [
+        "For D=Sp(2), D^{Fss}=D, N(D)≠0 and N(D^{ss})=0, so D^{Fss} and D^{ss} are not isomorphic. To distinguish the full object from its Fss as well, take an unramified two-dimensional Weil action with arithmetic Frobenius a nontrivial unipotent Jordan block and N=0: Fss and ss are trivial while the full action is not. In general D, D^{Fss} and D^{ss} denote three separate operations; neither semisimplification may be silently substituted in conductor or inertial-type calculations."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification-construction",
+        "ArithmeticGaloisRepresentations:R01.2/categorical-semisimplification-construction"
+      ],
+      "sources": [
+        {
+          "sourceId": "deligne73",
+          "locator": "§8.5–8.6, printed p. 570",
+          "match": "Frobenius semisimplification retains N; the two test objects separate it from both the full action and categorical semisimplification."
+        },
+        {
+          "sourceId": "bh06",
+          "locator": "§31.1, p. 200; §32.7, p. 208",
+          "match": "The special representation is the explicit nonzero-monodromy test for Frobenius versus categorical semisimplicity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "refines": [
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
+      ],
+      "suggestedDeclarations": [
+        "TauCeti.WeilDeligneRep.special_three_objects",
+        "TauCeti.WeilDeligneRep.unramified_unipotent_three_objects"
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+      "need": "Use Layer 5.6 decompositionHom from a finite Galois prime stabilizer to automorphisms of its canonical completion, its bijectivity, completionCongr conjugation square and residue/Frobenius compatibility. The absolute-closure inverse limit comparison is retained in the parent arithmetic node, not requested as a duplicate finite completion theory.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.2/global-place-subgroup-carriers",
+        "ArithmeticGaloisRepresentations:R01.2/coherent-local-restriction"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
+      "need": "Supply unramified fields U inside K̄ and compatible residue embeddings so the finite prime-to-p Kummer roots can be interpreted in the selected F_{p^n}; for K=Q_p choose U/Q_p unramified of degree n. Use the existing residue roots-of-unity equivalence rather than a Witt-vector isomorphism.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.2/residual-fundamental-character-bridge"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "need": "Import the finite Kummer components, their power-divisibility transitions and uniformizer/root independence, inertia/wild inertia, and the ℓ-adic tame quotient with equivariance. Current Tau Ceti already exports inertiaKummerCharacter, inertiaTameCharacter, quotientWildInertiaSubgroupEquiv and inertiaPadicTameCharacter; the remaining integration is transporting their values to O_U and the specified residue subfield, not constructing them again.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.2/residual-fundamental-character-bridge",
+        "ArithmeticGaloisRepresentations:R01.2/canonical-local-monodromy-operator"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group",
+      "need": "Supply ClassFieldTheory.WeilGroup with the Weil topology (not induced topology), inertiaToWeil an open embedding of the profinite inertia topology, weilToAbsolute continuous, weilDegree surjective with arithmetic Frobenius degree 1 and inertia kernel. Bind the generic W/deg/q signatures to these declarations.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "ArithmeticGaloisRepresentations:R01.2/canonical-local-monodromy-operator",
+        "ArithmeticGaloisRepresentations:R01.2/corrected-weil-action-construction",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-predicate",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification-construction",
+        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-special-block-classification"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.2",
+      "status": "planned",
+      "remaining": [
+        "Bind the generic signatures to ClassFieldTheory.WeilGroup and its canonical arithmetic degree and inertia topology when that upstream supplier elaborates at the pinned build; the signatures omitted here are explicitly inventoried in the reader.",
+        "Assembly must replace the parent bundled carrier/API signatures with these refinements, bind the tame/reduction adapters to the current library exports, and use the six planets selected here. Parent ancillary Euler-factor, purity and epsilon-factor nodes and their recorded gaps are retained; their older proof-lemma split lists are not new target-level work."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Canonical supplier binding at the pinned build",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.2/global-place-subgroup-carriers",
+        "ArithmeticGaloisRepresentations:R01.2/residual-fundamental-character-bridge",
+        "ArithmeticGaloisRepresentations:R01.2/canonical-local-monodromy-operator",
+        "ArithmeticGaloisRepresentations:R01.2/corrected-weil-action-construction"
+      ],
+      "detail": "The mathematical parent statements and upstream suppliers cover the targets, but the pinned libraries do not export the current tame characters or the genuine local Weil-group carrier. Thus the prototype cannot state the complete completion/closure identification or instantiate Grothendieck’s unique-existence theorem on W_K. It uses explicit compatible finite components and a fully stated unique-existence witness instead. This is a signature integration gap, not an asserted proof of the local theorem."
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [],
+  "upstreamNotes": [
+    {
+      "roadmap": "LocalFieldsRamification",
+      "detail": "Layer 4’s tame character is now implemented in the current Tau Ceti Character and PadicCharacter modules. The older snapshot and pinned audit should not cause another construction plan."
+    },
+    {
+      "roadmap": "ClassFieldTheory",
+      "detail": "The current Suggested carrier WeilGroup uses a type synonym with the Weil topology, and isOpenEmbedding_inertiaToWeil pins the original profinite inertia topology. Those exact interfaces are required here; merely assuming inertia open would be insufficient."
+    }
+  ],
+  "granularity": "target",
+  "parentPacket": "ArithmeticGaloisRepresentations.json",
+  "currentLibraryAudit": {
+    "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "mathlib": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
+    "date": "2026-10-09",
+    "declarations": [
+      {
+        "name": "TauCeti.inertiaKummerCharacter",
+        "module": "TauCeti/NumberTheory/LocalField/Tame/Character.lean",
+        "provides": "Finite prime-to-residue-characteristic Kummer component."
+      },
+      {
+        "name": "TauCeti.inertiaKummerCharacter_pow_div",
+        "module": "TauCeti/NumberTheory/LocalField/Tame/Character.lean",
+        "provides": "Power transition between divisible finite levels."
+      },
+      {
+        "name": "TauCeti.inertiaTameCharacter",
+        "module": "TauCeti/NumberTheory/LocalField/Tame/Character.lean",
+        "provides": "Intrinsic prime-to-p Tate-module character, independent of uniformizer."
+      },
+      {
+        "name": "TauCeti.quotientWildInertiaSubgroupEquiv",
+        "module": "TauCeti/NumberTheory/LocalField/Tame/Character.lean",
+        "provides": "Topological isomorphism of I/P with the prime-to-p Tate module."
+      },
+      {
+        "name": "TauCeti.inertiaPadicTameCharacter",
+        "module": "TauCeti/NumberTheory/LocalField/Tame/PadicCharacter.lean",
+        "provides": "The ℓ-adic tame component for ℓ coprime to residue characteristic."
+      },
+      {
+        "name": "TauCeti.IsArithFrobeniusLift.inertiaPadicTameCharacter_conj",
+        "module": "TauCeti/NumberTheory/LocalField/Tame/PadicCharacter.lean",
+        "provides": "Arithmetic Frobenius acts by the residue cardinality."
+      }
+    ],
+    "note": "These are post-pin declarations. They are neither claimed as pinned baseline nor planned as new nodes. The public current upstream roadmap interfaces were read alongside these actual library statements."
+  },
+  "sourceIssueReferences": [
+    {
+      "id": "ArithmeticGaloisRepresentations/E202",
+      "source": "deligne73",
+      "locator": "Lemme 8.4.3 proof, printed p. 569",
+      "application": "Use a nonzero scaling scalar and inverse scaling under a changed tame coordinate; the parent independent review confirmed the correction."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations/E250",
+      "source": "deligne73",
+      "locator": "Lemme 8.4.3 first display, printed p. 569",
+      "application": "For geometric F′=Fτ use exp(t(τ)N/(q−1)); the parent independent review confirmed the side-dependent conjugator correction."
+    }
+  ],
+  "retainedParentNodes": [
+    "ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place",
+    "ArithmeticGaloisRepresentations:R01.2/algebraic-closure-of-a-completion-is-generated-by-the-global-closure",
+    "ArithmeticGaloisRepresentations:R01.2/local-restriction",
+    "ArithmeticGaloisRepresentations:R01.2/unramified-and-ramification-set",
+    "ArithmeticGaloisRepresentations:R01.2/frobenius-characteristic-polynomial",
+    "ArithmeticGaloisRepresentations:R01.2/unramified-character-lambda",
+    "ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters",
+    "ArithmeticGaloisRepresentations:R01.2/ell-adic-tame-character",
+    "ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters",
+    "ArithmeticGaloisRepresentations:R01.2/tame-semisimple-residual-local-representations",
+    "ArithmeticGaloisRepresentations:R01.2/nilpotent-exponential-and-unipotent-logarithm",
+    "ArithmeticGaloisRepresentations:R01.2/grothendieck-quasi-unipotence",
+    "ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation",
+    "ArithmeticGaloisRepresentations:R01.2/rescaling-the-monodromy-operator",
+    "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+    "ArithmeticGaloisRepresentations:R01.2/ell-adic-representation-of-a-weil-deligne-representation",
+    "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification",
+    "ArithmeticGaloisRepresentations:R01.2/local-euler-factor",
+    "ArithmeticGaloisRepresentations:R01.2/local-factor-of-induced-representation",
+    "ArithmeticGaloisRepresentations:R01.2/determinant-of-a-cyclic-block-endomorphism",
+    "ArithmeticGaloisRepresentations:R01.2/inertia-invariants-of-an-induced-representation",
+    "ArithmeticGaloisRepresentations:R01.2/monodromy-filtration",
+    "ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations",
+    "ArithmeticGaloisRepresentations:R01.2/purity-from-a-pure-graded",
+    "ArithmeticGaloisRepresentations:R01.2/pure-graded-weil-deligne",
+    "ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor",
+    "ArithmeticGaloisRepresentations:R01.2/weil-deligne-required-examples"
+  ],
+  "assemblyNotes": [
+    "WORKERS.md and detail.json now require target-level planning; the older issue’s requested proof-lemma splits are absorbed in proof sketches/APIs. Parent node IDs are never reused in this part.",
+    "The BH §31.2 Exercise supplies the source missing for the parent special-block classification. The normalized special representation is translated by an irreducible-character twist.",
+    "Parent Euler factors, purity, monodromy-filtration stability, local constants and Tate-curve examples remain accepted inherited targets with their existing gaps. This pass does not claim those ancillary gaps closed.",
+    "Consolidate parent and part planets to the six choices in this part; do not display their union as more than six planets in R01.2."
+  ]
+}
