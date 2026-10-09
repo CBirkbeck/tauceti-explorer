@@ -629,15 +629,29 @@ reduction `Δ̄_(R/A)` has multiplicative Hodge–Tate comparison
 Ω^i_(R/(A/I)){-i} ≃ H^i(Δ̄_(R/A)).
 ```
 
-The twist is the supplier's Breuil–Kisin twist. Under this comparison the
-Bockstein differential agrees with the differential in the de Rham complex.
-Keep the comparison map, its multiplication and its differential compatibility,
-as well as the cohomology isomorphism. The crystalline and de Rham comparisons
-and prismatic base change used in `Q2` and `Q3` are the corresponding `PR.1`
-results, including their syntomic hypotheses where stated. This layer does
-not assert the étale comparison of `PR.3`.
+Here `Ω^i` denotes the `p`-completed differential forms and
+`M{i}=M⊗_(A/I)(I/I²)^⊗i`, with dual powers for negative `i`. This is the
+twist of `A/I`-modules; it does not require constructing the prism's
+Breuil–Kisin twists in `PR.3`. Under this comparison the Bockstein
+differential agrees with the differential in the de Rham complex. Keep the
+comparison map, its multiplication and its differential compatibility, as
+well as the cohomology isomorphism.
 
-Source: Bhatt–Scholze Theorem 6.3 and its proof, §§4–6, pp.38–54.
+The imported crystalline comparison starts with a crystalline prism
+`(A,(p))`, a divided-power ideal `J⊂A` containing `p`, and a smooth
+`A/J`-algebra `T`. With `ψ:A/J→A/p` induced by Frobenius and
+`T^(1)=T⊗_(A/J,ψ)A/p`, it identifies `Δ_(T^(1)/A)` with
+`RΓ_crys(T/A)`, compatibly with Frobenius. The imported de Rham comparison
+requires `W(A/I)` to be `p`-torsion-free and identifies
+`Δ_(R/A)⊗̂^L_(A,φ_A)A/I` with the `p`-completed de Rham complex of `R`
+over `A/I`. Thus its base change uses Frobenius, whereas Hodge–Tate
+reduction uses the quotient map. Prismatic base change and the syntomic
+extension of crystalline comparison retain their stated `PR.1` hypotheses.
+The general de Rham comparison without the Witt-ring torsion hypothesis and
+the étale comparison belong to `PR.3`.
+
+Source: Bhatt–Scholze Construction 4.9, pp.39–40; Theorem 5.2, pp.45–48;
+Theorems 6.3–6.4, pp.52–54.
 Prerequisites are `Q0:animated-application` and the exact `PR.1` interfaces
 `relative-prismatic-cohomology`, `change-of-topology`,
 `cech-alexander-complex`, `cech-alexander-computes-cohomology`,
