@@ -1531,6 +1531,17 @@
     "data/blueprints/GeometricSatakeAndFusion--GS3.md"
    ]
   },
+  "research/blueprint/packets/GeometryOfNumbersAndQuadraticArithmetic.json": {
+   "promotedAt": "2026-10-09T18:14:01Z",
+   "review": "d51b35902da749d6",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-GeometryOfNumbersAndQuadraticArithmetic~2",
+   "sha256": "ea70e7c82c43d8f94273a7681de655b9287baf7ad915d7d580d123f1e2c8da7c",
+   "to": [
+    "data/blueprints/GeometryOfNumbersAndQuadraticArithmetic.json",
+    "data/blueprints/GeometryOfNumbersAndQuadraticArithmetic.md"
+   ]
+  },
   "research/blueprint/packets/GlobalGaloisDeformations.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "270f3b7b93818f32",
