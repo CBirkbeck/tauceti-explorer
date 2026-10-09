@@ -19,6 +19,7 @@ import Mathlib.CategoryTheory.Core
 import Mathlib.CategoryTheory.Monoidal.Skeleton
 import Mathlib.CategoryTheory.Monoidal.Action.Basic
 import Mathlib.Algebra.Category.Ring.Basic
+import Mathlib.Algebra.Category.ModuleCat.AB
 import Mathlib.CategoryTheory.Action
 import Mathlib.CategoryTheory.ConnectedComponents
 import Mathlib.CategoryTheory.Groupoid.FreeGroupoidOfCategory
@@ -78,6 +79,9 @@ that part of the library is available; do not develop a second implementation. T
 transport forms here retain only their underlying functions, as their docstrings specify.
 Symmetric-spectrum equivariance and compatibility of spectrum morphisms are stated explicitly.
 Signatures requiring further infrastructure remain comments with their reasons.
+`Stub.WaldhausenData` retains only the two morphism classes, and the operad prototypes
+retain partial carrier data. Their commented contracts require the full supplier axioms;
+the admitted signatures using these carriers do not verify those missing axioms.
 -/
 
 set_option autoImplicit false
@@ -1210,6 +1214,9 @@ theorem BisimplicialSet.realization_fiberSequence {V W X : BisimplicialSet.{u}} 
 -- signature (not yet statable at the pins): theorem BisimplicialSet.realization_fiberSequence_piKan
 -- `H.2/bisimplicial-fibration-pi-kan` (Bousfield–Friedlander B.4): the π_*-Kan condition is phrased
 -- with homotopy groups of Kan complexes (Tau Ceti AlgebraicTopology stage 8), not imported here.
+-- Use §B.3's based vertical-homotopy horn filling at every horizontal vertex.
+-- Criterion B.3.1 uses free sphere-homotopy classes over vertical π₀ and requires simple
+-- vertical levels. B.4 additionally requires π₀^v W → π₀^v X to be a Kan fibration.
 
 /-- `H.2/bousfield-kan-homotopy-colimit`. -/
 def hocolimSimplicial (I : Type u) [SmallCategory I] (X : I ⥤ TopCat.{u}) :
@@ -2892,6 +2899,7 @@ def mappingCone {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) : SymmSpectrum.{u} := sor
 def mappingCone.inr {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) : Y ⟶ mappingCone f := sorry
 def mappingCone.δ {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) : mappingCone f ⟶ susp.obj X := sorry
 def homotopyFiber {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) : SymmSpectrum.{u} := sorry
+def homotopyFiber.proj {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) : homotopyFiber f ⟶ X := sorry
 def mappingCone.map {X Y X' Y' : SymmSpectrum.{u}} {f : X ⟶ Y} {f' : X' ⟶ Y'} (a : X ⟶ X') (b : Y ⟶ Y')
     (w : f ≫ b = a ≫ f') : mappingCone f ⟶ mappingCone f' := sorry
 theorem mappingCone_stableEquivalence {X Y X' Y' : SymmSpectrum.{u}} {f : X ⟶ Y} {f' : X' ⟶ Y'}
@@ -2910,7 +2918,43 @@ example (Y Z : SymmSpectrum.{u}) (hZ : IsZero Z) (f : Z ⟶ Y) :
 example (X Z : SymmSpectrum.{u}) (hZ : IsZero Z) (f : X ⟶ Z) (hX : ¬ IsZero (SHC.γ.obj X)) :
     ¬ IsZero (SHC.γ.obj (mappingCone f)) := sorry
 
-/-- `H.5:spectra/cofibre-long-exact-sequence` (exactness at `π_k Y`). -/
+/-- `H.5:spectra/naive-cofibre-long-exact-sequence`: the boundary uses the
+mapping-cone projection and inverse naive suspension isomorphism, without true groups. -/
+def mappingCone.naivePiδ {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (k : ℤ) :
+    naivePi (mappingCone f) k →+ naivePi X (k - 1) := sorry
+
+theorem naive_cofibre_exact {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (k : ℤ) :
+    Function.Exact (naivePi.map f k) (naivePi.map (mappingCone.inr f) k) := sorry
+
+theorem naive_cofibre_exact_cone {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (k : ℤ) :
+    Function.Exact (naivePi.map (mappingCone.inr f) k) (mappingCone.naivePiδ f k) := sorry
+
+theorem naive_cofibre_exact_source {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (k : ℤ) :
+    Function.Exact (mappingCone.naivePiδ f k) (naivePi.map f (k - 1)) := sorry
+
+/-- `H.5:spectra/naive-fibre-long-exact-sequence`. Strict simplicial looping and
+fibres use Kan levels; the general contract first replaces levels functorially. -/
+def homotopyFiber.naivePiδ {X Y : SymmSpectrum.{u}} (f : X ⟶ Y)
+    (hY : ∀ n, SSet.KanComplex (Y.level n).right) (k : ℤ) :
+    naivePi Y k →+ naivePi (homotopyFiber f) (k - 1) := sorry
+
+theorem naive_fibre_exact_source {X Y : SymmSpectrum.{u}} (f : X ⟶ Y)
+    (hX : ∀ n, SSet.KanComplex (X.level n).right)
+    (hY : ∀ n, SSet.KanComplex (Y.level n).right) (k : ℤ) :
+    Function.Exact (naivePi.map (homotopyFiber.proj f) k) (naivePi.map f k) := sorry
+
+theorem naive_fibre_exact_target {X Y : SymmSpectrum.{u}} (f : X ⟶ Y)
+    (hX : ∀ n, SSet.KanComplex (X.level n).right)
+    (hY : ∀ n, SSet.KanComplex (Y.level n).right) (k : ℤ) :
+    Function.Exact (naivePi.map f k) (homotopyFiber.naivePiδ f hY k) := sorry
+
+theorem naive_fibre_exact_fibre {X Y : SymmSpectrum.{u}} (f : X ⟶ Y)
+    (hX : ∀ n, SSet.KanComplex (X.level n).right)
+    (hY : ∀ n, SSet.KanComplex (Y.level n).right) (k : ℤ) :
+    Function.Exact (homotopyFiber.naivePiδ f hY k)
+      (naivePi.map (homotopyFiber.proj f) (k - 1)) := sorry
+
+/-- `H.5:spectra/cofibre-long-exact-sequence` for true groups (exactness at `π_k Y`). -/
 theorem cofibre_exact {X Y : SymmSpectrum.{u}} (f : X ⟶ Y) (k : ℤ) :
     Function.Exact (pi.map f k) (pi.map (mappingCone.inr f) k) := sorry
 
@@ -3073,6 +3117,7 @@ structure Hom (R S : SymmRingSpectrum.{u}) where
   unit_comm : R.unit ≫ f = S.unit
   mul_comm : R.mul ≫ f = SymmSpectrum.smash.map f f ≫ S.mul
 
+/-- Right modules: the action has order `M ∧ R → M`. -/
 structure Module (R : SymmRingSpectrum.{u}) where
   carrier : SymmSpectrum.{u}
   act : SymmSpectrum.smash carrier R.carrier ⟶ carrier
@@ -3182,8 +3227,23 @@ def eilenbergMacLaneRing (R : Type u) [Ring R] : SymmRingSpectrum.{u} := sorry
 theorem eilenbergMacLaneRing.isCommutative (R : Type u) [CommRing R] :
     (eilenbergMacLaneRing R).IsCommutative := sorry
 
-def eilenbergMacLaneModule (R : Type u) [Ring R] (M : Type u) [AddCommGroup M] [_root_.Module R M] :
+def eilenbergMacLaneModule (R : Type u) [Ring R] (M : Type u) [AddCommGroup M]
+    [_root_.Module Rᵐᵒᵖ M] :
     (eilenbergMacLaneRing R).Module := sorry
+
+/-- `eilenbergMacLaneModule_carrier` (compatibility). -/
+def eilenbergMacLaneModule.carrierIso (R : Type u) [Ring R] (M : Type u)
+    [AddCommGroup M] [_root_.Module Rᵐᵒᵖ M] :
+    (eilenbergMacLaneModule R M).carrier ≅ eilenbergMacLane M := sorry
+
+/-- `eilenbergMacLaneModule_zero` (degenerate). -/
+example (R : Type u) [Ring R] (M : Type u) [AddCommGroup M]
+    [_root_.Module Rᵐᵒᵖ M] [Subsingleton M] :
+    IsZero (SHC.γ.obj (eilenbergMacLaneModule R M).carrier) := sorry
+
+/- `eilenbergMacLaneModule_right_order` (non-example): for the regular right module
+over M₂(ℤ), the degree-zero action sends (e₁₂,e₂₁) to e₁₁ rather than e₂₂.
+The induced degree-zero module action is not yet provided by the prototype. -/
 
 def eilenbergMacLaneRing.piRingEquiv (R : Type u) [Ring R] : pi (eilenbergMacLaneRing R).carrier 0 ≃+* R := sorry
 
@@ -3307,6 +3367,9 @@ def hocolimSeq.ι (X : ℕ ⥤ SHC.{u}) (n : ℕ) : X.obj n ⟶ hocolimSeq X := 
 -- signature (not yet statable at the pins): theorem hocolimSeq_pi (X : ℕ ⥤ SHC.{u}) (k : ℤ)
 -- `colim_n π_k(X n) ≅ π_k(hocolimSeq X)`.
 -- signature (not yet statable at the pins): theorem hocolimSeq_milnor (X : ℕ ⥤ SHC.{u})
+-- For a cohomological E sending countable coproducts to products:
+-- 0 → lim¹ E(Σ X n) → E(hocolimSeq X) → lim E(X n) → 0.
+-- This needs a typed cohomological-functor interface and the imported lim¹ functor.
 
 end SHC
 
