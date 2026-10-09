@@ -13,7 +13,7 @@
     "PadicMeasuresIwasawaAlgebras:L6"
   ],
   "status": "complete",
-  "summary": "Budget pass of 436 inherited declaration records (L0–L4), sent back by its independent review REV-PadicMeasuresIwasawaAlgebras for named L4 proof and suggested-interface gaps that are still open, together with the L6 plan of the Dasgupta–Kakde ring theory required by RT-AREA-iwasawa-2/4: 50 nodes for character group rings R_Ψ, the involution #, contragredient duals, quadratic and locally quadratic presentations, higher Fitting ideals, the Fitting-ideal lemmas 2.4–2.7, compound matrices and higher adjugates with Lemma 3.9, and transposes with Lemma 6.1 and (171). The L6 nodes were written by FIX-RT-AREA-iwasawa-2~2 and corrected, split to lemma level and extended by its review REV-FIX-RT-AREA-iwasawa-2~2 (7 October 2026); source findings E17–E20 concern Dasgupta–Kakde. The packet has 486 nodes; L0a and L5 are not read, the other stages are partial.",
+  "summary": "Budget completion of ProfiniteProPGroups, Part II: bounded measures and their operators, pseudomeasures, one-variable module structure and characteristic invariants, and the L6 coefficient-order algebra. All 486 inherited nodes are retained; this pass adds none. Coverage remains partial or not_read as specified, with proof inputs, source-access limitations and exact missing suggested interfaces recorded. Nothing is claimed implemented.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3672,6 +3672,83 @@
         "module": "Mathlib/RingTheory/LocalRing/ResidueField/Basic.lean",
         "provides": "For local rings R, S and a local ring homomorphism f : R →+* S: ResidueField.map f (residue R r) = residue S (f r) (line 121).",
         "checked": "Statement read in the source file at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 (2026-10-07, REV-FIX-RT-AREA-iwasawa-2~2)."
+      },
+      {
+        "ref": "mathlib:Module.bijective_dual_eval",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "kind": "lemma",
+        "provides": "For a native reflexive module the evaluation map to its bidual is bijective. The adjacent native Module.IsReflexive.to_isTorsionFree instance (lines306–308) derives torsion-freeness from its injectivity; that named instance is omitted by the supplied lexical declaration index.",
+        "checked": "Statement and enclosing assumptions read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 in Dual/Defs.lean, lines217–218 and306–308; the native torsion-freeness adapter elaborates by instance inference."
+      },
+      {
+        "ref": "mathlib:Module.Dual.eval",
+        "module": "Mathlib/LinearAlgebra/Dual/Defs.lean",
+        "kind": "def",
+        "provides": "The native evaluation linear map from M to its A-bidual.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
+      },
+      {
+        "ref": "mathlib:LocalizedModule.lift",
+        "module": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
+        "kind": "def",
+        "provides": "A linear map from M to a module where the localization denominators act invertibly extends to the native localized module.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
+      },
+      {
+        "ref": "mathlib:IsLocalizedModule.map",
+        "module": "Mathlib/Algebra/Module/LocalizedModule/Basic.lean",
+        "kind": "def",
+        "provides": "The induced map between native localized modules attached to a linear map and the two localization maps.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
+      },
+      {
+        "ref": "mathlib:Algebra.lsmul",
+        "module": "Mathlib/Algebra/Algebra/Tower.lean",
+        "kind": "def",
+        "provides": "An algebra homomorphism from the acting algebra to linear endomorphisms over a smaller scalar ring, assuming the compatible scalar tower.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
+      },
+      {
+        "ref": "mathlib:PadicInt.residueField",
+        "module": "Mathlib/NumberTheory/Padics/RingHoms.lean",
+        "kind": "def",
+        "provides": "The native residue field of ℤ_p is ring-equivalent to ZMod p; this transports finiteness for the semantic module tests.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.factor",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "kind": "def",
+        "provides": "For S≤T, the quotient ring map A/S→A/T induced by the identity on A.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
+      },
+      {
+        "ref": "mathlib:IsAdic",
+        "module": "Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
+        "kind": "def",
+        "provides": "The given topology equals the topology generated by powers of the specified ideal.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.projectiveDimension",
+        "module": "Mathlib/CategoryTheory/Abelian/Projective/Dimension.lean",
+        "kind": "def",
+        "provides": "The existing categorical projective-dimension value in extended natural numbers with bottom; applied here to the native ModuleCat object.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
+      },
+      {
+        "ref": "mathlib:RingHomInvPair.of_ringEquiv",
+        "module": "Mathlib/Algebra/Ring/CompTypeclasses.lean",
+        "kind": "lemma",
+        "provides": "A ring equivalence and its inverse give an inverse pair of ring homomorphisms, supplying the native semilinear equivalence parameter.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
+      },
+      {
+        "ref": "mathlib:RingHomInvPair.of_ringEquiv_symm",
+        "module": "Mathlib/Algebra/Ring/CompTypeclasses.lean",
+        "kind": "lemma",
+        "provides": "The reverse inverse-pair witness for a ring equivalence and its inverse.",
+        "checked": "Statement read at pinned Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; this supplies the stated native interface, not the missing Iwasawa theorem."
       }
     ]
   },
@@ -3704,7 +3781,8 @@
         "27 September2026 coefficient-algebra moment continuation: complete printed125–127/PDF26–28 and136–137/PDF37–38 freshly read from the hash-identical published copy. Lemma3.29, Corollary3.30 and Lemma4.3 provide the proof route. The weaker coefficient-ring hypotheses are an explicit worker derivation from the native Amice map and existing general weighting, not a claim that the paper states them. No new source issue or all-paper reading claim.",
         "27 September 2026 continuation: complete published pp.119–123/PDF20–24 freshly read, especially the full inverse construction in Proposition 3.16 and Remark 3.11; no full-source coverage claim.",
         "27 September2026 unit-coordinate topology continuation: freshly read complete published119–123/PDF20–24. The compactness, closed embeddings, joint congruence neighborhood bases and weak convolution topology are worker deductions from Proposition3.16 and existing native/supplied comparisons. No new source finding.",
-        "2026-09-29 (cc-39fac3, L4-1): §13.1 (Theorem 13.1, Remark 13.2, Definition 13.3, Lemma 13.4, Definition 13.5, Lemma 13.6), printed pp. 189–190 / PDF 90–91, rendered and checked for E15; the proof of Lemma 10.7, printed p. 166 / PDF 67."
+        "2026-09-29 (cc-39fac3, L4-1): §13.1 (Theorem 13.1, Remark 13.2, Definition 13.3, Lemma 13.4, Definition 13.5, Lemma 13.6), printed pp. 189–190 / PDF 90–91, rendered and checked for E15; the proof of Lemma 10.7, printed p. 166 / PDF 67.",
+        "2026-10-09, Codex codex-v5eXFs: publication hash freshly matched; complete printed pp.189–190 (Theorem13.1 through Lemma13.6) and printed p.166 (Lemma10.7 and proof) read. General coefficient-DVR/native module signatures are worker formulations of these contracts; no whole-paper or NSW authentication claim."
       ]
     },
     {
@@ -3787,7 +3865,8 @@
       "accessed": "2026-09-29",
       "readSections": [
         "2026-09-29 (cc-39fac3, L4-1): Chapter V introduction and §1 (5.1.1–5.1.10), pp. 267–273, and §3 (5.3.1–5.3.20 with Exercises 1–4), pp. 289–301, read in full from the text layer; the errata list (../papers/errata-nsw2e.pdf) was checked for these pages."
-      ]
+      ],
+      "currentAccess": "2026-10-09: the recorded Heidelberg author PDF URL redirects to an HTML landing page. The PDF could not be authenticated in this run. Earlier hash and reading records are historical; the inherited numbered contracts still require accessible-source verification."
     },
     {
       "id": "DK-arXiv-v3",
@@ -21172,12 +21251,13 @@
       ],
       "title": "Duals and biduals as intersections of localisations",
       "kind": "lemma",
-      "statement": "For a finitely generated torsion-free A-module M, the bidual M⁺⁺ equals the intersection of the M_𝔭 for height-one primes, inside M⊗_A K. The embeddings and intersection are taken in this common fraction-vector-space carrier.",
+      "statement": "For a finite torsion-free module M over a noetherian normal domain A with fraction field K, the native bidual embeds in K⊗_A M, compatibly with the evaluation map from M. Its image equals the intersection of the images of the native localisations M_𝔭 for height-one primes 𝔭.",
       "hypotheses": [
         "A is a commutative noetherian integrally closed domain with fraction field K; P(A) is its set of height-one primes, at which A_𝔭 is a discrete valuation ring, and A = ⋂_{𝔭∈P(A)} A_𝔭."
       ],
       "proofSteps": [
-        "Use the dual-intersection lemma and localisation of Hom for finitely presented modules. At each height-one DVR a finite torsion-free module is free and equals its bidual. The common-carrier comparison is a recorded proof/signature gap."
+        "Lift M→K⊗_A M to each native localisation using invertibility of every allowed denominator. Take ranges in this single carrier.",
+        "Use localisation of Hom for finite presentations and freeness of torsion-free modules over the height-one DVRs. The resulting bidual embedding is fixed by its agreement with evaluation on M. Height-one DVRs, intersection of the rings and local Hom comparisons remain recorded proof inputs."
       ],
       "acceptance": [
         "Mathlib's Module.IsReflexive is the target notion; the intersection description is the new content."
@@ -21187,7 +21267,9 @@
         "mathlib:Module.Dual",
         "mathlib:IsIntegrallyClosed",
         "mathlib:LocalizedModule",
-        "PadicMeasuresIwasawaAlgebras:L4/dual-intersection"
+        "PadicMeasuresIwasawaAlgebras:L4/dual-intersection",
+        "mathlib:Module.Dual.eval",
+        "mathlib:LocalizedModule.lift"
       ],
       "library": {
         "module": "TauCeti/NumberTheory/Iwasawa/PseudoNull",
@@ -21670,16 +21752,18 @@
       ],
       "title": "Mathlib's Weierstrass theory as NSW's division lemma and preparation theorem",
       "kind": "comparison",
-      "statement": "The distinguished factor F of a finite-reduced-degree f∈O[[T]] is the characteristic polynomial of multiplication by T on the finite free O-module O[[T]]/(f). Division, preparation, reduced degree and the quotient algebra equivalence reuse the exact pinned Mathlib declarations.",
+      "statement": "For a monic polynomial F over a commutative ring O, multiplication by the native AdjoinRoot.root F has characteristic polynomial F in the native monic power basis, including F=1. For a complete local coefficient ring and a series f with finite reduced degree, transport this identity through the pinned Weierstrass quotient equivalence to identify multiplication by T on O[[T]]/(f) with its distinguished factor.",
       "hypotheses": [
         "O is a complete discrete valuation ring with uniformizer ϖ and finite residue field k of characteristic p, and Λ = O⟦T⟧. NSW specialises to O = ℤ_p from (5.3.6) on; over O the vertical factors are powers of ϖ, not of p.",
         "NSW allows any complete noetherian local O with finite residue field; Mathlib needs IsAdicComplete (maximalIdeal O) O."
       ],
       "proofSteps": [
-        "Transport multiplication by T across the Weierstrass quotient equivalence to AdjoinRoot F with its native power basis. charpoly_leftMulMatrix yields the minimal polynomial of the root; identifying that minimal polynomial with F over O is an additional proof input, recorded explicitly."
+        "Use AdjoinRoot.powerBasis' for monic F. Compute multiplication by the root on the basis: shift the lower basis vectors and use the monic relation on the last one.",
+        "Compute the characteristic polynomial of that companion matrix directly over O; for degree zero the empty determinant is one. This route does not apply the field-only AdjoinRoot.minpoly_root to a DVR.",
+        "Transport across the pinned Weierstrass quotient algebra equivalence. The companion determinant calculation and transport remain proof obligations."
       ],
       "acceptance": [
-        "No second preparation theorem is planned; this node only matches hypotheses and adds the characteristic-polynomial clause."
+        "The proposed monic-root signature is valid over any commutative ring and its F=1 example uses the actual rank-zero quotient. The series quotient transport is still a separate interface gap."
       ],
       "prerequisites": [
         "mathlib:PowerSeries.exists_isWeierstrassFactorization",
@@ -21926,13 +22010,28 @@
           "role": "compatibility",
           "statement": "r, μ and λ do not depend on γ.",
           "nodeId": "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-8"
+        },
+        {
+          "name": "TauCeti.Iwasawa.muInvariant_spec",
+          "role": "characterisation",
+          "statement": "For that full vertical/horizontal elementary decomposition of the torsion submodule, μ(M)=Σm_i."
+        },
+        {
+          "name": "TauCeti.Iwasawa.muInvariant_zero",
+          "role": "simp",
+          "statement": "The zero module has μ=0."
+        },
+        {
+          "name": "TauCeti.Iwasawa.muInvariant_equiv",
+          "role": "compatibility",
+          "statement": "A Λ-linear equivalence preserves μ over the same coefficient DVR and uniformizer."
         }
       ],
       "tests": [
         {
           "name": "L4Tests.mu_part",
           "kind": "value",
-          "statement": "M = Λ/(ϖ): μ = 1, λ = 0, F_M = 1 over every stated coefficient DVR."
+          "statement": "M = Λ/(ϖ): μ = 1, λ = 0, F_M = 1 over every stated coefficient DVR; the ℤ_p control uses ϖ=p."
         },
         {
           "name": "L4Tests.eisenstein",
@@ -21953,6 +22052,16 @@
           "name": "L4Tests.ramified_normalisation",
           "kind": "comparison",
           "statement": "O = ℤ_p[√p], ϖ = √p: μ(Λ/(ϖ)) = 1 in the ϖ-normalisation, where counting powers of p would give 1/2."
+        },
+        {
+          "name": "Ramification.uniformizer",
+          "kind": "computation",
+          "statement": "Over any stated complete coefficient DVR, Λ/(ϖ) has μ=1 in uniformizer normalization."
+        },
+        {
+          "name": "Ramification.ramified_p",
+          "kind": "non-example",
+          "statement": "If a=uϖ^r with u a coefficient unit, then μ(Λ/(a))=r. In particular if p=uϖ^e, its vertical quotient has μ=e rather than one."
         }
       ],
       "uses": [
@@ -21981,14 +22090,15 @@
       ],
       "title": "The characteristic ideal",
       "kind": "definition",
-      "statement": "For finitely generated torsion M over the stated noetherian normal domain A, define char_A(M) as the finite product of height-one prime ideals with exponents length_{A_𝔭}(M_𝔭), when A is factorial.",
+      "statement": "For a finite torsion module over a noetherian normal UFD A, define charIdeal(M) as the finite product of the height-one prime ideals raised to their local-length multiplicities in charDivisor(M). This is an actual native ideal; unique factorisation makes it principal.",
       "hypotheses": [
         "A is a commutative noetherian integrally closed domain with fraction field K; P(A) is its set of height-one primes, at which A_𝔭 is a discrete valuation ring, and A = ⋂_{𝔭∈P(A)} A_𝔭.",
         "Λ, O as in the structure theorem for the comparison.",
         "M is a finitely generated torsion module over the indicated ring; exact sequences in this statement consist of such modules."
       ],
       "proofSteps": [
-        "Finite torsion support has finitely many height-one primes; each local length is finite. The finite product is independent of factor choices. The finite-support and length proofs are recorded inputs."
+        "Use the native finitely supported characteristic divisor. Take its product in Ideal A, with each prime ideal raised to the assigned multiplicity.",
+        "Prove finite height-one support and finite local lengths before interpreting those natural-number multiplicities; conversion from extended length is not a proof of finiteness. The cyclic, exactness and transport APIs follow from local length calculations."
       ],
       "acceptance": [
         "The intrinsic length definition, the functoriality and the norm formula are worker derivations: NSW define only F_{M,γ} and RJW define Ch_Λ through the structure theorem.",
@@ -22450,10 +22560,13 @@
         "mathlib:Module.IsReflexive",
         "mathlib:Module.Dual",
         "mathlib:IsIntegrallyClosed",
-        "mathlib:LocalizedModule"
+        "mathlib:LocalizedModule",
+        "mathlib:Module.Dual.eval",
+        "mathlib:LocalizedModule.lift"
       ],
       "proofSteps": [
-        "A linear functional in every local dual takes each m into every A_𝔭, hence into A. The converse is immediate."
+        "Use the same localisation-to-fraction-space ranges as bidual-intersection.",
+        "Extend A-linear functionals uniquely over K; test their values on each height-one lattice. Recover A-valuedness using A=intersection A_𝔭. No intersection between incompatible localisation carriers is formed."
       ],
       "realises": [
         "PadicMeasuresIwasawaAlgebras:L4"
@@ -22465,7 +22578,7 @@
           "sourceId": "NSW-2.3"
         }
       ],
-      "statement": "For finitely generated torsion-free M, M⁺ is the intersection of M⁺_𝔭 inside Hom_K(M⊗K,K).",
+      "statement": "The native A-dual of a finite torsion-free M embeds in the K-linear dual of K⊗_A M by extending each functional. A K-linear functional is in its image exactly when its values on every height-one localisation lattice lie in A_𝔭. Membership in A_𝔭 means a numerator from A divided by a denominator outside 𝔭.",
       "title": "dual_intersection — independent declaration split"
     },
     {
@@ -22548,11 +22661,11 @@
       ],
       "addedBy": "REV-PadicMeasuresIwasawaAlgebras",
       "hypotheses": [
-        "A is a commutative noetherian integrally closed domain with fraction field K; P(A) is its set of height-one primes, at which A_𝔭 is a discrete valuation ring, and A = ⋂_{𝔭∈P(A)} A_𝔭."
+        "A is a commutative ring; M is an A-module with the native Module.IsReflexive instance."
       ],
       "id": "PadicMeasuresIwasawaAlgebras:L4/reflexive-torsion-free",
       "implementationStatus": "unchecked",
-      "kind": "lemma",
+      "kind": "comparison",
       "library": {
         "declaration": "TauCeti.Iwasawa.reflexive_torsion_free",
         "module": "TauCeti/NumberTheory/Iwasawa/PseudoNull",
@@ -22560,11 +22673,10 @@
       },
       "parentStageId": "PadicMeasuresIwasawaAlgebras:L4",
       "prerequisites": [
-        "mathlib:Module.IsReflexive",
-        "mathlib:Module.Dual"
+        "mathlib:Module.bijective_dual_eval"
       ],
       "proofSteps": [
-        "Its double dual is torsion-free because A is a domain; the bidual isomorphism transports that property."
+        "Invoke the existing instance; there is no new torsion-freeness theorem to prove."
       ],
       "realises": [
         "PadicMeasuresIwasawaAlgebras:L4"
@@ -22576,7 +22688,7 @@
           "sourceId": "NSW-2.3"
         }
       ],
-      "statement": "Every reflexive A-module is torsion-free.",
+      "statement": "Compare the normal-domain use of reflexivity with the pinned instance Module.IsReflexive.to_isTorsionFree: the native reflexivity class already implies native torsion-freeness, over a commutative ring.",
       "title": "reflexive_torsion_free — independent declaration split"
     },
     {
@@ -22777,7 +22889,8 @@
       },
       "parentStageId": "PadicMeasuresIwasawaAlgebras:L4",
       "prerequisites": [
-        "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism"
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism",
+        "mathlib:IsLocalizedModule.map"
       ],
       "proofSteps": [
         "Localisation exactness identifies the local kernel and cokernel with localised kernel and cokernel; both vanish exactly when the localised map is bijective."
@@ -23135,7 +23248,8 @@
       "parentStageId": "PadicMeasuresIwasawaAlgebras:L4",
       "prerequisites": [
         "mathlib:IsNoetherianRing",
-        "mathlib:PowerSeries.exists_isWeierstrassFactorization"
+        "mathlib:PowerSeries.exists_isWeierstrassFactorization",
+        "mathlib:IsAdic"
       ],
       "proofSteps": [
         "For each finite list of coefficients choose a joint coefficient/depth bound; conversely ideal powers impose finite coefficient congruences. Product completeness follows from O completeness. This is distinct from pure T-adic topology."
@@ -23368,7 +23482,8 @@
       },
       "parentStageId": "PadicMeasuresIwasawaAlgebras:L4",
       "prerequisites": [
-        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-separation"
+        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-separation",
+        "mathlib:Ideal.Quotient.factor"
       ],
       "proofSteps": [
         "Injectivity is cyclotomic-separation. Each compatible fibre is nonempty and closed in compact O[[T]]; nested compact fibres have nonempty intersection. Closedness and compactness are explicit proof gaps."
@@ -23395,7 +23510,7 @@
         {
           "name": "TauCeti.Iwasawa.lambdaInvariant_spec",
           "role": "characterisation",
-          "statement": "λ(M) = Σ n_j deg F_j."
+          "statement": "λ(M)=degree F_M; the elementary formula follows by the product-degree formula and charPoly_elementary_spec."
         },
         {
           "name": "TauCeti.Iwasawa.lambdaInvariant_zero",
@@ -23437,12 +23552,12 @@
           "sourceId": "NSW-2.3"
         }
       ],
-      "statement": "λ(M) = Σ n_j deg F_j.",
+      "statement": "For an arbitrary finitely generated Λ=O[[T]] module M, define λ(M) as the degree of the horizontal characteristic polynomial of its Λ-torsion submodule. An elementary decomposition gives λ(M)=Σ e_j deg F_j; free summands contribute zero.",
       "tests": [
         {
           "kind": "value",
           "name": "L4Tests.mu_part",
-          "statement": "M = Λ/(ϖ): μ = 1, λ = 0, F_M = 1 over every stated coefficient DVR."
+          "statement": "M = Λ/(ϖ): μ = 1, λ = 0, F_M = 1 over every stated coefficient DVR; the ℤ_p control uses ϖ=p."
         },
         {
           "kind": "value",
@@ -23463,6 +23578,11 @@
           "kind": "comparison",
           "name": "L4Tests.ramified_normalisation",
           "statement": "O = ℤ_p[√p], ϖ = √p: μ(Λ/(ϖ)) = 1 in the ϖ-normalisation, where counting powers of p would give 1/2."
+        },
+        {
+          "name": "Lambda.free",
+          "kind": "non-example",
+          "statement": "The free rank-one Λ-module has λ=0; the unrestricted fraction-field dimension formula would fail."
         }
       ],
       "title": "lambdaInvariant — independent declaration split",
@@ -23480,9 +23600,9 @@
       "addedBy": "REV-PadicMeasuresIwasawaAlgebras",
       "api": [
         {
-          "name": "TauCeti.Iwasawa.charPoly_spec",
+          "name": "TauCeti.Iwasawa.charPoly_elementary_spec",
           "role": "characterisation",
-          "statement": "F_{M,γ} = ∏ F_j^{n_j}, a distinguished polynomial."
+          "statement": "A pseudo-isomorphism from the torsion submodule to a product of vertical quotients Λ/(ϖ^m_i) and horizontal quotients Λ/(F_j^e_j), with each F_j distinguished and irreducible, gives F_M=∏F_j^e_j. Vertical factors contribute one."
         },
         {
           "name": "TauCeti.Iwasawa.charPoly_zero",
@@ -23524,12 +23644,12 @@
           "sourceId": "NSW-2.3"
         }
       ],
-      "statement": "F_{M,γ} = ∏ F_j^{n_j}, a distinguished polynomial.",
+      "statement": "For an arbitrary finitely generated Λ=O[[T]] module M, define F_M as the monic product of the horizontal distinguished irreducibles, with multiplicities, in an elementary decomposition of its Λ-torsion submodule. It is independent of that decomposition; free and vertical factors contribute one.",
       "tests": [
         {
           "kind": "value",
           "name": "L4Tests.mu_part",
-          "statement": "M = Λ/(ϖ): μ = 1, λ = 0, F_M = 1 over every stated coefficient DVR."
+          "statement": "M = Λ/(ϖ): μ = 1, λ = 0, F_M = 1 over every stated coefficient DVR; the ℤ_p control uses ϖ=p."
         },
         {
           "kind": "value",
@@ -23550,6 +23670,11 @@
           "kind": "comparison",
           "name": "L4Tests.ramified_normalisation",
           "statement": "O = ℤ_p[√p], ϖ = √p: μ(Λ/(ϖ)) = 1 in the ϖ-normalisation, where counting powers of p would give 1/2."
+        },
+        {
+          "name": "CharacteristicPolynomial.free",
+          "kind": "non-example",
+          "statement": "The free rank-one Λ-module has λ=0 and F_M=1: invariants are formed from its torsion submodule, not from the whole fraction-field tensor."
         }
       ],
       "title": "charPoly — independent declaration split",
@@ -23793,7 +23918,7 @@
         {
           "name": "TauCeti.Iwasawa.charDivisor_spec",
           "role": "characterisation",
-          "statement": "div_A(M) = Σ_𝔭 length_{A_𝔭}(M_𝔭)[𝔭] over height-one primes."
+          "statement": "At a height-one prime, charDivisor(M) equals the finite A_𝔭-length of M_𝔭; at other primes it is zero. Its native finitely supported carrier requires proofs of finite support and finite local length."
         },
         {
           "name": "TauCeti.Iwasawa.charDivisor_zero",
@@ -24109,7 +24234,9 @@
       },
       "parentStageId": "PadicMeasuresIwasawaAlgebras:L4",
       "prerequisites": [
-        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal"
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "mathlib:RingHomInvPair.of_ringEquiv",
+        "mathlib:RingHomInvPair.of_ringEquiv_symm"
       ],
       "proofSteps": [
         "For restriction of scalars through the ring automorphism σ, localise at 𝔭 and compare with M at σ(𝔭). This yields char(σ* M)=σ⁻¹(char(M))."
@@ -24307,7 +24434,7 @@
         {
           "name": "TauCeti.Iwasawa.isotypicComponent_spec",
           "role": "characterisation",
-          "statement": "M^{(ω)} = e_ωM."
+          "statement": "With #H a unit, m is in the native projector range iff h·m=χ(h)m for every h in H."
         },
         {
           "name": "TauCeti.Iwasawa.isotypicComponent_zero",
@@ -24335,7 +24462,8 @@
       },
       "parentStageId": "PadicMeasuresIwasawaAlgebras:L4",
       "prerequisites": [
-        "PadicMeasuresIwasawaAlgebras:L4/character-decomposition"
+        "PadicMeasuresIwasawaAlgebras:L4/character-decomposition",
+        "mathlib:Algebra.lsmul"
       ],
       "proofSteps": [
         "Take the image of the idempotent linear endomorphism given by e_ω on the native module."
@@ -24350,7 +24478,7 @@
           "sourceId": "RJW-published"
         }
       ],
-      "statement": "M^{(ω)} = e_ωM.",
+      "statement": "For a module over the native finite group algebra O[H], with its compatible O-action, define the χ-isotypic component to be the range of the O-linear action of e_χ. With unit group order this range consists precisely of vectors on which h acts by χ(h).",
       "tests": [
         {
           "kind": "degenerate",
@@ -24360,12 +24488,12 @@
         {
           "kind": "value",
           "name": "Isotypic.plus",
-          "statement": "For H=C₂ and odd p acting trivially on M, M^(+)=M and M^(-)=0."
+          "statement": "For a cyclic group generated by h of order two and unit group order, the trivial-character projector range is exactly the vectors fixed by h."
         },
         {
           "kind": "non-example",
           "name": "Isotypic.sign",
-          "statement": "For H=C₂ and odd p acting by sign on M, M^(+)=0 and M^(-)=M."
+          "statement": "For the same group and χ(h)=−1, the χ-projector range is exactly the vectors on which h acts by −1. These test the actual group-algebra module action."
         }
       ],
       "title": "isotypicComponent — independent declaration split",
@@ -24425,7 +24553,7 @@
         {
           "name": "TauCeti.Iwasawa.charIdealProduct_spec",
           "role": "characterisation",
-          "statement": "char_{Λ(Γ)}(M) = ⊕_ω char_Λ(M^{(ω)})."
+          "statement": "A tuple belongs to charIdealProduct exactly when its i-th coordinate belongs to charIdeal_A(M_i) for every i."
         },
         {
           "name": "TauCeti.Iwasawa.charIdealProduct_zero",
@@ -24457,7 +24585,8 @@
         "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal"
       ],
       "proofSteps": [
-        "Transport the native finite product of component characteristic ideals across the actual split completed-algebra equivalence. The equivalence and torsion hypotheses are required."
+        "Form each native characteristic ideal and pull it back by the coordinate ring homomorphism. Their finite intersection gives the ideal of tuples satisfying every component condition.",
+        "Use membership, zero-family and componentwise linear-equivalence APIs. Pullback along the owner's completed-algebra equivalence is a recorded comparison gap."
       ],
       "realises": [
         "PadicMeasuresIwasawaAlgebras:L4"
@@ -24469,7 +24598,7 @@
           "sourceId": "RJW-published"
         }
       ],
-      "statement": "On a finitely generated torsion module over the split finite product of copies of Λ, define its characteristic ideal componentwise by the existing charIdeal; this uses the actual finite-product equivalence, not a new completed algebra.",
+      "statement": "For a finite family of finite torsion A-modules M_i over a noetherian normal UFD A, define charIdealProduct in the native product ring ∏_i A as the intersection of the inverse images of charIdeal_A(M_i) under the coordinate evaluations. The completed-algebra use requires the supplied split product equivalence and its actual module components.",
       "tests": [
         {
           "kind": "degenerate",
@@ -24752,7 +24881,7 @@
       ],
       "id": "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-primary-submodule",
       "implementationStatus": "unchecked",
-      "kind": "lemma",
+      "kind": "construction",
       "library": {
         "declaration": "TauCeti.Iwasawa.cyclotomic_primary_submodule",
         "module": "TauCeti/NumberTheory/Iwasawa/Growth",
@@ -24764,7 +24893,9 @@
         "PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem"
       ],
       "proofSteps": [
-        "Noetherianity gives termination. On each elementary factor the iteration raises the permitted ξ-exponent by one until its multiplicity is exhausted. Finite errors stay in the finite submodule."
+        "The native quotient map gives C_(r+1) as a submodule preimage; divisibility of successive ω_n makes delta itself a submodule.",
+        "Finite generation over the noetherian power-series ring stabilizes C_r. At stabilization the quotient delta submodule vanishes.",
+        "Use the elementary structure theorem to identify the supported factors, with their original powers, and prove coefficient finiteness. The separate termination/classification proof inputs remain gaps; no new node is added beyond the budget."
       ],
       "realises": [
         "PadicMeasuresIwasawaAlgebras:L4"
@@ -24776,8 +24907,48 @@
           "sourceId": "NSW-2.3"
         }
       ],
-      "statement": "Iterate the delta operation on quotients and take preimages until the ascending chain stabilises; M_cycl is finite over ℤ_p and has precisely the cyclotomic primary factors Λ/(ξ_n)^t up to pseudo-isomorphism. The quotient has no cyclotomic height-one support.",
-      "title": "cyclotomic_primary_submodule — independent declaration split"
+      "statement": "On a native ℤ_p[[T]]-module M set C₀=0 and C_(r+1) to the preimage in M of δ(M/C_r). Define M_cycl as the supremum of this increasing sequence. For finitely generated M, stabilization makes its quotient have zero delta submodule; M_cycl is finite over ℤ_p and has the cyclotomic primary elementary factors, including their higher powers, up to pseudo-isomorphism.",
+      "title": "cyclotomic_primary_submodule — independent declaration split",
+      "api": [
+        {
+          "name": "TauCeti.Iwasawa.mem_cyclotomic_primary_submodule",
+          "role": "characterisation",
+          "statement": "An element belongs to M_cycl iff it belongs to one of the recursively defined preimages C_r."
+        },
+        {
+          "name": "TauCeti.Iwasawa.cyclotomic_primary_submodule_finite",
+          "role": "structure",
+          "statement": "For finitely generated M with its compatible coefficient action, M_cycl is finite over ℤ_p."
+        },
+        {
+          "name": "TauCeti.Iwasawa.delta_quotient_cyclotomic_primary",
+          "role": "characterisation",
+          "statement": "For finitely generated M, δ(M/M_cycl)=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "CyclotomicPrimary.zero",
+          "kind": "degenerate",
+          "statement": "The zero module has zero cyclotomic-primary submodule."
+        },
+        {
+          "name": "CyclotomicPrimary.free",
+          "kind": "non-example",
+          "statement": "A free rank-one Λ-module has zero cyclotomic-primary submodule."
+        },
+        {
+          "name": "CyclotomicPrimary.square",
+          "kind": "computation",
+          "statement": "For Λ/(T²), M_cycl is the entire module whereas δ(M) is proper. This distinguishes saturation from a single union of cyclotomic kernels."
+        }
+      ],
+      "uses": [
+        {
+          "where": "PadicMeasuresIwasawaAlgebras:L4/iwasawa-growth-formula",
+          "how": "Separate the saturated cyclotomic primary part before studying successive quotient growth."
+        }
+      ]
     },
     {
       "acceptance": [
@@ -24871,7 +25042,8 @@
       "parentStageId": "PadicMeasuresIwasawaAlgebras:L4",
       "prerequisites": [
         "PadicMeasuresIwasawaAlgebras:L4/iwasawa-free-criterion",
-        "PadicMeasuresIwasawaAlgebras:L4/delta-finite-control"
+        "PadicMeasuresIwasawaAlgebras:L4/delta-finite-control",
+        "mathlib:CategoryTheory.projectiveDimension"
       ],
       "proofSteps": [
         "A length-one free resolution gives ℤ_p-free invariants and rules out a finite submodule. Conversely absence of finite submodules makes the presentation-kernel coinvariants ℤ_p-free; use the free criterion. The native exact-resolution carrier is a gap."
@@ -29252,12 +29424,12 @@
         "NSW (5.3.10) (finite generation from finite coinvariants or finite M/𝔪M for compact modules) needs topological Nakayama, which the L5 description owns although L5 comes after L4; it is not planned here.",
         "The twisting operators themselves (γ ↦ κ(γ)γ, the involution γ ↦ γ^{−1}) are consumed as ring automorphisms of Λ; their construction on Λ(Γ) belongs with L1 and the ProfiniteProPGroups coordinate.",
         "Add the continuity assertions for the imported Weierstrass division/preparation operations with the precise adic topology and completeness assumptions. Mathlib already supplies algebraic existence and uniqueness, noetherianity and the one-variable UFD input; do not re-plan those results.",
-        "The Castella et al. Lemma 1.1.2 freeness criterion is the separate iwasawa-free-criterion node: X[T]=0 and X/TX free over Z_p imply X free over Λ, with rank read after reduction. Its independent source proof and rank interface still require review. The resolution ranks now use the source homology convention; a native exact minimal-resolution interface remains open.",
+        "The freeness, projective-dimension and exact minimal-resolution signatures now use native modules and the correct H₀/H₁ ranks. Supply the minimal-presentation proof, its rank calculation and independent source verification. The rank formula currently appears as the additive Euler equality; compare it with d₀−d₁+d₂.",
         "Dasgupta–Kakde items 43–44 are planned in L6: character-group-ring, character-group-ring-finite-index and character-group-ring-lattice (item 43: R_Ψ as an image, of finite index in ∏_{ψ∈Ψ} O and free of rank #Ψ), and component-character-group-ring, component-group-ring-equiv, group-ring-component-decomposition and character-group-ring-local (item 44: R_χ = e_χO[G] ≅ R_{Ψ_χ} ≅ O[G_p]_χ, O[G] ≅ ∏_χ R_χ, and R_χ local). Of these, the nodes on the components import the character idempotents of this layer (character-decomposition with its orthogonality and sum-one lemmas); the others do not use L4. Arbitrary character quotients are not products of coefficient rings and need not be Gorenstein. Still open from item 42: the ψ-component M_ψ = M ⊗_{Z[G]} O_ψ of a Z[G]-module (base change along the character evaluation), with its right exactness and its comparison with the isotypic component e_ωM when #G is prime to p; decide its owner against EulerSystemsCyclotomicMainConjecture L4, which plans χ-parts over Z_p(χ).",
         "Independent review splits inherited L4 bundles; its named normal-domain, regular-parameter, monic-root, characteristic-divisor, character-descent, resolution and suggested-interface gaps must be resolved before these interfaces are accepted.",
-        "Complete every missing L4 declaration/API signature listed by exact name in the independent report, generalise the Z_p-only invariant interfaces to the stated complete coefficient DVR, and map each definition test to a genuine semantic Lean example. Arithmetic identities alone do not test the module objects."
+        "Complete the exact declaration and semantic-test fronts in checks.l4Interfaces. General coefficient-DVR μ, λ and F contracts are now present, with vertical/horizontal elementary specifications and uniformizer/ramification tests. Completed-algebra generator change, norm/base-change, six-term exactness, Euler/growth interfaces and source-authenticated nonsplit descent remain."
       ],
-      "notes": "Checkpoint L4-1 (Claude Code cc-39fac3) plans NSW V §1 and §3 (5.3.1–5.3.20) with RJW §13.1: reflexive modules, pseudo-null modules and pseudo-isomorphisms, the torsion classification over normal domains, the structure theorem over two-dimensional regular local rings and for O⟦T⟧ (planet), height-one primes, the adapter to Mathlib's Weierstrass theory, nonzero power series and their zeros, ω_n and ξ_n, μ, λ and the characteristic polynomial (planet), the intrinsic characteristic ideal with its functoriality (planet), the isotypic decomposition for #H prime to p, M_δ and M_cycl, the growth formula (planet), freeness and the minimal resolution, the Euler-characteristic formula, and finite quotients. Scope boundary: Jannsen's finer classification up to isomorphism (NSW V §§4–5) is not needed by any consumer and is not planned. Current budget pass adds no nodes; coverage status retains the inherited source-decomposition boundary. Independent review: 67 required splits and explicit proof/interface gaps; none is a new stage target. Resolution ranks are corrected to homology. No current-file compilation is asserted."
+      "notes": "486-node inherited budget pass; no new nodes. The 88 L4 records retain their IDs and previous mathematical corrections. The cyclotomic-primary record now has construction kind and a native API. Stage remains partial; typed interfaces do not discharge proof-input gaps. The L6 independently reviewed 50-node body is preserved, sharing the projector declared in L4."
     },
     {
       "stageId": "PadicMeasuresIwasawaAlgebras:L5",
@@ -29313,7 +29485,7 @@
     {
       "title": "L4 remaining source and interface decomposition",
       "neededBy": [],
-      "detail": "Stage PadicMeasuresIwasawaAlgebras:L4 is partial after checkpoint L4-1 (NSW V §§1, 3 and RJW §13.1; 21 nodes). Remaining: Multivariable algebras O⟦T₁, …, T_d⟧ = O⟦ℤ_p^d⟧: their noetherianity, normality (regular local, hence factorial) and dimension d + 1, so that torsion-structure-normal-domain and characteristic-ideal apply with height-one divisors; pseudo-null there means codimension ≥ 2, not finite. NSW (5.3.10) (finite generation from finite coinvariants or finite M/𝔪M for compact modules) needs topological Nakayama, which the L5 description owns although L5 comes after L4; it is not planned here. The twisting operators themselves (γ ↦ κ(γ)γ, the involution γ ↦ γ^{−1}) are consumed as ring automorphisms of Λ; their construction on Λ(Γ) belongs with L1 and the ProfiniteProPGroups coordinate. Jannsen's finer classification up to isomorphism (NSW V §§4–5) is not needed by any consumer and is not planned. Budget-pass frontier: Add the continuity assertions for the imported Weierstrass division/preparation operations with the precise adic topology and completeness assumptions. Mathlib already supplies algebraic existence and uniqueness, noetherianity and the one-variable UFD input; do not re-plan those results. The Castella et al. Lemma 1.1.2 freeness criterion is the (ii) clause of projective-dimension-and-resolution: X[T]=0 and X/TX free over Z_p imply X free over Λ, with rank read after reduction. Its independent source proof and rank interface still require review. The separate resolution-rank clause of that same inherited node has the counterexample recorded below and must not be reused. Dasgupta–Kakde 42–44 supply integral prime-to-p character components while retaining the p-Sylow group ring. The existing character-decomposition node is nearby, but the local O[G_p] component and image-order comparisons are not decomposed; arbitrary character quotients are not products of coefficient rings and need not be Gorenstein."
+      "detail": "L4 has 88 retained declaration records and remains partial. Its general-DVR invariant, native localisation, projector/component, delta/saturation, analytic evaluation and minimal-resolution signatures are supplied in the suggested file. The named normal-domain, regular-parameter, quotient-topology, characteristic-support, source-descent and growth proof inputs remain below. Complete multivariable regularity/dimension and module theory; continuity of Weierstrass operations; the owned completed-algebra generator-change transport; character base-change components; and the exact missing declaration/test names in checks.l4Interfaces. Resolve the L4-use/L5-owner topological-Nakayama order without adding an upward dependency."
     },
     {
       "title": "L5 remaining source and interface decomposition",
@@ -29332,15 +29504,35 @@
       "neededBy": [
         "PadicMeasuresIwasawaAlgebras:L4/projective-dimension-and-resolution"
       ],
-      "detail": "The inherited cohomology indexing is corrected in all three ranks by direct reading of NSW5.3.20. Free-module and residue-field controls give (1,0,0) and (1,2,1). Remaining work is the genuine native exact minimal resolution, its maps and typed ranks; no cohomology convention can be substituted for H_0=M_Gamma,H_1=M^Gamma."
+      "detail": "The exact minimal-resolution contract now has genuine native finite free modules, two differentials and augmentation, injectivity, exactness, surjectivity and maximal-ideal minimality. All three ranks use H₀=coinvariants and H₁=invariants, expressed by coefficient-ring lengths of p-killed groups. Free and residue controls are (1,0,0) and (1,2,1). Minimal-presentation construction, the rank comparison and source authentication remain proof inputs; elaboration proves none of them."
     },
     {
       "title": "Suggested declaration and test correspondence remains incomplete",
-      "neededBy": [],
-      "detail": "Historical compile and signature counts are preserved in checks.previous. The review splits L4 contracts and records exact per-name suggested omissions; missing signatures and semantic test correspondence remain blocking review findings, independently of whether historical Lean examples compiled."
+      "neededBy": [
+        "PadicMeasuresIwasawaAlgebras:L4/character-decomposition",
+        "PadicMeasuresIwasawaAlgebras:L4/character-orbit-coefficients",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-finite-fitting-control",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-8",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-9",
+        "PadicMeasuresIwasawaAlgebras:L4/coinvariants-euler-product",
+        "PadicMeasuresIwasawaAlgebras:L4/delta-and-cyclotomic-submodules",
+        "PadicMeasuresIwasawaAlgebras:L4/delta-cyclotomic-elementary-factors",
+        "PadicMeasuresIwasawaAlgebras:L4/disjoint-torsion-extension",
+        "PadicMeasuresIwasawaAlgebras:L4/finite-coinvariants-euler-characteristic",
+        "PadicMeasuresIwasawaAlgebras:L4/finite-index-inclusion",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-growth-formula",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-1",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-2",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-8",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudoiso-maximal-ideal-control",
+        "PadicMeasuresIwasawaAlgebras:L4/regular-parameter-reflexivity-criterion"
+      ],
+      "detail": "Exact post-revision declaration-command and annotated-test inventory is recorded in checks.l4Interfaces. Present commands are typed contracts, not proofs or a semantic bijection. Missing names must be supplied or reconciled, including completed-algebra generator change, norm/base-change, the six-term sequence, Euler/cardinality controls and source-authenticated nonsplit descent. The general uniformizer and ramification examples exercise μ; λ/F have their own module controls. Stronger generator-change and concrete ramified-coefficient controls remain required."
     },
     {
-      "detail": "Prove or authenticate height-one DVRs, A=intersection A_p, finite torsion support, the semilocal PID localisation, localisation of Hom for finite presentations and compatibility with the bidual map. Class names IsIntegrallyClosed and IsDedekindDomain alone prove none of these. The common fraction-vector-space embeddings are required before writing an intersection signature.",
+      "detail": "Prove or authenticate height-one DVRs, A=intersection A_p, finite torsion support, the semilocal PID localisation, localisation of Hom for finite presentations and compatibility with the bidual map. Class names IsIntegrallyClosed and IsDedekindDomain alone prove none of these. The common fraction-vector-space embeddings are required before writing an intersection signature. The suggested intersections now use native LocalizedModule.lift images in a single K⊗_A M, and dual extension is K-linear. These common-carrier interfaces are supplied; the listed DVR, support, semilocal and local Hom proof inputs remain.",
       "neededBy": [
         "PadicMeasuresIwasawaAlgebras:L4/bidual-intersection",
         "PadicMeasuresIwasawaAlgebras:L4/dual-intersection",
@@ -29353,7 +29545,7 @@
       "title": "Normal-domain localisation and dual comparisons"
     },
     {
-      "detail": "Supply normality of regular local rings, regular parameter quotient dimension, dimension-one DVR, the Hom-quotient injection used by Diekert, dim O[[T]]=2 and the residue linear independence of varpi,T. Supply the precise joint-adic/coefficient-product topology and completeness. Native noetherian/UFD instances and IsRegularLocalRing do not provide this proof package.",
+      "detail": "The suggested maximal ideal, residue field, dimension-two regularity and coefficient-product/joint-adic completeness signatures have native carriers and explicit hypotheses. Their proofs require normality of regular local rings, regular-parameter quotient dimension, dimension-one DVR, the Hom-quotient injection, dim O[[T]]=2 and residue linear independence of ϖ,T. Establish the equivalence of the coefficient-product topology with the maximal-ideal-adic topology and completeness. Existing noetherian/UFD instances do not discharge these inputs; the separate regular_parameter_reflexivity_criterion name remains absent.",
       "neededBy": [
         "PadicMeasuresIwasawaAlgebras:L4/reflexive-free-over-regular-local",
         "PadicMeasuresIwasawaAlgebras:L4/regular-parameter-reflexivity-criterion",
@@ -29364,7 +29556,7 @@
       "title": "Regular parameters, dimension and joint completeness"
     },
     {
-      "detail": "charpoly_leftMulMatrix identifies the multiplication characteristic polynomial with minpoly of the native power-basis root. It does not identify that minpoly with F over the coefficient DVR. Supply that identity for monic F, including F=1 (rank-zero quotient), and transport across algEquivQuotient. The indexed AdjoinRoot.minpoly_root is a field theorem and must not be silently applied to O.",
+      "detail": "The native monic-root characteristic-polynomial signature uses AdjoinRoot.powerBasis' over an arbitrary commutative ring, including F=1. Its proof route is the multiplication companion matrix determinant, avoiding the field-only minimal-polynomial theorem. Authenticate/prove that direct determinant calculation and transport the basis/operator through the pinned series quotient equivalence; the latter full interface is still missing.",
       "neededBy": [
         "PadicMeasuresIwasawaAlgebras:L4/weierstrass-adapter"
       ],
@@ -29380,14 +29572,14 @@
       "title": "Factorisation and analytic evaluation qualifications"
     },
     {
-      "detail": "Show each (omega_n) is closed for the joint adic topology, identify the finite free O-quotient through native Weierstrass division, and prove compactness of O[[T]] from O compactness and product topology. Only then apply nested compact fibres. Request the actual completed-algebra comparison from the existing owner, with Dirac/quotient compatibility; pure T-adic coordinates are not acceptable.",
+      "detail": "Show each (omega_n) is closed for the joint adic topology, identify the finite free O-quotient through native Weierstrass division, and prove compactness of O[[T]] from O compactness and product topology. Only then apply nested compact fibres. Request the actual completed-algebra comparison from the existing owner, with Dirac/quotient compatibility; pure T-adic coordinates are not acceptable. The compatible-quotient unique-lift contract now uses native Ideal.Quotient.factor and quotient maps. Joint-adic completeness is stated with the coefficient-product induced topology. Closed fibres, compactness and the actual owned completed-algebra comparison are still proof inputs.",
       "neededBy": [
         "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-quotient-limit"
       ],
       "title": "Cyclotomic closed fibres and quotient inverse"
     },
     {
-      "detail": "Supply finite support and finite local lengths, length of a DVR cyclic quotient, and determinant-versus-cokernel-length. For finite flat maps of complete coefficient DVRs, specify receiving normal rings and ramification lengths. For restriction of scalars specify O finite free over Z_p, the basis-independent multiplication determinant and norm. Bourbaki AC VII §4.8 has not been independently read in this review; only the reduction to this input is verified.",
+      "detail": "Supply finite support and finite local lengths, length of a DVR cyclic quotient, and determinant-versus-cokernel-length. For finite flat maps of complete coefficient DVRs, specify receiving normal rings and ramification lengths. For restriction of scalars specify O finite free over Z_p, the basis-independent multiplication determinant and norm. Bourbaki AC VII §4.8 has not been independently read in this review; only the reduction to this input is verified. The divisor and ideal now use native Finsupp and Ideal multiplication, and the ring-automorphism law uses an actual semilinear equivalence with the inverse-pair witnesses. Base-change and norm/restriction-of-scalars signatures are still missing and require explicit native scalar towers, finite-flat receiving rings and determinant norms.",
       "neededBy": [
         "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-0",
         "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
@@ -29397,7 +29589,7 @@
       "title": "Characteristic divisor, base change and restriction of scalars"
     },
     {
-      "detail": "Supply character orthogonality over a splitting complete DVR with unit group order, native MonoidAlgebra idempotents, their finite direct-sum module equivalence and completed-algebra comparison. The nonsplit finite-etale/Galois-orbit descent requires its own authenticated source and coefficient extensions. The Coates–Sujatha appendix cited by RJW was not independently read; do not declare its integral descent verified.",
+      "detail": "Native MonoidAlgebra projectors, unit-order orthogonality and sum-one signatures, actual module ranges and a splitting module equivalence are now supplied. Prove these interfaces over the splitting coefficient DVR with the stated roots-of-unity hypotheses, and construct the completed-algebra comparison on the owned carrier. The nonsplit finite-etale/Galois-orbit descent still lacks its exact signature, authenticated source and coefficient extensions. The Coates–Sujatha appendix cited by RJW was not read in this pass; its integral descent is not freshly verified. The remaining packet character tests must be reconciled with the typed examples rather than inferred from their count.",
       "neededBy": [
         "PadicMeasuresIwasawaAlgebras:L4/character-decomposition",
         "PadicMeasuresIwasawaAlgebras:L4/character-decomposition-api-1",
@@ -29410,7 +29602,7 @@
       "title": "Integral split and Galois-orbit character decomposition"
     },
     {
-      "detail": "Supply native increasing-kernel/quotient comparisons, the exact finite-field p-Sylow order estimate and mod-p² geometric-sum lift, minimal presentation and genuine exact free-resolution carriers, resultant/determinant identity and finite DVR cokernel cardinality. Record the continuous homology convention H_0=coinvariants,H_1=invariants throughout. Naming a homology/cohomology carrier or projective class alone is not a proof. The source calculations were read, but these missing exact typed interfaces prevent accepting the L4 signatures.",
+      "detail": "The native increasing-kernel delta, quotient-preimage cyclotomic saturation, finite coefficient control, minimal exact free resolution, free/projective criteria and cyclotomic image-growth signatures are supplied. Their proofs still need increasing-kernel/quotient comparisons, the finite-field p-Sylow estimate and geometric-sum lift, minimal presentation and rank calculations, resultant/determinant identity and finite DVR cokernel cardinality. The final cardinality and Euler-product names remain absent as indexed in checks.l4Interfaces. H₀=coinvariants and H₁=invariants throughout. Source calculations in the historical independent review are retained; fresh NSW authentication is a separate gap.",
       "neededBy": [
         "PadicMeasuresIwasawaAlgebras:L4/delta-finite-control",
         "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-primary-submodule",
@@ -29422,11 +29614,98 @@
       "title": "Cyclotomic growth, resolution and Euler determinant inputs"
     },
     {
-      "detail": "All inherited delta assertions now have individual lemma nodes. Complete their native submodule/resolution interfaces and the per-definition semantic-test correspondence. The cyclotomic-primary-submodule contract still needs an explicit native iterative construction with separate termination and classification interfaces; the review records it as unverifiable rather than accepting a bundled construction.",
+      "detail": "The existing cyclotomic-primary node is now a native construction with quotient-preimage iteration, supremum, three API signatures and zero/free/T² semantic controls. Termination and cyclotomic elementary-factor classification remain explicit proof obligations inside this existing node because the inherited packet is already over budget; no additional split node is introduced.",
       "neededBy": [
         "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-primary-submodule"
       ],
       "title": "Remaining declaration granularity and typed-test correspondence"
+    },
+    {
+      "title": "NSW author-copy authentication for this revision",
+      "neededBy": [
+        "PadicMeasuresIwasawaAlgebras:L4/bidual-intersection",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-null",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism",
+        "PadicMeasuresIwasawaAlgebras:L4/torsion-structure-normal-domain",
+        "PadicMeasuresIwasawaAlgebras:L4/reflexive-hull",
+        "PadicMeasuresIwasawaAlgebras:L4/reflexive-free-over-regular-local",
+        "PadicMeasuresIwasawaAlgebras:L4/structure-theorem-regular-dimension-two",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-algebra-regular-local",
+        "PadicMeasuresIwasawaAlgebras:L4/height-one-primes",
+        "PadicMeasuresIwasawaAlgebras:L4/weierstrass-adapter",
+        "PadicMeasuresIwasawaAlgebras:L4/nonzero-power-series-factorization",
+        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-weierstrass-polynomials",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4/delta-and-cyclotomic-submodules",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-growth-formula",
+        "PadicMeasuresIwasawaAlgebras:L4/projective-dimension-and-resolution",
+        "PadicMeasuresIwasawaAlgebras:L4/finite-coinvariants-euler-characteristic",
+        "PadicMeasuresIwasawaAlgebras:L4/finite-quotient-criterion",
+        "PadicMeasuresIwasawaAlgebras:L4/dual-intersection",
+        "PadicMeasuresIwasawaAlgebras:L4/reflexive-intersection-criterion",
+        "PadicMeasuresIwasawaAlgebras:L4/dual-reflexive",
+        "PadicMeasuresIwasawaAlgebras:L4/reflexive-torsion-free",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-1",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-2",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-3",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-4",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-5",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-1",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-2",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-3",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-4",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-5",
+        "PadicMeasuresIwasawaAlgebras:L4/pseudoiso-maximal-ideal-control",
+        "PadicMeasuresIwasawaAlgebras:L4/torsion-elementary-divisors",
+        "PadicMeasuresIwasawaAlgebras:L4/disjoint-torsion-extension",
+        "PadicMeasuresIwasawaAlgebras:L4/regular-parameter-reflexivity-criterion",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-joint-adic-completeness",
+        "PadicMeasuresIwasawaAlgebras:L4/distinguished-irreducibility",
+        "PadicMeasuresIwasawaAlgebras:L4/power-series-finite-zeros",
+        "PadicMeasuresIwasawaAlgebras:L4/power-series-identity",
+        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-joint-ideal-bound",
+        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-separation",
+        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-quotient-limit",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-1",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-2",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-3",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-4",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-5",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-6",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-7",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-8",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-0",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-3",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-4",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-5",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-6",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-7",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-8",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-9",
+        "PadicMeasuresIwasawaAlgebras:L4/lambda-additivity",
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-finite-fitting-control",
+        "PadicMeasuresIwasawaAlgebras:L4/delta-submodule",
+        "PadicMeasuresIwasawaAlgebras:L4/delta-finite-control",
+        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-primary-submodule",
+        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-growth-step",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-free-criterion",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-projective-dimension-criterion",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-rank-euler",
+        "PadicMeasuresIwasawaAlgebras:L4/coinvariants-euler-product",
+        "PadicMeasuresIwasawaAlgebras:L4/finite-index-inclusion",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-maximal-ideal",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-residue-field",
+        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-distinguished",
+        "PadicMeasuresIwasawaAlgebras:L4/cyclotomic-product",
+        "PadicMeasuresIwasawaAlgebras:L4/delta-maximal-finite-submodule",
+        "PadicMeasuresIwasawaAlgebras:L4/delta-cyclotomic-elementary-factors",
+        "PadicMeasuresIwasawaAlgebras:L4/quotient-delta-torsion-free",
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-free-criterion"
+      ],
+      "detail": "The author URL for NSW version2.3 now returns an HTML landing page. Authenticate a freely supplied or maintainer-cleared version before claiming fresh verification of the numbered ChapterV inputs, and collate its page and theorem locators with the inherited records. This run preserves the independent review corrections and its historical reading evidence; it does not substitute an uncleared book copy."
     }
   ],
   "sourceVersions": [
@@ -29453,6 +29732,13 @@
       "url": "https://services.math.duke.edu/~dasgupta/papers/Brumer-Stark.pdf",
       "read": "2026-10-07",
       "sha256": "c5b1df5da32ea7a30ed49b9ddc71249adb37e318971b0d304584c98d6ef69dcf"
+    },
+    {
+      "kind": "published",
+      "url": "https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf",
+      "read": "2026-10-09",
+      "sha256": "78d0479b4b7e3f03d2f9c9a75a772ebd75b58091a3b4f8a1558869b8283b44a6",
+      "scope": "Printed pp.166,189–190; source-version confirmation only for this publication."
     }
   ],
   "sourceIssues": [
@@ -29483,7 +29769,7 @@
       "source": "RJW-published",
       "kind": "misprint",
       "locator": "Final term in the independence calculation after (3-11), published printed p. 130 / PDF 31; arXiv v2 PDF 22.",
-      "printed": "“µ”",
+      "printed": "The restriction display assigns the old measure name to the integral on the smaller domain.",
       "correction": "The last integrand must use λ, the pseudomeasure occurring in the other two terms of the calculation.",
       "reason": "The calculation compares two clearing factors applied to one fixed pseudomeasure λ. No second pseudomeasure μ is introduced there. Replacing the final μ by λ yields the cross-multiplied-numerator identity and the valid independence proof.",
       "affects": "nothing",
@@ -29527,7 +29813,7 @@
       "source": "RJW-published",
       "kind": "misprint",
       "locator": "§3.5.5, calculation proving ψ∘φ=id, penultimate integral; published printed p.128 / PDF29, also arXiv v2 PDF21.",
-      "printed": "ϕ(µ)",
+      "printed": "The second operator display uses the forward operator where the surrounding formula needs the averaging operator.",
       "correction": "After replacing the integration variable by px, label the intermediate integral with μ: ∫ 1_(pZ_p)(px) f(x) · μ. The displayed conclusion ψφ=id is unchanged.",
       "reason": "The defining pushforward formula is φμ(g)=μ(g∘m_p). For p=3, μ=δ₁ and f=x, the printed intermediate integral against φμ evaluates to 3 while both outside terms evaluate to 1. This is visible in the rendered publication, so it is not an extraction artifact. The corrected proof is node psi-phi.",
       "affects": "the proof",
@@ -29549,7 +29835,7 @@
       "source": "RJW-published",
       "kind": "misprint",
       "locator": "Proof of Corollary 13.14, published printed p.193 / PDF94; arXiv v2 PDF68.",
-      "printed": "Gal(M⁺∞/L⁺∞) ≅ E⁺∞,1/U⁺∞,1 ≅ (E⁺∞,1/C⁺∞,1)/(U⁺∞,1/C⁺∞,1)",
+      "printed": "The class-field comparison reverses the roles of local units and global units in the displayed quotient.",
       "correction": "Reverse numerator and denominator in both quotients: Gal(M⁺∞/L⁺∞) ≅ U⁺∞,1/E⁺∞,1 ≅ (U⁺∞,1/C⁺∞,1)/(E⁺∞,1/C⁺∞,1).",
       "reason": "Proposition 13.13 immediately above has kernel E inside U, and Definition 13.12 defines E as the closure of global units inside local units. The first isomorphism theorem therefore gives U/E. Since C⊆E⊆U, the third isomorphism theorem then gives (U/C)/(E/C). The printed E/U is not the required quotient; merely changing the first quotient leaves the second one reversed. The corollary’s stated exact sequence has the correct orientation and is unchanged.",
       "affects": "the proof",
@@ -29595,7 +29881,7 @@
       "source": "RJW-published",
       "kind": "misprint",
       "locator": "Leopoldt paragraph immediately after Definition 13.12, published printed p.193 / PDF94; arXiv v2 PDF67. Compare §9 notation, published p.161 / PDF62.",
-      "printed": "r₁+r₂−1 = pⁿ⁻¹(p−1)/2",
+      "printed": "The stated cyclotomic unit rank equals the half-degree without subtracting the rank-one correction.",
       "correction": "The numerical rank is pⁿ⁻¹(p−1)/2−1. Retain the source’s r₁+r₂−1 on the left.",
       "reason": "Here p is odd and F_n=Q(μ_(p^n)) by §9, so r₁=0 and r₂=p^(n−1)(p−1)/2. Subtracting 1 is required by the displayed expression itself. At p=3,n=1, F_1 is the imaginary quadratic field Q(ζ₃), whose global units form the finite group μ₆; its closure has Z₃-rank 0, whereas the printed numerical formula gives 1. This corrects the numerical assertion, not Leopoldt’s conjecture or the use of its known abelian case.",
       "affects": "a stated result",
@@ -29706,7 +29992,7 @@
       "source": "RJW-published",
       "kind": "gap",
       "locator": "Remark 3.11, displayed locally constant truncations, published printed p.120 / PDF21; arXiv v2 p.15.",
-      "printed": "φ(a)1a+pnZp(x)",
+      "printed": "The local-constant approximation display multiplies one residue-class value by its indicator without the required sum over classes.",
       "correction": "For an arbitrary profinite G, approximate using a finite clopen partition on which the oscillation of φ is small; for a profinite group one can refine to cosets of an open normal subgroup. The displayed residue-class formula only treats ℤ_p, after choosing representatives.",
       "reason": "The chapter allows an arbitrary profinite abelian group G, which has no specified points indexed by ℤ/p^nℤ and no specified subsets a+p^nℤ_p. In particular the formula does not define an approximation on G=ℤ_p×ℤ_p. Compactness and continuity give a finite clopen refinement of small-oscillation neighbourhoods, providing the missing general argument; the density conclusion is retained. Native clopen approximation is already in the reviewed baseline, and is not re-planned as a new declaration here.",
       "affects": "the proof",
@@ -29728,7 +30014,7 @@
       "source": "RJW-published",
       "kind": "error",
       "locator": "Remark 2.18, published printed p.117 / PDF18; arXiv v2 p.12.",
-      "printed": "(mod pm)",
+      "printed": "The last congruence uses the depth parameter as a linear modulus rather than the required prime power.",
       "correction": "Applying a congruence of test functions modulo p^m requires an integral bounded measure. For the trivial character the zeta object is a pseudomeasure; first clear its denominator with a smoothing factor, or state and prove the valid branch restrictions for an unsmoothed Kummer congruence.",
       "reason": "Take p=3, m=1, η trivial, k=2 and ℓ=4. The exponents are congruent modulo p−1. Yet (1−3)ζ(−1)=1/6 and (1−27)ζ(−3)=−13/60, whose difference is 23/60 and has 3-adic valuation −1, not at least 1. Thus the blanket congruence, explicitly applied to the Riemann zeta function in the next sentence, is false. Clearing by [2]−[1] multiplies these two values by 2²−1 and 2⁴−1; the difference becomes 15/4, of valuation 1, as expected from the integral smoothed measure. No counterexample to the interpolation theorems or correctly qualified Kummer congruences is claimed. Arithmetic repairs belong to DirichletPadicLFunctions; this finding records the shared source distinction between bounded measures and pseudomeasures.",
       "affects": "a stated result",
@@ -29772,7 +30058,7 @@
       "source": "RJW-published",
       "kind": "error",
       "locator": "Theorem 13.1, printed p. 189 / PDF 90, and Definition 13.3, printed p. 190 / PDF 91; the same text in arXiv v2 PDF 65.",
-      "printed": "M ∼ Λ^r ⊕ (⊕_{i=1}^s Λ/(p^{n_i})) ⊕ (⊕_{j=1}^t Λ/(f_j(T)^{m_j})) … Ch_Λ(M) = (p^n) ∏_{j=1}^t (f_j^{m_j})",
+      "printed": "The general coefficient-DVR structure theorem and characteristic-ideal display use powers of the rational prime for vertical elementary factors.",
       "correction": "Over Λ = O_L⟦T⟧ the μ-part is ⊕ Λ/(ϖ^{n_i}) for a uniformizer ϖ of O_L, and Ch_Λ(M) = (ϖ^n)∏(f_j^{m_j}). The printed forms are right when L/ℚ_p is unramified (then p is a uniformizer).",
       "reason": "Take L = ℚ_p(√p), ϖ = √p, M = Λ/(ϖ). The prime (ϖ) has height one, and the length of M at (ϖ) is 1. Pseudo-isomorphism (finite kernel and cokernel) preserves lengths at height-one primes. Λ/(p^n) = Λ/(ϖ^{2n}) has length 2n at (ϖ), Λ/(f^m) with f distinguished has length 0 there, and Λ^r is not torsion. So M is not pseudo-isomorphic to any module of the printed form, and (p^n) cannot equal (ϖ) = Ch_Λ(M). The cited Washington Theorem 13.12 is over ℤ_p⟦T⟧. RJW's distinguished polynomials use the maximal ideal 𝔭 (fraktur), while the μ-part uses the roman p, as the rendered pages show.",
       "affects": "a stated result",
@@ -29795,7 +30081,7 @@
       "kind": "misprint",
       "known": "new",
       "locator": "Theorem (5.1.10), final support equality, printed p.273 / physical PDF287; text and page image inspected.",
-      "printed": "{p_i | i∈I} = supp(M) ∩ P(A)",
+      "printed": "The support equality for elementary primes is stated using the whole module rather than its torsion submodule.",
       "reason": "Take M=A for A=ℤ_p⟦T⟧. A pseudo-isomorphism to A^r plus torsion cyclic factors forces r=1 and an empty torsion family after localization at each height-one DVR. Yet supp(A) contains every height-one prime, including (p) and (T). The preceding proof applies Proposition5.1.7(ii) only to T_A(M), which gives the corrected support. No structure-theorem conclusion is refuted.",
       "review": {
         "verdict": "confirmed",
@@ -29813,7 +30099,7 @@
       "source": "DK-arXiv-v3",
       "kind": "gap",
       "locator": "Lemma 3.9 (TeX label l:coker), last display of the proof and the sentence after it, arXiv:2010.00657v3 PDF p. 26; the same text is on PDF p. 26 of the authors' copy dated 15 February 2022.",
-      "printed": "The proof displays adj_r(A′) · C_r(A) x̃ = adj_r(A′) · C_r(A′) x = det(A′) x. It then concludes that the map ⋀^r_R R^n → ⋀^r_R R^m has det(A′)x in its image.",
+      "printed": "The higher-adjugate argument places the adjugate on the left of the compound matrix and uses the resulting equality to conclude that the determinant multiple is in the image of the compound map.",
       "correction": "Use the right-sided identity C_r(A′)·adj_r(A′) = det(A′)·I and the vector adj_r(A′)x extended by zero to ι_J(adj_r(A′)x) ∈ ⋀^r R^n: det(A′)x = C_r(A′)(adj_r(A′)x) = C_r(A)(ι_J(adj_r(A′)x)), which lies in the image of C_r(A).",
       "reason": "The display writes det(A′)x as adj_r(A′) applied to C_r(A)x̃, an element of the image of C_r(A) (the matrices act on column vectors: x̃ ∈ ⋀^r R^n, x ∈ ⋀^r R^m). To conclude that det(A′)x itself lies in the image one needs either the identity with the factors in the other order, C_r(A′)·adj_r(A′) = det(A′)·I, applied to the vector adj_r(A′)x extended by zero (the correction), or that the image of C_r(A) is stable under adj_r(A′). The proof states neither. The image is in fact stable, but that needs an argument of its own for 1 < r < m, so the printed step is unproved rather than false. Lemma 3.9 itself is true.",
       "affects": "the proof",
@@ -29898,37 +30184,165 @@
     }
   ],
   "checks": {
-    "agent": "Codex — codex-7e92bd",
-    "date": "2026-10-04",
-    "pass": "Budget completion and source-route reconciliation",
+    "agent": "Codex — codex-v5eXFs",
+    "date": "2026-10-09",
+    "pass": "Revision 2 budget completion, native L4 interfaces and complete reader reconciliation",
     "newNodes": 0,
-    "preservedNodes": 369,
+    "preservedNodes": 486,
     "nodeBudget": 300,
-    "routedItems": 59,
-    "compile": "Full Suggested.lean elaborated at the exact pinned Mathlib and Tau Ceti sources using authenticated existing artifacts: exit 0, zero errors, 740 admission warnings, no other warnings. This does not prove the declarations or complete their correspondence with the packet.",
     "previous": {
-      "agent": "Claude Code — cc-39fac3",
-      "date": "2026-09-29",
-      "checkpoint": "L4-1: structure theory of Iwasawa modules (NSW V §§1, 3; RJW §13.1)",
-      "newNodes": 21,
-      "preservation": "All 348 preceding nodes, 14 findings and baseline records unchanged; the preceding suggested body is an exact prefix of the new file apart from added imports.",
-      "compile": "The new L4 block, with its Mathlib imports, elaborates standalone against the pinned Mathlib 082e2d3 with Lean 4.34.0-rc2 (exit 0; the only warnings are proof placeholders). The full file imports Tau Ceti modules whose builds were not available in this environment, so it was not re-elaborated as a whole.",
-      "previous": "provenance.residueRestrictionChecks"
+      "agent": "Codex — codex-7e92bd",
+      "date": "2026-10-04",
+      "pass": "Budget completion and source-route reconciliation",
+      "newNodes": 0,
+      "preservedNodes": 369,
+      "nodeBudget": 300,
+      "routedItems": 59,
+      "compile": "Full Suggested.lean elaborated at the exact pinned Mathlib and Tau Ceti sources using authenticated existing artifacts: exit 0, zero errors, 740 admission warnings, no other warnings. This does not prove the declarations or complete their correspondence with the packet.",
+      "previous": {
+        "agent": "Claude Code — cc-39fac3",
+        "date": "2026-09-29",
+        "checkpoint": "L4-1: structure theory of Iwasawa modules (NSW V §§1, 3; RJW §13.1)",
+        "newNodes": 21,
+        "preservation": "All 348 preceding nodes, 14 findings and baseline records unchanged; the preceding suggested body is an exact prefix of the new file apart from added imports.",
+        "compile": "The new L4 block, with its Mathlib imports, elaborates standalone against the pinned Mathlib 082e2d3 with Lean 4.34.0-rc2 (exit 0; the only warnings are proof placeholders). The full file imports Tau Ceti modules whose builds were not available in this environment, so it was not re-elaborated as a whole.",
+        "previous": "provenance.residueRestrictionChecks"
+      },
+      "signatureCoverage": "The existing suggested file compiles, but compilation does not cover every planned declaration: 42 explicit TauCeti.Iwasawa L4 declaration/API names have no command in it. Four further indexed names refer to generic imported API. There are 57 node records without an explicit library.declaration field; those are not automatically missing signatures. Preserve the source and attach the exact name index; complete the L4 signatures only after checking their carriers and the resolution defect, and reconcile the 260 packet test records with the 258 Lean example commands. These counts do not establish a one-to-one test mapping.",
+      "mathematicalCounterexample": "Inherited node L4/projective-dimension-and-resolution writes d₀=dim_Fp H⁰(Γ,M)/p for the number of generators in its minimal free resolution. With the usual continuous-cohomology convention and M=Λ=Z_p[[T]], invariants are ker(T)=0, whereas M/(p,T)M=F_p and M requires one generator. The displayed resolution therefore cannot be correct as written. Re-read NSW 5.3.20 and fix the cohomological indexing and all three ranks together before reuse. This is a packet-statement defect identified by a counterexample, not a newly verified erratum in NSW; its freeness criterion is a separate clause. The inherited mathematical object is preserved for independent review and stays unchecked.",
+      "independentReview": {
+        "agent": "Codex — codex-J6LwjP",
+        "date": "2026-10-05",
+        "status": "needs_changes",
+        "compile": "Not run for the modified full file: no authenticated existing build of both pinned Tau Ceti imports was located. No Lake setup, cache download, build, outside-file Lean code or language server used.",
+        "nodeCount": 436,
+        "addedNodes": 67,
+        "baselineStatementsIndependentlyRead": 350,
+        "sourceIssuesConfirmed": 16,
+        "signatureInventory": "Exact inventories and per-node missing names embedded in the review report; counts are not semantic test bijections."
+      },
+      "reviewResolutionCorrection": "All three minimal ranks use continuous homology H_0=M_Gamma,H_1=M^Gamma, confirmed against NSW5.3.20. Free and residue-field controls are (1,0,0) and (1,2,1). Historical observations above refer to the inherited file; native exact-resolution maps and ranks remain interface gaps."
     },
-    "signatureCoverage": "The existing suggested file compiles, but compilation does not cover every planned declaration: 42 explicit TauCeti.Iwasawa L4 declaration/API names have no command in it. Four further indexed names refer to generic imported API. There are 57 node records without an explicit library.declaration field; those are not automatically missing signatures. Preserve the source and attach the exact name index; complete the L4 signatures only after checking their carriers and the resolution defect, and reconcile the 260 packet test records with the 258 Lean example commands. These counts do not establish a one-to-one test mapping.",
-    "mathematicalCounterexample": "Inherited node L4/projective-dimension-and-resolution writes d₀=dim_Fp H⁰(Γ,M)/p for the number of generators in its minimal free resolution. With the usual continuous-cohomology convention and M=Λ=Z_p[[T]], invariants are ker(T)=0, whereas M/(p,T)M=F_p and M requires one generator. The displayed resolution therefore cannot be correct as written. Re-read NSW 5.3.20 and fix the cohomological indexing and all three ranks together before reuse. This is a packet-statement defect identified by a counterexample, not a newly verified erratum in NSW; its freeness criterion is a separate clause. The inherited mathematical object is preserved for independent review and stays unchecked.",
-    "independentReview": {
-      "agent": "Codex — codex-J6LwjP",
-      "date": "2026-10-05",
-      "status": "needs_changes",
-      "compile": "Not run for the modified full file: no authenticated existing build of both pinned Tau Ceti imports was located. No Lake setup, cache download, build, outside-file Lean code or language server used.",
-      "nodeCount": 436,
-      "addedNodes": 67,
-      "baselineStatementsIndependentlyRead": 350,
-      "sourceIssuesConfirmed": 16,
-      "signatureInventory": "Exact inventories and per-node missing names embedded in the review report; counts are not semantic test bijections."
+    "l4Interfaces": {
+      "method": "Lexical declaration commands in the L4 namespace and node-tagged semantic example comments, compared with packet names. This is an inventory, not a proof or semantic bijection.",
+      "missingDeclarationsByNode": {
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants": [
+          "TauCeti.Iwasawa.invariants_generator_indep"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal": [
+          "TauCeti.Iwasawa.charIdeal_baseChange",
+          "TauCeti.Iwasawa.charIdeal_restrictScalars"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/delta-and-cyclotomic-submodules": [
+          "TauCeti.Iwasawa.invariants_coinvariants_six_term_exact"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-growth-formula": [
+          "TauCeti.Iwasawa.card_quotient_omega_eq"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/finite-coinvariants-euler-characteristic": [
+          "TauCeti.Iwasawa.finite_coinvariants_iff"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/pseudoiso-maximal-ideal-control": [
+          "TauCeti.Iwasawa.pseudoiso_maximal_ideal_control"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/disjoint-torsion-extension": [
+          "TauCeti.Iwasawa.disjoint_torsion_extension"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/regular-parameter-reflexivity-criterion": [
+          "TauCeti.Iwasawa.regular_parameter_reflexivity_criterion"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-8": [
+          "TauCeti.Iwasawa.invariants_generator_indep"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-8": [
+          "TauCeti.Iwasawa.charIdeal_baseChange"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-9": [
+          "TauCeti.Iwasawa.charIdeal_restrictScalars"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-finite-fitting-control": [
+          "TauCeti.Iwasawa.characteristic_finite_fitting_control"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/character-orbit-coefficients": [
+          "TauCeti.Iwasawa.character_orbit_coefficients"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/coinvariants-euler-product": [
+          "TauCeti.Iwasawa.coinvariants_euler_product"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/finite-index-inclusion": [
+          "TauCeti.Iwasawa.finite_index_inclusion"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/delta-cyclotomic-elementary-factors": [
+          "TauCeti.Iwasawa.delta_cyclotomic_elementary_factors"
+        ]
+      },
+      "missingAnnotatedTestsByNode": {
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants": [
+          "L4Tests.generator_dependence",
+          "L4Tests.ramified_normalisation"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal": [
+          "L4Tests.finite_vs_fitting",
+          "L4Tests.norm_formula"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/character-decomposition": [
+          "L4Tests.order_two",
+          "L4Tests.teichmuller",
+          "L4Tests.p_divides",
+          "L4Tests.trivial_group"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-1": [
+          "L4Tests.generator_dependence",
+          "L4Tests.ramified_normalisation"
+        ],
+        "PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-2": [
+          "L4Tests.generator_dependence",
+          "L4Tests.ramified_normalisation"
+        ]
+      },
+      "presentDeclarationCommands": 103
     },
-    "reviewResolutionCorrection": "All three minimal ranks use continuous homology H_0=M_Gamma,H_1=M^Gamma, confirmed against NSW5.3.20. Free and residue-field controls are (1,0,0) and (1,2,1). Historical observations above refer to the inherited file; native exact-resolution maps and ranks remain interface gaps."
+    "compile": "Full suggested file: lean-check exit 0 on 2026-10-09 using the shared build advertised at Tau Ceti f790474 and Mathlib 082e2d3; zero errors, 1041 proof-placeholder warnings, no other warnings. The new Mathlib-only L4 block also elaborated with autoImplicit disabled: exit 0, 131 proof-placeholder warnings, no other warnings, before the final semantic examples were added. The final full check includes those examples. The initial missing-artifact failure occurred before the shared wrapper selected this build. This verifies types, not proofs or complete packet correspondence.",
+    "sourceAuthentication": "RJW publication hash matched on 2026-10-09; printed pp.166,189–190 read. NSW PDF was inaccessible at its recorded author URL; current verification gap recorded.",
+    "baselineAuthentication": "The shared build Mathlib source HEAD is 082e2d37e8b0463410cdb532e111cd43d5a66174. All eleven directly imported Tau Ceti source modules were SHA256-compared with the f790474821cf4256814db967cb154e7af3d0c369 git objects in an existing checkout: zero mismatches. The lean-check wrapper advertises those programme pins. No library build or Lake setup was performed.",
+    "structural": {
+      "command": "python3 scripts/check_blueprint.py research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json --json",
+      "errors": 0,
+      "warnings": 0,
+      "summary": {
+        "packet": "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+        "roadmap": "PadicMeasuresIwasawaAlgebras",
+        "status": "complete",
+        "nodes": 486,
+        "kinds": {
+          "construction": 54,
+          "lemma": 307,
+          "definition": 16,
+          "theorem": 74,
+          "comparison": 35
+        },
+        "apiItems": 468,
+        "unitTests": 273,
+        "planets": 27,
+        "baselineDeclarations": 536,
+        "prerequisites": {
+          "baseline": 1041,
+          "node (this packet)": 923,
+          "node (blueprint)": 3,
+          "stage": 11
+        },
+        "gaps": 20,
+        "requests": 3,
+        "stagesInScope": 8,
+        "stagesClosed": 0,
+        "stagesPlanned": 0
+      },
+      "allRecords": {
+        "apiItems": 471,
+        "unitTests": 346
+      },
+      "note": "Checker API/test totals count definitions and constructions. allRecords includes the three API items and 73 tests on other node kinds."
+    }
   },
   "provenance": {
     "unitInverseFollowup": {
@@ -34446,6 +34860,13 @@
       ],
       "compile": "The new L6 block of the suggested file elaborates against pinned Mathlib 082e2d3 (lean-check, Lean 4 toolchain of the shared build) with only proof-placeholder warnings, using a verbatim local copy of the pinned TauCeti.AuslanderReitenTranspose definition because the shared build has no Tau Ceti oleans for that module. The whole file, which imports Tau Ceti modules, was not re-elaborated.",
       "reviewRequired": "REV-FIX-RT-AREA-iwasawa-2~2"
+    },
+    {
+      "job": "BP-PadicMeasuresIwasawaAlgebras~2",
+      "agent": "Codex — codex-v5eXFs",
+      "date": "2026-10-09",
+      "changes": "No nodes added. Native L4 common fraction-space, DVR invariants, characteristic ideal, projector/component, quotient-limit, delta/saturation and exact-resolution interfaces; semantic module controls; full reader regenerated from all current nodes; coverage, sources and signature fronts made current. Prior corrections and independent review preserved.",
+      "status": "budget pass complete; stage and proof gaps remain"
     }
   ]
 }
