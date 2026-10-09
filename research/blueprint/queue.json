@@ -34979,8 +34979,9 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--R01.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7958"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7958",
+   "finishedAt": "2026-10-09T23:20:10Z"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--R01.4",
@@ -35047,8 +35048,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.5",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7950"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7950",
+   "finishedAt": "2026-10-09T23:20:11Z"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.6",
@@ -81241,8 +81243,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -105259,9 +105261,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv.md",
-   "note": "claimed on GitHub issue #8072"
+   "note": "deliverables arrived from an external worker on issue #8072",
+   "finishedAt": "2026-10-09T23:20:14Z"
   },
   {
    "id": "FIX-PKG-LocallyAnalyticDistributions~adv",
