@@ -1,8 +1,8 @@
 {
   "roadmaps": 244,
-  "stages": 5592,
+  "stages": 5619,
   "originalStages": 2207,
-  "sourceRefinements": 3385,
+  "sourceRefinements": 3412,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -187,14 +187,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5491,
+  "mathematicalStars": 5518,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2376,
-  "stageEdges": 14798,
+  "roadmapEdges": 2377,
+  "stageEdges": 14837,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1200,6 +1200,12 @@
       "reviewer": "independent-review-REV-PadicHodgeRegulators--L3"
     },
     {
+      "file": "PadicMeasuresIwasawaAlgebras",
+      "roadmap": "PadicMeasuresIwasawaAlgebras",
+      "nodes": 487,
+      "reviewer": "independent-review-REV-PadicMeasuresIwasawaAlgebras~2"
+    },
+    {
       "file": "PerfectoidQuotients",
       "roadmap": "PerfectoidQuotients",
       "nodes": 61,
@@ -1393,8 +1399,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 37102012,
-  "htmlSha256": "c5d9cf3d23e8ae16e981b7f7ae2a637c5fe1150ef615b6565f97716adddfd09d",
+  "htmlBytes": 37206639,
+  "htmlSha256": "afc5dd50be5d4e396ee1f491e1165cdadbff5fc5fde01a8a5423b08ae08ea5a6",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1426,7 +1432,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "a2af80a8b3b89d8eed7f4410dc9cdffbfb194a77c1566b9924d1058522d2f0ca",
+    "data/roadmap-distances.json": "76761d5caf8d80bcbbd5dd7a3febcef3036cfcfd9dc3185a41f7ac2fa5a5a8c3",
     "data/galaxy-layout.json": "2c89ea58b5f5ad9fc7715ddcc8193de9d1fadb2e1fdc452020cd7432f12c819d",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1818,6 +1824,8 @@
     "data/blueprints/PadicHodgeRegulators--D.1.md": "b403ed60afaf3a055d603f7d8100f41517bed1b0849d05b8a0397fdc3f1f977f",
     "data/blueprints/PadicHodgeRegulators--L3.json": "e69dbbdb8d55ddfaedeed5294aa91e3331d39f854de44ed9e47a3043962d8cbc",
     "data/blueprints/PadicHodgeRegulators--L3.md": "8dd3fc2f5600687e571a3d03889bc9118e77d2f48a033d17456898cacce5ea61",
+    "data/blueprints/PadicMeasuresIwasawaAlgebras.json": "c8e2dba70fb18cfa4ae9310fb3c24db043e08d8804d349d7effc83d1ac31b24f",
+    "data/blueprints/PadicMeasuresIwasawaAlgebras.md": "04177c187d5a6c4f8b2d74a4a1cbc2cffdd7e83b1aaf42e34786261c153fa8c4",
     "data/blueprints/PerfectoidQuotients.json": "570bbfa78c085e4bcc23095096cce1dc1301f5e526cf1ba74320345bdc232903",
     "data/blueprints/PerfectoidQuotients.md": "037e9c4c8b0b33c11911bdf2841e9d94967991ca638519d60d8a3af779ce6fe7",
     "data/blueprints/PerfectoidSpaces--P8.json": "7e2a682b1bcc80a013ec5e2566a399af9ede807a95fbde28c23a9045c60db845",

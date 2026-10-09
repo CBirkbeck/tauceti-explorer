@@ -272,6 +272,18 @@
     "roadmaps/AdicCoefficientsAndComparisons/metadata.toml"
    ]
   },
+  "research/blueprint/packages/AdicEtaleGeometry/review.json": {
+   "promotedAt": "2026-10-09T14:28:08Z",
+   "review": "d360ab7f2f1406d6",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-AdicEtaleGeometry",
+   "sha256": "397cd9ad21ded74032404bb9ab8655af475d6b344ad199d8b626c4e64c65b170",
+   "to": [
+    "roadmaps/AdicEtaleGeometry/README.md",
+    "roadmaps/AdicEtaleGeometry/Suggested.lean",
+    "roadmaps/AdicEtaleGeometry/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/AlgebraicModularFormsAndSerreWeights/review.json": {
    "promotedAt": "2026-10-09T01:31:14Z",
    "review": "273b7e79327fca1c",
@@ -2290,6 +2302,17 @@
     "data/blueprints/PadicHodgeRegulators--L3.md"
    ]
   },
+  "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json": {
+   "promotedAt": "2026-10-09T14:28:08Z",
+   "review": "27920a417ecdbab1",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PadicMeasuresIwasawaAlgebras~2",
+   "sha256": "149db517656b50880b29a9dddf54ad6e8b42fcb90ae24754db5f4356dfb1c97c",
+   "to": [
+    "data/blueprints/PadicMeasuresIwasawaAlgebras.json",
+    "data/blueprints/PadicMeasuresIwasawaAlgebras.md"
+   ]
+  },
   "research/blueprint/packets/PerfectoidQuotients.json": {
    "promotedAt": "2026-10-06T23:42:39Z",
    "review": "b5fb9ab9f14c8ac8",
@@ -3010,6 +3033,13 @@
  },
  "purpose": "Work promoted into the atlas by scripts/promote.py: each source file, the data files it became, and the review that accepted it; and work refused, with the reason. A file goes live again only after a new accepted review.",
  "refused": {
+  "research/blueprint/packages/AdelicAlgebraicGroups/review.json": {
+   "at": "2026-10-09T14:28:08Z",
+   "reason": "REV-PKG-AdelicAlgebraicGroups~2 is not a job of the queue",
+   "review": "31df89458a6b7bbb",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-AdelicAlgebraicGroups~2"
+  },
   "research/blueprint/packages/PadicMeasuresIwasawaAlgebras/review.json": {
    "at": "2026-10-09T13:18:03Z",
    "reason": "REV-PKG-PadicMeasuresIwasawaAlgebras is not a job of the queue",
