@@ -43,21 +43,24 @@ Design choices made explicit here.
   about `𝒪_X(U)` are made per presentation.
 * The carriers of AdicSpacesPartII Layer 0 that the signatures need (adic ring maps, completed
   tensor products of Huber pairs, the spectral topology and the uniformisation, finite morphisms
-  of Huber pairs) are declared first, in the library namespace `TauCeti.Huber`, so that dot
-  notation on `Huber.Pair` works; they are the forms that roadmap specifies, so that a port replaces them by imports.
+  of Huber pairs) are declared first in `TauCetiRoadmap.PerfectoidSpaces.AdicSuppliers`.
+  These conditional supplier signatures are replaced by imports when that roadmap is available.
 * Perfectoid *spaces* are a full subcategory of adic spaces, which neither pinned library has.
   Statements about spaces are therefore made on their affinoid cores (suffix `_affinoid`) and
   on the pair-level data; the global statements are in `README.md`.
 -/
 
+namespace TauCetiRoadmap.PerfectoidSpaces
+
 /-! ## Carriers from AdicSpacesPartII Layer 0 -/
 noncomputable section
 
-namespace TauCeti
 
 open TensorProduct UniformSpace Topology Filter
 
-namespace Huber
+namespace AdicSuppliers
+
+open TauCeti.Huber
 
 section AdicHom
 
@@ -83,6 +86,8 @@ section CompletedTensor
 variable (A B C : Type*) [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   [CommRing B] [TopologicalSpace B] [IsTopologicalRing B]
   [CommRing C] [TopologicalSpace C] [IsTopologicalRing C] [Algebra A B] [Algebra A C]
+  [IsHuberRing A] [IsHuberRing B] [IsHuberRing C]
+  [IsAdicHom (algebraMap A B)] [IsAdicHom (algebraMap A C)]
 
 /-- The group topology on `B ⊗[A] C`
 with fundamental system of neighbourhoods `{Iⁿ·F}`, `F` the image of `B₀ ⊗_{A₀} C₀`. -/
@@ -135,15 +140,12 @@ instance : Algebra A (CompletedTensor A B C) :=
 
 /-- The pair of definition of
 `B ⊗̂_A C` for adic structure maps. -/
-def Pair.completedTensor.pairOfDefinition [IsAdicHom (algebraMap A B)]
-    [IsAdicHom (algebraMap A C)] : PairOfDefinition (CompletedTensor A B C) := sorry
+def Pair.completedTensor.pairOfDefinition : PairOfDefinition (CompletedTensor A B C) := sorry
 
-instance [IsAdicHom (algebraMap A B)] [IsAdicHom (algebraMap A C)] :
-    IsHuberRing (CompletedTensor A B C) :=
+instance : IsHuberRing (CompletedTensor A B C) :=
   ⟨⟨Pair.completedTensor.pairOfDefinition A B C⟩⟩
 
-variable {A B C} [IsHuberRing A] [IsHuberRing B] [IsHuberRing C] [IsAdicHom (algebraMap A B)]
-  [IsAdicHom (algebraMap A C)]
+variable {A B C}
 
 /-- The completed
 tensor product of Huber pairs along adic structure maps; its plus ring is the closure of the image
@@ -206,7 +208,7 @@ def Pair.uniformization (S : Pair A) : Pair (Uniformization A) where
   isRingOfIntegralElements := sorry
 
 /-- `ι : (A, A⁺) → (Aᵘ, Aᵘ⁺)`. -/
-def Pair.toUniformization (S : Pair A) : Pair.Hom S S.uniformization where
+def Pair.toUniformization (S : Pair A) : Pair.Hom S (Pair.uniformization S) where
   toRingHom := (Completion.coeRingHom : SpectralTop A →+* Completion (SpectralTop A)).comp
     (toSpectralTop : A ≃+* SpectralTop A).toRingHom
   continuous_toRingHom := sorry
@@ -231,7 +233,7 @@ variable (S : Pair A) (T : Pair B) (U : Pair C) (hT : ∀ a ∈ S.plus, algebraM
 /-- `B ⊗̂ᵘ_A C`, the
 uniformisation of `B ⊗̂_A C`. -/
 def Pair.uniformCompletedTensor : Pair (Uniformization (CompletedTensor A B C)) :=
-  (Pair.completedTensor S T U hT hU).uniformization
+  Pair.uniformization (Pair.completedTensor S T U hT hU)
 
 /-- `inrᵘ = ι ∘ inr`. -/
 def Pair.uniformCompletedTensor.inr : Pair.Hom U (Pair.uniformCompletedTensor S T U hT hU) :=
@@ -241,13 +243,16 @@ end UniformCompletedTensor
 
 section HomIsFinite
 
-variable {A B : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [IsHuberRing A]
-  [CommRing B] [TopologicalSpace B] [IsTopologicalRing B] [IsHuberRing B]
+variable {A B : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A]
+  [IsTopologicalRing A] [IsHuberRing A]
+  [CommRing B] [UniformSpace B] [IsUniformAddGroup B]
+  [IsTopologicalRing B] [IsHuberRing B]
 
-/-- A morphism of Huber pairs is
-*finite* (Huber 1996, (1.4.2)) if it is topologically of finite type and both `A → B` and
+/-- A morphism of complete Hausdorff Huber pairs is
+*finite* (Huber 1996, (1.4.2), p. 61) if it is topologically of finite type and both `A → B` and
 `A⁺ → B⁺` are integral. -/
-structure Pair.Hom.IsFinite {S : Pair A} {T : Pair B} (φ : Pair.Hom S T) : Prop where
+structure Pair.Hom.IsFinite [CompleteSpace A] [T2Space A] [CompleteSpace B] [T2Space B]
+    {S : Pair A} {T : Pair B} (φ : Pair.Hom S T) : Prop where
   /-- `φ` is topologically of finite type. -/
   isTopologicallyFiniteType : IsTopologicallyFiniteType φ.toRingHom
   /-- The ring map `A → B` is integral. -/
@@ -257,16 +262,16 @@ structure Pair.Hom.IsFinite {S : Pair A} {T : Pair B} (φ : Pair.Hom S T) : Prop
 
 end HomIsFinite
 
-end Huber
+end AdicSuppliers
 
-end TauCeti
 
 end
+
+open TauCetiRoadmap.PerfectoidSpaces.AdicSuppliers
 
 /-! ## Layer 0: Almost mathematics over a basic setup -/
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces
 
 open TauCeti
 
@@ -339,8 +344,8 @@ example : ∃ S : BasicSetup V, S.ideal = ⊥ ∧
 example (p : ℕ) [Fact p.Prime] : ¬ IsIdempotentElem (IsLocalRing.maximalIdeal ℤ_[p]) := sorry
 
 /-- The *root setup* of a sequence `ϖ` with
-`ϖ (n + 1) ^ p = ϖ n`, `p ≥ 2`: the ideal `m = ⋃ ϖ_n V` (ECD Definition 3.21, Bhatt Example
-4.1.3). -/
+`ϖ (n + 1) ^ p = ϖ n`, `p ≥ 2`: the ideal `m = ⋃ ϖ_n V`. Its tensor square is flat
+by GR Proposition 2.1.7(i), including when the roots have annihilators. -/
 def ofCompatibleRoots (p : ℕ) (hp : 2 ≤ p) (ϖ : ℕ → V) (hϖ : ∀ n, ϖ (n + 1) ^ p = ϖ n) :
     BasicSetup V where
   ideal := Ideal.span (Set.range ϖ)
@@ -353,7 +358,7 @@ open scoped Pointwise
 
 variable (p : ℕ) (hp : 2 ≤ p) (ϖ : ℕ → V) (hϖ : ∀ n, ϖ (n + 1) ^ p = ϖ n)
 
-/-- The ideal of the root setup (ECD Definition 3.21). -/
+/-- The ideal of the root setup (GR condition (A), §2.1). -/
 @[simp] theorem ofCompatibleRoots_ideal :
     (ofCompatibleRoots p hp ϖ hϖ).ideal = Ideal.span (Set.range ϖ) := rfl
 
@@ -442,6 +447,12 @@ instance : S.closure.Full := sorry
 /-- `j_*` is fully faithful (Bhatt Proposition 4.1.7(2)). -/
 instance : S.closure.Faithful := sorry
 
+example (M : Type*) [AddCommGroup M] [Module V M] : (classical V).IsFirm M := sorry
+
+example : S.IsFirm S.tilde := sorry
+
+example (hm : S.ideal ≠ ⊤) : ¬ S.IsFirm V := sorry
+
 end BasicSetup
 
 variable {V : Type u} [CommRing V] (S : BasicSetup V)
@@ -474,6 +485,15 @@ def AlmostFP (S : BasicSetup V) (N : Type*) [AddCommGroup N] [_root_.Module V N]
     (φ : (Fin n → V) →ₗ[V] N), φ ∘ₗ ψ = 0 ∧ (∀ ε ∈ m₀, ∀ x : N, ε • x ∈ LinearMap.range φ) ∧
       ∀ ε ∈ m₀, ∀ y ∈ LinearMap.ker φ, ε • y ∈ LinearMap.range ψ
 
+example (N : Type*) [AddCommGroup N] [_root_.Module V N] (hN : S.IsAlmostZero N) :
+    UniformlyAlmostFG S N 0 ∧ AlmostFP S N := sorry
+
+example (N : Type*) [AddCommGroup N] [_root_.Module V N] :
+    (AlmostFG (BasicSetup.classical V) N ↔ _root_.Module.Finite V N) ∧
+      (AlmostFP (BasicSetup.classical V) N ↔ _root_.Module.FinitePresentation V N) := sorry
+
+example [Nontrivial V] : ¬ UniformlyAlmostFG (BasicSetup.classical V) V 0 := sorry
+
 variable {N N' : Type*} [AddCommGroup N] [_root_.Module V N] [AddCommGroup N']
   [_root_.Module V N']
 
@@ -489,14 +509,12 @@ end Module
 
 end Almost
 
-end TauCetiRoadmap.PerfectoidSpaces
 
 end
 
 /-! ## Layer 1: Perfectoid Tate rings, tilts and untilts -/
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces
 
 open TauCeti
 
@@ -592,7 +610,7 @@ end MapPowerBounded
 /-- A product of Tate rings is a Tate ring,
 with pair of definition `(A₀ × B₀, I × J)` and pseudo-uniformizer `(ϖ_A, ϖ_B)`; used for
 `IsPerfectoidTateRing.prod`. -/
-instance _root_.TauCeti.Huber.IsTateRing.instProd {A B : Type*} [CommRing A] [TopologicalSpace A]
+instance instIsTateRingProd {A B : Type*} [CommRing A] [TopologicalSpace A]
     [IsTopologicalRing A] [IsTateRing A] [CommRing B] [TopologicalSpace B] [IsTopologicalRing B]
     [IsTateRing B] : IsTateRing (A × B) := sorry
 
@@ -600,7 +618,7 @@ instance _root_.TauCeti.Huber.IsTateRing.instProd {A B : Type*} [CommRing A] [To
 ring, with ring of definition the closed unit ball and pseudo-uniformizer any `0 < ‖ϖ‖ < 1`; its
 power-bounded subring is the closed unit ball and `K°°` the open unit ball. Stated here because
 the examples below (`ℂ_p`, `ℚ_p^cycl`) use it. -/
-instance _root_.TauCeti.Huber.isTateRing_of_nontriviallyNormedField (K : Type*)
+instance instIsTateRingNonarchimedeanField (K : Type*)
     [NontriviallyNormedField K] [IsUltrametricDist K] : IsTateRing K := sorry
 
 section Prod
@@ -772,8 +790,17 @@ section RootsTests
 
 variable (p : ℕ) [Fact p.Prime]
 
-example (ϖ : PseudoUniformizerRoots p ℂ_[p]) (hϖ : ϖ.root 0 = p) (x : ℂ_[p]) (hx : x ≠ 0) :
-    (ϖ.gauge x : ℝ) = 2 ^ Real.logb p ‖x‖ := sorry
+example (ϖ : PseudoUniformizerRoots p ℂ_[p]) (x : ℂ_[p]) (hx : x ≠ 0) :
+    (ϖ.gauge x : ℝ) = 2 ^ (-Real.logb ‖ϖ.root 0‖ ‖x‖) := sorry
+
+example (ϖ : PseudoUniformizerRoots p ℂ_[p]) : ϖ.gauge 0 = 0 := sorry
+
+example (ϖ : PseudoUniformizerRoots p ℂ_[p]) : (ϖ.gauge (ϖ.root 0) : ℝ) = 1 / 2 := sorry
+
+example (ϖ : PseudoUniformizerRoots p ℂ_[p]) (hϖ : (ϖ.root 0) ^ p = p) :
+    (ϖ.gauge (p : ℂ_[p]) : ℝ) = 2 ^ (-(p : ℝ)) := sorry
+
+example (ϖ : PseudoUniformizerRoots p ℂ_[p]) : ϖ.root 0 ≠ (p : ℂ_[p]) := sorry
 
 example : IsEmpty (PseudoUniformizerRoots p ℚ_[p]) := sorry
 
@@ -1402,14 +1429,12 @@ end Marked
 
 end Perfectoid
 
-end TauCetiRoadmap.PerfectoidSpaces
 
 end
 
 /-! ## Layer 2: Rational localisation, the sheaf theorem and perfectoid spaces -/
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces
 
 open TauCeti
 
@@ -1843,13 +1868,11 @@ end PFinite
 
 end Perfectoid
 
-end TauCetiRoadmap.PerfectoidSpaces
 
 end
 
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces
 
 open TauCeti
 
@@ -1883,14 +1906,12 @@ end CompletedTensorPerfectoid
 
 end Perfectoid
 
-end TauCetiRoadmap.PerfectoidSpaces
 
 end
 
 /-! ## Layer 3: Almost purity and the étale site -/
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces
 
 open TauCeti
 
@@ -2057,14 +2078,12 @@ end TiltingEquivalence
 
 end Perfectoid
 
-end TauCetiRoadmap.PerfectoidSpaces
 
 end
 
 /-! ## Layer 4: Injections, immersions and separatedness -/
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces
 
 open TauCeti
 
@@ -2107,7 +2126,8 @@ example (K L C : Type u) [NontriviallyNormedField K] [IsUltrametricDist K] [Comp
     [NontriviallyNormedField L] [IsUltrametricDist L] [CompleteSpace L]
     [NontriviallyNormedField C] [IsUltrametricDist C] [CompleteSpace C] [IsPerfectoidField p K]
     [IsPerfectoidField p L] [IsPerfectoidField p C] [IsAlgClosed C] [Algebra K L]
-    [Algebra.IsSeparable K L] (h2 : Module.finrank K L = 2) (ι : K →+* C) (hι : Continuous ι) :
+    [Algebra.IsSeparable K L] (hKL : Continuous (algebraMap K L))
+    (h2 : Module.finrank K L = 2) (ι : K →+* C) (hι : Continuous ι) :
     ∃ σ τ : L →+* C, Continuous σ ∧ Continuous τ ∧ σ ≠ τ ∧
       σ.comp (algebraMap K L) = ι ∧ τ.comp (algebraMap K L) = ι := sorry
 
@@ -2190,14 +2210,12 @@ end ZariskiClosedSubspace
 
 end PerfectoidSpace
 
-end TauCetiRoadmap.PerfectoidSpaces
 
 end
 
 /-! ## Layer 5: Cofiltered limits and finite-stage étale descent -/
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces
 
 open TauCeti
 
@@ -2232,14 +2250,12 @@ end TwoColimit
 
 end CategoryTheory
 
-end TauCetiRoadmap.PerfectoidSpaces
 
 end
 
 /-! ## Layer 6: κ-small perfectoid spaces and pro-étale morphisms -/
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces
 
 open TauCeti
 
@@ -2298,14 +2314,12 @@ end KappaSmallTests
 
 end PerfectoidSpace
 
-end TauCetiRoadmap.PerfectoidSpaces
 
 end
 
 /-! ## Layer 7: Tilde-limits and Frobenius-controlled towers -/
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces
 
 open TauCeti
 
@@ -2329,6 +2343,10 @@ Scholze–Weinstein Definition 2.4.1 for `X = Spa(R, R⁺)` and the cover `U = X
 `|X| → lim_j |X_j|`, `x ↦ (g_j^* x)_j`, is a homeomorphism, i.e. an embedding into `∏_j |X_j|`
 with image the compatible families; (b) `⋃_j im(A_j → R)` is dense in `R`. -/
 structure IsTildeLimit_affinoid [IsFiltered J] : Prop where
+  /-- Identity transition maps. -/
+  map_id : ∀ i, f (𝟙 i) = Pair.Hom.id (P i)
+  /-- Composition of transition maps. -/
+  map_comp : ∀ {i j k : J} (a : i ⟶ j) (b : j ⟶ k), f (a ≫ b) = (f b).comp (f a)
   /-- The cone is compatible: `g_j ∘ f_a = g_i` for `a : i ⟶ j`. -/
   comm : ∀ {i j : J} (a : i ⟶ j), (g j).toRingHom.comp (f a).toRingHom = (g i).toRingHom
   /-- (a) `|X| → ∏_j |X_j|` is an embedding. -/
@@ -2343,7 +2361,8 @@ structure IsTildeLimit_affinoid [IsFiltered J] : Prop where
 `Spa(A_j, A_j⁺)` are spectral, so is `Spa(R, R⁺)`, and the projections are spectral maps
 (Sch12 Remark 7.15; Stacks Tag 0A2Z; DiamondsAndVStacks D0.10). -/
 theorem IsTildeLimit.spectralSpace_affinoid [IsFiltered J] (h : IsTildeLimit_affinoid P f Q g)
-    [∀ j, SpectralSpace (spa (P j).plus)] :
+    [∀ j, SpectralSpace (spa (P j).plus)]
+    (hf : ∀ {i j : J} (a : i ⟶ j), IsSpectralMap (f a).spaComap) :
     SpectralSpace (spa Q.plus) ∧ ∀ j, IsSpectralMap (g j).spaComap := sorry
 
 /-- `(R, R⁺)` with the cone `g_j` is
@@ -2356,6 +2375,12 @@ is the closure of the integral closure of the subring generated by the `g_j(A_j�
 `FrobeniusTower.isCompletedDirectLimit`. -/
 structure IsCompletedColimitOfTower [IsFiltered J] (A₀ : ∀ j, Subring (A j)) (ϖ : R) :
     Prop where
+  /-- Identity transition maps. -/
+  map_id : ∀ i, f (𝟙 i) = Pair.Hom.id (P i)
+  /-- Composition of transition maps. -/
+  map_comp : ∀ {i j k : J} (a : i ⟶ j) (b : j ⟶ k), f (a ≫ b) = (f b).comp (f a)
+  /-- Each chosen subring is a ring of definition. -/
+  ringOfDefinition : ∀ j, ∃ D : PairOfDefinition (A j), D.ringOfDefinition = A₀ j
   /-- The cone is compatible. -/
   comm : ∀ {i j : J} (a : i ⟶ j), (g j).toRingHom.comp (f a).toRingHom = (g i).toRingHom
   /-- The rings of definition are mapped into one another. -/
@@ -2417,13 +2442,12 @@ end StrongCompletionPair
 
 end PerfectoidSpace
 
-end TauCetiRoadmap.PerfectoidSpaces
 
 end
 
 noncomputable section
 
-namespace TauCetiRoadmap.PerfectoidSpaces.Perfectoid
+namespace Perfectoid
 
 open TauCeti
 
@@ -2431,6 +2455,42 @@ open TauCeti.Huber TauCeti.ValuationSpectrum Topology Pointwise _root_.CategoryT
   CategoryTheory.Limits
 
 /-! ## Layer 8: Finite quotients and closed perfectoid loci in towers -/
+
+namespace FiniteAction
+
+section Clean
+
+variable {G X : Type*} [Group G] [Finite G] [TopologicalSpace X] [MulAction Gᵐᵒᵖ X]
+
+/-- A clean open neighbourhood for a right action, represented by the left action of the
+opposite group. Stabilizer elements preserve it, and other translates are disjoint
+(Hansen–Johansson, definition preceding Lemma 5.2, pp. 27–28). -/
+def IsGClean (x : X) (U : Set X) : Prop :=
+  IsOpen U ∧ x ∈ U ∧
+    (∀ g : Gᵐᵒᵖ, g • x = x → g • U = U) ∧
+    (∀ g : Gᵐᵒᵖ, g • x ≠ x → Disjoint U (g • U))
+
+example [Subsingleton G] (x : X) (U : Set X) (hU : IsOpen U) (hx : x ∈ U) :
+    IsGClean (G := G) x U := sorry
+
+end Clean
+
+/-- The reflection action of the group with two elements; the right and left conventions
+coincide for this group. -/
+instance reflectionAction : MulAction (Multiplicative (ZMod 2))ᵐᵒᵖ ℝ where
+  smul g x := if g.unop.toAdd = 0 then x else -x
+  one_smul := sorry
+  mul_smul := sorry
+
+example : IsGClean (G := Multiplicative (ZMod 2)) (1 : ℝ) (Set.Ioo (1 / 2) (3 / 2)) :=
+  sorry
+
+example : IsGClean (G := Multiplicative (ZMod 2)) (0 : ℝ) (Set.Ioo (-1) 1) := sorry
+
+example : ¬ IsGClean (G := Multiplicative (ZMod 2)) (1 : ℝ) (Set.Ioo (-1) 2) := sorry
+
+end FiniteAction
+
 section InvariantPair
 
 variable {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
@@ -2571,7 +2631,9 @@ section TwistedInvariants
 variable {G R : Type*} [Group G] [CommRing R] [MulSemiringAction G R]
 
 /-- The pinned cocycle law `c (γ * δ) = c γ * γ • c δ` for `c : G → Rˣ`, with `G` acting on `R`
-on the left (`γ • f = γ^* f`). It is Mathlib's `groupCohomology.IsMulCocycle₁` once `Rˣ`
+on the left, obtained by pullback from a right geometric action. For a left geometric action,
+the corresponding left ring action uses inverse pullback. It is Mathlib's
+`groupCohomology.IsMulCocycle₁` once `Rˣ`
 carries the induced action, which it does not at the pinned commit. -/
 def IsTwistCocycle (c : G → Rˣ) : Prop :=
   ∀ γ δ : G, (c (γ * δ) : R) = c γ * γ • (c δ : R)
@@ -2584,11 +2646,40 @@ def twistedInvariants (c : G → Rˣ) : Submodule (FixedPoints.subring R G) R :=
 theorem mem_twistedInvariants (c : G → Rˣ) (f : R) :
     f ∈ twistedInvariants c ↔ ∀ γ : G, γ • f = ((c γ)⁻¹ : Rˣ) * f := sorry
 
+example (c : G → Rˣ) : (0 : R) ∈ twistedInvariants c := sorry
+
+example : (1 : R) ∈ twistedInvariants (fun _ : G ↦ (1 : Rˣ)) := sorry
+
+example [Nontrivial R] (c : G → Rˣ) (γ : G) (hc : c γ ≠ 1) :
+    (1 : R) ∉ twistedInvariants c := sorry
+
 end TwistedInvariants
+
+section CyclicSignWitness
+
+/-- Pullback for translation by one on the right `ℤ/3ℤ`-torsor. The reverse translation is
+inverse pullback, so this example distinguishes the two action conventions. -/
+def cyclicPullbackThree : (ZMod 3 → ℂ) ≃+* (ZMod 3 → ℂ) where
+  toFun f i := f (i + 1)
+  invFun f i := f (i - 1)
+  left_inv := sorry
+  right_inv := sorry
+  map_mul' := sorry
+  map_add' := sorry
+
+example (ζ : ℂ) (hζ : ζ ^ 3 = 1) :
+    cyclicPullbackThree (fun i : ZMod 3 ↦ ζ ^ i.val) =
+      fun i : ZMod 3 ↦ ζ * ζ ^ i.val := sorry
+
+example (ζ : ℂ) (hζ : ζ ^ 3 = 1) (hζne : ζ ≠ 1) :
+    cyclicPullbackThree (fun i : ZMod 3 ↦ ζ ^ i.val) ≠
+      fun i : ZMod 3 ↦ ζ⁻¹ * ζ ^ i.val := sorry
+
+end CyclicSignWitness
 
 end TorsorDescent
 
-end TauCetiRoadmap.PerfectoidSpaces.Perfectoid
+end Perfectoid
 
 end
 
@@ -2597,29 +2688,39 @@ end
 
 The following README definitions are not stated in this file, because they need carriers that the
 pinned libraries do not have (adic spaces as a category, Huber's tilde-limits, the pro-étale
-site, the derived category of almost modules) or because they are long tails of the kept
-constructions; the README states them in full.
+site, the derived category of almost modules) or because their general interfaces are not represented by the affinoid signatures above.
+The mathematical specifications and any unresolved contracts are recorded in README.md.
 
-* P0: the left adjoint `B ↦ B_!!` on almost algebras (P0.9); flat, unramified, étale and finite
-  étale morphisms of almost algebras (P0.14); the cotangent complex of a ring map (P0.19) and the
-  almost cotangent complex (P0.20).
-* P1: the tilt of a perfectoid field and its comparison with Mathlib's `Tilt` (P1.15); integral
+* P0: the almost-module quotient and its full adjoint API (P0.5–P0.7); almost algebras and their
+  module categories (P0.8); the left adjoint `B ↦ B_!!` (P0.9); almost flatness/projectivity,
+  duals and traces (P0.11–P0.12); almost étale morphisms (P0.14); inversion and universal
+  differentials (P0.16, P0.18); ordinary and almost cotangent complexes (P0.19–P0.20);
+  tight/henselian pairs and almost sheaf cohomology (P0.26, P0.29).
+* P1: the Gelfand spectrum of a Banach ring (P1.12); the tilt of a perfectoid field and its comparison with Mathlib's `Tilt` (P1.15); integral
   perfectoid rings (P1.24); the perfected Tate algebra, the cyclotomic perfectoid field, marked
-  untilts and the comparison of `θ` with `WittVector.fontaineTheta`.
-* P2: completed colimits of perfectoid pairs and fibre products of perfectoid spaces.
+  untilts, completed filtered colimits (P1.29) and the comparison of `θ` with
+  `WittVector.fontaineTheta`.
+* P2: the rational-pair presheaf (P2.4), the categories of affinoid and global perfectoid spaces
+  and their glued tilt (P2.9–P2.11), and global fibre products (P2.16–P2.18).
 * P3: finite étale, étale, strongly finite étale and strongly étale morphisms of perfectoid spaces
   (P3.14–P3.16) and the étale site.
 * P4: affinoid perfectoid fields and `(K, K⁺)`-valued points (P4.1); quasicompact and
   quasiseparated morphisms (P4.2); the completed residue field point (P4.5); immersions, open and
-  closed immersions (P4.10); Zariski closed subsets and immersions (P4.12); separated morphisms
+  closed immersions (P4.10); filtered rational intersections (P4.4), Zariski closed subsets
+  and their universal perfectoid spaces (P4.12, P4.14); separated morphisms
   (P4.19) and the valuative criterion.
-* P5: cofiltered limits of affinoid perfectoid spaces.
+* P5: completed colimits and cofiltered limits of affinoid perfectoid spaces (P5.1, P5.3),
+  and general filtered 2-colimits of categories (P5.8).
 * P6: uniformly κ-small perfectoid spaces (P6.2); affinoid pro-étale morphisms and pro-étale
-  presentations (P6.6); pro-étale morphisms (P6.7); the pro-category equivalence.
+  presentations (P6.6); pro-étale morphisms (P6.7); products with profinite sets (P6.8);
+  the pro-category equivalence.
 * P7: cofinality witnesses for families of compact open subgroups (P7.9); Frobenius-controlled
-  towers and preperfectoid spaces.
-* P8: `G`-clean neighbourhoods (P8.13); Zariski-closed embeddings (P8.14); analytically separated
-  perfectoid spaces (P8.15); categorical quotients.
+  towers and preperfectoid spaces; general neighborhood-level and residue-field tilde-limits
+  and good affinoids (P7.1–P7.4).
+* P8: the induced open-embedding characterization of clean neighbourhoods (P8.13); Zariski-closed embeddings (P8.14); analytically separated
+  perfectoid spaces (P8.15); categorical quotients and good towers (P8.19).
 * P9: the pro-étale site of a rigid space (P9.1); the Čech descent datum of a pro-étale Galois
-  tower (P9.5).
+  tower (P9.4–P9.5), and the global twisted character sheaf (P9.9).
 -/
+
+end TauCetiRoadmap.PerfectoidSpaces
