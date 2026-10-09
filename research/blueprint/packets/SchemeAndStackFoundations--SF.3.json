@@ -5,8 +5,8 @@
  "scope": [
   "SchemeAndStackFoundations:SF.3"
  ],
- "status": "complete",
- "summary": "Follow-up plan of layer SF.3 (curves, divisors and Picard objects). The layer integrates the Tau Ceti roadmaps JacobianChallenge (line bundles, coherent curve cohomology, Picard functor with a rational point, Jacobian, Abel–Jacobi), AlgebraicCurves (function-field divisors, genus and Riemann–Roch, Layer 12 dictionary) and StableReduction (dualizing sheaf of curves), together with SF.2's coherent duality and the PR 196 trace-formula layers, and plans only what none of them states. It supplies: the nonsingular projective model and boundary of a normal curve, the affine-or-projective dichotomy, invariance of the scheme genus under field extension (with the inseparable function-field contrast), scheme Riemann–Hurwitz, the genus-zero and genus-one checks; degrees, Riemann–Roch and Serre duality for vector bundles and coherent sheaves on curves; Pic = H¹(G_m), Weil divisor classes versus Pic on locally factorial schemes and the excision sequence; Picard groupoids, norms of invertible sheaves, Picard stacks and the stack of sections; Picard torsors Pic^d of a curve without rational point, the Picard–Brauer obstruction sequence and its hyperelliptic consequence; Abel maps in high degree and the double-cover norm sequence; pullback of 1-forms along Abel–Jacobi; and the identification of the Tate module of the Jacobian with étale H¹ under pinned dual conventions. Twenty-six target-level nodes; every implementation is unchecked.",
+ "status": "partial",
+ "summary": "Follow-up plan of layer SF.3 (curves, divisors and Picard objects). The layer integrates the Tau Ceti roadmaps JacobianChallenge (line bundles, coherent curve cohomology, Picard functor with a rational point, Jacobian, Abel–Jacobi), AlgebraicCurves (function-field divisors, genus and Riemann–Roch, Layer 12 dictionary) and StableReduction (dualizing sheaf of curves), together with SF.2's coherent duality and the PR 196 trace-formula layers, and plans only what none of them states. It supplies: the nonsingular projective model and boundary of a normal curve, the affine-or-projective dichotomy, invariance of the scheme genus under field extension (with the inseparable function-field contrast), scheme Riemann–Hurwitz, the genus-zero and genus-one checks; degrees, Riemann–Roch and Serre duality for vector bundles and coherent sheaves on curves; Pic = H¹(G_m), Weil divisor classes versus Pic on locally factorial schemes and the excision sequence; Picard groupoids, norms of invertible sheaves, Picard stacks and the stack of sections; Picard torsors Pic^d of a curve without rational point, the Picard–Brauer obstruction sequence and its hyperelliptic consequence; Abel maps in high degree and the double-cover norm sequence; pullback of 1-forms along Abel–Jacobi; and the identification of the Tate module of the Jacobian with étale H¹ under pinned dual conventions. Twenty-six target-level nodes; every implementation is unchecked. Independent review corrected statements, proof sketches and prototype hypotheses, and marks SF.3 partial: the remaining closure and typed-interface requirements are listed explicitly. The reviewed plan requires revision; none of these admitted statements is claimed formalized.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,392 +16,448 @@
     "kind": "def",
     "module": "Mathlib/RingTheory/Norm/Defs.lean",
     "provides": "The norm S →* R of an R-algebra S, the determinant of left multiplication.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 61, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 61, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
     "provides": "Algebraic cycles on a scheme as locally finitely supported functions on its points.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 44, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 44, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Flat",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
     "provides": "The morphism property of being flat.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 42, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 42, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.GeometricallyIntegral",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Geometrically/Integral.lean",
     "provides": "A morphism is geometrically integral when every base change to a field is integral.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 40, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 40, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsAffine",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/AffineScheme.lean",
     "provides": "The class of affine schemes.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 59, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 59, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsFinite",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
     "provides": "The morphism property of being finite.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 40, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 40, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsOpenImmersion",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
     "provides": "Open immersions of schemes.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 36, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 36, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsProper",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
     "provides": "Proper morphisms of schemes (separated, finite type, universally closed).",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 42, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 42, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsSeparated",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
     "provides": "Separated morphisms of schemes.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 44, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 44, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.EllAdicCohomology",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Sites/ElladicCohomology.lean",
     "provides": "ℓ-adic cohomology H^n(X, Z_ℓ) of a scheme as cohomology of the sheaf U ↦ C(U, Z_ℓ) on the pro-étale site; no finiteness, Galois action or comparison is provided.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 75, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 75, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
     "provides": "The relative normalization of Y in X along f : X → Y, glued from integral closures over affine opens.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 123, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 123, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Modules",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
     "provides": "The category of sheaves of O_X-modules on a scheme X.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 36, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 36, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.functionField",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicGeometry/FunctionField.lean",
     "provides": "The function field of an irreducible scheme, the stalk at its generic point (a field when X is integral).",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 37, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 37, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.ord",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/OrderOfVanishing.lean",
     "provides": "The order of vanishing of a rational function at a point of coheight one (zero elsewhere).",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 52, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 52, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
     "provides": "The small étale site of a scheme: the topology on schemes étale over X induced from the étale topology.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 50, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 50, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Smooth",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
     "provides": "The morphism property of being smooth (locally standard smooth).",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 62, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 62, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:BrauerGroup",
     "kind": "abbrev",
     "module": "Mathlib/Algebra/BrauerGroup/Defs.lean",
     "provides": "The Brauer group of a field: finite-dimensional central simple algebras modulo Brauer equivalence.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 99, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 99, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:CategoryTheory.Core",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Core.lean",
     "provides": "The core of a category: the groupoid of its isomorphisms.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 39, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 39, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:CategoryTheory.ExactPairing",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Monoidal/Rigid/Basic.lean",
     "provides": "An exact pairing of two objects in a monoidal category (coevaluation and evaluation with the triangle identities).",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 77, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 77, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:CategoryTheory.Groupoid",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Groupoid.lean",
     "provides": "The class of groupoids: categories in which every morphism is invertible.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 40, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 40, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:CategoryTheory.MonoidalCategory",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Monoidal/Category.lean",
     "provides": "Monoidal structure on a category: tensor product, unit, associator and unitors with coherence.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 162, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 162, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:CategoryTheory.Sheaf.H",
     "kind": "abbrev",
     "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Basic.lean",
     "provides": "Cohomology of an abelian sheaf on a site, as Ext from the constant sheaf Z.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 59, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 59, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:CategoryTheory.SymmetricCategory",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Monoidal/Braided/Basic.lean",
     "provides": "Symmetric monoidal categories: braided with the braiding its own inverse.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 367, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 367, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:CommRing.Pic",
     "kind": "def",
     "module": "Mathlib/RingTheory/PicardGroup.lean",
     "provides": "The Picard group of a commutative (semi)ring: invertible modules up to isomorphism, a commutative group.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 429, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 429, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:Field.absoluteGaloisGroup",
     "kind": "def",
     "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
     "provides": "The absolute Galois group of a field with its Krull topology.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 43, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 43, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:KaehlerDifferential",
     "kind": "def",
     "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
     "provides": "The module of Kähler differentials Ω[S⁄R] of an R-algebra S.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 153, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 153, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:Module.finrank",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
     "provides": "The finite rank of a module (zero for infinite rank).",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 62, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 62, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:PadicInt",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Padics/PadicIntegers.lean",
     "provides": "The ring Z_p of p-adic integers.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 62, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 62, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:groupCohomology",
     "kind": "def",
     "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Basic.lean",
     "provides": "Group cohomology of a representation.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 186, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 186, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:groupCohomology.isMulCoboundary₁_of_isMulCocycle₁_of_aut_to_units",
     "kind": "theorem",
     "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/Hilbert90.lean",
     "provides": "Hilbert's Theorem 90 (Noether's form): every multiplicative 1-cocycle Gal(L/K) → L^× of a finite Galois extension is a coboundary.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 84, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 84, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "mathlib:rootsOfUnity",
     "kind": "def",
     "module": "Mathlib/RingTheory/RootsOfUnity/Basic.lean",
     "provides": "The subgroup of n-th roots of unity in the units of a commutative monoid.",
-    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 56, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 56, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:AlgebraicGeometry.Scheme.Modules.eulerCharBelow",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/Cohomology/EulerCharacteristic.lean",
     "provides": "The truncated Euler characteristic Σ_{i<n} (−1)^i dim_k H^i(X, M) of a sheaf of modules on a k-scheme (junk value 0 for infinite dimension).",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 105, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 105, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:AlgebraicGeometry.Scheme.Modules.finrank_cohomology_zero_sub_one_eq_add",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/Cohomology/EulerCharacteristic.lean",
     "provides": "Additivity of dim H⁰ − dim H¹ on a short exact sequence of sheaves of modules, assuming finite dimensionality in degrees 0, 1 and vanishing of H² of the first term.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 323, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 323, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
     "kind": "structure",
     "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
     "provides": "Abelian varieties over a field: proper geometrically integral group objects over Spec K (smooth, geometrically connected, commutative by consequences).",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 94, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 94, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.TangentSpace",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/AbelianVariety/TangentSpace.lean",
     "provides": "The Zariski tangent space at the identity of an abelian variety, a finite-dimensional K-vector space.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 85, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 85, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.baseChange",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean",
     "provides": "Base change of an abelian variety along a field extension, again an abelian variety.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 274, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 274, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.mulBy",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/AbelianVariety/End/Basic.lean",
     "provides": "Multiplication by an integer n on an abelian variety, as an endomorphism.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 243, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 243, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
     "kind": "abbrev",
     "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
     "provides": "The full subcategory of invertible (locally free of rank one) sheaves of O_X-modules on a scheme.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 78, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 78, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf.tensorProduct",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/LineBundle/TensorProduct.lean",
     "provides": "The tensor product of two invertible sheaves, again invertible.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 57, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 57, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
     "provides": "Isomorphism classes of invertible sheaves (a skeleton), a commutative monoid under tensor product; inverses are not yet provided.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 49, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 49, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
     "kind": "abbrev",
     "module": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
     "provides": "Sheaf cohomology H^i(X, M) of a sheaf of O_X-modules on the Zariski site, via Mathlib's Sheaf.H.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 61, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 61, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.mayerVietorisSequence_exact",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/Cohomology/MayerVietoris.lean",
     "provides": "Exactness of the Mayer–Vietoris sequence for the cohomology of sheaves of modules on two open subsets.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 109, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 109, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor",
     "kind": "abbrev",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Basic.lean",
     "provides": "Weil divisors on a scheme: finitely supported integer combinations of codimension-one points.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 47, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 47, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.classGroupToLineBundleClassHom",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/TensorProduct.lean",
     "provides": "The additive homomorphism from the divisor class group to line-bundle classes, D ↦ O_X(D), on Noetherian integral schemes of dimension ≤ 1 with DVR codimension-one local rings.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 417, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 417, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.classGroupToLineBundleClass_injective",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/LineBundle.lean",
     "provides": "Injectivity of D ↦ [O_X(D)] from divisor classes to line-bundle classes on such curves.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 140, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 140, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.equivCartierDivisor",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Cartier/Inverse.lean",
     "provides": "The Weil–Cartier equivalence on Noetherian integral curves whose codimension-one local rings are DVRs.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 366, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 366, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.SchemeWeilDivisor.relativeDegree",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Degree.lean",
     "provides": "The degree of a Weil divisor weighted by residue degrees along a morphism, Σ n_x [κ(x):κ(f x)].",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 40, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 40, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.ofScheme",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Scheme/Principal.lean",
     "provides": "The order system of a Noetherian integral scheme: orders of nonzero rational functions at codimension-one points, defining principal divisors.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 129, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 129, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.WeilDivisor.OrderSystem.picZero",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/WeilDivisor/Principal/Basic.lean",
     "provides": "The weighted-degree-zero subgroup of a divisor class group (the abstract Pic⁰), the kernel of the weighted degree.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 298, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 298, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.BrauerGroup.baseChange",
     "kind": "def",
     "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
     "provides": "Base change BrauerGroup K →* BrauerGroup L along a field extension.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 136, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 136, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.Divisor.degreeClass",
     "kind": "def",
     "module": "TauCeti/FieldTheory/FunctionField/Divisor/ProductFormula.lean",
     "provides": "The degree homomorphism on the divisor class group of an algebraic function field; Cl⁰ is its kernel.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 263, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 263, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.Divisor.exists_linearlyEquivalent_ofPoint_of_genus_eq_one",
     "kind": "theorem",
     "module": "TauCeti/FieldTheory/FunctionField/Elliptic.lean",
     "provides": "In a genus-one function field with exact constants, a divisor of degree one is linearly equivalent to a place of degree one.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 92, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 92, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.Place.degreeOneEquivDegreeZeroClassGroup",
     "kind": "def",
     "module": "TauCeti/FieldTheory/FunctionField/Elliptic.lean",
     "provides": "For an elliptic function field with a chosen degree-one place P₀, the bijection P ↦ [P − P₀] from degree-one places to Cl⁰(F).",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 188, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 188, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.Quaternion.brauerGroupMulEquiv",
     "kind": "def",
     "module": "TauCeti/Algebra/BrauerGroup/Real.lean",
     "provides": "The isomorphism BrauerGroup R ≅ Z/2 sending the Hamilton quaternions to the generator.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 102, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 102, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.genus",
     "kind": "def",
     "module": "TauCeti/FieldTheory/FunctionField/RiemannRoch/Genus.lean",
     "provides": "The genus of an algebraic function field, sup of deg D + 1 − ℓ(D) (Stichtenoth's definition).",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 189, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 189, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    },
    {
     "ref": "tauceti:TauCeti.nonempty_algEquiv_ratFunc_of_genus_eq_zero_of_divisor_degree_eq_one",
     "kind": "theorem",
     "module": "TauCeti/FieldTheory/FunctionField/Consequences/GenusZero.lean",
     "provides": "A genus-zero function field with exact constants and a divisor of degree one is k-isomorphic to the rational function field.",
-    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 89, on 2026-10-09; the node uses it only within the hypotheses stated there."
+    "checked": "Statement read in the source file at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369, line 89, on 2026-10-09; the node uses it only within the hypotheses stated there.",
+    "reviewChecked": "Independently read 2026-10-09 at the recorded pin; containing file SHA256 agrees with the raw pinned file. Its stated hypotheses/carrier were compared with this packet; no baseline declaration removed."
    }
   ]
  },
@@ -528,7 +584,29 @@
    "edition": "PR 196 head 4bd72379658126cbe9be935656396f0c9dac4de0, read 2026-10-09",
    "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/4bd72379658126cbe9be935656396f0c9dac4de0/TauCetiRoadmap/CohomologicalPointCounting/TraceFormula/README.md",
    "readSections": [
-    "Consume/missing inventories; Layers 7, 8, 15; scope boundaries; ConstructibleEtale Layers 3, 6, 9 of the same PR"
+    "Consume/missing inventories; Layers 7, 8, 15; scope boundaries; ConstructibleEtale Layers 3, 6, 9 of the same PR",
+    "Independent review: EllAdicRealization Layers0–10 at PR196 commit4bd72379658126cbe9be935656396f0c9dac4de0; classical/pro-étale comparison Layers4–6 and continuous actions Layer8."
+   ]
+  },
+  {
+   "id": "tc-quadratic",
+   "title": "Roadmap: quadratic form invariants",
+   "authors": "Tau Ceti roadmap contributors",
+   "edition": "Mirrored TauCetiRoadmap README, read 2026-10-09",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/QuadraticFormInvariants/README.md",
+   "readSections": [
+    "Layer 7B crossed-product and Brauer comparison; cyclic computation following milestone 6"
+   ]
+  },
+  {
+   "id": "farkas-prym",
+   "title": "Prym varieties and their moduli",
+   "authors": "Gavril Farkas",
+   "edition": "Author-hosted survey, read 2026-10-09",
+   "url": "https://www.math.hu-berlin.de/~farkas/friedrichprym.pdf",
+   "sha256": "9e156ba96a70f189699d084079a01863fd9eeb03291bab7d5f52a2779b201c53",
+   "readSections": [
+    "§2, pp.5–6, double-cover norm fibre and Prym construction"
    ]
   }
  ],
@@ -686,7 +764,7 @@
     "k is a field; X is integral, separated, of finite type over k and of dimension one."
    ],
    "proofSteps": [
-    "Replace X by its normalization ν: X^ν → X, which is finite and surjective (Mathlib's relative normalization); X is affine iff X^ν is affine (Chevalley's theorem for finite surjective morphisms) and proper iff X^ν is proper.",
+    "Normalize X. Finiteness and surjectivity use SF.0/nagata-normalization-finite for a finite-type scheme over a field, not the bare Mathlib normalization definition. Affineness descends along the finite surjection by the finite-surjective affineness theorem used in Stacks tag 0A28; properness descends along it as well.",
     "If ∂X^ν is empty, X^ν = X̄^ν is projective by AlgebraicCurves Layer 12B, and then X is proper; a proper scheme of dimension at most one over k is projective (Stacks, Varieties, Lemma 0A26).",
     "If ∂X^ν is nonempty, X^ν is a projective curve minus a nonempty finite set of closed points, which is affine (Stacks, Varieties, Lemmas 0A27 and 0A28).",
     "A scheme that is both affine and proper over k with positive dimension cannot exist, because a proper affine k-scheme is finite over k."
@@ -701,7 +779,8 @@
     "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
     "mathlib:AlgebraicGeometry.IsAffine",
     "mathlib:AlgebraicGeometry.IsProper",
-    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
+    "SchemeAndStackFoundations:SF.0/nagata-normalization-finite"
    ],
    "sources": [
     {
@@ -720,15 +799,15 @@
    ],
    "title": "The genus of a proper curve is invariant under every field extension",
    "kind": "theorem",
-   "statement": "Let k be a field and X a proper k-scheme of dimension one with H⁰(X, O_X) = k, and let g(X) = dim_k H¹(X, O_X) be its genus in the sense of JacobianChallenge Layer B. For every field extension K/k, the base change X_K is proper of dimension one over K, H⁰(X_K, O) = K and g(X_K) = g(X). Comparison with function fields: if X is smooth and geometrically connected, g(X) equals the genus of k(X)/k of AlgebraicCurves Layer 3 (Layer 12E). For K/k separable algebraic, X_K is again smooth and g(X_K) is also the function-field genus of K·k(X). For an inseparable extension K/k the scheme X_K may fail to be normal; then the function-field genus of the constant field extension of k(X) (AlgebraicCurves Layer 8) is the genus of the normalization of X_K and can be strictly smaller than g(X_K) = g(X).",
+   "statement": "Let X be a proper one-dimensional k-scheme with H⁰(X,O_X)=k and let g(X)=dim_k H¹(X,O_X). For every field extension K/k, X_K is proper of dimension one, H⁰(X_K,O)=K and g(X_K)=g(X). If X is smooth and geometrically connected, X_K remains smooth and geometrically connected for every K, and the scheme/function-field comparison of AlgebraicCurves 12E applies on both sides. The genus-drop example concerns instead a regular geometrically integral model over an imperfect field which is not smooth: an inseparable extension may make that model nonnormal, and normalization can lower its genus although its coherent-cohomological genus is unchanged.",
    "hypotheses": [
     "k is a field; X is proper over k, of dimension one, with H⁰(X, O_X) = k; K/k is an arbitrary field extension."
    ],
    "proofSteps": [
     "Cohomology of coherent sheaves commutes with flat base change: H^i(X_K, F_K) = H^i(X, F) ⊗_k K (JacobianChallenge Layer C; StableReduction Layer 2), applied to F = O_X in degrees 0 and 1.",
     "Properness and dimension are preserved by base change to a field (Mathlib's base-change stability of proper morphisms).",
-    "For smooth geometrically connected X, AlgebraicCurves Layer 12E identifies dim H¹(X, O_X) with the function-field genus; for separable algebraic K, smoothness is preserved and the same comparison applies to X_K.",
-    "The normalization of X_K has smaller or equal genus (Stacks, Algebraic Curves, Lemma 0CE4); in the inseparable example the inequality is strict."
+    "Smoothness and geometric connectedness persist under arbitrary field extension. Apply the smooth-model comparison of AlgebraicCurves 12E before and after extension. For regular nonsmooth models do not invoke that comparison outside its hypotheses.",
+    "For a geometrically integral nonsmooth model, compare X_K with its finite normalization using the normalization exact sequence (Stacks 0CE4). AlgebraicCurves Layer 8 supplies the regular-model calculation for y²=x^p−t and its rational normalized extension."
    ],
    "acceptance": [
     "Inseparable guard (AlgebraicCurves worked example): over k = F_p(t), p odd, let X be the regular projective model of y² = x^p − t. Then g(X) = (p−1)/2, and over k' = k(t^{1/p}) the scheme X_{k'} still has genus (p−1)/2, while its normalization, the model of the rational function field k'(y/(x − t^{1/p})^{(p−1)/2}), has genus 0.",
@@ -766,13 +845,13 @@
    ],
    "title": "Riemann–Hurwitz for morphisms of smooth proper curves",
    "kind": "theorem",
-   "statement": "Let k be a field and f : X → Y a nonconstant morphism of smooth proper curves over k with H⁰(X, O_X) = H⁰(Y, O_Y) = k, which is generically étale (equivalently k(X)/k(Y) is separable). Then Ω_{X/Y} is a coherent torsion sheaf; let R be the effective Cartier divisor it cuts out (the different), with multiplicity d_x = length Ω_{X/Y,x} at a closed point x. Then 2g_X − 2 = deg(f)(2g_Y − 2) + Σ_x d_x [κ(x):k], with d_x ≥ e_x − 1, and d_x = e_x − 1 exactly when x is tamely ramified over f(x). In particular, if f is finite étale then g_X − 1 = deg(f)(g_Y − 1). Under the curve–function-field anti-equivalence (AlgebraicCurves Layer 12C) R corresponds to the different divisor of k(X)/k(Y), and the formula is the Hurwitz genus formula of AlgebraicCurves Layer 7.",
+   "statement": "Let k be a field and f : X → Y a nonconstant morphism of smooth proper curves over k with H⁰(X, O_X) = H⁰(Y, O_Y) = k, which is generically étale (equivalently k(X)/k(Y) is separable). Then Ω_{X/Y} is a coherent torsion sheaf; let R be the effective Cartier divisor it cuts out (the different), with multiplicity d_x = length Ω_{X/Y,x} at a closed point x. Then 2g_X − 2 = deg(f)(2g_Y − 2) + Σ_x d_x [κ(x):k], with d_x ≥ e_x − 1, and, provided κ(x)/κ(f(x)) is separable, d_x = e_x − 1 exactly when e_x is prime to the residue characteristic. This is the tame case; the residue-separability hypothesis must accompany that criterion. In particular, if f is finite étale then g_X − 1 = deg(f)(g_Y − 1). Under the curve–function-field anti-equivalence (AlgebraicCurves Layer 12C) R corresponds to the different divisor of k(X)/k(Y), and the formula is the Hurwitz genus formula of AlgebraicCurves Layer 7.",
    "hypotheses": [
     "k is a field; X and Y are smooth proper curves over k with H⁰ = k; f is nonconstant and generically étale."
    ],
    "proofSteps": [
     "The pullback f*Ω_{Y/k} → Ω_{X/k} is injective because f is generically étale, with cokernel Ω_{X/Y} supported on finitely many closed points (Stacks, Algebraic Curves, Lemma 0C1C).",
-    "Additivity of degree (SF.3/vector-bundle-degree) gives deg Ω_X = deg f*Ω_Y + deg R, and deg f*Ω_Y = deg(f) deg Ω_Y (Stacks, Varieties, Lemma 0AYZ).",
+    "On the regular curve X the injection of invertible sheaves identifies Ω_X with f*Ω_Y ⊗ O_X(R), where R is the Fitting/different divisor of the torsion cokernel. Apply the line-bundle tensor and pullback degree formulas. The locally-free short-exact-sequence API cannot be applied directly to that torsion cokernel.",
     "deg Ω_{X/k} = 2g_X − 2 and deg Ω_{Y/k} = 2g_Y − 2 by SF.3/curve-serre-duality (Stacks, Algebraic Curves, Lemma 0C1A).",
     "The local analysis of d_x versus the ramification index is Stacks, Algebraic Curves, Lemma 0C1F; it matches the different exponent of AlgebraicCurves Layer 7 under the anti-equivalence of Layer 12C."
    ],
@@ -819,7 +898,7 @@
    "proofSteps": [
     "Riemann–Roch on a genus-zero curve with H⁰ = k: an invertible sheaf L of degree d > 0 has h⁰(L) = d + 1 and h¹(L) = 0, and is very ample (Stacks, Algebraic Curves, Lemma 0C6T); degree-zero sheaves are trivial (Lemma 0C6M).",
     "From (c): a degree-one L has two independent sections defining an isomorphism X → P¹_k.",
-    "From (b) or (d): an odd-degree class together with ω^{-1} of degree 2 produces a class of degree 1 (Stacks, Algebraic Curves, Proposition 0C6U).",
+    "In (b), smoothness makes the curve Gorenstein and deg(ω⁻¹)=2; Bezout applied to this degree and the odd degree produces a degree-one invertible sheaf. In (d), the normal closed points are Cartier divisors, and an integer Bezout combination of their residue degrees produces a degree-one divisor directly. These are distinct arguments (Stacks 0C6U).",
     "H¹(P¹, O) = 0 from the Mayer–Vietoris sequence of the two standard affine charts (Tau Ceti mayerVietorisSequence_exact) and affine acyclicity (JacobianChallenge Layer B).",
     "The function-field statement is Tau Ceti's nonempty_algEquiv_ratFunc_of_genus_eq_zero_of_divisor_degree_eq_one transported along AlgebraicCurves Layer 12C."
    ],
@@ -898,7 +977,7 @@
    ],
    "title": "Vanishing, global generation and very ampleness of line bundles on curves by degree",
    "kind": "theorem",
-   "statement": "Let k be a field and X a smooth proper geometrically connected curve over k of genus g, and L an invertible sheaf on X. (i) If deg L < 0 then H⁰(L) = 0; if deg L = 0 then H⁰(L) ≠ 0 iff L ≅ O_X. (ii) If deg L > 2g − 2 then H¹(L) = 0 and h⁰(L) = deg L + 1 − g. (iii) If deg L ≥ 2g then L is globally generated; more precisely, for every nonempty zero-dimensional closed subscheme Z with deg L ≥ 2g − 1 + deg Z, L is globally generated and H⁰(L) → H⁰(L|_Z) is surjective. (iv) If deg L ≥ 2g + 1 then L is very ample. (v) If deg L ≥ g then h⁰(L) ≥ 1. In a family π : X_T → T of such curves, (ii) applied fibrewise makes π_*L locally free of rank deg L + 1 − g and compatible with arbitrary base change (JacobianChallenge Layer C).",
+   "statement": "Let k be a field and X a smooth proper geometrically connected curve over k of genus g, and L an invertible sheaf on X. (i) If deg L < 0 then H⁰(L) = 0; if deg L = 0 then H⁰(L) ≠ 0 iff L ≅ O_X. (ii) If deg L > 2g − 2 then H¹(L) = 0 and h⁰(L) = deg L + 1 − g. (iii) If deg L ≥ 2g then L is globally generated; more precisely, for every nonempty zero-dimensional closed subscheme Z with deg L ≥ 2g − 1 + deg Z, L is globally generated and H⁰(L) → H⁰(L|_Z) is surjective. (iv) If deg L ≥ 2g + 1 then L is very ample. (v) If deg L ≥ g then h⁰(L) ≥ 1. For a proper smooth finitely presented family with geometrically connected curve fibres over a locally Noetherian T, an invertible L satisfying (ii) on every geometric fibre has locally free π_*L, commuting with arbitrary base change. Its rank on each component is deg L_t + 1 − g_t (JacobianChallenge Layer C).",
    "hypotheses": [
     "k is a field; X is smooth, proper and geometrically connected over k of genus g; L is invertible."
    ],
@@ -938,14 +1017,14 @@
    ],
    "title": "Degree of a vector bundle on a proper curve",
    "kind": "definition",
-   "statement": "Let k be a field, X a proper k-scheme of dimension at most one, and E a locally free O_X-module of constant finite rank r. Its degree is deg(E) := χ(X, E) − r·χ(X, O_X) ∈ Z, where χ(X, F) = dim_k H⁰(X, F) − dim_k H¹(X, F) is computed with the coherent cohomology of JacobianChallenge Layer B (finite-dimensional, zero above degree one). For r = 1 this is the degree deg L = χ(L) − χ(O_X) of JacobianChallenge Layer A. The degree is additive in short exact sequences of locally free sheaves, equals the degree of the determinant, satisfies deg(E ⊗ V) = rank(E) deg(V) + rank(V) deg(E), is invariant under extension of the base field, and multiplies by deg(X/Y) under pullback along a nonconstant morphism of proper curves.",
+   "statement": "Let k be a field, X a proper k-scheme of dimension at most one, and E a locally free O_X-module of constant finite rank r. Its degree is deg(E) := χ(X, E) − r·χ(X, O_X) ∈ Z, where χ(X, F) = dim_k H⁰(X, F) − dim_k H¹(X, F) is computed with the coherent cohomology of JacobianChallenge Layer B (finite-dimensional, zero above degree one). For r = 1 this is the degree deg L = χ(L) − χ(O_X) of JacobianChallenge Layer A. The degree is additive in short exact sequences of locally free sheaves, equals the degree of the determinant, satisfies deg(E ⊗ V) = rank(E) deg(V) + rank(V) deg(E), is invariant under extension of the base field, and multiplies by deg(X/Y) under pullback along a nonconstant morphism of integral proper curves over the same base field, using the function-field degree [k(X):k(Y)].",
    "hypotheses": [
     "k is a field; X is proper over k with dim X ≤ 1; E is locally free of constant finite rank r ≥ 0."
    ],
    "proofSteps": [
     "Finiteness and vanishing of H^i(X, E) for i ≥ 2 come from JacobianChallenge Layer B (coherent cohomology of proper curves), so χ is an integer.",
     "Additivity: the long exact cohomology sequence of a short exact sequence of coherent sheaves and additivity of ranks (Stacks, Varieties, Lemma 0AYS; Tau Ceti finrank_cohomology_zero_sub_one_eq_add for the χ-additivity on curves).",
-    "Determinant: induction on the rank after a finite extension making E filtered by line subbundles, with base-change invariance (Stacks, Varieties, Lemmas 0B59 and 0DJ5).",
+    "For determinant degree, first use the component formula with generic lengths to reduce to integral reduced components. After a proper birational modification, a vector bundle admits a filtration by invertible quotients; degrees are invariant under this birational pullback. Add degrees of the quotients and identify their tensor product with the determinant. This is the route of Stacks 0DJ5, with 0AYW and 0AYU; a finite extension of constants alone does not provide the claimed filtration.",
     "Tensor product, twist by an effective Cartier divisor and pullback formulas: Stacks, Varieties, Lemmas 0AYX, 0AYY, 0AYZ."
    ],
    "acceptance": [
@@ -1068,7 +1147,7 @@
     {
      "name": "TauCeti.AlgebraicGeometry.Curve.vectorBundleDegree_pullback",
      "role": "functoriality",
-     "statement": "For a nonconstant morphism f : X → Y of proper curves, deg(f*E) = deg(X/Y)·deg(E)."
+     "statement": "For a nonconstant k-morphism f:X→Y of integral proper curves, deg(f*E)=[k(X):k(Y)]deg(E), with both degrees computed over k."
     }
    ],
    "library": {
@@ -1078,7 +1157,7 @@
    "sources": [
     {
      "sourceId": "stacks",
-     "locator": "Varieties (tag 0209), Section 44 'Degrees on curves' (tag 0AYQ): Definition 0AYR, Lemmas 0B59, 0AYS, 0AYW, 0AYX, 0DJ5, 0AYY, 0AYZ",
+     "locator": "Varieties (tag 0209), Section 44 'Degrees on curves' (tag 0AYQ): Definition 0AYR, Lemmas 0B59, 0AYS, 0AYW, 0AYX, 0DJ5, 0AYY, 0AYZ; Lemma 0AYU for birational pullback invariance",
      "match": "Defines the degree of a locally free sheaf of constant rank on a proper scheme of dimension at most one by the Euler-characteristic formula, and proves base-change invariance, additivity, the component, tensor, determinant, divisor-twist and pullback formulas."
     },
     {
@@ -1145,7 +1224,7 @@
     "SF.2/serre-proper: Ext^i_X(K, f^!k) ≅ Hom_k(H^{−i}(X, K), k) for K in D_qc(X).",
     "For X Cohen–Macaulay and equidimensional of dimension one, f^!k has a single nonzero cohomology sheaf, in degree −1 (SF.2/canonical-module; Stacks, Algebraic Curves, Lemmas 0BS2 and 0BS3), so Ext^i(F, f^!k) = Ext^{i+1}(F, ω_X).",
     "For E locally free, Ext^j(E, ω_X) = H^j(X, E^∨ ⊗ ω_X), giving (ii).",
-    "Ext¹(U, V) = H¹(X, U^∨ ⊗ V) ≅ H⁰(X, U ⊗ V^∨ ⊗ ω_X)^∨ = Hom(V, U ⊗ ω_X)^∨ by (ii) with E = U ⊗ V^∨, giving (iii).",
+    "For locally free U,V, Ext¹(U,V)=H¹(U^∨⊗V). Apply (ii) to E=U^∨⊗V; its dual tensored with ω is U⊗V^∨⊗ω. Thus the result is Hom(V,U⊗ω)^∨.",
     "For f smooth of relative dimension one, SF.2/smooth-proper gives f^!k ≅ Ω¹_{X/k}[1]; the numerical identities are Stacks, Algebraic Curves, Lemma 0C1A, and the comparison with JacobianChallenge's ω_{X/k} is the StableReduction contract J-B / SR-2 (one dualizing-sheaf interface)."
    ],
    "acceptance": [
@@ -1162,7 +1241,10 @@
     "SchemeAndStackFoundations:SF.2/canonical-module",
     "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
     "tauceti:TauCetiRoadmap/JacobianChallenge#layer-b-coherent-cohomology-over-k-genus-riemannroch-serre-duality",
-    "mathlib:KaehlerDifferential"
+    "mathlib:KaehlerDifferential",
+    "SchemeAndStackFoundations:SF.2/relative-dualizing-module",
+    "SchemeAndStackFoundations:SF.2/cm-serre-duality",
+    "SchemeAndStackFoundations:SF.2/curve-dualizing-comparison"
    ],
    "sources": [
     {
@@ -1196,7 +1278,7 @@
     "X is an arbitrary scheme; G_m is the multiplicative group as a sheaf on the small or big site of X."
    ],
    "proofSteps": [
-    "Čech description in degree one: a G_m-valued 1-cocycle on a covering U → X for the étale or fppf topology is a descent datum on O_U, effective by fpqc descent for quasi-coherent modules (SF.1), and the descended module is invertible because the covering is faithfully flat.",
+    "Associate to an invertible sheaf its G_m-torsor of local frames. Conversely a G_m-torsor descends the trivial line bundle, with tensor product corresponding to the abelian group law. Zariski, étale and fppf descent give the three degree-one comparisons. A Čech description is taken over refinements of trivializing covers, not an assertion that one fixed cover computes all derived cohomology.",
     "Conversely an invertible sheaf is Zariski-locally trivial, giving a Čech class; isomorphic sheaves give cohomologous cocycles.",
     "In degree one Čech cohomology computes derived-functor cohomology for every topology, so the four groups agree (Stacks, Étale Cohomology, Theorem 03P8; Kleiman, formula (2.11.1) and p. 21).",
     "Naturality and the group structure: pullback and tensor product correspond to restriction and product of cocycles."
@@ -1214,7 +1296,9 @@
     "mathlib:CategoryTheory.Sheaf.H",
     "mathlib:CommRing.Pic",
     "mathlib:groupCohomology.isMulCoboundary₁_of_isMulCocycle₁_of_aut_to_units",
-    "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass"
+    "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass",
+    "SchemeAndStackFoundations:SF.2/etale-galois-comparison",
+    "SchemeAndStackFoundations:SF.2/hilbert-90"
    ],
    "sources": [
     {
@@ -1238,7 +1322,7 @@
    ],
    "title": "Weil divisor classes and the Picard group on normal and locally factorial schemes",
    "kind": "theorem",
-   "statement": "Let X be a locally Noetherian integral scheme with Weil divisor class group Cl(X) (Tau Ceti's divisor class group of SchemeWeilDivisor with principal divisors given by Mathlib's orders of vanishing), and let c₁ : Pic(X) → Cl(X) send an invertible sheaf to the Weil divisor of any nonzero rational section. (i) If X is normal, c₁ is an injective homomorphism. (ii) The local rings of X are unique factorization domains if and only if X is normal and c₁ is surjective; in particular, for X normal, c₁ is bijective exactly when X is locally factorial, and c₁ is an isomorphism for X regular. (Without normality bijectivity does not imply factoriality: for X = Spec k[[t², t³]] both groups vanish.) (iii) For X Noetherian, integral, separated and locally factorial, Cl(X), the group of Cartier divisor classes and Pic(X) are canonically isomorphic. On a Noetherian integral scheme of dimension at most one whose codimension-one local rings are discrete valuation rings, c₁ is inverse to Tau Ceti's classGroupToLineBundleClass and the Cartier step is Tau Ceti's equivCartierDivisor.",
+   "statement": "Let X be a locally Noetherian integral scheme with Weil divisor class group Cl(X) formed from locally finitely supported codimension-one cycles modulo principal divisors (Mathlib AlgebraicCycle and orders of vanishing). Tau Ceti's finitely supported SchemeWeilDivisor carrier is compared only in the Noetherian case, and let c₁ : Pic(X) → Cl(X) send an invertible sheaf to the Weil divisor of any nonzero rational section. (i) If X is normal, c₁ is an injective homomorphism. (ii) The local rings of X are unique factorization domains if and only if X is normal and c₁ is surjective; in particular, for X normal, c₁ is bijective exactly when X is locally factorial, and c₁ is an isomorphism for X regular. (Without normality bijectivity does not imply factoriality: for X = Spec k[[t², t³]] both groups vanish.) (iii) For X Noetherian, integral, separated and locally factorial, Cl(X), the group of Cartier divisor classes and Pic(X) are canonically isomorphic. On a Noetherian integral scheme of dimension at most one whose codimension-one local rings are discrete valuation rings, c₁ is inverse to Tau Ceti's classGroupToLineBundleClass and the Cartier step is Tau Ceti's equivCartierDivisor.",
    "hypotheses": [
     "X is a locally Noetherian integral scheme; for (iii) X is in addition Noetherian, separated and locally factorial."
    ],
@@ -1250,8 +1334,8 @@
    ],
    "acceptance": [
     "Dedekind case: X = Spec A gives Cl(A) ≅ Pic(A), Mathlib's ClassGroup and CommRing.Pic.",
-    "Non-example for surjectivity: the quadric cone Spec k[x, y, z]/(xy − z²) is normal with Cl = Z/2 and Pic = 0.",
-    "Non-example for injectivity without normality: on the cuspidal cubic the degree-zero part of Pic is G_a(k) while the Weil divisor class group of degree zero is trivial."
+    "Over an algebraically closed field of characteristic different from two, the affine quadric cone Spec k[x,y,z]/(xy−z²) has Cl=Z/2 and Pic=0, so normality alone does not imply surjectivity.",
+    "Over an algebraically closed field of characteristic zero, the projective cuspidal cubic has degree-zero Picard group G_a(k), whereas its degree-zero Weil class group is trivial. This tests the normality hypothesis of injectivity."
    ],
    "prerequisites": [
     "tauceti:TauCetiRoadmap/JacobianChallenge#layer-a-line-bundles-divisors-picard-group-degree",
@@ -1279,12 +1363,12 @@
    ],
    "title": "The excision sequence for Picard groups along a boundary divisor",
    "kind": "theorem",
-   "statement": "Let X be a Noetherian, integral, separated, locally factorial scheme, U ⊂ X a dense open subscheme, and D_1, …, D_r the irreducible components of X ∖ U of codimension one. There is an exact sequence O(U)^× / O(X)^× → ⊕_i Z·D_i → Pic(X) → Pic(U) → 0, the first map taking a unit f on U to its divisor (supported on the D_i), the second taking D_i to O_X(D_i), the third being restriction. In particular, if every unit on U is constant on X, i.e. O(U)^× = O(X)^×, then 0 → Div_{X∖U}(X) → Pic(X) → Pic(U) → 0 is exact. When X is smooth and geometrically integral over a field k and the sequence is formed over k̄, it is Gal(k̄/k)-equivariant and Div_{X̄∖Ū}(X̄) is a permutation module.",
+   "statement": "Let X be a Noetherian, integral, separated, locally factorial scheme, U ⊂ X a dense open subscheme, and D_1, …, D_r the irreducible components of X ∖ U of codimension one. There is an exact sequence O(U)^× / O(X)^× → ⊕_i Z·D_i → Pic(X) → Pic(U) → 0, the first map taking a unit f on U to its divisor (supported on the D_i), the second taking D_i to O_X(D_i), the third being restriction. In particular, if every unit on U is constant on X, i.e. O(U)^× = O(X)^×, then 0 → Div_{X∖U}(X) → Pic(X) → Pic(U) → 0 is exact. When X is smooth and geometrically integral over a field k, U is defined over k, and the sequence is formed over k̄, it is Gal(k̄/k)-equivariant and Div_{X̄∖Ū}(X̄) is a permutation module.",
    "hypotheses": [
     "X is Noetherian, integral, separated and locally factorial; U ⊂ X is open and dense; components of X ∖ U of codimension at least two contribute nothing."
    ],
    "proofSteps": [
-    "Weil divisors split as Z¹(X) = Z¹(U) ⊕ (⊕_i Z·D_i), and restriction of principal divisors is compatible; this gives the localization sequence in codimension one (Stacks, Chow Homology, Lemma 02RX).",
+    "Restrict codimension-one divisors to U. Every divisor on U extends by closing its finitely many prime components in X; the kernel is the free group on the codimension-one boundary components. A principal divisor on U is the restriction of the divisor of the same rational function on X. This direct divisor argument applies to the stated Noetherian hypotheses; Stacks 02RX is a finite-type Chow-theoretic comparison, not a generality upgrade.",
     "Identify Weil divisor classes with Picard groups on X and on U by SF.3/class-group-picard-locally-factorial (U is again locally factorial).",
     "Exactness at the left: a unit f on U whose divisor on X is zero is regular and invertible at every codimension-one point, hence a unit on X by normality."
    ],
@@ -1415,7 +1499,7 @@
     {
      "name": "TauCeti.AlgebraicGeometry.Picard.picardGroupoid.pi0_equiv",
      "role": "equivalence",
-     "statement": "π₀𝒫ic(X) ≅ Pic(X), equal to Tau Ceti's LineBundleClass X as a monoid."
+     "statement": "π₀𝒫ic(X) ≃* LineBundleClass X as commutative monoids; the group structure is transported from tensor inverses, not claimed as a pinned LineBundleClass instance."
     },
     {
      "name": "TauCeti.AlgebraicGeometry.Picard.picardGroupoid.pi1_equiv",
@@ -1604,7 +1688,7 @@
     "Over k', JacobianChallenge Layer D represents Pic_{X_{k'}/k'} using a k'-point to rigidify (Stacks, Picard Schemes of Curves, Lemma 0B9N and Proposition 0B9Z), with components Pic^d translates of the projective Jacobian Pic⁰ (Stacks, Lemma 0BA0).",
     "The universal sheaf transported by Gal(k'/k) gives a descent datum on the representing scheme; each component is quasi-projective, so the descent datum is effective (Milne, Abelian Varieties, Part III, Propositions 1.13 and 1.14; effective étale descent of polarized schemes in StableReduction Layer 2; SF.1).",
     "The descended scheme represents the étale sheafification of T ↦ Pic(X_T), which equals the fppf sheafification because X → Spec k has sections étale-locally and O_k ≅ f_*O_X universally (Kleiman, Theorem 2.5 and Remark 2.11; Milne, Part III, Remark 1.12).",
-    "Torsor structure: tensor product Pic⁰ × Pic^d → Pic^d becomes an isomorphism with the projection after base change to k', hence over k; triviality is equivalent to a k-point. [ω] is k-rational of degree 2g − 2 (SF.3/curve-serre-duality).",
+    "The torsor condition is that (a,t)↦(a⊗t,t) identifies Pic⁰×Pic^d with Pic^d×Pic^d. Over a finite extension with a point, translating by a degree-d class verifies this identity; it descends by faithful flatness. The action map alone is not an isomorphism. A torsor is trivial exactly when it has a k-point, and [ω] has degree 2g−2.",
     "Base change of the sheafification along k → K gives the base change of the representing scheme."
    ],
    "acceptance": [
@@ -1659,7 +1743,8 @@
      "match": "Assumes a rational point to rigidify the Picard functor and places the torsor generalization outside its first version; the present node supplies it over a field."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "notes": "The admitted jacobian and picardComponent declarations in Suggested.lean now require dimension one. The Picard-sheaf carrier is still an admitted Type and lacks its fixed-point/representing-functor dictionary; this is a substantive interface gap for the revision, not evidence of representability."
   },
   {
    "id": "SchemeAndStackFoundations:SF.3/picard-brauer-sequence",
@@ -1669,16 +1754,16 @@
    ],
    "title": "The Picard–Brauer obstruction sequence over a field",
    "kind": "theorem",
-   "statement": "Let k be a field with separable closure k^s and G_k = Gal(k^s/k), and X a proper k-scheme with H⁰(X, O_X) = k and X(k^s) nonempty (for instance a smooth projective geometrically connected curve). Let Br(k) = H²(G_k, k^{s×}) be the Galois-cohomological Brauer group (the carrier of ClassFieldTheory Layer 5) and H²_et(X, G_m) the cohomological Brauer group of SF.2. There is a natural exact sequence 0 → Pic(X) → Pic_{X/k}(k) →δ Br(k) → H²_et(X, G_m), where Pic_{X/k}(k) = Pic(X_{k^s})^{G_k} and the last map is pullback along X → Spec k. Consequences: (a) if X(k) ≠ ∅ then δ = 0, Pic(X) = Pic_{X/k}(k), and a rational point splits the sequence; (b) for every finite extension k'/k with X(k') ≠ ∅, δ(Pic_{X/k}(k)) lies in the relative Brauer group Br(k'/k) = ker(Br(k) → Br(k')) and is killed by [k':k]; hence δ = 0 if X has rational points over finite extensions of coprime degrees; (c) if Br(k) = 0 (k separably closed, finite, or a C₁ field such as k₀(t) with k₀ algebraically closed) then every k-rational divisor class is represented by an invertible sheaf on X. Over a general Noetherian base the relative version is planned by JacobianChallenge Part II; it specializes to this sequence at S = Spec k.",
+   "statement": "Let k be a field with separable closure k^s and G_k = Gal(k^s/k), and X a proper k-scheme with H⁰(X, O_X) = k and X(k^s) nonempty (for instance a smooth projective geometrically connected curve). Identify Br(k) with H²_cont(G_k,k^{s×}) by SF.2/brauer-field-comparison. The target H²_et(X,G_m) is the full cohomology group; Br′(X) in SF.2 denotes its torsion subgroup and must not be identified with the full group without an additional theorem. There is a natural exact sequence 0 → Pic(X) → Pic_{X/k}(k) →δ Br(k) → H²_et(X, G_m), where Pic_{X/k}(k) = Pic(X_{k^s})^{G_k} and the last map is pullback along X → Spec k. Consequences: (a) if X(k) ≠ ∅ then δ = 0, Pic(X) = Pic_{X/k}(k), and a rational point splits the sequence; (b) for every finite extension k'/k with X(k') ≠ ∅, δ(Pic_{X/k}(k)) lies in the relative Brauer group Br(k'/k) = ker(Br(k) → Br(k')) and is killed by [k':k]; hence δ = 0 if X has rational points over finite extensions of coprime degrees; (c) if Br(k) = 0 (k separably closed, finite, or a C₁ field such as k₀(t) with k₀ algebraically closed) then every k-rational divisor class is represented by an invertible sheaf on X. Over a general Noetherian base the relative version is planned by JacobianChallenge Part II; it specializes to this sequence at S = Spec k.",
    "hypotheses": [
     "k is a field; X is proper over k with H⁰(X, O_X) = k (hence O ≅ f_*O_X universally) and X(k^s) ≠ ∅."
    ],
    "proofSteps": [
-    "Leray spectral sequence for f : X → Spec k on the étale sites, E₂^{p,q} = H^p(Spec k_et, R^q f_*G_m) ⇒ H^{p+q}(X_et, G_m), and its exact sequence of low degree (Kleiman, Remark 2.11, sequence (2.11.4)); étale cohomology of Spec k is continuous Galois cohomology of the value at k^s.",
+    "Apply SF.2/hochschild-serre-galois-covering in low degree with G_m, or equivalently SF.2/site-leray-spectral-sequence and SF.2/etale-galois-comparison. These nodes exist in the second SF.2 packet; a stage-only citation and the former gap are obsolete. Kleiman Remark 2.11 supplies the Picard interpretation of the edge map.",
     "f_*G_m = G_m because H⁰(X_K, O) = K for all K; H¹(G_k, k^{s×}) = 0 (Hilbert 90); H¹(X_et, G_m) = Pic(X) (SF.3/picard-cohomological).",
     "H⁰(Spec k_et, R¹f_*G_m) = Pic_{X/k,et}(k) = Pic(X_{k^s})^{G_k}, equal to the fppf Picard sheaf by SF.3/picard-scheme-without-point(i) (Kleiman, Theorem 2.5).",
-    "(a): a section σ gives a retraction σ* of Pic(X) → Pic_{X/k}(k) and of Br(k) → H²(X, G_m).",
-    "(b): naturality under base change k → k' kills δ after restriction; the kernel of restriction to k' is killed by [k':k] (corestriction∘restriction = multiplication by the degree, ClassFieldTheory Layer 5; for central simple algebras Stacks, Brauer Groups, Lemma 0751).",
+    "A rational section σ splits Br(k)→H²_et(X,G_m) by σ*. That map is therefore injective, so exactness forces δ=0 and Pic(X)→Pic_{X/k}(k) is an isomorphism. There is no asserted section-induced retraction of the Picard comparison before this argument.",
+    "Naturality kills δ after an extension with a point. For finite separable extensions use restriction/corestriction on the general Brauer comparison; for arbitrary finite extensions use the index bound for a central simple algebra split by that extension (Stacks 0751). In either case its order divides the extension degree.",
     "(c) is immediate; Tsen's theorem gives Br(k₀(t)) = 0."
    ],
    "acceptance": [
@@ -1692,7 +1777,6 @@
    "prerequisites": [
     "SchemeAndStackFoundations:SF.3/picard-cohomological",
     "SchemeAndStackFoundations:SF.3/picard-scheme-without-point",
-    "SchemeAndStackFoundations:SF.2",
     "SchemeAndStackFoundations:SF.2/cohomological-brauer",
     "SchemeAndStackFoundations:SF.2/field-comparison",
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-group-the-local-invariant-and-duality",
@@ -1700,7 +1784,13 @@
     "mathlib:groupCohomology",
     "mathlib:Field.absoluteGaloisGroup",
     "tauceti:TauCeti.Quaternion.brauerGroupMulEquiv",
-    "tauceti:TauCeti.BrauerGroup.baseChange"
+    "tauceti:TauCeti.BrauerGroup.baseChange",
+    "SchemeAndStackFoundations:SF.2/hochschild-serre-galois-covering",
+    "SchemeAndStackFoundations:SF.2/site-leray-spectral-sequence",
+    "SchemeAndStackFoundations:SF.2/etale-galois-comparison",
+    "SchemeAndStackFoundations:SF.2/brauer-field-comparison",
+    "SchemeAndStackFoundations:SF.2/hilbert-90",
+    "SchemeAndStackFoundations:SF.2/tsen-theorem"
    ],
    "sources": [
     {
@@ -1729,14 +1819,15 @@
    ],
    "title": "Rational divisor classes versus rational divisors on hyperelliptic curves",
    "kind": "theorem",
-   "statement": "Let K be a field of characteristic ≠ 2, f(x, y) = f₀x^{2g+2} + … + f_{2g+2}y^{2g+2} a binary form with nonzero discriminant and f₀ ≠ 0, and C : z² = f(x, y) the associated smooth projective hyperelliptic curve of genus g ≥ 1, with K' = K(√f₀). (i) The obstruction δ : Pic_{C/K}(K) → Br(K) of SF.3/picard-brauer-sequence takes values in Br(K'/K), which is 2-torsion and is identified with K^×/N(K'^×) (quaternion algebras split by K'). (ii) If C has a K-rational divisor of odd degree, equivalently a point over an extension of K of odd degree, then every K-rational divisor class is represented by a K-rational divisor: Pic(C) = Pic_{C/K}(K). (iii) If K is a global field and C has a divisor of degree one over every completion K_v, the same conclusion holds.",
+   "statement": "Let K be a field of characteristic ≠ 2, f(x, y) = f₀x^{2g+2} + … + f_{2g+2}y^{2g+2} a binary form with nonzero discriminant and f₀ ≠ 0, and C : z² = f(x, y) the associated smooth projective hyperelliptic curve of genus g ≥ 1, with K' = K(√f₀). (i) The obstruction δ : Pic_{C/K}(K) → Br(K) of SF.3/picard-brauer-sequence takes values in Br(K'/K), which is killed by two. If f₀ is a nonsquare, K'/K is quadratic and this relative group is identified with K^×/N_{K'/K}(K'^×) through cyclic/quaternion algebras. If f₀ is a square, K'=K and the relative group and obstruction are zero. (ii) If C has a K-rational divisor of odd degree, equivalently a point over an extension of K of odd degree, then every K-rational divisor class is represented by a K-rational divisor: Pic(C) = Pic_{C/K}(K). (iii) If K is a global field and C has a divisor of degree one over every completion K_v, the same conclusion holds.",
    "hypotheses": [
     "char K ≠ 2; f is a binary form of degree 2g + 2 with nonzero discriminant and f₀ ≠ 0; g ≥ 1."
    ],
    "proofSteps": [
     "The two points at infinity of C are rational over K', so (i) follows from SF.3/picard-brauer-sequence(b) with k' = K'.",
     "(ii): by (i) δ takes values in a group killed by 2, and by SF.3/picard-brauer-sequence(b) applied to a field over which C has a point of odd degree, also in a group killed by an odd number; hence δ = 0.",
-    "(iii): by (ii) applied over each K_v, the image of a class in Br(K) restricts to zero at every place; a Brauer class of a global field that is locally trivial everywhere is trivial (Albert–Brauer–Hasse–Noether, ClassFieldTheory Layer 10)."
+    "(iii): by (ii) applied over each K_v, the image of a class in Br(K) restricts to zero at every place; a Brauer class of a global field that is locally trivial everywhere is trivial (Albert–Brauer–Hasse–Noether, ClassFieldTheory Layer 10).",
+    "For nonsquare f₀, the cyclic H² computation and crossed-product comparison of QuadraticFormInvariants Layer 7 identify the relative Brauer group with the quadratic norm quotient over an arbitrary field. ClassFieldTheory Layer 5 is local and does not supply this general theorem. The square case uses a rational point at infinity directly."
    ],
    "acceptance": [
     "If C has a K-rational point, both sides agree for trivial reasons.",
@@ -1748,13 +1839,19 @@
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
     "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-10-model-classes--elliptic-hyperelliptic-plane-curves",
     "mathlib:BrauerGroup",
-    "tauceti:TauCeti.BrauerGroup.baseChange"
+    "tauceti:TauCeti.BrauerGroup.baseChange",
+    "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-7-the-brauer-group-in-galois-cohomology"
    ],
    "sources": [
     {
      "sourceId": "bgw17",
      "locator": "§3, Proposition 21 and the preceding paragraph, p. 10; the generalized-Jacobian reformulation, p. 11",
      "match": "States that for a hyperelliptic curve the quotient of K-rational classes by classes of K-rational divisors injects into Br(K'/K), and deduces representability of rational classes by rational divisors under an odd-degree divisor or local solubility over a global field."
+    },
+    {
+     "sourceId": "tc-quadratic",
+     "locator": "Layer 7B, crossed-product comparison, and subsection “The cyclic computation” following milestone 6",
+     "match": "Provides the general quadratic cyclic H² norm-quotient computation and its Brauer comparison, separating the square case."
     }
    ],
    "implementationStatus": "unchecked"
@@ -1871,7 +1968,7 @@
     {
      "name": "TauCeti.AlgebraicGeometry.Picard.picardStack_not_scheme",
      "kind": "non-example",
-     "statement": "𝒫ic^d_{X/k} is not equivalent to the Picard scheme Pic^d_{X/k} (nor to any algebraic space): its objects have nontrivial automorphism groups G_m."
+     "statement": "Over an algebraic closure, every line bundle has stabilizer group scheme G_m, so the Picard stack is not an algebraic space. This assertion concerns the stabilizer scheme; over F₂ the group of F₂-valued automorphisms alone is trivial."
     }
    ],
    "prerequisites": [
@@ -2044,7 +2141,7 @@
     {
      "name": "TauCeti.AlgebraicGeometry.Picard.sectionStack.add",
      "role": "structure",
-     "statement": "The addition morphism X̂_{d₁} × X̂_{d₂} → X̂_{d₁+d₂}, associative and commutative."
+     "statement": "Tensor product of sections gives the addition morphism, associative and commutative through the specified monoidal coherence isomorphisms."
     },
     {
      "name": "TauCeti.AlgebraicGeometry.Picard.sectionStack.add_symmetricPower",
@@ -2068,7 +2165,8 @@
      "match": "Describes relative effective Cartier divisors on smooth relative curves, the smooth proper Hilbert schemes of points of a curve and their addition maps, and the universal divisor."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "notes": "The stack and its family-valued section carrier have no typed definition in Suggested.lean. Four mathematical tests are present in the packet but are only comments in that file. They remain required examples, including the jumping-rank test at degree 2g−2."
   },
   {
    "id": "SchemeAndStackFoundations:SF.3/abel-maps-high-degree",
@@ -2078,21 +2176,22 @@
    ],
    "title": "Abel maps from symmetric powers: fibres, surjectivity and projective bundles",
    "kind": "theorem",
-   "statement": "Let k be a field and X a smooth projective geometrically connected curve over k of genus g, d ≥ 0, and γ_d : X^(d) → Pic^d_{X/k}, D ↦ O_X(D), the Abel map, defined without a base point from the universal divisor. (i) The fibre of γ_d over a K-point of Pic^d_{X/k} represented by an invertible sheaf L on X_K is the complete linear system |L| ≅ P(H⁰(X_K, L)); in general the fibre over a K-point c is a Brauer–Severi variety of class δ(c) (SF.3/picard-brauer-sequence) which becomes |L| over K^s. (ii) γ_d is surjective for d ≥ g, and γ_g is birational. (iii) For d ≥ 2g − 1, γ_d is smooth and projective and every geometric fibre is a projective space of dimension d − g; when a Poincaré sheaf exists on X × Pic^d_{X/k} (for instance if X(k) ≠ ∅), γ_d is the projectivization of a vector bundle of rank d − g + 1. (iv) γ_1 = a₁ : X → Pic¹_{X/k} is a closed immersion if g ≥ 1, and an isomorphism if g = 1. (v) γ_2 is injective on geometric points if and only if X has no linear system of degree two and dimension one, i.e. g ≥ 3 and X is not hyperelliptic.",
+   "statement": "Let k be a field and X a smooth projective geometrically connected curve over k of genus g, d ≥ 0, and γ_d : X^(d) → Pic^d_{X/k}, D ↦ O_X(D), the Abel map, defined without a base point from the universal divisor. (i) The fibre of γ_d over a K-point of Pic^d_{X/k} represented by an invertible sheaf L on X_K is the complete linear system |L| ≅ P(H⁰(X_K, L)); in general the fibre over a K-point c is empty if the corresponding geometric line bundle has h⁰=0. If h⁰>0 it is a Brauer–Severi form of the complete linear system. Its descent cocycle is the projectivization of the line-bundle descent cocycle defining δ(c); the sign of its Brauer class must follow the chosen lines-versus-quotients convention. (ii) γ_d is surjective for d ≥ g, and γ_g is birational. (iii) For d ≥ max(0,2g − 1), γ_d is smooth and projective and every geometric fibre is a projective space of dimension d − g; when a Poincaré sheaf exists on X × Pic^d_{X/k} (for instance if X(k) ≠ ∅), γ_d is the projectivization of a vector bundle of rank d − g + 1. (iv) γ_1 = a₁ : X → Pic¹_{X/k} is a closed immersion if g ≥ 1, and an isomorphism if g = 1. (v) γ_2 is injective on geometric points if and only if X has no linear system of degree two and dimension one, i.e. g ≥ 3 and X is not hyperelliptic.",
    "hypotheses": [
     "k is a field; X is smooth, projective and geometrically connected over k, of genus g; d ≥ 0."
    ],
    "proofSteps": [
-    "(i) Two effective divisors have the same image exactly when they are linearly equivalent; the fibre is the nonvanishing locus of X̂_d over [L] modulo scalars (SF.3/universal-section-stack).",
+    "The fibre over an actual L is the space of one-dimensional subspaces of H⁰(L), hence empty when H⁰(L)=0. For a class requiring descent, projectivize its descent data: scalar defects disappear in PGL, producing a twisted projective space when the vector space is nonzero. Compare that scalar cocycle with the definition of δ, recording the projective-space convention.",
     "(ii) Riemann–Roch gives h⁰(L) ≥ d + 1 − g ≥ 1 for d ≥ g; for d = g a general fibre is a point (Milne, Abelian Varieties, Part III, Theorem 5.1 and Lemma 5.2; Stacks, Lemma 0BA0).",
     "(iii) For d ≥ 2g − 1 the vector bundle structure of SF.3/universal-section-stack(iii) shows that X^(d) is the projectivization over 𝒫ic^d, hence smooth with fibres P^{d−g}; with a Poincaré sheaf the gerbe splits and the projectivization descends to Pic^d.",
-    "(iv) Over k^s with a point, γ₁ is a translate of the Abel–Jacobi morphism of JacobianChallenge Layer F, a closed immersion for g ≥ 1; for g = 1 see SF.3/genus-one-curves.",
+    "For g≥1 the degree-one map is a translate of the supplier Abel–Jacobi closed immersion after extension to an algebraic closure. For g=1, Riemann–Roch gives h⁰(L)=1 and h¹(L)=0 for every degree-one L, so γ₁ is smooth with point fibres and is an isomorphism. Descent proves both claims over k without using the genus-one node circularly.",
     "(v) Injectivity on geometric points fails exactly when two distinct effective degree-two divisors are linearly equivalent."
    ],
    "acceptance": [
     "Genus 0: γ_d : P^d = Sym^d P¹ → Pic^d_{P¹/k} = Spec k; for a pointless real conic X, γ₁ : X → Pic¹_{X/R} = Spec R has fibre X, a nontrivial Brauer–Severi curve.",
     "Genus 2: γ₂ contracts the hyperelliptic linear system, a P¹, to the point [ω] and is an isomorphism elsewhere.",
-    "The fibre over [L] for d ≥ 2g − 1 has dimension d − g, matching smoothness of relative dimension d − g + 1 over the Picard stack."
+    "The fibre over [L] for d ≥ 2g − 1 has dimension d − g, matching smoothness of relative dimension d − g + 1 over the Picard stack.",
+    "For g≥1 and a nontrivial geometric degree-zero class L, h⁰(L)=0 and the γ₀ fibre is empty. This rejects an unqualified assertion that every fibre is a Brauer–Severi variety."
    ],
    "planet": {
     "name": "Abel maps of symmetric powers"
@@ -2103,7 +2202,8 @@
     "SchemeAndStackFoundations:SF.3/line-bundle-degree-bounds",
     "SchemeAndStackFoundations:SF.3/vector-bundle-riemann-roch",
     "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
-    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+    "SchemeAndStackFoundations:SF.3/picard-brauer-sequence"
    ],
    "sources": [
     {
@@ -2132,7 +2232,7 @@
    ],
    "title": "Norms on Picard schemes and stacks, and the double-cover exact sequence",
    "kind": "theorem",
-   "statement": "(i) Let π : X' → X be a finite flat morphism of degree n between smooth projective geometrically connected curves over a field k. The norm of SF.3/line-bundle-norm, formed in families, defines a morphism of Picard stacks Nm : 𝒫ic_{X'/k} → 𝒫ic_{X/k} preserving the degree, hence morphisms of Picard schemes Nm : Pic^d_{X'/k} → Pic^d_{X/k}, with Nm ∘ π* = [n] and, for π Galois with group Γ, π* ∘ Nm = Σ_{σ∈Γ} σ*; on symmetric powers it is the pushforward of effective divisors X'^(d) → X^(d). (ii) If char k ≠ 2 and π is a finite étale double cover with involution σ, the exact sequence of étale sheaves 1 → O_X^× → π_*O_{X'}^× →(1−σ) π_*O_{X'}^× →Nm O_X^× → 1 induces an exact sequence of Picard stacks 1 → 𝒫ic_{X'}/𝒫ic_X →(1−σ) 𝒫ic⁰_{X'} →Nm 𝒫ic⁰_X → 1, so the Prym kernel ker(Nm : Pic⁰_{X'/k} → Pic⁰_{X/k}) is the image of 1 − σ, of dimension g − 1, where g' = 2g − 1 by Riemann–Hurwitz.",
+   "statement": "Let π:X′→X be finite flat of constant degree n between smooth projective geometrically connected k-curves. In families the line-bundle norm induces Nm:𝒫ic_{X′/k}→𝒫ic_{X/k}, preserving degree, and hence Nm:Pic^d_{X′/k}→Pic^d_{X/k}. Pullback sends degree d to nd, and Nm∘π*=[n] with those source/target degrees; for a Galois cover π*∘Nm=Σσ* on Pic(X′). On symmetric powers Nm is pushforward of effective divisors. For a connected étale double cover in characteristic different from two, the units sequence with maps pullback, 1−σ and norm gives the stack sequence described in Yun–Zhang §6.1. Distinguish its kernel stack from the full scheme kernel K=ker(Nm:J′→J) and from the Prym P=K⁰. Over an algebraic closure K has two connected components, each of dimension g−1; im(1−σ:J′→J′)=P. The image of 1−σ on the entire Picard stack, including all degrees, is not restricted to that identity component. A kernel-stack object includes a trivialization of its norm, and scalar automorphisms in that kernel satisfy λ²=1.",
    "hypotheses": [
     "k is a field; X, X' smooth projective geometrically connected curves; π finite flat of degree n; in (ii) char k ≠ 2 and π étale of degree two."
    ],
@@ -2140,10 +2240,10 @@
     "The norm commutes with base change (SF.3/line-bundle-norm), so it is defined on families of invertible sheaves and on isomorphisms, giving a morphism of stacks, and on the sheafified Picard functors.",
     "Degree is preserved because Norm(O(D)) = O(π_*D) and π_* preserves degree; Norm(π*N) = N^{⊗n}.",
     "For π Galois, π*Norm(L) ≅ ⊗_σ σ*L by comparing transition functions.",
-    "(ii) Exactness of the sheaf sequence is Hilbert 90 for the double cover locally in the étale topology; the induced sequence of Picard stacks is Yun–Zhang 2017 §6.1; g' = 2g − 1 is SF.3/scheme-riemann-hurwitz for an étale double cover."
+    "Locally for the étale topology the degree-two cover splits, so the units sequence is checked on two factors; this proves the stack sequence in Yun–Zhang §6.1, not an exact sequence on k-points. For J′, the image of 1−σ is connected, lies in K, and has dimension g−1 by the invariant/anti-invariant decomposition up to isogeny. The two-component statement uses the duality between the norm and pullback: the kernel of π*:J→J′ is the order-two subgroup defined by the cover, so the component group of K has order two. Riemann–Hurwitz gives g′=2g−1."
    ],
    "acceptance": [
-    "Genus-two base, unramified double cover of genus three: the Prym kernel has dimension one.",
+    "For a connected étale double cover of a complex genus-two curve, g′=3 and the full norm kernel consists of two elliptic components; its Prym is just the identity component. The image of 1−σ on J′ is connected and cannot equal the full kernel.",
     "For the identity morphism, Nm is the identity of 𝒫ic_{X/k}."
    ],
    "prerequisites": [
@@ -2164,9 +2264,15 @@
      "sourceId": "stacks",
      "locator": "Divisors (tag 01WO), Section 18 'Norms' (tag 0BCX): Lemmas 0BCY, 0BD2",
      "match": "Supplies the norm on Picard groups and its compatibility with base change."
+    },
+    {
+     "sourceId": "farkas-prym",
+     "locator": "§2, pp.5–6, norm fibre and Prym construction",
+     "match": "For complex étale double covers, records the two components of a norm fibre and the (g−1)-dimensional Prym; used for the concrete component regression test."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "notes": "The component-group duality and the translation from the sheaf complex to a homotopy-fibre sequence of Picard stacks need a precise typed supplier interface. The cited paragraph of Yun–Zhang by itself is not a pointwise exactness theorem; this remains an explicit closure/interface gap for revision."
   },
   {
    "id": "SchemeAndStackFoundations:SF.3/invariant-differentials",
@@ -2176,7 +2282,7 @@
    ],
    "title": "Invariant differentials of a group scheme and global 1-forms on an abelian variety",
    "kind": "lemma",
-   "statement": "Let G → S be a group scheme with identity section e, and ω_G := e*Ω¹_{G/S}. There is a canonical isomorphism Ω¹_{G/S} ≅ f*ω_G given by translation-invariant forms; over a field k, Ω¹_{G/k} is a free O_G-module and ω_G is the cotangent space at the identity, the k-dual of the Zariski tangent space. For an abelian variety A over k (Tau Ceti's AbelianVariety, proper and geometrically integral, so Γ(A, O_A) = k), evaluation at the identity is an isomorphism Γ(A, Ω¹_{A/k}) ≅ ω_A = T₀(A)^∨, where T₀(A) is Tau Ceti's AbelianVariety.TangentSpace; every global 1-form on A is translation invariant.",
+   "statement": "Let G → S be a group scheme with identity section e, and ω_G := e*Ω¹_{G/S}. There is a canonical isomorphism Ω¹_{G/S} ≅ f*ω_G given by translation-invariant forms; over a field k, Ω¹_{G/k} is a free O_G-module and ω_G is the cotangent space at the identity, and, when G is locally of finite type over k, canonically the k-dual of the finite-dimensional Zariski tangent space. Without that finiteness condition the dual of the tangent space need not recover the cotangent space. For an abelian variety A over k (Tau Ceti's AbelianVariety, proper and geometrically integral, so Γ(A, O_A) = k), evaluation at the identity is an isomorphism Γ(A, Ω¹_{A/k}) ≅ ω_A = T₀(A)^∨, where T₀(A) is Tau Ceti's AbelianVariety.TangentSpace; every global 1-form on A is translation invariant.",
    "hypotheses": [
     "G → S is a group scheme; for the abelian-variety statement S = Spec k and A is an abelian variety over k."
    ],
@@ -2187,7 +2293,8 @@
    ],
    "acceptance": [
     "For the elliptic curve E, Γ(E, Ω¹) is spanned by the invariant differential and has dimension one.",
-    "For A = E × E', Γ(A, Ω¹) is two-dimensional, spanned by the pullbacks of the invariant differentials."
+    "For A = E × E', Γ(A, Ω¹) is two-dimensional, spanned by the pullbacks of the invariant differentials.",
+    "For G_a over k, the global form t dt has zero value at the identity and is nonzero. Thus evaluation on all global forms is not injective for an arbitrary group variety; only invariant forms are determined by the identity without properness."
    ],
    "prerequisites": [
     "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
@@ -2203,8 +2310,8 @@
     },
     {
      "sourceId": "milne-av",
-     "locator": "Part III, proof of Proposition 2.2, p. 91",
-     "match": "Uses that for any group variety the canonical map from global 1-forms to the dual of the tangent space at the identity is an isomorphism."
+     "locator": "Part III, proof of Proposition 2.2, p.92",
+     "match": "Uses evaluation at the identity for the proper group variety J. The surrounding generalization to all group varieties is false (source issue E-SF3-2); the Stacks trivialization together with Γ(A,O_A)=k proves the needed abelian-variety statement."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2223,7 +2330,7 @@
    ],
    "proofSteps": [
     "Γ(J, Ω¹) ≅ T₀(J)^∨ by SF.3/invariant-differentials; T₀(J) ≅ H¹(X, O_X) by JacobianChallenge Layer E; H¹(X, O_X)^∨ ≅ Γ(X, Ω¹) by SF.3/curve-serre-duality(ii) with E = O_X.",
-    "Commutativity of the square relating ι_O^* with these identifications is checked on tangent vectors: the differential of ι_O at O is dual to the composite, as in Milne, Abelian Varieties, Part III, Propositions 2.1 and 2.2.",
+    "After extension to an algebraic closure, perform the calculation at every point P. A tangent vector at P determines a principal part in O_X(P)/O_X, and the first-order deformation of the divisor P gives its connecting class in H¹(O_X), which is the translated differential of ι_O at P. Under the residue description of Serre duality, pairing that class with a regular form ω gives ω_P(v). Hence evaluation of the proposed pullback at every P agrees with ω, proving equality of global forms; faithful flat descent returns the equality over k. Checking only T_O(X), a one-dimensional space, would not establish a g-dimensional global identity.",
     "Independence of O: ι_{O'} = t_{[O(O − O')]} ∘ ι_O, and translation fixes invariant forms."
    ],
    "acceptance": [
@@ -2234,16 +2341,19 @@
     "SchemeAndStackFoundations:SF.3/invariant-differentials",
     "SchemeAndStackFoundations:SF.3/curve-serre-duality",
     "tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties",
-    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property"
+    "tauceti:TauCetiRoadmap/JacobianChallenge#layer-f-abeljacobi-and-the-universal-property",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+    "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts"
    ],
    "sources": [
     {
      "sourceId": "milne-av",
-     "locator": "Part III, §2: Propositions 2.1 and 2.2, p. 91",
-     "match": "Identifies the tangent space of the Jacobian at zero with H¹(C, O_C) and proves that pullback of global 1-forms along the canonical map C → J is an isomorphism."
+     "locator": "Part III, §2: Proposition 2.1 p.91, Proposition 2.2 p.92; §5 differential/principal-part calculation pp.102–104",
+     "match": "States the global pullback isomorphism and tangent-space identification, leaving the comparison square as an exercise. The all-point principal-part/residue argument is supplied in the proof sketch rather than attributed as a completed proof to Proposition 2.2."
     }
    ],
-   "implementationStatus": "unchecked"
+   "implementationStatus": "unchecked",
+   "notes": "The scheme-level identification of the principal-part connecting homomorphism with the Serre-duality residue pairing must be supplied explicitly in the revision; AlgebraicCurves Layer 9 has function-field residues and Layer 12E does not state this precise pairing compatibility. This is a closure gap, not the claim that a calculation at one point proves the global theorem."
   },
   {
    "id": "SchemeAndStackFoundations:SF.3/tate-module-etale-h1",
@@ -2253,7 +2363,7 @@
    ],
    "title": "The Tate module of the Jacobian and degree-one étale cohomology of the curve",
    "kind": "theorem",
-   "statement": "Let k be a field with separable closure k^s and G_k = Gal(k^s/k), X a smooth projective geometrically connected curve over k of genus g, J := Pic⁰_{X/k} (SF.3/picard-scheme-without-point; the Jacobian of JacobianChallenge Layers D–E when X(k) ≠ ∅), and ℓ a prime invertible in k. Pinned conventions: T_ℓ J := lim_n J[ℓ^n](k^s) is the Tate module of CohomologicalPointCounting/TraceFormula Layer 8; Z_ℓ(1) := lim_n μ_{ℓ^n}(k^s); H¹(X_{k^s}, Z_ℓ(i)) := lim_n H¹_et(X_{k^s}, μ_{ℓ^n}^{⊗i}). Then: (i) Kummer theory gives canonical G_k-equivariant isomorphisms H¹_et(X_{k^s}, μ_{ℓ^n}) ≅ Pic(X_{k^s})[ℓ^n] = J[ℓ^n](k^s), compatible with the transition maps (the ℓ-th power on μ and multiplication by ℓ on J), hence T_ℓ J ≅ H¹(X_{k^s}, Z_ℓ(1)), a free Z_ℓ-module of rank 2g; (ii) dually, H¹(X_{k^s}, Z_ℓ) ≅ Hom_{Z_ℓ}(T_ℓ J, Z_ℓ), G_k-equivariantly; this is the limit over n of the finite-level comparison between H¹_et(X_{k^s}, Z/ℓ^n) and the dual of J[ℓ^n] of TraceFormula Layer 8, and it agrees with the pullback isomorphism along an Abel–Jacobi map H¹(J_{k^s}, Z_ℓ) ≅ H¹(X_{k^s}, Z_ℓ) together with H¹(J_{k^s}, Z_ℓ) = Hom(T_ℓ J, Z_ℓ); (iii) under the comparison of CohomologicalPointCounting/EllAdicRealization, H¹(X_{k^s}, Z_ℓ) is Mathlib's pro-étale ℓ-adic cohomology EllAdicCohomology of X_{k^s} in degree one; (iv) the identifications commute with extension of k and with pullback along finite morphisms of curves (pullback on H¹ corresponding to pullback of line bundles); after ⊗ Q_ℓ, H¹(X_{k^s}, Q_ℓ) ≅ Hom(V_ℓ J, Q_ℓ) has dimension 2g.",
+   "statement": "Let k be a field with separable closure k^s and G_k = Gal(k^s/k), X a smooth projective geometrically connected curve over k of genus g, J := Pic⁰_{X/k} (SF.3/picard-scheme-without-point; the Jacobian of JacobianChallenge Layers D–E when X(k) ≠ ∅), and ℓ a prime invertible in k. Pinned conventions: T_ℓ J := lim_n J[ℓ^n](k^s) is the Tate module of CohomologicalPointCounting/TraceFormula Layer 8; Z_ℓ(1) := lim_n μ_{ℓ^n}(k^s); H¹(X_{k^s}, Z_ℓ(i)) := lim_n H¹_et(X_{k^s}, μ_{ℓ^n}^{⊗i}). Then: (i) Kummer theory gives canonical G_k-equivariant isomorphisms H¹_et(X_{k^s}, μ_{ℓ^n}) ≅ Pic(X_{k^s})[ℓ^n] = J[ℓ^n](k^s), compatible with the transition maps (the ℓ-th power on μ and multiplication by ℓ on J), hence T_ℓ J ≅ H¹(X_{k^s}, Z_ℓ(1)), a free Z_ℓ-module of rank 2g; (ii) dually, H¹(X_{k^s}, Z_ℓ) ≅ Hom_{Z_ℓ}(T_ℓ J, Z_ℓ), G_k-equivariantly; this is the limit over n of the finite-level comparison between H¹_et(X_{k^s}, Z/ℓ^n) and the dual of J[ℓ^n] of TraceFormula Layer 8, and it agrees with the pullback isomorphism along an Abel–Jacobi map H¹(J_{k^s}, Z_ℓ) ≅ H¹(X_{k^s}, Z_ℓ) together with H¹(J_{k^s}, Z_ℓ) = Hom(T_ℓ J, Z_ℓ); (iii) under the comparison of CohomologicalPointCounting/EllAdicRealization, H¹(X_{k^s}, Z_ℓ) is Mathlib's pro-étale ℓ-adic cohomology EllAdicCohomology of X_{k^s} in degree one; (iv) the identifications commute with extension of k. For finite f:X→Y, pullback on twisted H¹(1) corresponds to f*:J_Y→J_X; pullback on untwisted H¹ corresponds, under the dual comparison, to the dual of Nm_f:T_ℓJ_X→T_ℓJ_Y. These two covariance conventions must not be interchanged; after ⊗ Q_ℓ, H¹(X_{k^s}, Q_ℓ) ≅ Hom(V_ℓ J, Q_ℓ) has dimension 2g.",
    "hypotheses": [
     "k is a field; X is smooth, projective and geometrically connected over k of genus g; ℓ is a prime different from the characteristic of k."
    ],
@@ -2262,12 +2372,13 @@
     "Its long exact sequence, with H⁰(X_{k^s}, G_m) = k^{s×} being ℓ^n-divisible and H¹(X_{k^s}, G_m) = Pic(X_{k^s}) (SF.3/picard-cohomological), gives H¹(X_{k^s}, μ_{ℓ^n}) ≅ Pic(X_{k^s})[ℓ^n] (Stacks, Étale Cohomology, Lemma 03RQ for algebraically closed fields; the same argument applies over k^s).",
     "Degree is torsion-free on Pic, so Pic[ℓ^n] = Pic⁰[ℓ^n] = J[ℓ^n](k^s) (SF.3/picard-scheme-without-point), of order ℓ^{2ng} (JacobianChallenge Layer E; Stacks, Algebraic Curves, Lemma 0C1Z).",
     "G_k-equivariance: all maps are induced by morphisms of sheaves on the big étale site of k and commute with the Galois action on k^s.",
-    "Limit over n gives (i); (ii) is the limit of TraceFormula Layer 8's finite-level comparison, and Milne's argument through the abelianized fundamental group (Part III, Lemma 9.2 and Corollary 9.6) shows the agreement with Abel–Jacobi pullback; (iii) is the EllAdicRealization comparison applied to X_{k^s}."
+    "Import the finite-level torsion and H¹-dual comparison from TraceFormula Layer 8, including its transition maps, Weil pairing and Jacobian principal polarization. Its inverse-limit form yields (i) and (ii); SF.3 integrates these interfaces and does not construct a second Tate module. Milne III Lemma 9.2/Corollary 9.6 give Abel–Jacobi compatibility. EllAdicRealization supplies (iii). For functoriality use Kummer for the twisted comparison and the adjunction between pullback and norm under the Jacobian principal polarizations for the untwisted dual comparison."
    ],
    "acceptance": [
     "Genus 0: both sides vanish.",
     "Genus 1: for an elliptic curve E, T_ℓ E ≅ H¹(E_{k^s}, Z_ℓ(1)), and the dual statement is compatible with the Weil pairing on E[ℓ^n].",
-    "Over a finite field F_q, the trace of geometric Frobenius on H¹(X_{k^s}, Q_ℓ) equals q + 1 − #X(F_q), matching the trace of Frobenius on V_ℓ J (TraceFormula Layer 15)."
+    "Over a finite field F_q, the trace of geometric Frobenius on H¹(X_{k^s}, Q_ℓ) equals q + 1 − #X(F_q), matching the trace of Frobenius on V_ℓ J (TraceFormula Layer 15).",
+    "Over F_q the trace q+1−#X(F_q) is the trace of geometric Galois Frobenius on H¹(X̄,Q_ℓ), and of the q-power Frobenius endomorphism (arithmetic Galois action) on V_ℓJ. Geometric Galois Frobenius on V_ℓJ is its inverse and generally has a different trace."
    ],
    "planet": {
     "name": "Tate module and étale H¹ of a curve"
@@ -2443,6 +2554,20 @@
    "neededBy": [
     "SchemeAndStackFoundations:SF.3/rational-divisor-classes"
    ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/QuadraticFormInvariants#layer-7-the-brauer-group-in-galois-cohomology",
+   "need": "For nonsquare a over any field of characteristic different from two, the crossed-product/inflation comparison identifies ker(Br(k)→Br(k(√a))) with k×/N(k(√a)×); retain the separate square case.",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.3/rational-divisor-classes"
+   ]
+  },
+  {
+   "supplier": "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-9-kähler-differentials-residues-and-the-comparison",
+   "need": "The function-field residue description of local principal parts on a smooth geometrically connected curve, compared with the coherent Serre pairing via Layer12. The precise all-point boundary/Serre-pairing compatibility is a recorded gap rather than an assertion that Layer9 already supplies the scheme theorem.",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.3/abel-jacobi-differentials"
+   ]
   }
  ],
  "upstreamImports": [
@@ -2482,21 +2607,44 @@
  "coverage": [
   {
    "stageId": "SchemeAndStackFoundations:SF.3",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
-    "Lemma-level decomposition of the 26 target nodes once SF.3 reaches the lemma-level threshold: in particular the Galois descent step of SF.3/picard-scheme-without-point, the Leray five-term sequence of SF.3/picard-brauer-sequence, the projectivization argument of SF.3/abel-maps-high-degree(iii) and the commutative square of SF.3/abel-jacobi-differentials (recorded as source issue E-SF3-1).",
-    "The suggested Lean file types the degree, Serre-duality, Picard-groupoid, norm and Tate-module interfaces; the Picard sheaf, Picard schemes and Picard stacks are stated as admitted data declarations because the pinned libraries have no fppf Picard sheaf or dual of an invertible sheaf; when JacobianChallenge Layers A and D land, these carriers are replaced by the upstream ones.",
-    "Consumer requests that SF.3 does not own are redirected in consumerRequests (relative Jacobians over a base, Albanese varieties of higher-dimensional varieties, models over discrete valuation rings, de Rham cohomology of curves, Bertini-type statements, the étale fundamental group); their owners must import or plan them as stated there."
+    "Finish the three explicit gaps: packet/suggested-file signature and example agreement, double-cover stack/component interfaces, and the all-point Abel–Jacobi principal-part/Serre-residue comparison.",
+    "Replace admitted Picard data by imported sheaf/representing-functor carriers with their universal property, degree decomposition, torsor maps and base-change dictionary. The prototype now restricts Jacobian and Pic^d to dimension-one curves and uses actual pinned coherent cohomology.",
+    "Propagate this review’s mathematical corrections and partial coverage to the reader document in a revision authorized to edit it; this review issue does not include that document among its deliverables.",
+    "Keep the consumer redirections, moved-down notions, and one-owner boundaries recorded in consumerRequests, notionsMovedDown and redTeamFindings. Lemma decomposition alone is not the reason this stage is partial."
    ]
   }
  ],
  "gaps": [
   {
-   "title": "Leray five-term sequence on the étale site and étale cohomology of Spec k as Galois cohomology",
+   "title": "Suggested-file carriers, API signatures and discriminating examples",
    "neededBy": [
-    "SchemeAndStackFoundations:SF.3/picard-brauer-sequence"
+    "SchemeAndStackFoundations:SF.3/nonsingular-projective-model",
+    "SchemeAndStackFoundations:SF.3/vector-bundle-degree",
+    "SchemeAndStackFoundations:SF.3/curve-serre-duality",
+    "SchemeAndStackFoundations:SF.3/picard-groupoid",
+    "SchemeAndStackFoundations:SF.3/line-bundle-norm",
+    "SchemeAndStackFoundations:SF.3/picard-scheme-without-point",
+    "SchemeAndStackFoundations:SF.3/picard-stack-curve",
+    "SchemeAndStackFoundations:SF.3/universal-section-stack",
+    "SchemeAndStackFoundations:SF.3/tate-module-etale-h1"
    ],
-   "detail": "SF.3/picard-brauer-sequence uses the exact sequence of low degree of the Leray spectral sequence for f : X → Spec k on étale sites and the identification H^p(Spec k_et, F) = H^p_cont(G_k, F(k^s)). SF.2's stated scope (sheaf cohomology on étale sites) covers both, and PR 196 ConstructibleEtale Layer 9 computes the cohomology of a separably closed field, but no node of an accepted packet states the five-term sequence. The SF.2 follow-up should add it as a node; until then SF.3 cites the SF.2 stage."
+   "detail": "PROTOCOL13 requires typed definitions, every packet API and actual examples. Comments currently replace most API/tests for the model, determinant degree, graded Picard groupoid, norm, Picard and section stacks, and most named theorem statements. picardSheafPoints is an arbitrary admitted Type with no sheaf or Galois-fixed-point dictionary; the corrected dimension-one Picard components/Jacobian still lack representing-functor and torsor interfaces. Supply these using the named SF.1/JacobianChallenge/TraceFormula carriers, with honest explicit assumptions for unavailable conditions; no dummy Prop fields or disconnected substitute cohomology."
+  },
+  {
+   "title": "Double-cover kernel-stack and component-group interfaces",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.3/picard-norm-sequence"
+   ],
+   "detail": "Specify the homotopy-fibre/quotient-stack maps behind Yun–Zhang §6.1 and their norm trivializations. Supply the duality theorem relating the norm component group to ker(π*:J→J′), whose order is two for a connected étale double cover, using the supplier Jacobian polarization/dual. Do not infer a pointwise exact sequence or identify the full kernel with im(1−σ:J′→J′)."
+  },
+  {
+   "title": "Abel–Jacobi principal-part and Serre-residue compatibility",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.3/abel-jacobi-differentials"
+   ],
+   "detail": "State and close the precise scheme-level comparison between the boundary map O(P)/O→H¹(O), the first-order divisor deformation defining dι at every geometric P, and the residue realization of the coherent Serre pairing. AlgebraicCurves9 supplies residues but its 12E contract does not yet state this pairing compatibility. The proof sketch identifies the necessary all-point calculation; a single tangent space at O does not suffice."
   }
  ],
  "sourceIssues": [
@@ -2504,16 +2652,41 @@
    "id": "SchemeAndStackFoundations/E-SF3-1",
    "source": "milne-av",
    "kind": "gap",
-   "locator": "Part III, proof of Proposition 2.2, p. 91, in Abelian Varieties v2.0 (16 March 2008), the version read",
+   "locator": "Part III, proof of Proposition 2.2, p.92, Abelian Varieties v2.00 (16 March 2008)",
    "printed": "The proof identifies global 1-forms on J with the dual tangent space at zero and global 1-forms on C with the dual of H¹(C, O_C), and leaves to the reader, as an exercise described as rather complicated, the commutativity of the square relating pullback along the canonical map C → J to these identifications.",
-   "correction": "The commutativity has to be proved: compute the differential of f_P : C → J at P through the universal divisorial correspondence of Theorem 1.7 and compare with the coboundary H⁰(C, O_C(P)/O_C) → H¹(C, O_C) that identifies T₀(J) with H¹(C, O_C) (Proposition 2.1), then dualize with Serre duality. SF.3/abel-jacobi-differentials records this as its second proof step.",
+   "correction": "The global compatibility is a required proof obligation in the roadmap. Check the principal-part/residue identity at every geometric point, rather than only the differential at the chosen origin.",
    "reason": "The isomorphism claim of Proposition 2.2 rests entirely on the omitted diagram; the identifications in the two columns are independent, so the claim is not established without it.",
    "affects": "the proof",
    "known": "new",
    "searched": [
     "Version history on page ii of the v2.00 notes (no erratum to III.2.2 listed)",
     "Milne's 'Jacobian varieties' chapter of Cornell–Silverman as cited by the notes was not available in the version read; no correction located on jmilne.org"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "The source explicitly assigns the comparison square as an exercise; that is not an unnoticed false step or a claim to have supplied the calculation. The packet must finish its own proof obligation. The original p.91 locator was also wrong: Proposition 2.2 is on p.92.",
+    "by": "REV-SchemeAndStackFoundations--SF.3"
+   }
+  },
+  {
+   "id": "SchemeAndStackFoundations/E-SF3-2",
+   "source": "milne-av",
+   "kind": "error",
+   "locator": "Part III, proof of Proposition 2.2, p.92, author course notes v2.00 (16 March 2008)",
+   "printed": "The proof generalizes the isomorphism from all global one-forms to the dual tangent space at the identity from J to every group variety.",
+   "correction": "Evaluation identifies invariant one-forms with the cotangent space. To identify all global one-forms with it, use an extra condition such as the proper geometrically integral abelian-variety hypotheses, giving Γ(G,O_G)=k.",
+   "reason": "On G_a=Spec k[t], t dt is a nonzero global one-form whose value at the identity t=0 is zero. Thus evaluation of all global forms is not injective. The abelian-variety application remains valid by Stacks 047I and Γ(A,O_A)=k.",
+   "affects": "the proof",
+   "known": "new",
+   "searched": [
+    "Author course-notes version history and AV landing page (v2.00)",
+    "Author course-notes errata page https://jmilne.org/math/CourseNotes/errata.html, Abelian Varieties v2.00 section, read 2026-10-09; no correction of this sentence listed"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The G_a calculation disproves the unqualified sentence; the actual J application is recovered from properness and geometric integrality. Scoped to the author notes read, not to the separately published chapter.",
+    "by": "REV-SchemeAndStackFoundations--SF.3"
+   }
   }
  ],
  "sourceVersions": [
@@ -2557,6 +2730,12 @@
    "kind": "author copy",
    "citation": "The Stacks Project, git master a04446e57ec1fbc252a871afcec7752fb2807b14, chapters listed in sources",
    "read": "2026-10-09"
+  },
+  {
+   "kind": "author copy",
+   "url": "https://www.math.hu-berlin.de/~farkas/friedrichprym.pdf",
+   "read": "2026-10-09",
+   "sha256": "9e156ba96a70f189699d084079a01863fd9eeb03291bab7d5f52a2779b201c53"
   }
  ],
  "redTeamFindings": [
@@ -2722,5 +2901,143 @@
    ],
    "note": "Contract J-E assigns 'multiplication by ℓ finite étale of degree ℓ^{2g}' to JacobianChallenge Layer E, while the PR 196 TraceFormula Layer 8 also builds prime-to-characteristic torsion of abelian varieties; one owner should be named."
   }
- ]
+ ],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-SchemeAndStackFoundations--SF.3",
+  "date": "2026-10-09",
+  "notes": "All 26 nodes and 56 baseline declarations checked, original PDF hashes reproduced, Stacks tag statements/proofs read at the source pin, supplier contracts and three confirmed red-team findings checked. Clear mathematical and typed-hypothesis errors corrected in place. The unresolved requirements are the three precise gaps, not ordinary lemma refinement or unimplemented proofs. Suggested.lean elaboration and structural validation are reported in the review report; compilation cannot validate comments as signatures.",
+  "checked": [
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/nonsingular-projective-model",
+    "verdict": "corrected",
+    "note": "Source model/finite boundary checked; added quasi-compactness to the Lean finite-type hypotheses. Three missing API signatures and three concrete examples remain in the interface gap."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/curve-affine-or-projective",
+    "verdict": "corrected",
+    "note": "Replaced bare-normalization finiteness claim by SF.0/nagata-normalization-finite; corrected Lean finite type to include quasi-compactness. Affineness descent is distinguished from construction."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/genus-base-change",
+    "verdict": "corrected",
+    "note": "Smoothness persists under every extension. The inseparable normalization drop is for a regular nonsmooth model. Cohomology now uses the pinned carrier."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/scheme-riemann-hurwitz",
+    "verdict": "corrected",
+    "note": "Replaced misuse of locally-free additivity on a torsion quotient by the line-bundle different identity; made residue separability explicit in the tame criterion."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/projective-line-characterization",
+    "verdict": "corrected",
+    "note": "Checked Stacks genus-zero hypotheses and separated the odd-degree Gorenstein argument from the Bezout combination of normal closed points."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/genus-one-curves",
+    "verdict": "verified",
+    "note": "Degree-one Riemann–Roch produces a rational point, and Pic¹ is the curve; canonical and pointed comparisons checked. The Abel-map proof no longer circles back to this node."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/line-bundle-degree-bounds",
+    "verdict": "corrected",
+    "note": "Point/tangent separation hypotheses checked; stated the locally Noetherian proper smooth family hypotheses for the base-change consequence."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/vector-bundle-degree",
+    "verdict": "corrected",
+    "note": "Degree and its eleven API items checked. Determinant proof now uses component multiplicities and birational modification; pullback uses integral curves and common base field. Several examples/API signatures remain absent."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/vector-bundle-riemann-roch",
+    "verdict": "verified",
+    "note": "Gorenstein curve formula follows from degree definition and 2χ(O)=−deg ω. The smooth typed corollary is narrower than the packet and the Gorenstein statement remains to be typed."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/curve-serre-duality",
+    "verdict": "corrected",
+    "note": "Corrected the bundle used in the Ext¹ calculation to U^∨⊗V and named the newer SF.2 dualizing-module/CM/curve-comparison prerequisites. Main duality signatures remain comments."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/picard-cohomological",
+    "verdict": "corrected",
+    "note": "Used torsors/descent and covers up to refinement; added the exact field/Galois and Hilbert90 suppliers. The typed affine Picard equivalence now preserves multiplication; the full site comparison remains a signature requirement."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/class-group-picard-locally-factorial",
+    "verdict": "corrected",
+    "note": "Separated locally finite cycle support from Tau Ceti’s Noetherian finite-support curve carrier; pinned the fields for the cone and cuspidal tests."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/picard-excision-sequence",
+    "verdict": "corrected",
+    "note": "Direct divisor restriction proves the stated Noetherian generality; the Chow citation is only a comparison. Galois equivariance requires U defined over k."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/picard-groupoid",
+    "verdict": "corrected",
+    "note": "Core, tensor inverses and graded sign checked. The packet and Lean π₀ comparison preserve multiplication; nontrivial π₁ is a typed regression example. Graded and stack interfaces remain absent."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/line-bundle-norm",
+    "verdict": "corrected",
+    "note": "Determinant normalization and section tests checked; Lean now requires locally finite presentation and the actual constant finrank. Pullback/base-change/section APIs remain comments."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/picard-scheme-without-point",
+    "verdict": "corrected",
+    "note": "Corrected the torsor map and added dimension-one arguments to Jac/Pic^d in Lean. Descent and period distinction checked; admitted carriers still lack a representing-functor dictionary."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/picard-brauer-sequence",
+    "verdict": "corrected",
+    "note": "Replaced stale Leray gap with exact SF.2 suppliers, distinguished H² from its torsion subgroup, and corrected the section argument. Finite inseparable splitting uses the CSA index route."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/rational-divisor-classes",
+    "verdict": "corrected",
+    "note": "Separated square f₀ from the quadratic case and imported the arbitrary-field cyclic norm quotient from QuadraticFormInvariants7 rather than local ClassFieldTheory5."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/degree-zero-class-comparison",
+    "verdict": "verified",
+    "note": "Function-field and scheme weighted degree-zero class comparison checked; actual Pic classes are distinguished from Jacobian k-points. P divides I, and I divides 2g−2 including the genus-one zero case."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/picard-stack-curve",
+    "verdict": "corrected",
+    "note": "Gerbe, rigidification, dimension and tensor APIs checked; stabilizer regression now uses the group scheme/geometric points, so F₂ does not invalidate it. Stack signatures/examples remain absent."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/universal-section-stack",
+    "verdict": "corrected",
+    "note": "Section/divisor equivalence, high-degree vector bundle and jumping-rank example checked; tensor coherence made explicit. The construction, eight API signatures and four examples remain comments."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/abel-maps-high-degree",
+    "verdict": "corrected",
+    "note": "Fibres may be empty; nonempty twisted fibres carry the descent cocycle. Added Brauer prerequisite, nonnegative high-degree bound and empty-fibre regression; removed genus-one circular proof."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/picard-norm-sequence",
+    "verdict": "unverifiable",
+    "note": "Corrected false equality of full norm kernel with the connected image on J′; distinguished Prym, two components and norm-trivialized stack objects. Precise stack/component supplier closure remains a recorded gap."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/invariant-differentials",
+    "verdict": "corrected",
+    "note": "Added finite dimension for the tangent-double-dual identification; restricted all-global-form evaluation to the abelian-variety application and confirmed the G_a source counterexample."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/abel-jacobi-differentials",
+    "verdict": "unverifiable",
+    "note": "Replaced one-point argument by the all-point principal-part/residue calculation. Its exact coherent pairing compatibility is not stated by the cited function-field supplier, so closure remains a gap."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.3/tate-module-etale-h1",
+    "verdict": "corrected",
+    "note": "Kept TraceFormula8 as torsion/Tate/finite-level comparison owner; corrected untwisted pullback to dual norm and pinned arithmetic Tate versus geometric cohomology Frobenius. Typed integration signatures remain missing."
+   }
+  ]
+ }
 }
