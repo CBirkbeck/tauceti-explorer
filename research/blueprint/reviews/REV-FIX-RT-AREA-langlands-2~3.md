@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current blocked checkpoint: Codex session `codex-4L7DNo`, 9 October 2026,
-issue #5871, base `c65973cc7009a24f205415c365b1c27678cb1aaf`.
-The authorized inputs are unchanged since PR #7768. The final audit below
+Current blocked checkpoint: Codex session `codex-Y6eAq2`, 9 October 2026,
+issue #5871, base `17c256184e9b382551add16d3ccd8593c4b69cb2`.
+The authorized inputs are unchanged since PR #7773. The final audit below
 reproduces the scope blocker; existing mathematical verdicts and reviewer
 attributions are retained.
 
@@ -432,3 +432,40 @@ This checkpoint changes only the report and handoff. The handoff retains
 the exact seven-output correction and historical parent-fix reconciliation,
 with a read-only reproduction. Maintainer metadata repair is required before
 this job can finish; additional unchanged-input checkpoints cannot supply it.
+
+## Current scope verification, 9 October 2026 — codex-Y6eAq2
+
+The bot confirmed this session's claim at
+[comment 6073892388](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6073892388).
+Re-read the live issue after confirmation and continued from the merged
+handoff. Before this update, all seven issue deliverables are byte-for-byte
+identical to PR #7773, commit `18b9d9bb5`. The three packets and suggested
+files therefore have no mathematical changes to review since that checkpoint.
+This continuation preserves the preceding independent review and its packet
+objects; it claims no fresh primary-source or pinned-declaration reading.
+
+Parsed the seven permitted outputs from the freshly fetched issue body.
+The committed review still expects 27 outputs, all present, including ten
+extra packets whose reviewer objects name other review jobs. The parent
+fix still expects 40 outputs. Read the completion function, intake allowlist
+and `fix_rounds` generation path, and reproduced these results without
+changing any metadata:
+
+- `deliverables_complete(job)`: **false**.
+- The same call with only `outputs` replaced by the issue's seven paths:
+  **true**.
+- Both `research/blueprint/queue.json` and
+  `research/blueprint/make_queue.py`: excluded by `intake.ALLOWED` and absent
+  from the issue's permitted files.
+
+All three packet checkers pass with **zero errors and zero warnings**.
+The packets contain 37, 73 and 67 nodes; all 177 implementation statuses are
+unchecked, no packet contains an excerpt field, and the finding table covers
+/1–/40 exactly once. Existing verdicts remain CSM **accepted**, Global
+**accepted**, GL2 **needs_changes**. The scoped completion result confirms
+that GL2's negative verdict is a completed review outcome.
+
+The unchanged suggested files were not recompiled. Their successful pinned
+compilation receipts above remain historical evidence. No new graph audit
+is claimed. This checkpoint changes only this report and the handoff; the
+metadata reconciliation recorded there remains the required next action.
