@@ -51,10 +51,11 @@ listed by README number in the closing comment; where such a target has a ring-l
 scheme-level core that can be stated, the core is given under the target's name with a suffix
 (`…_affinoid`, `…_affine`, `…_algebraic`, `…_scheme`, `…_core`).
 
-Everything lives in `TauCetiRoadmap.AdicSpacesPartII`, except the declarations that extend a
-Tau Ceti type by dot notation (`Pair.uniformization`, `Pair.Hom.IsFinite`,
-`PairOfDefinition.completionTensorEquiv`, …): those are declared with `_root_.TauCeti.Huber.`
-so that `S.uniformization` and `φ.IsFinite` read as in the README.
+Everything lives in `TauCetiRoadmap.AdicSpacesPartII`. Declarations that the README attaches to a
+Tau Ceti type (`Pair.uniformization`, `Pair.Hom.IsFinite`, `PairOfDefinition.completionTensorEquiv`,
+…) keep those names inside this namespace and are applied explicitly (`Pair.uniformization S`
+rather than `S.uniformization`); in Tau Ceti they will live in `TauCeti.Huber` and dot notation
+will apply.
 -/
 
 set_option autoImplicit false
@@ -194,7 +195,7 @@ end AdicCompletion
 /-- R0/noetherian-adic-completion: for a pair of definition `(A₀, I)` with `A₀` noetherian, the
 ring of definition `Â₀` of the completion (Tau Ceti `PairOfDefinition.completion`) is
 noetherian. -/
-theorem _root_.TauCeti.Huber.PairOfDefinition.isNoetherianRing_completion {A : Type*} [CommRing A] [UniformSpace A]
+theorem PairOfDefinition.isNoetherianRing_completion {A : Type*} [CommRing A] [UniformSpace A]
     [IsUniformAddGroup A] [IsTopologicalRing A] (P : PairOfDefinition A)
     [IsNoetherianRing P.ringOfDefinition] :
     IsNoetherianRing P.completion.ringOfDefinition := sorry
@@ -276,7 +277,7 @@ theorem isAdicHom_completion_coe {A : Type*} [CommRing A] [UniformSpace A] [IsUn
 Huber ring to a complete Hausdorff Huber ring is adic (for every pair of definition `(A₀, I)` of
 `A`, `π(closure of A₀⟨X⟩_T)` is a ring of definition of `B` with ideal of definition
 `φ(I)·B₀`). -/
-theorem _root_.TauCeti.Huber.IsTopologicallyFiniteType.isAdicHom {A B : Type*} [CommRing A] [TopologicalSpace A]
+theorem IsTopologicallyFiniteType.isAdicHom {A B : Type*} [CommRing A] [TopologicalSpace A]
     [IsTopologicalRing A] [IsHuberRing A] [CommRing B] [UniformSpace B] [IsUniformAddGroup B]
     [IsTopologicalRing B] [IsHuberRing B] [CompleteSpace B] [T2Space B] {φ : A →+* B}
     (h : IsTopologicallyFiniteType φ) : IsAdicHom φ := sorry
@@ -422,7 +423,7 @@ variable {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
 /-- R0/noetherian-rod-module-topology-strict (Huber 1994 Lemma 2.3(i)): over a Huber ring with a
 noetherian ring of definition, every `A`-linear map between finitely generated modules with their
 natural (module) topologies is strict. Completeness is not assumed. -/
-theorem _root_.TauCeti.Huber.PairOfDefinition.isStrictMap_of_isNoetherianRing (P : PairOfDefinition A)
+theorem PairOfDefinition.isStrictMap_of_isNoetherianRing (P : PairOfDefinition A)
     [IsNoetherianRing P.ringOfDefinition] {M N : Type*} [AddCommGroup M] [Module A M]
     [Module.Finite A M] [TopologicalSpace M] [IsModuleTopology A M] [AddCommGroup N] [Module A N]
     [Module.Finite A N] [TopologicalSpace N] [IsModuleTopology A N] (u : M →ₗ[A] N) :
@@ -431,7 +432,7 @@ theorem _root_.TauCeti.Huber.PairOfDefinition.isStrictMap_of_isNoetherianRing (P
 /-- R0/noetherian-rod-module-topology-strict: for a finitely generated `A₀`-submodule `M₀`
 generating `M`, the subgroups `Iⁿ M₀` form a fundamental system of neighbourhoods of `0` for the
 module topology. -/
-theorem _root_.TauCeti.Huber.PairOfDefinition.hasBasis_nhds_zero_of_isNoetherianRing (P : PairOfDefinition A)
+theorem PairOfDefinition.hasBasis_nhds_zero_of_isNoetherianRing (P : PairOfDefinition A)
     [IsNoetherianRing P.ringOfDefinition] {M : Type*} [AddCommGroup M] [Module A M]
     [Module.Finite A M] [TopologicalSpace M] [IsModuleTopology A M]
     (M₀ : Submodule P.ringOfDefinition M) (hfg : M₀.FG)
@@ -453,14 +454,14 @@ variable {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopo
 /-- R0/noetherian-rod-module-complete (Huber 1994 Lemma 2.3(ii)): over a complete Hausdorff Huber
 ring with a noetherian ring of definition, a finitely generated module is complete and Hausdorff
 for its natural topology, and all its submodules are closed. -/
-theorem _root_.TauCeti.Huber.PairOfDefinition.completeSpace_isClosed_of_isNoetherianRing (P : PairOfDefinition A)
+theorem PairOfDefinition.completeSpace_isClosed_of_isNoetherianRing (P : PairOfDefinition A)
     [IsNoetherianRing P.ringOfDefinition] [CompleteSpace A] [T2Space A] :
     CompleteSpace M ∧ T2Space M ∧ ∀ M' : Submodule A M, IsClosed (M' : Set M) :=
   sorry
 
 /-- R0/noetherian-rod-module-complete: a finitely generated `A₀`-submodule `M₀` generating `M` is
 open and `I`-adically complete. -/
-theorem _root_.TauCeti.Huber.PairOfDefinition.isOpen_isAdicComplete_of_isNoetherianRing (P : PairOfDefinition A)
+theorem PairOfDefinition.isOpen_isAdicComplete_of_isNoetherianRing (P : PairOfDefinition A)
     [IsNoetherianRing P.ringOfDefinition] [CompleteSpace A] [T2Space A] (M₀ : Submodule P.ringOfDefinition M) (hfg : M₀.FG)
     (hspan : Submodule.span A (M₀ : Set M) = ⊤) :
     IsOpen (M₀ : Set M) ∧ IsAdicComplete P.idealOfDefinition M₀ := sorry
@@ -472,14 +473,14 @@ variable (M) in
 `M ⊗_A Â → M̂` is an isomorphism (of topological modules, for the natural topology of the
 source); stated here as an `A`-linear equivalence, pinned down by
 `PairOfDefinition.completionTensorEquiv_tmul_one`. -/
-def _root_.TauCeti.Huber.PairOfDefinition.completionTensorEquiv (P : PairOfDefinition A)
+def PairOfDefinition.completionTensorEquiv (P : PairOfDefinition A)
     [IsNoetherianRing P.ringOfDefinition] [UniformContinuousConstSMul A M] :
     M ⊗[A] Completion A ≃ₗ[A] Completion M := sorry
 
 /-- R0/noetherian-rod-module-completion-tensor: `completionTensorEquiv (m ⊗ 1) = m`. -/
-theorem _root_.TauCeti.Huber.PairOfDefinition.completionTensorEquiv_tmul_one (P : PairOfDefinition A)
+theorem PairOfDefinition.completionTensorEquiv_tmul_one (P : PairOfDefinition A)
     [IsNoetherianRing P.ringOfDefinition] [UniformContinuousConstSMul A M] (m : M) :
-    P.completionTensorEquiv M (m ⊗ₜ 1) = (m : Completion M) := sorry
+    PairOfDefinition.completionTensorEquiv M P (m ⊗ₜ 1) = (m : Completion M) := sorry
 
 end NoetherianRodModuleComplete
 
@@ -682,11 +683,6 @@ theorem NoetherianCech.ker_le_range [IsNoetherianRing P.ringOfDefinition] [Modul
 
 end NoetherianCech
 
-/-! ### R0.16 The Čech complexes of Iⁱ𝒢 form a neighbourhood basis in the natural topology (Huber 1994 (1.3.1)(ii)) -/
-
-
-/-! ### R0.17 Strict Čech exactness for standard rational coverings when B has a noetherian ring of definition (Huber 1994 (1.3)) -/
-
 
 /-! ### R0.18 Huber pairs with a noetherian ring of definition are sheafy (Huber 1994 Theorem 2.2, Case I) -/
 
@@ -714,8 +710,6 @@ theorem isSheafyPair_of_discreteTopology_span {A : Type*} [CommRing A] [Topologi
     (hcov : rationalSubset Aplus T s ⊆ ⋃ j, rationalSubset Aplus (Tj j) (sj j)) :
     Ideal.span (Set.range fun j ↦ algebraMap A (Localization.Away s) (sj j)) = ⊤ := sorry
 
-
-/-! ### R0.20 Complete rings of noetherian type are stably sheafy -/
 
 -- Huber.IsNoetherianType.isStablySheafyRing (R0/noetherian-type-stably-sheafy): not stated
 --   here; needs the anchor's structure presheaf `𝒪` on `Spa(B, B⁺)` and `IsStablySheafyRing`
@@ -779,7 +773,7 @@ instance : T2Space (CompletedTensor A B C) :=
 
 /-- R0/completed-tensor-product (data): the ring homomorphism `B ⊗[A] C → B ⊗̂_A C` out of
 Mathlib's algebraic tensor product. -/
-def _root_.TauCeti.Huber.Pair.completedTensor.tmul : B ⊗[A] C →+* CompletedTensor A B C := sorry
+def Pair.completedTensor.tmul : B ⊗[A] C →+* CompletedTensor A B C := sorry
 
 /-- R0/completed-tensor-product (instance): `Algebra A (CompletedTensor A B C)`. -/
 instance : Algebra A (CompletedTensor A B C) :=
@@ -787,7 +781,7 @@ instance : Algebra A (CompletedTensor A B C) :=
 
 /-- R0/completed-tensor-product (characterisation): `tmul` has dense range, and its kernel is the
 closure of `0` in `B ⊗[A] C`. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.denseRange_tmul :
+theorem Pair.completedTensor.denseRange_tmul :
     DenseRange (Pair.completedTensor.tmul A B C) ∧
       (RingHom.ker (Pair.completedTensor.tmul A B C) : Set (B ⊗[A] C)) =
         @closure _ (tensorTopology A B C) {0} := sorry
@@ -795,7 +789,7 @@ theorem _root_.TauCeti.Huber.Pair.completedTensor.denseRange_tmul :
 /-- R0/completed-tensor-product (structure): when both structure maps are adic, the pair of
 definition of `B ⊗̂_A C`: the closure of the image of `B₀ ⊗ C₀`, with the ideal generated by the
 image of `I`. -/
-def _root_.TauCeti.Huber.Pair.completedTensor.pairOfDefinition [IsAdicHom (algebraMap A B)]
+def Pair.completedTensor.pairOfDefinition [IsAdicHom (algebraMap A B)]
     [IsAdicHom (algebraMap A C)] : PairOfDefinition (CompletedTensor A B C) := sorry
 
 /-- R0/completed-tensor-product (instance): `IsHuberRing (CompletedTensor A B C)`. -/
@@ -811,7 +805,7 @@ variable {A B C} [IsHuberRing A] [IsHuberRing B] [IsHuberRing C] [IsAdicHom (alg
 `algebraMap`s, carrying `A⁺` into `B⁺` and `C⁺`). Its plus ring is the closure of the image of the
 integral closure of the subring generated by `B⁺ ⊗ 1` and `1 ⊗ C⁺` (Huber 1994, proof of
 Lemma 3.9(i)); no uniformisation is performed. -/
-def _root_.TauCeti.Huber.Pair.completedTensor (S : Pair A) (T : Pair B) (U : Pair C)
+def Pair.completedTensor (S : Pair A) (T : Pair B) (U : Pair C)
     (hT : ∀ a ∈ S.plus, algebraMap A B a ∈ T.plus) (hU : ∀ a ∈ S.plus, algebraMap A C a ∈ U.plus) :
     Pair (CompletedTensor A B C) where
   plus := ((integralClosure
@@ -826,14 +820,14 @@ variable (S : Pair A) (T : Pair B) (U : Pair C) (hT : ∀ a ∈ S.plus, algebraM
 
 /-- R0/completed-tensor-product (projection): the morphism of Huber pairs `(B, B⁺) → B ⊗̂_A C`,
 `b ↦ b ⊗ 1`. -/
-def _root_.TauCeti.Huber.Pair.completedTensor.inl : Pair.Hom T (Pair.completedTensor S T U hT hU) where
+def Pair.completedTensor.inl : Pair.Hom T (Pair.completedTensor S T U hT hU) where
   toRingHom := (Pair.completedTensor.tmul A B C).comp Algebra.TensorProduct.includeLeftRingHom
   continuous_toRingHom := sorry
   map_mem_plus := sorry
 
 /-- R0/completed-tensor-product (projection): the morphism of Huber pairs `(C, C⁺) → B ⊗̂_A C`,
 `c ↦ 1 ⊗ c`. -/
-def _root_.TauCeti.Huber.Pair.completedTensor.inr : Pair.Hom U (Pair.completedTensor S T U hT hU) where
+def Pair.completedTensor.inr : Pair.Hom U (Pair.completedTensor S T U hT hU) where
   toRingHom := (Pair.completedTensor.tmul A B C).comp
     (Algebra.TensorProduct.includeRight (R := A) (A := B)).toRingHom
   continuous_toRingHom := sorry
@@ -841,28 +835,28 @@ def _root_.TauCeti.Huber.Pair.completedTensor.inr : Pair.Hom U (Pair.completedTe
 
 /-- R0/completed-tensor-product (data): `tmul (b ⊗ₜ c) = inl b * inr c`. -/
 @[simp]
-theorem _root_.TauCeti.Huber.Pair.completedTensor.tmul_tmul (b : B) (c : C) :
+theorem Pair.completedTensor.tmul_tmul (b : B) (c : C) :
     Pair.completedTensor.tmul A B C (b ⊗ₜ c) =
       (Pair.completedTensor.inl S T U hT hU).toRingHom b *
         (Pair.completedTensor.inr S T U hT hU).toRingHom c := sorry
 
 /-- R0/completed-tensor-product (relation): `inl ∘ f = inr ∘ g` as morphisms of Huber pairs, `f`
 and `g` being the structure maps. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.inl_comp :
+theorem Pair.completedTensor.inl_comp :
     (Pair.completedTensor.inl S T U hT hU).comp
         ⟨algebraMap A B, IsAdicHom.continuous (algebraMap A B), hT⟩ =
       (Pair.completedTensor.inr S T U hT hU).comp
         ⟨algebraMap A C, IsAdicHom.continuous (algebraMap A C), hU⟩ := sorry
 
 /-- R0/completed-tensor-product (other): `inl` and `inr` are adic. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.isAdicHom_inl :
+theorem Pair.completedTensor.isAdicHom_inl :
     IsAdicHom (Pair.completedTensor.inl S T U hT hU).toRingHom ∧
       IsAdicHom (Pair.completedTensor.inr S T U hT hU).toRingHom := sorry
 
 /-- R0/completed-tensor-product (characterisation): the plus ring is the closure of the image of
 the integral closure of the image of `B⁺ ⊗_{A⁺} C⁺`; it contains every `inl b * inr c` with
 `b ∈ B⁺`, `c ∈ C⁺`. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.plus_eq :
+theorem Pair.completedTensor.plus_eq :
     (Pair.completedTensor S T U hT hU).plus =
       ((integralClosure
           ↥(T.plus.map (Algebra.TensorProduct.includeLeftRingHom (R := A) (B := C)) ⊔
@@ -872,7 +866,7 @@ theorem _root_.TauCeti.Huber.Pair.completedTensor.plus_eq :
   sorry
 
 /-- R0/completed-tensor-product (instance): `B ⊗̂_A C` is Tate if `B` or `C` is. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.isTateRing (h : IsTateRing B ∨ IsTateRing C) :
+theorem Pair.completedTensor.isTateRing (h : IsTateRing B ∨ IsTateRing C) :
     IsTateRing (CompletedTensor A B C) := sorry
 
 section Lift
@@ -883,13 +877,13 @@ variable {R : Type*} [CommRing R] [UniformSpace R] [IsUniformAddGroup R] [Nonarc
 /-- R0/completed-tensor-product (universal-property): the continuous homomorphism
 `B ⊗̂_A C → R` induced by continuous `φ : B → R`, `ψ : C → R` with `φ ∘ f = ψ ∘ g`, into a
 complete Hausdorff nonarchimedean ring (R0/completed-tensor-product-universal-property). -/
-def _root_.TauCeti.Huber.Pair.completedTensor.lift (φ : B →+* R) (ψ : C →+* R) (hφ : Continuous φ)
+def Pair.completedTensor.lift (φ : B →+* R) (ψ : C →+* R) (hφ : Continuous φ)
     (hψ : Continuous ψ) (h : φ.comp (algebraMap A B) = ψ.comp (algebraMap A C)) :
     CompletedTensor A B C →+* R := sorry
 
 /-- R0/completed-tensor-product (universal-property): `lift φ ψ ∘ inl = φ` and
 `lift φ ψ ∘ inr = ψ`. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.lift_comp_inl (φ : B →+* R) (ψ : C →+* R) (hφ : Continuous φ)
+theorem Pair.completedTensor.lift_comp_inl (φ : B →+* R) (ψ : C →+* R) (hφ : Continuous φ)
     (hψ : Continuous ψ) (h : φ.comp (algebraMap A B) = ψ.comp (algebraMap A C)) :
     (Pair.completedTensor.lift φ ψ hφ hψ h).comp (Pair.completedTensor.inl S T U hT hU).toRingHom =
         φ ∧
@@ -897,7 +891,7 @@ theorem _root_.TauCeti.Huber.Pair.completedTensor.lift_comp_inl (φ : B →+* R)
           (Pair.completedTensor.inr S T U hT hU).toRingHom = ψ := sorry
 
 /-- R0/completed-tensor-product (universal-property): `lift` is continuous. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.continuous_lift (φ : B →+* R) (ψ : C →+* R) (hφ : Continuous φ)
+theorem Pair.completedTensor.continuous_lift (φ : B →+* R) (ψ : C →+* R) (hφ : Continuous φ)
     (hψ : Continuous ψ) (h : φ.comp (algebraMap A B) = ψ.comp (algebraMap A C)) :
     Continuous (Pair.completedTensor.lift φ ψ hφ hψ h) := sorry
 
@@ -905,7 +899,7 @@ end Lift
 
 /-- R0/completed-tensor-product (extensionality): two continuous homomorphisms out of `B ⊗̂_A C`
 into a Hausdorff ring agreeing after `inl` and after `inr` are equal. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.hom_ext {R : Type*} [CommRing R] [TopologicalSpace R] [T2Space R]
+theorem Pair.completedTensor.hom_ext {R : Type*} [CommRing R] [TopologicalSpace R] [T2Space R]
     {χ₁ χ₂ : CompletedTensor A B C →+* R} (h₁ : Continuous χ₁) (h₂ : Continuous χ₂)
     (hl : χ₁.comp (Pair.completedTensor.inl S T U hT hU).toRingHom =
       χ₂.comp (Pair.completedTensor.inl S T U hT hU).toRingHom)
@@ -916,7 +910,7 @@ variable {S T U hT hU} in
 /-- R0/completed-tensor-product (functoriality): morphisms of pairs `(B, B⁺) → (B', B'⁺)` and
 `(C, C⁺) → (C', C'⁺)` over `(A, A⁺) → (A', A'⁺)`, all structure maps adic, induce
 `B ⊗̂_A C → B' ⊗̂_{A'} C'`. -/
-def _root_.TauCeti.Huber.Pair.completedTensor.map {A' B' C' : Type*} [CommRing A'] [TopologicalSpace A']
+def Pair.completedTensor.map {A' B' C' : Type*} [CommRing A'] [TopologicalSpace A']
     [IsTopologicalRing A'] [IsHuberRing A'] [CommRing B'] [TopologicalSpace B']
     [IsTopologicalRing B'] [IsHuberRing B'] [CommRing C'] [TopologicalSpace C']
     [IsTopologicalRing C'] [IsHuberRing C'] [Algebra A' B'] [Algebra A' C']
@@ -931,12 +925,12 @@ def _root_.TauCeti.Huber.Pair.completedTensor.map {A' B' C' : Type*} [CommRing A
 variable (A B C) in
 /-- R0/completed-tensor-product (equivalence): `B ⊗̂_A C ≅ C ⊗̂_A B`, exchanging `inl` and
 `inr`. -/
-def _root_.TauCeti.Huber.Pair.completedTensor.comm : CompletedTensor A B C ≃A[A] CompletedTensor A C B := sorry
+def Pair.completedTensor.comm : CompletedTensor A B C ≃A[A] CompletedTensor A C B := sorry
 
 variable (B) in
 /-- R0/completed-tensor-product (equivalence): transitivity of base change, for adic
 `A → C → C'`: `(B ⊗̂_A C) ⊗̂_C C' ≅ B ⊗̂_A C'`, where `B ⊗̂_A C` is a `C`-algebra through `inr`. -/
-def _root_.TauCeti.Huber.Pair.completedTensor.cancelBaseChange (C' : Type*) [CommRing C'] [TopologicalSpace C']
+def Pair.completedTensor.cancelBaseChange (C' : Type*) [CommRing C'] [TopologicalSpace C']
     [IsTopologicalRing C'] [Algebra C C'] [Algebra A C'] [IsScalarTower A C C']
     [IsAdicHom (algebraMap C C')] :
     letI : Algebra C (CompletedTensor A B C) := ((Pair.completedTensor.tmul A B C).comp
@@ -1000,7 +994,7 @@ variable {A B C : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
 `R` with a closed subring `R⁺` integrally closed in `R`, and continuous `φ : B → R`, `ψ : C → R`
 with `φ(B⁺) ⊆ R⁺`, `ψ(C⁺) ⊆ R⁺`, `φ ∘ f = ψ ∘ g`, there is exactly one continuous `χ` on
 `B ⊗̂_A C` with `χ(D⁺) ⊆ R⁺`, `χ ∘ inl = φ`, `χ ∘ inr = ψ`. No adicness of `φ`, `ψ` is needed. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.existsUnique_lift {R : Type*} [CommRing R] [UniformSpace R]
+theorem Pair.completedTensor.existsUnique_lift {R : Type*} [CommRing R] [UniformSpace R]
     [IsUniformAddGroup R] [NonarchimedeanRing R] [CompleteSpace R] [T2Space R] (Rplus : Subring R)
     (hRc : IsClosed (Rplus : Set R)) [IsIntegrallyClosedIn Rplus R] (φ : B →+* R) (ψ : C →+* R)
     (hφ : Continuous φ) (hψ : Continuous ψ) (hφp : ∀ b ∈ T.plus, φ b ∈ Rplus)
@@ -1012,7 +1006,7 @@ theorem _root_.TauCeti.Huber.Pair.completedTensor.existsUnique_lift {R : Type*} 
 
 /-- R0/completed-tensor-product-universal-property: if moreover `R` is a Huber ring and `φ` is
 adic, the induced homomorphism is adic. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.isAdicHom_lift {R : Type*} [CommRing R] [UniformSpace R]
+theorem Pair.completedTensor.isAdicHom_lift {R : Type*} [CommRing R] [UniformSpace R]
     [IsUniformAddGroup R] [IsTopologicalRing R] [IsHuberRing R] [CompleteSpace R] [T2Space R] (φ : B →+* R) (ψ : C →+* R)
     (hφ : Continuous φ) (hψ : Continuous ψ) (h : φ.comp (algebraMap A B) = ψ.comp (algebraMap A C))
     [IsAdicHom φ] : IsAdicHom (Pair.completedTensor.lift φ ψ hφ hψ h) := sorry
@@ -1034,7 +1028,7 @@ theorem IsAdicHom.isWeightFamily_image {n : ℕ} {M : Fin n → Set A} (hMf : �
 
 /-- R0/completed-tensor-restricted-power-series (b): `A⟨X⟩_M ⊗̂_A B ≅ B⟨X⟩_{λ(M)}`, induced by
 `X_i ↦ X_i` and the structure map of `B` (Huber 1994 Lemma 3.5). -/
-def _root_.TauCeti.Huber.Pair.completedTensorRestrictedEquiv {n : ℕ} (M : Fin n → Set A) (hMf : ∀ i, (M i).Finite)
+def Pair.completedTensorRestrictedEquiv {n : ℕ} (M : Fin n → Set A) (hMf : ∀ i, (M i).Finite)
     (hM : IsWeightFamily M) :
     CompletedTensor A (Completion (weightedRestrictedSubring M hM)) B ≃+*
       Completion (weightedRestrictedSubring (fun i ↦ algebraMap A B '' M i)
@@ -1043,7 +1037,7 @@ def _root_.TauCeti.Huber.Pair.completedTensorRestrictedEquiv {n : ℕ} (M : Fin 
 /-- R0/completed-tensor-restricted-power-series (consequence of (c)): if `A → C` is topologically
 of finite type into a complete Hausdorff Huber ring, then `B → C ⊗̂_A B` is topologically of finite
 type. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.isTopologicallyFiniteType_inr {C : Type*} [CommRing C]
+theorem Pair.completedTensor.isTopologicallyFiniteType_inr {C : Type*} [CommRing C]
     [UniformSpace C] [IsUniformAddGroup C] [IsTopologicalRing C] [IsHuberRing C] [CompleteSpace C]
     [T2Space C] [Algebra A C] (hC : IsTopologicallyFiniteType (algebraMap A C)) :
     IsTopologicallyFiniteType ((Pair.completedTensor.tmul A C B).comp
@@ -1057,7 +1051,7 @@ end RestrictedPowerSeries
 `A → C` topologically of finite type and `B` of noetherian type, `inl : B → B ⊗̂_A C` is
 topologically of finite type and `B ⊗̂_A C` is of noetherian type (hence stably sheafy by
 R0/noetherian-type-stably-sheafy, which needs the anchor's Layer 4). -/
-theorem _root_.TauCeti.Huber.Pair.completedTensor.isNoetherianType {A B C : Type*} [CommRing A] [UniformSpace A]
+theorem Pair.completedTensor.isNoetherianType {A B C : Type*} [CommRing A] [UniformSpace A]
     [IsUniformAddGroup A] [IsTopologicalRing A] [IsHuberRing A] [CompleteSpace A] [T2Space A]
     [CommRing B] [UniformSpace B] [IsUniformAddGroup B] [IsTopologicalRing B] [IsHuberRing B]
     [CompleteSpace B] [T2Space B] [CommRing C] [UniformSpace C] [IsUniformAddGroup C]
@@ -1087,7 +1081,7 @@ open scoped Classical in
 `Spa B` and `R(T₂/s₂)` of `Spa C` (`T_i` generating open ideals), the intersection of their
 preimages in `Spa(B ⊗̂_A C)` is the rational subset
 `R(inl(T₁ ∪ {s₁})·inr(T₂ ∪ {s₂}) / inl(s₁)·inr(s₂))`. -/
-theorem _root_.TauCeti.Huber.Pair.completedTensorRationalEquiv_preimage (S : Pair A) (T : Pair B) (U : Pair C)
+theorem Pair.completedTensorRationalEquiv_preimage (S : Pair A) (T : Pair B) (U : Pair C)
     (hT : ∀ a ∈ S.plus, algebraMap A B a ∈ T.plus) (hU : ∀ a ∈ S.plus, algebraMap A C a ∈ U.plus)
     (T₁ : Finset B) (s₁ : B) (T₂ : Finset C) (s₂ : C)
     (hT₁ : IsOpen (Ideal.span (T₁ : Set B) : Set B))
@@ -1473,96 +1467,96 @@ variable {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [Is
 
 /-- R0/uniformization (constructor): the complete Hausdorff Huber pair `(Aᵘ, Aᵘ⁺)`, `Aᵘ⁺` the
 closure of the image of `A⁺` (Kedlaya–Liu Definition 2.8.13). -/
-def _root_.TauCeti.Huber.Pair.uniformization (S : Pair A) : Pair (Uniformization A) where
+def Pair.uniformization (S : Pair A) : Pair (Uniformization A) where
   plus := ((S.plus.map (toSpectralTop : A ≃+* SpectralTop A).toRingHom).map
     (Completion.coeRingHom : SpectralTop A →+* Completion (SpectralTop A))).topologicalClosure
   isRingOfIntegralElements := sorry
 
 /-- R0/uniformization (projection): `ι : (A, A⁺) → (Aᵘ, Aᵘ⁺)`. -/
-def _root_.TauCeti.Huber.Pair.toUniformization (S : Pair A) : Pair.Hom S S.uniformization where
+def Pair.toUniformization (S : Pair A) : Pair.Hom S (Pair.uniformization S) where
   toRingHom := (Completion.coeRingHom : SpectralTop A →+* Completion (SpectralTop A)).comp
     (toSpectralTop : A ≃+* SpectralTop A).toRingHom
   continuous_toRingHom := sorry
   map_mem_plus := sorry
 
 /-- R0/uniformization (instance): `Aᵘ` is a complete Hausdorff Tate ring. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.isTateRing : IsTateRing (Uniformization A) := sorry
+theorem Pair.uniformization.isTateRing : IsTateRing (Uniformization A) := sorry
 
 /-- R0/uniformization (instance): `Aᵘ` is uniform. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.isBounded_powerBoundedSubring :
+theorem Pair.uniformization.isBounded_powerBoundedSubring :
     IsBounded (powerBoundedSubring (Uniformization A) : Set (Uniformization A)) := sorry
 
 /-- R0/uniformization (characterisation): `ι` has dense range and kills exactly `{|x|_sp = 0}`. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.denseRange_toUniformization (S : Pair A) (d : TateNormDatum A) :
-    DenseRange S.toUniformization.toRingHom ∧
-      ∀ x, S.toUniformization.toRingHom x = 0 ↔ spectralSeminorm d x = 0 := sorry
+theorem Pair.uniformization.denseRange_toUniformization (S : Pair A) (d : TateNormDatum A) :
+    DenseRange (Pair.toUniformization S).toRingHom ∧
+      ∀ x, (Pair.toUniformization S).toRingHom x = 0 ↔ spectralSeminorm d x = 0 := sorry
 
 /-- R0/uniformization (characterisation): `Aᵘ⁺` is the closure of `ι(A⁺)`. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.plus_eq_closure (S : Pair A) :
-    (S.uniformization.plus : Set (Uniformization A)) =
-      closure (S.toUniformization.toRingHom '' S.plus) := sorry
+theorem Pair.uniformization.plus_eq_closure (S : Pair A) :
+    ((Pair.uniformization S).plus : Set (Uniformization A)) =
+      closure ((Pair.toUniformization S).toRingHom '' S.plus) := sorry
 
 /-- R0/uniformization (relation): `|·|_sp` extends to a power-multiplicative norm on `Aᵘ` defining
 its topology. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.extendSpectralSeminorm (S : Pair A) (d : TateNormDatum A) :
+theorem Pair.uniformization.extendSpectralSeminorm (S : Pair A) (d : TateNormDatum A) :
     ∃ N : RingNorm (Uniformization A), IsPowMul N ∧
-      (∀ x, N (S.toUniformization.toRingHom x) = spectralSeminorm d x) ∧
+      (∀ x, N ((Pair.toUniformization S).toRingHom x) = spectralSeminorm d x) ∧
       (𝓝 (0 : Uniformization A)).HasBasis (fun ε : ℝ ↦ 0 < ε) fun ε ↦ {y | N y < ε} := sorry
 
 /-- R0/uniformization (equivalence): `Spa(ι)` is a homeomorphism. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.spaComap_homeomorph (S : Pair A) :
-    IsHomeomorph S.toUniformization.spaComap := sorry
+theorem Pair.uniformization.spaComap_homeomorph (S : Pair A) :
+    IsHomeomorph (Pair.toUniformization S).spaComap := sorry
 
 open ValuationSpectrum TauCeti.ValuationSpectrum in
 /-- R0/uniformization (compatibility): `Spa(ι)` matches rational subsets: preimages of rational
 subsets are rational, and every rational subset of `Spa(Aᵘ, Aᵘ⁺)` is such a preimage. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.spaComap_preimage_rationalSubset (S : Pair A) (T' : Finset A)
+theorem Pair.uniformization.spaComap_preimage_rationalSubset (S : Pair A) (T' : Finset A)
     (s : A) :
-    S.toUniformization.spaComap ⁻¹' (Subtype.val ⁻¹' rationalSubset S.plus T' s) =
-        Subtype.val ⁻¹' rationalSubset S.uniformization.plus
-          (by classical exact T'.image S.toUniformization.toRingHom)
-          (S.toUniformization.toRingHom s) ∧
+    (Pair.toUniformization S).spaComap ⁻¹' (Subtype.val ⁻¹' rationalSubset S.plus T' s) =
+        Subtype.val ⁻¹' rationalSubset (Pair.uniformization S).plus
+          (by classical exact T'.image (Pair.toUniformization S).toRingHom)
+          ((Pair.toUniformization S).toRingHom s) ∧
       ∀ (T'' : Finset (Uniformization A)) (s'' : Uniformization A),
         IsOpen (Ideal.span (T'' : Set (Uniformization A)) : Set (Uniformization A)) →
         ∃ (T₀ : Finset A) (s₀ : A),
-          Subtype.val ⁻¹' rationalSubset S.uniformization.plus T'' s'' =
-            S.toUniformization.spaComap ⁻¹' (Subtype.val ⁻¹' rationalSubset S.plus T₀ s₀) :=
+          Subtype.val ⁻¹' rationalSubset (Pair.uniformization S).plus T'' s'' =
+            (Pair.toUniformization S).spaComap ⁻¹' (Subtype.val ⁻¹' rationalSubset S.plus T₀ s₀) :=
   sorry
 
 /-- R0/uniformization (functoriality): a morphism of Tate Huber pairs induces a morphism of
 uniformizations commuting with `ι`. -/
-def _root_.TauCeti.Huber.Pair.uniformization.map {B : Type*} [CommRing B] [TopologicalSpace B] [IsTopologicalRing B]
+def Pair.uniformization.map {B : Type*} [CommRing B] [TopologicalSpace B] [IsTopologicalRing B]
     [IsTateRing B] {S : Pair A} {T : Pair B} (φ : Pair.Hom S T) :
-    Pair.Hom S.uniformization T.uniformization := sorry
+    Pair.Hom (Pair.uniformization S) (Pair.uniformization T) := sorry
 
 /-- R0/uniformization (compatibility): if `A` is complete, Hausdorff and uniform, `ι` is an
 isomorphism of Huber pairs. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.isIso_of_isUniform (S : Pair A) [T2Space A]
+theorem Pair.uniformization.isIso_of_isUniform (S : Pair A) [T2Space A]
     (hc : letI := IsTopologicalAddGroup.rightUniformSpace A; CompleteSpace A)
     (hb : IsBounded (powerBoundedSubring A : Set A)) :
-    ∃ e : Pair.Hom S.uniformization S,
-      e.comp S.toUniformization = Pair.Hom.id S ∧
-        S.toUniformization.comp e = Pair.Hom.id S.uniformization := sorry
+    ∃ e : Pair.Hom (Pair.uniformization S) S,
+      e.comp (Pair.toUniformization S) = Pair.Hom.id S ∧
+        (Pair.toUniformization S).comp e = Pair.Hom.id (Pair.uniformization S) := sorry
 
 variable {B : Type*} [CommRing B] [UniformSpace B] [IsUniformAddGroup B] [IsTopologicalRing B]
   [IsHuberRing B] [CompleteSpace B] [T2Space B]
 
 /-- R0/uniformization (universal-property): a morphism into a complete Hausdorff pair with `B°`
 bounded factors through `ι`. -/
-def _root_.TauCeti.Huber.Pair.uniformization.lift {S : Pair A} {T : Pair B}
+def Pair.uniformization.lift {S : Pair A} {T : Pair B}
     (hB : IsBounded (powerBoundedSubring B : Set B)) (φ : Pair.Hom S T) :
-    Pair.Hom S.uniformization T := sorry
+    Pair.Hom (Pair.uniformization S) T := sorry
 
 /-- R0/uniformization (universal-property): `lift φ ∘ ι = φ`. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.lift_comp_toUniformization {S : Pair A} {T : Pair B}
+theorem Pair.uniformization.lift_comp_toUniformization {S : Pair A} {T : Pair B}
     (hB : IsBounded (powerBoundedSubring B : Set B)) (φ : Pair.Hom S T) :
-    (Pair.uniformization.lift hB φ).comp S.toUniformization = φ := sorry
+    (Pair.uniformization.lift hB φ).comp (Pair.toUniformization S) = φ := sorry
 
 /-- R0/uniformization (extensionality): morphisms out of `(Aᵘ, Aᵘ⁺)` agreeing after `ι` are
 equal. -/
-theorem _root_.TauCeti.Huber.Pair.uniformization.hom_ext {S : Pair A} {T : Pair B}
-    {ψ₁ ψ₂ : Pair.Hom S.uniformization T}
-    (h : ψ₁.comp S.toUniformization = ψ₂.comp S.toUniformization) : ψ₁ = ψ₂ := sorry
+theorem Pair.uniformization.hom_ext {S : Pair A} {T : Pair B}
+    {ψ₁ ψ₂ : Pair.Hom (Pair.uniformization S) T}
+    (h : ψ₁.comp (Pair.toUniformization S) = ψ₂.comp (Pair.toUniformization S)) : ψ₁ = ψ₂ := sorry
 
 end Uniformization
 
@@ -1571,7 +1565,7 @@ end Uniformization
 example (p : ℕ) [Fact p.Prime] [IsTateRing (DualNumber ℚ_[p])] (S : Pair (DualNumber ℚ_[p]))
     (hS : (S.plus : Set (DualNumber ℚ_[p])) = {x | ‖TrivSqZeroExt.fst x‖ ≤ 1}) :
     ∃ e : Uniformization (DualNumber ℚ_[p]) ≃+* ℚ_[p],
-      ∀ x, e (S.toUniformization.toRingHom x) = TrivSqZeroExt.fst x := sorry
+      ∀ x, e ((Pair.toUniformization S).toRingHom x) = TrivSqZeroExt.fst x := sorry
 
 
 /- `(ℚ_p⟨T⟩, ℚ_p⟨T⟩°)ᵘ = (ℚ_p⟨T⟩, ℚ_p⟨T⟩°)`: `ι` is bijective. -/
@@ -1601,58 +1595,58 @@ variable {A B C : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
 
 /-- R0/uniform-completed-tensor-product: over a Tate ring `A`, `B ⊗̂_A C` is a Tate ring
 (`B` and `C` are Tate by Wedhorn Proposition 6.25). -/
-instance _root_.TauCeti.Huber.Pair.completedTensor.instIsTateRing : IsTateRing (CompletedTensor A B C) := sorry
+instance Pair.completedTensor.instIsTateRing : IsTateRing (CompletedTensor A B C) := sorry
 
 variable (S : Pair A) (T : Pair B) (U : Pair C) (hT : ∀ a ∈ S.plus, algebraMap A B a ∈ T.plus)
   (hU : ∀ a ∈ S.plus, algebraMap A C a ∈ U.plus)
 
 /-- R0/uniform-completed-tensor-product (constructor): `B ⊗̂ᵘ_A C = (B ⊗̂_A C)ᵘ`, a complete
 Hausdorff uniform Tate Huber pair. (Completeness of `B`, `C` is not used by the construction.) -/
-def _root_.TauCeti.Huber.Pair.uniformCompletedTensor : Pair (Uniformization (CompletedTensor A B C)) :=
-  (Pair.completedTensor S T U hT hU).uniformization
+def Pair.uniformCompletedTensor : Pair (Uniformization (CompletedTensor A B C)) :=
+  (Pair.uniformization (Pair.completedTensor S T U hT hU))
 
 /-- R0/uniform-completed-tensor-product (projection): `inlᵘ = ι ∘ inl`. -/
-def _root_.TauCeti.Huber.Pair.uniformCompletedTensor.inl : Pair.Hom T (Pair.uniformCompletedTensor S T U hT hU) :=
+def Pair.uniformCompletedTensor.inl : Pair.Hom T (Pair.uniformCompletedTensor S T U hT hU) :=
   (Pair.toUniformization _).comp (Pair.completedTensor.inl S T U hT hU)
 
 /-- R0/uniform-completed-tensor-product (projection): `inrᵘ = ι ∘ inr`. -/
-def _root_.TauCeti.Huber.Pair.uniformCompletedTensor.inr : Pair.Hom U (Pair.uniformCompletedTensor S T U hT hU) :=
+def Pair.uniformCompletedTensor.inr : Pair.Hom U (Pair.uniformCompletedTensor S T U hT hU) :=
   (Pair.toUniformization _).comp (Pair.completedTensor.inr S T U hT hU)
 
 /-- R0/uniform-completed-tensor-product (relation): `inlᵘ ∘ f = inrᵘ ∘ g`. -/
-theorem _root_.TauCeti.Huber.Pair.uniformCompletedTensor.inl_comp :
+theorem Pair.uniformCompletedTensor.inl_comp :
     (Pair.uniformCompletedTensor.inl S T U hT hU).comp
         ⟨algebraMap A B, IsAdicHom.continuous (algebraMap A B), hT⟩ =
       (Pair.uniformCompletedTensor.inr S T U hT hU).comp
         ⟨algebraMap A C, IsAdicHom.continuous (algebraMap A C), hU⟩ := sorry
 
 /-- R0/uniform-completed-tensor-product (instance): `B ⊗̂ᵘ_A C` is uniform. -/
-theorem _root_.TauCeti.Huber.Pair.uniformCompletedTensor.isBounded_powerBoundedSubring :
+theorem Pair.uniformCompletedTensor.isBounded_powerBoundedSubring :
     IsBounded (powerBoundedSubring (Uniformization (CompletedTensor A B C)) :
       Set (Uniformization (CompletedTensor A B C))) := sorry
 
 /-- R0/uniform-completed-tensor-product (compatibility): the canonical morphism
 `ι : B ⊗̂_A C → B ⊗̂ᵘ_A C`. -/
-def _root_.TauCeti.Huber.Pair.uniformCompletedTensor.fromCompletedTensor :
+def Pair.uniformCompletedTensor.fromCompletedTensor :
     Pair.Hom (Pair.completedTensor S T U hT hU) (Pair.uniformCompletedTensor S T U hT hU) :=
   Pair.toUniformization _
 
 /-- R0/uniform-completed-tensor-product (compatibility): `ι` is an isomorphism iff `B ⊗̂_A C` is
 uniform. -/
-theorem _root_.TauCeti.Huber.Pair.uniformCompletedTensor.fromCompletedTensor_isIso_iff :
+theorem Pair.uniformCompletedTensor.fromCompletedTensor_isIso_iff :
     IsHomeomorph (Pair.uniformCompletedTensor.fromCompletedTensor S T U hT hU).toRingHom ↔
       IsBounded (powerBoundedSubring (CompletedTensor A B C) : Set (CompletedTensor A B C)) :=
   sorry
 
 /-- R0/uniform-completed-tensor-product (equivalence): `Spa(B ⊗̂ᵘ_A C) ≅ Spa(B ⊗̂_A C)`,
 identifying rational subsets. -/
-theorem _root_.TauCeti.Huber.Pair.uniformCompletedTensor.spaHomeomorph :
+theorem Pair.uniformCompletedTensor.spaHomeomorph :
     IsHomeomorph (Pair.uniformCompletedTensor.fromCompletedTensor S T U hT hU).spaComap := sorry
 
 variable {S T U hT hU} in
 /-- R0/uniform-completed-tensor-product (functoriality): morphisms of the diagrams induce
 morphisms of uniform completed tensor products. -/
-def _root_.TauCeti.Huber.Pair.uniformCompletedTensor.map {A' B' C' : Type*} [CommRing A'] [TopologicalSpace A']
+def Pair.uniformCompletedTensor.map {A' B' C' : Type*} [CommRing A'] [TopologicalSpace A']
     [IsTopologicalRing A'] [IsTateRing A'] [CommRing B'] [TopologicalSpace B']
     [IsTopologicalRing B'] [IsHuberRing B'] [CommRing C'] [TopologicalSpace C']
     [IsTopologicalRing C'] [IsHuberRing C'] [Algebra A' B'] [Algebra A' C']
@@ -1669,7 +1663,7 @@ def _root_.TauCeti.Huber.Pair.uniformCompletedTensor.map {A' B' C' : Type*} [Com
 variable (A B C) in
 /-- R0/uniform-completed-tensor-product (equivalence): `B ⊗̂ᵘ_A C ≅ C ⊗̂ᵘ_A B`, exchanging `inlᵘ`
 and `inrᵘ` (a homeomorphism). -/
-def _root_.TauCeti.Huber.Pair.uniformCompletedTensor.comm :
+def Pair.uniformCompletedTensor.comm :
     Uniformization (CompletedTensor A B C) ≃+* Uniformization (CompletedTensor A C B) := sorry
 
 
@@ -1680,14 +1674,14 @@ variable {R : Type*} [CommRing R] [UniformSpace R] [IsUniformAddGroup R] [IsTopo
 
 /-- R0/uniform-completed-tensor-product (universal-property): for a complete Hausdorff uniform
 `(R, R⁺)` and `φ`, `ψ` with `φ ∘ f = ψ ∘ g`, the morphism `B ⊗̂ᵘ_A C → (R, R⁺)`. -/
-def _root_.TauCeti.Huber.Pair.uniformCompletedTensor.lift (hR : IsBounded (powerBoundedSubring R : Set R))
+def Pair.uniformCompletedTensor.lift (hR : IsBounded (powerBoundedSubring R : Set R))
     (φ : Pair.Hom T V) (ψ : Pair.Hom U V)
     (h : φ.toRingHom.comp (algebraMap A B) = ψ.toRingHom.comp (algebraMap A C)) :
     Pair.Hom (Pair.uniformCompletedTensor S T U hT hU) V := sorry
 
 /-- R0/uniform-completed-tensor-product (universal-property): `lift ∘ inlᵘ = φ`,
 `lift ∘ inrᵘ = ψ`. -/
-theorem _root_.TauCeti.Huber.Pair.uniformCompletedTensor.lift_comp_inl (hR : IsBounded (powerBoundedSubring R : Set R))
+theorem Pair.uniformCompletedTensor.lift_comp_inl (hR : IsBounded (powerBoundedSubring R : Set R))
     (φ : Pair.Hom T V) (ψ : Pair.Hom U V)
     (h : φ.toRingHom.comp (algebraMap A B) = ψ.toRingHom.comp (algebraMap A C)) :
     (Pair.uniformCompletedTensor.lift S T U hT hU hR φ ψ h).comp
@@ -1697,7 +1691,7 @@ theorem _root_.TauCeti.Huber.Pair.uniformCompletedTensor.lift_comp_inl (hR : IsB
 
 /-- R0/uniform-completed-tensor-product (extensionality): morphisms agreeing after `inlᵘ` and
 `inrᵘ` are equal. -/
-theorem _root_.TauCeti.Huber.Pair.uniformCompletedTensor.hom_ext
+theorem Pair.uniformCompletedTensor.hom_ext
     {χ₁ χ₂ : Pair.Hom (Pair.uniformCompletedTensor S T U hT hU) V}
     (hl : χ₁.comp (Pair.uniformCompletedTensor.inl S T U hT hU) =
       χ₂.comp (Pair.uniformCompletedTensor.inl S T U hT hU))
@@ -1709,7 +1703,7 @@ end Lift
 end UniformCompletedTensor
 
 /-- R0/uniform-completed-tensor-product (other): `B ⊗̂ᵘ_A A ≅ Bᵘ` (a homeomorphism). -/
-def _root_.TauCeti.Huber.Pair.uniformCompletedTensor.unitIso (A B : Type*) [CommRing A] [TopologicalSpace A]
+def Pair.uniformCompletedTensor.unitIso (A B : Type*) [CommRing A] [TopologicalSpace A]
     [IsTopologicalRing A] [IsTateRing A] [CommRing B] [TopologicalSpace B] [IsTopologicalRing B]
     [IsTateRing B] [Algebra A B] [IsAdicHom (algebraMap A B)] :
     Uniformization (CompletedTensor A B A) ≃+* Uniformization B := sorry
@@ -2058,14 +2052,6 @@ namespace AdicSpace
 
 open Huber ValuationSpectrum TauCeti.Huber TauCeti.ValuationSpectrum
 
-/-! ### R0.40 Spa of a sheafy completed tensor product is the fibre product -/
-
-
-/-! ### R0.41 Fibre products along a finite-type morphism over an arbitrary affinoid base change -/
-
-
-/-! ### R0.42 Existence of fibre products of adic spaces -/
-
 
 /-! ### R0.43 Points of a fibre product surject onto compatible pairs, not injectively -/
 
@@ -2085,11 +2071,6 @@ theorem exists_pullback_point_affinoid {A B C : Type*} [CommRing A] [UniformSpac
     ∃ z : spa (Pair.completedTensor S T U hT hU).plus,
       (Pair.completedTensor.inl S T U hT hU).spaComap z = y ∧
         (Pair.completedTensor.inr S T U hT hU).spaComap z = x := sorry
-
-/-! ### R0.44 Stability of adicness and of the finite-type classes under base change -/
-
-
-/-! ### R0.33 Adic morphisms of adic spaces -/
 
 
 /-! ### R0.34 A morphism is adic exactly when it preserves analytic points -/
@@ -2212,8 +2193,6 @@ example {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [IsH
 example {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [IsHuberRing A]
     (S : Pair A) : Function.Surjective (S.quotientHom ⊥).spaComap := sorry
 
-/-! ### R0.46 The diagonal of a morphism locally of weakly finite type is a locally closed embedding -/
-
 
 end AdicSpace
 
@@ -2221,32 +2200,6 @@ end AdicSpace
 end
 
 noncomputable section
-
-
-
-/-! ### R0.61 Separated morphism of adic spaces
-
-Separated morphism of adic spaces. -/
-
-
-/-! ### R0.62 Universally closed morphism of adic spaces
-
-Universally closed morphism of adic spaces. -/
-
-
-/-! ### R0.63 Proper morphism of adic spaces
-
-Proper morphism of adic spaces. -/
-
-
-/-! ### R0.64 Universally specializing morphism of adic spaces
-
-Universally specializing morphism of adic spaces. -/
-
-
-/-! ### R0.65 Partially proper morphism of adic spaces
-
-Partially proper morphism of adic spaces. -/
 
 
 /-! ### R0.66 Valuation rings of an analytic adic space and their centres
@@ -2276,66 +2229,6 @@ structure ValuationRing_affinoid {A : Type*} [CommRing A] [TopologicalSpace A]
 end AdicSpace
 
 
-/-! ### R0.67 Valuative criterion for separatedness (Huber 1.3.7)
-
-Valuative criterion for separatedness (Huber 1.3.7). -/
-
-
-/-! ### R0.68 Valuative criterion for universal specialization (Huber 1.3.8)
-
-Valuative criterion for universal specialization (Huber 1.3.8). -/
-
-
-/-! ### R0.69 Valuative criterion for partial properness and properness of analytic adic spaces (Huber 1.3.9)
-
-Valuative criterion for partial properness and properness of analytic adic spaces (Huber 1.3.9). -/
-
-
-/-! ### R0.70 Proper equals partially proper and quasi-compact (Huber 1.3.4)
-
-Proper equals partially proper and quasi-compact (Huber 1.3.4). -/
-
-
-/-! ### R0.71 The space of valuation rings of a qcqs analytic adic space is spectral (Huber 1.3.12)
-
-The space of valuation rings of a qcqs analytic adic space is spectral (Huber 1.3.12). -/
-
-
-/-! ### R0.72 Closures of quasi-compact sets under partially proper morphisms (Huber 1.3.13)
-
-Closures of quasi-compact sets under partially proper morphisms (Huber 1.3.13). -/
-
-
-/-! ### R0.73 The diagonal of a separated morphism is a closed embedding
-
-The diagonal of a separated morphism is a closed embedding. -/
-
-
-/-! ### R0.47 Closed embeddings are proper
-
-Closed embeddings are proper. -/
-
-
-/-! ### R0.74 Universally closed, separated and proper morphisms are stable under adic base change
-
-Universally closed, separated and proper morphisms are stable under adic base change. -/
-
-
-/-! ### R0.75 Composites of universally closed, separated and proper morphisms
-
-Composites of universally closed, separated and proper morphisms. -/
-
-
-/-! ### R0.76 Cancellation: g ∘ h proper and g separated imply h proper
-
-Cancellation: g ∘ h proper and g separated imply h proper. -/
-
-
-/-! ### R0.77 Universal closedness descends along surjections
-
-Universal closedness descends along surjections. -/
-
-
 /-! ### R0.78 Finite morphism of complete Huber pairs
 
 Finite morphism of complete Huber pairs. -/
@@ -2355,7 +2248,7 @@ variable {A B C : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
 notion is used for complete Huber pairs; it is stated for all Huber pairs so that it applies to
 `Pair.quotientHom`. The plus condition of Huber's "topologically of finite type" for affinoid
 rings follows from the integrality of `A⁺ → B⁺` (`Pair.Hom.IsFinite.plus_eq_integralClosure`). -/
-structure _root_.TauCeti.Huber.Pair.Hom.IsFinite {S : Pair A} {T : Pair B} (φ : Pair.Hom S T) : Prop where
+structure Pair.Hom.IsFinite {S : Pair A} {T : Pair B} (φ : Pair.Hom S T) : Prop where
   /-- R0/finite-huber-pair-hom (projection): `φ` is topologically of finite type. -/
   isTopologicallyFiniteType : IsTopologicallyFiniteType φ.toRingHom
   /-- R0/finite-huber-pair-hom: the ring map `A → B` is integral. -/
@@ -2368,23 +2261,23 @@ variable {S : Pair A} {T : Pair B} {U : Pair C}
 
 /-- R0/finite-huber-pair-hom (characterisation): for a finite morphism, `B⁺` is the integral
 closure of `φ(A⁺)` in `B`. -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsFinite.plus_eq_integralClosure {φ : Pair.Hom S T} (hφ : φ.IsFinite) :
+theorem Pair.Hom.IsFinite.plus_eq_integralClosure {φ : Pair.Hom S T} (hφ : (Pair.Hom.IsFinite φ)) :
     T.plus = (integralClosure (S.plus.map φ.toRingHom) B).toSubring := sorry
 
 /-- R0/finite-huber-pair-hom (example): the quotient morphism `S → S.quotient J`
 (Tau Ceti `Pair.quotientHom`) is finite for a closed ideal `J` of a complete Huber ring; the
 completeness of `A` is the hypothesis `hA`, for the canonical uniformity. -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsFinite.quotientHom
+theorem Pair.Hom.IsFinite.quotientHom
     (hA : @CompleteSpace A (IsTopologicalAddGroup.rightUniformSpace A)) [T2Space A]
     (S : Pair A) (J : Ideal A) (hJ : IsClosed (J : Set A)) :
-    (Pair.quotientHom S J).IsFinite := sorry
+    (Pair.Hom.IsFinite (Pair.quotientHom S J)) := sorry
 
 /- `(K, K⁺) → (K, K°)` for `K⁺ ⊊ K°`: the ring map is the identity, but `K°` is not integral over
 the integrally closed `K⁺`. Stated for every Huber ring and every strict inclusion of plus rings;
 the spectral picture is the open, non-closed embedding `Spa(K, K°) → Spa(K, K⁺)`. -/
 -- test Pair.Hom.IsFinite_test_plusNotIntegral (non-example)
 example {S S' : Pair A} (hSS' : S.plus < S'.plus) (φ : Pair.Hom S S')
-    (hφ : φ.toRingHom = RingHom.id A) : ¬ φ.IsFinite := sorry
+    (hφ : φ.toRingHom = RingHom.id A) : ¬ (Pair.Hom.IsFinite φ) := sorry
 
 end FiniteHom
 
@@ -2404,21 +2297,21 @@ variable [IsHuberRing A] [IsHuberRing B] [IsHuberRing C] {S : Pair A} {T : Pair 
 
 /-- R0/finite-huber-pair-hom (projection): the target of a finite morphism of complete Huber
 pairs is a finite module over the source (Huber 1996, (1.4.2)). -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsFinite.finite {φ : Pair.Hom S T} (hφ : φ.IsFinite) : φ.toRingHom.Finite :=
+theorem Pair.Hom.IsFinite.finite {φ : Pair.Hom S T} (hφ : (Pair.Hom.IsFinite φ)) : φ.toRingHom.Finite :=
   sorry
 
 /-- R0/finite-huber-pair-hom (instance): the identity of a complete Huber pair is finite
 (completeness is needed: Tau Ceti's `IsTopologicallyFiniteType` presents the target as a quotient
 of a completed ring). -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsFinite.id (S : Pair A) : (Pair.Hom.id S).IsFinite := sorry
+theorem Pair.Hom.IsFinite.id (S : Pair A) : (Pair.Hom.IsFinite (Pair.Hom.id S)) := sorry
 
 /-- R0/finite-huber-pair-hom (functoriality): composites of finite morphisms are finite. -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsFinite.comp {φ : Pair.Hom S T} {ψ : Pair.Hom T U} (hψ : ψ.IsFinite)
-    (hφ : φ.IsFinite) : (ψ.comp φ).IsFinite := sorry
+theorem Pair.Hom.IsFinite.comp {φ : Pair.Hom S T} {ψ : Pair.Hom T U} (hψ : (Pair.Hom.IsFinite ψ))
+    (hφ : (Pair.Hom.IsFinite φ)) : (Pair.Hom.IsFinite (ψ.comp φ)) := sorry
 
 -- test Pair.Hom.IsFinite_test_quotient (degenerate)
 example (S : Pair A) (J : Ideal A) (hJ : IsClosed (J : Set A)) :
-    (Pair.quotientHom S J).IsFinite ∧ (Pair.Hom.id S).IsFinite := sorry
+    (Pair.Hom.IsFinite (Pair.quotientHom S J)) ∧ (Pair.Hom.IsFinite (Pair.Hom.id S)) := sorry
 
 end Huber
 
@@ -2426,7 +2319,7 @@ end Huber
 finite morphism of complete pairs is the natural `A`-module topology (Mathlib
 `IsModuleTopology`). -/
 theorem Pair.Hom.IsFinite.isModuleTopology [IsTateRing A] [IsHuberRing B] {S : Pair A}
-    {T : Pair B} {φ : Pair.Hom S T} (hφ : φ.IsFinite) :
+    {T : Pair B} {φ : Pair.Hom S T} (hφ : (Pair.Hom.IsFinite φ)) :
     letI := φ.toRingHom.toAlgebra
     IsModuleTopology A B := sorry
 
@@ -2437,19 +2330,19 @@ variable [IsTateRing A] [IsTateRing B] {S : Pair A} {T : Pair B}
 /-- R0/finite-huber-pair-hom (characterisation): for complete Tate pairs, `φ` is finite if and
 only if `A → B` is module-finite and `A⁺ → B⁺` is integral (Zavyalov, B.2.8–B.2.9). -/
 theorem Pair.Hom.isFinite_iff_finite_and_isIntegral (φ : Pair.Hom S T) :
-    φ.IsFinite ↔ φ.toRingHom.Finite ∧
+    (Pair.Hom.IsFinite φ) ↔ φ.toRingHom.Finite ∧
       (φ.toRingHom.restrict S.plus T.plus φ.map_mem_plus).IsIntegral := sorry
 
 /-- R0/finite-huber-pair-hom (other): a finite morphism of complete Tate pairs that is bijective
 on rings is an isomorphism of Huber pairs (Zavyalov, B.2.11). -/
-theorem Pair.Hom.IsFinite.isIso_of_bijective {φ : Pair.Hom S T} (hφ : φ.IsFinite)
+theorem Pair.Hom.IsFinite.isIso_of_bijective {φ : Pair.Hom S T} (hφ : (Pair.Hom.IsFinite φ))
     (hbij : Function.Bijective φ.toRingHom) :
     ∃ ψ : Pair.Hom T S, ψ.comp φ = Pair.Hom.id S ∧ φ.comp ψ = Pair.Hom.id T := sorry
 
 -- test Pair.Hom.IsFinite_test_mathlib (compatibility)
 example (φ : Pair.Hom S T) :
     letI : Algebra S.plus T.plus := (φ.toRingHom.restrict S.plus T.plus φ.map_mem_plus).toAlgebra
-    φ.IsFinite ↔ φ.toRingHom.Finite ∧ Algebra.IsIntegral S.plus T.plus := sorry
+    (Pair.Hom.IsFinite φ) ↔ φ.toRingHom.Finite ∧ Algebra.IsIntegral S.plus T.plus := sorry
 
 end Tate
 
@@ -2466,20 +2359,16 @@ example (p : ℕ) [Fact p.Prime] (L : Type) [Field L] [Algebra ℚ_[p] L] [Unifo
     (hT' : T'.plus = Subring.closure
       (algebraMap ℚ_[p] L '' (Pair.powerBounded ℚ_[p]).plus ∪ {π}))
     (φ : Pair.Hom (Pair.powerBounded ℚ_[p]) T') (hφ : φ.toRingHom = algebraMap ℚ_[p] L) :
-    φ.IsFinite := sorry
+    (Pair.Hom.IsFinite φ) := sorry
 
 /- `(K, K°) → (K⟨T⟩, K°⟨T⟩)` for `K = ℚ_p`: topologically of finite type, not finite. -/
 -- test Pair.Hom.IsFinite_test_tateAlgebra (non-example)
 example (p : ℕ) [Fact p.Prime] (T' : Pair (restrictedMvPowerSeriesCompletion 1 ℚ_[p]))
     (φ : Pair.Hom (Pair.powerBounded ℚ_[p]) T')
     (hφ : φ.toRingHom = algebraMap ℚ_[p] (restrictedMvPowerSeriesCompletion 1 ℚ_[p])) :
-    IsTopologicallyFiniteType φ.toRingHom ∧ ¬ φ.IsFinite := sorry
+    IsTopologicallyFiniteType φ.toRingHom ∧ ¬ (Pair.Hom.IsFinite φ) := sorry
 
 end Huber
-
-/-! ### R0.79 Finite morphism of adic spaces
-
-Finite morphism of adic spaces. -/
 
 
 /-! ### R0.80 The Huber pair of a finite algebra over a noetherian affinoid ring
@@ -2507,7 +2396,7 @@ definition. -/
 omit [IsTopologicalRing C] [IsHuberRing C] in
 /-- R0/finite-algebra-over-affinoid (i): a finite algebra `C` with its natural topology over a
 complete Huber ring `A` satisfying the noetherian hypothesis is a Huber ring. -/
-theorem _root_.TauCeti.Huber.Pair.finiteAlgebra.isHuberRing
+theorem Pair.finiteAlgebra.isHuberRing
     (hA : (IsTateRing A ∧ IsNoetherianRing A) ∨
       ∃ P : PairOfDefinition A, IsNoetherianRing P.ringOfDefinition) :
     haveI := IsModuleTopology.isTopologicalRing A C
@@ -2516,24 +2405,24 @@ theorem _root_.TauCeti.Huber.Pair.finiteAlgebra.isHuberRing
 /-- R0/finite-algebra-over-affinoid (constructor): the Huber pair `(C, C⁺)` on a finite algebra
 `C` over a complete Huber pair `(A, A⁺)` satisfying the noetherian hypothesis: natural topology,
 and `C⁺` the integral closure of the image of `A⁺` (`Pair.finiteAlgebra_plus`). -/
-def _root_.TauCeti.Huber.Pair.finiteAlgebra (S : Pair A)
+def Pair.finiteAlgebra (S : Pair A)
     (hA : (IsTateRing A ∧ IsNoetherianRing A) ∨
       ∃ P : PairOfDefinition A, IsNoetherianRing P.ringOfDefinition) : Pair C := sorry
 
 omit [IsHuberRing A] [IsHuberRing C] in
 /-- R0/finite-algebra-over-affinoid (instance): `C` is Tate if `A` is. -/
-theorem _root_.TauCeti.Huber.Pair.finiteAlgebra.isTateRing [IsTateRing A] : IsTateRing C := sorry
+theorem Pair.finiteAlgebra.isTateRing [IsTateRing A] : IsTateRing C := sorry
 
 /-- R0/finite-algebra-over-affinoid (instance, (v)): `C` is strongly noetherian if `A` is a
 strongly noetherian Tate ring. -/
-theorem _root_.TauCeti.Huber.Pair.finiteAlgebra.isStronglyNoetherian (hTate : IsTateRing A) [IsStronglyNoetherian A] :
+theorem Pair.finiteAlgebra.isStronglyNoetherian (hTate : IsTateRing A) [IsStronglyNoetherian A] :
     IsStronglyNoetherian C := sorry
 
 variable (S : Pair A) (hA : (IsTateRing A ∧ IsNoetherianRing A) ∨
   ∃ P : PairOfDefinition A, IsNoetherianRing P.ringOfDefinition)
 
 /-- R0/finite-algebra-over-affinoid (projection): `C⁺` is the integral closure of `ψ(A⁺)`. -/
-theorem _root_.TauCeti.Huber.Pair.finiteAlgebra_plus :
+theorem Pair.finiteAlgebra_plus :
     (Pair.finiteAlgebra C S hA).plus =
       (integralClosure (S.plus.map (algebraMap A C)) C).toSubring := sorry
 
@@ -2541,34 +2430,34 @@ omit [Module.Finite A C] [TopologicalSpace C] [IsModuleTopology A C] [IsTopologi
   [IsHuberRing C] in
 /-- R0/finite-algebra-over-affinoid (instance): the natural topology of the construction is
 Mathlib's `moduleTopology A C`, which is a module topology in Mathlib's sense. -/
-theorem _root_.TauCeti.Huber.Pair.finiteAlgebra.isModuleTopology :
+theorem Pair.finiteAlgebra.isModuleTopology :
     @IsModuleTopology A _ C _ _ (moduleTopology A C) := sorry
 
 include hA in
 /-- R0/finite-algebra-over-affinoid (instance): under the noetherian hypothesis, `C` is complete
 and Hausdorff for its canonical uniformity. -/
-theorem _root_.TauCeti.Huber.Pair.finiteAlgebra.completeSpace :
+theorem Pair.finiteAlgebra.completeSpace :
     @CompleteSpace C (IsTopologicalAddGroup.rightUniformSpace C) ∧ T2Space C := sorry
 
 omit [IsTopologicalRing C] [IsHuberRing C] in
 include hA in
 /-- R0/finite-algebra-over-affinoid (other): under the noetherian hypothesis, every
 `A`-submodule of `C` is closed. -/
-theorem _root_.TauCeti.Huber.Pair.finiteAlgebra.isClosed_submodule (N : Submodule A C) : IsClosed (N : Set C) := sorry
+theorem Pair.finiteAlgebra.isClosed_submodule (N : Submodule A C) : IsClosed (N : Set C) := sorry
 
 /-- R0/finite-algebra-over-affinoid: the structure morphism `(A, A⁺) → (C, C⁺)` of Huber pairs,
 with underlying map `algebraMap A C`. -/
-def _root_.TauCeti.Huber.Pair.finiteAlgebra.algebraHom : Pair.Hom S (Pair.finiteAlgebra C S hA) := sorry
+def Pair.finiteAlgebra.algebraHom : Pair.Hom S (Pair.finiteAlgebra C S hA) := sorry
 
 /-- R0/finite-algebra-over-affinoid (relation, (iii)): `(A, A⁺) → (C, C⁺)` is finite in the sense
 of R0/finite-huber-pair-hom. -/
-theorem _root_.TauCeti.Huber.Pair.finiteAlgebra.algebraMap_isFinite :
-    (Pair.finiteAlgebra.algebraHom C S hA).IsFinite := sorry
+theorem Pair.finiteAlgebra.algebraMap_isFinite :
+    (Pair.Hom.IsFinite (Pair.finiteAlgebra.algebraHom C S hA)) := sorry
 
 /-- R0/finite-algebra-over-affinoid (universal property, (iv)): for a complete Huber pair
 `(D, D⁺)` under `(A, A⁺)` (a structure morphism `χ` with underlying map `algebraMap A D`),
 morphisms of Huber pairs `(C, C⁺) → (D, D⁺)` under `(A, A⁺)` are the `A`-algebra maps `C → D`. -/
-def _root_.TauCeti.Huber.Pair.finiteAlgebra.homEquiv {D : Type*} [CommRing D] [UniformSpace D] [IsUniformAddGroup D]
+def Pair.finiteAlgebra.homEquiv {D : Type*} [CommRing D] [UniformSpace D] [IsUniformAddGroup D]
     [IsTopologicalRing D] [IsHuberRing D] [CompleteSpace D] [T2Space D] [Algebra A D]
     (V : Pair D) (χ : Pair.Hom S V) (hχ : χ.toRingHom = algebraMap A D) :
     {g : Pair.Hom (Pair.finiteAlgebra C S hA) V //
@@ -2577,7 +2466,7 @@ def _root_.TauCeti.Huber.Pair.finiteAlgebra.homEquiv {D : Type*} [CommRing D] [U
 variable {C} in
 /-- R0/finite-algebra-over-affinoid (functoriality): an `A`-algebra map `C → C'` of finite
 `A`-algebras is a morphism of the Huber pairs; `map` preserves identities and composition. -/
-def _root_.TauCeti.Huber.Pair.finiteAlgebra.map {C' : Type*} [CommRing C'] [Algebra A C'] [Module.Finite A C']
+def Pair.finiteAlgebra.map {C' : Type*} [CommRing C'] [Algebra A C'] [Module.Finite A C']
     [TopologicalSpace C'] [IsModuleTopology A C'] [IsTopologicalRing C'] [IsHuberRing C']
     (f : C →ₐ[A] C') : Pair.Hom (Pair.finiteAlgebra C S hA) (Pair.finiteAlgebra C' S hA) := sorry
 
@@ -2586,7 +2475,7 @@ omit [TopologicalSpace C] [IsModuleTopology A C] [IsTopologicalRing C] [IsHuberR
 /-- R0/finite-algebra-over-affinoid (compatibility): for an ideal `J` of `A` (closed, by the
 noetherian hypothesis), the construction on `A ⧸ J` is Tau Ceti's quotient pair
 `Pair.quotient S J`. -/
-theorem _root_.TauCeti.Huber.Pair.finiteAlgebra_quotient (J : Ideal A) :
+theorem Pair.finiteAlgebra_quotient (J : Ideal A) :
     Pair.finiteAlgebra (A ⧸ J) S hA = S.quotient J := sorry
 
 omit [TopologicalSpace C] [IsModuleTopology A C] [IsTopologicalRing C] [IsHuberRing C]
@@ -2661,7 +2550,7 @@ morphism of complete Tate pairs presented by a quotient mapping `π : A⟨T₁, 
 with `B⁺` the integral closure of `π(A⁺⟨T⟩)`, the closure of `φ(A⁺)[t₁, …, tₙ]`, `tᵢ = π(Tᵢ)`.
 Then `φ` is finite if and only if each `tᵢ` satisfies a monic polynomial over `A⁺` whose value
 is topologically nilpotent. -/
-theorem _root_.TauCeti.Huber.Pair.Hom.isFinite_iff_monic_topologicallyNilpotent {A B : Type*} [CommRing A]
+theorem Pair.Hom.isFinite_iff_monic_topologicallyNilpotent {A B : Type*} [CommRing A]
     [UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A] [IsTateRing A] [CompleteSpace A]
     [T2Space A] [CommRing B] [UniformSpace B] [IsUniformAddGroup B] [IsTopologicalRing B]
     [IsTateRing B] [CompleteSpace B] [T2Space B] {S : Pair A} {T : Pair B} (φ : Pair.Hom S T)
@@ -2671,36 +2560,12 @@ theorem _root_.TauCeti.Huber.Pair.Hom.isFinite_iff_monic_topologicallyNilpotent 
       Set.range fun i ↦ π ((weightedX (fun _ : Fin n ↦ ({1} : Set A)) isWeightFamily_one_weight i :
         weightedRestrictedSubring _ _) : restrictedMvPowerSeriesCompletion n A))).topologicalClosure
       B).toSubring) :
-    φ.IsFinite ↔ ∀ i : Fin n, ∃ q : Polynomial S.plus, q.Monic ∧
+    (Pair.Hom.IsFinite φ) ↔ ∀ i : Fin n, ∃ q : Polynomial S.plus, q.Monic ∧
       IsTopologicallyNilpotent (q.eval₂ (φ.toRingHom.comp S.plus.subtype)
         (π ((weightedX (fun _ : Fin n ↦ ({1} : Set A)) isWeightFamily_one_weight i :
           weightedRestrictedSubring _ _) : restrictedMvPowerSeriesCompletion n A))) := sorry
 
 end Huber
-
-/-! ### R0.82 Finite morphisms are proper (Huber 1.4.5(ii))
-
-Finite morphisms are proper (Huber 1.4.5(ii)). -/
-
-
-/-! ### R0.83 Closed embeddings are finite (Huber 1.4.5(iii))
-
-Closed embeddings are finite (Huber 1.4.5(iii)). -/
-
-
-/-! ### R0.84 Topological nilpotence in a fibre spreads to a rational neighbourhood (Huber 1.4.8)
-
-Topological nilpotence in a fibre spreads to a rational neighbourhood (Huber 1.4.8). -/
-
-
-/-! ### R0.85 Finiteness near a point with proper fibre (Huber 1.4.6-1.4.7)
-
-Finiteness near a point with proper fibre (Huber 1.4.6-1.4.7). -/
-
-
-/-! ### R0.86 Finiteness descends along finite faithfully flat affinoid covers (Huber 1.4.9)
-
-Finiteness descends along finite faithfully flat affinoid covers (Huber 1.4.9). -/
 
 
 /-! ### R0.87 Base change of a finite algebra over a complete Tate ring needs no completion
@@ -2724,8 +2589,8 @@ variable {A B C : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [Is
 complete Tate pairs with underlying map `algebraMap A B` and a continuous `A → C` to a complete
 Tate ring, the tensor-product topology (`tensorTopology` of R0/completed-tensor-product) on the
 finite `C`-module `C ⊗_A B` is its natural `C`-module topology. -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsFinite.isModuleTopology_tensorTopology [IsTateRing A] [IsTateRing B]
-    [IsTateRing C] {S : Pair A} {T : Pair B} {φ : Pair.Hom S T} (hφ : φ.IsFinite)
+theorem Pair.Hom.IsFinite.isModuleTopology_tensorTopology [IsTateRing A] [IsTateRing B]
+    [IsTateRing C] {S : Pair A} {T : Pair B} {φ : Pair.Hom S T} (hφ : (Pair.Hom.IsFinite φ))
     (hφA : φ.toRingHom = algebraMap A B) (hC : Continuous (algebraMap A C)) :
     @IsModuleTopology C _ (C ⊗[A] B) _ _ (tensorTopology A C B) := sorry
 
@@ -2734,8 +2599,8 @@ projective `A`-module, then `C ⊗_A B` is Hausdorff and complete for the tensor
 so the canonical map to the completed tensor product `CompletedTensor A C B` is bijective (an
 isomorphism of topological rings), and `(C, C⁺) → (C ⊗_A B, C⁺ ⊗ B⁺ integrally closed)` is a
 finite morphism of complete Huber pairs. -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsFinite.bijective_completedTensor_tmul [IsTateRing A] [IsTateRing B]
-    [IsTateRing C] {S : Pair A} {T : Pair B} {φ : Pair.Hom S T} (hφ : φ.IsFinite)
+theorem Pair.Hom.IsFinite.bijective_completedTensor_tmul [IsTateRing A] [IsTateRing B]
+    [IsTateRing C] {S : Pair A} {T : Pair B} {φ : Pair.Hom S T} (hφ : (Pair.Hom.IsFinite φ))
     (hφA : φ.toRingHom = algebraMap A B) (hC : Continuous (algebraMap A C))
     (h : (IsNoetherianRing A ∧ IsNoetherianRing C) ∨ Module.Projective A B) :
     @T2Space _ (tensorTopology A C B) ∧ @CompleteSpace _ (tensorUniformSpace A C B) ∧
@@ -2744,31 +2609,6 @@ theorem _root_.TauCeti.Huber.Pair.Hom.IsFinite.bijective_completedTensor_tmul [I
 end FiniteTensor
 
 end Huber
-
-
-/-! ### R0.88 Locally quasi-finite and quasi-finite morphisms of adic spaces
-
-Locally quasi-finite and quasi-finite morphisms of adic spaces. -/
-
-
-/-! ### R0.89 Fibre criteria for quasi-finiteness (Huber 1.5.2)
-
-Fibre criteria for quasi-finiteness (Huber 1.5.2). -/
-
-
-/-! ### R0.90 Stalk criterion for local quasi-finiteness (Huber 1.5.4)
-
-Stalk criterion for local quasi-finiteness (Huber 1.5.4). -/
-
-
-/-! ### R0.91 Quasi-finite and proper equals finite (Huber 1.5.5)
-
-Quasi-finite and proper equals finite (Huber 1.5.5). -/
-
-
-/-! ### R0.92 Partially proper locally quasi-finite morphisms are finite near closures of points (Huber 1.5.6)
-
-Partially proper locally quasi-finite morphisms are finite near closures of points (Huber 1.5.6). -/
 
 
 /-! ### R0.93 Module of continuous differentials of a topologically finite type map
@@ -3072,15 +2912,6 @@ theorem ContinuousKaehlerDifferential.exact_kerCotangentToTensor_mapBaseChange (
 
 end Huber
 
-/-! ### R0.96 Stalks of continuous differentials of locally quasi-finite morphisms (Huber 1.6.4(i))
-
-Stalks of continuous differentials of locally quasi-finite morphisms (Huber 1.6.4(i)). -/
-
-
-/-! ### R0.97 Flat morphism of adic spaces
-
-Flat morphism of adic spaces. -/
-
 
 /-! ### R0.98 Unramified morphism of adic spaces
 
@@ -3145,7 +2976,7 @@ theorem Etale.iff_smooth_and_unramified_affinoid (φ : Pair.Hom S T) :
 Huber pairs with `A` a noetherian Tate ring, the lifting condition is Mathlib's formal
 unramifiedness of `A → B`. -/
 theorem Unramified.iff_formallyUnramified_of_finite_affinoid (hTate : IsTateRing A)
-    [IsNoetherianRing A] (φ : Pair.Hom S T) (hφ : φ.IsFinite) :
+    [IsNoetherianRing A] (φ : Pair.Hom S T) (hφ : (Pair.Hom.IsFinite φ)) :
     letI := φ.toRingHom.toAlgebra
     Unramified_affinoid.{max u₁ u₂} φ ↔ Algebra.FormallyUnramified A B := sorry
 
@@ -3154,82 +2985,8 @@ end InfinitesimalLifting
 end AdicSpace
 
 
-/-! ### R0.99 Smooth morphism of adic spaces
-
-Smooth morphism of adic spaces. -/
-
-
-/-! ### R0.100 Étale morphism of adic spaces
-
-Étale morphism of adic spaces. -/
-
-
-/-! ### R0.101 Open embeddings are étale (Huber 1.6.7)
-
-Open embeddings are étale (Huber 1.6.7). -/
-
-
-/-! ### R0.102 Locally closed embeddings are unramified (Huber 1.6.7)
-
-Locally closed embeddings are unramified (Huber 1.6.7). -/
-
-
-/-! ### R0.103 Relative polydiscs are smooth (Huber 1.6.7)
-
-Relative polydiscs are smooth (Huber 1.6.7). -/
-
-
-/-! ### R0.104 Composites of unramified, smooth and étale morphisms (Huber 1.6.7)
-
-Composites of unramified, smooth and étale morphisms (Huber 1.6.7). -/
-
-
-/-! ### R0.105 Cancellation for unramified, smooth and étale morphisms (Huber 1.6.7)
-
-Cancellation for unramified, smooth and étale morphisms (Huber 1.6.7). -/
-
-
-/-! ### R0.106 Unramified, smooth and étale are local on the source (Huber 1.6.7)
-
-Unramified, smooth and étale are local on the source (Huber 1.6.7). -/
-
-
-/-! ### R0.48 Base change of unramified, smooth and étale morphisms
-
-Base change of unramified, smooth and étale morphisms along any morphism for which the fibre product
-exists (Huber 1996 (1.6.7); Kedlaya–Liu Lemma 8.2.17(c)). -/
-
 -- AdicSpace.Unramified.baseChange, AdicSpace.Smooth.baseChange, AdicSpace.Etale.baseChange (the
 --   statements of this node, listed with R0/unramified-morphism, R0/smooth-morphism and
-
-/-! ### R0.107 Unramified morphisms are locally quasi-finite (Huber 1.7.4)
-
-Unramified morphisms are locally quasi-finite (Huber 1.7.4). -/
-
-
-/-! ### R0.108 Characterisations of unramified morphisms (Huber 1.6.8)
-
-Characterisations of unramified morphisms (Huber 1.6.8). -/
-
-
-/-! ### R0.109 Continuous differentials of a smooth morphism are locally free (Huber 1.6.9(i))
-
-Continuous differentials of a smooth morphism are locally free (Huber 1.6.9(i)). -/
-
-
-/-! ### R0.110 Jacobian criterion for closed subspaces of smooth spaces (Huber 1.6.9(ii))
-
-Jacobian criterion for closed subspaces of smooth spaces (Huber 1.6.9(ii)). -/
-
-
-/-! ### R0.111 Differential criterion for étale and smooth morphisms between smooth spaces (Huber 1.6.9(iii))
-
-Differential criterion for étale and smooth morphisms between smooth spaces (Huber 1.6.9(iii)). -/
-
-
-/-! ### R0.112 Finite étale adic spaces over a noetherian affinoid are finite étale algebras (Huber 1.6.6(ii))
-
-Finite étale adic spaces over a noetherian affinoid are finite étale algebras (Huber 1.6.6(ii)). -/
 
 
 /-! ### R0.113 Morphisms of Huber pairs of algebraically finite type
@@ -3248,12 +3005,12 @@ variable {A B C : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
 /-- R0/algebraically-finite-type-ring-map: the polynomial ring `A[X₁, …, Xₙ]_M` with the subspace
 topology of `A⟨X⟩_M` (Tau Ceti `weightedPolynomials`, the copy of `MvPolynomial (Fin n) A` inside
 `weightedRestrictedSubring M hM`) is a Huber ring (Huber 1994, §3). -/
-instance _root_.TauCeti.Huber.Pair.polynomialWeighted.isHuberRing {n : ℕ} (M : Fin n → Set A) (hM : IsWeightFamily M) :
+instance Pair.polynomialWeighted.isHuberRing {n : ℕ} (M : Fin n → Set A) (hM : IsWeightFamily M) :
     IsHuberRing (weightedPolynomials M hM) := sorry
 
 /-- R0/algebraically-finite-type-ring-map (constructor): the Huber pair `A[X₁, …, Xₙ]_M` with the
 topology induced from `A⟨X⟩_M` and plus ring the integral closure of `A⁺[m · Xᵢ : m ∈ Mᵢ]`. -/
-def _root_.TauCeti.Huber.Pair.polynomialWeighted (S : Pair A) {n : ℕ} (M : Fin n → Set A) (hM : IsWeightFamily M) :
+def Pair.polynomialWeighted (S : Pair A) {n : ℕ} (M : Fin n → Set A) (hM : IsWeightFamily M) :
     Pair (weightedPolynomials M hM) where
   plus := (integralClosure (Subring.closure ((weightedPolynomialsEquiv hM).toRingHom ''
     (MvPolynomial.C '' (S.plus : Set A) ∪
@@ -3265,25 +3022,25 @@ pairs is *of algebraically finite type* if it factors through a quotient mapping
 `π : A[X₁, …, Xₙ]_M → B` — surjective, continuous, open, with `B⁺` the integral closure of the
 image of the plus ring — for a finite weight family `M` (Huber 1996, 1.7.3(iii), Remark 1.2.6).
 Completeness is not required. -/
-def _root_.TauCeti.Huber.Pair.Hom.IsAlgebraicallyFiniteType {S : Pair A} {T : Pair B} (φ : Pair.Hom S T) : Prop :=
+def Pair.Hom.IsAlgebraicallyFiniteType {S : Pair A} {T : Pair B} (φ : Pair.Hom S T) : Prop :=
   ∃ (n : ℕ) (M : Fin n → Set A) (_ : ∀ i, (M i).Finite) (hM : IsWeightFamily M)
-    (π : Pair.Hom (S.polynomialWeighted M hM) T),
+    (π : Pair.Hom ((Pair.polynomialWeighted S) M hM) T),
     Function.Surjective π.toRingHom ∧ IsOpenMap π.toRingHom ∧
-      T.plus = (integralClosure ((S.polynomialWeighted M hM).plus.map π.toRingHom) B).toSubring ∧
+      T.plus = (integralClosure (((Pair.polynomialWeighted S) M hM).plus.map π.toRingHom) B).toSubring ∧
       π.toRingHom.comp ((weightedPolynomialsEquiv hM).toRingHom.comp MvPolynomial.C) = φ.toRingHom
 
 variable {S : Pair A} {T : Pair B} {U : Pair C}
 
 /-- R0/algebraically-finite-type-ring-map (projection): the underlying ring map is of finite type
 (Mathlib `RingHom.FiniteType`). -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsAlgebraicallyFiniteType.finiteType {φ : Pair.Hom S T}
-    (hφ : φ.IsAlgebraicallyFiniteType) : φ.toRingHom.FiniteType := sorry
+theorem Pair.Hom.IsAlgebraicallyFiniteType.finiteType {φ : Pair.Hom S T}
+    (hφ : (Pair.Hom.IsAlgebraicallyFiniteType φ)) : φ.toRingHom.FiniteType := sorry
 
 /-- R0/algebraically-finite-type-ring-map (characterisation): `B⁺` is the integral closure in `B`
 of a finitely generated `A⁺`-subalgebra `B₁⁺` with `A · B₁⁺ = B` (Huber 1996, Remark 1.2.6(iii),
 in the form used by Scholze 2013, Lemma 6.12). -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsAlgebraicallyFiniteType.exists_fg_plus {φ : Pair.Hom S T}
-    (hφ : φ.IsAlgebraicallyFiniteType) :
+theorem Pair.Hom.IsAlgebraicallyFiniteType.exists_fg_plus {φ : Pair.Hom S T}
+    (hφ : (Pair.Hom.IsAlgebraicallyFiniteType φ)) :
     ∃ s : Finset B,
       T.plus = (integralClosure (Subring.closure (φ.toRingHom '' S.plus ∪ s)) B).toSubring ∧
         letI := φ.toRingHom.toAlgebra
@@ -3291,21 +3048,21 @@ theorem _root_.TauCeti.Huber.Pair.Hom.IsAlgebraicallyFiniteType.exists_fg_plus {
 
 /-- R0/algebraically-finite-type-ring-map (functoriality): composites of morphisms of
 algebraically finite type are of algebraically finite type. -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsAlgebraicallyFiniteType.comp {φ : Pair.Hom S T} {ψ : Pair.Hom T U}
-    (hψ : ψ.IsAlgebraicallyFiniteType) (hφ : φ.IsAlgebraicallyFiniteType) :
-    (ψ.comp φ).IsAlgebraicallyFiniteType := sorry
+theorem Pair.Hom.IsAlgebraicallyFiniteType.comp {φ : Pair.Hom S T} {ψ : Pair.Hom T U}
+    (hψ : (Pair.Hom.IsAlgebraicallyFiniteType ψ)) (hφ : (Pair.Hom.IsAlgebraicallyFiniteType φ)) :
+    (Pair.Hom.IsAlgebraicallyFiniteType (ψ.comp φ)) := sorry
 
 /-- R0/algebraically-finite-type-ring-map (instance): the identity is of algebraically finite
 type. -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsAlgebraicallyFiniteType.id (S : Pair A) :
-    (Pair.Hom.id S).IsAlgebraicallyFiniteType := sorry
+theorem Pair.Hom.IsAlgebraicallyFiniteType.id (S : Pair A) :
+    (Pair.Hom.IsAlgebraicallyFiniteType (Pair.Hom.id S)) := sorry
 
 /-- R0/algebraically-finite-type-ring-map (example): for `g ∈ A` and finite `M ⊆ A` for which
 the rational localisation topology on `L = A[1/g]` exists (Tau Ceti
 `PairOfDefinition.locTopology`, hypothesis `hden`), the morphism `(A, A⁺) → (L, L⁺)` with
 `L⁺` the integral closure of `A⁺[m/g : m ∈ M]` is of algebraically finite type (used to invert a
 Jacobian). -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsAlgebraicallyFiniteType.localizationAway (P : PairOfDefinition A)
+theorem Pair.Hom.IsAlgebraicallyFiniteType.localizationAway (P : PairOfDefinition A)
     (M : Finset A) (g : A) (L : Type*) [CommRing L] [Algebra A L] [IsLocalization.Away g L]
     (hden : PairOfDefinition.HasDenominatorPower P M g L) :
     letI := PairOfDefinition.locTopology P M g L hden
@@ -3315,12 +3072,12 @@ theorem _root_.TauCeti.Huber.Pair.Hom.IsAlgebraicallyFiniteType.localizationAway
       V.plus = (integralClosure (Subring.closure (algebraMap A L '' S.plus ∪
         (fun m ↦ IsLocalization.mk' L m (⟨g, Submonoid.mem_powers g⟩ : Submonoid.powers g)) '' M))
         L).toSubring →
-      φ.IsAlgebraicallyFiniteType := sorry
+      (Pair.Hom.IsAlgebraicallyFiniteType φ) := sorry
 
 -- test IsAlgebraicallyFiniteType_test_id (degenerate)
 example (S : Pair A) (J : Ideal A) :
-    (Pair.Hom.id S).IsAlgebraicallyFiniteType ∧
-      (Pair.quotientHom S J).IsAlgebraicallyFiniteType := sorry
+    (Pair.Hom.IsAlgebraicallyFiniteType (Pair.Hom.id S)) ∧
+      (Pair.Hom.IsAlgebraicallyFiniteType (Pair.quotientHom S J)) := sorry
 
 end AlgebraicFiniteType
 
@@ -3334,14 +3091,14 @@ variable {A B : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTo
 of algebraically finite type is topologically of finite type (Tau Ceti
 `IsTopologicallyFiniteType`); `Spa B = Spa B̂` is the anchor's comparison of an affinoid with its
 completion. -/
-theorem _root_.TauCeti.Huber.Pair.Hom.IsAlgebraicallyFiniteType.completion {φ : Pair.Hom S T}
-    (hφ : φ.IsAlgebraicallyFiniteType) :
+theorem Pair.Hom.IsAlgebraicallyFiniteType.completion {φ : Pair.Hom S T}
+    (hφ : (Pair.Hom.IsAlgebraicallyFiniteType φ)) :
     IsTopologicallyFiniteType
       (UniformSpace.Completion.mapRingHom φ.toRingHom φ.continuous_toRingHom) := sorry
 
 -- test IsAlgebraicallyFiniteType_test_finiteType (compatibility)
 --   [R0/algebraically-finite-type-ring-map]
-example (φ : Pair.Hom S T) (hφ : φ.IsAlgebraicallyFiniteType) :
+example (φ : Pair.Hom S T) (hφ : (Pair.Hom.IsAlgebraicallyFiniteType φ)) :
     φ.toRingHom.FiniteType ∧
       IsTopologicallyFiniteType
         (UniformSpace.Completion.mapRingHom φ.toRingHom φ.continuous_toRingHom) := sorry
@@ -3355,7 +3112,7 @@ type (`ℚ_p⟨T⟩` is not a finitely generated `ℚ_p`-algebra). -/
 example (p : ℕ) [Fact p.Prime] (T' : Pair (restrictedMvPowerSeriesCompletion 1 ℚ_[p]))
     (φ : Pair.Hom (Pair.powerBounded ℚ_[p]) T')
     (hφ : φ.toRingHom = algebraMap ℚ_[p] (restrictedMvPowerSeriesCompletion 1 ℚ_[p])) :
-    IsTopologicallyFiniteType φ.toRingHom ∧ ¬ φ.IsAlgebraicallyFiniteType := sorry
+    IsTopologicallyFiniteType φ.toRingHom ∧ ¬ (Pair.Hom.IsAlgebraicallyFiniteType φ) := sorry
 
 /- The torus over `(W(κ)[1/p], W(κ))` for `κ = 𝔽_p`, i.e. over `(ℚ_p, ℤ_p)`: the quotient of
 `ℚ_p[X, Y]` (weights `{1}`) by `XY − 1`, with the quotient plus ring. Its completion is
@@ -3363,19 +3120,15 @@ example (p : ℕ) [Fact p.Prime] (T' : Pair (restrictedMvPowerSeriesCompletion 1
 -- test IsAlgebraicallyFiniteType_test_torus (computation)
 example (p : ℕ) [Fact p.Prime]
     (φ : Pair.Hom (Pair.powerBounded ℚ_[p])
-      (((Pair.powerBounded ℚ_[p]).polynomialWeighted (fun _ : Fin 2 ↦ ({1} : Set ℚ_[p]))
+      (((Pair.polynomialWeighted (Pair.powerBounded ℚ_[p])) (fun _ : Fin 2 ↦ ({1} : Set ℚ_[p]))
         isWeightFamily_one_weight).quotient (Ideal.span
           {weightedPolynomialsEquiv isWeightFamily_one_weight
             (MvPolynomial.X 0 * MvPolynomial.X 1 - 1)})))
     (hφ : φ.toRingHom = (Ideal.Quotient.mk _).comp
       ((weightedPolynomialsEquiv isWeightFamily_one_weight).toRingHom.comp MvPolynomial.C)) :
-    φ.IsAlgebraicallyFiniteType := sorry
+    (Pair.Hom.IsAlgebraicallyFiniteType φ) := sorry
 
 end Huber
-
-/-! ### R0.114 Standard étale presentation of étale affinoid maps (Huber 1.7.1)
-
-Standard étale presentation of étale affinoid maps (Huber 1.7.1). -/
 
 
 /-! ### R0.115 Stability of standard étale presentations under perturbation (Huber 1.7.2)
@@ -3411,47 +3164,6 @@ end AdicSpace
 -- AdicSpace.standardPresentation_perturb (the Spa(A)-isomorphism Spa(B/(g)) ≅ Spa(B/(f))): not
 --   stated here; needs adic spaces and the morphisms Spa(C ⧸ I) → Spa(C) of complete Huber pairs
 --   as test objects
-
-/-! ### R0.116 Algebraic models of affinoid étale maps (Huber 1.7.3(iii))
-
-Algebraic models of affinoid étale maps (Huber 1.7.3(iii)). -/
-
-
-/-! ### R0.117 Smooth morphisms are locally étale over relative polydiscs (Huber 1.6.10)
-
-Smooth morphisms are locally étale over relative polydiscs (Huber 1.6.10). -/
-
-
-/-! ### R0.118 Étale morphisms of affinoids over a field embed locally into finite étale covers (de Jong–van der Put 3.1.4)
-
-Étale morphisms of affinoids over a field embed locally into finite étale covers (de Jong–van der
-Put 3.1.4). -/
-
-
-/-! ### R0.119 Étale maps are locally open embeddings into finite étale covers (Huber 2.2.8)
-
-Étale maps are locally open embeddings into finite étale covers (Huber 2.2.8). -/
-
-
-/-! ### R0.120 Étale toric charts on smooth affinoids (Scholze 2013, Lemma 5.2)
-
-Étale toric charts on smooth affinoids (Scholze 2013, Lemma 5.2). -/
-
-
-/-! ### R0.121 Étale equals flat and unramified for analytic adic spaces (Huber 1.7.5)
-
-Étale equals flat and unramified for analytic adic spaces (Huber 1.7.5). -/
-
-
-/-! ### R0.122 Flatness of the ring map of an étale affinoid morphism (Huber 1.7.6)
-
-Flatness of the ring map of an étale affinoid morphism (Huber 1.7.6). -/
-
-
-/-! ### R0.123 Smooth and étale morphisms are open (Huber 1.7.7-1.7.9)
-
-Smooth and étale morphisms are open (Huber 1.7.7-1.7.9). -/
-
 
 
 end
@@ -3756,7 +3468,7 @@ end Affinoid
 
 /-- R0/reduced-reduction-ring-of-definition: in a Tate ring, a ring of definition `A₀` containing a
 pseudouniformizer `ϖ` with `A₀/ϖA₀` reduced is the power-bounded subring. -/
-theorem _root_.TauCeti.Huber.PairOfDefinition.ringOfDefinition_eq_powerBoundedSubring_of_isReduced {A : Type*}
+theorem Huber.PairOfDefinition.ringOfDefinition_eq_powerBoundedSubring_of_isReduced {A : Type*}
     [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [Huber.IsTateRing A]
     (P : Huber.PairOfDefinition A) {ϖ : A} (hϖ : Huber.IsPseudoUniformizer ϖ)
     (hϖP : ϖ ∈ P.ringOfDefinition)
@@ -3827,7 +3539,7 @@ theorem Huber.isWeightFamily_chartWeights {E : Finset A} (hE : ∃ e ∈ E, IsUn
 
 /-- R1/affine-chart-analytification (ring-level core): for a pseudouniformizer `ϖ`, the family
 `{ϖ} ^ k = {ϖ ^ k}` is a weight family. -/
-theorem _root_.TauCeti.Huber.IsPseudoUniformizer.isWeightFamily_singleton_pow {ϖ : A}
+theorem Huber.IsPseudoUniformizer.isWeightFamily_singleton_pow {ϖ : A}
     (hϖ : IsPseudoUniformizer ϖ) (n k : ℕ) :
     IsWeightFamily (fun _ : Fin n ↦ (({ϖ} : Finset A) : Set A) ^ k) := sorry
 
@@ -3862,12 +3574,6 @@ theorem AdicSpace.chart_exists_index_affinoid {A : Type*} [CommRing A] [Topologi
 
 end AffineChart
 
-/-! ### R1.13 Huber's fibre product X ×_Y S of a scheme locally of finite type with an adic space over a scheme
-
-Every item needs the category of adic spaces with its forgetful functor to locally ringed spaces
-(AdicSpaces Layer 5); the affine charts are `Huber.chartRing`
-(`R1.12`). -/
-
 
 /-! ### R1.1 For a Tate ring of topologically finite type over K, the power-bounded subring is the only ring of integral elements making it of topologically finite type over (K, K°) -/
 
@@ -3885,7 +3591,7 @@ topologically of finite type (some continuous open surjection `g' : K⟨T⟩ →
 integral closure of `g'(K°⟨T⟩)`, `K°⟨T⟩` the power-bounded subring of `K⟨T⟩`) if and only if
 `A⁺ = A°`. The equivalent ring statement, `A° = integral closure of g(K°⟨T⟩)`, is
 `Huber.Affinoid.powerBoundedSubring_eq_integralClosure` (R0.58). -/
-theorem _root_.TauCeti.Huber.Pair.eq_powerBounded_iff_of_isTopologicallyFiniteType {n : ℕ}
+theorem Huber.Pair.eq_powerBounded_iff_of_isTopologicallyFiniteType {n : ℕ}
     (g : restrictedMvPowerSeriesCompletion n K →+* A) (hg : IsOpenQuotientMap g) (P : Pair A) :
     (∃ (m : ℕ) (g' : restrictedMvPowerSeriesCompletion m K →+* A), IsOpenQuotientMap g' ∧
         P.plus = (integralClosure
@@ -3912,7 +3618,7 @@ the closed polydisc of radius `|ϖ|^{-k}` modulo `I`. Its plus ring is its power
 (`Huber.Pair.eq_powerBounded_iff_of_isTopologicallyFiniteType`). -/
 abbrev AdicSpace.analytification.affineChart_ring {ϖ : K} (hϖ : IsPseudoUniformizer ϖ)
     (n k : ℕ) (I : Ideal (MvPolynomial (Fin n) K)) : Type _ :=
-  chartRing (RingHom.id K) n k {ϖ} (hϖ.isWeightFamily_singleton_pow n k) I
+  chartRing (RingHom.id K) n k {ϖ} ((IsPseudoUniformizer.isWeightFamily_singleton_pow hϖ) n k) I
 
 end AnalytificationChart
 
@@ -3920,10 +3626,8 @@ end AnalytificationChart
 -- test analytification_test_chart_polydisc_core (compatibility)
 example (K : Type*) [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
     [NonarchimedeanRing K] {ϖ : K} (hϖ : Huber.IsPseudoUniformizer ϖ) (n : ℕ) :
-    Nonempty (Huber.chartSeries K n 0 {ϖ} (hϖ.isWeightFamily_singleton_pow n 0) ≃+*
+    Nonempty (Huber.chartSeries K n 0 {ϖ} ((Huber.IsPseudoUniformizer.isWeightFamily_singleton_pow hϖ) n 0) ≃+*
       Huber.restrictedMvPowerSeriesCompletion n K) := sorry
-
-/-! ### R1.16 Universal property of X^ad: morphisms from adic spaces over Spa K into X^ad are morphisms of locally ringed spaces into X -/
 
 
 /-! ### R1.17 The adic affine space A^{n,ad}: an increasing union of closed polydiscs, not quasi-compact, with entire functions as global sections -/
@@ -3955,20 +3659,6 @@ theorem AdicSpace.analyticAffineSpace_globalSections_ne_polynomial {ϖ : K} (hϖ
         ∀ p : MvPolynomial (Fin n) K, (p : MvPowerSeries (Fin n) K) ≠ f := sorry
 
 end AffineSpace
-
-/-! ### R1.19 Analytification of open and closed immersions: open subspaces and closed adic subspaces cut out by the analytified ideal -/
-
-
-/-! ### R1.14 Points of X ×_Y S and of X^ad: surjectivity onto compatible pairs; classical points correspond to closed points; q_X is not injective -/
-
-
-/-! ### R1.18 Analytification preserves and reflects surjectivity -/
-
-
-/-! ### R1.20 Analytification commutes with fibre products and preserves finite products -/
-
-
-/-! ### R1.21 Analytification of finite and finite locally free morphisms -/
 
 
 /-! ### R1.2 Affinoid subdomains of the maximal spectrum of a K-affinoid algebra -/
@@ -4233,8 +3923,6 @@ theorem RigidSpace.cech_exact_of_affinoidCover
             Set.inter_subset_right).toLinearMap (s j)) →
         ∃ m : M, ∀ i, s i = (1 : (hU i).coordRing) ⊗ₜ[A] m := sorry
 
-/-! ### R1.6 Local rings of affinoid spaces at points are noetherian with the algebraic completion -/
-
 
 end AffinoidSubdomain
 
@@ -4308,14 +3996,6 @@ theorem RigidSpace.injective_algebraMap_coordRing_of_isDomain [IsDomain A]
 
 end IdentityPrinciple
 
-/-! ### R1.31 Huber's functor r_K from rigid-analytic spaces to adic spaces locally of finite type over Spa(K, K°) -/
-
-
-/-! ### R1.36 Rigid and adic étale, unramified and smooth morphisms agree under Huber's functor -/
-
-
-/-! ### R1.8 At a classical point, the local ring of X^ad has the same completion as the local ring of X -/
-
 
 /-! ### R1.22 The analytification morphism q_X: X^ad → X is flat -/
 
@@ -4331,7 +4011,7 @@ ring `K[T₁,…,Tₙ]`; base change along `K[T] → K[T]/I` gives the flatness 
 theorem AdicSpace.analytification.flat_chart_affinoid (K : Type*) [NontriviallyNormedField K]
     [IsUltrametricDist K] [CompleteSpace K] [NonarchimedeanRing K] {ϖ : K}
     (hϖ : IsPseudoUniformizer ϖ) (n k : ℕ) :
-    (chartSeries.ofPolynomial K n k {ϖ} (hϖ.isWeightFamily_singleton_pow n k)).Flat := sorry
+    (chartSeries.ofPolynomial K n k {ϖ} ((IsPseudoUniformizer.isWeightFamily_singleton_pow hϖ) n k)).Flat := sorry
 
 /-- R1/analytification-map-flat (ring-level core, relative case with a noetherian ring of
 definition): for a complete Tate ring `A` with pseudouniformizer `ϖ` and a pair of definition
@@ -4343,7 +4023,7 @@ theorem AdicSpace.analytification.flat_chart_affinoid_of_isNoetherianRing {A : T
     [UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A] [IsHuberRing A] [CompleteSpace A]
     [T2Space A] (P : PairOfDefinition A) (hP : IsNoetherianRing P.ringOfDefinition) {ϖ : A}
     (hϖ : IsPseudoUniformizer ϖ) (n k : ℕ) :
-    (chartSeries.ofPolynomial A n k {ϖ} (hϖ.isWeightFamily_singleton_pow n k)).Flat := sorry
+    (chartSeries.ofPolynomial A n k {ϖ} ((IsPseudoUniformizer.isWeightFamily_singleton_pow hϖ) n k)).Flat := sorry
 
 end Flat
 
@@ -4353,13 +4033,8 @@ end Flat
 -- test analytification_modules_test_exact_core (compatibility)
 example (K : Type*) [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
     [NonarchimedeanRing K] {ϖ : K} (hϖ : Huber.IsPseudoUniformizer ϖ) (k : ℕ) :
-    Huber.chartSeries.ofPolynomial K 1 k {ϖ} (hϖ.isWeightFamily_singleton_pow 1 k)
+    Huber.chartSeries.ofPolynomial K 1 k {ϖ} ((Huber.IsPseudoUniformizer.isWeightFamily_singleton_pow hϖ) 1 k)
       (MvPolynomial.X 0) ∈ nonZeroDivisors _ := sorry
-
-/-! ### R1.24 Continuous differentials of the analytification charts: Ωᶜ_{A_k/A'} ≅ A_k ⊗_C Ω_{C/B'} (chart form of Ω_{X^ad/Y^ad} ≅ (Ω_{X/Y})^ad) -/
-
-
-/-! ### R1.25 Analytification preserves étale, smooth and unramified morphisms -/
 
 
 /-! ### R1.9 Rigid analytification X ↦ X^an of schemes locally of finite type over K -/
@@ -4370,48 +4045,6 @@ example (K : Type*) [Field K] :
     Nonempty (MaximalSpectrum (Polynomial K) ≃
       {p : Polynomial K // p.Monic ∧ Irreducible p}) ∧
       (IsAlgClosed K → Nonempty (MaximalSpectrum (Polynomial K) ≃ K)) := sorry
-
-/-! ### R1.32 r_K is fully faithful, generates the lft adic spaces, restricts to an equivalence on quasi-separated objects, and detects affinoids -/
-
-
-/-! ### R1.33 The rigid and adic ringed topoi agree: ρ_X induces an equivalence Shv(r_K(X)) ≃ Shv(X) -/
-
-
-/-! ### R1.34 r_K(X^an) ≅ X^ad: the adic space of the rigid analytification is the adic analytification -/
-
-
-/-! ### R1.35 Separated, partially proper and proper morphisms of rigid spaces versus their adic counterparts (Huber 1996 1.3.19) -/
-
-
-/-! ### R1.10 Closures of constructible sets are compatible with analytification; closedness is detected on X^ad -/
-
-
-/-! ### R1.26 X is connected iff X^ad is connected -/
-
-
-/-! ### R1.27 The analytified projective space P^{n,ad} → Spa K is proper; relatively (P^n_Y)^ad → Y^ad is proper -/
-
-
-/-! ### R1.28 Separatedness and properness comparison: f is separated (proper) iff f^ad is -/
-
-
-/-! ### R1.29 For f of finite type: f is finite (resp. a closed immersion) iff f^ad is -/
-
-
-/-! ### R1.30 f is étale (resp. smooth) iff f^ad is -/
-
-
-/-! ### R1.37 Analytic groups: analytification of group schemes, finite locally free group schemes, abelian varieties and isogenies -/
-
-
-/-! ### R1.11 A finite locally free surjection of adic spaces locally of finite type over Spa K is an effective epimorphism -/
-
-
-/-! ### R1.38 Analytification of quotient maps by finite locally free subgroups: (A/G)^ad ≅ A^ad/G^ad -/
-
-
-/-! ### R1.39 Invariant differentials of an analytified group: ω_{G^ad/Y^ad} ≅ (ω_{G/Y})^ad -/
-
 
 
 end
@@ -5001,12 +4634,6 @@ example (p : ℕ) [Fact p.Prime] :
         Subsingleton (AdicRing.CompletedAway ℤ_[p] (p : ℤ_[p])) := sorry
 
 
-/-! ### F0.11 Spf A depends only on the topology of A -/
-
-
-/-! ### F0.12 Morphisms into Spf A and automatic continuity -/
-
-
 /-! ### F0.16 Formal schemes and locally noetherian formal schemes -/
 
 example (p : ℕ) [Fact p.Prime] :
@@ -5015,30 +4642,6 @@ example (p : ℕ) [Fact p.Prime] :
     ∃ e : {φ : PowerSeries ℤ_[p] →ₐ[ℤ_[p]] PowerSeries ℤ_[p] // Continuous φ} ≃
         (Ideal.span {PowerSeries.C (p : ℤ_[p]), PowerSeries.X} : Ideal (PowerSeries ℤ_[p])),
       ∀ φ, (e φ : PowerSeries ℤ_[p]) = φ.1 PowerSeries.X := sorry
-
-
-/-! ### F0.17 Gluing formal schemes along open subschemes -/
-
-
-/-! ### F0.18 Ideals of definition of a formal scheme and the thickenings X_n -/
-
-
-/-! ### F0.19 The formal scheme attached to an adic system of thickenings -/
-
-
-/-! ### F0.20 A locally noetherian formal scheme is the colimit of its thickenings -/
-
-
-/-! ### F0.13 A formal scheme of finite ideal type is the colimit of its thickenings along an ideal of definition of finite type -/
-
-
-/-! ### F0.21 Morphisms of locally noetherian formal schemes as compatible systems -/
-
-
-/-! ### F0.14 Morphisms of formal schemes of finite ideal type as compatible systems of morphisms of thickenings -/
-
-
-/-! ### F0.22 Fibre products of formal schemes -/
 
 
 /-! ### F0.23 Adic morphisms of locally noetherian formal schemes -/
@@ -5055,12 +4658,6 @@ example (p : ℕ) [Fact p.Prime] :
       ¬ IsAdic ((Ideal.span {(p : ℤ_[p])}).map (algebraMap ℤ_[p] (PowerSeries ℤ_[p]))) := sorry
 
 
-/-! ### F0.24 Adic formal S-schemes are adic inductive systems of S_n-schemes -/
-
-
-/-! ### F0.15 Formal schemes of finite ideal type adic over S are adic inductive systems of S_n-schemes -/
-
-
 /-! ### F0.25 Morphisms of finite type of locally noetherian formal schemes -/
 
 example (p : ℕ) [Fact p.Prime] :
@@ -5070,9 +4667,6 @@ example (p : ℕ) [Fact p.Prime] :
       ¬ ∃ (r : ℕ) (π : Huber.restrictedMvPowerSeriesCompletion r ℤ_[p] →+* PowerSeries ℤ_[p]),
         IsOpenQuotientMap π ∧
           π.comp (algebraMap ℤ_[p] _) = algebraMap ℤ_[p] (PowerSeries ℤ_[p]) := sorry
-
-
-/-! ### F0.27 Proper morphisms of locally noetherian formal schemes -/
 
 
 /-! ### F0.26 Properness, finiteness and closed immersions are insensitive to thickenings -/
@@ -5102,11 +4696,6 @@ theorem isClosedImmersion_iff_of_thickening {X' Y' Y : Scheme} (i : Y ⟶ Y')
     IsClosedImmersion f' ↔ IsClosedImmersion (pullback.snd f' i) := sorry
 
 end FormalScheme
-
-/-! ### F0.28 Closed formal subschemes and closed immersions -/
-
-
-/-! ### F0.29 An adic morphism is a closed immersion iff its reduction is -/
 
 
 /-! ### F0.9 Finite modules over an adic noetherian ring as compatible systems -/
@@ -5138,25 +4727,11 @@ theorem finite_limit (M : ℕ → Type*) [∀ n, AddCommGroup (M n)] [∀ n, Mod
 
 end IsAdicRing
 
-/-! ### F0.30 The formal completion of a locally noetherian scheme along a closed subset -/
-
-
-/-! ### F0.31 Extension of a morphism to formal completions -/
-
-
-/-! ### F0.32 Morphisms with equal completions agree near the closed subset -/
-
 
 /-! ### F0.33 Completion of a coherent sheaf along a closed subset -/
 
 example (p ℓ : ℕ) [Fact p.Prime] [Fact ℓ.Prime] (h : ℓ ≠ p) :
     Nontrivial (ZMod ℓ) ∧ Subsingleton (AdicCompletion (Ideal.span {(p : ℤ)}) (ZMod ℓ)) := sorry
-
-
-/-! ### F0.34 Completion of coherent sheaves is exact, agrees with pullback along X̂ → X, and commutes with ⊗, Hom and base change -/
-
-
-/-! ### F0.35 What completion sees: sections and maps near the closed subset -/
 
 
 /-! ### F0.36 Coherent modules on a locally noetherian formal scheme -/
@@ -5183,33 +4758,6 @@ end FormalScheme
 example (p : ℕ) [Fact p.Prime] : ¬ Module.Finite ℤ_[p] ℚ_[p] := sorry
 
 
-/-! ### F0.37 The coherent module M^Δ on Spf A attached to a finite A-module -/
-
-
-/-! ### F0.38 Coherent modules on Spf A are finite A-modules -/
-
-
-/-! ### F0.1 Coherent modules on a locally noetherian formal scheme as compatible systems -/
-
-
-/-! ### F0.40 Finiteness and uniform Serre vanishing for graded coherent modules over a proper scheme -/
-
-
-/-! ### F0.41 Good filtrations and the Mittag-Leffler property of H^p(X, F/I^{n+1}F) -/
-
-
-/-! ### F0.39 The theorem on formal functions -/
-
-
-/-! ### F0.42 Formal functions at a point of the base -/
-
-
-/-! ### F0.43 Cohomology of an inverse limit of sheaves -/
-
-
-/-! ### F0.44 Comparison of algebraic and formal higher direct images -/
-
-
 /-! ### F0.45 Over a complete base, every neighbourhood of the closed fibre is everything -/
 
 /-- F0/closed-fibre-neighbourhood (EGA III, 5.1.3.1): over an adic noetherian ring `A`, if the
@@ -5221,49 +4769,12 @@ theorem FormalScheme.eq_top_of_closedFibre_subset {A : Type*} [CommRing A] [Topo
     (hU : f ⁻¹' (PrimeSpectrum.zeroLocus (IsAdicRing.ideal A : Set A) :
       Set (PrimeSpectrum A)) ⊆ U) : U = ⊤ := sorry
 
-/-! ### F0.46 Completion of coherent sheaves is fully faithful over a complete base -/
-
-
-/-! ### F0.47 Uniform vanishing and lifting of sections on a proper formal scheme with an ample reduction -/
-
-
-/-! ### F0.48 Grothendieck existence for projective schemes -/
-
-
-/-! ### F0.49 Comparison along a proper modification up to a power of the exceptional ideal -/
-
-
-/-! ### F0.50 Algebraizing a formal module that maps to a completion with bounded torsion kernel and cokernel -/
-
-
-/-! ### F0.51 Dévissage: extending algebraizability from thickenings of a closed subscheme -/
-
-
-/-! ### F0.52 Coherent formal modules with proper support live on a proper closed subscheme -/
-
-
-/-! ### F0.53 Grothendieck’s existence theorem -/
-
-
-/-! ### F0.54 Closed formal subschemes proper over Spf A are completions -/
-
-
-/-! ### F0.55 Isomorphisms and closed immersions of proper schemes are detected on completions -/
-
-
-/-! ### F0.56 Morphisms from proper schemes are determined by their completions -/
-
-
-/-! ### F0.57 Grothendieck’s algebraization theorem (formal GAGA) -/
-
-
 
 end
 
 /-! ## Layer R2: Formal schemes of finite type over O_K, generic fibres and Hasse domains -/
 
 noncomputable section
-
 
 
 /-! ### R2.1 Algebras topologically of finite type and of finite presentation over a complete rank-one valuation ring; admissible algebras
@@ -5607,18 +5118,6 @@ end Locality
 
 end Huber
 
-/-! ### R2.6 Admissible formal O_K-schemes (formal schemes locally topologically of finite presentation without ϖ-torsion)
-
-Every item needs formal schemes; the ring-level core is `Huber.IsAdmissibleAlgebra`. -/
-
-
-/-! ### R2.7 Formal schemes of type (S): the class on which Huber's generic-fibre functor is defined, and its relation to admissible formal schemes and to Conrad's FS_C
-
-Every item needs formal schemes. The affine condition — `A` adic with a finitely generated ideal
-of definition (F0's `IsAdicRing`), and `A` noetherian or `A(1/s)` strongly noetherian for some
-`s` generating an ideal of definition — needs the topology of `A(1/s)` whose ring of definition is
-the image of `A`, which is F0/completed-localization's; it is not stated separately. -/
-
 
 /-! ### R2.8 Huber's functor t from locally noetherian formal schemes to adic spaces -/
 
@@ -5636,8 +5135,6 @@ theorem centerMap_spf_apply_affine {A : Type*} [CommRing A] [TopologicalSpace A]
       ∀ a : A, a ∈ P.asIdeal ↔ ¬ v.toValuativeRel.vle 1 a := sorry
 
 end FormalScheme
-
-/-! ### R2.9 Huber's analytic adic space d(X) of a formal scheme of type (S) -/
 
 
 /-! ### R2.10 For formal O_K-schemes locally of tf presentation, d(X) is the adic space of Raynaud's rigid generic fibre -/
@@ -5660,8 +5157,6 @@ theorem IsTopologicallyFinitePresentation.integralClosure_eq_powerBoundedSubring
       powerBoundedSubring (Localization.Away (algebraMap O A ϖ)) := sorry
 
 end Huber
-
-/-! ### R2.11 The generic fibre commutes with fibre products and with completed extension of the base field -/
 
 
 /-! ### R2.12 The specialisation map λ_X = sp: d(X) → X -/
@@ -5687,8 +5182,6 @@ theorem specialisation_preimage_basicOpen_affine {B : Type*} [CommRing B] [Topol
     {v : Spv B | v.toValuativeRel.vle 1 s} ∩ spa Bplus = rationalSubset Bplus {1} s := sorry
 
 end FormalScheme
-
-/-! ### R2.13 Tubes ]T[ of locally closed subsets of the special fibre, adic and rigid -/
 
 
 /-! ### R2.14 Rig-points of admissible formal schemes -/
@@ -5717,11 +5210,6 @@ theorem RigPoint.integralClosure_eq_valuationRing_affine {O : Type*} [CommRing O
 
 end FormalScheme
 
-/-! ### R2.15 Admissible formal blow-ups and strict transforms -/
-
-
-/-! ### R2.16 The generic fibre of an admissible blow-up is an isomorphism -/
-
 
 /-! ### R2.17 Adjoining power-bounded functions to an admissible algebra is an admissible blow-up -/
 
@@ -5745,8 +5233,6 @@ theorem IsAdmissibleAlgebra.adjoin_powerBounded {O : Type*} [CommRing O] [IsDoma
 
 end Huber
 
-/-! ### R2.18 Quasi-compact opens of the generic fibre come from open formal subschemes of an admissible blow-up -/
-
 
 /-! ### R2.19 Every affinoid has an admissible formal model -/
 
@@ -5768,14 +5254,6 @@ theorem isAdmissibleAlgebra_quotient_comap {O : Type*} [CommRing O] [IsDomain O]
   sorry
 
 end Huber
-
-/-! ### R2.20 Raynaud's theorem: quasi-compact admissible formal schemes localised at admissible blow-ups are quasi-compact quasi-separated rigid spaces -/
-
-
-/-! ### R2.21 A morphism of admissible formal schemes is separated iff its generic fibre is -/
-
-
-/-! ### R2.22 Separatedness, properness and partial properness of a formal model versus its generic fibre (Huber 1996 Remark 1.3.18) -/
 
 
 /-! ### R2.28 Generators modulo ϖ generate topologically (Bosch–Lütkebohmert II Lemma 1.3(a))
@@ -5866,8 +5344,6 @@ theorem exists_unique_lift_through_etale_affine {A P C : Type*} [CommRing A] [Co
 
 end FormalScheme
 
-/-! ### R2.32 Generisation maps of stalks of formal schemes are flat (Bosch–Lütkebohmert I Corollary 1.8(b)) -/
-
 
 /-! ### R2.33 Connected elementary étale neighbourhoods at points with geometrically irreducible closure are geometrically irreducible (Raynaud–Gruson I, Lemme 1.1.2) -/
 
@@ -5930,8 +5406,6 @@ theorem exists_localStructure {X S : Scheme.{u}} (f : X ⟶ S) [LocallyOfFiniteT
       IsFinite g ∧ g ⁻¹' {g y} = {y} ∧ g ≫ h ≫ v = u ≫ f := sorry
 
 end AlgebraicGeometry
-
-/-! ### R2.36 Local structure of formal morphisms: finite over smooth with geometrically irreducible fibres (Bosch–Lütkebohmert II Theorem 1.5) -/
 
 
 /-! ### R2.37 A smooth algebra with geometrically integral fibres is a projective module (Raynaud–Gruson I, Proposition 3.3.1) -/
@@ -6052,8 +5526,6 @@ theorem content_isPrincipal_algebraic {R B : Type*} [CommRing R] [IsDomain R] [V
 
 end FormalScheme
 
-/-! ### R2.41 Ideals of coefficients on generic fibres, and openness when the rigid ideal of coefficients is the unit ideal (Bosch–Lütkebohmert II Proposition 2.3(b), rigid parts) -/
-
 
 /-! ### R2.42 A function vanishing on no fibre is a non-zero-divisor at every level (Bosch–Lütkebohmert II Lemma 2.5(a)) -/
 
@@ -6092,8 +5564,6 @@ theorem isSMulRegular_of_ne_zero_on_fibres_affine {A B : Type u} [CommRing A] [C
     IsSMulRegular B f := sorry
 
 end FormalScheme
-
-/-! ### R2.44 Hartogs-type extension across subsets of the special fibre of smaller relative dimension (Bosch–Lütkebohmert II Lemma 2.5(c), classical rigid case) -/
 
 
 /-! ### R2.45 Contents are homogeneous: c(af) = a·c(f) (Bosch–Lütkebohmert II Lemma 2.6(a)) -/
@@ -6203,35 +5673,6 @@ theorem exists_eq_map_of_isAssociatedPoint_affine {O : Type*} [CommRing O] [IsDo
       Submodule.torsionBy O B ϖ = ⊥ := sorry
 
 end FormalScheme
-
-/-! ### R2.50 T-dévissages of a coherent module in one dimension (Bosch–Lütkebohmert II Definition 3.1)
-
-A dévissage step bundles a closed immersion, a finite and a smooth formal morphism and a map of
-coherent modules on formal schemes; none of these is in either library. -/
-
-
-/-! ### R2.51 T-dévissages in several dimensions and complete dévissages (Bosch–Lütkebohmert II Definition 3.2) -/
-
-
-/-! ### R2.52 Existence of complete dévissages after elementary étale localisation (Bosch–Lütkebohmert II Proposition 3.3) -/
-
-
-/-! ### R2.53 Universal injectivity of α at z is bijectivity at the generic point of the fibre (Bosch–Lütkebohmert II Lemma 3.6) -/
-
-
-/-! ### R2.54 Flatness in terms of a dévissage (Bosch–Lütkebohmert II Proposition 3.5) -/
-
-
-/-! ### R2.55 Flat locus and flatness in dimension ≥ n (Bosch–Lütkebohmert II §3, after Corollary 3.8)
-
-Flatness is stalkwise over the base, for the stalks of formal schemes, and dimensions are those
-of the fibres `X ⊗ k(t)`; every item needs formal schemes and their coherent modules. -/
-
-
-/-! ### R2.56 The flat locus of a coherent module is open (Bosch–Lütkebohmert II Corollary 3.7) -/
-
-
-/-! ### R2.57 Flatness in dimension ≥ n in terms of a dévissage (Bosch–Lütkebohmert II Corollary 3.8) -/
 
 
 /-! ### R2.58 Rig-flatness, relative rig-dimension and rig-flatness in dimension ≥ n (Bosch–Lütkebohmert I §5; II Definition 3.9 and §4)
@@ -6416,8 +5857,6 @@ theorem exists_admissibleBlowUp_partition_affine {O : Type*} [CommRing O] [IsDom
 
 end FormalScheme
 
-/-! ### R2.64 Flattening for modules on smooth formal schemes with geometrically irreducible fibres (Bosch–Lütkebohmert II Special case 4.4) -/
-
 
 /-! ### R2.65 Torsion in extensions of a module of small support by a free module (Bosch–Lütkebohmert II Lemma 4.5) -/
 
@@ -6454,38 +5893,6 @@ theorem torsion_map_bijective_affine {O : Type*} [CommRing O] [IsDomain O] [Valu
 
 end FormalScheme
 
-/-! ### R2.66 In a dévissage of a module flat in dimension ≥ m + 1, the upper maps are universally injective and all 𝒩^i stay rig-flat (Bosch–Lütkebohmert II Lemma 4.6) -/
-
-
-/-! ### R2.67 One step of the flattening induction: enlarging the locus of flatness in dimension ≥ m (Bosch–Lütkebohmert II Lemma 4.7) -/
-
-
-/-! ### R2.68 Lowering the dimension of the non-flat locus by one admissible blow-up (Bosch–Lütkebohmert II Proposition 4.2) -/
-
-
-/-! ### R2.69 Flattening a coherent module by an admissible blow-up of the base (Bosch–Lütkebohmert II Theorem 4.1) -/
-
-
-/-! ### R2.70 The flattened strict transform is the pull-back modulo ϖ-torsion off a small closed set (Bosch–Lütkebohmert II Theorem 4.1, additional claim) -/
-
-
-/-! ### R2.23 Flattening by admissible blow-up (Bosch–Lütkebohmert II Theorem 5.2) -/
-
-
-/-! ### R2.24 Quasi-finite and bounded-fibre-dimension formal models (Bosch–Lütkebohmert II Corollary 5.3) -/
-
-
-/-! ### R2.71 Formal completion of a scheme, the morphism σ: d(X̂) → X and the comparison φ: d(X̂) → X ×_Y d(Ŷ) -/
-
-
-/-! ### R2.72 The generic fibre of the completion of an O_K-scheme is the integral (good-reduction) locus of the analytified generic fibre -/
-
-
-/-! ### R2.73 If the completion's generic fibre is all of the analytified generic fibre, a flat quasi-projective model is proper -/
-
-
-/-! ### R2.74 Conrad's Berthelot-type functor (·)^rig on FS_C for arbitrary complete k -/
-
 
 /-! ### R2.25 Conrad's scheme lemma: a flat, locally finitely presented, separated morphism with finite fibres of locally constant rank is finite -/
 
@@ -6505,17 +5912,6 @@ theorem isFinite_iff_of_flat {X Y : Scheme} (f : X ⟶ Y) [Flat f] [LocallyOfFin
         Module.finrank (Y.residueField y) Γ(f.fiber y, ⊤) := sorry
 
 end AlgebraicGeometry
-
-/-! ### R2.26 Conrad's fibral finiteness criterion for flat rigid (adic) morphisms -/
-
-
-/-! ### R2.27 Topological invariance of affinoidness and finiteness (Conrad A.1.1) -/
-
-
-/-! ### R2.75 Smooth and étale morphisms of formal schemes locally of tf presentation; continuous differentials -/
-
-
-/-! ### R2.76 The étale site of a formal scheme is the étale site of its special fibre; the generic-fibre functor on étale objects -/
 
 
 /-! ### R2.77 Unique Frobenius lift on a formal scheme étale over the formal torus -/
@@ -6559,8 +5955,6 @@ theorem exists_unique_frobeniusLift (p : ℕ) [Fact p.Prime] {κ : Type*} [Field
       ∀ r, φ r - r ^ p ∈ Ideal.span {(p : R)} := sorry
 
 end FormalScheme
-
-/-! ### R2.78 The residue disc of a rational smooth point is an open unit polydisc -/
 
 
 /-! ### R2.79 Fractional valuation bounds |f| ≤ |g|^q and |f| ≥ |g|^q for q ∈ ℚ_{≥0} -/
@@ -6696,18 +6090,6 @@ theorem sectionDomainGE_congr_affine {A : Type*} [CommRing A] [TopologicalSpace 
 
 end FormalScheme
 
-/-! ### R2.81 Formal model of a section domain: the open chart of the admissible blow-up of (s, c) -/
-
-
-/-! ### R2.82 Hasse domains X(ε) = {|Ha| ≥ |p|^ε} and their formal models -/
-
-
-/-! ### R2.83 Transition maps between Hasse domains as the radius changes -/
-
-
-/-! ### R2.84 Conrad's Hasse-invariant loci S^{>h}, S^{≥h} of a generalized elliptic curve are admissible opens -/
-
-
 
 end
 
@@ -6725,15 +6107,8 @@ Layer 5) and is a comment. The ring-level cores (Čech complexes of localisation
 strict complexes, glueing squares, completely continuous maps, uniform rings, finite projective
 traces) and the scheme-level trace are stated. -/
 
-/-! ### R3.1 The sheaf M̃ = M ⊗ 𝒪_X associated with a finite module on a noetherian affinoid -/
-
 
 namespace AdicSpace
-
-/-! ### R3.2 Tate acyclicity for finite modules over a strongly noetherian Tate affinoid -/
-
-
-/-! ### R3.3 Acyclicity of M̃ when A has a noetherian ring of definition (Huber Theorem 2.5, Case I) -/
 
 
 /-! ### R3.4 Reduction of local transitive properties of rational coverings to simple Laurent coverings -/
@@ -6771,15 +6146,8 @@ theorem rationalCovering_induction [DecidableEq A] (S : Huber.Pair A)
 
 end RationalCovering
 
-/-! ### R3.7 Čech acyclicity of a presheaf on all rational coverings follows from simple Laurent coverings (Kedlaya–Liu Proposition 2.4.21) -/
-
-
-/-! ### R3.9 Čech acyclicity of the structure sheaf on every sheafy Tate affinoid (Kedlaya–Liu Theorem 2.4.23) -/
-
 
 end AdicSpace
-
-/-! ### R3.8 For a simple Laurent covering the difference map B₁ ⊕ B₂ → B₁₂ is surjective (Kedlaya–Liu Lemma 2.4.22) -/
 
 
 /-! ### R3.5 The two edges of a double complex with exact augmented rows and columns have the same cohomology -/
@@ -7055,17 +6423,6 @@ end GlueingModules
 
 end Huber
 
-/-! ### R3.13 The simple Laurent covering of a sheafy Tate affinoid is a glueing square -/
-
-
-/-! ### R3.14 Finite glueing data on a simple Laurent covering of a strongly noetherian Tate affinoid are effective -/
-
-
-/-! ### R3.15 Coherent sheaves on locally noetherian adic spaces -/
-
-
-/-! ### R3.16 Kiehl's theorem: coherent sheaves on a strongly noetherian Tate affinoid are the M̃ -/
-
 
 /-! ### R3.17 Small perturbations of surjections of complete modules are surjective -/
 
@@ -7097,35 +6454,6 @@ end Perturbation
 
 namespace AdicSpace
 
-/-! ### R3.18 The abelian tensor category of coherent sheaves and pullback -/
-
-
-/-! ### R3.19 Closed adic subspaces correspond to coherent ideals -/
-
-
-/-! ### R3.20 Finite morphisms correspond to coherent 𝒪_X-algebras -/
-
-
-/-! ### R3.21 Quasi-Stein adic spaces -/
-
-
-/-! ### R3.22 Dense restriction of coherent sections on a quasi-Stein space -/
-
-
-/-! ### R3.23 Kiehl's Theorem B on quasi-Stein spaces -/
-
-
-/-! ### R3.24 Kiehl's Theorem A on quasi-Stein spaces -/
-
-
-/-! ### R3.25 Coherent cohomology of the open polydisc vanishes -/
-
-
-/-! ### R3.26 Acyclicity of direct images along quasi-Stein inclusions -/
-
-
-/-! ### R3.27 Vector bundles (locally free sheaves of finite rank) on adic spaces -/
-
 
 /-! ### R3.36 The coherent sheaf of continuous differentials Ω¹_{X/Y} and its exterior powers -/
 
@@ -7138,17 +6466,6 @@ abbrev relativeDifferentials.exteriorPower_affinoid (A B : Type*) [CommRing A]
     [IsTopologicalRing B] [IsHuberRing B] [Algebra A B] (i : ℕ) :
     Submodule B (ExteriorAlgebra B (Huber.ContinuousKaehlerDifferential A B)) :=
   ⋀[B]^i (Huber.ContinuousKaehlerDifferential A B)
-
-/-! ### R3.29 Kiehl glueing of finite projective modules over sheafy Tate affinoids -/
-
-
-/-! ### R3.30 Acyclicity of P̃ for finite projective P over a sheafy Tate affinoid -/
-
-
-/-! ### R3.31 Vector bundles on sheafy Tate affinoids are generated by global sections and acyclic -/
-
-
-/-! ### R3.32 Descent of finite projective modules along finite étale covers of affinoids -/
 
 
 end AdicSpace
@@ -7367,26 +6684,6 @@ end Huber
 
 namespace AdicSpace
 
-/-! ### R3.41 Relatively compact affinoid subdomains over an affinoid base (Kiehl) -/
-
-
-/-! ### R3.42 Proper morphisms to an affinoid admit relatively compact affinoid covers -/
-
-
-/-! ### R3.43 Restriction along a relatively compact inclusion is strictly completely continuous -/
-
-
-/-! ### R3.44 Finiteness of coherent cohomology over an affinoid base (Kiehl Satz 2.6) -/
-
-
-/-! ### R3.45 Completion of proper coherent cohomology (Kiehl Theorems 3.4 and 3.7) -/
-
-
-/-! ### R3.46 Proper coherent cohomology commutes with affinoid subdomains (Kiehl Satz 3.5) -/
-
-
-/-! ### R3.37 Kiehl's proper mapping theorem -/
-
 
 end AdicSpace
 
@@ -7404,35 +6701,6 @@ theorem CountableType.exists_continuousLinear_section {K E : Type*} [Nontriviall
   sorry
 
 namespace AdicSpace
-
-/-! ### R3.48 Completed extension of the base field for affinoid algebras is faithfully flat -/
-
-
-/-! ### R3.49 Proper coherent cohomology commutes with completed extension of the base field -/
-
-
-/-! ### R3.50 Proper coherent cohomology commutes with finite flat base change of affinoids -/
-
-
-/-! ### R3.51 Base change of proper coherent cohomology along étale maps of affinoids (Scholze Proposition 9.2(ii)) -/
-
-
-/-! ### R3.52 Analytification carries coherent sheaves to coherent sheaves -/
-
-
-/-! ### R3.53 The GAGA comparison maps on cohomology and higher direct images -/
-
-
-/-! ### R3.54 Coherent cohomology of O(m) on analytic projective space -/
-
-
-/-! ### R3.55 Proper GAGA: comparison of coherent cohomology (Köpf) -/
-
-
-/-! ### R3.56 Proper GAGA: analytification is an equivalence on coherent sheaves -/
-
-
-/-! ### R3.57 Finite analytic covers of proper varieties are algebraic -/
 
 
 end AdicSpace
@@ -7819,26 +7087,6 @@ end SchemeTraceTests
 
 namespace AdicSpace
 
-/-! ### R3.65 Finite locally free morphisms of adic spaces -/
-
-
-/-! ### R3.66 Projection formula for finite morphisms -/
-
-
-/-! ### R3.67 The trace of a finite locally free morphism of adic spaces -/
-
-
-/-! ### R3.68 Base change and composition laws for the analytic trace -/
-
-
-/-! ### R3.69 Perfect trace pairing and point-count formula for finite étale morphisms -/
-
-
-/-! ### R3.70 The analytic trace of an analytified finite locally free morphism is the analytified algebraic trace -/
-
-
-/-! ### R3.71 Pull–identify–trace operators along correspondences -/
-
 
 end AdicSpace
 
@@ -7868,32 +7116,6 @@ What is stated: the algebraic (scheme-level) core of a smooth pair, that is, str
 crossings charts of an ideal in a `K`-algebra and strict normal crossings pairs on smooth
 `K`-schemes (the input of `R4/analytification-of-smooth-pair`), and the spa-level core of the
 punctured-disc test. -/
-
-/-! ### R4.1 The étale site of AdicEtaleGeometry A1 on the analytic carriers of R0 and R1 -/
-
-
-/-! ### R4.2 Base change defines a morphism of étale sites f_ét: X_ét -> Y_ét -/
-
-
-/-! ### R4.7 Huber 2.1.4: the étale topos of a rigid analytic variety is the étale topos of its adic space -/
-
-
-/-! ### R4.8 Strongly surjective rigid étale families are exactly those with jointly surjective adic image (Huber 2.1.2) -/
-
-
-/-! ### R4.9 The morphism of sites X^ad_ét -> X_ét for a scheme X locally of finite type over k -/
-
-
-/-! ### R4.4 The corrected pro-étale site of AdicEtaleGeometry A1 on the analytic carriers, and ν: X_proét -> X_ét -/
-
-
-/-! ### R4.5 Functoriality of the corrected pro-étale site and compatibility with ν -/
-
-
-/-! ### R4.3 The étale site of an étale X-space is the slice site: U_ét ≃ X_ét/U -/
-
-
-/-! ### R4.6 The pro-étale site of an open subspace is the slice site: U_proét ≃ X_proét/U -/
 
 
 /-! ### R4.11 Smooth pairs: a smooth adic space with a strict normal crossings divisor -/
@@ -8014,22 +7236,12 @@ example (p : ℕ) [Fact p.Prime] (g : MvPolynomial (Fin 2) ℚ_[p]) (hg : eval 0
 
 end AdicSpace.SmoothPair
 
-/-! ### R4.12 Analytification of an algebraic strict normal crossings pair is a smooth pair -/
-
-
-/-! ### R4.13 Restriction of the étale and pro-étale sites of a smooth pair to its boundary complement -/
-
-
-/-! ### R4.10 Geometric points of A1 as points of the étale site, and their compatibility with pullback -/
-
-
 
 end
 
 /-! ## Layer R5: Sousperfectoid spaces and families -/
 
 noncomputable section
-
 
 
 universe u v w
@@ -8321,12 +7533,6 @@ theorem IsSousperfectoid.of_faithfullyFlat_finite_etale {p : ℕ} {R : Type u} [
     (hS : haveI := IsModuleTopology.isTopologicalRing R S; IsSousperfectoid p S) :
     IsSousperfectoid p R := sorry
 
-/-! ### R5.7 Tate algebras over sousperfectoid rings are sousperfectoid (Berkeley 6.3.3(3), HK Lemma 7.3)
-
-The statement is the instance `Huber.IsSousperfectoid.restrictedMvPowerSeries` (API of
-R5/sousperfectoid-ring, above): Tate algebras `R⟨T₁, …, Tₙ⟩` over a complete sousperfectoid Tate
-ring are sousperfectoid. The frame is `R̃⟨T₁^{1/p^∞}, …, Tₙ^{1/p^∞}⟩`, whose carrier (the completion
-of `R̃[T^{1/p^∞}]`) has no Lean form in the pinned libraries, so the frame itself is not stated. -/
 
 /-! ### R5.8 Laurent algebras and annuli over sousperfectoid rings are sousperfectoid -/
 
@@ -8393,22 +7599,10 @@ theorem IsSousperfectoid.isStablyUniform {p : ℕ} {R : Type u} [CommRing R] [Un
     haveI : IsHuberRing (Completion S) := ⟨⟨P.completionLocalization T s S hden⟩⟩
     IsBounded (powerBoundedSubring (Completion S) : Set (Completion S)) := sorry
 
-/-! ### R5.11 Sousperfectoid pairs are sheafy, strongly sheafy and O-acyclic -/
 
 -- Huber.IsSousperfectoid.isSheafyPair' (sheafy), Huber.IsSousperfectoid.isStronglySheafy
 --   (every R⟨T₁, …, Tₙ⟩ sheafy) and the vanishing of H^i(Spa(R, R⁺), O) for i > 0: not stated
 --   here; need the structure presheaf on Spa(R, R⁺), its sheaf condition and its cohomology
-
-/-! ### R5.12 Sousperfectoid adic spaces
-
-Every item needs the category of adic spaces. The ring-level core of the definition is
-`Huber.IsSousperfectoid`; the chart statements reduce to the ring-level API above. -/
-
-
-/-! ### R5.13 Étale spaces over a sousperfectoid space are sousperfectoid adic spaces -/
-
-
-/-! ### R5.14 Sousperfectoid spaces are stably adic -/
 
 
 /-! ### R5.15 Base change of étale maps to locally noetherian spaces along sousperfectoid spaces -/
@@ -8437,14 +7631,6 @@ theorem not_isPerfectoidTateRing_restrictedMvPowerSeries {p : ℕ} (S : Type u) 
     (hS : IsPerfectoidTateRing p S) (n : ℕ) (hn : 0 < n) :
     haveI := hS.isTateRing
     ¬ IsPerfectoidTateRing p (restrictedMvPowerSeriesCompletion n S) := sorry
-
-
-/-! ### R5.17 The product X ×_L Y of a perfectoid space and a smooth rigid space (BHW Corollary 3.4)
-
-Every item needs perfectoid spaces, rigid spaces and fibre products of adic spaces. -/
-
-
-/-! ### R5.18 Products with a smooth space preserve tilde-limits (BHW Corollary 3.5) -/
 
 
 /-! ### R5.19 Profinite flat modules over the ring of integers of a p-adic field
@@ -8874,15 +8060,6 @@ def mixedTensor.baseChange (V : Type v) [AddCommGroup V] [Module S V] [Module.Fi
 
 end BaseChange
 
-/-! ### R5.27 The coefficient sheaf R = O_X ⊗̂ R on an affinoid rigid space (CHJ §6.3)
-
-Every item lives on the site of rational subsets of an affinoid rigid space, which needs the
-structure presheaf `U ↦ O_X(U)` on rational subsets and affinoid
-rigid spaces. The value on one rational subset
-is the ring `Huber.mixedTensor ℤ_[p] p (O_X(U)) R`, with ring structure
-`Huber.mixedTensor.instCommRing`, Banach topology `Huber.mixedTensor.banach` and pseudobasis
-description `Huber.mixedTensor.piEquiv`. -/
-
 
 /-! ### R5.30 R(U) is noetherian over a discretely valued base (CHJ Lemma 6.13(1)) -/
 
@@ -8926,33 +8103,6 @@ theorem mixedTensor.flat_completionLocalization (p : ℕ) [Fact p.Prime] (K : Ty
       (∀ (a : A) (r : R), φ (mixedTensor.tmul (p : ℤ_[p]) a r) =
         mixedTensor.tmul (p : ℤ_[p]) (Completion.coeRingHom (algebraMap A S a)) r) ∧
       φ.Flat := sorry
-
-/-! ### R5.32 Finite rational covers give faithfully flat maps (CHJ Lemma 6.13(3)) -/
-
-
-/-! ### R5.33 Tate acyclicity for the coefficient sheaf (CHJ Proposition 6.15) -/
-
-
-/-! ### R5.34 Local equalizers for the integral and rational coefficient sheaves -/
-
-
-/-! ### R5.28 The localisation functor Loc for R-modules (CHJ Definition 6.14, Proposition 6.16)
-
-Every item is a presheaf or sheaf of modules on the rational site of an affinoid rigid space. -/
-
-
-/-! ### R5.29 Coherent R-modules (CHJ Definition 6.18)
-
-Every item is a property of sheaves of modules on the rational site. -/
-
-
-/-! ### R5.35 Density of restriction for Laurent covers (CHJ Lemma 6.19) -/
-
-
-/-! ### R5.36 Kiehl's theorem for coherent R-modules (CHJ Theorem 6.20) -/
-
-
-/-! ### R5.37 Base change of coefficient sheaves to C (CHJ Lemma 6.21) -/
 
 
 /-! ### R5.38 Affinoid coefficient algebras: O_X ⊗̂_{Q_p} S is the structure sheaf of a product (CHJ Remark 6.22) -/
@@ -11116,8 +10266,6 @@ example (U : Set (MaximalSpectrum A)) {B : Type u} [CommRing B] [Algebra K B] [I
 
 end AffinoidSubdomain
 
-/-! ### F1.30 Affinoid subdomains, stalks, open immersions and Runge immersions agree with their completions -/
-
 
 /-! ### F1.31 Tate acyclicity for dagger algebras -/
 
@@ -11144,8 +10292,6 @@ theorem cech_exact {ι : Type} [Fintype ι] (U : ι → Set (MaximalSpectrum A))
         ∃ m : M, ∀ i, s i = (1 : (hU i).algebra) ⊗ₜ[A] m := sorry
 
 end TateAcyclicity
-
-/-! ### F1.32 The G-topology of an affinoid dagger space is that of its completion; affinoid subdomains form a basis -/
 
 
 /-! ### F1.52 Strictness and closed image of de Rham differentials on smooth affinoid and Stein dagger spaces -/
@@ -11175,38 +10321,17 @@ namespace DaggerSpace
 
 open Dagger
 
-/-! ### F1.33 Dagger spaces (rigid spaces with overconvergent structure sheaf) -/
 
-/-! ### F1.34 Coherent modules on dagger spaces -/
 -- Its ring-level core, finite modules over a dagger algebra and their descent to fringe stages,
 --   is `Dagger.FringePresentation.exists_module_descent`.
 
-/-! ### F1.35 Coherent modules on affinoid dagger spaces come from finite modules (dagger Kiehl theorem) -/
 -- Its ring-level core is `Dagger.FringePresentation.exists_module_descent`.
 
-/-! ### F1.36 Theorems A and B for affinoid dagger spaces -/
 -- Its ring-level core in degree one is `Dagger.cech_exact` (F1/dagger-tate-acyclicity).
 
-/-! ### F1.37 Strict neighbourhoods of affinoids and the cofinal fringe system -/
 
-/-! ### F1.38 Overconvergent sections are sections extending to a strict neighbourhood -/
 -- Its ring-level core, `A = colim_ρ A_ρ`, is `Dagger.FringePresentation.isColimit`.
 
-/-! ### F1.39 Relative compactness, partially proper and proper morphisms, and Stein spaces for dagger spaces -/
-
-/-! ### F1.40 The comparison functor from dagger spaces to rigid spaces -/
-
-/-! ### F1.41 On partially proper dagger spaces coherent modules are those of the associated rigid space -/
-
-/-! ### F1.42 Partially proper dagger spaces are equivalent to partially proper rigid spaces -/
-
-/-! ### F1.43 Coherent cohomology of partially proper dagger spaces equals that of the associated rigid space -/
-
-/-! ### F1.44 Dagger analytification of schemes of finite type -/
-
-/-! ### F1.45 Identity principle on connected smooth dagger spaces -/
-
-/-! ### F1.47 Smooth dagger spaces -/
 
 /-! ### F1.48 The overconvergent de Rham complex of a smooth dagger space, with coefficients in a module with integrable connection -/
 -- Its ring-level core for `X = Sp A` is `DaggerSpace.deRhamComplex_affinoid` below.
@@ -11249,45 +10374,6 @@ theorem _root_.TauCetiRoadmap.AdicSpacesPartII.Dagger.deRham_polydisc_zero [Char
 
 end Polydisc
 
-/-! ### F1.50 De Rham cohomology of a smooth partially proper dagger space equals that of its rigid space (and fails to for affinoids) -/
-
-/-! ### F1.51 De Rham cohomology of a smooth dagger space depends only on its rigid space -/
-
-/-! ### F1.53 De Rham cohomology with supports in the complement of an admissible open -/
-
-/-! ### F1.54 Local cohomology of the de Rham complex along closed subspaces: algebraic versus topological supports, Gysin isomorphism and independence of the embedding -/
-
-/-! ### F1.58 Resolution of a closed subspace of a smooth affinoid dagger space to a normal crossings divisor -/
-
-/-! ### F1.59 Trace on de Rham complexes for finite étale morphisms of smooth dagger spaces -/
-
-/-! ### F1.60 Long exact sequence of de Rham cohomology with supports for a proper modification -/
-
-/-! ### F1.61 De Rham cohomology of tubes in a strictly semistable formal scheme (Grosse-Klönne's Theorem C) -/
-
-/-! ### F1.62 Finiteness of de Rham cohomology of tubes in a quasi-compact strictly semistable formal scheme -/
-
-/-! ### F1.63 De Rham cohomology of dagger spaces commutes with finite extensions of the base field -/
-
-/-! ### F1.64 Finiteness of the de Rham invariants h^dR_q of quasi-algebraic affinoid dagger spaces -/
-
-/-! ### F1.65 Finiteness of de Rham cohomology of smooth quasi-compact dagger spaces (Grosse-Klönne's Theorem A), and base change to finite extensions -/
-
-/-! ### F1.66 Künneth formula for de Rham cohomology of smooth dagger spaces -/
-
-/-! ### F1.55 Compactly supported coherent and de Rham cohomology of affinoid and Stein dagger spaces -/
-
-/-! ### F1.56 Serre duality for smooth affinoid dagger spaces -/
-
-/-! ### F1.57 Poincaré duality for de Rham cohomology of smooth affinoid and smooth Stein dagger spaces -/
-
-/-! ### F1.67 Strict normal crossings divisors on smooth dagger spaces (smooth dagger pairs) -/
-
-/-! ### F1.68 The logarithmic de Rham complex Ω^•_X(log D) along a strict normal crossings divisor -/
-
-/-! ### F1.69 The boundary-vanishing (compact-support) logarithmic de Rham complex Ω^•_X(log D)(−D) -/
-
-/-! ### F1.70 Localisation sequences for boundary-vanishing log de Rham complexes and for compactly supported cohomology -/
 
 end DaggerSpace
 
@@ -11302,14 +10388,14 @@ spaces with its structure sheaf, formal schemes, rigid-analytic and dagger space
 pro-étale sites, coherent sheaves and their cohomology), or are stated above only through a
 ring-level core. Their statements, hypotheses and tests are in `README.md`:
 
-* Layer R0: R0.16, R0.17, R0.20, R0.33, R0.40, R0.41, R0.42, R0.44, R0.46, R0.47, R0.48, R0.61, R0.62, R0.63, R0.64, R0.65, R0.67, R0.68, R0.69, R0.70, R0.71, R0.72, R0.73, R0.74, R0.75, R0.76, R0.77, R0.79, R0.82, R0.83, R0.84, R0.85, R0.86, R0.88, R0.89, R0.90, R0.91, R0.92, R0.96, R0.97, R0.99, R0.100, R0.101, R0.102, R0.103, R0.104, R0.105, R0.106, R0.107, R0.108, R0.109, R0.110, R0.111, R0.112, R0.114, R0.116, R0.117, R0.118, R0.119, R0.120, R0.121, R0.122, R0.124, R0.125, R0.126, R0.127, R0.128, R0.129, R0.130, R0.131, R0.132, R0.133.
+* Layer R0: R0.16, R0.17, R0.20, R0.33, R0.40, R0.41, R0.42, R0.44, R0.46, R0.47, R0.48, R0.61, R0.62, R0.63, R0.64, R0.65, R0.67, R0.68, R0.69, R0.70, R0.71, R0.72, R0.73, R0.74, R0.75, R0.76, R0.77, R0.79, R0.82, R0.83, R0.84, R0.85, R0.86, R0.88, R0.89, R0.90, R0.91, R0.92, R0.96, R0.97, R0.99, R0.100, R0.101, R0.102, R0.103, R0.104, R0.105, R0.106, R0.107, R0.108, R0.109, R0.110, R0.111, R0.112, R0.114, R0.116, R0.117, R0.118, R0.119, R0.120, R0.121, R0.122, R0.123, R0.124, R0.125, R0.126, R0.127, R0.128, R0.129, R0.130, R0.131, R0.132, R0.133.
 * Layer R1: R1.6, R1.8, R1.10, R1.11, R1.13, R1.14, R1.16, R1.18, R1.19, R1.20, R1.21, R1.24, R1.25, R1.26, R1.27, R1.28, R1.29, R1.30, R1.31, R1.32, R1.33, R1.34, R1.35, R1.36, R1.37, R1.38, R1.39, R1.42, R1.43, R1.44, R1.45, R1.46, R1.47, R1.48, R1.49, R1.50.
-* Layer F0: F0.1, F0.11, F0.12, F0.13, F0.14, F0.15, F0.17, F0.18, F0.19, F0.20, F0.21, F0.22, F0.24, F0.27, F0.28, F0.29, F0.30, F0.31, F0.32, F0.34, F0.35, F0.37, F0.38, F0.39, F0.40, F0.41, F0.42, F0.43, F0.44, F0.46, F0.47, F0.48, F0.49, F0.50, F0.51, F0.52, F0.53, F0.54, F0.55, F0.56, F0.57, F0.58, F0.59, F0.60, F0.61, F0.62, F0.63.
-* Layer R2: R2.6, R2.7, R2.9, R2.11, R2.13, R2.15, R2.16, R2.18, R2.20, R2.21, R2.22, R2.23, R2.24, R2.26, R2.27, R2.32, R2.36, R2.41, R2.44, R2.50, R2.51, R2.52, R2.53, R2.54, R2.55, R2.56, R2.57, R2.64, R2.66, R2.67, R2.68, R2.69, R2.70, R2.71, R2.72, R2.73, R2.74, R2.75, R2.76, R2.78, R2.81, R2.82, R2.83, R2.84, R2.85, R2.86, R2.87.
-* Layer R3: R3.1, R3.2, R3.3, R3.7, R3.8, R3.9, R3.13, R3.14, R3.15, R3.16, R3.18, R3.19, R3.20, R3.21, R3.22, R3.23, R3.24, R3.25, R3.26, R3.27, R3.29, R3.30, R3.31, R3.32, R3.37, R3.41, R3.42, R3.43, R3.44, R3.45, R3.46, R3.48, R3.49, R3.50, R3.51, R3.52, R3.53, R3.54, R3.55, R3.56, R3.57, R3.65, R3.66, R3.67, R3.68, R3.69, R3.70, R3.71, R3.72.
-* Layer R4: R4.1, R4.2, R4.3, R4.4, R4.5, R4.6, R4.7, R4.8, R4.9, R4.12, R4.13.
-* Layer R5: R5.7, R5.11, R5.12, R5.13, R5.14, R5.17, R5.18, R5.28, R5.29, R5.32, R5.33, R5.34, R5.35, R5.36, R5.37, R5.39, R5.40, R5.41, R5.42.
-* Layer F1: F1.30, F1.32, F1.33, F1.34, F1.35, F1.36, F1.37, F1.38, F1.39, F1.40, F1.41, F1.42, F1.43, F1.44, F1.45, F1.47, F1.50, F1.51, F1.53, F1.54, F1.55, F1.56, F1.57, F1.58, F1.59, F1.60, F1.61, F1.62, F1.63, F1.64, F1.65, F1.66, F1.67, F1.68, F1.69, F1.70, F1.71, F1.72, F1.73, F1.74, F1.75, F1.76.
+* Layer F0: F0.1, F0.11, F0.12, F0.13, F0.14, F0.15, F0.17, F0.18, F0.19, F0.20, F0.21, F0.22, F0.24, F0.27, F0.28, F0.29, F0.30, F0.31, F0.32, F0.34, F0.35, F0.37, F0.38, F0.39, F0.39, F0.40, F0.41, F0.42, F0.43, F0.44, F0.46, F0.47, F0.48, F0.49, F0.50, F0.51, F0.52, F0.53, F0.54, F0.55, F0.56, F0.57, F0.58, F0.59, F0.60, F0.61, F0.62, F0.63, F0.64, F0.65.
+* Layer R2: R2.6, R2.7, R2.9, R2.11, R2.13, R2.15, R2.16, R2.18, R2.20, R2.21, R2.22, R2.23, R2.24, R2.26, R2.27, R2.32, R2.36, R2.41, R2.44, R2.50, R2.51, R2.52, R2.53, R2.54, R2.55, R2.56, R2.57, R2.64, R2.66, R2.67, R2.68, R2.69, R2.70, R2.71, R2.72, R2.73, R2.74, R2.75, R2.76, R2.78, R2.81, R2.82, R2.83, R2.84, R2.85, R2.86, R2.87, R2.88.
+* Layer R3: R3.1, R3.2, R3.3, R3.7, R3.8, R3.9, R3.13, R3.14, R3.15, R3.16, R3.18, R3.19, R3.20, R3.21, R3.22, R3.23, R3.24, R3.25, R3.26, R3.27, R3.29, R3.30, R3.31, R3.32, R3.37, R3.37, R3.41, R3.42, R3.43, R3.44, R3.45, R3.46, R3.48, R3.49, R3.50, R3.51, R3.52, R3.53, R3.54, R3.55, R3.56, R3.57, R3.65, R3.66, R3.67, R3.68, R3.69, R3.70, R3.71, R3.72, R3.73.
+* Layer R4: R4.1, R4.2, R4.3, R4.4, R4.5, R4.6, R4.7, R4.8, R4.9, R4.10, R4.12, R4.13.
+* Layer R5: R5.7, R5.11, R5.12, R5.13, R5.14, R5.17, R5.18, R5.27, R5.28, R5.29, R5.32, R5.33, R5.34, R5.35, R5.36, R5.37, R5.39, R5.40, R5.41, R5.42, R5.43.
+* Layer F1: F1.30, F1.32, F1.33, F1.34, F1.35, F1.36, F1.37, F1.38, F1.39, F1.40, F1.41, F1.42, F1.43, F1.44, F1.45, F1.47, F1.50, F1.51, F1.53, F1.54, F1.55, F1.56, F1.57, F1.58, F1.59, F1.60, F1.61, F1.62, F1.63, F1.64, F1.65, F1.66, F1.67, F1.68, F1.69, F1.70, F1.71, F1.72, F1.73, F1.74, F1.75, F1.76, F1.77.
 -/
 
 end TauCetiRoadmap.AdicSpacesPartII
