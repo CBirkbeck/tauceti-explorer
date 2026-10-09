@@ -411,6 +411,32 @@ def HochsterRealization (X : Type u) [TopologicalSpace X] [SpectralSpace X] :=
 def hochsterRealization (X : Type u) [TopologicalSpace X] [SpectralSpace X] :
     HochsterRealization X := by sorry
 
+/-- The prime corresponding to a point of the realization. -/
+def hochsterRealization_prime (X : Type u) [TopologicalSpace X] [SpectralSpace X]
+    (x : X) : PrimeSpectrum (hochsterRealization X).1 := (hochsterRealization X).2 x
+
+/-- Distinguished opens are detected by evaluation prime membership. -/
+theorem hochsterRealization_basicOpen (X : Type u) [TopologicalSpace X] [SpectralSpace X]
+    (a : (hochsterRealization X).1) :
+    (hochsterRealization X).2 ⁻¹' (PrimeSpectrum.basicOpen a : Set _) =
+      {x | a ∉ (hochsterRealization_prime X x).asIdeal} := by sorry
+
+/-- Empty spectra require the zero ring, not a nontrivial ring. -/
+example (X : Type u) [TopologicalSpace X] [SpectralSpace X] [IsEmpty X] :
+    Subsingleton (hochsterRealization X).1 := by sorry
+
+/-- A field spectrum has one point, and its realization must keep that cardinality. -/
+example (K : Type u) [Field K] :
+    Unique (PrimeSpectrum (hochsterRealization (PrimeSpectrum K)).1) := by sorry
+
+/-- In Spec Z the generic prime specializes to (2); realization preserves that direction. -/
+example (p q : PrimeSpectrum ℤ) (hp : p.asIdeal = ⊥)
+    (hq : q.asIdeal = Ideal.span {(2 : ℤ)}) :
+    Specializes (hochsterRealization_prime (PrimeSpectrum ℤ) p)
+      (hochsterRealization_prime (PrimeSpectrum ℤ) q) ∧
+      ¬ Specializes (hochsterRealization_prime (PrimeSpectrum ℤ) q)
+        (hochsterRealization_prime (PrimeSpectrum ℤ) p) := by sorry
+
 /-- A profinite presentation of a compact Hausdorff space: a profinite set with a continuous
 surjection onto it (ECD Remark 2.8). -/
 structure ProfinitePresentation (T : CompHaus.{u}) where
@@ -858,6 +884,54 @@ end Perfectoid
 
 end Sites
 
+namespace Perfd
+
+open scoped ZeroObject
+
+/-- Almost exactness lifts from reduction to a degreewise complete, torsion-free complex.
+The almost ideal is idempotent; the conclusion concerns all degrees, including an augmentation. -/
+theorem completedAlmostExactness {A : Type u} [CommRing A] (ϖ : A) (m : Ideal A)
+    (hm : m * m = m) (K : CochainComplex (ModuleCat.{u} A) ℤ)
+    (hbound : ∃ N : ℤ, ∀ i < N, IsZero (K.X i))
+    (hinj : ∀ i, Function.Injective (fun x : K.X i => ϖ • x))
+    (hcomplete : ∀ i, IsAdicComplete (Ideal.span {ϖ}) (K.X i))
+    (hmod : ∀ (i : ℤ) (a : A), a ∈ m →
+      ∀ x : ((CategoryTheory.Functor.mapHomologicalComplex
+        (ModuleCat.extendScalars (Ideal.Quotient.mk (Ideal.span {ϖ})))
+        (ComplexShape.up ℤ)).obj K).homology i,
+        (Ideal.Quotient.mk (Ideal.span {ϖ})) a • x = 0) :
+    ∀ (i : ℤ) (a : A), a ∈ m → ∀ x : K.homology i, a • x = 0 := by sorry
+
+/-- The zero complex is exact in every degree. -/
+example {A : Type u} [CommRing A] (i : ℤ) :
+    IsZero ((Functor.obj
+      (HomologicalComplex.single (ModuleCat.{u} A) (ComplexShape.up ℤ) 0)
+      (0 : ModuleCat.{u} A)).homology i) := by sorry
+
+/-- An identity differential is an exact two-term complex. -/
+example {A : Type u} [CommRing A] (M : ModuleCat.{u} A) :
+    (ShortComplex.mk (𝟙 M) (0 : M ⟶ (0 : ModuleCat.{u} A)) (by simp)).Exact := by sorry
+
+/-- Divisible coefficients can have zero reduction and nonzero degree-zero cohomology.
+Here `ℤ[1/2]` is the localization away from 2. -/
+example : let A := Localization.Away (2 : ℤ)
+    ¬ Subsingleton A ∧ Subsingleton (A ⧸ Ideal.span {(2 : A)}) := by sorry
+
+/-- Rank-zero changes of basis have no entries. -/
+example {A : Type u} [CommRing A] : Subsingleton (Matrix (Fin 0) (Fin 0) A) := by sorry
+
+/-- The identity transition requires the identity correction. -/
+example {A : Type u} [CommRing A] : (1 : Aˣ)⁻¹ * 1 * 1 = 1 := by sorry
+
+/-- The rank-one correction is `h₁⁻¹ g₁₂ h₂`, with the stated sides. -/
+example {A : Type u} [CommRing A] (h₁ h₂ : Aˣ) :
+    h₁⁻¹ * (h₁ * h₂⁻¹) * h₂ = 1 := by sorry
+
+/-- A root-order loss of at most a quarter still gives a strict positive gain. -/
+example (a eps : ℚ) (ha : 0 < a) (heps : eps ≤ a / 4) : a < 2 * (a - eps) := by sorry
+
+end Perfd
+
 /-! ## Layer 3: morphism classes of sheaves, tested on representable base changes -/
 
 section Morphisms
@@ -1147,6 +1221,23 @@ def changeNormalization [IsTopologicalRing R] (ϖ' : R)
     (hu : IsUnit ϖ) (hu' : IsUnit ϖ') :
     BerkovichSpectrum R ϖ ≃ₜ BerkovichSpectrum R ϖ' := by sorry
 
+/-- The homeomorphism uses the unique positive exponent normalizing `ϖ'`. Its logarithmic
+denominator is nonzero because a continuous normalized seminorm sends a topologically
+nilpotent unit to a number strictly between zero and one. -/
+theorem changeNormalization_apply [IsTopologicalRing R] (ϖ' : R)
+    (hϖ : IsTopologicallyNilpotent ϖ) (hϖ' : IsTopologicallyNilpotent ϖ')
+    (hu : IsUnit ϖ) (hu' : IsUnit ϖ') (φ : BerkovichSpectrum R ϖ) (x : R) :
+    (changeNormalization ϖ ϖ' hϖ hϖ' hu hu' φ).seminorm x =
+      φ.seminorm x ^ (Real.log (1 / 2) / Real.log (φ.seminorm ϖ')) := by sorry
+
+/-- Normalizing at `ϖ²` takes the square root of every value: the exponent is `1/2`,
+not `2`. This tests the actual homeomorphism, rather than existence of an unrelated point. -/
+example [IsTopologicalRing R] (hϖ : IsTopologicallyNilpotent ϖ)
+    (hϖ₂ : IsTopologicallyNilpotent (ϖ ^ 2)) (hu : IsUnit ϖ)
+    (hu₂ : IsUnit (ϖ ^ 2)) (φ : BerkovichSpectrum R ϖ) (x : R) :
+    (changeNormalization ϖ (ϖ ^ 2) hϖ hϖ₂ hu hu₂ φ).seminorm x =
+      Real.sqrt (φ.seminorm x) := by sorry
+
 /-- The point of the spectrum of a nonarchimedean field, with its norm rescaled to send the
 chosen topologically nilpotent element to `1/2`. -/
 def fieldPoint (K : Type u) [NontriviallyNormedField K] [IsUltrametricDist K]
@@ -1171,6 +1262,34 @@ example (φ : BerkovichSpectrum R ϖ) : ∃ ψ : BerkovichSpectrum R (ϖ ^ 2),
 example : IsEmpty (BerkovichSpectrum R (1 : R)) := by sorry
 
 end BerkovichSpectrum
+
+namespace Perf
+
+/-- Algebraic witness for the imported PerfectoidSpaces P2.19 formula: it contains 1. -/
+example (C : Type u) [CommRing C] [TopologicalSpace C] :
+    (1 : C) ∈ (integralClosure
+      (Subring.closure {x : C | IsTopologicallyNilpotent x}) C).toSubring := by sorry
+
+/-- At a discrete prime field the imported formula gives the whole field. -/
+example (p : ℕ) [Fact p.Prime] [TopologicalSpace (ZMod p)] [DiscreteTopology (ZMod p)] :
+    (integralClosure (Subring.closure {x : ZMod p | IsTopologicallyNilpotent x})
+      (ZMod p)).toSubring = ⊤ := by sorry
+
+/-- The supplied minimal plus ring maps into every target plus ring under a continuous map. -/
+example {C R : Type u} [CommRing C] [TopologicalSpace C] [IsTopologicalRing C]
+    [CommRing R] [TopologicalSpace R] [IsTopologicalRing R]
+    (Cmin : Subring C)
+    (hmin : Cmin = (integralClosure
+      (Subring.closure {x : C | IsTopologicallyNilpotent x}) C).toSubring)
+    (Rplus : Subring R) [IsIntegrallyClosedIn Rplus R] (f : C →+* R)
+    (hf : Continuous f) (hplus : ∀ x : R, IsTopologicallyNilpotent x → x ∈ Rplus) :
+    Cmin.map f ≤ Rplus := by sorry
+
+/-- The trivial-group extension keeps the underlying ring map. -/
+example (C : Type u) [CommRing C] (Cmin : Subring C) (x : Cmin) :
+    (RingHom.id C) (x : C) = (x : C) := by sorry
+
+end Perf
 
 section QuotientComponents
 
@@ -1214,6 +1333,50 @@ def ComponentsOfRestrictedQuotients
     [TotallyDisconnectedSpace (componentOrbitSpace G X)] :
     componentOrbitSpace G X ≃
       ConnectedComponents (pointOrbitSpace G X) := by sorry
+
+/-- The comparison is pinned on representatives; it sends the orbit of the component of `x`
+to the component of its point orbit. -/
+theorem ComponentsOfRestrictedQuotients_apply
+    [TotallyDisconnectedSpace (componentOrbitSpace G X)] (x : X) :
+    ComponentsOfRestrictedQuotients (G := G) (X := X)
+      (Quotient.mk'' (ConnectedComponents.mk x)) =
+      ConnectedComponents.mk (Quotient.mk'' x : pointOrbitSpace G X) := by sorry
+
+/-- For a spectral space and a profinite acting group, compactness gives invariant clopens
+separating component orbits. The orbit space of components is itself profinite. -/
+theorem componentOrbitSpace.profinite [IsTopologicalGroup G] [CompactSpace G]
+    [T2Space G] [TotallyDisconnectedSpace G] [SpectralSpace X] :
+    CompactSpace (componentOrbitSpace G X) ∧ T2Space (componentOrbitSpace G X) ∧
+      TotallyDisconnectedSpace (componentOrbitSpace G X) := by sorry
+
+/-- A trivial acting group identifies precisely the equal components. -/
+example [Subsingleton G] (x y : X) :
+    componentOrbitRel (G := G) (ConnectedComponents.mk x) (ConnectedComponents.mk y) ↔
+      ConnectedComponents.mk x = ConnectedComponents.mk y := by sorry
+
+/-- For the translation action of a group on itself, all components have the same orbit. -/
+example [IsTopologicalGroup G] : Subsingleton (componentOrbitSpace G G) := by sorry
+
+/-- The empty source has no component or point orbits. -/
+example [IsEmpty X] : IsEmpty (componentOrbitSpace G X) ∧
+    IsEmpty (ConnectedComponents (pointOrbitSpace G X)) := by sorry
+
+/-- Integer translates are dense in `ℤ_p`. The coset quotient has many points but only one
+connected component, refuting the unrestricted comparison in GLX Lemma 3.2. -/
+example (p : ℕ) [Fact p.Prime] :
+    let Q := ℤ_[p] ⧸ AddSubgroup.zmultiples (1 : ℤ_[p])
+    (¬ Subsingleton Q) ∧ Subsingleton (ConnectedComponents Q) := by sorry
+
+/-- Galois image acts on the right: `g*h` and `g` determine the same coset `gH`. -/
+example (H : Subgroup G) (g h : G) (hh : h ∈ H) :
+    (QuotientGroup.mk (g * h) : G ⧸ H) = QuotientGroup.mk g := by sorry
+
+/-- With the full image subgroup there is one component. -/
+example : Subsingleton (G ⧸ (⊤ : Subgroup G)) := by sorry
+
+/-- The left-action stabilizer of the coset `gH` is `gHg⁻¹`, fixing the conjugation direction. -/
+example (H : Subgroup G) (g k : G) :
+    (QuotientGroup.mk (k * g) : G ⧸ H) = QuotientGroup.mk g ↔ g⁻¹ * k * g ∈ H := by sorry
 
 end QuotientComponents
 
@@ -1269,6 +1432,23 @@ end PreAdic
 
 end PreAdic
 
+/-- Functions on the normalization of a node must agree at the two origins.
+The pair `(1,0)` fails this compatibility, over every field including characteristic 2. -/
+example (K : Type u) [Field K] :
+    ((1, 0) : Polynomial K × Polynomial K) ∉
+      {q | q.1.eval 0 = q.2.eval 0} := by sorry
+
+/-- Diagonal constants satisfy the node compatibility. -/
+example (K : Type u) [Field K] (c : K) :
+    ((Polynomial.C c, Polynomial.C c) : Polynomial K × Polynomial K) ∈
+      {q | q.1.eval 0 = q.2.eval 0} := by sorry
+
+/-- Compatible functions need not be equal on the two branches. -/
+example (K : Type u) [Field K] :
+    ((Polynomial.X, 0) : Polynomial K × Polynomial K) ∈
+      {q | q.1.eval 0 = q.2.eval 0} ∧
+      (Polynomial.X : Polynomial K) ≠ 0 := by sorry
+
 /-!
 ## Statements not typed here
 
@@ -1282,13 +1462,15 @@ pro-étale limits, or the pre-adic and rigid-analytic interfaces:
 * D1.3, D1.5, D1.6, D1.8–D1.11 (components, valuative subspaces, flatness, w-localization, the
   universally open cover, pro-étale maps over a strictly totally disconnected base);
 * D2.3–D2.9 (cutoff independence, algebraicity, structure sheaves, subcanonicity, v-descent and
-  acyclicity, vector bundles);
+  acyclicity, vector bundles, including `Perfd.fieldDescentLattice`,
+  `Perfd.spreadSmallDescentMatrix` and `Perfd.smallMatrixCocycleCoboundary`);
 * D3.1–D3.5, D3.7, D3.9 (effective descent and v-local nature) and the torsor theory of D3.10;
 * D4.2–D4.4, D4.6, D4.8–D4.10 (quotient presentations, atlases, v-sheaf property, compact
   Hausdorff diamonds, small v-stacks and their quotients);
 * D5.2–D5.7, D5.10–D5.12, D5.14, D5.15 (permanence, limits, universally open presentations,
-  local structure, relative representability, the Berkovich functor on v-sheaves and Hausdorff
-  reduction, including `Perf.minimalPlusExtension` and `Perf.berkovich_stalkComparison`), and
+  local structure, including `Perf.Diamond.localization_spreadQcOpen`, relative representability, the Berkovich functor on v-sheaves and Hausdorff
+  reduction, including `Perf.minimalPlusExtension`, `Perf.berkovich_stalkComparison` and its
+  spatial-source specialization and `Perf.profinitePullbackSpace`), `Perf.pointTorsorComponents` in D5.16, and
   the map from `Spa (R, R⁺)` in D5.13;
 * D6.1–D6.9 beyond the generic marked-map presheaf (Spd, untilt descent, gluing, étale-site
   comparison, integral Galois quotient, topological comparison, seminormal full faithfulness).
