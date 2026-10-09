@@ -2051,17 +2051,18 @@ example (a : ℕ) (h : 0 < a) :
 example : ¬ RelativeAmple (fun _ _ : Unit => [0]) := by sorry -- unit
 end RelativeAmpleTest
 
-/-! Pure-model lattice interface. The boundedness is an actual bornological
-condition; the period ring and its bornology and localization are suppliers.
+/-! Pure-model lattice interface. Boundedness is commensurability with a
+finite R-submodule, as in KL Definition 7.3.1, p. 147; it is not generic
+bornological boundedness. The period rings and localization are suppliers.
 The lattice is not assumed finitely generated. For perfect Frobenius coefficients
 bijectivity below expresses the invertible linearization. -/
 section PureModels
 variable {R B M : Type u} [CommRing R] [Field B] [Algebra R B]
 variable [AddCommGroup M] [Module B M] [Module R M] [IsScalarTower R B M]
-variable [Bornology M]
 structure PureModel (p : B) (F : M ≃+ M) (c : ℤ) (d : ℕ) where
   lattice : Submodule R M
-  bounded : Bornology.IsBounded (lattice : Set M)
+  bounded : ∃ N : Submodule R M, Module.Finite R N ∧ ∃ n : ℕ,
+    (∀ x ∈ lattice, p^n • x ∈ N) ∧ (∀ x ∈ N, p^n • x ∈ lattice)
   generates : Submodule.span B (lattice : Set M) = ⊤
   coefficientFrobenius : B ≃+* B
   semilinear : ∀ b x, F (b • x) = coefficientFrobenius b • F x
@@ -2076,7 +2077,7 @@ namespace PureModel
 Boundedness of localization and compatibility with Frobenius are omitted. -/
 def baseChange {R' B' M' : Type u} [CommRing R'] [Field B'] [Algebra R' B']
     [AddCommGroup M'] [Module B' M'] [Module R' M'] [IsScalarTower R' B' M']
-    [Bornology M'] (p : B) (F : M ≃+ M) (c : ℤ) (d : ℕ)
+    (p : B) (F : M ≃+ M) (c : ℤ) (d : ℕ)
     (P : PureModel (R := R) p F c d) (r : R →+* R')
     (f : M →ₛₗ[r] M') (p' : B') (F' : M' ≃+ M') :
     PureModel (R := R') p' F' c d := by sorry
@@ -2094,7 +2095,9 @@ end PureModel
 namespace PureModelTest
 -- Named tests state the normalization core; integral period lattices are omitted.
 example (p : B) (d : ℕ) (hd : 0 < d) (N : Submodule R M)
-    (bounded : Bornology.IsBounded (N : Set M)) (generates : Submodule.span B (N : Set M) = ⊤) :
+    (bounded : ∃ N₀ : Submodule R M, Module.Finite R N₀ ∧ ∃ n : ℕ,
+      (∀ x ∈ N, p^n • x ∈ N₀) ∧ (∀ x ∈ N₀, p^n • x ∈ N))
+    (generates : Submodule.span B (N : Set M) = ⊤) :
     ∃ P : PureModel (R := R) p (AddEquiv.refl M) 0 d, P.lattice = N := by sorry -- unit
 example [Subsingleton M] (p : B) (F : M ≃+ M) (c : ℤ) (d : ℕ) (hd : 0 < d) :
     Nonempty (PureModel (R := R) p F c d) := by sorry -- zero

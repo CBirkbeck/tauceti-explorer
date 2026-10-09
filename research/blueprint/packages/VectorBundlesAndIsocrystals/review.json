@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-VectorBundlesAndIsocrystals",
+    "date": "2026-10-09",
+    "notes": "Completed independent package review of both accepted revision-two parts: 127 targets, 168 APIs and 124 tests/examples; README statements, hypotheses, boundaries, sources and prerequisites checked. Corrected Lubin–Tate/ClassFieldTheory ownership, GLX edition length and consumer locator, and PureModel boundedness to finite-submodule p-power commensurability. Final lean-check exits 0 with 231 sorry warnings only; actual Tau Ceti import closure is byte-identical to the specified pin. Four isolated counterexample checks elaborate without sorry or warnings. Needs changes because executable signatures assert false universal exactness, category equivalences, arbitrary-rank bases, Hom vanishing, arbitrary-invariant identities and arbitrary-profile openness. Explicitly omitted signatures alone are not grounds for this verdict. Full evidence and repair instructions are in the independent review report."
+  }
+}
