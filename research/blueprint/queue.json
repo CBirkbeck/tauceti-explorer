@@ -46432,8 +46432,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdicEtaleGeometry.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7455"
+   "state": "external",
+   "note": "claimed on GitHub issue #7455"
   },
   {
    "id": "REV-PKG-AdicEtaleGeometry",
@@ -46476,7 +46476,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdicSpacesPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7533"
   },
   {
    "id": "REV-PKG-AdicSpacesPartII",
