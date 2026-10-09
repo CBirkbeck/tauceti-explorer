@@ -45850,8 +45850,9 @@
     "PKG-AlgebraicModularFormsAndSerreWeights"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7504"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7504",
+   "finishedAt": "2026-10-09T01:31:02Z"
   },
   {
    "id": "PKG-AutomorphicBundles",
@@ -47469,7 +47470,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PerfectoidQuotients.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7494"
   },
   {
    "id": "REV-PKG-PerfectoidQuotients",
@@ -47559,7 +47561,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7495"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems",
