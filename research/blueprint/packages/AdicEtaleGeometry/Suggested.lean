@@ -1,81 +1,4 @@
-/-
-This file suggests Lean names and signatures for the roadmap "Analytic adic geometry required
-for diamonds". It is not the roadmap and is not exhaustive; README.md is definitive.
-Proofs use `sorry`. Interfaces that require an unavailable geometric category are described
-in comments, with their supplying roadmap identified, rather than replaced by arbitrary propositions.
--/
-import Mathlib.Algebra.Category.CommAlgCat.Basic
-import Mathlib.Algebra.Category.Grp.Basic
-import Mathlib.Algebra.Colimit.Ring
-import Mathlib.Algebra.Polynomial.Basic
-import Mathlib.Analysis.Normed.Field.Ultra
-import Mathlib.Analysis.Normed.Ring.Lemmas
-import Mathlib.CategoryTheory.Action.Continuous
-import Mathlib.CategoryTheory.Comma.StructuredArrow.Basic
-import Mathlib.CategoryTheory.Limits.Indization.Category
-import Mathlib.CategoryTheory.Limits.Preserves.Finite
-import Mathlib.CategoryTheory.MorphismProperty.Limits
-import Mathlib.CategoryTheory.MorphismProperty.TransfiniteComposition
-import Mathlib.CategoryTheory.Sites.Coverage
-import Mathlib.CategoryTheory.Sites.LeftExact
-import Mathlib.CategoryTheory.Sites.Limits
-import Mathlib.CategoryTheory.Sites.Point.Conservative
-import Mathlib.CategoryTheory.Sites.Pretopology
-import Mathlib.CategoryTheory.Sites.Sheafification
-import Mathlib.FieldTheory.Galois.Basic
-import Mathlib.FieldTheory.IsSepClosed
-import Mathlib.FieldTheory.Perfect
-import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
-import Mathlib.NumberTheory.Cyclotomic.Basic
-import Mathlib.NumberTheory.Padics.Complex
-import Mathlib.NumberTheory.Padics.PadicIntegers
-import Mathlib.NumberTheory.Padics.PadicNumbers
-import Mathlib.NumberTheory.Zsqrtd.GaussianInt
-import Mathlib.Order.KrullDimension
-import Mathlib.RingTheory.AdjoinRoot
-import Mathlib.RingTheory.Etale.Basic
-import Mathlib.RingTheory.Etale.Finite
-import Mathlib.RingTheory.FinitePresentation
-import Mathlib.RingTheory.Flat.Basic
-import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
-import Mathlib.RingTheory.Henselian
-import Mathlib.RingTheory.Ideal.Cotangent
-import Mathlib.RingTheory.IntegralClosure.Algebra.Basic
-import Mathlib.RingTheory.Invariant.Defs
-import Mathlib.RingTheory.IsGaloisGroup.Defs
-import Mathlib.RingTheory.KrullDimension.Basic
-import Mathlib.RingTheory.LocalRing.ResidueField.Ideal
-import Mathlib.RingTheory.MvPolynomial.Basic
-import Mathlib.RingTheory.MvPowerSeries.Derivative
-import Mathlib.RingTheory.PiTensorProduct
-import Mathlib.RingTheory.Polynomial.Basic
-import Mathlib.RingTheory.PowerSeries.Basic
-import Mathlib.RingTheory.Regular.RegularSequence
-import Mathlib.RingTheory.Spectrum.Maximal.Defs
-import Mathlib.RingTheory.Spectrum.Prime.FreeLocus
-import Mathlib.RingTheory.TensorProduct.Basic
-import Mathlib.RingTheory.TensorProduct.Finite
-import Mathlib.RingTheory.TensorProduct.Maps
-import Mathlib.RingTheory.TotallySplit
-import Mathlib.RingTheory.WittVector.Basic
-import Mathlib.RingTheory.WittVector.Teichmuller
-import Mathlib.Topology.Algebra.Category.ProfiniteGrp.Basic
-import Mathlib.Topology.Algebra.Group.Quotient
-import Mathlib.Topology.Algebra.Module.ModuleTopology
-import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
-import Mathlib.Topology.Algebra.ProperAction.Basic
-import Mathlib.Topology.Algebra.Ring.Ideal
-import Mathlib.Topology.Algebra.UniformRing
-import Mathlib.Topology.Category.FinTopCat
-import Mathlib.Topology.Category.Profinite.Basic
-import Mathlib.Topology.Category.Profinite.Limits
-import Mathlib.Topology.Connected.TotallyDisconnected
-import Mathlib.Topology.ContinuousMap.Algebra
-import Mathlib.Topology.KrullDimension
-import Mathlib.Topology.LocallyConstant.Algebra
-import Mathlib.Topology.Sober
-import Mathlib.Topology.Specialization
-import Mathlib.Topology.Spectral.Hom
+import Mathlib
 import TauCeti.AlgebraicGeometry.AdicSpace.Spa.Analytic
 import TauCeti.AlgebraicGeometry.AdicSpace.Spa.Basic
 import TauCeti.AlgebraicGeometry.AdicSpace.Spa.HuberPair
@@ -97,21 +20,25 @@ import TauCeti.RingTheory.Huber.WeightedRestrictedSeries.Iterate
 import TauCeti.RingTheory.Huber.WeightedRestrictedSeries.PairOfDefinition
 
 /-!
-# Mathematical conventions and imported interfaces
+# AdicEtaleGeometry: representative target signatures
 
-## Conventions
+The mathematical roadmap is `README.md`. This file records definitions and theorem signatures
+which can already be stated against the pinned Mathlib and Tau Ceti APIs. It is not an exhaustive
+list of the results in any layer; statements whose carriers the pinned libraries lack (the category
+of adic spaces and its sheaf theory, fibre products of adic spaces, perfectoid spaces, diamonds) are
+absent and are listed by name in the closing comment.
 
-* **Names.** Every declaration lives in the namespace `TauCeti`: the proposed name `N` is the Lean
-  name `TauCeti.N` (`Huber.Pair.finiteEtale` is `TauCeti.Huber.Pair.finiteEtale`,
-  `Module.IsPseudoCoherent` is `TauCeti.Module.IsPseudoCoherent`). Ring-level objects are in
-  `TauCeti.Huber`, adic-space geometry in `TauCeti.AdicSpace` (all of it a comment, see below).
+Design choices made explicit here:
+
 * **Huber rings and pairs** are Tau Ceti's: a Huber ring is
   `[CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [IsHuberRing A]`; a Huber pair is
-  `TauCeti.Huber.Pair A`, whose only datum is the ring of integral elements `S.plus`; a morphism
-  of Huber pairs is `Pair.Hom S T`. Adic spectra, rational subsets and analytic loci are Tau Ceti's
-  `ValuationSpectrum.spa`, `rationalSubset`, `spaAnalytic` and `Pair.Hom.spaComap`, and rational
+  `Huber.Pair A`, whose only datum is the ring of integral elements `S.plus`; a morphism of Huber
+  pairs is `Pair.Hom S T`. Adic spectra, rational subsets and analytic loci are Tau Ceti's
+  `ValuationSpectrum.spa`, `rationalSubset`, `spaAnalytic` and `Pair.Hom.spaComap`; rational
   localisations `A⟨T/s⟩` are Tau Ceti's completions of `Localization.Away s` for
-  `PairOfDefinition.locUniformSpace`.
+  `PairOfDefinition.locUniformSpace`, packaged for Layer A3 as `Huber.ratLoc P T s hden`, and in
+  the category `CAff` of complete Hausdorff Huber pairs (Layer A1) a rational localisation is
+  characterised by its universal property (`CAff.IsRationalLocalization`).
 * **Completeness.** A complete Huber ring carries Mathlib's uniform structure:
   `[UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A] [IsHuberRing A] [CompleteSpace A]
   [T2Space A]` ("complete" always includes Hausdorff, as in Huber). A complete Tate ring has
@@ -120,10 +47,6 @@ import TauCeti.RingTheory.Huber.WeightedRestrictedSeries.PairOfDefinition
   `[TopologicalSpace B] [IsModuleTopology A B]`; finite étale means Mathlib's
   `[Module.Finite A B] [Algebra.Etale A B]`.
 * **Tate algebras** `A⟨X₁,…,X_k⟩` are Tau Ceti's `restrictedMvPowerSeriesCompletion k A`.
-* **Rational localisations.** `A⟨T/s⟩` is Tau Ceti's completion of `Localization.Away s` for
-  `PairOfDefinition.locUniformSpace`, packaged for A3 as the supporting definition
-  `Huber.ratLoc P T s hden`; in the category `CAff` of complete Hausdorff Huber pairs (A1) a
-  rational localisation is characterised by its universal property (`CAff.IsRationalLocalization`).
 * **Nonarchimedean fields** are `[NontriviallyNormedField K] [IsUltrametricDist K]
   [CompleteSpace K]`; where a statement needs Tau Ceti's Huber API it also assumes
   `[IsTateRing K]` (the pinned Tau Ceti has this instance only for `ℚ_p`).
@@ -131,80 +54,54 @@ import TauCeti.RingTheory.Huber.WeightedRestrictedSeries.PairOfDefinition
   `HasEnoughPoints`; profinite `G`-sets are `ContAction Profinite G`; the rational site is
   `CAffᵒᵖ` with the topology generated by rational coverings, and Yoneda-adic spaces are a full
   subcategory of its sheaves of sets.
-* **Finite étale torsors and split rings** (A4) are stated against Mathlib's `Algebra.Etale`,
-  `Module.FaithfullyFlat`, `MulSemiringAction` and `Algebra.IsFiniteSplit`.
+* **Finite étale torsors and split rings** (Layer A4) are stated against Mathlib's
+  `Algebra.Etale`, `Module.FaithfullyFlat`, `MulSemiringAction` and `Algebra.IsFiniteSplit`.
 * **Dimension** of adic spaces is measured on underlying spaces by Mathlib's
   `topologicalKrullDim`.
-
-## Stand-ins
-
-The first section restates, in the shape of the suggested files of the owning roadmaps, the
-carriers from other roadmaps that the statements need and that neither pinned library has:
-AdicSpacesPartII R0's adic ring homomorphisms `Huber.IsAdicHom`, completed tensor products
-`Huber.CompletedTensor` and `Huber.Pair.completedTensor`, the spectral topology and uniformisation
-`Huber.SpectralTop`, `Huber.Uniformization`, `Huber.Pair.uniformization`, the uniform completed
-tensor product `Huber.Pair.uniformCompletedTensor` and finite morphisms of Huber pairs
-`Huber.Pair.Hom.IsFinite`; AdicSpacesPartII R5's sousperfectoid rings `Huber.PerfectoidFrame`,
-`Huber.IsSousperfectoid`; and, as in the suggested files for PerfectoidSpaces P8 and
-AdicSpacesPartII, `Perfectoid.IsPerfectoidTateRing`, a `structure` with real fields standing for
-PerfectoidSpaces P1's definition of a perfectoid Tate ring. They are replaced by imports once
-their owners land.
-
-## What is not stated
-
-The anchor's category of adic spaces (Tau Ceti roadmap AdicSpaces, Layer 5) and its sheaf theory
-(the structure presheaf and the sheafiness of Huber pairs, Layers 3–4) are not in Tau Ceti at the
-pin, and neither library has fibre products of adic spaces (AdicSpacesPartII R0), perfectoid
-spaces (PerfectoidSpaces P2), diamonds or v-sheaves (DiamondsAndVStacks) or sheaves of modules
-on any of these. Every target that needs one of these carriers — in particular every
-`AdicSpace.*` item of this roadmap (the étale, finite étale and pro-étale sites of adic spaces,
-geometric points, strict localisations, relative polydiscs and tori, smooth morphisms, dimension,
-pseudocoherent sheaves), strong sheafiness `Huber.IsStronglySheafy`, and every statement whose
-hypotheses include sheafiness of a Huber pair — is a comment of the form
-
-`-- <name>: not stated here; needs <missing carrier> (supplier: <stage or target label>)`
-
-placed under its target’s header, so that every proposed name still appears; a unit test in this form
-ends with `[<kind> test]`. The supplier is the target of this roadmap that builds the carrier, or the
-stage of another roadmap that does ("AdicSpaces Layer 5" is Tau Ceti's
-`AdicSpaces#layer-5-adic-spaces-and-elementary-geometry`, similarly for Layers 3–4). No stand-in is
-introduced for any geometric category or for sheafiness. Where such a target has a ring-level,
-affinoid or topological core that the pinned libraries can state, the core is stated under the
-proposed name with a suffix (`…_affinoid`, `…_ring`, `…_core`) and the comment says so; statements
-of A3 whose source needs a sheafy base are stated over sousperfectoid bases (which are sheafy)
-under names ending in `_sousperfectoid`. The A3 items `Module.IsPseudoCoherent.tensorProduct` and
-`Module.IsPseudoCoherent.baseChange_of_isPseudoCoherent_algebra` concern the underived tensor
-product and carry the flatness and finiteness hypotheses it needs; their docstrings give the
-counterexamples without them.
+* **Carriers of other roadmaps.** The first section states, in the form this roadmap consumes,
+  the objects owned by AdicSpacesPartII R0 and R5 and by PerfectoidSpaces P1 (adic ring
+  homomorphisms, completed tensor products, uniformisation, finite morphisms of Huber pairs,
+  perfectoid Tate rings, sousperfectoid rings); the owning roadmap is definitive for each.
+  Where a target has a ring-level, affinoid or topological core that the pinned libraries can
+  state, the core is stated under the target's name with a suffix (`…_affinoid`, `…_ring`,
+  `…_core`); statements of Layer A3 whose source needs a sheafy base are stated over
+  sousperfectoid bases (which are sheafy) under names ending in `_sousperfectoid`. The Layer A3
+  items `Module.IsPseudoCoherent.tensorProduct` and
+  `Module.IsPseudoCoherent.baseChange_of_isPseudoCoherent_algebra` concern the underived tensor
+  product and carry the flatness and finiteness hypotheses it needs.
+* **Unit tests** are `example`s; the comment above each names the test of `README.md` it realises
+  and its kind (computation, degenerate case, agreement with the library notion, non-example).
 -/
-
 
 set_option autoImplicit false
 
-/-! # Stand-ins from other roadmaps
+namespace TauCetiRoadmap.AdicEtaleGeometry
 
-The declarations of this section are not targets of AdicEtaleGeometry. They restate, in
-the shape of the suggested files of their own roadmaps, the few carriers from AdicSpacesPartII R0
-and R5 and from PerfectoidSpaces P1 that the statements below need and that neither pinned
-library has. Each docstring names the target that owns the declaration; the owning roadmap is
-definitive, and these copies are replaced by imports once the owners land. -/
+open TauCeti TauCeti.Huber
+
+
+/-! ## Interfaces of AdicSpacesPartII and PerfectoidSpaces used below
+
+The declarations of this section are not targets of this roadmap. They state, in the form in
+which this roadmap consumes them, the carriers owned by AdicSpacesPartII R0 and R5 and by
+PerfectoidSpaces P1 (adic ring homomorphisms, completed tensor products, the spectral topology
+and uniformisation, finite morphisms of Huber pairs, perfectoid Tate rings, sousperfectoid
+rings). The owning roadmap is definitive for each of them. -/
 
 noncomputable section
-
-namespace TauCeti
 
 open TensorProduct UniformSpace Topology Filter
 
 namespace Huber
 
-/-! ## Stand-in: adic ring homomorphisms (AdicSpacesPartII:R0/adic-ring-homomorphism) -/
+/-! ### Adic ring homomorphisms (AdicSpacesPartII R0) -/
 
 section AdicHom
 
 variable {A B : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   [CommRing B] [TopologicalSpace B] [IsTopologicalRing B]
 
-/-- **Stand-in for AdicSpacesPartII:R0/adic-ring-homomorphism.** `φ : A → B` is *adic* if there
+/-- **Interface form for AdicSpacesPartII R0 (adic ring homomorphism).** `φ : A → B` is *adic* if there
 are pairs of definition `(A₀, I)` of `A` and `(B₀, J)` of `B` with `φ(A₀) ⊆ B₀` and
 `J = φ(I)·B₀` (Huber 1994 §3, Wedhorn Definition 6.23). -/
 class IsAdicHom (φ : A →+* B) : Prop where
@@ -213,12 +110,12 @@ class IsAdicHom (φ : A →+* B) : Prop where
     (h : ∀ a ∈ P.ringOfDefinition, φ a ∈ Q.ringOfDefinition),
     Q.idealOfDefinition = P.idealOfDefinition.map (φ.restrict _ _ h)
 
-/-- Stand-in (AdicSpacesPartII:R0/adic-ring-homomorphism): an adic homomorphism is continuous. -/
+/-- Interface form (AdicSpacesPartII R0 (adic ring homomorphism)): an adic homomorphism is continuous. -/
 theorem IsAdicHom.continuous (φ : A →+* B) [IsAdicHom φ] : Continuous φ := sorry
 
 end AdicHom
 
-/-! ## Stand-in: the completed tensor product (AdicSpacesPartII:R0/completed-tensor-product) -/
+/-! ### The completed tensor product (AdicSpacesPartII R0) -/
 
 section CompletedTensor
 
@@ -226,17 +123,17 @@ variable (A B C : Type*) [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   [CommRing B] [TopologicalSpace B] [IsTopologicalRing B]
   [CommRing C] [TopologicalSpace C] [IsTopologicalRing C] [Algebra A B] [Algebra A C]
 
-/-- Stand-in (AdicSpacesPartII:R0/completed-tensor-product): the group topology on `B ⊗[A] C`
+/-- Interface form (AdicSpacesPartII R0 (completed tensor product)): the group topology on `B ⊗[A] C`
 with fundamental system of neighbourhoods `{Iⁿ·F}`, `F` the image of `B₀ ⊗_{A₀} C₀`. -/
 @[instance_reducible]
 def tensorTopology : TopologicalSpace (B ⊗[A] C) := sorry
 
-/-- Stand-in (AdicSpacesPartII:R0/completed-tensor-product): `tensorTopology` is a ring
+/-- Interface form (AdicSpacesPartII R0 (completed tensor product)): `tensorTopology` is a ring
 topology. -/
 theorem isTopologicalRing_tensorTopology :
     @IsTopologicalRing (B ⊗[A] C) (tensorTopology A B C) _ := sorry
 
-/-- Stand-in (AdicSpacesPartII:R0/completed-tensor-product): the canonical uniformity of
+/-- Interface form (AdicSpacesPartII R0 (completed tensor product)): the canonical uniformity of
 `tensorTopology`. -/
 @[instance_reducible]
 def tensorUniformSpace : UniformSpace (B ⊗[A] C) :=
@@ -244,7 +141,7 @@ def tensorUniformSpace : UniformSpace (B ⊗[A] C) :=
   haveI := isTopologicalRing_tensorTopology A B C
   IsTopologicalAddGroup.rightUniformSpace (B ⊗[A] C)
 
-/-- **Stand-in for AdicSpacesPartII:R0/completed-tensor-product.** The carrier `B ⊗̂_A C`, the
+/-- **Interface form for AdicSpacesPartII R0 (completed tensor product).** The carrier `B ⊗̂_A C`, the
 Hausdorff completion of `B ⊗[A] C` for `tensorTopology`. -/
 def CompletedTensor : Type _ :=
   @Completion (B ⊗[A] C) (tensorUniformSpace A B C)
@@ -269,13 +166,13 @@ instance : T2Space (CompletedTensor A B C) :=
   letI := tensorUniformSpace A B C
   inferInstanceAs (T2Space (Completion (B ⊗[A] C)))
 
-/-- Stand-in (AdicSpacesPartII:R0/completed-tensor-product): `B ⊗[A] C → B ⊗̂_A C`. -/
+/-- Interface form (AdicSpacesPartII R0 (completed tensor product)): `B ⊗[A] C → B ⊗̂_A C`. -/
 def Pair.completedTensor.tmul : B ⊗[A] C →+* CompletedTensor A B C := sorry
 
 instance : Algebra A (CompletedTensor A B C) :=
   ((Pair.completedTensor.tmul A B C).comp (algebraMap A (B ⊗[A] C))).toAlgebra
 
-/-- Stand-in (AdicSpacesPartII:R0/completed-tensor-product): the pair of definition of
+/-- Interface form (AdicSpacesPartII R0 (completed tensor product)): the pair of definition of
 `B ⊗̂_A C` for adic structure maps. -/
 def Pair.completedTensor.pairOfDefinition [IsAdicHom (algebraMap A B)]
     [IsAdicHom (algebraMap A C)] : PairOfDefinition (CompletedTensor A B C) := sorry
@@ -287,7 +184,7 @@ instance [IsAdicHom (algebraMap A B)] [IsAdicHom (algebraMap A C)] :
 variable {A B C} [IsHuberRing A] [IsHuberRing B] [IsHuberRing C] [IsAdicHom (algebraMap A B)]
   [IsAdicHom (algebraMap A C)]
 
-/-- **Stand-in for AdicSpacesPartII:R0/completed-tensor-product** (constructor): the completed
+/-- **Interface form for AdicSpacesPartII R0 (completed tensor product)** (constructor): the completed
 tensor product of Huber pairs along adic structure maps; its plus ring is the closure of the image
 of the integral closure of the subring generated by `B⁺ ⊗ 1` and `1 ⊗ C⁺`. -/
 def Pair.completedTensor (S : Pair A) (T : Pair B) (U : Pair C)
@@ -303,13 +200,13 @@ def Pair.completedTensor (S : Pair A) (T : Pair B) (U : Pair C)
 variable (S : Pair A) (T : Pair B) (U : Pair C) (hT : ∀ a ∈ S.plus, algebraMap A B a ∈ T.plus)
   (hU : ∀ a ∈ S.plus, algebraMap A C a ∈ U.plus)
 
-/-- Stand-in (AdicSpacesPartII:R0/completed-tensor-product): `inl : (B, B⁺) → B ⊗̂_A C`. -/
+/-- Interface form (AdicSpacesPartII R0 (completed tensor product)): `inl : (B, B⁺) → B ⊗̂_A C`. -/
 def Pair.completedTensor.inl : Pair.Hom T (Pair.completedTensor S T U hT hU) where
   toRingHom := (Pair.completedTensor.tmul A B C).comp Algebra.TensorProduct.includeLeftRingHom
   continuous_toRingHom := sorry
   map_mem_plus := sorry
 
-/-- Stand-in (AdicSpacesPartII:R0/completed-tensor-product): `inr : (C, C⁺) → B ⊗̂_A C`. -/
+/-- Interface form (AdicSpacesPartII R0 (completed tensor product)): `inr : (C, C⁺) → B ⊗̂_A C`. -/
 def Pair.completedTensor.inr : Pair.Hom U (Pair.completedTensor S T U hT hU) where
   toRingHom := (Pair.completedTensor.tmul A B C).comp
     (Algebra.TensorProduct.includeRight (R := A) (A := B)).toRingHom
@@ -318,10 +215,9 @@ def Pair.completedTensor.inr : Pair.Hom U (Pair.completedTensor S T U hT hU) whe
 
 end CompletedTensor
 
-/-! ## Stand-in: the spectral topology and uniformisation (AdicSpacesPartII:R0/spectral-topology,
-AdicSpacesPartII:R0/uniformization, AdicSpacesPartII:R0/uniform-completed-tensor-product) -/
+/-! ### The spectral topology and uniformisation (AdicSpacesPartII R0) -/
 
-/-- Stand-in (AdicSpacesPartII:R0/spectral-topology): the type synonym `A_sp` of a Tate ring,
+/-- Interface form (AdicSpacesPartII R0 (spectral topology)): the type synonym `A_sp` of a Tate ring,
 carrying the spectral topology, whose neighbourhoods of `0` are the `ϖⁿ·A°°`. -/
 def SpectralTop (A : Type*) : Type _ := A
 
@@ -331,33 +227,33 @@ variable {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [Is
 
 instance : CommRing (SpectralTop A) := inferInstanceAs (CommRing A)
 
-/-- Stand-in (AdicSpacesPartII:R0/spectral-topology): the uniformity of the spectral topology. -/
+/-- Interface form (AdicSpacesPartII R0 (spectral topology)): the uniformity of the spectral topology. -/
 instance : UniformSpace (SpectralTop A) := sorry
 
 instance : IsUniformAddGroup (SpectralTop A) := sorry
 
 instance : IsTopologicalRing (SpectralTop A) := sorry
 
-/-- Stand-in (AdicSpacesPartII:R0/spectral-topology): the identity `A ≃+* A_sp`. -/
+/-- Interface form (AdicSpacesPartII R0 (spectral topology)): the identity `A ≃+* A_sp`. -/
 def toSpectralTop : A ≃+* SpectralTop A := RingEquiv.refl A
 
-/-- Stand-in (AdicSpacesPartII:R0/spectral-topology): `A_sp` is a Tate ring. -/
+/-- Interface form (AdicSpacesPartII R0 (spectral topology)): `A_sp` is a Tate ring. -/
 instance SpectralTop.isTateRing : IsTateRing (SpectralTop A) := sorry
 
 variable (A) in
-/-- **Stand-in for AdicSpacesPartII:R0/uniformization.** The uniformisation `Aᵘ` of a Tate ring,
+/-- **Interface form for AdicSpacesPartII R0 (uniformization).** The uniformisation `Aᵘ` of a Tate ring,
 the completion of `A_sp`. -/
 abbrev Uniformization : Type _ := Completion (SpectralTop A)
 
-/-- Stand-in (AdicSpacesPartII:R0/uniformization): the Huber pair `(Aᵘ, Aᵘ⁺)`, `Aᵘ⁺` the closure
+/-- Interface form (AdicSpacesPartII R0 (uniformization)): the Huber pair `(Aᵘ, Aᵘ⁺)`, `Aᵘ⁺` the closure
 of the image of `A⁺` (Kedlaya–Liu Definition 2.8.13). -/
 def Pair.uniformization (S : Pair A) : Pair (Uniformization A) where
   plus := ((S.plus.map (toSpectralTop : A ≃+* SpectralTop A).toRingHom).map
     (Completion.coeRingHom : SpectralTop A →+* Completion (SpectralTop A))).topologicalClosure
   isRingOfIntegralElements := sorry
 
-/-- Stand-in (AdicSpacesPartII:R0/uniformization): `ι : (A, A⁺) → (Aᵘ, Aᵘ⁺)`. -/
-def Pair.toUniformization (S : Pair A) : Pair.Hom S S.uniformization where
+/-- Interface form (AdicSpacesPartII R0 (uniformization)): `ι : (A, A⁺) → (Aᵘ, Aᵘ⁺)`. -/
+def Pair.toUniformization (S : Pair A) : Pair.Hom S (Pair.uniformization S) where
   toRingHom := (Completion.coeRingHom : SpectralTop A →+* Completion (SpectralTop A)).comp
     (toSpectralTop : A ≃+* SpectralTop A).toRingHom
   continuous_toRingHom := sorry
@@ -372,36 +268,36 @@ variable {A B C : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   [CommRing C] [TopologicalSpace C] [IsTopologicalRing C] [IsHuberRing C]
   [Algebra A B] [Algebra A C] [IsAdicHom (algebraMap A B)] [IsAdicHom (algebraMap A C)]
 
-/-- Stand-in (AdicSpacesPartII:R0/uniform-completed-tensor-product): over a Tate ring,
+/-- Interface form (AdicSpacesPartII R0 (uniform completed tensor product)): over a Tate ring,
 `B ⊗̂_A C` is a Tate ring. -/
 instance Pair.completedTensor.instIsTateRing : IsTateRing (CompletedTensor A B C) := sorry
 
 variable (S : Pair A) (T : Pair B) (U : Pair C) (hT : ∀ a ∈ S.plus, algebraMap A B a ∈ T.plus)
   (hU : ∀ a ∈ S.plus, algebraMap A C a ∈ U.plus)
 
-/-- **Stand-in for AdicSpacesPartII:R0/uniform-completed-tensor-product.** `B ⊗̂ᵘ_A C`, the
+/-- **Interface form for AdicSpacesPartII R0 (uniform completed tensor product).** `B ⊗̂ᵘ_A C`, the
 uniformisation of `B ⊗̂_A C`. -/
 def Pair.uniformCompletedTensor : Pair (Uniformization (CompletedTensor A B C)) :=
-  (Pair.completedTensor S T U hT hU).uniformization
+  (Pair.uniformization (Pair.completedTensor S T U hT hU))
 
-/-- Stand-in (AdicSpacesPartII:R0/uniform-completed-tensor-product): `inlᵘ = ι ∘ inl`. -/
+/-- Interface form (AdicSpacesPartII R0 (uniform completed tensor product)): `inlᵘ = ι ∘ inl`. -/
 def Pair.uniformCompletedTensor.inl : Pair.Hom T (Pair.uniformCompletedTensor S T U hT hU) :=
   (Pair.toUniformization _).comp (Pair.completedTensor.inl S T U hT hU)
 
-/-- Stand-in (AdicSpacesPartII:R0/uniform-completed-tensor-product): `inrᵘ = ι ∘ inr`. -/
+/-- Interface form (AdicSpacesPartII R0 (uniform completed tensor product)): `inrᵘ = ι ∘ inr`. -/
 def Pair.uniformCompletedTensor.inr : Pair.Hom U (Pair.uniformCompletedTensor S T U hT hU) :=
   (Pair.toUniformization _).comp (Pair.completedTensor.inr S T U hT hU)
 
 end UniformCompletedTensor
 
-/-! ## Stand-in: finite morphisms of Huber pairs (AdicSpacesPartII:R0/finite-huber-pair-hom) -/
+/-! ### Finite morphisms of Huber pairs (AdicSpacesPartII R0) -/
 
 section HomIsFinite
 
 variable {A B : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [IsHuberRing A]
   [CommRing B] [TopologicalSpace B] [IsTopologicalRing B] [IsHuberRing B]
 
-/-- **Stand-in for AdicSpacesPartII:R0/finite-huber-pair-hom.** A morphism of Huber pairs is
+/-- **Interface form for AdicSpacesPartII R0 (finite huber pair hom).** A morphism of Huber pairs is
 *finite* (Huber 1996, (1.4.2)) if it is topologically of finite type and both `A → B` and
 `A⁺ → B⁺` are integral. -/
 structure Pair.Hom.IsFinite {S : Pair A} {T : Pair B} (φ : Pair.Hom S T) : Prop where
@@ -416,13 +312,13 @@ end HomIsFinite
 
 end Huber
 
-/-! ## Stand-in: perfectoid Tate rings (PerfectoidSpaces P1) -/
+/-! ### Perfectoid Tate rings (PerfectoidSpaces P1) -/
 
 namespace Perfectoid
 
 open Huber
 
-/-- **Stand-in for PerfectoidSpaces P1's perfectoid Tate ring** (the stand-in of the suggested
+/-- **Interface form for PerfectoidSpaces P1's perfectoid Tate ring** (the interface form of the suggested
 files for PerfectoidSpaces P8 and AdicSpacesPartII, with the same fields). A topological ring `A`
 is a perfectoid Tate ring for the prime `p` if it is complete and Hausdorff, Tate, uniform (`A°`
 bounded), has a pseudouniformizer `ϖ ∈ A°` with `ϖ ^ p ∣ p` in `A°`, and Frobenius is surjective
@@ -451,7 +347,7 @@ structure IsPerfectoidTateRing (p : ℕ) (A : Type*) [CommRing A] [TopologicalSp
 
 end Perfectoid
 
-/-! ## Stand-in: sousperfectoid rings (AdicSpacesPartII:R5/sousperfectoid-ring) -/
+/-! ### Sousperfectoid rings (AdicSpacesPartII R5) -/
 
 namespace Huber
 
@@ -461,7 +357,7 @@ universe u
 
 variable (p : ℕ) (R : Type u) [CommRing R] [TopologicalSpace R] [IsTopologicalRing R]
 
-/-- Stand-in (AdicSpacesPartII:R5/sousperfectoid-ring): a *perfectoid frame* `(R̃, ι, σ)` for `R`
+/-- Interface form (AdicSpacesPartII R5 (sousperfectoid ring)): a *perfectoid frame* `(R̃, ι, σ)` for `R`
 (Hansen–Kedlaya Definition 7.1): a perfectoid Tate ring `R̃`, a continuous ring homomorphism
 `ι : R → R̃` and a continuous `R`-linear retraction `σ : R̃ → R` of `ι`. -/
 structure PerfectoidFrame where
@@ -491,7 +387,7 @@ structure PerfectoidFrame where
 attribute [instance] PerfectoidFrame.commRing PerfectoidFrame.topologicalSpace
   PerfectoidFrame.isTopologicalRing
 
-/-- **Stand-in for AdicSpacesPartII:R5/sousperfectoid-ring.** `R` is *sousperfectoid* (for the
+/-- **Interface form for AdicSpacesPartII R5 (sousperfectoid ring).** `R` is *sousperfectoid* (for the
 prime `p`) if it is a Tate ring admitting a perfectoid frame. -/
 class IsSousperfectoid : Prop where
   /-- `R` is a Tate ring. -/
@@ -501,21 +397,17 @@ class IsSousperfectoid : Prop where
 
 end Huber
 
-end TauCeti
-
 end
 
-/-! # Stage A0. Supplier contract for completed tensor products and analytic pullbacks -/
+/-! ## Layer A0: Supplier contract for completed tensor products and analytic pullbacks -/
 
 noncomputable section
-
-namespace TauCeti
 
 open TensorProduct UniformSpace Topology Filter ValuationSpectrum
 
 namespace Huber
 
-/-! ## AdicEtaleGeometry:A0/supplier-contract-fibre-products (comparison) -/
+/-! ### T001. A0/supplier-contract-fibre-products (comparison) -/
 
 section Pushout
 
@@ -543,7 +435,7 @@ def Pair.completedTensor.structureHomRight : Pair.Hom S U :=
 
 /-- A0/supplier-contract-fibre-products, clause (iii) (Huber 1996 Proposition 1.2.2; Huber 1994,
 proof of Lemma 3.9(i); Kedlaya–Liu I §2.4 before Definition 2.4.3): the completed tensor product
-`D = B ⊗̂_A C` of AdicSpacesPartII:R0/completed-tensor-product, with `inl` and `inr`, is a pushout
+`D = B ⊗̂_A C` of AdicSpacesPartII R0 (completed tensor product), with `inl` and `inr`, is a pushout
 of `f` and `g` among complete Hausdorff Huber pairs: for every complete Hausdorff Huber pair
 `(R, R⁺)` and morphisms `φ : (B, B⁺) → (R, R⁺)`, `ψ : (C, C⁺) → (R, R⁺)` with `φ ∘ f = ψ ∘ g`
 (neither needs to be adic) there is exactly one `χ : D → (R, R⁺)` with `χ ∘ inl = φ` and
@@ -582,13 +474,7 @@ theorem Pair.completedTensor.plus_eq_closure_integralClosure :
 
 end Pushout
 
--- Huber.Pair.completedTensor.isPushout, clause (iv) (Spa D is the fibre product
---   Spa B ×_{Spa A} Spa C for sheafy pairs): not stated here; needs the anchor's category of
---   adic spaces and sheafiness of Huber pairs (supplier:
---   AdicSpacesPartII:R0/affinoid-fibre-product, AdicSpaces Layer 5). Its topological core,
---   `Spa(inl)` and `Spa(inr)`, is Tau Ceti's `Huber.Pair.Hom.spaComap`.
-
-/-! ## AdicEtaleGeometry:A0/uniformization-contract (comparison) -/
+/-! ### T002. A0/uniformization-contract (comparison) -/
 
 section UniformPushout
 
@@ -604,12 +490,12 @@ variable {A B C : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [Is
 
 /-- A0/uniformization-contract (Kedlaya–Liu I Definition 2.8.13 and Remark 2.8.5): over a Tate
 base, the uniform completed tensor product `B ⊗̂ᵘ_A C = (B ⊗̂_A C)ᵘ` of
-AdicSpacesPartII:R0/uniform-completed-tensor-product, with `inlᵘ = ι ∘ inl` and `inrᵘ = ι ∘ inr`,
+AdicSpacesPartII R0 (uniform completed tensor product), with `inlᵘ = ι ∘ inl` and `inrᵘ = ι ∘ inr`,
 is a pushout of `f` and `g` among complete Hausdorff Huber pairs `(R, R⁺)` with `R` a uniform Tate
 ring (`R°` bounded). The rest of the contract (`ι` is the unit of the uniformisation adjunction,
 `Spa(ι)` is a homeomorphism identifying rational subsets, `ι` is an isomorphism exactly when
-`B ⊗̂_A C` is uniform) is AdicSpacesPartII:R0/uniformization and
-AdicSpacesPartII:R0/uniform-completed-tensor-product, on the same carriers. -/
+`B ⊗̂_A C` is uniform) is AdicSpacesPartII R0 (uniformization) and
+AdicSpacesPartII R0 (uniform completed tensor product), on the same carriers. -/
 theorem Pair.uniformCompletedTensor.isPushout {R : Type*} [CommRing R] [UniformSpace R]
     [IsUniformAddGroup R] [IsTopologicalRing R] [IsTateRing R] [CompleteSpace R] [T2Space R]
     (hR : IsBounded (powerBoundedSubring R : Set R)) (V : Pair R) (φ : Pair.Hom T V)
@@ -630,12 +516,8 @@ end UniformPushout
 
 /- `ℂ_p ⊗̂_{ℚ_p} ℂ_p` is a complete separated tensor product that is not uniform, so the completed
 tensor product of A0/supplier-contract-fibre-products is not uniformised in general. -/
--- Huber.Pair.completedTensor.not_isBounded_padicComplex: not stated here; needs `ℂ_p` as a Huber
---   ring with an adic structure map from `ℚ_p` (Mathlib's `PadicComplex` carries a norm, not
---   Tau Ceti's `IsHuberRing` instance; supplier:
---   AdicSpacesPartII:R0/uniform-completed-tensor-product)
 
-/-! ## AdicEtaleGeometry:A0/definition-data-and-plus-ring-tracking (lemma) -/
+/-! ### T003. A0/definition-data-and-plus-ring-tracking (lemma) -/
 
 section PlusTracking
 
@@ -686,11 +568,7 @@ theorem Pair.completedTensor.spa_plus_eq_inter_preimage :
 
 end PlusTracking
 
-/-! ## AdicEtaleGeometry:A0/rational-pullback-comparison (comparison) -/
-
--- AdicSpace.isPullback_preimage_opens (clause (a): `g⁻¹(U)` is the fibre product `Y ×_X U` for an
---   open subspace `U`): not stated here; needs the anchor's category of adic spaces and its open
---   subspaces (supplier: AdicSpaces Layer 5)
+/-! ### T004. A0/rational-pullback-comparison (comparison) -/
 
 section RationalPullback
 
@@ -704,7 +582,7 @@ open PairOfDefinition Classical in
 Definition 2.4.12): for an
 adic `φ = algebraMap A B`, `T ⊆ A` finite and `s ∈ A`, the completed tensor product
 `B ⊗̂_A A⟨T/s⟩` is `B⟨φ(T)/φ(s)⟩`. The rational localisations are Tau Ceti's completions
-`A⟨T/s⟩ = Completion (Localization.Away s)` for `locUniformSpace` (anchor Layer 3.1); the
+`A⟨T/s⟩ = Completion (Localization.Away s)` for `locUniformSpace` (`AdicSpaces` Layer 3.1); the
 equivalence is the one induced by `B → B⟨φ(T)/φ(s)⟩` and `A⟨T/s⟩ → B⟨φ(T)/φ(s)⟩`. The preimage
 statement `Spa(φ)⁻¹(R(T/s)) = R(φ(T)/φ(s))` is Tau Ceti's
 `Pair.Hom.spaComap_preimage_rationalSubset`. -/
@@ -740,10 +618,6 @@ theorem Pair.completedTensor.isHomeomorph_rationalLocalizationIso (P : PairOfDef
 
 end RationalPullback
 
--- Huber.Pair.completedTensor.rationalLocalizationIso, clause (c) (the pair is sheafy, inherited
---   from `Spa(B, B⁺)`): not stated here; needs the anchor's sheafiness of Huber pairs
---   (supplier: AdicSpaces Layer 4)
-
 /- Clause (d): without adicness (b) fails. `ℤ_p → ℤ_p⟦X⟧` (`(p, X)`-adic) is continuous and not
 adic; the preimage of `R(p/p)` is the open unit disc over `ℚ_p`, not quasi-compact. -/
 example (p : ℕ) [Fact p.Prime] :
@@ -752,7 +626,7 @@ example (p : ℕ) [Fact p.Prime] :
     Continuous (algebraMap ℤ_[p] (PowerSeries ℤ_[p])) ∧
       ¬ IsAdicHom (algebraMap ℤ_[p] (PowerSeries ℤ_[p])) := sorry
 
-/-! ## AdicEtaleGeometry:A0/finite-etale-pullback-comparison (comparison) -/
+/-! ### T005. A0/finite-etale-pullback-comparison (comparison) -/
 
 section FiniteEtalePullback
 
@@ -790,10 +664,10 @@ theorem Pair.completedTensor.plus_eq_integralClosure_of_finiteEtale
           (B ⊗[A] C)).toSubring).map (Pair.completedTensor.tmul A B C) := sorry
 
 /-- A0/finite-etale-pullback-comparison (iii): `(C, C⁺) → B ⊗̂_A C` is a finite morphism of
-complete Tate Huber pairs (AdicSpacesPartII:R0/finite-huber-pair-hom); its ring map is finite étale
+complete Tate Huber pairs (AdicSpacesPartII R0 (finite huber pair hom)); its ring map is finite étale
 by Mathlib's `Algebra.Etale.baseChange`. -/
 theorem Pair.completedTensor.inr_isFinite_of_finiteEtale :
-    (Pair.completedTensor.inr S T U hT hU).IsFinite := sorry
+    Pair.Hom.IsFinite (Pair.completedTensor.inr S T U hT hU) := sorry
 
 open Classical in
 /-- A0/finite-etale-pullback-comparison (v): for `f₁, …, fₙ, g ∈ A` generating the unit ideal,
@@ -808,19 +682,9 @@ theorem Pair.completedTensor.finiteEtale_rationalLocalization (φ : Pair.Hom S T
 
 end FiniteEtalePullback
 
--- Huber.Pair.completedTensor.finiteEtaleEquivTensor, clause (iv) (`Spa(B ⊗_A C)` is the fibre
---   product for sheafy base change): not stated here; needs the anchor's category of adic spaces
---   and sheafiness (supplier: AdicSpacesPartII:R0/affinoid-fibre-product, AdicSpaces Layer 4)
+/-! ### T006. A0/fibre-product-affinoid-chart-comparison (comparison) -/
 
-/-! ## AdicEtaleGeometry:A0/fibre-product-affinoid-chart-comparison (comparison) -/
-
--- AdicSpace.pullbackAffinoidChartIso: not stated here; needs the anchor's category of adic spaces,
---   open affinoids and the fibre products of AdicSpacesPartII:R0/fibre-products-existence
---   (supplier: AdicSpaces Layer 5, AdicSpacesPartII:R0/fibre-products-existence). The chart ring
---   is `Huber.CompletedTensor A C B`, and its compatibility with rational subsets is
---   AdicSpacesPartII:R0/completed-tensor-rational-localisation.
-
-/-! ## AdicEtaleGeometry:A0/fibre-product-associativity-and-unit (comparison) -/
+/-! ### T007. A0/fibre-product-associativity-and-unit (comparison) -/
 
 section Assoc
 
@@ -851,52 +715,9 @@ theorem Pair.completedTensor.assoc_tmul (c : C) (b : B) (e : E) :
 
 end Assoc
 
--- AdicSpace.pullbackAssoc_affinoid (the geometric side: Mathlib's `pullbackAssoc`,
---   `pullbackSymmetry` and `IsPullback.of_id_snd` in adic spaces are Spa of `assoc`,
---   `Huber.Pair.completedTensor.comm` and the unit `B ⊗̂_A A ≅ B`): not stated here; needs the
---   anchor's category of adic spaces with its fibre products (supplier: AdicSpaces Layer 5,
---   AdicSpacesPartII:R0/fibre-products-existence)
-
 end Huber
 
-/-! ## AdicEtaleGeometry:A0/analytic-locus-restriction (construction) -/
-
--- AdicSpace.analyticLocus: not stated here; needs the anchor's category of adic spaces and its open
---   subspaces (supplier: AdicSpaces Layer 5). Its affinoid core is Tau Ceti's
---   `ValuationSpectrum.spaAnalytic`.
--- AdicSpace.analyticLocus.ι: not stated here; needs open immersions of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.mem_analyticLocus_iff: not stated here; needs the anchor's structure sheaf `𝒪_X`
---   (supplier: AdicSpaces Layer 5). Its affinoid core is Tau Ceti's
---   `ValuationSpectrum.isAnalyticPoint_def` (the support is not open).
--- AdicSpace.IsAnalytic: not stated here; needs the anchor's category of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsAnalytic.isIso_ι: not stated here; needs isomorphisms of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.analyticLocus_inf_open: not stated here; needs open subspaces of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.analyticLocus_spa: not stated here; needs `Spa` as an adic space (supplier: AdicSpaces
---   Layer 5); on underlying sets it is the definition of Tau Ceti's `spaAnalytic`
--- AdicSpace.analyticLocus_spa_eq_iUnion_tateCharts: not stated here; needs `Spa` as an adic space
---   (supplier: AdicSpaces Layer 5). Its affinoid core is Tau Ceti's
---   `ValuationSpectrum.spaAnalytic_eq_biUnion_rationalSubset`.
--- AdicSpace.analyticLocus_eq_top_of_isTateRing: not stated here; needs `Spa` as an adic space
---   (supplier: AdicSpaces Layer 5). Its affinoid core is Tau Ceti's
---   `ValuationSpectrum.spaAnalytic_eq_spa_of_isTateRing`.
--- AdicSpace.analyticLocus_spa_eq_bot_iff: not stated here; needs `Spa` as an adic space
---   (supplier: AdicSpaces Layer 5). Its affinoid core is Tau Ceti's
---   `ValuationSpectrum.spaAnalytic_eq_empty_iff_discrete_separationQuotient`.
--- AdicSpace.IsAdic.analyticLocusMap: not stated here; needs morphisms of adic spaces and
---   AdicSpacesPartII's `AdicSpace.IsAdic` (supplier: AdicSpaces Layer 5,
---   AdicSpacesPartII:R0/adic-morphism)
--- AdicSpace.analyticLocus.lift: not stated here; needs morphisms of adic spaces
---   (supplier: AdicSpaces Layer 5, AdicSpacesPartII:R0/adic-morphism)
--- AdicSpace.isAdic_iff_image_analyticLocus: not stated here; needs morphisms of adic spaces
---   (supplier: AdicSpacesPartII:R0/adic-iff-analytic-locus)
--- AdicSpace.analyticLocus_pullback: not stated here; needs fibre products of adic spaces
---   (supplier: AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.analyticLocus_isAnalytic: not stated here; needs the anchor's category of adic spaces
---   (supplier: AdicSpaces Layer 5)
+/-! ### T008. A0/analytic-locus-restriction (construction) -/
 
 section AnalyticLocusTests
 
@@ -941,9 +762,6 @@ example :
     ∃ v ∈ spaAnalytic (⊤ : Subring (PowerSeries ℤ_[p])),
       ¬ IsAnalyticPoint (comap (algebraMap ℤ_[p] (PowerSeries ℤ_[p])) v) := sorry
 
--- analyticLocus_test_spaAnalytic: not stated here; needs `Spa(A, A⁺)` as an adic space and its
---   analytic locus as an adic space (supplier: AdicSpaces Layer 5) [compatibility test]
-
 open scoped Classical in
 /- Affinoid core: for a perfect ring `O` of characteristic `p` (for `A_inf`, `O = O_F`) with
 `ϖ ∈ O` and `W(O)` with the `(p, [ϖ])`-adic topology, the analytic locus is
@@ -964,64 +782,27 @@ example (O : Type*) [CommRing O] [IsDomain O] [CharP O p] [PerfectRing O p] (ϖ 
 
 end AnalyticLocusTests
 
-end TauCeti
-
 end
 
-/-! # Stage A1 (part a). Finite étale and étale morphisms, the étale and finite étale sites -/
+/-! ## Layer A1 (part a): Finite étale and étale morphisms, the étale and finite étale sites -/
 
 noncomputable section
 
-namespace TauCeti
-
 open TensorProduct UniformSpace Topology Filter CategoryTheory ValuationSpectrum
 
-/-! ## AdicEtaleGeometry:A1/strongly-sheafy-huber-pair (definition) -/
+/-! ### T009. A1/strongly-sheafy-huber-pair (definition) -/
 
 /- Strong sheafiness (Hansen–Kedlaya Definition 4.1: every `A⟨T₁, …, Tₙ⟩` is sheafy) is defined
-in terms of the anchor's sheafiness predicate `Huber.IsSheafyRing` (Wedhorn Definition 8.26),
+in terms of `AdicSpaces`'s sheafiness predicate `Huber.IsSheafyRing` (Wedhorn Definition 8.26),
 which is in neither pinned library. So the class and its API are not stated. Its ring-level
 inputs are in Tau Ceti already: the iteration `A⟨S⟩⟨T⟩ ≅ A⟨S, T⟩` behind clause (a) is
 `TauCeti.Huber.iterateRingEquiv`, and the transfer of strong noetherianity to Tate algebras behind
 `Huber.IsStronglySheafy.of_isStronglyNoetherian` is the instance
 `TauCeti.Huber.IsStronglyNoetherian.restrictedMvPowerSeriesCompletion`. -/
 
--- Huber.IsStronglySheafy: not stated here; needs the anchor's sheafiness predicate
---   `Huber.IsSheafyRing` on the Tate algebras `A⟨T₁, …, Tₙ⟩` (supplier: AdicSpaces Layer 4)
--- Huber.IsStronglySheafy.isSheafyRing: not stated here; needs `Huber.IsSheafyRing`
---   (supplier: AdicSpaces Layer 4)
--- Huber.IsStronglySheafy.restrictedMvPowerSeries: not stated here; needs `Huber.IsSheafyRing`
---   (supplier: AdicSpaces Layer 4); its ring-level input is Tau Ceti's `iterateRingEquiv`
--- Huber.IsStronglySheafy.rationalLocalization: not stated here; needs `Huber.IsSheafyRing` and
---   the rational localisations `O(U)` as complete Tate rings (supplier: AdicSpaces Layer 3)
--- Huber.IsStronglySheafy.of_rationalCover: not stated here; needs `Huber.IsSheafyRing` and finite
---   rational coverings with their localisations (supplier: AdicSpaces Layers 3–4)
--- Huber.IsStronglySheafy.of_isStronglyNoetherian: not stated here; needs `Huber.IsSheafyRing`
---   (supplier: AdicSpaces Layer 4, Tate acyclicity for strongly noetherian rings); its ring-level
---   input is Tau Ceti's `IsStronglyNoetherian.restrictedMvPowerSeriesCompletion`
--- Huber.IsStronglySheafy.of_isStablySheafyRing: not stated here; needs the anchor's
---   `Huber.IsStablySheafyRing` (supplier: AdicSpaces Layer 4)
--- AdicSpace.IsLocallyStronglySheafy: not stated here; needs the category of adic spaces with
---   open affinoid subspaces and analytic points (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsLocallyStronglySheafy.isStronglySheafy_of_isAffinoidOpen: not stated here; needs
---   adic spaces and `Huber.IsSheafyRing` (supplier: AdicSpaces Layers 4–5)
--- AdicSpace.IsLocallyStronglySheafy.restrict: not stated here; needs open subspaces of adic
---   spaces (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsLocallyStronglySheafy.of_isLocallyNoetherian: not stated here; needs adic spaces
---   and locally noetherian adic spaces (supplier:
---   AdicSpacesPartII:R0/locally-noetherian-adic-space)
--- Huber.IsStronglySheafy.test_tateAlgebra: not stated here; needs `Huber.IsSheafyRing`
---   (supplier: AdicSpaces Layer 4) [computation test]
--- Huber.IsStronglySheafy.test_field: not stated here; needs `Huber.IsSheafyRing` and adic spaces
---   `Spa(K, K⁺)` (supplier: AdicSpaces Layers 4–5) [degenerate test]
--- Huber.IsStronglySheafy.test_not_of_uniform: not stated here; needs `Huber.IsSheafyRing` and the
---   Buzzard–Verberkmoes ring (supplier: AdicSpaces Layer 4) [non-example test]
--- Huber.IsStronglySheafy.test_of_isStablySheafyRing: not stated here; needs the anchor's
---   `Huber.IsStablySheafyRing` (supplier: AdicSpaces Layer 4) [compatibility test]
-
 namespace Huber
 
-/-! ## AdicEtaleGeometry:A1/finite-etale-affinoid-algebra (construction) -/
+/-! ### T010. A1/finite-etale-affinoid-algebra (construction) -/
 
 /-- A1/finite-etale-affinoid-algebra (data): the type synonym of a finite étale `A`-algebra `B`
 on which the construction puts its natural topology, the `A`-module topology (Mathlib
@@ -1103,20 +884,20 @@ def Pair.finiteEtale : Pair (FiniteEtale A B) where
 closure of the image of `A⁺`. -/
 @[simp]
 theorem Pair.finiteEtale_plus :
-    (S.finiteEtale B).plus =
+    (Pair.finiteEtale S B).plus =
       (integralClosure ↥(S.plus.map (algebraMap A (FiniteEtale A B)))
         (FiniteEtale A B)).toSubring := sorry
 
 /-- A1/finite-etale-affinoid-algebra (data): the morphism of Huber pairs
 `ι : (A, A⁺) → (B, B⁺)`, with underlying map `algebraMap A B`. -/
-def Pair.finiteEtale.hom : Pair.Hom S (S.finiteEtale B) where
+def Pair.finiteEtale.hom : Pair.Hom S (Pair.finiteEtale S B) where
   toRingHom := algebraMap A (FiniteEtale A B)
   continuous_toRingHom := sorry
   map_mem_plus := sorry
 
 /-- A1/finite-etale-affinoid-algebra (compatibility, (iii)): `ι` is a finite morphism of Huber
-pairs in the sense of AdicSpacesPartII:R0/finite-huber-pair-hom. -/
-theorem Pair.finiteEtale.hom_isFinite : (Pair.finiteEtale.hom S B).IsFinite := sorry
+pairs in the sense of AdicSpacesPartII R0 (finite huber pair hom). -/
+theorem Pair.finiteEtale.hom_isFinite : Pair.Hom.IsFinite (Pair.finiteEtale.hom S B) := sorry
 
 /-- A1/finite-etale-affinoid-algebra (universal-property, (iv)): for a complete Huber pair
 `(D, D⁺)` under `(A, A⁺)` (through `χ`, whose ring map is `algebraMap A D`), morphisms of Huber
@@ -1126,7 +907,7 @@ closed and contains the image of `A⁺`. -/
 def Pair.finiteEtale.homEquiv {D : Type*} [CommRing D] [UniformSpace D] [IsUniformAddGroup D]
     [IsTopologicalRing D] [IsHuberRing D] [CompleteSpace D] [T2Space D] [Algebra A D]
     {U : Pair D} (χ : Pair.Hom S U) (hχ : χ.toRingHom = algebraMap A D) :
-    {ψ : Pair.Hom (S.finiteEtale B) U // ψ.comp (Pair.finiteEtale.hom S B) = χ} ≃
+    {ψ : Pair.Hom (Pair.finiteEtale S B) U // ψ.comp (Pair.finiteEtale.hom S B) = χ} ≃
       (B →ₐ[A] D) := sorry
 
 /-- A1/finite-etale-affinoid-algebra (functoriality, core of `Huber.Pair.finiteEtaleFunctor`):
@@ -1134,16 +915,10 @@ an `A`-algebra homomorphism of finite étale algebras is a morphism of the assoc
 Full faithfulness of the functor is `Huber.Pair.finiteEtale.homEquiv`. -/
 def Pair.finiteEtaleFunctor_core {B' : Type*} [CommRing B'] [Algebra A B'] [Module.Finite A B']
     [Algebra.Etale A B'] (f : B →ₐ[A] B') :
-    Pair.Hom (S.finiteEtale B) (S.finiteEtale B') where
+    Pair.Hom (Pair.finiteEtale S B) (Pair.finiteEtale S B') where
   toRingHom := (f : B →+* B')
   continuous_toRingHom := sorry
   map_mem_plus := sorry
-
--- Huber.Pair.finiteEtaleFunctor: not stated here; needs a category of complete Huber pairs
---   under `(A, A⁺)` (supplier: AdicEtaleGeometry:A1/huber-pair-rational-site, whose `CAff` is
---   the opposite of complete Huber pairs); its action on morphisms is
---   `Huber.Pair.finiteEtaleFunctor_core` and its full faithfulness
---   `Huber.Pair.finiteEtale.homEquiv`
 
 section BaseChange
 
@@ -1154,7 +929,7 @@ variable {C : Type*} [CommRing C] [UniformSpace C] [IsUniformAddGroup C] [IsTopo
 
 /-- A1/finite-etale-affinoid-algebra (compatibility, (v)): for a morphism of complete Tate pairs
 `(A, A⁺) → (C, C⁺)`, the finite étale `C`-algebra `C ⊗_A B` with its natural topology is the
-completed tensor product `C ⊗̂_A B` (AdicSpacesPartII:R0/completed-tensor-product): the canonical
+completed tensor product `C ⊗̂_A B` (AdicSpacesPartII R0 (completed tensor product)): the canonical
 map `C ⊗_A B → C ⊗̂_A B` is an isomorphism of topological rings, compatible with the plus rings
 (`Huber.Pair.finiteEtale.baseChangeIso_spec`). -/
 def Pair.finiteEtale.baseChangeIso :
@@ -1167,9 +942,9 @@ theorem Pair.finiteEtale.baseChangeIso_spec :
     IsHomeomorph (Pair.finiteEtale.baseChangeIso (A := A) B (C := C)) ∧
       (∀ (c : C) (b : B), Pair.finiteEtale.baseChangeIso (A := A) B (C := C) (c ⊗ₜ b) =
         Pair.completedTensor.tmul A C (FiniteEtale A B) (c ⊗ₜ (FiniteEtale.algEquiv A B b))) ∧
-      (U.finiteEtale (C ⊗[A] B)).plus.map
+      ((Pair.finiteEtale U (C ⊗[A] B))).plus.map
           (Pair.finiteEtale.baseChangeIso (A := A) B (C := C)).toRingHom =
-        (Pair.completedTensor S U (S.finiteEtale B) hU
+        (Pair.completedTensor S U (Pair.finiteEtale S B) hU
           (Pair.finiteEtale.hom S B).map_mem_plus).plus := sorry
 
 end BaseChange
@@ -1178,12 +953,8 @@ open scoped Classical in
 /-- A1/finite-etale-affinoid-algebra (compatibility, (v)): `Spa(ι)⁻¹ R(f/g) = R(ι f/ι g)`. -/
 theorem Pair.finiteEtale.spaComap_preimage_rationalSubset (T : Finset A) (s : A) :
     (Pair.finiteEtale.hom S B).spaComap ⁻¹' (Subtype.val ⁻¹' rationalSubset S.plus T s) =
-      Subtype.val ⁻¹' rationalSubset (S.finiteEtale B).plus
+      Subtype.val ⁻¹' rationalSubset (Pair.finiteEtale S B).plus
         (T.image (algebraMap A (FiniteEtale A B))) (algebraMap A (FiniteEtale A B) s) := sorry
-
--- Huber.Pair.finiteEtale.rationalLocalizationIso: not stated here; needs the rational
---   localisations `O(R(f/g))` and `B⟨ι f/ι g⟩` as complete Tate pairs with their plus rings
---   (supplier: AdicSpaces Layer 3)
 
 /-- A1/finite-etale-affinoid-algebra (other, (iii)): if `B` is faithfully flat over `A`,
 `Spa(ι) : Spa(B, B⁺) → Spa(A, A⁺)` is surjective. -/
@@ -1196,16 +967,13 @@ over `A`, i.e. iff the degree of `B` is everywhere positive (Kedlaya–Liu Lemma
 theorem Pair.finiteEtale.spaComap_surjective_iff :
     Function.Surjective (Pair.finiteEtale.hom S B).spaComap ↔ Module.FaithfullyFlat A B := sorry
 
--- Huber.Pair.finiteEtale.eq_finiteAlgebra: not stated here; needs AdicSpacesPartII R0's pair
---   `Huber.Pair.finiteAlgebra` (supplier: AdicSpacesPartII:R0/finite-algebra-over-affinoid)
-
 end FiniteEtalePair
 
 /- `B = A × A`: the plus ring is `A⁺ × A⁺`. -/
 -- test Huber.Pair.finiteEtale_test_split (degenerate) [A1/finite-etale-affinoid-algebra]
 example {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A]
     [IsTateRing A] [CompleteSpace A] [T2Space A] (S : Pair A) [Algebra.Etale A (A × A)] :
-    ((S.finiteEtale (A × A)).plus : Set (FiniteEtale A (A × A))) =
+    (((Pair.finiteEtale S (A × A))).plus : Set (FiniteEtale A (A × A))) =
       FiniteEtale.algEquiv A (A × A) '' ((S.plus : Set A) ×ˢ (S.plus : Set A)) := sorry
 
 /- For a nonarchimedean field with `K⁺ ≠ K°` (e.g. of rank 2) and `B = K × K`, the plus ring
@@ -1214,14 +982,7 @@ example {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopol
 --   [A1/finite-etale-affinoid-algebra]
 example {K : Type*} [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
     [IsTateRing K] (S : Pair K) (hS : S.plus ≠ powerBoundedSubring K) [Algebra.Etale K (K × K)] :
-    (S.finiteEtale (K × K)).plus ≠ powerBoundedSubring (FiniteEtale K (K × K)) := sorry
-
--- Huber.Pair.finiteEtale_test_kummer_annulus: not stated here; needs the Laurent Tate algebra
---   `K⟨T, T⁻¹⟩` and its rational localisation `A⟨(T − 1)/p⟩` as complete Tate rings (supplier:
---   AdicSpaces Layer 3) [computation test]
--- Huber.Pair.finiteEtale_test_eq_finiteAlgebra: not stated here; needs AdicSpacesPartII R0's
---   `Huber.Pair.finiteAlgebra` (supplier: AdicSpacesPartII:R0/finite-algebra-over-affinoid)
---   [compatibility test]
+    ((Pair.finiteEtale S (K × K))).plus ≠ powerBoundedSubring (FiniteEtale K (K × K)) := sorry
 
 /- A non-closed ideal `J` of a complete Tate ring: `A ⧸ J` is not étale, and its natural topology is
 not Hausdorff. -/
@@ -1231,19 +992,13 @@ example {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopol
     [IsTateRing A] [CompleteSpace A] [T2Space A] (J : Ideal A) (hJ : ¬ IsClosed (J : Set A)) :
     ¬ Algebra.Etale A (A ⧸ J) ∧ ¬ @T2Space (A ⧸ J) (moduleTopology A (A ⧸ J)) := sorry
 
-/-! ## AdicEtaleGeometry:A1/finite-etale-strongly-sheafy (theorem) -/
+/-! ### T011. A1/finite-etale-strongly-sheafy (theorem) -/
 
 section FiniteEtaleSheafy
 
 variable {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A]
   [IsTateRing A] [CompleteSpace A] [T2Space A]
   (B : Type*) [CommRing B] [Algebra A B] [Module.Finite A B] [Algebra.Etale A B]
-
--- Huber.IsStronglySheafy.finiteEtale: not stated here; needs `Huber.IsStronglySheafy`, that is
---   the anchor's `Huber.IsSheafyRing` (supplier: AdicSpaces Layer 4) (Hansen–Kedlaya Cor. 4.7)
--- Huber.FiniteEtale.exists_rationalCover_monogenic: not stated here; needs the rational
---   localisations `O(U_k)` of a finite rational covering as complete Tate rings (supplier:
---   AdicSpaces Layer 3)
 
 /-- A1/finite-etale-strongly-sheafy (special case, core): if `A` is strongly noetherian, so is `B`:
 `B⟨T₁, …, Tₙ⟩ = B ⊗_A A⟨T₁, …, Tₙ⟩` is finite over a noetherian ring. -/
@@ -1252,21 +1007,16 @@ instance FiniteEtale.isStronglyNoetherian [IsStronglyNoetherian A] :
 
 /-- A1/finite-etale-strongly-sheafy (special case, core): if `A` has a noetherian ring of
 definition, so has `B`: the ring `B₀ = A₀[ϖᴺ b₁, …, ϖᴺ b_m]` of
-AdicEtaleGeometry:A1/finite-etale-affinoid-algebra (i), finite over `A₀`. -/
+T010 (A1/finite-etale-affinoid-algebra) (i), finite over `A₀`. -/
 theorem FiniteEtale.exists_pairOfDefinition_isNoetherianRing (P : PairOfDefinition A)
     [IsNoetherianRing P.ringOfDefinition] :
     ∃ Q : PairOfDefinition (FiniteEtale A B), IsNoetherianRing Q.ringOfDefinition := sorry
 
 end FiniteEtaleSheafy
 
-/-! ## AdicEtaleGeometry:A1/finite-etale-rational-descent (lemma) -/
+/-! ### T012. A1/finite-etale-rational-descent (lemma) -/
 
--- Huber.finiteEtaleDescentEquiv: not stated here; needs the anchor's rational coverings with
---   their rational localisations `A_i`, `A_ij`, `A_ijk` as complete Tate rings (supplier:
---   AdicSpaces Layer 3); the statement is Kedlaya–Liu Theorem 2.6.9, an equivalence of
---   `CommAlgCat.FiniteEtale A` with the category of descent data for `A → ∏ A_i`
-
-/-! ## AdicEtaleGeometry:A1/affinoid-system-approximation (lemma) -/
+/-! ### T013. A1/affinoid-system-approximation (lemma) -/
 
 section AffinoidSystem
 
@@ -1363,11 +1113,7 @@ theorem AffinoidSystem.exists_rationalSubset_stage (𝒜 : AffinoidSystem S) (T 
         (𝒜.toPair i).spaComap ⁻¹' (Subtype.val ⁻¹' rationalSubset (𝒜.pair i).plus T' s') =
           Subtype.val ⁻¹' rationalSubset S.plus T s := sorry
 
-/-! ## AdicEtaleGeometry:A1/finite-etale-approximation (theorem) -/
-
--- Huber.AffinoidSystem.finiteEtaleEquiv: not stated here; needs the 2-colimit of the categories
---   `CommAlgCat.FiniteEtale A_α` along base change (no Mathlib API); its essential-surjectivity
---   half is `Huber.AffinoidSystem.exists_finiteEtale_stage`
+/-! ### T014. A1/finite-etale-approximation (theorem) -/
 
 /-- A1/finite-etale-approximation (core): every finite étale `A`-algebra is defined at a finite
 stage: `B ≅ A ⊗_{A_α} B_α` for some `α` and `B_α ∈ FÉt(A_α)` (Kedlaya–Liu Proposition 2.6.8). -/
@@ -1379,210 +1125,29 @@ theorem AffinoidSystem.exists_finiteEtale_stage (𝒜 : AffinoidSystem S) (B : T
 
 end AffinoidSystem
 
-/-! ## AdicEtaleGeometry:A1/finite-etale-morphism (definition) -/
+/-! ### T015. A1/finite-etale-morphism (definition) -/
 
--- AdicSpace.IsFiniteEtale: not stated here; needs the category of analytic adic spaces with open
---   affinoid subspaces and `Spa` of sheafy pairs (supplier: AdicSpaces Layer 5); the affinoid
---   model is `Huber.Pair.finiteEtale`
--- AdicSpace.IsFiniteEtale.spa: not stated here; needs `Spa` of a sheafy pair as an adic space
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsFiniteEtale.id: not stated here; needs adic spaces (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsFiniteEtale.of_openCover: not stated here; needs open covers of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsFiniteEtale.isAffinoid_preimage: not stated here; needs adic spaces and
---   `Huber.IsStronglySheafy` (supplier: AdicSpaces Layers 4–5)
--- AdicSpace.IsFiniteEtale.isFinite: not stated here; needs finite morphisms of adic spaces
---   (supplier: AdicSpacesPartII:R0/finite-morphism); affinoid core
---   `Huber.Pair.finiteEtale.hom_isFinite`
--- AdicSpace.IsFiniteEtale.isEtaleLocalDescription: not stated here; needs adic spaces (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.IsFiniteEtale.comp: not stated here; needs adic spaces (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsFiniteEtale.baseChange: not stated here; needs fibre products of adic spaces
---   (supplier: AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.IsFiniteEtale.of_comp: not stated here; needs adic spaces (supplier: AdicSpaces
---   Layer 5)
--- AdicSpace.IsFiniteEtale.surjective_iff: not stated here; needs adic spaces (supplier: AdicSpaces
---   Layer 5); affinoid core `Huber.Pair.finiteEtale.spaComap_surjective_iff`
--- AdicSpace.IsFiniteEtale.iff_isFinite_and_etale: not stated here; needs Huber's finite and étale
---   morphisms of adic spaces (supplier: AdicSpacesPartII:R0/differentials-unramified-smooth-etale)
--- AdicSpace.IsFiniteEtale.test_fold: not stated here; needs adic spaces and their disjoint unions
---   (supplier: AdicSpaces Layer 5) [degenerate test]
--- AdicSpace.IsFiniteEtale.test_rational_inclusion: not stated here; needs adic spaces and open
---   immersions (supplier: AdicSpaces Layer 5) [non-example test]
--- AdicSpace.IsFiniteEtale.test_squaring: not stated here; needs finite morphisms of adic spaces
---   (supplier: AdicSpacesPartII:R0/finite-morphism) [non-example test]
--- AdicSpace.IsFiniteEtale.test_plus_ring: not stated here; needs `Spa` of pairs as adic spaces
---   (supplier: AdicSpaces Layer 5); its affinoid core is
---   `Huber.Pair.finiteEtale_test_plus_not_powerBounded` [non-example test]
--- AdicSpace.IsFiniteEtale.test_huber: not stated here; needs Huber's finite and étale morphisms
---   (supplier: AdicSpacesPartII:R0/differentials-unramified-smooth-etale) [compatibility test]
+/-! ### T016. A1/finite-etale-local-to-global (theorem) -/
 
-/-! ## AdicEtaleGeometry:A1/finite-etale-local-to-global (theorem) -/
+/-! ### T017. A1/etale-morphism (definition) -/
 
--- AdicSpace.IsFiniteEtale.isAffinoid_preimage (statement (a)), AdicSpace.finiteEtaleAffinoidEquiv
---   (statement (c)), AdicSpace.IsFiniteEtale.surjective_iff (statement (d)): not stated here;
---   need adic spaces, their open affinoids and `Huber.IsStronglySheafy` (supplier: AdicSpaces
---   Layers 4–5); the affinoid cores are `Huber.Pair.finiteEtale.homEquiv` and
---   `Huber.Pair.finiteEtale.spaComap_surjective_iff`
+/-! ### T018. A1/etale-morphisms-local-description-and-comparison (comparison) -/
 
-/-! ## AdicEtaleGeometry:A1/etale-morphism (definition) -/
+/-! ### T019. A1/etale-base-change (lemma) -/
 
--- AdicSpace.IsEtaleLocalDescription: not stated here; needs analytic adic spaces, open immersions
---   and `AdicSpace.IsFiniteEtale` (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsEtaleLocalDescription.of_isOpenImmersion: not stated here; needs open immersions of
---   adic spaces (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsEtaleLocalDescription.of_isFiniteEtale: not stated here; needs adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsEtaleLocalDescription.exists_standardAffinoid: not stated here; needs adic spaces
---   and `Spa` of rational localisations (supplier: AdicSpaces Layers 3–5)
--- AdicSpace.IsEtaleLocalDescription.of_openCover_source: not stated here; needs open covers of
---   adic spaces (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsEtaleLocalDescription.of_openCover_target: not stated here; needs open covers of
---   adic spaces (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsEtaleLocalDescription.comp: not stated here; needs adic spaces (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.IsEtaleLocalDescription.baseChange: not stated here; needs fibre products of adic
---   spaces (supplier: AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.IsEtaleLocalDescription.of_comp: not stated here; needs adic spaces (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.IsEtaleLocalDescription.isOpenMap: not stated here; needs adic spaces (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.IsEtaleLocalDescription.isOpenImmersion_diagonal: not stated here; needs fibre
---   products and open immersions of adic spaces (supplier:
---   AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.IsEtaleLocalDescription.iff_etale: not stated here; needs Huber's étale morphisms
---   (supplier: AdicSpacesPartII:R0/differentials-unramified-smooth-etale)
--- AdicSpace.IsEtaleLocalDescription.test_openImmersion: not stated here; needs open immersions
---   of adic spaces (supplier: AdicSpaces Layer 5) [degenerate test]
--- AdicSpace.IsEtaleLocalDescription.test_origin: not stated here; needs closed immersions and
---   unramified morphisms of adic spaces (supplier: AdicSpacesPartII:R0/differentials-unramified-
---   smooth-etale) [non-example test]
--- AdicSpace.IsEtaleLocalDescription.test_nonseparated: not stated here; needs gluing of adic
---   spaces (supplier: AdicSpaces Layer 5) [characterisation test]
--- AdicSpace.IsEtaleLocalDescription.test_huber: not stated here; needs Huber's étale morphisms
---   (supplier: AdicSpacesPartII:R0/differentials-unramified-smooth-etale) [compatibility test]
+/-! ### T020. A1/etale-composition (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/etale-morphisms-local-description-and-comparison (comparison) -/
+/-! ### T021. A1/etale-diagonal (lemma) -/
 
--- AdicSpace.IsFiniteEtale.iff_isFinite_and_etale, AdicSpace.IsEtaleLocalDescription.iff_etale,
---   AdicSpace.IsEtaleLocalDescription.isLocallyNoetherian: not stated here; need locally
---   noetherian analytic adic spaces and Huber's finite and étale morphisms (supplier:
---   AdicSpacesPartII:R0/differentials-unramified-smooth-etale, AdicSpacesPartII:R0/finite-morphism)
+/-! ### T022. A1/etale-cancellation (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/etale-base-change (lemma) -/
+/-! ### T023. A1/etale-open-map (lemma) -/
 
--- AdicSpace.IsEtaleLocalDescription.hasPullback, AdicSpace.IsEtaleLocalDescription.baseChange,
---   AdicSpace.IsFiniteEtale.baseChange,
---   AdicSpace.IsEtaleLocalDescription.surjective_pullback_points:
---   not stated here; need fibre products of adic spaces (supplier: AdicSpacesPartII:R0/fibre-
---   products-existence); the affinoid formula is `Huber.Pair.finiteEtale.baseChangeIso`
+/-! ### T024. A1/etale-site (construction) -/
 
-/-! ## AdicEtaleGeometry:A1/etale-composition (lemma) -/
+/-! ### T025. A1/finite-etale-site (construction) -/
 
--- AdicSpace.IsFiniteEtale.comp, AdicSpace.IsEtaleLocalDescription.comp,
---   AdicSpace.IsEtaleLocalDescription.isLocallyStronglySheafy: not stated here; need adic spaces
---   and `AdicSpace.IsLocallyStronglySheafy` (supplier: AdicSpaces Layers 4–5)
-
-/-! ## AdicEtaleGeometry:A1/etale-diagonal (lemma) -/
-
--- AdicSpace.IsEtaleLocalDescription.isOpenImmersion_diagonal,
---   AdicSpace.IsFiniteEtale.isClosedMap_diagonal,
---   AdicSpace.IsEtaleLocalDescription.isOpenImmersion_of_section: not stated here; need fibre
---   products and open immersions of adic spaces (supplier:
---   AdicSpacesPartII:R0/fibre-products-existence)
-
-/-! ## AdicEtaleGeometry:A1/etale-cancellation (lemma) -/
-
--- AdicSpace.IsEtaleLocalDescription.of_comp, AdicSpace.IsFiniteEtale.of_comp: not stated here;
---   need adic spaces (supplier: AdicSpaces Layer 5)
-
-/-! ## AdicEtaleGeometry:A1/etale-open-map (lemma) -/
-
--- AdicSpace.IsEtaleLocalDescription.isOpenMap,
---   AdicSpace.IsEtaleLocalDescription.exists_factor_surjective_openImmersion: not stated here;
---   need adic spaces and open subspaces (supplier: AdicSpaces Layer 5)
-
-/-! ## AdicEtaleGeometry:A1/etale-site (construction) -/
-
--- AdicSpace.smallEtale: not stated here; needs the category of adic spaces, to form Mathlib's
---   `MorphismProperty.Over` of `AdicSpace.IsEtaleLocalDescription` (supplier: AdicSpaces Layer 5)
--- AdicSpace.smallEtale.mk: not stated here; needs `AdicSpace.smallEtale` (supplier: AdicSpaces
---   Layer 5)
--- AdicSpace.smallEtale.forget: not stated here; needs `AdicSpace.smallEtale` (supplier: AdicSpaces
---   Layer 5)
--- AdicSpace.smallEtale.hasFiniteLimits: not stated here; needs fibre products of adic spaces
---   (supplier: AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.smallEtalePretopology: not stated here; needs `AdicSpace.smallEtale` (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.smallEtaleTopology: not stated here; needs `AdicSpace.smallEtale` (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.ofArrows_mem_smallEtaleTopology_iff: not stated here; needs `AdicSpace.smallEtale`
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.smallEtale.map: not stated here; needs fibre products of adic spaces (supplier:
---   AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.etaleSheafPushforward: not stated here; needs `AdicSpace.smallEtaleTopology`
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.etaleSheafPullback: not stated here; needs `AdicSpace.smallEtaleTopology` (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.smallEtale.mapComp: not stated here; needs fibre products of adic spaces (supplier:
---   AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.opensToSmallEtale: not stated here; needs open subspaces of adic spaces (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.smallEtaleTopology_eq_huber: not stated here; needs Huber's étale site (supplier:
---   AdicSpacesPartII:R4)
--- AdicSpace.structureSheafEtale: not stated here; needs the structure sheaf of adic spaces
---   (supplier: AdicSpaces Layer 5); its affinoid core is `Huber.Pair.finiteEtale.equalizer_ring`
---   (target AdicEtaleGeometry:A1/etale-structure-sheaf)
--- AdicSpace.smallEtaleTopology.test_kummer_cover: not stated here; needs `AdicSpace.smallEtale`
---   (supplier: AdicSpaces Layer 5) [computation test]
--- AdicSpace.smallEtaleTopology.test_rank_one_not_enough: not stated here; needs
---   `AdicSpace.smallEtale` (supplier: AdicSpaces Layer 5) [non-example test]
--- AdicSpace.smallEtaleTopology.test_geometric_point: not stated here; needs `AdicSpace.smallEtale`
---   (supplier: AdicSpaces Layer 5); affinoid core `Huber.Pair.finiteEtale_isAlgClosed_split`
---   [degenerate test]
--- AdicSpace.smallEtaleTopology.test_huber: not stated here; needs Huber's étale site (supplier:
---   AdicSpacesPartII:R4) [compatibility test]
--- AdicSpace.smallEtaleTopology.test_opens: not stated here; needs open immersions of adic spaces
---   (supplier: AdicSpaces Layer 5) [characterisation test]
-
-/-! ## AdicEtaleGeometry:A1/finite-etale-site (construction) -/
-
--- AdicSpace.smallFiniteEtale: not stated here; needs the category of adic spaces, to form
---   `MorphismProperty.Over` of `AdicSpace.IsFiniteEtale` (supplier: AdicSpaces Layer 5)
--- AdicSpace.smallFiniteEtaleTopology: not stated here; needs `AdicSpace.smallFiniteEtale`
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.ofArrows_mem_smallFiniteEtaleTopology_iff: not stated here; needs
---   `AdicSpace.smallFiniteEtale` (supplier: AdicSpaces Layer 5)
--- AdicSpace.smallFiniteEtale.hasFiniteLimits: not stated here; needs fibre products of adic
---   spaces (supplier: AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.smallFiniteEtale.toSmallEtale: not stated here; needs `AdicSpace.smallEtale`
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.smallFiniteEtale.affinoidEquiv: not stated here; needs `Spa` of pairs as adic spaces
---   (supplier: AdicSpaces Layer 5); its affinoid core is `Huber.Pair.finiteEtale.homEquiv`
--- AdicSpace.smallFiniteEtale.map: not stated here; needs fibre products of adic spaces (supplier:
---   AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.smallFiniteEtale.fiberFunctor: not stated here; needs geometric points of adic spaces
---   (supplier: AdicEtaleGeometry:A1/etale-site-and-geometric-points)
--- AdicSpace.smallFiniteEtale.galoisCategory: not stated here; needs `AdicSpace.smallFiniteEtale`
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.smallFiniteEtale.test_field: not stated here; needs `Spa(K, K⁺)` as an adic space
---   (supplier: AdicSpaces Layer 5) [computation test]
--- AdicSpace.smallFiniteEtale.test_algClosed: not stated here; needs `Spa(C, C⁺)` as an adic space
---   (supplier: AdicSpaces Layer 5); affinoid core `Huber.Pair.finiteEtale_isAlgClosed_split`
---   [degenerate test]
--- AdicSpace.smallFiniteEtale.test_open_not_object: not stated here; needs open immersions of adic
---   spaces (supplier: AdicSpaces Layer 5) [non-example test]
--- AdicSpace.smallFiniteEtale.test_affinoid_equiv: not stated here; needs `Spa` of pairs as adic
---   spaces (supplier: AdicSpaces Layer 5) [compatibility test]
--- AdicSpace.smallFiniteEtale.test_cover_iff: not stated here; needs `AdicSpace.smallFiniteEtale`
---   (supplier: AdicSpaces Layer 5); affinoid core `Huber.Pair.finiteEtale.spaComap_surjective_iff`
---   [characterisation test]
-
-/-! ## AdicEtaleGeometry:A1/geometric-point-etale-split (lemma) -/
-
--- AdicSpace.spa_algClosed_exists_section: not stated here; needs `Spa(C, C⁺)` as an adic space
---   and étale morphisms into it (supplier: AdicSpaces Layer 5); the affinoid core of clause (ii)
---   is `Huber.Pair.finiteEtale_isAlgClosed_split`
+/-! ### T026. A1/geometric-point-etale-split (lemma) -/
 
 /-- A1/geometric-point-etale-split ((ii), affinoid core): over an algebraically closed complete
 nonarchimedean field `C` with an open bounded valuation subring `C⁺`, every finite étale
@@ -1591,77 +1156,22 @@ theorem Pair.finiteEtale_isAlgClosed_split {C : Type*} [NontriviallyNormedField 
     [IsUltrametricDist C] [CompleteSpace C] [IsAlgClosed C] [IsTateRing C] (S : Pair C)
     (B : Type*) [CommRing B] [Algebra C B] [Module.Finite C B] [Algebra.Etale C B] :
     ∃ (n : ℕ) (e : FiniteEtale C B ≃ₐ[C] (Fin n → C)),
-      e '' (S.finiteEtale B).plus = Set.pi Set.univ fun _ ↦ (S.plus : Set C) := sorry
+      e '' (Pair.finiteEtale S B).plus = Set.pi Set.univ fun _ ↦ (S.plus : Set C) := sorry
 
-/-! ## AdicEtaleGeometry:A1/etale-site-and-geometric-points (construction) -/
+/-! ### T027. A1/etale-site-and-geometric-points (construction) -/
 
--- AdicSpace.GeometricPoint: not stated here; needs morphisms `Spa(C, C⁺) → X` of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.GeometricPoint.support: not stated here; needs `AdicSpace.GeometricPoint` (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.GeometricPoint.ofPoint: not stated here; needs completed residue fields of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.GeometricPoint.comp: not stated here; needs `AdicSpace.GeometricPoint` (supplier:
---   AdicSpaces Layer 5)
--- AdicSpace.GeometricPoint.fiber: not stated here; needs `AdicSpace.smallEtale` (supplier:
---   AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.GeometricPoint.point: not stated here; needs `AdicSpace.smallEtaleTopology` (supplier:
---   AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.GeometricPoint.stalk: not stated here; needs `AdicSpace.smallEtaleTopology`
---   (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.GeometricPoint.fiber_comp_iso: not stated here; needs `AdicSpace.smallEtale.map`
---   (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.GeometricPoint.stalk_pullback_iso: not stated here; needs
---   `AdicSpace.etaleSheafPullback`
---   (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.GeometricPoint.range_subset_generizations: not stated here; needs
---   `AdicSpace.GeometricPoint` (supplier: AdicSpaces Layer 5)
--- AdicSpace.isConservativeFamilyOfPoints_geometricPoint: not stated here; needs
---   `AdicSpace.smallEtaleTopology` (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.GeometricPoint.strictLocalization: not stated here; needs `AdicSpace.smallEtale`
---   (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.GeometricPoint.test_field_rank_two: not stated here; needs `Spa(K, K⁺)` as an adic
---   space (supplier: AdicSpaces Layer 5) [computation test]
--- AdicSpace.GeometricPoint.test_rank_one_not_conservative: not stated here; needs sheaves on
---   `AdicSpace.smallEtaleTopology` (supplier: AdicEtaleGeometry:A1/etale-site) [non-example test]
--- AdicSpace.GeometricPoint.test_identity: not stated here; needs `AdicSpace.GeometricPoint.point`
---   (supplier: AdicEtaleGeometry:A1/etale-site) [degenerate test]
--- AdicSpace.GeometricPoint.test_fet_fiber: not stated here; needs `AdicSpace.smallFiniteEtale`
---   (supplier: AdicEtaleGeometry:A1/finite-etale-site); the ring-level fibre functor is Mathlib's
---   `CommAlgCat.FiniteEtale.fiber` [compatibility test]
--- AdicSpace.GeometricPoint.test_image_generizations: not stated here; needs
---   `AdicSpace.GeometricPoint` (supplier: AdicSpaces Layer 5) [characterisation test]
+/-! ### T028. A1/etale-enough-points (theorem) -/
 
-/-! ## AdicEtaleGeometry:A1/etale-enough-points (theorem) -/
+/-! ### T029. A1/finite-etale-galois-category (theorem) -/
 
--- AdicSpace.isConservativeFamilyOfPoints_geometricPoint, and the instance
---   `(AdicSpace.smallEtaleTopology X).HasEnoughPoints`: not stated here; need
---   `AdicSpace.smallEtaleTopology` and geometric points (supplier: AdicEtaleGeometry:A1/etale-site)
-
-/-! ## AdicEtaleGeometry:A1/finite-etale-galois-category (theorem) -/
-
--- AdicSpace.smallFiniteEtale.galoisCategory, AdicSpace.GeometricPoint.fiberFunctor_isFiberFunctor,
---   AdicSpace.etaleFundamentalGroup: not stated here; need `AdicSpace.smallFiniteEtale` and
---   geometric points (supplier: AdicEtaleGeometry:A1/finite-etale-site); the ring-level fibre
---   functor at a geometric point `Ω` is Mathlib's `CommAlgCat.FiniteEtale.fiber`
-
-/-! ## AdicEtaleGeometry:A1/basis-comparison (lemma) -/
+/-! ### T030. A1/basis-comparison (lemma) -/
 
 -- AdicSpace.smallEtale.IsBasic, and the dense-subsite instance for the affinoid étale basis: not
---   stated here; need `AdicSpace.smallEtale` (supplier: AdicEtaleGeometry:A1/etale-site)
+--   stated here; need `AdicSpace.smallEtale` (supplier: T024 (A1/etale-site))
 
-/-! ## AdicEtaleGeometry:A1/etale-covering-reduction (lemma) -/
+/-! ### T031. A1/etale-covering-reduction (lemma) -/
 
--- AdicSpace.isSheaf_smallEtale_iff: not stated here; needs `AdicSpace.smallEtaleTopology`
---   (supplier: AdicEtaleGeometry:A1/etale-site)
-
-/-! ## AdicEtaleGeometry:A1/etale-structure-sheaf (lemma) -/
-
--- AdicSpace.structureSheafEtale, AdicSpace.structureSheafEtalePlus,
---   AdicSpace.structureSheafEtale_obj_opens: not stated here; need `AdicSpace.smallEtaleTopology`
---   and the structure sheaf of adic spaces (supplier: AdicEtaleGeometry:A1/etale-site, AdicSpaces
---   Layer 5); the affinoid core of the finite étale equaliser is
---   `Huber.Pair.finiteEtale.equalizer_ring`
+/-! ### T032. A1/etale-structure-sheaf (lemma) -/
 
 section EtaleStructureSheaf
 
@@ -1679,141 +1189,33 @@ theorem Pair.finiteEtale.equalizer_ring [Module.FaithfullyFlat A B] :
 
 end EtaleStructureSheaf
 
-/-! ## AdicEtaleGeometry:A1/slice-site (lemma) -/
+/-! ### T033. A1/slice-site (lemma) -/
 
--- AdicSpace.smallEtaleSliceEquiv, AdicSpace.smallEtaleSliceEquiv_topology: not stated here; need
---   `AdicSpace.smallEtale` (supplier: AdicEtaleGeometry:A1/etale-site)
+/-! ### T034. A1/strict-localisation (construction) -/
 
-/-! ## AdicEtaleGeometry:A1/strict-localisation (construction) -/
+/-! ### T035. A1/strict-localisation-analytic (theorem) -/
 
--- AdicSpace.GeometricPoint.Neighbourhood: not stated here; needs `AdicSpace.GeometricPoint.fiber`
---   (supplier: AdicEtaleGeometry:A1/etale-site-and-geometric-points)
--- AdicSpace.GeometricPoint.isCofiltered_neighbourhood: not stated here; needs
---   `AdicSpace.GeometricPoint.fiber` (supplier:
---   AdicEtaleGeometry:A1/etale-site-and-geometric-points)
--- AdicSpace.strictLocalization: not stated here; needs `AdicSpace.smallEtale` (supplier:
---   AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.strictLocalization.eval: not stated here; needs presheaves on `AdicSpace.smallEtale`
---   (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.strictLocalization.eval_iso_sheafFiber: not stated here; needs sheaves on
---   `AdicSpace.smallEtaleTopology` (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.strictLocalization.openNeighbourhood_final: not stated here; needs open subspaces of
---   adic spaces (supplier: AdicSpaces Layer 5)
--- AdicSpace.GeometricPoint.localRing: not stated here; needs `AdicSpace.structureSheafEtale`
---   (supplier: AdicEtaleGeometry:A1/etale-structure-sheaf)
--- AdicSpace.GeometricPoint.localRing_toField: not stated here; needs
---   `AdicSpace.GeometricPoint.localRing` (supplier: AdicEtaleGeometry:A1/etale-structure-sheaf)
--- AdicSpace.strictLocalization.space: not stated here; needs underlying spaces of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.strictLocalization.map: not stated here; needs `AdicSpace.smallEtale.map` (supplier:
---   AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.strictLocalization.test_algClosed: not stated here; needs
---   `AdicSpace.strictLocalization`
---   (supplier: AdicEtaleGeometry:A1/etale-site) [degenerate test]
--- AdicSpace.strictLocalization.test_field: not stated here; needs
---   `AdicSpace.GeometricPoint.localRing`
---   (supplier: AdicEtaleGeometry:A1/etale-structure-sheaf) [computation test]
--- AdicSpace.strictLocalization.test_constant_stalk: not stated here; needs sheaves on
---   `AdicSpace.smallEtaleTopology` (supplier: AdicEtaleGeometry:A1/etale-site) [computation test]
--- AdicSpace.strictLocalization.test_higher_rank_point: not stated here; needs
---   `AdicSpace.strictLocalization.space` (supplier: AdicSpaces Layer 5) [non-example test]
--- AdicSpace.strictLocalization.test_stalk_eq_sheafFiber: not stated here; needs sheaves on
---   `AdicSpace.smallEtaleTopology` (supplier: AdicEtaleGeometry:A1/etale-site) [compatibility test]
-
-/-! ## AdicEtaleGeometry:A1/strict-localisation-analytic (theorem) -/
-
--- AdicSpace.GeometricPoint.localRing_henselian, AdicSpace.GeometricPoint.residueField_isSepClosed,
---   AdicSpace.strictLocalization.space_homeomorph: not stated here; need
---   `AdicSpace.GeometricPoint.localRing` and `AdicSpace.strictLocalization.space` (supplier:
---   AdicEtaleGeometry:A1/strict-localisation)
-
-/-! ## AdicEtaleGeometry:A1/etale-site-generalized (construction) -/
-
--- YonedaAdicSpace.IsFiniteEtale: not stated here; needs the category `YonedaAdicSpace` with its
---   open immersions and `Spa^Y` (supplier: AdicEtaleGeometry:A1/generalized-adic-presentation,
---   later in construction order)
--- YonedaAdicSpace.IsEtaleLocalDescription: not stated here; needs `YonedaAdicSpace` (supplier:
---   AdicEtaleGeometry:A1/generalized-adic-presentation)
--- YonedaAdicSpace.smallEtale: not stated here; needs `YonedaAdicSpace` (supplier:
---   AdicEtaleGeometry:A1/generalized-adic-presentation)
--- YonedaAdicSpace.smallEtaleTopology: not stated here; needs `YonedaAdicSpace` (supplier:
---   AdicEtaleGeometry:A1/generalized-adic-presentation)
--- YonedaAdicSpace.smallFiniteEtale: not stated here; needs `YonedaAdicSpace` (supplier:
---   AdicEtaleGeometry:A1/generalized-adic-presentation)
--- YonedaAdicSpace.finiteEtaleEquiv: not stated here; needs `YonedaAdicSpace` and `Spa^Y`
---   (supplier: AdicEtaleGeometry:A1/generalized-adic-presentation); its ring-level core is
---   `Huber.Pair.finiteEtale.homEquiv`
--- YonedaAdicSpace.IsEtaleLocalDescription.baseChange: not stated here; needs fibre products of
---   Yoneda-adic spaces (supplier: AdicEtaleGeometry:A1/yoneda-adic-fibre-products)
--- YonedaAdicSpace.IsEtaleLocalDescription.comp: not stated here; needs `YonedaAdicSpace`
---   (supplier: AdicEtaleGeometry:A1/generalized-adic-presentation)
--- YonedaAdicSpace.smallEtale_equiv_of_isLocallyStronglySheafy: not stated here; needs
---   `AdicSpace.smallEtale` and `YonedaAdicSpace` (supplier: AdicEtaleGeometry:A1/etale-site,
---   AdicEtaleGeometry:A1/adic-spaces-in-yoneda-adic-spaces)
--- YonedaAdicSpace.hasEnoughPoints_smallEtaleTopology: not stated here; needs `YonedaAdicSpace`
---   (supplier: AdicEtaleGeometry:A1/generalized-adic-presentation)
--- YonedaAdicSpace.smallFiniteEtale.test_affinoid: not stated here; needs `YonedaAdicSpace` and
---   `Spa^Y` (supplier: AdicEtaleGeometry:A1/generalized-adic-presentation) [characterisation test]
--- YonedaAdicSpace.smallEtale.test_eq_adic: not stated here; needs `AdicSpace.smallEtale` and
---   `YonedaAdicSpace` (supplier: AdicEtaleGeometry:A1/etale-site) [compatibility test]
--- YonedaAdicSpace.smallEtale.test_opens: not stated here; needs `YonedaAdicSpace` (supplier:
---   AdicEtaleGeometry:A1/generalized-adic-presentation) [degenerate test]
--- YonedaAdicSpace.smallEtale.test_adic_objects_insufficient: not stated here; needs
---   `YonedaAdicSpace` and `Huber.IsSheafyRing` (supplier: AdicEtaleGeometry:A1/generalized-adic-
---   presentation, AdicSpaces Layer 4) [non-example test]
+/-! ### T036. A1/etale-site-generalized (construction) -/
 
 end Huber
 
-end TauCeti
-
 end
 
-/-! # Stage A1 (part b). The pro-étale site, profinite G-sets and Yoneda-adic presentations -/
+/-! ## Layer A1 (part b): The pro-étale site, profinite G-sets and Yoneda-adic presentations -/
 
 noncomputable section
 
-namespace TauCeti
-
 open CategoryTheory Limits Topology Opposite
 
-/-! ## AdicEtaleGeometry:A1/pro-etale-morphism (definition) -/
+/-! ### T037. A1/pro-etale-morphism (definition) -/
 
 /- A1/pro-etale-morphism (Scholze 2013, Definition 3.9 and Proposition 3.2): the category
 `pro-X_ét` of a locally noetherian analytic adic space `X` and its étale, finite étale, surjective
-and pro-étale morphisms. Everything here needs the anchor's category of adic spaces and the small
-étale site `X_ét` of AdicEtaleGeometry:A1/etale-site; the pro-category is `(Ind Cᵒᵖ)ᵒᵖ` over
+and pro-étale morphisms. Everything here needs `AdicSpaces`'s category of adic spaces and the small
+étale site `X_ét` of T024 (A1/etale-site); the pro-category is `(Ind Cᵒᵖ)ᵒᵖ` over
 Mathlib's `CategoryTheory.Ind` (DiamondsAndVStacks:D0 names it `CategoryTheory.Pro`). -/
 
--- AdicSpace.ProEtale.ProEt: not stated here; needs the anchor's category of adic spaces and the
---   small étale site `X_ét` (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.ProEtale.ProEt.const: not stated here; needs the small étale site `X_ét` (supplier:
---   AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.ProEtale.ProEt.hom_const_equiv: not stated here; needs the small étale site `X_ét`
---   (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.ProEtale.ProEt.space: not stated here; needs the underlying spaces of objects of
---   `X_ét` (supplier: AdicSpaces Layer 5)
--- AdicSpace.ProEtale.IsEtale: not stated here; needs the small étale site `X_ét` and its fibre
---   products (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.ProEtale.IsFiniteEtale: not stated here; needs finite étale morphisms of adic spaces
---   (supplier: AdicEtaleGeometry:A1/finite-etale-morphism)
--- AdicSpace.ProEtale.IsProEtale: not stated here; needs the small étale site `X_ét` (supplier:
---   AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.ProEtale.IsEtale.isProEtale: not stated here; needs the small étale site `X_ét`
---   (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.ProEtale.isEtale_const: not stated here; needs the small étale site `X_ét`
---   (supplier: AdicEtaleGeometry:A1/etale-site)
--- AdicSpace.ProEtale.IsSurjective: not stated here; needs the underlying spaces of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- ProEtale.test_const_etale: not stated here; needs the small étale site `X_ét` (supplier:
---   AdicEtaleGeometry:A1/etale-site) [degenerate test]
--- ProEtale.test_kummer_tower: not stated here; needs the anchor's adic spaces
---   `Spa(K⟨T^{±1/p^n}⟩)` and their étale site (supplier: AdicSpaces Layer 5) [computation test]
--- ProEtale.test_kummer_not_etale: not stated here; needs the anchor's adic spaces and their étale
---   site (supplier: AdicSpaces Layer 5) [non-example test]
--- ProEtale.test_hom_const: not stated here; needs the small étale site `X_ét` (supplier:
---   AdicEtaleGeometry:A1/etale-site) [characterisation test]
-
-/-! ## AdicEtaleGeometry:A1/finite-etale-tower (definition) -/
+/-! ### T038. A1/finite-etale-tower (definition) -/
 
 /- A1/finite-etale-tower (Scholze 2013 erratum, item (1); Mathlib
 `MorphismProperty.transfiniteCompositions`): finite-étale towers in `pro-X_ét`. Their profinite
@@ -1821,49 +1223,9 @@ shadow — transfinite compositions of pullbacks of surjections of finite sets �
 A1/transfinite-tower-splitting (`TauCeti.Profinite.finiteSurjPullbacks`) and, equivariantly, in
 A1/profinite-g-sets-site (`TauCeti.ProfiniteGSet.IsGTower`). -/
 
--- AdicSpace.ProEtale.FetTower: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtale.FetTower.comp: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtale.IsFetTower: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtale.IsFetTower.of_finiteEtale_surjective: not stated here; needs `pro-X_ét`
---   (supplier: AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtale.IsFetTower.comp: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtale.IsFetTower.baseChange: not stated here; needs `pro-X_ét` and its fibre
---   products (supplier: AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtale.IsFetTower.surjective: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtale.isFetTower_iff_transfiniteCompositions: not stated here; needs `pro-X_ét`
---   (supplier: AdicEtaleGeometry:A1/pro-etale-morphism); the same shape for profinite sets is the
---   hypothesis of `TauCeti.Profinite.exists_section_of_transfiniteTower`
--- AdicSpace.ProEtale.IsFetTower.isProEtale: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtale.isFetTower_of_countable: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- FetTower.test_kummer: not stated here; needs the anchor's adic spaces and `pro-X_ét`
---   (supplier: AdicEtaleGeometry:A1/pro-etale-morphism) [computation test]
--- FetTower.test_length_le_one: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism) [degenerate test]
--- FetTower.test_open_immersion: not stated here; needs `pro-X_ét` and open subspaces of adic
---   spaces (supplier: AdicEtaleGeometry:A1/pro-etale-morphism) [non-example test]
--- FetTower.test_nonsplit_surjection: not stated here; needs `pro-X_ét` over `Spa(C, O_C)`
---   (supplier: AdicEtaleGeometry:A1/pro-etale-morphism); its profinite core is
---   `TauCeti.Profinite.exists_isOpenMap_surjective_not_split` with
---   `TauCeti.Profinite.exists_section_of_transfiniteTower` [non-example test]
--- FetTower.test_mathlib_shape: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism) [compatibility test]
+/-! ### T039. A1/finite-etale-tower-is-pro-etale (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/finite-etale-tower-is-pro-etale (lemma) -/
-
--- AdicSpace.ProEtale.IsFetTower.exists_finite_presentation (A1/finite-etale-tower-is-pro-etale,
---   parts (a), (b)): not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtale.isFetTower_of_countable (A1/finite-etale-tower-is-pro-etale, part (c)): not
---   stated here; needs `pro-X_ét` (supplier: AdicEtaleGeometry:A1/pro-etale-morphism)
-
-/-! ## AdicEtaleGeometry:A1/transfinite-tower-splitting (lemma) -/
+/-! ### T040. A1/transfinite-tower-splitting (lemma) -/
 
 namespace Profinite
 
@@ -1891,11 +1253,7 @@ theorem exists_isOpenMap_surjective_not_split :
 
 end Profinite
 
--- AdicSpace.ProEtale.IsFetTower.exists_section_of_point (A1/transfinite-tower-splitting,
---   consequence over `Spa(C, O_C)`): not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-site-corrected)
-
-/-! ## AdicEtaleGeometry:A1/profinite-group-tower (lemma) -/
+/-! ### T041. A1/profinite-group-tower (lemma) -/
 
 /-- A1/profinite-group-tower (a): a profinite group `G` is a transfinite tower of finite
 extensions: there are a well-ordered `J` and a decreasing family of closed normal subgroups `N_j`
@@ -1906,51 +1264,19 @@ theorem ProfiniteGrp.exists_transfiniteFiltration (G : ProfiniteGrp.{0}) :
       Antitone N ∧ N ⊥ = ⊤ ∧ (∀ j, (N j).Normal ∧ IsClosed (N j : Set G)) ∧ (⨅ j, N j) = ⊥ ∧
         ∀ j, (N j).relIndex (⨅ i ∈ Set.Iio j, N i) ≠ 0 := sorry
 
-/-! ## AdicEtaleGeometry:A1/pro-etale-base-change (lemma) -/
+/-! ### T042. A1/pro-etale-base-change (lemma) -/
 
--- AdicSpace.ProEtale.IsProEtale.baseChange, AdicSpace.ProEtale.IsEtale.baseChange,
---   AdicSpace.ProEtale.surjective_space_pullback (A1/pro-etale-base-change, Scholze 2013
---   Lemma 3.10(i)): not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
+/-! ### T043. A1/pro-etale-etale-composition (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/pro-etale-etale-composition (lemma) -/
+/-! ### T044. A1/pro-etale-quasicompact-opens (lemma) -/
 
--- AdicSpace.ProEtale.IsEtale.comp, AdicSpace.ProEtale.IsFiniteEtale.comp
---   (A1/pro-etale-etale-composition, Scholze 2013 Lemma 3.10(ii)): not stated here; needs
---   `pro-X_ét` (supplier: AdicEtaleGeometry:A1/pro-etale-morphism)
+/-! ### T045. A1/pro-etale-maps-open (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/pro-etale-quasicompact-opens (lemma) -/
+/-! ### T046. A1/pro-etale-surjective-etale-descent (lemma) -/
 
--- AdicSpace.ProEtale.exists_isEtale_range_space_eq,
---   AdicSpace.ProEtaleSite.factors_through_openSubobject_iff (A1/pro-etale-quasicompact-opens,
---   Scholze 2013 Lemma 3.10(iii)): not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
+/-! ### T047. A1/pro-etale-composition (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/pro-etale-maps-open (lemma) -/
-
--- AdicSpace.ProEtale.IsProEtale.isOpenMap (A1/pro-etale-maps-open, Scholze 2013
---   Lemma 3.10(iv)): not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
-
-/-! ## AdicEtaleGeometry:A1/pro-etale-surjective-etale-descent (lemma) -/
-
--- AdicSpace.ProEtale.IsEtale.exists_const_of_surjective (A1/pro-etale-surjective-etale-descent,
---   Scholze 2013 Lemma 3.10(v)): not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
-
-/-! ## AdicEtaleGeometry:A1/pro-etale-composition (lemma) -/
-
--- AdicSpace.ProEtale.IsProEtale.comp, AdicSpace.ProEtale.IsProEtale.exists_etale_comp_limit
---   (A1/pro-etale-composition, Scholze 2013 Lemma 3.10(vi)): not stated here; needs `pro-X_ét`
---   (supplier: AdicEtaleGeometry:A1/pro-etale-morphism)
-
-/-! ## AdicEtaleGeometry:A1/etale-locally-finitely-many-components (lemma) -/
-
--- AdicSpace.EtaleSite.finite_connectedComponents_of_affinoid
---   (A1/etale-locally-finitely-many-components): not stated here; needs the anchor's adic
---   spaces and `X_ét` (supplier: AdicEtaleGeometry:A1/etale-site). Its affinoid core is
---   `TauCeti.Huber.finite_connectedComponents_spa` and
---   `TauCeti.Huber.isClopen_spa_iff_exists_isIdempotentElem` below.
+/-! ### T048. A1/etale-locally-finitely-many-components (lemma) -/
 
 namespace Huber
 
@@ -1975,81 +1301,23 @@ end Components
 
 end Huber
 
-/-! ## AdicEtaleGeometry:A1/pro-etale-finite-limits (lemma) -/
+/-! ### T049. A1/pro-etale-finite-limits (lemma) -/
 
--- AdicSpace.ProEtaleSite.hasEqualizers, AdicSpace.ProEtaleSite.hasPullbacks
---   (A1/pro-etale-finite-limits, Scholze 2013 Lemma 3.10(vii)): not stated here; needs
---   `X_proét` (supplier: AdicEtaleGeometry:A1/pro-etale-site-corrected)
+/-! ### T050. A1/etale-over-tower-swap (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/etale-over-tower-swap (lemma) -/
+/-! ### T051. A1/corrected-covers-pretopology (lemma) -/
 
--- AdicSpace.ProEtale.IsFetTower.exists_swap_etale (A1/etale-over-tower-swap): not stated here;
---   needs `pro-X_ét` (supplier: AdicEtaleGeometry:A1/pro-etale-morphism)
-
-/-! ## AdicEtaleGeometry:A1/corrected-covers-pretopology (lemma) -/
-
--- AdicSpace.ProEtaleSite.coveringPretopology (A1/corrected-covers-pretopology, Scholze 2013
---   erratum): not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-site-corrected). Its equivariant profinite counterpart is
---   `TauCeti.ProfiniteGSet.pretopology`.
-
-/-! ## AdicEtaleGeometry:A1/pro-etale-site-corrected (construction) -/
+/-! ### T052. A1/pro-etale-site-corrected (construction) -/
 
 /- A1/pro-etale-site-corrected (Scholze 2013, Definition 3.9 with the erratum's corrected
 coverings): the full subcategory of `pro-X_ét` on objects pro-étale over `X`, with the
 Grothendieck topology `Pretopology.toGrothendieck` of the corrected coverings. -/
 
--- AdicSpace.ProEtaleSite: not stated here; needs `pro-X_ét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtaleSite.topology: not stated here; needs `X_proét` and its fibre products
---   (supplier: AdicEtaleGeometry:A1/pro-etale-finite-limits)
--- AdicSpace.ProEtaleSite.mem_topology_iff: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtaleSite.isCovering_of_etale: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtaleSite.isCovering_of_isFetTower: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/finite-etale-tower)
--- AdicSpace.ProEtaleSite.isCovering_of_countable: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/finite-etale-tower-is-pro-etale)
--- AdicSpace.ProEtaleSite.topology_le_printed: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism)
--- AdicSpace.ProEtaleSite.hasFiniteLimits: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-finite-limits)
--- AdicSpace.ProEtaleSite.space: not stated here; needs the underlying spaces of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.ProEtaleSite.isOpenMap_of_mem_covering: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-maps-open)
--- AdicSpace.ProEtaleSite.ne_scheme_proetale: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism); a documentation item: no identification with
---   Mathlib's `AlgebraicGeometry.Scheme.proetaleTopology` (schemes weakly étale over a base, fpqc
---   covers) is asserted
--- ProEtaleSite.test_point: not stated here; needs `X_proét` over `Spa(C, O_C)` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism); its profinite counterpart is the test
---   ProfiniteGSet.test_trivial_group [computation test]
--- ProEtaleSite.test_nonsplit_not_cover: not stated here; needs `X_proét` over `Spa(C, O_C)`
---   (supplier: AdicEtaleGeometry:A1/pro-etale-morphism); its profinite counterpart is the test
---   ProfiniteGSet.test_nonsplit [non-example test]
--- ProEtaleSite.test_countable_unchanged: not stated here; needs the anchor's adic spaces and
---   `X_proét` (supplier: AdicEtaleGeometry:A1/pro-etale-morphism) [compatibility test]
--- ProEtaleSite.test_etale_cover: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-morphism) [degenerate test]
--- ProEtaleSite.test_geometric_stalk_not_conservative: not stated here; needs `X_proét` over
---   `Spa(C, O_C)` (supplier: AdicEtaleGeometry:A1/pro-etale-morphism) [non-example test]
+/-! ### T053. A1/proetale-projection-nu (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/proetale-projection-nu (lemma) -/
+/-! ### T054. A1/nu-pullback-sections-qcqs (lemma) -/
 
--- AdicSpace.ProEtaleSite.const, AdicSpace.ProEtaleSite.const_isContinuous,
---   AdicSpace.ProEtaleSite.nuPullback (A1/proetale-projection-nu): not stated here; needs `X_ét`
---   and `X_proét` (supplier: AdicEtaleGeometry:A1/pro-etale-site-corrected)
-
-/-! ## AdicEtaleGeometry:A1/nu-pullback-sections-qcqs (lemma) -/
-
--- AdicSpace.ProEtaleSite.nuPullback_obj_eq_colimit,
---   AdicSpace.ProEtaleSite.nuPullback_fullyFaithful (A1/nu-pullback-sections-qcqs, Scholze 2013
---   Lemma 3.16 in degree 0): not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-site-corrected)
-
-/-! ## AdicEtaleGeometry:A1/profinite-g-sets-site (construction) -/
+/-! ### T055. A1/profinite-g-sets-site (construction) -/
 
 /-- A1/profinite-g-sets-site (Scholze 2013, Definition 3.4 with the erratum): the category
 `G-pfsets` of profinite sets with a continuous action of the topological group `G` and
@@ -2268,7 +1536,7 @@ example : Presieve.singleton (toPt G) ∈ pretopology G (pt G) ∧
 
 end ProfiniteGSetTests
 
-/-! ## AdicEtaleGeometry:A1/open-surjection-profinite-structure (lemma) -/
+/-! ### T056. A1/open-surjection-profinite-structure (lemma) -/
 
 namespace ProfiniteGSet
 
@@ -2285,7 +1553,7 @@ theorem exists_limit_of_isOpenMap_surjective {S S' : ProfiniteGSet G} (f : S ⟶
       (∀ i, surjPullbacks G (T.obj i).hom) ∧ Nonempty (IsLimit c) ∧
         Nonempty (c.pt ≅ Over.mk f) := sorry
 
-/-! ## AdicEtaleGeometry:A1/free-g-profinite-sections-exact (lemma) -/
+/-! ### T057. A1/free-g-profinite-sections-exact (lemma) -/
 
 /-- A1/free-g-profinite-sections-exact (Scholze 2013, Proposition 3.7(ii), first half): a
 profinite `G`-set with free action is `T × G`, `T = S/G` with trivial action. -/
@@ -2306,82 +1574,39 @@ theorem sections_exact_of_free (S : ProfiniteGSet G)
 
 end ProfiniteGSet
 
-/-! ## AdicEtaleGeometry:A1/pro-finite-etale-site-corrected (construction) -/
+/-! ### T058. A1/pro-finite-etale-site-corrected (construction) -/
 
 /- A1/pro-finite-etale-site-corrected (Scholze 2013, Definition 3.3 with the erratum): the site
 `X_profét = Pro(X_fét)` with the corrected coverings. It needs A1's finite étale site of an adic
 space; its Galois-theoretic model is `TauCeti.ProfiniteGSet` (A1/profinite-etale-galois-sets). -/
 
--- AdicSpace.ProFetSite: not stated here; needs the finite étale site `X_fét` (supplier:
---   AdicEtaleGeometry:A1/finite-etale-site)
--- AdicSpace.ProFetSite.topology: not stated here; needs the finite étale site `X_fét`
---   (supplier: AdicEtaleGeometry:A1/finite-etale-site)
--- AdicSpace.ProFetSite.toProEtaleSite: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-site-corrected)
--- AdicSpace.ProFetSite.isCovering_of_isFetTower: not stated here; needs the finite étale site
---   `X_fét` (supplier: AdicEtaleGeometry:A1/finite-etale-site)
--- AdicSpace.ProFetSite.isCovering_summands: not stated here; needs the finite étale site
---   `X_fét` (supplier: AdicEtaleGeometry:A1/finite-etale-site)
--- AdicSpace.ProFetSite.space: not stated here; needs the underlying spaces of adic spaces
---   (supplier: AdicSpaces Layer 5)
--- AdicSpace.ProFetSite.const: not stated here; needs the finite étale site `X_fét` (supplier:
---   AdicEtaleGeometry:A1/finite-etale-site)
--- ProFetSite.test_field: not stated here; needs the finite étale site of `Spa(ℚ_p, ℤ_p)`
---   (supplier: AdicEtaleGeometry:A1/finite-etale-site) [computation test]
--- ProFetSite.test_alg_closed: not stated here; needs the finite étale site of `Spa(C, C⁺)`
---   (supplier: AdicEtaleGeometry:A1/finite-etale-site) [degenerate test]
--- ProFetSite.test_summands: not stated here; needs the finite étale site `X_fét` (supplier:
---   AdicEtaleGeometry:A1/finite-etale-site); its profinite counterpart is the test
---   ProfiniteGSet.test_summands [non-example test]
--- ProFetSite.test_inclusion: not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-site-corrected) [compatibility test]
+/-! ### T059. A1/profinite-etale-galois-sets (theorem) -/
 
-/-! ## AdicEtaleGeometry:A1/profinite-etale-galois-sets (theorem) -/
+/-! ### T060. A1/proetale-profinite-etale-morphism-of-sites (lemma) -/
 
--- AdicSpace.ProFetSite.equivProfiniteGSet (A1/profinite-etale-galois-sets, Scholze 2013
---   Proposition 3.5): not stated here; needs `X_profét` and `π₁(X, x̄)` (supplier:
---   AdicEtaleGeometry:A1/finite-etale-galois-category); the target is
---   `TauCeti.ProfiniteGSet (π₁(X, x̄))` with `TauCeti.ProfiniteGSet.pretopology`
+/-! ### T061. A1/proetale-coherence (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/proetale-profinite-etale-morphism-of-sites (lemma) -/
-
--- AdicSpace.ProFetSite.isProEtale_iff_isOpenMap,
---   AdicSpace.ProFetSite.toProEtaleSite_isContinuous
---   (A1/proetale-profinite-etale-morphism-of-sites, Scholze 2013 Lemma 3.11): not stated here;
---   needs `X_profét` and `X_proét` (supplier: AdicEtaleGeometry:A1/pro-etale-site-corrected)
-
-/-! ## AdicEtaleGeometry:A1/proetale-coherence (lemma) -/
-
--- AdicSpace.ProEtaleSite.isQuasicompact_of_affinoid, AdicSpace.ProEtaleSite.isAlgebraic
---   (A1/proetale-coherence, Scholze 2013 Proposition 3.12(i)–(iii)): not stated here; needs
---   `X_proét` (supplier: AdicEtaleGeometry:A1/pro-etale-site-corrected) and algebraic topoi
---   (supplier: DiamondsAndVStacks:D0/quasicompact-objects-in-a-topos)
-
-/-! ## AdicEtaleGeometry:A1/proetale-quasicompactness-detection (lemma) -/
+/-! ### T062. A1/proetale-quasicompactness-detection (lemma) -/
 
 -- AdicSpace.ProEtaleSite.isQuasicompact_iff, AdicSpace.ProEtaleSite.isQuasiseparated_iff
 --   (A1/proetale-quasicompactness-detection, Scholze 2013 Proposition 3.12(iv)–(vii)): not
---   stated here; needs `X_proét` (supplier: AdicEtaleGeometry:A1/pro-etale-site-corrected)
+--   stated here; needs `X_proét` (supplier: T052 (A1/pro-etale-site-corrected))
 
-/-! ## AdicEtaleGeometry:A1/proetale-fibre-morphism-of-topoi (lemma) -/
+/-! ### T063. A1/proetale-fibre-morphism-of-topoi (lemma) -/
 
 -- AdicSpace.ProEtaleSite.geometricFibre, AdicSpace.ProEtaleSite.pointPullback
 --   (A1/proetale-fibre-morphism-of-topoi, Scholze 2013 Proposition 3.13, first sentence): not
 --   stated here; needs `X_proét` and geometric points (supplier:
---   AdicEtaleGeometry:A1/etale-site-and-geometric-points); the target site is
+--   T027 (A1/etale-site-and-geometric-points)); the target site is
 --   `TauCeti.ProfiniteGSet G_x` with `TauCeti.ProfiniteGSet.pretopology`
 
-/-! ## AdicEtaleGeometry:A1/proetale-fibre-conservativity (lemma) -/
+/-! ### T064. A1/proetale-fibre-conservativity (lemma) -/
 
 -- AdicSpace.ProEtaleSite.eq_zero_of_forall_pointPullback_eq_zero
 --   (A1/proetale-fibre-conservativity, Scholze 2013 Proposition 3.13, second sentence): not
---   stated here; needs `X_proét` (supplier: AdicEtaleGeometry:A1/proetale-fibre-morphism-of-topoi)
+--   stated here; needs `X_proét` (supplier: T063 (A1/proetale-fibre-morphism-of-topoi))
 
-/-! ## AdicEtaleGeometry:A1/proetale-topos-enough-points (lemma) -/
-
--- AdicSpace.ProEtaleSite.hasEnoughPoints (A1/proetale-topos-enough-points, erratum item (2);
---   Mathlib `GrothendieckTopology.HasEnoughPoints`): not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-site-corrected). Its `G-pfsets` counterpart is stated below.
+/-! ### T065. A1/proetale-topos-enough-points (lemma) -/
 
 /-- A1/proetale-topos-enough-points (the same for `G-pfsets`): the site of profinite `G`-sets with
 corrected coverings has enough points (Deligne, SGA 4 VI 9.0; the points are not identified). -/
@@ -2389,38 +1614,21 @@ theorem ProfiniteGSet.hasEnoughPoints (G : Type) [Group G] [TopologicalSpace G]
     [IsTopologicalGroup G] [CompactSpace G] [T2Space G] [TotallyDisconnectedSpace G] :
     GrothendieckTopology.HasEnoughPoints.{0} (ProfiniteGSet.pretopology G).toGrothendieck := sorry
 
-/-! ## AdicEtaleGeometry:A1/proetale-slice (lemma) -/
+/-! ### T066. A1/proetale-slice (lemma) -/
 
--- AdicSpace.ProEtaleSite.overEquiv (A1/proetale-slice; Mathlib `GrothendieckTopology.over`):
---   not stated here; needs `X_proét` (supplier: AdicEtaleGeometry:A1/pro-etale-site-corrected)
-
-/-! ## AdicEtaleGeometry:A1/etale-descent-along-algebraic-extension (lemma) -/
+/-! ### T067. A1/etale-descent-along-algebraic-extension (lemma) -/
 
 -- AdicSpace.EtaleSite.fieldColimitEquiv (A1/etale-descent-along-algebraic-extension): not
---   stated here; needs the anchor's adic spaces locally of finite type over `Spa(K, K⁺)`, their
+--   stated here; needs `AdicSpaces`'s adic spaces locally of finite type over `Spa(K, K⁺)`, their
 --   fibre products and étale sites (supplier: AdicSpaces Layer 5)
 
-/-! ## AdicEtaleGeometry:A1/proetale-field-extension-slice (theorem) -/
+/-! ### T068. A1/proetale-field-extension-slice (theorem) -/
 
--- AdicSpace.ProEtaleSite.fieldExtensionOverEquiv (A1/proetale-field-extension-slice, Scholze
---   2013 Proposition 3.15): not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-site-corrected)
+/-! ### T069. A1/profinite-set-objects (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/profinite-set-objects (lemma) -/
+/-! ### T070. A1/profinite-galois-cover-is-covering (lemma) -/
 
--- AdicSpace.ProEtaleSite.prodProfinite, AdicSpace.ProEtaleSite.homProdProfiniteEquiv
---   (A1/profinite-set-objects): not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-site-corrected). Part (d) rests on
---   `TauCeti.Profinite.exists_isOpenMap_surjective_not_split`.
-
-/-! ## AdicEtaleGeometry:A1/profinite-galois-cover-is-covering (lemma) -/
-
--- AdicSpace.ProEtaleSite.isFetTower_of_galois, AdicSpace.ProEtaleSite.sections_eq_invariants
---   (A1/profinite-galois-cover-is-covering): not stated here; needs `X_proét` (supplier:
---   AdicEtaleGeometry:A1/pro-etale-site-corrected). The group-theoretic input is
---   `TauCeti.ProfiniteGrp.exists_transfiniteFiltration`.
-
-/-! ## AdicEtaleGeometry:A1/huber-pair-rational-site (construction) -/
+/-! ### T071. A1/huber-pair-rational-site (construction) -/
 
 open Huber in
 /-- A1/huber-pair-rational-site (api `CAff`): the category of complete Hausdorff Huber pairs
@@ -2484,7 +1692,7 @@ abbrev spaMap {R S : CAff} (f : R ⟶ S) : spa S.P.plus → spa R.P.plus :=
   Pair.Hom.spaComap (show Pair.Hom R.P S.P from f)
 
 /-- A1/huber-pair-rational-site (supporting): `φ : (A, A⁺) → (B, B⁺)` is a *rational
-localisation* of `(A, A⁺)` at `R(T/s)` (anchor Layer 3.1; Huber 1994 §1, Wedhorn Proposition
+localisation* of `(A, A⁺)` at `R(T/s)` (`AdicSpaces` Layer 3.1; Huber 1994 §1, Wedhorn Proposition
 8.2): `Spa(φ)` lands in `R(T/s)`, and every morphism of complete Huber pairs out of `(A, A⁺)` whose
 `Spa` lands in `R(T/s)` factors uniquely through `φ`. This characterises `(O(U), O⁺(U))`, the
 completed `A⟨T/s⟩` with the integral closure of the image of `A⁺[T/s]`, up to unique isomorphism. -/
@@ -2583,11 +1791,6 @@ def affineLine : CAff where
 /-- A1/huber-pair-rational-site (api `CAff.O`, representability): `𝒪 ≅ Hom((ℤ[T], ℤ), −)`. -/
 theorem O_iso_yoneda : Nonempty (O ≅ yoneda.obj (op affineLine)) := sorry
 
--- CAff.isSheafAt_O_iff_isSheafyPair: not stated here; needs the anchor's sheafiness predicate
---   `Huber.IsSheafyPair` of complete Tate pairs (supplier: AdicSpaces Layer 4). The sheaf
---   condition of `𝒪` at the rational coverings of `(A, A⁺)` is stated in the tests
---   CAff.test_O_sheafy and CAff.test_rost with `Presieve.IsSheafFor CAff.O`.
-
 end CAff
 
 section CAffTests
@@ -2596,7 +1799,7 @@ open Huber CAff
 
 /- The Laurent covering `{|f| ≤ |ϖ|}, {|ϖ| ≤ |f|}` of a complete Tate pair is a rational covering;
 for `(ℚ_p⟨T⟩, ℤ_p⟨T⟩)`, `f = T`, `ϖ = p`. The identification `O(U_1) = ℚ_p⟨T/p⟩`,
-`O(U_2) = ℚ_p⟨T, p/T⟩`, `O(U_1 ∩ U_2) = ℚ_p⟨T/p, p/T⟩` needs the anchor's rational localisations
+`O(U_2) = ℚ_p⟨T, p/T⟩`, `O(U_1 ∩ U_2) = ℚ_p⟨T/p, p/T⟩` needs `AdicSpaces`'s rational localisations
 as Huber pairs (AdicSpaces Layer 3). -/
 open scoped Classical in
 -- test CAff.test_laurent_cover (computation) [A1/huber-pair-rational-site]
@@ -2607,7 +1810,7 @@ example (R : CAff) [IsTateRing R.A] (f ϖ : R.A) (hϖ : IsPseudoUniformizer ϖ) 
 example (R : CAff) : IsRationalCovering R (n := 0) ![] ![] ↔ Subsingleton R.A := sorry
 
 /- For a complete strongly noetherian Tate pair, `𝒪` satisfies the sheaf condition for every
-rational covering family (Huber's theorem, anchor Layer 4); the quantifier over `R` includes all
+rational covering family (Huber's theorem, `AdicSpaces` Layer 4); the quantifier over `R` includes all
 rational localisations. -/
 -- test CAff.test_O_sheafy (compatibility) [A1/huber-pair-rational-site]
 example (R : CAff) [IsTateRing R.A] [IsStronglyNoetherian R.A] (n : ℕ) (T : Fin n → Finset R.A)
@@ -2637,7 +1840,7 @@ example (P : CAffᵒᵖᵒᵖ ⥤ Type) :
 
 end CAffTests
 
-/-! ## AdicEtaleGeometry:A1/generalized-adic-presentation (construction) -/
+/-! ### T072. A1/generalized-adic-presentation (construction) -/
 
 namespace YonedaAdicSpace
 
@@ -2746,40 +1949,30 @@ def space : YonedaAdicSpace ⥤ TopCat.{1} := sorry
 theorem space_ofSpaY (R : CAff) :
     Nonempty (space.obj (ofSpaY R) ≃ₜ ULift.{1} (ValuationSpectrum.spa R.P.plus)) := sorry
 
--- YonedaAdicSpace.ofAdicSpace: not stated here; needs the anchor's category of adic spaces
---   (supplier: AdicSpaces Layer 5)
-
 end YonedaAdicSpace
 
 section YonedaAdicSpaceTests
 
 open CAff YonedaAdicSpace
 
--- test YonedaAdicSpace.test_zero_pair (degenerate) [A1/generalized-adic-presentation]
+-- test YonedaAdicSpace.test_zero_pair (degenerate) [T077 (A1/generalized-adic-presentation)]
 example : (∀ R : CAff, Subsingleton R.A → Nonempty (IsInitial (spaY R))) ∧
     ∀ F : Sheaf ratTopology (Type 1), Nonempty (IsInitial F) → IsYonedaAdic F := sorry
 
--- YonedaAdicSpace.test_open_disc: not stated here; needs the rational localisations
---   `ℚ_p⟨T, Tⁿ/p⟩` as complete Huber pairs (supplier: AdicSpaces Layer 3) [computation test]
-
 /- `Hom(F, Spa^Y(ℤ[T], ℤ))` is the sheafified `𝒪` evaluated on `F`. -/
--- test YonedaAdicSpace.test_affine_line (characterisation) [A1/generalized-adic-presentation]
+-- test YonedaAdicSpace.test_affine_line (characterisation) [T077 (A1/generalized-adic-presentation)]
 example (F : YonedaAdicSpace) : Nonempty (globalFunctions F ≃
     (F.obj ⟶ (presheafToSheaf ratTopology (Type 1)).obj (O ⋙ uliftFunctor.{1}))) := sorry
 
 /- Rost's complete Tate pair (Hansen–Kedlaya, Example 6.28): `T ↦ X_3` and `T ↦ 0` give distinct
 morphisms `(ℤ[T], ℤ) → (A, A⁺)` inducing the same morphism `Spa^Y(A, A⁺) → Spa^Y(ℤ[T], ℤ)`. -/
--- test YonedaAdicSpace.test_rost_not_faithful (non-example) [A1/generalized-adic-presentation]
+-- test YonedaAdicSpace.test_rost_not_faithful (non-example) [T077 (A1/generalized-adic-presentation)]
 example : ∃ (R : CAff) (φ ψ : affineLine ⟶ R), Huber.IsTateRing R.A ∧ φ ≠ ψ ∧
     spaYFunctor.map φ.op = spaYFunctor.map ψ.op := sorry
 
--- YonedaAdicSpace.test_sheafy: not stated here; needs the anchor's adic space
---   `Spa(ℚ_p⟨T⟩, ℤ_p⟨T⟩)` and `YonedaAdicSpace.ofAdicSpace` (supplier: AdicSpaces Layer 5)
---   [compatibility test]
-
 end YonedaAdicSpaceTests
 
-/-! ## AdicEtaleGeometry:A1/yoneda-adic-open-immersions (lemma) -/
+/-! ### T073. A1/yoneda-adic-open-immersions (lemma) -/
 
 namespace YonedaAdicSpace
 
@@ -2819,28 +2012,13 @@ instance IsOpenImmersion.isStableUnderComposition : IsOpenImmersion.IsStableUnde
 
 end YonedaAdicSpace
 
-/-! ## AdicEtaleGeometry:A1/yoneda-adic-ind-ringed-description (theorem) -/
+/-! ### T074. A1/yoneda-adic-ind-ringed-description (theorem) -/
 
--- YonedaAdicSpace.equivIndRinged (A1/yoneda-adic-ind-ringed-description, Berkeley Lectures
---   Proposition 3.5.3): not stated here; needs the category `(V)_ind` of spaces with a sheaf of
---   ind-topological rings and valuations, in no library (supplier:
---   AdicEtaleGeometry:A1/yoneda-adic-ind-ringed-description). Its consequence
---   `|Spa^Y(A, A⁺)| = Spa(A, A⁺)` is `TauCeti.YonedaAdicSpace.space_ofSpaY`.
+/-! ### T075. A1/maps-from-adic-spaces-to-yoneda-affinoids (lemma) -/
 
-/-! ## AdicEtaleGeometry:A1/maps-from-adic-spaces-to-yoneda-affinoids (lemma) -/
+/-! ### T076. A1/adic-spaces-in-yoneda-adic-spaces (theorem) -/
 
--- YonedaAdicSpace.homOfAdicSpaceSpaYEquiv (A1/maps-from-adic-spaces-to-yoneda-affinoids,
---   Kedlaya–Liu Lemma 8.2.9): not stated here; needs the anchor's category of adic spaces
---   (supplier: AdicSpaces Layer 5). On `Spa^Y` of a pair it is
---   `TauCeti.YonedaAdicSpace.homSpaYEquiv`.
-
-/-! ## AdicEtaleGeometry:A1/adic-spaces-in-yoneda-adic-spaces (theorem) -/
-
--- YonedaAdicSpace.ofAdicSpace_fullyFaithful, YonedaAdicSpace.ofAdicSpace_spa
---   (A1/adic-spaces-in-yoneda-adic-spaces): not stated here; needs the anchor's category of adic
---   spaces (supplier: AdicSpaces Layer 5)
-
-/-! ## AdicEtaleGeometry:A1/yoneda-adic-analytic-tate-local (lemma) -/
+/-! ### T077. A1/yoneda-adic-analytic-tate-local (lemma) -/
 
 namespace YonedaAdicSpace
 
@@ -2862,13 +2040,9 @@ theorem exists_tate_cover_spaAnalytic (R : CAff) :
       ∀ (k : Fin n) (R' : CAff) (φ : R ⟶ R'), IsRationalLocalization φ (T k) (s k) →
         IsTateRing R'.A := sorry
 
--- YonedaAdicSpace.IsAnalytic.exists_tate_cover, YonedaAdicSpace.restrictTate_fullyFaithful
---   (A1/yoneda-adic-analytic-tate-local (a), (c)): not stated here; need the points `|F|` of a
---   Yoneda-adic space (supplier: AdicEtaleGeometry:A1/yoneda-adic-ind-ringed-description)
-
 end YonedaAdicSpace
 
-/-! ## AdicEtaleGeometry:A1/yoneda-adic-fibre-products (lemma) -/
+/-! ### T078. A1/yoneda-adic-fibre-products (lemma) -/
 
 namespace YonedaAdicSpace
 
@@ -2876,7 +2050,7 @@ open CAff Huber
 
 /-- A1/yoneda-adic-fibre-products (affinoid case): for adic maps of complete pairs over a complete
 Tate pair `(A, A⁺)`, `Spa^Y(B) ×_{Spa^Y(A)} Spa^Y(C) ≅ Spa^Y(B ⊗̂_A C)` for the completed tensor
-product of AdicSpacesPartII:R0/completed-tensor-product (the prelude's
+product of AdicSpacesPartII R0 (completed tensor product) (the prelude's
 `Huber.Pair.completedTensor`), with no sheafiness assumption. -/
 theorem spaYPullbackIso {A B C : Type} [CommRing A] [UniformSpace A] [IsUniformAddGroup A]
     [IsTopologicalRing A] [IsTateRing A] [CompleteSpace A] [T2Space A] [CommRing B]
@@ -2893,13 +2067,7 @@ theorem spaYPullbackIso {A B C : Type} [CommRing A] [UniformSpace A] [IsUniformA
           Pair.Hom S U)).op) ≅
       spaY (of (Pair.completedTensor S T U hT hU))) := sorry
 
--- YonedaAdicSpace.hasPullbacks_analytic (A1/yoneda-adic-fibre-products, analytic Yoneda-adic
---   spaces): not stated here; needs the points `|F|` of a Yoneda-adic space (supplier:
---   AdicEtaleGeometry:A1/yoneda-adic-ind-ringed-description)
-
 end YonedaAdicSpace
-
-end TauCeti
 
 end
 
@@ -2908,21 +2076,11 @@ tori, ball charts and dimension -/
 
 noncomputable section
 
-namespace TauCeti
-
 open Topology UniformSpace TensorProduct ValuationSpectrum Huber
 
-/-! ## AdicEtaleGeometry:A2/supplier-contract-separated-proper-smooth (comparison) -/
+/-! ### T079. A2/supplier-contract-separated-proper-smooth (comparison) -/
 
--- AdicSpace.IsProper.iff_quasiCompact_and_existsUnique_centre: not stated here; needs the
---   category of adic spaces with fibre products and diagonals (supplier: AdicSpaces Layer 5,
---   AdicSpacesPartII:R0/fibre-products-existence), Huber's proper morphisms
---   (AdicSpacesPartII:R0/separated-proper-morphisms) and valuation rings with their centres
---   (supplier: AdicSpacesPartII:R0/adic-valuation-rings-and-centres). A2/supplier-contract-
---   separated-proper-smooth identifies these, clause by clause, as the only separated, proper
---   and partially proper morphisms AdicEtaleGeometry uses (Huber 1996, 1.3.1–1.3.10).
-
-/-! ## AdicEtaleGeometry:A2/relative-closed-polydisc (construction) -/
+/-! ### T080. A2/relative-closed-polydisc (construction) -/
 
 namespace Huber
 
@@ -2974,11 +2132,6 @@ section PolydiscAffinoid
 variable {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A]
   [IsHuberRing A] [CompleteSpace A] [T2Space A]
 
--- AdicSpace.relativePolydisc: not stated here; needs the category of adic spaces and its fibre
---   products over `Spa(ℤ, ℤ)` (supplier: AdicSpaces Layer 5,
---   AdicSpacesPartII:R0/fibre-products-existence). Its affinoid core (clause (a)) is
---   `AdicSpace.relativePolydisc_affinoid`.
-
 /-- A2/relative-closed-polydisc (affinoid core of `AdicSpace.relativePolydisc`, clause (a)): over
 an open affinoid `Spa(A, A⁺)` the relative closed unit polydisc is `Spa(A⟨T⟩, A⁺⟨T⟩)`; this is
 its complete Huber pair, with plus ring `A⁺⟨T⟩` (`Huber.polydiscPlus`). -/
@@ -2986,9 +2139,6 @@ def relativePolydisc_affinoid (S : Pair A) (n : ℕ) :
     Pair (restrictedMvPowerSeriesCompletion n A) where
   plus := polydiscPlus S n
   isRingOfIntegralElements := (restrictedPowerSeries_plus_isIntegrallyClosed S n).1
-
--- AdicSpace.relativePolydisc.proj: not stated here; needs morphisms of adic spaces (supplier:
---   AdicSpaces Layer 5). Its affinoid core is `AdicSpace.relativePolydisc.proj_affinoid`.
 
 /-- A2/relative-closed-polydisc (affinoid core of `AdicSpace.relativePolydisc.proj`): the
 structure morphism `(A, A⁺) → (A⟨T⟩, A⁺⟨T⟩)`, whose `Spa` is the projection `π`. -/
@@ -2999,19 +2149,11 @@ def relativePolydisc.proj_affinoid (S : Pair A) (n : ℕ) :
   map_mem_plus a ha :=
     Subring.le_topologicalClosure _ (Subring.subset_closure (Or.inl ⟨a, ha, rfl⟩))
 
--- AdicSpace.relativePolydisc.coord: not stated here; needs the sheaf `𝒪⁺` of an adic space
---   (supplier: AdicSpaces Layer 5). Its affinoid core is
---   `AdicSpace.relativePolydisc.coord_affinoid`.
-
 /-- A2/relative-closed-polydisc (affinoid core of `AdicSpace.relativePolydisc.coord`): the
 coordinate `Tᵢ` lies in the plus ring `A⁺⟨T⟩` of the chart. -/
 def relativePolydisc.coord_affinoid (S : Pair A) (n : ℕ) (i : Fin n) :
     (relativePolydisc_affinoid S n).plus :=
   ⟨polydiscVar n A i, Subring.le_topologicalClosure _ (Subring.subset_closure (Or.inr ⟨i, rfl⟩))⟩
-
--- AdicSpace.relativePolydisc.homEquiv: not stated here; needs morphisms of adic spaces over `X`
---   and `𝒪⁺_Z(Z)` (supplier: AdicSpaces Layer 5). Its affinoid core is
---   `AdicSpace.relativePolydisc.homEquiv_affinoid`.
 
 section HomEquiv
 
@@ -3036,19 +2178,10 @@ theorem relativePolydisc.homEquiv_affinoid_apply (z : Pair.Hom S U) (n : ℕ)
 
 end HomEquiv
 
--- AdicSpace.relativePolydisc.affinoidChart: not stated here; needs `Spa` of a sheafy pair as an
---   adic space and open subspaces (supplier: AdicSpaces Layer 5); the chart it identifies is
---   `AdicSpace.relativePolydisc_affinoid`, with coordinates
---   `AdicSpace.relativePolydisc.coord_affinoid`.
-
--- AdicSpace.relativePolydisc.baseChangeIso: not stated here; needs fibre products of adic spaces
---   (supplier: AdicSpacesPartII:R0/fibre-products-existence). Its affinoid core is
---   `AdicSpace.relativePolydisc.baseChangeIso_affinoid`.
-
 /-- A2/relative-closed-polydisc (affinoid core of `AdicSpace.relativePolydisc.baseChangeIso`,
 clause (c)): for a continuous `A → A'` of complete Huber rings, `A' ⊗̂_A A⟨T⟩ ≅ A'⟨T⟩` as
 topological rings, compatibly with the coordinates. The completed tensor product is the
-stand-in `Huber.CompletedTensor` of AdicSpacesPartII:R0/completed-tensor-product. -/
+interface form `Huber.CompletedTensor` of AdicSpacesPartII R0 (completed tensor product). -/
 theorem relativePolydisc.baseChangeIso_affinoid {A' : Type*} [CommRing A'] [UniformSpace A']
     [IsUniformAddGroup A'] [IsTopologicalRing A'] [IsHuberRing A'] [CompleteSpace A']
     [T2Space A'] [Algebra A A'] (hφ : Continuous (algebraMap A A')) (n : ℕ) :
@@ -3057,10 +2190,6 @@ theorem relativePolydisc.baseChangeIso_affinoid {A' : Type*} [CommRing A'] [Unif
       Continuous e ∧ Continuous e.symm ∧
         ∀ i, e (Pair.completedTensor.tmul A A' _ (1 ⊗ₜ polydiscVar n A i)) =
           polydiscVar n A' i := sorry
-
--- AdicSpace.relativePolydisc.addIso: not stated here; needs fibre products of adic spaces
---   (supplier: AdicSpacesPartII:R0/fibre-products-existence). Its affinoid core is
---   `AdicSpace.relativePolydisc.addIso_affinoid`.
 
 /-- A2/relative-closed-polydisc (affinoid core of `AdicSpace.relativePolydisc.addIso`, clause
 (c)): `A⟨T₁, …, T_m⟩ ⊗̂_A A⟨T'₁, …, T'_n⟩ ≅ A⟨T₁, …, T_{m+n}⟩` as topological rings, the
@@ -3074,25 +2203,6 @@ theorem relativePolydisc.addIso_affinoid (m n : ℕ) :
         ∀ j, e (Pair.completedTensor.tmul A _ _ (1 ⊗ₜ polydiscVar n A j)) =
           polydiscVar (m + n) A (Fin.natAdd m j) := sorry
 
--- AdicSpace.relativePolydisc.smooth: not stated here; needs Huber's smooth morphisms of adic
---   spaces and continuous differentials (supplier: AdicSpacesPartII:R0/smooth-morphism,
---   AdicSpacesPartII:R0/restricted-power-series-smooth)
--- AdicSpace.relativePolydisc.quasiCompact_proj: not stated here; needs quasi-compact and
---   separated morphisms of adic spaces (supplier: AdicSpaces Layer 5,
---   AdicSpacesPartII:R0/separated-proper-morphisms)
--- AdicSpace.relativePolydisc.isLocallyNoetherian: not stated here; needs locally noetherian adic
---   spaces (supplier: AdicSpacesPartII:R0/locally-noetherian-adic-space). Its affinoid core is
---   Tau Ceti's instance `Huber.IsStronglyNoetherian.restrictedMvPowerSeriesCompletion`.
--- AdicSpace.relativePolydisc.isAnalytic: not stated here; needs analytic adic spaces (supplier:
---   AdicEtaleGeometry:A0/analytic-locus-restriction). Its affinoid core is Tau Ceti's instance
---   `IsTateRing (restrictedMvPowerSeriesCompletion n A)` for a Tate ring `A`.
--- AdicSpace.relativePolydisc.isOpenImmersion_affineSpace: not stated here; needs the relative
---   analytification `A^n_ℤ ×_{Spec ℤ} X` (supplier:
---   AdicSpacesPartII:R1/scheme-fibre-product-analytification)
--- AdicSpace.relativePolydisc_spa_field: not stated here; needs `Spa` of a field as an adic
---   space (supplier: AdicSpaces Layer 5). Its affinoid core is
---   `AdicSpace.relativePolydisc_spa_field_affinoid`.
-
 /-- A2/relative-closed-polydisc (affinoid core of `AdicSpace.relativePolydisc_spa_field`): over
 `Spa(K, K°)` for a complete nonarchimedean field `K`, the points of the chart
 `Spa(K⟨T⟩, K°⟨T⟩)` are, through the completion map, exactly Tau Ceti's `closedPolydisc n K`
@@ -3103,9 +2213,6 @@ theorem relativePolydisc_spa_field_affinoid (K : Type*) [NontriviallyNormedField
         weightedRestrictedSubring (fun _ : Fin n ↦ ({1} : Set K)) isWeightFamily_one_weight →+*
           restrictedMvPowerSeriesCompletion n K) '' spa (polydiscPlus (Pair.powerBounded K) n) =
       closedPolydisc n K := sorry
-
--- AdicSpace.relativePolydisc.zeroIso: not stated here; needs adic spaces (supplier: AdicSpaces
---   Layer 5). Its affinoid core is `AdicSpace.relativePolydisc.zeroIso_affinoid`.
 
 /-- A2/relative-closed-polydisc (affinoid core of `AdicSpace.relativePolydisc.zeroIso`): for a
 complete Huber pair, `A → A⟨⟩` is a homeomorphic ring isomorphism carrying `A⁺` onto
@@ -3131,10 +2238,6 @@ example (S : Pair A) :
     polydiscPlus S 0 = S.plus.map (algebraMap A (restrictedMvPowerSeriesCompletion 0 A)) :=
   sorry
 
--- relativePolydisc_test_notAffineLine: not stated here; needs the adic affine line
---   `Spa(ℤ[T], ℤ) ×_{Spa ℤ} Spa K`, a non-quasi-compact adic space (supplier: AdicSpaces
---   Layer 5, AdicSpacesPartII:R1/analytification-functor) [non-example test]
-
 /- For `K⁺ ⊊ K°` the chart `Spa(K⟨T⟩, K⁺⟨T⟩)` strictly contains `Spa(K⟨T⟩, K°⟨T⟩)`. -/
 -- test relativePolydisc_test_rankTwoPlus (non-example) [A2/relative-closed-polydisc]
 example (K : Type*) [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteSpace K]
@@ -3157,15 +2260,12 @@ example (S : Pair A) (n : ℕ) (i : Fin n) :
 
 end PolydiscAffinoid
 
-/-! ## AdicEtaleGeometry:A2/relative-torus (construction) -/
+/-! ### T081. A2/relative-torus (construction) -/
 
 section TorusAffinoid
 
 variable {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A]
   [IsHuberRing A] [CompleteSpace A] [T2Space A]
-
--- AdicSpace.relativeTorus: not stated here; needs open subspaces of adic spaces (supplier:
---   AdicSpaces Layer 5). Its affinoid core is `AdicSpace.relativeTorus_affinoid`.
 
 /-- A2/relative-torus (affinoid core of `AdicSpace.relativeTorus`): over `Spa(A, A⁺)` the relative
 torus is the rational subset `R(1/(T₁ ⋯ Tₙ)) = {|T₁ ⋯ Tₙ| ≥ 1} = {|T₁| = ⋯ = |Tₙ| = 1}` of the
@@ -3173,14 +2273,6 @@ chart `Spa(A⟨T⟩, A⁺⟨T⟩)`, with coordinate ring `A⟨T^{±1}⟩`. -/
 def relativeTorus_affinoid (S : Pair A) (n : ℕ) :
     Set (ValuationSpectrum (restrictedMvPowerSeriesCompletion n A)) :=
   rationalSubset (polydiscPlus S n) {1} (∏ i, polydiscVar n A i)
-
--- AdicSpace.relativeTorus.ι: not stated here; needs open immersions of adic spaces (supplier:
---   AdicSpaces Layer 5); over an affinoid it is the inclusion of the rational subset
---   `AdicSpace.relativeTorus_affinoid`, open by Tau Ceti's
---   `ValuationSpectrum.isOpen_val_preimage_rationalSubset`.
--- AdicSpace.relativeTorus.homEquiv: not stated here; needs morphisms of adic spaces over `X`
---   (supplier: AdicSpaces Layer 5). Its affinoid core is
---   `AdicSpace.relativeTorus.homEquiv_affinoid`.
 
 /-- A2/relative-torus (affinoid core of `AdicSpace.relativeTorus.homEquiv`, clause (a)): a point
 `h : (A⟨T⟩, A⁺⟨T⟩) → (C, C⁺)` of the polydisc with values in a complete pair factors through the
@@ -3191,20 +2283,6 @@ theorem relativeTorus.homEquiv_affinoid {C : Type*} [CommRing C] [UniformSpace C
     (∀ v : spa U.plus, (h.spaComap v).1 ∈ relativeTorus_affinoid S n) ↔
       ∀ i, ∃ u : Cˣ, (u : C) = h.toRingHom (polydiscVar n A i) ∧ ((u⁻¹ : Cˣ) : C) ∈ U.plus :=
   sorry
-
--- AdicSpace.relativeTorus.affinoidChart: not stated here; needs `Spa` of a sheafy pair as an
---   adic space (supplier: AdicSpaces Layer 5); the chart is the rational subset
---   `AdicSpace.relativeTorus_affinoid`, with coordinate ring the rational localisation
---   `A⟨T⟩⟨1/(T₁ ⋯ Tₙ)⟩ = A⟨T^{±1}⟩` (Tau Ceti `PairOfDefinition.completionLocalization`).
--- AdicSpace.relativeTorus.baseChangeIso: not stated here; needs fibre products of adic spaces
---   (supplier: AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.relativeTorus.smooth: not stated here; needs Huber's smooth morphisms (supplier:
---   AdicSpacesPartII:R0/smooth-morphism)
--- AdicSpace.relativeTorus.mul: not stated here; needs group objects in adic spaces over `X`,
---   hence fibre products (supplier: AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.relativeTorus.polydiscEmbedding: not stated here; needs open immersions of adic
---   spaces (supplier: AdicSpaces Layer 5). Its affinoid core is
---   `AdicSpace.relativeTorus.polydiscEmbedding_affinoid`.
 
 open Classical in
 /-- A2/relative-torus (affinoid core of `AdicSpace.relativeTorus.polydiscEmbedding`, clause (d);
@@ -3225,20 +2303,12 @@ theorem relativeTorus.polydiscEmbedding_affinoid (S : Pair A) (n : ℕ) {ϖ : A}
             (algebraMap A (restrictedMvPowerSeriesCompletion n A) ϖ) ⊆
           relativeTorus_affinoid S n := sorry
 
--- AdicSpace.relativeTorus.iSup_translate_eq_polydisc: not stated here; needs open subspaces of
---   adic spaces and the translation `T ↦ T + 1` (supplier: AdicSpaces Layer 5). Its affinoid
---   core is `AdicSpace.relativeTorus.iSup_translate_eq_polydisc_affinoid`.
-
 /-- A2/relative-torus (affinoid core of `AdicSpace.relativeTorus.iSup_translate_eq_polydisc`,
 clause (e); ECD, proof of Proposition 24.4): the chart of `B¹` is covered by the torus
 `{|T| = 1}` and its translate `{|T − 1| = 1}`. -/
 theorem relativeTorus.iSup_translate_eq_polydisc_affinoid (S : Pair A) :
     spa (polydiscPlus S 1) = relativeTorus_affinoid S 1 ∪
       rationalSubset (polydiscPlus S 1) {1} (polydiscVar 1 A 0 - 1) := sorry
-
--- AdicSpace.relativeTorus_spa_field: not stated here; needs `Spa` of a field as an adic space
---   (supplier: AdicSpaces Layer 5). Its affinoid core is
---   `AdicSpace.relativeTorus_spa_field_affinoid`.
 
 /-- A2/relative-torus (affinoid core of `AdicSpace.relativeTorus_spa_field`, clause (c)): over
 `Spa(K, K°)` the torus is Scholze's `Tⁿ`, the points of `Spa(K⟨T⟩, K⟨T⟩°)` with `|Tᵢ| = 1`. -/
@@ -3260,10 +2330,6 @@ example (K : Type*) [NontriviallyNormedField K] [IsUltrametricDist K] [CompleteS
 
 -- test relativeTorus_test_zero (degenerate) [A2/relative-torus]
 example (S : Pair A) : relativeTorus_affinoid S 0 = spa (polydiscPlus S 0) := sorry
-
--- relativeTorus_test_notGm: not stated here; needs the analytification `(G_m)^{ad}` of a scheme,
---   a non-quasi-compact adic space (supplier: AdicSpacesPartII:R1/analytification-functor)
---   [non-example test]
 
 /- Over `ℚ_p`, `T ↦ 1 + pT` identifies `B¹` with the rational subset `{|T − 1| ≤ |p|}` of `T¹`. -/
 -- test relativeTorus_test_ballEmbedding (characterisation) [A2/relative-torus]
@@ -3291,58 +2357,20 @@ example (S : Pair A) (n : ℕ) :
 
 end TorusAffinoid
 
-/-! ## AdicEtaleGeometry:A2/smooth-morphism-ball-charts (definition) -/
+/-! ### T082. A2/smooth-morphism-ball-charts (definition) -/
 
--- AdicSpace.IsLocallyEtaleOverPolydisc: not stated here; needs morphisms of adic spaces, the
---   relative polydisc `AdicSpace.relativePolydisc` and A1's étale morphisms (supplier:
---   AdicSpaces Layer 5, AdicEtaleGeometry:A1/etale-morphism)
--- AdicSpace.IsLocallyEtaleOverPolydisc.exists_chart: not stated here; needs the same carriers
---   (supplier: AdicEtaleGeometry:A1/etale-morphism)
--- AdicSpace.IsLocallyEtaleOverPolydisc.of_isEtale: not stated here; needs A1's étale morphisms
---   (supplier: AdicEtaleGeometry:A1/etale-morphism)
--- AdicSpace.IsLocallyEtaleOverPolydisc.relativePolydisc: not stated here; needs the relative
---   polydisc and torus as adic spaces (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsLocallyEtaleOverPolydisc.comp: not stated here; needs fibre products of adic
---   spaces (supplier: AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.IsLocallyEtaleOverPolydisc.baseChange: not stated here; needs fibre products of adic
---   spaces (supplier: AdicSpacesPartII:R0/fibre-products-existence)
--- AdicSpace.IsLocallyEtaleOverPolydisc.of_isOpenImmersion_comp: not stated here; needs open
---   covers of adic spaces (supplier: AdicSpaces Layer 5)
--- AdicSpace.IsLocallyEtaleOverPolydisc.iff_smooth: not stated here; needs Huber's smooth
---   morphisms (supplier: AdicSpacesPartII:R0/smooth-morphism); it is the declaration of target
---   A2/smooth-local-ball-charts below.
--- isLocallyEtaleOverPolydisc_test_polydisc: not stated here; needs the relative polydisc and
---   torus as adic spaces (supplier: AdicSpaces Layer 5) [computation test]
--- isLocallyEtaleOverPolydisc_test_etale: not stated here; needs A1's étale morphisms (supplier:
---   AdicEtaleGeometry:A1/etale-morphism) [degenerate test]
--- isLocallyEtaleOverPolydisc_test_origin: not stated here; needs closed embeddings of adic
---   spaces (supplier: AdicSpaces Layer 5) [non-example test]
--- isLocallyEtaleOverPolydisc_test_huber: not stated here; needs Huber's smooth morphisms
---   (supplier: AdicSpacesPartII:R0/smooth-morphism) [compatibility test]
--- isLocallyEtaleOverPolydisc_test_perfectoidBase: not stated here; needs affinoid perfectoid
---   spaces (supplier: PerfectoidSpaces:P2) [characterisation test]
-
-/-! ## AdicEtaleGeometry:A2/smooth-local-ball-charts (comparison) -/
+/-! ### T083. A2/smooth-local-ball-charts (comparison) -/
 
 -- AdicSpace.IsLocallyEtaleOverPolydisc.iff_smooth (A2/smooth-local-ball-charts): not stated
 --   here; needs Huber's smooth morphisms of locally noetherian analytic adic spaces and the rank
---   of `Ω_{X/S}` (supplier: AdicSpacesPartII:R0/smooth-morphism,
---   AdicSpacesPartII:R0/smooth-differentials-locally-free) together with the ball charts of
+--   of `Ω_{X/S}` (supplier: AdicSpacesPartII R0 (smooth morphism),
+--   AdicSpacesPartII R0 (smooth differentials locally free)) together with the ball charts of
 --   A2/smooth-morphism-ball-charts. Its refinement, with `n = rank Ω_{X/S}` at `x` and `U` inside
 --   a given neighbourhood, is `AdicSpace.Smooth.exists_ballChart_rank` (same carriers).
 
-/-! ## AdicEtaleGeometry:A2/relative-toric-charts (lemma) -/
+/-! ### T084. A2/relative-toric-charts (lemma) -/
 
--- AdicSpace.Smooth.exists_relativeToricChart (A2/relative-toric-charts): not stated here; needs
---   smooth morphisms of adic spaces smooth over `Spa(K, K°)`, the relative torus and composites of
---   rational embeddings and finite étale maps (supplier: AdicSpacesPartII:R0/smooth-toric-chart,
---   AdicEtaleGeometry:A1/finite-etale-morphism)
-
-/-! ## AdicEtaleGeometry:A2/dimension-of-adic-spaces (definition) -/
-
--- AdicSpace.dim: not stated here; needs the underlying space of an adic space (supplier:
---   AdicSpaces Layer 5). It is `topologicalKrullDim |X|`; its affinoid core is
---   `AdicSpace.dim_affinoid`.
+/-! ### T085. A2/dimension-of-adic-spaces (definition) -/
 
 /-- A2/dimension-of-adic-spaces (affinoid core of `AdicSpace.dim`; Huber 1996, Definition 1.8.1):
 the dimension of `Spa(A, A⁺)` is Mathlib's `topologicalKrullDim` of Tau Ceti's `spa A⁺` with the
@@ -3351,10 +2379,6 @@ def dim_affinoid {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRin
     [IsHuberRing A] (S : Pair A) : WithBot ℕ∞ :=
   topologicalKrullDim (spa S.plus)
 
--- AdicSpace.dim_eq_iSup_specializationChain: not stated here; needs adic spaces (supplier:
---   AdicSpaces Layer 5); their underlying spaces are sober and T0, and the statement is the
---   topological core `AdicSpace.dim_eq_iSup_specializationChain_core`.
-
 /-- A2/dimension-of-adic-spaces (topological core of
 `AdicSpace.dim_eq_iSup_specializationChain`; Huber 1996, 1.8.1, as stated in Zavyalov,
 Definition 3.1): for a quasi-sober T0 space, `topologicalKrullDim` is the supremum of the lengths
@@ -3362,36 +2386,20 @@ of chains of proper specializations of points. -/
 theorem dim_eq_iSup_specializationChain_core (X : Type*) [TopologicalSpace X] [QuasiSober X]
     [T0Space X] : topologicalKrullDim X = Order.krullDim (Specialization X) := sorry
 
--- AdicSpace.IsPureDim: not stated here; needs adic spaces and their open subspaces (supplier:
---   AdicSpaces Layer 5). Its topological core is `AdicSpace.IsPureDim_core`.
-
 /-- A2/dimension-of-adic-spaces (topological core of `AdicSpace.IsPureDim`): a space is of pure
 dimension `d` if every nonempty open subset has dimension `d`. -/
 def IsPureDim_core (X : Type*) [TopologicalSpace X] (d : ℕ) : Prop :=
   ∀ U : Set X, IsOpen U → U.Nonempty → topologicalKrullDim U = (d : WithBot ℕ∞)
-
--- AdicSpace.relDim: not stated here; needs morphisms of adic spaces (supplier: AdicSpaces
---   Layer 5). Its topological core is `AdicSpace.relDim_core`.
 
 /-- A2/dimension-of-adic-spaces (topological core of `AdicSpace.relDim`): the relative dimension
 `sup_y dim f⁻¹(y)` of a map, the fibres carrying the subspace topology. -/
 def relDim_core {X Y : Type*} [TopologicalSpace X] (f : X → Y) : WithBot ℕ∞ :=
   ⨆ y, topologicalKrullDim (f ⁻¹' {y})
 
--- AdicSpace.IsPureRelDim: not stated here; needs morphisms of adic spaces (supplier: AdicSpaces
---   Layer 5). Its topological core is `AdicSpace.IsPureRelDim_core`.
-
 /-- A2/dimension-of-adic-spaces (topological core of `AdicSpace.IsPureRelDim`): every nonempty
 fibre is of pure dimension `d`. -/
 def IsPureRelDim_core {X Y : Type*} [TopologicalSpace X] (f : X → Y) (d : ℕ) : Prop :=
   ∀ y, (f ⁻¹' {y}).Nonempty → IsPureDim_core (f ⁻¹' {y}) d
-
--- AdicSpace.dim_le_of_isOpenImmersion: not stated here; needs open immersions of adic spaces
---   (supplier: AdicSpaces Layer 5). Its topological core is Mathlib's
---   `Topology.IsInducing.topologicalKrullDim_le`.
--- AdicSpace.dim_eq_iSup_of_openCover: not stated here; needs open covers of adic spaces
---   (supplier: AdicSpaces Layer 5). Its topological core is
---   `AdicSpace.dim_eq_iSup_of_openCover_core`.
 
 /-- A2/dimension-of-adic-spaces (topological core of `AdicSpace.dim_eq_iSup_of_openCover`): the
 dimension of a space is the supremum of the dimensions of the members of an open cover. -/
@@ -3399,22 +2407,12 @@ theorem dim_eq_iSup_of_openCover_core {X : Type*} [TopologicalSpace X] {ι : Typ
     (U : ι → Set X) (hU : ∀ i, IsOpen (U i)) (hcov : ⋃ i, U i = Set.univ) :
     topologicalKrullDim X = ⨆ i, topologicalKrullDim (U i) := sorry
 
--- AdicSpace.dim_spa_field: not stated here; needs `Spa` of a field as an adic space (supplier:
---   AdicSpaces Layer 5). Its affinoid core is `AdicSpace.dim_spa_field_affinoid`.
-
 /-- A2/dimension-of-adic-spaces (affinoid core of `AdicSpace.dim_spa_field`): for a complete
 rank-one field `K` and a ring of integral elements `K⁺` (a valuation ring of rank `r`),
 `dim Spa(K, K⁺) = r − 1`, written `dim + 1 = r`. -/
 theorem dim_spa_field_affinoid (K : Type*) [NontriviallyNormedField K] [IsUltrametricDist K]
     [CompleteSpace K] [IsTateRing K] (S : Pair K) :
     dim_affinoid S + 1 = ringKrullDim S.plus := sorry
-
--- AdicSpace.dim_congr_homeomorph: not stated here; needs adic spaces (supplier: AdicSpaces
---   Layer 5). Its topological core is Mathlib's `IsHomeomorph.topologicalKrullDim_eq`.
--- AdicSpace.IsPureDim.iff_localRing_dim: not stated here; needs adic spaces locally of finite
---   type over `Spa(K, K°)`, their classical points and stalks (supplier:
---   AdicSpacesPartII:R1/rigid-analytic-space). Its affinoid core is
---   `AdicSpace.IsPureDim.iff_localRing_dim_affinoid`.
 
 /-- A2/dimension-of-adic-spaces (affinoid core of `AdicSpace.IsPureDim.iff_localRing_dim`;
 Zavyalov, Lemma 3.3): for a `K`-affinoid algebra `B` (topologically of finite type over a complete
@@ -3455,19 +2453,14 @@ example {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [IsH
     dim_affinoid S = topologicalKrullDim (spa S.plus) ∧
       ∀ U : Set (spa S.plus), IsOpen U → topologicalKrullDim U ≤ dim_affinoid S := sorry
 
-/-! ## AdicEtaleGeometry:A2/relative-dimension-rank-one-fibres (lemma) -/
+/-! ### T086. A2/relative-dimension-rank-one-fibres (lemma) -/
 
 -- AdicSpace.isPureRelDim_iff_rankOneFibres (A2/relative-dimension-rank-one-fibres): not stated
 --   here; needs fibre products of adic spaces and the completed residue fields
 --   `Spa(K(s), K(s)°) → S` of rank-one points (supplier:
---   AdicSpacesPartII:R0/fibre-products-existence, AdicSpaces Layer 5)
+--   AdicSpacesPartII R0 (fibre products existence), AdicSpaces Layer 5)
 
-/-! ## AdicEtaleGeometry:A2/smooth-pure-relative-dimension (lemma) -/
-
--- AdicSpace.Smooth.isPureRelDim (A2/smooth-pure-relative-dimension): not stated here; needs
---   Huber's smooth morphisms and the rank of `Ω_{X/S}` (supplier:
---   AdicSpacesPartII:R0/smooth-morphism, AdicSpacesPartII:R0/smooth-differentials-locally-free).
---   Its affinoid core over a field is `AdicSpace.Smooth.isPureRelDim_affinoid`.
+/-! ### T087. A2/smooth-pure-relative-dimension (lemma) -/
 
 /-- A2/smooth-pure-relative-dimension (affinoid core of `AdicSpace.Smooth.isPureRelDim` for
 `B^n_K → Spa K`): over a complete rank-one field `K`, the closed polydisc
@@ -3476,11 +2469,11 @@ theorem Smooth.isPureRelDim_affinoid (K : Type*) [NontriviallyNormedField K]
     [IsUltrametricDist K] [CompleteSpace K] [IsTateRing K] (n : ℕ) :
     IsPureDim_core (spa (polydiscPlus (Pair.powerBounded K) n)) n := sorry
 
-/-! ## AdicEtaleGeometry:A2/weakly-finite-type-finite-dimension (lemma) -/
+/-! ### T088. A2/weakly-finite-type-finite-dimension (lemma) -/
 
 -- AdicSpace.relDim_lt_top_of_isWeaklyFiniteType (A2/weakly-finite-type-finite-dimension): not
 --   stated here; needs morphisms of weakly finite type between locally noetherian analytic adic
---   spaces (supplier: AdicSpacesPartII:R0/finite-type-morphism-classes). Its affinoid core is
+--   spaces (supplier: AdicSpacesPartII R0 (finite type morphism classes)). Its affinoid core is
 --   `AdicSpace.relDim_lt_top_of_isWeaklyFiniteType_affinoid`.
 
 /-- A2/weakly-finite-type-finite-dimension (affinoid core of
@@ -3494,47 +2487,36 @@ theorem relDim_lt_top_of_isWeaklyFiniteType_affinoid {A B : Type*} [CommRing A] 
     {T : Pair B} (f : Pair.Hom S T) (hf : IsTopologicallyFiniteType f.toRingHom) :
     relDim_core f.spaComap < ⊤ := sorry
 
-/-! ## AdicEtaleGeometry:A2/analytification-relative-polydisc-comparison (comparison) -/
+/-! ### T089. A2/analytification-relative-polydisc-comparison (comparison) -/
 
--- AdicSpace.relativePolydiscIsoAnalyticAffineSpaceChart
---   (A2/analytification-relative-polydisc-comparison): not stated here; needs the relative
---   analytification `A^n_A ×_{Spec A} Spa(A, A⁺)` as an adic space and its rational open
---   subspaces (supplier: AdicSpacesPartII:R1/scheme-fibre-product-analytification). On charts it
---   identifies `AdicSpace.relativePolydisc_affinoid` with the rational subset
---   `{|T₁|, …, |Tₙ| ≤ 1}` of each `Spa(A⟨ϖᵏT⟩, A⁺⟨ϖᵏT⟩)`.
-
-/-! ## AdicEtaleGeometry:A2/smooth-etale-site-compatibility (comparison) -/
+/-! ### T090. A2/smooth-etale-site-compatibility (comparison) -/
 
 -- AdicSpace.Smooth.ballCharts_mem_etaleTopology (A2/smooth-etale-site-compatibility): not stated
 --   here; needs the small étale site of an adic space and Huber's smooth morphisms (supplier:
---   AdicEtaleGeometry:A1/etale-site, AdicSpacesPartII:R0/smooth-morphism)
+--   T024 (A1/etale-site), AdicSpacesPartII R0 (smooth morphism))
 
-/-! ## AdicEtaleGeometry:A2/formal-generic-fibre-analytic-locus (comparison) -/
+/-! ### T091. A2/formal-generic-fibre-analytic-locus (comparison) -/
 
 -- FormalScheme.genericFibreIsoAnalyticLocus (A2/formal-generic-fibre-analytic-locus): not stated
 --   here; needs locally noetherian formal schemes, Huber's functors `t` and `d` and the analytic
---   locus of an adic space (supplier: AdicSpacesPartII:F0/locally-noetherian-formal-scheme,
---   AdicSpacesPartII:R2/generic-fibre-functor-d, AdicEtaleGeometry:A0/analytic-locus-restriction).
+--   locus of an adic space (supplier: AdicSpacesPartII F0 (locally noetherian formal scheme),
+--   AdicSpacesPartII R2 (generic fibre functor d), T008 (A0/analytic-locus-restriction)).
 --   On `Spf A` its content `d(Spf A) = Spa(A, A)_a`, covered by the Tate charts `R(G/g)`, is Tau
 --   Ceti's `ValuationSpectrum.spaAnalytic_eq_biUnion_rationalSubset`.
 
 end AdicSpace
 
-end TauCeti
-
 end
 
-/-! # Stage A3. The nonnoetherian affinoid étale approximation -/
+/-! ## Layer A3: The nonnoetherian affinoid étale approximation -/
 
 noncomputable section
-
-namespace TauCeti
 
 open TensorProduct Topology Filter
 
 namespace Module
 
-/-! ## AdicEtaleGeometry:A3/pseudocoherent-module (definition) -/
+/-! ### T092. A3/pseudocoherent-module (definition) -/
 
 section PseudoCoherent
 
@@ -3652,7 +2634,7 @@ example (k : Type*) [Field k] :
 example {R M : Type*} [CommRing R] [AddCommGroup M] [Module R M] [IsNoetherianRing R] :
     IsPseudoCoherent R M ⊤ ↔ Module.Finite R M := sorry
 
-/-! ## AdicEtaleGeometry:A3/pseudocoherent-two-out-of-three (lemma) -/
+/-! ### T093. A3/pseudocoherent-two-out-of-three (lemma) -/
 
 section TwoOutOfThree
 
@@ -3681,7 +2663,7 @@ theorem IsFPD.of_exact {f : M₁ →ₗ[R] M} {g : M →ₗ[R] M₂}
 
 end TwoOutOfThree
 
-/-! ## AdicEtaleGeometry:A3/koszul-regular-sequence-fpd (lemma) -/
+/-! ### T094. A3/koszul-regular-sequence-fpd (lemma) -/
 
 /-- A3/koszul-regular-sequence-fpd: for a weakly regular sequence `f₁, …, f_r` on `R` (Mathlib
 `RingTheory.Sequence.IsWeaklyRegular`), the Koszul complex resolves `R ⧸ (f)`, so `R ⧸ (f)` is
@@ -3702,7 +2684,7 @@ end Module
 
 namespace Huber
 
-/-! ## AdicEtaleGeometry:A3/natural-topology-strict-exactness (lemma) -/
+/-! ### T095. A3/natural-topology-strict-exactness (lemma) -/
 
 section NaturalTopology
 
@@ -3727,7 +2709,7 @@ complete for its natural topology whose closure is finitely generated is closed 
 Clause (a) is Mathlib's `IsModuleTopology` (every linear map out of `M` is
 continuous, `IsModuleTopology.continuous_of_linearMap`); clause (b) is the open mapping theorem
 of Tau Ceti's `TauCeti.Topology.Algebra.OpenMapping` modules; clause (f) is
-AdicSpacesPartII:R0/strict-complex-completion-exact. -/
+AdicSpacesPartII R0 (strict complex completion exact). -/
 theorem finite_submodule_isClosed {M : Type*} [AddCommGroup M] [Module A M] [TopologicalSpace M]
     [IsModuleTopology A M] (hM : IsNaturallyComplete A M) (N : Submodule A M)
     (hN : ∃ N' : Submodule A M, N'.FG ∧ (N' : Set M) = closure (N : Set M)) :
@@ -3751,7 +2733,7 @@ theorem isNaturallyComplete_of_projective {M : Type*} [AddCommGroup M] [Module A
 
 end NaturalTopology
 
-/-! ## AdicEtaleGeometry:A3/stably-pseudocoherent-module (definition) -/
+/-! ### T096. A3/stably-pseudocoherent-module (definition) -/
 
 section RatLoc
 
@@ -3762,7 +2744,7 @@ variable {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
 /-- A3/stably-pseudocoherent-module (supporting): the completed rational localisation
 `A⟨T/s⟩` of Tau Ceti (`PairOfDefinition.locUniformSpace`, `toCompletionLoc`,
 `completionLocalization`): the separated completion of `A[1/s]` for Wedhorn's localisation
-topology. When `T` generates an open ideal it is the ring `𝒪(R(T/s))` of the anchor's structure
+topology. When `T` generates an open ideal it is the ring `𝒪(R(T/s))` of `AdicSpaces`'s structure
 presheaf (AdicSpaces Layer 3); it does not depend on the ring of integral elements. -/
 def ratLoc : Type _ :=
   @UniformSpace.Completion (Localization.Away s) (P.locUniformSpace T s _ hden)
@@ -3879,15 +2861,6 @@ theorem IsStablyPseudoCoherent.of_isStronglyNoetherian [IsStronglyNoetherian A]
 
 end StablyPseudoCoherentComplete
 
--- Huber.IsStablyPseudoCoherent.baseChange: not stated here; needs the anchor's sheafiness
---   predicate `Huber.IsSheafyPair` (supplier: AdicSpaces Layer 4). Its ring-level core, base
---   change along a `2`-pseudoflat rational localisation, is
---   `Huber.IsPseudoFlat.baseChange_isStablyPseudoCoherent`; the sousperfectoid case is
---   `Huber.isPseudoFlat_ratLoc_sousperfectoid`.
--- Huber.IsStablyPseudoCoherent.of_exact: not stated here; needs the anchor's sheafiness predicate
---   `Huber.IsSheafyPair` (supplier: AdicSpaces Layer 4). Its ring-level inputs are
---   `Module.IsPseudoCoherent.of_exact` and `Huber.exact_tensor_ratLoc_sousperfectoid`.
-
 section StablyTests
 
 variable {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A]
@@ -3908,7 +2881,7 @@ example [IsStronglyNoetherian A] {M : Type*} [AddCommGroup M] [Module A M] :
 
 end StablyTests
 
-/-! ## AdicEtaleGeometry:A3/pseudoflat-module (definition) -/
+/-! ### T097. A3/pseudoflat-module (definition) -/
 
 section PseudoFlat
 
@@ -4068,7 +3041,7 @@ example :
 
 end PadicTests
 
-/-! ## AdicEtaleGeometry:A3/restricted-power-series-pro-projective (lemma) -/
+/-! ### T098. A3/restricted-power-series-pro-projective (lemma) -/
 
 section ProProjective
 
@@ -4104,12 +3077,7 @@ theorem tensor_restrictedPowerSeries_equiv {M : Type*} [AddCommGroup M] [Module 
 
 end ProProjective
 
-/-! ## AdicEtaleGeometry:A3/simple-laurent-strict-multiplication (lemma) -/
-
--- Huber.isStrictMap_mul_X_sub: not stated here; needs the anchor's sheafiness predicate
---   `Huber.IsSheafyPair` (supplier: AdicSpaces Layer 4). The sousperfectoid case (sousperfectoid
---   rings are sheafy, AdicSpacesPartII:R5/sousperfectoid-sheafy), which is the one A3 uses, is
---   `Huber.isStrictMap_mul_X_sub_sousperfectoid`.
+/-! ### T099. A3/simple-laurent-strict-multiplication (lemma) -/
 
 section SimpleLaurent
 
@@ -4145,11 +3113,7 @@ abbrev simpleLaurentEq (f : A) : Type _ :=
 
 end SimpleLaurent
 
-/-! ## AdicEtaleGeometry:A3/simple-laurent-pseudoflat (lemma) -/
-
--- Huber.isPseudoFlat_simpleLaurent: not stated here; needs the anchor's sheafiness predicate
---   `Huber.IsSheafyPair` (supplier: AdicSpaces Layer 4); the sousperfectoid case is
---   `Huber.isPseudoFlat_simpleLaurent_sousperfectoid`.
+/-! ### T100. A3/simple-laurent-pseudoflat (lemma) -/
 
 /-- A3/simple-laurent-pseudoflat (core): over a complete sousperfectoid Tate ring, the three
 rings `B₁`, `B₂`, `B₁₂` of a simple Laurent covering are `2`-pseudoflat (Kedlaya–Liu II,
@@ -4162,7 +3126,7 @@ theorem isPseudoFlat_simpleLaurent_sousperfectoid (p : ℕ) {A : Type*} [CommRin
 
 end Huber
 
-/-! ## AdicEtaleGeometry:A3/rational-inclusion-reduction (lemma) -/
+/-! ### T101. A3/rational-inclusion-reduction (lemma) -/
 
 open ValuationSpectrum in
 /-- A3/rational-inclusion-reduction: Kedlaya–Liu I, Proposition 2.4.24. A property `Q` of
@@ -4194,11 +3158,7 @@ section SheafyCores
 variable (p : ℕ) {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup A]
   [IsTopologicalRing A] [IsTateRing A] [CompleteSpace A] [T2Space A]
 
-/-! ## AdicEtaleGeometry:A3/rational-localisation-pseudoflat (theorem) -/
-
--- Huber.isPseudoFlat_ratLoc: not stated here; needs the anchor's sheafiness predicate
---   `Huber.IsSheafyPair` (supplier: AdicSpaces Layer 4); the sousperfectoid case is
---   `Huber.isPseudoFlat_ratLoc_sousperfectoid`.
+/-! ### T102. A3/rational-localisation-pseudoflat (theorem) -/
 
 /-- A3/rational-localisation-pseudoflat (core): Kedlaya–Liu II, Theorem 2.4.15, for a complete
 sousperfectoid Tate ring (sousperfectoid rings are sheafy): every rational localisation
@@ -4209,12 +3169,7 @@ theorem isPseudoFlat_ratLoc_sousperfectoid [IsSousperfectoid p A] (P : PairOfDef
     (hT : IsOpen ((Ideal.span (T : Set A) : Ideal A) : Set A)) :
     IsPseudoFlat A (ratLoc P T s hden) 2 := sorry
 
-/-! ## AdicEtaleGeometry:A3/pseudocoherent-tate-acyclicity (theorem) -/
-
--- Huber.cech_exact_of_isStablyPseudoCoherent: not stated here; needs the anchor's sheafiness
---   predicate `Huber.IsSheafyPair` and the structure presheaf on the finite intersections of a
---   rational covering (supplier: AdicSpaces Layers 3–4). Its degree-zero part over a
---   sousperfectoid base is `Huber.cech_injective_of_isStablyPseudoCoherent_sousperfectoid`.
+/-! ### T103. A3/pseudocoherent-tate-acyclicity (theorem) -/
 
 /-- A3/pseudocoherent-tate-acyclicity (core, degree zero): Kedlaya–Liu II, Theorem 2.5.1. For a
 complete sousperfectoid Tate pair `(A, A⁺)`, a finite covering of `Spa(A, A⁺)` by rational
@@ -4229,11 +3184,7 @@ theorem cech_injective_of_isStablyPseudoCoherent_sousperfectoid [IsSousperfectoi
     {M : Type*} [AddCommGroup M] [Module A M] (hM : IsStablyPseudoCoherent A M ⊤) :
     Function.Injective fun x : M ↦ fun i ↦ (1 : ratLoc P (T i) (s i) (hden i)) ⊗ₜ[A] x := sorry
 
-/-! ## AdicEtaleGeometry:A3/fpd-local-to-global (lemma) -/
-
--- Huber.IsStablyPseudoCoherent.isFPD_of_cover: not stated here; needs the anchor's sheafiness
---   predicate `Huber.IsSheafyPair` (supplier: AdicSpaces Layer 4); the sousperfectoid case is
---   `Huber.IsStablyPseudoCoherent.isFPD_of_cover_sousperfectoid`.
+/-! ### T104. A3/fpd-local-to-global (lemma) -/
 
 /-- A3/fpd-local-to-global (core): Kedlaya–Liu II, Corollary 2.5.2, over a complete
 sousperfectoid Tate pair: a stably pseudocoherent `M` whose base changes to the members of a
@@ -4252,56 +3203,11 @@ theorem IsStablyPseudoCoherent.isFPD_of_cover_sousperfectoid [IsSousperfectoid p
 
 end SheafyCores
 
-/-! ## AdicEtaleGeometry:A3/pseudocoherent-sheaf (definition) -/
+/-! ### T105. A3/pseudocoherent-sheaf (definition) -/
 
--- AdicSpace.IsPseudoCoherentSheaf: not stated here; needs the anchor's adic spaces and their
---   sheaves of `𝒪_X`-modules (supplier: AdicSpaces Layer 5). Its affinoid input is
---   `Huber.IsStablyPseudoCoherent`.
--- AdicSpace.IsFPDSheaf: not stated here; needs the anchor's adic spaces and their sheaves of
---   `𝒪_X`-modules (supplier: AdicSpaces Layer 5). Its affinoid input is `Huber.IsStablyFPD`.
--- AdicSpace.IsPseudoCoherentSheaf.of_module: not stated here; needs `𝒪_X`-modules `M̃` on
---   `Spa(A, A⁺)` and sheafiness (supplier: AdicSpaces Layers 4–5). Ring-level core:
---   `Huber.IsPseudoFlat.baseChange_isStablyPseudoCoherent`.
--- AdicSpace.IsPseudoCoherentSheaf.restrict: not stated here; needs open subspaces of adic spaces
---   and restriction of `𝒪_X`-modules (supplier: AdicSpaces Layer 5).
--- AdicSpace.IsPseudoCoherentSheaf.ker_of_surjective: not stated here; needs the abelian category
---   of `𝒪_X`-modules on an adic space (supplier: AdicSpaces Layer 5). Ring-level core:
---   `Module.IsPseudoCoherent.of_exact`.
--- AdicSpace.IsPseudoCoherentSheaf.coker_of_injective: not stated here; needs the abelian category
---   of `𝒪_X`-modules on an adic space (supplier: AdicSpaces Layer 5). Ring-level core:
---   `Module.IsPseudoCoherent.of_exact`.
--- AdicSpace.IsPseudoCoherentSheaf.isStablyPseudoCoherent_sections: not stated here; needs global
---   sections of `𝒪_X`-modules on `Spa(A, A⁺)` (supplier: AdicSpaces Layer 5); see
---   AdicEtaleGeometry:A3/pseudocoherent-kiehl-gluing.
--- AdicSpace.IsPseudoCoherentSheaf.equivModule: not stated here; needs the category of
---   `𝒪_X`-modules on `Spa(A, A⁺)` and sheafiness (supplier: AdicSpaces Layers 4–5); see
---   AdicEtaleGeometry:A3/pseudocoherent-kiehl-gluing.
--- AdicSpace.IsFPDSheaf.isPseudoCoherentSheaf: not stated here; needs the anchor's `𝒪_X`-modules
---   (supplier: AdicSpaces Layer 5). Ring-level core: `Huber.IsStablyFPD.isStablyPseudoCoherent`.
--- AdicSpace.IsPseudoCoherentSheaf.test_structureSheaf: not stated here; needs the structure sheaf
---   of `Spa(A, A⁺)` as an `𝒪_X`-module (supplier: AdicSpaces Layers 4–5); ring-level core
---   `Huber.IsStablyPseudoCoherent.of_projective` [degenerate test]
--- AdicSpace.IsPseudoCoherentSheaf.test_vectorBundle: not stated here; needs vector bundles on adic
---   spaces (supplier: AdicSpacesPartII:R3/locally-free-sheaf) [compatibility test]
--- AdicSpace.IsPseudoCoherentSheaf.test_tateAlgebra_ideal: not stated here; needs `𝒪_X`-modules on
---   `Spa(ℚ_p⟨T⟩, ℤ_p⟨T⟩)` (supplier: AdicSpaces Layer 5); ring-level core
---   `Huber.IsStablyPseudoCoherent.test_tateAlgebra_quotient` [computation test]
--- AdicSpace.IsPseudoCoherentSheaf.test_pushforward_not: not stated here; needs pushforward of
---   `𝒪_U` along a rational open immersion (supplier: AdicSpaces Layer 5) [non-example test]
+/-! ### T106. A3/simple-laurent-pseudocoherent-descent (lemma) -/
 
-/-! ## AdicEtaleGeometry:A3/simple-laurent-pseudocoherent-descent (lemma) -/
-
--- Huber.effectiveDescent_simpleLaurent: not stated here; needs the anchor's sheafiness predicate
---   `Huber.IsSheafyPair` and the restriction maps `Bᵢ → B₁₂` of the structure presheaf on a
---   simple Laurent covering (supplier: AdicSpaces Layers 3–4). Ring-level inputs:
---   `Huber.isPseudoFlat_simpleLaurent_sousperfectoid`, `Module.IsPseudoCoherent.of_exact`.
-
-/-! ## AdicEtaleGeometry:A3/pseudocoherent-kiehl-gluing (theorem) -/
-
--- AdicSpace.pseudoCoherentEquiv: not stated here; needs pseudocoherent sheaves of `𝒪_X`-modules
---   on `Spa(A, A⁺)` and sheafiness (supplier: AdicSpaces Layers 4–5). Clause (b), exactness of
---   base extension to a rational localisation, is stated over a sousperfectoid base as
---   `Huber.exact_tensor_ratLoc_sousperfectoid`.
+/-! ### T107. A3/pseudocoherent-kiehl-gluing (theorem) -/
 
 /-- A3/pseudocoherent-kiehl-gluing (core, (b)): Kedlaya–Liu II, Theorem 2.5.5(b), over a complete
 sousperfectoid Tate ring: base extension to a rational localisation `B = A⟨T/s⟩` is exact on
@@ -4318,7 +3224,7 @@ theorem exact_tensor_ratLoc_sousperfectoid (p : ℕ) {A : Type*} [CommRing A] [U
       Function.Exact (f.lTensor (ratLoc P T s hden)) (g.lTensor (ratLoc P T s hden)) ∧
       Function.Surjective (g.lTensor (ratLoc P T s hden)) := sorry
 
-/-! ## AdicEtaleGeometry:A3/restricted-power-series-newton (lemma) -/
+/-! ### T108. A3/restricted-power-series-newton (lemma) -/
 
 section Newton
 
@@ -4357,7 +3263,7 @@ theorem exists_unique_zero_restrictedPowerSeries {C : Type*} [CommRing C] [Unifo
       (∀ i, s i - t i ∈ Ideal.span {(⟨ϖ, hϖP⟩ : P.ringOfDefinition) ^ (k + 1)}) ∧
         ∀ i, mvPowerSeriesEvalAt (F i) s = 0 := sorry
 
-/-! ## AdicEtaleGeometry:A3/perturbation-of-generators (lemma) -/
+/-! ### T109. A3/perturbation-of-generators (lemma) -/
 
 /-- A3/perturbation-of-generators (a): for `ε ∈ ϖ·A°⟨X⟩^n`, the continuous `A`-algebra
 endomorphism `θ_ε` of `A⟨X₁, …, X_n⟩` with `θ_ε(X) = X + ε` is an automorphism (point (3) of
@@ -4373,7 +3279,7 @@ theorem bijective_perturbX {A : Type*} [CommRing A] [UniformSpace A] [IsUniformA
       Continuous θ ∧ (∀ i, θ (tateCoord n A i) = tateCoord n A i + ε i) ∧
         Function.Bijective θ := sorry
 
-/-! ## AdicEtaleGeometry:A3/standard-etale-presentation (definition) -/
+/-! ### T110. A3/standard-etale-presentation (definition) -/
 
 section TateSeries
 
@@ -4541,8 +3447,8 @@ def ofFiniteEtale {S : Type*} [CommRing S] [Algebra A S] [Module.Finite A S] [Al
 
 /-- A3/standard-etale-presentation (functoriality): for a morphism of complete Tate pairs
 `(A, A⁺) → (A', A'⁺)`, the image of `F` presents `C ⊗̂_A A'`
-(AdicSpacesPartII:R0/completed-tensor-restricted-power-series (c); the completed tensor product is
-the prelude's stand-in). -/
+(AdicSpacesPartII R0 (completed tensor restricted power series) (c); the completed tensor product is
+the prelude's interface form). -/
 def baseChange {C : Type*} [CommRing C] [TopologicalSpace C] [IsTopologicalRing C]
     [IsHuberRing C] [Algebra A C] {Cplus : Pair C} (_P : StandardEtalePresentation Aplus ϖ Cplus)
     {A' : Type*} [CommRing A'] [TopologicalSpace A'] [IsTopologicalRing A'] [IsHuberRing A']
@@ -4572,11 +3478,6 @@ def perturb (p : ℕ) [IsSousperfectoid p A]
 end Complete
 
 end StandardEtalePresentation
-
--- Huber.StandardEtalePresentation.kaehler_eq_zero: not stated here; needs the continuous Kähler
---   differentials `Ω^c_{C/A}` of complete Huber rings (supplier:
---   AdicSpacesPartII:R0/continuous-differentials). Its algebraic input is the invertibility of
---   the Jacobian, `Huber.StandardEtalePresentation.isUnit_jacobian`.
 
 section StandardTests
 
@@ -4617,7 +3518,7 @@ example {S : Type*} [CommRing S] [Algebra A S] [Module.Finite A S] [Algebra.Etal
 
 end StandardTests
 
-/-! ## AdicEtaleGeometry:A3/standard-presentation-basic-pieces (lemma) -/
+/-! ### T111. A3/standard-presentation-basic-pieces (lemma) -/
 
 /-- A3/standard-presentation-basic-pieces (c), (d): composites of pairs with standard étale
 presentations have standard étale presentations; with `ofRational` and `ofFiniteEtale` this
@@ -4637,13 +3538,7 @@ variable (p : ℕ) {A : Type*} [CommRing A] [UniformSpace A] [IsUniformAddGroup 
   [IsTopologicalRing A] [IsTateRing A] [CompleteSpace A] [T2Space A] [IsSousperfectoid p A]
   (Aplus : Pair A) {ϖ : A} {N : ℕ} (F : Fin N → tateSeries N A)
 
-/-! ## AdicEtaleGeometry:A3/tubular-neighbourhood (theorem) -/
-
--- Huber.tubeEquiv: not stated here; needs the Tate algebra `C⟨u₁, …, u_N⟩` over the quotient
---   Huber pair `𝒪(W) ⧸ (e)`, whose nonarchimedean ring structure no library provides for quotient
---   rings, and the plus rings `𝒪⁺(W)` of rational subsets of `B^N_X` as a Huber-pair isomorphism
---   (supplier: AdicSpaces Layer 3). The ring section of (a) is
---   `Huber.exists_section_tube_sousperfectoid`.
+/-! ### T112. A3/tubular-neighbourhood (theorem) -/
 
 /-- A3/tubular-neighbourhood (core, (a)): over a complete sousperfectoid Tate pair (whose Tate
 algebras have uniform rational localisations), for `F ∈ A⁺⟨T⟩^N`, `m ≥ 2k + 1` and a rational
@@ -4665,7 +3560,7 @@ theorem exists_section_tube_sousperfectoid (hϖ : IsPseudoUniformizer ϖ)
             algebraMap (tateSeries N A) (ratLoc P T s hden) (algebraMap A _ (ϖ ^ (m - k))) * w :=
   sorry
 
-/-! ## AdicEtaleGeometry:A3/standard-presentation-perturbation (theorem) -/
+/-! ### T113. A3/standard-presentation-perturbation (theorem) -/
 
 /-- A3/standard-presentation-perturbation: let `Q = P.withInverse` be the explicit-inverse form
 (exponent `k = P.k`, Jacobian exponent `2k`) of a presentation over a sousperfectoid base, and
@@ -4687,7 +3582,7 @@ theorem StandardEtalePresentation.perturb_spec_sousperfectoid {C : Type*} [CommR
             Ideal.Quotient.mk _ (tateSeries.X P.withInverse.N A i) =
           algebraMap A _ (ϖ ^ (2 * P.k + 2)) * w := sorry
 
-/-! ## AdicEtaleGeometry:A3/standard-etale-locus-sousperfectoid (lemma) -/
+/-! ### T114. A3/standard-etale-locus-sousperfectoid (lemma) -/
 
 /-- A3/standard-etale-locus-sousperfectoid: over a complete sousperfectoid Tate pair, the ring of
 a standard étale locus is sousperfectoid, with the perfectoid frame `(P̃, ι ∘ ρ, q ∘ σ)` built from
@@ -4696,7 +3591,7 @@ theorem StandardEtalePresentation.isSousperfectoid {C : Type*} [CommRing C] [Top
     [IsTopologicalRing C] [IsHuberRing C] [Algebra A C] {Cplus : Pair C}
     (_P : StandardEtalePresentation Aplus ϖ Cplus) : IsSousperfectoid p C := sorry
 
-/-! ## AdicEtaleGeometry:A3/fs-iv-4-13-regular-sequence (lemma) -/
+/-! ### T115. A3/fs-iv-4-13-regular-sequence (lemma) -/
 
 /-- A3/fs-iv-4-13-regular-sequence: on every rational subset `W' = R(T'/s')` of the tube of
 `F ∈ A⁺⟨T⟩^N` (radius `|ϖ|^m`, `m ≥ 2k + 1`) over a complete sousperfectoid Tate pair, the images
@@ -4724,17 +3619,7 @@ theorem isWeaklyRegular_tube_sousperfectoid (hϖ : IsPseudoUniformizer ϖ)
 
 end TubeCores
 
-/-! ## AdicEtaleGeometry:A3/char-p-perfectoid-base-field (lemma) -/
-
--- PerfectoidSpace.baseFieldHom: not stated here; needs the perfectoid field
---   `F_p((t^{1/p^∞}))^∧` (supplier: PerfectoidSpaces:P1/perfectoid-field-definition). Its
---   ring-level input, the compatible `pⁿ`-th roots of a pseudouniformiser that
---   `t^{1/pⁿ} ↦ ϖ^{1/pⁿ}` uses, is `Huber.exists_pow_roots_pseudoUniformizer_charP`.
--- PerfectoidSpace.baseFieldHom_injective: not stated here; needs the perfectoid field
---   `F_p((t^{1/p^∞}))^∧` (supplier: PerfectoidSpaces:P1/perfectoid-field-definition).
--- PerfectoidSpace.exists_pFinite_approximation: not stated here; needs p-finite perfectoid
---   affinoid algebras over a perfectoid field and completed filtered colimits of them (supplier:
---   PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids).
+/-! ### T116. A3/char-p-perfectoid-base-field (lemma) -/
 
 /-- A3/char-p-perfectoid-base-field (core, (a)): in a perfectoid Tate ring of characteristic `p`
 a pseudouniformiser `ϖ` has a compatible system of `pⁿ`-th roots `ϖ^{1/pⁿ}`, each again a
@@ -4744,12 +3629,7 @@ theorem exists_pow_roots_pseudoUniformizer_charP (p : ℕ) [Fact p.Prime] {R : T
     (hR : Perfectoid.IsPerfectoidTateRing p R) {ϖ : R} (hϖ : IsPseudoUniformizer ϖ) :
     ∃ r : ℕ → R, r 0 = ϖ ∧ (∀ n, r (n + 1) ^ p = r n) ∧ ∀ n, IsPseudoUniformizer (r n) := sorry
 
-/-! ## AdicEtaleGeometry:A3/jacobian-criterion-char-p (theorem) -/
-
--- PerfectoidSpace.isEtale_standardEtaleLocus: not stated here; needs étale morphisms of analytic
---   adic spaces in the local-description sense (supplier: AdicEtaleGeometry:A1/etale-morphism)
---   and of affinoid perfectoid spaces (supplier: PerfectoidSpaces:P3). Clause (b)'s ring-level
---   core is `Huber.StandardEtalePresentation.isPerfectoidTateRing_charP`.
+/-! ### T117. A3/jacobian-criterion-char-p (theorem) -/
 
 /-- A3/jacobian-criterion-char-p (core, (b)): over a perfectoid Tate pair of characteristic `p`,
 the ring `C` of a standard étale presentation is perfect, hence a perfectoid Tate ring
@@ -4761,7 +3641,7 @@ theorem StandardEtalePresentation.isPerfectoidTateRing_charP (p : ℕ) [Fact p.P
     (_P : StandardEtalePresentation Aplus ϖ Cplus) :
     PerfectRing C p ∧ Perfectoid.IsPerfectoidTateRing p C := sorry
 
-/-! ## AdicEtaleGeometry:A3/integral-cutoff-graph-presentation (lemma) -/
+/-! ### T118. A3/integral-cutoff-graph-presentation (lemma) -/
 
 /-- A3/integral-cutoff-graph-presentation (supporting): a morphism of Huber pairs is a *quotient
 mapping* if it is surjective and the target plus ring is the integral closure of the image of the
@@ -4772,27 +3652,11 @@ def Pair.Hom.IsQuotientMapping {A B : Type*} [CommRing A] [TopologicalSpace A]
   Function.Surjective f.toRingHom ∧
     ∀ x, x ∈ T.plus ↔ (S.plus.map f.toRingHom).subtype.IsIntegralElem x
 
--- Huber.isQuotientMapping_cutoff: not stated here; needs the plus rings `𝒪⁺(R)` of rational
---   subsets of `B^N_X` with their restriction maps and morphisms `Spa(C, C⁺) → R` over `X`
---   (supplier: AdicSpaces Layers 3 and 5). The ring-level notion is
---   `Huber.Pair.Hom.IsQuotientMapping`; clause (e) needs pseudocoherent sheaves
---   (`AdicSpace.IsPseudoCoherentSheaf`, AdicSpaces Layer 5).
+/-! ### T119. A3/fs-iv-4-19-zariski-closed-char-p (theorem) -/
 
-/-! ## AdicEtaleGeometry:A3/fs-iv-4-19-zariski-closed-char-p (theorem) -/
+/-! ### T120. A3/etale-standard-piece-cover (lemma) -/
 
--- AdicSpace.isZariskiClosedImmersion_iff_forall: not stated here; needs morphisms of adic spaces
---   `Y → Y' ⊆ B^N_X`, their affinoid open preimages and étale affinoid perfectoid spaces
---   (supplier: AdicSpaces Layer 5, PerfectoidSpaces:P3). The affinoid condition in (i) and (ii)
---   is `Huber.Pair.Hom.IsQuotientMapping`.
-
-/-! ## AdicEtaleGeometry:A3/etale-standard-piece-cover (lemma) -/
-
--- PerfectoidSpace.exists_standardPieceCover: not stated here; needs étale morphisms of affinoid
---   perfectoid spaces in the sense of ECD Definition 6.2 (supplier: PerfectoidSpaces:P3). Each
---   piece's presentation is `Huber.StandardEtalePresentation.ofRational`,
---   `…ofFiniteEtale` and `…comp`.
-
-/-! ## AdicEtaleGeometry:A3/integral-approximation-of-generators (lemma) -/
+/-! ### T121. A3/integral-approximation-of-generators (lemma) -/
 
 /-- A3/integral-approximation-of-generators: over a complete sousperfectoid (hence stably
 uniform) Tate pair `(B, B⁺)` with pseudouniformiser `ϖ`, for `σ₁, …, σ_m` generating the unit
@@ -4818,13 +3682,7 @@ theorem exists_integral_approx (p : ℕ) {B : Type*} [CommRing B] [UniformSpace 
             Ring.inverse (algebraMap B (ratLoc P₀ σ j hden) j) ^ e - z =
           algebraMap B (ratLoc P₀ σ j hden) (ϖ ^ M) * w := sorry
 
-/-! ## AdicEtaleGeometry:A3/affinoid-etale-zariski-closed-embedding (theorem) -/
-
--- PerfectoidSpace.exists_quotientMapping_restrictedPowerSeries: not stated here; needs étale
---   morphisms of affinoid perfectoid spaces (supplier: PerfectoidSpaces:P3) and pseudocoherent
---   ideal sheaves on `B^N_X` (AdicSpaces Layer 5). Given a standard étale presentation (which
---   AdicEtaleGeometry:A3/global-standard-etale-presentation supplies), the ring-level core is
---   `Huber.StandardEtalePresentation.isStablyPseudoCoherent_ker_sousperfectoid`.
+/-! ### T122. A3/affinoid-etale-zariski-closed-embedding (theorem) -/
 
 /-- A3/affinoid-etale-zariski-closed-embedding (core): for a standard étale presentation over a
 complete sousperfectoid Tate pair, the kernel of `π : A⟨T⟩ → C` is a stably pseudocoherent
@@ -4837,38 +3695,15 @@ theorem StandardEtalePresentation.isStablyPseudoCoherent_ker_sousperfectoid (p :
     IsStablyPseudoCoherent (tateSeries P.N A) (RingHom.ker (P.π : tateSeries P.N A →+* C)) ⊤ :=
   sorry
 
-/-! ## AdicEtaleGeometry:A3/conormal-description (lemma) -/
+/-! ### T123. A3/conormal-description (lemma) -/
 
--- PerfectoidSpace.conormal_equiv: not stated here; needs Zariski closed immersions of affinoid
---   étale perfectoid spaces into `B^N_X` and the continuous derivations `∂/∂Tᵢ` on rational
---   localisations of `A⟨T⟩` (supplier: PerfectoidSpaces:P3, AdicSpacesPartII:R0/continuous-
---   differentials). On the tube the freeness of `I ⧸ I²` is
---   `Huber.isWeaklyRegular_tube_sousperfectoid`.
+/-! ### T124. A3/local-equations-near-closed-subspace (lemma) -/
 
-/-! ## AdicEtaleGeometry:A3/local-equations-near-closed-subspace (lemma) -/
+/-! ### T125. A3/global-standard-etale-presentation (theorem) -/
 
--- PerfectoidSpace.exists_local_equations: not stated here; needs Zariski closed immersions of
---   affinoid étale perfectoid spaces into `B^N_X` (supplier: PerfectoidSpaces:P3, AdicSpaces
---   Layer 5). The tube it produces is `Huber.tubeSet` of the rescaled equations `ϖ ^ a • e`
---   (in `A⁺⟨T⟩`) with `k = a * N`.
+/-! ### T126. A3/tilting-affinoid-etale-and-limits (lemma) -/
 
-/-! ## AdicEtaleGeometry:A3/global-standard-etale-presentation (theorem) -/
-
--- PerfectoidSpace.nonempty_standardEtalePresentation: not stated here; needs étale morphisms of
---   affinoid perfectoid spaces (supplier: PerfectoidSpaces:P3). The presentation it yields is a
---   `Huber.StandardEtalePresentation`.
--- PerfectoidSpace.isEtale_iff_nonempty_standardEtalePresentation: not stated here; needs étale
---   morphisms of affinoid perfectoid spaces (supplier: PerfectoidSpaces:P3). The converse
---   direction's ring-level core is `Huber.StandardEtalePresentation.isPerfectoidTateRing_charP`.
-
-/-! ## AdicEtaleGeometry:A3/tilting-affinoid-etale-and-limits (lemma) -/
-
--- PerfectoidSpace.tiltCofilteredLimitIso: not stated here; needs affinoid perfectoid spaces,
---   tilting and cofiltered limits of them (supplier: PerfectoidSpaces:P1, PerfectoidSpaces:P5).
--- PerfectoidSpace.tiltEtaleAffEquiv: not stated here; needs the categories `X_{ét,aff}` of affinoid
---   perfectoid spaces étale over `X` and the tilting equivalence (supplier: PerfectoidSpaces:P3).
-
-/-! ## AdicEtaleGeometry:A3/cofiltered-limit-presentation-approximation (lemma) -/
+/-! ### T127. A3/cofiltered-limit-presentation-approximation (lemma) -/
 
 /-- A3/cofiltered-limit-presentation-approximation (core, (a)): for a pseudouniformiser `ϖ`, if
 `R⁺` is approximated modulo every `ϖ^M` by the images of the `R_i⁺` of a directed system (as for
@@ -4891,61 +3726,29 @@ theorem exists_approx_restrictedPowerSeries {R : Type*} [CommRing R] [Topologica
           φ i ((Fi l).coeff ν) - MvPowerSeries.coeff ν (F l : MvPowerSeries (Fin N) R) =
             ϖ ^ M * w := sorry
 
--- PerfectoidSpace.baseChange_standardEtalePresentation: not stated here; needs affinoid
---   perfectoid spaces and their fibre products (supplier: PerfectoidSpaces:P2). Its ring-level
---   form is `Huber.StandardEtalePresentation.baseChange`.
+/-! ### T128. A3/finite-stage-approximation-char-p (theorem) -/
 
-/-! ## AdicEtaleGeometry:A3/finite-stage-approximation-char-p (theorem) -/
+/-! ### T129. A3/independence-of-presentations (lemma) -/
 
--- PerfectoidSpace.exists_affinoidEtale_model: not stated here; needs cofiltered limits of affinoid
---   perfectoid spaces and their affinoid étale objects (supplier: PerfectoidSpaces:P5,
---   PerfectoidSpaces:P3). Ring-level inputs: `Huber.exists_approx_restrictedPowerSeries`,
---   `Huber.StandardEtalePresentation.perturb_spec_sousperfectoid`,
---   `Huber.StandardEtalePresentation.isPerfectoidTateRing_charP`.
+/-! ### T130. A3/affinoid-etale-finite-stage-6-4-iv (theorem) -/
 
-/-! ## AdicEtaleGeometry:A3/independence-of-presentations (lemma) -/
+/-! ### T131. A3/etale-descent-to-finite-stage-6-4 (comparison) -/
 
--- PerfectoidSpace.affinoidEtale_model_unique: not stated here; needs affinoid étale objects over
---   a cofiltered system of affinoid perfectoid spaces and 2-colimits of categories (supplier:
---   PerfectoidSpaces:P5; 2-colimits of categories are in no library).
-
-/-! ## AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv (theorem) -/
-
--- PerfectoidSpace.affinoidEtale_colimit_equivalence: not stated here; needs affinoid perfectoid
---   spaces, their categories `X_{ét,aff}` and 2-colimits of categories (supplier:
---   PerfectoidSpaces:P3, PerfectoidSpaces:P5; 2-colimits of categories are in no library).
-
-/-! ## AdicEtaleGeometry:A3/etale-descent-to-finite-stage-6-4 (comparison) -/
-
--- PerfectoidSpace.etaleDescent_6_4: not stated here; needs the categories `X_{fét}`,
---   `X_{ét,aff}`, `X_{ét,qc,sep}`, `X_{ét,qcqs}` of perfectoid spaces and their 2-colimits
---   (supplier: PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces,
---   PerfectoidSpaces:P5/finite-stage-descent-of-qcqs-etale-objects). Part (iv) is
---   AdicEtaleGeometry:A3/affinoid-etale-finite-stage-6-4-iv.
-
-/-! ## AdicEtaleGeometry:A3/zariski-closed-immersion-ecd-comparison (comparison) -/
-
--- PerfectoidSpace.isStronglyZariskiClosed_perfectoidBall: not stated here; needs the perfectoid
---   Tate algebra `A⟨T^{1/p^∞}⟩` and ECD's strongly Zariski closed immersions (supplier:
---   PerfectoidSpaces:P1). The affinoid condition is `Huber.Pair.Hom.IsQuotientMapping`.
+/-! ### T132. A3/zariski-closed-immersion-ecd-comparison (comparison) -/
 
 end Huber
 
-end TauCeti
-
 end
 
-/-! # Stage A4. Analytic adic presentations for diamondification -/
+/-! ## Layer A4: Analytic adic presentations for diamondification -/
 
 noncomputable section
-
-namespace TauCeti
 
 universe u v
 
 open TensorProduct Topology UniformSpace Polynomial
 
-/-! ## AdicEtaleGeometry:A4/finite-etale-split-ring (definition) -/
+/-! ### T133. A4/finite-etale-split-ring (definition) -/
 
 namespace Algebra
 
@@ -5047,7 +3850,7 @@ example (R : Type) [CommRing R] [IsFiniteEtaleSplit R] (P : R[X]) (hP : P.Monic)
     (hd : 0 < P.natDegree) (hu : IsUnit (AdjoinRoot.mk P (derivative P))) :
     ∃ r, P.IsRoot r := sorry
 
-/-! ## AdicEtaleGeometry:A4/finite-etale-galois-torsor (definition) -/
+/-! ### T134. A4/finite-etale-galois-torsor (definition) -/
 
 namespace Algebra
 
@@ -5189,7 +3992,7 @@ example (K L : Type) [Field K] [Field L] [_root_.Algebra K L] [FiniteDimensional
 
 end TorsorTests
 
-/-! ## AdicEtaleGeometry:A4/henselian-pairs-filtered-colimit (lemma) -/
+/-! ### T135. A4/henselian-pairs-filtered-colimit (lemma) -/
 
 /-- A4/henselian-pairs-filtered-colimit: a filtered colimit of henselian pairs `(R_i, I_i)` is
 henselian along the ideal generated by the images of the `I_i` (Stacks 0FWT, used in the proof of
@@ -5201,7 +4004,7 @@ theorem Ring.DirectLimit.henselianRing {ι : Type*} [Preorder ι] [IsDirectedOrd
     HenselianRing (_root_.Ring.DirectLimit R fun i j h ↦ f i j h)
       (⨆ i, (I i).map (_root_.Ring.DirectLimit.of R (fun i j h ↦ f i j h) i)) := sorry
 
-/-! ## AdicEtaleGeometry:A4/finite-etale-algebras-filtered-colimit (lemma) -/
+/-! ### T136. A4/finite-etale-algebras-filtered-colimit (lemma) -/
 
 /-- A4/finite-etale-algebras-filtered-colimit (a): every finite étale algebra over a filtered
 colimit `R = colim R_i` is the base change of a finite étale `R_i`-algebra for some `i`
@@ -5218,7 +4021,7 @@ theorem Ring.DirectLimit.finiteEtaleEquivalence {ι : Type u} [Preorder ι] [IsD
       Nonempty (((_root_.Ring.DirectLimit R fun i j h ↦ f i j h) ⊗[R i] Si) ≃ₐ[
         _root_.Ring.DirectLimit R fun i j h ↦ f i j h] S) := sorry
 
-/-! ## AdicEtaleGeometry:A4/splitting-torsor-of-finite-etale-algebra (lemma) -/
+/-! ### T137. A4/splitting-torsor-of-finite-etale-algebra (lemma) -/
 
 /-- A4/splitting-torsor-of-finite-etale-algebra: every finite étale `A`-algebra `S` is totally
 split after base change to a finite étale torsor `A → P` under a finite group (take `G = S_n`
@@ -5230,7 +4033,7 @@ theorem Algebra.exists_isFiniteEtaleTorsor_isTotallySplit (A S : Type u) [CommRi
       (_ : _root_.Algebra A P) (_ : MulSemiringAction G P) (_ : SMulCommClass G A P),
       Algebra.IsFiniteEtaleTorsor G A P ∧ Algebra.IsTotallySplit P (P ⊗[A] S) := sorry
 
-/-! ## AdicEtaleGeometry:A4/finite-etale-torsor-tower (construction) -/
+/-! ### T138. A4/finite-etale-torsor-tower (construction) -/
 
 /-- A4/finite-etale-torsor-tower (structure): a *finite étale torsor tower* over `A` (ECD proof of
 Lemma 15.3): a directed set `ι`, finite groups `G i`, `A`-algebras `level i` that are finite étale
@@ -5420,7 +4223,7 @@ example (A : Type) [CommRing A] (T : FiniteEtaleTorsorTower A) (S : Type) [CommR
 
 end FiniteEtaleTorsorTower
 
-/-! ## AdicEtaleGeometry:A4/uniform-completion-etale-comparison (theorem) -/
+/-! ### T139. A4/uniform-completion-etale-comparison (theorem) -/
 
 namespace Huber
 
@@ -5430,10 +4233,10 @@ variable {A : Type u} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTop
   [IsTateRing A] [CompleteSpace A] [T2Space A]
 
 /-- A4/uniform-completion-etale-comparison (ii): for a complete Tate ring `A`, base change along
-the uniformization `ι : A → Aᵘ` (AdicSpacesPartII:R0/uniformization) is an equivalence
+the uniformization `ι : A → Aᵘ` (AdicSpacesPartII R0 (uniformization)) is an equivalence
 `FÉt(A) → FÉt(Aᵘ)`: essentially surjective and fully faithful. -/
 theorem Pair.uniformization.baseChange_finiteEtale_equivalence (S : Pair A) :
-    letI := S.toUniformization.toRingHom.toAlgebra
+    letI := (Pair.toUniformization S).toRingHom.toAlgebra
     (∀ (T' : Type u) [CommRing T'] [_root_.Algebra (Uniformization A) T']
       [_root_.Algebra.Etale (Uniformization A) T'] [Module.Finite (Uniformization A) T'],
       ∃ (T : Type u) (_ : CommRing T) (_ : _root_.Algebra A T), _root_.Algebra.Etale A T ∧
@@ -5445,14 +4248,14 @@ theorem Pair.uniformization.baseChange_finiteEtale_equivalence (S : Pair A) :
   sorry
 
 /-- A4/uniform-completion-etale-comparison (iii), ring-level core: for a finite étale `A`-algebra
-`B` with its natural topology (a Tate ring, AdicEtaleGeometry:A1/finite-etale-affinoid-algebra),
+`B` with its natural topology (a Tate ring, T010 (A1/finite-etale-affinoid-algebra)),
 `Aᵘ ⊗[A] B` is the uniformization of `B`, compatibly with `ι_B`. -/
 theorem Pair.uniformization.finiteEtale_uniformization (S : Pair A) (B : Type u) [CommRing B]
     [_root_.Algebra A B] [_root_.Algebra.Etale A B] [Module.Finite A B] [TopologicalSpace B]
     [IsModuleTopology A B] [IsTopologicalRing B] [IsTateRing B] (T : Pair B) :
-    letI := S.toUniformization.toRingHom.toAlgebra
+    letI := (Pair.toUniformization S).toRingHom.toAlgebra
     ∃ e : (Uniformization A ⊗[A] B) ≃+* Uniformization B,
-      ∀ b : B, e (1 ⊗ₜ b) = T.toUniformization.toRingHom b := sorry
+      ∀ b : B, e (1 ⊗ₜ b) = (Pair.toUniformization T).toRingHom b := sorry
 
 /-- A4/uniform-completion-etale-comparison (iv): a complete Tate ring has no nonsplit finite étale
 covers iff its uniformization has none. -/
@@ -5461,13 +4264,13 @@ theorem Pair.uniformization.isFiniteEtaleSplit_iff :
 
 -- Huber.Pair.uniformization.spaComap_homeomorph (clause (i)): the homeomorphism
 --   `Spa(Aᵘ, Aᵘ⁺) ≅ Spa(A, A⁺)` matching rational subsets is clause (d) of
---   AdicSpacesPartII:R0/uniformization and is stated there; it is not restated here.
+--   AdicSpacesPartII R0 (uniformization) and is stated there; it is not restated here.
 
 end UniformCompletionEtale
 
 end Huber
 
-/-! ## AdicEtaleGeometry:A4/completed-tower-pair (construction) -/
+/-! ### T140. A4/completed-tower-pair (construction) -/
 
 namespace FiniteEtaleTorsorTower
 
@@ -5487,7 +4290,7 @@ instance (i : T.ι) : IsModuleTopology A (T.level i) := ⟨rfl⟩
 instance (i : T.ι) : IsTopologicalRing (T.level i) := IsModuleTopology.isTopologicalRing A _
 
 /-- A4/completed-tower-pair (instance): each level is a Tate ring
-(AdicEtaleGeometry:A1/finite-etale-affinoid-algebra). -/
+(T010 (A1/finite-etale-affinoid-algebra)). -/
 instance level_isTateRing (i : T.ι) : IsTateRing (T.level i) := sorry
 
 /-- A4/completed-tower-pair (constructor): the Huber pair `(A_i, A_i⁺)` of level `i`, `A_i⁺` the
@@ -5531,9 +4334,9 @@ theorem colimPair_isUniform :
     IsBounded (powerBoundedSubring T.colim : Set T.colim) := sorry
 
 /-- A4/completed-tower-pair (constructor): the completed tower pair `(Â_∞, Â_∞⁺)`, the
-uniformization of `(A_∞, A_∞⁺)` (AdicSpacesPartII:R0/uniformization). -/
+uniformization of `(A_∞, A_∞⁺)` (AdicSpacesPartII R0 (uniformization)). -/
 def completion (P : Pair A) : Pair (Uniformization T.colim) :=
-  (T.colimPair P).uniformization
+  (Pair.uniformization (T.colimPair P))
 
 /-- A4/completed-tower-pair (compatibility): since `A_∞` is uniform, its uniformization is its
 Hausdorff completion. -/
@@ -5541,14 +4344,14 @@ theorem completion_eq_completion (P : Pair A) :
     letI := IsTopologicalAddGroup.rightUniformSpace T.colim
     haveI : IsUniformAddGroup T.colim := isUniformAddGroup_of_addCommGroup
     ∃ e : Uniformization T.colim ≃+* Completion T.colim, IsHomeomorph e ∧
-      ∀ x : T.colim, e ((T.colimPair P).toUniformization.toRingHom x) = (x : Completion T.colim) :=
+      ∀ x : T.colim, e ((Pair.toUniformization (T.colimPair P)).toRingHom x) = (x : Completion T.colim) :=
   sorry
 
 /-- A4/completed-tower-pair (characterisation): `Â_∞⁺` is the closure of the image of
 `colim_i A_i⁺`. -/
 theorem completion_plus_eq_closure (P : Pair A) :
     ((T.completion P).plus : Set (Uniformization T.colim)) =
-      closure ((T.colimPair P).toUniformization.toRingHom '' (T.colimPlus P : Set T.colim)) :=
+      closure ((Pair.toUniformization (T.colimPair P)).toRingHom '' (T.colimPlus P : Set T.colim)) :=
   sorry
 
 /-- A4/completed-tower-pair (data): `(A_i, A_i⁺) → (A_∞, A_∞⁺)` as morphisms of Huber pairs. -/
@@ -5560,7 +4363,7 @@ def toColimPair (P : Pair A) (i : T.ι) : Pair.Hom (T.levelPair P i) (T.colimPai
 /-- A4/completed-tower-pair (data): the morphisms `(A_i, A_i⁺) → (Â_∞, Â_∞⁺)`, compatible with the
 transitions. -/
 def toCompletion (P : Pair A) (i : T.ι) : Pair.Hom (T.levelPair P i) (T.completion P) :=
-  (T.colimPair P).toUniformization.comp (T.toColimPair P i)
+  (Pair.toUniformization (T.colimPair P)).comp (T.toColimPair P i)
 
 /-- A4/completed-tower-pair (data): the structure morphism `(A, A⁺) → (Â_∞, Â_∞⁺)`. -/
 def completionStructureHom (P : Pair A) : Pair.Hom P (T.completion P) := sorry
@@ -5641,8 +4444,8 @@ example {A : Type} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopolo
 -- test FiniteEtaleTorsorTower.completion_test_not_colim (non-example) [A4/completed-tower-pair]
 example (T : FiniteEtaleTorsorTower ℚ_[p]) (hT : ∀ i, IsField (T.level i)) :
     ¬ Function.Surjective
-        (T.colimPair (Pair.powerBounded ℚ_[p])).toUniformization.toRingHom ∧
-      ¬ IsClosed ((T.colimPair (Pair.powerBounded ℚ_[p])).toUniformization.toRingHom ''
+        (Pair.toUniformization (T.colimPair (Pair.powerBounded ℚ_[p]))).toRingHom ∧
+      ¬ IsClosed ((Pair.toUniformization (T.colimPair (Pair.powerBounded ℚ_[p]))).toRingHom ''
         (T.colimPlus (Pair.powerBounded ℚ_[p]) : Set T.colim)) := sorry
 
 /- For a complete non-uniform `A` (e.g. `ℚ_p⟨T⟩[ε]/(ε²)`), the completed tower only sees the
@@ -5664,7 +4467,7 @@ example [IsTateRing ℂ_[p]] (T : FiniteEtaleTorsorTower ℚ_[p]) :
 
 end CompletedTowerTests
 
-/-! ## AdicEtaleGeometry:A4/finite-etale-invariance-along-tower (lemma) -/
+/-! ### T141. A4/finite-etale-invariance-along-tower (lemma) -/
 
 section Invariance
 
@@ -5678,7 +4481,7 @@ completion map is an equivalence (essentially surjective and fully faithful); wi
 `Ring.DirectLimit.finiteEtaleEquivalence` this gives `2-colim FÉt(A_i) ≅ FÉt(Â_∞)`. The proof uses
 that `colim_i A_i°` is henselian along `ϖ`. -/
 theorem completion_finiteEtale_equivalence (P : Pair A) :
-    letI := (T.colimPair P).toUniformization.toRingHom.toAlgebra
+    letI := (Pair.toUniformization (T.colimPair P)).toRingHom.toAlgebra
     (∀ (T' : Type u) [CommRing T'] [_root_.Algebra (Uniformization T.colim) T']
       [_root_.Algebra.Etale (Uniformization T.colim) T']
       [Module.Finite (Uniformization T.colim) T'],
@@ -5716,7 +4519,7 @@ theorem completion_isFiniteEtaleSplit : IsFiniteEtaleSplit (Uniformization T.col
 
 end Invariance
 
-/-! ## AdicEtaleGeometry:A4/finite-etale-effective-descent-along-tower (lemma) -/
+/-! ### T142. A4/finite-etale-effective-descent-along-tower (lemma) -/
 
 section Descent
 
@@ -5747,7 +4550,7 @@ end Descent
 
 end FiniteEtaleTorsorTower
 
-/-! ## AdicEtaleGeometry:A4/root-of-monic-in-split-tate-ring (lemma) -/
+/-! ### T143. A4/root-of-monic-in-split-tate-ring (lemma) -/
 
 namespace Huber
 
@@ -5767,7 +4570,7 @@ theorem exists_root_of_derivative_eq_unit_mul_one_sub {P : R[X]} (hP : P.Monic)
     (hder : AdjoinRoot.mk P (derivative P) = algebraMap R (AdjoinRoot P) (u : R) * (1 - τ)) :
     (∃ r : R, P.IsRoot r) ∧ ∀ r : R, P.IsRoot r → r ∈ powerBoundedSubring R := sorry
 
-/-! ## AdicEtaleGeometry:A4/pseudouniformizer-dividing-p (lemma) -/
+/-! ### T144. A4/pseudouniformizer-dividing-p (lemma) -/
 
 /-- A4/pseudouniformizer-dividing-p: if `p` is topologically nilpotent in a complete Tate ring
 without nonsplit finite étale covers, there is a pseudouniformizer `ϖ ∈ R°` with `ϖ ^ p ∣ p` in
@@ -5777,7 +4580,7 @@ theorem exists_isPseudoUniformizer_pow_dvd_p (p : ℕ) [Fact p.Prime]
     ∃ ϖ : R, IsPseudoUniformizer ϖ ∧ ϖ ∈ powerBoundedSubring R ∧
       ∃ y ∈ powerBoundedSubring R, (p : R) = ϖ ^ p * y ∧ IsTopologicallyNilpotent y := sorry
 
-/-! ## AdicEtaleGeometry:A4/frobenius-surjective-for-split-tate-ring (lemma) -/
+/-! ### T145. A4/frobenius-surjective-for-split-tate-ring (lemma) -/
 
 /-- A4/frobenius-surjective-for-split-tate-ring: with `ϖ` as above, every `f ∈ R°` is
 `x ^ p - ϖ ^ p * x` for some `x ∈ R°`; hence Frobenius `R°/ϖ → R°/ϖ^p` is surjective. -/
@@ -5786,11 +4589,11 @@ theorem frobenius_surjective_of_isFiniteEtaleSplit (p : ℕ) [Fact p.Prime] {ϖ 
     (hyn : IsTopologicallyNilpotent y) (f : R) (hf : f ∈ powerBoundedSubring R) :
     ∃ x ∈ powerBoundedSubring R, x ^ p - ϖ ^ p * x = f := sorry
 
-/-! ## AdicEtaleGeometry:A4/split-tate-ring-is-perfectoid (lemma) -/
+/-! ### T146. A4/split-tate-ring-is-perfectoid (lemma) -/
 
 /-- A4/split-tate-ring-is-perfectoid: a complete uniform Tate ring in which `p` is topologically
 nilpotent and which has no nonsplit finite étale covers is a perfectoid Tate ring (ECD Definition
-3.1; the prelude's stand-in `Perfectoid.IsPerfectoidTateRing` for PerfectoidSpaces P1). -/
+3.1; the prelude's interface form `Perfectoid.IsPerfectoidTateRing` for PerfectoidSpaces P1). -/
 theorem isPerfectoid_of_isFiniteEtaleSplit (p : ℕ) [Fact p.Prime]
     (hp : IsTopologicallyNilpotent (p : R)) (hu : IsBounded (powerBoundedSubring R : Set R)) :
     Perfectoid.IsPerfectoidTateRing p R := sorry
@@ -5799,7 +4602,7 @@ end SplitTate
 
 end Huber
 
-/-! ## AdicEtaleGeometry:A4/perfectoid-uniform-completion (theorem) -/
+/-! ### T147. A4/perfectoid-uniform-completion (theorem) -/
 
 namespace FiniteEtaleTorsorTower
 
@@ -5815,7 +4618,7 @@ theorem completion_isPerfectoid {A : Type u} [CommRing A] [UniformSpace A] [IsUn
 
 end FiniteEtaleTorsorTower
 
-/-! ## AdicEtaleGeometry:A4/torsor-spa-orbits (lemma) -/
+/-! ### T148. A4/torsor-spa-orbits (lemma) -/
 
 namespace ValuationSpectrum
 
@@ -5834,12 +4637,12 @@ theorem spaComap_quotientHomeomorph_of_isFiniteEtaleTorsor {G A B : Type u} [Gro
     (hT : T.plus = (integralClosure (S.plus.map (algebraMap A B)) B).toSubring)
     (q : Pair.Hom S T) (hq : q.toRingHom = algebraMap A B) :
     Function.Surjective q.spaComap ∧ IsOpenMap q.spaComap ∧ IsSpectralMap q.spaComap ∧
-      ∀ x y : spa T.plus, q.spaComap x = q.spaComap y ↔
-        ∃ g : G, (y : Spv B) = comap (MulSemiringAction.toRingHom G B g⁻¹) x := sorry
+      ∀ x y : ValuationSpectrum.spa T.plus, q.spaComap x = q.spaComap y ↔
+        ∃ g : G, (y : Spv B) = ValuationSpectrum.comap (MulSemiringAction.toRingHom G B g⁻¹) x := sorry
 
 end ValuationSpectrum
 
-/-! ## AdicEtaleGeometry:A4/spa-of-completed-tower (lemma) -/
+/-! ### T149. A4/spa-of-completed-tower (lemma) -/
 
 namespace FiniteEtaleTorsorTower
 
@@ -5873,7 +4676,7 @@ theorem spa_completion_quotientHomeomorph :
 
 end SpaTower
 
-/-! ## AdicEtaleGeometry:A4/completed-tower-self-product (lemma) -/
+/-! ### T150. A4/completed-tower-self-product (lemma) -/
 
 section SelfProduct
 
@@ -5887,7 +4690,7 @@ def completionAlgebra : _root_.Algebra A (Uniformization T.colim) :=
   (T.completionStructureHom P).toRingHom.toAlgebra
 
 /-- A4/completed-tower-self-product (i): the uniform completed tensor square
-`Â_∞ ⊗̂ᵘ_A Â_∞` (AdicSpacesPartII:R0/uniform-completed-tensor-product) is
+`Â_∞ ⊗̂ᵘ_A Â_∞` (AdicSpacesPartII R0 (uniform completed tensor product)) is
 `(C⁰(G, Â_∞), C⁰(G, Â_∞⁺))`, with `inlᵘ b ↦ (g ↦ b)` and `inrᵘ b ↦ (g ↦ g • b)`. -/
 theorem uniformCompletedTensor_completion_equiv
     (hadic : letI := T.completionAlgebra P
@@ -5917,7 +4720,7 @@ end SelfProduct
 
 end FiniteEtaleTorsorTower
 
-/-! ## AdicEtaleGeometry:A4/perfectoid-cover-presentation (construction) -/
+/-! ### T151. A4/perfectoid-cover-presentation (construction) -/
 
 namespace Huber
 
@@ -5928,10 +4731,10 @@ variable {A : Type u} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTop
 
 /-- A4/perfectoid-cover-presentation (structure): a *perfectoid torsor presentation* of a complete
 Tate pair `(A, A⁺)` (ECD §15): a profinite group `G`, a complete perfectoid Tate pair `(Ã, Ã⁺)`
-(stand-in `Perfectoid.IsPerfectoidTateRing` for PerfectoidSpaces P1) with a continuous action of
+(interface form `Perfectoid.IsPerfectoidTateRing` for PerfectoidSpaces P1) with a continuous action of
 `G` by pair automorphisms over `(A, A⁺)`, such that (a) `Ã ⊗̂ᵘ_A Ã ≅ (C⁰(G, Ã), C⁰(G, Ã⁺))`,
-`b ⊗ b' ↦ (g ↦ b * g • b')` (stand-in `Huber.Pair.uniformCompletedTensor` for
-AdicSpacesPartII:R0/uniform-completed-tensor-product), and (b) `Spa(q)` is spectral, surjective
+`b ⊗ b' ↦ (g ↦ b * g • b')` (interface form `Huber.Pair.uniformCompletedTensor` for
+AdicSpacesPartII R0 (uniform completed tensor product)), and (b) `Spa(q)` is spectral, surjective
 and open with fibres the `G`-orbits. -/
 structure PerfectoidTorsorPresentation (p : ℕ) (P : Pair A) where
   /-- The profinite group `G`. -/
@@ -6070,7 +4873,7 @@ theorem preimage_rationalSubset (X : PerfectoidTorsorPresentation p P) (T : Fins
 
 /-- A4/perfectoid-cover-presentation (relation): for `ofTower T`, a finite étale `Ã`-algebra with
 a continuous semilinear `G`-action descends to a finite étale `A`-algebra
-(AdicEtaleGeometry:A4/finite-etale-effective-descent-along-tower). -/
+(T142 (A4/finite-etale-effective-descent-along-tower)). -/
 theorem ofTower_finiteEtaleDescent (T : FiniteEtaleTorsorTower A)
     (hp : IsTopologicallyNilpotent (p : A)) (X : PerfectoidTorsorPresentation p P)
     (hX : X = ofTower T hp) (Bh : Type u) [CommRing Bh] [_root_.Algebra X.Rt Bh]
@@ -6118,10 +4921,6 @@ example (X : PerfectoidTorsorPresentation p (Pair.powerBounded ℚ_[p]))
     ¬ Function.Injective fun r : ValuationSpectrum.spa X.relation.plus ↦
       ((relation.source X).spaComap r, (relation.target X).spaComap r) := sorry
 
--- PerfectoidTorsorPresentation.test_pointwise_cover: not stated here; needs disjoint unions of
---   affinoid adic spaces `⊔_x Spa(K(x), K(x)⁺)` (supplier: AdicSpaces Layer 5) and the v-sheaf
---   surjectivity it is contrasted with (supplier: DiamondsAndVStacks:D6) [non-example test]
-
 /- For the completed tower, `Spa(Â_∞) → Spa(A_i)` identifies `|Spa(A_i, A_i⁺)|` with the quotient
 of `|X̃|` by `ker(G → G_i)`: its fibres are the orbits of that subgroup. -/
 -- test PerfectoidTorsorPresentation.test_finite_level (compatibility)
@@ -6141,13 +4940,13 @@ example {A : Type} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopolo
 example {A : Type} [CommRing A] [UniformSpace A] [IsUniformAddGroup A] [IsTopologicalRing A]
     [IsTateRing A] [CompleteSpace A] [T2Space A] (P : Pair A) :
     Nonempty (PerfectoidTorsorPresentation p P) ↔
-      Nonempty (PerfectoidTorsorPresentation p P.uniformization) := sorry
+      Nonempty (PerfectoidTorsorPresentation p (Pair.uniformization P)) := sorry
 
 end PresentationTests
 
 end Huber
 
-/-! ## AdicEtaleGeometry:A4/spd-of-tate-huber-pair-and-perfectoid-torsor (comparison) -/
+/-! ### T152. A4/spd-of-tate-huber-pair-and-perfectoid-torsor (comparison) -/
 
 /-- A4/spd-of-tate-huber-pair-and-perfectoid-torsor: A4's part of ECD Lemmas 15.1–15.3 and
 Proposition 15.4: every complete Tate `ℤ_p`-pair has a perfectoid torsor presentation (re-exporting
@@ -6157,22 +4956,153 @@ theorem Huber.Pair.exists_perfectoidTorsorPresentation {A : Type u} [CommRing A]
     (P : Huber.Pair A) (p : ℕ) [Fact p.Prime] (hp : IsTopologicallyNilpotent (p : A)) :
     Nonempty (Huber.PerfectoidTorsorPresentation p P) := sorry
 
--- Spd(A, A⁺) is a spatial diamond, Spd(Â_∞, Â_∞⁺) → Spd(A, A⁺) is a G-torsor and
---   |Spd(A, A⁺)| = |Spa(A, A⁺)| (ECD Lemmas 15.1–15.2, Proposition 15.4): not stated here; needs
---   v-sheaves, diamonds and Spd (supplier: DiamondsAndVStacks:D6/spd-of-a-tate-pair,
---   DiamondsAndVStacks:D6/spd-is-a-spatial-diamond).
-
-/-! ## AdicEtaleGeometry:A4/diamond-of-analytic-adic-space-and-etale-site-15-6 (comparison) -/
-
--- Huber.PerfectoidTorsorPresentation.finiteEtaleSiteInput: not stated here; needs the diamond
---   Y^♢ and the finite étale and étale sites of the generalized adic space Spa(A, A⁺) (supplier:
---   DiamondsAndVStacks:D6/etale-site-comparison, AdicEtaleGeometry:A1/finite-etale-site,
---   AdicEtaleGeometry:A1/etale-site). Its analytic inputs (a)–(c) for the affinoid case of ECD
---   Lemma 15.6 are stated above: `Huber.PerfectoidTorsorPresentation.spaQuotientHomeomorph` and
---   `FiniteEtaleTorsorTower.spa_completion_quotientHomeomorph` (a),
---   `FiniteEtaleTorsorTower.completion_finiteEtale_equivalence` and its `_continuousMap` form (b),
---   `FiniteEtaleTorsorTower.completion_finiteEtale_descent` (c).
-
-end TauCeti
+/-! ### T153. A4/diamond-of-analytic-adic-space-and-etale-site-15-6 (comparison) -/
 
 end
+
+
+/-!
+## Statements not typed at the pins
+
+The following names of README.md have no declaration above: their statements need the
+category of adic spaces and the sheafiness of Huber pairs (`AdicSpaces` Layers 3–5), fibre
+products of adic spaces (AdicSpacesPartII R0), perfectoid spaces (PerfectoidSpaces P2) or
+diamonds (DiamondsAndVStacks), none of which is in the pinned libraries. The README states
+each of them in full; they are listed here by target.
+
+T001: `Huber.Pair.completedTensor.isPushout`
+T002: `Huber.Pair.completedTensor.not_isBounded_padicComplex`
+T004: `AdicSpace.isPullback_preimage_opens`, `Huber.Pair.completedTensor.rationalLocalizationIso`
+T005: `Huber.Pair.completedTensor.finiteEtaleEquivTensor`
+T006: `AdicSpace.pullbackAffinoidChartIso`
+T007: `AdicSpace.pullbackAssoc_affinoid`
+T008: `AdicSpace.analyticLocus`
+T009: `Huber.IsStronglySheafy`
+T010: `Huber.Pair.finiteEtaleFunctor`, `Huber.Pair.finiteEtale.rationalLocalizationIso`,
+  `Huber.Pair.finiteEtale.eq_finiteAlgebra`, `Huber.Pair.finiteEtale_test_kummer_annulus`
+T011: `Huber.IsStronglySheafy.finiteEtale`
+T012: `Huber.finiteEtaleDescentEquiv`
+T014: `Huber.AffinoidSystem.finiteEtaleEquiv`
+T015: `AdicSpace.IsFiniteEtale`
+T016: `AdicSpace.IsFiniteEtale.isAffinoid_preimage`, `AdicSpace.finiteEtaleAffinoidEquiv`,
+  `AdicSpace.IsFiniteEtale.surjective_iff`
+T017: `AdicSpace.IsEtaleLocalDescription`
+T018: `AdicSpace.IsFiniteEtale.iff_isFinite_and_etale`,
+  `AdicSpace.IsEtaleLocalDescription.iff_etale`,
+  `AdicSpace.IsEtaleLocalDescription.isLocallyNoetherian`
+T019: `AdicSpace.IsEtaleLocalDescription.hasPullback`,
+  `AdicSpace.IsEtaleLocalDescription.baseChange`, `AdicSpace.IsFiniteEtale.baseChange`,
+  `AdicSpace.IsEtaleLocalDescription.surjective_pullback_points`
+T020: `AdicSpace.IsFiniteEtale.comp`, `AdicSpace.IsEtaleLocalDescription.comp`,
+  `AdicSpace.IsEtaleLocalDescription.isLocallyStronglySheafy`
+T021: `AdicSpace.IsEtaleLocalDescription.isOpenImmersion_diagonal`,
+  `AdicSpace.IsFiniteEtale.isClosedMap_diagonal`,
+  `AdicSpace.IsEtaleLocalDescription.isOpenImmersion_of_section`
+T022: `AdicSpace.IsEtaleLocalDescription.of_comp`, `AdicSpace.IsFiniteEtale.of_comp`
+T023: `AdicSpace.IsEtaleLocalDescription.isOpenMap`,
+  `AdicSpace.IsEtaleLocalDescription.exists_factor_surjective_openImmersion`
+T024: `AdicSpace.smallEtale`
+T025: `AdicSpace.smallFiniteEtale`
+T026: `AdicSpace.spa_algClosed_exists_section`
+T027: `AdicSpace.GeometricPoint`
+T028: `AdicSpace.isConservativeFamilyOfPoints_geometricPoint`
+T029: `AdicSpace.smallFiniteEtale.galoisCategory`,
+  `AdicSpace.GeometricPoint.fiberFunctor_isFiberFunctor`, `AdicSpace.etaleFundamentalGroup`
+T031: `AdicSpace.isSheaf_smallEtale_iff`
+T032: `AdicSpace.structureSheafEtale`, `AdicSpace.structureSheafEtalePlus`,
+  `AdicSpace.structureSheafEtale_obj_opens`
+T033: `AdicSpace.smallEtaleSliceEquiv`, `AdicSpace.smallEtaleSliceEquiv_topology`
+T034: `AdicSpace.GeometricPoint.Neighbourhood`
+T035: `AdicSpace.GeometricPoint.localRing_henselian`,
+  `AdicSpace.GeometricPoint.residueField_isSepClosed`,
+  `AdicSpace.strictLocalization.space_homeomorph`
+T036: `YonedaAdicSpace.IsFiniteEtale`
+T037: `AdicSpace.ProEtale.ProEt`
+T038: `AdicSpace.ProEtale.FetTower`
+T039: `AdicSpace.ProEtale.IsFetTower.exists_finite_presentation`
+T040: `AdicSpace.ProEtale.IsFetTower.exists_section_of_point`
+T042: `AdicSpace.ProEtale.IsProEtale.baseChange`, `AdicSpace.ProEtale.IsEtale.baseChange`,
+  `AdicSpace.ProEtale.surjective_space_pullback`
+T043: `AdicSpace.ProEtale.IsEtale.comp`, `AdicSpace.ProEtale.IsFiniteEtale.comp`
+T044: `AdicSpace.ProEtale.exists_isEtale_range_space_eq`,
+  `AdicSpace.ProEtaleSite.factors_through_openSubobject_iff`
+T045: `AdicSpace.ProEtale.IsProEtale.isOpenMap`
+T046: `AdicSpace.ProEtale.IsEtale.exists_const_of_surjective`
+T047: `AdicSpace.ProEtale.IsProEtale.comp`,
+  `AdicSpace.ProEtale.IsProEtale.exists_etale_comp_limit`
+T048: `AdicSpace.EtaleSite.finite_connectedComponents_of_affinoid`
+T049: `AdicSpace.ProEtaleSite.hasEqualizers`, `AdicSpace.ProEtaleSite.hasPullbacks`
+T050: `AdicSpace.ProEtale.IsFetTower.exists_swap_etale`
+T051: `AdicSpace.ProEtaleSite.coveringPretopology`
+T052: `AdicSpace.ProEtaleSite`
+T053: `AdicSpace.ProEtaleSite.const`, `AdicSpace.ProEtaleSite.const_isContinuous`,
+  `AdicSpace.ProEtaleSite.nuPullback`
+T054: `AdicSpace.ProEtaleSite.nuPullback_obj_eq_colimit`,
+  `AdicSpace.ProEtaleSite.nuPullback_fullyFaithful`
+T058: `AdicSpace.ProFetSite`
+T059: `AdicSpace.ProFetSite.equivProfiniteGSet`
+T060: `AdicSpace.ProFetSite.isProEtale_iff_isOpenMap`,
+  `AdicSpace.ProFetSite.toProEtaleSite_isContinuous`
+T061: `AdicSpace.ProEtaleSite.isQuasicompact_of_affinoid`, `AdicSpace.ProEtaleSite.isAlgebraic`
+T065: `AdicSpace.ProEtaleSite.hasEnoughPoints`
+T066: `AdicSpace.ProEtaleSite.overEquiv`
+T068: `AdicSpace.ProEtaleSite.fieldExtensionOverEquiv`
+T069: `AdicSpace.ProEtaleSite.prodProfinite`, `AdicSpace.ProEtaleSite.homProdProfiniteEquiv`
+T070: `AdicSpace.ProEtaleSite.isFetTower_of_galois`,
+  `AdicSpace.ProEtaleSite.sections_eq_invariants`
+T071: `CAff.isSheafAt_O_iff_isSheafyPair`
+T072: `YonedaAdicSpace.ofAdicSpace`, `YonedaAdicSpace.test_open_disc`,
+  `YonedaAdicSpace.test_sheafy`
+T074: `YonedaAdicSpace.equivIndRinged`
+T075: `YonedaAdicSpace.homOfAdicSpaceSpaYEquiv`
+T076: `YonedaAdicSpace.ofAdicSpace_fullyFaithful`, `YonedaAdicSpace.ofAdicSpace_spa`
+T077: `YonedaAdicSpace.IsAnalytic.exists_tate_cover`, `YonedaAdicSpace.restrictTate_fullyFaithful`
+T078: `YonedaAdicSpace.hasPullbacks_analytic`
+T079: `AdicSpace.IsProper.iff_quasiCompact_and_existsUnique_centre`
+T080: `AdicSpace.relativePolydisc`, `AdicSpace.relativePolydisc.proj`,
+  `AdicSpace.relativePolydisc.coord`, `AdicSpace.relativePolydisc.homEquiv`,
+  `AdicSpace.relativePolydisc.affinoidChart`, `AdicSpace.relativePolydisc.baseChangeIso`,
+  `AdicSpace.relativePolydisc.addIso`, `AdicSpace.relativePolydisc.smooth`,
+  `AdicSpace.relativePolydisc.zeroIso`
+T081: `AdicSpace.relativeTorus`, `AdicSpace.relativeTorus.ι`,
+  `AdicSpace.relativeTorus.affinoidChart`, `AdicSpace.relativeTorus.iSup_translate_eq_polydisc`,
+  `AdicSpace.relativeTorus_spa_field`
+T082: `AdicSpace.IsLocallyEtaleOverPolydisc`
+T084: `AdicSpace.Smooth.exists_relativeToricChart`
+T085: `AdicSpace.dim`, `AdicSpace.dim_eq_iSup_specializationChain`, `AdicSpace.IsPureDim`,
+  `AdicSpace.relDim`, `AdicSpace.IsPureRelDim`, `AdicSpace.dim_le_of_isOpenImmersion`,
+  `AdicSpace.dim_spa_field`, `AdicSpace.dim_congr_homeomorph`
+T087: `AdicSpace.Smooth.isPureRelDim`
+T089: `AdicSpace.relativePolydiscIsoAnalyticAffineSpaceChart`
+T096: `Huber.IsStablyPseudoCoherent.baseChange`
+T099: `Huber.isStrictMap_mul_X_sub`
+T100: `Huber.isPseudoFlat_simpleLaurent`
+T102: `Huber.isPseudoFlat_ratLoc`
+T103: `Huber.cech_exact_of_isStablyPseudoCoherent`
+T104: `Huber.IsStablyPseudoCoherent.isFPD_of_cover`
+T105: `AdicSpace.IsPseudoCoherentSheaf`
+T106: `Huber.effectiveDescent_simpleLaurent`
+T107: `AdicSpace.pseudoCoherentEquiv`
+T110: `Huber.StandardEtalePresentation.kaehler_eq_zero`
+T112: `Huber.tubeEquiv`
+T116: `PerfectoidSpace.baseFieldHom`
+T117: `PerfectoidSpace.isEtale_standardEtaleLocus`
+T118: `Huber.isQuotientMapping_cutoff`
+T119: `AdicSpace.isZariskiClosedImmersion_iff_forall`
+T120: `PerfectoidSpace.exists_standardPieceCover`
+T122: `PerfectoidSpace.exists_quotientMapping_restrictedPowerSeries`
+T123: `PerfectoidSpace.conormal_equiv`
+T124: `PerfectoidSpace.exists_local_equations`
+T125: `PerfectoidSpace.nonempty_standardEtalePresentation`
+T126: `PerfectoidSpace.tiltCofilteredLimitIso`
+T127: `PerfectoidSpace.baseChange_standardEtalePresentation`
+T128: `PerfectoidSpace.exists_affinoidEtale_model`
+T129: `PerfectoidSpace.affinoidEtale_model_unique`
+T130: `PerfectoidSpace.affinoidEtale_colimit_equivalence`
+T131: `PerfectoidSpace.etaleDescent_6_4`
+T132: `PerfectoidSpace.isStronglyZariskiClosed_perfectoidBall`
+T151: `PerfectoidTorsorPresentation.test_pointwise_cover`
+T153: `Huber.PerfectoidTorsorPresentation.finiteEtaleSiteInput`
+-/
+
+end TauCetiRoadmap.AdicEtaleGeometry

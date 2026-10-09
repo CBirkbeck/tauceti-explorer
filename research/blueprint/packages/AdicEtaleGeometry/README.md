@@ -1,11 +1,10 @@
 # Analytic adic geometry required for diamonds
 
 This roadmap develops the analytic adic geometry used in Scholze’s *Étale cohomology of
-diamonds*. It begins after **Foundations of adic spaces** (the Tau Ceti roadmap `AdicSpaces`,
-called the anchor below) and **Foundations of adic spaces, Part II** (`AdicSpacesPartII`).
+diamonds*. It begins after **Foundations of adic spaces** (the Tau Ceti roadmap `AdicSpaces`) and **Foundations of adic spaces, Part II** (`AdicSpacesPartII`).
 Its five layers connect complete Huber pairs, analytic étale sites, nonnoetherian approximation,
 and perfectoid torsor presentations. The resulting analytic constructions supply
-`DiamondsAndVStacks:D6` with its adic input.
+`DiamondsAndVStacks D6` with its adic input.
 
 ## Purpose
 
@@ -37,7 +36,7 @@ A1, AdicSpacesPartII R0     → A4 → DiamondsAndVStacks D6
 
 ## Prerequisites and boundaries
 
-- **The anchor**, Layers 0–5, and **AdicSpacesPartII** (R0–R5, F0), whose interfaces the
+- **`AdicSpaces`**, Layers 0–5, and **AdicSpacesPartII** (R0–R5, F0), whose interfaces the
   declarations below cite. AdicSpacesPartII owns the completed tensor product, uniformisation,
   fibre products and Huber's morphism theory; A0 and A2 add only the comparisons and the few objects
   its text leaves to this roadmap (relative polydiscs and tori, smooth morphisms by ball charts,
@@ -56,7 +55,7 @@ A1, AdicSpacesPartII R0     → A4 → DiamondsAndVStacks D6
 
 ## Conventions
 
-1. Huber pairs, completeness (including Hausdorff) and adic spaces are the anchor's; morphism classes
+1. Huber pairs, completeness (including Hausdorff) and adic spaces are `AdicSpaces`'s; morphism classes
    in Huber's sense are AdicSpacesPartII's.
 2. Finite étale and étale morphisms of analytic adic spaces are defined by the local description
    (Kedlaya–Liu 8.2.16): locally an open immersion, a finite étale morphism and an open immersion.
@@ -71,14 +70,15 @@ A1, AdicSpacesPartII R0     → A4 → DiamondsAndVStacks D6
    any rank; nothing is tested only on rank-one points.
 6. The dimension of an adic space is the topological Krull dimension of its underlying space
    (Mathlib `topologicalKrullDim`).
-7. Names: ring-level declarations in `TauCeti.Huber`, geometry in `TauCeti.AdicSpace`, Yoneda-adic
-   spaces in `TauCeti.YonedaAdic`; the names below omit `TauCeti.`.
+7. Names: ring-level declarations in `Huber`, geometry in `AdicSpace`, Yoneda-adic spaces in
+   `YonedaAdic`, all under Tau Ceti's root namespace; the names below omit that prefix. The
+   prototypes of `Suggested.lean` carry the same names inside `TauCetiRoadmap.AdicEtaleGeometry`.
 
 <a id="a0"></a>
 
 ## A0. Completed tensor products and the fibre products actually used
 
-**Imported foundation:** AdicSpacesPartII R0 (`AdicSpacesPartII:R0`). A0 is the comparison interface of this
+**Imported foundation:** AdicSpacesPartII R0 (`AdicSpacesPartII R0`). A0 is the comparison interface of this
 roadmap with R0: it identifies, on the same carriers, R0's completed tensor product, its topology,
 plus ring and universal property, its uniformization and its affinoid fibre products with the objects
 the diamond and perfectoid layers use, and proves the comparisons that R0 does not state (pullback
@@ -89,7 +89,7 @@ with its restriction interface, needed to apply R0's constructions to analytic a
 proves that the relevant products of perfectoid spaces are perfectoid.
 
 **Dependencies.** AdicSpacesPartII R0 (completed tensor products, fibre products, adic morphisms,
-finite morphisms, uniformization); the Tau Ceti anchor `AdicSpaces`, Layers 0
+finite morphisms, uniformization); `AdicSpaces`, Layers 0
 (completion of Huber pairs), 2 (analytic points of `Spa`), 3 (rational localisation, the category
 `𝒱`) and 5 (adic spaces, open subspaces, gluing), which are imported as interfaces of those layers. A0 uses no stage that depends on it: PerfectoidSpaces P2, AdicSpacesPartII R4–R5 and AdicEtaleGeometry
 A1 consume A0 and appear below only in examples and boundaries. **Consumers:** AdicEtaleGeometry A1,
@@ -101,7 +101,7 @@ scalar extension), FarguesFontaineDiamonds F4, RelativeFarguesFontaine RF0.
 1. **Huber pairs and morphisms.** Huber pairs are Tau Ceti `Huber.Pair` on complete Hausdorff
    Huber rings; morphisms are Tau Ceti `Huber.Pair.Hom` (continuous, preserving plus rings).
 2. **Adic homomorphisms.** A completed tensor product `B ⊗̂_A C` is formed only along adic ring maps
-   (`AdicSpacesPartII:R0/adic-ring-homomorphism`); over a Tate ring `A` every continuous map is adic.
+   (AdicSpacesPartII R0 (adic ring homomorphism)); over a Tate ring `A` every continuous map is adic.
    Over a non-Tate base such as `ℤ_p` or `ℤ_p⟦T⟧` adicness is a condition, and fibre products along
    non-adic maps are computed by R0's ascending unions of affinoids, not by a tensor formula.
 3. **The completed tensor product** is R0's `Huber.Pair.completedTensor`: the Hausdorff completion of
@@ -133,21 +133,21 @@ A0's contract, on R0's carrier:
 - *universal property* — every compatible pair of morphisms into a complete Hausdorff Huber pair
   factors uniquely, with no adicness condition on the pair;
 - *geometry* — when all four pairs are sheafy, `Spa D = Spa B ×_{Spa A} Spa C` in adic spaces
-  (`AdicSpacesPartII:R0/affinoid-fibre-product`), globalised by `AdicSpacesPartII:R0/fibre-products-existence`.
+  (AdicSpacesPartII R0 (affinoid fibre product)), globalised by AdicSpacesPartII R0 (fibre products existence).
 
 Sheafiness of `D` is supplied for `B` of noetherian type and `g` topologically of finite type
-(`AdicSpacesPartII:R0/completed-tensor-noetherian-stability`); for perfectoid `(A, B, C)` over a
+(AdicSpacesPartII R0 (completed tensor noetherian stability)); for perfectoid `(A, B, C)` over a
 perfectoid field it is PerfectoidSpaces P2's theorem that `D` is perfectoid and that perfectoid fibre
-products exist (`PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces`), a result that applies this
+products exist (PerfectoidSpaces P2 (fibre products of perfectoid spaces)), a result that applies this
 target and is not part of it.
 
 Acceptance:
 
-- Scalar extension of a Tate algebra (A0 test): for a complete extension L/K of nonarchimedean fields, (K⟨T⟩, K°⟨T⟩) ⊗̂_{(K, K°)} (L, L°) ≅ (L⟨T⟩, L°⟨T⟩) through AdicSpacesPartII:R0/completed-tensor-restricted-power-series (b), and Spa(L⟨T⟩, L°⟨T⟩) = Spa(K⟨T⟩, K°⟨T⟩) ×_{Spa(K, K°)} Spa(L, L°) is the closed unit disc over L.
+- Scalar extension of a Tate algebra (A0 test): for a complete extension L/K of nonarchimedean fields, (K⟨T⟩, K°⟨T⟩) ⊗̂_{(K, K°)} (L, L°) ≅ (L⟨T⟩, L°⟨T⟩) through AdicSpacesPartII R0 (completed tensor restricted power series) (b), and Spa(L⟨T⟩, L°⟨T⟩) = Spa(K⟨T⟩, K°⟨T⟩) ×_{Spa(K, K°)} Spa(L, L°) is the closed unit disc over L.
 - Polydisc: (K⟨T⟩, K°⟨T⟩) ⊗̂_{(K, K°)} (K⟨S⟩, K°⟨S⟩) ≅ (K⟨T, S⟩, K°⟨T, S⟩) and its Spa is the product of two closed discs (Hübner, Example 9.3).
 - Plus ring is not the image: for L = ℚ_p(√p), (L, O_L) ⊗̂_{ℚ_p} (L, O_L) ≅ (L × L, O_L × O_L); the idempotent (1, 0) lies in the plus ring but not in the image of O_L ⊗_{ℤ_p} O_L.
-- Perfectoid scalar extension after P2 (A0 test): for a perfectoid field K, the perfectoid affinoid K-algebra K⟨T^{1/p^∞}⟩ and a perfectoid complete extension L/K, PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces identifies Spa K⟨T^{1/p^∞}⟩ ×_{Spa K} Spa L with Spa of this target's pair K⟨T^{1/p^∞}⟩ ⊗̂_K L = L⟨T^{1/p^∞}⟩; the perfectoidness and sheafiness used there are P2's and are not consequences of this target.
-- Non-example: for ℤ_p → ℤ_p⟦X⟧ ((p, X)-adic, not adic) and ℤ_p → ℚ_p there is no Huber topology on ℤ_p⟦X⟧ ⊗_{ℤ_p} ℚ_p making both maps continuous with ℤ_p⟦X⟧ open (Morel, Example II.3.2.2); the fibre product Spa ℤ_p⟦X⟧ ×_{Spa ℤ_p} Spa(ℚ_p, ℤ_p) is the open unit disc over ℚ_p, which is not affinoid (AdicSpacesPartII:R0/fibre-product-along-finite-type).
+- Perfectoid scalar extension after P2 (A0 test): for a perfectoid field K, the perfectoid affinoid K-algebra K⟨T^{1/p^∞}⟩ and a perfectoid complete extension L/K, PerfectoidSpaces P2 (fibre products of perfectoid spaces) identifies Spa K⟨T^{1/p^∞}⟩ ×_{Spa K} Spa L with Spa of this target's pair K⟨T^{1/p^∞}⟩ ⊗̂_K L = L⟨T^{1/p^∞}⟩; the perfectoidness and sheafiness used there are P2's and are not consequences of this target.
+- Non-example: for ℤ_p → ℤ_p⟦X⟧ ((p, X)-adic, not adic) and ℤ_p → ℚ_p there is no Huber topology on ℤ_p⟦X⟧ ⊗_{ℤ_p} ℚ_p making both maps continuous with ℤ_p⟦X⟧ open (Morel, Example II.3.2.2); the fibre product Spa ℤ_p⟦X⟧ ×_{Spa ℤ_p} Spa(ℚ_p, ℤ_p) is the open unit disc over ℚ_p, which is not affinoid (AdicSpacesPartII R0 (fibre product along finite type)).
 
 #### A0.2 Uniformization, supplied separately
 
@@ -165,7 +165,7 @@ Acceptance:
 - K⟨T⟩ ⊗̂ᵘ_K K⟨S⟩ ≅ K⟨T, S⟩ and ι is an isomorphism (the completed tensor product is already uniform).
 - ℂ_p ⊗̂_{ℚ_p} ℂ_p → ℂ_p ⊗̂ᵘ_{ℚ_p} ℂ_p is not an isomorphism: the separated completion is not uniform.
 - For a finite Galois extension L/K of complete nonarchimedean fields, L ⊗̂ᵘ_K L ≅ ∏_{σ ∈ Gal(L/K)} L via x ⊗ y ↦ (xσ(y))_σ.
-- Why A0's fibre products are not uniformised: a topologically split injection stays split after completed base change but may lose the splitting after uniform completion (Hansen–Kedlaya, Remark 7.2), which AdicSpacesPartII:R5 uses for sousperfectoid base change.
+- Why A0's fibre products are not uniformised: a topologically split injection stays split after completed base change but may lose the splitting after uniform completion (Hansen–Kedlaya, Remark 7.2), which AdicSpacesPartII R5 uses for sousperfectoid base change.
 
 #### A0.3 Tracking rings of definition, pseudouniformisers and plus rings
 
@@ -230,7 +230,7 @@ Acceptance:
 `AdicSpace.pullbackAffinoidChartIso`). For the glued fibre product `Z = X ×_S Y` of R0 (with `g` adic)
 and open affinoids `W ⊆ S`, `U ⊆ f⁻¹(W)`, `V ⊆ g⁻¹(W)` with `O(U) ⊗̂_{O(W)} O(V)` sheafy, the open
 subspace `p⁻¹(U) ∩ q⁻¹(V)` is canonically `Spa(O(U) ⊗̂_{O(W)} O(V))`, independently of the cover used to
-glue `Z`, and compatibly with rational restriction (`AdicSpacesPartII:R0/completed-tensor-rational-localisation`).
+glue `Z`, and compatibly with rational restriction (AdicSpacesPartII R0 (completed tensor rational localisation)).
 
 Acceptance:
 
@@ -280,12 +280,12 @@ API:
 - `AdicSpace.IsAnalytic.isIso_ι` (characterisation): X is analytic iff ι_X is an isomorphism.
 - `AdicSpace.analyticLocus_inf_open` (compatibility): For an open subspace U ⊆ X: U_a = X_a ∩ U.
 - `AdicSpace.analyticLocus_spa` (compatibility): For X = Spa(A, A⁺), A complete: |X_a| = Tau Ceti `spaAnalytic A⁺`.
-- `AdicSpace.analyticLocus_spa_eq_iUnion_tateCharts` (characterisation): For generators G of an ideal of definition, Spa(A, A⁺)_a = ⋃ R(G/g), each chart with Tate coordinate ring.
-- `AdicSpace.analyticLocus_eq_top_of_isTateRing` (simp): If A is Tate then Spa(A, A⁺)_a = Spa(A, A⁺).
-- `AdicSpace.analyticLocus_spa_eq_bot_iff` (characterisation): Spa(A, A⁺)_a = ∅ iff the Hausdorff quotient of A is discrete.
+- `AdicSpace.analyticLocus_spa_eq_iUnion_tateCharts` (characterisation): For generators G of an ideal of definition, Spa(A, A⁺)_a = ⋃ R(G/g), each chart with Tate coordinate ring; on points this is Tau Ceti's `spaAnalytic_eq_biUnion_rationalSubset` and `isTateRing_completion_locTopology_of_mem_generators`, transported to the open subspace X_a.
+- `AdicSpace.analyticLocus_eq_top_of_isTateRing` (simp): If A is Tate then Spa(A, A⁺)_a = Spa(A, A⁺) (Tau Ceti `spaAnalytic_eq_spa_of_isTateRing` on points).
+- `AdicSpace.analyticLocus_spa_eq_bot_iff` (characterisation): Spa(A, A⁺)_a = ∅ iff the Hausdorff quotient of A is discrete (Tau Ceti `spaAnalytic_eq_empty_iff_discrete_separationQuotient` on points). These four items restate Tau Ceti's point-set statements for the open subspace X_a; they introduce no new point-set content.
 - `AdicSpace.IsAdic.analyticLocusMap` (functoriality): For adic f : Y → X, the morphism f_a : Y_a → X_a with ι_X ∘ f_a = f ∘ ι_Y; analyticLocusMap_id, analyticLocusMap_comp.
 - `AdicSpace.analyticLocus.lift` (universal-property): For analytic T and adic g : T → X, the unique lift T → X_a with ι_X ∘ lift = g.
-- `AdicSpace.isAdic_iff_image_analyticLocus` (characterisation): f is adic iff f maps Y_a into X_a (re-export of AdicSpacesPartII:R0/adic-iff-analytic-locus).
+- `AdicSpace.isAdic_iff_image_analyticLocus` (characterisation): f is adic iff f maps Y_a into X_a (re-export of AdicSpacesPartII R0 (adic iff analytic locus)).
 - `AdicSpace.analyticLocus_pullback` (compatibility): If g : Z → X is adic and Y ×_X Z exists, (Y ×_X Z)_a = p⁻¹(Y_a) ≅ Y_a ×_X Z.
 - `AdicSpace.analyticLocus_isAnalytic` (instance): X_a is analytic.
 
@@ -300,7 +300,7 @@ Unit tests:
 Acceptance:
 
 - Spa ℤ_p⟦T⟧ ((p, T)-adic): X_a = R((p, T)/p) ∪ R((p, T)/T), both Tate charts (Hübner, Example 6.12).
-- Spa(A_inf, A_inf) for A_inf = W(O_F) with the (p, [ϖ])-adic topology: X_a = D(p) ∪ D([ϖ]), strictly larger than 𝒴 = D(p) ∩ D([ϖ]) (anchor Layer 6.1).
+- Spa(A_inf, A_inf) for A_inf = W(O_F) with the (p, [ϖ])-adic topology: X_a = D(p) ∪ D([ϖ]), strictly larger than 𝒴 = D(p) ∩ D([ϖ]) (`AdicSpaces` Layer 6.1).
 - Every morphism of analytic adic spaces is adic (Hübner, Lemma 6.8), so the analytic adic spaces over Spa ℤ_p used in ECD §15 form a full subcategory on which (d) is vacuous.
 
 #### Acceptance tests of A0
@@ -312,18 +312,18 @@ Acceptance:
 - **Scalar extension of a Tate algebra:** `K⟨T⟩ ⊗̂_K L ≅ L⟨T⟩` and the closed unit disc over `L` as a
   fibre product (A0.1).
 - **Perfectoid scalar extension after P2:** `Spa K⟨T^{1/p^∞}⟩ ×_{Spa K} Spa L = Spa L⟨T^{1/p^∞}⟩` with
-  the carrier of A0.1 and perfectoidness from `PerfectoidSpaces:P2/fibre-products-of-perfectoid-spaces`.
+  the carrier of A0.1 and perfectoidness from PerfectoidSpaces P2 (fibre products of perfectoid spaces).
 - No pullback of arbitrary adic spaces is inferred from these cases.
 
 #### Imported interfaces and boundaries
 
-- The category of adic spaces, open subspaces and maps into affinoids (anchor Layer 5), rational
-  localisation as a complete pair and Huber's category `𝒱` (anchor Layer 3), and completion of Huber
-  pairs (anchor Layer 0) are requested from the Tau Ceti anchor. PerfectoidSpaces P0's request for adic
-  spaces with their structure presheaf, and P8's for the category `𝒱`, are owned there.
-- Completed tensor products of Banach modules and Banach spaces over a nonarchimedean field (requested
-  of A0 by PerfectoidSpaces P8/P9) belong to R0's completed tensors and are requested from AdicSpacesPartII R0 (the interface
-  `AdicSpacesPartII:R0/completed-tensor-banach-module` proposed there).
+- The category of adic spaces, open subspaces and maps into affinoids (`AdicSpaces` Layer 5), rational
+  localisation as a complete pair and Huber's category `𝒱` (`AdicSpaces` Layer 3), and completion of Huber
+  pairs (`AdicSpaces` Layer 0) are `AdicSpaces`'s, as are the adic spaces with their structure presheaf and the category `𝒱`
+  that PerfectoidSpaces P0 and P8 use.
+- Completed tensor products of Banach modules and Banach spaces over a nonarchimedean field (which
+  PerfectoidSpaces P8/P9 use) belong to AdicSpacesPartII R0's completed tensors, as its completed
+  tensor product of Banach modules.
 - Sheafiness of finite étale algebras over a general sheafy Tate pair is an open problem and is kept as
   a hypothesis.
 
@@ -337,10 +337,10 @@ Acceptance:
 `A0/rational-pullback-comparison`, `A0/finite-etale-pullback-comparison`);
 AdicSpacesPartII R0 (Huber's finite and étale morphisms, finite algebras over noetherian affinoids, completed
 tensor products and affinoid fibre products, valuation amalgamation, the local structure of étale maps including
-the import of Huber's Lemma 2.2.8) and R3 (Čech acyclicity of sheafy affinoids, Kiehl's theorem); the anchor's
+the import of Huber's Lemma 2.2.8) and R3 (Čech acyclicity of sheafy affinoids, Kiehl's theorem); `AdicSpaces`'s
 Layers 2–5 (`AdicSpaces#layer-2-…` to `#layer-5-…`: rational-subset calculus, structure
 presheaf and sheafiness predicates, sheafiness of strongly noetherian Tate rings, the category of adic spaces —
-requested, see below); and, for the site of an arbitrary analytic adic space only, the Yoneda-adic spaces of part A1b
+see below); and, for the site of an arbitrary analytic adic space only, the Yoneda-adic spaces of part A1b
 (`A1/generalized-adic-presentation` and its lemmas).
 
 **Consumers.** AdicSpacesPartII R4 (re-export of the sites on the R0/R1 carriers, geometric points, slices) and R5
@@ -360,7 +360,7 @@ cohomology is defined here.
 
 #### Conventions
 
-1. **Carriers.** Adic spaces are the anchor's (Layer 5); *analytic* means every point is analytic, so affinoid
+1. **Carriers.** Adic spaces are `AdicSpaces`'s (Layer 5); *analytic* means every point is analytic, so affinoid
    charts can be taken of the form Spa(A, A⁺) with A a complete Hausdorff Tate ring. Every morphism into an analytic
    adic space is adic.
 2. **Finite étale algebras.** For a complete Tate ring A, FÉt(A) is Mathlib's `CommAlgCat.FiniteEtale A`
@@ -383,19 +383,19 @@ cohomology is defined here.
 #### A1a.1 Strongly sheafy rings
 
 <a id="t009"></a> **T009** `A1/strongly-sheafy-huber-pair` (definition). `Huber.IsStronglySheafy A` for a complete Tate ring A:
-every A⟨T₁, …, Tₙ⟩ (Tau Ceti `restrictedMvPowerSeriesCompletion`) is a sheafy ring (anchor `Huber.IsSheafyRing`).
+every A⟨T₁, …, Tₙ⟩ (Tau Ceti `restrictedMvPowerSeriesCompletion`) is a sheafy ring (Tau Ceti `Huber.IsSheafyRing`).
 `AdicSpace.IsLocallyStronglySheafy X`: an open affinoid cover by strongly sheafy charts. Stability (proved from
 Hansen–Kedlaya Theorem 4.2, Lemma 4.3, Corollary 4.5 and the Čech acyclicity of sheafy affinoids, R3): rational
 localisations and Tate algebras of strongly sheafy rings are strongly sheafy; a sheafy ring with a finite rational
 covering by strongly sheafy rings is strongly sheafy; hence every open affinoid of a locally strongly sheafy space
 is strongly sheafy. Examples: strongly noetherian Tate rings, Tate rings with a noetherian ring of definition,
-anchor-stably-sheafy rings. Non-example: the uniform non-sheafy Tate rings of Buzzard–Verberkmoes and Mihara.
+stably sheafy rings. Non-example: the uniform non-sheafy Tate rings of Buzzard–Verberkmoes and Mihara.
 
 API: `IsStronglySheafy`, `.isSheafyRing`, `.restrictedMvPowerSeries`, `.rationalLocalization`, `.of_rationalCover`,
 `.of_isStronglyNoetherian`, `.of_isStablySheafyRing`; `AdicSpace.IsLocallyStronglySheafy` with
 `.isStronglySheafy_of_isAffinoidOpen`, `.restrict`, `.of_isLocallyNoetherian`.
 Tests: K⟨T₁, …, T_m⟩ is strongly sheafy; a complete nonarchimedean field is (degenerate); a uniform non-sheafy ring
-is not (non-example); stably sheafy ⇒ strongly sheafy (compatibility with the anchor).
+is not (non-example); stably sheafy ⇒ strongly sheafy (compatibility with `AdicSpaces`).
 
 #### A1a.2 The Huber pair of a finite étale algebra
 
@@ -477,7 +477,7 @@ Huber-étale (Huber 1.6.6(ii) via R0's `finite-etale-algebra-comparison`); A1-é
 2.2.8 via R0's `etale-local-open-finite-etale-factorisation`, over a field de Jong–van der Put 3.1.4); hence Huber's
 Et/X, with the same morphisms and coverings, is A1's, and every A1-étale map over X has Huber's standard
 presentations, flatness, openness and local quasi-finiteness; étale X-spaces are again locally noetherian. This is
-what AdicSpacesPartII:R4/etale-site-on-analytic-carriers cites.
+what AdicSpacesPartII R4 (etale site on analytic carriers) cites.
 
 #### A1a.5 Stability properties
 
@@ -648,7 +648,7 @@ spaces of the Tau Ceti roadmap *Foundations of adic spaces*:
 2. The category of generalized adic spaces used in ECD §15: sheaves on the opposite category of
    complete Huber pairs that are glued from the sheafified representable functors `Spa^Y(A, A⁺)`
    (Scholze–Weinstein's adic spaces of [SW13, §2.1], the pre-adic spaces of the Berkeley Lectures,
-   Kedlaya–Liu's preadic spaces), with the proof that the sheafy adic spaces of the anchor form a
+   Kedlaya–Liu's preadic spaces), with the proof that the sheafy adic spaces of `AdicSpaces` form a
    full subcategory.
 
 It owns no morphism theory: étale, finite étale, smooth and finite morphisms, fibre products and
@@ -662,7 +662,7 @@ DiamondsAndVStacks D2.
 #### Conventions
 
 - `X` is a **locally noetherian analytic adic space**
-  (`AdicSpacesPartII:R0/locally-noetherian-adic-space` with every point analytic): locally
+  (AdicSpacesPartII R0 (locally noetherian adic space) with every point analytic): locally
   `Spa(A, A⁺)` with `A` a complete strongly noetherian Tate ring. Scholze allows all locally
   noetherian adic spaces and schemes; the analytic case is the one the consumers use.
 - `X_ét` and `X_fét` are the small étale and finite étale sites of A1 (part a); every
@@ -678,7 +678,7 @@ DiamondsAndVStacks D2.
 - **Surjective** means surjective on underlying spaces `|·|`.
 - Sizes: a universe is fixed; `X_ét` is locally small and sheaves are small-set-valued.
 - The name **Yoneda-adic space** (Berkeley, Appendix to Lecture 3) is used for the generalized
-  adic spaces, because the anchor's *pre-adic spaces* (Wedhorn's `𝒱^pre`, anchor Layer 3.4) are a
+  adic spaces, because `AdicSpaces`'s *pre-adic spaces* (Wedhorn's `𝒱^pre`, `AdicSpaces` Layer 3.4) are a
   different, presheaf-based category.
 
 #### 1. Pro-étale morphisms and the underlying space
@@ -706,7 +706,7 @@ The seven parts of Scholze's Lemma 3.10 are separate targets:
 | <a id="t042"></a> **T042** `A1/pro-etale-base-change` | base change along étale / finite étale / pro-étale maps exists, keeps the class, and `|U ×_V W| → |U| ×_{|V|} |W|` is surjective with nonempty compact fibres |
 | <a id="t043"></a> **T043** `A1/pro-etale-etale-composition` | composites of étale (finite étale) maps are étale (finite étale) |
 | <a id="t044"></a> **T044** `A1/pro-etale-quasicompact-opens` | a quasi-compact open `W ⊂ |U|` is represented by an étale subobject, which in `X_proét` has the universal property of an open subobject |
-| <a id="t045"></a> **T045** `A1/pro-etale-maps-open` | pro-étale maps are open (via Huber 1.7.8, `AdicSpacesPartII:R0/smooth-morphism-open`) |
+| <a id="t045"></a> **T045** `A1/pro-etale-maps-open` | pro-étale maps are open (via Huber 1.7.8, AdicSpacesPartII R0 (smooth morphism open)) |
 | <a id="t046"></a> **T046** `A1/pro-etale-surjective-etale-descent` | surjective (finite) étale maps to objects of `X_proét` come from a finite stage |
 | <a id="t047"></a> **T047** `A1/pro-etale-composition` | pro-étale over pro-étale is pro-étale; every pro-étale map is an inverse system of finite étale surjections followed by an étale map |
 | <a id="t049"></a> **T049** `A1/pro-etale-finite-limits` | `X_proét` has finite limits, computed in `pro-X_ét`: terminal object, fibre products and equalizers. An intersection of clopen subsets of a pro-étale object is represented by a pro-étale subobject |
@@ -877,7 +877,7 @@ erratum's filtration of `G`), hence a covering for every profinite `G`, and
   grant. This conservativity statement is a separate proof obligation for the corrected
   site; the printed argument does not establish it. It is not an input to any subsequent target.
 - <a id="t065"></a> **T065** `A1/proetale-topos-enough-points` (erratum item (2)): for quasi-compact quasi-separated `|X|`,
-  `Sh(X_proét)` is coherent, hence has enough points by Deligne's theorem (requested from D0),
+  `Sh(X_proét)` is coherent, hence has enough points by Deligne's theorem (DiamondsAndVStacks D0),
   locally in general. The points are abstract; functors `S ↦ C(T, S)` for profinite `T` with two
   points are not points (they do not respect the covering of a disjoint union by its summands).
 
@@ -926,7 +926,7 @@ Supporting results:
   topological rings instead does not describe maps between affinoids.
 - <a id="t075"></a> **T075** `A1/maps-from-adic-spaces-to-yoneda-affinoids` (Kedlaya–Liu Lemma 8.2.9): for an adic space
   `X` and any complete pair, `Hom(X^Y, Spa^Y(A, A⁺)) = Hom((A, A⁺), (O_X(X), O_X⁺(X)))`.
-- <a id="t076"></a> **T076** `A1/adic-spaces-in-yoneda-adic-spaces` (**agreement with the anchor**): `ι : Adic → YAdic` is
+- <a id="t076"></a> **T076** `A1/adic-spaces-in-yoneda-adic-spaces` (**agreement with `AdicSpaces`**): `ι : Adic → YAdic` is
   fully faithful, `ι Spa(A, A⁺) ≅ Spa^Y(A, A⁺)` for sheafy pairs, preserves and reflects open
   immersions, `|ι X| = |X|`, essential image = Yoneda-adic spaces covered by `Spa^Y` of sheafy
   pairs.
@@ -944,8 +944,7 @@ geometric points and the étale slice site; A0 for nothing beyond what R0 suppli
 AdicSpacesPartII R0 (locally noetherian spaces, étale structure 1.7.1–1.7.2, openness 1.7.8,
 fibre products, completed tensor products, finite étale algebras 1.6.6(ii), Tate norms);
 DiamondsAndVStacks D0 (pro-categories, cofiltered limits of spectral spaces, qcqs objects and
-algebraic topoi; Deligne's theorem is requested); the Tau Ceti anchor Layers 0, 2–5 (requested:
-adic spaces and gluing, rational localisation with its universal property, sheafiness of strongly
+algebraic topoi and Deligne's theorem); `AdicSpaces` Layers 0, 2–5 (adic spaces and gluing, rational localisation with its universal property, sheafiness of strongly
 noetherian Tate pairs, open mapping). Consumers: AdicSpacesPartII R4 (re-export and functoriality),
 R5, ClassicalAdicEtaleCohomology H0, AInfCohomology AI.3, PadicHodgeTheory P8, PerfectoidSpaces P3,
 P9, IgusaVarieties IG.3, AdicEtaleGeometry A3–A4, DiamondsAndVStacks D6.
@@ -958,7 +957,7 @@ P9, IgusaVarieties IG.3, AdicEtaleGeometry A3–A4, DiamondsAndVStacks D6.
 - `ν^*` is fully faithful on sheaves of sets and `(ν^*F)(X̃) = colim F(X_n)`.
 - `Z_p → pt` and every Galois cover `Ũ → U` are coverings; `F(U) = F(Ũ)^G` for étale sheaves.
 - `X_{L̂,proét} ≃ X_proét/X_L` for `X = Spa(Q_p⟨T^{±1}⟩)`, `L = Q_p(μ_{p^∞})`.
-- `Spa^Y(Q_p⟨T⟩, Z_p⟨T⟩)` is the anchor's closed disc; the open disc is Yoneda-adic and not
+- `Spa^Y(Q_p⟨T⟩, Z_p⟨T⟩)` is `AdicSpaces`'s closed disc; the open disc is Yoneda-adic and not
   affinoid; for Rost's pair `Spa^Y` is not faithful.
 
 #### Covering conventions
@@ -986,7 +985,7 @@ A1's étale site.
 
 **Dependencies.** AdicSpacesPartII R0, R1, R2, R4 and F0; AdicEtaleGeometry A0 (analytic loci,
 rational and finite étale pullbacks) and A1 (étale morphisms by local description, the étale site);
-the Tau Ceti anchor, Layers 1, 2, 3 and 5 (requested where the pinned tree lacks them); Mathlib's
+`AdicSpaces` Layers 1, 2, 3 and 5; Mathlib's
 `topologicalKrullDim`. **Consumers:** AdicEtaleGeometry A3; ClassicalAdicEtaleCohomology H0, H1,
 H1:henselian, H3; AdicCoefficientsAndComparisons L1; DiamondsAndVStacks D3/D6; PadicHodgeTheory P8;
 DiamondSixOperations S5 (ECD 24.4).
@@ -995,7 +994,7 @@ DiamondSixOperations S5 (ECD 24.4).
 
 1. **Carriers.** Unless stated otherwise spaces are analytic adic spaces covered by open affinoids
    with complete stably sheafy rings — in particular locally noetherian analytic adic spaces
-   (`AdicSpacesPartII:R0/locally-noetherian-adic-space`), which is Huber's scope and the scope of
+   (AdicSpacesPartII R0 (locally noetherian adic space)), which is Huber's scope and the scope of
    every comparison with Huber's definitions. Smooth morphisms of non-noetherian analytic spaces
    (ECD 24.4) are defined by ball charts; ECD 6.4(iv)'s affinoid statement is A3's.
 2. **Separated, proper, partially proper** are R0's (Huber 1.3.1–1.3.3), defined for morphisms
@@ -1049,7 +1048,7 @@ API:
 - `Huber.restrictedPowerSeries_plus_isIntegrallyClosed` (other): For a complete Huber pair (B, B⁺), B⁺⟨T⟩ = {h : v(h) ≤ 1 on Spa(B⟨T⟩, B⁺⟨T⟩)} is integrally closed in B⟨T⟩ and is a ring of integral elements.
 - `AdicSpace.relativePolydisc.baseChangeIso` (compatibility): B^n_X ×_X X' ≅ B^n_{X'} over X', compatibly with the coordinates.
 - `AdicSpace.relativePolydisc.addIso` (structure): B^{m+n}_X ≅ B^m_X ×_X B^n_X.
-- `AdicSpace.relativePolydisc.smooth` (instance): π is smooth (AdicSpacesPartII:R0/smooth-morphism), with Ω_{B^n_X/X} free on dT₁, …, dTₙ.
+- `AdicSpace.relativePolydisc.smooth` (instance): π is smooth (AdicSpacesPartII R0 (smooth morphism)), with Ω_{B^n_X/X} free on dT₁, …, dTₙ.
 - `AdicSpace.relativePolydisc.quasiCompact_proj` (instance): π is quasi-compact and separated.
 - `AdicSpace.relativePolydisc.isLocallyNoetherian` (instance): X locally noetherian ⇒ B^n_X locally noetherian.
 - `AdicSpace.relativePolydisc.isAnalytic` (instance): X analytic ⇒ B^n_X analytic.
@@ -1069,7 +1068,7 @@ Acceptance:
 
 - Over Spa(ℚ_p, ℤ_p): B¹ = Spa(ℚ_p⟨T⟩, ℤ_p⟨T⟩), the closed unit disc (Scholze–Weinstein, Lecture 4: Spa ℤ[T] × Spa K = Spa K⟨T⟩).
 - ECD Proposition 24.4 defines B^n_Y for affinoid Y = Spa(A, A⁺) as Spa(A⟨T₁, …, Tₙ⟩, A⁺⟨T₁, …, Tₙ⟩); this construction globalises it.
-- Consumer instances: the closed embedding Y ↪ B^n_X of ECD 6.4(iv) over affinoid perfectoid X (AdicEtaleGeometry A3, where B^n_X is sousperfectoid by AdicSpacesPartII:R5/sousperfectoid-rings), and Huber's relative balls in 1.6.10 and in ClassicalAdicEtaleCohomology H1/H4.
+- Consumer instances: the closed embedding Y ↪ B^n_X of ECD 6.4(iv) over affinoid perfectoid X (AdicEtaleGeometry A3, where B^n_X is sousperfectoid by AdicSpacesPartII R5 (sousperfectoid rings)), and Huber's relative balls in 1.6.10 and in ClassicalAdicEtaleCohomology H1/H4.
 
 #### A2.3 Relative tori
 
@@ -1131,8 +1130,8 @@ Unit tests:
 - `isLocallyEtaleOverPolydisc_test_polydisc` (computation): π : B^n_Y → Y and T^n_Y → Y satisfy the definition with g the identity, resp. the open immersion.
 - `isLocallyEtaleOverPolydisc_test_etale` (degenerate): An étale morphism (A1) satisfies the definition with n = 0 (B⁰_Y = Y).
 - `isLocallyEtaleOverPolydisc_test_origin` (non-example): The closed embedding of the origin Spa(K, K°) → B¹_K is not locally étale over a relative ball: its image is not open, whereas étale maps and projections from balls are open.
-- `isLocallyEtaleOverPolydisc_test_huber` (compatibility): For morphisms of locally noetherian analytic adic spaces the class coincides with AdicSpacesPartII:R0/smooth-morphism (A2/smooth-local-ball-charts); for example a smooth rigid curve over K.
-- `isLocallyEtaleOverPolydisc_test_perfectoidBase` (characterisation): For an affinoid perfectoid Y = Spa(R, R⁺), B^n_Y = Spa(R⟨T⟩, R⁺⟨T⟩) → Y satisfies the definition although B^n_Y is not perfectoid for n ≥ 1 (AdicSpacesPartII:R5/perfectoid-times-polydisc).
+- `isLocallyEtaleOverPolydisc_test_huber` (compatibility): For morphisms of locally noetherian analytic adic spaces the class coincides with AdicSpacesPartII R0 (smooth morphism) (A2/smooth-local-ball-charts); for example a smooth rigid curve over K.
+- `isLocallyEtaleOverPolydisc_test_perfectoidBase` (characterisation): For an affinoid perfectoid Y = Spa(R, R⁺), B^n_Y = Spa(R⟨T⟩, R⁺⟨T⟩) → Y satisfies the definition although B^n_Y is not perfectoid for n ≥ 1 (AdicSpacesPartII R5 (perfectoid times polydisc)).
 Acceptance:
 
 - B^n_Y → Y and T^n_Y → Y are locally étale over a relative ball; étale morphisms are (n = 0).
@@ -1155,7 +1154,7 @@ Acceptance:
 <a id="t084"></a> **T084** `A2/relative-toric-charts` (lemma; declaration `AdicSpace.Smooth.exists_relativeToricChart`). For a
 smooth morphism `f : X → Y` of smooth adic spaces over `Spa(K, K°)`, a point `x`, and an affinoid
 `V ∋ f(x)` containing the closure of `f(x)` with a toric chart `h : V → T^m_K` (a composite of rational
-embeddings and finite étale maps, R0/smooth-toric-chart), there are an affinoid `U ∋ x` containing the
+embeddings and finite étale maps, R0 (smooth toric chart)), there are an affinoid `U ∋ x` containing the
 closure of `x` and an étale `k : U → T^d_V`, again a composite of rational embeddings and finite étale
 maps, such that `(id × h) ∘ k : U → T^{d+m}_K` lies over `h ∘ f` for the coordinate projection. This is
 the reduction to `Tⁿ → T^{n−d}` used in Scholze 2013, Proposition 8.5, whose proof does not state it
@@ -1165,7 +1164,7 @@ Acceptance:
 
 - For the coordinate projection X = Tⁿ_K → Y = T^{n−d}_K, V = Y and h = id, the chart k is the identity: this is the reduction step of Scholze 2013, Proposition 8.5.
 - For f = π : B¹_V → V the chart is B¹_V ≅ {|T − 1| ≤ |ϖ|} ⊆ T¹_V.
-- Consumer instance: PadicHodgeTheory:P8:local-rational/relative-poincare-lemma computes over toric covers of f with base coordinates X₁, …, X_m.
+- Consumer instance: PadicHodgeTheory P8:local-rational/relative-poincare-lemma computes over toric covers of f with base coordinates X₁, …, X_m.
 
 #### A2.6 Dimension and dimension estimates
 
@@ -1178,12 +1177,12 @@ The dimension is topological: `Spa(K, K⁺)` for `K⁺` of rank two has dimensio
 API:
 
 - `AdicSpace.dim` (constructor): dim X := topologicalKrullDim |X|.
-- `AdicSpace.dim_eq_iSup_specializationChain` (characterisation): dim X is the supremum of lengths of chains of proper specializations of points (Huber 1.8.1).
-- `AdicSpace.IsPureDim` (structure): X is of pure dimension d: every nonempty open subset has dimension d.
+- `AdicSpace.dim_eq_iSup_specializationChain` (characterisation): dim X is the supremum of lengths of chains of proper specializations of points (Huber 1.8.1); on the quasi-sober T0 space |X| this is Tau Ceti's `topologicalKrullDim_eq_iSup_coheight`.
+- `AdicSpace.IsPureDim` (structure): X is of pure dimension d: every nonempty open subset has dimension d. This is Huber's open-subset form; Tau Ceti's `IsPureDimensional` asks instead that every irreducible component have dimension d, and the comparison of the two on |X| is part of this item.
 - `AdicSpace.relDim` (data): dim f := ⨆ y, topologicalKrullDim (f⁻¹(y)).
 - `AdicSpace.IsPureRelDim` (structure): f is of relative pure dimension d: every nonempty fibre is of pure dimension d.
 - `AdicSpace.dim_le_of_isOpenImmersion` (relation): dim U ≤ dim X for an open subspace U.
-- `AdicSpace.dim_eq_iSup_of_openCover` (relation): dim X = ⨆ᵢ dim Uᵢ for an open cover.
+- `AdicSpace.dim_eq_iSup_of_openCover` (relation): dim X = ⨆ᵢ dim Uᵢ for an open cover (Tau Ceti `topologicalKrullDim_eq_iSup_of_isOpenEmbedding` applied to |X|).
 - `AdicSpace.dim_spa_field` (example): dim Spa(K, K⁺) = rank(K⁺) − 1 for a complete rank-one field K.
 - `AdicSpace.dim_congr_homeomorph` (compatibility): Homeomorphic adic spaces have equal dimension (Mathlib `IsHomeomorph.topologicalKrullDim_eq`).
 - `AdicSpace.IsPureDim.iff_localRing_dim` (compatibility): For X locally of finite type over Spa(K, K°): X is of pure dimension d iff dim O_{X,x} = d at every classical point (Zavyalov Lemma 3.3).
@@ -1222,16 +1221,16 @@ supply public comparison references; they do not replace every argument in Huber
 <a id="t089"></a> **T089** `A2/analytification-relative-polydisc-comparison` (comparison; declaration
 `AdicSpace.relativePolydiscIsoAnalyticAffineSpaceChart`). The adic analytification of finite-type schemes
 over a nonarchimedean field and its relative version over a strongly noetherian Tate affinoid
-`S = Spa(A, A⁺)` are R1's (`AdicSpacesPartII:R1/analytification-functor`,
-`AdicSpacesPartII:R1/scheme-fibre-product-analytification`). On the same carriers, `(A^n_A)^{ad/S}` is the
+`S = Spa(A, A⁺)` are R1's (AdicSpacesPartII R1 (analytification functor),
+AdicSpacesPartII R1 (scheme fibre product analytification)). On the same carriers, `(A^n_A)^{ad/S}` is the
 increasing union of the rational subsets `{|ϖᵏTᵢ| ≤ 1}` (`k ≥ 1`), and `B^n_S` is the rational subset `{|Tᵢ| ≤ 1}` of each of them; likewise
 `T^n_S ⊆ (G^n_m)^{ad/S}` is `{|Tᵢ| = 1}`. R1's comparisons of separatedness, properness, étaleness,
 smoothness and differentials under analytification therefore apply to A2's balls, tori and charts,
-and the étale sites compare through `AdicSpacesPartII:R4/analytification-etale-site`.
+and the étale sites compare through AdicSpacesPartII R4 (analytification etale site).
 
 Acceptance:
 
-- Over K: A^{1,ad}_K = ⋃_{k ≥ 0} {|ϖᵏT| ≤ 1}, not quasi-compact, and its piece k = 0 is the closed unit disc B¹_K (AdicSpacesPartII:R1/analytic-affine-space indexes the pieces from k = 0).
+- Over K: A^{1,ad}_K = ⋃_{k ≥ 0} {|ϖᵏT| ≤ 1}, not quasi-compact, and its piece k = 0 is the closed unit disc B¹_K (AdicSpacesPartII R1 (analytic affine space) indexes the pieces from k = 0).
 - Over S = Spa(ℚ_p⟨U⟩, ℤ_p⟨U⟩): (A¹_{ℚ_p⟨U⟩})^{ad/S} ⊇ B¹_S = Spa(ℚ_p⟨U, T⟩, ℤ_p⟨U, T⟩), the closed bidisc.
 
 #### A2.8 Compatibility with A1's étale site
@@ -1239,14 +1238,14 @@ Acceptance:
 <a id="t090"></a> **T090** `A2/smooth-etale-site-compatibility` (comparison; declaration
 `AdicSpace.Smooth.ballCharts_mem_etaleTopology`). For a smooth morphism `f : X → S` of locally noetherian
 analytic adic spaces, the objects of `X_ét` (A1, identified on these carriers by
-`AdicSpacesPartII:R4/etale-site-on-analytic-carriers`) admitting an étale map to some `B^n_S` generate
+AdicSpacesPartII R4 (etale site on analytic carriers)) admitting an étale map to some `B^n_S` generate
 a covering sieve; every object of `X_ét` is smooth over `S` with `u^*Ω_{X/S} ≅ Ω_{U/S}`; base change
 of sites carries ball charts to ball charts; over a field, toric charts also generate a covering sieve.
 
 Acceptance:
 
 - For X = B¹_K the identity is a ball chart and the cover {|T| = 1} ∪ {|T − 1| = 1} gives toric charts (A2/relative-torus (e)).
-- Consumer instance: PadicHodgeTheory:P8/vector-bundles-on-analytic-etale-and-proetale-sites and the sheaf Ω¹ on X_ét are computed on such covers.
+- Consumer instance: PadicHodgeTheory P8 (vector bundles on analytic etale and proetale sites) and the sheaf Ω¹ on X_ét are computed on such covers.
 
 #### A2.9 Formal schemes and generic fibres in the scope of H1
 
@@ -1260,7 +1259,7 @@ morphisms), so `d(Spf A) = Spa(A, A)_a` with its Tate charts. H1 uses exactly: `
 type-(S) formal schemes, `d(X̂)` for completions of schemes (Huber 1.9.4–1.9.6, R2), the microbial
 valuation-ring case `d(Spf A) = Spa(K, A)`, `Spa(A, A)_a` for noetherian `A` henselian along `I`
 (Huber 3.2.11), the preimages `λ⁻¹(L)` defining pseudo-adic supports, and base change of generic
-fibres to `k̄^` (R2/generic-fibre-fibre-products); none of these is a derived comparison.
+fibres to `k̄^` (R2 (generic fibre fibre products)); none of these is a derived comparison.
 
 Acceptance:
 
@@ -1271,16 +1270,15 @@ Acceptance:
 
 - DiamondsAndVStacks (D3/D6) asks A2 for analytic adic spaces over `ℤ_p` with their diagonals,
   separated morphisms, classical valuative criteria and Huber's étale and finite étale sites: the
-  category and analytic loci are the anchor's Layer 5 with AdicEtaleGeometry A0's analytic-locus
+  category and analytic loci are `AdicSpaces`'s Layer 5 with AdicEtaleGeometry A0's analytic-locus
   interface, separatedness and the valuative criteria are A2.1, and the étale and finite étale sites
   are AdicEtaleGeometry A1's.
 - PadicHodgeTheory P7 asks for Huber 1.6.10 charts containing the closure of a point (A2.4), Huber
   2.2.8 (AdicSpacesPartII R0), compatible toric charts (A2.5) and the sheaf `Ω¹` on `X_ét`, locally free
   of rank `dim X`: the rank statement is A2.6, and the coherent sheaf `Ω¹_{X/Y}` with its exterior
-  powers is requested from AdicSpacesPartII R3 (the interface
-  `AdicSpacesPartII:R3/sheaf-of-continuous-differentials` proposed there); A2.6 uses its étale-site version.
-- Base change of smooth, étale and unramified morphisms (Huber 1.6.7) is requested from AdicSpacesPartII R0
-  (the target `AdicSpacesPartII:R0/smooth-etale-base-change` proposed there).
+  powers is AdicSpacesPartII R3's (its sheaf of continuous differentials); A2.6 uses its étale-site version.
+- Base change of smooth, étale and unramified morphisms (Huber 1.6.7) is AdicSpacesPartII R0's
+  (its base change of smooth and étale morphisms).
 - The general non-noetherian affinoid statement of ECD 6.4(iv) is A3's; A2's non-noetherian content is
   limited to the definitions of balls, tori and ball-chart smooth morphisms.
 
@@ -1294,7 +1292,7 @@ perfectoid spaces and ECD 6.4(o)–(iii)), AdicSpacesPartII R0 (completed tensor
 continuous differentials, the conormal sequence, Huber's noetherian étale theory), AdicSpacesPartII R3 (Tate's reduction
 and Čech acyclicity on sheafy Tate affinoids, glueing squares, Kiehl gluing of finite projective modules), AdicSpacesPartII
 R5 (sousperfectoid rings and spaces), AdicEtaleGeometry A1 (étale morphisms by local description, finite étale affinoid
-algebras), and the Tau Ceti anchor's Layers 0–5 (Huber pairs, Tate rings and the open mapping theorem, restricted power
+algebras), and `AdicSpaces`'s Layers 0–5 (Huber pairs, Tate rings and the open mapping theorem, restricted power
 series, rational subsets with their universal property and perturbation invariance, sheafy pairs, adic spaces).
 PerfectoidQuotients Q4 (ECD 5.8) is not an input: the closed immersions used here are built directly into the sousperfectoid ball, and the transfer between characteristics is made on étale categories (P3, P5) .
 
@@ -1320,9 +1318,9 @@ standard étale presentations with a quantitative implicit function theorem (A3.
 
 #### Conventions
 
-1. A prime p is fixed. Tate rings are complete and Hausdorff (anchor convention 3) with a pseudouniformiser ϖ (a
+1. A prime p is fixed. Tate rings are complete and Hausdorff (`AdicSpaces` convention 3) with a pseudouniformiser ϖ (a
    topologically nilpotent unit, Tau Ceti `IsPseudoUniformizer`). Kedlaya–Liu's *Banach rings* are these Tate rings with
-   a norm of the form attached to a ring of definition (AdicSpacesPartII:R0/tate-ring-norm); their *adic Banach rings*
+   a norm of the form attached to a ring of definition (AdicSpacesPartII R0 (tate ring norm)); their *adic Banach rings*
    are complete Tate Huber pairs. *Sheafy* means that the structure presheaf is a sheaf for finite rational coverings of
    rational subsets.
 2. A *rational localisation* of (A, A⁺) is the completed localisation (A⟨T/s⟩, A⟨T/s⟩⁺) at a rational subset R(T/s)
@@ -1330,14 +1328,14 @@ standard étale presentations with a quantitative implicit function theorem (A3.
    A⁺[T₁, …, T_n] (Kedlaya–Liu I, Lemma 2.4.13(a)).
 3. B^N_X := Spa(A⟨T₁, …, T_N⟩, A⁺⟨T₁, …, T_N⟩) is the relative closed unit polydisc over X = Spa(A, A⁺)
    (Tau Ceti `restrictedMvPowerSeriesCompletion`). Over a perfectoid (hence sousperfectoid) A it and all its rational
-   subsets are sousperfectoid and sheafy (AdicSpacesPartII:R5/sousperfectoid-rings, R5/sousperfectoid-sheafy).
+   subsets are sousperfectoid and sheafy (AdicSpacesPartII R5 (sousperfectoid rings), R5 (sousperfectoid sheafy)).
    Partial derivatives ∂/∂T_j are termwise on A⟨T⟩ (Mathlib `MvPowerSeries.pderiv`) and extend uniquely to rational
    localisations; the Jacobian of F = (F₁, …, F_N) is J_F := det(∂Fᵢ/∂T_j).
 4. A *quotient mapping* of complete Huber pairs π: (P, P⁺) → (C, C⁺) is a surjective ring map with C⁺ the integral
    closure of π(P⁺) (Tau Ceti `Pair.quotient`); by the open mapping theorem it is open. An ideal generated by finitely
    many elements need not be closed, so presentations always use the closure of the ideal of equations.
 5. Étale morphisms of perfectoid spaces are those of ECD Definition 6.2 (locally an open immersion into a space finite
-   étale over an open of the base; PerfectoidSpaces:P3). Étale morphisms of sousperfectoid or general analytic adic
+   étale over an open of the base; PerfectoidSpaces P3). Étale morphisms of sousperfectoid or general analytic adic
    spaces are taken by local description (A1/etale-morphisms-local-description-and-comparison;
    Fargues–Scholze p. 135). X_{ét,aff} is the full subcategory of affinoid perfectoid spaces étale over X.
 6. Modules are pseudocoherent in the sense of SGA 6 / Kedlaya–Liu (resolutions by finitely generated projectives), not
@@ -1367,7 +1365,7 @@ imperfect period rings, no étale-site or pro-étale variants.
   finite module is Mathlib's `moduleTopology`, linear maps out of finite modules are continuous, continuous surjections
   of complete metrizable modules are strict (Tau Ceti `IsTateRing.isOpenMap`), Hausdorff finite modules are complete,
   finitely generated submodules of complete finite modules are closed (Corollary 1.2.11), completion preserves strict
-  exact sequences (AdicSpacesPartII:R0/strict-complex-completion-exact).
+  exact sequences (AdicSpacesPartII R0 (strict complex completion exact)).
 - <a id="t096"></a> **T096** `A3/stably-pseudocoherent-module` (definition; planet *Stably pseudocoherent module*). Over a complete Tate pair
   (A, A⁺): *strictly* m-pseudocoherent = m-pseudocoherent and complete for the natural topology; *stably*
   m-pseudocoherent = m-pseudocoherent with M ⊗_A B complete for every rational localisation B (Definitions 1.2.13,
@@ -1399,14 +1397,14 @@ imperfect period rings, no étale-site or pro-étale variants.
   Tate affinoids is *pseudocoherent* (*fpd*) if it is locally M̃ with M stably pseudocoherent (stably fpd). API:
   `AdicSpace.IsPseudoCoherentSheaf`, `AdicSpace.IsFPDSheaf`, `of_module`, `restrict`, `ker_of_surjective`,
   `coker_of_injective`, `isStablyPseudoCoherent_sections`, `equivModule`, `IsFPDSheaf.isPseudoCoherentSheaf`. Unit
-  tests: `test_structureSheaf`, `test_vectorBundle` (compatibility with AdicSpacesPartII:R3's vector bundles),
+  tests: `test_structureSheaf`, `test_vectorBundle` (compatibility with AdicSpacesPartII R3's vector bundles),
   `test_tateAlgebra_ideal` (compatibility with R3's coherent sheaves on Spa ℚ_p⟨T⟩), `test_pushforward_not` (j_*O_U for
   the rational open U = {|T| ≤ |p|} is not pseudocoherent: O(U) is not finite over ℚ_p⟨T⟩).
 - <a id="t106"></a> **T106** `A3/simple-laurent-pseudocoherent-descent` (Lemma 2.5.4) and **<a id="t107"></a> **T107** `A3/pseudocoherent-kiehl-gluing`** (theorem, Theorem
   2.5.5 and Corollary 2.5.6; planet *Pseudocoherent Kiehl gluing*). On a sheafy Tate affinoid, global sections are an
   exact equivalence between pseudocoherent (fpd) sheaves and stably pseudocoherent (stably fpd) modules, and base
   extension along open immersions is exact and pseudoflat. Strongly noetherian case: Kiehl's theorem
-  (AdicSpacesPartII:R3/tate-kiehl-affinoid); finite projective case: R3/sheafy-tate-acyclicity-and-kiehl-gluing.
+  (AdicSpacesPartII R3 (tate kiehl affinoid)); finite projective case: R3 (sheafy tate acyclicity and kiehl gluing).
 
 #### A3.2 Standard étale presentations and the implicit function theorem
 
@@ -1445,7 +1443,7 @@ imperfect period rings, no étale-site or pro-étale variants.
   G ≡ F modulo ϖ^{4k+2}: V(G) lies in the tube of F, G is again a standard étale presentation, and there is a unique
   isomorphism α_{F,G}: C → C_G over A with α(T) close to T. The comparison maps are mutually inverse on the tube (no
   further shrinking), compose, commute with base change and match plus rings. In Huber's noetherian scope this is
-  AdicSpacesPartII:R0/etale-presentation-perturbation (Huber 1.7.2).
+  AdicSpacesPartII R0 (etale presentation perturbation) (Huber 1.7.2).
 - <a id="t114"></a> **T114** `A3/standard-etale-locus-sousperfectoid` (lemma). Over a sousperfectoid base a standard étale locus is sousperfectoid:
   the tube makes C a C-linear direct summand of the sousperfectoid O(W), and a frame of O(W) restricts to a frame of C.
   Hence the locus is a sousperfectoid affinoid adic space — the étale case of the sousperfectoid clause of FS IV.4.17.
@@ -1468,14 +1466,14 @@ cases over general sousperfectoid bases are outside this construction.
 - <a id="t116"></a> **T116** `A3/char-p-perfectoid-base-field` (lemma). A perfectoid Tate pair (R, R⁺) of characteristic p is an algebra over the
   perfectoid field K = F_p((t^{1/p^∞}))^∧ (t ↦ ϖ) with R⁺ a K°-algebra; so Scholze 2012, Lemma 6.13 writes it as a
   completed colimit of p-finite algebras, completed perfections of reduced K-affinoid algebras of topologically finite
-  type (PerfectoidSpaces:P2/completed-direct-limits-of-p-finite-affinoids).
+  type (PerfectoidSpaces P2 (completed direct limits of p finite affinoids)).
 - <a id="t117"></a> **T117** `A3/jacobian-criterion-char-p` (theorem; FS IV.4.15(ii) and IV.4.17, étale case). Over B = O(Q), Q rational in B^m_X
   with X affinoid perfectoid of characteristic p, a standard étale locus is étale over Spa(B) by local description; for
   m = 0 it is affinoid perfectoid and étale over X in ECD's sense (its ring is perfect). Maps between rational subsets of
   balls with invertible Jacobian are étale. Proof: approximate the finitely many coefficients by a strongly noetherian
-  K-affinoid algebra (previous target), use Huber's noetherian theory (AdicSpacesPartII:R0/etale-local-structure,
-  R0/etale-affinoid-finite-etale-embedding, R0/etale-local-open-finite-etale-factorisation), base change along the
-  sousperfectoid Spa(B) (AdicSpacesPartII:R5/sousperfectoid-etale-base-change), and perturb back
+  K-affinoid algebra (previous target), use Huber's noetherian theory (AdicSpacesPartII R0 (etale local structure),
+  R0 (etale affinoid finite etale embedding), R0 (etale local open finite etale factorisation)), base change along the
+  sousperfectoid Spa(B) (AdicSpacesPartII R5 (sousperfectoid etale base change)), and perturb back
   (A3/standard-presentation-perturbation) — the strategy of Scholze 2012, Proposition 7.7.
 - <a id="t118"></a> **T118** `A3/integral-cutoff-graph-presentation` (lemma). Given a morphism g: Spa(C) → R ⊆ B^N_X with C standard étale over A,
   functions w ∈ O(R) whose images are close to C's generators, and monic polynomials P_l over O⁺(R) with |P_l(g*w_l)|
@@ -1533,7 +1531,7 @@ cases over general sousperfectoid bases are outside this construction.
 - **<a id="t130"></a> **T130** `A3/affinoid-etale-finite-stage-6-4-iv`** (theorem; planet *Affinoid étale finite-stage descent*). The equivalence
   2-colim (X_i)_{ét,aff} → X_{ét,aff} for any cofiltered system of affinoid perfectoid spaces, in any characteristic.
 - <a id="t131"></a> **T131** `A3/etale-descent-to-finite-stage-6-4` (comparison). ECD Proposition 6.4 assembled: (o)–(iii) and the cardinal bound
-  are PerfectoidSpaces:P5/cofiltered-limits-of-affinoid-perfectoid-spaces and P5/finite-stage-descent-of-qcqs-etale-objects;
+  are PerfectoidSpaces P5 (cofiltered limits of affinoid perfectoid spaces) and P5 (finite stage descent of qcqs etale objects);
   (iv) is the target above; the inclusions X_{fét} ⊆ X_{ét,aff} ⊆ X_{ét,qc,sep} ⊆ X_{ét,qcqs} are compatible with all four
   comparison functors. A3 does not reprove (o)–(iii); P5 does not claim (iv).
 - <a id="t132"></a> **T132** `A3/zariski-closed-immersion-ecd-comparison` (comparison). The closed embedding of A3.4, composed into the perfectoid
@@ -1549,7 +1547,7 @@ cases over general sousperfectoid bases are outside this construction.
 4. Perturbation of (T − a) to (T − a') with a ≡ a' mod ϖ² gives the identity of A.
 5. F = T^p − a in characteristic p is rejected by the Jacobian condition; its locus is not étale.
 6. Over ℚ_p⟨T⟩ (strongly noetherian) the pseudocoherent theory reduces to Kiehl's coherent theory
-   (AdicSpacesPartII:R3/tate-kiehl-affinoid) and pseudoflatness to flatness.
+   (AdicSpacesPartII R3 (tate kiehl affinoid)) and pseudoflatness to flatness.
 7. The ECD applications: in the proof of Lemma 7.18, affinoid étale covers descend to a finite level of a tower; in the
    proof of Lemma 7.11(i), composites of affinoid pro-étale maps via Proposition 7.10 and 6.4(iv).
 
@@ -1566,7 +1564,7 @@ cases over general sousperfectoid bases are outside this construction.
   modules, the T − f case of Lemma 2.4.12) are outside the claimed input.
 - Inherited through cited suppliers: Huber 1996 Lemma 2.2.8 and the de Jong–van der Put inputs (AdicSpacesPartII R0),
   used by the characteristic-p Jacobian criterion; the Bosch–Güntzer–Remmert inputs of Scholze 2012, Lemma 6.13
-  (PerfectoidSpaces P2); the perfectoid-field generality of the P2/P3 targets, requested in the generality of perfectoid
+  (PerfectoidSpaces P2); the perfectoid-field generality of the P2/P3 targets, used here in the generality of perfectoid
   Tate rings for the tilting transfer.
 <a id="a4"></a>
 
@@ -1575,14 +1573,13 @@ cases over general sousperfectoid bases are outside this construction.
 **Dependencies.** AdicEtaleGeometry A1 (finite étale algebras over complete Tate Huber pairs with their natural
 topology and integral plus ring, `A1/finite-etale-affinoid-algebra`; the finite étale and étale sites
 of generalized adic spaces, `A1/finite-etale-site`, `A1/etale-site`, `A1/generalized-adic-presentation`);
-AdicSpacesPartII R0 (`R0/uniformization`, `R0/spectral-seminorm`, `R0/spectral-topology`, `R0/tate-ring-norm`,
-`R0/completed-tensor-product`, `R0/uniform-completed-tensor-product`, `R0/finite-algebra-tensor-complete`);
-PerfectoidSpaces P1 (`P1/perfectoid-tate-rings-and-algebras`), P3 (the henselian finite étale comparison, requested
-in the generality of Tate rings without a base field) and P5 (`P5/cofiltered-limits-of-affinoid-perfectoid-spaces`);
-ClassicalAdicEtaleCohomology H1:henselian (`henselian-f-adic-rings-and-henselization`: complete f-adic rings are
-henselian); the Tau Ceti anchor's Huber pairs, power-bounded subrings, completion and adic spectra through the
-declarations named below. **Consumers.** DiamondsAndVStacks D6 (`D6/spd-of-a-tate-pair`, `D6/spd-is-a-spatial-diamond`,
-`D6/gluing-and-the-diamond-functor`, `D6/etale-site-comparison`) and BunGAndNewtonStrata BG0.
+AdicSpacesPartII R0 (uniformization, spectral seminorm, spectral topology, tate ring norm,
+completed tensor product, uniform completed tensor product, finite algebra tensor complete);
+PerfectoidSpaces P1 (perfectoid tate rings and algebras), P3 (the henselian finite étale comparison
+in the generality of Tate rings without a base field) and P5 (cofiltered limits of affinoid perfectoid spaces);
+`AdicSpaces`'s Huber pairs, power-bounded subrings, completion and adic spectra through the
+declarations named below. **Consumers.** DiamondsAndVStacks D6 (spd of a tate pair, spd is a spatial diamond,
+gluing and the diamond functor, etale site comparison) and BunGAndNewtonStrata BG0.
 
 A4 is the analytic half of ECD §15. It builds, for a complete Tate ℤ_p-algebra A, a profinite tower of finite étale
 torsors A → A_i that kills every finite étale cover, completes it uniformly to a perfectoid Tate ring Â_∞ with a
@@ -1715,7 +1712,7 @@ Let (A, A⁺) be a Huber pair with A complete Tate and ι : (A, A⁺) → (A^u, 
 
 (ii)–(iii) are Kedlaya–Liu Proposition 2.8.16, proved there through affinoid systems; the same equivalence follows
 from the topologically henselian comparison, since the spectral topology has ring of definition A°, which is
-henselian along ϖ when A is complete. Completeness is essential: ℚ_p[T] (ring of definition ℤ_p[T]) has
+henselian along ϖ when A is complete (T154). Completeness is essential: ℚ_p[T] (ring of definition ℤ_p[T]) has
 uniformization ℚ_p⟨T⟩, and ℚ_p⟨T⟩[X]/(X^p − X − T/p) is finite étale (discriminant ±(pT^{p−1} − (p−1)^{p−1}), a unit
 on the disc) but is not the base change of a finite étale ℚ_p[T]-algebra: its fibre over T = 0 splits while over
 T = p it is the unramified extension of degree p, whereas finite étale ℚ_p[T]-algebras are products of L[T].
@@ -1743,6 +1740,23 @@ Unit tests: `completion_test_Qp` (for ℚ_p and a tower of Galois fields, (ℂ_p
 <a id="t135"></a> **T135** `A4/henselian-pairs-filtered-colimit` (lemma; Stacks 0FWT). A filtered colimit of henselian pairs is
 henselian, in Mathlib's `HenselianRing` form (roots lifting simple roots modulo I).
 
+<a id="t154"></a> **T154** `A4/power-bounded-henselian-along-pseudouniformizer` (lemma). Let A be a complete Tate ring with
+pseudouniformiser ϖ. (i) Every ring of definition A₀ of A is open, hence closed, in A, and its subspace topology is the
+ϖ-adic topology; so A₀ is ϖ-adically complete and separated, and (A₀, ϖA₀) is a henselian pair (Mathlib
+`IsAdicComplete.henselianRing`). (ii) A° is the directed union of the rings of definition of A (for a ring of
+definition A₀ and x ∈ A°, A₀[x] is a ring of definition; Wedhorn §6.1, Corollary 6.4(3)), so (A°, ϖA°)
+is henselian by T135. (iii) The same holds for every open subring B of A° that contains a ring of definition, with the
+ideal ϖB. The ϖ-adic completeness in (i) is what fails for A° itself when A is not uniform: in A = ℂ_p⟨T⟩/(T²)
+the element T lies in ⋂ₙ ϖⁿA° (every multiple of T is nilpotent, hence power-bounded), so A° is not ϖ-adically
+separated and Mathlib's `IsAdicComplete` does not apply to it directly; the directed-union argument (ii) is needed.
+
+API: `PairOfDefinition.isAdicComplete_of_completeSpace`, `PairOfDefinition.henselianRing`,
+`powerBoundedSubring_eq_iUnion_ringOfDefinition`, `powerBoundedSubring.henselianRing`, `henselianRing_of_isOpen_subring`.
+
+Unit tests: `henselian_test_Zp` (A = ℚ_p, A₀ = ℤ_p: a simple root of X^p − X − p modulo p lifts), `henselian_test_not_separated`
+(the example ℂ_p⟨T⟩/(T²): A° is not ϖ-adically separated, so (i) cannot be applied to A°), `henselian_test_incomplete`
+(A = ℚ_p[T] with the ϖ-adic topology on ℤ_p[T]: (ℤ_p[T], p) is not henselian, as the finite étale ℚ_p⟨T⟩-algebra of A4.4 shows).
+
 <a id="t141"></a> **T141** `A4/finite-etale-invariance-along-tower` (lemma). For (A, A⁺) complete Tate and any tower:
 
 ```text
@@ -1751,9 +1765,9 @@ henselian, in Mathlib's `HenselianRing` form (roots lifting simple roots modulo 
 Â_∞ has no nonsplit finite étale covers.
 ```
 
-Each A_i° is henselian along ϖ (A_i is complete; ClassicalAdicEtaleCohomology H1:henselian, or directly: A_i° is the
-directed union of ϖ-adically complete rings of definition), so is colim A_i°, and the topologically henselian
-comparison (Berkeley Theorem 7.4.8, requested from PerfectoidSpaces P3 without a base field) passes from A_∞ to its
+Each A_i° is henselian along ϖ (T154: A_i is complete, and A_i° is the directed union of its ϖ-adically complete rings
+of definition), so is colim A_i° (T135), and the topologically henselian
+comparison (Berkeley Theorem 7.4.8, PerfectoidSpaces P3, without a base field) passes from A_∞ to its
 completion; the first equivalence is A4.3's colimit lemma. These are the equivalences ECD's proof of Lemma 15.6 cites
 from [Sch12, Lemma 7.5(i)].
 
@@ -1847,11 +1861,11 @@ A4's part is the existence of a perfectoid torsor presentation for every complet
 (`Huber.Pair.exists_perfectoidTorsorPresentation`), with the tower, the perfectoid uniform completion, the
 self-product and the topological identification as above. D6's part — Spd ℤ_p and Spd(A, A⁺) are v-sheaves
 (Lemma 15.1), Spd of a perfectoid pair is its tilt (15.2), the torsors of v-sheaves, the spatial diamond and
-|Spd(A, A⁺)| = |Spa(A, A⁺)| (15.4) — is `DiamondsAndVStacks:D6/spd-of-a-tate-pair`, `D6/untilt-descent-along-v-covers`
-and `D6/spd-is-a-spatial-diamond`. For non-complete A the record applies to the completion (convention 9).
+|Spd(A, A⁺)| = |Spa(A, A⁺)| (15.4) — is DiamondsAndVStacks D6 (spd of a tate pair), untilt descent along v covers
+and spd is a spatial diamond. For non-complete A the record applies to the completion (convention 9).
 
 <a id="t153"></a> **T153** `A4/diamond-of-analytic-adic-space-and-etale-site-15-6` (comparison). ECD Definition 15.5 and
-Lemma 15.6 are `DiamondsAndVStacks:D6/gluing-and-the-diamond-functor` and `D6/etale-site-comparison`; this record proves
+Lemma 15.6 are DiamondsAndVStacks D6 (gluing and the diamond functor) and etale site comparison; this record proves
 neither. It names A4's inputs to the affinoid case: |Spa A| = |X̃|/G, the finite étale invariance along the tower
 including C^0(G, ·) and C^0(G × G, ·), and effective descent; the right-hand sides Y_fét, Y_ét are A1's sites
 (Kedlaya–Liu 8.2.16–8.2.19, with 8.2.17(a) identifying FÉt(A) with finite étale maps to Spa(A, A⁺)~). Uses of
@@ -1880,14 +1894,12 @@ X^p − pX + p − 1 has a double root at 1.
 
 #### Imported interfaces
 
-- PerfectoidSpaces P3: state `P3/henselian-finite-etale-approximation` for Tate rings without a base field
+- PerfectoidSpaces P3: state henselian finite etale approximation for Tate rings without a base field
   (Berkeley Theorem 7.4.8: FÉt(A) ≅ FÉt(Â) when a ring of definition is henselian along a pseudouniformizer, and its
   corollary for filtered colimits of complete Tate rings).
 - AdicEtaleGeometry A1: the Huber pair of a finite étale algebra over an arbitrary complete Tate pair (natural
   topology, integral plus ring, functoriality, group actions), and the finite étale and étale sites of generalized
   adic spaces with Kedlaya–Liu 8.2.17(a).
-- ClassicalAdicEtaleCohomology H1:henselian: the completeness-to-henselianity implication as a separately citable
-  statement, with a proof independent of Huber's book in the Tate case.
 - The topologically henselian comparison is an input from PerfectoidSpaces P3;
   Kedlaya–Liu 2.8.16 supplies the uniformization case. Composition in the finite étale
   site uses the reduction to de Jong–van der Put 3.1.7 identified in Kedlaya–Liu 8.2.17(b).
@@ -1899,7 +1911,7 @@ the Stacks project, Tags 0FWT, 0ALJ, 0BN2.
 
 ## Target references and prerequisites
 
-The labels T001–T153 link the following references to the targets above. Internal
+The labels T001–T154 link the following references to the targets above. Internal
 prerequisites are listed by these labels; they refer to specific constructions,
 including those in the same layer. Their order of use is explained in the layer discussions. An imported roadmap label names its layer, whose
 interface is described in the corresponding mathematical discussion. `M:` means an
@@ -1912,80 +1924,80 @@ references are given in its discussion. Page numbers use the editions in the bib
 
 | Target | Source | Prerequisites |
 |---|---|---|
-| [T001](#t001) | H94 §3, proof of Proposition 3.7, printed p. 536 | `AdicSpacesPartII:R0`, `M:CategoryTheory.IsPushout`, `M:integralClosure`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom` |
-| [T002](#t002) | KL I §2.8, Definition 2.8.13, p. 63 | `AdicSpacesPartII:R0`, `T001`, `M:CategoryTheory.IsPushout`, `TC:Huber.Pair`, `TC:Huber.IsTateRing` |
-| [T003](#t003) | Hüb §9, proof of Theorem 9.2, p. 41 | `AdicSpacesPartII:R0`, `T001`, `TC:ValuationSpectrum.spa_antitone`, `TC:ValuationSpectrum.spa_integralClosure`, `TC:Huber.Pair.Hom.spaComap`, `TC:Huber.IsPseudoUniformizer`, `M:integralClosure` |
-| [T004](#t004) | Wedhorn §7.5, Lemma 7.46(3), p. 68 | `AdicSpacesPartII:R0`, `T001`, `TC:Huber.Pair.Hom.spaComap_preimage_rationalSubset`, `TC:ValuationSpectrum.rationalSubset`, `TC:ValuationSpectrum.existsUnique_continuous_ringHom_of_forall_comap_mem_rationalSubset`, `TC:ValuationSpectrum.spaLocalizationHomeomorph`, `TC:Huber.PairOfDefinition.completionLocalization` |
-| [T005](#t005) | KL I §8.2, Definition 8.2.16, p. 162 | `AdicSpacesPartII:R0`, `T001`, `T004`, `M:Algebra.Etale`, `M:Algebra.Smooth.flat`, `M:Module.FinitePresentation.of_finite_of_finitePresentation`, `M:Module.Flat.projective_of_finitePresentation`, `M:Algebra.Etale.baseChange`, `M:Module.Finite.base_change` |
-| [T006](#t006) | Wedhorn §8.6, proof of Theorem 8.56(i), p. 89 | `AdicSpacesPartII:R0`, `T001`, `M:CategoryTheory.IsPullback` |
-| [T007](#t007) | H94 §3, Proposition 3.7, printed p. 535 | `AdicSpacesPartII:R0`, `T001`, `T006`, `M:CategoryTheory.Limits.pullbackAssoc`, `M:CategoryTheory.Limits.pullbackSymmetry`, `M:CategoryTheory.IsPullback.of_id_snd`, `M:CategoryTheory.IsPushout.paste_horiz` |
-| [T008](#t008) | Wedhorn §8.3, Proposition and Definition 8.36, p. 85 | `AdicSpacesPartII:R0`, `T004`, `TC:ValuationSpectrum.IsAnalyticPoint`, `TC:ValuationSpectrum.spaAnalytic`, `TC:ValuationSpectrum.isOpen_val_preimage_spaAnalytic`, `TC:ValuationSpectrum.isCompact_val_preimage_spaAnalytic`, `TC:ValuationSpectrum.spaAnalytic_eq_biUnion_rationalSubset`, `TC:ValuationSpectrum.isTateRing_completion_locTopology_of_mem_generators`, `TC:ValuationSpectrum.spaAnalytic_eq_spa_of_isTateRing`, `TC:ValuationSpectrum.spaAnalytic_eq_empty_iff_discrete_separationQuotient` |
+| [T001](#t001) | H94 §3, proof of Proposition 3.7, printed p. 536 | `AdicSpacesPartII R0`, `M:CategoryTheory.IsPushout`, `M:integralClosure`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom` |
+| [T002](#t002) | KL I §2.8, Definition 2.8.13, p. 63 | `AdicSpacesPartII R0`, `T001`, `M:CategoryTheory.IsPushout`, `TC:Huber.Pair`, `TC:Huber.IsTateRing` |
+| [T003](#t003) | Hüb §9, proof of Theorem 9.2, p. 41 | `AdicSpacesPartII R0`, `T001`, `TC:ValuationSpectrum.spa_antitone`, `TC:ValuationSpectrum.spa_integralClosure`, `TC:Huber.Pair.Hom.spaComap`, `TC:Huber.IsPseudoUniformizer`, `M:integralClosure` |
+| [T004](#t004) | Wedhorn §7.5, Lemma 7.46(3), p. 68 | `AdicSpacesPartII R0`, `T001`, `TC:Huber.Pair.Hom.spaComap_preimage_rationalSubset`, `TC:ValuationSpectrum.rationalSubset`, `TC:ValuationSpectrum.existsUnique_continuous_ringHom_of_forall_comap_mem_rationalSubset`, `TC:ValuationSpectrum.spaLocalizationHomeomorph`, `TC:Huber.PairOfDefinition.completionLocalization` |
+| [T005](#t005) | KL I §8.2, Definition 8.2.16, p. 162 | `AdicSpacesPartII R0`, `T001`, `T004`, `M:Algebra.Etale`, `M:Algebra.Smooth.flat`, `M:Module.FinitePresentation.of_finite_of_finitePresentation`, `M:Module.Flat.projective_of_finitePresentation`, `M:Algebra.Etale.baseChange`, `M:Module.Finite.base_change` |
+| [T006](#t006) | Wedhorn §8.6, proof of Theorem 8.56(i), p. 89 | `AdicSpacesPartII R0`, `T001`, `M:CategoryTheory.IsPullback` |
+| [T007](#t007) | H94 §3, Proposition 3.7, printed p. 535 | `AdicSpacesPartII R0`, `T001`, `T006`, `M:CategoryTheory.Limits.pullbackAssoc`, `M:CategoryTheory.Limits.pullbackSymmetry`, `M:CategoryTheory.IsPullback.of_id_snd`, `M:CategoryTheory.IsPushout.paste_horiz` |
+| [T008](#t008) | Wedhorn §8.3, Proposition and Definition 8.36, p. 85 | `AdicSpacesPartII R0`, `T004`, `TC:ValuationSpectrum.IsAnalyticPoint`, `TC:ValuationSpectrum.spaAnalytic`, `TC:ValuationSpectrum.isOpen_val_preimage_spaAnalytic`, `TC:ValuationSpectrum.isCompact_val_preimage_spaAnalytic`, `TC:ValuationSpectrum.spaAnalytic_eq_biUnion_rationalSubset`, `TC:ValuationSpectrum.isTateRing_completion_locTopology_of_mem_generators`, `TC:ValuationSpectrum.spaAnalytic_eq_spa_of_isTateRing`, `TC:ValuationSpectrum.spaAnalytic_eq_empty_iff_discrete_separationQuotient` |
 
 ### A1
 
 | Target | Source | Prerequisites |
 |---|---|---|
-| [T009](#t009) | HK §4, Definition 4.1, p. 11 | `TC:Huber.IsTateRing`, `TC:Huber.restrictedMvPowerSeriesCompletion`, `TC:Huber.IsStronglyNoetherian`, `TC:ValuationSpectrum.rationalSubset`, `AdicSpacesPartII:R0`, `AdicSpacesPartII:R3`, `M:CategoryTheory.Sheaf.H` |
-| [T010](#t010) | KL I §2.4, Remark 2.4.2, p. 38 | `AdicSpacesPartII:R0`, `T005`, `M:Algebra.Etale`, `M:Module.Finite`, `M:Module.Projective`, `M:moduleTopology`, `M:IsModuleTopology`, `M:IsModuleTopology.continuous_of_linearMap`, `M:integralClosure`, `M:CommAlgCat.FiniteEtale`, `M:Algebra.Etale.baseChange`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom`, `TC:Huber.IsTateRing`, `TC:Huber.IsTateRing.isModuleTopology`, `TC:completeSpace_moduleTopology`, `TC:Huber.Pair.isRingOfIntegralElements_integralClosure`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spaComap`, `TC:ValuationSpectrum.continuous_spaComap`, `TC:ValuationSpectrum.spaComap_preimage_rationalSubset` |
-| [T011](#t011) | HK §4, Corollary 4.7, p. 13 | `T009`, `T010`, `AdicSpacesPartII:R3`, `AdicSpacesPartII:R0`, `M:Algebra.Etale`, `M:Module.Projective`, `TC:Huber.IsStronglyNoetherian`, `TC:ValuationSpectrum.rationalSubset` |
-| [T012](#t012) | KL I §2.6, Theorem 2.6.9, p. 55 | `T010`, `T013`, `T014`, `AdicSpacesPartII:R3`, `AdicSpacesPartII:R0`, `M:Algebra.Etale`, `M:Algebra.Etale.baseChange`, `M:Algebra.Etale.of_etale_tensorProduct_of_faithfullyFlat`, `TC:ValuationSpectrum.faithfullyFlat_pi_toCompletionLoc`, `TC:ValuationSpectrum.rationalSubset` |
-| [T013](#t013) | KL I §2.6, Lemma 2.6.2, p. 53 | `T010`, `AdicSpacesPartII:R0`, `TC:Huber.IsTateRing`, `TC:Huber.Pair.isRingOfIntegralElements_integralClosure`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spa_integralClosure`, `TC:ValuationSpectrum.rationalSubset`, `TC:ValuationSpectrum.spaComap_preimage_rationalSubset` |
-| [T014](#t014) | KL I §2.6, Proposition 2.6.8, p. 55 | `T013`, `T010`, `AdicSpacesPartII:R3`, `M:Algebra.Etale`, `M:CommAlgCat.FiniteEtale`, `M:HenselianLocalRing` |
-| [T015](#t015) | KL I §8.2, Definition 8.2.16, p. 162 | `T010`, `AdicSpacesPartII:R0`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.rationalSubset` |
-| [T016](#t016) | ECD §6, after Definition 6.2, p. 26 | `T015`, `T010`, `T011`, `T012`, `T009`, `AdicSpacesPartII:R0`, `TC:ValuationSpectrum.rationalSubset` |
+| [T009](#t009) | HK §4, Definition 4.1, p. 11 | `TC:Huber.IsTateRing`, `TC:Huber.restrictedMvPowerSeriesCompletion`, `TC:Huber.IsStronglyNoetherian`, `TC:ValuationSpectrum.rationalSubset`, `AdicSpacesPartII R0`, `AdicSpacesPartII R3`, `M:CategoryTheory.Sheaf.H` |
+| [T010](#t010) | KL I §2.4, Remark 2.4.2, p. 38 | `AdicSpacesPartII R0`, `T005`, `M:Algebra.Etale`, `M:Module.Finite`, `M:Module.Projective`, `M:moduleTopology`, `M:IsModuleTopology`, `M:IsModuleTopology.continuous_of_linearMap`, `M:integralClosure`, `M:CommAlgCat.FiniteEtale`, `M:Algebra.Etale.baseChange`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom`, `TC:Huber.IsTateRing`, `TC:Huber.IsTateRing.isModuleTopology`, `TC:completeSpace_moduleTopology`, `TC:Huber.Pair.isRingOfIntegralElements_integralClosure`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spaComap`, `TC:ValuationSpectrum.continuous_spaComap`, `TC:ValuationSpectrum.spaComap_preimage_rationalSubset` |
+| [T011](#t011) | HK §4, Corollary 4.7, p. 13 | `T009`, `T010`, `AdicSpacesPartII R3`, `AdicSpacesPartII R0`, `M:Algebra.Etale`, `M:Module.Projective`, `TC:Huber.IsStronglyNoetherian`, `TC:ValuationSpectrum.rationalSubset` |
+| [T012](#t012) | KL I §2.6, Theorem 2.6.9, p. 55 | `T010`, `T013`, `T014`, `AdicSpacesPartII R3`, `AdicSpacesPartII R0`, `M:Algebra.Etale`, `M:Algebra.Etale.baseChange`, `M:Algebra.Etale.of_etale_tensorProduct_of_faithfullyFlat`, `TC:ValuationSpectrum.faithfullyFlat_pi_toCompletionLoc`, `TC:ValuationSpectrum.rationalSubset` |
+| [T013](#t013) | KL I §2.6, Lemma 2.6.2, p. 53 | `T010`, `AdicSpacesPartII R0`, `TC:Huber.IsTateRing`, `TC:Huber.Pair.isRingOfIntegralElements_integralClosure`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spa_integralClosure`, `TC:ValuationSpectrum.rationalSubset`, `TC:ValuationSpectrum.spaComap_preimage_rationalSubset` |
+| [T014](#t014) | KL I §2.6, Proposition 2.6.8, p. 55 | `T013`, `T010`, `AdicSpacesPartII R3`, `M:Algebra.Etale`, `M:CommAlgCat.FiniteEtale`, `M:HenselianLocalRing` |
+| [T015](#t015) | KL I §8.2, Definition 8.2.16, p. 162 | `T010`, `AdicSpacesPartII R0`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.rationalSubset` |
+| [T016](#t016) | ECD §6, after Definition 6.2, p. 26 | `T015`, `T010`, `T011`, `T012`, `T009`, `AdicSpacesPartII R0`, `TC:ValuationSpectrum.rationalSubset` |
 | [T017](#t017) | KL I §8.2, Definition 8.2.16, p. 162 | `T015`, `T010`, `TC:ValuationSpectrum.rationalSubset` |
-| [T018](#t018) | PS §7, after Definition 7.1, p. 39 | `T015`, `T017`, `T010`, `T011`, `AdicSpacesPartII:R0` |
-| [T019](#t019) | KL I §8.2, after Definition 8.2.16, p. 162 | `T015`, `T017`, `T010`, `T011`, `T009`, `AdicSpacesPartII:R0`, `T005`, `T004`, `M:Algebra.Etale.baseChange` |
-| [T020](#t020) | KL I §8.2, Lemma 8.2.17(c), p. 162 | `T015`, `T017`, `T016`, `T011`, `T009`, `T013`, `T014`, `T018`, `T019`, `AdicSpacesPartII:R0`, `M:Algebra.Etale.comp`, `M:Module.Finite.trans`, `M:integralClosure` |
-| [T021](#t021) | KL I §1.2, Definition 1.2.2, p. 13 | `T017`, `T015`, `T019`, `T016`, `M:Algebra.FormallyUnramified.iff_exists_tensorProduct`, `M:Algebra.TensorProduct.lmul'`, `AdicSpacesPartII:R0` |
+| [T018](#t018) | PS §7, after Definition 7.1, p. 39 | `T015`, `T017`, `T010`, `T011`, `AdicSpacesPartII R0` |
+| [T019](#t019) | KL I §8.2, after Definition 8.2.16, p. 162 | `T015`, `T017`, `T010`, `T011`, `T009`, `AdicSpacesPartII R0`, `T005`, `T004`, `M:Algebra.Etale.baseChange` |
+| [T020](#t020) | KL I §8.2, Lemma 8.2.17(c), p. 162 | `T015`, `T017`, `T016`, `T011`, `T009`, `T013`, `T014`, `T018`, `T019`, `AdicSpacesPartII R0`, `M:Algebra.Etale.comp`, `M:Module.Finite.trans`, `M:integralClosure` |
+| [T021](#t021) | KL I §1.2, Definition 1.2.2, p. 13 | `T017`, `T015`, `T019`, `T016`, `M:Algebra.FormallyUnramified.iff_exists_tensorProduct`, `M:Algebra.TensorProduct.lmul'`, `AdicSpacesPartII R0` |
 | [T022](#t022) | dJvP §3.2, p. 23 | `T017`, `T015`, `T021`, `T019`, `T020`, `T009` |
-| [T023](#t023) | KL I §8.2, Lemma 8.2.17(b), p. 162 | `T017`, `T015`, `T013`, `T014`, `T018`, `AdicSpacesPartII:R0` |
+| [T023](#t023) | KL I §8.2, Lemma 8.2.17(b), p. 162 | `T017`, `T015`, `T013`, `T014`, `T018`, `AdicSpacesPartII R0` |
 | [T024](#t024) | H96 §2.1, p. 109 | `T009`, `T017`, `T019`, `T020`, `T021`, `T022`, `T018`, `M:Opens.grothendieckTopology`, `M:AlgebraicGeometry.Scheme.smallEtaleTopology`, `M:CategoryTheory.MorphismProperty.Over`, `M:CategoryTheory.Pretopology`, `M:CategoryTheory.Pretopology.toGrothendieck`, `M:CategoryTheory.GrothendieckTopology`, `M:CategoryTheory.Functor.IsContinuous`, `M:CategoryTheory.Functor.sheafPushforwardContinuous`, `M:CategoryTheory.Functor.sheafPullback` |
 | [T025](#t025) | KL I §8.2, Definition 8.2.19, p. 163 | `T015`, `T016`, `T019`, `T021`, `T022`, `T020`, `T024`, `T009`, `M:CommAlgCat.FiniteEtale`, `M:CategoryTheory.MorphismProperty.Over`, `M:CategoryTheory.Pretopology`, `M:CategoryTheory.Pretopology.toGrothendieck`, `M:CategoryTheory.GrothendieckTopology`, `M:CategoryTheory.Functor.IsContinuous`, `M:CategoryTheory.Functor.sheafPushforwardContinuous`, `M:CategoryTheory.Functor.sheafPullback` |
 | [T026](#t026) | ECD §7, proof of Proposition 7.16, p. 36 | `T017`, `T015`, `T010`, `T016`, `T009`, `M:Algebra.FormallyEtale.equivPiOfIsSepClosed`, `M:IsAlgClosed`, `M:ValuationSubring`, `TC:ValuationSpectrum.spa` |
 | [T027](#t027) | ECD §14, Proposition 14.3, p. 82 | `T024`, `T026`, `T019`, `T021`, `T009`, `M:CategoryTheory.GrothendieckTopology.Point`, `M:CategoryTheory.GrothendieckTopology.Point.sheafFiber`, `M:CategoryTheory.Functor.sheafPullback`, `M:IsAlgClosed`, `M:ValuationSubring`, `M:AlgebraicGeometry.Scheme.pointSmallEtale` |
 | [T028](#t028) | ECD §14, Proposition 14.3, p. 82 | `T027`, `T026`, `T019`, `T024`, `M:CategoryTheory.ObjectProperty.IsConservativeFamilyOfPoints`, `M:CategoryTheory.ObjectProperty.IsConservativeFamilyOfPoints.mk'`, `M:CategoryTheory.ObjectProperty.IsConservativeFamilyOfPoints.jointlyReflectIsomorphisms`, `M:CategoryTheory.GrothendieckTopology.HasEnoughPoints`, `M:AlgebraicGeometry.Scheme.isConservative_pointSmallEtale` |
 | [T029](#t029) | PH §3, before Definition 3.4, p. 13 | `T025`, `T026`, `T027`, `T021`, `T016`, `M:CategoryTheory.GaloisCategory`, `M:CategoryTheory.PreGaloisCategory.FiberFunctor`, `M:CategoryTheory.PreGaloisCategory.functorToContAction`, `M:CommAlgCat.FiniteEtale` |
-| [T030](#t030) | KL I §8.2, Definition 8.2.19, p. 163 | `T024`, `T017`, `T009`, `T011`, `T016`, `T010`, `T019`, `T021`, `AdicSpacesPartII:R0`, `TC:ValuationSpectrum.spaComap_preimage_rationalSubset`, `M:CategoryTheory.Functor.IsCoverDense`, `M:CategoryTheory.Functor.IsDenseSubsite`, `M:CategoryTheory.Functor.IsDenseSubsite.sheafEquiv` |
+| [T030](#t030) | KL I §8.2, Definition 8.2.19, p. 163 | `T024`, `T017`, `T009`, `T011`, `T016`, `T010`, `T019`, `T021`, `AdicSpacesPartII R0`, `TC:ValuationSpectrum.spaComap_preimage_rationalSubset`, `M:CategoryTheory.Functor.IsCoverDense`, `M:CategoryTheory.Functor.IsDenseSubsite`, `M:CategoryTheory.Functor.IsDenseSubsite.sheafEquiv` |
 | [T031](#t031) | KL I §8.2, Proposition 8.2.20, p. 163 | `T030`, `T024`, `T021`, `T023`, `T019`, `T020`, `M:CategoryTheory.Presieve.IsSheafFor` |
-| [T032](#t032) | KL I §8.2, Theorem 8.2.22(a), p. 165 | `T024`, `T031`, `T030`, `T016`, `T019`, `T009`, `M:CommRingCat.isLimitForkPushoutSelfOfFaithfullyFlat`, `M:Module.FaithfullyFlat`, `M:CategoryTheory.Presieve.IsSheafFor`, `M:CategoryTheory.Sheaf` |
+| [T032](#t032) | KL I §8.2, Theorem 8.2.22(a),(c), p. 165 | `T024`, `T031`, `T030`, `T016`, `T019`, `T009`, `M:CommRingCat.isLimitForkPushoutSelfOfFaithfullyFlat`, `M:Module.FaithfullyFlat`, `M:CategoryTheory.Presieve.IsSheafFor`, `M:CategoryTheory.Sheaf` |
 | [T033](#t033) | dJvP §3.2, p. 23 | `T024`, `T025`, `T022`, `T020`, `T019`, `T021`, `M:CategoryTheory.GrothendieckTopology.over`, `M:CategoryTheory.GrothendieckTopology.overPullback`, `M:CategoryTheory.Over.iteratedSliceEquiv`, `M:CategoryTheory.Functor.sheafPushforwardContinuous` |
 | [T034](#t034) | dJvP §3.3, p. 28 | `T027`, `T024`, `T032`, `T019`, `M:CategoryTheory.Functor.Elements`, `M:CategoryTheory.IsCofiltered`, `M:CategoryTheory.GrothendieckTopology.Point.sheafFiber` |
 | [T035](#t035) | KL I §2.4, Lemma 2.4.17(a), p. 43 | `T034`, `T026`, `T010`, `T027`, `T014`, `M:HenselianLocalRing`, `M:IsAlgClosed` |
 | [T036](#t036) | KL I §8.2, Definition 8.2.3, p. 159 | `T072`, `T073`, `T078`, `T076`, `T075`, `T010`, `T012`, `T013`, `T014`, `T015`, `T017`, `T019`, `T020`, `T024`, `T025`, `T011`, `T026`, `T027`, `T028`, `M:CategoryTheory.MorphismProperty.Over`, `M:CategoryTheory.Pretopology`, `M:CategoryTheory.Pretopology.toGrothendieck`, `M:CategoryTheory.GrothendieckTopology`, `M:CategoryTheory.Functor.IsContinuous`, `M:CategoryTheory.Functor.sheafPushforwardContinuous`, `M:CategoryTheory.Functor.sheafPullback` |
-| [T037](#t037) | PH §3, Definition 3.1, p. 13 | `AdicSpacesPartII:R0`, `T024`, `T015`, `DiamondsAndVStacks:D0`, `M:CategoryTheory.Ind`, `M:CategoryTheory.IsCofiltered` |
-| [T038](#t038) | PH erratum item (1), p. 1 | `T037`, `T042`, `T025`, `DiamondsAndVStacks:D0`, `M:CategoryTheory.MorphismProperty.transfiniteCompositions`, `M:CategoryTheory.MorphismProperty.pullbacks`, `M:CategoryTheory.Functor.IsWellOrderContinuous` |
-| [T039](#t039) | PH erratum item (1), p. 1 | `T038`, `T037`, `T042`, `T043`, `T047`, `DiamondsAndVStacks:D0` |
+| [T037](#t037) | PH §3, Definition 3.1, p. 13 | `AdicSpacesPartII R0`, `T024`, `T015`, `DiamondsAndVStacks D0`, `M:CategoryTheory.Ind`, `M:CategoryTheory.IsCofiltered` |
+| [T038](#t038) | PH erratum item (1), p. 1 | `T037`, `T042`, `T025`, `DiamondsAndVStacks D0`, `M:CategoryTheory.MorphismProperty.transfiniteCompositions`, `M:CategoryTheory.MorphismProperty.pullbacks`, `M:CategoryTheory.Functor.IsWellOrderContinuous` |
+| [T039](#t039) | PH erratum item (1), p. 1 | `T038`, `T037`, `T042`, `T043`, `T047`, `DiamondsAndVStacks D0` |
 | [T040](#t040) | PH erratum item (1), p. 1 | `M:Profinite`, `T038` |
 | [T041](#t041) | PH erratum item (1), p. 1 | `M:Profinite`, `T055` |
-| [T042](#t042) | PH §3, Lemma 3.10 (i), p. 15 | `T037`, `T018`, `T015`, `AdicSpacesPartII:R0`, `DiamondsAndVStacks:D0` |
-| [T043](#t043) | PH §3, Lemma 3.10 (ii), p. 15 | `T037`, `T042`, `AdicSpacesPartII:R0`, `T015`, `DiamondsAndVStacks:D0` |
-| [T044](#t044) | PH §3, Lemma 3.10 (iii), p. 15 | `T037`, `T042`, `DiamondsAndVStacks:D0`, `AdicSpacesPartII:R0` |
-| [T045](#t045) | PH §3, Lemma 3.10 (iv), p. 15 | `T044`, `T043`, `T042`, `AdicSpacesPartII:R0` |
-| [T046](#t046) | PH §3, Lemma 3.10 (v), p. 15 | `T042`, `T037`, `AdicSpacesPartII:R0` |
-| [T047](#t047) | PH §3, Lemma 3.10 (vi), p. 16 | `T042`, `T043`, `T046`, `DiamondsAndVStacks:D0` |
-| [T048](#t048) | PH §3, before Definition 3.3, p. 13 | `AdicSpacesPartII:R0` |
-| [T049](#t049) | PH §3, Lemma 3.10 (vii), p. 16 | `T042`, `T047`, `T048`, `AdicSpacesPartII:R0` |
-| [T050](#t050) | PH erratum item (1), p. 1 | `T038`, `T043`, `T042`, `T037`, `DiamondsAndVStacks:D0` |
+| [T042](#t042) | PH §3, Lemma 3.10 (i), p. 15 | `T037`, `T018`, `T015`, `AdicSpacesPartII R0`, `DiamondsAndVStacks D0` |
+| [T043](#t043) | PH §3, Lemma 3.10 (ii), p. 15 | `T037`, `T042`, `AdicSpacesPartII R0`, `T015`, `DiamondsAndVStacks D0` |
+| [T044](#t044) | PH §3, Lemma 3.10 (iii), p. 15 | `T037`, `T042`, `DiamondsAndVStacks D0`, `AdicSpacesPartII R0` |
+| [T045](#t045) | PH §3, Lemma 3.10 (iv), p. 15 | `T044`, `T043`, `T042`, `AdicSpacesPartII R0` |
+| [T046](#t046) | PH §3, Lemma 3.10 (v), p. 15 | `T042`, `T037`, `AdicSpacesPartII R0` |
+| [T047](#t047) | PH §3, Lemma 3.10 (vi), p. 16 | `T042`, `T043`, `T046`, `DiamondsAndVStacks D0` |
+| [T048](#t048) | PH §3, before Definition 3.3, p. 13 | `AdicSpacesPartII R0` |
+| [T049](#t049) | PH §3, Lemma 3.10 (vii), p. 16 | `T042`, `T047`, `T048`, `AdicSpacesPartII R0` |
+| [T050](#t050) | PH erratum item (1), p. 1 | `T038`, `T043`, `T042`, `T037`, `DiamondsAndVStacks D0` |
 | [T051](#t051) | PH erratum item (1), p. 1 | `T038`, `T039`, `T042`, `T043`, `T047`, `T045`, `T049`, `T050`, `M:CategoryTheory.Pretopology` |
 | [T052](#t052) | PH §3, Definition 3.9, p. 15 | `T037`, `T038`, `T051`, `T049`, `T044`, `T047`, `T039`, `T024`, `M:CategoryTheory.Pretopology.toGrothendieck`, `M:AlgebraicGeometry.Scheme.proetaleTopology` |
 | [T053](#t053) | PH §3, before Lemma 3.16, p. 19 | `T052`, `T049`, `T037`, `T024`, `M:CategoryTheory.Functor.IsContinuous`, `M:CategoryTheory.Functor.sheafPushforwardContinuous`, `M:CategoryTheory.Functor.sheafPullback`, `M:CategoryTheory.presheafToSheaf` |
-| [T054](#t054) | PH §3, Lemma 3.16, p. 19 | `T053`, `T061`, `T062`, `T039`, `T024`, `DiamondsAndVStacks:D0` |
-| [T055](#t055) | PH §3, Definition 3.4, p. 13 | `M:Profinite`, `M:CategoryTheory.Pretopology`, `DiamondsAndVStacks:D0` |
+| [T054](#t054) | PH §3, Lemma 3.16, p. 19 | `T053`, `T061`, `T062`, `T039`, `T024`, `DiamondsAndVStacks D0` |
+| [T055](#t055) | PH §3, Definition 3.4, p. 13 | `M:Profinite`, `M:CategoryTheory.Pretopology`, `DiamondsAndVStacks D0` |
 | [T056](#t056) | PH §3, Lemma 3.6, p. 14 | `T055`, `M:Profinite` |
 | [T057](#t057) | PH §3, Proposition 3.7 (ii), p. 14 | `T055`, `T041`, `T040` |
-| [T058](#t058) | PH §3, Definition 3.3, p. 13 | `T025`, `T037`, `T038`, `T042`, `T050`, `DiamondsAndVStacks:D0`, `M:CategoryTheory.Pretopology` |
-| [T059](#t059) | PH §3, Proposition 3.5, p. 14 | `T029`, `T058`, `T055`, `DiamondsAndVStacks:D0` |
+| [T058](#t058) | PH §3, Definition 3.3, p. 13 | `T025`, `T037`, `T038`, `T042`, `T050`, `DiamondsAndVStacks D0`, `M:CategoryTheory.Pretopology` |
+| [T059](#t059) | PH §3, Proposition 3.5, p. 14 | `T029`, `T058`, `T055`, `DiamondsAndVStacks D0` |
 | [T060](#t060) | PH §3, Lemma 3.11, p. 17 | `T045`, `T059`, `T056`, `T042`, `T058`, `T052`, `M:CategoryTheory.Functor.IsContinuous` |
-| [T061](#t061) | PH §3, Proposition 3.12 (i), p. 17 | `T052`, `T045`, `T042`, `T044`, `DiamondsAndVStacks:D0`, `TC:ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition`, `AdicSpacesPartII:R0` |
-| [T062](#t062) | PH §3, Proposition 3.12 (iv), p. 17 | `T061`, `T044`, `T042`, `DiamondsAndVStacks:D0`, `M:CategoryTheory.Functor.IsDenseSubsite` |
-| [T063](#t063) | PH §3, Proposition 3.13, p. 18 | `T052`, `T055`, `T029`, `T059`, `T062`, `T027`, `AdicSpacesPartII:R0`, `M:CategoryTheory.Functor.IsContinuous`, `M:CategoryTheory.Functor.sheafPullback` |
+| [T061](#t061) | PH §3, Proposition 3.12 (i), p. 17 | `T052`, `T045`, `T042`, `T044`, `DiamondsAndVStacks D0`, `TC:ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition`, `AdicSpacesPartII R0` |
+| [T062](#t062) | PH §3, Proposition 3.12 (iv), p. 17 | `T061`, `T044`, `T042`, `DiamondsAndVStacks D0`, `M:CategoryTheory.Functor.IsDenseSubsite` |
+| [T063](#t063) | PH §3, Proposition 3.13, p. 18 | `T052`, `T055`, `T029`, `T059`, `T062`, `T027`, `AdicSpacesPartII R0`, `M:CategoryTheory.Functor.IsContinuous`, `M:CategoryTheory.Functor.sheafPullback` |
 | [T064](#t064) | PH §3, Proposition 3.13, p. 18 | `T063`, `T059`, `T045`, `T061` |
-| [T065](#t065) | PH erratum item (2), p. 1 | `T061`, `T062`, `T066`, `DiamondsAndVStacks:D0`, `M:CategoryTheory.GrothendieckTopology.HasEnoughPoints`, `M:CategoryTheory.GrothendieckTopology.Point` |
-| [T066](#t066) | PH §3, before Proposition 3.15, p. 19 | `T052`, `T053`, `T037`, `T033`, `AdicSpacesPartII:R0`, `DiamondsAndVStacks:D0`, `M:CategoryTheory.GrothendieckTopology.over` |
-| [T067](#t067) | PH §3, before Proposition 3.15, p. 19 | `AdicSpacesPartII:R0`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem`, `T024` |
+| [T065](#t065) | PH erratum item (2), p. 1 | `T061`, `T062`, `T066`, `DiamondsAndVStacks D0`, `M:CategoryTheory.GrothendieckTopology.HasEnoughPoints`, `M:CategoryTheory.GrothendieckTopology.Point` |
+| [T066](#t066) | PH §3, before Proposition 3.15, p. 19 | `T052`, `T053`, `T037`, `T033`, `AdicSpacesPartII R0`, `DiamondsAndVStacks D0`, `M:CategoryTheory.GrothendieckTopology.over` |
+| [T067](#t067) | PH §3, before Proposition 3.15, p. 19 | `AdicSpacesPartII R0`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem`, `T024` |
 | [T068](#t068) | PH §3, before Proposition 3.15, p. 19 | `T067`, `T066`, `T061`, `T052`, `T039`, `M:CategoryTheory.GrothendieckTopology.over` |
-| [T069](#t069) | PH §5, proof of Lemma 5.6, p. 31 | `T052`, `T042`, `T047`, `T039`, `T041`, `T056`, `T040`, `DiamondsAndVStacks:D0`, `M:Profinite` |
+| [T069](#t069) | PH §5, proof of Lemma 5.6, p. 31 | `T052`, `T042`, `T047`, `T039`, `T041`, `T056`, `T040`, `DiamondsAndVStacks D0`, `M:Profinite` |
 | [T070](#t070) | PH §5, proof of Lemma 5.6, p. 31 | `T069`, `T041`, `T029`, `T054`, `T052`, `T038`, `T037` |
 | [T071](#t071) | Berkeley Lecture 3, §3.4, p. 22 | `TC:Huber.Pair`, `TC:Huber.Pair.Hom`, `TC:Huber.Pair.Hom.spaComap`, `TC:Huber.Pair.Hom.spaComap_preimage_rationalSubset`, `TC:ValuationSpectrum.rationalSubset`, `TC:ValuationSpectrum.isTopologicalBasis_spaRationalFamily`, `TC:ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition`, `TC:ValuationSpectrum.existsUnique_continuous_ringHom_of_isUnit_of_forall_comap_mem_rationalSubset`, `TC:ValuationSpectrum.spa_eq_empty_iff_subsingleton`, `M:CategoryTheory.Coverage`, `M:CategoryTheory.Presieve.isSheaf_coverage` |
 | [T072](#t072) | Berkeley Lecture 3, §3.4, p. 21 | `T071`, `M:CategoryTheory.presheafToSheaf`, `TC:Huber.Pair`, `TC:ValuationSpectrum.spa_eq_empty_iff_subsingleton` |
@@ -1993,26 +2005,26 @@ references are given in its discussion. Page numbers use the editions in the bib
 | [T074](#t074) | Berkeley Appendix to Lecture 3, p. 23 | `T072`, `T073`, `M:CategoryTheory.Ind`, `M:CategoryTheory.Ind.yoneda` |
 | [T075](#t075) | KL I §8.2, Lemma 8.2.9, p. 160 | `T072`, `T073` |
 | [T076](#t076) | Berkeley Lecture 3, §3.4, p. 22 | `T072`, `T073`, `T074`, `T075`, `M:CategoryTheory.Ind.yoneda` |
-| [T077](#t077) | Berkeley Lecture 4, Proposition 4.3.1 (2), p. 33 | `T072`, `T073`, `T074`, `TC:ValuationSpectrum.spaAnalytic_eq_biUnion_rationalSubset`, `TC:ValuationSpectrum.isTateRing_completion_locTopology_of_mem_generators`, `TC:Huber.IsTateRing`, `AdicSpacesPartII:R0` |
-| [T078](#t078) | Berkeley Lecture 5, Remark 5.1.6, p. 36 | `T072`, `T073`, `T077`, `AdicSpacesPartII:R0`, `M:CategoryTheory.presheafToSheaf` |
+| [T077](#t077) | Berkeley Lecture 4, Proposition 4.3.1 (2), p. 33 | `T072`, `T073`, `T074`, `TC:ValuationSpectrum.spaAnalytic_eq_biUnion_rationalSubset`, `TC:ValuationSpectrum.isTateRing_completion_locTopology_of_mem_generators`, `TC:Huber.IsTateRing`, `AdicSpacesPartII R0` |
+| [T078](#t078) | Berkeley Lecture 5, Remark 5.1.6, p. 36 | `T072`, `T073`, `T077`, `AdicSpacesPartII R0`, `M:CategoryTheory.presheafToSheaf` |
 
 ### A2
 
 | Target | Source | Prerequisites |
 |---|---|---|
-| [T079](#t079) | H96 §1.3, Definitions 1.3.1-1.3.3, p. 51 | `AdicSpacesPartII:R0`, `AdicSpacesPartII:R1`, `AdicSpacesPartII:R2`, `T008` |
-| [T080](#t080) | Berkeley Lecture 4, §4.1, the adic closed unit disc, p. 27 | `AdicSpacesPartII:R0`, `AdicSpacesPartII:R1`, `T008`, `TC:Huber.restrictedMvPowerSeriesCompletion`, `TC:ValuationSpectrum.closedPolydisc`, `TC:ValuationSpectrum.spa_integralClosure`, `M:MvPolynomial`, `M:CategoryTheory.IsPullback.paste_horiz` |
-| [T081](#t081) | PH §4, Example 4.4, p. 22 | `T080`, `AdicSpacesPartII:R0`, `TC:ValuationSpectrum.rationalSubset`, `TC:ValuationSpectrum.spaLocalizationHomeomorph`, `M:LaurentPolynomial` |
-| [T082](#t082) | ECD §24, Proposition 24.4, p. 156 | `T080`, `T081`, `T018`, `AdicSpacesPartII:R0`, `T008`, `T019`, `T020` |
-| [T083](#t083) | H96 §1.6, Corollary 1.6.10, p. 80 | `AdicSpacesPartII:R0`, `T080`, `T082`, `T008`, `T018`, `T019`, `T020` |
-| [T084](#t084) | PH §5, Lemma 5.2, p. 28 | `AdicSpacesPartII:R0`, `T083`, `T081`, `T080`, `T004`, `T005` |
+| [T079](#t079) | H96 §1.3, Definitions 1.3.1-1.3.3, p. 51 | `AdicSpacesPartII R0`, `AdicSpacesPartII R1`, `AdicSpacesPartII R2`, `T008` |
+| [T080](#t080) | Berkeley Lecture 4, §4.1, the adic closed unit disc, p. 27 | `AdicSpacesPartII R0`, `AdicSpacesPartII R1`, `T008`, `TC:Huber.restrictedMvPowerSeriesCompletion`, `TC:ValuationSpectrum.closedPolydisc`, `TC:ValuationSpectrum.spa_integralClosure`, `M:MvPolynomial`, `M:CategoryTheory.IsPullback.paste_horiz` |
+| [T081](#t081) | PH §4, Example 4.4, p. 22 | `T080`, `AdicSpacesPartII R0`, `TC:ValuationSpectrum.rationalSubset`, `TC:ValuationSpectrum.spaLocalizationHomeomorph`, `M:LaurentPolynomial` |
+| [T082](#t082) | ECD §24, Proposition 24.4, p. 156 | `T080`, `T081`, `T018`, `AdicSpacesPartII R0`, `T008`, `T019`, `T020` |
+| [T083](#t083) | H96 §1.6, Corollary 1.6.10, p. 80 | `AdicSpacesPartII R0`, `T080`, `T082`, `T008`, `T018`, `T019`, `T020` |
+| [T084](#t084) | PH §5, Lemma 5.2, p. 28 | `AdicSpacesPartII R0`, `T083`, `T081`, `T080`, `T004`, `T005` |
 | [T085](#t085) | Zav §3, Definition 3.1, p. 4 | `M:topologicalKrullDim`, `M:Order.krullDim`, `M:Specializes`, `M:QuasiSober`, `M:genericPoint`, `M:Topology.IsInducing.topologicalKrullDim_le`, `M:IsHomeomorph.topologicalKrullDim_eq`, `M:ringKrullDim`, `TC:ValuationSpectrum.spa` |
-| [T086](#t086) | Zav §3, Lemma 3.2, p. 5 | `T085`, `AdicSpacesPartII:R0`, `TC:ValuationSpectrum.IsAnalyticPoint.exists_coarsenByUnits_mem_spaAnalytic` |
-| [T087](#t087) | Zav §3, Corollary 3.4, p. 5 | `T085`, `T086`, `T083`, `T080`, `T081`, `AdicSpacesPartII:R0` |
-| [T088](#t088) | Zav §3, Lemma 3.7, p. 7 | `T085`, `T087`, `T080`, `AdicSpacesPartII:R0` |
-| [T089](#t089) | H96 §1.2, (1.2.7), p. 50 | `AdicSpacesPartII:R1`, `AdicSpacesPartII:R4`, `T080`, `T081`, `T083` |
-| [T090](#t090) | H96 §2.1, p. 109 | `T027`, `T018`, `AdicSpacesPartII:R4`, `AdicSpacesPartII:R0`, `T083`, `T080`, `T084`, `T081`, `M:CategoryTheory.GrothendieckTopology`, `T024` |
-| [T091](#t091) | H96 §1.9, Proposition 1.9.1, pp. 96-97 | `AdicSpacesPartII:F0`, `AdicSpacesPartII:R2`, `T008` |
+| [T086](#t086) | Zav §3, Lemma 3.2, p. 5 | `T085`, `AdicSpacesPartII R0`, `TC:ValuationSpectrum.IsAnalyticPoint.exists_coarsenByUnits_mem_spaAnalytic` |
+| [T087](#t087) | Zav §3, Corollary 3.4, p. 5 | `T085`, `T086`, `T083`, `T080`, `T081`, `AdicSpacesPartII R0` |
+| [T088](#t088) | Zav §3, Lemma 3.7, p. 7 | `T085`, `T087`, `T080`, `AdicSpacesPartII R0` |
+| [T089](#t089) | H96 §1.2, (1.2.7), p. 50 | `AdicSpacesPartII R1`, `AdicSpacesPartII R4`, `T080`, `T081`, `T083` |
+| [T090](#t090) | H96 §2.1, p. 109 | `T027`, `T018`, `AdicSpacesPartII R4`, `AdicSpacesPartII R0`, `T083`, `T080`, `T084`, `T081`, `M:CategoryTheory.GrothendieckTopology`, `T024` |
+| [T091](#t091) | H96 §1.9, Proposition 1.9.1, pp. 96-97 | `AdicSpacesPartII F0`, `AdicSpacesPartII R2`, `T008` |
 
 ### A3
 
@@ -2021,44 +2033,44 @@ references are given in its discussion. Page numbers use the editions in the bib
 | [T092](#t092) | KL II §1.1, Definition 1.1.1, p. 10 | `M:Module.Finite`, `M:Module.FinitePresentation`, `M:Module.FinitePresentation.fg_ker`, `M:Module.Projective`, `M:Module.Flat`, `M:TensorProduct` |
 | [T093](#t093) | KL II §1.1, Lemma 1.1.5, p. 11 | `T092`, `M:Module.FinitePresentation.fg_ker`, `M:Module.Projective` |
 | [T094](#t094) | KL II §1.1, Remark 1.1.6, p. 12 | `T092`, `T093`, `M:RingTheory.Sequence.IsWeaklyRegular`, `M:Ideal.Cotangent`, `M:Module.Flat` |
-| [T095](#t095) | KL II §1.2, Definition 1.2.2, p. 14 | `TC:Huber.IsTateRing`, `TC:Huber.IsTateRing.isOpenMap`, `TC:Huber.IsTateRing.isStrictMap_of_isClosed_range`, `TC:Huber.isClosed_of_module_finite_topologicalClosure`, `TC:completeSpace_moduleTopology`, `M:moduleTopology`, `M:IsModuleTopology`, `M:Topology.IsStrictMap`, `AdicSpacesPartII:R0` |
+| [T095](#t095) | KL II §1.2, Definition 1.2.2, p. 14 | `TC:Huber.IsTateRing`, `TC:Huber.IsTateRing.isOpenMap`, `TC:Huber.IsTateRing.isStrictMap_of_isClosed_range`, `TC:Huber.isClosed_of_module_finite_topologicalClosure`, `TC:completeSpace_moduleTopology`, `M:moduleTopology`, `M:IsModuleTopology`, `M:Topology.IsStrictMap`, `AdicSpacesPartII R0` |
 | [T096](#t096) | KL II §1.2, Definition 1.2.13, p. 17 | `T092`, `T095`, `TC:Huber.Pair`, `TC:Huber.IsTateRing`, `TC:Huber.PairOfDefinition.completionLocalization`, `TC:ValuationSpectrum.rationalSubset`, `M:moduleTopology` |
 | [T097](#t097) | KL II §2.4, Definition 2.4.4, p. 36 | `T096`, `M:Module.Flat`, `M:TensorProduct` |
 | [T098](#t098) | KL II §2.4, Definition 2.4.6, p. 37 | `T097`, `T096`, `T095`, `TC:Huber.restrictedMvPowerSeriesCompletion` |
-| [T099](#t099) | KL II §2.4, Lemma 2.4.10, p. 38 | `T095`, `T098`, `AdicSpacesPartII:R3`, `TC:Huber.restrictedMvPowerSeriesCompletion`, `TC:Huber.PairOfDefinition.rationalEvalHom_surjective`, `TC:Huber.PairOfDefinition.completionLocalization` |
-| [T100](#t100) | KL II §2.4, Lemma 2.4.12, p. 39 | `T099`, `T098`, `T097`, `T093`, `AdicSpacesPartII:R3` |
-| [T101](#t101) | KL I §2.4, Proposition 2.4.24, p. 47 | `TC:ValuationSpectrum.rationalSubset`, `TC:Huber.IsTateRing`, `TC:Huber.PairOfDefinition.completionLocalization`, `AdicSpacesPartII:R3` |
+| [T099](#t099) | KL II §2.4, Lemma 2.4.10, p. 38 | `T095`, `T098`, `AdicSpacesPartII R3`, `TC:Huber.restrictedMvPowerSeriesCompletion`, `TC:Huber.PairOfDefinition.rationalEvalHom_surjective`, `TC:Huber.PairOfDefinition.completionLocalization` |
+| [T100](#t100) | KL II §2.4, Lemma 2.4.12, p. 39 | `T099`, `T098`, `T097`, `T093`, `AdicSpacesPartII R3` |
+| [T101](#t101) | KL I §2.4, Proposition 2.4.24, p. 47 | `TC:ValuationSpectrum.rationalSubset`, `TC:Huber.IsTateRing`, `TC:Huber.PairOfDefinition.completionLocalization`, `AdicSpacesPartII R3` |
 | [T102](#t102) | KL II §2.4, Theorem 2.4.15, p. 40 | `T101`, `T100`, `T097`, `T096`, `T093` |
-| [T103](#t103) | KL II §2.5, Theorem 2.5.1, p. 41 | `T096`, `T102`, `T100`, `AdicSpacesPartII:R3` |
-| [T104](#t104) | KL II §2.5, Corollary 2.5.2, p. 41 | `T103`, `T102`, `T093`, `AdicSpacesPartII:R3`, `M:Module.Projective` |
-| [T105](#t105) | KL II §2.5, Definition 2.5.3, p. 41 | `T096`, `T103`, `T102`, `AdicSpacesPartII:R3` |
-| [T106](#t106) | KL II §2.5, Lemma 2.5.4, p. 41 | `T103`, `T104`, `T102`, `T093`, `T095`, `AdicSpacesPartII:R3` |
-| [T107](#t107) | KL II §2.5, Theorem 2.5.5, p. 42 | `T103`, `T106`, `T102`, `T105`, `T096`, `AdicSpacesPartII:R3` |
+| [T103](#t103) | KL II §2.5, Theorem 2.5.1, p. 41 | `T096`, `T102`, `T100`, `AdicSpacesPartII R3` |
+| [T104](#t104) | KL II §2.5, Corollary 2.5.2, p. 41 | `T103`, `T102`, `T093`, `AdicSpacesPartII R3`, `M:Module.Projective` |
+| [T105](#t105) | KL II §2.5, Definition 2.5.3, p. 41 | `T096`, `T103`, `T102`, `AdicSpacesPartII R3` |
+| [T106](#t106) | KL II §2.5, Lemma 2.5.4, p. 41 | `T103`, `T104`, `T102`, `T093`, `T095`, `AdicSpacesPartII R3` |
+| [T107](#t107) | KL II §2.5, Theorem 2.5.5, p. 42 | `T103`, `T106`, `T102`, `T105`, `T096`, `AdicSpacesPartII R3` |
 | [T108](#t108) | H96 §1.7, Proposition 1.7.1, p. 80 | `TC:Huber.PairOfDefinition`, `TC:Huber.IsPseudoUniformizer`, `TC:Huber.IsTateRing`, `TC:Huber.restrictedMvPowerSeriesCompletion`, `M:MvPowerSeries.pderiv`, `M:Polynomial.hasseDeriv` |
 | [T109](#t109) | H96 §1.7, Proposition 1.7.1, p. 80 | `T108`, `TC:Huber.restrictedMvPowerSeriesCompletion`, `TC:Huber.existsUnique_continuous_ringHom_completion_weightedRestrictedSubring`, `TC:Huber.Pair.quotient`, `TC:Huber.PairOfDefinition` |
-| [T110](#t110) | H96 §1.7, Proposition 1.7.1, p. 80 | `TC:Huber.restrictedMvPowerSeriesCompletion`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom`, `TC:Huber.Pair.quotient`, `TC:Huber.IsTateRing`, `TC:Huber.IsPseudoUniformizer`, `M:MvPowerSeries.pderiv`, `M:Algebra.PreSubmersivePresentation.jacobian`, `AdicSpacesPartII:R0` |
-| [T111](#t111) | KL I §2.4, Lemma 2.4.13(a), p. 42 | `T110`, `T095`, `TC:Huber.PairOfDefinition.rationalEvalHom_surjective`, `TC:Huber.PairOfDefinition.completionLocalization`, `TC:ValuationSpectrum.mem_iff_forall_vle_one`, `AdicSpacesPartII:R0`, `M:Algebra.Etale`, `M:Algebra.Etale.iff_isStandardSmoothOfRelativeDimension_zero`, `M:Algebra.SubmersivePresentation`, `M:Module.Finite`, `T010` |
-| [T112](#t112) | FS §IV.4.1, before Lemma IV.4.14, p. 137 | `T108`, `AdicSpacesPartII:R5`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem`, `TC:ValuationSpectrum.existsUnique_continuous_ringHom_of_forall_comap_mem_rationalSubset`, `TC:Huber.existsUnique_continuous_ringHom_completion_weightedRestrictedSubring`, `TC:Huber.PairOfDefinition.completionLocalization`, `TC:ValuationSpectrum.mem_iff_forall_vle_one`, `TC:ValuationSpectrum.rationalSubset`, `AdicSpacesPartII:R0` |
-| [T113](#t113) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T110`, `T112`, `T108`, `TC:ValuationSpectrum.existsUnique_continuous_ringHom_of_forall_comap_mem_rationalSubset`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem`, `AdicSpacesPartII:R0` |
-| [T114](#t114) | FS §IV.4.1, Proposition IV.4.17, p. 139 | `T112`, `T110`, `T111`, `AdicSpacesPartII:R5` |
+| [T110](#t110) | H96 §1.7, Proposition 1.7.1, p. 80 | `TC:Huber.restrictedMvPowerSeriesCompletion`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom`, `TC:Huber.Pair.quotient`, `TC:Huber.IsTateRing`, `TC:Huber.IsPseudoUniformizer`, `M:MvPowerSeries.pderiv`, `M:Algebra.PreSubmersivePresentation.jacobian`, `AdicSpacesPartII R0` |
+| [T111](#t111) | KL I §2.4, Lemma 2.4.13(a), p. 42 | `T110`, `T095`, `TC:Huber.PairOfDefinition.rationalEvalHom_surjective`, `TC:Huber.PairOfDefinition.completionLocalization`, `TC:ValuationSpectrum.mem_iff_forall_vle_one`, `AdicSpacesPartII R0`, `M:Algebra.Etale`, `M:Algebra.Etale.iff_isStandardSmoothOfRelativeDimension_zero`, `M:Algebra.SubmersivePresentation`, `M:Module.Finite`, `T010` |
+| [T112](#t112) | FS §IV.4.1, before Lemma IV.4.14, p. 137 | `T108`, `AdicSpacesPartII R5`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem`, `TC:ValuationSpectrum.existsUnique_continuous_ringHom_of_forall_comap_mem_rationalSubset`, `TC:Huber.existsUnique_continuous_ringHom_completion_weightedRestrictedSubring`, `TC:Huber.PairOfDefinition.completionLocalization`, `TC:ValuationSpectrum.mem_iff_forall_vle_one`, `TC:ValuationSpectrum.rationalSubset`, `AdicSpacesPartII R0` |
+| [T113](#t113) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T110`, `T112`, `T108`, `TC:ValuationSpectrum.existsUnique_continuous_ringHom_of_forall_comap_mem_rationalSubset`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem`, `AdicSpacesPartII R0` |
+| [T114](#t114) | FS §IV.4.1, Proposition IV.4.17, p. 139 | `T112`, `T110`, `T111`, `AdicSpacesPartII R5` |
 | [T115](#t115) | FS §IV.4.1, Lemma IV.4.13, p. 137 | `T112`, `T094`, `T096`, `M:RingTheory.Sequence.IsWeaklyRegular` |
-| [T116](#t116) | PS §6, Lemma 6.13(i), p. 37 | `PerfectoidSpaces:P1`, `PerfectoidSpaces:P2`, `M:PerfectRing`, `M:frobenius`, `TC:Huber.IsPseudoUniformizer` |
-| [T117](#t117) | FS §IV.4.1, Proposition IV.4.17, p. 139 | `T116`, `T110`, `T113`, `T114`, `AdicSpacesPartII:R0`, `AdicSpacesPartII:R5`, `T018`, `PerfectoidSpaces:P3`, `PerfectoidSpaces:P2`, `PerfectoidSpaces:P1`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem`, `M:PerfectRing` |
-| [T118](#t118) | KL II §1.1, Remark 1.1.13, p. 14 | `T109`, `T110`, `T112`, `T115`, `T092`, `T093`, `T105`, `T096`, `T107`, `TC:ValuationSpectrum.mem_iff_forall_vle_one`, `TC:ValuationSpectrum.rationalSubset`, `AdicSpacesPartII:R0`, `AdicSpacesPartII:R5` |
-| [T119](#t119) | FS §IV.4.1, Proposition IV.4.19(i), p. 140 | `T118`, `T120`, `T107`, `T105`, `T096`, `AdicSpacesPartII:R5`, `TC:ValuationSpectrum.mem_iff_forall_vle_one`, `TC:ValuationSpectrum.rationalSubset`, `PerfectoidSpaces:P3` |
-| [T120](#t120) | ECD §6, Definition 6.2(ii), p. 26 | `T111`, `PerfectoidSpaces:P3`, `T010`, `TC:ValuationSpectrum.exists_span_eq_top_forall_rationalSubset_subset_of_isTateRing`, `TC:ValuationSpectrum.rationalSubset` |
-| [T121](#t121) | KL I §2.4, Lemma 2.4.13(a), p. 42 | `TC:Huber.PairOfDefinition.completionLocalization`, `TC:ValuationSpectrum.rationalSubset`, `AdicSpacesPartII:R5`, `PerfectoidSpaces:P2` |
-| [T122](#t122) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T120`, `T121`, `T118`, `T119`, `T109`, `AdicSpacesPartII:R5`, `TC:ValuationSpectrum.rationalSubset`, `TC:Huber.restrictedMvPowerSeriesCompletion` |
-| [T123](#t123) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T119`, `T118`, `T115`, `T120`, `T092`, `T107`, `AdicSpacesPartII:R0`, `AdicSpacesPartII:R3` |
+| [T116](#t116) | PS §6, Lemma 6.13(i), p. 37 | `PerfectoidSpaces P1`, `PerfectoidSpaces P2`, `M:PerfectRing`, `M:frobenius`, `TC:Huber.IsPseudoUniformizer` |
+| [T117](#t117) | FS §IV.4.1, Proposition IV.4.17, p. 139 | `T116`, `T110`, `T113`, `T114`, `AdicSpacesPartII R0`, `AdicSpacesPartII R5`, `T018`, `PerfectoidSpaces P3`, `PerfectoidSpaces P2`, `PerfectoidSpaces P1`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem`, `M:PerfectRing` |
+| [T118](#t118) | KL II §1.1, Remark 1.1.13, p. 14 | `T109`, `T110`, `T112`, `T115`, `T092`, `T093`, `T105`, `T096`, `T107`, `TC:ValuationSpectrum.mem_iff_forall_vle_one`, `TC:ValuationSpectrum.rationalSubset`, `AdicSpacesPartII R0`, `AdicSpacesPartII R5` |
+| [T119](#t119) | FS §IV.4.1, Proposition IV.4.19(i), p. 140 | `T118`, `T120`, `T107`, `T105`, `T096`, `AdicSpacesPartII R5`, `TC:ValuationSpectrum.mem_iff_forall_vle_one`, `TC:ValuationSpectrum.rationalSubset`, `PerfectoidSpaces P3` |
+| [T120](#t120) | ECD §6, Definition 6.2(ii), p. 26 | `T111`, `PerfectoidSpaces P3`, `T010`, `TC:ValuationSpectrum.exists_span_eq_top_forall_rationalSubset_subset_of_isTateRing`, `TC:ValuationSpectrum.rationalSubset` |
+| [T121](#t121) | KL I §2.4, Lemma 2.4.13(a), p. 42 | `TC:Huber.PairOfDefinition.completionLocalization`, `TC:ValuationSpectrum.rationalSubset`, `AdicSpacesPartII R5`, `PerfectoidSpaces P2` |
+| [T122](#t122) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T120`, `T121`, `T118`, `T119`, `T109`, `AdicSpacesPartII R5`, `TC:ValuationSpectrum.rationalSubset`, `TC:Huber.restrictedMvPowerSeriesCompletion` |
+| [T123](#t123) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T119`, `T118`, `T115`, `T120`, `T092`, `T107`, `AdicSpacesPartII R0`, `AdicSpacesPartII R3` |
 | [T124](#t124) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T123`, `T112`, `T115`, `T119`, `T111`, `M:Ideal.isIdempotentElem_iff_of_fg`, `TC:ValuationSpectrum.rationalSubset` |
-| [T125](#t125) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T122`, `T124`, `T111`, `T110`, `T117`, `AdicSpacesPartII:R0` |
-| [T126](#t126) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `PerfectoidSpaces:P5`, `PerfectoidSpaces:P1`, `PerfectoidSpaces:P3`, `PerfectoidSpaces:P2` |
-| [T127](#t127) | ECD §6, Proposition 6.4 (set-up), p. 27 | `PerfectoidSpaces:P5`, `PerfectoidSpaces:P2`, `T110`, `AdicSpacesPartII:R0`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem` |
-| [T128](#t128) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T125`, `T110`, `T127`, `T117`, `T113`, `PerfectoidSpaces:P5` |
-| [T129](#t129) | ECD §6, proof of Proposition 6.4(ii), p. 28 | `T128`, `PerfectoidSpaces:P5`, `PerfectoidSpaces:P2` |
-| [T130](#t130) | ECD §6, Proposition 6.4(iv), p. 27 | `PerfectoidSpaces:P5`, `PerfectoidSpaces:P2`, `PerfectoidSpaces:P3`, `T126`, `T128`, `T129` |
-| [T131](#t131) | ECD §6, Proposition 6.4(o), p. 27 | `PerfectoidSpaces:P5`, `T130`, `PerfectoidSpaces:P3`, `PerfectoidSpaces:P2` |
-| [T132](#t132) | ECD §5, Definition 5.7(ii), p. 24 | `T122`, `AdicSpacesPartII:R5`, `PerfectoidSpaces:P1` |
+| [T125](#t125) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T122`, `T124`, `T111`, `T110`, `T117`, `AdicSpacesPartII R0` |
+| [T126](#t126) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `PerfectoidSpaces P5`, `PerfectoidSpaces P1`, `PerfectoidSpaces P3`, `PerfectoidSpaces P2` |
+| [T127](#t127) | ECD §6, Proposition 6.4 (set-up), p. 27 | `PerfectoidSpaces P5`, `PerfectoidSpaces P2`, `T110`, `AdicSpacesPartII R0`, `TC:ValuationSpectrum.exists_mem_nhds_forall_rationalSubset_eq_of_sub_mem` |
+| [T128](#t128) | ECD §6, proof of Proposition 6.4(iv), p. 28 | `T125`, `T110`, `T127`, `T117`, `T113`, `PerfectoidSpaces P5` |
+| [T129](#t129) | ECD §6, proof of Proposition 6.4(ii), p. 28 | `T128`, `PerfectoidSpaces P5`, `PerfectoidSpaces P2` |
+| [T130](#t130) | ECD §6, Proposition 6.4(iv), p. 27 | `PerfectoidSpaces P5`, `PerfectoidSpaces P2`, `PerfectoidSpaces P3`, `T126`, `T128`, `T129` |
+| [T131](#t131) | ECD §6, Proposition 6.4(o), p. 27 | `PerfectoidSpaces P5`, `T130`, `PerfectoidSpaces P3`, `PerfectoidSpaces P2` |
+| [T132](#t132) | ECD §5, Definition 5.7(ii), p. 24 | `T122`, `AdicSpacesPartII R5`, `PerfectoidSpaces P1` |
 
 ### A4
 
@@ -2067,22 +2079,23 @@ references are given in its discussion. Page numbers use the editions in the bib
 | [T133](#t133) | ECD §15, Lemma 15.3, p. 90 | `M:Algebra.Etale`, `M:Module.Finite`, `M:Module.FaithfullyFlat`, `M:IsIdempotentElem`, `M:Module.rankAtStalk`, `M:StandardEtalePair`, `M:StandardEtalePair.homEquiv`, `M:Algebra.IsStandardEtale`, `M:AdjoinRoot.powerBasis'`, `M:Algebra.Etale.iff_exists_algEquiv_prod`, `M:IsSepClosed`, `M:IsSepClosed.exists_root` |
 | [T134](#t134) | ECD §15, Lemma 15.3, p. 90 | `M:Algebra.Etale`, `M:Module.Finite`, `M:Module.FaithfullyFlat`, `M:Module.Projective`, `M:Module.Finite.of_finite_tensorProduct_of_faithfullyFlat`, `M:Algebra.Etale.of_etale_tensorProduct_of_faithfullyFlat`, `M:comonadicExtendScalars`, `M:Algebra.IsInvariant`, `M:IsGaloisGroup` |
 | [T135](#t135) | Stacks Tag 0FWT (Lemma 15.11.13) | `M:HenselianRing`, `M:Ring.DirectLimit`, `M:Ideal.jacobson` |
+| [T154](#t154) | Wedhorn §6.1, Corollary 6.4(3), p. 46 (A° is the union of the rings of definition); Mathlib `IsAdicComplete.henselianRing` | `T135`, `M:IsAdicComplete.henselianRing`, `M:HenselianRing`, `TC:Huber.PairOfDefinition`, `TC:Huber.IsPseudoUniformizer`, `TC:Huber.isOpen_powerBoundedSubring` |
 | [T136](#t136) | KL I §1.2, Remark 1.2.9, p. 15 | `M:Ring.DirectLimit`, `M:Algebra.Etale`, `M:Module.Finite`, `M:Module.FaithfullyFlat`, `T133` |
 | [T137](#t137) | Stacks Tag 0BN2 (Lemma 58.3.8) | `T134`, `T133`, `M:Module.rankAtStalk`, `M:Algebra.TensorProduct.lmul'`, `M:Equiv.Perm`, `M:Algebra.Etale.comp`, `M:Algebra.Etale.baseChange`, `M:IsIdempotentElem`, `M:IsSepClosed` |
 | [T138](#t138) | ECD §15, Lemma 15.3, p. 90 | `T134`, `T133`, `T136`, `T137`, `M:Ring.DirectLimit`, `M:ProfiniteGrp`, `M:LocallyConstant`, `M:Algebra.Etale.comp`, `M:Algebra.IsInvariant` |
-| [T139](#t139) | KL I §2.8, Definition 2.8.13, p. 63 | `AdicSpacesPartII:R0`, `T010`, `T013`, `T014`, `ClassicalAdicEtaleCohomology:H1:henselian`, `PerfectoidSpaces:P3`, `T133`, `TC:Huber.Pair`, `TC:Huber.IsTateRing`, `TC:Huber.powerBoundedSubring`, `M:Algebra.Etale`, `M:Module.FaithfullyFlat` |
-| [T140](#t140) | Berkeley Lecture 10, Lemma 10.1.6, p. 75 | `T138`, `T010`, `AdicSpacesPartII:R0`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom`, `TC:Huber.IsTateRing`, `TC:Huber.IsTateRing.completion`, `TC:Huber.powerBoundedSubring`, `TC:Huber.isOpen_powerBoundedSubring`, `TC:Huber.IsRingOfIntegralElements`, `TC:Huber.mem_of_isTopologicallyNilpotent_of_isIntegrallyClosedIn`, `M:UniformSpace.Completion`, `M:Ring.DirectLimit`, `M:IsIntegrallyClosedIn`, `M:ProfiniteGrp` |
-| [T141](#t141) | Berkeley Lecture 7, Theorem 7.4.8, p. 54 | `T140`, `T138`, `T133`, `T135`, `T136`, `T010`, `ClassicalAdicEtaleCohomology:H1:henselian`, `PerfectoidSpaces:P3`, `M:HenselianRing`, `M:ContinuousMap`, `M:LocallyConstant` |
+| [T139](#t139) | KL I §2.8, Definition 2.8.13, p. 63 | `AdicSpacesPartII R0`, `T010`, `T013`, `T014`, `T154`, `PerfectoidSpaces P3`, `T133`, `TC:Huber.Pair`, `TC:Huber.IsTateRing`, `TC:Huber.powerBoundedSubring`, `M:Algebra.Etale`, `M:Module.FaithfullyFlat` |
+| [T140](#t140) | Berkeley Lecture 10, Lemma 10.1.6, p. 75 | `T138`, `T010`, `AdicSpacesPartII R0`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom`, `TC:Huber.IsTateRing`, `TC:Huber.IsTateRing.completion`, `TC:Huber.powerBoundedSubring`, `TC:Huber.isOpen_powerBoundedSubring`, `TC:Huber.IsRingOfIntegralElements`, `TC:Huber.mem_of_isTopologicallyNilpotent_of_isIntegrallyClosedIn`, `M:UniformSpace.Completion`, `M:Ring.DirectLimit`, `M:IsIntegrallyClosedIn`, `M:ProfiniteGrp` |
+| [T141](#t141) | Berkeley Lecture 7, Theorem 7.4.8, p. 54 | `T140`, `T138`, `T133`, `T135`, `T136`, `T010`, `T154`, `PerfectoidSpaces P3`, `M:HenselianRing`, `M:ContinuousMap`, `M:LocallyConstant` |
 | [T142](#t142) | ECD §15, proof of Lemma 15.6, p. 91 | `T141`, `T134`, `T140`, `T150`, `M:comonadicExtendScalars`, `M:Module.Finite.of_finite_tensorProduct_of_faithfullyFlat`, `M:Algebra.Etale.of_etale_tensorProduct_of_faithfullyFlat`, `M:ContinuousMap` |
 | [T143](#t143) | ECD §15, proof of Lemma 15.3, p. 90 | `T133`, `M:AdjoinRoot.powerBasis'`, `M:StandardEtalePair`, `M:Algebra.IsStandardEtale`, `M:StandardEtalePair.homEquiv`, `M:Polynomial.Monic`, `M:Polynomial.derivative`, `TC:IsTopologicallyNilpotent.isUnit_one_sub`, `TC:Huber.IsPowerBounded`, `TC:Huber.powerBoundedSubring`, `TC:Huber.IsTateRing` |
 | [T144](#t144) | ECD §15, proof of Lemma 15.3, p. 90 | `T143`, `T133`, `TC:Huber.IsPseudoUniformizer`, `TC:Huber.IsPowerBounded.isTopologicallyNilpotent_mul`, `TC:IsTopologicallyNilpotent.isUnit_one_add`, `TC:Huber.powerBoundedSubring`, `M:IsTopologicallyNilpotent` |
 | [T145](#t145) | ECD §15, proof of Lemma 15.3, p. 90 | `T143`, `T144`, `T133`, `TC:Huber.IsPowerBounded.isTopologicallyNilpotent_mul`, `TC:Huber.powerBoundedSubring`, `M:frobenius` |
-| [T146](#t146) | Berkeley Lecture 10, Lemma 10.1.6, p. 75 | `T144`, `T145`, `T133`, `PerfectoidSpaces:P1` |
-| [T147](#t147) | ECD §15, Lemma 15.3, p. 90 | `T140`, `T141`, `T146`, `T138`, `PerfectoidSpaces:P1`, `TC:Huber.IsPseudoUniformizer` |
-| [T148](#t148) | ECD §15, proof of Proposition 15.4, p. 91 | `T134`, `T010`, `AdicSpacesPartII:R0`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spaComap`, `TC:ValuationSpectrum.continuous_spaComap`, `TC:ValuationSpectrum.spaComap_preimage_rationalSubset`, `TC:ValuationSpectrum.rationalSubset` |
-| [T149](#t149) | ECD §15, proof of Proposition 15.4, p. 91 | `T140`, `T148`, `T138`, `AdicSpacesPartII:R0`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spaComap`, `TC:ValuationSpectrum.rationalSubset`, `M:ProfiniteGrp` |
-| [T150](#t150) | ECD §15, proof of Lemma 15.6, p. 91 | `T140`, `T138`, `T147`, `AdicSpacesPartII:R0`, `PerfectoidSpaces:P1`, `PerfectoidSpaces:P5`, `M:ContinuousMap`, `M:LocallyConstant`, `M:ProfiniteGrp` |
-| [T151](#t151) | ECD §15, Proposition 15.4, p. 90 | `T140`, `T147`, `T150`, `T149`, `T142`, `T138`, `AdicSpacesPartII:R0`, `PerfectoidSpaces:P1`, `T072`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spaComap`, `M:ProfiniteGrp`, `M:ContinuousMap` |
+| [T146](#t146) | Berkeley Lecture 10, Lemma 10.1.6, p. 75 | `T144`, `T145`, `T133`, `PerfectoidSpaces P1` |
+| [T147](#t147) | ECD §15, Lemma 15.3, p. 90 | `T140`, `T141`, `T146`, `T138`, `PerfectoidSpaces P1`, `TC:Huber.IsPseudoUniformizer` |
+| [T148](#t148) | ECD §15, proof of Proposition 15.4, p. 91 | `T134`, `T010`, `AdicSpacesPartII R0`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spaComap`, `TC:ValuationSpectrum.continuous_spaComap`, `TC:ValuationSpectrum.spaComap_preimage_rationalSubset`, `TC:ValuationSpectrum.rationalSubset` |
+| [T149](#t149) | ECD §15, proof of Proposition 15.4, p. 91 | `T140`, `T148`, `T138`, `AdicSpacesPartII R0`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spaComap`, `TC:ValuationSpectrum.rationalSubset`, `M:ProfiniteGrp` |
+| [T150](#t150) | ECD §15, proof of Lemma 15.6, p. 91 | `T140`, `T138`, `T147`, `AdicSpacesPartII R0`, `PerfectoidSpaces P1`, `PerfectoidSpaces P5`, `M:ContinuousMap`, `M:LocallyConstant`, `M:ProfiniteGrp` |
+| [T151](#t151) | ECD §15, Proposition 15.4, p. 90 | `T140`, `T147`, `T150`, `T149`, `T142`, `T138`, `AdicSpacesPartII R0`, `PerfectoidSpaces P1`, `T072`, `TC:Huber.Pair`, `TC:Huber.Pair.Hom`, `TC:ValuationSpectrum.spa`, `TC:ValuationSpectrum.spaComap`, `M:ProfiniteGrp`, `M:ContinuousMap` |
 | [T152](#t152) | ECD §15, Lemma 15.3, p. 90 | `T151`, `T138`, `T140`, `T147`, `T150`, `T149` |
 | [T153](#t153) | ECD §15, Lemma 15.6, p. 91 | `T151`, `T149`, `T141`, `T142`, `T025`, `T024`, `T072`, `T010`, `T036` |
 
@@ -2090,22 +2103,22 @@ references are given in its discussion. Page numbers use the editions in the bib
 
 Page locators refer to the printed pagination of the stated PDF or book edition.
 
-- **HK**: D, a, v, i, d,  , H, a, n, s, e, n, ,,  , K, i, r, a, n,  , S, .,  , K, e, d, l, a, y, a, [Sheafiness criteria for Huber rings](https://kskedlaya.org/papers/criteria.pdf). Version dated 6 August 2026.
-- **H96**: R, o, l, a, n, d,  , H, u, b, e, r, [Étale Cohomology of Rigid Analytic Varieties and Adic Spaces](https://link.springer.com/book/10.1007/978-3-663-09991-8). Aspects of Mathematics E30, Vieweg, 1996.
-- **H94**: R, o, l, a, n, d,  , H, u, b, e, r, [A generalization of formal schemes and rigid analytic varieties](https://gdz.sub.uni-goettingen.de/id/PPN266833020_0217). Math. Z. 217 (1994), 513–551.
-- **Hüb**: K, a, t, h, a, r, i, n, a,  , H, ü, b, n, e, r, [Adic spaces](https://arxiv.org/abs/2405.06435). arXiv:2405.06435v1.
-- **KL I**: K, i, r, a, n,  , S, .,  , K, e, d, l, a, y, a, ,,  , R, u, o, c, h, u, a, n,  , L, i, u, [Relative p-adic Hodge theory: foundations](https://arxiv.org/abs/1301.0792). arXiv:1301.0792v5; Astérisque 371 (2015).
-- **Morel**: S, o, p, h, i, e,  , M, o, r, e, l, [Adic spaces (lecture notes)](https://web.math.princeton.edu/~smorel/adic_notes.pdf). Lecture notes, 22 April 2019.
-- **ECD**: P, e, t, e, r,  , S, c, h, o, l, z, e, [Étale cohomology of diamonds](https://arxiv.org/abs/1709.07343). arXiv:1709.07343v4, 14 April 2026.
-- **PS**: P, e, t, e, r,  , S, c, h, o, l, z, e, [Perfectoid spaces](https://arxiv.org/abs/1111.4914). Publ. Math. IHÉS 116 (2012), 245–313; arXiv:1111.4914.
-- **Berkeley**: P, e, t, e, r,  , S, c, h, o, l, z, e, ,,  , J, a, r, e, d,  , W, e, i, n, s, t, e, i, n, [Berkeley Lectures on p-adic Geometry](https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf). Annals of Mathematics Studies 207 (2020); PDF dated 27 March 2020.
-- **Wedhorn**: T, o, r, s, t, e, n,  , W, e, d, h, o, r, n, [Adic Spaces](https://arxiv.org/abs/1910.05934v1). arXiv:1910.05934v1.
-- **PH**: P, e, t, e, r,  , S, c, h, o, l, z, e, [p-adic Hodge theory for rigid-analytic varieties](https://arxiv.org/abs/1205.3463). arXiv:1205.3463v2; Forum of Mathematics, Pi 1 (2013), e1.
-- **dJvP**: J, o, h, a, n,  , d, e,  , J, o, n, g, ,,  , M, a, r, i, u, s,  , v, a, n,  , d, e, r,  , P, u, t, [Étale cohomology of rigid analytic spaces](https://ems.press/content/serial-article-files/25781). Documenta Mathematica 1 (1996), 1–56.
-- **FS**: L, a, u, r, e, n, t,  , F, a, r, g, u, e, s, ,,  , P, e, t, e, r,  , S, c, h, o, l, z, e, [Geometrization of the local Langlands correspondence](https://arxiv.org/abs/2102.13459). arXiv:2102.13459v4.
-- **PH erratum**: P, e, t, e, r,  , S, c, h, o, l, z, e, [Erratum to 'p-adic Hodge theory for rigid-analytic varieties'](https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf). Author’s three-page erratum; read alongside PH.
-- **H93**: R, o, l, a, n, d,  , H, u, b, e, r, [Continuous valuations](https://gdz.sub.uni-goettingen.de/id/PPN266833020_0212). Math. Z. 212 (1993), 455–477.
-- **BHW**: C, h, r, i, s, t, o, p, h, e, r,  , B, i, r, k, b, e, c, k, ,,  , B, e, n,  , H, e, u, e, r, ,,  , C, h, r, i, s,  , W, i, l, l, i, a, m, s, [Overconvergent Hilbert modular forms via perfectoid modular varieties](https://aif.centre-mersenne.org/item/10.5802/aif.3560.pdf). Annales de l’Institut Fourier 73 (2023), 1709–1794.
-- **Zav**: B, o, g, d, a, n,  , Z, a, v, y, a, l, o, v, [Some foundational results in adic geometry](https://arxiv.org/abs/2409.15516). arXiv:2409.15516v2, 17 July 2025.
-- **KL II**: K, i, r, a, n,  , S, .,  , K, e, d, l, a, y, a, ,,  , R, u, o, c, h, u, a, n,  , L, i, u, [Relative p-adic Hodge theory, II: Imperfect period rings](https://arxiv.org/abs/1602.06899). arXiv:1602.06899v3, 21 October 2019.
-- **Stacks**: T, h, e,  , S, t, a, c, k, s,  , p, r, o, j, e, c, t,  , a, u, t, h, o, r, s, [The Stacks project](https://stacks.math.columbia.edu). Online edition; references use stable tags.
+- **HK**: David Hansen, Kiran S. Kedlaya, [Sheafiness criteria for Huber rings](https://kskedlaya.org/papers/criteria.pdf). Version dated 6 August 2026.
+- **H96**: Roland Huber, [Étale Cohomology of Rigid Analytic Varieties and Adic Spaces](https://link.springer.com/book/10.1007/978-3-663-09991-8). Aspects of Mathematics E30, Vieweg, 1996.
+- **H94**: Roland Huber, [A generalization of formal schemes and rigid analytic varieties](https://gdz.sub.uni-goettingen.de/id/PPN266833020_0217). Math. Z. 217 (1994), 513–551.
+- **Hüb**: Katharina Hübner, [Adic spaces](https://arxiv.org/abs/2405.06435). arXiv:2405.06435v1.
+- **KL I**: Kiran S. Kedlaya, Ruochuan Liu, [Relative p-adic Hodge theory: foundations](https://arxiv.org/abs/1301.0792). arXiv:1301.0792v5; Astérisque 371 (2015).
+- **Morel**: Sophie Morel, [Adic spaces (lecture notes)](https://web.math.princeton.edu/~smorel/adic_notes.pdf). Lecture notes, 22 April 2019.
+- **ECD**: Peter Scholze, [Étale cohomology of diamonds](https://arxiv.org/abs/1709.07343). arXiv:1709.07343v4, 14 April 2026.
+- **PS**: Peter Scholze, [Perfectoid spaces](https://arxiv.org/abs/1111.4914). Publ. Math. IHÉS 116 (2012), 245–313; arXiv:1111.4914.
+- **Berkeley**: Peter Scholze, Jared Weinstein, [Berkeley Lectures on p-adic Geometry](https://people.mpim-bonn.mpg.de/scholze/Berkeley.pdf). Annals of Mathematics Studies 207 (2020); PDF dated 27 March 2020.
+- **Wedhorn**: Torsten Wedhorn, [Adic Spaces](https://arxiv.org/abs/1910.05934v1). arXiv:1910.05934v1.
+- **PH**: Peter Scholze, [p-adic Hodge theory for rigid-analytic varieties](https://arxiv.org/abs/1205.3463). arXiv:1205.3463v2; Forum of Mathematics, Pi 1 (2013), e1.
+- **dJvP**: Johan de Jong, Marius van der Put, [Étale cohomology of rigid analytic spaces](https://ems.press/content/serial-article-files/25781). Documenta Mathematica 1 (1996), 1–56.
+- **FS**: Laurent Fargues, Peter Scholze, [Geometrization of the local Langlands correspondence](https://arxiv.org/abs/2102.13459). arXiv:2102.13459v4.
+- **PH erratum**: Peter Scholze, [Erratum to 'p-adic Hodge theory for rigid-analytic varieties'](https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf). Author’s three-page erratum; read alongside PH.
+- **H93**: Roland Huber, [Continuous valuations](https://gdz.sub.uni-goettingen.de/id/PPN266833020_0212). Math. Z. 212 (1993), 455–477.
+- **BHW**: Christopher Birkbeck, Ben Heuer, Chris Williams, [Overconvergent Hilbert modular forms via perfectoid modular varieties](https://aif.centre-mersenne.org/item/10.5802/aif.3560.pdf). Annales de l’Institut Fourier 73 (2023), 1709–1794.
+- **Zav**: Bogdan Zavyalov, [Some foundational results in adic geometry](https://arxiv.org/abs/2409.15516). arXiv:2409.15516v2, 17 July 2025.
+- **KL II**: Kiran S. Kedlaya, Ruochuan Liu, [Relative p-adic Hodge theory, II: Imperfect period rings](https://arxiv.org/abs/1602.06899). arXiv:1602.06899v3, 21 October 2019.
+- **Stacks**: The Stacks project authors, [The Stacks project](https://stacks.math.columbia.edu). Online edition; references use stable tags.
