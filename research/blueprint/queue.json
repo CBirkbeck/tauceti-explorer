@@ -34171,7 +34171,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.2",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6284"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.3",
@@ -79801,8 +79802,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
