@@ -308,6 +308,18 @@
     "roadmaps/DerivedDeRhamCohomology/metadata.toml"
    ]
   },
+  "research/blueprint/packages/DiamondEtaleCohomology/review.json": {
+   "promotedAt": "2026-10-09T03:58:26Z",
+   "review": "f2450e18d1c6f933",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-DiamondEtaleCohomology",
+   "sha256": "d32709118674f3edf098fc6aeb22fbf7f4f86a917ed2a8b1a2f4358389307a6d",
+   "to": [
+    "roadmaps/DiamondEtaleCohomology/README.md",
+    "roadmaps/DiamondEtaleCohomology/Suggested.lean",
+    "roadmaps/DiamondEtaleCohomology/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/FarguesFontaineDiamonds/review.json": {
    "promotedAt": "2026-10-09T00:27:12Z",
    "review": "1c934c5275c4f05b",
@@ -318,6 +330,18 @@
     "roadmaps/FarguesFontaineDiamonds/README.md",
     "roadmaps/FarguesFontaineDiamonds/Suggested.lean",
     "roadmaps/FarguesFontaineDiamonds/metadata.toml"
+   ]
+  },
+  "research/blueprint/packages/HabiroRings/review.json": {
+   "promotedAt": "2026-10-09T03:58:26Z",
+   "review": "de9c3cdada91d152",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-HabiroRings",
+   "sha256": "5097f04840b8bd2d801398ec58f51362e83217c3853b3cf2692be78f828ba5c0",
+   "to": [
+    "roadmaps/HabiroRings/README.md",
+    "roadmaps/HabiroRings/Suggested.lean",
+    "roadmaps/HabiroRings/metadata.toml"
    ]
   },
   "research/blueprint/packages/HeegnerPointEulerSystems/review.json": {
