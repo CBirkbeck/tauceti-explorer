@@ -21951,8 +21951,9 @@
    ],
    "avoidAccountOf": "BP-AbelianSchemesAndArithmeticModuli",
    "prompt": "research/blueprint/prompts/REV-AbelianSchemesAndArithmeticModuli.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #340"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #340",
+   "finishedAt": "2026-10-09T22:04:46Z"
   },
   {
    "id": "BP-AdelicAlgebraicGroups",
@@ -34853,7 +34854,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.1",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7946"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.2",
