@@ -135,3 +135,13 @@ review report identifies the existing TraceFormula/JacobianChallenge torsion
 interface overlap for maintainer coordination, without recreating either
 roadmap. No atlas promotion, manual label change, merge or issue closure was
 performed by this worker.
+
+## Submission
+
+[PR #7994](https://github.com/CBirkbeck/tauceti-explorer/pull/7994) is open
+from the session branch in the worker account's existing fork. The submission
+bot marked #6285 state:submitted. GitHub's Swarm submission check is awaiting
+maintainer approval of the fork workflow and has started no check jobs. The
+worker account has read access to upstream, so it cannot approve that run.
+Local intake and blueprint checks passed; the maintainer must approve the
+workflow before automatic validation and intake can proceed.
