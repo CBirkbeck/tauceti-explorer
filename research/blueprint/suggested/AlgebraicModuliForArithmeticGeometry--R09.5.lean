@@ -62,13 +62,20 @@ structure NormalInertiaSubgroup where
 namespace NormalInertiaSubgroup
 variable {J F}
 
+@[ext]
+lemma ext {G H : NormalInertiaSubgroup J F}
+    (h : ∀ (U : C) (x : F.obj (.mk (op U))), G.subgroup U x = H.subgroup U x) :
+    G = H := by sorry
+
 lemma local_mem (G : NormalInertiaSubgroup J F) {U : C}
     (x : F.obj (.mk (op U))) (a : Aut x) (R : Sieve U) (hR : R ∈ J U) :
     a ∈ G.subgroup U x ↔ ∀ (V : C) (f : V ⟶ U), R f →
       (F.map (.toLoc f.op)).toFunctor.mapAut x a ∈
         G.subgroup V ((F.map (.toLoc f.op)).toFunctor.obj x) := by sorry
 
-/-- Identity subgroup; the Hom-sheaf hypothesis is needed for local membership. -/
+/-- Identity subsheaf; the Hom-sheaf hypothesis gives local membership.
+Geometric rigidifiability additionally requires a closed unit X → I_X,
+equivalently separated inertia over X. This site-level signature omits it. -/
 noncomputable def bottom [F.IsStack J] : NormalInertiaSubgroup J F := by sorry
 
 /-- Full inertia as a subsheaf. Geometric flatness and finite presentation are omitted. -/
@@ -198,6 +205,23 @@ structure FiniteCorrespondence (x : X ⟶ S) (y : Y ⟶ S) where
 namespace FiniteCorrespondence
 variable {x : X ⟶ S} {y : Y ⟶ S} {v : V ⟶ S}
 
+/-- An isomorphism retains the apex and both legs. Stack legs require 2-isomorphisms. -/
+structure Iso (a b : FiniteCorrespondence x y) where
+  apexIso : a.apex ≅ b.apex
+  left_eq : apexIso.hom ≫ b.left = a.left
+  right_eq : apexIso.hom ≫ b.right = a.right
+
+instance groupoid : Groupoid (FiniteCorrespondence x y) where
+  Hom := Iso
+  id _ := by sorry
+  comp _ _ := by sorry
+  inv _ := by sorry
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+  inv_comp := by sorry
+  comp_inv := by sorry
+
 noncomputable def identity (x : X ⟶ S) : FiniteCorrespondence x x := by sorry
 
 noncomputable def transpose (a : FiniteCorrespondence x y) :
@@ -314,19 +338,21 @@ Bind the geometric conditions rather than adding fields for desired theorems.
 
 AlgebraicModuliForArithmeticGeometry:R09.5/normal-inertia-subgroup
 TauCeti.ArithmeticModuli.NormalInertiaSubgroup
-Typed: native subgroup/conjugation/restriction/locality signatures and four reduced fixtures. Missing: representable closed subgroup of I_X, flatness, finite presentation, and all-test-scheme Cartesian subgroup equality. The noncentral fixture checks S3 algebra; the restriction fixture does not construct Bμ_p.
+Typed: native subgroup/conjugation/restriction/locality and extensionality signatures and four reduced fixtures. Missing: representable closed subgroup of I_X, flatness, finite presentation, and all-test-scheme Cartesian subgroup equality. The noncentral fixture checks S3 algebra; the restriction fixture does not construct Bμ_p. The non-separated identity test remains an untyped geometric fixture; the site bottom does not imply closedness.
 Full contract: For an algebraic stack X locally of finite presentation over S, a rigidifiable inertia subgroup is a closed subgroup G⊂I_X that is flat and finitely presented over X. For every T→X represented by x, it yields G_x⊂Aut_T(x); every base change identifies the pulled-back subgroup, and every isomorphism x≅y conjugates G_x onto G_y. In particular G_x is normal; centrality is not required. The site-level carrier records normal subgroups of native Aut groups, conjugation, restriction and fppf local membership, with the closed/flat/finitely-presented representability conditions imposed at the algebraic-stack interface.
 Hypotheses: X is algebraic and locally of finite presentation over S. G is a representable closed subgroup of inertia, flat and finitely presented over X.
 API TauCeti.ArithmeticModuli.NormalInertiaSubgroup.subgroup: Evaluate G at a test object to obtain the subgroup of its native automorphism group.
 API TauCeti.ArithmeticModuli.NormalInertiaSubgroup.conjugation: For e:x≅y, transport by Aut.autMulEquivOfIso e maps G_x exactly onto G_y.
 API TauCeti.ArithmeticModuli.NormalInertiaSubgroup.restrict_mem: Restriction of an automorphism in G_x belongs to the subgroup at the restricted object.
 API TauCeti.ArithmeticModuli.NormalInertiaSubgroup.local_mem: Membership in G_x is equivalent to membership after every arrow of a covering sieve.
-API TauCeti.ArithmeticModuli.NormalInertiaSubgroup.bottom: The identity subgroup gives a rigidifiable subgroup of every algebraic stack.
+API TauCeti.ArithmeticModuli.NormalInertiaSubgroup.bottom: The identity subsheaf exists for every stack. It is a rigidifiable geometric subgroup when the unit X→I_X is a closed immersion, equivalently when I_X→X is separated; this is not imposed by SF.1/algebraic-stack.
+API TauCeti.ArithmeticModuli.NormalInertiaSubgroup.ext: Two subgroup interfaces are equal when their subgroups agree at every test object; coherence fields are proof-irrelevant.
 API TauCeti.ArithmeticModuli.NormalInertiaSubgroup.top: The entire inertia is rigidifiable when the inertia itself is flat and finitely presented.
 TEST TauCeti.ArithmeticModuli.NormalInertiaSubgroup.test_bottom [degenerate]: In the bottom subgroup, a∈G_x iff a=1.
 TEST TauCeti.ArithmeticModuli.NormalInertiaSubgroup.test_noncentral [characterisation]: On B(S_3) over a field, the full inertia is allowed although a transposition is not central.
 TEST TauCeti.ArithmeticModuli.NormalInertiaSubgroup.test_not_normal [non-example]: The subgroup generated by (0 1) in S_3 is not normal and cannot define a conjugation-compatible inertia subgroup of B(S_3).
 TEST TauCeti.ArithmeticModuli.NormalInertiaSubgroup.test_base_change [compatibility]: For Bμ_p in characteristic p, the entire finite flat inertia satisfies arbitrary test-scheme restriction, including nonreduced test schemes.
+TEST TauCeti.ArithmeticModuli.NormalInertiaSubgroup.test_not_closed_identity [non-example]: For the non-separated group algebraic space G=A1_k/Z of Stacks §110.50 over a characteristic-zero field, the identity subsheaf of I_BG is not a closed subgroup. It satisfies the site-level bottom interface but not the geometric rigidifiability condition.
 
 AlgebraicModuliForArithmeticGeometry:R09.5/rigidification
 TauCeti.ArithmeticModuli.Rigidification.stack
@@ -339,7 +365,7 @@ API TauCeti.ArithmeticModuli.Rigidification.quotientHom: The fppf quotient sheaf
 API TauCeti.ArithmeticModuli.Rigidification.homSheaf: For lifted x,y, Isom_{X▹G}(ρx,ρy) is isomorphic to Rigidification.quotientHom x y.
 API TauCeti.ArithmeticModuli.Rigidification.locallyObjects: Every object of X▹G lifts to X on a covering sieve.
 API TauCeti.ArithmeticModuli.Rigidification.isStack: The constructed pseudofunctor has effective object descent and Hom sheaves; its fibres are groupoids.
-TEST TauCeti.ArithmeticModuli.Rigidification.test_trivial [degenerate]: Rigidifying by the identity inertia subgroup is equivalent to X.
+TEST TauCeti.ArithmeticModuli.Rigidification.test_trivial [degenerate]: When the identity inertia subgroup is closed, its geometric rigidification is equivalent to X. The site-level equivalence requires no geometric closedness.
 TEST TauCeti.ArithmeticModuli.Rigidification.test_cyclic_four [computation]: For the constant cyclic group C4 and its order-two subgroup, BC4▹C2≃BC2; one residual order-two automorphism remains.
 TEST TauCeti.ArithmeticModuli.Rigidification.test_mu_p [computation]: In characteristic p, Bμ_p▹μ_p≃Spec(k), although μ_p is not smooth.
 TEST TauCeti.ArithmeticModuli.Rigidification.test_sheaf_quotient [non-example]: For the squaring quotient G_m/μ_2 over R, the fppf quotient is G_m and -1 is a quotient section although it has no square root in R. Sectionwise cosets do not give the quotient sheaf.
@@ -403,6 +429,8 @@ TauCeti.ArithmeticModuli.FiniteCorrespondence
 Typed: native scheme spans with both IsFinite legs, identity, transpose, composition, base change and joint-map finiteness. Missing: DM-stack endpoints, finite inertia, representability by algebraic spaces and compatible two-isomorphisms. The double-point map Spec(k×k)→Spec(k) is also typed; the two-leg non-example is parameterized by a nonfinite map, with its A1 realization untyped.
 Full contract: For separated Deligne–Mumford stacks X,Y of finite type over a locally Noetherian S and with finite inertia, a finite correspondence is a span X←p Z→q Y over S, with both p and q representable by algebraic spaces and finite. Morphisms are equivalences of the middle stacks with compatible 2-isomorphisms on both legs. The correspondence is not defined as its image in X×_S Y: the middle stack and its multiplicities are retained. Since Y is separated over S, the joint map Z→X×_S Y is finite: factor through the graph over X and use the proper quasi-finite diagonal of Y. This supplies a finite-algebra presentation for descent.
 Hypotheses: X,Y are separated finite-type DM stacks over locally Noetherian S, with finite inertia. Both legs, not just one, are representable and finite.
+API TauCeti.ArithmeticModuli.FiniteCorrespondence.Iso: An isomorphism of spans is an equivalence of their middle stacks with compatible 2-isomorphisms on both legs. For schemes it is an apex isomorphism commuting with both legs.
+API TauCeti.ArithmeticModuli.FiniteCorrespondence.groupoid: Finite correspondences with these span isomorphisms form a groupoid; identities, composition and inverses preserve both leg comparisons.
 API TauCeti.ArithmeticModuli.FiniteCorrespondence.apex: The middle stack, with both legs and their common S-map.
 API TauCeti.ArithmeticModuli.FiniteCorrespondence.identity: The identity span X←X→X.
 API TauCeti.ArithmeticModuli.FiniteCorrespondence.transpose: Exchange the two legs, retaining the same middle stack.
@@ -422,7 +450,7 @@ Hypotheses: Correspondences have the endpoint and leg hypotheses of finite-corre
 
 AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence-fpqc
 TauCeti.ArithmeticModuli.FiniteCorrespondence.fpqc_descent
-Omitted: correspondence groupoid, the genuine fpqc descent category with two-leg compatibility and triple-overlap cocycle, and its equivalence.
+Typed: the scheme span groupoid uses apex isomorphisms commuting with both legs. Omitted: the stack span groupoid with leg 2-isomorphisms, the genuine fpqc descent category with two-leg compatibility and triple-overlap cocycle, and its equivalence. Stack relative Spec extends the existing AlgebraicVectorBundles L1A–L1B scheme interface requested through SF.1.
 Full contract: For an fpqc cover S′→S, finite correspondences between the fixed endpoints X,Y over S form a groupoid equivalent to finite correspondences between X_{S′},Y_{S′} supplied with an isomorphism over S′×_S S′ satisfying the identity and triple-overlap cocycle, including the 2-isomorphisms on both legs. A descended span is unique up to unique isomorphism compatible with the specified descent identification. Finite locally free legs descend too.
 Hypotheses: The endpoint hypotheses of finite-correspondence. An actual fpqc descent datum is supplied on the middle stack and both legs, not merely matching geometric isomorphism classes.
 
