@@ -87,7 +87,7 @@ Shared A_cris, its completion and finite PD quotients remain in CR.0 in the curr
 
 This is revision 3 by Codex session codex-P0tL2J, dated 9 October 2026. It retains the 88 stable node IDs, 19 planets and accepted inventory. It replaces the R2, R4 and R5 interfaces jointly in the packet, reader and signature experiment. R1's fine integralized versus fs Kummer-étale scope and R3's bounded-below support qualifier have been checked and retained. Supplier client names specify required exports; they do not claim implementations exist.
 
-The independent revision-2 review by Codex session codex-I5hOH7, 8 October 2026, remains **needs_changes** as historical review provenance. Its entire review object and all checked verdicts are unchanged. The [review report](../reviews/REV-CrystallineCohomology--CR.5~2.md) records the defects addressed here; these author repairs require a fresh independent review. The earlier review remains in reviewHistory. Successful elaboration checks proposed types, with placeholder proofs, and certifies no implementation.
+The independent round-3 review by Codex session codex-t7UCYP, 9 October 2026, **accepts this target-level pass** after three test-signature corrections. It checks all 88 nodes, 32 pinned declarations, 165 API items and 167 tests. The [round-3 report](../reviews/REV-CrystallineCohomology--CR.5~3.md) records the source and supplier checks, earlier repairs and remaining proof gaps. The entire revision-2 needs_changes review by codex-I5hOH7, including all its verdicts, is preserved in reviewHistory alongside the first review. Successful elaboration checks proposed types with placeholder proofs and certifies no implementation.
 
 ## CrystallineCohomology:CR.5:log-algebra — Log algebra and logarithmic geometry
 
@@ -357,7 +357,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/integral-monoid`; `CrystallineCohomology:CR.5:log-algebra/fine-monoid`.
 
-Source locators: [Howard M. Thompson, Toric singularities revisited](https://arxiv.org/pdf/math/0305441), §1.2, Definition 1.6, p.7.
+Source locators: [Howard M. Thompson, Toric singularities revisited](https://arxiv.org/pdf/math/0305441v2), §1.2, Definition 1.6, p.7.
 
 Suggested signature scope: Root closure is stated inside the existing groupification. The cusp and rational characteristic tests keep fine and saturated distinct; the scheme predicate requires fine charts as well as saturated stalks.
 
@@ -394,7 +394,7 @@ Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/associated-log`; `C
 
 Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Definition 2.9 and Lemma 2.10, pp.199–200.
 
-Suggested signature scope: Retain the affine chart isomorphism and its restriction tests. HasEtaleCharts and the fine scheme wrapper supply actual étale neighborhoods; geometric characteristic groups are taken at their stalks.
+Suggested signature scope: Retain the affine chart isomorphism and its restriction tests. HasEtaleCharts and the fine scheme wrapper supply actual étale neighborhoods; geometric characteristic groups are taken at their stalks. The non-sharp test now instantiates the unit chart and checks its characteristic, instead of testing only an integer unit.
 
 Use driving the interface: `CrystallineCohomology:CR.5:log-algebra/log-smooth-chart-criterion` — The groupified chart map supplies the finite kernel and cokernel conditions, while its monoid algebras supply the ordinary toric comparison morphism.
 
@@ -408,7 +408,7 @@ Discriminating unit tests:
 
 - `TauCeti.LogCrystalline.LogChart.toric_origin` (computation): At the origin of A^r with coordinate chart, M̄=ℕ^r.
 - `TauCeti.LogCrystalline.LogChart.torus` (degenerate): On the torus all chart generators become units and M̄=0.
-- `TauCeti.LogCrystalline.LogChart.chart_not_sharp` (non-example): A chart may contain units although its characteristic monoid is sharp.
+- `TauCeti.LogCrystalline.LogChart.chart_not_sharp` (non-example): Chart ℤˣ→ℤ contains the nonidentity unit −1, while its associated log structure has trivial characteristic.
 
 Acceptance:
 
@@ -753,7 +753,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/log-regularity`; `CrystallineCohomology:CR.5:log-algebra/log-smooth-chart-criterion`.
 
-Source locators: [Howard M. Thompson, Toric singularities revisited](https://arxiv.org/pdf/math/0305441), §3.5, Theorem 3.14, p.32; citing Kato Toric singularities, Theorem 8.2.
+Source locators: [Howard M. Thompson, Toric singularities revisited](https://arxiv.org/pdf/math/0305441v2), §3.5, Theorem 3.14, p.32; citing Kato Toric singularities, Theorem 8.2.
 
 Suggested signature scope: The statement is bound to an actual log smooth fs morphism and locally noetherian schemes. Its local completed-ring proof remains the first source gap; the earlier numerical dimension identity is removed.
 
@@ -1289,7 +1289,7 @@ Direct dependencies: `CrystallineCohomology:CR.5:log-algebra/qc-log-scheme`; `Cr
 
 Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.3, pp.4–6; [Kęstutis Česnavičius and Teruhisa Koshikawa, The A_inf-cohomology in the semistable case](https://arxiv.org/pdf/1710.06145v3), Footnote 11, p.45 of the version read.
 
-Suggested signature scope: The same compatible-base envelope input has an integral quasi-coherent source and a p-nilpotent base. Its unique PD factorization is not restricted to fine sources. The rational log point identity test is within this scope; it does not assert an uncompleted mixed-characteristic envelope.
+Suggested signature scope: The same compatible-base envelope input has an integral quasi-coherent source and a p-nilpotent base. Its unique PD factorization is not restricted to fine sources. The rational log point identity test is within this scope; it does not assert an uncompleted mixed-characteristic envelope. The named scope test evaluates qcLogPDEnvelope on the actual rational log point over ZMod p and also checks that the source is not fine.
 
 Use driving the interface: `CrystallineCohomology:CR.5/log-pd-smooth` — Coordinate QC envelopes give the finite-level PD-smooth resolutions used by the Beilinson Poincaré and embedding-descent theorems; AI.6 consumes this generic prefix.
 
@@ -1303,7 +1303,7 @@ Discriminating unit tests:
 
 - `TauCeti.LogCrystalline.qcLogPDEnvelope.fine_diagonal` (compatibility): For a fine log diagonal the Beilinson and Kato envelopes coincide.
 - `TauCeti.LogCrystalline.qcLogPDEnvelope.identity` (degenerate): An identity embedding with compatible base PD structure has its identity envelope.
-- `TauCeti.LogCrystalline.qcLogPDEnvelope.uncompleted_scope` (compatibility): Over a p-nilpotent compatible base, the identity embedding of the integral quasi-coherent ℚ≥0 log point has that same log point as its envelope.
+- `TauCeti.LogCrystalline.qcLogPDEnvelope.uncompleted_scope` (compatibility): Over ZMod p with its zero PD ideal, the identity embedding of the integral quasi-coherent ℚ≥0 log point has that same non-fine log point as its envelope.
 
 Acceptance:
 
@@ -2431,7 +2431,7 @@ Direct dependencies: `CrystallineCohomology:CR.6/proper-log-rigid-hk`; `PadicDif
 
 Source locators: [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomology of p-adic Stein spaces](https://arxiv.org/pdf/1801.06686v2), §3.1.1–3.1.3 and Proposition 3.2, pp.13–18; [Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł, Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf), §0.6, nonproper curve Hyodo–Kato cohomology, pp.10–12.
 
-Suggested signature scope: SteinCurve includes the actual semistable weak formal model and a special-fibre finite-component cover. AdmissibleSteinExhaustion carries nested affinoid pieces, covering, Runge density and a radius-greater-than-one containment witness. SteinHKData is complete Hausdorff metrizable locally convex with countable ultrametric seminorms; the cohomology and limit maps use that geometry. The actual exhaustion diagram has a cone with these continuous projections and a categorical limit theorem; each supplied piece is finite-dimensional.
+Suggested signature scope: SteinCurve includes the actual semistable weak formal model and a special-fibre finite-component cover. AdmissibleSteinExhaustion carries nested affinoid pieces, covering, Runge density and a radius-greater-than-one containment witness. SteinHKData is complete Hausdorff metrizable locally convex with countable ultrametric seminorms; the cohomology and limit maps use that geometry. The actual exhaustion diagram has a cone with these continuous projections and a categorical limit theorem; each supplied piece is finite-dimensional. Cofinal subsequences use strictly increasing indices, so consecutive pieces retain the exhaustion’s strict containment; a merely nondecreasing map may repeat a piece.
 
 Use driving the interface: `CrystallineCohomology:CR.6/stein-hk-comparison` — The separated Fréchet inverse limit and continuous operators are the domain of the completed C comparison; finite-level tower HK uses these spaces and their continuous transition maps.
 
@@ -2444,7 +2444,7 @@ Use driving the interface: `CrystallineCohomology:CR.6/stein-hk-comparison` — 
 Discriminating unit tests:
 
 - `TauCeti.LogCrystalline.steinHK.good_reduction_piece` (computation): A good reduction piece has N=0 and its ordinary rigid HK computation.
-- `TauCeti.LogCrystalline.steinHK.cofinal_exhaustion` (compatibility): Passing to a cofinal subsequence gives the same Fréchet space.
+- `TauCeti.LogCrystalline.steinHK.cofinal_exhaustion` (compatibility): Passing to a cofinal subsequence indexed by a strictly increasing map gives the same Fréchet space.
 - `TauCeti.LogCrystalline.steinHK.affinoid_warning` (characterisation): If a vector of the actual Stein HK space maps to zero on every exhaustion piece, it is zero. The projective-limit projections are jointly injective; an unseparated substitute fails this test.
 
 Acceptance:
@@ -2815,7 +2815,7 @@ Acceptance:
 
 ## Source ledger and corrections
 
-All statements above are expressed in the plan’s own words. The ledger identifies the exact public versions, not a substitute book edition. The prior revision reproduced all 18 SHA-256 values on 8 October 2026. This run reacquired eight public versions and reproduced their hashes; the packet records only this run’s focused passage reading in revision3ReadSections. The other ten sources retain their reading and hash provenance without a new verification claim. Where a cited proof remains unobtained, it is in the gap list below.
+All statements above are expressed in the plan’s own words. The ledger identifies the exact public versions. The revision-3 author reacquired eight public versions; its focused reading remains recorded in revision3ReadSections. The independent round-3 review on 9 October 2026 reacquired all 18 public versions, reproduced every recorded SHA-256 and read every node’s source locator. Its separate reading records are independentReview3ReadSections. Kato’s scanned pages were read with OCR and checked as images where labels mattered; the Hyodo–Kato sign formula and the Berthelot–Ogus statements were also checked visually. Thompson’s unchanged PDF is version 2 of 4 March 2005, now explicitly pinned. Proof inputs still unobtained are listed as gaps below.
 
 ### Kazuya Kato: Logarithmic structures of Fontaine–Illusie
 
@@ -2937,11 +2937,11 @@ Revision-3 passage check (2026-10-09): §§2.2.1–2.3.4, pp.18–22: compatible
 
 ### Howard M. Thompson: Toric singularities revisited
 
-[arXiv:math/0305441 author version (2003); Journal of Algebra 299 (2006)](https://arxiv.org/pdf/math/0305441). Exact-file SHA-256: `830cdd56e6948f44c433cfb9d07b158bde8bdea03bf9ae368940aae221c3365c`. Prior revision read: 2026-10-08.
+[arXiv:math/0305441v2 (4 March 2005); Journal of Algebra 299 (2006)](https://arxiv.org/pdf/math/0305441v2). Exact-file SHA-256: `830cdd56e6948f44c433cfb9d07b158bde8bdea03bf9ae368940aae221c3365c`. Prior revision read: 2026-10-08.
 
 §1.2, Definition 1.6, p.7; §3.5, Theorem 3.14 and subsequent discussion, p.32. The cited Kato Toric singularities proof remains unread and is a gap.
 
-The four existing source issues retain their independent confirmed verdicts:
+The independent round-3 review rechecked all four source issues at their locators and confirms them:
 
 - **CrystallineCohomology/E7051** — BO Appendix B2.1, 1978, as corrected by the official 21 August 2013 erratum. Use the derived-category projective replacement with surjective transitions; a surjective quasi-isomorphism to the originally given system needs surjective transitions in that system. A levelwise surjection from a system with surjective transitions forces surjectivity of the target transitions. The official erratum replaces the assertion by a derived isomorphism and proves the stronger assertion only after a transition-surjective replacement.
 - **CrystallineCohomology/E7052** — Qian arXiv:2103.00106v1, Theorem 3.2 setup and inverse-limit proof; companion extraction E12. For the finite-W cohomology inverse-limit comparison used here, require the family proper in addition to the displayed log smooth hypotheses. The proof invokes proper coherent finiteness to remove inverse-limit torsion and identify completed cohomology; log smoothness alone does not provide finite W-modules.
@@ -3049,4 +3049,4 @@ R4 records the actual admissible W[t] lift, its t=0 relative SNC closed divisor,
 
 R5 constructs the proposed completed finite locally free crystal category and K0-localized Hom interface, actual level/model pullbacks and Frobenius transport. Algebraic generic evaluation carries explicit compatible algebraization data. Native submodule sheaves express the locally split filtration and its transversality. The Euler-sequence test on P1 exhibits an étale-locally split O(−1) subbundle of O² without a global complement.
 
-The file was checked with lean-check in the existing pinned Mathlib build, with only placeholder-proof warnings. Elaboration checks types; no proof or implementation is certified. The Tau Ceti exponential wrapper is unbuilt in that shared environment, so the prototype uses its underlying existing Mathlib operation. Coordinate ring clients and global finite projectivity retain explicit affine hypotheses. All four stages are planned, the four inherited gaps and nine owner requests remain, and a fresh independent review is required.
+The independently reviewed file was checked with lean-check in the existing pinned Mathlib build, with only placeholder-proof warnings. The unit-chart test now checks an actual chart, the quasi-coherent envelope test evaluates the actual non-fine rational log point, and Stein subsequences retain strict containment through strictly increasing indices. Elaboration checks types; no proof or implementation is certified. The Tau Ceti exponential wrapper is unbuilt in that shared environment, so the prototype uses its underlying existing Mathlib operation. Coordinate ring clients and global finite projectivity retain explicit affine hypotheses. The independent round-3 review accepts the completed target-level pass. All four stages remain planned, with four inherited proof gaps and nine owner requests; none is closed.
