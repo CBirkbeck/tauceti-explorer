@@ -34419,8 +34419,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6289"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6289",
+   "finishedAt": "2026-10-09T17:27:22Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.1",
@@ -34700,8 +34701,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.6",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6295"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6295",
+   "finishedAt": "2026-10-09T17:27:25Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.7",
@@ -47647,7 +47649,8 @@
    ],
    "revisionOf": "PKG-DiamondsAndVStacks",
    "prompt": "research/blueprint/prompts/PKG-DiamondsAndVStacks~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7897"
   },
   {
    "id": "REV-PKG-DiamondsAndVStacks~2",
