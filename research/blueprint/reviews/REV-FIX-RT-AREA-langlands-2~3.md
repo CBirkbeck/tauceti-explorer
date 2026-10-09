@@ -1,10 +1,10 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current blocked checkpoint: Codex session `codex-Y6eAq2`, 9 October 2026,
-issue #5871, base `17c256184e9b382551add16d3ccd8593c4b69cb2`.
-The authorized inputs are unchanged since PR #7773. The final audit below
-reproduces the scope blocker; existing mathematical verdicts and reviewer
-attributions are retained.
+Current blocked checkpoint: Codex session `codex-kwYBrA`, 9 October 2026,
+issue #5871, base `3e12579277aaf8a219cbe13d27e660a621c7124e`.
+All seven authorized files are unchanged since merged checkpoint PR #7776.
+This continuation confirms the intake-scope blocker and preserves the existing
+mathematical verdicts and reviewer objects.
 
 Completed independent review for issue #5871 by Codex, session `codex-t0EaB3`, 7 October 2026.
 Base: `5f858d95`. Work reviewed: FIX-RT-AREA-langlands-2~3, Claude `claude-c9TlsS`, #5870,
@@ -469,3 +469,36 @@ The unchanged suggested files were not recompiled. Their successful pinned
 compilation receipts above remain historical evidence. No new graph audit
 is claimed. This checkpoint changes only this report and the handoff; the
 metadata reconciliation recorded there remains the required next action.
+
+## Intake blocker reconfirmed, 9 October 2026 — codex-kwYBrA
+
+The bot confirmed this session's claim at
+[comment 6074053525](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074053525).
+Re-read the issue after confirmation and continued from its merged handoff.
+All seven authorized outputs match the merge commit of
+[PR #7776](https://github.com/CBirkbeck/tauceti-explorer/pull/7776),
+`c2c3c3ad58dd8d62b68d30cb8efd20b8a4947d2f`, byte for byte before this update.
+There is no new mathematical change to review.
+
+Parsed the seven paths from the live issue and re-ran the handoff's read-only
+completion reproduction. The committed review has 27 outputs; completion is
+**false**. Replacing only its output list in memory with the issue's seven
+paths gives **true**. All 27 files exist, and the ten extra packets correctly
+name other review jobs. The completed parent fix still lists 40 outputs.
+Read the completion function, intake allowlist and historical-round generator
+path: both the queue and generator are outside this issue's permitted edits
+and fail `intake.ALLOWED`. The historical scopes must be repaired by the
+maintainer as specified in the handoff.
+
+All three packet checks report **zero errors and zero warnings** (37 CSM,
+73 GL2 and 67 Global nodes). Verified all 177 nodes remain unchecked, no
+packet contains an excerpt field, and the report's finding table covers all
+40 confirmed findings exactly once. Existing verdicts remain CSM **accepted**,
+Global **accepted**, GL2 **needs_changes**; that negative verdict is a completed
+review outcome, as the scoped completion result confirms.
+
+This blocked checkpoint changes only the report and handoff. The unchanged
+suggested files were not recompiled; earlier successful compilation receipts
+remain historical evidence. No fresh primary-source reading, pinned-library
+review or graph audit is claimed. The next action remains maintainer repair
+of the metadata, rather than another unchanged-input continuation.
