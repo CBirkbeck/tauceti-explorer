@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-LocallyAnalyticDistributions~adv",
+    "date": "2026-10-09",
+    "notes": "Independent fixing and adversarial review of all package target families, original unverified functional-analysis locators, a reproducible sample of 15 further locators, ten Lean/README signatures, supplier tiers, current upstream roadmaps and current Tau Ceti declarations. Corrected Hahn–Banach hypotheses, strong-duality and Fredholm-product locators, derivative sign, invalid distribution counterexample, arithmetic branch moments, clearing-denominator domains and pole multiplicities, the false general-field c0 summation claim, torus valuation sign and supplier contract. Removed current-library duplicate targets, replaced vacuous README checks, retained all 184 original Lean examples and added ten controls, and reordered Lean layers. Final lean-check exits 0 with 497 sorry warnings and no errors or other Lean warnings. needs_changes: nonarchimedean locally convex/left-heart foundations and completed tensor universal properties remain missing; full entire-characteristic Coleman spectral transform, torus lattice/kernel/positive-monoid APIs, global analytic/family comparison tests, and the remaining resolvent/Riesz prerequisite order need completion. The report contains exact resume points, source hashes and the adversarial table; packet files were checked read-only."
+  }
+}
