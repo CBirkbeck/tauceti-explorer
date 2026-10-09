@@ -104988,6 +104988,26 @@
    "independentOf": [],
    "state": "pending",
    "prompt": "research/blueprint/prompts/REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv.md"
+  },
+  {
+   "id": "REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv.md",
+    "research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/review.json",
+    "research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/README.md",
+    "research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/Suggested.lean",
+    "research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv.md"
   }
  ]
 }
