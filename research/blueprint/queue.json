@@ -47899,7 +47899,8 @@
    ],
    "revisionOf": "PKG-EllipticCurveModularityPartII",
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7900"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityPartII~2",
@@ -48713,8 +48714,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
