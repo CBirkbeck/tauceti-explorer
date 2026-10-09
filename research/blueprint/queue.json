@@ -34086,7 +34086,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.0",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6282"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.1",
@@ -34558,7 +34559,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.3",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6292"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
@@ -34604,7 +34606,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6293"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.5",
@@ -104985,9 +104988,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-AlgebraicModuliForArithmeticGeometry~adv.md",
-   "note": "claimed on GitHub issue #8027"
+   "note": "deliverables arrived from an external worker on issue #8027",
+   "finishedAt": "2026-10-09T17:21:13Z"
   },
   {
    "id": "REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv",
@@ -105006,9 +105010,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-NeronModelsAndSemistableAbelianVarieties~adv.md",
-   "note": "claimed on GitHub issue #8029"
+   "note": "deliverables arrived from an external worker on issue #8029",
+   "finishedAt": "2026-10-09T17:21:16Z"
   },
   {
    "id": "REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv",
