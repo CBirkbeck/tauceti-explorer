@@ -5636,7 +5636,7 @@ On an affinoid where the chosen representative product has a slope-adapted copri
 
 **Inputs.** `LocallyAnalyticDistributions:L4/complex-product-entire`, `LocallyAnalyticDistributions:L4/slope-subcomplex`, `LocallyAnalyticDistributions:L4/finite-slope-summands`.
 
-**Proof outline.** Refine to finitely many simultaneous degree factorization neighborhoods; obtain finite-projective summands from the module Riesz theorem. Assemble their differentials by slope functoriality. Use the native definition of a perfect complex from a bounded finite-projective representative; its norm topology is the canonical finite-module topology already recorded as a gap.
+**Proof outline.** Refine to finitely many simultaneous degree factorization neighborhoods; obtain finite-projective summands from the module Riesz theorem. Assemble their differentials by slope functoriality. Apply the algebraic criterion for a perfect complex: a bounded finite-projective representative. The corresponding formal coefficient/perfect-complex interface and canonical finite-module norm topology remain recorded gaps; no baseline declaration is asserted for them.
 
 **Acceptance checks.** The original Banach complex may have infinite-rank terms.
 
