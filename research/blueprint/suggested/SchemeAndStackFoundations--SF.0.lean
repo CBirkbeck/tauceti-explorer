@@ -324,7 +324,8 @@ def relativeSpec.homEquiv {T : Scheme.{u}} (h : T ⟶ S) (A : QCohAlg S) :
 -- node: SchemeAndStackFoundations:SF.0/relative-spec-affine-antiequivalence
 /-- Affine morphisms over `S` are exactly relative spectra. -/
 theorem relativeSpecEquivAffine {X : Scheme.{u}} (f : X ⟶ S) [QuasiCompact f] [QuasiSeparated f] :
-    IsAffineHom f ↔ Nonempty (X ≅ S.relativeSpec f.pushforwardAlg) := by sorry
+    IsAffineHom f ↔ ∃ e : X ≅ S.relativeSpec f.pushforwardAlg,
+      e.hom ≫ relativeSpec.toBase f.pushforwardAlg = f := by sorry
 
 -- node: SchemeAndStackFoundations:SF.0/qcoh-algebra-pullback
 /-- Pullback of a quasi-coherent algebra along a morphism of schemes. -/
@@ -909,7 +910,8 @@ lemma isQuasicoherent_pushforward (f : X ⟶ Y) [QuasiCompact f] [QuasiSeparated
 -- node: SchemeAndStackFoundations:SF.0/qcoh-extension
 -- The extension is a finite-type submodule of the specified ambient sheaf, not merely a sheaf
 -- isomorphic on U. Here monomorphisms record those submodules without a second carrier.
-lemma exists_finiteType_submodule_extension {U : X.Opens} (F : X.Modules)
+lemma exists_finiteType_submodule_extension [CompactSpace X] [QuasiSeparatedSpace X]
+    {U : X.Opens} [QuasiCompact U.ι] (F : X.Modules)
     [F.IsQuasicoherent] (G : U.toScheme.Modules) [G.IsQuasicoherent] [G.IsFiniteType]
     (i : G ⟶ (restrictFunctor U.ι).obj F) [Mono i] :
     ∃ (E : X.Modules) (_ : E.IsQuasicoherent) (_ : E.IsFiniteType)
@@ -917,7 +919,7 @@ lemma exists_finiteType_submodule_extension {U : X.Opens} (F : X.Modules)
       (restrictFunctor U.ι).map e = α.hom ≫ i := by sorry
 
 -- node: SchemeAndStackFoundations:SF.0/coherent-extension
-lemma exists_coherent_extension [IsLocallyNoetherian X] (U : X.Opens)
+lemma exists_coherent_extension [IsNoetherian X] (U : X.Opens)
     (F : U.toScheme.Modules) [F.IsQuasicoherent] [F.IsFiniteType] :
     ∃ (E : X.Modules) (_ : E.IsQuasicoherent) (_ : E.IsFiniteType),
       Nonempty ((restrictFunctor U.ι).obj E ≅ F) := by sorry
@@ -955,7 +957,7 @@ example (R : CommRingCat.{u}) [IsNoetherianRing R] (M : ModuleCat.{u} R) :
     (tilde M).IsPseudoCoherent ↔ Module.Finite R M := by sorry
 
 -- node: SchemeAndStackFoundations:SF.0/locally-free-coherent-extension
-lemma exists_coherent_extension_of_isLocallyFree [IsLocallyNoetherian X] (U : X.Opens)
+lemma exists_coherent_extension_of_isLocallyFree [IsNoetherian X] (U : X.Opens)
     (F : U.toScheme.Modules) [F.IsLocallyFree] [F.IsFiniteType] :
     ∃ (E : X.Modules) (_ : E.IsQuasicoherent) (_ : E.IsFiniteType),
       Nonempty ((restrictFunctor U.ι).obj E ≅ F) := by sorry
@@ -1751,6 +1753,14 @@ variable {A : Type u} [CommRing A] [IsLocalRing A]
  theorem iff_henselianRing_maximalIdeal : HenselianLocalRing A ↔
     HenselianRing A (IsLocalRing.maximalIdeal A) := sorry
 end TauCeti.HenselianLocalRing
+
+namespace TauCeti.Algebra.Etale
+/-- An étale algebra over a quotient lifts without a henselian hypothesis. -/
+theorem exists_lift_mod {A : Type u} [CommRing A] (I : Ideal A)
+    (C : CommAlgCat.{u} (A ⧸ I)) [_root_.Algebra.Etale (A ⧸ I) C] :
+    ∃ (B : CommAlgCat.{u} A) (_ : _root_.Algebra.Etale A B),
+      Nonempty ((A ⧸ I) ⊗[A] B ≃ₐ[A ⧸ I] C) := sorry
+end TauCeti.Algebra.Etale
 
 namespace TauCeti.HenselianRing
 variable {A : Type u} [CommRing A] (I : Ideal A)
@@ -2904,7 +2914,8 @@ def fiberDimAt (f : X ⟶ Y) (x : X) : WithBot ℕ∞ :=
     IsOpen {x : X | fiberDimAt f x ≤ n} := sorry
  theorem isClosed_setOf_fiberDim_ge (f : X ⟶ Y) [LocallyOfFiniteType f]
     (hc : IsClosedMap f) (n : ℕ) : IsClosed {y : Y | n ≤ topologicalKrullDim (f.fiber y)} := sorry
- theorem fiberDimAt_baseChange (f : X ⟶ S) (g : Y ⟶ S) (x : ↥(pullback f g : Scheme.{u})) :
+ theorem fiberDimAt_baseChange (f : X ⟶ S) [LocallyOfFiniteType f]
+    (g : Y ⟶ S) (x : ↥(pullback f g : Scheme.{u})) :
     fiberDimAt (pullback.snd f g) x = fiberDimAt f ((pullback.fst f g) x) := sorry
 end Scheme.Hom
 -- node: SchemeAndStackFoundations:SF.0/algebraic-scheme-dimension
