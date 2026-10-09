@@ -344,6 +344,18 @@
     "roadmaps/WeightsInEtaleCohomology/metadata.toml"
    ]
   },
+  "research/blueprint/packages/WeilConjectures/review.json": {
+   "promotedAt": "2026-10-09T01:48:04Z",
+   "review": "8a9de5e338597806",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-WeilConjectures",
+   "sha256": "ac7bab99d20ce27927147e0612e216478b50728df714839c595f45156d2a2da0",
+   "to": [
+    "roadmaps/WeilConjectures/README.md",
+    "roadmaps/WeilConjectures/Suggested.lean",
+    "roadmaps/WeilConjectures/metadata.toml"
+   ]
+  },
   "research/blueprint/packets/AInfCohomology--AI.6.json": {
    "promotedAt": "2026-10-08T12:52:49Z",
    "review": "087a4fb6c17aa571",
