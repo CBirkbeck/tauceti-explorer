@@ -16,126 +16,144 @@
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback.lean",
         "provides": "Canonical image-of-pullback comparison, used in the actual RS* predicate.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:CommRingCat.pullbackConeIsLimit",
         "kind": "def",
         "module": "Mathlib/Algebra/Category/Ring/Constructions.lean",
         "provides": "The explicit commutative-ring fibre-product subring is a pullback.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:Ideal.Quotient.factorPow",
         "kind": "abbrev",
         "module": "Mathlib/RingTheory/Ideal/Quotient/PowTransition.lean",
         "provides": "Transition R/I^m→R/I^n for n≤m.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:TrivSqZeroExt",
         "kind": "def",
         "module": "Mathlib/Algebra/TrivSqZeroExt/Basic.lean",
         "provides": "The native square-zero extension, with split inclusion and ring projection.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:CategoryTheory.Limits.PreservesFilteredColimits",
         "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/Limits/Preserves/Filtered.lean",
         "provides": "The existing categorical filtered-colimit condition; affine limit preservation imports it.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:integralClosure",
         "kind": "def",
         "module": "Mathlib/RingTheory/IntegralClosure/Algebra/Basic.lean",
         "provides": "The subalgebra of integral elements; not the valuation-intersection theorem.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:Submodule.liftQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Basic.lean",
         "provides": "A linear map killing a submodule factors through its quotient.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:Ideal.Quotient.mkₐ",
         "kind": "def",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Operations.lean",
         "provides": "The algebra quotient map, used to reduce a boundary functional.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:TensorProduct.mk",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
         "provides": "Bilinear pure-tensor map, giving the image of integral tensors.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:Submodule.mkQ",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
         "provides": "The linear quotient map onto the module quotient.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "tauceti:Algebra.trace_quotient_pow_mk",
         "kind": "lemma",
         "module": "TauCeti/RingTheory/Trace/QuotientPow.lean",
         "provides": "Under the stated Dedekind/finite-algebra/prime quotient scalar-tower hypotheses, trace on B/P^n equals n times trace on B/P. This is only an arithmetic multiplicity comparison.",
-        "checked": "Full statement read in source at the pinned commit, October 9, 2026"
+        "checked": "Full statement read in source at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "tauceti:TauCeti.FiniteLocallyFreeBicommutativeHopfAlgCat.cartierDuality",
         "kind": "def",
         "module": "TauCeti/Algebra/HopfAlgebra/FiniteDual/CartierDuality/Basic.lean",
         "provides": "Finite locally free bicommutative Hopf-algebra Cartier anti-equivalence over any commutative ring, with double-dual evaluation. Its affine group-scheme transport already exists in the pinned Tau Ceti library.",
-        "checked": "Full statement at lines 290–310 read at the pin; affine transport in CartierDuality/FiniteLocallyFree.lean also read."
+        "checked": "Full statement at lines 290–310 read at the pin; affine transport in CartierDuality/FiniteLocallyFree.lean also read.",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:LocalSubring.exists_le_valuationSubring",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Valuation/LocalSubring.lean",
         "provides": "Every local subring of a field is dominated by a valuation subring, in the domination order, not merely inclusion.",
-        "checked": "Full statement and hypotheses read at the pinned Mathlib commit, October 9, 2026"
+        "checked": "Full statement and hypotheses read at the pinned Mathlib commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:ValuationSubring.isMax_toLocalSubring",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Valuation/LocalSubring.lean",
         "provides": "A valuation subring is maximal among local subrings in the domination order.",
-        "checked": "Full statement and hypotheses read at the pinned Mathlib commit, October 9, 2026"
+        "checked": "Full statement and hypotheses read at the pinned Mathlib commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:iInf_valuationSubring_superset",
         "kind": "lemma",
         "module": "Mathlib/RingTheory/Valuation/LocalSubring.lean",
         "provides": "Integral closure of the subring generated by a subset of a field equals the intersection of all valuation subrings containing that subset.",
-        "checked": "Full statement and hypotheses read at the pinned Mathlib commit, October 9, 2026"
+        "checked": "Full statement and hypotheses read at the pinned Mathlib commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:ValuationSubring.comap",
         "kind": "def",
         "module": "Mathlib/RingTheory/Valuation/ValuationSubring.lean",
         "provides": "Restriction along a field ring homomorphism is an actual valuation subring; membership is inverse image.",
-        "checked": "Full statement and hypotheses read at the pinned Mathlib commit, October 9, 2026"
+        "checked": "Full statement and hypotheses read at the pinned Mathlib commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:Polynomial.Splits.eq_prod_roots_of_monic",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Polynomial/Splits.lean",
         "provides": "A split monic polynomial is the product of its multiset of linear root factors, retaining repeated roots.",
-        "checked": "Full declaration read at the pinned commit, October 9, 2026"
+        "checked": "Full declaration read at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       },
       {
         "ref": "mathlib:minpoly",
         "kind": "def",
         "module": "Mathlib/FieldTheory/Minpoly/Basic.lean",
         "provides": "The native minimal polynomial of an integral element is chosen monic with minimum degree; it is zero for a nonintegral element.",
-        "checked": "Full declaration read at the pinned commit, October 9, 2026"
+        "checked": "Full declaration read at the pinned commit, October 9, 2026",
+        "reviewChecked": "Declaration and full hypotheses independently checked at the pinned commit by REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2, 2026-10-09."
       }
     ]
   },
@@ -392,7 +410,7 @@
       "sources": [
         {
           "sourceId": "more-algebra",
-          "locator": "Proposition 15.51.10, tag 07PV, pp. 129–131",
+          "locator": "Proposition 15.51.10, tag 07PV, pp. 129–130",
           "match": "Preservation under essentially finite-type maps is the missing prerequisite of approximation."
         }
       ],
@@ -431,7 +449,7 @@
       "sources": [
         {
           "sourceId": "smoothing",
-          "locator": "Theorems 16.13.1–16.13.2, tags 07QY–07QZ, pp. 32–34",
+          "locator": "Theorems 16.13.1–16.13.2, tags 07QY–07QZ, pp. 32–33",
           "match": "Finite congruence approximation follows from regular completion and smooth factorization."
         }
       ],
@@ -545,6 +563,11 @@
           "name": "StrongGluingTests.zeroKernel",
           "kind": "computation",
           "statement": "For A→C←C with the second map the identity, the comparison is bijective."
+        },
+        {
+          "name": "StrongGluingTests.subsetFailure",
+          "kind": "non-example",
+          "statement": "The functor R↦Set(R), with direct-image maps, fails RS*. For both maps Q[ε]/ε²→Q, the diagonal subset and the whole pullback have the same two projections but are distinct: (ε,0) is in the latter only. Thus the comparison is not injective even for a square-zero surjection."
         }
       ],
       "uses": [
@@ -615,6 +638,16 @@
           "name": "FormalPoint.transition",
           "role": "compatibility",
           "statement": "Restriction from the m-th component to the n-th agrees for n≤m."
+        },
+        {
+          "name": "FormalPoint.map",
+          "role": "functoriality",
+          "statement": "A natural transformation F→G sends a compatible family to the family of its component images."
+        },
+        {
+          "name": "FormalPoint.map_value",
+          "role": "simp",
+          "statement": "The n-th component of the image family is η at R/I^(n+1) applied to the original component."
         }
       ],
       "tests": [
@@ -632,6 +665,11 @@
           "name": "FormalPointTests.allOrders",
           "kind": "characterisation",
           "statement": "Agreement at every order forces equality of compatible families."
+        },
+        {
+          "name": "FormalPointTests.firstOrderInsufficient",
+          "kind": "non-example",
+          "statement": "For R=Q[ε]/ε² and I=(ε), the points 0 and ε have the same reduction modulo I but different reductions modulo I²=0. Their formal points have equal value 0 and unequal value 1; first-order data alone cannot define FormalPoint."
         }
       ],
       "uses": [
@@ -696,6 +734,11 @@
           "name": "IsEffective.lift_spec",
           "role": "compatibility",
           "statement": "The chosen lift restricts to the specified whole formal family."
+        },
+        {
+          "name": "IsEffective.transport",
+          "role": "functoriality",
+          "statement": "A natural isomorphism of functors transports effectivity at the same (R,I)."
         }
       ],
       "tests": [
@@ -713,6 +756,11 @@
           "name": "EffectivityTests.topIdeal",
           "kind": "computation",
           "statement": "The affine-line functor is effective at I=R because every quotient is the zero ring."
+        },
+        {
+          "name": "EffectivityTests.emptyScheme",
+          "kind": "non-example",
+          "statement": "For F=Hom_CommRing(ZMod 1,−), R=Q and I=top, every quotient has its unique zero-ring point, giving a formal point, but F(Q) is empty. Thus IsEffective is false. A constant-true predicate would fail this test."
         }
       ],
       "uses": [
@@ -796,6 +844,11 @@
           "name": "TangentTests.zeroRestriction",
           "kind": "compatibility",
           "statement": "The split tangent element restricts to the specified residue point."
+        },
+        {
+          "name": "TangentTests.twoElements",
+          "kind": "computation",
+          "statement": "For the affine-line functor over F₂ at 0, the tangent fibre has exactly two elements. Unframed dual-number points have four; an empty or trivial tangent has zero or one."
         }
       ],
       "uses": [
@@ -817,9 +870,10 @@
       ],
       "title": "Module-valued obstruction theories",
       "kind": "definition",
-      "statement": "For x∈X(Spec A), A Noetherian over S, an obstruction theory assigns an A-linear functor O_x on A-modules, natural in module maps, and to each square-zero extension A′→A of kernel M a class ob_x(A′)∈O_x(M), compatible with pushout of extensions. Its class vanishes exactly when the groupoid of lifts of x with specified identification is nonempty. T_x(M) and Inf_x(M) respectively describe differences between liftings and their infinitesimal automorphisms.",
+      "statement": "For locally Noetherian S and x∈X(Spec A), with Spec A→S factoring through an affine open, an obstruction theory assigns an A-linear functor O_x on A-modules, natural in module maps, and to each square-zero extension A′→A of kernel M a class ob_x(A′)∈O_x(M), compatible with morphisms of deformation situations. For every ring map A→B, y=x|_B and A-linear map M→N to a B-module, it includes a natural A-linear map O_x(M)→O_y(N). Its class vanishes exactly when the groupoid of lifts of x with specified identification is nonempty. T_x(M) and Inf_x(M) respectively describe differences between liftings and their infinitesimal automorphisms.",
       "hypotheses": [
-        "For the openness theorem use the full module-functor axioms of 98.22.1, including naturality in extensions and in the object; the finite-dimensional Artin-local obstruction space of SF.4 alone is insufficient."
+        "For the openness theorem use the full module-functor axioms of 98.22.1, including naturality in extensions and in the object; the finite-dimensional Artin-local obstruction space of SF.4 alone is insufficient.",
+        "A, its square-zero extensions and the modules are not required to be Noetherian or finite. Only S is locally Noetherian; the source obstruction theory ranges over all these deformation situations."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/strong-infinitesimal-gluing",
@@ -829,7 +883,7 @@
       "proofSteps": [
         "Use actual square-zero extensions, not a flag asserting liftability.",
         "Define the framed lifting groupoid and its pushout along a kernel map.",
-        "Extend the local-Artin obstruction interface to finite Noetherian base algebras and modules; retain the full product comparisons needed by openness."
+        "Extend the local-Artin obstruction interface to all affine base algebras and all modules, with the full base/object/module naturality of 98.22.1; retain the countable-product comparisons needed by openness."
       ],
       "acceptance": [
         "The zero obstruction class means existence of a framed lift, not uniqueness."
@@ -842,7 +896,7 @@
       "sources": [
         {
           "sourceId": "artin",
-          "locator": "Definition 98.22.1, pp. 38–40",
+          "locator": "Definition 98.22.1, pp. 39–40",
           "match": "This is the general module-valued interface used in openness of versality."
         }
       ],
@@ -862,6 +916,26 @@
           "name": "ModuleObstructionTheory.lifting_torsor",
           "role": "relation",
           "statement": "If lifts exist their framed isomorphism classes form a torsor under T_x(M), with Inf_x(M) their infinitesimal automorphisms."
+        },
+        {
+          "name": "ModuleObstructionTheory.mk",
+          "role": "constructor",
+          "statement": "Bundle the actual module functor, the extension-indexed classes, their naturality equations and the zero-iff-framed-lift proof."
+        },
+        {
+          "name": "ModuleObstructionTheory.obstruction",
+          "role": "projection",
+          "statement": "Evaluate the obstruction class of a specified object and specified square-zero extension, in the module assigned to its actual kernel."
+        },
+        {
+          "name": "ModuleObstructionTheory.split",
+          "role": "simp",
+          "statement": "The class for a split square-zero extension is zero because the split framed lift exists."
+        },
+        {
+          "name": "ModuleObstructionTheory.baseChange",
+          "role": "functoriality",
+          "statement": "For A→B, y=x|_B and an A-linear map M→N to a B-module, expose the natural map O_x(M)→O_y(N), with identity and composition laws."
         }
       ],
       "tests": [
@@ -879,6 +953,11 @@
           "name": "ObstructionTests.curveLineBundle",
           "kind": "compatibility",
           "statement": "For a line bundle on a proper smooth curve over k, O_x(M)=H²(X,O_X)⊗M=0, though H¹ may parametrize different lifts."
+        },
+        {
+          "name": "ObstructionTests.doublePoint",
+          "kind": "non-example",
+          "statement": "For Spec Q[t]/(t²), the point t↦ε over Q[ε]/ε² does not lift to Q[ε]/ε³. The equation obstruction is the nonzero ε² in the square-zero kernel (ε²): every prospective ε+cε² has square ε². This rules out a constant-zero obstruction theory."
         }
       ],
       "uses": [
@@ -938,9 +1017,10 @@
       ],
       "title": "Openness of versality from obstructions",
       "kind": "theorem",
-      "statement": "Let X be a category fibred in groupoids over locally Noetherian S with representable diagonal, RS*, limit preservation and a module-valued obstruction theory. Suppose for every Noetherian A, x and family (M_i) of A-modules the map T_x(∏M_i)→∏T_x(M_i) is an isomorphism and O_x(∏M_i)→∏O_x(M_i) is injective. For an object over a finite-type S-scheme U, its formal versality at a finite-type point implies versality at all finite-type points in some open neighbourhood.",
+      "statement": "Let X be a category fibred in groupoids over locally Noetherian S with representable diagonal, RS*, limit preservation and a module-valued obstruction theory. Suppose for every S-algebra A mapping into an affine open, every x and every countable family (M_i) of A-modules the map T_x(∏M_i)→∏T_x(M_i) is an isomorphism and O_x(∏M_i)→∏O_x(M_i) is injective. For an object over a finite-type S-scheme U, its formal versality at a finite-type point implies versality at all finite-type points in some open neighbourhood.",
       "hypotheses": [
-        "Formal versality is the smooth lifting property of its complete-local deformation functor, as in SF.4 hull; retain both product conditions and the representable diagonal."
+        "Formal versality is the smooth lifting property of its complete-local deformation functor, as in SF.4 hull; retain both product conditions and the representable diagonal.",
+        "The algebra A and modules in the product condition need not be Noetherian or finite; both maps must be available on the product modules themselves."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/module-obstruction-theory",
@@ -964,7 +1044,7 @@
       "sources": [
         {
           "sourceId": "artin",
-          "locator": "Lemma 98.22.2, tag 0CYF, pp. 40–42",
+          "locator": "Lemma 98.22.2, tag 0CYF, p. 40, using the openness bridge of §98.20",
           "match": "The explicit sufficient hypotheses produce precisely the openness axiom of the selected criterion."
         }
       ],
@@ -1084,7 +1164,7 @@
       ],
       "proofSteps": [
         "Étale locally reduce Y to affine and descend the finite-presentation data to a Noetherian model.",
-        "Apply the existing all-dimensional locally Noetherian cohomology/base-change package on that model.",
+        "On the Noetherian algebraic-space model, use the requested SF.2 space extension of the existing all-dimensional scheme cohomology/base-change package. JacobianChallenge Layer C and StableReduction Layer 2 alone concern schemes; SF.1 finite-presentation descent alone does not extend their theorem to spaces.",
         "Use finite locally free complex models, target-flatness and derived pullback to compare every base change, then descend perfectness on Y."
       ],
       "acceptance": [
@@ -1098,7 +1178,7 @@
       "sources": [
         {
           "sourceId": "spaces-perfect",
-          "locator": "Lemma 75.25.1, tag 0A1P, pp. 60–61; Lemma 75.25.4, tag 0CTM, p. 61, corrected",
+          "locator": "Lemma 75.25.1, tag 0A1P, pp. 60–61; Lemma 75.25.4, tag 0CTM, pp. 61–62, with target-flatness correction E2001",
           "match": "This is the arbitrary-base extension, not a replanning of the locally Noetherian theorem."
         }
       ],
@@ -1139,7 +1219,7 @@
       "sources": [
         {
           "sourceId": "spaces-perfect",
-          "locator": "Lemmas 75.26.1–75.26.3, pp. 62–64",
+          "locator": "Lemmas 75.26.1–75.26.3, p. 64",
           "match": "Fibre invariants are consequences of perfectness without a Noetherian base."
         }
       ],
@@ -1253,7 +1333,7 @@
       "sources": [
         {
           "sourceId": "spaces-perfect",
-          "locator": "Lemmas 75.26.7–75.26.8, p. 66",
+          "locator": "Lemmas 75.26.7–75.26.8, pp. 65–66",
           "match": "This supplies exactly the universal-function hypothesis of the Picard representability theorem."
         }
       ],
@@ -1312,6 +1392,31 @@
           "name": "PicardStackSpaces.automorphism",
           "role": "compatibility",
           "statement": "Automorphisms of a line bundle are Γ(X_T,O_X_T×); under universal functions this is Γ(T,O_T×)."
+        },
+        {
+          "name": "PicardStackSpaces.unit",
+          "role": "constructor",
+          "statement": "The structure sheaf on X_T is the tensor unit in the fibre groupoid."
+        },
+        {
+          "name": "PicardStackSpaces.tensor",
+          "role": "structure",
+          "statement": "Tensor product of invertible modules induces the fibrewise Picard groupoid operation, with associativity, symmetry and unit constraints."
+        },
+        {
+          "name": "PicardStackSpaces.dual",
+          "role": "structure",
+          "statement": "Dualizing an invertible module gives its tensor inverse with the evaluation isomorphism to the unit."
+        },
+        {
+          "name": "PicardStackSpaces.hom_equiv",
+          "role": "characterisation",
+          "statement": "Arrows over id_T are precisely the isomorphisms of invertible O_X_T-modules, not equality of their Picard classes."
+        },
+        {
+          "name": "PicardStackSpaces.descent",
+          "role": "equivalence",
+          "statement": "For each fppf cover of T the comparison to descent data is an equivalence of groupoids, retaining morphisms and cocycle isomorphisms."
         }
       ],
       "tests": [
@@ -1376,8 +1481,13 @@
       "sources": [
         {
           "sourceId": "quot",
-          "locator": "Lemma 99.10.1, tag 0D02, p. 26; Moduli 108.8.2, p. 13",
-          "match": "Algebraicity comes from the coherent-sheaf moduli stack, with invertibility an open condition."
+          "locator": "Lemma 99.10.1, tag 0D03, and Proposition 99.10.2, tag 0D04, p. 26",
+          "match": "Invertible modules form an open substack of the coherent-sheaf stack; its algebraicity is inherited."
+        },
+        {
+          "sourceId": "moduli",
+          "locator": "Lemma 108.8.2, p. 13",
+          "match": "Quasi-separatedness and local finite presentation follow from the coherent-sheaf stack."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1457,8 +1567,13 @@
       "sources": [
         {
           "sourceId": "quot",
-          "locator": "Lemma 99.11.8, pp. 29–30; Moduli 108.9.3, p. 14",
-          "match": "The general arbitrary-base representability conclusion is an algebraic space."
+          "locator": "Proposition 99.11.8, p. 30",
+          "match": "Representability of the relative Picard sheaf under universal functions."
+        },
+        {
+          "sourceId": "moduli",
+          "locator": "Lemma 108.9.3, p. 14",
+          "match": "Quasi-separatedness and local finite presentation of the representing space."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1499,8 +1614,13 @@
       "sources": [
         {
           "sourceId": "quot",
-          "locator": "Lemma 99.11.9, p. 30; Moduli 108.9.2–108.9.4, pp. 14–15",
-          "match": "The geometric-integrality refinement gives the exact separatedness criterion."
+          "locator": "Lemma 99.11.9, pp. 30–31",
+          "match": "The Picard diagonal is an immersion."
+        },
+        {
+          "sourceId": "moduli",
+          "locator": "Lemmas 108.9.2–108.9.4, pp. 14–15",
+          "match": "The diagonal is quasi-compact; geometrically integral fibres give separation."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1539,8 +1659,13 @@
       "sources": [
         {
           "sourceId": "kleiman",
-          "locator": "Proposition 5.19, p. 47; Stacks Moduli 108.4.1, pp. 5–6",
-          "match": "The higher-dimensional obstruction calculation explains the smoothness hypothesis used by Pic⁰."
+          "locator": "Proposition 5.19 and proof, p. 47",
+          "match": "The square-zero units sequence gives the H² obstruction and framed H¹ lifting torsor for schemes."
+        },
+        {
+          "sourceId": "moduli",
+          "locator": "Lemma 108.8.5 and proof, pp. 13–14",
+          "match": "For proper flat finitely presented algebraic spaces of relative dimension at most one, H² vanishes over affine thickenings and the Picard stack is smooth; general space lifting also needs the requested topology comparison."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1578,12 +1703,12 @@
       "sources": [
         {
           "sourceId": "kleiman",
-          "locator": "Definition 5.10 and Proposition 5.20, pp. 42, 47–48",
+          "locator": "Proposition 5.10, pp. 41–42, and Proposition 5.20, pp. 47–48",
           "match": "The criterion uses full fibre identity components and their smoothness, not reduced Picard varieties."
         },
         {
           "sourceId": "schroer",
-          "locator": "Section 4, classification table, pp. 12–13",
+          "locator": "Section 4, classification table, p. 13",
           "match": "The ordinary characteristic-two Enriques case supplies a nonreduced identity-component control."
         }
       ],
@@ -1603,6 +1728,26 @@
           "name": "PicardZeroSheaf.fibre",
           "role": "characterisation",
           "statement": "On geometric fibres the sheaf is exactly the identity component, with its full structure."
+        },
+        {
+          "name": "PicardZeroSheaf.mk",
+          "role": "constructor",
+          "statement": "A section of P and proofs that all its geometric values lie in the identity components determine a section of Pic⁰."
+        },
+        {
+          "name": "PicardZeroSheaf.mem_iff",
+          "role": "characterisation",
+          "statement": "Membership is equivalent to the identity-component condition at every geometric point of T."
+        },
+        {
+          "name": "PicardZeroSheaf.group",
+          "role": "structure",
+          "statement": "Addition, zero and inverses are inherited from P and preserve the fibrewise identity-component condition."
+        },
+        {
+          "name": "PicardZeroSheaf.ext",
+          "role": "extensionality",
+          "statement": "Sections are equal exactly when their images in P are equal; no reduction of the represented component is used."
         }
       ],
       "tests": [
@@ -1713,8 +1858,8 @@
       "sources": [
         {
           "sourceId": "schroer",
-          "locator": "Section 5, p. 14, five-term sequence; Stacks SF.2 Leray and SF.3 field case imported",
-          "match": "This extends the field sequence to the required relative base using a named Leray supplier."
+          "locator": "Lemma 1.1 and proof, p. 5",
+          "match": "The G_m Leray obstruction is used over a field here. The arbitrary-base sequence in this node is derived from SF.2 Leray/Hilbert 90 and the relative Picard sheaf, not attributed to the finite-group sequence in §5."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1755,8 +1900,13 @@
       "sources": [
         {
           "sourceId": "raynaud",
-          "locator": "Proposition 6.2.1, pp. 50–51; Schröer Section 5, p. 15",
-          "match": "Raynaud relates the Cartier-dual torsor sheaf to homomorphisms from M, not M itself."
+          "locator": "Proposition 6.2.1, pp. 50–51, and Corollary 6.2.2",
+          "match": "The fppf sheaf correspondence uses finite flat Cartier duality and the local Ext¹ vanishing."
+        },
+        {
+          "sourceId": "schroer",
+          "locator": "Section 5, pp. 14–15",
+          "match": "The finite-group Leray sequence distinguishes sheafified torsor classes from global torsors."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1796,7 +1946,7 @@
       "sources": [
         {
           "sourceId": "raynaud",
-          "locator": "Definition 6.1.4, pp. 48–49",
+          "locator": "Definition 6.1.4, pp. 48–49; Example 9.1.2, p. 67",
           "match": "The trait hypothesis N* used by 8.2.1 is weaker than already assuming universal cohomological flatness."
         }
       ],
@@ -1816,6 +1966,16 @@
           "name": "RaynaudNStar.functions",
           "role": "projection",
           "statement": "The structure-sheaf direct image over the trait is O_S."
+        },
+        {
+          "name": "RaynaudNStar.mk",
+          "role": "constructor",
+          "statement": "Bundle the absence of embedded special-fibre associated points, normality at its generic points and the specified canonical O_S≅f_*O_X comparison."
+        },
+        {
+          "name": "RaynaudNStar.ofIso",
+          "role": "functoriality",
+          "statement": "An isomorphism of proper flat models over the same trait transports N*."
         }
       ],
       "tests": [
@@ -1827,7 +1987,7 @@
         {
           "name": "RaynaudTests.embeddedPoint",
           "kind": "non-example",
-          "statement": "A flat trait family whose special fibre has an embedded associated point fails N regardless of its generic fibre."
+          "statement": "In Raynaud 9.1.2 (p. 67), pinch two distinct rational points in the special fibre of P¹ over a trait. The resulting reduced proper flat model has generic fibre P¹, but its special fibre has an embedded point at the node, so it fails N. Generic normality alone is insufficient."
         },
         {
           "name": "RaynaudTests.nontrivialConstants",
@@ -1854,18 +2014,20 @@
       ],
       "title": "The degree one criterion over a trait",
       "kind": "theorem",
-      "statement": "Let f:X→S be a proper flat finitely presented relative curve over a discrete valuation trait satisfying N*. If the generic fibre after strict henselization of S has a divisor of degree one, f is cohomologically flat in degree zero: formation of f_*O_X commutes with every base change. In particular a section gives the required generic degree-one divisor.",
+      "statement": "Let f:X→S be a proper flat finitely presented relative curve over a discrete valuation trait satisfying N*. If the generic fibre after strict henselization of S has a divisor of degree one, f is cohomologically flat in degree zero: formation of f_*O_X commutes with every base change. A section also implies cohomological flatness in degree zero. When the section meets the smooth locus of the generic fibre, it supplies a degree-one Cartier divisor there.",
       "hypotheses": [
-        "The divisor is on the generic fibre after strict henselization. A generic degree-one divisor without N* does not meet the theorem."
+        "The divisor is on the generic fibre after strict henselization. A generic degree-one divisor without N* does not meet the theorem.",
+        "The section conclusion uses the curve Picard formal-smoothness route; an arbitrary section is not asserted to be a Cartier divisor at a singular point."
       ],
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-n-star",
-        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-infinitesimal-lifting"
       ],
       "proofSteps": [
-        "Use Raynaud 8.2.1: the strict-henselian generic degree-one condition forces the prime-to-residue-characteristic multiplicity invariant to be one.",
-        "Invoke the cohomological-flatness implication within that theorem.",
-        "Relate a section to its degree-one divisor on the smooth generic curve; keep the trait/model conditions separately."
+        "Apply Raynaud 8.2.1(ii)⇒(iii)⇒(iv) to the strict-henselian generic degree-one divisor; retain N* throughout.",
+        "For the section case use the étale quasi-section in Raynaud 7.2.1 and formal smoothness of the curve Picard functor (2.3.2, or the H²-vanishing lifting argument). A section need not meet the regular generic locus.",
+        "If the section does meet the smooth generic locus, its generic point is a degree-one effective Cartier divisor, giving the first route as well."
       ],
       "acceptance": [
         "On the normal curve model used by Schröer 8.1, check no embedded special-fibre points, generic normality and f_*O=O before invoking the section."
@@ -1878,8 +2040,13 @@
       "sources": [
         {
           "sourceId": "raynaud",
-          "locator": "Theorem 8.2.1, pp. 66–67; Schröer Proposition 8.1, pp. 21–22",
-          "match": "Only the cohomological-flatness consequence is planned; equivalences involving the multiplicity invariant are not redefined."
+          "locator": "Theorem 8.2.1, pp. 66–67; Theorem 7.2.1, p. 60; Corollary 2.3.2, p. 37",
+          "match": "The divisor and section routes have separate justifications; no extra generic smoothness is imposed on the section route."
+        },
+        {
+          "sourceId": "schroer",
+          "locator": "Proposition 8.1, p. 22",
+          "match": "The normal curve model with a section is an application after checking the trait/model hypotheses."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1919,8 +2086,13 @@
       "sources": [
         {
           "sourceId": "conrad-temkin",
-          "locator": "Definitions 2.2.1–2.2.4, pp. 6–8; introduction p. 1; existing complex proposal Layer 2",
-          "match": "Algebraic-space analytification is a quotient extension of the existing scheme construction."
+          "locator": "Introduction, p. 1; Lemma 2.2.1, Definition 2.2.2, Theorem 2.2.3 and Corollary 2.2.4, pp. 7–9",
+          "match": "Presentation independence and quotient construction for analytifiable spaces; complex local separatedness is explained in the introduction."
+        },
+        {
+          "sourceId": "existing-complex",
+          "locator": "Layer 2: analytic spaces and the analytification functor, pinned README",
+          "match": "Existing complex scheme analytification including nilpotents, products and étale local analytic isomorphisms, imported rather than planned again."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1942,6 +2114,21 @@
           "name": "SpaceAnalytification.scheme",
           "role": "compatibility",
           "statement": "For a scheme, this agrees with the existing scheme analytification, including the structure sheaf."
+        },
+        {
+          "name": "SpaceAnalytification.map",
+          "role": "functoriality",
+          "statement": "A morphism of analytifiable algebraic spaces induces the canonical analytic morphism independent of chart refinements."
+        },
+        {
+          "name": "SpaceAnalytification.map_id",
+          "role": "simp",
+          "statement": "Analytifying an identity gives the identity after the canonical quotient comparison."
+        },
+        {
+          "name": "SpaceAnalytification.map_comp",
+          "role": "compatibility",
+          "statement": "Analytification respects composition with the canonical presentation-independent identifications."
         }
       ],
       "tests": [
@@ -2012,7 +2199,7 @@
       "sources": [
         {
           "sourceId": "conrad-temkin",
-          "locator": "Theorems 4.2.1–4.2.2, p. 20 and proofs §§4.3–5; Example 3.1.1, pp. 13–15",
+          "locator": "Theorems 4.2.1–4.2.2, p. 20 and proofs §§4.3–5; Example 3.1.1, pp. 14–15",
           "match": "The quotient existence theorem is the additional nonarchimedean input."
         }
       ],
@@ -2050,7 +2237,7 @@
       "sources": [
         {
           "sourceId": "conrad-temkin",
-          "locator": "Theorem 2.2.5, pp. 8–9; §2.3, pp. 9–12",
+          "locator": "Theorem 2.2.3, pp. 7–8; §2.3, pp. 11–13 (Theorem 2.3.1 and Example 2.3.2)",
           "match": "The presentation comparison is canonical and compatible with scheme analytification."
         }
       ],
@@ -2095,8 +2282,18 @@
       "sources": [
         {
           "sourceId": "artin1969",
-          "locator": "Corollary 2.6, pp. 28–29; existing complex proposal Layer 2; Conrad–Temkin introduction p. 1",
-          "match": "Artin supplies the algebraic étale bridge; the existing complex functor supplies local biholomorphisms."
+          "locator": "Corollary 2.6, pp. 28–29",
+          "match": "Completed-local-ring isomorphism gives a common pointed étale neighbourhood."
+        },
+        {
+          "sourceId": "existing-complex",
+          "locator": "Layer 2: analytic spaces and the analytification functor, pinned README",
+          "match": "Scheme étale maps give local analytic isomorphisms; completed-stalk comparison is requested explicitly."
+        },
+        {
+          "sourceId": "conrad-temkin",
+          "locator": "Introduction, p. 1; Example 2.3.2, p. 12 (nonarchimedean analogue)",
+          "match": "The complex locally separated quotient is used to descend chart comparisons; the nonarchimedean completed-stalk argument is only an analogue."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2226,7 +2423,7 @@
       "sources": [
         {
           "sourceId": "dittmann-pop",
-          "locator": "Lemma 5.3, pp. 16–17",
+          "locator": "Lemma 5.3 and proof, p. 17; the general specified-family statement here is a new adapter, not the literal arithmetic-specialized source statement",
           "match": "Integrality is detected by the entire specified prolongation family."
         }
       ],
@@ -2266,7 +2463,7 @@
       "sources": [
         {
           "sourceId": "dittmann-pop",
-          "locator": "Lemma 5.3 proof, pp. 16–17",
+          "locator": "Lemma 5.3 and proof, p. 17; the general specified-family statement here is a new adapter, not the literal arithmetic-specialized source statement",
           "match": "The repeated-root argument supplies the coefficient descent used in the valuation intersection proof."
         }
       ],
@@ -2372,6 +2569,21 @@
           "name": "BoundaryDualFunctional.ext",
           "role": "extensionality",
           "statement": "Equality of underlying linear maps implies equality of boundary functionals."
+        },
+        {
+          "name": "BoundaryDualFunctional.mulInput",
+          "role": "constructor",
+          "statement": "For n≥1, c∈J^(n−1), J^n⊂I.map(A→B), and any A-linear ℓ:B→A, multiplication of the input by c gives a boundary functional b↦ℓ(cb). A-linearity already implies ℓ(IB)⊂I."
+        },
+        {
+          "name": "BoundaryDualFunctional.mulInput_apply",
+          "role": "simp",
+          "statement": "The underlying map of mulInput applied to b is ℓ(cb)."
+        },
+        {
+          "name": "BoundaryDualFunctional.reduce_unique",
+          "role": "universal-property",
+          "statement": "An A-linear map B/J→A/I with value ℓ(b) modulo I on every quotient class equals reduce(ℓ)."
         }
       ],
       "tests": [
@@ -2412,7 +2624,8 @@
       "kind": "theorem",
       "statement": "Let f:X→Y be an embeddable morphism between S-schemes of the same pure relative dimension. Under the imported SF.2 fundamental-class hypotheses, let D_X,D_Y be reduced relative effective Cartier divisors with f^−1(|D_Y|)=|D_X|. For the determinant construction assume the normal/smooth dense open and relative normal-crossings conditions of Pilloni 4.2.4.1(1); for the trace construction assume f finite flat as in (2). Then Θ sends O_X(−D_X) into f^!O_Y(−D_Y). Under an open base change or, in the finite-flat case, any base change for which the Cartier divisors remain Cartier, this boundary map agrees with the base-changed map.",
       "hypotheses": [
-        "A determinant fundamental class over a nonflat general morphism is not declared compatible with arbitrary base change. The two construction hypotheses are kept separate."
+        "A determinant fundamental class over a nonflat general morphism is not declared compatible with arbitrary base change. The two construction hypotheses are kept separate.",
+        "After arbitrary finite-flat base change the retained Cartier divisors can be nonreduced. Compatibility compares the base-changed boundary morphism, without reasserting the reduced-divisor construction hypotheses on the new base."
       ],
       "prerequisites": [
         "SchemeAndStackFoundations:key/coherent-duality",
@@ -2500,7 +2713,8 @@
       "prerequisites": [
         "mathlib:TensorProduct.mk",
         "mathlib:Submodule.mkQ",
-        "SchemeAndStackFoundations:SF.2/derived-tensor-internal-hom"
+        "SchemeAndStackFoundations:SF.2/derived-tensor-internal-hom",
+        "mathlib:Submodule.liftQ"
       ],
       "proofSteps": [
         "Form the native tensor product and quotient by the image of the integral module.",
@@ -2518,7 +2732,7 @@
       "sources": [
         {
           "sourceId": "calegari-geraghty",
-          "locator": "Section 3.2, proof of Lemma 3.7, pp. 18–20",
+          "locator": "Section 3.2, proof of Lemma 3.7, p. 19; general relative-curve and cofinite conclusions here use the explicit SF.2 and upstream coherent-cohomology suppliers",
           "match": "The π-divisible quotient, not an ordinary coherent coefficient module, enters dévissage."
         }
       ],
@@ -2538,6 +2752,46 @@
           "name": "KOCoefficients.mk_add",
           "role": "structure",
           "statement": "The quotient class map is additive."
+        },
+        {
+          "name": "KOCoefficients.mk_surjective",
+          "role": "characterisation",
+          "statement": "Every quotient class has a fractional-tensor representative."
+        },
+        {
+          "name": "KOCoefficients.lift",
+          "role": "universal-property",
+          "statement": "An R-linear map K⊗_R M→N killing every integral tensor 1⊗m factors uniquely through the quotient."
+        },
+        {
+          "name": "KOCoefficients.lift_mk",
+          "role": "simp",
+          "statement": "Evaluating the induced map on mk(z) gives the original linear map evaluated at z."
+        },
+        {
+          "name": "KOCoefficients.hom_ext",
+          "role": "extensionality",
+          "statement": "R-linear maps out of KOCoefficients agreeing on every mk(z) are equal."
+        },
+        {
+          "name": "KOCoefficients.map",
+          "role": "functoriality",
+          "statement": "An R-linear map M→N induces a map of quotients by tensoring with id_K; integral tensors map to integral tensors."
+        },
+        {
+          "name": "KOCoefficients.map_mk",
+          "role": "simp",
+          "statement": "map(f)(mk(z))=mk((id_K⊗f)(z))."
+        },
+        {
+          "name": "KOCoefficients.map_id",
+          "role": "compatibility",
+          "statement": "The induced quotient map of the identity is the identity."
+        },
+        {
+          "name": "KOCoefficients.map_comp",
+          "role": "compatibility",
+          "statement": "The induced quotient map of g∘f is map(g)∘map(f)."
         }
       ],
       "tests": [
@@ -2555,6 +2809,11 @@
           "name": "KOTests.integralClass",
           "kind": "compatibility",
           "statement": "An integral tensor 1⊗m is zero in the quotient, although it need not be zero in K⊗M."
+        },
+        {
+          "name": "KOTests.halfIntegralNonzero",
+          "kind": "non-example",
+          "statement": "For O=Z, K=Q and M=Z, the class of (1/2)⊗1 is nonzero in KOCoefficients. This tests the general raw quotient construction; it makes no DVR claim about Z and rules out defining the quotient as zero."
         }
       ],
       "uses": [
@@ -2604,7 +2863,7 @@
       "sources": [
         {
           "sourceId": "calegari-geraghty",
-          "locator": "Lemma 3.7, proof in §3.2, pp. 18–20",
+          "locator": "Section 3.2, proof of Lemma 3.7, p. 19; general relative-curve and cofinite conclusions here use the explicit SF.2 and upstream coherent-cohomology suppliers",
           "match": "The exact sequence proves divisibility and cofiniteness on curves, not in arbitrary relative dimension."
         }
       ],
@@ -2669,16 +2928,19 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "As sole coherent-duality owner, expose determinant and finite-flat trace fundamental classes with their agreement under the precise normal/CM/Gorenstein and codimension-two hypotheses of Fakhruddin–Pilloni 2.6 and Pilloni 4.2.2–4.2.3. Include the open or finite-flat base-change comparison. Also supply the torsion-DVR-module Matlis/Pontryagin cofiniteness criterion and sheaf-cohomology filtered-colimit compatibility needed by K/O dévissage. Expose the perfect-coefficient comparison Lf*P ⊗ f!K ≅ f!(P ⊗ K) for perfect P and its composition coherence. A0 constructs the regular-Cartier restriction adapter from this general comparison, rather than assuming arbitrary nonflat base change for f!.",
+      "need": "As sole coherent-duality owner, expose determinant and finite-flat trace fundamental classes with their agreement under the precise normal/CM/Gorenstein and codimension-two hypotheses of Fakhruddin–Pilloni 2.6 and Pilloni 4.2.2–4.2.3. Include the open or finite-flat base-change comparison. Also supply the torsion-DVR-module Matlis/Pontryagin cofiniteness criterion and sheaf-cohomology filtered-colimit compatibility needed by K/O dévissage. Expose the perfect-coefficient comparison Lf*P ⊗ f!K ≅ f!(P ⊗ K) for perfect P and its composition coherence. A0 constructs the regular-Cartier restriction adapter from this general comparison, rather than assuming arbitrary nonflat base change for f!. Extend Hilbert 90 (invertible modules ↔ G_m-torsors) and quasi-coherent topology comparison from schemes to algebraic spaces with their actual ringed étale/fppf sites, using R09.3 module descent; the present scheme-only nodes do not supply these space conclusions.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/fundamental-class-boundary",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/ko-cohomology-devissage",
-        "AlgebraicModuliForArithmeticGeometry:A0-extension/cartier-duality-restriction"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/cartier-duality-restriction",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-brauer-obstruction",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-infinitesimal-lifting",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/finite-picard-cartier-torsors"
       ]
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "SchemeAndStackFoundations, Part II: coherent duality over qcqs universally coherent schemes. For separated finitely presented morphisms supply f^! on D⁺_qc, proper right adjunction, proper D_coh preservation and the source-qualified flat/Tor-independent base-change comparisons of Zavyalov §2.2, pp. 11–14. Do not assert this over an arbitrary non-Noetherian base; AS.1 is a downstream comparison consumer. Independently extend the SF.2 D_QCoh, perfect and pseudo-coherent complexes, Tor-amplitude, derived tensor and derived pullback/pushforward interfaces from schemes to qcqs algebraic spaces by étale descent. This space substrate is needed over arbitrary bases for the perfect-pushforward theorem; it does not assert coherent duality over arbitrary bases. EnhancedDerivedSheaves is a separate tier-4 unit and is not an A0 supplier.",
+      "need": "SchemeAndStackFoundations, Part II: coherent duality over qcqs universally coherent schemes. For separated finitely presented morphisms supply f^! on D⁺_qc, proper right adjunction, proper D_coh preservation and the source-qualified flat/Tor-independent base-change comparisons of Zavyalov §2.2, pp. 11–14. Do not assert this over an arbitrary non-Noetherian base; AS.1 is a downstream comparison consumer. Independently extend the SF.2 D_QCoh, perfect and pseudo-coherent complexes, Tor-amplitude, derived tensor and derived pullback/pushforward interfaces from schemes to qcqs algebraic spaces by étale descent. This space substrate is needed over arbitrary bases for the perfect-pushforward theorem; it does not assert coherent duality over arbitrary bases. EnhancedDerivedSheaves is a separate tier-4 unit and is not an A0 supplier. On locally Noetherian algebraic spaces, supply coherent proper-pushforward finiteness and the target-flat perfect-cohomology/base-change theorem (Stacks 75.25.1), extending the existing JacobianChallenge Layer C/StableReduction Layer 2 scheme package by space Chow/coherent descent. This intermediate space theorem is needed before passing to arbitrary-base finite-presentation limits.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/cartier-duality-restriction",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/fundamental-class-boundary",
@@ -2733,13 +2995,16 @@
   "gaps": [
     {
       "title": "Native algebraic-space and Artin interfaces",
-      "detail": "The affine functor prototypes elaborate, but the fixed-universe Sch/S étale site, module-valued obstruction groupoids, represented diagonal, local hull-to-smooth-chart bridge and all geometric signatures require their actual supplier interfaces. No Prop-valued placeholder stands for these conditions. The six inherited Picard leaves retain their own native gap.",
+      "detail": "The affine functor prototypes elaborate, but the fixed-universe Sch/S étale site, module-valued obstruction groupoids, represented diagonal, local hull-to-smooth-chart bridge and all geometric signatures require their actual supplier interfaces. No Prop-valued placeholder stands for these conditions. The six inherited Picard leaves retain their own native gap. SF.2 Hilbert 90 and quasi-coherent topology comparison are presently scheme-only and require the requested space extensions for the Picard cohomological arguments.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/module-obstruction-theory",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/artin-space-criterion",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/artin-stack-criterion",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-stack-spaces",
-        "AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-n-star"
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-n-star",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-infinitesimal-lifting",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-brauer-obstruction",
+        "AlgebraicModuliForArithmeticGeometry:A0-extension/finite-picard-cartier-torsors"
       ]
     },
     {
@@ -2775,7 +3040,7 @@
     },
     {
       "title": "Duality extension and K/O finiteness interfaces",
-      "detail": "General fundamental classes and universally coherent duality stay with SF.2; the requests state their hypotheses. Native geometric Cartier/adjunction maps and torsion-DVR cofinite duality/filtered-colimit cohomology exports are still required. The quotient algebra is elaborated, not the coherent-duality theorem. The SF.2 derived quasi-coherent/perfect substrate is currently stated for schemes; its qcqs algebraic-space extension by étale descent is an explicit Part II request, independent of the universally coherent duality extension.",
+      "detail": "General fundamental classes and universally coherent duality stay with SF.2; the requests state their hypotheses. Native geometric Cartier/adjunction maps and torsion-DVR cofinite duality/filtered-colimit cohomology exports are still required. The quotient algebra is elaborated, not the coherent-duality theorem. The SF.2 derived quasi-coherent/perfect substrate is currently stated for schemes; its qcqs algebraic-space extension by étale descent is an explicit Part II request, independent of the universally coherent duality extension. In particular the locally Noetherian proper coherent-cohomology/base-change input must first be extended from schemes to spaces; neither finite-presentation descent nor scheme cohomology silently supplies it.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:A0-extension/cartier-duality-restriction",
         "AlgebraicModuliForArithmeticGeometry:A0-extension/fundamental-class-boundary",
@@ -2790,7 +3055,7 @@
       "id": "AlgebraicModuliForArithmeticGeometry/E2001",
       "sourceId": "spaces-perfect",
       "kind": "misprint",
-      "locator": "Lemma 75.25.4, tag 0CTM, clause (2), p. 61; July 14, 2026 chapter PDF and live tag read October 9, 2026",
+      "locator": "Lemma 75.25.4, tag 0CTM, clause (2), pp. 61–62; July 14, 2026 chapter PDF and live tag read October 9, 2026",
       "printed": "In own words: the flatness assumption on G is written relative to the common scheme S rather than the target Y of f.",
       "correction": "Require G to be flat over Y, consistently with Lemma 75.25.1.",
       "reason": "Take S=Spec k, Y=Spec k[ε]/ε², X=Spec k and the closed immersion f, with G=k. It is S-flat and has proper support, but f_*G=k has infinite projective dimension over the dual numbers, so the asserted perfectness fails.",
@@ -2801,7 +3066,12 @@
         "Chapter spaces-perfect.pdf, Lemmas 75.25.1 and 75.25.4",
         "Web search: Stacks 0CTM flat over correction; no corresponding correction found in this bounded search"
       ],
-      "source": "spaces-perfect"
+      "source": "spaces-perfect",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed independently at 75.25.4 against 75.25.1: the latter requires Y-flatness. The closed point of the dual-number target is flat over the field, but its residue-field pushforward has an infinite periodic free resolution over the target.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E2002",
@@ -2809,8 +3079,8 @@
       "kind": "misprint",
       "locator": "Lemma 75.26.6, tag 0D21, final clause, pp. 65–66; July 14, 2026 chapter PDF and live tag read October 9, 2026",
       "printed": "In own words: after fixing the lowest Tor degree a, the final rank condition uses H⁰ instead of H^a.",
-      "correction": "Use local freeness of H^a of rank r in the final clause as in the earlier universal characterization.",
-      "reason": "For K=O_Y[−a] with a≠0 and r=1, β_a=1 everywhere and H^a=O_Y, while H⁰=0. The H⁰ wording therefore excludes the entire representing locus incorrectly.",
+      "correction": "Replace H⁰ by H^a both in final clause (4)(b), local freeness of rank r, and in (4)(c), faithfulness of the scalar action on End(H^a) when r=1.",
+      "reason": "For K=O_Y[−a] with a≠0 and r=1, β_a=1 everywhere and H^a=O_Y, while H⁰=0. The H⁰ wording therefore excludes the entire representing locus incorrectly. The same example shows that the printed map O_Y→End(H⁰)=0 in (4)(c) is not injective, so that occurrence must also be shifted.",
       "affects": "a stated result",
       "known": "new",
       "searched": [
@@ -2818,7 +3088,12 @@
         "Chapter spaces-perfect.pdf, Lemma 75.26.6 and the scheme rank-stratum comparison",
         "Web search: Stacks 75.26.6 H^0 correction; no corresponding correction found in this bounded search"
       ],
-      "source": "spaces-perfect"
+      "source": "spaces-perfect",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed both H⁰ occurrences in final (4)(b) and (4)(c). A shifted rank-one locally free complex satisfies the intended degree-a conditions while H⁰=0; the scalar-action map on End(0) is also nonfaithful.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E2003",
@@ -2835,7 +3110,12 @@
         "Bounded web search for 1812.09269, 3.8.10 and correction, October 9, 2026.",
         "The finding is confined to v3; no claim is made about an unread publisher text."
       ],
-      "source": "bcgp21"
+      "source": "bcgp21",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3, Lemma 3.8.10. For the identity map with F=O² the comparison has rank two. The invertible object from 3.8.9 tensors with f*F and preserves its rank.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E2004",
@@ -2852,7 +3132,12 @@
         "Bounded web search for the paper title, Lemma 2.4 and erratum, October 9, 2026; no correction found.",
         "This finding is scoped to the hashed author file, not to a separately unread publisher version."
       ],
-      "source": "fakhruddin-pilloni"
+      "source": "fakhruddin-pilloni",
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the hashed author PDF, Lemma 2.4: h! accepts a complex on S. Replacing O_X by O_S gives the formula used in the following proof. No assertion about a different publisher version.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2"
+      }
     }
   ],
   "provenance": {
@@ -3424,5 +3709,253 @@
       "sha256": "db004b2e685bd27001bd1fb719b9f7908a08ca39da9b5e0cd56914855ad9d7b6",
       "citation": "Hecke operators and the coherent cohomology of Shimura varieties; Public author PDF identified by SHA-256"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
+    "date": "2026-10-09",
+    "notes": "Independent target-level review of all 43 nodes, all 18 pinned baseline statements, 40 resolved supplier nodes, 18 hashed public sources, current upstream roadmap/library scope and four supplied red-team findings. Corrected obstruction-theory scope, Raynaud section reasoning, algebraic-space supplier gaps and source locators; expanded APIs/tests and confirmed four source issues. This accepts a complete planning pass with six explicit interface/proof gaps and eight open supplier requests, not closed coverage or formalization. Geometric Lean signatures remain in the honest omission ledger.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/g-ring-finite-type",
+        "verdict": "corrected",
+        "note": "07PV proves polynomial permanence after localization and quotient reductions. No J-2 or universal catenarity is added."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/polynomial-approximation",
+        "verdict": "corrected",
+        "note": "07QY–07QZ use SF.0 Popescu and regular completion. The nonhenselian conclusion is in a pointed étale algebra; the henselian conclusion is in R."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/common-etale-neighbourhood",
+        "verdict": "verified",
+        "note": "Artin 2.5–2.6 gives pointed étale comparisons over the stated field/excellent-DVR base. Matching a finite jet does not assert that an arbitrary whole formal automorphism algebraizes."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/strong-infinitesimal-gluing",
+        "verdict": "corrected",
+        "note": "Native comparison uses actual square-zero ring pullbacks; stack gluing retains the 2-fibre-product isomorphism. Added a subset-image functor with a noninjective comparison."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/formal-point",
+        "verdict": "corrected",
+        "note": "All positive quotient powers and their transitions are retained. Added natural-transformation maps and a dual-number pair equal at value 0 but unequal at value 1."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/effectivity",
+        "verdict": "corrected",
+        "note": "Surjectivity of the actual restriction map is distinct from stack formal-groupoid equivalence. Added natural-isomorphism transport and the zero-ring representable functor counterexample."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/tangent-fibre",
+        "verdict": "corrected",
+        "note": "The specified base point is retained. Native F₂ cardinality distinguishes two tangent elements from four unframed points; vector-space and stack signatures remain an explicit interface gap."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/module-obstruction-theory",
+        "verdict": "corrected",
+        "note": "Corrected the Noetherian-A restriction: 98.22.1 ranges over all affine base algebras/modules and morphisms of deformation situations. Added the base/object/module maps, evaluation/constructor API and a nonzero double-point obstruction."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/formal-object-approximation",
+        "verdict": "verified",
+        "note": "98.10.1 uses the G-ring at the image point and finite-type residue field. The object initially belongs to X(R); effectivity first supplies it if one starts with a formal family."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/openness-versality",
+        "verdict": "corrected",
+        "note": "Corrected the product conditions to all affine base algebras and countable module families, as in 98.22.2. The inverse-limit/product argument cannot use only finite modules or Artin-local obstruction spaces."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/artin-space-criterion",
+        "verdict": "verified",
+        "note": "98.16.1 retains étale sheafness, diagonal representability, limit preservation, finite tangent spaces, formal effectivity and the openness axiom. It does not import R09.6 backwards."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/artin-stack-criterion",
+        "verdict": "verified",
+        "note": "98.17.1 retains stackness and infinitesimal automorphism finiteness in addition to the space-route conditions; groupoid effectivity is not replaced by the affine predicate."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/perfect-proper-pushforward",
+        "verdict": "corrected",
+        "note": "Corrected target-flatness source locator and exposed the missing locally Noetherian space cohomology input before finite-presentation limits. Scheme Layer C/Layer 2 alone do not supply this extension."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/fibre-betti-semicontinuity",
+        "verdict": "corrected",
+        "note": "75.26.1–3 give upper semicontinuity, constructibility and field-extension invariance; differential ranks cancel for the Euler characteristic. Derived fibres and local finite amplitude are retained."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/single-degree-free-locus",
+        "verdict": "verified",
+        "note": "75.26.4 detects concentration in one degree universally, with the resulting locally free module. This is stronger than merely having a constant Euler characteristic."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/lowest-degree-rank-stratum",
+        "verdict": "verified",
+        "note": "75.26.6 uses the lowest Tor degree a and the universal rank condition. The scalar-action condition for rank one also uses H^a; E2002 checks both misprinted H⁰ occurrences."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/universal-functions",
+        "verdict": "corrected",
+        "note": "75.26.7–8 use proper flat finite presentation and fibre hypotheses. The arbitrary-base comparison comes from perfect cohomology, not an unqualified Noetherian Grauert invocation."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-stack-spaces",
+        "verdict": "corrected",
+        "note": "99.10 defines the full invertible-module groupoid. Added tensor unit, inverses, arrows and descent API. Point and two-point tests distinguish the stack from its sheaf of classes."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-stack-algebraicity",
+        "verdict": "corrected",
+        "note": "Corrected 0D03/0D04 and split Moduli attribution. It is the open invertible locus in the requested R09.4 coherent-sheaf stack; space effectivity is explicitly requested. Only the A0 criterion prefix may feed R09.4."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/rigidification-gm-torsor",
+        "verdict": "verified",
+        "note": "99.11.6 uses universal functions to turn the scheme representing isomorphisms into a G_m-torsor. This supplies the smooth presentation comparison without assuming a global section."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-space-representability",
+        "verdict": "corrected",
+        "note": "99.11.8 is a proposition on p. 30. Universal functions and the coherent/Picard stack inputs are retained; the inherited six Picard leaves are imported, not recreated."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-separation",
+        "verdict": "corrected",
+        "note": "99.11.9 gives an immersion diagonal; 108.9.2 adds quasi-compactness. Separation uses the stated geometrically integral fibre hypothesis, not universal functions alone."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-infinitesimal-lifting",
+        "verdict": "corrected",
+        "note": "Replaced unrelated 108.4.1 by 108.8.5. The general square-zero units argument gives an H² obstruction, framed H¹ torsor and H⁰ automorphisms; unframed Picard classes quotient by the units boundary. Space topology comparison is requested."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-zero-sheaf",
+        "verdict": "corrected",
+        "note": "Corrected Kleiman Proposition 5.10 pp. 41–42. Added membership/group/extensionality API. The ordinary Enriques μ₂ example preserves the nonreduced identity component."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-zero-criterion",
+        "verdict": "verified",
+        "note": "Kleiman 5.20 is used only in represented-scheme generality. The SF.1 space neutral-component/properness extension and infinitesimal smoothness over nonreduced bases remain recorded gaps; A2 keeps abelian identification."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/picard-brauer-obstruction",
+        "verdict": "corrected",
+        "note": "Schröer §5 concerns finite groups, not this G_m sequence. Reattributed the field example to Lemma 1.1, with the arbitrary-base sequence derived from Leray, space Hilbert 90 and universal functions. No Azumaya or torsion identification is asserted."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/finite-picard-cartier-torsors",
+        "verdict": "corrected",
+        "note": "Raynaud 6.2.1 gives a sheaf correspondence, using local Ext¹ vanishing and Cartier duality. Global torsors require the stated section or obstruction check; fpqc duality descent and space Hilbert 90 are explicit gaps."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-n-star",
+        "verdict": "corrected",
+        "note": "6.1.4 separates ordinary direct-image equality from universal cohomological flatness. Added constructor/isomorphism API and made the embedded-point test the concrete pinched P¹ model of 9.1.2."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-degree-one",
+        "verdict": "corrected",
+        "note": "Corrected the divisor/section distinction. Use 8.2.1(ii)⇒(iii)⇒(iv) for a degree-one divisor; use 7.2.1 and curve Picard formal smoothness (2.3.2) for a section. A Cartier interpretation of a section needs a smooth generic point."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/space-analytification",
+        "verdict": "corrected",
+        "note": "Corrected definition/theorem numbering and separated the existing complex scheme supplier. Quotient, chart, morphism and identity/composition APIs retain nilpotents; nonarchimedean existence remains conditional here."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/separated-nonarch-analytification",
+        "verdict": "corrected",
+        "note": "4.2.1–2 supply separated-space existence through a closed-diagonal Berkovich quotient. Corrected Example 3.1.1 pages; local separatedness alone has counterexamples and is not sufficient."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/analytification-descent",
+        "verdict": "corrected",
+        "note": "Replaced unrelated 2.2.5 by 2.2.3. Presentation independence/functoriality/products follow by chart refinements; complex étale local isomorphisms are not confused with rigid-topology local isomorphisms."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/complex-local-comparison",
+        "verdict": "corrected",
+        "note": "Split source attribution. Completed local algebras plus Artin approximation give a common étale neighbourhood; the reverse uses the existing scheme analytic local comparison. Completion export/space descent remain precise supplier work."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/proper-space-gaga",
+        "verdict": "verified",
+        "note": "3.3.1 reduces proper-space GAGA through Chow/coherent dévissage to the existing scheme R3 theorem. The proper relative higher-direct-image statement and absolute tensor equivalence are distinct; space dévissage is requested."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/arithmetic-normalization",
+        "verdict": "verified",
+        "note": "SF.0 supplies finite Nagata normalization, including inseparable extensions. Dittmann–Pop 3.8 is the arithmetic application; separability is used for generic étaleness only."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/valuation-prolongation-integrality",
+        "verdict": "corrected",
+        "note": "The source 5.3 is arithmetic-specialized. The general new adapter quantifies over every prolongation of every selected valuation. Its converse passes to a splitting field and uses the root-coefficient node, not the desired integrality conclusion."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/root-coefficient-descent",
+        "verdict": "corrected",
+        "note": "In the general adapter, monicity/splitting and all roots in W imply all coefficients in W by the product formula, then in V by inverse image. Repeated roots are retained, so no separability assumption is hidden."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/cartier-duality-restriction",
+        "verdict": "verified",
+        "note": "BCGP 3.8.9–10 retains embeddability, equal relative dimensions and both regular Cartier equations; rank is that of F. The regular-Cartier/perfect-coefficient comparison is requested from SF.2 rather than arbitrary nonflat f! base change."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/boundary-dual-functional",
+        "verdict": "corrected",
+        "note": "The native map is A-linear and kills J modulo I; reduction is unique and evaluation at one agrees. Added the power-multiplied input constructor, using cJ⊂J^n⊂IB; no division by n occurs."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/fundamental-class-boundary",
+        "verdict": "corrected",
+        "note": "Pilloni/FP determinant and finite-flat trace constructions retain separate hypotheses. Added the distinction between compatibility of the base-changed boundary map and reasserting reducedness after arbitrary base change."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/ramified-divisor-trace",
+        "verdict": "verified",
+        "note": "BCGP 3.8.17 needs the scheme-theoretic equality f*D=nD′ and the normal-line twists in adjunction. Quotient functionals give the divisor map; the ordinary algebra trace formula is only its finite arithmetic multiplicity check."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/ko-coefficients",
+        "verdict": "corrected",
+        "note": "The native quotient is by the integral-tensor image for every M. Added surjectivity, factorization/uniqueness and module-map functoriality APIs, plus a nonzero half-integral class. The DVR sheaf exact sequence separately retains flatness."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:A0-extension/ko-cohomology-devissage",
+        "verdict": "corrected",
+        "note": "CG Lemma 3.7 supplies the curve divisibility argument, not the whole generalized cofinite claim. The π exact sequence, curve H² vanishing, filtered-colimit cohomology and the requested torsion-DVR dual criterion supply the stated extension."
+      }
+    ],
+    "baselineChecked": [
+      "mathlib:CategoryTheory.Limits.pullbackComparison",
+      "mathlib:CommRingCat.pullbackConeIsLimit",
+      "mathlib:Ideal.Quotient.factorPow",
+      "mathlib:TrivSqZeroExt",
+      "mathlib:CategoryTheory.Limits.PreservesFilteredColimits",
+      "mathlib:integralClosure",
+      "mathlib:Submodule.liftQ",
+      "mathlib:Ideal.Quotient.mkₐ",
+      "mathlib:TensorProduct.mk",
+      "mathlib:Submodule.mkQ",
+      "tauceti:Algebra.trace_quotient_pow_mk",
+      "tauceti:TauCeti.FiniteLocallyFreeBicommutativeHopfAlgCat.cartierDuality",
+      "mathlib:LocalSubring.exists_le_valuationSubring",
+      "mathlib:ValuationSubring.isMax_toLocalSubring",
+      "mathlib:iInf_valuationSubring_superset",
+      "mathlib:ValuationSubring.comap",
+      "mathlib:Polynomial.Splits.eq_prod_roots_of_monic",
+      "mathlib:minpoly"
+    ],
+    "currentUpstreamAudit": {
+      "roadmapMain": "de435a569d325b365a30fe83269ce34674eaea80",
+      "tauCeti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "note": "Read current JacobianChallenge, StableReduction and AlgebraicVectorBundles contracts; searched the newer roadmaps and current Tau Ceti for overlapping targets. Existing finite locally free affine group-scheme Cartier duality is also present and is imported, not planned again."
+    }
+  }
 }

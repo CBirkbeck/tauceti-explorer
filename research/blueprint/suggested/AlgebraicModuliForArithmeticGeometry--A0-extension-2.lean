@@ -9,6 +9,9 @@ import Mathlib.RingTheory.Valuation.LocalSubring
 import Mathlib.FieldTheory.Minpoly.Basic
 import Mathlib.Algebra.Polynomial.Splits
 import Mathlib.RingTheory.Ideal.Quotient.Operations
+import Mathlib.CategoryTheory.Yoneda
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Algebra.Field.ZMod
 
 /-!
 This file is not the roadmap and is not exhaustive. The accompanying roadmap
@@ -72,6 +75,17 @@ example {A C : CommRingCat.{u}} (f : A ⟶ C)
     Function.Bijective (pullbackComparison F f (𝟙 C)) := by
   sorry
 
+/-- Direct image of subsets is a concrete functor that fails RS*. -/
+def StrongGluingTests.subsetImage : CommRingCat.{u} ⥤ Type u where
+  obj R := Set R
+  map f := TypeCat.ofHom (Set.image f)
+  map_id := by sorry
+  map_comp := by sorry
+
+-- StrongGluingTests.subsetFailure: two distinct pullback subsets have equal projections.
+example : ¬ StrongInfinitesimalGluing StrongGluingTests.subsetImage.{0} := by
+  sorry
+
 variable (R : Type u) [CommRing R] (I : Ideal R)
 
 /-- Compatible points on all positive powers of an ideal, without truncation. -/
@@ -100,6 +114,16 @@ theorem FormalPoint.transition (x : FormalPoint F R I) {m n : ℕ} (h : n ≤ m)
       (x.value m) = x.value n := by
   sorry
 
+def FormalPoint.map {G : CommRingCat.{u} ⥤ Type u} (η : F ⟶ G)
+    (ξ : FormalPoint F R I) : FormalPoint G R I where
+  value n := η.app _ (ξ.value n)
+  compatible := by sorry
+
+theorem FormalPoint.map_value {G : CommRingCat.{u} ⥤ Type u} (η : F ⟶ G)
+    (ξ : FormalPoint F R I) (n : ℕ) :
+    (FormalPoint.map F R I η ξ).value n = η.app _ (ξ.value n) := by
+  sorry
+
 -- FormalPointTests.affineLine
 example (x : R) (n : ℕ) :
     (FormalPoint.ofPoint (forget CommRingCat.{u}) R I x).value n =
@@ -113,6 +137,16 @@ example : Subsingleton
 
 -- FormalPointTests.allOrders: agreement at every order gives equality.
 example (x y : FormalPoint F R I) (h : ∀ n, x.value n = y.value n) : x = y := by
+  sorry
+
+-- FormalPointTests.firstOrderInsufficient: the next quotient detects epsilon.
+example :
+    let J : Ideal (TrivSqZeroExt ℚ ℚ) :=
+      RingHom.ker (TrivSqZeroExt.fstHom ℚ ℚ ℚ).toRingHom
+    let x := FormalPoint.ofPoint (forget CommRingCat.{0}) (TrivSqZeroExt ℚ ℚ) J 0
+    let y := FormalPoint.ofPoint (forget CommRingCat.{0}) (TrivSqZeroExt ℚ ℚ) J
+      (TrivSqZeroExt.inr (1 : ℚ))
+    x.value 0 = y.value 0 ∧ x.value 1 ≠ y.value 1 := by
   sorry
 
 /-- This affine effectivity predicate has an explicit restriction map. -/
@@ -129,6 +163,10 @@ theorem IsEffective.lift_spec (h : IsEffective F R I) (ξ : FormalPoint F R I) :
     FormalPoint.ofPoint F R I (IsEffective.lift F R I h ξ) = ξ := by
   sorry
 
+theorem IsEffective.transport {G : CommRingCat.{u} ⥤ Type u} (e : F ≅ G)
+    (h : IsEffective F R I) : IsEffective G R I := by
+  sorry
+
 -- EffectivityTests.terminal
 example : IsEffective
     ((Functor.const CommRingCat.{u}).obj (ULift.{u} PUnit)) R I := by
@@ -140,6 +178,11 @@ example : IsEffective F R (⊥ : Ideal R) := by
 
 -- EffectivityTests.topIdeal: for the affine-line functor all quotients are zero.
 example : IsEffective (forget CommRingCat.{u}) R (⊤ : Ideal R) := by
+  sorry
+
+-- EffectivityTests.emptyScheme: formal points over zero quotients need not algebraize.
+example : ¬ IsEffective
+    (coyoneda.obj (Opposite.op (CommRingCat.of (ZMod 1)))) ℚ (⊤ : Ideal ℚ) := by
   sorry
 
 variable (k : Type u) [Field k]
@@ -177,6 +220,10 @@ example (x : F.obj (CommRingCat.of k)) :
       (TangentFiber.zero F k x).val = x := by
   sorry
 
+-- TangentTests.twoElements: fixing the base point halves the four dual-number points.
+example : Nat.card (TangentFiber (forget CommRingCat.{0}) (ZMod 2) 0) = 2 := by
+  sorry
+
 variable (A B : Type u) [CommRing A] [CommRing B] [Algebra A B]
 variable (IA : Ideal A) (JB : Ideal B)
 
@@ -201,6 +248,28 @@ theorem BoundaryDualFunctional.evaluate_one (ell : BoundaryDualFunctional A B IA
 
 theorem BoundaryDualFunctional.ext {ell μ : BoundaryDualFunctional A B IA JB}
     (h : ell.val = μ.val) : ell = μ := by
+  sorry
+
+theorem BoundaryDualFunctional.reduce_unique (ell : BoundaryDualFunctional A B IA JB)
+    (f : (B ⧸ (JB.restrictScalars A)) →ₗ[A] (A ⧸ IA))
+    (hf : ∀ b : B, f ((JB.restrictScalars A).mkQ b) = Ideal.Quotient.mk IA (ell.val b)) :
+    f = BoundaryDualFunctional.reduce A B IA JB ell := by
+  sorry
+
+/-- Multiplying an input by a ramified-boundary power makes it descend. -/
+def BoundaryDualFunctional.mulInput (ell : B →ₗ[A] A) (n : ℕ) (c : B)
+    (hn : 1 ≤ n) (hc : c ∈ JB ^ (n - 1))
+    (hpow : JB ^ n ≤ IA.map (algebraMap A B)) : BoundaryDualFunctional A B IA JB :=
+  ⟨{
+    toFun := fun b => ell (c * b)
+    map_add' := by sorry
+    map_smul' := by sorry
+  }, by sorry⟩
+
+theorem BoundaryDualFunctional.mulInput_apply (ell : B →ₗ[A] A) (n : ℕ) (c b : B)
+    (hn : 1 ≤ n) (hc : c ∈ JB ^ (n - 1))
+    (hpow : JB ^ n ≤ IA.map (algebraMap A B)) :
+    (BoundaryDualFunctional.mulInput A B IA JB ell n c hn hc hpow).val b = ell (c * b) := by
   sorry
 
 -- BoundaryTests.zeroFunctional
@@ -243,6 +312,53 @@ theorem KOCoefficients.integral_zero (m : M) :
 theorem KOCoefficients.mk_add (z w : K ⊗[R] M) :
     KOCoefficients.mk R K M (z + w) =
       KOCoefficients.mk R K M z + KOCoefficients.mk R K M w := by
+  sorry
+
+theorem KOCoefficients.mk_surjective : Function.Surjective (KOCoefficients.mk R K M) := by
+  sorry
+
+/-- The quotient universal property with its actual integral-tensor relation. -/
+def KOCoefficients.lift {N : Type u} [AddCommGroup N] [Module R N]
+    (f : K ⊗[R] M →ₗ[R] N) (hf : ∀ m : M, f (1 ⊗ₜ[R] m) = 0) :
+    KOCoefficients R K M →ₗ[R] N :=
+  (LinearMap.range (TensorProduct.mk R K M 1)).liftQ f (by sorry)
+
+theorem KOCoefficients.lift_mk {N : Type u} [AddCommGroup N] [Module R N]
+    (f : K ⊗[R] M →ₗ[R] N) (hf : ∀ m : M, f (1 ⊗ₜ[R] m) = 0) (z : K ⊗[R] M) :
+    KOCoefficients.lift R K M f hf (KOCoefficients.mk R K M z) = f z := by
+  sorry
+
+theorem KOCoefficients.hom_ext {N : Type u} [AddCommGroup N] [Module R N]
+    {f g : KOCoefficients R K M →ₗ[R] N}
+    (h : ∀ z : K ⊗[R] M, f (KOCoefficients.mk R K M z) =
+      g (KOCoefficients.mk R K M z)) : f = g := by
+  sorry
+
+def KOCoefficients.map {N : Type u} [AddCommGroup N] [Module R N] (f : M →ₗ[R] N) :
+    KOCoefficients R K M →ₗ[R] KOCoefficients R K N :=
+  KOCoefficients.lift R K M
+    (((LinearMap.range (TensorProduct.mk R K N 1)).mkQ).comp
+      (TensorProduct.map (LinearMap.id : K →ₗ[R] K) f)) (by sorry)
+
+theorem KOCoefficients.map_mk {N : Type u} [AddCommGroup N] [Module R N]
+    (f : M →ₗ[R] N) (z : K ⊗[R] M) :
+    KOCoefficients.map R K M f (KOCoefficients.mk R K M z) =
+      KOCoefficients.mk R K N (TensorProduct.map (LinearMap.id : K →ₗ[R] K) f z) := by
+  sorry
+
+theorem KOCoefficients.map_id :
+    KOCoefficients.map R K M (LinearMap.id : M →ₗ[R] M) = LinearMap.id := by
+  sorry
+
+theorem KOCoefficients.map_comp {N P : Type u}
+    [AddCommGroup N] [Module R N] [AddCommGroup P] [Module R P]
+    (f : M →ₗ[R] N) (g : N →ₗ[R] P) :
+    KOCoefficients.map R K M (g.comp f) =
+      (KOCoefficients.map R K N g).comp (KOCoefficients.map R K M f) := by
+  sorry
+
+-- KOTests.halfIntegralNonzero: the raw quotient is nontrivial.
+example : KOCoefficients.mk ℤ ℚ ℤ ((1 / 2 : ℚ) ⊗ₜ[ℤ] (1 : ℤ)) ≠ 0 := by
   sorry
 
 -- KOTests.baseField
@@ -319,34 +435,41 @@ Inputs: AlgebraicModuliForArithmeticGeometry:A0-extension/polynomial-approximati
 StrongInfinitesimalGluing — omitted geometric extension or extra conclusion:
 For a covariant affine functor F from commutative rings to sets, RS* means that F(A×_C B)→F(A)×_{F(C)}F(B) is bijective for every cospan A→C←B with B→C surjective and square-zero kernel. For a category fibred in groupoids use equivalence with the 2-fibre product, retaining the gluing isomorphism.
 Hypotheses: Use a fixed universe; the relative version uses rings over the affine base.
-The native definition, API and three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
+The native definition, API and at least three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
 
 FormalPoint — omitted geometric extension or extra conclusion:
 For an affine set-valued functor F, a ring R and ideal I, FormalPoint(F,R,I) consists of ξ_n∈F(R/I^(n+1)) for every n≥0, compatible with every quotient transition. Restriction sends x∈F(R) to its family. In the geometric criterion take I=m_R, R complete Noetherian local over S, and residue field finite type over S.
 Hypotheses: The affine prototype has no completeness restriction; the criterion adds it explicitly. For stacks replace equality compatibility by coherent pullback isomorphisms in the formal-object groupoid.
-The native definition, API and three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
+The native definition, API and at least three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
 
 IsEffective — omitted geometric extension or extra conclusion:
 Affine set-valued effectivity at (R,I) is surjectivity of F(R)→FormalPoint(F,R,I). The Artin space criterion quantifies this over all complete Noetherian local S-algebras with finite-type residue field. For a stack, effectivity means essential surjectivity of restriction to its formal-object groupoid. The stronger equivalence interface also retains unique compatible lifting of morphisms; with represented diagonal this is the standard supplied effectivity interface.
 Hypotheses: Use the restriction map of formal-point, not a separately postulated algebraization predicate.
-The native definition, API and three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
+The native definition, API and at least three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
 
 TangentFiber — omitted geometric extension or extra conclusion:
 For x∈F(k), define the tangent fibre as the fibre over x of F(k[ε]/ε²)→F(k), with zero tangent given by the split inclusion k→k[ε]/ε². For a stack take isomorphism classes of lifts with a specified identification with x; infinitesimal automorphisms are the kernel of the automorphism restriction of the split lift. RS supplies their natural k-vector-space structures.
 Hypotheses: k is a field; relative functors and dual numbers are taken over the base.
-The native definition, API and three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
+The native definition, API and at least three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
 
 ModuleObstructionTheory — definition signature:
-For x∈X(Spec A), A Noetherian over S, an obstruction theory assigns an A-linear functor O_x on A-modules, natural in module maps, and to each square-zero extension A′→A of kernel M a class ob_x(A′)∈O_x(M), compatible with pushout of extensions. Its class vanishes exactly when the groupoid of lifts of x with specified identification is nonempty. T_x(M) and Inf_x(M) respectively describe differences between liftings and their infinitesimal automorphisms.
-Hypotheses: For the openness theorem use the full module-functor axioms of 98.22.1, including naturality in extensions and in the object; the finite-dimensional Artin-local obstruction space of SF.4 alone is insufficient.
+For locally Noetherian S and x∈X(Spec A), with Spec A→S factoring through an affine open, an obstruction theory assigns an A-linear functor O_x on A-modules, natural in module maps, and to each square-zero extension A′→A of kernel M a class ob_x(A′)∈O_x(M), compatible with morphisms of deformation situations. For every ring map A→B, y=x|_B and A-linear map M→N to a B-module, it includes a natural A-linear map O_x(M)→O_y(N). Its class vanishes exactly when the groupoid of lifts of x with specified identification is nonempty. T_x(M) and Inf_x(M) respectively describe differences between liftings and their infinitesimal automorphisms.
+Hypotheses: For the openness theorem use the full module-functor axioms of 98.22.1, including naturality in extensions and in the object; the finite-dimensional Artin-local obstruction space of SF.4 alone is insufficient. A, its square-zero extensions and the modules are not required to be Noetherian or finite. Only S is locally Noetherian; the source obstruction theory ranges over all these deformation situations.
 Omitted because: The native G-ring/Popescu interfaces and geometric Sch/S, formal-groupoid, obstruction-module and smooth-chart suppliers are not available. The affine prototypes above cover set-valued absolute functors only.
 Inputs: AlgebraicModuliForArithmeticGeometry:A0-extension/strong-infinitesimal-gluing, AlgebraicModuliForArithmeticGeometry:A0-extension/tangent-fibre, SchemeAndStackFoundations:SF.4/obstruction-theory.
 API ModuleObstructionTheory.pushout: A map M→N sends the obstruction to that of the pushed-out extension.
 API ModuleObstructionTheory.zero_iff_lift: The obstruction vanishes exactly when a framed lift exists.
 API ModuleObstructionTheory.lifting_torsor: If lifts exist their framed isomorphism classes form a torsor under T_x(M), with Inf_x(M) their infinitesimal automorphisms.
+API ModuleObstructionTheory.baseChange: For A→B, y=x|_B and an A-linear map M→N to a B-module, expose the natural map O_x(M)→O_y(N), with identity and composition laws.
 Example ObstructionTests.split (computation): A split extension has zero obstruction and its split lift exists.
 Example ObstructionTests.zeroKernel (degenerate): A zero-kernel extension has the original object as lift.
 Example ObstructionTests.curveLineBundle (compatibility): For a line bundle on a proper smooth curve over k, O_x(M)=H²(X,O_X)⊗M=0, though H¹ may parametrize different lifts.
+
+Example ObstructionTests.doublePoint (non-example): For Spec Q[t]/(t²), the point t↦ε over Q[ε]/ε² does not lift to Q[ε]/ε³. The equation obstruction is the nonzero ε² in the square-zero kernel (ε²): every prospective ε+cε² has square ε². This rules out a constant-zero obstruction theory.
+
+API ModuleObstructionTheory.mk: Bundle the actual module functor, the extension-indexed classes, their naturality equations and the zero-iff-framed-lift proof.
+API ModuleObstructionTheory.obstruction: Evaluate the obstruction class of a specified object and specified square-zero extension, in the module assigned to its actual kernel.
+API ModuleObstructionTheory.split: The class for a split square-zero extension is zero because the split framed lift exists.
 
 formal_object_approximation — theorem signature:
 Let S be locally Noetherian, X a category fibred in groupoids limit preserving on objects, R a complete Noetherian local S-algebra with finite-type residue field, and x∈X(R). If O_{S,s} is a G-ring at the image s, then for every N≥1 there are a finite-type S-algebra A, a maximal ideal m_A, an object x_A, and an S-isomorphism R/m_R^N≅A/m_A^N identifying the restrictions of x and x_A. One can also identify the associated graded rings at the specified points.
@@ -355,8 +478,8 @@ Omitted because: The native G-ring/Popescu interfaces and geometric Sch/S, forma
 Inputs: AlgebraicModuliForArithmeticGeometry:A0-extension/g-ring-finite-type, AlgebraicModuliForArithmeticGeometry:A0-extension/polynomial-approximation.
 
 openness_of_versality — theorem signature:
-Let X be a category fibred in groupoids over locally Noetherian S with representable diagonal, RS*, limit preservation and a module-valued obstruction theory. Suppose for every Noetherian A, x and family (M_i) of A-modules the map T_x(∏M_i)→∏T_x(M_i) is an isomorphism and O_x(∏M_i)→∏O_x(M_i) is injective. For an object over a finite-type S-scheme U, its formal versality at a finite-type point implies versality at all finite-type points in some open neighbourhood.
-Hypotheses: Formal versality is the smooth lifting property of its complete-local deformation functor, as in SF.4 hull; retain both product conditions and the representable diagonal.
+Let X be a category fibred in groupoids over locally Noetherian S with representable diagonal, RS*, limit preservation and a module-valued obstruction theory. Suppose for every S-algebra A mapping into an affine open, every x and every countable family (M_i) of A-modules the map T_x(∏M_i)→∏T_x(M_i) is an isomorphism and O_x(∏M_i)→∏O_x(M_i) is injective. For an object over a finite-type S-scheme U, its formal versality at a finite-type point implies versality at all finite-type points in some open neighbourhood.
+Hypotheses: Formal versality is the smooth lifting property of its complete-local deformation functor, as in SF.4 hull; retain both product conditions and the representable diagonal. The algebra A and modules in the product condition need not be Noetherian or finite; both maps must be available on the product modules themselves.
 Omitted because: The native G-ring/Popescu interfaces and geometric Sch/S, formal-groupoid, obstruction-module and smooth-chart suppliers are not available. The affine prototypes above cover set-valued absolute functors only.
 Inputs: AlgebraicModuliForArithmeticGeometry:A0-extension/module-obstruction-theory, AlgebraicModuliForArithmeticGeometry:A0-extension/strong-infinitesimal-gluing, SchemeAndStackFoundations:SF.4/hull, SchemeAndStackFoundations:SF.1.
 
@@ -414,6 +537,12 @@ Example PicardStackTests.point (computation): For X=B=Spec k the fibre stack is 
 Example PicardStackTests.disjointPoints (computation): For two points over k the trivial line bundle has automorphism group k××k×.
 Example PicardStackTests.baseChange (compatibility): Restricting the stack to Sch/T agrees with the Picard stack of X_T/T.
 
+API PicardStackSpaces.unit: The structure sheaf on X_T is the tensor unit in the fibre groupoid.
+API PicardStackSpaces.tensor: Tensor product of invertible modules induces the fibrewise Picard groupoid operation, with associativity, symmetry and unit constraints.
+API PicardStackSpaces.dual: Dualizing an invertible module gives its tensor inverse with the evaluation isomorphism to the unit.
+API PicardStackSpaces.hom_equiv: Arrows over id_T are precisely the isomorphisms of invertible O_X_T-modules, not equality of their Picard classes.
+API PicardStackSpaces.descent: For each fppf cover of T the comparison to descent data is an equivalence of groupoids, retaining morphisms and cocycle isomorphisms.
+
 picard_stack_algebraic — theorem signature:
 If f:X→B is proper, flat and finitely presented, the Picard stack is algebraic, quasi-separated and locally of finite presentation over B. It is the open substack of Coh_{X/B} consisting of invertible modules.
 Hypotheses: No global section, Noetherian base or projectivity is required. The ambient coherent-sheaf stack parametrizes finitely presented T-flat modules with support proper over T.
@@ -456,6 +585,11 @@ Example PicardZeroTests.projectiveLine (computation): For P¹/k the relative Pic
 Example PicardZeroTests.curve (compatibility): For a smooth proper pointed curve Pic⁰ agrees with the existing JacobianChallenge identity component.
 Example PicardZeroTests.nonreduced (non-example): For an ordinary Enriques surface Y over an algebraically closed field k of characteristic 2, Picτ=μ₂ is connected, hence Pic⁰=μ₂. Its coordinate ring k[t]/((t−1)²) retains a nonzero nilpotent t−1; the reduced identity component would be the trivial group.
 
+API PicardZeroSheaf.mk: A section of P and proofs that all its geometric values lie in the identity components determine a section of Pic⁰.
+API PicardZeroSheaf.mem_iff: Membership is equivalent to the identity-component condition at every geometric point of T.
+API PicardZeroSheaf.group: Addition, zero and inverses are inherited from P and preserve the fibrewise identity-component condition.
+API PicardZeroSheaf.ext: Sections are equal exactly when their images in P are equal; no reduction of the represented component is used.
+
 picard_zero_criterion — theorem signature:
 Assume B is locally Noetherian and P is the relative Picard algebraic space above. In the scheme-represented case, if the identity components P_s⁰ are smooth of locally constant dimension, Pic⁰ is an open finite-type group subscheme; it is smooth when B is reduced, and proper and closed in P when all P_s⁰ are proper and P is separated. For algebraic spaces, under the requested neutral-component extension, the same conclusions hold. Over a nonreduced B instead require formal smoothness of P along the neutral component; local finite presentation then yields smoothness. With proper geometric identity components and separated P the resulting Pic⁰ is a smooth proper finitely presented group space.
 Hypotheses: Kleiman 5.20 supplies the scheme-represented case. The algebraic-space extension and proper neutral-component criterion are an explicit supplier gap, not claimed source theorems here. Smooth geometric fibres alone do not imply smoothness over a nonreduced base.
@@ -483,14 +617,17 @@ API RaynaudNStar.noEmbedded: The special fibre has no embedded associated points
 API RaynaudNStar.genericNormal: The total space is normal at every generic point of the special fibre.
 API RaynaudNStar.functions: The structure-sheaf direct image over the trait is O_S.
 Example RaynaudTests.regularPoint (computation): For X=S with the identity morphism, N* holds.
-Example RaynaudTests.embeddedPoint (non-example): A flat trait family whose special fibre has an embedded associated point fails N regardless of its generic fibre.
+Example RaynaudTests.embeddedPoint (non-example): In Raynaud 9.1.2 (p. 67), pinch two distinct rational points in the special fibre of P¹ over a trait. The resulting reduced proper flat model has generic fibre P¹, but its special fibre has an embedded point at the node, so it fails N. Generic normality alone is insufficient.
 Example RaynaudTests.nontrivialConstants (non-example): For a nontrivial finite unramified trait extension X→S, N holds but N* fails because f_*O_X is the extension ring.
 
+API RaynaudNStar.mk: Bundle the absence of embedded special-fibre associated points, normality at its generic points and the specified canonical O_S≅f_*O_X comparison.
+API RaynaudNStar.ofIso: An isomorphism of proper flat models over the same trait transports N*.
+
 raynaud_degree_one_cohomologicallyFlat — theorem signature:
-Let f:X→S be a proper flat finitely presented relative curve over a discrete valuation trait satisfying N*. If the generic fibre after strict henselization of S has a divisor of degree one, f is cohomologically flat in degree zero: formation of f_*O_X commutes with every base change. In particular a section gives the required generic degree-one divisor.
-Hypotheses: The divisor is on the generic fibre after strict henselization. A generic degree-one divisor without N* does not meet the theorem.
-Omitted because: Requires actual ringed étale algebraic-space sites and groupoids, R09.4 coherent-sheaf moduli, SF.4 proper-space effectivity and SF.1 neutral-component or group-scheme descent suppliers.
-Inputs: AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-n-star, tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity.
+Let f:X→S be a proper flat finitely presented relative curve over a discrete valuation trait satisfying N*. If the generic fibre after strict henselization of S has a divisor of degree one, f is cohomologically flat in degree zero: formation of f_*O_X commutes with every base change. A section also implies cohomological flatness in degree zero. When the section meets the smooth locus of the generic fibre, it supplies a degree-one Cartier divisor there.
+Hypotheses: The divisor is on the generic fibre after strict henselization. A generic degree-one divisor without N* does not meet the theorem. The section conclusion uses the curve Picard formal-smoothness route; an arbitrary section is not asserted to be a Cartier divisor at a singular point.
+Omitted because: Requires the native trait/model and Picard formal-smoothness interfaces.
+Inputs: AlgebraicModuliForArithmeticGeometry:A0-extension/raynaud-n-star, tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity, AlgebraicModuliForArithmeticGeometry:A0-extension/picard-infinitesimal-lifting.
 
 SpaceAnalytification — construction signature:
 For a complex algebraic space X locally of finite type with locally separated diagonal, take an étale scheme presentation R⇉U and construct X^an as the analytic quotient of R^an⇉U^an. The local-isomorphism relation glues analytic structure, including nilpotents. Over a complete nontrivially valued nonarchimedean field K use an existing quotient of this analytified relation; separated X has such a quotient by the next theorem. Its quotient sheaf is represented, and U^an→X^an is an étale cover with R^an≅U^an×_{X^an}U^an.
@@ -503,6 +640,10 @@ API SpaceAnalytification.scheme: For a scheme, this agrees with the existing sch
 Example AnalytificationTests.dualNumbers (compatibility): For Spec C[ε]/ε² the analytic local ring contains the nonzero class ε with ε²=0.
 Example AnalytificationTests.point (degenerate): A single field point analytifies to the existing analytic field point.
 Example AnalytificationTests.presentation (characterisation): A disjoint union presentation of the same scheme gives the same analytification and its actual overlap relation.
+
+API SpaceAnalytification.map: A morphism of analytifiable algebraic spaces induces the canonical analytic morphism independent of chart refinements.
+API SpaceAnalytification.map_id: Analytifying an identity gives the identity after the canonical quotient comparison.
+API SpaceAnalytification.map_comp: Analytification respects composition with the canonical presentation-independent identifications.
 
 separated_nonarch_analytification — theorem signature:
 Every separated algebraic space locally of finite type over a complete nontrivially valued nonarchimedean field admits rigid analytification, compatible with the scheme construction. On the Berkovich side an étale equivalence relation R⇉U with closed-immersion diagonal has a separated analytic quotient; good and strictly analytic properties descend.
@@ -543,11 +684,11 @@ Inputs: SchemeAndStackFoundations:key/coherent-duality, SchemeAndStackFoundation
 BoundaryDualFunctional — omitted geometric extension or extra conclusion:
 For an A-algebra B and ideals I⊂A,J⊂B, BoundaryDualFunctional(A,B,I,J) consists of A-linear maps ℓ:B→A with ℓ(J)⊂I. Such a functional induces a unique A-linear map B/J→A/I, and its value at the class of 1 is ℓ(1) modulo I. If J^n⊂IB, ℓ is A-linear and sends IB into I, then for c∈J^(n−1) the functional b↦ℓ(cb) belongs to this construction.
 Hypotheses: No division by n and no separability hypothesis. The final power application assumes n≥1.
-The native definition, API and three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
+The native definition, API and at least three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
 
 fundamental_class_boundary — theorem signature:
 Let f:X→Y be an embeddable morphism between S-schemes of the same pure relative dimension. Under the imported SF.2 fundamental-class hypotheses, let D_X,D_Y be reduced relative effective Cartier divisors with f^−1(|D_Y|)=|D_X|. For the determinant construction assume the normal/smooth dense open and relative normal-crossings conditions of Pilloni 4.2.4.1(1); for the trace construction assume f finite flat as in (2). Then Θ sends O_X(−D_X) into f^!O_Y(−D_Y). Under an open base change or, in the finite-flat case, any base change for which the Cartier divisors remain Cartier, this boundary map agrees with the base-changed map.
-Hypotheses: A determinant fundamental class over a nonflat general morphism is not declared compatible with arbitrary base change. The two construction hypotheses are kept separate.
+Hypotheses: A determinant fundamental class over a nonflat general morphism is not declared compatible with arbitrary base change. The two construction hypotheses are kept separate. After arbitrary finite-flat base change the retained Cartier divisors can be nonreduced. Compatibility compares the base-changed boundary morphism, without reasserting the reduced-divisor construction hypotheses on the new base.
 Omitted because: Requires the SF.2 duality/fundamental-class, derived sheaf and cofinite DVR module/cohomology interfaces. The raw quotient and functional algebra above are native, not these geometric or sheaf-theoretic consequences.
 Inputs: SchemeAndStackFoundations:key/coherent-duality, SchemeAndStackFoundations:SF.2, AlgebraicModuliForArithmeticGeometry:A0-extension/boundary-dual-functional, AlgebraicModuliForArithmeticGeometry:A0-extension/cartier-duality-restriction.
 
@@ -560,7 +701,7 @@ Inputs: AlgebraicModuliForArithmeticGeometry:A0-extension/cartier-duality-restri
 KOCoefficients — omitted geometric extension or extra conclusion:
 For a commutative ring O, an O-algebra K and O-module M, define KOCoefficients(M)=(K⊗_O M)/im(m↦1⊗m). For a discrete valuation ring O, fraction field K, uniformizer π and flat M this identifies with M⊗_O(K/O), and 0→M/πM→KOCoefficients(M)→KOCoefficients(M)→0 is exact with first map m↦π^−1⊗m and second map multiplication by π. Apply the same construction to a locally free coherent sheaf.
 Hypotheses: Flatness is required for the exact identification and injection; the raw quotient construction exists for every M.
-The native definition, API and three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
+The native definition, API and at least three named tests appear above. Stack, relative-base, sheaf, exact-sequence or ramified-power consequences in this full statement require the actual suppliers; they are not implied by elaboration of the raw affine construction.
 
 ko_cohomology_cofinite — theorem signature:
 Let X be a proper flat finitely presented relative curve over a complete discrete valuation ring O with fraction field K, uniformizer π and residue field k, and let L be locally free coherent. Cohomology with L_{K/O} is zero above degree one; H¹(X,L_{K/O}) is π-divisible, and H⁰ and H¹ are cofinite O-modules. Here cofinite means their Matlis/Pontryagin dual under the appropriate K/O injective-cogenerator pairing is finitely generated. H⁰(X,L_{K/O})[π]≅H⁰(X_k,L_k), and H¹(X,L_{K/O})[π] is a quotient of H¹(X_k,L_k).
