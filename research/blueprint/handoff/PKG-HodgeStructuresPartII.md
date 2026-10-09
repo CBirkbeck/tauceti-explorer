@@ -1,5 +1,103 @@
 # PKG-HodgeStructuresPartII — checkpoint handoff
 
+Status: partial; the full pinned Lean check is blocked on unavailable native
+Tau Ceti dependency objects. Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
+Continued by Codex, session `codex-Zdji46`, on 9 October 2026, after the bot
+confirmed the claim in [its reply](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6074106589).
+This is a checkpoint, not a completed package or an implementation claim.
+
+## This continuation: H.8 fidelity and its prerequisite interfaces
+
+The [package README](../packages/HodgeStructuresPartII/README.md) now includes
+an H.8 definition-by-definition API and discriminating example suite, and
+six target groups specifying the direct mathematical supplier interfaces.
+All 31 H.8 node statements, hypotheses, API items, unit tests, prerequisites,
+source locators and acceptance boundaries were compared with the accepted
+[H.8 plan](../packets/HodgeStructuresPartII--H.8.json). The README still groups
+related targets into a roadmap rather than reproducing node records.
+
+The audit clarifies the notation in the Green argument: ℐ is the untwisted
+real (1,1) bundle on the complex base, whereas J_b is the Tate-twisted fixed
+(1,1) space at a real point. The real criterion and `GoodRealLocus` now give
+J_b=H_R,b^(1,1)(1)^G explicitly. It also states the connected smooth projective
+surface hypothesis in the product-threefold application, puts the divisor
+sequence's quotient sheaf on T by pushforward from C, and attributes the
+negative flat-class obstruction derivative to the graph calculation rather
+than to a statement in Griffiths' paper. These make the existing targets more
+precise; they add no target and change no accepted plan.
+
+H.8 target-to-subsection map (suffixes of `HodgeStructuresPartII:H.8/`):
+
+| README subsection | Targets accounted for |
+| --- | --- |
+| Real action and transported classes | real-action; combined-type; twisted-invariants; twist-sign; geometric-real-variation; transported-hodge-locus; transported-locus-gluing; nl-obstruction-derivative |
+| Geometric contraction and normal boundaries | kodaira-spencer-contraction; griffiths-derivative; normal-boundary-factorization; normal-vanishing-surjectivity |
+| Green submersion and real cones | positive-open-cone; green-evaluation-submersion; fixed-linear-surjectivity; real-green-open-cone; good-real-locus; real-good-locus-density |
+| Constant and vanishing subvariations | orthogonal-constant-splitting; constant-symbol-zero; vanishing-rank-criterion; vanishing-real-green; full-lattice-coset-cone |
+| Voisin's complex pushforward-kernel theorem | voisin-infinitesimal-kernel; voisin-kernel-cone; voisin-product-surface |
+| Ordinary integral topology and divisor export | affine-cw-bound; affine-integral-vanishing; ordinary-integral-lefschetz-h3; ordinary-integral-lefschetz-h2; transported-divisor-export |
+
+The API/examples subsection spells out all six definitions' 32 API items and
+26 tests in mathematical prose. The prerequisites subsection retains the
+ordinary integral topology, the non-polarized intersection-pairing boundary,
+and the genuine equivariant integral lift needed for real divisor export.
+
+Read [Benoist, *Sums of three squares and Noether–Lefschetz loci*](https://www.math.ens.psl.eu/~benoist/articles/NLsquares.pdf)
+§§1.1–1.4, Propositions 1.1–1.3 and their proofs, printed pp.1050–1052,
+on 9 October 2026 to check the action, Tate sign, admissible neighbourhoods,
+real-cone conclusion and componentwise density. No fresh reading of the
+other H.8 sources is claimed: their statements and locators were compared
+with the accepted plan. No restricted book or source passage was copied.
+The upstream HodgeStructures and UniversalCovers roadmaps were read in full,
+alongside WORKERS, both protocols, UPSTREAM_GUIDE and the reviewed parent
+Hodge library coverage. Native fibre-Hodge statements and the nondegenerate
+orthogonal-complement theorem were read at the exact recorded pins.
+
+## Current checks and blocker
+
+- All ten input packets passed `python3 scripts/check_blueprint.py`:
+  zero errors and zero warnings for each. They remain unchanged.
+- The README is 171,486 bytes, under the 200 KB limit. H.0–H.8 occur in
+  order; there are no private paths, source excerpts or process records in
+  its new text. The only modified deliverables are the README and this note.
+- `Suggested.lean` remains unchanged from the previous continuation,
+  including its 108 individual imports and H.6 omission inventory.
+- Whole-file `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
+  failed with exit code 1 while loading imports, before any declaration was
+  checked: `TauCeti.AlgebraicTopology.LocalCoefficient` has no object file.
+  All ten Tau Ceti direct imports are unavailable in the configured build;
+  the complete module list is preserved below.
+- The configured build has Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174` but Tau Ceti
+  `cf386627e9176a3827c1a5fe804989fd94a4d216`, rather than the required
+  `f790474821cf4256814db967cb154e7af3d0c369`. Read-only inspection of
+  the existing Tau Ceti build directories and roadmap dependency found no
+  usable build at both pins. Existing exact-pin source trees have no compiled
+  Tau Ceti objects. More recent complete builds also use other Mathlib pins.
+  Memory is sufficient; no build, cache fetch, update, language server,
+  repository copy or dependency modification was started.
+
+`metadata.toml` remains absent, preserving checkpoint classification; its
+final content is `topic = "math.AG"` once all package requirements are met.
+
+## Resume
+
+Provide an existing complete native build at both exact pins, then run the
+whole-file check. Do not discard native imports, change the pins or replace
+geometric carriers by arbitrary admitted types. Complete the remaining
+whole-roadmap fidelity audit, especially H.0's 576 targets, and restore H.6's
+missing global signatures against the actual supplier interfaces below.
+The H.8 prose/API/prerequisite comparison is finished; its geometric Lean
+omissions are not thereby discharged. Compile the whole file, fix its actual
+errors, and add metadata only when the complete package is valid.
+
+No scratch artifact is needed to resume. The prior continuation's detailed
+H.6 inventory and remaining signature requirements follow intact.
+
+---
+
+## Prior continuation receipt (codex-DpXa1j)
+
 Status: partial; blocked on prebuilt native dependencies and incomplete native
 geometric signatures. Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
 Continued by Codex, session `codex-DpXa1j`, on 9 October 2026, after the bot
