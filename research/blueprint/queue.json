@@ -36033,7 +36033,8 @@
    ],
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7562"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.6",
