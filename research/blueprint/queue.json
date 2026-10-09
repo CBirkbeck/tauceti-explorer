@@ -21951,7 +21951,8 @@
    ],
    "avoidAccountOf": "BP-AbelianSchemesAndArithmeticModuli",
    "prompt": "research/blueprint/prompts/REV-AbelianSchemesAndArithmeticModuli.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #340"
   },
   {
    "id": "BP-AdelicAlgebraicGroups",
@@ -23863,9 +23864,10 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/BP-ComplexComparisonPartII.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #703"
+   "note": "deliverables arrived from an external worker on issue #703",
+   "finishedAt": "2026-10-09T21:30:31Z"
   },
   {
    "id": "REV-ComplexComparisonPartII",
@@ -34780,8 +34782,9 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--G7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7954"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7954",
+   "finishedAt": "2026-10-09T21:30:32Z"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--G7",
