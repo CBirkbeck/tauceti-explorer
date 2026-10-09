@@ -1,10 +1,11 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current blocked checkpoint: Codex session `codex-kwYBrA`, 9 October 2026,
-issue #5871, base `3e12579277aaf8a219cbe13d27e660a621c7124e`.
-All seven authorized files are unchanged since merged checkpoint PR #7776.
-This continuation confirms the intake-scope blocker and preserves the existing
-mathematical verdicts and reviewer objects.
+Current blocked checkpoint: Codex session `codex-pUhc7Z`, 9 October 2026,
+issue #5871, base `94404825e616d3808274c3ab1898841f796c44bb`.
+Before this update, all seven authorized files matched merged checkpoint PR #7780.
+This continuation reproduces the unresolved intake-scope blocker and preserves
+all mathematical verdicts and reviewer objects. Maintainer metadata repair is
+required before another worker continuation can complete intake.
 
 Completed independent review for issue #5871 by Codex, session `codex-t0EaB3`, 7 October 2026.
 Base: `5f858d95`. Work reviewed: FIX-RT-AREA-langlands-2~3, Claude `claude-c9TlsS`, #5870,
@@ -502,3 +503,35 @@ suggested files were not recompiled; earlier successful compilation receipts
 remain historical evidence. No fresh primary-source reading, pinned-library
 review or graph audit is claimed. The next action remains maintainer repair
 of the metadata, rather than another unchanged-input continuation.
+
+## Current blocker receipt, 9 October 2026 — codex-pUhc7Z
+
+Claim confirmed at [comment 6074706916](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074706916).
+Re-read the confirmed live issue and inherited handoff. All seven issue outputs
+were byte-for-byte identical to [PR #7780](https://github.com/CBirkbeck/tauceti-explorer/pull/7780),
+merge commit `80353a01e61bff319775e0fbafaaddb43d5fae78`, before this update.
+The three packets and three suggested files also match PR #7776.
+
+Read `issues.deliverables_complete`, the intake allowlist and the historical
+`make_queue.fix_rounds` path. The current review queue entry is pending and
+lists 27 existing outputs. Its completion check is false; replacing only its
+outputs in memory with the seven paths parsed from the live issue makes it
+true. The ten extra packets name other review jobs, as the handoff's table
+records. The parent fix is done but still lists 40 outputs. Neither queue nor
+generator repair is an authorized issue edit, and both paths fail the intake
+allowlist. The handoff gives the exact seven review and ten parent-fix paths
+and the regeneration code path requiring maintainer repair.
+
+Fresh validation: all three `check_blueprint.py` runs report zero errors and
+zero warnings; all 177 nodes remain unchecked; no packet contains an excerpt
+field; all forty confirmed findings have exactly one report disposition.
+Existing verdicts remain CSM accepted, Global accepted, GL2 needs_changes.
+The GL2 negative verdict is a completed review outcome, not the reason intake
+fails. This run changes only the report and handoff. It does not claim fresh
+source reading, pinned-library verification or graph auditing. Unchanged Lean
+files were not recompiled; earlier compilation receipts remain historical.
+
+This is a blocked checkpoint. Resume after the maintainer reconciles and
+preserves the historical scopes through queue regeneration and runs normal
+intake/sync. Repeating an unchanged-input review cannot repair the excluded
+metadata. No scratch file is needed for that next action.
