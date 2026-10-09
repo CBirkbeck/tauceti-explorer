@@ -217,14 +217,14 @@
       "accessed": "2026-10-09",
       "title": "Level-raising and symmetric power functoriality, III",
       "authors": "L. Clozel; J. Thorne",
-      "edition": "Accepted author PDF, 10 December 2015, Compositio Mathematica 153 (2017)",
+      "edition": "Accepted author PDF, 10 December 2015; Duke Mathematical Journal 166 (2017), 325–402; published printing not collated",
       "readSections": [
         "§2.1, author PDF pp. 4–8; Bernstein presentation and center"
       ]
     },
     {
       "id": "helm",
-      "url": "https://arxiv.org/pdf/1210.1789",
+      "url": "https://arxiv.org/pdf/1210.1789v1",
       "sha256": "446aa93371101330711a62b5d81755ecc13332d65b5d611f40e1edab7c652eda",
       "accessed": "2026-10-09",
       "title": "Whittaker models and the integral Bernstein center for GL_n",
@@ -236,7 +236,7 @@
     },
     {
       "id": "helmcenter",
-      "url": "https://arxiv.org/pdf/1201.1874",
+      "url": "https://arxiv.org/pdf/1201.1874v3",
       "sha256": "83eaf0b620027b3696e76354622552adefb8e6595ae53d5dff027f187391ebd3",
       "accessed": "2026-10-09",
       "title": "The Bernstein center of the category of smooth W(k)[GL_n(F)]-modules",
@@ -248,7 +248,7 @@
     },
     {
       "id": "eh",
-      "url": "https://arxiv.org/pdf/1104.0321",
+      "url": "https://arxiv.org/pdf/1104.0321v1",
       "sha256": "d7db56968caf952aa2c24d2d1408e8452c73613cbc0edadcaf9baddfb60f9797",
       "accessed": "2026-10-09",
       "title": "The local Langlands correspondence for GL_n in families",
@@ -267,7 +267,7 @@
       "authors": "K. Nakamura",
       "edition": "Inventiones Mathematicae 234 (2023), author/publisher PDF",
       "readSections": [
-        "Appendix B, Proposition B.10 and its proof, pp. 274–275"
+        "Appendix B, Lemma B.10 and proof, p. 274"
       ]
     },
     {
@@ -291,12 +291,12 @@
       "authors": "J.-F. Dat; D. Helm; R. Kurinczuk; G. Moss",
       "edition": "arXiv:2203.04929v2, 22 April 2022",
       "readSections": [
-        "§§1–4, pp. 1–16, including Theorem 1.7, Lemmas 2.2, 2.8, 3.4, 4.7–4.8, Corollary 4.10"
+        "§§1–4, pp. 1–16; Theorems 1.1–1.2, 1.7, 2.3, 4.1, 4.3; Lemmas 2.2, 2.8, 3.4, 4.7–4.10"
       ]
     },
     {
       "id": "dhkmparameters",
-      "url": "https://arxiv.org/pdf/2009.06708",
+      "url": "https://arxiv.org/pdf/2009.06708v3",
       "sha256": "70b647bb5fbf924f20784a5084f7f38c9a2faf88e04690f38d76fc0be2a3213c",
       "accessed": "2026-10-09",
       "title": "Moduli of Langlands parameters",
@@ -308,14 +308,38 @@
     },
     {
       "id": "fs",
-      "url": "https://arxiv.org/pdf/2102.13459",
+      "url": "https://arxiv.org/pdf/2102.13459v4",
       "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
       "accessed": "2026-10-09",
       "title": "Geometrization of the local Langlands correspondence",
       "authors": "L. Fargues; P. Scholze",
       "edition": "arXiv:2102.13459v4, 27 November 2024",
       "readSections": [
-        "§VIII.3–VIII.4, pp. 285–296; Theorems IX.0.1, IX.5.1, IX.6.1, IX.6.4, IX.7.2 and Corollary IX.7.3, pp. 318–319, 327–338"
+        "§VIII.3–VIII.4, pp. 285–296; Theorems IX.0.1, IX.0.3, IX.6.1, IX.7.2; Propositions IX.5.1, IX.6.2–IX.6.5; Corollary IX.7.3, pp. 317–319, 327–338"
+      ]
+    },
+    {
+      "id": "cgcorrection",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-021-01095-5.pdf",
+      "sha256": "c60cfe362940e641ee2cd60c61c1429961f18d3d16b4a6857df4ea7993111ee7",
+      "accessed": "2026-10-09",
+      "title": "Correction to: Modularity lifting beyond the Taylor–Wiles method",
+      "authors": "F. Calegari; D. Geraghty",
+      "edition": "Inventiones Mathematicae 227 (2022), 855–856; published PDF",
+      "readSections": [
+        "Entire two-page correction, especially item 11, p. 856"
+      ]
+    },
+    {
+      "id": "ehpublished",
+      "url": "https://www.numdam.org/item/10.24033/asens.2224.pdf",
+      "sha256": "e9c5e03c13d2d780e9a4720a56fb5193ec85fb1ad9363ee4a929e6c7a67a72cf",
+      "accessed": "2026-10-09",
+      "title": "The local Langlands correspondence for GL_n in families",
+      "authors": "M. Emerton; D. Helm",
+      "edition": "Annales scientifiques de l’École normale supérieure 47 (2014), 655–722; published PDF",
+      "readSections": [
+        "§3.1, pp. 671–675, especially corrected product derivative definition, p. 674"
       ]
     }
   ],
@@ -351,7 +375,7 @@
       "sources": [
         {
           "sourceId": "tv",
-          "locator": "§7.1–7.2, pp. 204–206",
+          "locator": "§7.1–7.2, pp. 204–207; (7.2.1), (7.2.5)–(7.2.6)",
           "match": "For an unramified connected reductive F-group, hyperspecial K, minimal P=TN and cocharacter lattice Lambda=T(F)/T(F)^0, define S*(f)(t)=integral_N f(tn) with vol(N intersect K)=1. It has finite support on Lambda and takes values over Z[q^-1]. With a chosen q-half in the coefficient ring, S=delta_P^(1/2) S*. The domain uses vol(K)=1 and the existing finite double-coset convolution."
         }
       ],
@@ -435,7 +459,7 @@
       "sources": [
         {
           "sourceId": "tv",
-          "locator": "§7.2, pp. 205–206",
+          "locator": "§7.2, pp. 206–207; (7.2.4)–(7.2.6)",
           "match": "Let W0=N_G(A)/Z_G(A) for the maximal F-split torus A and let Sigma* be the sum of positive dual coroots. S* lands in functions invariant for w*a=w(a)((Sigma*-w Sigma*)/2)(q). The difference is even, so this action is integral without a square root of q. Normalized S lands in the ordinary W0 invariants."
         }
       ],
@@ -473,7 +497,7 @@
       "sources": [
         {
           "sourceId": "tv",
-          "locator": "§7.2, pp. 205–206",
+          "locator": "§7.2, pp. 206–207; Theorem 7.2 and (7.2.5)–(7.2.6)",
           "match": "Over Z[q^-1], S* identifies the spherical Hecke algebra with the twisted W0-invariant lattice algebra. After adjoining a specified q-half, S identifies it with ordinary W0 invariants. Coefficient versions use the integral triangular orbit-sum basis, including when the coefficient characteristic divides the order of W0."
         }
       ],
@@ -511,7 +535,7 @@
       "sources": [
         {
           "sourceId": "tv",
-          "locator": "§7.1, p. 204",
+          "locator": "§7.1, p. 204, referring to §2.9, pp. 186–187",
           "match": "Over an algebraically closed field with p invertible, unramified characters of T(F) are points of the Frobenius-coinvariant dual torus. This is the character-lattice dictionary, including nonsplit unramified tori."
         }
       ],
@@ -530,8 +554,10 @@
       ],
       "title": "Twisted conjugation on the Frobenius component",
       "kind": "theorem",
-      "statement": "Restriction from the dual group Frobenius component H semidirect Fr to the dual torus identifies conjugation-invariant regular functions with W0-invariant regular functions on the relative dual torus, over the fields and integral forms of TV §7.3. Closed conjugacy orbits are semisimple unramified parameters.",
-      "hypotheses": [],
+      "statement": "For an algebraically closed coefficient field k of characteristic different from p, restriction from the dual group Frobenius component H semidirect Fr identifies H-conjugation-invariant regular functions with W0-invariant regular functions on the Frobenius-coinvariant dual torus. Closed conjugacy orbits give semisimple unramified parameters. This node does not assert an integral twisted invariant theorem.",
+      "hypotheses": [
+        "The unramified dual pinning and Frobenius action are those of §7.1; k is algebraically closed."
+      ],
       "proofSteps": [
         "Construct the restricted Weyl action using Frobenius-fixed normalizer representatives.",
         "Show the torus-conjugation map is dominant via its tangent map.",
@@ -543,13 +569,14 @@
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.4/torus-character-dictionary",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-        "ReductiveGroupsPartII:RG2.5"
+        "ReductiveGroupsPartII:RG2.5",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
       ],
       "sources": [
         {
           "sourceId": "tv",
-          "locator": "§7.3, pp. 206–208",
-          "match": "Restriction from the dual group Frobenius component H semidirect Fr to the dual torus identifies conjugation-invariant regular functions with W0-invariant regular functions on the relative dual torus, over the fields and integral forms of TV §7.3. Closed conjugacy orbits are semisimple unramified parameters."
+          "locator": "§7.3, pp. 207–209; (7.2.3) and its proof",
+          "match": "For an algebraically closed coefficient field k of characteristic different from p, restriction from the dual group Frobenius component H semidirect Fr identifies H-conjugation-invariant regular functions with W0-invariant regular functions on the Frobenius-coinvariant dual torus. Closed conjugacy orbits give semisimple unramified parameters. This node does not assert an integral twisted invariant theorem."
         }
       ],
       "library": {
@@ -567,14 +594,14 @@
       ],
       "title": "Local pseudoroots",
       "kind": "definition",
-      "statement": "A local pseudoroot is an element a0 of the dual torus with a0 squared equal to Sigma*(q), fixed by the twisted W0 action. Multiplication by a0 converts the twisted parameter action to the ordinary one. Choosing a square root of q constructs a pseudoroot; an even Sigma* gives a canonical one.",
+      "statement": "A local pseudoroot is an element a0 of the Frobenius-coinvariant dual torus with a0 squared equal to Sigma*(q), fixed by the twisted W0 action. Multiplication by a0 takes ordinary Weyl orbits to twisted Weyl orbits; multiplication by a0 inverse is the reverse identification. Choosing a square root of q constructs a pseudoroot; an even Sigma* gives a canonical one.",
       "hypotheses": [],
       "proofSteps": [
         "Define the square and fixed-point conditions together.",
         "Evaluate the half-coroot sum after adjoining q-half and verify both conditions."
       ],
       "acceptance": [
-        "A local pseudoroot is an element a0 of the dual torus with a0 squared equal to Sigma*(q), fixed by the twisted W0 action. Multiplication by a0 converts the twisted parameter action to the ordinary one. Choosing a square root of q constructs a pseudoroot; an even Sigma* gives a canonical one."
+        "A local pseudoroot is an element a0 of the Frobenius-coinvariant dual torus with a0 squared equal to Sigma*(q), fixed by the twisted W0 action. Multiplication by a0 takes ordinary Weyl orbits to twisted Weyl orbits; multiplication by a0 inverse is the reverse identification. Choosing a square root of q constructs a pseudoroot; an even Sigma* gives a canonical one."
       ],
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.4/twisted-weyl-invariance"
@@ -582,8 +609,8 @@
       "sources": [
         {
           "sourceId": "tv",
-          "locator": "§7.4, pp. 208–209",
-          "match": "A local pseudoroot is an element a0 of the dual torus with a0 squared equal to Sigma*(q), fixed by the twisted W0 action. Multiplication by a0 converts the twisted parameter action to the ordinary one. Choosing a square root of q constructs a pseudoroot; an even Sigma* gives a canonical one."
+          "locator": "§7.4, pp. 209–210; (7.4.1)–(7.4.4)",
+          "match": "A local pseudoroot is an element a0 of the Frobenius-coinvariant dual torus with a0 squared equal to Sigma*(q), fixed by the twisted W0 action. Multiplication by a0 takes ordinary Weyl orbits to twisted Weyl orbits; multiplication by a0 inverse is the reverse identification. Choosing a square root of q constructs a pseudoroot; an even Sigma* gives a canonical one."
         }
       ],
       "library": {
@@ -614,7 +641,7 @@
         {
           "name": "SRPlan.Pseudoroot.translate",
           "role": "compatibility",
-          "statement": "Translation by a0 identifies twisted and ordinary Weyl orbits."
+          "statement": "Multiplication by a0 identifies ordinary Weyl orbits with twisted Weyl orbits, with inverse multiplication by a0 inverse."
         }
       ],
       "tests": [
@@ -664,7 +691,7 @@
       "sources": [
         {
           "sourceId": "tv",
-          "locator": "§7.5, pp. 209–211",
+          "locator": "§7.5, pp. 210–211; (7.5.2)–(7.5.5)",
           "match": "For an algebraically closed coefficient field of characteristic different from p, a spherical Hecke character determines a semisimple unramified parameter. The K-fixed line in unnormalized Ind_P^G(theta) has character f mapped to theta(S*f) and parameter t_theta a0^-1 semidirect Fr; normalized induction has parameter t_chi semidirect Fr."
         }
       ],
@@ -683,12 +710,14 @@
       ],
       "title": "Canonical c-group Satake formulation",
       "kind": "theorem",
-      "statement": "In the earlier TV formulation and coefficient characteristic different from two, the c-group is (L-group times G_m)/the central order-two subgroup generated by (Sigma*(-1),-1). Its Frobenius fiber at the local cyclotomic value gives a canonical Satake invariant algebra, independent of q-half. The characteristic-two case retains the preceding pseudoroot formulation.",
-      "hypotheses": [],
+      "statement": "In TV arXiv v1, for coefficient characteristic different from p and two, the capital C-group is (L-group times G_m) modulo the central element (Sigma*(-1),1,-1). The lower c-group is the quotient of the subgroup of triples (g,gamma,c) satisfying c^2=cyclotomic(gamma) by that element. Theorem 7.9 identifies its Frobenius-fiber invariant algebra canonically with the spherical Hecke algebra, independently of q-half. In characteristic two retain the published pseudoroot formulation.",
+      "hypotheses": [
+        "Use the unramified local Weil action and the local cyclotomic character of TV v1 §§7.8–7.9."
+      ],
       "proofSteps": [
-        "Construct the central quotient and the squared G_m projection.",
-        "Compare its Frobenius fiber to the dual group component using a temporary square root.",
-        "Changing the square root multiplies both factors by the central order-two element and leaves the quotient identification unchanged."
+        "Construct the capital C-group central quotient and the well-defined square projection.",
+        "Take the cyclotomic inverse image to define the lower c-group before forming its Frobenius fiber.",
+        "Compare the invariant algebras using a temporary q-half; changing its sign changes the lift by the central quotient element."
       ],
       "acceptance": [
         "Theorem 7.9 is cited to arXiv v1, since it is absent from the published §7."
@@ -701,7 +730,7 @@
         {
           "sourceId": "tvpre",
           "locator": "§§7.8–7.9, Theorem 7.9, pp. 29–31",
-          "match": "In the earlier TV formulation and coefficient characteristic different from two, the c-group is (L-group times G_m)/the central order-two subgroup generated by (Sigma*(-1),-1). Its Frobenius fiber at the local cyclotomic value gives a canonical Satake invariant algebra, independent of q-half. The characteristic-two case retains the preceding pseudoroot formulation."
+          "match": "In TV arXiv v1, for coefficient characteristic different from p and two, the capital C-group is (L-group times G_m) modulo the central element (Sigma*(-1),1,-1). The lower c-group is the quotient of the subgroup of triples (g,gamma,c) satisfying c^2=cyclotomic(gamma) by that element. Theorem 7.9 identifies its Frobenius-fiber invariant algebra canonically with the spherical Hecke algebra, independently of q-half. In characteristic two retain the published pseudoroot formulation."
         }
       ],
       "library": {
@@ -737,7 +766,7 @@
       "sources": [
         {
           "sourceId": "tv",
-          "locator": "§7.2, pp. 205–206; GL_n specialization",
+          "locator": "§7.2, pp. 206–207; GL_n minuscule specialization of Theorem 7.2",
           "match": "For GL_n(F), S([K diag(varpi repeated r,1 repeated n-r) K])=q^(r(n-r)/2) e_r(X_1,...,X_n). The scalar coset is invertible, and the target is the symmetric Laurent polynomial ring. Reuse the existing arithmetic GL_n Hecke algebra and central-coset localization comparison, rather than defining another multiplication."
         }
       ],
@@ -772,7 +801,7 @@
       "sources": [
         {
           "sourceId": "leslie",
-          "locator": "§3.1, pp. 22–23, displayed Macdonald formula",
+          "locator": "§3.1, p. 24, displayed Hall–Littlewood expression",
           "match": "For a dominant integral tuple lambda of length n and invertible variables X_i, define P_lambda(X;t) by the symmetric rational expression: sum over permutations of X^lambda times product_{i<j}(X_i-t X_j)/(X_i-X_j), divided by the stabilizer Poincare polynomial v_lambda(t). Prove cancellation to a symmetric Laurent polynomial over Z[t] before specializing denominators in coefficient rings."
         }
       ],
@@ -847,7 +876,7 @@
       "sources": [
         {
           "sourceId": "leslie",
-          "locator": "§3.1, pp. 22–24",
+          "locator": "§3.1, p. 24 (Macdonald formula), p. 25 (branching identity)",
           "match": "For GL_n(E), with E/F unramified quadratic and q=card(k_F), S(1_lambda)=q^<lambda,2 rho> P_lambda(X;q^-2). Hall–Littlewood branching separates n=a+b variables into bidegrees with |alpha|+|beta|=|lambda|."
         }
       ],
@@ -884,7 +913,7 @@
       "sources": [
         {
           "sourceId": "leslie",
-          "locator": "§3.1, pp. 23–25, Lemma 3.2",
+          "locator": "§3.1, Lemma 3.1, p. 23; Lemma 3.2, p. 24; branching, p. 25",
           "match": "For P=MN, define normalized spherical descent f^P(m)=delta_P(m)^(1/2) integral_N integral_K f(kmnk^-1) dk dn, with vol(K)=vol(N intersect K)=1. Under Satake this is restriction along the dual Levi embedding. Leslie’s xi_(a,b) also twists the two determinant characters by |.|_E^(b/2) and |.|_E^(a/2)."
         }
       ],
@@ -963,7 +992,7 @@
       "sources": [
         {
           "sourceId": "liu",
-          "locator": "§3.1, Definition 3.1.1 and Construction 3.1.8, pp. 139–141",
+          "locator": "Definition 3.1.3, p. 139; Construction 3.1.8, pp. 141–142",
           "match": "Over a coefficient ring L, an inert rank-N paired parameter is an ordered tuple of units alpha with alpha_i alpha_(N+1-i)=1 and, for odd N, middle alpha=1. Its monic polynomial is product(T-alpha_i). A reciprocal polynomial over an arbitrary product ring does not necessarily admit this paired ordering."
         }
       ],
@@ -1022,14 +1051,14 @@
       ],
       "title": "Polynomial unitary genericity predicates",
       "kind": "definition",
-      "statement": "For q a unit of L and monic unitary P of rank N: odd Tate genericity means P derivative at 1 is a unit; odd intertwining genericity means P(-q) is a unit; even level-raising genericity means P(q)=0 and P derivative at q is a unit; even intertwining genericity means P(-1) is a unit. These polynomial predicates remain the definitions when roots collide.",
+      "statement": "For q a unit of L and monic unitary P of rank N: odd Tate genericity means P derivative at 1 is a unit; odd intertwining genericity means P(-q) is a unit; even level-raising speciality means P(q)=0 and P derivative at q is a unit; even intertwining genericity means P(-1) is a unit. These polynomial predicates remain the definitions when roots collide.",
       "hypotheses": [],
       "proofSteps": [
         "Define the four parity-specific conditions directly on P.",
         "Derive root interpretations only when the separated values and simple-root hypotheses justify them."
       ],
       "acceptance": [
-        "For q a unit of L and monic unitary P of rank N: odd Tate genericity means P derivative at 1 is a unit; odd intertwining genericity means P(-q) is a unit; even level-raising genericity means P(q)=0 and P derivative at q is a unit; even intertwining genericity means P(-1) is a unit. These polynomial predicates remain the definitions when roots collide."
+        "For q a unit of L and monic unitary P of rank N: odd Tate genericity means P derivative at 1 is a unit; odd intertwining genericity means P(-q) is a unit; even level-raising speciality means P(q)=0 and P derivative at q is a unit; even intertwining genericity means P(-1) is a unit. These polynomial predicates remain the definitions when roots collide."
       ],
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.4/paired-unitary-parameter"
@@ -1037,8 +1066,8 @@
       "sources": [
         {
           "sourceId": "liu",
-          "locator": "Definition 3.1.5 and Remark 3.1.6, pp. 140–141",
-          "match": "For q a unit of L and monic unitary P of rank N: odd Tate genericity means P derivative at 1 is a unit; odd intertwining genericity means P(-q) is a unit; even level-raising genericity means P(q)=0 and P derivative at q is a unit; even intertwining genericity means P(-1) is a unit. These polynomial predicates remain the definitions when roots collide."
+          "locator": "Definition 3.1.5 and Remark 3.1.6, p. 140",
+          "match": "For q a unit of L and monic unitary P of rank N: odd Tate genericity means P derivative at 1 is a unit; odd intertwining genericity means P(-q) is a unit; even level-raising speciality means P(q)=0 and P derivative at q is a unit; even intertwining genericity means P(-1) is a unit. These polynomial predicates remain the definitions when roots collide."
         }
       ],
       "library": {
@@ -1289,13 +1318,13 @@
         "For residue size q and spherical generators T0 (central scalar varpi), T1 (diag(varpi^2,varpi,varpi,1)) and T2 (diag(varpi,varpi,1,1)), define Q(X)=1-T2 X+q(T1+(q^2+1)T0)X^2-q^3 T2 T0 X^3+q^6 T0^2 X^4. The scalar generator and similitude are retained."
       ],
       "prerequisites": [
-        "SmoothRepresentationsOfLocalGroups:SR.4/gln-generators",
+        "SmoothRepresentationsOfLocalGroups:SR.4/satake-isomorphism",
         "ReductiveGroupsPartII:RG2.5"
       ],
       "sources": [
         {
           "sourceId": "pilloni",
-          "locator": "§5.1.3–5.1.5, pp. 21–22",
+          "locator": "§5.1.3, p. 21, spherical generators and Hecke polynomial",
           "match": "For residue size q and spherical generators T0 (central scalar varpi), T1 (diag(varpi^2,varpi,varpi,1)) and T2 (diag(varpi,varpi,1,1)), define Q(X)=1-T2 X+q(T1+(q^2+1)T0)X^2-q^3 T2 T0 X^3+q^6 T0^2 X^4. The scalar generator and similitude are retained."
         }
       ],
@@ -1358,7 +1387,7 @@
       ],
       "title": "GSp_4 spin and monic polynomial comparison",
       "kind": "comparison",
-      "statement": "Under the q^-3/2 similitude twist convention, Q(X)=product_(xi=alpha,beta,gamma,delta)(1-xi X), with alpha delta=beta gamma, T0=q^-3 alpha delta and the generator evaluations of Pilloni §5.1.4. Substitution Tx1=T2, Tx2=T1, Sx=T0 identifies the reciprocal polynomial with Calegari–Geraghty Definition 6.7. This is a local normalization comparison, not a construction of global Galois representations.",
+      "statement": "For an irreducible complex smooth spherical GSp_4 representation pi, use the usual Satake parameter of pi tensor |nu|^(-3/2). Write its spin roots as alpha,beta,gamma,delta with alpha delta=beta gamma. Then T0=q^-3 alpha delta, T2=alpha+beta+gamma+delta and T1=q^-1(alpha beta+alpha gamma+alpha delta+beta delta+gamma delta)-q^-3 alpha delta, and Q(X)=product_xi(1-xi X). Substitution Tx1=T2, Tx2=T1, Sx=T0 identifies the degree-four reciprocal with Calegari–Geraghty Definition 6.7. This is the local normalization comparison.",
       "hypotheses": [],
       "proofSteps": [
         "Expand the four-factor polynomial using the common similitude relation.",
@@ -1375,8 +1404,13 @@
       "sources": [
         {
           "sourceId": "cg20",
-          "locator": "Definition 6.7, pp. 38–39; compare Pilloni §5.1.4",
-          "match": "Under the q^-3/2 similitude twist convention, Q(X)=product_(xi=alpha,beta,gamma,delta)(1-xi X), with alpha delta=beta gamma, T0=q^-3 alpha delta and the generator evaluations of Pilloni §5.1.4. Substitution Tx1=T2, Tx2=T1, Sx=T0 identifies the reciprocal polynomial with Calegari–Geraghty Definition 6.7. This is a local normalization comparison, not a construction of global Galois representations."
+          "locator": "Definition 6.7, p. 38; Pilloni §5.1.3, Remark and Lemma 5.1.5.1, p. 21",
+          "match": "For an irreducible complex smooth spherical GSp_4 representation pi, use the usual Satake parameter of pi tensor |nu|^(-3/2). Write its spin roots as alpha,beta,gamma,delta with alpha delta=beta gamma. Then T0=q^-3 alpha delta, T2=alpha+beta+gamma+delta and T1=q^-1(alpha beta+alpha gamma+alpha delta+beta delta+gamma delta)-q^-3 alpha delta, and Q(X)=product_xi(1-xi X). Substitution Tx1=T2, Tx2=T1, Sx=T0 identifies the degree-four reciprocal with Calegari–Geraghty Definition 6.7. This is the local normalization comparison."
+        },
+        {
+          "sourceId": "pilloni",
+          "locator": "§5.1.3, Remark and Lemma 5.1.5.1, p. 21",
+          "match": "For an irreducible complex smooth spherical GSp_4 representation pi, use the usual Satake parameter of pi tensor |nu|^(-3/2). Write its spin roots as alpha,beta,gamma,delta with alpha delta=beta gamma. Then T0=q^-3 alpha delta, T2=alpha+beta+gamma+delta and T1=q^-1(alpha beta+alpha gamma+alpha delta+beta delta+gamma delta)-q^-3 alpha delta, and Q(X)=product_xi(1-xi X). Substitution Tx1=T2, Tx2=T1, Sx=T0 identifies the degree-four reciprocal with Calegari–Geraghty Definition 6.7. This is the local normalization comparison."
         }
       ],
       "library": {
@@ -1436,12 +1470,15 @@
       ],
       "title": "Unitary Iwahori center comparison",
       "kind": "comparison",
-      "statement": "In the unitary odd-rank Iwahori examples of Clozel–Thorne §2.1, the Bernstein presentation identifies the center with the relative-Weyl invariant lattice algebra; its hyperspecial comparison uses the same Satake normalization. The integral quadratic relation is (T_s+1)(T_s-q_s)=0. Over integral coefficients the generators use the positive braid monoid; the braid group becomes available only after the q_s are units.",
-      "hypotheses": [],
+      "statement": "Let E/F be ramified quadratic with odd residue characteristic and n=2k+1 as in Clozel–Thorne §2.1. Their B is the chamber stabilizer, containing the connected Iwahori with index two, and K=U_n(O_F) is special. Proposition 2.2 identifies H_B with the split Sp_(2k) Iwahori Hecke algebra. Over C its Bernstein presentation has center C[Lambda]^W0; the hyperspecial spherical comparison is on the split symplectic side. For the integral double-coset generators the corrected relation is (T_s+1)(T_s-q)=0. Use the positive braid monoid over Z, and the braid group only after q is a unit.",
+      "hypotheses": [
+        "The unitary group is the ramified odd-rank group and lattice model of CT §2.1, not the unramified hyperspecial unitary group of the Liu nodes."
+      ],
       "proofSteps": [
-        "Import the Iwahori multiplication and corrected parameter-dependent quadratic relations from SR.1.",
-        "Use the Bernstein cross relation to identify the center after the specified coefficient extension.",
-        "Compare hyperspecial spherical central characters to the relative-Weyl Satake algebra."
+        "Import the ramified apartment, chamber stabilizer and affine Coxeter data from RG2.2–RG2.4, with the explicit CT matrix/root calculation as a refinement gap.",
+        "Use Proposition 2.2 to identify the double-coset generators and equal parameters with the split Sp_(2k) Iwahori algebra.",
+        "Apply the Bernstein commutation relation over C and compare the spherical corner on Sp_(2k).",
+        "Check the corrected quadratic relation against the degree character; keep braid generators noninvertible until q is inverted."
       ],
       "acceptance": [
         "Do not infer T_s is invertible over Z from a braid-group presentation."
@@ -1449,13 +1486,16 @@
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.4/satake-isomorphism",
         "SmoothRepresentationsOfLocalGroups:SR.1",
-        "ReductiveGroupsPartII:RG2.1"
+        "ReductiveGroupsPartII:RG2.1",
+        "ReductiveGroupsPartII:RG2.2",
+        "ReductiveGroupsPartII:RG2.3",
+        "ReductiveGroupsPartII:RG2.4"
       ],
       "sources": [
         {
           "sourceId": "ct",
           "locator": "§2.1, pp. 4–8",
-          "match": "In the unitary odd-rank Iwahori examples of Clozel–Thorne §2.1, the Bernstein presentation identifies the center with the relative-Weyl invariant lattice algebra; its hyperspecial comparison uses the same Satake normalization. The integral quadratic relation is (T_s+1)(T_s-q_s)=0. Over integral coefficients the generators use the positive braid monoid; the braid group becomes available only after the q_s are units."
+          "match": "Let E/F be ramified quadratic with odd residue characteristic and n=2k+1 as in Clozel–Thorne §2.1. Their B is the chamber stabilizer, containing the connected Iwahori with index two, and K=U_n(O_F) is special. Proposition 2.2 identifies H_B with the split Sp_(2k) Iwahori Hecke algebra. Over C its Bernstein presentation has center C[Lambda]^W0; the hyperspecial spherical comparison is on the split symplectic side. For the integral double-coset generators the corrected relation is (T_s+1)(T_s-q)=0. Use the positive braid monoid over Z, and the braid group only after q is a unit."
         }
       ],
       "library": {
@@ -1484,12 +1524,13 @@
       ],
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.4/satake-isomorphism",
-        "SmoothRepresentationsOfLocalGroups:SR.4/frobenius-component-invariants"
+        "SmoothRepresentationsOfLocalGroups:SR.4/frobenius-component-invariants",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
       ],
       "sources": [
         {
           "sourceId": "tv",
-          "locator": "§7.2–7.3, pp. 205–208",
+          "locator": "§7.2–7.3, pp. 206–209",
           "match": "Export the normalized Satake isomorphism, dominant-coweight basis and Weyl-module trace functions with explicit q-half and Frobenius. A downstream geometric Satake trace comparison must use these same functions and normalizations. The geometric equivalence is not used to prove SR.4."
         }
       ],
@@ -1592,15 +1633,17 @@
       ],
       "title": "Mirabolic functors and derivatives",
       "kind": "construction",
-      "statement": "Let P_n=GL_(n-1) semidirect F^(n-1). Define Psi^- by ordinary last-row coinvariants, Psi^+ by inflation, Phi^- by the specified nontrivial last-row character quotient, Phi^+ by compact induction and its right adjoint by smooth induction. Set D^r=Psi^- (Phi^-)^(r-1) for 1<=r<=n and D^0=identity. Over a perfect coefficient field without chosen roots, descend the functors by the diagonal conjugations of EH; a chosen quotient map need not descend.",
-      "hypotheses": [],
+      "statement": "Let P_n=GL_(n-1) semidirect F^(n-1). Define Psi^- by ordinary last-row coinvariants, Psi^+ by inflation, Phi^- by a nontrivial last-row character quotient and Phi^+ by compact induction. The adjunctions are Phi^+ left adjoint to Phi^- left adjoint to hat-Phi^+ (smooth induction), and Psi^- left adjoint to Psi^+. Set D^r=Psi^- (Phi^-)^(r-1) for 1<=r<=n and D^0=identity. Over the coefficient rings of EH, descend the functors by diagonal conjugations when roots are not chosen; a chosen quotient map need not descend.",
+      "hypotheses": [
+        "F has residue characteristic p; k is a perfect coefficient field of characteristic ell different from p, and A is a Noetherian W(k)-algebra. A nondegenerate character is chosen over a faithfully flat root-containing coefficient extension and descended as in EH §3.1 when necessary."
+      ],
       "proofSteps": [
         "Identify the stabilizer of the last-row character as P_(n-1).",
         "Use compact and smooth induction for the two Phi adjoints and distinguish them.",
         "Check Galois twisting of the character is conjugation by the relevant integral diagonal element; descend the functors and scalar-extension isomorphisms."
       ],
       "acceptance": [
-        "Let P_n=GL_(n-1) semidirect F^(n-1). Define Psi^- by ordinary last-row coinvariants, Psi^+ by inflation, Phi^- by the specified nontrivial last-row character quotient, Phi^+ by compact induction and its right adjoint by smooth induction. Set D^r=Psi^- (Phi^-)^(r-1) for 1<=r<=n and D^0=identity. Over a perfect coefficient field without chosen roots, descend the functors by the diagonal conjugations of EH; a chosen quotient map need not descend."
+        "Let P_n=GL_(n-1) semidirect F^(n-1). Define Psi^- by ordinary last-row coinvariants, Psi^+ by inflation, Phi^- by a nontrivial last-row character quotient and Phi^+ by compact induction. The adjunctions are Phi^+ left adjoint to Phi^- left adjoint to hat-Phi^+ (smooth induction), and Psi^- left adjoint to Psi^+. Set D^r=Psi^- (Phi^-)^(r-1) for 1<=r<=n and D^0=identity. Over the coefficient rings of EH, descend the functors by diagonal conjugations when roots are not chosen; a chosen quotient map need not descend."
       ],
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.5/twisted-coinvariants",
@@ -1609,8 +1652,8 @@
       "sources": [
         {
           "sourceId": "eh",
-          "locator": "§3.1, Lemmas 3.1.1–3.1.8, pp. 12–15",
-          "match": "Let P_n=GL_(n-1) semidirect F^(n-1). Define Psi^- by ordinary last-row coinvariants, Psi^+ by inflation, Phi^- by the specified nontrivial last-row character quotient, Phi^+ by compact induction and its right adjoint by smooth induction. Set D^r=Psi^- (Phi^-)^(r-1) for 1<=r<=n and D^0=identity. Over a perfect coefficient field without chosen roots, descend the functors by the diagonal conjugations of EH; a chosen quotient map need not descend."
+          "locator": "Definition 3.1.1, Proposition 3.1.3 and derivative definition, pp. 12–14",
+          "match": "Let P_n=GL_(n-1) semidirect F^(n-1). Define Psi^- by ordinary last-row coinvariants, Psi^+ by inflation, Phi^- by a nontrivial last-row character quotient and Phi^+ by compact induction. The adjunctions are Phi^+ left adjoint to Phi^- left adjoint to hat-Phi^+ (smooth induction), and Psi^- left adjoint to Psi^+. Set D^r=Psi^- (Phi^-)^(r-1) for 1<=r<=n and D^0=identity. Over the coefficient rings of EH, descend the functors by diagonal conjugations when roots are not chosen; a chosen quotient map need not descend."
         }
       ],
       "library": {
@@ -1672,8 +1715,10 @@
       ],
       "title": "Exactness and mirabolic filtration",
       "kind": "theorem",
-      "statement": "If p is a unit in A and the required character is defined or descended, Psi^-, Phi^-, their induction partners and all derivatives are exact. The standard adjunctions, Psi^- Psi^+=Id, Phi^- Phi^+=Id, mixed vanishings, and 0 to Phi^+Phi^- to Id to Psi^+Psi^- to 0 hold in the smooth mirabolic category. Derivatives commute with arbitrary A-module tensoring.",
-      "hypotheses": [],
+      "statement": "Over the Noetherian W(k)-algebras of the mirabolic node, with ell different from p and the required character chosen or descended, Psi^-, Phi^-, Phi^+, hat-Phi^+ and Psi^+ are exact. Their specified adjunctions, Psi^- Psi^+=Id, Phi^- Phi^+=Id, mixed vanishings and 0 to Phi^+Phi^- to Id to Psi^+Psi^- to 0 hold naturally. Derivatives commute with tensoring by any A-module. An extension to all p-invertible rings requires the separate coefficient-generality refinement.",
+      "hypotheses": [
+        "F has residue characteristic p; k is a perfect coefficient field of characteristic ell different from p, and A is a Noetherian W(k)-algebra. A nondegenerate character is chosen over a faithfully flat root-containing coefficient extension and descended as in EH §3.1 when necessary."
+      ],
       "proofSteps": [
         "Exhaust the last-row unipotent by compact pro-p opens and use exact character projectors on each.",
         "Identify coinvariants as a filtered colimit and use exactness of filtered colimits.",
@@ -1689,8 +1734,8 @@
       "sources": [
         {
           "sourceId": "eh",
-          "locator": "Lemmas 3.1.1–3.1.8, pp. 12–15",
-          "match": "If p is a unit in A and the required character is defined or descended, Psi^-, Phi^-, their induction partners and all derivatives are exact. The standard adjunctions, Psi^- Psi^+=Id, Phi^- Phi^+=Id, mixed vanishings, and 0 to Phi^+Phi^- to Id to Psi^+Psi^- to 0 hold in the smooth mirabolic category. Derivatives commute with arbitrary A-module tensoring."
+          "locator": "Proposition 3.1.3, pp. 12–13; Proposition 3.1.4, p. 13",
+          "match": "Over the Noetherian W(k)-algebras of the mirabolic node, with ell different from p and the required character chosen or descended, Psi^-, Phi^-, Phi^+, hat-Phi^+ and Psi^+ are exact. Their specified adjunctions, Psi^- Psi^+=Id, Phi^- Phi^+=Id, mixed vanishings and 0 to Phi^+Phi^- to Id to Psi^+Psi^- to 0 hold naturally. Derivatives commute with tensoring by any A-module. An extension to all p-invertible rings requires the separate coefficient-generality refinement."
         }
       ],
       "library": {
@@ -1709,7 +1754,9 @@
       "title": "Schwartz submodule",
       "kind": "construction",
       "statement": "For a smooth GL_n representation V, the Schwartz submodule J(V) is the image of the canonical mirabolic map (Phi^+)^(n-1) Psi^+(V^(n)) into V. The map is injective. Its top derivative is V^(n), it commutes with coefficient-module tensoring, and End_(P_n)(J(V))=End_A(V^(n)).",
-      "hypotheses": [],
+      "hypotheses": [
+        "F has residue characteristic p; k is a perfect coefficient field of characteristic ell different from p, and A is a Noetherian W(k)-algebra. A nondegenerate character is chosen over a faithfully flat root-containing coefficient extension and descended as in EH §3.1 when necessary."
+      ],
       "proofSteps": [
         "Iterate the mirabolic short exact sequence to construct the canonical map.",
         "Use the mixed vanishings to identify its kernel and top derivative.",
@@ -1725,7 +1772,7 @@
       "sources": [
         {
           "sourceId": "eh",
-          "locator": "§3.1, Lemmas 3.1.14–3.1.16, pp. 16–17; §6.3, Lemma 6.3.2, pp. 50–51",
+          "locator": "Construction and Lemma 3.1.5, p. 14; Proposition 3.1.16, p. 17; Lemma 6.3.2, pp. 50–51",
           "match": "For a smooth GL_n representation V, the Schwartz submodule J(V) is the image of the canonical mirabolic map (Phi^+)^(n-1) Psi^+(V^(n)) into V. The map is injective. Its top derivative is V^(n), it commutes with coefficient-module tensoring, and End_(P_n)(J(V))=End_A(V^(n))."
         }
       ],
@@ -2190,8 +2237,10 @@
       ],
       "title": "The conditional local-Langlands family construction",
       "kind": "theorem",
-      "statement": "In Helm arXiv v1, for a complete reduced ell-torsion-free Noetherian local W(k)-algebra A and a Galois family rho, existence of the desired pi(rho) follows from the conjectural integral Bernstein-center interpolation map of Conjecture 7.4. Uniqueness, when a family with the stated generic fibers exists, is the Emerton–Helm theorem. This source does not prove the interpolation conjecture in general.",
-      "hypotheses": [],
+      "statement": "Let A be a reduced complete Noetherian local ell-torsion-free W(k)-algebra with residue field k, and rho:G_F to GL_n(A) a continuous Galois representation. Assuming Helm v1 Conjecture 7.4 for rho modulo the maximal ideal, Theorem 7.8 constructs the unique admissible A-torsion-free co-Whittaker pi(rho). At every minimal prime a its fiber is the kappa(a)-dual of the Breuil–Schneider representation of the dual rho_a. This source does not prove the general interpolation conjecture.",
+      "hypotheses": [
+        "k is algebraically closed of characteristic ell different from p, as in Helm; rho is continuous for the maximal-ideal-adic topology on A."
+      ],
       "proofSteps": [
         "Specify the center character only under the interpolation hypothesis.",
         "Apply the reduced-family diagonal-image construction to the dual Breuil–Schneider generic fibers.",
@@ -2206,8 +2255,8 @@
       "sources": [
         {
           "sourceId": "helm",
-          "locator": "Theorems 7.1 and 7.8, Conjectures 7.4–7.5, pp. 14–17",
-          "match": "In Helm arXiv v1, for a complete reduced ell-torsion-free Noetherian local W(k)-algebra A and a Galois family rho, existence of the desired pi(rho) follows from the conjectural integral Bernstein-center interpolation map of Conjecture 7.4. Uniqueness, when a family with the stated generic fibers exists, is the Emerton–Helm theorem. This source does not prove the interpolation conjecture in general."
+          "locator": "Theorem 7.1, p. 13; Conjecture 7.4, p. 15; Theorem 7.8 and proof, pp. 15–16",
+          "match": "Let A be a reduced complete Noetherian local ell-torsion-free W(k)-algebra with residue field k, and rho:G_F to GL_n(A) a continuous Galois representation. Assuming Helm v1 Conjecture 7.4 for rho modulo the maximal ideal, Theorem 7.8 constructs the unique admissible A-torsion-free co-Whittaker pi(rho). At every minimal prime a its fiber is the kappa(a)-dual of the Breuil–Schneider representation of the dual rho_a. This source does not prove the general interpolation conjecture."
         }
       ],
       "library": {
@@ -2225,7 +2274,7 @@
       ],
       "title": "Endomorphisms after arbitrary coefficient tensoring",
       "kind": "theorem",
-      "statement": "For a co-Whittaker GL_2(Q_l) family V over a Noetherian Z_p-algebra A, p different from l, and any A-module M, End_A(M) to End_(A[G])(M tensor_A V) is an isomorphism. After renaming local residue characteristic to p and coefficient characteristic to ell, the Schwartz proof extends to GL_n with the preceding derivative package; the generalization is a planned proof, not a misquotation of Proposition B.10.",
+      "statement": "For a co-Whittaker GL_2(Q_l) family V over a Noetherian Z_p-algebra A, p different from l, and any A-module M, End_A(M) to End_(A[G])(M tensor_A V) is an isomorphism. After renaming local residue characteristic to p and coefficient characteristic to ell, the Schwartz proof extends to GL_n with the preceding derivative package; the generalization is a planned proof, not a misquotation of Lemma B.10.",
       "hypotheses": [],
       "proofSteps": [
         "Identify the tensor top derivative with M without assuming M flat.",
@@ -2243,8 +2292,8 @@
       "sources": [
         {
           "sourceId": "nakamura",
-          "locator": "Proposition B.10 and proof, pp. 274–275",
-          "match": "For a co-Whittaker GL_2(Q_l) family V over a Noetherian Z_p-algebra A, p different from l, and any A-module M, End_A(M) to End_(A[G])(M tensor_A V) is an isomorphism. After renaming local residue characteristic to p and coefficient characteristic to ell, the Schwartz proof extends to GL_n with the preceding derivative package; the generalization is a planned proof, not a misquotation of Proposition B.10."
+          "locator": "Lemma B.10 and proof, p. 274",
+          "match": "For a co-Whittaker GL_2(Q_l) family V over a Noetherian Z_p-algebra A, p different from l, and any A-module M, End_A(M) to End_(A[G])(M tensor_A V) is an isomorphism. After renaming local residue characteristic to p and coefficient characteristic to ell, the Schwartz proof extends to GL_n with the preceding derivative package; the generalization is a planned proof, not a misquotation of Lemma B.10."
         }
       ],
       "library": {
@@ -2281,7 +2330,7 @@
       "sources": [
         {
           "sourceId": "eh",
-          "locator": "§3.1, pp. 12–15; compare DHKM §4.2, pp. 14–15",
+          "locator": "EH §3.1, pp. 12–14 (projectors/tensoring); DHKM §4, Lemma 4.10, p. 15 (distinct injective dual)",
           "match": "For a ring map A to B there is a natural map B tensor_A V^K to (B tensor_A V)^K. It is an isomorphism under an available averaging projector with invertible pro-order, and otherwise only with separately proved hypotheses; it is not asserted for arbitrary hyperspecial K or arbitrary base change. Smooth duality over fields and its base-change compatibility for admissible finite-dimensional invariant modules are kept separate from injective-cogenerator duality."
         }
       ],
@@ -2356,8 +2405,13 @@
       "sources": [
         {
           "sourceId": "cg",
-          "locator": "Lemmas 9.9–9.13, §9.4.1, PDF pp. 124–125",
+          "locator": "Lemmas 9.9–9.12 and Corollary 9.13, §9.4.1, PDF pp. 123–125; published Correction (2022), item 11, p. 856",
           "match": "In the Calegari–Geraghty setup, A=O/varpi^k, q congruent to 1 modulo ell and residual unramified Frobenius eigenvalues distinct. There is a unique irreducible unramified principal series pi attached to the residual semisimple parameter. The locally admissible category with every irreducible subquotient pi is equivalent to the direct-limit finite-length module category of the completed ordered-character deformation algebra: independent pro-ell residual-unit cyclic variables of order d and independent formal unramified variables X_i."
+        },
+        {
+          "sourceId": "cgcorrection",
+          "locator": "Correction to Modularity lifting beyond the Taylor–Wiles method, item 11, p. 856",
+          "match": "In Corollary 9.13 the unramified variable rings are A[[X]]; the residual-unit cyclic factors stay A[T]/(T^d-1)."
         }
       ],
       "library": {
@@ -2412,8 +2466,10 @@
       ],
       "title": "Characteristic-zero highest-derivative adapter",
       "kind": "comparison",
-      "statement": "For the characteristic-zero GL_n multisegment convention used by Atobe–Kondo–Yasuda, the highest nonzero normalized derivative is irreducible and is obtained by the corresponding endpoint shortening. Their iterated highest-derivative notation is distinguished from the fixed-order D^r functors above. The local-conductor/newvector application belongs to its established GL_2 owner.",
-      "hypotheses": [],
+      "statement": "For an irreducible complex smooth representation Z(m) of GL_n(F) in the Atobe–Kondo–Yasuda convention, its highest nonzero normalized derivative is irreducible and is Z(m^-). Here each segment [a,b]_rho is shortened to [a,b-1]_rho and empty segments are deleted. Their repeated highest-derivative sequence is distinct from a single fixed-order D^r functor. The underlying multisegment classification must be imported or refined separately.",
+      "hypotheses": [
+        "pi is irreducible and coefficients are C. Use the precise normalized derivative and segment convention of AKY §2.3."
+      ],
       "proofSteps": [
         "Compare normalizing modulus twists and segment endpoint conventions with ordinary mirabolic derivatives.",
         "Apply the characteristic-zero multisegment highest-derivative theorem and iterate with an explicit order sequence."
@@ -2429,7 +2485,7 @@
         {
           "sourceId": "aky",
           "locator": "Introduction and §2.3, pp. 2–3 and 8",
-          "match": "For the characteristic-zero GL_n multisegment convention used by Atobe–Kondo–Yasuda, the highest nonzero normalized derivative is irreducible and is obtained by the corresponding endpoint shortening. Their iterated highest-derivative notation is distinguished from the fixed-order D^r functors above. The local-conductor/newvector application belongs to its established GL_2 owner."
+          "match": "For an irreducible complex smooth representation Z(m) of GL_n(F) in the Atobe–Kondo–Yasuda convention, its highest nonzero normalized derivative is irreducible and is Z(m^-). Here each segment [a,b]_rho is shortened to [a,b-1]_rho and empty segments are deleted. Their repeated highest-derivative sequence is distinct from a single fixed-order D^r functor. The underlying multisegment classification must be imported or refined separately."
         }
       ],
       "library": {
@@ -2537,6 +2593,26 @@
           "name": "SRPlan.CrossedCocycle.map",
           "role": "functoriality",
           "statement": "An equivariant homomorphism H to H-prime maps crossed cocycles and commutes with gauge conjugation."
+        },
+        {
+          "name": "SRPlan.CrossedCocycle.ext",
+          "role": "extensionality",
+          "statement": "Two crossed cocycles are equal when all their values agree."
+        },
+        {
+          "name": "SRPlan.CrossedCocycle.gaugeOne",
+          "role": "simp",
+          "statement": "Gauge conjugation by one is the identity."
+        },
+        {
+          "name": "SRPlan.CrossedCocycle.gaugeMul",
+          "role": "relation",
+          "statement": "Gauge by h*k equals gauge by h after gauge by k."
+        },
+        {
+          "name": "SRPlan.CrossedCocycle.mapGauge",
+          "role": "compatibility",
+          "statement": "An equivariant group homomorphism sends gauge by h to gauge by its image."
         }
       ],
       "tests": [
@@ -2567,7 +2643,9 @@
       "title": "Finite-wild Weil discretization",
       "kind": "theorem",
       "statement": "Choose arithmetic Frobenius Fr and a compatible tame generator s. W_F^0 is the preimage of Z[1/q] semidirect Fr^Z inside W_F; Fr s Fr^-1=s^q. For a normal open finite-action-compatible wild subgroup P_F^e, W_F^0/P_F^e is finitely presented. Its topology keeps the wild subgroup profinite and the tame–Frobenius quotient discrete.",
-      "hypotheses": [],
+      "hypotheses": [
+        "P_F^e is a normal open subgroup of wild inertia, stable under W_F, contained in the kernel of the finite action on H; use one fixed e at a time."
+      ],
       "proofSteps": [
         "Construct the dense tame–Frobenius subgroup from the local Weil-group exact sequence.",
         "Adjoin the finite wild generators and their conjugation relations to the tame Frobenius relation.",
@@ -2621,7 +2699,7 @@
       "sources": [
         {
           "sourceId": "dhkmparameters",
-          "locator": "§1.2 and §2.1–2.2, pp. 4–6 and 10–11",
+          "locator": "§1.2, pp. 4–5; §2.1–2.2, pp. 10–11; relative dimension in Theorem 4.1(i), p. 29",
           "match": "For the pinned split dual group H over Z[1/p] with finite Weil action, the cocycle functor on W_F^0/P_F^e is represented by a finite-presentation affine scheme, realized as the closed relation locus in H^r for a finite presentation of the group. Construct this scheme once over Z[1/p]; its Z_ell models are base changes, not independent schemes. The expected fiber dimension is dim(H over the base), while the total dimension over Z[1/p] includes the base dimension."
         }
       ],
@@ -2674,7 +2752,7 @@
       ],
       "title": "Finite wild strata and reductive centralizers",
       "kind": "theorem",
-      "statement": "Over the algebraic integral base used by DHKM, wild cocycles have finitely many H-conjugacy classes; their centralizers have reductive connected components. The finite-wild scheme decomposes into induced tame cocycle strata for the centralizers, after choosing extensions of the wild cocycle that normalize a Borel pair.",
+      "statement": "Fix e and P_F/P_F^e, a finite wild p-group acting on H through the chosen finite Weil action. Over the algebraic integral base of DHKM parameters Proposition 1.1, its cocycles have finitely many H-conjugacy classes; their centralizers are smooth with reductive connected components. After the finite integral coefficient extension and Borel-pair-normalizing extensions of Proposition 1.2, the finite-wild scheme decomposes into induced tame strata for these centralizers.",
       "hypotheses": [],
       "proofSteps": [
         "Apply prime-to-base finite-group invariant theory to the wild p-group action.",
@@ -2691,8 +2769,8 @@
       "sources": [
         {
           "sourceId": "dhkmparameters",
-          "locator": "Propositions 1.1–1.2, pp. 4–6; used in DHKM §2.1, pp. 5–6",
-          "match": "Over the algebraic integral base used by DHKM, wild cocycles have finitely many H-conjugacy classes; their centralizers have reductive connected components. The finite-wild scheme decomposes into induced tame cocycle strata for the centralizers, after choosing extensions of the wild cocycle that normalize a Borel pair."
+          "locator": "DHKM parameters Propositions 1.1–1.2, pp. 5–6; DHKM §2, pp. 6–8",
+          "match": "Fix e and P_F/P_F^e, a finite wild p-group acting on H through the chosen finite Weil action. Over the algebraic integral base of DHKM parameters Proposition 1.1, its cocycles have finitely many H-conjugacy classes; their centralizers are smooth with reductive connected components. After the finite integral coefficient extension and Borel-pair-normalizing extensions of Proposition 1.2, the finite-wild scheme decomposes into induced tame strata for these centralizers."
         }
       ],
       "library": {
@@ -2710,8 +2788,10 @@
       ],
       "title": "Twisted reductive-component quotient finiteness",
       "kind": "theorem",
-      "statement": "If H is a closed reductive subgroup of a reductive G over the integral base of DHKM and is stable under Int(g) theta, the induced map from the relevant H g theta component quotient to the G theta component quotient is finite. The construction descends from the algebraic integral base after the finite scalar extensions used in §2.",
-      "hypotheses": [],
+      "statement": "Over R=the algebraic integral closure of Z[1/N] in the fixed algebraic number field closure used in DHKM, with p dividing N, let theta be a finite-order automorphism of a split reductive G. If H is a closed reductive subgroup stable under Int(g) theta, the component quotient (H g semidirect theta)//H to (G semidirect theta)//G is finite. Finite scalar-extension descent recovers the base needed for the cocycle quotient application.",
+      "hypotheses": [
+        "Use the integral base, splitting and finite-order automorphism hypotheses of DHKM Lemma 2.2."
+      ],
       "proofSteps": [
         "Trivialize the diagonalizable torsors using vanishing Picard group and divisible units over the chosen algebraic integral base.",
         "Reduce via twisted Chevalley–Steinberg to torus quotients and finite Weyl actions.",
@@ -2727,8 +2807,8 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Lemma 2.2, pp. 5–6; Lemma 2.1, p. 5",
-          "match": "If H is a closed reductive subgroup of a reductive G over the integral base of DHKM and is stable under Int(g) theta, the induced map from the relevant H g theta component quotient to the G theta component quotient is finite. The construction descends from the algebraic integral base after the finite scalar extensions used in §2."
+          "locator": "Lemma 2.1 and Lemma 2.2, pp. 4–5",
+          "match": "Over R=the algebraic integral closure of Z[1/N] in the fixed algebraic number field closure used in DHKM, with p dividing N, let theta be a finite-order automorphism of a split reductive G. If H is a closed reductive subgroup stable under Int(g) theta, the component quotient (H g semidirect theta)//H to (G semidirect theta)//G is finite. Finite scalar-extension descent recovers the base needed for the cocycle quotient application."
         }
       ],
       "library": {
@@ -2763,7 +2843,7 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "§2.1–2.2, Lemmas 2.8–2.9, pp. 7–9",
+          "locator": "§2, pp. 6–8; Lemmas 2.7–2.9",
           "match": "For a tame stratum with semisimple inertia s and a normalizer representative n, the equation n Fr(t) n^-1 t^-q=s^q(n)n^-1 lies in the maximal fixed subtorus T^(s,0). The torus endomorphism n Fr-q is an isogeny, giving a finite map to the allowed normalizer components. Closed orbits are reached by this torus locus."
         }
       ],
@@ -2799,7 +2879,7 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Theorem 1.7 and Corollary 1.8, p. 4; Theorem 2.3 and Corollaries 2.4–2.5, pp. 6–10",
+          "locator": "Theorem 1.7 and Corollary 1.8, p. 4; Theorem 2.3 and Corollary 2.4, p. 5",
           "match": "The Frobenius evaluation Z^1(W_F^0/P_F^e,H)//H to the twisted Frobenius component H semidirect Fr//H is finite over Z[1/p]. After restriction to a Weil-stable closed reductive subgroup, the induced cocycle quotient map is also finite."
         }
       ],
@@ -2840,7 +2920,7 @@
       "sources": [
         {
           "sourceId": "fs",
-          "locator": "Definition VIII.3.4, Proposition VIII.3.7 and Definition VIII.4.2, pp. 287–290 and 292–294",
+          "locator": "Definition VIII.3.4, p. 287; Proposition VIII.3.7, pp. 288–290; Definition VIII.4.2, p. 291",
           "match": "For W=W_F^0/P_F^e, define Exc(W,H) as the colimit, over free-group maps F_n to W, of the invariant coordinate rings O(Z^1(F_n,H))^H. Its generators can be expressed by excursion tuples: finite I, a representation V of the corresponding H/Weil finite-action product, diagonal-H invariant creation and annihilation maps alpha and beta, and gamma in W^I. Functorial pullback, product and concatenation impose the excursion relations."
         }
       ],
@@ -2893,7 +2973,7 @@
         {
           "name": "SRPlan.ExcursionDatum.singleton",
           "kind": "compatibility",
-          "statement": "For one index, creation and annihilation through invariant vectors give a constant coefficient function."
+          "statement": "For one index on the identity finite-Weil-component slice, creation and annihilation through diagonal-H invariant vectors give a constant function of the H-coordinate. This does not assert constancy in the Weil-component variable."
         }
       ],
       "leanName": "SRPlan.ExcursionDatum"
@@ -2906,7 +2986,7 @@
       ],
       "title": "Excursion and cocycle quotient comparison",
       "kind": "theorem",
-      "statement": "The excursion algebra maps to the finite-wild invariant cocycle ring by a universal homeomorphism, becomes an isomorphism after inverting ell and has nilpotent ell-torsion. The strong integral isomorphism requires ell not dividing the torsion order of the dual fundamental group. The reduced excursion algebra has finite Frobenius/reductive-subgroup restriction maps without that good-prime assumption.",
+      "statement": "Over Z_ell the natural map from the finite-wild excursion algebra to the invariant cocycle ring is a universal homeomorphism and an isomorphism after inverting ell; its kernel is nilpotent ell-torsion. The strong integral isomorphism of FS Theorem VIII.3.6 requires ell not dividing the torsion order of pi_1(H). DHKM Corollary 2.6 gives finite Frobenius and reductive-subgroup maps for reduced excursion algebras without that good-prime hypothesis.",
       "hypotheses": [],
       "proofSteps": [
         "Present cocycle rings as free-group colimits and compare invariants after coefficient extension.",
@@ -2923,8 +3003,8 @@
       "sources": [
         {
           "sourceId": "fs",
-          "locator": "Propositions VIII.3.5–VIII.3.7, pp. 287–290; DHKM Corollary 2.6, p. 10",
-          "match": "The excursion algebra maps to the finite-wild invariant cocycle ring by a universal homeomorphism, becomes an isomorphism after inverting ell and has nilpotent ell-torsion. The strong integral isomorphism requires ell not dividing the torsion order of the dual fundamental group. The reduced excursion algebra has finite Frobenius/reductive-subgroup restriction maps without that good-prime assumption."
+          "locator": "Proposition VIII.3.5 and Theorem VIII.3.6, pp. 287–288; Proposition VIII.3.7, pp. 288–290; DHKM Corollary 2.6, p. 6",
+          "match": "Over Z_ell the natural map from the finite-wild excursion algebra to the invariant cocycle ring is a universal homeomorphism and an isomorphism after inverting ell; its kernel is nilpotent ell-torsion. The strong integral isomorphism of FS Theorem VIII.3.6 requires ell not dividing the torsion order of pi_1(H). DHKM Corollary 2.6 gives finite Frobenius and reductive-subgroup maps for reduced excursion algebras without that good-prime hypothesis."
         }
       ],
       "library": {
@@ -2960,7 +3040,7 @@
       "sources": [
         {
           "sourceId": "fs",
-          "locator": "Theorem IX.0.1, pp. 318–319; Theorem IX.5.1, pp. 327–328",
+          "locator": "Theorem IX.0.1, pp. 317–318; Proposition IX.5.1, pp. 327–328",
           "match": "For the Fargues–Scholze lisse derived category on Bun_G over ell-adic coefficients with the specified q-half, construct the exact monoidal, finite-set-compatible Hecke action with W_F^I descent, preservation of compact/ULA objects and a uniform finite-wild bound on each compact object. Its restriction to the trivial G-bundle stratum yields the smooth representation action used by DHKM. This is an actual geometric construction, not a tuple of assumed functors."
         }
       ],
@@ -2979,8 +3059,10 @@
       ],
       "title": "Excursion action on the smooth categorical center",
       "kind": "theorem",
-      "statement": "The finite-set Hecke action gives a ring map Exc(W,H) to the categorical center by S_(I,V,alpha,beta,gamma)=T_beta gamma T_alpha. The maps satisfy the free-group excursion relations, and every finitely generated smooth representation is acted on through some finite-wild quotient. No strong spectral-center/invariant-ring isomorphism is needed.",
-      "hypotheses": [],
+      "statement": "With Lambda=Z_ell[chosen sqrt(q)], the finite-set Hecke action gives a ring map from Exc(W_F,H)=inverse_limit_e Exc(W_F^0/P_F^e,H) to the smooth categorical center. Operators are S_(I,V,alpha,beta,gamma)=T_beta gamma T_alpha and satisfy the free-group relations. For each finitely generated smooth representation this action factors through some finite level e. A map from one fixed finite-level excursion algebra to the entire smooth center is not asserted.",
+      "hypotheses": [
+        "ell differs from p; Lambda is the finite flat extension Z_ell[sqrt(q)] inside a fixed algebraic closure, not the algebraic integral closure of Z_ell."
+      ],
       "proofSteps": [
         "Use regular representation matrix coefficients to show the operator depends only on the invariant function.",
         "Use external tensor products and fusion to prove multiplication and word-substitution relations.",
@@ -2998,8 +3080,13 @@
       "sources": [
         {
           "sourceId": "fs",
-          "locator": "Theorem VIII.4.1, pp. 291–294; Theorem IX.5.1, pp. 327–328",
-          "match": "The finite-set Hecke action gives a ring map Exc(W,H) to the categorical center by S_(I,V,alpha,beta,gamma)=T_beta gamma T_alpha. The maps satisfy the free-group excursion relations, and every finitely generated smooth representation is acted on through some finite-wild quotient. No strong spectral-center/invariant-ring isomorphism is needed."
+          "locator": "Theorem VIII.4.1, pp. 291–292; Theorem IX.0.3, p. 319; Proposition IX.5.1, pp. 327–328; DHKM §1, p. 3",
+          "match": "With Lambda=Z_ell[chosen sqrt(q)], the finite-set Hecke action gives a ring map from Exc(W_F,H)=inverse_limit_e Exc(W_F^0/P_F^e,H) to the smooth categorical center. Operators are S_(I,V,alpha,beta,gamma)=T_beta gamma T_alpha and satisfy the free-group relations. For each finitely generated smooth representation this action factors through some finite level e. A map from one fixed finite-level excursion algebra to the entire smooth center is not asserted."
+        },
+        {
+          "sourceId": "dhkm",
+          "locator": "§1, p. 3, excursion action and coefficient convention",
+          "match": "With Lambda=Z_ell[chosen sqrt(q)], the finite-set Hecke action gives a ring map from Exc(W_F,H)=inverse_limit_e Exc(W_F^0/P_F^e,H) to the smooth categorical center. Operators are S_(I,V,alpha,beta,gamma)=T_beta gamma T_alpha and satisfy the free-group relations. For each finitely generated smooth representation this action factors through some finite level e. A map from one fixed finite-level excursion algebra to the entire smooth center is not asserted."
         }
       ],
       "library": {
@@ -3015,17 +3102,17 @@
       "realises": [
         "SmoothRepresentationsOfLocalGroups:SR.6"
       ],
-      "title": "Torus and split-central compatibility",
+      "title": "Torus and connected-central compatibility",
       "kind": "theorem",
-      "statement": "The excursion action for a torus agrees with the local class-field character action. The action is compatible with products, Weil restriction and homomorphisms inducing an adjoint-group isomorphism. In particular its restriction to the maximal split connected center of G agrees with the central character of a smooth cuspidal representation.",
+      "statement": "The torus excursion action agrees with local class-field theory. It is compatible with products, Weil restriction and homomorphisms inducing an adjoint-group isomorphism. For a Levi M, apply the central isogeny M_der times Z_M to M, where Z_M is its maximal connected central torus, to identify the restricted excursion action with the actual central-character action. Z_M need not be split.",
       "hypotheses": [],
       "proofSteps": [
-        "For induced tori compute the tautological Hecke modification and the local reciprocity character, then resolve general tori by induced tori.",
-        "Use product decomposition and Cartesian Hecke correspondences to compare the excursion operators under adjoint isomorphisms.",
-        "Apply the product and torus diagrams to the connected split center and compare its Bernstein action."
+        "For induced tori compute the Hecke modification and local reciprocity; resolve general tori by induced tori.",
+        "Use product and Weil-restriction comparisons and the adjoint-isomorphism theorem.",
+        "Apply the isogeny M_der times Z_M to M and Proposition IX.6.5 to recover the central-character action of the full central torus."
       ],
       "acceptance": [
-        "Do not assert compatibility with every central component from the connected split-center argument alone."
+        "Use the full maximal connected central torus, including nonsplit tori; disconnected center components require the separate z-extension comparison."
       ],
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.6/excursion-center-action",
@@ -3035,8 +3122,8 @@
       "sources": [
         {
           "sourceId": "fs",
-          "locator": "Theorem IX.6.1, Propositions IX.6.2–IX.6.3 and Theorem IX.6.4, pp. 330–333; DHKM §3.1, p. 11",
-          "match": "The excursion action for a torus agrees with the local class-field character action. The action is compatible with products, Weil restriction and homomorphisms inducing an adjoint-group isomorphism. In particular its restriction to the maximal split connected center of G agrees with the central character of a smooth cuspidal representation."
+          "locator": "Theorem IX.6.1, Propositions IX.6.2–IX.6.5, pp. 330–333; DHKM §1, p. 3 and §3.1, p. 10",
+          "match": "The torus excursion action agrees with local class-field theory. It is compatible with products, Weil restriction and homomorphisms inducing an adjoint-group isomorphism. For a Levi M, apply the central isogeny M_der times Z_M to M, where Z_M is its maximal connected central torus, to identify the restricted excursion action with the actual central-character action. Z_M need not be split."
         }
       ],
       "library": {
@@ -3073,7 +3160,7 @@
       "sources": [
         {
           "sourceId": "fs",
-          "locator": "Theorem IX.7.2 and Corollary IX.7.3, pp. 335–338; DHKM §3.1, p. 11",
+          "locator": "Theorem IX.7.2, pp. 335–337; Corollary IX.7.3, pp. 337–338; DHKM §1, p. 3 and §3.1, p. 10",
           "match": "For normalized parabolic induction, the excursion action commutes with the dual-Levi restriction map. For unnormalized induction the ratio of the rho_G and rho_M cyclotomic twists is retained. The chosen delta_P^(1/2) normalization cancels that ratio in the normalized statement."
         }
       ],
@@ -3110,7 +3197,7 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "§3.2, Lemmas 3.1–3.3, pp. 11–12",
+          "locator": "§3, pp. 8–10; definition, p. 9; Lemmas 3.1–3.3, pp. 9–10",
           "match": "For a Noetherian coefficient ring R, let Z_V be the image of the smooth categorical center in End_(R[G])(V). Say V is Z-finite if Z_V is a finite-type R-algebra and V^K is finite over Z_V for every compact open K. The image is used, rather than the full possibly infinitely generated center."
         }
       ],
@@ -3187,7 +3274,7 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Lemma 3.2, pp. 11–12; Appendix inputs cited there to Dat (2009)",
+          "locator": "Lemma 3.2 and preceding depth-generator discussion, p. 9; Dat (2009) appendix cited there",
           "match": "A bounded-depth smooth block over p-invertible coefficients has a finitely generated projective generator built from compact pro-p induction. Z-finiteness of all finitely generated objects is equivalent to finite-over-finite-type-center behavior of the corresponding Hecke corners. The depth splitting and these generators are the integral Dat inputs; the compact-open corner comparison is supplied by SR.1."
         }
       ],
@@ -3206,7 +3293,7 @@
       ],
       "title": "Torsion-free projective cuspidal embeddings",
       "kind": "theorem",
-      "statement": "A finitely generated projective smooth representation over the algebraic ell-adic coefficient base embeds into a finite direct sum of normalized parabolic inductions of finitely generated ell-torsion-free cuspidal Levi modules. This is proved by characteristic-zero cuspidal-support theory and stable lattices; it is not integral supercuspidal classification by assertion.",
+      "statement": "Over Lambda=Z_ell[sqrt(q)], every finitely generated projective smooth representation embeds into a finite direct sum of normalized parabolic inductions of finitely generated ell-torsion-free cuspidal Levi modules. Lambda is the finite flat q-half extension used by DHKM, not an algebraic integral closure. Characteristic-zero cuspidal support, second adjointness and stable lattices provide the embedding.",
       "hypotheses": [],
       "proofSteps": [
         "Invert ell and decompose the projective by characteristic-zero cuspidal support.",
@@ -3225,8 +3312,8 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Lemma 3.4, pp. 12–13",
-          "match": "A finitely generated projective smooth representation over the algebraic ell-adic coefficient base embeds into a finite direct sum of normalized parabolic inductions of finitely generated ell-torsion-free cuspidal Levi modules. This is proved by characteristic-zero cuspidal-support theory and stable lattices; it is not integral supercuspidal classification by assertion."
+          "locator": "Lemma 3.4, p. 10",
+          "match": "Over Lambda=Z_ell[sqrt(q)], every finitely generated projective smooth representation embeds into a finite direct sum of normalized parabolic inductions of finitely generated ell-torsion-free cuspidal Levi modules. Lambda is the finite flat q-half extension used by DHKM, not an algebraic integral closure. Characteristic-zero cuspidal support, second adjointness and stable lattices provide the embedding."
         }
       ],
       "library": {
@@ -3244,12 +3331,12 @@
       ],
       "title": "Excursion finiteness on cuspidal lattices",
       "kind": "theorem",
-      "statement": "For a finitely generated ell-torsion-free cuspidal lattice, the excursion action factors through the reduced finite-wild algebra: nilpotent ell-torsion acts trivially. Torus/central compatibility makes the lattice admissible over the relevant central-character excursion algebra. Reductive-subgroup restriction finiteness then transfers this finite-module property to parabolic inductions.",
+      "statement": "For a finitely generated ell-torsion-free cuspidal Lambda[M]-module, choose a finite wild level through which its excursion action factors. Since the nilradical of that finite-level excursion algebra is ell-torsion, its action on the lattice is zero. Compatibility with the full connected central torus Z_M makes the lattice admissible over its central-character algebra. Finite reduced-excursion restriction and normalized parabolic compatibility transfer this property to its induced G-module.",
       "hypotheses": [],
       "proofSteps": [
-        "Use torsion-freeness to kill nilpotent ell-torsion excursion operators.",
-        "Compare the split-central action with the torus parameter algebra and the cuspidal invariant finiteness statement.",
-        "Apply finite reduced-excursion restriction and normalized parabolic compatibility to the embedding factors."
+        "After inverting ell the excursion algebra is reduced; its nilradical is therefore ell-torsion and acts trivially on the torsion-free lattice.",
+        "Use compatibility with the full connected central torus Z_M and cuspidal finiteness modulo that center.",
+        "Apply Corollary 2.6 reduced-excursion restriction and normalized parabolic compatibility to the induction factors."
       ],
       "acceptance": [
         "No unsupported equality of the full excursion ring with the invariant ring is used."
@@ -3263,8 +3350,8 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "§3.3, pp. 13–14, proof of Theorem 1.2",
-          "match": "For a finitely generated ell-torsion-free cuspidal lattice, the excursion action factors through the reduced finite-wild algebra: nilpotent ell-torsion acts trivially. Torus/central compatibility makes the lattice admissible over the relevant central-character excursion algebra. Reductive-subgroup restriction finiteness then transfers this finite-module property to parabolic inductions."
+          "locator": "§3.1, pp. 10–11, proof of Theorem 1.2",
+          "match": "For a finitely generated ell-torsion-free cuspidal Lambda[M]-module, choose a finite wild level through which its excursion action factors. Since the nilradical of that finite-level excursion algebra is ell-torsion, its action on the lattice is zero. Compatibility with the full connected central torus Z_M makes the lattice admissible over its central-character algebra. Finite reduced-excursion restriction and normalized parabolic compatibility transfer this property to its induced G-module."
         }
       ],
       "library": {
@@ -3282,13 +3369,13 @@
       ],
       "title": "Integral finiteness over the center",
       "kind": "theorem",
-      "statement": "If R is a Noetherian Z_ell-algebra with ell different from p, every finitely generated smooth R[G(F)] representation is Z-finite, and each Hecke algebra R[K backslash G(F) slash K] is a finite module over its finite-type R-center. Bounded-depth centers are finite over the corresponding reduced finite-wild excursion algebras.",
+      "statement": "If R is a Noetherian Z_ell-algebra, ell different from p, every finitely generated smooth R[G(F)] representation is Z-finite and every compact-open Hecke algebra is finite over its finite-type R-center. More precisely, Corollary 3.5 states that for r>0 a bounded-depth center over Lambda=Z_ell[sqrt(q)] is finite over a suitable reduced finite-level excursion algebra. Statements for general R use the specified coefficient-extension comparisons rather than an unspecified excursion map.",
       "hypotheses": [],
       "proofSteps": [
-        "First work over the algebraic integral ell-adic base and a torsion-free projective generator.",
-        "Embed into the cuspidal induction factors and inherit their finite excursion action on each invariant module.",
-        "The generator endomorphism algebra embeds in the endomorphisms of a finite invariant module over a Noetherian excursion algebra; deduce finite type of its center image.",
-        "Pass to finite quotients of generator sums, then use flat coefficient ascent and faithful-flat descent to handle R."
+        "First work over the finite flat ring Lambda and a torsion-free projective depth generator.",
+        "Embed into cuspidal induction factors and inherit their finite excursion action on compact-open invariants.",
+        "Embed generator endomorphisms into endomorphisms of a finite invariant module over the Noetherian excursion algebra; deduce center finiteness.",
+        "Use Lemma 3.3: ascent along any Noetherian coefficient extension and descent along faithful flat extensions."
       ],
       "acceptance": [
         "The theorem is not stated over every Noetherian Z[1/p]-algebra."
@@ -3301,8 +3388,8 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Theorems 1.1–1.2, p. 1; Corollary 3.5, p. 14",
-          "match": "If R is a Noetherian Z_ell-algebra with ell different from p, every finitely generated smooth R[G(F)] representation is Z-finite, and each Hecke algebra R[K backslash G(F) slash K] is a finite module over its finite-type R-center. Bounded-depth centers are finite over the corresponding reduced finite-wild excursion algebras."
+          "locator": "Theorems 1.1–1.2, p. 1; §3.1 and Corollary 3.5, pp. 10–11",
+          "match": "If R is a Noetherian Z_ell-algebra, ell different from p, every finitely generated smooth R[G(F)] representation is Z-finite and every compact-open Hecke algebra is finite over its finite-type R-center. More precisely, Corollary 3.5 states that for r>0 a bounded-depth center over Lambda=Z_ell[sqrt(q)] is finite over a suitable reduced finite-level excursion algebra. Statements for general R use the specified coefficient-extension comparisons rather than an unspecified excursion map."
         }
       ],
       "library": {
@@ -3323,7 +3410,7 @@
       ],
       "title": "The integral parabolic center map",
       "kind": "theorem",
-      "statement": "For a Noetherian flat Z[1/p]-algebra R, there is a unique map Z_R(G) to Z_R(M) intertwining unnormalized parabolic induction. On bounded-depth centers over Z_ell, the Levi center is finite over the induced G-center action, with arbitrary Noetherian Z_ell coefficient extension as in DHKM §4.1.",
+      "statement": "For a Noetherian flat Z[1/p]-algebra R, Theorem 4.1 gives a unique map Z_R(G) to Z_R(M) compatible with unnormalized parabolic induction and flat coefficient extension. For any Noetherian Z_ell-algebra R, Theorem 4.3 makes Z_R(M)_r finite over Z_Zell(G)_r tensor_Zell R; Lemma 4.2 makes Z_R(G)_r finite over Z_Zell(G)_r tensor_Zell R. This latter assertion does not require or construct a parabolic map from Z_R(G) when R is nonflat.",
       "hypotheses": [],
       "proofSteps": [
         "Construct the map after rationalization via the characteristic-zero center.",
@@ -3341,8 +3428,8 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Theorems 4.1 and 4.3; Lemma 4.2, pp. 14–15",
-          "match": "For a Noetherian flat Z[1/p]-algebra R, there is a unique map Z_R(G) to Z_R(M) intertwining unnormalized parabolic induction. On bounded-depth centers over Z_ell, the Levi center is finite over the induced G-center action, with arbitrary Noetherian Z_ell coefficient extension as in DHKM §4.1."
+          "locator": "Theorem 4.1 and Lemma 4.2, pp. 12–13; Theorem 4.3, p. 13",
+          "match": "For a Noetherian flat Z[1/p]-algebra R, Theorem 4.1 gives a unique map Z_R(G) to Z_R(M) compatible with unnormalized parabolic induction and flat coefficient extension. For any Noetherian Z_ell-algebra R, Theorem 4.3 makes Z_R(M)_r finite over Z_Zell(G)_r tensor_Zell R; Lemma 4.2 makes Z_R(G)_r finite over Z_Zell(G)_r tensor_Zell R. This latter assertion does not require or construct a parabolic map from Z_R(G) when R is nonflat."
         }
       ],
       "library": {
@@ -3377,7 +3464,7 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Definition implicit in Lemmas 4.5–4.7, pp. 15–16; Helm H1 Definition 11.9, p. 58",
+          "locator": "§4, before Lemma 4.5, p. 13; Lemmas 4.5–4.7, pp. 13–14; compare Helm center Definition 11.9, p. 58",
           "match": "For a module M and endomorphism T, stability means there exists c>=1 and a T-invariant direct summand I such that M=ker(T^c) direct sum I and T restricts to an automorphism of I. For a decomposed compact open K and a strictly P-positive central element lambda, use the Hecke operator T_lambda on V^K. The invertible summand maps canonically to the Levi compact-open Jacquet invariants."
         }
       ],
@@ -3439,7 +3526,7 @@
       ],
       "title": "Ell-adic admissibility and uniform stability",
       "kind": "theorem",
-      "statement": "Finite-center control makes the Jacquet module of a bounded-depth compact pro-p projective generator admissible over the G-center. Consequently every such generator is K,P-stable. The nilpotence bound may be chosen independently of ell different from p by comparing its torsion-free characteristic-zero Hecke operator with the complex operator.",
+      "statement": "For a fixed depth bound r, sufficiently small pro-p compact open H, a decomposed K, parabolic P and strictly contracting lambda, finite-center control makes R_P(Z_ell[G/H]_r) admissible over the G-center. Lemmas 4.5–4.6 give K,P-stability. Lemma 4.7 chooses a stability exponent depending on r,K,P,lambda but independent of ell different from p, and this common exponent applies to all smooth Z_ell representations of depth at most r.",
       "hypotheses": [],
       "proofSteps": [
         "Use finite bounded-depth Levi center over G-center to obtain admissibility of the generator Jacquet module.",
@@ -3458,8 +3545,8 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Lemmas 4.4–4.7, pp. 15–16",
-          "match": "Finite-center control makes the Jacquet module of a bounded-depth compact pro-p projective generator admissible over the G-center. Consequently every such generator is K,P-stable. The nilpotence bound may be chosen independently of ell different from p by comparing its torsion-free characteristic-zero Hecke operator with the complex operator."
+          "locator": "Lemmas 4.4–4.7, pp. 13–14",
+          "match": "For a fixed depth bound r, sufficiently small pro-p compact open H, a decomposed K, parabolic P and strictly contracting lambda, finite-center control makes R_P(Z_ell[G/H]_r) admissible over the G-center. Lemmas 4.5–4.6 give K,P-stability. Lemma 4.7 chooses a stability exponent depending on r,K,P,lambda but independent of ell different from p, and this common exponent applies to all smooth Z_ell representations of depth at most r."
         }
       ],
       "library": {
@@ -3477,12 +3564,12 @@
       ],
       "title": "Injective cogenerators across coefficient primes",
       "kind": "theorem",
-      "statement": "The smooth dual Hom_Zell(V,Q_ell/Z_ell) of a compact pro-p projective generator is an injective cogenerator for the appropriate ell-primary smooth category. Every simple Z[1/p] smooth representation embeds into one of these cogenerators; arbitrary objects admit resolutions by products across ell different from p. These duals use injective coefficient modules, not ordinary scalar duals.",
+      "statement": "Fix a depth bound r and sufficiently small pro-p H. Let P_r=Z_ell[G/H]_r. Its smooth injective-coefficient dual I_ell=Hom_Zell(P_r,Q_ell/Z_ell)^smooth is an injective cogenerator in the depth-at-most-r smooth Z_ell category and remains injective as a Z[1/p] object. Every simple smooth Z[1/p] representation of depth at most r embeds in some I_ell, including simples with zero coefficient annihilator. Products over ell different from p yield injective resolutions in the smooth category, with a common stability bound. These are not ordinary scalar duals or a claim that one fixed r cogenerates every depth.",
       "hypotheses": [],
       "proofSteps": [
-        "Use injectivity of Q_ell/Z_ell and exact pro-p invariants to prove the smooth dual is injective.",
-        "Classify the coefficient annihilator of a simple module and choose the matching ell-primary dual generator.",
-        "Embed arbitrary modules in products of these cogenerators and iterate cokernels; retain the uniform stability bound."
+        "Use injectivity of Q_ell/Z_ell, the projective depth generator and exact pro-p invariants to obtain the smooth injective dual.",
+        "For a simple Z[1/p] object, distinguish a nonzero prime coefficient annihilator from zero annihilator; the rational case can embed into an ell-adic dual too.",
+        "Embed depth-bounded objects into products of these injectives in the smooth category and iterate cokernels, using the common stabilization exponent."
       ],
       "acceptance": [
         "Products are smooth products in the smooth category; an algebraic product need not be smooth."
@@ -3495,8 +3582,8 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Lemma 4.8 and Corollary 4.9, p. 16",
-          "match": "The smooth dual Hom_Zell(V,Q_ell/Z_ell) of a compact pro-p projective generator is an injective cogenerator for the appropriate ell-primary smooth category. Every simple Z[1/p] smooth representation embeds into one of these cogenerators; arbitrary objects admit resolutions by products across ell different from p. These duals use injective coefficient modules, not ordinary scalar duals."
+          "locator": "§4, construction preceding Lemma 4.8, p. 14; Lemma 4.8 and Corollary 4.9, pp. 14–15",
+          "match": "Fix a depth bound r and sufficiently small pro-p H. Let P_r=Z_ell[G/H]_r. Its smooth injective-coefficient dual I_ell=Hom_Zell(P_r,Q_ell/Z_ell)^smooth is an injective cogenerator in the depth-at-most-r smooth Z_ell category and remains injective as a Z[1/p] object. Every simple smooth Z[1/p] representation of depth at most r embeds in some I_ell, including simples with zero coefficient annihilator. Products over ell different from p yield injective resolutions in the smooth category, with a common stability bound. These are not ordinary scalar duals or a claim that one fixed r cogenerates every depth."
         }
       ],
       "library": {
@@ -3532,7 +3619,7 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Corollary 4.10, p. 16",
+          "locator": "Lemma 4.10, p. 15",
           "match": "For the smooth dual V-vee=Hom_Z[1/p](V,Q/Z[1/p])^smooth, stability gives R_P(V-vee) isomorphic to (R_oppositeP V)-vee. The pairing on compact-open invariants descends to the mutually adjoint invertible Hecke summands, and the isomorphism is natural."
         }
       ],
@@ -3570,7 +3657,7 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Corollary 1.3, p. 2; end of §4.2, p. 16",
+          "locator": "Corollary 1.3, p. 2; proof following Lemma 4.10, p. 15",
           "match": "For every commutative Z[1/p]-algebra R, unnormalized I_P is left adjoint to delta_P R_oppositeP. If a specified square root delta_P^(1/2) exists, normalized i_P is left adjoint to normalized r_oppositeP. Construct the natural Hom equivalence, its unit and counit and both triangle identities. No Noetherian or Z_ell-algebra hypothesis is imposed on this final adjunction."
         }
       ],
@@ -3611,7 +3698,7 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Corollaries 1.4–1.6, pp. 2–3",
+          "locator": "Corollaries 1.4–1.6, p. 2; proofs referenced in §4",
           "match": "For a Noetherian Z[1/p]-algebra R, the relevant Hecke algebras are Noetherian, induction preserves projectives and finite generation, and Jacquet functors preserve admissibility. An irreducible Qbar_ell representation is integral exactly when its supercuspidal support is integral. Finite-over-center remains the stronger Z_ell-algebra theorem already stated."
         }
       ],
@@ -3630,11 +3717,11 @@
       ],
       "title": "Cuspidal reduction and generic irreducibility",
       "kind": "theorem",
-      "statement": "For an irreducible integral ell-adic representation, cuspidality of its reduction implies cuspidality of the characteristic-zero representation. For an irreducible cuspidal Levi representation, induction is irreducible on a nonempty open set of unramified characters in the coefficient setting of DHKM Corollary 4.12, and the associated parabolic inductions have the stated common Grothendieck-class comparison.",
+      "statement": "For an irreducible integral Qbar_ell representation pi, cuspidality of its reduction implies cuspidality of pi (Corollary 4.11). For an algebraically closed field k over Z[1/p], any irreducible smooth k-representation sigma of a Levi M, and parabolics P,Q with Levi M, Corollary 4.12 gives a Zariski dense open set of unramified characters psi for which normalized i_P(sigma psi) is irreducible, and equality of the finite-length Grothendieck classes of i_P(sigma) and i_Q(sigma). Sigma need not be cuspidal.",
       "hypotheses": [],
       "proofSteps": [
-        "Commute Jacquet reduction with coefficient change and use lattice nonvanishing to detect noncuspidality.",
-        "Use finite endomorphism control over the unramified character torus and characteristic-zero generic irreducibility to descend a nonempty open locus."
+        "Commute Jacquet reduction with coefficient change and use nonvanishing of a lattice quotient to detect noncuspidality.",
+        "Use second adjointness together with the generic-irreducibility and Grothendieck-comparison arguments cited to Dat (2005), Proposition 3.14 and Dat (2009), Lemmas 4.12–4.13; refinement of these cited inputs remains explicit."
       ],
       "acceptance": [
         "The statement is generic irreducibility on an open locus, not all unramified twists."
@@ -3646,8 +3733,8 @@
       "sources": [
         {
           "sourceId": "dhkm",
-          "locator": "Corollaries 4.11–4.12, pp. 16–17",
-          "match": "For an irreducible integral ell-adic representation, cuspidality of its reduction implies cuspidality of the characteristic-zero representation. For an irreducible cuspidal Levi representation, induction is irreducible on a nonempty open set of unramified characters in the coefficient setting of DHKM Corollary 4.12, and the associated parabolic inductions have the stated common Grothendieck-class comparison."
+          "locator": "Corollary 4.11, p. 15; Corollary 4.12, p. 16",
+          "match": "For an irreducible integral Qbar_ell representation pi, cuspidality of its reduction implies cuspidality of pi (Corollary 4.11). For an algebraically closed field k over Z[1/p], any irreducible smooth k-representation sigma of a Levi M, and parabolics P,Q with Levi M, Corollary 4.12 gives a Zariski dense open set of unramified characters psi for which normalized i_P(sigma psi) is irreducible, and equality of the finite-length Grothendieck classes of i_P(sigma) and i_Q(sigma). Sigma need not be cuspidal."
         }
       ],
       "library": {
@@ -3783,7 +3870,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
-      "need": "Reductive torus/normalizer structure and highest-weight Weyl-module traces; integral twisted invariant refinements remain G-INTEGRAL-GIT.",
+      "need": "Reductive torus/normalizer structure and Bruhat/root data. Highest-weight Weyl-module traces are a separately requested Layer 1 refinement; integral twisted invariants remain G-INTEGRAL-GIT.",
       "neededBy": [
         "SmoothRepresentationsOfLocalGroups:SR.4/frobenius-component-invariants",
         "SmoothRepresentationsOfLocalGroups:SR.6/wild-strata",
@@ -3803,6 +3890,35 @@
       "neededBy": [
         "SmoothRepresentationsOfLocalGroups:SR.6/finite-wild-representability"
       ]
+    },
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.2",
+      "need": "The building and apartment for the ramified odd-rank unitary lattice model; identify the chamber stabilizer and its index-two connected Iwahori.",
+      "neededBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-iwahori-center"
+      ]
+    },
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.3",
+      "need": "The special parahoric lattice model K and chamber stabilizer B of CT §2.1, including residue characteristic odd and the disconnected reductive special fiber.",
+      "neededBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-iwahori-center"
+      ]
+    },
+    {
+      "supplier": "ReductiveGroupsPartII:RG2.4",
+      "need": "The ramified unitary Iwahori–Bruhat double cosets, length/index formula q^length and comparison of affine Coxeter generators with split Sp_(2k).",
+      "neededBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-iwahori-center"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+      "need": "Rational representations and their matrix coefficients. Highest-weight Weyl modules and their dominance-triangular traces are a requested refinement, not an existing Layer 7 structure-theory theorem.",
+      "neededBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.4/frobenius-component-invariants",
+        "SmoothRepresentationsOfLocalGroups:SR.4/geometric-trace-contract"
+      ]
     }
   ],
   "coverage": [
@@ -3810,21 +3926,24 @@
       "stageId": "SmoothRepresentationsOfLocalGroups:SR.4",
       "status": "planned",
       "remaining": [
-        "Resolve G-SATAKE-CARRIER and G-HL-COUNT; elaborate the full reductive Satake and descent signatures."
+        "Resolve G-SATAKE-CARRIER and G-HL-COUNT; elaborate the full reductive Satake and descent signatures.",
+        "Resolve G-RAMIFIED-HECKE; supply Weyl-module trace refinement and synchronize reader normalization corrections; fulfill G-FULL-SIGNATURES."
       ]
     },
     {
       "stageId": "SmoothRepresentationsOfLocalGroups:SR.5",
       "status": "planned",
       "remaining": [
-        "Resolve G-MODULAR-TYPES, G-ESSENTIAL and G-INTERPOLATION; elaborate prime-fiber co-Whittaker/absolute AIG signatures on the smooth carrier."
+        "Resolve G-MODULAR-TYPES, G-ESSENTIAL and G-INTERPOLATION; elaborate prime-fiber co-Whittaker/absolute AIG signatures on the smooth carrier.",
+        "Resolve G-MODULAR-FIELD and any requested G-COEFFICIENT-GENERALITY extension; retain sourced coefficient hypotheses; fulfill G-FULL-SIGNATURES."
       ]
     },
     {
       "stageId": "SmoothRepresentationsOfLocalGroups:SR.6",
       "status": "planned",
       "remaining": [
-        "Resolve G-GEOMETRIC-ACTION, G-INTEGRAL-GIT and G-DEPTH; elaborate actual geometric action and integral quotient signatures."
+        "Resolve G-GEOMETRIC-ACTION, G-INTEGRAL-GIT and G-DEPTH; elaborate actual geometric action and integral quotient signatures.",
+        "Separate excursion algebra/datum and finite-wild scheme APIs/tests; resolve G-DAT-CONSEQUENCES; synchronize corrected full connected-center, inverse-limit, coefficient and source-locator contracts; fulfill G-FULL-SIGNATURES."
       ]
     }
   ],
@@ -3898,6 +4017,118 @@
         "SmoothRepresentationsOfLocalGroups:SR.6/depth-generators"
       ],
       "detail": "Read the Dat (2009) appendix invoked in DHKM Lemma 3.2 and decompose its integral depth projectors and finite projective generators. The earlier smooth category and compact induction do not alone prove this bounded-depth generation statement."
+    },
+    {
+      "id": "G-RAMIFIED-HECKE",
+      "title": "Ramified unitary chamber and Bernstein presentation",
+      "neededBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-iwahori-center"
+      ],
+      "detail": "RG2.2–RG2.4 supply buildings, parahoric stabilizers and Iwahori–Bruhat decompositions. Refine CT §2.1, pp. 4–8 for its ramified odd-rank lattice model, B containing the connected Iwahori with index two, the affine Coxeter/parameter comparison with split Sp_(2k), and the Bernstein commutation relation. The existing unramified hyperspecial request alone cannot provide this comparison."
+    },
+    {
+      "id": "G-MODULAR-FIELD",
+      "title": "Modular field classification and highest derivatives",
+      "neededBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.5/essentially-aig",
+        "SmoothRepresentationsOfLocalGroups:SR.5/ext-support-orthogonality",
+        "SmoothRepresentationsOfLocalGroups:SR.5/highest-derivative-adapter"
+      ],
+      "detail": "SR.3 supplies complex admissibility and Bernstein theory, not the arbitrary ell-not-p field type/block/Ext and duality theory used in EH §3.2. Refine these modular inputs together with the complex Zelevinsky multisegment parametrization and the highest-derivative rule cited by AKY §2.3, p. 8. Do not infer these classification theorems from SR.3 basic admissibility."
+    },
+    {
+      "id": "G-COEFFICIENT-GENERALITY",
+      "title": "Derivative coefficient generality beyond EH",
+      "neededBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.5/mirabolic-derivatives",
+        "SmoothRepresentationsOfLocalGroups:SR.5/derivative-exactness"
+      ],
+      "detail": "The corrected nodes use Noetherian W(k)-algebras, k perfect of characteristic ell different from p, with chosen or descended character as in EH §3.1. If an all-p-invertible-ring export is needed, source and prove arbitrary-ring compact-induction exactness and descent before widening these statements; the current field and Witt-coefficient argument is not that theorem."
+    },
+    {
+      "id": "G-DAT-CONSEQUENCES",
+      "title": "Generic irreducibility and Grothendieck comparison inputs",
+      "neededBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.6/cuspidal-reduction-consequences"
+      ],
+      "detail": "DHKM Corollary 4.12, p. 16 invokes Dat (2005), Proposition 3.14 and Dat (2009), Lemmas 4.12–4.13. Read and refine these inputs for algebraically closed k over Z[1/p], arbitrary irreducible Levi sigma and dense open unramified twist locus. A characteristic-zero descent assertion is not a replacement proof."
+    },
+    {
+      "id": "G-FULL-SIGNATURES",
+      "title": "Actual carriers, definition APIs and complete Lean signatures",
+      "neededBy": [
+        "SmoothRepresentationsOfLocalGroups:SR.4/satake-transform",
+        "SmoothRepresentationsOfLocalGroups:SR.4/twisted-weyl-invariance",
+        "SmoothRepresentationsOfLocalGroups:SR.4/satake-isomorphism",
+        "SmoothRepresentationsOfLocalGroups:SR.4/torus-character-dictionary",
+        "SmoothRepresentationsOfLocalGroups:SR.4/frobenius-component-invariants",
+        "SmoothRepresentationsOfLocalGroups:SR.4/pseudoroot",
+        "SmoothRepresentationsOfLocalGroups:SR.4/spherical-parameter",
+        "SmoothRepresentationsOfLocalGroups:SR.4/c-group-formulation",
+        "SmoothRepresentationsOfLocalGroups:SR.4/gln-generators",
+        "SmoothRepresentationsOfLocalGroups:SR.4/hall-littlewood",
+        "SmoothRepresentationsOfLocalGroups:SR.4/macdonald-formula",
+        "SmoothRepresentationsOfLocalGroups:SR.4/parabolic-descent",
+        "SmoothRepresentationsOfLocalGroups:SR.4/paired-unitary-parameter",
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-genericity",
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-weyl-traces",
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-triangular-transform",
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-isotropic-counts",
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-even-formulas",
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-odd-formulas",
+        "SmoothRepresentationsOfLocalGroups:SR.4/gsp4-spin-polynomial",
+        "SmoothRepresentationsOfLocalGroups:SR.4/gsp4-galois-comparison",
+        "SmoothRepresentationsOfLocalGroups:SR.4/derived-satake",
+        "SmoothRepresentationsOfLocalGroups:SR.4/unitary-iwahori-center",
+        "SmoothRepresentationsOfLocalGroups:SR.4/geometric-trace-contract",
+        "SmoothRepresentationsOfLocalGroups:SR.5/twisted-coinvariants",
+        "SmoothRepresentationsOfLocalGroups:SR.5/mirabolic-derivatives",
+        "SmoothRepresentationsOfLocalGroups:SR.5/derivative-exactness",
+        "SmoothRepresentationsOfLocalGroups:SR.5/schwartz-submodule",
+        "SmoothRepresentationsOfLocalGroups:SR.5/essentially-aig",
+        "SmoothRepresentationsOfLocalGroups:SR.5/integral-blocks",
+        "SmoothRepresentationsOfLocalGroups:SR.5/type-projectives",
+        "SmoothRepresentationsOfLocalGroups:SR.5/universal-whittaker",
+        "SmoothRepresentationsOfLocalGroups:SR.5/co-whittaker",
+        "SmoothRepresentationsOfLocalGroups:SR.5/universal-domination",
+        "SmoothRepresentationsOfLocalGroups:SR.5/reduced-family-reconstruction",
+        "SmoothRepresentationsOfLocalGroups:SR.5/llc-family-conditional",
+        "SmoothRepresentationsOfLocalGroups:SR.5/tensor-endomorphisms",
+        "SmoothRepresentationsOfLocalGroups:SR.5/invariants-duality-base-change",
+        "SmoothRepresentationsOfLocalGroups:SR.5/ext-support-orthogonality",
+        "SmoothRepresentationsOfLocalGroups:SR.5/cg-distinct-block",
+        "SmoothRepresentationsOfLocalGroups:SR.5/cg-derived-projector",
+        "SmoothRepresentationsOfLocalGroups:SR.5/highest-derivative-adapter",
+        "SmoothRepresentationsOfLocalGroups:SR.5/essential-vector-contract",
+        "SmoothRepresentationsOfLocalGroups:SR.6/crossed-cocycles",
+        "SmoothRepresentationsOfLocalGroups:SR.6/finite-wild-discretization",
+        "SmoothRepresentationsOfLocalGroups:SR.6/finite-wild-representability",
+        "SmoothRepresentationsOfLocalGroups:SR.6/ell-adic-extension",
+        "SmoothRepresentationsOfLocalGroups:SR.6/wild-strata",
+        "SmoothRepresentationsOfLocalGroups:SR.6/twisted-component-finiteness",
+        "SmoothRepresentationsOfLocalGroups:SR.6/tame-torus-engine",
+        "SmoothRepresentationsOfLocalGroups:SR.6/frobenius-quotient-finite",
+        "SmoothRepresentationsOfLocalGroups:SR.6/excursion-algebra",
+        "SmoothRepresentationsOfLocalGroups:SR.6/excursion-invariant-comparison",
+        "SmoothRepresentationsOfLocalGroups:SR.6/geometric-hecke-action",
+        "SmoothRepresentationsOfLocalGroups:SR.6/excursion-center-action",
+        "SmoothRepresentationsOfLocalGroups:SR.6/torus-central-compatibility",
+        "SmoothRepresentationsOfLocalGroups:SR.6/parabolic-excursion-compatibility",
+        "SmoothRepresentationsOfLocalGroups:SR.6/z-finite",
+        "SmoothRepresentationsOfLocalGroups:SR.6/depth-generators",
+        "SmoothRepresentationsOfLocalGroups:SR.6/cuspidal-embedding",
+        "SmoothRepresentationsOfLocalGroups:SR.6/cuspidal-excursion-finiteness",
+        "SmoothRepresentationsOfLocalGroups:SR.6/integral-center-finiteness",
+        "SmoothRepresentationsOfLocalGroups:SR.6/parabolic-center-map",
+        "SmoothRepresentationsOfLocalGroups:SR.6/stable-operator",
+        "SmoothRepresentationsOfLocalGroups:SR.6/ell-adic-stability",
+        "SmoothRepresentationsOfLocalGroups:SR.6/cogenerators",
+        "SmoothRepresentationsOfLocalGroups:SR.6/jacquet-cogenerator-duality",
+        "SmoothRepresentationsOfLocalGroups:SR.6/integral-second-adjointness",
+        "SmoothRepresentationsOfLocalGroups:SR.6/integral-noetherian-consequences",
+        "SmoothRepresentationsOfLocalGroups:SR.6/cuspidal-reduction-consequences"
+      ],
+      "detail": "Protocol §13 remains unmet: the suggested file omits 72 full signatures and many executable declarations are strictly narrower adapters. Supply the local, integral-block and geometric carriers with their exact hypotheses, each definition/construction API and its three meaningful examples, and all named theorem signatures. Separate the excursion datum from its free-group colimit algebra and expose finite-wild scheme construction, universal cocycle, gauge action, presentation/base-change equivalences and tests as actual definition/construction contracts. Do not close stages or count named comments as elaborated signatures."
     }
   ],
   "upstreamNotes": [
@@ -3912,6 +4143,18 @@
     {
       "title": "Confirmed source corrections used",
       "detail": "Apply the existing catalogue findings PAPER-LIU-ETAL-22/E5, E6, E27, E28; PAPER-PILLONI-20/E22, E24; and PAPER-CLOZEL-THORNE-17/E6, E24. No source passage is copied here. The reader explains the restricted statements and corrected polynomial factors in its own words."
+    },
+    {
+      "title": "Independent review supplier qualification",
+      "detail": "The read Layer 7 structure-theory statement of ReductiveGroups does not contain highest-weight Weyl modules or their trace triangularity. A precise requested refinement is attached to Layer 1 rational representations, while the integral twisted quotient proof remains G-INTEGRAL-GIT. New ramified building/parahoric requests stay with RG2.2–RG2.4. No upstream roadmap was edited."
+    },
+    {
+      "title": "Independent review result and reader synchronization",
+      "detail": "REV-SmoothRepresentationsOfLocalGroups--SR.4 completes the independent review with needs_changes. The issue permits editing the packet, suggested file and report; its reader is read-only. The report records every required reader synchronization and the 72 omitted full signatures. No stage is closed and no source or abstract adapter is claimed formalised."
+    },
+    {
+      "title": "RT26 ownership coordination under current tier rule",
+      "detail": "The confirmed RT-AREA-geomlanglands/26 fix assigned finite-wild construction to LP1 and import to SR.6. Current WORKERS.md forbids that upward dependency and requires moving the needed minimum down. The proposed SR.6 ownership preserves the one Z[1/p] scheme and its Z_ell base changes, but needs coordinated LP1/LP2 and ES1/ES6/ES7 import updates; it is not an already-applied ownership fix. The missing construction API must test two distinct ell different from p, change of tame generators and gauge action with coherent functor-of-points base change. No upstream files are changed by this review."
     }
   ],
   "suggestedLean": {
@@ -4279,7 +4522,7 @@
         "node": "SmoothRepresentationsOfLocalGroups:SR.6/cuspidal-reduction-consequences"
       }
     ],
-    "elaboratedDeclarations": 114,
+    "elaboratedDeclarations": 118,
     "definitionExamples": 44
   },
   "restructure": [
@@ -4293,5 +4536,709 @@
       "detail": "The older SR.6 campaign imports LP1/LP2 and ES1/ES6/ES7 upward, contradicting the current worker-tier rule. The single finite-wild integral scheme and the minimum excursion and geometric-action contracts therefore need one lower owner.",
       "proposal": "SR.6 owns crossed cocycles, discrete finite-wild representability, ell-adic extension, the free-group excursion presentation, the finite-set Hecke-action minimum, its classical-center map and the torus/parabolic compatibility needed for DHKM. LP and ES import those exact nodes; LP keeps derived stacks, cotangent/flatness/lci refinements beyond the minimum, and ES keeps enhanced and spectral actions. All Z_ell models are base changes of the one chosen Z[1/p] scheme. Full geometric bootstrap remains G-GEOMETRIC-ACTION."
     }
-  ]
+  ],
+  "sourceIssues": [
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E1",
+      "source": "liu",
+      "kind": "gap",
+      "locator": "Construction 3.1.8(1), published p. 141",
+      "printed": "The arbitrary coefficient-ring construction chooses a reciprocal pairing of the roots of every unitary polynomial.",
+      "correction": "Require an ordered paired tuple, or stay with a polynomial-only parameter until pairing exists.",
+      "reason": "Over F_5 times F_5, roots (1,2),(2,1),(3,3) give the same reciprocal cubic in both components, but none squares to one. An odd paired ordering therefore cannot exist.",
+      "affects": "nothing",
+      "known": "Atlas PAPER-LIU-ETAL-22/E5, independently confirmed by REV-ERRATA-PAPER-LIU-ETAL-22",
+      "searched": [
+        "Published NSF PDF, pp. 139–142; existing independently reviewed Liu catalogue."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Over F_5 times F_5, roots (1,2),(2,1),(3,3) give the same reciprocal cubic in both components, but none squares to one. An odd paired ordering therefore cannot exist.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E2",
+      "source": "liu",
+      "kind": "misprint",
+      "locator": "Proposition B.3.5(2), p. 342; Lemma B.3.6, p. 343, published PDF",
+      "printed": "The second factor of the even isotropic product is q+3.",
+      "correction": "Use q^3+1, so the product is product_i(q^(2i-1)+1).",
+      "reason": "The surrounding product has exponents 1,3,5,...; at q=2 the second factor must be 9, whereas the printed one is 5.",
+      "affects": "nothing",
+      "known": "Atlas PAPER-LIU-ETAL-22/E6, independently confirmed by REV-ERRATA-PAPER-LIU-ETAL-22",
+      "searched": [
+        "Published NSF PDF, Appendix B; existing independently reviewed Liu catalogue."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The surrounding product has exponents 1,3,5,...; at q=2 the second factor must be 9, whereas the printed one is 5.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E3",
+      "source": "liu",
+      "kind": "error",
+      "locator": "Remark 3.1.6(2),(3), published p. 140",
+      "printed": "The polynomial conditions are identified with multiplicities of reciprocal pairs without separating q from q inverse.",
+      "correction": "Over fields retain q^2 different from one for these pair interpretations; use Definition 3.1.5 polynomial predicates in general.",
+      "reason": "For q=1 the even polynomial (T-1)^2 contains one reciprocal pair but its derivative at q is zero. For q=-1 the odd polynomial T-1 vanishes at -q although the pair {1,1} is absent.",
+      "affects": "nothing",
+      "known": "Atlas PAPER-LIU-ETAL-22/E27, independently confirmed by REV-ERRATA-PAPER-LIU-ETAL-22",
+      "searched": [
+        "Published NSF PDF, pp. 139–140; existing independently reviewed Liu catalogue."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For q=1 the even polynomial (T-1)^2 contains one reciprocal pair but its derivative at q is zero. For q=-1 the odd polynomial T-1 vanishes at -q although the pair {1,1} is absent.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E4",
+      "source": "liu",
+      "kind": "error",
+      "locator": "Construction 3.1.10, published p. 142",
+      "printed": "Conjugate self-duality alone is used to assert the determinant-one unitary Satake condition at inert unramified places.",
+      "correction": "Also require the central character to be trivial on the base-field ideles, as for the relevant representations used later.",
+      "reason": "Conjugate self-duality pairs the multiset with its inverse but permits determinant minus one. A rank-one conjugate-self-dual character extending the quadratic extension character has local root -1 and fails the rank-one unitary condition.",
+      "affects": "nothing",
+      "known": "Atlas PAPER-LIU-ETAL-22/E28, independently confirmed by REV-ERRATA-PAPER-LIU-ETAL-22",
+      "searched": [
+        "Published NSF PDF, pp. 139–142; existing independently reviewed Liu catalogue."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Conjugate self-duality pairs the multiset with its inverse but permits determinant minus one. A rank-one conjugate-self-dual character extending the quadratic extension character has local root -1 and fails the rank-one unitary condition.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E5",
+      "source": "pilloni",
+      "kind": "misprint",
+      "locator": "Author copy §5.1.5, pp. 21–22; published printing not collated",
+      "printed": "The genericity and Klingen eigenvalue references use bibliography key [24].",
+      "correction": "Use the Genestier–Tilouine reference [25] in this author edition.",
+      "reason": "The bibliography at author p. 111 assigns [24] to Gan–Takeda and [25] to Genestier–Tilouine, which is the article already cited for the nearby Satake formulas. This is a reference correction, not an independently checked proof of every cited Klingen result.",
+      "affects": "nothing",
+      "known": "Atlas PAPER-PILLONI-20/E22",
+      "searched": [
+        "Pinned author PDF and bibliography; earlier paper extraction and its independent review. Published Duke text was not obtained in this run."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The bibliography at author p. 111 assigns [24] to Gan–Takeda and [25] to Genestier–Tilouine, which is the article already cited for the nearby Satake formulas. This is a reference correction, not an independently checked proof of every cited Klingen result.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E6",
+      "source": "pilloni",
+      "kind": "misprint",
+      "locator": "Author copy §5.1.5, p. 22, paragraph after Proposition 5.1.5.1; published printing not collated",
+      "printed": "The Klingen Hecke parameters are ordered with alpha beta=gamma delta.",
+      "correction": "Use alpha delta=beta gamma in the retained ordering.",
+      "reason": "The diagonal torus and spherical ordering on pp. 20–21 use opposite-entry products; the central eigenvalue q^-3 alpha delta must be invariant under the stated Weyl action.",
+      "affects": "nothing",
+      "known": "Atlas PAPER-PILLONI-20/E24",
+      "searched": [
+        "Pinned author PDF pp. 20–22; earlier paper extraction and its independent review. Published Duke text was not obtained in this run."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The diagonal torus and spherical ordering on pp. 20–21 use opposite-entry products; the central eigenvalue q^-3 alpha delta must be invariant under the stated Weyl action.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E7",
+      "source": "ct",
+      "kind": "misprint",
+      "locator": "Accepted author copy §2.1, p. 7; published printing not collated",
+      "printed": "For T_s equal to the double coset, the quadratic relation is (T_s-1)(T_s+q)=0.",
+      "correction": "Use (T_s+1)(T_s-q)=0.",
+      "reason": "T_s^2=q+(q-1)T_s for vol(B)=1. The source itself uses the corrected Lusztig relation on p. 8.",
+      "affects": "nothing",
+      "known": "Atlas PAPER-CLOZEL-THORNE-17/E6",
+      "searched": [
+        "Accepted author PDF pp. 6–8; existing extraction and red-team review; 2026-10-09 bounded author/journal exact-title correction search. No version-of-record PDF was collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "T_s^2=q+(q-1)T_s for vol(B)=1. The source itself uses the corrected Lusztig relation on p. 8.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E8",
+      "source": "ct",
+      "kind": "error",
+      "locator": "Accepted author copy §2.1, pp. 6–7; published printing not collated",
+      "printed": "The integral double-coset algebra is presented using the group algebra Z[braid group], with braid generators mapped to double-coset generators.",
+      "correction": "Use the positive braid monoid over Z. The group version is available only after q is inverted.",
+      "reason": "Every braid-group generator is a unit, while the degree character sends T_s to the nonunit integer q>1. A generator-preserving isomorphism over Z is impossible, even after fixing the quadratic sign.",
+      "affects": "a stated result",
+      "known": "Atlas PAPER-CLOZEL-THORNE-17/E24, confirmed in the independent red-team review",
+      "searched": [
+        "Accepted author PDF pp. 6–8; existing extraction and red-team review; 2026-10-09 bounded author/journal exact-title correction search. No version-of-record PDF was collated."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Every braid-group generator is a unit, while the degree character sends T_s to the nonunit integer q>1. A generator-preserving isomorphism over Z is impossible, even after fixing the quadratic sign.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E9",
+      "source": "cg",
+      "kind": "misprint",
+      "locator": "Corollary 9.13, author PDF p. 125; published Correction (2022), item 11, p. 856",
+      "printed": "Unramified deformation variable rings in the earlier printing appear as polynomial rings A[X].",
+      "correction": "Read these factors as formal power-series rings A[[X]]; retain A[T]/(T^d-1) for finite residual-unit cyclic variables.",
+      "reason": "The locally admissible finite-length deformation category requires completion in the unramified variables. Item 11 of the published correction explicitly fixes this factor.",
+      "affects": "nothing",
+      "known": "Calegari–Geraghty, Correction to Modularity lifting beyond the Taylor–Wiles method, Invent. Math. 227 (2022), 855–856, item 11",
+      "searched": [
+        "Public published correction DOI 10.1007/s00222-021-01095-5 and author PDF Corollary 9.13."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The locally admissible finite-length deformation category requires completion in the unramified variables. Item 11 of the published correction explicitly fixes this factor.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    },
+    {
+      "id": "SmoothRepresentationsOfLocalGroups/E10",
+      "source": "eh",
+      "kind": "misprint",
+      "locator": "arXiv:1104.0321v1, §3.1, p. 17, product-group derivative definition preceding Theorem 3.1.14",
+      "printed": "The product-group top derivative applies Phi^- after repeated Psi^-.",
+      "correction": "Apply Psi^- after repeated Phi^-, with the product-group superscripts retained.",
+      "reason": "Repeated Psi^- has incompatible changing ranks; the basic derivative definition and Proposition 3.1.16 use Psi^- (Phi^-)^(n-1). The published article corrects this order on p. 674.",
+      "affects": "nothing",
+      "known": "Published Emerton–Helm, Ann. Sci. ENS 47 (2014), p. 674",
+      "searched": [
+        "Read arXiv v1 p. 17 and the public version-of-record Numdam PDF p. 674."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Repeated Psi^- has incompatible changing ranks; the basic derivative definition and Proposition 3.1.16 use Psi^- (Phi^-)^(n-1). The published article corrects this order on p. 674.",
+        "by": "REV-SmoothRepresentationsOfLocalGroups--SR.4"
+      }
+    }
+  ],
+  "sourceVersions": [
+    {
+      "source": "tv",
+      "kind": "published",
+      "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v183-n1-p04-p.pdf",
+      "read": "2026-10-09",
+      "sha256": "15513caba4eed4f9b71c7d1ec791c0c406bb32e7a539ddf63d1a24d227863355",
+      "citation": "Annals of Mathematics 183 (2016), 177–215; published PDF"
+    },
+    {
+      "source": "tvpre",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1407.2346v1",
+      "read": "2026-10-09",
+      "sha256": "34e2416f08ba0dc4a4fb8369875ef3d9f5a5b2ef8290733545442801baec9ee8",
+      "citation": "arXiv:1407.2346v1, 9 July 2014; separate earlier formulation"
+    },
+    {
+      "source": "leslie",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1911.07907v3",
+      "read": "2026-10-09",
+      "sha256": "167574c84c7a7e9bed4be72ca08be2769dd1442741fe7ffa6d1024627b682b76",
+      "citation": "arXiv:1911.07907v3 author preprint; locators use this version, not Annals pagination"
+    },
+    {
+      "source": "liu",
+      "kind": "published",
+      "url": "https://par.nsf.gov/servlets/purl/10323568",
+      "read": "2026-10-09",
+      "sha256": "dd821abd2b06233cb69cdc88de242b689686d5f2ce0c2072128abcd54ec89d97",
+      "citation": "Inventiones Mathematicae 228 (2022), 107–375; published PDF"
+    },
+    {
+      "source": "cg",
+      "kind": "author copy",
+      "url": "https://math.uchicago.edu/~fcale/papers/CG.pdf",
+      "read": "2026-10-09",
+      "sha256": "c0ba8de04d5ee92fe1a967f9487df6cb49295590dfd03762a9150a92838225c5",
+      "citation": "Author PDF of Inventiones Mathematicae 211 (2018), 297–433"
+    },
+    {
+      "source": "venkatesh",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1608.07234v3",
+      "read": "2026-10-09",
+      "sha256": "311730670d2fdcb75f76fa40c3fb76ad8d3a0415e88ac2d9d50af4d0f84a4ff6",
+      "citation": "arXiv:1608.07234v3"
+    },
+    {
+      "source": "pilloni",
+      "kind": "author copy",
+      "url": "https://www.imo.universite-paris-saclay.fr/~vincent.pilloni/complexhidatheorygsp4.pdf",
+      "read": "2026-10-09",
+      "sha256": "4c05724efeab1dbbb108f980ec9a722127d2a8cd2abf6e8c2a6a2251cf0f9f58",
+      "citation": "Author PDF for Duke Mathematical Journal 169 (2020), 1647–1807"
+    },
+    {
+      "source": "cg20",
+      "kind": "author copy",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/Siegel.pdf",
+      "read": "2026-10-09",
+      "sha256": "fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5",
+      "citation": "Author PDF for Duke Mathematical Journal 169 (2020), 801–896"
+    },
+    {
+      "source": "ct",
+      "kind": "author copy",
+      "url": "https://www.dpmms.cam.ac.uk/~jat58/lrspiii.pdf",
+      "read": "2026-10-09",
+      "sha256": "a3fa46fcdebdc1a41a54e8b5a9be22173e9f9f87261c51b1e7a7f29cfada3659",
+      "citation": "Accepted author PDF, 10 December 2015; Duke Mathematical Journal 166 (2017), 325–402; published printing not collated"
+    },
+    {
+      "source": "helm",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1210.1789v1",
+      "read": "2026-10-09",
+      "sha256": "446aa93371101330711a62b5d81755ecc13332d65b5d611f40e1edab7c652eda",
+      "citation": "arXiv:1210.1789v1, 5 October 2012"
+    },
+    {
+      "source": "helmcenter",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1201.1874v3",
+      "read": "2026-10-09",
+      "sha256": "83eaf0b620027b3696e76354622552adefb8e6595ae53d5dff027f187391ebd3",
+      "citation": "arXiv:1201.1874v3, 16 May 2016"
+    },
+    {
+      "source": "eh",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1104.0321v1",
+      "read": "2026-10-09",
+      "sha256": "d7db56968caf952aa2c24d2d1408e8452c73613cbc0edadcaf9baddfb60f9797",
+      "citation": "arXiv:1104.0321 v1, 2 April 2011; locators use its printed pages"
+    },
+    {
+      "source": "nakamura",
+      "kind": "published",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-023-01203-7.pdf",
+      "read": "2026-10-09",
+      "sha256": "47682f856244439d8cc3d3e6e0a4e1f804e6a710ec1a2dde8fad76f94aea20e4",
+      "citation": "Inventiones Mathematicae 234 (2023), author/publisher PDF"
+    },
+    {
+      "source": "aky",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2110.09070v4",
+      "read": "2026-10-09",
+      "sha256": "32326ab828c5cfb524cfb479e337fdd9834496cd9ec39409266c281c49883a6c",
+      "citation": "arXiv:2110.09070v4, 28 September 2022"
+    },
+    {
+      "source": "dhkm",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2203.04929v2",
+      "read": "2026-10-09",
+      "sha256": "921286bd623e9c1d9d954ea7e9a461ebb837b6c4446ab4c69a3fcb619cdf803b",
+      "citation": "arXiv:2203.04929v2, 22 April 2022"
+    },
+    {
+      "source": "dhkmparameters",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2009.06708v3",
+      "read": "2026-10-09",
+      "sha256": "70b647bb5fbf924f20784a5084f7f38c9a2faf88e04690f38d76fc0be2a3213c",
+      "citation": "arXiv:2009.06708v3, 29 February 2024"
+    },
+    {
+      "source": "fs",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2102.13459v4",
+      "read": "2026-10-09",
+      "sha256": "1f8040751d3424f59ae56651d990d7b2d5030e6b7cae58bc2fc683358dfc2027",
+      "citation": "arXiv:2102.13459v4, 27 November 2024"
+    },
+    {
+      "source": "cgcorrection",
+      "kind": "published",
+      "url": "https://link.springer.com/content/pdf/10.1007/s00222-021-01095-5.pdf",
+      "read": "2026-10-09",
+      "sha256": "c60cfe362940e641ee2cd60c61c1429961f18d3d16b4a6857df4ea7993111ee7",
+      "citation": "Inventiones Mathematicae 227 (2022), 855–856; published PDF"
+    },
+    {
+      "source": "ehpublished",
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.24033/asens.2224.pdf",
+      "read": "2026-10-09",
+      "sha256": "e9c5e03c13d2d780e9a4720a56fb5193ec85fb1ad9363ee4a929e6c7a67a72cf",
+      "citation": "Annales scientifiques de l’École normale supérieure 47 (2014), 655–722; published PDF"
+    }
+  ],
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-SmoothRepresentationsOfLocalGroups--SR.4",
+    "date": "2026-10-09",
+    "notes": "Complete independent review of all 70 nodes, all 14 exact-pin baseline declarations, public source hashes/locators, supplier scopes, APIs/tests, planets and RT-AREA-geomlanglands/26. Clear mathematical and locator defects corrected in packet and suggested inventory; 10 source findings confirmed. Unresolved §13 signature agreement and missing full construction/API contracts require revision. Recorded gaps themselves are not grounds for rejection; the reader is read-only for this review and required synchronization is specified in the report.",
+    "checked": [
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/satake-transform",
+        "verdict": "corrected",
+        "note": "Checked finite support, vol(N∩K)=1 and S=delta^(1/2)S*. Corrected published pagination; geometric carrier remains G-SATAKE-CARRIER."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/twisted-weyl-invariance",
+        "verdict": "corrected",
+        "note": "Checked the integral twisted action and even coroot difference. Corrected pagination; folded rank-one calculation is requested from RG2.1."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/satake-isomorphism",
+        "verdict": "corrected",
+        "note": "Checked triangular integral Satake and q-half normalization. Corrected pagination; no Weyl-order invertibility is imposed on the integral version."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/torus-character-dictionary",
+        "verdict": "corrected",
+        "note": "Checked the unramified torus character lattice dictionary and its reference to §2.9; nonsplit Frobenius coinvariants are retained."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/frobenius-component-invariants",
+        "verdict": "corrected",
+        "note": "Removed an unsupported integral extension of the field statement. Integral twisted quotient theory remains G-INTEGRAL-GIT; corrected pages."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/pseudoroot",
+        "verdict": "corrected",
+        "note": "Corrected the direction of translation: TV (7.4.4) sends ordinary to twisted by multiplication by a0. The executable translate lemma has this direction already."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/spherical-parameter",
+        "verdict": "corrected",
+        "note": "Checked the unnormalized spherical vector, theta(S*f), and inverse-pseudoroot parameter. Corrected pagination."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/c-group-formulation",
+        "verdict": "corrected",
+        "note": "Separated capital C-group from lower c-group, which has the cyclotomic square constraint. The original statement conflated them; Theorem 7.9 is the source."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/gln-generators",
+        "verdict": "corrected",
+        "note": "Checked the standard minuscule q-half exponent and Laurent scalar generator. Corrected locator; the all-n count is a planned specialization, not a quoted TV display."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/hall-littlewood",
+        "verdict": "corrected",
+        "note": "Checked the rational formula and stabilizer normalization. Corrected page; universal integral Laurent cancellation remains G-HL-COUNT."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/macdonald-formula",
+        "verdict": "corrected",
+        "note": "Checked q_E=q^2, hence q^-2 and exponent 2 rho, and branching total degree. Corrected pages; the classical proof is explicitly a gap."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/parabolic-descent",
+        "verdict": "corrected",
+        "note": "Checked the two normalized integrals and both positive determinant twists, giving q^-b and q^-a variable substitutions. Corrected lemma/page locator."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/paired-unitary-parameter",
+        "verdict": "corrected",
+        "note": "Checked paired tuple and reciprocal polynomial, including the product-ring obstruction E5. Corrected the definition number and pages; no general ordering existence is claimed."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/unitary-genericity",
+        "verdict": "corrected",
+        "note": "Checked all four polynomial predicates and collision examples; retained the E27 restriction on root interpretations. Corrected the source term to level-raising speciality and its page."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/unitary-weyl-traces",
+        "verdict": "verified",
+        "note": "Checked Liu Lemmas B.1.1–B.1.4, pp. 331–333: pinned involution, signed swap and subset trace. The formula uses the source relative torus coordinates, not arbitrary GL_N eigenvalues."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/unitary-triangular-transform",
+        "verdict": "verified",
+        "note": "Checked Lemma B.2.6, pp. 336–337, including Gaussian coefficient and q exponent. Unitriangular inversion is valid over the localized integral ring; classical count refinement remains G-HL-COUNT."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/unitary-isotropic-counts",
+        "verdict": "verified",
+        "note": "Checked B.2.4, B.2.7–B.2.8, pp. 335–339 and residual dimensions. Products use odd exponents 1,3,... in even dimension and 3,5,... in odd dimension; E6 is recorded."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/unitary-even-formulas",
+        "verdict": "verified",
+        "note": "Checked B.3.1–B.3.5, pp. 339–343 and corrected E6 factor. Apparent q+1 divisions are polynomial identities, not arbitrary coefficient-ring inversion."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/unitary-odd-formulas",
+        "verdict": "verified",
+        "note": "Checked Notation 1.3.1, pp. 119–120 and B.4.1–B.4.3, pp. 344–345. Checked odd-rank product, Gaussian d coefficients and the even-rank polynomial quotient convention."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/gsp4-spin-polynomial",
+        "verdict": "corrected",
+        "note": "Checked all five coefficients, central generator and fixed-degree reciprocal. Narrowed the locator and replaced the irrelevant GL_n prerequisite by general Satake."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/gsp4-galois-comparison",
+        "verdict": "corrected",
+        "note": "Replaced the ambiguous q^-3/2 twist by |nu|^-3/2; supplied all generator eigenvalues and corrected the mistaken §5.1.4 reference."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/derived-satake",
+        "verdict": "verified",
+        "note": "Checked Venkatesh Theorem 3.3 and Lemmas 4.5,4.7: split G, q=1 modulo ell^r and ell prime to Weyl order retained; Morita comparison restricted to etale locus. Geometric derived Satake is not substituted."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/unitary-iwahori-center",
+        "verdict": "corrected",
+        "note": "Corrected ramification, coefficient field and subgroup scope. CT B is an index-two extension of an Iwahori and its unitary K is special; hyperspecial comparison belongs to split Sp. Added a precise building/presentation gap."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.4/geometric-trace-contract",
+        "verdict": "corrected",
+        "note": "Checked this as a classical normalization export, not the geometric equivalence. Corrected pages; geometric proof inputs stay in the moved minimum gap."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/twisted-coinvariants",
+        "verdict": "verified",
+        "note": "Checked the psi-inverse untwist and Mathlib quotient relation; ordinary psi=1 case and arbitrary-module tensor quotient are correct. Actual nondegenerate GL_n comparison uses the requested mirabolic carrier."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/mirabolic-derivatives",
+        "verdict": "corrected",
+        "note": "Corrected adjoint directions and distinguished Phi^+ from hat-Phi^+. Restored the sourced Noetherian W(k) coefficient regime and correct proposition locators."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/derivative-exactness",
+        "verdict": "corrected",
+        "note": "Narrowed to the source coefficient setup rather than asserting an unsourced arbitrary-ring theorem. Tensor modules remain arbitrary, hence no flatness hypothesis is added."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/schwartz-submodule",
+        "verdict": "corrected",
+        "note": "Checked the canonical injective mirabolic map, derivative and tensor comparison. General End(J)=End(top derivative) follows from the displayed adjunction computation; the named proposition specializes to a free line. Corrected locators."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/essentially-aig",
+        "verdict": "verified",
+        "note": "Checked Helm Definition 3.3/Lemma 3.4 and EH Definition 3.2.1: absolute generic socle, nongeneric quotient and union of finite-length subobjects. Arbitrary-field type/duality inputs are newly exposed in G-MODULAR-FIELD."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/integral-blocks",
+        "verdict": "verified",
+        "note": "Checked Helm center Definition 4.12, Theorems 11.8,12.8–12.9 and Corollary 12.12: mod-ell inertial blocks, reduced torsion-free finite-type centers and exact support points. Integral type refinement stays G-MODULAR-TYPES."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/type-projectives",
+        "verdict": "verified",
+        "note": "Checked Helm Theorem 4.1, Proposition 4.3, Theorem 4.8 and Corollary 4.9: commutative type endomorphisms, admissibility, line derivative and every-prime generic fibers. Classification inputs are not treated as read proofs."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/universal-whittaker",
+        "verdict": "verified",
+        "note": "Checked Helm Theorem 5.2 and Proposition 5.3: block center/endormorphism identification, center-admissibility and free derivative line. Existing Lean function-space prototype omits the block projector and six full API/tests."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/co-whittaker",
+        "verdict": "verified",
+        "note": "Checked Helm Definition 6.1 and Proposition 6.2: Noetherian W(k), admissibility, free derivative line and all-prime smooth-dual AIG fibers. Scalarity is a theorem, not a replacement definition."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/universal-domination",
+        "verdict": "verified",
+        "note": "Checked Helm Theorem 6.3: universal base change co-Whittaker, unique center character and surjection onto families with that character. No universal isomorphism claim is made."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/reduced-family-reconstruction",
+        "verdict": "verified",
+        "note": "Checked Helm Lemma 6.4: reduced Noetherian algebra, finitely many minimal primes, prescribed generic-cosocle quotients, diagonal image, torsion-freeness and uniqueness. Reducedness is essential."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/llc-family-conditional",
+        "verdict": "corrected",
+        "note": "Restored residue field, continuous Galois input and dual Breuil–Schneider fiber conventions. The interpolation assumption remains explicit, not an unconditional theorem."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/tensor-endomorphisms",
+        "verdict": "corrected",
+        "note": "Checked the exact GL_2(Q_l), Noetherian Z_p and arbitrary-module theorem. Corrected Lemma B.10 and pagination; general GL_n remains a proposed Schwartz proof."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/invariants-duality-base-change",
+        "verdict": "corrected",
+        "note": "Checked the split-projector tensor argument. Corrected nonexistent DHKM §4.2; arbitrary hyperspecial base change and scalar-dual/cogenerator-dual confusion remain excluded."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/ext-support-orthogonality",
+        "verdict": "verified",
+        "note": "Checked EH Theorem 3.2.13/Corollary 3.2.14: exact, not merely inertial, support; all Ext degrees and GL_n Levi groups. Modular type and field adjunction inputs are explicitly G-MODULAR-FIELD."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/cg-distinct-block",
+        "verdict": "corrected",
+        "note": "Checked ordered character variables and finite-length colimit. Corrected Corollary numbering and recorded the published formal-power-series correction; cyclic residual-unit variables remain polynomial."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/cg-derived-projector",
+        "verdict": "verified",
+        "note": "Checked CG Lemmas 9.14–9.15/Theorem 9.16, PDF pp. 125–127. Hyperspecial-to-line-parahoric derived comparison is restricted to the distinct-residual-eigenvalue block and uses the stabilized polynomial projector."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/highest-derivative-adapter",
+        "verdict": "corrected",
+        "note": "Restored irreducibility and complex coefficients, made endpoint shortening explicit and recorded the classification gap absent from SR.3."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.5/essential-vector-contract",
+        "verdict": "verified",
+        "note": "Checked the Helm/EH derivative and generation exports. A free derivative line alone does not construct a canonical integral level vector; G-ESSENTIAL and the existing GL_2/minimal-lift ownership are retained."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/crossed-cocycles",
+        "verdict": "corrected",
+        "note": "Checked the cocycle law, gauge formula and semidirect section. Added value extensionality, identity/composition gauge laws and covariance signatures to the actual algebraic adapter."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/finite-wild-discretization",
+        "verdict": "corrected",
+        "note": "Checked finite presentation and chosen Fr,s discretization. Made the kernel-of-action condition explicit; no canonical global scheme independence from choices is asserted."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/finite-wild-representability",
+        "verdict": "corrected",
+        "note": "Checked the closed relation locus over one Z[1/p] base and every Z_ell model by base change. The dimension convention satisfies RT-AREA-geomlanglands/26. Scheme API/tests still need a dedicated construction contract."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/ell-adic-extension",
+        "verdict": "verified",
+        "note": "Checked DHKM parameters Theorem 4.1(ii)/Corollary 4.2, pp. 29–30: relative discrete ell-adic extension and choice comparison. This does not identify independently chosen integral schemes over Z[1/p]; proof refinement stays open."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/wild-strata",
+        "verdict": "corrected",
+        "note": "Restored fixed finite wild level: finiteness across all wild levels is not asserted. Corrected the nonexistent DHKM subsection reference."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/twisted-component-finiteness",
+        "verdict": "corrected",
+        "note": "Restored the finite-order automorphism and specified integral base required by Lemma 2.2. Corrected pages; integral twisted invariant proof remains a gap."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/tame-torus-engine",
+        "verdict": "corrected",
+        "note": "Checked allowed normalizer components, the maximal fixed subtorus and the n Fr-q isogeny. Corrected nonexistent §2.1–2.2 and pages; closed-orbit theory remains G-INTEGRAL-GIT."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/frobenius-quotient-finite",
+        "verdict": "corrected",
+        "note": "Checked integral Frobenius evaluation and subgroup restriction finiteness. Corrected pages; no separate good-prime condition or field-only substitute is used."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/excursion-algebra",
+        "verdict": "corrected",
+        "note": "Checked the free-group colimit and finite Weil-action data. Corrected datum pages and restricted the singleton test to the trivial Weil-component slice. Lean currently supplies only data, not the algebra."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/excursion-invariant-comparison",
+        "verdict": "corrected",
+        "note": "Specified that nilpotent ell-torsion concerns the kernel, not the whole algebra; corrected Theorem VIII.3.6 and the DHKM page."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/geometric-hecke-action",
+        "verdict": "corrected",
+        "note": "Checked finite-set action, Weil descent, compact/ULA preservation and uniform wild bound. Corrected Theorem pages and Proposition IX.5.1; bootstrap remains explicitly unconstructed."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/excursion-center-action",
+        "verdict": "corrected",
+        "note": "Corrected global versus finite-level action: inverse limit acts on the entire center, and a level is chosen for each finitely generated object. Made finite flat coefficient extension explicit."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/torus-central-compatibility",
+        "verdict": "corrected",
+        "note": "Corrected split-center restriction to the full connected central torus needed for cuspidal finiteness. Proposition IX.6.5 proves the actual diagonal action; IX.6.4 alone identifies rings."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/parabolic-excursion-compatibility",
+        "verdict": "corrected",
+        "note": "Checked unnormalized cyclotomic rho_G/rho_M twist and normalized cancellation. Corrected DHKM page; the geometric minimum moves down rather than importing ES upward."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/z-finite",
+        "verdict": "corrected",
+        "note": "Checked actual center image, finite type and compact-open finite invariants. Corrected nonexistent §3.2 and pages; subquotient and coefficient lemmas use the Noetherian hypotheses."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/depth-generators",
+        "verdict": "corrected",
+        "note": "Checked the generator/Hecke-corner reduction; corrected pages. Integral depth projectors are not provided by compact induction alone and remain G-DEPTH."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/cuspidal-embedding",
+        "verdict": "corrected",
+        "note": "Specified the finite flat coefficient ring of Lemma 3.4, replacing an ambiguous algebraic ell-adic base; corrected page."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/cuspidal-excursion-finiteness",
+        "verdict": "corrected",
+        "note": "Corrected the coefficient ring, full central torus and nilradical argument; fixed nonexistent §3.3. A nilpotent operator alone need not vanish on a torsion-free module."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/integral-center-finiteness",
+        "verdict": "corrected",
+        "note": "Restored the precise bounded-depth coefficient regime and corrected Corollary 3.5 page. Lemma 3.3 ascent does not require flatness; descent does."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/parabolic-center-map",
+        "verdict": "corrected",
+        "note": "Separated flat-coefficient center maps from arbitrary Noetherian coefficient finiteness over the scalar-extended integral center. Corrected pages and removed nonexistent §4.1."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/stable-operator",
+        "verdict": "corrected",
+        "note": "Checked the nilpotent/invertible splitting and contracting Jacquet localization. Corrected DHKM pages; the concrete definition does not substitute ordinary scalar duality."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/ell-adic-stability",
+        "verdict": "corrected",
+        "note": "Specified the fixed depth/compact/parabolic/contracting data and extended the uniform bound to all depth-r objects as in Lemma 4.7; corrected pages."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/cogenerators",
+        "verdict": "corrected",
+        "note": "Corrected the false ell-primary restriction and stated fixed-depth cogeneration. Retained the rational-simple case essential to the all-Z[1/p] adjunction."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/jacquet-cogenerator-duality",
+        "verdict": "corrected",
+        "note": "Checked the opposite-parabolic injective duality and natural stable pairings. Corrected Corollary to Lemma 4.10 and its page; no modulus is inserted in this duality."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/integral-second-adjointness",
+        "verdict": "corrected",
+        "note": "Checked all-Z[1/p] second adjointness, opposite parabolic and unnormalized delta_P factor. Corrected nonexistent §4.2; normalized triangle identities are required."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/integral-noetherian-consequences",
+        "verdict": "corrected",
+        "note": "Checked Noetherian Z[1/p] consequences separately from stronger Z_ell center finiteness. Corrected pages; no characteristic-p extrapolation is made."
+      },
+      {
+        "nodeId": "SmoothRepresentationsOfLocalGroups:SR.6/cuspidal-reduction-consequences",
+        "verdict": "corrected",
+        "note": "Restored algebraic closure, arbitrary irreducible Levi input and dense-open conclusion. Replaced the unsupported characteristic-zero descent sketch by the actual cited Dat inputs and a gap."
+      }
+    ]
+  }
 }
