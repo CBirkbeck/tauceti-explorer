@@ -105093,6 +105093,238 @@
    "state": "external",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticGaloisRepresentations~adv.md",
    "note": "claimed on GitHub issue #8066"
+  },
+  {
+   "id": "REV-PKG-PerfectoidSpaces~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PerfectoidSpaces"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PerfectoidSpaces~adv.md",
+    "research/blueprint/packages/PerfectoidSpaces/review.json",
+    "research/blueprint/packages/PerfectoidSpaces/README.md",
+    "research/blueprint/packages/PerfectoidSpaces/Suggested.lean",
+    "research/blueprint/packages/PerfectoidSpaces/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidSpaces~adv.md"
+  },
+  {
+   "id": "REV-PKG-DerivedDeRhamCohomology~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DerivedDeRhamCohomology"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-DerivedDeRhamCohomology~adv.md",
+    "research/blueprint/packages/DerivedDeRhamCohomology/review.json",
+    "research/blueprint/packages/DerivedDeRhamCohomology/README.md",
+    "research/blueprint/packages/DerivedDeRhamCohomology/Suggested.lean",
+    "research/blueprint/packages/DerivedDeRhamCohomology/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-DerivedDeRhamCohomology~adv.md"
+  },
+  {
+   "id": "REV-PKG-MetaplecticAutomorphicForms~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "MetaplecticAutomorphicForms"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-MetaplecticAutomorphicForms~adv.md",
+    "research/blueprint/packages/MetaplecticAutomorphicForms/review.json",
+    "research/blueprint/packages/MetaplecticAutomorphicForms/README.md",
+    "research/blueprint/packages/MetaplecticAutomorphicForms/Suggested.lean",
+    "research/blueprint/packages/MetaplecticAutomorphicForms/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-MetaplecticAutomorphicForms~adv.md"
+  },
+  {
+   "id": "REV-PKG-PerfectoidQuotients~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "PerfectoidQuotients"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-PerfectoidQuotients~adv.md",
+    "research/blueprint/packages/PerfectoidQuotients/review.json",
+    "research/blueprint/packages/PerfectoidQuotients/README.md",
+    "research/blueprint/packages/PerfectoidQuotients/Suggested.lean",
+    "research/blueprint/packages/PerfectoidQuotients/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidQuotients~adv.md"
+  },
+  {
+   "id": "FIX-PKG-AlgebraicModuliForArithmeticGeometry~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "AlgebraicModuliForArithmeticGeometry"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-AlgebraicModuliForArithmeticGeometry~adv.md",
+    "research/blueprint/packages/AlgebraicModuliForArithmeticGeometry/review.json",
+    "research/blueprint/packages/AlgebraicModuliForArithmeticGeometry/README.md",
+    "research/blueprint/packages/AlgebraicModuliForArithmeticGeometry/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AlgebraicModuliForArithmeticGeometry~adv.md"
+  },
+  {
+   "id": "FIX-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GeometryOfNumbersAndQuadraticArithmetic"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv.md",
+    "research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/review.json",
+    "research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/README.md",
+    "research/blueprint/packages/GeometryOfNumbersAndQuadraticArithmetic/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv.md"
+  },
+  {
+   "id": "FIX-PKG-LocallyAnalyticDistributions~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "LocallyAnalyticDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-LocallyAnalyticDistributions~adv.md",
+    "research/blueprint/packages/LocallyAnalyticDistributions/review.json",
+    "research/blueprint/packages/LocallyAnalyticDistributions/README.md",
+    "research/blueprint/packages/LocallyAnalyticDistributions/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-LocallyAnalyticDistributions~adv.md"
+  },
+  {
+   "id": "FIX-PKG-DiamondsAndVStacks~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DiamondsAndVStacks"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-DiamondsAndVStacks~adv.md",
+    "research/blueprint/packages/DiamondsAndVStacks/review.json",
+    "research/blueprint/packages/DiamondsAndVStacks/README.md",
+    "research/blueprint/packages/DiamondsAndVStacks/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-DiamondsAndVStacks~adv.md"
+  },
+  {
+   "id": "FIX-PKG-NeronModelsAndSemistableAbelianVarieties~adv",
+   "kind": "fix",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "NeronModelsAndSemistableAbelianVarieties"
+   ],
+   "outputs": [
+    "research/blueprint/handoff/FIX-PKG-NeronModelsAndSemistableAbelianVarieties~adv.md",
+    "research/blueprint/packages/NeronModelsAndSemistableAbelianVarieties/review.json",
+    "research/blueprint/packages/NeronModelsAndSemistableAbelianVarieties/README.md",
+    "research/blueprint/packages/NeronModelsAndSemistableAbelianVarieties/Suggested.lean"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/FIX-PKG-NeronModelsAndSemistableAbelianVarieties~adv.md"
+  },
+  {
+   "id": "PKG-GeneralAlgebraicKTheory~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "GeneralAlgebraicKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/packages/GeneralAlgebraicKTheory/README.md",
+    "research/blueprint/packages/GeneralAlgebraicKTheory/Suggested.lean",
+    "research/blueprint/packages/GeneralAlgebraicKTheory/metadata.toml",
+    "research/blueprint/handoff/PKG-GeneralAlgebraicKTheory~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-GeneralAlgebraicKTheory~codex.md"
+  },
+  {
+   "id": "PKG-StableHomotopyKTheory~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "StableHomotopyKTheory"
+   ],
+   "outputs": [
+    "research/blueprint/packages/StableHomotopyKTheory/README.md",
+    "research/blueprint/packages/StableHomotopyKTheory/Suggested.lean",
+    "research/blueprint/packages/StableHomotopyKTheory/metadata.toml",
+    "research/blueprint/handoff/PKG-StableHomotopyKTheory~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-StableHomotopyKTheory~codex.md"
+  },
+  {
+   "id": "PKG-DiophantineApproximationAndTranscendence~codex",
+   "kind": "package",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "DiophantineApproximationAndTranscendence"
+   ],
+   "outputs": [
+    "research/blueprint/packages/DiophantineApproximationAndTranscendence/README.md",
+    "research/blueprint/packages/DiophantineApproximationAndTranscendence/Suggested.lean",
+    "research/blueprint/packages/DiophantineApproximationAndTranscendence/metadata.toml",
+    "research/blueprint/handoff/PKG-DiophantineApproximationAndTranscendence~codex.md"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/PKG-DiophantineApproximationAndTranscendence~codex.md"
   }
  ]
 }
