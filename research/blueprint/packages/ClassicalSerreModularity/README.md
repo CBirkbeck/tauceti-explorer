@@ -142,7 +142,7 @@ Use Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821c
 | `MonoidAlgebra.Submodule.exists_isCompl` | Maschke's theorem over a field in which the group order is invertible. |
 | `ModularForm`, `CuspForm`, `DirichletCharacter` | The analytic carriers; the attached Galois representations are supplied by other roadmaps. |
 
-In Tau Ceti, `HeckeRing.GL2.Newform` has level and weight parameters, a character field, newness and normalisation a₁ = 1, and `AbelianVariety` is a proper geometrically integral group scheme over a field. Neither is redefined by the roadmap; `Suggested.lean` uses an opaque stand-in for the sum of `HeckeRing.GL2.Newform N k` over N and k, because the pinned newform carries no attached Galois representation, and an implementation uses the pinned structure. Neither library contains residual Galois representations with their conductor and Serre weight, compatible systems, or any of the theorems below.
+In Tau Ceti, `HeckeRing.GL2.Newform` has level and weight parameters, a nebentypus character, newness and normalisation a₁ = 1, and `AbelianVariety` is a proper geometrically integral group scheme over a field. Neither is redefined by the roadmap; `Suggested.lean` uses an opaque stand-in for the sum of `HeckeRing.GL2.Newform N k` over N and k, because the pinned newform carries no attached Galois representation, and an implementation uses the pinned structure. Neither library contains residual Galois representations with their conductor and Serre weight, compatible systems, or any of the theorems below.
 
 ## 4. Construction order
 
@@ -715,8 +715,8 @@ Source: [DP], Remark 6, p. 13 (see §7 for the operative criterion).
 Prerequisites: `R33.3/dp-dyadic-transition-and-the-order-three-type`; `R33.2/lemma-2-1-large-image`; `AlgebraicModularFormsAndSerreWeights:R15.4`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.4/crystalline-01-is-bt`; `PotentialModularityAndCompatibleSystems:R24.6`.
 
 **Paso 4: removing 2 from the level** (`R33.3/paso-4-removing-two`). After Paso 3 let the system be ramified only at 2 and N. There is an almost strictly compatible system of weight 2 unramified outside N and equivalent for modularity:
-1. if k(ρ̄₂) = 4, take a minimal weight-two lift with Steinberg type at 2 (Theorem 1.9(2)) and its system (transfer by Theorem 1.5);
-2. change the type at 2 by Lemma 2.3, which needs the system unramified at 3 (after Paso 3) and of Hodge–Tate weights {0, 1} (after step 1);
+1. if k(ρ̄₂) = 4, take a minimal weight-two lift with Steinberg type at 2 (Theorem 1.9(2)) and its system (transfer by Theorem 1.5); if k(ρ̄₂) = 2, go directly to step 3;
+2. in the weight-four branch, change the type at 2 by Lemma 2.3, which needs the system unramified at 3 (after Paso 3) and of Hodge–Tate weights {0, 1} (after step 1);
 3. now k(ρ̄₂) = 2 (Remark 6, or directly when the weight was 2), and a minimal crystalline weight-two lift (Theorem 1.9(1)) lies in a system unramified at 2 (transfer by Theorem 1.5).
 Non-solvable image at 2 (Lemma 2.1) is needed for Theorems 1.9(1), 1.9(2) and 1.5. The type at N is kept by minimal lifts and by prescribing τ_N at N. The order of the steps matters: the Steinberg lift makes Lemma 2.3 applicable, and Remark 6 needs the type from Lemma 2.3.
 Source: [DP], Paso 4, p. 13.
@@ -840,8 +840,8 @@ Every target above uses the corrected statement.
 - [KW-I] is cited in the running page numbers (2–21) of the authors' preprint, not the Inventiones pages. Its Theorems 4.1 and 5.1 are proved in the sequel, Khare–Wintenberger, Serre's modularity conjecture (II), Invent. Math. 178 (2009), 505–586; this roadmap uses them as stated, through `GL2ModularityLifting:R22.5`–`R22.6` and `PotentialModularityAndCompatibleSystems:R24.3`–`R24.6`.
 - [DP] is cited in the pages of arXiv v2. The theorems it imports (Kisin, Emerton, Paškūnas, Hu–Tan, Tung, Skinner–Wiles, Pan, Gee, Snowden, Dieulefait, Berger–Li–Zhu) are cited here through the layers that own them.
 - [BM] is cited in the running pages of the authors' copy. Proposition 6.1.1 concerns the nonscalar principal-series type ω_p^i ⊕ 1, 1 ≤ i ≤ p − 2, with Hodge–Tate weights {0, 1} and any stable lattice, without an End(ρ̄) = 𝔽 condition; the paper leaves out the details of its computation, which the integral classification of `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.5` supplies.
-- The weight-one step and the descent of R27.6 go back to Gross's companion forms, Coleman–Voloch, Edixhoven's weight paper with its note on the exceptional case, and Khare's note on mod p forms of weight one (Internat. Math. Res. Notices 1997, corrigendum 1999). The proofs given in R27.6 are complete from the listed prerequisites; the form of the weight-one step without a hypothesis on Frob_ℓ rests on Coleman–Voloch through `SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem`, and no target of this roadmap uses that form.
-- The residually dihedral ordinary branch of the level-one proof for ρ̄ induced from ℚ(√−p) rests on Skinner's correction to Skinner–Wiles, which is unpublished (Khare–Wintenberger cite it as "to appear"); this roadmap takes the case from `OrdinaryAutomorphicFormsAndModularityLifting:R21.5`.
+- The weight-one step and the descent of R27.6 go back to Gross's companion forms, Coleman–Voloch, Edixhoven's weight paper with its note on the exceptional case, and Khare's note on mod p forms of weight one (Internat. Math. Res. Notices 1997, corrigendum 1999). The proofs given in R27.6 are complete from the listed prerequisites; the form of the weight-one step without a hypothesis on Frob_ℓ rests on Coleman–Voloch through `SerreWeightAndLevelOptimisation:R20.3/edixhoven-weight-theorem`. The Artin argument uses the distinct-Frobenius form; the general form is supplied to `ModularityAndLanglandsExtensions:ML.1` for irregular compatible systems.
+- The residually dihedral ordinary branch of the level-one proof for ρ̄ induced from ℚ(√−p) rests on Skinner's correction to Skinner–Wiles, which is unpublished (Khare–Wintenberger cite it as "to appear"); this roadmap requires that case from `OrdinaryAutomorphicFormsAndModularityLifting:R21.5`. A lifting theorem excluding induction from an imaginary quadratic field cannot supply this branch.
 
 ## 9. Suggested Lean forms
 
@@ -873,7 +873,7 @@ The good-dihedral predicate is stated for any group with supplied inertia homomo
 - [Bö] G. Böckle, *Appendix 1: On the isomorphism R_∅ → T_∅*, appendix to C. Khare, *On isomorphisms between deformation rings and Hecke rings*, Invent. Math. 154 (2003), 199–222; [author's file][bo].
 - [Sa] D. Savitt, *On a conjecture of Conrad, Diamond, and Taylor*, Duke Math. J. 128 (2005), no. 1, 141–197; corrected version [arXiv:math/0404327v3][sa] (2010).
 - [BM] C. Breuil and A. Mézard, *Multiplicités modulaires et représentations de GL₂(ℤ_p) et de Gal(ℚ̄_p/ℚ_p) en ℓ = p*, Duke Math. J. 115 (2002), 205–310; [authors' copy][bm].
-- [DP] L. V. Dieulefait and A. M. Pacetti, *A simplified proof of Serre's conjecture*, [arXiv:2108.07577v2][dp] (2022).
+- [DP] L. V. Dieulefait and A. M. Pacetti, *A simplified proof of Serre's Conjectures*, [arXiv:2108.07577v2][dp] (2022).
 - [Ri] K. A. Ribet, *Images of semistable Galois representations*, [Pacific J. Math. 181 (1997), no. 3, 277–297][ri].
 - [RS] J. B. Rosser and L. Schoenfeld, *Approximate formulas for some functions of prime numbers*, [Illinois J. Math. 6 (1962), 64–94][rs].
 - [BCDT] C. Breuil, B. Conrad, F. Diamond and R. Taylor, *On the modularity of elliptic curves over Q: wild 3-adic exercises*, J. Amer. Math. Soc. 14 (2001), 843–939; [authors' copy][bcdt].

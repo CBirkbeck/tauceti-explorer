@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ClassicalSerreModularity",
+    "date": "2026-10-09",
+    "notes": "Independent review of all 81 accepted targets, 38 API items and 32 tests against the README, pinned libraries and relevant public source passages. Corrected Paso 4 branching, the weight-one export note, the imaginary-quadratic supplier requirement, the nebentypus description and the DP title. Upstream form, own words, no-process presentation and math.NT metadata pass. needs_changes: 22 API declarations across three modern constructions are absent; tests and named theorem signatures are missing or weaker; pinned Tau Ceti newform carriers are replaced by opaque types. lean-check exited 0 with 96 sorry warnings, no errors or other warnings, using the pinned Mathlib build; no Tau Ceti imports were exercised. See the completed review for the exact revision checklist and inherited ordinary supplier gap."
+  }
+}
