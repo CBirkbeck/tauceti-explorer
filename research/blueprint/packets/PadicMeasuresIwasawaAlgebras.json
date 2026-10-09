@@ -34824,263 +34824,521 @@
           "note": "Corrected fields: acceptance, hypotheses, library, prerequisites, proofSteps, sources, statement.  Source read: Dasgupta–Kakde arXiv:2010.00657v3, Proof of Lemma B.4, equation (171), arXiv v3 PDF p. 93. Direct prerequisites inspected: 18. Implementation remains unchecked."
         }
       ]
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
+      "date": "2026-10-09",
+      "notes": "Independent completion by Codex (GPT-6), session codex-nikABM, of the review of FIX-RT-AREA-iwasawa-2~2 (Claude Code, claude-6ZAIEy, PR #6786). This follows the 7 October checkpoint of the same review (claude-D9I0pm, PR #7313), whose review object is preserved in reviewHistory together with REV-PadicMeasuresIwasawaAlgebras (needs_changes, 5 October). All 50 corrected L6 nodes, their statements, proof steps, 172 API items and 57 tests were reread; 174 direct baseline declarations were read in 94 modules authenticated against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The other 436 nodes were not re-reviewed. The image ring, inverse-character coefficient change, square and projective presentation hypotheses, arbitrary-PID cardinality repair and right-sided higher-adjugate repair satisfy the verified /4 contract. Basic Fitting ideals remain with StableReduction Layer 1 under RS-16; L6 adds higher/order-specific algebra and reuses the pinned Auslander–Reiten transpose. Source findings E17–E20 are confirmed at arXiv v3 PDF pp. 16–17, 26 and 40, within that preprint scope. This continuation paraphrases remaining source quotations and refreshes the review receipts without changing mathematical claims. PR #7967 merged during submission and is preserved in full: it regenerates the reader and supplies several earlier L4 interfaces without changing any L6 node. The stale-reader objection is superseded. The packet remains needs_changes because 14 distinct required L4 declaration names and 12 annotated test records are still absent, and the precise residual source/proof inputs are recorded in the revision handoff. The missing declaration inventory was independently checked; this scoped fix review does not certify the newly revised L4 mathematics or supersede its independent review. Before integration the suggested file elaborated natively at the pins with its own Tau Ceti imports: zero errors and 917 admitted-proof warnings. The final combined revision also elaborates natively: zero errors and 1,041 admitted-proof warnings, with no other warning. The 7 October missing-object-file limitation no longer applies. check_blueprint.py: zero errors, zero warnings. Full reasons and the other finding handoffs are in research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md.",
+      "checked": [
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-evaluation",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/joint-evaluation-injective",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring",
+          "verdict": "corrected",
+          "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-scaled-idempotent",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.5, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-finite-index",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-nonzerodivisor",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.5, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/norm-element-kernel",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.2 and proof, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-idempotent-evaluation",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-character-group-ring",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-group-ring-equiv",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/group-ring-component-decomposition",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-norm-quotient",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Corollary 2.3, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-criterion",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.3, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-one-character",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §5.2, arXiv v3 PDF p. 34. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-local",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-maximal-ideal-power",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §7.2.9, arXiv v3 PDF p. 49. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-eval-local-hom",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §5.1, arXiv v3 PDF p. 34. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-residue-field",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 8.22, arXiv v3 PDF p. 64. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-adic-complete",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §7.2.9, arXiv v3 PDF p. 49. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-index",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.5, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/sharp-involution",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/contragredient-dual",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, equation (80), arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.3, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.3, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-ideal",
+          "verdict": "corrected",
+          "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, first paragraph, arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/relation-minors-add-generator",
+          "verdict": "corrected",
+          "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, the paragraph before Lemma B.5, arXiv v3 PDF p. 94. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-independence",
+          "verdict": "corrected",
+          "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, first paragraph, arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-base-change",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, after (172), arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/locally-quadratic-presentation",
+          "verdict": "corrected",
+          "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Remark A.7, arXiv v3 PDF p. 86. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/extension-relation-matrix",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.6, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation-extension",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.6, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-extension",
+          "verdict": "corrected",
+          "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.6, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-fibre-product",
+          "verdict": "corrected",
+          "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.7 and proof, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/pid-cokernel-cardinality",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, the case of a PID, arXiv v3 PDF pp. 16–17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/finite-index-cokernel-descent",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, displays (27) and (28), arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/cokernel-modulo-finite-ideal",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/finite-index-subring-nonzerodivisor",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-cardinality",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.4, arXiv v3 PDF p. 16–17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/compound-matrix",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/complement-shuffle-sign",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/generalised-laplace-expansion",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-adjugate",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/compound-image-determinant",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, last step, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/exterior-cokernel-annihilator",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 3.9, arXiv v3 PDF p. 25–26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/presentation-transpose",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, (81), arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-stable-equivalence",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-fitting",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 6.1, arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting-free",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Kurihara's conjecture after Lemma B.4, arXiv v3 PDF p. 94. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        },
+        {
+          "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting",
+          "verdict": "correct",
+          "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma B.4, equation (171), arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        }
+      ]
     }
   ],
   "review": {
     "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
     "date": "2026-10-09",
-    "notes": "Independent completion by Codex (GPT-6), session codex-nikABM, of the review of FIX-RT-AREA-iwasawa-2~2 (Claude Code, claude-6ZAIEy, PR #6786). This follows the 7 October checkpoint of the same review (claude-D9I0pm, PR #7313), whose review object is preserved in reviewHistory together with REV-PadicMeasuresIwasawaAlgebras (needs_changes, 5 October). All 50 corrected L6 nodes, their statements, proof steps, 172 API items and 57 tests were reread; 174 direct baseline declarations were read in 94 modules authenticated against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The other 436 nodes were not re-reviewed. The image ring, inverse-character coefficient change, square and projective presentation hypotheses, arbitrary-PID cardinality repair and right-sided higher-adjugate repair satisfy the verified /4 contract. Basic Fitting ideals remain with StableReduction Layer 1 under RS-16; L6 adds higher/order-specific algebra and reuses the pinned Auslander–Reiten transpose. Source findings E17–E20 are confirmed at arXiv v3 PDF pp. 16–17, 26 and 40, within that preprint scope. This continuation paraphrases remaining source quotations and refreshes the review receipts without changing mathematical claims. PR #7967 merged during submission and is preserved in full: it regenerates the reader and supplies several earlier L4 interfaces without changing any L6 node. The stale-reader objection is superseded. The packet remains needs_changes because 14 distinct required L4 declaration names and 12 annotated test records are still absent, and the precise residual source/proof inputs are recorded in the revision handoff. The missing declaration inventory was independently checked; this scoped fix review does not certify the newly revised L4 mathematics or supersede its independent review. Before integration the suggested file elaborated natively at the pins with its own Tau Ceti imports: zero errors and 917 admitted-proof warnings. The final combined revision also elaborates natively: zero errors and 1,041 admitted-proof warnings, with no other warning. The 7 October missing-object-file limitation no longer applies. check_blueprint.py: zero errors, zero warnings. Full reasons and the other finding handoffs are in research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md.",
+    "notes": "Independent recheck by Codex, session codex-KQjyXV, input 2a38118862ebfcc8d34e96438ab58cd077626d7b. Reviewed Claude Code claude-6ZAIEy FIX-RT-AREA-iwasawa-2~2 (PR #6786); prior corrections/reviews and PR #7967 are retained. All 50 L6 nodes, 172 API items and 57 tests independently reread. All 174 direct baseline declaration statements in 94 modules were inspected and source bytes authenticated at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. This is not certification of the other 436 nodes or all 536 baseline entries. Fresh Dasgupta–Kakde arXiv v3 readings confirm the character-image ring, inverse-character transport, square/constant-rank-projective hypotheses, arbitrary-PID cardinality repair and explicit right-sided compound-image preimage. Existing E17–E20 were reconfirmed within preprint scope; published full text was not read. Basic Fitting stays with StableReduction Layer 1 under RS-16; transpose reuses the pinned Auslander–Reiten carrier. No new mathematical correction was needed. needs_changes remains for 14 unresolved L4 declaration interfaces, 12 annotated test records and source/proof inputs inventoried by the L4 revision; exact name/tag absence requires semantic reconciliation, and no fresh NSW/Bourbaki/Coates–Sujatha source confirmation is claimed. Native suggested-file lean-check exits 0 with 1041 admitted-proof warnings and no other warning. Packet checker: zero errors/warnings. Both compound identities and rectangular preimages passed finite exact-integer controls; these are not general proofs. Only review metadata, report and handoff changed. Extra queue packets remain unchanged pending named-scope reconciliation. Report: research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md.",
     "checked": [
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-evaluation",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/joint-evaluation-injective",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring",
-        "verdict": "corrected",
-        "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "verdict": "correct",
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-scaled-idempotent",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.5, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.5, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-lattice",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-finite-index",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-nonzerodivisor",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.5, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.5, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/norm-element-kernel",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.2 and proof, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.2 and proof, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-idempotent-evaluation",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-character-group-ring",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-group-ring-equiv",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/group-ring-component-decomposition",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/component-norm-quotient",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Corollary 2.3, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Corollary 2.3, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-criterion",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.3, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.3, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-unit-one-character",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §5.2, arXiv v3 PDF p. 34. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §5.2, arXiv v3 PDF p. 34. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-local",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.2, arXiv v3 PDF p. 15. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-maximal-ideal-power",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §7.2.9, arXiv v3 PDF p. 49. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §7.2.9, arXiv v3 PDF p. 49. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-eval-local-hom",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §5.1, arXiv v3 PDF p. 34. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §5.1, arXiv v3 PDF p. 34. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-residue-field",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 8.22, arXiv v3 PDF p. 64. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 8.22, arXiv v3 PDF p. 64. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-adic-complete",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §7.2.9, arXiv v3 PDF p. 49. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §7.2.9, arXiv v3 PDF p. 49. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/character-group-ring-index",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.5, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.5, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/sharp-involution",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/contragredient-dual",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, equation (80), arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, equation (80), arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.3, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.3, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-quadratic",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.3, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §2.3, arXiv v3 PDF p. 16. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-ideal",
-        "verdict": "corrected",
-        "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, first paragraph, arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "verdict": "correct",
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, first paragraph, arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/relation-minors-add-generator",
-        "verdict": "corrected",
-        "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, the paragraph before Lemma B.5, arXiv v3 PDF p. 94. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "verdict": "correct",
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, the paragraph before Lemma B.5, arXiv v3 PDF p. 94. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-independence",
-        "verdict": "corrected",
-        "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, first paragraph, arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "verdict": "correct",
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, first paragraph, arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-fitting-base-change",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, after (172), arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Appendix B.2, after (172), arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/locally-quadratic-presentation",
-        "verdict": "corrected",
-        "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Remark A.7, arXiv v3 PDF p. 86. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "verdict": "correct",
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Remark A.7, arXiv v3 PDF p. 86. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/extension-relation-matrix",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.6, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.6, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation-extension",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.6, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.6, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-extension",
-        "verdict": "corrected",
-        "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.6, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "verdict": "correct",
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.6, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/fitting-fibre-product",
-        "verdict": "corrected",
-        "note": "Source wording paraphrased; mathematical statement and prerequisites unchanged. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.7 and proof, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "verdict": "correct",
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.7 and proof, arXiv v3 PDF p. 18. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/pid-cokernel-cardinality",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, the case of a PID, arXiv v3 PDF pp. 16–17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, the case of a PID, arXiv v3 PDF pp. 16–17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/finite-index-cokernel-descent",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, displays (27) and (28), arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, displays (27) and (28), arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/cokernel-modulo-finite-ideal",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/finite-index-subring-nonzerodivisor",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 2.4, arXiv v3 PDF p. 17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/quadratic-cardinality",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.4, arXiv v3 PDF p. 16–17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 2.4, arXiv v3 PDF p. 16–17. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/compound-matrix",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/complement-shuffle-sign",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/generalised-laplace-expansion",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/higher-adjugate",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/compound-image-determinant",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, last step, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma 3.9, last step, arXiv v3 PDF p. 26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/exterior-cokernel-annihilator",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 3.9, arXiv v3 PDF p. 25–26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 3.9, arXiv v3 PDF p. 25–26. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/presentation-transpose",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, (81), arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, (81), arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-stable-equivalence",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: §6.1, arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-fitting",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 6.1, arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Lemma 6.1, arXiv v3 PDF p. 40. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting-free",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Kurihara's conjecture after Lemma B.4, arXiv v3 PDF p. 94. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Kurihara's conjecture after Lemma B.4, arXiv v3 PDF p. 94. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       },
       {
         "nodeId": "PadicMeasuresIwasawaAlgebras:L6/transpose-higher-fitting",
         "verdict": "correct",
-        "note": "Checkpoint correction retained. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma B.4, equation (171), arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
+        "note": "Independent recheck by codex-KQjyXV; inherited corrections retained, no edit to this node. Statement, proof steps, API and examples reread against the verified finding /4 and its source. Locator: Proof of Lemma B.4, equation (171), arXiv v3 PDF p. 93. Direct pinned library prerequisites reread in the authenticated source modules. This is a planning verdict; implementation remains unchecked. The earlier L4 review blockers are outside this node."
       }
     ]
   },
