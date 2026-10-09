@@ -43290,8 +43290,9 @@
    ],
    "revisionOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6516"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6516",
+   "finishedAt": "2026-10-09T13:08:35Z"
   },
   {
    "priority": 2,
