@@ -872,6 +872,17 @@
     "data/blueprints/roadmaps/ConformalMappingPartII.json"
    ]
   },
+  "research/blueprint/packets/CrystallineCohomology--CR.5.json": {
+   "promotedAt": "2026-10-09T07:15:02Z",
+   "review": "9f0ff8ff7e96bbbd",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-CrystallineCohomology--CR.5~3",
+   "sha256": "ce372d8d4e840b70ac23f27dd91c44c921620d2a52410b0c8e1c68be5c701a42",
+   "to": [
+    "data/blueprints/CrystallineCohomology--CR.5.json",
+    "data/blueprints/CrystallineCohomology--CR.5.md"
+   ]
+  },
   "research/blueprint/packets/CrystallineLocalGlobalCompatibilityCM.json": {
    "promotedAt": "2026-10-07T18:03:19Z",
    "review": "0c0352a37fb1f14a",

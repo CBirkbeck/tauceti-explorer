@@ -1,8 +1,8 @@
 {
   "roadmaps": 243,
-  "stages": 5352,
+  "stages": 5371,
   "originalStages": 2197,
-  "sourceRefinements": 3155,
+  "sourceRefinements": 3174,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -201,14 +201,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5251,
+  "mathematicalStars": 5270,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2319,
-  "stageEdges": 14139,
+  "roadmapEdges": 2324,
+  "stageEdges": 14174,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -450,6 +450,12 @@
       "roadmap": "ConformalMappingPartII",
       "nodes": 98,
       "reviewer": "independent-review-REV-DESIGN-ConformalMappingPartII"
+    },
+    {
+      "file": "CrystallineCohomology--CR.5",
+      "roadmap": "CrystallineCohomology",
+      "nodes": 88,
+      "reviewer": "independent-review-REV-CrystallineCohomology--CR.5~3"
     },
     {
       "file": "CrystallineLocalGlobalCompatibilityCM",
@@ -1347,8 +1353,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36511380,
-  "htmlSha256": "bef3a6e3cb33a44bbacb04f3f66c0be1dbc3d8aa610bccca25992690ed8a620e",
+  "htmlBytes": 36557818,
+  "htmlSha256": "13500d75bbb78931a1d214d77b9f9c0342347f28ebf6cf63e617921f130c1922",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1380,7 +1386,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "2a1e8a20214a18d0dd475da3620fba10ccbfa7ffecc24da77eb0c726e4115917",
+    "data/roadmap-distances.json": "34fce4eb5e48594e31cf1fe6f3879d5f6f3668d53dab49bc1276f3b4e463bc39",
     "data/galaxy-layout.json": "c4f41c53e501ae0cb94c10f730031eafef5ce9f4ac8c9802cf8d78dcb31c1ab7",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1518,6 +1524,8 @@
     "data/blueprints/ComputationalNumberTheory.md": "e5035ba10d69d7378b539b90b7b384401ba32998c9a3f50693e7865f20f1f129",
     "data/blueprints/ConformalMappingPartII.json": "f36735a991de26e255bfa9bbcca96da81e6b141699a7947c364ced88342e44ef",
     "data/blueprints/ConformalMappingPartII.md": "83d804e8e91cac36717619b4ff44202e1f35e55e6e9ea63756d4bb0304b7c560",
+    "data/blueprints/CrystallineCohomology--CR.5.json": "a694b5ead4eb4c9f60db03086ee9bfee1790c99681ea6519f29d5b79d24ff809",
+    "data/blueprints/CrystallineCohomology--CR.5.md": "426eb295808d356588f268bdfa43230d6ca958754cef1920f785772866976611",
     "data/blueprints/CrystallineLocalGlobalCompatibilityCM.json": "116c38b940316cbe91ed2bd0e9d77e1c6537c3e0507edb6622694292dd970a4d",
     "data/blueprints/CrystallineLocalGlobalCompatibilityCM.md": "adc3cdcfcb2011646fa27bd8546bfb6719c5d0bd7a08822afac84a5cf5da289c",
     "data/blueprints/DeformationAndDerivedPatchingAlgebra--P7.json": "f81c0fef929dd3ef3ca35197785537424d0f6b145476d4f2e78587311f64224b",
