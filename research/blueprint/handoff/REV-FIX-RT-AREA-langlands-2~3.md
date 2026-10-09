@@ -1,14 +1,12 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-## Current blocker, 9 October 2026 — codex-IfSuv6
+## Current blocker, 9 October 2026 — codex-dnaUzE
 
 Issue #5871; bot-confirmed claim
-[6074977052](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074977052).
-Base `e57e29c1f813ea669d9f7e9de986223e0b987862`. Before this update, all seven live-issue outputs
-matched merged [PR #7795](https://github.com/CBirkbeck/tauceti-explorer/pull/7795),
-commit `244b3bc00`, byte for byte. The three packets and three suggested files
-also match [PR #7780](https://github.com/CBirkbeck/tauceti-explorer/pull/7780),
-commit `80353a01e61bff319775e0fbafaaddb43d5fae78`.
+[6075437662](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6075437662).
+Base `0e85566a5f0de7f88ac03a80f6eeedb51ed290b0`. Before this update, all seven live-issue outputs
+matched merged [PR #7798](https://github.com/CBirkbeck/tauceti-explorer/pull/7798),
+commit `45c6dba4738a26d32829e0ee89eed2a0f707b5b4`, byte for byte.
 
 The inherited mathematical review is complete for this scope. Verdicts remain
 CSM accepted, Global accepted and GL2 needs_changes. The GL2 revision's 53 API
@@ -23,11 +21,12 @@ are outside this issue's edits and fail the intake allowlist. Read the relevant
 completion function, intake allowlist and generation path. No allowed edit can
 reconcile those historical output lists without overwriting other jobs' reviews.
 
-All three packet validators pass with zero errors/warnings. All 177 nodes are
-unchecked, no packet has an excerpt field, and the report covers all forty
-confirmed findings exactly once. No fresh primary-source, baseline or graph
-audit is claimed; unchanged Lean files were not recompiled. Only the report
-and this handoff change.
+All three packet validators pass with zero errors/warnings (37 CSM, 73 GL2
+and 67 Global nodes). All 177 nodes are unchecked, no packet has an excerpt
+field, and the report covers all forty confirmed findings exactly once.
+The finding and verification files contain the same forty identifiers, all
+confirmed. No fresh primary-source, baseline or graph audit is claimed;
+unchanged Lean files were not recompiled. Only the report and this handoff change.
 
 **Resume after maintainer metadata repair.** The exact seven review outputs,
 ten historical parent-fix outputs, generator path and reproduction below are
