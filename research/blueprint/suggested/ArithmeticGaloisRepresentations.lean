@@ -147,7 +147,7 @@ structure ContinuousRep (Γ : Type u) [Group Γ] [TopologicalSpace Γ]
 
 namespace ContinuousRep
 
-variable {Γ : Type u} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type u} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {A : Type v} [CommRing A] [TopologicalSpace A]
   {M : Type w} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
   [TopologicalSpace M] [IsModuleTopology A M]
@@ -196,7 +196,7 @@ def res {Γ' : Type u'} [Group Γ'] [TopologicalSpace Γ'] (φ : Γ' →ₜ* Γ)
 
 /-- A continuous representation together with its carrier, for constructions whose carrier is
 not given in advance (semisimplification, base change, induction). -/
-structure Bundled (Γ : Type u) [Group Γ] [TopologicalSpace Γ]
+structure Bundled (Γ : Type u) [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     (A : Type v) [CommRing A] [TopologicalSpace A] where
   /-- The carrier module. -/
   carrier : Type w
@@ -211,7 +211,7 @@ structure Bundled (Γ : Type u) [Group Γ] [TopologicalSpace Γ]
 
 section FieldCoefficients
 
-variable {Γ : Type u} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type u} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {K : Type v} [Field K] [TopologicalSpace K]
   {M : Type w} [AddCommGroup M] [Module K M] [Module.Finite K M] [Module.Projective K M]
   [TopologicalSpace M] [IsModuleTopology K M]
@@ -232,7 +232,7 @@ end ContinuousRep
 
 /-- A `Γ`-stable lattice in a representation over a field `E` with ring of integers `O`:
 a finitely generated `O`-submodule, stable under `Γ`, spanning `V` over `E`. -/
-structure GaloisLattice.IntegralModel {Γ : Type u} [Group Γ] [TopologicalSpace Γ]
+structure GaloisLattice.IntegralModel {Γ : Type u} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     (O : Type v) [CommRing O] {E : Type v} [Field E] [TopologicalSpace E] [Algebra O E]
     {V : Type w} [AddCommGroup V] [Module E V] [Module.Finite E V] [Module.Projective E V]
     [TopologicalSpace V] [IsModuleTopology E V] [Module O V] [IsScalarTower O E V]
@@ -305,7 +305,7 @@ end GaloisRep
 of the Weil group `W` (with degree map `deg`, `deg` of an arithmetic Frobenius lift `= 1`)
 that is trivial on an open subgroup, and a nilpotent `N` with
 `r(w) ∘ N = q^{deg w} • (N ∘ r(w))` (Deligne 1973, (8.4.1.1)). -/
-structure WeilDeligneRep (W : Type u) [Group W] [TopologicalSpace W]
+structure WeilDeligneRep (W : Type u) [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
     (deg : W →* Multiplicative ℤ) (q : ℕ) (Ω : Type v) [Field Ω]
     (V : Type w) [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V] where
   /-- The Weil group representation. -/
@@ -350,7 +350,7 @@ def TateTwist.cyclotomicChar (F : Type*) [Field F] (ℓ : ℕ) [Fact ℓ.Prime] 
 
 section Basic
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {A : Type uA} [CommRing A] [TopologicalSpace A]
   {M : Type uM} [AddCommGroup M] [Module A M] [hMfin : Module.Finite A M]
   [hMproj : Module.Projective A M] [TopologicalSpace M] [hMtop : IsModuleTopology A M]
@@ -526,7 +526,7 @@ theorem _root_.TauCeti.exteriorPower_map_eq_det_prodMap_smul (A : Type*) [CommRi
 
 section Framed
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {A : Type uA} [CommRing A] [TopologicalSpace A]
   {M : Type uM} [AddCommGroup M] [Module A M] [hMfin : Module.Finite A M]
   [hMproj : Module.Projective A M] [TopologicalSpace M] [hMtop : IsModuleTopology A M]
@@ -541,24 +541,24 @@ def ofFramed [IsTopologicalRing A] {n : ℕ}
 
 /-- The framed representation `frame_b ρ : Γ → GL_n(A)` of a continuous representation in the
 basis `b` (its matrices are `LinearMap.toMatrix b b (ρ g)`). -/
-def frame [IsTopologicalGroup Γ] [IsTopologicalRing A] {n : ℕ} (b : Module.Basis (Fin n) A M)
+def frame [IsTopologicalRing A] {n : ℕ} (b : Module.Basis (Fin n) A M)
     (ρ : ContinuousRep Γ A M) :
     Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) A := by
   have _ := hMtop
   exact sorry
 
-theorem coe_frame [IsTopologicalGroup Γ] [IsTopologicalRing A] {n : ℕ} (b : Module.Basis (Fin n) A M)
+theorem coe_frame [IsTopologicalRing A] {n : ℕ} (b : Module.Basis (Fin n) A M)
     (ρ : ContinuousRep Γ A M) (g : Γ) :
     (frame b ρ g : Matrix (Fin n) (Fin n) A) = LinearMap.toMatrix b b (ρ g) := by
   sorry
 
 /-- `ofFramed (frame b ρ) ≅ ρ`. -/
-def frameIso [IsTopologicalGroup Γ] [IsTopologicalRing A] {n : ℕ} (b : Module.Basis (Fin n) A M)
+def frameIso [IsTopologicalRing A] {n : ℕ} (b : Module.Basis (Fin n) A M)
     (ρ : ContinuousRep Γ A M) : Iso (ofFramed (frame b ρ)) ρ :=
   sorry
 
 /-- Change of frame: `frame b' ρ = P⁻¹ (frame b ρ) P` with `P = b.toMatrix b'`. -/
-theorem frame_basis_change [IsTopologicalGroup Γ] [IsTopologicalRing A] {n : ℕ}
+theorem frame_basis_change [IsTopologicalRing A] {n : ℕ}
     (b b' : Module.Basis (Fin n) A M)
     (ρ : ContinuousRep Γ A M) (g : Γ) :
     (frame b' ρ g : Matrix (Fin n) (Fin n) A) =
@@ -589,7 +589,7 @@ theorem coe_map {B : Type uB} [CommRing B] [TopologicalSpace B] (f : A →+* B) 
 
 /-- A homomorphism into `GL_n(A)` is continuous for the units topology iff its composite with
 `GL_n(A) → M_n(A)` is continuous. -/
-theorem continuous_iff_coe [IsTopologicalGroup Γ] [IsTopologicalRing A] {n : ℕ}
+theorem continuous_iff_coe [IsTopologicalRing A] {n : ℕ}
     (ρ : Γ →* Matrix.GeneralLinearGroup (Fin n) A) :
     Continuous ρ ↔ Continuous fun g => (ρ g : Matrix (Fin n) (Fin n) A) := by
   sorry
@@ -629,7 +629,7 @@ example [IsTopologicalRing A] (ρ ρ' : Γ →ₜ* Matrix.GeneralLinearGroup (Fi
   sorry
 
 /-- Unit test: TauCeti.ContinuousRep.Framed.continuous_iff_coe. -/
-example [IsTopologicalGroup Γ] [IsTopologicalRing A] {n : ℕ}
+example [IsTopologicalRing A] {n : ℕ}
     (ρ : Γ →* Matrix.GeneralLinearGroup (Fin n) A) :
     Continuous ρ ↔ Continuous fun g => (ρ g : Matrix (Fin n) (Fin n) A) :=
   Framed.continuous_iff_coe ρ
@@ -641,7 +641,7 @@ end Framed
 
 section BaseChange
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {A : Type uA} [CommRing A] [TopologicalSpace A]
   {M : Type uM} [AddCommGroup M] [Module A M] [hMfin : Module.Finite A M]
   [hMproj : Module.Projective A M] [TopologicalSpace M] [hMtop : IsModuleTopology A M]
@@ -760,7 +760,7 @@ end BaseChange
 
 section Operations
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {A : Type uA} [CommRing A] [TopologicalSpace A]
   {M : Type uM} [AddCommGroup M] [Module A M] [hMfin : Module.Finite A M]
   [hMproj : Module.Projective A M] [TopologicalSpace M] [hMtop : IsModuleTopology A M]
@@ -782,18 +782,18 @@ theorem tensor_apply_tmul [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
   sorry
 
 /-- The dual `M^∨ = Hom_A(M, A)` with the inverse-transpose action `(g λ)(m) = λ(g⁻¹ m)`. -/
-def dual [IsTopologicalGroup Γ] [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
+def dual [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
     [TopologicalSpace (Module.Dual A M)]
     [IsModuleTopology A (Module.Dual A M)] : ContinuousRep Γ A (Module.Dual A M) :=
   ⟨ρ.toRepresentation.dual, by have _ := hMfin; have _ := hMproj; have _ := hMtop; sorry⟩
 
-theorem dual_apply [IsTopologicalGroup Γ] [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
+theorem dual_apply [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
     [TopologicalSpace (Module.Dual A M)] [IsModuleTopology A (Module.Dual A M)]
     (g : Γ) (f : Module.Dual A M) (m : M) : ρ.dual g f m = f (ρ g⁻¹ m) := by
   sorry
 
 /-- The internal Hom `Hom_A(M, N)` with `g · f = ρ_N(g) ∘ f ∘ ρ_M(g)⁻¹`. -/
-def hom [IsTopologicalGroup Γ] [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
+def hom [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
     (σ : ContinuousRep Γ A N)
     [Module.Finite A (M →ₗ[A] N)] [Module.Projective A (M →ₗ[A] N)]
     [TopologicalSpace (M →ₗ[A] N)] [IsModuleTopology A (M →ₗ[A] N)] :
@@ -801,7 +801,7 @@ def hom [IsTopologicalGroup Γ] [IsTopologicalRing A] (ρ : ContinuousRep Γ A M
   ⟨ρ.toRepresentation.linHom σ.toRepresentation, by have _ := hMtop; have _ := hNtop; sorry⟩
 
 /-- `Hom_A(M, N) ≅ M^∨ ⊗_A N`. -/
-def homEquivDualTensor [IsTopologicalGroup Γ] [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
+def homEquivDualTensor [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
     (σ : ContinuousRep Γ A N)
     [Module.Finite A (M →ₗ[A] N)] [Module.Projective A (M →ₗ[A] N)]
     [TopologicalSpace (M →ₗ[A] N)] [IsModuleTopology A (M →ₗ[A] N)]
@@ -851,7 +851,7 @@ theorem det_directSum (ρ : ContinuousRep Γ A M) (σ : ContinuousRep Γ A N) :
   sorry
 
 /-- `Hom_A(M, N)^Γ = Hom_Γ(M, N)`: a linear map is invariant iff it is equivariant. -/
-theorem invariants_hom [IsTopologicalGroup Γ] [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
+theorem invariants_hom [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
     (σ : ContinuousRep Γ A N)
     [Module.Finite A (M →ₗ[A] N)] [Module.Projective A (M →ₗ[A] N)]
     [TopologicalSpace (M →ₗ[A] N)] [IsModuleTopology A (M →ₗ[A] N)] (f : M →ₗ[A] N) :
@@ -867,7 +867,7 @@ theorem res_baseChange [IsTopologicalRing A] {Γ' : Type uΓ'} [Group Γ'] [Topo
   sorry
 
 /-- Unit test: TauCeti.ContinuousRep.det_dual. -/
-example [IsTopologicalGroup Γ] [IsTopologicalRing A] [Module.Free A M] (ρ : ContinuousRep Γ A M)
+example [IsTopologicalRing A] [Module.Free A M] (ρ : ContinuousRep Γ A M)
     [TopologicalSpace (Module.Dual A M)] [IsModuleTopology A (Module.Dual A M)]
     [TopologicalSpace (Module.Dual A A)] [IsModuleTopology A (Module.Dual A A)]
     (χ ψ : Γ →ₜ* Aˣ) (hψ : ∀ g, ψ g = (χ g)⁻¹) :
@@ -889,7 +889,7 @@ example : ¬ ∀ g h : Matrix.GeneralLinearGroup (Fin 2) (ZMod 2),
   sorry
 
 /-- Unit test: TauCeti.ContinuousRep.invariants_hom. -/
-example [IsTopologicalGroup Γ] [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
+example [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
     (σ : ContinuousRep Γ A N)
     [Module.Finite A (M →ₗ[A] N)] [Module.Projective A (M →ₗ[A] N)]
     [TopologicalSpace (M →ₗ[A] N)] [IsModuleTopology A (M →ₗ[A] N)] :
@@ -903,7 +903,7 @@ field and finite-dimensional `V`, `W` with norms inducing their module topologie
 `ContRepresentation.conj_linHom` says that `Representation.linHom`, transported along
 `LinearMap.toContinuousLinearMap`, is `ContRepresentation.linHom`. What is checked here is the
 Mathlib half of that comparison: `hom` carries Mathlib's `Representation.linHom`. -/
-example [IsTopologicalGroup Γ] [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
+example [IsTopologicalRing A] (ρ : ContinuousRep Γ A M)
     (σ : ContinuousRep Γ A N)
     [Module.Finite A (M →ₗ[A] N)] [Module.Projective A (M →ₗ[A] N)]
     [TopologicalSpace (M →ₗ[A] N)] [IsModuleTopology A (M →ₗ[A] N)] :
@@ -1245,8 +1245,8 @@ finite quotient by an open normal subgroup; the image is then finite (for every 
 (Artin representations) every continuous `Γ → GL_n(ℂ)` has open kernel and finite image.
 (The Galois form, factorisation through `Gal(L/F)` for finite Galois `L/F`, is the case
 `Γ = G_F` of (iv) and is not restated.) -/
-theorem continuous_iff_isOpen_ker {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
-    [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ] [TotallyDisconnectedSpace Γ]
+theorem continuous_iff_isOpen_ker {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+     [CompactSpace Γ] [T2Space Γ] [TotallyDisconnectedSpace Γ]
     {A : Type uA} [CommRing A] [TopologicalSpace A] [DiscreteTopology A]
     {M : Type uM} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
     [TopologicalSpace M] [IsModuleTopology A M] (ρ : Representation A Γ M) :
@@ -1278,7 +1278,7 @@ theorem _root_.TauCeti.subgroup_units_eq_bot_of_norm_sub_one_le {R : Type*} [Nor
 /-- ArithmeticGaloisRepresentations:R01.1/residual-descent-to-a-finite-field.
 A continuous `ρ : Γ → GL_n(F̄_p)` (discrete topology) has finite image, and its matrix entries
 generate a finite subfield `k`, so `ρ` takes values in `GL_n(k)`. -/
-theorem residual_descent_finite_field {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+theorem residual_descent_finite_field {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     [CompactSpace Γ] (p : ℕ) [Fact p.Prime] [TopologicalSpace (AlgebraicClosure (ZMod p))]
     [DiscreteTopology (AlgebraicClosure (ZMod p))] {n : ℕ}
     (ρ : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) (AlgebraicClosure (ZMod p))) :
@@ -1293,7 +1293,7 @@ theorem residual_descent_finite_field {Γ : Type uΓ} [Group Γ] [TopologicalSpa
 /-- ArithmeticGaloisRepresentations:R01.1/baire-descent-to-a-finite-coefficient-field.
 A continuous `ρ : Γ → GL_n(Q̄_ℓ)` from a compact Hausdorff group takes values in `GL_n(E)` for a
 subfield `E ⊂ Q̄_ℓ` finite over `ℚ_ℓ`. -/
-theorem baire_descent {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [CompactSpace Γ] [T2Space Γ]
+theorem baire_descent {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ]
     (ℓ : ℕ) [Fact ℓ.Prime] {n : ℕ}
     (ρ : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) (PadicAlgCl ℓ)) :
     ∃ E : IntermediateField ℚ_[ℓ] (PadicAlgCl ℓ), FiniteDimensional ℚ_[ℓ] E ∧
@@ -1328,7 +1328,7 @@ theorem exists_stable_lattice {E : Type uA} [Field E] [ValuativeRel E] [Topologi
       IsCompact (closure (K : Set (Matrix.GeneralLinearGroup (Fin n) E))) ↔
         ∃ L : Submodule 𝒪[E] (Fin n → E), L.FG ∧ Submodule.span E (L : Set (Fin n → E)) = ⊤ ∧
           ∀ k ∈ K, ∀ x ∈ L, (k : Matrix (Fin n) (Fin n) E).mulVec x ∈ L) ∧
-      ∀ {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [CompactSpace Γ]
+      ∀ {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ]
         (ρ : ContinuousRep Γ E (Fin n → E)), Nonempty (GaloisLattice.IntegralModel 𝒪[E] ρ) := by
   sorry
 
@@ -1346,7 +1346,7 @@ attribute [local instance] ContinuousRep.Bundled.isAddCommGroup ContinuousRep.Bu
 
 -- `TauCeti.GaloisLattice.IntegralModel` (the structure) is declared in the preamble.
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {O : Type uA} [CommRing O] [TopologicalSpace O] [IsDomain O] [IsDiscreteValuationRing O]
   {E : Type uA} [Field E] [TopologicalSpace E] [Algebra O E] [IsFractionRing O E]
   {V : Type uM} [AddCommGroup V] [Module E V] [Module.Finite E V] [Module.Projective E V]
@@ -1411,11 +1411,11 @@ def saturation (Λ : IntegralModel O ρ) (W : Submodule E V) : Submodule O W :=
   Λ.lattice.comap (W.subtype.restrictScalars O)
 
 /-- The dual lattice `Λ^∨ = {λ ∈ V^∨ : λ(Λ) ⊂ O}`, an integral model of `V^∨`. -/
-def dual [IsTopologicalGroup Γ] [IsTopologicalRing E] [TopologicalSpace (Module.Dual E V)]
+def dual [IsTopologicalRing E] [TopologicalSpace (Module.Dual E V)]
     [IsModuleTopology E (Module.Dual E V)] (Λ : IntegralModel O ρ) : IntegralModel O ρ.dual :=
   sorry
 
-theorem mem_dual [IsTopologicalGroup Γ] [IsTopologicalRing E] [TopologicalSpace (Module.Dual E V)]
+theorem mem_dual [IsTopologicalRing E] [TopologicalSpace (Module.Dual E V)]
     [IsModuleTopology E (Module.Dual E V)] (Λ : IntegralModel O ρ) (f : Module.Dual E V) :
     f ∈ Λ.dual.lattice ↔ ∀ x ∈ Λ.lattice, f x ∈ Set.range (algebraMap O E) := by
   sorry
@@ -1477,7 +1477,7 @@ attribute [local instance] Bundled.isAddCommGroup Bundled.isModule Bundled.isFin
 
 section FieldCoefficients
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {K : Type uA} [Field K] [TopologicalSpace K]
   {V : Type uM} [AddCommGroup V] [Module K V] [FiniteDimensional K V]
   [TopologicalSpace V] [hVtop : IsModuleTopology K V]
@@ -1667,7 +1667,7 @@ example [Subsingleton V] (ρ : ContinuousRep Γ K V) :
 The rotation representation of a cyclic group of order `4` on `ℚ²` (generator acting by
 `!![0, -1; 1, 0]`) is irreducible but not absolutely irreducible. (The `F_{p²}^×` example is not
 restated.) -/
-example {Γ : Type} [Group Γ] [TopologicalSpace Γ] (γ : Γ) (hγ : ∀ x : Γ, ∃ n : ℕ, x = γ ^ n)
+example {Γ : Type} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] (γ : Γ) (hγ : ∀ x : Γ, ∃ n : ℕ, x = γ ^ n)
     (ρ : ContinuousRep Γ ℚ (Fin 2 → ℚ)) (hρ : LinearMap.toMatrix' (ρ γ) = !![0, -1; 1, 0]) :
     Representation.IsIrreducible ρ.toRepresentation ∧ ¬ ρ.IsAbsolutelyIrreducible := by
   sorry
@@ -1795,7 +1795,7 @@ namespace ContinuousRep
 
 /-- Reduction `M ⊗_A k_A` of a representation over a topological local ring whose maximal ideal
 is open (so the residue field `k_A` is discrete). -/
-def reduceLocal {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+def reduceLocal {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     {A : Type uA} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [IsLocalRing A]
     {M : Type uM} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
     [TopologicalSpace M] [IsModuleTopology A M]
@@ -1817,7 +1817,7 @@ attribute [local instance] ContinuousRep.Bundled.isAddCommGroup ContinuousRep.Bu
   ContinuousRep.Bundled.isFinite ContinuousRep.Bundled.isProjective
   ContinuousRep.Bundled.isTopologicalSpace ContinuousRep.Bundled.isModuleTopology
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {O : Type uA} [CommRing O] [TopologicalSpace O] [IsDomain O] [IsDiscreteValuationRing O]
   {E : Type uA} [Field E] [TopologicalSpace E] [Algebra O E] [IsFractionRing O E]
   {V : Type uM} [AddCommGroup V] [Module E V] [Module.Finite E V] [Module.Projective E V]
@@ -1937,7 +1937,7 @@ attribute [local instance] ContinuousRep.Bundled.isAddCommGroup ContinuousRep.Bu
   ContinuousRep.Bundled.isFinite ContinuousRep.Bundled.isProjective
   ContinuousRep.Bundled.isTopologicalSpace ContinuousRep.Bundled.isModuleTopology
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {O : Type uA} [CommRing O] [TopologicalSpace O] [IsDomain O] [IsDiscreteValuationRing O]
   {E : Type uA} [Field E] [TopologicalSpace E] [Algebra O E] [IsFractionRing O E]
   {V : Type uM} [AddCommGroup V] [Module E V] [Module.Finite E V] [Module.Projective E V]
@@ -1970,7 +1970,7 @@ namespace ContinuousRep
 
 section CoeffTwist
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {A : Type uA} [CommRing A] [TopologicalSpace A]
 
 /-- The coefficient twist `ρ^σ` of a framed representation by a continuous ring automorphism
@@ -2154,7 +2154,7 @@ namespace GaloisLattice
 
 namespace IntegralModel
 
-variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {O : Type uA} [CommRing O] [TopologicalSpace O] [IsDomain O] [IsDiscreteValuationRing O]
   {E : Type uA} [Field E] [TopologicalSpace E] [Algebra O E] [IsFractionRing O E]
   {V : Type uM} [AddCommGroup V] [Module E V] [Module.Finite E V] [Module.Projective E V]
@@ -2254,7 +2254,7 @@ theorem isSemisimple_res_ind {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [I
 `GL_n(O_E)` for a coefficient field `E ⊂ Q̄_ℓ` (entries in `E` of norm `≤ 1`). The statements for
 a general split reductive `Ĝ` over `ℤ` and `Ĝ`-semisimplification are omitted: Mathlib has no
 reductive group schemes. -/
-theorem exists_integral_conj_GL {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [CompactSpace Γ]
+theorem exists_integral_conj_GL {Γ : Type uΓ} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ]
     [T2Space Γ] (ℓ : ℕ) [Fact ℓ.Prime] {n : ℕ}
     (ρ : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) (PadicAlgCl ℓ)) :
     ∃ (E : IntermediateField ℚ_[ℓ] (PadicAlgCl ℓ)) (P : Matrix.GeneralLinearGroup (Fin n)
@@ -3201,8 +3201,14 @@ theorem fundamentalCharacter_two_mul_pow (hp : ringChar 𝓀[K] = p) (σ : inert
 group of the Witt vectors is larger than the roots of unity), a declaration distinct from
 `θ_{p^n−1}` itself. In the packet the target is `𝒪[K_n]ˣ` for the unramified extension `K_n` of
 `ℚ_p` with residue field `F_{p^n}` (`TauCeti.teichmuller`); it is typed here with Mathlib's Witt
-vectors `W(F_{p^n}) = 𝒪[K_n]`, an identification that is not in the libraries. -/
-def teichmullerFundamentalCharacter (n : ℕ) :
+vectors `W(F_{p^n})`, with an explicit choice of reduction to `F_{p^n}`.
+The comparison with `𝒪[K_n]` is a separate identification absent from the libraries;
+changing the residue embedding changes the lifted fundamental character. -/
+def teichmullerFundamentalCharacter (n : ℕ) (hn : 0 < n)
+    (red : Subring.closure {x : AlgebraicClosure K | x ^ (p ^ n - 1) = 1} →+*
+      GaloisField p n)
+    (hred : ∀ x : Subring.closure {x : AlgebraicClosure K | x ^ (p ^ n - 1) = 1},
+      ¬ IsIntegral 𝒪[K] ((x : AlgebraicClosure K)⁻¹) → red x = 0) :
     inertiaGroup K →* (WittVector p (GaloisField p n))ˣ := sorry
 
 /-- Unit test: TauCeti.GaloisRep.fundamentalCharacter_two_mul_conj. -/
@@ -3365,7 +3371,7 @@ namespace WeilDeligneRep
 
 section Basic
 
-variable {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ} {q : ℕ}
+variable {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [hdegopen : Fact (IsOpen (deg.ker : Set W))] {q : ℕ}
   {Ω : Type*} [Field Ω]
   {V : Type*} [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
   {V' : Type*} [AddCommGroup V'] [Module Ω V'] [FiniteDimensional Ω V']
@@ -3456,14 +3462,16 @@ def omega (hq : (q : Ω) ≠ 0) : W →* Ωˣ :=
 
 /-- The special representation `Sp(n)`: basis `e_0, …, e_{n−1}`, `r(w) e_i = ω(w)^i e_i`,
 `N e_i = e_{i+1}`, `N e_{n−1} = 0`. -/
-def special (n : ℕ) (hq : (q : Ω) ≠ 0) : WeilDeligneRep W deg q Ω (Fin n → Ω) := sorry
+def special (n : ℕ) (hq : (q : Ω) ≠ 0) : WeilDeligneRep W deg q Ω (Fin n → Ω) := by
+  have _ : IsOpen (deg.ker : Set W) := hdegopen.out
+  sorry
 
 theorem special_dual (n : ℕ) (hq : (q : Ω) ≠ 0) (h) :
     Nonempty (Iso (dual (special (W := W) (deg := deg) n hq))
       (twist (special n hq) (omega deg hq ^ (1 - (n : ℤ))) h)) := by sorry
 
 /-- Restriction to `W_L` along `φ : W_L → W_K`, with `deg_K ∘ φ = f · deg_L` and `q_L = q^f`. -/
-def restrict {W' : Type*} [Group W'] [TopologicalSpace W'] {deg' : W' →* Multiplicative ℤ}
+def restrict {W' : Type*} [Group W'] [TopologicalSpace W'] [IsTopologicalGroup W'] {deg' : W' →* Multiplicative ℤ}
     (D : WeilDeligneRep W deg q Ω V) (φ : W' →ₜ* W) (f : ℕ)
     (hdeg : ∀ w, deg (φ w) = deg' w ^ f) : WeilDeligneRep W' deg' (q ^ f) Ω V where
   r := D.r.comp φ.toMonoidHom
@@ -3476,9 +3484,13 @@ def restrict {W' : Type*} [Group W'] [TopologicalSpace W'] {deg' : W' →* Multi
 representatives `g_i`. The monodromy is `N_Ind(g ⊗ v) = q^{−deg g} • (g ⊗ N v)`, i.e. on the summand
 of `g_i` it is `q^{−deg g_i} N`, not `N`: the plain coset-wise operator does not satisfy the
 relation unless the representatives have degree `0`. -/
-def induced {W' : Type*} [Group W'] [TopologicalSpace W'] {deg' : W' →* Multiplicative ℤ} {q' : ℕ}
-    (φ : W' →ₜ* W) (m : ℕ) (hm : φ.toMonoidHom.range.index = m)
-    (D : WeilDeligneRep W' deg' q' Ω V) : WeilDeligneRep W deg q Ω (Fin m → V) := sorry
+def induced {W' : Type*} [Group W'] [TopologicalSpace W'] [IsTopologicalGroup W']
+    {deg' : W' →* Multiplicative ℤ}
+    (φ : W' →ₜ* W) (hφ : Topology.IsOpenEmbedding φ) (f m : ℕ)
+    (hf : 0 < f) (hm : φ.toMonoidHom.range.index = m) (hmpos : 0 < m)
+    (hdeg : ∀ w, deg (φ w) = deg' w ^ f) (hq : 1 < q) (hqΩ : (q : Ω) ≠ 0)
+    (D : WeilDeligneRep W' deg' (q ^ f) Ω V) :
+    WeilDeligneRep W deg q Ω (Fin m → V) := sorry
 
 /-- `(V, r, aN)` for `a ≠ 0`. -/
 def smulMonodromy (D : WeilDeligneRep W deg q Ω V) (a : Ω) (ha : a ≠ 0) :
@@ -3552,8 +3564,8 @@ Lemme 8.4.3): for `a ≠ 0` there is an automorphism `A` of `V` commuting with `
 `A ∘ N = (aN) ∘ A`. Hypotheses of a local Weil group used by the proof: characteristic `0`,
 `q ≥ 2`, finite image of inertia. `A` is a scalar on each primary component of a central power of
 Frobenius. -/
-theorem rescaling_monodromy {W : Type*} [Group W] [TopologicalSpace W]
-    {deg : W →* Multiplicative ℤ} {q : ℕ} {Ω : Type*} [Field Ω] [CharZero Ω]
+theorem rescaling_monodromy {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+    {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ} {Ω : Type*} [Field Ω] [CharZero Ω]
     {V : Type*} [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V] (hq : 1 < q)
     (D : WeilDeligneRep W deg q Ω V) (hfin : (Set.range fun σ : deg.ker => D.r σ).Finite)
     (a : Ω) (ha : a ≠ 0) :
@@ -3564,7 +3576,7 @@ theorem rescaling_monodromy {W : Type*} [Group W] [TopologicalSpace W]
 
 section OfEllAdic
 
-variable {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ} {q : ℕ}
+variable {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ}
   {ℓ : ℕ} [Fact ℓ.Prime] {E : Type*} [Field E] [TopologicalSpace E] [Algebra ℚ_[ℓ] E]
   {V : Type*} [AddCommGroup V] [Module E V] [Module.Finite E V] [Module.Projective E V]
   [TopologicalSpace V] [IsModuleTopology E V]
@@ -3584,7 +3596,7 @@ and they are what the proof of quasi-unipotence and of 8.4.2–8.4.3 uses. Witho
 statements below are false: for `W = ℤ_ℓ × ℤ`, `deg` the second projection, `t = 1` and
 `ρ(x, n) = exp(x N₀)` with `N₀ ≠ 0` nilpotent, no nilpotent `N'` has `ρ = exp(t N')` on an open
 subgroup of `ker deg`. -/
-structure IsTameCharacter (deg : W →* Multiplicative ℤ) (q : ℕ)
+structure IsTameCharacter (deg : W →* Multiplicative ℤ) [Fact (IsOpen (deg.ker : Set W))] (q : ℕ)
     (t : deg.ker →* Multiplicative ℤ_[ℓ]) : Prop where
   /-- The residue cardinality is at least `2`. -/
   one_lt : 1 < q
@@ -3748,8 +3760,8 @@ the finite coefficient-field/module-topology hypotheses. -/
 every Weil–Deligne representation `D = (V, r, N')` over `E` is `WD_{F,T}(ρ)` for exactly one
 continuous `ℓ`-adic representation `ρ` of the Weil group (for `W = W_K` and `t = T ∘ t_ℓ`; what is
 used of these identifications is the hypothesis `ht`, as for `ofEllAdic`). -/
-theorem existsUnique_ellAdic_of_weilDeligne {W : Type*} [Group W] [TopologicalSpace W]
-    {deg : W →* Multiplicative ℤ} {q : ℕ} {ℓ : ℕ} [Fact ℓ.Prime] {E : Type*} [Field E]
+theorem existsUnique_ellAdic_of_weilDeligne {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+    {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ} {ℓ : ℕ} [Fact ℓ.Prime] {E : Type*} [Field E]
     [CharZero E] [TopologicalSpace E] [Algebra ℚ_[ℓ] E] [FiniteDimensional ℚ_[ℓ] E]
     [IsModuleTopology ℚ_[ℓ] E] {V : Type*} [AddCommGroup V] [Module E V]
     [Module.Finite E V] [Module.Projective E V] [TopologicalSpace V] [IsModuleTopology E V]
@@ -3758,8 +3770,8 @@ theorem existsUnique_ellAdic_of_weilDeligne {W : Type*} [Group W] [TopologicalSp
     ∃! ρ : ContinuousRep W E V, ofEllAdic (q := q) ρ F hF t = D := by sorry
 
 /-- The formula of the same node: `ρ(F^n σ) = r(F^n σ) exp(t(σ) N')`. -/
-theorem ellAdic_of_weilDeligne_apply {W : Type*} [Group W] [TopologicalSpace W]
-    {deg : W →* Multiplicative ℤ} {q : ℕ} {ℓ : ℕ} [Fact ℓ.Prime] {E : Type*} [Field E]
+theorem ellAdic_of_weilDeligne_apply {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+    {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ} {ℓ : ℕ} [Fact ℓ.Prime] {E : Type*} [Field E]
     [CharZero E] [TopologicalSpace E] [Algebra ℚ_[ℓ] E] [FiniteDimensional ℚ_[ℓ] E]
     [IsModuleTopology ℚ_[ℓ] E] {V : Type*} [AddCommGroup V] [Module E V]
     [Module.Finite E V] [Module.Projective E V] [TopologicalSpace V] [IsModuleTopology E V]
@@ -3774,7 +3786,7 @@ theorem ellAdic_of_weilDeligne_apply {W : Type*} [Group W] [TopologicalSpace W]
 
 section FrobeniusSemisimple
 
-variable {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ} {q : ℕ}
+variable {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ}
   {Ω : Type*} [Field Ω] [CharZero Ω]
   {V : Type*} [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
   {V' : Type*} [AddCommGroup V'] [Module Ω V'] [FiniteDimensional Ω V']
@@ -3877,7 +3889,7 @@ end FrobeniusSemisimple
 
 section LocalFactor
 
-variable {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ} {q : ℕ}
+variable {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ}
   {Ω : Type*} [Field Ω] [CharZero Ω]
   {V : Type*} [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
   {V' : Type*} [AddCommGroup V'] [Module Ω V'] [FiniteDimensional Ω V']
@@ -3961,7 +3973,7 @@ namespace GaloisRep
 
 section LocalEulerFactor
 
-variable {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ} {q : ℕ}
+variable {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ}
   {ℓ : ℕ} [Fact ℓ.Prime] {E : Type*} [Field E] [CharZero E] [TopologicalSpace E] [Algebra ℚ_[ℓ] E]
   {V : Type*} [AddCommGroup V] [Module E V] [Module.Finite E V] [Module.Projective E V]
   [TopologicalSpace V] [IsModuleTopology E V]
@@ -3994,14 +4006,16 @@ namespace WeilDeligneRep
 /-- ArithmeticGaloisRepresentations:R01.2/local-factor-of-induced-representation, local part (a):
 `L(Ind_{W_L}^{W_K} D, X) = L(D, X^f)` with `f` the residue degree (`deg_K ∘ φ = f · deg_L`). The
 global part (b) is the product over the places above `v` of this identity. -/
-theorem localFactor_induced {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ}
-    {q : ℕ} {W' : Type*} [Group W'] [TopologicalSpace W'] {deg' : W' →* Multiplicative ℤ}
+theorem localFactor_induced {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))]
+    {q : ℕ} {W' : Type*} [Group W'] [TopologicalSpace W'] [IsTopologicalGroup W'] {deg' : W' →* Multiplicative ℤ}
     {Ω : Type*} [Field Ω] [CharZero Ω] {V : Type*} [AddCommGroup V] [Module Ω V]
-    [FiniteDimensional Ω V] (φ : W' →ₜ* W) (f m : ℕ) (hm : φ.toMonoidHom.range.index = m)
-    (hdeg : ∀ w, deg (φ w) = deg' w ^ f) (D : WeilDeligneRep W' deg' (q ^ f) Ω V)
+    [FiniteDimensional Ω V] (φ : W' →ₜ* W) (hφ : Topology.IsOpenEmbedding φ)
+    (f m : ℕ) (hf : 0 < f) (hm : φ.toMonoidHom.range.index = m) (hmpos : 0 < m)
+    (hdeg : ∀ w, deg (φ w) = deg' w ^ f) (hq : 1 < q)
+    (D : WeilDeligneRep W' deg' (q ^ f) Ω V)
     (F : W) (hF : deg F = Multiplicative.ofAdd (-1)) (F' : W')
     (hF' : deg' F' = Multiplicative.ofAdd (-1)) :
-    localFactor (induced (deg := deg) (q := q) φ m hm D) F hF =
+    localFactor (induced (deg := deg) (q := q) φ hφ f m hf hm hmpos hdeg hq (by norm_cast; omega) D) F hF =
       (localFactor D F' hF').comp (X ^ f) := by sorry
 
 /-! ### The determinant of a cyclic block endomorphism (Deligne, Lemme 3.9) (ArithmeticGaloisRepresentations:R01.2/determinant-of-a-cyclic-block-endomorphism) -/
@@ -4060,8 +4074,8 @@ def _root_.TauCeti.MonodromyFiltration.ofNilpotent (N : Module.End k V) (a : ℤ
 The direct WD application uses a supplied kernel/image formula, and proves
 stability without reconstructing the canonical filtration. -/
 theorem monodromyFiltration_stable_of_formula
-    {W : Type*} [Group W] [TopologicalSpace W]
-    {deg : W →* Multiplicative ℤ} {q : ℕ} [FiniteDimensional k V]
+    {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+    {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ} [FiniteDimensional k V]
     (D : WeilDeligneRep W deg q k V) (M : ℤ → Submodule k V)
     (hM : ∀ a, M a = ⨆ (i : ℕ) (j : ℕ) (_ : (i : ℤ) - j = a),
       LinearMap.ker (D.N ^ (i + 1)) ⊓ LinearMap.range (D.N ^ j)) (w : W) (a : ℤ) :
@@ -4083,7 +4097,7 @@ end MonodromySupplier
 
 section Purity
 
-variable {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ} {q : ℕ}
+variable {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ}
   {Ω : Type*} [Field Ω] [CharZero Ω]
   {V : Type*} [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
   {V' : Type*} [AddCommGroup V'] [Module Ω V'] [FiniteDimensional Ω V']
@@ -4132,7 +4146,7 @@ of weight `w` for a geometric Frobenius lift `F_K` of `W`, then `D|_{W_L}` is pu
 for a geometric Frobenius lift `F` of `W_L`. The hypothesis is tested on `F_K`, not on `φ(F)`,
 which has degree `−f`: the eigenvalues of `r(φ F)` are, up to roots of unity, the `f`-th powers of
 those of `r(F_K)` (finite image of inertia), and they are compared with `q^f`. -/
-theorem isPure_restrict {W' : Type*} [Group W'] [TopologicalSpace W']
+theorem isPure_restrict {W' : Type*} [Group W'] [TopologicalSpace W'] [IsTopologicalGroup W']
     {deg' : W' →* Multiplicative ℤ} (D : WeilDeligneRep W deg q Ω V)
     (hfin : (Set.range fun σ : deg.ker => D.r σ).Finite) (φ : W' →ₜ* W) (f : ℕ) (hf : 0 < f)
     (hdeg : ∀ w, deg (φ w) = deg' w ^ f) (w : ℤ) (FK : W)
@@ -4174,7 +4188,7 @@ namespace GaloisRep
 
 /-- Purity of an `ℓ`-adic representation at a place: `WD(ρ)` (of the local restriction, here of
 a representation of the local Weil group) is pure of weight `w`. -/
-def IsPureAt {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ} (q : ℕ)
+def IsPureAt {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] (q : ℕ)
     {ℓ : ℕ} [Fact ℓ.Prime] {E : Type*} [Field E] [CharZero E] [TopologicalSpace E]
     [Algebra ℚ_[ℓ] E]
     {V : Type*} [AddCommGroup V] [Module E V] [Module.Finite E V] [Module.Projective E V]
@@ -4210,7 +4224,7 @@ the filtration: for `0 → ρ₁ → ρ → ρ₂ → 0` with `WD(ρ₁)`, `WD(�
 pure of weight `w` and `L(ρ) = L(ρ₁ ⊕ ρ₂)`; the general filtration follows by induction. The
 `ε`-factor equality (complex coefficients through `ι`) is omitted here. The step that FSY assert
 without proof is `isPureEnd_of_graded` above (node purity-from-a-pure-graded). -/
-theorem isPure_of_graded {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ}
+theorem isPure_of_graded {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))]
     {q : ℕ} {ℓ : ℕ} [Fact ℓ.Prime] {E : Type*} [Field E] [CharZero E] [TopologicalSpace E]
     [Algebra ℚ_[ℓ] E] [FiniteDimensional ℚ_[ℓ] E] [IsModuleTopology ℚ_[ℓ] E]
     {V₁ V V₂ : Type*} [AddCommGroup V₁] [Module E V₁] [Module.Finite E V₁] [Module.Projective E V₁]
@@ -4235,7 +4249,7 @@ section Epsilon
 
 variable (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
   [MeasurableSpace K]
-  {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ} {q : ℕ}
+  {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ}
   {V : Type*} [AddCommGroup V] [Module ℂ V] [FiniteDimensional ℂ V]
   {V' : Type*} [AddCommGroup V'] [Module ℂ V'] [FiniteDimensional ℂ V']
   {V'' : Type*} [AddCommGroup V''] [Module ℂ V''] [FiniteDimensional ℂ V'']
@@ -4333,8 +4347,8 @@ end Epsilon
 cyclotomic character (`χ(w) = q^{deg w}`), `WD(ℚ_ℓ(1)) = (ω, 0)`, `L(ℚ_ℓ(1), X) = 1 − q⁻¹X`, and it
 is pure of weight `−2`; for an unramified character `χ(w) = α^{deg w}`, `L(λ(α), X) = 1 − α⁻¹X`.
 The Tate-curve parts (3)–(4) need the Tate curve (EllipticCurves layer 4) and are not restated. -/
-theorem weilDeligne_required_examples {W : Type*} [Group W] [TopologicalSpace W]
-    {deg : W →* Multiplicative ℤ} {q : ℕ} {ℓ : ℕ} [Fact ℓ.Prime] (hq : (q : ℚ_[ℓ]) ≠ 0)
+theorem weilDeligne_required_examples {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+    {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ} {ℓ : ℕ} [Fact ℓ.Prime] (hq : (q : ℚ_[ℓ]) ≠ 0)
     (χ : W →ₜ* ℚ_[ℓ]ˣ) (hχ : ∀ w, (χ w : ℚ_[ℓ]) = (q : ℚ_[ℓ]) ^ Multiplicative.toAdd (deg w))
     (α : ℚ_[ℓ]ˣ) (lam : W →ₜ* ℚ_[ℓ]ˣ)
     (hlam : ∀ w, (lam w : ℚ_[ℓ]) = (α : ℚ_[ℓ]) ^ Multiplicative.toAdd (deg w))
@@ -4386,7 +4400,7 @@ theorem absUpperRamificationGroup_zero :
       (⨆ u : {u : ℝ // 0 < u}, absUpperRamificationGroup K u).topologicalClosure =
         GaloisRep.localWildInertiaGroup K := by sorry
 
-variable {K} {F : Type*} [Field F] [TopologicalSpace F]
+variable {K} {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
   {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
   [IsModuleTopology F V]
 
@@ -4451,7 +4465,7 @@ theorem swanConductor_congr {V' : Type*} [AddCommGroup V'] [Module F V'] [Module
       (ρ'.res (wildInertiaInclusion K)))) :
     breaks ρ = breaks ρ' ∧ swanConductor ρ = swanConductor ρ' := by sorry
 
-theorem swanConductor_extendScalars {F' : Type*} [Field F'] [TopologicalSpace F'] [Algebra F F']
+theorem swanConductor_extendScalars {F' : Type*} [Field F'] [TopologicalSpace F'] [IsTopologicalRing F'] [T2Space F'] [Algebra F F']
     {V' : Type*} [AddCommGroup V'] [Module F' V'] [Module.Finite F' V'] [TopologicalSpace V']
     [IsModuleTopology F' V'] (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
     (ρ' : ContinuousRep (Field.absoluteGaloisGroup K) F' V') (e : F' ⊗[F] V ≃ₗ[F'] V')
@@ -4514,8 +4528,7 @@ group of a finite Galois extension `L/K`) such that `ρ` is trivial on `U ∩ P_
 and the inertia variant) need the finite-level ramification groups of Tau Ceti
 LocalFieldsRamification and are not typed. -/
 theorem exists_open_normal_trivial_on_wildInertia {K : Type*} [Field K] [ValuativeRel K]
-    [TopologicalSpace K] [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F]
-    [IsTopologicalRing F] [T2Space F]
+    [TopologicalSpace K] [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
     {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V] (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
     (hP : (Set.range fun σ : GaloisRep.localWildInertiaGroup K => ρ σ).Finite) :
@@ -4528,7 +4541,7 @@ theorem exists_open_normal_trivial_on_wildInertia {K : Type*} [Field K] [Valuati
 section Artin
 
 variable {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
-  {F : Type*} [Field F] [TopologicalSpace F]
+  {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
   {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
   [IsModuleTopology F V]
 
@@ -4556,7 +4569,7 @@ theorem artinConductor_congr {V' : Type*} [AddCommGroup V'] [Module F V'] [Modul
     (h : Nonempty (ContinuousRep.Iso (ρ.res (inertiaInclusion K)) (ρ'.res (inertiaInclusion K)))) :
     artinConductor ρ = artinConductor ρ' := by sorry
 
-theorem artinConductor_extendScalars {F' : Type*} [Field F'] [TopologicalSpace F'] [Algebra F F']
+theorem artinConductor_extendScalars {F' : Type*} [Field F'] [TopologicalSpace F'] [IsTopologicalRing F'] [T2Space F'] [Algebra F F']
     {V' : Type*} [AddCommGroup V'] [Module F' V'] [Module.Finite F' V'] [TopologicalSpace V']
     [IsModuleTopology F' V'] (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
     (ρ' : ContinuousRep (Field.absoluteGaloisGroup K) F' V') (e : F' ⊗[F] V ≃ₗ[F'] V')
@@ -4570,8 +4583,8 @@ of `W` onto `I_K` (`hI`), and `deg.ker` is compact (`hc`), so that it carries th
 The homomorphism `t : I_K → ℤ_ℓ` is onto (`ht`) and trivial on wild inertia (`htP`), as
 `T ∘ t_ℓ` is. Without these hypotheses (`ι` trivial, or `t = 1`, or `ℓ = p`) the right side is not
 the Weil–Deligne representation of `ρ` and the statement fails. -/
-theorem invariants_inertia_eq_ker_monodromy {W : Type*} [Group W] [TopologicalSpace W]
-    {deg : W →* Multiplicative ℤ} {ι : W →ₜ* Field.absoluteGaloisGroup K}
+theorem invariants_inertia_eq_ker_monodromy {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+    {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {ι : W →ₜ* Field.absoluteGaloisGroup K}
     {q ℓ : ℕ} [Fact ℓ.Prime] (hℓ : (ℓ : 𝓀[K]) ≠ 0) {E : Type*} [Field E]
     [TopologicalSpace E] [Algebra ℚ_[ℓ] E]
     [FiniteDimensional ℚ_[ℓ] E] [IsModuleTopology ℚ_[ℓ] E]
@@ -4624,7 +4637,7 @@ ramified, iff `a(V) = codim V^{I_K}`. Part (b) (independence of the finite Galoi
 algebraic closure and of the coefficient field) is not typed: the definitions above involve no such
 choice. Part (d) is `artinConductor_character` below. -/
 theorem hasseArf_integrality {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F]
+    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
     (hF : ringChar F ≠ ringChar 𝓀[K])
     {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V] (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
@@ -4637,7 +4650,7 @@ theorem hasseArf_integrality {K : Type*} [Field K] [ValuativeRel K] [Topological
 character `χ` with finite wild image (possibly of infinite order) has an integral upper break `n`
 (Hasse–Arf): `χ` is nontrivial on `G_K^n`, trivial on `G_K^u` for `u > n`, and `a(χ) = n + 1`. -/
 theorem artinConductor_character {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F]
+    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
     (hF : ringChar F ≠ ringChar 𝓀[K]) (χ : Field.absoluteGaloisGroup K →ₜ* Fˣ)
     (hP : (Set.range fun σ : GaloisRep.localWildInertiaGroup K => χ σ).Finite)
     (hram : ∃ σ ∈ GaloisRep.inertiaGroup K, χ σ ≠ 1) :
@@ -4665,21 +4678,21 @@ section WeilDeligne
 /-- The Swan conductor of a representation `r` of the Weil group `W` (with its map
 `ι : W → G_K`), computed from the filtration `ι⁻¹(G_K^u)`, `u > 0`, which lies in `P_K ⊆ W`. -/
 def weilSwanConductor (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] {W : Type*} [Group W] [TopologicalSpace W]
+    [IsNonarchimedeanLocalField K] {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
     (ι : W →ₜ* Field.absoluteGaloisGroup K) {Ω : Type*} [Field Ω] {V : Type*} [AddCommGroup V]
     [Module Ω V] (r : Representation Ω W V) : ℚ := sorry
 
 /-- `a(r) = codim V^{r(I_K)} + Sw(r)`. -/
 def weilArtinConductor (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] {W : Type*} [Group W] [TopologicalSpace W]
+    [IsNonarchimedeanLocalField K] {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
     (deg : W →* Multiplicative ℤ) (ι : W →ₜ* Field.absoluteGaloisGroup K) {Ω : Type*} [Field Ω]
     {V : Type*} [AddCommGroup V] [Module Ω V] (r : Representation Ω W V) : ℚ :=
   (Module.finrank Ω V - Module.finrank Ω (invariants r deg.ker) : ℕ) + weilSwanConductor K ι r
 
 /-- `a(r, N) = Sw(r) + dim V − dim (ker N)^{r(I_K)}`. -/
 def wdConductor (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] {W : Type*} [Group W] [TopologicalSpace W]
-    {deg : W →* Multiplicative ℤ} {q : ℕ} (ι : W →ₜ* Field.absoluteGaloisGroup K) {Ω : Type*}
+    [IsNonarchimedeanLocalField K] {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+    {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ} (ι : W →ₜ* Field.absoluteGaloisGroup K) {Ω : Type*}
     [Field Ω] {V : Type*} [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
     (D : WeilDeligneRep W deg q Ω V) : ℚ :=
   weilSwanConductor K ι D.r +
@@ -4687,7 +4700,7 @@ def wdConductor (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
       Module.finrank Ω (LinearMap.ker D.N ⊓ invariants D.r deg.ker : Submodule Ω V) : ℕ)
 
 variable {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
-  {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ} {q : ℕ}
+  {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ}
   {ι : W →ₜ* Field.absoluteGaloisGroup K}
   {Ω : Type*} [Field Ω] [CharZero Ω]
   {V : Type*} [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
@@ -4938,7 +4951,7 @@ criterion of (a) (`V^{I_K} → V''^{I_K}` onto), the tame twists of (c), the bas
 `artinConductor_extendScalars` above). Part (b) is `artinConductor_dual` and the last case of (c)
 is `artinConductor_twist_dominant`, below. -/
 theorem conductor_exact_twist {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F]
+    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
     {V' V V'' : Type*} [AddCommGroup V'] [Module F V'] [Module.Finite F V'] [TopologicalSpace V']
     [IsModuleTopology F V'] [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V] [AddCommGroup V''] [Module F V''] [Module.Finite F V'']
@@ -4963,7 +4976,7 @@ theorem conductor_exact_twist {K : Type*} [Field K] [ValuativeRel K] [Topologica
 quotient is procyclic). The dual is given on a space `V'` with an equivariant identification `e`
 with `Module.Dual F V`. -/
 theorem artinConductor_dual {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F]
+    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
     {V V' : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V] [AddCommGroup V'] [Module F V'] [Module.Finite F V'] [TopologicalSpace V']
     [IsModuleTopology F V']
@@ -4980,7 +4993,7 @@ last case (Ulmer, Proposition 1): if the character `χ` has the single break `b 
 of `V` is `< b`, then every break of `V ⊗ χ` is `b`, `Sw(V ⊗ χ) = b · dim V` and
 `a(V ⊗ χ) = a(χ) · dim V`. -/
 theorem artinConductor_twist_dominant {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F]
+    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
     {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V] [Nontrivial V]
     (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
@@ -5010,7 +5023,7 @@ theorem artinConductor_induced {K : Type*} [Field K] [ValuativeRel K] [Topologic
     [Algebra (AlgebraicClosure K) (AlgebraicClosure L)]
     [IsScalarTower K (AlgebraicClosure K) (AlgebraicClosure L)] (f : ℕ)
     (hf : Nat.card 𝓀[L] = Nat.card 𝓀[K] ^ f)
-    {F : Type*} [Field F] [TopologicalSpace F] (hF : ringChar F ≠ ringChar 𝓀[K])
+    {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F] (hF : ringChar F ≠ ringChar 𝓀[K])
     {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V]
     {VI : Type*} [AddCommGroup VI] [Module F VI] [Module.Finite F VI] [TopologicalSpace VI]
@@ -5074,7 +5087,7 @@ theorem finrank_invariants_inertia_induced {K : Type*} [Field K] [ValuativeRel K
     [Algebra (AlgebraicClosure K) (AlgebraicClosure L)]
     [IsScalarTower K (AlgebraicClosure K) (AlgebraicClosure L)] (f : ℕ)
     (hf : Nat.card 𝓀[L] = Nat.card 𝓀[K] ^ f)
-    {F : Type*} [Field F] [TopologicalSpace F]
+    {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
     {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V]
     {VI : Type*} [AddCommGroup VI] [Module F VI] [Module.Finite F VI] [TopologicalSpace VI]
@@ -5108,7 +5121,7 @@ theorem swanConductor_induced {K : Type*} [Field K] [ValuativeRel K] [Topologica
     [Algebra (AlgebraicClosure K) (AlgebraicClosure L)]
     [IsScalarTower K (AlgebraicClosure K) (AlgebraicClosure L)] (f : ℕ)
     (hf : Nat.card 𝓀[L] = Nat.card 𝓀[K] ^ f)
-    {F : Type*} [Field F] [TopologicalSpace F] (hF : ringChar F ≠ ringChar 𝓀[K])
+    {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F] (hF : ringChar F ≠ ringChar 𝓀[K])
     {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V]
     {VI : Type*} [AddCommGroup VI] [Module F VI] [Module.Finite F VI] [TopologicalSpace VI]
@@ -5176,7 +5189,7 @@ local field it needs Tau Ceti EllipticCurves layer 4; the dyadic quadratic chara
 are the unit test `TauCeti.Conductor.artinConductor_dyadicQuadratic`; the cubic characters of `ℚ_3`
 (`a = 2`) are not typed. -/
 theorem tame_conductor_computations {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F]
+    [IsNonarchimedeanLocalField K] {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
     (hF : ringChar F ≠ ringChar 𝓀[K])
     {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V] (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
@@ -5196,7 +5209,7 @@ theorem swanConductor_artinSchreier {K : Type*} [Field K] [ValuativeRel K] [Topo
     [IsNonarchimedeanLocalField K] (p : ℕ) [Fact p.Prime] [CharP K p] (m : ℕ) (hm : 0 < m)
     (hpm : ¬ p ∣ m) (π : 𝒪[K]) (hπ : Irreducible π) (w : (𝒪[K])ˣ) (u : K)
     (hu : u = ((w : 𝒪[K]) : K) * (π : K) ^ (-(m : ℤ))) (α : AlgebraicClosure K)
-    (hα : α ^ p - α = algebraMap K _ u) {F : Type*} [Field F] [TopologicalSpace F]
+    (hα : α ^ p - α = algebraMap K _ u) {F : Type*} [Field F] [TopologicalSpace F] [T2Space F]
     [IsTopologicalRing F] (hF : ringChar F ≠ p) (ψ : Field.absoluteGaloisGroup K →ₜ* Fˣ)
     (hψ : ∀ σ, σ • α = α → ψ σ = 1) (hψ' : ψ ≠ 1) :
     swanConductor (ContinuousRep.ofCharacter ψ) = m ∧
@@ -5379,7 +5392,7 @@ theorem swanConductor_le_serre {K : Type*} [Field K] [ValuativeRel K] [Topologic
     [IsNonarchimedeanLocalField K] [CharZero K] (p : ℕ) [Fact p.Prime] (hp : (p : 𝓀[K]) = 0)
     (π : 𝒪[K]) (hπ : Irreducible π) (eK : ℕ) (u : (𝒪[K])ˣ)
     (hpK : (p : K) = ((u : 𝒪[K]) : K) * (π : K) ^ eK)
-    {F : Type*} [Field F] [TopologicalSpace F] (hF : ringChar F ≠ p)
+    {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F] (hF : ringChar F ≠ p)
     {V : Type*} [AddCommGroup V] [Module F V] [Module.Finite F V] [TopologicalSpace V]
     [IsModuleTopology F V] (ρ : ContinuousRep (Field.absoluteGaloisGroup K) F V)
     (hfin : (Set.range fun σ : Field.absoluteGaloisGroup K => ρ σ).Finite) (c : ℕ)
@@ -6468,8 +6481,8 @@ characteristic polynomials on `D` have isomorphic semisimplifications, and are i
 semisimple. The node starts from two coefficient fields `E₁`, `E₂` with continuous embeddings
 into `E`; here both representations are already extended to `E`. Without `T2Space E` the
 statement is false (indiscrete topology: every representation is continuous). -/
-theorem semisimplification_iso_of_charpoly_eq {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-    [IsTopologicalGroup Γ] [CompactSpace Γ] [TotallyDisconnectedSpace Γ]
+theorem semisimplification_iso_of_charpoly_eq {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+     [CompactSpace Γ] [TotallyDisconnectedSpace Γ]
     {E : Type*} [Field E] [TopologicalSpace E] [IsTopologicalRing E] [T2Space E]
     {V₁ : Type*} [AddCommGroup V₁] [Module E V₁] [Module.Finite E V₁] [Module.Projective E V₁]
     [TopologicalSpace V₁] [IsModuleTopology E V₁]
@@ -6487,8 +6500,8 @@ theorem semisimplification_iso_of_charpoly_eq {Γ : Type*} [Group Γ] [Topologic
 variant (a): when `n!` is invertible in `E` (characteristic `0` or `> n`), equal traces on a
 dense subset suffice (R01.1/brauer-nesbitt-traces). For `0 < char E ≤ n` this fails in general:
 `1^{⊕n}` and `χ^{⊕p} ⊕ 1^{⊕(n-p)}` have the same trace. -/
-theorem semisimplification_iso_of_trace_eq {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-    [IsTopologicalGroup Γ] [CompactSpace Γ] [TotallyDisconnectedSpace Γ]
+theorem semisimplification_iso_of_trace_eq {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+     [CompactSpace Γ] [TotallyDisconnectedSpace Γ]
     {E : Type*} [Field E] [TopologicalSpace E] [IsTopologicalRing E] [T2Space E]
     {V₁ : Type*} [AddCommGroup V₁] [Module E V₁] [Module.Finite E V₁] [Module.Projective E V₁]
     [TopologicalSpace V₁] [IsModuleTopology E V₁]
@@ -6562,7 +6575,7 @@ theorem charpoly_eq_iff_trace_eq_and_det_eq {A : Type*} [CommRing A]
 for a Hausdorff topological ring `A` and continuous `ρ₁, ρ₂ : Γ → GL_2(A)`, equality of trace and
 determinant on a dense subset gives equality of characteristic polynomials everywhere. -/
 theorem charpoly_eq_of_trace_det_eq_on_dense {A Γ : Type*} [CommRing A] [TopologicalSpace A]
-    [IsTopologicalRing A] [T2Space A] [Group Γ] [TopologicalSpace Γ]
+    [IsTopologicalRing A] [T2Space A] [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     (ρ₁ ρ₂ : Γ →* GL (Fin 2) A)
     (h₁ : Continuous fun g => ((ρ₁ g : GL (Fin 2) A) : Matrix (Fin 2) (Fin 2) A))
     (h₂ : Continuous fun g => ((ρ₂ g : GL (Fin 2) A) : Matrix (Fin 2) (Fin 2) A))
@@ -7060,8 +7073,8 @@ restated. The hypothesis `hadic` says that the
 topology of `R` is the `m_R`-adic one: the powers of the maximal ideal form a basis of
 neighbourhoods of `0` (Mathlib's `IsAdic`, whose module is not imported here). For a
 non-Hausdorff ring topology the statement would be false.) -/
-theorem carayol_conj_of_charpoly_eq {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-    [IsTopologicalGroup Γ] [CompactSpace Γ] [TotallyDisconnectedSpace Γ]
+theorem carayol_conj_of_charpoly_eq {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+     [CompactSpace Γ] [TotallyDisconnectedSpace Γ]
     {R : Type*} [CommRing R] [IsLocalRing R] [IsNoetherianRing R]
     [IsAdicComplete (IsLocalRing.maximalIdeal R) R] [Finite (IsLocalRing.ResidueField R)]
     [TopologicalSpace R] [IsTopologicalRing R] (hadic : ∀ s : Set R, s ∈ nhds (0 : R) ↔
@@ -7087,8 +7100,8 @@ with the same hypotheses, equality of the traces on a dense subset already gives
 `r' = g r g⁻¹` with `g ≡ 1 mod m_R`, in every residue characteristic and for every `d`
 (the statement usually attributed to Carayol; it is proved in the node). As above, the
 uniqueness of `g` up to `1 + m_R` is not restated. -/
-theorem carayol_conj_of_trace_eq {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-    [IsTopologicalGroup Γ] [CompactSpace Γ] [TotallyDisconnectedSpace Γ]
+theorem carayol_conj_of_trace_eq {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+     [CompactSpace Γ] [TotallyDisconnectedSpace Γ]
     {R : Type*} [CommRing R] [IsLocalRing R] [IsNoetherianRing R]
     [IsAdicComplete (IsLocalRing.maximalIdeal R) R] [Finite (IsLocalRing.ResidueField R)]
     [TopologicalSpace R] [IsTopologicalRing R] (hadic : ∀ s : Set R, s ∈ nhds (0 : R) ↔
@@ -7466,6 +7479,12 @@ the namespace `TauCeti.G7`. -/
 
 section CarrierInstances
 
+instance G7.openSubgroupFact {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
+    (H : OpenSubgroup Γ) : Fact (IsOpen (H.toSubgroup : Set Γ)) := ⟨H.isOpen⟩
+
+instance G7.topSubgroupFact {Γ : Type*} [Group Γ] [TopologicalSpace Γ] :
+    Fact (IsOpen ((⊤ : Subgroup Γ) : Set Γ)) := ⟨isOpen_univ⟩
+
 /-- The module topology on a finite tensor power `⨂[A] _ : ι, M`. -/
 instance G7.piTensorTopologicalSpace {A : Type*} [CommRing A] [TopologicalSpace A]
     {ι : Type*} [Fintype ι] (M : Type*) [AddCommGroup M] [Module A M] :
@@ -7593,8 +7612,8 @@ namespace ContinuousRep
 
 section Powers
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-  {A : Type} [CommRing A] [TopologicalSpace A]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  {A : Type} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   {M : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
   [TopologicalSpace M] [IsModuleTopology A M]
 
@@ -7657,7 +7676,7 @@ theorem charpoly_symPower [Module.Free A M] (ρ : ContinuousRep Γ A M) (g : Γ)
   sorry
 
 /-- `∧^n ρ ≅ det ρ` as rank-one continuous representations (`n` the rank). -/
-def extPowerTopEquivDet [IsTopologicalRing A] [Module.Free A M] (ρ : ContinuousRep Γ A M) :
+def extPowerTopEquivDet [Module.Free A M] (ρ : ContinuousRep Γ A M) :
     (ρ.extPower (Module.finrank A M)).Iso (ofCharacter ⟨ρ.det, sorry⟩) :=
   sorry
 
@@ -7679,14 +7698,14 @@ theorem extPowerPairing [Module.Free A M] (ρ : ContinuousRep Γ A M) (d : ℕ)
   sorry
 
 /-- Unit test: TauCeti.ContinuousRep.symPower_zero. -/
-example [IsTopologicalRing A] (ρ : ContinuousRep Γ A M) :
+example (ρ : ContinuousRep Γ A M) :
     Nonempty ((ρ.symPower 0).Iso (ContinuousRep.trivial (Γ := Γ) (A := A) (M := A))) ∧
     Nonempty ((ρ.extPower 0).Iso (ContinuousRep.trivial (Γ := Γ) (A := A) (M := A))) ∧
     Nonempty ((ρ.symPower 1).Iso ρ) ∧ Nonempty ((ρ.extPower 1).Iso ρ) := by
   sorry
 
 /-- Unit test: TauCeti.ContinuousRep.extPower_top. -/
-example [IsTopologicalRing A] [Module.Free A M] (ρ : ContinuousRep Γ A M) (_h : Module.finrank A M = 3) :
+example [Module.Free A M] (ρ : ContinuousRep Γ A M) (_h : Module.finrank A M = 3) :
     Nonempty ((ρ.extPower 3).Iso (ofCharacter ⟨ρ.det, sorry⟩)) ∧ Subsingleton (⋀[A]^4 M) := by
   sorry
 
@@ -7732,21 +7751,21 @@ general `det(X − Sym^d f) = S_{n,d}(c_1(f), …, c_n(f); X)` for a universal
 
 section TensorInduction
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-  {A : Type*} [CommRing A] [TopologicalSpace A]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   {V : Type*} [AddCommGroup V] [Module A V] [Module.Finite A V] [Module.Projective A V]
   [TopologicalSpace V] [IsModuleTopology A V]
 
 /-- The tensor induction `⊗-Ind_H^Γ ρ` on `⨂_{Γ/H} V` for an open subgroup `H` and a chosen
 transversal `t` (a section of `Γ → Γ/H`): `g` sends `⊗ v_q` to the tensor with `ρ(h_q(g)) v_q`
 in slot `g q`, where `g t_q = t_{gq} h_q(g)`. -/
-def tensorInd (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (t : Γ ⧸ H → Γ)
+def tensorInd (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (t : Γ ⧸ H → Γ)
     (_ht : ∀ q, (t q : Γ ⧸ H) = q) (ρ : ContinuousRep H A V) :
     ContinuousRep Γ A (⨂[A] _ : Γ ⧸ H, V) :=
   sorry
 
 /-- The canonical isomorphism between the tensor inductions for two transversals. -/
-def tensorIndEquivOfTransversal (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (t t' : Γ ⧸ H → Γ)
+def tensorIndEquivOfTransversal (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (t t' : Γ ⧸ H → Γ)
     (ht : ∀ q, (t q : Γ ⧸ H) = q) (ht' : ∀ q, (t' q : Γ ⧸ H) = q) (ρ : ContinuousRep H A V) :
     (tensorInd H t ht ρ).Iso (tensorInd H t' ht' ρ) :=
   sorry
@@ -7755,14 +7774,14 @@ omit [TopologicalSpace A] [Module.Finite A V] [Module.Projective A V] [Topologic
   [IsModuleTopology A V] in
 /-- `⊗-Ind_H^Γ V` has rank `(rank V)^{[Γ : H]}`. -/
 theorem tensorInd_rank [Module.Free A V] [Module.Finite A V] [Nontrivial A] (H : Subgroup Γ)
-    [Fintype (Γ ⧸ H)] :
+    [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] :
     Module.finrank A (⨂[A] _ : Γ ⧸ H, V) = Module.finrank A V ^ H.index := by
   sorry
 
 
 
 /-- For `H` normal, `(⊗-Ind_H^Γ ρ)|_H ≅ ⊗_q ρ^{t_q}` with `ρ^t(h) = ρ(t⁻¹ h t)`. -/
-theorem tensorInd_restrict_normal (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (hN : H.Normal)
+theorem tensorInd_restrict_normal (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (hN : H.Normal)
     (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q) (ρ : ContinuousRep H A V) (h : H)
     (v : Γ ⧸ H → V) :
     tensorInd H t ht ρ (h : Γ) (⨂ₜ[A] q, v q) =
@@ -7774,7 +7793,7 @@ theorem tensorInd_restrict_normal (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (hN : H
 /-- `TauCeti.ContinuousRep.tensorInd_apply_tprod`: the action on pure tensors. With
 `g t_q = t_{gq} h_q(g)`, the slot `q` of `g · ⊗ v` is `ρ(h_{g⁻¹q}(g)) v_{g⁻¹q}`, where
 `h_{g⁻¹q}(g) = t_q⁻¹ g t_{g⁻¹q} ∈ H` (the membership is left as `sorry` inside the statement). -/
-theorem tensorInd_apply_tprod (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (t : Γ ⧸ H → Γ)
+theorem tensorInd_apply_tprod (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (t : Γ ⧸ H → Γ)
     (ht : ∀ q, (t q : Γ ⧸ H) = q) (ρ : ContinuousRep H A V) (g : Γ) (v : Γ ⧸ H → V) :
     tensorInd H t ht ρ g (⨂ₜ[A] q, v q) =
       ⨂ₜ[A] q, ρ ⟨(t q)⁻¹ * g * t (g⁻¹ • q), sorry⟩ (v (g⁻¹ • q)) := by
@@ -7790,7 +7809,7 @@ theorem tensorInd_apply_tprod (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (t : Γ ⧸
 `K/F` quadratic) with transversal `{1, σ}`; `As(ρ) ⊗ η_{K/F}` is a second extension of
 `ρ ⊗ ρ^σ` (the only other one, up to isomorphism, when `A` is a field and `ρ ⊗ ρ^σ` is absolutely
 irreducible). -/
-def asai (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (_h2 : H.index = 2) (σ : Γ) (_hσ : σ ∉ H)
+def asai (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (_h2 : H.index = 2) (σ : Γ) (_hσ : σ ∉ H)
     (ρ : ContinuousRep H A V) : ContinuousRep Γ A (⨂[A] _ : Γ ⧸ H, V) :=
   sorry
 
@@ -7798,7 +7817,7 @@ def asai (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (_h2 : H.index = 2) (σ : Γ) (_
 then `det(X − As(ρ)(g)) = ∏_i (X − β_i) · ∏_{i<j} (X² − β_i β_j)`. For `g ∈ H` the roots are the
 products `α_i α'_j` of the roots of `det(X − ρ(g))` and `det(X − ρ(σ⁻¹ g σ))` (not stated here).
 Freeness of the tensor power is taken as an instance argument. -/
-theorem charpoly_asai [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+theorem charpoly_asai [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))]
     [Module.Free A (⨂[A] _ : Γ ⧸ H, V)] (h2 : H.index = 2) (σ : Γ) (hσ : σ ∉ H)
     (ρ : ContinuousRep H A V) (g : Γ) (_hg : g ∉ H) (hg2 : g ^ 2 ∈ H) {n : ℕ} (β : Fin n → A)
     (_hβ : ρ.charpoly ⟨g ^ 2, hg2⟩ = ∏ i, (X - C (β i))) :
@@ -7816,7 +7835,7 @@ example [Fintype (Γ ⧸ (⊤ : Subgroup Γ))] (t : Γ ⧸ (⊤ : Subgroup Γ) �
   sorry
 
 /-- Unit test: TauCeti.ContinuousRep.tensorInd_character. -/
-example [IsTopologicalRing A] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [H.FiniteIndex] (t : Γ ⧸ H → Γ)
+example (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] [H.FiniteIndex] (t : Γ ⧸ H → Γ)
     (ht : ∀ q, (t q : Γ ⧸ H) = q) (ψ : H →ₜ* Aˣ) (g : Γ) (x : ⨂[A] _ : Γ ⧸ H, A) :
     tensorInd H t ht (ofCharacter ψ) g x = ((MonoidHom.transfer ψ.toMonoidHom g : Aˣ) : A) • x := by
   sorry
@@ -7826,7 +7845,7 @@ example [IsTopologicalRing A] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [H.FiniteIn
 
 
 /-- Unit test: TauCeti.ContinuousRep.charpoly_asai_outside_rank_two. -/
-example [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Module.Free A (⨂[A] _ : Γ ⧸ H, V)]
+example [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] [Module.Free A (⨂[A] _ : Γ ⧸ H, V)]
     (h2 : H.index = 2) (σ : Γ) (hσ : σ ∉ H) (ρ : ContinuousRep H A V) (g : Γ) (_hg : g ∉ H)
     (hg2 : g ^ 2 ∈ H) (a b : A) (_h : ρ.charpoly ⟨g ^ 2, hg2⟩ = X ^ 2 - C a * X + C b) :
     (asai H h2 σ hσ ρ).charpoly g = (X ^ 2 - C a * X + C b) * (X ^ 2 - C b) := by
@@ -7840,7 +7859,7 @@ two transversals `t, t'` (so `t'_q = t_q u_q` with `u_q = t_q⁻¹ t'_q ∈ H`) 
 membership `t'_q⁻¹ t_q ∈ H` is left as `sorry` inside the statement; parts (1) and (3), the
 cocycle identity `h_q(g'g) = h_{gq}(g') h_q(g)` and `T_{t',t''} ∘ T_{t,t'} = T_{t,t''}`, are
 stated in the roadmap. -/
-theorem tensorInd_transversal_intertwiner (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (t t' : Γ ⧸ H → Γ)
+theorem tensorInd_transversal_intertwiner (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (t t' : Γ ⧸ H → Γ)
     (ht : ∀ q, (t q : Γ ⧸ H) = q) (ht' : ∀ q, (t' q : Γ ⧸ H) = q) (ρ : ContinuousRep H A V) :
     ∃ e : (tensorInd H t ht ρ).Iso (tensorInd H t' ht' ρ), ∀ v : Γ ⧸ H → V,
       e.toLinearEquiv (⨂ₜ[A] q, v q) = ⨂ₜ[A] q, ρ ⟨(t' q)⁻¹ * t q, sorry⟩ (v q) := by
@@ -7891,8 +7910,8 @@ end TensorInduction
 
 section RestrictionOfScalars
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-  {A : Type*} [CommRing A] [TopologicalSpace A] {B : Type*} [CommRing B] [TopologicalSpace B]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] {B : Type*} [CommRing B] [TopologicalSpace B] [IsTopologicalRing B]
   [Algebra A B]
   {M : Type*} [AddCommGroup M] [Module B M] [Module.Finite B M] [Module.Projective B M]
   [TopologicalSpace M] [IsModuleTopology B M]
@@ -7950,7 +7969,7 @@ example (ρ : ContinuousRep Γ B M) : resScalars (A := B) ρ = ρ := by
 
 /-- Unit test: TauCeti.ContinuousRep.charpoly_resScalars_quadratic (for `B` free of rank two over
 `A`, e.g. `A[√d]`, and a character `ψ`: `det_A(X − ψ(g)) = X^2 − (ψ(g) + ψ(g)^σ) X + ψ(g) ψ(g)^σ`). -/
-example [IsTopologicalRing B] [Module.Free A B] [Module.Finite A B] [IsModuleTopology A B]
+example [Module.Free A B] [Module.Finite A B] [IsModuleTopology A B]
     (_h2 : Module.finrank A B = 2) (ψ : Γ →ₜ* Bˣ) (g : Γ) :
     (resScalars (A := A) (ofCharacter ψ)).charpoly g =
       X ^ 2 - C (Algebra.trace A B (ψ g : B)) * X + C (Algebra.norm A (ψ g : B)) := by
@@ -7966,8 +7985,8 @@ end RestrictionOfScalars
 
 section Adjoint
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-  {A : Type*} [CommRing A] [TopologicalSpace A]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   {M : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
   [TopologicalSpace M] [IsModuleTopology A M]
 
@@ -8117,8 +8136,8 @@ end Adjoint
 
 section AdjointSymSq
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-  {A : Type} [CommRing A] [TopologicalSpace A]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  {A : Type} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   {M : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
   [TopologicalSpace M] [IsModuleTopology A M]
 
@@ -8145,7 +8164,7 @@ end ContinuousRep
 
 /-- `ad(r, N) := (ad r, [N, −])` on `End(V)`, a Weil–Deligne representation (part (viii) of
 ArithmeticGaloisRepresentations:G7/adjoint-representations). -/
-def WeilDeligneRep.ad {W : Type*} [Group W] [TopologicalSpace W] {deg : W →* Multiplicative ℤ}
+def WeilDeligneRep.ad {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W] {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))]
     {q : ℕ} {Ω : Type*} [Field Ω] {V : Type*} [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
     (D : WeilDeligneRep W deg q Ω V) : WeilDeligneRep W deg q Ω (Module.End Ω V) where
   r := Representation.linHom D.r D.r
@@ -8283,8 +8302,8 @@ end SimilitudeGroup
 
 section Polarized
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-  {A : Type*} [CommRing A] [TopologicalSpace A]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   {M : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
   [TopologicalSpace M] [IsModuleTopology A M]
 
@@ -8585,8 +8604,8 @@ end Polarized
 ArithmeticGaloisRepresentations:G7/operations-on-polarized-representations). The new multiplier
 `μ_k` is given with `μ_k = μ^k` on `Δ` and `μ_k(c) = (−1)^{k−1} μ(c)^k` for `c ∉ Δ`: it is
 `μ^k δ^{k−1}` for `Δ` of index two and `c ∉ Δ`, and `μ^k` for `Δ = Γ`. -/
-def PolarizedRep.symPower {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-    {A : Type} [CommRing A] [TopologicalSpace A]
+def PolarizedRep.symPower {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+    {A : Type} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
     {M : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
     [TopologicalSpace M] [IsModuleTopology A M] {Δ : Subgroup Γ} {ρ : ContinuousRep Δ A M}
     {c : Γ} (P : PolarizedRep Δ ρ c) (k : ℕ) (_hk : 1 ≤ k) [Invertible (k.factorial : A)]
@@ -8597,8 +8616,8 @@ def PolarizedRep.symPower {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
 
 /-- The symmetric power has the given multiplier `μ_k`, the sign `ε^k` and the permanent pairing
 `⟨x_1 ⋯ x_k, y_1 ⋯ y_k⟩ = (1/k!) Σ_{s ∈ S_k} ∏_j ⟨x_j, y_{s(j)}⟩`. -/
-theorem PolarizedRep.symPower_multiplier {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-    {A : Type} [CommRing A] [TopologicalSpace A]
+theorem PolarizedRep.symPower_multiplier {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+    {A : Type} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
     {M : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
     [TopologicalSpace M] [IsModuleTopology A M] {Δ : Subgroup Γ} {ρ : ContinuousRep Δ A M}
     {c : Γ} (P : PolarizedRep Δ ρ c) (k : ℕ) (hk : 1 ≤ k) [Invertible (k.factorial : A)]
@@ -8621,8 +8640,8 @@ def GaloisRep.complexConj (F : Type*) [Field F] [NumberField F] (v : NumberField
 
 section Oddness
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-  {A : Type*} [CommRing A] [TopologicalSpace A]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
   {M : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
   [TopologicalSpace M] [IsModuleTopology A M]
 
@@ -8648,7 +8667,7 @@ characters (c) are `TauCeti.GaloisRep.IsTotallyOddChar` of R01.4. -/
 
 section Balance
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {K : Type*} [Field K] [TopologicalSpace K]
   {V : Type*} [AddCommGroup V] [Module K V] [Module.Finite K V] [Module.Projective K V]
   [TopologicalSpace V] [IsModuleTopology K V]
@@ -8876,14 +8895,14 @@ abbrev G7.gsp4ToGL {G : Type*} [Monoid G] {K : Type*} [CommRing K]
   (MonoidHom.fst _ _).comp ((SimilitudeGroup.GSp 2 K).subtype.comp r)
 
 /-- A continuous `r : Γ → GSp_4(A)` (for `Γ = G_F`), with similitude character `ν ∘ r`. -/
-structure GSp4Rep (Γ : Type*) [Group Γ] [TopologicalSpace Γ] (A : Type*) [CommRing A]
+structure GSp4Rep (Γ : Type*) [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] (A : Type*) [CommRing A]
     [TopologicalSpace A] where
   /-- The underlying continuous homomorphism. -/
   toHom : Γ →ₜ* SimilitudeGroup.GSp 2 A
 
 namespace GSp4Rep
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] {A : Type*} [CommRing A] [TopologicalSpace A]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] {A : Type*} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A]
 
 /-- Oddness: `ν(r(c_v)) = −1` for the complex conjugations `c_v ∈ C`. -/
 def IsOdd (r : GSp4Rep Γ A) (C : Set Γ) : Prop :=
@@ -8898,7 +8917,7 @@ def adZero (r : GSp4Rep Γ A) : Representation A Γ (G7.lieZero (G7.J4 A)) :=
   (G7.matConjRep (G7.gsp4ToGL r.toHom.toMonoidHom)).subrepresentation _ (by sorry)
 
 /-- `ad⁰ r ≅ Sym^2 r ⊗ (ν ∘ r)⁻¹` (determined on pure tensors). -/
-theorem adZeroEquivSymSq {A : Type} [CommRing A] [TopologicalSpace A] [Invertible (2 : A)]
+theorem adZeroEquivSymSq {A : Type} [CommRing A] [TopologicalSpace A] [IsTopologicalRing A] [Invertible (2 : A)]
     (r : GSp4Rep Γ A) :
     ∃ e : G7.lieZero (G7.J4 A) ≃ₗ[A] Sym[A]^2 (Fin 2 ⊕ Fin 2 → A),
       ∀ (g : Γ) (v : Fin 2 → Fin 2 ⊕ Fin 2 → A),
@@ -8996,7 +9015,7 @@ namespace GaloisRep
 
 section Strong
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {K : Type*} [Field K] [TopologicalSpace K]
   {V : Type*} [AddCommGroup V] [Module K V] [Module.Finite K V] [Module.Projective K V]
   [TopologicalSpace V] [IsModuleTopology K V]
@@ -9078,10 +9097,11 @@ theorem zariskiClosure_map {K : Type*} [Field K] [IsAlgClosed K] {O : Type*} [Co
     [HopfAlgebra K O'] [Algebra.FiniteType K O] [Algebra.FiniteType K O'] (α : O' →ₐ[K] O)
     (_hα : ∀ f, Coalgebra.comul (R := K) (α f) =
       TensorProduct.map α.toLinearMap α.toLinearMap (Coalgebra.comul (R := K) f))
-    (S : Set (O →ₐ[K] K)) :
-    zariskiClosure ((fun σ => σ.comp α) '' S) = Ideal.comap α (zariskiClosure S) ∧
-    ∀ τ : O' →ₐ[K] K, (∀ f ∈ Ideal.comap α (zariskiClosure S), τ f = 0) →
-      ∃ σ : O →ₐ[K] K, (∀ f ∈ zariskiClosure S, σ f = 0) ∧ τ = σ.comp α := by
+    (S : Subgroup (WithConv (O →ₐ[K] K))) :
+    let points := (fun σ : WithConv (O →ₐ[K] K) => σ.ofConv) '' (S : Set _)
+    zariskiClosure ((fun σ => σ.comp α) '' points) = Ideal.comap α (zariskiClosure points) ∧
+    ∀ τ : O' →ₐ[K] K, (∀ f ∈ Ideal.comap α (zariskiClosure points), τ f = 0) →
+      ∃ σ : O →ₐ[K] K, (∀ f ∈ zariskiClosure points, σ f = 0) ∧ τ = σ.comp α := by
   sorry
 
 end AlgebraicGroup
@@ -9090,7 +9110,7 @@ namespace GaloisRep
 
 section Monodromy
 
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {K : Type*} [Field K] [TopologicalSpace K]
   {V : Type*} [AddCommGroup V] [Module K V] [Module.Finite K V] [Module.Projective K V]
   [TopologicalSpace V] [IsModuleTopology K V]
@@ -9206,8 +9226,8 @@ ArithmeticGaloisRepresentations:G7/lifting-projective-representations-hodge-tate
 /-- ArithmeticGaloisRepresentations:G7/roots-of-characters-up-to-finite-order: a continuous
 character `χ : Γ → ℚ̄_ℓˣ` of a profinite group is `χ₁^m · χ₀` with `χ₀` of finite order, for every
 integer `m ≠ 0` (Patrikis, Lemma 2.3.15, for `Γ = G_F`). -/
-theorem GaloisRep.exists_root_mul_finiteOrder {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
-    [IsTopologicalGroup Γ] [CompactSpace Γ] [TotallyDisconnectedSpace Γ] (ℓ : ℕ) [Fact ℓ.Prime]
+theorem GaloisRep.exists_root_mul_finiteOrder {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+     [CompactSpace Γ] [TotallyDisconnectedSpace Γ] (ℓ : ℕ) [Fact ℓ.Prime]
     (χ : Γ →ₜ* (PadicAlgCl ℓ)ˣ) (m : ℤ) (_hm : m ≠ 0) :
     ∃ χ₁ χ₀ : Γ →ₜ* (PadicAlgCl ℓ)ˣ,
       (∃ N : ℕ, 0 < N ∧ ∀ g, χ₀ g ^ N = 1) ∧ ∀ g, χ g = χ₁ g ^ m * χ₀ g := by
@@ -9550,7 +9570,8 @@ theorem h1_GL2_adZero_eq_zero (p : ℕ) [Fact p.Prime] (_hp : 5 ≤ p) :
 
 /-! ### Verification criteria for adequacy: large characteristic, prime-to-p order, normal subgroups, tensor products, rank two and SL₂(p^r) (ArithmeticGaloisRepresentations:G7/adequacy-criteria) -/
 
-/-- ArithmeticGaloisRepresentations:G7/adequacy-criteria, (2) and the headline case of (1): an
+/-- ArithmeticGaloisRepresentations:G7/adequacy-of-prime-to-p-groups and the headline case of
+ArithmeticGaloisRepresentations:G7/adequacy-criteria: an
 absolutely irreducible finite `H ⊆ GL_n(k)` is adequate if `p ∤ #H` or `p ≥ 2(n+1)`. -/
 theorem isAdequate_of_coprime_or_large {k : Type} [Field k] {n : Type} [Fintype n] [DecidableEq n]
     (H : Subgroup (GL n k)) [Finite H] (_hp : (ringChar k).Prime)
@@ -9835,7 +9856,7 @@ example (p : ℕ) [Fact p.Prime] (H : Subgroup (GL (Fin 1) ℤ_[p])) :
 
 /-! ### Symmetric powers of groups containing SL₂(F_l) are enormous, and the Galois-theoretic consequence after restriction to F'(ζ_l) (ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers) -/
 
-/-- ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers, part (2) (Allen et al. 2023,
+/-- ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers-of-sl2-overgroups (Allen et al. 2023,
 Lemma 7.1.4, codomain `GL_n`): if `n ≥ 2`, `l > 2n + 1` and `H ⊆ GL_2(F̄_l)` is finite and contains
 `SL_2(F_l)`, then `Sym^{n−1} H ⊆ GL_n(F̄_l)` is enormous. -/
 theorem isEnormous_symPower_of_SL2_le (l : ℕ) [Fact l.Prime] (n : ℕ) (_hn : 2 ≤ n)
@@ -9876,8 +9897,8 @@ theorem h1_SL2_ZMod5_adZero_ne_zero [Fact (Nat.Prime 5)] :
 (Newton–Thorne 2026, (1.3)), which is the node G7/pieri-splitting-for-symmetric-powers: for `V`
 of rank two and `r ≥ 2` invertible in `k`, `V ⊗ Sym^{r−1} V ≅ Sym^r V ⊕ (det ⊗ Sym^{r−2} V)`.
 (Part (d) is `tensor_symPower_symPower_equiv` below; (b), (c) are stated in the roadmap.) -/
-theorem tensor_symPower_equiv {Γ : Type*} [Group Γ] [TopologicalSpace Γ] {k : Type} [Field k]
-    [TopologicalSpace k] {V : Type*} [AddCommGroup V] [Module k V] [Module.Finite k V]
+theorem tensor_symPower_equiv {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] {k : Type} [Field k]
+    [TopologicalSpace k] [IsTopologicalRing k] {V : Type*} [AddCommGroup V] [Module k V] [Module.Finite k V]
     [TopologicalSpace V] [IsModuleTopology k V] (ρ : ContinuousRep Γ k V)
     (_hV : Module.finrank k V = 2) (r : ℕ) (_hr : 2 ≤ r) (_hinv : (r : k) ≠ 0) :
     ∃ e : V ⊗[k] Sym[k]^(r - 1) V ≃ₗ[k] Sym[k]^r V × Sym[k]^(r - 2) V,
@@ -9891,8 +9912,8 @@ theorem tensor_symPower_equiv {Γ : Type*} [Group Γ] [TopologicalSpace Γ] {k :
 /-- ArithmeticGaloisRepresentations:G7/pieri-splitting-for-symmetric-powers: the statement is
 `tensor_symPower_equiv` of the preceding section (part (a) of the Clebsch–Gordan node), repeated
 under the node's own name. -/
-theorem pieri_splitting_symPower {Γ : Type*} [Group Γ] [TopologicalSpace Γ] {k : Type} [Field k]
-    [TopologicalSpace k] {V : Type*} [AddCommGroup V] [Module k V] [Module.Finite k V]
+theorem pieri_splitting_symPower {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] {k : Type} [Field k]
+    [TopologicalSpace k] [IsTopologicalRing k] {V : Type*} [AddCommGroup V] [Module k V] [Module.Finite k V]
     [TopologicalSpace V] [IsModuleTopology k V] (ρ : ContinuousRep Γ k V)
     (hV : Module.finrank k V = 2) (r : ℕ) (hr : 2 ≤ r) (hinv : (r : k) ≠ 0) :
     ∃ e : V ⊗[k] Sym[k]^(r - 1) V ≃ₗ[k] Sym[k]^r V × Sym[k]^(r - 2) V,
@@ -9908,8 +9929,8 @@ theorem pieri_splitting_symPower {Γ : Type*} [Group Γ] [TopologicalSpace Γ] {
 as representations of `Γ` (no hypothesis on `Γ`). The consequence
 `End(Sym^{n−1} V) ≅ ⊕ Sym^{2i} V ⊗ det^{−i}` for `(2n − 2)!` invertible is stated in the roadmap
 (it needs the dual of a symmetric power). -/
-theorem tensor_symPower_symPower_equiv {Γ : Type*} [Group Γ] [TopologicalSpace Γ] {k : Type}
-    [Field k] [TopologicalSpace k] {V : Type*} [AddCommGroup V] [Module k V] [Module.Finite k V]
+theorem tensor_symPower_symPower_equiv {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] {k : Type}
+    [Field k] [TopologicalSpace k] [IsTopologicalRing k] {V : Type*} [AddCommGroup V] [Module k V] [Module.Finite k V]
     [TopologicalSpace V] [IsModuleTopology k V] (ρ : ContinuousRep Γ k V)
     (_hV : Module.finrank k V = 2) (a b : ℕ) (_hab : b ≤ a)
     (_hinv : ((a + b).factorial : k) ≠ 0) :
@@ -10064,7 +10085,7 @@ example (H : Subgroup (SimilitudeGroup.GSp 2 k))
 
 /-! ### Verification of vast and tidy images in GSp₄: Galois cohomology vanishing, Sp₄(F_p), induced representations, wreath products and the p = 3 computations (ArithmeticGaloisRepresentations:G7/gsp4-big-image-verification) -/
 
-/-- ArithmeticGaloisRepresentations:G7/gsp4-big-image-verification, part (5) (BCGP21 Lemma 7.5.15):
+/-- ArithmeticGaloisRepresentations:G7/gsp4-standard-image-enormity-and-tidiness (BCGP21 Lemma 7.5.15):
 for `p ≥ 3`, `Sp_4(F_p)` is enormous and `GSp_4(F_p)` is tidy. (Parts (1)–(4), (6)–(12) are stated
 in the roadmap.) -/
 theorem isEnormous_Sp4_and_isTidy_GSp4 (p : ℕ) [Fact p.Prime] (_hp : 3 ≤ p) :
@@ -10315,7 +10336,7 @@ example {k : Type} [Field k] {n : Type} [Fintype n] [DecidableEq n] {F : Type} [
 
 /-! ### Verification lemmas for the Taylor–Wiles image conditions: disjoint base change, Sym^{n−1}r̄_A ⊗ r̄_B, induced Frobenius eigenvalues, scalar elements for Sym^m (ArithmeticGaloisRepresentations:G7/taylor-wiles-image-lemmas) -/
 
-/-- ArithmeticGaloisRepresentations:G7/taylor-wiles-image-lemmas, part (1) (BCGNT Lemma 5.2.2,
+/-- ArithmeticGaloisRepresentations:G7/taylor-wiles-image-lemmas (BCGNT Lemma 5.2.2,
 image part), in the form used after the linear-disjointness step. The hypothesis of the lemma
 (the Galois closure of `H` over `ℚ` is linearly disjoint over `F` from the composite of `F(ζ_p)`
 and the Galois closure over `ℚ` of `M = F̄^{ker s̄}`) gives that `H` is linearly disjoint over `F`
@@ -11215,7 +11236,7 @@ namespace GaloisLattice.IntegralModel
 Apply this to `Λ.toContinuousRep`; the specified scalar towers include the
 commutative square of integral and residue-field maps. -/
 theorem reduction_baseChange
-    {Γ O O' k k' M : Type*} [Group Γ] [TopologicalSpace Γ]
+    {Γ O O' k k' M : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     [CommRing O] [TopologicalSpace O] [IsTopologicalRing O]
     [CommRing O'] [TopologicalSpace O'] [IsTopologicalRing O'] [Algebra O O']
     [Field k] [TopologicalSpace k] [IsTopologicalRing k] [Algebra O k]
@@ -11241,7 +11262,7 @@ theorem reduction_baseChange
 /-- Reduction of the tensor lattice: the isomorphism is specified on pure tensors.
 Dual, restriction, twist and sum companions use their canonical carrier maps. -/
 theorem reduction_tensor
-    {Γ O k M N : Type*} [Group Γ] [TopologicalSpace Γ]
+    {Γ O k M N : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     [CommRing O] [TopologicalSpace O] [IsTopologicalRing O]
     [Field k] [TopologicalSpace k] [IsTopologicalRing k] [Algebra O k]
     [ContinuousSMul O k]
@@ -11271,7 +11292,7 @@ namespace ContinuousRep
 square makes the coefficient automorphism on the residual representation explicit;
 applying semisimplification gives the unframed residual comparison. -/
 theorem residual_coeffTwist
-    {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+    {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k]
     (red : O →+* k) (hred : Continuous red)
     (γ : O ≃+* O) (hγ : Continuous γ) (γbar : k ≃+* k)
@@ -11283,7 +11304,7 @@ theorem residual_coeffTwist
 /-- Unit test: TauCeti.ContinuousRep.residual_coeffTwist_inertia.
 An integral coefficient automorphism acting trivially on the residue field
 leaves the residual action unchanged. -/
-example {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+example {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k]
     (red : O →+* k) (hred : Continuous red)
     (γ : O ≃+* O) (hγ : Continuous γ) (hinertia : ∀ x, red (γ x) = red x)
@@ -11294,7 +11315,7 @@ example {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
 comparison is independent of the lift. LocalFieldsRamification supplies these
 residue-square hypotheses for actual coefficient-Galois elements. -/
 theorem residual_coeffTwist_frobeniusLift
-    {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+    {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k]
     [DiscreteTopology k] (ℓ : ℕ) [Fact ℓ.Prime] [CharP k ℓ] [PerfectRing k ℓ]
     (red : O →+* k) (hred : Continuous red)
@@ -11309,7 +11330,7 @@ theorem residual_coeffTwist_frobeniusLift
 
 /-- Unit test: TauCeti.ContinuousRep.residual_coeffTwist_inertia (Frobenius clause).
 This supplements the inertia computation above with the different residue action. -/
-example {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+example {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k]
     [DiscreteTopology k] (ℓ : ℕ) [Fact ℓ.Prime] [CharP k ℓ] [PerfectRing k ℓ]
     (red : O →+* k) (hred : Continuous red)
@@ -11326,7 +11347,7 @@ attribute [local instance] Bundled.isAddCommGroup Bundled.isModule Bundled.isFin
 /-- The integral-frame comparison descends to the unframed residual
 semisimplifications. Lattice and coefficient descent independence then apply. -/
 theorem residual_coeffTwist_semisimplification
-    {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ]
+    {Γ O k : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
     [CommRing O] [TopologicalSpace O] [Field k] [TopologicalSpace k] [IsTopologicalRing k]
     (red : O →+* k) (hred : Continuous red)
     (γ : O ≃+* O) (hγ : Continuous γ) (γbar : k ≃+* k)
@@ -11476,8 +11497,8 @@ example (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
     (σ : inertiaGroup K)
     (hmem : ((fundamentalCharacter K p n σ : (AlgebraicClosure K)ˣ) : AlgebraicClosure K) ∈
       Subring.closure {x : AlgebraicClosure K | x ^ (p ^ n - 1) = 1}) :
-    ((teichmullerFundamentalCharacter K p n σ : WittVector p (GaloisField p n)).coeff 0 =
-      red ⟨_, hmem⟩) ∧ teichmullerFundamentalCharacter K p n σ ^ (p ^ n - 1) = 1 := by sorry
+    ((teichmullerFundamentalCharacter K p n hn red hred σ : WittVector p (GaloisField p n)).coeff 0 =
+      red ⟨_, hmem⟩) ∧ teichmullerFundamentalCharacter K p n hn red hred σ ^ (p ^ n - 1) = 1 := by sorry
 
 end
 end TauCeti.GaloisRep
@@ -11489,7 +11510,7 @@ open scoped TensorProduct
 section FunctorComparisons
 variable {W W' : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
   [Group W'] [TopologicalSpace W'] [IsTopologicalGroup W']
-  {deg : W →* Multiplicative ℤ} {deg' : W' →* Multiplicative ℤ} {q ℓ : ℕ}
+  {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {deg' : W' →* Multiplicative ℤ} [Fact (IsOpen (deg'.ker : Set W'))] {q ℓ : ℕ}
   [Fact ℓ.Prime] {E : Type*} [Field E] [CharZero E] [TopologicalSpace E]
   [Algebra ℚ_[ℓ] E] [FiniteDimensional ℚ_[ℓ] E] [IsModuleTopology ℚ_[ℓ] E]
   {V : Type*} [AddCommGroup V] [Module E V] [Module.Finite E V]
@@ -11519,9 +11540,8 @@ theorem ofEllAdic_restrict
 continuous representation is given with its equivariant function-model
 identification, so the signature does not hide an induction convention. -/
 theorem ofEllAdic_induced
-    (φ : W' →ₜ* W) (hφ : Function.Injective φ)
-    (hopen : IsOpen (φ.toMonoidHom.range : Set W))
-    (f m : ℕ) (hf : 0 < f) (hm : φ.toMonoidHom.range.index = m)
+    (φ : W' →ₜ* W) (hφ : Topology.IsOpenEmbedding φ)
+    (f m : ℕ) (hf : 0 < f) (hm : φ.toMonoidHom.range.index = m) (hmpos : 0 < m)
     (hdeg : ∀ w, deg (φ w) = deg' w ^ f)
     (t : deg.ker →* Multiplicative ℤ_[ℓ])
     (t' : deg'.ker →* Multiplicative ℤ_[ℓ])
@@ -11537,12 +11557,14 @@ theorem ofEllAdic_induced
     (hF : deg F = Multiplicative.ofAdd (-1))
     (hF' : deg' F' = Multiplicative.ofAdd (-1)) :
     Nonempty (Iso (ofEllAdic (q := q) σ F hF t)
-      (induced (q := q) φ m hm (ofEllAdic (q := q ^ f) ρ F' hF' t'))) := by sorry
+      (induced (q := q) φ hφ f m hf hm hmpos hdeg ht.one_lt
+        (by norm_cast; have := ht.one_lt; omega)
+        (ofEllAdic (q := q ^ f) ρ F' hF' t'))) := by sorry
 end FunctorComparisons
 
 section Indecomposables
-variable {W : Type*} [Group W] [TopologicalSpace W]
-  {deg : W →* Multiplicative ℤ} {q : ℕ}
+variable {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+  {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q : ℕ}
   {Ω : Type*} [Field Ω] [CharZero Ω] {V : Type*}
   [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
 
@@ -11580,8 +11602,8 @@ example (hq : 1 < q) (hqΩ : (q : Ω) ≠ 0) (F : W)
 end Indecomposables
 
 section TateNormalForm
-variable {W : Type*} [Group W] [TopologicalSpace W]
-  {deg : W →* Multiplicative ℤ} {q ℓ : ℕ} [Fact ℓ.Prime]
+variable {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+  {deg : W →* Multiplicative ℤ} [Fact (IsOpen (deg.ker : Set W))] {q ℓ : ℕ} [Fact ℓ.Prime]
 
 /-- Unit test: TauCeti.WeilDeligneRep.ofEllAdic_tateCurve.
 Tate uniformization supplies this upper-triangular action and a nonzero tame
@@ -11624,7 +11646,7 @@ open Polynomial
 section FiniteRamificationComparison
 variable {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
   [IsNonarchimedeanLocalField K]
-  {F V : Type*} [Field F] [TopologicalSpace F]
+  {F V : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
   [AddCommGroup V] [Module F V] [Module.Finite F V]
   [TopologicalSpace V] [IsModuleTopology F V]
 
@@ -11730,7 +11752,7 @@ theorem artinConductor_eq_characterConductorExp
     (K : Type*) [Field K] [ValuativeRel K] [TopologicalSpace K]
     [IsNonarchimedeanLocalField K] (p : ℕ) [Fact p.Prime]
     [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
-    {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F]
+    {F : Type*} [Field F] [TopologicalSpace F] [IsTopologicalRing F] [T2Space F]
     (hF : ringChar F ≠ p) (χ : Field.absoluteGaloisGroup K →ₜ* Fˣ)
     (hfinite : (Set.range χ).Finite)
     (artχ : Kˣ →ₜ* Fˣ)
@@ -11769,14 +11791,14 @@ variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   [AddCommGroup V'] [Module A V'] [Module.Finite A V'] [Module.Projective A V']
   [TopologicalSpace V'] [IsModuleTopology A V']
 
-def tensorInd_tprod (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+def tensorInd_tprod (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))]
     (hopen : IsOpen (H : Set Γ)) (t : Γ ⧸ H → Γ)
     (ht : ∀ q, (t q : Γ ⧸ H) = q)
     (ρ : ContinuousRep H A V) (σ : ContinuousRep H A V') :
     Iso (tensorInd H t ht (ρ.tensor σ))
       ((tensorInd H t ht ρ).tensor (tensorInd H t ht σ)) := sorry
 
-theorem tensorInd_tprod_apply (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+theorem tensorInd_tprod_apply (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))]
     (hopen : IsOpen (H : Set Γ)) (t : Γ ⧸ H → Γ)
     (ht : ∀ q, (t q : Γ ⧸ H) = q)
     (ρ : ContinuousRep H A V) (σ : ContinuousRep H A V')
@@ -11786,7 +11808,7 @@ theorem tensorInd_tprod_apply (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
 
 /-- Each orbit is enumerated once, starting at base c and with positive length.
 This avoids both arbitrary overlapping cycles and division by their lengths. -/
-theorem trace_tensorInd [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+theorem trace_tensorInd [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))]
     (hopen : IsOpen (H : Set Γ)) (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q)
     (ρ : ContinuousRep H A V) (g : Γ)
     {Cy : Type*} [Fintype Cy] (base : Cy → Γ ⧸ H) (len : Cy → ℕ)
@@ -11811,7 +11833,7 @@ theorem _root_.TauCeti.G7.cyclicTensor_tprod {R M : Type*} [CommRing R] [AddComm
 /-- Splitting form of the universal characteristic-polynomial formula. The
 α's are the roots of the individual cycle operators, and the global roots are
 all their products. No diagonalisation of ρ(g) is assumed. -/
-theorem charpoly_tensorInd [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+theorem charpoly_tensorInd [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))]
     (hopen : IsOpen (H : Set Γ)) (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q)
     (ρ : ContinuousRep H A V) (g : Γ)
     {Cy : Type*} [Fintype Cy] [DecidableEq Cy] (base : Cy → Γ ⧸ H) (len : Cy → ℕ)
@@ -11828,20 +11850,20 @@ theorem charpoly_tensorInd [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ 
 
 /-- Coefficient extension is expressed through its pure-tensor action, so no
 choice of topology on scalar tensor products is silently assumed. -/
-def tensorInd_baseChange {B : Type*} [CommRing B] [TopologicalSpace B] [Algebra A B]
+def tensorInd_baseChange {B : Type*} [CommRing B] [TopologicalSpace B] [IsTopologicalRing B] [Algebra A B]
     {M : Type*} [AddCommGroup M] [Module B M] [Module.Finite B M] [Module.Projective B M]
     [TopologicalSpace M] [IsModuleTopology B M]
-    (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (hopen : IsOpen (H : Set Γ))
+    (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (hopen : IsOpen (H : Set Γ))
     (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q)
     (ρ : ContinuousRep H A V) (σ : ContinuousRep H B M)
     (e : B ⊗[A] V ≃ₗ[B] M)
     (he : ∀ g b v, σ g (e (b ⊗ₜ[A] v)) = e (b ⊗ₜ[A] (ρ g v))) :
     B ⊗[A] (⨂[A] _ : Γ ⧸ H, V) ≃ₗ[B] (⨂[B] _ : Γ ⧸ H, M) := sorry
 
-theorem tensorInd_baseChange_equivariant {B : Type*} [CommRing B] [TopologicalSpace B] [Algebra A B]
+theorem tensorInd_baseChange_equivariant {B : Type*} [CommRing B] [TopologicalSpace B] [IsTopologicalRing B] [Algebra A B]
     {M : Type*} [AddCommGroup M] [Module B M] [Module.Finite B M] [Module.Projective B M]
     [TopologicalSpace M] [IsModuleTopology B M]
-    (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (hopen : IsOpen (H : Set Γ))
+    (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (hopen : IsOpen (H : Set Γ))
     (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q)
     (ρ : ContinuousRep H A V) (σ : ContinuousRep H B M)
     (e : B ⊗[A] V ≃ₗ[B] M)
@@ -11855,6 +11877,8 @@ theorem tensorInd_baseChange_equivariant {B : Type*} [CommRing B] [TopologicalSp
 theorem tensorInd_trans (K : Subgroup Γ) (H : Subgroup K)
     [Fintype (Γ ⧸ K)] [Fintype (K ⧸ H)]
     [Fintype (Γ ⧸ H.map K.subtype)]
+    [Fact (IsOpen (K : Set Γ))] [Fact (IsOpen (H : Set K))]
+    [Fact (IsOpen (H.map K.subtype : Set Γ))]
     (hK : IsOpen (K : Set Γ)) (hH : IsOpen (H : Set K))
     (tK : Γ ⧸ K → Γ) (htK : ∀ q, (tK q : Γ ⧸ K) = q)
     (tH : K ⧸ H → K) (htH : ∀ q, (tH q : K ⧸ H) = q)
@@ -11864,7 +11888,7 @@ theorem tensorInd_trans (K : Subgroup Γ) (H : Subgroup K)
     Nonempty (Iso (tensorInd K tK htK (tensorInd H tH htH ρ)) (tensorInd _ t ht σ)) := by sorry
 
 /-- Unit test: TauCeti.ContinuousRep.asai_restrict. -/
-example (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (h2 : H.index = 2) (hN : H.Normal)
+example (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (h2 : H.index = 2) (hN : H.Normal)
     (s : Γ) (hs : s ∉ H) (ρ : ContinuousRep H A V) (h : H)
     (t : Γ ⧸ H → Γ) (ht : ∀ q, (t q : Γ ⧸ H) = q) (v : Γ ⧸ H → V) :
     Nonempty (Iso (asai H h2 s hs ρ) (tensorInd H t ht ρ)) ∧
@@ -11873,7 +11897,7 @@ example (H : Subgroup Γ) [Fintype (Γ ⧸ H)] (h2 : H.index = 2) (hN : H.Normal
 
 /-- Unit test: TauCeti.ContinuousRep.tensorInd_ne_ind.
 Index two and rank one: tensor induction has rank one, ordinary induction two. -/
-example [Nontrivial A] [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)]
+example [Nontrivial A] [Module.Free A V] (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))]
     (h2 : H.index = 2) (hV : Module.finrank A V = 1) :
     Module.finrank A (⨂[A] _ : Γ ⧸ H, V) = 1 ∧
       Module.finrank A (Γ ⧸ H → V) = 2 := by sorry
@@ -11923,7 +11947,7 @@ theorem resScalarsBaseChangeEquiv_tmul (σ : J → B →ₐ[A] E)
 
 /-- The splitting commutes with the original group action on the M factor. -/
 theorem resScalarsBaseChangeEquiv_equivariant
-    {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [TopologicalSpace B]
+    {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [TopologicalSpace B]
     [Module.Finite B M] [Module.Projective B M] [TopologicalSpace M] [IsModuleTopology B M]
     (ρ : ContinuousRep Γ B M) (σ : J → B →ₐ[A] E)
     (eB : E ⊗[A] B ≃ₐ[E] (J → E))
@@ -11956,7 +11980,7 @@ end TauCeti.ContinuousRep
 
 namespace TauCeti.PolarizedRep
 noncomputable section
-variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   {A B : Type*} [CommRing A] [CommRing B] [TopologicalSpace A] [TopologicalSpace B]
   [IsTopologicalRing A] [IsTopologicalRing B] [Algebra A B] [ContinuousSMul A B]
   {M : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M] [Module.Projective A M]
@@ -12007,8 +12031,8 @@ end TauCeti.AlgebraicGroup
 
 namespace TauCeti.GaloisRep
 noncomputable section
-variable {Γ K V : Type*} [Group Γ] [TopologicalSpace Γ]
-  [Field K] [TopologicalSpace K]
+variable {Γ K V : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
+  [Field K] [TopologicalSpace K] [IsTopologicalRing K] [T2Space K]
   [AddCommGroup V] [Module K V] [Module.Finite K V] [Module.Projective K V]
   [TopologicalSpace V] [IsModuleTopology K V]
 
@@ -12040,7 +12064,7 @@ example [CharZero K] (ρ : TauCeti.ContinuousRep Γ K V)
 /-- Unit test: TauCeti.GaloisRep.not_stronglyIrreducible_induced.
 Distinct conjugate characters ensure irreducibility; restriction to H splits
 into two lines. No irreducibility conclusion is assumed as input. -/
-example [CompactSpace Γ] [IsTopologicalGroup Γ] [IsTopologicalRing K]
+example [CompactSpace Γ]
     (H : OpenSubgroup Γ) [H.toSubgroup.Normal] (hH : H.toSubgroup.index = 2)
     (s : Γ) (hs : s ∉ H) (χ : H →ₜ* Kˣ)
     (hdiff : ∃ h h' : H, (h' : Γ) = s * h * s⁻¹ ∧ χ h' ≠ χ h) :
@@ -12082,8 +12106,8 @@ noncomputable section
 nontrivial connected closed normal subgroup of unipotent matrices. ReductiveGroups
 supplies the equivalence with its reductive group-scheme predicate. -/
 theorem isReductive_identityComponent_of_semisimple
-    {Γ K V : Type*} [Group Γ] [TopologicalSpace Γ] [Field K] [CharZero K] [IsAlgClosed K]
-    [TopologicalSpace K] [AddCommGroup V] [Module K V] [Module.Finite K V]
+    {Γ K V : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [Field K] [CharZero K] [IsAlgClosed K]
+    [TopologicalSpace K] [IsTopologicalRing K] [T2Space K] [AddCommGroup V] [Module K V] [Module.Finite K V]
     [Module.Projective K V] [TopologicalSpace V] [IsModuleTopology K V]
     {ι : Type*} [Fintype ι] [DecidableEq ι]
     (ρ : TauCeti.ContinuousRep Γ K V) (b : Module.Basis ι K V)
@@ -12351,8 +12375,8 @@ example (hℓ : (ℓ : 𝓀[K]) ≠ 0)
 
 /-- Unit test: TauCeti.Conductor.artinConductor_eq_wdConductor_tate.
 The normalized rank-one monodromy is not inferred from an arbitrary group map. -/
-example (hℓ : (ℓ : 𝓀[K]) ≠ 0) {W : Type*} [Group W] [TopologicalSpace W]
-    (ι : W →ₜ* Field.absoluteGaloisGroup K) (deg : W →* Multiplicative ℤ)
+example (hℓ : (ℓ : 𝓀[K]) ≠ 0) {W : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
+    (ι : W →ₜ* Field.absoluteGaloisGroup K) (deg : W →* Multiplicative ℤ) [Fact (IsOpen (deg.ker : Set W))]
     (hι : Function.Injective ι) (hI : deg.ker.map ι.toMonoidHom = TauCeti.GaloisRep.inertiaGroup K)
     (hc : IsCompact (deg.ker : Set W)) (q : ℕ) (hq : q = Nat.card 𝓀[K])
     (ρ : TauCeti.ContinuousRep (Field.absoluteGaloisGroup K) ℚ_[ℓ] (Fin 2 → ℚ_[ℓ]))
@@ -12527,6 +12551,7 @@ variable (b : EpsilonInput)
 inclusion and the integer degree, with arithmetic Frobenius of degree +1. -/
 theorem epsilon_unramified_twist
     (deg : TauCeti.LocalWeil.group b.K →* Multiplicative ℤ)
+    [Fact (IsOpen (deg.ker : Set (TauCeti.LocalWeil.group b.K)))]
     (ι : TauCeti.LocalWeil.group b.K →ₜ* Field.absoluteGaloisGroup b.K)
     (hι : ∀ w, ι w = w.val)
     (hI : deg.ker.map ι.toMonoidHom = TauCeti.GaloisRep.inertiaGroup b.K)
@@ -12549,6 +12574,7 @@ theorem epsilon_unramified_twist
 The volumes express dual Haar measures, without assuming the desired epsilon identity. -/
 theorem epsilon_dual
     (deg : TauCeti.LocalWeil.group b.K →* Multiplicative ℤ)
+    [Fact (IsOpen (deg.ker : Set (TauCeti.LocalWeil.group b.K)))]
     (ι : TauCeti.LocalWeil.group b.K →ₜ* Field.absoluteGaloisGroup b.K)
     (hι : ∀ w, ι w = w.val)
     (hI : deg.ker.map ι.toMonoidHom = TauCeti.GaloisRep.inertiaGroup b.K)
@@ -12634,7 +12660,7 @@ end TauCeti.GaloisRep
 namespace TauCeti.GaloisLattice.IntegralModel
 noncomputable section
 open scoped TensorProduct
-variable {Γ O k M : Type*} [Group Γ] [TopologicalSpace Γ]
+variable {Γ O k M : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ]
   [CommRing O] [TopologicalSpace O] [IsTopologicalRing O]
   [Field k] [TopologicalSpace k] [IsTopologicalRing k] [Algebra O k] [ContinuousSMul O k]
   [AddCommGroup M] [Module O M] [Module.Finite O M] [Module.Projective O M]
@@ -13085,7 +13111,7 @@ theorem polarizationPairing_prod {B : AbelianVariety K} [Fact ((ℓ : K) ≠ 0)]
 
 section Local
 variable [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
-  {W : Type u} [Group W] [TopologicalSpace W]
+  {W : Type u} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
   (ιW : W →ₜ* Field.absoluteGaloisGroup K) (deg : W →* Multiplicative ℤ)
   (F : W) (hF : deg F = Multiplicative.ofAdd (-1 : ℤ))
 
@@ -13200,7 +13226,7 @@ example [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
     (hred : W₀.HasGoodReduction R ∨ W₀.HasMultiplicativeReduction R)
     (ℓ : ℕ) [Fact ℓ.Prime] [Fact ((ℓ : K) ≠ 0)]
     (hℓ : (ℓ : IsLocalRing.ResidueField R) ≠ 0)
-    {W : Type u} [Group W] [TopologicalSpace W]
+    {W : Type u} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
     (ιW : W →ₜ* Field.absoluteGaloisGroup K) (deg : W →* Multiplicative ℤ)
     (F : W) (hF : deg F = Multiplicative.ofAdd (-1 : ℤ))
     (hI : deg.ker.map ιW.toMonoidHom = TauCeti.GaloisRep.inertiaGroup K)
@@ -13704,7 +13730,7 @@ instance curveGoodFive.elliptic : curveGoodFive.IsElliptic := by sorry
 
 section ConcreteEulerTest
 variable (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : ℓ ≠ 5) [Fact ((ℓ : ℚ_[5]) ≠ 0)]
-  {W : Type} [Group W] [TopologicalSpace W]
+  {W : Type} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
   (ι : W →ₜ* Field.absoluteGaloisGroup ℚ_[5]) (deg : W →* Multiplicative ℤ)
   (F : W) (hF : deg F = Multiplicative.ofAdd (-1 : ℤ))
   (hI : deg.ker.map ι.toMonoidHom = TauCeti.GaloisRep.inertiaGroup ℚ_[5])
