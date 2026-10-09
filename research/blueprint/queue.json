@@ -29975,9 +29975,10 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.4.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #997"
+   "note": "deliverables arrived from an external worker on issue #997",
+   "finishedAt": "2026-10-09T11:21:33Z"
   },
   {
    "id": "REV-SmoothRepresentationsOfLocalGroups--SR.4",
@@ -43272,7 +43273,8 @@
    ],
    "revisionOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6516"
   },
   {
    "priority": 2,
