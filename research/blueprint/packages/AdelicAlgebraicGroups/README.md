@@ -19,7 +19,7 @@ The layers are:
 
 Mathlib supplies restricted-product carriers and topologies, finite and probability product measures, Haar uniqueness, the modular character, fundamental-domain integration, double cosets, action groupoids and L² spaces. Tau Ceti supplies convolution groups of Hopf-algebra points, their coefficient maps, concrete GLₙ and Gₘ comparisons, algebraic centres, geometric characters and cotangent/adjoint constructions. This roadmap extends those objects rather than defining substitutes. In particular, an algebraic equivalence does not by itself supply a homeomorphism or an identity of pushed measures.
 
-Algebraic structure belongs to **ReductiveGroupsPartII**: **RG2.0** supplies finite-type affine evaluation topology, compact open local subgroups and the finite-dimensional comodule/tensor dictionary; **RG2.0a** supplies coefficient-natural Weil restriction, its tower maps and tensor comparison; **RG2.1** supplies rational parabolics, relative roots, character lattices, derived covers and closed homogeneous embeddings; **RG2.3** supplies good integral models, integral Iwasawa decompositions, Lang–Hensel lifting, central-cover compatibility and quasi-splitness at almost all places; **RG2.4** supplies local decompositions and integration, and the characteristic-zero isotropic simply connected Kneser–Tits theorem. The [Reductive groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md), layer 9, supplies finite reductive groups and their order estimates.
+Algebraic structure belongs to the [Reductive groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md) and to **ReductiveGroupsPartII**. ReductiveGroups supplies the finite-dimensional comodule/tensor dictionary (layer 1), closed subgroups, quotients and closed homogeneous embeddings (layer 3), character lattices of groups of multiplicative type (layer 4), the centre, derived group and simply connected covers (layer 6), rational parabolics, Levi decompositions and relative roots (layer 7) and finite reductive groups with their order estimates (layer 9). **RG2.0** supplies the finite-type affine evaluation topology and compact open local subgroups; **RG2.0a** supplies coefficient-natural Weil restriction, its tower maps and tensor comparison; **RG2.1** supplies the maximal split central torus with its valuation map; **RG2.3** supplies reductive integral models, hyperspecial subgroups and Lang's theorem with Hensel lifting; **RG2.4** supplies the local decompositions and integration, the Iwasawa decomposition G(F_v) = K_v P(F_v) with K_v ∩ P(F_v) = P(𝒪_v) for an arbitrary parabolic and a hyperspecial K_v (`iwasawa-parabolic-integral`), and the Kneser–Tits theorem over a local field (`kneser-tits-local`). Quasi-splitness at almost all places (AA.4, isotropic-almost-everywhere) and the integral compatibility of a central derived cover (AA.4, cover-integral-image) are proved in this roadmap from those inputs.
 
 The [Global number fields roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GlobalNumberFields/README.md) supplies places and the product formula (layer 0), weak approximation (layer 1), finite adeles (layer 4), full adeles and the discrete rational diagonal (layer 5), additive strong approximation and idele norm structure (layer 6), and scalar extension of adeles (layer 8). NumberFieldArithmetic, layer 4, supplies the discriminant identities used in scalar Jacobians. RepresentationTheory/LieGroups, layer 9, supplies Cartan and Iwasawa theory, including simultaneous self-adjointness. GlobalQuadraticForms, layer 5, supplies local and global quadratic isotropy. Chebotarev, layer 10, supplies the density input for approximation obstructions. ClassFieldTheory, layer 12, supplies quadratic idele characters, reciprocity and the global norm-index theorem. RepresentationTheory/CompactGroups, layer 5, supplies compact abelian Fourier theory. AlgebraicTopology, stage 6, supplies the integral cohomology of products of circles. RepresentationTheory/CompactGroups, layer 0, supplies the Haar probability measure of a compact group; on a compact open factor B_i it is the restriction of a local Haar measure normalized as in AA.0. The [Fuchsian orbifolds roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/FuchsianOrbifolds/README.md) supplies the coarse quotient Riemann surface Γ\ℍ of a Fuchsian group (layers 0–1), its cusp compactification and the maps induced by conjugation and finite-index inclusions (layer 4), and degree theory for finite holomorphic maps (layer 5). AA.5 identifies the GL₂ components with these quotients for its congruence groups; the comparison with algebraic modular curves lies outside this roadmap.
 
@@ -339,7 +339,7 @@ Equip Hopf-algebra points with their evaluation topology and compare points over
 
 - **Weyl orbit products lie in the split centre up to finite index.** Let A be a maximal split torus of a connected reductive group over a field and W its relative Weyl group. For a ∈ A(E), the product ∏_{w∈W} w(a) lies in (Z(G) ∩ A)(E) up to an element of a finite group; in particular some power of it lies in the split centre.
 
-  Sources: [Borel], §5.5, p. 20. Requires: `ReductiveGroupsPartII:RG2.4`; `ReductiveGroupsPartII:RG2.1`.
+  Sources: [Borel], §5.5, p. 20. Requires: `ReductiveGroupsPartII:RG2.4`; `ReductiveGroupsPartII:RG2.1`; ReductiveGroups, layer 7.
 
 - **Local unimodularity of reductive groups.** For a connected reductive group G over a local field E of characteristic 0, the locally compact group G(E) is unimodular. Assumptions: E a local field of characteristic 0.
 
@@ -374,7 +374,7 @@ The character lattice separates the positive split centre from the norm-one subg
 
 - **Rational characters form a lattice.** For geometrically connected G, X*_F(G) is a free abelian group of finite rank. For connected reductive G, restriction of F-rational characters to the identity component of the centre is injective with finite cokernel (Borel 5.9). Assumptions: G = Spec H an affine algebraic group over F, H finitely generated; G geometrically connected; G smooth and geometrically reduced (automatic for reduced finite-type characteristic-zero algebraic groups through the characteristic-zero smoothness bridge of RG2.0).
 
-  Sources: [Borel], Lemma 5.9, p. 22; [Arthur], §5, p. 24. Requires: AA.2.1; Tau Ceti `TauCeti.CommHopfAlgCat.isMulTorsionFree_geometricCharacterGroup`; `ReductiveGroupsPartII:RG2.1`; Tau Ceti `TauCeti.geometricallyReducedCommHopfAlgProperty`; Tau Ceti `TauCeti.geometricallyConnectedCommHopfAlgProperty`.
+  Sources: [Borel], Lemma 5.9, p. 22; [Arthur], §5, p. 24. Requires: AA.2.1; Tau Ceti `TauCeti.CommHopfAlgCat.isMulTorsionFree_geometricCharacterGroup`; ReductiveGroups, layer 4; Tau Ceti `TauCeti.geometricallyReducedCommHopfAlgProperty`; Tau Ceti `TauCeti.geometricallyConnectedCommHopfAlgProperty`.
 
 - **The real vector space a_G.** a_G = Hom_ℤ(X*_F(G), ℝ), a finite-dimensional real vector space, with dual a_G^* = X*_F(G) ⊗_ℤ ℝ and complexification a_{G,ℂ}^* = X*_F(G) ⊗ ℂ. A homomorphism G → G′ induces a linear map a_G → a_{G′}. Assumptions: G = Spec H an affine algebraic group over F, H finitely generated; G geometrically connected.
 
@@ -641,7 +641,7 @@ Begin with rational parabolic data, real Siegel coordinates and the primitive GL
 
   Examples: For GL_3 there are 4 standard parabolics. For GL_2 over ℚ the lower triangular Borel is a parabolic that is not standard; it is conjugate to the standard one by the Weyl element.
 
-  Sources: [Arthur], §4, p. 22. Requires: `ReductiveGroupsPartII:RG2.1`; Tau Ceti `TauCeti.Cocharacter.parabolic`; Tau Ceti `TauCeti.Cocharacter.unipotent`; Tau Ceti `TauCeti.Cocharacter.leviDecompositionMulEquiv`; AA.2.1.
+  Sources: [Arthur], §4, p. 22. Requires: ReductiveGroups, layer 7; Tau Ceti `TauCeti.Cocharacter.parabolic`; Tau Ceti `TauCeti.Cocharacter.unipotent`; Tau Ceti `TauCeti.Cocharacter.leviDecompositionMulEquiv`; AA.2.1.
 
 - **Relative chambers and the spaces a_P.** For standard P, a_P = a_{M_P} (AA.2.1), with a_0 = a_{P_0}. For P_1 ⊆ P_2 there are split exact sequences giving a_{P_1} = a_{P_2} ⊕ a_{P_1}^{P_2} and dually. The roots Φ_P of (P, A_P) lie in (a_P^G)^*, ρ_P = (1/2) ∑_{α∈Φ_P} (dim 𝔫_α) α, the simple roots Δ_P are the restrictions of Δ_0 ∖ Δ_0^P, and the positive chamber is a_P^+ = {H ∈ a_P : α(H) > 0 for α ∈ Δ_P}. Assumptions: G a connected reductive group over F.
 
@@ -649,7 +649,7 @@ Begin with rational parabolic data, real Siegel coordinates and the primitive GL
 
   Examples: For the Borel of GL_2, ρ = (1/2)(e_1 - e_2). For GL_3, a_0^+ is cut out by the two simple roots; positivity of e_1 - e_3 alone does not imply membership.
 
-  Sources: [Arthur], §5, p. 24; [Arthur], §5, p. 25. Requires: AA.3.1; AA.2.1; `ReductiveGroupsPartII:RG2.1`.
+  Sources: [Arthur], §5, p. 24; [Arthur], §5, p. 25. Requires: AA.3.1; AA.2.1; `ReductiveGroupsPartII:RG2.1`; ReductiveGroups, layer 7.
 
 - **Admissible maximal compact subgroup of G(𝔸).** A maximal compact subgroup K = ∏_v K_v of G(𝔸_F) is admissible relative to M_0 if K_v = 𝓗(𝒪_v) is hyperspecial for all but finitely many v, each K_v is a special maximal compact subgroup in good position relative to M_0 at finite v and a maximal compact subgroup of G(F_v) at archimedean v, and G(F_v) = P_0(F_v) K_v for every v. Assumptions: G a connected reductive group over F.
 
@@ -657,11 +657,11 @@ Begin with rational parabolic data, real Siegel coordinates and the primitive GL
 
   Examples: For GL_n over ℚ, O(n) × ∏_p GL_n(ℤ_p) is admissible. The Iwahori subgroup (upper triangular modulo p) is a proper subgroup of GL_2(ℤ_p), so a product of Iwahori subgroups is not maximal compact and not admissible.
 
-  Sources: [Arthur], §4, p. 23; [Arthur], §4, p. 24. Requires: AA.1.1; AA.1.2; `ReductiveGroupsPartII:RG2.3`; `ReductiveGroupsPartII:RG2.4`; RepresentationTheory/LieGroups, layer 9.
+  Sources: [Arthur], §4, p. 23; [Arthur], §4, p. 24. Requires: AA.1.1; AA.1.2; `ReductiveGroupsPartII:RG2.3` (reductive-model, hyperspecial-vertices); `ReductiveGroupsPartII:RG2.4` (iwasawa-parabolic-integral); RepresentationTheory/LieGroups, layer 9.
 
 - **Adelic Iwasawa factorization.** For connected reductive G/F, minimal-parabolic data and an admissible K, multiplication N_P(𝔸)×M_P(𝔸)^1×A_P(ℝ)^0×K→G(𝔸) is surjective and open for each standard P. At almost all finite places it restricts to the integral Iwasawa factorization; this integrality permits assembling local choices into restricted-product elements.
 
-  Sources: [Arthur], §4, pp. 23–24. Requires: AA.3.1; AA.2.1; `ReductiveGroupsPartII:RG2.3`; `ReductiveGroupsPartII:RG2.4`; RepresentationTheory/LieGroups, layer 9.
+  Sources: [Arthur], §4, pp. 23–24. Requires: AA.3.1; AA.2.1; `ReductiveGroupsPartII:RG2.3` (reductive-model); `ReductiveGroupsPartII:RG2.4` (iwasawa-parabolic-integral); RepresentationTheory/LieGroups, layer 9.
 
 - **Parabolic Haar Jacobian.** Write P=N⋊M and δ_P(m)=|det(Ad(m)|Lie N)|_𝔸. With left Haar measures dn,dm, the measure δ_P(m)^−1 dn dm in coordinates (n,m) is a left Haar measure of P(𝔸); Mathlib's modular character of P(𝔸) (map (·p) μ_l = Δ_P(p) μ_l, equivalently map (p·) μ_r = Δ_P(p)^−1 μ_r for μ_r the inversion image of μ_l) is Δ_P(nm)=δ_P(m), and dn dm is a right Haar measure in the same coordinates. Assumptions: F a number field; G a connected reductive group over F; P = N_P ⋊ M_P an F-parabolic with its Levi decomposition on 𝔸-points; dn and dm Haar measures on N_P(𝔸) and the unimodular M_P(𝔸).
 
@@ -700,7 +700,7 @@ Begin with rational parabolic data, real Siegel coordinates and the primitive GL
 
   Examples: For SL_2 and the Borel, Δ = {α} with diag(a, a⁻¹)^α = a². For the Borel of SL_3 the root α_1 + α_2 is positive but not simple; truncating by it alone does not give A_{P,t}.
 
-  Sources: [BKT], §2.2, p. 8. Requires: AA.3.2; `ReductiveGroupsPartII:RG2.1`.
+  Sources: [BKT], §2.2, p. 8. Requires: AA.3.2; ReductiveGroups, layer 7.
 
 - **Siegel set for a fixed maximal compact.** For a ℚ-parabolic 𝐏, a maximal compact K ⊂ G = G(ℝ)^+, t > 0 and bounded (relatively compact open semialgebraic) U ⊂ N_P, W ⊂ M_P K, the Siegel set associated to 𝐏 and K is 𝔖 = U × A_{P,t} × W ⊂ G in horospherical coordinates. For a connected compact M ⊂ K, a Siegel set of G/M associated to K is the image of such a set; K is fixed once and for all (BKT Definition 2.5 as corrected by the 2023 erratum). Assumptions: K fixed.
 
@@ -775,7 +775,7 @@ Begin with rational parabolic data, real Siegel coordinates and the primitive GL
 
 - **Reductive homogeneous spaces as closed orbits.** If H⊂G are reductive algebraic groups over a characteristic-zero field F, then H\G is affine and has a G-equivariant closed immersion into a finite-dimensional rational G-representation, taking the identity coset to w∈V(F) with stabilizer H. The orbit of w is closed. Assumptions: F a field of characteristic 0; G a reductive (not necessarily connected) linear algebraic group over F; H ⊂ G a reductive closed F-subgroup.
 
-  Sources: [BHC], §3.8, p. 501; §2.4 cited there. Requires: `ReductiveGroupsPartII:RG2.1`.
+  Sources: [BHC], §3.8, p. 501; §2.4 cited there. Requires: ReductiveGroups, layer 3; ReductiveGroups, layer 6.
 
 - **Closed-orbit weight bounds in a real Siegel domain.** Let GL_n act rationally on V, w have closed orbit and transpose-stable stabilizer, and Γ⊂V(ℚ) be a lattice. Let GL_n(ℝ) act on the left and let Σ = ω·A_t·O(n) be a standard real Siegel domain in the left-quotient convention of gln-real-reduction (BHC §5.3 uses the equivalent right action v·g = g⁻¹·v and the inverse domain O(n)·A_t⁻¹·ω⁻¹). There is a compact Q⊂GL_n(ℝ) such that Σ·w∩Γ⊂Q·w. In particular the norms of these lattice points are uniformly bounded. Assumptions: V a finite-dimensional rational representation of GL_n over ℚ; w ∈ V(ℝ) with closed GL_n(ℂ)-orbit and transpose-stable stabilizer in GL_n(ℝ); Γ ⊂ V(ℚ) a lattice; Σ a standard Siegel domain for the upper triangular Borel and O(n).
 
@@ -862,11 +862,11 @@ Begin with rational parabolic data, real Siegel coordinates and the primitive GL
 
 - **Anisotropic groups have compact quotients.** For connected reductive G over F whose derived group is F-anisotropic (equivalently, G has no proper F-parabolic subgroup), G(F)\G(𝔸_F)^1 is compact. Assumptions: G^der F-anisotropic.
 
-  Sources: [Borel], Theorem 5.8, p. 22; [Arthur], §4, p. 21. Requires: AA.3.4; AA.3.1; `ReductiveGroupsPartII:RG2.1`.
+  Sources: [Borel], Theorem 5.8, p. 22; [Arthur], §4, p. 21. Requires: AA.3.4; AA.3.1; ReductiveGroups, layer 7.
 
 - **Isotropic groups have noncompact quotients.** For connected reductive G over F with a proper F-parabolic subgroup, G(F)\G(𝔸_F)^1 is not compact. Precisely: G(F)\G(𝔸)^1 is compact iff G(F) has no nontrivial unipotent element iff G^der is F-anisotropic.
 
-  Sources: [Borel], Theorem 5.8, p. 22; [Arthur], §4, p. 21. Requires: AA.3.1; AA.1.3; `ReductiveGroupsPartII:RG2.1`; AA.2.1.
+  Sources: [Borel], Theorem 5.8, p. 22; [Arthur], §4, p. 21. Requires: AA.3.1; AA.1.3; ReductiveGroups, layer 7; AA.2.1.
 
 - **Cocompact arithmetic groups contain no unipotents.** Let G be connected semisimple over ℚ and Γ = G(ℚ) ∩ U for a compact open U ⊂ G(𝔸_f). If Γ\G(ℝ) is compact then Γ contains no nontrivial unipotent element. Assumptions: G connected semisimple over ℚ; U compact open.
 
@@ -940,7 +940,7 @@ Begin with rational parabolic data, real Siegel coordinates and the primitive GL
 
 - **Deep Siegel sets of distinct parabolics are disjoint.** For distinct ℚ-parabolics 𝐏_1 ≠ 𝐏_2 and fixed bounded U_i, W_i (one K), the Siegel sets 𝔖_1, 𝔖_2 are disjoint once t_1, t_2 are sufficiently large.
 
-  Sources: [BKT], Proposition 2.7(5), p. 9. Requires: AA.3.2; `ReductiveGroupsPartII:RG2.1`.
+  Sources: [BKT], Proposition 2.7(5), p. 9. Requires: AA.3.2; ReductiveGroups, layer 7.
 
 - **Inequivalent cusps separate.** If 𝐏_1 and 𝐏_2 are not Γ-conjugate, then for fixed U_i, W_i and all sufficiently large t_1, t_2, γ𝔖_1 ∩ 𝔖_2 = ∅ for every γ ∈ Γ.
 
@@ -959,15 +959,15 @@ Begin with rational parabolic data, real Siegel coordinates and the primitive GL
 
 - **Compatible parabolic and torus for a subgroup.** For H⊂G reductive over ℚ, a Siegel triple (P_H,S_H,K_H), and K_G containing K_H with Cartan involution stabilizing S_H, choose a parabolic ℚ-subgroup Q⊂G with Levi Z_G(S_H) and N_H⊂R_u(Q), then a minimal P_G⊂Q. Its Cartan-stable Siegel torus S_G contains S_H, satisfies S_G∩H=S_H, and N_H⊂N_G. Assumptions: H ⊂ G reductive ℚ-groups; (P_H, S_H, K_H) a Siegel triple for H with S_H ℚ-split (the general case reduces to this by conjugating with an element of R_u(P_H)(ℝ), Orr §4.1); K_G ⊂ G(ℝ) maximal compact with K_H ⊂ K_G whose Cartan involution stabilises S_H.
 
-  Sources: [Orr], §4.2, Lemmas 4.2–4.6, pp. 15–17; [Orr–Schnell], §§A,E, pp. 1232, 1236. Requires: AA.3.1; AA.3.2; `ReductiveGroupsPartII:RG2.1`.
+  Sources: [Orr], §4.2, Lemmas 4.2–4.6, pp. 15–17; [Orr–Schnell], §§A,E, pp. 1232, 1236. Requires: AA.3.1; AA.3.2; ReductiveGroups, layer 7.
 
 - **Finite root-cone comparison.** In containment-parabolic-torus, for any t>0 there is t′∈(0,1] such that every a∈A_{H,t} belongs to wA_{G,t′}w⁻¹ for some w in the finite Weyl group of S_G satisfying N_H,N_Z⊂wN_Gw⁻¹. Roots of S_G vanishing on S_H take the value 1 ≥ t′ on a, so they impose no further condition. Assumptions: the notation and hypotheses of containment-parabolic-torus (S_H ℚ-split, K_H ⊂ K_G, Cartan involution of K_G stabilising S_H); Z = Z_G(S_H), N_Z = R_u(P_G ∩ Z); t > 0.
 
-  Sources: [Orr], §4.3, Proposition 4.7 and Lemmas 4.8–4.9, pp. 17–20; [Orr–Schnell], §§A,E, pp. 1232, 1236. Requires: AA.3.7; `ReductiveGroupsPartII:RG2.1`.
+  Sources: [Orr], §4.3, Proposition 4.7 and Lemmas 4.8–4.9, pp. 17–20; [Orr–Schnell], §§A,E, pp. 1232, 1236. Requires: AA.3.7; ReductiveGroups, layer 7.
 
 - **Rational and compact Weyl representatives.** For each admissible Weyl element w in containment-finite-root-cones, choose a compact representative w_K∈K_G and a representative w_Q=u⁻¹w′_Qu with w′_Q∈G(ℚ), u∈N_Z(ℝ), and w′_Q⁻¹w_Q∈N_G(ℝ). Their quotient can be chosen in the identity component of Z_G(S_G)(ℝ). Assumptions: the notation and hypotheses of containment-finite-root-cones; w ranges over the finite set of Weyl elements of S_G with N_H, N_Z ⊂ wN_Gw⁻¹; u ∈ N_Z(ℝ) with uS_Gu⁻¹ a maximal ℚ-split torus of P_G ∩ Z; the maximal real split torus containing S_G is chosen stable under the Cartan involution of K_G.
 
-  Sources: [Orr], §4.4, Lemmas 4.10–4.11, pp. 20–21; [Orr–Schnell], §§A,E, pp. 1232, 1236. Requires: AA.3.7; `ReductiveGroupsPartII:RG2.1`; RepresentationTheory/LieGroups, layer 9.
+  Sources: [Orr], §4.4, Lemmas 4.10–4.11, pp. 20–21; [Orr–Schnell], §§A,E, pp. 1232, 1236. Requires: AA.3.7; ReductiveGroups, layer 7; RepresentationTheory/LieGroups, layer 9.
 
 - **Uniform compact factors for subgroup Siegel sets.** With Ω_H⊂N_HM_H compact, choose a compact Ω_G⊂N_GM_G and, for every admissible w, a compact B_w⊂S_G(ℝ)^0 such that w′_Q⁻¹Ω_H⊂Ω_G w_K⁻¹ B_w K_Z. All these choices range over a finite Weyl set. Assumptions: the notation and hypotheses of containment-weyl-representatives; Ω_H ⊂ N_H(ℝ)M_H(ℝ)^+ compact; K_Z = K_G ∩ Z_G(S_H)(ℝ), maximal compact in Z_G(S_H)(ℝ) by the Cartan hypothesis.
 
@@ -1089,15 +1089,15 @@ Weak and strong approximation have different hypotheses and obstructions. Develo
 
 - **Elimination of arithmetic finite-index closures.** For G/F absolutely almost simple simply connected, S containing infinity with G(F_S) noncompact, and S₁ finite disjoint from S, an open finite-index closure of G(O_{F,S∪S₁}) in ∏_{v∈S₁}G(F_v) is the whole product. At isotropic factors this follows from the local Kneser–Tits/Tits finite-index theorem; anisotropic factors need the separate global arithmetic congruence argument. Assumptions: F a number field; G connected, absolutely almost simple and simply connected over F; S a finite set of places containing the archimedean places with G_S noncompact; S₁ a finite set of finite places disjoint from S; the closure of G(𝒪_{F,S∪S₁}) in G_{S₁} is open of finite index.
 
-  Sources: [Rapinchuk], §2.6, pp. 16–17 (isotropic factors; the anisotropic arithmetic step is separate). Requires: AA.4.2; `ReductiveGroupsPartII:RG2.4`.
+  Sources: [Rapinchuk], §2.6, pp. 16–17 (isotropic factors; the anisotropic arithmetic step is separate). Requires: AA.4.2; `ReductiveGroupsPartII:RG2.4` (kneser-tits-local).
 
 - **Arithmetic closure at one isotropic place.** Let G be connected, absolutely almost simple and simply connected over a number field F, S a finite set of places containing the archimedean ones with G_S noncompact, v ∉ S a finite place at which G is F_v-isotropic, and W ⊂ G(𝔸_F^{S∪{v}}) a compact open subgroup. Then the image of Γ_W = G(F) ∩ (G_S × G(F_v) × W) is dense in G(F_v). Consequently the closure of G(F)G_S in G(𝔸_F) contains G(F_v), placed at v. Assumptions: F a number field; G connected, absolutely almost simple and simply connected over F; S finite, containing the archimedean places, with G_S noncompact; v ∉ S a finite place with G isotropic over F_v; W ⊂ G(𝔸_F^{S∪{v}}) a compact open subgroup.
 
-  Sources: [Rapinchuk], §2.6, pp. 16–17; [Rapinchuk], Remark 1 after Theorem 2.3, p. 12. Requires: AA.3.4; AA.4.2; `ReductiveGroupsPartII:RG2.4`.
+  Sources: [Rapinchuk], §2.6, pp. 16–17; [Rapinchuk], Remark 1 after Theorem 2.3, p. 12. Requires: AA.3.4; AA.4.2; `ReductiveGroupsPartII:RG2.4` (kneser-tits-local).
 
 - **Almost all local factors are isotropic.** Let G be a connected semisimple group of positive dimension over a number field F. Then G is quasi-split, hence isotropic, over F_v for all but finitely many places v. In particular, for finite S the set of places v ∉ S at which G is F_v-anisotropic is finite. Assumptions: F a number field; G connected semisimple over F with dim G > 0.
 
-  Sources: [Arthur], §16, p. 89. Requires: `ReductiveGroupsPartII:RG2.3`; ReductiveGroups, layer 9; `ReductiveGroupsPartII:RG2.1`.
+  Sources: [Arthur], §16, p. 89. Requires: `ReductiveGroupsPartII:RG2.3` (reductive-model, lang-theorem, hyperspecial-vertices: a reductive 𝒪_{F,S}-model exists for some finite S, its special fibres are quasi-split by Lang's theorem, and a Borel of the special fibre lifts along the henselian 𝒪_v); ReductiveGroups, layer 9; ReductiveGroups, layer 7.
 
 - **Strong approximation: sufficiency.** Let G be connected, absolutely almost simple and simply connected over a number field F, and S a finite set of places containing the archimedean ones with G_S = ∏_{v∈S} G(F_v) noncompact. Then G has strong approximation with respect to S. Assumptions: G absolutely almost simple simply connected over F; S ⊇ archimedean places; G_S noncompact.
 
@@ -1109,7 +1109,7 @@ Weak and strong approximation have different hypotheses and obstructions. Develo
 
 - **Strong approximation for semisimple groups.** Let G be connected semisimple simply connected over F and S ⊇ archimedean places finite such that G′(F_S) is noncompact for every F-simple factor G′ of G. Then G(𝔸_F) = G(F)·G(F_S)·U for every compact open U ⊂ G(𝔸_F^S); in particular G(F)\G(𝔸_f)/U is a single point when S is the set of archimedean places. Assumptions: G semisimple simply connected; each F-simple factor noncompact at S.
 
-  Sources: [Arthur], Theorem 2.1(a), p. 12. Requires: AA.4.2; AA.1.4; `ReductiveGroupsPartII:RG2.1`.
+  Sources: [Arthur], Theorem 2.1(a), p. 12. Requires: AA.4.2; AA.1.4; ReductiveGroups, layer 6.
 
 
 ### AA.4.3 — Neat elements and levels
@@ -1293,7 +1293,7 @@ Weak and strong approximation have different hypotheses and obstructions. Develo
 
   Examples: For simply connected G, plusSubgroup = ⊤. For PGL_2, plusSubgroup ≠ G^der(𝔸) = PGL_2(𝔸): the image of SL_2(ℚ_p) in PGL_2(ℚ_p) has index 4 for odd p.
 
-  Sources: [Khayutin], §2.3, arXiv v3 pp. 15–16; Annals p. 162. Requires: AA.1.3; Tau Ceti `TauCeti.simplyConnectedSemisimpleCommHopfAlgProperty`; `ReductiveGroupsPartII:RG2.1`; AA.4.6.
+  Sources: [Khayutin], §2.3, arXiv v3 pp. 15–16; Annals p. 162. Requires: AA.1.3; Tau Ceti `TauCeti.simplyConnectedSemisimpleCommHopfAlgProperty`; ReductiveGroups, layer 6; AA.4.6.
 
 - **The residual quotient G_res.** For connected reductive G/F, define G_res=G(𝔸_F)/(G(F)G(𝔸_F)^+), an abelian topological group with its canonical quotient topology, and π⁺:[G(𝔸)]→G_res. The composite G(𝔸)→G_res is a continuous surjective homomorphism. Hausdorffness or compactness requires closedness of the denominator subgroup; for PB×/ℚ these follow from reduced-norm-components and idele-class-square-compact.
 
