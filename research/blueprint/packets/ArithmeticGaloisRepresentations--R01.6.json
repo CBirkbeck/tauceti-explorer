@@ -63,6 +63,13 @@
         "module": "Mathlib/FieldTheory/Galois/Basic.lean",
         "provides": "Intermediate field of E/F fixed by a subgroup of Gal(E/F); the defining membership condition is pointwise fixedness.",
         "checked": "Definition and mem_fixedField_iff read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:separableClosure",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/SeparableClosure.lean",
+        "provides": "The intermediate field of separable elements in an extension E/K; mem_separableClosure_iff identifies membership with IsSeparable K x. Intersect with a fixedField to form division fields over arbitrary K.",
+        "checked": "Definition and membership statement read at the pinned commit by REV-ArithmeticGaloisRepresentations--R01.6 on 2026-10-09."
       }
     ]
   },
@@ -106,7 +113,7 @@
       "access": "public author, archive or publisher copy",
       "readDate": "2026-10-09",
       "readSections": [
-        "§2.2, Propositions 2.8–2.14, pp. 55–58"
+        "§2.2, Proposition 2.8, Theorem 2.9, Propositions 2.11–2.13 and Remarks 2.10 and 2.14, pp. 55–58"
       ],
       "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3"
     },
@@ -161,8 +168,8 @@
       "access": "public author, archive or publisher copy",
       "readDate": "2026-10-09",
       "readSections": [
-        "§4, Lemmas 4.9–4.11, author pp. 11–12",
-        "§6, Definitions 6.1–6.5, Lemmas 6.11–6.12, Proposition 6.14, author pp. 14–16"
+        "§4, Proposition 4.9 and Lemmas 4.10–4.11, author pp. 11–12",
+        "§6, Definitions 6.1–6.5, Lemma 6.11 and Proposition 6.12, Proposition 6.14, author pp. 14–16"
       ],
       "sha256": "7b904ef1ee7e136a5d2c1aa73a5f2eee603e91ba8c6188fb230fadd9e1a02e13"
     },
@@ -226,7 +233,7 @@
       "access": "Maintainer-cleared reference library, reading only; no source file or passage reproduced",
       "readDate": "2026-10-09",
       "readSections": [
-        "§26, Exercise 26.2, p. 182; Propositions 26.5–26.6 and Corollary 26.7, pp. 184–186",
+        "§26, Exercise 26.2, p. 181; Propositions 26.5–26.6 and Corollary 26.7, pp. 184–186",
         "§27, Theorem 27.1 and its proof, pp. 192–194"
       ],
       "url": "https://doi.org/10.1007/978-3-642-21147-8"
@@ -258,7 +265,9 @@
         "ArithmeticGaloisRepresentations:R01.1/restriction-dual-tensor-twist",
         "mathlib:Field.absoluteGaloisGroup",
         "mathlib:Representation",
-        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety"
+        "tauceti:TauCeti.AlgebraicGeometry.AbelianVariety",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/field-and-torus-comparisons",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.0/adic-representations"
       ],
       "sources": [
         {
@@ -396,20 +405,23 @@
       ],
       "title": "Division fields",
       "kind": "definition",
-      "statement": "For m≥1 invertible in K, let H_m≤G_K be the kernel of the action on A[m](K̄). Define K(A[m]) to be the fixed intermediate field K̄^{H_m}. This finite Galois extension is the least field over which every geometric m-torsion point is rational. If m|n, K(A[m])⊂K(A[n]); the ℓ-power division field is their directed supremum, and the kernel of ρ_T is the intersection of the H_{ℓ^n}.",
+      "statement": "For m≥1 invertible in K, let H_m≤G_K be the kernel of the action on A[m](K̄). Define K(A[m]) to be (K^sep)^{H_m}, embedded in K̄ as K^sep ∩ K̄^{H_m}. This finite Galois extension is the least field over which every geometric m-torsion point is rational. If m|n, K(A[m])⊂K(A[n]); the ℓ-power division field is their directed supremum, and the kernel of ρ_T is the intersection of the H_{ℓ^n}. Taking the fixed field in all of K̄ without this intersection is incorrect for imperfect K: it includes purely inseparable elements fixed by every K-automorphism.",
       "hypotheses": [
         "m≥1 and m is prime to char K.",
-        "Use the subgroup fixing the entire torsion group, not the stabilizer of one point."
+        "Use the subgroup fixing the entire torsion group, not the stabilizer of one point.",
+        "Use the separable subfield of K̄; no perfectness assumption on K is imposed."
       ],
       "proofSteps": [
-        "Finite torsion and continuity give an open normal kernel.",
-        "Apply fixed-field Galois correspondence and compare pointwise fixedness.",
+        "Finite étale m-torsion from A3 gives a continuous finite action and an open normal kernel, also for composite m.",
+        "Apply Galois correspondence in K^sep/K, then embed the fixed field into K̄ by intersecting with separableClosure. Compare pointwise fixedness and rationality of finite étale torsion.",
         "Take intersections of kernels and directed unions of the corresponding fixed fields."
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.6/finite-torsion-action",
         "ArithmeticGaloisRepresentations:R01.1/finite-galois-factorisation",
-        "mathlib:IntermediateField.fixedField"
+        "mathlib:IntermediateField.fixedField",
+        "AbelianSchemesAndArithmeticModuli:A3/multiplication-and-density",
+        "mathlib:separableClosure"
       ],
       "sources": [
         {
@@ -425,7 +437,8 @@
       ],
       "acceptance": [
         "The definition agrees with adjoining coordinates in a Weierstrass model.",
-        "The one-point stabilizer can be nonnormal; source issue E9002 records the correction."
+        "The one-point stabilizer can be nonnormal; source issue E9002 records the correction.",
+        "K(A[1])=K holds over imperfect fields as well as perfect fields."
       ],
       "implementationStatus": "unchecked",
       "library": {
@@ -436,7 +449,7 @@
         {
           "name": "divisionField_fixed_iff",
           "role": "characterisation",
-          "statement": "x∈K(A[m]) iff every element of H_m fixes x."
+          "statement": "x∈K(A[m]) iff x is separable over K and every element of H_m fixes x."
         },
         {
           "name": "divisionField_kernel",
@@ -447,6 +460,16 @@
           "name": "divisionField_mono",
           "role": "functoriality",
           "statement": "m|n implies K(A[m])≤K(A[n]) when both are invertible."
+        },
+        {
+          "name": "divisionField_le_separableClosure",
+          "role": "structure",
+          "statement": "K(A[m]) lies in K^sep, even when K is imperfect."
+        },
+        {
+          "name": "divisionField_finiteGalois",
+          "role": "structure",
+          "statement": "For m≥1 invertible in K, K(A[m])/K is finite Galois."
         }
       ],
       "tests": [
@@ -464,6 +487,11 @@
           "name": "divisionField_two_cubic",
           "kind": "non-example",
           "statement": "For E:y²=x³−x−1 over Q, Q(E[2]) is the S₃ splitting field; the field of one nonzero 2-torsion point has degree 3 and is not this field."
+        },
+        {
+          "name": "divisionField_excludes_inseparable",
+          "kind": "non-example",
+          "statement": "An element not separable over K belongs to no K(A[m]). Over F_p(t), this excludes t^(1/p), even though every K-automorphism of K̄ fixes it."
         }
       ],
       "uses": [
@@ -600,7 +628,7 @@
       "sources": [
         {
           "sourceId": "ddt",
-          "locator": "§2.2, Proposition 2.9, pp. 55–56",
+          "locator": "§2.2, cyclic-isogeny discussion before Theorem 2.9, p. 56",
           "match": "Residual reducibility detects rational cyclic isogenies, rather than rational generators."
         }
       ],
@@ -773,7 +801,7 @@
       "sources": [
         {
           "sourceId": "ddt",
-          "locator": "§2.2, Proposition 2.8, p. 55",
+          "locator": "§2.2, Proposition 2.8, p. 56",
           "match": "For elliptic curves the cyclotomic character is the determinant."
         },
         {
@@ -820,7 +848,7 @@
       "sources": [
         {
           "sourceId": "ddt",
-          "locator": "§2.2, Proposition 2.8, p. 55",
+          "locator": "§2.2, Proposition 2.8, p. 56",
           "match": "Elliptic Tate representations are odd."
         },
         {
@@ -852,18 +880,19 @@
       "statement": "Let R be a henselian DVR with fraction field K, finite residue field k, and an abelian scheme 𝒜/R with generic fibre A and special fibre B. For ℓ≠char k, specialization identifies A[ℓ^n](K̄) with B[ℓ^n](k̄), equivariantly for D_K→G_k and compatibly with transition maps, homomorphisms and products. Hence inertia acts trivially on T_ℓA and V_ℓA. Only the good-reduction ⇒ unramified direction is needed here.",
       "hypotheses": [
         "Use an actual smooth proper group scheme model, not a good-reduction label with no model.",
-        "ℓ is a unit of R."
+        "ℓ is a unit of R.",
+        "Q4 is an open strengthening of the finite normalization/decomposition interface; its full arithmetic fibre comparison is recorded in G7."
       ],
       "proofSteps": [
         "Multiplication by ℓ^n on 𝒜 is finite étale by A3.",
-        "The henselian finite-étale fibre equivalence identifies the two geometric fibres and their actions.",
+        "Request the henselian finite-étale fibre equivalence and its residue Galois equivariance through Q4/G7; the cited finite-normalization supplier does not by itself state this comparison.",
         "Take the inverse limit and extend scalars; use the whole division-field kernel in the elementary elliptic proof."
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.6/field-tate-realization",
         "ArithmeticGaloisRepresentations:R01.6/division-field-interface",
         "AbelianSchemesAndArithmeticModuli:A3/multiplication-and-density",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.1"
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/decomposition-inertia"
       ],
       "sources": [
         {
@@ -963,7 +992,7 @@
         },
         {
           "sourceId": "milne-ec",
-          "locator": "V Propositions 7.5 and 8.3, pp. 217, 223",
+          "locator": "V Propositions 7.5 and 8.3, pp. 217, 221",
           "match": "The elliptic trace is the reduction point count."
         }
       ],
@@ -1011,7 +1040,7 @@
       "sources": [
         {
           "sourceId": "ddt",
-          "locator": "§2.2, Proposition 2.12 and its proof, pp. 56–57",
+          "locator": "§2.2, Proposition 2.12 and its proof, pp. 57–58",
           "match": "Tate uniformization gives the upper triangular cyclotomic–Kummer action."
         }
       ],
@@ -1055,7 +1084,7 @@
       "sources": [
         {
           "sourceId": "ddt",
-          "locator": "§2.2, Propositions 2.13–2.14, pp. 57–58",
+          "locator": "§2.2, Proposition 2.13 and Remark 2.14, p. 58",
           "match": "The displayed p>3 conductor computation and the all-characteristic Ogg–Saito discussion motivate the inertia comparison; the latter is an explicitly recorded input gap."
         }
       ],
@@ -1206,7 +1235,7 @@
       "sources": [
         {
           "sourceId": "ddt",
-          "locator": "§2.2, Propositions 2.11–2.14, pp. 56–58",
+          "locator": "§2.2, Propositions 2.11–2.13 and Remark 2.14, pp. 56–58",
           "match": "The local reduction cases give the four elliptic Euler polynomials."
         }
       ],
@@ -1248,7 +1277,7 @@
       "sources": [
         {
           "sourceId": "ddt",
-          "locator": "§2.2, Propositions 2.12–2.14, pp. 56–58",
+          "locator": "§2.2, Propositions 2.12–2.13 and Remark 2.14, pp. 56–58",
           "match": "The local conductor cases and residual Tate criterion supply the comparison inputs."
         }
       ],
@@ -1596,17 +1625,19 @@
       "statement": "If A/Q is GL2-type with a K-defined coefficient field E of degree g, every two-dimensional V_λA is odd: complex conjugation has eigenvalues 1 and −1 over E_λ. No Rosati-fixed or totally-real assumption is needed for this oddness assertion. The stronger determinant identity det ρ_λ=χ_ℓ uses the balanced-pairing hypotheses. A general formula εχ_ℓ with finite-order ε requires the locally algebraic determinant input and is not exported here.",
       "hypotheses": [
         "A is defined over Q, E⊂End⁰_Q(A), [E:Q]=g.",
-        "The claim is rational, including λ above 2."
+        "The claim is rational, including λ above 2.",
+        "A4/A5 give realization conventions and analytic homology, but Q8/G8 supplies the exact all-prime equivariant Betti–Tate comparison; no exclusion of primes dividing a polarization degree is allowed."
       ],
       "proofSteps": [
         "Use the general real-place eigenspaces of Q_ℓ-dimension g.",
-        "These spaces are E⊗Q_ℓ-stable. Over Q, conjugation on complex homology has each E-eigenspace of E-dimension one; import the A4 realization convention to identify its scalar extension with Tate realizations.",
+        "These spaces are E⊗Q_ℓ-stable. Ribet’s E-linear complex homology decomposition has each conjugation eigenspace of E-dimension one. Use the endomorphism- and conjugation-equivariant Betti–Tate comparison for every ℓ, requested in Q8/G8, to transport these ranks to every E_λ component.",
         "Equivalently use the E-linear real homology decomposition in Ribet’s proof; avoid deducing component ranks merely from a sum of Q_ℓ dimensions."
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.6/real-conjugation-eigenspaces",
         "ArithmeticGaloisRepresentations:R01.6/lambda-rational-component",
-        "AbelianSchemesAndArithmeticModuli:A4/realization-conventions"
+        "AbelianSchemesAndArithmeticModuli:A4/realization-conventions",
+        "AbelianSchemesAndArithmeticModuli:A5/analytic-families-and-comparison"
       ],
       "sources": [
         {
@@ -1683,7 +1714,7 @@
       ],
       "proofSteps": [
         "Import G7’s form-similitude group and the integral lattice topology.",
-        "The actual image is compact and hence closed, so open is equivalent to finite index.",
+        "The actual image is compact and hence closed inside the compact Hausdorff lattice-similitude group. A closed finite-index subgroup is open, and an open subgroup of a compact group has finite index.",
         "Use the rational form and its lattice stabilizer for nonperfect integral pairings."
       ],
       "prerequisites": [
@@ -1715,7 +1746,7 @@
         {
           "name": "pGeneric_open_iff_finiteIndex",
           "role": "characterisation",
-          "statement": "For the compact closed image, openness is equivalent to finite index in the lattice similitude group."
+          "statement": "For a continuous action of a compact group into a compact Hausdorff lattice-similitude group, its closed image is open iff it has finite index. The ambient group must be compact for this general equivalence."
         },
         {
           "name": "pGeneric_finite_extension",
@@ -1748,6 +1779,11 @@
           "name": "pGeneric_dyadic",
           "kind": "compatibility",
           "statement": "For p=2 the full lattice-similitude group acting on the actual Z₂ lattice is used; a surjection to that group is generic, including nonperfect polarization pairings."
+        },
+        {
+          "name": "pGeneric_discrete_infinite",
+          "kind": "non-example",
+          "statement": "The trivial image in an infinite discrete group is open but has infinite index, even with compact source. This rejects the general equivalence with no compactness assumption on the target."
         }
       ],
       "uses": [
@@ -1932,7 +1968,7 @@
         },
         {
           "sourceId": "ry",
-          "locator": "Definition 2.4",
+          "locator": "Definition 2.4, p. 8",
           "match": "The ambient factors are the individual images of the family."
         }
       ],
@@ -2155,12 +2191,12 @@
       "sources": [
         {
           "sourceId": "lp",
-          "locator": "§6, Proposition 6.14, author p. 15; Lemmas 6.11–6.12, pp. 15–16; §4, Lemmas 4.9–4.10, pp. 11–12",
+          "locator": "§6, Proposition 6.14, author p. 15; Lemma 6.11 and Proposition 6.12, author p. 15; §4, Proposition 4.9 and Lemma 4.10, author p. 11",
           "match": "Compatible semisimple systems have a common inverse image of the identity component."
         },
         {
           "sourceId": "ry",
-          "locator": "Theorem 4.9",
+          "locator": "Theorem 4.9, p. 17",
           "match": "The connectedness and independence statements are separated from the Mumford–Tate clause."
         }
       ],
@@ -2232,17 +2268,18 @@
       "statement": "Let S be a normal geometrically integral scheme of finite type over a characteristic-zero finitely generated field F, with function field K, and 𝒜/S an abelian scheme. Normalize S in K̄. For a closed point s and a chosen point σ above s, the decomposition subgroup D_σ⊂G_K maps onto G_{κ(s)}, and for every n and prime p the torsion fibre comparison identifies 𝒜_η[p^n] with 𝒜_s[p^n], compatibly in n and equivariantly through this map. Consequently the specialized Tate image is identified with ρ_{η,p}(D_σ) as a subgroup of the generic image, up to conjugacy; the primewise comparisons are adelically compatible.",
       "hypotheses": [
         "S is normal and the family is smooth proper; n is invertible on S because char F=0.",
-        "A decomposition group must be chosen; there is no canonical inclusion of G_{κ(s)} into G_K."
+        "A decomposition group must be chosen; there is no canonical inclusion of G_{κ(s)} into G_K.",
+        "Q4 is an open strengthening of the finite normalization/decomposition interface; its full arithmetic fibre comparison is recorded in G7."
       ],
       "proofSteps": [
-        "Import finite étale torsion from A3/A4 and the arithmetic specialization exact sequence from IG.1.",
+        "Import finite étale torsion from A3/A4 and the finite-normalization decomposition interface from IG.1; request its inverse-limit residue-absolute-Galois and fibre-compatibility extension through Q4/G7.",
         "Use the common normalization and chosen σ to compare finite fibres.",
         "Pass to inverse limits and the prime product; the kernel of D_σ→G_{κ(s)} acts trivially on the fibre."
       ],
       "prerequisites": [
         "AbelianSchemesAndArithmeticModuli:A4/etale-tate-module",
         "AbelianSchemesAndArithmeticModuli:A3/multiplication-and-density",
-        "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+        "InverseGaloisAndArithmeticFundamentalGroups:IG.1/decomposition-inertia",
         "ArithmeticGaloisRepresentations:R01.6/field-tate-realization"
       ],
       "sources": [
@@ -2298,7 +2335,7 @@
         },
         {
           "sourceId": "schneider",
-          "locator": "§26, Exercise 26.2, p. 182, Corollary 26.7, p. 186; §27, Theorem 27.1, pp. 192–194",
+          "locator": "§26, Exercise 26.2, p. 181, Corollary 26.7, p. 186; §27, Theorem 27.1, pp. 192–194",
           "match": "Intersect the compact matrix image with a finite-rank p-valued open subgroup, then apply finite generation and the imported Frattini criterion."
         }
       ],
@@ -2340,7 +2377,7 @@
       "sources": [
         {
           "sourceId": "ddt",
-          "locator": "§2.2, Proposition 2.8, p. 55",
+          "locator": "§2.2, Proposition 2.8, p. 56",
           "match": "The roots-of-unity action supplies the determinant character."
         }
       ],
@@ -2563,20 +2600,19 @@
       "from": "ArithmeticGaloisRepresentations:R01.6",
       "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
       "title": "Arithmetic fibre specialization",
-      "need": "For a normal integral base, chosen normalization point and a finite étale cover, the decomposition subgroup maps onto the residue absolute Galois group; its kernel acts trivially on the cover fibre. Include finite étale torsion over a henselian DVR and compatibility of all levels.",
+      "need": "For a normal integral base, chosen normalization point and a finite étale cover, the decomposition subgroup maps onto the residue absolute Galois group; its kernel acts trivially on the cover fibre. Include finite étale torsion over a henselian DVR and compatibility of all levels. IG.1/decomposition-inertia states the finite normalization interface and a residue quotient on its discrete-valuation curve range; IG.1/proper-specialization is geometric. Neither states this whole normal-base, residue-absolute-Galois, transition-compatible arithmetic contract.",
       "neededBy": [
-        "ArithmeticGaloisRepresentations:R01.6/field-tate-realization",
         "ArithmeticGaloisRepresentations:R01.6/good-reduction-specialization",
         "ArithmeticGaloisRepresentations:R01.6/family-tate-specialization"
       ],
-      "status": "supplier-contract"
+      "status": "open"
     },
     {
       "id": "ArithmeticGaloisRepresentations:R01.6/Q5",
       "from": "ArithmeticGaloisRepresentations:R01.6",
       "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
       "title": "Finite-étale Hilbert specialization",
-      "need": "Over a finitely generated characteristic-zero field F and every nonempty open of a normal geometrically integral finite-type S/F, a connected finite étale Galois cover admits closed points with full decomposition image. IG.2 currently provides regular-polynomial specialization, which does not by itself state this full finite-étale contract.",
+      "need": "Over a finitely generated characteristic-zero field F and every nonempty open of a normal geometrically integral finite-type S/F, a connected finite étale Galois cover admits closed points with full decomposition image. The current accepted IG.2/hilbert-subsets defines general finite-étale Hilbert data, while number-field-hilbert, regular-full-group and its local-approximation results supply number-field specialization. Request the finitely generated-field and general-normal-base closed-point theorem needed here; the datum and number-field results alone do not close it.",
       "neededBy": [
         "ArithmeticGaloisRepresentations:R01.6/noot-full-image-specialization"
       ],
@@ -2604,6 +2640,17 @@
         "ArithmeticGaloisRepresentations:R01.6/serre-bounded-independence"
       ],
       "status": "existing-roadmap-contract"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.6/Q8",
+      "supplier": "AbelianSchemesAndArithmeticModuli:A4/realization-conventions",
+      "title": "Endomorphism-equivariant Betti–Tate comparison",
+      "need": "For an abelian variety A/Q and its complex homology H₁(A(C),Q), identify H₁⊗Q_ℓ with V_ℓA for every prime ℓ, naturally for Q-defined rational endomorphisms and compatibly with complex conjugation. Thus an E-linear ± decomposition transports to every E_λ component, including λ above 2 and primes dividing the polarization degree. A4 realization-conventions and A5 analytic-families-and-comparison supply partial conventions but do not state this exact comparison.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.6/lambda-oddness"
+      ],
+      "status": "open",
+      "from": "ArithmeticGaloisRepresentations:R01.6"
     }
   ],
   "gaps": [
@@ -2660,6 +2707,24 @@
         "ArithmeticGaloisRepresentations:R01.6/noot-full-image-specialization",
         "ArithmeticGaloisRepresentations:R01.6/serre-bounded-independence"
       ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.6/G7",
+      "title": "Arithmetic finite-étale fibre specialization adapter",
+      "detail": "For a normal integral base, chosen normalization point and a finite étale cover, the decomposition subgroup maps onto the residue absolute Galois group; its kernel acts trivially on the cover fibre. Include finite étale torsion over a henselian DVR and compatibility of all levels. IG.1/decomposition-inertia states the finite normalization interface and a residue quotient on its discrete-valuation curve range; IG.1/proper-specialization is geometric. Neither states this whole normal-base, residue-absolute-Galois, transition-compatible arithmetic contract.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.6/good-reduction-specialization",
+        "ArithmeticGaloisRepresentations:R01.6/family-tate-specialization",
+        "ArithmeticGaloisRepresentations:R01.6/noot-full-image-specialization"
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.6/G8",
+      "title": "All-prime coefficient-linear Betti–Tate comparison",
+      "detail": "For an abelian variety A/Q and its complex homology H₁(A(C),Q), identify H₁⊗Q_ℓ with V_ℓA for every prime ℓ, naturally for Q-defined rational endomorphisms and compatibly with complex conjugation. Thus an E-linear ± decomposition transports to every E_λ component, including λ above 2 and primes dividing the polarization degree. A4 realization-conventions and A5 analytic-families-and-comparison supply partial conventions but do not state this exact comparison.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.6/lambda-oddness"
+      ]
     }
   ],
   "sourceIssues": [
@@ -2675,8 +2740,14 @@
       "known": "new",
       "searched": [
         "Milne author page and AV errata listing on 2026-10-09",
-        "Author-hosted AV version 2.00 correction notes; no correction of Remark 7.4 found"
-      ]
+        "Author-hosted AV version 2.00 correction notes; no correction of Remark 7.4 found",
+        "Independent review, 2026-10-09: https://mail.jmilne.org/math/CourseNotes/errata.html, Abelian Varieties v2.00 section, and https://www.jmilne.org/math/CourseNotes/Errata_AbVar.pdf (both pages) read; this finding is absent from those lists. The separately linked tiwari3a.pdf returned HTTP 406, so completeness across all linked material is not claimed."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the false p-rank-only group-scheme decomposition at I Remark 7.4: the supersingular elliptic kernel has tangent dimension one, whereas the proposed α_p² has dimension two.",
+        "by": "REV-ArithmeticGaloisRepresentations--R01.6"
+      }
     },
     {
       "id": "ArithmeticGaloisRepresentations/E9002",
@@ -2690,8 +2761,14 @@
       "known": "new",
       "searched": [
         "Milne second-edition author book page and EC2.pdf on 2026-10-09",
-        "Author first-edition errata listing, distinguished from the second edition; no matching published correction found"
-      ]
+        "Author first-edition errata listing, distinguished from the second edition; no matching published correction found",
+        "Independent review, 2026-10-09: https://www.jmilne.org/math/Books/EC2errata.html read via the web tool after direct retrieval returned HTTP 406. Its second-edition list contains a different correction, to IV5.1; the V8.1 proof finding is absent."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed the proof uses a single-point stabilizer as a normal subgroup at V8.1. The irreducible 2-division cubic with discriminant −23 has S₃ action and a nonnormal order-two point stabilizer.",
+        "by": "REV-ArithmeticGaloisRepresentations--R01.6"
+      }
     },
     {
       "id": "ArithmeticGaloisRepresentations/E9003",
@@ -2705,8 +2782,14 @@
       "known": "new",
       "searched": [
         "Milne author AV errata listing on 2026-10-09",
-        "Author-hosted version 2.00; no correction of this residue-cardinality notation found"
-      ]
+        "Author-hosted version 2.00; no correction of this residue-cardinality notation found",
+        "Independent review, 2026-10-09: https://mail.jmilne.org/math/CourseNotes/errata.html, Abelian Varieties v2.00 section, and https://www.jmilne.org/math/CourseNotes/Errata_AbVar.pdf (both pages) read; this finding is absent from those lists. The separately linked tiwari3a.pdf returned HTTP 406, so completeness across all linked material is not claimed."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed IV §3 defines the generator exponent using the extension residue cardinality. That power is identity on the extension; the base residue cardinality is required.",
+        "by": "REV-ArithmeticGaloisRepresentations--R01.6"
+      }
     }
   ],
   "coverage": [
@@ -2714,7 +2797,7 @@
       "stageId": "ArithmeticGaloisRepresentations:R01.6",
       "status": "planned",
       "remaining": [
-        "Close G1–G6 and the two strengthening contracts Q5 and Q6 before mathematical closure."
+        "Close G1–G8 and the open supplier contracts Q4, Q5, Q6 and Q8 before mathematical closure."
       ],
       "detail": "All 18 parent targets and the full stage description are accounted for at target level. Lower-tier and existing-roadmap ownership is imported; no target remains unread. Complete planning is not a closed proof graph."
     }
@@ -2945,6 +3028,15 @@
           "TauCeti.isClosed_proPFrattini"
         ],
         "provides": "Existing pro-p Frattini construction; generation API is imported from the current profinite roadmap."
+      },
+      {
+        "module": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup/Basic.lean",
+        "declarations": [
+          "TauCeti.AbsoluteGaloisGroup",
+          "TauCeti.absoluteGaloisGroupRestrictEquiv",
+          "TauCeti.coe_absoluteGaloisGroupRestrictEquiv_apply"
+        ],
+        "provides": "The profinite separable-closure Galois group and restriction topological group equivalence with Field.absoluteGaloisGroup, including imperfect fields. Current compactness instances are supplied here, separately from the older baseline."
       }
     ]
   },
@@ -2960,7 +3052,15 @@
       "ProfiniteArithmetic current imports and Frattini references",
       "RepresentationTheory index"
     ],
-    "policy": "Current upstream work is an imported owner; the older atlas snapshot is not a reason to plan it again."
+    "policy": "Current upstream work is an imported owner; the older atlas snapshot is not a reason to plan it again.",
+    "independentReviewDocumentsRead": [
+      "RepresentationTheory/README.md (full)",
+      "ReductiveGroups/README.md (full)",
+      "EllipticCurves Layers 2–4 and current native declarations",
+      "ProfiniteProPGroups Layer 3 and actual Frattini APIs",
+      "ClassFieldTheory Layer 13 maximal unramified class-field property",
+      "All nine post-snapshot roadmaps: scoped recursive searches of current README and Lean files"
+    ]
   },
   "upstreamNotes": [
     {
@@ -3000,6 +3100,10 @@
     {
       "id": "ArithmeticGaloisRepresentations/E794",
       "use": "Milne AV Proposition 13.2(b) p. 58, use α for the isogeny."
+    },
+    {
+      "id": "AbelianSchemesAndArithmeticModuli/E6",
+      "use": "Milne AV I §14, p. 61: use the anti-involution product identity with Rosati applied to both reversed factors. Already confirmed by the geometry supplier and the author errata."
     }
   ],
   "versionsRead": [
@@ -3183,5 +3287,218 @@
       "detail": "Noot specialization and the finite-prime step of Serre independence require finite-quotient detection for every compact closed matrix subgroup. Existing Frattini theory supplies the generation criterion, but its current layer does not supply the generic p-valued linear subgroup and finite-generation bridge. This generic addition is not owned by arithmetic Tate actions.",
       "proposal": "Route a ProfiniteProPGroups, Part II: Compact linear subgroup detection extension whose first prerequisite is the existing ProfiniteProPGroups roadmap. Its first layer supplies finite-rank p-valued open matrix groups and closed-subgroup finite generation; its second layer supplies an open normal finitely generated pro-p subgroup U of H and the finite quotient H/Φ(U) detecting closed subgroups. ArithmeticGaloisRepresentations R01.6 imports this contract through Q6. Existing profinite layers, Frattini definitions and implemented APIs keep their current owner and remain unchanged."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticGaloisRepresentations--R01.6",
+    "date": "2026-10-09",
+    "notes": "Independent check of all 41 nodes, 12 source versions, eight baseline declarations after adding separableClosure, current library/upstream imports, supplier statements, 30 API entries, 32 tests and six planets. Corrected imperfect-field division fields, compact-target image equivalence, locators and supplier contracts. E9001–E9003 confirmed. Complete target-level planning pass with eight explicit gaps and four open requests; no closed proof graph or implementation is claimed. Validator passes without errors/warnings; corrected Lean prototype elaborates with only proof-placeholder warnings.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/field-tate-realization",
+        "verdict": "corrected",
+        "note": "Added exact IG.0 field/fibre and adic-representation suppliers for the arithmetic action; current inverse-limit carrier remains imported."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/finite-torsion-action",
+        "verdict": "verified",
+        "note": "Canonical finite quotients are distinct from the lattice-independent semisimplified reduction; n=0 is retained."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/division-field-interface",
+        "verdict": "corrected",
+        "note": "Corrected imperfect-field fixed fields to the separable subfield; added composite-m input, two structure APIs and the inseparability exclusion test."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/separable-base-change-action",
+        "verdict": "verified",
+        "note": "Checked compatible closure embeddings and the contravariant restriction map; prime-to-characteristic geometric torsion supplies the comparison."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/native-elliptic-tate-comparison",
+        "verdict": "verified",
+        "note": "Checked A1 carrier equivalence, native current Tate action and pairing argument order; existing elliptic work stays imported."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/residual-cyclic-isogenies",
+        "verdict": "corrected",
+        "note": "Corrected DDT locator to the discussion before Theorem 2.9; finite subgroup descent/quotients are A3, and stable lines need not have rational generators."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/quadratic-twist-tate-comparison",
+        "verdict": "verified",
+        "note": "The actual quadratic twist and its chosen geometric isomorphism are explicit mathematical hypotheses, including the dyadic rational action."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/isogeny-tate-cokernel",
+        "verdict": "verified",
+        "note": "Checked the inverse-limit boundary map against the primary geometric kernel; rational invertibility does not imply integral invertibility."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/arithmetic-polarized-pairing",
+        "verdict": "verified",
+        "note": "Twist, covariant adjunction, integral degree restriction and rational perfectness agree with A3/A4 and Milne’s pairing."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/tate-determinant-character",
+        "verdict": "corrected",
+        "note": "Corrected DDT 2.8 page to 56; rank-two baseline is supplemented by G7 for determinant=multiplier^g in all ranks."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/real-conjugation-eigenspaces",
+        "verdict": "corrected",
+        "note": "Corrected DDT 2.8 page; anti-symplectic involution gives rational opposite eigenspaces at 2, without an integral dyadic splitting claim."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/good-reduction-specialization",
+        "verdict": "corrected",
+        "note": "Replaced broad IG.1 citation with its precise finite-normalization node and recorded the missing henselian arithmetic fibre adapter in Q4/G7."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/finite-field-frobenius-conventions",
+        "verdict": "verified",
+        "note": "Arithmetic q-power acts on the primal Tate module; geometric Frobenius acts inversely there and dually on H¹. Base residue cardinality is used."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/integral-good-frobenius-polynomial",
+        "verdict": "corrected",
+        "note": "Corrected EC V8.3 page to 221; A6 owns the common integral polynomial, and the existing parent Weierstrass determinant target is imported."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/tate-uniformization-action",
+        "verdict": "corrected",
+        "note": "Corrected DDT 2.12 proof pages to 57–58; actual Kummer class, choice of splitting and unramified quadratic twist are retained."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/additive-elliptic-inertia",
+        "verdict": "corrected",
+        "note": "Corrected DDT 2.14 to Remark and page 58; low-residue-characteristic classification remains G1 rather than silently extending DDT 2.13."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/abelian-euler-polynomial",
+        "verdict": "verified",
+        "note": "Checked dual invariants/geometric Frobenius against primal coinvariants/arithmetic Frobenius and the four discriminating polynomial examples."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/weierstrass-local-polynomial-comparison",
+        "verdict": "corrected",
+        "note": "Corrected DDT 2.14 kind; pinned minimal-model polynomial uses Nat.card including infinity, and additive comparison remains conditional on G1."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/elliptic-conductor-export",
+        "verdict": "corrected",
+        "note": "Corrected DDT 2.14 kind; retains R01.3 wild gap and the E/Q, prime≥5 scope of the residual export."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/endomorphism-coefficient-action",
+        "verdict": "verified",
+        "note": "Checked actual endomorphism action, geometric semilinearity and integral order restriction; a rational embedding alone supplies no maximal-order lattice."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/lambda-rational-component",
+        "verdict": "verified",
+        "note": "A6 gives uniform factor rank; tensor/idempotent decomposition uses all completion factors and distinguishes split/inert CM examples."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/integral-lambda-component",
+        "verdict": "verified",
+        "note": "Maximal-order lattice and ramified reduction are correctly separated; the canonical tensor comparison and uniformizer-dependent map are distinct."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/balanced-lambda-pairing",
+        "verdict": "verified",
+        "note": "Rosati-fixed totally real coefficients give balance, trace descent and rank-two determinant; referenced the supplier’s already recorded Rosati misprint."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/lambda-oddness",
+        "verdict": "corrected",
+        "note": "Recorded Q8/G8 for the all-prime endomorphism- and conjugation-equivariant Betti–Tate comparison; A4/A5 do not state this full contract."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/coefficient-frobenius-comparison",
+        "verdict": "verified",
+        "note": "A6 normal-base Hom extension supplies specialization; field norms recover the Z polynomial without asserting an independent E-valued polynomial."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/prime-galois-genericity",
+        "verdict": "corrected",
+        "note": "Corrected general Lean/API equivalence to require compact target; added infinite discrete ambient counterexample while retaining full-GSp and zero-rank conventions."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/adelic-galois-genericity",
+        "verdict": "verified",
+        "note": "Joint openness uses the product of full lattice-similitude groups, and the constant binary subgroup distinguishes it from primewise openness."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/genericity-transport",
+        "verdict": "verified",
+        "note": "Checked finite extension and commensurable lattices; polarization change uses scalar centralizer after one full-GSp image is open."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/independence-predicate",
+        "verdict": "corrected",
+        "note": "Added Richard–Yafaev definition page 8; product of actual restricted images and compactness criterion are distinct from ambient openness and pairwise independence."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/uniform-potential-unipotence",
+        "verdict": "verified",
+        "note": "The same finite extension and finite bad set work at all off-diagonal primes; SGA7 geometric proof remains explicitly G3."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/serre-bounded-independence",
+        "verdict": "verified",
+        "note": "Read B/PST and finite exceptional-prime reinsertion through Serre §8; G4 and generic compact linear integration remain explicit."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/independence-of-abelian-tate-actions",
+        "verdict": "verified",
+        "note": "Uniform rank and potential semistable input instantiate the full Serre criterion without maximal-image or polarization exclusions."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/common-connectedness-field",
+        "verdict": "corrected",
+        "note": "Corrected LP 4.9/6.12 declaration kinds and pages and RY4.9 page 17; semisimplified component comparison remains G5."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/common-independent-connected-field",
+        "verdict": "verified",
+        "note": "Connectedness field is taken first and independence reapplied there; no unjustified preservation of independence under arbitrary extension is used."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/family-tate-specialization",
+        "verdict": "corrected",
+        "note": "Precise finite-normalization supplier is retained and its absolute-residue/inverse-limit extension is requested in Q4/G7 with a common chosen point."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/noot-full-image-specialization",
+        "verdict": "corrected",
+        "note": "Corrected Schneider exercise page 181 and current IG.2 scope; fixed-prime full image still needs Q4/Q5/Q6, never an all-prime specialization."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/example-cyclotomic-pairing",
+        "verdict": "corrected",
+        "note": "Corrected DDT 2.8 page; arithmetic/geometric Frobenius and conjugation agree with the actual roots-of-unity twist."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/example-split-tate",
+        "verdict": "verified",
+        "note": "Verified nonsplit Kummer extension, coinvariant eigenvalue 1, conductor 1 and residual valuation criterion; semisimplification loses the conductor."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/example-supersingular-good",
+        "verdict": "verified",
+        "note": "Four points over F₃ and trace 0 give X²+3 and 1+3T²; no false α_p² product is inferred."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/example-cm-over-q",
+        "verdict": "verified",
+        "note": "Actual CM endomorphism is defined over Q(i); Q action is semilinear, split/inert factors have rank 1 and full GL₂ openness fails."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.6/example-frobenius-five",
+        "verdict": "verified",
+        "note": "Eight points over F₅ give trace −2, determinant 5 and reciprocal 1+2T+5T²; inverse/dual conventions agree."
+      }
+    ]
+  }
 }

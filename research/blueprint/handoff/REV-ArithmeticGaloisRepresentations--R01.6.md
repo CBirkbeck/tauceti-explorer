@@ -1,0 +1,13 @@
+# Handoff: REV-ArithmeticGaloisRepresentations--R01.6
+
+Job #7951 completed by Codex, session codex-3Zz2Jd. Independent review accepted the complete target-level R01.6 planning pass after correcting its packet, reader and suggested Lean file. Original BP author was codex-pjMuPw (PR #8116).
+
+The review report and the packet’s 41-entry checked list contain all findings and source locators. Main repairs: division fields lie in the separable closure over imperfect K; the general open-image/finite-index signature assumes a compact target; precise IG.0 action suppliers replace an implicit bridge; IG.1 arithmetic specialization and all-prime E-linear Betti–Tate comparison are explicit open requests Q4/Q8 and gaps G7/G8. Q5 reflects current finite-étale Hilbert data while retaining the missing general finitely generated-field theorem. Source locators and three source-issue review verdicts are corrected/confirmed. No target nodes were added or removed.
+
+Validation: blueprint checker zero errors/warnings; corrected suggested file elaborates through lean-check at Mathlib 082e2d3 and Tau Ceti f790474 with only sorry warnings; git diff --check passes. All nine definitions/constructions have at least three tests (32 total), 30 API entries and six planets. All 18 parent targets remain accounted for. Status is complete/planned, never closed or implemented.
+
+For follow-up ownership, route Q4 and Q5 to InverseGaloisAndArithmeticFundamentalGroups, Q8 to AbelianSchemesAndArithmeticModuli’s realization direction, and Q6 to ProfiniteProPGroups Part II compact-linear detection, importing its existing Frattini theory. Keep G1–G8 and four open requests explicit in assembly. Preserve the original upstream note moving uniform potential-unipotence arithmetic content down to Tier 7 and repointing R01.3’s obsolete Tate carrier dependency to A4/current APIs. Do not replan current generic/native Tate modules, roots-of-unity twists, elliptic Layers 2–4 or Frattini APIs.
+
+Source versions and URLs/hashes are durable in the packet. Schneider was read in the maintainer-cleared original; no source copy or passage was saved. Public author errata pages were checked where accessible; the AV tiwari3a supplementary PDF returned HTTP 406, so source-issue novelty is not asserted exhaustively. Existing Rosati misprint is referenced as AbelianSchemesAndArithmeticModuli/E6, not duplicated. Scratch contains no unique input needed by a next worker and is removed after PR submission.
+
+No remaining work for this review job. Mathematical proof-input closure is later work described in the packet, rather than unfinished review work. This run takes no second issue.
