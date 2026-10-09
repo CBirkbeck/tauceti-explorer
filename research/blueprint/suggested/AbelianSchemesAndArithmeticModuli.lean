@@ -15,6 +15,10 @@ import TauCeti.AlgebraicGeometry.AbelianVariety.Isogeny
 import TauCeti.AlgebraicGeometry.AbelianVariety.Product
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.BaseChange
 import TauCeti.Geometry.Hodge.WeightOne.Basic
+import TauCeti.Geometry.Hodge.Polarization
+import TauCeti.Geometry.Hodge.Dual
+import TauCeti.Geometry.Hodge.WeightOne.Polarization
+import TauCeti.Geometry.Lie.Exponential.LocalInverse
 import Mathlib.Algebra.Module.ZLattice.Basic
 import Mathlib.Algebra.Polynomial.Roots
 import Mathlib.LinearAlgebra.TensorProduct.Basic
@@ -154,6 +158,10 @@ abbrev CoefficientHom (A B : AbelianVariety K) (R : Type*) [CommRing R] [Algebra
 namespace CoefficientHom
 variable {R : Type*} [CommRing R] [Algebra ℚ R]
 
+/-- API `CoefficientHom.id`: tensor the native identity, retaining the field K. -/
+noncomputable def id (A : AbelianVariety K) : CoefficientHom A A R :=
+  1 ⊗ₜ[ℤ] Additive.ofMul (𝟙 A)
+
 /-- API `CoefficientHom.comp`: bilinear categorical composition. -/
 noncomputable def comp : CoefficientHom A B R →ₗ[R]
     CoefficientHom B C R →ₗ[R] CoefficientHom A C R := by sorry
@@ -162,6 +170,14 @@ noncomputable def comp : CoefficientHom A B R →ₗ[R]
 noncomputable def baseChange {R' : Type*} [CommRing R'] [Algebra ℚ R']
     (f : R →ₐ[ℚ] R') : CoefficientHom A B R →+ CoefficientHom A B R' := by sorry
 
+/-- Coefficient composition preserves the actual native identity. -/
+theorem id_comp (f : CoefficientHom A B R) : comp (id A) f = f := by sorry
+
+theorem comp_id (f : CoefficientHom A B R) : comp f (id B) = f := by sorry
+
+theorem baseChange_id (f : CoefficientHom A B R) :
+    baseChange (AlgHom.id ℚ R) f = f := by sorry
+
 /-- The actual unit group, supplying the points of the future affine unit-group scheme. -/
 abbrev units (A : AbelianVariety K) := (R ⊗[ℤ] End A)ˣ
 
@@ -169,12 +185,21 @@ abbrev units (A : AbelianVariety K) := (R ⊗[ℤ] End A)ˣ
 example (A : AbelianVariety K) (ε : R) (hε : ε * ε = 0) (α : R ⊗[ℤ] End A) :
     (1 + ε • α) * (1 - ε • α) = 1 ∧ (1 - ε • α) * (1 + ε • α) = 1 := by sorry
 
+/-- Test `CoefficientHom.scalar_isogeny`: 2 has inverse 1/2 in coefficient End. -/
+example (A : AbelianVariety K) :
+    (2 : R ⊗[ℤ] End A) * ((1 / 2 : ℚ) • (1 : R ⊗[ℤ] End A)) = 1 ∧
+      ((1 / 2 : ℚ) • (1 : R ⊗[ℤ] End A)) * (2 : R ⊗[ℤ] End A) = 1 := by sorry
+
+/-- Test `CoefficientHom.zero`: the positive-dimensional condition excludes the zero ring. -/
+example (A : AbelianVariety K) (g : ℕ) (hg : A.dim = (g : WithBot ℕ∞)) (hpos : 0 < g) :
+    ¬ IsUnit (0 : ℚ ⊗[ℤ] End A) := by sorry
+
 end CoefficientHom
 
 end TauCeti.AlgebraicGeometry.AbelianVariety
 
 namespace TauCeti.AbelianRiemann
-variable {V : Type*} [NormedAddCommGroup V] [NormedSpace ℝ V]
+variable {V : Type*} [NormedAddCommGroup V] [NormedSpace ℝ V] [FiniteDimensional ℝ V]
 variable (Λ : Submodule ℤ V) [DiscreteTopology Λ] [IsZLattice ℝ Λ]
 
 /-- A5/riemann-form, expressed on native real bilinear maps, a native full Z-lattice and the
@@ -200,12 +225,23 @@ theorem hermitian_formula (E : RiemannForm Λ J) (v w : V) :
 /-- API `RiemannForm.integralPairing`: choose the integer values using the actual integrality proof. -/
 noncomputable def integralPairing (E : RiemannForm Λ J) : Λ →ₗ[ℤ] Λ →ₗ[ℤ] ℤ := by sorry
 
+/-- API `RiemannForm.scale`: positive integral scaling preserves the Riemann relations. -/
+noncomputable def scale (E : RiemannForm Λ J) (n : ℕ) (hn : 0 < n) :
+    RiemannForm Λ J := by sorry
+
+theorem scale_form (E : RiemannForm Λ J) (n : ℕ) (hn : 0 < n) :
+    (E.scale n hn).form = (n : ℝ) • E.form := by sorry
+
+/-- API `RiemannForm.ext`: all remaining fields are propositions. -/
+@[ext] theorem ext {E E' : RiemannForm Λ J} (h : E.form = E'.form) : E = E' := by sorry
+
 /-- API `RiemannForm.isPrincipal`: unimodularity, not merely rational nondegeneracy. -/
 def isPrincipal (E : RiemannForm Λ J) : Prop := Function.Bijective E.integralPairing
 
 /-- API `RiemannForm.pullback`: positivity requires an injective map and the lattice and
 complex structures must be respected. -/
 noncomputable def pullback {W : Type*} [NormedAddCommGroup W] [NormedSpace ℝ W]
+    [FiniteDimensional ℝ W]
     (Λ' : Submodule ℤ W) [DiscreteTopology Λ'] [IsZLattice ℝ Λ']
     (J' : TauCeti.AlmostComplexStructure W) (E : RiemannForm Λ J)
     (f : W →ₗ[ℝ] V) (hinj : Function.Injective f)
@@ -218,16 +254,23 @@ example [Subsingleton V] (E : RiemannForm Λ J) : E.isPrincipal := by sorry
 /-- Test `RiemannForm.negative`: the negative form fails the positive convention. -/
 example (E : RiemannForm Λ J) (v : V) (hv : v ≠ 0) : ¬ 0 < -(E.form (J v) v) := by sorry
 
+/-- Test `RiemannForm.homological_sign`: C=-J and Q=-E preserve positivity. -/
+example (E : RiemannForm Λ J) (v : V) (hv : v ≠ 0) :
+    0 < -(E.form (-(J v)) v) := by sorry
+
+/-- Tests `RiemannForm.double` and `RiemannForm.scale_nonprincipal`: doubling a principal
+form on a nonzero finite lattice preserves positivity and loses unimodularity. -/
+example [Nontrivial Λ] (E : RiemannForm Λ J) (hE : E.isPrincipal) :
+    ¬ (E.scale 2 (by decide)).isPrincipal := by sorry
+
 end RiemannForm
 end TauCeti.AbelianRiemann
 
 /-! ## Exact target and omission manifest
 
-Names below are relative to the namespaces of their mathematical carriers.
-Each record states whether a native signature above covers all or part of it,
-and identifies the absent carrier for the remaining conditions. Mathematical
-statements are planning records, not elaborated declarations. See the reader
-for hypotheses, source locators, prerequisites and proof obligations.
+Names below belong to the mathematical carriers of their packet targets.
+Each record identifies the native part and the exact missing carrier. Records
+are planning statements, not elaborated declarations or implementations.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A0/field-and-elliptic-boundary (comparison): Field and elliptic comparison interfaces
@@ -276,17 +319,22 @@ Signature boundary: The imported relative abelian-scheme, rigidified invertible-
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A2/abelian-neron-severi (definition): Néron–Severi group of an abelian variety
-Exact mathematical signature: For A/k put NS(A)=Pic(A)/Pic⁰(A), where Pic⁰(A) consists of k-defined line classes algebraically equivalent to zero. Define NS(A)_Q=NS(A)⊗_Z Q and NS(A)_R similarly, and define the ample cone as the positive real cone generated by ample line classes. The geometric group NS(A_kbar) is distinguished from NS(A) and from its Galois invariants. The Mumford map factors to an injection NS(A)→Hom(A,A∨); translation acts trivially and [n]* acts as n². Finite generation is the separate A6 consequence of Hom finiteness, not a definition axiom.
-Signature boundary: The imported relative dual/Poincaré and polarization carriers, rigidified Picard quotient and intersection/type interfaces are not native pinned declarations. Native field End is used above where it suffices.
+Exact mathematical signature: For A/k put NS(A)=Pic(A)/Pic⁰(A), where Pic⁰(A) consists of k-defined line classes algebraically equivalent to zero. Define NS(A)_Q=NS(A)⊗_Z Q and NS(A)_R similarly, and define the ample cone as the positive real cone generated by ample line classes. The geometric group NS(A_kbar) is distinguished from NS(A) and from its Galois invariants. The Mumford map factors to an injection NS(A)→Hom(A,A∨); translation acts trivially and [n]* acts as n². Finite generation is the separate A6 consequence of Hom finiteness, not a definition axiom. Define the geometric Picard number ρ(A)=dim_Q NS(A_kbar)_Q, independently of the chosen algebraic closure. The rank of NS(A) from k-defined line classes is a separate arithmetic invariant, not the definition of ρ.
+Signature boundary: The Picard quotient, geometric NS base-change comparison and its finite rational rank carrier are not native pinned declarations. In particular AbelianNS.picardNumber and its zero/elliptic/square tests are omitted signatures, not native constants.
 API `AbelianNS.mk`: Send a line class to its quotient class.
 API `AbelianNS.eq_iff`: Two classes agree exactly when their quotient is in Pic⁰(A).
 API `AbelianNS.toSymmetricHom`: Expose the injective Mumford homomorphism into Hom(A,A∨).
 API `AbelianNS.pullback`: Contravariant pullback respects identity, composition and the n² multiplication formula.
 API `AbelianNS.tensorQ`: Scalar extension gives the rational NS space and clears denominators in rational pullbacks.
+API `AbelianNS.picardNumber`: Return dim_Q NS(A_kbar)_Q; extension of algebraically closed fields preserves it.
+API `AbelianNS.ext`: Equality of quotient classes is detected by algebraic equivalence of representatives, and is compatible with the injective Mumford map.
 Test `AbelianNS.elliptic_degree` (computation): NS(E) over an algebraically closed field is Z with O(0) mapping to 1.
 Test `AbelianNS.pic0_zero` (characterisation): For L in Pic⁰(A), its NS class and φ_L both vanish.
 Test `AbelianNS.multiplication_square` (computation): For E and O(0), [2]* acts on NS by 4, not 2.
 Test `AbelianNS.geometric_descent` (non-example): A Galois-fixed geometric class need not lift to a k-line class; do not identify NS(A) with NS(A_kbar)^G without a descent theorem.
+Test `AbelianNS.picardNumber_zero` (degenerate): The dimension-zero abelian variety has NS=0 and ρ=0.
+Test `AbelianNS.picardNumber_elliptic` (computation): Every geometric elliptic curve has ρ=1.
+Test `AbelianNS.picardNumber_square` (computation): In characteristic zero, if End(E)=Z geometrically, then ρ(E×E)=3, from the two factor classes and the diagonal; it is not 2.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A2/ample-cohomology-and-degree (theorem): Ample cohomology, Riemann–Roch and degree
@@ -325,7 +373,7 @@ Signature boundary: The imported relative dual/Poincaré and polarization carrie
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A2/principal-quotient-and-spreading (theorem): Principal polarized quotients and spreading
-Exact mathematical signature: Over an algebraically closed field an ample L admits an isogeny u:A→A₀ and a principal ample line L₀ with L≃u*L₀, of degree h⁰(L). Equivalently use a maximal isotropic subgroup for the theta commutator pairing and descend L through its compatible linearization. For a family over an integral noetherian normal base, a chosen geometric-generic principal isogeny spreads after a quasi-finite étale dominant base change and shrinking; this is a local generic statement, not a global principalization over every base.
+Exact mathematical signature: Over an algebraically closed field, for ample L there is an isogeny u:A→A₀ and a principal ample L₀ with L≃u*L₀ and deg u=h⁰(L). The construction chooses a maximal isotropic finite subgroup scheme for the theta commutator together with a compatible splitting that descends L. Over an integral noetherian normal base, chosen geometric-generic data spreads after passage to a finite extension of the function field, a finite dominant model after shrinking, and a further open restriction. The extension may be inseparable. An étale dominant model is asserted only when the chosen data descends to a separable extension. This is a generic local statement, not a principalization over every base.
 Signature boundary: The imported relative dual/Poincaré and polarization carriers, rigidified Picard quotient and intersection/type interfaces are not native pinned declarations. Native field End is used above where it suffices.
 -/
 /-
@@ -346,7 +394,7 @@ Signature boundary: The imported relative dual/Poincaré and polarization carrie
 /-
 Target AbelianSchemesAndArithmeticModuli:A2/rosati-involution (definition): The Rosati involution of a polarization
 Exact mathematical signature: For a field abelian variety and polarization λ, Rosati is the Q-linear anti-involution α†=λ^−1 α∨ λ on End⁰ A. It fixes rational scalars, is involutive under the fixed biduality, and is the adjoint for the polarized rational Tate pairing with its cyclotomic target. For principal λ it preserves integral End A. Rational NS/symmetric-Hom comparison is a separate theorem, valid in every characteristic; no NS hypothesis is part of the definition.
-Additional hypotheses: † depends on λ. For a principal polarization it preserves End(A); for general λ it preserves End⁰(A) only.; The source prints (αβ)† = β α without daggers; the author's errata page corrects this to β†α†.; The identification with NS(A) ⊗ ℚ uses the characterization of the φ_L as the homomorphisms with skew-symmetric e_ℓ pairing, which needs char k ≠ 2 and odd ℓ (Milne 13.6).
+Additional hypotheses: † depends on λ. For a principal polarization it preserves End(A); for general λ it preserves End⁰(A) only.; The source prints (αβ)† = β α without daggers; the author's errata page corrects this to β†α†.; No restriction on the characteristic is part of this definition. The separate rational NS comparison uses the doubled graph bundle, so it does not require the odd-characteristic integral symmetric-Hom criterion.
 Signature boundary: The imported relative dual/Poincaré and polarization carriers, rigidified Picard quotient and intersection/type interfaces are not native pinned declarations. Native field End is used above where it suffices.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.Polarization.rosati`: Polarization.rosati (λ : Polarization A) : End⁰ A ≃ₗ[ℚ] (End⁰ A)ᵐᵒᵖ, α ↦ λ⁻¹ ∘ α^∨ ∘ λ.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.rosati_mul`: (α * β)† = β† * α†.
@@ -423,22 +471,38 @@ Exact mathematical signature: For n≠0, a homomorphism f:A→B factors uniquely
 Signature boundary: The nonaffine relative abelian carrier, quotient, dual-isogeny and theta central-extension interfaces are not native pinned declarations. Native affine Cartier duality is imported and must be glued through the supplied arbitrary-base interface.
 -/
 /-
+Target AbelianSchemesAndArithmeticModuli:A4/universal-vector-extension (construction): Universal vector extension
+Exact mathematical signature: For an abelian scheme π:A→S and a finite locally free O_S-module F, write V(F)=Spec_S Sym(F∨), the vector group of sections of F. There is a canonical extension 0→V(ω_(A∨))→E(A)→A→0. Pushing out its vector kernel gives Hom_O_S(ω_(A∨),F)≃Ext¹_fppf(A,V(F)), naturally in F and under base change. Every extension has a unique compatible map from E(A). The invariant differentials ω_(E(A)) identify with H¹_dR(A/S), with exact sequence 0→ω_A→H¹_dR→Lie(A∨)→0. Equivalently Lie E(A) identifies with H¹_dR(A/S)∨; these are not identical variance conventions.
+Signature boundary: The relative vector-extension/Ext functor, Poincaré-connection and relative invariant-form carriers are not native pinned declarations. The vector-group total space and finite locally free operations are imports of current AlgebraicVectorBundles, not substitute Prop parameters.
+API `AbelianVectorExtension.mk`: Construct E(A) and its vector-kernel extension.
+API `AbelianVectorExtension.pushout`: For F identify vector extensions by the unique kernel map ω_(A∨)→F.
+API `AbelianVectorExtension.baseChange`: Identify E(A) pulled back to T with E(A_T), compatibly with its extension and composition.
+API `AbelianVectorExtension.invariantForms`: Identify ω_(E(A)) with H¹_dR(A/S) and its Hodge exact sequence.
+API `AbelianVectorExtension.ext`: Maps of extensions are determined by their maps on vector kernels and the induced map on A.
+Test `AbelianVectorExtension.zero` (degenerate): For the dimension-zero A both the vector kernel and E(A) are the zero group.
+Test `AbelianVectorExtension.elliptic` (computation): An elliptic A has vector kernel of rank one and invariant forms of rank two.
+Test `AbelianVectorExtension.zero_pushout` (characterisation): Pushing out along the zero map gives the split extension A×V(F).
+Test `AbelianVectorExtension.variance` (non-example): The canonical comparison uses invariant forms with H¹_dR and Lie with its dual, not an unqualified equality Lie E(A)=H¹_dR.
+-/
+/-
 Target AbelianSchemesAndArithmeticModuli:A4/abelian-h1-de-rham (construction): Relative first de Rham cohomology
-Exact mathematical signature: For π:A→S, H¹_dR(A/S)=R¹π_*(Ω•_(A/S)) is locally free of rank 2g, commutes with arbitrary base change and has the natural exact sequence 0→ω_A→H¹_dR→Lie(A∨)→0, with ω_A=π_*Ω¹_(A/S). Over a smooth base S/k it carries the integrable Gauss–Manin k-connection; its filtration obeys Griffiths transversality. Duality and polarizations give the contravariant perfect first-cohomology pairing, retaining the inverse Tate twist in cohomological realizations.
+Exact mathematical signature: For π:A→S, H¹_dR(A/S)=R¹π_*(Ω•_(A/S)) is locally free of rank 2g, commutes with arbitrary base change and has the natural exact sequence 0→ω_A→H¹_dR→Lie(A∨)→0, with ω_A=π_*Ω¹_(A/S). Over a smooth base S/k it carries the integrable Gauss–Manin k-connection; its filtration obeys Griffiths transversality. Poincaré duality gives a perfect pairing between the first realizations of A and A∨. A polarization induces a self-pairing, perfect when its degree is invertible on S, in particular for a principal polarization. Without that condition it may be degenerate. Retain the inverse Tate twist in cohomological realizations.
 Signature boundary: The abelian Tate local system, BT tower, relative de Rham hypercohomology, PD evaluation and structured deformation categories have no native pinned declarations. Their full mathematical conditions are retained here; no arbitrary proposition replaces them.
 API `AbelianH1dR.mk`: Construct the rank-2g bundle from degree-one de Rham hypercohomology.
 API `AbelianH1dR.hodgeSequence`: Expose the invariant-form subbundle and Lie(A∨) quotient.
 API `AbelianH1dR.baseChange`: Transport the filtered bundle through every T→S.
 API `AbelianH1dR.pullback`: A homomorphism A→B induces H¹_dR(B)→H¹_dR(A).
 API `AbelianH1dR.connection`: On smooth S/k expose the integrable Gauss–Manin connection and horizontal pullbacks.
+API `AbelianH1dR.dualPairing`: Expose the perfect A/A∨ dual pairing. The self-pairing induced by λ is perfect only under the stated invertible-degree condition.
 Test `AbelianH1dR.elliptic` (computation): For an elliptic curve H¹_dR has rank two and Fil¹ rank one.
 Test `AbelianH1dR.zero` (degenerate): Dimension zero gives the zero bundle and zero connection.
 Test `AbelianH1dR.inseparable` (non-example): In characteristic p, [p]* on H¹_dR is zero although [p] is an isogeny of nonzero degree.
 Test `AbelianH1dR.product` (compatibility): H¹_dR(A×B)≅H¹_dR(A)⊕H¹_dR(B), with both filtrations and connections.
+Test `AbelianH1dR.polarization_degree` (non-example): In characteristic p on a positive-dimensional principally polarized A, λ=[p]λ₀ induces the zero de Rham self-pairing; it is not perfect.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A4/all-degree-exterior-cohomology (theorem): Exterior cohomology of abelian schemes
-Exact mathematical signature: For every abelian scheme π:A→S, R^iπ_*Ω^j and H^n_dR are finite locally free and commute with arbitrary base change. Cup products identify R^iπ_*Ω^j≅∧^i R¹π_*O⊗∧^j π_*Ω¹ and H^n_dR≅∧^n H¹_dR, compatibly with products and pullbacks; the Hodge spectral sequence degenerates. Exterior means squares vanish also in characteristic two. Over an algebraically closed field of characteristic zero, H*_et(A,F_p) is the exterior algebra on H¹_et, for every prime p.
+Exact mathematical signature: For every abelian scheme π:A→S, R^iπ_*Ω^j and H^n_dR are finite locally free and commute with arbitrary base change. Cup products identify R^iπ_*Ω^j≅∧^i R¹π_*O⊗∧^j π_*Ω¹ and H^n_dR≅∧^n H¹_dR, compatibly with products and pullbacks; the Hodge spectral sequence degenerates. Exterior means squares vanish also in characteristic two. For A over an algebraically closed field k and any prime ℓ≠char k, H*_et(A,Z_ℓ)≃∧*H¹_et(A,Z_ℓ) and H¹_et≃Hom_Z_ℓ(T_ℓA,Z_ℓ), with ranks binomial(2g,n). Reduction gives the same exterior statement over F_ℓ. This includes the characteristic-zero mod-p case used by FKW and the prime-to-characteristic cohomology used by Rosati positivity.
 Signature boundary: The abelian Tate local system, BT tower, relative de Rham hypercohomology, PD evaluation and structured deformation categories have no native pinned declarations. Their full mathematical conditions are retained here; no arbitrary proposition replaces them.
 -/
 /-
@@ -457,17 +521,18 @@ Test `AbelianTate.twist` (compatibility): The determinant character for an ellip
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A4/genus-two-jacobian-lifting (theorem): Genus-two Jacobian lift comparison
-Exact mathematical signature: In the odd-prime situation above, if A₀ is the principally polarized Jacobian of a smooth genus-two curve C₀, a principally polarized abelian lift is the Jacobian of a unique formal curve lift, effective over O. Here 2 is invertible, and the tangent map dual is Sym² H⁰(C₀,ω)→H⁰(C₀,ω²), an isomorphism of three-dimensional spaces.
+Exact mathematical signature: In the odd-prime situation above, suppose A₀=Jac(C₀) with its principal polarization, for a smooth genus-two curve C₀. The map from marked curve deformations to marked principally polarized abelian deformations is an equivalence of formal deformation functors. Thus a principally polarized abelian lift with a specified special-fibre identification comes from a formal curve lift, unique up to an isomorphism compatible with the markings and the Jacobian identification, and effective over O. Since 2 is invertible, the dual tangent map Sym²H⁰(C₀,ω)→H⁰(C₀,ω²) is an isomorphism between three-dimensional spaces.
 Signature boundary: The abelian Tate local system, BT tower, relative de Rham hypercohomology, PD evaluation and structured deformation categories have no native pinned declarations. Their full mathematical conditions are retained here; no arbitrary proposition replaces them.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A4/grothendieck-messing (theorem): Grothendieck–Messing for abelian schemes
-Exact mathematical signature: Under A4/pd-first-cohomology hypotheses, abelian lifts of A₀/S₀ are equivalent to rank-g locally direct summand lifts of Fil¹⊂D(A₀)_(S₀) in D(A₀)_S. Morphisms lift iff their contravariant evaluations preserve the lifted summands. A polarization lifts iff the summand is isotropic for its pairing; for principal polarization it is Lagrangian. Endomorphism structures lift by simultaneous stability conditions. No statement for an arbitrary nonnilpotent thickening is intended.
+Exact mathematical signature: Under A4/pd-first-cohomology hypotheses, abelian lifts of A₀/S₀ are equivalent to rank-g locally direct summand lifts of Fil¹ in D(A₀)_S. Morphisms lift exactly when their contravariant evaluations preserve the lifted summands. For a principal polarization the perfect alternating pairing identifies the polarized condition with a Lagrangian Hodge lift. For a general polarization use the morphism condition D(λ₀)(Fil¹ of the dual lift)⊂Fil¹ of A, with dual-filtration identification; no perfect self-pairing is assumed when the degree is not invertible. The symmetric lift remains a polarization by the fibrewise ampleness condition. Extra endomorphisms impose simultaneous stability. The thickening must satisfy the stated local PD-nilpotence conditions.
 Signature boundary: The abelian Tate local system, BT tower, relative de Rham hypercohomology, PD evaluation and structured deformation categories have no native pinned declarations. Their full mathematical conditions are retained here; no arbitrary proposition replaces them.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A4/odd-prime-finite-level-lifting (theorem): Odd-prime polarized finite-level lifting
-Exact mathematical signature: Let p>2, O the integers in a finite extension of Q_p, and A₀ a principally polarized abelian surface over its residue field. Given a finite flat group G₁ killed by p, of order p⁴, with a principally quasi-polarized structure and a compatible identification G₁,k≅A₀[p], there is a principally polarized lift A/O with A[p]≅G₁. The finite group has order p⁴, not rank four.
+Exact mathematical signature: Let p>2, O the integers in a finite extension of Q_p, and A₀ a principally polarized abelian surface over its residue field. Given G₁ in the compatible principally quasi-polarized level-one truncated-BT deformation problem, whose finite flat underlying group is killed by p and has order p⁴, with a compatible identification G₁,k≅A₀[p], there is a principally polarized lift A/O with A[p]≅G₁. The finite group has order p⁴, not rank four.
+Additional hypotheses: The level-one truncated-BT structure and polarization compatibility are required inputs. Their precise finite-level criterion and extension to a full polarized BT tower are G-odd-level; being an arbitrary self-dual finite flat group killed by p is not declared sufficient here.
 Signature boundary: The abelian Tate local system, BT tower, relative de Rham hypercohomology, PD evaluation and structured deformation categories have no native pinned declarations. Their full mathematical conditions are retained here; no arbitrary proposition replaces them.
 -/
 /-
@@ -527,7 +592,7 @@ Signature boundary: The abelian Tate local system, BT tower, relative de Rham hy
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A4/realization-conventions (theorem): Degree-one dual and twist comparisons
-Exact mathematical signature: For a polarized abelian variety over a field and ℓ prime to the characteristic and polarization degree, H¹_et(A_kbar,Q_ℓ)=V_ℓ(A)*. The polarization identifies V_ℓ(A)≅H¹_et(A,Q_ℓ)(1); the cohomological multiplier is χ_ℓ^−1. Over C, H₁=Λ, H¹=Λ*, and de Rham comparison carries invariant forms to Fil¹ in cohomological weight one. Hodge–Tate/Sen weight conventions are exported to their higher-tier consumer, not proved from this complex comparison.
+Exact mathematical signature: For a polarized abelian variety over a field and ℓ prime to the characteristic and polarization degree, H¹_et(A_kbar,Q_ℓ)=V_ℓ(A)*. The polarization identifies V_ℓ(A)≅H¹_et(A,Q_ℓ)(1); the cohomological multiplier is χ_ℓ^−1. Over C, H₁=Λ, H¹=Λ*, and de Rham comparison carries invariant forms to Fil¹ in cohomological weight one. Hodge–Tate/Sen weight conventions are exported to their higher-tier consumer, not proved from this complex comparison. The complex homological native Hodge convention has Weil operator −J and polarizing form −E, where E is the positive Riemann form; cohomological duality transports this sign as well as the weight.
 Signature boundary: The abelian Tate local system, BT tower, relative de Rham hypercohomology, PD evaluation and structured deformation categories have no native pinned declarations. Their full mathematical conditions are retained here; no arbitrary proposition replaces them.
 -/
 /-
@@ -538,17 +603,17 @@ Signature boundary: The abelian Tate local system, BT tower, relative de Rham hy
 /-
 Target AbelianSchemesAndArithmeticModuli:A5/analytic-families-and-comparison (theorem): Analytic polarized families and algebraic comparison
 Exact mathematical signature: Over a complex analytic base T, proper smooth analytic group families with a locally constant integral polarization type correspond to polarized integral homological variations of the above types. Construct the family as the quotient of its holomorphic Lie bundle by the locally constant lattice, and recover its zero and group law. For an algebraic abelian scheme over a finite-type complex base, analytification gives this variation, with H¹_dR⊗O_an≅H¹_B⊗O_an and its Hodge filtration and connection under the smooth-base hypothesis. No converse algebraization over an algebraic base is asserted.
-Signature boundary: The complex abelian analytification, standard integral torus lattice, homological integral polarized Hodge carrier and analytic family/period quotient are not native pinned declarations. The expressible real Riemann-form signature above uses actual native bilinear maps, complex structures and full lattices.
+Signature boundary: The geometric abelian analytification, standard torus lattice comparison and analytic family/period quotient are not native pinned declarations; the general integral Hodge and polarization carriers are native imports. The expressible real Riemann-form signature above uses actual native bilinear maps, complex structures and full lattices.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A5/appell-humbert-and-algebraicity (theorem): Appell–Humbert and algebraicity
 Exact mathematical signature: Holomorphic line classes on V/Λ are uniquely described by a Hermitian H with integral imaginary part E and a unitary semicharacter α with α(λ+μ)=(−1)^E(λ,μ)α(λ)α(μ). The factors j_λ(z)=α(λ)exp(πH(z,λ)+πH(λ,λ)/2) construct the line. Positive H gives an ample line, and its third and higher powers embed the torus. A complex torus is algebraizable iff it admits a positive Riemann form; Chow and proper GAGA then algebraize its group law. The Riemann form is its c₁ and determines φ_L.
-Signature boundary: The complex abelian analytification, standard integral torus lattice, homological integral polarized Hodge carrier and analytic family/period quotient are not native pinned declarations. The expressible real Riemann-form signature above uses actual native bilinear maps, complex structures and full lattices.
+Signature boundary: The geometric abelian analytification, standard torus lattice comparison and analytic family/period quotient are not native pinned declarations; the general integral Hodge and polarization carriers are native imports. The expressible real Riemann-form signature above uses actual native bilinear maps, complex structures and full lattices.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A5/complex-lattice-realization (construction): Complex lattice realization
 Exact mathematical signature: For a complex abelian variety A, its analytic exponential identifies A^an with V/Λ, where V=T₀(A^an) and Λ=ker exp is a full Z-lattice of rank 2g. Identify Λ naturally with H₁(A^an,Z) and T_ℓ A with Λ⊗Z_ℓ. A holomorphic homomorphism is exactly a complex-linear map V→W carrying Λ into Γ. Use existing real-lattice and manifold carriers; no second definition of a Z-lattice or smooth manifold is introduced.
-Signature boundary: The complex abelian analytification, standard integral torus lattice, homological integral polarized Hodge carrier and analytic family/period quotient are not native pinned declarations. The expressible real Riemann-form signature above uses actual native bilinear maps, complex structures and full lattices.
+Signature boundary: The native real lieExp and its local-diffeomorphism theorem are imported. Geometric abelian analytification, its real/complex Lie-group comparison, holomorphicity, the lattice quotient and algebraic/analytic Hom comparison remain omitted signatures; no general Lie exponential is planned again.
 API `AbelianLattice.ofAbelian`: Return V, Λ and the analytic exponential quotient isomorphism.
 API `AbelianLattice.homology`: Identify Λ with integral H₁ naturally.
 API `AbelianLattice.map`: Differentiate a homomorphism and preserve its lattice.
@@ -559,27 +624,32 @@ Test `AbelianLattice.irrational_map` (non-example): Multiplication by √2 on C 
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A5/polarized-hodge-equivalence (theorem): Polarized integral Hodge equivalence
-Exact mathematical signature: Analytification and H₁ give an equivalence between complex abelian varieties with polarizations and polarizable free finite integral Hodge structures of types (−1,0),(0,−1), with integral alternating positive forms. Morphisms are group homomorphisms/integral Hodge maps, with pullback condition when polarization preservation is requested. Principal objects correspond to unimodular forms. On cohomology the equivalence is contravariant and has types (1,0),(0,1): Hom(A,B)≅Hom_HS(H¹(B,Z),H¹(A,Z)).
-Signature boundary: The complex abelian analytification, standard integral torus lattice, homological integral polarized Hodge carrier and analytic family/period quotient are not native pinned declarations. The expressible real Riemann-form signature above uses actual native bilinear maps, complex structures and full lattices.
+Exact mathematical signature: Analytification and H₁ give an equivalence between complex abelian varieties with polarizations and polarizable free finite integral Hodge structures of types (−1,0),(0,−1), with integral alternating positive forms. Morphisms are group homomorphisms/integral Hodge maps, with pullback condition when polarization preservation is requested. Principal objects correspond to unimodular forms. On cohomology the equivalence is contravariant and has types (1,0),(0,1): Hom(A,B)≅Hom_HS(H¹(B,Z),H¹(A,Z)). The general integral Hodge and polarization objects are the existing TauCeti.Hodge.HodgeStructure and TauCeti.Hodge.Polarization; the work here is their geometric realization and the weight/sign adapter, not a new Hodge carrier. In the homological native convention the Riemann form E corresponds to Q=−E with Weil operator C=−J, as fixed in A5/riemann-form; the dual cohomological form is transported with its sign.
+Signature boundary: The geometric abelian analytification, standard torus lattice comparison and analytic family/period quotient are not native pinned declarations; the general integral Hodge and polarization carriers are native imports. The expressible real Riemann-form signature above uses actual native bilinear maps, complex structures and full lattices.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A5/riemann-form (definition): Riemann forms and polarization sign
-Exact mathematical signature: For V with complex structure J and full lattice Λ, a Riemann form is an integral alternating form E:Λ×Λ→Z whose real extension satisfies E(Jv,Jw)=E(v,w) and E(Jv,v)>0 for v≠0. Its Hermitian form, linear in the first variable, is H(v,w)=E(Jv,w)+iE(v,w). Its degree/type uses the integral elementary divisors; unimodularity is an additional principal-polarization condition. The associated homological polarization has weight −1 and types (−1,0),(0,−1).
-Signature boundary: The native RiemannForm structure, Hermitian formula, pullback, integral pairing, principal predicate, zero-dimensional and negative tests appear above. A constructed Gaussian lattice/polarized torus and the weight-minus-one integral Hodge-duality adapter are unavailable pinned signatures.
+Exact mathematical signature: For a finite-dimensional real vector space V with complex structure J and full lattice Λ, a Riemann form is an integral alternating form E:Λ×Λ→Z whose real extension satisfies E(Jv,Jw)=E(v,w) and E(Jv,v)>0 for v≠0. Its Hermitian form, linear in the first variable, is H(v,w)=E(Jv,w)+iE(v,w). Its degree/type uses the integral elementary divisors; unimodularity is an additional principal-polarization condition. The associated homological polarization has weight −1 and types (−1,0),(0,−1). For the native homological weight −1 convention, let the (−1,0) component be the +i eigenspace of J. Its Weil operator is −J, and the native polarizing form is Q=−E; this preserves Q(Cv,v)=E(Jv,v)>0. The effective weight-one Riemann criterion already exists in the Hodge library and is imported.
+Signature boundary: Native finite-dimensional RiemannForm, integral pairing, Hermitian formula, positive scaling, extensionality, injective pullback and principal predicate appear above. Zero-dimensional, negative and nonprincipal-doubling tests elaborate. The explicit Gaussian lattice example and the geometric Hodge sign/duality comparison are omitted signatures; native general integral Hodge/polarization carriers are imported.
 API `RiemannForm.hermitian`: Recover H=E(J·,·)+iE.
 API `RiemannForm.integral`: The restriction to Λ has integer values and E(x,x)=0.
 API `RiemannForm.pullback`: Pull back along an injective complex-linear lattice map.
 API `RiemannForm.isPrincipal`: The induced Λ→Λ* is an isomorphism exactly for unimodular E.
-API `RiemannForm.hodgeDual`: Dualizing the homological structure gives the existing weight-one cohomological Hodge structure.
+API `RiemannForm.hodgeDual`: Dualize the homological structure through native HodgeStructureOn.dual to weight-one cohomology, explicitly preserving the native polarization sign (Q=−E on H₁).
+API `RiemannForm.integralPairing`: Construct the Z-bilinear lattice pairing from its integer values.
+API `RiemannForm.scale`: A positive integer multiple of E remains a positive integral Riemann form; scaling is not a principal-polarization operation.
+API `RiemannForm.ext`: Two Riemann forms agree when their real bilinear forms agree.
 Test `RiemannForm.gaussian` (computation): On Z+iZ with standard H, E(i,1)=1 and E(1,i)=−1.
 Test `RiemannForm.double` (non-example): 2E is positive integral but has lattice cokernel (Z/2)², hence is not principal.
 Test `RiemannForm.zero_dimension` (degenerate): On V=0 positivity is vacuous and the zero pairing is unimodular.
 Test `RiemannForm.negative` (non-example): −E on a positive-dimensional torus fails E(Jv,v)>0.
+Test `RiemannForm.scale_nonprincipal` (non-example): For a principal form on a nonzero finite lattice, its double is positive integral and is not principal; surjectivity on the integral dual fails.
+Test `RiemannForm.homological_sign` (non-example): On the Gaussian rank-two lattice with E(Jv,v)>0, the native weight −1 Weil operator is C=−J. Q=−E has Q(Cv,v)>0; using Q=E would give a negative value.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A5/siegel-analytic-family (construction): Siegel universal analytic family
 Exact mathematical signature: For H_g={Ω∈M_g(C):Ωᵀ=Ω, Im Ω positive definite}, define X_Ω=C^g/(Z^g+ΩZ^g) and the family (C^g×H_g)/Z^(2g). The standard unimodular alternating lattice form gives its principal polarization. Sp_(2g)(Z) acts by Ω↦(AΩ+B)(CΩ+D)^−1 and z↦(CΩ+D)^−T z in the column convention for this lattice. Integral monodromy is the lattice action. Full level N is a symplectic lattice trivialization modulo N with its μ_N target; N≥3 removes stabilizers. Nonprincipal types use their actual lattice automorphism groups.
-Signature boundary: The complex abelian analytification, standard integral torus lattice, homological integral polarized Hodge carrier and analytic family/period quotient are not native pinned declarations. The expressible real Riemann-form signature above uses actual native bilinear maps, complex structures and full lattices.
+Signature boundary: The geometric abelian analytification, standard torus lattice comparison and analytic family/period quotient are not native pinned declarations; the general integral Hodge and polarization carriers are native imports. The expressible real Riemann-form signature above uses actual native bilinear maps, complex structures and full lattices.
 API `SiegelFamily.fibre`: Identify the fibre with C^g/(Z^g+ΩZ^g).
 API `SiegelFamily.polarization`: Return the unimodular positive form on the universal lattice.
 API `SiegelFamily.symplecticAction`: Give the compatible period, lattice and fibre action.
@@ -610,7 +680,7 @@ Signature boundary: The needed relative dual/polarization, subvariety, geometric
 /-
 Target AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-of-an-endomorphism (definition): The characteristic polynomial and trace of an endomorphism
 Exact mathematical signature: For α∈End A there is a unique monic P_α∈Z[X] of degree 2g with P_α(r)=deg(α−[r]) for all r∈Z. For g>0 Tr α is minus the coefficient of X^(2g−1); for g=0 set Tr α=0 and P_α=1. On End⁰ A put P_(α/n)(X)=n^(−2g)P_α(nX)∈Q[X]. It is monic, denominator-independent and Tr is Q-linear; its constant coefficient is deg α.
-Additional hypotheses: Uniqueness holds because a polynomial is determined by its values on ℤ (infinitely many points).; Integrality of the coefficients for α ∈ End(A) uses an ample symmetric divisor D, with (2)^*D ≡ 4D.; P_α is not the minimal polynomial of α in End⁰(A): for α = [n] it is (X − n)^{2g}.
+Additional hypotheses: Uniqueness holds because a polynomial is determined by its values on ℤ (infinitely many points).; For integral α, coefficient integrality follows from finite generation of End(A) and the determinant trick after the rational Tate determinant comparison. Integer-valued polynomiality by itself is insufficient.; P_α is not the minimal polynomial of α in End⁰(A): for α = [n] it is (X − n)^{2g}.
 Signature boundary: Native integral characteristic polynomial, trace and scalar tests appear above. The Frobenius test requires the missing native Frobenius endomorphism adapter; the rational rescaling API is recorded in this exact target statement.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.End.charpoly`: End.charpoly (α : End A) : ℤ[X], monic of degree 2g.
 API `TauCeti.AlgebraicGeometry.AbelianVariety.End.charpoly_eval`: (End.charpoly α).eval r = Hom.deg (α − r) for r : ℤ.
@@ -637,8 +707,9 @@ Signature boundary: The needed relative dual/polarization, subvariety, geometric
 /-
 Target AbelianSchemesAndArithmeticModuli:A6/coefficient-hom-and-units (construction): Coefficient Hom, quasi-isogenies and unit schemes
 Exact mathematical signature: For field abelian varieties define Hom⁰(A,B)=Q⊗Z Hom(A,B), End⁰(A)=Hom⁰(A,A). For a commutative Q-algebra R use R⊗Q Hom⁰, with bilinear composition and two-sided inverses defining R-isogenies. The Hom functor is the affine Q-space Spec Sym(Hom⁰*); End⁰ units are the determinant-open locus for left multiplication, forming Aut_Q(A). R changes coefficients, not the geometric base field of A.
-Signature boundary: The native tensor carrier, bilinear composition, coefficient map, unit group and nilpotent-coefficient inverse test appear above. The represented affine Hom scheme and its point equivalence require the missing affine coefficient-functor interface.
+Signature boundary: Native coefficient tensor Hom, bilinear composition, identity, coefficient maps and the actual unit group appear above, with scalar-two, square-zero and positive-dimensional-zero tests. Representability of the affine Hom/unit functors and the nonfield geometric interpretation remain omitted signatures.
 API `CoefficientHom.points`: Hom_Q(A,B)(R)≅R⊗Q Hom⁰(A,B).
+API `CoefficientHom.id`: Tensor the native identity; composition and coefficient base change preserve it.
 API `CoefficientHom.comp`: Composition is bilinear and compatible with coefficient maps.
 API `CoefficientHom.units`: Aut_Q(A)(R) is the two-sided unit group of R⊗End⁰(A).
 API `CoefficientHom.baseChange`: R→R′ extends coefficients and preserves identities and inverses.
@@ -662,7 +733,7 @@ Test `CoefficientIsog.dimensions` (non-example): A→A×E cannot be an invertibl
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A6/curve-generated-subvariety (construction): Abelian subvariety generated by a curve
-Exact mathematical signature: For a geometrically integral projective curve C⊂A over an algebraically closed field and a chosen c₀∈C, the smallest abelian subvariety containing C−c₀ is the image of Jac(C̃)→A induced by the normalization C̃ and c₀. It is independent of c₀; C generates A iff this map is surjective. The translate by c₀ is essential: C itself need not contain zero.
+Exact mathematical signature: For a geometrically integral projective curve C⊂A over an algebraically closed field and chosen c̃₀∈C̃ mapping to c₀∈C, the smallest abelian subvariety containing C−c₀ is the image of Jac(C̃)→A induced by the normalization C̃ and its chosen point c̃₀. It is independent of c₀; C generates A iff this map is surjective. The translate by c₀ is essential: C itself need not contain zero.
 Signature boundary: The needed relative dual/polarization, subvariety, geometric realization, relative Hom/graph, affine coefficient functor, restriction-of-scalars or localized torsor interface has no native pinned declaration. Field Hom/End and coefficient tensor modules are used above where they suffice.
 API `CurveGenerated.mk`: Take the abelian image of the normalization-Jacobian map.
 API `CurveGenerated.minimal`: Factor through every abelian subvariety containing C−c₀.
@@ -675,7 +746,7 @@ Test `CurveGenerated.point` (degenerate): A constant normalized curve map has ze
 /-
 Target AbelianSchemesAndArithmeticModuli:A6/degree-formulas-for-polarized-isogenies (theorem): Degrees of polarizations under isogenies
 Exact mathematical signature: Let α : A → B be an isogeny of abelian varieties over k and λ′ a polarization of B. Then α^*λ′ = α^∨ ∘ λ′ ∘ α is a polarization of A and deg(α^*λ′) = deg(λ′)·deg(α)². The degree of a polarization is a square, deg φ_L = χ(L)², and a principal polarization has degree 1.
-Additional hypotheses: deg α^∨ = deg α, for the dual isogeny (A2, A3).; deg φ_L = χ(L)² is Mumford's Riemann–Roch theorem for abelian varieties. The source states it without proof, and A2 owns it; it is a gap until A2 plans it.
+Additional hypotheses: deg α^∨ = deg α, for the dual isogeny (A2, A3).; A2/ample-cohomology-and-degree supplies deg φ_L=χ(L)². A polarization not represented by a line over k is computed after geometric base change.
 Signature boundary: The needed relative dual/polarization, subvariety, geometric realization, relative Hom/graph, affine coefficient functor, restriction-of-scalars or localized torsor interface has no native pinned declaration. Field Hom/End and coefficient tensor modules are used above where they suffice.
 -/
 /-
@@ -785,13 +856,13 @@ Signature boundary: The native matrix specialization is det_aeval_eq_prod_roots 
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A6/neron-severi-rank (theorem): Néron–Severi finiteness
-Exact mathematical signature: For a field abelian variety, NS(A)=Pic(A)/Pic⁰(A) defined through the Mumford-map kernel is torsion free of finite rank at most 4g², by its injection into Hom(A,A∨). The geometric NS group is computed after kbar base change; its Galois invariants are not identified with NS(A) without an actual line-descent statement.
+Exact mathematical signature: For a field abelian variety, NS(A)=Pic(A)/Pic⁰(A) defined through the Mumford-map kernel is torsion free of finite rank at most 4g², by its injection into Hom(A,A∨). The geometric NS group is computed after kbar base change; its Galois invariants are not identified with NS(A) without an actual line-descent statement. Thus ρ(A)=rank NS(A_kbar) is finite and at most 4g²; ρ(E)=1. For a characteristic-zero geometric elliptic E with End(E)=Z, the symmetric 2×2 rational endomorphism matrices give ρ(E²)=3.
 Signature boundary: The needed relative dual/polarization, subvariety, geometric realization, relative Hom/graph, affine coefficient functor, restriction-of-scalars or localized torsor interface has no native pinned declaration. Field Hom/End and coefficient tensor modules are used above where they suffice.
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A6/poincare-complete-reducibility (theorem): Poincaré complete reducibility
 Exact mathematical signature: Let A be an abelian variety over a field k. For every abelian subvariety B ⊆ A there is an abelian subvariety B′ ⊆ A such that (b, b′) ↦ b + b′ : B × B′ → A is an isogeny. Consequently A is isogenous to a product A_1^{n_1} × … × A_r^{n_r} of simple abelian varieties, pairwise non-isogenous, and the multiset of isogeny classes with multiplicities is unique.
-Additional hypotheses: The source proves this with B′ the connected component through 0 of ker(i^∨ ∘ φ_L), for i : B → A the inclusion and L ample. Over an imperfect field, geometric reducedness of B′ is not proved in the source (footnote 10). The node states the theorem over every field, and the imperfect case is recorded as a gap.; Uniqueness of the decomposition follows from the theorem endomorphisms-of-simple-abelian-varieties: Hom⁰ between non-isogenous simple factors vanishes.
+Additional hypotheses: Work over the original field, including imperfect fields. The complement is constructed as the image of an integral multiple of a rational projector; the field-image theorem is the explicit obligation G-abelian-image. Taking the reduced identity component of an arbitrary kernel is not a justified substitute.; Uniqueness of the decomposition follows from the theorem endomorphisms-of-simple-abelian-varieties: Hom⁰ between non-isogenous simple factors vanishes.
 Signature boundary: The needed relative dual/polarization, subvariety, geometric realization, relative Hom/graph, affine coefficient functor, restriction-of-scalars or localized torsor interface has no native pinned declaration. Field Hom/End and coefficient tensor modules are used above where they suffice.
 -/
 /-
@@ -835,8 +906,8 @@ Signature boundary: The needed relative dual/polarization, subvariety, geometric
 -/
 /-
 Target AbelianSchemesAndArithmeticModuli:A6/rosati-positivity (theorem): Positivity of the Rosati involution
-Exact mathematical signature: Let (A, λ) be a polarized abelian variety of dimension g over k, with Rosati involution †. The bilinear form (α, β) ↦ Tr(α ∘ β†) on End⁰(A) is symmetric and positive definite: Tr(αα†) > 0 for α ≠ 0. More precisely, if λ is defined by an ample divisor D over k̄, then Tr(αα†) = (2g/(D^g))·(D^{g−1} · α^*D).
-Additional hypotheses: The source omits the calculation proving the formula; it cites the author's 1986 article, §17. That proof was not read, and it is recorded as a gap.; Positive definiteness over ℚ implies it over ℝ: a rational quadratic form that is positive on ℚ^n ∖ 0 is positive semidefinite over ℝ, and its radical is a rational subspace, hence 0.
+Exact mathematical signature: Let (A,λ) be a polarized abelian variety over k. On End⁰(A), (α,β)↦Tr(αβ†) is symmetric positive definite, and Tr(αα†)>0 for α≠0. If g=dim A>0 and an ample geometric divisor D represents λ, then for integral α one has Tr(αα†)=(2g/(D^g))(D^(g−1)·α*D). For rational α use an integral multiple and divide the intersection expression by the square of its denominator. At g=0 the endomorphism algebra is zero and positivity is vacuous.
+Additional hypotheses: The trace calculation is read in Milne 2022, Lemma 17.4, pp.36–37. The required prime-to-characteristic étale exterior cohomology and Chern/intersection comparisons remain explicit prerequisites; their general étale/Hopf inputs are G-etale-exterior.; Positive definiteness over ℚ implies it over ℝ: a rational quadratic form that is positive on ℚ^n ∖ 0 is positive semidefinite over ℝ, and its radical is a rational subspace, hence 0.
 Signature boundary: The needed relative dual/polarization, subvariety, geometric realization, relative Hom/graph, affine coefficient functor, restriction-of-scalars or localized torsor interface has no native pinned declaration. Field Hom/End and coefficient tensor modules are used above where they suffice.
 -/
 /-
