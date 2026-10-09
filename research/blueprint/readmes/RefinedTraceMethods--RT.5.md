@@ -25,13 +25,13 @@ The working order is:
 1. Import coherent stable categories, spectra, animation, derived completion and concrete K from their owners. Construct the RT.5 continuous extension, relative motives, nuclear resolution and rigidity.
 2. Import the supplied multiplicative Moore tower and RT.4 finite q-Hodge/Bott comparisons. Construct refined relative THH and TC⁻ and calculate the rational ku/KU coefficients by the localization cofiber.
 3. Import generic Ainf/Lη, de Rham and prismatic objects. Construct the QRSP trace coefficients and motivic filtrations. Prove the characteristic-p and AΩ trace comparisons, then the trace-to-prismatic equivalence and its twisted divided-Frobenius graded maps.
-4. Export the trace instances to the qualified Habiro interface, the independently defined PR.4 syntomic complexes and RT.3b’s AMMN theorem. AI.7, PR.7 and HQ.8 remain later consumers.
+4. Export the trace instances to the qualified Habiro interface, the independently defined PR.4 syntomic complexes and RT.3b’s AMMN theorem. AI.7, PR.7 and HQ.8 are downstream consumers.
 
-PR.3’s existing BMS2 comparison node supplies its independent prismatic recognition and Nygaard-completion results. Its advertised trace conclusion is proved by the present comparison; it is not assumed to prove itself. Similarly PR.4 constructs the syntomic fiber independently, and RT.6 identifies the graded TC fiber with it. Generic prisms, Nygaard objects, de Rham–Witt, AΩ and almost categories are imported rather than duplicated.
+PR.3’s current BMS2 comparison node supplies independent prismatic recognition and Nygaard-completion results; RT.6 constructs the trace comparison. Similarly PR.4 constructs the syntomic fiber independently, and RT.6 identifies the graded TC fiber with it. Generic prisms, Nygaard objects, de Rham–Witt, AΩ and almost categories are imported rather than duplicated.
 
 ## Baseline and suggested file
 
-The baseline is Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reviewed library-coverage file has no RT.5/RT.6 entry. Searches and statement reads at these commits found exact elementary ingredients for prime factorization, two-variable polynomial quotients, Laurent monomials and ordinary chain-map compatibility; the declarations and pinned source links are listed below. They do not supply the coherent motive or cyclotomic theories.
+The baseline is Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reviewed AUDIT-30 entries classify both scoped layers as not built. RT.6 records Fontaine’s existing θ map and overlaps with DD.5, AI.7 and PR.3; their site, geometric and prismatic constructions are imported from those owners, while RT.6 constructs the trace instances. Searches and statement reads at these commits found exact elementary ingredients for prime factorization, two-variable polynomial quotients, Laurent monomials and ordinary chain-map compatibility; the declarations and pinned source links are listed below. They do not supply the coherent motive or cyclotomic theories.
 
 Mathlib’s SSet.Quasicategory supplies inner-horn filling. Its ordinary DerivedCategory is a localization of ordinary complexes of an abelian category under HasDerivedCategory. Neither is credited as a presentable stable infinity-category, PrL tensor, cyclotomic spectrum or animated complete filtered category. Those types and their coherence are explicit owner requests.
 
@@ -39,17 +39,18 @@ The suggested file uses actual baseline types for HighPowered, the underlying qu
 
 ## Sources read
 
-The packet pins the downloaded editions, access date 6 October 2026 and SHA256 fingerprints. Statements use the following locators, rather than unversioned theorem numbering.
-- **mw**: Samuel Meyer and Ferdinand Wagner, [q-Hodge complexes and refined TC⁻](https://arxiv.org/pdf/2410.23115v4), arXiv:2410.23115v4, 8 October 2025. Read: Introduction; §§2.1–2.5; §3.1; §3.2 introduction.
-- **efimov**: Alexander I. Efimov, [Rigidity of the category of localizing motives](https://arxiv.org/pdf/2510.17010v1), arXiv:2510.17010v1, 19 October 2025. Read: Introduction; §§1.1–1.6; Theorem 2.1; §3.1 including Proposition 3.13 and proof of Theorem 3.1.
-- **bms**: Bhargav Bhatt, Matthew Morrow and Peter Scholze, [Topological Hochschild homology and integral p-adic Hodge theory](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Published version, Publ. Math. IHÉS 129 (2019), 199–310, DOI 10.1007/s10240-019-00106-9. Read: Introduction; §3; §§5–7; §8.3 and Lemma 8.19/TC-sheaf part of Proposition 8.20; §9; §11.1 and §11.2 through Corollary 11.12.
-- **bm**: Bhargav Bhatt and Akhil Mathew, [Syntomic complexes and p-adic étale Tate twists](https://arxiv.org/pdf/2202.04818), arXiv:2202.04818v2, 1 December 2022; Forum Math. Pi 11 (2023), e1. Read: Introduction, Example 1.6.
-- **bgt**: Andrew J. Blumberg, David Gepner and Gonçalo Tabuada, [A universal characterization of higher algebraic K-theory](https://arxiv.org/pdf/1001.2282), arXiv:1001.2282v4, 5 February 2013. Read: Introduction, Theorems 1.1 and 1.3; §8.2–8.3 localization and proof of Theorem 8.7; §9.2, statement of Theorem 9.8 and introductory proof reduction.
-- **wagner**: Ferdinand Wagner, [q-de Rham cohomology and topological Hochschild homology over ku](https://arxiv.org/pdf/2510.06057v1), arXiv:2510.06057v1, 7 October 2025. Read: Introduction; statements of Theorem 4.27 and Theorem 5.63; supplied-lift and cyclonic hypotheses.
-- **scholze**: Peter Scholze, [Berkovich Motives](https://arxiv.org/pdf/2412.03382v3), arXiv:2412.03382v3, 22 January 2026; J. Amer. Math. Soc. 39 (2026), 697–764. Read: §8, almost modules and continuous K-theory, paragraph before Proposition 8.7.
-- **continuous**: Alexander I. Efimov, [K-theory and localizing invariants of large categories](https://arxiv.org/pdf/2405.12169v4), arXiv:2405.12169v4, 5 October 2026. Read: Introduction; §2, Definition 2.58 and Propositions 2.59–2.61; §§8.1–8.2, Definition 8.5 and Theorem 8.10.
-- **bs**: Bhargav Bhatt and Peter Scholze, [Prisms and prismatic cohomology](https://arxiv.org/pdf/1905.08229v4), arXiv:1905.08229v4, 12 January 2022. Read: §13, Theorem 13.1 and proof; §15, Proposition 15.7 and proof.
-- **ammn**: Benjamin Antieau, Akhil Mathew, Matthew Morrow and Thomas Nikolaus, [On the Beilinson fiber square](https://arxiv.org/pdf/2003.12541v2), arXiv:2003.12541v2, 29 September 2021. Read: §6.3, Theorem 6.17 and proof.
+The packet preserves the source-read receipts from the planning pass and independent review, accessed 8 October 2026, including versioned URLs and SHA256 fingerprints. This revision fetched matching public PDFs and rechecked MW Lemma 2.2, Theorem 2.4/Remark 2.5, Lemmas 2.16/2.18, Corollary 2.19 and Lemma 3.2; Efimov §1.2/Proposition 1.1 and §1.5; BMS2 Corollary 7.10, Theorem 9.6 and Proposition 9.10; and Wagner 4.18/4.18a, Theorem 4.27/Remark 4.28, 5.43(A2), Theorem 5.63 and Corollary 6.15.
+
+- **mw**: Samuel Meyer and Ferdinand Wagner, [q-Hodge complexes and refined TC⁻](https://arxiv.org/pdf/2410.23115v4), arXiv:2410.23115v4, 8 October 2025. Read coverage recorded in the packet: Construction 1.3; Construction 1.7; Definition 2.1 and Lemma 2.2; Definition 2.3, Theorem 2.4 and Remark 2.5; Constructions 2.6–2.14 and Lemmas 2.15–2.19; Theorem 2.21 and its Lemmas 2.22–2.26; Burklund/Moore inputs 2.27–2.30; Convention 3.1, Lemma 3.2 and finite-coefficient calculation through Theorem 3.14 and proof.
+- **efimov**: Alexander I. Efimov, [Rigidity of the category of localizing motives](https://arxiv.org/pdf/2510.17010v1), arXiv:2510.17010v1, 19 October 2025. Read coverage recorded in the packet: Rigidity and trace-class conventions in §§1.2–1.5; Definition 1.2 and continuous-extension discussion in §1.6; Theorem 2.1 and proof; Theorem 3.1, Definition 3.2, Proposition 3.6, Proposition 3.13 and proof of Theorem 3.1.
+- **bms**: Bhargav Bhatt, Matthew Morrow and Peter Scholze, [Topological Hochschild homology and integral p-adic Hodge theory](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Published version, Publ. Math. IHÉS 129 (2019), 199–310, DOI 10.1007/s10240-019-00106-9. Read coverage recorded in the packet: Theorems 1.8, 1.12 and 1.17; Corollary 3.4/Remark 3.5; QRSP unfolding interface in §4.6; Proposition 5.8 and Corollary 5.10; Lemma 5.14/Proposition 5.15; relevant perfectoid, cotangent and Nygaard computations and proofs in §§6–7; Theorem 8.17/Corollary 8.18 and TC-sheaf part of 8.19–8.20; almost/AΩ/Adams constructions and proofs in §9; relative trace computations in §11.1–11.2 through relevant parts of Corollary 11.12.
+- **bm**: Bhargav Bhatt and Akhil Mathew, [Syntomic complexes and p-adic étale Tate twists](https://arxiv.org/pdf/2202.04818v2), arXiv:2202.04818v2, 1 December 2022; Forum Math. Pi 11 (2023), e1. Read coverage recorded in the packet: Example 1.6 and the introductory finite syntomic/K-sheaf conventions.
+- **bgt**: Andrew J. Blumberg, David Gepner and Gonçalo Tabuada, [A universal characterization of higher algebraic K-theory](https://arxiv.org/pdf/1001.2282v4), arXiv:1001.2282v4, 5 February 2013. Read coverage recorded in the packet: Definition 8.1; Proposition 8.6, Theorem 8.7 and its localization proof; statement of Theorem 9.8 and its initial proof reduction.
+- **wagner**: Ferdinand Wagner, [q-de Rham cohomology and topological Hochschild homology over ku](https://arxiv.org/pdf/2510.06057v1), arXiv:2510.06057v1, 7 October 2025. Read coverage recorded in the packet: 4.18(A),(R), 4.18a(R2), Theorem 4.27 and Remark 4.28; 5.43(A2); Theorem 5.63 and proof, pp.79–80; Corollary 6.15 and proof, p.86.
+- **scholze**: Peter Scholze, [Berkovich Motives](https://arxiv.org/pdf/2412.03382v3), arXiv:2412.03382v3, 22 January 2026; J. Amer. Math. Soc. 39 (2026), 697–764. Read coverage recorded in the packet: §8 almost-module/continuous-K paragraph before Proposition 8.7, pp.46–47.
+- **continuous**: Alexander I. Efimov, [K-theory and localizing invariants of large categories](https://arxiv.org/pdf/2405.12169v4), arXiv:2405.12169v4, 5 October 2026. Read coverage recorded in the packet: Definition 2.58; Propositions 2.59 and 2.61, pp.50–51; Definition 8.5, Propositions 8.6–8.8 and Theorem 8.10 with proofs, pp.105–107.
+- **bs**: Bhargav Bhatt and Peter Scholze, [Prisms and prismatic cohomology](https://arxiv.org/pdf/1905.08229v4), arXiv:1905.08229v4, 12 January 2022. Read coverage recorded in the packet: Theorem 13.1 and Lemma 13.2 with proofs, pp.94–96; Proposition 15.7 and proof, p.105.
+- **ammn**: Benjamin Antieau, Akhil Mathew, Matthew Morrow and Thomas Nikolaus, [On the Beilinson fiber square](https://arxiv.org/pdf/2003.12541v2), arXiv:2003.12541v2, 29 September 2021. Read coverage recorded in the packet: Construction 6.16 and Theorem 6.17 with proof, pp.44–45.
 
 ## Verified baseline ingredients
 
@@ -106,9 +107,9 @@ Atlas planets: Rigidity of localizing motives; Refined localizing invariants; Re
 
 If E is a rigid presentable E₁-monoidal stable category, Motloc_E is dualizable in PrL_st with dual Motloc_(E^mop) and pairing (D,C) ↦ Kcont(D ⊗_E C). If E is E₂-monoidal, Motloc_E is rigid E₁-monoidal. In the symmetric monoidal case the rigidity is symmetric monoidal. These are finitary accessible motives with the specified universe, not the assertion that every motive is a dualizable object.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), Theorem 3.1; proof at end of §3.1.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), Theorem 3.1, p. 29; proof of Theorem 3.1, pp. 43–44.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/localizing-motives; RefinedTraceMethods:RT.5/nuclear-module-resolution; RefinedTraceMethods:RT.5/enriched-duality; RefinedTraceMethods:RT.5/continuous-extension.
+Direct prerequisites: RefinedTraceMethods:RT.5/localizing-motives; RefinedTraceMethods:RT.5/nuclear-module-resolution; RefinedTraceMethods:RT.5/enriched-duality; RefinedTraceMethods:RT.5/continuous-extension; RefinedTraceMethods:RT.5/rigidity-criterion.
 
 Proof or construction outline:
 
@@ -127,9 +128,9 @@ Acceptance:
 
 Let E be rigid symmetric monoidal, and T: Motloc_E → D a colimit-preserving symmetric monoidal functor to a presentable symmetric monoidal stable D. The canonical rigidification D^rig ⊂ Ind_κ(D), defined by trace-class systems, admits a unique colimit-preserving symmetric monoidal factor Tref: Motloc_E → D^rig, up to contractible choice; realization gives T. If D is locally rigid with ω₁-compact unit, D^rig is the category of nuclear ind-objects with sequential presentations.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Construction 1.3; §§2.1 and 2.4.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Construction 1.3, pp. 2–3; Lemmas 2.15–2.17, pp. 16–17.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/motives-rigidity; RefinedTraceMethods:RT.5/rigidification.
+Direct prerequisites: RefinedTraceMethods:RT.5/motives-rigidity; RefinedTraceMethods:RT.5/rigidification; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/rigidity-criterion.
 
 Proof or construction outline:
 
@@ -148,9 +149,9 @@ Acceptance:
 
 TC−,ref((ku ⊗ Q)/ku) is even. Its even graded homotopy is the idempotent nuclear ind-graded B = Z[β][[t]]-algebra A*ku obtained by killing the idempotent pro-algebra F_m = Fil*qHdg(derived qdR(Z/m)/Z), indexed by high-powered m under divisibility; |β|=2, |t|=−2 and q−1=βt. There is a natural exact sequence 0 → B → A*ku → ind-colim_(m∈N^op) Ext¹_B(F_m,B) → 0. Ext and duals are in the graded derived t-complete category; no canonical splitting is asserted. The exact sequence comes from the cofiber of the duals of the unit maps in TC⁻.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Theorem 3.14(a) and proof; §3.1 convention on p-completions.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Theorem 3.14(a) and proof, pp. 36–37; Convention 3.1, p. 28.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.5/high-powered; RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/torsion-duality; RefinedTraceMethods:RT.5/pro-qhodge-idempotence; RefinedTraceMethods:RT.5/graded-trace-class; RefinedTraceMethods:RT.5/algebra-killing.
+Direct prerequisites: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.5/high-powered; RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/torsion-duality; RefinedTraceMethods:RT.5/pro-qhodge-idempotence; RefinedTraceMethods:RT.5/graded-trace-class; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/nuclear-closure.
 
 Proof or construction outline:
 
@@ -170,9 +171,9 @@ Acceptance:
 
 TC−,ref((KU ⊗ Q)/KU) is even with π2* = A_KU[β,β⁻¹], |β|=2. A_KU is the idempotent nuclear ind Z[[q−1]]-algebra obtained by killing pro qHdg(derived qdR(Z/m)/Z), and 0 → Z[[q−1]] → A_KU → ind-colim_(m∈N^op) Ext¹_(Z[[q−1]])(qHdg(derived qdR(Z/m)/Z),Z[[q−1]]) → 0. Duals and Ext use the derived (q−1)-complete category. This is the periodic computation with its own convergence proof, not an application of a bounded-below formula to KU.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Theorem 3.14(b); Corollary 3.8; Lemma 3.11.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Theorem 3.14(b) and proof, pp. 36–37; Corollary 3.8, p. 32; Lemma 3.11, pp. 34–35.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/refined-ku-computation; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.4:topological; RefinedTraceMethods:RT.4:q-Hodge; RefinedTraceMethods:RT.4:Habiro-comparison.
+Direct prerequisites: RefinedTraceMethods:RT.5/refined-ku-computation; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.4:topological/homotopy-of-ku; RefinedTraceMethods:RT.4:topological/bott-localisation; RefinedTraceMethods:RT.4:topological/relative-thh-ku; RefinedTraceMethods:RT.4:topological/ku-circle-actions; RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global; RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-odd; RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-two; RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts; RefinedTraceMethods:RT.4:q-Hodge/cyclonic-even-filtrations; RefinedTraceMethods:RT.4:Habiro-comparison/twisted-q-hodge-comparison; RefinedTraceMethods:RT.4:Habiro-comparison/habiro-comparison-theorem.
 
 Proof or construction outline:
 
@@ -191,7 +192,7 @@ Acceptance:
 
 Catdual_E has presentable stable left E-modules C that are dualizable as objects of PrL_E. Morphisms are E-linear colimit-preserving functors whose right adjoints preserve colimits (strongly continuous functors). For E=Sp this is Catdual_st. Object dualizability means specified evaluation and coevaluation with coherent triangle identities; it does not mean every object of C is dualizable or C is compactly generated.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), §1.5, dualizable modules over rigid monoidal categories.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), §1.5, pp. 18–20.
 
 Direct prerequisites: EnhancedDerivedSheaves:E5:abstract/stable-infinity-category; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; EnhancedDerivedSheaves:E5:presentability/presentable-categories; EnhancedDerivedSheaves:E5:presentability.
 
@@ -206,14 +207,18 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.5/continuous-extension: Strongly continuous arrows and the left Yoneda adjoint make the continuous Calkin construction functorial.
 - RefinedTraceMethods:RT.5/relative-nuclear-module: The tensor and internal Hom over E classify nuclear module objects.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
-| DualizableCategories.ofInd | constructor | For small idempotent-complete stable A, Ind(A) is a dualizable presentable stable category. |
+| DualizableCategories.ofInd | constructor | For small idempotent-complete stable A, Ind(A) is an object of Catdual_st (E=Sp). An E-linear version additionally requires the compatible E-action supplied by the rigid-base module interface. |
 | DualizableCategories.dual | data | Return the object dual C∨ with evaluation C∨⊗_E C → E and coevaluation E → C⊗_E C∨ satisfying coherent triangles. |
 | DualizableCategories.hom | characterisation | Morphisms C → D are E-linear left adjoints with colimit-preserving right adjoint. |
 | DualizableCategories.tensor | structure | For symmetric monoidal rigid E, tensor over E and its unit give Catdual_E a symmetric monoidal structure. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | DualizableCategories.indPerf | compatibility | For A=Perf(R), the supplied spectrum-module comparison identifies Ind(A) with Mod_R. |
 | DualizableCategories.zero | degenerate | The zero presentable stable category is dualizable, with zero evaluation and coevaluation. |
@@ -230,7 +235,7 @@ Acceptance:
 
 In a presentable symmetric monoidal stable C, with tensor preserving colimits separately, write X∨=internal Hom(X,1), without assuming X dualizable. A map f:X → Y is trace-class when there is η:1 → X∨⊗Y such that f equals X≃X⊗1 → X⊗X∨⊗Y → Y by evaluation. The E₁ variant uses distinct left/right preduals and the corresponding tensor orders.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Definition 2.1; Lemma 2.2.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Definition 2.1 and Lemma 2.2, pp. 11–12.
 
 Direct prerequisites: EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; EnhancedDerivedSheaves:E5:presentability/presentable-categories; EnhancedDerivedSheaves:E5:presentability.
 
@@ -245,14 +250,21 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.5/rigidification: The classifier and composition ideal generate the Q-indexed rigidification systems.
 - RefinedTraceMethods:RT.5/localization-tower-formula: Dualizable transition bimodules produce trace-class transitions, permitting the localization cofiber.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | TraceClass.ofClassifier | constructor | An η:1 → X∨⊗Y gives a trace-class map by the evaluation formula. |
 | TraceClass.iff_factorization | characterisation | Trace-class means that the adjoint of f:1 → Hom(X,Y) factors through X∨⊗Y. |
-| TraceClass.map | functoriality | A symmetric monoidal functor takes a trace-class f to a trace-class map through F(X∨) → F(X)∨. |
-| TraceClass.predual | compatibility | If f:X → Y is trace-class then Y∨ → X∨ is trace-class; for such transitions the comparison F(Y)∨ → F(X∨) supplies the diagonal needed for ind-predual colimits. |
+| TraceClass.map | functoriality | A symmetric monoidal functor takes a trace-class f to a trace-class map through F(X∨) → F(X)∨. Supplied by RefinedTraceMethods:RT.5/trace-class-functoriality. |
+| TraceClass.predual | compatibility | If f:X → Y is trace-class then Y∨ → X∨ is trace-class; for such transitions the comparison F(Y)∨ → F(X∨) supplies the diagonal needed for ind-predual colimits. Supplied by RefinedTraceMethods:RT.5/trace-class-functoriality. |
+| TraceClass.comp | relation | Precomposition and postcomposition preserve trace-class maps: transport the classifier by the predual map on the source and the ordinary map on the target. |
+| TraceClass.tensor | relation | The tensor of two trace-class maps is trace-class, classified by the tensor of their classifiers and the canonical predual comparison. |
+| TraceClass.identity_iff_dualizable | characterisation | The identity on X is trace-class exactly when X is dualizable; the classifier of the identity supplies coevaluation. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | TraceClass.unitIdentity | computation | The identity on the tensor unit is trace-class, classified by its unit constraints. |
 | TraceClass.zeroMap | degenerate | The zero X → Y is trace-class, classified by the zero map 1 → X∨⊗Y. |
@@ -263,13 +275,33 @@ Acceptance:
 - Identity is trace-class exactly for dualizable objects.
 - In D(k), maps between degree-zero vector spaces are trace-class exactly when finite rank.
 
+### Functoriality and preduals of trace-class maps
+
+**TraceClassFunctoriality** · theorem · RefinedTraceMethods:RT.5/trace-class-functoriality
+
+Let F:C → D be symmetric monoidal between presentable symmetric monoidal categories. There is a natural comparison F(X∨) → F(X)∨. A trace-class f:X → Y has trace-class predual Y∨ → X∨ and trace-class image F(f). For its chosen classifier, the naturality square on preduals has a diagonal F(Y)∨ → F(X∨) whose two triangles commute. This diagonal gives the predual comparison needed on trace-class ind-systems; it does not assert that F preserves arbitrary internal Homs.
+
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Lemma 2.2(a)–(c) and proof, pp. 11–12.
+
+Direct prerequisites: RefinedTraceMethods:RT.5/trace-class; EnhancedDerivedSheaves:E5:presentability.
+
+Proof or construction outline:
+
+1. Construct the comparison by applying F to evaluation and taking its adjoint.
+2. Apply F to the classifier and compose with that comparison; dualize the classifier for the predual map.
+3. Tensor the image classifier with F(Y)∨ and evaluate F(Y); the resulting diagonal satisfies both triangle identities.
+
+Acceptance:
+
+- Retain the stated hypotheses and coherent comparison maps.
+
 ### Rigid monoidal categories
 
 **RigidCategory** · definition · RefinedTraceMethods:RT.5/rigid-category
 
-A presentable stable E₁-monoidal E is rigid when the unit is compact and multiplication μ:E⊗E → E is strongly continuous with E–E-bilinear right adjoint. Equivalently it is generated under colimits by sequential colimits of maps that are both left and right trace-class. In the symmetric monoidal case the two trace-class conditions coincide. The equivalence is a theorem of Efimov Proposition 1.1; compact generation is not an extra defining hypothesis.
+A presentable stable E₁-monoidal E is rigid when the unit is compact and multiplication μ:E⊗E → E is strongly continuous with E–E-bilinear right adjoint. Equivalently its unit is compact and it is generated under colimits by sequential colimits of maps that are both left and right trace-class. In the symmetric monoidal case the two trace-class conditions coincide. The equivalence is a theorem of Efimov Proposition 1.1; compact generation is not an extra defining hypothesis.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), §1.3 and Proposition 1.1, pp. 15–16.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), §1.2 and Proposition 1.1, pp. 15–16.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/dualizable-categories; RefinedTraceMethods:RT.5/trace-class; EnhancedDerivedSheaves:E5:presentability/compact-objects.
 
@@ -284,14 +316,18 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.5/motives-rigidity: A bilinear right adjoint to multiplication and a compact unit are the rigidity conclusion.
 - RefinedTraceMethods:RT.5/refined-invariant-universality: A rigid source presents every object by trace-class systems.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | RigidCategory.multiplicationRightAdjoint | projection | Return μ^R preserving colimits and compatible with the left and right E actions. |
 | RigidCategory.unitCompact | projection | The tensor unit is compact. |
-| RigidCategory.iff_traceClassGenerators | characterisation | Rigidity is equivalent to compact unit and generation by sequential systems whose maps are both left and right trace-class. |
+| RigidCategory.iff_traceClassGenerators | characterisation | Rigidity is equivalent to compact unit and generation by sequential systems whose maps are both left and right trace-class. Supplied by RefinedTraceMethods:RT.5/rigidity-criterion. |
 | RigidCategory.compact_iff_dualizable | compatibility | For a rigid E, an object is compact exactly when it is left and right dualizable; this does not make all objects compact. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | RigidCategory.spectra | computation | Sp is rigid and its compact objects are finite spectra. |
 | RigidCategory.indRigid | compatibility | Ind(A) is rigid when small stable idempotent-complete monoidal A has every object dualizable. |
@@ -302,13 +338,32 @@ Acceptance:
 - Sp is rigid with compact sphere unit.
 - A rigid category can fail to be compactly generated.
 
+### Trace-class generation criterion for rigidity
+
+**RigidityCriterion** · theorem · RefinedTraceMethods:RT.5/rigidity-criterion
+
+For a presentable stable E₁-monoidal category E, rigidity is equivalent to compactness of its unit together with generation under colimits by sequential colimits whose transitions are both left and right trace-class. In the symmetric monoidal case the two trace-class conditions coincide. Compactness of the unit is a separate hypothesis in both directions.
+
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), §1.2 and Proposition 1.1, pp. 15–16.
+
+Direct prerequisites: RefinedTraceMethods:RT.5/rigid-category; RefinedTraceMethods:RT.5/trace-class; EnhancedDerivedSheaves:E5:presentability.
+
+Proof or construction outline:
+
+1. Use the left and right trace-class classifier definitions in Efimov §1.2.
+2. Apply Proposition 1.1 with both its compact-unit and sequential-generation hypotheses; retain left/right order in the E₁ case.
+
+Acceptance:
+
+- Retain the stated hypotheses and coherent comparison maps.
+
 ### Nuclear objects
 
 **NuclearObject** · definition · RefinedTraceMethods:RT.5/nuclear-objects
 
 For compactly generated presentable symmetric monoidal stable C with compact unit, X is nuclear if every map P → X from compact P is trace-class. X is basic nuclear if it has a sequential presentation X≃colim_n X_n with all transitions trace-class. The full subcategory Nuc(C) is stable and closed under colimits and tensor; its ω₁-compact objects are precisely the basic nuclear objects.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Definition 2.3; Theorem 2.4; Remark 2.5.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Definition 2.3, Theorem 2.4 and Remark 2.5, p. 12.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/trace-class; EnhancedDerivedSheaves:E5:presentability/compact-objects; EnhancedDerivedSheaves:E5:presentability/ind-completion.
 
@@ -323,14 +378,18 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.5/rigidification: Basic nuclear sequences and their ω₁-compact presentations generate the rigid target.
 - RefinedTraceMethods:RT.5/algebra-killing: The dual pro-system gives the nuclear ind-idempotent algebra.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | NuclearObject.ofBasic | constructor | A sequential trace-class presentation gives a nuclear object. |
 | NuclearObject.mapFromCompact | characterisation | Every map P → X from compact P has a trace-class classifier. |
-| NuclearObject.colimit | structure | Nuclear objects are stable and closed under arbitrary colimits and tensor products. |
-| NuclearObject.map | functoriality | Symmetric monoidal colimit-preserving F preserves basic nuclear objects and hence nuclear objects under the source’s generation hypotheses. |
+| NuclearObject.colimit | structure | Nuclear objects are stable and closed under arbitrary colimits and tensor products. Supplied by RefinedTraceMethods:RT.5/nuclear-closure. |
+| NuclearObject.map | functoriality | Symmetric monoidal colimit-preserving F preserves basic nuclear objects and hence nuclear objects under the source’s generation hypotheses. Supplied by RefinedTraceMethods:RT.5/nuclear-closure. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | NuclearObject.zero | degenerate | The zero object is basic nuclear via the constant zero system. |
 | NuclearObject.finiteDimensional | computation | In D(k), a finite-dimensional degree-zero vector space is basic nuclear via its constant identity system. |
@@ -341,13 +400,33 @@ Acceptance:
 - In Ind(Perf(k)), every object is nuclear but the basic nuclear size bound is countable.
 - Testing only maps from the tensor unit is insufficient unless a generator theorem is supplied.
 
+### Closure and generation of nuclear objects
+
+**NuclearClosure** · theorem · RefinedTraceMethods:RT.5/nuclear-closure
+
+Let C be compactly generated presentable stable symmetric monoidal with compact unit. Nuc(C) is stable and closed under all colimits and tensor products; it is ω₁-compactly generated and its ω₁-compact objects are exactly the basic nuclear objects. A symmetric monoidal colimit-preserving functor preserves basic nuclear objects and nuclear objects as in MW Theorem 2.4(c). For the size-controlled nuclear ind-envelope, a sufficiently large regular κ bounds trace-class factorizations and makes basic nuclear systems essentially small.
+
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Theorem 2.4 and Remark 2.5, p. 12.
+
+Direct prerequisites: RefinedTraceMethods:RT.5/nuclear-objects; RefinedTraceMethods:RT.5/trace-class-functoriality; EnhancedDerivedSheaves:E5:presentability/compact-objects; EnhancedDerivedSheaves:E5:presentability/ind-completion.
+
+Proof or construction outline:
+
+1. Use MW Theorem 2.4(a),(b) for the stable tensor closure and ω₁-generation.
+2. Preserve sequential classifiers by trace-class functoriality and extend over the nuclear colimit envelope.
+3. Apply Remark 2.5’s κ-compact factorization to construct the essentially small basic ind-object category before its Indω₁ envelope.
+
+Acceptance:
+
+- Retain the stated hypotheses and coherent comparison maps.
+
 ### The continuous Calkin category
 
 **ContinuousCalkin** · construction · RefinedTraceMethods:RT.5/continuous-calkin
 
 For dualizable presentable stable C and an uncountable regular cardinal κ, the strongly continuous fully faithful left adjoint Yoneda functor Ŷ:C → Ind(C^κ) has quotient equivalent to ker(colim:Ind(C^κ) → C). Define Calkcont_κ(C) as the compact objects of that quotient. It is small stable idempotent-complete and gives an exact sequence 0 → C → Ind(C^κ) → Ind(Calkcont_κ(C)) → 0 in Catdual_st. Functoriality is for strongly continuous functors.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2405.12169v4), Definition 2.58; Propositions 2.59–2.61.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2405.12169v4), Definition 2.58, pp. 50–51; Propositions 2.59 and 2.61, p. 51.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/dualizable-categories; EnhancedDerivedSheaves:E5:presentability/ind-completion; EnhancedDerivedSheaves:E5:presentability.
 
@@ -361,14 +440,18 @@ Uses deriving the API:
 
 - RefinedTraceMethods:RT.5/continuous-extension: The compact continuous quotient is evaluated by F and looped.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | ContinuousCalkin.quotient | data | The canonical functor Ind(C^κ) → Ind(Calkcont_κ(C)) has kernel Ŷ(C). |
 | ContinuousCalkin.map | functoriality | Strongly continuous C → D induces an exact Calkcont_κ(C) → Calkcont_κ(D), with coherent identity and composition laws. |
 | ContinuousCalkin.compactlyGenerated | equivalence | If C=Ind(A), Calkcont_κ(C) ≃ (Ind(A)^κ/A)^Kar. |
 | ContinuousCalkin.exactSequence | compatibility | The defining sequence is exact in Catdual_st and is functorial in C. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | ContinuousCalkin.zero | degenerate | Calkcont_κ(0) is the zero small stable category. |
 | ContinuousCalkin.perfRing | compatibility | For C=Mod_R, Calkcont_κ(C) is the idempotent completion of (Mod_R)^κ/Perf(R). |
@@ -385,7 +468,7 @@ Acceptance:
 
 An accessible localizing invariant F:Catperf → T, with T accessible stable, sends the zero category to zero and exact sequences A → B → C (fully faithful first map and idempotent-complete Verdier quotient C) to fiber/cofiber sequences, and commutes with κ-filtered colimits for a specified regular κ. The relative Catdual_E version uses exact sequences and strongly continuous E-linear maps. A finitary invariant has κ=ω.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), §1.6, Definition 1.2.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), §1.6 and Definition 1.2, pp. 20–21.
 
 Direct prerequisites: EnhancedDerivedSheaves:E5:abstract/stable-infinity-category; EnhancedDerivedSheaves:E5:presentability/ind-completion; RefinedTraceMethods:RT.5/dualizable-categories.
 
@@ -400,14 +483,18 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.5/localizing-motives: Exact and colimit relations are the presheaf localization relations.
 - RefinedTraceMethods:RT.5/continuous-extension-uniqueness: These relations establish the universal continuous extension.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | LocalizingInvariant.exactSequence | projection | F(A) → F(B) → F(C) is a cofiber sequence for each exact sequence. |
 | LocalizingInvariant.map | functoriality | Exact functors give maps in T with coherent identity and composition. |
 | LocalizingInvariant.filteredColimit | projection | F commutes with the specified κ-filtered colimits. |
 | LocalizingInvariant.ofKTheory | compatibility | The imported concrete nonconnective K-theory functor satisfies this interface; the universal property is a property, not its definition. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | LocalizingInvariant.zero | degenerate | F(0) ≃ 0. |
 | LocalizingInvariant.split | computation | F(A⊕B) ≃ F(A)⊕F(B) with the two inclusions and projections. |
@@ -424,7 +511,7 @@ Acceptance:
 
 For accessible localizing F:Catperf → T define Fcont(C)=Ω F(Calkcont_ω₁(C)) on Catdual_st. It is accessible localizing, commutes with the same κ-filtered colimits as F, and Fcont(Ind(A))≃F(A). Kcont denotes this construction applied to the concrete nonconnective K-theory functor. This extends a supplied functor rather than postulating a new universal K spectrum.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2405.12169v4), Definition 8.5; Propositions 8.6–8.8; Theorem 8.10.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2405.12169v4), Definition 8.5 and Propositions 8.6–8.8, pp. 105–106; Theorem 8.10, pp. 106–107.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/localizing-invariant; RefinedTraceMethods:RT.5/continuous-calkin; GeneralAlgebraicKTheory:K.6; GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance.
 
@@ -439,14 +526,18 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.5/motives-rigidity: Concrete Kcont(D⊗_E C) is the duality pairing.
 - RefinedTraceMethods:RT.5/almost-module-k: The exact dualizable sequence of firm almost modules gives the K-fiber.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | ContinuousExtension.obj | data | Fcont(C) is ΩF(Calkcont_ω₁(C)). |
 | ContinuousExtension.map | functoriality | Strongly continuous C → D induces Fcont(C) → Fcont(D). |
 | ContinuousExtension.ofInd | equivalence | Fcont(Ind(A)) ≃ F(A) naturally in small idempotent-complete stable A. |
 | ContinuousExtension.exact | compatibility | Fcont takes exact sequences in Catdual_st to cofiber sequences and preserves the specified κ-filtered colimits. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | ContinuousExtension.zero | degenerate | Fcont(0)≃0. |
 | ContinuousExtension.moduleK | compatibility | Kcont(Mod_R)≃the supplied K(Perf(R)) with its scalar-extension map. |
@@ -463,7 +554,7 @@ Acceptance:
 
 For regular κ and accessible stable T admitting κ-filtered colimits, precomposition with Ind gives an equivalence between accessible κ-finitary localizing functors Catdual_st → T and Catperf → T. Its inverse is F ↦ Fcont. The relative E-linear version has the analogous statement for relatively compactly generated E-modules and dualizable E-modules with strong-continuity morphisms.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2405.12169v4), Theorem 8.10; relative statement in Efimov rigidity §1.6.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2405.12169v4), Theorem 8.10, pp. 106–107; relative version in Efimov rigidity §1.6, pp. 20–21.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/continuous-extension; RefinedTraceMethods:RT.5/dualizable-categories.
 
@@ -483,7 +574,7 @@ Acceptance:
 
 For rigid E₁-monoidal E and regular κ, construct accessible stable Motloc_(E,κ) with κ-filtered colimits and Uloc,κ:Catdual_E → Motloc_(E,κ) such that precomposition identifies exact κ-continuous functors out of Motloc_(E,κ) with accessible κ-finitary localizing invariants. Use the small relatively compactly generated model, stabilized spectral presheaves, and localization at zero, Morita, exact-sequence and κ-colimit relations, then continuous extension. For symmetric monoidal E, tensor of E-modules descends to the finitary Motloc_E (κ=ω); for E₂ it supplies the E₁ structure used in the rigidity theorem.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), Definition 1.2 and §1.6; BGT Theorems 1.1 and 1.3; [Andrew J. Blumberg, David Gepner and Gonçalo Tabuada](https://arxiv.org/pdf/1001.2282), Proposition 8.6; Theorem 8.7; Theorem 9.8.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), Definition 1.2 and §1.6, pp. 20–21; [Andrew J. Blumberg, David Gepner and Gonçalo Tabuada](https://arxiv.org/pdf/1001.2282v4), Proposition 8.6 and Theorem 8.7, pp. 54–56; Theorem 9.8, p. 58.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/localizing-invariant; RefinedTraceMethods:RT.5/continuous-extension-uniqueness; RefinedTraceMethods:RT.5/rigid-category; EnhancedDerivedSheaves:E5:presentability; GeneralAlgebraicKTheory:K.6; GeneralAlgebraicKTheory:K.6/nonconnective-spectrum-and-derived-invariance.
 
@@ -498,14 +589,18 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.5/motives-rigidity: Unit corepresentability and nuclear motive generators give duality and rigidity.
 - RefinedTraceMethods:RT.5/refined-invariant-universality: The motive-to-invariant colimit-preserving monoidal functor factors through rigidification.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | LocalizingMotives.universal | constructor | Uloc sends an E-linear category to its motive and an exact sequence to a cofiber sequence. |
 | LocalizingMotives.lift | universal-property | Every κ-finitary localizing invariant has an exact κ-continuous factor uniquely up to contractible choice. |
 | LocalizingMotives.tensor | structure | For symmetric monoidal rigid E, Uloc(C⊗_E D)≃Uloc(C)⊗Uloc(D) with coherent associativity, units and symmetry. |
 | LocalizingMotives.concreteK | compatibility | Map(Uloc(E),Uloc(C))≃Kcont(C) in the source’s finitary setting. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | LocalizingMotives.zero | degenerate | Uloc(0)≃0. |
 | LocalizingMotives.baseSpectra | compatibility | For E=Sp, its compactly generated restriction and universal property agree with BGT Motloc. |
@@ -522,7 +617,7 @@ Acceptance:
 
 For rigid E₁-monoidal E, a strongly continuous E-linear morphism C → D of dualizable left E-modules is right trace-class over E if represented by a compact object of Homdual_E(C,E)⊗_E D under the canonical functor to FunLL_E(C,D). A relatively compactly generated C is nuclear over E if every compact morphism from an ω₁-compact relatively compactly generated D to C is right trace-class over E; basic nuclear means a sequential colimit of these right trace-class maps. The trace-class definition has dualizable-module generality; the nuclear subcategory here has relatively compactly generated objects. This categorical notion is distinct from nuclear objects in a monoidal category.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), Definition 3.2; Proposition 3.6.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), Definition 3.2, pp. 29–30; Proposition 3.6, p. 32.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/dualizable-categories; RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/rigid-category; EnhancedDerivedSheaves:E5:presentability.
 
@@ -536,14 +631,18 @@ Uses deriving the API:
 
 - RefinedTraceMethods:RT.5/nuclear-module-resolution: The h_(x,n) Hom identifications show both resolution terms are basic nuclear.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | RelativeNuclearModule.traceClassWitness | constructor | A compact object of Homdual_E(C,E)⊗_E D determines a relatively trace-class map C → D. |
 | RelativeNuclearModule.ofBasic | compatibility | A sequential colimit of relatively trace-class maps is nuclear; ω₁-compact nuclear modules are basic nuclear. |
 | RelativeNuclearModule.test | characterisation | Every compact map from an ω₁-compact relatively compactly generated E-module is relatively trace-class. |
 | RelativeNuclearModule.motive | compatibility | Uloc carries these transitions to the left/right trace-class transitions used in Motloc_E rigidity. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | RelativeNuclearModule.base | computation | E as a left E-module is nuclear over itself. |
 | RelativeNuclearModule.zero | degenerate | The zero E-module is basic nuclear. |
@@ -574,14 +673,18 @@ Uses deriving the API:
 
 - RefinedTraceMethods:RT.5/motives-rigidity: The length-one nuclear resolution produces enough trace-class generators for motives.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | NuclearModuleResolution.repetition | constructor | Build B with the three stated Hom cases and enriched composition. |
 | NuclearModuleResolution.quotient | projection | Φ sends h_(x,n) to h_x and admits fully faithful colimit-preserving right adjoint M(x,n)=M(x). |
 | NuclearModuleResolution.kernel | characterisation | ker Φ is generated by the transition fibers. |
 | NuclearModuleResolution.basicNuclear | compatibility | Countable Ob(A) and ω₁-compact Homs give an exact resolution by basic nuclear E-modules. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | NuclearModuleResolution.empty | degenerate | For A empty, B and both module categories are zero. |
 | NuclearModuleResolution.oneObject | computation | For A with one object and endomorphism 1_E, B has Hom(n,m)=1_E for n≤m and 0 for n>m; Φ(h_n)=1_E. |
@@ -597,7 +700,7 @@ Acceptance:
 
 Let A be enriched over PrL_st and X,Y∈A. Assume 1_X is compact in A(X,X), A(X,Y) is generated by sequential colimits of right trace-class 2-morphisms, and A(Y,X) by sequential colimits of left trace-class 2-morphisms. Then A(X,Y) and A(Y,X) are dualizable, composition A(X,Y)⊗A(Y,X) → A(Y,Y) is strongly continuous, and A(Y,X)∨≃A(X,Y). Evaluation is composition to A(X,X) followed by Map(1_X,−); coevaluation is 1_Y followed by the right adjoint to composition.
 
-Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), Theorem 2.1 and proof, pp. 25–28.
+Source: [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), Theorem 2.1, p. 25; proof, pp. 27–29.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/dualizable-categories; EnhancedDerivedSheaves:E5:presentability.
 
@@ -617,9 +720,9 @@ Acceptance:
 
 For presentable symmetric monoidal stable D with colimit-preserving tensor, form D^rig as the full subcategory of a size-controlled Ind_κ(D) generated under colimits by Q-indexed ind-objects whose transitions x_i → x_j, i<j, are trace-class. Choose a regular κ that bounds trace-class factorizations and generators. Realization is induced by colimit. If D is locally rigid and the unit is ω₁-compact, D^rig≃Nuc Ind(D), constructed from the essentially small sequential basic nuclear objects. The use of Q rather than N is essential without those extra hypotheses.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Construction 1.3; Remark 2.5 (citing Ramzi Construction 4.75 and Efimov Theorem 4.2).
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Construction 1.3, pp. 2–3; Remark 2.5, p. 12 (Ramzi Construction 4.75 and Efimov Theorem 4.2 are the recorded external proof input).
 
-Direct prerequisites: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/nuclear-objects; RefinedTraceMethods:RT.5/rigid-category; EnhancedDerivedSheaves:E5:presentability/ind-completion; EnhancedDerivedSheaves:E5:presentability.
+Direct prerequisites: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/nuclear-objects; RefinedTraceMethods:RT.5/rigid-category; EnhancedDerivedSheaves:E5:presentability/ind-completion; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/nuclear-closure.
 
 Proof or construction outline:
 
@@ -631,14 +734,18 @@ Uses deriving the API:
 
 - RefinedTraceMethods:RT.5/refined-invariant-universality: Its universal mapping property defines the refined functor and realization comparison.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | Rigidification.ofSystem | constructor | A Q-indexed system with trace-class transitions gives an object in D^rig. |
 | Rigidification.realize | projection | Realization D^rig → D sends a system to its colimit and is symmetric monoidal. |
 | Rigidification.map | functoriality | Symmetric monoidal colimit-preserving functors induce the rigidification comparison by preservation of trace-class maps. |
 | Rigidification.sequential | equivalence | For locally rigid D with ω₁-compact unit, the Q-system envelope is equivalent to the sequential nuclear ind-object category. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | Rigidification.zero | degenerate | The zero trace-class system gives the zero object of D^rig. |
 | Rigidification.constantDualizable | compatibility | The constant system on a dualizable X belongs to D^rig and realizes to X. |
@@ -655,9 +762,9 @@ Acceptance:
 
 In a presentable symmetric monoidal stable C, a κ-small pro-object A=pro-lim_i A_i with left-unital multiplication and unit defines the full subcategory Ind(C)^A of M with extended internal Hom(A,M)=ind-colim_(i,k) Hom_C(A_i,M_k)=0. It has a reflector j*. If A is idempotent and eventually trace-class, the dual ind-object ind-colim_i A_i∨ is nuclear and idempotent and there is a cofiber ind-colim_i A_i∨ → 1 → j*(1). The reflector is then symmetric monoidal, j*(1) an idempotent E∞ algebra, and j*(M)≃M⊗j*(1). The ordinary-object version uses Hom_C(A,−)=0 and requires stabilization or sequential-Hom commutation for its iterative formula.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), §2.2, Constructions 2.6, 2.9, 2.11; Proposition 2.14.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Constructions 2.6, 2.9 and 2.11, pp. 12–15; Proposition 2.14, pp. 15–16.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/nuclear-objects; EnhancedDerivedSheaves:E5:presentability/ind-completion; EnhancedDerivedSheaves:E5:presentability.
+Direct prerequisites: RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/nuclear-objects; EnhancedDerivedSheaves:E5:presentability/ind-completion; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/nuclear-closure.
 
 Proof or construction outline:
 
@@ -669,7 +776,9 @@ Uses deriving the API:
 
 - RefinedTraceMethods:RT.5/refined-ku-computation: Killing the torsion q-Hodge pro-algebra gives the nuclear ind coefficient algebra and unit cofiber.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | KillProAlgebra.unit | projection | The localization unit 1 → kill(A)=j*(1) fits into the stated cofiber. |
 | KillProAlgebra.orthogonal | characterisation | Local objects are exactly those with extended internal Hom(A,M)=0. |
@@ -677,7 +786,9 @@ Uses deriving the API:
 | KillProAlgebra.tensor | structure | For idempotent eventually trace-class pro A, j*(M)≃M⊗kill(A), kill(A)⊗kill(A)≃kill(A). |
 | KillProAlgebra.map | functoriality | Symmetric monoidal functors preserve the killing construction in the eventual trace-class idempotent setting. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | KillProAlgebra.killZero | degenerate | kill(0)≃1 and j* is the identity. |
 | KillProAlgebra.killUnit | computation | kill(1)≃0 and the local subcategory is zero. |
@@ -692,30 +803,34 @@ Acceptance:
 
 **SmoothProperCategory** · definition · RefinedTraceMethods:RT.5/smooth-proper-category
 
-Let E be rigid symmetric monoidal and X a dualizable E-module with relative dual X∨. Smoothness means the absolute coevaluation Sp → X∨⊗_E X takes the sphere to a compact object; properness means the absolute evaluation X⊗X∨ → E preserves compact objects (equivalently is strongly continuous in this source setting). Both together are equivalent to X being a dualizable object of the strongly continuous monoidal category Catdual_E: its relative evaluation and coevaluation then are morphisms there. For an algebra model, smoothness is compactness of the diagonal bimodule and properness is compactness of its underlying E-object. For smooth proper X, Tref(X)≃constant T(X).
+Let E be rigid symmetric monoidal and X a dualizable E-module with relative dual X∨. Smoothness means the relative coevaluation E → X∨⊗_E X is strongly continuous; equivalently the absolute coevaluation takes the sphere to a compact object. Properness means the relative evaluation X⊗_E X∨ → E is strongly continuous. Both together say that X is dualizable in the monoidal category Catdual_E with strongly continuous morphisms. For an algebra model Mod_A over a compactly generated rigid base, smoothness is compactness of the diagonal A-bimodule and properness is compactness of A as an E-object. Preservation of compact objects alone is not used as a criterion for an arbitrary dualizable category.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Lemma 2.18 and Corollary 2.19.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Lemma 2.18, p. 18; Corollary 2.19, pp. 18–19; [Alexander I. Efimov](https://arxiv.org/pdf/2510.17010v1), §1.5, p. 19.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/dualizable-categories; RefinedTraceMethods:RT.5/rigid-category; EnhancedDerivedSheaves:E5:presentability/compact-objects; EnhancedDerivedSheaves:E5:presentability.
 
 Proof or construction outline:
 
-1. Construct the relative evaluation/coevaluation.
-2. Test compact preservation on the unit and the relative compact generators.
-3. Compare the enhanced category definition with the diagonal-bimodule and underlying-module criteria for algebra models.
+1. Use the relative evaluation and coevaluation from the dualizable-module interface.
+2. Apply Efimov §1.5: strong continuity is the defining condition; for coevaluation it can be tested on the compact tensor unit of rigid E.
+3. In compactly generated algebra models, test evaluation on the compact diagonal generators and identify the smooth/proper algebra criteria.
 
 Uses deriving the API:
 
 - RefinedTraceMethods:RT.5/refined-base-change: Smooth properness ensures restriction preserves trace-class maps and yields the base-change square.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | SmoothProperCategory.evaluation | data | The relative evaluation is strongly continuous exactly under properness. |
 | SmoothProperCategory.coevaluation | data | The relative coevaluation is strongly continuous exactly under smoothness. |
 | SmoothProperCategory.algebraCriterion | characterisation | For an algebra model, smoothness is compactness of the diagonal as an A-bimodule and properness is compactness of A over E. |
-| SmoothProperCategory.refinedValue | compatibility | For smooth proper X, Tref(X)≃constant T(X). |
+| SmoothProperCategory.refinedValue | compatibility | For smooth proper X, Tref(X)≃constant T(X). Supplied by RefinedTraceMethods:RT.5/smooth-proper-normalization. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | SmoothProperCategory.unit | degenerate | The E-linear unit category E is smooth and proper over E. |
 | SmoothProperCategory.field | computation | Perf(k) after Ind is smooth and proper over Mod_k with its diagonal k. |
@@ -723,7 +838,27 @@ Uses deriving the API:
 
 Acceptance:
 
-- A smooth and proper X has Tref(X) represented by constant T(X).
+- The unit category E is smooth and proper; Mod_(k[x]) is smooth but not proper over Mod_k.
+
+### Refined invariants of smooth proper categories
+
+**SmoothProperNormalization** · theorem · RefinedTraceMethods:RT.5/smooth-proper-normalization
+
+For rigid symmetric monoidal E and a dualizable E-module X with strongly continuous relative evaluation and coevaluation, X is dualizable in Catdual_E. For the refined symmetric monoidal invariant Tref attached to T:Motloc_E → D, its value on X is the constant ind-object T(X). If a rigid symmetric monoidal X is smooth and proper over E, forgetting X-linearity preserves trace-class morphisms.
+
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Lemmas 2.16 and 2.18, Corollary 2.19, pp. 17–19.
+
+Direct prerequisites: RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/trace-class-functoriality.
+
+Proof or construction outline:
+
+1. The relative evaluation and coevaluation are morphisms of Catdual_E by the smooth/proper conditions; the PrL_E triangle identities hold there.
+2. The identity on this dualizable object is trace-class, so its constant system gives the refined value (MW Lemma 2.16).
+3. For restriction of scalars, use dualizability of X in Catdual_E to transport the trace-class classifier as in Corollary 2.19.
+
+Acceptance:
+
+- Retain the stated hypotheses and coherent comparison maps.
 
 ### Base change in the refined construction
 
@@ -731,9 +866,9 @@ Acceptance:
 
 Let E → X be strongly continuous symmetric monoidal with E and X rigid and X smooth and proper over E. Forgetting X-linearity in Catdual preserves trace-class morphisms, so the refined functors computed over X and over E have their comparison induced by this map. For an additional symmetric monoidal colimit-preserving X → X′ and a dualizable algebra V₀ in X, the kernel V of X → X^{V₀} satisfies V⊗_X X′≃V′. The pro-algebra killing comparison is preserved after applying a symmetric monoidal functor when its transitions are eventually trace-class.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 2.19; Lemma 2.26; Remark 1.4.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 2.19, pp. 18–19; Lemma 2.26, pp. 22–23; Remark 1.4, p. 3.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/trace-class.
+Direct prerequisites: RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/smooth-proper-normalization.
 
 Proof or construction outline:
 
@@ -751,9 +886,9 @@ Acceptance:
 
 Let E → X be as in the smooth proper base-change theorem, and T:Motloc_E → D symmetric monoidal colimit-preserving with D locally rigid and ω₁-compact unit. Let V₀ ← V₁ ← … be E₁-algebras in X, each dualizable and in thick⊗(V₀), such that V_(r+1)⊗V_r → V_r⊗V_r factors through multiplication V_(r+1)⊗V_r → V_r as a V_(r+1)–V_r bimodule map. For U={M | Hom_X(V₀,M)=0}, pro T(RMod_(V_r)(X)) is idempotent and eventually trace-class and Tref(U)≃kill(pro T(RMod_(V_r)(X))) as a T(X)-algebra. Thus ind-colim_r T(RMod_(V_r)(X))∨ → T(X) → Tref(U) is a cofiber in Nuc Ind(D).
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Theorem 2.21; Lemmas 2.22–2.26; Corollary 2.30.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Theorem 2.21 and Lemmas 2.22–2.26, pp. 19–23; Corollary 2.30, p. 25.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/refined-base-change; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/smooth-proper-category; EnhancedDerivedSheaves:E5:presentability.
+Direct prerequisites: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/refined-base-change; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/smooth-proper-category; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/trace-class-functoriality.
 
 Proof or construction outline:
 
@@ -766,15 +901,35 @@ Acceptance:
 - A Burklund tower for a dualizable v:I → 1 with right-unital quotient meets the factorization after passing to sufficiently separated exponents.
 - The cofiber is in nuclear ind-objects with algebra structure, not merely a homotopy-group exact sequence.
 
+### Circle fixed points and oriented completion
+
+**CircleCompletionEquivalence** · theorem · RefinedTraceMethods:RT.5/circle-completion-equivalence
+
+Let k be a complex orientable E∞ ring spectrum with trivial S¹ action, and choose t∈π_(−2)(k^hS¹) representing an orientation. Homotopy S¹ fixed points give a symmetric monoidal equivalence from coherent circle k-modules to derived t-complete k^hS¹-modules, whose tensor is t-completed. The left adjoint has underlying module reduction modulo t; no bounded-below hypothesis is imposed.
+
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Lemma 3.2 and proof, pp. 29–30.
+
+Direct prerequisites: RefinedTraceMethods:RT.2/spectra-with-action; RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points; RefinedTraceMethods:RT.2/circle-tate; DerivedDeRhamCohomology:DD.1/derived-completion; EnhancedDerivedSheaves:E5:presentability.
+
+Proof or construction outline:
+
+1. Construct the constant-action and scalar-extension left adjoint; its underlying module is reduction modulo t.
+2. Check the tensor comparison and adjunction counit modulo t using the oriented circle cofiber identification.
+3. Use conservativity of reduction modulo t on derived t-complete modules; full faithfulness and the conservative left adjoint give the equivalence.
+
+Acceptance:
+
+- Retain the stated hypotheses and coherent comparison maps.
+
 ### Refined THH and TC⁻
 
 **RefinedTraces** · construction · RefinedTraceMethods:RT.5/refined-traces
 
 For an E∞ ring k, refine the symmetric monoidal localizing relative THH functor Motloc_k → Mod_k(Sp)^BS¹, keeping its coherent circle action. The ordinary comparison is realization in that target. For complex orientable k and a chosen orientation t∈π_(−2)k^hS¹, refine TC⁻ into nuclear ind-objects of derived t-complete k^hS¹-modules with t-completed tensor. MW Lemma 3.2 identifies coherent circle k-modules with this completed module category. Finite-coefficient and rational-input computations use the induced maps between motives, units and localization cofibers.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Construction 1.7; Lemma 3.2; Convention 3.1.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Construction 1.7, p. 4; Convention 3.1, p. 28; Lemma 3.2, pp. 29–30.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:presentability.
+Direct prerequisites: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/thh-spectral-categories; RefinedTraceMethods:RT.2/thh-symmetric-monoidal; RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points; RefinedTraceMethods:RT.2/tc-minus-and-tp; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/smooth-proper-normalization; RefinedTraceMethods:RT.5/circle-completion-equivalence.
 
 Proof or construction outline:
 
@@ -787,15 +942,19 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.5/refined-ku-computation: The relative refined TC⁻ invariant carries the unit, finite-coefficient localization and derived t-completion.
 - RefinedTraceMethods:RT.6/habiro-trace-interface: Its ordinary realization and multiplicative trace maps are exported with the qualified finite-C_m data.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | RefinedTraces.thh | constructor | THHref takes k-linear motives to the rigidification of coherent S¹ k-modules. |
 | RefinedTraces.tcMinus | constructor | For oriented k, TC−,ref is the corresponding nuclear derived t-complete module object. |
 | RefinedTraces.ordinary | projection | Realization gives natural multiplicative maps from refined values to ordinary THH/TC⁻. |
 | RefinedTraces.map | functoriality | Maps of k-linear motives induce coherent circle maps and the completed TC⁻ maps, with identity and composition. |
-| RefinedTraces.fixedPointComparison | equivalence | Homotopy S¹ fixed points are symmetric monoidal between coherent k-modules and t-complete k^hS¹-modules under the complex-orientation hypothesis. |
+| RefinedTraces.fixedPointComparison | equivalence | Homotopy S¹ fixed points are symmetric monoidal between coherent k-modules and t-complete k^hS¹-modules under the complex-orientation hypothesis. Supplied by RefinedTraceMethods:RT.5/circle-completion-equivalence. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | RefinedTraces.zeroMotive | degenerate | Both refined invariants of the zero motive are zero. |
 | RefinedTraces.unitMotive | computation | For the smooth proper unit Mod_k, THHref is constant k with trivial circle action and TC−,ref is constant k^hS¹ in its complete module target. |
@@ -812,7 +971,7 @@ Acceptance:
 
 HighPowered(m) means m>0, every odd prime p has m.factorization(p)=0 or at least 2, and m.factorization(2)=0 or an even integer at least 4. These m form the divisibility poset N used for the compatible E₁ Moore tower. For every positive d, d⁴ is high-powered and d divides d⁴, so restriction to N is coinitial in the inverse divisibility diagram.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), §3.1, paragraph 3.3.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), §3.1, paragraph 3.3, p. 30.
 
 Direct prerequisites: mathlib:Nat.factorization; mathlib:Nat.factorization_pow.
 
@@ -827,7 +986,9 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.5/pro-qhodge-idempotence: The cofinal high-powered m³→m² tower supports compatible Moore multiplications.
 - RefinedTraceMethods:RT.5/graded-trace-class: The m³→m transition supplies bounded-amplitude trace-class maps.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | HighPowered.pos | projection | HighPowered(m) implies m>0. |
 | HighPowered.twoExponent | projection | The exponent at 2 is zero or is even and at least four. |
@@ -835,7 +996,9 @@ Uses deriving the API:
 | HighPowered.fourthPower | constructor | For every d>0, d⁴ is high-powered and d divides d⁴. |
 | HighPowered.factorizationCriterion | characterisation | The arithmetic predicate is exactly the given conditions on Mathlib Nat.factorization. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | HighPowered.one | degenerate | HighPowered(1). |
 | HighPowered.nineAndSixteen | computation | HighPowered(9) and HighPowered(16). |
@@ -851,9 +1014,9 @@ Acceptance:
 
 Choose the compatible E₁ quotient spectra S/m for high-powered m. Then TC⁻((ku⊗S/m)/ku) and TC⁻((KU⊗S/m)/KU) are even; their even homotopy identifies with respectively Fil*qHdg(derived qdR(Z/m)/Z) over Z[β][[t]], and qHdg(derived qdR(Z/m)/Z)[β±¹] over Z[[q−1]]. Both carry the chosen even filtration, the specified E₁-induced multiplicative data, and quotient transition maps. Any p=2 application requires RT.4’s separate E₁ even-resolution input; Wagner’s general theorem with 2 invertible and a connective spherical E₂ lift alone does not supply it.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 3.8; preceding finite-coefficient calculation.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 3.8, p. 32; finite-coefficient calculation, pp. 30–32.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/high-powered; StableHomotopyKTheory:H.6; RefinedTraceMethods:RT.4:topological; RefinedTraceMethods:RT.4:q-Hodge; RefinedTraceMethods:RT.4:Habiro-comparison; HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations; HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex; HabiroCohomologyFoundations:HQ.3.
+Direct prerequisites: RefinedTraceMethods:RT.5/high-powered; StableHomotopyKTheory:H.6; RefinedTraceMethods:RT.4:topological/homotopy-of-ku; RefinedTraceMethods:RT.4:topological/bott-localisation; RefinedTraceMethods:RT.4:topological/relative-thh-ku; RefinedTraceMethods:RT.4:topological/ku-circle-actions; RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global; RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-odd; RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-two; RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts; RefinedTraceMethods:RT.4:q-Hodge/cyclonic-even-filtrations; RefinedTraceMethods:RT.4:Habiro-comparison/twisted-q-hodge-comparison; RefinedTraceMethods:RT.4:Habiro-comparison/habiro-comparison-theorem; HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations; HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex; HabiroCohomologyFoundations:HQ.3.
 
 Proof or construction outline:
 
@@ -872,9 +1035,9 @@ Acceptance:
 
 For an even E₁ ring k and even k-modules M,N, RHom_k(M,N) has the source’s complete exhaustive decreasing filtration with gr^n ≃ Σ^(2n) RHom_(π2*k)(π2*M,π2*N)(−n) in graded derived modules. Use the double-speed Whitehead filtrations, derived rather than ordinary Hom, and the source’s connectivity bounds to prove completeness/exhaustiveness; no degeneration is asserted without the subsequent Ext-amplitude calculation.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Lemma 3.9 and proof.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Lemma 3.9 and proof, p. 33.
 
-Direct prerequisites: StableHomotopyKTheory:H.6; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:presentability.
+Direct prerequisites: StableHomotopyKTheory:H.6; StableHomotopyKTheory:H.5:spectra; EnhancedDerivedSheaves:E5:presentability.
 
 Proof or construction outline:
 
@@ -892,7 +1055,7 @@ Acceptance:
 
 For high-powered m, the k^hS¹-linear duals of TC⁻((k/m)/k), k=ku or KU, have only odd homotopy and are computed by Ext¹ of the corresponding even graded q-Hodge module over the derived-complete graded coefficient ring; all other Ext groups contributing to the filtration vanish in this calculation. The ku coefficient ring is Z[β][[t]] and the KU coefficient ring Z[[q−1]][β±¹].
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 3.10 and proof.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 3.10 and proof, pp. 33–34.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMethods:RT.5/even-derived-hom.
 
@@ -912,9 +1075,9 @@ Acceptance:
 
 Let k be an even E∞ ring spectrum and t∈π_(2*)k a homogeneous element. For even k-modules M,N, the t-completed tensor M⊗̂_k N admits a complete exhaustive double-speed Whitehead filtration whose graded pieces are the double shearing of the derived t-completed graded tensor of π_(2*)M and π_(2*)N over π_(2*)k. The construction is functorial and compatible with products under its source hypotheses. The proof tracks connectivity and the at-most-one-degree loss in coconnectivity under derived completion; tensor is not assumed t-exact or underived.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Lemma 3.11 and proof.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Lemma 3.11 and proof, pp. 34–35.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:presentability.
+Direct prerequisites: RefinedTraceMethods:RT.5/even-derived-hom; StableHomotopyKTheory:H.5:spectra; EnhancedDerivedSheaves:E5:presentability; StableHomotopyKTheory:H.6.
 
 Proof or construction outline:
 
@@ -932,7 +1095,7 @@ Acceptance:
 
 The inverse systems of even graded TC⁻ coefficients in the ku and KU finite-coefficient calculations are idempotent pro-algebras. Idempotence follows by factoring m³ → m² coefficient transition products through multiplication as bimodule maps using the compatible Moore-algebra tower. In the derived graded completed setting the resulting tensor comparison has amplitude [0,1] and its identification with spectrum homotopy is justified by the even Whitehead filtration.
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 3.12; Corollary 2.30.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 3.12 and proof, p. 35; Corollary 2.30, p. 25.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMethods:RT.5/even-completed-tensor; StableHomotopyKTheory:H.6.
 
@@ -952,7 +1115,7 @@ Acceptance:
 
 For high-powered m the map from the m³ finite-coefficient graded q-Hodge algebra to the m algebra is trace-class over Z[β][[t]] (ku) or Z[[q−1]] (KU), in the derived-complete category. The corresponding spectrum classifier passes to the graded classifier because its dual-tensor has amplitude [−1,0].
 
-Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 3.13 and proof.
+Source: [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), Corollary 3.13 and proof, p. 36.
 
 Direct prerequisites: RefinedTraceMethods:RT.5/torsion-duality; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.5/pro-qhodge-idempotence; RefinedTraceMethods:RT.5/trace-class; StableHomotopyKTheory:H.6.
 
@@ -988,7 +1151,7 @@ Acceptance:
 - The theorem requires the specified root and unit hypotheses; a general Banach-ring maximal ideal need not be flat idempotent.
 - The fiber is a spectrum equivalence with the inclusion and quotient maps.
 
-## RT.6: BMS2 and Habiro interfaces
+## RT.6: Habiro interfaces and verification
 
 Atlas planets: THH of perfectoid rings; Quasiregular semiperfectoid THH; Trace Nygaard complex; Motivic filtrations; Crystalline trace comparison; Trace-to-AΩ comparison.
 
@@ -1019,7 +1182,7 @@ Acceptance:
 
 For quasisyntomic A, gr^iTHH(A;Z_p) ≃ N^i(C_A){i}[2i], gr^iTC⁻(A;Z_p) ≃ N^{≥i}(C_A){i}[2i], and gr^iTP(A;Z_p) ≃ C_A{i}[2i]. Here N^i is the cofiber of N^{≥i+1} → N^{≥i}, twists are completed filtered Breuil–Kisin modules, and C_A is identified with the imported completed prismatic object. The equivalences preserve products, can and Frobenius. N^i(C_A){i} ≃ N^i(C_A) has the source’s canonical specialization, not a global chosen basis for every twist.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(4); Proposition 7.13.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(4), pp. 210–211; Proposition 7.13, pp. 259–260.
 
 Direct prerequisites: RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/trace-prismatic-comparison.
 
@@ -1040,7 +1203,7 @@ Acceptance:
 
 For quasisyntomic A and i≥0, gr^iTC(A;Z_p) ≃ Z_p(i)(A)[2i], where Z_p(i) is the independently constructed PR.4 syntomic fiber of divided Frobenius minus can from N^{≥i} completed Δ_A{i} to completed Δ_A{i}. The filtered TC construction is fib(φ−can: Fil^iTC⁻ → Fil^iTP); its graded map identifies with the imported syntomic map. Finite coefficients are derived tensor with Z/p^n.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(5); §7.4, corrected weight index.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(5), p. 211; §7.4, p. 261, corrected weight index.
 
 Direct prerequisites: RefinedTraceMethods:RT.6/graded-motivic-comparison; RefinedTraceMethods:RT.6/filtered-frobenius; PrismaticCohomology:PR.4/syntomic-complex.
 
@@ -1059,22 +1222,23 @@ Acceptance:
 
 **HabiroTraceInterface** · comparison · RefinedTraceMethods:RT.6/habiro-trace-interface
 
-For precisely the supplied inputs of RT.4:q-Hodge and RT.4:Habiro-comparison, export the coherent S¹ and genuine finite-C_m cyclonic maps, complete even filtration and graded q-Hodge equivalences as multiplicative comparison diagrams. For the number-field instance R=O_F[1/Δ], require 6·disc(F) | Δ and the specified spherical étale lift. The comparison with HQ’s imported qHdg and HR’s imported coefficient ring retains shifts Σ^(−2i) and Bott inversion. This supplies the trace instance of their descent; it does not assert unproved Habiro descent for the refined rational TC⁻ coefficient ind-algebras.
+For the supplied RT.4 q-Hodge and Habiro inputs satisfying Wagner 4.18(A),(R), 4.18a(R2), and, in Theorem 5.63, 2∈R× and 5.43(A2), export the coherent S¹ and genuine finite-C_m cyclonic maps, complete even filtration and graded q-Hodge module comparison diagrams. Retain Σ^(−2i) shearing, Bott inversion, and completion. Theorem 4.27 has an E_(n−1) multiplicative enhancement only under Remark 4.28’s chosen E_n lift hypotheses (2≤n≤∞); an enhancement of the Habiro comparison must be supplied separately by RT.4 and is not inferred from the module equivalence of Theorem 5.63. For R=O_F[1/Δ], require 6|Δ, disc(F)|Δ and the specified spherical étale lift. This is the trace input for HQ/HR descent, with the periodic reconstruction proof; it does not assert Habiro descent for the refined rational TC⁻ ind-algebras.
 
-Source: [Ferdinand Wagner](https://arxiv.org/pdf/2510.06057v1), Theorem 5.63 and Corollary 6.15; source restrictions in §4.
+Source: [Ferdinand Wagner](https://arxiv.org/pdf/2510.06057v1), Theorem 4.27 and Remark 4.28, p. 50; 4.18(A),(R), p. 46; 4.18a(R2), p. 49; 5.43(A2), p. 70; Theorem 5.63, pp. 79–80; Corollary 6.15, p. 86.
 
-Direct prerequisites: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.4:q-Hodge; RefinedTraceMethods:RT.4:Habiro-comparison; HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations; HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex; HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent; HabiroCohomologyFoundations:HQ.4/no-automatic-multiplicative-upgrade; HabiroRings:HR.2/habiro-complete-modules; HabiroRings:HR.2/the-monoidal-structure; HabiroRings:HR.2/habiro-complete-solid-spectra; HabiroRings:HR.5/the-relative-habiro-ring; HabiroRings:HR.5/completed-base-change.
+Direct prerequisites: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global; RefinedTraceMethods:RT.4:q-Hodge/q-hodge-multiplicativity; RefinedTraceMethods:RT.4:q-Hodge/cyclonic-ku; RefinedTraceMethods:RT.4:q-Hodge/cyclonic-base-coherence; RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts; RefinedTraceMethods:RT.4:Habiro-comparison/twisted-q-hodge-comparison; RefinedTraceMethods:RT.4:Habiro-comparison/habiro-comparison-theorem; RefinedTraceMethods:RT.4:Habiro-comparison/etale-einfty-lift; RefinedTraceMethods:RT.4:Habiro-comparison/number-field-habiro; HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations; HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex; HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent; HabiroCohomologyFoundations:HQ.4/no-automatic-multiplicative-upgrade; HabiroRings:HR.2/habiro-complete-modules; HabiroRings:HR.2/the-monoidal-structure; HabiroRings:HR.2/habiro-complete-solid-spectra; HabiroRings:HR.5/the-relative-habiro-ring; HabiroRings:HR.5/completed-base-change.
 
 Proof or construction outline:
 
 1. Take the coherent finite-C_m comparison from RT.4, with genuine fixed points before residual-circle homotopy fixed points.
-2. Apply the chosen q-Hodge modification and the supplied Habiro-complete descent functor; use its multiplicative comparison maps.
+2. Apply the chosen q-Hodge modification and the Habiro-complete descent functor to the module comparison. Retain only the multiplicative structure separately established under the specified lift hypotheses.
 3. Check the Bott localization square and Σ^(−2i) shearing before identifying the arithmetic coefficient ring.
 
 Acceptance:
 
 - A periodic nonconnective KU input uses the imported periodic reconstruction proof.
 - At primes 2 or 3 the stated number-field comparison is not applied without the required localization.
+- The module comparison of Theorem 5.63 alone supplies no E∞ upgrade.
 
 ### Flat and quasisyntomic descent for trace spectra
 
@@ -1082,9 +1246,9 @@ Acceptance:
 
 HH(−/R), HC⁻(−/R), HH(−/R)_hS¹ and HP(−/R) on commutative R-algebras, and THH, TC⁻, THH_hS¹ and TP on commutative rings, are fpqc sheaves in spectra. Their derived p-complete variants have descent for p-completely faithfully flat covers in QSyn; QRSP basis unfolding recovers them. THH(−)^tC_p has the same Čech descent by the finite-group norm sequence. The argument proves this descent with its weak Postnikov towers; it does not assert arbitrary fpqc hyperdescent for every cotangent complex.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Corollary 3.4 and Remark 3.5; §§4–5 basis unfolding.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Corollary 3.4 and Remark 3.5, pp. 218–219; §4.6, pp. 228–230.
 
-Direct prerequisites: RefinedTraceMethods:RT.1; RefinedTraceMethods:RT.2; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.5/completed-cotangent-descent; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.1/derived-completion.
+Direct prerequisites: RefinedTraceMethods:RT.1/hochschild-homology; RefinedTraceMethods:RT.1/cyclic-homology; RefinedTraceMethods:RT.1/hkr-filtration; RefinedTraceMethods:RT.2/thh-e1-ring; RefinedTraceMethods:RT.2/thh-over-thhz; RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points; RefinedTraceMethods:RT.2/norm-map-tate; RefinedTraceMethods:RT.2/circle-tate; RefinedTraceMethods:RT.2/tc-minus-and-tp; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.5/completed-cotangent-descent; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.1/derived-completion.
 
 Proof or construction outline:
 
@@ -1103,9 +1267,9 @@ Acceptance:
 
 For S∈qrsPerfd_R, or for a QRSP algebra over a perfectoid R or over Z_p as in Lemma 5.14, let M=(L_(S/R)[−1])^∧p. M is p-completely flat, HH(S/R;Z_p) is even, and π_(2i)HH(S/R;Z_p)≃(Γ^i_S M)^∧p for i≥0. The HKR filtration has these terms; divided powers are over S, not over the perfectoid base R.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Lemma 5.14; corrected use in Theorem 7.1.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Lemma 5.14, p. 241; use in Theorem 7.1, pp. 254–255.
 
-Direct prerequisites: DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.0/derived-divided-powers; RefinedTraceMethods:RT.1.
+Direct prerequisites: DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.0/derived-divided-powers; RefinedTraceMethods:RT.1/hochschild-homology; RefinedTraceMethods:RT.1/hkr-filtration.
 
 Proof or construction outline:
 
@@ -1126,7 +1290,7 @@ For quasisyntomic A over a fixed base R in BMS2 §5.2, the unfolded even Postnik
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proposition 5.15; Theorem 1.17 and proof, pp. 241–242.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/qrsp-hochschild; RefinedTraceMethods:RT.6/trace-flat-descent; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; DerivedDeRhamCohomology:DD.1/filtered-completion; RefinedTraceMethods:RT.1.
+Direct prerequisites: RefinedTraceMethods:RT.6/qrsp-hochschild; RefinedTraceMethods:RT.6/trace-flat-descent; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; DerivedDeRhamCohomology:DD.1/filtered-completion; RefinedTraceMethods:RT.1/mixed-complex; RefinedTraceMethods:RT.1/cyclic-homology; RefinedTraceMethods:RT.1/hkr-filtration.
 
 Proof or construction outline:
 
@@ -1160,7 +1324,9 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.6/perfectoid-tc-maps: The uv relation and two scalar-normalized maps give the perfectoid coefficient square.
 - RefinedTraceMethods:RT.6/relative-dvr-coefficients: The same quotient API is used with the Frobenius-twisted frakS base and Eisenstein parameter.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | TracePresentation.coeff | constructor | The scalar map A → P(A,ξ). |
 | TracePresentation.u | data | The class of X₀ has degree 2. |
@@ -1170,8 +1336,11 @@ Uses deriving the API:
 | TracePresentation.ext | extensionality | Ring maps out of P(A,ξ) agree if they agree on all scalars and on u,v. |
 | TracePresentation.can | constructor | The A-linear ring map to LaurentPolynomial(A) takes u to C(ξ)T(1) and v to T(−1). |
 | TracePresentation.frobenius | constructor | For φ:A → A, the φ-semilinear map to LaurentPolynomial(A) takes scalars a to C(φ(a)), u to T(1), v to C(φ(ξ))T(−1). |
+| TracePresentation.map | functoriality | For f:A → B and f(ξ)=η, the universal lift gives P(A,ξ) → P(B,η), mapping coefficients by f and preserving u,v. Its identity and composition laws follow from generator extensionality. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | TracePresentation.canGenerators | computation | can(u)=C(ξ)T(1), can(v)=T(−1). |
 | TracePresentation.frobeniusScalars | characterisation | frobenius(φ,coeff(a))=C(φ(a)); its u and v images have product C(φ(ξ)). |
@@ -1191,7 +1360,7 @@ For perfectoid R, THH(R;Z_p) is even and π_*≃R[u], |u|=2, with π₂ canonica
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 6.1 and proof, pp. 243–244.
 
-Direct prerequisites: AInfCohomology:AI.0; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.2; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.1/derived-completion.
+Direct prerequisites: AInfCohomology:AI.0; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.2/thh-e1-ring; RefinedTraceMethods:RT.2/thh-symmetric-monoidal; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.1/derived-completion.
 
 Proof or construction outline:
 
@@ -1211,7 +1380,7 @@ For perfectoid R let A=Ainf(R), θ:A → R, ξ generate ker θ, and θ̃=θ∘φ
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Propositions 6.2–6.3, pp. 245–247.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/perfectoid-thh; RefinedTraceMethods:RT.6/uv-presentation; AInfCohomology:AI.0; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.2.
+Direct prerequisites: RefinedTraceMethods:RT.6/perfectoid-thh; RefinedTraceMethods:RT.6/uv-presentation; AInfCohomology:AI.0; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/tc-minus-and-tp; RefinedTraceMethods:RT.2/tc-fibre-sequence.
 
 Proof or construction outline:
 
@@ -1230,9 +1399,9 @@ Acceptance:
 
 For any connective E∞ R-algebra A over a perfectoid R, the derived quotients TC⁻(A;Z_p)/v ≃ THH(A;Z_p) and TP(A;Z_p)/φ(ξ) ≃ THH(A;Z_p)^tC_p are equivalences as modules with their induced maps. Quotient by v means the cofiber of its degree −2 multiplication map, not an ordinary ideal quotient on homotopy groups.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proposition 6.4, p. 247.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proposition 6.4 and proof, pp. 247–248.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.2.
+Direct prerequisites: RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/tate-multiplicativity; RefinedTraceMethods:RT.2/tc-minus-and-tp.
 
 Proof or construction outline:
 
@@ -1252,7 +1421,7 @@ For ordinary R-algebra A with R perfectoid, the class u∈π₂TC⁻(R;Z_p) indu
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 6.7, pp. 251–252.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.1; RefinedTraceMethods:RT.2.
+Direct prerequisites: RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.1/hochschild-homology; RefinedTraceMethods:RT.1/mixed-complex; RefinedTraceMethods:RT.1/cyclic-homology; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/thh-over-thhz; RefinedTraceMethods:RT.2/mixed-complexes-are-circle-modules; RefinedTraceMethods:RT.2/norm-sequence-hc; RefinedTraceMethods:RT.2/tc-minus-and-tp.
 
 Proof or construction outline:
 
@@ -1272,7 +1441,7 @@ For ordinary perfectoid R-algebra A, define the natural graded R-algebra map H�
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Construction 6.8, pp. 252–253.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/thh-hochschild-deformation; RefinedTraceMethods:RT.1; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.1/derived-completion.
+Direct prerequisites: RefinedTraceMethods:RT.6/thh-hochschild-deformation; RefinedTraceMethods:RT.1/hkr-map; RefinedTraceMethods:RT.1/external-products; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.1/derived-completion.
 
 Proof or construction outline:
 
@@ -1284,14 +1453,18 @@ Uses deriving the API:
 
 - RefinedTraceMethods:RT.6/quasismooth-thh-filtration: Exterior products of differential classes identify the quasismooth THH graded algebra.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | Antisymmetrization.differential | constructor | For a∈A, the completed relative da has its degree-one THH image. |
 | Antisymmetrization.wedge | relation | The image of ω∧η is the product of their images in THH, with graded signs and odd squares zero. |
 | Antisymmetrization.map | functoriality | For R-algebra maps A → B, the differential and THH maps commute. |
 | Antisymmetrization.unit | simp | The degree-zero map is the canonical A → π₀THH(A;Z_p). |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | Antisymmetrization.polynomialDx | computation | For A=R[x], dx maps to the degree-one generator identified by τ≤2THH → τ≤2HH. |
 | Antisymmetrization.baseRing | degenerate | For A=R all positive relative forms and their images are zero. |
@@ -1307,7 +1480,7 @@ Acceptance:
 
 For a p-completely quasismooth R-algebra A, antisymmetrization induces (Ω*_(A/R))^∧p⊗_R π_*THH(R;Z_p) ≃ π_*THH(A;Z_p). For every p-complete R-algebra A, left Kan extension gives the complete decreasing cotangent filtration of Corollary 6.10, with n-th graded term the sum of (derived ∧^j_A L_(A/R))^∧p[n] for 0≤j≤n and j≡n mod 2. Its n-th filtration term is n-connective.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Corollaries 6.9–6.10, p. 253.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Corollaries 6.9–6.10, pp. 253–254.
 
 Direct prerequisites: RefinedTraceMethods:RT.6/antisymmetrization; RefinedTraceMethods:RT.6/perfectoid-thh; DerivedDeRhamCohomology:DD.0/cotangent-complex; EnhancedDerivedSheaves:E5:animation/animated-commutative-rings; EnhancedDerivedSheaves:E5:animation/universal-property-of-animation.
 
@@ -1369,7 +1542,7 @@ Acceptance:
 
 For quasisyntomic A over perfectoid R, let C_A be the symmetric monoidal QRSP-basis unfolding of S ↦ π₀TC⁻(S;Z_p) with its abutment Nygaard filtration. It is an E∞ Ainf(R)-algebra in the complete filtered derived category, (p,ξ)-complete, with φ-semilinear Frobenius and complete descending multiplicative N-filtration. N^i C_A is an A-complex with increasing graded (∧^j_A L_(A/R))^∧p[−j], 0≤j≤i, and C_A/ξ≃Hodge-completed derived dR(A/R)^∧p. Global QSyn construction uses the same intrinsic basis sheaf and the trace twists; prismatic identification is a separate comparison theorem.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Construction 7.7; Propositions 7.8–7.9.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Construction 7.7 and Propositions 7.8–7.9, pp. 256–257.
 
 Direct prerequisites: RefinedTraceMethods:RT.6/qrsp-tc-nygaard; RefinedTraceMethods:RT.6/trace-flat-descent; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.1/filtered-completion; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; AInfCohomology:AI.0.
 
@@ -1384,7 +1557,9 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.6/aomega-comparison: The unfolded Frobenius complex supplies the primitive comparison and its Lη factorization.
 - RefinedTraceMethods:RT.6/trace-prismatic-comparison: The trace object is recognized as the Nygaard completion of an independent prism.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | TraceNygaardComplex.basisValue | simp | For QRSP S, evaluation recovers π₀TC⁻(S;Z_p) with its Nygaard submodules. |
 | TraceNygaardComplex.map | functoriality | Quasisyntomic algebra maps give filtered E∞ maps with coherent identity and composition. |
@@ -1392,7 +1567,9 @@ Uses deriving the API:
 | TraceNygaardComplex.specialize | equivalence | C_A⊗^L_(Ainf,θ) R≃Hodge-completed derived dR(A/R)^∧p. |
 | TraceNygaardComplex.graded | compatibility | N^i C_A≃gr^iTHH(A;Z_p)[−2i] with the finite cotangent filtration. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | TraceNygaardComplex.perfectoid | computation | For A=R, C_A=Ainf(R) with its Witt Frobenius and ideal-power Nygaard filtration. |
 | TraceNygaardComplex.baseRelativeDerham | degenerate | For A=R, specialization by θ is R, since relative derived dR(R/R)=R. |
@@ -1410,7 +1587,7 @@ For A the p-adic completion of a smooth perfectoid R-algebra of relative dimensi
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Corollary 7.10 and Remark 7.11, p. 258.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/trace-nygaard-complex; AInfCohomology:AI.1/derived-decalage; AInfCohomology:AI.1/decalage-products; AInfCohomology:AI.1/bockstein-reduction; AInfCohomology:AI.0.
+Direct prerequisites: RefinedTraceMethods:RT.6/trace-nygaard-complex; AInfCohomology:AI.1/derived-decalage; AInfCohomology:AI.1/decalage-products; AInfCohomology:AI.1/bockstein-reduction; AInfCohomology:AI.0; AInfCohomology:AI.1/filtered-beilinson-description.
 
 Proof or construction outline:
 
@@ -1428,7 +1605,7 @@ Acceptance:
 
 For p-completed smooth R-algebras, start from C_A and left Kan extend in (p,ξ)-complete Ainf(R)-complexes to all p-complete animated commutative R-algebras, using E5’s polynomial/sifted resolution. Write Cnc_(A/R) for the resulting E∞ functor. Its θ-specialization is p-completed derived dR(A/R) without Hodge completion; it is a quasisyntomic sheaf, discrete on QRSP algebras. Its dependence on the chosen perfectoid R is retained until the trace-to-prismatic comparison. Cnc is not a second generic prismatic Δ.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Construction 7.12; BS Theorem 13.1 proof.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Construction 7.12, pp. 258–259; BS Theorem 13.1 proof, pp. 94–96.
 
 Direct prerequisites: RefinedTraceMethods:RT.6/trace-nygaard-complex; RefinedTraceMethods:RT.6/smooth-trace-frobenius; EnhancedDerivedSheaves:E5:animation/animated-commutative-rings; EnhancedDerivedSheaves:E5:animation/universal-property-of-animation; DerivedDeRhamCohomology:DD.1/derived-completion; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.2/hodge-completed-derham.
 
@@ -1443,14 +1620,18 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.6/trace-prismatic-comparison: Its uncompleted de Rham specialization enters prismatic recognition.
 - RefinedTraceMethods:RT.6/aomega-comparison: The smooth comparison extends to the projective QRSP basis before Nygaard completion.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | TraceNoncompletedExtension.ofSmooth | compatibility | For p-completed smooth R-algebra A, Cnc_(A/R)≃C_A. |
 | TraceNoncompletedExtension.extend | universal-property | It is the sifted left Kan extension from the smooth/polynomial presentation in (p,ξ)-complete E∞ complexes. |
 | TraceNoncompletedExtension.map | functoriality | Animated R-algebra maps give E∞ maps, coherently. |
 | TraceNoncompletedExtension.specialize | equivalence | Cnc_(A/R)/ξ≃derived p-completed dR(A/R) without Hodge completion. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | TraceNoncompletedExtension.base | degenerate | Cnc_(R/R)≃Ainf(R) and its θ-specialization is R. |
 | TraceNoncompletedExtension.smoothPolynomial | compatibility | For the p-completed polynomial algebra R[x], Cnc agrees with C_A and has the ordinary p-completed de Rham specialization. |
@@ -1467,9 +1648,9 @@ Acceptance:
 
 For X=THH,TC⁻,TP and quasisyntomic A, define Fil^nX(A;Z_p) by QRSP-basis unfolding of τ_(≥2n)X(−;Z_p), for n∈Z, and define Fil^nTC as the fiber of φ−can on the filtered TC⁻ and TP spectra. These are functorial complete exhaustive decreasing multiplicative filtrations in spectra; Frobenius/can retain their coherent source maps. The underlying realization is the p-completed trace spectrum by descent. THH is locally even on covers but its unfolded graded complexes have nonzero cohomological degrees.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Construction 7.4; Proposition 7.5; Proposition 7.13; Theorem 1.12.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Construction 7.4 and Proposition 7.5, pp. 256–257; Proposition 7.13, pp. 259–260; Theorem 1.12, pp. 210–211.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/qrsp-even-thh; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; RefinedTraceMethods:RT.6/trace-flat-descent; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.1/filtered-completion; RefinedTraceMethods:RT.2.
+Direct prerequisites: RefinedTraceMethods:RT.6/qrsp-even-thh; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; RefinedTraceMethods:RT.6/trace-flat-descent; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.1/filtered-completion; RefinedTraceMethods:RT.2/thh-e1-ring; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/tc-minus-and-tp; RefinedTraceMethods:RT.2/tc-fibre-sequence.
 
 Proof or construction outline:
 
@@ -1482,7 +1663,9 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.6/graded-motivic-comparison: Graded pieces are computed on even covers then unfolded.
 - RefinedTraceMethods:RT.6/ammn-filtered-interface: The filtered truncation maps identify weight-i terms of the Beilinson bridge.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | MotivicFiltration.piece | data | Fil^nX(A) is QRSP unfolding of τ_(≥2n)X with its maps Fil^(n+1) → Fil^n. |
 | MotivicFiltration.realize | equivalence | colim_(n→−∞)Fil^nX(A)≃X(A;Z_p). |
@@ -1490,7 +1673,9 @@ Uses deriving the API:
 | MotivicFiltration.product | structure | Fil^iX⊗Fil^jX → Fil^(i+j)X is coherently associative and unital. |
 | MotivicFiltration.map | functoriality | Algebra maps induce filtered maps that commute with products, can and Frobenius. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | MotivicFiltration.perfectoidPostnikov | computation | For perfectoid R, Fil^nTHH(R)=τ_(≥2n)THH(R); for n≤0 it is all THH(R). |
 | MotivicFiltration.qrsp | compatibility | For QRSP S, Fil^nTC⁻(S) and Fil^nTP(S) agree with double-speed Postnikov truncation. |
@@ -1507,7 +1692,7 @@ Acceptance:
 
 Let A be a complete N-filtered E∞ algebra in the complete filtered derived category, and M,N complete N-filtered A-modules. Assume the natural maps gr⁰M⊗_(gr⁰A)gr*A → gr*M and gr⁰N⊗_(gr⁰A)gr*A → gr*N are equivalences. If a filtered pairing η:M⊗̂_A N → A induces an equivalence gr⁰M⊗_(gr⁰A)gr⁰N → gr⁰A, then η is an equivalence and M,N are inverse invertible modules in the complete filtered category. The tensor is the completed filtered tensor; the base-change equivalences are essential hypotheses.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Lemma 7.14, p. 260.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Lemma 7.14, pp. 260–261.
 
 Direct prerequisites: DerivedDeRhamCohomology:DD.1/filtered-completion; EnhancedDerivedSheaves:E5:presentability.
 
@@ -1528,7 +1713,7 @@ Acceptance:
 
 Let C_A=gr⁰TP(A;Z_p). Define the trace line C_A{1}=gr¹TP(A;Z_p)[−2] with its unfolded Nygaard filtration; multiplication and the inverse-degree TP line make it invertible in the completed filtered category. Tensor powers define C_A{i} for i∈Z. Under trace-to-prismatic comparison it identifies with the imported PR.3 Breuil–Kisin twist. On a perfectoid base, π₂TP is an invertible Ainf module and its θ̃-specialization is ker θ/(ker θ)²; its θ-specialization is canonically R. A choice of periodic generator trivializes it, rather than producing a global canonical untwisted object.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(3); Proposition 6.5; Lemma 7.14.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(3), p. 210; Proposition 6.5, pp. 248–250; Lemma 7.14, pp. 260–261.
 
 Direct prerequisites: RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/filtered-invertibility; RefinedTraceMethods:RT.6/perfectoid-tc-maps; PrismaticCohomology:PR.3/breuil-kisin-twist; AInfCohomology:AI.0.
 
@@ -1543,14 +1728,18 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.6/syntomic-graded-tc: The i-th twist normalizes divided Frobenius and the syntomic graded fiber.
 - RefinedTraceMethods:RT.6/adams-operations: The conormal comparison calculates the scalar weight action.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | TraceBreuilKisinTwist.line | constructor | The filtered invertible C_A-module gr¹TP(A)[−2]. |
 | TraceBreuilKisinTwist.power | structure | Tensor powers and duals yield C_A{i} with coherent C_A{i}⊗C_A{j}≃C_A{i+j}. |
 | TraceBreuilKisinTwist.specialize | equivalence | Over perfectoid R, the θ specialization of the line is R and θ̃ specialization is ker θ/(ker θ)². |
 | TraceBreuilKisinTwist.prismatic | compatibility | Through the filtered trace/prismatic equivalence, the trace line agrees with the supplied PR.3 Breuil–Kisin twist. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | TraceBreuilKisinTwist.weightZero | degenerate | C_A{0}≃C_A as a filtered module. |
 | TraceBreuilKisinTwist.perfectoidLine | computation | For R perfectoid, C_R{1} has underlying line π₂TP(R), and θ̃ gives the conormal line. |
@@ -1568,7 +1757,7 @@ For p-torsion-free perfectoid R, the trace line Ainf(R){1}=π₂TP(R;Z_p) agrees
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Remark 6.6, pp. 250–251.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; AInfCohomology:AI.0; AInfCohomology:AI.4; RefinedTraceMethods:RT.2.
+Direct prerequisites: RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; AInfCohomology:AI.0; AInfCohomology:AI.4; RefinedTraceMethods:RT.2/tr-and-genuine-tc; RefinedTraceMethods:RT.2/genuine-tc-agrees; RefinedTraceMethods:RT.2/tc-minus-and-tp.
 
 Proof or construction outline:
 
@@ -1586,9 +1775,9 @@ Acceptance:
 
 The cyclotomic Frobenius and canonical comparison of RT.2 induce multiplicative filtered maps φ,can:TC⁻(A;Z_p) → TP(A;Z_p) on quasisyntomic A. Under the completed prismatic comparison their i-th graded maps are respectively the supplied divided Frobenius and canonical Nygaard inclusion on C_A{i}[2i]. Define the filtered TC spectrum by the fiber of φ−can in spectra. Its multiplication is the coherent equalizer/fiber multiplication, not subtraction in the category of E∞ algebras.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(5); §7.4; Theorem 7.2.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(5), p. 211; §7.4, pp. 261–262; Theorem 7.2, pp. 255–256.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; PrismaticCohomology:PR.3/divided-frobenius; RefinedTraceMethods:RT.2.
+Direct prerequisites: RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; PrismaticCohomology:PR.3/divided-frobenius; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/tc-minus-and-tp; RefinedTraceMethods:RT.2/tc-fibre-sequence.
 
 Proof or construction outline:
 
@@ -1601,7 +1790,9 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.6/syntomic-graded-tc: The stable graded fiber is the independent syntomic complex.
 - RefinedTraceMethods:RT.6/ammn-filtered-interface: The source-normalized Frobenius square is supplied to RT.3b.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | FilteredFrobenius.can | data | The filtered canonical TC⁻ → TP map induces Nygaard inclusion on graded pieces. |
 | FilteredFrobenius.frobenius | data | The filtered cyclotomic map induces divided Frobenius after twisting. |
@@ -1609,7 +1800,9 @@ Uses deriving the API:
 | FilteredFrobenius.product | structure | The coherent multiplicative equalizer supplies products of weights i,j in weight i+j. |
 | FilteredFrobenius.map | functoriality | These filtered maps and fibers are natural in quasisyntomic A. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | FilteredFrobenius.weightZero | degenerate | On perfectoid weight zero, φ−can=φ−id on Ainf. |
 | FilteredFrobenius.differentMaps | non-example | For R=F_p, can(u)=pσ while φ(u)=σ; the maps cannot be identified. |
@@ -1625,7 +1818,7 @@ Acceptance:
 
 The complete exhaustive filtered spectra give the BMS2 derived convergent spectral sequences E₂^(a,b)=H^(a−b)(N^(−b)C_A) ⇒ π_(−a−b)THH, E₂^(a,b)=H^(a−b)(N^{≥−b}C_A{−b}) ⇒ π_(−a−b)TC⁻, E₂^(a,b)=H^(a−b)(C_A{−b}) ⇒ π_(−a−b)TP, and E₂^(a,b)=H^(a−b)(Z_p(−b)(A)) ⇒ π_(−a−b)TC in their defined weight range. The unbounded cases mean convergence to the supplied derived complete filtration; no unconditional strong convergence after forgetting derived limits is claimed. On p-completed smooth finite-dimensional perfectoid-base algebras, the stated cohomological bounds give degreewise control of the inverse-limit terms.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(4)–(5); Proposition 7.13.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 1.12(4)–(5), pp. 210–211; Proposition 7.13, pp. 259–260.
 
 Direct prerequisites: RefinedTraceMethods:RT.6/graded-motivic-comparison; RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/smooth-trace-frobenius; StableHomotopyKTheory:H.6.
 
@@ -1647,7 +1840,7 @@ For a connective ring spectrum A, π_iTC(A;Z_p)=0 for i<−1 by the classical TR
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), TC-internal part of proof of Proposition 7.16, p. 262.
 
-Direct prerequisites: RefinedTraceMethods:RT.2; RefinedTraceMethods:RT.6/syntomic-graded-tc; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.5/quasisyntomic-site.
+Direct prerequisites: RefinedTraceMethods:RT.2/tr-and-genuine-tc; RefinedTraceMethods:RT.2/genuine-tc-agrees; RefinedTraceMethods:RT.2/tc-fibre-sequence; RefinedTraceMethods:RT.6/syntomic-graded-tc; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.5/quasisyntomic-site.
 
 Proof or construction outline:
 
@@ -1689,7 +1882,7 @@ Let S=F_p[Q_p/Z_p]=F_p[T^(±1/p∞)]/(T−1). The coherent circle-equivariant eq
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proof of Theorem 8.17, the key case, pp. 277–278.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/cyclic-derham-comparison; DerivedDeRhamCohomology:DD.4/derived-de-rham-witt; DerivedDeRhamCohomology:DD.4/acrys-structure; DerivedDeRhamCohomology:DD.4/qrsp-pd-derham; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.1; RefinedTraceMethods:RT.2.
+Direct prerequisites: RefinedTraceMethods:RT.6/cyclic-derham-comparison; DerivedDeRhamCohomology:DD.4/derived-de-rham-witt; DerivedDeRhamCohomology:DD.4/acrys-structure; DerivedDeRhamCohomology:DD.4/qrsp-pd-derham; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.1/hochschild-homology; RefinedTraceMethods:RT.1/cyclic-homology; RefinedTraceMethods:RT.2/thh-spherical-group-rings; RefinedTraceMethods:RT.2/thh-over-thhz; RefinedTraceMethods:RT.2/hz-module-circle-tate; RefinedTraceMethods:RT.2/tc-minus-and-tp.
 
 Proof or construction outline:
 
@@ -1803,14 +1996,18 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.6/projective-qrsp-aomega: The ξ-specialization and animated descent identify completed-free values.
 - RefinedTraceMethods:RT.6/aomega-comparison: Projective QRSP extraction turns the almost comparison into an honest map.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | AnimatedAomegaExtension.ofSmooth | compatibility | On p-completed smooth O_C-algebras the value is the imported geometric AΩ. |
 | AnimatedAomegaExtension.extend | universal-property | The functor is the sifted left Kan extension in the (p,ξ)-complete E∞ target. |
 | AnimatedAomegaExtension.specialize | equivalence | Modulo ξ the functor is derived p-completed de Rham cohomology without Hodge completion. |
 | AnimatedAomegaExtension.map | functoriality | Animated O_C-algebra maps induce coherent E∞ maps. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | AnimatedAomegaExtension.base | degenerate | The base O_C gives Ainf. |
 | AnimatedAomegaExtension.polynomial | compatibility | On O_C⟨x⟩ the value agrees with the imported geometric AΩ and its ξ-specialization is the p-completed polynomial de Rham complex. |
@@ -1824,7 +2021,7 @@ Acceptance:
 
 **AomegaAlmostComparison** · construction · RefinedTraceMethods:RT.6/aomega-almost-map
 
-For p-adically completed smooth O_C-algebra A, the primitive Frobenius-compatible trace map C_A → RΓ(Spf(A)_C,Ainf) obtained from perfectoid pro-étale values factors naturally through AΩ_A in the almost category of W(m_C^flat). The factorization uses the Frobenius equivalence C_A≃Lη_ξφ_*C_A and its iterates; compatibility under varying r gives the map to Rlim Lη_(ξ_r) of the pro-étale complex.
+For p-adically completed smooth O_C-algebra A, the primitive Frobenius-compatible trace map C_A → RΓ(Spf(A)_C,Ainf) obtained from perfectoid pro-étale values factors naturally through AΩ_A in the almost category of W(m_C^flat). The factorization uses the Frobenius factorization map C_A → Lη_ξφ_*C_A and its iterates; compatibility under varying r gives the map to Rlim Lη_(ξ_r) of the pro-étale complex.
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 9.6 proof, primitive and almost comparison steps, pp. 286–288.
 
@@ -1833,21 +2030,25 @@ Direct prerequisites: RefinedTraceMethods:RT.6/trace-nygaard-complex; RefinedTra
 Proof or construction outline:
 
 1. Construct the primitive map by restriction to perfectoid pro-étale sections and sheaf limits.
-2. Use the Lη_ξ Frobenius factorization iteratively to obtain compatible ξ_r factorizations.
+2. Iterate the factorization map C_A → F(C_A), F=Lη_ξφ_*. Frobenius is invertible on the pro-étale Ainf target, so the primitive map induces compatible C_A → F^r(RΓ(Ainf))≃Lη_(ξ_r)φ_*^r RΓ(Ainf) maps. No equivalence on C_A is assumed.
 3. Apply Lemma 9.3 to replace the limit with Lη_μ in the almost category.
 
 Uses deriving the API:
 
 - RefinedTraceMethods:RT.6/aomega-comparison: The primitive and root-factor maps are extended and extracted through completed-free covers.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | AomegaAlmostComparison.primitive | constructor | The map C_A → RΓ of the pro-étale Ainf complex is Frobenius-compatible. |
 | AomegaAlmostComparison.rootFactor | data | For each r it has a compatible factorization through Lη_(ξ_r). |
 | AomegaAlmostComparison.almostFactor | constructor | In the almost quotient, the root-limit comparison gives C_A → AΩ_A. |
 | AomegaAlmostComparison.map | functoriality | Smooth O_C-algebra maps commute with the almost comparison. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | AomegaAlmostComparison.base | compatibility | On A=O_C the almost map agrees with the identity of Ainf in the almost quotient. |
 | AomegaAlmostComparison.frobenius | characterisation | Its composite with Frobenius agrees with Frobenius followed by the map. |
@@ -1905,7 +2106,7 @@ If C is complete algebraically closed over Q_p and A is the p-adic completion of
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 9.6 and proof, pp. 286–290; Theorem 1.8.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/aomega-almost-map; RefinedTraceMethods:RT.6/projective-qrsp-aomega; RefinedTraceMethods:RT.6/cartier-comparison-test; RefinedTraceMethods:RT.6/trace-noncompleted-extension; RefinedTraceMethods:RT.6/animated-aomega-extension; DerivedDeRhamCohomology:DD.5/proj-quasisyntomic-site; PrismaticCohomology:PR.6/ainf-omega-comparison-map.
+Direct prerequisites: RefinedTraceMethods:RT.6/aomega-almost-map; RefinedTraceMethods:RT.6/projective-qrsp-aomega; RefinedTraceMethods:RT.6/cartier-comparison-test; RefinedTraceMethods:RT.6/trace-noncompleted-extension; RefinedTraceMethods:RT.6/animated-aomega-extension; DerivedDeRhamCohomology:DD.5/proj-quasisyntomic-site.
 
 Proof or construction outline:
 
@@ -1916,7 +2117,7 @@ Proof or construction outline:
 Acceptance:
 
 - On O_C the comparison is the canonical Ainf identification.
-- The imported prismatic AΩ dictionary retains its Frobenius pullback; it is not silently Δ_A without that twist.
+- On smooth A the comparison respects Frobenius and the ξ-specialization to p-completed de Rham cohomology.
 
 ### Nygaard agrees with the AΩ décalage filtration
 
@@ -1926,7 +2127,7 @@ For p-completed smooth O_C-algebra A, the Frobenius factorization C_A≃Lη_ξφ
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proposition 9.10 and Remark 9.11, p. 290.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/smooth-trace-frobenius; AInfCohomology:AI.4; AInfCohomology:AI.1/derived-decalage.
+Direct prerequisites: RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/smooth-trace-frobenius; AInfCohomology:AI.4; AInfCohomology:AI.1/derived-decalage; AInfCohomology:AI.1/filtered-beilinson-description.
 
 Proof or construction outline:
 
@@ -1966,7 +2167,7 @@ The action of Z_p^× on the p-completed circle K(Z_p,1) gives functorial coheren
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Construction 9.13 and Proposition 9.14, pp. 291–292.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/bms1-twist-comparison; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; EnhancedDerivedSheaves:E5:presentability/coherent-group-actions; RefinedTraceMethods:RT.2.
+Direct prerequisites: RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/bms1-twist-comparison; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; EnhancedDerivedSheaves:E5:presentability/coherent-group-actions; RefinedTraceMethods:RT.2/cyclic-realisation; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/cyclotomic-spectrum; RefinedTraceMethods:RT.2/tc-minus-and-tp; RefinedTraceMethods:RT.2/tc-fibre-sequence.
 
 Proof or construction outline:
 
@@ -1978,7 +2179,9 @@ Uses deriving the API:
 
 - RefinedTraceMethods:RT.6/graded-motivic-comparison: The γ^i formula verifies the twist and graded weight normalization.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | AdamsOperations.action | structure | There is a coherent Z_p^× action on the p-completed trace functors. |
 | AdamsOperations.map | functoriality | Ring maps commute with every operation ψ_γ. |
@@ -1986,7 +2189,9 @@ Uses deriving the API:
 | AdamsOperations.twist | simp | On C_A{i}, ψ_γ is multiplication by γ^i. |
 | AdamsOperations.filtered | compatibility | The operations preserve motivic filtrations and commute with can and cyclotomic Frobenius. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | AdamsOperations.identity | degenerate | ψ_1 is the identity operation. |
 | AdamsOperations.weightOne | computation | On gr¹TP the operation ψ_γ is multiplication by γ. |
@@ -2004,7 +2209,7 @@ For S[z]=S[N], THH(S[z])≃S[Bcy N] as coherent S¹-equivariant E∞ ring spectr
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proposition 11.3, pp. 299–300.
 
-Direct prerequisites: EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; RefinedTraceMethods:RT.2; StableHomotopyKTheory:H.5:spectra/operadic-algebras; StableHomotopyKTheory:H.5:spectra/ring-spectrum.
+Direct prerequisites: EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; RefinedTraceMethods:RT.2/thh-spherical-group-rings; RefinedTraceMethods:RT.2/thh-symmetric-monoidal; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; StableHomotopyKTheory:H.5:spectra/operadic-algebras; StableHomotopyKTheory:H.5:spectra/ring-spectrum.
 
 Proof or construction outline:
 
@@ -2024,7 +2229,7 @@ For a connective E∞ S[z]-algebra A, define THH(A/S[z])=THH(A)⊗_(THH(S[z]))S[
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), §11.1 definition and Construction 11.5, pp. 299–300.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/sphere-polynomial-thh; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category.
+Direct prerequisites: RefinedTraceMethods:RT.6/sphere-polynomial-thh; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/tate-multiplicativity; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/tc-minus-and-tp; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category.
 
 Proof or construction outline:
 
@@ -2037,7 +2242,9 @@ Uses deriving the API:
 - RefinedTraceMethods:RT.6/relative-thh-base-change: The relative tensor formula and semilinear Frobenius supply both base changes.
 - RefinedTraceMethods:RT.6/relative-qrsp-evenness: Relative TC⁻/TP unfold to the Frobenius-twisted Breuil–Kisin trace complex.
 
-| API declaration | Role | Mathematical interface |
+API:
+
+| Name | Role | Statement |
 |---|---|---|
 | RelativeSphereThh.tensor | constructor | Relative THH is the indicated tensor product of E∞ ring spectra. |
 | RelativeSphereThh.circle | structure | Its coherent circle action is induced before homotopy fixed points. |
@@ -2045,7 +2252,9 @@ Uses deriving the API:
 | RelativeSphereThh.map | functoriality | S[z]-algebra maps induce cyclotomic relative trace maps. |
 | RelativeSphereThh.tcMinus | constructor | Relative TC⁻ is p-completed homotopy fixed points and TP is p-completed circle Tate. |
 
-| Unit test | Kind | Expected result |
+Unit tests:
+
+| Name | Kind | Statement |
 |---|---|---|
 | RelativeSphereThh.base | degenerate | THH(S[z]/S[z])≃S[z] with trivial circle action and Frobenius z↦z^p. |
 | RelativeSphereThh.specializeZero | compatibility | For O_K-algebra A with z↦π, specialization z↦0 gives absolute THH(A⊗^L_(O_K)k). |
@@ -2063,7 +2272,7 @@ Let O_K be a complete mixed-characteristic DVR with perfect residue field k, π 
 
 Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Lemma 11.6; Proposition 11.7; Corollary 11.8, p. 301.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/relative-sphere-thh; DerivedDeRhamCohomology:DD.0/cotangent-complex; RefinedTraceMethods:RT.1; RefinedTraceMethods:RT.2; AInfCohomology:AI.0.
+Direct prerequisites: RefinedTraceMethods:RT.6/relative-sphere-thh; DerivedDeRhamCohomology:DD.0/cotangent-complex; RefinedTraceMethods:RT.1/base-change; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/thh-symmetric-monoidal; RefinedTraceMethods:RT.2/thh-over-thhz; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; AInfCohomology:AI.0.
 
 Proof or construction outline:
 
@@ -2101,7 +2310,7 @@ Acceptance:
 
 For S∈QRSPerfd_(O_K), the p-completed relative THH(S/S[z]), TC⁻ and TP are even, and their even homotopy groups are sheaves on the relative QRSP basis with vanishing higher cohomology on every S in that basis. The unfolded gr⁰TC⁻≃gr⁰TP is an E∞ frakS^(−1)-algebra with semilinear Frobenius, (p,z)-complete. Through BS Proposition 15.7 this trace complex is the Nygaard completion of φ^*Δ_(A/frakS), where the relative prism and generic Nygaard completion are supplied by PR.2–3.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proposition 11.11 and Corollary 11.12; BS Proposition 15.7; [Bhargav Bhatt and Peter Scholze](https://arxiv.org/pdf/1905.08229v4), Proposition 15.7 and proof, pp. 106–107.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proposition 11.11 and Corollary 11.12, pp. 303–305; [Bhargav Bhatt and Peter Scholze](https://arxiv.org/pdf/1905.08229v4), Proposition 15.7 and proof, p. 105.
 
 Direct prerequisites: RefinedTraceMethods:RT.6/relative-dvr-coefficients; RefinedTraceMethods:RT.6/relative-thh-base-change; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; RefinedTraceMethods:RT.6/trace-prismatic-comparison; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; PrismaticCohomology:PR.2/derived-prismatic-cohomology; PrismaticCohomology:PR.2/regular-quotient-prismatic-envelope; PrismaticCohomology:PR.3/nygaard-completion.
 
@@ -2141,9 +2350,9 @@ Acceptance:
 
 For a p-quasisyntomic scheme X, n≥1 and i≥0, the finite syntomic complex Z/p^n(i)_X in D(X_et,Z/p^n) is the derived pushforward from the syntomic site of X to its étale site of the sheafification of the presheaf K_(2i)(−;Z/p^n). Here p-quasisyntomic means bounded p-power torsion and L_(R/Z)⊗^L_R R/p of Tor-amplitude [−1,0] on affine opens. This is Bhatt–Mathew’s announced Example 1.6, not an identification of the un-sheafified K-group presheaf or of the two sites.
 
-Source: [Bhargav Bhatt and Akhil Mathew](https://arxiv.org/pdf/2202.04818), Example 1.6, p. 2.
+Source: [Bhargav Bhatt and Akhil Mathew](https://arxiv.org/pdf/2202.04818v2), Example 1.6, p. 2.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.3; GeneralAlgebraicKTheory:K.4; PrismaticCohomology:PR.4; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring; PrismaticCohomology:PR.4/syntomic-complex.
+Direct prerequisites: RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.3/cyclotomic-trace; RefinedTraceMethods:RT.3/dgm-theorem; RefinedTraceMethods:RT.3/kinv-truncating; GeneralAlgebraicKTheory:K.4; PrismaticCohomology:PR.4; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring; PrismaticCohomology:PR.4/syntomic-complex.
 
 Proof or construction outline:
 
@@ -2164,7 +2373,7 @@ For R∈qSyn_(Z_p), in particular p-completely flat over Z_p with the quasisynto
 
 Source: [Benjamin Antieau, Akhil Mathew, Matthew Morrow and Thomas Nikolaus](https://arxiv.org/pdf/2003.12541v2), Theorem 6.17 and proof, pp. 44–45.
 
-Direct prerequisites: RefinedTraceMethods:RT.6/cyclic-derham-comparison; RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.3b; DerivedDeRhamCohomology:DD.2/p-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-graded-pieces.
+Direct prerequisites: RefinedTraceMethods:RT.6/cyclic-derham-comparison; RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.3b/qp-coefficients; RefinedTraceMethods:RT.3b/beilinson-fibre-sequence; RefinedTraceMethods:RT.3b/graded-beilinson-square; DerivedDeRhamCohomology:DD.2/p-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-graded-pieces.
 
 Proof or construction outline:
 
@@ -2175,7 +2384,7 @@ Proof or construction outline:
 Acceptance:
 
 - No square for arbitrary rings with uncontrolled p-torsion is asserted.
-- The bridge is independent of PR.7 and feeds its later F-crystal application.
+- The bridge is independent of PR.7 and feeds its F-crystal application.
 
 ### The mixed-complex comparison compatibility
 
@@ -2183,9 +2392,9 @@ Acceptance:
 
 For R-linear homological mixed complexes (C,b_C,B_C),(D,b_D,B_D) with |b|=−1 and |B|=1, let f be a chain map commuting with B. For every n and c∈C_n, (f_(n−1)(b_Cc),f_(n+1)(B_Cc))=(b_D(f_nc),B_D(f_nc)). Therefore coefficientwise f commutes with b+uB on the direct-sum, product and Laurent totalizations supplied by RT.1, with |u|=−2. The suggested signature prototypes the actual chain map and degree-one maps in Mathlib; the higher circle-equivariant comparison requires RT.1–2.
 
-Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proofs of Corollary 3.4 and Proposition 5.15; elementary chain-level specialization.
+Source: [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Corollary 3.4 proof, pp. 218–219; Proposition 5.15 proof, pp. 241–242; ordinary chain-level compatibility from the pinned Hom.comm statement.
 
-Direct prerequisites: mathlib:ChainComplex; mathlib:HomologicalComplex.Hom.comm; RefinedTraceMethods:RT.1.
+Direct prerequisites: mathlib:ChainComplex; mathlib:HomologicalComplex.Hom.comm; RefinedTraceMethods:RT.1/mixed-complex; RefinedTraceMethods:RT.1/cyclic-homology; RefinedTraceMethods:RT.1/derived-mixed-complex.
 
 Proof or construction outline:
 
@@ -2253,17 +2462,25 @@ Every BMS item assigned to RT.6 by this issue has an explicit destination. Suppo
 | PAPER-BHATT-MORROW-SCHOLZE-19/110 | RelativeQrspEvenness |
 | PAPER-BHATT-MORROW-SCHOLZE-19/116 | CharacteristicPTcSheaf |
 
-Scholze item 38 is AlmostModuleKTheory. Bhatt–Mathew item 008 is SyntomicKSheaf, with the announced-proof gap retained. Added-paper items explicitly assigned to RT.1–3 remain inputs from those sibling stages. The TC-internal negative-degree calculation stops before the downstream K-rank and even-K-sheaf identifications.
+PAPER-SCHOLZE-26/38 is AlmostModuleKTheory. PAPER-BHATT-MATHEW-23/008 is SyntomicKSheaf, with the announced-proof gap retained. Added-paper items explicitly assigned to RT.1–3 remain inputs from those sibling stages. The TC-internal negative-degree calculation stops before the downstream K-rank and even-K-sheaf identifications.
+
+| Added source item | Declaration |
+|---|---|
+| PAPER-BHATT-MATHEW-23/008 | SyntomicKSheaf |
+| PAPER-SCHOLZE-26/38 | AlmostModuleKTheory |
+| Construction 1.3; Theorem 3.14(a) | RefinedInvariantUniversality, RefinedKuComputation |
+| Theorem 3.14(b) | RefinedKuPeriodicComputation |
+| Theorem 6.17 filtered proof interface | AmmnFilteredInterface |
+
+The MW rows cover the scoped algebraic coefficient computation; its analytic interpretation and expected refined Habiro descent are not asserted. AMMN’s pullback theorem belongs to RT.3b; RT.6 supplies its filtered trace input. Generic cotangent/HKR and de Rham–Witt constructions are imported from RT.1/DD. The BMS geometric descent and concrete K-identifications belong to their downstream owners.
 
 ## Owner requests
-
-These are exact obligations at the unique supplier owners. Existing finer nodes are used wherever their statements match. The requests name only the extra generality or proof interface that is missing.
 
 ### EnhancedDerivedSheaves:E5:presentability
 
 Construct PrL_st and E-linear presentable stable modules with coherent tensor, internal Hom, left/right duals, strongly continuous adjoints, and the left-adjoint Yoneda embedding for dualizable categories. Supply ω₁/cardinal presentations, enriched small-category and spectral-presheaf interfaces, functor categories and mapping spectra, compatible Day convolution/localization, and the complete filtered/ind/pro module targets. Existing Ind/presentability nodes are imported separately; ordinary one-categories or a monoidal homotopy category do not supply these coherence and size data.
 
-Consumers: RefinedTraceMethods:RT.5/dualizable-categories; RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/continuous-calkin; RefinedTraceMethods:RT.5/localizing-motives; RefinedTraceMethods:RT.5/relative-nuclear-module; RefinedTraceMethods:RT.5/nuclear-module-resolution; RefinedTraceMethods:RT.5/enriched-duality; RefinedTraceMethods:RT.5/rigidification; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.6/filtered-invertibility.
+Consumers: RefinedTraceMethods:RT.5/dualizable-categories; RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/continuous-calkin; RefinedTraceMethods:RT.5/localizing-motives; RefinedTraceMethods:RT.5/relative-nuclear-module; RefinedTraceMethods:RT.5/nuclear-module-resolution; RefinedTraceMethods:RT.5/enriched-duality; RefinedTraceMethods:RT.5/rigidification; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.6/filtered-invertibility; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/rigidity-criterion; RefinedTraceMethods:RT.5/circle-completion-equivalence.
 
 ### GeneralAlgebraicKTheory:K.6
 
@@ -2323,11 +2540,11 @@ Consumers: RefinedTraceMethods:RT.6/trace-flat-descent; RefinedTraceMethods:RT.6
 
 Supply the enhanced cyclotomic THH/TC⁻/TP/TC functors with coherent circle/finite-C_m Frobenius, weak-Postnikov/Tate comparison, classical TR/TC equivalence and Witt π₀TR. Include relative base-change and lax monoidal Tate maps; an ordinary circle action on homotopy groups is insufficient.
 
-Consumers: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.6/trace-flat-descent; RefinedTraceMethods:RT.6/perfectoid-thh; RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.6/perfectoid-quotient-comparison; RefinedTraceMethods:RT.6/thh-hochschild-deformation; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/bms1-twist-comparison; RefinedTraceMethods:RT.6/filtered-frobenius; RefinedTraceMethods:RT.6/tc-negative-degrees; RefinedTraceMethods:RT.6/group-algebra-trace-test; RefinedTraceMethods:RT.6/adams-operations; RefinedTraceMethods:RT.6/sphere-polynomial-thh; RefinedTraceMethods:RT.6/relative-sphere-thh; RefinedTraceMethods:RT.6/relative-thh-base-change.
+Consumers: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.6/trace-flat-descent; RefinedTraceMethods:RT.6/perfectoid-thh; RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.6/perfectoid-quotient-comparison; RefinedTraceMethods:RT.6/thh-hochschild-deformation; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/bms1-twist-comparison; RefinedTraceMethods:RT.6/filtered-frobenius; RefinedTraceMethods:RT.6/tc-negative-degrees; RefinedTraceMethods:RT.6/group-algebra-trace-test; RefinedTraceMethods:RT.6/adams-operations; RefinedTraceMethods:RT.6/sphere-polynomial-thh; RefinedTraceMethods:RT.6/relative-sphere-thh; RefinedTraceMethods:RT.6/relative-thh-base-change; RefinedTraceMethods:RT.5/circle-completion-equivalence.
 
 ### RefinedTraceMethods:RT.3
 
-Supply finite-coefficient cyclotomic-trace rigidity/excision and the square-zero relative K/TC comparison in the stated henselian/nilpotent ranges. For BM Example 1.6, provide the rigidity input separately from downstream GeneralK Part II identifications of even K-sheaves.
+Supply the finite-coefficient trace, nilpotent relative K/TC comparison and truncating invariant through RT.3/cyclotomic-trace, RT.3/dgm-theorem and RT.3/kinv-truncating. The henselian-pair rigidity needed for BM Example 1.6 is not supplied by these nodes: route it to the proposed RefinedTraceMethodsPartIIHenselianPairs, then specify the syntomic-to-etale site comparison separately. Keep this request open until that owner and exact supplier node are established; downstream even K-sheaf identifications are not an input to their own construction.
 
 Consumers: RefinedTraceMethods:RT.6/syntomic-k-sheaf.
 
@@ -2345,23 +2562,29 @@ Consumers: RefinedTraceMethods:RT.5/refined-ku-periodic-computation; RefinedTrac
 
 ### RefinedTraceMethods:RT.4:q-Hodge
 
-Supply Wagner Theorems 4.27 and 5.63 under their actual spherical E₂ lift and 2-invertible hypotheses, with even filtrations, multiplicative graded q-Hodge comparison, Σ^(−2i) shearing, finite Moore inputs and Bott-periodic comparison. For MW finite Z/m inputs, give the separately justified torsion extension, including p=2; the unrestricted lift theorem is not silently invoked.
+Supply Wagner Theorem 4.27 with 4.18(A),(R) and 4.18a(R2), and its E_(n−1) enhancement precisely under Remark 4.28’s E_n lift hypotheses (2≤n≤∞). Supply Theorem 5.63 with 2∈R× and 5.43(A2), as a Z[β±1]-linear graded module equivalence, and separately justify any multiplicative enhancement used. Retain Σ^(−2i), completion and Bott localization. For MW finite Moore/Z/m inputs, prove the separate torsion and p=2 extension with compatible transitions; these inputs are not covered automatically by the 2-invertible theorem.
 
 Consumers: RefinedTraceMethods:RT.5/refined-ku-periodic-computation; RefinedTraceMethods:RT.6/habiro-trace-interface; RefinedTraceMethods:RT.5/torsion-qhodge.
 
 ### RefinedTraceMethods:RT.4:Habiro-comparison
 
-Supply the genuine finite-C_m cyclonic comparison followed by the residual-circle fixed points and the Habiro descent comparison, under the specified supplied lift and arithmetic localization. Include R=O_F[1/Δ] with 6·disc(F)|Δ and the spherical étale lift, and preserve coherent multiplicative maps.
+Supply the genuine finite-C_m cyclonic comparison, residual-circle fixed points and periodic Habiro reconstruction under Wagner 4.18, 2∈R× and 5.43(A2). For R=O_F[1/Δ] require 6|Δ and disc(F)|Δ, and use the spherical étale lift of Corollary 6.15. Supply coherent transition maps and prove any multiplicative enhancement separately; neither a graded module equivalence nor HR.2’s bounded-below solid embedding provides it for periodic KU.
 
 Consumers: RefinedTraceMethods:RT.5/refined-ku-periodic-computation; RefinedTraceMethods:RT.6/habiro-trace-interface; RefinedTraceMethods:RT.5/torsion-qhodge.
 
+### StableHomotopyKTheory:H.5:spectra
+
+Supply coherent modules over even E1/E-infinity ring spectra, graded homotopy modules, double-speed Whitehead filtrations and their filtered derived internal Hom/tensor with shearing. Combine E5 complete filtered derived categories with H.6 connectivity, coconnectivity and derived-completion estimates from MW Lemmas 3.9 and 3.11 (pp. 33–35). Existing model-category and Postnikov nodes do not by themselves supply this entire interface; these general types belong to H.5/E5/H.6, not to the RT.2 trace functors.
+
+Consumers: RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/even-completed-tensor.
+
 ## Gaps and coverage refinements
 
-The planning pass covers every scoped target. These exact refinements must be resolved before either stage is closed. They also explain why the higher suggested signatures are contracts.
+The target-level planning pass covers every scoped target. These refinements remain explicit prerequisites for closing the stages; the higher suggested declarations are mathematical contracts.
 
 **Coherent foundation and suggested signatures.** The pinned baseline has no PrL_st, coherent spectral/animated/complete-filtered target library. All higher definition and theorem signatures are therefore omitted as code under protocol §13; the suggested file records their exact names and mathematical contracts in comments. E5 and SHKTh provide the types and coherence before these can become genuine signatures. The arithmetic, coefficient-ring and chain-map signatures are stated against actual baseline types.
 
-Needed by: RefinedTraceMethods:RT.5/motives-rigidity; RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/refined-ku-computation; RefinedTraceMethods:RT.5/refined-ku-periodic-computation; RefinedTraceMethods:RT.6/trace-prismatic-comparison; RefinedTraceMethods:RT.6/graded-motivic-comparison; RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/habiro-trace-interface; RefinedTraceMethods:RT.5/dualizable-categories; RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/rigid-category; RefinedTraceMethods:RT.5/nuclear-objects; RefinedTraceMethods:RT.5/continuous-calkin; RefinedTraceMethods:RT.5/localizing-invariant; RefinedTraceMethods:RT.5/continuous-extension; RefinedTraceMethods:RT.5/continuous-extension-uniqueness; RefinedTraceMethods:RT.5/localizing-motives; RefinedTraceMethods:RT.5/relative-nuclear-module; RefinedTraceMethods:RT.5/nuclear-module-resolution; RefinedTraceMethods:RT.5/enriched-duality; RefinedTraceMethods:RT.5/rigidification; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/refined-base-change; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/torsion-duality; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.5/pro-qhodge-idempotence; RefinedTraceMethods:RT.5/graded-trace-class; RefinedTraceMethods:RT.5/almost-module-k; RefinedTraceMethods:RT.6/trace-flat-descent; RefinedTraceMethods:RT.6/qrsp-hochschild; RefinedTraceMethods:RT.6/cyclic-derham-comparison; RefinedTraceMethods:RT.6/perfectoid-thh; RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.6/perfectoid-quotient-comparison; RefinedTraceMethods:RT.6/thh-hochschild-deformation; RefinedTraceMethods:RT.6/antisymmetrization; RefinedTraceMethods:RT.6/quasismooth-thh-filtration; RefinedTraceMethods:RT.6/qrsp-even-thh; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; RefinedTraceMethods:RT.6/trace-nygaard-complex; RefinedTraceMethods:RT.6/smooth-trace-frobenius; RefinedTraceMethods:RT.6/trace-noncompleted-extension; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/filtered-invertibility; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/bms1-twist-comparison; RefinedTraceMethods:RT.6/filtered-frobenius; RefinedTraceMethods:RT.6/motivic-convergence; RefinedTraceMethods:RT.6/tc-negative-degrees; RefinedTraceMethods:RT.6/crystalline-trace-comparison; RefinedTraceMethods:RT.6/group-algebra-trace-test; RefinedTraceMethods:RT.6/segal-char-p; RefinedTraceMethods:RT.6/almost-root-ideals; RefinedTraceMethods:RT.6/almost-decalage-limit; RefinedTraceMethods:RT.6/almost-free-elements; RefinedTraceMethods:RT.6/animated-aomega-extension; RefinedTraceMethods:RT.6/aomega-almost-map; RefinedTraceMethods:RT.6/projective-qrsp-aomega; RefinedTraceMethods:RT.6/cartier-comparison-test; RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/aomega-nygaard-decalage; RefinedTraceMethods:RT.6/segal-oc; RefinedTraceMethods:RT.6/adams-operations; RefinedTraceMethods:RT.6/sphere-polynomial-thh; RefinedTraceMethods:RT.6/relative-sphere-thh; RefinedTraceMethods:RT.6/relative-thh-base-change; RefinedTraceMethods:RT.6/relative-dvr-coefficients; RefinedTraceMethods:RT.6/relative-qrsp-evenness; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.6/syntomic-k-sheaf; RefinedTraceMethods:RT.6/ammn-filtered-interface.
+Needed by: RefinedTraceMethods:RT.5/motives-rigidity; RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/refined-ku-computation; RefinedTraceMethods:RT.5/refined-ku-periodic-computation; RefinedTraceMethods:RT.6/trace-prismatic-comparison; RefinedTraceMethods:RT.6/graded-motivic-comparison; RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/habiro-trace-interface; RefinedTraceMethods:RT.5/dualizable-categories; RefinedTraceMethods:RT.5/trace-class; RefinedTraceMethods:RT.5/rigid-category; RefinedTraceMethods:RT.5/nuclear-objects; RefinedTraceMethods:RT.5/continuous-calkin; RefinedTraceMethods:RT.5/localizing-invariant; RefinedTraceMethods:RT.5/continuous-extension; RefinedTraceMethods:RT.5/continuous-extension-uniqueness; RefinedTraceMethods:RT.5/localizing-motives; RefinedTraceMethods:RT.5/relative-nuclear-module; RefinedTraceMethods:RT.5/nuclear-module-resolution; RefinedTraceMethods:RT.5/enriched-duality; RefinedTraceMethods:RT.5/rigidification; RefinedTraceMethods:RT.5/algebra-killing; RefinedTraceMethods:RT.5/smooth-proper-category; RefinedTraceMethods:RT.5/refined-base-change; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/torsion-duality; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.5/pro-qhodge-idempotence; RefinedTraceMethods:RT.5/graded-trace-class; RefinedTraceMethods:RT.5/almost-module-k; RefinedTraceMethods:RT.6/trace-flat-descent; RefinedTraceMethods:RT.6/qrsp-hochschild; RefinedTraceMethods:RT.6/cyclic-derham-comparison; RefinedTraceMethods:RT.6/perfectoid-thh; RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.6/perfectoid-quotient-comparison; RefinedTraceMethods:RT.6/thh-hochschild-deformation; RefinedTraceMethods:RT.6/antisymmetrization; RefinedTraceMethods:RT.6/quasismooth-thh-filtration; RefinedTraceMethods:RT.6/qrsp-even-thh; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; RefinedTraceMethods:RT.6/trace-nygaard-complex; RefinedTraceMethods:RT.6/smooth-trace-frobenius; RefinedTraceMethods:RT.6/trace-noncompleted-extension; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/filtered-invertibility; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/bms1-twist-comparison; RefinedTraceMethods:RT.6/filtered-frobenius; RefinedTraceMethods:RT.6/motivic-convergence; RefinedTraceMethods:RT.6/tc-negative-degrees; RefinedTraceMethods:RT.6/crystalline-trace-comparison; RefinedTraceMethods:RT.6/group-algebra-trace-test; RefinedTraceMethods:RT.6/segal-char-p; RefinedTraceMethods:RT.6/almost-root-ideals; RefinedTraceMethods:RT.6/almost-decalage-limit; RefinedTraceMethods:RT.6/almost-free-elements; RefinedTraceMethods:RT.6/animated-aomega-extension; RefinedTraceMethods:RT.6/aomega-almost-map; RefinedTraceMethods:RT.6/projective-qrsp-aomega; RefinedTraceMethods:RT.6/cartier-comparison-test; RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/aomega-nygaard-decalage; RefinedTraceMethods:RT.6/segal-oc; RefinedTraceMethods:RT.6/adams-operations; RefinedTraceMethods:RT.6/sphere-polynomial-thh; RefinedTraceMethods:RT.6/relative-sphere-thh; RefinedTraceMethods:RT.6/relative-thh-base-change; RefinedTraceMethods:RT.6/relative-dvr-coefficients; RefinedTraceMethods:RT.6/relative-qrsp-evenness; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.6/syntomic-k-sheaf; RefinedTraceMethods:RT.6/ammn-filtered-interface; RefinedTraceMethods:RT.5/trace-class-functoriality; RefinedTraceMethods:RT.5/rigidity-criterion; RefinedTraceMethods:RT.5/nuclear-closure; RefinedTraceMethods:RT.5/smooth-proper-normalization; RefinedTraceMethods:RT.5/circle-completion-equivalence.
 
 **General rigidification construction.** For a general presentable symmetric monoidal stable target, expand the κ/universe and Q-indexed rigidification proof behind MW Construction 1.3, which cites Ramzi Construction 4.75. The source statement is located and the sequential nuclear special case is planned, but the full external proof and independence of the large κ choice have not been audited here; supply this proof before treating the universality node as closed.
 
@@ -2371,15 +2594,15 @@ Needed by: RefinedTraceMethods:RT.5/rigidification; RefinedTraceMethods:RT.5/ref
 
 Needed by: RefinedTraceMethods:RT.5/localizing-motives; RefinedTraceMethods:RT.5/motives-rigidity.
 
-**Compatible Moore and finite q-Hodge choices.** The required Burklund multiplicative Moore tower is not supplied by the existing cofiber-only H.6 node. RT.4 and HQ.3 must verify the separate finite-torsion/p=2 extension of the q-Hodge comparison and its chosen transitions; the 2-invertible spherical-lift theorem alone does not justify every high-powered m. Keep these requests open for MW’s ku/KU computation.
+**Compatible Moore and finite q-Hodge choices.** The required Burklund multiplicative Moore tower is not supplied by the existing cofiber-only H.6 node. RT.4 and HQ.3 must verify the separate finite-torsion/p=2 extension of the q-Hodge comparison and its chosen transitions; the 2-invertible spherical-lift theorem alone does not justify every high-powered m. Keep these requests open for MW’s ku/KU computation. Exact RT.4:q-Hodge and RT.4:Habiro-comparison references identify the qualified comparison contracts only; they do not discharge the residual finite-torsion or p=2 hypotheses.
 
 Needed by: RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMethods:RT.5/pro-qhodge-idempotence; RefinedTraceMethods:RT.5/graded-trace-class; RefinedTraceMethods:RT.5/refined-ku-computation; RefinedTraceMethods:RT.5/refined-ku-periodic-computation.
 
-**BM announced K-sheaf comparison proof.** Example 1.6 states without proof that the finite syntomic complex is the syntomic-to-étale derived pushforward of sheafified even K-groups. Supply the precise change-of-site/descent argument, the rigidity comparison in this site and finite-coefficient normalization from the requested owners. Neither BMS’s QRSP even TC computation nor abstract rigidity alone identifies these two sites.
+**BM announced K-sheaf comparison proof.** Example 1.6 states without proof that the finite syntomic complex is the syntomic-to-étale derived pushforward of sheafified even K-groups. Supply the precise change-of-site/descent argument, the rigidity comparison in this site and finite-coefficient normalization from the requested owners. Neither BMS’s QRSP even TC computation nor abstract rigidity alone identifies these two sites. RT.3 proves the nilpotent comparison, not the required full henselian-pair rigidity. The latter is routed to the proposed henselian-pair Part II; the exact new supplier and site-level proof remain open.
 
 Needed by: RefinedTraceMethods:RT.6/syntomic-k-sheaf.
 
-**Habiro multiplicativity and periodic reconstruction.** The general q-Hodge and Habiro module/coefficient objects have exact existing supplier nodes, but the coherent finite-C_m cyclonic comparison, chosen spherical étale lift, and periodic unbounded reconstruction are RT.4 proof obligations. The HR.2 bounded-below solid comparison cannot by itself justify periodic KU; the supplied RT.4 periodic proof is required. MW’s expected refined Habiro descent is not a proved theorem and is excluded from the asserted interface.
+**Habiro multiplicativity and periodic reconstruction.** The general q-Hodge and Habiro module/coefficient objects have exact existing supplier nodes, but the coherent finite-C_m cyclonic comparison, chosen spherical étale lift, and periodic unbounded reconstruction are RT.4 proof obligations. The HR.2 bounded-below solid comparison cannot by itself justify periodic KU; the supplied RT.4 periodic proof is required. MW’s expected refined Habiro descent is not a proved theorem and is excluded from the asserted interface. Wagner Theorem 5.63 states a graded module equivalence. Its multiplicative enhancement is a separate requested proof; Remark 4.28 concerns Theorem 4.27 under specified E_n lifts.
 
 Needed by: RefinedTraceMethods:RT.6/habiro-trace-interface; RefinedTraceMethods:RT.5/refined-ku-periodic-computation.
 
@@ -2387,9 +2610,9 @@ Needed by: RefinedTraceMethods:RT.6/habiro-trace-interface; RefinedTraceMethods:
 
 Needed by: RefinedTraceMethods:RT.6/uv-presentation; RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.6/relative-dvr-coefficients.
 
-**Unbounded derived convergence implementation.** The motivic filtration and the source’s bounded smooth specializations are planned with complete/exhaustive derived abutments. A coherent exact-couple and derived-limit implementation, including the precise obstruction to strong convergence when no boundedness is available, must come from H.6; no unconditional ordinary strong-convergence claim is used.
+**Unbounded derived convergence implementation.** The motivic filtration and the source’s bounded smooth specializations are planned with complete/exhaustive derived abutments. A coherent exact-couple and derived-limit implementation, including the precise obstruction to strong convergence when no boundedness is available, must come from H.6; no unconditional ordinary strong-convergence claim is used. For RT.5/even-derived-hom and RT.5/even-completed-tensor, also supply the coherent filtered module categories, shearing and double-speed Whitehead operations requested from H.5/E5; no exact existing supplier covers that package.
 
-Needed by: RefinedTraceMethods:RT.6/motivic-convergence; RefinedTraceMethods:RT.6/motivic-filtrations.
+Needed by: RefinedTraceMethods:RT.6/motivic-convergence; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.5/even-completed-tensor.
 
 **RefinedTraceMethods:RT.5: planned.** Remaining:
 
@@ -2406,26 +2629,26 @@ Needed by: RefinedTraceMethods:RT.6/motivic-convergence; RefinedTraceMethods:RT.
 
 ## Source corrections and routing notes
 
-The packet retains seven source findings, with the exact printed passage and correction. Five reuse confirmed BMS findings with credit; the sixth checks an edition discrepancy visually; the seventh checks the direction of the introductory trace-class classifier against the body definition. These slips do not alter the asserted mathematical results.
+The packet retains seven confirmed source findings. The descriptions here give the correction and reason in our own words, with source locators and attribution to the earlier findings.
 
-**RefinedTraceMethods/E1 — Proof of Theorem 7.1, p. 255.** Printed: “we can write this as 0 → π_{2i−2}THH(S) →^u π_{2i}THH(S) → (Γ^i_R M)^∧_p → 0”. Correction: (Γ^i_S M)^∧_p Reason: M = π_1(L_{S/R})^∧_p is an S-module and the identification just before uses Γ^i_S M (Lemma 5.14); the statement of Theorem 7.1(3) and the next paragraph also use Γ^i_S. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E3; correction retained in this packet.
+**RefinedTraceMethods/E1 — [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proof of Theorem 7.1, p. 255.** Correction: (Γ^i_S M)^∧_p Reason: M = π_1(L_{S/R})^∧_p is an S-module and the identification just before uses Γ^i_S M (Lemma 5.14); the statement of Theorem 7.1(3) and the next paragraph also use Γ^i_S. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E3; correction retained in this packet. Independent review: confirmed (REV-RefinedTraceMethods--RT.5).
 
-**RefinedTraceMethods/E2 — Theorem 7.2(2), p. 255.** Printed: “The (degenerate) homotopy fixed point spectral calculating TC^-(R; Z_p) or the (degenerate) Tate spectral sequence calculating TP(R; Z_p) endows Δ̂_S := π_0TC^-(S; Z_p) ≅ π_0TP(S; Z_p) with the same complete descending N-indexed filtration”. Correction: The (degenerate) homotopy fixed point spectral sequence calculating TC^-(S; Z_p) or the (degenerate) Tate spectral sequence calculating TP(S; Z_p) endows Δ̂_S … Reason: The filtration on π_0 of TC^-(S; Z_p) and TP(S; Z_p) comes from their own spectral sequences, whose degeneration is part (1); the spectral sequences for the perfectoid base R filter π_0TC^-(R; Z_p) = A_inf(R), not Δ̂_S. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E4; correction retained in this packet.
+**RefinedTraceMethods/E2 — [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Theorem 7.2(2), p. 255.** Correction: Use the homotopy fixed point and Tate spectral sequences of S to filter C_S; replace the base-ring label R by S in both trace arguments. Reason: The filtration on π_0 of TC^-(S; Z_p) and TP(S; Z_p) comes from their own spectral sequences, whose degeneration is part (1); the spectral sequences for the perfectoid base R filter π_0TC^-(R; Z_p) = A_inf(R), not Δ̂_S. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E4; correction retained in this packet. Independent review: confirmed (REV-RefinedTraceMethods--RT.5).
 
-**RefinedTraceMethods/E3 — §7.4, first paragraph, p. 261.** Printed: “Z_p(i)(A) := gr^n TC(A; Z_p)[−2i] = hofib(φ − can : 𝒩^{≥i}Δ̂_A{i} → Δ̂_A{i})”. Correction: Z_p(i)(A) := gr^i TC(A; Z_p)[−2i] Reason: The weight must match the shift [−2i] and the right-hand side; Theorem 1.12(5) defines Z_p(n) = gr^n TC[−2n]. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E5; correction retained in this packet.
+**RefinedTraceMethods/E3 — [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), §7.4, first paragraph, p. 261.** Correction: Z_p(i)(A) := gr^i TC(A; Z_p)[−2i] Reason: The weight must match the shift [−2i] and the right-hand side; Theorem 1.12(5) defines Z_p(n) = gr^n TC[−2n]. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E5; correction retained in this packet. Independent review: confirmed (REV-RefinedTraceMethods--RT.5).
 
-**RefinedTraceMethods/E4 — Proof of Theorem 9.6, 'Lifting the almost comparison map', p. 288.** Printed: “then Lemma 9.8 identifies this with an honest map d_R : Δ_S → AΩ_S. In other words, on the category qrsPerfd^proj_{O_C} … we have constructed the comparison map d_S as above.”. Correction: an honest map d_S : Δ_S → AΩ_S Reason: The map is indexed by S ∈ qrsPerfd^proj_{O_C}, and the next sentence and the unfolding d_A call it d_S; no R occurs in this step. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E9; correction retained in this packet.
+**RefinedTraceMethods/E4 — [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Proof of Theorem 9.6, 'Lifting the almost comparison map', p. 288.** Correction: an honest map d_S : Δ_S → AΩ_S Reason: The map is indexed by S ∈ qrsPerfd^proj_{O_C}, and the next sentence and the unfolding d_A call it d_S; no R occurs in this step. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E9; correction retained in this packet. Independent review: confirmed (REV-RefinedTraceMethods--RT.5).
 
-**RefinedTraceMethods/E5 — §11.2, paragraph before Proposition 11.10, p. 302.** Printed: “Then there is a natural inclusion 𝔖^{(−1)} ↪ A_inf(O_{K_∞}) which is W(k)-linear and sends z to [ϖ^♭]; on 𝔖 ⊂ 𝔖^{(−1)}, this is the inclusion 𝔖 ↪ A_inf(O_K) fixed earlier.”. Correction: the inclusion 𝔖 ↪ A_inf(O_{K_∞}) fixed earlier Reason: Notation 11.1 embeds 𝔖 in A_inf(O_{K_∞}) (or A_inf); O_K is not perfectoid, and A_inf(O_K) is not the ring used anywhere in §11. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E11; correction retained in this packet.
+**RefinedTraceMethods/E5 — [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), §11.2, paragraph before Proposition 11.10, p. 302.** Correction: the inclusion 𝔖 ↪ A_inf(O_{K_∞}) fixed earlier Reason: Notation 11.1 embeds 𝔖 in A_inf(O_{K_∞}) (or A_inf); O_K is not perfectoid, and A_inf(O_K) is not the ring used anywhere in §11. Status: Already recorded and confirmed in PAPER-BHATT-MORROW-SCHOLZE-19/E11; correction retained in this packet. Independent review: confirmed (REV-RefinedTraceMethods--RT.5).
 
-**RefinedTraceMethods/E6 — Published DOI PDF, proof of Lemma 9.4, p. 285; image inspected 6 October 2026.** Printed: “M/ξ ⊂ N is the set of sequences (a_i) ∈ ∏_(i∈I) O_C^flat”. Correction: The sequences lie in ∏_(i∈I) O_C. Reason: The preceding line defines N=∏ O_C and M/ξ is a completed free O_C-module. The mixed-characteristic valuative argument uses p in O_C. The page image of the published DOI PDF still prints the flat superscript. Status: The slip was recorded as PAPER-BHATT-MORROW-SCHOLZE-19/E8. Its assertion that the published PDF corrects it disagrees with the published DOI PDF inspected here; the mathematical correction itself is the same.
+**RefinedTraceMethods/E6 — [Bhargav Bhatt, Matthew Morrow and Peter Scholze](https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf), Published DOI PDF, proof of Lemma 9.4, p. 285; text and page image checked 8 October 2026.** Correction: The sequences lie in ∏_(i∈I) O_C. Reason: The preceding line defines N=∏ O_C and M/ξ is a completed free O_C-module. The mixed-characteristic valuative argument uses p in O_C. The page image of the published DOI PDF still prints the flat superscript. Status: The slip was recorded as PAPER-BHATT-MORROW-SCHOLZE-19/E8. Its assertion that the published PDF corrects it disagrees with the published DOI PDF inspected here; the mathematical correction itself is the same. Independent review: confirmed (REV-RefinedTraceMethods--RT.5).
 
-**RefinedTraceMethods/E7 — arXiv:2410.23115v4, Definition 1.1(b), p. 2.** Printed: “each X_n → X_(n+1) is trace-class, that is, induced by a morphism 1 → X_(n+1)^∨ ⊗ X_n”. Correction: The classifier is 1 → X_n^∨ ⊗ X_(n+1). The forward transition has source X_n and target X_(n+1). Reason: Evaluation of the printed classifier induces X_(n+1) → X_n, the reverse direction. Definition 2.1 later in the same paper gives the correctly ordered classifier for f:X→Y. This packet uses that body definition. Status: No correction located in the v4 introduction/body comparison; recorded for independent source review.
+**RefinedTraceMethods/E7 — [Samuel Meyer and Ferdinand Wagner](https://arxiv.org/pdf/2410.23115v4), arXiv:2410.23115v4, Definition 1.1(b), p. 2.** Correction: The classifier is 1 → X_n^∨ ⊗ X_(n+1). The forward transition has source X_n and target X_(n+1). Reason: Evaluation of the printed classifier induces X_(n+1) → X_n, the reverse direction. Definition 2.1 in the same paper gives the correctly ordered classifier for f:X→Y. This packet uses that body definition. Status: No correction located in the v4 introduction/body comparison; recorded for independent source review. Independent review: confirmed (REV-RefinedTraceMethods--RT.5).
 
-RT-AREA-ktheory-2/28–29 are respected: RT.5 imports RT.4:q-Hodge and RT.4:Habiro-comparison, and requests the multiplicative Moore tower from H.6 rather than treating an additive cofiber as an algebra. The finite-torsion and p=2 extensions remain explicit proof obligations.
+RT-AREA-ktheory-2/28–29: RT.5 imports RT.4:q-Hodge and RT.4:Habiro-comparison for Meyer–Wagner Theorem 3.14; their hypotheses and finite-torsion extensions are explicit supplier obligations. H.6 must supply the multiplicative Moore tower with the Burklund structures and compatible transitions; its additive cofiber alone is insufficient.
 
-RT-AREA-ktheory-2/36 is respected: PR.4 independently constructs syntomic fibers and feeds RT.6. RT.6 constructs the graded TC comparison. PR.3/bms2-comparison is used only for its independent prismatic recognition/Nygaard-completion half; its already advertised TC conclusion is proved here, not assumed as an input.
+RT-AREA-ktheory-2/36: PR.4 independently constructs syntomic fibers and supplies RT.6, which proves the graded TC comparison. PR.3/bms2-comparison supplies independent prismatic recognition and Nygaard completion; RT.6 constructs the trace-to-prismatic comparison.
 
-The BMS extraction’s additional AI.0, AI.4, PR.6, L.5 and DD.4 inputs are represented by exact nodes or precise requests. AI.7 and PR.7 are later consumers. The AMMN filtered interface imports RT.3b’s theorem and supplies its trace inputs without using the late PR.7 F-crystal application.
+The BMS extraction’s AI.0, AI.4, L.5 and DD.4 inputs are represented by exact nodes or precise requests. The filtered décalage description comes directly from AI.1. PR.6’s very-small qΩ→AΩ comparison is a separate geometric construction and is not an input to the trace-to-AΩ proof. AI.7 and PR.7 consume the trace results. The AMMN filtered interface imports RT.3b’s theorem and supplies its trace inputs to PR.7.
 
-Source erratum metadata discrepancy: PAPER-BHATT-MORROW-SCHOLZE-19/E8 says the published p.285 corrects O_C^flat to O_C. The downloaded published DOI PDF still prints O_C^flat, confirmed visually. E6 records the unchanged mathematical correction and this edition discrepancy for the maintainer; the other job’s files are untouched.
+The edition discrepancy in PAPER-BHATT-MORROW-SCHOLZE-19/E8 remains a maintainer note: the independently reviewed published DOI page 285 retains the flat superscript, despite the extraction’s correction metadata. E6 retains both the mathematical correction and that discrepancy.
