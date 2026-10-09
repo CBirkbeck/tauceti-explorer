@@ -41473,7 +41473,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-09",
-    "notes": "Bounded independent area-fix review of findings /1, /2, /10–/14, /17, /18 and /32. Checked the SF.1 and SF.2 ownership boundaries, existing upstream descent/Grassmannian/relative-Proj/general locally-Noetherian cohomology suppliers, the explicit quotient and affine Weil-restriction compatibility requests, and the approximation boundary against current prerequisite direction and Stacks 16.13.1–2. After the final sync, replaced the obsolete R09.6:approximation proposal by imports of the accepted/promoted A0-extension-2 approximation nodes; retained Artin’s original base hypotheses and the henselian/etale distinction. No mathematical node changed. Follows independent-review-REV-AlgebraicModuliForArithmeticGeometry--A0-extension, preserved in reviewHistory. Future R09 part jobs, source decompositions and restructure approval remain outstanding; acceptance is for the area-fix recording, not for completing these stages."
+    "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Existing A0-extension-2 approximation order and original Artin/henselian/etale hypotheses, generic stack/duality imports, current upstream proper-cohomology and affine Weil-restriction ownership checked. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
   },
   "independentReviewEvidence": {
     "job": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension",
@@ -43890,6 +43890,12 @@
           "note": "Read statement, hypotheses, proof sketch, all source locators/excerpts and direct prerequisites; authored adapter formulas were checked against the pinned native carriers rather than attributed to a printed source formula. Construction/definition API and at least three discriminating tests checked; native admissions and supplier-dependent omissions remain explicit. Corrected API granularity and/or source-label types; exact mathematical statements and admitted native declarations are preserved."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-09",
+      "notes": "Bounded independent area-fix review of findings /1, /2, /10–/14, /17, /18 and /32. Checked the SF.1 and SF.2 ownership boundaries, existing upstream descent/Grassmannian/relative-Proj/general locally-Noetherian cohomology suppliers, the explicit quotient and affine Weil-restriction compatibility requests, and the approximation boundary against current prerequisite direction and Stacks 16.13.1–2. After the final sync, replaced the obsolete R09.6:approximation proposal by imports of the accepted/promoted A0-extension-2 approximation nodes; retained Artin’s original base hypotheses and the henselian/etale distinction. No mathematical node changed. Follows independent-review-REV-AlgebraicModuliForArithmeticGeometry--A0-extension, preserved in reviewHistory. Future R09 part jobs, source decompositions and restructure approval remain outstanding; acceptance is for the area-fix recording, not for completing these stages."
     }
   ]
 }

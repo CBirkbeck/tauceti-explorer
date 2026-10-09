@@ -18924,7 +18924,7 @@
       "status": "applied",
       "boundary": "Import the stable pointed-curve stack from StableReductionPartII (key/moduli-curves, MC.2) as alteration input; R09.4 does not plan it.",
       "read": "Full claim/evidence/fix and applicable verifier confirmation read on 2026-10-02; no independent review performed by this worker.",
-      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): The single owner of the stack of stable pointed curves is StableReductionPartII (key/moduli-curves at MC.0; the proper Deligne–Mumford theorem at MC.2), the Part II alternative the finding allows; R09.4 does not plan it, and the A0-extension packet imports it from there. SF.4 imports it for de Jong’s curve-fibration step. The projective cover of de Jong 1996, 2.24 (n ≥ 3 marked points, every genus) belongs in MC.4, which plans it for unpointed curves of genus at least 2 only and requires SF.5; its pointed extension and its import wait for the SF.5 rescope (see the SF.4 gap)."
+      "round2": "Round 2 of the algebraic-geometry area fix (FIX-RT-AREA-algebraicgeometry~2, claude-5oyBX2, 2026-10-09): The single owner of the stack of stable pointed curves is StableReductionPartII (key/moduli-curves at MC.0; the proper Deligne–Mumford theorem at MC.2), the Part II alternative the finding allows; R09.4 does not plan it, and the A0-extension packet imports it from there. SF.4 imports it for de Jong’s curve-fibration step. The projective cover of de Jong 1996, 2.24 (n ≥ 3 marked points, every genus) belongs in MC.4, which plans it for unpointed curves of genus at least 2 only and requires SF.5. Removing SF.4 → SF.5 does not suffice to permit MC.4 → SF.4: the longer promoted DD.5/p-adic/PEL path remains. Its pointed extension must be planned at the existing owner, and the import requires a checked split/rerouting of the schematic alteration nodes and formal/cohomological consumers (see the SF.4 gap and rescope proposal). Independent review codex-egWNJX reproduced that remaining path on 2026-10-09."
     },
     {
       "id": "RT-AREA-algebraicgeometry/18",
@@ -19974,7 +19974,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-09",
-    "notes": "Bounded independent area-fix review of findings /1, /8, /11 and /15–/18, /31. Checked single spaces/stacks, coherent-duality and schematic-alteration owners and current upstream suppliers. Corrected the SF.5/MC.4 proposal and matching gap/coverage: current promoted blueprints retain a long SF.4→DD.5→p-adic geometry→PEL M6→MC.4 path, so removal of SF.4→SF.5 does not make MC.4→SF.4 safe. The cover remains a node-level request pending an independently checked supplier/consumer split; the rest of the proposed rescope is acyclic. Follows independent-review-REV-SchemeAndStackFoundations, preserved in reviewHistory. All incomplete source work and requests remain; no atlas edge is installed."
+    "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Generic stack/duality/alteration ownership and combined rescope edges checked on the assembled graph. Corrected the stale /17 sentence: SF.5 rescoping does not remove the longer promoted path to MC.4. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
   },
   "reviewHistory": [
     {
@@ -21499,6 +21499,12 @@
           "note": "Splitting-field extension changes both Galois quotient and algebraic-kernel points through pullback and pushout; topology and algebraic comparisons remain gaps."
         }
       ]
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-09",
+      "notes": "Bounded independent area-fix review of findings /1, /8, /11 and /15–/18, /31. Checked single spaces/stacks, coherent-duality and schematic-alteration owners and current upstream suppliers. Corrected the SF.5/MC.4 proposal and matching gap/coverage: current promoted blueprints retain a long SF.4→DD.5→p-adic geometry→PEL M6→MC.4 path, so removal of SF.4→SF.5 does not make MC.4→SF.4 safe. The cover remains a node-level request pending an independently checked supplier/consumer split; the rest of the proposed rescope is acyclic. Follows independent-review-REV-SchemeAndStackFoundations, preserved in reviewHistory. All incomplete source work and requests remain; no atlas edge is installed."
     }
   ]
 }
