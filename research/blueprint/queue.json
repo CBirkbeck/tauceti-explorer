@@ -21737,8 +21737,9 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #316"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #316",
+   "finishedAt": "2026-10-09T16:52:02Z"
   },
   {
    "id": "BP-SchemeAndStackFoundations",
@@ -34416,7 +34417,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6289"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.1",
