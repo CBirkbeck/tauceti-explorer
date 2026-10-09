@@ -184,6 +184,55 @@
         "module": "TauCeti/Analysis/InnerProductSpace/Spectrum.lean",
         "provides": "A compact symmetric continuous endomorphism of a complete real or complex Hilbert space admits a Hilbert basis of eigenvectors, without a separability assumption. Applied to A* A, it provides the compact positive spectral decomposition used in the singular-value construction.",
         "checked": "Independent review read the declaration and enclosing RCLike, InnerProductSpace and CompleteSpace hypotheses at the pinned Tau Ceti commit."
+      },
+      {
+        "ref": "mathlib:TestFunction",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Distribution/TestFunction.lean",
+        "provides": "Bundled real-smooth functions with compact support in an open set, for a normed real domain and normed target; complex scalar structure is inherited when available.",
+        "checked": "Declaration, enclosing algebraic/topological hypotheses and relevant defining equations read at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:TestFunction.topologicalSpace",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Distribution/TestFunction.lean",
+        "provides": "The existing locally convex final topology for the compact-support stage inclusions. This supplies the real-line test carrier; closed embeddings, strictness, nuclearity and the bounded-set criterion are additional targets.",
+        "checked": "Declaration, enclosing algebraic/topological hypotheses and relevant defining equations read at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:AddChar.complexBasis",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Fourier/FiniteAbelian/PontryaginDuality.lean",
+        "provides": "The full set of complex additive characters of a finite additive commutative group is a basis of its complex-valued function space. Its basis vectors are exactly the character functions.",
+        "checked": "Declaration, enclosing algebraic/topological hypotheses and relevant defining equations read at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Module.AEval'",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Polynomial/Module/AEval.lean",
+        "provides": "The polynomial module attached to an endomorphism of a module over a commutative semiring; the underlying module is a type synonym and polynomials act by evaluation at that endomorphism.",
+        "checked": "Declaration, enclosing algebraic/topological hypotheses and relevant defining equations read at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Module.AEval'.X_smul_of",
+        "kind": "theorem",
+        "module": "Mathlib/Algebra/Polynomial/Module/AEval.lean",
+        "provides": "Under the canonical linear equivalence with the original module, multiplication by the polynomial variable is the chosen endomorphism. This identifies the Jordan model used by the generalized-character test.",
+        "checked": "Declaration, enclosing algebraic/topological hypotheses and relevant defining equations read at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:zeta_eq_tsum_one_div_nat_add_one_cpow",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "For a complex parameter with real part greater than one, the existing Riemann zeta function equals the sum of reciprocal complex powers of the positive integers.",
+        "checked": "Declaration, enclosing algebraic/topological hypotheses and relevant defining equations read at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.Multiquadratic.IsFundamentalDiscriminant",
+        "kind": "def",
+        "module": "TauCeti/NumberTheory/Multiquadratic/FundamentalDiscriminant/Basic.lean",
+        "provides": "An integer congruent to one modulo four is fundamental when squarefree; the other branch is four times a squarefree integer congruent to two or three modulo four. In particular 12 satisfies the criterion, whereas 16 does not. AS imports this predicate and does not build a second arithmetic definition.",
+        "checked": "Declaration, enclosing algebraic/topological hypotheses and relevant defining equations read at the recorded pinned commit on 2026-10-09."
       }
     ]
   },
@@ -220,9 +269,10 @@
       "url": "https://www.claymath.org/library/cw/arthur/pdf/62.pdf",
       "sha256": "2b6623010ce5d854732458dfb5e61600a4e6cc7288629a72cb63d5f7530ac510",
       "readSections": [
-        "§7 Hilbert induction and Theorem7.2; §§12–17 truncation, convergence, coarse identity; §§18–23 weighted families and fine/invariant expansions, including the Hecke-only correction and height convergence; selected statements/proofs, not full recursive closure of all cited originals"
+        "§7 Hilbert induction and Theorem7.2; §§12–17 truncation, convergence, coarse identity; §§18–23 weighted families and fine/invariant expansions, including the Hecke-only correction and height convergence; selected statements/proofs, not full recursive closure of all cited originals",
+        "§12 Lemmas12.2–12.4 and (12.3)–(12.4), printed pp.64–66, re-read 2026-10-09"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-09"
     },
     {
       "id": "langlands",
@@ -412,9 +462,11 @@
       "url": "https://arxiv.org/pdf/1807.04659v5",
       "sha256": "9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c",
       "readSections": [
-        "§§2.2–2.3 definitions/classification statement; §§3.1–3.3 degree/truncation and quasi-polynomial statements; §4.2 family identities and proofs; §5.2 finite-cover spectral recovery proof; §5.3 stabilizers/local factors; AppendixA degree-family proofs and AppendixB comparison statement; Lafforgue/MW/Chaudouard originals pending"
+        "§§2.2–2.3 definitions/classification statement; §§3.1–3.3 degree/truncation and quasi-polynomial statements; §4.2 family identities and proofs; §5.2 finite-cover spectral recovery proof; §5.3 stabilizers/local factors; AppendixA degree-family proofs and AppendixB comparison statement; Lafforgue/MW/Chaudouard originals pending",
+        "Revision: §§5.2.1–5.2.3, printed pp.32–36, and Appendix A, pp.75–77; full-seminorm and character-cover hypotheses compared with the proposed signatures",
+        "§5.2.1–5.2.3, printed pp.32–36; Appendix A, pp.75–77; cutoff exponents, torus conventions and coprime scope re-read 2026-10-09"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-09"
     },
     {
       "id": "jiangzhang20",
@@ -436,9 +488,10 @@
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
       "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61",
       "readSections": [
-        "§5 spectral conventions; §7 cusp integrability; §§8–9 Poincaré/resolvent/raising; Appendix A"
+        "§5 spectral conventions; §7 cusp integrability; §§8–9 Poincaré/resolvent/raising; Appendix A",
+        "§5 equations (5.1)–(5.7), printed pp.961–962; §9 Lemmas5–7, pp.979–980, re-read 2026-10-09"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-09"
     },
     {
       "id": "dit11",
@@ -496,9 +549,11 @@
       "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00129-1.pdf",
       "sha256": "a07a6143d3e71f1eca31b6ba9b774bec325a7de07c7417b7796486a77df13794",
       "readSections": [
-        "AppendixA.0.1–A.0.11, functional-analytic definitions, lemmas and vector continuation proof; selected main-text applications §§2.2,2.7,2.9,3.3.4; not the global GGP proof"
+        "AppendixA.0.1–A.0.11, functional-analytic definitions, lemmas and vector continuation proof; selected main-text applications §§2.2,2.7,2.9,3.3.4; not the global GGP proof",
+        "Revision: BPCZ Appendix A.0.1–A.0.11, pp.326–333",
+        "Appendix A, A.0.1–A.0.11, printed pp.326–333; two continuation corollaries re-read 2026-10-09"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-09"
     },
     {
       "id": "ct20",
@@ -532,9 +587,10 @@
       "url": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
       "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5",
       "readSections": [
-        "Scanned printed pp.238–240,251; pp.271,273,277–281,294,298–299; definitions and selected proofs of routed analytic items; no reading of the arithmetic Chapters III/V proof interiors"
+        "Scanned printed pp.238–240,251; pp.271,273,277–281,294,298–299; definitions and selected proofs of routed analytic items; no reading of the arithmetic Chapters III/V proof interiors",
+        "Chapter IV §2, equation (2.1), printed p.273, page image re-read 2026-10-09"
       ],
-      "accessed": "2026-10-07"
+      "accessed": "2026-10-09"
     },
     {
       "id": "shapiro25",
@@ -741,7 +797,8 @@
         "Test against measurable sections to identify the adjoint."
       ],
       "acceptance": [
-        "An unbounded field is not presented as a bounded decomposable operator."
+        "An unbounded field is not presented as a bounded decomposable operator.",
+        "Suggested model: Scalar identity and coordinate-multiplication tests exercise the constructed direct integral; the nonstandard varying-fibre measurable-field adapter remains required."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/direct-integral"
@@ -780,7 +837,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.decomposable_operator.identity",
           "kind": "computation",
-          "statement": "The identity field induces the identity operator with norm 1 on a nonzero direct integral."
+          "statement": "For the identity operator field, its decomposable operator is the identity on the direct integral and has norm one on a nonzero scalar fibre model."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.decomposable_operator.null_change",
@@ -790,7 +847,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.decomposable_operator.unbounded_multiplier",
           "kind": "non-example",
-          "statement": "Multiplication by x on L²(ℝ) is not a bounded decomposable operator."
+          "statement": "Multiplication by the real coordinate on L²(ℝ) has no bounded extension agreeing almost everywhere on all compactly supported vectors."
         }
       ],
       "uses": [
@@ -863,7 +920,7 @@
         {
           "sourceId": "teschl",
           "locator": "§3.1 equations (3.5)–(3.15); PDF page 100",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1069,7 +1126,7 @@
         {
           "sourceId": "teschl",
           "locator": "§6.3 equations (6.8)–(6.13), Lemma 6.10; PDF page 152",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1107,12 +1164,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.hilbert_schmidt.infinite_identity",
           "kind": "non-example",
-          "statement": "The identity on ℓ²(ℕ) is not Hilbert–Schmidt."
+          "statement": "On a Hilbert space with an ℕ-indexed Hilbert basis the identity has no Hilbert–Schmidt representative."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.hilbert_schmidt.finite_identity",
           "kind": "computation",
-          "statement": "The identity on ℂⁿ has HS norm √n."
+          "statement": "On an n-dimensional Hilbert space the actual identity is Hilbert–Schmidt and has Hilbert–Schmidt norm √n."
         }
       ],
       "uses": [
@@ -1197,7 +1254,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.trace_class.diagonal_harmonic",
           "kind": "non-example",
-          "statement": "diag(1/(n+1)) on ℓ² is Hilbert–Schmidt and is not trace class."
+          "statement": "The bounded diagonal operator with basis coefficients 1/(n+1) is Hilbert–Schmidt and has no trace-class representative."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.trace_class.projection_trace",
@@ -1272,17 +1329,21 @@
         "Distinguish quasi-completeness from completeness, and import Banach–Steinhaus rather than reprove it."
       ],
       "acceptance": [
-        "An LF test space has fixed-support pieces; an arbitrary union with unspecified topology is insufficient."
+        "An LF test space has fixed-support pieces; an arbitrary union with unspecified topology is insufficient.",
+        "Suggested model: The suggested real-line tests use Mathlib TestFunction and its fixed-support stages. Nuclearity and the general strict LF universal property are not supplied by these topology/ boundedness tests.",
+        "On the real line, reuse Mathlib TestFunction and its existing locally convex final topology. Supported-stage closed embeddings, strictness, nuclearity and the bounded-set theorem extend that carrier; the topology is not redefined as new infrastructure."
       ],
       "prerequisites": [
         "AutomorphicFormsOnReductiveGroups:AF.0/smooth-adelic-function",
-        "mathlib:WithSeminorms.banach_steinhaus"
+        "mathlib:WithSeminorms.banach_steinhaus",
+        "mathlib:TestFunction",
+        "mathlib:TestFunction.topologicalSpace"
       ],
       "sources": [
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.1, A.0.5 and A.0.6; PDF page 145",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1317,17 +1378,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.nuclear_lf_space.finite_group",
           "kind": "computation",
-          "statement": "For a finite discrete group, 𝓓(G)=ℂ^G with its finite-dimensional topology."
+          "statement": "The constant finite-group function stages induce exactly the usual finite-dimensional topology on their function space."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.nuclear_lf_space.real_line",
           "kind": "compatibility",
-          "statement": "For G=(ℝ,+), fixed-compact pieces agree with the usual C∞ compact-support seminorm spaces."
+          "statement": "For real smooth compactly supported tests, the support-stage construction agrees with Mathlib TestFunction topology, and each fixed-support stage embeds as a closed subspace."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.nuclear_lf_space.escaping_support",
           "kind": "non-example",
-          "statement": "Unit translated bumps with supports escaping every compact are not a bounded set in 𝓓(ℝ)."
+          "statement": "The translates by n of a fixed nonzero real test function are not von Neumann bounded in the actual LF topology; failure of a common support alone is not the conclusion."
         }
       ],
       "uses": [
@@ -1370,7 +1431,7 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.2 and Lemmas A.0.6.1–A.0.6.2; PDF page 145",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1407,7 +1468,7 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.7; PDF page 148",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1490,7 +1551,7 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.8–A.0.9, Lemma A.0.9.1; PDF page 149",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1561,7 +1622,8 @@
         "Construct vector Cauchy coefficients with quasi-complete integration; use uniqueness under continuous duals."
       ],
       "acceptance": [
-        "Pole order cannot depend without bound on the chosen input vector."
+        "Pole order cannot depend without bound on the chosen input vector.",
+        "Suggested model: The direct-sum pole counterexample is an algebraic linear-map family on finitely supported sequences, not a bounded operator on a completed Hilbert space. The stronger bounded-set meromorphy theorem remains a separate proof obligation."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/nuclear-lf-space",
@@ -1572,7 +1634,7 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.3–A.0.5 holomorphy; Arthur 2005 §7 motivates meromorphic extension; PDF page 146",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1612,7 +1674,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.operator_meromorphic.pointwise_orders",
           "kind": "non-example",
-          "statement": "On the algebraic direct sum with A(z)e_n=z^(−n)e_n, pointwise scalar meromorphy supplies no common finite pole order."
+          "statement": "For the direct-sum family with nth coordinate z^(−n), every finitely supported vector has a local denominator, but no common exponent and radius regularize all basis vectors."
         }
       ],
       "uses": [
@@ -1654,7 +1716,7 @@
         {
           "sourceId": "teschl",
           "locator": "§6.2 Fredholm alternative and analytic perturbation motivation; PDF page 148",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1694,7 +1756,7 @@
         {
           "sourceId": "bpcz22",
           "locator": "Appendix A.0.2–A.0.5; PDF page 146",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1763,7 +1825,8 @@
         "Use finite K types and smooth vectors to define the common holomorphic-section model."
       ],
       "acceptance": [
-        "For P=G this is the inducing representation, with no ρ-shift."
+        "For P=G this is the inducing representation, with no ρ-shift.",
+        "Suggested model: The rank-one norm tests are the normalized GL₂ open-cell dilation realization. Identifying it with the full supplied parabolic-induction compact picture is a required adapter."
       ],
       "prerequisites": [
         "AdelicAlgebraicGroups:AA.2/log-height",
@@ -1819,12 +1882,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.induced_family.rank_one_half_modulus",
           "kind": "computation",
-          "statement": "For GL₂, δ_B(diag(a,d))=|a/d| and the compact-picture multiplier is |a/d|^(s+1/2), with λ(H)=s log|a/d|."
+          "statement": "The GL₂ open-cell torus model acts by r^(s+1/2)f(rx), and preserves the L² norm for purely imaginary s."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.induced_family.unnormalized_not_unitary",
           "kind": "non-example",
-          "statement": "Omitting the half-modulus does not preserve the compact-picture norm for a non-unimodular parabolic."
+          "statement": "Dropping the half-modulus in the same dilation model, at r=4 a nonzero vector has half its original norm."
         }
       ],
       "uses": [
@@ -1980,12 +2043,14 @@
         "The identity Weyl element has a point quotient of mass one."
       ],
       "acceptance": [
-        "The map has source H_P and target H_Q, not an endomorphism unless P=Q."
+        "The map has source H_P and target H_Q, not an endomorphism unless P=Q.",
+        "Suggested model: the integral constructor takes an explicit measure and operator-valued integrand. The three tests use the point quotient, the classical real spherical integral with its finite-prime zeta factor, and block permutation of both labels and parameters. The full adelic unipotent integrand and its coherent GL_n inducing carrier remain required; no arbitrary operator is asserted to have the spherical scalar."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.1/induced-family",
         "AutomorphicSpectralTheory:AS.1/eisenstein-convergence",
-        "AdelicAlgebraicGroups:AA.2/quotient-measure-transitivity"
+        "AdelicAlgebraicGroups:AA.2/quotient-measure-transitivity",
+        "mathlib:zeta_eq_tsum_one_div_nat_add_one_cpow"
       ],
       "sources": [
         {
@@ -2024,17 +2089,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.convergent_intertwiner.identity_quotient",
           "kind": "degenerate",
-          "statement": "The identity Weyl integral is over a singleton and equals φ."
+          "statement": "The actual point-quotient integral returns the original vector."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.convergent_intertwiner.sl2_spherical",
           "kind": "computation",
-          "statement": "For spherical SL₂ and E(z,s), M(s) acts on the spherical vector by ξ(2s−1)/ξ(2s), ξ(t)=π^(−t/2)Γ(t/2)ζ(t)."
+          "statement": "The convergent real spherical integral times its finite-prime Euler product gives ξ(2s−1)/ξ(2s) on the spherical eigenline."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.convergent_intertwiner.target_parabolic",
           "kind": "characterisation",
-          "statement": "For a permutation between distinct GL_n block parabolics, the result has the permuted inducing datum and parameter wλ."
+          "statement": "The block-permutation slice transports both inducing labels and parameter, and its operator integral applies the same permutation to the section coordinates; full GL_n induction coherence is required."
         }
       ],
       "uses": [
@@ -2273,7 +2338,8 @@
         "Take the Hilbert closure of the generated span; right equivariance proves invariance."
       ],
       "acceptance": [
-        "Two nonassociate cuspidal representations on the same Levi define different χ."
+        "Two nonassociate cuspidal representations on the same Levi define different χ.",
+        "Suggested model: The typed prototype takes the closure of generators and tests its block quotient. AF must supply actual cuspidal data and prove that source Weyl association has the stated block interpretation; it cannot identify data by parabolic alone."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.1/pseudo-eisenstein-l2",
@@ -2318,7 +2384,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.cuspidal_datum_space.inequivalent_same_levi",
           "kind": "non-example",
-          "statement": "Inequivalent non-Weyl-conjugate σ and τ on one Levi are not identified as a datum."
+          "statement": "Distinct closed generated blocks remain distinct in the quotient by equality of cuspidal_datum_space; identifying this block relation with AF Weyl-associate cuspidal data is required."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.cuspidal_datum_space.zero_generators",
@@ -2396,7 +2462,8 @@
         "Reduce to rank one and use local meromorphic continuation; parabolic induction transitivity handles higher rank."
       ],
       "acceptance": [
-        "For P=Q the point integral is the identity; opposite operators need a μ scalar, not an assumed inverse."
+        "For P=Q the point integral is the identity; opposite operators need a μ scalar, not an assumed inverse.",
+        "Suggested model: The shell integral is an actual use of the integral constructor. Its continued spherical eigenline agrees with that integral in the convergence disk. Identifying it with the GL₂ unipotent quotient and continuing the full operator family requires the local induction supplier."
       ],
       "prerequisites": [
         "SmoothRepresentationsOfLocalGroups:SR.2",
@@ -2448,7 +2515,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.local_intertwiner.raw_not_unitary",
           "kind": "non-example",
-          "statement": "The preceding scalar generally has modulus unequal to 1 on |z|=1, so the unnormalized local integral is not automatically unitary."
+          "statement": "The continued spherical eigenline, identified with the valuation-shell integral in its chamber, sends one to a vector of norm 3/4 at q=2,z=−1; it does not preserve norm on the unitary axis."
         }
       ],
       "uses": [
@@ -2776,7 +2843,8 @@
         "Apply the explicit ratio (5.4), not an unspecified normalization choice."
       ],
       "acceptance": [
-        "The ε-factors multiply the numerator; reversing β changes the theorem."
+        "The ε-factors multiply the numerator; reversing β changes the theorem.",
+        "Suggested model: Tests evaluate explicit unramified factor functions and a supplied one-dimensional dual character. Actual admissible packets, epsilon-factor conventions and generic/tempered conditions remain imported AL/AF/ET data. A spherical eigenvalue and its normalization identity are required, rather than a universal assertion for arbitrary M."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.2/local-intertwiner",
@@ -2819,17 +2887,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.shahidi_normalization.spherical",
           "kind": "compatibility",
-          "statement": "At an unramified place with unramified ψ, the normalized spherical vector is fixed."
+          "statement": "If the spherical vector has the supplied raw eigenvalue and the actual local-factor normalizer times that eigenvalue is one, the shahidi_normalization operator fixes it. This is not asserted for an arbitrary raw operator."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.shahidi_normalization.orthogonal_parity",
           "kind": "characterisation",
-          "statement": "Even orthogonal uses ∧² and odd orthogonal uses Sym²; swapping them is rejected."
+          "statement": "For the two-dimensional Satake parameter (2,3), exterior-square weight 6 and symmetric-square weights 4,6,9 give different actual normalized operators at a regular parameter."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.shahidi_normalization.unitary_dual",
           "kind": "characterisation",
-          "statement": "For unitary groups the target uses conjugate contragredient τ*, not a plain unchanged τ."
+          "statement": "For a one-dimensional representation, the cross-factor argument used in the actual normalizer is its inverse conjugate character; the test exposes that argument in the normalization formula."
         }
       ],
       "uses": [
@@ -3062,7 +3130,7 @@
         {
           "sourceId": "arthur05",
           "locator": "§6 Identity 6.2; §15 denominator (15.7), p.84",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3102,7 +3170,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.truncation_cones.a2_distinction",
           "kind": "non-example",
-          "statement": "In type A₂, a point can be positive on both fundamental weights but negative on one simple root, so τ̂ and τ are not interchangeable."
+          "statement": "The named A₂ simple-root cutoff is zero at root coordinates (−1,3), while the cutoff for the two inverse-Cartan fundamental weights is one."
         }
       ],
       "uses": [
@@ -3133,7 +3201,8 @@
         "Apply the root-cone cancellation identities and constant-term transitivity."
       ],
       "acceptance": [
-        "The P=G term is f, hence cusp forms are fixed."
+        "The P=G term is f, hence cusp forms are fixed.",
+        "Suggested model: The cusp-strip datum has one proper parabolic and one embedded cusp translate. Its identification with the global SL₂ fundamental-domain formula requires sufficiently large Y and reduction theory."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.3/truncation-cones",
@@ -3182,7 +3251,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.arthur_truncation.sl2_constant",
           "kind": "computation",
-          "statement": "For Γ=SL₂(ℤ), Λ^{log Y}1 equals 1 minus the cusp indicator y>Y for Y sufficiently large."
+          "statement": "The actual one-cusp strip truncation datum at T=log Y sends the constant function one to the indicator y≤Y. Global identification with SL₂ truncation uses the sufficiently-large-Y reduction theorem."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.arthur_truncation.rank_zero",
@@ -3382,7 +3451,8 @@
       ],
       "acceptance": [
         "This construction does not assume the onto map it supplies in AS.4.",
-        "Individual unitary-axis Eisenstein series are not assumed to belong to the untruncated global L² space."
+        "Individual unitary-axis Eisenstein series are not assumed to belong to the untruncated global L² space.",
+        "Suggested model: The Weyl test is a finite two-point compatible-section specialization of the integral constructor. The full continuous-parameter Weyl action and quotient measures remain supplied inputs."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.2/eisenstein-continuation",
@@ -3437,7 +3507,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.eisenstein_wave_packet.weyl_overcount",
           "kind": "non-example",
-          "statement": "For a rank-one associate family the stabilizer/Weyl denominator prevents counting λ and −λ twice."
+          "statement": "The packet constructor over a two-element Weyl orbit with measure half counting sends a compatible constant section v to v; omitting the denominator gives 2v."
         }
       ],
       "uses": [
@@ -3481,7 +3551,7 @@
         {
           "sourceId": "arthur05",
           "locator": "§7 Theorem 7.2(b) and §12 contour discussion; PDF page 35",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3548,7 +3618,8 @@
         "Select finite-Weyl Borel domains and disintegrate finite orbit measures, retaining stabilizer weights."
       ],
       "acceptance": [
-        "Do not divide by the Weyl order a second time after using the symmetric n_P model."
+        "Do not divide by the Weyl order a second time after using the symmetric n_P model.",
+        "Suggested model: Point and reflected-line tests evaluate the actual field-vector norm with reciprocal Weyl factor. The measurable quotient, global Weyl coherence, completion and fundamental-domain model remain required."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/measurable-hilbert-field",
@@ -3591,17 +3662,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.associate_parameter_fields.rank_zero",
           "kind": "degenerate",
-          "statement": "For P=G there is one zero-dimensional parameter and n_G=1."
+          "statement": "A constant section over the single point with n_G=1 maps to an actual field vector whose squared norm is the original squared norm."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.associate_parameter_fields.rank_one",
           "kind": "computation",
-          "statement": "For one self-associate rank-one parabolic with two Weyl elements, n_P=2 and the norm is 1/2 times the full imaginary-axis norm."
+          "statement": "For a reflected compatible section over the real parameter line with n_P=2, the actual field vector has half the full integrated squared norm."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.associate_parameter_fields.stabilizer_not_removed",
           "kind": "non-example",
-          "statement": "At a stabilizer parameter, the invariant fibre is retained; the quotient is not formed by arbitrarily deleting every fixed point."
+          "statement": "A nonzero vector fixed by the stabilizer operator defines a nonzero point-field vector, with the reciprocal stabilizer norm factor retained."
         }
       ],
       "uses": [
@@ -3761,7 +3832,8 @@
         "Take closed orthogonal complements and retain each residual multiplicity space."
       ],
       "acceptance": [
-        "The words discrete and cuspidal are not synonymous."
+        "The words discrete and cuspidal are not synonymous.",
+        "Suggested model: The constant-line test assumes the supplied discrete/cusp decomposition and orthogonality. The modular residue/completeness theorem must establish those hypotheses; an arbitrary pole still cannot be declared a residual vector."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.4/spectral-orthosum",
@@ -3810,12 +3882,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.residual_spectrum.sl2_constant",
           "kind": "computation",
-          "statement": "For PSL₂(ℤ), the residue at s=1 of E(z,s) is 3/π and spans the constant residual space."
+          "statement": "The Eisenstein residue is 3/π. In a Hilbert model with discrete space equal to cusp plus an orthogonal nonzero constant line, the actual residual_spectrum is precisely that line; the modular spectral theorem must establish the model hypotheses."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.residual_spectrum.non_l2_pole",
           "kind": "non-example",
-          "statement": "A meromorphic pole with a surviving nonnegative proper-parabolic exponent does not by itself give an L² residual vector."
+          "statement": "For a surviving cusp power y^a with a≥1/2, there is no L² representative for the hyperbolic cusp measure, so the power cannot be a vector in any L² residual subspace."
         }
       ],
       "uses": [
@@ -3942,7 +4014,7 @@
         {
           "sourceId": "arthur05",
           "locator": "§§3–4 compact quotient trace formula; PDF page 8",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -4095,7 +4167,8 @@
         "Compare the decreasing-weight union locally with currents on the Borel–Serre charts."
       ],
       "acceptance": [
-        "The ordinary-cohomology comparison uses the union of weights, not just p=1."
+        "The ordinary-cohomology comparison uses the union of weights, not just p=1.",
+        "Suggested model: The cusp test specifies the actual differential of the power vector. The degree-changing weak exterior derivative and weighted Sobolev graph topology are ALS/AF interfaces, not consequences of a scalar function carrier."
       ],
       "prerequisites": [
         "ArithmeticLocallySymmetricSpaces:ALS.5/de-rham-comparison",
@@ -4149,7 +4222,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.weighted_l2_complex.cusp_power",
           "kind": "computation",
-          "statement": "On y>Y with dμ=dx dy/y², a degree-zero y^a with weight y^b is integrable at infinity iff Re a+b<1/2; equality diverges logarithmically."
+          "statement": "For the power vector y^a, weight y^b and its actual radial differential ay^a, membership in the named graph domain is equivalent to a+b<1/2; the critical boundary fails membership."
         }
       ],
       "uses": [
@@ -4222,7 +4295,9 @@
         "Being killed pointwise by some power is distinct from one power killing the entire module."
       ],
       "prerequisites": [
-        "AutomorphicFormsOnReductiveGroups:AF.1/infinitesimal-character"
+        "AutomorphicFormsOnReductiveGroups:AF.1/infinitesimal-character",
+        "mathlib:Module.AEval'",
+        "mathlib:Module.AEval'.X_smul_of"
       ],
       "sources": [
         {
@@ -4271,7 +4346,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.finite_character_functor.nilpotent_jordan",
           "kind": "computation",
-          "statement": "For Z=ℂ[t], J=(t−a) and a size-two Jordan block at a, Fin_J is the whole block although ker(t−a) is only one dimensional."
+          "statement": "On the actual polynomial module defined by the size-two nilpotent Jordan operator, finite_character_functor for (X) is the whole module, although X does not annihilate every vector."
         }
       ],
       "uses": [
@@ -4394,7 +4469,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.franke_filtration.rank_only_fails",
           "kind": "non-example",
-          "statement": "A non-L² residue on a maximal parabolic of G₂ can have the wrong exponent positivity although its Levi rank is fixed; a rank-only filtration does not meet this definition."
+          "statement": "For two exponent coefficients of the same parabolic with T-values zero and one, the vector supported at exponent one lies in step one and the vector at exponent zero does not. Equal parabolic rank does not determine membership."
         }
       ],
       "uses": [
@@ -4477,7 +4552,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.eisenstein_principal_value.direction_dependence",
           "kind": "non-example",
-          "statement": "For f(z₁,z₂)=z₁/z₂ at 0, MW along (1,1) is 1 and along (2,1) is 2; raw principal value is not canonical."
+          "statement": "Restrict the same named germ (z₁,z₂)↦z₁/z₂ along directions (1,1) and (2,1): the actual principal values are one and two."
         }
       ],
       "uses": [
@@ -5043,7 +5118,8 @@
         "Apply the spectral map to project K_f to each χ."
       ],
       "acceptance": [
-        "The untruncated diagonal integral generally diverges."
+        "The untruncated diagonal integral generally diverges.",
+        "Suggested model: The diagonal counterexample is a compact-seed, trivial-lattice logarithmic group model on an infinite-volume quotient. It tests the actual kernel constructor. Establishing the finite-volume modular cusp analogue needs the source lattice-counting and reduction estimates."
       ],
       "prerequisites": [
         "AdelicAlgebraicGroups:AA.2/automorphic-quotient-measure",
@@ -5054,7 +5130,7 @@
         {
           "sourceId": "arthur05",
           "locator": "§4 (4.1)–(4.2) and §14 spectral kernels; PDF page 8",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5089,7 +5165,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.automorphic_kernel.noncompact_diagonal",
           "kind": "non-example",
-          "statement": "For the modular quotient a test function meeting the identity has a cusp contribution; its raw diagonal integral need not be finite."
+          "statement": "For the compact logarithmic seed on the additive real group and the trivial discrete lattice, the actual periodized kernel has nonintegrable diagonal on the infinite-volume quotient. This is a kernel counterexample model; the finite-volume modular cusp estimate remains a source adapter."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.automorphic_kernel.adjoint_swap",
@@ -5126,7 +5202,8 @@
         "Use the compact Γ′-cone integral and translation identity to obtain polynomial dependence."
       ],
       "acceptance": [
-        "Both summation over classes and integration require estimates."
+        "Both summation over classes and integration require estimates.",
+        "Suggested model: The rank-one test integrates the actual two-parabolic constant-term model with logarithmic height measure. Identification of these model terms with a smooth automorphic kernel and the general polynomial theorem remains required."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.6/automorphic-kernel",
@@ -5167,12 +5244,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.coarse_truncated_kernel.anisotropic",
           "kind": "degenerate",
-          "statement": "If G has no proper F-parabolic, k_f^T=K_f(x,x) and J^T is independent of T."
+          "statement": "With only the whole-group parabolic, the actual coarse_truncated_kernel equals the original kernel diagonal."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.coarse_truncated_kernel.rank_one",
           "kind": "computation",
-          "statement": "In relative rank one the polynomial has degree≤1; the cusp-height logarithm supplies the linear term."
+          "statement": "In the constant-term logarithmic cusp model, the actual two-parabolic truncated diagonal is integrable on positive heights and its integral is T for T≥0, a degree-one polynomial."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.coarse_truncated_kernel.zero_test",
@@ -5219,7 +5296,7 @@
         {
           "sourceId": "arthur05",
           "locator": "§14 Theorem 14.1; §16 (16.1); PDF page 74",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5290,17 +5367,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.gm_family.rank_zero",
           "kind": "degenerate",
-          "statement": "For M=G there is one parabolic and θ=1, so c_M=c_G(0)."
+          "statement": "For a genuine one-member gm_family with no walls, the actual regularized zero value equals its member at zero."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.gm_family.rank_one",
           "kind": "computation",
-          "statement": "For θ_+=z, θ_−=−z and c_+(0)=c_−(0), c_M=c_+′(0)−c_−′(0)."
+          "statement": "For a genuine two-member family with agreement on the shared wall, the full regularized sum has limit c₊′(0)−c₋′(0), and its zero-value construction has that value."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.gm_family.bad_wall",
           "kind": "non-example",
-          "statement": "c_+=1,c_−=0 with θ_±=±z has a pole and is not a family."
+          "statement": "No actual gm_family on a domain containing the shared wall can have constant members one and zero on the adjacent parabolics."
         }
       ],
       "uses": [
@@ -5419,7 +5496,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.weighted_orbital_integral.rank_one_volume",
           "kind": "computation",
-          "statement": "In rank one, with the positive orthogonal height ordering and difference rα∨ where r≥0, the weight is r times the chosen positive coroot-segment volume. Without that ordering, the geometric interval length is |r| times the volume."
+          "statement": "The actual two-height weight with coroot covolume vol is r·vol for r≥0, and the named point-quotient weighted orbital integral with discriminant one takes exactly that value."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.weighted_orbital_integral.measure_scaling",
@@ -5456,7 +5533,8 @@
         "Use Fourier inversion in the central-height variable with shifted contours for nonunitary parameters."
       ],
       "acceptance": [
-        "The normalization uses local R; the distinct global scalar r enters the spectral coefficients."
+        "The normalization uses local R; the distinct global scalar r enters the spectral coefficients.",
+        "Suggested model: Finite-dimensional tests use the actual trace-class product and logarithmic derivative; general admissible representations, coroot normalizations and normalized parabolic families remain source-qualified suppliers."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.2/local-normalization",
@@ -5505,12 +5583,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.weighted_character.rank_one_derivative",
           "kind": "computation",
-          "statement": "The rank-one zero-value family is the logarithmic intertwiner derivative divided by the coroot normalization."
+          "statement": "On a finite-dimensional regular invertible slice, the actual weighted_character equals the trace of R(λ)^(−1)R′(λ) composed with the test operator; the trace-class witness is tied to that product."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.weighted_character.normalization_change",
           "kind": "non-example",
-          "statement": "Multiplying R by a nonconstant unitary scalar changes the derivative weight; local normalization cannot be suppressed."
+          "statement": "The actual scalar weighted traces for the families exp(z)Id and Id at zero are one and zero. The scalar exp(z) is unitary on the imaginary axis but changes the logarithmic derivative weight."
         }
       ],
       "uses": [
@@ -5632,7 +5710,8 @@
         "Use weighted-character descent, splitting and meromorphic residues for continuity of φ_M."
       ],
       "acceptance": [
-        "Almost compact support is uniform after every height cutoff, not merely compactness of individual height fibers."
+        "Almost compact support is uniform after every height cutoff, not merely compactness of individual height fibers.",
+        "Suggested model: The suggested counterexample is stated in K-type coefficient coordinates; circle-character reconstruction and the actual Hecke compact-support LF carrier are required adapters. Compact height fibres do not imply one uniform finite type set."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.6/weighted-character",
@@ -5682,7 +5761,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.almost_compact_test_space.fiberwise_only",
           "kind": "non-example",
-          "statement": "A family with compact fibers but unbounded K-types over one compact height interval need not lie in H_ac(G)_Γ for any Γ."
+          "statement": "There is a smooth coefficient family with compact support for each K-type and finitely many nonzero types at each height, but all labels occur in one compact height interval. It lies in no almost-compact space for a fixed finite type set."
         }
       ],
       "uses": [
@@ -5852,7 +5931,7 @@
         {
           "sourceId": "arthur05",
           "locator": "§1 compact quotient formula; §16 (16.1)′′; PDF page 8",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -5880,7 +5959,8 @@
         "Extend from tempered/basic characters using the induction relations."
       ],
       "acceptance": [
-        "The EP trace can be signed and is not a projection onto all cohomological representations."
+        "The EP trace can be signed and is not a projection onto all cohomological representations.",
+        "Suggested model: The tests use explicit relative cochain complexes and the scalar trace image. The actual Hecke realization for all finite-length admissible representations, coefficient representation and no-discrete-series / proper-induction vanishing theorems remain the source target; a scalar model is not that realization."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener",
@@ -5921,17 +6001,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.general_euler_poincare.compact_group",
           "kind": "computation",
-          "statement": "For compact G, relative cohomology lies in degree0 and the trace is dim(π⊗ξ)^G."
+          "statement": "The actual EP test element for the degree-zero relative cochain model has trace one, equal to its one-dimensional zeroth cohomology."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.general_euler_poincare.no_discrete_series_test",
           "kind": "compatibility",
-          "statement": "In a group without discrete series every finite-length EP trace is zero."
+          "statement": "For finite relative cochains with zero Euler characteristic, evaluating the actual scalar-trace EP construction gives zero; the source no-discrete-series theorem must supply this cohomological condition for each representation."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.general_euler_poincare.parabolic_induction",
           "kind": "non-example",
-          "statement": "A proper induced representation may have nonzero cohomology in multiple degrees but its alternating EP trace is zero."
+          "statement": "The actual EP construction for the rank-one relative cochain model has trace zero while both its zeroth and first cohomology have dimension one; vanishing of the trace does not imply vanishing of the cohomology."
         }
       ],
       "uses": [
@@ -6106,7 +6186,8 @@
         "Take the discrete Hilbert summand supplied by the function-field automorphic owner, preserving its spherical finite-dimensional subspace and unitary twist equivalence."
       ],
       "acceptance": [
-        "Use the exact degree, domain, stabilizer and normalization conditions in the statement; no general function-field reductive trace formula is inferred."
+        "Use the exact degree, domain, stabilizer and normalization conditions in the statement; no general function-field reductive trace formula is inferred.",
+        "Suggested model: The constant-line discrete/residual test is a point-quotient specialization. The actual automorphic quotient, central character and GL₂ residual embedding are supplied by AA/AF and the Langlands residue theorem."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.1/yu-010",
@@ -6146,7 +6227,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_017.test1",
           "kind": "non-example",
-          "statement": "The GL₂ constant automorphic function, with trivial central character, is residual discrete data and is not cuspidal."
+          "statement": "In the constant-line model the vector one lies in the constructed discrete span and residual_spectrum, and its actual yu_017 point-quotient norm is one. The GL₂ automorphic embedding remains a supplier obligation."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_017.test2",
@@ -6156,7 +6237,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_017.test3",
           "kind": "characterisation",
-          "statement": "If phi(zm)=theta(z)phi(m), then |phi(zm)|²/|theta(zm)|²=|phi(m)|²/|theta(m)|², so the integrand descends to the central quotient."
+          "statement": "When the section and its weight transform by the same nonzero central character, the actual integrated yu_017 norm is unchanged under central translation."
         }
       ],
       "uses": [
@@ -6333,17 +6414,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_019.test1",
           "kind": "computation",
-          "statement": "For pi=Π⊗Π, the transposition belongs to the permutation part of the stabilizer."
+          "statement": "Two raw representations in the same inertial class have equal chosen representatives under yu_019, so their distinguished tuple is fixed by transposition."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_019.test2",
           "kind": "non-example",
-          "statement": "For two inertially inequivalent Π₁,Π₂, the transposition is excluded."
+          "statement": "For two distinct inertial classes and a representative section of the class map, transposition does not fix the actual distinguished tuple."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_019.test3",
           "kind": "characterisation",
-          "statement": "For a good representative, (w,tau)∈stab iff (w,1)∈stab and tau∈Fix(pi)."
+          "statement": "On the distinguished tuple, the actual Weyl/twist stabilizer is the product of permutation and twist stabilizers when twisting preserves inertial classes; no equality of arbitrary sets is assumed."
         }
       ],
       "uses": [
@@ -6507,12 +6588,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_022.test1",
           "kind": "computation",
-          "statement": "For blocks1|23, the vector (1,2,3) projects in a-space to(1,5), and the dual coordinate vector projects to(1,5/2)."
+          "statement": "The actual block projection for 1|23 sends (1,2,3) to (1,5), and its averaged dual projection gives (1,5/2)."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_022.test2",
           "kind": "degenerate",
-          "statement": "For M=G, a_M^G={0}."
+          "statement": "For the single rank-n block, n>0, subtracting the central projection gives the zero relative-height vector for every input."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_022.test3",
@@ -6629,7 +6710,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_023.test3",
           "kind": "compatibility",
-          "statement": "H_P(nmk)=H_P(m) for n∈N_P(A), k∈K, and the total of its coordinates is deg(det m)."
+          "statement": "For the determinant-height homomorphism with trivial unipotent and compact factors, the named height of nmk is that of m, and both actual cone cutoffs agree."
         }
       ],
       "uses": [
@@ -6717,7 +6798,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_024.test3",
           "kind": "non-example",
-          "statement": "For a group of semisimple rank one the truncation includes both the G term and the proper-parabolic subtraction; retaining only G changes its defining expression."
+          "statement": "The actual fixed-degree integral of the two-parabolic cusp model on [0,2T] is T and differs from the whole-group-only integral when T>0."
         }
       ],
       "uses": [
@@ -7160,7 +7241,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_049.test2",
           "kind": "non-example",
-          "statement": "The pair c_B=1,c_Bop=2 is not a family on a domain meeting lambda1=lambda2."
+          "statement": "The multiplicative wall equation from the actual coroot (1,−1) rejects any yu_049 family with constant adjacent members one and two on the whole character domain."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_049.test3",
@@ -7499,12 +7580,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_056.test1",
           "kind": "non-example",
-          "statement": "kappa=(3,2,1) has equal block averages for {1,3}|{2} and does not define a generic selector."
+          "statement": "The vector (3,2,1) fails membership in the selector for the crossed partition {1,3}|{2}, because its block averages are equal."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_056.test2",
           "kind": "computation",
-          "statement": "For GL₂, kappa=(2,0) is regular for the unique proper root hyperplane."
+          "statement": "The vector (2,0) belongs to the actual GL₂ regular selector and chooses the positive ordered parabolic."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_056.test3",
@@ -7728,7 +7809,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_060.test3",
           "kind": "non-example",
-          "statement": "At rho_R(m)=2 and phi_pi(m)=1, the p32 membership convention requires section value2 while the p39 basis gives1/2; they cannot be identified without transport."
+          "statement": "Apply yu_060 to the constant vector one with ρ=2: the positive section gives two and the inverse section gives one half."
         }
       ],
       "uses": [
@@ -7768,7 +7849,8 @@
         "Form the restricted product, retaining q^((1−g)n_i n_j) from the global unipotent measure; analytically continue only after establishing the normalization transport."
       ],
       "acceptance": [
-        "Use the exact degree, domain, stabilizer and normalization conditions in the statement; no general function-field reductive trace formula is inferred."
+        "Use the exact degree, domain, stabilizer and normalization conditions in the statement; no general function-field reductive trace formula is inferred.",
+        "Suggested model: The suggested carrier is a regular invertible slice with explicit identity and cocycle data. The source integral and analytic continuation must construct those data on the inducing spaces; this bundle is not their proof and does not omit the Weyl-transport requirement."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.6/yu-049",
@@ -7810,17 +7892,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_061.test1",
           "kind": "degenerate",
-          "statement": "M_(P|P)(1,lambda)=Id on its defined induced space."
+          "statement": "The actual regular-point family constructor on a same-parabolic input is the identity, using its typed identity data."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_061.test2",
           "kind": "compatibility",
-          "statement": "For a regular invertible intertwiner, R_Q(lambda;1)=M_(R|P)(lambda)⁻¹∘M_(R|P)(lambda)=Id."
+          "statement": "The ratio family built from the inverse regular intertwiner and yu_061 at λ/μ gives the identity at μ=1."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_061.test3",
           "kind": "compatibility",
-          "statement": "For compatible R,S,T and regular parameters, M_(T|S)(lambda)∘M_(S|R)(lambda)=M_(T|R)(lambda), with the corresponding Weyl transport when present."
+          "statement": "Composition of two members of the typed regular family agrees with its composed member. The source integral, continuation and Weyl transport must supply the identity/cocycle data."
         }
       ],
       "uses": [
@@ -8082,7 +8164,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_115.test1",
           "kind": "computation",
-          "statement": "For n=3, ordered blocks(1,2), e=1: H=(0,−1), I=(0,0), and hat1_Q^1=−1/(lambda1−lambda2)."
+          "statement": "The named floor-height and shifted-exponent constructions for ranks (1,2), total rank three and degree one give H=(0,−1), I=(0,0)."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_115.test2",
@@ -8092,7 +8174,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_115.test3",
           "kind": "non-example",
-          "statement": "For two blocks, multiplying hat1_Q^e by theta_Q removes the simple wall denominator; multiplying by theta_Q⁻¹ instead produces a double denominator."
+          "statement": "In multiplicative character coordinates the two-block cone expression λ₂^(−1)/(1−λ₁/λ₂) equals −1/(λ₁−λ₂). Multiplication by the actual linear θ cancels the pole; multiplying by its inverse gives a double denominator."
         }
       ],
       "uses": [
@@ -8427,12 +8509,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_148.test2",
           "kind": "computation",
-          "statement": "For p:Circle→Circle,z↦z², Tr_p(z↦z²)(y)=y and Tr_p(z↦z)(y)=0."
+          "statement": "For the circle square-cover, normalized transfer of z² is the target coordinate and transfer of z is zero."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_148.test3",
           "kind": "non-example",
-          "statement": "For z↦z² the unnormalized sum of the constant function one is two; it cannot replace Tr_p."
+          "statement": "For the same degree-two cover the normalized transfer of one is one, whereas the unnormalized kernel sum is two."
         }
       ],
       "uses": [
@@ -8464,10 +8546,11 @@
         "Combine finite character orthogonality144 and torus inversion143.",
         "Item150 supplies absolute summability.",
         "Reindex χ to χ⁻¹ to get the displayed sign.",
-        "This is pointwise evaluation of a smooth function, not evaluation of an L² equivalence class.."
+        "This is pointwise evaluation of a smooth function, not evaluation of an L² equivalence class."
       ],
       "acceptance": [
-        "Use the exact degree, domain, stabilizer and normalization conditions in the statement; no general function-field reductive trace formula is inferred."
+        "Use the exact degree, domain, stabilizer and normalization conditions in the statement; no general function-field reductive trace formula is inferred.",
+        "The suggested finite-group specialization quantifies over the full complex additive-character group of the target, uses normalized counting probability Haar, and asserts absolute summability and HasSum equal to the actual normalized finite-fibre transfer. Passing to finite components times a torus remains an explicit adapter."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/yu-147",
@@ -8476,13 +8559,14 @@
         "mathlib:MeasureTheory.integral_prod",
         "mathlib:MonoidHom.measurePreserving",
         "mathlib:UnitAddTorus.hasSum_mFourier_series_apply_of_summable",
-        "mathlib:AddChar.expect_eq_ite"
+        "mathlib:AddChar.expect_eq_ite",
+        "mathlib:AddChar.complexBasis"
       ],
       "sources": [
         {
           "sourceId": "yu23",
-          "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
+          "locator": "Yu arXiv:1807.04659v5, §5.2.3, equation (5.2.12), printed p.35; compact smooth Fourier argument via §§5.2.1–5.2.3, pp.32–36",
+          "match": "Equation (5.2.12) averages all lifts with the reciprocal finite kernel cardinal and sums over every continuous character. Smoothness supplies absolute Fourier convergence."
         }
       ],
       "implementationStatus": "unchecked",
@@ -8513,7 +8597,8 @@
         "Integer-lattice coordinate decomposition and derivative transport remain implementation adapters, not an imported library theorem.."
       ],
       "acceptance": [
-        "Use the exact degree, domain, stabilizer and normalization conditions in the statement; no general function-field reductive trace formula is inferred."
+        "Use the exact degree, domain, stabilizer and normalization conditions in the statement; no general function-field reductive trace formula is inferred.",
+        "The suggested theorem uses an actual continuous function on the unit d-torus whose periodic lift is smooth. It concludes summability of the actual mFourierCoeff family and its decay for every integer s with 2s>d, including d=0. The separate numerical lattice estimate is only a proof helper; finite components and uniform auxiliary parameters remain adapters."
       ],
       "prerequisites": [
         "mathlib:MeasureTheory.integral_prod",
@@ -8524,8 +8609,8 @@
       "sources": [
         {
           "sourceId": "yu23",
-          "locator": "Yu arXiv:1807.04659v5, §§5.2.2–5.2.3 pp32–36; detailed derivation in the continuation report",
-          "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
+          "locator": "Yu arXiv:1807.04659v5, §5.2.3, equation (5.2.12), printed p.35; smooth Fourier justification",
+          "match": "The smooth function in (5.2.12) permits pointwise character inversion. Integration by parts on each torus coordinate supplies the coefficient estimate needed for absolute convergence."
         }
       ],
       "implementationStatus": "unchecked",
@@ -8601,7 +8686,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_151.test1",
           "kind": "degenerate",
-          "statement": "For w=1, b=1, a=tau and c∈∏μ_(d_j); the denominator D=∏d_j must remain even though |w|=1."
+          "statement": "For all cycle lengths one, count the actual finite kernel of the map (a,c)↦aδ(c) on the constructed A×B cover: its cardinal is ∏d_j, retaining every finite component."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_151.test2",
@@ -8729,7 +8814,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_153.test1",
           "kind": "computation",
-          "statement": "With s=rho and t=rho⁻¹, C multiplies by rho⁻²; at rho(m)=2 a vector of value2 goes to1/2."
+          "statement": "The actual section transport from ρ to ρ⁻¹ sends a value-two vector to one half when ρ=2."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.yu_153.test2",
@@ -8739,7 +8824,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.yu_153.test3",
           "kind": "non-example",
-          "statement": "Using the s=rho membership test on the t=rho⁻¹ basis produces rho⁻²*phi_pi, which differs from phi_pi where rho≠1 and phi_pi≠0."
+          "statement": "The squared norm of the transported section, integrated with the compensating factor |ρ|⁴, equals the original integrated squared norm."
         }
       ],
       "uses": [
@@ -9049,7 +9134,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.dit_57.test1",
           "kind": "computation",
-          "statement": "The identity-coset contribution is y^s."
+          "statement": "Along the imaginary axis E(iy,2)/y² tends to one as y tends to infinity, testing the actual Eisenstein leading constant term."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.dit_57.test2",
@@ -9301,7 +9386,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.dit_88.test3",
           "kind": "non-example",
-          "statement": "n=0 is excluded and requires a separate constant coefficient."
+          "statement": "The guarded nonzero-frequency coefficient returns no value at index zero and the actual dit_88 coefficient at index one."
         }
       ],
       "uses": [
@@ -9330,7 +9415,8 @@
         "Differentiate only after local uniform seed/derivative bounds, to obtain the stated Laplace equation."
       ],
       "acceptance": [
-        "Keep the named coefficient normalization and all domain restrictions; use limits at meromorphic exceptional parameters."
+        "Keep the named coefficient normalization and all domain restrictions; use limits at meromorphic exceptional parameters.",
+        "Suggested model: The non-L² seed test explicitly assumes the source I-Bessel large-argument asymptotic for the special-function carrier. It does not treat the growing untruncated seed as an L² vector."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.1/eisenstein-convergence",
@@ -9382,7 +9468,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.dit_89.test3",
           "kind": "non-example",
-          "statement": "An exponentially growing cusp seed must not be inserted directly into an L² orthogonal expansion."
+          "statement": "Under the standard large-argument I-Bessel asymptotic, the actual nonzero Poincaré seed has nonintegrable squared norm on the cusp for real s>1; it cannot be inserted directly as an L² vector."
         }
       ],
       "uses": [
@@ -9451,7 +9537,8 @@
         "Use the quoted noncompact resolvent theorem for meromorphic continuation on the asserted region; AS.0’s bounded off-spectrum calculus alone does not cross the continuous spectrum."
       ],
       "acceptance": [
-        "Keep the named coefficient normalization and all domain restrictions; use limits at meromorphic exceptional parameters."
+        "Keep the named coefficient normalization and all domain restrictions; use limits at meromorphic exceptional parameters.",
+        "Suggested model: The three suggested tests are scalar eigenline specializations of the actual resolvent, including failure of its inverse equation at the spectrum and the threshold double pole. They do not construct the unbounded modular self-adjoint domain or continuous-spectrum continuation."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/unbounded-selfadjoint-spectral",
@@ -9492,17 +9579,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.dit_91.test1",
           "kind": "computation",
-          "statement": "The constant eigenfunction creates its own pole at λ=0."
+          "statement": "On the constant eigenline, the actual resolvent of the scalar Laplacian has value −1/[s(1−s)] away from its poles."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.dit_91.test2",
           "kind": "compatibility",
-          "statement": "A continuous-spectrum parameter needs continuation, not a bounded inverse on the spectrum."
+          "statement": "At the parameter 1/2+it for the scalar Laplacian eigenvalue 1/4+t², its defining inverse equation has no solution for every right-hand side; a bounded inverse cannot be used there."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.dit_91.test3",
           "kind": "non-example",
-          "statement": "At r=0 the parameter denominator has a double zero; the simple-pole formula for r>0 cannot be applied."
+          "statement": "The actual scalar resolvent on the eigenline of eigenvalue 1/4 is (s−1/2)^(−2), so the parameter pole is double at the threshold."
         }
       ],
       "uses": [
@@ -9658,7 +9745,8 @@
         "Apply the differential/raising identity termwise and compare its Fourier primitive and constant term; a bound for the seed value alone does not justify this differentiation."
       ],
       "acceptance": [
-        "Keep the named coefficient normalization and all domain restrictions; use limits at meromorphic exceptional parameters."
+        "Keep the named coefficient normalization and all domain restrictions; use limits at meromorphic exceptional parameters.",
+        "Suggested model: The inversion test uses a smooth compactly supported seed, a sufficient convergence specialization. The oscillating seed is smooth on the positive axis and violates the derivative majorant despite its value bound; it does not assert divergence of the differentiated global series without an additional comparison."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.1/eisenstein-convergence"
@@ -9697,17 +9785,17 @@
         {
           "name": "TauCeti.AutomorphicSpectral.dit_105.test1",
           "kind": "computation",
-          "statement": "A constant scalar invariant f does not transform like a weight-two coefficient."
+          "statement": "For a smooth compactly supported seed, inversion transforms the actual Poincaré coefficient with derivative z^(−2), as required for the descended weight-two one-form."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.dit_105.test2",
           "kind": "compatibility",
-          "statement": "Reversing a cycle reverses the one-form integral."
+          "statement": "Reversing the interval orientation negates the integral of the actual dit_105 one-form pulled back along a parametrized cycle."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.dit_105.test3",
           "kind": "non-example",
-          "statement": "A function with only a value bound but uncontrolled derivatives cannot justify termwise differentiation."
+          "statement": "The smooth positive-axis seed y² sin(exp(1/y)) satisfies the named value-bound condition of order two (hence the small-y value condition with ε = 1), while its derivative has no uniform bound near zero; a value bound does not imply the derivative majorant."
         }
       ],
       "uses": [
@@ -10390,7 +10478,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.5), (2.6), p. 238; inspected printed p.238",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10474,7 +10562,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.7), (2.8), p. 238; inspected printed p.238",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10514,7 +10602,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.4), (2.9), pp. 238–239; inspected printed p.238",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10599,7 +10687,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.13), p. 239; inspected printed p.239",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10632,13 +10720,14 @@
       ],
       "prerequisites": [
         "EllipticRegulators:ER.7/real-analytic-eisenstein-series",
-        "AutomorphicSpectralTheory:AS.1/dit-57"
+        "AutomorphicSpectralTheory:AS.1/dit-57",
+        "mathlib:zeta_eq_tsum_one_div_nat_add_one_cpow"
       ],
       "sources": [
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.14), p. 239; inspected printed p.239",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10678,7 +10767,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.gz_69.nonprimitive",
           "kind": "non-example",
-          "statement": "Summing unrestricted pairs without removing the zeta/Euler factor has a different constant term."
+          "statement": "The actual unrestricted nonzero integer-pair Eisenstein sum at s=2 equals 2ζ(4) times the primitive-coset dit_57 series and differs from that normalized series."
         }
       ],
       "uses": [
@@ -10721,7 +10810,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §2, (2.16), p. 240; p. 241; inspected printed p.240",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10761,7 +10850,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter II, §5, display after (5.7), p. 251; inspected printed p.251",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10803,7 +10892,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §1, p. 271; inspected printed p.271",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10833,7 +10922,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.gz_179.sign_pair",
           "kind": "computation",
-          "statement": "ε(−1)(−1)^(2k−1)=1 makes the ±pair terms equal."
+          "statement": "With an odd character, negating both lattice indices leaves the actual gz_179 summand unchanged; the half-sum equals the series constructor."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.gz_179.n_one_test",
@@ -10843,7 +10932,7 @@
         {
           "name": "TauCeti.AutomorphicSpectral.gz_179.wrong_parity",
           "kind": "non-example",
-          "statement": "Replacing the odd character by an even one makes paired terms cancel in odd weight."
+          "statement": "With an even character and an absolutely summable odd-weight lattice family, the actual gz_179 series vanishes by cancellation of opposite indices."
         }
       ],
       "uses": [
@@ -10865,7 +10954,7 @@
       ],
       "title": "Eisenstein series E^{(D₁)}_s attached to a decomposition D = D₁·D₂ (2.1)",
       "kind": "definition",
-      "statement": "Let D<0 be a fundamental discriminant, ε its odd primitive quadratic character, δ=|D|, k≥1 and (N,D)=1. From §2 on: D odd, so (D, 2N) = 1, D squarefree, D ≡ 1 mod 4; for a decomposition D = D₁·D₂ into fundamental discriminants (D_i = 1 allowed), δ_i = |D_i|, ε_i = ε_{D_i} (mod δ_i), 𝔡_i the integral ideal of norm δ_i (product of ramified primes, 𝔡_i² = (D_i)), 𝒟₁ the class of 𝔡₁, χ_{D₁·D₂} the genus character of §0 (χ(𝔞) = ε_{D₁}(N𝔞) = ε_{D₂}(N𝔞)), κ(D₁) = 1 or i as D₁ > 0 or D₁ < 0. E^{(D₁)}_s(z) = ½ Σ_{m,n∈ℤ, D₂|m} ε₁(m)ε₂(n) (mz+n)^{−(2k−1)} y^s |mz+n|^{−2s} (Re(s) large). For D₁ = 1 this is E^{(1)}_s, and E^{(D₁)}_s ∈ M̃_{2k−1}(Γ₀(D), ε) ('as is easily checked': under (a b; c d) ∈ Γ₀(D), ε₁(ma+nc)ε₂(mb+nd) = ε₁(a)ε₂(d)ε₁(m)ε₂(n) = ε(d)ε₁(m)ε₂(n)).",
+      "statement": "Fix an odd negative fundamental discriminant D, k≥1 and a factorization D=D₁D₂ into fundamental discriminants, allowing D_i=1. Let ε_i be the primitive quadratic characters of conductors |D_i|. For sufficiently large Re(s), define E_s^(D₁)(z) by half the sum over integer pairs (m,n) with D₂ dividing m of ε₁(m)ε₂(n)(mz+n)^(−2k+1) Im(z)^s |mz+n|^(−2s). Its transformation law has weight 2k−1 and character ε₁ε₂ on Γ₀(|D|). The case D₁=1 recovers the level-|D₂| series. Genus characters and ramified ideals are imported arithmetic data for the consumers, rather than part of this analytic definition.",
       "hypotheses": [
         "The printed parameter range, nonzero-frequency or off-orbit restrictions in the statement; Haar/Lebesgue normalization is fixed.",
         "GZ uses Δ_GZ=+y²(∂x²+∂y²); DIT uses its negative. Positive real powers use the real logarithm."
@@ -10876,20 +10965,22 @@
         "Compare the D₁=1 specialization with item179 and retain the sign of D and odd/even character parity rather than assuming every pair has the same symmetry."
       ],
       "acceptance": [
-        "Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers."
+        "Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.",
+        "Suggested model: The discriminant guard is an adapter for the existing Tau Ceti predicate, fixed by its exact criterion; its compiled module is unavailable in the shared build. The raw lattice sum omits primitive-character and Gauss-sum carriers. Discriminant 12 is fundamental; this boundary test is outside GZ’s odd-D specialization and must not be used to relax that source hypothesis."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.1/induced-family",
         "AutomorphicSpectralTheory:AS.1/eisenstein-convergence",
         "AutomorphicLFunctionsAndLocalFactors:AL.0",
         "AutomorphicLFunctionsAndLocalFactors:AL.1/hecke-l-functional-equation",
-        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral"
+        "AutomorphicLFunctionsAndLocalFactors:AL.1/global-zeta-integral",
+        "tauceti:TauCeti.Multiquadratic.IsFundamentalDiscriminant"
       ],
       "sources": [
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §2, (2.1), p. 273; inspected printed p.273",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "GZ Chapter IV §2, equation (2.1), defines the two-character lattice sum. The transformation calculation uses the quadratic-character factors and the level |D|; the proposed construction retains its odd-discriminant and convergence conditions."
         }
       ],
       "implementationStatus": "unchecked",
@@ -10924,12 +11015,12 @@
         {
           "name": "TauCeti.AutomorphicSpectral.gz_192.odd_product",
           "kind": "computation",
-          "statement": "ε₁(−1)ε₂(−1)=−1 compensates the odd denominator power."
+          "statement": "When the product of the two character parities is odd, simultaneous sign reversal preserves the actual two-character lattice summand and its half-sum is gz_192."
         },
         {
           "name": "TauCeti.AutomorphicSpectral.gz_192.nonfundamental",
           "kind": "non-example",
-          "statement": "A factorization not by fundamental discriminants need not supply the asserted primitive characters or Gauss sums."
+          "statement": "The constructor guard using the upstream fundamental-discriminant criterion accepts 12 and rejects 16. The raw analytic lattice sum alone does not construct primitive arithmetic characters."
         }
       ],
       "uses": [
@@ -10972,7 +11063,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, (3.2) Proposition, p. 277; inspected printed p.277",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11054,7 +11145,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, proof of (3.2), p. 278; inspected printed p.278",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11094,7 +11185,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, proof of (3.2), pp. 278–279; inspected printed p.279",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11134,7 +11225,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition a), p. 277; proofs pp. 279–280; inspected printed p.279",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11175,7 +11266,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition b), p. 277; proof pp. 280–281; inspected printed p.280",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11216,7 +11307,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition c), p. 278; proof p. 280; inspected printed p.280",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11255,7 +11346,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition d), p. 278; proof p. 281; inspected printed p.281",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11294,7 +11385,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, (3.3) Proposition e), p. 278; proof p. 281; inspected printed p.281",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11336,7 +11427,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §3, proof of (3.3), p. 280; inspected printed p.280",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11374,7 +11465,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV §5 proof of (5.1), p.289; estimate follows from II(2.17), inspected p.240",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11413,7 +11504,7 @@
         {
           "sourceId": "gz86",
           "locator": "Chapter IV, §6, proof of (6.2), pp. 298-299; inspected printed p.299",
-          "match": "Literal prose transcribed from the scanned printed page; the equation locator carries the mathematical identification. The source has no mathematical OCR."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11431,15 +11522,19 @@
       ],
       "title": "Entire continuation of Schwartz families",
       "kind": "theorem",
-      "statement": "Let A be finite-dimensional real. Suppose Z_±:A×ℂ→ℂ are pointwise entire of finite order in strips and Z_+(a,s)=Z_−(a,−s). For some C>0 the maps s↦Z_±(·,s) on Re(s)>C are holomorphic into 𝓢(A), of finite strip order. Then they are holomorphic into 𝓢(A) on all ℂ; every parameter value is Schwartz.",
+      "statement": "Let A be finite-dimensional real and C>0. Two scalar families Z₊(a,s), Z₋(a,s) are entire of finite order in vertical strips at each a, satisfy Z₊(a,s)=Z₋(a,−s), and, on Re(s)>C, take values holomorphically in the usual Fréchet Schwartz space. On this initial half-plane each family has one finite strip-order exponent for every weighted derivative seminorm; constants may depend on the seminorm and the strip. There are unique entire Schwartz-valued continuations agreeing with those scalar values. They agree with the initial families, satisfy the reflected functional equation and have finite order in the full Schwartz topology on every vertical strip.",
       "hypotheses": [
-        "Both source conditions in BPCZ Corollary A.0.11.1."
+        "Finite-dimensional A with its usual Schwartz seminorm topology; both scalar and vector hypotheses of BPCZ Corollary A.0.11.1.",
+        "A single initial order exponent controls all Schwartz seminorms, rather than only the sup norm of the values."
       ],
       "proofSteps": [
-        "Apply the vector principle with V=𝓢(A) and the total subspace generated by point evaluations."
+        "Use the complete Fréchet Schwartz space and the total span of its point evaluations in BPCZ A.0.11.",
+        "Reflect the initial right half-plane by the functional equation and apply the vector Phragmén–Lindelöf principle to every continuous seminorm.",
+        "The resulting entire values agree under every point evaluation; separation gives uniqueness and the vector functional equation."
       ],
       "acceptance": [
-        "Pointwise entire continuation without initial Schwartz-topology strip control is insufficient."
+        "Pointwise entire continuation without initial Schwartz-topology strip control is insufficient.",
+        "The suggested specialization uses the existing Mathlib SchwartzMap Fréchet topology and general topological-vector-space differentiation, with all weighted derivative seminorms. It constructs the extension; it does not assert arbitrary initial data are already globally Schwartz."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/vector-phragmen-lindelof",
@@ -11449,7 +11544,7 @@
         {
           "sourceId": "bpcz22",
           "locator": "Corollary A.0.11.1, pp.332–333; PDF page 150",
-          "match": "The quoted passage is on the indicated PDF page. The statement above separates source input from the adapter/proof work and recorded gaps."
+          "match": "Corollary A.0.11.1 uses point evaluations as a total dual subspace and requires finite order of the initial Schwartz-valued maps, as well as scalar continuation and reflection."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11476,7 +11571,9 @@
         "The weak continuous dual of a barrelled space is quasi-complete, as used in BPCZ A.0.11; apply the vector principle with the total evaluation subspace supplied by dense H."
       ],
       "acceptance": [
-        "Scalar order bounds on the initial half-plane have one common d."
+        "Scalar order bounds on the initial half-plane have one common d.",
+        "The dual topology is pointwise convergence. Entire means every evaluation on W is entire; the values at every parameter are continuous linear functionals.",
+        "The suggested file gives the Banach one-stage LF specialization, with a dense linear subspace, one initial scalar order, agreement, weak holomorphy, continued functional equation and uniqueness. The general LF weak-dual adapter remains required."
       ],
       "prerequisites": [
         "AutomorphicSpectralTheory:AS.0/vector-phragmen-lindelof",
@@ -11487,7 +11584,7 @@
         {
           "sourceId": "bpcz22",
           "locator": "Corollary A.0.11.2, p.333",
-          "match": "The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation."
+          "match": "Corollary A.0.11.2 applies the vector principle to the weak continuous dual of a barrelled LF space; dense H supplies a total evaluation subspace."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11532,7 +11629,7 @@
         {
           "sourceId": "gz86",
           "locator": "ChapterII §2 equations(2.10)–(2.13), p.239",
-          "match": "Literal prose read on the scanned printed p.239 immediately after (2.10); (2.11) states the eigen-equation and (2.12) the invariance. Effective Γ notation is made explicit here to prevent duplicate central terms."
+          "match": "The locator identifies the source result. The statement and proof outline here are authored mathematical descriptions, with hypotheses and any adaptation stated explicitly."
         }
       ],
       "implementationStatus": "unchecked",
@@ -11768,12 +11865,12 @@
         "Locally convex Schwartz kernel integration: Mathlib already supplies normed vector-valued Schwartz maps and continuous postcomposition. The general quasi-complete locally convex Schwartz carrier needs seminorm-family topology and completion integration. The tensor identification needs a precise Grothendieck kernel theorem with its nuclearity/completeness hypotheses; BPCZ A.0.7.8 is a quoted source input, not its proof. Do not implement this by re-defining Mathlib SchwartzMap.",
         "Positive harmonic Poisson representation: The general Herglotz proof needs the representation of a positive harmonic function on the upper half-plane as b Im(z)+∫ Im(z)/((Re(z)−t)²+Im(z)²)dν(t), with b≥0 and ∫(1+t²)⁻¹dν finite. Shapiro Theorem 10.5 invokes this classical input; no pinned baseline or supplier node has been established here. Teschl Theorem 3.20 does not cover it.",
         "Strong operator topology source qualification: BPCZ Appendix A equips Hom(V,W) and V′ with weak pointwise topologies. The bounded-set topology and weak-to-strong meromorphy upgrade in the operator-meromorphic target require a separate proof with a common denominator and the appropriate local boundedness/uniform seminorm hypotheses. The cited weak holomorphy passage alone does not establish that upgrade.",
-        "Suggested continuation signatures: The packet retains the BPCZ two-sided functional equation, initial continuous functionals and common finite strip order. The suggested Schwartz and LF-dual signatures omit already expressible hypotheses and are false. Replace them with correctly typed half-plane data and an existence/uniqueness extension before acceptance; see the independent review for counterexamples.",
-        "Suggested Fourier and object-sensitive tests: The Yu149 suggested theorem admits an arbitrary index/character family and arbitrary f and measure, so neither absolute Fourier convergence nor transfer follows. It must encode smooth f, probability Haar, the full dual character family and the corresponding convergence theorem. Several object tests in AS.0–AS.6 use numerical facts or unrelated carriers instead of the proposed object; the independent review identifies the failures. Replace those tests without assuming the desired conclusion.",
+        "General LF weak-dual continuation adapter: The revised Schwartz signature retains the two-sided scalar continuation, initial full-seminorm strip order, functional equation and existence/uniqueness conclusion. The revised weak-dual signature supplies the corresponding Banach one-stage LF specialization, with one common initial scalar order and continuous functional values. General LF stage topologies, the weak-dual locally convex carrier and the barrelled/quasi-complete passage still require the planned LF/vector analysis interfaces. No strong-dual holomorphy is asserted.",
+        "Compact Lie Fourier and full-carrier test adapters: The revised Yu149 specialization uses normalized finite-group Haar, the full dual, absolute summability and the actual fibre average. Yu150 now concerns smooth periodic functions and their actual torus coefficients. The finite-group-times-torus transport, uniform auxiliary-parameter derivative estimate and the full adelic/representation carriers connecting the restricted object tests to their source models remain required. Individual restrictions are stated at each affected node; numerical helper identities are no longer presented as the source-level test.",
         "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112.",
-        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the narrow fix review does not discharge the earlier broader B1–B4 failures."
+        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the full-carrier source and prototype obligations are stated at the affected nodes and remain for independent review."
       ],
-      "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
+      "note": "Every stated stage target has a node, an imported owner target or a precise gap. Planned means target inventory coverage, not proof closure or implementation. The revision repairs the continuation/Fourier signatures and object tests, with restricted models and source adapters explicitly distinguished."
     },
     {
       "stageId": "AutomorphicSpectralTheory:AS.1",
@@ -11790,9 +11887,9 @@
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.1 — Import AL.1/hecke-l-functional-equation and its local/global Tate zeta normalization; specialize the completed Hecke L-function to the Riemann or Dirichlet character and remove the finite Euler factors stated here. AL.0 supplies Fourier analysis, not this scalar functional equation.",
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.1 — Import AL.1/hecke-l-functional-equation and its local/global Tate zeta normalization; specialize the completed Hecke L-function to the Riemann or Dirichlet character and remove the finite Euler factors stated here. AL.0 supplies Fourier analysis, not this scalar functional equation.",
         "Supplier request: QSeriesPartitionsAndMockModularForms:QM.2 — Supply the K-Bessel function with its convergent positive-real integral, order reflection K_ν=K_(−ν), initial-value/decaying normalization and the differentiated parameter estimates required by AS.0/dit-113 and gz-217. QM.2 has I and J nodes but no K node yet. I and J are imported by their exact node ids; the finite untwisted Kloosterman sum is QM.3/classical-kloosterman-sum. The Whittaker M/W definitions belong to AS.0/dit-112.",
-        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the narrow fix review does not discharge the earlier broader B1–B4 failures."
+        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the full-carrier source and prototype obligations are stated at the affected nodes and remain for independent review."
       ],
-      "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
+      "note": "Every stated stage target has a node, an imported owner target or a precise gap. Planned means target inventory coverage, not proof closure or implementation. The revision repairs the continuation/Fourier signatures and object tests, with restricted models and source adapters explicitly distinguished."
     },
     {
       "stageId": "AutomorphicSpectralTheory:AS.2",
@@ -11822,9 +11919,9 @@
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.3 — Import only the GL×GL Rankin–Selberg normalization/factor input covered by AL.3. The GL×classical and exterior/symmetric/Asai Shahidi factors exceed its current scope and are the precise Part II gap below.",
         "Supplier request: SmoothRepresentationsOfLocalGroups:SR.4 — Spherical Satake/normalized constant-term map for GL_n and the rank-one Gindikin–Karpelevich action, with local vol N(𝒪_v)=1.",
         "Supplier request: AutomorphicLFunctionsAndLocalFactors:AL.2 — Unramified standard GL_n local Euler factors; an isobaric block sum concatenates Satake multisets and multiplies these factors. This does not request the isobaric existence theorem from AL.2.",
-        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the narrow fix review does not discharge the earlier broader B1–B4 failures."
+        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the full-carrier source and prototype obligations are stated at the affected nodes and remain for independent review."
       ],
-      "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
+      "note": "Every stated stage target has a node, an imported owner target or a precise gap. Planned means target inventory coverage, not proof closure or implementation. The revision repairs the continuation/Fourier signatures and object tests, with restricted models and source adapters explicitly distinguished."
     },
     {
       "stageId": "AutomorphicSpectralTheory:AS.3",
@@ -11836,7 +11933,7 @@
         "Function-field root and coprime cutoff proof adapters: AA.3 is stated for number fields. The GL_n root/block linear algebra can be reused over the function field only after recording its characteristic-independent root-datum adapter. Yu Lemma A.2 requires gcd(e,n)=1 (PAPER-YU-23/E48); its proper-Levi translated cutoff cancellation is not proved by merely citing the missing-pole argument for an arbitrary family. Source-qualify this coprime argument. Do not use (5.3.6) for every degree or the noncoprime global Theorem A.4 from this argument; the lattice identity of Lemma A.3 is a separate statement.",
         "Smooth globalization, weighted χ projections and Siegel cutoffs: BPCZ items27–28 require the AF Part II SLF/Casselman–Wallach globalization and completed product, and Lapid smooth Eisenstein continuity into T_N([G]), beyond the finite-K-type Langlands prototypes. Item33 requires the weighted parabolic MW II.2.4 decomposition and equality of χ projections for different weights. Item45 is the AA Part II compact Siegel cutoff F^G (modulo the center), distinct from Λ^T. The previous routing of all four through Appendix A was not justified; these item-specific routes are now gap decisions."
       ],
-      "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
+      "note": "Every stated stage target has a node, an imported owner target or a precise gap. Planned means target inventory coverage, not proof closure or implementation. The revision repairs the continuation/Fourier signatures and object tests, with restricted models and source adapters explicitly distinguished."
     },
     {
       "stageId": "AutomorphicSpectralTheory:AS.4",
@@ -11859,7 +11956,7 @@
         "Supplier request: SmoothRepresentationsOfLocalGroups:SR.1 — Complex finite Hecke convolution and its integrated unitary action, involution and L¹ operator-norm bound; compact-open idempotents project to finite-level invariants.",
         "Supplier request: GeometryOfNumbersAndQuadraticArithmetic:GN.3 — GeometryOfNumbersAndQuadraticArithmetic, Part II (with the Fuchsian-orbifold Part II route): oriented quadratic cycles/cores, the cycle involution and genus-character sign used by DIT16. Current GN.3 supplies mass/theta results, not these cycles; no existing GN.3 node discharges this request."
       ],
-      "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
+      "note": "Every stated stage target has a node, an imported owner target or a precise gap. Planned means target inventory coverage, not proof closure or implementation. The revision repairs the continuation/Fourier signatures and object tests, with restricted models and source adapters explicitly distinguished."
     },
     {
       "stageId": "AutomorphicSpectralTheory:AS.5",
@@ -11869,7 +11966,7 @@
         "General GLₙ cohomological and multiplicity-one input: BCG supplies the exact level-one diagram and parity consequences, citing Clozel Lemma 3.14 and Borel. The general n archimedean cohomological calculation and GL_n global multiplicity-one/spherical-vector statements need their own primary-source supplier; the existing GL₂ direction covers only n=2. No GL₂ stage is used as if it proved general n.",
         "Franke–Schwermer primary source and GLₙ synthesis: The requested FS98 Math. Ann.311 (1998),765–790 Theorem2.3 has not been obtained in a freely readable primary copy. The inspected CGH consumer quotes the isobaric realization, while Franke proves the coarser Laurent-coefficient synthesis. Obtain FS98, verify its exact support/ideal indices, and source-qualify general GL_n isobaric existence and multiplicity one before closing these two nodes."
       ],
-      "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
+      "note": "Every stated stage target has a node, an imported owner target or a precise gap. Planned means target inventory coverage, not proof closure or implementation. The revision repairs the continuation/Fourier signatures and object tests, with restricted models and source adapters explicitly distinguished."
     },
     {
       "stageId": "AutomorphicSpectralTheory:AS.6",
@@ -11890,9 +11987,9 @@
         "Supplier request: EndoscopicTransferAndUnitaryTraceComparison:ET.1 — The unweighted quotient-centralizer orbital integral, its semisimple convergence and singular extension, with connected/full centralizer and discriminant conventions exposed for comparison.",
         "Supplier request: EndoscopicTransferAndUnitaryTraceComparison:ET.1 — Import unitary/discrete-series and tempered pseudo-coefficient carriers; AS.6 adds the full finite-length EP trace identity and L²-Lefschetz application.",
         "Real harmonic-analysis prefix before ET.1: The real invariant/operator Paley–Wiener and multiplier targets are currently located in AS.6, whose weighted orbital-integral and Euler–Poincaré targets import ET.1. ET.1 must consume the general real harmonic-analysis results through an earlier AS prefix or an AF Part II prefix, not by importing the complete AS.6 stage. Record that exported prefix and its acyclic dependencies when integrating RT-AREA-automorphic-1/4 and /24; no new stage id is invented in this review.",
-        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the narrow fix review does not discharge the earlier broader B1–B4 failures."
+        "REV-FIX-RT-AREA-automorphic-1~3: retain the precise local-real induction, split-central pseudo-Eisenstein and source-qualified signature obligations recorded in the new gaps; the full-carrier source and prototype obligations are stated at the affected nodes and remain for independent review."
       ],
-      "note": "Every stated stage target has a node, an imported owner target, or an explicit gap. Planned is target-level inventory coverage, not proof closure or formalization; the independent review records unresolved signature/test contradictions."
+      "note": "Every stated stage target has a node, an imported owner target or a precise gap. Planned means target inventory coverage, not proof closure or implementation. The revision repairs the continuation/Fourier signatures and object tests, with restricted models and source adapters explicitly distinguished."
     }
   ],
   "gaps": [
@@ -12260,16 +12357,16 @@
       ]
     },
     {
-      "title": "Suggested continuation signatures",
-      "detail": "The packet retains the BPCZ two-sided functional equation, initial continuous functionals and common finite strip order. The suggested Schwartz and LF-dual signatures omit already expressible hypotheses and are false. Replace them with correctly typed half-plane data and an existence/uniqueness extension before acceptance; see the independent review for counterexamples.",
+      "title": "General LF weak-dual continuation adapter",
+      "detail": "The revised Schwartz signature retains the two-sided scalar continuation, initial full-seminorm strip order, functional equation and existence/uniqueness conclusion. The revised weak-dual signature supplies the corresponding Banach one-stage LF specialization, with one common initial scalar order and continuous functional values. General LF stage topologies, the weak-dual locally convex carrier and the barrelled/quasi-complete passage still require the planned LF/vector analysis interfaces. No strong-dual holomorphy is asserted.",
       "neededBy": [
         "AutomorphicSpectralTheory:AS.0/schwartz-family-continuation",
         "AutomorphicSpectralTheory:AS.0/lf-dual-continuation"
       ]
     },
     {
-      "title": "Suggested Fourier and object-sensitive tests",
-      "detail": "The Yu149 suggested theorem admits an arbitrary index/character family and arbitrary f and measure, so neither absolute Fourier convergence nor transfer follows. It must encode smooth f, probability Haar, the full dual character family and the corresponding convergence theorem. Several object tests in AS.0–AS.6 use numerical facts or unrelated carriers instead of the proposed object; the independent review identifies the failures. Replace those tests without assuming the desired conclusion.",
+      "title": "Compact Lie Fourier and full-carrier test adapters",
+      "detail": "The revised Yu149 specialization uses normalized finite-group Haar, the full dual, absolute summability and the actual fibre average. Yu150 now concerns smooth periodic functions and their actual torus coefficients. The finite-group-times-torus transport, uniform auxiliary-parameter derivative estimate and the full adelic/representation carriers connecting the restricted object tests to their source models remain required. Individual restrictions are stated at each affected node; numerical helper identities are no longer presented as the source-level test.",
       "neededBy": [
         "AutomorphicSpectralTheory:AS.0/yu-149",
         "AutomorphicSpectralTheory:AS.0/nuclear-lf-space"
@@ -12339,7 +12436,7 @@
     {
       "kind": "misprint",
       "locator": "Appendix A, proof of (A.1) (Lemma 7), the last display, p.984, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
-      "printed": "The source cites 3.892(1) on p.511 of reference[23] to use ∫₀^πe^{iβx}sin^{ν−1}x dx=πe^{iπβ/2}Γ(ν)/(Γ((ν+β+1)/2)Γ((ν−β+1)/2)).",
+      "printed": "The cited trigonometric integral is used with a prefactor lacking the required power of two.",
       "correction": "∫_0^π e^{iβx} sin^{ν−1}x dx = π e^{iπβ/2} Γ(ν) / (2^{ν−1} Γ((ν+β+1)/2) Γ((ν−β+1)/2)) for Re ν > 0.",
       "reason": "At ν = 3, β = 0 the left side is ∫_0^π sin²x dx = π/2, while the printed right side is πΓ(3)/Γ(2)² = 2π. The cited Gradshteyn–Ryzhik formula, π e^{iπβ/2} / (2^{ν−1} ν B((ν+β+1)/2, (ν−β+1)/2)), has the factor 2^{ν−1}. The next display (A.2) is correct. With ν = n + s, the factor 2^{n+s−1} cancels (2t)^{n+s} and leaves the printed 2π, so Lemma 7 is unaffected. Checked on the page image. Noted by the extraction (Corrections, item 7).",
       "affects": "nothing",
@@ -12359,7 +12456,7 @@
     {
       "kind": "misprint",
       "locator": "Appendix A, the display before (A.3), p.985, in the published version, Annals of Mathematics 184 (2016), 949–990 (publisher PDF, SHA-256 a67de715…5f61); the author preprint of 29 July 2016 on W. Duke's page has the same text there",
-      "printed": "The source writes the series identity t^{1/2}J_{s−1/2}(t)=Σ_{r≥0}(−1)^r(t/2)^{s+2r}/(r!Γ(s+1/2+r)).",
+      "printed": "The comparison of the Bessel series with a power series loses a square-root-of-two normalization.",
       "correction": "t^{1/2} J_{s−1/2}(t) = √2 Σ_{r≥0} (−1)^r (t/2)^{s+2r} / (r! Γ(s + 1/2 + r)).",
       "reason": "Put ν = s − 1/2 in J_ν(t) = Σ (−1)^r (t/2)^{ν+2r} / (r! Γ(ν + r + 1)). Then t^{1/2}(t/2)^{s−1/2+2r} = √2 (t/2)^{s+2r}. (A.3) is correct with the √2: G(s, μ) = e(μ/4)(2π)^{3/2} 2^{−s}Γ(2s)/(…), times √2 · 2^{−s−2r}, gives the printed π^{3/2} e(μ/4) 2^{2−2s} Γ(2s) 2^{−2r}/(…). The leading coefficients of (A.2) and (A.3) then agree by the duplication formula, so Lemma 7 stands. Checked on the page image. Noted by the extraction (Corrections, item 8).",
       "affects": "nothing",
@@ -12379,7 +12476,7 @@
     {
       "kind": "gap",
       "locator": "Appendix A, proof of (A.1): the strategy sentence on p. 983 and the final paragraph on p. 985; the differentiation under the integral sign on p. 984",
-      "printed": "The source argues that (A.1) follows because both sides satisfy a common differential equation and coincide to second order. It claims uniqueness from matching the coefficients of t^s,t^{s+1},t^{s+2} between (A.2) and (A.3).",
+      "printed": "The proof attempts to establish uniqueness from a common differential equation and agreement of the first three expansion coefficients.",
       "correction": "Two unstated routine steps close the proof. (i) Uniqueness. By (A.2), the left side of (A.1) is t^s H(t) with H entire: the double series is dominated termwise using |∫_0^π e^{i(m+μ)θ} sin^{n+s−1}θ dθ| ≤ e^{π|Im μ|}∫_0^π sin^{σ−1}θ dθ, which also justifies integrating termwise. By (A.3), the right side is t^s H̃(t) with H̃ entire. For f = t^s Σ a_ℓ t^ℓ, the equation f″ + (1 − s(s−1)/t²)f = 0 forces a_1 = 0 and ℓ(ℓ+2s−1)a_ℓ = −a_{ℓ−2} (ℓ ≥ 2), and ℓ(ℓ+2s−1) ≠ 0 for ℓ ≥ 1 when Re s > 0. So both sides are determined by their t^s coefficients. These coefficients agree by the duplication formula, and this covers the case where both vanish. (ii) Differentiating twice in t under the integral on p. 984 is justified by dominated convergence: the integrand and its first two t-derivatives are O(sin^{σ−1}θ), σ = Re s, uniformly for t in compact subsets of (0,∞).",
       "reason": "The step is terse but no step is false. In the defence of the paper: 'Taylor series' refers to the expansions in powers t^{s+ℓ} that (A.2) and (A.3) actually compute. The authors match coefficients of t^s, t^{s+1}, t^{s+2}, and 'more than what is needed' shows they intend the one-coefficient Frobenius argument at the regular singular point t = 0 (exponents s and 1−s), not a regular-point uniqueness from two Taylor coefficients. So the extraction's framing overstates the problem. What is missing is the explicit statement of the recurrence and the differentiation-under-the-integral justification; items 117/166 and 163–165 supply them. Lemma 7 is true: I verified it numerically, for both signs, complex μ and s, and G = 0.",
       "affects": "the proof",
@@ -12399,7 +12496,7 @@
     {
       "kind": "misprint",
       "locator": "(8.3), p.973; and the display after (8.4), p.974",
-      "printed": "The source gives G(z,z′;s)=√y′Σ_{m∈ℤ}F_{−m}(z,s)K_{s−1/2}(2π|m|y′)e(mx′) as (8.3), under y′>y. On p.974 it writes ∫_{−1/2}^{1/2}H(z,z′,s)e(−mx′)dx′=√y′F_{−m}(z,s)K_{s−1/2}(2π|m|y′)−(1/(1/4+r²−s(1−s)))Σ⟨φ,φ⟩⁻¹conj(φ(z))2a(m)K_{ir}(2π|m|y′).",
+      "printed": "The displayed Green-kernel Fourier series includes the zero index in a formula whose Bessel argument and seed are only specified for nonzero indices; the subsequent Fourier-coefficient equation lacks the same outer square-root factor.",
       "correction": "(8.3): the m=0 term is (2s−1)^{−1}y′^{1−s}E(z,s); the expansion is valid for y′>max_γ Im γz (e.g. z∈F, y′>y). p. 974: the second term should be −(¼+r²−s(1−s))^{−1}Σ⟨φ,φ⟩^{−1}conj φ(z)·2a(m)√y′K_{ir}(2π|m|y′).",
       "reason": "The m=0 term is the m→0 limit of √y′K_{s−1/2}(2π|m|y′)F_{−m}(z,s), which is y′^{1−s}y^s/(2s−1) on the seed. For z not reduced, y′>y does not exclude singular points z′=γz with Im γz>y. Only m≠0 is used, and the missing √y′ cancels on both sides, so the conclusion Res(2s−1)F_{−m}=Σ⟨φ,φ⟩⁻¹2a(m)conj(φ(z)) is right.",
       "affects": "nothing",
@@ -12419,7 +12516,7 @@
     {
       "kind": "error",
       "locator": "§8, display at the top of p.975",
-      "printed": "The source claims that mn≠0 gives a meromorphic extension of Φ(m,n;s) over Re(s)>0. It writes Res_{s=1/2+ir}(2s−1)Φ(−m,n;s)=2Σ_φ⟨φ,φ⟩⁻¹a(m)a(n), summing over the Hecke–Maass cusp forms φ for Γ whose eigenvalue is 1/4+r².",
+      "printed": "The residue is expressed through a bilinear product of Fourier coefficients without an explicit conjugation convention for the chosen cusp-form basis.",
       "correction": "Res_{s=1/2+ir}(2s−1)Φ(−m,n;s)=2Σ_φ⟨φ,φ⟩^{−1}a(−m)a(n)=2Σ_φ⟨φ,φ⟩^{−1}a(−1)a(m)a(n).",
       "reason": "By Proposition 3 with −m, Res(2s−1)F_{−m}(z,s)=Σ_φ⟨φ,φ⟩⁻¹2a(−m)φ(z); the proof on p.974 gives the same, Σ2a(m)conj(φ(z))/⟨φ,φ⟩. The n-th Fourier coefficient of F_{−m} is 2y^{1/2}Φ(−m,n;s)K_{s−1/2}(2π|n|y) (the expansion on p.974, which I checked numerically), and that of φ is 2y^{1/2}a(n)K_{ir}. The main term and the y^{1−s} term are holomorphic at s=1/2+ir. So the residue is 2Σa(−m)a(n)/⟨φ,φ⟩, and for odd φ, a(−m)=−a(m). This matches the parity factor in the opposite-sign Kuznetsov formula. The display is only 'for comparison' and is not used later. The result is unused later, but its displayed residue formula is a stated result and is scoped accordingly here.",
       "affects": "a stated result",
@@ -12439,7 +12536,7 @@
     {
       "kind": "gap",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: Corollary4.2.6 p27",
-      "printed": "The source requires c_beta to be nonvanishing and holomorphic around S1, and uses N(c_beta)−P(c_beta) inside |z|<1.",
+      "printed": "The winding-number argument imposes holomorphy and nonvanishing near the unit circle while counting interior zeros and poles.",
       "correction": "Also assume that each c_β extends meromorphically to a neighbourhood of the closed disc |z|≤1. Equivalently, read N(c_β)−P(c_β) as the winding number (2πi)^{-1}∮_{|z|=1}c'_β/c_β dz, which is what the proof computes. The rational L-ratios of §5.3.3 satisfy this.",
       "reason": "Annular holomorphy does not define the interior divisor. For example z exp(1/z) is nonzero on an annulus but has an essential singularity at zero. The later rational L-factor application is repaired by specifying its extension.",
       "affects": "a stated result",
@@ -12459,7 +12556,7 @@
     {
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: §5.2.2 p32 compared with §5.3.2 p39",
-      "printed": "rho_P(m)^−1 phi(m) ∈ pi; phi_R(nmk)=rho_R(m)^−1 phi_pi(m)",
+      "printed": "The compact-picture embedding in the first location uses the inverse half-modulus, whereas the subsequent transported section uses a different convention.",
       "correction": "In the definition of A_{R,π} read ρ_R for ρ_P. Use one inducing character consistently: membership ρ_R^{-1}φ|_M ∈ π and spherical basis φ_R(nmk)=ρ_R(m)φ_π(m).",
       "reason": "For the same rho_R, the two Yu displays are algebraically inconsistent already for R=P. Fresh images show Laf97 p284 also has rho_P⁻¹ phi∈pi and p281 defines rho through its action on Haar measures. This invalidates the earlier inference that the p32 formula alone should be reversed. The mismatch remains a candidate source issue; the correct global convention requires a complete dictionary.",
       "affects": "the proof",
@@ -12479,7 +12576,7 @@
     {
       "kind": "error",
       "locator": "Yu arXiv1807.04659v5 §5.2.3, p.33, report and replacement Theorem5.2.2",
-      "printed": "The source says that Lafforgue97 Theorem11 contains mistakes of the type identified by Yu.",
+      "printed": "Yu reports failures in the earlier Lafforgue trace statement and gives a replacement theorem at this locator.",
       "correction": "Use Yu's Théorème 5.2.2 (5.2.9), respectively Corollaire 5.2.3 (5.2.14). The factor is 1/(|w||X_L^L|), and the sum runs over the whole fibre μ_w^{-1}(λ_π)={(λ_L,λ_w): λ_L in Im X_L^G, λ_w in Im X_M^L, λ_Lλ_w/w^{-1}(λ_w)=λ_π}, with probability Haar measures.",
       "reason": "Yu explicitly reports an error and gives the corrected recovery. This run read Yu, not the original Lafforgue theorem; it makes no independent glyph-level allegation against the original. The finite-cover convention in the node is all lifts with probability Haar and denominator |w||X_L^L|.",
       "affects": "the proof",
@@ -12499,7 +12596,7 @@
     {
       "kind": "gap",
       "locator": "Chapter II, §5, asymptotic expansion of Q_{s−1}(t) after (5.7), p. 251, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "Q_{s−1}(t) = ½ log((t+1)/(t−1)) − (Γ′/Γ(s) − Γ′/Γ(1)) + O(1)   (t ↘ 1)",
+      "printed": "The expansion retains only a bounded error after subtracting the logarithmic singularity and digamma constant.",
       "correction": "Strengthen the displayed bounded remainder to a remainder tending to zero before taking the next renormalized limit. The displayed O(1) is true but insufficient for that limit; this packet does not classify a true weak estimate as a false theorem.",
       "reason": "With a remainder that is merely bounded, the next display (the value g_s(z) = −log|2π(z − z̄)η(z)⁴|² + 2Γ′/Γ(s) − 2Γ′/Γ(1) of the renormalized limit) would not follow. The classical expansion is Q_ν(t) = ½ log((t+1)/(t−1)) − γ − ψ(ν+1) + O((t−1) log(t−1)), and −γ − ψ(s) = ψ(1) − ψ(s), so the remainder tends to 0. Re-checked on imgHR/p251.jpg and on a tight IIIF crop of image 00000257 at full resolution: the symbol is a capital O of cap height, as tall as the '1' and the parentheses (a lowercase o would have the x-height of the adjacent 't'). (The cruder expansion (2.7), p. 238, Q_{s−1}(t) = −½ log(t − 1) + O(1), correctly has O(1); the refined expansion on p. 251 needs o(1).)",
       "affects": "the proof",
@@ -12519,7 +12616,7 @@
     {
       "kind": "misprint",
       "locator": "Chapter IV, §6, proof of (6.2), last display, p. 298, Invent. Math. 84 (1986), published version (GDZ scan)",
-      "printed": "1/(cz+d) · y^s/|cz+d|^{2s} = 2i/(s+1) · ∂/∂z ( y^{s+1}/|cz+d|^{2s+2} )",
+      "printed": "The differentiation formula uses a factor whose parameter shift does not match the powers in the function being differentiated.",
       "correction": "1/(cz+d)^2 · y^s/|cz+d|^{2s} = 2i/(s+1) · ∂/∂z ( y^{s+1}/|cz+d|^{2s+2} )",
       "reason": "With y = (z − z̄)/2i: ∂_z(y^{s+1}|cz+d|^{−2s−2}) = (s+1)y^s(cz̄+d)/(2i(cz+d)|cz+d|^{2s+2}) = (s+1)y^s/(2i(cz+d)^2|cz+d|^{2s}). Confirmed numerically (finite-difference Wirtinger derivative at c = 3, d = −2, s = 0.37+0.2i, z = 0.31+0.77i: RHS = −0.019198+0.067476i equals the (cz+d)^2 version, not the printed one, −0.13533−0.11655i). The weight-2 series E_{2,s} (p. 296) has (cz+d)^2, and the next line E_{2,s} = (2i/(s+1))∂_z E(z,s+1) holds only with the square. Read on the high-resolution page (no exponent, no overbar).",
       "affects": "nothing",
@@ -12541,7 +12638,7 @@
       "source": "arthur05",
       "kind": "misprint",
       "locator": "§13, p.68, correction following Proposition13.1, concerning Arthur1980 Lemma1.1",
-      "printed": "The source replaces < in the lemma with ≤, allowing equality in the bound.",
+      "printed": "Arthur explains that the earlier lemma needs a non-strict inequality so its equality case is included.",
       "correction": "Use the weak boundary inequality in the support statement of the older lemma; the packet keeps the correctly stated vanishing region of Proposition13.1.",
       "reason": "Arthur supplies the correction in the primary survey. Equality on a truncation wall is exactly the boundary case that strict-versus-weak notation changes.",
       "affects": "nothing",
@@ -12560,7 +12657,7 @@
       "source": "arthur05",
       "kind": "error",
       "locator": "§21 Remark3, p.137, concerning [A8] §8 p.1329 (1982 spectral formula)",
-      "printed": "The source challenges the bound when π is nontempered and f∈C_c^∞(G(𝔸)^1) lies outside H(G).",
+      "printed": "Arthur points out that the earlier bound does not cover nontempered representations for arbitrary compactly supported smooth test functions outside the Hecke algebra.",
       "correction": "Restrict this fine spectral formula to f∈H(G); retain the height-grouped outer convergence and do not claim absolute convergence of a jointly rearranged expansion.",
       "reason": "Arthur explicitly says the last formula for J_χ does not hold for that complement. The coarse identity has different test-function hypotheses and remains separate.",
       "affects": "a stated result",
@@ -12579,7 +12676,7 @@
       "source": "clozeldelorme90",
       "kind": "error",
       "locator": "AppendixD, p.224, report about [7] Lemma4 (1984); this run read the 1990 repair",
-      "printed": "The source rejects Lemma4 in reference[7] and challenges the claim that it is due to Vogan.",
+      "printed": "The repair disputes the earlier lemma and its attribution to Vogan.",
       "correction": "Use AppendixD PropositionD.1 and LemmaD.1, proved jointly with Bouaziz, for the two places that used the earlier lemma.",
       "reason": "The later primary source names both affected statements and supplies replacement proofs; the packet uses the 1990 theorem and does not claim to have read the 1984 lemma.",
       "affects": "the proof",
@@ -12598,7 +12695,7 @@
       "source": "arthur05",
       "kind": "misprint",
       "locator": "§21 Theorem21.6 coefficient(21.17), p.137 in the Clay PDF; compared with (21.5), p.129, and Corollary21.3 coefficient, p.134",
-      "printed": "|W₀ᴹ||W₀ᴳ|⁻¹ |det(s−1)_(a_M^G)|⁻¹",
+      "printed": "The coefficient multiplies the Weyl-group ratio by the reciprocal determinant on the relative height space.",
       "correction": "In this sum over L⊃M and s∈W^L(M)_reg use a_M^L in the determinant. Keep a_M^G only in the L=G discrete-part specialization.",
       "reason": "The change of variables F_s on i(a_M^L)* in the same source gives this Jacobian explicitly in (21.5), and Corollary21.3 prints a_M^L. Arthur1988global p.520, proof of Theorem4.4, gives a_(L₀)^(M₁), with L₀=M and M₁=L. For L=M proper in G and s=1, a_M^L=0 and its determinant is1; s−1 on a_M^G is zero on a positive-dimensional space and cannot supply the advertised nonzero reciprocal.",
       "affects": "a stated result",
@@ -12618,7 +12715,7 @@
       "source": "yetter",
       "kind": "error",
       "locator": "arXiv:math/0309185v2, Theorem28, p.14, displayed Radon–Nikodym map and proof",
-      "printed": "The source draws a map from the direct integral for ν into the one for μ, multiplying by √(dμ/dν).",
+      "printed": "The Radon–Nikodym comparison is drawn from the second measure’s direct integral toward the first, but its multiplier has the opposite measure ratio.",
       "correction": "Reverse the displayed source and target: this multiplier is the isometric embedding from L²(μ,H) into L²(ν,H). It is an isomorphism for equivalent measures, with the inverse defined using the reciprocal density on its essential support.",
       "reason": "The proof integrates |f|²(dμ/dν) against ν and obtains the μ norm. With μ counting measure on positive integers and ν({n})=2^(−n), the constant-one section lies in L²(ν), while its printed image 2^(n/2) is not in L²(μ).",
       "affects": "a stated result",
@@ -12637,7 +12734,7 @@
       "id": "AutomorphicSpectralTheory/E16",
       "kind": "error",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: §5.1.1 p29, choice of kappa",
-      "printed": "The source claims proj_(a_L)(kappa)≠0 ⇒ alpha(kappa)≠0 for each relative root.",
+      "printed": "The claimed choice of a projection-nonzero vector is used as though it automatically avoided every relative-root hyperplane.",
       "correction": "Choose kappa off the finite union of all relative-root hyperplanes for every semistandard Levi.",
       "reason": "Image checked. kappa=(3,2,1) is in the positive chamber and every Levi projection is nonzero, but the blocks {1,3}|{2} have equal averages 2, so their relative root evaluates to zero.",
       "affects": "the proof",
@@ -12662,7 +12759,7 @@
       "id": "AutomorphicSpectralTheory/E17",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: Proposition5.2.1 p32, type of H_Q^e",
-      "printed": "H_Q^e ∈ a_L^G",
+      "printed": "The cutoff exponent is assigned to a relative height space with the wrong Levi index.",
       "correction": "H_Q^e belongs to a_(L,Z) in the affine degree −e hyperplane, not the degree-zero vector space.",
       "reason": "The floor differences telescope to −e. With one block and e=1, H=−1 while a_G^G=0. Image checked; 119 exact small floor checks corroborate the sign.",
       "affects": "a stated result",
@@ -12687,7 +12784,7 @@
       "id": "AutomorphicSpectralTheory/E18",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: Lemma5.3.3 p36",
-      "printed": "phi ∈ pi ⇒ ∃x∈G(A)^0, phi(x)≠0",
+      "printed": "The nonvanishing lemma seeks a nonzero value on the degree-zero subgroup for every nonzero inducing vector.",
       "correction": "Add phi≠0.",
       "reason": "The zero vector is an immediate counterexample; the proof explicitly uses nonzero phi and a nonzero Whittaker scalar. (cc-442dc5) Reclassified to affect nothing: Lemma 5.3.3 as printed fails only for ϕ = 0, and its proof (through a nonzero Whittaker coefficient) concerns a nonzero ϕ.",
       "affects": "nothing",
@@ -12713,7 +12810,7 @@
       "id": "AutomorphicSpectralTheory/E19",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: Lemma5.3.3 proof p38",
-      "printed": "deg x0=−n(n−1)(g−1); x0 a^((n−1)(g−1))",
+      "printed": "The central translation is combined with an asserted degree of the translating element, without the compensating degree normalization needed for the subgroup in the conclusion.",
       "correction": "With J_v=(-(n−1)n_v,...,0) and deg=−Σv, deg x0=+n(n−1)(g−1); multiply by a^−((n−1)(g−1)) to reach degree zero.",
       "reason": "Sum the diagonal valuations and use deg K=2g−2. Both displayed signs were checked in the image and against §2.2.1.",
       "affects": "the proof",
@@ -12738,7 +12835,7 @@
       "id": "AutomorphicSpectralTheory/E20",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: Proposition5.3.4 proof, final paragraph p39",
-      "printed": "q^((g−1)ni nj)",
+      "printed": "The spherical change of section is written with a positive genus-dependent power of the field cardinality.",
       "correction": "Use q^((1−g)ni nj), as in equation5.1.1.",
       "reason": "With product local volume(O_v)=1, the additive adelic quotient has volume q^(g−1); imposing global unipotent quotient volume one multiplies the measure by q^(1−g) in each root direction. The definition and calculation must use the same normalization.",
       "affects": "nothing",
@@ -12763,7 +12860,7 @@
       "id": "AutomorphicSpectralTheory/E21",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: §5.3.3 p41, central shift and equation5.3.6",
-      "printed": "lambda_(L1)^e; lambda_(G1)^e",
+      "printed": "The formula changes its central quotient from the Levi-character parameter to the whole-group parameter.",
       "correction": "Use lambda_(L1)^−e and lambda_(G1)^−e, matching Proposition5.1.1.",
       "reason": "The floor exponent has total −e and each root denominator is invariant under a central shift. Hence hat1_Q^e(mu lambda)=lambda_1^−e hat1_Q^e(mu). Image checked. The final degree-order argument is insensitive to e↦−e but intermediate identities are not.",
       "affects": "the proof",
@@ -12788,7 +12885,7 @@
       "id": "AutomorphicSpectralTheory/E22",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: LemmaA.2 proof p76",
-      "printed": "d_Q(lambda)=hat1_Q^e(lambda mu0)theta_Q(lambda)^−1",
+      "printed": "The auxiliary family is formed by dividing a translated cutoff transform by a root denominator, although the cancellation required for a holomorphic family is not established.",
       "correction": "Multiply by theta_Q(lambda), rather than its inverse.",
       "reason": "The family product formula writes the desired sum as Σ d_Q c_Q/theta_Q. The printed choice introduces a double pole even at mu0=1; the corrected choice is the holomorphic monomial family from LemmaA.1.",
       "affects": "the proof",
@@ -12813,7 +12910,7 @@
       "id": "AutomorphicSpectralTheory/E23",
       "kind": "error",
       "locator": "Yu arXiv:1807.04659v5, 18 July2022: TheoremA.4 proof p78, order of a sum",
-      "printed": "ord(e+a)=lcm(ord(e),ord(a))",
+      "printed": "The proof identifies the order of a sum with the least common multiple of the two individual orders.",
       "correction": "Only test whether e+a=0. Since 2a=0 in Z/cZ, a is zero or the unique element of order two; equality e=−a is determined by ord(e).",
       "reason": "Take c=2,e=a=1: ord(e+a)=1 but lcm(2,2)=2. These parameters occur for one cycle l=2,f=1. Image checked. The replacement proves the needed invariance; 80,100 exact degree tests pass.",
       "affects": "the proof",
@@ -12838,7 +12935,7 @@
       "id": "AutomorphicSpectralTheory/E24",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Appendix B, p. 79",
-      "printed": "The source invokes H⁰(X,O_X)≅𝔽_q and treats the condition as requiring a nonzero constant term in the characteristic polynomial.",
+      "printed": "The argument uses the constant-field identification of global functions and then requires the characteristic polynomial’s constant coefficient to be nonzero.",
       "correction": "Comme H^0(X_1, O_{X_1}) ≅ F_q, …",
       "reason": "Page image p. 79 checked. X is the base change of X_1 to the algebraic closure F, so H^0(X, O_X) = F, not F_q. For an endomorphism γ of a bundle on X_1, det γ ∈ H^0(X_1, O_{X_1}) = F_q (geometric connectedness), and that is what the argument needs.",
       "affects": "nothing",
@@ -12862,7 +12959,7 @@
       "id": "AutomorphicSpectralTheory/E25",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Appendix B, p. 78",
-      "printed": "The source states the assertion with x∈G(𝔸) and γ∈G(F); its parenthetical variant reads X𝔤(F).",
+      "printed": "The group statement is accompanied by a Lie-algebra variant whose notation still contains the group symbol.",
       "correction": "( resp. X ∈ 𝔤(F))",
       "reason": "Page image p. 78 checked; the membership sign is missing. Typographical only.",
       "affects": "nothing",
@@ -12886,7 +12983,7 @@
       "id": "AutomorphicSpectralTheory/E26",
       "kind": "error",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §3.3.1, p. 18, Théorème 3.3.1, and its use on p. 20",
-      "printed": "The source calls T↦J_e^T quasipolynomial for T∈𝔞_B, referring to Definition4.5.3 in Ch15.",
+      "printed": "The trace is asserted to be quasipolynomial in a real height parameter while invoking a lattice-based definition.",
       "correction": "The restriction of T ↦ J^T_e to lattice points T ∈ Hom(X^*(B), Z) ≅ Z^n is a quasi-polynomial in the sense of [Ch15, Déf. 4.5.3]. The same applies on p. 20 to the right-hand side via [Ch15, Prop. 4.5.5]: the equality holds for all lattice T with T_1 ≥ ⋯ ≥ T_n. T = 0 is a lattice point, so J_e = P_n^e(X_1) follows unchanged.",
       "reason": "In Yu 𝔞_B = Hom(X^*(B), R) is real (§3.1.1). Ch15 Déf 4.5.3 (author p. 25, image read) defines quasi-polynomials on 𝔞_B as Σ_{ν∈f} p_ν(T) q^{⟨ν,T⟩} with p_ν polynomials and ν ∈ (2πi/log q)X^*(B) ⊗ Q, so they are real-analytic in T. J^T_e depends on T only through the indicators τ̂_P(H_B(δx) − T) with H_B(δx) in a lattice, so it is locally constant off the hyperplanes ϖ(T) ∈ (1/n)Z. It is not constant: by (3.3.7), for d(T) ≥ max(0, 2g−2) it counts T-semistable bundles of degree e, and this number is unbounded as d(T) → ∞ (already for n = 2 via L_1 ⊕ L_2). A non-constant locally constant function on the open chamber cannot be real-analytic, so the statement is false for real T. The inconsistency is inherited from Ch15, whose Example 4.5.4 counts floor functions as quasi-polynomial and whose Prop. 4.5.5 is stated on a lattice. The proof of Théorème 3.2.4 compares the two sides only at deep lattice points and evaluates at T = 0, so no result is affected.",
       "affects": "nothing",
@@ -12910,7 +13007,7 @@
       "id": "AutomorphicSpectralTheory/E27",
       "kind": "error",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.3.2, p. 39, equation (5.3.2) and Proposition 5.3.4 (first display)",
-      "printed": "n_{Q|P}(π,λ)=∏_{α∈Φ_Q∩Φ_{P̄}}∏_{{β∈Φ(Z_{M_P},G)| β|_{a_L^G}=α}} n_β(π,λ^{β^∨}) … M_{R|S}(λ)φ_S=n_{R|S}(π,λ)φ_R.",
+      "printed": "The normalization product uses a nested root restriction and equates the resulting scalar with the spherical section transport.",
       "correction": "n_{Q|P}(π,λ)=∏_{α∈Φ_Q∩Φ_{P̄}}∏_{β|α} n_{−β}(π,λ^{β^∨}), equivalently ∏ over γ in Φ_P∩Φ_{Q̄} (roots of M_P) of n_γ(π,λ^{−γ^∨}). The factor for the integrated root space of e_j−e_i is built from L(Π_i×Π_j^∨), not L(Π_j×Π_i^∨).",
       "reason": "Page image checked. A direct GL_2 computation (a good pair: π=χ_1⊗χ_2 with χ_1,χ_2 not inertially equivalent) gives the following. For S=B, R=B̄, φ_B(nmk)=ρ_B(m)χ_1(t_1)χ_2(t_2), the Iwasawa decomposition n̄(x)=n·diag(x^{-1},x)·k for |x|_v>1 makes the local integral ∫φ_B(n̄(x))λ^{H_B(n̄(x))}dx equal to (1−(χ_1χ_2^{-1})(ϖ_v)q_v^{-1}z^{deg v})/(1−(χ_1χ_2^{-1})(ϖ_v)z^{deg v}) with z=λ_2/λ_1. That is L_v(Π_1×Π_2^∨,z)/L_v(Π_1×Π_2^∨,q^{-1}z), the factor of n_{e1−e2}(π,λ^{−(e1−e2)^∨}), and it is the standard L(2s,χ_1χ_2^{-1})/L(2s+1,χ_1χ_2^{-1}). (5.3.2) instead gives n_{e2−e1}(π,λ^{(e2−e1)^∨}), built from L(Π_2×Π_1^∨). The 'en particulier' display and (5.1.2) use the correct labelling; they agree with (5.3.2) only because, for good pairs, (w,1)∈stab inverts only roots between equal factors. Proposition 5.1.1 is unaffected: the n_{S|P} ratio is 1 at central λ_L, and in (c) L(Π_j×Π_i^∨,z)=conj(L(Π_i×Π_j^∨,z̄)) (Π^∨≅Π̄ for unitary discrete Π) has the same zeros and poles in |z|<1.",
       "affects": "a stated result",
@@ -12934,7 +13031,7 @@
       "id": "AutomorphicSpectralTheory/E28",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §4.2.2, p. 24, proof of Proposition 4.2.3",
-      "printed": "The source names vol(a_P^Q/ℤ(Δ̂_P^Q)^∨) as v_{M_P}^{M_Q}, claiming that this volume is determined by the pair of Levi subgroups alone.",
+      "printed": "The volume of a lattice generated by projected dual roots is treated as depending only on the pair of Levi subgroups.",
       "correction": "v_{M_P}^{M_Q}:=vol(a_P^Q/Z(Δ_P^Q)^∨), the covolume of the coroot lattice, which is the volume in Arthur's θ_P=vol(a_P^G/Z(Δ_P^∨))^{-1}∏λ(α^∨).",
       "reason": "Page image checked (the hat is printed). Arthur's normalization of θ_P, which the comparison with [Ar81, Cor. 6.5] needs, uses the coroot lattice. The proof's next sentence ('Δ_Q^∨ est la projection de Δ_P^∨−(Δ_P^Q)^∨ en a_Q^G') is an argument about coroots. The identity v_M^Lv_L^G=v_M^G holds for coroots, since ZΔ_P^∨∩a_M^L=Z(Δ_P^L)^∨ and the projection to a_L^G is ZΔ_Q^∨. It also holds for coweights by the dual argument, so the conclusion (cd)_M=Σc_M^Ld_L is unaffected.",
       "affects": "nothing",
@@ -12958,7 +13055,7 @@
       "id": "AutomorphicSpectralTheory/E29",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §4.2.3, p. 25, proof of Théorème 4.2.4",
-      "printed": "The source chooses μ=1+ξt, taking ξ∈X_P^G⊆(ℂ^×)^{dim a_P}.",
+      "printed": "The proof chooses an affine path in multiplicative character coordinates without establishing that the path remains in the constrained parameter subtorus.",
       "correction": "ξ is a generic vector of C^{dim a_M}≅a_{M,C}^* (a tangent direction; later ξ=zβ_1+ξ_1). The expansion of c_M(1+ξt) is taken on X_M, where c_Q(λ)=∏c_β(λ^{β^∨}) and θ_Q are defined and still form a (G,M)-family; its regular value at 1 is the value on X_M^G.",
       "reason": "Checked in the TeX (line 1647). For ξ≠0 the curve 1+ξt is not in X_M^G. For M=T⊂GL_2, (1+ξ_1t)(1+ξ_2t)=1 for all t forces ξ=0, and points of X_P^G are multiplicative, not directions. The argument only uses θ_Q(1+ξt)=t^mθ_Q(ξ) for the linear pairing and the regularity of Σc_Qθ_Q^{-1} at 1 on X_M, so nothing else changes.",
       "affects": "nothing",
@@ -12982,7 +13079,7 @@
       "id": "AutomorphicSpectralTheory/E30",
       "kind": "gap",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §4.2.3, p. 26, Lemme 4.2.5; §5.2.3, pp. 34–35, the decomposition before (5.2.11) and (5.2.12)",
-      "printed": "The source writes ∫_{Im X_M^G}∏_{β∈F}f_β(λ^{β^∨})λ^{β^∨}dλ=∏_{β∈F}(1/2πi)∫_{S^1}f_β(z)dz. It supplies no normalization for dλ; the Haar measures specified in §2.2.4 cover only Ξ_M, M_P(F), N_P(F), G(F), N_P(A), M_P(A), G(A).",
+      "printed": "The change of variables factors a character-torus integral into circle contour integrals without specifying the parameter torus’s Haar normalization.",
       "correction": "State that every compact group Im X_M^L (disconnected and finite ones included) carries its Haar probability measure, and products carry the product of these.",
       "reason": "Checked in the TeX. Taking f_β(z)=z^{-1} in Lemme 4.2.5 gives vol(Im X_M^G)=1. The identity (5.2.12), with the factor 1/|ker μ_w|, and ∫_{Im X_M^G}f=∫_{Im X_L^G}∫_{Im X_M^L}f(λλ') hold exactly when source and target measures are probability measures (measure preservation plus Fourier inversion on the target). The intended convention is clear, so affects=nothing; the extraction's items 063 and 142 already adopt it.",
       "affects": "the proof",
@@ -13006,7 +13103,7 @@
       "id": "AutomorphicSpectralTheory/E31",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §4.2.3, p. 29, proof of Lemme 4.2.8",
-      "printed": "The source begins by claiming d_L=0 for all L∈L(M). It obtains the next expression by invoking vanishing when L∈P(M) and L≠G.",
+      "printed": "The argument first claims vanishing for every Levi index and then invokes a vanishing condition with a parabolic index and an exception for the full group.",
       "correction": "'on a d_L=0 (pour ce L)' and 'si L∈L(M) mais L≠G'.",
       "reason": "Checked in the TeX. The first case proves the vanishing only for the Levi L under consideration; it fails for L=G when μ0 is central, where d_G=μ_{01}^{−dim a_M^G}. The product formula (Proposition 4.2.3) sums over L∈L(M), not P(M).",
       "affects": "nothing",
@@ -13030,7 +13127,7 @@
       "id": "AutomorphicSpectralTheory/E32",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §5.3.1, p. 38, proof of Lemme 5.3.3",
-      "printed": "The source takes π_v to be unramified and requires conductor0 for ϖ_v^{J_v}ψ_v, the scaled character.",
+      "printed": "The local inducing representation is taken unramified while the scaled additive character is required to have conductor zero.",
       "correction": "'… et ϖ_v^{−n_v}ψ_v (le caractère a↦ψ_v(ϖ_v^{−n_v}a)) est de conducteur 0'.",
       "reason": "Page image checked. J_v is a vector of exponents. The conductor-0 character defined on p. 37 and used in the next line (W'∈W(π_v,ϖ_v^{−n_v}ψ_v)) is ϖ_v^{−n_v}ψ_v. Conjugation by ϖ_v^{J_v} changes ψ_v on each simple-root coordinate by ϖ_v^{j_i−j_{i+1}}=ϖ_v^{−n_v}.",
       "affects": "nothing",
@@ -13054,7 +13151,7 @@
       "id": "AutomorphicSpectralTheory/E33",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §6.2.2, p. 47, sentence before (6.2.9) and the summation range of (6.2.9)",
-      "printed": "The source gives |Fix(π₀)∩(Im X^G_{M_P})°|=|Fix(π₀)|^{r−1}. It then sums over those λ_π∈Fix(π₀) for which λ_πλ_G⁻¹∈(Im X^G_{M_P})°.",
+      "printed": "The stabilizer count is restricted to the connected character torus, but the subsequent summation permits translates selected by a whole-group character.",
       "correction": "Fix(π) ∩ (Im X^G_{M_P})°, with π = Π0^{⊗l}, has cardinality |Fix(π0)|^{l−1}, and the sum in (6.2.9) runs over λ_π ∈ Fix(π).",
       "reason": "In the single-cycle case M_P = G_d^l and Fix(π) = Fix(Π0)^l ≅ μ_f^l. The identity component is cut out by one product condition, so the intersection has f^{l−1} elements. r is undefined in this case, and (6.2.9) itself uses |Fix(π0)|^{l−1}. Image checked.",
       "affects": "nothing",
@@ -13078,7 +13175,7 @@
       "id": "AutomorphicSpectralTheory/E34",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), §6.2.2, p. 45, proof of Lemme 6.2.2",
-      "printed": "(Im X^L_{M_P})° ≅ {(z_{1,1}, …, z_{1,l_1}, z_{2,1}, …, z_{r,l_r}) ∈ (C^×)^r | z_{j,1}z_{j,2}⋯z_{j,l_j} = 1, ∀j}",
+      "printed": "The displayed connected torus gives an ambient complex torus dimension equal to the number of blocks despite indexing coordinates by every entry of those blocks.",
       "correction": "(C^×)^{l_1+⋯+l_r}",
       "reason": "The tuple has one coordinate per factor of M_P, l_1+⋯+l_r in all. Image checked.",
       "affects": "nothing",
@@ -13102,7 +13199,7 @@
       "id": "AutomorphicSpectralTheory/E35",
       "kind": "error",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Appendix A, p. 75, Lemme A.2 (proof p. 76). It is applied 'pour tout e ∈ Z' in §5.3.3, p. 41, to obtain (5.3.6), and the proof of Théorème A.4 (p. 77) rests on (5.3.6).",
-      "printed": "LemmaA.2 starts with μ₀∈X_M^G and a (G,M)-family (c_Q) defined over a domain including μ₀^ℤ. For each L∈L(M), it requires the c_M^Q expressions to be constant as Q∈P(L) varies, together with c_Q(λμ₀)=c_Q(λ). The conclusion is lim_{λ→1}Σ_{Q∈P(M)}1̂_Q^e(λμ₀)c_Q(λμ₀)=0 except when μ₀∈X_G^G. On p.41, Lemma4.2.8 is used at e=−1, whereas LemmaA.2 is used for every integer e.",
+      "printed": "The lemma concludes that the translated cutoff-family limit vanishes at every noncentral parameter under its family and translation hypotheses. Its subsequent use permits all integer degrees, although the coprime-degree restriction needed by the counterexample check is absent.",
       "correction": "Add the hypothesis gcd(e,n) = 1. The proof then goes through with d_Q = 1̂^e_Q(λμ_0)θ_Q(λ) (E24) and the vanishing Σ_(Q∈P(L)) 1̂^e_Q ≡ 0 on proper Levis L for gcd(e,n) = 1 (proposed new item). Consequently (5.3.6) is established only for (e,n) = 1, and Théorème A.4 and Corollaire A.5 are proved only in the form 'J_e and P_n^e are the same for all e prime to n'. For gcd(e,n) > 1 the same-order statement (Théorème 1.4) rests on Mellit [Me17]. The main results (Théorèmes 1.1–1.3) use only coprime e and are unaffected.",
       "reason": "Counterexample: n = 2, M = T, c_Q ≡ 1 (a constant (G,M)-family, invariant under every μ_0, with c_M^L independent of Q), e = 0 and μ_0 = (i,−i) ∈ X_M^G, which is not central. By Prop. 5.2.1, 1̂^0_B(λ) + 1̂^0_(B̄)(λ) = 1/(1−λ_1/λ_2) + 1/(1−λ_2/λ_1) ≡ 1, so the limit is 1 ≠ 0. The failure also occurs where Théorème A.4 has nontrivial content: for n = 10, M = GL_5×GL_5 and e ∈ {2,4,6,8}, Σ_Q 1̂^e_Q(μ_0) = 1 at a generic noncentral μ_0. In general, for μ_0 ∈ X_L^G the term d_L of Yu's argument is proportional to Σ_(Q∈P(L)) 1̂^e_Q(μ_0), which is nonzero whenever (n/gcd(m_j)) | e; the 'même argument' of Lemme 4.2.8 works only when the monomials λ^{I^e_Q} do not depend on Q, as for e = −1. Numerical checks (mpmath, 60–150 digits): with random μ_0-periodic root-product families and μ_0 on walls of proper Levis, the limit is O(x) → 0 for every coprime e and converges to stable nonzero values for non-coprime e, for example −12.04 and 11.86 in GL_4 with e = 0 and e = 2. The statement is confirmed on the page image (p. 75); the image of the application is from p. 41.",
       "affects": "a stated result",
@@ -13126,7 +13223,7 @@
       "id": "AutomorphicSpectralTheory/E36",
       "kind": "misprint",
       "locator": "Yu arXiv:1807.04659v5 (18 July 2022), Appendix A, p. 75, display (A.0.2)",
-      "printed": "1̂^e_(Q_s)(λ) = (−1)^{dim a_L^G} λ^{I^e_(Q_s)} θ_(Q_s)(λ)^{−1}",
+      "printed": "The cutoff-transform sign is indexed by a Levi symbol that has not been defined at that point.",
       "correction": "(−1)^{dim a_M^G}: Q_s ∈ P(M), and L is not defined at this point.",
       "reason": "Confirmed on the image. By Prop. 5.2.1, Π_(α∈Δ_Q) 1/(1−λ_u/λ_v) = Π(−λ_v)/⟨λ,α^∨⟩, which gives the sign (−1)^{|Δ_Q|} = (−1)^{dim a_M^G} and the shift s^{−1}(0,1,…,1).",
       "affects": "nothing",
@@ -13151,7 +13248,7 @@
       "source": "arthur05",
       "kind": "misprint",
       "locator": "§7 equation (7.2), printed/PDF p.34, outer exponential factor; compared with the local J_Q|P formula on p.135",
-      "printed": "exp((−sλ+ρ_P′)(H_P′(x)))",
+      "printed": "The outer exponential subtracts the transported spectral parameter but adds the target half-modulus, so the identity-Weyl specialization leaves an unwanted height factor.",
       "correction": "exp(−(sλ+ρ_P′)(H_P′(x)))",
       "reason": "The page image has a plus before ρ_P′. Put s=1 and P′=P: the quotient is a point, so the printed two exponentials leave exp(2ρ_P H_P(x)) rather than the identity operator. Replacing +ρ_P′ by −ρ_P′ cancels the height factors. The same survey prints the corresponding local factor exp(−(λ+ρ_Q)H_Q(x)) on p.135. The packet already had the corrected mathematical exponent; this entry makes its departure from the cited display explicit.",
       "affects": "a stated result",
@@ -13185,7 +13282,7 @@
     {
       "kind": "published",
       "url": "https://www.claymath.org/library/cw/arthur/pdf/62.pdf",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "2b6623010ce5d854732458dfb5e61600a4e6cc7288629a72cb63d5f7530ac510",
       "citation": "An Introduction to the Trace Formula; Clay Mathematics Proceedings 4 (2005), 1–263"
     },
@@ -13297,7 +13394,7 @@
     {
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1807.04659v5",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "9383bcdee14777ec647ba2658da3319d7d43864f9481b07c7d9550f1a454de1c",
       "citation": "Comptage des systèmes locaux ℓ-adiques sur une courbe; arXiv:1807.04659v5, 18 July 2022 (journal route labelled 2023)"
     },
@@ -13311,7 +13408,7 @@
     {
       "kind": "published",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61",
       "citation": "Geometric Invariants for Real Quadratic Fields; Annals of Math. 184 (2016), 949–990"
     },
@@ -13346,7 +13443,7 @@
     {
       "kind": "published",
       "url": "https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00129-1.pdf",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "a07a6143d3e71f1eca31b6ba9b774bec325a7de07c7417b7796486a77df13794",
       "citation": "The Global Gan–Gross–Prasad Conjecture for Unitary Groups: the Endoscopic Case; Publ. Math. IHES 135 (2022), 183–337"
     },
@@ -13367,7 +13464,7 @@
     {
       "kind": "published",
       "url": "https://wstein.org/papers/bib/Gross-Zagier_Heegner_points_and_derivatives_of_Lseries.pdf",
-      "read": "2026-10-07",
+      "read": "2026-10-09",
       "sha256": "a9a52cb8662e03f19ace81dcfbf24bf873bf9c46ba89a8c890727b9541abdbf5",
       "citation": "Heegner Points and Derivatives of L-Series; Invent. Math. 84 (1986), 225–320"
     },
@@ -14457,9 +14554,10 @@
       "item": "PAPER-BOXER-CALEGARI-GEE-PILLONI-21/335",
       "decision": "covered",
       "nodes": [
-        "AutomorphicSpectralTheory:AS.4/wallach-cuspidality"
+        "AutomorphicSpectralTheory:AS.1/induced-family",
+        "AutomorphicSpectralTheory:AS.2/isobaric-sum"
       ],
-      "note": "The target-level general node supplies the routed consumer; exact source/proof gaps are retained."
+      "note": "Normalized induction in AS.1 supplies the ordered cuspidal block input; AS.2 constructs the continued isobaric representation, its almost-everywhere uniqueness, Satake union and L-function product. Wallach cuspidality belongs to item228 and does not supply this construction."
     }
   ],
   "review": {
