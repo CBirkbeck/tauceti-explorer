@@ -2,7 +2,7 @@
 
 This document is the reader for the blueprint packet of stages R01.1–R01.6 and G7. It states the mathematical plan; the suggested Lean file proposes names and signatures and claims no implementation. The pinned baselines are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 
-The packet contains **300 nodes**, including **58 definitions and constructions**, **540 API items**, **287 unit tests**, and **40 planets**. It is `complete` as a finished revision pass under the 300-node budget. All seven stages remain `partial`: 37 source/proof gaps, 61 prerequisite requests and the remaining declaration splits are listed explicitly. Every retained node ID is preserved. Nothing is claimed formalised, and every node has implementation status `unchecked`.
+The packet contains **327 nodes**, including **58 definitions and constructions**, **540 API items**, **287 unit tests**, and **40 planets**. It is `complete` as a finished pass at the 300-node planning boundary, with 27 reviewer-added nodes splitting existing statements. The review adds no new targets. All seven stages remain `partial`: 38 source/proof gaps, 61 prerequisite requests and the remaining declaration splits are listed explicitly. Every retained node ID is preserved. Nothing is claimed formalised, and every node has implementation status `unchecked`.
 
 ## Scope and ownership
 
@@ -26,7 +26,7 @@ Tau Ceti already owns algebraic induction and Mackey theory, Jordan–Hölder th
 
 ## How to read the declarations
 
-Each declaration below gives its exact statement, hypotheses, prerequisite chain and proof plan. Source citations retain the edition, theorem, section and page; extracted clauses identify the bundle they came from. A result whose original proof was unobtainable remains a gap even when accessible authors report it. The historical independent review of 8 October 2026 remains in the packet for provenance; the next reviewer replaces its verdict. Its ownership and prototype-parity findings are addressed in this revision, subject to the recorded supplier separation and geometric elaboration limits.
+Each declaration below gives its exact statement, hypotheses, prerequisite chain and proof plan. Source citations retain the edition, theorem, section and page; extracted clauses identify the bundle they came from. A result whose original proof was unobtainable remains a gap even when accessible authors report it. The independent review of 9 October 2026 replaces the previous verdict and records its checks in the packet. Its ownership and prototype-parity findings are addressed in this revision, subject to the recorded supplier separation and geometric elaboration limits.
 
 An API-bearing declaration lists its proposed API and discriminating unit tests. The suggested file gives typed counterparts for the 92 API entries and 51 tests across 30 nodes identified in that review, including the geometric interfaces on the actual Tau Ceti abelian-variety carrier. The geometry uses explicitly identified requested dual, polarization and finite-pairing data; it does not assert those supplier constructions are available. The file as a whole has **not** been compiled at both pins: a Mathlib-only prefix, excluding the geometric section and Tau Ceti imports, elaborated with admitted-proof warnings only. The geometric signatures remain unchecked. Conservative prerequisites of old bundle consumers and remaining declaration splits are listed refinements; the own-node prerequisite graph is acyclic.
 
@@ -2613,7 +2613,7 @@ Let ℓ be prime, Ĝ a split connected reductive group scheme over Z, and Γ pro
 
 ### Remaining work for R01.1
 
-- Budget boundary: this pass has 300 nodes. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
+- Planning boundary: the input has 300 nodes; the reviewed packet has 327 nodes after splitting existing residual-image assertions. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
 - Split ArithmeticGaloisRepresentations:R01.1/continuous-representation into: continuous-representation (definition: the structure ContinuousRep, its morphisms and the coefficient cases (i)–(v)); continuous-iff-matrix-coefficients (lemma: joint continuity ⇔ continuity of matrix coefficients on a free cover ⇔ continuity of all orbit maps); determinant-of-a-continuous-representation (construction: det ρ : Γ → A^× on ⋀^r M for constant rank r, continuous, equal to LinearMap.det ∘ ρ for free M); continuous-representation-versus-contrepresentation (comparison: the underlying Mathlib ContRepresentation and the non-example with discrete Q_ℓ); absolute-galois-group-is-profinite (lemma: compactness, Hausdorff property and total disconnectedness of Field.absoluteGaloisGroup F by transport along TauCeti.absoluteGaloisGroupRestrictEquiv).
 - Split ArithmeticGaloisRepresentations:R01.1/framed-representation into: framed-representation (definition: continuous homomorphisms Γ → GL_n(A)); framed-continuous-iff-coe (lemma: continuity into GL_n(A) ⇔ continuity into M_n(A)); framed-versus-free-representations (lemma: ofFramed, frame, change of basis, and ofFramed ρ ≅ ofFramed ρ′ ⇔ GL_n(A)-conjugate).
 - Split ArithmeticGaloisRepresentations:R01.1/coefficient-extension into: coefficient-extension (construction: the ContinuousRep structure on Representation.baseChange along a continuous ring homomorphism); coefficient-extension-functoriality (lemma: base change along the identity and along composites); coefficient-extension-determinant (lemma: det and charpoly commute with base change); invariants-and-hom-under-field-extension (lemma: (V_{E′})^Γ = V^Γ ⊗ E′ and Hom_Γ(V, W) ⊗ E′ = Hom_Γ(V_{E′}, W_{E′}) for every field extension and every monoid Γ, with the full faithfulness towards Q̄_ℓ).
@@ -3265,7 +3265,7 @@ Planet: **Fundamental characters**.
 - `TauCeti.GaloisRep.fundamentalCharacter_one_eq_cyclotomic` (compatibility): θ_{p−1}^{e(K/Q_p)} = χ̄_p|_{I_K}.
 - `TauCeti.GaloisRep.fundamentalCharacter_two_mul_pow` (simp): for K = Q_p: ω_2 · ω_2^p = ω.
 - `TauCeti.GaloisRep.fundamentalCharacter_restrict` (functoriality): for L/K finite with ramification index e, θ^K restricted along I_{t,L} → I_{t,K} is (θ^L)^e.
-- `TauCeti.GaloisRep.teichmullerFundamentalCharacter` (coercion): the Teichmüller lift [θ_{p^n−1}] := teichmuller(K_n) ∘ θ_{p^n−1} : I_t → μ_{p^n−1}(𝒪[K_n]) ⊂ 𝒪[K_n]^×, K_n the unramified extension of Q_p with residue field F_{p^n} (TauCeti.teichmuller); it is distinct from θ itself. 𝒪[K_n] is the ring of Witt vectors W(F_{p^n}); this identification is in neither Mathlib nor Tau Ceti.
+- `TauCeti.GaloisRep.teichmullerFundamentalCharacter` (coercion): For n>0 and a specified reduction embedding of the prime-to-p root group into F_{p^n}, compose that residual fundamental character with the multiplicative Witt-vector Teichmüller map. The embedding is part of the data.
 
 **Unit tests.**
 
@@ -4286,7 +4286,7 @@ Let K/Q_p be finite with residue cardinality q, ℓ ≠ p, Φ an arithmetic and 
 
 ### Remaining work for R01.2
 
-- Budget boundary: this pass has 300 nodes. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
+- Planning boundary: the input has 300 nodes; the reviewed packet has 327 nodes after splitting existing residual-image assertions. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
 - Split ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place into: decomposition-and-inertia-subgroups-at-a-place-of-the-algebraic-closure (definition: D_{w̄}, I_{w̄}, P_{w̄} for a maximal ideal w̄ of O_{F̄}, with I ≤ D and the conjugation rule D_{σw̄} = σD_{w̄}σ^{-1}); local-embedding-map (construction: ι^* : G_{F_v} → G_F as mapOfAlgebra for the algebra structure of ι, the place w̄(ι), and (ι∘σ)^* = σ^{-1}ι^*σ, (τ_0∘ι)^* = ι^*∘conj(τ_0^{-1})); local-embedding-map-is-a-closed-embedding-onto-the-decomposition-group (theorem: ι^* is injective with image D_{w̄(ι)} and a homeomorphism onto it; includes the passage to the limit over finite Galois L for surjectivity); localisation-of-the-ring-of-algebraic-integers-at-a-place-is-a-valuation-ring (lemma: (O_{F̄})_{w̄} is a valuation subring of F̄, whose decomposition and inertia subgroups are D_{w̄} and I_{w̄}); inertia-and-wild-inertia-under-the-local-embedding-map (lemma: ι^*(I_{F_v}) = I_{w̄(ι)}, ι^*(P_{F_v}) = P_{w̄(ι)}, D/I ≅ Gal(k̄_v/k_v)); places-of-the-algebraic-closure-above-v-are-conjugate (lemma: G_F is transitive on the maximal ideals of O_{F̄} above v, and each is w̄(ι) for some ι); arithmetic-frobenius-lifts-at-a-place (lemma: arithmetic Frobenius lifts at w̄ exist, form a coset of I_{w̄}, and Frob_{σw̄} = σFrob_{w̄}σ^{-1}); decomposition-group-at-finite-level (lemma: the image of D_{w̄} in Gal(L/F) is the stabiliser of w̄ ∩ O_L, compatibly with decompositionHom); complex-conjugation-at-a-real-place (construction: c_ι ∈ G_F of order 2 for ι : F̄ → C over a real embedding, with c_{ι∘σ} = σ^{-1}c_ισ).
 - Split ArithmeticGaloisRepresentations:R01.2/local-restriction into: local-restriction (construction: ρ_ι = ρ∘ι^* as a continuous representation of G_{F_v}); local-restriction-change-of-embedding (lemma: ρ(ι^{-1}∘ι') is an isomorphism ρ_{ι'} → ρ_ι, these isomorphisms compose, and they are the composites of (a) and (b)); local-restriction-of-operations (lemma: local restriction commutes with ⊗, duals, twists, coefficient extension and restriction to G_L); places-above-v-as-double-cosets (lemma: G_L\G_F/D_{w̄} is in bijection with the places of L above v, with stabilisers the G_{L_w}); local-restriction-of-an-induced-representation (theorem: (Ind_{G_L}^{G_F} ρ)_ι ≅ ⊕_{w | v} Ind_{G_{L_w}}^{G_{F_v}} ρ_{ι_w}); local-restriction-of-a-finite-image-representation (lemma: ρ_ι factors through an injective Gal(K_{ρ,𝔭}/F_v) → Aut(M) carrying inertia and wild inertia onto ρ(I_{w̄}), ρ(P_{w̄})).
 - Split ArithmeticGaloisRepresentations:R01.2/unramified-and-ramification-set into: unramified-and-tamely-ramified-local-representations (definition: ρ(I_K) = 1, resp. ρ(P_K) = 1, for a representation of G_K or W_K); unramified-at-a-place (definition: ρ(I_{w̄}) = 1 for one, equivalently every, w̄ above v; equivalently ρ_ι unramified); ramification-set (definition: Ram(ρ) and Ram^{(p)}(ρ), with their behaviour under ⊕, ⊗, duals, restriction and induction); kernel-of-the-quotient-unramified-outside-s (lemma: the kernel of G_F → Gal(F_S/F) is the closed normal subgroup generated by the I_{w̄} for finite v ∉ S); unramified-outside-s-iff-factors-through-g-f-s (lemma: Ram(ρ) ⊂ S iff ρ factors through Gal(F_S/F), F_S with no condition at the archimedean places); ramification-set-of-a-finite-image-representation (lemma: Ram(ρ) = NumberField.Chebotarev.ramifiedPrimes F K_ρ, finite).
@@ -4865,7 +4865,7 @@ Let M/K₀ be a finite totally ramified Galois extension in the local setting, w
 
 **Proof plan.**
 
-1. (b): if char F = ℓ > 0 then ℓ ∤ |G_1|, F[G_1] is semisimple and reduction modulo ℓ is a bijection between the simple modules in characteristic 0 and in characteristic ℓ that preserves the dimensions of the invariants of every subgroup (Brumer–Kramer, Lemma 2.7: the averaging idempotents e_N have coefficients in Z[1/p]). The bijection commutes with conjugation by G_0, so the two stabilisers agree. T/G_1 is cyclic, so the T-stable θ̃ extends to T (Clifford theory and the vanishing of H²(C, C^×) for C cyclic: InductionRestriction layers 5 and 7).
+1. (b): if char F = ℓ > 0 then ℓ ∤ |G_1|, F[G_1] is semisimple and reduction modulo ℓ is a bijection between the simple modules in characteristic 0 and in characteristic ℓ that preserves the dimensions of the invariants of every subgroup (Brumer–Kramer, Lemma 2.7: the averaging idempotents e_N have coefficients in Z[1/p]). The bijection commutes with conjugation by G_0, so the two stabilisers agree. T/G_1 is cyclic, so the T-stable θ̃ extends to T (Clifford theory and the vanishing of H²(C, C^×) for C cyclic: InductionRestriction layers 5 and 7). The equivariant lifting bijection is a named non-routine input, retained as the gap “Modular lifting of wild characters with conjugation compatibility”; Maschke’s theorem and averaging only give semisimplicity and invariant-dimension comparison after a lift exists.
 
 **Acceptance checks.**
 
@@ -6708,7 +6708,7 @@ Let E/Q be elliptic and ℓ≥5 prime. Write E[ℓ] for the actual continuous re
 
 ### Remaining work for R01.3
 
-- Budget boundary: this pass has 300 nodes. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
+- Planning boundary: the input has 300 nodes; the reviewed packet has 327 nodes after splitting existing residual-image assertions. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
 - Split ArithmeticGaloisRepresentations:R01.3/breaks-and-swan-conductor into: absolute-upper-ramification-filtration (definition: G_K^u := the σ whose image in every finite Galois Gal(L/K) lies in Gal(L/K)^u, closed normal antitone); absolute-upper-filtration-quotients (lemma: the image of G_K^u in Gal(L/K) is Gal(L/K)^u, G_K^0 = I_K, the closure of ⋃_{u>0} G_K^u is P_K, ⋂ G_K^u = 1); break-decomposition (construction: the unique G_K-stable decomposition V = ⊕ V(λ) with its invariance conditions); swan-conductor (definition: Sw(V) = Σ λ·dim V(λ)); swan-conductor-integral-and-lower-sum (lemma: Sw(V) = ∫_0^∞ codim V^{ρ(G_K^u)} du = Σ_{i≥1} (|G_i|/|G_0|)·codim V^{G_i}, independent of L)
 - Split ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part into: artin-conductor (definition: a(V) = codim V^{ρ(I_K)} + Sw(V)); artin-conductor-lower-sum (lemma: a(V) = Σ_{i≥0} (|G_i|/|G_0|)·codim V^{G_i} for finite inertia image); inertia-invariants-eq-kernel-of-monodromy (lemma: V^{ρ(I_K)} = (ker N)^{r(I_K)} for WD(ρ) = (r, N)); artin-conductor-vs-class-field-theory (comparison: a(χ) = characterConductorExp(χ ∘ artinMap), on the gap 'One-dimensional comparison with class field theory')
 - Split ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation into: wd-conductor (definition: a(r, N) = Sw(r) + dim V − dim (ker N)^{r(I_K)}); artin-conductor-eq-wd-conductor (theorem: a(ρ) = a(WD(ρ)) for ℓ ≠ p, for every choice in the functor); wd-conductor-frobenius-semisimplification (lemma: a(r^{F-ss}, N) = a(r, N))
@@ -7528,7 +7528,7 @@ Let p be a prime, s = p^n, and H a subgroup of PSL_2(F_s) (the image of SL_2(F_s
 
 `ArithmeticGaloisRepresentations:R01.4/finite-subgroups-of-pgl2-of-order-prime-to-the-characteristic` · theorem · implementation unchecked
 
-Let K be an algebraically closed field and H ⊂ PGL_2(K) a finite subgroup whose order Ω is not divisible by the characteristic of K (no condition in characteristic 0). Then H is cyclic, or dihedral of order 2n with n ≥ 2, or Ω ∈ {12, 24, 60} and H is isomorphic to A_4, S_4, A_5 respectively. More precisely, every non-identity element of H lies in exactly one maximal cyclic subgroup of H; if d_1, …, d_r are the orders of representatives of the conjugacy classes of maximal cyclic subgroups and f_i ∈ {1, 2} the index of each in its normaliser in H, then 1 − Σ_i (d_i − 1)/(f_i d_i) = 1/Ω, r ≤ 3, and the solutions are: r = 1 (cyclic); r = 2 with (d_1, d_2) = (2, n), n odd (dihedral) or (3, 2), Ω = 12 (A_4); r = 3 with (n, 2, 2), n even (dihedral), (4, 3, 2), Ω = 24 (S_4), (5, 3, 2), Ω = 60 (A_5). Consequently every element of A_4, S_4, A_5 ⊂ PGL_2(K) has order 1, 2, 3, 4 or 5, and the statement holds for finite subgroups of PGL_2(k) for any field k of characteristic not dividing Ω (Serre 1972, Proposition 16).
+Let K be an algebraically closed field and H ⊂ PGL_2(K) a finite subgroup whose order Ω is not divisible by the characteristic of K (no condition in characteristic 0). Then H is cyclic, or dihedral of order 2n with n ≥ 2, or Ω ∈ {12, 24, 60} and H is isomorphic to A_4, S_4, A_5 respectively. More precisely, every non-identity element of H lies in exactly one maximal cyclic subgroup of H; if d_1, …, d_r are the orders of representatives of the conjugacy classes of maximal cyclic subgroups and f_i ∈ {1, 2} the index of each in its normaliser in H, then 1 − Σ_i (d_i − 1)/(f_i d_i) = 1/Ω, r ≤ 3, and the solutions are: r = 0, Ω = 1 (the trivial cyclic group); r = 1 (cyclic); r = 2 with (d_1, d_2) = (2, n), n odd (dihedral) or (3, 2), Ω = 12 (A_4); r = 3 with (n, 2, 2), n even (dihedral), (4, 3, 2), Ω = 24 (S_4), (5, 3, 2), Ω = 60 (A_5). Consequently every element of A_4, S_4, A_5 ⊂ PGL_2(K) has order 1, 2, 3, 4 or 5, and the statement holds for finite subgroups of PGL_2(k) for any field k of characteristic not dividing Ω (Serre 1972, Proposition 16).
 
 **Hypotheses.**
 
@@ -7550,7 +7550,7 @@ Let K be an algebraically closed field and H ⊂ PGL_2(K) a finite subgroup whos
 1. An element of H of order d > 1 lifts to a matrix of finite order prime to char K, hence diagonalisable and non-scalar; it has exactly two fixed points on P¹(K) and lies in a unique maximal torus T of PGL_2(K), the stabiliser of the two points, T ≅ K^× (for K = F̄_p this is the Cartan subgroup containing it, R01.4/cartan-subgroups-and-normalisers). H ∩ T is a finite subgroup of K^×, hence cyclic (mathlib:isCyclic_subgroup_units); these groups H ∩ T ≠ 1 are the maximal cyclic subgroups of H, and two distinct ones meet in the identity (Dickson §256, quoting his §§242–243).
 2. The normaliser of T in PGL_2(K) is T ⋊ ℤ/2 (the elements preserving the pair of fixed points), and an element of H normalising C = H ∩ T ≠ 1 normalises T. So N_H(C) is C, or contains C with index 2 and is then dihedral (elements outside T invert T). Hence C has Ω/(f·d) conjugates in H with d = |C| and f ∈ {1, 2}.
 3. Counting the non-identity elements of H by maximal cyclic subgroups gives Dickson's relation 256): Ω = 1 + Σ_i (d_i − 1)·Ω/(f_i d_i), i.e. 259): 1 − Σ_i (d_i − 1)/(f_i d_i) = 1/Ω. Each term is ≥ 1/4, so r ≤ 3 (Dickson, p. 281).
-4. Case analysis (Dickson, pp. 281–282). r = 1: f_1 = 1 and Ω = d_1, H cyclic. r = 2: (f_1, f_2) = (1, 2) up to order, d_1 < 4; d_1 = 2 gives Ω = 2d_2 and H dihedral with d_2 odd; d_1 = 3 gives d_2 = 2, Ω = 12, with four conjugate subgroups of order 3 and three involutions forming a normal four-group, so H ≅ A_4 (mathlib:alternatingGroup). r = 3: all f_i = 2 and 1 + 2/Ω = 1/d_1 + 1/d_2 + 1/d_3; one d_i is 2; if two are, H is dihedral of order 2d_1 with d_1 even (mathlib:DihedralGroup); otherwise (d_1, 3, 2) with d_1 ∈ {3, 4, 5} and Ω = 12, 24, 60, and d_1 = 3 is excluded by relation 258) (two non-conjugate cyclic subgroups of odd orders d_i, d_j force Ω ≥ d_i(d_j − 1) + d_j(d_i − 1) + 1).
+4. Case analysis (Dickson, pp. 281–282). If H is trivial there are no nontrivial maximal cyclic subgroups, r = 0 and Ω = 1. Otherwise r ≥ 1. r = 1: f_1 = 1 and Ω = d_1, H cyclic. r = 2: (f_1, f_2) = (1, 2) up to order, d_1 < 4; d_1 = 2 gives Ω = 2d_2 and H dihedral with d_2 odd; d_1 = 3 gives d_2 = 2, Ω = 12, with four conjugate subgroups of order 3 and three involutions forming a normal four-group, so H ≅ A_4 (mathlib:alternatingGroup). r = 3: all f_i = 2 and 1 + 2/Ω = 1/d_1 + 1/d_2 + 1/d_3; one d_i is 2; if two are, H is dihedral of order 2d_1 with d_1 even (mathlib:DihedralGroup); otherwise (d_1, 3, 2) with d_1 ∈ {3, 4, 5} and Ω = 12, 24, 60, and d_1 = 3 is excluded by relation 258) (two non-conjugate cyclic subgroups of odd orders d_i, d_j force Ω ≥ d_i(d_j − 1) + d_j(d_i − 1) + 1).
 5. Identification. Ω = 24, (4, 3, 2): H has four subgroups of order 3 and acts on them by conjugation; the kernel lies in a normaliser of order 6 and is trivial (it cannot contain a subgroup of order 3, which is not normal, and a normal subgroup of order 2 would be central, whereas the centraliser of an element of order 3 is contained in its torus), so H ≅ S_4 (mathlib:Equiv.Perm; Dickson §248). Ω = 60, (5, 3, 2): H has ten subgroups of order 3 and fifteen involutions in five conjugate four-groups, acts faithfully on these five four-groups, and is the alternating group on five letters (Dickson §254, pp. 278–279).
 
 **Acceptance checks.**
@@ -7803,7 +7803,7 @@ Planet: **Bad dihedral representation**.
 **Proof plan.**
 
 1. (a) ⇐ is clear. ⇒: suppose ρ|_{G_{F′}} irreducible and ρ|_{G_L} reducible. If char k | |ρ(G_L)|, the normal unipotent subgroup O_p(ρ(G_L)) fixes a unique line, which ρ(G_{F′}) stabilises (R01.4/p-subgroups-and-borel-subgroups): contradiction. So ρ(G_L) ≅ ψ_1 ⊕ ψ_2 is diagonalisable. If ψ_1 = ψ_2, ρ(G_L) is scalar, π(ρ(G_{F′})) is cyclic, ρ(G_{F′}) abelian and reducible: contradiction. If ψ_1 ≠ ψ_2, G_F (which normalises G_L) permutes the two eigenlines through G_F/G_L = Gal(L/F) → S_2; every element of Gal(L/F′) is a square in the cyclic group Gal(L/F), so acts trivially, and G_{F′} stabilises both lines: contradiction.
-2. (b) Apply (a) to L = F(ζ_p) and L = F(ζ_{p^m}) (cyclic over F since p is odd: Gal(F(ζ_{p^m})/F) embeds in (ℤ/p^m)^× by mathlib:IsPrimitiveRoot.autToPow_injective, and (ℤ/p^m)^× is cyclic by mathlib:ZMod.isCyclic_units_of_prime_pow); [F(ζ_{p^m}) : F(ζ_p)] is a power of p, odd, so both have the same subfield F′. This replaces the case analysis of the source proof (Borel / split Cartan normaliser / A_4, S_4), which is also correct.
+2. (b) Apply (a) to L = F(ζ_p) and L = F(ζ_{p^m}) (cyclic over F since p is odd: Gal(F(ζ_{p^m})/F) embeds in (ℤ/p^m)^× by mathlib:IsPrimitiveRoot.autToPow_injective, and (ℤ/p^m)^× is cyclic by mathlib:ZMod.isCyclic_units_of_prime_pow); [F(ζ_{p^m}) : F(ζ_p)] is a power of p, odd, so both have the same subfield F′. This gives a direct proof of the conclusion without the erroneous normal-abelian-subgroup step in the source case analysis (E793).
 3. (c) G_{F′} is normal of index 2 in G_F (F′ ≠ F, since ρ̄ is absolutely irreducible and ρ̄|_{G_{F′}} is not). Apply R01.4/dihedral-projective-image-iff-induced (d) to Γ = G_F, Γ′ = G_{F′} and ρ̄ ⊗ F̄_p: Γ/Γ′ is cyclic, so ρ̄(G_{F′}) is diagonalisable with two distinct characters χ, χ^σ, G_F swaps the eigenlines and ρ̄ ⊗ F̄_p ≅ Ind χ; the projective image is dihedral of order 2n with p ∤ n by part (a) of that node. The image of G_{F′} is diagonalisable, of order prime to p, and has index 2 in ρ̄(G_F); p is odd.
 4. (d) Following the source (after Ribet 1997 Prop. 2.2): the image has no element of order p, so ρ̄|_{I_p} is tame, semisimple, with cyclic projective image. By (c) the projective image is dihedral and π(ρ̄(G_{ℚ(√p*)})) is a cyclic subgroup C of index 2 in it. Every element outside C has order 2 (it swaps the two eigenlines of ρ̄(G_{ℚ(√p*)}), so its square is scalar), hence a cyclic subgroup not contained in C has order 2. If π(ρ̄(I_p)) had order > 2 it would lie in C, so I_p ⊂ G_{ℚ(√p*)} and ℚ(√p*) would be unramified at p, a contradiction (its quadratic character has conductor p, so it is ramified at p, R01.2/cyclotomic-and-dirichlet-characters (c)); in fact I_p ⊄ G_{ℚ(√p*)} shows that the order is exactly 2. The niveau computations: ω has order p − 1 and ω_2^{b(1−p)} has order (p + 1)/gcd(p + 1, b).
 
@@ -8139,7 +8139,7 @@ Let F be a finite field of characteristic 2, F_0 ⊂ F a subfield with |F_0| = 2
 
 ### Remaining work for R01.4
 
-- Budget boundary: this pass has 300 nodes. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
+- Planning boundary: the input has 300 nodes; the reviewed packet has 327 nodes after splitting existing residual-image assertions. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
 - Split ArithmeticGaloisRepresentations:R01.4/odd-representation into: complex-conjugation (construction: c_ι = ι⁻¹ ∘ conj ∘ ι ∈ G_F for an embedding F̄ → ℂ above a real place, of order 2); complex-conjugations-conjugate (lemma: two embeddings above the same real place give conjugate elements); totally-odd-character (definition: μ(c_v) = −1 at every real place); odd-representation (definition: det ρ(c_v) = −1 at every real place, with IsNontrivialAt and conventions (a)–(c)); odd-iff-conjugate-to-diag-one-minus-one (lemma: over a field of characteristic ≠ 2, odd at v iff ρ(c_v) ∼ diag(1, −1) iff trace 0).
 - Split ArithmeticGaloisRepresentations:R01.4/subgroups-of-psl2-with-several-sylow-p-subgroups along Dickson's steps into: p-elements-and-sylow-count (lemma: the p-elements lie in the groups H ∩ U_μ, conjugate, 1 + f·p^m in number; f = 0 fixes a point; Dickson §251); additive-group-is-a-field (lemma: inequality 252), m = k and the two cases [A], [B]); case-a-psl2-or-dihedral (lemma: Dickson §252); case-b-pgl2-or-icosahedral (lemma: inequality 255), f ∈ {1, 3}; Dickson §253); group-of-order-60-with-ten-sylow-3-is-a5 (lemma: Dickson §254).
 - Split ArithmeticGaloisRepresentations:R01.4/finite-subgroups-of-pgl2-of-order-prime-to-the-characteristic into: maximal-cyclic-subgroups-partition (lemma: every non-identity element lies in one maximal cyclic subgroup H ∩ T, with normaliser of index 1 or 2); class-equation-for-pgl2-subgroups (lemma: 1 − Σ (d_i − 1)/(f_i d_i) = 1/Ω and r ≤ 3); solutions-of-the-class-equation (lemma: the five families of solutions); recognition-of-a4-s4-a5 (lemma: groups with the data (3, 2), (4, 3, 2), (5, 3, 2) are A_4, S_4, A_5).
@@ -10100,7 +10100,7 @@ Let F_q be a finite field of characteristic p, C a smooth geometrically connecte
 
 ### Remaining work for R01.5
 
-- Budget boundary: this pass has 300 nodes. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
+- Planning boundary: the input has 300 nodes; the reviewed packet has 327 nodes after splitting existing residual-image assertions. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
 - Split ArithmeticGaloisRepresentations:R01.5/brauer-class-of-an-absolutely-irreducible-representation into: trace-field (definition: k(ρ)); image-algebra (construction: B(ρ), central simple of dimension n², base change to M_n(k̄), characteristic polynomials in k(ρ), comparison with k[Γ]/ker(D)); trace-dual-basis (lemma: if e_1, …, e_{n²} ∈ ρ(Γ) is a k̄-basis of M_n(k̄) then B(ρ) = Σ k(ρ)e_i); brauer-class-of-an-absolutely-irreducible-representation (construction: β(ρ) and the Schur index, with the remaining API and tests).
 - Read H. Carayol, Formes modulaires et représentations galoisiennes à valeurs dans un anneau local complet, Contemp. Math. 165 (1994), 213–237, Théorèmes 1 and 2, add it to the sources and check the attribution stated in the hypotheses of ArithmeticGaloisRepresentations:R01.5/carayol-lifts-recognition (the trace form of part (a); the descent of a lift to the subring generated by the traces is not yet a node).
 - Read J. Nekovář, Eichler–Shimura relations and semisimplicity of étale cohomology of quaternionic Shimura varieties, Ann. Sci. Éc. Norm. Supér. (4) 51 (2018), Proposition 3.10 with hypotheses (A′), (C′) and case (3), and N. Boston, H. W. Lenstra, K. A. Ribet, Quotients of group rings arising from two-dimensional representations, C. R. Acad. Sci. Paris 312 (1991): they are the missing input of ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria (a) and of step 4 of (b) (gap 'Nekovář's semisimplicity criterion').
@@ -11137,12 +11137,12 @@ Let F be a field of finite type over Q, S a normal absolutely irreducible F-vari
 
 `ArithmeticGaloisRepresentations:R01.6/required-examples` · application · implementation unchecked
 
-(1) χ_p: the Tate module of μ_{p^∞} is Z_p(1) with G_Q acting through χ_p, χ_p(Frob_ℓ) = ℓ for ℓ ≠ p, χ_p(c) = −1, HT(χ_p) = +1; it is det T_pE for every elliptic curve E/Q (node determinant-and-oddness). (2) Split Tate curve: for a p-adic field K, q ∈ K^× with |q| < 1 and ℓ ≠ p, Tau Ceti's uniformisation K̄^×/q^Z ≅ E_q(K̄) gives 0 → Z_ℓ(1) → T_ℓE_q → Z_ℓ → 0, the extension class being the Kummer class of q; inertia acts through a nontrivial unipotent (so V_ℓE_q is ramified, with (V_ℓE_q)^{I} = Q_ℓ(1)), the Frobenius polynomial on V_ℓ^{I} is X − q_K (q_K the cardinality of the residue field of K, not the Tate parameter q) and L(E_q, T) = 1 − T; example 11a3 at 11. (3) Supersingular good reduction: y² = x³ + 1 over Q at p ∈ {5, 11, 17, 23} has a_p = 0 and P_p(X) = X² + p; in general, for a curve over Q (residue field F_p), good supersingular reduction at p ≥ 5 forces a_p = 0 (p | a_p and |a_p| ≤ 2√p < p). (4) CM curve over Q: y² = x³ − x (CM by Z[i]): ρ_{E,ℓ}(G_Q) lies in the normaliser of the Cartan subgroup (Z[i] ⊗ Z_ℓ)^×, ρ_{E,ℓ}|_{G_{Q(i)}} is abelian (the λ-adic Hecke character), V_ℓE ⊗ Q̄_ℓ ≅ Ind_{G_{Q(i)}}^{G_Q} ψ, and a_p = 0 for p ≡ 3 mod 4. (5) Frobenius conventions on a finite field: for E/F_q with a = q + 1 − #E(F_q), the arithmetic Frobenius φ : x ↦ x^q acts on T_ℓE as π (characteristic polynomial X² − aX + q), the geometric Frobenius φ^{−1} as π^{−1} (X² − (a/q)X + 1/q), and on H¹ = V_ℓE^∨ the geometric Frobenius has characteristic polynomial X² − aX + q, so det(1 − TΦ | H¹) = 1 − aT + qT² is the local factor; for y² = x³ − x over F_5: X² + 2X + 5, X² + (2/5)X + 1/5, X² + 2X + 5 and 1 + 2T + 5T².
+(1) χ_p: the Tate module of μ_{p^∞} is Z_p(1) with G_Q acting through χ_p, χ_p(Frob_ℓ) = ℓ for ℓ ≠ p, χ_p(c) = −1, HT(χ_p) = +1; it is det T_pE for every elliptic curve E/Q (node determinant-and-oddness). (2) Split Tate curve: for a p-adic field K, q ∈ K^× with |q| < 1 and ℓ ≠ p, Tau Ceti's uniformisation K̄^×/q^Z ≅ E_q(K̄) gives 0 → Z_ℓ(1) → T_ℓE_q → Z_ℓ → 0, the extension class being the Kummer class of q; inertia acts through a nontrivial unipotent (so V_ℓE_q is ramified, with (V_ℓE_q)^{I} = Q_ℓ(1)), the Frobenius polynomial on V_ℓ^{I} is X − q_K (q_K the cardinality of the residue field of K, not the Tate parameter q) and L(E_q, T) = 1 − T; example 11a3 at 11. (3) Supersingular good reduction: y² = x³ + 1 over Q at p ∈ {5, 11, 17, 23} has a_p = 0 and P_p(X) = X² + p; in general, for a curve over Q (residue field F_p), good supersingular reduction at p ≥ 5 forces a_p = 0 (p | a_p and |a_p| ≤ 2√p < p). (4) CM curve over Q: y² = x³ − x (CM by Z[i]): ρ_{E,ℓ}(G_Q) lies in the normaliser of the Cartan subgroup (Z[i] ⊗ Z_ℓ)^×, ρ_{E,ℓ}|_{G_{Q(i)}} is abelian and splits after coefficient extension into one-dimensional Galois characters, V_ℓE ⊗ Q̄_ℓ ≅ Ind_{G_{Q(i)}}^{G_Q} ψ, and a_p = 0 for p ≡ 3 mod 4. (5) Frobenius conventions on a finite field: for E/F_q with a = q + 1 − #E(F_q), the arithmetic Frobenius φ : x ↦ x^q acts on T_ℓE as π (characteristic polynomial X² − aX + q), the geometric Frobenius φ^{−1} as π^{−1} (X² − (a/q)X + 1/q), and on H¹ = V_ℓE^∨ the geometric Frobenius has characteristic polynomial X² − aX + q, so det(1 − TΦ | H¹) = 1 − aT + qT² is the local factor; for y² = x³ − x over F_5: X² + 2X + 5, X² + (2/5)X + 1/5, X² + 2X + 5 and 1 + 2T + 5T².
 
 **Hypotheses.**
 
 - ℓ ≠ p in (2)–(5)
-- the CM and Hecke-character statements of (4) are owned by ComplexMultiplicationAndExplicitReciprocity CM.4; this node only computes them on the Tate module
+- The CM example (4) uses a one-dimensional Galois character ψ supplied by the Tate-module eigenspace decomposition. Its identification with an algebraic Hecke character is a further theorem owned by ComplexMultiplicationAndExplicitReciprocity CM.4; this node does not assert that identification.
 
 **Prerequisites.**
 
@@ -11182,7 +11182,7 @@ Let F be a field of finite type over Q, S a normal absolutely irreducible F-vari
 
 ### Remaining work for R01.6
 
-- Budget boundary: this pass has 300 nodes. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
+- Planning boundary: the input has 300 nodes; the reviewed packet has 327 nodes after splitting existing residual-image assertions. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
 - Split ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety into: torsion-points-of-an-abelian-variety (construction: A[N](K^sep) with its G_K-action through a finite quotient); structure-of-torsion-points (lemma: A[N](K^sep) ≅ (Z/N)^{2g} and [N] : A[MN] → A[M] is surjective on K^sep-points); tate-module-of-an-abelian-variety (construction: T_ℓA = lim A[ℓ^n](K^sep) with the limit topology, equal to the module topology); tate-module-free-of-rank-2g (theorem: T_ℓA is free of rank 2g and T_ℓA/ℓ^n ≅ A[ℓ^n](K^sep) equivariantly); tate-module-representation (construction: (T_ℓA, ρ_{A,ℓ}) in ContinuousRep, and V_ℓA); division-fields-and-kernels (lemma: ker(ρ mod ℓ^n) = G_{K(A[ℓ^n])}); tate-module-change-of-algebraic-closure (lemma: dependence on the algebraic closure, up to the action of G_K); adelic-tate-module (construction: T̂A = ∏ T_ℓA).
 - Add the lemma used by ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety and by R01.1/tate-twist: an inverse limit of free Z/ℓ^n-modules of rank r along surjections that reduce compatibly is a free Z_ℓ-module of rank r whose limit topology is the ℓ-adic topology.
 - Split ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation into: residual-representation-is-torsion (lemma: T_ℓA/ℓ^n ≅ A[ℓ^n](K^sep) and ρ̄_{A,ℓ} = A[ℓ](K^sep)); residual-semisimplification-of-any-lattice (lemma: (Λ/ℓΛ)^ss ≅ A[ℓ]^ss for every stable lattice Λ); stable-lines-and-rational-isogenies (theorem: G_K-stable lines of E[ℓ] are the kernels of K-rational ℓ-isogenies); characters-of-a-reducible-residual-representation (lemma: ψ on the line, χ̄_ℓψ^{−1} on the quotient, and the case ℓ = 2); tate-module-of-a-quadratic-twist (lemma: T_ℓ(E^L) ≅ T_ℓE ⊗ ε_L, from the pinned quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map).
@@ -11210,7 +11210,7 @@ Let F be a field of finite type over Q, S a normal absolutely irreducible F-vari
 - Replace stage-level prerequisites by node ids when the suppliers export them: AbelianSchemesAndArithmeticModuli A3 ([n] finite étale, kernels of isogenies, the finite Weil pairing with its formula on points, the polarization pairing) and A1 (Weierstrass curves as one-dimensional abelian varieties); Tau Ceti EllipticCurves Layer 1 (point map of an isogeny, dual isogeny, Vélu quotient), Layer 2 (E[N], Weil pairing, T_ℓW, determinant), Layer 3 (point maps of π and 1 − π), Layer 4 (Néron–Ogg–Shafarevich (i), (ii), j-integrality, Tate curve and ATAEC V.5.3), Layer 5 (twists for j ≠ 0, 1728; nonsplit to split); JacobianChallenge layer E (dual, φ_L, polarizations); LocalFieldsRamification Layer 2; NumberFieldArithmetic layer 5.
 - Elaborate the typed geometric interfaces against the actual pinned TauCeti.AlgebraicGeometry.AbelianVariety carrier when a build containing both pins is available. Every API and test in the previous review’s Appendix B now has a typed counterpart; the Mathlib-only slice check does not elaborate the geometric section or establish its supplier constructions.
 
-## G7 — 50 declarations
+## G7 — 77 declarations
 
 **Coverage: partial.** The following is the current plan at the node budget boundary.
 
@@ -12393,7 +12393,7 @@ Let K be a field, G an affine group scheme of finite type over K and Σ ⊂ G(K)
 
 1. I(Σ) is a Hopf ideal: if f vanishes on Σ then Δf vanishes on Σ × Σ, and the map O(G)/I ⊗ O(G)/I → Fun(Σ × Σ, K) is injective (tensor product of injections into function spaces), so Δf ∈ I ⊗ O + O ⊗ I; S(f) and ε(f) similarly. Then Tau Ceti hopfIdealOrderIsoClosedSubgroup gives the closed subgroup scheme.
 2. Base change: I(Σ) ⊗ Ω = I_Ω(Σ) by linear algebra (functions on Σ with values in K vs Ω).
-3. Γ^0 open of finite index: G_ρ^0 has finite index in G_ρ (π_0 finite, Tau Ceti component group results) and ρ(Γ) ∩ G_ρ^0(K̄) is a finite-index subgroup closed in ρ(Γ), hence open since ρ(Γ) is compact.
+3. Γ^0 open of finite index: G_ρ^0 has finite index in G_ρ (π_0 finite, Tau Ceti component group results) and ρ(Γ) ∩ G_ρ^0(K̄) is a finite-index subgroup closed in ρ(Γ), hence open: its finitely many cosets are closed, so its complement is closed. This argument requires the Hausdorff coefficient field topology and continuity, and works without compactness of Γ.
 4. (a), (b): [Bor91, Ch. I §2.1(f) and §2.4], as cited by NT26. (a): α(Σ̄) is closed (the image of a homomorphism of algebraic groups is closed) and contains α(Σ); conversely the preimage under α of the closure of α(Σ) is a closed subgroup containing Σ. (b): the commutator map is continuous, so [Σ̄, Σ̄] lies in the closure of [Σ, Σ], which is a subgroup; conversely D(Σ̄) is closed and contains [Σ, Σ]. The two inputs, closedness of images and of derived groups, are recorded in the gap on Borel.
 5. (c): a faithful semisimple representation in characteristic 0 forces trivial unipotent radical (Tau Ceti ReductiveGroups layer 6, linearly reductive characterisation).
 6. (d): ReductiveGroups layer 6 (requested). (e): G7/simplicity-of-pgl2-over-an-algebraically-closed-field (3) (Mathlib Subgroup.goursat with the simplicity of PGL_2(Ω)) gives the alternative on Ω-points. In the graph case the first projection is a bijective homomorphism of algebraic groups, an isomorphism in characteristic 0 (gap), so φ = pr_2 ∘ pr_1^{−1} is an automorphism of the algebraic group PGL_2, and the adjoint representation is functorial for isomorphisms of algebraic groups (ReductiveGroups layer 2, requested): dφ ∘ Ad(a) = Ad(φ(a)) ∘ dφ.
@@ -12405,7 +12405,7 @@ Let K be a field, G an affine group scheme of finite type over K and Σ ⊂ G(K)
 - `TauCeti.GaloisRep.monodromyGroup` (constructor): G_ρ := closure of ρ(Γ) in GL(V).
 - `TauCeti.GaloisRep.monodromyIdentityComponent` (constructor): G_ρ^0 and Γ^0 = ρ^{−1}(G_ρ^0(K̄)), open normal of finite index.
 - `TauCeti.GaloisRep.componentField` (constructor): F_ρ^0/F finite Galois with Gal(F_ρ^0/F) ≅ ρ(Γ)/(ρ(Γ) ∩ G_ρ^0).
-- `TauCeti.AlgebraicGroup.zariskiClosure_map` (functoriality): closure(α(Σ)) = α(Σ̄) over algebraically closed fields.
+- `TauCeti.AlgebraicGroup.zariskiClosure_map` (functoriality): For a subgroup Σ of the points of a finite-type affine algebraic group over an algebraically closed field and a group homomorphism α, closure(α(Σ)) = α(Σ̄), including closedness of the image. Arbitrary subsets are not admissible for the image-closedness conclusion.
 - `TauCeti.AlgebraicGroup.zariskiClosure_commutator` (relation): closure([Σ, Σ]) = D(Σ̄).
 - `TauCeti.GaloisRep.monodromyGroup_baseChange` (compatibility): G_{ρ⊗K′} = (G_ρ)_{K′} for field extensions K′/K.
 - `TauCeti.GaloisRep.isReductive_identityComponent_of_semisimple` (relation): Characteristic 0, ρ semisimple ⇒ G_ρ^0 reductive.
@@ -12635,7 +12635,7 @@ Let F be a number field and ℓ a prime. Hodge–Tate weights are labelled and n
 
 1. (1), existence: take a lift ρ_0 of P, unramified almost everywhere (G7/lifting-projective-representations). By G7/roots-of-characters-up-to-finite-order with m = 2, det ρ_0 = ψ^2χ_0 with χ_0 of finite order; put ρ = ρ_0 ⊗ ψ^{−1}, so det ρ = χ_0. In rank two and characteristic 0, Sym^2 ρ ≅ ad⁰ ρ ⊗ det ρ (G7/adjoint-representations) and ρ ⊗ ρ ≅ Sym^2 ρ ⊕ det ρ (G7/symmetric-and-exterior-powers), so ρ ⊗ ρ is de Rham, in particular Hodge–Tate, at each v | ℓ. Sen's operator of ρ ⊗ ρ is Θ ⊗ 1 + 1 ⊗ Θ (requested from PadicHodgeTheory), so for the eigenvalues a, b of Θ_ρ at an embedding, 2a, a + b and 2b are integers: a, b ∈ (1/2)Z. This route does not use the theorem of Wintenberger and Conrad (Patrikis, Theorem 2.1.6), to which Patrikis appeals.
 2. (1), every lift with weights in (1/2)Z: ad⁰ ρ is Hodge–Tate, so a − b ∈ Z and then a + b = (a − b) + 2b ∈ Z. The character det ρ has integral Hodge–Tate–Sen weight, so it is Hodge–Tate, hence de Rham (PadicHodgeTheory:R06.2/hodge-tate-characters-are-de-rham), and Sym^2 ρ ≅ ad⁰ ρ ⊗ det ρ is de Rham. Both are unramified almost everywhere because ρ is (G7/lifting-projective-representations (3)).
-3. (2): P is geometric, because ad⁰ of a lift of P restricts on G_{F′} to ad⁰ s and being de Rham or unramified can be tested on an open subgroup. Take r̃ as in (1); r̃|_{G_{F′}} and s have the same projectivisation, so r̃|_{G_{F′}} = s ⊗ ψ for a continuous character ψ of G_{F′}, whose Hodge–Tate–Sen weights lie in (1/2)Z. For an embedding τ′ of F′ above an embedding τ of F, the weights of r̃ at τ are those of s ⊗ ψ at τ′, namely {x_{τ′} − 1, x_{τ′}} with x_{τ′} the weight of ψ at τ′; so x_{τ′} = x_τ depends only on τ, and the character det r̃ of G_F has weight 2x_τ − 1 at τ. By Patrikis Lemma 2.3.17 (F totally real) these weights are all equal, so x_τ = x ∈ (1/2)Z for every τ. There is a character θ of G_F with all Hodge–Tate–Sen weights −x (G7/roots-of-characters-up-to-finite-order with m = 2 applied to χ_ℓ^{−2x}); replace r̃ by r̃ ⊗ θ. Now ψ has all weights 0, so r̃|_{G_{F′}} is Hodge–Tate with the weights of s, and so is r̃ (finite extension). A character with Sen operator 0 has finite image on inertia at the places above ℓ (PadicHodgeTheory:R06.2/hodge-tate-characters-are-de-rham) and ψ is unramified almost everywhere, so ψ has finite order by class field theory (the character argument used in BCGP21, printed p. 254).
+3. (2): P is geometric, because ad⁰ of a lift of P restricts on G_{F′} to ad⁰ s and being de Rham descends along a finite local extension. Unramifiedness almost everywhere descends along the finite global extension F′/F: outside its finitely many ramified places, the local inertia groups identify, and only finitely many places below the ramification set of s need be added. Local unramifiedness itself does not descend across a ramified extension. Take r̃ as in (1); r̃|_{G_{F′}} and s have the same projectivisation, so r̃|_{G_{F′}} = s ⊗ ψ for a continuous character ψ of G_{F′}, whose Hodge–Tate–Sen weights lie in (1/2)Z. For an embedding τ′ of F′ above an embedding τ of F, the weights of r̃ at τ are those of s ⊗ ψ at τ′, namely {x_{τ′} − 1, x_{τ′}} with x_{τ′} the weight of ψ at τ′; so x_{τ′} = x_τ depends only on τ, and the character det r̃ of G_F has weight 2x_τ − 1 at τ. By Patrikis Lemma 2.3.17 (F totally real) these weights are all equal, so x_τ = x ∈ (1/2)Z for every τ. There is a character θ of G_F with all Hodge–Tate–Sen weights −x (G7/roots-of-characters-up-to-finite-order with m = 2 applied to χ_ℓ^{−2x}); replace r̃ by r̃ ⊗ θ. Now ψ has all weights 0, so r̃|_{G_{F′}} is Hodge–Tate with the weights of s, and so is r̃ (finite extension). A character with Sen operator 0 has finite image on inertia at the places above ℓ (PadicHodgeTheory:R06.2/hodge-tate-characters-are-de-rham) and ψ is unramified almost everywhere, so ψ has finite order by class field theory (the character argument used in BCGP21, printed p. 254).
 
 **Acceptance checks.**
 
@@ -13012,70 +13012,36 @@ Let p be a prime, q = p^r, F = F_q, T′ a subgroup of the diagonal torus of GL�
 
 `ArithmeticGaloisRepresentations:G7/adequacy-criteria` · theorem · implementation unchecked
 
-Let p be a prime, k a field of characteristic p and H ⊆ GL_n(k) a finite subgroup; 'adequate' and 'GHT-adequate' are as in G7/adequate-subgroup. (1) (Guralnick–Herzig–Taylor–Thorne, appendix to Thorne 2012, Theorem 9, cited as Theorem A.9) Suppose H acts irreducibly on k̄^n, let H⁺ be the subgroup generated by the elements of p-power order (then k̄^n is a semisimple H⁺-module) and let d be the largest dimension of an irreducible H⁺-submodule of k̄^n. If p ≥ 2(d+1), then H⁰(H, ad⁰) = H¹(H, ad⁰) = H¹(H, k) = 0 and the semisimple elements of H span ad; hence H is adequate. In particular every absolutely irreducible H ⊆ GL_n(k) is adequate if p ≥ 2(n+1) (Thorne 2012, Lemma 2.4(ii); Newton–Thorne 2026, §2: p > 2n+2). (2) If p ∤ #H and H acts absolutely irreducibly, H is adequate (BLGG13 Remark A.1.2; GHTT Lemma 2(i)). (3) If N ⊴ H is adequate and p ∤ [H : N], then H is adequate (BLGG13 Lemma A.1.3); and if H acts irreducibly and some subgroup of H containing a Sylow p-subgroup of H is GHT-adequate on k^n, in particular if H⁺ is, then H is GHT-adequate (GHT17 Remark 6.1). (4) (BLGG13 Lemma A.3.1, Taylor) For a group Γ and representations r_i : Γ → GL_{n_i}(k̄), i = 1, 2, with r₁(Γ) adequate, r₂|_{ker r₁} irreducible and p ∤ #r₂(Γ), the image (r₁ ⊗ r₂)(Γ) is adequate; the same proof shows: if r₁(Γ) satisfies H¹(r₁(Γ), k̄) = 0, H¹(r₁(Γ), ad) = 0 and the spanning condition, so does (r₁ ⊗ r₂)(Γ) (Boxer–Calegari–Gee 2025, proof of Theorem 3.1). (5) (rank two; BLGG13 Proposition A.2.1 as corrected by sourceIssue E754, in agreement with Guralnick–Herzig–Tiep, Corollary 9.5 and Gee–Newton Lemma 3.2.3) If p > 2 and G ⊆ GL₂(F̄_p) is finite and irreducible on F̄_p², then G is adequate unless p = 3 and the image of G in PGL₂(F̄_3) is conjugate to PSL₂(F_3), or p = 5 and that image is conjugate to PSL₂(F_5). (6) (GHT17 Corollary 9.4) A nontrivial absolutely irreducible representation V of SL₂(F_{p^r}) over a field of characteristic p is GHT-adequate unless (i) r = 1 and 1 < dim V = (p ± 1)/2, (ii) p^r ∈ {2, 3, 4} and dim V = p^r, or (iii) p^r = 9 and dim V ∈ {3, 6, 9}.
+### Adequacy in large characteristic
+
+Let p be prime and k a field of characteristic p; the finite subgroups and adequate/GHT-adequate conventions are those of G7/adequate-subgroup. (Guralnick–Herzig–Taylor–Thorne, appendix to Thorne 2012, Theorem 9, cited as Theorem A.9) Suppose H acts irreducibly on k̄^n, let H⁺ be the subgroup generated by the elements of p-power order (then k̄^n is a semisimple H⁺-module) and let d be the largest dimension of an irreducible H⁺-submodule of k̄^n. If p ≥ 2(d+1), then H⁰(H, ad⁰) = H¹(H, ad⁰) = H¹(H, k) = 0 and the semisimple elements of H span ad; hence H is adequate. In particular every absolutely irreducible H ⊆ GL_n(k) is adequate if p ≥ 2(n+1) (Thorne 2012, Lemma 2.4(ii); Newton–Thorne 2026, §2: p > 2n+2).
 
 **Hypotheses.**
 
 - (1) needs H irreducible and p ≥ 2(d+1) with d computed for H⁺, not for H
-- (4) needs p ∤ #r₂(Γ) and r₂ irreducible on ker r₁; tensor products of two adequate groups need not be adequate
-- (5) is for p odd; p = 2 and n = 2 is excluded since then p | n
-- (6) concerns GHT-adequacy; for p ∤ dim V it is Thorne-adequacy
 
-**Prerequisites.**
+**Direct prerequisites.**
 
 - `ArithmeticGaloisRepresentations:G7/adequate-subgroup`
-- `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`
-- `ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement`
-- `ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images`
-- `ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field`
-- `ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field`
-- `ArithmeticGaloisRepresentations:R01.4/dyadic-solvable-projective-image`
-- `ArithmeticGaloisRepresentations:R01.4/dyadic-nonsolvable-projective-image`
-- `ArithmeticGaloisRepresentations:R01.4/large-order-projective-image-criterion`
-- `ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible`
-- `mathlib:groupCohomology.H1InfRes_exact`
-- `mathlib:Representation.tprod`
 - `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
-- `ArithmeticGaloisRepresentations:G7/dimension-of-absolutely-irreducible-representations-of-prime-to-p-groups`
+- `ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible`
 
-**Proof plan.**
+**Proof outline.**
 
 1. (1): GHTT Theorem 9. dim V is prime to p (Clifford theory and [CR62, 51.7]); by Proposition 7 (which rests on the classification of finite simple groups) H is r(G(F_p)) for an algebraic group G = G⁰ ⋊ H₀ with G⁰ simply connected semisimple and p ∤ #H₀; H¹(H⁺, Hom(W_i, W_j)) = Ext¹ vanishes by Guralnick 1999, Theorem A, as dim W_i + dim W_j ≤ p − 2; then H¹(H, ad V) = 0 via the index-prime-to-p restriction, and the spanning statement follows from Lemma 3 and Lemma 8 on maximal tori. These two external inputs are recorded as a gap. The 'in particular' is Thorne 2012 Lemma 2.4(ii) with d ≤ n.
-2. (2): BLGG13 Remark A.1.2: (A1) is trivial; p ∤ n by G7/dimension-of-absolutely-irreducible-representations-of-prime-to-p-groups (the source lifts to characteristic 0 and uses that n divides #H); every element is semisimple and spans by Burnside; H¹ vanishes because #H is invertible in k (G7/h1-restriction-injective-for-invertible-index (i)).
-3. (3): BLGG13 Lemma A.1.3 by the inflation–restriction exact sequence (Mathlib groupCohomology.H1InfRes_exact) for N ⊴ H with ad^N = k·1, and GHT17 Remark 6.1 (spanning passes to overgroups; H¹ injects under restriction to a subgroup containing a Sylow p-subgroup, by G7/h1-restriction-injective-for-invertible-index (ii)).
-4. (4): BLGG13 Lemma A.3.1: with H_i = r_i(Γ), K_i = r_i(ker r_{3−i}) and Z the scalars z with (z, z⁻¹) in the image, H/K₂ ≅ H₁/Z; spanning is checked on A₁ ⊗ A₂ using r₂(ker r₁)-spans; the tensor product is Mathlib's Representation.tprod. H¹ by inflation–restriction (Mathlib groupCohomology.H1InfRes_exact for K₂ ⊴ H): H¹(H/K₂, ad(r₁⊗r₂)^{K₂}) = H¹(H₁/Z, ad r₁) = 0 (inflation to H₁ is injective and H¹(H₁, ad r₁) = 0) and H¹(K₂, ad(r₁⊗r₂)) = 0 as p ∤ #K₂ (G7/h1-restriction-injective-for-invertible-index (i)).
-5. (5): BLGG13 Proposition A.2.1 case analysis over Dickson's list (ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement): p ≥ 7 by (1) with d ≤ 2; prime-to-p projective images by (2); PSL₂/PGL₂(k) with |k| ≥ p² by reduction to SL₂(k) and G7/h1-of-sl2-with-adjoint-coefficients; p = 3 with PGL₂(F_3) or A₅ adequate; p = 3 with PSL₂(F_3) fails (A1); p = 5 with PSL₂(F_5) fails as H¹(SL₂(F_5), ad⁰) ≠ 0. For p = 5 with image PGL₂(F_5): replace G by k^×G and then by GL₂(F_5) (Lemmas A.1.3, A.1.4); H¹(GL₂(F_5), ad⁰) = 0 (G7/h1-of-sl2-with-adjoint-coefficients (b)), so G is adequate — the opposite of BLGG13's Point 5 (E754). Guralnick–Herzig–Tiep, Corollary 9.5 proves the same for every faithful absolutely irreducible representation with projective image PGL₂(p^a), p odd, p^a > 3.
-6. (6): GHT17 Corollary 9.4: r = 1 is [GHT, Cor. 1.4]; for r > 1, Ext¹_G(V,V) = 0 by Andersen–Jørgensen–Landrock [2, Cor. 4.5(a)], H¹(G,k) = 0 as G is perfect and H²(G,k) = 0 unless p^r ∈ {4, 9}; the cases p^r = 4, 9 are computed via tilting modules T(b₀) ⊗ T(b₁)^{(1)}. The AJL Ext computation is not in any library and is recorded as a gap.
-
-**Acceptance checks.**
-
-- (1) with n = 2: every irreducible G ⊆ GL₂(F̄_p) is adequate for p ≥ 7 (d ≤ 2 gives p ≥ 6); with n = 4 and H ⊆ GSp₄(k) absolutely irreducible, p ≥ 11 suffices, which is Boxer–Calegari–Gee–Pilloni Lemma 7.5.14.
-- (5) at p = 5: SL₂(F_5) and every G with projective image PSL₂(F_5) are not adequate; GL₂(F_5) is (H¹(GL₂(F_5), ad⁰) = 0 by the computation recorded in G7/h1-of-sl2-with-adjoint-coefficients).
-- (6) with V = Sym^{n−1} of the standard representation of SL₂(F_p), n ≤ p: for p ≥ 5, V is GHT-adequate unless n = (p ± 1)/2 (n > 1). For p ≤ 3 case (ii) excludes n = p as well: for p = 3, n = 3 the image A₄ of SL₂(F_3) in GL₃(F̄_3) has only four semisimple elements (1 and three involutions), which cannot span the 9-dimensional M₃; for p = 2, n = 2 the group SL₂(F_2) ≅ S₃ has a quotient of order 2, so H¹(H, k) ≠ 0 and V is not GHT-adequate (part (5) is for p odd and says nothing here). For n = 2 and p odd the exceptions are exactly p = 3 and p = 5, matching (5).
-- (2) with p odd: the quaternion group Q₈ ⊆ SL₂(F̄_p) acting by its two-dimensional representation is adequate, and so is the image of Q₈ × Q₈ in GL₄(F̄_p) acting on the tensor product (order 32, irreducible); the latter is not enormous (G7/enormous-image-and-its-coefficient-extension-invariance, acceptance), so (2) does not extend to enormous image.
-
-**Pinned-library boundary.** {"module": "TauCeti/NumberTheory/GaloisRepresentation/ImageConditions/AdequacyCriteria", "namespace": "TauCeti.ResidualImage"}
 
 **Sources.**
 
-- `ghtt12-appendix`, Theorem 9 (published numbering Theorem A.9), homepage copy p. 71. (1), with Γ⁰ the subgroup generated by elements of l-power order.
-- `ghtt12-appendix`, Theorem 9, conclusion (i). The cohomological half of (1).
-- `ghtt12-appendix`, remark before Theorem 9. The dependence on the classification of finite simple groups recorded as a gap.
-- `ghtt12-appendix`, proof of Theorem 9, p. 72. The Ext¹ input from Guralnick 1999, recorded as a gap.
-- `thorne12-small-image`, Lemma 2.4(ii), arXiv v1 p. 7. The 'in particular' of (1).
-- `nt26`, §2 before Lemma 2.3, arXiv v2 pp. 10–11. The same bound as used by Newton–Thorne (adequacy-large-characteristic).
-- `blgg13-serre-weights`, Remark A.1.2, arXiv v1 p. 29. (2).
-- `blgg13-serre-weights`, Lemma A.1.3, arXiv v1 p. 29. (3), first half.
-- `ght17-adequate`, Remark 6.1, arXiv v3 p. 28. (3), second half.
-- `blgg13-serre-weights`, Lemma A.3.1, arXiv v1 p. 35. (4).
-- `bcg25-gln`, proof of Theorem 3.1, published p. 518. The relaxed variant of (4).
-- `blgg13-serre-weights`, Proposition A.2.1, arXiv v1 p. 30. (5), whose PGL₂(F_5) exception is corrected (E754).
-- `gn22-patching`, Lemma 3.2.3, arXiv v5 p. 15. The corrected list of rank-two exceptions.
-- `ght17-adequate`, Corollary 9.4, arXiv v3 p. 50. (6).
-- `ght17-adequate`, Corollary 9.4 (i). The first exceptional case of (6).
-- `ght17-adequate`, Corollary 9.5, arXiv v3 p. 51. A faithful absolutely irreducible representation in odd characteristic with projective image PGL₂(p^a), p^a > 3, is adequate; for p = 5 and dimension 2 this is the case that BLGG13 v1 Proposition A.2.1 lists as not adequate (E754).
+- `ghtt12-appendix`, Theorem 9 (published numbering Theorem A.9), homepage copy p. 71: this statement, with Γ⁰ the subgroup generated by elements of l-power order.
+- `ghtt12-appendix`, Theorem 9, conclusion (i): The cohomological half of the statement.
+- `ghtt12-appendix`, remark before Theorem 9: The dependence on the classification of finite simple groups recorded as a gap.
+- `ghtt12-appendix`, proof of Theorem 9, p. 72: The Ext¹ input from Guralnick 1999, recorded as a gap.
+- `thorne12-small-image`, Lemma 2.4(ii), arXiv v1 p. 7: The 'in particular' of the statement.
+- `nt26`, §2 before Lemma 2.3, arXiv v2 pp. 10–11: The same bound as used by Newton–Thorne (adequacy-large-characteristic).
 
-### An absolutely irreducible representation of a finite group of order prime to p has dimension prime to p
+**Acceptance cases.**
+
+- (1) with n = 2: every irreducible G ⊆ GL₂(F̄_p) is adequate for p ≥ 7 (d ≤ 2 gives p ≥ 6); with n = 4 and H ⊆ GSp₄(k) absolutely irreducible, p ≥ 11 suffices, which is Boxer–Calegari–Gee–Pilloni Lemma 7.5.14.
 
 <a id="G7-dimension-of-absolutely-irreducible-representations-of-prime-to-p-groups"></a>
 
@@ -13185,7 +13151,7 @@ Planet: **Enormous image**.
 - SL₂(F_p) ⊆ GL₂(F_p) is enormous for every p ≥ 7: SL₂(F_p) is perfect (Mathlib Matrix.SL2.commutator_eq_top, as F_p has an element a with a² ≠ 1), ad⁰ = Sym² ⊗ det⁻¹ is absolutely irreducible with H⁰ = 0, H¹(SL₂(F_p), ad⁰) = 0 for p ≠ 5 (Darmon–Diamond–Taylor Lemma 2.48; G7/h1-of-sl2-with-adjoint-coefficients), and h = diag(a, a⁻¹) with a² ≠ 1 is regular semisimple and fixes diag(1, −1) ∈ ad⁰.
 - SL₂(F_5) is not enormous (H¹(SL₂(F_5), ad⁰) is one-dimensional); SL₂(F_3) is not enormous (quotient of order 3, although H⁰ = H¹ = 0 for ad⁰); SL₂(F_2) is not enormous (2 | 2). GL₂(F_5) is enormous (H¹(GL₂(F_5), ad⁰) = 0, no quotient of order 5), so a subgroup of an enormous group need not be enormous.
 - For n = p: the scalar matrix 1 has trace p = 0, so 1 ∈ ad⁰ is H-invariant and (2) fails for every H ⊆ GL_p(k).
-- Not merely a synonym for adequacy: for p odd the image H of Q₈ × Q₈ in GL₄(F̄_p) acting on the tensor product of two copies of the two-dimensional representation has order 32, is irreducible and hence adequate (G7/adequacy-criteria (2)), but every element g ⊗ h has repeated eigenvalues (products of {±1} or {±i} with {±1} or {±i}), so H has no regular semisimple element and is not enormous.
+- Not merely a synonym for adequacy: for p odd the image H of Q₈ × Q₈ in GL₄(F̄_p) acting on the tensor product of two copies of the two-dimensional representation has order 32, is irreducible and hence adequate (G7/adequacy-of-prime-to-p-groups), but every element g ⊗ h has repeated eigenvalues (products of {±1} or {±i} with {±1} or {±i}), so H has no regular semisimple element and is not enormous.
 - Lemma 6.2.30 check: SL₂(F_7) is enormous over F_7 and over F_49.
 
 **Uses.**
@@ -13315,63 +13281,39 @@ Let E/Q_p be a finite extension with ring of integers O, n ≥ 1, and W_E = M_n(
 
 `ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers` · theorem · implementation unchecked
 
-(1) (Gee–Newton, Lemma 3.2.5; Clozel–Harris–Taylor Corollary 2.5.4 with the corrected bound) Let n ≥ 2, p a prime with p > 2n + 1, k an algebraic extension of F_p, k' ⊆ k a finite subfield and H ⊆ GL_n(k) with k^× · Sym^{n−1}GL₂(k') ⊇ H ⊇ Sym^{n−1}SL₂(k'), where Sym^{n−1} : GL₂ → GL_n is the symmetric power of G7/symmetric-and-exterior-powers in the monomial basis. Then H is enormous. (2) (Allen et al. 2023, Lemma 7.1.4, with the codomain corrected to GL_n, sourceIssue E751) If n ≥ 2, l > 2n + 1 and H ⊆ GL₂(F̄_l) is a finite subgroup containing SL₂(F_l), then Sym^{n−1}H ⊆ GL_n(F̄_l) is enormous. (3) (Allen et al. 2023, Lemma 7.1.6(2); Qian 2023, Lemma 2.6(1)) Let F/Q be finite with normal closure F̃, m ≥ 1, l > 2m + 3 a prime, r̄ : G_F → GL₂(F̄_l) continuous with r̄(G_{F̃}) ⊇ SL₂(F_l), and F'/F a finite extension linearly disjoint from F̄^{ker r̄} over F. Then (Sym^m r̄)(G_{F'(ζ_l)}) is enormous. Qian's form (n = m + 1, l > 2n + 5) is the special case with a stronger bound; for n = 1 the image is trivial in GL₁ and enormous. (4) (Gee–Newton, Lemma 3.2.4) If n > 2, p > n, k' ⊆ k is a finite subfield and k^× · GL_n(k') ⊇ H ⊇ SL_n(k'), then H is enormous.
+### Enormous image of bounded symmetric powers
+
+Let p be prime and k an algebraic extension of F_p; all symmetric powers use the monomial basis of G7/symmetric-and-exterior-powers. (Gee–Newton, Lemma 3.2.5; Clozel–Harris–Taylor Corollary 2.5.4 with the corrected bound) Let n ≥ 2, p a prime with p > 2n + 1, k an algebraic extension of F_p, k' ⊆ k a finite subfield and H ⊆ GL_n(k) with k^× · Sym^{n−1}GL₂(k') ⊇ H ⊇ Sym^{n−1}SL₂(k'), where Sym^{n−1} : GL₂ → GL_n is the symmetric power of G7/symmetric-and-exterior-powers in the monomial basis. Then H is enormous.
 
 **Hypotheses.**
 
 - the bound is p > 2n + 1 (l > 2m + 3 for Sym^m); Clozel–Harris–Taylor print l > 2n − 1, which fails for n = 2, l = 5 (sourceIssue E756)
-- (3) needs SL₂(F_l) ⊆ r̄(G_{F̃}) with F̃ the normal closure, and linear disjointness from the field cut out by r̄ itself, not by ad r̄
-- the subgroup in (3) is the image of G_{F'(ζ_l)}, not of G_{F'}
 
-**Prerequisites.**
+**Direct prerequisites.**
 
 - `ArithmeticGaloisRepresentations:G7/enormous-image-and-its-coefficient-extension-invariance`
 - `ArithmeticGaloisRepresentations:G7/symmetric-and-exterior-powers`
 - `ArithmeticGaloisRepresentations:G7/mod-p-clebsch-gordan-decompositions`
 - `ArithmeticGaloisRepresentations:G7/adjoint-invariants-of-symmetric-powers`
 - `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`
-- `ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement`
-- `ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images`
-- `ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field`
-- `ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field`
-- `ArithmeticGaloisRepresentations:R01.4/dyadic-solvable-projective-image`
-- `ArithmeticGaloisRepresentations:R01.4/dyadic-nonsolvable-projective-image`
-- `ArithmeticGaloisRepresentations:R01.4/large-order-projective-image-criterion`
-- `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`
-- `mathlib:Matrix.SL2.commutator_eq_top`
-- `mathlib:Matrix.ProjectiveSpecialLinearGroup.rank_two_simple`
-- `mathlib:groupCohomology.H1InfRes_exact`
 - `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
+- `mathlib:groupCohomology.H1InfRes_exact`
+- `mathlib:Matrix.ProjectiveSpecialLinearGroup.rank_two_simple`
 
-**Proof plan.**
+**Proof outline.**
 
 1. (1), condition (2) of enormity: as SL₂(k')-modules ad Sym^{n−1} ≅ ⊕_{i=0}^{n−1} Sym^{2i} ⊗ det^{−i} (G7/mod-p-clebsch-gordan-decompositions (d), valid as 2n − 2 < p), each Sym^{2i} irreducible (G7/adjoint-invariants-of-symmetric-powers (a)); so H⁰(Sym^{n−1}SL₂(k'), ad⁰) = 0, and H¹(SL₂(k'), Sym^{2i}) = 0 for 1 ≤ i ≤ n − 1 because 2i ≤ 2n − 2 < p − 3 (G7/h1-of-sl2-with-adjoint-coefficients (c)); pass from Sym^{n−1}SL₂(k') to H: H¹(H, ad⁰) → H¹(H ∩ k^×·Sym^{n−1}SL₂(k'), ad⁰) is injective as the index divides 2 (G7/h1-restriction-injective-for-invertible-index), and inflation–restriction (Mathlib groupCohomology.H1InfRes_exact) removes the scalars, which have order prime to p and act trivially on ad⁰. Condition (1): PSL₂(k') is simple (Mathlib Matrix.ProjectiveSpecialLinearGroup.rank_two_simple, as #k′ ≥ 5) and the quotient of H by Sym^{n−1}SL₂(k')·(scalars) has order dividing #k'^× · 2. Condition (3): Clozel–Harris–Taylor Lemma 2.5.2 — the diagonal torus generator t of SL₂(k') has the n eigenvalues a^{n−1−2j} on Sym^{n−1}, a a generator of k′^×, which are distinct because 2(n − 1) < p − 1 ≤ #k′ − 1 (n < p alone would not suffice: for p = 7, n = 4 the eigenvalues a^{3} and a^{−3} coincide) and each Sym^{2i} meets the t-fixed part D = ⊕ Hom(V_j, V_j) in a line (Gee–Newton: these eigenspaces are one-dimensional, so t is regular semisimple).
-2. (2): Dickson (ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement): the image of H in PGL₂(F̄_l) is conjugate to PSL₂(k) or PGL₂(k) for a finite k ⊇ F_l, so F̄_l^× Sym^{n−1}GL₂(k) ⊇ Sym^{n−1}H ⊇ Sym^{n−1}SL₂(k), and (1) applies with k' = k.
-3. (3): linear disjointness gives r̄(G_{F'}) = r̄(G_F) ⊇ r̄(G_{F̃}) ⊇ SL₂(F_l); SL₂(F_l) is perfect for l ≥ 5 (Mathlib Matrix.SL2.commutator_eq_top) and Gal(F'(ζ_l)/F') is abelian, so r̄(G_{F'(ζ_l)}) ⊇ SL₂(F_l) (ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field); apply (2) with n = m + 1, l > 2n + 1 = 2m + 3.
-4. (4): Gee–Newton Lemma 3.2.4 from the proof of Clozel–Harris–Taylor Lemma 2.5.6 (bigness of groups between SL_n(k') and k^×GL_n(k')), plus a regular semisimple element of SL_n(k'): the companion matrix of X^n + (−1)^n, which has n distinct roots as p > n.
-
-**Acceptance checks.**
-
-- n = 2, (2): every finite H ⊆ GL₂(F̄_l) containing SL₂(F_l) is enormous for l ≥ 7; for l = 5 the bound l > 5 fails and indeed SL₂(F_5) is not enormous (H¹(SL₂(F_5), ad⁰) ≠ 0), which shows the printed Clozel–Harris–Taylor bound l > 2n − 1 = 3 is too weak.
-- n = 3, l = 11 (> 7): Sym²(SL₂(F_11)) ≅ SO₃-image in GL₃(F_11) is enormous; ad⁰ Sym² = Sym² ⊕ Sym⁴ (twists) and H¹(SL₂(F_11), Sym^{2i}) = 0 for i = 1, 2 since 2, 4 ≠ 11 − 3.
-- (3) for an elliptic curve E/Q without CM and l ≥ 7 with r̄_{E,l}(G_Q) = GL₂(F_l), F = F' = Q, m = 1: r̄_{E,l}(G_{Q(ζ_l)}) = SL₂(F_l) is enormous.
-
-**Pinned-library boundary.** {"module": "TauCeti/NumberTheory/GaloisRepresentation/ImageConditions/EnormousSymmetricPowers", "namespace": "TauCeti.ResidualImage"}
 
 **Sources.**
 
-- `gn22-patching`, Lemma 3.2.5, arXiv v5 p. 15. (1).
-- `gn22-patching`, proof of Lemma 3.2.5. The corrected bound.
-- `gn22-patching`, Lemma 3.2.4. (4).
-- `cht08`, Lemma 2.5.2 and Corollary 2.5.4, Publ. IHÉS 108, pp. 56–57. The printed bound (E756).
-- `cht08`, proof of Lemma 2.5.2, p. 56. The decomposition used for (1).
-- `accplus-cm-potential-automorphy`, Lemma 7.1.4, printed p. 1089. (2); the second GL2 should be GL_n (E751). The text layer drops the bar on F_l.
-- `accplus-cm-potential-automorphy`, proof of Lemma 7.1.4. (2) from (1).
-- `accplus-cm-potential-automorphy`, Lemma 7.1.6(2), printed p. 1090. (3); the superscript m of Symm is lost in the text layer.
-- `accplus-cm-potential-automorphy`, proof of Lemma 7.1.6(2), printed p. 1090. The perfectness step.
-- `qian23`, arXiv v1 Lemma 4.3(2) (published Lemma 2.6(1), p. 1251). Qian's form with the stronger bound.
+- `gn22-patching`, Lemma 3.2.5, arXiv v5 p. 15: the statement.
+- `gn22-patching`, proof of Lemma 3.2.5: The corrected bound.
+- `cht08`, Lemma 2.5.2 and Corollary 2.5.4, Publ. IHÉS 108, pp. 56–57: The printed bound (E756).
+- `cht08`, proof of Lemma 2.5.2, p. 56: The decomposition used for the statement.
 
-### H¹(SL₂(F), ad⁰) vanishes unless #F = 5, and the symmetric-power vanishing behind the bound p > 2n + 1
+**Acceptance cases.**
+
+- n = 3, l = 11 (> 7): Sym²(SL₂(F_11)) ≅ SO₃-image in GL₃(F_11) is enormous; ad⁰ Sym² = Sym² ⊕ Sym⁴ (twists) and H¹(SL₂(F_11), Sym^{2i}) = 0 for i = 1, 2 since 2, 4 ≠ 11 − 3.
 
 <a id="G7-h1-of-sl2-with-adjoint-coefficients"></a>
 
@@ -13604,6 +13546,8 @@ Let p be a prime and F a finite field of characteristic p, with SL₂(F) acting 
 
 `ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers` · theorem · implementation unchecked
 
+### Adequacy of symmetric powers and Frobenius-twisted tensor products of large SL₂ images, with one common threshold
+
 (1) (Boxer–Calegari–Gee 2025, Lemma 2.2) Let p > 5 and r̄ : G_Q → GL₂(F̄_p) continuous with SL₂(F_p) ⊆ r̄(G_Q). For p − 2 ≤ n ≤ p, the group (Sym^{n−1} r̄)(G_{Q(ζ_p)}) is GHT-adequate (Thorne 2017, Definition 2.20); for n = p − 2, p − 1 it is adequate in the sense of Thorne 2012. (2) (Newton–Thorne 2026, Lemma 2.3, quoting Thorne 2024, Lemma 7.3; common threshold) Let p ≥ 5 and φ_p ∈ G_{Q_p} a lift of arithmetic Frobenius. There is an integer a₀ = a₀(p) ≥ 3 such that for every a ≥ a₀ and every finite G ⊆ GL₂(F̄_p) containing a conjugate of SL₂(F_{p^a}): (i) for each 0 < r < p, the image of Sym^{r−1} : G → GL_r(F̄_p) is adequate (Thorne 2012, Definition 2.3); (ii) for each 0 < r < p, the image of φ_p Std ⊗ Sym^{r−1} : G → GL_{2r}(F̄_p) is adequate, φ_p acting on the coefficients of the first factor only; (iii) every subgroup of G of index < 2p contains a conjugate of SL₂(F_{p^a}) and so satisfies (i) and (ii). One a₀(p) is chosen for (i)–(iii) simultaneously; where Newton–Thorne require a > a₀(p), that strict inequality is kept. (3) (from G7/adequacy-criteria (1)) If r̄ : Γ → GL₂(F̄_p) has finite image, SL₂(F_p) ⊆ r̄(Γ) and p ≥ 2n + 2, then (Sym^{n−1} r̄)(Γ') is adequate for every Γ' ⊆ Γ with SL₂(F_p) ⊆ r̄(Γ').
 
 **Hypotheses.**
@@ -13612,7 +13556,7 @@ Let p be a prime and F a finite field of characteristic p, with SL₂(F) acting 
 - (2)(ii) twists only the first factor by the coefficient Frobenius (R01.1/coefficient-frobenius-twist)
 - (2)(iii) is the group-theoretic statement of ArithmeticGaloisRepresentations:R01.4/large-image-persistence, quoted here for the common threshold
 
-**Prerequisites.**
+**Direct prerequisites.**
 
 - `ArithmeticGaloisRepresentations:G7/adequate-subgroup`
 - `ArithmeticGaloisRepresentations:G7/adequacy-criteria`
@@ -13628,31 +13572,29 @@ Let p be a prime and F a finite field of characteristic p, with SL₂(F) acting 
 - `ArithmeticGaloisRepresentations:R01.4/large-image-persistence`
 - `ArithmeticGaloisRepresentations:R01.1/coefficient-frobenius-twist`
 - `mathlib:Matrix.SL2.commutator_eq_top`
+- `ArithmeticGaloisRepresentations:G7/ght-adequacy-of-sylow-containing-overgroups`
+- `ArithmeticGaloisRepresentations:G7/ght-adequacy-of-sl2-representations`
 
-**Proof plan.**
+**Proof outline.**
 
-1. (1): Boxer–Calegari–Gee: SL₂(F_p) is perfect (Mathlib Matrix.SL2.commutator_eq_top, p ≥ 5), so SL₂(F_p) ⊆ r̄(G_{Q(ζ_p)}); by Dickson (ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement) SL₂(F_q) ⊆ r̄(G_{Q(ζ_p)}) for a power q of p with index prime to p up to scalars; by GHT17 Remark 6.1 (G7/adequacy-criteria (3)) it suffices that V = Sym^{n−1}U is GHT-adequate for SL₂(F_q); V is absolutely irreducible as n ≤ p (G7/adjoint-invariants-of-symmetric-powers (a)) and is not in the exceptional list of GHT17 Corollary 9.4 since n ≥ p − 2 > (p+1)/2 for p > 5 (G7/adequacy-criteria (6)). For n < p, p ∤ n and GHT-adequacy is Thorne-adequacy (G7/adequate-subgroup).
-2. (2): Newton–Thorne quote Thorne 2024, Lemma 7.3. A proof along the same lines as (1): by Dickson G has projective image PSL₂(F_{p^b}) or PGL₂(F_{p^b}) with b ≥ a, so up to scalars and index prime to p it contains SL₂(F_{p^b}); Sym^{r−1} = L(r−1) and φ_p Std ⊗ Sym^{r−1} = L(1)^{(1)} ⊗ L(r−1) = L(p + r − 1) (Steinberg) are absolutely irreducible of dimensions r and 2r, both prime to p; GHT17 Corollary 9.4 with b ≥ 3 (excluding p^b ∈ {4, 9}) gives adequacy; G7/adequacy-criteria (3) passes to G. (iii) is ArithmeticGaloisRepresentations:R01.4/large-image-persistence; take a₀(p) as the maximum of the thresholds.
+1. (1): Boxer–Calegari–Gee: SL₂(F_p) is perfect (Mathlib Matrix.SL2.commutator_eq_top, p ≥ 5), so SL₂(F_p) ⊆ r̄(G_{Q(ζ_p)}); by Dickson (ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement) SL₂(F_q) ⊆ r̄(G_{Q(ζ_p)}) for a power q of p with index prime to p up to scalars; by GHT17 Remark 6.1 (G7/ght-adequacy-of-sylow-containing-overgroups) it suffices that V = Sym^{n−1}U is GHT-adequate for SL₂(F_q); V is absolutely irreducible as n ≤ p (G7/adjoint-invariants-of-symmetric-powers (a)) and is not in the exceptional list of GHT17 Corollary 9.4 since n ≥ p − 2 > (p+1)/2 for p > 5 (G7/ght-adequacy-of-sl2-representations). For n < p, p ∤ n and GHT-adequacy is Thorne-adequacy (G7/adequate-subgroup).
+2. (2): Newton–Thorne quote Thorne 2024, Lemma 7.3. A proof along the same lines as (1): by Dickson G has projective image PSL₂(F_{p^b}) or PGL₂(F_{p^b}) with b ≥ a, so up to scalars and index prime to p it contains SL₂(F_{p^b}); Sym^{r−1} = L(r−1) and φ_p Std ⊗ Sym^{r−1} = L(1)^{(1)} ⊗ L(r−1) = L(p + r − 1) (Steinberg) are absolutely irreducible of dimensions r and 2r, both prime to p; GHT17 Corollary 9.4 with b ≥ 3 (excluding p^b ∈ {4, 9}) gives adequacy; G7/ght-adequacy-of-sylow-containing-overgroups passes to G. (iii) is ArithmeticGaloisRepresentations:R01.4/large-image-persistence; take a₀(p) as the maximum of the thresholds.
 3. (3): Sym^{n−1} of SL₂(F_p) is absolutely irreducible for n ≤ p, so G7/adequacy-criteria (1) applies with d ≤ n.
-
-**Acceptance checks.**
-
-- Boxer–Calegari–Gee p = 107, n = 105, 106: (Sym^{n−1} r̄)(G_{Q(ζ_107)}) is adequate for the mod-107 representation of the weight-26 level-one form (whose image contains SL₂(F_107)); this feeds their Theorem 2.4.
-- The bound in (1) is sharp in the sense of GHT17 Corollary 9.4(i): for n = (p ± 1)/2 > 1, Sym^{n−1} of SL₂(F_p) is not adequate (Ext¹ ≠ 0); e.g. p = 7, n = 3, 4.
-
-**Pinned-library boundary.** {"module": "TauCeti/NumberTheory/GaloisRepresentation/ImageConditions/AdequateSymmetricPowers", "namespace": "TauCeti.ResidualImage"}
 
 **Sources.**
 
-- `bcg25-gln`, Lemma 2.2, published p. 515. (1).
-- `bcg25-gln`, Lemma 2.2. (1), range of n.
-- `bcg25-gln`, proof of Lemma 2.2. The appeal to GHT17 Corollary 9.4.
-- `nt26`, Lemma 2.3, arXiv v2 p. 11. (2).
-- `nt26`, Lemma 2.3. The common threshold.
-- `nt26`, Lemma 2.3(3). (2)(iii).
-- `nt26`, §2 before Lemma 2.3. Newton–Thorne quote Thorne 2024, Lemma 7.3.
+- `bcg25-gln`, Lemma 2.2, published p. 515: (1).
+- `bcg25-gln`, Lemma 2.2: (1), range of n.
+- `bcg25-gln`, proof of Lemma 2.2: The appeal to GHT17 Corollary 9.4.
+- `nt26`, Lemma 2.3, arXiv v2 p. 11: (2).
+- `nt26`, Lemma 2.3: The common threshold.
+- `nt26`, Lemma 2.3(3): (2)(iii).
+- `nt26`, §2 before Lemma 2.3: Newton–Thorne quote Thorne 2024, Lemma 7.3.
 
-### Enormous and weakly enormous subgroups of GSp₄(k); vast and tidy GSp₄-valued representations
+**Acceptance cases.**
+
+- Boxer–Calegari–Gee p = 107, n = 105, 106: (Sym^{n−1} r̄)(G_{Q(ζ_107)}) is adequate for the mod-107 representation of the weight-26 level-one form (whose image contains SL₂(F_107)); this feeds their Theorem 2.4.
+- The bound in (1) is sharp in the sense of GHT17 Corollary 9.4(i): for n = (p ± 1)/2 > 1, Sym^{n−1} of SL₂(F_p) is not adequate (Ext¹ ≠ 0); e.g. p = 7, n = 3, 4.
 
 <a id="G7-vast-tidy-and-enormous-gsp4-subgroups"></a>
 
@@ -13707,7 +13649,7 @@ Let k be a finite field of characteristic p ≥ 3, GSp₄ the similitude group o
 
 **Acceptance checks.**
 
-- Sp₄(F_p) is enormous and GSp₄(F_p) is tidy for p ≥ 3 (G7/gsp4-big-image-verification (5)); in particular, for p = 3, an element of order 20 with eigenvalues ζ, ζ³, ζ⁹, ζ²⁷ and ν = −1 witnesses tidiness.
+- Sp₄(F_p) is enormous and GSp₄(F_p) is tidy for p ≥ 3 (G7/gsp4-standard-image-enormity-and-tidiness); in particular, for p = 3, an element of order 20 with eigenvalues ζ, ζ³, ζ⁹, ζ²⁷ and ν = −1 witnesses tidiness.
 - For a surjective ρ̄:G_Q→GL₂(F₃) with cyclotomic determinant, ρ̄(G_{Q(ζ₃)})=SL₂(F₃) has a quotient of order 3. The full GL₂(F₃) image has abelianization of order 2. Remark 7.5.4 concerns this cyclotomic restriction.
 - SL₂(F_5) ≀ Z/2Z ⊆ Sp₄(F_5) is weakly enormous but not enormous (E1 fails through H¹(SL₂(F_5), Sym²) ≠ 0).
 
@@ -13738,77 +13680,27 @@ Let k be a finite field of characteristic p ≥ 3, GSp₄ the similitude group o
 
 `ArithmeticGaloisRepresentations:G7/gsp4-big-image-verification` · theorem · implementation unchecked
 
-Notation of G7/vast-tidy-and-enormous-gsp4-subgroups; k finite of characteristic p ≥ 3. (1) (Lemma 7.5.9) If ρ̄ : G_F → GSp₄(k) is continuous, N ≥ 1, L is the fixed field of ad⁰ρ̄ and either ζ_p ∉ L or ρ̄(G_{F(ζ_{p^N})}) is enormous, then H¹(Gal(L(ζ_{p^N})/F), ad⁰ρ̄(1)) = 0; so this holds for all large N if ρ̄ is vast. (2) (Lemma 7.5.12) An absolutely irreducible H ⊆ GSp₄(k) with centre of order ≥ 3 is tidy. (3) (Lemma 7.5.13) If p ≥ 5 and Δ = {(A, B) ∈ GL₂(F_p)² : det A = det B} ⊆ H ⊆ GSp₄(F_p), H is tidy. (4) (Lemma 7.5.14) If p ≥ 11 and H ⊆ GSp₄(k) is absolutely irreducible, (E1) and (E2) hold. (5) (Lemma 7.5.15) For p ≥ 3, Sp₄(F_p) is enormous and GSp₄(F_p) is tidy; a surjective ρ̄ : G_F → GSp₄(F_p) with similitude ε̄⁻¹ is vast and tidy. (6) (§7.5.16) If G ⊆ Sp₄(k) is absolutely irreducible and its representation W becomes reducible on an index-two subgroup H, with W|_H = V ⊕ V^σ, with the symplectic form nondegenerate on V, and χ the quadratic character of G/H, then ad⁰(W) = Sym²(W) ≅ Ind_H^G ad⁰(V) ⊕ As(V), ∧²W ≅ k ⊕ k(χ) ⊕ As(V) ⊗ χ, W ⊗ W ≅ k ⊕ k(χ) ⊕ Ind_H^G ad⁰(V) ⊕ As(V) ⊕ As(V) ⊗ χ, with As(V) the Asai (tensor-induced) representation, As(V)|_H = V ⊗ V^σ (G7/tensor-induction). (7) (Lemma 7.5.17) If As(V) and Ind_H^G ad⁰(V) are absolutely irreducible and G ∖ H contains an element whose order neither divides 4 nor is divisible by p, then G satisfies (E3). (8) (Lemma 7.5.18, corrected proof, E761) SL₂(k) ≀ Z/2Z ⊆ Sp₄(k) is weakly enormous, and enormous if #k ≠ 5. (9) (Lemma 7.5.19) If H/F is quadratic, r̄ : G_H → GL₂(F_5) surjective with det r̄ = ε̄⁻¹, ρ̄ = Ind r̄ : G_F → GSp₄(F_5), ρ̄(G_{F(ζ_5)}) = SL₂(F_5) ≀ Z/2Z and 5 unramified in F, then ρ̄(G_{F(ζ_{5^N})}) is weakly enormous for all N ≥ 1, ζ_5 ∉ fixed field of ad⁰ρ̄, and ρ̄ is vast. (10) (§7.5.20, Lemma 7.5.21; finite computations) Exactly 11 of the 162 conjugacy classes of subgroups of Sp₄(F_3) are enormous (orders 40, 128, 160, 192, 240, 320, 384, 384, 1152, 1920, 51840), and the groups G ⊆ GSp₄(F_3) listed in Lemma 7.5.21 (GSp₄(F_3); a group of order 3840; Γ = Δ ⋊ Z/2Z of order 2304 and its two index-3 subgroups of order 768; Ã₅ ⋊ ⟨σ⟩ of order 480) are tidy with G ∩ Sp₄(F_3) enormous. (11) (Lemma 7.5.22, corrected, E762–E764) Let p ≥ 3, K/F quadratic with K unramified at p, r̄ : G_K → GL₂(k) with r̄(G_{K(ζ_p)}) = SL₂(k), σ ∈ G_F ∖ G_K with Proj r̄^σ ≇ Proj r̄ and det r̄^σ = det r̄ = ε̄⁻¹, ρ̄ = Ind_{G_K}^{G_F} r̄; if p = 3 assume the fixed fields of ker Proj r̄ and ker Proj r̄^σ are linearly disjoint over K(ζ_3). Then ρ̄ is vast and tidy. (12) (Remark 7.5.23, corrected, E765) The Sylow 2-subgroup Q₈ ≀ Z/2Z (order 128) of Sp₄(F_3) is enormous.
+### Cyclotomic twisted adjoint cohomology vanishing for GSp₄
 
-**Hypotheses.**
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Lemma 7.5.9) If ρ̄ : G_F → GSp₄(k) is continuous, N ≥ 1, L is the fixed field of ad⁰ρ̄ and either ζ_p ∉ L or ρ̄(G_{F(ζ_{p^N})}) is enormous, then H¹(Gal(L(ζ_{p^N})/F), ad⁰ρ̄(1)) = 0; so this holds for all large N if ρ̄ is vast.
 
-- (4) needs p ≥ 11 (GHTT with d ≤ 4); for p = 3, 5, 7 the vanishing H¹(Sp₄(F_p), ad⁰) = 0 in (5) is a finite computation
-- (8) excludes #k = 5 because H¹(SL₂(F_5), Sym²) ≠ 0
-- (11) for #k > 3 includes the case Proj r̄^σ ≅ τ ∘ Proj r̄ with τ a field automorphism of order 2, which the printed proof omits
-- Clause (6) requires that V be nondegenerate for the symplectic form, as in the correction E720. The Lagrangian case has different decompositions and is excluded.
-
-**Prerequisites.**
+**Direct prerequisites.**
 
 - `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
-- `ArithmeticGaloisRepresentations:G7/adequacy-criteria`
-- `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`
-- `ArithmeticGaloisRepresentations:G7/gsp4-and-symplectic-induction`
-- `ArithmeticGaloisRepresentations:G7/tensor-induction`
-- `ArithmeticGaloisRepresentations:R01.1/continuous-induction`
-- `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`
-- `ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement`
-- `ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images`
-- `ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field`
-- `ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field`
-- `ArithmeticGaloisRepresentations:R01.4/dyadic-solvable-projective-image`
-- `ArithmeticGaloisRepresentations:R01.4/dyadic-nonsolvable-projective-image`
-- `ArithmeticGaloisRepresentations:R01.4/large-order-projective-image-criterion`
 - `mathlib:groupCohomology.H1InfRes_exact`
-- `mathlib:Matrix.ProjectiveSpecialLinearGroup.rank_two_simple`
-- `mathlib:Matrix.SL2.commutator_eq_top`
-- `ArithmeticGaloisRepresentations:G7/image-in-the-3-cyclotomic-tower-for-sl2-wreath-products`
 - `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
 
-**Proof plan.**
+**Proof outline.**
 
 1. (1): Lemma 7.5.9 by inflation–restriction (Mathlib groupCohomology.H1InfRes_exact): if ζ_p ∉ L, Gal(L(ζ_p)/L) acts trivially on ad⁰ but by nontrivial scalars on ad⁰(1), killing invariants, and p ∤ [L(ζ_p) : L]; if the image H over F(ζ_{p^N}) is enormous, H⁰(H, ad⁰) = H¹(H, ad⁰) = 0 and the splitting field M has p ∤ [M : L].
-2. (2), (3): Schur's lemma makes the centre cyclic and scalar; a scalar ζ with ζ² ≠ 1 has ν = ζ² ≠ 1 and all eigenvalue ratios 1. Δ contains scalars of order p − 1 > 2.
-3. (4): G7/adequacy-criteria (1) with d ≤ 4 (GHTT Theorem A.9), whose two external inputs are recorded as gaps.
-4. (5): 𝔰𝔭₄ is absolutely irreducible for Sp₄(F_p), p ≥ 3; an element with distinct eigenvalues λ, ν/λ, μ, ν/μ has eigenvalue 1 on 𝔰𝔭₄ (from λ·(ν/λ)/ν); H¹(Sp₄(F_p), ad⁰) = 0 by (4) for p ≥ 11 and by a finite computation for p = 3, 5, 7 (the authors' Magma files). For p = 3 the cocycle condition on generators of Sp₄(F_3) gives dim Z¹ = 10 = dim B¹; for p = 5 and p = 7 the Borel subgroup B already has H¹(B, 𝔰𝔭₄) = 0, which suffices because p ∤ [Sp₄(F_p) : B]; tidiness by (2) for p > 3 and, for p = 3, an element of order 20 with ν = −1 and eigenvalues ζ, ζ³, ζ⁹, ζ²⁷; vastness because Sp₄(F_p) has no quotient of order p (PSp₄(F_p) simple).
-5. (6): compute over H and use W ≅ W ⊗ χ; As(V) from G7/tensor-induction; induced representations from ArithmeticGaloisRepresentations:R01.1/continuous-induction.
-6. (7): g ∈ G ∖ H has eigenvalues (α, α⁻¹, −α, −α⁻¹), distinct when α⁴ ≠ 1; counting in the Grothendieck group of ⟨g⟩: [As(V)] = [−1, 1, α², α⁻²] and [Ind ad⁰(V)] = [1, −1, α², −α², α⁻², −α⁻²], both containing 1.
-7. (8): (E1) by inflation–restriction reduces to H¹(SL₂(k), Sym²(k²)) = 0 for #k ≠ 5 (G7/h1-of-sl2-with-adjoint-coefficients (a)); (E2) is clear; (E3) by (7) with g = (a, 1)σ, a ∈ SL₂(k) of order 4 (e.g. [[0,1],[−1,0]]), so g² = (a, a) has order 4 and g has order 8, not dividing 4 and prime to p. The printed proof takes a of order 8, which does not exist when #k ≡ ±3 mod 8 (E761).
-8. (9): the abelianisation of SL₂(F_5) ≀ Z/2Z has order 2, prime to 5 (SL₂(F_5) is perfect: Mathlib Matrix.SL2.commutator_eq_top), so the image over F(ζ_{5^N}) does not depend on N, and is weakly enormous by (8); the image Γ of ρ̄ is the full preimage of G with [Γ : G] = 4, whose projective image has abelianisation (Z/2)², which does not surject onto Gal(F(ζ_5)/F) = Z/4.
-9. (10): finite group enumeration by the authors' Magma computation, not re-derived here, with these exceptions: Lemma 7.5.21(3a) is (8) together with the tidiness element of (11); the class of order 128 is (12); and H¹(Sp₄(F_3), 𝔰𝔭₄) = 0, needed for the class of order 51840, is the finite computation of (5).
-10. (11): for #k > 3, Goursat (PSL₂(k) simple; Mathlib Matrix.ProjectiveSpecialLinearGroup.rank_two_simple) and Aut(PSL₂(k)) = PΓL₂(k) (ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2) show that either the image over K(ζ_p) is SL₂(k)², giving SL₂(k) ≀ Z/2Z over F(ζ_{p^N}) and (8), (9); or Proj r̄^σ ≅ τ ∘ Proj r̄ with τ of order 2, where the image over F(ζ_p) is an index-two extension of {(A, ±τ(A))}, still enormous (V ≇ V^τ; H¹(SL₂(k), Sym²) = 0 as #k ≥ 25; H¹(SL₂(k), V ⊗ V^τ) = 0 for p ≥ 5; (E3) via (7) with g = (C, ±C)·swap, C of order q₀ + 1), and tidiness from ρ̄(g) with r̄(g) = diag(a, −a⁻¹), a a generator of k^× (E763). For k = F_3 the image G of G_{F(ζ_3)} is SL₂(F_3) ≀ Z/2Z, enormous by (8), and the image of G_{F(ζ_{3^N})} is again G for every N by G7/image-in-the-3-cyclotomic-tower-for-sl2-wreath-products (G^{ab} ≅ Z/6 is not of order prime to 3 as printed: E764); the p = 3 hypothesis is linear disjointness over K(ζ_3) (E762); tidiness for p = 3 from an element of order 8 with ν = −1 and eigenvalues (ζ, −ζ⁻¹, ζ, −ζ⁻¹).
-11. (12): |Q₈ ≀ Z/2Z| = 128 is prime to 3, so (E1) holds (G7/h1-restriction-injective-for-invertible-index (i)); the natural representation restricted to Q₈ × Q₈ is V_A ⊕ V_B, non-isomorphic and swapped, so (E2) holds; ad⁰ = Ind(χ₁) ⊕ Ind(χ₂) ⊕ Ind(χ₃) ⊕ As(V) with χ_j the nontrivial characters of Q₈/{±1}, pairwise non-isomorphic irreducibles; g = (a, b)σ with ab of order 4 has the four primitive 8th roots of unity as eigenvalues, acts on Ind(χ_j) with eigenvalues ±√χ_j(ab) (containing 1 when ab ∈ ker χ_j) and on As(V) with eigenvalues 1, −1, i, −i; so (E3) holds.
-
-**Acceptance checks.**
-
-- (5) for p = 3: GSp₄(F_3) contains an element of order 20 with ν = −1; its eigenvalue ratios ζ², ζ⁸, ζ²⁶ differ from ζ¹⁰ = −1.
-- (8) for k = F_3: g = (a, 1)σ with a = [[0,1],[−1,0]] has order 8 and eigenvalues the primitive 8th roots of unity; SL₂(F_3) has no element of order 8 (its Sylow 2-subgroup is Q₈), so the printed choice is impossible.
-- (8) for k = F_5: (E1) fails, consistent with H¹(SL₂(F_5), ad⁰) being one-dimensional; Lemma 7.5.19 substitutes weak enormity plus ζ_5 ∉ L.
-- (10): the class of order 128 in the list of §7.5.20 is the Sylow 2-subgroup of Sp₄(F_3) (51840 = 2⁷·3⁴·5), consistent with (12) and contradicting the last sentence of Remark 7.5.23.
-
-**Pinned-library boundary.** {"module": "TauCeti/NumberTheory/GaloisRepresentation/ImageConditions/GSp4BigImage", "namespace": "TauCeti.ResidualImage.GSp4"}
 
 **Sources.**
 
-- `bcgp21`, Lemma 7.5.9, arXiv v3 p. 200. (1).
-- `bcgp21`, Lemma 7.5.12, arXiv v3 p. 201. (2).
-- `bcgp21`, Lemma 7.5.14. (4).
-- `bcgp21`, Lemma 7.5.15. (5).
-- `bcgp21`, §7.5.16, arXiv v3 pp. 201–202. (6).
-- `bcgp21`, Lemma 7.5.17. (7).
-- `bcgp21`, Lemma 7.5.18, arXiv v3 p. 202. (8).
-- `bcgp21`, proof of Lemma 7.5.18, arXiv v3 p. 203. The step corrected by E761.
-- `bcgp21`, Lemma 7.5.19. (9).
-- `bcgp21`, §7.5.20. (10).
-- `bcgp21`, Lemma 7.5.21, arXiv v3 p. 204. (10).
-- `bcgp21`, Lemma 7.5.22, arXiv v3 pp. 204–205. (11).
-- `bcgp21`, Remark 7.5.23, arXiv v3 p. 205. The sentence corrected by E765.
+- `bcgp21`, Lemma 7.5.9, arXiv v3 p. 200: the statement.
 
-### The image over the 3-power cyclotomic tower of an induction with image SL₂(F_3) ≀ Z/2Z does not shrink
+**Acceptance cases.**
+
+- Check the stated hypotheses at every source locator; this part has its own direct prerequisites, independently of the other criteria in the former bundle.
 
 <a id="G7-image-in-the-3-cyclotomic-tower-for-sl2-wreath-products"></a>
 
@@ -13888,7 +13780,7 @@ Let p > 2, k a finite field of characteristic p, and r̄ : G_Q → GSp₄(k) con
 **Unit tests.**
 
 - `TauCeti.ResidualImage.GSp4.hasBigImage_of_surjective` (computation): If p ≥ 5 and r̄(G_Q) = GSp₄(F_p) then r̄ has big image.
-- `TauCeti.ResidualImage.GSp4.not_hasBigImage_of_zeta_mem` (non-example): For p = 3 and r̄ : G_Q → GSp₄(F_3) surjective with similitude character ε̄⁻¹, (H1) fails: ν mod squares factors through PGSp₄(F_3) (ν(a·1) = a² = 1 for a ∈ F_3^×), so Q(ad⁰ r̄) contains the field Q(ζ_3) cut out by ε̄. Yet r̄ is vast (G7/gsp4-big-image-verification (5)), and its image over Q(ζ_3) is the enormous group Sp₄(F_3). A definition of big image through vastness, or through the group r̄(G_{Q(ζ_p)}) alone, fails this test.
+- `TauCeti.ResidualImage.GSp4.not_hasBigImage_of_zeta_mem` (non-example): For p = 3 and r̄ : G_Q → GSp₄(F_3) surjective with similitude character ε̄⁻¹, (H1) fails: ν mod squares factors through PGSp₄(F_3) (ν(a·1) = a² = 1 for a ∈ F_3^×), so Q(ad⁰ r̄) contains the field Q(ζ_3) cut out by ε̄. Yet r̄ is vast (G7/gsp4-standard-image-enormity-and-tidiness), and its image over Q(ζ_3) is the enormous group Sp₄(F_3). A definition of big image through vastness, or through the group r̄(G_{Q(ζ_p)}) alone, fails this test.
 - `TauCeti.ResidualImage.GSp4.adjoint_split` (compatibility): For p > 2, ad(r̄) ≅ ad⁰(r̄) ⊕ 1 with the trivial character on the second summand, not the similitude character.
 - `TauCeti.ResidualImage.GSp4.hasBigImage_isVast` (characterisation): Big image together with absolute irreducibility of every r̄|G_{Q(ζ_{p^N})} implies vastness in the sense of Boxer–Calegari–Gee–Pilloni.
 
@@ -13920,6 +13812,8 @@ Let p > 2, k a finite field of characteristic p, and r̄ : G_Q → GSp₄(k) con
 
 `ArithmeticGaloisRepresentations:G7/cg20-big-image-examples` · theorem · implementation unchecked
 
+### Examples of big image: surjective GSp₄(F_p) images and inductions from imaginary quadratic fields
+
 Let p ≥ 5. (1) (Calegari–Geraghty 2020, Example 4.11(1), with corrected proof) Let K/Q be imaginary quadratic with K ⊄ Q(ζ_p), and ρ̄ : G_K → GL₂(F_p) with det ρ̄ = ε̄^{1−k} for some integer k, such that for a complex conjugation c the pair (ρ̄, ρ̄^c) maps G_{K(ζ_p)} onto SL₂(F_p) × SL₂(F_p) (the fields cut out by ρ̄|G_{K(ζ_p)} and ρ̄^c|G_{K(ζ_p)} are linearly disjoint over K(ζ_p)). Then r̄ = Ind_K^Q ρ̄ carries the two symplectic forms of G7/gsp4-and-symplectic-induction (iii), with multipliers ε̄^{1−k} and ε̄^{1−k}·η_{K/Q}; what follows holds for either, ad⁰(r̄)|_{G_K} ≅ (ρ̄ ⊗ ρ̄^c) ⊗ ε̄^{k−1} ⊕ ad⁰(ρ̄) ⊕ ad⁰(ρ̄^c), ad⁰(r̄) ≅ As(ρ̄) ⊗ ε̄^{k−1} ⊕ Ind_K^Q ad⁰(ρ̄) up to replacing As(ρ̄) by its quadratic twist, r̄(G_{Q(ζ_{p^m})}) = {diag(A,B) : A, B ∈ SL₂(F_p)} ⊔ {diag(A,B)·r̄(c) : det A = det B = (−1)^{k−1}} (abstractly SL₂(F_p)² ⋊ Z/2Z) for every m ≥ 1, and r̄ has big image. (2) (Example 4.11(2)) If r̄(G_Q) = GSp₄(F_p), then r̄ has big image.
 
 **Hypotheses.**
@@ -13927,9 +13821,9 @@ Let p ≥ 5. (1) (Calegari–Geraghty 2020, Example 4.11(1), with corrected proo
 - p ≥ 5, so that SL₂(F_p) and Sp₄(F_p) are perfect and PSL₂(F_p) is simple
 - the element witnessing (H2) must lie in r̄(G_{Q(ζ_{p^m})}); c itself does not (E757)
 - only the eigenvalue 1, not −1, is automatic on Ind_K^Q ad⁰(ρ̄) for elements of the index-two subgroup (E758)
-- both examples also satisfy the stronger reading (H3′) of G7/cg20-big-image-assumption: the image of G_{Q(ζ_p)} under ad⁰(r̄) is PSp₄(F_p) in (2) and (SL₂(F_p)² ⋊ Z/2)/{±1} in (1), whose abelianisations are trivial and Z/2; neither has a quotient of order p
+- Both examples also satisfy (H3′) of G7/cg20-big-image-assumption. In (2), the image of G_{Q(ζ_p)} under ad⁰(r̄) contains the normal perfect group PSp₄(F_p), with quotient of order dividing p−1; it need not equal PSp₄(F_p). Neither the perfect subgroup nor its prime-to-p quotient has a quotient of order p. In (1), the projective cyclotomic image has abelianisation of order two, again giving no quotient of order p.
 
-**Prerequisites.**
+**Direct prerequisites.**
 
 - `ArithmeticGaloisRepresentations:G7/cg20-big-image-assumption`
 - `ArithmeticGaloisRepresentations:G7/gsp4-big-image-verification`
@@ -13938,32 +13832,30 @@ Let p ≥ 5. (1) (Calegari–Geraghty 2020, Example 4.11(1), with corrected proo
 - `ArithmeticGaloisRepresentations:R01.1/continuous-induction`
 - `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`
 - `mathlib:Matrix.SL2.commutator_eq_top`
+- `ArithmeticGaloisRepresentations:G7/gsp4-induced-adjoint-decomposition`
+- `ArithmeticGaloisRepresentations:G7/gsp4-standard-image-enormity-and-tidiness`
 
-**Proof plan.**
+**Proof outline.**
 
-1. (1), structure: the dual of ρ̄ is ρ̄ ⊗ ε̄^{k−1} (printed with × for ⊗, E760); compute ad⁰ over K and over Q by G7/gsp4-big-image-verification (6) and G7/tensor-induction (Asai).
+1. (1), structure: the dual of ρ̄ is ρ̄ ⊗ ε̄^{k−1} (printed with × for ⊗, E760); compute ad⁰ over K and over Q by G7/gsp4-induced-adjoint-decomposition and G7/tensor-induction (Asai).
 2. (1), (H1) and (H3): SL₂(F_p) perfect (Mathlib Matrix.SL2.commutator_eq_top) and K ⊄ Q(ζ_p) (ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field for the cyclotomic bookkeeping).
 3. (1), image over Q(ζ_{p^m}): elements of G_{Q(ζ_{p^m})} ∖ G_K are σc with σ ∈ G_K, ε̄(σ) ≡ −1, so r̄(σc) = diag(ρ̄(σ), ρ̄^c(σ))·r̄(c) with det ρ̄(σ) = (−1)^{k−1}; SL₂(F_p)² is perfect and disjoint from the p-extension K(ζ_{p^m})/K(ζ_p), so every (A, B) with det A = det B = (−1)^{k−1} occurs (E757).
 4. (1), (H2): take A = diag(x, (−1)^{k−1}x⁻¹), B = diag(y, (−1)^{k−1}y⁻¹), x = 2, y = 1; diag(A,B)·r̄(c) has eigenvalues ±(xy)^{1/2}, ±(xy)^{−1/2} on r̄ (distinct as (xy)² = 4 ≠ 1), eigenvalues xy, (xy)⁻¹, 1, −1 on As(ρ̄), and eigenvalue 1 on Ind ad⁰(ρ̄) (every element of GL₂ has eigenvalue 1 on ad⁰, and elements outside the index-two subgroup have both ±1, E758).
-5. (2): r̄(G_{Q(ζ_{p^m})}) ⊇ Sp₄(F_p) for all m (Sp₄(F_p) perfect, GSp₄(F_p)/Sp₄(F_p) abelian); (H2) as in G7/gsp4-big-image-verification (5): 𝔰𝔭₄ is absolutely irreducible and every element with distinct eigenvalues has eigenvalue 1 on it; (H1): the projective image PGSp₄(F_p) has abelianisation of order 2 while Gal(Q(ζ_p)/Q) is cyclic of order p − 1 ≥ 4; (H3): PGSp₄(F_p) has no quotient of order p and the image of ad⁰(r̄)(1) is {(ad⁰r̄(σ), ε̄(σ))} ⊆ PGSp₄(F_p) × F_p^×, an extension of PGSp₄(F_p) by a subgroup of F_p^×, so every quotient of order p factors through PGSp₄(F_p). Calegari–Geraghty cite Pilloni 2012, Proposition 5.8 for (2).
+5. (2): r̄(G_{Q(ζ_{p^m})}) ⊇ Sp₄(F_p) for all m (Sp₄(F_p) perfect, GSp₄(F_p)/Sp₄(F_p) abelian); (H2) as in G7/gsp4-standard-image-enormity-and-tidiness: 𝔰𝔭₄ is absolutely irreducible and every element with distinct eigenvalues has eigenvalue 1 on it; (H1): the projective image PGSp₄(F_p) has abelianisation of order 2 while Gal(Q(ζ_p)/Q) is cyclic of order p − 1 ≥ 4; (H3): PGSp₄(F_p) has no quotient of order p and the image of ad⁰(r̄)(1) is {(ad⁰r̄(σ), ε̄(σ))} ⊆ PGSp₄(F_p) × F_p^×, an extension of PGSp₄(F_p) by a subgroup of F_p^×, so every quotient of order p factors through PGSp₄(F_p). Calegari–Geraghty cite Pilloni 2012, Proposition 5.8 for (2).
 
-**Acceptance checks.**
+**Sources.**
+
+- `cg20-arxiv-v1`, Example 4.11, arXiv v1 p. 14 (published p. 818): The example.
+- `cg20-arxiv-v1`, Example 4.11(2), arXiv v1 p. 14 (published p. 818): (2).
+- `cg20-arxiv-v1`, proof of Example 4.11, arXiv v1 p. 14 (published p. 819): The image over Q(ζ_{p^m}).
+- `cg20-arxiv-v1`, proof of Example 4.11, arXiv v1 p. 14 (published p. 819): The overstatement corrected by E758.
+- `cg20-arxiv-v1`, proof of Example 4.11, arXiv v1 p. 14 (published p. 818): The × misprint (E760).
+
+**Acceptance cases.**
 
 - (1) mod 13 with x = 2, y = 1 and either sign (−1)^{k−1}: the element has characteristic polynomial T⁴ + 4T² + 1 on r̄ and (T² − 1)(T − 2)(T − 7) on As(ρ̄) (2⁻¹ = 7 in F_13; (T² − 2)(T² − 7) = T⁴ + 4T² + 1).
 - (1) for k = 2 (Remark 4.12, elliptic curves): the printed element swap·diag(x, x⁻¹, y, y⁻¹) has blocks of determinant +1 ≠ −1 and does not lie in r̄(G_{Q(ζ_{p^m})}); the corrected element does.
 - (2) for p = 5: GSp₄(F_5) surjective image gives big image although SL₂(F_5) is not enormous.
-
-**Pinned-library boundary.** {"module": "TauCeti/NumberTheory/GaloisRepresentation/ImageConditions/GSp4BigImage", "namespace": "TauCeti.ResidualImage.GSp4"}
-
-**Sources.**
-
-- `cg20-arxiv-v1`, Example 4.11, arXiv v1 p. 14 (published p. 818). The example.
-- `cg20-arxiv-v1`, Example 4.11(2), arXiv v1 p. 14 (published p. 818). (2).
-- `cg20-arxiv-v1`, proof of Example 4.11, arXiv v1 p. 14 (published p. 819). The image over Q(ζ_{p^m}).
-- `cg20-arxiv-v1`, proof of Example 4.11, arXiv v1 p. 14 (published p. 819). The overstatement corrected by E758.
-- `cg20-arxiv-v1`, proof of Example 4.11, arXiv v1 p. 14 (published p. 818). The × misprint (E760).
-
-### Taylor–Wiles image conditions: adequate or enormous image over F(ζ_p) and a scalar element outside G_{F(ζ_p)}
 
 <a id="G7-taylor-wiles-image-conditions"></a>
 
@@ -14039,63 +13931,846 @@ Let F be a number field, p a prime, n ≥ 1 and s̄ : G_F → GL_n(F̄_p) contin
 
 `ArithmeticGaloisRepresentations:G7/taylor-wiles-image-lemmas` · theorem · implementation unchecked
 
-(1) (Boxer–Calegari–Gee–Newton–Thorne, Lemma 5.2.2, image part) Let F/Q be Galois and s̄ : G_F → GL_n(F̄_p) satisfy the Taylor–Wiles image conditions (G7/taylor-wiles-image-conditions). If H/F is finite and its Galois closure over Q is linearly disjoint over F from the composite of F(ζ_p) and the Galois closure over Q of F̄^{ker s̄}, then s̄(G_H) = s̄(G_F), s̄(G_{H(ζ_p)}) = s̄(G_{F(ζ_p)}), and s̄|G_H satisfies the Taylor–Wiles image conditions. (2) (Lemma 5.2.4, image parts) Let F/Q be Galois, r̄_A : G_F → GL₂(F_p) and r̄_B : G_F → GU_m(F_{p²}) ⊆ GL_m(F_{p²}) with r̄_A(G_{F(ζ_p)}) = SL₂(F_p) and r̄_B(G_{F(ζ_p)}) = SU_m(F_{p²}), s̄ = Sym^{n−1}r̄_A ⊗ r̄_B, p > 2mn + 1, and if m = 2 assume the Galois closures over Q of the fixed fields of the projective representations of r̄_A and r̄_B are linearly disjoint over F(ζ_p) (E767). Then (i) s̄|G_{F(ζ_p)} has adequate image; (ii) if det r̄_A = ε̄^{−m} and r̄_B has multiplier ε̄^{1−m}, s̄ has image in GU_{mn}(F_{p²}) with multiplier ε̄^{1−mn} (the proof prints r̄_A ⊗ r̄_B for s̄: E768); (iii) if moreover ε̄(G_F) = F_p^×, (TW3) holds for s̄. (3) (Lemma 5.2.5) Let E/Q be cyclic of degree m and linearly disjoint from F, L = EF, ψ : G_L → F_p^× with p ∤ m (a hypothesis the source omits, E781), r̄_B = Ind_{G_L}^{G_F} ψ, and q a rational prime splitting completely in F with r̄_B unramified above q and Frob_q generating Gal(E/Q). For v | q, the eigenvalues of r̄_B(Frob_v) are λ, ζλ, …, ζ^{m−1}λ with ζ a primitive m-th root of unity. (4) (Lemma 5.2.6, image parts, corrected) Let F/Q be Galois, r̄_A as in (2), r̄_B ≅ Ind_{G_L}^{G_F} ψ : G_F → GL_m(F_p) as in (3) with r̄_B|G_{F(ζ_p)} absolutely irreducible (E766), s̄ = Sym^{n−1}r̄_A ⊗ r̄_B and p > 2mn + 1. Then s̄|G_{F(ζ_p)} has adequate image, and if det r̄_A = ε̄^{−m}, det r̄_B = ε̄^{−m(m−1)/2} and ε̄(G_L) = F_p^×, (TW3) holds. (5) (Allen et al. 2023, Lemma 7.1.6(1)) Under the standing hypotheses of G7/enormous-symmetric-powers (3) (F/Q finite with normal closure F̃, l > 2m + 3, r̄(G_{F̃}) ⊇ SL₂(F_l), F'/F linearly disjoint from F̄^{ker r̄}), if l is unramified in F'/Q then ζ_l ∉ F̄^{ker ad Sym^m r̄}·F', so Sym^m r̄|G_{F'} satisfies (TW3) and, with G7/enormous-symmetric-powers (3), the enormous Taylor–Wiles image conditions.
+### Taylor–Wiles image preservation under disjoint base change
+
+(Boxer–Calegari–Gee–Newton–Thorne, Lemma 5.2.2, image part) Let F/Q be Galois and s̄ : G_F → GL_n(F̄_p) satisfy the Taylor–Wiles image conditions (G7/taylor-wiles-image-conditions). If H/F is finite and its Galois closure over Q is linearly disjoint over F from the composite of F(ζ_p) and the Galois closure over Q of F̄^{ker s̄}, then s̄(G_H) = s̄(G_F), s̄(G_{H(ζ_p)}) = s̄(G_{F(ζ_p)}), and s̄|G_H satisfies the Taylor–Wiles image conditions.
 
 **Hypotheses.**
 
 - the decomposed-genericity halves of Lemmas 5.2.2, 5.2.4(1), 5.2.6(1) and of Allen et al. Lemmas 7.1.5, 7.1.6(3)–(5), 7.1.7 are not stated here (they belong to PotentialAutomorphyInfrastructure:PA.5)
-- (4) needs r̄_B|G_{F(ζ_p)} absolutely irreducible, not merely irreducible (E766)
-- (2) for m = 2: the image statements (i)–(iii) hold already under the printed hypothesis (the fixed fields H_A, H_B of the projective kernels linearly disjoint over F(ζ_p)); linear disjointness of their Galois closures over Q is what the decomposed-genericity half of Lemma 5.2.4 needs (E767), and it is assumed here so that the hypotheses agree with that half
-- In (2)–(4), m,n≥1. In the kernel-field argument of (4), M_A and M_B denote the finite Galois extensions of F(ζ_p) cut out by r̄_A|G_{F(ζ_p)} and r̄_B|G_{F(ζ_p)}; surjectivity to SL₂(F_p) is applied after restriction to G_{F(ζ_p)}∩G_{M_B}, as supplied by the product-image argument.
 
-**Prerequisites.**
+**Direct prerequisites.**
 
 - `ArithmeticGaloisRepresentations:G7/taylor-wiles-image-conditions`
+
+**Proof outline.**
+
+1. (1): Boxer–Calegari–Gee–Newton–Thorne Lemma 5.2.2: reduce to H Galois over Q; disjointness gives Gal(H·M(ζ_p)/F) ≅ Gal(M(ζ_p)/F) × Gal(H/F), so the images of G_H and G_{H(ζ_p)} equal those of G_F and G_{F(ζ_p)}, and a scalar σ outside G_{F(ζ_p)} gives (σ, 1).
+
+**Sources.**
+
+- `bcgnt25`, Lemma 5.2.2, arXiv v3 p. 51: the statement.
+
+**Acceptance cases.**
+
+- Check the stated hypotheses at every source locator; this part has its own direct prerequisites, independently of the other criteria in the former bundle.
+
+<a id="G7-adequacy-of-prime-to-p-groups"></a>
+
+`ArithmeticGaloisRepresentations:G7/adequacy-of-prime-to-p-groups` · theorem · implementation unchecked
+
+### Adequacy of absolutely irreducible groups of order prime to p
+
+Let p be prime and k a field of characteristic p; the finite subgroups and adequate/GHT-adequate conventions are those of G7/adequate-subgroup. If p ∤ #H and H acts absolutely irreducibly, H is adequate (BLGG13 Remark A.1.2; GHTT Lemma 2(i)).
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/adequate-subgroup`
+- `ArithmeticGaloisRepresentations:G7/dimension-of-absolutely-irreducible-representations-of-prime-to-p-groups`
+- `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
+- `ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible`
+
+**Proof outline.**
+
+1. (2): BLGG13 Remark A.1.2: (A1) is trivial; p ∤ n by G7/dimension-of-absolutely-irreducible-representations-of-prime-to-p-groups (the source lifts to characteristic 0 and uses that n divides #H); every element is semisimple and spans by Burnside; H¹ vanishes because #H is invertible in k (G7/h1-restriction-injective-for-invertible-index (i)).
+
+**Sources.**
+
+- `blgg13-serre-weights`, Remark A.1.2, arXiv v1 p. 29: the statement.
+
+**Acceptance cases.**
+
+- (2) with p odd: the quaternion group Q₈ ⊆ SL₂(F̄_p) acting by its two-dimensional representation is adequate, and so is the image of Q₈ × Q₈ in GL₄(F̄_p) acting on the tensor product (order 32, irreducible); the latter is not enormous (G7/enormous-image-and-its-coefficient-extension-invariance, acceptance), so (2) does not extend to enormous image.
+
+<a id="G7-adequacy-of-prime-to-p-normal-overgroups"></a>
+
+`ArithmeticGaloisRepresentations:G7/adequacy-of-prime-to-p-normal-overgroups` · theorem · implementation unchecked
+
+### Adequacy of a normal overgroup of index prime to p
+
+Let p be prime and k a field of characteristic p; the finite subgroups and adequate/GHT-adequate conventions are those of G7/adequate-subgroup. If N ⊴ H is adequate and p ∤ [H : N], then H is adequate (BLGG13 Lemma A.1.3).
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/adequate-subgroup`
+- `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
+- `mathlib:groupCohomology.H1InfRes_exact`
+
+**Proof outline.**
+
+1. Apply inflation–restriction for N⊴H with ad^N=k·1 and p∤[H:N]. The scalar index action gives no new degree-one cohomology; the semisimple spanning property passes from N to H. This is BLGG13 Lemma A.1.3, arXiv v1 p.29.
+
+**Sources.**
+
+- `blgg13-serre-weights`, Lemma A.1.3, arXiv v1 p. 29: this statement, first half.
+
+**Acceptance cases.**
+
+- N=H recovers the hypothesis. When p divides [H:N], this criterion supplies no conclusion; its inflation–restriction argument must retain the invertible-index assumption.
+
+<a id="G7-ght-adequacy-of-sylow-containing-overgroups"></a>
+
+`ArithmeticGaloisRepresentations:G7/ght-adequacy-of-sylow-containing-overgroups` · theorem · implementation unchecked
+
+### GHT-adequacy of overgroups containing a Sylow p-subgroup
+
+Let p be prime, k a field of characteristic p and H a finite subgroup acting irreducibly on k^n. If a subgroup S≤H containing a Sylow p-subgroup is GHT-adequate on k^n, then H is GHT-adequate. In particular this applies when S=H⁺.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/adequate-subgroup`
+- `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
+
+**Proof outline.**
+
+1. GHT17 Remark 6.1, arXiv v3 p.28: the semisimple spanning condition passes from S to H, and the restriction map in H¹ is injective because p∤[H:S]. Apply the invertible-index restriction lemma to both coefficient modules required by GHT-adequacy.
+
+**Sources.**
+
+- `ght17-adequate`, Remark 6.1, arXiv v3 p. 28: The GHT-adequacy overgroup assertion, now separate from the normal Thorne-adequacy criterion.
+
+**Acceptance cases.**
+
+- Take S=H⁺. The criterion uses irreducibility of H, not an assertion that the restriction to H⁺ is irreducible.
+
+<a id="G7-adequacy-of-tensor-products"></a>
+
+`ArithmeticGaloisRepresentations:G7/adequacy-of-tensor-products` · theorem · implementation unchecked
+
+### Adequacy after a prime-to-p tensor factor
+
+Let p be prime and k a field of characteristic p; the finite subgroups and adequate/GHT-adequate conventions are those of G7/adequate-subgroup. (BLGG13 Lemma A.3.1, Taylor) For a group Γ and representations r_i : Γ → GL_{n_i}(k̄), i = 1, 2, with r₁(Γ) adequate, r₂|_{ker r₁} irreducible and p ∤ #r₂(Γ), the image (r₁ ⊗ r₂)(Γ) is adequate; the same proof shows: if r₁(Γ) satisfies H¹(r₁(Γ), k̄) = 0, H¹(r₁(Γ), ad) = 0 and the spanning condition, so does (r₁ ⊗ r₂)(Γ) (Boxer–Calegari–Gee 2025, proof of Theorem 3.1).
+
+**Hypotheses.**
+
+- (4) needs p ∤ #r₂(Γ) and r₂ irreducible on ker r₁; tensor products of two adequate groups need not be adequate
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/adequate-subgroup`
+- `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
+- `mathlib:groupCohomology.H1InfRes_exact`
+- `mathlib:Representation.tprod`
+- `ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible`
+
+**Proof outline.**
+
+1. (4): BLGG13 Lemma A.3.1: with H_i = r_i(Γ), K_i = r_i(ker r_{3−i}) and Z the scalars z with (z, z⁻¹) in the image, H/K₂ ≅ H₁/Z; spanning is checked on A₁ ⊗ A₂ using r₂(ker r₁)-spans; the tensor product is Mathlib's Representation.tprod. H¹ by inflation–restriction (Mathlib groupCohomology.H1InfRes_exact for K₂ ⊴ H): H¹(H/K₂, ad(r₁⊗r₂)^{K₂}) = H¹(H₁/Z, ad r₁) = 0 (inflation to H₁ is injective and H¹(H₁, ad r₁) = 0) and H¹(K₂, ad(r₁⊗r₂)) = 0 as p ∤ #K₂ (G7/h1-restriction-injective-for-invertible-index (i)).
+
+**Sources.**
+
+- `blgg13-serre-weights`, Lemma A.3.1, arXiv v1 p. 35: the statement.
+- `bcg25-gln`, proof of Theorem 3.1, published p. 518: The relaxed variant of the statement.
+
+**Acceptance cases.**
+
+- Take r₂ trivial of rank one. The conclusion recovers adequacy of r₁; removing irreducibility on ker r₁ is not allowed.
+
+<a id="G7-adequacy-of-rank-two-groups"></a>
+
+`ArithmeticGaloisRepresentations:G7/adequacy-of-rank-two-groups` · theorem · implementation unchecked
+
+### Rank-two adequacy exceptions
+
+Let p be prime and k a field of characteristic p; the finite subgroups and adequate/GHT-adequate conventions are those of G7/adequate-subgroup. (rank two; BLGG13 Proposition A.2.1 as corrected by sourceIssue E754, in agreement with Guralnick–Herzig–Tiep, Corollary 9.5 and Gee–Newton Lemma 3.2.3) If p > 2 and G ⊆ GL₂(F̄_p) is finite and irreducible on F̄_p², then G is adequate unless p = 3 and the image of G in PGL₂(F̄_3) is conjugate to PSL₂(F_3), or p = 5 and that image is conjugate to PSL₂(F_5).
+
+**Hypotheses.**
+
+- (5) is for p odd; p = 2 and n = 2 is excluded since then p | n
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/adequate-subgroup`
 - `ArithmeticGaloisRepresentations:G7/adequacy-criteria`
-- `ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers`
-- `ArithmeticGaloisRepresentations:G7/symmetric-and-exterior-powers`
-- `ArithmeticGaloisRepresentations:G7/polarized-representation`
-- `ArithmeticGaloisRepresentations:R01.1/continuous-induction`
-- `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`
-- `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`
+- `ArithmeticGaloisRepresentations:G7/adequacy-of-prime-to-p-groups`
+- `ArithmeticGaloisRepresentations:G7/adequacy-of-prime-to-p-normal-overgroups`
+- `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`
 - `ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement`
 - `ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images`
 - `ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field`
 - `ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field`
-- `ArithmeticGaloisRepresentations:R01.4/dyadic-solvable-projective-image`
-- `ArithmeticGaloisRepresentations:R01.4/dyadic-nonsolvable-projective-image`
-- `ArithmeticGaloisRepresentations:R01.4/large-order-projective-image-criterion`
 
-**Proof plan.**
+**Proof outline.**
 
-1. (1): Boxer–Calegari–Gee–Newton–Thorne Lemma 5.2.2: reduce to H Galois over Q; disjointness gives Gal(H·M(ζ_p)/F) ≅ Gal(M(ζ_p)/F) × Gal(H/F), so the images of G_H and G_{H(ζ_p)} equal those of G_F and G_{F(ζ_p)}, and a scalar σ outside G_{F(ζ_p)} gives (σ, 1).
-2. (2)(i): Goursat with Lemma 5.2.3 (simplicity and pairwise non-isomorphism of PSL₂(F_p) and PSU_m(F_{p²}), ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2 for the PSL₂ part) gives Gal(H̃/F(ζ_p)) ≅ PSL₂(F_p)^r × PSU_m(F_{p²})^s; the image of s̄|G_{F(ζ_p)} contains Sym^{n−1}SL₂(F_p) ⊗ SU_m(F_{p²}), acting absolutely irreducibly, and adequacy follows from G7/adequacy-criteria (1) with d ≤ mn, as p > 2mn + 1 gives p ≥ 2(mn + 1) (GHTT Theorem A.9). (ii): multipliers multiply (G7/polarized-representation for unitary multipliers). (iii): choose σ with r̄_A(σ) and r̄_B(σ) scalar and ε̄(σ) ≠ 1, using ε̄(G_F) = F_p^×.
-3. (3): Gal(L/F) ≅ Gal(E/Q) is cyclic of order m; r̄_B ≅ r̄_B ⊗ χ for a character χ of order m through Gal(L/F), and Frob_v maps to a generator, so the eigenvalue multiset is stable under multiplication by ζ = χ(Frob_v).
-4. (4): as in (2)(i): SL₂(F_p) has no solvable quotient and r̄_B has solvable image, so (r̄_A, r̄_B)(G_{F(ζ_p)}) = SL₂(F_p) × r̄_B(G_{F(ζ_p)}) (Goursat), and s̄|G_{F(ζ_p)} is absolutely irreducible because r̄_B|G_{F(ζ_p)} is; adequacy follows from G7/adequacy-criteria (1), as p ≥ 2(mn + 1) (or from G7/adequacy-criteria (4), BLGG13 Lemma A.3.1, since #r̄_B(G_F) divides m·(p − 1)^m and is prime to p). Absolute irreducibility of r̄_B|G_{F(ζ_p)} has to be assumed: adequacy implies it, and the printed 'irreducible', for the F_p-rational representation r̄_B, does not (E766). (TW3): with β a primitive root, choose g ∈ G_L with ε̄(g) = β² and h = Π_{τ ∈ Gal(L/F)} τ(g), so r̄_B(h) = β^{m(1−m)}·1 as Π_τ ψ^τ = det r̄_B|G_L; as G_{M_B} ⊆ G_{F(ζ_p)} surjects onto Gal(M_A/F(ζ_p)) ≅ SL₂(F_p), some γ ∈ G_{M_B} gives r̄_A(hγ) = β^{−m²}·1; σ = hγ has s̄(σ) scalar and ε̄(σ) = β^{2m} ≠ 1.
-5. (5): reduce to m = 1 (ad Sym^m r̄ factors through ad r̄); Gal(F'(ζ_l)/F') ≅ (Z/l)^× as l is unramified in F', while ad r̄(G_{F'}) = ad r̄(G_F) is PSL₂(k) or PGL₂(k) and has no cyclic quotient of order l − 1 > 2 (ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field); then apply the characterisation (TW3) ⟺ ζ_l ∉ F̄^{ker ad} of G7/taylor-wiles-image-conditions.
-
-**Acceptance checks.**
-
-- (3) with m = 2: r̄_B = Ind ψ from a quadratic L = EF, Frob_v nontrivial on E: eigenvalues λ, −λ, i.e. trace zero.
-- (4) without absolute irreducibility fails: for m = 2 with Ind ψ̄ ≅ θ ⊕ θη over F̄_p (θ F_{p²}-valued) the image of s̄|G_{F(ζ_p)} is not absolutely irreducible, hence not adequate (E766).
-- (5) for E/Q non-CM with surjective mod l image, l ≥ 7, F = F' = Q: ζ_l ∉ Q̄^{ker ad r̄}, so Sym^m r̄ satisfies the enormous Taylor–Wiles image conditions for l > 2m + 3.
-
-**Pinned-library boundary.** {"module": "TauCeti/NumberTheory/GaloisRepresentation/ImageConditions/TaylorWilesLemmas", "namespace": "TauCeti.ResidualImage"}
+1. (5): BLGG13 Proposition A.2.1 case analysis over Dickson's list (ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement): p ≥ 7 by G7/adequacy-criteria with d ≤ 2; prime-to-p projective images by G7/adequacy-of-prime-to-p-groups; PSL₂/PGL₂(k) with |k| ≥ p² by reduction to SL₂(k) and G7/h1-of-sl2-with-adjoint-coefficients; p = 3 with PGL₂(F_3) or A₅ adequate; p = 3 with PSL₂(F_3) fails (A1); p = 5 with PSL₂(F_5) fails as H¹(SL₂(F_5), ad⁰) ≠ 0. For p = 5 with image PGL₂(F_5): replace G by k^×G and then by GL₂(F_5) (Lemmas A.1.3, A.1.4); H¹(GL₂(F_5), ad⁰) = 0 (G7/h1-of-sl2-with-adjoint-coefficients (b)), so G is adequate — the opposite of BLGG13's Point 5 (E754). Guralnick–Herzig–Tiep, Corollary 9.5 proves the same for every faithful absolutely irreducible representation with projective image PGL₂(p^a), p odd, p^a > 3.
 
 **Sources.**
 
-- `bcgnt25`, Lemma 5.2.2, arXiv v3 p. 51. (1).
-- `bcgnt25`, Lemma 5.2.4. (2), with the m = 2 hypothesis corrected (E767).
-- `bcgnt25`, Lemma 5.2.4(2). (2)(ii).
-- `bcgnt25`, proof of Lemma 5.2.4. The adequacy step.
-- `bcgnt25`, Lemma 5.2.5. (3).
-- `bcgnt25`, Lemma 5.2.5. (3), conclusion.
-- `bcgnt25`, Lemma 5.2.6. (4).
-- `accplus-cm-potential-automorphy`, proof of Lemma 7.1.6(1), printed p. 1090. (5).
+- `blgg13-serre-weights`, Proposition A.2.1, arXiv v1 p. 30: this statement, whose PGL₂(F_5) exception is corrected (E754).
+- `gn22-patching`, Lemma 3.2.3, arXiv v5 p. 15: The corrected list of rank-two exceptions.
+- `ght17-adequate`, Corollary 9.5, arXiv v3 p. 51: A faithful absolutely irreducible representation in odd characteristic with projective image PGL₂(p^a), p^a > 3, is adequate; for p = 5 and dimension 2 this is the case that BLGG13 v1 Proposition A.2.1 lists as not adequate (E754).
 
-### Remaining work for G7
+**Acceptance cases.**
 
-- Budget boundary: this pass has 300 nodes. Complete the remaining declaration-sized carrier/construction splits and their APIs/tests below; retain the original IDs on principal clauses and refine conservative bundle-consumer prerequisites to exact exported declarations. No stage is claimed closed.
+- At p=5, GL₂(F₅) is adequate and SL₂(F₅) is not; this checks the corrected PGL₂/PSL₂ distinction.
+
+<a id="G7-ght-adequacy-of-sl2-representations"></a>
+
+`ArithmeticGaloisRepresentations:G7/ght-adequacy-of-sl2-representations` · theorem · implementation unchecked
+
+### GHT-adequacy exceptions for irreducible SL₂ representations
+
+Let p be prime and k a field of characteristic p; the finite subgroups and adequate/GHT-adequate conventions are those of G7/adequate-subgroup. (GHT17 Corollary 9.4) A nontrivial absolutely irreducible representation V of SL₂(F_{p^r}) over a field of characteristic p is GHT-adequate unless (i) r = 1 and 1 < dim V = (p ± 1)/2, (ii) p^r ∈ {2, 3, 4} and dim V = p^r, or (iii) p^r = 9 and dim V ∈ {3, 6, 9}.
+
+**Hypotheses.**
+
+- (6) concerns GHT-adequacy; for p ∤ dim V it is Thorne-adequacy
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/adequate-subgroup`
+- `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`
+
+**Proof outline.**
+
+1. (6): GHT17 Corollary 9.4: r = 1 is [GHT, Cor. 1.4]; for r > 1, Ext¹_G(V,V) = 0 by Andersen–Jørgensen–Landrock [2, Cor. 4.5(a)], H¹(G,k) = 0 as G is perfect and H²(G,k) = 0 unless p^r ∈ {4, 9}; the cases p^r = 4, 9 are computed via tilting modules T(b₀) ⊗ T(b₁)^{(1)}. The AJL Ext computation is not in any library and is recorded as a gap.
+
+**Sources.**
+
+- `ght17-adequate`, Corollary 9.4, arXiv v3 p. 50: the statement.
+- `ght17-adequate`, Corollary 9.4 (i): The first exceptional case of the statement.
+
+**Acceptance cases.**
+
+- For p≥5 and r=1, the standard rank-two representation meets the exceptional dimension (p−1)/2 only at p=5. The case p=3 lies outside the p≥5 hypothesis of this criterion.
+
+<a id="G7-enormous-symmetric-powers-of-sl2-overgroups"></a>
+
+`ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers-of-sl2-overgroups` · theorem · implementation unchecked
+
+### Enormous symmetric powers of finite SL₂ overgroups
+
+Let p be prime and k an algebraic extension of F_p; all symmetric powers use the monomial basis of G7/symmetric-and-exterior-powers. (Allen et al. 2023, Lemma 7.1.4, with the codomain corrected to GL_n, sourceIssue E751) If n ≥ 2, l > 2n + 1 and H ⊆ GL₂(F̄_l) is a finite subgroup containing SL₂(F_l), then Sym^{n−1}H ⊆ GL_n(F̄_l) is enormous.
+
+**Hypotheses.**
+
+- the bound is p > 2n + 1 (l > 2m + 3 for Sym^m); Clozel–Harris–Taylor print l > 2n − 1, which fails for n = 2, l = 5 (sourceIssue E756)
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers`
+- `ArithmeticGaloisRepresentations:G7/symmetric-and-exterior-powers`
+- `ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement`
+- `ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images`
+- `ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field`
+- `ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field`
+
+**Proof outline.**
+
+1. (2): Dickson (ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement): the image of H in PGL₂(F̄_l) is conjugate to PSL₂(k) or PGL₂(k) for a finite k ⊇ F_l, so F̄_l^× Sym^{n−1}GL₂(k) ⊇ Sym^{n−1}H ⊇ Sym^{n−1}SL₂(k), and G7/enormous-symmetric-powers applies with k' = k.
+
+**Sources.**
+
+- `accplus-cm-potential-automorphy`, Lemma 7.1.4, printed p. 1089: the statement; the second GL2 should be GL_n (E751). The text layer drops the bar on F_l.
+- `accplus-cm-potential-automorphy`, proof of Lemma 7.1.4: the statement from (1).
+
+**Acceptance cases.**
+
+- n = 2, (2): every finite H ⊆ GL₂(F̄_l) containing SL₂(F_l) is enormous for l ≥ 7; for l = 5 the bound l > 5 fails and indeed SL₂(F_5) is not enormous (H¹(SL₂(F_5), ad⁰) ≠ 0), which shows the printed Clozel–Harris–Taylor bound l > 2n − 1 = 3 is too weak.
+
+<a id="G7-enormous-symmetric-powers-after-global-base-change"></a>
+
+`ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers-after-global-base-change` · theorem · implementation unchecked
+
+### Enormous symmetric powers after disjoint and cyclotomic base change
+
+(Allen et al. 2023, Lemma 7.1.6(2); Qian 2023, Lemma 2.6(1)) Let F/Q be finite with normal closure F̃, m ≥ 1, l > 2m + 3 a prime, r̄ : G_F → GL₂(F̄_l) continuous with r̄(G_{F̃}) ⊇ SL₂(F_l), and F'/F a finite extension linearly disjoint from F̄^{ker r̄} over F. Then (Sym^m r̄)(G_{F'(ζ_l)}) is enormous. Qian's form (n = m + 1, l > 2n + 5) is the special case with a stronger bound; for n = 1 the image is trivial in GL₁ and enormous.
+
+**Hypotheses.**
+
+- (3) needs SL₂(F_l) ⊆ r̄(G_{F̃}) with F̃ the normal closure, and linear disjointness from the field cut out by r̄ itself, not by ad r̄
+- the subgroup in (3) is the image of G_{F'(ζ_l)}, not of G_{F'}
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers-of-sl2-overgroups`
+- `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`
+- `mathlib:Matrix.SL2.commutator_eq_top`
+
+**Proof outline.**
+
+1. (3): linear disjointness gives r̄(G_{F'}) = r̄(G_F) ⊇ r̄(G_{F̃}) ⊇ SL₂(F_l); SL₂(F_l) is perfect for l ≥ 5 (Mathlib Matrix.SL2.commutator_eq_top) and Gal(F'(ζ_l)/F') is abelian, so r̄(G_{F'(ζ_l)}) ⊇ SL₂(F_l) (ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field); apply G7/enormous-symmetric-powers-of-sl2-overgroups with n = m + 1, l > 2n + 1 = 2m + 3.
+
+**Sources.**
+
+- `accplus-cm-potential-automorphy`, Lemma 7.1.6(2), printed p. 1090: the statement; the superscript m of Symm is lost in the text layer.
+- `accplus-cm-potential-automorphy`, proof of Lemma 7.1.6(2), printed p. 1090: The perfectness step.
+- `qian23`, arXiv v1 Lemma 4.3(2) (published Lemma 2.6(1), p. 1251): Qian's form with the stronger bound.
+
+**Acceptance cases.**
+
+- (3) for an elliptic curve E/Q without CM and l ≥ 7 with r̄_{E,l}(G_Q) = GL₂(F_l), F = F' = Q, m = 1: r̄_{E,l}(G_{Q(ζ_l)}) = SL₂(F_l) is enormous.
+
+<a id="G7-enormous-standard-sl-overgroups"></a>
+
+`ArithmeticGaloisRepresentations:G7/enormous-standard-sl-overgroups` · theorem · implementation unchecked
+
+### Enormous overgroups of the standard SLₙ image
+
+Let p be prime and k an algebraic extension of F_p; all symmetric powers use the monomial basis of G7/symmetric-and-exterior-powers. (Gee–Newton, Lemma 3.2.4) If n > 2, p > n, k' ⊆ k is a finite subfield and k^× · GL_n(k') ⊇ H ⊇ SL_n(k'), then H is enormous.
+
+**Hypotheses.**
+
+- n>2 and p>n; the general SLₙ cohomology/bigness argument of CHT Lemma 2.5.6 remains an explicit supplier/proof task, rather than following from the SL₂ computations.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/enormous-image-and-its-coefficient-extension-invariance`
+- `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
+- `mathlib:groupCohomology.H1InfRes_exact`
+
+**Proof outline.**
+
+1. (4): Gee–Newton Lemma 3.2.4 from the proof of Clozel–Harris–Taylor Lemma 2.5.6 (bigness of groups between SL_n(k') and k^×GL_n(k')), plus a regular semisimple element of SL_n(k'): the companion matrix of X^n + (−1)^n, which has n distinct roots as p > n.
+
+**Sources.**
+
+- `gn22-patching`, Lemma 3.2.4, arXiv v5 p. 15: the statement.
+
+**Acceptance cases.**
+
+- For n=3, p=5 and k′=F₅, the companion matrix of X³−1 has three distinct eigenvalues over F̄₅ and lies in SL₃; the cohomology input is still required.
+
+<a id="G7-gsp4-tidiness-from-the-centre"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-tidiness-from-the-centre` · theorem · implementation unchecked
+
+### Tidiness from a scalar centre of order at least three
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Lemma 7.5.12) An absolutely irreducible H ⊆ GSp₄(k) with centre of order ≥ 3 is tidy.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+
+**Proof outline.**
+
+1. (2), (3): Schur's lemma makes the centre cyclic and scalar; a scalar ζ with ζ² ≠ 1 has ν = ζ² ≠ 1 and all eigenvalue ratios 1.
+
+**Sources.**
+
+- `bcgp21`, Lemma 7.5.12, arXiv v3 p. 201: the statement.
+
+**Acceptance cases.**
+
+- A scalar of order at least three has square different from one and eigenvalue ratios one. Scalars of order two alone do not witness this criterion.
+
+<a id="G7-gsp4-tidiness-from-equal-determinant-blocks"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-tidiness-from-equal-determinant-blocks` · theorem · implementation unchecked
+
+### Tidiness from equal-determinant GL₂ blocks
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Lemma 7.5.13) If p ≥ 5 and Δ = {(A, B) ∈ GL₂(F_p)² : det A = det B} ⊆ H ⊆ GSp₄(F_p), H is tidy.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+
+**Proof outline.**
+
+1. The block subgroup Δ contains a scalar aI₄ with a of order p−1>2. Its multiplier is a²≠1 and all eigenvalue ratios are one, so it directly witnesses tidiness. No absolute-irreducibility conclusion is needed. BCGP21 Lemma 7.5.13, arXiv v3 p.201.
+
+**Sources.**
+
+- `bcgp21`, Lemma 7.5.13, arXiv v3 p.201: The equal-determinant block subgroup supplies the tidiness witness.
+
+**Acceptance cases.**
+
+- At p=5 choose scalar 2I₄ in Δ. Its multiplier is 4≠1 and no eigenvalue ratio equals 4.
+
+<a id="G7-gsp4-adequacy-in-characteristic-at-least-eleven"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-adequacy-in-characteristic-at-least-eleven` · theorem · implementation unchecked
+
+### Adjoint cohomology vanishing for GSp₄ in characteristic at least eleven
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Lemma 7.5.14) If p ≥ 11 and H ⊆ GSp₄(k) is absolutely irreducible, (E1) and (E2) hold.
+
+**Hypotheses.**
+
+- (4) needs p ≥ 11 (GHTT with d ≤ 4); for p = 3, 5, 7 the vanishing H¹(Sp₄(F_p), ad⁰) = 0 in (5) is a finite computation
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+- `ArithmeticGaloisRepresentations:G7/adequacy-criteria`
+
+**Proof outline.**
+
+1. (4): G7/adequacy-criteria (1) with d ≤ 4 (GHTT Theorem A.9), whose two external inputs are recorded as gaps.
+
+**Sources.**
+
+- `bcgp21`, Lemma 7.5.14, arXiv v3 p. 201: the statement.
+
+**Acceptance cases.**
+
+- At p=11 the bound p≥2(4+1) holds. The criterion supplies no large-characteristic proof for p=3,5,7.
+
+<a id="G7-gsp4-standard-image-enormity-and-tidiness"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-standard-image-enormity-and-tidiness` · theorem · implementation unchecked
+
+### Enormity of Sp₄ and tidiness of GSp₄
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Lemma 7.5.15) For p ≥ 3, Sp₄(F_p) is enormous and GSp₄(F_p) is tidy; a surjective ρ̄ : G_F → GSp₄(F_p) with similitude ε̄⁻¹ is vast and tidy.
+
+**Hypotheses.**
+
+- (4) needs p ≥ 11 (GHTT with d ≤ 4); for p = 3, 5, 7 the vanishing H¹(Sp₄(F_p), ad⁰) = 0 in (5) is a finite computation
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+- `ArithmeticGaloisRepresentations:G7/gsp4-tidiness-from-the-centre`
+- `ArithmeticGaloisRepresentations:G7/gsp4-adequacy-in-characteristic-at-least-eleven`
+- `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
+
+**Proof outline.**
+
+1. (5): 𝔰𝔭₄ is absolutely irreducible for Sp₄(F_p), p ≥ 3; an element with distinct eigenvalues λ, ν/λ, μ, ν/μ has eigenvalue 1 on 𝔰𝔭₄ (from λ·(ν/λ)/ν); H¹(Sp₄(F_p), ad⁰) = 0 by G7/gsp4-adequacy-in-characteristic-at-least-eleven for p ≥ 11 and by a finite computation for p = 3, 5, 7 (the authors' Magma files). For p = 3 the cocycle condition on generators of Sp₄(F_3) gives dim Z¹ = 10 = dim B¹; for p = 5 and p = 7 the Borel subgroup B already has H¹(B, 𝔰𝔭₄) = 0, which suffices because p ∤ [Sp₄(F_p) : B]; tidiness by G7/gsp4-tidiness-from-the-centre for p > 3 and, for p = 3, an element of order 20 with ν = −1 and eigenvalues ζ, ζ³, ζ⁹, ζ²⁷; vastness because Sp₄(F_p) has no quotient of order p (PSp₄(F_p) simple).
+
+**Sources.**
+
+- `bcgp21`, Lemma 7.5.15, arXiv v3 p. 201: the statement.
+
+**Acceptance cases.**
+
+- (5) for p = 3: GSp₄(F_3) contains an element of order 20 with ν = −1; its eigenvalue ratios ζ², ζ⁸, ζ²⁶ differ from ζ¹⁰ = −1.
+
+<a id="G7-gsp4-induced-adjoint-decomposition"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-induced-adjoint-decomposition` · theorem · implementation unchecked
+
+### Adjoint and exterior-square decompositions for nondegenerate induced blocks
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (§7.5.16) If G ⊆ Sp₄(k) is absolutely irreducible and its representation W becomes reducible on an index-two subgroup H, with W|_H = V ⊕ V^σ, with the symplectic form nondegenerate on V, and χ the quadratic character of G/H, then ad⁰(W) = Sym²(W) ≅ Ind_H^G ad⁰(V) ⊕ As(V), ∧²W ≅ k ⊕ k(χ) ⊕ As(V) ⊗ χ, W ⊗ W ≅ k ⊕ k(χ) ⊕ Ind_H^G ad⁰(V) ⊕ As(V) ⊕ As(V) ⊗ χ, with As(V) the Asai (tensor-induced) representation, As(V)|_H = V ⊗ V^σ (G7/tensor-induction).
+
+**Hypotheses.**
+
+- Clause (6) requires that V be nondegenerate for the symplectic form, as in the correction E720. The Lagrangian case has different decompositions and is excluded.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/gsp4-and-symplectic-induction`
+- `ArithmeticGaloisRepresentations:G7/tensor-induction`
+- `ArithmeticGaloisRepresentations:R01.1/continuous-induction`
+
+**Proof outline.**
+
+1. (6): compute over H and use W ≅ W ⊗ χ; As(V) from G7/tensor-induction; induced representations from ArithmeticGaloisRepresentations:R01.1/continuous-induction.
+
+**Sources.**
+
+- `bcgp21`, §7.5.16, arXiv v3 pp. 201–202: the statement.
+
+**Acceptance cases.**
+
+- The dimensions are 10=6+4, 6=1+1+4 and 16=1+1+6+4+4. A Lagrangian block is excluded by the stated nondegeneracy hypothesis.
+
+<a id="G7-gsp4-e3-from-an-element-outside-the-index-two-subgroup"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-e3-from-an-element-outside-the-index-two-subgroup` · theorem · implementation unchecked
+
+### Enormity projector witnesses from an index-two coset
+
+Under the nondegenerate index-two decomposition hypotheses of G7/gsp4-induced-adjoint-decomposition, Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Lemma 7.5.17) If As(V) and Ind_H^G ad⁰(V) are absolutely irreducible and G ∖ H contains an element whose order neither divides 4 nor is divisible by p, then G satisfies (E3).
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+- `ArithmeticGaloisRepresentations:G7/gsp4-induced-adjoint-decomposition`
+
+**Proof outline.**
+
+1. (7): g ∈ G ∖ H has eigenvalues (α, α⁻¹, −α, −α⁻¹), distinct when α⁴ ≠ 1; counting in the Grothendieck group of ⟨g⟩: [As(V)] = [−1, 1, α², α⁻²] and [Ind ad⁰(V)] = [1, −1, α², −α², α⁻², −α⁻²], both containing 1.
+
+**Sources.**
+
+- `bcgp21`, Lemma 7.5.17, arXiv v3 p. 202: the statement.
+
+**Acceptance cases.**
+
+- An order-eight coset element is valid for odd p; a coset element of order four cannot supply distinct eigenvalues by this argument.
+
+<a id="G7-gsp4-sl2-wreath-enormity"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-sl2-wreath-enormity` · theorem · implementation unchecked
+
+### Enormity of the SL₂ wreath product
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Lemma 7.5.18, corrected proof, E761) SL₂(k) ≀ Z/2Z ⊆ Sp₄(k) is weakly enormous, and enormous if #k ≠ 5.
+
+**Hypotheses.**
+
+- (8) excludes #k = 5 because H¹(SL₂(F_5), Sym²) ≠ 0
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+- `ArithmeticGaloisRepresentations:G7/gsp4-induced-adjoint-decomposition`
+- `ArithmeticGaloisRepresentations:G7/gsp4-e3-from-an-element-outside-the-index-two-subgroup`
+- `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`
+- `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
+- `mathlib:groupCohomology.H1InfRes_exact`
+
+**Proof outline.**
+
+1. (8): (E1) by inflation–restriction reduces to H¹(SL₂(k), Sym²(k²)) = 0 for #k ≠ 5 (G7/h1-of-sl2-with-adjoint-coefficients (a)); (E2) is clear; (E3) by G7/gsp4-e3-from-an-element-outside-the-index-two-subgroup with g = (a, 1)σ, a ∈ SL₂(k) of order 4 (e.g. [[0,1],[−1,0]]), so g² = (a, a) has order 4 and g has order 8, not dividing 4 and prime to p. The printed proof takes a of order 8, which does not exist when #k ≡ ±3 mod 8 (E761).
+
+**Sources.**
+
+- `bcgp21`, Lemma 7.5.18, arXiv v3 p. 202: the statement.
+- `bcgp21`, proof of Lemma 7.5.18, arXiv v3 p. 203: The step corrected by E761.
+
+**Acceptance cases.**
+
+- (8) for k = F_3: g = (a, 1)σ with a = [[0,1],[−1,0]] has order 8 and eigenvalues the primitive 8th roots of unity; SL₂(F_3) has no element of order 8 (its Sylow 2-subgroup is Q₈), so the printed choice is impossible.
+- (8) for k = F_5: (E1) fails, consistent with H¹(SL₂(F_5), ad⁰) being one-dimensional; Lemma 7.5.19 substitutes weak enormity plus ζ_5 ∉ L.
+
+<a id="G7-gsp4-induced-mod-five-vastness"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-induced-mod-five-vastness` · theorem · implementation unchecked
+
+### Vastness for the induced mod-five wreath-product case
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Lemma 7.5.19) If H/F is quadratic, r̄ : G_H → GL₂(F_5) surjective with det r̄ = ε̄⁻¹, ρ̄ = Ind r̄ : G_F → GSp₄(F_5), ρ̄(G_{F(ζ_5)}) = SL₂(F_5) ≀ Z/2Z and 5 unramified in F, then ρ̄(G_{F(ζ_{5^N})}) is weakly enormous for all N ≥ 1, ζ_5 ∉ fixed field of ad⁰ρ̄, and ρ̄ is vast.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+- `ArithmeticGaloisRepresentations:G7/gsp4-sl2-wreath-enormity`
+- `mathlib:Matrix.SL2.commutator_eq_top`
+
+**Proof outline.**
+
+1. (9): the abelianisation of SL₂(F_5) ≀ Z/2Z has order 2, prime to 5 (SL₂(F_5) is perfect: Mathlib Matrix.SL2.commutator_eq_top), so the image over F(ζ_{5^N}) does not depend on N, and is weakly enormous by G7/gsp4-sl2-wreath-enormity; the image Γ of ρ̄ is the full preimage of G with [Γ : G] = 4, whose projective image has abelianisation (Z/2)², which does not surject onto Gal(F(ζ_5)/F) = Z/4.
+
+**Sources.**
+
+- `bcgp21`, Lemma 7.5.19, arXiv v3 pp. 203–204: the statement.
+
+**Acceptance cases.**
+
+- The criterion retains weak enormity in characteristic five, where the stronger SL₂(F₅) adjoint cohomology vanishing is false.
+
+<a id="G7-gsp4-characteristic-three-subgroup-enumeration"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-characteristic-three-subgroup-enumeration` · theorem · implementation unchecked
+
+### Enormous and tidy subgroups in characteristic three
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (§7.5.20, Lemma 7.5.21; finite computations) Exactly 11 of the 162 conjugacy classes of subgroups of Sp₄(F_3) are enormous (orders 40, 128, 160, 192, 240, 320, 384, 384, 1152, 1920, 51840), and the groups G ⊆ GSp₄(F_3) listed in Lemma 7.5.21 (GSp₄(F_3); a group of order 3840; Γ = Δ ⋊ Z/2Z of order 2304 and its two index-3 subgroups of order 768; Ã₅ ⋊ ⟨σ⟩ of order 480) are tidy with G ∩ Sp₄(F_3) enormous.
+
+**Hypotheses.**
+
+- The list and the number 162 remain conditional on the authors’ finite-group enumeration, already recorded as a gap. No Magma certificate or verified enumeration is claimed.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+- `ArithmeticGaloisRepresentations:G7/gsp4-sl2-wreath-enormity`
+- `ArithmeticGaloisRepresentations:G7/gsp4-standard-image-enormity-and-tidiness`
+- `ArithmeticGaloisRepresentations:G7/gsp4-sl2-wreath-vastness-and-tidiness`
+- `ArithmeticGaloisRepresentations:G7/gsp4-quaternion-wreath-enormity`
+
+**Proof outline.**
+
+1. (10): finite group enumeration by the authors' Magma computation, not re-derived here, with these exceptions: Lemma 7.5.21(3a) is G7/gsp4-sl2-wreath-enormity together with the tidiness element of G7/gsp4-sl2-wreath-vastness-and-tidiness; the class of order 128 is G7/gsp4-quaternion-wreath-enormity; and H¹(Sp₄(F_3), 𝔰𝔭₄) = 0, needed for the class of order 51840, is the finite computation of G7/gsp4-standard-image-enormity-and-tidiness.
+
+**Sources.**
+
+- `bcgp21`, §7.5.20, arXiv v3 p. 204: the statement.
+- `bcgp21`, Lemma 7.5.21, arXiv v3 p. 204: the statement.
+
+**Acceptance cases.**
+
+- The enormous subgroup list contains both the Sylow-two subgroup of order128 and Sp₄(F₃) of order51840. This consistency check does not certify completeness of the 162-class enumeration.
+
+<a id="G7-gsp4-sl2-wreath-vastness-and-tidiness"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-sl2-wreath-vastness-and-tidiness` · theorem · implementation unchecked
+
+### Vastness and tidiness of induced large SL₂ images
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Lemma 7.5.22, corrected, E762–E764) Let p ≥ 3, K/F quadratic with K unramified at p, r̄ : G_K → GL₂(k) with r̄(G_{K(ζ_p)}) = SL₂(k), σ ∈ G_F ∖ G_K with Proj r̄^σ ≇ Proj r̄ and det r̄^σ = det r̄ = ε̄⁻¹, ρ̄ = Ind_{G_K}^{G_F} r̄; if p = 3 assume the fixed fields over K(ζ_3) of ker(Proj r̄|_{G_{K(ζ_3)}}) and ker(Proj r̄^σ|_{G_{K(ζ_3)}}) are linearly disjoint over K(ζ_3). Then ρ̄ is vast and tidy.
+
+**Hypotheses.**
+
+- (11) for #k > 3 includes the case Proj r̄^σ ≅ τ ∘ Proj r̄ with τ a field automorphism of order 2, which the printed proof omits
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+- `ArithmeticGaloisRepresentations:G7/gsp4-sl2-wreath-enormity`
+- `ArithmeticGaloisRepresentations:G7/gsp4-induced-mod-five-vastness`
+- `ArithmeticGaloisRepresentations:G7/gsp4-e3-from-an-element-outside-the-index-two-subgroup`
+- `ArithmeticGaloisRepresentations:G7/gsp4-induced-adjoint-decomposition`
+- `ArithmeticGaloisRepresentations:G7/image-in-the-3-cyclotomic-tower-for-sl2-wreath-products`
+- `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`
+- `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`
+- `mathlib:Matrix.ProjectiveSpecialLinearGroup.rank_two_simple`
+- `mathlib:Matrix.SL2.commutator_eq_top`
+
+**Proof outline.**
+
+1. (11): for #k > 3, Goursat (PSL₂(k) simple; Mathlib Matrix.ProjectiveSpecialLinearGroup.rank_two_simple) and Aut(PSL₂(k)) = PΓL₂(k) (ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2) show that either the image over K(ζ_p) is SL₂(k)², giving SL₂(k) ≀ Z/2Z over F(ζ_{p^N}) and G7/gsp4-sl2-wreath-enormity and G7/gsp4-induced-mod-five-vastness; or Proj r̄^σ ≅ τ ∘ Proj r̄ with τ of order 2 (the p = 3 disjointness hypothesis excludes this graph case, so here p ≥ 5 and #k ≥ p² ≥ 25), where the image over F(ζ_p) is an index-two extension of {(A, ±τ(A))}, still enormous (V ≇ V^τ; H¹(SL₂(k), Sym²) = 0 as #k ≥ 25; H¹(SL₂(k), V ⊗ V^τ) = 0 for p ≥ 5; (E3) via G7/gsp4-e3-from-an-element-outside-the-index-two-subgroup with g = (C, ±C)·swap, C of order q₀ + 1), and tidiness from ρ̄(g) with r̄(g) = diag(a, −a⁻¹), a a generator of k^× (E763). For k = F_3 the image G of G_{F(ζ_3)} is SL₂(F_3) ≀ Z/2Z, enormous by G7/gsp4-sl2-wreath-enormity, and the image of G_{F(ζ_{3^N})} is again G for every N by G7/image-in-the-3-cyclotomic-tower-for-sl2-wreath-products (G^{ab} ≅ Z/6 is not of order prime to 3 as printed: E764); the p = 3 hypothesis is linear disjointness over K(ζ_3) (E762); tidiness for p = 3 from an element of order 8 with ν = −1 and eigenvalues (ζ, −ζ⁻¹, ζ, −ζ⁻¹).
+
+**Sources.**
+
+- `bcgp21`, Lemma 7.5.22, arXiv v3 pp. 204–205: the statement.
+
+**Acceptance cases.**
+
+- At k=F₃ use disjoint restricted projective fields over K(ζ₃) and the separate cyclotomic-tower image lemma; the wreath-product abelianization Z/6 alone does not prove stability.
+
+<a id="G7-gsp4-quaternion-wreath-enormity"></a>
+
+`ArithmeticGaloisRepresentations:G7/gsp4-quaternion-wreath-enormity` · theorem · implementation unchecked
+
+### Enormity of the quaternion wreath product in characteristic three
+
+Use the enormous, weakly enormous, vast and tidy conventions of G7/vast-tidy-and-enormous-gsp4-subgroups; k is finite of characteristic p≥3. (Remark 7.5.23, corrected, E765) The Sylow 2-subgroup Q₈ ≀ Z/2Z (order 128) of Sp₄(F_3) is enormous.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups`
+- `ArithmeticGaloisRepresentations:G7/gsp4-induced-adjoint-decomposition`
+- `ArithmeticGaloisRepresentations:G7/h1-restriction-injective-for-invertible-index`
+
+**Proof outline.**
+
+1. (12): |Q₈ ≀ Z/2Z| = 128 is prime to 3, so (E1) holds (G7/h1-restriction-injective-for-invertible-index (i)); the natural representation restricted to Q₈ × Q₈ is V_A ⊕ V_B, non-isomorphic and swapped, so (E2) holds; ad⁰ = Ind(χ₁) ⊕ Ind(χ₂) ⊕ Ind(χ₃) ⊕ As(V) with χ_j the nontrivial characters of Q₈/{±1}, pairwise non-isomorphic irreducibles; g = (a, b)σ with ab of order 4 has the four primitive 8th roots of unity as eigenvalues, acts on Ind(χ_j) with eigenvalues ±√χ_j(ab) (containing 1 when ab ∈ ker χ_j) and on As(V) with eigenvalues 1, −1, i, −i; so (E3) holds.
+
+**Sources.**
+
+- `bcgp21`, Remark 7.5.23, arXiv v3 p. 205: The sentence corrected by E765.
+
+**Acceptance cases.**
+
+- At p=3 the group order is 128, so averaging kills degree-one cohomology. The projector checks, rather than order alone, establish enormity.
+
+<a id="G7-taylor-wiles-unitary-tensor-adequacy"></a>
+
+`ArithmeticGaloisRepresentations:G7/taylor-wiles-unitary-tensor-adequacy` · theorem · implementation unchecked
+
+### Adequacy of the unitary symmetric tensor image
+
+(Lemma 5.2.4, image parts) Let F/Q be Galois, r̄_A : G_F → GL₂(F_p) and r̄_B : G_F → GU_m(F_{p²}) ⊆ GL_m(F_{p²}) with r̄_A(G_{F(ζ_p)}) = SL₂(F_p) and r̄_B(G_{F(ζ_p)}) = SU_m(F_{p²}), s̄ = Sym^{n−1}r̄_A ⊗ r̄_B, p > 2mn + 1, and if m = 2 assume the Galois closures over Q of the fixed fields of the projective representations of r̄_A and r̄_B are linearly disjoint over F(ζ_p) (E767). Then s̄|G_{F(ζ_p)} has adequate image.
+
+**Hypotheses.**
+
+- p is prime and m,n≥1; the representations are continuous with finite residual images.
+- For m=2 the stronger Galois-closure disjointness assumption is retained to match the source’s decomposed-genericity application; the image result itself needs only projective-kernel disjointness over F(ζ_p).
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/taylor-wiles-image-conditions`
+- `ArithmeticGaloisRepresentations:G7/symmetric-and-exterior-powers`
+- `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`
+- `ArithmeticGaloisRepresentations:G7/adequacy-criteria`
+
+**Proof outline.**
+
+1. (2)(i): Goursat with Lemma 5.2.3 (simplicity and pairwise non-isomorphism of PSL₂(F_p) and PSU_m(F_{p²}), ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2 for the PSL₂ part) gives Gal(H̃/F(ζ_p)) ≅ PSL₂(F_p)^r × PSU_m(F_{p²})^s; the image of s̄|G_{F(ζ_p)} contains Sym^{n−1}SL₂(F_p) ⊗ SU_m(F_{p²}), acting absolutely irreducibly, and adequacy follows from G7/adequacy-criteria (1) with d ≤ mn, as p > 2mn + 1 gives p ≥ 2(mn + 1) (GHTT Theorem A.9).
+
+**Sources.**
+
+- `bcgnt25`, Lemma 5.2.4, arXiv v3 pp. 52–53: this statement, with the m = 2 hypothesis corrected (E767).
+- `bcgnt25`, proof of Lemma 5.2.4, arXiv v3 pp. 52–53: The adequacy step.
+
+**Acceptance cases.**
+
+- With m=1 the second tensor factor is a character, and the criterion reduces to adequacy of the bounded symmetric-power SL₂ image.
+
+<a id="G7-taylor-wiles-unitary-tensor-multiplier"></a>
+
+`ArithmeticGaloisRepresentations:G7/taylor-wiles-unitary-tensor-multiplier` · theorem · implementation unchecked
+
+### Multiplier of the unitary symmetric tensor image
+
+(Lemma 5.2.4, image parts) Let F/Q be Galois, r̄_A : G_F → GL₂(F_p) and r̄_B : G_F → GU_m(F_{p²}) ⊆ GL_m(F_{p²}) with r̄_A(G_{F(ζ_p)}) = SL₂(F_p) and r̄_B(G_{F(ζ_p)}) = SU_m(F_{p²}), s̄ = Sym^{n−1}r̄_A ⊗ r̄_B, p > 2mn + 1, and if m = 2 assume the Galois closures over Q of the fixed fields of the projective representations of r̄_A and r̄_B are linearly disjoint over F(ζ_p) (E767). Then if det r̄_A = ε̄^{−m} and r̄_B has multiplier ε̄^{1−m}, s̄ has image in GU_{mn}(F_{p²}) with multiplier ε̄^{1−mn} (the proof prints r̄_A ⊗ r̄_B for s̄: E768).
+
+**Hypotheses.**
+
+- p is prime and m,n≥1; the representations are continuous with finite residual images.
+- For m=2 the stronger Galois-closure disjointness assumption is retained to match the source’s decomposed-genericity application; the image result itself needs only projective-kernel disjointness over F(ζ_p).
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/polarized-representation`
+- `ArithmeticGaloisRepresentations:G7/symmetric-and-exterior-powers`
+
+**Proof outline.**
+
+1. (ii): multipliers multiply (G7/polarized-representation for unitary multipliers).
+
+**Sources.**
+
+- `bcgnt25`, Lemma 5.2.4(2), arXiv v3 pp. 52–53: (2)(ii).
+
+**Acceptance cases.**
+
+- For n=1 the formula gives ε̄^{1−m}, exactly the multiplier of r̄_B. For m=1 it gives ε̄^{1−n}.
+
+<a id="G7-taylor-wiles-unitary-tensor-scalar-witness"></a>
+
+`ArithmeticGaloisRepresentations:G7/taylor-wiles-unitary-tensor-scalar-witness` · theorem · implementation unchecked
+
+### Taylor–Wiles scalar witness for the unitary tensor image
+
+(Lemma 5.2.4, image parts) Let F/Q be Galois, r̄_A : G_F → GL₂(F_p) and r̄_B : G_F → GU_m(F_{p²}) ⊆ GL_m(F_{p²}) with r̄_A(G_{F(ζ_p)}) = SL₂(F_p) and r̄_B(G_{F(ζ_p)}) = SU_m(F_{p²}), s̄ = Sym^{n−1}r̄_A ⊗ r̄_B, p > 2mn + 1, and if m = 2 assume the Galois closures over Q of the fixed fields of the projective representations of r̄_A and r̄_B are linearly disjoint over F(ζ_p) (E767). If det r̄_A=ε̄^{−m}, r̄_B has multiplier ε̄^{1−m}, and ε̄(G_F)=F_p^×, (TW3) holds for s̄.
+
+**Hypotheses.**
+
+- p is prime and m,n≥1; the representations are continuous with finite residual images.
+- For m=2 the stronger Galois-closure disjointness assumption is retained to match the source’s decomposed-genericity application; the image result itself needs only projective-kernel disjointness over F(ζ_p).
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/taylor-wiles-image-conditions`
+- `ArithmeticGaloisRepresentations:G7/symmetric-and-exterior-powers`
+- `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`
+- `ArithmeticGaloisRepresentations:G7/taylor-wiles-unitary-tensor-adequacy`
+
+**Proof outline.**
+
+1. The product-image argument of the unitary tensor adequacy node gives the joint special-linear/special-unitary image over F(ζ_p). With β a generator of F_p^×, the pair (β^m I₂,β^{m−1} I_m) has the determinant and multiplier corresponding to ε̄=β^{−2}, so it lifts to an element σ of G_F. Its image under Sym^{n−1}r̄_A⊗r̄_B is scalar, and ε̄(σ)≠1 since p>2mn+1≥3. This proves (TW3); the determinant/multiplier hypotheses from source Lemma 5.2.4(2) are explicitly retained.
+
+**Sources.**
+
+- `bcgnt25`, Lemma 5.2.4, arXiv v3 pp. 52–53: (2), with the m = 2 hypothesis corrected (E767).
+- `bcgnt25`, proof of Lemma 5.2.4, arXiv v3 pp. 52–53: The adequacy step.
+
+**Acceptance cases.**
+
+- The pair (β^m I₂,β^{m−1} I_m) corresponds to ε̄=β^{−2}; omitting the determinant/multiplier hypotheses would invalidate that joint-image assertion.
+
+<a id="G7-cyclic-induced-frobenius-eigenvalues"></a>
+
+`ArithmeticGaloisRepresentations:G7/cyclic-induced-frobenius-eigenvalues` · theorem · implementation unchecked
+
+### Frobenius eigenvalues in a cyclically induced character
+
+Let p be prime and F a number field. (Lemma 5.2.5) Let E/Q be cyclic of degree m and linearly disjoint from F, L = EF, ψ : G_L → F_p^× with p ∤ m (a hypothesis the source omits, E781), r̄_B = Ind_{G_L}^{G_F} ψ, and q a rational prime splitting completely in F with r̄_B unramified above q and Frob_q generating Gal(E/Q). For v | q, the eigenvalues of r̄_B(Frob_v) are λ, ζλ, …, ζ^{m−1}λ with ζ a primitive m-th root of unity. The eigenvalue multiset is taken in F̄_p.
+
+**Hypotheses.**
+
+- m≥1 and p∤m; no primitive m-th root exists in characteristic p otherwise.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:R01.1/continuous-induction`
+
+**Proof outline.**
+
+1. (3): Gal(L/F) ≅ Gal(E/Q) is cyclic of order m; r̄_B ≅ r̄_B ⊗ χ for a character χ of order m through Gal(L/F), and Frob_v maps to a generator, so the eigenvalue multiset is stable under multiplication by ζ = χ(Frob_v).
+
+**Sources.**
+
+- `bcgnt25`, Lemma 5.2.5, arXiv v3 pp. 53–54: the statement.
+- `bcgnt25`, Lemma 5.2.5, arXiv v3 pp. 53–54: this statement, conclusion.
+
+**Acceptance cases.**
+
+- (3) with m = 2: r̄_B = Ind ψ from a quadratic L = EF, Frob_v nontrivial on E: eigenvalues λ, −λ, i.e. trace zero.
+
+<a id="G7-taylor-wiles-solvable-induced-tensor-adequacy"></a>
+
+`ArithmeticGaloisRepresentations:G7/taylor-wiles-solvable-induced-tensor-adequacy` · theorem · implementation unchecked
+
+### Adequacy after a solvable induced tensor factor
+
+(Lemma 5.2.6, image parts, corrected) Let F/Q be Galois, r̄_A:G_F→GL₂(F_p) with r̄_A(G_{F(ζ_p)})=SL₂(F_p), r̄_B ≅ Ind_{G_L}^{G_F} ψ : G_F → GL_m(F_p) where E/Q is cyclic of degree m and linearly disjoint from F, L=EF, ψ:G_L→F_p^×, with r̄_B|G_{F(ζ_p)} absolutely irreducible (E766), s̄ = Sym^{n−1}r̄_A ⊗ r̄_B and p > 2mn + 1. Then s̄|G_{F(ζ_p)} has adequate image.
+
+**Hypotheses.**
+
+- p is prime, m,n≥1, and r̄_B|G_{F(ζ_p)} is absolutely irreducible, rather than merely irreducible (E766).
+- M_A and M_B are the finite Galois extensions of F(ζ_p) cut out by the restricted representations. The product-image argument supplies the required SL₂ surjection after intersection with G_{M_B}.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/taylor-wiles-image-conditions`
+- `ArithmeticGaloisRepresentations:G7/adequacy-criteria`
+- `ArithmeticGaloisRepresentations:G7/adequacy-of-tensor-products`
+- `ArithmeticGaloisRepresentations:R01.1/continuous-induction`
+- `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`
+
+**Proof outline.**
+
+1. (4): Goursat applied to the solvable factor: SL₂(F_p) has no solvable quotient and r̄_B has solvable image, so (r̄_A, r̄_B)(G_{F(ζ_p)}) = SL₂(F_p) × r̄_B(G_{F(ζ_p)}) (Goursat), and s̄|G_{F(ζ_p)} is absolutely irreducible because r̄_B|G_{F(ζ_p)} is; adequacy follows from G7/adequacy-criteria (1), as p ≥ 2(mn + 1) (or from G7/adequacy-of-tensor-products, BLGG13 Lemma A.3.1, since #r̄_B(G_F) divides m·(p − 1)^m and is prime to p). Absolute irreducibility of r̄_B|G_{F(ζ_p)} has to be assumed: adequacy implies it, and the printed 'irreducible', for the F_p-rational representation r̄_B, does not (E766).
+
+**Sources.**
+
+- `bcgnt25`, Lemma 5.2.6, arXiv v3 pp. 54–55: the statement.
+
+**Acceptance cases.**
+
+- (4) without absolute irreducibility fails: for m = 2 with Ind ψ̄ ≅ θ ⊕ θη over F̄_p (θ F_{p²}-valued) the image of s̄|G_{F(ζ_p)} is not absolutely irreducible, hence not adequate (E766).
+
+<a id="G7-taylor-wiles-solvable-induced-tensor-scalar-witness"></a>
+
+`ArithmeticGaloisRepresentations:G7/taylor-wiles-solvable-induced-tensor-scalar-witness` · theorem · implementation unchecked
+
+### Taylor–Wiles scalar witness for a solvable induced tensor factor
+
+(Lemma 5.2.6, image parts, corrected) Let F/Q be Galois, r̄_A:G_F→GL₂(F_p) with r̄_A(G_{F(ζ_p)})=SL₂(F_p), r̄_B ≅ Ind_{G_L}^{G_F} ψ : G_F → GL_m(F_p) where E/Q is cyclic of degree m and linearly disjoint from F, L=EF, ψ:G_L→F_p^×, with r̄_B|G_{F(ζ_p)} absolutely irreducible (E766), s̄ = Sym^{n−1}r̄_A ⊗ r̄_B and p > 2mn + 1. If det r̄_A = ε̄^{−m}, det r̄_B = ε̄^{−m(m−1)/2} and ε̄(G_L) = F_p^×, (TW3) holds.
+
+**Hypotheses.**
+
+- p is prime, m,n≥1, and r̄_B|G_{F(ζ_p)} is absolutely irreducible, rather than merely irreducible (E766).
+- M_A and M_B are the finite Galois extensions of F(ζ_p) cut out by the restricted representations. The product-image argument supplies the required SL₂ surjection after intersection with G_{M_B}.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/taylor-wiles-solvable-induced-tensor-adequacy`
+- `ArithmeticGaloisRepresentations:G7/taylor-wiles-image-conditions`
+
+**Proof outline.**
+
+1.  with β a primitive root, choose g ∈ G_L with ε̄(g) = β² and h = Π_{τ ∈ Gal(L/F)} τ(g), so r̄_B(h) = β^{m(1−m)}·1 as Π_τ ψ^τ = det r̄_B|G_L; as G_{M_B} ⊆ G_{F(ζ_p)} surjects onto Gal(M_A/F(ζ_p)) ≅ SL₂(F_p), some γ ∈ G_{M_B} gives r̄_A(hγ) = β^{−m²}·1; σ = hγ has s̄(σ) scalar and ε̄(σ) = β^{2m} ≠ 1.
+
+**Sources.**
+
+- `bcgnt25`, Lemma 5.2.6, arXiv v3 pp. 54–55: the statement.
+
+**Acceptance cases.**
+
+- The constructed σ has ε̄(σ)=β^{2m}≠1 because p−1>2m, while its tensor image is scalar; the strict bound is essential.
+
+<a id="G7-taylor-wiles-symmetric-power-scalar-witness"></a>
+
+`ArithmeticGaloisRepresentations:G7/taylor-wiles-symmetric-power-scalar-witness` · theorem · implementation unchecked
+
+### Taylor–Wiles scalar witness for large symmetric-power images
+
+(Allen et al. 2023, Lemma 7.1.6(1)) Under the hypotheses of G7/enormous-symmetric-powers-after-global-base-change (F/Q finite with normal closure F̃, l > 2m + 3, r̄(G_{F̃}) ⊇ SL₂(F_l), F'/F linearly disjoint from F̄^{ker r̄}), if l is unramified in F'/Q then ζ_l ∉ F̄^{ker ad Sym^m r̄}·F', so Sym^m r̄|G_{F'} satisfies (TW3) and, with G7/enormous-symmetric-powers-after-global-base-change, the enormous Taylor–Wiles image conditions.
+
+**Direct prerequisites.**
+
+- `ArithmeticGaloisRepresentations:G7/taylor-wiles-image-conditions`
+- `ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers-after-global-base-change`
+- `ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field`
+
+**Proof outline.**
+
+1. (5): reduce to m = 1 (ad Sym^m r̄ factors through ad r̄); Gal(F'(ζ_l)/F') ≅ (Z/l)^× as l is unramified in F', while ad r̄(G_{F'}) = ad r̄(G_F) is PSL₂(k) or PGL₂(k) and has no cyclic quotient of order l − 1 > 2 (ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field); then apply the characterisation (TW3) ⟺ ζ_l ∉ F̄^{ker ad} of G7/taylor-wiles-image-conditions.
+
+**Sources.**
+
+- `accplus-cm-potential-automorphy`, proof of Lemma 7.1.6(1), printed p. 1090: the statement.
+
+**Acceptance cases.**
+
+- (5) for E/Q non-CM with surjective mod l image, l ≥ 7, F = F' = Q: ζ_l ∉ Q̄^{ker ad r̄}, so Sym^m r̄ satisfies the enormous Taylor–Wiles image conditions for l > 2m + 3.
+
+
+## Remaining G7 coverage
+
+Coverage remains `partial`. The independently split criteria above do not close the following source, proof and API tasks.
+
+- Planning boundary: the input has 300 nodes; this independent review adds 27 nodes solely to split existing residual-image statements. Complete the remaining carrier/construction splits and their APIs/tests below; refine the remaining conservative consumer prerequisites. No stage is claimed closed.
 - Split ArithmeticGaloisRepresentations:G7/symmetric-and-exterior-powers into: tensor-power-of-continuous-representation (construction: T^d ρ on ⨂^d M through Representation.tensorPower, rank n^d, joint continuity); symmetric-power-of-continuous-representation (construction: Sym^d ρ on Sym[A]^d M for A : Type, finite projective of rank binom(n+d−1, d), continuity, base change, functoriality); exterior-power-of-continuous-representation (construction: ∧^d ρ on ⋀[A]^d M, rank binom(n, d), zero for d > n); top-exterior-power-is-determinant (lemma: ∧^n ρ ≅ det ρ); tensor-square-decomposition (lemma: ρ ⊗ ρ ≅ Sym^2 ρ ⊕ ∧^2 ρ when 2 ∈ A^×); exterior-power-wedge-duality (lemma: ∧^d ρ ≅ (∧^{n−d} ρ)^∨ ⊗ det ρ). Add two lemma nodes for its remaining hidden arguments: powers-of-finite-projective-modules (Sym^d and ∧^d of a finite projective module of constant rank n are finite projective of ranks binom(n+d−1, d), binom(n, d) and commute with base change) and continuity-of-functorial-quotients-of-tensor-powers (the action induced by a jointly continuous action on M^{⊗d} and on its Γ-stable quotients is jointly continuous for the module topology).
 - Split ArithmeticGaloisRepresentations:G7/charpoly-of-symmetric-and-exterior-powers into: charpoly-of-symmetric-power (lemma: det(T − Sym^d f) = S_{n,d}(c(f); T)); charpoly-of-exterior-power (lemma: det(T − ∧^d f) = E_{n,d}(c(f); T)); generic-matrix-is-diagonalisable (lemma: over an algebraic closure of Frac Z[x_ij] the generic matrix has n distinct eigenvalues).
 - Split ArithmeticGaloisRepresentations:G7/tensor-induction into: tensor-induction (construction: ⊗-Ind_H^Γ ρ for a transversal, rank n^m, continuity, formula on pure tensors); tensor-induction-multiplicative-and-transitive (lemma: ⊗-Ind(ρ ⊗ ρ′) ≅ ⊗-Ind ρ ⊗ ⊗-Ind ρ′, transitivity in towers, base change); tensor-induction-restriction-to-normal-subgroup (lemma: (⊗-Ind ρ)|_H ≅ ⨂_i ρ^{t_i} for H normal); tensor-induction-trace-and-charpoly (theorem: the cycle formulas for trace and characteristic polynomial of (⊗-Ind ρ)(g)); tensor-induction-of-a-character (lemma: ⊗-Ind ψ = ψ ∘ Ver); asai-representation (construction: As(ρ) in index two, As(ρ)|_{G_K} ≅ ρ ⊗ ρ^σ, the second extension As(ρ) ⊗ η, and its characteristic polynomials inside and outside G_K). Add the lemma node wreath-action-on-tensor-power (the permutation wreath product H^m ⋊ S_m acts on ⨂_i V by place permutation and factorwise action).
@@ -14129,21 +14804,17 @@ Let F be a number field, p a prime, n ≥ 1 and s̄ : G_F → GL_n(F̄_p) contin
 - Collation: sourceIssues E702 (CG18 §8.4), E703 (BCGP21 Lemma 2.1.3), E704 (NT26 proof of Lemma 2.2) and E720 (BCGP21 §7.5.16) were checked in the arXiv versions named by the source list; the published texts (Invent. Math. 211, p. 406; Publ. Math. IHÉS 134, p. 171 and §7.5.16; Annals of Math. 203) remain to be opened at these places.
 - PolarizedRep operations: construct the multipliers μ·(χ ∘ Ver), μμ′δ and μ^kδ^{k−1} as continuous characters of G_{F⁺} (transfer and δ_{F/F⁺} for the open subgroup G_F of index two) and specialise the group-theoretic twist, tensor, exterior and symmetric power constructions, which take the multiplier as an argument, to them.
 - Split ArithmeticGaloisRepresentations:G7/adequate-subgroup into: weakly-adequate-subgroup (definition: the semisimple elements of H span M_n(k)); adequate-subgroup (definition: (A1) H¹(H, k) = 0, (A2) H⁰(H, ad⁰) = H¹(H, ad⁰) = 0, (A3) the trace condition on simple k̄[H]-submodules of ad⁰ ⊗ k̄); ght-adequate-subgroup (definition: H¹(H, k) = H¹(H, ad₀) = 0 and the trace condition on ad ⊗ k̄ with semisimple g); trace-condition-iff-semisimple-span (lemma: (A3) ⟺ weakly adequate ⟺ the trace condition of the GHT form, with no irreducibility hypothesis); weakly-adequate-absolutely-irreducible (lemma: a weakly adequate H acts absolutely irreducibly); adequate-iff-ght-adequate-of-coprime (lemma: for p ∤ n, adequate ⟺ GHT-adequate); adequacy-base-change (lemma: the three notions are invariant under extension of k); adequacy-scalar-extension (lemma: H adequate ⟺ k₁^×·H adequate, BLGG13 Lemma A.1.4).
-- Split ArithmeticGaloisRepresentations:G7/adequacy-criteria into: adequacy-large-characteristic (theorem: H irreducible and p ≥ 2(d + 1) imply adequate, GHTT Theorem 9); adequacy-of-prime-to-p-order (lemma: p ∤ #H and absolutely irreducible imply adequate); adequacy-normal-subgroup-of-prime-index (lemma: BLGG13 Lemma A.1.3); ght-adequacy-from-sylow-overgroup (lemma: GHT17 Remark 6.1); adequacy-of-tensor-products (lemma: BLGG13 Lemma A.3.1 and its variant with H¹(ad) = 0); adequacy-in-rank-two (theorem: irreducible G ⊆ GL₂(F̄_p), p odd, is adequate unless p = 3, 5 with projective image PSL₂(F_p)); adequacy-for-sl2-of-finite-fields (theorem: GHT17 Corollary 9.4).
 - Split ArithmeticGaloisRepresentations:G7/enormous-image-and-its-coefficient-extension-invariance into: regular-semisimple-element (definition: separable characteristic polynomial); enormous-subgroup (definition: Allen et al. Definition 6.2.29); enormous-not-of-dvd (lemma: no enormous subgroup of GL_n(k) when p | n); enormous-projective-invariance (lemma: dependence on the image in PGL_n(k) only); enormous-coefficient-extension (lemma: Allen et al. Lemma 6.2.30); enormous-iff-khare-thorne (lemma: Remark 6.2.31); enormous-implies-adequate (lemma: Gee–Newton Remark 3.2.2 and, for n = 2, Lemma 3.2.3).
 - Split ArithmeticGaloisRepresentations:G7/characteristic-zero-enormous-subgroups into: enormous-subgroup-char-zero (definition: Newton–Thorne Definition 2.23); enormous-char-zero-absolutely-irreducible (lemma: 2.25); enormous-char-zero-overgroup (lemma: 2.28(1)); enormous-char-zero-zariski-closure (lemma: 2.28(2)); enormous-char-zero-derived-subgroup (lemma: the form of Newton–Thorne 2026, Lemma 4.7); enormous-char-zero-base-change (lemma: enlarging E).
-- Split ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers into: enormous-symmetric-power-groups (theorem: Gee–Newton Lemma 3.2.5, p > 2n + 1); enormous-symmetric-power-of-large-gl2-image (lemma: Allen et al. Lemma 7.1.4 with codomain GL_n); enormous-symmetric-power-galois (lemma: Allen et al. Lemma 7.1.6(2), l > 2m + 3); enormous-groups-between-sln-and-gln (theorem: Gee–Newton Lemma 3.2.4, n > 2, p > n).
 - Split ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients into: h1-sl2-adjoint-vanishing (lemma: H⁰ = H¹ = 0 for SL₂(F) on ad⁰, F finite of odd characteristic, #F ≠ 5); h1-gl2-f5-adjoint (lemma: the values at p = 5 for SL₂(F_5), GL₂(F_5), {det = ±1} and the consequences for projective images PGL₂(F_5), PSL₂(F_5)); h1-sl2-symmetric-powers-vanishing (lemma: H¹(SL₂(F), Sym^{2i}) = 0 for 1 ≤ i ≤ n − 1 when p > 2n + 1).
 - Split ArithmeticGaloisRepresentations:G7/h1-of-borel-subgroups-with-symmetric-power-coefficients into: h1-borel-no-resonance (lemma: part (1)); h1-borel-resonances-killed (lemma: part (2)); h1-sl2-symmetric-powers-by-resonances (lemma: case (a)); h1-gl2-adjoint-by-resonances (lemma: case (b)).
 - Split ArithmeticGaloisRepresentations:G7/mod-p-clebsch-gordan-decompositions into: symmetric-power-frobenius-congruence (lemma: (Sym^{p+r−1}V)^ss ≅ (det^r ⊗ Sym^{p−r−1}V)^ss ⊕ (Frob V ⊗ Sym^{r−1}V)^ss for 0 < r < p); adjoint-of-symmetric-power-semisimplified (lemma: End(Sym^{n−1}V)^ss ≅ ⊕ (Sym^{2i}V ⊗ det^{−i})^ss); and delete its parts (a) and (d), which are now ArithmeticGaloisRepresentations:G7/pieri-splitting-for-symmetric-powers and ArithmeticGaloisRepresentations:G7/tensor-products-of-symmetric-powers.
 - Split ArithmeticGaloisRepresentations:G7/adjoint-invariants-of-symmetric-powers into: symmetric-powers-of-sl2-irreducible (lemma: Sym^a(F̄_p²) is absolutely irreducible for SL₂(F), 0 ≤ a ≤ p − 1); trivial-constituents-of-even-symmetric-powers (lemma: for p ≥ 5 the trivial character occurs in Sym^{2i}, i ≤ p − 1, at most once and only for 2i = 0, p + 1 (F = F_p), 2p − 2); adjoint-of-symmetric-power-no-cyclotomic-invariants (theorem: H⁰(G_Q, M(1)) = 0 for subquotients M of ad(Sym^{n−1} r̄ ⊗ ψ), p > 3).
 - Split ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers into: adequacy-of-top-symmetric-powers (theorem: Boxer–Calegari–Gee Lemma 2.2, p − 2 ≤ n ≤ p); adequacy-symmetric-powers-large-sl2 (theorem: Newton–Thorne Lemma 2.3(1)); adequacy-frobenius-twisted-tensor (theorem: Lemma 2.3(2)); adequacy-common-threshold (lemma: Lemma 2.3(3) and one a₀(p)); adequacy-symmetric-powers-large-p (lemma: p ≥ 2n + 2).
 - Split ArithmeticGaloisRepresentations:G7/vast-tidy-and-enormous-gsp4-subgroups into: gsp4-enormous-subgroup (definition: (E1)–(E3) and weakly enormous); gsp4-enormous-projective-invariance (lemma: Lemma 7.5.3); gsp4-cyclotomic-image-stabilises (lemma: Lemma 7.5.5); gsp4-vast-representation (definition: Definition 7.5.6); gsp4-tidy-subgroup (definition: Definition 7.5.11).
-- Split ArithmeticGaloisRepresentations:G7/gsp4-big-image-verification into: gsp4-adjoint-selmer-vanishing (lemma: Lemma 7.5.9); gsp4-tidy-of-large-centre (lemma: Lemmas 7.5.12 and 7.5.13); gsp4-e1-e2-large-p (lemma: Lemma 7.5.14); sp4-enormous-gsp4-tidy (theorem: Lemma 7.5.15); gsp4-induced-adjoint-decomposition (lemma: §7.5.16); gsp4-e3-for-induced (lemma: Lemma 7.5.17); sl2-wreath-enormous (theorem: Lemma 7.5.18 with g = (a, 1)σ); gsp4-induced-vast-p5 (lemma: Lemma 7.5.19); sp4-f3-enormous-subgroups (theorem: §7.5.20 and Lemma 7.5.21); gsp4-induced-vast-and-tidy (theorem: Lemma 7.5.22 for Proj r̄^σ not a Galois twist of Proj r̄); gsp4-induced-twisted-case (lemma: Lemma 7.5.22 when Proj r̄^σ ≅ τ ∘ Proj r̄, τ ≠ 1; at present a gap); q8-wreath-enormous (lemma: the Sylow 2-subgroup of Sp₄(F_3) is enormous).
 - Split ArithmeticGaloisRepresentations:G7/cg20-big-image-assumption into: cg20-big-image (definition: (H1), (H2), (H3), with the variant (H3′)); cg20-h3-readings (lemma: (H3′) implies (H3)); cg20-big-image-implies-vast (lemma: big image and absolute irreducibility over every Q(ζ_{p^N}) imply vast); the splitting ad(r̄) = ad⁰(r̄) ⊕ 1 is part (ii) of ArithmeticGaloisRepresentations:G7/gsp4-and-symplectic-induction and should be cited from there.
 - Split ArithmeticGaloisRepresentations:G7/cg20-big-image-examples into: cg20-induced-adjoint-structure (lemma: ad⁰ of Ind_K^Q ρ̄ and the image of G_{Q(ζ_{p^m})}); cg20-induced-big-image (theorem: Example 4.11(1) with the corrected element); cg20-surjective-big-image (theorem: Example 4.11(2)).
 - Split ArithmeticGaloisRepresentations:G7/taylor-wiles-image-conditions into: taylor-wiles-image-conditions (definition: (TW2) and (TW3)); enormous-taylor-wiles-image-conditions (definition); tw3-iff-zeta-not-in-adjoint-field (lemma: (TW3) ⟺ ζ_p ∉ F̄^{ker ad s̄}).
-- Split ArithmeticGaloisRepresentations:G7/taylor-wiles-image-lemmas into: tw-conditions-disjoint-base-change (lemma: BCGNT Lemma 5.2.2, image part); tw-conditions-symmetric-power-tensor-unitary (theorem: Lemma 5.2.4, image parts (i)–(iii)); induced-frobenius-eigenvalues (lemma: Lemma 5.2.5 with p ∤ m); tw-conditions-symmetric-power-tensor-induced (theorem: Lemma 5.2.6, image parts, with r̄_B absolutely irreducible over F(ζ_p)); tw3-for-symmetric-powers (lemma: Allen et al. Lemma 7.1.6(1)).
 - Add a lemma node: for q = p^b with b ≥ 2 and 1 ≤ r ≤ p − 1, Frob V ⊗ Sym^{r−1}V is an absolutely irreducible representation of SL₂(F_q) (V the standard representation); proof route: the 2r weights z^{±p+s} of the diagonal torus are distinct for p ≥ 5, and the unipotent subgroups give raising and lowering operators with coefficients prime to p. Needed by ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers (2)(ii) and G7/adjoint-invariants-of-symmetric-powers (b).
 - Add a lemma node: for V of finite rank and m! invertible, the pairing Sym^m(V) × Sym^m(V^∨) → k is perfect and equivariant, so (Sym^mV)^∨ ≅ Sym^m(V^∨); or check that ArithmeticGaloisRepresentations:G7/symmetric-and-exterior-powers states it. Needed by ArithmeticGaloisRepresentations:G7/tensor-products-of-symmetric-powers.
 - Gap 'Guralnick–Herzig–Taylor–Thorne adequacy theorem': plan the input of GHTT Proposition 7 (read in this review) and read Guralnick, 'Small representations are completely reducible' (J. Algebra 220, 1999), Theorem A, and state the two inputs exactly (classification-dependent structure of finite linear groups generated by p-elements; Ext¹ vanishing for dim W_i + dim W_j ≤ p − 2).
@@ -14161,445 +14832,823 @@ Let F be a number field, p a prime, n ≥ 1 and s̄ : G_F → GL_n(F̄_p) contin
 - Definition/lemma numbering in Allen et al. v1/v2 and the published Qian paper, and the published CG18 section for enormous image, were checked by REV-ArithmeticGaloisRepresentations~2. Remaining source task: read Borel, Linear Algebraic Groups, Ch. I §2.1, for the Zariski-closure/derived-subgroup statement used through Newton–Thorne in G7/characteristic-zero-enormous-subgroups.
 - Give bodies to the three open definitions on which statements of the adequate, enormous and big-image nodes depend: G7.eigenProj (projection onto Module.End.maxGenEigenspace along the other generalised eigenspaces), G7.symPowerGL (from G7/symmetric-and-exterior-powers) and G7.modCyclotomic (GaloisRep.cyclotomicCharacter reduced modulo p and mapped to k).
 - G7/taylor-wiles-image-lemmas (1): the typed statements (TaylorWilesImageConditions.restrict, restrict_of_image_eq) assume that G_H → G_F/(ker s̄ ∩ G_{F(ζ_p)}) is onto; deducing this from the linear-disjointness hypothesis of Boxer–Calegari–Gee–Newton–Thorne Lemma 5.2.2 (Galois correspondence, s̄ continuous) is not yet typed.
+- G7/gsp4-sl2-wreath-vastness-and-tidiness: separate and prove the field-automorphism graph case Proj r̄^σ≅τ∘Proj r̄. Gap “Lemma 7.5.22 … field automorphism” names the exact cyclotomic-image and coset-element assertions still needed. The ordinary wreath-product case and the quaternion computation have their own nodes.
 
 ## Requested prerequisite exports
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius`**: For K = Q_ℓ (more generally a nonarchimedean local field) and K̄ = PadicAlgCl ℓ: the action of G_K on the residue field F̄_ℓ of the valuation ring of K̄, i.e. the continuous surjection G_K → Gal(F̄_ℓ/F_ℓ), with arithmetic Frobenius lifts as the preimages of x ↦ x^q.
-  Consumers: `ArithmeticGaloisRepresentations:R01.1/coefficient-frobenius-twist`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group`**: The inertia subgroup I_K as the kernel of G_K → Gal(k̄/k), so that two lifts of arithmetic Frobenius differ by an element of I_K.
-  Consumers: `ArithmeticGaloisRepresentations:R01.1/coefficient-frobenius-twist`.
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius
 
-- **`ReductiveGroupsPartII:RG2.2`**: For a split connected reductive Ĝ over a nonarchimedean local field E: the action of Ĝ(E) on the building B(DĜ, E); a compact subgroup of Ĝ(E)^0 (elements whose characters are O_E^×-valued) fixes a point; maximal compact subgroups of Ĝ(E)^0 are stabilisers of centroids of facets; the hyperspecial point x_0 with stabiliser Ĝ(O_E); the equivariant embeddings i_{E,E′} : B(DĜ, E) → B(DĜ, E′) for finite E′/E; conjugacy of hyperspecial vertices under Ĝ^ad(E′); and the GL_n lattice model (vertices = homothety classes of lattices).
-  Consumers: `ArithmeticGaloisRepresentations:R01.1/reductive-integral-models`.
+**need**: For K = Q_ℓ (more generally a nonarchimedean local field) and K̄ = PadicAlgCl ℓ: the action of G_K on the residue field F̄_ℓ of the valuation ring of K̄, i.e. the continuous surjection G_K → Gal(F̄_ℓ/F_ℓ), with arithmetic Frobenius lifts as the preimages of x ↦ x^q.
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group`**: Inertia I_K, wild inertia P_K and the tame character I_K/P_K ≅ Ẑ^{(p')}(1) with independence of choices, G_K-equivariance and the finite-level Kummer form; arithmetic Frobenius lifts as a coset of I_K; restriction to finite extensions (the factor e on the tame character).
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/ell-adic-tame-character`, `ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters`, `ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place`, `ArithmeticGaloisRepresentations:R01.2/grothendieck-quasi-unipotence`, `ArithmeticGaloisRepresentations:R01.2/tame-semisimple-residual-local-representations`, `ArithmeticGaloisRepresentations:R01.2/unramified-and-ramification-set`, `ArithmeticGaloisRepresentations:R01.2/unramified-character-lambda`, `ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.1/coefficient-frobenius-twist
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius`**: Gal(K^{ur}/K) ≅ Ẑ with arithmetic Frobenius ↦ 1 (built on Mathlib's profinite completion), the unramified extension of each degree, and the unramified quadratic extension Q_{p²}.
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/unramified-character-lambda`, `ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters`, `ArithmeticGaloisRepresentations:R01.2/tame-semisimple-residual-local-representations`, `ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions`**: Krasner's lemma, giving F̄_v = F_v·ι(F̄) for an embedding of algebraic closures, and the globalisation of finite extensions of local fields used by Deligne's Lemme 4.13.
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`.
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group
 
-- **`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`**: The Weil group W_K with Weil topology, weilDegree : W_K → Z (arithmetic normalisation, kernel I_K), weilTransfer and weilDegree_weilTransfer for finite extensions, and localWeilArtinEquiv for K/Q_p finite.
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation`, `ArithmeticGaloisRepresentations:R01.2/grothendieck-quasi-unipotence`, `ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor`, `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`, `ArithmeticGaloisRepresentations:R01.2/unramified-character-lambda`, `ArithmeticGaloisRepresentations:R01.2/ell-adic-tame-character`, `ArithmeticGaloisRepresentations:R01.2/unramified-and-ramification-set`, `ArithmeticGaloisRepresentations:R01.2/local-factor-of-induced-representation`, `ArithmeticGaloisRepresentations:R01.2/rescaling-the-monodromy-operator`, `ArithmeticGaloisRepresentations:R01.2/ell-adic-representation-of-a-weil-deligne-representation`, `ArithmeticGaloisRepresentations:R01.2/inertia-invariants-of-an-induced-representation`.
+**need**: The inertia subgroup I_K as the kernel of G_K → Gal(k̄/k), so that two lifts of arithmetic Frobenius differ by an element of I_K.
 
-- **`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`**: The artinMap normalisation statements (uniformiser ↦ arithmetic Frobenius, normResidue_uniformizer) and conductors of characters, so that R01.2 can state the conversion to Deligne's geometric normalisation.
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.1/coefficient-frobenius-twist
 
-- **`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields`**: kroneckerWeber: every finite abelian extension of Q is contained in a cyclotomic field (finite-order characters of G_Q are Dirichlet characters).
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol`**: Existence, uniqueness modulo inertia and conjugation of IsArithFrobAt Frobenius elements in finite Galois extensions of number fields, and the cyclotomic examples (Frob_p acts as ζ ↦ ζ^p on Q(ζ_N)).
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place`, `ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters`.
+**supplier**: ReductiveGroupsPartII:RG2.2
 
-- **`tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`**: Completions as nonarchimedean local fields (5.1), completionAlgHom (5.2) and decompositionHom with its bijectivity and compatibility with Frobenius and conjugation (5.6).
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place`, `ArithmeticGaloisRepresentations:R01.2/local-restriction`.
+**need**: For a split connected reductive Ĝ over a nonarchimedean local field E: the action of Ĝ(E) on the building B(DĜ, E); a compact subgroup of Ĝ(E)^0 (elements whose characters are O_E^×-valued) fixes a point; maximal compact subgroups of Ĝ(E)^0 are stabilisers of centroids of facets; the hyperspecial point x_0 with stabiliser Ĝ(O_E); the equivariant embeddings i_{E,E′} : B(DĜ, E) → B(DĜ, E′) for finite E′/E; conjugacy of hyperspecial vertices under Ĝ^ad(E′); and the GL_n lattice model (vertices = homothety classes of lattices).
 
-- **`tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction`**: Brauer's induction theorem: every virtual character of a finite group is a Z-combination of characters induced from one-dimensional characters of (elementary) subgroups; used for the uniqueness and the global step of Deligne's local constants.
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.1/reductive-integral-models
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`**: The Tate curve E_q over a local field with its Tate parametrisation K̄^×/q^Z ≅ E(K̄), giving E[ℓ^n] as an extension of Z/ℓ^n by μ_{ℓ^n} with Kummer class of q.
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/weil-deligne-required-examples`.
+### Requested export
 
-- **`AutomorphicLFunctionsAndLocalFactors:AL.1`**: Tate's local ε-factors of quasi-characters (AL.1/local-epsilon-gamma-factors, AL.1/explicit-epsilon-factors, AL.1/local-quasicharacter-conductor) and Hecke's functional equation (AL.1/hecke-l-functional-equation), with an explicit dictionary between ε(s, ω, ψ) and Deligne's ε(χ, ψ, dx). AL.1 does not depend on R01.2 (checked in data/atlas.json: AL.1 requires only AL.0 → AdelicAlgebraicGroups:AA.0).
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`.
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius`**: Unramified extensions: I_{K'} = I_K and equality of filtrations for K'/K unramified.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change`.
+**need**: Inertia I_K, wild inertia P_K and the tame character I_K/P_K ≅ Ẑ^{(p')}(1) with independence of choices, G_K-equivariance and the finite-level Kummer form; arithmetic Frobenius lifts as a coset of I_K; restriction to finite extensions (the factor e on the tame character).
 
-- **`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group`**: The local Weil group W_K with I_K ⊆ W_K open and its degree map.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/ell-adic-tame-character, ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters, ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place, ArithmeticGaloisRepresentations:R01.2/grothendieck-quasi-unipotence, ArithmeticGaloisRepresentations:R01.2/tame-semisimple-residual-local-representations, ArithmeticGaloisRepresentations:R01.2/unramified-and-ramification-set, ArithmeticGaloisRepresentations:R01.2/unramified-character-lambda, ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation
 
-- **`tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`**: Completions F_v and decomposition-group embeddings for the local restriction of global representations.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/global-conductor-and-prime-to-p-conductor`, `ArithmeticGaloisRepresentations:R01.3/induction-formula-for-conductors`, `ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences`**: Localisation of the relative different and discriminant: v_𝔭(𝔡_{F'/F}) = Σ_{w|v} δ(F'_w/F_v).
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/induction-formula-for-conductors`, `ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor`.
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius
 
-- **`tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction`**: Brauer's induction theorem: every character of a finite group is a Z-combination of characters induced from one-dimensional characters of (elementary) subgroups.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/artin-conductor-integral-finite-group`.
+**need**: Gal(K^{ur}/K) ≅ Ẑ with arithmetic Frobenius ↦ 1 (built on Mathlib's profinite completion), the unramified extension of each degree, and the unramified quadratic extension Q_{p²}.
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68`**: The ℓ-adic Tate module of an elliptic curve with its continuous G_K action (through R01.6/elliptic-tate-module-comparison).
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/unramified-character-lambda, ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters, ArithmeticGaloisRepresentations:R01.2/tame-semisimple-residual-local-representations, ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`**: For an endomorphism α of an elliptic curve over a field, tr(α | V_ℓ) = 1 + deg α − deg(1 − α), an integer independent of ℓ.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces`**: Intersection theory and blowups on regular arithmetic surfaces over a DVR.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/ogg-formula-descent`, `ArithmeticGaloisRepresentations:R01.3/ogg-formula-tame`, `ArithmeticGaloisRepresentations:R01.3/ogg-formula`, `ArithmeticGaloisRepresentations:R01.3/saito-conductor-discriminant`, `ArithmeticGaloisRepresentations:R01.3/saito-genus-one`.
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-0-local-fields-and-their-finite-extensions
 
-- **`tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`**: Existence and uniqueness of the minimal proper regular model of a curve of positive genus over a DVR, with components and multiplicities of the special fibre.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/ogg-formula-descent`, `ArithmeticGaloisRepresentations:R01.3/ogg-formula-tame`, `ArithmeticGaloisRepresentations:R01.3/ogg-formula`, `ArithmeticGaloisRepresentations:R01.3/saito-conductor-discriminant`, `ArithmeticGaloisRepresentations:R01.3/saito-genus-one`.
+**need**: Krasner's lemma, giving F̄_v = F_v·ι(F̄) for an embedding of algebraic closures, and the globalisation of finite extensions of local fields used by Deligne's Lemme 4.13.
 
-- **`tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev`**: hasDirichletDensity_frobeniusPrimeSet: for every finite Galois extension L/K of number fields and every conjugacy class C of Gal(L/K), frobeniusPrimeSet K L C has Dirichlet density #C/#Gal(L/K); with its corollaries (infinitude of each class, invariance under finite symmetric difference).
-  Consumers: `ArithmeticGaloisRepresentations:R01.5/frobenius-density-finite-level`, `ArithmeticGaloisRepresentations:R01.5/frobenius-density`, `ArithmeticGaloisRepresentations:R01.5/frobenius-density-image`, `ArithmeticGaloisRepresentations:R01.5/every-element-of-a-finite-image-is-a-frobenius`, `ArithmeticGaloisRepresentations:R01.5/forall-image-of-forall-frobenius`, `ArithmeticGaloisRepresentations:R01.5/multiquadratic-sign-vectors`, `ArithmeticGaloisRepresentations:R01.5/prescribed-quadratic-residue-symbols`, `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen`, `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev`, `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null`, `ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor
 
-- **`tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems`**: hasNaturalDensity_frobeniusPrimeSet with value #C/#G, for the natural-density form of Haar-measure Chebotarev (a).
-  Consumers: `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen`, `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev`, `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null`, `ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero`.
+### Requested export
 
-- **`InverseGaloisAndArithmeticFundamentalGroups:IG.1`**: The étale fundamental group of a connected normal F_q-scheme with Frobenius conjugacy classes at closed points, surjectivity of π_1(U) → π_1(C) for a dense open U of a normal connected C, and lisse ℚ_ℓ/E-sheaves as continuous π_1-representations.
-  Consumers: `ArithmeticGaloisRepresentations:R01.5/curve-recognition-from-an-open-subset`.
+**supplier**: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group
 
-- **`tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`**: Completions F_v of a number field at finite places and the decomposition-group embedding G_{F_v} → G_F.
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial`.
+**need**: The Weil group W_K with Weil topology, weilDegree : W_K → Z (arithmetic normalisation, kernel I_K), weilTransfer and weilDegree_weilTransfer for finite extensions, and localWeilArtinEquiv for K/Q_p finite.
 
-- **`IntegralHeckeAndGaloisDeterminants:IHG.1`**: Reconstruction with continuity: (a) over an algebraically closed field k, an n-dimensional continuous determinant on k[Γ] is det∘ρ for a continuous semisimple ρ, unique up to isomorphism (Chenevier Thm 2.12); (b) over a complete local Noetherian A with finite residue field and residually absolutely irreducible D̄, D = det∘ρ for a continuous ρ : Γ → GL_n(A), unique up to GL_n(A)-conjugacy (Chenevier Thm 2.22).
-  Consumers: `ArithmeticGaloisRepresentations:G7/transfer-of-determinants-to-representations`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation, ArithmeticGaloisRepresentations:R01.2/grothendieck-quasi-unipotence, ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor, ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor, ArithmeticGaloisRepresentations:R01.2/unramified-character-lambda, ArithmeticGaloisRepresentations:R01.2/ell-adic-tame-character, ArithmeticGaloisRepresentations:R01.2/unramified-and-ramification-set, ArithmeticGaloisRepresentations:R01.2/local-factor-of-induced-representation, ArithmeticGaloisRepresentations:R01.2/rescaling-the-monodromy-operator, ArithmeticGaloisRepresentations:R01.2/ell-adic-representation-of-a-weil-deligne-representation, ArithmeticGaloisRepresentations:R01.2/inertia-invariants-of-an-induced-representation
 
-- **`ArithmeticGaloisDuality:R02.4`**: Tate's theorem H^2(G_F, Q/Z) = 0 for a number field F (continuous cohomology of G_F with discrete torsion coefficients, trivial action), in the form lim_n H^2(G_F, Z/n) = 0 (Serre 1977 Thm 4; Patrikis Thm 2.1.1).
-  Consumers: `ArithmeticGaloisRepresentations:G7/lifting-projective-representations`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm`**: Milestones 1–2 for an arbitrary open subgroup U ≤ G of finite index l and arbitrary coefficient groups: the permutation wreath product U^l ⋊ S_l and the transversal-dependent continuous monomial homomorphism Φ : G → U^l ⋊ S_l with its change-of-transversal cocycle (used for tensor induction of representations, not for the F_2 norm).
-  Consumers: `ArithmeticGaloisRepresentations:G7/tensor-induction`.
+**supplier**: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors
 
-- **`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`**: H^2 of a profinite group with discrete torsion coefficients as the obstruction group for lifting through central extensions with finite kernel, compatible with direct limits of coefficients.
-  Consumers: `ArithmeticGaloisRepresentations:G7/lifting-projective-representations`.
+**need**: The artinMap normalisation statements (uniformiser ↦ arithmetic Frobenius, normResidue_uniformizer) and conductors of characters, so that R01.2 can state the conversion to Deligne's geometric normalisation.
 
-- **`tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier`**: Projective representations, factor sets and the obstruction class in H^2 for finite groups, as the finite-level model of the lifting obstruction.
-  Consumers: `ArithmeticGaloisRepresentations:G7/lifting-projective-representations`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor
 
-- **`tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`**: Closed subgroup schemes ↔ Hopf ideals, identity component and component group (geometric), finiteness of π_0 for finite-type groups over a field.
-  Consumers: `ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`**: Characteristic 0: a smooth affine group with a faithful semisimple representation has reductive identity component; connected reductive subgroups of GL_2 acting irreducibly are SL_2 or GL_2; derived group.
-  Consumers: `ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`.
+**supplier**: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields
 
-- **`tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary`**: Affine group schemes over Z as representable group functors, to define the semidirect product 𝒢_n = (GL_n × GL_1) ⋊ {1, j}.
-  Consumers: `ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group`.
+**need**: kroneckerWeber: every finite abelian extension of Q is contained in a cyclotomic field (finite-order characters of G_Q are Dirichlet characters).
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group`**: For K complete discretely valued with perfect residue field of characteristic p: the tame inertia quotient I_K/P_K is procyclic (isomorphic to ∏_{ℓ ≠ p} Z_ℓ(1)), so it has a topological generator.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame`, `ArithmeticGaloisRepresentations:R01.3/conductor-tame-base-change`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5`**: Quadratic twists: for a separable quadratic L/K with character χ_L, the point isomorphism E^L(K^sep) ≅ E(K^sep), Galois anti-equivariant by χ_L, so that V_ℓ(E^L) ≅ V_ℓ(E) ⊗ χ_L; a curve with non-split multiplicative reduction acquires split multiplicative reduction after the unramified quadratic twist; and, with the Tate curve of layer 4, a curve with additive potentially multiplicative reduction is the twist by a ramified quadratic character of a curve with split multiplicative reduction.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve`, `ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-potentially-multiplicative`, `ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-multiplicative`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models`**: Formation of the minimal proper regular model of a smooth geometrically connected curve of positive genus over the fraction field of a DVR R with perfect residue field commutes with the base change to the completion of the strict henselisation of R; in particular the geometric special fibre of the model over R is the special fibre of the minimal regular model over that base.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/ogg-formula-descent`.
+**supplier**: tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-2-frobenius-elements-and-the-artin-symbol
 
-- **`tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density`**: HasDirichletDensity (ratio to the all-prime sum), IsUpperDirichletDensityBound, IsLowerDirichletDensityBound, hasDirichletDensity_of_symmDiff_finite, hasDirichletDensity_of_upperBound_of_lowerBound, and the calculus of layer 7.3 in this form: (1) a finite set has density 0; (2) if S has density 1 then its complement has density 0; (3) a subset of a set of density 0 has density 0; (4) if A has density δ and Z has density 0 then A ∖ Z and A ∩ Zᶜ have density δ (in particular the intersection of a set of density δ with a set of density 1 has density δ); (5) a set of positive density is infinite and is not contained in a set of density 0; (6) a finite union of sets of density 0 has density 0 (BLGGT Lemma A.1.7).
-  Consumers: `ArithmeticGaloisRepresentations:R01.5/frobenius-density-finite-level`, `ArithmeticGaloisRepresentations:R01.5/frobenius-density`, `ArithmeticGaloisRepresentations:R01.5/frobenius-density-image`, `ArithmeticGaloisRepresentations:R01.5/every-element-of-a-finite-image-is-a-frobenius`, `ArithmeticGaloisRepresentations:R01.5/forall-image-of-forall-frobenius`, `ArithmeticGaloisRepresentations:R01.5/multiquadratic-sign-vectors`, `ArithmeticGaloisRepresentations:R01.5/prescribed-quadratic-residue-symbols`, `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen`, `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev`, `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null`, `ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero`.
+**need**: Existence, uniqueness modulo inertia and conjugation of IsArithFrobAt Frobenius elements in finite Galois extensions of number fields, and the cyclotomic examples (Frob_p acts as ζ ↦ ζ^p on Q(ζ_N)).
 
-- **`tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties`**: At field level: the dimension of an abelian variety; [n] : A → A is an isogeny for n ≠ 0 (so [ℓ] is surjective on K̄-points); the dual abelian variety A^∨ with dual homomorphisms α^∨; φ_L : A → A^∨ for line bundles; polarizations, and the existence of a polarization defined over K (abelian varieties over a field are projective); for an elliptic curve the principal polarization φ_{𝒪(O)}.
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety`, `ArithmeticGaloisRepresentations:R01.6/weil-pairing-on-tate-modules`, `ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness`, `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place, ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`**: The quotient W → W/Φ of an elliptic Weierstrass curve by a finite G_K-stable subgroup Φ ⊂ W(K^sep) (Vélu's formulas): an isogeny defined over K, separable, of degree #Φ, with kernel Φ; and conversely the kernel of a separable isogeny defined over K is a G_K-stable subgroup of W(K^sep) whose order is the degree.
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation`.
+### Requested export
 
-- **`AbelianSchemesAndArithmeticModuli:A1`**: For an elliptic Weierstrass curve W over a field K: the abelian variety E_W of dimension 1 (Tau Ceti AbelianVariety) attached to W by A1's comparison of one-dimensional abelian schemes with elliptic curves and their Weierstrass presentation, with group isomorphisms E_W(L) ≅ W⁄L.Point natural in the field extension L/K (hence equivariant for Aut(L/K)) and compatible with isogenies and with the canonical principal polarization.
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`.
+**supplier**: tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration`**: For finite Galois extensions of a nonarchimedean local field, in mixed and equal characteristic: lower and upper numbering with Herbrand's quotient theorem (upperRamificationGroup_quotient); compatibility of the lower numbering (real index) with subgroups, H_i = H ∩ G_i; the Herbrand functions φ, ψ with their tower formulas for a Galois intermediate field (herbrand_tower, inverseHerbrand_tower); Hasse–Arf (hasseArf). For finite separable extensions: the different exponent d(L/K) and the discriminant exponent δ(L/K) = f·d(L/K), multiplicativity of the different in towers, Hilbert's formula d(L/K) = Σ_{i≥0}(|G_i| − 1) in the Galois case, and the bound d(L/K) ≤ e − 1 + v_L(e) when e ≠ 0 in L.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/breaks-and-swan-conductor`, `ArithmeticGaloisRepresentations:R01.3/conductor-of-a-character`, `ArithmeticGaloisRepresentations:R01.3/artin-conductor-integral-finite-group`, `ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality`, `ArithmeticGaloisRepresentations:R01.3/conductor-independence-of-choices`, `ArithmeticGaloisRepresentations:R01.3/conductor-vanishing-criteria`, `ArithmeticGaloisRepresentations:R01.3/induction-formula-for-conductors`, `ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-break`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-swan-conductor`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-twist`, `ArithmeticGaloisRepresentations:R01.3/deligne-artin-schreier-at-infinity`, `ArithmeticGaloisRepresentations:R01.3/swan-additive`, `ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance`, `ArithmeticGaloisRepresentations:R01.3/conductor-dual`, `ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame`, `ArithmeticGaloisRepresentations:R01.3/conductor-twist-dominant-character`, `ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change`, `ArithmeticGaloisRepresentations:R01.3/conductor-tame-base-change`, `ArithmeticGaloisRepresentations:R01.3/conductor-extend-scalars`, `ArithmeticGaloisRepresentations:R01.3/tame-conductor-computations`, `ArithmeticGaloisRepresentations:R01.3/tame-two-dimensional-conductor`, `ArithmeticGaloisRepresentations:R01.3/dyadic-quadratic-conductors`, `ArithmeticGaloisRepresentations:R01.3/triadic-cubic-conductor`, `ArithmeticGaloisRepresentations:R01.3/upper-numbering-of-an-open-subgroup`, `ArithmeticGaloisRepresentations:R01.3/local-induction-formula`, `ArithmeticGaloisRepresentations:R01.3/serre-bound-for-the-wild-invariant`.
+**need**: Completions as nonarchimedean local fields (5.1), completionAlgHom (5.2) and decompositionHom with its bijectivity and compatibility with Frobenius and conjugation (5.6).
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group`**: I_K and P_K as closed normal subgroups of G_K = Field.absoluteGaloisGroup K, with their images in finite Galois quotients equal to G_0 and G_1; P_K is pro-p; for a finite separable L/K: I_L = I_K ∩ G_L, P_L = P_K ∩ G_L, and G_L·I_K is the group of the maximal unramified subextension of L/K, of index f(L/K) in G_K; the comparison of G_K with Gal(K^sep/K).
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/breaks-and-swan-conductor`, `ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part`, `ArithmeticGaloisRepresentations:R01.3/finite-wild-image`, `ArithmeticGaloisRepresentations:R01.3/wild-action-factors-through-a-finite-galois-extension`, `ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-equivariant`, `ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-enlargement`, `ArithmeticGaloisRepresentations:R01.3/finite-inertia-factorisation`, `ArithmeticGaloisRepresentations:R01.3/invariants-of-an-induced-representation`, `ArithmeticGaloisRepresentations:R01.3/induced-inertia-invariants`, `ArithmeticGaloisRepresentations:R01.3/induced-finite-wild-image`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place, ArithmeticGaloisRepresentations:R01.2/local-restriction
 
-- **`tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup`**: Clifford theory: a G-stable irreducible character of a normal subgroup N extends to G when G/N is cyclic (with layer 7: Schur multiplier of a cyclic group is trivial).
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/wild-character-lift`, `ArithmeticGaloisRepresentations:R01.3/swan-conductor-of-an-orbit`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier`**: Vanishing of H²(C, C^×) for C cyclic, used to extend stable characters across a cyclic quotient.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/wild-character-lift`.
+**supplier**: tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`**: (1) Tate's algorithm for a minimal Weierstrass equation over a henselian DVR with perfect residue field: its ReductionSymbol, independent of the minimal equation and unchanged by unramified base change and completion, with component count m = 1, n, 1, 2, 3, 5, n + 5, 7, 8, 9 for I_0, I_n (n ≥ 1), II, III, IV, I_0*, I_n* (n ≥ 1), IV*, III*, II*; I_0 ⇔ good, I_n ⇔ multiplicative, every other symbol ⇔ additive reduction. (2) In residue characteristic ≥ 5 only: v(Δ_min) = 0, n, 2, 3, 4, 6, n + 6, 8, 9, 10 for these symbols (ATAEC IV.9, Table 4.1); no such statement in residue characteristics 2 and 3. (3) The local minimal discriminant v(Δ_min), unchanged by unramified extension and completion. (4) Néron–Ogg–Shafarevich (i)–(ii) for ℓ different from the residue characteristic, and the j-integrality criterion for potential good reduction. (5) The Tate curve E_q over a complete discretely valued field: Galois-equivariant uniformisation, v(Δ) = v(q), split multiplicative reduction, and every curve with split multiplicative reduction is some E_q.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve`, `ArithmeticGaloisRepresentations:R01.3/ogg-formula-descent`, `ArithmeticGaloisRepresentations:R01.3/ogg-formula-tame`, `ArithmeticGaloisRepresentations:R01.3/ogg-formula`, `ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-values`, `ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-potentially-multiplicative`, `ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-bound-residue-3`, `ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-exponent-bounds`, `ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-isogeny-invariance`, `ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-over-q`, `ArithmeticGaloisRepresentations:R01.3/residual-conductor-good`, `ArithmeticGaloisRepresentations:R01.3/residual-conductor-multiplicative`, `ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-multiplicative`, `ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-good`, `ArithmeticGaloisRepresentations:R01.3/residual-elliptic-conductor-away-from-ell`, `ArithmeticGaloisRepresentations:R01.3/tame-conductor-computations`, `ArithmeticGaloisRepresentations:R01.3/tame-two-dimensional-conductor`, `ArithmeticGaloisRepresentations:R01.3/dyadic-quadratic-conductors`, `ArithmeticGaloisRepresentations:R01.3/triadic-cubic-conductor`.
+**need**: Brauer's induction theorem: every virtual character of a finite group is a Z-combination of characters induced from one-dimensional characters of (elementary) subgroups; used for the uniqueness and the global step of Deligne's local constants.
 
-- **`tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`**: Comparison of characterConductorExp with the ramification conductor: for K/Q_p finite and every n ≥ 0, artinMap(U_K^n) is dense in the image of G_K^n in G_K^ab (U_K^0 = O_K^×), so that a(χ) = characterConductorExp(χ ∘ artinMap) for finite-order characters χ.
-  Consumers: `ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor
 
-- **`IntegralHeckeAndGaloisDeterminants:IHG.1`**: Chenevier Theorems 2.12, 2.16 and 2.22(i) as nodes: (i) over an algebraically closed field k, a d-dimensional determinant on k[Γ] is det ∘ ρ for a semisimple ρ : Γ → GL_d(k), unique up to isomorphism; (ii) over an arbitrary field k, k[Γ]/ker(D) ≅ ∏ S_i with S_i simple, finite-dimensional over its centre k_i of finite exponent (f_i, q_i) over k, and D = ∏ det_{S_i}^{m_i} with uniquely determined m_i, d = Σ m_i n_i q_i f_i; (iii) over a henselian local ring A with residue field k, for a Cayley–Hamilton d-dimensional determinant D on A[Γ] whose residual determinant D̄ is absolutely irreducible and split in the sense that k[Γ]/ker(D̄) ≅ M_d(k), there is an A-algebra isomorphism A[Γ]/CH(D) ≅ M_d(A) carrying D to det.
-  Consumers: `ArithmeticGaloisRepresentations:R01.5/descent-obstruction-determinant-form`, `ArithmeticGaloisRepresentations:R01.5/carayol-lifts-recognition`, `ArithmeticGaloisRepresentations:R01.5/carayol-gluing`.
+### Requested export
 
-- **`FunctionFieldArithmetic:FA.5`**: Function-field Chebotarev in the following form, as an exported node: let U be a smooth geometrically connected curve over F_q and V → U a connected finite étale Galois cover with group G, with field of constants F_{q^m}, so that G → Gal(F_{q^m}/F_q) = ℤ/m is surjective. Then for every g ∈ G mapping to the class of d mod m and every sufficiently large n ≡ d mod m there is a closed point x of U of degree n and a point of V above x whose arithmetic Frobenius is g (indeed the proportion of closed points of degree n with Frobenius class the class C of g tends to m·#C/#G). Only the existence of one such x for each g is used, to conclude that the Frobenius elements at closed points of U are dense in π_1(U). The same theorem is requested by DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero.
-  Consumers: `ArithmeticGaloisRepresentations:R01.5/curve-recognition-from-an-open-subset`.
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv
 
-- **`tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness`**: The algebra Wedderburn presentation B ≅ ∏ M_{m_j}(D_j) of a finite-dimensional semisimple algebra over a field, with centres Z(D_j) and the dimension count; in particular a finite-dimensional algebra with a faithful simple module W is simple with W as its simple module, and its centre is a field over which it is central simple. (For central simple algebras the pinned tree has TauCeti.IsSimpleRing.exists_algEquiv_matrix_centralDivisionRing.)
-  Consumers: `ArithmeticGaloisRepresentations:R01.5/galois-action-on-constituents`, `ArithmeticGaloisRepresentations:R01.5/descent-obstruction`, `ArithmeticGaloisRepresentations:R01.5/descent-obstruction-absolutely-irreducible`, `ArithmeticGaloisRepresentations:R01.5/descent-obstruction-determinant-form`, `ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-semisimple-representation`, `ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent`, `ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent-continuous`, `ArithmeticGaloisRepresentations:R01.5/simple-modules-over-the-algebraic-closure`, `ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-constituent`, `ArithmeticGaloisRepresentations:R01.5/simple-module-of-an-irreducible-representation`.
+**need**: The Tate curve E_q over a local field with its Tate parametrisation K̄^×/q^Z ≅ E(K̄), giving E[ℓ^n] as an extension of Z/ℓ^n by μ_{ℓ^n} with Kummer class of q.
 
-- **`AbelianSchemesAndArithmeticModuli:A3`**: For an abelian scheme of relative dimension g over a base S: [n] finite locally free of rank n^{2g}, étale over S[1/n]; the kernel of an isogeny is a finite locally free group scheme whose order is the degree and which is killed by its order; quotient isogenies A → A/G by finite locally free subgroups and quasi-inverses ψφ = [m]; the perfect Weil pairing A[n] × A^∨[n] → μ_n, compatible in n (e_{mn}(a, a′)^n = e_m(na, na′)), Galois and base-change equivariant, given on geometric points over a field by e_n(a, a′) = g/(g∘t_a) (Milne AV §13), so that its sign can be compared with the elliptic pairing of Tau Ceti; the alternating polarization pairing e^λ_n with its perfectness criterion; and the adjunction e_n(αx, y) = e_n(x, α^∨y). A3's stage text also speaks of the corresponding Tate-module pairings with the Tate twist in their target: R01.6/weil-pairing-on-tate-modules forms the limit on the Tate module of R01.6, and asks A3 for the compatible finite-level system only. R01.6 forms the integral and rational limits from these finite pairings. Integral perfectness requires ℓ not dividing the polarization degree; rational perfectness holds for every polarization. The dual and polarization carrier are imported from JacobianChallenge layer E, and the rational Rosati involution from the existing A2/rosati-involution node.
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety`, `ArithmeticGaloisRepresentations:R01.6/functoriality-products-and-isogenies`, `ArithmeticGaloisRepresentations:R01.6/weil-pairing-on-tate-modules`, `ArithmeticGaloisRepresentations:R01.6/noot-specialization`, `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`, `ArithmeticGaloisRepresentations:R01.6/specialisation-of-torsion-at-good-reduction`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/weil-deligne-required-examples
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68`**: E[N] ≃+ (ZMod N)² over separably closed fields (the count #E[N] = N² over an algebraically closed field is already in the pinned library, TauCeti.Isogeny.card_ker_mulByIntIsogeny); the Weil pairing e_N (alternating, nondegenerate, Galois-equivariant, compatible with isogenies via the dual: e_N(φP, Q) = e_N(P, φ̂Q)); T_ℓE free of rank 2 with its continuous Galois representation, the perfect alternating ℓ-adic pairing into Z_ℓ(1), and det = cyclotomic character.
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`, `ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness`, `ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation`, `ArithmeticGaloisRepresentations:R01.6/determinant-of-a-weierstrass-isogeny-on-the-tate-module`, `ArithmeticGaloisRepresentations:R01.6/tate-module-of-the-tate-curve`, `ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius`**: For a nonarchimedean local field K: the predicate IsUnramified K L for finite L/K (ramification index 1 and separable residue extension) with its comparison with the étale notions over 𝒪[K]; the maximal unramified extension K^ur with Gal(K^ur/K) ≅ Gal(k^sep/k) and the arithmetic Frobenius; the residue correspondence in the form: for L/K finite unramified, K-embeddings L → K^ur correspond bijectively to k-embeddings of the residue fields; and, from the same roadmap's Layer 0 on finite extensions, that the valuation ring of a finite extension is the integral closure of 𝒪[K] and a discrete valuation ring.
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial`, `ArithmeticGaloisRepresentations:R01.6/specialisation-of-torsion-at-good-reduction`.
+**supplier**: AutomorphicLFunctionsAndLocalFactors:AL.1
 
-- **`tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation`**: Lie(G) and Ad for GL_n, GSp, GO, PGL_2 and their derived subgroups, compatible with the matrix descriptions gl_n, gsp, sp, sl_2 = Lie(PGL_2); functoriality of Lie and Ad for isomorphisms of algebraic groups: dφ ∘ Ad(a) = Ad(φ(a)) ∘ dφ.
-  Consumers: `ArithmeticGaloisRepresentations:G7/similitude-groups`, `ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`.
+**need**: Tate's local ε-factors of quasi-characters (AL.1/local-epsilon-gamma-factors, AL.1/explicit-epsilon-factors, AL.1/local-quasicharacter-conductor) and Hecke's functional equation (AL.1/hecke-l-functional-equation), with an explicit dictionary between ε(s, ω, ψ) and Deligne's ε(χ, ψ, dx). AL.1 does not depend on R01.2 (checked in data/atlas.json: AL.1 requires only AL.0 → AdelicAlgebraicGroups:AA.0).
 
-- **`PadicHodgeTheory:R06.2`**: For K/Q_ℓ finite and continuous representations of G_K over a finite extension E of Q_ℓ or over Q̄_ℓ: (1) the labelled Hodge–Tate weights HT_τ of PadicHodgeTheory:R06.2/hodge-tate-weight-convention (convention HT(χ_p) = +1) satisfy HT_τ(V ⊗ W) = HT_τ(V) + HT_τ(W) (sums of pairs, with multiplicity) and HT_τ(V^∨) = −HT_τ(V), hence the rules for Sym^m and HT_τ(ad⁰ ρ) = {a − b, 0, b − a} for HT_τ(ρ) = {a, b}; R06.2/hodge-tate-graded-equivalence gives ⊗ and duals for Q_p-coefficients without labels. (2) Labelled Hodge–Tate–Sen weights of an arbitrary continuous representation, as the eigenvalues of Sen's operator (PadicHodgeTheory:P7/sen-module, stated for Q_p-coefficients), with Θ_{V⊗W} = Θ_V ⊗ 1 + 1 ⊗ Θ_W and Θ_{V^∨} = −ᵗΘ_V; a character with integral Hodge–Tate–Sen weights is Hodge–Tate. If (2) belongs to stage P7, route it there.
-  Consumers: `ArithmeticGaloisRepresentations:G7/unequal-weight-tensor-irreducibility`, `ArithmeticGaloisRepresentations:G7/lifting-projective-representations-hodge-tate`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv`**: The point map of an isogeny φ : TauCeti.Isogeny W₁ W₂ (named toPointHom in that roadmap; not in the pinned library): a group homomorphism on the points over every extension field, compatible with base change (hence with Galois), with composition and with the multiplication-by-n isogenies; its additivity on the hom-group: for φ, ψ in Hom(W₁, W₂) the point map of φ + ψ and of φ − ψ is the pointwise sum and difference of the point maps, the zero element having the zero point map (the layer builds the sum in the hom-group as the pointwise sum of isogenies but names no lemma for the point map of a sum), so that the point map of TauCeti.Isogeny.oneSubFrobeniusIsogeny W, which is 1 − π in the hom-group by the pinned ofIsogeny_oneSubFrobeniusIsogeny, is P ↦ P − π(P); and the dual isogeny φ̂ with φ̂ ∘ φ = [deg φ] and φ ∘ φ̂ = [deg φ].
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison`, `ArithmeticGaloisRepresentations:R01.6/determinant-of-a-weierstrass-isogeny-on-the-tate-module`, `ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial`.
+### Requested export
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1`**: frobeniusTrace and pointCount (in the pinned library); the Frobenius isogeny (in the pinned library as frobeniusIsogeny, with degree_frobeniusIsogeny) and the named lemma of that layer that the Frobenius isogeny induces (x, y) ↦ (x^q, y^q) on points, i.e. the action of the arithmetic Frobenius of Gal(F̄_q/F_q) on W(F̄_q) (the layer's other named lemma on points, kernel cardinality equals the degree on the separable locus, is not requested here; the point map of 1 − π is requested from Layer 1); deg(1 − π_q) = #E(F_q) (in the pinned library as degree_oneSubFrobeniusIsogeny_eq_pointCount); the Hasse bound a_q² ≤ 4q; supersingular iff p | a_q over a finite field.
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial`, `ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial`, `ArithmeticGaloisRepresentations:R01.6/required-examples`.
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`**: For an elliptic Weierstrass curve over a complete discretely valued field with perfect residue field k and ℓ ≠ char k: Néron–Ogg–Shafarevich (i), good reduction ⇔ T_ℓW unramified, in both directions (AEC VII.7.1), and (ii), potential good reduction ⇔ the image of inertia on T_ℓW is finite; the j-integrality criterion, potential good reduction ⇔ j integral (AEC VII.5.5); invariance of the reduction type (good, multiplicative, additive) under finite unramified extensions; the reduction map on points over a DVR and the isomorphism E(K^ur)[ℓ^n] ≅ Ẽ(k̄)[ℓ^n] at good reduction, compatible with the map from the decomposition group to the Galois group of the residue field; the Tate curve E_q with Tate's uniformisation L^×/q^Z ≅ E_q(L) for finite L/K, compatible in L and Galois-equivariant, under which multiplication by ℓ corresponds to the ℓ-th power, and its split multiplicative reduction; and Tate's theorem (ATAEC V.5.3): for an elliptic curve E over a p-adic field with |j(E)| > 1 there is a unique q with |q| < 1 and j(E_q) = j(E), and E ≅ E_q over K iff E has split multiplicative reduction. Not in the layer text, and requested in addition to it: the torsion isomorphism over K^ur with its equivariance (K^ur is not complete; the layer has the reduction map on points and the sequence 0 → E₁(K) → E₀(K) → Ẽ_ns(k) → 0 over complete K); the invariance of the reduction type under unramified extensions (the layer has it for good ordinary and good supersingular reduction, and Layer 4.5a for semistability); and, in Tate's theorem, the existence of q for every E with |j(E)| > 1 and the implication from split multiplicative reduction to E ≅ E_q (the layer has the uniformisation and the split multiplicative reduction of E_q).
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial`, `ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial`, `ArithmeticGaloisRepresentations:R01.6/required-examples`, `ArithmeticGaloisRepresentations:R01.6/tate-module-of-the-tate-curve`.
+**need**: Unramified extensions: I_{K'} = I_K and equality of filtrations for K'/K unramified.
 
-- **`tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5`**: Two elliptic curves over a field K with the same j-invariant different from 0 and 1728 are isomorphic over K or quadratic twists of each other by a separable quadratic extension L/K (Aut = {±1}; AEC X.5.4; in that layer this belongs to the classification of twists, of which only the concrete quadratic twists are core); and over a complete discretely valued field a curve with nonsplit multiplicative reduction is the quadratic twist of a curve with split multiplicative reduction by an unramified quadratic extension (the one whose residue field contains the tangent directions at the node; the unramified quadratic extension when the residue field is finite): the milestone named exists_quadraticTwist_hasSplitMultiplicativeReduction in that roadmap (not in the pinned library) says only that such a curve acquires split reduction after a separable quadratic twist, and that the twisting extension is unramified is requested in addition. The twist, its isomorphism on points and its Galois behaviour are in the pinned library (WeierstrassCurve.quadraticTwist, quadraticTwistPointEquiv, quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map) and are not requested.
-  Consumers: `ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial`.
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change
 
-- **`LefschetzPencilsAndVanishingCycles:LPV.1`**: Accepted RS-17 O20 assigns the canonical nilpotent monodromy filtration to LPV.1. Export the pure finite-dimensional nilpotent filtration, uniqueness, scalar/conjugation invariance, primitive decomposition and tensor/dual formulas from LPV.1/monodromy-filtration, primitive-decomposition-and-strictness and tensor-dual-and-symmetric-monodromy without depending on finite-monodromy-logarithm or Arithmetic R01.2. Supply the characteristic-zero SL₂ complete-reducibility/weight interface used by the tensor proof, from LieHighestWeight, Part II. Bridge the lower primitive convention of LPV to the upper primitive convention used here. Arithmetic has removed its canonical-filtration definition and keeps only Weil–Deligne stability and the rank-sum computation inside its purity application. The consuming purity/classification nodes remain conditional on this export. Do not install a reverse stage edge until the supplier separation is applied: the present LPV logarithm edge would produce a cycle.
-  Consumers: `ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations`, `ArithmeticGaloisRepresentations:R01.2/purity-from-a-pure-graded`, `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification`.
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-9-the-local-weil-group
+
+**need**: The local Weil group W_K with I_K ⊆ W_K open and its degree map.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places
+
+**need**: Completions F_v and decomposition-group embeddings for the local restriction of global representations.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/global-conductor-and-prime-to-p-conductor, ArithmeticGaloisRepresentations:R01.3/induction-formula-for-conductors, ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-6-global-ramification-consequences
+
+**need**: Localisation of the relative different and discriminant: v_𝔭(𝔡_{F'/F}) = Σ_{w|v} δ(F'_w/F_v).
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/induction-formula-for-conductors, ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-6-the-virtual-character-ring-artin-and-brauer-induction
+
+**need**: Brauer's induction theorem: every character of a finite group is a Z-combination of characters induced from one-dimensional characters of (elementary) subgroups.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/artin-conductor-integral-finite-group
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68
+
+**need**: The ℓ-adic Tate module of an elliptic curve with its continuous G_K action (through R01.6/elliptic-tate-module-comparison).
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1
+
+**need**: For an endomorphism α of an elliptic curve over a field, tr(α | V_ℓ) = 1 + deg α − deg(1 − α), an integer independent of ℓ.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces
+
+**need**: Intersection theory and blowups on regular arithmetic surfaces over a DVR.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/ogg-formula-descent, ArithmeticGaloisRepresentations:R01.3/ogg-formula-tame, ArithmeticGaloisRepresentations:R01.3/ogg-formula, ArithmeticGaloisRepresentations:R01.3/saito-conductor-discriminant, ArithmeticGaloisRepresentations:R01.3/saito-genus-one
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models
+
+**need**: Existence and uniqueness of the minimal proper regular model of a curve of positive genus over a DVR, with components and multiplicities of the special fibre.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/ogg-formula-descent, ArithmeticGaloisRepresentations:R01.3/ogg-formula-tame, ArithmeticGaloisRepresentations:R01.3/ogg-formula, ArithmeticGaloisRepresentations:R01.3/saito-conductor-discriminant, ArithmeticGaloisRepresentations:R01.3/saito-genus-one
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev
+
+**need**: hasDirichletDensity_frobeniusPrimeSet: for every finite Galois extension L/K of number fields and every conjugacy class C of Gal(L/K), frobeniusPrimeSet K L C has Dirichlet density #C/#Gal(L/K); with its corollaries (infinitude of each class, invariance under finite symmetric difference).
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.5/frobenius-density-finite-level, ArithmeticGaloisRepresentations:R01.5/frobenius-density, ArithmeticGaloisRepresentations:R01.5/frobenius-density-image, ArithmeticGaloisRepresentations:R01.5/every-element-of-a-finite-image-is-a-frobenius, ArithmeticGaloisRepresentations:R01.5/forall-image-of-forall-frobenius, ArithmeticGaloisRepresentations:R01.5/multiquadratic-sign-vectors, ArithmeticGaloisRepresentations:R01.5/prescribed-quadratic-residue-symbols, ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen, ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev, ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null, ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems
+
+**need**: hasNaturalDensity_frobeniusPrimeSet with value #C/#G, for the natural-density form of Haar-measure Chebotarev (a).
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen, ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev, ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null, ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero
+
+### Requested export
+
+**supplier**: InverseGaloisAndArithmeticFundamentalGroups:IG.1
+
+**need**: The étale fundamental group of a connected normal F_q-scheme with Frobenius conjugacy classes at closed points, surjectivity of π_1(U) → π_1(C) for a dense open U of a normal connected C, and lisse ℚ_ℓ/E-sheaves as continuous π_1-representations.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.5/curve-recognition-from-an-open-subset
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places
+
+**need**: Completions F_v of a number field at finite places and the decomposition-group embedding G_{F_v} → G_F.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial
+
+### Requested export
+
+**supplier**: IntegralHeckeAndGaloisDeterminants:IHG.1
+
+**need**: Reconstruction with continuity: (a) over an algebraically closed field k, an n-dimensional continuous determinant on k[Γ] is det∘ρ for a continuous semisimple ρ, unique up to isomorphism (Chenevier Thm 2.12); (b) over a complete local Noetherian A with finite residue field and residually absolutely irreducible D̄, D = det∘ρ for a continuous ρ : Γ → GL_n(A), unique up to GL_n(A)-conjugacy (Chenevier Thm 2.22).
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/transfer-of-determinants-to-representations
+
+### Requested export
+
+**supplier**: ArithmeticGaloisDuality:R02.4
+
+**need**: Tate's theorem H^2(G_F, Q/Z) = 0 for a number field F (continuous cohomology of G_F with discrete torsion coefficients, trivial action), in the form lim_n H^2(G_F, Z/n) = 0 (Serre 1977 Thm 4; Patrikis Thm 2.1.1).
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/lifting-projective-representations
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm
+
+**need**: Milestones 1–2 for an arbitrary open subgroup U ≤ G of finite index l and arbitrary coefficient groups: the permutation wreath product U^l ⋊ S_l and the transversal-dependent continuous monomial homomorphism Φ : G → U^l ⋊ S_l with its change-of-transversal cocycle (used for tensor induction of representations, not for the F_2 norm).
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/tensor-induction
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees
+
+**need**: H^2 of a profinite group with discrete torsion coefficients as the obstruction group for lifting through central extensions with finite kernel, compatible with direct limits of coefficients.
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/lifting-projective-representations
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier
+
+**need**: Projective representations, factor sets and the obstruction class in H^2 for finite groups, as the finite-level model of the lifting obstruction.
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/lifting-projective-representations
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components
+
+**need**: Closed subgroup schemes ↔ Hopf ideals, identity component and component group (geometric), finiteness of π_0 for finite-type groups over a field.
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups
+
+**need**: Characteristic 0: a smooth affine group with a faithful semisimple representation has reductive identity component; connected reductive subgroups of GL_2 acting irreducibly are SL_2 or GL_2; derived group.
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary
+
+**need**: Affine group schemes over Z as representable group functors, to define the semidirect product 𝒢_n = (GL_n × GL_1) ⋊ {1, j}.
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group
+
+**need**: For K complete discretely valued with perfect residue field of characteristic p: the tame inertia quotient I_K/P_K is procyclic (isomorphic to ∏_{ℓ ≠ p} Z_ℓ(1)), so it has a topological generator.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame, ArithmeticGaloisRepresentations:R01.3/conductor-tame-base-change
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5
+
+**need**: Quadratic twists: for a separable quadratic L/K with character χ_L, the point isomorphism E^L(K^sep) ≅ E(K^sep), Galois anti-equivariant by χ_L, so that V_ℓ(E^L) ≅ V_ℓ(E) ⊗ χ_L; a curve with non-split multiplicative reduction acquires split multiplicative reduction after the unramified quadratic twist; and, with the Tate curve of layer 4, a curve with additive potentially multiplicative reduction is the twist by a ramified quadratic character of a curve with split multiplicative reduction.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve, ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-potentially-multiplicative, ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-multiplicative
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models
+
+**need**: Formation of the minimal proper regular model of a smooth geometrically connected curve of positive genus over the fraction field of a DVR R with perfect residue field commutes with the base change to the completion of the strict henselisation of R; in particular the geometric special fibre of the model over R is the special fibre of the minimal regular model over that base.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/ogg-formula-descent
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density
+
+**need**: HasDirichletDensity (ratio to the all-prime sum), IsUpperDirichletDensityBound, IsLowerDirichletDensityBound, hasDirichletDensity_of_symmDiff_finite, hasDirichletDensity_of_upperBound_of_lowerBound, and the calculus of layer 7.3 in this form: (1) a finite set has density 0; (2) if S has density 1 then its complement has density 0; (3) a subset of a set of density 0 has density 0; (4) if A has density δ and Z has density 0 then A ∖ Z and A ∩ Zᶜ have density δ (in particular the intersection of a set of density δ with a set of density 1 has density δ); (5) a set of positive density is infinite and is not contained in a set of density 0; (6) a finite union of sets of density 0 has density 0 (BLGGT Lemma A.1.7).
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.5/frobenius-density-finite-level, ArithmeticGaloisRepresentations:R01.5/frobenius-density, ArithmeticGaloisRepresentations:R01.5/frobenius-density-image, ArithmeticGaloisRepresentations:R01.5/every-element-of-a-finite-image-is-a-frobenius, ArithmeticGaloisRepresentations:R01.5/forall-image-of-forall-frobenius, ArithmeticGaloisRepresentations:R01.5/multiquadratic-sign-vectors, ArithmeticGaloisRepresentations:R01.5/prescribed-quadratic-residue-symbols, ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen, ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev, ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null, ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/JacobianChallenge#layer-e-abelian-varieties
+
+**need**: At field level: the dimension of an abelian variety; [n] : A → A is an isogeny for n ≠ 0 (so [ℓ] is surjective on K̄-points); the dual abelian variety A^∨ with dual homomorphisms α^∨; φ_L : A → A^∨ for line bundles; polarizations, and the existence of a polarization defined over K (abelian varieties over a field are projective); for an elliptic curve the principal polarization φ_{𝒪(O)}.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety, ArithmeticGaloisRepresentations:R01.6/weil-pairing-on-tate-modules, ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness, ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv
+
+**need**: The quotient W → W/Φ of an elliptic Weierstrass curve by a finite G_K-stable subgroup Φ ⊂ W(K^sep) (Vélu's formulas): an isogeny defined over K, separable, of degree #Φ, with kernel Φ; and conversely the kernel of a separable isogeny defined over K is a G_K-stable subgroup of W(K^sep) whose order is the degree.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation
+
+### Requested export
+
+**supplier**: AbelianSchemesAndArithmeticModuli:A1
+
+**need**: For an elliptic Weierstrass curve W over a field K: the abelian variety E_W of dimension 1 (Tau Ceti AbelianVariety) attached to W by A1's comparison of one-dimensional abelian schemes with elliptic curves and their Weierstrass presentation, with group isomorphisms E_W(L) ≅ W⁄L.Point natural in the field extension L/K (hence equivariant for Aut(L/K)) and compatible with isogenies and with the canonical principal polarization.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration
+
+**need**: For finite Galois extensions of a nonarchimedean local field, in mixed and equal characteristic: lower and upper numbering with Herbrand's quotient theorem (upperRamificationGroup_quotient); compatibility of the lower numbering (real index) with subgroups, H_i = H ∩ G_i; the Herbrand functions φ, ψ with their tower formulas for a Galois intermediate field (herbrand_tower, inverseHerbrand_tower); Hasse–Arf (hasseArf). For finite separable extensions: the different exponent d(L/K) and the discriminant exponent δ(L/K) = f·d(L/K), multiplicativity of the different in towers, Hilbert's formula d(L/K) = Σ_{i≥0}(|G_i| − 1) in the Galois case, and the bound d(L/K) ≤ e − 1 + v_L(e) when e ≠ 0 in L.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/breaks-and-swan-conductor, ArithmeticGaloisRepresentations:R01.3/conductor-of-a-character, ArithmeticGaloisRepresentations:R01.3/artin-conductor-integral-finite-group, ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality, ArithmeticGaloisRepresentations:R01.3/conductor-independence-of-choices, ArithmeticGaloisRepresentations:R01.3/conductor-vanishing-criteria, ArithmeticGaloisRepresentations:R01.3/induction-formula-for-conductors, ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor, ArithmeticGaloisRepresentations:R01.3/artin-schreier-break, ArithmeticGaloisRepresentations:R01.3/artin-schreier-swan-conductor, ArithmeticGaloisRepresentations:R01.3/artin-schreier-twist, ArithmeticGaloisRepresentations:R01.3/deligne-artin-schreier-at-infinity, ArithmeticGaloisRepresentations:R01.3/swan-additive, ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance, ArithmeticGaloisRepresentations:R01.3/conductor-dual, ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame, ArithmeticGaloisRepresentations:R01.3/conductor-twist-dominant-character, ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change, ArithmeticGaloisRepresentations:R01.3/conductor-tame-base-change, ArithmeticGaloisRepresentations:R01.3/conductor-extend-scalars, ArithmeticGaloisRepresentations:R01.3/tame-conductor-computations, ArithmeticGaloisRepresentations:R01.3/tame-two-dimensional-conductor, ArithmeticGaloisRepresentations:R01.3/dyadic-quadratic-conductors, ArithmeticGaloisRepresentations:R01.3/triadic-cubic-conductor, ArithmeticGaloisRepresentations:R01.3/upper-numbering-of-an-open-subgroup, ArithmeticGaloisRepresentations:R01.3/local-induction-formula, ArithmeticGaloisRepresentations:R01.3/serre-bound-for-the-wild-invariant
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group
+
+**need**: I_K and P_K as closed normal subgroups of G_K = Field.absoluteGaloisGroup K, with their images in finite Galois quotients equal to G_0 and G_1; P_K is pro-p; for a finite separable L/K: I_L = I_K ∩ G_L, P_L = P_K ∩ G_L, and G_L·I_K is the group of the maximal unramified subextension of L/K, of index f(L/K) in G_K; the comparison of G_K with Gal(K^sep/K).
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/breaks-and-swan-conductor, ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part, ArithmeticGaloisRepresentations:R01.3/finite-wild-image, ArithmeticGaloisRepresentations:R01.3/wild-action-factors-through-a-finite-galois-extension, ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-equivariant, ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-enlargement, ArithmeticGaloisRepresentations:R01.3/finite-inertia-factorisation, ArithmeticGaloisRepresentations:R01.3/invariants-of-an-induced-representation, ArithmeticGaloisRepresentations:R01.3/induced-inertia-invariants, ArithmeticGaloisRepresentations:R01.3/induced-finite-wild-image
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup
+
+**need**: Clifford theory: a G-stable irreducible character of a normal subgroup N extends to G when G/N is cyclic (with layer 7: Schur multiplier of a cyclic group is trivial).
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/wild-character-lift, ArithmeticGaloisRepresentations:R01.3/swan-conductor-of-an-orbit
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier
+
+**need**: Vanishing of H²(C, C^×) for C cyclic, used to extend stable characters across a cyclic quotient.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/wild-character-lift
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv
+
+**need**: (1) Tate's algorithm for a minimal Weierstrass equation over a henselian DVR with perfect residue field: its ReductionSymbol, independent of the minimal equation and unchanged by unramified base change and completion, with component count m = 1, n, 1, 2, 3, 5, n + 5, 7, 8, 9 for I_0, I_n (n ≥ 1), II, III, IV, I_0*, I_n* (n ≥ 1), IV*, III*, II*; I_0 ⇔ good, I_n ⇔ multiplicative, every other symbol ⇔ additive reduction. (2) In residue characteristic ≥ 5 only: v(Δ_min) = 0, n, 2, 3, 4, 6, n + 6, 8, 9, 10 for these symbols (ATAEC IV.9, Table 4.1); no such statement in residue characteristics 2 and 3. (3) The local minimal discriminant v(Δ_min), unchanged by unramified extension and completion. (4) Néron–Ogg–Shafarevich (i)–(ii) for ℓ different from the residue characteristic, and the j-integrality criterion for potential good reduction. (5) The Tate curve E_q over a complete discretely valued field: Galois-equivariant uniformisation, v(Δ) = v(q), split multiplicative reduction, and every curve with split multiplicative reduction is some E_q.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve, ArithmeticGaloisRepresentations:R01.3/ogg-formula-descent, ArithmeticGaloisRepresentations:R01.3/ogg-formula-tame, ArithmeticGaloisRepresentations:R01.3/ogg-formula, ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-values, ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-potentially-multiplicative, ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-bound-residue-3, ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-exponent-bounds, ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-isogeny-invariance, ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-over-q, ArithmeticGaloisRepresentations:R01.3/residual-conductor-good, ArithmeticGaloisRepresentations:R01.3/residual-conductor-multiplicative, ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-multiplicative, ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-good, ArithmeticGaloisRepresentations:R01.3/residual-elliptic-conductor-away-from-ell, ArithmeticGaloisRepresentations:R01.3/tame-conductor-computations, ArithmeticGaloisRepresentations:R01.3/tame-two-dimensional-conductor, ArithmeticGaloisRepresentations:R01.3/dyadic-quadratic-conductors, ArithmeticGaloisRepresentations:R01.3/triadic-cubic-conductor
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors
+
+**need**: Comparison of characterConductorExp with the ramification conductor: for K/Q_p finite and every n ≥ 0, artinMap(U_K^n) is dense in the image of G_K^n in G_K^ab (U_K^0 = O_K^×), so that a(χ) = characterConductorExp(χ ∘ artinMap) for finite-order characters χ.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part
+
+### Requested export
+
+**supplier**: IntegralHeckeAndGaloisDeterminants:IHG.1
+
+**need**: Chenevier Theorems 2.12, 2.16 and 2.22(i) as nodes: (i) over an algebraically closed field k, a d-dimensional determinant on k[Γ] is det ∘ ρ for a semisimple ρ : Γ → GL_d(k), unique up to isomorphism; (ii) over an arbitrary field k, k[Γ]/ker(D) ≅ ∏ S_i with S_i simple, finite-dimensional over its centre k_i of finite exponent (f_i, q_i) over k, and D = ∏ det_{S_i}^{m_i} with uniquely determined m_i, d = Σ m_i n_i q_i f_i; (iii) over a henselian local ring A with residue field k, for a Cayley–Hamilton d-dimensional determinant D on A[Γ] whose residual determinant D̄ is absolutely irreducible and split in the sense that k[Γ]/ker(D̄) ≅ M_d(k), there is an A-algebra isomorphism A[Γ]/CH(D) ≅ M_d(A) carrying D to det.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.5/descent-obstruction-determinant-form, ArithmeticGaloisRepresentations:R01.5/carayol-lifts-recognition, ArithmeticGaloisRepresentations:R01.5/carayol-gluing
+
+### Requested export
+
+**supplier**: FunctionFieldArithmetic:FA.5
+
+**need**: Function-field Chebotarev in the following form, as an exported node: let U be a smooth geometrically connected curve over F_q and V → U a connected finite étale Galois cover with group G, with field of constants F_{q^m}, so that G → Gal(F_{q^m}/F_q) = ℤ/m is surjective. Then for every g ∈ G mapping to the class of d mod m and every sufficiently large n ≡ d mod m there is a closed point x of U of degree n and a point of V above x whose arithmetic Frobenius is g (indeed the proportion of closed points of degree n with Frobenius class the class C of g tends to m·#C/#G). Only the existence of one such x for each g is used, to conclude that the Frobenius elements at closed points of U are dense in π_1(U). The same theorem is requested by DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.5/curve-recognition-from-an-open-subset
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness
+
+**need**: The algebra Wedderburn presentation B ≅ ∏ M_{m_j}(D_j) of a finite-dimensional semisimple algebra over a field, with centres Z(D_j) and the dimension count; in particular a finite-dimensional algebra with a faithful simple module W is simple with W as its simple module, and its centre is a field over which it is central simple. (For central simple algebras the pinned tree has TauCeti.IsSimpleRing.exists_algEquiv_matrix_centralDivisionRing.)
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.5/galois-action-on-constituents, ArithmeticGaloisRepresentations:R01.5/descent-obstruction, ArithmeticGaloisRepresentations:R01.5/descent-obstruction-absolutely-irreducible, ArithmeticGaloisRepresentations:R01.5/descent-obstruction-determinant-form, ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-semisimple-representation, ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent, ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent-continuous, ArithmeticGaloisRepresentations:R01.5/simple-modules-over-the-algebraic-closure, ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-constituent, ArithmeticGaloisRepresentations:R01.5/simple-module-of-an-irreducible-representation
+
+### Requested export
+
+**supplier**: AbelianSchemesAndArithmeticModuli:A3
+
+**need**: For an abelian scheme of relative dimension g over a base S: [n] finite locally free of rank n^{2g}, étale over S[1/n]; the kernel of an isogeny is a finite locally free group scheme whose order is the degree and which is killed by its order; quotient isogenies A → A/G by finite locally free subgroups and quasi-inverses ψφ = [m]; the perfect Weil pairing A[n] × A^∨[n] → μ_n, compatible in n (e_{mn}(a, a′)^n = e_m(na, na′)), Galois and base-change equivariant, given on geometric points over a field by e_n(a, a′) = g/(g∘t_a) (Milne AV §13), so that its sign can be compared with the elliptic pairing of Tau Ceti; the alternating polarization pairing e^λ_n with its perfectness criterion; and the adjunction e_n(αx, y) = e_n(x, α^∨y). A3's stage text also speaks of the corresponding Tate-module pairings with the Tate twist in their target: R01.6/weil-pairing-on-tate-modules forms the limit on the Tate module of R01.6, and asks A3 for the compatible finite-level system only. R01.6 forms the integral and rational limits from these finite pairings. Integral perfectness requires ℓ not dividing the polarization degree; rational perfectness holds for every polarization. The dual and polarization carrier are imported from JacobianChallenge layer E, and the rational Rosati involution from the existing A2/rosati-involution node.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/tate-module-of-an-abelian-variety, ArithmeticGaloisRepresentations:R01.6/functoriality-products-and-isogenies, ArithmeticGaloisRepresentations:R01.6/weil-pairing-on-tate-modules, ArithmeticGaloisRepresentations:R01.6/noot-specialization, ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison, ArithmeticGaloisRepresentations:R01.6/specialisation-of-torsion-at-good-reduction
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68
+
+**need**: E[N] ≃+ (ZMod N)² over separably closed fields (the count #E[N] = N² over an algebraically closed field is already in the pinned library, TauCeti.Isogeny.card_ker_mulByIntIsogeny); the Weil pairing e_N (alternating, nondegenerate, Galois-equivariant, compatible with isogenies via the dual: e_N(φP, Q) = e_N(P, φ̂Q)); T_ℓE free of rank 2 with its continuous Galois representation, the perfect alternating ℓ-adic pairing into Z_ℓ(1), and det = cyclotomic character.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison, ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness, ArithmeticGaloisRepresentations:R01.6/torsion-and-residual-representation, ArithmeticGaloisRepresentations:R01.6/determinant-of-a-weierstrass-isogeny-on-the-tate-module, ArithmeticGaloisRepresentations:R01.6/tate-module-of-the-tate-curve, ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius
+
+**need**: For a nonarchimedean local field K: the predicate IsUnramified K L for finite L/K (ramification index 1 and separable residue extension) with its comparison with the étale notions over 𝒪[K]; the maximal unramified extension K^ur with Gal(K^ur/K) ≅ Gal(k^sep/k) and the arithmetic Frobenius; the residue correspondence in the form: for L/K finite unramified, K-embeddings L → K^ur correspond bijectively to k-embeddings of the residue fields; and, from the same roadmap's Layer 0 on finite extensions, that the valuation ring of a finite extension is the integral closure of 𝒪[K] and a discrete valuation ring.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial, ArithmeticGaloisRepresentations:R01.6/specialisation-of-torsion-at-good-reduction
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation
+
+**need**: Lie(G) and Ad for GL_n, GSp, GO, PGL_2 and their derived subgroups, compatible with the matrix descriptions gl_n, gsp, sp, sl_2 = Lie(PGL_2); functoriality of Lie and Ad for isomorphisms of algebraic groups: dφ ∘ Ad(a) = Ad(φ(a)) ∘ dφ.
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/similitude-groups, ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups
+
+### Requested export
+
+**supplier**: PadicHodgeTheory:R06.2
+
+**need**: For K/Q_ℓ finite and continuous representations of G_K over a finite extension E of Q_ℓ or over Q̄_ℓ: (1) the labelled Hodge–Tate weights HT_τ of PadicHodgeTheory:R06.2/hodge-tate-weight-convention (convention HT(χ_p) = +1) satisfy HT_τ(V ⊗ W) = HT_τ(V) + HT_τ(W) (sums of pairs, with multiplicity) and HT_τ(V^∨) = −HT_τ(V), hence the rules for Sym^m and HT_τ(ad⁰ ρ) = {a − b, 0, b − a} for HT_τ(ρ) = {a, b}; R06.2/hodge-tate-graded-equivalence gives ⊗ and duals for Q_p-coefficients without labels. (2) Labelled Hodge–Tate–Sen weights of an arbitrary continuous representation, as the eigenvalues of Sen's operator (PadicHodgeTheory:P7/sen-module, stated for Q_p-coefficients), with Θ_{V⊗W} = Θ_V ⊗ 1 + 1 ⊗ Θ_W and Θ_{V^∨} = −ᵗΘ_V; a character with integral Hodge–Tate–Sen weights is Hodge–Tate. If (2) belongs to stage P7, route it there.
+
+**neededBy**: ArithmeticGaloisRepresentations:G7/unequal-weight-tensor-irreducibility, ArithmeticGaloisRepresentations:G7/lifting-projective-representations-hodge-tate
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-1-isogenies-the-dual-the-invariant-differential-and-formal-groups-aec-ii2-iii46-iv
+
+**need**: The point map of an isogeny φ : TauCeti.Isogeny W₁ W₂ (named toPointHom in that roadmap; not in the pinned library): a group homomorphism on the points over every extension field, compatible with base change (hence with Galois), with composition and with the multiplication-by-n isogenies; its additivity on the hom-group: for φ, ψ in Hom(W₁, W₂) the point map of φ + ψ and of φ − ψ is the pointwise sum and difference of the point maps, the zero element having the zero point map (the layer builds the sum in the hom-group as the pointwise sum of isogenies but names no lemma for the point map of a sum), so that the point map of TauCeti.Isogeny.oneSubFrobeniusIsogeny W, which is 1 − π in the hom-group by the pinned ofIsogeny_oneSubFrobeniusIsogeny, is P ↦ P − π(P); and the dual isogeny φ̂ with φ̂ ∘ φ = [deg φ] and φ ∘ φ̂ = [deg φ].
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/elliptic-tate-module-comparison, ArithmeticGaloisRepresentations:R01.6/determinant-of-a-weierstrass-isogeny-on-the-tate-module, ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1
+
+**need**: frobeniusTrace and pointCount (in the pinned library); the Frobenius isogeny (in the pinned library as frobeniusIsogeny, with degree_frobeniusIsogeny) and the named lemma of that layer that the Frobenius isogeny induces (x, y) ↦ (x^q, y^q) on points, i.e. the action of the arithmetic Frobenius of Gal(F̄_q/F_q) on W(F̄_q) (the layer's other named lemma on points, kernel cardinality equals the degree on the separable locus, is not requested here; the point map of 1 − π is requested from Layer 1); deg(1 − π_q) = #E(F_q) (in the pinned library as degree_oneSubFrobeniusIsogeny_eq_pointCount); the Hasse bound a_q² ≤ 4q; supersingular iff p | a_q over a finite field.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial, ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial, ArithmeticGaloisRepresentations:R01.6/required-examples
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv
+
+**need**: For an elliptic Weierstrass curve over a complete discretely valued field with perfect residue field k and ℓ ≠ char k: Néron–Ogg–Shafarevich (i), good reduction ⇔ T_ℓW unramified, in both directions (AEC VII.7.1), and (ii), potential good reduction ⇔ the image of inertia on T_ℓW is finite; the j-integrality criterion, potential good reduction ⇔ j integral (AEC VII.5.5); invariance of the reduction type (good, multiplicative, additive) under finite unramified extensions; the reduction map on points over a DVR and the isomorphism E(K^ur)[ℓ^n] ≅ Ẽ(k̄)[ℓ^n] at good reduction, compatible with the map from the decomposition group to the Galois group of the residue field; the Tate curve E_q with Tate's uniformisation L^×/q^Z ≅ E_q(L) for finite L/K, compatible in L and Galois-equivariant, under which multiplication by ℓ corresponds to the ℓ-th power, and its split multiplicative reduction; and Tate's theorem (ATAEC V.5.3): for an elliptic curve E over a p-adic field with |j(E)| > 1 there is a unique q with |q| < 1 and j(E_q) = j(E), and E ≅ E_q over K iff E has split multiplicative reduction. Not in the layer text, and requested in addition to it: the torsion isomorphism over K^ur with its equivariance (K^ur is not complete; the layer has the reduction map on points and the sequence 0 → E₁(K) → E₀(K) → Ẽ_ns(k) → 0 over complete K); the invariance of the reduction type under unramified extensions (the layer has it for good ordinary and good supersingular reduction, and Layer 4.5a for semistability); and, in Tate's theorem, the existence of q for every E with |j(E)| > 1 and the implication from split multiplicative reduction to E ≅ E_q (the layer has the uniformisation and the split multiplicative reduction of E_q).
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial, ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial, ArithmeticGaloisRepresentations:R01.6/required-examples, ArithmeticGaloisRepresentations:R01.6/tate-module-of-the-tate-curve
+
+### Requested export
+
+**supplier**: tauceti:TauCetiRoadmap/EllipticCurves#layer-5-twists-aec-x2-x5
+
+**need**: Two elliptic curves over a field K with the same j-invariant different from 0 and 1728 are isomorphic over K or quadratic twists of each other by a separable quadratic extension L/K (Aut = {±1}; AEC X.5.4; in that layer this belongs to the classification of twists, of which only the concrete quadratic twists are core); and over a complete discretely valued field a curve with nonsplit multiplicative reduction is the quadratic twist of a curve with split multiplicative reduction by an unramified quadratic extension (the one whose residue field contains the tangent directions at the node; the unramified quadratic extension when the residue field is finite): the milestone named exists_quadraticTwist_hasSplitMultiplicativeReduction in that roadmap (not in the pinned library) says only that such a curve acquires split reduction after a separable quadratic twist, and that the twisting extension is unramified is requested in addition. The twist, its isomorphism on points and its Galois behaviour are in the pinned library (WeierstrassCurve.quadraticTwist, quadraticTwistPointEquiv, quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map) and are not requested.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.6/comparison-with-weierstrass-local-polynomial
+
+### Requested export
+
+**supplier**: LefschetzPencilsAndVanishingCycles:LPV.1
+
+**need**: Accepted RS-17 O20 assigns the canonical nilpotent monodromy filtration to LPV.1. Export the pure finite-dimensional nilpotent filtration, uniqueness, scalar/conjugation invariance, primitive decomposition and tensor/dual formulas from LPV.1/monodromy-filtration, primitive-decomposition-and-strictness and tensor-dual-and-symmetric-monodromy without depending on finite-monodromy-logarithm or Arithmetic R01.2. Supply the characteristic-zero SL₂ complete-reducibility/weight interface used by the tensor proof, from LieHighestWeight, Part II. Bridge the lower primitive convention of LPV to the upper primitive convention used here. Arithmetic has removed its canonical-filtration definition and keeps only Weil–Deligne stability and the rank-sum computation inside its purity application. The consuming purity/classification nodes remain conditional on this export. Do not install a reverse stage edge until the supplier separation is applied: the present LPV logarithm edge would produce a cycle.
+
+**neededBy**: ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations, ArithmeticGaloisRepresentations:R01.2/purity-from-a-pure-graded, ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification
+
 
 ## Recorded gaps
 
-### Larsen's lemma on hyperspecial points after a totally ramified extension
+### 1. Larsen's lemma on hyperspecial points after a totally ramified extension
+
+Needed by: `ArithmeticGaloisRepresentations:R01.1/reductive-integral-models`.
 
 M. Larsen, Maximality of Galois actions for compatible systems, Duke Math. J. 80 (1995), Lemma 2.4, as used in the proof of BHKT Theorem 4.8(ii): there are a totally ramified E′/E and a ρ(Γ)-stable point x ∈ B(DĜ, E) with i_{E,E′}(x) hyperspecial. Not planned by ReductiveGroupsPartII RG2.2 as stated. Not needed for Ĝ = GL_n.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.1/reductive-integral-models`.
+### 2. Functional equation of Artin L-functions of number fields with global constants
 
-### Functional equation of Artin L-functions of number fields with global constants
+Needed by: `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`.
 
 Deligne's existence proof (Théorème 4.1 via Lemmes 4.12–4.16) uses, for a Galois extension of number fields and a finite-image complex representation V of Gal(K̄/K) twisted by an idele class quasi-character χ, the meromorphic continuation of L(V, χ) = ∏_v L(V_v ⊗ χ_v), the functional equation L(V, χ) = ε(V, χ)L(V^*, ω_1χ^{-1}) with ε(V, χ) of the form A·e^{Bs}, inductivity ε(Ind V_L, χ) = ε(V_L, χ ∘ N_{L/K}) and additivity (Deligne 3.12 (A)–(D), proved from Brauer induction and Hecke's functional equation), together with idele class characters of prescribed local conductors (Lemme 4.14) and globalisation of local Galois extensions at a non-split place (Lemme 4.13). No atlas stage owns Artin L-functions of number fields (FunctionFieldArithmetic FA.5 is for function fields; AutomorphicLFunctionsAndLocalFactors AL.1 stops at Hecke characters). Proposed owner: an Artin L-function stage of AutomorphicLFunctionsAndLocalFactors after AL.1.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`.
+### 3. Local constants outside finite extensions of Q_p
 
-### Local constants outside finite extensions of Q_p
+Needed by: `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`.
 
 Deligne's Théorème 4.1 also covers archimedean local fields (W_R, W_C, Deligne 2.2.5 and Lemme 4.4) and local fields of characteristic p. The archimedean Weil groups have no owner in the atlas (Tau Ceti ClassFieldTheory layer 9 is nonarchimedean; LanglandsParameterStacks LP0 is nonarchimedean), and the equal-characteristic reciprocity isomorphism is excluded from ClassFieldTheory layer 9. FSY's global ε-factor uses the archimedean factor ε_k(∞, s); this node supplies only the finite places.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`.
+### 4. Ramification filtration over a perfect infinite residue field
 
-### Ramification filtration over a perfect infinite residue field
+Needed by: `ArithmeticGaloisRepresentations:R01.3/breaks-and-swan-conductor`, `ArithmeticGaloisRepresentations:R01.3/conductor-of-a-character`, `ArithmeticGaloisRepresentations:R01.3/artin-conductor-integral-finite-group`, `ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality`, `ArithmeticGaloisRepresentations:R01.3/conductor-independence-of-choices`, `ArithmeticGaloisRepresentations:R01.3/conductor-vanishing-criteria`, `ArithmeticGaloisRepresentations:R01.3/swan-additive`, `ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance`, `ArithmeticGaloisRepresentations:R01.3/conductor-dual`, `ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame`, `ArithmeticGaloisRepresentations:R01.3/conductor-twist-dominant-character`, `ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change`, `ArithmeticGaloisRepresentations:R01.3/conductor-tame-base-change`, `ArithmeticGaloisRepresentations:R01.3/conductor-extend-scalars`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-break`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-swan-conductor`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-twist`, `ArithmeticGaloisRepresentations:R01.3/deligne-artin-schreier-at-infinity`.
 
 LocalFieldsRamification layer 3 supplies lower and upper numbering, Herbrand's quotient theorem and Hasse–Arf only for IsNonarchimedeanLocalField (finite residue field); AlgebraicCurves layer 8 states explicitly that arbitrary-residue-field completions do not claim that supplier. Missing: the same three results for finite Galois extensions of a complete discretely valued field with perfect (e.g. algebraically closed) residue field (Serre, Local Fields IV–V), which tier (P) of R01.3 — F̄_q((t)) and the completion of K^ur, as requested by FiniteFieldsAndCharacterSums FF.2 — needs. Tier (F) is closed without it; the Artin–Schreier computation itself uses only the lower filtration. Natural owner: a 'Local fields and ramification, Part II' roadmap (see restructure).
 
-Consumers: `ArithmeticGaloisRepresentations:R01.3/breaks-and-swan-conductor`, `ArithmeticGaloisRepresentations:R01.3/conductor-of-a-character`, `ArithmeticGaloisRepresentations:R01.3/artin-conductor-integral-finite-group`, `ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality`, `ArithmeticGaloisRepresentations:R01.3/conductor-independence-of-choices`, `ArithmeticGaloisRepresentations:R01.3/conductor-vanishing-criteria`, `ArithmeticGaloisRepresentations:R01.3/swan-additive`, `ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance`, `ArithmeticGaloisRepresentations:R01.3/conductor-dual`, `ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame`, `ArithmeticGaloisRepresentations:R01.3/conductor-twist-dominant-character`, `ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change`, `ArithmeticGaloisRepresentations:R01.3/conductor-tame-base-change`, `ArithmeticGaloisRepresentations:R01.3/conductor-extend-scalars`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-break`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-swan-conductor`, `ArithmeticGaloisRepresentations:R01.3/artin-schreier-twist`, `ArithmeticGaloisRepresentations:R01.3/deligne-artin-schreier-at-infinity`.
+### 5. One-dimensional comparison with class field theory
 
-### One-dimensional comparison with class field theory
+Needed by: `ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part`, `ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor`.
 
 ClassFieldTheory layer 7 defines characterConductorExp through unit filtrations; the identity artinMap(U_K^n) ↔ G_K^n (Serre, Local Fields XV §2) that equates it with the Artin conductor of this layer is not stated by any layer; requested from ClassFieldTheory layer 7. The local and global theorems of R01.3 do not need it; only the translation of 𝔣(ψ) into the conductor of a Hecke character does.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part`, `ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor`.
+### 6. Automorphisms of PSL_2(F_q) and PGL_2(F_q) (Dieudonné / Steinberg) not read in their own source
 
-### Automorphisms of PSL_2(F_q) and PGL_2(F_q) (Dieudonné / Steinberg) not read in their own source
+Needed by: `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`.
 
 Statement (c) (Aut = PΓL_2) is quoted from NT26, CG20 and BCGNT, which cite Dieudonné, La géométrie des groupes classiques, Ch. IV §6, and Steinberg; those sources were not read and the normaliser of PSL_2(F_q) in Sym(q + 1) is not proved here.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2`.
+### 7. Freeness of V_ℓA over E ⊗ Q_ℓ for a subfield E ⊆ End⁰(A), and E-characteristic polynomials
 
-### Freeness of V_ℓA over E ⊗ Q_ℓ for a subfield E ⊆ End⁰(A), and E-characteristic polynomials
+Needed by: `ArithmeticGaloisRepresentations:R01.6/tate-module-with-endomorphism-coefficients`.
 
 Milne AV Prop. 10.23 (V_ℓA free of rank 2g/[E:Q] over E ⊗ Q_ℓ; trace and norm formulas) is AbelianSchemesAndArithmeticModuli:A6/trace-and-degree-on-a-subfield, whose stage AbelianSchemesAndArithmeticModuli:A6 consumes ArithmeticGaloisRepresentations:R01.6 (the stage edge R01.6 → A6 exists in the atlas), so citing it here would close a stage cycle. Re-pointing A6/tate-module-of-a-weil-restriction does not remove the dependence: the A6 theorem takes the field-level Tate module from this stage or from AbelianSchemesAndArithmeticModuli:A4, which is itself downstream of R01.6 once the finite-flat packets are promoted. The freeness statement therefore belongs with A6, and consumers of the λ-adic Tate module import it from there (restructure proposal R01.6-RS1).
 
-Consumers: `ArithmeticGaloisRepresentations:R01.6/tate-module-with-endomorphism-coefficients`.
+### 8. Mumford–Tate containment of the ℓ-adic images (Richard–Yafaev Theorem 4.9, third clause)
 
-### Mumford–Tate containment of the ℓ-adic images (Richard–Yafaev Theorem 4.9, third clause)
+Needed by: `ArithmeticGaloisRepresentations:R01.6/serre-independence-and-connectedness`.
 
 Deligne's theorem that Hodge cycles on abelian varieties are absolutely Hodge, the Galois finiteness on absolute Hodge classes (Deligne–Milne–Ogus–Shih I, Prop. 2.9) and the Mumford–Tate group as stabiliser of Hodge tensors (I.3.4) are owned by ShimuraData D1 and AutomorphicBundles B1, AutomorphicBundles B1 consumes this stage in the atlas (R01.6 → AbelianSchemesAndArithmeticModuli A6 → ComplexMultiplicationAndExplicitReciprocity CM.0 → ShimuraVarieties V5 → B1), and ShimuraData D1 does once the unpromoted packets of ShimuraData and AutomorphicFormsOnReductiveGroups are promoted, so citing them here would close a stage cycle. The clause U ⊆ M(Ẑ) is therefore not stated in R01.6; restructure proposal R01.6-RS3 plans it at a stage downstream of both owners.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.6/serre-independence-and-connectedness`.
+### 9. Gan–Takeda Lemma 6.1 not read
 
-### Gan–Takeda Lemma 6.1 not read
+Needed by: `ArithmeticGaloisRepresentations:G7/gsp4-semisimple-determined-by-gl4`.
 
 BCGP21 proves Lemma 2.1.3 by citing the proof of Gan–Takeda (Ann. of Math. 173 (2011)) Lemma 6.1, not fetched here; the proof sketch given is the standard isotypic-component argument.
 
-Consumers: `ArithmeticGaloisRepresentations:G7/gsp4-semisimple-determined-by-gl4`.
+### 10. Guralnick–Herzig–Taylor–Thorne adequacy theorem (appendix Theorem 9 / Theorem A.9)
 
-### Guralnick–Herzig–Taylor–Thorne adequacy theorem (appendix Theorem 9 / Theorem A.9)
+Needed by: `ArithmeticGaloisRepresentations:G7/adequacy-criteria`, `ArithmeticGaloisRepresentations:G7/gsp4-adequacy-in-characteristic-at-least-eleven`, `ArithmeticGaloisRepresentations:G7/taylor-wiles-unitary-tensor-adequacy`, `ArithmeticGaloisRepresentations:G7/taylor-wiles-solvable-induced-tensor-adequacy`, `ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers`.
 
 The proof uses Proposition 7 of the appendix, which rests on the classification of finite simple groups (Tau Ceti CFSGStatement states the classification but no layer derives the algebraic-group structure of finite linear groups generated by p-elements in small dimension), and Guralnick's 1999 theorem that small modules have no self-extensions (Ext¹ vanishing for dim W_i + dim W_j ≤ p − 2). Neither input is planned by any roadmap.
 
-Consumers: `ArithmeticGaloisRepresentations:G7/adequacy-criteria`, `ArithmeticGaloisRepresentations:G7/gsp4-big-image-verification`, `ArithmeticGaloisRepresentations:G7/taylor-wiles-image-lemmas`, `ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers`.
+### 11. Ext¹ computations for SL₂(F_{p^r}) behind GHT17 Corollary 9.4
 
-### Ext¹ computations for SL₂(F_{p^r}) behind GHT17 Corollary 9.4
+Needed by: `ArithmeticGaloisRepresentations:G7/ght-adequacy-of-sl2-representations`, `ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers`.
 
 Corollary 9.4 uses Andersen–Jørgensen–Landrock's Ext¹ computations for SL₂(p^r) (r > 1), [GHT, Cor. 1.4] for r = 1, H²(SL₂(F_q), k) = 0 for q ∉ {4, 9}, and tilting-module computations for q = 4, 9. No library or roadmap plans the modular representation theory of SL₂(F_q).
 
-Consumers: `ArithmeticGaloisRepresentations:G7/adequacy-criteria`, `ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers`.
+### 12. Thorne 2024, Lemma 7.3 (adequacy of symmetric powers of large SL₂ images)
 
-### Thorne 2024, Lemma 7.3 (adequacy of symmetric powers of large SL₂ images)
+Needed by: `ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers`.
 
 Newton–Thorne quote Thorne, A p-adic approach to the existence of level-raising congruences (Proc. LMS 128, 2024), Lemma 7.3, which was not read; the node gives a proof route through GHT17 Corollary 9.4, which itself rests on the gap above.
 
-Consumers: `ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers`.
+### 13. Inertia action on the Tate module under potential good reduction
 
-### Inertia action on the Tate module under potential good reduction
+Needed by: `ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve`, `ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-good`.
 
 Missing input (Serre–Tate, Good reduction of abelian varieties, Ann. of Math. 88 (1968), §2, Theorem 2 and its proof; not among the sources): let K be complete discretely valued with perfect residue field of characteristic p, E/K an elliptic curve with potential good reduction, ℓ ≠ p, and L/K^ur finite such that E_L has good reduction with reduced curve Ẽ over k̄. Then every σ ∈ I_K induces an automorphism α_σ of Ẽ, σ ↦ α_σ is a homomorphism with kernel I_L, and the action of σ on T_ℓE corresponds to T_ℓ(α_σ) under T_ℓE ≅ T_ℓẼ. Consequences used: the character of ρ_ℓ on I_K has values in Z independent of ℓ (so δ(E) is independent of ℓ in the potentially good case), and |ρ_ℓ(I_K)| divides 24 (so δ(E) = 0 for p ≥ 5, and ℓ ∤ |ρ_ℓ(I_K)| for ℓ ≥ 5). EllipticCurves layer 4 states only that the inertia image is finite (Néron–Ogg–Shafarevich (ii)). For p ≥ 5 alone a weaker input suffices: a curve with potential good reduction has good reduction over a tamely ramified extension. Proposed owner: a lemma node of R01.3, or EllipticCurves layer 4 if it adopts the statement.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.3/conductor-of-an-elliptic-curve`, `ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-good`.
+### 14. Brumer–Kramer's bound for the Swan conductor of a real representation of a p-group
 
-### Brumer–Kramer's bound for the Swan conductor of a real representation of a p-group
+Needed by: `ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-exponent-bounds`.
 
 Part (c) at p = 2, f(E) ≤ 2 + 6·v_K(2) (f_2 ≤ 8 over Q_2), is not reached by the argument planned (Serre 1987 §4.9, Proposition 9, gives 9 over Q_2 and max(2 + 6e_K, 1 + 8e_K) in general). Missing: Brumer–Kramer, The conductor of an abelian variety, Theorem 5.5 with its inputs from §§3–5 (the cyclic and quaternion cases, representation theory of p-groups), which gives sw(A[l], L/K) ≤ e_K[p·d_1 + (p − 1)·λ_p(d_1)] with (p − 1)·d_1 = dim A[l] − dim A[l]^{G_1}, for A[l] real as a G_1-module; only §2 and §6 of that paper were read. For g = 1, p = 2, l = 3 it is a statement about the faithful 2-dimensional representation of a subgroup of the quaternion group of order 8 over F_3. The bounds at p = 3 and p ≥ 5 do not depend on this gap.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-exponent-bounds`.
+### 15. H¹(SL_2(F_{2^r}), M_2(F)) = 0 for all r ≥ 2 (Dickinson 2001, Lemma 42): source not read, proof not planned
 
-### H¹(SL_2(F_{2^r}), M_2(F)) = 0 for all r ≥ 2 (Dickinson 2001, Lemma 42): source not read, proof not planned
+Needed by: `ArithmeticGaloisRepresentations:R01.4/characteristic-two-residual-image-facts`.
 
 Statement (c) is quoted from Dickinson, On the modularity of certain 2-adic Galois representations, Duke Math. J. 109 (2001), Lemma 42, through KW II Lemma 4.3(5)(i); the paper was not obtained. By base change it is enough to take F = F_0. The vanishing has been checked by a direct computation of 1-cocycles for |F_0| = 4, 8 and 16 (dim Z¹ = dim B¹ = 3 in each case), and it also holds for F_0 = F_2. A proof for every r is missing: either read Dickinson's Lemma 42, or prove Ext¹_{F_0[SL_2(F_0)]}(V, V) = 0 for the natural module V (for instance from the known Ext¹-quiver of the simple SL_2(F_{2^r})-modules), and add it as a lemma node.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.4/characteristic-two-residual-image-facts`.
+### 16. Nekovář's semisimplicity criterion [Nek18, Proposition 3.10]
 
-### Nekovář's semisimplicity criterion [Nek18, Proposition 3.10]
+Needed by: `ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-sp4`, `ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-no-self-extensions`.
 
 BCGP25 Proposition 4.11.1 is a special case of Nekovář, Eichler–Shimura relations and semisimplicity of étale cohomology of quaternionic Shimura varieties, Ann. Sci. Éc. Norm. Supér. (4) 51 (2018), 1179–1252, Prop. 3.10 (hypotheses (A'), (C'), minuscule case (3)). The GL_2 version, first proved by Boston–Lenstra–Ribet (Quotients of group rings arising from two-dimensional representations, C. R. Acad. Sci. Paris Sér. I 312 (1991), 323–328), is used in the proof of Proposition 4.11.2. Neither paper was read; no roadmap plans them. Needed statement: for continuous ρ : Γ → GL_N(Q̄_p) whose Lie algebra acts through a minuscule representation (here sp_4 or gsp_4 on the standard representation; gl_2 or sl_2 on the standard representation for the GL_2 version) and s : Γ → GL_n(Q̄_p) continuous with char_ρ(g)(s(g)) = 0 for g in a dense subset of Γ, s is isomorphic to a direct sum of copies of ρ.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-sp4`, `ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-no-self-extensions`.
+### 17. Integral, ℓ-independent characteristic polynomial of an endomorphism on V_ℓA (dimension > 1)
 
-### Integral, ℓ-independent characteristic polynomial of an endomorphism on V_ℓA (dimension > 1)
+Needed by: `ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial`, `ArithmeticGaloisRepresentations:R01.6/local-euler-factor-of-an-abelian-variety`.
 
 Milne AV Prop. 10.20 (P_α = det(X − V_ℓα), integer coefficients, independent of ℓ), applied to α = π_v, is planned as AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module. The stage AbelianSchemesAndArithmeticModuli:A6 requires ArithmeticGaloisRepresentations:R01.6 (edge R01.6 → A6 in data/atlas.json), so citing it would close a stage cycle. Re-pointing A6/tate-module-of-a-weil-restriction does not remove the dependence: A6/characteristic-polynomial-on-tate-module takes the field-level Tate module T_ℓA, free of rank 2g, from AbelianSchemesAndArithmeticModuli:A4, while R01.6/tate-module-of-an-abelian-variety constructs the same object. If A4 keeps it, A4 depends on FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6 ← R07.5 (data/atlas.json), and the R07.5 nodes of that roadmap's packet use R01.6, so A4 and with it the A6 theorem are downstream of R01.6; if R01.6 owns it, the A6 theorem consumes R01.6 by its content. In both cases statement (f) of good-reduction-frobenius-polynomial belongs in a stage downstream of A6, unless Proposition 10.20 moves upstream together with the owner of T_ℓA. The elliptic case (g = 1) is proved in this layer without A6.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial`, `ArithmeticGaloisRepresentations:R01.6/local-euler-factor-of-an-abelian-variety`.
+### 18. Serre's independence and connectedness theorems: proofs not read
 
-### Serre's independence and connectedness theorems: proofs not read
+Needed by: `ArithmeticGaloisRepresentations:R01.6/serre-independence-and-connectedness`.
 
 Parts (1) and (2) of serre-independence-and-connectedness are quoted from Richard–Yafaev Theorem 4.9, which refers to Serre, Œuvres IV, nos. 133, 135, 136, to Serre, Comment. Math. Helv. 88 (2013), §3.1, and to Larsen–Pink, Invent. Math. 107 (1992), 6.14. None of these is among the sources of the roadmap, and the node has no proof beyond the reduction to one field. When they are read: (i) decide whether the ℓ-independence of the kernel of G_K → G_ℓ/G_ℓ° is to be stated; (ii) list the inputs of each proof and place the theorem accordingly. The inputs are expected to include Chebotarev density and the ℓ-independence of Frobenius characteristic polynomials at good places for connectedness, and, for independence, semistable reduction after a finite extension (NeronModelsAndSemistableAbelianVarieties R11.3) and a bound on the action of inertia at ℓ on A[ℓ] (finite flat group schemes); R11.3 and the finite-flat theory consume R01.6, so (1) probably belongs downstream. This expectation is not checked at the sources.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.6/serre-independence-and-connectedness`.
+### 19. Serre's complement to the specialization of Galois images (Noot Proposition 1.3)
 
-### Serre's complement to the specialization of Galois images (Noot Proposition 1.3)
+Needed by: `ArithmeticGaloisRepresentations:R01.6/noot-specialization`.
 
 For each ℓ there is a closed point σ with ρ_{X_η,ℓ}(G_K) = ρ_{X_σ,ℓ}(Gal(F̄/F(σ))). Its proof (Noot 1.4) uses Hilbert irreducibility for compact ℓ-adic Lie quotients of the Galois group of F(t_1, …, t_d) (Serre, Lectures on the Mordell–Weil theorem, 10.6) and the fact that fields of finite type over Q are hilbertian (9.6). These are in the scope of InverseGaloisAndArithmeticFundamentalGroups IG.2, whose packet does not plan them yet (its IG.2 nodes treat the specialisation of polynomials over K(T) only). IG.2 is not downstream of R01.6: in data/atlas.json its ancestors are IG.0, IG.1, FoundationsAndLibraryIntegration LI.* and SchemeAndStackFoundations SF.0–SF.2, and no ArithmeticGaloisRepresentations or NeronModels stage appears among them, also after adding the links that the live blueprints and the unpromoted packets would create. So the complement can be stated in R01.6 with IG.2 as a requested supplier, once IG.2 states Serre's 10.6; Noot Corollary 1.5 (for such a σ) additionally needs Faltings' theorem and stays with FaltingsFinitenessAndIsogenyTheorems.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.6/noot-specialization`.
+### 20. The q-Frobenius endomorphism of an abelian variety over a finite field
 
-### The q-Frobenius endomorphism of an abelian variety over a finite field
+Needed by: `ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial`, `ArithmeticGaloisRepresentations:R01.6/local-euler-factor-of-an-abelian-variety`, `ArithmeticGaloisRepresentations:R01.6/tate-module-with-endomorphism-coefficients`.
 
 good-reduction-frobenius-polynomial uses, for every g, the endomorphism π_v of the abelian variety A_v over k_v = F_q: it is a homomorphism of abelian varieties, commutes with every homomorphism defined over F_q, and acts on A_v(F̄_q) as the arithmetic Frobenius of Gal(F̄_q/F_q). For g = 1 this is Tau Ceti's frobeniusIsogeny (EllipticCurves Layer 3). For general g it is planned as DeligneWeightsAndPurity:DWP.1/frobenius-endomorphism-over-a-finite-field, whose own prerequisites (DWP.0, SchemeAndStackFoundations SF.0) do not involve R01.6; but the stage DWP.1 consumes R01.6 through DWP.1/weil-estimate-for-abelian-varieties, so citing the node from R01.6 would close a stage cycle. Either that node moves to a stage upstream of R01.6 (it needs only the scheme Frobenius), or R01.6 states the abelian-variety case itself. WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology restates (c) and (e) of good-reduction-frobenius-polynomial over a finite field and should cite them.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.6/good-reduction-frobenius-polynomial`, `ArithmeticGaloisRepresentations:R01.6/local-euler-factor-of-an-abelian-variety`, `ArithmeticGaloisRepresentations:R01.6/tate-module-with-endomorphism-coefficients`.
+### 21. Borel, Linear Algebraic Groups, Ch. I §§1–2: closed images, closed derived groups, finite-index subgroups (source not read, no supplier node)
 
-### Borel, Linear Algebraic Groups, Ch. I §§1–2: closed images, closed derived groups, finite-index subgroups (source not read, no supplier node)
+Needed by: `ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`, `ArithmeticGaloisRepresentations:G7/strong-irreducibility`.
 
 NT26 cites [Bor91, Ch. I §2.1(f), §2.4; Ch. II §7.1]; the book is not among the sources. Missing inputs, over an algebraically closed field: (i) the image of a homomorphism of affine algebraic groups is a closed subgroup; (ii) the derived group of an affine algebraic group is closed; (iii) if Σ is Zariski dense in G and Σ′ ⊂ Σ has finite index, the closure of Σ′ contains G^0. Facts (a) and (b) of G7/zariski-closure-and-monodromy-groups reduce to (i) and (ii), and the characterisation in G7/strong-irreducibility uses (iii). No atlas packet has a node for them; they belong to the Tau Ceti ReductiveGroups roadmap (layer 3), whose request here does not list them.
 
-Consumers: `ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`, `ArithmeticGaloisRepresentations:G7/strong-irreducibility`.
+### 22. Lemma 7.5.22 of Boxer–Calegari–Gee–Pilloni when Proj r̄^σ ≅ τ ∘ Proj r̄ for a field automorphism τ ≠ 1
 
-### Lemma 7.5.22 of Boxer–Calegari–Gee–Pilloni when Proj r̄^σ ≅ τ ∘ Proj r̄ for a field automorphism τ ≠ 1
+Needed by: `ArithmeticGaloisRepresentations:G7/gsp4-sl2-wreath-vastness-and-tidiness`.
 
 For #k > p the printed proof omits this case (sourceIssue E763), and the node's proof step (11) only sketches a repair. Established: τ² = 1; (E2) (V ≇ V^τ); H¹(SL₂(k), ad⁰V) = 0 for #k ≥ 25; H¹(SL₂(k), V ⊗ V^τ) = 0 for p ≥ 5 (Borel-subgroup weights: the weights ±1 ± q₀ of the diagonal torus are never ≡ 2p^s mod (q₀² − 1)); tidiness from an element with r̄ = diag(a, −a⁻¹), a a generator of k^×. Not established: the exact image of G_{F(ζ_{p^N})} (an index-two extension of a subgroup of {(A, ±τ(A))}), that it lies in the setting of part (7), and the existence in its non-identity coset of an element of order neither dividing 4 nor divisible by p. This case needs its own lemma node with a full proof.
 
-Consumers: `ArithmeticGaloisRepresentations:G7/gsp4-big-image-verification`.
+### 23. Ĝ-pseudocharacters, Ĝ-complete reducibility and Lafforgue's reconstruction
 
-### Ĝ-pseudocharacters, Ĝ-complete reducibility and Lafforgue's reconstruction
+Needed by: `ArithmeticGaloisRepresentations:R01.1/reductive-residual-representation`.
 
 From Böckle–Harris–Khare–Thorne: Definition 4.1 (Ĝ-pseudocharacters); Lemma 4.3 (the pseudocharacter tr ρ of a homomorphism ρ : Γ → Ĝ(A), depending only on its conjugacy class); Lemma 4.4(i) (change of the coefficient ring, used for 'the pseudocharacter of the reduction is the reduction of tr ρ'); §3.1 with Proposition 3.6 (Ĝ-completely reducible representations, the Ĝ-semisimplification through a minimal parabolic and a Levi subgroup, and that the semisimplification lies in the closure of the orbit, so that ρ and its Ĝ-semisimplification have the same pseudocharacter); and Theorem 4.5 (after V. Lafforgue: over an algebraically closed field, Ĝ(k)-conjugacy classes of Ĝ-completely reducible ρ biject with Ĝ-pseudocharacters). No atlas stage plans these; part (ii) of the reductive node (independence of the Ĝ-semisimplified reduction for general Ĝ) rests on all of them. The GL_n case is closed inside R01.1 without them.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.1/reductive-residual-representation`.
+### 24. Classification of Frobenius-semisimple indecomposable Weil–Deligne representations
 
-### Classification of Frobenius-semisimple indecomposable Weil–Deligne representations
+Needed by: `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification`.
 
 Statement: over an algebraically closed field Ω of characteristic 0, every Frobenius-semisimple indecomposable Weil–Deligne representation of W_K is isomorphic to r_0 ⊗ Sp(n) with r_0 an irreducible representation of W_K with open kernel on inertia and n ≥ 1, and a Frobenius-semisimple object is a direct sum of such, uniquely up to order. Missing, exactly: (1) a source. None of the packet's sources states it: Deligne 1973 has Proposition 8.9 (compatibility of two representations through the characters of the graded pieces) and nothing on indecomposables; the standard references, Deligne, Formes modulaires et représentations de GL(2), 3.1.3 (ii), Tate, Number theoretic background, (4.1.5), and Rohrlich, Elliptic curves and the Weil–Deligne group, §5, are not on disk. (2) Three proof steps that are not written: (a) if (V, r, N) is Frobenius-semisimple then r is a semisimple representation of W_K (r(F) semisimple, r(I_K) finite, a power of r(F) central); (b) the primitive parts P_a of the monodromy filtration (the primitive decomposition requested from LPV.1) lift to r(W_K)-stable subspaces of V, compatibly with N, giving V ≅ ⊕_a P_a ⊗ Sp(a + 1) up to the twists by powers of ω (this needs a W_K-equivariant splitting of the monodromy filtration, which exists because r is semisimple and N is an eigenvector of conjugation); (c) Krull–Schmidt in the finite-length category WD_Ω(K) for the uniqueness. The statement is not a target of the stage; it is used by the `uses` entry for EndoscopicTransferAndUnitaryTraceComparison ET.6 and by the API item indecomposable_iso_tensor_special.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification`.
+### 25. Saito's conductor–discriminant theorem and its inputs
 
-### Saito's conductor–discriminant theorem and its inputs
+Needed by: `ArithmeticGaloisRepresentations:R01.3/saito-conductor-discriminant`, `ArithmeticGaloisRepresentations:R01.3/saito-genus-one`, `ArithmeticGaloisRepresentations:R01.3/ogg-formula`.
 
 No roadmap in the atlas plans: (1) ℓ-adic étale cohomology H^i(X_K̄, Q_ℓ), H^i(X_k̄, Q_ℓ) of the fibres of a proper regular curve X over a DVR with perfect residue field, with the specialisation identity dim H¹(X_k̄) = dim H¹(X_K̄)^{I_K} for the minimal regular model of an elliptic curve (LefschetzPencilsAndVanishingCycles LPV.0 plans nearby cycles over a henselian trait, and LPV.7 proves the identity for nodal models, LPV.7:semistable-curves/curve-inertia-invariants, and the local invariant-cycle theorem in equal characteristic; neither states it for the minimal regular model of a curve with additive reduction in mixed characteristic); (2) Deligne's discriminant Δ_{X/S} of a regular relative curve (through the Mumford isomorphism det Rf_*(ω^{⊗2}) ≅ (det Rf_*ω)^{⊗13}) and its identification with the minimal Weierstrass discriminant in genus one; (3) the Artin conductor Art(X/S) = χ(X_K̄) − χ(X_k̄) − δ of the minimal regular model, as Liu defines it through étale Euler characteristics, which therefore has no definition node; (4) Saito's theorem −Art(X/S) = ord Δ_{X/S} (Duke Math. J. 57 (1988), Theorem 1 and Cor. 2). Saito's paper was not obtainable: the statement was read only as Liu 1994 quotes it, for the minimal regular model over a DVR with perfect residue field; whether Theorem 1 is stated for every regular proper flat model is to be checked. Consequence: R01.3/ogg-formula is open for residue characteristic 2 and 3 (mixed and equal characteristic). In the literature only mixed characteristic (0, 2) needs Saito: Ogg's case analysis (1967, not read, not planned by any node) covers residue characteristic 3 and equal characteristic 2. For residue characteristic ≥ 5 the formula is planned, not closed: it depends on the EllipticCurves layer 4 and StableReduction layer 5 requests and on the gap 'Inertia action on the Tate module under potential good reduction'. EllipticCurveModularity R29.4's exact-conductor comparison at 2 and 3 waits on this gap. Proposed owner: a stage of NeronModelsAndSemistableAbelianVarieties or a new arithmetic-surfaces stage upstream of R01.3 that owns étale cohomology of relative curves over a DVR and Deligne's discriminant.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.3/saito-conductor-discriminant`, `ArithmeticGaloisRepresentations:R01.3/saito-genus-one`, `ArithmeticGaloisRepresentations:R01.3/ogg-formula`.
+### 26. Analytic subsets of compact ℓ-adic Lie groups with empty interior are Haar-null
 
-### Analytic subsets of compact ℓ-adic Lie groups with empty interior are Haar-null
+Needed by: `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev`.
 
 Serre 1981 §6.4 (p. 168, citing Bourbaki, Variétés §10.1.2) uses that a closed analytic subset with empty interior of a compact ℓ-adic Lie group G has Haar measure 0. The case G open in GL_n(O_E) and a polynomial zero set is proved in R01.5/polynomial-zero-sets-are-haar-null with R01.5/haar-measure-on-open-subgroups-of-gl-n. Missing: the same statement when G is a compact open subgroup of H(E) for a closed algebraic subgroup H ⊂ GL_n (for instance G = GSp_4(ℤ_ℓ), used by the acceptance item on CG20 Lemma A.8) and the set is the zero set in G of a polynomial not vanishing identically on the connected component of H, or more generally an analytic subset with empty interior. A proof needs the structure of G as an ℓ-adic analytic manifold with Haar measure locally a multiple of the additive measure in charts; neither library has ℓ-adic Lie groups. DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus has the same unproved input ('an ℓ-adic analytic proper algebraic zero set has Haar measure zero' in a symplectic similitude group); the two roadmaps should share one owner for it. This blocks the stated symplectic acceptance application, not the abstract clopen, closed-set upper-bound or boundary-null Chebotarev theorems.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev`.
+### 27. Algebraic-group inputs of BCGP25 Proposition 4.11.2
 
-### Algebraic-group inputs of BCGP25 Proposition 4.11.2
+Needed by: `ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-induced-constituents`, `ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria`.
 
 The proof of part (b) uses, over Q̄_p, beyond Zariski closures and reductivity (G7/zariski-closure-and-monodromy-groups): (1) Goursat's lemma for a closed subgroup of a product T × P of linear algebraic groups with surjective projections (the subgroup is the preimage of the graph of an isomorphism T/K ≅ P/K' of algebraic groups); (2) a closed normal unipotent subgroup of a reductive group is trivial, and a closed subgroup all of whose elements are annihilated by (X − 1)^4 is unipotent; (3) the irreducible representations of a reductive quotient of a group containing SL_2 × SL_2 with central torus are, up to twist, Sym^i ⊗ Sym^j; (4) the Zariski closure of the image of G_ℚ on the twisted Asai representation A is O_4 and that of G_E is SO_4 ≅ (SL_2 × SL_2)/μ_2; (5) a closed subgroup G ⊂ N ⋊ O_4 (N the standard 4-dimensional representation) surjecting onto O_4 is O_4 (up to conjugacy by N, giving a split extension) or N ⋊ O_4, and in the second case some element outside N ⋊ SO_4 has minimal polynomial of degree 5 on the 5-dimensional extension. Tau Ceti ReductiveGroups layers 3 and 6 are the natural owner of (1)–(3); (4) and (5) are specific to this proof and have no owner. Shapiro's lemma for Ext¹ over G_E (step 5) is ArithmeticGaloisDuality's.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-induced-constituents`, `ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria`.
+### 28. Specialisation of the points of a finite étale scheme over a normal integral base
 
-### Specialisation of the points of a finite étale scheme over a normal integral base
+Needed by: `ArithmeticGaloisRepresentations:R01.6/noot-specialization`.
 
 Used without a prerequisite in noot-specialization. Let S be a normal integral scheme with function field K, S̄ its normalisation in K̄, and G → S finite étale. Then G(K̄) = G(S̄), and for a point σ̄ of S̄ with residue field κ̄ the map G(S̄) → G(κ̄) is a bijection, equivariant for the decomposition group of σ̄. It follows from: a finite étale cover of a normal integral scheme is the normalisation of the base in its generic fibre. No node of another packet states this (the node titles of all packets were searched for henselian and finite étale statements); natural owners are SchemeAndStackFoundations or a lemma node of this stage with its inputs requested. The case of the valuation ring of a local field is the node specialisation-of-torsion-at-good-reduction.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.6/noot-specialization`.
+### 29. A bijective homomorphism of algebraic groups in characteristic 0 is an isomorphism (no supplier)
 
-### A bijective homomorphism of algebraic groups in characteristic 0 is an isomorphism (no supplier)
+Needed by: `ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`, `ArithmeticGaloisRepresentations:G7/unequal-weight-tensor-irreducibility`.
 
 Fact (e) of G7/zariski-closure-and-monodromy-groups uses: for Ω algebraically closed of characteristic 0 and a homomorphism f : G → H of (reduced) affine algebraic groups over Ω that is bijective on Ω-points, f is an isomorphism (applied to the first projection of a closed subgroup G ⊂ PGL_2 × PGL_2 onto PGL_2). NT26 use it without reference in the proof of Lemma 2.2. It is not in the pinned libraries, the requests to ReductiveGroups layers 2, 3 and 6 do not contain it, and no atlas packet has a node for it; it belongs to the Tau Ceti ReductiveGroups roadmap (smoothness in characteristic 0 and the quotient G/ker f). In characteristic p it is false (Frobenius).
 
-Consumers: `ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`, `ArithmeticGaloisRepresentations:G7/unequal-weight-tensor-irreducibility`.
+### 30. Patrikis Lemma 2.3.17: characters of a totally real field with rational Hodge–Tate–Sen weights (no supplier)
 
-### Patrikis Lemma 2.3.17: characters of a totally real field with rational Hodge–Tate–Sen weights (no supplier)
+Needed by: `ArithmeticGaloisRepresentations:G7/lifting-projective-representations-hodge-tate`.
 
 Part (2) of G7/lifting-projective-representations-hodge-tate uses Patrikis Lemma 2.3.17: for F totally real, a continuous character G_F → Q̄_ℓ^× all of whose Hodge–Tate–Sen weights are rational has all weights equal; and for integers x, d there is a character with all weights x/d. The proof uses that a geometric character of a totally real field is a finite-order twist of an integer power of the cyclotomic character (the classification of algebraic Hecke characters of totally real fields, with class field theory). No node of this packet or of another packet states this (all packets searched for Hecke characters of totally real fields).
 
-Consumers: `ArithmeticGaloisRepresentations:G7/lifting-projective-representations-hodge-tate`.
+### 31. Finite group computations of Boxer–Calegari–Gee–Pilloni §7.5
 
-### Finite group computations of Boxer–Calegari–Gee–Pilloni §7.5
+Needed by: `ArithmeticGaloisRepresentations:G7/gsp4-standard-image-enormity-and-tidiness`, `ArithmeticGaloisRepresentations:G7/gsp4-characteristic-three-subgroup-enumeration`.
 
 The source proves by Magma: H¹(Sp₄(F_p), 𝔰𝔭₄) = 0 for p = 3, 5, 7 (Lemma 7.5.15); the list of the 11 enormous classes among the 162 conjugacy classes of subgroups of Sp₄(F_3) (§7.5.20); Lemma 7.5.21(1), (2), (3b), (4). Evidence obtained in the review, by linear algebra over F_p on the cocycle condition along a Cayley graph (pure Python, not a formal certificate): for Sp₄(F_3), generated group of order 51840, dim Z¹(𝔰𝔭₄) = 10 = dim B¹ and H⁰ = 0, so H¹ = 0; for the Borel subgroups of Sp₄(F_5) (order 10000) and Sp₄(F_7) (order 86436), H¹(B, 𝔰𝔭₄) = 0, hence H¹(Sp₄(F_p), 𝔰𝔭₄) = 0 for p = 5, 7 by restriction (index prime to p); for p = 3 the Borel subgroup has H¹ of dimension 1, so the whole group was needed. Proved by hand in the packet: Lemma 7.5.21(3a) (parts (8), (11)) and the enormity of the class of order 128 (part (12)). Not recomputed: the enumeration of the 162 classes and the other nine entries of the list; Lemma 7.5.21(2), (3b), (4). A formal treatment needs certified computations of these finite groups, or weight arguments on a Borel subgroup of Sp₄ in the manner of G7/h1-of-borel-subgroups-with-symmetric-power-coefficients for p = 5, 7.
 
-Consumers: `ArithmeticGaloisRepresentations:G7/gsp4-big-image-verification`.
+### 32. H¹(SL₂(F_9), ad⁰) = 0 (the case #F = 9 of Darmon–Diamond–Taylor Lemma 2.48)
 
-### H¹(SL₂(F_9), ad⁰) = 0 (the case #F = 9 of Darmon–Diamond–Taylor Lemma 2.48)
+Needed by: `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`.
 
-For F = F_9 the Borel-subgroup lemma does not apply to Sym²: besides the resonance (0, 0) there is (2, 1), since 2 − 4 ≡ 2·3 mod 8. Darmon–Diamond–Taylor require injectivity of the connecting map on a one-dimensional B/U-invariant cohomology space and leave that finite calculation unwritten. A finite computation in the review gave H¹(SL₂(F_9), Sym²) = 0 and H¹(B, Sym²) = 0 for its Borel subgroup. Missing: the computation of that connecting homomorphism H¹(B, gr₂) → H²(B, M₁) (Mathlib has groupCohomology.δ in all degrees), or a certified finite computation. Consumers need the case only through part (a) of the lemma (for example PSL₂(F_9)-images at p = 3 in G7/adequacy-criteria (5), Point 2 of BLGG13).
+For F = F_9 the Borel-subgroup lemma does not apply to Sym²: besides the resonance (0, 0) there is (2, 1), since 2 − 4 ≡ 2·3 mod 8. Darmon–Diamond–Taylor require injectivity of the connecting map on a one-dimensional B/U-invariant cohomology space and leave that finite calculation unwritten. A finite computation in the review gave H¹(SL₂(F_9), Sym²) = 0 and H¹(B, Sym²) = 0 for its Borel subgroup. Missing: the computation of that connecting homomorphism H¹(B, gr₂) → H²(B, M₁) (Mathlib has groupCohomology.δ in all degrees), or a certified finite computation. Consumers need the case only through part (a) of the lemma (for example PSL₂(F_9)-images at p = 3 in G7/adequacy-of-rank-two-groups, Point 2 of BLGG13).
 
-Consumers: `ArithmeticGaloisRepresentations:G7/h1-of-sl2-with-adjoint-coefficients`.
+### 33. H¹(SL_n(k′), ad⁰) = 0 for p > n ≥ 3 (Clozel–Harris–Taylor Lemma 2.5.6)
 
-### H¹(SL_n(k′), ad⁰) = 0 for p > n ≥ 3 (Clozel–Harris–Taylor Lemma 2.5.6)
+Needed by: `ArithmeticGaloisRepresentations:G7/enormous-standard-sl-overgroups`.
 
 Part (4) (Gee–Newton Lemma 3.2.4) rests on the proof of Clozel–Harris–Taylor Lemma 2.5.6, which needs H¹(SL_n(k′), 𝔤𝔩_n⁰(k)) = 0 for a finite field k′ of characteristic l > n ≥ 3 and takes it from Cline–Parshall–Scott (Table 4.5). No node proves it and Cline–Parshall–Scott was not read. A proof by weights on a Borel subgroup, as for SL₂, is plausible (the adjoint module has the root weights) but was not carried out.
 
-Consumers: `ArithmeticGaloisRepresentations:G7/enormous-symmetric-powers`.
+### 34. Simplicity and pairwise non-isomorphism of PSL₂(F_p) and PSU_m(F_{p²}) (Boxer–Calegari–Gee–Newton–Thorne Lemma 5.2.3)
 
-### Simplicity and pairwise non-isomorphism of PSL₂(F_p) and PSU_m(F_{p²}) (Boxer–Calegari–Gee–Newton–Thorne Lemma 5.2.3)
+Needed by: `ArithmeticGaloisRepresentations:G7/taylor-wiles-unitary-tensor-adequacy`, `ArithmeticGaloisRepresentations:G7/taylor-wiles-unitary-tensor-scalar-witness`.
 
 Part (2) uses, for m ≥ 3 and p ≥ 5: PSU_m(F_{p²}) is simple, is not isomorphic to PSL₂(F_p), and SU_m(F_{p²}) acts absolutely irreducibly on its standard representation; Goursat's lemma then gives (r̄_A, r̄_B)(G_{F(ζ_p)}) = SL₂(F_p) × SU_m(F_{p²}). The source quotes Steinberg's lectures on Chevalley groups (Theorem 37) and Carter. Mathlib has simplicity of PSL₂ only (Matrix.ProjectiveSpecialLinearGroup.rank_two_simple); no library and no roadmap plans the unitary groups over finite fields. (An order comparison settles the non-isomorphism once simplicity is known.)
 
-Consumers: `ArithmeticGaloisRepresentations:G7/taylor-wiles-image-lemmas`.
+### 35. Projective images A₄ and A₅ in characteristic 3 and 5: the Sublemma of BLGG13, Appendix A.2
 
-### Projective images A₄ and A₅ in characteristic 3 and 5: the Sublemma of BLGG13, Appendix A.2
+Needed by: `ArithmeticGaloisRepresentations:G7/adequacy-of-rank-two-groups`.
 
 Part (5) (Points 4 and 7 of the proof of BLGG13 Proposition A.2.1) uses: a subgroup G ⊆ GL₂(F̄_l) with projective image isomorphic to A₄ or A₅ satisfies F̄_l^×G = F̄_l^×φ̃(2.A₄ or 2.A₅) for a two-dimensional representation φ̃ of the binary polyhedral group (l-representation groups, Schur multiplier Z/2); the two-dimensional Brauer characters of 2.A₅ modulo 3 and modulo 5 (modular Atlas); for l = 3, ad⁰ of these representations is irreducible and projective, so H¹ = 0; for l = 5 (resp. l = 3) a projective image isomorphic to A₅ (resp. A₄) is conjugate to PSL₂(F_5) (resp. PSL₂(F_3)). None of these inputs is in a library or planned by a roadmap; R01.4/dickson-classification-and-the-dyadic-refinement supplies only the list of projective images.
 
-Consumers: `ArithmeticGaloisRepresentations:G7/adequacy-criteria`.
+### 36. Absolute irreducibility of 𝔰𝔭₄ under Sp₄(F_p) for p ≥ 3
 
-### Absolute irreducibility of 𝔰𝔭₄ under Sp₄(F_p) for p ≥ 3
+Needed by: `ArithmeticGaloisRepresentations:G7/gsp4-standard-image-enormity-and-tidiness`, `ArithmeticGaloisRepresentations:G7/cg20-big-image-examples`.
 
-Used for (E3) and (H2) when the image contains Sp₄(F_p) (Boxer–Calegari–Gee–Pilloni Lemma 7.5.15: 'the representation ad⁰ is absolutely irreducible'; Clozel–Harris–Taylor Lemma 2.5.5: 'each R_i is a Weyl module with l-restricted highest weight'). No node proves it. A direct proof route: 𝔰𝔭₄ ≅ Sym²(k⁴) for p odd; the weights of the diagonal torus of Sp₄(F_p) on Sym² are the 8 roots and 0 (twice); for p ≥ 5 the root spaces are distinct weight lines and the root subgroups move them transitively and reach the zero weight space; p = 3 needs a separate check (root weights coincide modulo 2). Not carried out.
+Used for (E3) and (H2) when the image contains Sp₄(F_p) (Boxer–Calegari–Gee–Pilloni Lemma 7.5.15 uses absolute irreducibility of the adjoint representation; Clozel–Harris–Taylor Lemma 2.5.5 uses the appropriate restricted Weyl-module description). No node proves it. A direct proof route: 𝔰𝔭₄ ≅ Sym²(k⁴) for p odd; the weights of the diagonal torus of Sp₄(F_p) on Sym² are the 8 roots and 0 (twice); for p ≥ 5 the root spaces are distinct weight lines and the root subgroups move them transitively and reach the zero weight space; p = 3 needs a separate check (root weights coincide modulo 2). Not carried out.
 
-Consumers: `ArithmeticGaloisRepresentations:G7/gsp4-big-image-verification`, `ArithmeticGaloisRepresentations:G7/cg20-big-image-examples`.
+### 37. Canonical monodromy-filtration ownership and characteristic-zero SL₂ input
 
-### Canonical monodromy-filtration ownership and characteristic-zero SL₂ input
+Needed by: `ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations`, `ArithmeticGaloisRepresentations:R01.2/purity-from-a-pure-graded`, `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification`.
 
 Accepted RS-17 O20 assigns the canonical nilpotent monodromy filtration to LPV.1. Export the pure finite-dimensional nilpotent filtration, uniqueness, scalar/conjugation invariance, primitive decomposition and tensor/dual formulas from LPV.1/monodromy-filtration, primitive-decomposition-and-strictness and tensor-dual-and-symmetric-monodromy without depending on finite-monodromy-logarithm or Arithmetic R01.2. Supply the characteristic-zero SL₂ complete-reducibility/weight interface used by the tensor proof, from LieHighestWeight, Part II. Bridge the lower primitive convention of LPV to the upper primitive convention used here. Arithmetic has removed its canonical-filtration definition and keeps only Weil–Deligne stability and the rank-sum computation inside its purity application. The consuming purity/classification nodes remain conditional on this export. Do not install a reverse stage edge until the supplier separation is applied: the present LPV logarithm edge would produce a cycle.
 
-Consumers: `ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations`, `ArithmeticGaloisRepresentations:R01.2/purity-from-a-pure-graded`, `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification`.
+### 38. Modular lifting of wild characters with conjugation compatibility
+
+Needed by: `ArithmeticGaloisRepresentations:R01.3/wild-character-lift`.
+
+Plan the prime-to-characteristic character-lifting bijection for a finite p-group, its compatibility with automorphisms and preservation of every subgroup-invariant dimension, before wild-character-lift uses it. Maschke semisimplicity and averaging alone do not construct the required characteristic-zero lifts. Then supply cyclic-stabilizer extension from the upstream Clifford/projective representation interface. Brumer–Kramer Lemma 2.7, printed p. 230 (PDF p. 5), is the motivating use; this is a closure task, not an allegation that the source conclusion is false.
+
 
 ## Restructuring and upstream notes
 
-{"action": "rescope", "roadmaps": ["ArithmeticGaloisRepresentations"], "detail": "Tau Ceti LocalFieldsRamification layer 3 supplies the lower and upper numbering, Herbrand's theorem and Hasse–Arf for nonarchimedean local fields, that is, for finite residue fields, and it states the Herbrand functions for Galois towers only. The conductor nodes of R01.3 state a second tier for complete discretely valued fields with perfect, possibly infinite, residue field (for example F̄_q((t))), recorded as the gap 'Ramification filtration over a perfect infinite residue field', and R01.3 had to plan the absolute upper filtration and the intersection formula for open subgroups itself (R01.3/breaks-and-swan-conductor, R01.3/upper-numbering-of-an-open-subgroup).", "proposal": "LocalFieldsRamification, Part II: ramification filtrations, Herbrand's theorem and Hasse–Arf for complete discretely valued fields with perfect residue field; the absolute upper filtration G_K^u with its quotient compatibility; the functions φ_{L/K}, ψ_{L/K} and the formula G_K^u ∩ G_L = G_L^{ψ_{L/K}(u)} for finite separable L/K that need not be Galois. R01.3 then imports them: the first part of R01.3/breaks-and-swan-conductor and R01.3/upper-numbering-of-an-open-subgroup become citations, and the tier of R01.3 for perfect residue fields is closed."}
+**action**: rescope
 
-{"action": "rescope", "roadmaps": ["AbelianSchemesAndArithmeticModuli", "ArithmeticGaloisRepresentations"], "detail": "[R01.6-RS1] By the accepted restructuring RS-06, R01.6 owns the Tate module of an abelian variety over a field as a continuous Galois representation, with its determinant, oddness, Frobenius polynomial and Euler-factor interface; AbelianSchemesAndArithmeticModuli A3 and A4 own the finite-level group schemes, the scheme-level Weil pairing and the étale local system over a base. The stage AbelianSchemesAndArithmeticModuli:A6 consumes R01.6 in the atlas. Two consequences. (1) The node A6/tate-module-of-a-weil-restriction of the unreviewed AbelianSchemesAndArithmeticModuli packet cites the stage G7 for induction; continuous induction is R01.1/continuous-induction, and the link G7 → A6 would later close a stage cycle with the links PadicHodgeTheory → G7 of the two Hodge–Tate statements of G7. (2) Milne's Propositions 10.20 and 10.23 (integral, ℓ-independent characteristic polynomial of an endomorphism on V_ℓA; freeness of V_ℓA over E ⊗ Q_ℓ) are planned as A6/characteristic-polynomial-on-tate-module and A6/trace-and-degree-on-a-subfield, downstream of R01.6, so R01.6 cannot cite them (two gaps of R01.6).", "proposal": "(a) A6/tate-module-of-a-weil-restriction cites ArithmeticGaloisRepresentations:R01.1/continuous-induction and R01.6/tate-module-of-an-abelian-variety, not G7. (b) The statements of R01.6 that need Milne 10.20 and 10.23 in dimension greater than one (part (f) of R01.6/good-reduction-frobenius-polynomial, the integrality of R01.6/local-euler-factor-of-an-abelian-variety, the freeness clause of R01.6/tate-module-with-endomorphism-coefficients) are stated in AbelianSchemesAndArithmeticModuli A6, where they are proved, and their consumers import them from there; R01.6 keeps the elliptic case, which it proves from Tau Ceti EllipticCurves. (c) A4 states the comparison of the fibre of its étale local system at Spec K with R01.6's T_ℓA instead of constructing the Galois module again."}
+**roadmaps**: ArithmeticGaloisRepresentations
 
-{"action": "rescope", "roadmaps": ["ArithmeticGaloisRepresentations", "NeronModelsAndSemistableAbelianVarieties", "FaltingsFinitenessAndIsogenyTheorems"], "detail": "[R01.6-RS2] R01.6/serre-independence-and-connectedness quotes Serre's theorems on the independence of the ℓ-adic images and the connectedness of the monodromy groups after a finite extension from Richard–Yafaev, Theorem 4.9. Their proofs (Serre, Œuvres IV, nos. 133, 135, 136; Serre 2013, §3.1; Larsen–Pink 1992, 6.14) were not read; they are expected to use semistable reduction after a finite extension and the action of inertia at ℓ on finite flat group schemes, and the stages that own these consume R01.6 (the links R01.6 → NeronModelsAndSemistableAbelianVarieties:R11.3 and R01.6 → FaltingsFinitenessAndIsogenyTheorems:R28.4 are in the atlas).", "proposal": "Once the proofs are read, state the two theorems at a stage downstream of NeronModelsAndSemistableAbelianVarieties:R11.3 and of the finite-flat theory, with R01.6 as a supplier of the Tate module and of the monodromy groups; R01.6 keeps the definitions (R01.6/galois-generic-abelian-varieties) and the statement as a quotation until then."}
+**detail**: Tau Ceti LocalFieldsRamification layer 3 supplies the lower and upper numbering, Herbrand's theorem and Hasse–Arf for nonarchimedean local fields, that is, for finite residue fields, and it states the Herbrand functions for Galois towers only. The conductor nodes of R01.3 state a second tier for complete discretely valued fields with perfect, possibly infinite, residue field (for example F̄_q((t))), recorded as the gap 'Ramification filtration over a perfect infinite residue field', and R01.3 had to plan the absolute upper filtration and the intersection formula for open subgroups itself (R01.3/breaks-and-swan-conductor, R01.3/upper-numbering-of-an-open-subgroup).
 
-{"action": "rescope", "roadmaps": ["ArithmeticGaloisRepresentations", "AutomorphicBundles", "ShimuraData"], "detail": "[R01.6-RS3] The third clause of Richard–Yafaev, Theorem 4.9 (after a finite extension the adelic image of an abelian variety over a number field lies in the Mumford–Tate group) needs Deligne's theorem that Hodge cycles on abelian varieties are absolutely Hodge. Its owners ShimuraData:D1 and AutomorphicBundles:B1 are downstream of R01.6 (B1 in the atlas today, D1 once the ShimuraData packet is promoted).", "proposal": "Plan the Mumford–Tate containment at a stage downstream of ShimuraData:D1 and AutomorphicBundles:B1, importing R01.6/tate-module-of-an-abelian-variety and R01.6/serre-independence-and-connectedness."}
+**proposal**: LocalFieldsRamification, Part II: ramification filtrations, Herbrand's theorem and Hasse–Arf for complete discretely valued fields with perfect residue field; the absolute upper filtration G_K^u with its quotient compatibility; the functions φ_{L/K}, ψ_{L/K} and the formula G_K^u ∩ G_L = G_L^{ψ_{L/K}(u)} for finite separable L/K that need not be Galois. R01.3 then imports them: the first part of R01.3/breaks-and-swan-conductor and R01.3/upper-numbering-of-an-open-subgroup become citations, and the tier of R01.3 for perfect residue fields is closed.
 
-{"action": "rescope", "roadmaps": ["InverseGaloisAndArithmeticFundamentalGroups", "ArithmeticGaloisRepresentations"], "detail": "[R01.6-RS4] Serre's complement to the specialisation of Galois images (Noot, Proposition 1.3: for each ℓ there is a closed point whose ℓ-adic image equals the generic one) needs Hilbert irreducibility for compact ℓ-adic Lie quotients (Serre, Lectures on the Mordell–Weil theorem, 10.6) and that fields of finite type over Q are hilbertian. The stage text of InverseGaloisAndArithmeticFundamentalGroups:IG.2 covers Hilbert irreducibility over number fields for finite Galois covers only. IG.2 is not downstream of R01.6 in the stage graph, with or without the links of unpromoted packets, so it can supply R01.6.", "proposal": "Extend the scope of InverseGaloisAndArithmeticFundamentalGroups:IG.2 to Hilbert irreducibility in the ℓ-adic Lie form over fields of finite type over Q. R01.6 then states Noot's Proposition 1.3 next to R01.6/noot-specialization with IG.2 as supplier (the need is recorded in the gap on Serre's complement); Noot's Corollary 1.5 stays with FaltingsFinitenessAndIsogenyTheorems."}
+**action**: rescope
 
-{"action": "split", "roadmaps": ["ArithmeticGaloisRepresentations"], "detail": "The layer G7 holds 50 declarations of three kinds, and only two of them need p-adic Hodge theory: G7/unequal-weight-tensor-irreducibility and G7/lifting-projective-representations-hodge-tate cite PadicHodgeTheory R06.2 nodes and PadicHodgeTheory:P7/sen-module. As one layer, G7 therefore lies downstream of PadicHodgeTheory in the stage graph, while nodes of R01.5 and R01.6 cite G7/zariski-closure-and-monodromy-groups, PadicHodgeTheory consumes R01.6, and consumers of G7 (the deformation-theoretic roadmaps) lie upstream of PadicHodgeTheory:P7. The node graph is acyclic; the cycles appear only between layers, and only once the unpromoted packets of the suppliers are promoted, when promotion would drop one link of each cycle.", "proposal": "Divide G7 into three sub-layers. G7.I, 'Operations, similitude groups and polarizations' (requires R01.1, R01.2, R01.4; outside inputs IntegralHeckeAndGaloisDeterminants IHG.0 and IHG.1, ArithmeticGaloisDuality R02.4 and Tau Ceti layers; R01.5 and R01.6 may cite it): G7/symmetric-and-exterior-powers, G7/charpoly-of-symmetric-and-exterior-powers, G7/tensor-induction, G7/tensor-induction-independent-of-transversal, G7/charpoly-of-cyclically-permuted-tensor-product, G7/restriction-of-scalars, G7/adjoint-representations, G7/trace-pairing-on-matrices-is-perfect, G7/similitude-groups, G7/polarized-representation, G7/polarization-sign-and-determinant, G7/operations-on-polarized-representations, G7/oddness-at-real-places, G7/clozel-harris-taylor-group, G7/symmetric-power-polarization, G7/gsp4-and-symplectic-induction, G7/gsp4-semisimple-determined-by-gl4, G7/strong-irreducibility, G7/zariski-closure-and-monodromy-groups, G7/simplicity-of-pgl2-over-an-algebraically-closed-field, G7/lifting-projective-representations, G7/roots-of-characters-up-to-finite-order, G7/transfer-of-determinants-to-representations, G7/schur-lemma-over-local-rings. G7.II, 'Image conditions for Taylor–Wiles arguments' (requires G7.I and R01.4; finite group theory only): G7/adequate-subgroup, G7/h1-restriction-injective-for-invertible-index, G7/vanishing-of-h0-and-h1-under-extension-of-the-coefficient-field, G7/h1-with-trivial-action-of-a-normal-subgroup, G7/h1-of-borel-subgroups-with-symmetric-power-coefficients, G7/adequacy-criteria, G7/dimension-of-absolutely-irreducible-representations-of-prime-to-p-groups, G7/enormous-image-and-its-coefficient-extension-invariance, G7/galois-descent-of-stable-subspaces, G7/enormous-symmetric-powers, G7/h1-of-sl2-with-adjoint-coefficients, G7/mod-p-clebsch-gordan-decompositions, G7/pieri-splitting-for-symmetric-powers, G7/tensor-products-of-symmetric-powers, G7/adjoint-invariants-of-symmetric-powers, G7/adequacy-of-symmetric-powers, G7/vast-tidy-and-enormous-gsp4-subgroups, G7/gsp4-big-image-verification, G7/image-in-the-3-cyclotomic-tower-for-sl2-wreath-products, G7/cg20-big-image-assumption, G7/cg20-big-image-examples, G7/taylor-wiles-image-conditions, G7/taylor-wiles-image-lemmas, G7/characteristic-zero-enormous-subgroups. G7.III, 'Statements that need Hodge–Tate weights' (requires G7.I and PadicHodgeTheory R06.2 and P7; a leaf for this roadmap, consumed by the potential-automorphy roadmaps): G7/unequal-weight-tensor-irreducibility, G7/lifting-projective-representations-hodge-tate. No node of G7.I cites a node of G7.II or G7.III, and no node of G7.II cites a node of G7.III (checked on the packet's prerequisite graph)."}
+**roadmaps**: AbelianSchemesAndArithmeticModuli, ArithmeticGaloisRepresentations
 
-{"action": "rescope", "roadmaps": ["ArithmeticGaloisRepresentations"], "detail": "The dependencies between the layers of this roadmap that its nodes use are wider than the ones its document states (R01.2 on R01.1; R01.3 on R01.2; R01.4 and R01.5 on R01.1 and R01.2; R01.6 on R01.1 and AbelianSchemesAndArithmeticModuli A3; G7 on R01.1 and R01.4). Promotion derives no links inside a roadmap, so these are invisible in the atlas.", "proposal": "Record in the roadmap document: R01.3 requires R01.1 and R01.6 (the conductor of an elliptic curve and Ogg's formula consume the Tate module; R01.6 cites nothing of R01.3); R01.6 requires R01.2 (decomposition groups, Frobenius polynomials, Euler factors) and R01.4 (oddness), and its nodes on monodromy groups require the first sub-layer of G7; R01.5 requires the first sub-layer of G7 for R01.5/gsp4-semisimplicity-criteria; G7 requires R01.2. The stage target 'Supply the conductor comparison' of R01.6 is realised in R01.3 by R01.3/conductor-of-an-elliptic-curve and R01.3/ogg-formula."}
+**detail**: [R01.6-RS1] By the accepted restructuring RS-06, R01.6 owns the Tate module of an abelian variety over a field as a continuous Galois representation, with its determinant, oddness, Frobenius polynomial and Euler-factor interface; AbelianSchemesAndArithmeticModuli A3 and A4 own the finite-level group schemes, the scheme-level Weil pairing and the étale local system over a base. The stage AbelianSchemesAndArithmeticModuli:A6 consumes R01.6 in the atlas. Two consequences. (1) The node A6/tate-module-of-a-weil-restriction of the unreviewed AbelianSchemesAndArithmeticModuli packet cites the stage G7 for induction; continuous induction is R01.1/continuous-induction, and the link G7 → A6 would later close a stage cycle with the links PadicHodgeTheory → G7 of the two Hodge–Tate statements of G7. (2) Milne's Propositions 10.20 and 10.23 (integral, ℓ-independent characteristic polynomial of an endomorphism on V_ℓA; freeness of V_ℓA over E ⊗ Q_ℓ) are planned as A6/characteristic-polynomial-on-tate-module and A6/trace-and-degree-on-a-subfield, downstream of R01.6, so R01.6 cannot cite them (two gaps of R01.6).
 
-{"action": "rescope", "roadmaps": ["ArithmeticGaloisRepresentations", "ArithmeticStatistics", "PELModuli", "AutomorphicGaloisRepresentationsPartII", "ClassicalSerreModularity", "GL2ModularityLifting", "WeightsInEtaleCohomology", "NeronModelsAndSemistableAbelianVarieties", "IntegralHeckeAndGaloisDeterminants", "LefschetzPencilsAndVanishingCycles", "DeligneWeightsAndPurity"], "detail": "Statements planned here that another roadmap's packet or stage text also plans (PROTOCOL.md section 15, one owner): (1) the similitude group GSp of a perfect alternating form with its multiplier: G7/similitude-groups, and ArithmeticStatistics:ST.5/symplectic-similitude-group and PELModuli:M0/similitude-group; (2) polarized Galois representations: G7/polarized-representation, restated by AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation without citing it; (3) Dickson's classification with its dyadic refinement and the quadratic–cyclotomic irreducibility criterion: R01.4 nodes, restated by ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement and GL2ModularityLifting:R32.1/quadratic-cyclotomic-irreducibility; (4) Frobenius on Tate modules and the local Euler polynomial: R01.6/good-reduction-frobenius-polynomial and R01.6/local-euler-factor-of-an-abelian-variety, restated by WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology and NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial; (5) the Brauer–Nesbitt theorem: R01.1/brauer-nesbitt, which the uniqueness clause of the reconstruction theorem of IntegralHeckeAndGaloisDeterminants IHG.1 (Chenevier, Theorem 2.12) quotes; (6) the monodromy filtration of a nilpotent endomorphism: LPV.1/monodromy-filtration is its accepted owner; Arithmetic R01.2 keeps only the Weil–Deligne stability application and requests an export independent of the geometric logarithm; (7) the statement that a closed analytic subset with empty interior of a compact ℓ-adic Lie group is Haar-null, an unproved input both of R01.5/haar-measure-chebotarev and of DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus.", "proposal": "The layer of this roadmap supplies cases (1)–(5), subject to their recorded ownership checks; the other node cites it and keeps only what it adds (ST.5 and M0 the arithmetic-statistics and PEL structure on the group; AG2.0 the automorphic polarisation data; R27.1 and R32.1 their applications; R34.2 and R11.5 the cohomological and Néron-model statements; IHG.1 cites R01.1/brauer-nesbitt-algebraically-closed for uniqueness; case (6) follows accepted RS-17 O20: LPV.1 owns the canonical nilpotent monodromy filtration. First detach its pure linear-algebra filtration/primitive/tensor/dual interface from finite-monodromy-logarithm and its Arithmetic R01.2 input, then import that interface here. Arithmetic keeps Weil–Deligne stability and the rank-sum identity. The duplicate canonical definition is removed in revision 3; the retained Arithmetic node is only the direct Weil–Deligne stability application. Purity and classification explicitly retain the supplier gap until the separation is applied). For (7), plan the statement once, in the roadmap that owns p-adic analytic groups, and let both consumers cite it."}
+**proposal**: (a) A6/tate-module-of-a-weil-restriction cites ArithmeticGaloisRepresentations:R01.1/continuous-induction and R01.6/tate-module-of-an-abelian-variety, not G7. (b) The statements of R01.6 that need Milne 10.20 and 10.23 in dimension greater than one (part (f) of R01.6/good-reduction-frobenius-polynomial, the integrality of R01.6/local-euler-factor-of-an-abelian-variety, the freeness clause of R01.6/tate-module-with-endomorphism-coefficients) are stated in AbelianSchemesAndArithmeticModuli A6, where they are proved, and their consumers import them from there; R01.6 keeps the elliptic case, which it proves from Tau Ceti EllipticCurves. (c) A4 states the comparison of the fibre of its étale local system at Spec K with R01.6's T_ℓA instead of constructing the Galois module again.
 
-- `tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups`: Mathlib's ContRepresentation (a monoid homomorphism into continuous linear maps) asks only that each operator be continuous, and Tau Ceti's continuous-representation files over normed fields build on it. A jointly continuous variant, or a predicate on ContRepresentation for modules with the module topology, is the natural upstream home of the carrier planned in R01.1/continuous-representation; the ℓ-adic Tate module of R01.6 maps to ContRepresentation by forgetting joint continuity.
+**action**: rescope
 
-- `tauceti:TauCetiRoadmap/ClassFieldTheory`: ClassFieldTheory layer 9 should expose the normalisation of weilDegree (an arithmetic Frobenius lift has degree 1) under a stable name; the Weil–Deligne relation of R01.2 is stated through it.
+**roadmaps**: ArithmeticGaloisRepresentations, NeronModelsAndSemistableAbelianVarieties, FaltingsFinitenessAndIsogenyTheorems
 
-- `tauceti:TauCetiRoadmap/LocalFieldsRamification`: LocalFieldsRamification layer 4 could export the ℓ-component t_ℓ of the tame character and the restriction formula t_K restricted to I_L equals e·t_L; R01.2/ell-adic-tame-character plans them meanwhile. The absolute upper filtration G_K^u, which R01.3/breaks-and-swan-conductor constructs from the quotient compatibility of the upper numbering, is a natural addition to layer 3, as is the intersection formula G_K^u ∩ G_L = G_L^{ψ_{L/K}(u)} for finite separable L/K that need not be Galois.
+**detail**: [R01.6-RS2] R01.6/serre-independence-and-connectedness quotes Serre's theorems on the independence of the ℓ-adic images and the connectedness of the monodromy groups after a finite extension from Richard–Yafaev, Theorem 4.9. Their proofs (Serre, Œuvres IV, nos. 133, 135, 136; Serre 2013, §3.1; Larsen–Pink 1992, 6.14) were not read; they are expected to use semistable reduction after a finite extension and the action of inertia at ℓ on finite flat group schemes, and the stages that own these consume R01.6 (the links R01.6 → NeronModelsAndSemistableAbelianVarieties:R11.3 and R01.6 → FaltingsFinitenessAndIsogenyTheorems:R28.4 are in the atlas).
 
-- `tauceti:TauCetiRoadmap/Chebotarev`: Chebotarev layer 10: consumers need the corollary for infinite extensions, that the Frobenius lifts at a set of places of density one are dense in G_K; R01.5/frobenius-density derives it from the density theorem for finite Galois extensions.
+**proposal**: Once the proofs are read, state the two theorems at a stage downstream of NeronModelsAndSemistableAbelianVarieties:R11.3 and of the finite-flat theory, with R01.6 as a supplier of the Tate module and of the monodromy groups; R01.6 keeps the definitions (R01.6/galois-generic-abelian-varieties) and the statement as a quotation until then.
 
-- `tauceti:TauCetiRoadmap/EllipticCurves`: Mathlib's Field.absoluteGaloisGroup is the automorphism group of an algebraic closure and carries no compactness instances; torsion points of order prime to the characteristic have coordinates in a separable closure, so the Galois actions of EllipticCurves layer 2 and of R01.6 are those of Gal(K^sep/K), transported along Tau Ceti's absoluteGaloisGroupRestrictEquiv. Mathlib's WeierstrassCurve.localPolynomial counts the points of the reduction with the point at infinity; for good reduction this is Tau Ceti's pointCount.
+**action**: rescope
 
-- `tauceti:TauCetiRoadmap/EllipticCurves`: The reviewed library audit calls conductor identification an EllipticCurves-layer-4 output, but the upstream document explicitly says that it does not plan the comparison with the Artin conductor. R01.3 keeps that comparison and Ogg–Saito input here, while importing the reduction algorithm and algorithmic exponent. No upstream document or audit was edited.
+**roadmaps**: ArithmeticGaloisRepresentations, AutomorphicBundles, ShimuraData
+
+**detail**: [R01.6-RS3] The third clause of Richard–Yafaev, Theorem 4.9 (after a finite extension the adelic image of an abelian variety over a number field lies in the Mumford–Tate group) needs Deligne's theorem that Hodge cycles on abelian varieties are absolutely Hodge. Its owners ShimuraData:D1 and AutomorphicBundles:B1 are downstream of R01.6 (B1 in the atlas today, D1 once the ShimuraData packet is promoted).
+
+**proposal**: Plan the Mumford–Tate containment at a stage downstream of ShimuraData:D1 and AutomorphicBundles:B1, importing R01.6/tate-module-of-an-abelian-variety and R01.6/serre-independence-and-connectedness.
+
+**action**: rescope
+
+**roadmaps**: InverseGaloisAndArithmeticFundamentalGroups, ArithmeticGaloisRepresentations
+
+**detail**: [R01.6-RS4] Serre's complement to the specialisation of Galois images (Noot, Proposition 1.3: for each ℓ there is a closed point whose ℓ-adic image equals the generic one) needs Hilbert irreducibility for compact ℓ-adic Lie quotients (Serre, Lectures on the Mordell–Weil theorem, 10.6) and that fields of finite type over Q are hilbertian. The stage text of InverseGaloisAndArithmeticFundamentalGroups:IG.2 covers Hilbert irreducibility over number fields for finite Galois covers only. IG.2 is not downstream of R01.6 in the stage graph, with or without the links of unpromoted packets, so it can supply R01.6.
+
+**proposal**: Extend the scope of InverseGaloisAndArithmeticFundamentalGroups:IG.2 to Hilbert irreducibility in the ℓ-adic Lie form over fields of finite type over Q. R01.6 then states Noot's Proposition 1.3 next to R01.6/noot-specialization with IG.2 as supplier (the need is recorded in the gap on Serre's complement); Noot's Corollary 1.5 stays with FaltingsFinitenessAndIsogenyTheorems.
+
+**action**: split
+
+**roadmaps**: ArithmeticGaloisRepresentations
+
+**detail**: The layer G7 holds 50 declarations of three kinds, and only two of them need p-adic Hodge theory: G7/unequal-weight-tensor-irreducibility and G7/lifting-projective-representations-hodge-tate cite PadicHodgeTheory R06.2 nodes and PadicHodgeTheory:P7/sen-module. As one layer, G7 therefore lies downstream of PadicHodgeTheory in the stage graph, while nodes of R01.5 and R01.6 cite G7/zariski-closure-and-monodromy-groups, PadicHodgeTheory consumes R01.6, and consumers of G7 (the deformation-theoretic roadmaps) lie upstream of PadicHodgeTheory:P7. The node graph is acyclic; the cycles appear only between layers, and only once the unpromoted packets of the suppliers are promoted, when promotion would drop one link of each cycle.
+
+**proposal**: Divide G7 into three sub-layers. G7.I, 'Operations, similitude groups and polarizations' (requires R01.1, R01.2, R01.4; outside inputs IntegralHeckeAndGaloisDeterminants IHG.0 and IHG.1, ArithmeticGaloisDuality R02.4 and Tau Ceti layers; R01.5 and R01.6 may cite it): G7/symmetric-and-exterior-powers, G7/charpoly-of-symmetric-and-exterior-powers, G7/tensor-induction, G7/tensor-induction-independent-of-transversal, G7/charpoly-of-cyclically-permuted-tensor-product, G7/restriction-of-scalars, G7/adjoint-representations, G7/trace-pairing-on-matrices-is-perfect, G7/similitude-groups, G7/polarized-representation, G7/polarization-sign-and-determinant, G7/operations-on-polarized-representations, G7/oddness-at-real-places, G7/clozel-harris-taylor-group, G7/symmetric-power-polarization, G7/gsp4-and-symplectic-induction, G7/gsp4-semisimple-determined-by-gl4, G7/strong-irreducibility, G7/zariski-closure-and-monodromy-groups, G7/simplicity-of-pgl2-over-an-algebraically-closed-field, G7/lifting-projective-representations, G7/roots-of-characters-up-to-finite-order, G7/transfer-of-determinants-to-representations, G7/schur-lemma-over-local-rings. G7.II, 'Image conditions for Taylor–Wiles arguments' (requires G7.I and R01.4; finite group theory only): G7/adequate-subgroup, G7/h1-restriction-injective-for-invertible-index, G7/vanishing-of-h0-and-h1-under-extension-of-the-coefficient-field, G7/h1-with-trivial-action-of-a-normal-subgroup, G7/h1-of-borel-subgroups-with-symmetric-power-coefficients, G7/adequacy-criteria, G7/dimension-of-absolutely-irreducible-representations-of-prime-to-p-groups, G7/enormous-image-and-its-coefficient-extension-invariance, G7/galois-descent-of-stable-subspaces, G7/enormous-symmetric-powers, G7/h1-of-sl2-with-adjoint-coefficients, G7/mod-p-clebsch-gordan-decompositions, G7/pieri-splitting-for-symmetric-powers, G7/tensor-products-of-symmetric-powers, G7/adjoint-invariants-of-symmetric-powers, G7/adequacy-of-symmetric-powers, G7/vast-tidy-and-enormous-gsp4-subgroups, G7/gsp4-big-image-verification, G7/image-in-the-3-cyclotomic-tower-for-sl2-wreath-products, G7/cg20-big-image-assumption, G7/cg20-big-image-examples, G7/taylor-wiles-image-conditions, G7/taylor-wiles-image-lemmas, G7/characteristic-zero-enormous-subgroups. G7.III, 'Statements that need Hodge–Tate weights' (requires G7.I and PadicHodgeTheory R06.2 and P7; a leaf for this roadmap, consumed by the potential-automorphy roadmaps): G7/unequal-weight-tensor-irreducibility, G7/lifting-projective-representations-hodge-tate. No node of G7.I cites a node of G7.II or G7.III, and no node of G7.II cites a node of G7.III (checked on the packet's prerequisite graph).
+
+**action**: rescope
+
+**roadmaps**: ArithmeticGaloisRepresentations
+
+**detail**: The dependencies between the layers of this roadmap that its nodes use are wider than the ones its document states (R01.2 on R01.1; R01.3 on R01.2; R01.4 and R01.5 on R01.1 and R01.2; R01.6 on R01.1 and AbelianSchemesAndArithmeticModuli A3; G7 on R01.1 and R01.4). Promotion derives no links inside a roadmap, so these are invisible in the atlas.
+
+**proposal**: Record in the roadmap document: R01.3 requires R01.1 and R01.6 (the conductor of an elliptic curve and Ogg's formula consume the Tate module; R01.6 cites nothing of R01.3); R01.6 requires R01.2 (decomposition groups, Frobenius polynomials, Euler factors) and R01.4 (oddness), and its nodes on monodromy groups require the first sub-layer of G7; R01.5 requires the first sub-layer of G7 for R01.5/gsp4-semisimplicity-criteria; G7 requires R01.2. The stage target 'Supply the conductor comparison' of R01.6 is realised in R01.3 by R01.3/conductor-of-an-elliptic-curve and R01.3/ogg-formula.
+
+**action**: rescope
+
+**roadmaps**: ArithmeticGaloisRepresentations, ArithmeticStatistics, PELModuli, AutomorphicGaloisRepresentationsPartII, ClassicalSerreModularity, GL2ModularityLifting, WeightsInEtaleCohomology, NeronModelsAndSemistableAbelianVarieties, IntegralHeckeAndGaloisDeterminants, LefschetzPencilsAndVanishingCycles, DeligneWeightsAndPurity
+
+**detail**: Statements planned here that another roadmap's packet or stage text also plans (PROTOCOL.md section 15, one owner): (1) the similitude group GSp of a perfect alternating form with its multiplier: G7/similitude-groups, and ArithmeticStatistics:ST.5/symplectic-similitude-group and PELModuli:M0/similitude-group; (2) polarized Galois representations: G7/polarized-representation, restated by AutomorphicGaloisRepresentationsPartII:AG2.0/polarized-galois-representation without citing it; (3) Dickson's classification with its dyadic refinement and the quadratic–cyclotomic irreducibility criterion: R01.4 nodes, restated by ClassicalSerreModularity:R27.1/dickson-and-the-dyadic-solvable-refinement and GL2ModularityLifting:R32.1/quadratic-cyclotomic-irreducibility; (4) Frobenius on Tate modules and the local Euler polynomial: R01.6/good-reduction-frobenius-polynomial and R01.6/local-euler-factor-of-an-abelian-variety, restated by WeightsInEtaleCohomology:R34.2/frobenius-on-tate-modules-and-first-cohomology and NeronModelsAndSemistableAbelianVarieties:R11.5/local-euler-polynomial; (5) the Brauer–Nesbitt theorem: R01.1/brauer-nesbitt, which the uniqueness clause of the reconstruction theorem of IntegralHeckeAndGaloisDeterminants IHG.1 (Chenevier, Theorem 2.12) quotes; (6) the monodromy filtration of a nilpotent endomorphism: LPV.1/monodromy-filtration is its accepted owner; Arithmetic R01.2 keeps only the Weil–Deligne stability application and requests an export independent of the geometric logarithm; (7) the statement that a closed analytic subset with empty interior of a compact ℓ-adic Lie group is Haar-null, an unproved input both of R01.5/haar-measure-chebotarev and of DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus.
+
+**proposal**: The layer of this roadmap supplies cases (1)–(5), subject to their recorded ownership checks; the other node cites it and keeps only what it adds (ST.5 and M0 the arithmetic-statistics and PEL structure on the group; AG2.0 the automorphic polarisation data; R27.1 and R32.1 their applications; R34.2 and R11.5 the cohomological and Néron-model statements; IHG.1 cites R01.1/brauer-nesbitt-algebraically-closed for uniqueness; case (6) follows accepted RS-17 O20: LPV.1 owns the canonical nilpotent monodromy filtration. First detach its pure linear-algebra filtration/primitive/tensor/dual interface from finite-monodromy-logarithm and its Arithmetic R01.2 input, then import that interface here. Arithmetic keeps Weil–Deligne stability and the rank-sum identity. The duplicate canonical definition is removed in revision 3; the retained Arithmetic node is only the direct Weil–Deligne stability application. Purity and classification explicitly retain the supplier gap until the separation is applied). For (7), plan the statement once, in the roadmap that owns p-adic analytic groups, and let both consumers cite it.
+
+**roadmaps**: tauceti:TauCetiRoadmap/RepresentationTheory/CompactGroups
+
+**note**: Mathlib's ContRepresentation (a monoid homomorphism into continuous linear maps) asks only that each operator be continuous, and Tau Ceti's continuous-representation files over normed fields build on it. A jointly continuous variant, or a predicate on ContRepresentation for modules with the module topology, is the natural upstream home of the carrier planned in R01.1/continuous-representation; the ℓ-adic Tate module of R01.6 maps to ContRepresentation by forgetting joint continuity.
+
+**roadmaps**: tauceti:TauCetiRoadmap/ClassFieldTheory
+
+**note**: ClassFieldTheory layer 9 should expose the normalisation of weilDegree (an arithmetic Frobenius lift has degree 1) under a stable name; the Weil–Deligne relation of R01.2 is stated through it.
+
+**roadmaps**: tauceti:TauCetiRoadmap/LocalFieldsRamification
+
+**note**: LocalFieldsRamification layer 4 could export the ℓ-component t_ℓ of the tame character and the restriction formula t_K restricted to I_L equals e·t_L; R01.2/ell-adic-tame-character plans them meanwhile. The absolute upper filtration G_K^u, which R01.3/breaks-and-swan-conductor constructs from the quotient compatibility of the upper numbering, is a natural addition to layer 3, as is the intersection formula G_K^u ∩ G_L = G_L^{ψ_{L/K}(u)} for finite separable L/K that need not be Galois.
+
+**roadmaps**: tauceti:TauCetiRoadmap/Chebotarev
+
+**note**: Chebotarev layer 10: consumers need the corollary for infinite extensions, that the Frobenius lifts at a set of places of density one are dense in G_K; R01.5/frobenius-density derives it from the density theorem for finite Galois extensions.
+
+**roadmaps**: tauceti:TauCetiRoadmap/EllipticCurves
+
+**note**: Mathlib's Field.absoluteGaloisGroup is the automorphism group of an algebraic closure and carries no compactness instances; torsion points of order prime to the characteristic have coordinates in a separable closure, so the Galois actions of EllipticCurves layer 2 and of R01.6 are those of Gal(K^sep/K), transported along Tau Ceti's absoluteGaloisGroupRestrictEquiv. Mathlib's WeierstrassCurve.localPolynomial counts the points of the reduction with the point at infinity; for good reduction this is Tau Ceti's pointCount.
+
+**roadmaps**: tauceti:TauCetiRoadmap/EllipticCurves
+
+**note**: The reviewed library audit calls conductor identification an EllipticCurves-layer-4 output, but the upstream document explicitly says that it does not plan the comparison with the Artin conductor. R01.3 keeps that comparison and Ogg–Saito input here, while importing the reduction algorithm and algorithmic exponent. No upstream document or audit was edited.
+
+**roadmaps**: PadicHodgeTheory
+
+**note**: The consumer lifting-projective-representations-hodge-tate only needs rank-one Hodge–Tate implies de Rham, and zero Sen operator implies finite inertia. The supplier PadicHodgeTheory:R06.2/hodge-tate-characters-are-de-rham additionally expresses an arbitrary local character as a finite-inertia character times one cyclotomic power. Over a general p-adic field, labelled weights need not all be equal, so that stronger normal form needs a Q_p restriction or the full algebraic local-character formula. No supplier file is changed here.
 
 ## Source register
 
@@ -15155,7 +16204,7 @@ Reviewed source sections:
 
 ### ghtt12-appendix
 
-R. Guralnick, F. Herzig, R. Taylor, J. Thorne. *Appendix: adequate subgroups (to Thorne, On the automorphy of l-adic Galois representations with small residual image)*. Thorne's homepage copy appendix.pdf (running pages 60–73); its Theorem 9 is cited as Theorem A.9 of the published paper.
+R. Guralnick, F. Herzig, R. Taylor, J. Thorne. *Appendix: adequate subgroups (to Thorne, On the automorphy of l-adic Galois representations with small residual image)*. Thorne's homepage copy appendix.pdf (running pages 60–74); its Theorem 9 is cited as Theorem A.9 of the published paper.
 
 [Appendix: adequate subgroups (to Thorne, On the automorphy of l-adic Galois representations with small residual image)](https://www.dpmms.cam.ac.uk/~jat58/appendix.pdf)
 
@@ -15394,7 +16443,7 @@ Reviewed source sections:
 
 ### qian23
 
-L. Qian. *Potential automorphy for GL_n*. arXiv 2104.09761v1 (the only arXiv version); published Invent. Math. (2023), not read: published Lemma 2.6(1) is arXiv v1 Lemma 4.3(2).
+L. Qian. *Potential automorphy for GL_n*. arXiv 2104.09761v1; the published Invent. Math. (2023) paper was also checked at the cited passages: published Lemma 2.6(1) is arXiv v1 Lemma 4.3(2).
 
 [Potential automorphy for GL_n](https://arxiv.org/pdf/2104.09761)
 
@@ -15639,68 +16688,162 @@ Reviewed source sections:
 - proof of Example 4.11, arXiv v1 p. 14 (published p. 819)
 - proof of Example 4.11, arXiv v1 p. 14 (published p. 818)
 
-## Source issues and review boundary
 
-The 47 structured source findings were independently reviewed on 8 October 2026: 43 confirmed, four rejected. A rejected record remains for provenance and is not an instruction to alter the source. Version-dependent findings retain the exact document scope; inaccessible originals remain explicitly identified.
+## Source findings and independent review
+
+The 52 source findings were independently checked on 9 October 2026: 48 confirmed, four rejected. The four rejected records remain for provenance. E301 confirms Ulmer’s accessible report, rather than an unread Corvallis original; E754 retains its preprint-only scope.
 
 | Finding | Verdict | Independent check |
 |---|---|---|
-| E101 | confirmed | The cited Proposition 6.8 produces a representation over a coefficient field. Its use in Theorem 6.13 needs an integral symplectic lattice. Absolute residual irreducibility makes stable lattices homothetic; applying this to the dual lattice and rescaling the perfect alternating form supplies the omitted step. |
-| E201 | confirmed | The neighbouring definition (8.12.2) and §3.5.1 use the inverse determinant and the Frobenius degree d. The λ-adic restatement at the checked page must retain both. |
-| E202 | confirmed | The scalar change must be nonzero, since a nonzero N cannot be conjugate to zero. Changing the Tate-twist trivialization by a rescales the corresponding endomorphism by a inverse. |
-| E301 | confirmed | Confirmed as Ulmer’s report in §6, PDF p. 5; the original Tate article was not independently read. In the two-dimensional unramified Steinberg example, inertia invariants have dimensions 2 and 1, giving conductor 1 with the correction and 0 without it. |
-| E401 | rejected | Rejected. An irreducible representation over a finite field becomes semisimple over its algebraic closure: finite fields are perfect and the semisimple algebra has separable centre. Thus the alleged reducible indecomposable case cannot occur under condition (b′). Serre’s direct-sum argument suffices. |
-| E501 | confirmed | The regular real representation of C has determinant equal to its norm, but the determinant-kernel quotient is C, not a product of real matrix algebras. The two proposed conditions therefore differ. The subsequent split-algebra proof needs the stronger matrix-product condition. |
-| E502 | confirmed | An element of the determinant −1 component of O₄ has the remaining eigenvalues reciprocal. The proposed list has determinant λ², while the corrected list has determinant −1. The fixed-eigenvalue argument survives. |
-| E701 | confirmed | Conjugation fixes scalar matrices. For odd characteristic, subtracting half the infinitesimal multiplier splits gsp₄ as sp₄ plus the trivial scalar line. The similitude character need not be trivial. |
-| E702 | confirmed | The trace condition is computed in the coefficient field and loses the integer eigenspace imbalance in small characteristic. For n=2 over F₃, the identity has trace −1 but is not balanced. The stated dimension bounds recover the equivalence. |
-| E703 | confirmed | The characteristic-two multiplicity-space example gives GL₄-conjugate semisimple representations with the same multiplier and inequivalent alternating-form structures. The argument using symmetric forms needs characteristic different from two; the paper’s applications satisfy this. |
-| E704 | confirmed | The proof compares two representations of the same Galois group by Goursat. It therefore needs the image of their product map. Taking the independent Cartesian product would erase the graph alternative being analysed. |
-| E751 | confirmed | Symmetric power n−1 has dimension n. The ambient group and both bounding groups in the display must be in GL_n, and the middle group must also be the symmetric-power image. |
-| E752 | rejected | Rejected. Fix h and form the sum of the Galois conjugates of W′. It is a descended H-stable space; each conjugate has no h-invariants, so neither does that sum. The assumption then supplies an h for a simple submodule of the descended space and contradicts this fixed-h conclusion. No universal quantifier is missing. |
-| E753 | confirmed | The published CG18 places enormous image in §9.4; §9.2 is the Hecke-operator section. The preprint numbering explains the historical reference, so this is a version-dependent locator correction. |
-| E754 | confirmed | In the cited preprint the PGL₂(F₅) case is excluded incorrectly. Independent finite-field cocycle calculations give dim H¹(SL₂(F₅),sl₂)=1 and dim H¹(GL₂(F₅),sl₂)=0. Determinant twists j=0,1,2,3 give dimensions 0,0,1,0. GHT17 Corollary 9.5 and GN22 Lemma 3.2.3 agree with the corrected adequacy result. |
-| E755 | confirmed | GN22 excludes PSL₂(F₅) but allows PGL₂(F₅). The cited BLGG13 preprint excludes both, so it cannot alone justify the latter case. The GL₂(F₅) cohomology computation and the later adequacy theorem supply the missing input. |
-| E756 | confirmed | SL₂(F₅) on its two-dimensional natural module satisfies the printed numerical bound but has one-dimensional H¹ with sl₂ coefficients. BLGGT explicitly gives the corrected bound 2n+1; it excludes the resonant symmetric-power degree p−3. |
-| E757 | confirmed | Complex conjugation has cyclotomic value −1, so the constructed element in the cyclotomic kernel must have diagonal blocks of determinant (−1)^{k−1}. Using these blocks restores membership and the required four distinct eigenvalues. |
-| E758 | confirmed | In the index-two subgroup the two diagonal adjoint blocks have eigenvalues 1,x²,x⁻² and 1,y²,y⁻². For p=7,x=2,y=1 there is no eigenvalue −1. The proof needs only eigenvalue 1, which always remains. |
-| E759 | confirmed | This duplicates E701, rather than being an additional mathematical finding. Adjoint conjugation fixes the scalar line, so its character is trivial. The odd similitude character cannot be that summand. |
-| E760 | confirmed | The two-dimensional dual is the tensor twist by inverse determinant. The product symbol in the first identification must be tensor product, consistently with the second identification. |
-| E761 | confirmed | SL₂(F₃) and SL₂(F₅) have no element of order eight, despite eight dividing q²−1. In the wreath product, taking a of order four gives ((a,1)σ)²=(a,a), hence an element of order eight. This repairs the witness. |
-| E762 | confirmed | For p=3 the determinant modulo squares is the quadratic cyclotomic character, so both projective kernel fields contain K(ζ₃). Their disjointness condition must be taken over that common field, as the proof does. |
-| E763 | confirmed | For nonprime finite fields, Frobenius field automorphisms belong to Aut(PSL₂(k))=PΓL₂(k) and are omitted by PGL₂(k). Goursat therefore leaves a semilinear graph case. Its separate enormous-image verification remains an explicitly recorded gap; this review does not claim to complete it. |
-| E764 | confirmed | Abelianization of a two-factor swap wreath product is the abelianization of one factor times C₂. Since SL₂(F₃) has abelianization C₃, the wreath product has C₆. A similitude −1 element inverts C₃ and rules out an abelian cyclotomic quotient there, repairing the image-persistence argument. |
-| E765 | confirmed | The group Q₈≀C₂ has order 128 prime to three. Its natural module is absolutely irreducible; its sp₄ module decomposes into three induced character modules of dimension two and a tensor module of dimension four. For each induced summand choose a of order four in the relevant character kernel; (a,1)σ has distinct eigenvalues and a fixed vector on that summand. The same elements have eigenvalue one on the tensor summand. Thus enormity holds, consistent with the order-128 class in §7.5.20. |
-| E766 | confirmed | Adequacy requires absolute irreducibility. Irreducibility over F_p alone does not suffice: a quadratic coefficient-field representation can split after algebraic closure. The tensor-product argument must retain the absolute hypothesis. |
-| E767 | confirmed | The proof’s Chebotarev application needs independent Galois closures over Q. Disjoint kernel fields over F(ζ_p) can be Q-conjugate and have identical closures. The stronger closure-disjointness assumption repairs the product assertion; the original weaker hypothesis does not justify that proof step. |
-| E768 | confirmed | The exponent −m(n−1) in the multiplier comes from Sym^{n−1}r̄_A. Omitting the symmetric power gives the wrong dimension and multiplier except in the trivial special cases. |
-| E769 | rejected | Rejected after comparing the published Qian paper with Allen et al. v1, v2 and the Annals numbering. Qian’s Definition 6.2.28, Lemma 7.1.6 and Theorem 6.1.2 citations all match Allen et al. v2. The preprint uses Lemma 7.1.5 consistently with v1. A later Annals definition number does not make these version-consistent citations erroneous. |
-| E150 | confirmed | The nonsemisimple unipotent image {(1,a;0,1):a∈F_{p²}} has trace field F_p but order p², too large for a p-subgroup of GL₂(F_p). Thus p≠2 alone does not ensure descent. Semisimplicity repairs that clause; in characteristic two, χ⊕χ has zero traces and still need not descend to F₂. |
-| E250 | confirmed | Using geometric Frobenius, the n-th power of Fτ accumulates the geometric sum 1+q+⋯+q^{n−1}, and exponentials must contain N. Conjugation gives the constants t/(q−1) for Fτ and t/(1−q⁻¹) for τF. The displayed n and the mixed ordering fail already for N=E₁₂ and Frobenius diag(1,q). |
-| E251 | confirmed | From r(w)Nr(w)⁻¹=q⁻ⁿN, conjugation by exp(cN) contributes exp(c(1−q⁻ⁿ)N) on the left and exp(c(qⁿ−1)N) on the right. The printed right-hand product uses the left-hand constant. |
-| E252 | confirmed | In the checked FSY preprint, moving inertia past Frobenius rescales its tame character by p^n. The unrescaled exponential belongs to the formula with inertia on the right, or exponential on the left. The printed order would fail multiplicativity for N≠0. |
-| E253 | confirmed | The proof needs the rank inequality for an operator and its associated graded. Comparing the weight-square sum with 2Σ k rank(N^k) then forces equality and centered strings. Equal Frobenius polynomials and the string condition alone do not supply this; N=0 with a nonzero pure graded operator demonstrates the missing step. |
-| E254 | confirmed | The surrounding global formula has an idelic quasicharacter χ as its second argument, rather than an additive local character ψ. Norm pullback therefore uses χ on both sides. |
-| E350 | confirmed | The general identification without closure fails for F_p((t)). The revised argument in reason constructs wild quotients of unbounded order below any fixed positive break, establishing infinite index before applying Baire. All finite quotients still see the same wild inertia after closure. The prior cyclic-order-p argument was insufficient. |
-| E351 | rejected | Rejected. The checked paragraph states additivity in the representation, which is compatible with direct sums; it does not claim exact-sequence additivity. The paper separately states exactness for the Swan conductor in Lemma 2.4. The tame unipotent counterexample usefully distinguishes these notions but does not refute the paragraph. |
-| E352 | confirmed | The formula must count geometric components of the proper regular special fibre. Milne’s Chapter II §7 distinguishes his complete model from the smooth Néron model. For type I₀*, the proper model has five components whereas the smooth model has four, so the terminology in Chapter IV §10 needs this clarification. |
-| E450 | confirmed | For l=2, E=37a1 has irreducible 2-division polynomial 4x³−4x+1 with discriminant 16·37 and a quadratic kernel subfield unramified at two, contradicting the unrestricted conclusion. At l=3, Q₈ invalidates the printed normal-subgroup dichotomy, but the corrected determinant-surjectivity argument still works. |
-| E550 | confirmed | The two constituents are representations over the fixed coefficient field Q̄_ℓ, with traces one and p at varying Frobenius primes p. Replacing the coefficient index by the varying prime is inconsistent with that comparison. |
-| E551 | confirmed | Applying ρ(σ) to an h-eigenvector yields character h↦χ(σ⁻¹hσ). With the statement’s conjugation convention this is χ^{σ⁻¹}, so the eigenspace index in the proof is inverted. |
-| E650 | confirmed | The second-edition table of contents has no Chapter III §6. The determinant-degree result is Chapter II Proposition 6.4, p. 71. This is a bibliographic slip, not a missing theorem. |
-| E651 | confirmed | The polynomial F is evaluated on α, so the final product has factors F(b_i) for eigenvalues b_i of T_ℓα. β belongs to the preceding auxiliary display and cannot be the operator in that equality. |
-| E720 | confirmed | For the Siegel Levi normalizer, restriction is V⊕V∨ with V Lagrangian. A scalar a acts by a² on Sym²V but trivially on the asserted adjoint/Asai decomposition, contradicting it when a²≠1. The nondegenerate-V hypothesis restores the SL₂-block situation used by the ensuing lemmas. |
-| E780 | confirmed | The projector e_{h,α} is defined from the α-eigenspace of the individual element h. The group H is not the operator whose eigenvalue is being chosen. |
-| E781 | confirmed | If p divides m there is no primitive m-th root in characteristic p. Inducing the trivial character from a cyclic degree-p extension gives a unipotent regular representation, not the asserted distinct root pattern. The applications already impose a bound ensuring p does not divide m. |
+| E101 | confirmed | Proposition 6.8 gives field coefficients, whereas Theorem 6.13 uses integral symplectic matrices. Residual absolute irreducibility makes a stable lattice and its dual homothetic; rescaling gives the missing perfect lattice. |
+| E201 | confirmed | The preceding definition (8.12.2) and the original (3.5.1) both use the inverse determinant and t^d. Substituting the ℓ-adic inertia invariants into that definition cannot drop either the inverse or the residue-degree exponent. |
+| E202 | confirmed | Changing the tame trivialization τ to aτ changes its inverse coordinate, hence rescales N by a⁻¹. Separately, scaling N by zero changes its rank, so the stated isomorphism requires a≠0. |
+| E301 | confirmed | Ulmer §6 explicitly reports the correction, and the rank-two Steinberg object has conductor one from the dimension of inertia invariants. The verdict confirms the accessible report; the original Corvallis printing remains unread. |
+| E401 | rejected | An irreducible representation over the perfect field F_p stays semisimple after extending scalars. When it becomes reducible over the algebraic closure it is a direct sum of lines, which the source’s direct-sum case already treats. The proposed extra hypothesis is unnecessary. |
+| E501 | confirmed | Over R=ℂ and k=ℝ, the norm determinant is realized by the two-dimensional regular real representation, while its determinant-kernel quotient is ℂ. This quotient is not a product of real matrix algebras; representability and the claimed splitting condition are different. |
+| E502 | confirmed | An element in the determinant-minus-one component of O₄ has eigenvalues 1,−1,λ,λ⁻¹. The printed list 1,−1,λ,−λ has determinant λ², so it is not a general orthogonal eigenvalue list. |
+| E701 | confirmed | Conjugation fixes scalar matrices, so the scalar quotient of the symplectic similitude Lie algebra is the trivial character. It cannot be the nontrivial similitude character. |
+| E702 | confirmed | In characteristic three, the scalar involution on a two-dimensional space has trace −1 but two positive eigenspaces and no negative eigenspace. Thus a field-valued trace test cannot replace the dimension condition. |
+| E703 | confirmed | The two alternating forms B_W⊗[[0,1],[1,0]] and B_W⊗I₂ in characteristic two yield the stated same-GL₄ example. Their multiplicity-space forms cannot be made congruent, so the omitted characteristic restriction matters. |
+| E704 | confirmed | The correct subgroup is the simultaneous image of the pair of representations. Independent products of images erase possible diagonal relations, which are exactly what the ensuing Goursat argument examines. |
+| E751 | confirmed | The (n−1)st symmetric power of a two-dimensional space has dimension n. Its matrices belong to GL_n, so GL₂ in the conclusion is a codomain misprint. |
+| E752 | rejected | If coefficient-extension enormity failed, some W′ would have no h-fixed vector for every regular semisimple h. This remains true for its Galois conjugates, their sum and quotients, because h acts semisimply. The sum descends to a nonzero module over k, contradicting enormity there. Thus the fixed-h calculations in the proof apply for every h in the supposed counterexample; the proposed quantifier objection is unnecessary. |
+| E753 | confirmed | The published Calegari–Geraghty enormous-image definition is in §9.4. The cited §9.2 treats another topic; comparing the definitions confirms the cross-reference correction. |
+| E754 | confirmed | An independent cocycle calculation gives H¹(GL₂(F₅),ad⁰)=0, while H¹(SL₂(F₅),ad⁰) has dimension one. The PGL₂(F₅) exception in the named preprint contradicts the former computation; the published version is not included in this verdict. |
+| E755 | confirmed | Gee–Newton deduces the corrected rank-two exception list from BLGG13 Proposition A.2.1, but that preprint excludes PGL₂(F₅) as well as PSL₂(F₅). The independent H¹(GL₂(F₅),ad⁰)=0 calculation supplies the missing PGL₂(F₅) case; the stated Gee–Newton conclusion is retained. |
+| E756 | confirmed | With n=2 and ℓ=5, the printed inequality holds but SL₂(F₅) has nonzero H¹ with adjoint coefficients. The larger bound avoids this counterexample and supplies distinct symmetric-power torus eigenvalues. |
+| E757 | confirmed | The diagonal matrices in the printed construction have determinant one, while complex conjugation supplies the nontrivial cyclotomic multiplier. That product therefore need not lie in the cyclotomic kernel. Choosing A and B with determinant (−1)^{k−1} cancels the multiplier and produces a valid witness in the required image. |
+| E758 | confirmed | On the index-two subgroup, an induced adjoint representation always supplies eigenvalue one; eigenvalue minus one is not automatic. For instance, at the identity all its eigenvalues are one. |
+| E759 | confirmed | This is the same scalar-summand error as E701, independently checked at the shared locator. Since gIg⁻¹=I, the scalar complement has trivial action, rather than the similitude character. |
+| E760 | confirmed | Tensoring a rank-two representation with the displayed character preserves rank two. Taking a Cartesian product with a character does not give the stated dual representation, so the product symbol in the first identification must be tensoring. |
+| E761 | confirmed | SL₂(k) has an element of order eight only when eight divides #k−1 or #k+1. The allowed fields with #k≡±3 modulo eight violate this; using an order-four element in the swapping construction gives the order-eight witness. |
+| E762 | confirmed | For k=F₃, determinant modulo projective scalars recovers the quadratic cyclotomic character, so the two projective fields share K(ζ₃). For general k, formulate disjointness for the restricted projective kernels over K(ζ₃); the determinant argument alone does not prove containment. |
+| E763 | confirmed | For a finite nonprime field k, Frobenius gives a field automorphism of PSL₂(k) outside PGL₂(k). Thus projective images can agree up to a semilinear twist without the two projective representations being conjugate. |
+| E764 | confirmed | SL₂(F₃) has abelianisation of order three. The two factors of its wreath product are identified in the abelianisation, and the swap contributes order two, giving Z/6 rather than a group of order prime to three. |
+| E765 | confirmed | The group Q₈≀Z/2 has order 128, so its characteristic-three cohomology vanishes by averaging. The four-dimensional induced representation is irreducible and its adjoint constituents admit the required regular-element projectors, contradicting the asserted failure of enormity. |
+| E766 | confirmed | An irreducible representation over F_p can split after coefficient extension. Adequacy requires absolute irreducibility, so the latter property must be assumed on the cyclotomic restriction used in the tensor argument. |
+| E767 | confirmed | Disjointness of the individual projective kernel fields supplies a product image. The decomposed-genericity application also ranges over conjugate fields over Q, for which the proof needs disjoint Galois closures; those are distinct requirements. |
+| E768 | confirmed | The asserted unitary rank is mn and its multiplier uses the (n−1)st symmetric power. Replacing that factor by the original rank-two representation in the proof changes both quantities. |
+| E769 | rejected | Qian’s published Theorem 1.4 and Lemma 2.6 cite the enormous-image numbering in Allen et al. v1/v2. Direct comparison with those versions resolves the apparent discrepancy with the later published numbering. |
+| E150 | confirmed | The unipotent subgroup parametrized by F_{p²} has order p² and constant trace two, hence trace field F_p. It cannot embed in GL₂(F_p), whose p-part has order p; the source needs semisimplicity in its reducible odd-characteristic clause. |
+| E250 | confirmed | For Fτ, the tame coordinate of the nth power is (1+q+⋯+q^{n−1})t(τ), rather than n·t(τ). The nilpotent operator is also absent from the printed exponential; its conjugating constant must distinguish Fτ from τF. |
+| E251 | confirmed | Conjugation by exp(cN) produces a left exponential with coefficient c(1−q⁻ⁿ), or a right exponential with coefficient c(qⁿ−1). The printed right product uses the constant for the left product. |
+| E252 | confirmed | Multiplying ρ(σ)ρ(F_p) moves N across Frobenius and introduces the factor p. The printed formula for σF_p lacks that factor; putting inertia on the right of F_p gives Deligne’s compatible homomorphism formula. |
+| E253 | confirmed | Equal Frobenius polynomials and purity of the graded object do not alone force purity before grading: taking N=0 shows the failure. The missing input is rank N̄^j≤rank N^j, combined with the nonnegative squared offsets of Frobenius strings. |
+| E254 | confirmed | Section 3.12(B) defines the global constant with an idele-class quasicharacter χ. In (C), its norm pullback is also a quasicharacter; no additive character ψ has been introduced in that formula. |
+| E350 | confirmed | At a fixed positive upper level, tame base change and independent Artin–Schreier classes over arbitrarily large finite residue extensions give wild quotients of unbounded order. Finite-quotient density and Baire category show that the positive-level union is dense and proper, rather than all wild inertia. |
+| E351 | rejected | The paragraph says additivity in the representation, which means direct sums. It does not assert exact-sequence additivity; Lemma 2.4 separately states that property for Swan conductor. The proposed objection therefore attacks a statement not made at this locator. |
+| E352 | confirmed | The terminology of Chapter II §7 refers to the complete minimal regular model. Its I₀* fibre has five geometric components, whereas deleting the nonsmooth parts to form the smooth Néron model leaves four; the conductor formula needs the former count. |
+| E450 | confirmed | GL₂(F₃) has the normal nonscalar subgroup Q₈, contradicting the proof’s normal-subgroup shortcut. At ℓ=2, the 2-division field of 37a1 contains the nontrivial unramified quadratic field Q(√37), so the claimed general statement fails there. |
+| E550 | confirmed | The coefficient prime is the fixed ℓ, while p ranges over Frobenius places. The constituent lines must therefore be Q̄_ℓ and Q̄_ℓ(1), not a coefficient field changing with p. |
+| E551 | confirmed | For a χ-eigenvector v, ρ(h)ρ(σ)v=χ(σ⁻¹hσ)ρ(σ)v. Under the stated convention χ^σ(h)=χ(σhσ⁻¹), the target eigenspace is indexed by σ⁻¹. |
+| E650 | confirmed | Chapter II Proposition 6.4 states the Tate-module determinant/degree equality invoked here. The corresponding Chapter III location does not, so this is a chapter-number misprint. |
+| E651 | confirmed | The preceding computation applies the polynomial to α and calculates det(T_ℓα). The b_i in its concluding product must be the eigenvalues of that same endomorphism, rather than β. |
+| E720 | confirmed | In the Lagrangian decomposition V⊕V∨, a scalar a on V acts by a² on Sym²V. This contradicts the proposed adjoint/Asai decomposition; assuming V nondegenerate restores the block-symplectic argument. |
+| E780 | confirmed | The projector is indexed by the eigenvalue of the individual element h. Referring to an eigenvalue of the subgroup H in that place is an ill-typed index. |
+| E781 | confirmed | If p divides m, no primitive mth root exists in characteristic p. The regular representation induced from a cyclic degree-p extension has unipotent Frobenius, contradicting the claimed distinct-root pattern. |
+| E790 | confirmed | At r=2 the inverse quadratic Euler factor has coefficient a_p²−p, while the Frobenius trace is a_p²−2p. For E:y²+y=x³−x, counting eight F₅-points gives a₅=−2; these values are −1 and −6. |
+| E791 | confirmed | The denominator in a quotient must be a subspace of the numerator. The specified filtration is increasing, so the printed order is reversed. |
+| E792 | confirmed | In M₂ take g₁=E₁₁, g₂=E₁₂, g₃=E₂₁. The two traces are 1 and 0; the corrected alternating expression is zero, while the duplicated term gives 1. |
+| E793 | confirmed | In odd characteristic, a=diag(1,−1) and b=[[0,1],[1,0]] generate D₈. The subgroup H=⟨−I,b⟩ is normal abelian and contains b outside the diagonal Cartan; a is nonscalar and aba⁻¹=−b belongs to H. |
+| E794 | confirmed | The pullback is a map A→A∨ obtained by composing α:A→B, λ:B→B∨ and α∨:B∨→A∨; the extraneous symbol does not express that map. |
 
 Additional checked versions:
 
-- [Qian, published paper: Theorem 1.4 and Lemma 2.6, printed p. 1251 (PDF p. 13); checked for E769.](https://par.nsf.gov/servlets/purl/10388233), read 2026-10-08; SHA-256 `77969caa063c52027dc7274ccef679ce11a2382b8e0b5a8565847922a8d7c0d8`.
-- [Allen et al. v1: Definition 6.2.28, Lemma 7.1.5 and Theorem 6.1.2 numbering checked for E769.](https://arxiv.org/pdf/1812.09999v1), read 2026-10-08; SHA-256 `cfc0be907cd0620cb12479711f2bfdbd2be0eadb36721442d41df705bee737f9`.
-- [Allen et al. v2: Definition 6.2.28 (PDF p. 148), Lemma 7.1.6 (PDF p. 195) and Theorem 6.1.2 (PDF p. 133) checked for E769.](https://arxiv.org/pdf/1812.09999v2), read 2026-10-08; SHA-256 `7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c`.
+- author copy: https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf; read 2026-10-09; SHA-256 `254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3`.
+- preprint: https://arxiv.org/pdf/2212.03595v2; read 2026-10-09; SHA-256 `6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c`.
+- preprint: https://arxiv.org/pdf/1609.03491v2; read 2026-10-09; SHA-256 `ec54cf92ce04146c73b48945be2765f675359255d46cc94a0aa35a39229743b9`.
+- published: https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0034/LOG_0016.pdf; read 2026-10-09; SHA-256 `f00d544af7713fe6ef365fab877c18dbd9d723659e5890fc564f31ac391af2e0`.
+- published: https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf; read 2026-10-09; SHA-256 `65b390f6d33e827e30c6c66bbc15421eca51db3180bdf5996dcee19047be97fc`.
+- published: https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf; read 2026-10-09; SHA-256 `8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038`.
+- preprint: https://arxiv.org/pdf/0809.0415v2; read 2026-10-09; SHA-256 `f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953`.
+- published: https://math.uchicago.edu/~fcale/papers/Siegel.pdf; read 2026-10-09; SHA-256 `fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5`.
+- author copy: https://www.math.ucla.edu/~shekhar/papers/results.pdf; read 2026-10-09; SHA-256 `3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82`.
+- preprint: https://arxiv.org/pdf/2108.07577v2; read 2026-10-09; SHA-256 `0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6`.
+- published: https://publications.ias.edu/sites/default/files/Number20.pdf; read 2026-10-09; SHA-256 `b03f483c4eeca79b75e34b88f41406fe4c9e16ba621480ce859697c93e8d5844`.
+- preprint: https://arxiv.org/pdf/2502.20645v1; read 2026-10-09; SHA-256 `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c`.
+- published: https://www.numdam.org/item/PMIHES_2008__108__1_0/; read 2026-10-09; SHA-256 `9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c`.
+- published: Serre, Invent. Math. 15 (1972), GDZ scan; read 2026-10-09; SHA-256 `cfa08081727dfdeb8aa7ecc5f11592e2cb31bb1cf207e4b00a75f1e9409048b1`.
+- preprint: https://arxiv.org/pdf/1810.06454v5; read 2026-10-09; SHA-256 `835580aa6314798e2866c248d6f7179379698d61a7baae0136806d4755b1f20a`.
+- preprint: https://arxiv.org/pdf/1207.4224v2; read 2026-10-09; SHA-256 `67896c853258801967270f8927e5bb33c0315989d3a4188d53435a9305993ebb`.
+- preprint: https://arxiv.org/pdf/1907.08691v1; read 2026-10-09; SHA-256 `39aa93a83c77ce93884db6352e4c63f80e881197f4213dd699cdf7d77cfbb059`.
+- preprint: https://arxiv.org/pdf/1307.4525v4; read 2026-10-09; SHA-256 `a7a8039574e4975830de12ed2c23d07c208af95300c3865e941ff51fed0fed73`.
+- published: https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf; read 2026-10-09; SHA-256 `8392b345d4854e6dc55fb42cfc0b616d941935983723627237239a87348f42e5`.
+- published: http://www.numdam.org/item/CM_1994__92_2_227_0/; read 2026-10-09; SHA-256 `fb60a47d07f45d2066fa80d7a307fc8fbe6de1ad04446bcef8bed9d84a898971`.
+- published: http://www.numdam.org/item/CM_1994__94_1_51_0/; read 2026-10-09; SHA-256 `9a35e29990280ef364222aa10cdad51866bd095e9cd96d1c29612c72f6a3846c`.
+- published: Tate, Number theoretic background, PSPM 33.2 (1979), 3–26: NOT read (AMS returned a browser challenge); the (4.2.4) misprint is recorded from Ulmer's quotation; 2026-10-09: the source remains unread; this is a checked availability record..
+- published: Livné, J. Number Theory 31 (1989): NOT read (no PDF obtained from the Elsevier open archive or CORE); DDT Lemma 2.7 is cited instead; 2026-10-09: the source remains unread; this is a checked availability record..
+- published: Saito, Duke Math. J. 57 (1988) and Ogg, Amer. J. Math. 89 (1967): NOT read (not freely available); statements cited from Liu 1994, Brumer–Kramer 1994 and DDT; 2026-10-09: the source remains unread; this is a checked availability record..
+- published: https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0015/LOG_0024.pdf; read 2026-10-09; SHA-256 `cfa08081727dfdeb8aa7ecc5f11592e2cb31bb1cf207e4b00a75f1e9409048b1`.
+- author copy: https://www.math.ucla.edu/~shekhar/papers/proofs.pdf; read 2026-10-09; SHA-256 `53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4`.
+- published: https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf; read 2026-10-09; SHA-256 `c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02`.
+- preprint: https://arxiv.org/pdf/1010.2561v4; read 2026-10-09; SHA-256 `c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24`.
+- author copy: http://www.math.uchicago.edu/~fcale/papers/Siegel.pdf; read 2026-10-09; SHA-256 `fff305877c7e6b9d32ca9a8b4a56f7f3b343695fc737184d1a3a1b78f195cfa5`.
+- preprint: https://arxiv.org/pdf/1907.08694v1; read 2026-10-09; SHA-256 `8389edfec6576b92aea1fd4dbf6c96ccb86b2186a6f244ab46c4abf1c02e2bed`.
+- preprint: https://arxiv.org/pdf/2103.09945v2; read 2026-10-09; SHA-256 `62d26eb931f271404c333c4b9a929e85239222788834cf16dcec1dff230c34c8`.
+- published: https://www.numdam.org/article/PMIHES_1981__54__123_0.pdf; read 2026-10-09; SHA-256 `bfcda9821742b02801e4f1264750aebeb656141fbd53fb61b8662333e1491830`.
+- author copy: https://www.jmilne.org/math/CourseNotes/AV.pdf; read 2026-10-09; SHA-256 `f5ca4e63e5092a4b102daad1470e4cbed5fe8f82115e3a28c8881e3f67f6aaef`.
+- published: https://gdz.sub.uni-goettingen.de/gdzocr/PPN356556735_0015/; read 2026-10-09.
+- published: https://annals.math.princeton.edu/wp-content/uploads/annals-v191-n2-p07-s.pdf; read 2026-10-09; SHA-256 `8b76bfac88374180701992e242d88f5d38fbe0b0cdb39c6c40c3c3fbbb874b60`.
+- preprint: https://arxiv.org/pdf/2111.11216v4; read 2026-10-09; SHA-256 `1ce4e11184cfa583a71acabad99474e17592ce0bff64ae7d05d05f8511a974c1`.
+- author copy: https://math.berkeley.edu/~ribet/Articles/korea.pdf; read 2026-10-09; SHA-256 `4c491a5294d1f4ec1b62855560aaea95cb64802d8fdd80fdd51ae2d2432f66ed`.
+- published: http://www.numdam.org/article/CM_1995__97_1-2_161_0.pdf; read 2026-10-09; SHA-256 `6cb049905d74734b6dc9cdaf878b3f4054f1861163f1c4dfee2f0490124d08b9`.
+- published: https://www.numdam.org/article/PMIHES_2008__108__1_0.pdf; read 2026-10-09; SHA-256 `9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c`.
+- published: https://math.uchicago.edu/~fcale/papers/WeightZero.pdf; read 2026-10-09; SHA-256 `4d27afabbef371babf3a73dad19bc8ccee180636be27bd6ebee17f58f7150290`.
+- preprint: https://arxiv.org/pdf/1907.08691; read 2026-10-09; SHA-256 `39aa93a83c77ce93884db6352e4c63f80e881197f4213dd699cdf7d77cfbb059`.
+- preprint: https://arxiv.org/pdf/1907.08694; read 2026-10-09; SHA-256 `8389edfec6576b92aea1fd4dbf6c96ccb86b2186a6f244ab46c4abf1c02e2bed`.
+- preprint: https://arxiv.org/pdf/1812.09269v3; read 2026-10-09; SHA-256 `7c8d74b0628d8b9cc841a853372ca2d0bc18c086ab46d138f75afd15f35689ed`.
+- preprint: https://arxiv.org/pdf/1207.6724; read 2026-10-09; SHA-256 `8e604582fff264cfd046b1702175d6995e87021fe151009d8e21e538cd1c9c0c`.
+- preprint: https://arxiv.org/pdf/1106.5586v1; read 2026-10-09; SHA-256 `cf27d3009c3584806da4359df69fa0e8db63c9e8742b903c25455cee053ba008`.
+- preprint: https://arxiv.org/pdf/1609.06965; read 2026-10-09; SHA-256 `068818a4b0e12f97184d72cd7704663f5269f9297f017ff99172325ed5f67601`.
+- preprint: https://arxiv.org/pdf/2309.15880; read 2026-10-09; SHA-256 `0ad015dfe35d40489a2b8b462ac93d5dd715dbbae7d3fbf18377beaed654579d`.
+- preprint: https://arxiv.org/pdf/2104.09761; read 2026-10-09; SHA-256 `4110023d4691d628adbc96842793696978de962b6109044e5d32779160835415`.
+- author copy: https://www.jmilne.org/math/Books/EC2.pdf; read 2026-10-09; SHA-256 `646c0c4f193cdaa35f32c7d60fbd46a75e2f5187db4301810e8613726e3ebbee`.
+- published: https://archive.org/download/lineargroupswith00dickuoft/lineargroupswith00dickuoft.pdf; read 2026-10-09; SHA-256 `1d4ad61f79b22926ad39a3d13429cc178bc0e9f42ab0b8896c0b466079c7d07e`.
+- author copy: https://www.college-de-france.fr/media/jean-pierre-serre/UPL5874918517843398173_Serre_proprie_te_s_galoisiennes_des_courbes_elliptiques.pdf; read 2026-10-09; SHA-256 `93970ed93730194af8bed0f1f59d29cbed061d20f34f4bcffc079ad8aedf01d5`.
+- published: https://par.nsf.gov/servlets/purl/10388233; read 2026-10-09; SHA-256 `77969caa063c52027dc7274ccef679ce11a2382b8e0b5a8565847922a8d7c0d8`.
+- preprint: https://arxiv.org/pdf/1812.09999v1; read 2026-10-09; SHA-256 `cfc0be907cd0620cb12479711f2bfdbd2be0eadb36721442d41df705bee737f9`.
+- preprint: https://arxiv.org/pdf/1812.09999v2; read 2026-10-09; SHA-256 `7c882c4dc7208e08a0b1f4b3ce6e5c5234c9815f139a4c3a372898378a24d08c`.
+- author copy: https://virtualmath1.stanford.edu/~rltaylor/twugfin.pdf; read 2026-10-09; SHA-256 `622e51ed167c35a05cdd002f867f6ba0d116da40f35386571c17a7b2fb60d7a2`.
+- published: https://link.springer.com/content/pdf/10.1007/s13398-023-01478-8.pdf; read 2026-10-09; SHA-256 `2a133808911a1819ea9480bea0bfc18846035f961e866ddec4d05d69b093e0f8`.
 
-The PGL₂ simplicity application imports Mathlib `Matrix.ProjectiveSpecialLinearGroup.rank_two_simple'` (field element a≠0, a²≠1) and `isoPSLOfAlgClosed`; it does not re-plan their proofs. The finite-field wrapper `rank_two_simple` is not a substitute for the infinite-field theorem.
+## Independent review, revision 3
 
-Unit-group compactness is also reused from pinned Mathlib: `Units.isClosedEmbedding_embedProduct` embeds the units as a closed subset of the product; compactness of a T₁ topological monoid therefore supplies compactness of its units, and `Continuous.isClosedEmbedding` identifies the topology of its continuous injective unit inclusion into a Hausdorff ring. The removed auxiliary node is not new mathematical work.
+The [completed review](../reviews/REV-ArithmeticGaloisRepresentations~3.md) **accepts this partial plan** after checking all 300 input and 327 final nodes, all 420 pinned baseline statements, 540 API entries, 287 tests, 40 planets and 52 source findings. It preserves partial coverage for all seven stages and every implementation status remains `unchecked`. The 27 additions split existing criteria; they add no new target.
 
-The revision also read [CHT §2.1, printed pp. 9–10: the group/triple correspondence (Lemma 2.1.1), and the χ-polarized induction construction following Lemma 2.1.2. The induction construction is not assigned a lemma number here.](https://virtualmath1.stanford.edu/~rltaylor/twugfin.pdf), accessed 2026-10-08; SHA-256 `622e51ed167c35a05cdd002f867f6ba0d116da40f35386571c17a7b2fb60d7a2`.
+Additional topological and choice hypotheses:
+
+- `ArithmeticGaloisRepresentations:R01.1/continuous-representation`: The continuous-operation signatures use a topological group Γ and a topological coefficient ring A (continuous addition and multiplication). These hold for the profinite Galois groups and standard coefficient tiers in the statement.
+- `ArithmeticGaloisRepresentations:R01.1/restriction-dual-tensor-twist`: The continuous-operation signatures use a topological group Γ and a topological coefficient ring A (continuous addition and multiplication). These hold for the profinite Galois groups and standard coefficient tiers in the statement.
+- `ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters`: A fundamental character valued in a named finite field F_{p^n} includes a choice of residue embedding. The Witt-vector Teichmüller lift uses that same embedding; changing it applies a Frobenius conjugate rather than preserving literal equality.
+- `ArithmeticGaloisRepresentations:R01.2/weil-deligne-representation`: In an abstract Weil-group signature, W is a topological group and the degree kernel is open. Induction uses an open topological embedding W′ → W, finite positive index m, positive residue degree f, deg_K|W′ = f·deg_L, q_L = q_K^f and nonzero q_K in the coefficient field; these are automatic for the actual finite local extension in the statement.
+- `ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor`: In an abstract Weil-group signature, W is a topological group and the degree kernel is open. Induction uses an open topological embedding W′ → W, finite positive index m, positive residue degree f, deg_K|W′ = f·deg_L, q_L = q_K^f and nonzero q_K in the coefficient field; these are automatic for the actual finite local extension in the statement.
+- `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification`: In an abstract Weil-group signature, W is a topological group and the degree kernel is open. Induction uses an open topological embedding W′ → W, finite positive index m, positive residue degree f, deg_K|W′ = f·deg_L, q_L = q_K^f and nonzero q_K in the coefficient field; these are automatic for the actual finite local extension in the statement.
+- `ArithmeticGaloisRepresentations:R01.2/local-factor-of-induced-representation`: In an abstract Weil-group signature, W is a topological group and the degree kernel is open. Induction uses an open topological embedding W′ → W, finite positive index m, positive residue degree f, deg_K|W′ = f·deg_L, q_L = q_K^f and nonzero q_K in the coefficient field; these are automatic for the actual finite local extension in the statement.
+- `ArithmeticGaloisRepresentations:R01.2/purity-of-weil-deligne-representations`: In an abstract Weil-group signature, W is a topological group and the degree kernel is open. Induction uses an open topological embedding W′ → W, finite positive index m, positive residue degree f, deg_K|W′ = f·deg_L, q_L = q_K^f and nonzero q_K in the coefficient field; these are automatic for the actual finite local extension in the statement.
+- `ArithmeticGaloisRepresentations:R01.2/local-epsilon-factor`: In an abstract Weil-group signature, W is a topological group and the degree kernel is open. Induction uses an open topological embedding W′ → W, finite positive index m, positive residue degree f, deg_K|W′ = f·deg_L, q_L = q_K^f and nonzero q_K in the coefficient field; these are automatic for the actual finite local extension in the statement.
+- `ArithmeticGaloisRepresentations:R01.3/breaks-and-swan-conductor`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/artin-conductor-with-its-wild-part`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/conductor-of-a-weil-deligne-representation`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/swan-additive`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/conductor-dual`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/conductor-twist-dominant-character`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/conductor-tame-base-change`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/conductor-extend-scalars`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/induction-formula-for-conductors`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/local-induction-formula`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/swan-conductor-of-reduction`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:R01.3/conductor-of-residual-semisimplification`: Abstract continuous-conductor signatures use a Hausdorff topological coefficient field, as supplied by the stated discrete, complex or ℓ-adic coefficient tier. Finite wild image and coefficient characteristic different from the residue characteristic remain separate required inputs.
+- `ArithmeticGaloisRepresentations:G7/symmetric-and-exterior-powers`: The continuous-operation signatures use a topological group Γ and a topological coefficient ring A (continuous addition and multiplication). These hold for the profinite Galois groups and standard coefficient tiers in the statement.
+- `ArithmeticGaloisRepresentations:G7/tensor-induction`: The continuous-operation signatures use a topological group Γ and a topological coefficient ring A (continuous addition and multiplication). These hold for the profinite Galois groups and standard coefficient tiers in the statement. The finite-index subgroup H is open in Γ. Tensor induction and Asai then have a jointly continuous action; finite index alone in an arbitrary topological group does not imply openness.
+- `ArithmeticGaloisRepresentations:G7/restriction-of-scalars`: The continuous-operation signatures use a topological group Γ and a topological coefficient ring A (continuous addition and multiplication). These hold for the profinite Galois groups and standard coefficient tiers in the statement.
+- `ArithmeticGaloisRepresentations:G7/adjoint-representations`: The continuous-operation signatures use a topological group Γ and a topological coefficient ring A (continuous addition and multiplication). These hold for the profinite Galois groups and standard coefficient tiers in the statement.
+- `ArithmeticGaloisRepresentations:G7/polarized-representation`: The continuous-operation signatures use a topological group Γ and a topological coefficient ring A (continuous addition and multiplication). These hold for the profinite Galois groups and standard coefficient tiers in the statement.
+- `ArithmeticGaloisRepresentations:G7/operations-on-polarized-representations`: The continuous-operation signatures use a topological group Γ and a topological coefficient ring A (continuous addition and multiplication). These hold for the profinite Galois groups and standard coefficient tiers in the statement.
+
+The review records the source corrections E790–E794 with theorem, section and page locators. Published Dieulefait–Pacetti Lemma 1.13 was also checked at [Springer, PDF p.8](https://link.springer.com/content/pdf/10.1007/s13398-023-01478-8.pdf). E793 applies to both the published PDF and arXiv v2.
