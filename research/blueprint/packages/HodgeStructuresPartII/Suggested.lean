@@ -13653,27 +13653,16 @@ section Layer7
 
 /-! ### H.6: signature boundary
 
-This section retains local coordinate signatures from its source specification.
-The file imports the native Hodge modules used by the other layers. Within this
-section, several global supplier interfaces remain admitted stand-in definitions;
-they require replacement by their owners’ concrete carriers before the associated
-global theorem signatures can be considered complete.
+This section gives finite-dimensional linear algebra and calculus in a chosen
+frame. Its `SemistableLogModel`, `NilpotentOrbit`, `untwistedPeriodMap` and
+`negativeLieCorrection` are local coordinate forms, with the limitations stated
+at their declarations. They do not define global semistable families,
+polarized variations, period manifolds or limiting mixed Hodge structures.
 
-Every statement below is meant to be true as written. There are three kinds.
-
-* Statements of linear algebra and of calculus in a frame, about matrices,
-  flags of subspaces and analytic functions, with all their hypotheses.
-* This layer's definitions (`SemistableLogModel`, `logGaussManin`,
-  `NilpotentOrbit`, `untwistedPeriodMap`, `negativeLieCorrection`) in local
-  coordinates, with every API item and unit test of the specification.
-* Statements about objects that other layers own. The section "Imported
-  interfaces" retains admitted types and functions naming those owners.
-  Their use does not certify the intended geometric interface. Replace them
-  by concrete supplier carriers and their comparisons before assessing the
-  associated global statements.
-
-What a statement leaves out is said in its docstring. Elaboration of this
-file discharges no gap of the specification.
+The supplier inventory below names the geometric targets whose native inputs
+cannot be stated here. Those targets have no typed theorem or executable test
+in this section. README.md states their mathematics and prerequisites; a local
+matrix test does not discharge a geometry-level comparison.
 -/
 
 noncomputable section
@@ -13705,107 +13694,72 @@ private def conjSub {d : ℕ} (S : Submodule ℂ (Vec d)) : Submodule ℂ (Vec d
     simpa using S.smul_mem (star c) hv
 private def jordan : Mat 2 := !![0,1;0,0]
 
-/-! ## Imported interfaces
+/-! ## Native supplier and omitted-signature inventory
 
-Nothing in this section is planned by H.6. Each declaration stands in for an
-object another layer or library owns; the owner's definition governs. -/
+No arbitrary admitted carrier or function represents an imported interface.
+The following names identify mathematical exports to state once their owners'
+actual carriers and comparison maps are available. They are not declarations.
 
-/-- Stand-in for the fixed data `(V, Q, h)` of `TauCeti.Hodge.PeriodDomain.Point`
-in coordinates: a lattice of rank `d`, a weight, a polarization form and Hodge
-numbers. -/
-def PolarizedDatum (d : ℕ) : Type := sorry
-/-- The weight `k`. -/
-def PolarizedDatum.weight {d : ℕ} (P : PolarizedDatum d) : ℤ := sorry
-/-- The period domain `D` as a set of flags: the image of the native period
-points in the compact dual (HodgeStructuresPartII H.3, point-compact-dual-map
-and ambient-domain-open). -/
-def PolarizedDatum.domain {d : ℕ} (P : PolarizedDatum d) : Set (Flag d) := sorry
-/-- The Siegel sets of the period domain for the canonical maximal compact
-subgroup (AdelicAlgebraicGroups AA.3, real-siegel-set), as sets of flags. -/
-def PolarizedDatum.siegelSets {d : ℕ} (P : PolarizedDatum d) : Set (Set (Flag d)) := sorry
+* `logCohomologyBaseChange`, `specialResidue`, `semistableBetti` and
+  `equivariantLogComparison`: ComplexComparisonPartII C0/C3/C5 and the analytic
+  log interface of CrystallineCohomology CR.5 supply a proper semistable analytic
+  family, log de Rham complexes, cohomology with base change, the special
+  boundary operator, a nearby-cycle comparison and a specified finite action
+  on that family. No action is manufactured from a bare finite-group type.
+  Tests must compare actual cohomology fibres and the residue through those
+  maps, including the local model x₁x₂ = T and a specified character summand.
 
-/-- Stand-in for LefschetzPencilsAndVanishingCycles LPV.1, monodromy-filtration:
-the monodromy filtration of a nilpotent matrix, centered at zero. Its value on
-a matrix that is not nilpotent is not used. -/
-def monodromyFiltration {d : ℕ} (N : Mat d) : ℤ → Submodule ℂ (Vec d) := sorry
+* `quasiUnipotentMonodromy`, `untwistedExtension`, `nilpotentOrbitTheorem` and
+  `finiteMonodromyExtension`: H.2/H.3 and ShimuraData D3 supply an integral
+  polarized variation, its marked horizontal holomorphic period lift, the
+  represented compact dual and period domain, and the canonical extension.
+  Required tests include a Tate variation, a nonzero elliptic degeneration,
+  partial boundary strata, an inner analytic buffer and finite-quotient
+  descent. The local untwisting identity does not state these theorems.
 
-/-- Stand-in (ShimuraData D3, polarized-integral-variation; H.3,
-marked-period-map): an integral polarized variation of rank `d` on
-`(Δ*)^n × Δ^m` with a flat marking of its lattice. -/
-def IntegralVariation (n m d : ℕ) : Type := sorry
-/-- The monodromy of the positive loop around the `i`-th coordinate, in the marking. -/
-def IntegralVariation.monodromy {n m d : ℕ} (V : IntegralVariation n m d) :
-    Fin n → Mat d := sorry
+* `sl2OrbitTheorem`, `limitingMixedHodgeOneVariable`, `nilpotentConeWeights`,
+  `limitingMixedHodge`, `logarithmsTypeMinusOne`, `hodgeWeightDistributive` and
+  `simultaneousSplittings`: use a genuinely polarized real/rational nilpotent
+  orbit with its native period-domain comparison. LPV.1 supplies centered
+  monodromy filtrations and their relative/naturality/finite-splitting API.
+  Native mixed Hodge structures and Deligne splittings come from Tau Ceti,
+  with the mixed tensor/Hom/Tate comparisons requested from H.2. Test the
+  zero-generator case, the upper-nilpotent/diagonal sign convention, actual
+  weight k+r versus centered index r, nested faces and separate rational
+  weight and complex Hodge splittings. A supplied subset of coordinate flags
+  alone is insufficient for a polarized orbit theorem.
 
-/-- Stand-in: an integral polarized variation on `(Δ*)^n × Δ^m` whose local
-monodromies are unipotent, with a flat marking (the output of
-`unipotentNormalization`). -/
-def UnipotentVariation (n m d : ℕ) : Type := sorry
-namespace UnipotentVariation
-variable {n m d : ℕ}
-/-- The lattice, weight, polarization and Hodge numbers of the variation. -/
-def datum (V : UnipotentVariation n m d) : PolarizedDatum d := sorry
-/-- The commuting nilpotent monodromy logarithms `L_i = log T_i`. -/
-def log (V : UnipotentVariation n m d) : Fin n → Mat d := sorry
-/-- The lifted period map `Φ(z, w)` on `ℍ^n × Δ^m` (H.3, period-map-holomorphic). -/
-def periodLift (V : UnipotentVariation n m d) : (Fin n → ℂ) → (Fin m → ℂ) → Flag d := sorry
-/-- The limiting flag `F∞(w)`, the value at `q = 0` of the extended untwisted map. -/
-def limitFlag (V : UnipotentVariation n m d) : (Fin m → ℂ) → Flag d := sorry
-/-- The centered negative-Lie coefficient `v(q, w)` of `negativeLieCorrection`,
-for the chart based at `F∞(w)`. -/
-def correctionLog (V : UnipotentVariation n m d) : (Fin n → ℂ) → (Fin m → ℂ) → Mat d := sorry
-/-- The Hodge form at `Φ(z, w)`: the native `Polarization.hodgeForm` in the marking,
-conjugate-linear in the first variable. -/
-def hodgeInner (V : UnipotentVariation n m d) :
-    (Fin n → ℂ) → (Fin m → ℂ) → Vec d → Vec d → ℂ := sorry
-/-- The squared Hodge norm, the real diagonal of `hodgeInner`. -/
-def hodgeNormSq (V : UnipotentVariation n m d) (z : Fin n → ℂ) (w : Fin m → ℂ)
-    (u : Vec d) : ℝ := (V.hodgeInner z w u u).re
-/-- The induced variation on the `r`-th exterior power, in the basis of
-`r`-element subsets (requested from HodgeStructuresPartII H.2). -/
-def exteriorPower (V : UnipotentVariation n m d) (r : ℕ) :
-    UnipotentVariation n m (d.choose r) := sorry
-end UnipotentVariation
-/-- The coordinates of `u_1 ∧ ⋯ ∧ u_r` in the basis of `r`-element subsets. -/
-def exteriorCoordinates (d r : ℕ) : (Fin r → Vec d) → Vec (d.choose r) := sorry
+* `horizontalCorrection`, `flatNormEstimate`, `movingNormEstimate`,
+  `exteriorPowerEstimates` and `perturbedNormComparison`: H.2/H.3 supply the
+  limiting isometry Lie algebra, its native mixed-Hodge negative complement,
+  analytic splitting subbundles, positive Hodge forms and exterior-power
+  comparison. Separate the boundary factor from the centered correction and
+  retain common-depth compact-family hypotheses. Tests must exercise the
+  2πi factor, centered weights, nonconstant boundary factor, a nonzero
+  homogeneous vector, Λ⁰, oversized vanishing wedges and Gram determinants.
+  A freely supplied norm function cannot replace the positive Hodge metric.
 
-/-- Stand-in (ComplexComparisonPartII C0, C3, C5; CrystallineCohomology CR.5): a
-proper reduced semistable analytic family of relative dimension `d` over a disc
-containing no other singular fibre, with its log structures. -/
-def SemistableFamily (d : ℕ) : Type := sorry
-namespace SemistableFamily
-variable {d : ℕ}
-/-- The radius of the disc. -/
-def radius (X : SemistableFamily d) : ℝ := sorry
-/-- The dimension of the degree-`m` log de Rham hypercohomology of the log fibre
-at `s`: ordinary de Rham cohomology for `s ≠ 0`, the special log-point
-cohomology at `0`. -/
-def fibreRank (X : SemistableFamily d) (m : ℕ) (s : ℂ) : ℕ := sorry
-/-- The rank of `E^m = R^m f_* DR_rel`. -/
-def rank (X : SemistableFamily d) (m : ℕ) : ℕ := X.fibreRank m 0
-/-- The residue at `0` of the logarithmic Gauss–Manin connection on `E^m`, in a
-logarithmic frame. -/
-def residue (X : SemistableFamily d) (m : ℕ) : Mat (X.rank m) := sorry
-/-- The connecting endomorphism `A_0` of the special wedge triangle on the
-special log-point cohomology, in a basis. -/
-def specialBoundary (X : SemistableFamily d) (m : ℕ) : Mat (X.rank m) := sorry
-/-- The fibre identification `E^m|_0 ≃ H^m(DR_log(X_0 / log point))` in the two bases. -/
-def fibreComparison (X : SemistableFamily d) (m : ℕ) : (Mat (X.rank m))ˣ := sorry
-/-- The monodromy of the positive loop on the degree-`m` cohomology of a marked
-nearby fibre. -/
-def monodromy (X : SemistableFamily d) (m : ℕ) : Mat (X.rank m) := sorry
-/-- The action on the special log-point cohomology of a finite group acting on
-the family over the log disc. -/
-def specialAction (X : SemistableFamily d) (m : ℕ) (H : Type) [Group H] :
-    H →* (Mat (X.rank m))ˣ := sorry
-end SemistableFamily
+* `oneVariableSL2` and `oneVariableSiegel`: the marked period lift, canonical
+  compact and rational parabolic factors come from H.3 and AA.3. The fixed-K
+  comparison of Schmid's rational torus with Cartan-stable Siegel data is an
+  additional mathematical input. Test bounded-width strips, the zero-logarithm
+  extension case and rational power-curve pullback after clearing denominators;
+  general finite containment cannot be inferred from an arbitrary set family.
+
+The omitted inputs formerly called `PolarizedDatum`, `IntegralVariation`,
+`UnipotentVariation` and `SemistableFamily` are not defined here. Likewise,
+`monodromyFiltration`, `limitingBigrading` and `exteriorCoordinates` require
+native constructions and comparisons, rather than independent admitted values.
+The associated global definition API and geometry-level tests remain targets
+in README.md. This inventory neither supplies signatures nor certifies them.
+-/
 
 /-! ## Geometric logarithmic specialization -/
 
 /-- The local normal form of a `SemistableLogModel`: the number `r ≥ 1` of
 divisor coordinates among `d` coordinates and the radius of the base disc.
 Left out: the global smooth total space, properness, the atlas and the log
-structures (gap G1); `SemistableFamily` stands in for them. -/
+structures; their native comparison is listed in the supplier inventory. -/
 structure SemistableLogModel (d : ℕ) where
   divisorCoordinates : Fin (d + 1)
   nonempty : 0 < divisorCoordinates.val
@@ -13873,13 +13827,6 @@ theorem wedgeDlogTriangle {d : ℕ} (M : SemistableLogModel d) :
       LinearMap.range (LinearMap.toSpanSingleton ℂ (Vec d) M.dlogBase) := by
   sorry
 
-/-- The fibre dimension of log de Rham hypercohomology is constant on the
-disc, which is the numerical content of local freeness with base change.
-Left out: the sheaves `E^m` themselves and the comparison maps. -/
-theorem logCohomologyBaseChange {d : ℕ} (X : SemistableFamily d) (m : ℕ)
-    (s : ℂ) (hs : ‖s‖ < X.radius) : X.fibreRank m s = X.fibreRank m 0 := by
-  sorry
-
 /-- The logarithmic Gauss–Manin connection in a logarithmic frame:
 `∇v = dv + A(q) v dq/q`, evaluated on the vector field `d/dq`. -/
 def logGaussManin {d : ℕ} (A : ℂ → Mat d) (q : ℂ) (v dv : Vec d) : Vec d :=
@@ -13927,38 +13874,10 @@ example : logGaussManin (fun _ => jordan) 2 ![0,1] 0 = ![1/2,0] := by
 example (q : ℂ) : logGaussManin (fun _ => (0 : Mat 1)) q ![q] ![1] = ![1] := by
   sorry
 
-/-- The fibre identification carries the residue to the special boundary
-operator, and the latter is nilpotent. -/
-theorem specialResidue {d : ℕ} (X : SemistableFamily d) (m : ℕ) :
-    (X.fibreComparison m : Mat (X.rank m)) * X.residue m =
-        X.specialBoundary m * (X.fibreComparison m : Mat (X.rank m)) ∧
-      IsNilpotent (X.specialBoundary m) := by
-  sorry
-
-/-- The monodromy of the positive loop is conjugate to `exp(−2πi A_0)`. Left
-out: that the conjugating matrix is the nearby-cycle comparison. -/
-theorem semistableBetti {d : ℕ} (X : SemistableFamily d) (m : ℕ) :
-    ∃ P : (Mat (X.rank m))ˣ, X.monodromy m =
-      (P : Mat (X.rank m)) *
-        NormedSpace.exp ((-(2 * Real.pi : ℂ) * Complex.I) • X.specialBoundary m) *
-        (↑P⁻¹ : Mat (X.rank m)) := by
-  sorry
-
 /-- The idempotent `e_χ = |H|⁻¹ Σ_h χ(h)⁻¹ ρ(h)` of a character of a finite group. -/
 private def characterIdempotent {d : ℕ} {H : Type} [Group H] [Fintype H]
     (ρ : H →* (Mat d)ˣ) (χ : H →* ℂˣ) : Mat d :=
   ((Fintype.card H : ℂ)⁻¹) • ∑ h, ((χ h : ℂ)⁻¹) • (ρ h : Mat d)
-
-/-- A finite group acting on the family commutes with the special boundary
-operator, and so does each character idempotent, which is idempotent. Left
-out: the same for the connection, the triangle and the Betti comparison. -/
-theorem equivariantLogComparison {d : ℕ} (X : SemistableFamily d) (m : ℕ)
-    (H : Type) [Group H] [Fintype H] (χ : H →* ℂˣ) :
-    (∀ h, Commute ((X.specialAction m H h : (Mat (X.rank m))ˣ) : Mat (X.rank m))
-        (X.specialBoundary m)) ∧
-      IsIdempotentElem (characterIdempotent (X.specialAction m H) χ) ∧
-      Commute (characterIdempotent (X.specialAction m H) χ) (X.specialBoundary m) := by
-  sorry
 
 /-- The linear algebra of a ramified pullback `T = t^e`: the logarithm is
 multiplied by `e`, and the nilpotency index does not change. Left out: the
@@ -13970,12 +13889,6 @@ theorem ramifiedResidue {d : ℕ} (L : Mat d) (hL : IsNilpotent L)
   sorry
 
 /-! ## Normalized period degeneration -/
-
-/-- Borel's lemma: every local monodromy of an integral polarized variation
-is quasi-unipotent. -/
-theorem quasiUnipotentMonodromy {n m d : ℕ} (V : IntegralVariation n m d) (i : Fin n) :
-    ∃ e : ℕ, 0 < e ∧ IsNilpotent (V.monodromy i ^ e - 1) := by
-  sorry
 
 /-- The linear algebra of the coordinate power cover: commuting
 quasi-unipotent matrices have powers with commuting nilpotent logarithms, and
@@ -13994,7 +13907,7 @@ theorem unipotentNormalization {n d : ℕ} (T : Fin n → Mat d) (B : Mat d)
 /-- A nilpotent orbit in coordinates, entering a given set `D` of flags.
 Left out: that the generators are real (or rational) infinitesimal isometries
 of the polarization and that `D` is a period domain; statements that need
-this take `D = P.domain` for a `PolarizedDatum`. -/
+this need the native polarized-orbit interface in the supplier inventory. -/
 structure NilpotentOrbit (n d : ℕ) (D : Set (Flag d)) where
   L : Fin n → Mat d
   F : Flag d
@@ -14133,142 +14046,7 @@ example : (Submodule.span ℂ {(![Complex.I,1] : Vec 2)}).map
       Submodule.span ℂ {(![0,1] : Vec 2)} := by
   sorry
 
-/-- The untwisted map descends to a map of `q = exp(2πi z)` on the whole
-polydisc whose value at `q = 0` is the limiting flag. Left out: holomorphy of
-the extension, for which the compact dual needs its manifold structure, and
-the identification with the Hodge subbundles of the canonical extension. -/
-theorem untwistedExtension {n m d : ℕ} (V : UnipotentVariation n m d) :
-    ∃ Ψ : (Fin n → ℂ) → (Fin m → ℂ) → Flag d,
-      (∀ w, Ψ 0 w = V.limitFlag w) ∧
-      ∀ z w, (∀ i, 0 < (z i).im) → (∀ j, ‖w j‖ < 1) →
-        untwistedPeriodMap V.log (fun z => V.periodLift z w) z =
-          Ψ (fun i => Complex.exp ((2 * Real.pi : ℂ) * Complex.I * z i)) w := by
-  sorry
-
-/-- The limiting flags and the monodromy logarithms form nilpotent orbits in
-the period domain. Left out: the distance estimate between the orbit and the
-period lift, which needs the invariant distance requested from H.3, and the
-common depth on compact parameter sets. -/
-theorem nilpotentOrbitTheorem {n m d : ℕ} (V : UnipotentVariation n m d)
-    (w : Fin m → ℂ) (hw : ∀ j, ‖w j‖ < 1) :
-    ∃ O : NilpotentOrbit n d V.datum.domain, O.L = V.log ∧ O.F = V.limitFlag w := by
-  sorry
-
-/-- With trivial monodromy the limiting flag lies in the period domain. Left
-out: holomorphy and the descent through the finite quotient. -/
-theorem finiteMonodromyExtension {n m d : ℕ} (V : UnipotentVariation n m d)
-    (hL : ∀ i, V.log i = 0) (w : Fin m → ℂ) (hw : ∀ j, ‖w j‖ < 1) :
-    V.limitFlag w ∈ V.datum.domain := by
-  sorry
-
-/-! ## Weights, limits and simultaneous decompositions -/
-
-/-- The SL₂-orbit theorem with the base point normalized so that `g(∞) = 1`:
-an `sl₂`-triple `(H, L, N⁺)`, a flag `F'` fixed by `H` whose orbit under
-`exp(zL)` lies in the period domain on the whole upper half-plane, and a
-correction `g` tending to `1` at infinity. Left out: that the triple comes
-from a homomorphism of type `(0,0)`, reality of `g` on the imaginary axis, the
-eigenvalue bounds on the coefficients of `g`, and the rational form. -/
-theorem sl2OrbitTheorem {d : ℕ} (P : PolarizedDatum d) (O : NilpotentOrbit 1 d P.domain)
-    (hL : O.L 0 ≠ 0) :
-    ∃ (F' : Flag d) (H Nplus : Mat d) (g : ℂ → Mat d),
-      H * O.L 0 - O.L 0 * H = (2 : ℂ) • O.L 0 ∧
-      H * Nplus - Nplus * H = -((2 : ℂ) • Nplus) ∧
-      O.L 0 * Nplus - Nplus * O.L 0 = H ∧
-      (∀ p, (F' p).map (Matrix.toLin' H) ≤ F' p) ∧
-      (∀ p, (F' p).map (Matrix.toLin' (O.L 0)) ≤ F' (p - 1)) ∧
-      (∀ z : ℂ, 0 < z.im → act (NormedSpace.exp (z • O.L 0)) F' ∈ P.domain) ∧
-      Tendsto g (Filter.cocompact ℂ) (𝓝 1) ∧
-      ∃ R : ℝ, ∀ z : ℂ, R < ‖z‖ →
-        act (NormedSpace.exp (z • O.L 0)) O.F =
-          act (g z) (act (NormedSpace.exp (z • O.L 0)) F') := by
-  sorry
-
-/-- Opposedness in weight `k + r` of the filtrations induced on `gr^W_r` by a
-flag and its conjugate, written without quotients. -/
-private def GradedOpposed {d : ℕ} (k : ℤ) (F : Flag d) (W : ℤ → Submodule ℂ (Vec d)) : Prop :=
-  ∀ r p : ℤ,
-    (F p ⊓ W r) ⊔ (conjSub (F (k + r + 1 - p)) ⊓ W r) ⊔ W (r - 1) = W r ∧
-    (F p ⊓ W r) ⊓ ((conjSub (F (k + r + 1 - p)) ⊓ W r) ⊔ W (r - 1)) ≤ W (r - 1)
-
-/-- The limiting mixed Hodge structure of a one-variable orbit: the graded
-piece of centered index `r` is pure of weight `k + r`, and the logarithm
-lowers the weight filtration by two. Left out: the primitive polarization and
-the packaging as a native `MixedHodgeStructure`. -/
-theorem limitingMixedHodgeOneVariable {d : ℕ} (P : PolarizedDatum d)
-    (O : NilpotentOrbit 1 d P.domain) :
-    GradedOpposed P.weight O.F (monodromyFiltration (O.L 0)) ∧
-      ∀ ℓ, (monodromyFiltration (O.L 0) ℓ).map (Matrix.toLin' (O.L 0)) ≤
-        monodromyFiltration (O.L 0) (ℓ - 2) := by
-  sorry
-
-/-- The weight filtration of a positive combination of a set `J` of generators. -/
-private def faceFiltration {n d : ℕ} (L : Fin n → Mat d) (J : Finset (Fin n)) :
-    ℤ → Submodule ℂ (Vec d) :=
-  monodromyFiltration (∑ i ∈ J, L i)
-
-/-- Constancy of the weight filtration on each open face of the cone; every
-generator of the face lowers its filtration by two. Left out: the relative
-statement for `J ⊆ J'` (lowering by generators of `J'` and the graded
-isomorphisms on `gr^{W(J)}`), which needs the bigraded quotients. -/
-theorem nilpotentConeWeights {n d : ℕ} (P : PolarizedDatum d)
-    (O : NilpotentOrbit n d P.domain) (J : Finset (Fin n))
-    (a : Fin n → ℝ) (ha : ∀ i ∈ J, 0 < a i) :
-    monodromyFiltration (∑ i ∈ J, (a i : ℂ) • O.L i) = faceFiltration O.L J ∧
-      ∀ i ∈ J, ∀ ℓ, (faceFiltration O.L J ℓ).map (Matrix.toLin' (O.L i)) ≤
-        faceFiltration O.L J (ℓ - 2) := by
-  sorry
-
-/-- The limiting mixed Hodge structure for the full cone, with every generator
-of type `(−1,−1)` on the weight filtration. Left out as in the one-variable
-statement. -/
-theorem limitingMixedHodge {n d : ℕ} (P : PolarizedDatum d)
-    (O : NilpotentOrbit n d P.domain) :
-    GradedOpposed P.weight O.F (faceFiltration O.L Finset.univ) ∧
-      ∀ i ℓ, (faceFiltration O.L Finset.univ ℓ).map (Matrix.toLin' (O.L i)) ≤
-        faceFiltration O.L Finset.univ (ℓ - 2) := by
-  sorry
-
-/-- Stand-in: the Deligne bigrading `I^{p,q}` of the full-cone limiting mixed
-Hodge structure (the native `MixedHodgeStructure.deligneSplitting`, indexed by
-actual weights), in coordinates. -/
-def limitingBigrading {n d : ℕ} (P : PolarizedDatum d) (O : NilpotentOrbit n d P.domain) :
-    ℤ → ℤ → Submodule ℂ (Vec d) := sorry
-
-/-- Every generator lowers the Deligne bigrading by `(1,1)`. -/
-theorem logarithmsTypeMinusOne {n d : ℕ} (P : PolarizedDatum d)
-    (O : NilpotentOrbit n d P.domain) (i : Fin n) (p q : ℤ) :
-    (limitingBigrading P O p q).map (Matrix.toLin' (O.L i)) ≤
-      limitingBigrading P O (p - 1) (q - 1) := by
-  sorry
-
-/-- The initial faces `{1, …, j}` in the given order of the generators. -/
-private def initialFace {n : ℕ} (j : Fin n) : Finset (Fin n) := Finset.Iic j
-
-/-- The steps of the limiting flag and of the weight filtrations of the
-initial faces lie in a family of subspaces closed under sum and intersection
-on which intersection distributes over sum. -/
-theorem hodgeWeightDistributive {n d : ℕ} (P : PolarizedDatum d)
-    (O : NilpotentOrbit n d P.domain) :
-    ∃ T : Set (Submodule ℂ (Vec d)),
-      (∀ p, O.F p ∈ T) ∧ (∀ j ℓ, faceFiltration O.L (initialFace j) ℓ ∈ T) ∧
-      (∀ A ∈ T, ∀ B ∈ T, A ⊓ B ∈ T ∧ A ⊔ B ∈ T) ∧
-      ∀ A ∈ T, ∀ B ∈ T, ∀ C ∈ T, A ⊓ (B ⊔ C) = (A ⊓ B) ⊔ (A ⊓ C) := by
-  sorry
-
-/-- A complex splitting adapted to the limiting flag and to the weight
-filtrations of all initial faces, indexed by `(p, σ)` with centered `σ`. Left
-out: the separate rational splitting of the weight filtrations and the
-transport along parameters. -/
-theorem simultaneousSplittings {n d : ℕ} (P : PolarizedDatum d)
-    (O : NilpotentOrbit n d P.domain) :
-    ∃ I : (ℤ × (Fin n → ℤ)) → Submodule ℂ (Vec d),
-      DirectSum.IsInternal I ∧
-      (∀ r, O.F r = ⨆ a, ⨆ (_ : r ≤ a.1), I a) ∧
-      ∀ j r, faceFiltration O.L (initialFace j) r = ⨆ a, ⨆ (_ : a.2 j ≤ r), I a := by
-  sorry
-
-/-! ## Horizontal correction and Hodge norm estimates -/
+/-! ## Local exponential correction -/
 
 /-- The correction `exp(v(q))` of a coefficient `v` in the negative-Lie chart. -/
 def negativeLieCorrection {n d : ℕ} (v : (Fin n → ℂ) → Mat d)
@@ -14325,121 +14103,7 @@ example (t : ℂ) :
       Submodule.span ℂ {(![0,1] : Vec 2)} := by
   sorry
 
-/-- Horizontality of the corrected frame `exp(Σ z_i L_i) g(q)`, with the factor
-`2πi`, on a small polydisc, and the triangular expansion of the coefficient:
-`v = Σ q_i c_i` with `c_i` commuting with `L_j` for `j < i`. Left out: that
-`c_i` depends only on `q_i, …, q_n`, and holomorphy in the parameter. -/
-theorem horizontalCorrection {n m d : ℕ} (V : UnipotentVariation n m d)
-    (w : Fin m → ℂ) (hw : ∀ j, ‖w j‖ < 1) :
-    ∃ ρ : ℝ, 0 < ρ ∧
-      (∀ q : Fin n → ℂ, (∀ i, ‖q i‖ < ρ) → ∀ i p,
-        (V.limitFlag w p).map (Matrix.toLin'
-          ((negativeLieCorrection (fun q => V.correctionLog q w) q)⁻¹ * V.log i *
-              negativeLieCorrection (fun q => V.correctionLog q w) q +
-            ((2 * Real.pi : ℂ) * Complex.I * q i) •
-              ((negativeLieCorrection (fun q => V.correctionLog q w) q)⁻¹ *
-                deriv (fun t => negativeLieCorrection (fun q => V.correctionLog q w)
-                  (Function.update q i t)) (q i)))) ≤
-          V.limitFlag w (p - 1)) ∧
-      ∃ c : Fin n → (Fin n → ℂ) → Mat d,
-        (∀ q : Fin n → ℂ, (∀ i, ‖q i‖ < ρ) → V.correctionLog q w = ∑ i, q i • c i q) ∧
-        ∀ i j, j < i → ∀ q, Commute (V.log j) (c i q) := by
-  sorry
-
--- Private inline numerical comparison, not H.7 sector or rough-monomial objects.
-private def ordered {n : ℕ} (R Y : ℝ) (z : Fin n → ℂ) : Prop :=
-  (∀ i, |(z i).re| ≤ R ∧ Y ≤ (z i).im) ∧
-  ∀ i j, i ≤ j → (z j).im ≤ (z i).im
-private def weightMonomial {n : ℕ} (σ : Fin n → ℤ) (y : Fin n → ℝ) : ℝ :=
-  ∏ i : Fin n, (if h : i.val + 1 < n then y i / y ⟨i.val + 1, h⟩ else y i) ^ (σ i)
-private def weightedSum {n d k : ℕ} (σ : Fin k → Fin n → ℤ)
-    (pr : Fin k → (Vec d →ₗ[ℂ] Vec d)) (z : Fin n → ℂ) (u : Vec d) : ℝ :=
-  ∑ a, weightMonomial (σ a) (fun i => (z i).im) * ‖pr a u‖ ^ 2
-/-- A finite family of projections with centered multiweights `σ` splitting
-the weight filtrations of all initial faces. -/
-private def WeightSplitting {n d k : ℕ} (L : Fin n → Mat d) (σ : Fin k → Fin n → ℤ)
-    (pr : Fin k → (Vec d →ₗ[ℂ] Vec d)) : Prop :=
-  (∀ u, ∑ a, pr a u = u) ∧ (∀ a b u, pr a (pr b u) = if a = b then pr a u else 0) ∧
-  ∀ j ℓ, faceFiltration L (initialFace j) ℓ =
-    ⨆ a, ⨆ (_ : σ a j ≤ ℓ), LinearMap.range (pr a)
-
-/-- The flat squared-norm estimate for every splitting of the weight
-filtrations, at a fixed parameter. Left out: uniformity on compact parameter
-sets under Kashiwara's rank condition. -/
-theorem flatNormEstimate {n m d k : ℕ} (V : UnipotentVariation n m d)
-    (w : Fin m → ℂ) (hw : ∀ j, ‖w j‖ < 1)
-    (σ : Fin k → Fin n → ℤ) (pr : Fin k → (Vec d →ₗ[ℂ] Vec d))
-    (hpr : WeightSplitting V.log σ pr) (R : ℝ) (hR : 0 ≤ R) :
-    ∃ c C Y : ℝ, 0 < c ∧ 0 < C ∧ 0 < Y ∧
-      ∀ z, ordered R Y z → ∀ u,
-        c * weightedSum σ pr z u ≤ V.hodgeNormSq z w u ∧
-          V.hodgeNormSq z w u ≤ C * weightedSum σ pr z u := by
-  sorry
-
-/-- The same estimate for the transported vector `exp(Σ z_i L_i) u`. -/
-theorem movingNormEstimate {n m d k : ℕ} (V : UnipotentVariation n m d)
-    (w : Fin m → ℂ) (hw : ∀ j, ‖w j‖ < 1)
-    (σ : Fin k → Fin n → ℤ) (pr : Fin k → (Vec d →ₗ[ℂ] Vec d))
-    (hpr : WeightSplitting V.log σ pr) (R : ℝ) (hR : 0 ≤ R) :
-    ∃ c C Y : ℝ, 0 < c ∧ 0 < C ∧ 0 < Y ∧
-      ∀ z, ordered R Y z → ∀ u,
-        c * weightedSum σ pr z u ≤ V.hodgeNormSq z w ((twist V.log z).mulVec u) ∧
-          V.hodgeNormSq z w ((twist V.log z).mulVec u) ≤ C * weightedSum σ pr z u := by
-  sorry
-
-/-- The squared Hodge norm of a wedge in the exterior-power variation is the
-Gram determinant. `flatNormEstimate` and `movingNormEstimate` apply to
-`V.exteriorPower r`. Left out: that the multiweight of a wedge of split vectors
-is the sum of their multiweights. -/
-theorem exteriorPowerEstimates {n m d : ℕ} (V : UnipotentVariation n m d) (r : ℕ)
-    (z : Fin n → ℂ) (w : Fin m → ℂ) (u : Fin r → Vec d) :
-    (V.exteriorPower r).hodgeNormSq z w (exteriorCoordinates d r u) =
-      (Matrix.det (Matrix.of fun i j => V.hodgeInner z w (u i) (u j))).re := by
-  sorry
-
-/-- After a depth threshold the corrected frame and the orbit frame give
-comparable squared norms. -/
-theorem perturbedNormComparison {n m d : ℕ} (V : UnipotentVariation n m d)
-    (w : Fin m → ℂ) (hw : ∀ j, ‖w j‖ < 1) (R : ℝ) (hR : 0 ≤ R) :
-    ∃ c C Y : ℝ, 0 < c ∧ 0 < C ∧ 0 < Y ∧
-      ∀ z, ordered R Y z → ∀ u,
-        c * V.hodgeNormSq z w ((twist V.log z).mulVec u) ≤
-          V.hodgeNormSq z w
-            ((negativeLieCorrection.gamma V.log (fun q => V.correctionLog q w) z).mulVec u) ∧
-        V.hodgeNormSq z w
-            ((negativeLieCorrection.gamma V.log (fun q => V.correctionLog q w) z).mulVec u) ≤
-          C * V.hodgeNormSq z w ((twist V.log z).mulVec u) := by
-  sorry
-
-/-! ## One-variable arithmetic containment -/
-
-/-- The factors of a one-variable period lift and their limits: `t` is
-asymptotic to `exp(−½ log y · H)` and the other factors converge. Left out:
-that the factors lie in the unipotent radical, the split torus and the
-anisotropic part of a rational parabolic and in the maximal compact, and
-uniformity in `x`. -/
-theorem oneVariableSL2 {d : ℕ} (V : UnipotentVariation 1 0 d) (hL : V.log 0 ≠ 0) :
-    ∃ (o : Flag d) (H : Mat d) (Y₀ : ℝ) (r t mm k : ℝ → ℝ → Mat d),
-      o ∈ V.datum.domain ∧ 0 < Y₀ ∧
-      (∀ x y : ℝ, Y₀ < y →
-        V.periodLift (fun _ => (x : ℂ) + (y : ℂ) * Complex.I) (fun j => Fin.elim0 j) =
-          act (r x y * t x y * mm x y * k x y) o) ∧
-      ∀ x : ℝ,
-        Tendsto (fun y => NormedSpace.exp (((Real.log y / 2 : ℝ) : ℂ) • H) * t x y)
-          atTop (𝓝 1) ∧
-        Tendsto (fun y => mm x y) atTop (𝓝 1) ∧ Tendsto (fun y => k x y) atTop (𝓝 1) ∧
-        ∃ r₀ : Mat d, Tendsto (fun y => r x y) atTop (𝓝 r₀) := by
-  sorry
-
-/-- The consumer form: a strip of bounded width and height bounded below maps
-into finitely many Siegel sets for the canonical maximal compact. This is the
-statement whose proof is gap G5 of the specification. -/
-theorem oneVariableSiegel {d : ℕ} (V : UnipotentVariation 1 0 d)
-    (C η : ℝ) (hC : 0 < C) (hη : 0 < η) :
-    ∃ S : Set (Set (Flag d)), S ⊆ V.datum.siegelSets ∧ S.Finite ∧
-      ∀ z : ℂ, |z.re| ≤ C → η ≤ z.im →
-        V.periodLift (fun _ => z) (fun j => Fin.elim0 j) ∈ ⋃₀ S := by
-  sorry
+/-! ## Rational slope linear algebra -/
 
 /-- Clearing the denominators of rational slopes: the combined logarithm of
 the curve is a positive integer multiple of the combination with the slopes.
