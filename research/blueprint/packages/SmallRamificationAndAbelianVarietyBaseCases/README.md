@@ -1,4 +1,4 @@
-# Small ramification and the base cases for Serre modularity
+# Roadmap: small ramification and the base cases for Serre modularity
 
 This roadmap develops the arithmetic results that terminate the level-one
 arguments for Serre modularity. Its first tools turn a small local different
@@ -22,18 +22,45 @@ reciprocity, ramification filtrations, abelian schemes and Néron models are als
 imported. Here we specialise their theorems, carry out the small arithmetic
 calculations, and assemble the contradictions.
 
-There are six layers:
+## Scope and ownership
 
-| Layer | Mathematical output |
-| --- | --- |
-| R25.1 | Normalised local differents, sharp bounds at 2 and 3, and unconditional discriminant certificates |
-| R25.2 | Tate's characteristic-two theorem and Serre's characteristic-three theorem |
-| R25.3 | Fontaine's theorem: an abelian variety over ℚ with good reduction everywhere has dimension zero |
-| R25.4 | Schoof's theorem for a semistable abelian variety with good reduction away from 2, 3, 5, 7 or 13 |
-| R25.5 | GL₂-type realisation, local transition checks, and the terminal characteristic and weight arguments |
-| R25.6 | The base-case table and the theorem asserting its rows |
+The new work is the local representation-specific different bounds, the
+explicit discriminant inequalities and certificates, the finite-flat
+classification and filtration arguments, and the terminal applications. The
+existence of an abelian-variety structure alone does not provide integral
+models, the Néron–Ogg–Shafarevich criterion, a Tate-module endomorphism theorem,
+or independence of the auxiliary prime. Similarly, the definition of a unit
+filtration alone does not provide its image under reciprocity.
 
-## Conventions and interfaces
+General local invariants belong to LocalFieldsRamification. Its native
+interfaces include `TauCeti.differentExponent`, `TauCeti.ramificationIndex`,
+`TauCeti.LocalFieldsRamification.lowerRamificationGroup` and
+`TauCeti.differentExponent_le_ramificationIndex_sub_one_add_natCastValuation`.
+They use compatible local-field valuations and give the general different
+estimate $d\le e-1+v_E(e)$. These are the native supplier interfaces in the current library. At the older signature baseline, the
+local targets are specified in the closing comment of Suggested.lean until
+these imports and their valuation comparisons are available.
+
+### Prerequisites and boundaries
+
+The dyadic square threshold, its sharpness and its critical Artin–Schreier
+obstruction are supplied by current Tau Ceti
+`NumberTheory/LocalField/Squares.lean`: `unitFiltration_le_range_powMonoidHom_two`,
+`not_unitFiltration_le_range_powMonoidHom_two` and
+`unitFiltration_le_range_powMonoidHom_two_iff`. LocalFieldsRamification Layer 1
+also fixes the square-class count. For an unramified dyadic field the threshold
+is three and the critical residue map is `a ↦ a²+a`, with cokernel of size two.
+These are inputs to the two-adic different estimate, not targets here. The
+cubic power maps below specialise the residue-characteristic-three case.
+The current local definitions are used with `[ValuativeExtension K E]` and
+finite extension hypotheses; a field type alone does not specify a valuation.
+
+The class-number-one calculation for $\mathbb Q(\sqrt{-3})=\mathbb Q(\zeta_3)$
+is Mathlib's `IsCyclotomicExtension.Rat.three_pid`, converted by
+`NumberField.classNumber_eq_one_iff`. The new quadratic certificate below
+covers the other six primes needed by the dihedral argument.
+
+## Conventions
 
 Throughout, $p$ and $\ell$ denote rational primes; when both occur in a
 finite-flat argument, $p\ne\ell$. A residual coefficient field is finite and
@@ -65,8 +92,7 @@ rank. A simple object is nonzero and has no proper nonzero closed flat
 subgroup. In an extension written $0\to H\to G\to Q\to0$, the Ext group is
 $\operatorname{Ext}^1(Q,H)$. In particular,
 $\operatorname{Ext}^1(\mu_p,\mathbb Z/p\mathbb Z)$ concerns a *constant
-subobject* and a *multiplicative quotient*. Keeping this direction fixed is
-essential to the reordering argument.
+subobject* and a *multiplicative quotient*. For p=2 the statement splits $0\to\mathbb Z/2\mathbb Z\to G\to\mu_2\to0$, yielding constant subobject and multiplicative quotient. The converse ordering is a different Ext group.
 
 An abelian variety is defined over the number field indicated in its notation;
 endomorphisms used for GL₂-type are defined over that same field. An abelian
@@ -83,14 +109,14 @@ It does not mean the smallest weight among cyclotomic twists. A statement
 about that smallest weight says so explicitly. This distinction is particularly
 important at $(p,k)=(11,14)$.
 
-The proposed declaration namespace is `TauCeti.SmallRamification`.
+The proposed declaration namespace is `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases`.
 [Suggested.lean](Suggested.lean) records the definitions, theorem signatures,
 API lemmas and test statements that can be expressed with the available
-interfaces. Its header specifies the signatures requiring a future supplier
+interfaces. Its closing comment specifies the signatures requiring a future supplier
 interface; these remain mathematical statements here. An unimplemented
 condition such as crystallinity is never replaced by a vacuous proposition.
 
-## Library starting point and neighbouring roadmaps
+## Exact supplier contracts
 
 The mathematical baseline is Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
@@ -102,39 +128,21 @@ Tau Ceti supplies finite locally free commutative affine group schemes, Cartier
 duality, abelian varieties, unit filtrations, some different estimates, and the
 positive-definite Fourier tools. These objects are used directly.
 
-General local invariants belong to LocalFieldsRamification. Its native
-interfaces include `TauCeti.differentExponent`, `TauCeti.ramificationIndex`,
-`TauCeti.LocalFieldsRamification.lowerRamificationGroup` and
-`TauCeti.differentExponent_le_ramificationIndex_sub_one_add_natCastValuation`.
-They use compatible local-field valuations and give the general different
-estimate $d\le e-1+v_E(e)$. These supplier interfaces replace the local-data
-stand-ins in the pinned prototype as its baseline advances; they are not
-targets to develop again here.
-
-The new work is the local representation-specific different bounds, the
-explicit discriminant inequalities and certificates, the finite-flat
-classification and filtration arguments, and the terminal applications. The
-existence of an abelian-variety structure alone does not provide integral
-models, the Néron–Ogg–Shafarevich criterion, a Tate-module endomorphism theorem,
-or independence of the auxiliary prime. Similarly, the definition of a unit
-filtration alone does not provide its image under reciprocity.
-
-The interfaces needed from neighbouring roadmaps are as follows. Stage IDs
-identify the owner of the general result, and each description states the
-part used here.
+The interfaces needed from neighbouring roadmaps are as follows. Each named layer identifies the owner of the general result and the part
+used here.
 
 | Owner | Required interface and use |
 | --- | --- |
-| `ArithmeticGaloisRepresentations:R01.1` | Finite coefficient descent and absolute irreducibility under scalar extension; used in R25.2 |
+| `ArithmeticGaloisRepresentations:R01.1` | Finite coefficient descent and absolute irreducibility under scalar extension; used in Layer 2 |
 | `ArithmeticGaloisRepresentations:R01.2` | Decomposition groups, inertia, kernel fields and their ramification; used to connect representations to completions |
-| `ArithmeticGaloisRepresentations:R01.4` | Dickson classification, normal p-subgroup fixed vectors, and the cyclotomic restriction criterion; used in R25.1, R25.2 and R25.5 |
+| `ArithmeticGaloisRepresentations:R01.4` | Dickson classification, normal p-subgroup fixed vectors, and the cyclotomic restriction criterion; used in Layer 1, Layer 2 and Layer 5 |
 | `ArithmeticGaloisRepresentations:R01.6` | Rational and λ-adic Tate modules with restriction and scalar extension; used in realisation |
-| `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-1-units-the-filtration-and-the-multiplicative-group` | Completeness and deep-unit power maps or logarithms, with compatible valuation normalisations |
-| `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration` | Different formula, upper and lower ramification, Herbrand's theorem and Hasse–Arf |
-| `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group` | Tame inertia and Frobenius conjugation; used for prime-to-p characters |
-| `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors` | Local Artin reciprocity on unit filtrations and equivariance under field automorphisms |
-| `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields` | Hilbert and ray class fields, Kronecker–Weber and conductor–discriminant calculations, using the class-field correspondence of upstream L12 |
-| `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places` | Localisation of the different, completions and decomposition degrees |
+| `TauCetiRoadmap.LocalFieldsRamification`, Layer 1 | Completeness and deep-unit power maps or logarithms, with compatible valuation normalisations |
+| `TauCetiRoadmap.LocalFieldsRamification`, Layer 3 | Different formula, upper and lower ramification, Herbrand's theorem and Hasse–Arf |
+| `TauCetiRoadmap.LocalFieldsRamification`, Layer 4 | Tame inertia and Frobenius conjugation; used for prime-to-p characters |
+| `TauCetiRoadmap.ClassFieldTheory`, Layer 7 | Local Artin reciprocity on unit filtrations and equivariance under field automorphisms |
+| `TauCetiRoadmap.ClassFieldTheory`, Layer 13 | Hilbert and ray class fields, Kronecker–Weber and conductor–discriminant calculations, using the class-field correspondence of upstream L12 |
+| `TauCetiRoadmap.NumberFieldArithmetic`, Layer 5 | Localisation of the different, completions and decomposition degrees |
 | `Tau Ceti NumberFieldArithmetic, Layer 6` | Compatibility of local ramification with global inertia |
 | `AnalyticNumberTheory:AN.4` | The completed Dedekind-zeta explicit formula for admissible even test functions, including its zero, prime and pole terms; it uses AN.3 |
 | `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.1` | Flat closure and quotient, Oort–Tate order-p classification, étale Galois modules, gluing of Hom and Ext, Cartier duality and Katz–Mazur extensions |
@@ -146,7 +154,7 @@ part used here.
 | `NeronModelsAndSemistableAbelianVarieties:R11.3` | Grothendieck's monodromy criterion and $(\sigma-1)^2=0$ for semistable torsion |
 | `NeronModelsAndSemistableAbelianVarieties:R11.5` | λ-independent Weil–Deligne parameters and the good, semistable and multiplicative reduction criteria, including p-adic comparison |
 | `ClassicalArithmeticCompletion:CA.5/class-group-generated-by-small-primes` | Class groups generated by prime ideals within the Minkowski bound |
-| `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory` | Kummer cohomology, S-units, class groups and the exact local-to-global Ext sequence |
+| `TauCetiRoadmap.ProfiniteCohomology`, Layer 9 | Kummer cohomology, S-units, class groups and the exact local-to-global Ext sequence |
 | `PotentialModularityAndCompatibleSystems:R23.4` | Potential modularity over a totally real Galois extension disjoint from a prescribed residual field |
 | `PotentialModularityAndCompatibleSystems:R24.3` | Minimal crystalline lifts and weight-two Steinberg lifts with specified ramification |
 | `PotentialModularityAndCompatibleSystems:R24.5` | Almost strictly compatible systems containing the lift and the local compatibility needed at auxiliary primes |
@@ -163,18 +171,51 @@ particular, the geometric arguments use the stated parts of R11 and R28;
 they do not require the entire finiteness theory or a general classification
 of Néron-model component groups.
 
-## R25.1 — Local and global discriminant bounds
+### Further Mathlib and Tau Ceti contracts
 
-The layer separates three tasks: normalising local ramification, proving the
+Several general declarations occur at multiple transitions.
+They are listed here to make their precise role explicit.
+All are existing baseline tools, not further targets.
+
+| Declaration | Role |
+| --- | --- |
+| `AlgebraicClosure` | Scalar extension in absolute irreducibility and the ambient field for kernel and torsion fields |
+| `Ideal.isUnramifiedAt_iff_inertia_eq_bot` | Converts unramifiedness of an ideal in a Galois extension to trivial inertia |
+| `NumberField.finrank_eq_one_of_unramified` | The number-field degree-one conclusion for an extension unramified at all finite places |
+| `TauCeti.bochner` | Identifies a continuous positive-definite function with the Fourier transform of a finite positive measure; compatible with the Lorentzian argument |
+| `TauCeti.RootsOfUnityGroup.groupScheme` | The group-scheme model μp |
+| `TauCeti.DiagonalizableGroup.groupScheme` | Diagonalizable finite groups occurring in the reordered filtration |
+| `TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor` | Base change to ℤ[1/ℓ,ζℓ] in the cyclotomic splitting theorem |
+| `Real.pi_gt_d6`, `Real.pi_lt_d6` | Finer rational π enclosures for the degree certificates and the small-discriminant calculations |
+
+The group-scheme base-change functor is a functor on the existing
+finite locally free category. The exactness and point-action
+compatibilities needed by this roadmap are part of R07.1;
+existence of the functor alone is not an exactness theorem.
+Likewise, the library's different ideal and divisibility
+estimates provide the algebraic foundation, while the full
+ramification filtration and reciprocity comparison remain
+local-fields and class-field-theory inputs.
+
+## How to read the build
+
+The six layers first establish the local and global discriminant estimates,
+then the Tate–Serre exclusions, Fontaine’s integral filtration argument, and
+Schoof’s five-prime calculation. The fifth layer brings abelian varieties
+back to weight-two and terminal residual representations. The last layer
+records the precise domains of these independent base cases for their consumers.
+
+## Layer 1: Local and global discriminant bounds
+
+This layer separates three tasks: normalising local ramification, proving the
 two small-characteristic estimates, and obtaining lower bounds for number
 fields. The first two feed Tate–Serre directly. The analytic part is needed
 for the characteristic-three case and for the larger auxiliary fields in
 Schoof's argument.
 
-### Normalised local differents
+### 1.1 Normalised local differents
 
-The target `R25.1/local-root-discriminant-exponent` defines
-`localRootDiscrExp p E` as $d(E)/e(E)$, a rational number. Its purpose is to
+Define `localRootDiscrExp p E` as $d(E)/e(E)$, a rational number. Its purpose is to
 measure the exponent of p in a global root discriminant. It must therefore
 keep the local ramification index separate from the total extension degree.
 The baseline declarations are `Padic`, `differentIdeal`,
@@ -182,19 +223,17 @@ The baseline declarations are `Padic`, `differentIdeal`,
 `TauCeti.not_pow_ramificationIdx_dvd_differentIdeal`; the full tower and
 ramification formulas come from local-fields upstream L3.
 
-The user-facing API has the following statements, with finite-extension and
+The API has the following statements, with finite-extension and
 compatible-valuation hypotheses throughout:
 
-| Proposed declaration | Statement and use |
-| --- | --- |
-| `localRootDiscrExp` | Constructor $d(E)/e(E)$ |
-| `localRootDiscrExp_eq_discriminantExponent_div` | Equality with $v_p(\operatorname{disc}(E))/[E:\mathbb Q_p]$, used in globalisation |
-| `localRootDiscrExp_eq_sum_upper` | For Galois E, the sum over upper jumps u of $(\vert G^{u+}\vert ^{-1}-\vert G^u\vert ^{-1})(u+1)$, used in the wild bounds |
-| `localRootDiscrExp_eq_zero_iff` | Vanishing is equivalent to being unramified |
-| `localRootDiscrExp_of_tame` | If p does not divide e, the value is $1-1/e$ |
-| `localRootDiscrExp_of_isUnramified` | An unramified extension $E'/E$ preserves the exponent |
-| `localRootDiscrExp_congr` | A base-preserving valued field isomorphism preserves it |
-| `localRootDiscrExp_tower` | For $\mathbb Q_p\subseteq E\subseteq E'$, the value is $\delta(E)+d(E'/E)/e(E'/\mathbb Q_p)$; hence it increases in a tower |
+- `localRootDiscrExp`: Constructor $d(E)/e(E)$.
+- `localRootDiscrExp_eq_discriminantExponent_div`: Equality with $v_p(\operatorname{disc}(E))/[E:\mathbb Q_p]$, used in globalisation.
+- `localRootDiscrExp_eq_sum_upper`: For Galois E, the sum over upper jumps u of $(\vert G^{u+}\vert ^{-1}-\vert G^u\vert ^{-1})(u+1)$, used in the wild bounds.
+- `localRootDiscrExp_eq_zero_iff`: Vanishing is equivalent to being unramified.
+- `localRootDiscrExp_of_tame`: If p does not divide e, the value is $1-1/e$.
+- `localRootDiscrExp_of_isUnramified`: An unramified extension $E'/E$ preserves the exponent.
+- `localRootDiscrExp_congr`: A base-preserving valued field isomorphism preserves it.
+- `localRootDiscrExp_tower`: For $\mathbb Q_p\subseteq E\subseteq E'$, the value is $\delta(E)+d(E'/E)/e(E'/\mathbb Q_p)$; hence it increases in a tower.
 
 The jump sum uses right limits at a break and includes the tame break at zero.
 It follows from the different formula by grouping the lower-index terms with
@@ -202,20 +241,15 @@ Herbrand's function. For a tame extension the single contribution is
 $1-1/e$, providing an immediate convention check. Jones, §1.1, equations
 (1) and (3), pp. 2–3, calls this quantity a mean slope.
 
-Five tests establish the normalisation. For $\mathbb Q_2(i)$ the value is 1;
-for $\mathbb Q_2(\sqrt2)$ it is $3/2$. More decisively,
-$\mathbb Q_2(\zeta_{12})$ has $e=f=2$, different exponent 2 and
-discriminant exponent 4, so its value is 1. Dividing the different exponent
-by the degree would instead give $1/2$, while dividing the discriminant
-exponent by e would give 2. For
-$\mathbb Q_3(\zeta_3,\sqrt[3]3)$, the degree is 6 and discriminant exponent
-11, giving $11/6$. Finally, the base field and an unramified quadratic
-extension both have value zero. The proposed test names are
-`localRootDiscrExp_two_adic_i`, `localRootDiscrExp_two_adic_sqrt_two`,
-`localRootDiscrExp_two_adic_zeta_twelve`,
-`localRootDiscrExp_three_adic_pure_cubic` and `localRootDiscrExp_self`.
+**Checks.**
 
-The next target, `R25.1/root-discriminant-of-galois-field`, proves that a
+- `localRootDiscrExp_two_adic_i`: $\delta(\mathbb Q_2(i))=1$.
+- `localRootDiscrExp_two_adic_sqrt_two`: $\delta(\mathbb Q_2(\sqrt2))=3/2$, separating the normalised exponent from the integer different exponent three.
+- `localRootDiscrExp_two_adic_zeta_twelve`: $e=f=2$, $d=2$, discriminant exponent four, and $\delta=1$. Dividing d by the degree gives the wrong value $1/2$; dividing the discriminant exponent by e gives two.
+- `localRootDiscrExp_three_adic_pure_cubic`: the splitting field of $X^3-3$ over $\mathbb Q_3$ has degree six and different exponent eleven, giving $11/6$.
+- `localRootDiscrExp_self`: the base field and its unramified quadratic extension both give zero; a formula with an added tame constant fails here.
+
+The local-to-global theorem, `rootDiscr_eq_prod_rpow_localRootDiscrExp`, proves that a
 Galois number field K satisfies
 
 $$
@@ -235,9 +269,9 @@ $\mathbb Q(\sqrt{-3})$, with root discriminant $\sqrt3$, and the real
 cubic subfield of $\mathbb Q(\zeta_9)$, with discriminant 81 and exponent
 $4/3$. See Jones, §3.1, p. 9, and Moon–Taguchi, §3, pp. 6–7.
 
-### Inertia and power maps on units
+### 1.2 Inertia and power maps on units
 
-`R25.1/prime-to-p-character-inertia` concerns a finite abelian quotient of a
+`orderOf_map_inertia_dvd_card_residueField_sub_one` concerns a finite abelian quotient of a
 local Galois group whose order is prime to p. If the residue field has q
 elements, its inertia is cyclic of order dividing $q-1$. Wild inertia is
 killed because it is a p-group (`IsPGroup`), while the tame relation
@@ -248,7 +282,7 @@ must be that of the base field, not of an arbitrary unramified enlargement.
 Local-fields upstream L4 supplies the tame relation. See Moon–Taguchi, §2,
 after (2.1), p. 2, and Jones, §2.3, p. 9.
 
-`R25.1/wild-image-borel-normal-form` places a faithful finite local image
+`exists_upperTriangular_of_wildInertia_ne_bot` places a faithful finite local image
 $D\subseteq\mathrm{GL}_2(\overline{\mathbb F}_p)$ in upper-triangular form
 when its wild inertia $P$ is nontrivial. A nontrivial unipotent element
 has a unique fixed line; normality of P makes that line D-stable. On this
@@ -264,13 +298,10 @@ does not assert that the *global* irreducible image is triangular. See
 Moon–Taguchi, §2, p. 2 and the proof of Lemma 1, p. 3; the same fixed-line
 argument works in either characteristic.
 
-`R25.1/unit-filtration-power-maps` provides the precise local calculations
-used after reciprocity. Write $U^i=1+\mathfrak m^i$ for a local field with
-surjective integral valuation. For an unramified extension of $\mathbb Q_2$,
-$U^3\subseteq(U^1)^2$, and the image of $U^2$ modulo squares has order
-at most two. At the critical step, squaring induces the Artin–Schreier map
-$a\mapsto a^2+a$ on the finite residue field, whose cokernel has size two.
-For an unramified extension of $\mathbb Q_3$,
+`unitFiltration_two_le_map_pow_three` and
+`unitFiltration_pow_three_of_ramificationIndex_eq_two` provide the precise local calculations
+used after reciprocity in residue characteristic three. Write $U^i=1+\mathfrak m^i$ for a local field with
+surjective integral valuation. For an unramified extension of $\mathbb Q_3$,
 $U^2\subseteq(U^1)^3$. For absolute ramification index two in residue
 characteristic three, $(U^1)^3\subseteq U^3$,
 $U^4\subseteq(U^1)^3$, and
@@ -289,9 +320,9 @@ Ch. I, (5.7), pp. 14–15, and (5.8), Corollary 2, p. 16. The starting
 declaration is `TauCeti.unitFiltration`; the completeness and valuation
 interfaces belong to local-fields upstream L1.
 
-### Sharp bounds in characteristics two and three
+### 1.3 Sharp bounds in characteristics two and three
 
-`R25.1/two-adic-different-bound` proves $\delta(E)\le2$ for a finite Galois
+`localRootDiscrExp_le_two_of_char_two` proves $\delta(E)\le2$ for a finite Galois
 extension $E/\mathbb Q_2$ whose group embeds faithfully in
 $\mathrm{GL}_2(\overline{\mathbb F}_2)$. If its wild inertia has order at
 most two, the sharper bound is $\delta(E)\le3/2$. These hypotheses concern
@@ -316,7 +347,7 @@ If $\vert P\vert \le2$, the same calculation gives $\delta\le3/2$.
 The extension $\mathbb Q_2(\zeta_8)$ reaches 2, with character conductors
 0, 2, 3 and 3, so replacing the bound by a strict inequality would fail.
 
-The inputs are the preceding four local targets, local Artin reciprocity
+The inputs are the local normalisation, Borel and cubic-power results, together with the dyadic supplier contract, local Artin reciprocity
 including equivariance, and R01.4. Moon–Taguchi, Lemma 3 and its proof,
 §2, pp. 4–5, supply the unit-character computation and nonabelian branch.
 Their statement has an unramified quadratic *base*; the abelian branch here
@@ -324,7 +355,7 @@ instead uses the units of $\mathbb Q_2$. Jones, §2.3, pp. 8–9, records
 Tate's original estimate $5/2-2/\vert P\vert $, which is weaker than the sharp bound
 proved here. Attribution to Tate does not substitute for the two new branches.
 
-`R25.1/three-adic-different-bound` proves
+`localRootDiscrExp_le_of_char_three` proves
 
 $$
 \delta(E)\le\frac{13}{6}-\frac1{|P|}
@@ -356,9 +387,13 @@ general. The two-sign argument supplies the stronger estimate required
 here. Dieulefait–Pacetti, Theorem 1.1, §1.1, p. 3, states the application
 to Serre's characteristic-three base case.
 
-### Minkowski thresholds
+For the diagonal-ratio convention, take s=diag(−1,1) and
+u=(1,1;0,1) over 𝔽₃. Then s u s⁻¹=(1,−1;0,1): the upper-right
+entry is multiplied by ψ₁/ψ₂=−1. This fixes the conjugation direction.
 
-`R25.1/minkowski-root-discriminant-thresholds` proves, for every number field,
+### 1.4 Minkowski thresholds
+
+`two_lt_rootDiscr` proves, for every number field,
 
 $$
 n\ge3\Rightarrow\operatorname{rd}>2,\qquad
@@ -379,9 +414,9 @@ The precise library inputs are `NumberField.rootDiscr_def`,
 `Real.pi_gt_d2` and `Real.pi_lt_d2`. See Odlyzko, §1, p. 119, and
 Ghitza–Yamauchi, Proposition 3.2, §3, p. 7, for this use of Minkowski.
 
-### The compactly supported kernel
+### 1.5 The compactly supported kernel
 
-`R25.1/odlyzko-kernel` defines the real even function
+`odlyzkoKernel` defines the real even function
 
 $$
 g(x)=
@@ -411,19 +446,18 @@ support and regularity lemmas, and the two positivity properties needed by
 the explicit formula. They use `Real.cos`, `Real.sin`,
 `MeasureTheory.convolution` and `TauCeti.IsPositiveDefiniteSub`.
 
-Tests assert $g(0)=1$, $g(1/2)=1/\pi$, $g(-1/2)=1/\pi$,
-$g(1)=g(2)=0$, $g(3/4)>0$, and the half-line integral $4/\pi^2$.
-Their names are `odlyzkoKernel_zero`, `odlyzkoKernel_half`,
-`odlyzkoKernel_neg_half`, `odlyzkoKernel_one`,
-`odlyzkoKernel_three_quarters_pos` and `integral_odlyzkoKernel_Ioi`.
-The negative half-point detects an incorrectly signed sine argument; the
-three-quarter point detects omission of the sine term; the integral detects
-omission of its $1/\pi$ factor. These tests are needed because the
-explicit-formula constants depend on all three choices.
+**Checks.**
 
-### Positivity throughout the critical strip
+- `odlyzkoKernel_zero`: $g(0)=1$ fixes the normalisation.
+- `odlyzkoKernel_half`: $g(1/2)=1/\pi$ detects the coefficient of the sine term.
+- `odlyzkoKernel_neg_half`: $g(-1/2)=1/\pi$ rejects a signed sine argument without absolute value.
+- `odlyzkoKernel_one`: $g(1)=g(2)=0$ checks the boundary and the exterior support.
+- `odlyzkoKernel_three_quarters_pos`: $g(3/4)>0$ rejects the truncated cosine without its sine correction.
+- `integral_odlyzkoKernel_Ioi`: the positive-half-line integral is $4/\pi^2$, rejecting omission of the $1/\pi$ factor.
 
-`R25.1/cosh-ratio-positive-definite` establishes that
+### 1.6 Positivity throughout the critical strip
+
+`isPositiveDefiniteSub_cosh_div_cosh` establishes that
 $k_a(x)=\cosh(ax)/\cosh(x/2)$ is positive definite for $\vert a\vert \le1/2$.
 Euler's sine product gives the hyperbolic-cosine product and expresses this
 ratio as the pointwise limit of finite products of
@@ -446,7 +480,7 @@ Use `Complex.tendsto_euler_sin_prod`, `Real.cosh`,
 `TauCeti.IsPositiveDefiniteSub.real_smul`,
 `TauCeti.IsPositiveDefiniteSub.prod` and `TauCeti.IsPositiveDefiniteSub.of_tendsto`,
 and `TauCeti.integral_exp_mul_I_mul_exp_neg_mul_abs`.
-`R25.1/poitou-kernel-positivity` then assumes an even, continuous,
+`re_poitouTransform_nonneg` then assumes an even, continuous,
 compactly supported, nonnegative positive-definite function f and puts
 $F(x)=f(x)/\cosh(x/2)$. Its transform
 
@@ -468,7 +502,7 @@ invalid: a sufficiently wide dilation of g has negative transform real part
 at some points on the strip boundary. The full strip statement is the
 interface used in the next theorem.
 
-### Poitou's explicit lower bound
+### 1.7 Poitou's explicit lower bound
 
 For $b>0$, set $F_b(x)=g(x/b)/\cosh(x/2)$ and define
 
@@ -477,7 +511,15 @@ I_1(b)=\int_0^\infty\frac{1-F_b(x)}{2\sinh(x/2)}\,dx,\qquad
 I_2(b)=\int_0^\infty\frac{1-F_b(x)}{2\cosh(x/2)}\,dx.
 $$
 
-`R25.1/poitou-lower-bound` defines
+The auxiliary definition `poitouTestFunction` has its own scale checks.
+
+**Checks.**
+
+- For $b>0$, $F_b(0)=1$ fixes the normalisation.
+- $F_b(b)=F_b(2b)=0$ fixes the scaled boundary and exterior support.
+- $F_b(b/2)=1/(\pi\cosh(b/4))$ detects either a missing cosh denominator or an incorrectly scaled sine term.
+
+`poitouLowerBound` defines
 
 $$
 P(n,r_1,b)=\frac{r_1\pi}{2}+n(\gamma+\log(8\pi))
@@ -501,19 +543,15 @@ on n after division. The explicit and tail equalities are what make the
 definition usable by a rational certificate computation. Baseline inputs
 include `Real.eulerMascheroniConstant`, `Real.cosh` and `Real.sinh`.
 
-The tests `poitouLowerBound_rat_nonpos`,
-`poitouLowerBound_sqrt_neg_three`, `poitouLowerBound_sqrt_five`,
-`poitouLowerBound_div_mono` and `poitouLowerBound_one_one_one_bounds`
-assert respectively: $P(1,1,b)\le0$ for $b=1/2,1,2$;
-$P(2,0,1)\le\log3$; $P(2,2,3/2)\le\log5$; monotonicity and the
-limit $\gamma+\log(8\pi)-I_1(b)$ as $n\to\infty$; and
-$-0.09<P(1,1,1)<-0.08$. The last two-sided test detects an incorrect
-$\log(4\pi)$ or a missing real-place contribution that one-sided
-discriminant tests would miss. The quadratic tests also distinguish the
-real and complex signature terms. At fixed b the limit lies below
-$\log(4\pi e^\gamma)$, the unconditional asymptotic constant.
+**Checks.**
 
-`R25.1/poitou-integral-upper-bounds` is a separate certificate lemma:
+- `poitouLowerBound_rat_nonpos`: $P(1,1,b)\le0$ for $b=1/2,1,2$, as the rational field has discriminant one.
+- `poitouLowerBound_sqrt_neg_three`: $P(2,0,1)\le\log3$ checks the totally complex quadratic signature.
+- `poitouLowerBound_sqrt_five`: $P(2,2,3/2)\le\log5$ checks the real quadratic signature.
+- `poitouLowerBound_div_mono`: for $b>0$ and positive degrees the normalised bound increases with degree, with limit $\gamma+\log(8\pi)-I_1(b)<\log(4\pi e^\gamma)$. The negative pole term has the direction required for this inequality; degree zero is excluded.
+- `poitouLowerBound_one_one_one_bounds`: $-0.09<P(1,1,1)<-0.08$. This two-sided value detects $\log(4\pi)$ in place of $\log(8\pi)$, a missing real-place contribution or a wrong pole sign.
+
+`poitouIntegral_sinh_lt` is a separate certificate lemma:
 
 $$
 I_1(13/2)<1.04,\qquad I_1(8)<0.94.
@@ -532,7 +570,7 @@ Use `Real.cos_bound`, `Real.sin_bound`, `Real.exp_bound`,
 is Odlyzko, §2, p. 123; the certificate is an explicit calculation for the
 chosen kernel. Decimal exploratory values alone are not theorem inputs.
 
-`R25.1/poitou-odlyzko-inequality` states that, for every number field K and
+`poitouLowerBound_le_log_abs_discr` states that, for every number field K and
 every $b>0$, $P(n,r_1,b)\le\log\vert d_K\vert $, hence
 $\exp(P(n,r_1,b)/n)\le\operatorname{rd}(K)$. Apply AN.4 to $F_b$.
 The prime sum has nonnegative terms because $F_b\ge0$, and the zero sum
@@ -542,7 +580,7 @@ gives precisely P. This uses `TauCeti.IsPositiveDefiniteSub.comp_smul`,
 The source is Odlyzko, §2, (2.3)–(2.5), p. 122; the attribution of the
 unconditional improvement to Poitou is discussed in §1, p. 121.
 
-`R25.1/totally-complex-root-discriminant-thresholds` specialises to $r_1=0$:
+`ten_lt_rootDiscr_of_isTotallyComplex` specialises to $r_1=0$:
 degree at least 24 implies root discriminant greater than 10, and degree at
 least 36 implies root discriminant greater than 12. Use $b=13/2$ and 8,
 the integral certificates, and a rational lower bound $\gamma>0.5722$
@@ -554,9 +592,9 @@ $\log10$ and $\log12$. Monotonicity propagates them to larger degrees.
 `NumberField.rootDiscr` identify the signature and conclusion. See Odlyzko,
 §2, (2.5), p. 122, and Ghitza–Yamauchi, §3, Proposition 3.3, p. 7.
 
-### Fontaine's finite-flat different bound
+### 1.8 Fontaine's finite-flat different bound
 
-`R25.1/fontaine-torsion-field-bound` is the global form of R07.6. Let G be
+`rootDiscr_torsionField_lt` is the global form of R07.6. Let G be
 a finite commutative flat group scheme over $\mathbb Z[1/N]$, killed by p,
 with $p\nmid N$. Its geometric-point field L is finite Galois, unramified
 outside the primes dividing pN, and satisfies
@@ -587,10 +625,10 @@ formula. The field $\mathbb Q(\zeta_8)$, whose root discriminant is 4,
 cannot be the point field of a group scheme killed by two over ℤ; it tests
 the strictness of the conclusion.
 
-### Degree certificates for Schoof's fields
+### 1.9 Degree certificates for Schoof's fields
 
-`R25.1/totally-complex-degree-bounds-for-schoof` packages the additional
-unconditional inequalities used in R25.4. For a totally complex number
+`finrank_le_of_rootDiscr_lt_of_isTotallyComplex` packages the additional
+unconditional inequalities used in Layer 4. For a totally complex number
 field K, each line below gives an upper bound on its degree n. The parameter
 b is used at the first excluded degree, and monotonicity handles all higher
 degrees. The first five inequalities have strict hypotheses; the last five
@@ -628,20 +666,26 @@ This target uses the Poitou inequality and integral API, the Euler-constant
 and π bounds, and `NumberField.IsTotallyComplex`; it does not take the
 printed decimal table as an unproved oracle.
 
-The layer's principal landmarks are the sharp two-adic and three-adic
-different bounds and the Poitou–Odlyzko inequality. Its exit criterion is
-the availability of exact local exponents and certified lower bounds with
-the signature hypotheses stated above.
+This layer's principal landmarks are the sharp two-adic and three-adic
+different bounds and the Poitou–Odlyzko inequality. Each bound retains the field signature and valuation hypotheses stated above.
 
-## R25.2 — The Tate–Serre base cases
+### Examples
 
-The layer uses a kernel field to combine local discriminant bounds with the
+The local normalisation and analytic checks above fix the tame break at zero, the residue-degree factor and the negative pole term. The rational field has root discriminant one, so none of the strict degree thresholds applies to degree one.
+
+### Dependencies
+
+Mathlib discriminants, root discriminants, Minkowski, real analysis and number-field signatures; Tau Ceti positive definiteness and local unit filtrations; LocalFieldsRamification Layers 1, 3 and 4, NumberFieldArithmetic Layers 5–6, ClassFieldTheory Layers 7 and 13, ArithmeticGaloisRepresentations R01.4, FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.6, and AnalyticNumberTheory AN.3–AN.4.
+
+## Layer 2: The Tate–Serre base cases
+
+This layer uses a kernel field to combine local discriminant bounds with the
 possible orders of an irreducible finite image. It proves nonexistence over
 every finite coefficient field, not only over the prime field.
 
-### Level-one residual representations
+### 2.1 Level-one residual representations
 
-`R25.2/level-one-residual-representation` defines `IsLevelOneResidual p ρ̄`
+Define `IsLevelOneResidual p ρ̄`
 for a continuous homomorphism $\bar\rho:G_{\mathbb Q}\to\mathrm{GL}_2(F)$,
 with F finite of characteristic p. Its three conditions are absolute
 irreducibility, $\det\bar\rho(c)=-1$ for complex conjugation, and trivial
@@ -655,34 +699,25 @@ The representation object builds on `Field.absoluteGaloisGroup`,
 `Representation.IsIrreducible` and `DiscreteTopology`, together with R01.1,
 R01.2 and R01.4. The API is:
 
-| Proposed declaration | Mathematical specification |
-| --- | --- |
-| `IsLevelOneResidual` | The three-condition predicate above |
-| `isLevelOneResidual_iff_kernelField` | Equivalent conditions on the finite Galois kernel field: unramified outside p, absolutely irreducible image, and the determinant condition at infinity |
-| `IsLevelOneResidual.map` | Invariance under finite coefficient-field extension, with the target discrete |
-| `IsLevelOneResidual.conj` | Invariance under a change of basis in GL₂(F) |
-| `isOdd_of_ringChar_two` | Every characteristic-two representation is odd in the determinant sense |
-| `IsLevelOneResidual.isTotallyComplex` | For odd p, the kernel field is totally complex |
+- `IsLevelOneResidual`: The three-condition predicate above.
+- `isLevelOneResidual_iff_kernelField`: Equivalent conditions on the finite Galois kernel field: unramified outside p, absolutely irreducible image, and the determinant condition at infinity.
+- `IsLevelOneResidual.map`: Invariance under finite coefficient-field extension, with the target discrete.
+- `IsLevelOneResidual.conj`: Invariance under a change of basis in GL₂(F).
+- `isOdd_of_ringChar_two`: Every characteristic-two representation is odd in the determinant sense.
+- `IsLevelOneResidual.isTotallyComplex`: For odd p, the kernel field is totally complex.
 
 For the last statement, complex conjugation has determinant −1 and therefore
 nontrivial image. Since the kernel field is Galois, it has no real embedding.
 In characteristic two, an order-two matrix has determinant one, equal to −1,
 so oddness is automatic. This does not imply absolute irreducibility.
 
-The tests make each distinction visible. At p=3, $1\oplus\bar\omega$
-is odd and unramified outside three but reducible
-(`not_isLevelOneResidual_one_add_omega`). The two-torsion representation of
-$y^2+y=x^3-x^2-10x-20$, the curve $X_0(11)$, has image S₃ and is
-absolutely irreducible in characteristic two, but is ramified at eleven
-(`not_isLevelOneResidual_X0_eleven_two_torsion`). Extending coefficients
-from $\mathbb F_2$ to $\mathbb F_4$ preserves the predicate, while
-`isOdd_of_ringChar_two` checks the determinant condition separately.
-Finally, the cyclic cubic field $\mathbb Q(\zeta_9)^+$ gives a
-representation into GL₂(𝔽₂) with generator matrix having characteristic
-polynomial $X^2+X+1$. It is irreducible over 𝔽₂ and reducible over 𝔽₄,
-so `not_isAbsolutelyIrreducible_cyclic_cubic_mod_two` must reject it.
-This prevents accidental replacement of absolute irreducibility by
-irreducibility over the displayed coefficient field.
+**Checks.**
+
+- `not_isLevelOneResidual_one_add_omega`: at p=3 the actual diagonal representation $1\oplus\bar\omega_3$ is odd and unramified outside three, but fails absolute irreducibility.
+- `not_isLevelOneResidual_X0_eleven_two_torsion`: the geometric two-torsion of $y^2+y=x^3-x^2-10x-20$ has image S₃ and is absolutely irreducible, but is ramified at eleven.
+- `isLevelOneResidual_map`: extending coefficients from 𝔽₂ to 𝔽₄ preserves the predicate.
+- `isOdd_of_ringChar_two`: an order-two matrix has determinant $1=-1$ in 𝔽₂. The explicit conjugation test fixes this sign without asserting irreducibility.
+- `not_isAbsolutelyIrreducible_cyclic_cubic_mod_two`: the generator matrix $\left(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\right)$ has polynomial $X^2+X+1$. The cyclic real cubic field $\mathbb Q(\zeta_9)^+$ is irreducible over 𝔽₂ and reducible over 𝔽₄, so the predicate rejects it.
 
 The test objects are specified independently of their expected properties.
 `oneAddCyclotomic 3 F` sends $\sigma$ to
@@ -701,19 +736,19 @@ construction, and the test holds for every such basis. Mathlib's
 The generic-fibre point representation does not supply an integral group
 scheme over $\mathbb Z[1/11]$.
 
-### Determinant and the tame case
+### 2.2 Determinant and the tame case
 
-`R25.2/determinant-level-one-mod-two` asserts that a characteristic-two
+`det_eq_one_of_char_two` asserts that a characteristic-two
 representation unramified outside two has determinant one. Its determinant
 image has odd order. Locally at two the prime-to-p character result makes
 it unramified, and at odd primes it is unramified by hypothesis. The
 corresponding abelian extension of ℚ is unramified at every finite prime,
 hence trivial by `NumberField.abs_discr_gt_two` and
 `NumberField.not_dvd_discr_iff_isUnramifiedIn`. Thus the image lies in SL₂(F).
-Use the kernel-field interface and the R25.1 character lemma; see
+Use the kernel-field interface and the Layer 1 character lemma; see
 Moon–Taguchi, §3, pp. 5–6.
 
-`R25.2/tame-level-one-excluded` requires p=2 or 3, continuity and
+`not_isAbsolutelyIrreducible_of_tame` requires p=2 or 3, continuity and
 unramifiedness outside p, and trivial wild inertia at p. It concludes that
 the representation is not absolutely irreducible. The kernel field has
 root discriminant less than p by the tame formula. Minkowski therefore
@@ -726,9 +761,9 @@ lemma itself. The source is Ghitza–Yamauchi, Proposition 3.2 and proof,
 §3, p. 7; prerequisites are the globalisation and Minkowski targets and
 R01.2.
 
-### The possible irreducible images
+### 2.3 The possible irreducible images
 
-`R25.2/irreducible-subgroups-characteristic-two` is a specialised consequence
+`dihedral_or_SL2_of_irreducible_char_two` is a specialised consequence
 of the Dickson theorem supplied by R01.4. A finite irreducible subgroup of
 SL₂(𝔽̄₂) is either dihedral of order $2r$, where r is odd and at least
 three, or conjugate to SL₂(𝔽_q) with $q=2^j\ge4$. In the first case an
@@ -736,17 +771,19 @@ order-two subgroup is its own normalizer; in the second case the group has
 order $q(q^2-1)\ge60$. Upper-triangular cases have a stable line and are
 excluded. The dihedral normalizer statement follows by conjugating a
 reflection by powers of a rotation of odd order. `Matrix.SpecialLinearGroup`
-and `Subgroup.normalizer` supply the ambient definitions. See
-Moon–Taguchi, §3, p. 5, Jones, §2.3, pp. 8–9, and
-Dieulefait–Pacetti, §3, p. 15.
+and `Subgroup.normalizer` supply the ambient definitions. The projective classification is Faber, Theorems B–C, §2, p. 3,
+and Theorem 6.1, §6, p. 16 (arXiv:1112.1999v1). Its application here
+is also described by Moon–Taguchi, §3, p. 5, and
+Dieulefait–Pacetti, §3, p. 15; Jones, §2.3, pp. 8–9, supplies the
+Sylow and ramification facts rather than the classification itself.
 
-`R25.2/irreducible-subgroups-characteristic-three` assumes a finite
+`twentyFour_dvd_card_of_irreducible_char_three` assumes a finite
 irreducible subgroup of GL₂(𝔽̄₃) whose order is divisible by three. It
 proves that −1 belongs to the group, that 24 divides its order, and that
-either its 3-part is three or its order is at least 720. Dickson's
-projective cases containing an element of order three are the exceptional
-tetrahedral, octahedral and icosahedral cases and the relevant PSL₂/PGL₂
-groups. A projective Klein four lifts to anticommuting matrices, whose
+either its 3-part is three or its order is at least 720. Faber's projective classification (Theorem B, §2, p. 3, and
+Theorem 6.1, §6, p. 16) leaves PSL₂(𝔽_q), PGL₂(𝔽_q) for
+q a power of three, and A₅ after excluding groups fixing a line.
+At q=3 the first two groups are A₄ and S₄. A projective Klein four lifts to anticommuting matrices, whose
 commutator is −1; this supplies the central factor two needed for the
 order divisibility. The small cases have 3-part three. The next field-size
 cases have order at least 720. Scalar extensions of prime-to-three order
@@ -754,12 +791,14 @@ do not change the 3-part. The p-subgroup, matrix-group and projective-image
 interfaces belong to R01.4. Ghitza–Yamauchi, Proposition 3.3, §3, p. 7,
 uses the corresponding order restriction; Dieulefait–Pacetti, the proof
 of Theorem 1.3, §1.1, p. 3, describes the projective classification in
-the solvable branch. The precise lift to GL₂ is the additional arithmetic
-statement needed here.
+the solvable branch. The lift to GL₂ follows by the commutator argument just given:
+these projective groups have order divisible by twelve, their scalar
+kernel has even order, and that kernel has order prime to three.
+For q≥9 the projective order is at least 360, giving the lower bound 720.
 
-### Nonexistence in characteristic two
+### 2.4 Nonexistence in characteristic two
 
-`R25.2/tate-theorem` states that no continuous absolutely irreducible
+`tate_no_levelOne_char_two` states that no continuous absolutely irreducible
 $G_{\mathbb Q}\to\mathrm{GL}_2(F)$, for any finite field F of
 characteristic two, is unramified outside two. Its proposed declaration
 is `tate_no_levelOne_char_two`.
@@ -782,9 +821,9 @@ role in level one. Moon–Taguchi, §3, pp. 5–7, gives the related
 local-to-global discriminant method. The theorem has no separate oddness
 hypothesis and no restriction to F=𝔽₂.
 
-### Nonexistence in characteristic three
+### 2.5 Nonexistence in characteristic three
 
-`R25.2/serre-mod-three-theorem` states that no continuous odd absolutely
+`serre_no_levelOne_char_three` states that no continuous odd absolutely
 irreducible characteristic-three representation with finite coefficients
 is unramified outside three. Its declaration is
 `serre_no_levelOne_char_three`. Oddness makes the kernel field K totally
@@ -801,7 +840,7 @@ and kernel-field API, the tame and subgroup targets, the three-adic bound
 and the totally complex thresholds. See Dieulefait–Pacetti, Theorem 1.1,
 §1.1, p. 3, and Khare, §1.1, p. 2.
 
-`R25.2/tate-serre-base-case` combines these as
+`not_isLevelOneResidual_of_le_three` combines these as
 `not_isLevelOneResidual_of_le_three`: for p in $\{2,3\}$, `IsLevelOneResidual p ρ̄`
 is impossible. The algebraic-closure version follows by finite coefficient
 descent, with discrete target topology. This is the form consumed by
@@ -811,16 +850,24 @@ characteristics. The Ramanujan representation in characteristic eleven
 is a concrete reminder that a level-one nonexistence theorem cannot be
 asserted for every p.
 
-## R25.3 — Fontaine's theorem
+### Examples
 
-The essential distinction from R25.2 is that the representation on torsion
+The diagonal, cyclic-cubic and conductor-eleven representations distinguish oddness, absolute irreducibility and ramification. All are defined independently of their expected properties in Suggested.lean.
+
+### Dependencies
+
+Layer 1; ArithmeticGaloisRepresentations R01.1, R01.2 and R01.4; Mathlib absolute Galois groups, matrix groups, finite subfields and the geometric elliptic-curve point action; ClassFieldTheory Layer 13 for the small abelian fields.
+
+## Layer 3: Fontaine's theorem
+
+The essential distinction from Layer 2 is that the representation on torsion
 need not be irreducible. A discriminant bound first constrains its field;
 finite-flat structure then constrains all its composition factors and
 extensions. The resulting filtration is applied to every level of torsion.
 
-### Étale schemes and small two-ramified fields
+### 3.1 Étale schemes and small two-ramified fields
 
-`R25.3/etale-group-schemes-over-integers-are-constant` proves that every
+`isConstant_of_etale_over_int` proves that every
 finite étale commutative group scheme over ℤ is constant. Its geometric
 points form a finite Galois module unramified at every finite prime. Each
 connected number-field component of its finite étale algebra has
@@ -832,7 +879,7 @@ Use R07.1 for that equivalence and the discriminant-unramifiedness theorem
 for the arithmetic step. See Schoof, the proof of Proposition 3.1, §3,
 p. 850, and Odlyzko, §1, p. 119.
 
-`R25.3/division-fields-of-two-group-schemes-over-integers` proves a field
+`isPGroup_two_of_rootDiscr_lt_four` proves a field
 statement: if a finite Galois extension $L/\mathbb Q$ is unramified at
 every odd prime and has root discriminant less than four, its degree is
 a power of two. Minkowski gives degree at most eleven. Every odd-order
@@ -847,13 +894,13 @@ of k there is 𝔽₂ and a prime-to-two abelian inertia quotient has order
 dividing one. It is unramified elsewhere as well. Thus
 $\operatorname{rd}(L)=\operatorname{rd}(k)\le\sqrt8<3$, contradicting
 Minkowski since its degree is six or ten. `isPGroup_two_of_rootDiscr_lt_four`
-records the conclusion. Inputs are R25.1, quadratic discriminants and
+records the conclusion. Inputs are Layer 1, quadratic discriminants and
 the local/global Galois interface. Source context is Schoof,
 Proposition 5.1, §5, pp. 853–854, and Moon–Taguchi, §3, pp. 5–6.
 
-### Simple finite flat two-group schemes
+### 3.2 Simple finite flat two-group schemes
 
-`R25.3/simple-two-group-schemes-over-integers` classifies a nonzero simple
+`simple_two_groupScheme_over_int` classifies a nonzero simple
 finite flat commutative group scheme G of 2-power order over ℤ as
 $\mathbb Z/2\mathbb Z$ or $\mu_2$. First, flat closure of the
 generic subgroup killed by two shows that a simple object is itself
@@ -873,9 +920,9 @@ while multiplicative models and Cartier duality use
 `TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat`. See Schoof,
 Proposition 5.1 and proof, §5, p. 854.
 
-### The Ext group and reordering a filtration
+### 3.3 The Ext group and reordering a filtration
 
-`R25.3/extensions-of-mu-two-by-z-mod-two-over-integers` proves
+`ext_muTwo_zModTwo_eq_zero` proves
 $\operatorname{Ext}^1_{\mathbb Z}(\mu_2,\mathbb Z/2\mathbb Z)=0$, or
 equivalently that every exact sequence with these quotient and subobject
 splits. The finite-flat gluing theorem identifies global extension data
@@ -896,7 +943,7 @@ Proposition 4.1, §4, p. 851, and the proof of Corollary 4.2, p. 853.
 The opposite group, with constant quotient and multiplicative subobject,
 need not vanish: the nonsplit order-four Mazur example tests the direction.
 
-`R25.3/multiplicative-constant-filtration` uses the simple classification
+`exists_diagonalizable_constant_filtration` uses the simple classification
 and this vanishing to prove that every finite flat two-group scheme G
 over ℤ fits into $0\to M\to G\to C\to0$, with M diagonalizable and C
 constant. Choose a composition series. Whenever a constant simple factor
@@ -917,9 +964,9 @@ duality equivalence, with R07.1 providing the exact-sequence interface. Fontaine
 Remark b, p. 536, give this finite-flat structure theorem; Schoof,
 Proposition 3.1 and proof, §3, p. 850, explains its use in torsion.
 
-### Isogenies and finite-field point counts
+### 3.4 Isogenies and finite-field point counts
 
-`R25.3/point-count-isogeny-invariance` proves
+`card_points_eq_of_isogeny` proves
 $\#A(k)=\#B(k)$ for an isogeny $A\to B$ defined over a finite field k.
 Let F be its Frobenius endomorphism. The isogeny commutes with F and hence
 with $1-F$. The latter map is separable because its differential is the
@@ -933,9 +980,9 @@ The declaration `card_points_eq_of_isogeny` builds on A6, with Frobenius,
 degree multiplicativity and finite-field rational points. See Schoof,
 Proposition 3.1 and proof, §3, p. 850.
 
-### The good-reduction contradiction
+### 3.5 The good-reduction contradiction
 
-`R25.3/fontaine-theorem` states that an abelian variety A over ℚ with good
+`dim_eq_zero_of_goodReduction_everywhere` states that an abelian variety A over ℚ with good
 reduction at every finite prime has dimension zero. By R11.1 it extends
 to an abelian scheme over ℤ. If $g=\dim A$, the group scheme
 $A[2^n]$ has rank $2^{2gn}$, by A3. Apply the filtration theorem to
@@ -961,28 +1008,35 @@ only in the simple-factor classification; it does not apply that bound
 directly to the field of $A[2^n]$.
 
 Fontaine, §3.4.6, Corollary 2 and proof, pp. 536–537, states a result
-also covering three particular quadratic fields. The target here is its
+also covering three particular quadratic fields. The theorem here is its
 rational-field case, not a claim that the source's theorem is confined
 to ℚ. Schoof, Proposition 3.1 and proof, §3, pp. 850–851, gives the
 constant-by-diagonalizable point-count argument. Brumer–Kramer, §1,
 p. 1, records Fontaine's theorem as the starting case of the
 one-bad-prime problem.
 
-The landmark of this layer is Fontaine's nonexistence theorem. Its exit
-criterion includes the finite-flat classification and the filtration,
-not just the final dimension-zero statement, because R25.4 reuses the
+Fontaine's nonexistence theorem uses the finite-flat classification and the filtration,
+not just the final dimension-zero statement, because Layer 4 reuses the
 same mechanism over a cyclotomic base.
 
-## R25.4 — Schoof's five-prime theorem
+### Examples
 
-The layer proves the exact set of semistable one-bad-prime exclusions
+The trivial group scheme is not simple; the constant and multiplicative order-two schemes are simple. The Ext direction is fixed by `0 → ℤ/2ℤ → G → μ₂ → 0`; the theorem splits this extension. Fontaine allows the dimension-zero variety and excludes positive dimension.
+
+### Dependencies
+
+Layer 1; finite locally free group schemes and Cartier duality in Tau Ceti; FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1 and R07.6, AbelianSchemesAndArithmeticModuli A2, A3 and A6, and NeronModelsAndSemistableAbelianVarieties R11.1.
+
+## Layer 4: Schoof's five-prime theorem
+
+This layer proves the exact set of semistable one-bad-prime exclusions
 $\ell\in\{2,3,5,7,13\}$. It combines a categorical criterion with a
 small Ext calculation and five field calculations. The pair $(\ell,p)$
 always lists the possible bad prime first and the torsion prime second.
 
-### The semistable category
+### 4.1 The semistable category
 
-`R25.4/semistable-category-d` defines `SemistableCategory p l G`, the
+Define `SemistableCategory p l G` as the
 predicate cutting out the full subcategory D(p,ℓ) of finite flat
 commutative p-group schemes over ℤ[1/ℓ] such that
 $(\sigma-1)^2=0$ on geometric points for every inertia element above ℓ.
@@ -1011,19 +1065,12 @@ $\mu_p$ and $\mathbb Z/p\mathbb Z$ belongs to D, and its Ext group
 inside D is the same as the ambient finite-flat Ext group. This precise
 statement is what makes the criterion below applicable.
 
-Tests assert that $\mathbb Z/p\mathbb Z$ and $\mu_p$ lie in D
-(`zModP_mem_semistableCategory`), and that the Katz–Mazur group
-$G_\varepsilon$, for an invertible $\varepsilon$, lies in D because
-inertia acts by upper-unitriangular matrices
-(`katzMazur_mem_semistableCategory`). The étale order-three twist by
-$\mathbb Q(\sqrt{-7})$ is excluded from D(3,7): inertia acts as −1,
-and $(-1-1)^2\ne0$ in 𝔽₃
-(`not_mem_semistableCategory_quadratic_twist`). It belongs to the larger
-tame category, so this test separates the two notions. Finally,
-$J_0(11)[2]$ is a simple order-four object of D(2,11)
-(`X0_eleven_two_torsion_mem`), showing why the eventual theorem must not
-include eleven. See Schoof, §2.1–2.3, p. 849, and the introduction,
-p. 848, for these examples.
+**Checks.**
+
+- `zModP_mem_semistableCategory`: the constant order-p scheme and μp lie in D(p,ℓ) for distinct primes; omitting the distinct-prime condition makes the cyclotomic assertion fail.
+- `katzMazur_mem_semistableCategory`: every extension with constant quotient and multiplicative subobject, including $G_\varepsilon$, has upper-unitriangular inertia and lies in D.
+- `not_mem_semistableCategory_quadratic_twist`: the finite étale order-three scheme with quadratic character of $\mathbb Q(\sqrt{-7})$ is tame but outside D(3,7), since $(-1-1)^2=1\ne0$ in 𝔽₃.
+- `X0_eleven_two_torsion_mem`: the actual integral $J_0(11)[2]$ is a simple order-four object of D(2,11). It rejects a definition allowing only order-p simple objects and explains the prime boundary (Schoof §2.1–2.3, p. 849; introduction, p. 848).
 
 The twist test uses the finite étale scheme whose geometric point module is
 $\mathbb F_3$ with the quadratic character of $\mathbb Q(\sqrt{-7})$;
@@ -1032,10 +1079,10 @@ The eleven test uses the kernel of multiplication by two on the
 abelian-scheme model of the actual $J_0(11)$ over $\mathbb Z[1/11]$;
 R11.1 and A3 supply that model and its finite flat kernel, with R07.1's
 generic-fibre comparison. These are tests of the identified schemes.
-Suggested.lean's header records their intended statements and the supplier
+Suggested.lean's closing comment records their intended statements and the supplier
 construction interfaces needed to express them.
 
-`R25.4/torsion-of-semistable-abelian-varieties-in-d` proves that if
+`torsion_mem_semistableCategory` proves that if
 A/ℚ has good reduction away from ℓ and semistable reduction at ℓ, its
 abelian-scheme model over ℤ[1/ℓ] has $A[p^n]\in D(p,\ell)$ of rank
 $p^{2gn}$, for every $n\ge1$. R11.1 supplies the model, A3 supplies
@@ -1044,9 +1091,16 @@ $(\sigma-1)^2=0$ monodromy criterion. See Schoof, §2.1, p. 849.
 The theorem applies to the whole torsion group scheme, not just its
 semisimplified generic representation.
 
-### Splitting over a fixed cyclotomic base
+A square-zero condition need not survive an arbitrary extension of two
+objects already satisfying it. Over 𝔽₃, the three-by-three unipotent Jordan
+matrix J=(1,1,0;0,1,1;0,0,1) has (J−1)² with top-right entry one,
+although its length-two submodule and one-dimensional quotient have
+square-zero inertia. The extension API therefore requires inertia to be
+trivial on both endpoints.
 
-`R25.4/constant-over-cyclotomic` considers a finite étale p-group scheme C
+### 4.2 Splitting over a fixed cyclotomic base
+
+`isConstant_baseChange_cyclotomic` considers a finite étale p-group scheme C
 over ℤ[1/ℓ] with a filtration by constant order-p quotients. Its point
 representation has unipotent image, a finite p-group P, and is unramified
 outside ℓ. Its maximal abelian quotient cuts out a p-power subfield of
@@ -1066,24 +1120,24 @@ pro-p groups. The base extension is independent of n and of the length
 of the filtration; this uniformity is needed for a fixed point count.
 See Schoof, Proposition 3.1 and proof, §3, p. 850.
 
-`R25.4/schoof-criterion` assumes that the only nonzero simple objects of
+`no_semistable_of_simple_and_ext` assumes that the only nonzero simple objects of
 D(p,ℓ) are the constant and multiplicative order-p schemes and that
 $\operatorname{Ext}^1_{\mathbb Z[1/\ell]}(\mu_p,\mathbb Z/p\mathbb Z)=0$.
 It concludes that an abelian variety over ℚ with good reduction away
 from ℓ and semistable reduction at ℓ has dimension zero.
 Composition factors of its torsion can be reordered exactly as in
-R25.3, because the Ext group in D agrees with the ambient group for
+Layer 3, because the Ext group in D agrees with the ambient group for
 these endpoints. Over the fixed cyclotomic base, the lower part becomes
 diagonalizable and the upper quotient constant. Choose a finite residue
 field of that base away from pℓ. The same isogeny and duality argument
 gives $p^{2gn}\le\#A(k)^2$ for every n. This forces g=0.
 The declaration `no_semistable_of_simple_and_ext` depends on torsion
-membership, cyclotomic splitting, the R25.3 point-count theorem and A2–A3.
+membership, cyclotomic splitting, the Layer 3 point-count theorem and A2–A3.
 See Schoof, Proposition 3.1, §3, pp. 850–851.
 
-### Computing the Ext obstruction
+### 4.3 Computing the Ext obstruction
 
-`R25.4/ext-mu-p-by-z-mod-p-over-z-one-over-l` computes, for p=2 or 3,
+`ext_muP_zModP_eq_zero` computes, for p=2 or 3,
 the 𝔽p-dimension of the Ext group in the criterion. It is one precisely
 when $\ell\equiv\pm1\pmod8$ for p=2, or
 $\ell\equiv\pm1\pmod9$ for p=3; otherwise it is zero. In particular
@@ -1106,9 +1160,9 @@ is hidden in this calculation. The vanishing part is exposed as
 the mathematical target. See Schoof, Corollary 4.2, §4, p. 852, and its
 proof, p. 853.
 
-### A field criterion for simple objects
+### 4.4 A field criterion for simple objects
 
-`R25.4/simple-objects-criterion` sets F equal to the degree-p subfield
+`simple_eq_of_fieldCriterion` sets F equal to the degree-p subfield
 of ℚ(ζℓ) if $p\mid\ell-1$, and to ℚ otherwise, and puts
 $M=F(\zeta_{2p},\ell^{1/p})$. Assume that *every* finite Galois
 extension L/ℚ containing M, unramified over M away from p, with
@@ -1138,9 +1192,9 @@ ramified in M. The prerequisites are R07.1, the D API, the Fontaine
 bound, R01.4 and global class-field theory. See Schoof, Proposition 5.1
 and proof, §5, pp. 853–854.
 
-### Class-number certificates used in the five cases
+### 4.5 Class-number certificates used in the five cases
 
-`R25.4/class-number-one-certificates` establishes class number one for
+`classNumber_eq_one_small_fields` establishes class number one for
 four specific fields, with the conclusion that each has no nontrivial
 unramified abelian extension. These are arithmetic certificates, not
 calls to a numerical class-number oracle.
@@ -1179,9 +1233,9 @@ unramified-extension exclusions. The proposed combined declaration is
 and Odlyzko, 1976 Table 2 at degrees six and nine for the analytic
 comparisons.
 
-### The pairs (2,3), (3,2) and (5,2)
+### 4.6 The pairs (2,3), (3,2) and (5,2)
 
-`R25.4/simple-objects-l2-p3` proves `FieldCriterion 2 3` and the stronger
+`fieldCriterion_two_three` proves `FieldCriterion 2 3` and the stronger
 assertion that an admissible L equals $M=\mathbb Q(\zeta_3,\sqrt[3]2)$.
 Tame inertia at two has order three, while the Fontaine bound at three
 gives
@@ -1199,7 +1253,7 @@ $L=M$ and $[L:\mathbb Q]=6$. Its inputs are the field criterion,
 class-number theorem, local/global different formulas, ray class theory
 and degree line (a). See Schoof, §6, the case ℓ=2, p=3, p. 855.
 
-`R25.4/simple-objects-l3-p2` proves `FieldCriterion 3 2`. Here
+`fieldCriterion_three_two` proves `FieldCriterion 3 2`. Here
 $M=\mathbb Q(\zeta_{12})$ has degree four. Inertia at three has order
 two and the strict two-adic bound gives
 $\operatorname{rd}(L)<\sqrt3\cdot4<6.93$. Line (b) gives degree at
@@ -1211,7 +1265,7 @@ companion `fieldCriterion_three_two_degree`, using the concrete subfield
 same different and field interfaces with degree line (b). See Schoof,
 §6, ℓ=3, p=2, pp. 855–856.
 
-`R25.4/simple-objects-l5-p2` proves `FieldCriterion 5 2` for
+`fieldCriterion_five_two` proves `FieldCriterion 5 2` for
 $M=\mathbb Q(i,\sqrt5)$. Now
 $\operatorname{rd}(L)<\sqrt5\cdot4<8.95$, so line (c) gives degree
 at most nineteen. The possible multiples of four are four, eight,
@@ -1237,9 +1291,9 @@ means that, at every prime $q\ne p$, an inertia element fixing M also fixes L.
 It retains the ramification already present in M at $\ell$; it does not
 assert that L is unramified there over $\mathbb Q$.
 
-### The pair (7,3)
+### 4.7 The pair (7,3)
 
-`R25.4/simple-objects-l7-p3` proves `FieldCriterion 7 3` with
+`fieldCriterion_seven_three` proves `FieldCriterion 7 3` with
 $K=M=\mathbb Q(\zeta_3,\zeta_7+\zeta_7^{-1},\sqrt[3]7)$, of degree
 eighteen. The root-discriminant upper bound is
 $3^{3/2}7^{2/3}<19.02$. Line (d) implies
@@ -1302,9 +1356,9 @@ are the field criterion, degree lines (d), (h), (i), Minkowski,
 unit reciprocity and conductor–discriminant theory. Schoof, §6,
 ℓ=7, p=3, pp. 857–858, supplies the field and unit calculations.
 
-### The pair (13,2)
+### 4.8 The pair (13,2)
 
-`R25.4/simple-objects-l13-p2` proves `FieldCriterion 13 2` for
+`fieldCriterion_thirteen_two` proves `FieldCriterion 13 2` for
 $M=\mathbb Q(i,\sqrt{13})$. The root-discriminant upper bound is
 $4\sqrt{13}<14.43$. Line (e) gives degree at most fifty-nine,
 so $[L:M]\le14$. Kronecker–Weber and the local strict bound identify
@@ -1352,9 +1406,9 @@ that the class number of K has already been proved to be one:
 the bound by two is sufficient because only an odd abelian quotient
 must be excluded. See Schoof, §6, ℓ=13, p=2, p. 858.
 
-### The theorem and its boundary
+### 4.9 The theorem and its boundary
 
-`R25.4/schoof-theorem` now applies the criterion in each of the five
+`no_semistable_abelianVariety_one_prime` now applies the criterion in each of the five
 pairs. The Ext calculation vanishes, and the field criterion gives
 the required simple objects. Thus every A/ℚ with good reduction
 away from $\ell\in\{2,3,5,7,13\}$ and semistable reduction at
@@ -1370,9 +1424,17 @@ generally, $J_0(\ell)$ explains the sharp prime set. The geometric
 statement concerns every dimension; GL₂-type is not a hypothesis
 here. The Schoof theorem and the semistable category are the layer's
 landmarks, with five independently justified field criteria as its
-arithmetic exit requirements.
+arithmetic conclusions.
 
-## R25.5 — Realisation and terminal weights
+### Examples
+
+The quadratic order-three twist separates tameness from the square-zero condition. The order-four torsion at eleven separates membership in D from the simple-object classification proved only at the five listed primes.
+
+### Dependencies
+
+Layers 1 and 3; R07.1 and R07.6, R11.1 and R11.3, A2, A3 and A6; ClassFieldTheory Layer 13, ProfiniteCohomology Layer 9, and ClassicalArithmeticCompletion CA.5 for the Ext and class-number calculations.
+
+## Layer 5: Realisation and terminal weights
 
 This layer connects two-dimensional p-adic representations to abelian
 varieties, verifies the hypotheses needed to use that connection, and
@@ -1383,9 +1445,9 @@ using Schoof; the remaining small weights use these results at an
 auxiliary prime. None of those steps imports the completed Serre
 modularity theorem.
 
-### Abelian varieties of GL₂-type
+### 5.1 Abelian varieties of GL₂-type
 
-`R25.5/gl2-type-abelian-variety` defines `IsGL2Type A K` for an abelian
+Define `IsGL2Type A K` for an abelian
 variety A over a number field F and a number field K acting by
 F-rational endomorphisms up to isogeny. Explicitly,
 
@@ -1407,15 +1469,13 @@ and `TauCeti.AlgebraicGeometry.AbelianVariety.End`. A6 supplies rational endomor
 the Tate module; A3 and R01.6 supply the rational Tate module.
 The resulting API is:
 
-| Proposed declaration | Specification |
-| --- | --- |
-| `IsGL2Type` | The action and the dimension equality |
-| `IsGL2Type.lambdaAdicRep` | For λ over p, the G_F-representation $V_\lambda(A)=V_p(A)\otimes_{K\otimes\mathbb Q_p}K_\lambda$ |
-| `IsGL2Type.finrank_lambdaAdicRep` | Its Kλ-dimension is two |
-| `IsGL2Type.free_tateModule` | $V_p(A)$ is free of rank two over $K\otimes\mathbb Q_p$ |
-| `IsGL2Type.isogeny` | Transport of the K-action across an F-isogeny, with the resulting λ-adic representations identified |
-| `ComesFromGL2Type` | A two-dimensional representation is a scalar extension of some $V_\lambda(A)$, through an embedding $K\hookrightarrow\overline{\mathbb Q}_p$ inducing λ |
-| `IsGL2Type.baseChange` | Finite base change preserves the structure and restricts the λ-adic representation to the smaller Galois group |
+- `IsGL2Type`: The action and the dimension equality.
+- `IsGL2Type.lambdaAdicRep`: For λ over p, the G_F-representation $V_\lambda(A)=V_p(A)\otimes_{K\otimes\mathbb Q_p}K_\lambda$.
+- `IsGL2Type.finrank_lambdaAdicRep`: Its Kλ-dimension is two.
+- `IsGL2Type.free_tateModule`: $V_p(A)$ is free of rank two over $K\otimes\mathbb Q_p$.
+- `IsGL2Type.isogeny`: Transport of the K-action across an F-isogeny, with the resulting λ-adic representations identified.
+- `ComesFromGL2Type`: A two-dimensional representation is a scalar extension of some $V_\lambda(A)$, through an embedding $K\hookrightarrow\overline{\mathbb Q}_p$ inducing λ.
+- `IsGL2Type.baseChange`: Finite base change preserves the structure and restricts the λ-adic representation to the smaller Galois group.
 
 The rank-two statement needs more than division of total dimensions.
 The characteristic polynomials of rational endomorphisms on Tate
@@ -1426,18 +1486,12 @@ has rank two. Isogeny transport uses the invertibility of an isogeny
 in the rational endomorphism category, whose underlying notion is
 `TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny`.
 
-The tests are `isGL2Type_ellipticCurve`, `isGL2Type_J0_23`,
-`not_isGL2Type_prod_rat` and `isGL2Type_zero`. An elliptic curve
-with K=ℚ has the usual two-dimensional rational Tate module.
-$J_0(23)$, with dimension two and the Hecke action by ℚ(√5),
-has a two-dimensional λ-factor. A surface such as E×E with K=ℚ
-fails the dimension equality; that test is not an assertion that
-E×E can never be of GL₂-type. Indeed a quadratic number field
-can act through its embedding in $M_2(\mathbb Q)$.
-The zero abelian variety admits no such structure because a number
-field has positive degree. These examples distinguish the arithmetic
-dimension requirement from the mere existence of an endomorphism
-action.
+**Checks.**
+
+- `isGL2Type_ellipticCurve`: dimension one with K=ℚ satisfies the predicate and yields the usual two-dimensional Tate module.
+- `isGL2Type_J0_23`: the actual dimension-two modular Jacobian with its Hecke embedding of ℚ(√5) satisfies the predicate and has a two-dimensional λ-factor.
+- `not_isGL2Type_prod_rat`: a dimension-two surface such as E×E fails the predicate with K=ℚ. This tests the dimension equality, not a prohibition on GL₂-type: a quadratic field can embed in $M_2(\mathbb Q)$.
+- `isGL2Type_zero`: dimension zero fails for every number field K, whose degree is positive.
 
 The $J_0(23)$ test uses the modular Jacobian itself and its Hecke embedding
 $\mathbb Q(\sqrt5)\hookrightarrow\operatorname{End}^0_{\mathbb Q}(J_0(23))$.
@@ -1445,14 +1499,14 @@ Tau Ceti's ModularCurves Layer 10 supplies the compactified curve, and
 JacobianChallenge Layer E supplies its Jacobian. The Hecke action on that
 Jacobian requires a separate geometric Hecke interface: ModularCurves'
 “Mazur interface” assigns it to a downstream Eisenstein-ideal supplier,
-using ModularForms' Hecke theory. The prototype header specifies these
+using ModularForms' Hecke theory. The closing comment specifies these
 construction interfaces together with the exact dimension-two test. An
 existence statement about an unspecified abelian surface would not test
 this example.
 
-### Descent of a realisation
+### 5.2 Descent of a realisation
 
-`R25.5/descent-of-gl2-type-realisation` states that if
+`comesFromGL2Type_of_restrict` states that if
 $\rho:G_F\to\mathrm{GL}_2(\overline{\mathbb Q}_p)$ is irreducible,
 F′/F is finite, its restriction remains irreducible, and the
 restriction comes from a GL₂-type abelian variety over F′, then
@@ -1483,9 +1537,9 @@ and proof, §9.4, pp. 29–30, is the source and credits the descent
 argument to Taylor. These imports do not require a finiteness
 theorem for abelian varieties with bounded bad reduction.
 
-### Snowden's weight-two realisation
+### 5.3 Snowden's weight-two realisation
 
-`R25.5/snowden-realisation` assumes p is odd and
+`comesFromGL2Type_of_weightTwo` assumes p is odd and
 $\rho:G_{\mathbb Q}\to\mathrm{GL}_2(\overline{\mathbb Q}_p)$ is
 continuous, finitely ramified, odd, and de Rham at p with
 Hodge–Tate weights 0 and −1. A stable lattice defines a residual
@@ -1517,9 +1571,9 @@ below. General potential modularity and the modularity of the
 Shimura-curve Tate module remain supplier results; this target
 assembles them without invoking Serre's conjecture.
 
-### Reading the reduction type from one λ-factor
+### 5.4 Reading the reduction type from one λ-factor
 
-`R25.5/reduction-of-the-realisation` verifies the local hypotheses
+`reduction_of_comesFromGL2Type` verifies the local hypotheses
 needed to use Fontaine or Schoof after realisation. Suppose A/ℚ
 of GL₂(K)-type realises ρ through a prime λ above p. Then:
 
@@ -1551,16 +1605,16 @@ and the GL₂-type rank-two theorem. Dieulefait–Pacetti, Paso 6,
 the proof of Theorem 3.1, §3, p. 18 of the arXiv version, explains
 the same good/semistable distinction using Weil–Deligne parameters.
 
-### Imaginary quadratic class numbers
+### 5.5 Imaginary quadratic class numbers
 
-`R25.5/class-number-one-imaginary-quadratic` proves class number one
+`classNumber_sqrt_neg_prime_eq_one` proves class number one
 for $\mathbb Q(\sqrt{-p})$ with
 $p\in\{3,7,11,19,43,67,163\}$. Its declaration is
 `classNumber_sqrt_neg_prime_eq_one`. This finite arithmetic result
 is what rules out the relevant dihedral representations; the
 list is not used as an unproved class-number table.
 
-For p=3 and 7, the discriminant −p is small enough for the
+For p=7, the discriminant −p is small enough for the
 direct PID criterion. For the remaining primes, the Minkowski
 ideal-class bound is $(2/\pi)\sqrt p$. Enumerate rational
 primes up to that bound. Since $p\equiv3\pmod8$, two is inert;
@@ -1574,17 +1628,17 @@ short and exact.
 
 Use `TauCeti.Multiquadratic.discr_eq_fundamentalDiscriminant`,
 `RingOfIntegers.isPrincipalIdealRing_of_abs_discr_lt`,
-`IsCyclotomicExtension.Rat.three_pid`, the small-prime PID theorem
-named in R25.4, and `NumberField.classNumber_eq_one_iff`.
+the small-prime PID theorem
+named in Layer 4, and `NumberField.classNumber_eq_one_iff`.
 The class-field consequence comes from upstream L13. Khare,
-Lemma 5.1(i), §5, p. 20, uses this exact list. In contrast,
+Lemma 5.1(i), §5, p. 20, uses these cases together with the cyclotomic case deferred above. In contrast,
 ℚ(√−23) has class number three and two splits, so no assertion
 for every p congruent to three modulo four follows from the
 calculation.
 
-### The level-one dihedral exception
+### 5.6 The level-one dihedral exception
 
-`R25.5/level-one-dihedral-classification` assumes p odd and an odd
+`levelOne_dihedral_classification` assumes p odd and an odd
 absolutely irreducible residual representation unramified outside p.
 If its restriction to $G_{\mathbb Q(\zeta_p)}$ is reducible, its
 projective image is dihedral, by R01.4. For a level-one dihedral
@@ -1619,9 +1673,9 @@ proof, §5, pp. 20–21, and Dieulefait–Pacetti, Lemma 1.13,
 §1.2, p. 8. Dihedral level-one behaviour in characteristic
 twenty-three is compatible with this statement and is not excluded.
 
-### Ordinary members with reducible reduction
+### 5.7 Ordinary members with reducible reduction
 
-`R25.5/ordinary-reducible-terminal-weights` considers the pairs
+`no_levelOne_crystalline_of_reducible_terminal` considers the pairs
 
 $$
 (p,k)=(3,2),(3,4),(5,6),(7,8),(13,14).
@@ -1656,7 +1710,7 @@ would give a weight-two modular form, which is zero.
 
 The proposed declaration is
 `no_levelOne_crystalline_of_reducible_terminal`. Its inputs are
-R21.5, R19.4–R19.5, the character calculation from R25.3 and the
+R21.5, R19.4–R19.5, the character calculation from Layer 3 and the
 stated modular-form dimensions. The test declarations in
 Suggested.lean include vanishing below weight twelve and at
 weight fourteen. See Dieulefait–Pacetti, Paso 6, p. 14, for the
@@ -1664,9 +1718,9 @@ weight fourteen. See Dieulefait–Pacetti, Paso 6, p. 14, for the
 pp. 20–21 of the arXiv version, for the three p+1 cases. This
 argument is independent of residual irreducible modularity.
 
-### Excluding weight two
+### 5.8 Excluding weight two
 
-`R25.5/weight-two-level-one-excluded` asserts that, in every
+`not_levelOne_weight_two` asserts that, in every
 characteristic p, there is no level-one residual representation
 with actual Serre weight two. Its declaration is
 `not_levelOne_weight_two`. For p=2 or 3 use Tate–Serre. For
@@ -1690,9 +1744,9 @@ route would use R24.5 to pass to a 3-adic member, Tate–Serre
 for its reduction and the preceding ordinary argument; that
 route has its own compatible-system prerequisites.
 
-### Excluding p+1 at Schoof's primes
+### 5.9 Excluding p+1 at Schoof's primes
 
-`R25.5/weight-p-plus-one-excluded-at-schoof-primes` asserts
+`not_levelOne_weight_succ_of_schoofPrime` asserts
 $k(\bar\rho)\ne p+1$ for a level-one representation when
 $p\in\{5,7,13\}$. Use (A1) from the dihedral classification
 and the minimal weight-two Steinberg lift from R24.3. It is
@@ -1715,9 +1769,9 @@ valuation five, producing the très ramifiée local behaviour
 in the weight recipe. Both sides of the argument therefore
 respect the omitted prime.
 
-### Weight fourteen in characteristic eleven
+### 5.10 Weight fourteen in characteristic eleven
 
-`R25.5/weight-fourteen-at-eleven-is-a-twist` is a local
+`weight_fourteen_eleven_twist` is a local
 classification and dichotomy, rather than an unconditional
 weight-fourteen exclusion. Let $\bar\rho$ be level one in
 characteristic eleven with $k(\bar\rho)=14$, and let ω
@@ -1749,9 +1803,9 @@ that published restriction and the complete local case
 split. Its dependencies are R15.4 and the weight-two
 exclusion, not a weight-ten induction from R26.
 
-### The small-weight theorem
+### 5.11 The small-weight theorem
 
-`R25.5/small-weight-level-one-exclusion` proves that no
+`not_levelOne_small_weight` proves that no
 level-one representation, in any characteristic p, has
 $2\le k(\bar\rho)\le8$, or has $k(\bar\rho)=14$ with
 p≠11. These are actual Serre weights. The declaration
@@ -1812,9 +1866,9 @@ cuspidal representation of that weight. Weight ten
 belongs to the later weight-reduction argument, not
 to this terminal list.
 
-### The characteristic-five end of Paso 6
+### 5.12 The characteristic-five end of Paso 6
 
-`R25.5/paso-six-terminal-cases` is the terminal application
+`paso_six` is the terminal application
 used by `ClassicalSerreModularity:R33.4`. Start with an
 almost strictly compatible system with empty ramification
 set and irreducible non-bad-dihedral reduction at five.
@@ -1840,16 +1894,26 @@ Dieulefait–Pacetti, §2, Paso 6, p. 14, gives precisely
 this end of the argument, with its role in the completed
 odd-characteristic proof stated on p. 15.
 
-The layer's landmarks are GL₂-type, Snowden's realisation
+This layer's landmarks are GL₂-type, Snowden's realisation
 and the small-weight theorem with its characteristic-eleven
-restriction. Its exit requirements include all the local
+restriction. Its applications require all the local
 transition checks; possession of a realisation theorem
 without its reduction and (A1) checks would not justify
 either geometric application.
 
-## R25.6 — The base-case table
+### Examples
 
-`R25.6/base-case-table` defines a finite list of nine rows. Each row
+Dimension one with coefficient field ℚ passes the GL₂-type predicate, dimension two with ℚ fails, and dimension zero fails for every number field. The actual weight fourteen at eleven has an exceptional local type; it is not added to the exclusion theorem.
+
+### Dependencies
+
+Layers 2–4; ArithmeticGaloisRepresentations R01.4 and R01.6, AlgebraicModularFormsAndSerreWeights R15.4, AutomorphicGaloisRepresentations R19.4–R19.5, GL2AutomorphicRepresentationsAndTransfer R17.3–R17.4, HilbertModularVarietiesAndShimuraCurves R18.6, PotentialModularityAndCompatibleSystems R23.4, R24.3 and R24.5, OrdinaryAutomorphicFormsAndModularityLifting R21.5, FaltingsFinitenessAndIsogenyTheorems R28.4, and R11.5/A6 for the λ-independent reduction transition. The modular-Jacobian check consumes the ModularCurves, JacobianChallenge and geometric Hecke constructions named above.
+
+## Layer 6: The base-case table
+
+### 6.1 Rows and their mathematical domains
+
+`baseCases` defines a finite list of nine rows. Each row
 records the characteristics and weights, ramification condition,
 image condition, coefficient assumptions, supplier, consumer and
 local check needed before application. This is a typed index to
@@ -1869,25 +1933,23 @@ representation; it is not an exclusion of all residual weights.
 
 | Row | Hypotheses and conclusion | Supplier | Consumer and local check |
 | --- | --- | --- | --- |
-| Tate | Finite characteristic-two coefficients, continuous absolutely irreducible residual representation, unramified outside two: impossible; all weights | R25.2/tate-theorem | R26.1 and the characteristic-two base case; determinant oddness is automatic |
-| Serre | Finite characteristic-three coefficients, odd absolutely irreducible residual representation, unramified outside three: impossible; all weights | R25.2/serre-mod-three-theorem | R26.1 and R33.4's 3-adic member; check oddness and ramification |
-| Fontaine | Abelian variety over ℚ, good reduction at every prime: dimension zero | R25.3/fontaine-theorem | R26.5 through weight two; verify good reduction at p as well as away from p |
-| Schoof | Abelian variety over ℚ, semistable at ℓ and good away from $\ell\in\{2,3,5,7,13\}$: dimension zero | R25.4/schoof-theorem | R26.5 at weights p+1, and R33.4 at ℓ=5; check semistability and the exact prime set |
-| Weight two | Level-one absolutely irreducible residual representation of weight two, any p: impossible | R25.5/weight-two-level-one-excluded | R26.5; check actual Serre weight, minimal crystallinity and (A1) |
-| Selected p+1 | Level-one residual representation, p in $\{5,7,13\}$, weight p+1: impossible | R25.5/weight-p-plus-one-excluded-at-schoof-primes | R26.5; check the Steinberg weight-two lift and reduction type |
-| Ordinary terminal members | Irreducible odd crystalline p-adic member of weight k, unramified outside p, with reducible reduction, at (3,2), (3,4), (5,6), (7,8), (13,14): impossible | R25.5/ordinary-reducible-terminal-weights | R33.4 and R26.5; check ordinarity, p-distinguishedness and level-one local–global compatibility |
-| Small weights | Level-one residual representation with actual weight between two and eight, or weight fourteen with p≠11: impossible | R25.5/small-weight-level-one-exclusion | R26.5; retain the actual-weight convention and the exception at eleven |
-| Paso 6 | Almost strictly compatible system with empty ramification set and irreducible reduction at five: weights two and four lead to a modular 3-adic member; weight six is impossible | R25.5/paso-six-terminal-cases | R33.4; check minimal lift, compatibility and the non-bad-dihedral condition |
+| Tate | Finite characteristic-two coefficients, continuous absolutely irreducible residual representation, unramified outside two: impossible; all weights | tate_no_levelOne_char_two | R26.1 and the characteristic-two base case; determinant oddness is automatic |
+| Serre | Finite characteristic-three coefficients, odd absolutely irreducible residual representation, unramified outside three: impossible; all weights | serre_no_levelOne_char_three | R26.1 and R33.4's 3-adic member; check oddness and ramification |
+| Fontaine | Abelian variety over ℚ, good reduction at every prime: dimension zero | dim_eq_zero_of_goodReduction_everywhere | R26.5 through weight two; verify good reduction at p as well as away from p |
+| Schoof | Abelian variety over ℚ, semistable at ℓ and good away from $\ell\in\{2,3,5,7,13\}$: dimension zero | no_semistable_abelianVariety_one_prime | R26.5 at weights p+1, and R33.4 at ℓ=5; check semistability and the exact prime set |
+| Weight two | Level-one absolutely irreducible residual representation of weight two, any p: impossible | not_levelOne_weight_two | R26.5; check actual Serre weight, minimal crystallinity and (A1) |
+| Selected p+1 | Level-one residual representation, p in $\{5,7,13\}$, weight p+1: impossible | not_levelOne_weight_succ_of_schoofPrime | R26.5; check the Steinberg weight-two lift and reduction type |
+| Ordinary terminal members | Irreducible odd crystalline p-adic member of weight k, unramified outside p, with reducible reduction, at (3,2), (3,4), (5,6), (7,8), (13,14): impossible | no_levelOne_crystalline_of_reducible_terminal | R33.4 and R26.5; check ordinarity, p-distinguishedness and level-one local–global compatibility |
+| Small weights | Level-one residual representation with actual weight between two and eight, or weight fourteen with p≠11: impossible | not_levelOne_small_weight | R26.5; retain the actual-weight convention and the exception at eleven |
+| Paso 6 | Almost strictly compatible system with empty ramification set and irreducible reduction at five: weights two and four lead to a modular 3-adic member; weight six is impossible | paso_six | R33.4; check minimal lift, compatibility and the non-bad-dihedral condition |
 
-The tests `baseCases_schoof_primes`, `baseCases_tate_no_oddness`,
-`baseCases_weight_list`, `baseCases_fontaine_schoof_distinct` and
-`baseCases_weight_fourteen_excludes_eleven` assert that the Schoof
-row contains exactly 2,3,5,7,13; the Tate row needs no oddness
-hypothesis; the residual rows do not assert an exclusion of
-weight twelve; the two geometric rows have distinct suppliers
-and reduction hypotheses; and no residual row includes (11,14).
-The Δ representation and $J_0(11)$ give meaningful negative
-checks for the two weight and prime boundaries.
+**Checks.**
+
+- `baseCases_schoof_primes`: the geometric row has exactly the bad-prime set {2,3,5,7,13}; $J_0(11)$ rejects an interval of all primes at most thirteen.
+- `baseCases_tate_no_oddness`: the characteristic-two row carries no independent oddness assumption.
+- `baseCases_weight_list`: no residual row contains (11,12); the Δ representation tests this boundary.
+- `baseCases_fontaine_schoof_distinct`: the two geometric rows have distinct suppliers and different reduction conditions.
+- `baseCases_weight_fourteen_excludes_eleven`: no residual exclusion row contains (11,14), preserving the version-of-record exception.
 
 There are three additional branches whose theorems have other
 owners. A solvable image is treated by Langlands–Tunnell in
@@ -1902,14 +1964,12 @@ classification here addresses level one only. These branches
 remain supplier applications and are not additional
 nonexistence claims in the table.
 
-`R25.6/base-case-table-holds` asserts the mathematical theorem
+`baseCases_holds` asserts the mathematical theorem
 of every row, using its supplier theorem with the recorded
-hypotheses. The proposed `baseCases_holds` is the conjunction
-of the row statements expressible in the available interfaces;
-the semistable, crystalline and compatible-system statements
-are specified in Suggested.lean's header until their owners'
-interfaces exist. A name stored in a row is never treated as
-a proof. The dependence runs from R25.1 through the geometric
+hypotheses. The theorem `baseCases_holds` conjoins the row statements; its Lean signature
+is listed in the closing comment until the Serre-weight, semistable,
+crystalline and compatible-system supplier interfaces exist. A name stored in a row is never treated as
+a proof. The dependence runs from Layer 1 through the geometric
 and representation results to the table, and only then to
 R26 and R33. In particular, neither consumer is an input to
 the table theorem.
@@ -1918,36 +1978,22 @@ The sources for the organisation are Dieulefait–Pacetti,
 §1.1, Theorems 1.1–1.3, pp. 3–4, and the end of the
 odd-characteristic argument, §2, p. 15; Khare, §1.1,
 pp. 2–3, gives the level-one base cases. The table theorem
-is the final landmark. Its exit criterion is that every
-local transition used by a consumer has the full hypotheses
-listed above, with no inferred exclusion of eleven, weight
-ten or weight twelve.
+conjoins the independent results with their full hypotheses; it gives no additional exclusion at eleven, weight ten or weight twelve.
 
-## Additional library interfaces used by the arguments
+### Examples
 
-Several general declarations occur at multiple transitions.
-They are listed here to make their precise role explicit.
-All are existing baseline tools, not further targets.
+The five row checks above pin the exact prime sets, characteristic-two oddness, and the boundaries at weights twelve and fourteen in characteristic eleven.
 
-| Declaration | Role |
-| --- | --- |
-| `AlgebraicClosure` | Scalar extension in absolute irreducibility and the ambient field for kernel and torsion fields |
-| `Ideal.isUnramifiedAt_iff_inertia_eq_bot` | Converts unramifiedness of an ideal in a Galois extension to trivial inertia |
-| `NumberField.finrank_eq_one_of_unramified` | The number-field degree-one conclusion for an extension unramified at all finite places |
-| `TauCeti.bochner` | Identifies a continuous positive-definite function with the Fourier transform of a finite positive measure; compatible with the Lorentzian argument |
-| `TauCeti.RootsOfUnityGroup.groupScheme` | The group-scheme model μp |
-| `TauCeti.DiagonalizableGroup.groupScheme` | Diagonalizable finite groups occurring in the reordered filtration |
-| `TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.baseChangeFunctor` | Base change to ℤ[1/ℓ,ζℓ] in the cyclotomic splitting theorem |
-| `Real.pi_gt_d6`, `Real.pi_lt_d6` | Finer rational π enclosures for the degree certificates and the small-discriminant calculations |
+### Dependencies
 
-The group-scheme base-change functor is a functor on the existing
-finite locally free category. The exactness and point-action
-compatibilities needed by this roadmap are part of R07.1;
-existence of the functor alone is not an exactness theorem.
-Likewise, the library's different ideal and divisibility
-estimates provide the algebraic foundation, while the full
-ramification filtration and reciprocity comparison remain
-local-fields and class-field-theory inputs.
+Layers 2–5. ClassicalSerreModularity consumes the table; it is not a prerequisite.
+
+## Downstream consumers
+
+ClassicalSerreModularity R26.1 and R26.5 use the residual and geometric base
+cases; R33.4 uses the terminal compatible-system arguments. The table records
+the actual weight, coefficient, ramification and image hypotheses needed at
+each transition. Its exceptional characteristic-eleven rows are not exclusions.
 
 ## References
 
@@ -1987,6 +2033,12 @@ document's own page numbers are used.
   exponents and mean slopes. §2.3, pp. 8–9, compares
   the wild bounds, including Tate's original estimate;
   §3.1, p. 9, connects them to root discriminants.
+- **Faber.** Xander Faber,
+  [Finite p-Irregular Subgroups of PGL(2,k)](https://arxiv.org/abs/1112.1999v1),
+  arXiv:1112.1999v1, 9 December 2011. Theorems B–C,
+  §2, p. 3, and Theorem 6.1, §6, p. 16, classify
+  the projective subgroups used in the characteristic-two and
+  characteristic-three arguments.
 - **Ghitza–Yamauchi.** Alexandru Ghitza and Takuya Yamauchi,
   [The non-existence of some Galois representations of moderate dimension in small characteristic](https://arxiv.org/abs/2509.00635v2),
   arXiv:2509.00635v2, 31 October 2025. §2.3,
