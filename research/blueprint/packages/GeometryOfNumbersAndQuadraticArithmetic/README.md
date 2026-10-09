@@ -66,10 +66,10 @@ Already in Mathlib or Tau Ceti, used without restatement: Blichfeldt's theorem (
 
 ## How to read the build
 
-Layer 0 gives the Gram-determinant and covolume identities and the adapted bases behind them. Layer 1 defines successive minima and proves Minkowski's theorems. Layer 2 sets up integral quadratic and hermitian lattices over Dedekind domains with their local theory and their genera, and the comparisons that connect them to the field theory and to the `ℤ`-lattices of Tau Ceti. Layer 3 counts: finite-field representation numbers, local densities and Siegel polynomials, stabilizers, classes, mass, theta coefficients. Layer 4 is the analytic and dynamical side: lattice-point bounds, the homogeneous-dynamics theorems and their two arithmetic applications, transference, star bodies and critical lattices, Siegel's mean value theorem, lattices from codes. Layer 5 is the certified LLL algorithm. Layer 6 is hermitian K-theory of exact categories, beginning with the ordinary K-theoretic inputs it needs. Within each layer the subsections are in dependency order, each target's `*Needs:*` line names its inputs by subsection number or supplier, and every definition ends with its checks, which reappear as `example`s in `Suggested.lean`.
+Layer 0 gives the Gram-determinant and covolume identities and the adapted bases behind them. Layer 1 defines successive minima and proves Minkowski's theorems. Layer 2 sets up integral quadratic and hermitian lattices over Dedekind domains with their local theory and their genera, and the comparisons that connect them to the field theory and to the `ℤ`-lattices of Tau Ceti. Layer 3 counts: finite-field representation numbers, local densities and Siegel polynomials, stabilizers, classes, mass, theta coefficients. Layer 4 is the analytic and dynamical side: lattice-point bounds, the homogeneous-dynamics theorems and their two arithmetic applications, transference, star bodies and critical lattices, Siegel's mean value theorem, lattices from codes. Layer 5 is the certified LLL algorithm. Layer 6 is hermitian K-theory of exact categories, beginning with the ordinary K-theoretic inputs it needs. Within Layer 2, build 2.2 and 2.7 before the field comparisons and the dual-quotient invariants; within Layer 6, the degree-zero presentations and formation comparison feed the topological comparisons. Each target's `*Needs:*` line names its inputs by subsection number or supplier, and every definition ends with its checks, which reappear as `example`s in `Suggested.lean`.
 ## Layer 0: Lattices, Gram determinants and covolumes
 
-This layer is the calculus of covolumes of discrete full ℤ-submodules of a real inner-product space `E`. Everything is stated intrinsically: a lattice of lower rank is first moved into its real span, which carries the inherited inner product and its own Lebesgue measure, and every volume is the canonical Euclidean volume of the space in which it is taken, with volume one in dimension zero. The layer proves the Gram–Hadamard inequality in the hermitian generality needed by Couveignes’ counting argument, identifies the squared covolume of a lattice with the Gram determinant of any of its bases, and then establishes the three covolume identities of Horesh–Karasik’s appendix: the covolume of an orthogonal projection, the reciprocal covolume of the inner dual, and the equality of the covolumes of the two primitive intersections `Δ ∩ W` and `Δ ∩ W^⊥` of a self-dual lattice. The adapted-basis lemmas of 0.2 are the integral linear algebra these identities need (Smith normal form for a saturated sublattice, the projected basis, biorthogonal families) and are reusable on their own.
+This layer is the calculus of covolumes of discrete full ℤ-submodules of a real inner-product space `E`. Everything is stated intrinsically: a lattice of lower rank is first moved into its real span, which carries the inherited inner product and its own Lebesgue measure, and every volume is the canonical Euclidean volume of the space in which it is taken, with volume one in dimension zero. The layer proves the Gram–Hadamard inequality in the hermitian generality needed by Couveignes’ counting argument, and establishes the three covolume identities of Horesh–Karasik’s appendix: the covolume of an orthogonal projection, the reciprocal covolume of the inner dual, and the equality of the covolumes of the two primitive intersections `Δ ∩ W` and `Δ ∩ W^⊥` of a self-dual lattice. The adapted-basis lemmas of 0.2 are the integral linear algebra these identities need (Smith normal form for a saturated sublattice, the projected basis, biorthogonal families) and are reusable on their own.
 
 ### 0.1 Gram determinants and the Hadamard inequality
 
@@ -188,7 +188,7 @@ This layer is the calculus of covolumes of discrete full ℤ-submodules of a rea
 **0.3.2 Reciprocal covolume of the inner dual.** Prove `covolume_dual`: For a discrete full Z-lattice L in a finite-dimensional real inner-product space E with canonical intrinsic Euclidean volume, covol(L*)=covol(L)^{-1}, where L* is the integer-valued inner dual in E. The full-lattice property of L* follows from the dual-basis and span-basis results and is not an additional assumption.
 *Hypotheses.* L is discrete and spans E over R. A lower-rank lattice is first transported into its real span; its ambient polar is not used.
 (Source: Horesh–Karasik 2023, Corollary A.3, published p.1285.)
-IntegralLattices milestone 1B is the rational Gram-determinant identity `det L⋆ = (det L)⁻¹`; the statement here is about real covolumes of the inner dual, in dimension zero included.
+This variant uses real covolumes of the inner dual, rather than rational Gram determinants, and includes dimension zero.
 *Needs:* Mathlib `Module.Basis.ofZLatticeBasis`, `Module.Basis.ofZLatticeBasis_span`, `LinearMap.BilinForm.dualBasis`, `LinearMap.BilinForm.apply_dualBasis_right`, `LinearMap.BilinForm.dualSubmodule_span_of_basis`, `Module.Basis.restrictScalars`, `ZSpan.discreteTopology_pi_basisFun`, `instIsZLatticeRealSpan`, `ZLattice.covolume_pos`, 0.2 `gram_det_biorthogonal`, Tau Ceti `ZLattice.covolume_sq_eq_det_gram`.
 **Checks.**
 - The inner dual of 2Z in R has covolume 1/2.
@@ -203,8 +203,6 @@ IntegralLattices milestone 1B is the rational Gram-determinant identity `det L�
 - Both primitive diagonal and antidiagonal intersections in Z² have intrinsic covolume √2.
 - Replacing the primitive generator (1,1) by (2,2) doubles its one-dimensional covolume while leaving its orthogonal line unchanged.
 - The primitive diagonal and antidiagonal generators form an index-two sublattice, not an integral basis of Z².
-
-### 0.4 The mixed embedding of a number field
 
 ### Examples
 
@@ -271,7 +269,7 @@ This layer defines the successive minima `λ_i(L, K)` of a convex body `K` with 
 **1.2.1 Successive minima on the lattice and convex body.** Define `successiveMin_def`: For a Z-submodule L of a finite-dimensional real normed space E, K:ConvexBody E and i:Fin d, define λ_i(L,K) as the real infimum of A_i={r∈R : 0≤r and i.val+1≤dim_R span_R{x∈L : gauge K x≤r}}. This is a real-valued function on carriers. Its geometric laws require L discrete and full and 0∈interior K; central symmetry is needed for Minkowski’s product inequality.
 *API.* `successiveMin_def` (characterisation: λ_i is the infimum of the nonnegative gauge-rank thresholds A_i specified in the definition.); `successiveMin_isLeast` (relation: For every i:Fin d, λ_i(L,K) is the least element of A_i={r≥0 : dim span_R{x∈L : gauge K x≤r}≥i.val+1}.); `successiveMin_pos` (relation: For every i:Fin d, 0<λ_i(L,K).); `successiveMin_monotone` (relation: The function i↦λ_i(L,K), on Fin d, is monotone.); `successiveMin_le_iff` (relation: For r≥0, λ_i(L,K)≤r if and only if i.val+1≤dim_R span_R((L:Set E)∩r·(K:Set E)).); `exists_successiveMin_witnesses` (relation: There exists a real basis b indexed by Fin d such that b_i∈L, gauge K b_i=λ_i(L,K), and every x∈L of gauge<λ_i lies in span_R{b_j:j<i}. In particular b_i∈λ_iK and all minimum bounds are attained by one independent family.); `successiveMin_antitone_body` (relation: If K⊆K' and both bodies contain zero in their interior, then λ_i(L,K')≤λ_i(L,K) for every i.); `successiveMin_monotone_lattice` (relation: If L≤M are discrete full lattices in the same E, then λ_i(M,K)≤λ_i(L,K).); `successiveMin_smul_body` (relation: For c>0, λ_i(L,cK)=λ_i(L,K)/c. The scalar action on ConvexBody is the one.); `successiveMin_linearEquiv` (relation: Let e:E≃_R F, L'=e(L) as integral submodules, and K'=e(K) as convex bodies. For valid indices i,j with i.val=j.val, λ_j(L',K')=λ_i(L,K). Finite-dimensional normed real E,F and the discrete/full/interior hypotheses are understood. The equivalence need not be orthogonal or unimodular.); `successiveMin_first_le_iff` (relation: If d>0 and r≥0, λ_0(L,K)≤r if and only if there exists x∈L with x≠0 and x∈rK.); `successiveMin_box` (relation: Let b be a real basis of E indexed by Fin d, L=span_Z(range b), and a:Fin d→R positive and nondecreasing. If K is the convex body {x:∀j, a_j|b.repr(x)_j|≤1}, then λ_i(L,K)=a_i for every i.); `successiveMin_crosspolytope` (relation: With b,L and positive nondecreasing a as for rectangular-body-minima, let K={x:Σ_j a_j|b.repr(x)_j|≤1}. Then λ_i(L,K)=a_i. Together with weighted-crosspolytope-volume, this attains equality in minkowski-second-lower.).
 (Source: Evertse, *Geometry of numbers*, §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14).)
-IntegralLattices milestone 2F is the special case of a positive definite integral lattice with the Euclidean ball, where the minima are squared lengths; the definition here takes any convex body with `0` in its interior and is real-valued, so that the two agree after a square root.
+This variant takes any convex body with `0` in its interior and is real-valued; for the Euclidean ball it agrees with squared-length minima after a square root.
 *Needs:* Mathlib `ConvexBody`, `gauge`, `finrank_span_eq_card`, `gauge_closedBall`.
 **Checks.**
 - For L=Z⊂R and K=[−2,2], λ_0(L,K)=1/2.
@@ -339,13 +337,13 @@ IntegralLattices milestone 2F is the special case of a positive definite integra
 - The zero-dimensional family is an empty real basis and has no minimum value to evaluate.
 
 **1.2.10 Larger bodies have smaller minima.** Prove `successiveMin_antitone_body`: If K⊆K' and both bodies contain zero in their interior, then λ_i(L,K')≤λ_i(L,K) for every i.
-(Source: Evertse, *Geometry of numbers*, §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14).)
+(Source: direct body-monotonicity deduction from the threshold definition in Evertse §2.3, printed p.23.)
 *Needs:* Mathlib `Submodule.finrank_mono`, 1.2 `successiveMin_le_iff`, 1.2 `successiveMin_pos`.
 **Checks.**
 - Changing [−1,1] to [−2,2] divides the only minimum by two.
 
 **1.2.11 Sublattices have larger minima.** Prove `successiveMin_monotone_lattice`: If L≤M are discrete full lattices in the same E, then λ_i(M,K)≤λ_i(L,K).
-(Source: Evertse, *Geometry of numbers*, §2.3, Lemma 2.8, printed pp.23–24 (physical pp.13–14).)
+(Source: deduction from the threshold definition in Evertse §2.3, printed p.23; Lemma 2.8, pp.23–24, supplies attainment, rather than stating lattice monotonicity.)
 *Needs:* Mathlib `Submodule.finrank_mono`, 1.2 `successiveMin_le_iff`, 1.2 `successiveMin_pos`.
 **Checks.**
 - 2Z⊂Z gives minima 2 and 1 for the unit interval.
@@ -506,8 +504,8 @@ IntegralLattices milestone 2F is the special case of a positive definite integra
 - For F=EuclideanSpace ℝ (Fin 0), the factor 2^(dim F) is 1, not 2 or zero.
 
 **1.5.8 Gauge under an invertible linear change.** Prove `gauge_linearEquiv`: For real modules E,F, a linear equivalence e:E≃_R F, K⊆E and x∈E, gauge_{e(K)}(e(x))=gauge_K(x). No convexity, boundedness, symmetry or nonempty-interior hypothesis is needed.
-*Hypotheses.* E,F are real modules with additive commutative group structure. Both the set and the evaluation point are transformed; this is an comparison for the gauge, not another gauge definition.
-(Source: Henk, *Successive minima and lattice points*, p.5, reduction to the standard lattice at the start of §3.)
+*Hypotheses.* E,F are real modules with additive commutative group structure. Both the set and the evaluation point are transformed; this is a comparison for the gauge, not another gauge definition.
+(Source: direct deduction from Mathlib `gauge_def'`; Henk p.5, §3, uses the accompanying reduction to a standard lattice.)
 *Needs:* Mathlib `gauge_def'`.
 **Checks.**
 - For K=[−1,1], transforming K and x=1 by multiplication by 2 gives gauge_[−2,2](2)=1.
@@ -612,7 +610,7 @@ IntegralLattices milestone 2F is the special case of a positive definite integra
 - For d=0 the product-volume and the bound are both one.
 
 **1.5.21 Minkowski’s sharp upper product inequality.** Prove `minkowski_second_upper`: For a discrete full Z-lattice L in a finite-dimensional real inner-product space E and a centrally symmetric convex body K with 0 in its interior, (∏_{i:Fin d}λ_i(L,K))·volume.real(K)≤2^d·covolume(L), where d=dim_R E and λ_i is the inherited zero-based successive minimum. The formula includes d=0.
-*Hypotheses.* E carries its Borel structure and canonical intrinsic Euclidean volume. L uses Submodule Z E, DiscreteTopology and IsZLattice. K uses ConvexBody. The inherited real-valued gauge minimum interface is a plan, not a new completed library implementation. Lower-rank lattices are first regarded as full lattices in their real spans, with intrinsic measure. No ambient-volume conclusion for a lower-dimensional body is substituted.
+*Hypotheses.* E carries its Borel structure and canonical intrinsic Euclidean volume. L uses Submodule Z E, DiscreteTopology and IsZLattice. K uses ConvexBody. Lower-rank lattices are first regarded as full lattices in their real spans, with intrinsic measure. No ambient-volume conclusion for a lower-dimensional body is substituted.
 (Source: Henk, *Successive minima and lattice points*, p.2 Theorem 1.3 and complete §3 proof, pp.5–7.)
 *Needs:* Mathlib `Module.Basis.ofZLatticeBasis_repr_apply`, `Module.Basis.mem_flag_iff_repr_eq_zero`, `Module.Basis.equivFun`, `Convex.linear_image`, `Homeomorph.image_interior`, `IsCompact.image`, `IsCompact.isClosed`, `IsClosed.measurableSet`, `ZLattice.volume_image_eq_volume_div_covolume'`, `ZLattice.covolume_pos`, `IsCompact.measure_lt_top`, 1.2 `exists_integral_minimum_flag`, 1.5 `gauge_linearEquiv`, 1.2 `successiveMin_pos`, 1.2 `successiveMin_monotone`, 1.5 `coordinate_flag_upper`.
 **Checks.**
@@ -620,11 +618,9 @@ IntegralLattices milestone 2F is the special case of a positive definite integra
 - For L=2Z×3Z and K=[−2,2]×[−1,1], minima (1,3) and area 8 give 24=4·6.
 - In the zero-dimensional canonical space the empty product, volume, covolume and 2^0 are all one.
 
-### 1.6 Blichfeldt, Minkowski’s first theorem and the number-field applications
-
 ### Examples
 
-For `L = ℤ^d` and the cube `K = [−1,1]^d` every minimum is `1` and the product `λ_1⋯λ_d · vol K = 2^d` attains the upper bound. For the weighted cross-polytope `{Σ|x_i|/a_i ≤ 1}` the minima are `a_i` and the lower bound `2^d/d!` is attained. For the box `∏[−a_i, a_i]` the minima are `1/a_i` in increasing order of `a_i`. The linear forms theorem on `ℤ²` with the forms `x`, `x + αy` and bounds `(1, ε)` gives the classical approximation `|x + αy| ≤ ε` with `|y| ≤ 1/ε`... in the closed-box form, a nonzero solution exists exactly at the product threshold `1 · ε ≥ ε`.
+For `L = ℤ^d` and the cube `K = [−1,1]^d` every minimum is `1` and the product `λ_1⋯λ_d · vol K = 2^d` attains the upper bound. For positive half-widths `a_i`, both the weighted cross-polytope `{Σ|x_i|/a_i ≤ 1}` and the box `∏[−a_i,a_i]` have the reciprocals `1/a_i` as their successive minima, sorted in increasing order of the reciprocals. With half-widths `(2,1)` the minima are `(1/2,1)`, not `(1,2)`. The cross-polytope attains the lower bound `2^d/d!`. For Dirichlet approximation apply the linear forms theorem to `x−αy` and `y` with bounds `(1/T,T)`, `T>1`: the determinant is `1`, so there is a nonzero integer pair with `|x−αy|≤1/T` and `|y|≤T`. Since `1/T<1`, `y=0` would also force `x=0`, so the denominator is nonzero.
 
 ### Dependencies
 
@@ -632,37 +628,37 @@ Layer 0 (Gram determinants and covolumes); Mathlib `ConvexBody`, `gauge` and its
 
 ## Layer 2: Integral quadratic and hermitian lattices
 
-This layer builds the arithmetic of integral quadratic and hermitian lattices over a Dedekind domain `R` with fraction field `K`, not only over `ℤ`: the carrier is a full `R`-submodule of a `K`-quadratic space on which the quadratic map takes values in `R`, with no basis stored. Localisation at a prime and descent from a completion (2.2) let every local question be asked of a lattice over a discrete valuation ring. The genus and the proper spinor genus (2.4) are defined over a number field with the spin image taken place by place. The local theory has three branches: invariant factors over a DVR (2.5), Voight’s atomic normal forms over a local principal ideal domain, dyadic case included (2.6), and the hermitian, quaternionic and signed hermitian variants (2.7–2.9). The field-level comparisons of 2.1 and the ℤ-lattice comparisons of 2.3 are the exact bridges to QuadraticFormInvariants, GlobalQuadraticForms and the two IntegralLattices roadmaps, with the convention `q(x) = B(x,x)/2` made explicit at every crossing.
+This layer builds the arithmetic of integral quadratic and hermitian lattices over a Dedekind domain `R` with fraction field `K`, not only over `ℤ`: the carrier is a full `R`-submodule of a `K`-quadratic space on which the quadratic map takes values in `R`, with no basis stored. Localisation at a prime and descent from a completion (2.2) let every local question be asked of a lattice over a discrete valuation ring. The genus and the proper spinor genus (2.4) are defined over a number field with the spin image taken place by place. The local theory has three branches: invariant factors over a DVR (2.5), Voight’s atomic normal forms over a characteristic-zero DVR, dyadic case included (2.6), and the hermitian, quaternionic and signed hermitian variants (2.7–2.9). The field-level comparisons of 2.1 and the ℤ-lattice comparisons of 2.3 are the exact bridges to QuadraticFormInvariants, GlobalQuadraticForms and the two IntegralLattices roadmaps, with the convention `q(x) = B(x,x)/2` made explicit at every crossing.
 
 ### 2.1 Comparisons with the field theory
 
 **2.1.1 Field hyperbolic comparison.** Prove the comparison: For a finite-dimensional field space with 2 invertible, passage from a nondegenerate symmetric pairing B to q(x)=B(x,x)/2 identifies its categorical hyperbolic plane with the hyperbolic plane `xy` of QuadraticFormInvariants Layer 1. The integral hyperbolic plane over Z needs no division by 2.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: QuadraticFormInvariants, Layer 1, hyperbolic decomposition and Witt cancellation, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, QuadraticFormInvariants Layer 1.
 
 **2.1.2 Field discriminant comparison.** Prove the comparison: In a basis of the generic space, the plain quadratic discriminant of QuadraticFormInvariants Layer 3 of q=B(x,x)/2 is the square class of 2^(−n) det Gram(B), and signed discriminant multiplies by (−1)^(n(n−1)/2). Basis changes multiply by a square.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: QuadraticFormInvariants, Conventions and Layer 3, plain and signed discriminants, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, QuadraticFormInvariants Layer 3.
 
 **2.1.3 Field Witt comparison.** Prove the comparison: Over a field with 2 invertible, the exact-category symmetric W0 of finite-dimensional vector spaces is additively isomorphic to the Witt ring of QuadraticFormInvariants Layer 4 via B↦B(x,x)/2; orthogonal sums and hyperbolic relations agree. This supplies no integral Witt ring or dyadic quadratic-refinement identification.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: QuadraticFormInvariants, Layer 4, Witt and Witt–Grothendieck rings; the B/2 comparison is an additive transport, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 The field Witt ring is Tau Ceti `WittRing K` with `WittGrothendieckRing K`; the exact-category group `W₀` is constructed in 6.4, so this comparison is stated here and proved there.
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, QuadraticFormInvariants Layer 4.
 
 **2.1.4 Field Hasse comparison.** Prove the comparison: The generic quadratic form of an integral lattice uses the Brauer-valued Hasse and Clifford invariants of QuadraticFormInvariants Layer 5, with its signed/plain discriminant conventions; integral basis change preserves these through the generic isometry. No complete invariant claim over a general field is made.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: QuadraticFormInvariants, Layer 5, Hasse and Clifford invariants, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, QuadraticFormInvariants Layer 5.
 
 **2.1.5 Local field classification comparison.** Prove the comparison: For a characteristic-zero nonarchimedean local field, generic nondegenerate quadratic spaces are isometric exactly when dimension, plain discriminant and local Hasse sign agree. Completed integral lattices with those generic invariants can still be inequivalent.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: QuadraticFormInvariants, Layer 6, local Hasse invariant and local classification, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, QuadraticFormInvariants Layer 6.
 
 **2.1.6 Global field isotropy comparison.** Prove the comparison: For the generic nondegenerate quadratic form over a number field, a nonzero isotropic vector exists exactly when one exists at all finite and real completions. Integral representation of a prescribed value requires additional lattice conditions.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: GlobalQuadraticForms, Layer 5, Hasse–Minkowski isotropy, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, GlobalQuadraticForms Layer 5.
 
 **2.1.7 Global field isometry comparison.** Prove the comparison: Local generic isometry at every finite and real place gives a single generic K-isometry. It does not identify the embedded lattices; the integral-genus relation and its class set retain precisely that extra problem.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: GlobalQuadraticForms, Layer 6, local-to-global isometry, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, GlobalQuadraticForms Layer 6.
 
 ### 2.2 Integral quadratic lattices over a Dedekind domain, localisation and descent
@@ -683,7 +679,7 @@ The carrier in `Suggested.lean` is stated for any commutative ring `R` with an `
 *Hypotheses.* Use localization R_(p), not completion R_p; the latter changes the ambient field. No global freeness is assumed.
 *API.* `IntegralQuadraticLattice.localize` (constructor: Return the R_(p)-lattice and restricted quadratic form.); `IntegralQuadraticLattice.localize_mem_iff` (characterisation: x lies in L_(p) iff s x lies in L for some s∈R\p.); `IntegralQuadraticLattice.localize_map` (functoriality: An integral isometry localizes, preserving identity and composition.).
 (Source: Voight, *Quaternion algebras*, §9.4, (9.4.1)–(9.4.5), printed pp.139–140.)
-IntegralLattices milestone 3A is the completion `ℤ_p ⊗ L` of a ℤ-lattice; this target localises at a prime of a Dedekind domain inside the fixed fraction-field space and keeps completion for 2.2.5.
+This variant localises at a prime of a Dedekind domain inside the fixed fraction-field space; it keeps completion, which changes the ambient field, for 2.2.5.
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`.
 **Checks.**
 - Z_(2) contains 1/3 and excludes 1/2; this is not Z₂.
@@ -716,15 +712,15 @@ IntegralLattices milestone 3A is the completion `ℤ_p ⊗ L` of a ℤ-lattice; 
 ### 2.3 Comparisons with symmetric ℤ-lattices
 
 **2.3.1 Symmetric Z carrier comparison.** Prove the comparison: For R=Z,K=Q and a symmetric integral pairing B, the GN integral hermitian carrier with trivial involution recovers the completed IntegralLattices carrier. For an integral quadratic q use B=polar(q), not q(x)=B(x,x)/2 without the evenness condition.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: Completed/IntegralLattices, Layer 1, embedded rational carrier and restricted integer pairing, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, Completed IntegralLattices Layer 1.
 
 **2.3.2 Symmetric Z dual comparison.** Prove the comparison: Under the same symmetric Q-space specialization, GN hermitian dual equals B.dualSubmodule L as embedded Z-submodules. The quotient L∨/L and its determinant cardinality are the discriminant group of Completed IntegralLattices Layer 2, for nondegenerate integral L.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: Completed/IntegralLattices, Layer 2, duality and discriminant group, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, Completed IntegralLattices Layer 2.
 
 **2.3.3 Symmetric Z overlattice comparison.** Prove the comparison: For the specialization, intermediate L⊂M⊂L∨ correspond through Completed IntegralLattices Layer 4 to subgroups of A_L. Integral M requires vanishing of the bilinear form; even M requires the quadratic refinement. A subgroup isotropic only for a quadratic form is used only when L is even.
-(Source: Voight, *Quaternion algebras*, §9.3–9.7 printed pp.137–145; exact cited layer contract read separately on 2026-10-09.)
+(Source: Completed/IntegralLattices, Layer 4, integral and even overlattice correspondences, in the named supplier README; this target compares the integral carrier with that supplied field or ℤ statement.)
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, Completed IntegralLattices Layer 4.
 
 ### 2.4 Genus and proper spinor genus
@@ -733,7 +729,7 @@ IntegralLattices milestone 3A is the completion `ℤ_p ⊗ L` of a ℤ-lattice; 
 *Hypotheses.* R is the ring of integers of a number field, or a specified localization with exactly its retained places. Genus, rational isometry and global integral isometry have separate types and separate quotient relations.
 *API.* `IntegralGenus.localIsometry` (data: A local isometry at each retained finite place, with archimedean data when spaces vary.); `IntegralGenus.equivalence` (structure: The genus relation is an equivalence relation.); `IntegralGenus.ofIntegralIsometry` (compatibility: A global integral isometry determines a genus relation.); `IntegralGenus.classSet` (constructor: Integral-isometry classes of lattices in the fixed genus.).
 (Source: Voight, *Quaternion algebras*, Definition 9.7.13, printed p.146; completion comparison §9.5.)
-IntegralLattices milestone 3F is the case `R = ℤ`; the genus here is over the ring of integers of a number field or a localisation of it, which is why the archimedean data is part of the definition.
+This variant is over a number ring or its localisation, with archimedean data as part of the definition.
 *Needs:* 2.2 `IntegralQuadraticLattice.ofCarrier`, 2.2 (descent of a lattice from a dvr completion), QuadraticFormInvariants Layer 6, GlobalQuadraticForms Layer 6.
 **Checks.**
 - In fixed (Q,x²), Z and 2Z are rationally in the same ambient space but not in one integral genus.
@@ -747,7 +743,7 @@ OrthogonalSpinGroups milestone 2F tabulates `θ(SO(V_v))` over `ℚ_p` and `ℝ`
 
 **2.4.3 Adelic spinor norm.** Prove: Local spinor norms of an adelic proper isometry assemble to an idele square class: almost all coordinates are units since its components stabilize unimodular local lattices.
 (Source: Schulze-Pillot, *Lecture notes on quadratic forms*, §9.2, Definition/Lemma 9.20, printed p.127.)
-OrthogonalSpinGroups milestone 3F and Tau Ceti `OrthogonalCompactOpens.adelicSpinorNorm` are the adelic spinor norm for `K = ℚ`; this target is its number-field form, with the reference subgroups given by the unimodular stabilizers of 2.4.3.
+OrthogonalSpinGroups milestone 3F and Tau Ceti `OrthogonalCompactOpens.adelicSpinorNorm` are the adelic spinor norm for `K = ℚ`; this target is its number-field form, with the reference subgroups given by the unimodular stabilizers of 2.4.2.
 *Needs:* 2.4 (nondyadic unimodular spinor image), AdelicAlgebraicGroups AA.1.
 
 **2.4.4 Proper spinor stabilizer quotient.** Prove: In the proper genus, φL belongs to the proper spinor genus of L exactly when θ(φ) lies in θ(SO(K))θ(SO(A;L)); proper spinor genera correspond to the quotient of the actual adelic spinor-norm image by this product.
@@ -758,7 +754,7 @@ OrthogonalSpinGroups milestone 3F and Tau Ceti `OrthogonalCompactOpens.adelicSpi
 *Hypotheses.* Use the actual local-field image of the spin covering; no blanket surjectivity on local rational points. Dyadic spinor-norm images and signatures are supplied by their owners or left as precise gaps.
 *API.* `ProperSpinorGenus.orbit` (constructor: Use global SO and the finite adelic spin image.); `ProperSpinorGenus.equivalence` (structure: Orbit relation is reflexive, symmetric and transitive.); `ProperSpinorGenus.toGenus` (compatibility: Forget orientation and the spin-image restriction.).
 (Source: Schulze-Pillot, *Lecture notes on quadratic forms*, §9.2, Definitions 9.9,9.13 and Remark 9.14, printed pp.124–126.)
-IntegralLattices milestone 4C is the case `R = ℤ` with the local spinor-norm images of OrthogonalSpinGroups Layer 2; here the base is a number field, the spin image is taken at each finite place of `K`, and no surjectivity of `Spin → SO` on local points is assumed.
+This variant takes the spin image at each finite place of a number field, rather than only over `ℚ`; no surjectivity of `Spin → SO` on local points is assumed.
 *Needs:* 2.4 `IntegralGenus.localIsometry`, RepresentationTheory/SpinRepresentations Layer 2, AdelicAlgebraicGroups AA.1.
 **Checks.**
 - For q=xy, τ_(1,1)τ_(1,2)=diag(2,1/2) has spinor norm [2]; over Q₂ this is not in the spin image.
@@ -767,7 +763,7 @@ IntegralLattices milestone 4C is the case `R = ℤ` with the local spinor-norm i
 
 ### 2.5 Invariant factors over a discrete valuation ring
 
-**2.5.1 Dual quotient is primary torsion.** Prove: For an integral nondegenerate rank-n lattice over a DVR, L∨/L is finite, killed by some π^a, and generated by at most n elements.
+**2.5.1 Dual quotient is primary torsion.** Prove: For an integral nondegenerate rank-n lattice over a DVR, L∨/L is a finitely generated torsion module of finite length, killed by some π^a, and generated by at most n elements. It is finite as a set only when the residue field is finite; this includes the local-number-field setting of Li–Zhang. The algebraic statement also applies to infinite residue fields.
 (Source: Li–Zhang, *Kudla–Rapoport cycles*, §1.7, printed p.8.)
 *Needs:* 2.7 `IntegralHermitianLattice.dual`.
 
@@ -779,7 +775,7 @@ IntegralLattices milestone 4C is the case `R = ℤ` with the local spinor-norm i
 (Source: Li–Zhang, *Kudla–Rapoport cycles*, §1.7, printed p.8.)
 *Needs:* 2.5 (dvr torsion decomposition comparison).
 
-**2.5.4 Ordered elementary divisor uniqueness.** Prove: Two ordered length-n exponent tuples defining the same finite DVR module coincide, including padded zeros.
+**2.5.4 Ordered elementary divisor uniqueness.** Prove: Two ordered length-n exponent tuples defining the same finite-length DVR module coincide, including padded zeros.
 (Source: Li–Zhang, *Kudla–Rapoport cycles*, §1.7, printed p.8.)
 *Needs:* 2.5 (dvr graded slice count).
 
@@ -793,14 +789,14 @@ IntegralLattices milestone 4C is the case `R = ℤ` with the local spinor-norm i
 
 ### 2.6 Atomic forms over a local principal ideal domain
 
-**2.6.1 Atomic integral quadratic forms over a local PID.** Define `IsAtomicIntegralQuadraticForm`: Over a local PID R with valuation v and uniformizer π, an atomic quadratic form is either ⟨a⟩ with a a unit, or, when 2 is not a unit, a binary [a,b,c] satisfying v(b)<v(2a)≤v(2c) and v(a)v(b)=0. These are integral quadratic maps; the polar pairing is not divided by two.
-*Hypotheses.* Valuation may take infinity for zero; the stated strict inequality excludes the unwanted zero terms. Field cases use the source’s trivial-valuation convention separately.
-*API.* `IsAtomicIntegralQuadraticForm` (constructor: The exact unary or dyadic binary valuation predicate.); `IsAtomicIntegralQuadraticForm.unary` (characterisation: Unary atomic forms have unit coefficient.); `IsAtomicIntegralQuadraticForm.binary` (characterisation: The binary alterincludes 2 nonunit and all valuation inequalities.).
+**2.6.1 Atomic integral quadratic forms over a DVR.** Define `IsAtomicIntegralQuadraticForm`: Over a DVR R with valuation v and uniformizer π, an atomic quadratic form is either ⟨a⟩ with a a unit, or, when 2 is not a unit, a binary [a,b,c] satisfying v(b)<v(2a)≤v(2c) and at least one of a,b a unit. These are integral quadratic maps; the polar pairing is not divided by two.
+*Hypotheses.* Valuation may take infinity for zero; the stated strict inequality excludes the unwanted zero terms. The field case of the source’s trivial-valuation convention is outside this DVR predicate; the normalization theorem below additionally assumes characteristic zero.
+*API.* `IsAtomicIntegralQuadraticForm` (constructor: The exact unary or dyadic binary valuation predicate.); `IsAtomicIntegralQuadraticForm.unary` (characterisation: Unary atomic forms have unit coefficient.); `IsAtomicIntegralQuadraticForm.binary` (characterisation: The binary case includes 2 nonunit and all valuation inequalities.).
 (Source: Voight, *Quaternion algebras*, Definition 9.8.1 and Example 9.8.2, printed p.147.)
 *Needs:* Mathlib `QuadraticMap`, `IsDiscreteValuationRing.addVal`.
 **Checks.**
 - Over Z₂ the hyperbolic quadratic form xy is an atomic binary form.
-- Over a ring with 2 invertible only the rank-one unit alteroccurs.
+- Over a ring with 2 invertible only the rank-one unit case occurs.
 - The zero-dimensional quadratic form is not an atomic unary or binary block; zero blocks in a normalization require the separate infinity-exponent convention.
 
 **2.6.2 Minimal polar pivot.** Prove: For nonzero polar matrix choose an entry of minimal valuation, preferring a diagonal entry in a tie. The chosen pivot divides every entry over the DVR.
@@ -835,11 +831,11 @@ IntegralLattices milestone 4C is the case `R = ℤ` with the local spinor-norm i
 (Source: Voight, *Identifying the matrix ring* (2012), §3, Algorithm 3.12, correctness proof, printed pp.12–14.)
 *Needs:* 2.6 (atomic block extraction).
 
-**2.6.10 Corrected square completion.** Prove: When the unary pivot a is allowed, [a,b,c] becomes ⟨a,c−b²/(4a)⟩ by y-b/(2a)x in the basis. The printed plus signs in Example 3.14 are incorrect.
+**2.6.10 Corrected square completion.** Prove: When the unary pivot a is allowed, [a,b,c] becomes ⟨a,c−b²/(4a)⟩ in the basis `(e₁,e₂−(b/(2a))e₁)`. Require `a≠0`, `2≠0`, and `b/(2a)∈R`, the integral unary-pivot condition; the second diagonal entry is `c−b²/(4a)`. The printed plus signs in Example 3.14 are incorrect.
 (Source: Voight, *Identifying the matrix ring* (2012), §3, Algorithm 3.12, correctness proof, printed pp.12–14.)
 *Needs:* 2.6 (unary integral complement).
 
-**2.6.11 Normalized integral quadratic form.** Prove: Every finite-projective quadratic form over a local PID has an integral basis giving an orthogonal sum π^{e₁}Q₁⊥…⊥π^{e_s}Q_s of atomic unary/binary forms, with ordered exponents e_i≥0, allowing the zero blocks specified by the source infinity convention. This normalized form is not asserted unique.
+**2.6.11 Normalized integral quadratic form.** Prove: Every finite-projective quadratic form over a characteristic-zero DVR has an integral basis giving an orthogonal sum π^{e₁}Q₁⊥…⊥π^{e_s}Q_s of atomic unary/binary forms, with ordered exponents e_i≥0, allowing the zero blocks specified by the source infinity convention. This normalized form is not asserted unique.
 *Hypotheses.* Over a local PID the finite-projective underlying module is free. No uniform diagonalization theorem is exported for dyadic rings. Algorithm comparison here is proved for a finite free module over a characteristic-zero DVR; a projective module is free locally. The broader source proposition remains a separate scope, not an equal-characteristic-two algorithm assertion.
 (Source: Voight, *Quaternion algebras*, Proposition 9.8.4 and proof reference, printed pp.147–148.)
 *Needs:* 2.6 `IsAtomicIntegralQuadraticForm`, 2.6 (atomic splitting termination).
@@ -945,13 +941,14 @@ The `Suggested.lean` carrier is stated for any principal ideal domain `R` with a
 - E=F and λ=id give the identity.
 - A hyperbolic plane transfers to degree-many hyperbolic planes.
 - The zero linear functional on a positive-rank space is degenerate and is excluded.
+- Over 𝔽₂ the diagonal bilinear plane with matrix diag(1,1) has the isotropic line (1,1), but is nonalternating since B((1,0),(1,0))=1. Thus a Lagrangian alone cannot define a hyperbolic bilinear form in characteristic two; the Lean hyperbolic predicate requires 2≠0.
 
 **2.9.7 Signed transfer image independence.** Prove: For a self-dual extension E=F[β] with involution β↦−β, the image of the signed Witt transfer does not depend on the nonzero equivariant functional λ.
 (Source: Kurinczuk–Skodlerack–Stevens, Proposition 3.13(i) and proof, printed p.15.)
 *Needs:* 2.9 `signedHermitianTransfer`, 2.9 (signed witt scalar twisting).
 
 **2.9.8 Signed transfer maximal element.** Prove: For the self-dual extension, transfer sends the unique maximal anisotropic Witt class to the target maximal class.
-(Source: Kurinczuk–Skodlerack–Stevens, Proposition 3.13(ii) and printed proof, printed p.15; its cited [39, Theorem 4.4] proof remains an acquisition gap.)
+(Source: Kurinczuk–Skodlerack–Stevens, Proposition 3.13(ii) and printed proof, printed p.15; Skodlerack–Stevens, *Intertwining semisimple characters for p-adic classical groups*, Theorem 4.4, Proposition 4.6 and Lemma 4.7 with proofs, printed pp.13–14, supply the cited transfer argument.)
 *Needs:* 2.9 (signed transfer image independence).
 
 **2.9.9 Signed transfer parity injectivity.** Prove: Outside the alternating trivial-extension case, for a self-dual E=F[β] extension, signed transfer is injective separately on the even and the odd anisotropic-dimension classes. It need not be globally injective.
@@ -1018,7 +1015,7 @@ The `Suggested.lean` definition takes the finite ring `A_N`, `q` and `N` as para
 *Hypotheses.* The unramified analytic density branch allows residue characteristic 2; geometric §3.4 hypotheses are not assumed throughout §3. Haar measures on lattice coordinates assign volume 1 to the integral coordinate lattice before any self-dual Fourier normalization is applied.
 *API.* `hermitianLocalDensity` (constructor: The proved limit of normalized counts.); `hermitianLocalDensity_tendsto` (characterisation: The normalized sequence tends to the stated density.); `hermitianLocalDensity_basisChange` (compatibility: Integral isometries preserve the density.); `hermitianLocalDensity_emptyGeneric` (simp: An empty generic representation fibre has density zero.).
 (Source: Li–Zhang, *Kudla–Rapoport cycles*, §§3.1–3.2, physical pp.15–16.)
-*Needs:* 3.2 `normalizedHermitianCount`, 2.7 `HermitianLatticeInvariants.ofDualQuotient`, 3.2 (eventually empty integral representation counts).
+*Needs:* 3.2 `normalizedHermitianCount`, 2.7 `HermitianLatticeInvariants.ofDualQuotient`, 3.2 (eventually empty integral representation counts). **Gap:** existence and finiteness of the nonempty analytic density limit need a stabilization argument; the finite-field count and the empty-fibre lemma do not provide it.
 **Checks.**
 - Density of the empty source is 1.
 - The denominator and measure use q=#k_{F₀}; substituting q² changes the limit.
@@ -1036,7 +1033,7 @@ The `Suggested.lean` definition takes the finite ring `A_N`, `q` and `N` as para
 *Hypotheses.* q≥2 and the extension is unramified quadratic. The interpolating polynomial and its integral coefficients require a proof, not a generic choice of a function through finitely many values.
 *API.* `normalizedSiegelPolynomial` (constructor: The integral normalized density polynomial.); `normalizedSiegelPolynomial_eval` (characterisation: Evaluate at (−q)^−k to recover the specified density ratio.); `normalizedSiegelPolynomial_selfDual` (simp: Polynomial equals 1 for a self-dual lattice.); `normalizedSiegelPolynomial_isometry` (functoriality: Integral hermitian isometries preserve the polynomial.).
 (Source: Li–Zhang, *Kudla–Rapoport cycles*, §3.2, physical p.16.)
-*Needs:* 3.2 `hermitianLocalDensity`, 2.7 `HermitianLatticeInvariants.ofDualQuotient`.
+*Needs:* 3.2 `hermitianLocalDensity`, 2.7 `HermitianLatticeInvariants.ofDualQuotient`. **Gap:** polynomial interpolation and integral coefficients require Hironaka’s density-polynomial theorem and the lattice-counting argument of 3.2.6; a limit alone supplies neither.
 **Checks.**
 - For a rank-one lattice with valuation a, D_L(X)=Σ_{i=0}^a(−X)^i.
 - A self-dual lattice has polynomial 1.
@@ -1055,7 +1052,7 @@ The `Suggested.lean` definition takes the finite ring `A_N`, `q` and `N` as para
 **3.2.6 Cho–Yamauchi hermitian density formula.** Prove: D_L(X)=Σ_{L⊆L′⊆(L′)∨} X^{2 length_{O_F}(L′/L)} m_q(t(L′);X), summing over integral overlattices of L. The sum is finite because every such L′ lies between L and L∨.
 *Hypotheses.* Unramified quadratic extension of a local field of characteristic different from 2, including dyadic residue characteristic in this analytic statement. Length is over O_F; t is the number of positive fundamental invariants.
 (Source: Li–Zhang, *Kudla–Rapoport cycles*, Theorem 3.5.1 and proof, physical pp.17–18.)
-*Needs:* 3.2 `normalizedSiegelPolynomial`, 3.2 `choYamauchiWeight`, 2.7 `IntegralHermitianLattice.dual`, 2.7 `HermitianLatticeInvariants.ofDualQuotient`, 3.1 (finite-field hermitian isometry formula).
+*Needs:* 3.2 `normalizedSiegelPolynomial`, 3.2 `choYamauchiWeight`, 2.7 `IntegralHermitianLattice.dual`, 2.7 `HermitianLatticeInvariants.ofDualQuotient`, 3.1 (finite-field hermitian isometry formula). **Gap:** the hermitian smooth integral representation model, including the dyadic case, and its normalized count comparison are needed to pass from finite-field isometries to the limit. Li–Zhang p.18 uses Cho–Yamauchi Corollary 3.11 and Gan–Yu Lemma 5.5.2 and §9 for this step; those inputs have no target or lower-tier supplier here.
 **Checks.**
 - For valuation-one rank one, D=1−X and the negative derivative is 1.
 - For valuation-three rank one, D=1−X+X²−X³ and the negative derivative is 2.
@@ -1064,36 +1061,36 @@ The `Suggested.lean` definition takes the finite ring `A_N`, `q` and `N` as para
 **3.2.7 Hermitian Siegel polynomial functional equation.** Prove: For integral nondegenerate L, D_L(X)=(−X)^{val(L)}D_L(X^−1), interpreted in the Laurent polynomial ring. If val(L) is odd then D_L(1)=0.
 *Hypotheses.* The val(L) parity and the negative sign are retained.
 (Source: Li–Zhang, *Kudla–Rapoport cycles*, §3.2 (3.2.0.2), physical p.16.)
-*Needs:* 3.2 `normalizedSiegelPolynomial`, 2.7 `HermitianLatticeInvariants.ofDualQuotient`.
+*Needs:* 3.2 `normalizedSiegelPolynomial`, 2.7 `HermitianLatticeInvariants.ofDualQuotient`. **Gap:** the functional-equation proof cited by Li–Zhang is Hironaka 2012, Theorem 5.3; this input is not reduced to the polynomial construction here.
 **Checks.**
 - Rank-one D=1−X at valuation 1 satisfies D(X)=−X D(X^−1).
 - At valuation 2, D=1−X+X² and D(1)=1, so the odd-valuation vanishing does not extend to even valuation.
 
 ### 3.3 Finite stabilizers, genus classes and mass
 
-**3.3.1 Finite integral isometry stabilizers.** Prove: For a full Z-lattice in a positive-definite real Euclidean space, its integral isometry group is finite. For a totally positive number-field quadratic lattice, restriction through all real embeddings gives the corresponding finite stabilizer.
+**3.3.1 Finite integral isometry stabilizers.** Prove: The integral isometry group of a totally positive number-field quadratic lattice is finite, by restriction through all real embeddings to a positive-definite real lattice.
 *Hypotheses.* Definiteness and full finite generation are essential; indefinite lattices can have infinite isometry groups.
 (Source: Voight, *Quaternion algebras*, Definition 9.7.13.)
-The ℤ-case is Tau Ceti `IntegralLattice.IsPosDef.finite_isometry` (IntegralLattices milestone 2C) and is cited, not reproved; the target here is the number-ring statement through all real embeddings.
-*Needs:* 2.4 `IntegralGenus.localIsometry`, 1.2 `finite_gauge_sublevel`.
+This variant constructs the number-ring restriction-of-scalars comparison through all real embeddings.
+*Needs:* 2.4 `IntegralGenus.localIsometry`, 1.2 `finite_gauge_sublevel`. **Gap:** restriction of scalars must supply a positive real metric compatible with every archimedean embedding and a discrete full underlying ℤ-lattice; the genus definition does not construct this comparison.
 **Checks.**
 - For (Z,x²) the isometry group is {±1}, so its mass weight is 1/2.
 - Positive definiteness cannot be dropped: Pell-type indefinite rank-two lattices have infinite stabilizers.
 
-**3.3.2 Finiteness of a positive-definite genus class set.** Prove: The integral-isometry class set of a fixed positive-definite quadratic genus over Z, and of a fixed totally positive genus over a number ring, is finite.
+**3.3.2 Finiteness of a positive-definite genus class set.** Prove: The integral-isometry class set of a fixed totally positive quadratic genus over a number ring is finite.
 *Hypotheses.* A fixed determinant/discriminant ideal and archimedean signatures belong to the genus data. This is finiteness of classes, not finiteness of all embedded lattices.
 (Source: Voight, *Quaternion algebras*, Definition 9.7.13 and local-global finite-support lattice conventions, printed pp.141,146.)
-The ℤ-case is IntegralLattices milestone 2G (reduction of Gram matrices) and is cited; the number-ring statement, with coefficient ideals, is the target.
-*Needs:* 2.4 `IntegralGenus.localIsometry`, AdelicAlgebraicGroups AA.3.
+This variant retains coefficient ideals in the number-ring reduction.
+*Needs:* 2.4 `IntegralGenus.localIsometry`, AdelicAlgebraicGroups AA.3. **Gap:** finite adelic volume alone does not imply finiteness of a discrete double-coset set. A number-ring reduction or compactness argument with coefficient ideals and a proof source must be supplied; Voight’s definition is not that finiteness theorem.
 **Checks.**
 - Infinitely many embedded coordinate changes can represent one integral-isometry class.
 - The rank-one positive unimodular Z-genus has one class, though its isometry group has two elements.
 
 **3.3.3 Weighted genus mass.** Define `genusMass`: For a positive-definite genus with its proved finite class set, mass(L)=Σ_[M] 1/|O(M)| as a positive rational number. Proper mass uses proper classes and SO(M) separately; neither is substituted for the other without an index comparison.
-*Hypotheses.* Finite automorphism groups and a finite class set are supplied before summing. Unweighted class number and mass are different invariants.
+*Hypotheses.* Finite automorphism groups and a finite class set are supplied before summing. Their orders are positive because they contain the identity. The total Lean finite-sum adapter permits zero orders with inverse zero, but such inputs are outside arithmetic mass. Unweighted class number and mass are different invariants.
 *API.* `genusMass` (constructor: Finite sum of rational reciprocal integral-isometry stabilizer orders.); `genusMass_representative` (compatibility: The summand is independent of the chosen representative.); `genusMass_singleton` (simp: A singleton class set has mass the reciprocal stabilizer order.); `genusMass_pos` (relation: A nonempty finite positive genus has strictly positive mass.).
 (Source: Voight, *Quaternion algebras*, §9.7 genus class set.)
-IntegralLattices milestone 7A defines the full and proper masses over ℤ and proves `m⁺ = 2m` in positive rank; the definition here is over a number ring and the index comparison is a separate target.
+This variant is over a number ring; its index comparison is a separate target.
 *Needs:* 3.3 (finite integral isometry stabilizers), 3.3 (finiteness of a positive-definite genus class set).
 **Checks.**
 - The rank-one positive unimodular genus has ordinary mass 1/2, not class number 1.
@@ -1102,21 +1099,44 @@ IntegralLattices milestone 7A defines the full and proper masses over ℤ and pr
 
 **3.3.4 Adelic weighted mass identity.** Prove: Let q be totally positive over a totally real number field, G=SO(q), and K_f the integral stabilizer of a fixed lattice in its finite adelic genus. For compatible product Haar measures with convergent product vol(K_f), proper mass equals vol(G(K)\G(A))/(vol(G(K∞))·vol(K_f)). Every double-coset contribution is the reciprocal order of the proper integral stabilizer.
 *Hypotheses.* Use proper SO classes and weights consistently. Local measures, archimedean measure and the convergent product are fixed before numerical evaluation. The numerator is not replaced by 2 until a separate Tamagawa-number theorem is supplied; low-rank tori have separate behavior.
-(Source: Benoist, *Arithmeticity of discrete subgroups*, Quotient/Haar convention on physical pp.5–7.)
+(Source: double-coset integration in Gan–Hanke–Yu §7, printed pp.118–119; Benoist physical pp.5–7 supplies the quotient/Haar convention.)
 *Needs:* 3.3 `genusMass`, AdelicAlgebraicGroups AA.2, AdelicAlgebraicGroups AA.3.
 **Checks.**
 - Rescaling one local Haar measure changes the numerator and local factor compatibly.
 - For proper rank-one classes the SO stabilizer is trivial and mass equals class count. A proper class whose stabilizer has order four contributes 1/4; for example SO(Z^2,x^2+y^2) has order four.
 - The numerical constant 2 is not an assumption-free formula for SO of rank 1 or 2.
 
-**3.3.5 Mass formula for maximal integral lattices.** Prove: Let K be totally real of degree d≥2, Q a totally positive nondegenerate m-dimensional form, m≥3, and Λ the genus of maximal integral O_K-lattices. With ordinary O-isometry mass, r=floor(m/2), G=SO(Q), 2 mass(Λ)=2 γ_G^d |disc K|^(dim G/2) L(G) ∏_p λ_p(Q). Here dim G=r(2r−(−1)^m); γ_G=∏_(i=1)^r(2i−1)!/(2π)^(r(r+1)) for odd m and (r−1)!∏_(i=1)^(r−1)(2i−1)!/(2π)^(r²) for even m. L(G)=∏_(i=1)^r ζ_K(2i) for odd m; ζ_K(r)∏_(i=1)^(r−1)ζ_K(2i) for even m with square discriminant; otherwise [ζ_E(r)/ζ_K(r)] N(d_E/K)^(r−1/2)∏_(i=1)^(r−1)ζ_K(2i), E=K(√disc Q). The local λ_p are exactly the table in Definition 3.1, not the hermitian normalized density polynomial of GN.3.
-*Hypotheses.* Maximal integrality is essential. Do not apply this formula to arbitrary lattices or indefinite forms. The leading two multiplies the ordinary O mass; τ(SO)=2 has a separate original-source proof obligation. The finite exceptional product and convergent positive-integer zeta Euler products are required.
-(Source: Kirschmer, *One-class genera of maximal integral quadratic forms*, pp.3–4, Definition 3.1, Proposition 3.2 and Theorem 3.3.)
+**3.3.5 Mass formula for maximal integral lattices.** Prove: Let K be totally real of degree d≥2, Q a totally positive nondegenerate m-dimensional form, m≥3, and Λ the genus of maximal integral O_K-lattices. With ordinary O-isometry mass, r=floor(m/2), G=SO(Q), 2 mass(Λ)=2 γ_G^d |disc K|^(dim G/2) L(G) ∏_p λ_p(Q). Here dim G=r(2r−(−1)^m); γ_G=∏_(i=1)^r(2i−1)!/(2π)^(r(r+1)) for odd m and (r−1)!∏_(i=1)^(r−1)(2i−1)!/(2π)^(r²) for even m. L(G)=∏_(i=1)^r ζ_K(2i) for odd m; ζ_K(r)∏_(i=1)^(r−1)ζ_K(2i) for even m with square discriminant; otherwise [ζ_E(r)/ζ_K(r)] N(d_E/K)^(r−1/2)∏_(i=1)^(r−1)ζ_K(2i), E=K(√disc Q). The local λ_p are `maximalLocalMassFactor` below; they are distinct from the hermitian normalized density polynomial of 3.2.
+*Hypotheses.* Maximal integrality is essential. Do not apply this formula to arbitrary lattices or indefinite forms. The leading two multiplies the ordinary O mass; τ(SO)=2, the compatible Tamagawa measures, and the evaluation of the archimedean volume require separate proofs. **Gap:** AA.2–AA.3 supply Haar measures and finite volume, but no target here supplies these numerical evaluations or the Dedekind-zeta functional-equation conversion used by this formula. The finite exceptional product and convergent positive-integer zeta Euler products are required.
+(Source: Kirschmer, *One-class genera of maximal integral quadratic forms*, pp.3–4, Definition 3.1, Proposition 3.2 and Theorem 3.3; Gan–Hanke–Yu, *On an exact mass formula of Shimura*, §6 Tables 3–4, printed pp.115–116, and Propositions 7.4–7.5, pp.119–120.)
 *Needs:* 3.3 `genusMass`, 3.3 (adelic weighted mass identity), 2.4 `IntegralGenus.localIsometry`.
 **Checks.**
 - Class number one implies mass=1/|Aut L|; it is not an unweighted class count.
 - The formula is restricted to m≥3; binary zeta-at-one substitution is excluded.
 - A dyadic exceptional factor is retained rather than set to one.
+
+**3.3.6 Ordinary and proper number-ring mass comparison.** Prove: In positive rank, for the genus of a totally positive lattice over a number ring, the sum of the proper masses of the proper genera inside its ordinary genus is twice its ordinary mass. The rational group `O(Q)(K)` has two determinant components (a reflection supplies determinant −1). When an ordinary class has an improper integral automorphism it gives one proper class with an index-two proper stabilizer; otherwise it gives two proper classes with unchanged stabilizer. Both cases double its total weight. This comparison concerns the entire ordinary genus; no equality of a single proper genus with that sum is assumed.
+(Source: orbit–stabilizer deduction from the `O`/`SO` class sets of Kirschmer §2, p.3, and Gan–Hanke–Yu §7, pp.118–119.) *Needs:* 3.3.1–3.3.3, field reflection generation of QuadraticFormInvariants Layer 1.
+**Checks.**
+- The positive rank-one ordinary class has stabilizer order 2 and mass 1/2; its proper mass is 1.
+- If an ordinary stabilizer has order 4 and has no improper automorphism, its two proper classes contribute 1/4+1/4=1/2.
+- In rank zero `O=SO` is trivial, so both masses are 1 and the doubling formula is excluded.
+
+**3.3.7 Local invariants for maximal-lattice mass.** Define `MaximalMassLocalType` with cases `zero`, `I`, `IIPlus`, `IIMinus`, `II`, `IIIPlus`, `IIIMinus`. For a characteristic-zero nonarchimedean local field, rank `m≥3`, and diagonal form with coefficients `a_i`, use the **signed** discriminant `d_Q=(−1)^{m(m−1)/2}∏a_i` and Hasse invariant `c=∏_{i<j}(a_i,a_j)`. Its Witt sign is `ω=c` for `m≡1,2 (mod 8)`, `c(−1,−1)` for `m≡5,6`, `c(−1,d_Q)` for `m≡0,3`, and `c(−1,−d_Q)` for `m≡4,7`. For odd rank the nonzero types are `I` when `v(d_Q)` is even and `ω=−1`, and `IIPlus` or `IIMinus` when `v(d_Q)` is odd, according to `ω`. For even rank they are `I` when `d_Q` is square and `ω=−1`; `II` when the nonsquare discriminant extension is unramified and `ω=−1`; and `IIIPlus` or `IIIMinus` when that extension is ramified, according to `ω`. All other cases have type `zero`. This classification includes dyadic fields; it does not extend the characteristic-zero table to equal characteristic two.
+*API.* `MaximalMassLocalType` names the table cases; `maximalMassWittSign` implements the rank-mod-eight conversion; `maximalMassLocalType` selects a case from rank, valuation parity, square class, ramification and Witt sign, and `maximalMassLocalType_basisChange` proves that a basis change preserves it.
+(Source: Kirschmer §2, equation (1) and Table 1, pp.2–3; Gan–Hanke–Yu §6, pp.114–116.) *Needs:* 2.1 field invariants, local Hilbert symbols and quadratic-extension ramification from QuadraticFormInvariants Layers 5–6.
+**Checks.**
+- `⟨1,1⟩` has determinant 1 but signed discriminant −1; the split plane `⟨1,−1⟩` has signed discriminant 1.
+- At odd rank and odd discriminant valuation the signs +1 and −1 select different `II` cases; at even valuation the positive sign has type `zero`.
+- At even rank a ramified nonsquare discriminant has a `III` type for either sign, including residue characteristic 2; its local factor is not 1.
+
+**3.3.8 Maximal-lattice local mass factors.** Define the rational function `maximalLocalMassFactor(q,r,odd,t)` for residue cardinality `q≥2`, rank `2r+1≥3` when `odd`, and rank `2r≥4` otherwise. Type `zero` gives 1. For odd rank, type `I` gives `(q^{2r}−1)/(2(q+1))`, and type `IIPlus` or `IIMinus` gives `(q^r±1)/2`. For even rank, type `I` gives `(q^{r−1}−1)(q^r−1)/(2(q+1))`, type `II` gives `(q^{r−1}+1)(q^r+1)/(2(q+1))`, and either `III` type gives `1/2`. The function is used only with the compatible types of 3.3.7. The only denominators are 2 and `2(q+1)`, which are nonzero in ℚ.
+*API.* `maximalLocalMassFactor` evaluates the rational table; `maximalLocalMassFactor_zero` is its good-place value; `maximalLocalMassFactor_odd_I`, `maximalLocalMassFactor_even_II`, and `maximalLocalMassFactor_even_III` pin the exceptional factors. The local comparison identifies these factors with the reductive-quotient factors of the smooth integral stabilizer model, including its component group. **Gap:** the smooth stabilizer models and their reductive quotients are not supplied here; a dyadic naive orthogonal group scheme cannot replace them.
+(Source: Kirschmer Definition 3.1, p.4; Gan–Hanke–Yu Tables 3–4, pp.115–116, Proposition 6.12 and its remarks, p.116.) *Needs:* 3.3.7, finite reductive-group orders and smooth integral stabilizer models.
+**Checks.**
+- At `q=2,r=1`, odd types `I`, `IIPlus`, `IIMinus` give respectively `1/2,3/2,1/2`.
+- At `q=3,r=2`, even types `I`, `II`, `IIIPlus` give respectively `2,5,1/2`.
+- Good type `zero` gives 1 at `q=2`; ramified even type `IIIMinus` gives `1/2`, so dyadic factors cannot all be dropped.
 
 ### 3.4 Theta series and their coefficients
 
@@ -1137,7 +1157,7 @@ Over `𝔽_{q²}/𝔽_q` the embedding count of the zero rank-one source into an
 
 ### Dependencies
 
-Layers 1 and 2; AdelicAlgebraicGroups AA.2 (quotient and Tamagawa measures) and AA.3 (reduction and finite volume); IntegralLattices milestones 2B, 2C, 2G and 7A for the ℤ-cases cited in 3.3 and 3.4; Mathlib `ZMod`, `Nat.card`, the finite-quotient and Haar-measure API.
+Layers 1 and 2; AdelicAlgebraicGroups AA.2 (quotient and Tamagawa measures) and AA.3 (reduction and finite volume); the existing ℤ-lattice supplier contracts in the boundaries section; Mathlib `ZMod`, `Nat.card`, the finite-quotient and Haar-measure API.
 
 ## Layer 4: Lattice points, star bodies and homogeneous dynamics
 
@@ -1235,7 +1255,7 @@ This layer has four independent branches. Lattice-point counting (4.1) proves He
 - For Z and K=[−1,1], n=2 leaves the point 2 in nZ∩2K at the equality 2/n=λ_0=1.
 
 **4.1.12 Henk's successive-minima lattice-point bound.** Prove `lattice_count_lt_successive_minima`: For d≥2 and centrally symmetric K, |L∩K|<2^(d−1)∏_{i<d}(floor(2/λ_i)+1). The count includes the origin and all boundary points.
-*Hypotheses.* E is a finite-dimensional real normed inner-product space, L a discrete full Z-submodule, and d=dim_R E. Reuse IsZLattice, Basis and Basis.flag. The minimum index i:Fin d is zero-based; dimension zero has no index. K is a ConvexBody with zero in its interior. Write λ_i=successiveMin L K i. Symmetry is imposed only on the final counting theorem. Floor means the greatest integer at most the input, following the already recorded E9 correction. This is Theorem 1.5, not Conjecture 1.4.
+*Hypotheses.* E is a finite-dimensional real normed inner-product space, L a discrete full Z-submodule, and d=dim_R E. Reuse IsZLattice, Basis and Basis.flag. The minimum index i:Fin d is zero-based; dimension zero has no index. K is a ConvexBody with zero in its interior. Write λ_i=successiveMin L K i. Symmetry is imposed only on the final counting theorem. Floor means the greatest integer at most the input. This is Theorem 1.5, not Conjecture 1.4.
 (Source: Henk, *Successive minima and lattice points*, pp.3–5, Theorem 1.5 and (2.1)–(2.5).)
 *Needs:* Mathlib `Nat.floor_mono`, `Nat.lt_floor_add_one`, `Subgroup.relIndex`, 1.2 `exists_integral_minimum_flag`, 1.2 `successiveMin_pos`, 1.2 `successiveMin_monotone`, 4.1 `exists_divisible_rounding`, 4.1 `divisible_rounding_product`, 4.1 `diagonal_span_index`, 4.1 `diagonal_lattice_avoidance`, 4.1 `henk_sublattice_count`.
 **Checks.**
@@ -1256,7 +1276,7 @@ This layer has four independent branches. Lattice-point counting (4.1) proves He
 **4.2.1 Howe–Moore matrix-coefficient decay.** Prove: For a connected noncompact almost-simple real Lie group G with finite centre and a strongly continuous unitary representation on a Hilbert space with no nonzero G-invariant vector, every matrix coefficient tends to 0 as g leaves all compact subsets of G.
 *Hypotheses.* Strong continuity, unitarity, finite centre and almost simplicity are retained. For a semisimple product one must specify escape in every noncompact factor or the appropriate factor-invariant exclusions.
 (Source: Benoist, *Arithmeticity of discrete subgroups*, Fact 3.3, physical p.20.)
-*Needs:* RepresentationTheory/LieGroups Layer 2, AdelicAlgebraicGroups AA.2.
+*Needs:* RepresentationTheory/LieGroups Layer 2, AdelicAlgebraicGroups AA.2. **Gap:** the Lie-group structure and Haar measure do not supply the unitary-representation and matrix-coefficient argument; Benoist states this as a fact, rather than proving it.
 **Checks.**
 - A constant vector in the full L² quotient space has a nondecaying coefficient; remove constants before applying the theorem.
 - Escaping only one factor of a product does not justify the unqualified product theorem.
@@ -1272,7 +1292,7 @@ This layer has four independent branches. Lattice-point counting (4.1) proves He
 **4.2.3 Dani–Margulis recurrence in the lattice space.** Prove: For d≥2, X=SL_d(R)/SL_d(Z), a one-parameter unipotent subgroup u_t, x∈X and epsilon>0, there exists a compact K⊂X such that for every T>0, Leb{t∈[0,T]:u_t x∈K}/T≥1−epsilon.
 *Hypotheses.* K depends on x, epsilon and the flow. This is qualitative recurrence; no spectral rate or uniform compact set over all x is asserted.
 (Source: Benoist, *Arithmeticity of discrete subgroups*, Fact 3.4, physical p.20.)
-*Needs:* 1.5 `minkowski_second_upper`.
+*Needs:* 1.5 `minkowski_second_upper`. **Gap:** Minkowski’s bound does not supply quantitative unipotent nondivergence, from which the recurrence statement follows. The source states the recurrence fact; its proof inputs are not constructed here.
 **Checks.**
 - A diagonal flow can diverge and cannot replace the unipotent flow.
 - The statement controls every T>0 with a compact set containing the necessary initial trajectory segment.
@@ -1280,14 +1300,14 @@ This layer has four independent branches. Lattice-point counting (4.1) proves He
 **4.2.4 Ratner orbit-closure theorem.** Prove: For a connected linear semisimple real Lie group G, a lattice Γ, a connected subgroup U generated by one-parameter unipotent subgroups and x=gΓ, the closure of Ux is Lx for a connected closed subgroup L containing U, with L∩gΓg^−1 a lattice in L.
 *Hypotheses.* The homogeneous orbit has finite invariant volume; the subgroup is generated by unipotent flows. A general diagonal orbit does not satisfy this conclusion.
 (Source: Morris, *Introduction to arithmetic groups*, Theorem 20.1.3 and Remarks 20.1.4–20.1.5, printed pp.406–407; connected specialization.)
-*Needs:* 4.2 (dani–margulis recurrence in the lattice space), RepresentationTheory/LieGroups Layer 2.
+*Needs:* 4.2 (dani–margulis recurrence in the lattice space), RepresentationTheory/LieGroups Layer 2. **Gap:** recurrence and a Lie-group carrier do not supply Ratner’s rigidity argument. An original-proof contract and its intermediate analytic targets are still needed.
 **Checks.**
 - The orbit closure carries a finite L-invariant measure, not just an unspecified closed set.
 
 **4.2.5 Ratner invariant-measure classification.** Prove: In the preceding homogeneous setting, every ergodic U-invariant probability measure on G/Γ is the unique normalized L-invariant measure on a closed finite-volume orbit Lx for a closed subgroup L containing U.
 *Hypotheses.* U is connected and generated by one-parameter unipotent subgroups. Probability, invariance and ergodicity are separate hypotheses.
 (Source: Morris, *Introduction to arithmetic groups*, Theorem 20.3.4, printed p.413.)
-*Needs:* 4.2 (dani–margulis recurrence in the lattice space), RepresentationTheory/LieGroups Layer 2.
+*Needs:* 4.2 (dani–margulis recurrence in the lattice space), RepresentationTheory/LieGroups Layer 2. **Gap:** recurrence and a Lie-group carrier do not supply Ratner’s rigidity argument. An original-proof contract and its intermediate analytic targets are still needed.
 **Checks.**
 - A convex combination of different homogeneous orbit measures need not be ergodic.
 - Replacing probability by an arbitrary infinite invariant measure is outside the statement.
@@ -1295,7 +1315,7 @@ This layer has four independent branches. Lattice-point counting (4.1) proves He
 **4.2.6 Equidistribution of a unipotent orbit.** Prove: For a one-parameter unipotent flow u_t and x∈G/Γ, there is a closed finite-volume homogeneous orbit Lx containing u_t x and a normalized invariant probability μ_L such that T^−1∫_0^T f(u_t x)dt→∫f dμ_L for every continuous compactly supported f.
 *Hypotheses.* The orbit measure is on the actual orbit closure, not necessarily all of G/Γ. No quantitative rate is inferred.
 (Source: Morris, *Introduction to arithmetic groups*, Definition 20.3.2 and Theorem 20.3.3, printed pp.412–413.)
-*Needs:* 4.2 (dani–margulis recurrence in the lattice space), 4.2 (ratner orbit-closure theorem), 4.2 (ratner invariant-measure classification).
+*Needs:* 4.2 (dani–margulis recurrence in the lattice space), 4.2 (ratner orbit-closure theorem), 4.2 (ratner invariant-measure classification). **Gap:** classification does not identify the limit of every orbit average; the original equidistribution proof and its no-escape and orbit-identification inputs are needed.
 **Checks.**
 - A closed periodic unipotent orbit equidistributes on itself, not on the full quotient.
 - The limiting measure has mass 1; vague convergence with escaped mass would not satisfy the statement.
@@ -1317,7 +1337,7 @@ Both applications rest on inputs that are stated here as targets with their own 
 **4.3.2 Duke spherical lattice-point equidistribution.** Prove: As n→∞ through positive square-free integers n not congruent to 7 modulo 8, the normalized counting measure on {v/√n:v∈Z³,‖v‖²=n} converges to normalized rotation-invariant surface measure on S².
 *Hypotheses.* The representation set is nonempty on the stated admissible sequence. No effective constant is claimed: the representation-number lower bound is ineffective.
 (Source: Duke 1988, Introduction, printed p.74, before Theorem 1.)
-*Needs:* 3.4 (integral lattice theta coefficient interface), 4.3 `halfIntegralCoefficientBound`.
+*Needs:* 3.4 (integral lattice theta coefficient interface), 4.3 `halfIntegralCoefficientBound`. **Gap:** the required theta series has harmonic-polynomial weights and must be identified with a half-integral-weight cusp form. The unweighted theta coefficient interface of 3.4 does not supply this comparison or the ineffective representation-number lower bound.
 **Checks.**
 - n≡7 mod8 has no three-square representations and is excluded.
 - A measure on primitive representations for nonsquare-free n is a different theorem.
@@ -1380,7 +1400,7 @@ Both applications rest on inputs that are stated here as targets with their own 
 (Source: Regev, *Transference theorems* (lecture 11), Lecture 11 Lemma 7, p.4.)
 *Needs:* 4.4 (gaussian scale upper bound).
 
-**4.4.10 Dual Gaussian error bound.** Prove: If λ₁(L)>√n, put R=ρ_1(L\{0}). Then R≤c^n/(1-c^n), with c as in the shifted-tail lemma.
+**4.4.10 Dual Gaussian error bound.** Prove: For n≥1, if λ₁(L)>√n, put R=ρ_1(L\{0}). Then R≤c^n/(1-c^n), with c as in the shifted-tail lemma.
 (Source: Regev, *Transference theorems* (lecture 11), Lecture 11 Corollary 8, pp.4–5; explicit-constant strengthening.)
 *Needs:* 4.4 (shifted gaussian tail bound).
 
@@ -1388,20 +1408,20 @@ Both applications rest on inputs that are stated here as targets with their own 
 (Source: Regev, *Transference theorems* (lecture 11), Lecture 11 Lemma 9, p.5.)
 *Needs:* 4.4 (gaussian lattice poisson comparison).
 
-**4.4.12 Gaussian covering contradiction.** Prove: If λ₁(L)>√n, then no translate of L* can avoid the closed √n-ball. The lower estimate 1-R and upper estimate c^n(1+R) contradict each other since c^n<1/3.
+**4.4.12 Gaussian covering contradiction.** Prove: For n≥1, if λ₁(L)>√n, then no translate of L* can avoid the closed √n-ball. The lower estimate 1-R and upper estimate c^n(1+R) contradict each other since c^n<1/3.
 (Source: Regev, *Transference theorems* (lecture 11), Lecture 11 Theorem 4, pp.5–6.)
 *Needs:* 4.4 (dual gaussian error bound), 4.4 (poisson approximation error), 4.4 (shifted gaussian tail bound).
 
 **4.4.13 Euclidean successive-minima transference.** Prove: For a full rank-n Euclidean lattice L, n≥1, and 1≤i≤n, λ_i(L)λ_(n+1−i)(L*)≤n, where L* is defined by integral inner products and both bodies are the Euclidean unit ball.
 *Hypotheses.* The n constant here is Euclidean; it is not asserted for arbitrary polar convex bodies.
 (Source: Regev, *Transference theorems* (lecture 11), p.1, Theorem 1 and Remark 1, citing Banaszczyk 1993.)
-*Needs:* 4.4 (polar-body transference lower inequality).
+*Needs:* 4.4 (polar-body transference lower inequality). **Gap:** this only supplies the lower bound. Regev’s proof controls the endpoint minimum through the covering radius; its Remark 1 attributes the all-index upper bound to Banaszczyk. The all-index proof needs its own target-level input and an accessible original proof.
 **Checks.**
 - For aZ in R, the product is one.
 - For Zⁿ, each product is one and is at most n.
 - In dimension one every full lattice has paired Euclidean minima product one, attaining the upper bound n=1.
 
-**4.4.14 Covering radius and reciprocal shortest vector.** Prove: For a full rank-n Euclidean lattice L, n≥1, 1/2≤μ(L)λ_1(L*)≤n. This pass chooses Regev’s weaker uniform upper constant n; it does not claim that the scanned original proof of the sharper n/2 bound has been checked.
+**4.4.14 Covering radius and reciprocal shortest vector.** Prove: For a full rank-n Euclidean lattice L, n≥1, 1/2≤μ(L)λ_1(L*)≤n. The upper constant n is the uniform estimate proved in Regev’s lecture.
 *Hypotheses.* Full rank, positive dimension and the actual Euclidean reciprocal lattice.
 (Source: Regev, *Transference theorems* (lecture 11), p.2, Claim 3 and Theorem 4.)
 *Needs:* 4.4 `latticeCoveringRadius`, 4.4 (polar-body transference lower inequality), 4.4 (gaussian covering contradiction).
@@ -1476,7 +1496,7 @@ Both applications rest on inputs that are stated here as targets with their own 
 
 **4.7.1 Construction A real-lattice comparison.** Prove the comparison: For a linear code C⊂F_p^n, take the Construction A lattice of AlgebraicCodingTheory Layer 6 and identify its unscaled real realization {x∈Z^n:x mod p∈C} with covolume p^{n−dim C}. The rescaled realization p^−1/2L has covolume p^{n/2−dim C}; unimodularity/integrality/evenness require the cited roadmap’s exact self-duality and parity hypotheses.
 *Hypotheses.* p is prime and C is linear; no code-distance statement alone supplies integral Gram conditions. Construction A itself is owned by AlgebraicCodingTheory layer 6.
-(Source: Benoist, *Arithmeticity of discrete subgroups*, Covolume-one lattice convention physical p.6; mathematical constructor is imported from AlgebraicCodingTheory.)
+(Source: AlgebraicCodingTheory Layer 6, Construction A index and discriminant; real covolume follows from the index and scalar-dilation identities of Layer 0.)
 AlgebraicCodingTheory Layer 6 proves the discriminant `m^n/(#C)²` and the duality `P_m(C)^∨ = P_m(C^⊥)`; the statement here is only the real covolume of the unscaled and rescaled realisations.
 *Needs:* Mathlib `ZLattice.covolume`, AlgebraicCodingTheory Layer 6.
 **Checks.**
@@ -1485,7 +1505,7 @@ AlgebraicCodingTheory Layer 6 proves the discriminant `m^n/(#C)²` and the duali
 
 ### Examples
 
-For `ℤ^d` and the cube `[−1,1]^d` Henk’s bound gives `#(L ∩ K) = 3^d < 2^{d−1} · 3^d`. The form `x² − (3 + 2√2) y²` on `ℤ²` has discrete values, so Oppenheim’s dimension hypothesis cannot be dropped. `n ≡ 7 (mod 8)` has no representation as a sum of three squares and is excluded from Duke’s sequence. The packing radius of `ℤ^d` is `½` and its covering radius is `√d/2`, so the product of the covering radius with the first minimum of the dual is between `½` and `d`. The zero code gives the lattice `pℤ^n` of covolume `p^n`; the full code gives `ℤ^n`.
+For `d≥2`, `ℤ^d` and the cube `[−1,1]^d` Henk’s bound gives `#(L ∩ K) = 3^d < 2^{d−1} · 3^d`. For `d=1` the proposed strict inequality is equality; for `d=0` the lattice-point count is one. The binary form `x² − (3+2√2)y²` has no nonzero value in `(−1,1)`, so its values are not dense. To check this, put `a=|x|`, `b=|y|`, `α=1+√2`, `α′=1−√2`. For a nonzero integer pair, `N=a²−2ab−b²` is a nonzero integer and `|x²−α²y²|=|N|(a+αb)/(a−α′b)≥1`. A claim that the value set is discrete is stronger and is not needed. `n ≡ 7 (mod 8)` has no representation as a sum of three squares and is excluded from Duke’s sequence. For `d≥1`, the packing radius of `ℤ^d` is `½` and its covering radius is `√d/2`, so the product of the covering radius with the first minimum of the dual is between `½` and `d`. The zero code gives the lattice `pℤ^n` of covolume `p^n`; the full code gives `ℤ^n`.
 
 ### Dependencies
 
@@ -1538,7 +1558,7 @@ This layer is the Lenstra–Lenstra–Lovász reduction with every step certifie
 **5.2.1 Exact integer change-of-basis certificates.** Define `UnimodularBasisCertificate.ofMatrices`: A certificate for input b and output c consists of U,V∈Mat_n(Z), UV=VU=I, and c_i=Σ_j U_{ji}b_j. Columns are output coordinates in the input family. This proves equality of integer spans and determinant ±1; determinant −1 is allowed.
 *Hypotheses.* Input and output families have the same dimension; an input real basis gives an output basis. The certificate matrices are integral, not arbitrary rational or real inverses.
 *API.* `UnimodularBasisCertificate.ofMatrices` (constructor: Supply actual integral inverse matrices and the exact output coordinates.); `UnimodularBasisCertificate.span_eq` (relation: The input and output Z-spans are equal.); `UnimodularBasisCertificate.det_unit` (relation: det U is 1 or −1.); `UnimodularBasisCertificate.trans` (functoriality: Compose certificates by matrix multiplication with the correct column order.).
-(Source: Lenstra–Lenstra–Lovász 1982, Algorithm (1.15), size reductions and adjacent swaps, physical pp.5–7; certificate format is a worker verification interface.)
+(Source: Lenstra–Lenstra–Lovász 1982, reduction algorithm following (1.15), size reductions and adjacent swaps, physical pp.5–7; certificate format is a worker verification interface.)
 *Needs:* Mathlib `Matrix.det_mul`.
 **Checks.**
 - The coordinate swap [[0,1],[1,0]] has determinant −1 and is a valid certificate.
@@ -1546,7 +1566,7 @@ This layer is the Lenstra–Lenstra–Lovász reduction with every step certifie
 - A floating matrix approximately inverting U does not inhabit this certificate.
 
 **5.2.2 Nearest integer residual.** Prove: For t∈R put r=floor(t+1/2). Then -1/2≤t-r<1/2; in particular |t-r|≤1/2. This fixes ties deterministically.
-(Source: Lenstra–Lenstra–Lovász 1982, §1, algorithm (1.15), size reduction on printed pp.31–33; tie choice is the worker convention.)
+(Source: Lenstra–Lenstra–Lovász 1982, §1, size reduction in (1.18), printed p.31 (physical p.5); the floor tie choice is the convention here.)
 
 **5.2.3 Integral shear certificate.** Prove: Replacing b_i by b_i-r b_j, j<i and r∈Z, has integral inverse replacing that column by b_i+r b_j; the two coordinate matrices multiply to the identity.
 (Source: Lenstra–Lenstra–Lovász 1982, §1, (1.15)–(1.25), physical pp.5–8 (reprint folios 31–34).)
@@ -1625,7 +1645,7 @@ This layer is the Lenstra–Lenstra–Lovász reduction with every step certifie
 **5.4.1 Exact terminating LLL reduction.** Construct `exactLLL`: Given a nonsingular integer basis matrix (or rational input cleared by a common denominator) in the standard Euclidean metric, compute a reduced output basis together with an exact unimodular-basis certificate. Use nearest-integer size reduction and strict Lovász-failing adjacent swaps at δ=3/4.
 *Hypotheses.* Rank 0 and rank 1 return immediately with the identity certificate. Rounding ties use a fixed nearest-integer rule satisfying distance≤1/2. The polynomial complexity theorem is not supplied here; its proof continues beyond the selected p.8 source slice.
 *API.* `exactLLL` (constructor: Return output coordinates, reducedness and the exact integer inverse certificate.); `exactLLL_certificate` (projection: Recover the original-lattice certificate.); `exactLLL_reduced` (projection: Recover the exact size and Lovász tests.); `exactLLL_shortVector` (relation: For positive rank, the first vector satisfies the proven approximation inequality in the original lattice.).
-(Source: Lenstra–Lenstra–Lovász 1982, Algorithm (1.15), updates (1.22), Figure 1, termination proof, physical pp.5–8.)
+(Source: Lenstra–Lenstra–Lovász 1982, reduction algorithm following (1.15), updates (1.22), Figure 1, termination proof, physical pp.5–8.)
 *Needs:* 5.1 `IsLLLReduced`, 5.2 `UnimodularBasisCertificate.ofMatrices`, 5.3 `lllIntegerPotential`, 5.2 (nearest integer residual), 5.2 (descending size reduction), 5.3 (lll prefix invariant), 5.3 (lll lexicographic termination), 5.2 (integral shear certificate), 5.2 (adjacent swap certificate).
 **Checks.**
 - Input columns (2,0),(0,1) require a swap; the returned certificate may have determinant −1.
@@ -1656,11 +1676,11 @@ This layer is Schlichting’s hermitian K-theory of exact categories, built on T
 
 The constructions of this layer need Quillen’s Q-construction and K-groups of an exact category, Waldhausen’s S-construction with its delooping, the nonconnective K-theory spectrum obtained by suspension, geometric realisation of nerves, Quillen’s Theorems A and B, and the group completion of a symmetric monoidal groupoid. None of these is in Mathlib or Tau Ceti beyond `ExactK0`, `CategoryTheory.nerve` and `SSet.toTop`, so they are targets here, stated for the exact categories of Tau Ceti’s `ExactStructure`.
 
-**6.1.1 The Q-construction.** Define `quillenQ E` for an exact category `E`: the objects are those of `E`, a morphism `X → Y` is an isomorphism class of spans `X ↞ Z ↣ Y` with an admissible deflation on the left and an admissible inflation on the right, and composition is by pullback of the inflation along the deflation, which is again admissible by Tau Ceti’s exact axioms. Prove `quillenQ.ofSpan_eq_iff` (two spans represent the same morphism exactly when they are isomorphic over `X` and `Y`), `quillenQ.comp_ofSpan`, `quillenQ.id_ofSpan` and associativity, and construct the zero object as basepoint. (Source: Quillen, *Higher algebraic K-theory I*, §2, the definition of `QM` and the paragraph following it.) *Needs:* Tau Ceti `ExactStructure`, GrothendieckEulerForms Layer 0, Mathlib `IsPullback`.
+**6.1.1 The Q-construction.** Define `quillenQ E` for an exact category `E`: the objects are those of `E`, a morphism `X → Y` is an isomorphism class of spans `X ↞ Z ↣ Y` with an admissible deflation on the left and an admissible inflation on the right, and composition is by pullback of the inflation along the deflation, which is again admissible by Tau Ceti’s exact axioms. Prove `quillenQ.ofSpan_eq_iff` (two spans represent the same morphism exactly when they are isomorphic over `X` and `Y`), `quillenQ.comp_ofSpan`, `quillenQ.id_ofSpan` and associativity, and use the image of a chosen zero object of `E` as the distinguished basepoint of the nerve. It is generally not a categorical zero object of `quillenQ E`. (Source: Quillen, *Higher algebraic K-theory I*, §2, the definition of `QM` and the paragraph following it.) *Needs:* Tau Ceti `ExactStructure`, GrothendieckEulerForms Layer 0, Mathlib `IsPullback`.
 **Checks.**
 - The two spans `X ↞ X ≅ Y` and `X ≅ Y ↣ Y` attached to an isomorphism `X ≅ Y` represent the same morphism of `quillenQ E`.
 - `Hom(0, X)` is in bijection with the isomorphism classes of admissible inflations `Z ↣ X` (every `Z ↠ 0` is an admissible deflation), so it is a singleton exactly when `X` has no admissible subobject other than `0`; for `X = 0` it is a singleton, and for a nonzero vector space in the split structure it is not.
-- In the split exact structure on finite-dimensional vector spaces, every subquotient `X ⊇ A ⊇ B` gives the morphism `A/B → X` and distinct subquotients give distinct morphisms.
+- In the split exact structure on finite-dimensional vector spaces, every subquotient `X ⊇ A ⊇ B` gives the morphism `A/B → X` and the morphism also retains the chosen identification with the source. Two spans are equal precisely under the equivalence of spans, rather than merely when their quotient objects are abstractly isomorphic.
 
 **6.1.2 K-groups of an exact category.** Define `exactKGroup E n` as the homotopy group `π_{n+1}(|N(quillenQ E)|, 0)`, using Mathlib’s `CategoryTheory.nerve`, `SSet.toTop` and `HomotopyGroup`, and prove `exactKGroup_zero_iso`, the isomorphism `exactKGroup E 0 ≃ ExactK0 E` of Tau Ceti (Quillen §2, Theorem 1), `exactKGroup_map` (functoriality for conflation-exact functors) and `exactKGroup_prod` (products of exact categories). (Source: Quillen, *Higher algebraic K-theory I*, §2, Theorem 1 and the definition of `K_i` following it; §3 for products.) *Needs:* 6.1.1, Tau Ceti `ExactK0`, Mathlib `CategoryTheory.nerve`, `SSet.toTop`, `HomotopyGroup`.
 **Checks.**
@@ -1671,22 +1691,22 @@ The constructions of this layer need Quillen’s Q-construction and K-groups of 
 **6.1.3 Nerves, realisation and Quillen’s theorems.** Prove `nerveRealization_homotopy`: a natural transformation `F ⇒ G` of functors between small categories induces a homotopy between `|N F|` and `|N G|`; `nerveRealization_contractible_of_initial`: a category with an initial or terminal object has contractible realisation; `quillenTheoremA`: if every comma category `f/Y` is contractible then `|N f|` is a homotopy equivalence; and `quillenTheoremB`: if every base change `Y → Y'` induces a homotopy equivalence `f/Y → f/Y'`, then `|N(f/Y)|` is the homotopy fibre of `|N f|` over `Y`, with the long exact sequence. (Source: Quillen, *Higher algebraic K-theory I*, §1, Theorem A, Theorem B and the corollaries preceding them.) *Needs:* Mathlib `CategoryTheory.nerve`, `SSet.toTop`, `CategoryTheory.Comma`, `ContinuousMap.Homotopy`.
 **Checks.**
 - Theorem A applied to the identity functor is the identity equivalence.
-- A functor with a right adjoint satisfies the hypothesis of Theorem A, since each comma category has an initial object.
+- A functor with a right adjoint satisfies the hypothesis of Theorem A, since `f/Y` has the terminal object determined by the counit `f(RY)→Y`. For a left adjoint, the corresponding under-comma category instead has an initial object.
 - The projection `E × E' → E` of nerves of exact categories has homotopy fibre `|N E'|` by Theorem B.
 
-**6.1.4 The S-construction and delooping.** Define Waldhausen’s `waldhausenS E` for an exact category `E` (the simplicial category of filtered objects `0 = X_0 ↣ X_1 ↣ ⋯ ↣ X_n` with chosen admissible quotients `X_j/X_i`), prove the additivity theorem, the delooping `|N(quillenQ E)| ≃ Ω|N(waldhausenS E)|` up to the standard comparison with `Q`, and the identification of `exactKGroup E n` with `π_n` of the K-theory space `Ω|wS.E|`. (Source: Waldhausen, *Algebraic K-theory of spaces*, §1.3 for `S.`, §1.4 Theorem 1.4.2 for additivity, §1.5 Proposition 1.5.3 and §1.9 for the comparison with the Q-construction.) *Needs:* 6.1.1–6.1.3.
+**6.1.4 The S-construction and delooping.** Define Waldhausen’s `waldhausenS E` for an exact category `E` (the simplicial category of filtered objects `0 = X_0 ↣ X_1 ↣ ⋯ ↣ X_n` with chosen admissible quotients `X_j/X_i`), prove the additivity theorem, the comparison `|N(quillenQ E)| ≃ |N(iS_• E)|`, and the identification of `exactKGroup E n` with `π_n` of the K-theory space `Ω|N(iS_• E)|`. Here `iS_n E` is the groupoid of isomorphisms in `S_n E` and the displayed realisation is the diagonal of its bisimplicial nerve. The iterated construction gives the additional delooping `|N(iS_• E)| ≃ Ω|N(iS_• S_• E)|`; this is a different statement from the Q-comparison. (Source: Waldhausen, *Algebraic K-theory of spaces*, §1.3 for `S.`, §1.4 Theorem 1.4.2 for additivity, §1.5 for iterated delooping and §1.9 for the comparison with the Q-construction, printed pp.375–376 (physical pp.57–58).) *Needs:* 6.1.1–6.1.3.
 **Checks.**
 - `S_0 E` is the trivial category and `S_1 E` is `E`.
 - Additivity: the two functors `S_2 E → E` sending a conflation to its outer terms induce, with the total object, a homotopy equivalence `|wS.S_2 E| ≃ |wS.E| × |wS.E|`.
-- The comparison with `Q` is an isomorphism on `K_0` through 6.1.2.
+- For finite-dimensional spaces over a field, `|N(QE)|` is connected, while `π₀ Ω|N(iS_• E)|=ℤ`; equating these two spaces would lose a loop. The comparison gives `π₁ |N(QE)|=π₁ |N(iS_• E)|=K₀(E)`.
 
-**6.1.5 The nonconnective K-theory spectrum.** For an idempotent complete exact category `E`, construct Schlichting’s suspension `SE = CE/E` through the countable envelope `CE` (a flasque exact category containing `E`), prove that `K(CE)` is contractible by the Eilenberg swindle, that `K(E) → ΩK(SE)` is a homotopy equivalence on the idempotent completion, and define `nonconnectiveKSpectrum E` with `π_{−n} = K_0` of the `n`-fold completed suspension. (Source: Schlichting, *Delooping the K-theory of exact categories*, Topology 43 (2004), §§3–4, the suspension and the delooping theorem.) *Needs:* 6.1.4, GrothendieckEulerForms Layer 0.
+**6.1.5 The nonconnective K-theory spectrum.** For an idempotent complete exact category `E`, construct Schlichting’s suspension `SE = CE/E` through the countable envelope `CE` of admissible-inflation sequences, with `Hom((A_i),(B_j))=lim_i colim_j Hom_E(A_i,B_j)` and its induced exact structure. Prove the filtering hypotheses needed to construct the exact quotient; flasqueness alone is insufficient. Use this envelope, prove that `K(CE)` is contractible by the Eilenberg swindle, that `K(E) → ΩK(SE)` is a homotopy equivalence on the idempotent completion, and define `nonconnectiveKSpectrum E` with `π_{−n} = K₀(̃SⁿE)` for `n≥1`, where the tilde denotes idempotent completion. Its degree-zero group is `K₀(̃E)`. (Source: Schlichting, *Delooping the K-theory of exact categories*, Topology 43 (2004), Definition 3.3 and Theorem 3.4; the author’s *Higher Algebraic K-Theory*, §§2.4.3–2.4.6, printed pp.181–183, gives the envelope, quotient, negative-group convention and vanishing statement.) *Needs:* 6.1.4, GrothendieckEulerForms Layer 0.
 **Checks.**
 - The negative K-groups of a field, and more generally of a regular noetherian ring, vanish.
 - `π_0` of the spectrum is `ExactK0 E` for idempotent complete `E`.
 - The hermitian cone of 6.7 maps to `CE` by forgetting the duality, and the hyperbolic comparison of 6.7 is a map of spectra.
 
-**6.1.6 Group completion.** For a symmetric monoidal groupoid `M` construct the group completion `groupCompletion M` as a Segal Γ-space, prove `groupCompletion_pi0` (its `π_0` is the Grothendieck group of the monoid of isomorphism classes) and the group-completion theorem on homology under the localisation hypothesis, and prove that the orthogonal sum makes `|N(iso E_h)|` a homotopy-commutative H-space whose group completion is the Grothendieck–Witt space of 6.5 on components. (Source: Segal, *Categories and cohomology theories*, Topology 13 (1974), §§1–4; McDuff–Segal, *Homology fibrations and the group-completion theorem*, Invent. Math. 31 (1976), the main theorem.) *Needs:* 6.1.3, Mathlib `CategoryTheory.MonoidalCategory`.
+**6.1.6 Group completion.** For a symmetric monoidal groupoid `M` construct the group completion `groupCompletion M` as a Segal Γ-space, prove `groupCompletion_pi0` (its `π_0` is the Grothendieck group of the monoid of isomorphism classes) and the group-completion theorem on homology: for the topological monoid model of `|N M|`, require centrality of `π₀ M` in its Pontryagin homology ring and identify `H_*(M)[(π₀M)⁻¹]` with `H_*(ΩBM)`. Orthogonal sum supplies the required commutativity. For a **split exact** category with duality `E`, prove that the group completion of the isometry-class monoid maps isomorphically to `π₀ GW(E)=GW₀(E)` of 6.5, using Schlichting’s stable metabolic cancellation. For arbitrary exact `E`, the metabolic relations of 6.4 are additional relations and this comparison is not asserted. (Source: Segal, *Categories and cohomology theories*, Topology 13 (1974), §§1–2, Proposition 1.4 and the symmetric-monoidal-category construction of §2, printed pp.296–300; McDuff–Segal, *Homology fibrations and the group-completion theorem*, Invent. Math. 31 (1976), Proposition 1, printed p.279, with the homology-fibration construction of Proposition 2, p.280; Schlichting 2010, Lemma 2.9 and Corollary 2.10, printed pp.111–112.) *Needs:* 6.1.3, 6.4 (metabolic relations), Mathlib `CategoryTheory.MonoidalCategory`.
 **Checks.**
 - For the groupoid of finite sets under disjoint union the `π_0` is `ℤ`.
 - The orthogonal sum is associative and commutative up to the coherence isomorphisms of 6.2, and these are what the Γ-space records.
@@ -1699,7 +1719,7 @@ The constructions of this layer need Quillen’s Q-construction and K-groups of 
 *Hypotheses.* Use the completed intrinsic ExactStructure carrier and conflation-exact functors. No assumption 2 is invertible is required for this classical exact-category construction.
 *API.* `ExactCategoryDuality.ofExactFunctor` (constructor: An additive conflation-exact strong duality on the exact category.); `ExactCategoryDuality.map_conflation` (functoriality: Reverse a conflation to its dual conflation.); `ExactCategoryDuality.sign` (constructor: The sign-twisted duality with double dual −η.).
 (Source: Schlichting, *Hermitian K-theory of exact categories*, Definition 2.1, Example 2.2 and §2.4, printed pp.109–110.)
-*Needs:* Tau Ceti Tau Ceti `TauCeti.ExactStructure`, Tau Ceti `TauCeti.ExactStructure.IsConflationExact`, Tau Ceti `TauCeti.ExactStructure.op`, Tau Ceti `TauCeti.ExactStructure.split`, Tau Ceti `Functor.IsInvolutiveDual` and `Functor.dualityEquivalence`, GrothendieckEulerForms Layer 0.
+*Needs:* Tau Ceti `TauCeti.ExactStructure`, Tau Ceti `TauCeti.ExactStructure.IsConflationExact`, Tau Ceti `TauCeti.ExactStructure.op`, Tau Ceti `TauCeti.ExactStructure.split`, Tau Ceti `Functor.IsInvolutiveDual` and `Functor.dualityEquivalence`, GrothendieckEulerForms Layer 0.
 **Checks.**
 - Finite projective R-modules with Hom_R(−,R) form the split exact example; arbitrary finite modules need not have invertible biduality.
 - Over Z the hyperbolic symmetric plane is available without 1/2.
@@ -1746,7 +1766,7 @@ The constructions of this layer need Quillen’s Q-construction and K-groups of 
 *Hypotheses.* An arbitrary isotropic submodule is not automatically admissible. An exact Lagrangian specifies the quotient and conflation, not only a rank equality.
 *API.* `ExactLagrangian.ofConflation` (constructor: A conflation L→X→DL with the displayed second map.); `ExactLagrangian.zero` (relation: D(i)φi=0.); `ExactLagrangian.mapIsometry` (functoriality: An isometry transports the admissible Lagrangian.).
 (Source: Schlichting, *Hermitian K-theory of exact categories*, Definition 2.5, printed p.110.)
-*Needs:* Tau Ceti Tau Ceti `TauCeti.ExactStructure.split`, 6.2 `SymmetricSpace`, 6.2 `ExactCategoryDuality.ofExactFunctor`.
+*Needs:* Tau Ceti `TauCeti.ExactStructure.split`, 6.2 `SymmetricSpace`, 6.2 `ExactCategoryDuality.ofExactFunctor`.
 **Checks.**
 - The first summand of the hyperbolic plane is a Lagrangian.
 - 2Z⊂Z is not an admissible summand in the split exact category of projectives.
@@ -1844,7 +1864,7 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 *Hypotheses.* K₀ is the imported exact Grothendieck group. The duality involution can act nontrivially on K₀; multiplication by two is only a specialization when it acts trivially.
 *API.* `grothendieckWittForgetful` (constructor: The underlying-object group homomorphism.); `grothendieckWittForgetful_of` (simp: F([X,phi])=[X].); `grothendieckWittForgetful_natural` (functoriality: Commutes with exact form functors and their underlying exact functors.).
 (Source: Schlichting, *Hermitian K-theory of exact categories*, Lemma 2.8 and proof, printed p.112.)
-*Needs:* Tau Ceti Tau Ceti `TauCeti.ExactK0`, Tau Ceti `TauCeti.ExactK0.of`, Tau Ceti `TauCeti.ExactK0.of_conflation`, Tau Ceti `TauCeti.ExactK0.map`, 6.4 `ExactGW0`, 6.1 `exactKGroup`.
+*Needs:* Tau Ceti `TauCeti.ExactK0`, Tau Ceti `TauCeti.ExactK0.of`, Tau Ceti `TauCeti.ExactK0.of_conflation`, Tau Ceti `TauCeti.ExactK0.map`, 6.4 `ExactGW0`, 6.1 `exactKGroup`.
 **Checks.**
 - F of the zero space is zero.
 - Over a field, a nonsingular one-dimensional form has underlying K0 rank one.
@@ -1854,7 +1874,7 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 *Hypotheses.* K₀ is the imported exact Grothendieck group. The duality involution can act nontrivially on K₀; multiplication by two is only a specialization when it acts trivially.
 *API.* `grothendieckWittHyperbolic` (constructor: The hyperbolic group homomorphism.); `grothendieckWittHyperbolic_of` (simp: H([X])=[H(X)].); `grothendieckWittHyperbolic_natural` (functoriality: Commutes with nonsingular exact form functors.).
 (Source: Schlichting, *Hermitian K-theory of exact categories*, Lemma 2.8 and proof, printed p.112.)
-*Needs:* Tau Ceti Tau Ceti `TauCeti.ExactK0`, Tau Ceti `TauCeti.ExactK0.map`, 6.4 `ExactGW0`, 6.2 `hyperbolicSpace`, 6.1 `exactKGroup`.
+*Needs:* Tau Ceti `TauCeti.ExactK0`, Tau Ceti `TauCeti.ExactK0.map`, 6.4 `ExactGW0`, 6.2 `hyperbolicSpace`, 6.1 `exactKGroup`.
 **Checks.**
 - H(0)=0.
 - Over a field the underlying rank of H of a rank-one class is two.
@@ -1917,7 +1937,7 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 - The identity span gives the identity morphism.
 - A Q-span with incompatible pairing or wrong kernel is not a hermitian morphism.
 
-**6.5.8 Hermitian Q forgetful functor.** Prove the comparison: Forgetting the pairings and bicartesian witness gives a functor Qh(E)→Q(E), preserving the zero object and representative composition.
+**6.5.8 Hermitian Q forgetful functor.** Prove the comparison: Forgetting the pairings and bicartesian witness gives a functor Qh(E)→Q(E), preserving the chosen zero-object basepoint and representative composition.
 (Source: Schlichting, *Hermitian K-theory of exact categories*, Definition 4.1 and Definition 4.4, printed pp.116–117.)
 *Needs:* 6.5 `HermitianQ`, 6.1 `quillenQ`.
 
@@ -1926,7 +1946,7 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 *Needs:* 6.5 `HermitianQ`, 6.5 (hermitian q forgetful functor), 6.1 `exactKGroup`.
 
 **6.5.10 Hermitian Q nerve realization.** Prove the comparison: Take Mathlib’s `CategoryTheory.nerve` of a small model of Qh(E), apply the supplied geometric realization functor and realize the forgetful natural transformation. The zero symmetric space gives the fibre base point.
-(Source: Schlichting, *Hermitian K-theory of exact categories*, Definition 4.4, printed p.117; topology interface is requested, not an invented realization.)
+(Source: Schlichting, *Hermitian K-theory of exact categories*, Definition 4.4, printed p.117; the realization comparison is 6.1.3.)
 *Needs:* Mathlib `CategoryTheory.nerve`, `CategoryTheory.nerveMap`, 6.5 (hermitian q forgetful functor), 6.1 `nerveRealization`, 6.1 `quillenTheoremA`.
 
 **6.5.11 Grothendieck–Witt space of an exact category.** Construct `grothendieckWittSpace`: GW(E) is the pointed homotopy fibre over the zero object of |Qʰ(E)|→|Q(E)|.
@@ -1935,13 +1955,16 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 (Source: Schlichting, *Hermitian K-theory of exact categories*, Definition 4.4 and Definition 4.12, printed pp.117–118,122.)
 *Needs:* 6.5 (hermitian q nerve realization).
 **Checks.**
-- The base point is the zero object, not an arbitrary unrecorded form.
+- For the constant map from a point to false in the discrete two-point space, the homotopy fibre over true is empty: there is no path joining the two points.
+- The fibre of the identity of the discrete two-point space over false is a singleton.
+- The fibre of the constant point-to-false map over false is a singleton; keeping the endpoint is essential.
+- The zero symmetric space supplies the distinguished base point; it is not an arbitrary unrecorded form.
 - For the hyperbolic category HE, GW(HE)≃K(E).
-- GW_i is a homotopy degree; a four-periodic shifted-duality statement does not say GW_i≅GW_{i+4}.
+- A four-periodic shifted-duality statement does not imply GW_i≅GW_{i+4}; homotopy degree and duality shift are separate indices.
 
 **6.5.12 Higher Grothendieck–Witt groups.** Define `higherGrothendieckWittGroup`: For i≥0, GW_i(E)=π_i of the pointed Grothendieck–Witt fibre space; in degree zero use its canonical abelian H-space component group, not a shifted-duality index.
 *Hypotheses.* Use actual pointed homotopy groups and orthogonal sum.
-*API.* `higherGrothendieckWittGroup` (constructor: Pointed homotopy group of the Grothendieck–Witt fibre.); `higherGrothendieckWittGroup_map` (functoriality: Nonsingular exact form functors induce group maps.); `higherGrothendieckWittGroup_zero` (compatibility: π0 as a type is equivalent to path components of the fibre. Its canonical abelian H-space law and comparison with exact GW0 are the separate components theorem and H.4 interface.).
+*API.* `higherGrothendieckWittGroup` (constructor: Pointed homotopy group of the Grothendieck–Witt fibre.); `higherGrothendieckWittGroup_map` (functoriality: Nonsingular exact form functors induce group maps.); `higherGrothendieckWittGroup_zero` (compatibility: π0 as a type is equivalent to path components of the fibre. Its canonical abelian H-space law and comparison with exact GW0 are the separate components theorem and group-completion interface of 6.1.6.).
 (Source: Schlichting, *Hermitian K-theory of exact categories*, printed pp.121–122, Proposition 4.11 and Definition 4.12.)
 *Needs:* Mathlib `HomotopyGroup`, `HomotopyGroup.pi0EquivZerothHomotopy`, 6.5 `grothendieckWittSpace`.
 **Checks.**
@@ -2008,7 +2031,7 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 *Needs:* 6.7 `coneLowerShift`, 6.2 `ExactCategoryDuality.ofExactFunctor`.
 
 **6.7.5 Cone fraction morphisms.** Construct `ConeFraction`: The cone morphisms U→V are the filtered colimit of Hom_C0(U^[i],V[j]); representatives agree after sufficiently increasing both shift indices.
-*API.* `ConeFraction` (constructor: A shifted middle map and its two indices.); `ConeFraction.equivalent` (characterisation: Equality after a common larger shift.); `ConeFraction.comp` (constructor: Shift the two representatives to compose; the new indices are their sums.); `ConeFraction.toLocalization` (compatibility: The universal comparison to categorical localization.).
+*API.* `ConeFraction` (constructor: A shifted middle map and its two indices.); `ConeFraction.advance` (constructor: Increase both shift indices by composing the canonical shift maps.); `ConeFraction.equivalent` (characterisation: Equality of those specific advanced maps at a common larger shift.); `ConeFraction.comp` (constructor: Shift the two representatives to compose; the new indices are their sums.); `ConeFraction.toLocalization` (compatibility: The universal comparison to categorical localization.).
 (Source: Schlichting, *Hermitian K-theory of exact categories*, Definition 9.1, printed pp.155–156.)
 *Needs:* 6.7 `coneLowerShift`.
 **Checks.**
@@ -2147,14 +2170,14 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 
 **6.8.4 Formation detects hyperbolic kernel.** Prove: The homomorphism from formations to ExactK0 sending a formation to [L1]−[L2] has image equal to the kernel of the hyperbolic homomorphism.
 (Source: Schlichting, *Hermitian K-theory of exact categories*, Lemma 4.10 and full proof, printed p.121.)
-*Needs:* Tau Ceti Tau Ceti `TauCeti.ExactK0.of`, 6.8 `FormationGroup`, 6.4 `grothendieckWittHyperbolic`, 6.4 (witt group as the hyperbolic cokernel).
+*Needs:* Tau Ceti `TauCeti.ExactK0.of`, 6.8 `FormationGroup`, 6.4 `grothendieckWittHyperbolic`, 6.4 (witt group as the hyperbolic cokernel).
 
 ### 6.9 Localisation for Dedekind rings
 
 **6.9.1 Canonical residue duality coefficient.** Prove the comparison: For a Dedekind ring R, nonzero prime p and line bundle M with involution, the right adjoint residue dual coefficient RHom_R(R/p,M) is canonically (p^−1M/M)[−1]. A choice of uniformizer identifies p^−1M/M with M/pM; this last identification is not canonically natural under ramified base change.
 *Hypotheses.* Use derived Hom with its actual shift and residue-module structure. A uniformizer choice is recorded when replacing the canonical coefficient by the unshifted residue line.
 (Source: Calmès–Dotto–Harpaz–Hebestreit–Land–Moi–Nardin–Nikolaus–Steimle III, Lemma 2.2.2 and proof, physical p.37.)
-*Needs:* 6.5 `grothendieckWittSpace`.
+*Needs:* derived Hom for perfect complexes and a symmetric Poincaré structure, with a derived/exact comparison. **Gap:** these are not supplied by 6.5, whose input is an exact category with strong duality.
 **Checks.**
 - The residue term has a −1 duality shift, not degree zero.
 - For Z→Z[i] at 2, the integer 2 does not become a uniformizer at (1+i), so the naive residue-field identity is not the induced map.
@@ -2162,13 +2185,13 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 **6.9.2 Hermitian filtering localization.** Prove: For a duality-preserving s-filtering inclusion A⊂U of exact categories with strong duality, with A idempotent complete, |QʰA|→|QʰU|→|Qʰ(U/A)| is a pointed homotopy fibre sequence over zero.
 *Hypotheses.* The four source s-filtering conditions and idempotent completeness are retained. The map W₀(U)→W₀(U/A) need not be surjective.
 (Source: Schlichting, *Hermitian K-theory of exact categories*, §8.1, Theorem 8.2 and Remark 8.3, printed pp.140–141.)
-*Needs:* 6.5 `HermitianQ`.
+*Needs:* 6.5 `HermitianQ`. **Gap:** the duality-stable exact quotient `U/A`, its four s-filtering conditions, and the induced duality need named construction/API targets. The ordinary envelope quotient in 6.1.5 does not provide the general hermitian quotient. The current dependency of 6.7.17 on this later result requires an explicit reordered construction.
 **Checks.**
 - A fully exact inclusion without the four s-filtering conditions is not enough.
 - Idempotent completeness of A is an explicit hypothesis.
 
 **6.9.3 Symmetric Grothendieck–Witt localization for Dedekind rings.** Prove: For R,M as above, a set S of nonzero primes and every duality shift r, there is a canonical fibre sequence ⊕_{p∈S}GW(R/p;Q^s_{RHom_R(R/p,M)}[r])→GW(R;Q^s_M[r])→GW(R_S;Q^s_{M_S}[r]). With chosen uniformizers the left coefficient is (M/pM)[r−1].
-*Hypotheses.* This is the symmetric Poincaré flavour at the spectrum level. No 2-unit assumption is imposed for this theorem; the analogous quadratic spectrum sequence fails at dyadic primes without additional restrictions.
+*Hypotheses.* This is the symmetric Poincaré flavour at the spectrum level. No 2-unit assumption is imposed for this theorem; the analogous quadratic spectrum sequence fails at dyadic primes without additional restrictions. **Gap:** the stable Poincaré structures, dévissage equivalence, and spectrum-level localization inputs of this theorem are not constructed by 6.9.1 or by the filtering exact-category theorem 6.9.2.
 (Source: Calmès–Dotto–Harpaz–Hebestreit–Land–Moi–Nardin–Nikolaus–Steimle III, Theorem 2.2.4, Corollary 2.2.5 and Remark 2.2.6, physical pp.38–39.)
 *Needs:* 6.9 (canonical residue duality coefficient).
 **Checks.**
@@ -2179,21 +2202,21 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 
 **6.10.1 Classical hermitian Bott triangle.** Prove the comparison: For the uniquely 2-divisible dg category with weak equivalences and duality in Schlichting Theorem 6.1, GW^[r](A) -> K(A) -> GW^[r+1](A) -> Sigma GW^[r](A) is an exact triangle, with forgetful and hyperbolic maps.
 *Hypotheses.* The dg model, weak equivalences and pretriangulated/smallness conventions are those of Schlichting. This theorem does not assert integral four-periodicity for genuine symmetric GW at dyadic coefficients.
-(Source: Schlichting, *Hermitian K-theory, derived equivalences and Karoubi’s fundamental theorem*, SchlichtingDerived Theorem 6.1 and proof, physical pp.57–58; classical/stable model comparison remains a gap.)
-*Needs:* 6.5 `grothendieckWittSpace`, 6.1 `waldhausenS`, 6.1 `waldhausenS`.
+(Source: Schlichting, *Hermitian K-theory, derived equivalences and Karoubi’s fundamental theorem*, SchlichtingDerived Theorem 6.1 and proof, physical pp.57–58; the dg-category carrier, its shifted dualities, and its comparison with the exact-category model of 6.5 remain gaps.)
+*Needs:* 6.5 `grothendieckWittSpace`, 6.1 `waldhausenS`.
 **Checks.**
 - The comparison retains the source hypotheses: The dg model, weak equivalences and pretriangulated/smallness conventions are those of Schlichting.
 
 **6.10.2 shifted Karoubi periodicity.** Prove the comparison: For a dg category with weak equivalences and duality whose mapping complexes are uniquely 2-divisible, the shifted classical GW spectra satisfy GW^[r+4](A) equivalent to GW^[r](A). This shifts the duality index, not the higher homotopy degree.
 *Hypotheses.* The dg model, weak equivalences and pretriangulated/smallness conventions are those of Schlichting. This theorem does not assert integral four-periodicity for genuine symmetric GW at dyadic coefficients.
 (Source: Schlichting, *Hermitian K-theory, derived equivalences and Karoubi’s fundamental theorem*, Introduction, physical pp.2–4; Theorems 6.1–6.2 are announced here.)
-*Needs:* 6.5 `grothendieckWittSpace`, 6.1 `waldhausenS`, 6.1 `waldhausenS`.
+*Needs:* 6.5 `grothendieckWittSpace`, 6.1 `waldhausenS`.
 **Checks.**
 - The equality relates shift r with r+4 while keeping homotopy degree fixed.
 - The hypothesis 2 invertible cannot be removed by citing the characteristic-free exact-category definitions.
 
 **6.10.3 Number-ring homotopy-limit comparison.** Prove: For a Dedekind ring R whose fraction field is a number field, a line bundle M with involution ±1 and any duality shift r, GW(R;Q^s_M[r])→K(R;Q^s_M[r])^{hC₂} is a 2-adic equivalence. Its classical symmetric connective-cover specialization is an equivalence in nonnegative degrees after 2-completion.
-*Hypotheses.* Do not replace 2-adic completion by localization at 2 or claim an integral equivalence in the presence of real embeddings. The generic spectrum/homotopy-fixed-point carrier is imported from the new hermitian owner.
+*Hypotheses.* Do not replace 2-adic completion by localization at 2 or claim an integral equivalence in the presence of real embeddings. The spectrum, stable Poincaré-category, and homotopy-fixed-point carriers must be supplied before this comparison can be constructed; 6.1 only supplies exact-category K-theory. **Gap:** no lower-tier supplier contract or construction of these carriers and their comparison with 6.5 is given here.
 (Source: Calmès–Dotto–Harpaz–Hebestreit–Land–Moi–Nardin–Nikolaus–Steimle III, Theorem 3.1.7 and full proof, physical pp.51–52.)
 *Needs:* 6.9 (symmetric grothendieck–witt localization for dedekind rings).
 **Checks.**
@@ -2275,7 +2298,7 @@ Specialised to finite-dimensional signed hermitian spaces over a nonarchimedean 
 
 ### Examples
 
-Over a field with `2` invertible, the symmetric `W₀` of finite-dimensional vector spaces is the Witt ring of QuadraticFormInvariants Layer 4 under `B ↦ B(x,x)/2`. The hyperbolic plane has Witt class `0` and nonzero class in `GW₀`. For the hyperbolic category `HE` the Grothendieck–Witt space is `K(E)`. The zero exact category has all hermitian groups zero. Over `ℤ` the symmetric Grothendieck–Witt groups in degrees `0` to `7` modulo the ordinary `K(ℤ)` contributions are the eight rows of 6.11, with `GW₀^s(ℤ) = ℤ ⊕ ℤ` generated by `⟨1⟩` and `⟨−1⟩`.
+Over a field with `2` invertible, the symmetric `W₀` of finite-dimensional vector spaces is additively isomorphic to the underlying Witt group of QuadraticFormInvariants Layer 4 under `B ↦ B(x,x)/2`. This convention is not a unital tensor-ring comparison: the bilinear unit `⟨1⟩` maps to `⟨1/2⟩`. The hyperbolic plane has Witt class `0` and nonzero class in `GW₀`. For the hyperbolic category `HE` the Grothendieck–Witt space is `K(E)`. The zero exact category has all hermitian groups zero. Over `ℤ` the symmetric Grothendieck–Witt groups in degrees `0` to `7` modulo the ordinary `K(ℤ)` contributions are the eight rows of 6.11, with `GW₀^s(ℤ) = ℤ ⊕ ℤ` generated by `⟨1⟩` and `⟨−1⟩`.
 
 ### Dependencies
 
@@ -2299,13 +2322,13 @@ Locators in the layers refer to the following editions.
 - **Li–Zhang, *Kudla–Rapoport cycles*** — Chao Li, Wei Zhang, *Kudla–Rapoport cycles and derivatives of local densities*.  https://arxiv.org/pdf/1908.01701v3
 - **Schlichting, *Hermitian K-theory of exact categories*** — Marco Schlichting, *Hermitian K-theory of exact categories*.  https://webhomes.maths.ed.ac.uk/~v1ranick/papers/schlicht.pdf
 - **Schlichting, *Hermitian K-theory, derived equivalences and Karoubi’s fundamental theorem*** — Marco Schlichting, *Hermitian K-theory, derived equivalences and Karoubi’s Fundamental Theorem*. arXiv:1209.0848v3, 7 September 2016. https://arxiv.org/pdf/1209.0848v3
-- **Calmès–Dotto–Harpaz–Hebestreit–Land–Moi–Nardin–Nikolaus–Steimle III** — Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus, Wolfgang Steimle, *Hermitian K-theory for stable infinity-categories III: Grothendieck–Witt groups of rings*. exact version of the current extraction. https://arxiv.org/pdf/2009.07225v4
+- **Calmès–Dotto–Harpaz–Hebestreit–Land–Moi–Nardin–Nikolaus–Steimle III** — Baptiste Calmès, Emanuele Dotto, Yonatan Harpaz, Fabian Hebestreit, Markus Land, Kristian Moi, Denis Nardin, Thomas Nikolaus, Wolfgang Steimle, *Hermitian K-theory for stable infinity-categories III: Grothendieck–Witt groups of rings*. arXiv:2009.07225v4, 27 April 2026. https://arxiv.org/pdf/2009.07225v4
 - **Bhargava–Shankar, *Binary quartic forms*** — Manjul Bhargava, Arul Shankar, *Binary quartic forms having bounded invariants, and the boundedness of the average rank of elliptic curves*.  https://arxiv.org/pdf/1006.1002v2
 - **Duke 1988** — W. Duke, *Hyperbolic distribution problems and half-integral weight Maass forms*. Published-layout author copy, Invent. Math. 92 (1988), 73–90. https://www.math.ucla.edu/~wdduke/preprints/hyperbolic.pdf
 - **Benoist, *Arithmeticity of discrete subgroups*** — Yves Benoist, *Arithmeticity of discrete subgroups*.  https://www.imo.universite-paris-saclay.fr/~yves.benoist/prepubli/19ArithmeticityLectures.pdf
 - **Morris, *Introduction to arithmetic groups*** — Dave Witte Morris, *Introduction to Arithmetic Groups*.  https://arxiv.org/pdf/math/0106063v6
 - **Regev, *Transference theorems* (lecture 11)** — Oded Regev; scribe Elad Verbin, *Transference Theorems, Lattices in Computer Science, Lecture 11*. Fall 2004, author-hosted lecture notes. https://cims.nyu.edu/~regev/teaching/lattices_fall_2004/ln/transference.pdf
-- **Aggarwal–Stephens-Davidowitz 2019** — Divesh Aggarwal; Noah Stephens-Davidowitz, *An improved constant in Banaszczyk’s transference theorem*. arXiv:1907.09020v1, 21 July 2019. https://arxiv.org/pdf/1907.09020
+- **Aggarwal–Stephens-Davidowitz 2019** — Divesh Aggarwal; Noah Stephens-Davidowitz, *An improved constant in Banaszczyk’s transference theorem*. arXiv:1907.09020v1, 21 July 2019. https://arxiv.org/pdf/1907.09020v1
 - **Kirschmer, *One-class genera of maximal integral quadratic forms*** — Markus Kirschmer, *One-class genera of maximal integral quadratic forms*. Author preprint, June 2013. https://www.math.rwth-aachen.de/~Markus.Kirschmer/papers/maxgen.pdf
 - **Mahler 1946** — Kurt Mahler, *On lattice points in n-dimensional star bodies I. Existence theorems*. Published-layout archival copy, Proc. Royal Society A 187 (1946), 151–187. https://carmamaths.org/resources/mahler/docs/090.pdf
 - **Schulze-Pillot, *Lecture notes on quadratic forms*** — Rainer Schulze-Pillot, *Lecture notes on quadratic forms and their arithmetic*. arXiv:2008.12847v2, 21 March 2021. https://arxiv.org/pdf/2008.12847
@@ -2316,6 +2339,9 @@ Locators in the layers refer to the following editions.
 - **Voight, *Identifying the matrix ring*, errata** — John Voight, *Author errata, 21 May 2019, two pages, read in full*. Algorithm 3.22 correction, no Example 3.14 correction. https://jvoight.github.io/articles/quatalgs-errata.pdf
 - **Quillen, *Higher algebraic K-theory I*** — D. Quillen, in *Algebraic K-theory I*, Lecture Notes in Mathematics 341 (1973), 85–147.
 - **Waldhausen, *Algebraic K-theory of spaces*** — F. Waldhausen, in *Algebraic and geometric topology*, Lecture Notes in Mathematics 1126 (1985), 318–419.
+- **Gan–Hanke–Yu 2001** — Wee Teck Gan, Jonathan Hanke and Jiu-Kang Yu, *On an exact mass formula of Shimura*. Duke Mathematical Journal 107 (2001), 103–133. Author-hosted published-layout copy. https://web.math.princeton.edu/~jonhanke/Web-02/Mass-Formula-of-Shimura/shimura-mass.pdf
+- **Schlichting, *Higher Algebraic K-Theory*** — Marco Schlichting, *Higher Algebraic K-Theory (After Quillen, Thomason and Others)*, lecture notes, §§2.4.3–2.4.6, printed pp.181–183. https://warwick.ac.uk/fac/sci/maths/people/staff/marco_schlichting/research/sedanosln2008.pdf
+- **Skodlerack–Stevens** — Daniel Skodlerack and Shaun Stevens, *Intertwining semisimple characters for p-adic classical groups*, accepted manuscript, §4, Theorem 4.4 and proof, pp.13–14. https://ueaeprints.uea.ac.uk/id/eprint/60983/1/Xin_manucript_2016.pdf
 - **Schlichting, *Delooping the K-theory of exact categories*** — M. Schlichting, Topology 43 (2004), 1089–1103.
 - **Segal, *Categories and cohomology theories*** — G. Segal, Topology 13 (1974), 293–312.
 - **McDuff–Segal** — D. McDuff and G. Segal, *Homology fibrations and the group-completion theorem*, Invent. Math. 31 (1976), 279–284.
