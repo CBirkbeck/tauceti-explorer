@@ -6775,7 +6775,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-09",
-    "notes": "Bounded independent area-fix review of findings /21 and /23. Read Tate §6 geometric table, printed p.46, verified component counts above the characteristic restriction, and made n≥1 explicit for I_n and I_n*. Checked the existing geometric/wild proof gap and upstream model suppliers. Checked the criterion note retains the excellent-DVR and residue-field hypotheses and requests only its Neron/Jacobian suppliers; broad research-stage cycles still require node-level refinement. Follows independent-review-REV-NeronModelsAndSemistableAbelianVarieties, preserved in reviewHistory. No missing Kodaira proof or upstream criterion is claimed implemented."
+    "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Tate section 6 p.46 geometric component counts and positive indices checked; characteristic-restricted discriminant/conductor rows and Kodaira-resolution gap retained. Excellent-DVR/residue-field and node-level curve-Jacobian criterion boundary checked. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
   },
   "reviewHistory": [
     {
@@ -7224,6 +7224,12 @@
       ],
       "sourceIssuesChecked": 6,
       "readerRegenerationRequired": true
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-09",
+      "notes": "Bounded independent area-fix review of findings /21 and /23. Read Tate §6 geometric table, printed p.46, verified component counts above the characteristic restriction, and made n≥1 explicit for I_n and I_n*. Checked the existing geometric/wild proof gap and upstream model suppliers. Checked the criterion note retains the excellent-DVR and residue-field hypotheses and requests only its Neron/Jacobian suppliers; broad research-stage cycles still require node-level refinement. Follows independent-review-REV-NeronModelsAndSemistableAbelianVarieties, preserved in reviewHistory. No missing Kodaira proof or upstream criterion is claimed implemented."
     }
   ]
 }
