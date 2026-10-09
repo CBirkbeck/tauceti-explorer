@@ -29205,9 +29205,9 @@
     "REV-RS-31"
    ],
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #982"
+   "note": "claimed on GitHub issue #982"
   },
   {
    "id": "REV-ReductiveGroupsPartII",
@@ -46355,8 +46355,9 @@
     "PKG-AdelicAlgebraicGroups"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AdelicAlgebraicGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7501"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7501",
+   "finishedAt": "2026-10-09T12:36:16Z"
   },
   {
    "id": "PKG-AdicCoefficientsAndComparisons",
