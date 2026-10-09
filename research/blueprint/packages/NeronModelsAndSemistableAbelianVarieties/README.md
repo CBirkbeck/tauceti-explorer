@@ -520,8 +520,7 @@ by finite presentation of the defining equations and of the group morphisms and 
 until the group identities and the fibre conditions hold (Bosch–Lütkebohmert–Raynaud, §1.4,
 Proposition 2 and Theorem 3, pp. 18–20). The complement of `U` is a finite set of closed points. A
 stalk-level spreading lemma for a single morphism (Mathlib `AlgebraicGeometry/SpreadingOut.lean`)
-is an input, not a substitute. Then prove `DedekindGluing`: if `A` extends to an abelian scheme over
-a dense open `U ⊂ S` and has finite-type Néron models over the local rings at the finitely many
+is an input, not a substitute. Then prove `DedekindGluing`: if `A` admits an abelian-scheme model over some dense open `U ⊂ S` and has finite-type Néron models over the local rings at the finitely many
 closed points outside `U`, then these glue to a finite-type `S`-model with the full mapping
 property; the gluing spreads each local model and its marking to an open neighbourhood
 (Bosch–Lütkebohmert–Raynaud, §1.2, Lemma 5, pp. 13–14), uses 1.4 for the transition isomorphisms
