@@ -95,7 +95,7 @@ For u sufficiently large each finite upper group is trivial. Intersecting over a
 
 **Prerequisites.** `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group`, `tauceti:TauCeti.AbsoluteGaloisGroup`, `tauceti:TauCeti.absoluteGaloisGroupRestrictEquiv`.
 
-**Sources.** Jean-Pierre Serre, §3.1, pp. 126–128; Proposition 4 and remark, p. 128: Upper numbering commutes with passage to quotients; the perfect-residue-field generality is explicit. Douglas Ulmer, §3, pp. 2–3: Fixes the lower and upper conventions used in the finite quotients.
+**Sources.** Jean-Pierre Serre, §3.1, Propositions 2–4, pp. 126–128: Proposition 3 is the finite quotient theorem; Proposition 4 is the tower formula. This section treats totally ramified extensions, with perfect residue field allowed; inertia separation supplies the general finite-extension formulation. Douglas Ulmer, §3, pp. 2–3: Fixes the lower and upper conventions used in the finite quotients.
 
 **Planning API.**
 
@@ -201,7 +201,7 @@ At i=0 the weight is one. If the quotient kills the inertia kernel, its G₀-inv
 
 The definition does not depend on integrality. The separately imported hasse-arf-integrality theorem, after applying equivariant simple lifting to the wild orbit sum, promotes its nonnegative rational value to a natural-number exponent for global products.
 
-**Prerequisites.** `ArithmeticGaloisRepresentations:R01.3/swan-from-breaks`, `ArithmeticGaloisRepresentations:R01.3/finite-inertia-factorisation`, `mathlib:Representation.invariants`.
+**Prerequisites.** `ArithmeticGaloisRepresentations:R01.3/swan-from-breaks`, `ArithmeticGaloisRepresentations:R01.3/finite-inertia-factorisation`, `mathlib:Representation.invariants`, `ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality`.
 
 **Sources.** Douglas Ulmer, §§4–6, pp. 3–5; end of §6: For general ℓ-adic representations the tame term uses actual inertia invariants. Jean-Pierre Serre, §2.1, PDF pp. 6–8: Separates the actual tame codimension from the integer wild term.
 
@@ -215,7 +215,7 @@ The definition does not depend on integrality. The separately imported hasse-arf
 
 - `TauCeti.ConductorR013.artin_unramified` (degenerate): If I_K acts trivially, ε=Sw=a=0.
 - `TauCeti.ConductorR013.artin_tameCharacter` (computation): A nontrivial tame character has ε=a=1 and Sw=0.
-- `TauCeti.ConductorR013.artin_unipotent` (non-example): The two-dimensional tame unipotent representation with nonzero monodromy has ε=a=1; the trivial two-dimensional representation has a=0.
+- `TauCeti.ConductorR013.artin_unipotent` (non-example): On F² let ρ(g)(x,y)=(x+t(g)y,y), where t:G_K→(F,+) is continuous, vanishes on P_K and is nonzero on I_K. Then ε=a=1 and Sw=0; the trivial action on F² has a=0. Determine the fixed space from this action, without assuming its dimension.
 
 **Acceptance.** A nontrivial tame unipotent extension of 1 by 1 has a=1 although its semisimplification has a=0.
 
@@ -327,9 +327,9 @@ For a finite-image residual representation ρ̄:G_L→GL_n(F) with char F=ℓ, d
 
 Apply global-away-conductor with exactly the excluded places above ℓ. All remaining local representations have prime-to-residue-characteristic coefficients and finite wild image.
 
-The excluded valuations vanish, proving coprimality. Identify ideals of Z with positive generators over Q.
+The excluded valuations vanish, proving coprimality. Identify ideals of Z with positive generators over Q. For the raw-to-semisimple inequality, restrict a composition series to inertia: left exactness of invariants gives ε(V^{ss})≤ε(V), while exact averaging on each finite wild p-group gives Sw(V^{ss})=Sw(V). Coefficient extension preserves both terms by conductor-extend-scalars. This argument covers arbitrary finite-image residual representations, without requiring them to lift to an ℓ-adic representation.
 
-**Prerequisites.** `ArithmeticGaloisRepresentations:R01.3/global-away-conductor`.
+**Prerequisites.** `ArithmeticGaloisRepresentations:R01.3/global-away-conductor`, `ArithmeticGaloisRepresentations:R01.3/conductor-extend-scalars`, `ArithmeticGaloisRepresentations:R01.1/semisimplification`, `mathlib:Representation.averageMap`, `mathlib:Representation.invariants`.
 
 **Sources.** Jean-Pierre Serre, §1.2, pp. 180–181, equation (1.2.3): Defines N by omitting the coefficient prime and proves it is prime to that prime.
 
@@ -342,8 +342,8 @@ The excluded valuations vanish, proving coprimality. Identify ideals of Z with p
 **Unit tests.**
 
 - `TauCeti.ConductorR013.primeToConductor_trivial` (degenerate): N of the trivial representation is one.
-- `TauCeti.ConductorR013.primeToConductor_twoPrimes` (computation): Over Q, local exponents a₂=3 and a₃=1, with coefficient prime ℓ=3 and all other exponents zero, give N=8.
-- `TauCeti.ConductorR013.primeToConductor_notCoefficientPrime` (non-example): The same data with coefficient prime ℓ=2 give N=3; neither product may contain the coefficient prime.
+- `TauCeti.ConductorR013.primeToConductor_twoPrimes` (computation): Over Q, apply the product constructor to the formal exponent function a₂=3,a₃=1 and zero elsewhere. Excluding the coefficient prime ℓ=3 gives N=8. The unused value at 3 is not a conductor assertion at the coefficient prime.
+- `TauCeti.ConductorR013.primeToConductor_notCoefficientPrime` (non-example): The same formal exponent function, excluding ℓ=2, gives N=3. The unused value at 2 is not supplied by residual conductor theory; neither product may contain its excluded prime.
 
 **Acceptance.** A conductor at the coefficient prime is not supplied by this definition.
 
@@ -431,13 +431,13 @@ If an elliptic curve E/K acquires good reduction over a finite extension, the in
 
 Import potential-good reduction and the good-model/Tate-module specialisation from EllipticCurves for E. Over a finite Galois good-reduction extension, inertia acts on the good special fibre by automorphisms.
 
-Serre–Tate Theorem 2 extends the action to the good model and compares it with the action on every Tate module. Faithfulness gives the common kernel; the endomorphism characteristic polynomial gives the common integral trace data.
+Serre–Tate Theorem 2 extends inertia to automorphisms of the good special fibre and compares every Tate-module action. Faithfulness gives the common kernel. The theorem states integral, ℓ-independent traces; the imported endomorphism characteristic-polynomial theorem supplies integral, ℓ-independent polynomials (the traces of all powers also determine them in characteristic zero).
 
 Finite inertia image kills inertia over a finite extension, so the Néron–Ogg–Shafarevich criterion gives the converse. The source proof uses the torsion-free congruence kernel and bounds tame primes by 3.
 
 **Prerequisites.** `tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68`, `tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv`.
 
-**Sources.** Jean-Pierre Serre and John Tate, §2, Theorem 2 and proof, pp. 496–498: Finite inertia, its common kernel and its integral characteristic polynomial are proved together.
+**Sources.** Jean-Pierre Serre and John Tate, §2, Theorem 2 and Corollary 2 with their proofs, pp. 496–498: Theorem 2 gives the common inertia kernel and integral, ℓ-independent traces under potential good reduction. Corollary 2 supplies the potential-good criterion; characteristic-polynomial independence uses the good-fibre endomorphism comparison.
 
 **Acceptance.** For an elliptic curve with potential good reduction, the finite inertia action comes from automorphisms of a good elliptic special fibre; its order divides 24.
 
@@ -617,7 +617,7 @@ For any finitely supported nonnegative s_i with n=Σ_i s_i p^i, carrying p copie
 
 **Prerequisites.** `mathlib:Nat.digits`.
 
-**Sources.** Armand Brumer and Kenneth Kramer, §5, equation (5.4), p. 242: Defines λ_p using base-p digits and uses the carry inequality in the proof of Theorem 5.5.
+**Sources.** Armand Brumer and Kenneth Kramer, §1, p. 227, definition of λ_p; Theorem 5.5 and its proof, p. 242: The introduction defines the weighted base-p digit sum; the proof of Theorem 5.5 uses the carry inequality. Equation (5.6) is the constituent conductor estimate, not the definition.
 
 **Planning API.**
 
@@ -643,9 +643,9 @@ Let K be a finite extension of Q_p with e_K=v_K(p), M/K finite Galois, G=Gal(M/K
 
 **Proof outline.**
 
-Apply brumer-kramer-constituent-estimate to each simple or *-simple constituent of the nontrivial wild part, after the multiplicity-weighted rational lift. Its dimension is (p−1)p^i and its Swan contribution is at most e_K[p+(p−1)i]p^i.
+Over the fixed field K₁ of G₁, decompose the nontrivial wild part into simple or *-simple constituents W_j, counting repeated constituents. Put m_j=m_F(W_j) and i_j=δ_F(W_j). The rational-lift and character-field formulas give dim W_j=m_j(p−1)p^{i_j}, not (p−1)p^{i_j} without the Schur-index factor. The constituent estimate gives Sw(W_j)≤e_{K₁}m_j[p+(p−1)i_j]p^{i_j}.
 
-Sum the simple bounds with multiplicities. The codimensions add, and the carry inequality for λ_p bounds the weighted digit sum by λ_p(d₁). In the exceptional dyadic case use the self-dual constituents, exactly as Theorem 5.5(ii).
+Put s_i=Σ_{j:i_j=i}m_j, so d₁=Σ_i s_i p^i. Additivity gives the bound e_{K₁}[pd₁+(p−1)Σ_i i s_i p^i], and carrying gives Σ_i i s_i p^i≤λ_p(d₁). In the exceptional dyadic case the decomposition is into *-simple self-dual constituents, as in Theorem 5.5(ii).
 
 The finite wild extension is over the fixed field of G₁. Its absolute ramification index scales by the tame index; the Swan base-change formula cancels that index and leaves e_K. No coarser group-order estimate replaces the constituent bound.
 
@@ -667,7 +667,7 @@ For E/K with K a finite extension of Q_p, f(E)≤2+6v_K(2) if p=2, f(E)≤2+3v_K
 
 Use Theorem 6.2 of Brumer–Kramer for g=1: d=⌊2/(p−1)⌋ and f≤2+e_K[pd+(p−1)λ_p(d)].
 
-Choose an auxiliary ℓ satisfying the theorem’s root-of-unity degree condition. A polarization of degree prime to ℓ gives a G₁-invariant perfect alternating pairing because cyclotomic inertia is unramified for ℓ≠p; hence the needed dyadic self-duality. Use ℓ-independence to transfer the resulting bound to f(E).
+For the elliptic specialization choose ℓ=3 when p=2: [F₃(μ₈):F₃]=2 and 2 is nonsquare in F₃. The canonical principal polarization gives a perfect G₁-invariant alternating pairing on E[3], since the prime-to-p cyclotomic action is unramified, hence dyadic self-duality. When p=3 choose ℓ=2: [F₂(μ₉):F₂]=ord₉(2)=6. Apply the Swan bound to these raw torsion modules, use elliptic-local-independence, and bound the tame term by two. For p≥5 use the already established vanishing of the elliptic Swan term. These concrete choices require no theorem about auxiliary primes in arithmetic progressions.
 
 Evaluate d and λ: at 2, d=2 and λ₂(2)=2; at 3, d=1 and λ₃(1)=0; at p≥5,d=0.
 
@@ -677,7 +677,7 @@ Evaluate d and λ: at 2, d=2 and λ₂(2)=2; at 3, d=1 and λ₃(1)=0; at p≥5,
 
 **Acceptance.** At Q₂ the bound is eight; the weaker wild-image bound does not establish it.
 
-### 21. Actual inertia invariants in the Weil–Deligne correspondence
+### 21. Conductor comparison for the Weil–Deligne correspondence
 
 **Target:** `ArithmeticGaloisRepresentations:R01.3/wd-actual-inertia-invariants`.
 
@@ -687,9 +687,9 @@ For an ℓ-adic representation ρ over a finite extension of Q_ℓ, ℓ≠p, and
 
 **Proof outline.**
 
-Choose an open inertia subgroup where r is trivial and the exponential identity holds. The nonzero tame character takes infinitely many ℓ-adic values on it. If v is fixed by ρ, the polynomial exp(tN)v−v vanishes at infinitely many t and hence Nv=0.
+Consume R01.2’s genuine correspondence, including its invariant-space identity V^{ρ(I_K)}=(ker N)∩V^{r(I_K)} and equality of the wild actions. These are supplier outputs, not newly planned constructions here. In that supplier proof, finite r(I_K) and the tame character’s nonzero image on every open inertia subgroup are essential; the polynomial exponential argument gives Nv=0 for a fixed vector.
 
-Then the full exponential identity reduces to ρ(σ)v=r(σ)v on ker N, giving equality of the invariant spaces in both directions. Wild inertia has tame character zero, so its representations coincide. Substitute into the conductor formulas.
+Apply the invariant identity to the actual tame codimension and the equal wild actions to the Swan sum. Substitute into wd-from-monodromy to obtain a(ρ)=a(r,N). This node is the consumer conductor comparison, with the existing monodromy construction imported from R01.2.
 
 **Prerequisites.** `ArithmeticGaloisRepresentations:R01.3/wd-from-monodromy`, `ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor`, `ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia`.
 
@@ -713,7 +713,7 @@ For a ramified character, the largest upper break u is integral by the abelian H
 
 **Prerequisites.** `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`, `tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration`, `ArithmeticGaloisRepresentations:R01.3/absolute-upper-filtration`, `ArithmeticGaloisRepresentations:R01.3/conductor-of-a-character`.
 
-**Sources.** Jean-Pierre Serre, §3.7, pp. 137–139: The upper-break character conductor and ordinary integrality supply the representation side; the reciprocity transport is an explicit supplier request.
+**Sources.** Jean-Pierre Serre, §§3.5–3.7: Corollary 1 to Proposition 8, p. 136; Propositions 9–10 and Theorem 2, pp. 137–139: The abelian upper-break calculation and Artin integrality supply the representation side. The reciprocity construction in these sections uses algebraically closed residue fields and proalgebraic unit groups; ordinary local-field reciprocity transport remains the explicit ClassFieldTheory supplier request.
 
 **Acceptance.** Unramified character: exponent zero. Nontrivial tame character: exponent one. Over Q₂, χ₋₄ and χ₈ have exponents two and three.
 
@@ -837,7 +837,7 @@ Serre 1961 verifies the mathematical scope, but the current LocalFieldsRamificat
 
 ### Curve cohomology and determinant carriers at this tier
 
-Own the restricted H¹_et representation, proper specialisation/Euler characteristic, perfect direct-image determinant and dualising-lattice interfaces required for minimal regular curves of genus g≥1 over a DVR, together with the genus-one specializations. The smooth-curve determinant input is the canonical, base-change-compatible isomorphism det Rf₊(ω²)≃(det Rf₊ω)^⊗13, including genus one; Liu §3 p. 2 identifies the general Mumford/Deligne input. The precise conductor and lattice statements are given by surface-artin-conductor, determinant-discriminant-order and elliptic-minimal-model-comparison. Current libraries do not provide these carriers, and the higher-tier etale/duality roadmap cannot be a prerequisite. They must move down into this conductor interface, with general theory importing them; no Prop placeholder occurs in the Lean file.
+Own the restricted H¹_et representation, proper specialisation/Euler characteristic, perfect direct-image determinant and dualising-lattice interfaces required for minimal regular curves of genus g≥1 over a DVR, together with the genus-one specializations. The smooth-curve determinant input is the canonical, base-change-compatible isomorphism det Rf₊(ω²)≃(det Rf₊ω)^⊗13, including genus one; Liu §3 p. 2 identifies the general Mumford/Deligne input. The precise conductor and lattice statements are given by surface-artin-conductor, determinant-discriminant-order and elliptic-minimal-model-comparison. Current libraries do not provide these carriers, and the higher-tier etale/duality roadmap cannot be a prerequisite. They must move down into this conductor interface, with general theory importing them; no Prop placeholder occurs in the Lean file. The semistable API also requires unipotent prime-to-p H¹ monodromy (hence zero Swan) and the normalization/cohomology formula χ_special−χ_generic=#geometric nodes; ordinary coherent duality alone supplies neither.
 
 ### Saito finite-extension defect identity
 
@@ -904,18 +904,20 @@ The existing roadmap supplies these nodes. The formulas and hypotheses in the im
 - `ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-good`: Residual conductor with prime-to-ell inertia.
 - `ArithmeticGaloisRepresentations:R01.3/residual-elliptic-conductor-away-from-ell`: Global residual elliptic conductor.
 
+- `ArithmeticGaloisRepresentations:R01.1/semisimplification`: Semisimplification of the underlying finite-dimensional representation.
+
 ## Baseline and source references
 
-The signature check uses Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Current upstream roadmaps and the current Tau Ceti tree were read as imports, not treated as declarations at those older pins. The library audit reports the conductor targets absent; source inspection confirms this. `Representation.invariants` and `Representation.averageMap` are used directly. No private invariant-subspace definition or duplicate finite ramification filtration is planned.
+The signature check uses Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369` and Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. Current upstream roadmaps and the current Tau Ceti tree were read as imports, not treated as declarations at those older pins. The library audit reports the conductor targets absent; source inspection confirms this. `Representation.invariants` and `Representation.averageMap` are used directly. The current Tau Ceti tree implements finite upper quotient compatibility as `TauCeti.LocalFieldsRamification.map_restrictNormalHom_upperRamificationGroup` and wild inertia as `TauCeti.wildInertiaSubgroup`; these remain imports through LocalFieldsRamification at the older pin. No private invariant-subspace definition or duplicate finite ramification filtration is planned.
 
 - Douglas Ulmer, [Conductors of ℓ-adic representations](https://arxiv.org/pdf/1307.4525v4), arXiv:1307.4525v4, 7 July 2015; Proc. Amer. Math. Soc. 144 (2016). Read: §§1–10, pp. 1–9, entire paper.
-- Armand Brumer and Kenneth Kramer, [The conductor of an abelian variety](https://www.numdam.org/article/CM_1994__92_2_227_0.pdf), Compositio Math. 92 (1994), 227–248. Read: §2, Lemma 2.7, p. 230; §§3–5, pp. 231–242; Theorem 5.5, p. 242 read on image; Theorem 6.2, p. 243 read on image.
-- Jean-Pierre Serre, [Sur les corps locaux à corps résiduel algébriquement clos](https://www.numdam.org/article/BSMF_1961__89__105_0.pdf), Bull. Soc. Math. France 89 (1961), 105–154. Read: §3.1, pp. 126–128; §3.7, pp. 137–139.
+- Armand Brumer and Kenneth Kramer, [The conductor of an abelian variety](https://www.numdam.org/article/CM_1994__92_2_227_0.pdf), Compositio Math. 92 (1994), 227–248. Read: §1, weighted digit definition, p. 227; §2, Lemma 2.7, p. 230; §§3–5, pp. 231–242; Theorem 5.5, p. 242 read on image; Theorem 6.2, p. 243 read on image.
+- Jean-Pierre Serre, [Sur les corps locaux à corps résiduel algébriquement clos](https://www.numdam.org/article/BSMF_1961__89__105_0.pdf), Bull. Soc. Math. France 89 (1961), 105–154. Read: §3.1, pp. 126–128; §§3.5–3.7: Corollary 1 to Proposition 8, p. 136; Propositions 9–10 and Theorem 2, pp. 137–139.
 - Jean-Pierre Serre, [Facteurs locaux des fonctions zêta des variétés algébriques (définitions et conjectures)](https://www.numdam.org/article/SDPP_1969-1970__11_2_A4_0.pdf), Séminaire Delange–Pisot–Poitou 11 (1969/70), exposé 19. Read: §2.1, PDF pp. 6–8; §§2.3–2.4, PDF pp. 9–10.
 - Jean-Pierre Serre, [Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)](https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf), Duke Math. J. 54 (1987), 179–230. Read: §1.2, pp. 180–181; §4.9, pp. 214–216.
 - Qing Liu, [Formule d’Ogg d’après Saito](https://www.math.u-bordeaux.fr/~qliu/Notes/Ogg-Saito.pdf), Author-hosted five-page notes. Read: §§1–4, pp. 1–5, entire notes.
 - Qing Liu, [Conducteur et discriminant minimal de courbes de genre 2](https://www.numdam.org/article/CM_1994__94_1_51_0.pdf), Compositio Math. 94 (1994), 51–79. Read: Introduction, pp. 51–52; §2.1, pp. 58–59.
 - Henri Darmon, Fred Diamond and Richard Taylor, [Fermat’s Last Theorem](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf), Author-hosted expository paper, 1995. Read: §1.1, Tate curves; §2.2, Propositions 2.11–2.13 and Remark 2.14, pp. 57–58.
-- Jean-Pierre Serre and John Tate, [Good reduction of abelian varieties](https://wstein.org/papers/bib/Serre-Tate-Good_Reduction_of_Abelian_Varieties.pdf?download=1), Ann. of Math. 88 (1968), 492–517. Read: §2, Theorem 2 and its proof, pp. 496–498, read on page images.
+- Jean-Pierre Serre and John Tate, [Good reduction of abelian varieties](https://wstein.org/papers/bib/Serre-Tate-Good_Reduction_of_Abelian_Varieties.pdf), Ann. of Math. 88 (1968), 492–517. Read: §2, Theorem 2 and its proof, pp. 496–498, read on page images.
 
 The packet records hashes and access dates of the public files. Saito’s original 1988 paper was not obtained; its exact theorem is supported here by Liu’s author-hosted restatement and the separate 1994 article, while the missing proof input is explicitly listed. Ogg’s original paper, Tate’s Corvallis Part II article, Serre’s Local Fields exercise on strict noncyclic bounds, Katz’s book and the Lockhart–Rosen–Silverman and Livné papers were not used as read sources. In particular no new erratum is asserted about an original source not inspected. The ordinary Serre bound is imported in its non-strict form.

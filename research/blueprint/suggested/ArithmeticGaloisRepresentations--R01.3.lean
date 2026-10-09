@@ -49,8 +49,10 @@ def absoluteUpper (u : ℝ) : Subgroup (TauCeti.AbsoluteGaloisGroup K) := sorry
 /-- Convenient expressions for the existing supplier's inertia and wild inertia, not a
 second planned inertia construction. Their identifications are `absoluteUpper_atZero`. -/
 abbrev inertia : Subgroup (TauCeti.AbsoluteGaloisGroup K) := absoluteUpper K 0
-abbrev wild : Subgroup (TauCeti.AbsoluteGaloisGroup K) :=
-  (⨆ u : {u : ℝ // 0 < u}, absoluteUpper K u).topologicalClosure
+/-- The right-limit convention in the reader: closure of the union at larger indices. -/
+abbrev absoluteUpperRight (u : ℝ) : Subgroup (TauCeti.AbsoluteGaloisGroup K) :=
+  (⨆ w : {w : ℝ // u < w}, absoluteUpper K w).topologicalClosure
+abbrev wild : Subgroup (TauCeti.AbsoluteGaloisGroup K) := absoluteUpperRight K 0
 
 theorem absoluteUpper_antitone : Antitone (absoluteUpper K) := by sorry
 
@@ -111,8 +113,10 @@ theorem breakDecomposition_internal :
       breakDecomposition ρ hc hF hP b) := by sorry
 
 theorem breakDecomposition_invariants (u : ℚ) (hu : 0 < u) :
-    (Representation.invariants (ρ.comp (absoluteUpper K u).subtype)) =
-      ⨆ b : {b : ℚ // b < u}, breakDecomposition ρ hc hF hP b := by sorry
+    ((Representation.invariants (ρ.comp (absoluteUpper K u).subtype)) =
+      ⨆ b : {b : ℚ // b < u}, breakDecomposition ρ hc hF hP b) ∧
+    ((Representation.invariants (ρ.comp (absoluteUpperRight K u).subtype)) =
+      ⨆ b : {b : ℚ // b ≤ u}, breakDecomposition ρ hc hF hP b) := by sorry
 
 theorem breakMultiplicity_support :
     (∀ b ∈ (breakMultiplicity ρ hc hF hP).support, 0 ≤ b) ∧
@@ -203,12 +207,17 @@ example (h1 : Module.finrank F V = 1)
     tamePart ρ = 1 ∧ swan ρ hc hF hP = 0 ∧ artin ρ hc hF hP = 1 := by sorry
 
 /-- Unit test: TauCeti.ConductorR013.artin_unipotent.
-The rank-one kernel condition expresses the nonzero monodromy of a tame special module.
-The actual local Weil–Deligne identification supplies this invariant-space equality. -/
-example (h2 : Module.finrank F V = 2)
-    (ht : ∀ g : wild K, ρ g = LinearMap.id)
-    (hfixed : Module.finrank F (Representation.invariants (ρ.comp (inertia K).subtype)) = 1) :
-    artin ρ hc hF hP = 1 := by sorry
+The action fixes exactly F × {0}; its invariant dimension is a conclusion of the test. -/
+example (ρu : Representation F (TauCeti.AbsoluteGaloisGroup K) (F × F))
+    (hcu : Continuous fun x : TauCeti.AbsoluteGaloisGroup K × (F × F) => ρu x.1 x.2)
+    (hFu : ringChar F ≠ ringChar 𝓀[K])
+    (hPu : (Set.range fun g : wild K => ρu g).Finite)
+    (t : TauCeti.AbsoluteGaloisGroup K → F)
+    (hact : ∀ g v, ρu g v = (v.1 + t g * v.2, v.2))
+    (ht : ∀ g : wild K, t g = 0)
+    (hn : ∃ g : inertia K, t g ≠ 0) :
+    tamePart ρu = 1 ∧ swan ρu hcu hFu hPu = 0 ∧
+      artin ρu hcu hFu hPu = 1 := by sorry
 end Breaks
 
 section WeilDeligneFormula
@@ -313,6 +322,7 @@ theorem primeToConductor_coprime (ℓ : ℕ) (hℓ : ℓ.Prime) (a : ℕ →₀ 
 example (ℓ : ℕ) : primeToConductor ℓ 0 = 1 := by sorry
 
 /-- Unit test: TauCeti.ConductorR013.primeToConductor_twoPrimes. -/
+-- Formal exponent data: the excluded value is unused, not a local conductor at ℓ.
 example : primeToConductor 3 (Finsupp.single 2 3 + Finsupp.single 3 1) = 8 := by sorry
 
 /-- Unit test: TauCeti.ConductorR013.primeToConductor_notCoefficientPrime. -/
