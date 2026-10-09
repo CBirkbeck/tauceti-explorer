@@ -125,6 +125,33 @@ lemma residualFundamental_surjective (θ : I →* rootsOfUnity (Nat.card 𝓀[U]
     (hθ : Function.Surjective θ) : Function.Surjective (residualFundamental U θ (RingHom.id _)) := by sorry
 lemma residualFundamental_kernel (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U])
     (ι : 𝓀[U] →+* k) : (residualFundamental U θ ι).ker = θ.ker := by sorry
+
+/-- Restrict the reduced values to their specified finite subfield before
+embedding into k. No embedding of the whole residue field into k is required. -/
+def residualFundamentalSubfield (S : Subfield 𝓀[U])
+    (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U])
+    (hS : ∀ σ, ((rootsOfUnityEquivResidueFieldUnits U (θ σ)) : 𝓀[U]) ∈ S)
+    (ι : S →+* k) : I →* kˣ := by sorry
+lemma residualFundamentalSubfield_apply (S : Subfield 𝓀[U])
+    (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U])
+    (hS : ∀ σ, ((rootsOfUnityEquivResidueFieldUnits U (θ σ)) : 𝓀[U]) ∈ S)
+    (ι : S →+* k) (σ : I) :
+    (residualFundamentalSubfield U S θ hS ι σ : k) =
+      ι ⟨(rootsOfUnityEquivResidueFieldUnits U (θ σ) : 𝓀[U]), hS σ⟩ := by sorry
+lemma residualFundamentalSubfield_order (S : Subfield 𝓀[U])
+    (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U])
+    (hS : ∀ σ, ((rootsOfUnityEquivResidueFieldUnits U (θ σ)) : 𝓀[U]) ∈ S)
+    (ι : S →+* k) (σ : I) :
+    residualFundamentalSubfield U S θ hS ι σ ^ (Nat.card S - 1) = 1 := by sorry
+lemma residualFundamentalSubfield_kernel (S : Subfield 𝓀[U])
+    (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U])
+    (hS : ∀ σ, ((rootsOfUnityEquivResidueFieldUnits U (θ σ)) : 𝓀[U]) ∈ S)
+    (ι : S →+* k) : (residualFundamentalSubfield U S θ hS ι).ker = θ.ker := by sorry
+lemma residualFundamentalSubfield_surjective (S : Subfield 𝓀[U])
+    (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U])
+    (hS : ∀ σ, ((rootsOfUnityEquivResidueFieldUnits U (θ σ)) : 𝓀[U]) ∈ S)
+    (hθ : ∀ a : Sˣ, ∃ σ, (rootsOfUnityEquivResidueFieldUnits U (θ σ) : 𝓀[U]) = a) :
+    Function.Surjective (residualFundamentalSubfield U S θ hS (RingHom.id S)) := by sorry
 -- Test: ArithmeticLocal.residualFundamental_identity
 example (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U]) :
     residualFundamental U θ (RingHom.id _) = (rootsOfUnityEquivResidueFieldUnits U).toMonoidHom.comp θ := by sorry
@@ -135,6 +162,21 @@ example (ι : 𝓀[U] →+* k) (a : 𝓀[U]ˣ)
     (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U]) (σ : I)
     (hθ : (θ σ : 𝒪[U]ˣ) = teichmuller U a) :
     residualFundamental U θ ι σ = Units.map ι.toMonoidHom a := by sorry
+-- Test: ArithmeticLocal.residualFundamentalSubfield_top
+example (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U]) (ι : 𝓀[U] →+* k) :
+    residualFundamentalSubfield U ⊤ θ (by simp) (ι.comp (⊤ : Subfield 𝓀[U]).subtype) =
+      residualFundamental U θ ι := by sorry
+-- Test: ArithmeticLocal.residualFundamentalSubfield_one
+example (S : Subfield 𝓀[U]) (ι : S →+* k)
+    (hS : ∀ σ : I, ((rootsOfUnityEquivResidueFieldUnits U
+      ((1 : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U]) σ)) : 𝓀[U]) ∈ S) :
+    residualFundamentalSubfield U S 1 hS ι = 1 := by sorry
+-- Test: ArithmeticLocal.residualFundamentalSubfield_primitive
+example (S : Subfield 𝓀[U])
+    (θ : I →* rootsOfUnity (Nat.card 𝓀[U] - 1) 𝒪[U])
+    (hS : ∀ σ, ((rootsOfUnityEquivResidueFieldUnits U (θ σ)) : 𝓀[U]) ∈ S)
+    (ι : S →+* k) (σ : I) (m : ℕ) (hm : orderOf (θ σ) = m) :
+    orderOf (residualFundamentalSubfield U S θ hS ι σ) = m := by sorry
 end Residual
 
 section Level
@@ -158,8 +200,11 @@ example (p : ℕ) [Fact p.Prime] [CharP k p] (χ : I →* kˣ)
     (hχ : (Set.range χ).Finite) (σ : I) (hσ : orderOf (χ σ) = p ^ 2 - 1)
     (hb : ∀ τ, χ τ ^ (p ^ 2 - 1) = 1) : tameLevel p χ = 2 := by sorry
 -- Test: ArithmeticLocal.tameLevel_one_from_extension
-example (p : ℕ) [Fact p.Prime] [CharP k p] (χ : I →* kˣ)
-    (hχ : (Set.range χ).Finite) (hF : χ ^ p = χ) : tameLevel p χ = 1 := by sorry
+example {G : Type*} [Group G] (p : ℕ) [Fact p.Prime] [CharP k p]
+    (j : I →* G) (χ : G →* kˣ) (Φ : G)
+    (hχ : (Set.range (χ.comp j)).Finite)
+    (hΦ : ∀ σ, Φ * j σ * Φ⁻¹ = (j σ) ^ p) :
+    tameLevel p (χ.comp j) = 1 := by sorry
 
 /-- Arithmetic target: norm relation, on supplied compatible finite components. -/
 theorem fundamental_level_two_norm (p : ℕ) [Fact p.Prime] [CharP k p]
@@ -227,6 +272,12 @@ lemma comp_id {D : WeilDeligneRep W deg q Ω V} {D' : WeilDeligneRep W deg q Ω 
     (f : Hom D D') : comp f (id D) = f := by sorry
 lemma id_comp {D : WeilDeligneRep W deg q Ω V} {D' : WeilDeligneRep W deg q Ω V'}
     (f : Hom D D') : comp (id D') f = f := by sorry
+lemma comp_assoc {V''' : Type*} [AddCommGroup V'''] [Module Ω V''']
+    [FiniteDimensional Ω V''']
+    {D : WeilDeligneRep W deg q Ω V} {D' : WeilDeligneRep W deg q Ω V'}
+    {D'' : WeilDeligneRep W deg q Ω V''} {D''' : WeilDeligneRep W deg q Ω V'''}
+    (h : Hom D'' D''') (g : Hom D' D'') (f : Hom D D') :
+    comp (comp h g) f = comp h (comp g f) := by sorry
 -- Test: WeilDeligneRep.Hom.id_value
 example (v : V) : (id D).toLinearMap v = v := by sorry
 -- Test: WeilDeligneRep.Hom.zero
@@ -243,6 +294,20 @@ structure Iso (D : WeilDeligneRep W deg q Ω V) (D' : WeilDeligneRep W deg q Ω 
   equivariant : ∀ w, toLinearEquiv.toLinearMap ∘ₗ D.r w = D'.r w ∘ₗ toLinearEquiv.toLinearMap
   monodromy : toLinearEquiv.toLinearMap ∘ₗ D.N = D'.N ∘ₗ toLinearEquiv.toLinearMap
 
+namespace Iso
+def refl (D : WeilDeligneRep W deg q Ω V) : Iso D D := by sorry
+def symm {D : WeilDeligneRep W deg q Ω V} {D' : WeilDeligneRep W deg q Ω V'}
+    (f : Iso D D') : Iso D' D := by sorry
+def trans {D : WeilDeligneRep W deg q Ω V} {D' : WeilDeligneRep W deg q Ω V'}
+    {D'' : WeilDeligneRep W deg q Ω V''} (f : Iso D D') (g : Iso D' D'') : Iso D D'' := by sorry
+lemma refl_apply (v : V) : (refl D).toLinearEquiv v = v := by sorry
+lemma symm_apply {D : WeilDeligneRep W deg q Ω V} {D' : WeilDeligneRep W deg q Ω V'}
+    (f : Iso D D') (v' : V') : f.symm.toLinearEquiv v' = f.toLinearEquiv.symm v' := by sorry
+lemma trans_apply {D : WeilDeligneRep W deg q Ω V} {D' : WeilDeligneRep W deg q Ω V'}
+    {D'' : WeilDeligneRep W deg q Ω V''} (f : Iso D D') (g : Iso D' D'') (v : V) :
+    (f.trans g).toLinearEquiv v = g.toLinearEquiv (f.toLinearEquiv v) := by sorry
+end Iso
+
 /-- Direct sum on a product of the underlying finite-dimensional spaces. -/
 def sum (D : WeilDeligneRep W deg q Ω V) (D' : WeilDeligneRep W deg q Ω V') : WeilDeligneRep W deg q Ω (V × V') := by sorry
 lemma sum_r (D' : WeilDeligneRep W deg q Ω V') (w : W) (v : V) (v' : V') :
@@ -253,6 +318,13 @@ lemma sum_inclusion (D' : WeilDeligneRep W deg q Ω V') :
     ∃ f : Hom D (D.sum D'), ∀ v, f.toLinearMap v = (v,0) := by sorry
 lemma sum_projection (D' : WeilDeligneRep W deg q Ω V') :
     ∃ f : Hom (D.sum D') D, ∀ v v', f.toLinearMap (v,v') = v := by sorry
+lemma sum_lift (D' : WeilDeligneRep W deg q Ω V') (X : WeilDeligneRep W deg q Ω V'')
+    (f : Hom X D) (g : Hom X D') :
+    ∃! h : Hom X (D.sum D'), ∀ x, h.toLinearMap x = (f.toLinearMap x, g.toLinearMap x) := by sorry
+lemma sum_desc (D' : WeilDeligneRep W deg q Ω V') (X : WeilDeligneRep W deg q Ω V'')
+    (f : Hom D X) (g : Hom D' X) :
+    ∃! h : Hom (D.sum D') X, ∀ v v', h.toLinearMap (v,v') =
+      f.toLinearMap v + g.toLinearMap v' := by sorry
 -- Test: WeilDeligneRep.sum_rank
 example (D' : WeilDeligneRep W deg q Ω V') :
     Module.finrank Ω (V × V') = Module.finrank Ω V + Module.finrank Ω V' := by sorry
@@ -319,7 +391,7 @@ end FiniteSum
 
 section Special
 variable {W Ω : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
-    (deg : W →* Multiplicative ℤ) (q : ℕ) [Field Ω] [CharZero Ω]
+    (deg : W →* Multiplicative ℤ) (q : ℕ) [NeZero q] [Field Ω] [CharZero Ω]
 /-- Unnormalised special representation, avoiding a square root of q. -/
 def special (n : ℕ) : WeilDeligneRep W deg q Ω (Fin n → Ω) := by sorry
 lemma special_r (n : ℕ) (w : W) (v : Fin n → Ω) (i : Fin n) :
@@ -338,11 +410,20 @@ example (w : W) : (special (Ω := Ω) deg q 1).r w = 1 ∧ (special (Ω := Ω) d
 -- Test: WeilDeligneRep.special_two
 example : (special (Ω := Ω) deg q 2).N (fun i => if i.val = 0 then 1 else 0) =
     (fun i => if i.val = 1 then 1 else 0) := by sorry
+-- Test: WeilDeligneRep.special_geometric_weight
+example (F : W) (hF : (deg F).toAdd = -1) :
+    (special (Ω := Ω) deg q 2).r F (fun i => if i.val = 1 then 1 else 0) =
+      (q : Ω)⁻¹ • (fun i => if i.val = 1 then 1 else 0) := by sorry
+-- Test: WeilDeligneRep.sum_special_weights
+example (Φ : W) (hΦ : (deg Φ).toAdd = 1) :
+    ((special (Ω := Ω) deg q 2).sum (special deg q 1)).r Φ
+      ((fun i => if i.val = 1 then 1 else 0), fun _ => 1) =
+      ((fun i => if i.val = 1 then (q : Ω) else 0), fun _ => 1) := by sorry
 end Special
 
 section Frobenius
 variable {W Ω V : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
-    {deg : W →* Multiplicative ℤ} {q : ℕ} [Field Ω] [CharZero Ω]
+    {deg : W →* Multiplicative ℤ} {q : ℕ} [NeZero q] [Field Ω] [CharZero Ω]
     [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
 variable (D : WeilDeligneRep W deg q Ω V)
 /-- Concrete predicate: semisimple Weil action at every nonzero degree. -/
@@ -529,7 +610,7 @@ end ArithmeticLocal
 namespace WeilDeligneRep
 section Classification
 variable {W Ω V : Type*} [Group W] [TopologicalSpace W] [IsTopologicalGroup W]
-    {deg : W →* Multiplicative ℤ} {q : ℕ} [Field Ω] [CharZero Ω]
+    {deg : W →* Multiplicative ℤ} {q : ℕ} [NeZero q] [Field Ω] [CharZero Ω]
     [AddCommGroup V] [Module Ω V] [FiniteDimensional Ω V]
 /-- Rescaling N preserves the isomorphism class; the isomorphism is not canonical. -/
 theorem rescale_iso (D : WeilDeligneRep W deg q Ω V) (hI : CompactSpace deg.ker)
