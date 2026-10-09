@@ -316,7 +316,7 @@ open Heisenberg
 /- MetaplecticAutomorphicForms:MP.0/topological-heisenberg
 The native extension receives the product topology. Joint continuity of the isometry evaluation is an explicit hypothesis, rather than a consequence of algebraic isometries. Native closed-embedding and open-projection tests concern this product topology. Their finite-dimensional local-field specialization still requires the requested topological suppliers.
 -/
-def heisenbergTopology (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] : TopologicalSpace (bilinearFactorSet B).Extension := by sorry
+@[instance_reducible] def heisenbergTopology (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] : TopologicalSpace (bilinearFactorSet B).Extension := by sorry
 def heisenbergCoordinates (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] : letI := heisenbergTopology B; (bilinearFactorSet B).Extension ≃ₜ F × V := by sorry
 lemma heisenberg_continuous_mul (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] [IsTopologicalAddGroup F] [IsTopologicalAddGroup V] (hB : Continuous (fun p : V × V => B p.1 p.2)) : letI := heisenbergTopology B; Continuous (fun p : (bilinearFactorSet B).Extension × (bilinearFactorSet B).Extension => p.1*p.2) := by sorry
 lemma heisenberg_continuous_action (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] [TopologicalSpace (TauCeti.BilinForm.isometryGroup B)] (hEval : Continuous (fun p : TauCeti.BilinForm.isometryGroup B × V => (p.1 : V ≃ₗ[F] V) p.2)) : letI := heisenbergTopology B; Continuous (fun p : TauCeti.BilinForm.isometryGroup B × (bilinearFactorSet B).Extension => extensionIsometryAction B p.1 p.2) := by sorry
@@ -340,7 +340,7 @@ theorem heisenberg_haar (B : LinearMap.BilinForm F V)
       μ.prod ν := by sorry
 def schroedingerFormula (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W →ₗ[F] F)
     (t : F) (x : V) (y : W) (φ : V → ℂ) (u : V) : ℂ :=
-  (ψ (Multiplicative.ofAdd (t+B u y+(2:F)⁻¹*B x y)) : ℂ)*φ(u+x)
+  (ψ (Multiplicative.ofAdd (t+B u y+(2:F)⁻¹*B x y)) : ℂ)* φ (u+x)
 /- MetaplecticAutomorphicForms:MP.0/schroedinger-model
 Emitted: the actual phase/translation operator on functions, its group law with 2≠0, and equality of squared-norm integrals for a unitary character and an additive invariant measure. Missing: preservation of the finite-dimensional local Schwartz–Bruhat carrier, L² descent outside the real-line specialization, and the smooth representation instance. No unitarity assertion is made for an arbitrary ContRepresentation.
 -/
@@ -357,7 +357,7 @@ lemma schroedinger_isUnitary (ψ : Multiplicative F →* ℂˣ)
 -- Test: TauCeti.Metaplectic.schroedinger_zero
 example (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W →ₗ[F] F) (t : F) (φ : V → ℂ) : schroedinger ψ B t 0 0 φ = (ψ (Multiplicative.ofAdd t) : ℂ) • φ := by sorry
 -- Test: TauCeti.Metaplectic.schroedinger_translation
-example (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W →ₗ[F] F) (x u : V) (φ : V → ℂ) : schroedinger ψ B 0 x 0 φ u = φ(u+x) := by sorry
+example (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W →ₗ[F] F) (x u : V) (φ : V → ℂ) : schroedinger ψ B 0 x 0 φ u = φ (u+x) := by sorry
 -- Test: TauCeti.Metaplectic.schroedinger_modulation
 example (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W →ₗ[F] F) (y : W) (u : V) (φ : V → ℂ) : schroedinger ψ B 0 0 y φ u = (ψ (Multiplicative.ofAdd (B u y)) : ℂ)*φ u := by sorry
 -- Test: TauCeti.Metaplectic.schroedinger_commutator
@@ -367,7 +367,7 @@ Emitted: evaluation at the section, explicit central covariance, and the coordin
 -/
 def inducedSchroedingerEquiv (ψ : Multiplicative F →* ℂˣ) : {f : F × V → ℂ // ∀ t u, f (t,u) = (ψ (Multiplicative.ofAdd t) : ℂ)*f (0,u)} ≃ (V → ℂ) := by sorry
 lemma inducedSchroedingerEquiv_apply (ψ : Multiplicative F →* ℂˣ) (f : {f : F × V → ℂ // ∀ t u, f (t,u) = (ψ (Multiplicative.ofAdd t) : ℂ)*f (0,u)}) (u : V) : inducedSchroedingerEquiv ψ f u = f.val (0,u) := by sorry
-lemma inducedSchroedingerEquiv_covariance (ψ : Multiplicative F →* ℂˣ) (φ : V → ℂ) (t : F) (u : V) : (inducedSchroedingerEquiv ψ).symm φ |>.val (t,u) = (ψ (Multiplicative.ofAdd t) : ℂ)*φ u := by sorry
+lemma inducedSchroedingerEquiv_covariance (ψ : Multiplicative F →* ℂˣ) (φ : V → ℂ) (t : F) (u : V) : ((inducedSchroedingerEquiv ψ).symm φ).val (t,u) = (ψ (Multiplicative.ofAdd t) : ℂ)*φ u := by sorry
 def inducedSchroedingerTranslation (ψ : Multiplicative F →* ℂˣ)
     (B : V →ₗ[F] W →ₗ[F] F) (t : F) (x : V) (y : W)
     (f : {f : F × V → ℂ // ∀ s u, f (s,u) = (ψ (Multiplicative.ofAdd s) : ℂ)*f (0,u)}) :
@@ -379,7 +379,7 @@ lemma inducedSchroedingerEquiv_intertwines (ψ : Multiplicative F →* ℂˣ)
     inducedSchroedingerEquiv ψ (inducedSchroedingerTranslation ψ B t x y f) =
       schroedinger ψ B t x y (inducedSchroedingerEquiv ψ f) := by sorry
 -- Test: TauCeti.Metaplectic.inducedSchroedingerEquiv_zero
-example (ψ : Multiplicative F →* ℂˣ) (φ : V → ℂ) : (inducedSchroedingerEquiv ψ).symm φ |>.val (0,0) = φ 0 := by sorry
+example (ψ : Multiplicative F →* ℂˣ) (φ : V → ℂ) : ((inducedSchroedingerEquiv ψ).symm φ).val (0,0) = φ 0 := by sorry
 -- Test: TauCeti.Metaplectic.inducedSchroedingerEquiv_indicator
 example (ψ : Multiplicative F →* ℂˣ) (L : Set V) [DecidablePred (· ∈ L)] : inducedSchroedingerEquiv ψ ((inducedSchroedingerEquiv ψ).symm (L.indicator (fun _ => 1))) = L.indicator (fun _ => 1) := by sorry
 -- Test: TauCeti.Metaplectic.inducedSchroedingerEquiv_dyadic
