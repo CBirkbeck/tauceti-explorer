@@ -21737,7 +21737,8 @@
    ],
    "avoidAccountOf": "BP-LocallyAnalyticDistributions",
    "prompt": "research/blueprint/prompts/REV-LocallyAnalyticDistributions.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #316"
   },
   {
    "id": "BP-SchemeAndStackFoundations",
@@ -34320,7 +34321,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.5",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6287"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.6",
@@ -34574,8 +34576,9 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6336"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6336",
+   "finishedAt": "2026-10-09T16:23:03Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.4",
@@ -34619,8 +34622,9 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6337"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6337",
+   "finishedAt": "2026-10-09T16:23:04Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.5",
@@ -105014,8 +105018,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv.md",
+   "note": "claimed on GitHub issue #8031"
   }
  ]
 }
