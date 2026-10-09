@@ -1,12 +1,12 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-## Current blocker, 9 October 2026 — codex-dnaUzE
+## Current blocker, 9 October 2026 — codex-0XpONo
 
 Issue #5871; bot-confirmed claim
-[6075437662](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6075437662).
-Base `0e85566a5f0de7f88ac03a80f6eeedb51ed290b0`. Before this update, all seven live-issue outputs
-matched merged [PR #7798](https://github.com/CBirkbeck/tauceti-explorer/pull/7798),
-commit `45c6dba4738a26d32829e0ee89eed2a0f707b5b4`, byte for byte.
+[6076590888](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6076590888).
+Base `078ff6223c4a4b88037da93e2e56b5460071b6e5`. Before this update, all seven live-issue outputs
+matched merged [PR #7806](https://github.com/CBirkbeck/tauceti-explorer/pull/7806),
+commit `e1959b18832421791ab0cc21a944012b9e645425`, byte for byte.
 
 The inherited mathematical review is complete for this scope. Verdicts remain
 CSM accepted, Global accepted and GL2 needs_changes. The GL2 revision's 53 API
@@ -20,6 +20,8 @@ jobs; the done parent fix still lists 40 outputs. Queue and generator repairs
 are outside this issue's edits and fail the intake allowlist. Read the relevant
 completion function, intake allowlist and generation path. No allowed edit can
 reconcile those historical output lists without overwriting other jobs' reviews.
+The intake's `--complete` option handles legacy link maps only; it cannot
+override this review's completion result.
 
 All three packet validators pass with zero errors/warnings (37 CSM, 73 GL2
 and 67 Global nodes). All 177 nodes are unchecked, no packet has an excerpt
