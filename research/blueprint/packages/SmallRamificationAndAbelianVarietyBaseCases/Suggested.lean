@@ -2,36 +2,7 @@
 Copyright (c) 2026 Tau Ceti contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 -/
-import Mathlib.NumberTheory.NumberField.Discriminant.Basic
-import Mathlib.NumberTheory.NumberField.Discriminant.Different
-import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
-import Mathlib.NumberTheory.NumberField.ClassNumber
-import Mathlib.NumberTheory.Padics.PadicNumbers
-import Mathlib.NumberTheory.Cyclotomic.Basic
-import Mathlib.NumberTheory.Cyclotomic.CyclotomicCharacter
-import Mathlib.NumberTheory.Harmonic.EulerMascheroni
-import Mathlib.NumberTheory.ModularForms.LevelOne.DimensionFormula
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Arctan
-import Mathlib.Analysis.SpecialFunctions.Pow.Real
-import Mathlib.Analysis.Convolution
-import Mathlib.MeasureTheory.Integral.IntegralEqImproper
-import Mathlib.FieldTheory.AbsoluteGaloisGroup
-import Mathlib.FieldTheory.Galois.Basic
-import Mathlib.FieldTheory.IsAlgClosed.AlgebraicClosure
-import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
-import Mathlib.RingTheory.Localization.Away.Basic
-import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
-import Mathlib.GroupTheory.SpecificGroups.Dihedral
-import Mathlib.GroupTheory.QuotientGroup.Basic
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
-import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
-import Mathlib.Algebra.Module.Torsion.Basic
-import Mathlib.Algebra.Module.ZMod
-import Mathlib.Topology.Algebra.ContinuousMonoidHom
-import Mathlib.Topology.Instances.ZMod
-import Mathlib.AlgebraicGeometry.Morphisms.Etale
-import Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion
-import Mathlib.CategoryTheory.Limits.Shapes.BinaryProducts.BinaryFan
+import Mathlib
 import TauCeti.Analysis.PositiveDefinite.AddGroup
 import TauCeti.NumberTheory.LocalField.UnitFiltration.Basic
 import TauCeti.AlgebraicGeometry.AffineGroupScheme.CartierDuality.FiniteLocallyFree
@@ -43,155 +14,15 @@ import TauCeti.AlgebraicGeometry.AbelianVariety.Isogeny
 import TauCeti.AlgebraicGeometry.AbelianVariety.End.Basic
 
 /-!
-# Small ramification and the base cases of Serre's conjecture — suggested declarations
+# SmallRamificationAndAbelianVarietyBaseCases: representative target signatures
 
-This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
-The statements suggest Lean forms so that contributors converge on names and signatures.
-All proposed results are unproved prototypes. The mathematical baseline is Mathlib 082e2d3
-and Tau Ceti f790474.
-The signatures use `sorry` for unproved results and for explicitly identified data interfaces.
-
-Layers covered:
-
-* R25.1 — explicit discriminant bounds: the local root-discriminant exponent and its 2-adic and
-  3-adic bounds (with the Borel normal form of wild images and the unit-filtration power maps),
-  the root discriminant of a Galois field, Minkowski thresholds, the Odlyzko kernel, the
-  positive-definite ratio `cosh(ax)/cosh(x/2)`, the Poitou–Odlyzko bound with its certified
-  integrals and thresholds, the degree bounds used by Schoof, and Fontaine's torsion-field bound;
-* R25.2 — level-one residual representations, Tate's theorem, Serre's mod-3 theorem and the
-  combined base case, through the Dickson-type subgroup lemmas;
-* R25.3 — Fontaine's theorem, through finite flat 2-group schemes over `ℤ`;
-* R25.4 — Schoof's category `D(p, l)`, the field criterion for its simple objects and the five
-  certified cases;
-* R25.5 — abelian varieties of GL₂-type, the class-number and dihedral inputs, and the
-  terminal-weight exclusions (weight 2, weight `p + 1`, weight 14 at 11, small weights);
-* R25.6 — the base-case table.
-
-Objects owned by other roadmaps appear in one of two forms.
-
-Data placeholders (`def … := sorry`), because the pinned libraries cannot yet build them:
-
-* `differentExponent`, `ramificationIndex`, `discriminantExponent`, `inertiaSubgroup`,
-  `wildInertiaSubgroup`, `upperRamificationGroup` — Tau Ceti LocalFieldsRamification, Layer 3;
-* `serreWeight` — AlgebraicModularFormsAndSerreWeights R15.4.
-
-The local-data placeholders are specific to this pinned baseline. General local invariants
-and different estimates already have native interfaces in the current Tau Ceti library,
-including `TauCeti.differentExponent`, `TauCeti.ramificationIndex`,
-`TauCeti.LocalFieldsRamification.lowerRamificationGroup` and
-`TauCeti.differentExponent_le_ramificationIndex_sub_one_add_natCastValuation`.
-Use those supplier imports when advancing the baseline; this roadmap does not redevelop them.
-
-Concrete stand-ins, stated here against what Mathlib and Tau Ceti contain, for the owners to
-adopt or replace:
-
-* `IsCompletionAbove` — Tau Ceti NumberFieldArithmetic, Layers 5–6;
-* `IsIrreducibleSubgroup`, `IsAbsolutelyIrreducible` — ArithmeticGaloisRepresentations R01.1
-  (irreducible subgroups also R01.4, Dickson);
-* `IsOdd` — ArithmeticGaloisRepresentations R01.4;
-* `kernelField`, `IsUnramifiedAt`, `IsTameAt`, `inertiaAbove`, `twist` —
-  ArithmeticGaloisRepresentations R01.2;
-* `order`, `IsKilledBy`, `IsSimpleGroupScheme`, `IsEtaleGroupScheme`, `IsConstantGroupScheme`,
-  `IsDiagonalizableGroupScheme`, `zModScheme`, `muScheme`, `IsShortExact`, `Ext1Vanishes`,
-  `points`, `galoisAct`, `torsionField` — FiniteFlatGroupsAndIntegralPadicHodgeTheory R07.1, on
-  Tau Ceti's `FiniteLocallyFreeCommAffineGroupSchemeCat`, `ConstantGroup.groupScheme` and
-  `RootsOfUnityGroup.groupScheme`;
-* `HasGoodReductionEverywhere` — NeronModelsAndSemistableAbelianVarieties R11.1;
-* `numPoints`, `endZeroAlgebra` — AbelianSchemesAndArithmeticModuli A2–A6, on Tau Ceti's
-  `AbelianVariety` and `AbelianVariety.End`; isogenies are Tau Ceti's `IsIsogeny`;
-* `modCyclotomicCharacter` — Mathlib's `modularCyclotomicCharacter`.
-
-The explicit formula for the discriminant (AnalyticNumberTheory AN.4) and local class field
-theory (Tau Ceti ClassFieldTheory, Layer 7) enter only through proofs, so they have no
-placeholder here. The `NumberField` instances on `kernelField` and `torsionField` are true claims
-proved by `sorry`, not placeholders.
-
-## Declarations whose conditions cannot yet be stated at the pinned baseline
-
-These mathematical declarations are left out of the Lean code, because a condition they need cannot be
-stated with the pinned libraries; their intended signatures are recorded here, in pseudo-Lean.
-
-* Semistable reduction (NeronModelsAndSemistableAbelianVarieties R11.1/R11.3: Néron models or
-  the Tate module) is missing, so `IsSemistableGoodOutside l A` ("good reduction at every prime
-  `≠ l`, semistable reduction at `l`") cannot be stated. This removes:
-  - `torsion_mem_semistableCategory (l p : ℕ) [Fact l.Prime] [Fact p.Prime] (hlp : l ≠ p)
-    (A : AbelianVariety ℚ) (hA : IsSemistableGoodOutside l A) (n : ℕ) (hn : 1 ≤ n) :
-    SemistableCategory p l 𝒜[p ^ n] ∧ order 𝒜[p ^ n] = p ^ (2 * dim A * n)`, which also needs the
-    abelian scheme `𝒜` over `ℤ[1/l]` and its torsion subgroup schemes;
-  - `no_semistable_of_simple_and_ext (l p : ℕ) [Fact l.Prime] [Fact p.Prime] (hlp : l ≠ p)
-    (hsimple : ∀ G, SemistableCategory p l G → IsSimpleGroupScheme G → order G ≠ 1 →
-      Nonempty (G ≅ zModScheme _ p) ∨ Nonempty (G ≅ muScheme _ p))
-    (hext : Ext1Vanishes (muScheme _ p) (zModScheme _ p))
-    (A : AbelianVariety ℚ) (hA : IsSemistableGoodOutside l A) : A.dim = 0` (Schoof, Prop. 3.1);
-  - `no_semistable_abelianVariety_one_prime (l : ℕ) (hl : l ∈ ({2, 3, 5, 7, 13} : Finset ℕ))
-    (A : AbelianVariety ℚ) (hA : IsSemistableGoodOutside l A) : A.dim = 0` (Schoof, Thm 1.1).
-* The rational Tate module `V_p(A)` with its `G_F`- and `End⁰(A)`-actions
-  (AbelianSchemesAndArithmeticModuli A6) is missing, so the λ-adic representations of a GL₂-type
-  abelian variety cannot be built. This removes:
-  - `IsGL2Type.lambdaAdicRep (h : IsGL2Type A K) (v : HeightOneSpectrum (𝓞 K)) :
-    ContinuousMonoidHom (Field.absoluteGaloisGroup F) (GL (Fin 2) (v.adicCompletion K))`;
-  - `IsGL2Type.finrank_lambdaAdicRep : finrank (v.adicCompletion K) V_v(A) = 2`;
-  - `IsGL2Type.free_tateModule : Module.Free (K ⊗[ℚ] ℚ_[p]) V_p(A) ∧
-    finrank (K ⊗[ℚ] ℚ_[p]) V_p(A) = 2`;
-  - `ComesFromGL2Type (p : ℕ) (ρ : ContinuousMonoidHom (Field.absoluteGaloisGroup F)
-    (GL (Fin 2) (PadicAlgCl p))) : Prop := ∃ K A (h : IsGL2Type A K) v
-    (j : v.adicCompletion K →+* PadicAlgCl p), ρ is GL₂-conjugate to j ∘ h.lambdaAdicRep v`;
-  - the half of `IsGL2Type.baseChange` asserting `V_v(A_{F'}) ≅ V_v(A)|G_{F'}`;
-  - `comesFromGL2Type_of_restrict (ρ) (hρ : irreducible) (F'/F finite)
-    (h' : ρ|G_{F'} irreducible) (hF' : ComesFromGL2Type p (ρ|G_{F'})) : ComesFromGL2Type p ρ`
-    (Snowden, Lemma 9.4.4).
-* p-adic Hodge theory (de Rham, crystalline and semistable representations, Hodge–Tate
-  weights, Weil–Deligne types: PotentialModularityAndCompatibleSystems R24,
-  AutomorphicGaloisRepresentations R19) is missing. This removes:
-  - `comesFromGL2Type_of_weightTwo (p : ℕ) [Fact p.Prime] (hp : p ≠ 2) (ρ : G_ℚ → GL₂(ℚ̄_p))
-    (hρ : continuous, finitely ramified, odd, de Rham with Hodge–Tate weights {0, -1})
-    (hA1 : SatisfiesA1Residual p ρ̄) : ComesFromGL2Type p ρ` (Snowden, Prop. 9.4.1);
-  - `reduction_of_comesFromGL2Type`: for `A` of GL₂(K)-type realising `ρ`: unramified at `ℓ ≠ p`
-    gives good reduction at `ℓ`, unipotent Weil–Deligne monodromy gives semistable reduction,
-    crystalline at `p` gives good reduction at `p`, semistable of Steinberg type gives
-    multiplicative reduction (the Steinberg twist has unramified semisimple part), and
-    `A.dim = finrank ℚ K ≥ 1`;
-  - `no_levelOne_crystalline_of_reducible_terminal ((p, k) ∈ {(3, 2), (3, 4), (5, 6), (7, 8),
-    (13, 14)}) (ρ : G_ℚ → GL₂(ℚ̄_p)) (hρ : odd, irreducible, unramified outside p, crystalline at
-    p with Hodge–Tate weights {0, k − 1}) (hred : ρ̄ reducible) : False`;
-  - `paso_six`: for an almost strictly compatible system `{ρ_ℓ}` with empty ramification set and
-    `ρ̄₅` irreducible, `k(ρ̄₅) ∈ {2, 4}` gives a modular 3-adic member and `k(ρ̄₅) = 6` does not
-    occur (DP23, Paso 6).
-
-## Tests requiring unavailable integral or modular-Jacobian constructions
-
-The following three tests remain mathematical specifications. They are not anonymous
-existence assertions in the code. The named objects, and the precise absent supplier
-interfaces needed to test them, are:
-
-* `not_mem_semistableCategory_quadratic_twist`: let `χ₋₇ : G_ℚ → (ZMod 3)ˣ` be the quadratic
-  character with kernel `G_{ℚ(√−7)}`, acting by `-1` on the nontrivial coset. Let `V₋₇` be
-  the unique finite étale group scheme over `ℤ[1/7]` whose geometric point module is
-  `(ZMod 3, χ₋₇)`. Its intended test is
-  `IsEtaleGroupScheme V₋₇ ∧ order V₋₇ = 3 ∧ ¬ SemistableCategory 3 7 V₋₇`.
-  R07.1 supplies finite étale descent from a finite Galois module unramified away from `7`
-  and the equivariant identification of its points; that construction is absent from the
-  pinned finite-locally-free category. The character and its field are specified, so choosing
-  an arbitrary order-three étale object would not satisfy this test (Schoof §2.2, p. 849).
-* `X0_eleven_two_torsion_mem`: put `𝒥₁₁` equal to the abelian-scheme model of the actual
-  `J₀(11)` over `ℤ[1/11]`, identified with the equation `x0Eleven` below, and put
-  `G₁₁ = ker([2] : 𝒥₁₁ → 𝒥₁₁)`. The intended test is
-  `SemistableCategory 2 11 G₁₁ ∧ IsSimpleGroupScheme G₁₁ ∧ order G₁₁ = 4`.
-  The integral abelian-scheme model (R11.1) and its finite flat multiplication kernel and
-  generic-fibre comparison (AbelianSchemesAndArithmeticModuli A3 / R07.1) are absent.
-  Mathlib's geometric point group, used for the separate R25.2 test below, supplies neither
-  this integral model nor a finite flat subgroup scheme (Schoof §1, p. 848; §2.1, p. 849).
-* `isGL2Type_J0_23`: for the actual `J₀(23) : AbelianVariety ℚ`, use the Hecke embedding
-  `ℚ(√5) →+* endZeroAlgebra J₀(23)` and test
-  `J₀(23).dim = 2 ∧ IsGL2Type J₀(23) ℚ(√5)`.
-  The missing interfaces are the modular curve `X₀(23)`, its Jacobian as an abelian variety,
-  and the rational Hecke endomorphisms identifying the quadratic coefficient field.
-  Tau Ceti's ModularCurves Layer 10 supplies the compactified curve and JacobianChallenge
-  Layer E its Jacobian. The geometric Hecke action is a separate absent interface:
-  ModularCurves' Mazur interface assigns it to a downstream Eisenstein-ideal supplier using
-  ModularForms' Hecke theory. The test requires that action on the actual Jacobian, together
-  with its coefficient-field identification. The universal dimension-one, dimension-two and
-  dimension-zero tests below are still expressible.
+The roadmap is `README.md`. This file records definitions and theorem signatures statable
+against the pinned APIs and is not exhaustive. It uses finite discrete coefficient fields,
+absolute irreducibility, the different normalised by the ramification index, and the
+subobject-first convention for extensions. The integral finite-flat category and abelian
+varieties are Tau Ceti's objects. The example representations are constructed from their
+cyclotomic characters or from the actual geometric two-torsion of the displayed curve.
+Signatures needing unavailable supplier interfaces are named in the closing comment.
 -/
 
 noncomputable section
@@ -200,239 +31,26 @@ open NumberField NumberField.InfinitePlace Module Polynomial MeasureTheory Set F
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 open scoped Classical Real TensorProduct CategoryTheory.MonObj
 
-namespace TauCeti.SmallRamification
+namespace TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases
 
-/-! ## Imported local invariants (data placeholders; LocalFieldsRamification, Layer 3) -/
+/-- An element of `G_ℚ` as an automorphism of `ℚ̄`. -/
+abbrev galAut (σ : Field.absoluteGaloisGroup ℚ) : AlgebraicClosure ℚ ≃ₐ[ℚ] AlgebraicClosure ℚ :=
+  σ
 
-/-- LocalFieldsRamification Layer 3 (placeholder): the different exponent
-`d(E/K) = v_E(𝔡_{E/K})` of a finite extension `E/K` of `p`-adic fields. -/
-def differentExponent (K E : Type*) [Field K] [Field E] [Algebra K E] [FiniteDimensional K E] :
-    ℕ := sorry
+/-! ## Layer 1: local and global discriminant bounds -/
 
-/-- LocalFieldsRamification Layer 3 (placeholder): the ramification index `e(E/K) ≥ 1`. -/
-def ramificationIndex (K E : Type*) [Field K] [Field E] [Algebra K E] [FiniteDimensional K E] :
-    ℕ := sorry
-
-/-- LocalFieldsRamification Layer 3 (placeholder): the discriminant exponent
-`v_K(disc(E/K)) = f(E/K) · d(E/K)`. -/
-def discriminantExponent (K E : Type*) [Field K] [Field E] [Algebra K E]
-    [FiniteDimensional K E] : ℕ := sorry
-
-/-- LocalFieldsRamification Layer 3 (placeholder): the inertia subgroup `G_0` of `Gal(E/K)`. -/
-def inertiaSubgroup (K E : Type*) [Field K] [Field E] [Algebra K E] [FiniteDimensional K E] :
-    Subgroup (E ≃ₐ[K] E) := sorry
-
-/-- LocalFieldsRamification Layer 3 (placeholder): the wild inertia subgroup `G_1`, the
-`p`-Sylow subgroup of the inertia subgroup. -/
-def wildInertiaSubgroup (K E : Type*) [Field K] [Field E] [Algebra K E]
-    [FiniteDimensional K E] : Subgroup (E ≃ₐ[K] E) := sorry
-
-/-- LocalFieldsRamification Layer 3 (placeholder): the upper-numbering ramification group
-`G^u` of `Gal(E/K)`. -/
-def upperRamificationGroup (K E : Type*) [Field K] [Field E] [Algebra K E]
-    [FiniteDimensional K E] (u : ℚ) : Subgroup (E ≃ₐ[K] E) := sorry
-
-/-! ## R25.1 — the local root-discriminant exponent -/
-
-section Local
-
-variable (p : ℕ) [Fact p.Prime] (E : Type*) [Field E] [Algebra ℚ_[p] E]
-  [FiniteDimensional ℚ_[p] E]
-
-/-- `δ(E) = d(E/ℚ_p)/e(E/ℚ_p)`, the different normalised by `v_p(p) = 1` (Jones's mean slope). -/
-def localRootDiscrExp : ℚ :=
-  (differentExponent ℚ_[p] E : ℚ) / ramificationIndex ℚ_[p] E
-
-theorem localRootDiscrExp_eq_discriminantExponent_div :
-    localRootDiscrExp p E = (discriminantExponent ℚ_[p] E : ℚ) / finrank ℚ_[p] E := sorry
-
-/-- The upper-numbering form: a sum over the jumps `u ≥ 0` of the upper filtration (the summand
-vanishes away from the jumps, where `G^{u+} = G^u`). The right limit is the supremum of
-the groups at `v > u`, since the filtration decreases and is locally constant to the right. -/
-theorem localRootDiscrExp_eq_sum_upper [IsGalois ℚ_[p] E] :
-    localRootDiscrExp p E =
-      ∑ᶠ (u : ℚ) (_ : 0 ≤ u),
-        (1 / (Nat.card ((⨆ (v : ℚ) (_ : u < v), upperRamificationGroup ℚ_[p] E v :
-            Subgroup (E ≃ₐ[ℚ_[p]] E))) : ℚ) -
-          1 / (Nat.card (upperRamificationGroup ℚ_[p] E u) : ℚ)) * (u + 1) := sorry
-
-theorem localRootDiscrExp_eq_zero_iff :
-    localRootDiscrExp p E = 0 ↔ ramificationIndex ℚ_[p] E = 1 := sorry
-
-theorem localRootDiscrExp_of_tame (h : ¬ p ∣ ramificationIndex ℚ_[p] E) :
-    localRootDiscrExp p E = 1 - 1 / (ramificationIndex ℚ_[p] E : ℚ) := sorry
-
-theorem localRootDiscrExp_of_isUnramified (E' : Type*) [Field E'] [Algebra ℚ_[p] E']
-    [FiniteDimensional ℚ_[p] E'] [Algebra E E'] [IsScalarTower ℚ_[p] E E']
-    [FiniteDimensional E E'] (h : ramificationIndex E E' = 1) :
-    localRootDiscrExp p E' = localRootDiscrExp p E := sorry
-
-theorem localRootDiscrExp_congr (E' : Type*) [Field E'] [Algebra ℚ_[p] E']
-    [FiniteDimensional ℚ_[p] E'] (e : E ≃ₐ[ℚ_[p]] E') :
-    localRootDiscrExp p E' = localRootDiscrExp p E := sorry
-
-theorem localRootDiscrExp_tower (E' : Type*) [Field E'] [Algebra ℚ_[p] E']
-    [FiniteDimensional ℚ_[p] E'] [Algebra E E'] [IsScalarTower ℚ_[p] E E']
-    [FiniteDimensional E E'] :
-    localRootDiscrExp p E' =
-        localRootDiscrExp p E + (differentExponent E E' : ℚ) / ramificationIndex ℚ_[p] E' ∧
-      localRootDiscrExp p E ≤ localRootDiscrExp p E' := sorry
-
-end Local
-
-/-- `localRootDiscrExp_two_adic_i` (computation): `δ(ℚ₂(√−1)) = 1`. -/
-example (E : Type*) [Field E] [Algebra ℚ_[2] E] [FiniteDimensional ℚ_[2] E]
-    [IsSplittingField ℚ_[2] E (X ^ 2 + 1)] : localRootDiscrExp 2 E = 1 := sorry
-
-/-- `localRootDiscrExp_two_adic_sqrt_two` (computation): `δ(ℚ₂(√2)) = 3/2`; the undivided
-different exponent and the discriminant exponent are both `3`. -/
-example (E : Type*) [Field E] [Algebra ℚ_[2] E] [FiniteDimensional ℚ_[2] E]
-    [IsSplittingField ℚ_[2] E (X ^ 2 - 2)] : localRootDiscrExp 2 E = 3 / 2 := sorry
-
-/-- `localRootDiscrExp_two_adic_zeta_twelve` (computation): `δ(ℚ₂(ζ₁₂)) = 1`, with `e = f = 2`;
-this separates `e` from `[E : ℚ₂]`. -/
-example (E : Type*) [Field E] [Algebra ℚ_[2] E] [FiniteDimensional ℚ_[2] E]
-    [IsCyclotomicExtension {12} ℚ_[2] E] : localRootDiscrExp 2 E = 1 := sorry
-
-/-- `localRootDiscrExp_three_adic_pure_cubic` (computation): `δ(ℚ₃(ζ₃, ∛3)) = 11/6`. -/
-example (E : Type*) [Field E] [Algebra ℚ_[3] E] [FiniteDimensional ℚ_[3] E]
-    [IsSplittingField ℚ_[3] E (X ^ 3 - 3)] : localRootDiscrExp 3 E = 11 / 6 := sorry
-
-/-- `localRootDiscrExp_self` (degenerate): `δ(ℚ_p) = 0`, and `δ = 0` for the unramified
-quadratic extension `ℚ_p(ζ_{p²−1})`. -/
-example (p : ℕ) [Fact p.Prime] : localRootDiscrExp p ℚ_[p] = 0 ∧
-    ∀ (E : Type) [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
-      [IsCyclotomicExtension {p ^ 2 - 1} ℚ_[p] E], localRootDiscrExp p E = 0 := sorry
-
-/-! ## R25.1 — the root discriminant of a Galois field -/
-
-/-- NumberFieldArithmetic Layers 5–6 (stand-in): `E` is the completion of `K` at a prime above
-`p`, in the form "there is an embedding `K → E` whose image generates `E` over `ℚ_p`". -/
-def IsCompletionAbove (K : Type*) [Field K] (p : ℕ) [Fact p.Prime] (E : Type*) [Field E]
-    [Algebra ℚ_[p] E] : Prop :=
-  ∃ φ : K →+* E, IntermediateField.adjoin ℚ_[p] (Set.range φ) = ⊤
-
-/-- The local form: `v_p(|d_K|) = [K : ℚ] · δ(K_𝔭)` for `K/ℚ` Galois. -/
-theorem padicValInt_discr_eq_finrank_mul_localRootDiscrExp (K : Type*) [Field K]
-    [NumberField K] [IsGalois ℚ K] (p : ℕ) [Fact p.Prime] (E : Type*) [Field E]
-    [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E] (hE : IsCompletionAbove K p E) :
-    (padicValInt p (discr K) : ℚ) = finrank ℚ K * localRootDiscrExp p E := sorry
-
-/-- `rd_K = ∏_{p ∣ d_K} p^{δ(K_𝔭)}` for `K/ℚ` Galois, where `δ p` is the exponent at any
-completion above `p` (it does not depend on the completion). -/
-theorem rootDiscr_eq_prod_rpow_localRootDiscrExp (K : Type*) [Field K] [NumberField K]
-    [IsGalois ℚ K] (δ : ℕ → ℚ)
-    (hδ : ∀ (p : ℕ) [Fact p.Prime] (E : Type) [Field E] [Algebra ℚ_[p] E]
-      [FiniteDimensional ℚ_[p] E], IsCompletionAbove K p E → δ p = localRootDiscrExp p E) :
-    rootDiscr K = ∏ p ∈ (discr K).natAbs.primeFactors, (p : ℝ) ^ (δ p : ℝ) := sorry
-
-/-- The one-prime case: if `K/ℚ` is Galois and unramified outside `p`, `rd_K = p^{δ(K_𝔭)}`. -/
-theorem rootDiscr_eq_rpow_localRootDiscrExp_of_unramifiedOutside (K : Type*) [Field K]
-    [NumberField K] [IsGalois ℚ K] (p : ℕ) [Fact p.Prime]
-    (hK : ∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ p → ¬ (ℓ : ℤ) ∣ discr K)
-    (E : Type*) [Field E] [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E]
-    (hE : IsCompletionAbove K p E) :
-    rootDiscr K = (p : ℝ) ^ (localRootDiscrExp p E : ℝ) := sorry
-
-/-! ## R25.1 — local images in residual characteristic `2` and `3` -/
-
-/-- Local abelian quotients of order prime to `p`: for `E/K` Galois with `K/ℚ_p` finite with
-residue field of `q = p ^ f` elements (`f = [K : ℚ_p]/e(K/ℚ_p)`), `ψ` kills the wild inertia,
-the image of the inertia is cyclic, and its elements have order dividing `q − 1`. -/
-theorem orderOf_map_inertia_dvd_card_residueField_sub_one (p : ℕ) [Fact p.Prime]
-    (K : Type*) [Field K] [Algebra ℚ_[p] K] [FiniteDimensional ℚ_[p] K]
-    (E : Type*) [Field E] [Algebra K E] [FiniteDimensional K E] [IsGalois K E]
-    {B : Type*} [CommGroup B] [Finite B] (hB : Nat.Coprime (Nat.card B) p)
-    (ψ : (E ≃ₐ[K] E) →* B) :
-    (∀ σ ∈ wildInertiaSubgroup K E, ψ σ = 1) ∧ IsCyclic ((inertiaSubgroup K E).map ψ) ∧
-      ∀ σ ∈ inertiaSubgroup K E,
-        orderOf (ψ σ) ∣ p ^ (finrank ℚ_[p] K / ramificationIndex ℚ_[p] K) - 1 := sorry
-
-/-- The full wild Borel normal form: diagonal characters, their common kernel on inertia,
-the cyclic tame quotient of order dividing `p - 1`, and the diagonal-ratio conjugation action.
-The upper-right entry identifies wild inertia with an additive subgroup of `F̄`. -/
-theorem exists_upperTriangular_of_wildInertia_ne_bot (p : ℕ) [Fact p.Prime] {F : Type*}
-    [Field F] [Fintype F] [CharP F p] (E : Type*) [Field E] [Algebra ℚ_[p] E]
-    [FiniteDimensional ℚ_[p] E] [IsGalois ℚ_[p] E] (emb : (E ≃ₐ[ℚ_[p]] E) →* GL (Fin 2) F)
-    (hemb : Function.Injective emb) (hP : wildInertiaSubgroup ℚ_[p] E ≠ ⊥) :
-    ∃ g : GL (Fin 2) (AlgebraicClosure F),
-      let M : (E ≃ₐ[ℚ_[p]] E) → Matrix (Fin 2) (Fin 2) (AlgebraicClosure F) := fun σ =>
-        ((g * Matrix.GeneralLinearGroup.map (algebraMap F (AlgebraicClosure F)) (emb σ) * g⁻¹ :
-          GL (Fin 2) (AlgebraicClosure F)) : Matrix (Fin 2) (Fin 2) (AlgebraicClosure F))
-      ∃ ψ₁ ψ₂ : (E ≃ₐ[ℚ_[p]] E) →* (AlgebraicClosure F)ˣ,
-      (∀ σ, M σ 1 0 = 0 ∧ M σ 0 0 = ψ₁ σ ∧ M σ 1 1 = ψ₂ σ) ∧
-        (∀ σ ∈ wildInertiaSubgroup ℚ_[p] E, M σ 0 0 = 1 ∧ M σ 1 1 = 1 ∧ σ ^ p = 1) ∧
-        (wildInertiaSubgroup ℚ_[p] E ≤ inertiaSubgroup ℚ_[p] E) ∧
-        (∀ σ ∈ inertiaSubgroup ℚ_[p] E,
-          (ψ₁ σ = 1 ∧ ψ₂ σ = 1) ↔ σ ∈ wildInertiaSubgroup ℚ_[p] E) ∧
-        (∀ σ ∈ wildInertiaSubgroup ℚ_[p] E, ∀ τ ∈ wildInertiaSubgroup ℚ_[p] E,
-          M (σ * τ) 0 1 = M σ 0 1 + M τ 0 1 ∧
-          (M σ 0 1 = M τ 0 1 ↔ σ = τ) ∧ σ * τ = τ * σ) ∧
-        (∃ hnormal : ((wildInertiaSubgroup ℚ_[p] E).subgroupOf
-            (inertiaSubgroup ℚ_[p] E)).Normal,
-          letI := hnormal
-          IsCyclic ((inertiaSubgroup ℚ_[p] E) ⧸
-            (wildInertiaSubgroup ℚ_[p] E).subgroupOf (inertiaSubgroup ℚ_[p] E)) ∧
-          Nat.card ((inertiaSubgroup ℚ_[p] E) ⧸
-            (wildInertiaSubgroup ℚ_[p] E).subgroupOf (inertiaSubgroup ℚ_[p] E)) ∣ p - 1) ∧
-        (∀ d, ∀ τ ∈ wildInertiaSubgroup ℚ_[p] E,
-          M (d * τ * d⁻¹) 0 1 = ((ψ₁ d : AlgebraicClosure F) / ψ₂ d) * M τ 0 1) ∧
-        (p = 2 → inertiaSubgroup ℚ_[p] E = wildInertiaSubgroup ℚ_[p] E) := sorry
-
-/-- Part (a) of the unit-filtration lemma: over an unramified extension of `ℚ₂`,
-`U^{(3)} ⊆ (U^{(1)})²`. The compatibility of the valuative structure of `E` with its
-`ℚ₂`-algebra structure is expressed by continuity of the algebra map. -/
-theorem principalUnits_pow_subset (E : Type*) [Field E] [ValuativeRel E] [TopologicalSpace E]
-    [IsNonarchimedeanLocalField E] [Algebra ℚ_[2] E] [FiniteDimensional ℚ_[2] E]
-    (hcont : Continuous (algebraMap ℚ_[2] E)) (hE : ramificationIndex ℚ_[2] E = 1) :
-    TauCeti.unitFiltration E 3 ≤ (TauCeti.unitFiltration E 1).map (powMonoidHom 2) := sorry
-
-/-- Part (b): over an unramified extension of `ℚ₃`, `U^{(2)} ⊆ (U^{(1)})³`. -/
-theorem unitFiltration_two_le_map_pow_three (E : Type*) [Field E] [ValuativeRel E]
-    [TopologicalSpace E] [IsNonarchimedeanLocalField E] [Algebra ℚ_[3] E]
-    [FiniteDimensional ℚ_[3] E] (hcont : Continuous (algebraMap ℚ_[3] E))
-    (hE : ramificationIndex ℚ_[3] E = 1) :
-    TauCeti.unitFiltration E 2 ≤ (TauCeti.unitFiltration E 1).map (powMonoidHom 3) := sorry
-
-/-- Part (c): if `e(E/ℚ₃) = 2` then `(U^{(1)})³ ⊆ U^{(3)}` and `U^{(4)} ⊆ (U^{(1)})³`. -/
-theorem unitFiltration_pow_three_of_ramificationIndex_eq_two (E : Type*) [Field E]
-    [ValuativeRel E] [TopologicalSpace E] [IsNonarchimedeanLocalField E] [Algebra ℚ_[3] E]
-    [FiniteDimensional ℚ_[3] E] (hcont : Continuous (algebraMap ℚ_[3] E))
-    (hE : ramificationIndex ℚ_[3] E = 2) :
-    (TauCeti.unitFiltration E 1).map (powMonoidHom 3) ≤ TauCeti.unitFiltration E 3 ∧
-      TauCeti.unitFiltration E 4 ≤ (TauCeti.unitFiltration E 1).map (powMonoidHom 3) := sorry
-
-/-- Tate's 2-adic bound, sharpened: `δ(E) ≤ 2` for a field cut out by a mod-2 representation. -/
-theorem localRootDiscrExp_le_two_of_char_two (E : Type*) [Field E] [Algebra ℚ_[2] E]
-    [FiniteDimensional ℚ_[2] E] [IsGalois ℚ_[2] E] {F : Type*} [Field F] [Fintype F]
-    [CharP F 2] (emb : (E ≃ₐ[ℚ_[2]] E) →* GL (Fin 2) F) (hemb : Function.Injective emb) :
-    localRootDiscrExp 2 E ≤ 2 := sorry
-
-/-- The dihedral refinement: `δ ≤ 3/2` when the wild inertia has order at most `2`. -/
-theorem localRootDiscrExp_le_three_halves_of_char_two (E : Type*) [Field E]
-    [Algebra ℚ_[2] E] [FiniteDimensional ℚ_[2] E] [IsGalois ℚ_[2] E] {F : Type*} [Field F]
-    [Fintype F] [CharP F 2] (emb : (E ≃ₐ[ℚ_[2]] E) →* GL (Fin 2) F)
-    (hemb : Function.Injective emb) (hP : Nat.card (wildInertiaSubgroup ℚ_[2] E) ≤ 2) :
-    localRootDiscrExp 2 E ≤ 3 / 2 := sorry
-
-/-- The 3-adic bound `δ ≤ 13/6 − 1/|P|` for wild `E`. -/
-theorem localRootDiscrExp_le_of_char_three (E : Type*) [Field E] [Algebra ℚ_[3] E]
-    [FiniteDimensional ℚ_[3] E] [IsGalois ℚ_[3] E] {F : Type*} [Field F] [Fintype F]
-    [CharP F 3] (emb : (E ≃ₐ[ℚ_[3]] E) →* GL (Fin 2) F) (hemb : Function.Injective emb)
-    (hP : wildInertiaSubgroup ℚ_[3] E ≠ ⊥) :
-    localRootDiscrExp 3 E ≤
-      13 / 6 - 1 / (Nat.card (wildInertiaSubgroup ℚ_[3] E) : ℚ) := sorry
-
-/-! ## R25.1 — global lower bounds -/
 
 section Minkowski
 
 variable (K : Type*) [Field K] [NumberField K]
 
+/-- A number field of degree at least three has root discriminant greater than two. -/
 theorem two_lt_rootDiscr (h : 3 ≤ finrank ℚ K) : 2 < rootDiscr K := sorry
 
+/-- A number field of degree at least six has root discriminant greater than three. -/
 theorem three_lt_rootDiscr (h : 6 ≤ finrank ℚ K) : 3 < rootDiscr K := sorry
 
+/-- A number field of degree at least twelve has root discriminant greater than four. -/
 theorem four_lt_rootDiscr (h : 12 ≤ finrank ℚ K) : 4 < rootDiscr K := sorry
 
 end Minkowski
@@ -441,26 +59,34 @@ end Minkowski
 def odlyzkoKernel (x : ℝ) : ℝ :=
   if |x| ≤ 1 then (1 - |x|) * Real.cos (π * x) + Real.sin (π * |x|) / π else 0
 
+/-- The kernel is twice the convolution square of the truncated cosine. -/
 theorem odlyzkoKernel_eq_two_mul_convolution :
     odlyzkoKernel = 2 • MeasureTheory.convolution
       (Set.indicator (Set.Icc (-(1 / 2)) (1 / 2)) fun y => Real.cos (π * y))
       (Set.indicator (Set.Icc (-(1 / 2)) (1 / 2)) fun y => Real.cos (π * y))
       (ContinuousLinearMap.mul ℝ ℝ) volume := sorry
 
+/-- The kernel is pointwise nonnegative. -/
 theorem odlyzkoKernel_nonneg (x : ℝ) : 0 ≤ odlyzkoKernel x := sorry
 
+/-- The kernel is normalised to one at zero. -/
 @[simp] theorem odlyzkoKernel_zero : odlyzkoKernel 0 = 1 := sorry
 
+/-- The kernel is even. -/
 @[simp] theorem odlyzkoKernel_neg (x : ℝ) : odlyzkoKernel (-x) = odlyzkoKernel x := sorry
 
+/-- The kernel vanishes at and beyond the endpoints of its support. -/
 theorem odlyzkoKernel_eq_zero_of_one_le_abs {x : ℝ} (hx : 1 ≤ |x|) :
     odlyzkoKernel x = 0 := sorry
 
+/-- The convolution-square kernel is positive definite. -/
 theorem isPositiveDefiniteSub_odlyzkoKernel :
     TauCeti.IsPositiveDefiniteSub fun x : ℝ => (odlyzkoKernel x : ℂ) := sorry
 
+/-- The kernel has one continuous derivative, including at its support endpoints. -/
 theorem contDiff_odlyzkoKernel : ContDiff ℝ 1 odlyzkoKernel := sorry
 
+/-- The positive-half-line integral is `4 / π²`. -/
 theorem integral_odlyzkoKernel_Ioi : (∫ x in Ioi (0 : ℝ), odlyzkoKernel x) = 4 / π ^ 2 := sorry
 
 /-- `odlyzkoKernel_zero` (computation): `g(0) = 1`, the normalisation `F(0) = 1`. -/
@@ -500,6 +126,18 @@ theorem re_poitouTransform_nonneg (f : ℝ → ℝ) (hf_even : ∀ x, f (-x) = f
 /-- The test function `F_b(x) = g(x/b)/cosh(x/2)`. -/
 def poitouTestFunction (b x : ℝ) : ℝ := odlyzkoKernel (x / b) / Real.cosh (x / 2)
 
+/-- For positive scale the test function is one at zero. -/
+example {b : ℝ} (hb : 0 < b) : poitouTestFunction b 0 = 1 := sorry
+
+/-- The scaled endpoint and exterior point both vanish. -/
+example {b : ℝ} (hb : 0 < b) : poitouTestFunction b b = 0 ∧
+    poitouTestFunction b (2 * b) = 0 := sorry
+
+/-- The half-scale value fixes the denominator and sine normalisation. -/
+example {b : ℝ} (hb : 0 < b) :
+    poitouTestFunction b (b / 2) = 1 / (π * Real.cosh (b / 4)) := sorry
+
+
 /-- `P(n, r₁, b) = r₁π/2 + n(γ + log 8π) − n·I₁(b) − r₁·I₂(b) − 16b/π²`: the explicit-formula
 lower bound with the zero and prime sums removed. Every integral is parenthesised. -/
 def poitouLowerBound (n r₁ : ℕ) (b : ℝ) : ℝ :=
@@ -508,6 +146,7 @@ def poitouLowerBound (n r₁ : ℕ) (b : ℝ) : ℝ :=
     - r₁ * (∫ x in Ioi (0 : ℝ), (1 - poitouTestFunction b x) / (2 * Real.cosh (x / 2)))
     - 16 * b / π ^ 2
 
+/-- For positive scale, both archimedean integrands are integrable on the positive half-line. -/
 theorem integrableOn_poitouIntegrand_sinh {b : ℝ} (hb : 0 < b) :
     IntegrableOn (fun x => (1 - poitouTestFunction b x) / (2 * Real.sinh (x / 2))) (Ioi 0) ∧
       IntegrableOn (fun x => (1 - poitouTestFunction b x) / (2 * Real.cosh (x / 2)))
@@ -521,11 +160,13 @@ theorem poitouLowerBound_eq_explicit (n r₁ : ℕ) {b : ℝ} (hb : 0 < b) :
         - r₁ * (∫ x in Ioi (0 : ℝ), (1 - poitouTestFunction b x) / (2 * Real.cosh (x / 2)))
         - 4 * (∫ x in Ioi (0 : ℝ), poitouTestFunction b x * Real.cosh (x / 2)) := sorry
 
+/-- For positive scale, the sinh-integral tail equals `-log(tanh(b/4))`. -/
 theorem poitouIntegral_sinh_eq {b : ℝ} (hb : 0 < b) :
     (∫ x in Ioi (0 : ℝ), (1 - poitouTestFunction b x) / (2 * Real.sinh (x / 2))) =
       (∫ x in (0 : ℝ)..b, (1 - poitouTestFunction b x) / (2 * Real.sinh (x / 2)))
         - Real.log (Real.tanh (b / 4)) := sorry
 
+/-- At fixed positive scale, the normalised totally complex bound increases with positive degree. -/
 theorem poitouLowerBound_div_mono {b : ℝ} (hb : 0 < b) {n m : ℕ} (hn : 0 < n)
     (hnm : n ≤ m) : poitouLowerBound n 0 b / n ≤ poitouLowerBound m 0 b / m := sorry
 
@@ -567,9 +208,11 @@ theorem poitouLowerBound_le_log_abs_discr (K : Type*) [Field K] [NumberField K] 
     (hb : 0 < b) :
     poitouLowerBound (finrank ℚ K) (nrRealPlaces K) b ≤ Real.log |(discr K : ℝ)| := sorry
 
+/-- The root discriminant exceeds ten for totally complex degree at least twenty-four. -/
 theorem ten_lt_rootDiscr_of_isTotallyComplex (K : Type*) [Field K] [NumberField K]
     [IsTotallyComplex K] (h : 24 ≤ finrank ℚ K) : 10 < rootDiscr K := sorry
 
+/-- The root discriminant exceeds twelve for totally complex degree at least thirty-six. -/
 theorem twelve_lt_rootDiscr_of_isTotallyComplex (K : Type*) [Field K] [NumberField K]
     [IsTotallyComplex K] (h : 36 ≤ finrank ℚ K) : 12 < rootDiscr K := sorry
 
@@ -583,17 +226,133 @@ theorem finrank_le_of_rootDiscr_lt_of_isTotallyComplex (K : Type*) [Field K] [Nu
       (rootDiscr K ≤ 16.83 → finrank ℚ K ≤ 119) ∧ (rootDiscr K ≤ 10.199 → finrank ℚ K ≤ 23) :=
   sorry
 
-/-! ## R25.2 — residual representations and the Tate–Serre base case -/
+/- Finite flat group schemes over arithmetic bases. -/
 
-/-- An element of `G_ℚ` as an automorphism of `ℚ̄`. -/
-abbrev galAut (σ : Field.absoluteGaloisGroup ℚ) : AlgebraicClosure ℚ ≃ₐ[ℚ] AlgebraicClosure ℚ :=
-  σ
+section GroupSchemes
+
+/-- Finite flat commutative group schemes over `R` (Tau Ceti). -/
+abbrev FFGroupSchemeOver (R : Type) [CommRing R] :=
+  TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat (CommRingCat.of R)
+
+/-- Finite flat commutative group schemes over `ℤ`. -/
+abbrev FFGroupScheme := FFGroupSchemeOver ℤ
+
+/-- Finite flat commutative group schemes over `ℤ[1/l]`. -/
+abbrev FFGroupSchemeAway (l : ℕ) := FFGroupSchemeOver (Localization.Away (l : ℤ))
+
+/-- `ℤ[1/l] → ℚ`; with Mathlib's instances it also makes `ℚ̄` a `ℤ[1/l]`-algebra. -/
+instance algebraAwayRat (l : ℕ) [NeZero l] : Algebra (Localization.Away (l : ℤ)) ℚ :=
+  (IsLocalization.Away.lift (l : ℤ) (g := Int.castRingHom ℚ)
+    (isUnit_iff_ne_zero.mpr (by simpa using NeZero.ne l))).toAlgebra
+
+variable {R : Type} [CommRing R]
+
+/-- The coordinate Hopf algebra of `G` (Tau Ceti). -/
+abbrev coordinateRing (G : FFGroupSchemeOver R) :
+    TauCeti.FiniteLocallyFreeBicommutativeHopfAlgCat R :=
+  TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.coordinateHopfAlgebra R G
+
+/-- The order of `G`: the rank of its coordinate algebra. -/
+def order (G : FFGroupSchemeOver R) : ℕ := Module.finrank R (coordinateRing G)
+
+/-- `G` is killed by `n`: the `n`-th convolution power of the identity of the coordinate Hopf
+algebra is the counit. -/
+def IsKilledBy (G : FFGroupSchemeOver R) (n : ℕ) : Prop :=
+  WithConv.toConv (AlgHom.id R (coordinateRing G)) ^ n = 1
+
+/-- The underlying morphism of schemes. -/
+abbrev schemeHom {G H : FFGroupSchemeOver R} (f : G ⟶ H) :
+    G.obj.obj.X.left ⟶ H.obj.obj.X.left :=
+  f.hom.hom.hom.hom.left
+
+/-- A nontrivial group scheme with no closed flat subgroup schemes other than `0` and `G`. -/
+def IsSimpleGroupScheme (G : FFGroupSchemeOver R) : Prop :=
+  order G ≠ 1 ∧ ∀ (M : FFGroupSchemeOver R) (i : M ⟶ G),
+    IsClosedImmersion (schemeHom i) → order M = 1 ∨ IsIso i
+
+/-- `G` is étale over the base. -/
+def IsEtaleGroupScheme (G : FFGroupSchemeOver R) : Prop := Etale G.obj.obj.X.hom
+
+/-- `G` is constant: isomorphic to Tau Ceti's constant group scheme of a finite abelian group. -/
+def IsConstantGroupScheme (G : FFGroupSchemeOver R) : Prop :=
+  ∃ (Γ : Type) (_ : CommGroup Γ) (_ : Finite Γ),
+    Nonempty (G.obj.obj ≅ TauCeti.ConstantGroup.groupScheme R Γ)
+
+/-- `G` is diagonalizable: its Cartier dual is constant. -/
+def IsDiagonalizableGroupScheme (G : FFGroupSchemeOver R) : Prop :=
+  IsConstantGroupScheme (TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R G)
+
+/-- The constant group scheme `ℤ/nℤ` over `R` (the membership proofs are true claims). -/
+def zModScheme (R : Type) [CommRing R] (n : ℕ) [NeZero n] : FFGroupSchemeOver R :=
+  ⟨⟨TauCeti.ConstantGroup.groupScheme R (Multiplicative (ZMod n)), sorry⟩, sorry⟩
+
+/-- The group scheme `μ_n` over `R` (the membership proofs are true claims). -/
+def muScheme (R : Type) [CommRing R] (n : ℕ) [NeZero n] : FFGroupSchemeOver R :=
+  ⟨⟨TauCeti.RootsOfUnityGroup.groupScheme R n, sorry⟩, sorry⟩
+
+/-- `0 → M → G → C → 0` is exact: `M` is the scheme-theoretic kernel of `q`, and `q` is
+faithfully flat. -/
+def IsShortExact {M G C : FFGroupSchemeOver R} (i : M ⟶ G) (q : G ⟶ C) : Prop :=
+  IsPullback i.hom.hom.hom.hom (CartesianMonoidalCategory.toUnit M.obj.obj.X)
+      q.hom.hom.hom.hom η[C.obj.obj.X] ∧
+    Flat (schemeHom q) ∧ Surjective (schemeHom q)
+
+/-- Every extension `0 → B → E → A → 0` splits. -/
+def Ext1Vanishes (A B : FFGroupSchemeOver R) : Prop :=
+  ∀ (E : FFGroupSchemeOver R) (i : B ⟶ E) (q : E ⟶ A), IsShortExact i q →
+    ∃ s : A ⟶ E, s ≫ q = 𝟙 A
+
+/-- `G` has a filtration whose successive quotients are isomorphic to `A`. -/
+inductive IsIteratedExtensionOf (A : FFGroupSchemeOver R) : FFGroupSchemeOver R → Prop
+  | trivial (G : FFGroupSchemeOver R) : order G = 1 → IsIteratedExtensionOf A G
+  | extension {M G C : FFGroupSchemeOver R} (i : M ⟶ G) (q : G ⟶ C) :
+      IsShortExact i q → IsIteratedExtensionOf A M → Nonempty (C ≅ A) →
+        IsIteratedExtensionOf A G
+
+variable [Algebra R ℚ]
+
+/-- The points `G(ℚ̄)`, a commutative group under convolution (Tau Ceti). -/
+abbrev points (G : FFGroupSchemeOver R) :=
+  WithConv (coordinateRing G →ₐ[R] AlgebraicClosure ℚ)
+
+/-- The action of `G_ℚ` on `G(ℚ̄)`. -/
+def galoisAct (G : FFGroupSchemeOver R) (σ : Field.absoluteGaloisGroup ℚ) (x : points G) :
+    points G :=
+  WithConv.toConv (((galAut σ).toAlgHom.restrictScalars R).comp x.ofConv)
+
+/-- The field `ℚ(G(ℚ̄))` generated by the coordinates of the points of `G`. -/
+def torsionField (G : FFGroupSchemeOver R) : IntermediateField ℚ (AlgebraicClosure ℚ) :=
+  IntermediateField.adjoin ℚ
+    {x | ∃ f : coordinateRing G →ₐ[R] AlgebraicClosure ℚ, x ∈ Set.range f}
+
+/-- The points generate a number field. A finite-image consequence. -/
+instance numberField_torsionField (G : FFGroupSchemeOver R) : NumberField (torsionField G) :=
+  sorry
+
+/-- The trivial group scheme is excluded by the nonzero simple-object convention. -/
+example : ¬ IsSimpleGroupScheme (zModScheme ℤ 1) := sorry
+
+/-- The two order-two group schemes over `ℤ` are nonzero simple objects. -/
+example : IsSimpleGroupScheme (zModScheme ℤ 2) ∧ IsSimpleGroupScheme (muScheme ℤ 2) := sorry
+
+end GroupSchemes
+
+/- The strict discriminant bound for finite-flat torsion fields. -/
+
+/-- Fontaine's bound over `ℤ` (the case `N = 1`): `rd_L < p^{1 + 1/(p − 1)}` for the field of
+points of a finite flat group scheme killed by `p`. -/
+theorem rootDiscr_torsionField_lt (p : ℕ) [Fact p.Prime] (G : FFGroupScheme)
+    (hG : IsKilledBy G p) :
+    rootDiscr (torsionField G) < (p : ℝ) ^ ((1 : ℝ) + 1 / ((p : ℝ) - 1)) := sorry
+
+
+/-! ## Layer 2: residual representations and the Tate–Serre base case -/
 
 /-- A residual representation: a continuous homomorphism `G_ℚ → GL₂(F)`. -/
 abbrev ResidualRep (F : Type*) [Field F] [TopologicalSpace F] :=
   ContinuousMonoidHom (Field.absoluteGaloisGroup ℚ) (GL (Fin 2) F)
 
-/-- R01.1/R01.4 (stand-in): a subgroup of `GL₂(K)` with no common eigenline in `K²`. -/
+/-- R01.1/a subgroup of `GL₂(K)` with no common eigenline in `K²`. -/
 def IsIrreducibleSubgroup {K : Type*} [Field K] (G : Subgroup (GL (Fin 2) K)) : Prop :=
   ∀ v : Fin 2 → K, v ≠ 0 → ∃ g ∈ G, ∀ c : K, (g : Matrix (Fin 2) (Fin 2) K).mulVec v ≠ c • v
 
@@ -601,7 +360,7 @@ def IsIrreducibleSubgroup {K : Type*} [Field K] (G : Subgroup (GL (Fin 2) K)) : 
 def cyclotomicSubfield (n : ℕ) : IntermediateField ℚ (AlgebraicClosure ℚ) :=
   IntermediateField.adjoin ℚ {x | x ^ n = 1}
 
-/-- R01.2 (stand-in): the union of the inertia groups of the primes of `ℚ̄` above `ℓ`; `σ` is in
+/-- the union of the inertia groups of the primes of `ℚ̄` above `ℓ`; `σ` is in
 the inertia group of `P` when `σ x − x ∈ P` for every algebraic integer `x`. -/
 def inertiaAbove (ℓ : ℕ) : Set (Field.absoluteGaloisGroup ℚ) :=
   {σ | ∃ P : Ideal (integralClosure ℤ (AlgebraicClosure ℚ)), P.IsMaximal ∧
@@ -621,8 +380,8 @@ def modCyclotomicCharacter (p : ℕ) [Fact p.Prime] (F : Type*) [Field F] [CharP
         map_mul' := fun _ _ => rfl })
   continuous_toFun := sorry
 
-/-- The concrete diagonal sum `1 ⊕ ω_p`; only its homomorphism and continuity proofs are
-prototypes, while both the matrix and its inverse are specified. -/
+/-- The concrete diagonal sum `1 ⊕ ω_p`; both the matrix and its inverse are specified.
+The homomorphism and continuity identities are left as proof obligations. -/
 def oneAddCyclotomic (p : ℕ) [Fact p.Prime] (F : Type*) [Field F] [CharP F p]
     [TopologicalSpace F] [DiscreteTopology F] : ResidualRep F where
   toFun σ :=
@@ -718,47 +477,56 @@ def imageOver (ρ : ResidualRep F) (H : Subgroup (Field.absoluteGaloisGroup ℚ)
   H.map ((Matrix.GeneralLinearGroup.map (algebraMap F (AlgebraicClosure F))).comp
     ρ.toMonoidHom)
 
-/-- R01.1 (stand-in): `ρ` is irreducible after extending scalars to `F̄`. -/
+/-- `ρ` is irreducible after extending scalars to `F̄`. -/
 def IsAbsolutelyIrreducible (ρ : ResidualRep F) : Prop :=
   IsIrreducibleSubgroup (imageOver ρ ⊤)
 
-/-- R01.4 (stand-in): `det ρ(c) = −1` for every `c ∈ G_ℚ` acting as complex conjugation under
+/-- `det ρ(c) = −1` for every `c ∈ G_ℚ` acting as complex conjugation under
 some embedding `ℚ̄ → ℂ`. -/
 def IsOdd (ρ : ResidualRep F) : Prop :=
   ∀ (j : AlgebraicClosure ℚ →+* ℂ) (c : Field.absoluteGaloisGroup ℚ),
     (∀ x, j (galAut c x) = starRingEnd ℂ (j x)) →
       ((ρ c : GL (Fin 2) F) : Matrix (Fin 2) (Fin 2) F).det = -1
 
-/-- R01.2 (stand-in): the kernel field `ℚ̄^{ker ρ}`. -/
+/-- the kernel field `ℚ̄^{ker ρ}`. -/
 def kernelField (ρ : ResidualRep F) : IntermediateField ℚ (AlgebraicClosure ℚ) :=
   IntermediateField.fixedField ρ.toMonoidHom.ker
 
-/-- The kernel field is a number field (`ker ρ` is open). A true claim, proved by `sorry`. -/
-instance numberField_kernelField (ρ : ResidualRep F) : NumberField (kernelField ρ) := sorry
+end Residual
 
-/-- R01.2 (stand-in): `ρ` is unramified at `ℓ` when `ℓ` does not divide the discriminant of the
-kernel field. -/
-def IsUnramifiedAt (ℓ : ℕ) (ρ : ResidualRep F) : Prop :=
-  ¬ (ℓ : ℤ) ∣ discr (kernelField ρ)
-
-/-- R01.2 (stand-in): `ρ` is trivial on wild inertia at `p`, that is, the kernel field is tamely
-ramified at `p`. -/
-def IsTameAt (p : ℕ) (ρ : ResidualRep F) : Prop :=
-  ∀ P : Ideal (𝓞 (kernelField ρ)), P.IsPrime → (p : 𝓞 (kernelField ρ)) ∈ P →
-    ¬ p ∣ P.ramificationIdx ℤ
+/-- The kernel field is a number field (`ker ρ` is open). A finite-image consequence. -/
+instance numberField_kernelField {F : Type*} [Field F] [Fintype F]
+    [TopologicalSpace F] [DiscreteTopology F] (ρ : ResidualRep F) : NumberField (kernelField ρ) := sorry
 
 /-- Extension of scalars along a field embedding `F → F'`. -/
-def ResidualRep.map {F' : Type*} [Field F'] [TopologicalSpace F'] (f : F →+* F')
+def ResidualRep.map {F : Type*} [Field F] [TopologicalSpace F] [DiscreteTopology F]
+    {F' : Type*} [Field F'] [TopologicalSpace F'] (f : F →+* F')
     (ρ : ResidualRep F) : ResidualRep F' where
   toMonoidHom := (Matrix.GeneralLinearGroup.map f).comp ρ.toMonoidHom
   continuous_toFun := sorry
 
-/-- R01.2 (stand-in): the twist `ρ ⊗ χ` by a continuous character `χ : G_ℚ → F^×`. -/
-def twist (ρ : ResidualRep F) (χ : Field.absoluteGaloisGroup ℚ →ₜ* Fˣ) : ResidualRep F where
+/-- the twist `ρ ⊗ χ` by a continuous character `χ : G_ℚ → F^×`. -/
+def twist {F : Type*} [Field F] [TopologicalSpace F] [DiscreteTopology F]
+    (ρ : ResidualRep F) (χ : Field.absoluteGaloisGroup ℚ →ₜ* Fˣ) : ResidualRep F where
   toFun σ := Units.map (algebraMap F (Matrix (Fin 2) (Fin 2) F)).toMonoidHom (χ σ) * ρ σ
   map_one' := sorry
   map_mul' := sorry
   continuous_toFun := sorry
+
+section Residual
+
+variable {F : Type*} [Field F] [Fintype F] [TopologicalSpace F] [DiscreteTopology F]
+
+/-- `ρ` is unramified at `ℓ` when `ℓ` does not divide the discriminant of the
+kernel field. -/
+def IsUnramifiedAt (ℓ : ℕ) (ρ : ResidualRep F) : Prop :=
+  ¬ (ℓ : ℤ) ∣ discr (kernelField ρ)
+
+/-- `ρ` is trivial on wild inertia at `p`, that is, the kernel field is tamely
+ramified at `p`. -/
+def IsTameAt (p : ℕ) (ρ : ResidualRep F) : Prop :=
+  ∀ P : Ideal (𝓞 (kernelField ρ)), P.IsPrime → (p : 𝓞 (kernelField ρ)) ∈ P →
+    ¬ p ∣ P.ramificationIdx ℤ
 
 /-- Level one: absolutely irreducible, odd, and unramified outside `p`. -/
 def IsLevelOneResidual (p : ℕ) (ρ : ResidualRep F) : Prop :=
@@ -772,14 +540,17 @@ theorem isLevelOneResidual_iff_kernelField (p : ℕ) (ρ : ResidualRep F) :
         (ℓ : 𝓞 (kernelField ρ)) ∈ P → P.ramificationIdx ℤ = 1) ∧
       IsAbsolutelyIrreducible ρ ∧ IsOdd ρ := sorry
 
+/-- The level-one predicate is invariant under finite discrete coefficient-field extension. -/
 theorem IsLevelOneResidual.map {F' : Type*} [Field F'] [Fintype F'] [TopologicalSpace F']
     [DiscreteTopology F'] (f : F →+* F') {p : ℕ} (ρ : ResidualRep F) :
     IsLevelOneResidual p (ρ.map f) ↔ IsLevelOneResidual p ρ := sorry
 
+/-- The level-one predicate is invariant under a change of basis. -/
 theorem IsLevelOneResidual.conj {p : ℕ} {ρ ρ' : ResidualRep F} (g : GL (Fin 2) F)
     (hconj : ∀ σ, ρ' σ = g * ρ σ * g⁻¹) (hρ : IsLevelOneResidual p ρ) :
     IsLevelOneResidual p ρ' := sorry
 
+/-- The determinant oddness condition is automatic in characteristic two. -/
 theorem isOdd_of_ringChar_two (h : ringChar F = 2) (ρ : ResidualRep F) : IsOdd ρ := sorry
 
 /-- For `p` odd the kernel field of a level-one residual representation is totally complex. -/
@@ -818,10 +589,12 @@ example : kernelField (F := ZMod 2) realCubicModTwo = realCyclotomicSubfield 9 �
     IsIrreducibleSubgroup realCubicModTwo.toMonoidHom.range ∧
     ¬ IsAbsolutelyIrreducible (F := ZMod 2) realCubicModTwo := sorry
 
+/-- The determinant character of a characteristic-two representation unramified outside two is trivial. -/
 theorem det_eq_one_of_char_two [CharP F 2] (ρ : ResidualRep F)
     (hρ : ∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 2 → IsUnramifiedAt ℓ ρ) (σ : Field.absoluteGaloisGroup ℚ) :
     ((ρ σ : GL (Fin 2) F) : Matrix (Fin 2) (Fin 2) F).det = 1 := sorry
 
+/-- A representation unramified outside `p ∈ {2,3}` and tame at `p` is not absolutely irreducible. -/
 theorem not_isAbsolutelyIrreducible_of_tame {p : ℕ} (hp : p = 2 ∨ p = 3) [CharP F p]
     (ρ : ResidualRep F) (hρ : ∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ p → IsUnramifiedAt ℓ ρ)
     (htame : IsTameAt p ρ) : ¬ IsAbsolutelyIrreducible ρ := sorry
@@ -838,6 +611,16 @@ theorem serre_no_levelOne_char_three [CharP F 3] (ρ : ResidualRep F) :
 /-- The Tate–Serre base case (DP23, Theorem 1.1). -/
 theorem not_isLevelOneResidual_of_le_three {p : ℕ} (hp : p = 2 ∨ p = 3) [CharP F p]
     (ρ : ResidualRep F) : ¬ IsLevelOneResidual p ρ := sorry
+
+/-- At three, `diag(1,-1)` is odd, and scalar `-1` has nonzero inertia square. -/
+example : Matrix.det (!![(1 : ZMod 3), 0; 0, -1]) = -1 ∧
+    ((-1 : ZMod 3) - 1) ^ 2 = 1 := by decide
+
+/-- A characteristic-two complex conjugation has determinant `1 = -1`. -/
+example (c : Field.absoluteGaloisGroup ℚ) (hc : c ^ 2 = 1)
+    (ρ : ResidualRep (ZMod 2)) :
+    ((ρ c : GL (Fin 2) (ZMod 2)) : Matrix (Fin 2) (Fin 2) (ZMod 2)).det = 1 ∧
+      (1 : ZMod 2) = -1 := sorry
 
 end Residual
 
@@ -866,142 +649,28 @@ theorem twentyFour_dvd_card_of_irreducible_char_three
     (-1 : GL (Fin 2) (AlgebraicClosure (ZMod 3))) ∈ G ∧ 24 ∣ Nat.card G ∧
       (padicValNat 3 (Nat.card G) = 1 ∨ 720 ≤ Nat.card G) := sorry
 
-/-! ## Finite flat group schemes (stand-ins for R07.1, on Tau Ceti's category) -/
+/-- The diagonal-ratio convention sends the unipotent entry `1` to `-1` under `diag(-1,1)`. -/
+example : (!![-1, 0; 0, 1] : Matrix (Fin 2) (Fin 2) (ZMod 3)) *
+    !![1, 1; 0, 1] * !![-1, 0; 0, 1] = !![1, -1; 0, 1] := by decide
 
-section GroupSchemes
-
-/-- Finite flat commutative group schemes over `R` (Tau Ceti). -/
-abbrev FFGroupSchemeOver (R : Type) [CommRing R] :=
-  TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat (CommRingCat.of R)
-
-/-- Finite flat commutative group schemes over `ℤ`. -/
-abbrev FFGroupScheme := FFGroupSchemeOver ℤ
-
-/-- Finite flat commutative group schemes over `ℤ[1/l]`. -/
-abbrev FFGroupSchemeAway (l : ℕ) := FFGroupSchemeOver (Localization.Away (l : ℤ))
-
-/-- `ℤ[1/l] → ℚ`; with Mathlib's instances it also makes `ℚ̄` a `ℤ[1/l]`-algebra. -/
-instance algebraAwayRat (l : ℕ) [NeZero l] : Algebra (Localization.Away (l : ℤ)) ℚ :=
-  (IsLocalization.Away.lift (l : ℤ) (g := Int.castRingHom ℚ)
-    (isUnit_iff_ne_zero.mpr (by simpa using NeZero.ne l))).toAlgebra
-
-variable {R : Type} [CommRing R]
-
-/-- The coordinate Hopf algebra of `G` (Tau Ceti). -/
-abbrev coordinateRing (G : FFGroupSchemeOver R) :
-    TauCeti.FiniteLocallyFreeBicommutativeHopfAlgCat R :=
-  TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.coordinateHopfAlgebra R G
-
-/-- The order of `G`: the rank of its coordinate algebra. -/
-def order (G : FFGroupSchemeOver R) : ℕ := Module.finrank R (coordinateRing G)
-
-/-- `G` is killed by `n`: the `n`-th convolution power of the identity of the coordinate Hopf
-algebra is the counit. -/
-def IsKilledBy (G : FFGroupSchemeOver R) (n : ℕ) : Prop :=
-  WithConv.toConv (AlgHom.id R (coordinateRing G)) ^ n = 1
-
-/-- The underlying morphism of schemes. -/
-abbrev schemeHom {G H : FFGroupSchemeOver R} (f : G ⟶ H) :
-    G.obj.obj.X.left ⟶ H.obj.obj.X.left :=
-  f.hom.hom.hom.hom.left
-
-/-- No closed flat subgroup schemes other than `0` and `G`. -/
-def IsSimpleGroupScheme (G : FFGroupSchemeOver R) : Prop :=
-  ∀ (M : FFGroupSchemeOver R) (i : M ⟶ G), IsClosedImmersion (schemeHom i) →
-    order M = 1 ∨ IsIso i
-
-/-- `G` is étale over the base. -/
-def IsEtaleGroupScheme (G : FFGroupSchemeOver R) : Prop := Etale G.obj.obj.X.hom
-
-/-- `G` is constant: isomorphic to Tau Ceti's constant group scheme of a finite abelian group. -/
-def IsConstantGroupScheme (G : FFGroupSchemeOver R) : Prop :=
-  ∃ (Γ : Type) (_ : CommGroup Γ) (_ : Finite Γ),
-    Nonempty (G.obj.obj ≅ TauCeti.ConstantGroup.groupScheme R Γ)
-
-/-- `G` is diagonalizable: its Cartier dual is constant. -/
-def IsDiagonalizableGroupScheme (G : FFGroupSchemeOver R) : Prop :=
-  IsConstantGroupScheme (TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual R G)
-
-/-- The constant group scheme `ℤ/nℤ` over `R` (the membership proofs are true claims). -/
-def zModScheme (R : Type) [CommRing R] (n : ℕ) [NeZero n] : FFGroupSchemeOver R :=
-  ⟨⟨TauCeti.ConstantGroup.groupScheme R (Multiplicative (ZMod n)), sorry⟩, sorry⟩
-
-/-- The group scheme `μ_n` over `R` (the membership proofs are true claims). -/
-def muScheme (R : Type) [CommRing R] (n : ℕ) [NeZero n] : FFGroupSchemeOver R :=
-  ⟨⟨TauCeti.RootsOfUnityGroup.groupScheme R n, sorry⟩, sorry⟩
-
-/-- `0 → M → G → C → 0` is exact: `M` is the scheme-theoretic kernel of `q`, and `q` is
-faithfully flat. -/
-def IsShortExact {M G C : FFGroupSchemeOver R} (i : M ⟶ G) (q : G ⟶ C) : Prop :=
-  IsPullback i.hom.hom.hom.hom (CartesianMonoidalCategory.toUnit M.obj.obj.X)
-      q.hom.hom.hom.hom η[C.obj.obj.X] ∧
-    Flat (schemeHom q) ∧ Surjective (schemeHom q)
-
-/-- Every extension `0 → B → E → A → 0` splits. -/
-def Ext1Vanishes (A B : FFGroupSchemeOver R) : Prop :=
-  ∀ (E : FFGroupSchemeOver R) (i : B ⟶ E) (q : E ⟶ A), IsShortExact i q →
-    ∃ s : A ⟶ E, s ≫ q = 𝟙 A
-
-/-- `G` has a filtration whose successive quotients are isomorphic to `A`. -/
-inductive IsIteratedExtensionOf (A : FFGroupSchemeOver R) : FFGroupSchemeOver R → Prop
-  | trivial (G : FFGroupSchemeOver R) : order G = 1 → IsIteratedExtensionOf A G
-  | extension {M G C : FFGroupSchemeOver R} (i : M ⟶ G) (q : G ⟶ C) :
-      IsShortExact i q → IsIteratedExtensionOf A M → Nonempty (C ≅ A) →
-        IsIteratedExtensionOf A G
-
-variable [Algebra R ℚ]
-
-/-- The points `G(ℚ̄)`, a commutative group under convolution (Tau Ceti). -/
-abbrev points (G : FFGroupSchemeOver R) :=
-  WithConv (coordinateRing G →ₐ[R] AlgebraicClosure ℚ)
-
-/-- The action of `G_ℚ` on `G(ℚ̄)`. -/
-def galoisAct (G : FFGroupSchemeOver R) (σ : Field.absoluteGaloisGroup ℚ) (x : points G) :
-    points G :=
-  WithConv.toConv (((galAut σ).toAlgHom.restrictScalars R).comp x.ofConv)
-
-/-- The field `ℚ(G(ℚ̄))` generated by the coordinates of the points of `G`. -/
-def torsionField (G : FFGroupSchemeOver R) : IntermediateField ℚ (AlgebraicClosure ℚ) :=
-  IntermediateField.adjoin ℚ
-    {x | ∃ f : coordinateRing G →ₐ[R] AlgebraicClosure ℚ, x ∈ Set.range f}
-
-/-- The points generate a number field. A true claim, proved by `sorry`. -/
-instance numberField_torsionField (G : FFGroupSchemeOver R) : NumberField (torsionField G) :=
-  sorry
-
-end GroupSchemes
-
-/-! ## R25.1 — the torsion-field bound -/
-
-/-- Fontaine's bound over `ℤ` (the case `N = 1`): `rd_L < p^{1 + 1/(p − 1)}` for the field of
-points of a finite flat group scheme killed by `p`. -/
-theorem rootDiscr_torsionField_lt (p : ℕ) [Fact p.Prime] (G : FFGroupScheme)
-    (hG : IsKilledBy G p) :
-    rootDiscr (torsionField G) < (p : ℝ) ^ ((1 : ℝ) + 1 / ((p : ℝ) - 1)) := sorry
-
-/-- Part (i) over `ℤ[1/N]`: `δ(L_λ) < 1 + 1/(p − 1)` at every prime `λ` of `L = ℚ(G(ℚ̄))`
-above `p`. (Part (ii), with the tame factors at `ℓ ∣ N`, is not stated.) -/
-theorem localRootDiscrExp_torsionField_lt (p N : ℕ) [Fact p.Prime] [NeZero N]
-    (hpN : p.Coprime N) (G : FFGroupSchemeAway N) (hG : IsKilledBy G p) (E : Type*) [Field E]
-    [Algebra ℚ_[p] E] [FiniteDimensional ℚ_[p] E] (hE : IsCompletionAbove (torsionField G) p E) :
-    localRootDiscrExp p E < 1 + 1 / ((p : ℚ) - 1) := sorry
-
-/-! ## R25.3 — Fontaine's theorem -/
+/-! ## Layer 3: Fontaine's theorem -/
 
 section Fontaine
 
 open TauCeti.AlgebraicGeometry
 
-/-- R11.1 (stand-in): `A` extends to an abelian scheme over `ℤ`, i.e. a smooth proper group
+/-- `A` extends to an abelian scheme over `ℤ`, i.e. a smooth proper group
 scheme over `ℤ` with generic fibre `A`; equivalently, good reduction at every prime. -/
 def HasGoodReductionEverywhere (A : AbelianVariety ℚ) : Prop :=
   ∃ (X : Over (Spec (.of ℤ))) (_ : GrpObj X), IsProper X.hom ∧ Smooth X.hom ∧
     Nonempty ((Over.pullback (Spec.map (CommRingCat.ofHom (algebraMap ℤ ℚ)))).obj X ≅
       A.toOver)
 
+/-- Every finite étale commutative group scheme over `ℤ` is constant. -/
 theorem isConstant_of_etale_over_int (G : FFGroupScheme) (hG : IsEtaleGroupScheme G) :
     IsConstantGroupScheme G := sorry
 
+/-- A two-ramified Galois field with root discriminant below four has a two-group as Galois group. -/
 theorem isPGroup_two_of_rootDiscr_lt_four (L : IntermediateField ℚ (AlgebraicClosure ℚ))
     [NumberField L] [IsGalois ℚ L]
     (hL : ∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 2 → ¬ (ℓ : ℤ) ∣ discr L)
@@ -1015,16 +684,18 @@ theorem simple_two_groupScheme_over_int (G : FFGroupScheme) (h2 : ∃ k, order G
 /-- Every extension `0 → ℤ/2ℤ → E → μ₂ → 0` over `ℤ` splits. -/
 theorem ext_muTwo_zModTwo_eq_zero : Ext1Vanishes (muScheme ℤ 2) (zModScheme ℤ 2) := sorry
 
+/-- A finite flat two-group scheme over `ℤ` has a diagonalizable subobject and constant quotient. -/
 theorem exists_diagonalizable_constant_filtration (G : FFGroupScheme)
     (h2 : ∃ k, order G = 2 ^ k) :
     ∃ (M C : FFGroupScheme) (i : M ⟶ G) (q : G ⟶ C), IsShortExact i q ∧
       IsDiagonalizableGroupScheme M ∧ IsConstantGroupScheme C ∧
       order M * order C = order G := sorry
 
-/-- A6 (stand-in): the number of `k`-rational points of `A`. -/
+/-- the number of `k`-rational points of `A`. -/
 def numPoints {k : Type} [Field k] (A : AbelianVariety k) : ℕ :=
   Nat.card (Over.mk (𝟙 (Spec (.of k))) ⟶ A.toOver)
 
+/-- Isogenous abelian varieties over a finite field have the same number of rational points. -/
 theorem card_points_eq_of_isogeny {k : Type} [Field k] [Fintype k] {A B : AbelianVariety k}
     (f : A ⟶ B) (hf : AbelianVariety.IsIsogeny f) : numPoints A = numPoints B := sorry
 
@@ -1034,7 +705,7 @@ theorem dim_eq_zero_of_goodReduction_everywhere (A : AbelianVariety ℚ)
 
 end Fontaine
 
-/-! ## R25.4 — Schoof's category `D(p, l)` and the field criterion -/
+/-! ## Layer 4: Schoof's category `D(p, l)` and the field criterion -/
 
 section Schoof
 
@@ -1045,25 +716,32 @@ def SemistableCategory (p l : ℕ) [NeZero l] : ObjectProperty (FFGroupSchemeAwa
     ∀ σ ∈ inertiaAbove l, ∀ x : points G,
       galoisAct G σ (galoisAct G σ x) * (galoisAct G σ x)⁻¹ ^ 2 * x = 1
 
-variable {p l : ℕ} [Fact p.Prime] [Fact l.Prime]
+variable {p l : ℕ} [hpPrime : Fact p.Prime] [hlPrime : Fact l.Prime]
 
+include hpPrime hlPrime
+
+/-- Closed flat subobjects and quotients inherit the inertia square-zero condition. -/
 theorem SemistableCategory.subobject {M G C : FFGroupSchemeAway l} (i : M ⟶ G) (q : G ⟶ C)
     (h : IsShortExact i q) (hG : SemistableCategory p l G) :
     SemistableCategory p l M ∧ SemistableCategory p l C := sorry
 
+/-- Finite products inherit the inertia square-zero condition. -/
 theorem SemistableCategory.prod {G G' P : FFGroupSchemeAway l} (π₁ : P ⟶ G) (π₂ : P ⟶ G')
     (hP : IsLimit (BinaryFan.mk π₁ π₂)) (hG : SemistableCategory p l G)
     (hG' : SemistableCategory p l G') : SemistableCategory p l P := sorry
 
+/-- At distinct primes, Cartier duality preserves the inertia square-zero condition. -/
 theorem SemistableCategory.cartierDual (hpl : p ≠ l) {G : FFGroupSchemeAway l}
     (hG : SemistableCategory p l G) :
     SemistableCategory p l
       (TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual _ G) := sorry
 
+/-- Inertia acts trivially after the power killing the geometric point module. -/
 theorem SemistableCategory.inertia_pow {G : FFGroupSchemeAway l} (hG : SemistableCategory p l G)
     {k : ℕ} (hk : IsKilledBy G (p ^ k)) :
     ∀ σ ∈ inertiaAbove l, ∀ x : points G, galoisAct G (σ ^ p ^ k) x = x := sorry
 
+/-- An extension with inertia-trivial endpoints has inertia square zero. -/
 theorem SemistableCategory.of_extension {G₂ G G₁ : FFGroupSchemeAway l} (i : G₂ ⟶ G)
     (q : G ⟶ G₁) (h : IsShortExact i q) (hord : ∃ k, order G = p ^ k)
     (h₁ : ∀ σ ∈ inertiaAbove l, ∀ x : points G₁, galoisAct G₁ σ x = x)
@@ -1083,7 +761,11 @@ example (hpl : p ≠ l) (G : FFGroupSchemeAway l) (i : muScheme _ p ⟶ G)
 
 /- The two concrete integral examples `not_mem_semistableCategory_quadratic_twist` and
 `X0_eleven_two_torsion_mem` are specified, with their absent construction interfaces, in the
-header. No existence assertion about an unidentified group scheme substitutes for them. -/
+closing comment. -/
+
+/-- A length-three unipotent extension fails inertia square zero, so trivial endpoints matter. -/
+example : ((!![1, 1, 0; 0, 1, 1; 0, 0, 1] : Matrix (Fin 3) (Fin 3) (ZMod 3)) - 1) ^ 2 ≠ 0 :=
+  by decide
 
 /-- Étale `p`-group schemes over `ℤ[1/l]` that are iterated extensions of `ℤ/pℤ`: `G_ℚ` acts on
 their points through `Gal(ℚ(ζ_l)/ℚ)`, so they become constant over `ℤ[1/l, ζ_l]`. -/
@@ -1207,13 +889,13 @@ theorem fieldCriterion_seven_three : FieldCriterion 7 3 := sorry
 /-- `(l, p) = (13, 2)`: `M = ℚ(i, √13)`. -/
 theorem fieldCriterion_thirteen_two : FieldCriterion 13 2 := sorry
 
-/-! ## R25.5 — GL₂-type abelian varieties and the terminal weights -/
+/-! ## Layer 5: GL₂-type abelian varieties and the terminal weights -/
 
 section Terminal
 
 open TauCeti.AlgebraicGeometry
 
-/-- A6 (stand-in): `End⁰(A) = ℚ ⊗ End(A)`, on Tau Ceti's `AbelianVariety.End`. -/
+/-- `End⁰(A) = ℚ ⊗ End(A)`, on Tau Ceti's `AbelianVariety.End`. -/
 abbrev endZeroAlgebra {F : Type} [Field F] (A : AbelianVariety F) : Type :=
   ℚ ⊗[ℤ] A.End
 
@@ -1229,7 +911,7 @@ theorem IsGL2Type.isogeny {F : Type} [Field F] [NumberField F] {A B : AbelianVar
     (h : IsGL2Type A K) : IsGL2Type B K := sorry
 
 /-- Base change to a finite extension `F'/F` keeps the GL₂(K)-type (the statement about `V_λ`
-is in the header block). -/
+is in the closing comment). -/
 theorem IsGL2Type.baseChange {F : Type} [Field F] [NumberField F] {A : AbelianVariety F}
     {K : Type} [Field K] [NumberField K] (h : IsGL2Type A K) (F' : Type) [Field F']
     [NumberField F'] [Algebra F F'] : IsGL2Type (A.baseChange F') K := sorry
@@ -1238,7 +920,7 @@ theorem IsGL2Type.baseChange {F : Type} [Field F] [NumberField F] {A : AbelianVa
 example (A : AbelianVariety ℚ) (hA : A.dim = 1) : IsGL2Type A ℚ := sorry
 
 /- `isGL2Type_J0_23` needs the actual modular Jacobian and its Hecke action, as specified in
-the header. An unspecified abelian surface is not a computation on `J₀(23)`. -/
+the closing comment.  -/
 
 /-- `not_isGL2Type_prod_rat` (non-example): a surface such as `E × E` is not of GL₂(ℚ)-type. -/
 example (A : AbelianVariety ℚ) (hA : A.dim = 2) : ¬ IsGL2Type A ℚ := sorry
@@ -1247,52 +929,16 @@ example (A : AbelianVariety ℚ) (hA : A.dim = 2) : ¬ IsGL2Type A ℚ := sorry
 example (A : AbelianVariety ℚ) (hA : A.dim = 0) (K : Type) [Field K] [NumberField K] :
     ¬ IsGL2Type A K := sorry
 
-/-- Class number one for `ℚ(√−p)`, `p ∈ {3, 7, 11, 19, 43, 67, 163}`. -/
+/-- Class number one for the six non-cyclotomic quadratic cases `p ∈ {7,11,19,43,67,163}`. -/
 theorem classNumber_sqrt_neg_prime_eq_one :
-    ∀ p ∈ ({3, 7, 11, 19, 43, 67, 163} : Finset ℕ), ∀ (K : Type) [Field K] [NumberField K]
+    ∀ p ∈ ({7, 11, 19, 43, 67, 163} : Finset ℕ), ∀ (K : Type) [Field K] [NumberField K]
       [IsSplittingField ℚ K (X ^ 2 + C (p : ℚ))], classNumber K = 1 := sorry
-
-/-- R15.4 (placeholder): Serre's weight `k(ρ̄)` of `ρ̄` itself, not normalised by a twist. -/
-def serreWeight {F : Type*} [Field F] [Fintype F] [TopologicalSpace F] (ρ : ResidualRep F) :
-    ℕ := sorry
 
 variable {F : Type*} [Field F] [Fintype F] [TopologicalSpace F] [DiscreteTopology F]
 
 /-- Snowden's (A1) for a residual representation: absolutely irreducible on `G_{ℚ(ζ_p)}`. -/
 def SatisfiesA1Residual (p : ℕ) (ρ : ResidualRep F) : Prop :=
   IsIrreducibleSubgroup (imageOver ρ (cyclotomicSubfield p).fixingSubgroup)
-
-/-- Wintenberger: (A1) holds for a level-one `ρ̄` when `p ≡ 1 (mod 4)`, or `p` is one of the
-seven primes with `h(ℚ(√−p)) = 1`, or no twist of `ρ̄` has weight `(p + 1)/2`. -/
-theorem levelOne_dihedral_classification (p : ℕ) [Fact p.Prime] (hp2 : p ≠ 2) [CharP F p]
-    (ρ : ResidualRep F) (hρ : IsLevelOneResidual p ρ)
-    (h : p % 4 = 1 ∨ p ∈ ({3, 7, 11, 19, 43, 67, 163} : Finset ℕ) ∨
-      ∀ i : ℕ, 2 * serreWeight (twist ρ (modCyclotomicCharacter p F ^ i)) ≠ p + 1) :
-    SatisfiesA1Residual p ρ := sorry
-
-/-- No level-one residual representation of Serre weight `2`. -/
-theorem not_levelOne_weight_two (p : ℕ) [Fact p.Prime] [CharP F p] (ρ : ResidualRep F)
-    (hρ : IsLevelOneResidual p ρ) : serreWeight ρ ≠ 2 := sorry
-
-/-- No level-one representation of weight `p + 1` for `p ∈ {5, 7, 13}` (Schoof). -/
-theorem not_levelOne_weight_succ_of_schoofPrime (p : ℕ) (hp : p ∈ ({5, 7, 13} : Finset ℕ))
-    [CharP F p] (ρ : ResidualRep F) (hρ : IsLevelOneResidual p ρ) : serreWeight ρ ≠ p + 1 :=
-  sorry
-
-/-- At `p = 11`, weight `14` is a twist of weight `2` except for one local type: either
-`k(ρ̄ ⊗ ω⁻¹) = 2` (cases (a)–(c)), or `k(ρ̄ ⊗ ω⁻¹) = 22` and `k(ρ̄ ⊗ ω⁻²) = 10` (case (d), which
-no node of R25 excludes). The case split on `ρ̄|I₁₁` needs inertia types and is not stated. -/
-theorem weight_fourteen_eleven_twist [Fact (Nat.Prime 11)] [CharP F 11] (ρ : ResidualRep F)
-    (hρ : IsLevelOneResidual 11 ρ) (hk : serreWeight ρ = 14) :
-    serreWeight (twist ρ (modCyclotomicCharacter 11 F)⁻¹) = 2 ∨
-      (serreWeight (twist ρ (modCyclotomicCharacter 11 F)⁻¹) = 22 ∧
-        serreWeight (twist ρ ((modCyclotomicCharacter 11 F)⁻¹ ^ 2)) = 10) := sorry
-
-/-- Khare–Wintenberger: no level-one representation with `2 ≤ k(ρ̄) ≤ 8`, or with `k(ρ̄) = 14`
-and `p ≠ 11`. -/
-theorem not_levelOne_small_weight (p : ℕ) [Fact p.Prime] [CharP F p] (ρ : ResidualRep F)
-    (hρ : IsLevelOneResidual p ρ) :
-    ¬ (2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ 8) ∧ (p ≠ 11 → serreWeight ρ ≠ 14) := sorry
 
 open scoped MatrixGroups in
 /-- Check: the terminal weights `2, 4, 6, 8` carry no level-one cusp forms (Mathlib). -/
@@ -1305,11 +951,10 @@ example : Module.rank ℂ (CuspForm 𝒮ℒ 14) = 0 := sorry
 
 end Terminal
 
-/-! ## R25.6 — the base-case table -/
+/-! ## Layer 6: the base-case table -/
 
 /-- One row of the base-case table. The theorem a row asserts is `BaseCaseRow.statement`, the
-name of its proving declaration (not a `Prop`-valued field); `baseCases_holds` states the rows
-whose statements can be written at the baseline. -/
+name of its proving declaration (not a `Prop`-valued field). -/
 structure BaseCaseRow where
   /-- The residual characteristics covered (empty for the abelian-variety rows). -/
   characteristics : Set ℕ
@@ -1329,71 +974,70 @@ structure BaseCaseRow where
   /-- The proving declaration. -/
   statement : Lean.Name
 
-/-- The nine rows. The degenerate branches (soluble image: R17.5, R17.6; residually reducible:
-R21.5; failure of (A1) away from level one: R27.1, R33.2) are recorded in the roadmap document. -/
+/-- The nine arithmetic base-case rows, with their exact characteristic and weight sets. -/
 def baseCases : List BaseCaseRow :=
   [ { characteristics := {2}, weights := fun _ => Set.univ, levelOne := true, oddness := false,
       badPrimes := none, imageCondition := "absolutely irreducible",
       coefficientCondition := "finite, char 2",
-      supplier := "R25.2/tate-theorem", consumer := "R26 (initial characteristic); DP23 Thm 1.1",
+      supplier := "tate_no_levelOne_char_two", consumer := "ClassicalSerreModularity, initial characteristic; DP23 Thm 1.1",
       localCheck := "unramified outside 2; determinant oddness is automatic",
-      statement := `TauCeti.SmallRamification.tate_no_levelOne_char_two },
+      statement := `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases.tate_no_levelOne_char_two },
     { characteristics := {3}, weights := fun _ => Set.univ, levelOne := true, oddness := true,
       badPrimes := none, imageCondition := "absolutely irreducible",
       coefficientCondition := "finite, char 3",
-      supplier := "R25.2/serre-mod-three-theorem", consumer := "R26; R33.4 (3-adic members)",
+      supplier := "serre_no_levelOne_char_three", consumer := "ClassicalSerreModularity; ClassicalSerreModularity, terminal compatible systems (3-adic members)",
       localCheck := "odd and unramified outside 3",
-      statement := `TauCeti.SmallRamification.serre_no_levelOne_char_three },
-    { characteristics := ∅, weights := fun _ => ∅, levelOne := true, oddness := false,
+      statement := `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases.serre_no_levelOne_char_three },
+    { characteristics := ∅, weights := fun _ => ∅, levelOne := false, oddness := false,
       badPrimes := some ∅, imageCondition := "abelian variety over ℚ",
-      coefficientCondition := "every dimension", supplier := "R25.3/fontaine-theorem",
-      consumer := "R26.5 (weight 2 at level one)", localCheck := "good reduction everywhere",
-      statement := `TauCeti.SmallRamification.dim_eq_zero_of_goodReduction_everywhere },
+      coefficientCondition := "every dimension", supplier := "dim_eq_zero_of_goodReduction_everywhere",
+      consumer := "ClassicalSerreModularity, weight induction (weight 2 at level one)", localCheck := "good reduction everywhere",
+      statement := `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases.dim_eq_zero_of_goodReduction_everywhere },
     { characteristics := ∅, weights := fun _ => ∅, levelOne := false, oddness := false,
       badPrimes := some {2, 3, 5, 7, 13}, imageCondition := "semistable abelian variety over ℚ",
-      coefficientCondition := "every dimension", supplier := "R25.4/schoof-theorem",
-      consumer := "R26.5 (weights p + 1, p ∈ {5, 7, 13}); R33.4 (l = 5)",
+      coefficientCondition := "every dimension", supplier := "no_semistable_abelianVariety_one_prime",
+      consumer := "ClassicalSerreModularity, weight induction (weights p + 1, p ∈ {5, 7, 13}); ClassicalSerreModularity, terminal compatible systems (l = 5)",
       localCheck := "semistable at l",
-      statement := `TauCeti.SmallRamification.no_semistable_abelianVariety_one_prime },
+      statement := `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases.no_semistable_abelianVariety_one_prime },
     { characteristics := {p | p.Prime}, weights := fun _ => {2}, levelOne := true,
       oddness := true, badPrimes := none, imageCondition := "absolutely irreducible",
-      coefficientCondition := "finite", supplier := "R25.5/weight-two-level-one-excluded",
-      consumer := "R26.5", localCheck := "Serre weight at p",
-      statement := `TauCeti.SmallRamification.not_levelOne_weight_two },
+      coefficientCondition := "finite", supplier := "not_levelOne_weight_two",
+      consumer := "ClassicalSerreModularity, weight induction", localCheck := "Serre weight at p",
+      statement := `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases.not_levelOne_weight_two },
     { characteristics := {5, 7, 13}, weights := fun p => {p + 1}, levelOne := true,
       oddness := true, badPrimes := none, imageCondition := "absolutely irreducible",
       coefficientCondition := "finite",
-      supplier := "R25.5/weight-p-plus-one-excluded-at-schoof-primes", consumer := "R26.5",
+      supplier := "not_levelOne_weight_succ_of_schoofPrime", consumer := "ClassicalSerreModularity, weight induction",
       localCheck := "Serre weight at p",
-      statement := `TauCeti.SmallRamification.not_levelOne_weight_succ_of_schoofPrime },
+      statement := `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases.not_levelOne_weight_succ_of_schoofPrime },
     { characteristics := {3, 5, 7, 13}, weights := fun p => if p = 3 then {2, 4} else {p + 1},
       levelOne := true, oddness := true, badPrimes := none,
       imageCondition := "irreducible p-adic representation with reducible reduction",
       coefficientCondition := "crystalline p-adic, Hodge–Tate weights {0, k - 1}",
-      supplier := "R25.5/ordinary-reducible-terminal-weights", consumer := "R33.4 (p = 3); R26.5",
+      supplier := "no_levelOne_crystalline_of_reducible_terminal", consumer := "ClassicalSerreModularity, terminal compatible systems (p = 3); ClassicalSerreModularity, weight induction",
       localCheck := "ordinary and p-distinguished at p",
-      statement := `TauCeti.SmallRamification.no_levelOne_crystalline_of_reducible_terminal },
+      statement := `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases.no_levelOne_crystalline_of_reducible_terminal },
     { characteristics := {p | p.Prime},
       weights := fun p => Set.Icc 2 8 ∪ (if p = 11 then ∅ else {14}), levelOne := true,
       oddness := true, badPrimes := none, imageCondition := "absolutely irreducible",
-      coefficientCondition := "finite", supplier := "R25.5/small-weight-level-one-exclusion",
-      consumer := "R26.5", localCheck := "Serre weight of ρ̄ itself",
-      statement := `TauCeti.SmallRamification.not_levelOne_small_weight },
+      coefficientCondition := "finite", supplier := "not_levelOne_small_weight",
+      consumer := "ClassicalSerreModularity, weight induction", localCheck := "Serre weight of ρ̄ itself",
+      statement := `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases.not_levelOne_small_weight },
     { characteristics := {5}, weights := fun _ => {2, 4, 6}, levelOne := true, oddness := true,
       badPrimes := none, imageCondition := "irreducible, (A1)",
       coefficientCondition := "almost strictly compatible system",
-      supplier := "R25.5/paso-six-terminal-cases", consumer := "R33.4",
+      supplier := "paso_six", consumer := "ClassicalSerreModularity, terminal compatible systems",
       localCheck := "minimal crystalline lift at 5",
-      statement := `TauCeti.SmallRamification.paso_six } ]
+      statement := `TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases.paso_six } ]
 
 /-- The Schoof row's prime set is exactly `{2, 3, 5, 7, 13}`. -/
 theorem baseCases_schoof_primes :
-    ∃ r ∈ baseCases, r.supplier = "R25.4/schoof-theorem" ∧ r.badPrimes = some {2, 3, 5, 7, 13} :=
+    ∃ r ∈ baseCases, r.supplier = "no_semistable_abelianVariety_one_prime" ∧ r.badPrimes = some {2, 3, 5, 7, 13} :=
   sorry
 
 /-- `baseCases_schoof_primes` (computation): the Schoof row's prime set is `{2, 3, 5, 7, 13}`;
 `11` is not in it, which a table with "all primes at most 13" would get wrong (`J₀(11)`). -/
-example : ∀ r ∈ baseCases, r.supplier = "R25.4/schoof-theorem" →
+example : ∀ r ∈ baseCases, r.supplier = "no_semistable_abelianVariety_one_prime" →
     r.badPrimes = some {2, 3, 5, 7, 13} ∧ ∀ s, r.badPrimes = some s → 11 ∉ s := sorry
 
 /-- `baseCases_tate_no_oddness` (degenerate): the `p = 2` row carries no oddness hypothesis. -/
@@ -1414,21 +1058,40 @@ example : ∃ r₁ ∈ baseCases, ∃ r₂ ∈ baseCases, r₁.badPrimes = some 
 example : ∀ r ∈ baseCases, r.levelOne = true → 11 ∈ r.characteristics → 14 ∉ r.weights 11 :=
   sorry
 
-open TauCeti.AlgebraicGeometry in
-/-- Every row of the table holds: the conjunction of the row statements that can be written at
-the baseline (rows 1, 2, 3, 5, 6 and 8). Rows 4, 7 and 9 need the declarations listed in the
-header block. -/
-theorem baseCases_holds :
-    (∀ (F : Type) [Field F] [Fintype F] [TopologicalSpace F] [DiscreteTopology F] [CharP F 2]
-        (ρ : ResidualRep F), (∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 2 → IsUnramifiedAt ℓ ρ) →
-          ¬ IsAbsolutelyIrreducible ρ) ∧
-      (∀ (F : Type) [Field F] [Fintype F] [TopologicalSpace F] [DiscreteTopology F] [CharP F 3]
-        (ρ : ResidualRep F), ¬ IsLevelOneResidual 3 ρ) ∧
-      (∀ A : AbelianVariety ℚ, HasGoodReductionEverywhere A → A.dim = 0) ∧
-      (∀ (p : ℕ) [Fact p.Prime] (F : Type) [Field F] [Fintype F] [TopologicalSpace F]
-        [DiscreteTopology F] [CharP F p] (ρ : ResidualRep F), IsLevelOneResidual p ρ →
-          serreWeight ρ ≠ 2 ∧ (p ∈ ({5, 7, 13} : Finset ℕ) → serreWeight ρ ≠ p + 1) ∧
-          ¬ (2 ≤ serreWeight ρ ∧ serreWeight ρ ≤ 8) ∧ (p ≠ 11 → serreWeight ρ ≠ 14)) :=
-  sorry
+end TauCetiRoadmap.SmallRamificationAndAbelianVarietyBaseCases
 
-end TauCeti.SmallRamification
+/-
+Signatures requiring further supplier interfaces:
+* `localRootDiscrExp`, its API statements and five field computations, the local-to-global
+  root-discriminant identities, the wild Borel normal form, and the characteristic-two and
+  characteristic-three different bounds: compatible valued-field different/index and finite
+  upper-ramification interfaces from LocalFieldsRamification. Current Tau Ceti's native local
+  invariants are the intended suppliers, not arbitrary functions on field types.
+* `unitFiltration_two_le_map_pow_three`, `unitFiltration_pow_three_of_ramificationIndex_eq_two`
+  and the critical cubic graded index: the same ramification-index/valuation comparison.
+* `localRootDiscrExp_torsionField_lt`: the compatible completion interface and local
+  invariants. Its global `N = 1` specialisation appears above.
+* `torsion_mem_semistableCategory`, `no_semistable_of_simple_and_ext`, and
+  `no_semistable_abelianVariety_one_prime`: semistable reduction, the integral abelian scheme,
+  and its finite flat multiplication kernels (NeronModelsAndSemistableAbelianVarieties and
+  AbelianSchemesAndArithmeticModuli).
+* `IsGL2Type.lambdaAdicRep`, `finrank_lambdaAdicRep`, `free_tateModule`, `ComesFromGL2Type`,
+  `comesFromGL2Type_of_restrict`, and the representation parts of `isogeny` and `baseChange`:
+  rational Tate modules with commuting endomorphism actions and scalar extension.
+* `comesFromGL2Type_of_weightTwo`, `reduction_of_comesFromGL2Type`,
+  `no_levelOne_crystalline_of_reducible_terminal`, and `paso_six`: de Rham/crystalline/
+  semistable representations, Weil–Deligne types and almost strictly compatible systems.
+* `levelOne_dihedral_classification`, `not_levelOne_weight_two`,
+  `not_levelOne_weight_succ_of_schoofPrime`, `weight_fourteen_eleven_twist`,
+  `not_levelOne_small_weight`, and `baseCases_holds`: the actual local Serre-weight recipe,
+  together with the preceding geometric and compatible-system interfaces.
+* `not_mem_semistableCategory_quadratic_twist`: finite étale descent of the explicitly specified
+  one-dimensional character of `ℚ(√−7)` over `ℤ[1/7]`; the nontrivial inertia element acts by
+  `-1`, and `(-1-1)^2 = 1` in `𝔽₃`.
+* `X0_eleven_two_torsion_mem`: the integral model of the actual `J₀(11)` and its finite flat
+  multiplication-by-two kernel. Its required order is four, with simplicity and membership
+  in `D(2,11)`; the geometric point representation above does not provide the integral model.
+* `isGL2Type_J0_23`: the actual modular curve and Jacobian, and its rational Hecke embedding
+  `ℚ(√5) → End⁰_ℚ(J₀(23))`; the required dimension is two. ModularCurves, JacobianChallenge
+  and the geometric Hecke-action interface supply these constructions.
+-/
