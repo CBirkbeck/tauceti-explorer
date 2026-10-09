@@ -30854,7 +30854,7 @@
     "REV-RS-29"
    ],
    "prompt": "research/blueprint/prompts/BP-InverseGaloisAndArithmeticFundamentalGroups.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [
     "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
     "BP-AlgebraicModuliForArithmeticGeometry--R09.7a",
@@ -30862,7 +30862,7 @@
     "BP-FoundationsAndLibraryIntegration",
     "BP-SchemeAndStackFoundations"
    ],
-   "note": "released on GitHub issue #1013"
+   "note": "claimed on GitHub issue #1013"
   },
   {
    "id": "REV-InverseGaloisAndArithmeticFundamentalGroups",
@@ -105122,9 +105122,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidSpaces~adv.md",
-   "note": "claimed on GitHub issue #8081"
+   "note": "deliverables arrived from an external worker on issue #8081",
+   "finishedAt": "2026-10-09T20:28:11Z"
   },
   {
    "id": "REV-PKG-DerivedDeRhamCohomology~adv",
