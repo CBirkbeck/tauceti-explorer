@@ -542,6 +542,17 @@
     "data/blueprints/AlgebraicModularFormsAndSerreWeights.md"
    ]
   },
+  "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension-2.json": {
+   "promotedAt": "2026-10-09T17:33:19Z",
+   "review": "49d7ec90cc41bd4d",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
+   "sha256": "14ddca4e686a7281d9bc06d822421a132e41b3c628bcf9f6b922b775ddb28f95",
+   "to": [
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension-2.json",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension-2.md"
+   ]
+  },
   "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--A0-extension.json": {
    "promotedAt": "2026-10-05T16:36:51Z",
    "review": "7747f42b3dec9e52",
@@ -551,6 +562,17 @@
    "to": [
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.json",
     "data/blueprints/AlgebraicModuliForArithmeticGeometry--A0-extension.md"
+   ]
+  },
+  "research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.6.json": {
+   "promotedAt": "2026-10-09T17:33:19Z",
+   "review": "5dc07aca99f3e8fb",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.6",
+   "sha256": "b2195857a283dfd2ea9337e05280ab079ebef811f08770172c5436577bb00b36",
+   "to": [
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.6.json",
+    "data/blueprints/AlgebraicModuliForArithmeticGeometry--R09.6.md"
    ]
   },
   "research/blueprint/packets/AnabelianGeometryAndNonabelianChabauty.json": {

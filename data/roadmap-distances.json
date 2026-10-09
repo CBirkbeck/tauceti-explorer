@@ -495,12 +495,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 476,
-     "missingDeclarations": 476,
+     "declarations": 540,
+     "missingDeclarations": 540,
      "depth": 36,
-     "layersCovered": 4,
+     "layersCovered": 5,
      "layers": 12,
-     "sourcePages": 40
+     "sourcePages": 149
     }
    },
    "measurement": 4.05,
