@@ -1,7 +1,93 @@
 # PKG-AdelicAlgebraicGroups — checkpoint
 
-Issue: #7453. Worker: Codex, session `codex-Jw16pG`, 9 October 2026.
-The claim was confirmed by the bot on comment 6072340205.
+Issue: #7453. Current worker: Codex, session `codex-39yEkh`, 9 October 2026.
+The current claim was confirmed by the bot on comment 6079024902.
+The earlier checkpoint was written by Codex, session `codex-Jw16pG`, with
+claim confirmation on comment 6072340205.
+
+## Continuation check, 9 October 2026
+
+This continuation remains **blocked by the mandatory full-file Lean check**.
+It submits a checkpoint; it does not certify a completed package. Only this
+handoff changed. The inherited README and Suggested.lean remain as saved by
+the previous worker, and metadata.toml remains absent.
+
+After checking available memory (111 GB), the current worker ran:
+
+```text
+lean-check research/blueprint/packages/AdelicAlgebraicGroups/Suggested.lean
+```
+
+The helper used the default shared build and confirmed Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`. It exited 1 immediately at line 1:
+the compiled object for `TauCeti.Algebra.AlgebraicGroup.PointsFunctor` is
+missing. No package declaration was elaborated. All eleven imported Tau Ceti
+modules listed below lack compiled objects in that build. Their source files
+are present and byte-for-byte identical to the files at the pinned Tau Ceti
+commit, but the shared checkout's HEAD is
+`cf386627e9176a3827c1a5fe804989fd94a4d216`, rather than the required Tau Ceti
+pin. Matching imported source files alone do not certify a complete pinned
+build or its transitive imports.
+
+A read-only search of existing Lake manifests, through four directory levels
+in the worker account, found two further candidates naming the pinned
+Mathlib revision. Neither has any of these eleven compiled Tau Ceti modules;
+one is the pinned Tau Ceti source baseline without an available Mathlib
+checkout. Other inspected builds with PointsFunctor compiled use different
+Mathlib revisions. No suitable existing build was found. No library was
+built, cache fetched, project created, object copied, source import removed,
+or language server started. There is no running compile.
+
+The unchanged accepted packet was checked again with:
+
+```text
+python3 scripts/check_blueprint.py research/blueprint/packets/AdelicAlgebraicGroups.json
+```
+
+Result: zero errors and zero warnings; 264 nodes, 231 API items, 148 tests,
+18 gaps and 20 supplier requests. This checks packet consistency, not the
+full Lean file or the mathematical content of the inherited package. The
+previous worker's source inspections and prefix compilation below are
+historical evidence; this continuation did not repeat or upgrade them.
+
+### Additional work required by the current upstream order
+
+The current WORKERS.md requires a tier-2 package to cite only the libraries,
+its own earlier layers and lower-tier roadmap packages. The inherited README
+still cites `ModularCurvesPartII:R12.2` in its prerequisite overview and in
+AA.5.3, for the upper-half-plane component theorem. The current order file
+explicitly lists ModularCurvesPartII among this roadmap's upward citations
+that must move down. Consequently the previous resume instructions need an
+additional step before metadata.toml is created:
+
+- Give the analytic congruence-quotient comparison needed for AA.5 its own
+  target and prerequisites in this package, before the GL2 adelic component
+  comparison, and remove the upward supplier citation. Record the actual
+  ownership move here when it is completed, so the higher-tier plan can
+  import it from AA.5.
+- The affected accepted node is
+  `AdelicAlgebraicGroups:AA.5/gl2-upper-half-plane-component`. Its supplier
+  request specifies analytic identifications for Gamma(N), Gamma0 and Gamma1
+  quotients, with the functorial action. Inspect which of these comparisons
+  the AA.5 targets really use; the principal-level example explicitly uses
+  Gamma(N). Preserve the analytic-space statement and its hypotheses where
+  required, rather than replacing it by an unqualified set bijection.
+- Follow this issue's rule that accepted packets cannot be edited. Describe
+  the package's mathematical ownership adjustment here for the maintainer;
+  do not silently change the accepted plan or the higher-tier roadmap.
+
+No ownership move has been performed by this continuation. The inherited
+README therefore still needs this adjustment in addition to full-file Lean
+validation. This handoff must not be read as approving its present supplier
+order.
+
+The immediate external requirement is an already compiled build at both
+required pins with all eleven imports and their transitive dependencies.
+WORKERS.md prohibits the library builds that would otherwise address it.
+Once that build is available, resume with the full-file check, resolve any
+errors without weakening statements, apply the upstream-order adjustment,
+and perform the inherited correspondence/source checks before creating
+metadata.toml and submitting a completed package.
 
 ## Status and blocker
 
