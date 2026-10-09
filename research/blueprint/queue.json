@@ -12131,8 +12131,9 @@
    "after": [],
    "timeout": 28800,
    "prompt": "research/blueprint/prompts/DESIGN-IntegralHeckeAndGaloisDeterminantsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #3383"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #3383",
+   "finishedAt": "2026-10-09T10:26:43Z"
   },
   {
    "id": "REV-DESIGN-IntegralHeckeAndGaloisDeterminantsPartII",
@@ -37096,8 +37097,9 @@
     "DESIGN-PotentialAutomorphyInfrastructurePartII~3"
    ],
    "prompt": "research/blueprint/prompts/REV-DESIGN-PotentialAutomorphyInfrastructurePartII~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7530"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7530",
+   "finishedAt": "2026-10-09T10:26:44Z"
   },
   {
    "kind": "design",
@@ -45729,8 +45731,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdelicAlgebraicGroups.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7453"
+   "state": "external",
+   "note": "claimed on GitHub issue #7453"
   },
   {
    "id": "REV-PKG-AdelicAlgebraicGroups",
