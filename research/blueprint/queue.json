@@ -29972,8 +29972,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.4.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #997"
   },
   {
    "id": "REV-SmoothRepresentationsOfLocalGroups--SR.4",
@@ -42261,8 +42262,9 @@
     "BP-OverconvergentAutomorphicForms--O0~3"
    ],
    "prompt": "research/blueprint/prompts/REV-OverconvergentAutomorphicForms--O0~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7556"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7556",
+   "finishedAt": "2026-10-09T10:07:15Z"
   },
   {
    "kind": "blueprint",
