@@ -123,6 +123,7 @@ The action on a finite projective A-module has a continuous determinant characte
 - `R011Tests.det_line` (computation): det A(χ) = χ, including the cyclotomic character.
 - `R011Tests.det_zero` (degenerate): The zero representation has determinant one.
 - `R011Tests.det_free` (compatibility): In a finite frame its determinant equals Matrix.det of the representing matrix.
+- `R011Tests.det_projective_corner` (non-example): For A=F₃×F₃ and the nonfree finite projective ideal P=(1,0)A, the generator of C₂ acting as −id has determinant (−1,1), while LinearMap.det returns 1 because P has no finite basis.
 
 **Derivation.** Import exterior-power finiteness, projectivity and the invertible top exterior power from AlgebraicVectorBundles L0C. Import the reviewed parent complement determinant for varying rank, and IHG.0 finite-projective-determinant for its constant-rank polynomial-law specialization. Apply their multiplicativity and inverse formulas to get unit values; only joint-continuity and character packaging are added here. In a finite free cover the entries depend continuously on g. Determinants are polynomial in these entries; continuity of the inverse follows from g ↦ g⁻¹.
 
@@ -491,7 +492,7 @@ Let O be the valuation ring of a nonarchimedean local coefficient field E, Λ a 
 
 - `R011Tests.dual_lattice_standard` (computation): The dual of the standard lattice O^n is its standard dual lattice.
 - `R011Tests.dual_lattice_zero` (degenerate): The dual of the zero lattice is zero.
-- `R011Tests.dual_lattice_scaled` (non-example): The dual of cΛ is c⁻¹Λ∨, so scaling the dual by c gives the wrong answer.
+- `R011Tests.dual_lattice_scaled` (non-example): For c∈Eˣ, (cΛ)∨=c⁻¹Λ∨. On the standard one-dimensional lattice, c equal to a uniformizer distinguishes inverse scaling from direct scaling; units need not distinguish them.
 
 **Derivation.** Choose an O-basis of Λ and its dual basis in V∨. Integral values characterize the O-span of the dual basis. Stability follows by evaluating λ on ρ(g⁻¹)Λ. The perfect evaluation pairing identifies generic fibres and reductions and gives biduality.
 
@@ -511,6 +512,8 @@ For a finite-dimensional ContinuousRep over a Hausdorff topological field k and 
 
 **API.**
 
+- `TauCeti.ContinuousRep.submodule_moduleTopology` (compatibility): A finite-dimensional subspace with its subspace topology has the canonical module topology, without an additional instance hypothesis.
+
 - `TauCeti.ContinuousRep.subrep` (constructor): The action on a stable subspace.
 - `TauCeti.ContinuousRep.subrep_apply` (simp): Its inclusion carries g·w to ρ(g)w.
 - `TauCeti.ContinuousRep.subrep_inclusion` (projection): The inclusion is an equivariant linear map.
@@ -522,9 +525,9 @@ For a finite-dimensional ContinuousRep over a Hausdorff topological field k and 
 - `R011Tests.sub_zero` (degenerate): The zero subspace gives rank zero.
 - `R011Tests.sub_full` (compatibility): The whole-space subrepresentation agrees with the original action.
 
-**Derivation.** Use Mathlib Subrepresentation for the algebraic carrier. A finite-dimensional subspace is a direct summand; its subspace topology equals its module topology. Restrict the jointly continuous action.
+**Derivation.** Use Mathlib Subrepresentation for the algebraic carrier. Choose a linear projection splitting the inclusion. The projection is continuous from the canonical module topology, and the inclusion is continuous in the other direction; hence the subspace and module topologies agree. Completeness of the field is unnecessary. Restrict the jointly continuous action.
 
-**Needs.** `semisimplification`, `mathlib:Subrepresentation`, `mathlib:Submodule.closed_of_finiteDimensional`, `refined-continuity-interface`.
+**Needs.** `continuous-representation`, `mathlib:Subrepresentation`, `mathlib:IsModuleTopology.continuous_of_linearMap`, `refined-continuity-interface`.
 
 **Consumer.** ArithmeticGaloisRepresentations:R01.1/refined-composition-factors: Composition series need continuous stable subspaces with the correct module topology.
 
@@ -553,7 +556,7 @@ For a Γ-stable finite-dimensional subspace W⊂V over a Hausdorff topological f
 
 **Derivation.** Use the algebraic quotient Representation.quotient and module quotient maps. The finite-dimensional vector-space quotient map is open; descend the jointly continuous action. The quotient topology is the module topology; identify the kernel with W.
 
-**Needs.** `semisimplification`, `refined-subrepresentation`, `mathlib:IsModuleTopology.instQuot`.
+**Needs.** `continuous-representation`, `refined-subrepresentation`, `mathlib:IsModuleTopology.instQuot`.
 
 **Consumer.** ArithmeticGaloisRepresentations:R01.1/refined-composition-factors: The successive stable subquotients supply the simple factors, without a stable complement.
 
@@ -583,7 +586,7 @@ For a finite-dimensional representation of any monoid Δ over k, choose a compos
 
 **Derivation.** The image of k[Δ] in End_k(V) is finite-dimensional; strictly increasing stable subspaces have bounded length. Use Mathlib CompositionSeries.jordan_holder and Tau Ceti multiplicities; do not rebuild their count. Transport the finite collection of subquotients through the representation/group-algebra dictionary.
 
-**Needs.** `semisimplification`, `refined-subrepresentation`, `refined-quotient`, `mathlib:CompositionSeries.jordan_holder`, `tauceti:TauCeti.jordanHolderMultiplicity`.
+**Needs.** `continuous-representation`, `refined-subrepresentation`, `refined-quotient`, `mathlib:CompositionSeries.jordan_holder`, `tauceti:TauCeti.jordanHolderMultiplicity`.
 
 **Consumer.** ArithmeticGaloisRepresentations:R01.1/refined-algebraic-semisimplification: Every factor and its multiplicity enters the direct-sum semisimplification.
 
@@ -614,7 +617,7 @@ For an algebraic finite-dimensional representation V of any monoid, V^ss is the 
 
 **Derivation.** Use the factors construction and finite direct sums, then Jordan–Hölder matching for independence. Use block upper triangular matrices for characteristic-polynomial preservation and exact-sequence additivity. Flat extension gives a filtration whose factors may further split. Match these factors with those from extending V^ss. For perfect k, import the parent finite image-algebra proof of preservation of semisimplicity; do not assert it for imperfect k.
 
-**Needs.** `semisimplification`, `semisimple-representations-over-perfect-fields`, `refined-composition-factors`, `refined-sum`, `mathlib:Representation.IsSemisimpleRepresentation`.
+**Needs.** `semisimple-representations-over-perfect-fields`, `refined-composition-factors`, `refined-sum`, `mathlib:Representation.IsSemisimpleRepresentation`.
 
 **Consumer.** ArithmeticGaloisRepresentations:R01.1/refined-lattice-independence-by-determinants: Characteristic-polynomial uniqueness compares the semisimplified reductions of different lattices.
 
@@ -1036,7 +1039,7 @@ Let Γ be profinite, H ≤ Γ an open subgroup (so of finite index m = [Γ : H])
 
 **Needs.** `continuous-representation`, `restriction-dual-tensor-twist`, `coefficient-extension`, `mathlib:ContRepresentation.coind`, `mathlib:Representation.ind`, `mathlib:Rep.indCoindIso`, `mathlib:Rep.indResAdjunction`, `mathlib:Rep.resCoindAdjunction`, `mathlib:Subgroup.quotient_finite_of_isOpen`, `mathlib:ProfiniteGrp.exist_openNormalSubgroup_sub_open_nhds_of_one`, `equivariant-functions-are-continuous`, `evaluation-at-a-transversal-is-a-homeomorphism`, `induced-module-versus-coind`, `mathlib:Representation.coind`, `mathlib:Rep.indCoindNatIso`, `mathlib:Rep.resIndAdjunction`.
 
-**Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), §10, proof of Lemma 10.5 (statement on p. 55), arXiv v2 p. 56. Frobenius reciprocity for representations induced from open subgroups of profinite groups is used to test irreducibility. [Modularity theorems for abelian surfaces](https://arxiv.org/pdf/2502.20645v1), Lemma 10.2.3, arXiv v1 PDF p. 212. The lemma writes an irreducible potentially abelian ρ as Ind_{G_{K_i}}^{G_F} V_i; induction from open subgroups G_{K_i} ≤ G_F is the operation planned here.
+**Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), §10, proof of Lemma 10.5 (statement on p. 55), arXiv v2 p. 56. The lemma uses algebraic Frobenius reciprocity to test irreducibility of an induced representation. The open-subgroup continuity upgrade follows from the proof given here. [Modularity theorems for abelian surfaces](https://arxiv.org/pdf/2502.20645v1), Lemma 10.2.3, arXiv v1 PDF p. 212. The lemma writes an irreducible potentially abelian ρ as Ind_{G_{K_i}}^{G_F} V_i; induction from open subgroups G_{K_i} ≤ G_F is the operation planned here.
 
 ### Integral models: Γ-stable lattices
 
@@ -1134,7 +1137,7 @@ Let Γ be a compact topological group, H an open subgroup, (U,σ) a ContinuousRe
 
 **Needs.** `continuous-representation`, `mathlib:Subgroup.quotient_finite_of_isOpen`.
 
-**Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), §10, proof of Lemma 10.5 (statement on p. 55), arXiv v2 p. 56. Representations induced from open subgroups of profinite groups are used there as topological modules; the lemma identifies their topology with the one of Mathlib's coinduced continuous representation. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.1/evaluation-at-a-transversal-is-a-homeomorphism. Other clauses are separate nodes; the cited source scope is unchanged.
+**Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), §10, proof of Lemma 10.5 (statement on p. 55), arXiv v2 p. 56. Lemma 10.5 uses algebraic induction and Frobenius reciprocity; it does not state a compact-open topology comparison. The topology assertion here is derived from the displayed finite-transversal formulas and the pinned definition of ContRepresentation.coind. This retained topological contract is consumed by the induction refinement.
 
 ### Evaluation at a transversal is a linear homeomorphism
 
@@ -1148,7 +1151,7 @@ Let Γ be a compact topological group, H an open subgroup, (U,σ) a ContinuousRe
 
 **Needs.** `equivariant-functions-are-continuous`, `continuous-representation`, `mathlib:ContinuousEvalConst`, `mathlib:ContinuousMap.continuous_of_continuous_uncurry`.
 
-**Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), §10, proof of Lemma 10.5 (statement on p. 55), arXiv v2 p. 56. Representations induced from open subgroups of profinite groups are used there as topological modules; the lemma identifies their topology with the one of Mathlib's coinduced continuous representation. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.1/evaluation-at-a-transversal-is-a-homeomorphism. Other clauses are separate nodes; the cited source scope is unchanged.
+**Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), §10, proof of Lemma 10.5 (statement on p. 55), arXiv v2 p. 56. Lemma 10.5 uses algebraic induction and Frobenius reciprocity; it does not state a compact-open topology comparison. The topology assertion here is derived from the displayed finite-transversal formulas and the pinned definition of ContRepresentation.coind. This retained topological contract is consumed by the induction refinement.
 
 ### Continuous induction agrees with continuous coinduction
 
@@ -1162,7 +1165,7 @@ Let Γ be a compact topological group, H an open subgroup, (U,σ) a ContinuousRe
 
 **Needs.** `evaluation-at-a-transversal-is-a-homeomorphism`, `mathlib:IsModuleTopology.instPi`, `mathlib:ContRepresentation.coind`.
 
-**Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), §10, proof of Lemma 10.5 (statement on p. 55), arXiv v2 p. 56. Representations induced from open subgroups of profinite groups are used there as topological modules; the lemma identifies their topology with the one of Mathlib's coinduced continuous representation. This node extracts only the clause stated here from the reviewed bundle ArithmeticGaloisRepresentations:R01.1/evaluation-at-a-transversal-is-a-homeomorphism. Other clauses are separate nodes; the cited source scope is unchanged.
+**Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), §10, proof of Lemma 10.5 (statement on p. 55), arXiv v2 p. 56. Lemma 10.5 uses algebraic induction and Frobenius reciprocity; it does not state a compact-open topology comparison. The topology assertion here is derived from the displayed finite-transversal formulas and the pinned definition of ContRepresentation.coind. This retained topological contract is consumed by the induction refinement.
 
 ### The Mackey decomposition
 
@@ -1406,15 +1409,15 @@ Let k be a field, k′ ⊇ k any field extension (for instance an algebraic clos
 
 **Retained parent ID:** `ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt`.
 
-Let k be any field, Γ any group or monoid (no topology needed), and V, W finite-dimensional representations of Γ over k. (a) If charpoly ρ_V(g) = charpoly ρ_W(g) in k[X] for every g ∈ Γ, then V^ss ≅ W^ss (semisimplifications of the underlying Mathlib representations, R01.1/semisimplification in its algebraic form); in particular semisimple V and W with the same characteristic polynomials are isomorphic. (c) If V and W are ContinuousReps, the isomorphism in (a) is an isomorphism of ContinuousReps. The statement with traces in place of characteristic polynomials, valid when (dim V)! is invertible in k, is R01.1/brauer-nesbitt-traces. The theorem is proved inside this stage and does not use the theory of determinants: the reconstruction theorem for determinants over an algebraically closed field (Chenevier, Theorem 2.12) quotes it for its uniqueness assertion, so it is an input of that theory and not a consequence of it.
+Let k be any field, Γ any group or monoid (no topology needed), and V, W finite-dimensional representations of Γ over k. (a) If charpoly ρ_V(g) = charpoly ρ_W(g) in k[X] for every g ∈ Γ, then V^ss ≅ W^ss (semisimplifications of the underlying Mathlib representations, R01.1/semisimplification in its algebraic form); in particular semisimple V and W with the same characteristic polynomials are isomorphic. (c) If V and W are ContinuousReps, the isomorphism in (a) is an isomorphism of ContinuousReps. The statement with traces in place of characteristic polynomials, valid when (dim V)! is invertible in k, is R01.1/brauer-nesbitt-traces. For the algebraically closed comparison, import the already owned IHG.1 reconstruction theorem and use IHG.0 Amitsur to pass from characteristic polynomials on the monoid to equality of determinant laws. The assembly supplier override replaces the historical local reconstruction route. Chenevier’s printed uniqueness proof cites classical Brauer–Nesbitt; that source dependency does not require a second reconstruction plan here. For an arbitrary imperfect ground field, descend multiplicities by the retained separating-idempotent argument; the perfect-field refinement can instead reflect an actual scalar-extended isomorphism by Noether–Deuring.
 
 **Hypotheses.** k arbitrary (finite residue fields are the main case), perfect or not; Γ an arbitrary group or monoid. Characteristic polynomials of all the elements g ∈ Γ, not merely of the elements of a generating set. The statement has the two parts (a) and (c); the statement with traces is R01.1/brauer-nesbitt-traces.
 
-**Derivation.** Extension to an algebraic closure k̄ of k: for every g ∈ Γ the semisimplifications (V ⊗ k̄)^ss and (W ⊗ k̄)^ss of the algebraic base changes (R01.1/coefficient-extension, R01.1/semisimplification) have the characteristic polynomial of ρ_V(g), respectively ρ_W(g), viewed in k̄[X] (mathlib:LinearMap.charpoly commutes with base change by mathlib:LinearMap.charpoly_baseChange, and is unchanged by semisimplification). Over k̄: R01.1/brauer-nesbitt-algebraically-closed (ii) gives (V ⊗ k̄)^ss ≅ (W ⊗ k̄)^ss. Descent: R01.1/semisimplification-detected-after-field-extension with k′ = k̄ gives V^ss ≅ W^ss. If V and W are semisimple, V ≅ V^ss ≅ W^ss ≅ W. (c): a k-linear Γ-equivariant isomorphism between ContinuousReps is continuous with continuous inverse (R01.1/continuous-representation), and V^ss, W^ss are ContinuousReps (R01.1/semisimplification).
+**Derivation.** Extension to an algebraic closure k̄ of k: for every g ∈ Γ the semisimplifications (V ⊗ k̄)^ss and (W ⊗ k̄)^ss of the algebraic base changes (R01.1/coefficient-extension, R01.1/semisimplification) have the characteristic polynomial of ρ_V(g), respectively ρ_W(g), viewed in k̄[X] (mathlib:LinearMap.charpoly commutes with base change by mathlib:LinearMap.charpoly_baseChange, and is unchanged by semisimplification). Over k̄: the IHG.0 Amitsur identity and IHG.1/algebraically-closed-reconstruction, imported by the assembly override for R01.1/brauer-nesbitt-algebraically-closed, give (V ⊗ k̄)^ss ≅ (W ⊗ k̄)^ss. Descent: R01.1/semisimplification-detected-after-field-extension with k′ = k̄ gives V^ss ≅ W^ss. If V and W are semisimple, V ≅ V^ss ≅ W^ss ≅ W. (c): a k-linear Γ-equivariant isomorphism between ContinuousReps is continuous with continuous inverse (R01.1/continuous-representation), and V^ss, W^ss are ContinuousReps (R01.1/semisimplification).
 
 **Needs.** `separating-elements-for-simple-modules`, `trace-congruence-for-semisimple-representations`, `brauer-nesbitt-algebraically-closed`, `semisimplification-detected-after-field-extension`, `semisimplification`, `coefficient-extension`, `continuous-representation`, `mathlib:LinearMap.charpoly`, `mathlib:LinearMap.charpoly_baseChange`.
 
-**Source.** [Fermat's Last Theorem](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf), proof of Proposition 2.6, p. 54 (2007 version). For semisimple mod ℓ representations the characteristic polynomials determine the representation; DDT quote the theorem from Curtis–Reiner (30.16). [A modular construction of unramified p-extensions of Q(µ_p)](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0034/LOG_0016.pdf), §2, printed p. 154 (read on the page image). Ribet quotes the same theorem, Curtis–Reiner (30.16), for the semisimplified reduction. [Formes modulaires de poids 1](https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf), proof of Lemme 6.13, printed p. 523. Semisimple representations over a finite field with the same characteristic polynomials are isomorphic (quoted there from Curtis–Reiner, th. 30.16). [The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings](https://arxiv.org/pdf/0809.0415v2), end of the proof of Theorem 2.12, arXiv v2 p. 31. Chenevier's proof of the uniqueness in Theorem 2.12 quotes this theorem: the determinant theory depends on it, not conversely.
+**Source.** [Fermat's Last Theorem](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf), proof of Proposition 2.6, p. 54 (2007 version). For semisimple mod ℓ representations the characteristic polynomials determine the representation; DDT quote the theorem from Curtis–Reiner (30.16). [A modular construction of unramified p-extensions of Q(µ_p)](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0034/LOG_0016.pdf), §2, printed p. 154 (read on the page image). Ribet quotes the same theorem, Curtis–Reiner (30.16), for the semisimplified reduction. [Formes modulaires de poids 1](https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf), proof of Lemme 6.13, printed p. 523. Semisimple representations over a finite field with the same characteristic polynomials are isomorphic (quoted there from Curtis–Reiner, th. 30.16). [The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings](https://arxiv.org/pdf/0809.0415v2), end of the proof of Theorem 2.12, arXiv v2 p. 31. The printed uniqueness proof cites classical Brauer–Nesbitt. This refinement consumes the already owned IHG.1 theorem through the recorded supplier override.
 
 ### Brauer–Nesbitt from traces when d! is invertible
 
@@ -1648,9 +1651,9 @@ Let ℓ be prime, Ĝ a split connected reductive group scheme over Z, and Γ pro
 
 **Hypotheses.** Let ℓ be prime, Ĝ a split connected reductive group scheme over Z, and Γ profinite.
 
-**Derivation.** Baire step: fix a closed embedding Ĝ ↪ GL_N over Z; it gives Ĝ(Q̄_ℓ) its topology and Ĝ(Q̄_ℓ) ∩ GL_N(E) = Ĝ(E). ρ(Γ) is compact, and R01.1/baire-descent-to-a-finite-coefficient-field applied to Γ → GL_N(Q̄_ℓ) (closed subgroups ρ(Γ) ∩ Ĝ(E), countably many E) gives ρ(Γ) ⊂ Ĝ(E) for a coefficient field E. Bruhat–Tits step (ReductiveGroupsPartII:RG2.2): ρ(Γ) lies in Ĝ(E)^0 (all characters O_E^×-valued, by compactness), acts on the building B(DĜ, E) of the derived group with bounded orbits, hence fixes a point; maximal compact subgroups of Ĝ(E)^0 are stabilisers of centroids of facets, and the hyperspecial point x_0 has stabiliser Ĝ(O_E). Larsen's lemma (Larsen 1995, Lemma 2.4, recorded as a gap): there are a totally ramified E′/E and a ρ(Γ)-stable point x with i_{E,E′}(x) hyperspecial in B(DĜ, E′). Hyperspecial vertices are conjugate under Ĝ^ad(E′); lifting the conjugating element to Ĝ(Q̄_ℓ) gives (i).
+**Derivation.** Baire step: fix a closed embedding Ĝ ↪ GL_N over Z; it gives Ĝ(Q̄_ℓ) its topology and Ĝ(Q̄_ℓ) ∩ GL_N(E) = Ĝ(E). ρ(Γ) is compact, and R01.1/baire-descent-to-a-finite-coefficient-field applied to Γ → GL_N(Q̄_ℓ) (closed subgroups ρ(Γ) ∩ Ĝ(E), countably many E) gives ρ(Γ) ⊂ Ĝ(E) for a coefficient field E. Bruhat–Tits step (ReductiveGroupsPartII:RG2.3 compact-elements-in-hyperspecial-subgroups (2), with its recorded source boundary): ρ(Γ) lies in Ĝ(E)^0 (all characters O_E^×-valued, by compactness), acts on the building B(DĜ, E) of the derived group with bounded orbits, hence fixes a point; maximal compact subgroups of Ĝ(E)^0 are stabilisers of centroids of facets, and the hyperspecial point x_0 has stabiliser Ĝ(O_E). Larsen's lemma (Larsen 1995, Lemma 2.4, recorded as a gap): there are a totally ramified E′/E and a ρ(Γ)-stable point x with i_{E,E′}(x) hyperspecial in B(DĜ, E′). Hyperspecial vertices are conjugate under Ĝ^ad(E′); lifting the conjugating element to Ĝ(Q̄_ℓ) gives (i).
 
-**Needs.** `baire-descent-to-a-finite-coefficient-field`, `ReductiveGroupsPartII:RG2.2`, `mathlib:PadicAlgCl`.
+**Needs.** `baire-descent-to-a-finite-coefficient-field`, `ReductiveGroupsPartII:RG2.3`, `mathlib:PadicAlgCl`.
 
 **Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), Theorem 4.8, arXiv v2 p. 16. Source context for Integral models for reductive-group representations. Integral models of Ĝ-valued representations of a profinite group and their reduction modulo l. The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration. [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), proof of Theorem 4.8, arXiv v2 p. 17. Source context for Integral models for reductive-group representations. The proof: Baire descent to Ĝ(E), then Bruhat–Tits theory and [Lar95, Lemma 2.4]. The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration.
 
@@ -1662,9 +1665,9 @@ Let ℓ be prime, Ĝ a split connected reductive group scheme over Z, and Γ pro
 
 **Hypotheses.** Let ℓ be prime, Ĝ a split connected reductive group scheme over Z, and Γ profinite.
 
-**Derivation.** (ii): reduce modulo ϖ_{E′} and Ĝ-semisimplify; continuity is inherited from ρ′ mod ϖ (open kernel). Independence: the pseudocharacter of ρ̄ is the reduction of tr ρ, which depends only on ρ, and Ĝ-completely reducible representations over F̄_ℓ are determined by their pseudocharacters (BHKT Theorem 4.5, after V. Lafforgue) — gap.
+**Derivation.** (ii): reduce modulo ϖ_{E′} and Ĝ-semisimplify; continuity is inherited from ρ′ mod ϖ (open kernel). Independence: for every tuple length m and every simultaneous-conjugation invariant f∈Z[Ĝ^m]^Ĝ, the residual evaluation is the reduction of f evaluated on the original tuple. These full invariant-tuple evaluations depend only on ρ and are unchanged by parabolic-to-Levi semisimplification. BHKT Theorem 4.5 identifies Ĝ-completely reducible conjugacy classes from this entire family. Its general reductive export is requested from the existing IHG.1 owner and remains a recorded gap; an ordinary matrix trace or determinant is insufficient.
 
-**Needs.** `reductive-integral-models`, `finite-coefficients-and-finite-quotients`.
+**Needs.** `reductive-integral-models`, `finite-coefficients-and-finite-quotients`, `IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction` (full invariant-tuple export, requested).
 
 **Source.** [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), Theorem 4.8, arXiv v2 p. 16. Source context for Choice-independent reductive residual representation. Integral models of Ĝ-valued representations of a profinite group and their reduction modulo l. The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration. [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2), Theorem 4.5, arXiv v2 p. 14. Source context for Choice-independent reductive residual representation. Lafforgue's bijection between Ĝ-completely reducible representations and Ĝ-pseudocharacters, used for independence in (ii). The exact extracted statement and any generalisation are justified by this node’s proof plan, not by treating the source’s other bundle clauses as this declaration.
 
@@ -1703,7 +1706,7 @@ The assembled layer has six planets: the retained **Continuous representation**,
 - **IntegralHeckeAndGaloisDeterminants:IHG.1**: Existing Classical Ribet lattice, with the full scope of Ribet Proposition 2.1, pp.154–155: two residual characters need not be distinct. Current Theorems.ribet_lattice requires distinctness. Import that export for distinct characters; ask the same owner to export the repeated-character case using the original successive-conjugation proof. This is an extension of its existing target, not a new local Ribet theorem. Consumed by `ribet-nonsplit-lattice`.
 - **tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-0-the-functorial-core----transitivity-and-the-projection-formula**: Canonical algebraic induction-in-stages, projection formula and their formulas on generators; this packet only adds continuity for open finite-index subgroups. Consumed by `refined-induction-interface`.
 - **tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius**: For K = Q_ℓ (more generally a nonarchimedean local field) and K̄ = PadicAlgCl ℓ: the action of G_K on the residue field F̄_ℓ of the valuation ring of K̄, i.e. the continuous surjection G_K → Gal(F̄_ℓ/F_ℓ), with arithmetic Frobenius lifts as the preimages of x ↦ x^q. Consumed by `refined-galois-coefficient-reduction`.
-- **tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group**: The inertia subgroup I_K as the kernel of G_K → Gal(k̄/k), so that two lifts of arithmetic Frobenius differ by an element of I_K. Consumed by `refined-galois-coefficient-reduction`.
+- **tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group**: Import the existing inertia/Frobenius contract. Current Tau Ceti a91d3aa, NumberTheory/LocalField/Unramified/Inertia/Basic.lean, already proves ker_restrictMaximalUnramifiedHom and IsArithFrobeniusLift.isArithFrobeniusLift_iff_inv_mul_mem. Via the Layer 2 residue-field identification, these give the kernel and lift-coset assertions used here. No new inertia construction or coset theorem is planned. Consumed by `refined-galois-coefficient-reduction`.
 - **ReductiveGroupsPartII:RG2.3**: The exact bounded-action fixed point, equivariant building scalar extension, and after a finite totally ramified extension a fixed point whose image is hyperspecial, as used in BHKT Theorem 4.8(ii), p.17. Import current RG2.3 compact-elements-in-hyperspecial-subgroups (2), which already owns compact-subgroup containment after extension and records its source gap. Verify its totally ramified specialization when the group is already split, and discharge that owner’s rational-fixed-point/ramification-rescaling source boundary; do not re-plan the target here. Consumed by `reductive-integral-models`.
 - **IntegralHeckeAndGaloisDeterminants:IHG.1/reductive-reconstruction**: For a split connected reductive group and algebraically closed residue field, full invariant-tuple pseudocharacters detect completely reducible conjugacy classes; scalar change and parabolic/Levi semisimplification preserve evaluations. The atlas node states general reductive reconstruction, while current upstream Suggested.lean exports only GL reconstruction. Align this existing owner and export the BHKT Theorem 4.5 contract; do not infer it from GL uniqueness. Consumed by `reductive-residual-representation`.
 
@@ -1719,8 +1722,8 @@ The stage is planned, not closed. Review must check the stated hypotheses, const
 Public primary sources were read on 9 October 2026. The packet records hashes for downloaded papers. Statements and proof outlines here are written for the mathematical targets rather than as a summary of any source's sections.
 
 - [Fermat's Last Theorem](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf). 2007 revised version from Darmon's McGill page; pages are the PDF's printed page numbers. Read: §2.1, pp.50–54, including Proposition 2.6 and proof.
-- [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2). arXiv:1609.03491v2; locators are that version's pages. Read: §3.1, Definitions 3.3 and 3.5 and Proposition 3.6, pp.8–9; §4, Definition 4.1, Lemma 4.4, Theorems 4.5 and 4.8 and Definition 4.9, pp.13–17.
-- [The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings](https://arxiv.org/pdf/0809.0415v2). arXiv:0809.0415v2. Read: §1.10, Lemma 1.12(ii) and Corollary 1.14, pp.12–14; Theorem 2.12 and Corollary 2.13, pp.28–30; Example 2.34, p.39.
+- [Ĝ-local systems on smooth projective curves are potentially automorphic](https://arxiv.org/pdf/1609.03491v2). arXiv:1609.03491v2; locators are that version's pages. Read: §3.1, Definitions 3.3 and 3.5 and Proposition 3.6, pp.8–9; §4, Definition 4.1, Lemma 4.4, Theorems 4.5 and 4.8 and Definition 4.9, pp.13–17; Lemma 10.5 and proof, pp.55–56 (algebraic induction motivation).
+- [The p-adic analytic space of pseudocharacters of a profinite group and pseudorepresentations over arbitrary rings](https://arxiv.org/pdf/0809.0415v2). arXiv:0809.0415v2. Read: §1.10, Lemma 1.12(ii) and Corollary 1.14, pp.12–14; Theorem 2.12 and Corollary 2.13, pp.28–31; Example 2.34, p.39.
 - [A modular construction of unramified p-extensions of Q(µ_p)](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0034/LOG_0016.pdf). Invent. Math. 34 (1976), 151–162; GDZ article PDF (PPN356556735_0034, LOG_0016), read on rendered page images (PDF pages 3–6 = printed pp. 152–155). Read: §2, Proposition 2.1 and proof, pp.153–155, read from page images.
 - [Fields of definition for representations of associative algebras](https://www.math.uni-bielefeld.de/lag/man/581.pdf). Author manuscript, 24 February 2017. Read: §2, Theorem 2.2 and Lemma 2.3, p.4.
 - [Pinned representation and module-topology interfaces](https://github.com/leanprover-community/mathlib4/tree/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/RepresentationTheory). Mathlib 082e2d3 and Tau Ceti f790474. Read: The exact declarations in baseline.declarations; finite-projective module topology; tensor, dual, Hom and subquotient actions.
@@ -1728,3 +1731,7 @@ Public primary sources were read on 9 October 2026. The packet records hashes fo
 - [Induction, restriction and Clifford theory](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/RepresentationTheory/InductionRestriction/README.md). TauCetiRoadmap main read 2026-10-09. Read: Complete README; Layers 0–2 and Suggested.lean transitivity and projection formula.
 
 The inherited source catalogue remains in the parent packet. Larsen (1995), Lemma 2.4, DOI `10.1215/S0012-7094-95-08021-1`, is identified through BHKT Theorem 4.8(ii), p.17; its proof was not read from an authorized primary source. This is recorded as a gap rather than an established building theorem.
+
+Independent review also checked the current Tau Ceti scalar-extension continuity API in `Topology/Algebra/Module/BaseChange.lean` and the inertia/Frobenius API in `NumberTheory/LocalField/Unramified/Inertia/Basic.lean` (commit `a91d3aa`). Reuse these existing implementations when updating the package pin; they are not new local targets. The fixed algebraic residue-field comparison remains the explicit Layer 2 supplier request.
+
+Current Tau Ceti also supplies `TauCeti.exteriorPower.equivBaseChange` over arbitrary commutative rings and the finite-basis top-exterior determinant comparison (`LinearAlgebra/ExteriorPower/BaseChange.lean` and `Basic.lean`). Import these pieces alongside the AlgebraicVectorBundles finite-projective and determinant-object contracts.

@@ -2291,6 +2291,17 @@ example : (trivial : ContinuousRep Γ A (Fin 0 → A)).det = 1 := by sorry
 /-- Unit test R011Tests.det_free. -/
 example (n : ℕ) (π : Γ →ₜ* Matrix.GeneralLinearGroup (Fin n) A) (g : Γ) :
     ((ofFramed π).det g : A) = Matrix.det (π g : Matrix (Fin n) (Fin n) A) := by sorry
+/-- Unit test R011Tests.det_projective_corner. The ideal has local ranks one and zero,
+so the projective determinant differs from LinearMap.det's nonfree fallback. -/
+example (P : Ideal (ZMod 3 × ZMod 3))
+    [Module.Finite (ZMod 3 × ZMod 3) P] [Module.Projective (ZMod 3 × ZMod 3) P]
+    [IsModuleTopology (ZMod 3 × ZMod 3) P]
+    (hP : P = Ideal.span ({(1, 0)} : Set (ZMod 3 × ZMod 3)))
+    (ρ : ContinuousRep (Multiplicative (ZMod 2)) (ZMod 3 × ZMod 3) P)
+    (hρ : ∀ x : P, ρ (Multiplicative.ofAdd 1) x = -x) :
+    ¬ Module.Free (ZMod 3 × ZMod 3) P ∧
+      (ρ.det (Multiplicative.ofAdd 1) : ZMod 3 × ZMod 3) = (-1, 1) ∧
+      LinearMap.det (ρ (Multiplicative.ofAdd 1)) = 1 := by sorry
 /-- Unit test R011Tests.frame_one. -/
 example (χ : Γ →ₜ* Aˣ) (π : Γ →ₜ* Matrix.GeneralLinearGroup (Fin 1) A)
     (hπ : ∀ g, (π g : Matrix (Fin 1) (Fin 1) A) 0 0 = (χ g : A)) :
@@ -2377,6 +2388,9 @@ variable {Γ K V : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup �
  [Field K] [TopologicalSpace K] [IsTopologicalRing K] [T2Space K]
  [AddCommGroup V] [Module K V] [FiniteDimensional K V] [TopologicalSpace V]
  [IsModuleTopology K V]
+/-- The induced subspace topology is already the canonical module topology.
+A linear splitting proves this without a complete normed-field hypothesis. -/
+ theorem submodule_moduleTopology (W : Submodule K V) : IsModuleTopology K W := by sorry
 variable (ρ : ContinuousRep Γ K V) (W : Submodule K V) [IsModuleTopology K W]
  (hW : ∀ g, W ≤ W.comap (ρ g))
  theorem subrep_apply (g : Γ) (w : W) : (ρ.subrep W hW g w : V) = ρ g w := by sorry
@@ -2631,6 +2645,11 @@ example [Subsingleton V] [TopologicalSpace (Module.Dual E V)]
 example [TopologicalSpace (Module.Dual E V)] [IsModuleTopology E (Module.Dual E V)]
  (c : Eˣ) : (IntegralModel.smul c Λ).dual.lattice =
  (IntegralModel.smul c⁻¹ Λ.dual).lattice := by sorry
+/-- R011Tests.dual_lattice_scaled, discriminating instance: a uniformizer is not a unit. -/
+example [TopologicalSpace (Module.Dual E V)] [IsModuleTopology E (Module.Dual E V)]
+ (c : Eˣ) (a : O) (ha : Irreducible a) (hc : algebraMap O E a = (c : E))
+ (b : Module.Basis (Fin 1) E V) (hΛ : Λ.lattice = Submodule.span O {b 0}) :
+ (IntegralModel.smul c Λ).dual.lattice ≠ (IntegralModel.smul c Λ.dual).lattice := by sorry
 
 section Reduction
 attribute [local instance] ContinuousRep.Bundled.isAddCommGroup ContinuousRep.Bundled.isModule
