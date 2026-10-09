@@ -34235,8 +34235,9 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6329"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6329",
+   "finishedAt": "2026-10-09T11:57:00Z"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.4",
@@ -43102,7 +43103,8 @@
    ],
    "revisionOf": "BP-DiophantineApproximationAndTranscendence",
    "prompt": "research/blueprint/prompts/BP-DiophantineApproximationAndTranscendence~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6514"
   },
   {
    "priority": 2,
@@ -79790,8 +79792,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
