@@ -15,6 +15,11 @@ Conventions: schemes are Mathlib's `Scheme.{u}`; the big sites are Mathlib's `Sc
 `Scheme.{u}ᵒᵖ ⥤ Type u`; stacks are Mathlib `Pseudofunctor`s with `IsStack`; group actions are left
 actions. The algebraic-space predicate of the whole-roadmap SF.1 nodes is restated below so that the
 file elaborates on its own.
+
+Independent review REV-SchemeAndStackFoundations--SF.1: this is an incomplete suggested file.
+Several packet APIs still have only comment entries, and some existing signatures only express
+a weaker comparison. The gaps in the packet identify them. Elaboration checks the signatures
+that are present; it does not prove the planned mathematics or certify the omitted interfaces.
 -/
 import Mathlib.AlgebraicGeometry.Sites.Fpqc
 import Mathlib.AlgebraicGeometry.Sites.Etale
@@ -315,7 +320,10 @@ example (k : Type u) [Field k] :
 -- (a quadratic Galois extension `L / K`, e.g. `ℂ / ℝ`, with `σ` the nontrivial automorphism of
 -- `Spec L` over `Spec K`: `Spec L` has no `Spec K`-point over `K`, the quotient sheaf has one)
 example (K L : Type u) [Field K] [Field L] [Algebra K L] [IsGalois K L]
-    (hL : Module.finrank K L = 2) (σ : Spec (CommRingCat.of L) ⟶ Spec (CommRingCat.of L)) :
+    (hL : Module.finrank K L = 2) (σ : Spec (CommRingCat.of L) ⟶ Spec (CommRingCat.of L))
+    (hσ : σ ≠ 𝟙 _)
+    (hσK : σ ≫ Spec.map (CommRingCat.ofHom (algebraMap K L)) =
+      Spec.map (CommRingCat.ofHom (algebraMap K L))) :
     let U := Spec (CommRingCat.of L)
     let p := Spec.map (CommRingCat.ofHom (algebraMap K L))
     IsEmpty {f : Spec (CommRingCat.of K) ⟶ U // f ≫ p = 𝟙 _} ∧
@@ -390,6 +398,12 @@ namespace EtaleLocal
 
 variable (P : MorphismProperty Scheme.{u}) [P.IsLocalAtSource Scheme.etalePrecoverage]
   [P.IsLocalAtTarget Scheme.etalePrecoverage]
+  (hpost : ∀ {X Y Z : Scheme.{u}} (f : X ⟶ Y) (g : Y ⟶ Z),
+    IsOpenImmersion g → P f → P (f ≫ g))
+
+-- Stacks 35.32.6 needs postcomposition with open immersions in addition to the two locality
+-- instances. Include it in every comparison theorem, rather than silently dropping it.
+include hpost
 
 lemma iff_forall_square {F G : AlgSpace.{u}} (f : F ⟶ G) :
     EtaleLocal P f ↔ ∀ (U V : Scheme.{u}) (a : yoneda.obj U ⟶ F.obj) (b : yoneda.obj V ⟶ G.obj)
@@ -399,7 +413,7 @@ lemma iff_forall_square {F G : AlgSpace.{u}} (f : F ⟶ G) :
 lemma ofScheme_iff {X Y : Scheme.{u}} (f : X ⟶ Y) : EtaleLocal P (AlgSpace.ofScheme.map f) ↔ P f :=
   sorry
 
-lemma iff_presheaf [P.IsStableUnderBaseChange] {F G : AlgSpace.{u}} (f : F ⟶ G)
+lemma iff_presheaf [P.IsStableUnderBaseChange] [P.IsLocalAtTarget Scheme.fppfPrecoverage] {F G : AlgSpace.{u}} (f : F ⟶ G)
     (hf : yoneda.relativelyRepresentable (isAlgebraicSpace.ι.map f)) :
     EtaleLocal P f ↔ MorphismProperty.presheaf P (isAlgebraicSpace.ι.map f) := sorry
 
@@ -521,7 +535,11 @@ def structureSheaf (F : AlgSpace.{u}) : Sheaf (smallEtaleTopology F) CommRingCat
 lemma smallEtale_ofScheme (X : Scheme.{u}) :
     Nonempty (smallEtale (AlgSpace.ofScheme.obj X) ≌ X.Etale) := sorry
 
-def smallEtale_map {F G : AlgSpace.{u}} (f : F ⟶ G) : smallEtale G ⥤ smallEtale F := sorry
+/-- Inverse image on small-etale sheaves. Base change of a scheme chart need not be a scheme;
+construct the site map on etale algebraic spaces and transport through the comparison equivalence.
+The adjunction and structural ring map are still missing APIs of `SF.1/small-etale-site`. -/
+def smallEtale_map {F G : AlgSpace.{u}} (f : F ⟶ G) :
+    Sheaf (smallEtaleTopology G) (Type u) ⥤ Sheaf (smallEtaleTopology F) (Type u) := sorry
 
 lemma smallEtale_localize (F : AlgSpace.{u}) (U : Scheme.{u}) (a : yoneda.obj U ⟶ F.obj)
     (ha : MorphismProperty.presheaf (@Etale : MorphismProperty Scheme.{u}) a) :
@@ -660,16 +678,34 @@ structure Groupoid where
   assoc : ∀ (T : Scheme.{u}) (a b d : yoneda.obj T ⟶ R) (hab : a ≫ s = b ≫ t) (hbd : b ≫ s = d ≫ t),
     pullback.lift (pullback.lift a b hab ≫ c) d (by sorry) ≫ c =
       pullback.lift a (pullback.lift b d hbd ≫ c) (by sorry) ≫ c
-  exists_e : ∃ e : U ⟶ R, e ≫ s = 𝟙 U ∧ e ≫ t = 𝟙 U
-  exists_i : ∃ i : R ⟶ R, i ≫ s = t ∧ i ≫ t = s
+  identity : U ⟶ R
+  identity_s : identity ≫ s = 𝟙 U
+  identity_t : identity ≫ t = 𝟙 U
+  inverse : R ⟶ R
+  inverse_s : inverse ≫ s = t
+  inverse_t : inverse ≫ t = s
+  left_unit : ∀ (T : Scheme.{u}) (r : yoneda.obj T ⟶ R),
+    pullback.lift (r ≫ t ≫ identity) r (by sorry) ≫ c = r
+  right_unit : ∀ (T : Scheme.{u}) (r : yoneda.obj T ⟶ R),
+    pullback.lift r (r ≫ s ≫ identity) (by sorry) ≫ c = r
+  left_inverse : ∀ (T : Scheme.{u}) (r : yoneda.obj T ⟶ R),
+    pullback.lift (r ≫ inverse) r (by sorry) ≫ c = r ≫ s ≫ identity
+  right_inverse : ∀ (T : Scheme.{u}) (r : yoneda.obj T ⟶ R),
+    pullback.lift r (r ≫ inverse) (by sorry) ≫ c = r ≫ t ≫ identity
 
 namespace Groupoid
 
-lemma e (G : Groupoid.{u}) : ∃ e : G.U ⟶ G.R, e ≫ G.s = 𝟙 _ ∧ e ≫ G.t = 𝟙 _ := G.exists_e
+lemma e (G : Groupoid.{u}) : ∃ e : G.U ⟶ G.R, e ≫ G.s = 𝟙 _ ∧ e ≫ G.t = 𝟙 _ :=
+  ⟨G.identity, G.identity_s, G.identity_t⟩
 
-lemma i (G : Groupoid.{u}) : ∃ i : G.R ⟶ G.R, i ≫ G.s = G.t ∧ i ≫ G.t = G.s := G.exists_i
+lemma i (G : Groupoid.{u}) : ∃ i : G.R ⟶ G.R, i ≫ G.s = G.t ∧ i ≫ G.t = G.s :=
+  ⟨G.inverse, G.inverse_s, G.inverse_t⟩
 
-/-- The action groupoid `(X, G × X, pr₂, a, c)` of an action over `S = Spec ℤ`-free presheaves. -/
+/- API `Groupoid.Hom` and `Groupoid.Hom.ext`: pairs of maps on objects and arrows commuting
+with source, target and composition, with identities and composition. Still not typed here;
+owner `SF.1/groupoid-space`. The unit/inverse equations above are actual axioms. -/
+
+/-- The action groupoid `(X, G × X, pr₂, a, c)` of an action, viewed as absolute presheaves on schemes. -/
 def ofAction {S : Scheme.{u}} (G : GroupSpace S) (X : Over (yoneda.obj S)) [ModObj G.obj X]
     (hX : IsAlgebraicSpace X.left) : Groupoid.{u} := sorry
 
@@ -705,6 +741,10 @@ example (U : Scheme.{u}) (h : IsEquivRel (U := U) (R := U ⨯ U) prod.snd prod.f
 -- test: TauCeti.SchemeFoundations.Groups.Groupoid.test_monoid_not_groupoid
 -- (the additive monoid `ℕ` acting on `𝔸¹` by translation: no inverses on points)
 example : ¬ ∃ m : ℕ, 1 + m = 0 := by omega
+
+-- A one-object category with Bool arrows and composition AND has an identity (true), but its
+-- false arrow has no inverse. Existence of an arbitrary map named inverse must not admit it.
+example : ¬ ∃ b : Bool, (false && b) = true := by simp
 
 /-- The stabilizer group space of a groupoid (`SF.1/stabilizer`): `j⁻¹(Δ_U)`. -/
 def stabilizer (G : Groupoid.{u}) : Over G.U :=
@@ -748,14 +788,19 @@ example (k : Type u) [Field k] (x : k) (c : kˣ) : (c : k) * x = x ↔ (c = 1 �
 example (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p] :
     (Polynomial.X - 1 : Polynomial k) ^ p = Polynomial.X ^ p - 1 := sorry
 
-/-- Torsors under a group space, scheme-represented and fppf locally trivial (`SF.1/torsor`). -/
-structure IsTorsor {S : Scheme.{u}} (G : GroupSpace S) (P : Over (yoneda.obj S)) [ModObj G.obj P] :
+/-- Sheaf torsors, without algebraic-space representability (`SF.1/torsor`). -/
+structure IsSheafTorsor {S : Scheme.{u}} (G : GroupSpace S) (P : Over (yoneda.obj S)) [ModObj G.obj P] :
     Prop where
-  isSpace : IsAlgebraicSpace P.left
+  isSheaf : Presheaf.IsSheaf Scheme.fppfTopology P.left
   pseudo : IsIso (lift (act G P) (snd G.obj P))
   locallyTrivial : ∃ (ι : Type u) (Si : ι → Scheme.{u}) (f : ∀ i, Si i ⟶ S),
     Sieve.ofArrows Si f ∈ Scheme.fppfTopology S ∧
       ∀ i, ∃ σ : yoneda.obj (Si i) ⟶ P.left, σ ≫ P.hom = yoneda.map (f i)
+
+/-- Algebraic-space torsors: sheaf torsors whose underlying sheaf is an algebraic space. -/
+structure IsTorsor {S : Scheme.{u}} (G : GroupSpace S) (P : Over (yoneda.obj S)) [ModObj G.obj P]
+    : Prop extends IsSheafTorsor G P where
+  isSpace : IsAlgebraicSpace P.left
 
 namespace Torsor
 
@@ -765,7 +810,9 @@ lemma trivial {S : Scheme.{u}} (G : GroupSpace S) :
 
 lemma trivial_iff_section {S : Scheme.{u}} (G : GroupSpace S) (P : Over (yoneda.obj S))
     [ModObj G.obj P] (h : IsTorsor G P) :
-    Nonempty (G.obj ≅ P) ↔ ∃ σ : yoneda.obj S ⟶ P.left, σ ≫ P.hom = 𝟙 _ := sorry
+    (letI : ModObj G.obj G.obj := ModObj.regular G.obj
+     ∃ e : G.obj ≅ P, (G.obj ◁ e.hom) ≫ act G P = act G G.obj ≫ e.hom) ↔
+      ∃ σ : yoneda.obj S ⟶ P.left, σ ≫ P.hom = 𝟙 _ := sorry
 
 lemma hom_isIso {S : Scheme.{u}} (G : GroupSpace S) (P Q : Over (yoneda.obj S)) [ModObj G.obj P]
     [ModObj G.obj Q] (hP : IsTorsor G P) (hQ : IsTorsor G Q) (φ : P ⟶ Q)
@@ -790,8 +837,9 @@ example {S : Scheme.{u}} (G : GroupSpace S) :
     IsTorsor G G.obj := Torsor.trivial G
 
 -- test: TauCeti.SchemeFoundations.Groups.Torsor.test_frobenius_mu_p
--- (in characteristic `p`, `s ↦ sᵖ` on `𝔾_m` is a `μ_p`-torsor, not etale-locally trivial: its
--- fibre over `1` is `Spec k[s]/(sᵖ - 1)`, which has no reduced etale cover with a section)
+-- This polynomial computation only detects nonreducedness of the fibre over 1, which DOES
+-- have the section 1. The packet's diagnostic etale-triviality test uses s^p = u over F_p(u);
+-- its inseparability assertion still needs a typed torsor test in this file.
 example (p : ℕ) [Fact p.Prime] (k : Type u) [Field k] [CharP k p] :
     ¬ IsReduced (Polynomial k ⧸ Ideal.span {(Polynomial.X ^ p - 1 : Polynomial k)}) := sorry
 
@@ -814,18 +862,19 @@ def H1 {S : Scheme.{u}} (G : GroupSpace S) : Type (u + 1) := sorry
 
 def H1.base {S : Scheme.{u}} (G : GroupSpace S) : H1 G := sorry
 
-def H1.pullback {S S' : Scheme.{u}} (f : S' ⟶ S) (G : GroupSpace S) (G' : GroupSpace S')
-    (e : G'.obj.left ≅ pullback G.obj.hom (yoneda.map f)) : H1 G → H1 G' := sorry
+/- API `H1.pullback`: H1(G) -> H1(G_B′), or comparison with a supplied G′ through an
+isomorphism of group objects over B′. An isomorphism of underlying presheaves is insufficient.
+Not typed until group-space base change is exposed; owner `SF.1/torsor-cohomology`. -/
 
 def H1.pushforward {S : Scheme.{u}} {G G' : GroupSpace S} (φ : G.obj ⟶ G'.obj) [IsMonHom φ] :
     H1 G → H1 G' := sorry
 
-/-- The Čech comparison for one covering, valued in Mathlib's nonabelian `H¹`. -/
-def H1.cechColimit {S : Scheme.{u}} (G : GroupSpace S) (Gp : Scheme.{u}ᵒᵖ ⥤ GrpCat.{u})
-    {ι : Type u} (U : ι → Scheme.{u}) : PresheafOfGroups.H1 Gp U → H1 G := sorry
-
-def H1.picEquiv (S : Scheme.{u}) (Gm : GroupSpace S) : H1 Gm ≃ TauCeti.AlgebraicGeometry.LineBundleClass S :=
-  sorry
+/- API `H1.cechColimit`: for a specified fppf covering of S and the presheaf of sections of G,
+compare Mathlib Cech H1 with the classes of torsors trivialized by that covering, and take the
+colimit over refinements. Neither an arbitrary Grp-valued functor nor an arbitrary family is the
+required datum. API `H1.picEquiv` requires the actual multiplicative group space G_m, not an
+arbitrary group-space parameter. These comparisons, `H1.ofTorsor` and the abelian group structure
+for commutative G are not typed; owner `SF.1/torsor-cohomology`. -/
 
 -- test: TauCeti.SchemeFoundations.Groups.H1.test_trivial_group
 example {S : Scheme.{u}} (G : GroupSpace S) (hG : IsTerminal G.obj) : Subsingleton (H1 G) := sorry
@@ -854,12 +903,12 @@ lemma contractedProduct_trivial {S : Scheme.{u}} (G : GroupSpace S) (X : Over (y
 (needs `ModObj` transport along `Over.pullback`). -/
 
 /-- The inner form `G_P = P ×ᴳ G` for the conjugation action. -/
-def innerForm {S : Scheme.{u}} (G : GroupSpace S) (P : Over (yoneda.obj S)) [ModObj G.obj P] :
-    GroupSpace S := sorry
+def innerForm {S : Scheme.{u}} (G : GroupSpace S) (P : Over (yoneda.obj S)) [ModObj G.obj P]
+    (hP : IsTorsor G P) : GroupSpace S := sorry
 
 /-- Pushforward of torsors along a homomorphism `G ⟶ H`. -/
 def pushforwardTorsor {S : Scheme.{u}} {G H : GroupSpace S} (φ : G.obj ⟶ H.obj) [IsMonHom φ]
-    (P : Over (yoneda.obj S)) [ModObj G.obj P] : Over (yoneda.obj S) := sorry
+    (P : Over (yoneda.obj S)) [ModObj G.obj P] (hP : IsTorsor G P) : Over (yoneda.obj S) := sorry
 
 -- test: TauCeti.SchemeFoundations.Groups.contractedProduct.test_trivial
 example {S : Scheme.{u}} (G : GroupSpace S) (X : Over (yoneda.obj S)) [ModObj G.obj X] :
@@ -872,20 +921,19 @@ example {S : Scheme.{u}} (G : GroupSpace S) (P : Over (yoneda.obj S)) [ModObj G.
     Nonempty (contractedProduct G P (𝟙_ _) ≅ 𝟙_ _) := sorry
 
 /- test: TauCeti.SchemeFoundations.Groups.contractedProduct.test_line_bundle — the frame torsor of a
-line bundle twisted by the scaling action on `𝔸¹` is the total space of the line bundle;
+line bundle with left action λ.p = p λ⁻¹, contracted with the scaling action on `𝔸¹`, is the
+total space of that line bundle;
 test: TauCeti.SchemeFoundations.Groups.contractedProduct.test_needs_sheafification — for `Spec L`
 over `Spec K` (`L / K` quadratic Galois) twisted by itself, the contracted product is
 `Spec K ⊔ Spec K`, with `K`-points, while the presheaf quotient has none. -/
 
 /-- Twisting torsors (`SF.1/twisting-bijection`). -/
 theorem twistingBijection {S : Scheme.{u}} (G : GroupSpace S) (E : Over (yoneda.obj S)) [ModObj G.obj E]
-    (hE : IsTorsor G E) : Nonempty (H1 (innerForm G E) ≃ H1 G) := sorry
+    (hE : IsTorsor G E) : Nonempty (H1 (innerForm G E hE) ≃ H1 G) := sorry
 
 /-- Representability of torsors and their descent (`SF.1/torsor-representability`). -/
 theorem torsorRepresentability {S : Scheme.{u}} (G : GroupSpace S) (P : Over (yoneda.obj S))
-    [ModObj G.obj P] (h : IsTorsor G P)
-    (hG : MorphismProperty.presheaf (@Flat ⊓ @LocallyOfFinitePresentation : MorphismProperty Scheme.{u})
-      G.obj.hom) : IsAlgebraicSpace P.left := h.isSpace
+    [ModObj G.obj P] (h : IsSheafTorsor G P) : IsAlgebraicSpace P.left := sorry
 
 /-- Invariant morphisms, categorical and geometric quotients (`SF.1/categorical-geometric-quotient`),
 for a pre-relation `s, t : R ⟶ U` of presheaves. -/
@@ -900,23 +948,15 @@ lemma IsCategoricalQuotient.unique {U R X X' : SchemePresheaf.{u}} (s t : R ⟶ 
     (φ' : U ⟶ X') (h : IsCategoricalQuotient s t φ) (h' : IsCategoricalQuotient s t φ') :
     ∃ e : X ≅ X', φ ≫ e.hom = φ' := sorry
 
-/-- Geometric quotients: orbit space, universally submersive, invariant functions. The topological
-and sheaf-theoretic clauses use `Spaces.points` and `Spaces.structureSheaf`. -/
-def IsGeometricQuotient {U R X : AlgSpace.{u}} (s t : R ⟶ U) (φ : U ⟶ X) : Prop :=
-  IsInvariant (isAlgebraicSpace.ι.map s) (isAlgebraicSpace.ι.map t) (isAlgebraicSpace.ι.map φ) ∧
-    Function.Surjective (points_map φ) ∧
-    (∀ (Z : AlgSpace.{u}) (g : Z ⟶ X), Topology.IsQuotientMap (points_map (AlgSpace.pullbackFst g φ))) ∧
-    (∀ x y : points U, points_map φ x = points_map φ y →
-      ∃ r : points R, points_map s r = x ∧ points_map t r = y)
+/- API `IsGeometricQuotient` has ALL of the geometric-orbit, universal-submersivity and
+invariant-functions clauses. It is not replaced by a topological-only predicate here. The
+ringed-site equalizer (φ_* O_U)^R and its comparisons must be exposed before typing the carrier;
+owner `SF.1/categorical-geometric-quotient`.
 
-lemma IsGeometricQuotient.isCategoricalQuotient {U R X : AlgSpace.{u}} (s t : R ⟶ U) (φ : U ⟶ X)
-    (h : IsGeometricQuotient s t φ) :
-    IsCategoricalQuotient (isAlgebraicSpace.ι.map s) (isAlgebraicSpace.ι.map t) (isAlgebraicSpace.ι.map φ) :=
-  sorry
-
-/- The sheaf clause `𝒪_X = (φ_* 𝒪_U)^R` of a geometric quotient is part of the definition in the
-roadmap; it is not typed above because invariant sections of `Spaces.structureSheaf` along a
-pre-relation are not a named construction. -/
+API `IsStronglyGeometricQuotient` adds universal submersivity of R -> U ×_X U.
+API `IsStronglyGeometricQuotient.isCategoricalQuotient` requires universal openness of φ;
+then it gives categoricality among algebraic spaces (Rydh, Theorem 3.16). Geometric quotients
+alone do not give that conclusion (Rydh, Remark 2.8). These are still missing typed interfaces. -/
 
 -- test: TauCeti.SchemeFoundations.Groups.Quotient.test_finite_affine
 example (A : Type u) [CommRing A] (Γ : Type u) [Group Γ] [Finite Γ] [MulSemiringAction Γ A]
@@ -999,14 +1039,16 @@ end GaloisGerbs
 
 /- ## Declarations of SF.1d-SF.1f not yet typed in this file
 
-The roadmap document specifies each of the following; their Lean forms are recorded here by name
-only (the typed prototypes of this part are the remaining work of the suggested file):
+The corrected packet specifies each of the following. These entries are names, not Lean signatures
+or executable tests, and do not discharge the packet's API/test requirements. The reader document
+still needs regeneration to agree with the review's corrections. The remaining work is explicit
+in the packet's gaps and partial coverage record.
 
 * `SF.1/stack-in-groupoids`: API `TauCeti.SchemeFoundations.Stacks.StackInGroupoids`, `TauCeti.SchemeFoundations.Stacks.StackInGroupoids.ofSheaf`, `TauCeti.SchemeFoundations.Stacks.StackInGroupoids.yonedaEquiv`, `TauCeti.SchemeFoundations.Stacks.StackInGroupoids.isFiberedInGroupoids`, `TauCeti.SchemeFoundations.Stacks.StackInGroupoids.limit`; tests `TauCeti.SchemeFoundations.Stacks.StackInGroupoids.test_scheme`, `TauCeti.SchemeFoundations.Stacks.StackInGroupoids.test_torsors`, `TauCeti.SchemeFoundations.Stacks.StackInGroupoids.test_qcoh_not_groupoid`, `TauCeti.SchemeFoundations.Stacks.StackInGroupoids.test_trivial_torsor_prestack`.
 * `SF.1/stackification`: API `TauCeti.SchemeFoundations.Stacks.stackification`, `TauCeti.SchemeFoundations.Stacks.stackification.η`, `TauCeti.SchemeFoundations.Stacks.stackification.lift`, `TauCeti.SchemeFoundations.Stacks.stackification.isom_sheafify`, `TauCeti.SchemeFoundations.Stacks.stackification.locally_essSurj`; tests `TauCeti.SchemeFoundations.Stacks.stackification.test_stack`, `TauCeti.SchemeFoundations.Stacks.stackification.test_sheafification`, `TauCeti.SchemeFoundations.Stacks.stackification.test_real_torsors`.
 * `SF.1/two-fibre-product`: API `TauCeti.SchemeFoundations.Stacks.twoFiberProduct`, `TauCeti.SchemeFoundations.Stacks.twoFiberProduct.fst`, `TauCeti.SchemeFoundations.Stacks.twoFiberProduct.snd`, `TauCeti.SchemeFoundations.Stacks.twoFiberProduct.iso`, `TauCeti.SchemeFoundations.Stacks.twoFiberProduct.lift`, `TauCeti.SchemeFoundations.Stacks.twoFiberProduct.ofSheaf`; tests `TauCeti.SchemeFoundations.Stacks.twoFiberProduct.test_identity`, `TauCeti.SchemeFoundations.Stacks.twoFiberProduct.test_schemes`, `TauCeti.SchemeFoundations.Stacks.twoFiberProduct.test_classifying`.
 * `SF.1/representable-stack-morphism`: API `TauCeti.SchemeFoundations.Stacks.IsRepresentableBySpaces`, `TauCeti.SchemeFoundations.Stacks.IsRepresentableBySpaces.baseChange`, `TauCeti.SchemeFoundations.Stacks.IsRepresentableBySpaces.comp`, `TauCeti.SchemeFoundations.Stacks.diag_representable_iff`, `TauCeti.SchemeFoundations.Stacks.RepresentableProperty`; tests `TauCeti.SchemeFoundations.Stacks.Representable.test_identity`, `TauCeti.SchemeFoundations.Stacks.Representable.test_spaces`, `TauCeti.SchemeFoundations.Stacks.Representable.test_point_to_BG`, `TauCeti.SchemeFoundations.Stacks.Representable.test_BG_to_point`.
-* `SF.1/algebraic-stack`: API `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.diagonal`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.atlas`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.ofSpace`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.twoFiberProduct`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.of_equiv`; tests `TauCeti.SchemeFoundations.Stacks.AlgebraicStack.test_scheme`, `TauCeti.SchemeFoundations.Stacks.AlgebraicStack.test_BGm`, `TauCeti.SchemeFoundations.Stacks.AlgebraicStack.test_qcoh`, `TauCeti.SchemeFoundations.Stacks.AlgebraicStack.test_formal_disc`.
+* `SF.1/algebraic-stack`: API `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.diagonal`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.atlas`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.ofSpace`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.twoFiberProduct`, `TauCeti.SchemeFoundations.Stacks.IsAlgebraicStack.of_equiv`; tests `TauCeti.SchemeFoundations.Stacks.AlgebraicStack.test_scheme`, `TauCeti.SchemeFoundations.Stacks.AlgebraicStack.test_BGm`, `TauCeti.SchemeFoundations.Stacks.AlgebraicStack.test_qcoh`.
 * `SF.1/deligne-mumford-stack`: API `TauCeti.SchemeFoundations.Stacks.IsDeligneMumford`, `TauCeti.SchemeFoundations.Stacks.IsDeligneMumford.iff_unramified_diagonal`, `TauCeti.SchemeFoundations.Stacks.IsDeligneMumford.isAlgebraic`, `TauCeti.SchemeFoundations.Stacks.IsDeligneMumford.ofSpace`, `TauCeti.SchemeFoundations.Stacks.IsDeligneMumford.twoFiberProduct`; tests `TauCeti.SchemeFoundations.Stacks.DM.test_space`, `TauCeti.SchemeFoundations.Stacks.DM.test_finite_etale`, `TauCeti.SchemeFoundations.Stacks.DM.test_mu_p`, `TauCeti.SchemeFoundations.Stacks.DM.test_BGm`.
 * `SF.1/inertia`: API `TauCeti.SchemeFoundations.Stacks.inertia`, `TauCeti.SchemeFoundations.Stacks.inertia.equivDiagonal`, `TauCeti.SchemeFoundations.Stacks.inertia.representable`, `TauCeti.SchemeFoundations.Stacks.relativeInertia`, `TauCeti.SchemeFoundations.Stacks.automorphismGroup`; tests `TauCeti.SchemeFoundations.Stacks.inertia.test_space`, `TauCeti.SchemeFoundations.Stacks.inertia.test_BG`, `TauCeti.SchemeFoundations.Stacks.inertia.test_S3`.
 * `SF.1/stack-morphism-properties`: API `TauCeti.SchemeFoundations.Stacks.SmoothLocal`, `TauCeti.SchemeFoundations.Stacks.SmoothLocal.atlas_independent`, `TauCeti.SchemeFoundations.Stacks.IsSeparatedStack`, `TauCeti.SchemeFoundations.Stacks.IsProperStack`, `TauCeti.SchemeFoundations.Stacks.IsProperStack.of_representable`, `TauCeti.SchemeFoundations.Stacks.IsProperStack.baseChange`; tests `TauCeti.SchemeFoundations.Stacks.Properties.test_BG_finite`, `TauCeti.SchemeFoundations.Stacks.Properties.test_BGm`, `TauCeti.SchemeFoundations.Stacks.Properties.test_doubled_origin`, `TauCeti.SchemeFoundations.Stacks.Properties.test_projective_line`.
@@ -1018,6 +1060,21 @@ only (the typed prototypes of this part are the remaining work of the suggested 
 * `SF.1/coarse-moduli-space`: API `TauCeti.SchemeFoundations.Moduli.IsCategoricalModuliSpace`, `TauCeti.SchemeFoundations.Moduli.IsCoarseModuliSpace`, `TauCeti.SchemeFoundations.Moduli.IsCoarseModuliSpace.unique`, `TauCeti.SchemeFoundations.Moduli.IsCoarseModuliSpace.ofFine`, `TauCeti.SchemeFoundations.Moduli.IsCategoricalModuliSpace.quotient_iff`, `TauCeti.SchemeFoundations.Moduli.IsUniform`; tests `TauCeti.SchemeFoundations.Moduli.Coarse.test_space`, `TauCeti.SchemeFoundations.Moduli.Coarse.test_BG`, `TauCeti.SchemeFoundations.Moduli.Coarse.test_finite_quotient`, `TauCeti.SchemeFoundations.Moduli.Coarse.test_base_change_fails`, `TauCeti.SchemeFoundations.Moduli.Coarse.test_A1_Gm`.
 * `SF.1/tame-stack`: API `TauCeti.SchemeFoundations.Moduli.IsTame`, `TauCeti.SchemeFoundations.Moduli.IsTame.classifying_iff`, `TauCeti.SchemeFoundations.Moduli.IsTame.baseChange`, `TauCeti.SchemeFoundations.Moduli.IsTame.geometric_fibres`; tests `TauCeti.SchemeFoundations.Moduli.Tame.test_space`, `TauCeti.SchemeFoundations.Moduli.Tame.test_invertible_order`, `TauCeti.SchemeFoundations.Moduli.Tame.test_Z_mod_p`, `TauCeti.SchemeFoundations.Moduli.Tame.test_mu_p`.
 * `SF.1/semilinear-automorphism`: API `TauCeti.SchemeFoundations.GaloisGerbs.SemilinearAut`, `TauCeti.SchemeFoundations.GaloisGerbs.SemilinearAut.toPointsAut`, `TauCeti.SchemeFoundations.GaloisGerbs.SemilinearAut.comp`, `TauCeti.SchemeFoundations.GaloisGerbs.SemilinearAut.standard`, `TauCeti.SchemeFoundations.GaloisGerbs.SemilinearAut.linear_iff`; tests `TauCeti.SchemeFoundations.GaloisGerbs.SemilinearAut.test_gm_conjugation`, `TauCeti.SchemeFoundations.GaloisGerbs.SemilinearAut.test_identity_not_semilinear`, `TauCeti.SchemeFoundations.GaloisGerbs.SemilinearAut.test_trivial_extension`, `TauCeti.SchemeFoundations.GaloisGerbs.SemilinearAut.test_standard_points`.
+* `SF.1/stack-points`: API `Stacks.points`, `Stacks.points_map`, `Stacks.points_ofSpace`,
+  `Stacks.points_atlas`, `Stacks.opensEquiv`; tests scheme comparison, a one-point `BG` with
+  nontrivial automorphisms, and disjoint unions/empty stack. The algebraic-stack carrier and its
+  smooth-atlas comparison must be typed first; owner `SF.1/stack-points`.
+* `SF.1/crossed-module-category`: still missing the quotient groupoid's category structure,
+  `CrossedModule.tensorHom`, `CrossedModule.conjugationFunctor` and `CrossedModule.mapFunctor`,
+  including the interchange law and monoidal comparison. Naming tensor on objects alone is
+  insufficient; owner `SF.1/crossed-module-category`.
+* Corrections to the still untyped declarations: rootStack DM criterion requires a DM base;
+  stack QCoh pushforward is the quasi-coherent right adjoint (Stacks 103.11), not arbitrary
+  big-site pushforward; the empty moduli functor is h_empty (singleton at the empty scheme);
+  the universal object over a space is a stack morphism h_M -> X; tame local charts use the
+  2014 AOV corrigendum's cotangent-complex obstruction; conjugators descend the kernel
+  transporter by a lift-independent semilinear action, with no additional lift equations on
+  the base-changed transporter; semilinear automorphisms do not depend on Galois gerbs.
 * Theorems `SF.1/setoid-criterion`, `SF.1/stack-presentation`, `SF.1/quotient-stack-algebraic`, `SF.1/line-bundle-section-stack`, `SF.1/keel-mori`, `SF.1/finite-quotient-coarse`, `SF.1/tame-local-structure`, `SF.1/galois-descent-affine`, `SF.1/conjugator-representability`.
 -/
 

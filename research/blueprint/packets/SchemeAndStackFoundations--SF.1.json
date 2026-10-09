@@ -6,7 +6,7 @@
   "SchemeAndStackFoundations:SF.1"
  ],
  "status": "partial",
- "summary": "Layer SF.1 (descent, algebraic spaces and algebraic stacks) of the scheme and stack foundations, planned at target level on top of Mathlib's fpqc/fppf/etale topologies, Cat-valued pseudofunctor descent (IsPrestack, IsStack, DescentData), relative representability and module comonadicity, and Tau Ceti's Hopf-algebra fppf quotients, line bundles and Galois descent of vector spaces. It completes the whole-roadmap packet's SF.1 strand: fpqc descent of quasi-coherent modules and affine morphisms, Galois descent of quasi-projective schemes and descent of sheaves; the category of algebraic spaces with etale-equivalence-relation quotients, presentations, points, etale-local and separation properties, fibre products, small etale ringed site, quasi-coherent modules and two non-scheme examples; group spaces, actions, groupoids, stabilizers, torsors, H^1, contracted products, twisting, categorical and geometric quotients, finite group quotients and Artin's bootstrap theorem; stacks in groupoids, stackification, 2-fibre products, representable morphisms, algebraic and Deligne-Mumford stacks, inertia, quotient and root stacks, quasi-coherent modules and properties of morphisms with representability and properness kept separate; moduli functors versus fine and coarse moduli spaces, Keel-Mori and tame stacks; and the missing Galois-gerb inputs (semilinear automorphisms, Galois descent of affine groups, conjugator representability, crossed modules). The general theory of spaces and stacks is owned here, as the confirmed finding RT-AREA-algebraicgeometry/1 requires; ordinary stack constructions move down from DiamondsAndVStacks D0 and coarse-space foundations from AlgebraicModuliForArithmeticGeometry R09.5.",
+ "summary": "Layer SF.1 (descent, algebraic spaces and algebraic stacks) of the scheme and stack foundations, planned at target level on top of Mathlib's fpqc/fppf/etale topologies, Cat-valued pseudofunctor descent (IsPrestack, IsStack, DescentData), relative representability and module comonadicity, and Tau Ceti's Hopf-algebra fppf quotients, line bundles and Galois descent of vector spaces. It extends the whole-roadmap packet’s SF.1 strand, with the missing key proof inputs and typed interfaces recorded in gaps: fpqc descent of quasi-coherent modules and affine morphisms, Galois descent of quasi-projective schemes and descent of sheaves; the category of algebraic spaces with etale-equivalence-relation quotients, presentations, points, etale-local and separation properties, fibre products, small etale ringed site, quasi-coherent modules and two non-scheme examples; group spaces, actions, groupoids, stabilizers, torsors, H^1, contracted products, twisting, categorical and geometric quotients, finite group quotients and Artin's bootstrap theorem; stacks in groupoids, stackification, 2-fibre products, representable morphisms, algebraic and Deligne-Mumford stacks, inertia, quotient and root stacks, quasi-coherent modules and properties of morphisms with representability and properness kept separate; moduli functors versus fine and coarse moduli spaces, Keel-Mori and tame stacks; and the missing Galois-gerb inputs (semilinear automorphisms, Galois descent of affine groups, conjugator representability, crossed modules). The general theory of spaces and stacks is owned here, as the confirmed finding RT-AREA-algebraicgeometry/1 requires; ordinary stack constructions move down from DiamondsAndVStacks D0 and coarse-space foundations from AlgebraicModuliForArithmeticGeometry R09.5.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -16,588 +16,581 @@
     "kind": "class",
     "module": "Mathlib/RingTheory/Invariant/Defs.lean",
     "provides": "B is invariant over A for a group action when the fixed elements of B are exactly the image of A (line 31).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:Algebra.IsInvariant.isIntegral",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Invariant/Basic.lean",
     "provides": "If B is invariant over A for a finite group action then B is integral over A (line 137).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:Algebra.IsInvariant.orbit_eq_primesOver",
     "kind": "theorem",
     "module": "Mathlib/RingTheory/Invariant/Basic.lean",
     "provides": "For a finite group G acting on B invariantly over A, the primes of B over a given prime of A form one G-orbit (line 166).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Etale",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
     "provides": "Etale morphisms of schemes (line 41).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Flat",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
     "provides": "Flat morphisms of schemes (line 42).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.FormallyUnramified",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/FormallyUnramified.lean",
     "provides": "Formally unramified morphisms (line 54).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsAffineHom",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Affine.lean",
     "provides": "Affine morphisms of schemes: preimages of affine opens are affine (line 47).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsClosedImmersion",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
     "provides": "Closed immersions of schemes (line 45).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsImmersion",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Immersion.lean",
     "provides": "Immersions of schemes (line 45).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsProper",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
     "provides": "Proper morphisms: separated, universally closed, locally of finite type; quasi-compactness from universally closed (line 42).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsSeparated",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
     "provides": "Separated morphisms of schemes (line 44).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.LocallyOfFinitePresentation",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/FinitePresentation.lean",
     "provides": "Morphisms locally of finite presentation (line 45).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.LocallyOfFiniteType",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/FiniteType.lean",
     "provides": "Morphisms locally of finite type (line 43).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.LocallyQuasiFinite",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiFinite.lean",
     "provides": "Locally quasi-finite morphisms of schemes (line 71).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.QuasiCompact",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiCompact.lean",
     "provides": "Quasi-compact morphisms of schemes (line 43).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.QuasiSeparated",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiSeparated.lean",
     "provides": "Quasi-separated morphisms of schemes (line 50).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Etale",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
     "provides": "The category X.Etale of schemes etale over X (line 155).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
-   },
-   {
-    "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.exists_isIso_morphismRestrict_toNormalization",
-    "kind": "lemma",
-    "module": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
-    "provides": "Zariski's Main Theorem in Mathlib's form: over the quasi-finite locus a separated finite type morphism restricts to an isomorphism onto an open of its normalization (line 206).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.LocalRepresentability.isRepresentable",
     "kind": "theorem",
     "module": "Mathlib/AlgebraicGeometry/Sites/Representability.lean",
     "provides": "A Zariski sheaf on Sch with a jointly surjective family of relatively representable open immersions from schemes is representable (Stacks 01JJ) (line 208).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pseudofunctor",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
     "provides": "The pseudofunctor from LocallyDiscrete Scheme^op to the bicategory of adjunctions sending X to X.Modules, with pullback-pushforward adjunctions and their unit/composition isomorphisms (line 319).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.etalePrecoverage",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
     "provides": "Jointly surjective families of etale morphisms (line 32).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.etaleTopology",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
     "provides": "The big etale topology on Sch (line 40).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
     "provides": "The fppf topology on Scheme generated by jointly surjective families of flat morphisms locally of finite presentation (line 53); subcanonical by the instance at line 97; fppf <= fpqc (line 83).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.fpqcPrecoverage",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
     "provides": "The fpqc precoverage: quasi-compact jointly surjective families of flat morphisms (line 60).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.fpqcTopology",
     "kind": "abbrev",
     "module": "Mathlib/AlgebraicGeometry/Sites/Fpqc.lean",
     "provides": "The fpqc topology on Scheme: generated by quasi-compact jointly surjective families of flat morphisms (line 75); an unnamed instance at line 87 shows it is subcanonical.",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.smallEtaleTopology",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Sites/Etale.lean",
     "provides": "The small etale topology on X.Etale (line 50).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Smooth",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
     "provides": "Smooth morphisms of schemes (line 62).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Surjective",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/UnderlyingMap.lean",
     "provides": "Surjective morphisms of schemes (line 59).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.UniversallyClosed",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/Morphisms/UniversallyClosed.lean",
     "provides": "Universally closed morphisms of schemes (line 43).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.instGrpObjSpecAsOverSpec",
     "kind": "instance",
     "module": "Mathlib/AlgebraicGeometry/Group/Affine.lean",
     "provides": "Spec of a commutative Hopf algebra is a group object in schemes over Spec R (line 256).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.isQuasicoherent_iff_isIso_fromTildeΓ",
     "kind": "theorem",
     "module": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
     "provides": "A module on Spec R is quasi-coherent iff the comparison map from the tilde of its global sections is an isomorphism (line 867).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Aut",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Endomorphism.lean",
     "provides": "The automorphism group of an object (line 119).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.IsFibered",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/FiberedCategory/Fibered.lean",
     "provides": "Fibered categories (line 65).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.relativelyRepresentable",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
     "provides": "f : X -> Y in D is relatively representable along F : C -> D if every pullback along F.obj a -> Y is represented by some F.obj b (line 103).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.relativelyRepresentable.diag_iff",
     "kind": "lemma",
     "module": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
     "provides": "The diagonal of X is relatively representable iff every map F.obj a -> X is (line 670).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.relativelyRepresentable.of_diag",
     "kind": "lemma",
     "module": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
     "provides": "If the diagonal of X is relatively representable then every F.obj a -> X is relatively representable (line 588).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.GrothendieckTopology.Subcanonical",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Sites/Canonical.lean",
     "provides": "A topology is subcanonical if every representable presheaf is a sheaf (line 130).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.GrothendieckTopology.pseudofunctorOver",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Sites/PseudofunctorSheafOver.lean",
     "provides": "The pseudofunctor X |-> Sheaf (J.over X) A with pullback along Over maps (line 37); no stack property is proved in Mathlib.",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.GrpObj",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Monoidal/Grp.lean",
     "provides": "Group objects in a monoidal category (line 43).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.IsGroupoid",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Groupoid.lean",
     "provides": "A category in which every morphism is invertible (line 119).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Limits.CategoricalPullback",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/Categorical/Basic.lean",
     "provides": "The (2,1)-categorical pullback of functors F : A -> B, G : C -> B: triples (a, c, F a ≅ G c), with its universal property functorEquiv (line 82).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.ModObj",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Monoidal/Mod.lean",
     "provides": "An action of a monoid object M on an object X of a category with a monoidal left action: smul : M ⊙ X -> X with unit and associativity (line 59).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.MonObj",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Monoidal/Mon.lean",
     "provides": "Monoid objects in a monoidal category (line 72).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.MonoidalCategory.selfLeftAction",
     "kind": "instance",
     "module": "Mathlib/CategoryTheory/Monoidal/Action/Basic.lean",
     "provides": "A monoidal category acts on itself by tensor product (line 174).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.MorphismProperty.IsLocalAtSource",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/MorphismProperty/Local.lean",
     "provides": "A morphism property is local at the source for a precoverage (line 154).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.MorphismProperty.IsLocalAtTarget",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/MorphismProperty/Local.lean",
     "provides": "A morphism property is local at the target for a precoverage (line 51).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.MorphismProperty.presheaf",
     "kind": "abbrev",
     "module": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
     "provides": "P.presheaf = P.relative yoneda for morphisms of presheaves (line 330).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.MorphismProperty.relative",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/MorphismProperty/Representable.lean",
     "provides": "P.relative F: relatively representable and every represented pullback has P (line 317).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.ObjectProperty.FullSubcategory",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/ObjectProperty/FullSubcategory.lean",
     "provides": "The full subcategory on the objects satisfying an object property (line 39).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Presheaf.IsSheaf",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
     "provides": "The sheaf condition for a presheaf on a site (line 78).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.PresheafOfGroups.H1",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Sites/NonabelianCohomology/H1.lean",
     "provides": "Nonabelian Cech H^1 of a presheaf of groups for a fixed family of objects: 1-cocycles modulo cohomology (line 197).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
     "provides": "Pseudofunctors between bicategories (line 58).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.CoGrothendieck",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Bicategory/Grothendieck.lean",
     "provides": "The Grothendieck construction of a contravariant pseudofunctor to Cat (line 238); FiberedCategory/Grothendieck.lean shows its projection is a fibered category.",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.DescentData",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Sites/Descent/DescentData.lean",
     "provides": "Descent data for a pseudofunctor relative to a family f_i : X_i -> S: objects over each X_i with compatible pullback isomorphisms (line 59).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.DescentDataAsCoalgebra.coalgebraEquivalence",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Sites/Descent/DescentDataAsCoalgebra.lean",
     "provides": "For a single morphism, descent data in coalgebra form are equivalent to coalgebras over the comonad of the pullback-pushforward adjunction (line 144).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.IsPrestack",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Sites/Descent/IsPrestack.lean",
     "provides": "Descent of morphisms: the presheaves of morphisms p^*M -> p^*N on Over S are J-sheaves (line 162).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.IsStack",
     "kind": "class",
     "module": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
     "provides": "A Cat-valued pseudofunctor is a stack for a Grothendieck topology J: prestack plus essential surjectivity of toDescentData for covering sieves; fibres need not be groupoids (line 49).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.IsStack.of_precoverage",
     "kind": "lemma",
     "module": "Mathlib/CategoryTheory/Sites/Descent/Precoverage.lean",
     "provides": "For a precoverage with isos, base change and composition, a prestack satisfying IsStackFor for every covering presieve of the precoverage is a stack for the generated topology (line 410).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans",
     "kind": "structure",
     "module": "Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean",
     "provides": "Strong natural transformations between pseudofunctors, the 1-morphisms of the bicategory of pseudofunctors (line 57).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.isEquivalence_toDescentData",
     "kind": "lemma",
     "module": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
     "provides": "For a stack, toDescentData attached to a covering family is an equivalence of categories (line 70).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.isEquivalence_toDescentDataAsCoalgebra_iff_isEquivalence_comonadComparison",
     "kind": "lemma",
     "module": "Mathlib/CategoryTheory/Sites/Descent/DescentDataAsCoalgebra.lean",
     "provides": "For a single morphism, the functor to coalgebra-form descent data is an equivalence iff the comonad comparison functor is (line 209).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Sheaf",
     "kind": "abbrev",
     "module": "Mathlib/CategoryTheory/Sites/Sheaf.lean",
     "provides": "Sheaves on a site with values in a category (line 301).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.Skeleton",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Skeletal.lean",
     "provides": "The skeleton of a category: isomorphism classes of objects (line 74).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.overEquivPresheafCostructuredArrow",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Comma/Presheaf/Basic.lean",
     "provides": "The over category of presheaves over yoneda.obj X is equivalent to presheaves on the costructured arrow category (Over X) (line 605).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.presheafToSheaf",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Sites/Sheafification.lean",
     "provides": "Sheafification functor, left adjoint to the inclusion (line 73).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CategoryTheory.yoneda",
     "kind": "def",
     "module": "Mathlib/CategoryTheory/Yoneda.lean",
     "provides": "The Yoneda embedding C -> (C^op => Type) (line 43).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:CommHopfAlgCat",
     "kind": "structure",
     "module": "Mathlib/Algebra/Category/CommHopfAlgCat.lean",
     "provides": "The category of commutative Hopf algebras over a commutative ring (line 27).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:GroupExtension",
     "kind": "structure",
     "module": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
     "provides": "Group extensions 1 -> N -> E -> G -> 1 (line 74).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:MonoidHom.ker",
     "kind": "def",
     "module": "Mathlib/Algebra/Group/Subgroup/Ker.lean",
     "provides": "The kernel of a monoid homomorphism (line 238).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:SemidirectProduct.toGroupExtension",
     "kind": "def",
     "module": "Mathlib/GroupTheory/GroupExtension/Defs.lean",
     "provides": "The semidirect product N ⋊ G as a group extension (line 326).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:SheafOfModules.IsQuasicoherent",
     "kind": "class",
     "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean",
     "provides": "Quasi-coherence of a sheaf of modules on a ringed site: existence of local presentations (line 253).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:Torsor",
     "kind": "class",
     "module": "Mathlib/Algebra/Torsor/Defs.lean",
     "provides": "Set-level torsors: a free transitive action with a division map (line 70).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:comonadicExtendScalars",
     "kind": "def",
     "module": "Mathlib/Algebra/Category/ModuleCat/Descent.lean",
     "provides": "Extension of scalars along a faithfully flat ring map is a comonadic left adjoint (line 59); the passage to effective descent is a TODO in that file.",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "mathlib:krullTopology",
     "kind": "instance",
     "module": "Mathlib/FieldTheory/KrullTopology.lean",
     "provides": "The Krull topology on Gal(L/K), with basis the subgroups fixing finite subextensions (line 133); discrete for finite extensions (line 247).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.AlgHom.faithfullyFlatDescentMulEquiv",
     "kind": "def",
     "module": "TauCeti/Algebra/AlgebraicGroup/FaithfullyFlatDescent.lean",
     "provides": "A-points of a Hopf algebra are the B-points equalized by the two maps to B (x)_A B for faithfully flat A -> B (line 218).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
     "kind": "abbrev",
     "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
     "provides": "The full category of invertible sheaves of O_X-modules on a scheme X (line 78).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.LineBundleClass",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/LineBundle/Class.lean",
     "provides": "Isomorphism classes of line bundles on a scheme, as the skeleton of InvertibleSheaf X (line 49).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.CommHopfAlgCat.fppfQuotientSheaf",
     "kind": "def",
     "module": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Basic.lean",
     "provides": "For a commutative Hopf algebra H over R and a normal Hopf ideal, the fppf quotient sheaf of the represented group by the closed normal subgroup, on affine R-schemes (line 136).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.CommHopfAlgCat.isPullback_fppfQuotientTorsor",
     "kind": "theorem",
     "module": "TauCeti/Algebra/AlgebraicGroup/Fppf/Quotient/Torsor.lean",
     "provides": "The torsor (kernel-pair) square G x V(I) -> G over G -> G/V(I) is a pullback of fppf sheaves (line 372).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.ConstantGroup.groupScheme",
     "kind": "def",
     "module": "TauCeti/Algebra/AlgebraicGroup/ConstantGroup/Scheme.lean",
     "provides": "The constant group scheme attached to a finite group over a base ring (line 66).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.GaloisDescent.liftBaseChange_injective_of_invariant",
     "kind": "theorem",
     "module": "TauCeti/RepresentationTheory/GaloisDescent/Injective.lean",
     "provides": "Over a finite Galois extension, an injective k-linear map into invariant vectors stays injective after extending scalars (line 42).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.GaloisDescent.span_invariants_eq_top",
     "kind": "theorem",
     "module": "TauCeti/RepresentationTheory/GaloisDescent/Span.lean",
     "provides": "For a semilinear representation of a finite automorphism group of L, the invariant vectors span the representation over L, in any characteristic (line 38).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.ScalarAut.instMulSemiringAction",
     "kind": "instance",
     "module": "TauCeti/Algebra/TensorProduct/BaseChange.lean",
     "provides": "The action of Aut_K(L) on L (x)_K A through the scalar factor, a semilinear action (line 214).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    },
    {
     "ref": "tauceti:TauCeti.linearlyReductiveAffineGroupSchemeProperty",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/LinearlyReductive.lean",
     "provides": "Linear reductivity of affine group schemes over a field, transported from commutative Hopf algebras (line 60).",
-    "checked": "statement read in the Lean source at the pinned commit on 2026-10-09"
+    "checked": "Independently read declaration statement at the pinned commit on 2026-10-09; source module byte-matches the pinned GitHub file (REV-SchemeAndStackFoundations--SF.1)."
    }
   ]
  },
@@ -609,7 +602,9 @@
    "edition": "Online version, tag pages retrieved 2026-10-09",
    "url": "https://stacks.math.columbia.edu/tag/0238",
    "readSections": [
-    "Sections 35.2 (023A), 35.5 (023R, Proposition 35.5.2 = 023T), 35.6 (0CDQ), 35.7 (Lemma 35.7.6 = 05B2), 35.13 (Lemma 35.13.7 = 023Q), 35.37 (0244, Lemma 35.37.1 = 0245), 35.39 (Lemma 35.39.1 = 02W5): statements and displayed proofs"
+    "Sections 35.2 (023A), 35.5 (023R, Proposition 35.5.2 = 023T), 35.6 (0CDQ), 35.7 (Lemma 35.7.6 = 05B2), 35.13 (Lemma 35.13.7 = 023Q), 35.37 (0244, Lemma 35.37.1 = 0245), 35.39 (Lemma 35.39.1 = 02W5): statements and displayed proofs",
+    "Lemma 35.38.1 (0247), statement and proof in Section 35.38 (0246)",
+    "Definition 35.32.3 and Lemma 35.32.6 with proof (04QW): the source-and-target locality criterion"
    ]
   },
   {
@@ -630,7 +625,8 @@
    "edition": "Online version, tag pages retrieved 2026-10-09",
    "url": "https://stacks.math.columbia.edu/tag/02GX",
    "readSections": [
-    "Section 37.57 Descending separated locally quasi-finite morphisms (02W7), Lemma 37.57.1 (02W8): statement and first part of the proof"
+    "Section 37.57 Descending separated locally quasi-finite morphisms (02W7), Lemma 37.57.1 (02W8): statement and first part of the proof",
+    "Lemma 37.43.2 (02LR), statement and proof; full proof of 37.57.1 (02W8)"
    ]
   },
   {
@@ -695,7 +691,8 @@
     "94.9.1 (02ZW), 94.12.1 (026O), 94.12.2 (03YO), Proposition 94.13.3 (04SZ), Lemma 94.14.3 (04T2), Lemma 94.16.2 (04T5), Theorem 94.17.3 (04TK)",
     "95.4.2 (03YM), 95.7.2 (04UA), 95.14.9 (04US), 95.14.10 (04UT), Proposition 95.15.3 (04WM), Lemma 95.15.2 (0370)",
     "96.11.1 (06WG), Proposition 96.14.3 (06WT)",
-    "Theorems 97.16.1 (06DC) and 97.17.2 (06FI)"
+    "Theorems 97.16.1 (06DC) and 97.17.2 (06FI)",
+    "Lemma 96.13.2 (06WR) with proof: invariance under stackification"
    ]
   },
   {
@@ -707,7 +704,8 @@
    "readSections": [
     "100.4.2 (04XG), 100.4.8 (04Y8)",
     "101.4.1 (04YW), Lemma 101.5.1 (050Q), 101.13.2 (0513), 101.16.2 (06FN), Lemma 101.19.1 (0DTS), Theorem 101.21.6 (06N3), 101.37.1 (0CL5)",
-    "Section 106.12 Moduli spaces (0DUF): Definition 106.12.1, Lemmas 106.12.2-106.12.4 with proofs"
+    "Section 106.12 Moduli spaces (0DUF): Definition 106.12.1, Lemmas 106.12.2-106.12.4 with proofs",
+    "Lemma 101.3.1 (04XR) with proof: Isom spaces are locally of finite type"
    ]
   },
   {
@@ -765,7 +763,8 @@
    "url": "https://arxiv.org/abs/math/0703310v1",
    "sha256": "081c9b056b9bd60c87393529793bdc7796134056064f79a8d7ba7b31f7b36462",
    "readSections": [
-    "Section 3: Definition 3.1, Theorem 3.2, Corollaries 3.3-3.5 with proofs, Proposition 3.6 (statement and first steps)"
+    "Section 3: Definition 3.1, Theorem 3.2, Corollaries 3.3-3.5 with proofs, Proposition 3.6 (statement and first steps)",
+    "Definition 2.4, Propositions 2.5-2.6 and the proof of Proposition 3.6 through its reduction to Proposition 3.7, pp. 6-7, 20-22; correction read in the 2014 corrigendum"
    ]
   },
   {
@@ -778,7 +777,52 @@
    "readSections": [
     "Section 3.1.1 (definition of k'/k-Galois gerbs, morphisms, conjugacy, Isom(f1, f2), pro-gerbs, neutral gerbs), pp. 34-35",
     "Lemma 3.1.2 with proof, pp. 35-36",
-    "Section 3.2.1 (crossed modules and the strictly monoidal category H/H~), pp. 39-40"
+    "Section 3.2.1 (crossed modules and the strictly monoidal category H/H~), p. 40"
+   ]
+  },
+  {
+   "id": "RYDH",
+   "title": "Existence and properties of geometric quotients",
+   "authors": "David Rydh",
+   "edition": "arXiv:0708.3333v2, 5 May 2012; 36-page public PDF read 2026-10-09",
+   "url": "https://arxiv.org/abs/0708.3333v2",
+   "sha256": "2422285e96dceac45cc9fa7fcbc0f12d700261adbe0901ba968bb81efc69c856",
+   "readSections": [
+    "Definition 2.2, Proposition 2.3 and Remark 2.8, pp. 6-8; Theorem 3.16 and Definition 3.17, p. 18",
+    "Theorem 4.1, Lemma 4.3, Theorem 4.4 and Proposition 4.7, pp. 19-22",
+    "Definitions 6.1, 6.3, 6.6 and 6.8, Proposition 6.5, Definition 6.9, Theorem 6.10, Proposition 6.11 and Theorem 6.12 with proofs, pp. 25-28"
+   ]
+  },
+  {
+   "id": "AOV-CORR",
+   "title": "Corrigendum to: Tame stacks in positive characteristic",
+   "authors": "Dan Abramovich, Martin Olsson and Angelo Vistoli",
+   "edition": "Annales de l’Institut Fourier 64 (2014), 945-946; public PDF read 2026-10-09",
+   "url": "https://www.numdam.org/item/10.5802/aif.2869.pdf",
+   "sha256": "5493ab94b2061f97b39e42fdbe5bb4e90b6ff9dc460349d26fd55326b03a9f46",
+   "readSections": [
+    "Correction to the second proof of Lemma 2.14 and to the torsor-extension obstruction in Proposition 3.6, p. 945"
+   ]
+  },
+  {
+   "id": "SP-QCOH-PUSH",
+   "title": "The Stacks Project, Chapter 103 (Cohomology of Algebraic Stacks)",
+   "authors": "The Stacks Project Authors",
+   "edition": "Online version retrieved 2026-10-09",
+   "url": "https://stacks.math.columbia.edu/tag/070A",
+   "readSections": [
+    "Section 103.11: introductory counterexample, Proposition 103.11.1 and Lemma 103.11.2 with proofs; prerequisite constructions 103.8 and 103.10 are identified but not independently decomposed"
+   ]
+  },
+  {
+   "id": "POONEN-ERRATA",
+   "title": "Errata for Rational points on varieties",
+   "authors": "Bjorn Poonen",
+   "edition": "Author errata dated 23 August 2026, five-page public PDF read 2026-10-09",
+   "url": "https://math.mit.edu/~poonen/papers/Qpoints-errata.pdf",
+   "sha256": "9f03ad5d6420656d2b952ed41a78cbc44eb6b2f952c273c5141c3c366780e76a",
+   "readSections": [
+    "Relevant entries on p. 2 for 5.11, 6.5.6, 6.5.9, 6.5.6.4 and 6.5.12; full list checked for the cited descent/torsor sections"
    ]
   }
  ],
@@ -1030,9 +1074,9 @@
     "Descent datum in the sense of Stacks Section 35.34 (schemes over schemes) relative to the single covering {Y' -> Y}."
    ],
    "proofSteps": [
-    "Stacks Lemma 39.25.2 reduces effectivity to: for every y in Y and points v_1,...,v_d of V over y, there is an affine open of V containing them and stable under the descent datum (Stacks Lemma 39.25.3, 0CCJ).",
-    "An ample invertible sheaf (or quasi-projectivity) gives an affine open containing any finite set of points (Stacks Properties 28.30.5); intersecting its translates under the finitely many sheets of the descent datum gives a stable affine open (Poonen Corollary 4.4.6, hypersurface avoiding an orbit).",
-    "Descend each stable affine open by SF.1/affine-fpqc-descent (Galois form: Poonen Propositions 4.4.2 and 4.4.4) and glue the descended affines along the descended open immersions, using that morphisms descend (fpqc subcanonical).",
+    "Use the finite locally free groupoid criterion of Stacks Lemma 39.25.2: effectivity follows once each finite orbit is contained in an affine open of V.",
+    "Quasi-projectivity or the specified ample invertible sheaf provides affine neighbourhoods of the finite sets occurring in that criterion. Stacks Lemma 39.24.1 constructs orbit-stable affine neighbourhoods for this finite locally free relation; this does not assume that the covering is Galois.",
+    "Descend the stable affine pieces using the finite locally free equivalence-relation quotient of ModularCurves 0C and glue, as in Stacks Lemma 39.25.3 (0CCJ). For finite Galois fields the cocycle description and the quasi-projective special case agree with Poonen Corollary 4.4.6.",
     "Compatibility: if V carries a polarization compatible with the descent datum and p is etale, the descended scheme with its descended polarization is the one supplied by Tau Ceti StableReduction Layer 2, by uniqueness of descent (full faithfulness)."
    ],
    "acceptance": [
@@ -1042,7 +1086,8 @@
    "prerequisites": [
     "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
     "mathlib:AlgebraicGeometry.Scheme.fpqcTopology",
-    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity"
+    "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+    "tauceti:TauCetiRoadmap/ModularCurves#0c-finite-quotients-and-torsors"
    ],
    "sources": [
     {
@@ -1072,14 +1117,14 @@
    ],
    "title": "Sheaves on a site form a stack",
    "kind": "theorem",
-   "statement": "For a site (C, J) and a category A whose sheaf condition is detected by a limit-preserving conservative functor to sets (types, groups, rings, modules), the pseudofunctor X |-> Sheaf(J.over X, A) (Mathlib GrothendieckTopology.pseudofunctorOver) is a stack for J: morphisms of sheaves glue along coverings and gluing data of sheaves are effective. In particular fppf sheaves of sets (and of groups) on Sch/T form an fppf stack in T.",
+   "statement": "For a site (C, J), the pseudofunctor X |-> Sheaf(J.over X, Type) is a stack for J: morphisms glue and descent data for sheaves of sets are effective. The same construction applies to sheaves of groups, rings or modules by gluing their operations and equations in the sheaves of sets. No claim is made here for an arbitrary category equipped merely with a conservative functor to sets.",
    "hypotheses": [
     "J a Grothendieck topology on C; the restriction functors are those of Mathlib's J.overMapPullback."
    ],
    "proofSteps": [
     "Morphisms: given maps of sheaves on C/U_i agreeing on overlaps, there is a unique glued map (Stacks Lemma 7.26.1, 04TQ); this is IsPrestack.",
     "Objects: given gluing data (F_i, phi_ij) satisfying the cocycle condition, define F on C/U by F(V -> U) = compatible families of sections of the F_i over V x_U U_i; it is a sheaf restricting to F_i (Stacks Lemma 7.26.4, 04TR).",
-    "For A with a conservative limit-preserving forgetful functor, apply the construction to underlying sets and transport the algebraic structure, since the gluing is a limit.",
+    "For groups, rings and modules, glue each operation as a map of sheaves of sets; its equations can be checked on the covering. This uses the specific algebraic structures, rather than a general assertion about conservative functors.",
     "Mathlib DescentData is generated by covering sieves, so IsStack follows from the two gluing statements by IsStack.of_isStackFor."
    ],
    "acceptance": [
@@ -1122,7 +1167,7 @@
    "proofSteps": [
     "Define the object property 'is an algebraic space' on presheaves and take its full subcategory (Mathlib ObjectProperty.FullSubcategory).",
     "Representable presheaves are algebraic spaces (SF.1/algebraic-space-of-scheme in the whole-roadmap packet), so yoneda lifts to h : Sch -> AlgSp; it is fully faithful because yoneda is.",
-    "Relative comparison: Mathlib overEquivPresheafCostructuredArrow identifies presheaves over h_S with presheaves on Over S; the fppf topology induced on Over S has as coverings the fppf coverings of the underlying schemes, so sheaf conditions, representability of diagonals (fibre products over h_S versus over the terminal presheaf differ by the monomorphism h_S x_{h_S} h_S) and etale atlases correspond. This is Stacks Section 65.16 (change of base scheme).",
+    "Relative comparison uses overEquivPresheafCostructuredArrow and the induced fppf topology on Over S. An absolute representable diagonal implies a relative one by base change. Conversely, the relative diagonal X -> X x_{h_S} X followed by X x_{h_S} X -> X x X is a composition of representable morphisms: the latter is the pullback of the scheme diagonal h_S -> h_S x h_S. The same scheme atlas works on both sites (Stacks Section 65.16).",
     "Coproducts indexed by a type in the universe exist: the coproduct of atlases is a scheme (Stacks 65.8.4 with the universe in place of the cardinal bound)."
    ],
    "acceptance": [
@@ -1136,7 +1181,8 @@
     "mathlib:CategoryTheory.overEquivPresheafCostructuredArrow",
     "mathlib:AlgebraicGeometry.Scheme.fppfTopology",
     "mathlib:CategoryTheory.GrothendieckTopology.Subcanonical",
-    "mathlib:CategoryTheory.Presheaf.IsSheaf"
+    "mathlib:CategoryTheory.Presheaf.IsSheaf",
+    "SchemeAndStackFoundations:SF.1/algebraic-space-of-scheme"
    ],
    "sources": [
     {
@@ -1334,7 +1380,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Spaces.EtaleEquivRel.test_double_diagonal",
      "kind": "non-example",
-     "statement": "Two copies of the diagonal, Δ ⊔ Δ -> U x U, is not a monomorphism, hence not a relation."
+     "statement": "For a nonempty scheme U, two copies of the diagonal Δ ⊔ Δ -> U x_S U do not give a monomorphism, so do not give an equivalence relation. The nonempty hypothesis excludes the empty scheme."
     }
    ],
    "library": {
@@ -1469,10 +1515,10 @@
     "{X_i -> S} an fppf covering; V_i -> X_i separated and locally quasi-finite."
    ],
    "proofSteps": [
-    "Separatedness and local quasi-finiteness are stable under base change, so by Stacks Lemma 35.36.2 one reduces to a single flat surjective finitely presented map of affines X = Spec A -> S = Spec R.",
-    "Cover V by affines W^1 stable under the descent datum after shrinking: the descent datum moves an affine open to finitely many affine opens of V (finite fibres), and their intersection is quasi-affine over X by Zariski's Main Theorem (Mathlib exists_isIso_morphismRestrict_toNormalization: quasi-finite separated maps are open in a finite map).",
-    "Quasi-affine schemes descend (Poonen Theorem 4.3.5(ii)), using SF.1/affine-fpqc-descent for the ambient affine hull and descent of the open subscheme.",
-    "Glue the descended pieces along descended open immersions (morphisms descend; fppf is subcanonical). Stacks Lemma 37.57.1 (02W8)."
+    "Reduce to a faithfully flat finitely presented morphism of affine schemes X -> S, using locality of effectivity (Stacks 35.36.2 and 37.57.1).",
+    "For an affine open W_1 of V, let W be the image in V of its pullback by the descent isomorphism. Flat local finite presentation makes W open, and the cocycle identity makes it stable. Quasi-compactness here follows from quasi-compactness of X -> S, not finiteness of its fibres (Stacks proof of 37.57.1).",
+    "The map W -> X is quasi-finite and separated; the quasi-affineness form of Zariski’s Main Theorem (Stacks Lemma 37.43.2) makes it quasi-affine. Descend this quasi-affine piece by effective fpqc descent of quasi-affine morphisms (Stacks 35.38.1). Both inputs require their own general theorem interfaces; the pinned normalization theorem is not a theorem making normalization finite.",
+    "The descended stable pieces cover and glue along their descended open overlaps; full faithfulness of scheme descent supplies the maps. This proves Stacks Lemma 37.57.1."
    ],
    "acceptance": [
     "An etale equivalence relation with U affine gives a separated locally quasi-finite j : R -> U x U, to which this descent applies in the proof of SF.1/etale-quotient-theorem."
@@ -1481,7 +1527,6 @@
     "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
     "mathlib:AlgebraicGeometry.LocallyQuasiFinite",
     "mathlib:AlgebraicGeometry.IsSeparated",
-    "mathlib:AlgebraicGeometry.Scheme.Hom.exists_isIso_morphismRestrict_toNormalization",
     "mathlib:AlgebraicGeometry.Scheme.fppfTopology"
    ],
    "sources": [
@@ -1587,17 +1632,17 @@
    "realises": [
     "SchemeAndStackFoundations:SF.1"
    ],
-   "title": "The topological space of an algebraic space or stack",
+   "title": "The topological space of an algebraic space",
    "kind": "construction",
-   "statement": "For an algebraic space X (or an algebraic stack), the set |X| of points is the set of equivalence classes of morphisms Spec K -> X from spectra of fields, where two such are equivalent if they agree after passing to a common field extension. It carries the quotient topology from |U| for any etale (for stacks: smooth) surjective U -> X from a scheme; this topology does not depend on U. A morphism f induces a continuous map |f|.",
+   "statement": "For an algebraic space X, |X| consists of field-valued points modulo agreement after a common field extension. Give it the quotient topology from an etale surjective scheme atlas U -> X. This topology is independent of the atlas, and every morphism induces a continuous map. Open subspaces correspond to open subsets of |X|.",
    "hypotheses": [
-    "X an algebraic space (Stacks 66.4) or algebraic stack (Stacks 100.4)."
+    "X an algebraic space in the fixed universe."
    ],
    "proofSteps": [
     "Define the equivalence relation on field-valued points and check it is an equivalence relation using fibre products of field spectra (Stacks Definition 66.4.1).",
     "For a presentation (U, R), the map |U| -> |X| is surjective and identifies |X| with the set quotient |U|/|R| (Stacks Lemmas 66.4.3-66.4.6); give |X| the quotient topology.",
     "Independence of the presentation: two presentations have a common refinement (SF.1/space-presentation), and |U'| -> |U| is open and surjective for etale surjective maps.",
-    "Open subspaces of X correspond bijectively to open subsets of |X| (Stacks Lemma 66.4.8, 03BZ); stacks are treated identically with smooth atlases (Stacks 100.4.2, 100.4.8)."
+    "Open subspaces correspond to open subsets of |X| by Stacks Lemma 66.4.8 (03BZ). Algebraic-stack points are the separate stack-points construction."
    ],
    "acceptance": [
     "For X a scheme, |h_X| is homeomorphic to the underlying topological space of X."
@@ -1611,11 +1656,6 @@
      "sourceId": "SP-SPACES",
      "locator": "Definitions 66.4.1 (03BU) and 66.4.7 (03BY), Lemma 66.4.8 (03BZ)",
      "match": "Points of an algebraic space are classes of field-valued points; the topology is constructed from a presentation; open subspaces correspond to opens of |X|."
-    },
-    {
-     "sourceId": "SP-MORSTK",
-     "locator": "Definitions 100.4.2 (04XG) and 100.4.8 (04Y8)",
-     "match": "The same definitions for algebraic stacks."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1695,9 +1735,10 @@
    ],
    "title": "Properties of morphisms of algebraic spaces defined etale locally",
    "kind": "definition",
-   "statement": "Let P be a property of morphisms of schemes that is etale local on the source-and-target (local at the source and at the target for Mathlib's etale precoverage and stable under precomposition with etale morphisms; Stacks Definition 35.32.1). A morphism f : X -> Y of algebraic spaces has P if for some commutative square with U -> X and V -> Y etale, U, V schemes and U -> X surjective, the morphism U -> V has P; equivalently for every such square. If P is moreover stable under base change and fppf local on the target, a representable morphism of algebraic spaces has P in this sense iff it has P.presheaf (Mathlib MorphismProperty.presheaf). Examples: etale, smooth, flat, locally of finite presentation, locally of finite type, locally quasi-finite, unramified.",
+   "statement": "Let P be a property of morphisms of schemes that is etale local on the source-and-target (etale local on the source and target and preserved by postcomposition with open immersions; the equivalent sufficient criterion of Stacks Lemma 35.32.6 for Definition 35.32.3). A morphism f : X -> Y of algebraic spaces has P if for some commutative square with U -> X and V -> Y etale, U, V schemes and U -> X surjective, the morphism U -> V has P; equivalently for every such square. If P is moreover stable under base change and fppf local on the target, a representable morphism of algebraic spaces has P in this sense iff it has P.presheaf (Mathlib MorphismProperty.presheaf). Examples: etale, smooth, flat, locally of finite presentation, locally of finite type, locally quasi-finite, unramified.",
    "hypotheses": [
-    "P etale local on the source-and-target; squares with etale vertical maps from schemes and U -> X surjective."
+    "P etale local on the source-and-target; squares with etale vertical maps from schemes and U -> X surjective.",
+    "The source-and-target locality includes postcomposition with open immersions as in Stacks 35.32.6; separate Mathlib IsLocalAtSource and IsLocalAtTarget instances alone do not assert this extra condition (Stacks 35.32.6)."
    ],
    "proofSteps": [
     "Independence of the square (Stacks Lemma 67.22.1, 03MJ): given two squares, refine both by U'' = U x_X U' and V'' = V x_Y V' (schemes, by representability of maps from schemes), and use locality of P on source and target.",
@@ -1728,7 +1769,7 @@
     },
     {
      "sourceId": "SP-DESC",
-     "locator": "Section 35.32 (tag 04QW)",
+     "locator": "Definition 35.32.3 and Lemmas 35.32.5-35.32.6 (Section 35.32, tag 04QW)",
      "match": "Properties of morphisms of schemes etale local on source-and-target."
     }
    ],
@@ -1885,7 +1926,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Spaces.IsSeparated.iff_affine_charts",
      "role": "characterisation",
-     "statement": "X is separated iff U x_X V is affine with O(U) (x) O(V) -> O(U x_X V) surjective for affine U, V over X."
+     "statement": "For the absolute notion over Spec Z, X is separated iff U x_X V is affine and Γ(U,O_U) tensor_Z Γ(V,O_V) -> Γ(U x_X V,O) is surjective for all affine scheme charts U,V. For separatedness relative to a base S, use affine charts of U x_S V and the map induced by the relative diagonal."
     },
     {
      "name": "TauCeti.SchemeFoundations.Spaces.IsProper.baseChange",
@@ -1974,7 +2015,7 @@
     "Define the category of etale U -> X with U a scheme, with coverings induced from the big etale site (Stacks Definition 66.18.1, 03ED); fibre products exist by SF.1/space-fibre-products.",
     "Compare with X_spaces,et (Stacks Definition 66.18.2, 03G0): every etale space over X is covered by etale schemes, so the topoi agree (Stacks Lemma 66.18.3).",
     "The presheaf U |-> Γ(U, O_U) is a sheaf for etale coverings by SF.1/qcoh-fpqc-descent applied to O (Stacks Lemma 66.21.1, Definition 66.21.2).",
-    "Functoriality f^{-1} by base change of etale maps; localisation at an atlas identifies (X_et)/U with U_et."
+    "Use base change on the enlarged sites of etale algebraic spaces to construct the morphism of topoi, then transport it through the comparison with the scheme-chart sites. The ring map is induced by pullback of regular functions. Localisation at a scheme atlas identifies the localized small site with the atlas’s small etale site."
    ],
    "acceptance": [
     "For X = h_{Spec R}, Γ(X_et, O_X) = R."
@@ -2032,7 +2073,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Spaces.smallEtale_map",
      "role": "functoriality",
-     "statement": "A morphism f : X -> Y induces the base-change functor Y_et -> X_et and a morphism of ringed sites."
+     "statement": "A morphism f : X -> Y induces the inverse-image functor on sheaves Sh(Y_et) -> Sh(X_et) and the associated morphism of ringed topoi. On the enlarged small site of etale algebraic spaces, base change gives the site functor; a scheme chart may pull back to an algebraic space, so it need not define a functor between the scheme-chart sites."
     },
     {
      "name": "TauCeti.SchemeFoundations.Spaces.smallEtale_localize",
@@ -2449,6 +2490,21 @@
      "name": "TauCeti.SchemeFoundations.Groups.Groupoid.toPresheafOfGroupoids",
      "role": "data",
      "statement": "The presheaf of groupoids T |-> (U(T), R(T)) on Sch."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Groups.Groupoid.unit_inverse",
+     "role": "simp",
+     "statement": "Identity and inverse satisfy both unit laws and both inverse laws on every scheme’s points, with s(e)=t(e)=id, s(i)=t and t(i)=s. These are axioms beyond the mere existence of source/target-swapping maps."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Groups.Groupoid.Hom",
+     "role": "constructor",
+     "statement": "A groupoid morphism is a pair of maps on objects and arrows commuting with source, target and composition; it preserves identities and inverses. Identity and composition give the category of groupoids."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Groups.Groupoid.Hom.ext",
+     "role": "extensionality",
+     "statement": "Two groupoid morphisms are equal when their maps on objects and arrows agree."
     }
    ],
    "tests": [
@@ -2470,7 +2526,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Groups.Groupoid.test_monoid_not_groupoid",
      "kind": "non-example",
-     "statement": "The additive monoid N acting on A^1_k by translation gives (A^1, N x A^1, s, t, c) whose T-points form a category without inverses, so it is not a groupoid."
+     "statement": "The one-object category with arrows the additive monoid N is not a groupoid: the arrow 1 has no inverse. It violates the inverse axioms, even though identity and source/target-swapping maps exist."
     }
    ],
    "library": {
@@ -2669,7 +2725,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Groups.Torsor.trivial_iff_section",
      "role": "characterisation",
-     "statement": "A G-torsor P is isomorphic to the trivial torsor iff P(B) is nonempty."
+     "statement": "A G-torsor has a section over B iff it is G-equivariantly isomorphic to the regular torsor G. A bare isomorphism of underlying spaces is not the assertion."
     },
     {
      "name": "TauCeti.SchemeFoundations.Groups.Torsor.hom_isIso",
@@ -2690,6 +2746,11 @@
      "name": "TauCeti.SchemeFoundations.Groups.Torsor.flat_of_flat",
      "role": "compatibility",
      "statement": "If G -> B is flat (resp. smooth, locally of finite presentation) then so is P -> B."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Groups.IsSheafTorsor",
+     "role": "data",
+     "statement": "A sheaf of sets over B with G-action, simply transitive action and covering-local sections, without assuming algebraic-space representability. The torsor-representability theorem identifies it with an algebraic-space torsor."
     }
    ],
    "tests": [
@@ -2701,7 +2762,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Groups.Torsor.test_frobenius_mu_p",
      "kind": "computation",
-     "statement": "In characteristic p, G_m with μ_p acting by multiplication and the map s |-> s^p : G_m -> G_m is an fppf μ_p-torsor over G_m that is not trivial on any etale covering."
+     "statement": "For k = F_p(u), the fibre s^p = u of the Frobenius μ_p-torsor on G_m has no section after any separable extension of k, although it is fppf locally trivial. The fibre over 1 is nonreduced but has the section 1, so cannot witness failure of etale local triviality."
     },
     {
      "name": "TauCeti.SchemeFoundations.Groups.Torsor.test_frobenius_twisted_action",
@@ -2739,7 +2800,7 @@
    "proofSteps": [
     "Take isomorphism classes in the groupoid Tors_τ(B, G) of SF.1/torsor; pullback and pushforward descend to classes.",
     "Cech comparison: every torsor is trivialized by a covering, and refinements give the colimit description (Poonen Proposition 6.5.9).",
-    "Commutative G: the contracted product P x^G Q with the diagonal action gives the group law (Poonen Example 5.12.15).",
+    "For commutative G, use the antidiagonal action g.(p,q)=(g p,g^{-1} q) on two left torsors; the residual G-action gives their sum. The trivial torsor is the identity and inversion of the action gives the inverse. Quotienting by the same-direction diagonal action would instead encode a difference.",
     "Line bundles: a line bundle L gives the G_m-torsor of nowhere vanishing sections of its dual geometric line bundle, and conversely (Poonen Example 6.5.5); compare with Tau Ceti's LineBundleClass."
    ],
    "acceptance": [
@@ -2754,7 +2815,7 @@
    "sources": [
     {
      "sourceId": "POONEN",
-     "locator": "Section 5.12.4 (classification of torsors, Proposition 5.12.14) and Proposition 6.5.9, Example 6.5.5, pp. 154-181",
+     "locator": "Section 5.12.4, p. 154 (classification paragraph and Proposition 5.12.14 on trivial torsors); Proposition 6.5.9, p. 181; Example 6.5.5, p. 180; author errata p. 2",
      "match": "Torsors are classified by H^1; torsor sheaves correspond to Cech H^1; line bundles correspond to G_m-torsors."
     },
     {
@@ -2791,7 +2852,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Groups.H1.pullback",
      "role": "functoriality",
-     "statement": "Pullback H^1(B, G) -> H^1(B', G_{B'}) along B' -> B."
+     "statement": "Base change gives H^1(B,G) -> H^1(B′,G_B′). A supplied comparison with another group G′ must be an isomorphism of group objects over B′, not only of underlying presheaves."
     },
     {
      "name": "TauCeti.SchemeFoundations.Groups.H1.pushforward",
@@ -2801,12 +2862,22 @@
     {
      "name": "TauCeti.SchemeFoundations.Groups.H1.cechColimit",
      "role": "equivalence",
-     "statement": "H^1_τ(B, G) is the colimit over τ-coverings of Mathlib's Cech PresheafOfGroups.H1."
+     "statement": "For a specified fppf covering U_i -> B and the presheaf of sections of G, its Cech H1 identifies with the classes of G-torsors trivialized on that covering. Passing to refinements gives all H^1(B,G). Neither an unrelated Grp-valued functor nor an arbitrary family suffices."
     },
     {
      "name": "TauCeti.SchemeFoundations.Groups.H1.picEquiv",
      "role": "equivalence",
-     "statement": "H^1_fppf(S, G_m) is in bijection with Tau Ceti's LineBundleClass S."
+     "statement": "For the actual multiplicative group space G_m over S, H^1_fppf(S,G_m) is equivalent to Tau Ceti LineBundleClass S. The group parameter is required to be G_m; an arbitrary group-space argument is insufficient."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Groups.H1.ofTorsor",
+     "role": "constructor",
+     "statement": "An algebraic-space G-torsor gives its isomorphism class in H^1(B,G); two representatives give the same class exactly when they admit a G-equivariant isomorphism."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Groups.H1.commGroup",
+     "role": "structure",
+     "statement": "For commutative G, the antidiagonal contracted product and inverted action give the abelian group structure on H^1(B,G)."
     }
    ],
    "tests": [
@@ -2872,12 +2943,17 @@
     {
      "sourceId": "POONEN",
      "locator": "Theorem 6.5.10(i) and Remark 6.5.11, pp. 181-182",
-     "match": "Torsor sheaves under affine fppf group schemes are representable by schemes; with algebraic spaces every fppf torsor sheaf is representable."
+     "match": "Theorem 6.5.10(i) assumes an fppf affine group scheme over a locally Noetherian scheme; Remark 6.5.11 removes scheme-representability and states the algebraic-space torsor generalization. The arbitrary-base affine result here uses affine descent, not deletion of the theorem’s Noetherian hypothesis."
     },
     {
      "sourceId": "SP-BOOT",
      "locator": "Lemma 80.11.8 (04U1)",
      "match": "Fppf torsors under a group algebraic space given locally with a cocycle descend to an fppf torsor."
+    },
+    {
+     "sourceId": "SP-ALGSTK",
+     "locator": "Lemma 95.14.10 (04UT)",
+     "match": "Equivalence between fppf torsor sheaves and algebraic-space torsors for a group algebraic space."
     }
    ],
    "implementationStatus": "unchecked"
@@ -2890,7 +2966,7 @@
    ],
    "title": "Contracted products and twisting by torsors",
    "kind": "construction",
-   "statement": "Let G be a group algebraic space flat and locally of finite presentation over B, P a G-torsor and X an algebraic space with G-action over B. The contracted product P x^G X is the quotient sheaf of P x_B X by the free antidiagonal action g.(p, x) = (p g^{-1}, g x) (P viewed with the right action p g := g^{-1} p). It is an algebraic space, fppf locally isomorphic to X, functorial in P and X, and compatible with base change. The inner form of G twisted by P is G_P := P x^G G for the conjugation action; it is the group space Aut_G(P) of torsor automorphisms. A homomorphism φ : G -> H pushes P forward to the H-torsor P x^G H. If G and X are affine over B, so is P x^G X.",
+   "statement": "Let G be a group algebraic space flat and locally of finite presentation over B, P a G-torsor and X an algebraic space with G-action over B. The contracted product P x^G X is the quotient sheaf of P x_B X by the free antidiagonal action g.(p, x) = (p g^{-1}, g x) (P viewed with the right action p g := g^{-1} p). It is an algebraic space, fppf locally isomorphic to X, functorial in P and X, and compatible with base change. The inner form of G twisted by P is G_P := P x^G G for the conjugation action; it is the group space Aut_G(P) of torsor automorphisms. A homomorphism φ : G -> H pushes P forward to the H-torsor P x^G H. If G and X are affine over B, so is P x^G X. With left torsors, the displayed antidiagonal formula becomes g.(p,x)=(g p,g x). In identifying G_P with Aut_G(P), a point represented by (p,a) acts by p |-> a^{-1}p; this inverse makes the map respect group multiplication. For pushforward via φ, the left H-action on the H-factor is h.x=x h^{-1}.",
    "hypotheses": [
     "G flat and locally of finite presentation over B (or flat affine for the fpqc variant with X affine); the antidiagonal action is free because the action on P is."
    ],
@@ -2959,7 +3035,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Groups.innerForm",
      "role": "constructor",
-     "statement": "The inner form G_P = P x^G G, isomorphic to Aut_G(P)."
+     "statement": "For a specified torsor P, its conjugation twist G_P is the group space of equivariant torsor automorphisms. With the left-action conventions, (p,a) sends p to a^{-1}p. The torsor hypothesis is required."
     },
     {
      "name": "TauCeti.SchemeFoundations.Groups.pushforwardTorsor",
@@ -2981,7 +3057,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Groups.contractedProduct.test_line_bundle",
      "kind": "computation",
-     "statement": "For the G_m-torsor P of frames of a line bundle L, P x^{G_m} A^1 (scaling action) is the total space of the corresponding geometric line bundle."
+     "statement": "For left G_m-torsors, let the frame torsor of L carry λ.p=p λ^{-1}. Contracting it with A^1 carrying the scaling action gives the total space of L; using λ.p=p λ instead gives the dual convention."
     },
     {
      "name": "TauCeti.SchemeFoundations.Groups.contractedProduct.test_needs_sheafification",
@@ -3045,7 +3121,7 @@
    "proofSteps": [
     "Define R-invariance (Stacks Definition 83.3.1) and categorical quotients by the universal property (Stacks Definition 83.4.1, read with the composition χ φ; see sourceIssues).",
     "Geometric quotients by Stacks Definition 83.10.1; for a group action this is Mumford's notion.",
-    "A geometric quotient is a categorical quotient in algebraic spaces: an invariant map is constant on orbits, submersivity gives continuity, and invariant functions give the sheaf map."
+    "Geometric quotients alone need not be categorical in the category of all algebraic spaces (Rydh Remark 2.8). A strongly geometric quotient additionally has R -> U x_X U universally submersive; if its quotient map is universally open, it is categorical among algebraic spaces (Rydh Theorem 3.16). A geometric universally open quotient without the strong condition is categorical for locally separated algebraic-space targets."
    ],
    "acceptance": [
     "For a finite group acting on an affine scheme, Spec A -> Spec A^G is a geometric quotient (SF.1/finite-group-quotient)."
@@ -3067,6 +3143,11 @@
      "sourceId": "SP-MORSTK",
      "locator": "Lemmas 106.12.2 and 106.12.3 (Section 106.12, tag 0DUF)",
      "match": "For [U/R] with flat locally finitely presented s, t, morphisms to algebraic spaces correspond to R-invariant morphisms, and categorical moduli spaces correspond to categorical quotients."
+    },
+    {
+     "sourceId": "RYDH",
+     "locator": "Definition 2.2, Remark 2.8, pp. 6-8; Theorem 3.16, p. 18",
+     "match": "The strong condition and universal openness provide categoricality for all algebraic-space targets; the plain geometric condition does not."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3110,9 +3191,14 @@
      "statement": "φ is an orbit space, universally submersive, and O_X = (φ_* O_U)^R."
     },
     {
-     "name": "TauCeti.SchemeFoundations.Groups.IsGeometricQuotient.isCategoricalQuotient",
+     "name": "TauCeti.SchemeFoundations.Groups.IsStronglyGeometricQuotient.isCategoricalQuotient",
      "role": "relation",
-     "statement": "Every geometric quotient is a categorical quotient in algebraic spaces."
+     "statement": "A strongly geometric quotient whose quotient map is universally open is categorical among algebraic spaces (Rydh Theorem 3.16). A geometric quotient is insufficient in this generality."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Groups.IsStronglyGeometricQuotient",
+     "role": "data",
+     "statement": "A geometric quotient for which R -> U x_X U is universally submersive, with the geometric orbit and invariant-functions clauses retained."
     }
    ],
    "tests": [
@@ -3157,7 +3243,7 @@
    "proofSteps": [
     "Each point has a Γ-stable affine open neighbourhood: intersect the translates of an affine open containing its orbit and pass to an invariant affine (Stacks Lemma 39.24.1, 03JE).",
     "On a Γ-stable affine Spec A, Spec A -> Spec A^Γ is integral, surjective with fibres the orbits (Mathlib Algebra.IsInvariant.isIntegral and orbit_eq_primesOver) and categorical (Tau Ceti ModularCurves 0C, imported).",
-    "Invariants commute with localisation at invariant elements, so the affine quotients glue to X/Γ; flat base change preserves invariants as a kernel.",
+    "Invariants commute with localisation at invariant elements, so the affine quotients glue to X/Γ; flat base change preserves invariants as a kernel. For categoricality among arbitrary algebraic spaces, use the strong geometric quotient and universal openness in Rydh Theorem 4.4/Proposition 4.7 and Theorem 3.16; the prime-orbit theorem alone does not provide this universal property.",
     "Free action: the groupoid Γ x X ⇉ X is a finite locally free equivalence relation, so X -> X/Γ is finite locally free with X x_{X/Γ} X = Γ x X (Stacks Proposition 39.23.9, 03BM, the affine case of SGA 3 V 4.1 owned by ModularCurves 0C), hence a finite etale Γ-torsor representing the quotient sheaf (Stacks Lemma 39.20.3)."
    ],
    "acceptance": [
@@ -3178,6 +3264,11 @@
      "sourceId": "SP-GRPD",
      "locator": "Lemma 39.24.1 (03JE) and Proposition 39.23.9 (03BM)",
      "match": "Points whose orbits lie in an affine open have invariant affine neighbourhoods; for affine finite locally free equivalence relations the invariant ring gives the quotient, finite locally free with R = U x_M U."
+    },
+    {
+     "sourceId": "RYDH",
+     "locator": "Theorem 4.1, Lemma 4.3, Theorem 4.4 and Proposition 4.7, pp. 19-22",
+     "match": "Finite-group quotients with affine orbit neighbourhoods are integral universally open GC quotients and hence categorical among algebraic spaces; the free-relation theorem is only the free special case."
     }
    ],
    "implementationStatus": "unchecked"
@@ -3237,7 +3328,7 @@
     "AlgSp/T is a full sub-pseudofunctor of fppf sheaves of sets over T, so morphisms glue by SF.1/sheaf-stack (Stacks Lemma 95.7.2, 04UA).",
     "A descent datum glues to an fppf sheaf F over T (SF.1/sheaf-stack) with each F x_T T_i an algebraic space.",
     "The coproduct of the F x_T T_i is an algebraic space (coproduct of atlases is a scheme for a universe-indexed family) and maps to F representably, surjectively, flatly and locally of finite presentation, so F is an algebraic space by SF.1/artin-bootstrap (Stacks Lemma 80.11.1).",
-    "Stacks Lemma 80.11.3 (0ADV) imposes countability of the index set or finite type of the pieces only to control the size of its bounded big site; in the universe convention the coproduct step applies to every universe-indexed covering."
+    "Stacks 80.11.3 (0ADV) uses countability or finite-type conditions to control its bounded big site. The fixed-universe formulation replaces these with a uniform universe bound and a corresponding coproduct-of-atlases size argument; that comparison has not yet been planned and is recorded as a gap."
    ],
    "acceptance": [
     "Descent of the algebraic spaces of torsors (SF.1/torsor-representability (c)).",
@@ -3387,14 +3478,14 @@
    ],
    "title": "Stackification of prestacks in groupoids",
    "kind": "construction",
-   "statement": "For a pseudofunctor X in groupoids on Sch (not necessarily a stack), its fppf stackification is a stack in groupoids X^a with a 1-morphism η : X -> X^a such that for all x, y in X(T) the induced map identifies Isom_{X^a}(η x, η y) with the fppf sheafification of Isom_X(x, y), and every object of X^a(T) is fppf locally in the image of η. It is universal: 1-morphisms X^a -> Y to stacks in groupoids correspond, up to unique 2-isomorphism, to 1-morphisms X -> Y. For a presheaf of sets (discrete X) it is the sheafification.",
+   "statement": "For a pseudofunctor X in groupoids on Sch (not necessarily a stack), its fppf stackification is a stack in groupoids X^a with a 1-morphism η : X -> X^a such that for all x, y in X(T) the induced map identifies Isom_{X^a}(η x, η y) with the fppf sheafification of Isom_X(x, y), and every object of X^a(T) is fppf locally in the image of η. It is universal: restriction induces an equivalence of groupoids Hom(X^a,Y) -> Hom(X,Y) for every stack in groupoids Y; uniqueness of an extension’s 2-isomorphism is relative to the specified comparison after restriction. For a presheaf of sets (discrete X) it is the sheafification.",
    "hypotheses": [
     "X a pseudofunctor in groupoids on Sch; fppf topology."
    ],
    "proofSteps": [
     "First make the morphism presheaves sheaves (the associated prestack), then add effective descent data: objects of X^a(T) are descent data in the prestack relative to fppf coverings of T, with morphisms compatible after refinement (Stacks Lemma 8.9.1, 02ZP).",
     "Check that X^a is a stack in groupoids and that η is fully faithful on sheafified Isom presheaves and locally essentially surjective.",
-    "Universal property: a 1-morphism X -> Y to a stack extends uniquely along η because Y has effective descent (Stacks Lemma 8.9.2).",
+    "Restriction along η gives an equivalence of Hom groupoids (Stacks Lemma 8.9.2). An extension is unique up to unique 2-isomorphism compatible with its chosen restriction comparison; arbitrary automorphisms of the extension need not be trivial.",
     "For discrete X, objects of X^a are sections of the sheafification, recovering Mathlib's presheafToSheaf."
    ],
    "acceptance": [
@@ -3446,7 +3537,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Stacks.stackification.lift",
      "role": "universal-property",
-     "statement": "A 1-morphism X -> Y to a stack factors through η uniquely up to unique 2-isomorphism."
+     "statement": "Restriction Hom(X^a,Y) -> Hom(X,Y) is an equivalence of groupoids for every stack Y; the chosen comparison on restriction is part of extension uniqueness."
     },
     {
      "name": "TauCeti.SchemeFoundations.Stacks.stackification.isom_sheafify",
@@ -3601,7 +3692,8 @@
    "kind": "definition",
    "statement": "A 1-morphism f : X -> Y of stacks in groupoids is representable by algebraic spaces if for every scheme T and every object y of Y(T) (a 1-morphism T -> Y) the 2-fibre product T x_Y X is equivalent to the stack of an algebraic space over T. For a property P of morphisms of algebraic spaces stable under base change and local on the target, f has P if every such base change T x_Y X -> T has P. The diagonal of X is representable by algebraic spaces iff every 1-morphism from a scheme to X is, iff all Isom sheaves Isom(x, y) on Sch/T are algebraic spaces.",
    "hypotheses": [
-    "X, Y stacks in groupoids; algebraic spaces as in SF.1/algebraic-space-category."
+    "X, Y stacks in groupoids; algebraic spaces as in SF.1/algebraic-space-category.",
+    "For a property P descended through an arbitrary scheme base change, P is stable under base change and fppf local on the target; weaker etale-local tests must be stated separately."
    ],
    "proofSteps": [
     "Use SF.1/two-fibre-product to form T x_Y X and SF.1/stack-in-groupoids for the stack of an algebraic space (Stacks Definition 94.9.1, 02ZW).",
@@ -3802,11 +3894,6 @@
      "name": "TauCeti.SchemeFoundations.Stacks.AlgebraicStack.test_qcoh",
      "kind": "non-example",
      "statement": "The quasi-coherent pseudofunctor is not an algebraic stack: it is not a stack in groupoids."
-    },
-    {
-     "name": "TauCeti.SchemeFoundations.Stacks.AlgebraicStack.test_formal_disc",
-     "kind": "non-example",
-     "statement": "The fppf sheaf Spf k[[t]] (colimit of Spec k[t]/(t^n)) has representable diagonal but is not an algebraic stack: a flat morphism to it from a nonempty scheme would make a nonzero flat module over an Artinian k[t]/(t^m) killed by a nonzero nilpotent ideal."
     }
    ],
    "planet": {
@@ -3942,7 +4029,7 @@
    ],
    "proofSteps": [
     "Define the inertia fibred category and identify it with the 2-fibre product of the diagonal with itself (Stacks Categories Lemma 4.34.1); it is a stack (Stacks Lemma 8.7.1, 036Y).",
-    "For algebraic X, I_X -> X is the base change of the diagonal along the diagonal, hence representable by algebraic spaces and locally of finite type (Stacks Lemma 101.5.1, 050Q).",
+    "For an object x over a scheme T, the pullback of I_X -> X is Isom_X(x,x), an algebraic space locally of finite type over T by Stacks Lemma 101.3.1 (04XR). Lemma 101.5.1 (050Q) gives the global inertia statement. Equivalently one may use the locally finite type diagonal theorem, not representability alone.",
     "Composition of automorphisms makes I_X a group space over X; automorphism group spaces of field points are its fibres (Stacks Section 101.19, 0DTS)."
    ],
    "acceptance": [
@@ -3971,6 +4058,11 @@
      "sourceId": "SP-GRPSP",
      "locator": "Lemma 78.26.1 (06PB)",
      "match": "The inertia of a quotient stack is the quotient stack of the stabilizer."
+    },
+    {
+     "sourceId": "SP-MORSTK",
+     "locator": "Lemma 101.3.1 (04XR) and Lemma 101.5.1 (050Q)",
+     "match": "Isom spaces are locally of finite type, which supplies the finiteness assertion for inertia."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4100,7 +4192,7 @@
    "prerequisites": [
     "SchemeAndStackFoundations:SF.1/algebraic-stack",
     "SchemeAndStackFoundations:SF.1/representable-stack-morphism",
-    "SchemeAndStackFoundations:SF.1/space-points",
+    "SchemeAndStackFoundations:SF.1/stack-points",
     "SchemeAndStackFoundations:SF.1/etale-local-properties",
     "SchemeAndStackFoundations:SF.1/separation-properness-spaces"
    ],
@@ -4217,7 +4309,8 @@
     "SchemeAndStackFoundations:SF.1/stackification",
     "SchemeAndStackFoundations:SF.1/two-fibre-product",
     "SchemeAndStackFoundations:SF.1/artin-bootstrap",
-    "SchemeAndStackFoundations:SF.1/stack-morphism-properties"
+    "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+    "SchemeAndStackFoundations:SF.1/quotient-stack"
    ],
    "sources": [
     {
@@ -4427,7 +4520,7 @@
     "G_m = Spec Z[t, t^{-1}] with the scaling action on A^1."
    ],
    "proofSteps": [
-    "A G_m-torsor P over T corresponds to the invertible sheaf L of G_m-equivariant functions of weight one (Poonen Example 6.5.5, frames of a line bundle), and an equivariant map P -> A^1 to a section of L (Cadman, Section 2.2).",
+    "Use the core groupoid of Tau Ceti’s category InvertibleSheaf T, together with sections and section-preserving isomorphisms. For left actions the frame torsor of L has λ.p=p λ^{-1}; contracting with A^1 by scaling identifies an equivariant map with a section of L. This makes the convention compatible with the quotient-stack description (Cadman Section 2.2).",
     "Use the torsor description of [A^1/G_m] from SF.1/quotient-stack; isomorphisms correspond on both sides.",
     "θ_n is induced by the homomorphism t |-> t^n and the map x |-> x^n, which are compatible."
    ],
@@ -4464,13 +4557,14 @@
    "kind": "construction",
    "statement": "Let X be a scheme (or an algebraic stack), L an invertible sheaf on X with a section s, and n >= 1. The root stack X_{(L,s),n} is the 2-fibre product of (L, s) : X -> [A^1/G_m] with θ_n : [A^1/G_m] -> [A^1/G_m]. Its objects over T are quadruples (f : T -> X, M invertible on T, t in Γ(T, M), φ : M^{(x)n} ≅ f^*L with φ(t^n) = f^*s). For an effective Cartier divisor D, X_{D,n} := X_{(O(D), s_D), n}.",
    "hypotheses": [
-    "n >= 1 arbitrary; no invertibility of n is assumed in the construction."
+    "n >= 1 arbitrary; no invertibility of n is assumed in the construction.",
+    "For the Deligne–Mumford criterion below, X is Deligne–Mumford. Algebraicity of the root construction itself only requires X algebraic."
    ],
    "proofSteps": [
     "Form the 2-fibre product with SF.1/two-fibre-product and SF.1/line-bundle-section-stack; unwinding gives Cadman's description (Definitions 2.1 and 2.5).",
     "Base change: for g : Y -> X, Y x_X X_{(L,s),n} = Y_{(g^*L, g^*s),n} (Cadman Proposition 2.4), by pasting 2-fibre products.",
-    "Local chart: if L = O on an affine Spec R with s = f, then X_{(L,s),n} = [Spec R[t]/(t^n - f)/μ_n], from the presentation of θ_n by the μ_n-torsor x |-> x^n.",
-    "Algebraicity follows from SF.1/quotient-stack-algebraic with G = μ_n flat of finite presentation; it is Deligne-Mumford iff n is invertible on V(s) (Cadman Theorem 2.2 when n is invertible on X)."
+    "Over an affine scheme chart with L trivial and s=f, use the nth-power map G_m -> G_m, a μ_n-torsor, to obtain [Spec R[t]/(t^n-f)/μ_n]. The nth-power map A^1 -> A^1 is not this torsor.",
+    "The affine charts are algebraic because μ_n is flat and finitely presented; descend over an atlas of the algebraic base. If X is Deligne–Mumford, the root stack is Deligne–Mumford exactly when n is invertible along V(s): away from V(s) it is X, and over V(s) its relative stabilizer is μ_n. Cadman Theorem 2.2 proves the Noetherian scheme case with n invertible everywhere; the broader assertion here follows by the flat quotient and stabilizer argument, and Section 2.2 extends the construction to DM bases."
    ],
    "acceptance": [
     "X_{(L,s),1} = X; X_{(L,s),n} -> X is an isomorphism over X \\ V(s)."
@@ -4486,7 +4580,7 @@
     {
      "sourceId": "CADMAN",
      "locator": "Definitions 2.1, 2.3, 2.5; Theorem 2.2 with proof; Proposition 2.4 (Sections 2.1-2.2, pp. 3-6)",
-     "match": "The stack of n-th roots of (L, s), its Deligne-Mumford property (n invertible), base change, and the description as a fibre product with the n-th power map of [A^1/G_m]."
+     "match": "Cadman assumes Noetherian scheme bases and n invertible in Section 2.1, and uses DM bases in 2.2. The arbitrary algebraic-base construction and the iff criterion along V(s) in this node are extensions via the specified quotient/stabilizer interfaces, not the literal printed generality of Theorem 2.2."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4533,7 +4627,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Stacks.rootStack.isDeligneMumford_iff",
      "role": "characterisation",
-     "statement": "X_{(L,s),n} is Deligne-Mumford iff n is invertible at every point of V(s)."
+     "statement": "For a Deligne–Mumford base X, its root stack is Deligne–Mumford iff n is invertible along V(s). A general algebraic base cannot be omitted from the hypothesis."
     },
     {
      "name": "TauCeti.SchemeFoundations.Stacks.rootStack.transition",
@@ -4561,6 +4655,11 @@
      "name": "TauCeti.SchemeFoundations.Stacks.rootStack.test_char_p",
      "kind": "non-example",
      "statement": "If char k = p divides n and V(s) ≠ ∅, the stabilizer at points of V(s) is μ_n, which is not etale, so the root stack is algebraic but not Deligne-Mumford."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.rootStack.test_nonDM_base",
+     "kind": "non-example",
+     "statement": "For X = BG_m, L trivial and s=1, every root stack is equivalent to X; it is not Deligne–Mumford even though V(s) is empty."
     }
    ],
    "library": {
@@ -4576,14 +4675,14 @@
    ],
    "title": "Quasi-coherent modules on algebraic stacks",
    "kind": "definition",
-   "statement": "For a stack in groupoids X over Sch, QCoh(X) is the category of quasi-coherent modules on the ringed site (X_fppf, O_X), equivalently compatible families (F_x in QCoh(T) for every x in X(T), with pullback isomorphisms for morphisms of X satisfying the cocycle condition). For X = [U/R] it is equivalent to quasi-coherent modules on the groupoid (U, R). Pullback along 1-morphisms is defined; for a quasi-compact quasi-separated morphism π : X -> M to an algebraic space, the pushforward π_* : QCoh(X) -> QCoh(M) is the right adjoint of pullback.",
+   "statement": "For a stack in groupoids X over Sch, QCoh(X) is the category of quasi-coherent modules on the ringed site (X_fppf, O_X), equivalently compatible families (F_x in QCoh(T) for every x in X(T), with pullback isomorphisms for morphisms of X satisfying the cocycle condition). For X = [U/R] it is equivalent to quasi-coherent modules on the groupoid (U, R). Pullback along 1-morphisms is defined; for a quasi-compact quasi-separated morphism π : X -> M of algebraic stacks, with M an algebraic space, to an algebraic space, the pushforward π_* : QCoh(X) -> QCoh(M) is the right adjoint of pullback. Here π_* means the quasi-coherent right adjoint π_QCoh,*; the pushforward of all modules on the big fppf site need not preserve quasi-coherence.",
    "hypotheses": [
-    "X a stack in groupoids (algebraic for the presentation statement); π quasi-compact and quasi-separated for π_*."
+    "X a stack in groupoids for QCoh; X algebraic and π quasi-compact and quasi-separated for the quasi-coherent pushforward. The presentation equivalence works for a groupoid without assuming its source maps flat."
    ],
    "proofSteps": [
     "Define QCoh(X) as compatible families of quasi-coherent modules over the objects of X, i.e. the pseudo-limit of SF.1/qcoh-pseudofunctor over the Grothendieck construction of X (Stacks Definition 96.11.1, 06WG, and Section 96.11).",
-    "Presentation equivalence: by SF.1/qcoh-fpqc-descent along the flat covering U -> [U/R], families are determined by their value on U with the descent isomorphism over R (Stacks Proposition 96.14.3, 06WT).",
-    "Pullback restricts families; pushforward π_* is constructed on a smooth atlas and descended, as in Stacks Section 96.5 (computing pushforward)."
+    "Use Stacks Lemma 96.13.2 to identify QCoh before and after stackification. Proposition 96.14.3 then gives the groupoid presentation equivalence. This does not assume that U -> [U/R] is a flat covering for an arbitrary groupoid.",
+    "Pullback restricts the compatible families. For quasi-compact quasi-separated maps of algebraic stacks, Stacks Proposition 103.11.1 constructs the quasi-coherent right adjoint by first pushing into locally quasi-coherent modules with flat comparison and then applying the quasi-coherent replacement. Lemma 103.11.2 identifies it with big-site pushforward on flat charts. These constructions remain missing nodes, as the gap records."
    ],
    "acceptance": [
     "For X the stack of a scheme Y, QCoh(X) = QCoh(Y)."
@@ -4601,6 +4700,16 @@
      "sourceId": "SP-ALGSTK",
      "locator": "Definition 96.11.1 (06WG) and Proposition 96.14.3 (06WT)",
      "match": "Quasi-coherent modules on a category fibred in groupoids are quasi-coherent modules on its fppf ringed site; on a quotient stack they are quasi-coherent modules on the groupoid."
+    },
+    {
+     "sourceId": "SP-ALGSTK",
+     "locator": "Lemma 96.13.2 (06WR), Proposition 96.14.3 (06WT)",
+     "match": "Stackification preserves QCoh, so the presentation equivalence does not require flat source maps for the groupoid."
+    },
+    {
+     "sourceId": "SP-QCOH-PUSH",
+     "locator": "Section 103.11 introduction, Proposition 103.11.1 and Lemma 103.11.2",
+     "match": "The quasi-coherent right adjoint is distinct from arbitrary big-site pushforward and agrees on flat charts."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4637,7 +4746,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Stacks.QCoh.pushforward",
      "role": "functoriality",
-     "statement": "For quasi-compact quasi-separated π : X -> M to an algebraic space, π_* is right adjoint to π^*."
+     "statement": "For quasi-compact quasi-separated π : X -> M with X algebraic and M an algebraic space, π_QCoh,* is right adjoint to π^*. It agrees with big-site pushforward on flat charts, not necessarily on all objects of the big fppf site."
     },
     {
      "name": "TauCeti.SchemeFoundations.Stacks.QCoh.ofSpaceEquiv",
@@ -4665,6 +4774,11 @@
      "name": "TauCeti.SchemeFoundations.Stacks.QCoh.test_BG_not_exact",
      "kind": "non-example",
      "statement": "For G = Z/p over F_p, π_* : QCoh(BG) -> QCoh(Spec F_p) is taking invariants, which is not exact (H^1(Z/p, F_p) ≠ 0)."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.QCoh.test_big_pushforward",
+     "kind": "non-example",
+     "statement": "For j : A^2_k minus {0} -> A^2_k, big-fppf pushforward of O has global sections k[x,y] but value zero at the origin. It is not quasi-coherent on the big site. The quasi-coherent right adjoint gives O_{A^2}, whose value at the origin is k (Stacks 103.11)."
     }
    ],
    "library": {
@@ -4765,7 +4879,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Moduli.moduliFunctor.test_empty",
      "kind": "degenerate",
-     "statement": "For the empty stack the moduli functor is the empty presheaf."
+     "statement": "For the empty algebraic stack, the moduli functor is the initial sheaf h_empty: it is empty on nonempty schemes and has a singleton value on the empty scheme. It is not the identically empty presheaf."
     }
    ],
    "library": {
@@ -4781,12 +4895,12 @@
    ],
    "title": "Fine moduli spaces",
    "kind": "definition",
-   "statement": "A fine moduli space for a stack in groupoids X over S is an algebraic space M over S together with an equivalence of stacks h_M ≃ X; the universal object is the object of X(M) corresponding to id_M. By SF.1/setoid-criterion an algebraic stack has a fine moduli space iff its inertia is trivial, and then M is the sheaf F_X^sh (= F_X). Having F_X^sh representable is strictly weaker than having a fine moduli space.",
+   "statement": "A fine moduli space for a stack in groupoids X over S is an algebraic space M over S together with an equivalence of stacks h_M ≃ X; the universal object is the 1-morphism h_M -> X specified by that equivalence. For a scheme M, 2-Yoneda identifies it with an object of X(M); for a general algebraic space, X(M) denotes the extension by descent and is not an evaluation of the scheme-indexed pseudofunctor. By SF.1/setoid-criterion an algebraic stack has a fine moduli space iff its inertia is trivial, and then M is the sheaf F_X^sh (= F_X). Having F_X^sh representable is strictly weaker than having a fine moduli space.",
    "hypotheses": [
     "X a stack in groupoids over S; M an algebraic space over S."
    ],
    "proofSteps": [
-    "Define the structure (M, equivalence) and extract the universal object by 2-Yoneda (SF.1/stack-in-groupoids).",
+    "Define (M, equivalence); the universal object is the 1-morphism h_M -> X. Use 2-Yoneda (Stacks 94.5) for a scheme M; an algebraic-space evaluation requires extending X by descent.",
     "Uniqueness: two fine moduli spaces are related by a unique isomorphism compatible with the universal objects (Yoneda).",
     "Trivial inertia is necessary and, for algebraic X, sufficient (Stacks Proposition 94.13.3, 04SZ)."
    ],
@@ -4835,7 +4949,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Moduli.FineModuliSpace.universal",
      "role": "projection",
-     "statement": "The universal object of X(M)."
+     "statement": "The universal 1-morphism h_M -> X, or its descent object on an atlas of M. If M is a scheme this is the usual object in X(M)."
     },
     {
      "name": "TauCeti.SchemeFoundations.Moduli.FineModuliSpace.unique",
@@ -5012,11 +5126,10 @@
     "X locally of finite presentation over S; I_X -> X finite (stronger than quasi-finite diagonal, weaker than finite diagonal)."
    ],
    "proofSteps": [
-    "Reduce Zariski locally to the case where X has a quasi-finite flat finitely presented cover by a quasi-projective S-scheme (Conrad Lemma 2.1, from SGA 3 V 7.2), using that coarse spaces with flat base change glue.",
-    "Find a representable etale cover W -> X by stacks admitting finite locally free scheme covers, via the Hilbert stack of the quasi-finite cover and Zariski's Main Theorem (Conrad Lemma 2.2, Remark 2.3).",
-    "For stacks with a finite locally free scheme cover Z -> W, the quotient of Z by the finite flat groupoid Z x_W Z exists and is a coarse space (SF.1/finite-group-quotient style invariant-ring construction for finite flat groupoids, Conrad Section 3).",
-    "Descend along the etale cover using that finite inertia makes the cover stabilizer preserving, so the local coarse spaces glue etale locally (Conrad Section 4); remove Noetherian hypotheses by limits (Conrad Section 5).",
-    "O_M = π_* O_X follows from the universal property applied to maps to A^1 after etale base change (Conrad, after Theorem 1.1)."
+    "Use Rydh Proposition 6.11 to obtain an etale fixed-point-reflecting cover W -> X for which a scheme Z -> W is finite flat and finitely presented, with Z an AF-scheme. The construction uses quasi-finite flat presentations and the Hilbert functor; these are missing key inputs, not consequences of the cited normalization theorem.",
+    "The finite flat groupoid Z x_W Z has a GC quotient by Rydh Theorem 4.4. This requires general finite flat groupoid invariant theory, not only the finite abstract-group quotient of SF.1/finite-group-quotient.",
+    "Descend those quotients along the etale fixed-point-reflecting cover using Rydh Theorem 6.10; finite inertia is used to make the fixed-point-reflecting locus open (Proposition 6.5). This proves existence in Theorem 6.12.",
+    "Rydh Theorem 6.12 gives the proper quasi-finite coarse map under the stated local finite presentation hypothesis and the separatedness and local finite type conclusions. The GC quotient construction gives the structure-sheaf invariants and stability under flat base change. These arguments need the missing quotient/descent inputs recorded in gaps."
    ],
    "acceptance": [
     "For a finite group G acting on a quasi-projective scheme X over a field, [X/G] satisfies the hypotheses and its coarse space is X/G.",
@@ -5029,19 +5142,18 @@
     "SchemeAndStackFoundations:SF.1/algebraic-stack",
     "SchemeAndStackFoundations:SF.1/finite-group-quotient",
     "SchemeAndStackFoundations:SF.1/stack-presentation",
-    "SchemeAndStackFoundations:SF.1/separation-properness-spaces",
-    "mathlib:AlgebraicGeometry.Scheme.Hom.exists_isIso_morphismRestrict_toNormalization"
+    "SchemeAndStackFoundations:SF.1/separation-properness-spaces"
    ],
    "sources": [
     {
-     "sourceId": "CONRAD-KM",
-     "locator": "Theorem 1.1 and the paragraph after it (pp. 1-2); Lemmas 2.1-2.2 and Remark 2.3 (pp. 2-3)",
-     "match": "Existence of coarse moduli spaces for finitely presented Artin stacks with finite inertia, properness and quasi-finiteness of π, flat base change, O_M = π_*O_X, and the reduction steps."
+     "sourceId": "RYDH",
+     "locator": "Definition 3.17, p. 18; Definitions 6.8-6.9, Theorem 6.10, Proposition 6.11 and Theorem 6.12, pp. 26-28",
+     "match": "Finite inertia gives a GC coarse moduli space without quasi-compact separated diagonal hypotheses; local finite presentation gives the stated properness and finiteness consequences."
     },
     {
-     "sourceId": "SP-MORSTK",
-     "locator": "Section 106.12 (0DUF)",
-     "match": "Categorical and uniform moduli spaces, the notions the theorem produces."
+     "sourceId": "CONRAD-KM",
+     "locator": "Theorem 1.1, pp. 1-2 (comparison only)",
+     "match": "Conrad’s statement assumes locally finite presentation and quasi-compact separated diagonal. It is not the source for removing those additional diagonal hypotheses."
     }
    ],
    "implementationStatus": "unchecked"
@@ -5062,7 +5174,8 @@
     "Morphisms [X/Γ] -> Y to algebraic spaces are Γ-invariant morphisms X -> Y (Stacks Lemma 106.12.2); X -> X/Γ is a categorical quotient in algebraic spaces (SF.1/finite-group-quotient), so [X/Γ] -> X/Γ is a categorical moduli space (Stacks Lemma 106.12.3).",
     "Uniformity: invariants commute with flat base change on X/Γ.",
     "Geometric bijectivity: over an algebraically closed field the fibres of X -> X/Γ are single orbits (Mathlib Algebra.IsInvariant.orbit_eq_primesOver), and isomorphism classes of [X/Γ](k) are orbits of X(k) (Γ-torsors over k are trivial).",
-    "Compatibility with ModularCurves 9D by uniqueness of coarse spaces."
+    "Compatibility with ModularCurves 9D by uniqueness of coarse spaces.",
+    "For the geometric-point bijection and categoricality among all algebraic spaces, use the geometric and categorical properties of the finite-group GC quotient (Rydh 2.3, 3.16 and 4.7); transitivity on prime ideals alone does not state the geometric-point bijection."
    ],
    "acceptance": [
     "[A^1_k/(Z/2)] -> Spec k[x^2] for x |-> -x is a coarse moduli space (char k ≠ 2)."
@@ -5086,6 +5199,11 @@
      "sourceId": "SP-GRPD",
      "locator": "Lemma 39.24.1 (03JE)",
      "match": "Invariant affine neighbourhoods for finite flat groupoids, used for the quotient."
+    },
+    {
+     "sourceId": "RYDH",
+     "locator": "Proposition 2.3, pp. 6-7; Theorem 3.16, p. 18; Proposition 4.7, pp. 21-22",
+     "match": "Finite-group GC quotients give the orbit and universal properties of the coarse space of the quotient stack."
     }
    ],
    "implementationStatus": "unchecked"
@@ -5098,9 +5216,9 @@
    ],
    "title": "Tame stacks",
    "kind": "definition",
-   "statement": "Let M be an algebraic stack locally of finite presentation over S with finite inertia, and ρ : M -> M its coarse moduli space (SF.1/keel-mori). M is tame if ρ_* : QCoh(M) -> QCoh(M) is exact. For a finite flat finitely presented group scheme G over S, BG is tame iff G is linearly reductive (all geometric fibres linearly reductive in Tau Ceti's sense).",
+   "statement": "Let 𝒳 be an algebraic stack locally of finite presentation over S with finite inertia, and let ρ : 𝒳 -> M be its coarse moduli space. It is tame when ρ_QCoh,* : QCoh(𝒳) -> QCoh(M) is exact. For a finite flat finitely presented group scheme G over S, BG is tame iff taking G-invariants on equivariant quasi-coherent modules over S is exact (linear reductivity over S). Its geometric-fibre characterization requires the general-base linear-reductivity theory; the pinned Tau Ceti predicate is only the field case.",
    "hypotheses": [
-    "M lfp over S with finite inertia; QCoh and ρ_* from SF.1/stack-quasi-coherent."
+    "𝒳 locally of finite presentation over S with finite inertia; use quasi-coherent pushforward, not unrestricted big-site pushforward."
    ],
    "proofSteps": [
     "Definition: AOV Definition 3.1, using the coarse space of SF.1/keel-mori and pushforward of SF.1/stack-quasi-coherent.",
@@ -5141,7 +5259,7 @@
     {
      "name": "TauCeti.SchemeFoundations.Moduli.IsTame",
      "role": "data",
-     "statement": "M is tame: ρ_* is exact on quasi-coherent modules."
+     "statement": "For coarse ρ : 𝒳 -> M, the quasi-coherent right adjoint ρ_QCoh,* is exact."
     },
     {
      "name": "TauCeti.SchemeFoundations.Moduli.IsTame.classifying_iff",
@@ -5194,15 +5312,16 @@
    ],
    "title": "Local structure and base change of tame stacks",
    "kind": "theorem",
-   "statement": "For M locally of finite presentation over S with finite inertia and coarse space ρ : M -> M, the following are equivalent: (a) M is tame; (b) for every algebraically closed field k and ξ in M(k), the automorphism group scheme Aut_k(ξ) is linearly reductive; (c) there is an fppf cover M' -> M, a linearly reductive finite flat group scheme G -> M' acting on a finite finitely presented M'-scheme U, and an equivalence M x_M M' ≃ [U/G]; (d) as (c) with M' -> M etale and surjective. For tame M, formation of the coarse space commutes with arbitrary base change M' -> M, and M is flat over S if M is.",
+   "statement": "For an algebraic stack 𝒳 locally of finite presentation over S with finite inertia and coarse space ρ : 𝒳 -> M, the following are equivalent: 𝒳 is tame; every geometric automorphism group is linearly reductive; fppf locally on M there is a presentation 𝒳 x_M M′ ≃ [U/G] with G finite flat finitely presented and linearly reductive over M′ and U finite finitely presented over M′; such presentations exist etale locally on M. For tame 𝒳, coarse-space formation commutes with arbitrary base change on M. If 𝒳 is flat over S, then M is flat over S.",
    "hypotheses": [
-    "M lfp over S, finite inertia; linear reductivity of finite flat group schemes fibrewise."
+    "𝒳 locally of finite presentation over S with finite inertia; G finite flat and finitely presented in local quotient charts; linear reductivity over general bases needs its own definition and fibre criterion."
    ],
    "proofSteps": [
     "(d) => (c) => (a), (b): invariants under a linearly reductive group are exact and quotients [U/G] have coarse space U/G (AOV, proof of Theorem 3.2).",
     "(a) => (b): restrict to the residual gerbe BG at ξ, whose coarse space is a point; exactness of invariants follows from exactness of ρ_*.",
-    "(b) => (d): AOV Proposition 3.6: over the henselisation at a point, extend the stabilizer to a linearly reductive group scheme and lift a torsor over infinitesimal neighbourhoods (obstructions vanish by linear reductivity), then algebraize.",
-    "Base change (AOV Corollary 3.3): locally M = [U/G] with U = Spec B finite over M = Spec B^G and (N (x) B)^G = N (x) B^G for every module N by exactness of invariants."
+    "For the etale local charts, AOV Proposition 3.6 extends the stabilizer and lifts a torsor over infinitesimal thickenings. Use the cotangent-complex obstruction Ext^1(Lg^* L_BG, I^n/I^{n+1}) and its vanishing, as corrected by the 2014 corrigendum, not the Lie-algebra-only argument for nonreduced groups. Artin approximation algebraizes the torsor; Proposition 3.7 and its auxiliary representability arguments produce the etale, rather than merely fppf, chart. These key inputs are gaps.",
+    "Base change (AOV Corollary 3.3): locally 𝒳 = [U/G] with U = Spec B finite over its coarse space M = Spec B^G and (N (x) B)^G = N (x) B^G for every module N by exactness of invariants.",
+    "For coarse-space flatness, flatness of the stack gives flatness of the local quotient algebra B over the base. Exact invariants and (N ⊗ B)^G = N ⊗ B^G then make tensoring with B^G exact; use AOV Corollary 3.3(b)."
    ],
    "acceptance": [
     "A finite group of order invertible on S acting on a quasi-projective scheme gives a tame quotient stack whose coarse space commutes with all base change."
@@ -5219,6 +5338,11 @@
      "sourceId": "AOV",
      "locator": "Theorem 3.2, Corollaries 3.3-3.5 with proofs, Proposition 3.6 (Section 3)",
      "match": "Equivalent characterisations of tame stacks, local quotient structure by linearly reductive finite group schemes, and compatibility of coarse spaces with base change."
+    },
+    {
+     "sourceId": "AOV-CORR",
+     "locator": "p. 945: corrections to Lemma 2.14 and Proposition 3.6",
+     "match": "The Lie-algebra deformation argument fails for nonreduced groups; use the cotangent-complex obstruction. The local quotient theorem itself is unchanged."
     }
    ],
    "implementationStatus": "unchecked"
@@ -5247,7 +5371,6 @@
     "mathlib:CommHopfAlgCat",
     "mathlib:krullTopology",
     "tauceti:TauCeti.ScalarAut.instMulSemiringAction",
-    "SchemeAndStackFoundations:key/galois-gerbs",
     "mathlib:SemidirectProduct.toGroupExtension"
    ],
    "sources": [
@@ -5344,7 +5467,7 @@
    ],
    "proofSteps": [
     "Finite Galois case: V |-> V^Γ and W |-> k' (x)_k W are inverse equivalences between semilinear k'-representations and k-vector spaces (Tau Ceti GaloisDescent span_invariants_eq_top and liftBaseChange_injective_of_invariant; Stacks Section 35.6, 0CDQ; Poonen Proposition 4.4.2). Multiplicative structure descends because invariants of a tensor product are the tensor product of invariants.",
-    "Infinite case: by continuity every finitely generated sub-k'-algebra is stable under an open normal subgroup Gal(k'/K) with K/k finite Galois; apply the finite case to Gal(K/k) acting on the Gal(k'/K)-invariants and pass to the filtered union.",
+    "For infinite extensions, first prove continuous semilinear vector-space descent: each vector has a finite orbit, its orbit-span is finite dimensional and Γ-stable, and open stabilizers permit a finite Galois model for that span. Apply finite descent to the model and pass to the filtered union of such spans; then descend multiplication and the unit. Applying finite descent directly to Gal(k′/K)-invariants is circular until this module theorem is proved. The infinite module theorem remains a named gap.",
     "Group schemes: comultiplication, counit and antipode are equivariant maps and descend by full faithfulness; finite generation descends since k'/k is faithfully flat (SF.1/affine-fpqc-descent for Spec k' -> Spec k).",
     "Points: for finite k'/k the k-points of the descended group H_0 are the Γ-invariant k'-points of H, by Tau Ceti's faithfully flat descent of Hopf-algebra points (AlgHom.faithfullyFlatDescentMulEquiv for k -> k', with k' (x)_k k' = Π_Γ k')."
    ],
@@ -5388,14 +5511,14 @@
    ],
    "title": "Representability of conjugator schemes of Galois-gerb morphisms",
    "kind": "theorem",
-   "statement": "Let f_1, f_2 : E -> E' be morphisms of k'/k-Galois gerbs with kernels H and H'. The functor on k-algebras R |-> {h in H'(k' (x)_k R) : Int(h) ∘ f_{1,R} = f_{2,R}} (with f_{i,R} the pushouts along H(k') -> H(k' (x)_k R)) is represented by an affine k-scheme Isom(f_1, f_2) of finite type; for f_1 = f_2 = f it is an affine algebraic k-group I_f. Over k' it is the closed transporter subscheme of H'_{k'} of elements conjugating f_1^alg to f_2^alg on kernels and f_1(ϱ_τ) to f_2(ϱ_τ) on a continuous section ϱ, and its k-structure is the Galois descent of the twisted action h |-> f_2(ϱ_τ) τ(h) f_1(ϱ_τ)^{-1}. In particular Isom(f_1, f_2)(k) is the set of conjugators in H'(k') and is an I_{f_1}-torsor when nonempty.",
+   "statement": "For morphisms f_1,f_2 of k′/k-Galois gerbs, the conjugator functor on k-algebras R sends R to elements h of the target kernel H′(k′ ⊗_k R) for which Int(h) ∘ f_1 = f_2 after the extension pushout of Kisin Section 3.1.1. This functor is represented by an affine k-scheme Isom(f_1,f_2) of finite type. After base change to k′ its underlying transporter consists only of h conjugating the algebraic kernel maps. Lifts e_τ in the source extension act on that transporter by h |-> f_2(e_τ) h f_1(e_τ)^{-1} in the pushout extension; kernel equations make the action independent of the lift. When the target is neutral and f_i(e_τ)=a_i(τ)⋊τ, this is a_2(τ) τ(h) a_1(τ)^{-1}. Equations involving all lifts express Galois fixed points, not extra closed equations on the base-changed transporter. For f_1=f_2 the representing scheme is the affine group I_f; a nonempty Isom scheme is a torsor under I_{f_1}. Its k-points are the original conjugators.",
    "hypotheses": [
     "Kernels linear algebraic groups over k'; char k = 0 as in the key definition; ϱ a continuous section of E -> Gal(k'/k) over an open subgroup."
    ],
    "proofSteps": [
     "Over k', the condition Int(h) ∘ f_1^alg = f_2^alg is an equality of two morphisms H x H'_{k'} -> H' over H'_{k'}; since O(H) is a free k'-module, expanding in a basis gives polynomial equations in O(H'), so the locus is a closed subscheme (transporter).",
-    "The conditions on the finitely many cosets of an open subgroup over which ϱ is a homomorphism are further closed conditions h f_1(ϱ_τ) h^{-1} = f_2(ϱ_τ), using SF.1/semilinear-automorphism to compare the τ-twisted structures.",
-    "The twisted action h |-> f_2(ϱ_τ) τ(h) f_1(ϱ_τ)^{-1} is a continuous semilinear action on the closed transporter (it is independent of the choice of ϱ on the kernel because f_1, f_2 agree with their algebraic parts there); descend by SF.1/galois-descent-affine.",
+    "Keep only the kernel-intertwining equations on the k′-transporter. Lifts of τ define the semilinear descent action, rather than further equations cutting down that transporter. In a neutral target, write the lift as a_i(τ)⋊τ before applying the displayed coordinate formula, so τ is applied once.",
+    "Independence of a lift follows because replacing it by a kernel element changes the two sides by conjugations that agree on the transporter. The extension cocycle likewise cancels by the kernel equations, giving a semilinear action. Continuity and the finite Galois models require the local continuity condition of the gerb definition. Descend using SF.1/galois-descent-affine; the general nonneutral pushout and continuity comparison still require explicit interfaces (gap).",
     "Points over k are the h in H'(k') fixed by the twisted action, i.e. conjugators; I_{f_1} acts simply transitively when nonempty. For neutral targets this recovers Kisin Lemma 3.1.2 (whole-roadmap SF.1/centralizer)."
    ],
    "acceptance": [
@@ -5447,7 +5570,7 @@
    "sources": [
     {
      "sourceId": "KISIN17",
-     "locator": "Section 3.2.1, pp. 39-40",
+     "locator": "Section 3.2.1, p. 40 of the author PDF",
      "match": "A crossed module is a homomorphism H~ -> H with an H-action lifting conjugation and inducing conjugation on H~; H/H~ has the same objects as H, morphisms elements of H~, and is strictly monoidal."
     }
    ],
@@ -5496,6 +5619,21 @@
      "name": "TauCeti.SchemeFoundations.GaloisGerbs.CrossedModule.tensorObj",
      "role": "structure",
      "statement": "The strict monoidal structure: h_1 ⊗ h_2 = h_1 h_2 on objects."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.GaloisGerbs.CrossedModule.tensorHom",
+     "role": "structure",
+     "statement": "For x : h_1 -> h_2 and y : h′_1 -> h′_2, tensor has arrow x (h_1.y), whose target is h_2 h′_2. The Peiffer identities give the interchange law and strict unit/associativity."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.GaloisGerbs.CrossedModule.conjugationFunctor",
+     "role": "functoriality",
+     "statement": "Conjugation by h induces a monoidal auto-equivalence; for h=∂x, give the monoidal natural isomorphism to the identity."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.GaloisGerbs.CrossedModule.mapFunctor",
+     "role": "functoriality",
+     "statement": "A compatible pair of homomorphisms of crossed modules gives a strict monoidal functor, preserving identities and composition of pairs."
     }
    ],
    "tests": [
@@ -5524,6 +5662,99 @@
     "module": "TauCeti/NumberTheory/GaloisGerbs/CrossedModule",
     "namespace": "TauCeti.SchemeFoundations.GaloisGerbs"
    }
+  },
+  {
+   "id": "SchemeAndStackFoundations:SF.1/stack-points",
+   "parentStageId": "SchemeAndStackFoundations:SF.1",
+   "realises": [
+    "SchemeAndStackFoundations:SF.1"
+   ],
+   "title": "The topological space of an algebraic stack",
+   "kind": "construction",
+   "statement": "For an algebraic stack X, form |X| from field-valued objects, identifying two objects when they become isomorphic over a common field extension. The quotient topology from any smooth surjective scheme atlas is independent of that atlas. Stack morphisms induce continuous maps; 2-isomorphic morphisms induce the same map. Open substacks correspond to open subsets of |X|.",
+   "hypotheses": [
+    "X algebraic; fixed universe as for the big fppf site."
+   ],
+   "proofSteps": [
+    "Use Stacks Definition 100.4.2 for field-valued objects modulo common-extension isomorphism; fibre products give transitivity.",
+    "For a smooth surjective atlas U -> X, the map |U| -> |X| is surjective and open. Compare two atlases using U x_X U′ to obtain the same quotient topology (Stacks Section 100.4).",
+    "Morphisms act by pullback-free composition on field-valued objects; continuity follows after atlas comparison. Lemma 100.4.8 identifies open substacks with open subsets."
+   ],
+   "acceptance": [
+    "The construction agrees with schemes and algebraic spaces, and ignores automorphisms of a single geometric object."
+   ],
+   "prerequisites": [
+    "SchemeAndStackFoundations:SF.1/algebraic-stack",
+    "SchemeAndStackFoundations:SF.1/two-fibre-product",
+    "SchemeAndStackFoundations:SF.1/space-points"
+   ],
+   "sources": [
+    {
+     "sourceId": "SP-MORSTK",
+     "locator": "Definition 100.4.2 (04XG), Lemma 100.4.8 (04Y8) and Section 100.4",
+     "match": "Field-valued objects give the underlying space, with its smooth-atlas topology and open-substack correspondence."
+    }
+   ],
+   "implementationStatus": "unchecked",
+   "uses": [
+    {
+     "where": "SF.1/stack-morphism-properties",
+     "how": "Quasi-compactness and universal closedness require points of stacks."
+    },
+    {
+     "where": "SF.1/keel-mori",
+     "how": "The coarse map is a universal homeomorphism on underlying spaces."
+    }
+   ],
+   "api": [
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.points",
+     "role": "constructor",
+     "statement": "The topological space |X| of an algebraic stack."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.points_map",
+     "role": "functoriality",
+     "statement": "A stack morphism induces a continuous map, respecting identity and composition and invariant under 2-isomorphism."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.points_ofSpace",
+     "role": "compatibility",
+     "statement": "For the discrete stack of an algebraic space Y, |Y| agrees with the space-points construction."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.points_atlas",
+     "role": "characterisation",
+     "statement": "A smooth surjective atlas gives an open surjective quotient map on underlying spaces."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.opensEquiv",
+     "role": "equivalence",
+     "statement": "Open substacks are in bijection with open subsets of |X|."
+    }
+   ],
+   "tests": [
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.points.test_scheme",
+     "kind": "compatibility",
+     "statement": "For a scheme T its discrete stack has the original topological space of T."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.points.test_classifying",
+     "kind": "computation",
+     "statement": "For a finite constant group G over an algebraically closed field k, |BG| has one point although its fibre groupoid has nontrivial automorphisms when G is nontrivial."
+    },
+    {
+     "name": "TauCeti.SchemeFoundations.Stacks.points.test_disjoint_union",
+     "kind": "degenerate",
+     "statement": "The disjoint union of two copies of Spec k as a stack has two points and the discrete topology; the empty stack has no points."
+    }
+   ],
+   "library": {
+    "module": "TauCeti/AlgebraicGeometry/Stack/Points",
+    "namespace": "TauCeti.SchemeFoundations.Stacks"
+   },
+   "addedBy": "REV-SchemeAndStackFoundations--SF.1"
   }
  ],
  "requests": [
@@ -5539,7 +5770,8 @@
    "need": "For a finite group acting on Spec A by algebra automorphisms over an invariant base: Spec A^G with its categorical universal property and integrality of A over A^G; and the affine case of SGA 3 V 4.1 for finite locally free equivalence relations (quotient affine, finite locally free, R = X x_{X/R} X, representing the fppf quotient). SF.1 globalizes these with invariant affine covers.",
    "neededBy": [
     "SchemeAndStackFoundations:SF.1/finite-group-quotient",
-    "SchemeAndStackFoundations:SF.1/finite-quotient-coarse"
+    "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
+    "SchemeAndStackFoundations:SF.1/galois-descent-quasi-projective"
    ]
   },
   {
@@ -5560,12 +5792,15 @@
  "coverage": [
   {
    "stageId": "SchemeAndStackFoundations:SF.1",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
+    "Add the key construction/theorem nodes listed in gaps: quasi-affine descent/Zariski Main; finite Hilbert stacks and flat presentations; finite flat groupoid quotients and slicing; GC quotient descent and AF covers; residual gerbes; general-base linear reductivity; corrected torsor deformation and approximation; stack QCoh right adjoints; infinite Galois module descent.",
+    "Complete suggested Lean signatures and diagnostic tests for the API on stacks, moduli, semilinear groups and crossed modules. Repair the remaining QCoh pseudofunctor comparison signatures, small-etale ringed-topos interface and quotient invariant-functions carrier. The current successful elaboration cannot certify those untyped or weakened interfaces.",
+    "Reconcile the generated reader document with this review’s corrected statements and hypotheses; it is outside this review issue’s editable deliverables.",
+    "Resolve the precise ModularCurves 0E single-morphism/arbitrary-base import and fixed-universe size comparison, as recorded in requests, upstreamNotes and gaps.",
     "Routed-paper adapters that are not targets of the stage text are not planned as nodes: Zhu 2017 Appendix A perfect-site torsors, groupoids and the A.30-A.31 free-action quotient (owner of perfect schemes: GeometricSatakeAndFusion GS0 Witt geometry, which imports SF.1/artin-bootstrap); Schroer 2023 henselian section lifting for smooth separated algebraic spaces (needs SF.0 henselization); Guo-Reinecke/Bhatt algebraization of points of qcqs algebraic spaces; Bhatt-Scholze Picard-groupoid determinant descent; Kisin-Pappas Hartogs extension; van Hoften perfect-space quotient stacks. Each should be added as a node importing the SF.1 carriers when its consumer is planned.",
     "Etale-local quotient charts of separated Deligne-Mumford stacks with finite inertia that are not tame (stabilizer orders divisible by the characteristic), requested by WeilConjectures:WC.6, are not planned; the tame case is SF.1/tame-local-structure.",
     "Pro-Galois-gerb refinements: the topology and points of inverse limits of kernels and a theorem producing a compatible conjugator from stagewise conjugators are not planned; Kisin 3.1.1 defines conjugacy of pro-morphisms stagewise and the whole-roadmap SF.1/pro-gerb node keeps that convention.",
-    "Suggested Lean file: SF.1a-SF.1c are typed and elaborate; SF.1d-SF.1f have only the StackInGroupoids carrier, IsFibrewiseEquiv, ofSheaf and the CrossedModule structure typed, and the remaining API/test names are listed in a comment block. Type them next (stackification, two-fibre products via CategoricalPullback, IsRepresentableBySpaces, IsAlgebraicStack, IsDeligneMumford, inertia, properties, quotient and root stacks, QCoh on stacks, moduli functor, fine/coarse moduli, tame stacks, semilinear automorphisms).",
     "Gerbes, bandings and neutralizations remain with AlgebraicModuliForArithmeticGeometry:key/gerbes (reserved there); a lower-tier owner is needed if a tier-2 consumer requires them (see restructure)."
    ]
   }
@@ -5584,7 +5819,7 @@
     "SchemeAndStackFoundations:SF.1/stack-presentation",
     "SchemeAndStackFoundations:SF.1/quotient-stack-algebraic"
    ],
-   "detail": "Part (b) of SF.1/stack-presentation (Stacks Theorem 97.16.1) finds a smooth atlas inside the stack H_d(X/Y) of finite locally free closed subobjects (Stacks 97.14-97.15). That stack and its algebraicity are proof-internal at target level and are not separate nodes; a lemma-level pass must add them. Smooth group spaces do not need this step."
+   "detail": "Stacks 97.16.1 uses the Hilbert stack H_d(X/Y) of finite locally free closed subobjects and its algebraicity (97.14-97.15). These are key constructions/theorems that must be nodes at target level, with their own definitions, APIs and tests. They cannot be deferred merely as proof-internal lemmas. Smooth-source quotient presentations do not need this part."
   },
   {
    "title": "Quasi-coherent pushforward along stack morphisms",
@@ -5593,7 +5828,91 @@
     "SchemeAndStackFoundations:SF.1/tame-stack",
     "SchemeAndStackFoundations:SF.1/tame-local-structure"
    ],
-   "detail": "The construction of π_* for quasi-compact quasi-separated morphisms from algebraic stacks to algebraic spaces (Stacks Section 96.5) is sketched inside SF.1/stack-quasi-coherent; its base-change properties are only used for the tame statements and are not separately planned."
+   "detail": "Plan the quasi-coherent right adjoint for quasi-compact quasi-separated maps of algebraic stacks (Stacks 103.11.1), the locally quasi-coherent category with flat comparison, quasi-coherent replacement, and the chart comparison 103.11.2. Big-site pushforward alone does not preserve QCoh, even for a quasi-compact separated open immersion of schemes. Specify the adjunction and flat base-change theorem needed for tame coarse maps; Section 96.5 only computes unrestricted pushforward."
+  },
+  {
+   "title": "Quasi-affine descent and the quasi-affineness form of Zariski’s Main Theorem",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.1/quasi-finite-descent"
+   ],
+   "detail": "Plan or import effective fpqc descent of quasi-affine morphisms (Stacks 35.38.1), including the affine-envelope/open-subscheme comparison, and the separated quasi-finite over affine implication of Stacks 37.43.2. The pinned exists_isIso_morphismRestrict_toNormalization gives an open immersion into normalization; it does not prove that normalization is finite. The corrected proof of 37.57.1 uses neither finite fibres of an fppf covering nor finite normalization."
+  },
+  {
+   "title": "Small-etale comparison and morphisms of ringed topoi",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.1/small-etale-site",
+    "SchemeAndStackFoundations:SF.1/space-quasi-coherent"
+   ],
+   "detail": "The plan must expose the enlarged small site of etale algebraic spaces, the comparison equivalence of sheaf categories (Stacks 66.18.3), and the morphism of ringed topoi induced by arbitrary maps of spaces. Base change of a scheme chart along a general space morphism need not be a scheme. The revised smallEtale_map is a sheaf inverse-image functor, not a scheme-chart base-change functor; its adjunction and structural ring map still need typed API/tests."
+  },
+  {
+   "title": "Uniform size control for unbounded-universe descent",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.1/algebraic-space-category",
+    "SchemeAndStackFoundations:SF.1/space-fppf-descent"
+   ],
+   "detail": "State and prove the fixed-universe analogue of the cardinal bounds in Stacks 65.8.4 and 80.11.3. It must give a uniformly sized atlas for the glued sheaf over every allowed covering. Do not simply delete the countability/finite-type alternative of 0ADV because a universe is being used."
+  },
+  {
+   "title": "Slicing and finite flat groupoid invariant quotients",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.1/artin-bootstrap",
+    "SchemeAndStackFoundations:SF.1/finite-group-quotient",
+    "SchemeAndStackFoundations:SF.1/keel-mori"
+   ],
+   "detail": "Artin bootstrap (Stacks 80.8-80.10) and the Rydh route need quasi-finite flat presentations, slicing/quasi-splitting of flat groupoids, general finite flat groupoid invariant quotients, and the fixed-point-reflecting etale descent of GC quotients. Rydh 4.1/4.4 are not supplied by ModularCurves 0C’s free finite locally free equivalence relations or its finite abstract groups. Rydh 6.5, 6.10-6.11 also need the Hilbert functor and AF covers. Plan these key target-level inputs once in SF.1 and connect their direct dependencies."
+  },
+  {
+   "title": "Residual gerbes and the general-base linear-reductivity theory",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.1/deligne-mumford-stack",
+    "SchemeAndStackFoundations:SF.1/tame-stack",
+    "SchemeAndStackFoundations:SF.1/tame-local-structure"
+   ],
+   "detail": "Residual gerbes and their relation to stabilizers are used in the DM and tame proofs but are not nodes here. The general-base definition of linear reductivity is exactness of invariants on equivariant QCoh (AOV Definition 2.4); its base-change and geometric-fibre criteria, including Propositions 2.6 and later Section 2 results, are not the field-only Tau Ceti predicate. Plan those interfaces or identify a lower-tier supplier without importing general gerbes from a higher tier."
+  },
+  {
+   "title": "Corrected deformation and approximation inputs for tame local charts",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.1/tame-local-structure"
+   ],
+   "detail": "AOV Proposition 3.6 uses extension of the stabilizer (2.23), torsor deformation with the cotangent-complex obstruction corrected in the 2014 corrigendum, Artin approximation, residual gerbes and the lifting/representability arguments in Proposition 3.7. These are key inputs missing from the proof graph, not routine consequences of exactness of invariants. Identify compatible lower-tier suppliers or plan the needed versions here; the Lie-algebra-only proof is invalid for nonreduced linearly reductive groups."
+  },
+  {
+   "title": "Continuous infinite Galois module descent and conjugator descent",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.1/galois-descent-affine",
+    "SchemeAndStackFoundations:SF.1/conjugator-representability"
+   ],
+   "detail": "The pinned span theorem uses a finite automorphism group, and the injectivity theorem used with it assumes a finite Galois extension. Prove the finite-dimensional stable-subspace/finite-model argument for continuous semilinear actions and its filtered-colimit extension before using invariants for an infinite extension. For general nonneutral conjugator schemes, give the extension pushout, transporter descent action and continuity comparison. Kisin 3.1.2 explicitly proves the neutral-target case; 3.1.1 states the broader representability assertion."
+  },
+  {
+   "title": "Faithful typed API and executable definition tests",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.1/qcoh-pseudofunctor",
+    "SchemeAndStackFoundations:SF.1/small-etale-site",
+    "SchemeAndStackFoundations:SF.1/space-quasi-coherent",
+    "SchemeAndStackFoundations:SF.1/groupoid-space",
+    "SchemeAndStackFoundations:SF.1/torsor-cohomology",
+    "SchemeAndStackFoundations:SF.1/stackification",
+    "SchemeAndStackFoundations:SF.1/two-fibre-product",
+    "SchemeAndStackFoundations:SF.1/representable-stack-morphism",
+    "SchemeAndStackFoundations:SF.1/algebraic-stack",
+    "SchemeAndStackFoundations:SF.1/deligne-mumford-stack",
+    "SchemeAndStackFoundations:SF.1/inertia",
+    "SchemeAndStackFoundations:SF.1/stack-points",
+    "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+    "SchemeAndStackFoundations:SF.1/quotient-stack",
+    "SchemeAndStackFoundations:SF.1/root-stack",
+    "SchemeAndStackFoundations:SF.1/stack-quasi-coherent",
+    "SchemeAndStackFoundations:SF.1/moduli-functor",
+    "SchemeAndStackFoundations:SF.1/fine-moduli-space",
+    "SchemeAndStackFoundations:SF.1/coarse-moduli-space",
+    "SchemeAndStackFoundations:SF.1/tame-stack",
+    "SchemeAndStackFoundations:SF.1/semilinear-automorphism",
+    "SchemeAndStackFoundations:SF.1/crossed-module-category"
+   ],
+   "detail": "Many packet API/test names have only comments in the suggested file, especially SF.1d-SF.1f. Existing typed QCoh map/comp/forget signatures give preservation or full-module comparisons rather than the claimed restricted pseudofunctor compatibility. The revised file removes false stand-ins and labels incomplete signatures honestly. Supply actual carrier signatures and at least three diagnostic tests per definition/construction, including stack points, quotient invariant functions and crossed-module tensor on arrows; elaboration of proof holes alone is not semantic validation."
   }
  ],
  "restructure": [
@@ -5621,7 +5940,7 @@
     "SchemeAndStackFoundations"
    ],
    "detail": "SF.1 now holds about ninety nodes across six themes (with the whole-roadmap packet's carrier and Galois-gerb nodes), too broad to read as one star with at most six planets.",
-   "proposal": "Sub-layers for the atlas: SF.1a Descent (qcoh-pseudofunctor, qcoh-fpqc-descent, affine-fpqc-descent, galois-descent-quasi-projective, sheaf-stack, quasi-finite-descent, space-fppf-descent); SF.1b Algebraic spaces (the whole-roadmap representable-diagonal, etale-atlas, algebraic-space nodes and algebraic-space-category, etale-equivalence-relation, quotient-sheaf, etale-quotient-theorem, space-presentation, space-points, etale-local-properties, separation-properness-spaces, space-fibre-products, small-etale-site, space-quasi-coherent, folded-line-space, translation-quotient-space); SF.1c Groups, torsors and quotients (group-action, groupoid-space, stabilizer, torsor, torsor-cohomology, torsor-representability, contracted-product, twisting-bijection, categorical-geometric-quotient, finite-group-quotient, artin-bootstrap); SF.1d Algebraic stacks (stack-in-groupoids, stackification, two-fibre-product, representable-stack-morphism, algebraic-stack, deligne-mumford-stack, inertia, setoid-criterion, stack-morphism-properties, stack-presentation, quotient-stack, quotient-stack-algebraic, line-bundle-section-stack, root-stack, stack-quasi-coherent); SF.1e Moduli spaces (moduli-functor, fine-moduli-space, coarse-moduli-space, keel-mori, finite-quotient-coarse, tame-stack, tame-local-structure); SF.1f Galois gerbs (the whole-roadmap key/galois-gerbs strand and semilinear-automorphism, galois-descent-affine, conjugator-representability, crossed-module-category)."
+   "proposal": "Sub-layers for the atlas: SF.1a Descent (qcoh-pseudofunctor, qcoh-fpqc-descent, affine-fpqc-descent, galois-descent-quasi-projective, sheaf-stack, quasi-finite-descent, space-fppf-descent); SF.1b Algebraic spaces (the whole-roadmap representable-diagonal, etale-atlas, algebraic-space nodes and algebraic-space-category, etale-equivalence-relation, quotient-sheaf, etale-quotient-theorem, space-presentation, space-points, etale-local-properties, separation-properness-spaces, space-fibre-products, small-etale-site, space-quasi-coherent, folded-line-space, translation-quotient-space); SF.1c Groups, torsors and quotients (group-action, groupoid-space, stabilizer, torsor, torsor-cohomology, torsor-representability, contracted-product, twisting-bijection, categorical-geometric-quotient, finite-group-quotient, artin-bootstrap); SF.1d Algebraic stacks (stack-in-groupoids, stackification, two-fibre-product, representable-stack-morphism, algebraic-stack, deligne-mumford-stack, inertia, stack-points, setoid-criterion, stack-morphism-properties, stack-presentation, quotient-stack, quotient-stack-algebraic, line-bundle-section-stack, root-stack, stack-quasi-coherent); SF.1e Moduli spaces (moduli-functor, fine-moduli-space, coarse-moduli-space, keel-mori, finite-quotient-coarse, tame-stack, tame-local-structure); SF.1f Galois gerbs (the whole-roadmap key/galois-gerbs strand and semilinear-automorphism, galois-descent-affine, conjugator-representability, crossed-module-category)."
   }
  ],
  "sourceIssues": [
@@ -5638,7 +5957,92 @@
    "searched": [
     "comment section of tag 048J (no comments on 2026-10-09)",
     "the tag's history page link on the same page"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "At tag 048J, the factorization is written twice in the opposite compositional order from the domains and codomains of the three maps. The existing type-based correction is valid.",
+    "by": "REV-SchemeAndStackFoundations--SF.1"
+   }
+  },
+  {
+   "id": "SchemeAndStackFoundations/E102",
+   "source": "AOV",
+   "kind": "error",
+   "locator": "arXiv:math/0703310v1, proof of Proposition 3.6, p. 21; published version p. 1080; second proof of Lemma 2.14, published pp. 1072-1073",
+   "printed": "The torsor-lifting argument computes the obstruction using only the stabilizer Lie algebra and uses vanishing group cohomology; a second proof of Lemma 2.14 uses that same deformation description.",
+   "correction": "Use the cotangent-complex obstruction Ext^1(Lg^* L_BG, I^n/I^{n+1}) in Proposition 3.6 and discard the Lie-algebra-only second proof of Lemma 2.14. Nonreduced linearly reductive groups can have nontrivial torsor deformations.",
+   "reason": "The 2014 author corrigendum identifies the omitted cotangent-complex term for local group schemes and distinguishes deformations from obstructions. The corrected argument still proves the local quotient result.",
+   "affects": "the proof",
+   "known": "Author corrigendum, Annales de l’Institut Fourier 64 (2014), pp. 945-946, https://www.numdam.org/item/10.5802/aif.2869.pdf",
+   "searched": [
+    "Public author corrigendum at Numdam, p. 945",
+    "Original arXiv v1 proof of Proposition 3.6, pp. 20-22"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Read the original torsor-extension step and the author correction. It applies to nonreduced stabilizers allowed in the tame-local-structure node; the cotangent-complex method is required.",
+    "by": "REV-SchemeAndStackFoundations--SF.1"
+   }
+  },
+  {
+   "id": "SchemeAndStackFoundations/E103",
+   "source": "POONEN",
+   "kind": "misprint",
+   "locator": "Public author copy Qpoints.pdf, Proof of Proposition 6.5.9, p. 181; author errata dated 23 August 2026 p. 2",
+   "printed": "The coverwise torsor-class comparison writes Cech H1(U,F), although its torsors, transitions and group sheaf are G.",
+   "correction": "Use Cech H1(U,G).",
+   "reason": "All transitions are in G(U_ij), and no F is specified in that proof; the author errata confirms the symbol correction.",
+   "affects": "nothing",
+   "known": "Author errata dated 23 August 2026 p. 2, https://math.mit.edu/~poonen/papers/Qpoints-errata.pdf",
+   "searched": [
+    "https://math.mit.edu/~poonen/papers/Qpoints-errata.pdf (full list, relevant entries on p. 2)",
+    "Public author copy at the specified locator"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked the public source expression and the matching author errata entry; the corrected convention is used in the packet.",
+    "by": "REV-SchemeAndStackFoundations--SF.1"
+   }
+  },
+  {
+   "id": "SchemeAndStackFoundations/E104",
+   "source": "POONEN",
+   "kind": "misprint",
+   "locator": "Public author copy Qpoints.pdf, Section 6.5.6.4, p. 183; author errata dated 23 August 2026 p. 2",
+   "printed": "The second sentence calls tau=[T] the classes of both torsors Z and T.",
+   "correction": "Tau is the class of T alone; Z need not have that same class.",
+   "reason": "The subgroup acting on the contracted product and the twisted group G^tau are determined by T. The author errata corrects this wording.",
+   "affects": "nothing",
+   "known": "Author errata dated 23 August 2026 p. 2, https://math.mit.edu/~poonen/papers/Qpoints-errata.pdf",
+   "searched": [
+    "https://math.mit.edu/~poonen/papers/Qpoints-errata.pdf (full list, relevant entries on p. 2)",
+    "Public author copy at the specified locator"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked the public source expression and the matching author errata entry; the corrected convention is used in the packet.",
+    "by": "REV-SchemeAndStackFoundations--SF.1"
+   }
+  },
+  {
+   "id": "SchemeAndStackFoundations/E105",
+   "source": "POONEN",
+   "kind": "misprint",
+   "locator": "Public author copy Qpoints.pdf, Example 6.5.12, p. 183; author errata dated 23 August 2026 p. 2",
+   "printed": "Both displayed contracted-product expressions for the twist use T rather than its inverse torsor.",
+   "correction": "Use T_S inverse and T inverse in the respective contracted products, as for subtraction in 6.5.6.4.",
+   "reason": "Right torsors Z and T cannot be contracted in this convention without converting T to the opposite bitorsor; the author errata explicitly corrects both factors.",
+   "affects": "nothing",
+   "known": "Author errata dated 23 August 2026 p. 2, https://math.mit.edu/~poonen/papers/Qpoints-errata.pdf",
+   "searched": [
+    "https://math.mit.edu/~poonen/papers/Qpoints-errata.pdf (full list, relevant entries on p. 2)",
+    "Public author copy at the specified locator"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Checked the public source expression and the matching author errata entry; the corrected convention is used in the packet.",
+    "by": "REV-SchemeAndStackFoundations--SF.1"
+   }
   }
  ],
  "sourceVersions": [
@@ -5647,6 +6051,34 @@
    "url": "https://stacks.math.columbia.edu/tag/048J",
    "read": "2026-10-09",
    "boundary": "Online Stacks Project text at tag 048J as served on 2026-10-09; the Stacks Project has no separate version of record."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.mit.edu/~poonen/papers/Qpoints.pdf",
+   "read": "2026-10-09",
+   "sha256": "42e92ce4599420f6b72139e78cb9f5230e4bf81258c202e7cee4716887353579",
+   "boundary": "Public version identified in sources; original published book/preprint collation is not claimed. Published correction locators are corroborated by the author errata/corrigendum."
+  },
+  {
+   "kind": "preprint",
+   "url": "https://arxiv.org/abs/math/0703310v1",
+   "read": "2026-10-09",
+   "sha256": "081c9b056b9bd60c87393529793bdc7796134056064f79a8d7ba7b31f7b36462",
+   "boundary": "Public version identified in sources; original published book/preprint collation is not claimed. Published correction locators are corroborated by the author errata/corrigendum."
+  },
+  {
+   "kind": "published",
+   "url": "https://www.numdam.org/item/10.5802/aif.2869.pdf",
+   "read": "2026-10-09",
+   "sha256": "5493ab94b2061f97b39e42fdbe5bb4e90b6ff9dc460349d26fd55326b03a9f46",
+   "boundary": "Author correction text checked directly."
+  },
+  {
+   "kind": "author copy",
+   "url": "https://math.mit.edu/~poonen/papers/Qpoints-errata.pdf",
+   "read": "2026-10-09",
+   "sha256": "9f03ad5d6420656d2b952ed41a78cbc44eb6b2f952c273c5141c3c366780e76a",
+   "boundary": "Author correction text checked directly."
   }
  ],
  "upstreamNotes": [
@@ -5661,8 +6093,8 @@
   {
    "id": "RT-AREA-algebraicgeometry/1",
    "stage": "SchemeAndStackFoundations:SF.1",
-   "status": "applied",
-   "handling": "SF.1 is the single owner of the general theory of algebraic spaces and stacks (nodes listed in the first restructure entry); R09.3, R09.4 and R09.5 are proposed to narrow and import it through new stage edges SF.1 -> R09.3, R09.4, R09.5. No SF.1 node cites the tier-4 roadmap."
+   "status": "applied-in-packet",
+   "handling": "SF.1 is the single owner of the general theory of algebraic spaces and stacks (nodes listed in the first restructure entry); R09.3, R09.4 and R09.5 are proposed to narrow and import it through new stage edges SF.1 -> R09.3, R09.4, R09.5. No SF.1 node cites the tier-4 roadmap. The general owner and imports are corrected locally; graph-wide rescoping and the proposed consumer edges still require the maintainer’s application."
   }
  ],
  "wholeRoadmapImports": [
@@ -5673,6 +6105,305 @@
   "SchemeAndStackFoundations:key/galois-gerbs",
   "SchemeAndStackFoundations:SF.1/conjugator-scheme",
   "SchemeAndStackFoundations:SF.1/morphism",
-  "SchemeAndStackFoundations:SF.1/conjugacy"
- ]
+  "SchemeAndStackFoundations:SF.1/conjugacy",
+  "SchemeAndStackFoundations:SF.1/algebraic-space-of-scheme"
+ ],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-SchemeAndStackFoundations--SF.1",
+  "date": "2026-10-09",
+  "notes": "Completed independent target-level review of all 57 original nodes, all 84 baseline entries at the pinned commits, all source locators and five source issues, supplier contracts, audit/ownership findings, APIs, tests and the complete suggested file. Corrected clear errors in place and added stack-points. The packet is honestly partial with eleven precise gaps. Needs changes because existing QCoh signatures still do not fulfill their packet contracts, essential interfaces/tests remain unverified, and the definitive reader still states corrected errors; reader regeneration lies outside this review issue’s edit scope. This is a completed review, not a checkpoint or a request to finish every out-of-scope stage.",
+  "checked": [
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/qcoh-pseudofunctor",
+    "verdict": "unverifiable",
+    "note": "The QCoh restriction is source-backed (17.10.4), but the typed map only asserts preservation, mapComp compares unrestricted modules, and forget is fibrewise rather than a strong transformation. Their packet contracts are not yet verified by these signatures."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/qcoh-fpqc-descent",
+    "verdict": "verified",
+    "note": "35.5.2 supplies fpqc effectiveness over arbitrary schemes. The Beck/coalgebra-to-pullback comparison is correctly distinguished from the pinned comonadicity theorem and remains an explicit gap."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/affine-fpqc-descent",
+    "verdict": "verified",
+    "note": "35.37.1 and 35.39.1 supply affine descent and its sheaf form. The ModularCurves 0E single-map import and covering-family globalization are separated; arbitrary-base scope remains an upstream clarification."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/galois-descent-quasi-projective",
+    "verdict": "corrected",
+    "note": "Replaced finite-Galois translates by finite locally free groupoid orbit neighbourhoods (39.25.2, 39.24.1, 39.25.3); added the ModularCurves 0C quotient import. StableReduction retains the polarized etale special case."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/sheaf-stack",
+    "verdict": "corrected",
+    "note": "Restricted the auxiliary structured-sheaf statement to groups, rings and modules whose operations and equations glue. A conservative forgetful functor alone does not establish arbitrary structured descent; sets follow 7.26.1/4."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-category",
+    "verdict": "corrected",
+    "note": "Relative-to-absolute diagonal comparison uses the scheme base diagonal, not merely monicity of h_S. Added the existing algebraic-space-of-scheme prerequisite; full subcategory and Over equivalence are the intended carriers."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/etale-equivalence-relation",
+    "verdict": "corrected",
+    "note": "The double-diagonal non-example needs a nonempty U, now Spec k. The etale relation still requires monicity and equivalence on every test scheme (65.9.1); units, symmetry and composition follow by Yoneda."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/quotient-sheaf",
+    "verdict": "corrected",
+    "note": "The quadratic-extension Lean test now excludes the identity and requires K-linearity. Sheafification of generated pointwise relations and the invariant-map universal property agree with 78.19 and 39.20.3/6."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/quasi-finite-descent",
+    "verdict": "corrected",
+    "note": "Replaced the false finite-fibre/finite-normalization argument by the stable quasi-compact open argument of 37.57.1. Quasi-affineness (37.43.2) and effective quasi-affine descent (35.38.1) are explicit missing interfaces; removed the inadequate normalization citation."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/etale-quotient-theorem",
+    "verdict": "verified",
+    "note": "65.10.4/5 and 65.13.2 establish the etale equivalence-relation quotient and the required representable diagonal. The source relation is a monomorphism; no nonfree-action conclusion is inferred here."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/space-presentation",
+    "verdict": "verified",
+    "note": "65.9.3 gives the scheme relation of an etale atlas; 65.10.4/5 identifies its quotient. The source/target projections and the sheaf epimorphism are preserved."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/space-points",
+    "verdict": "corrected",
+    "note": "Limited this construction to spaces (66.4.1/7/8); stack points now have a separate node with algebraic-stack prerequisites. Space chart topology and open subspaces retain the original API and tests."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/etale-local-properties",
+    "verdict": "corrected",
+    "note": "Added open-immersion postcomposition to the locality contract and typed comparisons, by 35.32.6; corrected the locator to 35.32.3. The presheaf comparison also requires base-change stability and fppf target locality."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/separation-properness-spaces",
+    "verdict": "corrected",
+    "note": "Clarified that the absolute diagonal is over Spec Z. Separatedness, quasi-separatedness and properness use their distinct diagonal/topological conditions (67.4.2, 67.9.2, 67.40.1)."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/space-fibre-products",
+    "verdict": "verified",
+    "note": "66.3.2/4 proves fibre products of spaces and their chart products. Arbitrary scheme-chart maps into a space are representable through its diagonal; no scheme representability of the space is assumed."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/small-etale-site",
+    "verdict": "corrected",
+    "note": "Replaced scheme-chart base change along arbitrary space morphisms by inverse image on small-etale sheaves. The enlarged-site comparison 66.18.3 and the ringed-topos adjunction remain precise missing APIs."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/space-quasi-coherent",
+    "verdict": "unverifiable",
+    "note": "66.29.1 and 66.32.1 support chart descent of QCoh, but the small-etale ringed-site comparison and its typed carrier/API/tests remain incomplete. An ordinary module-sheaf predicate cannot certify that comparison."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/folded-line-space",
+    "verdict": "verified",
+    "note": "65.14.1 supplies the folded line, with characteristic different from 2. The quasi-separated but not locally separated conclusion uses the actual diagonal; it does not claim failure of quasi-separatedness."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/translation-quotient-space",
+    "verdict": "verified",
+    "note": "65.14.7-9 supplies the characteristic-zero translation quotient. Its infinite disjoint-union relation, failure of quasi-separatedness and failure to be a scheme are distinct assertions with the stated field hypothesis."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/group-action",
+    "verdict": "verified",
+    "note": "78.5.1/78.8.1 and the pinned GrpObj/ModObj interfaces support group spaces and left actions. Freeness is monicity of the action relation, tested on all scheme-valued points."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/groupoid-space",
+    "verdict": "corrected",
+    "note": "Added chosen identities/inverses and both unit and inverse axioms to Lean; associative arrow composition alone allowed monoids. Added the groupoid-morphism API and a two-element AND-monoid diagnostic."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/stabilizer",
+    "verdict": "verified",
+    "note": "78.16.2 gives the stabilizer as the identity fibre of R -> U x U. The action case agrees with equalizing g.x=x, including nonreduced stabilizers; geometric points alone are insufficient."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/torsor",
+    "verdict": "corrected",
+    "note": "Separated sheaf torsors from representable torsors, made triviality an equivariant isomorphism, and replaced the incorrect Frobenius fibre-over-1 test by s^p=u over F_p(u). Typed inseparability/torsor testing is still missing."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/torsor-cohomology",
+    "verdict": "corrected",
+    "note": "Removed arbitrary-group Pic, arbitrary underlying-presheaf pullback and unspecified Cech comparison stand-ins from Lean. Added ofTorsor and the commutative group API; the contracted product for addition uses the anti-diagonal action. Clarified that 5.12.14 is the triviality criterion, and recorded the author-corrected Cech coefficient symbol."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/torsor-representability",
+    "verdict": "corrected",
+    "note": "The Lean theorem now takes a sheaf torsor and proves representability instead of extracting representability already assumed. 80.11.8 and 95.14.10 support the torsor-sheaf comparison without a flatness assumption on G for representability itself. The public Poonen theorem’s Noetherian hypothesis is retained in the source comparison."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/contracted-product",
+    "verdict": "corrected",
+    "note": "Inner forms and torsor pushforward now require a torsor. Fixed the inverse conventions for left frame actions and the Aut_G(P) identification; the twisting test gives the line bundle rather than its dual."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/twisting-bijection",
+    "verdict": "corrected",
+    "note": "Adjusted the twisting-bijection signature to pass the torsor proof into innerForm. Poonen 5.12.5-5.12.6 supports the left-action convention after the corrected contracted-product construction."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/categorical-geometric-quotient",
+    "verdict": "corrected",
+    "note": "Deleted the false geometric-implies-categorical Lean theorem and incomplete geometric predicate. Added strong geometric/universally open categoricality, with Rydh 2.2, 2.8 and 3.16; plain geometric quotients allow fewer targets."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/finite-group-quotient",
+    "verdict": "corrected",
+    "note": "Replaced the free-relation source as the justification for nonfree finite groups by Rydh 4.1/4.4/4.7. ModularCurves 0C supplies the affine abstract-group input, not the general finite flat groupoid theorem."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/artin-bootstrap",
+    "verdict": "unverifiable",
+    "note": "80.10.1/80.11.1/6/7 have the stated flat-lfp hypotheses, but slicing, quasi-finite flat presentations and finite flat subgroupoid quotient inputs are key missing targets. The present prerequisites do not independently close this proof."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/space-fppf-descent",
+    "verdict": "unverifiable",
+    "note": "0ADV includes a cardinal/countability alternative. A fixed universe does not by itself prove the uniform atlas bound; the missing 65.8.4/80.11.3 size comparison is recorded precisely."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/stack-in-groupoids",
+    "verdict": "verified",
+    "note": "8.4.1 and 8.5.1 support the groupoid-valued stack carrier. QCoh is correctly distinguished from a stack in groupoids. Most additional APIs/tests are still names, explicitly recorded as incomplete."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/stackification",
+    "verdict": "corrected",
+    "note": "Replaced unqualified uniqueness of 2-isomorphisms by equivalence of Hom groupoids, with uniqueness relative to a specified comparison. The two stackification steps match 8.6.3 and 8.9.1."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/two-fibre-product",
+    "verdict": "verified",
+    "note": "The objects, arrows and compatibility isomorphism give the genuine 2-fibre product of groupoid-valued stacks (8.5.6). The groupoid universal property, rather than a strict pullback of object sets, is required."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/representable-stack-morphism",
+    "verdict": "corrected",
+    "note": "A representable morphism property requires base-change stability and fppf target locality; representability alone is not atlas independence for an arbitrary P. The source space criterion is unchanged."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-stack",
+    "verdict": "corrected",
+    "note": "Removed the unsupported formal-disc test, leaving three diagnostics. The carrier is a groupoid-valued fppf stack with representable diagonal and smooth surjective scheme atlas (94.12.1)."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/deligne-mumford-stack",
+    "verdict": "verified",
+    "note": "94.12.2 and 101.21.6 give the DM/unramified diagonal comparison. Residual-gerbe inputs in the stabilizer criterion are identified as missing rather than supplied by a field-point assertion alone."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/inertia",
+    "verdict": "corrected",
+    "note": "Added the locally finite type Isom theorem 101.3.1 and global inertia lemma 101.5.1 to the proof sources. Representability of the diagonal alone was insufficient as a reason; the locally finite type diagonal theorem also works."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/setoid-criterion",
+    "verdict": "verified",
+    "note": "94.13.3 gives the setoid/trivial-inertia characterization. Trivial geometric-point stabilizers alone are not substituted for trivial inertia as a group space."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/stack-morphism-properties",
+    "verdict": "corrected",
+    "note": "Redirected the topology dependency to stack-points. Properness uses the stack diagonal condition and universal closedness, preserving the proper nonrepresentable BG example and the BG_m nonseparated example."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/stack-presentation",
+    "verdict": "unverifiable",
+    "note": "Added the direct quotient-stack prerequisite. The flat-lfp presentation theorem 97.16.1 needs the Hilbert stack and its algebraicity (97.14-15), which are key targets missing from the graph even at target granularity."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/quotient-stack",
+    "verdict": "verified",
+    "note": "78.20.1 and 95.15.3 identify the stackified action groupoid with pairs consisting of a torsor and equivariant map. Rational torsors, rather than a pointwise orbit set, are retained."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/quotient-stack-algebraic",
+    "verdict": "unverifiable",
+    "note": "94.17.3 and 97.17.2 support the smooth/flat-lfp statements, but the nonsmooth flat case needs the unresolved Hilbert/flat-presentation inputs. The stabilizer tests do not remove that proof dependency."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/line-bundle-section-stack",
+    "verdict": "corrected",
+    "note": "Specified the core of invertible sheaves, not the category of all module maps, and the inverse left frame action. Cadman Section 2.2 supports the resulting [A^1/G_m] equivalence with line bundles and sections."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/root-stack",
+    "verdict": "corrected",
+    "note": "The DM iff criterion now assumes a DM base; unit-section roots over BG_m provide a counterexample without it. The root chart is a G_m-torsor nth-power construction, not an A^1 torsor (Cadman 2.1-2.2). Cadman’s printed Noetherian/invertibility assumptions are distinguished from the derived extension; invertibility is required only along V(s) in the iff."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/stack-quasi-coherent",
+    "verdict": "unverifiable",
+    "note": "Corrected arbitrary-groupoid QCoh descent using stackification invariance 96.13.2. Big-fppf pushforward need not preserve QCoh: 103.11 supplies the distinct quasi-coherent right adjoint and flat comparison. Added a punctured-plane counterexample, but the necessary typed targets are still missing."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/moduli-functor",
+    "verdict": "corrected",
+    "note": "Corrected the empty moduli-functor test to the initial sheaf h_empty, which is singleton on the empty scheme. Fibrewise isomorphism classes remain a presheaf and BG supplies the non-sheaf diagnostic."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/fine-moduli-space",
+    "verdict": "corrected",
+    "note": "A universal object over an algebraic space M is a morphism h_M -> X; X(M) needs an extension from schemes by descent. Corrected the packet statement, construction and universal API accordingly."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/coarse-moduli-space",
+    "verdict": "verified",
+    "note": "106.12.1-3 supports categorical/coarse moduli distinctions. The geometric-point orbit condition and universal property are independent; the characteristic-2 invariant-ring example correctly shows arbitrary base change can fail."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/keel-mori",
+    "verdict": "unverifiable",
+    "note": "Changed the general existence source to Rydh 6.12; Conrad 1.1 has extra diagonal hypotheses. The proper/quasi-finite conclusions have the needed finite-type input, but AF covers, finite flat groupoid quotients and fixed-point-reflecting descent remain key missing targets."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
+    "verdict": "corrected",
+    "note": "Added the GC quotient/orbit argument of Rydh 2.3, 3.16 and 4.7. Integrality and transitivity of primes in the pinned invariant-ring theorem alone do not certify the full coarse-space universal property."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/tame-stack",
+    "verdict": "unverifiable",
+    "note": "Separated stack X from coarse space M and specified quasi-coherent pushforward. The pinned linearly reductive group predicate is field-only; AOV 2.4 general-base invariants and the right-adjoint comparison are not yet typed."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/tame-local-structure",
+    "verdict": "unverifiable",
+    "note": "Corrected the flatness direction to stack-flat implies coarse-flat, the stack/coarse notation, and the torsor deformation route using the 2014 corrigendum. Residual gerbes, stabilizer extension, Artin approximation and 3.7 remain key missing inputs."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/semilinear-automorphism",
+    "verdict": "corrected",
+    "note": "Removed the backwards key/galois-gerbs dependency: semilinear automorphisms are inputs to a Galois gerb. Kisin 3.1.1 and the pinned scalar action give the intended conventions; typed composition/point comparisons remain open."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/galois-descent-affine",
+    "verdict": "unverifiable",
+    "note": "Replaced the circular infinite-Galois invariants argument by a finite-dimensional orbit-span/finite-model outline. The continuous module-descent theorem is still missing; the finite-group span and finite-Galois injectivity declarations do not supply it."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/conjugator-representability",
+    "verdict": "unverifiable",
+    "note": "Restored the precise functor on k-algebras. The base-changed transporter has only kernel equations; lifts define descent h -> f_2(e_tau) h f_1(e_tau)^-1, with tau applied once in neutral coordinates. General nonneutral pushout/continuity interfaces still need verification."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/crossed-module-category",
+    "verdict": "corrected",
+    "note": "Corrected the Kisin locator to 3.2.1 p. 40 and added tensor on arrows, conjugation and crossed-module map functors. The Peiffer identities are typed; the quotient category, interchange and most tests remain explicitly untyped."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.1/stack-points",
+    "verdict": "added",
+    "note": "Split from space-points to give stacks their own field-object topology and direct algebraic-stack/2-fibre-product prerequisites (100.4.2/8). Added five APIs and three tests; the typed stack carrier/comparison is an explicit follow-up."
+   }
+  ]
+ }
 }
