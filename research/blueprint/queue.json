@@ -40199,8 +40199,9 @@
    ],
    "revisionOf": "BP-LanglandsParameterStacks",
    "prompt": "research/blueprint/prompts/BP-LanglandsParameterStacks~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6977"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6977",
+   "finishedAt": "2026-10-09T07:37:57Z"
   },
   {
    "priority": 2,
@@ -77561,8 +77562,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5871"
+   "state": "external",
+   "note": "claimed on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
