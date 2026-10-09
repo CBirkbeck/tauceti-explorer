@@ -7,6 +7,10 @@ import TauCeti.Algebra.AlgebraicGroup.MultiplicativeGroup.Basic
 import TauCeti.Algebra.AlgebraicGroup.CommHopfAlgCat.BaseChange
 import TauCeti.Algebra.AlgebraicGroup.CommHopfAlgCat.CharacterLattice.Torsion
 import TauCeti.Algebra.AlgebraicGroup.Tangent.Representation
+import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Points.Basic
+import TauCeti.Algebra.AlgebraicGroup.HopfIdeal.Central
+import TauCeti.Algebra.AlgebraicGroup.Reductive.Basic
+import TauCeti.Algebra.AlgebraicGroup.Product
 import TauCeti.NumberTheory.LocalField.NormalizedValuation
 import TauCeti.RingTheory.DedekindDomain.AdicValuation.ValuativeRel
 
@@ -19,8 +23,11 @@ import Mathlib.NumberTheory.NumberField.DedekindZeta
 import Mathlib.NumberTheory.NumberField.Units.DirichletTheorem
 import Mathlib.NumberTheory.NumberField.CanonicalEmbedding.Basic
 import Mathlib.NumberTheory.SumPrimeReciprocals
+import Mathlib.NumberTheory.Padics.PadicIntegers
+import Mathlib.Topology.LocallyConstant.Algebra
 import Mathlib.NumberTheory.Modular
 import Mathlib.NumberTheory.ModularForms.CongruenceSubgroups
+import Mathlib.NumberTheory.ModularForms.ProperlyDiscontinuous
 import Mathlib.Topology.Algebra.RestrictedProduct.TopologicalSpace
 import Mathlib.Topology.Algebra.RestrictedProduct.Units
 import Mathlib.Topology.Covering.Quotient
@@ -65,6 +72,8 @@ in for an algebraic or analytic condition.
 Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti: f790474821cf4256814db967cb154e7af3d0c369.
 -/
+
+set_option autoImplicit false
 
 noncomputable section
 open scoped RestrictedProduct Topology ENNReal NNReal TensorProduct Pointwise
@@ -678,6 +687,66 @@ theorem rawMoebius_mul (g h : GL (Fin 2) ℝ) (z : ℂ) (hz : z.im ≠ 0) :
 theorem folded_eq_glAction (g : GL (Fin 2) ℝ) (z : UpperHalfPlane) :
     (g • z : UpperHalfPlane) =
       (⟨if 0 < g.det.val then rawMoebius g z else star (rawMoebius g z), by sorry⟩ : UpperHalfPlane) := by
+  sorry
+
+/-- `ℍ± = ℂ ∖ ℝ`. -/
+abbrev UpperLowerHalfPlane := {z : ℂ // z.im ≠ 0}
+
+/-- The raw Möbius action of `GL₂(ℝ)` on `ℍ±`; negative determinant exchanges the half-planes. -/
+instance rawMulAction : MulAction (GL (Fin 2) ℝ) UpperLowerHalfPlane where
+  smul g z := ⟨rawMoebius g z, sorry⟩
+  one_smul := sorry
+  mul_smul := sorry
+
+theorem coe_rawSMul (g : GL (Fin 2) ℝ) (z : UpperLowerHalfPlane) :
+    ((g • z : UpperLowerHalfPlane) : ℂ) = rawMoebius g z :=
+  rfl
+
+/-- `ℝ^×SO(2)`, the invertible matrices `(a -b; b a)`. -/
+def KInf : Subgroup (GL (Fin 2) ℝ) where
+  carrier := {g | (g : Matrix (Fin 2) (Fin 2) ℝ) 0 0 = (g : Matrix (Fin 2) (Fin 2) ℝ) 1 1 ∧
+    (g : Matrix (Fin 2) (Fin 2) ℝ) 0 1 = -(g : Matrix (Fin 2) (Fin 2) ℝ) 1 0}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- The base point `i ∈ ℍ±`. -/
+def basePoint : UpperLowerHalfPlane := ⟨Complex.I, by simp⟩
+
+/-- `AA.5/gl2-real-quotient`: the stabilizer of `i` for the raw action is `ℝ^×SO(2)`. -/
+theorem stabilizer_basePoint : MulAction.stabilizer (GL (Fin 2) ℝ) basePoint = KInf := by
+  sorry
+
+/-- `g ↦ g • i` induces a homeomorphism `GL₂(ℝ)/ℝ^×SO(2) ≃ ℍ±`. -/
+def realQuotientHomeomorph : (GL (Fin 2) ℝ ⧸ KInf) ≃ₜ UpperLowerHalfPlane :=
+  sorry
+
+theorem realQuotientHomeomorph_mk (g : GL (Fin 2) ℝ) :
+    realQuotientHomeomorph (QuotientGroup.mk g) = g • basePoint := by
+  sorry
+
+/-- Equivariance: left multiplication on the quotient corresponds to the raw action. -/
+theorem realQuotientHomeomorph_smul (g : GL (Fin 2) ℝ) (x : GL (Fin 2) ℝ ⧸ KInf) :
+    realQuotientHomeomorph (g • x) = g • realQuotientHomeomorph x := by
+  sorry
+
+/-- `GL₂(ℝ)^+` acts transitively on `ℍ`. -/
+theorem isPretransitive_GLPos : MulAction.IsPretransitive (Matrix.GLPos (Fin 2) ℝ) UpperHalfPlane := by
+  sorry
+
+/-- The stabilizer of `i ∈ ℍ` in `GL₂(ℝ)^+` is `ℝ^×SO(2)`. -/
+theorem stabilizer_GLPos_I :
+    MulAction.stabilizer (Matrix.GLPos (Fin 2) ℝ) UpperHalfPlane.I =
+      KInf.subgroupOf (Matrix.GLPos (Fin 2) ℝ) := by
+  sorry
+
+/-- `diag(1, -1)`. -/
+def diagOneNegOne : GL (Fin 2) ℝ :=
+  Matrix.GeneralLinearGroup.mkOfDetNeZero !![1, 0; 0, -1] (by simp)
+
+-- Test: `diag(1, -1)` sends `i` to `-i` in the raw action and fixes `i` in Mathlib's `glAction`.
+example : ((diagOneNegOne • basePoint : UpperLowerHalfPlane) : ℂ) = -Complex.I ∧
+    diagOneNegOne • UpperHalfPlane.I = UpperHalfPlane.I := by
   sorry
 
 end AdelicExamples
@@ -1444,6 +1513,702 @@ theorem exists_spread_hom {H' : Type} [CommRing H'] [HopfAlgebra F H']
   sorry
 end IntegralModel
 
+/-! AA.1 The evaluation topology on points and the restricted-product realization.
+
+The topology on `R`-points of an affine group over a topological `F`-algebra `R` is the
+coarsest one for which every coordinate evaluation `x ↦ x h` is continuous. On the local
+groups `G(F_v)` this is the topology of ReductiveGroupsPartII, layer RG2.0, which also owns its
+chart independence; the local Hausdorff, local compactness and countability instances below are
+that layer's theorems, stated here so that the adelic signatures elaborate. -/
+
+namespace AdelicPoints
+
+/-- `AA.1/adelic-points`: the affine-points topology on `R`-points, induced from `R^H` by
+evaluation. -/
+abbrev evalTopology (F : Type) [Field F] (H : Type) [CommRing H] [HopfAlgebra F H]
+    (R : Type) [CommRing R] [Algebra F R] [TopologicalSpace R] :
+    TopologicalSpace (WithConv (H →ₐ[F] R)) :=
+  TopologicalSpace.induced (fun x h => x.ofConv h) Pi.topologicalSpace
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+instance instTopologicalSpace : TopologicalSpace (AdelicPoints F H) :=
+  evalTopology F H (NumberField.AdeleRing (NumberField.RingOfIntegers F) F)
+
+instance instTopologicalSpaceFinite : TopologicalSpace (FiniteAdelicPoints F H) :=
+  evalTopology F H (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F)
+
+instance instTopologicalSpaceInfinite : TopologicalSpace (InfinitePoints F H) :=
+  evalTopology F H (NumberField.InfiniteAdeleRing F)
+
+instance instTopologicalSpaceLocal
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    TopologicalSpace (LocalPoints F H v) :=
+  evalTopology F H (v.adicCompletion F)
+
+instance instIsTopologicalGroup : IsTopologicalGroup (AdelicPoints F H) := sorry
+
+instance instIsTopologicalGroupFinite : IsTopologicalGroup (FiniteAdelicPoints F H) := sorry
+
+instance instIsTopologicalGroupInfinite : IsTopologicalGroup (InfinitePoints F H) := sorry
+
+instance instIsTopologicalGroupLocal
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    IsTopologicalGroup (LocalPoints F H v) := sorry
+
+theorem continuous_eval (h : H) :
+    Continuous (fun x : AdelicPoints F H =>
+      (x.ofConv h : NumberField.AdeleRing (NumberField.RingOfIntegers F) F)) := by
+  sorry
+
+theorem continuous_proj (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    Continuous (proj F H v) := by
+  sorry
+
+theorem continuous_finiteProjection : Continuous (finiteProjection F H) := by
+  sorry
+
+theorem continuous_infiniteProjection : Continuous (infiniteProjection F H) := by
+  sorry
+
+theorem continuous_finiteEmbed : Continuous (finiteEmbed F H) := by
+  sorry
+
+/-- `AA.1/adelic-map`: the induced map on adelic points is continuous. -/
+theorem continuous_map {H' : Type} [CommRing H'] [HopfAlgebra F H'] (φ : H' →ₐc[F] H) :
+    Continuous (map F H φ) := by
+  sorry
+
+-- Test AdelicPoints.not_product_topology: for `G_m` evaluation at `T` is injective but is not an
+-- embedding into `𝔸_F`; the topology is not the subspace topology of `𝔸_F^×` in `𝔸_F`.
+example : Function.Injective (fun x : AdelicPoints F (LaurentPolynomial F) =>
+      (x.ofConv (LaurentPolynomial.T 1) : NumberField.AdeleRing (NumberField.RingOfIntegers F) F)) ∧
+    ¬ Topology.IsEmbedding (fun x : AdelicPoints F (LaurentPolynomial F) =>
+      (x.ofConv (LaurentPolynomial.T 1) : NumberField.AdeleRing (NumberField.RingOfIntegers F) F)) := by
+  sorry
+
+/-! The local groups `G(F_v)`: ReductiveGroupsPartII, RG2.0. -/
+
+instance instT2SpaceLocal
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    T2Space (LocalPoints F H v) := sorry
+
+instance instLocallyCompactSpaceLocal [Algebra.FiniteType F H]
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    LocallyCompactSpace (LocalPoints F H v) := sorry
+
+instance instSecondCountableLocal [Algebra.FiniteType F H]
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    SecondCountableTopology (LocalPoints F H v) := sorry
+
+/-- `AA.1/adelic-points-locally-compact`. -/
+instance instT2Space : T2Space (AdelicPoints F H) := sorry
+
+instance instLocallyCompactSpace [Algebra.FiniteType F H] :
+    LocallyCompactSpace (AdelicPoints F H) := sorry
+
+instance instSecondCountable [Algebra.FiniteType F H] :
+    SecondCountableTopology (AdelicPoints F H) := sorry
+
+instance instT2SpaceFinite : T2Space (FiniteAdelicPoints F H) := sorry
+
+instance instLocallyCompactSpaceFinite [Algebra.FiniteType F H] :
+    LocallyCompactSpace (FiniteAdelicPoints F H) := sorry
+
+instance instSecondCountableFinite [Algebra.FiniteType F H] :
+    SecondCountableTopology (FiniteAdelicPoints F H) := sorry
+
+instance instLocallyCompactSpaceInfinite [Algebra.FiniteType F H] :
+    LocallyCompactSpace (InfinitePoints F H) := sorry
+
+/-- `AA.1/rational-points-discrete`: the diagonal is injective with discrete closed image. -/
+theorem diagonal_injective : Function.Injective (diagonal F H) := by
+  sorry
+
+theorem discreteTopology_range_diagonal :
+    DiscreteTopology (diagonal F H).range := by
+  sorry
+
+theorem isClosed_range_diagonal :
+    IsClosed ((diagonal F H).range : Set (AdelicPoints F H)) := by
+  sorry
+
+/-- The diagonal into the finite adelic points. -/
+def finiteDiagonal : WithConv (H →ₐ[F] F) →* FiniteAdelicPoints F H :=
+  TauCeti.AlgHom.mapValue (H := H) (Algebra.ofId F _)
+
+/-- `AA.1/finite-adelic-discreteness-criterion`: `G(F)` is discrete in `G(𝔸_{F,f})` exactly when it
+meets a compact open subgroup in a finite set. -/
+theorem discreteTopology_finiteDiagonal_iff [Algebra.FiniteType F H]
+    (U : Subgroup (FiniteAdelicPoints F H)) (hU : IsCompact (U : Set (FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints F H))) :
+    DiscreteTopology (finiteDiagonal F H).range ↔ ((finiteDiagonal F H) ⁻¹' U).Finite := by
+  sorry
+
+/-- `AA.1/adelic-points-split`: archimedean and finite parts. -/
+def infiniteFiniteEquiv : AdelicPoints F H ≃ₜ* (InfinitePoints F H × FiniteAdelicPoints F H) :=
+  sorry
+
+theorem infiniteFiniteEquiv_apply (x : AdelicPoints F H) :
+    infiniteFiniteEquiv F H x = (infiniteProjection F H x, finiteProjection F H x) := by
+  sorry
+
+theorem infiniteFiniteEquiv_diagonal (g : WithConv (H →ₐ[F] F)) :
+    infiniteFiniteEquiv F H (diagonal F H g) =
+      (TauCeti.AlgHom.mapValue (H := H) (Algebra.ofId F _) g, finiteDiagonal F H g) := by
+  sorry
+
+/-- `AA.1/points-product-ring`: points over a product of algebras. -/
+def prodValueEquiv (R₁ R₂ : Type) [CommRing R₁] [Algebra F R₁] [CommRing R₂] [Algebra F R₂] :
+    WithConv (H →ₐ[F] R₁ × R₂) ≃* WithConv (H →ₐ[F] R₁) × WithConv (H →ₐ[F] R₂) where
+  toFun x := (WithConv.toConv ((AlgHom.fst F R₁ R₂).comp x.ofConv),
+    WithConv.toConv ((AlgHom.snd F R₁ R₂).comp x.ofConv))
+  invFun y := WithConv.toConv (y.1.ofConv.prod y.2.ofConv)
+  left_inv := sorry
+  right_inv := sorry
+  map_mul' := sorry
+
+theorem isHomeomorph_prodValueEquiv (R₁ R₂ : Type) [CommRing R₁] [Algebra F R₁]
+    [TopologicalSpace R₁] [CommRing R₂] [Algebra F R₂] [TopologicalSpace R₂] :
+    @IsHomeomorph _ _ (evalTopology F H (R₁ × R₂))
+      (@instTopologicalSpaceProd _ _ (evalTopology F H R₁) (evalTopology F H R₂))
+      (prodValueEquiv F H R₁ R₂) := by
+  sorry
+
+/-- `AA.1/product-adelic`: adelic points of a product group. -/
+def prodEquiv (H' : Type) [CommRing H'] [HopfAlgebra F H'] :
+    AdelicPoints F (TensorProduct F H H') ≃ₜ* (AdelicPoints F H × AdelicPoints F H') :=
+  sorry
+
+theorem prodEquiv_apply (H' : Type) [CommRing H'] [HopfAlgebra F H']
+    (x : AdelicPoints F (TensorProduct F H H')) :
+    (prodEquiv F H H' x : AdelicPoints F H × AdelicPoints F H') =
+      TauCeti.AffineGroup.Product.pointsMulEquiv x := by
+  sorry
+
+/-- `AA.1/closed-subgroup-adelic`: a Hopf ideal cuts out a closed subgroup of adelic points. -/
+theorem isClosed_quotientPointsSubgroup (I : TauCeti.HopfIdeal F (CommHopfAlgCat.of F H)) :
+    IsClosed ((TauCeti.CommHopfAlgCat.quotientPointsSubgroup (CommHopfAlgCat.of F H) I
+      (CommAlgCat.of F (NumberField.AdeleRing (NumberField.RingOfIntegers F) F)) :
+        Set (AdelicPoints F H))) := by
+  sorry
+
+theorem isClosedEmbedding_quotientPointsHom (I : TauCeti.HopfIdeal F (CommHopfAlgCat.of F H)) :
+    Topology.IsClosedEmbedding
+      (@DFunLike.coe _ _ _ _ (TauCeti.CommHopfAlgCat.quotientPointsHom (CommHopfAlgCat.of F H) I
+        (CommAlgCat.of F (NumberField.AdeleRing (NumberField.RingOfIntegers F) F))).hom :
+        AdelicPoints F (TauCeti.CommHopfAlgCat.quotient (CommHopfAlgCat.of F H) I) →
+          AdelicPoints F H) := by
+  sorry
+
+end AdelicPoints
+
+/-! AA.1 Integral points as levels and the restricted product. -/
+
+namespace IntegralModel
+variable {F : Type} [Field F] [NumberField F] {H : Type} [CommRing H] [HopfAlgebra F H]
+  {S : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))}
+
+/-- `AA.1/integral-points-level`: the integral points are a compact open subgroup. -/
+theorem isOpen_localPoints [Algebra.FiniteType F H] (M : IntegralModel F H S)
+    (v : {v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F) // v ∉ S}) :
+    IsOpen (M.localPoints v : Set (AdelicPoints.LocalPoints F H v.val)) := by
+  sorry
+
+theorem isCompact_localPoints [Algebra.FiniteType F H] (M : IntegralModel F H S)
+    (v : {v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F) // v ∉ S}) :
+    IsCompact (M.localPoints v : Set (AdelicPoints.LocalPoints F H v.val)) := by
+  sorry
+
+/-- The level family: `𝓗(𝒪_v)` outside `S`, the whole local group at `v ∈ S`. -/
+def levelFamily (M : IntegralModel F H S)
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    Subgroup (AdelicPoints.LocalPoints F H v) :=
+  if hv : v ∈ S then ⊤ else M.localPoints ⟨v, hv⟩
+
+instance levelFamily_isOpen [Algebra.FiniteType F H] (M : IntegralModel F H S) :
+    Fact (∀ v, IsOpen (M.levelFamily v : Set (AdelicPoints.LocalPoints F H v))) := sorry
+
+/-- `AA.1/restricted-product-comparison`: `x ↦ (p_v x)_v` is an isomorphism of topological groups
+`G(𝔸_{F,f}) ≃ Πʳ v, [G(F_v), B_v]`. -/
+def restrictedProductEquiv [Algebra.FiniteType F H] (M : IntegralModel F H S) :
+    AdelicPoints.FiniteAdelicPoints F H ≃ₜ*
+      Πʳ v, [AdelicPoints.LocalPoints F H v, M.levelFamily v] :=
+  sorry
+
+theorem restrictedProductEquiv_apply [Algebra.FiniteType F H] (M : IntegralModel F H S)
+    (x : AdelicPoints.FiniteAdelicPoints F H)
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) (h : H) :
+    ((restrictedProductEquiv M x v).ofConv h : v.adicCompletion F) =
+      (x.ofConv h : IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F) v := by
+  sorry
+
+/-- `AA.1/restricted-product-bijection`: the bijection on `S'`-adelic points, before topology. -/
+theorem restrictedProductEquiv_bijective [Algebra.FiniteType F H] (M : IntegralModel F H S) :
+    Function.Bijective (restrictedProductEquiv M) :=
+  (restrictedProductEquiv M).bijective
+
+/-- `AA.1/restricted-product-model-independence`: two models differ by `changeSubgroups`. -/
+theorem eventually_levelFamily_eq [Algebra.FiniteType F H]
+    {S' : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))}
+    (M : IntegralModel F H S) (M' : IntegralModel F H S') :
+    ∀ᶠ v in Filter.cofinite, M.levelFamily v = M'.levelFamily v := by
+  sorry
+
+theorem restrictedProductEquiv_indep [Algebra.FiniteType F H]
+    {S' : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))}
+    (M : IntegralModel F H S) (M' : IntegralModel F H S') (x : AdelicPoints.FiniteAdelicPoints F H) :
+    restrictedProductEquiv M' x =
+      RestrictedProduct.changeSubgroups M.levelFamily M'.levelFamily
+        (eventually_levelFamily_eq M M') (restrictedProductEquiv M x) := by
+  sorry
+
+end IntegralModel
+
+/-! AA.1 Concrete groups, levels and unimodularity. -/
+
+namespace AdelicPoints
+
+variable (F : Type) [Field F] [NumberField F]
+
+/-- `AA.1/ga-adelic`: `G_a(𝔸_F) ≃ 𝔸_F`, through evaluation at the generator. -/
+def gaEquiv :
+    AdelicPoints F (SymmetricAlgebra F F) ≃ₜ*
+      Multiplicative (NumberField.AdeleRing (NumberField.RingOfIntegers F) F) :=
+  sorry
+
+theorem gaEquiv_apply (x : AdelicPoints F (SymmetricAlgebra F F)) :
+    gaEquiv F x = TauCeti.AdditiveGroup.gaPointsMulEquiv x := by
+  sorry
+
+/-- `AA.1/gm-adelic`: `G_m(𝔸_F)` is the idele group with its units topology. -/
+def gmEquiv :
+    AdelicPoints F (LaurentPolynomial F) ≃ₜ* NumberField.IdeleGroup (NumberField.RingOfIntegers F) F :=
+  sorry
+
+theorem gmEquiv_apply (x : AdelicPoints F (LaurentPolynomial F)) :
+    gmEquiv F x = TauCeti.MultiplicativeGroup.pointsMulEquiv x := by
+  sorry
+
+/-- The finite part of `gm-adelic`: `G_m(𝔸_{F,f}) ≃ 𝔸_{F,f}^×`. -/
+def gmFiniteEquiv :
+    FiniteAdelicPoints F (LaurentPolynomial F) ≃ₜ*
+      (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F)ˣ :=
+  sorry
+
+theorem gmFiniteEquiv_apply (x : FiniteAdelicPoints F (LaurentPolynomial F)) :
+    gmFiniteEquiv F x = TauCeti.MultiplicativeGroup.pointsMulEquiv x := by
+  sorry
+
+/-- `AA.1/gln-adelic`: `GL_n(𝔸_F)` with the units topology of the matrix ring. -/
+def glnEquiv (n : ℕ) :
+    AdelicPoints F (TauCeti.GeneralLinear.coordinateHopfAlgebra F n) ≃ₜ*
+      GL (Fin n) (NumberField.AdeleRing (NumberField.RingOfIntegers F) F) :=
+  sorry
+
+theorem glnEquiv_apply (n : ℕ) (x : AdelicPoints F (TauCeti.GeneralLinear.coordinateHopfAlgebra F n)) :
+    glnEquiv F n x = TauCeti.GeneralLinear.pointsMulEquiv (R := F) n x := by
+  sorry
+
+/-- The finite part of `gln-adelic`. -/
+def glnFiniteEquiv (n : ℕ) :
+    FiniteAdelicPoints F (TauCeti.GeneralLinear.coordinateHopfAlgebra F n) ≃ₜ*
+      GL (Fin n) (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F) :=
+  sorry
+
+/-- `AA.1/compact-open-product`: two compact open subgroups of `G(𝔸_{F,f})` are commensurable. -/
+theorem commensurable_of_compact_open {H : Type} [CommRing H] [HopfAlgebra F H]
+    [Algebra.FiniteType F H] {U U' : Subgroup (FiniteAdelicPoints F H)}
+    (hU : IsCompact (U : Set (FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (FiniteAdelicPoints F H)))
+    (hU' : IsCompact (U' : Set (FiniteAdelicPoints F H)))
+    (hU'o : IsOpen (U' : Set (FiniteAdelicPoints F H))) :
+    Subgroup.Commensurable U U' := by
+  sorry
+
+end AdelicPoints
+
+namespace IntegralModel
+variable {F : Type} [Field F] [NumberField F] {H : Type} [CommRing H] [HopfAlgebra F H]
+  {S : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))}
+
+/-- The product level `∏_v V_v` inside `G(𝔸_{F,f})`, through the restricted-product comparison. -/
+def productLevel [Algebra.FiniteType F H] (M : IntegralModel F H S)
+    (V : ∀ v, Subgroup (AdelicPoints.LocalPoints F H v))
+    (hV : ∀ᶠ v in Filter.cofinite, V v = M.levelFamily v) :
+    Subgroup (AdelicPoints.FiniteAdelicPoints F H) where
+  carrier := {x | ∀ v, restrictedProductEquiv M x v ∈ V v}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- `AA.1/compact-open-product`: every compact open subgroup contains, and is contained in, a
+product level whose factors are compact open and equal to `𝓗(𝒪_v)` at almost every place. -/
+theorem exists_productLevel_le [Algebra.FiniteType F H] (M : IntegralModel F H S)
+    (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H))
+    (hU : IsCompact (U : Set (AdelicPoints.FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (AdelicPoints.FiniteAdelicPoints F H))) :
+    ∃ (V : ∀ v, Subgroup (AdelicPoints.LocalPoints F H v))
+      (hV : ∀ᶠ v in Filter.cofinite, V v = M.levelFamily v),
+      (∀ v, IsCompact (V v : Set (AdelicPoints.LocalPoints F H v)) ∧
+        IsOpen (V v : Set (AdelicPoints.LocalPoints F H v))) ∧ M.productLevel V hV ≤ U := by
+  sorry
+
+theorem exists_le_productLevel [Algebra.FiniteType F H] (M : IntegralModel F H S)
+    (U : Subgroup (AdelicPoints.FiniteAdelicPoints F H))
+    (hU : IsCompact (U : Set (AdelicPoints.FiniteAdelicPoints F H)))
+    (hUo : IsOpen (U : Set (AdelicPoints.FiniteAdelicPoints F H))) :
+    ∃ (V : ∀ v, Subgroup (AdelicPoints.LocalPoints F H v))
+      (hV : ∀ᶠ v in Filter.cofinite, V v = M.levelFamily v),
+      (∀ v, IsCompact (V v : Set (AdelicPoints.LocalPoints F H v)) ∧
+        IsOpen (V v : Set (AdelicPoints.LocalPoints F H v))) ∧ U ≤ M.productLevel V hV := by
+  sorry
+
+/-- `AA.1/finite-support-conjugate`: conjugating a product level changes it only at the finitely
+many places where `g` is not integral. -/
+theorem conj_productLevel [Algebra.FiniteType F H] (M : IntegralModel F H S)
+    (V : ∀ v, Subgroup (AdelicPoints.LocalPoints F H v))
+    (hV : ∀ᶠ v in Filter.cofinite, V v = M.levelFamily v)
+    (g : AdelicPoints.FiniteAdelicPoints F H) :
+    ∃ hV' : ∀ᶠ v in Filter.cofinite,
+        (V v).map (MulAut.conj (restrictedProductEquiv M g v)).toMonoidHom = M.levelFamily v,
+      (M.productLevel V hV).map (MulAut.conj g).toMonoidHom =
+        M.productLevel (fun v => (V v).map (MulAut.conj (restrictedProductEquiv M g v)).toMonoidHom)
+          hV' := by
+  sorry
+
+/-- The integral level `∏_v 𝓗(𝒪_v)` (the whole local group at `v ∈ S`). -/
+def integralLevel [Algebra.FiniteType F H] (M : IntegralModel F H S) :
+    Subgroup (AdelicPoints.FiniteAdelicPoints F H) :=
+  M.productLevel M.levelFamily (Filter.Eventually.of_forall fun _ => rfl)
+
+/-- Every finite adelic point is `g_B * u` with `g_B` supported on a finite set `B` and `u` in the
+integral level. -/
+theorem exists_finiteSupport_mul [Algebra.FiniteType F H] (M : IntegralModel F H S)
+    (g : AdelicPoints.FiniteAdelicPoints F H) :
+    ∃ (B : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)))
+      (gB u : AdelicPoints.FiniteAdelicPoints F H),
+      (∀ v ∉ B, restrictedProductEquiv M gB v = 1) ∧ u ∈ M.integralLevel ∧ g = gB * u := by
+  sorry
+
+/-- `AA.1/finite-adeles-directed-union`: the `S'`-adeles `∏_{v ∈ S'} F_v × ∏_{v ∉ S'} 𝒪_v`. -/
+def sAdeles (S' : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))) :
+    Subring (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F) where
+  carrier := {x | ∀ v ∉ S', x v ∈ v.adicCompletionIntegers F}
+  zero_mem' := sorry
+  one_mem' := sorry
+  add_mem' := sorry
+  mul_mem' := sorry
+  neg_mem' := sorry
+
+theorem isOpen_sAdeles
+    (S' : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))) :
+    IsOpen (sAdeles (F := F) S' :
+      Set (IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F)) := by
+  sorry
+
+theorem sAdeles_mono {S₁ S₂ : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))}
+    (h : S₁ ⊆ S₂) : sAdeles (F := F) S₁ ≤ sAdeles S₂ := by
+  sorry
+
+theorem iSup_sAdeles : ⨆ S' : Finset (IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)),
+    sAdeles (F := F) S' = ⊤ := by
+  sorry
+
+/-- Every finite adelic point takes integral values on the model outside a larger finite set. -/
+theorem exists_sAdeles [Algebra.FiniteType F H] (M : IntegralModel F H S)
+    (x : AdelicPoints.FiniteAdelicPoints F H) :
+    ∃ T, S ⊆ T ∧ ∀ h : M.coordinate,
+      (x.ofConv (M.baseChangeIso.hom.hom (1 ⊗ₜ[AdelicSIntegers F S] h)) :
+        IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F) ∈ sAdeles T := by
+  sorry
+
+end IntegralModel
+
+namespace AdelicPoints
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+/-- `H` as an object of the finite-type Hopf algebra category, for reductivity hypotheses. -/
+abbrev finiteTypeObj [Algebra.FiniteType F H] : TauCeti.FiniteTypeCommHopfAlgCat F :=
+  ⟨CommHopfAlgCat.of F H, (inferInstance : Algebra.FiniteType F H)⟩
+
+/-- `AA.1/local-unimodular-reductive`: `G(F_v)` is unimodular for connected reductive `G`. -/
+theorem modularCharacter_local_eq_one [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H))
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    MeasureTheory.Measure.modularCharacter (G := LocalPoints F H v) = 1 := by
+  sorry
+
+/-- `AA.1/unimodular-reductive`: `G(𝔸_F)`, `G(𝔸_{F,f})` and `G(F_∞)` are unimodular. -/
+theorem modularCharacter_eq_one [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) :
+    MeasureTheory.Measure.modularCharacter (G := AdelicPoints F H) = 1 ∧
+      MeasureTheory.Measure.modularCharacter (G := FiniteAdelicPoints F H) = 1 ∧
+      MeasureTheory.Measure.modularCharacter (G := InfinitePoints F H) = 1 := by
+  sorry
+
+/-- `AA.1/center-adelic`, for a central Hopf ideal `I` (the centre is the case
+`I = centerDefiningIdeal`): its adelic points are central in `G(𝔸_F)`, and `I(F) = I(𝔸_F) ∩ G(F)`. -/
+theorem quotientPointsSubgroup_le_center (I : TauCeti.HopfIdeal F (CommHopfAlgCat.of F H))
+    (hI : I.IsCentral) :
+    (TauCeti.CommHopfAlgCat.quotientPointsSubgroup (CommHopfAlgCat.of F H) I
+      (CommAlgCat.of F (NumberField.AdeleRing (NumberField.RingOfIntegers F) F)) :
+        Set (AdelicPoints F H)) ⊆ Subgroup.center (AdelicPoints F H) := by
+  sorry
+
+theorem diagonal_mem_quotientPointsSubgroup_iff (I : TauCeti.HopfIdeal F (CommHopfAlgCat.of F H))
+    (g : WithConv (H →ₐ[F] F)) :
+    diagonal F H g ∈ (TauCeti.CommHopfAlgCat.quotientPointsSubgroup (CommHopfAlgCat.of F H) I
+      (CommAlgCat.of F (NumberField.AdeleRing (NumberField.RingOfIntegers F) F)) :
+        Set (AdelicPoints F H)) ↔
+      g ∈ (TauCeti.CommHopfAlgCat.quotientPointsSubgroup (CommHopfAlgCat.of F H) I
+        (CommAlgCat.of F F) : Set (WithConv (H →ₐ[F] F))) := by
+  sorry
+
+end AdelicPoints
+
+namespace MeasureTheory.Measure
+
+variable {G : Type*} [TopologicalSpace G] [Group G] [IsTopologicalGroup G] [LocallyCompactSpace G]
+
+/-- `AA.1/modular-character-trivial-compact-centre`. -/
+theorem modularCharacter_eq_one_of_mem_compact {K : Subgroup G} (hK : IsCompact (K : Set G))
+    {g : G} (hg : g ∈ K) : modularCharacter g = 1 := by
+  sorry
+
+theorem modularCharacter_eq_one_of_mem_center {g : G} (hg : g ∈ Subgroup.center G) :
+    modularCharacter g = 1 := by
+  sorry
+
+theorem modularCharacter_conj (g h : G) :
+    modularCharacter (h * g * h⁻¹) = modularCharacter g := by
+  sorry
+
+end MeasureTheory.Measure
+
+/-! AA.2 The idele norm, the Harish-Chandra map and the norm-one subgroup.
+
+`NumberField.ideleNorm` is the idele norm of the Global number fields roadmap, layer 6, written
+out here from the normalized absolute values so that `H_G` can be stated; that layer's
+declaration replaces it. -/
+
+namespace NumberField
+
+variable (K : Type) [Field K] [NumberField K]
+
+/-- The idele norm `‖x‖ = ∏_w |x_w|_w^{m_w} · ∏_v |x_v|_v`, with `m_w = 2` at complex places and
+the finite factors normalized by `|ϖ_v|_v = q_v⁻¹`. -/
+def ideleNorm (x : IdeleGroup (RingOfIntegers K) K) : ℝ :=
+  (∏ w : InfinitePlace K, ‖adeleInfPart K (x : AdeleRing (RingOfIntegers K) K) w‖ ^ w.mult) *
+    ∏ᶠ v : IsDedekindDomain.HeightOneSpectrum (RingOfIntegers K),
+      ((TauCeti.normalizedAbsoluteValue (v.adicCompletion K)
+        (RingHom.snd _ _ (x : AdeleRing (RingOfIntegers K) K) v) : ℚ≥0) : ℝ)
+
+theorem ideleNorm_pos (x : IdeleGroup (RingOfIntegers K) K) : 0 < ideleNorm K x := by
+  sorry
+
+theorem ideleNorm_mul (x y : IdeleGroup (RingOfIntegers K) K) :
+    ideleNorm K (x * y) = ideleNorm K x * ideleNorm K y := by
+  sorry
+
+theorem continuous_ideleNorm : Continuous (ideleNorm K) := by
+  sorry
+
+/-- The product formula. -/
+theorem ideleNorm_principal (k : Kˣ) :
+    ideleNorm K (Units.map (algebraMap K (AdeleRing (RingOfIntegers K) K)) k) = 1 := by
+  sorry
+
+/-- The norm-one ideles `𝔸_K^1`. -/
+def normOneIdeles : Subgroup (IdeleGroup (RingOfIntegers K) K) where
+  carrier := {x | ideleNorm K x = 1}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+end NumberField
+
+/-- `AA.2/real-character-space`: `a_G` with its finite-dimensional real topology. -/
+instance RealCharacterSpace.instTopologicalSpace {F : Type} [Field F] {H : Type} [CommRing H]
+    [HopfAlgebra F H] : TopologicalSpace (RealCharacterSpace F H) :=
+  moduleTopology ℝ _
+
+namespace AdelicPoints
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+/-- `AA.2/log-height`: the Harish-Chandra map `H_G : G(𝔸_F) → a_G`,
+`⟨H_G(x), χ⟩ = log ‖χ(x)‖`. -/
+def logHeight : AdelicPoints F H →* Multiplicative (RealCharacterSpace F H) where
+  toFun x := Multiplicative.ofAdd
+    { toFun := fun χ => Real.log (NumberField.ideleNorm F
+        (RationalCharacter.apply (Additive.toMul χ) x))
+      map_zero' := sorry
+      map_add' := sorry }
+  map_one' := sorry
+  map_mul' := sorry
+
+theorem logHeight_apply (x : AdelicPoints F H) (χ : RationalCharacter F H) :
+    RealCharacterSpace.pairing (Multiplicative.toAdd (logHeight F H x)) χ =
+      Real.log (NumberField.ideleNorm F (RationalCharacter.apply χ x)) := by
+  sorry
+
+theorem continuous_logHeight : Continuous (logHeight F H) := by
+  sorry
+
+/-- `AA.2/log-height-rational`: `H_G` vanishes on `G(F)`, by the product formula. -/
+theorem logHeight_diagonal (g : WithConv (H →ₐ[F] F)) : logHeight F H (diagonal F H g) = 1 := by
+  sorry
+
+theorem logHeight_map {H' : Type} [CommRing H'] [HopfAlgebra F H'] (φ : H' →ₐc[F] H)
+    (x : AdelicPoints F H) :
+    Multiplicative.toAdd (logHeight F H' (map F H φ x)) =
+      RealCharacterSpace.map φ (Multiplicative.toAdd (logHeight F H x)) := by
+  sorry
+
+theorem logHeight_compact (K : Subgroup (AdelicPoints F H))
+    (hK : IsCompact (K : Set (AdelicPoints F H))) : K ≤ (logHeight F H).ker := by
+  sorry
+
+/-- The character `T` of `G_m`. -/
+def gmCharacter : RationalCharacter F (LaurentPolynomial F) :=
+  ⟨LaurentPolynomial.T 1, sorry⟩
+
+-- Test AdelicPoints.logHeight_gm: for `G_m`, `H_G` is the logarithm of the idele norm.
+example (x : AdelicPoints F (LaurentPolynomial F)) :
+    RealCharacterSpace.pairing (Multiplicative.toAdd (logHeight F (LaurentPolynomial F) x))
+        (gmCharacter F) =
+      Real.log (NumberField.ideleNorm F (gmEquiv F x)) := by
+  sorry
+
+-- Test AdelicPoints.logHeight_sln: `H_G` vanishes identically on `SL_n`.
+example (n : ℕ) (x : AdelicPoints F (TauCeti.SpecialLinear.coordinateHopfAlgebra F n)) :
+    logHeight F (TauCeti.SpecialLinear.coordinateHopfAlgebra F n) x = 1 := by
+  sorry
+
+-- Test AdelicPoints.logHeight_not_infinite_only: over `ℚ` an idele with archimedean component `1`
+-- can have norm different from `1`, so `H_G` is not computed at the archimedean places alone.
+example : ∃ x : NumberField.IdeleGroup (NumberField.RingOfIntegers ℚ) ℚ,
+    NumberField.adeleInfPart ℚ (x : NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ) = 1 ∧
+      NumberField.ideleNorm ℚ x ≠ 1 := by
+  sorry
+
+/-- `AA.2/norm-one-subgroup`: `G(𝔸_F)^1 = ker H_G`. -/
+def normOne : Subgroup (AdelicPoints F H) := (logHeight F H).ker
+
+theorem isClosed_normOne : IsClosed (normOne F H : Set (AdelicPoints F H)) := by
+  sorry
+
+theorem normOne_normal : (normOne F H).Normal := by
+  sorry
+
+theorem diagonal_mem_normOne (g : WithConv (H →ₐ[F] F)) : diagonal F H g ∈ normOne F H := by
+  sorry
+
+theorem mem_normOne_iff (x : AdelicPoints F H) :
+    x ∈ normOne F H ↔ ∀ χ : RationalCharacter F H,
+      NumberField.ideleNorm F (RationalCharacter.apply χ x) = 1 := by
+  sorry
+
+theorem normOne_eq_top_of_no_characters [Subsingleton (RationalCharacter F H)] :
+    normOne F H = ⊤ := by
+  sorry
+
+theorem commutator_le_normOne : commutator (AdelicPoints F H) ≤ normOne F H := by
+  sorry
+
+-- Test AdelicPoints.normOne_gm: for `G_m` the norm-one subgroup is `𝔸_F^1`.
+example : (normOne F (LaurentPolynomial F)).map (gmEquiv F).toMonoidHom =
+    NumberField.normOneIdeles F := by
+  sorry
+
+-- Test AdelicPoints.normOne_sl2: `SL_2(𝔸_F)^1 = SL_2(𝔸_F)`.
+example : normOne F (TauCeti.SpecialLinear.coordinateHopfAlgebra F 2) = ⊤ := by
+  sorry
+
+-- Test AdelicPoints.normOne_not_finite_part: over `ℚ` a norm-one idele need not have norm-one
+-- archimedean component, so `𝔸^1 ≠ (𝔸_∞)^1 × 𝔸_f^×`.
+example : ∃ x ∈ NumberField.normOneIdeles ℚ,
+    ‖NumberField.adeleInfPart ℚ (x : NumberField.AdeleRing (NumberField.RingOfIntegers ℚ) ℚ)
+      (NumberField.InfinitePlace.mk (Rat.castHom ℂ))‖ ≠ 1 := by
+  sorry
+
+/-- `AA.2/split-centre`: `A_G(ℝ)^0`, the identity component of the real points of the largest
+`ℚ`-split central torus of `Res_{F/ℚ} G`, inside the archimedean factor `G(F_∞)`; the Weil
+restriction is ReductiveGroupsPartII, RG2.0a. -/
+def SplitComponent : Subgroup (AdelicPoints F H) := sorry
+
+theorem splitComponent_le_infinite :
+    SplitComponent F H ≤ (finiteProjection F H).ker := by
+  sorry
+
+theorem SplitComponent.central : SplitComponent F H ≤ Subgroup.center (AdelicPoints F H) := by
+  sorry
+
+theorem SplitComponent.inter_normOne : SplitComponent F H ⊓ normOne F H = ⊥ := by
+  sorry
+
+/-- `AA.2/log-height-split-centre-iso`: `H_G` restricts to an isomorphism `A_G(ℝ)^0 ≃ a_G`. -/
+def SplitComponent.logHeightEquiv [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) :
+    SplitComponent F H ≃ₜ* Multiplicative (RealCharacterSpace F H) :=
+  sorry
+
+theorem SplitComponent.logHeightEquiv_apply [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) (a : SplitComponent F H) :
+    SplitComponent.logHeightEquiv F H hred a = logHeight F H a := by
+  sorry
+
+theorem logHeight_surjective [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) :
+    Function.Surjective (logHeight F H) := by
+  sorry
+
+/-- `AA.2/split-centre-decomposition`: `G(𝔸)^1 × A_G(ℝ)^0 → G(𝔸)` is an isomorphism. -/
+def normOneSplitEquiv [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) :
+    (normOne F H × SplitComponent F H) ≃ₜ AdelicPoints F H :=
+  sorry
+
+theorem normOneSplitEquiv_apply [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H))
+    (x : normOne F H × SplitComponent F H) :
+    normOneSplitEquiv F H hred x = (x.1 : AdelicPoints F H) * x.2 := by
+  sorry
+
+/-- `AA.2/quotient-norm-one-comparison`: `G(F)\G(𝔸)^1 ≃ G(F)\G(𝔸)/A_G(ℝ)^0`. -/
+def normOneQuotientHomeomorph [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) :
+    MulAction.orbitRel.Quotient ((diagonal F H).range.subgroupOf (normOne F H)) (normOne F H) ≃ₜ
+      MulAction.orbitRel.Quotient (diagonal F H).range (AdelicPoints F H ⧸ SplitComponent F H) :=
+  sorry
+
+theorem normOneQuotientHomeomorph_mk [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) (x : normOne F H) :
+    normOneQuotientHomeomorph F H hred (Quotient.mk'' x) =
+      Quotient.mk'' ((x : AdelicPoints F H) : AdelicPoints F H ⧸ SplitComponent F H) := by
+  sorry
+
+-- Test SplitComponent.semisimple_trivial: without rational characters the split component is
+-- trivial.
+example [Subsingleton (RationalCharacter F H)] [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (finiteTypeObj F H)) :
+    SplitComponent F H = ⊥ := by
+  sorry
+
+-- Test SplitComponent.gm_number_field: for `G_m` over `F`, `a_G` is one-dimensional, while the
+-- positive archimedean units `(F ⊗ ℝ)^×_{>0}` have dimension `r₁ + r₂`.
+example : Module.finrank ℝ (RealCharacterSpace F (LaurentPolynomial F)) = 1 := by
+  sorry
+
+-- Test SplitComponent.gln_scalars: for `GL_n` over `ℚ`, `A_G(ℝ)^0` is homeomorphic to `ℝ`.
+example (n : ℕ) (hn : 0 < n) :
+    Nonempty (SplitComponent ℚ (TauCeti.GeneralLinear.coordinateHopfAlgebra ℚ n) ≃ₜ ℝ) := by
+  sorry
+
+end AdelicPoints
+
 /-! AA.2 A gauge form is a nonzero vector in the invariant top-form line below.
 For smooth finite-type groups, the cotangent dimension is the group dimension. -/
 
@@ -1520,6 +2285,307 @@ example (ω : GaugeForm k H) : rightTranslate (1 : TauCeti.HopfAlgebra.points
     (H := H) (CommAlgCat.of k k)) ω = ω := by
   sorry
 end GaugeForm
+
+/-! AA.2 Quotient integration: stages, volumes and the averaging map. -/
+
+namespace QuotientMeasure
+
+variable {G : Type*} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
+  [T2Space G] [LocallyCompactSpace G] [SecondCountableTopology G]
+  [MeasurableSpace G] [BorelSpace G]
+  (H : Subgroup G) [Fact (IsClosed (H : Set G))] [LocallyCompactSpace H]
+
+/-- `AA.2/bruhat-section`: fibre averaging `C_c(G) → C_c(H\G)` is surjective, and nonnegative
+functions have nonnegative preimages. -/
+theorem average_surjective (ν : Measure H) (hν : IsRightHaar ν) (φ : Cosets H → ℝ)
+    (hφ : Continuous φ) (hφc : HasCompactSupport φ) :
+    ∃ f : G → ℝ, Continuous f ∧ HasCompactSupport f ∧ average H ν hν f = φ ∧
+      ((∀ q, 0 ≤ φ q) → ∀ g, 0 ≤ f g) := by
+  sorry
+
+/-- `AA.2/quotient-functional-well-defined`: under `Δ_G|_H = Δ_H`, `Pf = 0` forces `∫ f = 0`. -/
+theorem integral_eq_zero_of_average_eq_zero (μ : Measure G) (ν : Measure H)
+    (hμ : IsRightHaar μ) (hν : IsRightHaar ν)
+    (hmod : ∀ h : H, Measure.modularCharacter (h : G) = Measure.modularCharacter h)
+    (f : G → ℝ) (hf : Continuous f) (hfc : HasCompactSupport f) (h0 : average H ν hν f = 0) :
+    ∫ g, f g ∂μ = 0 := by
+  sorry
+
+/-- `AA.2/quotient-measure-transitivity`: integration over `H₁\G` in stages through `H₂\G` and
+`H₁\H₂`, stated for nonnegative measurable functions on `G`. -/
+theorem lintegral_trans (H₂ : Subgroup G) [Fact (IsClosed (H₂ : Set G))] [LocallyCompactSpace H₂]
+    (hle : H ≤ H₂) (μ : Measure G) (ν₂ : Measure H₂) (ν₁ : Measure H)
+    (hμ : IsRightHaar μ) (hν₂ : IsRightHaar ν₂) (hν₁ : IsRightHaar ν₁)
+    (hmod₂ : ∀ h : H₂, Measure.modularCharacter (h : G) = Measure.modularCharacter h)
+    (hmod₁ : ∀ h : H, Measure.modularCharacter (h : G) = Measure.modularCharacter h)
+    (f : G → ℝ≥0∞) (hf : Measurable f) :
+    (∫⁻ g, f g ∂μ) =
+      ∫⁻ q, Quotient.liftOn q (fun g => ∫⁻ h₂ : H₂, ∫⁻ h₁ : H, f (h₁ * h₂ * g) ∂ν₁ ∂ν₂)
+        (by sorry) ∂(measure H₂ μ ν₂ hμ hν₂ hmod₂) ∧
+    (∫⁻ g, f g ∂μ) =
+      ∫⁻ q, Quotient.liftOn q (fun g => ∫⁻ h₁ : H, f (h₁ * g) ∂ν₁) (by sorry)
+        ∂(measure H μ ν₁ hμ hν₁ hmod₁) := by
+  sorry
+
+end QuotientMeasure
+
+namespace QuotientMeasure
+
+variable {G : Type*} [Group G] [TopologicalSpace G] [IsTopologicalGroup G]
+  [MeasurableSpace G] [BorelSpace G]
+
+/-- `AA.2/compact-open-volume`: `μ(U) [U' : U ∩ U'] = μ(U') [U : U ∩ U']` for compact open
+subgroups and a left Haar measure. -/
+theorem measure_mul_relIndex (μ : Measure G) [μ.IsHaarMeasure] (U U' : Subgroup G)
+    (hU : IsCompact (U : Set G)) (hUo : IsOpen (U : Set G))
+    (hU' : IsCompact (U' : Set G)) (hU'o : IsOpen (U' : Set G)) :
+    μ U * ((U ⊓ U').relIndex U' : ℝ≥0∞) = μ U' * ((U ⊓ U').relIndex U : ℝ≥0∞) := by
+  sorry
+
+end QuotientMeasure
+
+namespace AdelicPoints
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+instance instMeasurableSpace : MeasurableSpace (AdelicPoints F H) := borel _
+instance instBorelSpace : BorelSpace (AdelicPoints F H) := ⟨rfl⟩
+instance instMeasurableSpaceFinite : MeasurableSpace (FiniteAdelicPoints F H) := borel _
+instance instBorelSpaceFinite : BorelSpace (FiniteAdelicPoints F H) := ⟨rfl⟩
+instance instMeasurableSpaceInfinite : MeasurableSpace (InfinitePoints F H) := borel _
+instance instBorelSpaceInfinite : BorelSpace (InfinitePoints F H) := ⟨rfl⟩
+instance instMeasurableSpaceLocal
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    MeasurableSpace (LocalPoints F H v) := borel _
+instance instBorelSpaceLocal
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    BorelSpace (LocalPoints F H v) := ⟨rfl⟩
+
+/-- `AA.2/discrete-quotient-fundamental-domain`: for unimodular `G(𝔸_F)` (for instance `G`
+connected reductive), `G(F)` has a Borel fundamental domain in `G(𝔸_F)`, and the quotient measure
+does not depend on it. -/
+theorem exists_isFundamentalDomain [Algebra.FiniteType F H] (μ : Measure (AdelicPoints F H))
+    [μ.IsHaarMeasure] (hunim : Measure.modularCharacter (G := AdelicPoints F H) = 1) :
+    ∃ D : Set (AdelicPoints F H), IsFundamentalDomain (diagonal F H).range D μ := by
+  sorry
+
+theorem map_restrict_eq_of_isFundamentalDomain [Algebra.FiniteType F H]
+    (μ : Measure (AdelicPoints F H)) [μ.IsHaarMeasure]
+    (hunim : Measure.modularCharacter (G := AdelicPoints F H) = 1)
+    {D D' : Set (AdelicPoints F H)} (hD : IsFundamentalDomain (diagonal F H).range D μ)
+    (hD' : IsFundamentalDomain (diagonal F H).range D' μ) :
+    Measure.map (fun x : AdelicPoints F H =>
+        (Quotient.mk'' x : MulAction.orbitRel.Quotient (diagonal F H).range (AdelicPoints F H)))
+        (μ.restrict D) =
+      Measure.map (fun x : AdelicPoints F H =>
+        (Quotient.mk'' x : MulAction.orbitRel.Quotient (diagonal F H).range (AdelicPoints F H)))
+        (μ.restrict D') := by
+  sorry
+
+end AdelicPoints
+
+namespace AutomorphicQuotient
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+/-- `[G]^1 = G(F)\G(𝔸_F)^1`. -/
+abbrev NormOneQuotient :=
+  MulAction.orbitRel.Quotient ((AdelicPoints.diagonal F H).range.subgroupOf
+    (AdelicPoints.normOne F H)) (AdelicPoints.normOne F H)
+
+instance : MeasurableSpace (NormOneQuotient F H) := borel _
+
+/-- `AA.2/automorphic-quotient-measure`: the measure on `[G]^1` induced by a Haar measure `dx` on
+`G(𝔸_F)`, Lebesgue measure on `a_G` normalized by the lattice dual to `X*_F(G)`, the
+decomposition `G(𝔸) = G(𝔸)^1 × A_G(ℝ)^0` and counting measure on `G(F)`. -/
+def measure [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (μ : Measure (AdelicPoints F H)) : Measure (NormOneQuotient F H) :=
+  sorry
+
+/-- Right translation by `G(𝔸)^1` on `[G]^1`. -/
+def rightAct (g : AdelicPoints.normOne F H) : NormOneQuotient F H → NormOneQuotient F H :=
+  Quotient.map' (· * g) (by sorry)
+
+theorem invariant [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (μ : Measure (AdelicPoints F H)) [μ.IsHaarMeasure] (g : AdelicPoints.normOne F H) :
+    Measure.map (rightAct F H g) (measure F H hred μ) = measure F H hred μ := by
+  sorry
+
+theorem smul_haar [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (μ : Measure (AdelicPoints F H)) (c : ℝ≥0∞) :
+    measure F H hred (c • μ) = c • measure F H hred μ := by
+  sorry
+
+instance : MeasurableSpace
+    (MulAction.orbitRel.Quotient (AdelicPoints.diagonal F H).range
+      (AdelicPoints F H ⧸ AdelicPoints.SplitComponent F H)) := borel _
+
+/-- Its transport to `G(F)A_G(ℝ)^0\G(𝔸_F)` along the norm-one comparison. -/
+theorem measure_split [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (μ : Measure (AdelicPoints F H)) :
+    ∃ ν : Measure (MulAction.orbitRel.Quotient (AdelicPoints.diagonal F H).range
+        (AdelicPoints F H ⧸ AdelicPoints.SplitComponent F H)),
+      ν = Measure.map (AdelicPoints.normOneQuotientHomeomorph F H hred) (measure F H hred μ) := by
+  sorry
+
+-- Test AutomorphicQuotient.semisimple: without rational characters `G(𝔸)^1 = G(𝔸)`.
+example [Subsingleton (RationalCharacter F H)] : AdelicPoints.normOne F H = ⊤ :=
+  AdelicPoints.normOne_eq_top_of_no_characters F H
+
+-- Test AutomorphicQuotient.not_full_quotient: `ℚ^×\𝔸_ℚ^×` has infinite volume for every nonzero
+-- invariant measure, since the split component `ℝ_{>0}` is not compact; `[GL_1]^1` is compact.
+example : CompactSpace (NormOneQuotient ℚ (LaurentPolynomial ℚ)) ∧
+    ¬ CompactSpace (MulAction.orbitRel.Quotient (AdelicPoints.diagonal ℚ (LaurentPolynomial ℚ)).range
+      (AdelicPoints ℚ (LaurentPolynomial ℚ))) := by
+  sorry
+
+end AutomorphicQuotient
+
+/-! AA.2 Gauge-form measures and Tamagawa measures. -/
+
+namespace GaugeForm
+
+variable {F : Type} [Field F] [NumberField F] {H : Type} [CommRing H] [HopfAlgebra F H]
+
+/-- `AA.2/local-form-measure`: the Haar measure `|ω|_v` on `G(F_v)`, given in an `F_v`-analytic
+chart by `|f(x)|_v dx`, where `φ^*ω = f dx_1 ∧ ⋯ ∧ dx_d` and `𝒪_v` has volume one. -/
+def localMeasure (ω : GaugeForm F H)
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    Measure (AdelicPoints.LocalPoints F H v) :=
+  sorry
+
+theorem localMeasure_isHaar [Algebra.FiniteType F H] [FiniteDimensional F (cotangent F H)]
+    (ω : GaugeForm F H) (hω : ω ≠ 0)
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    (localMeasure ω v).IsHaarMeasure := by
+  sorry
+
+theorem localMeasure_smul (ω : GaugeForm F H) (c : F)
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    localMeasure (c • ω) v =
+      (((TauCeti.normalizedAbsoluteValue (v.adicCompletion F)
+        (algebraMap F (v.adicCompletion F) c) : ℚ≥0) : ℝ≥0) : ℝ≥0∞) • localMeasure ω v := by
+  sorry
+
+/-- The diagonal `G(F) → G(F_v)`. -/
+def localDiagonal (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    WithConv (H →ₐ[F] F) →* AdelicPoints.LocalPoints F H v :=
+  TauCeti.AlgHom.mapValue (H := H) (Algebra.ofId F _)
+
+/-- Right translation scales `|ω|_v` by `|det Ad(g)|_v`, matching Mathlib's
+`map (· * g) μ = Δ(g) μ`; here for rational `g`, where `Ad(g)` is the pinned adjoint action. -/
+theorem localMeasure_rightTranslate [FiniteDimensional F (cotangent F H)] (ω : GaugeForm F H)
+    (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))
+    (g : TauCeti.HopfAlgebra.points (H := H) (CommAlgCat.of F F)) :
+    Measure.map (· * localDiagonal v g) (localMeasure ω v) =
+      (((TauCeti.normalizedAbsoluteValue (v.adicCompletion F)
+        (algebraMap F (v.adicCompletion F)
+          (LinearMap.det (adjointLinearEquiv g).toLinearMap)) : ℚ≥0) : ℝ≥0) : ℝ≥0∞) •
+        localMeasure ω v := by
+  sorry
+
+/-- The cotangent class of the coordinate `X` of `G_a`. -/
+def gaCotangentGenerator : cotangent F (SymmetricAlgebra F F) :=
+  (augmentationIdeal F (SymmetricAlgebra F F)).toCotangent ⟨SymmetricAlgebra.ι F F 1, by sorry⟩
+
+/-- The gauge form `dX` of `G_a`. -/
+def gaForm : GaugeForm F (SymmetricAlgebra F F) :=
+  exteriorPower.ιMulti F _ (fun _ => gaCotangentGenerator)
+
+/-- The gauge form `dT/T` of `G_m`. -/
+def gmForm : GaugeForm F (LaurentPolynomial F) :=
+  exteriorPower.ιMulti F _ (fun _ => gmCotangentGenerator)
+
+-- Test GaugeForm.localMeasure_ga: under `x ↦ x(X)`, `|dX|_v` is the Haar measure of `F_v` with
+-- `vol(𝒪_v) = 1`.
+example (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F))
+    [MeasurableSpace (v.adicCompletion F)] [BorelSpace (v.adicCompletion F)]
+    (μ : Measure (v.adicCompletion F)) [μ.IsAddHaarMeasure]
+    (hμ : μ (v.adicCompletionIntegers F) = 1) :
+    Measure.map (fun x : AdelicPoints.LocalPoints F (SymmetricAlgebra F F) v =>
+        (x.ofConv (SymmetricAlgebra.ι F F 1) : v.adicCompletion F)) (localMeasure gaForm v) = μ := by
+  sorry
+
+-- Test GaugeForm.localMeasure_gm_units: `|dT/T|_v(𝒪_v^×) = 1 - q_v⁻¹`.
+example (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    localMeasure gmForm v
+        {x | (TauCeti.MultiplicativeGroup.pointsMulEquiv x : v.adicCompletion F) ∈
+            v.adicCompletionIntegers F ∧
+          (((TauCeti.MultiplicativeGroup.pointsMulEquiv x)⁻¹ : (v.adicCompletion F)ˣ) :
+            v.adicCompletion F) ∈ v.adicCompletionIntegers F} =
+      1 - ((Ideal.absNorm v.asIdeal : ℝ≥0∞))⁻¹ := by
+  sorry
+
+-- Test GaugeForm.localMeasure_not_normalized: `|dT/T|_v` gives `𝒪_v^×` volume `1 - q_v⁻¹ ≠ 1`, so
+-- it is not the normalized idele measure of AA.0.
+example (v : IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)) :
+    (1 : ℝ≥0∞) - ((Ideal.absNorm v.asIdeal : ℝ≥0∞))⁻¹ ≠ 1 := by
+  sorry
+
+end GaugeForm
+
+namespace Tamagawa
+
+variable (F : Type) [Field F] [NumberField F] (H : Type) [CommRing H] [HopfAlgebra F H]
+
+/-- `AA.2/tamagawa-measure`: `τ_G = |d_F|^{-d/2} ρ_G⁻¹ ∏_v λ_v |ω|_v`, with the convergence
+factors and the convergent Haar product of AA.0. -/
+def measure (ω : GaugeForm F H) : Measure (AdelicPoints F H) := sorry
+
+theorem measure_isHaar [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (ω : GaugeForm F H) (hω : ω ≠ 0) : (measure F H ω).IsHaarMeasure := by
+  sorry
+
+/-- `AA.2/tamagawa-independent-of-form`: by the product formula, `τ_G` does not depend on `ω`. -/
+theorem measure_smul (ω : GaugeForm F H) (c : F) (hc : c ≠ 0) :
+    measure F H (c • ω) = measure F H ω := by
+  sorry
+
+/-- For `G_a`, `τ = |d_F|^{-1/2} • adeleHaar`. -/
+theorem measure_ga :
+    Measure.map (fun x => Multiplicative.toAdd (AdelicPoints.gaEquiv F x))
+        (measure F (SymmetricAlgebra F F) GaugeForm.gaForm) =
+      (ENNReal.ofReal (|(NumberField.discr F : ℝ)| ^ (-(1 / 2 : ℝ)))) • NumberField.adeleHaar F := by
+  sorry
+
+-- Test Tamagawa.measure_trivial: for the trivial group `τ` is the unit point mass.
+example (ω : GaugeForm F F) (hω : ω ≠ 0) : measure F F ω = Measure.dirac 1 := by
+  sorry
+
+-- Test Tamagawa.measure_not_naive_product: `∏_p (1 - p⁻¹)` tends to `0`, so the unnormalized
+-- factors `|dT/T|_p(ℤ_p^×)` have no nonzero product.
+example : Filter.Tendsto (fun N : ℕ => ∏ p ∈ Finset.filter Nat.Prime (Finset.range N),
+    (1 - (p : ℝ)⁻¹)) Filter.atTop (𝓝 0) := by
+  sorry
+
+/-- `AA.2/tamagawa-number`: `τ(G) = vol(G(F)\G(𝔸_F)^1)`. -/
+def number [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (ω : GaugeForm F H) : ℝ≥0∞ :=
+  AutomorphicQuotient.measure F H hred (measure F H ω) Set.univ
+
+theorem number_pos [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (ω : GaugeForm F H) (hω : ω ≠ 0) : 0 < number F H hred ω := by
+  sorry
+
+theorem number_smul [Algebra.FiniteType F H]
+    (hred : TauCeti.reductiveCommHopfAlgProperty F (AdelicPoints.finiteTypeObj F H))
+    (ω : GaugeForm F H) (c : F) (hc : c ≠ 0) : number F H hred (c • ω) = number F H hred ω := by
+  sorry
+
+-- Test Tamagawa.number_gm_statement: `τ(G_m) = 1` over every number field.
+example (hred : TauCeti.reductiveCommHopfAlgProperty F
+    (AdelicPoints.finiteTypeObj F (LaurentPolynomial F))) :
+    number F (LaurentPolynomial F) hred GaugeForm.gmForm = 1 := by
+  sorry
+
+end Tamagawa
 
 namespace Neat
 
@@ -1634,6 +2700,665 @@ example (ρ : WithConv (F →ₐ[F] F) →* GL (Fin n) ℂ)
     (U : Subgroup (AdelicPoints.FiniteAdelicPoints F F)) : IsNeatLevel n ρ U := by
   sorry
 end Neat
+
+/-! ## AA.5 GL₂ over ℚ: components, congruence groups and change of level
+
+`GL (Fin 2) 𝔸_f` carries the topology of units of the matrix ring over Mathlib's finite adeles,
+which is the evaluation topology of AA.1 for `GL₂`. The level quotient
+`GL₂(ℚ)\GL₂(𝔸)/K∞U` with `K∞ = ℝ^×SO(2)` is written in the equivalent form
+`GL₂(ℚ)^+\(ℍ × GL₂(𝔸_f)/U)`: `AA.5/gl2-real-quotient` identifies `GL₂(ℝ)/K∞` with `ℍ±`,
+and a rational matrix of negative determinant exchanges the two half-planes. The
+Riemann-surface structure of a quotient `Γ\ℍ` by a Fuchsian group is supplied by the Fuchsian
+orbifolds roadmap (layers 0, 1 and 4) and is not in the pinned libraries; the statements below
+give its topological and group-theoretic content. -/
+
+namespace AdelicExamples.GL2
+
+open scoped MatrixGroups UpperHalfPlane
+open Matrix
+
+/-- The finite adeles of `ℚ`. -/
+abbrev Af := IsDedekindDomain.FiniteAdeleRing ℤ ℚ
+
+/-- `x ∈ ℤ̂`: every component of `x` lies in `ℤ_p`. -/
+def IsAdelicInteger (x : Af) : Prop :=
+  ∀ v : IsDedekindDomain.HeightOneSpectrum ℤ, x v ∈ v.adicCompletionIntegers ℚ
+
+/-- `x ≡ y mod N` in `ℤ̂`: `(x - y)/N ∈ ℤ̂`. -/
+def CongrMod (N : ℕ) (x y : Af) : Prop :=
+  IsAdelicInteger (algebraMap ℚ Af ((N : ℚ)⁻¹) * (x - y))
+
+/-- The diagonal embedding `GL₂(ℚ) → GL₂(𝔸_f)`. -/
+def diag : GL (Fin 2) ℚ →* GL (Fin 2) Af := Matrix.GeneralLinearGroup.map (algebraMap ℚ Af)
+
+/-- Rational matrices as real matrices; `GL₂(ℚ)^+` acts on `ℍ` through Mathlib's `glAction`. -/
+def toReal : GL (Fin 2) ℚ →* GL (Fin 2) ℝ := Matrix.GeneralLinearGroup.map (Rat.castHom ℝ)
+
+/-- `ℤ̂^×` inside `𝔸_f^×`. -/
+def zhatUnits : Subgroup Afˣ where
+  carrier := {x | IsAdelicInteger (x : Af) ∧ IsAdelicInteger ((x⁻¹ : Afˣ) : Af)}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- `GL₂(ℤ̂)`: integral matrices with integral inverse. -/
+def GL2Zhat : Subgroup (GL (Fin 2) Af) where
+  carrier := {g | ∀ i j, IsAdelicInteger ((g : Matrix (Fin 2) (Fin 2) Af) i j) ∧
+    IsAdelicInteger (((g⁻¹ : GL (Fin 2) Af) : Matrix (Fin 2) (Fin 2) Af) i j)}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- `K(N) = ker(GL₂(ℤ̂) → GL₂(ℤ/N))`. -/
+def principalLevel (N : ℕ) : Subgroup (GL (Fin 2) Af) where
+  carrier := {g | g ∈ GL2Zhat ∧
+    ∀ i j, CongrMod N ((g : Matrix (Fin 2) (Fin 2) Af) i j) ((1 : Matrix (Fin 2) (Fin 2) Af) i j)}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- `K₀(N)`: matrices of `GL₂(ℤ̂)` with `c ≡ 0 mod N`. -/
+def level0 (N : ℕ) : Subgroup (GL (Fin 2) Af) where
+  carrier := {g | g ∈ GL2Zhat ∧ CongrMod N ((g : Matrix (Fin 2) (Fin 2) Af) 1 0) 0}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- `K₁(N)`: matrices of `GL₂(ℤ̂)` with `c ≡ 0` and `d ≡ 1 mod N`. -/
+def level1 (N : ℕ) : Subgroup (GL (Fin 2) Af) where
+  carrier := {g | g ∈ GL2Zhat ∧ CongrMod N ((g : Matrix (Fin 2) (Fin 2) Af) 1 0) 0 ∧
+    CongrMod N ((g : Matrix (Fin 2) (Fin 2) Af) 1 1) 1}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+theorem principalLevel_le_level1 (N : ℕ) : principalLevel N ≤ level1 N := by
+  sorry
+
+theorem level1_le_level0 (N : ℕ) : level1 N ≤ level0 N := by
+  sorry
+
+theorem isOpen_principalLevel (N : ℕ) (hN : 0 < N) :
+    IsOpen (principalLevel N : Set (GL (Fin 2) Af)) := by
+  sorry
+
+theorem isCompact_principalLevel (N : ℕ) : IsCompact (principalLevel N : Set (GL (Fin 2) Af)) := by
+  sorry
+
+/-- The principal levels form a neighbourhood basis of `1` in `GL₂(𝔸_f)`. -/
+theorem exists_principalLevel_le {V : Set (GL (Fin 2) Af)} (hV : V ∈ 𝓝 (1 : GL (Fin 2) Af)) :
+    ∃ M : ℕ, 0 < M ∧ (principalLevel M : Set (GL (Fin 2) Af)) ⊆ V := by
+  sorry
+
+/-! ### The component groups `Γ_{g,U}` -/
+
+/-- `Γ_{g,U} = GL₂(ℚ)^+ ∩ gUg⁻¹`, with `GL₂(ℚ)` embedded diagonally. -/
+def componentGroup (U : Subgroup (GL (Fin 2) Af)) (g : GL (Fin 2) Af) : Subgroup (GL (Fin 2) ℚ) :=
+  GLPos (Fin 2) ℚ ⊓ (U.map (MulAut.conj g).toMonoidHom).comap diag
+
+/-- The image of `Γ_{g,U}` in `GL₂(ℝ)`, acting on `ℍ` by Möbius transformations. -/
+def componentGroupReal (U : Subgroup (GL (Fin 2) Af)) (g : GL (Fin 2) Af) :
+    Subgroup (GL (Fin 2) ℝ) :=
+  (componentGroup U g).map toReal
+
+variable {U U' : Subgroup (GL (Fin 2) Af)}
+
+/-- `AA.5/gl2-congruence-component-groups`: elements of `Γ_{g,U}` have determinant one, since
+`det U ⊆ ℤ̂^×` and `ℚ_{>0} ∩ ℤ̂^× = {1}`. -/
+theorem det_eq_one_of_mem_componentGroup (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (g : GL (Fin 2) Af) {γ : GL (Fin 2) ℚ} (hγ : γ ∈ componentGroup U g) :
+    Matrix.GeneralLinearGroup.det γ = 1 := by
+  sorry
+
+/-- If `K(M) ⊆ gUg⁻¹` then `Γ(M) ⊆ Γ_{g,U}`. -/
+theorem gamma_le_componentGroup (g : GL (Fin 2) Af) {M : ℕ}
+    (hM : principalLevel M ≤ U.map (MulAut.conj g).toMonoidHom) :
+    (CongruenceSubgroup.Gamma M).map (SpecialLinearGroup.mapGL ℚ) ≤ componentGroup U g := by
+  sorry
+
+/-- `Γ_{g,U}` is commensurable with `SL₂(ℤ)`: its real image is arithmetic in Mathlib's sense.
+Consequently it is discrete and acts properly discontinuously on `ℍ`
+(`Subgroup.IsArithmetic.discreteTopology`, `Subgroup.IsArithmetic.properlyDiscontinuous`). -/
+theorem isArithmetic_componentGroupReal (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (hUo : IsOpen (U : Set (GL (Fin 2) Af))) (g : GL (Fin 2) Af) :
+    (componentGroupReal U g).IsArithmetic := by
+  sorry
+
+-- Test: the component quotient is Hausdorff, from proper discontinuity.
+example (hU : IsCompact (U : Set (GL (Fin 2) Af))) (hUo : IsOpen (U : Set (GL (Fin 2) Af)))
+    (g : GL (Fin 2) Af) :
+    T2Space (Quotient (MulAction.orbitRel (componentGroupReal U g) ℍ)) := by
+  have := isArithmetic_componentGroupReal hU hUo g
+  infer_instance
+
+/-- Changing the representative `g` to `qgu` conjugates the component group by `q`. -/
+theorem componentGroup_mul (g : GL (Fin 2) Af) {q : GL (Fin 2) ℚ} (hq : q ∈ GLPos (Fin 2) ℚ)
+    {u : GL (Fin 2) Af} (hu : u ∈ U) :
+    componentGroup U (diag q * g * u) = (componentGroup U g).map (MulAut.conj q).toMonoidHom := by
+  sorry
+
+/-- `z ↦ q • z` induces a homeomorphism `Γ_{g,U}\ℍ ≃ Γ_{qgu,U}\ℍ`; it is a biholomorphism for
+the Fuchsian-orbifold complex structures. -/
+def conjQuotientHomeomorph (g : GL (Fin 2) Af) {q : GL (Fin 2) ℚ} (hq : q ∈ GLPos (Fin 2) ℚ)
+    {u : GL (Fin 2) Af} (hu : u ∈ U) :
+    MulAction.orbitRel.Quotient (componentGroupReal U g) ℍ ≃ₜ
+      MulAction.orbitRel.Quotient (componentGroupReal U (diag q * g * u)) ℍ :=
+  sorry
+
+theorem conjQuotientHomeomorph_mk (g : GL (Fin 2) Af) {q : GL (Fin 2) ℚ}
+    (hq : q ∈ GLPos (Fin 2) ℚ) {u : GL (Fin 2) Af} (hu : u ∈ U) (z : ℍ) :
+    conjQuotientHomeomorph g hq hu (Quotient.mk'' z) = Quotient.mk'' (toReal q • z) := by
+  sorry
+
+theorem componentGroup_mono (h : U' ≤ U) (g : GL (Fin 2) Af) :
+    componentGroup U' g ≤ componentGroup U g := by
+  sorry
+
+/-- For compact open `U' ≤ U`, `Γ_{g,U'}` has finite index in `Γ_{g,U}`. -/
+theorem relIndex_componentGroup_ne_zero (h : U' ≤ U) (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (hU'o : IsOpen (U' : Set (GL (Fin 2) Af))) (g : GL (Fin 2) Af) :
+    (componentGroup U' g).relIndex (componentGroup U g) ≠ 0 := by
+  sorry
+
+/-- The quotient map `Γ_{g,U'}\ℍ → Γ_{g,U}\ℍ` induced by the identity of `ℍ`; it is a finite
+holomorphic map of the Fuchsian-orbifold Riemann surfaces. -/
+def componentLevelMap (h : U' ≤ U) (g : GL (Fin 2) Af) :
+    MulAction.orbitRel.Quotient (componentGroupReal U' g) ℍ →
+      MulAction.orbitRel.Quotient (componentGroupReal U g) ℍ :=
+  sorry
+
+theorem componentLevelMap_mk (h : U' ≤ U) (g : GL (Fin 2) Af) (z : ℍ) :
+    componentLevelMap h g (Quotient.mk'' z) = Quotient.mk'' z := by
+  sorry
+
+theorem continuous_componentLevelMap (h : U' ≤ U) (g : GL (Fin 2) Af) :
+    Continuous (componentLevelMap h g) := by
+  sorry
+
+theorem finite_fibre_componentLevelMap (h : U' ≤ U) (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (hU'o : IsOpen (U' : Set (GL (Fin 2) Af))) (g : GL (Fin 2) Af)
+    (x : MulAction.orbitRel.Quotient (componentGroupReal U g) ℍ) :
+    (componentLevelMap h g ⁻¹' {x}).Finite := by
+  sorry
+
+/-! ### The level quotient and its components -/
+
+/-- `GL₂(ℚ)^+`, embedded diagonally in `GL₂(𝔸_f)`. -/
+def ratPos : Subgroup (GL (Fin 2) Af) := (GLPos (Fin 2) ℚ).map diag
+
+/-- The components `GL₂(ℚ)^+\GL₂(𝔸_f)/U`. -/
+abbrev Components (U : Subgroup (GL (Fin 2) Af)) :=
+  DoubleCoset.Quotient (ratPos : Set (GL (Fin 2) Af)) U
+
+/-- `(z, a) ∼ (q • z, q a u)` for `q ∈ GL₂(ℚ)^+` and `u ∈ U`. -/
+def levelSetoid (U : Subgroup (GL (Fin 2) Af)) : Setoid (ℍ × GL (Fin 2) Af) where
+  r x y := ∃ q ∈ GLPos (Fin 2) ℚ, ∃ u ∈ U, y.1 = toReal q • x.1 ∧ y.2 = diag q * x.2 * u
+  iseqv := sorry
+
+/-- The level quotient `X_U = GL₂(ℚ)^+\(ℍ × GL₂(𝔸_f)/U)`, with the quotient topology. -/
+abbrev LevelSpace (U : Subgroup (GL (Fin 2) Af)) := Quotient (levelSetoid U)
+
+/-- `AA.5/gl2-upper-half-plane-component`: for representatives `rep c` of the components,
+`[z] ↦ [(z, rep c)]` is a homeomorphism `⊔_c Γ_{rep c, U}\ℍ ≃ X_U`. -/
+def componentHomeomorph (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (hUo : IsOpen (U : Set (GL (Fin 2) Af))) (rep : Components U → GL (Fin 2) Af)
+    (hrep : ∀ c, DoubleCoset.mk ratPos U (rep c) = c) :
+    (Σ c : Components U, MulAction.orbitRel.Quotient (componentGroupReal U (rep c)) ℍ) ≃ₜ
+      LevelSpace U :=
+  sorry
+
+theorem componentHomeomorph_mk (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (hUo : IsOpen (U : Set (GL (Fin 2) Af))) (rep : Components U → GL (Fin 2) Af)
+    (hrep : ∀ c, DoubleCoset.mk ratPos U (rep c) = c)
+    (c : Components U) (z : ℍ) :
+    componentHomeomorph hU hUo rep hrep ⟨c, Quotient.mk'' z⟩ =
+      (Quotient.mk (levelSetoid U) (z, rep c) : LevelSpace U) := by
+  sorry
+
+/-- `ℚ_{>0}` inside `𝔸_f^×`. -/
+def posRatIdeles : Subgroup Afˣ :=
+  (Units.posSubgroup ℚ).map (IsDedekindDomain.FiniteAdeleRing.unitEmbedding ℤ ℚ)
+
+/-- The determinant identifies the components with `ℚ_{>0}\𝔸_f^×/det U`. -/
+def componentsEquivDet (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (hUo : IsOpen (U : Set (GL (Fin 2) Af))) :
+    Components U ≃ (Afˣ ⧸ (posRatIdeles ⊔ U.map Matrix.GeneralLinearGroup.det)) :=
+  sorry
+
+theorem componentsEquivDet_mk (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (hUo : IsOpen (U : Set (GL (Fin 2) Af))) (g : GL (Fin 2) Af) :
+    componentsEquivDet hU hUo (DoubleCoset.mk _ _ g) =
+      QuotientGroup.mk (Matrix.GeneralLinearGroup.det g) := by
+  sorry
+
+theorem finite_components (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (hUo : IsOpen (U : Set (GL (Fin 2) Af))) : Finite (Components U) := by
+  sorry
+
+/-- With `det U = ℤ̂^×` there is a single component. -/
+theorem subsingleton_components (hU : IsCompact (U : Set (GL (Fin 2) Af)))
+    (hUo : IsOpen (U : Set (GL (Fin 2) Af)))
+    (hdet : U.map Matrix.GeneralLinearGroup.det = zhatUnits) : Subsingleton (Components U) := by
+  sorry
+
+-- Test: at level `GL₂(ℤ̂)` the quotient is the single component `SL₂(ℤ)\ℍ`.
+example : componentGroup GL2Zhat 1 = (⊤ : Subgroup SL(2, ℤ)).map (SpecialLinearGroup.mapGL ℚ) := by
+  sorry
+
+/-! ### Principal and standard levels -/
+
+/-- `AA.5/gl2-principal-level`: `det K(N)` is the group of `x ∈ ℤ̂^×` with `x ≡ 1 mod N`. -/
+theorem map_det_principalLevel (N : ℕ) (hN : 0 < N) :
+    ((principalLevel N).map Matrix.GeneralLinearGroup.det : Set Afˣ) =
+      {x | x ∈ zhatUnits ∧ CongrMod N (x : Af) 1} := by
+  sorry
+
+/-- The components of `X_{K(N)}` are indexed by `(ℤ/N)^×`. -/
+def componentsPrincipalEquiv (N : ℕ) (hN : 0 < N) :
+    Components (principalLevel N) ≃ (ZMod N)ˣ :=
+  sorry
+
+/-- Each component group at level `K(N)`, for a representative in `GL₂(ℤ̂)`, is `Γ(N)`. -/
+theorem componentGroup_principalLevel (N : ℕ) (hN : 0 < N) {g : GL (Fin 2) Af}
+    (hg : g ∈ GL2Zhat) :
+    componentGroup (principalLevel N) g =
+      (CongruenceSubgroup.Gamma N).map (SpecialLinearGroup.mapGL ℚ) := by
+  sorry
+
+-- Test: `N = 1` and `N = 2` give one component.
+example : Nat.card (Components (principalLevel 1)) = 1 ∧
+    Nat.card (Components (principalLevel 2)) = 1 := by
+  sorry
+
+/-- `AA.5/gl2-level-riemann-surfaces`: `K₀(N)` and `K₁(N)` have determinant `ℤ̂^×`, so their level
+quotients are connected. -/
+theorem map_det_level0 (N : ℕ) (hN : 0 < N) :
+    (level0 N).map Matrix.GeneralLinearGroup.det = zhatUnits := by
+  sorry
+
+theorem map_det_level1 (N : ℕ) (hN : 0 < N) :
+    (level1 N).map Matrix.GeneralLinearGroup.det = zhatUnits := by
+  sorry
+
+theorem componentGroup_level0 (N : ℕ) (hN : 0 < N) :
+    componentGroup (level0 N) 1 =
+      (CongruenceSubgroup.Gamma0 N).map (SpecialLinearGroup.mapGL ℚ) := by
+  sorry
+
+theorem componentGroup_level1 (N : ℕ) (hN : 0 < N) :
+    componentGroup (level1 N) 1 =
+      (CongruenceSubgroup.Gamma1 N).map (SpecialLinearGroup.mapGL ℚ) := by
+  sorry
+
+/-- The projection `X_{U'} → X_U` for `U' ≤ U`. -/
+def levelMap (h : U' ≤ U) : LevelSpace U' → LevelSpace U :=
+  Quotient.map' id (by sorry)
+
+theorem levelMap_mk (h : U' ≤ U) (z : ℍ) (a : GL (Fin 2) Af) :
+    levelMap h (Quotient.mk (levelSetoid U') (z, a)) = Quotient.mk (levelSetoid U) (z, a) := by
+  sorry
+
+theorem continuous_levelMap (h : U' ≤ U) : Continuous (levelMap h) := by
+  sorry
+
+/-- On components, the projection is `z ↦ q⁻¹ • z` followed by the finite-index quotient map: if
+`g' = q g u` with `q ∈ GL₂(ℚ)^+` and `u ∈ U`, the class of `(z, g')` maps to that of `(q⁻¹ • z, g)`. -/
+theorem levelMap_component (h : U' ≤ U) {g g' : GL (Fin 2) Af} {q : GL (Fin 2) ℚ}
+    (hq : q ∈ GLPos (Fin 2) ℚ) {u : GL (Fin 2) Af} (hu : u ∈ U) (hg' : g' = diag q * g * u)
+    (z : ℍ) :
+    levelMap h (Quotient.mk (levelSetoid U') (z, g')) =
+      Quotient.mk (levelSetoid U) (toReal q⁻¹ • z, g) := by
+  sorry
+
+/-- Right translation `T(h) : X_U → X_{h⁻¹Uh}`, `[(z, a)] ↦ [(z, a h)]`; a biholomorphism for the
+transported complex structures. -/
+def translate (h : GL (Fin 2) Af) :
+    LevelSpace U ≃ₜ LevelSpace (U.map (MulAut.conj h⁻¹).toMonoidHom) :=
+  sorry
+
+theorem translate_mk (h : GL (Fin 2) Af) (z : ℍ) (a : GL (Fin 2) Af) :
+    translate (U := U) h (Quotient.mk (levelSetoid U) (z, a)) =
+      Quotient.mk (levelSetoid (U.map (MulAut.conj h⁻¹).toMonoidHom)) (z, a * h) := by
+  sorry
+
+-- Test: on the component of `1`, `K(N) ≤ K₁(N) ≤ K₀(N)` induce `Γ(N)\ℍ → Γ₁(N)\ℍ → Γ₀(N)\ℍ`.
+example (N : ℕ) (hN : 0 < N) :
+    componentGroup (principalLevel N) 1 ≤ componentGroup (level1 N) 1 ∧
+      componentGroup (level1 N) 1 ≤ componentGroup (level0 N) 1 :=
+  ⟨componentGroup_mono (principalLevel_le_level1 N) 1,
+    componentGroup_mono (level1_le_level0 N) 1⟩
+
+/-! ### `K∞ = ℝ^×O(2)` and the folded half-plane -/
+
+/-- The components `GL₂(ℚ)\GL₂(𝔸_f)/U` for `K∞ = ℝ^×O(2)`. -/
+abbrev ComponentsO2 (U : Subgroup (GL (Fin 2) Af)) :=
+  DoubleCoset.Quotient (diag.range : Set (GL (Fin 2) Af)) U
+
+/-- `AA.5/gl2-orthogonal-level-components`: at level `K(N)` the `O(2)` components are
+`(ℤ/N)^×/{±1}`. -/
+def componentsO2PrincipalEquiv (N : ℕ) (hN : 0 < N) :
+    ComponentsO2 (principalLevel N) ≃ (ZMod N)ˣ ⧸ Subgroup.zpowers (-1 : (ZMod N)ˣ) :=
+  sorry
+
+-- Test: at `N = 3` the `SO(2)` quotient has two components and the `O(2)` quotient one.
+example : Nat.card (Components (principalLevel 3)) = 2 ∧
+    Nat.card (ComponentsO2 (principalLevel 3)) = 1 := by
+  sorry
+
+-- Test: at `N = 5` the counts are four and two.
+example : Nat.card (Components (principalLevel 5)) = 4 ∧
+    Nat.card (ComponentsO2 (principalLevel 5)) = 2 := by
+  sorry
+
+end AdelicExamples.GL2
+
+/-! ## AA.5 GL₁ over a number field: idele classes, units and the quotients `X_Q`
+
+`G_m(𝔸_F)` is identified with the idele group by `AdelicPoints.gmEquiv`; the statements below are
+written on Mathlib's ideles. -/
+
+namespace AdelicExamples.GL1
+
+open NumberField
+
+variable (F : Type) [Field F] [NumberField F]
+
+/-- `AA.5/gl1-adelic-quotient`: `G_m(F)\G_m(𝔸_F)` is the idele class group. -/
+def quotientHomeomorph :
+    MulAction.orbitRel.Quotient (AdelicPoints.diagonal F (LaurentPolynomial F)).range
+        (AdelicPoints F (LaurentPolynomial F)) ≃ₜ
+      IdeleClassGroup (RingOfIntegers F) F :=
+  sorry
+
+theorem quotientHomeomorph_mk (x : AdelicPoints F (LaurentPolynomial F)) :
+    quotientHomeomorph F (Quotient.mk'' x) = QuotientGroup.mk (AdelicPoints.gmEquiv F x) := by
+  sorry
+
+/-- The idele with component `t > 0` at every archimedean place and `1` at every finite place. -/
+def archimedeanScalar (t : ℝ) : IdeleGroup (RingOfIntegers F) F := sorry
+
+/-- `ℝ_{>0}`, embedded diagonally at the archimedean places. -/
+def posRealsDiag : Subgroup (IdeleGroup (RingOfIntegers F) F) where
+  carrier := {x | ∃ t : ℝ, 0 < t ∧ x = archimedeanScalar F t}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+theorem ideleNorm_archimedeanScalar (t : ℝ) (ht : 0 < t) :
+    ideleNorm F (archimedeanScalar F t) = t ^ Module.finrank ℚ F := by
+  sorry
+
+/-- `A_{G_m}(ℝ)^0 = ℝ_{>0}` embedded diagonally. -/
+theorem map_splitComponent :
+    (AdelicPoints.SplitComponent F (LaurentPolynomial F)).map (AdelicPoints.gmEquiv F).toMonoidHom =
+      posRealsDiag F := by
+  sorry
+
+/-- `𝔸_F^× = 𝔸_F^1 × ℝ_{>0}`. -/
+def normOneProdEquiv : (normOneIdeles F × posRealsDiag F) ≃ₜ* IdeleGroup (RingOfIntegers F) F :=
+  sorry
+
+theorem normOneProdEquiv_apply (x : normOneIdeles F × posRealsDiag F) :
+    normOneProdEquiv F x = (x.1 : IdeleGroup (RingOfIntegers F) F) * x.2 := by
+  sorry
+
+/-- `F^×\𝔸_F^1` is compact while `F^×\𝔸_F^×` is not. -/
+theorem isCompact_normOne_classes :
+    IsCompact (((normOneIdeles F).map (QuotientGroup.mk' (IdeleGroup.principalSubgroup
+      (RingOfIntegers F) F))) : Set (IdeleClassGroup (RingOfIntegers F) F)) := by
+  sorry
+
+theorem not_compactSpace_ideleClassGroup :
+    ¬ CompactSpace (IdeleClassGroup (RingOfIntegers F) F) := by
+  sorry
+
+/-- `Ô^× = ∏_v 𝒪_v^×` inside `𝔸_{F,f}^×`. -/
+def integralUnits : Subgroup (IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ where
+  carrier := {x | ∀ v, (x : IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F) v ∈
+      v.adicCompletionIntegers F ∧
+    ((x⁻¹ : (IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ) :
+      IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F) v ∈ v.adicCompletionIntegers F}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- `AA.5/gl1-class-number`: `F^×\𝔸_{F,f}^×/Ô^× ≃ Cl(𝒪_F)`. -/
+def classGroupEquiv :
+    ((IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ ⧸
+      ((IsDedekindDomain.FiniteAdeleRing.unitEmbedding (RingOfIntegers F) F).range ⊔
+        integralUnits F)) ≃* ClassGroup (RingOfIntegers F) :=
+  sorry
+
+theorem card_classes :
+    Nat.card ((IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ ⧸
+      ((IsDedekindDomain.FiniteAdeleRing.unitEmbedding (RingOfIntegers F) F).range ⊔
+        integralUnits F)) = classNumber F := by
+  sorry
+
+/-- The global units in a subgroup `U ≤ Ô^×`: `Γ_U = F^× ∩ U`, as units of `𝒪_F`. -/
+def levelUnits (U : Subgroup (IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ) :
+    Subgroup (RingOfIntegers F)ˣ :=
+  U.comap ((IsDedekindDomain.FiniteAdeleRing.unitEmbedding (RingOfIntegers F) F).comp
+    (Units.map (algebraMap (RingOfIntegers F) F).toMonoidHom))
+
+/-- `AA.5/gl1-units-lattice`: for compact open `U ≤ Ô^×`, `Γ_U` has finite index in `𝒪_F^×` and
+its logarithmic image is a lattice of rank `r₁ + r₂ - 1`. -/
+theorem levelUnits_finiteIndex (U : Subgroup (IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ)
+    (hU : IsOpen (U : Set (IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ))
+    (hle : U ≤ integralUnits F) : (levelUnits F U).FiniteIndex := by
+  sorry
+
+theorem levelUnits_lattice (U : Subgroup (IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ)
+    (hU : IsOpen (U : Set (IsDedekindDomain.FiniteAdeleRing (RingOfIntegers F) F)ˣ))
+    (hle : U ≤ integralUnits F) :
+    DiscreteTopology (AddSubgroup.closure
+        ((Units.logEmbedding F ∘ Additive.ofMul) '' (levelUnits F U : Set (RingOfIntegers F)ˣ))) ∧
+      Module.finrank ℤ (Submodule.span ℤ
+        ((Units.logEmbedding F ∘ Additive.ofMul) '' (levelUnits F U : Set (RingOfIntegers F)ˣ))) =
+        Units.rank F := by
+  sorry
+
+/-! The quotients `X_Q`. Throughout, `Q` is a finite set of finite places with
+`N(v) ≡ 1 mod p^n` for `v ∈ Q`. -/
+
+/-- `U_Q = K_∞ × ∏_v U_{Q,v}`: `K_∞ = (S¹)^{r₂}` (trivial at real places, the unit circle at
+complex places), `U_{Q,v} = 𝒪_v^×` for `v ∉ Q`, and the `p^n`-th powers of `𝒪_v^×` (the subgroup of
+index `p^n`) for `v ∈ Q`. -/
+def levelQ (Q : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) (p n : ℕ) :
+    Subgroup (IdeleGroup (RingOfIntegers F) F) where
+  carrier := {x |
+    (∀ w : InfinitePlace F, w.IsReal →
+      adeleInfPart F (x : AdeleRing (RingOfIntegers F) F) w = 1) ∧
+    (∀ w : InfinitePlace F, w.IsComplex →
+      ‖adeleInfPart F (x : AdeleRing (RingOfIntegers F) F) w‖ = 1) ∧
+    (∀ v, v ∉ Q → RingHom.snd _ _ (x : AdeleRing (RingOfIntegers F) F) v ∈
+        v.adicCompletionIntegers F ∧
+      RingHom.snd _ _ ((x⁻¹ : IdeleGroup (RingOfIntegers F) F) : AdeleRing (RingOfIntegers F) F) v ∈
+        v.adicCompletionIntegers F) ∧
+    (∀ v ∈ Q, ∃ y : (v.adicCompletionIntegers F)ˣ,
+      RingHom.snd _ _ (x : AdeleRing (RingOfIntegers F) F) v = ((y ^ (p ^ n) : (v.adicCompletionIntegers F)ˣ) :
+        v.adicCompletion F))}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+/-- `X_Q = F^×\𝔸_F^×/U_Q A_∞^0`, with the quotient topology. -/
+abbrev XQ (Q : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) (p n : ℕ) :=
+  IdeleGroup (RingOfIntegers F) F ⧸
+    (IdeleGroup.principalSubgroup (RingOfIntegers F) F ⊔ levelQ F Q p n ⊔ posRealsDiag F)
+
+/-- `(F ⊗ ℝ)^{×,0}`: positive at real places, arbitrary at complex places, `1` at finite places. -/
+def archIdentityComponent : Subgroup (IdeleGroup (RingOfIntegers F) F) where
+  carrier := {x | (∀ v, RingHom.snd _ _ (x : AdeleRing (RingOfIntegers F) F) v = 1) ∧
+    ∀ w : InfinitePlace F, w.IsReal → ∃ t : ℝ, 0 < t ∧
+      adeleInfPart F (x : AdeleRing (RingOfIntegers F) F) w =
+        adeleInfPart F (archimedeanScalar F t : AdeleRing (RingOfIntegers F) F) w}
+  one_mem' := sorry
+  mul_mem' := sorry
+  inv_mem' := sorry
+
+variable (Q : Finset (IsDedekindDomain.HeightOneSpectrum (RingOfIntegers F))) (p n : ℕ)
+
+/-- `AA.5/gl1-XQ-components`: `π₀(X_Q) = F^×\𝔸_F^×/U_Q (F ⊗ ℝ)^{×,0}`. -/
+def componentsEquiv [Fact p.Prime] (hQ : ∀ v ∈ Q, Ideal.absNorm v.asIdeal ≡ 1 [MOD p ^ n]) :
+    ConnectedComponents (XQ F Q p n) ≃
+      (IdeleGroup (RingOfIntegers F) F ⧸ (IdeleGroup.principalSubgroup (RingOfIntegers F) F ⊔
+        levelQ F Q p n ⊔ archIdentityComponent F)) :=
+  sorry
+
+theorem finite_components [Fact p.Prime] (hQ : ∀ v ∈ Q, Ideal.absNorm v.asIdeal ≡ 1 [MOD p ^ n]) :
+    Finite (ConnectedComponents (XQ F Q p n)) := by
+  sorry
+
+/-- The narrow class group, idelically: `F^×\𝔸_F^×/Ô^× (F ⊗ ℝ)^{×,0}`. -/
+abbrev NarrowClasses :=
+  IdeleGroup (RingOfIntegers F) F ⧸ (IdeleGroup.principalSubgroup (RingOfIntegers F) F ⊔
+    levelQ F ∅ 0 0 ⊔ archIdentityComponent F)
+
+/-- `π₀(X_Q)` is an extension of the narrow class group by a quotient of
+`∏_{v ∈ Q} 𝒪_v^×/𝒪_v^{×p^n}`: the natural map is surjective and its kernel is generated by the
+classes of ideles supported on `Q` with unit components there. -/
+theorem components_to_narrow [Fact p.Prime]
+    (hQ : ∀ v ∈ Q, Ideal.absNorm v.asIdeal ≡ 1 [MOD p ^ n]) :
+    ∃ π : (IdeleGroup (RingOfIntegers F) F ⧸ (IdeleGroup.principalSubgroup (RingOfIntegers F) F ⊔
+        levelQ F Q p n ⊔ archIdentityComponent F)) →* NarrowClasses F,
+      Function.Surjective π ∧
+      ∀ x : IdeleGroup (RingOfIntegers F) F, π (QuotientGroup.mk x) = QuotientGroup.mk x := by
+  sorry
+
+/-- The totally positive congruence units `F^× ∩ U_{Q,f}`, as units of `𝒪_F`. -/
+def congruenceUnits : Subgroup (RingOfIntegers F)ˣ :=
+  (levelQ F Q p n ⊔ archIdentityComponent F).comap
+    ((Units.map (algebraMap F (AdeleRing (RingOfIntegers F) F))).comp
+      (Units.map (algebraMap (RingOfIntegers F) F).toMonoidHom))
+
+/-- `AA.5/gl1-logarithmic-torus`: `W/Λ_Q` with `W = ℝ^{r₁+r₂}/ℝ(1, …, 1)`, here in Mathlib's
+coordinates `logSpace F` (omitting one place), and `Λ_Q` the logarithmic image of the totally
+positive congruence units. -/
+abbrev LogTorus :=
+  Units.dirichletUnitTheorem.logSpace F ⧸
+    AddSubgroup.closure ((Units.logEmbedding F ∘ Additive.ofMul) ''
+      (congruenceUnits F Q p n : Set (RingOfIntegers F)ˣ))
+
+/-- The identity component of `X_Q` is the logarithmic torus, a compact real torus of dimension
+`r₁ + r₂ - 1 = NumberField.Units.rank F` (this is the invariant `l₀` of `GL₁/F`). -/
+def identityComponentHomeomorph [Fact p.Prime]
+    (hQ : ∀ v ∈ Q, Ideal.absNorm v.asIdeal ≡ 1 [MOD p ^ n]) :
+    LogTorus F Q p n ≃ₜ connectedComponent (1 : XQ F Q p n) :=
+  sorry
+
+theorem logTorus_homeomorph_torus [Fact p.Prime]
+    (hQ : ∀ v ∈ Q, Ideal.absNorm v.asIdeal ≡ 1 [MOD p ^ n]) :
+    Nonempty (LogTorus F Q p n ≃ₜ (Fin (Units.rank F) → UnitAddCircle)) := by
+  sorry
+
+/-- `AA.5/gl1-component-dimension`: every component of `X_Q` is a torus of dimension
+`NumberField.Units.rank F`. -/
+theorem component_homeomorph_torus [Fact p.Prime]
+    (hQ : ∀ v ∈ Q, Ideal.absNorm v.asIdeal ≡ 1 [MOD p ^ n]) (x : XQ F Q p n) :
+    Nonempty (connectedComponent x ≃ₜ (Fin (Units.rank F) → UnitAddCircle)) := by
+  sorry
+
+/-- `AA.5/gl1-H0`: locally constant `ℤ_p`-valued functions on `X_Q` are functions on `π₀(X_Q)`. -/
+def locallyConstantEquiv [hp : Fact p.Prime]
+    (hQ : ∀ v ∈ Q, Ideal.absNorm v.asIdeal ≡ 1 [MOD p ^ n]) :
+    LocallyConstant (XQ F Q p n) ℤ_[p] ≃ₗ[ℤ_[p]] (ConnectedComponents (XQ F Q p n) → ℤ_[p]) :=
+  sorry
+
+/-- `AA.5/gl1-hecke-action`: right translation by the class of a finite idele `a` (a uniformizer
+at `v ∉ Q`, or a unit at `v ∈ Q` for the diamond operator) moves each component to the component
+of its translate. -/
+theorem translate_connectedComponent (a : IdeleGroup (RingOfIntegers F) F) (x : XQ F Q p n) :
+    (fun y : XQ F Q p n => y * QuotientGroup.mk a) '' connectedComponent x =
+      connectedComponent (x * QuotientGroup.mk a) := by
+  sorry
+
+end AdelicExamples.GL1
+
+/-! ## AA.5 Definite quaternion algebras over ℚ
+
+`D = ℍ[ℚ, a, b]` with `a, b < 0` is a definite quaternion division algebra. Its finite adelic
+points `(D ⊗ 𝔸_f)^×` are the units of `ℍ[𝔸_f, a, b]`, with the product topology on the four
+coordinates. -/
+
+namespace AdelicExamples.DefiniteQuaternion
+
+open scoped Quaternion
+
+/-- The finite adeles of `ℚ`. -/
+abbrev Af := IsDedekindDomain.FiniteAdeleRing ℤ ℚ
+
+variable (a b : ℚ)
+
+instance : TopologicalSpace ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b] :=
+  TopologicalSpace.induced (QuaternionAlgebra.equivTuple _ _ _) inferInstance
+
+/-- Coefficientwise extension `D → D ⊗ 𝔸_f`. -/
+def coeffMap : ℍ[ℚ, a, b] →+* ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b] where
+  toFun x := ⟨algebraMap ℚ Af x.re, algebraMap ℚ Af x.imI, algebraMap ℚ Af x.imJ,
+    algebraMap ℚ Af x.imK⟩
+  map_one' := sorry
+  map_mul' := sorry
+  map_zero' := sorry
+  map_add' := sorry
+
+/-- The diagonal `D^× → (D ⊗ 𝔸_f)^×`. -/
+def diag : ℍ[ℚ, a, b]ˣ →* ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ :=
+  Units.map (coeffMap a b).toMonoidHom
+
+/-- `Cl(U) = D^×\(D ⊗ 𝔸_f)^×/U`. -/
+abbrev Classes (U : Subgroup ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ) :=
+  DoubleCoset.Quotient ((diag a b).range : Set ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ) U
+
+/-- `Γ_{x,U} = D^× ∩ xUx⁻¹`. -/
+def stab (U : Subgroup ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ)
+    (x : ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ) : Subgroup ℍ[ℚ, a, b]ˣ :=
+  (U.map (MulAut.conj x).toMonoidHom).comap (diag a b)
+
+variable {a b} (ha : a < 0) (hb : b < 0)
+include ha hb
+
+/-- `AA.5/definite-quaternion-compact`: the class set is finite for every compact open level. -/
+theorem finite_classes (U : Subgroup ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ)
+    (hU : IsCompact (U : Set ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ))
+    (hUo : IsOpen (U : Set ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ)) :
+    Finite (Classes a b U) := by
+  sorry
+
+/-- Each `Γ_{x,U}` is finite. -/
+theorem finite_stab (U : Subgroup ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ)
+    (hU : IsCompact (U : Set ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ))
+    (x : ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ) : Finite (stab a b U x) := by
+  sorry
+
+/-- `D^×/ℚ^×` is discrete in `(D ⊗ 𝔸_f)^×/𝔸_f^×`: the diagonal meets every compact open level in
+finitely many elements modulo rational scalars. -/
+theorem finite_stab_mod_scalars (U : Subgroup ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ)
+    (hU : IsCompact (U : Set ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ))
+    (hUo : IsOpen (U : Set ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ)) :
+    Finite ((U ⊔ (Units.map (algebraMap Af ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]).toMonoidHom).range).comap
+      (diag a b) ⧸ ((Units.map (algebraMap ℚ ℍ[ℚ, a, b]).toMonoidHom).range.subgroupOf
+        ((U ⊔ (Units.map (algebraMap Af ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]).toMonoidHom).range).comap
+          (diag a b)))) := by
+  sorry
+
+/-- `AA.5/definite-quaternion-mass`: the mass `∑_{x ∈ Cl(U)} 1/|Γ_x/(ℚ^× ∩ U)|` scales with the
+index under `U' ≤ U`. -/
+theorem mass_le (U U' : Subgroup ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ) (h : U' ≤ U)
+    (hU : IsCompact (U : Set ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ))
+    (hU'o : IsOpen (U' : Set ℍ[Af, algebraMap ℚ Af a, algebraMap ℚ Af b]ˣ)) :
+    (∑ᶠ c : Classes a b U',
+        ((Nat.card (stab a b U' (Quotient.out c)) : ℚ) / Nat.card ↥(stab a b U' 1 ⊓
+          (Units.map (algebraMap ℚ ℍ[ℚ, a, b]).toMonoidHom).range))⁻¹) =
+      ((U'.relIndex U : ℚ) /
+        ((stab a b U' 1 ⊓ (Units.map (algebraMap ℚ ℍ[ℚ, a, b]).toMonoidHom).range).relIndex
+          (stab a b U 1 ⊓ (Units.map (algebraMap ℚ ℍ[ℚ, a, b]).toMonoidHom).range) : ℚ)) *
+      ∑ᶠ c : Classes a b U,
+        ((Nat.card (stab a b U (Quotient.out c)) : ℚ) / Nat.card ↥(stab a b U 1 ⊓
+          (Units.map (algebraMap ℚ ℍ[ℚ, a, b]).toMonoidHom).range))⁻¹ := by
+  sorry
+
+end AdelicExamples.DefiniteQuaternion
 
 /-!
 ## Mathematical interface catalogue
