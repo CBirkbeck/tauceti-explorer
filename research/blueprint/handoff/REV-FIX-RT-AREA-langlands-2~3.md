@@ -1,39 +1,36 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-## Current blocker, 9 October 2026 — codex-kwYBrA
+## Current blocker, 9 October 2026 — codex-pUhc7Z
 
 Issue #5871; bot-confirmed claim
-[6074053525](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074053525).
-Base `3e12579277aaf8a219cbe13d27e660a621c7124e`.
+[6074706916](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074706916).
+Base `94404825e616d3808274c3ab1898841f796c44bb`. Before this update, all seven live-issue outputs
+matched merged [PR #7780](https://github.com/CBirkbeck/tauceti-explorer/pull/7780),
+commit `80353a01e61bff319775e0fbafaaddb43d5fae78`, byte for byte.
+The three packets and three suggested files also match PR #7776.
 
-All seven live-issue outputs were byte-for-byte identical to merged checkpoint
-[PR #7776](https://github.com/CBirkbeck/tauceti-explorer/pull/7776), commit
-`c2c3c3ad58dd8d62b68d30cb8efd20b8a4947d2f`, before this update. The inherited
-mathematical review remains complete for that scope. Packet verdicts and
-reviewer objects remain CSM **accepted**, Global **accepted**, GL2
-**needs_changes**. The GL2 revision needs the 53 API signatures and 46 tests
-listed below; its negative verdict is a completed review outcome.
+The inherited mathematical review is complete for this scope. Verdicts remain
+CSM accepted, Global accepted and GL2 needs_changes. The GL2 revision's 53 API
+signatures and 46 tests are listed below; a negative verdict completes a review.
 
-Reproduced the unchanged blocker from the freshly fetched live issue:
-`deliverables_complete` is **false** for the committed review's 27 outputs,
-and **true** when only its output list is replaced in memory with the issue's
-seven paths. Every queue output exists. The ten extra packets correctly name
-other reviews; the completed parent fix still lists 40 outputs. The queue and
-its generator are outside this issue's permitted files and fail `intake.ALLOWED`.
+Fresh read-only reproduction: the pending review queue entry has 27 outputs,
+all present, and `deliverables_complete` is false. Replacing only its output
+list in memory with the seven live-issue paths makes completion true. The ten
+extra packets name other review jobs; the done parent fix still lists 40 outputs.
+Queue and generator repairs are outside this issue's edits and fail the intake
+allowlist. Read the relevant completion function and generation path.
 
-Fresh checks: all three packet validators report zero errors and warnings;
-all 177 nodes remain unchecked; no packet contains an excerpt field; all
-40 confirmed findings have exactly one report disposition. The unchanged
-suggested files were not recompiled. Prior compilation receipts are historical
-evidence; no fresh primary-source reading, pinned-library review or graph audit
-is claimed. This checkpoint edits only the report and handoff.
+All three packet validators pass with zero errors/warnings. All 177 nodes are
+unchecked, no packet has an excerpt field, and the report covers all forty
+confirmed findings exactly once. No fresh primary-source, baseline or graph
+audit is claimed; unchanged Lean files were not recompiled. Only the report
+and this handoff change.
 
-**Resume after maintainer metadata repair.** Reconcile this review to the seven
-exact outputs below and its parent fix to the ten historical outputs. Preserve
-both scopes through regeneration, then run normal intake/sync. Further
-unchanged-input checkpoints cannot repair those excluded files. The exact
-lists, code path and read-only reproduction below contain everything needed
-to resume; no scratch file is needed.
+**Resume after maintainer metadata repair.** The exact seven review outputs,
+ten historical parent-fix outputs, generator path and reproduction below are
+still current. Reconcile those historical scopes, preserve them through
+regeneration, then run normal intake/sync. An unchanged-input worker checkpoint
+cannot clear this excluded-files blocker. No scratch file is needed.
 
 ## Blocked intake continuation, 8 October 2026 — codex-CiCHr3
 
