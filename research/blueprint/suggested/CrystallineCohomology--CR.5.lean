@@ -3,7 +3,7 @@ This file is not the roadmap and is not exhaustive. The accompanying roadmap
 document is definitive. These statements suggest Lean forms so contributors and
 reviewers can converge on names and signatures. All implementations are unchecked.
 
-Revision 2 binds the interfaces to actual small-etale log schemes, compatible PD
+Revision 3 binds the interfaces to actual small-etale log schemes, compatible PD
 thickenings, geometric cohomology constructions and their canonical maps. Named
 supplier client types represent the precise exports requested in the packet;
 their presence is not a claim that the supplier modules have been implemented.
@@ -15,13 +15,16 @@ f790474821cf4256814db967cb154e7af3d0c369. The unbuilt Tau Ceti
 nilpotentExpUnit wrapper is read at the pin; its underlying Mathlib operation
 IsNilpotent.exp is used here. Elaboration verifies types, not the proposed proofs.
 
-Independent revision-2 review returns needs_changes: sheaf crystal/connection
-interfaces (R2), admissible residue embedding hypotheses (R4), and geometric
-filtered coefficient adapters (R5) require the repairs recorded in the packet
-and review report. Fine/fs base change and the bounded-below support test were
-corrected in this review; comments below locate the remaining interface gaps.
+Revision 3 repairs the module-sheaf crystal/connection interfaces (R2),
+source-qualified residue embedding geometry (R4), and completed geometric
+coefficient adapters with locally split filtrations (R5). The independent
+revision-2 review and its verdicts remain preserved in the packet. Its fine/fs
+base-change correction (R1) and bounded-below support correction (R3) remain.
+The four inherited source/owner gaps remain explicit; no stage is closed.
 -/
 import Mathlib.AlgebraicGeometry.Sites.Etale
+import Mathlib.AlgebraicGeometry.ProjectiveSpectrum.Scheme
+import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import Mathlib.GroupTheory.MonoidLocalization.GrothendieckGroup
 import Mathlib.GroupTheory.QuotientGroup.Basic
 import Mathlib.Algebra.Group.Submonoid.Finite
@@ -66,6 +69,8 @@ import Mathlib.AlgebraicTopology.SimplicialObject.Basic
 import Mathlib.FieldTheory.IsAlgClosed.Basic
 import Mathlib.AlgebraicGeometry.Pullbacks
 import Mathlib.Algebra.Category.ModuleCat.Sheaf
+import Mathlib.Algebra.Category.ModuleCat.Sheaf.PullbackContinuous
+import Mathlib.Algebra.Category.ModuleCat.Sheaf.Submodule
 import Mathlib.RingTheory.RegularLocalRing.Defs
 import Mathlib.Algebra.MonoidAlgebra.Basic
 import Mathlib.Analysis.LocallyConvex.WithSeminorms
@@ -77,6 +82,7 @@ set_option linter.unusedVariables false
 noncomputable section
 open CategoryTheory AlgebraicGeometry
 open CategoryTheory.Pretriangulated Filter
+open scoped TensorProduct
 universe u v
 namespace TauCeti.LogCrystalline
 
@@ -715,6 +721,7 @@ structure SNCBoundaryView where
       ∀ u : U, (∃ v : complement, inclusion.base v = e.base u) ↔
         ∀ i, IsUnit (schemeGlobalToStalk U u (t i))
 def divisorialLog (D : SNCBoundaryView) : LogScheme := by sorry
+def divisorialUnderlyingIso (D : SNCBoundaryView) : (divisorialLog D).scheme ≅ D.ambient := by sorry
 def divisorialSections (D : SNCBoundaryView) (U : D.ambient.Etaleᵒᵖ) : Submonoid
     ((etaleStructureSheaf D.ambient).obj.obj U) := by sorry
 namespace divisorialLog
@@ -1390,7 +1397,6 @@ structure LogCrysObject (B : LogPDBase) (Z : LogOverPDBase B) where
   strict : IsStrict etaleMap
   overBase : etaleMap ≫ Z.structureMap = source.structureMap
   thickening : LogPDThickening B source
-  affineAmbient : IsAffine thickening.ambient.object.scheme
 structure LogCrysHom {B : LogPDBase} {Z : LogOverPDBase B} (T T' : LogCrysObject B Z) where
   map : PDThickeningHom T.thickening T'.thickening
   overSource : map.source ≫ T'.etaleMap = T.etaleMap
@@ -1445,53 +1451,166 @@ example {B : LogPDBase} (Z : LogOverPDBase B) {Y : LogOverPDBase B}
     ¬ ∃ T : LogCrysObject B Z, ∃ e : T.thickening.ambient.object ≅ Y.object,
       ∃ eZ : Z.object ≅ T.source.object, eZ.hom ≫ T.thickening.closed ≫ e.hom = i := by sorry
 
-def crystalTransition {C : Type u} [Category C] {O : Cᵒᵖ ⥤ CommRingCat.{0}}
-    (F : PresheafOfModulesOfCommRing.{0} O) {X Y : Cᵒᵖ} (f : X ⟶ Y) :
-    (ModuleCat.extendScalars (O.map f).hom).obj (F.obj X) ⟶ F.obj Y := by sorry
--- REVIEW: on the affine crystalline basis, this global-section tensor
--- condition describes quasi-coherent evaluations. Kato's unrestricted
--- module-sheaf crystals require pullback of sheaves on each ambient site.
-structure LogCrystal {C : Type u} [Category C] (J : GrothendieckTopology C)
-    (O : Sheaf J CommRingCat.{0}) where
-  modules : PresheafOfModulesOfCommRing.{0} O.obj
-  sheaf : Presheaf.IsSheaf J modules.presheaf
-  cartesian : ∀ {X Y : Cᵒᵖ} (f : X ⟶ Y), IsIso (crystalTransition modules f)
-instance {C : Type u} [Category C] {J : GrothendieckTopology C}
-    {O : Sheaf J CommRingCat.{0}} : Category (LogCrystal J O) where
+-- Ringed small-etale module operations are clients of EDS:E1. Pullback is
+-- the existing Mathlib left adjoint; tensor is sheafification of the tensor
+-- presheaf. Neither operation is tensor extension of GLOBAL sections.
+def etaleStructureRingSheaf (X : Scheme.{0}) :
+    Sheaf (Scheme.smallEtaleTopology X) RingCat.{0} :=
+  ⟨(etaleStructureSheaf X).obj ⋙ forget₂ CommRingCat RingCat, by sorry⟩
+@[reducible] instance etaleSectionCommRing (X : Scheme.{0}) (U : X.Etaleᵒᵖ) :
+    CommRing ((etaleStructureRingSheaf X).obj.obj U) := by
+  change CommRing ((etaleStructureSheaf X).obj.obj U)
+  infer_instance
+abbrev EtaleModules (X : Scheme.{0}) := SheafOfModules.{0} (etaleStructureRingSheaf X)
+instance (priority := 90) etaleSectionModule (X : Scheme.{0}) (M : EtaleModules X) (U : X.Etaleᵒᵖ) :
+    Module ((etaleStructureRingSheaf X).obj.obj U) (M.val.obj U) :=
+  ModuleCat.isModule (M.val.obj U)
+def etaleBaseChange {X Y : Scheme.{0}} (f : X ⟶ Y) : Y.Etale ⥤ X.Etale := by sorry
+-- The object is U x_Y X, with its actual second projection to X.
+def etaleBaseChange_obj {X Y : Scheme.{0}} (f : X ⟶ Y) (U : Y.Etale) :
+    ((etaleBaseChange f).obj U).left ≅ Limits.pullback U.hom f := by sorry
+instance etaleBaseChange_continuous {X Y : Scheme.{0}} (f : X ⟶ Y) :
+    (etaleBaseChange f).IsContinuous (Scheme.smallEtaleTopology Y)
+      (Scheme.smallEtaleTopology X) := by sorry
+def etaleBaseChangeRingMap {X Y : Scheme.{0}} (f : X ⟶ Y) :
+    etaleStructureRingSheaf Y ⟶
+      ((etaleBaseChange f).sheafPushforwardContinuous RingCat
+        (Scheme.smallEtaleTopology Y) (Scheme.smallEtaleTopology X)).obj
+          (etaleStructureRingSheaf X) := by sorry
+instance etaleModulePushforward_rightAdjoint {X Y : Scheme.{0}} (f : X ⟶ Y) :
+    (SheafOfModules.pushforward.{0} (etaleBaseChangeRingMap f)).IsRightAdjoint := by sorry
+def etaleModulePullback {X Y : Scheme.{0}} (f : X ⟶ Y) : EtaleModules Y ⥤ EtaleModules X :=
+  SheafOfModules.pullback (etaleBaseChangeRingMap f)
+def etaleModulePullback_id (X : Scheme.{0}) : etaleModulePullback (𝟙 X) ≅ 𝟭 _ := by sorry
+def etaleModulePullback_comp {X Y Z : Scheme.{0}} (f : X ⟶ Y) (g : Y ⟶ Z) :
+    etaleModulePullback g ⋙ etaleModulePullback f ≅ etaleModulePullback (f ≫ g) := by sorry
+instance etaleWeakSheafify (X : Scheme.{0}) :
+    HasWeakSheafify (Scheme.smallEtaleTopology X) AddCommGrpCat.{0} := by sorry
+instance etaleLocallyBijective (X : Scheme.{0}) :
+    (Scheme.smallEtaleTopology X).WEqualsLocallyBijective AddCommGrpCat.{0} := by sorry
+def etaleSectionsTensor {X : Scheme.{0}} (M N : EtaleModules X) (U : X.Etaleᵒᵖ) :
+    ModuleCat.{0} ((etaleStructureRingSheaf X).obj.obj U) :=
+  ModuleCat.of ((etaleStructureRingSheaf X).obj.obj U)
+    (M.val.obj U ⊗[(etaleStructureRingSheaf X).obj.obj U] N.val.obj U)
+def etaleTensorPresheaf {X : Scheme.{0}} (M N : EtaleModules X) :
+    PresheafOfModules.{0} (etaleStructureRingSheaf X).obj := by sorry
+def etaleTensorPresheaf_sections {X : Scheme.{0}} (M N : EtaleModules X) (U : X.Etaleᵒᵖ) :
+    (etaleTensorPresheaf M N).obj U ≅
+      ModuleCat.of ((etaleStructureRingSheaf X).obj.obj U)
+        (M.val.obj U ⊗[(etaleStructureRingSheaf X).obj.obj U] N.val.obj U) := by sorry
+def etaleModuleTensor {X : Scheme.{0}} (M N : EtaleModules X) : EtaleModules X :=
+  (PresheafOfModules.sheafification (𝟙 (etaleStructureRingSheaf X).obj)).obj
+    (etaleTensorPresheaf M N)
+def etaleTensorSection {X : Scheme.{0}} (M N : EtaleModules X) (U : X.Etaleᵒᵖ)
+    (m : M.val.obj U) (n : N.val.obj U) : (etaleModuleTensor M N).val.obj U := by sorry
+def etaleTensorMap {X : Scheme.{0}} {M M' N N' : EtaleModules X}
+    (f : M ⟶ M') (g : N ⟶ N') : etaleModuleTensor M N ⟶ etaleModuleTensor M' N' := by sorry
+def etaleFree (X : Scheme.{0}) (n : ℕ) : EtaleModules X := by sorry
+def etaleFree_sections (X : Scheme.{0}) (n : ℕ) (U : X.Etaleᵒᵖ) :
+    (etaleFree X n).val.obj U ≅ ModuleCat.of ((etaleStructureRingSheaf X).obj.obj U)
+      (Fin n → (etaleStructureRingSheaf X).obj.obj U) := by sorry
+def EtaleFiniteLocallyFree {X : Scheme.{0}} (M : EtaleModules X) : Prop :=
+  ∀ x : X, ∃ U : X.Etale, ∃ u : U.left, U.hom.base u = x ∧
+    ∃ n : ℕ, Nonempty ((etaleModulePullback U.hom).obj M ≅ etaleFree U.left n)
+def relativeLogFormSheaf {X Y : LogScheme} (f : X ⟶ Y) (q : ℕ) : EtaleModules X.scheme := by sorry
+def etaleModuleDual {X : Scheme.{0}} (M : EtaleModules X) : EtaleModules X := by sorry
+-- Internal O-linear Hom(M,O), not the dual of Gamma(X,M).
+-- Concrete nonaffine test geometry, using the native projective scheme.
+def projectiveLine (k : Type) [Field k] : Scheme.{0} := by
+  letI := MvPolynomial.gradedAlgebra (σ := Fin 2) (R := k)
+  exact AlgebraicGeometry.Proj (MvPolynomial.homogeneousSubmodule (Fin 2) k)
+def etaleIdentity (X : Scheme.{0}) : X.Etale :=
+  MorphismProperty.Over.mk _ (𝟙 X) (by infer_instance)
+def projectiveLineTwist (k : Type) [Field k] (n : ℤ) : EtaleModules (projectiveLine k) := by sorry
+-- Glue free rank-one sheaves on D_+(X_0), D_+(X_1), with transition
+-- (X_1/X_0)^n; thus this is O(n), not an arbitrary line bundle.
+-- The ambient evaluation restricts the crystalline sheaf along all etale
+-- pullbacks of this thickening. Descent identifies its value on U with the
+-- original presheaf value on the PD thickening restricted to U.
+def crystallineEtaleFunctor {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogCrysObject B Z) : T.thickening.ambient.object.scheme.Etale ⥤ LogCrysObject B Z := by sorry
+def crystallineEtaleFunctor_ambient {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogCrysObject B Z) (U : T.thickening.ambient.object.scheme.Etale) :
+    ((crystallineEtaleFunctor T).obj U).thickening.ambient.object.scheme ≅ U.left := by sorry
+def crystallineEtaleSectionRingEquiv {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogCrysObject B Z) (U : T.thickening.ambient.object.scheme.Etale) :
+    ((logCrystallineStructure B Z).obj.obj (Opposite.op ((crystallineEtaleFunctor T).obj U))) ≃+*
+      ((etaleStructureRingSheaf T.thickening.ambient.object.scheme).obj.obj (Opposite.op U)) := by sorry
+def crystalAmbientEvaluation {B : LogPDBase} {Z : LogOverPDBase B}
+    (P : PresheafOfModulesOfCommRing.{0} (logCrystallineStructure B Z).obj)
+    (hs : Presheaf.IsSheaf (logCrystallineSite B Z) P.presheaf) (T : LogCrysObject B Z) :
+    EtaleModules T.thickening.ambient.object.scheme := by sorry
+-- Explicit comparison on EVERY etale U, with the section-ring identification
+-- supplied by crystallineEtaleFunctor_ambient and structure_sections.
+def crystalAmbientEvaluation_sections {B : LogPDBase} {Z : LogOverPDBase B}
+    (P : PresheafOfModulesOfCommRing.{0} (logCrystallineStructure B Z).obj)
+    (hs : Presheaf.IsSheaf (logCrystallineSite B Z) P.presheaf) (T : LogCrysObject B Z)
+    (U : T.thickening.ambient.object.scheme.Etale) :
+    (crystalAmbientEvaluation P hs T).val.obj (Opposite.op U) ≅
+      (ModuleCat.restrictScalars (crystallineEtaleSectionRingEquiv T U).symm.toRingHom).obj
+        (P.obj (Opposite.op ((crystallineEtaleFunctor T).obj U))) := by sorry
+def crystalEvaluationRestriction {B : LogPDBase} {Z : LogOverPDBase B}
+    (P : PresheafOfModulesOfCommRing.{0} (logCrystallineStructure B Z).obj)
+    (hs : Presheaf.IsSheaf (logCrystallineSite B Z) P.presheaf)
+    {T T' : LogCrysObject B Z} (g : T' ⟶ T) :
+    crystalAmbientEvaluation P hs T ⟶
+      (SheafOfModules.pushforward (etaleBaseChangeRingMap (logUnderlying g.map.ambient))).obj
+        (crystalAmbientEvaluation P hs T') := by sorry
+-- Induced by P's restriction maps on the restricted PD thickenings, not a chosen map.
+def crystalTransition {B : LogPDBase} {Z : LogOverPDBase B}
+    (P : PresheafOfModulesOfCommRing.{0} (logCrystallineStructure B Z).obj)
+    (hs : Presheaf.IsSheaf (logCrystallineSite B Z) P.presheaf)
+    {T T' : LogCrysObject B Z} (g : T' ⟶ T) :
+    (etaleModulePullback (logUnderlying g.map.ambient)).obj (crystalAmbientEvaluation P hs T) ⟶
+      crystalAmbientEvaluation P hs T' :=
+  ((SheafOfModules.pullbackPushforwardAdjunction
+    (etaleBaseChangeRingMap (logUnderlying g.map.ambient))).homEquiv _ _).symm
+      (crystalEvaluationRestriction P hs g)
+-- The map is adjoint to restriction along g, on the ambient ringed sites.
+structure LogCrystal (B : LogPDBase) (Z : LogOverPDBase B) where
+  modules : PresheafOfModulesOfCommRing.{0} (logCrystallineStructure B Z).obj
+  sheaf : Presheaf.IsSheaf (logCrystallineSite B Z) modules.presheaf
+  cartesian : ∀ {T T' : LogCrysObject B Z} (g : T' ⟶ T),
+    IsIso (crystalTransition modules sheaf g)
+instance {B : LogPDBase} {Z : LogOverPDBase B} : Category (LogCrystal B Z) where
   Hom F G := F.modules ⟶ G.modules
   id F := 𝟙 F.modules
   comp f g := f ≫ g
   id_comp := by sorry
   comp_id := by sorry
   assoc := by sorry
-instance {C : Type u} [Category C] {J : GrothendieckTopology C}
-    {O : Sheaf J CommRingCat.{0}} : Preadditive (LogCrystal J O) := by sorry
-def structureCrystal {C : Type u} [Category C] (J : GrothendieckTopology C)
-    (O : Sheaf J CommRingCat.{0}) : LogCrystal J O := by sorry
-def zeroCrystal {C : Type u} [Category C] (J : GrothendieckTopology C)
-    (O : Sheaf J CommRingCat.{0}) : LogCrystal J O := by sorry
+instance {B : LogPDBase} {Z : LogOverPDBase B} : Preadditive (LogCrystal B Z) := by sorry
+def structureCrystal (B : LogPDBase) (Z : LogOverPDBase B) : LogCrystal B Z := by sorry
+def zeroCrystal (B : LogPDBase) (Z : LogOverPDBase B) : LogCrystal B Z := by sorry
 namespace LogCrystal
- def transition {C : Type u} [Category C] {J : GrothendieckTopology C} {O : Sheaf J CommRingCat.{0}}
-    (F : LogCrystal J O) {X Y : Cᵒᵖ} (f : X ⟶ Y) :
-    (ModuleCat.extendScalars (O.obj.map f).hom).obj (F.modules.obj X) ≅ F.modules.obj Y := by sorry
- def tensor {C : Type u} [Category C] {J : GrothendieckTopology C} {O : Sheaf J CommRingCat.{0}}
-    (F G : LogCrystal J O) : LogCrystal J O := by sorry
- def dual {C : Type u} [Category C] {J : GrothendieckTopology C} {O : Sheaf J CommRingCat.{0}}
-    (F : LogCrystal J O) (hf : ∀ X, Module.Finite (O.obj.obj X) (F.modules.obj X))
-    (hp : ∀ X, Module.Projective (O.obj.obj X) (F.modules.obj X)) : LogCrystal J O := by sorry
+ def evaluation {B : LogPDBase} {Z : LogOverPDBase B} (F : LogCrystal B Z)
+    (T : LogCrysObject B Z) : EtaleModules T.thickening.ambient.object.scheme :=
+    crystalAmbientEvaluation F.modules F.sheaf T
+ def transition {B : LogPDBase} {Z : LogOverPDBase B} (F : LogCrystal B Z)
+    {T T' : LogCrysObject B Z} (g : T' ⟶ T) :
+    (etaleModulePullback (logUnderlying g.map.ambient)).obj (F.evaluation T) ≅
+      F.evaluation T' := by sorry
+ def tensor {B : LogPDBase} {Z : LogOverPDBase B} (F G : LogCrystal B Z) : LogCrystal B Z := by sorry
+ def tensor_evaluation {B : LogPDBase} {Z : LogOverPDBase B} (F G : LogCrystal B Z)
+    (T : LogCrysObject B Z) : (tensor F G).evaluation T ≅ etaleModuleTensor (F.evaluation T) (G.evaluation T) := by sorry
+ def dual {B : LogPDBase} {Z : LogOverPDBase B} (F : LogCrystal B Z)
+    (hf : ∀ T, EtaleFiniteLocallyFree (F.evaluation T)) : LogCrystal B Z := by sorry
+ def dual_evaluation {B : LogPDBase} {Z : LogOverPDBase B} (F : LogCrystal B Z)
+    (hf : ∀ T, EtaleFiniteLocallyFree (F.evaluation T)) (T : LogCrysObject B Z) :
+    (dual F hf).evaluation T ≅ etaleModuleDual (F.evaluation T) := by sorry
 end LogCrystal
 -- Test: TauCeti.LogCrystalline.LogCrystal.structure_sheaf
-example {C : Type u} [Category C] (J : GrothendieckTopology C) (O : Sheaf J CommRingCat.{0}) :
-    Presheaf.IsSheaf J (structureCrystal J O).modules.presheaf ∧
-      ∀ X, Nonempty ((structureCrystal J O).modules.obj X ≅ ModuleCat.of (O.obj.obj X) (O.obj.obj X)) := by sorry
+example (B : LogPDBase) (Z : LogOverPDBase B) (T : LogCrysObject B Z) :
+    (structureCrystal B Z).evaluation T ≅ etaleFree T.thickening.ambient.object.scheme 1 := by sorry
 -- Test: TauCeti.LogCrystalline.LogCrystal.zero
-example {C : Type u} [Category C] (J : GrothendieckTopology C) (O : Sheaf J CommRingCat.{0}) :
-    ∀ X, Subsingleton ((zeroCrystal J O).modules.obj X) := by sorry
+example (B : LogPDBase) (Z : LogOverPDBase B) (T : LogCrysObject B Z) :
+    Limits.IsZero ((zeroCrystal B Z).evaluation T) := by sorry
 -- Test: TauCeti.LogCrystalline.LogCrystal.arbitrary_sheaf
-example {C : Type u} [Category C] {J : GrothendieckTopology C} {O : Sheaf J CommRingCat.{0}}
-    (F : PresheafOfModulesOfCommRing.{0} O.obj) (hs : Presheaf.IsSheaf J F.presheaf)
-    {X Y : Cᵒᵖ} (f : X ⟶ Y) (h : ¬ IsIso (crystalTransition F f)) :
-    ¬ ∃ E : LogCrystal J O, E.modules = F := by sorry
+example {B : LogPDBase} {Z : LogOverPDBase B}
+    (P : PresheafOfModulesOfCommRing.{0} (logCrystallineStructure B Z).obj)
+    (hs : Presheaf.IsSheaf (logCrystallineSite B Z) P.presheaf)
+    {T T' : LogCrysObject B Z} (g : T' ⟶ T) (h : ¬ IsIso (crystalTransition P hs g)) :
+    ¬ ∃ F : LogCrystal B Z, F.modules = P := by sorry
 
 -- The completion comparison is tied to the finite semistable presentation.
 -- Each level is the ordinary quotient log differential module, restricted to A.
@@ -1552,8 +1671,6 @@ example (p : ℕ) [Fact p.Prime] {X Y : Scheme.{0}} (f : X ⟶ Y)
 example (p r : ℕ) [Fact p.Prime] (hr : 1 < r) (hcop : r.Coprime p) :
     ¬ IsCartierType p (toricRootMap (ZMod p) r) (by sorry) (by sorry) := by sorry
 
-def etaleStructureRingSheaf (X : Scheme.{0}) :
-    Sheaf (Scheme.smallEtaleTopology X) RingCat.{0} := by sorry
 def cartierTwistedForms {X Y : LogScheme} (p : ℕ) [Fact p.Prime] (f : X ⟶ Y)
     (hY : InCharacteristic p Y) (q : ℕ) :
     SheafOfModules.{0} (etaleStructureRingSheaf (frobeniusTwist p f hY).scheme) := by sorry
@@ -1728,6 +1845,103 @@ example (k : Type) [Field k] :
         formWedge (affinePlaneGeometry k) 1 1 (planeCoordinateForm k 0) (planeCoordinateForm k 1) ∧
     LogConnection.curvature (planeNonintegrableConnection k) 1 ≠ 0 := by sorry
 
+-- PD forms are sheaves of relative log forms modulo d(gamma_n(x)) =
+-- gamma_(n-1)(x) dx. The quotient is imposed locally and then sheafified.
+def pdFormSheaf {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (q : ℕ) : EtaleModules T.ambient.object.scheme := by sorry
+def pdSheafDerivative {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z)
+    (U : T.ambient.object.scheme.Etaleᵒᵖ) :
+    (etaleStructureRingSheaf T.ambient.object.scheme).obj.obj U →+
+      (pdFormSheaf T 1).val.obj U := by sorry
+structure SheafPDConnection {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) where
+  modules : EtaleModules T.ambient.object.scheme
+  nabla : ∀ U, modules.val.obj U →+ (etaleModuleTensor modules (pdFormSheaf T 1)).val.obj U
+  restriction : ∀ {U V} (f : U ⟶ V) m,
+    (etaleModuleTensor modules (pdFormSheaf T 1)).val.map f (nabla U m) =
+      nabla V (modules.val.map f m)
+  leibniz : ∀ U a m, nabla U (a • m) = a • nabla U m +
+    etaleTensorSection modules (pdFormSheaf T 1) U m (pdSheafDerivative T U a)
+def sheafPDExtended {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
+    (C : SheafPDConnection T) (q : ℕ) (U : T.ambient.object.scheme.Etaleᵒᵖ) :
+    (etaleModuleTensor C.modules (pdFormSheaf T q)).val.obj U →+
+      (etaleModuleTensor C.modules (pdFormSheaf T (q+1))).val.obj U := by sorry
+-- Extended differential: d_nabla(m tensor omega) = nabla(m) wedge omega + m tensor d(omega).
+structure PDConnectionSheaf {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z)
+    extends SheafPDConnection T where
+  integrable : ∀ U m, sheafPDExtended toSheafPDConnection 1 U (nabla U m) = 0
+-- Actual small-etale stalk, indexed by a geometric point of the SAME ambient.
+def etaleModuleStalk {X : LogScheme} (M : EtaleModules X.scheme) (x : LogGeometricPoint X) :
+    ModuleCat.{0} (logStalkRing x) := by sorry
+-- Coordinate frames live at the geometric stalk, with the actual ordinary
+-- derivative and dlog. The bound may depend on the frame AND the section germ.
+def pdDerivativeStalk {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (x : LogGeometricPoint T.ambient.object) :
+    logStalkRing x →+ etaleModuleStalk (pdFormSheaf T 1) x := by sorry
+def pdDlogStalk {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (x : LogGeometricPoint T.ambient.object) :
+    (logStalk x).monoid →* Multiplicative (etaleModuleStalk (pdFormSheaf T 1) x) := by sorry
+structure PDStalkCoordinateFrame {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (x : LogGeometricPoint T.ambient.object) where
+  ordinary : ℕ
+  logarithmic : ℕ
+  ordinaryCoordinates : Fin ordinary → logStalkRing x
+  logCoordinates : Fin logarithmic → (logStalk x).monoid
+  basis : (Fin (ordinary + logarithmic) → logStalkRing x) ≃ₗ[logStalkRing x]
+    etaleModuleStalk (pdFormSheaf T 1) x
+  ordinaryBasis : ∀ i, basis (Pi.single (Fin.castAdd logarithmic i) 1) =
+    pdDerivativeStalk T x (ordinaryCoordinates i)
+  logBasis : ∀ i, basis (Pi.single (Fin.natAdd ordinary i) 1) =
+    (pdDlogStalk T x (logCoordinates i)).toAdd
+def pdNablaStalk {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
+    (C : PDConnectionSheaf T) (x : LogGeometricPoint T.ambient.object) :
+    etaleModuleStalk C.modules x →+
+      etaleModuleStalk (etaleModuleTensor C.modules (pdFormSheaf T 1)) x := by sorry
+-- The native stalk/tensor comparison is valid; the global section comparison is not.
+def etaleTensorStalkIso {X : LogScheme} (M N : EtaleModules X.scheme) (x : LogGeometricPoint X) :
+    etaleModuleStalk (etaleModuleTensor M N) x ≅
+      ModuleCat.of (logStalkRing x)
+        (etaleModuleStalk M x ⊗[logStalkRing x] etaleModuleStalk N x) := by sorry
+def pdStalkCoordinateOperator {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
+    (C : PDConnectionSheaf T) (x : LogGeometricPoint T.ambient.object)
+    (c : PDStalkCoordinateFrame T x) (i : Fin (c.ordinary + c.logarithmic)) :
+    etaleModuleStalk C.modules x →+ etaleModuleStalk C.modules x :=
+  (TensorProduct.rid (logStalkRing x) (etaleModuleStalk C.modules x)).toAddMonoidHom.comp
+    ((TensorProduct.map LinearMap.id ((LinearMap.proj i).comp c.basis.symm.toLinearMap)).toAddMonoidHom.comp
+      ((etaleTensorStalkIso C.modules (pdFormSheaf T 1) x).hom.hom.toAddMonoidHom.comp (pdNablaStalk C x)))
+-- Compose ordinary powers and logarithmic falling factorials in a fixed order;
+-- integrability gives their commuting/coordinate-independence comparison.
+def pdTaylorStalkCoefficient {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
+    (C : PDConnectionSheaf T) (x : LogGeometricPoint T.ambient.object)
+    (c : PDStalkCoordinateFrame T x) (nu : Fin (c.ordinary + c.logarithmic) → ℕ) :
+    etaleModuleStalk C.modules x →+ etaleModuleStalk C.modules x :=
+  (List.ofFn (fun i : Fin (c.ordinary + c.logarithmic) =>
+    (List.range (nu i)).foldl (fun acc j =>
+      acc.comp (if i.val < c.ordinary then pdStalkCoordinateOperator C x c i
+        else pdStalkCoordinateOperator C x c i - j • AddMonoidHom.id _)) (AddMonoidHom.id _))).foldl
+    (fun acc op => acc.comp op) (AddMonoidHom.id _)
+def PDConnectionQuasiNilpotent {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
+    (C : PDConnectionSheaf T) : Prop :=
+  ∀ x : LogGeometricPoint T.ambient.object, ∀ c : PDStalkCoordinateFrame T x,
+    ∀ m : etaleModuleStalk C.modules x, ∃ b : ℕ, ∀ nu,
+      b ≤ ∑ i, nu i → pdTaylorStalkCoefficient C x c nu m = 0
+
+structure QNPDConnection {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) where
+  val : PDConnectionSheaf T
+  quasiNilpotent : PDConnectionQuasiNilpotent val
+structure HorizontalPDMap {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
+    (C D : QNPDConnection T) where
+  val : C.val.modules ⟶ D.val.modules
+  horizontal : ∀ U m, D.val.nabla U (val.val.app U m) =
+    (etaleTensorMap val (𝟙 (pdFormSheaf T 1))).val.app U (C.val.nabla U m)
+instance {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z} :
+    Category (QNPDConnection T) where
+  Hom := HorizontalPDMap
+  id C := ⟨𝟙 C.val.modules, by sorry⟩
+  comp f g := ⟨f.val ≫ g.val, by sorry⟩
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+
 structure PDStratificationDiagram (C D E : Type 1) [Category C] [Category D] [Category E] where
   p₁ : C ⥤ D
   p₂ : C ⥤ D
@@ -1740,17 +1954,40 @@ structure PDStratificationDiagram (C D E : Type 1) [Category C] [Category D] [Ca
   a : p₁ ⋙ p₁₂ ≅ p₁ ⋙ p₁₃
   b : p₂ ⋙ p₁₂ ≅ p₁ ⋙ p₂₃
   c : p₂ ⋙ p₂₃ ≅ p₂ ⋙ p₁₃
--- The scalar rings are global sections of the exactified PD diagonals of this T.
--- REVIEW: this module prototype is an affine evaluation slice. Specify the
--- affine hypothesis and descent before using it for general module sheaves.
-def pdDiagonalRing {B : LogPDBase} {Z : LogOverPDBase B}
-    (T : LogPDThickening B Z) (n : ℕ) : CommRingCat.{0} := by sorry
-def pdDiagonalDiagram {B : LogPDBase} {Z : LogOverPDBase B}
-    (T : LogPDThickening B Z) :
-    PDStratificationDiagram (ModuleCat.{0} Γ(T.ambient.object.scheme, ⊤))
-      (ModuleCat.{0} (pdDiagonalRing T 2)) (ModuleCat.{0} (pdDiagonalRing T 3)) := by sorry
+-- Exactified double/triple PD diagonal schemes, with their actual projections.
+def pdDiagonalThickening {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (n : ℕ) : LogPDThickening B Z := by sorry
+-- Exactified PD envelope of Z -> T^n over B, with the inherited PD base.
+def pdDiagonalScheme {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (n : ℕ) : Scheme.{0} :=
+  (pdDiagonalThickening T n).ambient.object.scheme
+def pdDiagonalProjection {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (i : Fin 2) : pdDiagonalScheme T 2 ⟶ T.ambient.object.scheme := by sorry
+def pdDiagonalUnit {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) : T.ambient.object.scheme ⟶ pdDiagonalScheme T 2 := by sorry
+def pdTripleProjection {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (i j : Fin 3) : pdDiagonalScheme T 3 ⟶ pdDiagonalScheme T 2 := by sorry
+-- Induced by the indicated projections of the exactified PD envelopes.
+def pdDiagonalDiagram {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) :
+    PDStratificationDiagram (EtaleModules T.ambient.object.scheme)
+      (EtaleModules (pdDiagonalScheme T 2)) (EtaleModules (pdDiagonalScheme T 3)) where
+  p₁ := etaleModulePullback (pdDiagonalProjection T 0)
+  p₂ := etaleModulePullback (pdDiagonalProjection T 1)
+  diagonal := etaleModulePullback (pdDiagonalUnit T)
+  d₁ := by sorry
+  d₂ := by sorry
+  p₁₂ := etaleModulePullback (pdTripleProjection T 0 1)
+  p₂₃ := etaleModulePullback (pdTripleProjection T 1 2)
+  p₁₃ := etaleModulePullback (pdTripleProjection T 0 2)
+  a := by sorry
+  b := by sorry
+  c := by sorry
+def pdDiagonalDiagram_projection {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) :
+    (pdDiagonalDiagram T).p₁ ≅ etaleModulePullback (pdDiagonalProjection T 0) := by sorry
+def pdDiagonalDiagram_projection₂ {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) :
+    (pdDiagonalDiagram T).p₂ ≅ etaleModulePullback (pdDiagonalProjection T 1) := by sorry
 structure LogPDStratification {B : LogPDBase} {Z : LogOverPDBase B}
-    (T : LogPDThickening B Z) (M : ModuleCat.{0} Γ(T.ambient.object.scheme, ⊤)) where
+    (T : LogPDThickening B Z) (M : EtaleModules T.ambient.object.scheme) where
   epsilon : (pdDiagonalDiagram T).p₂.obj M ≅ (pdDiagonalDiagram T).p₁.obj M
   diagonal_eq : ((pdDiagonalDiagram T).d₂.app M).inv ≫
     (pdDiagonalDiagram T).diagonal.map epsilon.hom ≫ ((pdDiagonalDiagram T).d₁.app M).hom = 𝟙 M
@@ -1766,34 +2003,37 @@ def pdDifferentialGeometry {B : LogPDBase} {Z : LogOverPDBase B}
   .pd B Z T (RingEquiv.refl _) (RingEquiv.refl _) (by sorry)
 namespace LogPDStratification
  theorem diagonal {B : LogPDBase} {Z : LogOverPDBase B}
-    {T : LogPDThickening B Z} {M : ModuleCat.{0} Γ(T.ambient.object.scheme, ⊤)}
+    {T : LogPDThickening B Z} {M : EtaleModules T.ambient.object.scheme}
     (e : LogPDStratification T M) :
     ((pdDiagonalDiagram T).d₂.app M).inv ≫ (pdDiagonalDiagram T).diagonal.map e.epsilon.hom ≫
       ((pdDiagonalDiagram T).d₁.app M).hom = 𝟙 M := by sorry
  theorem cocycle {B : LogPDBase} {Z : LogOverPDBase B}
-    {T : LogPDThickening B Z} {M : ModuleCat.{0} Γ(T.ambient.object.scheme, ⊤)}
+    {T : LogPDThickening B Z} {M : EtaleModules T.ambient.object.scheme}
     (e : LogPDStratification T M) :
     (pdDiagonalDiagram T).p₂₃.map e.epsilon.hom ≫ ((pdDiagonalDiagram T).b.app M).inv ≫
       (pdDiagonalDiagram T).p₁₂.map e.epsilon.hom ≫ ((pdDiagonalDiagram T).a.app M).hom =
       ((pdDiagonalDiagram T).c.app M).hom ≫ (pdDiagonalDiagram T).p₁₃.map e.epsilon.hom := by sorry
  def first_order {B : LogPDBase} {Z : LogOverPDBase B}
-    {T : LogPDThickening B Z} {M : ModuleCat.{0} Γ(T.ambient.object.scheme, ⊤)}
+    {T : LogPDThickening B Z} {M : EtaleModules T.ambient.object.scheme}
     (e : LogPDStratification T M) :
-    LogConnection M (formModule (pdDifferentialGeometry T) 1)
-      (formDerivation (pdDifferentialGeometry T)) := by sorry
+    PDConnectionSheaf T := by sorry
+ theorem first_order_module {B : LogPDBase} {Z : LogOverPDBase B}
+    {T : LogPDThickening B Z} {M : EtaleModules T.ambient.object.scheme}
+    (e : LogPDStratification T M) : (first_order e).modules = M := by sorry
 end LogPDStratification
 def structurePDStratification {B : LogPDBase} {Z : LogOverPDBase B}
     (T : LogPDThickening B Z) :
-    LogPDStratification T (ModuleCat.of Γ(T.ambient.object.scheme, ⊤) Γ(T.ambient.object.scheme, ⊤)) := by sorry
+    LogPDStratification T (etaleFree T.ambient.object.scheme 1) := by sorry
 -- Test: TauCeti.LogCrystalline.LogPDStratification.structure
 example {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) :
-    IsIntegrableConnection (LogPDStratification.first_order (structurePDStratification T)) := by sorry
+    (LogPDStratification.first_order (structurePDStratification T)).modules =
+      etaleFree T.ambient.object.scheme 1 := by sorry
 -- Test: TauCeti.LogCrystalline.LogPDStratification.zero
 example {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) :
-    Nonempty (LogPDStratification T (ModuleCat.of Γ(T.ambient.object.scheme, ⊤) PUnit)) := by sorry
+    Nonempty (LogPDStratification T (etaleFree T.ambient.object.scheme 0)) := by sorry
 -- Test: TauCeti.LogCrystalline.LogPDStratification.missing_cocycle
 example {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
-    {M : ModuleCat.{0} Γ(T.ambient.object.scheme, ⊤)}
+    {M : EtaleModules T.ambient.object.scheme}
     (e : (pdDiagonalDiagram T).p₂.obj M ≅ (pdDiagonalDiagram T).p₁.obj M)
     (h : (pdDiagonalDiagram T).p₂₃.map e.hom ≫ ((pdDiagonalDiagram T).b.app M).inv ≫
       (pdDiagonalDiagram T).p₁₂.map e.hom ≫ ((pdDiagonalDiagram T).a.app M).hom ≠
@@ -1888,63 +2128,28 @@ instance pdEtaleAlgebra {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickeni
 def pdEtaleGeometry {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z)
     (U : T.ambient.object.scheme.Etaleᵒᵖ) :
     DifferentialGeometry B.ring ((etaleStructureSheaf T.ambient.object.scheme).obj.obj U) := by sorry
--- Pullback of the tensor-valued connection along this actual etale restriction.
-def connectionRestriction {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
-    (M : PresheafOfModulesOfCommRing.{0} (etaleStructureSheaf T.ambient.object.scheme).obj)
-    {U V : T.ambient.object.scheme.Etaleᵒᵖ} (f : U ⟶ V) :
-    M.obj U ⊗[(etaleStructureSheaf T.ambient.object.scheme).obj.obj U]
-      formModule (pdEtaleGeometry T U) 1 →+
-    M.obj V ⊗[(etaleStructureSheaf T.ambient.object.scheme).obj.obj V]
-      formModule (pdEtaleGeometry T V) 1 := by sorry
--- REVIEW: tensoring sections for every etale U is not the sheaf tensor
--- product on nonaffine U. Replace this by a sheaf connection, or restrict
--- to a justified affine basis and descend. The equivalence below is unresolved.
-structure PDConnectionSheaf {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) where
-  modules : PresheafOfModulesOfCommRing.{0} (etaleStructureSheaf T.ambient.object.scheme).obj
-  sheaf : Presheaf.IsSheaf (Scheme.smallEtaleTopology T.ambient.object.scheme) modules.presheaf
-  connection : ∀ U, LogConnection (modules.obj U) (formModule (pdEtaleGeometry T U) 1)
-    (formDerivation (pdEtaleGeometry T U))
-  integrable : ∀ U, IsIntegrableConnection (connection U)
-  restriction : ∀ {U V} (f : U ⟶ V) m,
-    connectionRestriction modules f ((connection U).nabla m) =
-      (connection V).nabla (modules.map f m)
--- Order-q coefficients in the Taylor expansion along the PD diagonal. This
--- collects all finite-support multiindices, including infinitely generated charts.
-def pdTaylorOrderModule {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
-    (C : PDConnectionSheaf T) (U : T.ambient.object.scheme.Etaleᵒᵖ) (q : ℕ) :
-    ModuleCat.{0} ((etaleStructureSheaf T.ambient.object.scheme).obj.obj U) := by sorry
-def pdTaylorOrder {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
-    (C : PDConnectionSheaf T) (U : T.ambient.object.scheme.Etaleᵒᵖ) (q : ℕ) :
-    C.modules.obj U →ₗ[B.ring] pdTaylorOrderModule C U q := by sorry
-def PDConnectionQuasiNilpotent {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
-    (C : PDConnectionSheaf T) : Prop :=
-  -- REVIEW: the source condition is stalkwise/local. A uniform bound over
-  -- every possibly non-quasicompact U needs additional justification.
-  ∀ U m, ∃ b : ℕ, ∀ q ≥ b, pdTaylorOrder C U q m = 0
-structure QNPDConnection {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) where
-  val : PDConnectionSheaf T
-  quasiNilpotent : PDConnectionQuasiNilpotent val
-structure HorizontalPDMap {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z}
-    (C D : QNPDConnection T) where
-  val : C.val.modules ⟶ D.val.modules
-  horizontal : ∀ U m, (D.val.connection U).nabla (val.app U m) =
-    TensorProduct.map (val.app U).hom LinearMap.id ((C.val.connection U).nabla m)
-instance {B : LogPDBase} {Z : LogOverPDBase B} {T : LogPDThickening B Z} :
-    Category (QNPDConnection T) where
-  Hom := HorizontalPDMap
-  id C := ⟨𝟙 C.val.modules, by sorry⟩
-  comp f g := ⟨f.val ≫ g.val, by sorry⟩
-  id_comp := by sorry
-  comp_id := by sorry
-  assoc := by sorry
 -- CR.1 supplies ordinary ringed-site derived sections; the logarithmic site
 -- constructed above fixes the inputs of this client functor.
 abbrev Crystals (B : LogPDBase) (Z : LogOverPDBase B) :=
-  LogCrystal (logCrystallineSite B Z) (logCrystallineStructure B Z)
+  LogCrystal B Z
 def logCrystal_connection_equivalence {B : LogPDBase} {Z : LogOverPDBase B}
     (T : LogPDThickening B Z) (h : IsPDSmooth T) : Crystals B Z ≌ QNPDConnection T := by sorry
+def pdIdentitySiteObject {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) : LogCrysObject B Z :=
+  ⟨Z, 𝟙 _, by sorry, by sorry, by sorry, T⟩
 def crystalEvaluation {B : LogPDBase} {Z : LogOverPDBase B}
-    (F : Crystals B Z) (T : LogPDThickening B Z) : PDConnectionSheaf T := by sorry
+    (F : Crystals B Z) (T : LogPDThickening B Z) : PDConnectionSheaf T where
+  modules := F.evaluation (pdIdentitySiteObject T)
+  nabla := by sorry
+  restriction := by sorry
+  leibniz := by sorry
+  integrable := by sorry
+theorem crystalEvaluation_modules {B : LogPDBase} {Z : LogOverPDBase B}
+    (F : Crystals B Z) (T : LogPDThickening B Z) :
+    (crystalEvaluation F T).modules = F.evaluation (pdIdentitySiteObject T) := by sorry
+theorem logCrystal_connection_equivalence_evaluation {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (h : IsPDSmooth T) (F : Crystals B Z) :
+    ((logCrystal_connection_equivalence T h).functor.obj F).val = crystalEvaluation F T := by sorry
 def logPDDeRham {B : LogPDBase} {Z : LogOverPDBase B}
     (T : LogPDThickening B Z) (C : PDConnectionSheaf T) :
     T.ambient.object.scheme.Etaleᵒᵖ ⥤ LogComplex B.ring := by sorry
@@ -1954,10 +2159,20 @@ def pdGlobalPowers {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B 
     DividedPowers (pdIdealGlobal T) := by sorry
 def pdFiltrationPower {B : LogPDBase} {Z : LogOverPDBase B}
     (T : LogPDThickening B Z) (m : ℤ) : Ideal Γ(T.ambient.object.scheme, ⊤) := by sorry
+def pdCoefficientFormSheaf {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (C : PDConnectionSheaf T) (q : ℕ) :
+    EtaleModules T.ambient.object.scheme := etaleModuleTensor C.modules (pdFormSheaf T q)
 def pdCoefficientForms {B : LogPDBase} {Z : LogOverPDBase B}
     (T : LogPDThickening B Z) (C : PDConnectionSheaf T)
     (U : T.ambient.object.scheme.Etaleᵒᵖ) (q : ℕ) :
-    ModuleCat.{0} ((etaleStructureSheaf T.ambient.object.scheme).obj.obj U) := by sorry
+    ModuleCat.{0} ((etaleStructureRingSheaf T.ambient.object.scheme).obj.obj U) :=
+    (pdCoefficientFormSheaf T C q).val.obj U
+-- The complex uses the sections of these sheaf tensor terms on every U.
+def logPDDeRham_terms {B : LogPDBase} {Z : LogOverPDBase B}
+    (T : LogPDThickening B Z) (C : PDConnectionSheaf T)
+    (U : T.ambient.object.scheme.Etaleᵒᵖ) (q : ℕ) :
+    ((logPDDeRham T C).obj U).X (q : ℤ) ≅
+      (ModuleCat.restrictScalars (pdBaseRingMap B T.ambient.structureMap U)).obj (pdCoefficientForms T C U q) := by sorry
 def dualNumberGlobalIso (p : ℕ) [Fact p.Prime] :
     Γ((dualNumberPDThickening p).ambient.object.scheme, ⊤) ≃+* DualNumber (ZMod p) := by sorry
 -- Test: TauCeti.LogCrystalline.LogPDThickening.square_zero
@@ -1972,15 +2187,10 @@ namespace logPDDeRham
  def filtration_degree {B : LogPDBase} {Z : LogOverPDBase B}
     (T : LogPDThickening B Z) (m a : ℤ) : Ideal Γ(T.ambient.object.scheme, ⊤) :=
     pdFiltrationPower T (m-a)
- -- REVIEW: this is not an isomorphism on arbitrary nonaffine U when the
- -- target denotes sections of coefficient forms. The affine/sheaf repair
- -- must be shared with PDConnectionSheaf, not replaced by a nominal target.
+ -- Sheaf-level tensor identity, valid without an affineness hypothesis.
  def coefficient_tensor {B : LogPDBase} {Z : LogOverPDBase B}
-    (T : LogPDThickening B Z) (C : PDConnectionSheaf T)
-    (U : T.ambient.object.scheme.Etaleᵒᵖ) (q : ℕ) :
-    (C.modules.obj U) ⊗[(etaleStructureSheaf T.ambient.object.scheme).obj.obj U]
-      formModule (pdEtaleGeometry T U) q ≃ₗ[(etaleStructureSheaf T.ambient.object.scheme).obj.obj U]
-      pdCoefficientForms T C U q := by sorry
+    (T : LogPDThickening B Z) (C : PDConnectionSheaf T) (q : ℕ) :
+    pdCoefficientFormSheaf T C q ≅ etaleModuleTensor C.modules (pdFormSheaf T q) := Iso.refl _
 end logPDDeRham
 -- Test: TauCeti.LogCrystalline.logPDDeRham.degree_zero
 example {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z) (m : ℤ) :
@@ -1993,6 +2203,46 @@ example {B : LogPDBase} {Z : LogOverPDBase B} (T : LogPDThickening B Z)
 example (p : ℕ) [Fact p.Prime] :
     (DividedPowerAlgebra.dp (ZMod p) 1 (1 : ZMod p))^p = 0 ∧
       DividedPowerAlgebra.dp (ZMod p) p (1 : ZMod p) ≠ 0 := by sorry
+def projectiveLineModPSource (p : ℕ) [Fact p.Prime] : LogOverPDBase (modpPDBase p) where
+  object := trivialLogScheme (projectiveLine (ZMod p))
+  structureMap := by sorry
+  extension := by sorry
+  charts := by sorry
+def projectiveLineIdentityPD (p : ℕ) [Fact p.Prime] :
+    LogPDThickening (modpPDBase p) (projectiveLineModPSource p) where
+  ambient := projectiveLineModPSource p
+  closed := 𝟙 _
+  overBase := by sorry
+  closedImmersion := by sorry
+  logSurjective := by sorry
+  exact := by sorry
+  integral := by sorry
+  delta := by sorry
+  common := by sorry
+  commonOnJ := by sorry
+  commonOnBase := by sorry
+  deltaNatural := by sorry
+def projectiveLineCartierConnection (p : ℕ) [Fact p.Prime] :
+    PDConnectionSheaf (projectiveLineIdentityPD p) where
+  modules := projectiveLineTwist (ZMod p) (p : ℤ)
+  nabla := by sorry
+  restriction := by sorry
+  leibniz := by sorry
+  integrable := by sorry
+-- Canonical Cartier connection on Frob^*O(1)=O(p), with trivial log and J=0.
+def projectiveLinePDForms (p : ℕ) [Fact p.Prime] :
+    pdFormSheaf (projectiveLineIdentityPD p) 1 ≅ projectiveLineTwist (ZMod p) (-2) := by sorry
+theorem projectiveLineCartierConnection_qn (p : ℕ) [Fact p.Prime] :
+    PDConnectionQuasiNilpotent (projectiveLineCartierConnection p) := by sorry
+-- Test: TauCeti.LogCrystalline.logPDDeRham.section_tensor_failure
+example (p : ℕ) [Fact p.Prime] :
+    Subsingleton (etaleSectionsTensor (projectiveLineCartierConnection p).modules
+      (pdFormSheaf (projectiveLineIdentityPD p) 1)
+      (Opposite.op (etaleIdentity (projectiveLine (ZMod p))))) ∧
+    ¬ Subsingleton (pdCoefficientForms (projectiveLineIdentityPD p)
+      (projectiveLineCartierConnection p)
+        (Opposite.op (etaleIdentity (projectiveLine (ZMod p)))) 1) := by sorry
+-- Gamma(Omega^1)=0, but Gamma(O(p) tensor Omega^1)=Gamma(O(p-2)) has dimension p-1.
 
 def logCrystallineCohomology (B : LogPDBase) (Z : LogOverPDBase B)
     (F : Crystals B Z) : LogDerived B.ring := by sorry
@@ -2302,7 +2552,7 @@ def hkCrystallineTower_level {F : ArithmeticFrame} (X : HKSpace F) (n : ℕ) :
     (derivedTower (hkCrystallineTower X)).obj (Opposite.op n) ≅
       (wittDerivedRestriction F (n+1) (by omega)).obj
         (logCrystallineCohomology _ (hkFiniteSource X (n+1) (by omega))
-          (structureCrystal (logCrystallineSite _ _) (logCrystallineStructure _ _))) := by sorry
+          (structureCrystal _ _)) := by sorry
 def integralHK {F : ArithmeticFrame} (X : HKSpace F) : LogDerived (WittVector F.p F.k) :=
   pAdicLogCrystalline (hkCrystallineTower X)
 def hkPoint (F : ArithmeticFrame) : HKSpace F := by sorry
@@ -2857,35 +3107,152 @@ def rationalLogWittSheaf {F : ArithmeticFrame} (X : HKSpace F) : SpecialDerived 
 def convergent_logWitt_comparison {F : ArithmeticFrame} {X : HKSpace F}
     (E : TubeEmbedding X) (h : IsStrictlySemistable X) :
     convergentLogComplex E .relative ≅ rationalLogWittSheaf X := by sorry
-def convergentResidueQuotient {F : ArithmeticFrame} {X : HKSpace F}
-    (E : TubeEmbedding X) : SpecialDerived X := by sorry
-def rationalSatoXi {F : ArithmeticFrame} (X : HKSpace F) : SpecialDerived X := by sorry
--- RD.4 identifies this algebraic model with the weak formal model of E.
-def tubeAlgebraicModel {F : ArithmeticFrame} {X : HKSpace F}
-    (E : TubeEmbedding X) : LogScheme := by sorry
-def tubeAlgebraicBaseMap {F : ArithmeticFrame} {X : HKSpace F}
-    (E : TubeEmbedding X) : (tubeAlgebraicModel E).scheme ⟶ qianAffineBase F := by sorry
-def tubeGenericFibre {F : ArithmeticFrame} {X : HKSpace F}
-    (E : TubeEmbedding X) : Scheme.{0} := by sorry
-def tubeGenericStructureMap {F : ArithmeticFrame} {X : HKSpace F}
-    (E : TubeEmbedding X) : Scheme.Hom (tubeGenericFibre E) (Spec (CommRingCat.of F.K)) := by sorry
--- REVIEW: DL B.2 additionally requires the degree-zero lift smooth over W,
--- generically smooth over W[t], its t=0 fibre a relative SNC divisor over W,
--- and precisely that divisor log structure. The present fields do not yet
--- express these conditions; the residue comparison remains unresolved.
-structure AdmissibleTubeEmbedding {F : ArithmeticFrame} {X : HKSpace F}
-    (E : TubeEmbedding X) where
+-- RD Part II supplies algebraic/weak-formal embedding systems and their
+-- analytic tubes. R09.7a supplies the ordinary relative SNC boundary carriers.
+-- These client signatures specify their geometry; no unrelated family is used.
+def wittPolynomialLogBase (F : ArithmeticFrame) : LogScheme :=
+  affineLogScheme (natChart (Polynomial.X : Polynomial (WittVector F.p F.k)))
+def wittPolynomialToWitt (F : ArithmeticFrame) :
+    (wittPolynomialLogBase F).scheme ⟶ Spec (CommRingCat.of (WittVector F.p F.k)) := by sorry
+-- Underlying map induced by W -> W[t].
+def wittZeroSection (F : ArithmeticFrame) :
+    Spec (CommRingCat.of (WittVector F.p F.k)) ⟶ (wittPolynomialLogBase F).scheme := by sorry
+-- Underlying map induced by evaluation t -> 0.
+def wittResidueLogMap (F : ArithmeticFrame) : standardLogPoint F.k ⟶ wittPolynomialLogBase F := by sorry
+-- The log generator maps identically; W -> k is reduction and t maps to 0.
+def IsZariskiCover {X Y : Scheme.{0}} (f : X ⟶ Y) : Prop :=
+  Function.Surjective f.base ∧ ∀ x : X, ∃ U : X.Opens, x ∈ U ∧ IsOpenImmersion (U.ι ≫ f)
+def IsStrictZariskiHypercover {Z : LogScheme} {U : SimplicialObject LogScheme}
+    (a : U ⟶ (Functor.const _).obj Z) : Prop := ∀ n,
+  IsStrict (logMatchingMap a n) ∧ IsZariskiCover (logUnderlying (logMatchingMap a n))
+structure WittPolynomialEmbeddingSystem {F : ArithmeticFrame} (X : HKSpace F) where
+  source : SimplicialObject LogScheme
+  augmentation : source ⟶ (Functor.const _).obj X.object
+  hypercover : IsStrictZariskiHypercover augmentation
+  ambient : SimplicialObject LogScheme
+  structureMap : ambient ⟶ (Functor.const _).obj (wittPolynomialLogBase F)
+  embedding : source ⟶ ambient
+  overBase : embedding ≫ structureMap =
+    augmentation ≫ (Functor.const _).map (X.structureMap ≫ wittResidueLogMap F)
+  exact : ∀ n, IsExactLog (embedding.app n)
+  closed : ∀ n, IsLogClosedImmersion (embedding.app n)
+  fine : ∀ n, IsFineLog (ambient.obj n)
+  smooth : ∀ n, IsLogSmooth (structureMap.app n)
+  finitePresentation : ∀ n, LocallyOfFinitePresentation (logUnderlying (structureMap.app n))
+-- These are the algebraic models for this SAME E, with their weak completion
+-- along source, t=0 fibre and tube specialization supplied by RD Part II.
+def tubeAlgebraicEmbeddingSystem {F : ArithmeticFrame} {X : HKSpace F}
+    (E : TubeEmbedding X) : WittPolynomialEmbeddingSystem X := by sorry
+def tubeAlgebraicModel {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) : LogScheme :=
+  (tubeAlgebraicEmbeddingSystem E).ambient.obj (Opposite.op (SimplexCategory.mk 0))
+def tubeAlgebraicStructure {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) :
+    tubeAlgebraicModel E ⟶ wittPolynomialLogBase F :=
+    (tubeAlgebraicEmbeddingSystem E).structureMap.app (Opposite.op (SimplexCategory.mk 0))
+def tubeAlgebraicBaseMap {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) :
+    (tubeAlgebraicModel E).scheme ⟶ (wittPolynomialLogBase F).scheme := logUnderlying (tubeAlgebraicStructure E)
+def tubeAlgebraicWittMap {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) :
+    (tubeAlgebraicModel E).scheme ⟶ Spec (CommRingCat.of (WittVector F.p F.k)) :=
+    tubeAlgebraicBaseMap E ≫ wittPolynomialToWitt F
+def wittPolynomialGenericPoint (F : ArithmeticFrame) :
+    Spec (CommRingCat.of (FractionRing (Polynomial (WittVector F.p F.k)))) ⟶
+      (wittPolynomialLogBase F).scheme := by sorry
+-- Generic point of Spec W[t], not the K-generic fibre of an O-model.
+def tubeAlgebraicGenericMap {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) :
+    Limits.pullback (tubeAlgebraicBaseMap E) (wittPolynomialGenericPoint F) ⟶
+      Spec (CommRingCat.of (FractionRing (Polynomial (WittVector F.p F.k)))) := Limits.pullback.snd _ _
+def tubeZeroFibre {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) : Scheme.{0} :=
+  Limits.pullback (tubeAlgebraicBaseMap E) (wittZeroSection F)
+def boundaryClosedScheme (D : SNCBoundaryView) : Scheme.{0} := by sorry
+def boundaryClosedInclusion (D : SNCBoundaryView) : boundaryClosedScheme D ⟶ D.ambient := by sorry
+-- The reduced closed divisor complementary to D.complement, with its actual
+-- Cartier ideal; all ordinary boundary geometry remains the R09.7a export.
+def wittAffineSpace (F : ArithmeticFrame) (d : ℕ) : Scheme.{0} :=
+  Spec (CommRingCat.of (MvPolynomial (Fin d) (WittVector F.p F.k)))
+def wittAffineSpaceMap (F : ArithmeticFrame) (d : ℕ) :
+    wittAffineSpace F d ⟶ Spec (CommRingCat.of (WittVector F.p F.k)) := by sorry
+def wittCoordinate (F : ArithmeticFrame) (d : ℕ) (j : Fin d) : Γ(wittAffineSpace F d, ⊤) := by sorry
+-- Native affine coordinate MvPolynomial.X j under the Spec/global-section iso.
+def RelativeSNCOverWitt (F : ArithmeticFrame) (D : SNCBoundaryView)
+    (f : D.ambient ⟶ Spec (CommRingCat.of (WittVector F.p F.k))) : Prop :=
+  ∀ x : D.ambient, ∃ U : D.ambient.Etale, ∃ u : U.left, U.hom.base u = x ∧
+    IsAffine U.left ∧ ∃ d : ℕ, ∃ e : U.left ⟶ wittAffineSpace F d,
+      Etale e ∧ e ≫ wittAffineSpaceMap F d = U.hom ≫ f ∧
+      ∃ r : ℕ, r ≤ d ∧ ∀ v : U.left,
+        U.hom.base v ∈ Set.range D.inclusion.base ↔
+          ∀ j : Fin d, j.val < r →
+            IsUnit (schemeGlobalToStalk U.left v (e.appTop.hom (wittCoordinate F d j)))
+set_option maxHeartbeats 0 in
+structure AdmissibleDegreeZeroLift {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) where
   flat : Flat (tubeAlgebraicBaseMap E)
-  finitePresentation : LocallyOfFinitePresentation (tubeAlgebraicBaseMap E)
+  genericallySmooth : Smooth (tubeAlgebraicGenericMap E)
+  smoothOverWitt : Smooth (tubeAlgebraicWittMap E)
   boundary : SNCBoundaryView
   ambientEq : boundary.ambient = (tubeAlgebraicModel E).scheme
-  zeroFibre : X.object ≅ qianModPSpecialFibre F (tubeAlgebraicModel E) (U := ⊤) (by sorry)
-  genericSmooth : Smooth (tubeGenericStructureMap E)
+  relativeSNC : RelativeSNCOverWitt F boundary (eqToHom ambientEq ≫ tubeAlgebraicWittMap E)
+  zeroDivisor : tubeZeroFibre E ≅ boundaryClosedScheme boundary
+  zeroDivisorOverAmbient : zeroDivisor.hom ≫ boundaryClosedInclusion boundary ≫ eqToHom ambientEq =
+    Limits.pullback.fst (tubeAlgebraicBaseMap E) (wittZeroSection F)
+  divisorLog : tubeAlgebraicModel E ≅ divisorialLog boundary
+  divisorLogUnderlying : logUnderlying divisorLog.hom ≫ (divisorialUnderlyingIso boundary).hom ≫ eqToHom ambientEq = 𝟙 _
+  specialFibre : (tubeAlgebraicEmbeddingSystem E).source.obj (Opposite.op (SimplexCategory.mk 0)) ≅
+    logFiberProduct (tubeAlgebraicStructure E) (wittResidueLogMap F)
+  specialFibreEmbedding : specialFibre.hom ≫ logFiberProductFst (tubeAlgebraicStructure E) (wittResidueLogMap F) =
+    (tubeAlgebraicEmbeddingSystem E).embedding.app (Opposite.op (SimplexCategory.mk 0))
+-- GK §§5.1-5.2, pp.26-27: local lift cover; products OVER W; blowup of
+-- products of corresponding flat divisor components; remove strict transforms;
+-- exceptional divisor and diagonal embeddings. The resulting maps commute
+-- with all faces, degeneracies, augmentation and base structure maps.
+def gkInducedEmbeddingSystem {F : ArithmeticFrame} {X : HKSpace F} {E : TubeEmbedding X}
+    (L : AdmissibleDegreeZeroLift E) : WittPolynomialEmbeddingSystem X := by sorry
+structure WittEmbeddingSystemIso {F : ArithmeticFrame} {X : HKSpace F}
+    (A B : WittPolynomialEmbeddingSystem X) where
+  source : A.source ≅ B.source
+  ambient : A.ambient ≅ B.ambient
+  augmentation : source.hom ≫ B.augmentation = A.augmentation
+  embedding : A.embedding ≫ ambient.hom = source.hom ≫ B.embedding
+  overBase : ambient.hom ≫ B.structureMap = A.structureMap
+structure AdmissibleTubeEmbedding {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X) where
+  degreeZero : AdmissibleDegreeZeroLift E
+  higherInduced : WittEmbeddingSystemIso (tubeAlgebraicEmbeddingSystem E) (gkInducedEmbeddingSystem degreeZero)
 def IsAdmissibleTubeEmbedding {F : ArithmeticFrame} {X : HKSpace F}
     (E : TubeEmbedding X) : Prop := Nonempty (AdmissibleTubeEmbedding E)
+-- Absolute forms on Z^n/W, ordinary subcomplex and the cokernel in degree q+1.
+def ordinaryWittFormSheaf (F : ArithmeticFrame) (Z : LogScheme)
+    (f : Z.scheme ⟶ Spec (CommRingCat.of (WittVector F.p F.k))) (q : ℕ) : EtaleModules Z.scheme := by sorry
+def tubeAbsoluteWittMap {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X)
+    (n : SimplexCategoryᵒᵖ) : (tubeAlgebraicEmbeddingSystem E).ambient.obj n ⟶
+      trivialLogScheme (Spec (CommRingCat.of (WittVector F.p F.k))) := by sorry
+-- This is structureMap.app n followed by W[t]^log -> W^triv.
+def ordinaryToLogWittForms {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X)
+    (n : SimplexCategoryᵒᵖ) (q : ℕ) :
+    ordinaryWittFormSheaf F ((tubeAlgebraicEmbeddingSystem E).ambient.obj n)
+      (logUnderlying (tubeAbsoluteWittMap E n)) q ⟶ relativeLogFormSheaf (tubeAbsoluteWittMap E n) q := by sorry
+instance etaleModulesHasCokernels (Z : Scheme.{0}) : Limits.HasCokernels (EtaleModules Z) := by sorry
+def residueQuotientSheaf {F : ArithmeticFrame} {X : HKSpace F} (E : TubeEmbedding X)
+    (n : SimplexCategoryᵒᵖ) (q : ℕ) : EtaleModules ((tubeAlgebraicEmbeddingSystem E).ambient.obj n).scheme :=
+    Limits.cokernel (ordinaryToLogWittForms E n (q+1))
+-- RD's analytic realization restricts this q+1 quotient to the actual t=0
+-- fibre, then to the same simplicial tubes of E, and takes their total complex.
+def tubeResidueFormComplex {F : ArithmeticFrame} {X : HKSpace F}
+    (E : TubeEmbedding X) (A : AdmissibleTubeEmbedding E) : TubeDerived E := by sorry
+def convergentResidueQuotient {F : ArithmeticFrame} {X : HKSpace F}
+    (E : TubeEmbedding X) (A : AdmissibleTubeEmbedding E) : SpecialDerived X :=
+    (derivedSpecialization E).obj (tubeResidueFormComplex E A)
+def supportedConvergentResidue {F : ArithmeticFrame} {X : HKSpace F}
+    (E : TubeEmbedding X) (A : AdmissibleTubeEmbedding E) (U : X.object.scheme.Opens) : SpecialDerived X :=
+    (derivedSpecialization E).obj ((derivedTubeSupport E U).obj (tubeResidueFormComplex E A))
+def rationalSatoXi {F : ArithmeticFrame} (X : HKSpace F) : SpecialDerived X := by sorry
 def convergent_sato_residue_comparison {F : ArithmeticFrame} {X : HKSpace F}
-    (E : TubeEmbedding X) (h : IsStrictlySemistable X)
-    (ha : IsAdmissibleTubeEmbedding E) : convergentResidueQuotient E ≅ rationalSatoXi X := by sorry
+    (E : TubeEmbedding X) (h : IsStrictlySemistable X) (A : AdmissibleTubeEmbedding E) :
+    convergentResidueQuotient E A ≅ rationalSatoXi X := by sorry
+-- Support is applied to THIS quotient complex on E before specialization;
+-- DL (B.9) is the natural comparison, not a general support commutation iso.
+def specialExtensionByZero {F : ArithmeticFrame} {X : HKSpace F} (U : X.object.scheme.Opens) :
+    SpecialDerived X ⥤ SpecialDerived X := by sorry
+-- F_! F^* for the actual open U -> X, supplied by EDS.
+def satoSupportedComparison {F : ArithmeticFrame} {X : HKSpace F}
+    (E : TubeEmbedding X) (A : AdmissibleTubeEmbedding E) (U : X.object.scheme.Opens) :
+    (specialExtensionByZero U).obj (rationalSatoXi X) ⟶ supportedConvergentResidue E A U := by sorry
 def logRigidCohomology {F : ArithmeticFrame} (X : HKSpace F) : LogDerived F.K0 := by sorry
 def proper_logRigid_HK {F : ArithmeticFrame} (X : HKSpace F)
     (hp : IsProper (logUnderlying X.structureMap)) (h : IsStrictlySemistable X) : logRigidCohomology X ≅ rationalHK X := by sorry
@@ -3244,105 +3611,332 @@ structure FiniteProjectiveEvaluation (A : Type) [CommRing A] where
 attribute [instance] FiniteProjectiveEvaluation.finite FiniteProjectiveEvaluation.projective
 structure FiniteProjectiveCrystal (B : LogPDBase) (Z : LogOverPDBase B) where
   crystal : Crystals B Z
-  finite : ∀ T, Module.Finite ((logCrystallineStructure B Z).obj.obj T) (crystal.modules.obj T)
-  projective : ∀ T, Module.Projective ((logCrystallineStructure B Z).obj.obj T) (crystal.modules.obj T)
+  finiteLocallyFree : ∀ T, EtaleFiniteLocallyFree (crystal.evaluation T)
+instance (B : LogPDBase) (Z : LogOverPDBase B) : Category (FiniteProjectiveCrystal B Z) where
+  Hom F G := F.crystal ⟶ G.crystal
+  id F := 𝟙 F.crystal
+  comp f g := f ≫ g
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+instance (B : LogPDBase) (Z : LogOverPDBase B) : Preadditive (FiniteProjectiveCrystal B Z) := by sorry
+def finiteCrystalForget (B : LogPDBase) (Z : LogOverPDBase B) :
+    FiniteProjectiveCrystal B Z ⥤ Crystals B Z where
+  obj F := F.crystal
+  map f := f
+-- Global finite projectivity is an AFFINE consequence of finite local freeness.
 def coefficientInterface {B : LogPDBase} {Z : LogOverPDBase B}
-    (F : FiniteProjectiveCrystal B Z) (T : (LogCrysObject B Z)ᵒᵖ) :
-    FiniteProjectiveEvaluation ((logCrystallineStructure B Z).obj.obj T) :=
-  { module := F.crystal.modules.obj T
-    finite := F.finite T
-    projective := F.projective T }
+    (F : FiniteProjectiveCrystal B Z) (T : (LogCrysObject B Z)ᵒᵖ)
+    (ha : IsAffine T.unop.thickening.ambient.object.scheme) :
+    FiniteProjectiveEvaluation ((logCrystallineStructure B Z).obj.obj T) := by sorry
 def finiteStructureCrystal (B : LogPDBase) (Z : LogOverPDBase B) : FiniteProjectiveCrystal B Z := by sorry
 def finiteZeroCrystal (B : LogPDBase) (Z : LogOverPDBase B) : FiniteProjectiveCrystal B Z := by sorry
 namespace coefficientInterface
  def evaluate {B : LogPDBase} {Z : LogOverPDBase B} (F : FiniteProjectiveCrystal B Z)
-    (T : (LogCrysObject B Z)ᵒᵖ) : ModuleCat.{0} ((logCrystallineStructure B Z).obj.obj T) :=
-    (coefficientInterface F T).module
+    (T : LogCrysObject B Z) : EtaleModules T.thickening.ambient.object.scheme := F.crystal.evaluation T
  def pullback {B : LogPDBase} {Z : LogOverPDBase B} (F : FiniteProjectiveCrystal B Z)
-    {T T' : (LogCrysObject B Z)ᵒᵖ} (g : T ⟶ T') :
-    (ModuleCat.extendScalars ((logCrystallineStructure B Z).obj.map g).hom).obj (evaluate F T) ≅
-      evaluate F T' := by sorry
+    {T T' : LogCrysObject B Z} (g : T' ⟶ T) :
+    (etaleModulePullback (logUnderlying g.map.ambient)).obj (evaluate F T) ≅ evaluate F T' :=
+    F.crystal.transition g
  def tensor_dual {B : LogPDBase} {Z : LogOverPDBase B} (F G : FiniteProjectiveCrystal B Z)
-    (T : (LogCrysObject B Z)ᵒᵖ) :
-    (LogCrystal.tensor F.crystal G.crystal).modules.obj T ≅
-      ModuleCat.of ((logCrystallineStructure B Z).obj.obj T) (evaluate F T ⊗[((logCrystallineStructure B Z).obj.obj T)] evaluate G T) := by sorry
+    (T : LogCrysObject B Z) :
+    (LogCrystal.tensor F.crystal G.crystal).evaluation T ≅
+      etaleModuleTensor (evaluate F T) (evaluate G T) := F.crystal.tensor_evaluation G.crystal T
  def dual_evaluation {B : LogPDBase} {Z : LogOverPDBase B} (F : FiniteProjectiveCrystal B Z)
-    (T : (LogCrysObject B Z)ᵒᵖ) :
-    (LogCrystal.dual F.crystal F.finite F.projective).modules.obj T ≅
-      ModuleCat.of ((logCrystallineStructure B Z).obj.obj T)
-        (Module.Dual ((logCrystallineStructure B Z).obj.obj T) (evaluate F T)) := by sorry
+    (T : LogCrysObject B Z) :
+    (LogCrystal.dual F.crystal F.finiteLocallyFree).evaluation T ≅
+      etaleModuleDual (evaluate F T) := F.crystal.dual_evaluation F.finiteLocallyFree T
 end coefficientInterface
 -- Test: TauCeti.LogCrystalline.coefficientInterface.structure
-example (B : LogPDBase) (Z : LogOverPDBase B) (T : (LogCrysObject B Z)ᵒᵖ) :
+example (B : LogPDBase) (Z : LogOverPDBase B) (T : LogCrysObject B Z) :
     coefficientInterface.evaluate (finiteStructureCrystal B Z) T ≅
-      ModuleCat.of ((logCrystallineStructure B Z).obj.obj T) ((logCrystallineStructure B Z).obj.obj T) := by sorry
+      etaleFree T.thickening.ambient.object.scheme 1 := by sorry
 -- Test: TauCeti.LogCrystalline.coefficientInterface.zero
-example (B : LogPDBase) (Z : LogOverPDBase B) (T : (LogCrysObject B Z)ᵒᵖ) :
+example (B : LogPDBase) (Z : LogOverPDBase B) (T : LogCrysObject B Z) :
     Limits.IsZero (coefficientInterface.evaluate (finiteZeroCrystal B Z) T) := by sorry
 -- Test: TauCeti.LogCrystalline.coefficientInterface.nonflat_failure
 example (p : ℕ) [Fact p.Prime] :
     ¬ Module.Flat (PadicInt p) (PadicInt p ⧸ Ideal.span {(p : PadicInt p)}) := by sorry
 
--- CR.5 and CR.7/finite-projective-coefficients own the geometric category:
--- compatible completed finite locally free crystals, followed by inversion
--- of p, with geometric Frobenius pullback and de Rham evaluation.
--- R06.2 supplies filtered (phi,N) conventions and period normalizations.
--- REVIEW: the category/evaluation adapter and nonaffine sheaf filtration
--- still need to be specified; the global module below is only an affine slice.
-def RationalCoefficientCrystal {F : ArithmeticFrame} (M : SemistableModel F) : Type 1 := by sorry
+-- The completed category uses M/p, NOT the reduced M/pi, so that the actual
+-- thickenings M/p^(n+1) carry canonical PD(p), including ramified O-models.
+-- Its base is W_n with TRIVIAL log; this is not the HK base with 1 mapping to 0.
+def coefficientPDBase (F : ArithmeticFrame) (n : ℕ) : LogPDBase := by sorry
+def coefficientPDBase_ring (F : ArithmeticFrame) (n : ℕ) :
+    (coefficientPDBase F n).ring ≅ truncatedWittRing F (n+1) := by sorry
+def coefficientPDBase_log (F : ArithmeticFrame) (n : ℕ) :
+    (coefficientPDBase F n).object ≅ trivialLogScheme (Spec (coefficientPDBase F n).ring) := by sorry
+def coefficientModelReduction {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) : LogScheme := by sorry
+def coefficientReductionInclusion {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    coefficientModelReduction M n ⟶ M.object := by sorry
+def coefficientModelReduction_fibre {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    (coefficientModelReduction M n).scheme ≅
+      Limits.pullback (logUnderlying M.structureMap)
+        (Spec.map (CommRingCat.ofHom (Ideal.Quotient.mk (Ideal.span {(F.p : F.O)^(n+1)})))) := by sorry
+def coefficientLevelSource {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    LogOverPDBase (coefficientPDBase F n) := by sorry
+theorem coefficientLevelSource_object {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    (coefficientLevelSource M n).object = coefficientModelReduction M 0 := by sorry
+def coefficientModelPDThickening {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    LogPDThickening (coefficientPDBase F n) (coefficientLevelSource M n) := by sorry
+def coefficientModelPDObject {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    LogCrysObject (coefficientPDBase F n) (coefficientLevelSource M n) :=
+    pdIdentitySiteObject (coefficientModelPDThickening M n)
+theorem coefficientModelPDObject_ambient {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    (coefficientModelPDObject M n).thickening.ambient.object = coefficientModelReduction M n := by sorry
+def coefficientModelAmbientInclusion {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    (coefficientModelPDObject M n).thickening.ambient.object.scheme ⟶ M.object.scheme :=
+  logUnderlying ((eqToHom (coefficientModelPDObject_ambient M n)) ≫ coefficientReductionInclusion M n)
+def coefficientAmbientReduction {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    (coefficientModelPDObject M n).thickening.ambient.object.scheme ⟶
+      (coefficientModelPDObject M (n+1)).thickening.ambient.object.scheme := by sorry
+theorem coefficientAmbientReduction_overModel {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    coefficientAmbientReduction M n ≫ coefficientModelAmbientInclusion M (n+1) =
+      coefficientModelAmbientInclusion M n := by sorry
+-- Canonical reduction W_(n+2) -> W_(n+1), with the identity on M/p.
+def coefficientLevelReduction {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    FiniteProjectiveCrystal (coefficientPDBase F (n+1)) (coefficientLevelSource M (n+1)) ⥤
+      FiniteProjectiveCrystal (coefficientPDBase F n) (coefficientLevelSource M n) := by sorry
+structure CompletedCoefficientCrystal {F : ArithmeticFrame} (M : SemistableModel F) where
+  level : ∀ n, FiniteProjectiveCrystal (coefficientPDBase F n) (coefficientLevelSource M n)
+  reduction : ∀ n, (coefficientLevelReduction M n).obj (level (n+1)) ≅ level n
+structure CompletedCoefficientHom {F : ArithmeticFrame} {M : SemistableModel F}
+    (C D : CompletedCoefficientCrystal M) where
+  level : ∀ n, C.level n ⟶ D.level n
+  compatible : ∀ n, (coefficientLevelReduction M n).map (level (n+1)) ≫ (D.reduction n).hom =
+    (C.reduction n).hom ≫ level n
+instance {F : ArithmeticFrame} (M : SemistableModel F) : Category.{1} (CompletedCoefficientCrystal M) where
+  Hom := CompletedCoefficientHom
+  id C := ⟨fun n => 𝟙 (C.level n), by sorry⟩
+  comp f g := ⟨fun n => f.level n ≫ g.level n, by sorry⟩
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+instance {F : ArithmeticFrame} (M : SemistableModel F) : Preadditive (CompletedCoefficientCrystal M) := by sorry
 instance {F : ArithmeticFrame} (M : SemistableModel F) :
-    Category.{0} (RationalCoefficientCrystal M) := by sorry
-instance {F : ArithmeticFrame} (M : SemistableModel F) :
-    Preadditive (RationalCoefficientCrystal M) := by sorry
-instance {F : ArithmeticFrame} (M : SemistableModel F) :
-    Linear F.K0 (RationalCoefficientCrystal M) := by sorry
+    Linear (WittVector F.p F.k) (CompletedCoefficientCrystal M) := by sorry
+-- Adjacent isomorphisms compose to all reductions; their morphism coherence
+-- makes this an inverse system, not a freely chosen sequence of evaluations.
+def completedCoefficientLevel {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    CompletedCoefficientCrystal M ⥤
+      FiniteProjectiveCrystal (coefficientPDBase F n) (coefficientLevelSource M n) where
+  obj C := C.level n
+  map f := f.level n
+-- Evaluate the very same crystal at the canonical PD thickening M/p^(n+1).
+-- The isomorphism combines crystalline base reduction with C.reduction n.
+def coefficientEvaluationReduction {F : ArithmeticFrame} {M : SemistableModel F}
+    (C : CompletedCoefficientCrystal M) (n : ℕ) :
+    (etaleModulePullback (coefficientAmbientReduction M n)).obj
+      ((C.level (n+1)).crystal.evaluation (coefficientModelPDObject M (n+1))) ≅
+        (C.level n).crystal.evaluation (coefficientModelPDObject M n) := by sorry
+-- Explicit p-inversion: retain an integral lattice as object and localize Hom.
+structure RationalCoefficientCrystal {F : ArithmeticFrame} (M : SemistableModel F) where
+  integral : CompletedCoefficientCrystal M
+def rationalCoefficientHom {F : ArithmeticFrame} {M : SemistableModel F}
+    (C D : RationalCoefficientCrystal M) := F.K0 ⊗[WittVector F.p F.k] (C.integral ⟶ D.integral)
+def rationalCoefficientComp {F : ArithmeticFrame} {M : SemistableModel F}
+    {C D E : RationalCoefficientCrystal M} (f : rationalCoefficientHom C D)
+    (g : rationalCoefficientHom D E) : rationalCoefficientHom C E := by sorry
+instance {F : ArithmeticFrame} (M : SemistableModel F) : Category.{1} (RationalCoefficientCrystal M) where
+  Hom := rationalCoefficientHom
+  id C := 1 ⊗ₜ[WittVector F.p F.k] (𝟙 C.integral)
+  comp := rationalCoefficientComp
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+instance {F : ArithmeticFrame} (M : SemistableModel F) : Preadditive (RationalCoefficientCrystal M) := by sorry
+instance {F : ArithmeticFrame} (M : SemistableModel F) : Linear F.K0 (RationalCoefficientCrystal M) := by sorry
+theorem rationalCoefficientComp_tmul {F : ArithmeticFrame} {M : SemistableModel F}
+    {C D E : RationalCoefficientCrystal M} (a b : F.K0)
+    (f : C.integral ⟶ D.integral) (g : D.integral ⟶ E.integral) :
+    rationalCoefficientComp (C := C) (D := D) (E := E)
+      (a ⊗ₜ[WittVector F.p F.k] f) (b ⊗ₜ[WittVector F.p F.k] g) =
+        (a*b) ⊗ₜ[WittVector F.p F.k] (f ≫ g) := by sorry
+def coefficientIntegralInversion {F : ArithmeticFrame} (M : SemistableModel F) :
+    CompletedCoefficientCrystal M ⥤ RationalCoefficientCrystal M where
+  obj C := ⟨C⟩
+  map f := 1 ⊗ₜ[WittVector F.p F.k] f
+  map_id := by sorry
+  map_comp := by sorry
+-- Levelwise pullback along absolute Frobenius of M/p and Witt sigma, followed
+-- by the same reduction isomorphisms. This does not require a lift on O.
+def coefficientLevelFrobenius {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    FiniteProjectiveCrystal (coefficientPDBase F n) (coefficientLevelSource M n) ⥤
+      FiniteProjectiveCrystal (coefficientPDBase F n) (coefficientLevelSource M n) := by sorry
+def completedCoefficientFrobenius {F : ArithmeticFrame} (M : SemistableModel F) :
+    CompletedCoefficientCrystal M ⥤ CompletedCoefficientCrystal M := by sorry
+def completedCoefficientFrobenius_level {F : ArithmeticFrame} (M : SemistableModel F) (n : ℕ) :
+    completedCoefficientFrobenius M ⋙ completedCoefficientLevel M n ≅
+      completedCoefficientLevel M n ⋙ coefficientLevelFrobenius M n := by sorry
 def coefficientFrobeniusPullback {F : ArithmeticFrame} (M : SemistableModel F) :
     RationalCoefficientCrystal M ⥤ RationalCoefficientCrystal M := by sorry
-def genericCoefficientRing {F : ArithmeticFrame} (M : SemistableModel F) : CommRingCat.{0} :=
-  Γ(semistableGeneric M, ⊤)
-instance {F : ArithmeticFrame} (M : SemistableModel F) : Algebra F.K (genericCoefficientRing M) := by sorry
-def genericCoefficientGeometry {F : ArithmeticFrame} (M : SemistableModel F) :
-    DifferentialGeometry F.K (genericCoefficientRing M) := by sorry
-def coefficientDeRhamModule {F : ArithmeticFrame} {M : SemistableModel F}
-    (C : RationalCoefficientCrystal M) : ModuleCat.{0} (genericCoefficientRing M) := by sorry
-def coefficientDeRhamConnection {F : ArithmeticFrame} {M : SemistableModel F}
+theorem coefficientFrobeniusPullback_integral {F : ArithmeticFrame} {M : SemistableModel F}
     (C : RationalCoefficientCrystal M) :
-    LogConnection (coefficientDeRhamModule C) (formModule (genericCoefficientGeometry M) 1)
-      (formDerivation (genericCoefficientGeometry M)) := by sorry
+    ((coefficientFrobeniusPullback M).obj C).integral = (completedCoefficientFrobenius M).obj C.integral := by sorry
+theorem coefficientFrobeniusPullback_smul {F : ArithmeticFrame} {M : SemistableModel F}
+    {C D : RationalCoefficientCrystal M} (a : F.K0) (f : C ⟶ D) :
+    (coefficientFrobeniusPullback M).map (a • f) = F.sigma a • (coefficientFrobeniusPullback M).map f := by sorry
+-- General relative log forms and connections reuse the CR.5 sheaf tensor.
+def relativeLogDerivative {X Y : LogScheme} (f : X ⟶ Y) (U : X.scheme.Etaleᵒᵖ) :
+    (etaleStructureRingSheaf X.scheme).obj.obj U →+ (relativeLogFormSheaf f 1).val.obj U := by sorry
+structure RelativeSheafConnection {X Y : LogScheme} (f : X ⟶ Y) where
+  modules : EtaleModules X.scheme
+  nabla : ∀ U, modules.val.obj U →+ (etaleModuleTensor modules (relativeLogFormSheaf f 1)).val.obj U
+  restriction : ∀ {U V} (g : U ⟶ V) m,
+    (etaleModuleTensor modules (relativeLogFormSheaf f 1)).val.map g (nabla U m) =
+      nabla V (modules.val.map g m)
+  leibniz : ∀ U a m, nabla U (a • m) = a • nabla U m +
+    etaleTensorSection modules (relativeLogFormSheaf f 1) U m (relativeLogDerivative f U a)
+def relativeSheafExtended {X Y : LogScheme} {f : X ⟶ Y} (C : RelativeSheafConnection f)
+    (q : ℕ) (U : X.scheme.Etaleᵒᵖ) :
+    (etaleModuleTensor C.modules (relativeLogFormSheaf f q)).val.obj U →+
+      (etaleModuleTensor C.modules (relativeLogFormSheaf f (q+1))).val.obj U := by sorry
+def RelativeSheafIntegrable {X Y : LogScheme} {f : X ⟶ Y} (C : RelativeSheafConnection f) : Prop :=
+  ∀ U m, relativeSheafExtended C 1 U (C.nabla U m) = 0
+def modelOverWitt {F : ArithmeticFrame} (M : SemistableModel F) :
+    M.object ⟶ trivialLogScheme (Spec (CommRingCat.of (WittVector F.p F.k))) := by sorry
+-- The structure map is induced by integralWittEmbedding : W -> O and M -> O.
+-- Reducing this algebraic connection gives a connection in the PD quotient forms.
+def coefficientConnectionReduction {F : ArithmeticFrame} {M : SemistableModel F}
+    (C : RelativeSheafConnection (modelOverWitt M)) (hi : RelativeSheafIntegrable C) (n : ℕ) :
+    PDConnectionSheaf (coefficientModelPDObject M n).thickening := by sorry
+-- Restriction to M/p^(n+1), using coefficientModelPDObject_ambient.
+def coefficientLatticeRestriction {F : ArithmeticFrame} {M : SemistableModel F}
+    (L : EtaleModules M.object.scheme) (n : ℕ) :
+    EtaleModules (coefficientModelPDObject M n).thickening.ambient.object.scheme :=
+  (etaleModulePullback (coefficientModelAmbientInclusion M n)).obj L
+def coefficientConnectionReductionTransition {F : ArithmeticFrame} {M : SemistableModel F}
+    (C : RelativeSheafConnection (modelOverWitt M)) (hi : RelativeSheafIntegrable C) (n : ℕ) :
+    (etaleModulePullback (coefficientAmbientReduction M n)).obj
+      (coefficientConnectionReduction C hi (n+1)).modules ≅
+        (coefficientConnectionReduction C hi n).modules := by sorry
+-- Algebraization is additional data. Completed crystals canonically give a
+-- FORMAL realization; no arbitrary nonproper algebraization is inferred.
+structure CoefficientAlgebraization {F : ArithmeticFrame} {M : SemistableModel F}
+    (C : RationalCoefficientCrystal M) where
+  connection : RelativeSheafConnection (modelOverWitt M)
+  finiteLocallyFree : EtaleFiniteLocallyFree connection.modules
+  integrable : RelativeSheafIntegrable connection
+  reduction : ∀ n, (coefficientConnectionReduction connection integrable n).modules ≅
+    (C.integral.level n).crystal.evaluation (coefficientModelPDObject M n)
+  compatibleReduction : ∀ n,
+    (etaleModulePullback (coefficientAmbientReduction M n)).map (reduction (n+1)).hom ≫
+      (coefficientEvaluationReduction C.integral n).hom =
+        (coefficientConnectionReductionTransition connection integrable n).hom ≫ (reduction n).hom
+  horizontal : ∀ n U m,
+    let A := coefficientConnectionReduction connection integrable n
+    let D := crystalEvaluation (C.integral.level n).crystal (coefficientModelPDObject M n).thickening
+    D.nabla U ((reduction n).hom.val.app U m) =
+      (etaleTensorMap (reduction n).hom (𝟙 (pdFormSheaf (coefficientModelPDObject M n).thickening 1))).val.app U
+        (A.nabla U m)
+theorem coefficientConnectionReduction_modules {F : ArithmeticFrame} {M : SemistableModel F}
+    (C : RelativeSheafConnection (modelOverWitt M)) (hi : RelativeSheafIntegrable C) (n : ℕ) :
+    (coefficientConnectionReduction C hi n).modules = coefficientLatticeRestriction C.modules n := by sorry
+-- Generic realization is restriction of THAT algebraic lattice, followed by
+-- quotienting W-relative forms to K-relative forms. It exists here because A is supplied.
+def semistableGenericInclusion {F : ArithmeticFrame} (M : SemistableModel F) :
+    semistableGeneric M ⟶ M.object.scheme := by sorry
+def genericLogStructureMap {F : ArithmeticFrame} (M : SemistableModel F) :
+    trivialLogScheme (semistableGeneric M) ⟶ trivialLogScheme (Spec (CommRingCat.of F.K)) := by sorry
+def coefficientDeRhamSheaf {F : ArithmeticFrame} {M : SemistableModel F}
+    {C : RationalCoefficientCrystal M} (A : CoefficientAlgebraization C) : EtaleModules (semistableGeneric M) :=
+    (etaleModulePullback (semistableGenericInclusion M)).obj A.connection.modules
+def coefficientDeRhamConnection {F : ArithmeticFrame} {M : SemistableModel F}
+    {C : RationalCoefficientCrystal M} (A : CoefficientAlgebraization C) :
+    RelativeSheafConnection (genericLogStructureMap M) := by sorry
+theorem coefficientDeRhamConnection_modules {F : ArithmeticFrame} {M : SemistableModel F}
+    {C : RationalCoefficientCrystal M} (A : CoefficientAlgebraization C) :
+    (coefficientDeRhamConnection A).modules = coefficientDeRhamSheaf A := by sorry
 theorem coefficientDeRham_integrable {F : ArithmeticFrame} {M : SemistableModel F}
-    (C : RationalCoefficientCrystal M) : IsIntegrableConnection (coefficientDeRhamConnection C) := by sorry
-theorem coefficientDeRham_finite_projective {F : ArithmeticFrame} {M : SemistableModel F}
-    (C : RationalCoefficientCrystal M) (ha : IsAffine (semistableGeneric M)) :
-    Module.Finite (genericCoefficientRing M) (coefficientDeRhamModule C) ∧
-    Module.Projective (genericCoefficientRing M) (coefficientDeRhamModule C) := by sorry
--- REVIEW: these fields are global modules and global complements. They do
--- not yet implement descent of locally split filtrations on a nonaffine model.
+    {C : RationalCoefficientCrystal M} (A : CoefficientAlgebraization C) :
+    RelativeSheafIntegrable (coefficientDeRhamConnection A) := by sorry
+-- Filtration subobjects and tensor images are SHEAF submodules.
+def etaleSubmodulePullback {X Y : Scheme.{0}} (f : X ⟶ Y) {M : EtaleModules Y}
+    (P : SheafOfModules.Submodule M) : SheafOfModules.Submodule ((etaleModulePullback f).obj M) := by sorry
+-- Defined as the sheaf image of f^*P -> f^*M; on etale maps or split P,
+-- this is the usual pullback subbundle. No flatness of a general model map is assumed.
+def EtaleLocallySplit {X : Scheme.{0}} {M : EtaleModules X} (P : SheafOfModules.Submodule M) : Prop :=
+  ∀ x : X, ∃ U : X.Etale, ∃ u : U.left, U.hom.base u = x ∧
+    ∃ Q : SheafOfModules.Submodule ((etaleModulePullback U.hom).obj M),
+      IsCompl (etaleSubmodulePullback U.hom P) Q
+def etaleTensorSubmodule {X : Scheme.{0}} {M : EtaleModules X}
+    (P : SheafOfModules.Submodule M) (N : EtaleModules X) :
+    SheafOfModules.Submodule (etaleModuleTensor M N) := by sorry
+-- Sheaf image of P tensor N -> M tensor N; membership means LOCAL image membership.
+def projectiveLineEulerSubbundle (k : Type) [Field k] :
+    SheafOfModules.Submodule (etaleFree (projectiveLine k) 2) := by sorry
+-- Image of O(-1) -> O^2 given by the two homogeneous coordinates;
+-- its quotient is O(1), the Euler sequence on this actual projective line.
+-- Test: TauCeti.LogCrystalline.arithmeticCoefficientInterface.local_split_not_global
+example (k : Type) [Field k] :
+    EtaleLocallySplit (projectiveLineEulerSubbundle k) ∧
+      ¬ ∃ Q : SheafOfModules.Submodule (etaleFree (projectiveLine k) 2),
+        IsCompl (projectiveLineEulerSubbundle k) Q := by sorry
 structure ArithmeticCoefficientData {F : ArithmeticFrame} (M : SemistableModel F) where
   crystal : RationalCoefficientCrystal M
+  algebraization : CoefficientAlgebraization crystal
   phi : (coefficientFrobeniusPullback M).obj crystal ⟶ crystal
   phiIso : IsIso phi
   monodromy : crystal ⟶ crystal
   relation : phi ≫ monodromy =
     (F.p : F.K0) • ((coefficientFrobeniusPullback M).map monodromy ≫ phi)
-  filtration : ℤ → Submodule (genericCoefficientRing M) (coefficientDeRhamModule crystal)
+  filtration : ℤ → SheafOfModules.Submodule (coefficientDeRhamConnection algebraization).modules
   decreasing : ∀ i, filtration (i+1) ≤ filtration i
-  locallySplit : ∀ i, ∃ Q : Submodule (genericCoefficientRing M) (coefficientDeRhamModule crystal),
-    IsCompl (filtration i) Q
-  exhaustive : ∀ x, ∃ i, x ∈ filtration i
-  separated : ∀ x, (∀ i, x ∈ filtration i) → x = 0
-  transverse : ∀ i x, x ∈ filtration i → (coefficientDeRhamConnection crystal).nabla x ∈
-    LinearMap.range (TensorProduct.map (filtration (i-1)).subtype LinearMap.id)
+  locallySplit : ∀ i, EtaleLocallySplit (filtration i)
+  exhaustive : iSup filtration = ⊤
+  separated : iInf filtration = ⊥
+  transverse : ∀ i U x, x ∈ (filtration i).obj U →
+    (coefficientDeRhamConnection algebraization).nabla U x ∈
+      (etaleTensorSubmodule (filtration (i-1)) (relativeLogFormSheaf (genericLogStructureMap M) 1)).obj U
 def arithmeticCoefficientInterface {F : ArithmeticFrame} {M : SemistableModel F}
     (C : ArithmeticCoefficientData M) : ArithmeticCoefficientData M := C
--- Compatible geometric pullback belongs to the CR.5/CR.7 crystal adapter.
+-- Pullback at each finite level is along the actual map M'/p -> M/p.
+def coefficientLevelModelPullback {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) (n : ℕ) :
+    FiniteProjectiveCrystal (coefficientPDBase F n) (coefficientLevelSource M n) ⥤
+      FiniteProjectiveCrystal (coefficientPDBase F n) (coefficientLevelSource M' n) := by sorry
+def completedCoefficientModelPullback {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) : CompletedCoefficientCrystal M ⥤ CompletedCoefficientCrystal M' := by sorry
 def coefficientModelPullback {F : ArithmeticFrame} {M M' : SemistableModel F}
     (f : SemistableMorphism M' M) : RationalCoefficientCrystal M ⥤ RationalCoefficientCrystal M' := by sorry
+def coefficientModelPullback_level {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) (n : ℕ) :
+    completedCoefficientModelPullback f ⋙ completedCoefficientLevel M' n ≅
+      completedCoefficientLevel M n ⋙ coefficientLevelModelPullback f n := by sorry
+def coefficientModelPullback_frobenius {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) :
+    coefficientFrobeniusPullback M ⋙ coefficientModelPullback f ≅
+      coefficientModelPullback f ⋙ coefficientFrobeniusPullback M' := by sorry
+def coefficientGenericModelMap {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) : semistableGeneric M' ⟶ semistableGeneric M := by sorry
+theorem coefficientGenericModelMap_square {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) :
+    coefficientGenericModelMap f ≫ semistableGenericInclusion M =
+      semistableGenericInclusion M' ≫ logUnderlying f.map := by sorry
+def etaleSubmoduleTransport {X : Scheme.{0}} {M N : EtaleModules X}
+    (e : M ≅ N) (P : SheafOfModules.Submodule M) : SheafOfModules.Submodule N := by sorry
+-- The image under e; its sections are exactly e(P), since e is an isomorphism.
+-- Pull back the algebraized generic connection along the actual generic map.
+-- Its differential is the pullback of nabla plus the scalar derivative,
+-- followed by the natural map on relative log forms (the chain rule).
+def coefficientDeRhamPullbackConnection {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) {C : RationalCoefficientCrystal M}
+    (A : CoefficientAlgebraization C) : RelativeSheafConnection (genericLogStructureMap M') where
+  modules := (etaleModulePullback (coefficientGenericModelMap f)).obj
+    (coefficientDeRhamConnection A).modules
+  nabla := by sorry
+  restriction := by sorry
+  leibniz := by sorry
+theorem coefficientDeRhamPullbackConnection_integrable {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) {C : RationalCoefficientCrystal M}
+    (A : CoefficientAlgebraization C) : RelativeSheafIntegrable (coefficientDeRhamPullbackConnection f A) := by sorry
 namespace arithmeticCoefficientInterface
  def frobenius {F : ArithmeticFrame} {M : SemistableModel F} (C : ArithmeticCoefficientData M) :
     (coefficientFrobeniusPullback M).obj C.crystal ⟶ C.crystal := C.phi
  def twist {F : ArithmeticFrame} {M : SemistableModel F} (C : ArithmeticCoefficientData M) (r : ℤ) :
     ArithmeticCoefficientData M where
   crystal := C.crystal
+  algebraization := C.algebraization
   phi := (F.p : F.K0)^(-r) • C.phi
   phiIso := by sorry
   monodromy := C.monodromy
@@ -3358,6 +3952,33 @@ namespace arithmeticCoefficientInterface
  def base_change_crystal {F : ArithmeticFrame} {M M' : SemistableModel F}
     (f : SemistableMorphism M' M) (C : ArithmeticCoefficientData M) :
     (base_change f C).crystal ≅ (coefficientModelPullback f).obj C.crystal := by sorry
+ theorem base_change_monodromy {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) (C : ArithmeticCoefficientData M) :
+    (base_change f C).monodromy ≫ (base_change_crystal f C).hom =
+      (base_change_crystal f C).hom ≫ (coefficientModelPullback f).map C.monodromy := by sorry
+ theorem base_change_frobenius {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) (C : ArithmeticCoefficientData M) :
+    (base_change f C).phi ≫ (base_change_crystal f C).hom =
+      (coefficientFrobeniusPullback M').map (base_change_crystal f C).hom ≫
+        (coefficientModelPullback_frobenius f).inv.app C.crystal ≫
+          (coefficientModelPullback f).map C.phi := by sorry
+ def base_change_deRham {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) (C : ArithmeticCoefficientData M) :
+    (etaleModulePullback (coefficientGenericModelMap f)).obj
+      (coefficientDeRhamConnection C.algebraization).modules ≅
+        (coefficientDeRhamConnection (base_change f C).algebraization).modules := by sorry
+ theorem base_change_horizontal {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) (C : ArithmeticCoefficientData M) (U : (semistableGeneric M').Etaleᵒᵖ)
+    (m : (coefficientDeRhamPullbackConnection f C.algebraization).modules.val.obj U) :
+    (coefficientDeRhamConnection (base_change f C).algebraization).nabla U
+      ((base_change_deRham f C).hom.val.app U m) =
+        (etaleTensorMap (base_change_deRham f C).hom
+          (𝟙 (relativeLogFormSheaf (genericLogStructureMap M') 1))).val.app U
+            ((coefficientDeRhamPullbackConnection f C.algebraization).nabla U m) := by sorry
+ theorem base_change_filtration {F : ArithmeticFrame} {M M' : SemistableModel F}
+    (f : SemistableMorphism M' M) (C : ArithmeticCoefficientData M) (i : ℤ) :
+    (base_change f C).filtration i = etaleSubmoduleTransport (base_change_deRham f C)
+      (etaleSubmodulePullback (coefficientGenericModelMap f) (C.filtration i)) := by sorry
 end arithmeticCoefficientInterface
 -- Test: TauCeti.LogCrystalline.arithmeticCoefficientInterface.twist_zero
 example {F : ArithmeticFrame} {M : SemistableModel F} (C : ArithmeticCoefficientData M) :
@@ -3366,13 +3987,10 @@ example {F : ArithmeticFrame} {M : SemistableModel F} (C : ArithmeticCoefficient
 example {F : ArithmeticFrame} {M : SemistableModel F} (C : ArithmeticCoefficientData M) :
     (arithmeticCoefficientInterface.twist C (-1)).phi = (F.p : F.K0) • C.phi ∧
     ∀ i, (arithmeticCoefficientInterface.twist C (-1)).filtration i = C.filtration (i-1) := by sorry
--- The geometric unit crystal has the two specified transverse filtrations;
--- their twist normalization agrees with R06.2.
 def constantArithmeticCoefficient {F : ArithmeticFrame} (M : SemistableModel F)
     (weight : ℤ) : ArithmeticCoefficientData M := by sorry
 -- Test: TauCeti.LogCrystalline.arithmeticCoefficientInterface.crystal_not_filtered
-example {F : ArithmeticFrame} (M : SemistableModel F) (ha : IsAffine (semistableGeneric M))
-    (hn : Nonempty (semistableGeneric M)) :
+example {F : ArithmeticFrame} (M : SemistableModel F) (hn : Nonempty (semistableGeneric M)) :
     (constantArithmeticCoefficient M 0).crystal = (constantArithmeticCoefficient M 1).crystal ∧
     (constantArithmeticCoefficient M 0).filtration ≠ (constantArithmeticCoefficient M 1).filtration := by sorry
 
@@ -3387,7 +4005,8 @@ def dieudonneFunctor (B : LogPDBase) (Z : LogOverPDBase B) [Fact (InCharacterist
 def dieudonneEvaluation {B : LogPDBase} {Z : LogOverPDBase B} [Fact (InCharacteristic B.p Z.object)]
     (hB : Nonempty (B.object ≅ trivialLogScheme (Spec B.ring)))
     (hZ : Nonempty (Z.object ≅ trivialLogScheme Z.object.scheme))
-    (G : PDivisibleGroup Z.object.scheme B.p) (T : (LogCrysObject B Z)ᵒᵖ) :
+    (G : PDivisibleGroup Z.object.scheme B.p) (T : (LogCrysObject B Z)ᵒᵖ)
+    (ha : IsAffine T.unop.thickening.ambient.object.scheme) :
     FiniteProjectiveEvaluation ((logCrystallineStructure B Z).obj.obj T) := by sorry
 def crystalFrobeniusPullback (B : LogPDBase) (Z : LogOverPDBase B) [Fact (InCharacteristic B.p Z.object)] : Crystals B Z ⥤ Crystals B Z := by sorry
 def dieudonneCrystalF {B : LogPDBase} {Z : LogOverPDBase B} [Fact (InCharacteristic B.p Z.object)]
@@ -3404,8 +4023,9 @@ namespace dieudonneEvaluation
  def evaluate {B : LogPDBase} {Z : LogOverPDBase B} [Fact (InCharacteristic B.p Z.object)]
     (hB : Nonempty (B.object ≅ trivialLogScheme (Spec B.ring)))
     (hZ : Nonempty (Z.object ≅ trivialLogScheme Z.object.scheme))
-    (G : PDivisibleGroup Z.object.scheme B.p) (T : (LogCrysObject B Z)ᵒᵖ) :
-    (dieudonneEvaluation hB hZ G T).module ≅
+    (G : PDivisibleGroup Z.object.scheme B.p) (T : (LogCrysObject B Z)ᵒᵖ)
+    (ha : IsAffine T.unop.thickening.ambient.object.scheme) :
+    (dieudonneEvaluation hB hZ G T ha).module ≅
       ((dieudonneFunctor B Z hB hZ).obj (Opposite.op G)).modules.obj T := by sorry
  def contravariant {B : LogPDBase} {Z : LogOverPDBase B} [Fact (InCharacteristic B.p Z.object)]
     (hB : Nonempty (B.object ≅ trivialLogScheme (Spec B.ring)))
@@ -3776,11 +4396,13 @@ def pdEvaluationModule {B : LogPDBase} {Z : LogOverPDBase B}
 -- Transport the crystal evaluation along the canonical structure-sections isomorphism.
 def pdEvaluationConnection {B : LogPDBase} {Z : LogOverPDBase B}
     (F : FiniteProjectiveCrystal B Z) (T : LogCrysObject B Z) (h : IsPDSmooth T.thickening) :
-    LogConnection (pdEvaluationModule F T) (formModule (pdDifferentialGeometry T.thickening) 1)
-      (formDerivation (pdDifferentialGeometry T.thickening)) := by sorry
+    PDConnectionSheaf T.thickening := by sorry
+theorem pdEvaluationConnection_modules {B : LogPDBase} {Z : LogOverPDBase B}
+    (F : FiniteProjectiveCrystal B Z) (T : LogCrysObject B Z) (h : IsPDSmooth T.thickening) :
+    (pdEvaluationConnection F T h).modules = F.crystal.evaluation T := by sorry
 def pdEvaluationStratification {B : LogPDBase} {Z : LogOverPDBase B}
     (F : FiniteProjectiveCrystal B Z) (T : LogCrysObject B Z) (h : IsPDSmooth T.thickening) :
-    LogPDStratification T.thickening (pdEvaluationModule F T) := by sorry
+    LogPDStratification T.thickening (F.crystal.evaluation T) := by sorry
 theorem coefficient_PD_connection {B : LogPDBase} {Z : LogOverPDBase B}
     (F : FiniteProjectiveCrystal B Z) (T : LogCrysObject B Z) (h : IsPDSmooth T.thickening) :
     (pdEvaluationStratification F T h).first_order = pdEvaluationConnection F T h := by sorry
