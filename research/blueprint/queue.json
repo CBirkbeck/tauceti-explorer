@@ -47389,7 +47389,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-MordellLawrenceVenkatesh.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7493"
   },
   {
    "id": "REV-PKG-MordellLawrenceVenkatesh",
@@ -47475,8 +47476,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PerfectoidQuotients.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7494"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7494",
+   "finishedAt": "2026-10-09T02:00:31Z"
   },
   {
    "id": "REV-PKG-PerfectoidQuotients",
