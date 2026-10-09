@@ -105098,9 +105098,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticGaloisRepresentations~adv.md",
-   "note": "claimed on GitHub issue #8066"
+   "note": "deliverables arrived from an external worker on issue #8066",
+   "finishedAt": "2026-10-09T19:49:50Z"
   },
   {
    "id": "REV-PKG-PerfectoidSpaces~adv",
@@ -105239,8 +105240,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-LocallyAnalyticDistributions~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-LocallyAnalyticDistributions~adv.md",
+   "note": "claimed on GitHub issue #8073"
   },
   {
    "id": "FIX-PKG-DiamondsAndVStacks~adv",
