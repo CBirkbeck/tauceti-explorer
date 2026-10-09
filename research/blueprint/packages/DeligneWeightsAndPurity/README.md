@@ -486,7 +486,7 @@ Sources: [AV](#ref-av), Chapter II, Lemma 1.3, p. 77.
 
 Let A be an abelian variety of dimension g over 𝔽_q. Every root of the characteristic polynomial P_{π_A} ∈ ℤ[X] is a Weil q-number of weight 1: all its complex conjugates have absolute value q^{1/2}. Equivalently, for every ℓ ∤ q, the geometric Frobenius on H¹(A_{𝔽̄_q}, ℚ_ℓ) is pure of weight 1, and the geometric Frobenius on V_ℓA is pure of weight −1. The same holds for π_A^m relative to q^m.
 
-Scope: The comparison identifies arithmetic Frobenius on V_ℓA with π_A, and geometric Frobenius on H¹ with its inverse dual. The Rosati proof precedes DWP.4.
+Scope: Arithmetic Frobenius on V_ℓA is π_A, so geometric Frobenius there is π_A⁻¹. Geometric Frobenius on H¹ is the ordinary transpose dual of π_A. The Rosati proof precedes DWP.4.
 
 Inputs: [1.2](#target-1-2), [1.3](#target-1-3), [E4](#input-e4), [0.1](#target-0-1), [0.3](#target-0-3), [E11](#input-e11).
 
@@ -2200,7 +2200,7 @@ Sources: [WII](#ref-wii), Weil II §1.8 (1.8.4), pp. 175–176; the LPV.7 semist
 
 ### 10.4. Mixed nearby cycles and Newton restrictions
 
-The arithmetic consumers use the already planned DWP.8 theorem that nearby-cycle cohomology sheaves of a mixed sheaf remain mixed, and its proper direct-image purity over ℤ[1/ℓ]. For an integral weight-w eigenvalue, DWP.7’s Newton couple (r,s) satisfies r+s=w and r,s≥0; its cohomological valuation triangles retain the separate compact-support/proper and smooth ordinary hypotheses. DWP.0 supplies the shared numeric Weil/ι-weight predicates to RD.6; RD.6 supplies its own F-isocrystal fibres and defines pointwise purity and mixedness there.
+The arithmetic consumers use DWP.8's mixedness theorem for nearby-cycle cohomology sheaves and its proper direct-image purity over ℤ[1/ℓ]. For an integral weight-w eigenvalue, DWP.7’s Newton couple (r,s) satisfies r+s=w and r,s≥0; its cohomological valuation triangles retain the separate compact-support/proper and smooth ordinary hypotheses. DWP.0 supplies the shared numeric Weil/ι-weight predicates to RD.6; RD.6 supplies its own F-isocrystal fibres and defines pointwise purity and mixedness there.
 
 Inputs: [8.7](#target-8-7), [8.13](#target-8-13), [7.13](#target-7-13), [7.14](#target-7-14), [0.1](#target-0-1), [0.4](#target-0-4).
 
