@@ -186,7 +186,7 @@ end TauCeti.RefinedTrace
 
 /-! Higher contracts omitted from executable signatures under protocol section 13.
 Each block records the packet declaration name, exact mathematical statement, API
-names and named test contracts. Synchronize the reader as required by the review.
+names and named test contracts. Their supplier references agree with the packet.
 -/
 
 /-
@@ -214,7 +214,7 @@ Required types/inputs: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMeth
 RefinedKuPeriodicComputation — RefinedTraceMethods:RT.5/refined-ku-periodic-computation
 Kind: theorem; implementation unchecked.
 TC−,ref((KU ⊗ Q)/KU) is even with π2* = A_KU[β,β⁻¹], |β|=2. A_KU is the idempotent nuclear ind Z[[q−1]]-algebra obtained by killing pro qHdg(derived qdR(Z/m)/Z), and 0 → Z[[q−1]] → A_KU → ind-colim_(m∈N^op) Ext¹_(Z[[q−1]])(qHdg(derived qdR(Z/m)/Z),Z[[q−1]]) → 0. Duals and Ext use the derived (q−1)-complete category. This is the periodic computation with its own convergence proof, not an application of a bounded-below formula to KU.
-Required types/inputs: RefinedTraceMethods:RT.5/refined-ku-computation; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.4:topological; RefinedTraceMethods:RT.4:q-Hodge; RefinedTraceMethods:RT.4:Habiro-comparison
+Required types/inputs: RefinedTraceMethods:RT.5/refined-ku-computation; RefinedTraceMethods:RT.5/even-completed-tensor; RefinedTraceMethods:RT.4:topological/homotopy-of-ku; RefinedTraceMethods:RT.4:topological/bott-localisation; RefinedTraceMethods:RT.4:topological/relative-thh-ku; RefinedTraceMethods:RT.4:topological/ku-circle-actions; RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global; RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-odd; RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-two; RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts; RefinedTraceMethods:RT.4:q-Hodge/cyclonic-even-filtrations; RefinedTraceMethods:RT.4:Habiro-comparison/twisted-q-hodge-comparison; RefinedTraceMethods:RT.4:Habiro-comparison/habiro-comparison-theorem
 -/
 
 /-
@@ -242,7 +242,7 @@ Required types/inputs: RefinedTraceMethods:RT.6/graded-motivic-comparison; Refin
 HabiroTraceInterface — RefinedTraceMethods:RT.6/habiro-trace-interface
 Kind: comparison; implementation unchecked.
 For the supplied RT.4 q-Hodge and Habiro inputs satisfying Wagner 4.18(A),(R), 4.18a(R2), and, in Theorem 5.63, 2∈R× and 5.43(A2), export the coherent S¹ and genuine finite-C_m cyclonic maps, complete even filtration and graded q-Hodge module comparison diagrams. Retain Σ^(−2i) shearing, Bott inversion, and completion. Theorem 4.27 has an E_(n−1) multiplicative enhancement only under Remark 4.28’s chosen E_n lift hypotheses (2≤n≤∞); an enhancement of the Habiro comparison must be supplied separately by RT.4 and is not inferred from the module equivalence of Theorem 5.63. For R=O_F[1/Δ], require 6|Δ, disc(F)|Δ and the specified spherical étale lift. This is the trace input for HQ/HR descent, with the periodic reconstruction proof; it does not assert Habiro descent for the refined rational TC⁻ ind-algebras.
-Required types/inputs: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.4:q-Hodge; RefinedTraceMethods:RT.4:Habiro-comparison; HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations; HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex; HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent; HabiroCohomologyFoundations:HQ.4/no-automatic-multiplicative-upgrade; HabiroRings:HR.2/habiro-complete-modules; HabiroRings:HR.2/the-monoidal-structure; HabiroRings:HR.2/habiro-complete-solid-spectra; HabiroRings:HR.5/the-relative-habiro-ring; HabiroRings:HR.5/completed-base-change
+Required types/inputs: RefinedTraceMethods:RT.5/refined-traces; RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global; RefinedTraceMethods:RT.4:q-Hodge/q-hodge-multiplicativity; RefinedTraceMethods:RT.4:q-Hodge/cyclonic-ku; RefinedTraceMethods:RT.4:q-Hodge/cyclonic-base-coherence; RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts; RefinedTraceMethods:RT.4:Habiro-comparison/twisted-q-hodge-comparison; RefinedTraceMethods:RT.4:Habiro-comparison/habiro-comparison-theorem; RefinedTraceMethods:RT.4:Habiro-comparison/etale-einfty-lift; RefinedTraceMethods:RT.4:Habiro-comparison/number-field-habiro; HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations; HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex; HabiroCohomologyFoundations:HQ.4/the-arithmetic-fracture-squares-and-cyclotomic-descent; HabiroCohomologyFoundations:HQ.4/no-automatic-multiplicative-upgrade; HabiroRings:HR.2/habiro-complete-modules; HabiroRings:HR.2/the-monoidal-structure; HabiroRings:HR.2/habiro-complete-solid-spectra; HabiroRings:HR.5/the-relative-habiro-ring; HabiroRings:HR.5/completed-base-change
 -/
 
 /-
@@ -463,7 +463,7 @@ Required types/inputs: RefinedTraceMethods:RT.5/refined-invariant-universality; 
 RefinedTraces — RefinedTraceMethods:RT.5/refined-traces
 Kind: construction; implementation unchecked.
 For an E∞ ring k, refine the symmetric monoidal localizing relative THH functor Motloc_k → Mod_k(Sp)^BS¹, keeping its coherent circle action. The ordinary comparison is realization in that target. For complex orientable k and a chosen orientation t∈π_(−2)k^hS¹, refine TC⁻ into nuclear ind-objects of derived t-complete k^hS¹-modules with t-completed tensor. MW Lemma 3.2 identifies coherent circle k-modules with this completed module category. Finite-coefficient and rational-input computations use the induced maps between motives, units and localization cofibers.
-Required types/inputs: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/smooth-proper-normalization; RefinedTraceMethods:RT.5/circle-completion-equivalence
+Required types/inputs: RefinedTraceMethods:RT.5/refined-invariant-universality; RefinedTraceMethods:RT.5/localization-tower-formula; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/thh-spectral-categories; RefinedTraceMethods:RT.2/thh-symmetric-monoidal; RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points; RefinedTraceMethods:RT.2/tc-minus-and-tp; EnhancedDerivedSheaves:E5:presentability; RefinedTraceMethods:RT.5/smooth-proper-normalization; RefinedTraceMethods:RT.5/circle-completion-equivalence
 API RefinedTraces.thh [constructor]: THHref takes k-linear motives to the rigidification of coherent S¹ k-modules.
 API RefinedTraces.tcMinus [constructor]: For oriented k, TC−,ref is the corresponding nuclear derived t-complete module object.
 API RefinedTraces.ordinary [projection]: Realization gives natural multiplicative maps from refined values to ordinary THH/TC⁻.
@@ -478,14 +478,14 @@ example contract RefinedTraces.rationalKu [non-example]: TC−,ref((ku⊗Q)/ku) 
 TorsionQhodge — RefinedTraceMethods:RT.5/torsion-qhodge
 Kind: comparison; implementation unchecked.
 Choose the compatible E₁ quotient spectra S/m for high-powered m. Then TC⁻((ku⊗S/m)/ku) and TC⁻((KU⊗S/m)/KU) are even; their even homotopy identifies with respectively Fil*qHdg(derived qdR(Z/m)/Z) over Z[β][[t]], and qHdg(derived qdR(Z/m)/Z)[β±¹] over Z[[q−1]]. Both carry the chosen even filtration, the specified E₁-induced multiplicative data, and quotient transition maps. Any p=2 application requires RT.4’s separate E₁ even-resolution input; Wagner’s general theorem with 2 invertible and a connective spherical E₂ lift alone does not supply it.
-Required types/inputs: RefinedTraceMethods:RT.5/high-powered; StableHomotopyKTheory:H.6; RefinedTraceMethods:RT.4:topological; RefinedTraceMethods:RT.4:q-Hodge; RefinedTraceMethods:RT.4:Habiro-comparison; HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations; HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex; HabiroCohomologyFoundations:HQ.3
+Required types/inputs: RefinedTraceMethods:RT.5/high-powered; StableHomotopyKTheory:H.6; RefinedTraceMethods:RT.4:topological/homotopy-of-ku; RefinedTraceMethods:RT.4:topological/bott-localisation; RefinedTraceMethods:RT.4:topological/relative-thh-ku; RefinedTraceMethods:RT.4:topological/ku-circle-actions; RefinedTraceMethods:RT.4:q-Hodge/q-hodge-global; RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-odd; RefinedTraceMethods:RT.4:q-Hodge/p-complete-comparison-two; RefinedTraceMethods:RT.4:q-Hodge/compatible-spherical-lifts; RefinedTraceMethods:RT.4:q-Hodge/cyclonic-even-filtrations; RefinedTraceMethods:RT.4:Habiro-comparison/twisted-q-hodge-comparison; RefinedTraceMethods:RT.4:Habiro-comparison/habiro-comparison-theorem; HabiroCohomologyFoundations:HQ.3/q-hodge-filtrations; HabiroCohomologyFoundations:HQ.3/the-q-hodge-complex; HabiroCohomologyFoundations:HQ.3
 -/
 
 /-
 EvenDerivedHom — RefinedTraceMethods:RT.5/even-derived-hom
 Kind: theorem; implementation unchecked.
 For an even E₁ ring k and even k-modules M,N, RHom_k(M,N) has the source’s complete exhaustive decreasing filtration with gr^n ≃ Σ^(2n) RHom_(π2*k)(π2*M,π2*N)(−n) in graded derived modules. Use the double-speed Whitehead filtrations, derived rather than ordinary Hom, and the source’s connectivity bounds to prove completeness/exhaustiveness; no degeneration is asserted without the subsequent Ext-amplitude calculation.
-Required types/inputs: StableHomotopyKTheory:H.6; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:presentability
+Required types/inputs: StableHomotopyKTheory:H.6; StableHomotopyKTheory:H.5:spectra; EnhancedDerivedSheaves:E5:presentability
 -/
 
 /-
@@ -499,7 +499,7 @@ Required types/inputs: RefinedTraceMethods:RT.5/torsion-qhodge; RefinedTraceMeth
 EvenCompletedTensor — RefinedTraceMethods:RT.5/even-completed-tensor
 Kind: theorem; implementation unchecked.
 Let k be an even E∞ ring spectrum and t∈π_(2*)k a homogeneous element. For even k-modules M,N, the t-completed tensor M⊗̂_k N admits a complete exhaustive double-speed Whitehead filtration whose graded pieces are the double shearing of the derived t-completed graded tensor of π_(2*)M and π_(2*)N over π_(2*)k. The construction is functorial and compatible with products under its source hypotheses. The proof tracks connectivity and the at-most-one-degree loss in coconnectivity under derived completion; tensor is not assumed t-exact or underived.
-Required types/inputs: RefinedTraceMethods:RT.5/even-derived-hom; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:presentability
+Required types/inputs: RefinedTraceMethods:RT.5/even-derived-hom; StableHomotopyKTheory:H.5:spectra; EnhancedDerivedSheaves:E5:presentability; StableHomotopyKTheory:H.6
 -/
 
 /-
@@ -527,56 +527,56 @@ Required types/inputs: RefinedTraceMethods:RT.5/continuous-extension; RefinedTra
 TraceFlatDescent — RefinedTraceMethods:RT.6/trace-flat-descent
 Kind: theorem; implementation unchecked.
 HH(−/R), HC⁻(−/R), HH(−/R)_hS¹ and HP(−/R) on commutative R-algebras, and THH, TC⁻, THH_hS¹ and TP on commutative rings, are fpqc sheaves in spectra. Their derived p-complete variants have descent for p-completely faithfully flat covers in QSyn; QRSP basis unfolding recovers them. THH(−)^tC_p has the same Čech descent by the finite-group norm sequence. The argument proves this descent with its weak Postnikov towers; it does not assert arbitrary fpqc hyperdescent for every cotangent complex.
-Required types/inputs: RefinedTraceMethods:RT.1; RefinedTraceMethods:RT.2; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.5/completed-cotangent-descent; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.1/derived-completion
+Required types/inputs: RefinedTraceMethods:RT.1/hochschild-homology; RefinedTraceMethods:RT.1/cyclic-homology; RefinedTraceMethods:RT.1/hkr-filtration; RefinedTraceMethods:RT.2/thh-e1-ring; RefinedTraceMethods:RT.2/thh-over-thhz; RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points; RefinedTraceMethods:RT.2/norm-map-tate; RefinedTraceMethods:RT.2/circle-tate; RefinedTraceMethods:RT.2/tc-minus-and-tp; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.5/completed-cotangent-descent; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.1/derived-completion
 -/
 
 /-
 QrspHochschild — RefinedTraceMethods:RT.6/qrsp-hochschild
 Kind: theorem; implementation unchecked.
 For S∈qrsPerfd_R, or for a QRSP algebra over a perfectoid R or over Z_p as in Lemma 5.14, let M=(L_(S/R)[−1])^∧p. M is p-completely flat, HH(S/R;Z_p) is even, and π_(2i)HH(S/R;Z_p)≃(Γ^i_S M)^∧p for i≥0. The HKR filtration has these terms; divided powers are over S, not over the perfectoid base R.
-Required types/inputs: DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.0/derived-divided-powers; RefinedTraceMethods:RT.1
+Required types/inputs: DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.0/derived-divided-powers; RefinedTraceMethods:RT.1/hochschild-homology; RefinedTraceMethods:RT.1/hkr-filtration
 -/
 
 /-
 CyclicDerhamComparison — RefinedTraceMethods:RT.6/cyclic-derham-comparison
 Kind: comparison; implementation unchecked.
 For quasisyntomic A over a fixed base R in BMS2 §5.2, the unfolded even Postnikov filtrations on p-complete HC⁻ and HP are complete exhaustive multiplicative Z-indexed filtrations, with gr^iHC⁻(A/R;Z_p)≃Hodge^{≥i}(Hodge-completed derived dR(A/R))^∧p[2i] and gr^iHP≃(Hodge-completed derived dR(A/R))^∧p[2i]. On QRSP covers π₀HC⁻ with its abutment filtration identifies with the Hodge-and-p-completed derived dR algebra, including the de Rham differential. This compares existing cyclic objects and existing derived dR, rather than defining a new dR.
-Required types/inputs: RefinedTraceMethods:RT.6/qrsp-hochschild; RefinedTraceMethods:RT.6/trace-flat-descent; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; DerivedDeRhamCohomology:DD.1/filtered-completion; RefinedTraceMethods:RT.1
+Required types/inputs: RefinedTraceMethods:RT.6/qrsp-hochschild; RefinedTraceMethods:RT.6/trace-flat-descent; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; DerivedDeRhamCohomology:DD.1/filtered-completion; RefinedTraceMethods:RT.1/mixed-complex; RefinedTraceMethods:RT.1/cyclic-homology; RefinedTraceMethods:RT.1/hkr-filtration
 -/
 
 /-
 PerfectoidThh — RefinedTraceMethods:RT.6/perfectoid-thh
 Kind: theorem; implementation unchecked.
 For perfectoid R, THH(R;Z_p) is even and π_*≃R[u], |u|=2, with π₂ canonically ker θ/(ker θ)². For a perfectoid map R → R′ the scalar-extension map π_*THH(R;Z_p)⊗_R R′ → π_*THH(R′;Z_p) is an isomorphism. A choice of generator ξ of ker θ determines u up to the specified unit change; the canonical line precedes any chosen basis.
-Required types/inputs: AInfCohomology:AI.0; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.2; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.1/derived-completion
+Required types/inputs: AInfCohomology:AI.0; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.2/thh-e1-ring; RefinedTraceMethods:RT.2/thh-symmetric-monoidal; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.1/derived-completion
 -/
 
 /-
 PerfectoidTcMaps — RefinedTraceMethods:RT.6/perfectoid-tc-maps
 Kind: theorem; implementation unchecked.
 For perfectoid R let A=Ainf(R), θ:A → R, ξ generate ker θ, and θ̃=θ∘φ⁻¹. With compatible generators, π_*TC⁻(R;Z_p)=P(A,ξ), π_*TP=A[σ±¹], and π_*THH(R;Z_p)^tC_p=R[σ±¹]. The canonical map TC⁻ → TP is A-linear and u↦ξσ,v↦σ⁻¹; the cyclotomic Frobenius is φ-semilinear and u↦σ,v↦φ(ξ)σ⁻¹. The vertical maps to THH and THH^tC_p use θ and θ̃ respectively. π₀TC⁻≃Ainf is canonical and Frobenius-compatible, although chosen generators depend on ξ.
-Required types/inputs: RefinedTraceMethods:RT.6/perfectoid-thh; RefinedTraceMethods:RT.6/uv-presentation; AInfCohomology:AI.0; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.2
+Required types/inputs: RefinedTraceMethods:RT.6/perfectoid-thh; RefinedTraceMethods:RT.6/uv-presentation; AInfCohomology:AI.0; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/tc-minus-and-tp; RefinedTraceMethods:RT.2/tc-fibre-sequence
 -/
 
 /-
 PerfectoidQuotientComparison — RefinedTraceMethods:RT.6/perfectoid-quotient-comparison
 Kind: comparison; implementation unchecked.
 For any connective E∞ R-algebra A over a perfectoid R, the derived quotients TC⁻(A;Z_p)/v ≃ THH(A;Z_p) and TP(A;Z_p)/φ(ξ) ≃ THH(A;Z_p)^tC_p are equivalences as modules with their induced maps. Quotient by v means the cofiber of its degree −2 multiplication map, not an ordinary ideal quotient on homotopy groups.
-Required types/inputs: RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.2
+Required types/inputs: RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/tate-multiplicativity; RefinedTraceMethods:RT.2/tc-minus-and-tp
 -/
 
 /-
 ThhHochschildDeformation — RefinedTraceMethods:RT.6/thh-hochschild-deformation
 Kind: theorem; implementation unchecked.
 For ordinary R-algebra A with R perfectoid, the class u∈π₂TC⁻(R;Z_p) induces coherent S¹-equivariant cofiber sequences THH(A;Z_p)[2] →^u THH(A;Z_p) → HH(A/R;Z_p), TC⁻(A;Z_p)[2] →^u TC⁻(A;Z_p) → HC⁻(A/R;Z_p), and TP(A;Z_p)[2] →^(ξσ) TP(A;Z_p) → HP(A/R;Z_p). These are maps and cofibers before passing to homotopy groups.
-Required types/inputs: RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.1; RefinedTraceMethods:RT.2
+Required types/inputs: RefinedTraceMethods:RT.6/perfectoid-tc-maps; RefinedTraceMethods:RT.1/hochschild-homology; RefinedTraceMethods:RT.1/mixed-complex; RefinedTraceMethods:RT.1/cyclic-homology; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/thh-over-thhz; RefinedTraceMethods:RT.2/mixed-complexes-are-circle-modules; RefinedTraceMethods:RT.2/norm-sequence-hc; RefinedTraceMethods:RT.2/tc-minus-and-tp
 -/
 
 /-
 Antisymmetrization — RefinedTraceMethods:RT.6/antisymmetrization
 Kind: construction; implementation unchecked.
 For ordinary perfectoid R-algebra A, define the natural graded R-algebra map H⁰((Ω*_(A/R))^∧p) → π_*THH(A;Z_p), with Ω^i placed in degree i. It extends the degree-one Hochschild comparison and multiplies differential classes by the exterior product. Derived p-completion is applied termwise before H⁰; arbitrary ordinary p-completion of Ω does not replace it.
-Required types/inputs: RefinedTraceMethods:RT.6/thh-hochschild-deformation; RefinedTraceMethods:RT.1; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.1/derived-completion
+Required types/inputs: RefinedTraceMethods:RT.6/thh-hochschild-deformation; RefinedTraceMethods:RT.1/hkr-map; RefinedTraceMethods:RT.1/external-products; DerivedDeRhamCohomology:DD.0/cotangent-complex; DerivedDeRhamCohomology:DD.1/derived-completion
 API Antisymmetrization.differential [constructor]: For a∈A, the completed relative da has its degree-one THH image.
 API Antisymmetrization.wedge [relation]: The image of ω∧η is the product of their images in THH, with graded signs and odd squares zero.
 API Antisymmetrization.map [functoriality]: For R-algebra maps A → B, the differential and THH maps commute.
@@ -647,7 +647,7 @@ example contract TraceNoncompletedExtension.qrspDiscreteness [characterisation]:
 MotivicFiltration — RefinedTraceMethods:RT.6/motivic-filtrations
 Kind: construction; implementation unchecked.
 For X=THH,TC⁻,TP and quasisyntomic A, define Fil^nX(A;Z_p) by QRSP-basis unfolding of τ_(≥2n)X(−;Z_p), for n∈Z, and define Fil^nTC as the fiber of φ−can on the filtered TC⁻ and TP spectra. These are functorial complete exhaustive decreasing multiplicative filtrations in spectra; Frobenius/can retain their coherent source maps. The underlying realization is the p-completed trace spectrum by descent. THH is locally even on covers but its unfolded graded complexes have nonzero cohomological degrees.
-Required types/inputs: RefinedTraceMethods:RT.6/qrsp-even-thh; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; RefinedTraceMethods:RT.6/trace-flat-descent; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.1/filtered-completion; RefinedTraceMethods:RT.2
+Required types/inputs: RefinedTraceMethods:RT.6/qrsp-even-thh; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; RefinedTraceMethods:RT.6/trace-flat-descent; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.1/filtered-completion; RefinedTraceMethods:RT.2/thh-e1-ring; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/tc-minus-and-tp; RefinedTraceMethods:RT.2/tc-fibre-sequence
 API MotivicFiltration.piece [data]: Fil^nX(A) is QRSP unfolding of τ_(≥2n)X with its maps Fil^(n+1) → Fil^n.
 API MotivicFiltration.realize [equivalence]: colim_(n→−∞)Fil^nX(A)≃X(A;Z_p).
 API MotivicFiltration.complete [characterisation]: lim_(n→+∞)Fil^nX(A)=0.
@@ -683,14 +683,14 @@ example contract TraceBreuilKisinTwist.noGlobalBasis [non-example]: The definiti
 Bms1TwistComparison — RefinedTraceMethods:RT.6/bms1-twist-comparison
 Kind: comparison; implementation unchecked.
 For p-torsion-free perfectoid R, the trace line Ainf(R){1}=π₂TP(R;Z_p) agrees with BMS1’s Breuil–Kisin–Fargues twist. The finite θ̃_r specialization is ker θ̃_r/(ker θ̃_r)², and the natural transition on the conormal side corresponds to p times the transition on the twist side. The inverse-limit comparison uses the canonical Ainf≃lim_F W_r(R), retaining Frobenius and finite TR maps.
-Required types/inputs: RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; AInfCohomology:AI.0; AInfCohomology:AI.4; RefinedTraceMethods:RT.2
+Required types/inputs: RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; AInfCohomology:AI.0; AInfCohomology:AI.4; RefinedTraceMethods:RT.2/tr-and-genuine-tc; RefinedTraceMethods:RT.2/genuine-tc-agrees; RefinedTraceMethods:RT.2/tc-minus-and-tp
 -/
 
 /-
 FilteredFrobenius — RefinedTraceMethods:RT.6/filtered-frobenius
 Kind: construction; implementation unchecked.
 The cyclotomic Frobenius and canonical comparison of RT.2 induce multiplicative filtered maps φ,can:TC⁻(A;Z_p) → TP(A;Z_p) on quasisyntomic A. Under the completed prismatic comparison their i-th graded maps are respectively the supplied divided Frobenius and canonical Nygaard inclusion on C_A{i}[2i]. Define the filtered TC spectrum by the fiber of φ−can in spectra. Its multiplication is the coherent equalizer/fiber multiplication, not subtraction in the category of E∞ algebras.
-Required types/inputs: RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; PrismaticCohomology:PR.3/divided-frobenius; RefinedTraceMethods:RT.2
+Required types/inputs: RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/qrsp-tc-nygaard; PrismaticCohomology:PR.3/divided-frobenius; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/tc-minus-and-tp; RefinedTraceMethods:RT.2/tc-fibre-sequence
 API FilteredFrobenius.can [data]: The filtered canonical TC⁻ → TP map induces Nygaard inclusion on graded pieces.
 API FilteredFrobenius.frobenius [data]: The filtered cyclotomic map induces divided Frobenius after twisting.
 API FilteredFrobenius.fiber [constructor]: TC filtered pieces are fib(φ−can) in spectra.
@@ -712,7 +712,7 @@ Required types/inputs: RefinedTraceMethods:RT.6/graded-motivic-comparison; Refin
 TcNegativeDegrees — RefinedTraceMethods:RT.6/tc-negative-degrees
 Kind: theorem; implementation unchecked.
 For a connective ring spectrum A, π_iTC(A;Z_p)=0 for i<−1 by the classical TR connective comparison. For ordinary A, π_(−1)TC(A;Z_p)=coker(F−1:W(A) → W(A)). On the QRSP site this cokernel vanishes locally by the iterated Artin–Schreier covers, so the weight-zero TC fiber is locally in degree zero and negative motivic weights vanish. Identifying the resulting weight-zero sheaf with constant Z_p by K₀ is owned downstream and is not used here.
-Required types/inputs: RefinedTraceMethods:RT.2; RefinedTraceMethods:RT.6/syntomic-graded-tc; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.5/quasisyntomic-site
+Required types/inputs: RefinedTraceMethods:RT.2/tr-and-genuine-tc; RefinedTraceMethods:RT.2/genuine-tc-agrees; RefinedTraceMethods:RT.2/tc-fibre-sequence; RefinedTraceMethods:RT.6/syntomic-graded-tc; DerivedDeRhamCohomology:DD.5/quasiregular-semiperfectoid-rings; DerivedDeRhamCohomology:DD.5/quasisyntomic-site
 -/
 
 /-
@@ -726,7 +726,7 @@ Required types/inputs: RefinedTraceMethods:RT.6/group-algebra-trace-test; Refine
 GroupAlgebraTraceTest — RefinedTraceMethods:RT.6/group-algebra-trace-test
 Kind: theorem; implementation unchecked.
 Let S=F_p[Q_p/Z_p]=F_p[T^(±1/p∞)]/(T−1). The coherent circle-equivariant equivalence THH(S)≃HH(Z[Q_p/Z_p])⊗_Z THH(F_p) induces TP(S)≃HP(Z[Q_p/Z_p];Z_p) as E∞ ring spectra. Consequently π₀TP(S)≃Nygaard-completed Acrys(S), compatibly with the Hodge/Nygaard filtrations, mod-p reduction and Frobenius. For connective circle-equivariant M∈D(Z), (M⊗_Z THH(F_p))^tS¹ is the p-completion of M^tS¹.
-Required types/inputs: RefinedTraceMethods:RT.6/cyclic-derham-comparison; DerivedDeRhamCohomology:DD.4/derived-de-rham-witt; DerivedDeRhamCohomology:DD.4/acrys-structure; DerivedDeRhamCohomology:DD.4/qrsp-pd-derham; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.1; RefinedTraceMethods:RT.2
+Required types/inputs: RefinedTraceMethods:RT.6/cyclic-derham-comparison; DerivedDeRhamCohomology:DD.4/derived-de-rham-witt; DerivedDeRhamCohomology:DD.4/acrys-structure; DerivedDeRhamCohomology:DD.4/qrsp-pd-derham; KTheoryFiniteLocalFields:L.5; RefinedTraceMethods:RT.1/hochschild-homology; RefinedTraceMethods:RT.1/cyclic-homology; RefinedTraceMethods:RT.2/thh-spherical-group-rings; RefinedTraceMethods:RT.2/thh-over-thhz; RefinedTraceMethods:RT.2/hz-module-circle-tate; RefinedTraceMethods:RT.2/tc-minus-and-tp
 -/
 
 /-
@@ -824,7 +824,7 @@ Required types/inputs: RefinedTraceMethods:RT.6/aomega-nygaard-decalage; Refined
 AdamsOperations — RefinedTraceMethods:RT.6/adams-operations
 Kind: construction; implementation unchecked.
 The action of Z_p^× on the p-completed circle K(Z_p,1) gives functorial coherent E∞ cyclotomic Adams operations on THH(A;Z_p), and hence on the filtered THH, TC⁻, TP and TC. On C_A and each Nygaard step the action is trivial; on C_A{1} it is scalar multiplication, so γ acts by γ^i on each i-th graded piece, for i∈Z in its defined range.
-Required types/inputs: RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/bms1-twist-comparison; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; EnhancedDerivedSheaves:E5:presentability/coherent-group-actions; RefinedTraceMethods:RT.2
+Required types/inputs: RefinedTraceMethods:RT.6/aomega-comparison; RefinedTraceMethods:RT.6/trace-breuil-kisin-twist; RefinedTraceMethods:RT.6/bms1-twist-comparison; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; EnhancedDerivedSheaves:E5:presentability/coherent-group-actions; RefinedTraceMethods:RT.2/cyclic-realisation; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/cyclotomic-spectrum; RefinedTraceMethods:RT.2/tc-minus-and-tp; RefinedTraceMethods:RT.2/tc-fibre-sequence
 API AdamsOperations.action [structure]: There is a coherent Z_p^× action on the p-completed trace functors.
 API AdamsOperations.map [functoriality]: Ring maps commute with every operation ψ_γ.
 API AdamsOperations.coefficient [simp]: ψ_γ acts trivially on C_A and its Nygaard ideals.
@@ -839,14 +839,14 @@ example contract AdamsOperations.weightMinusOne [characterisation]: On gr^(−1)
 SpherePolynomialThh — RefinedTraceMethods:RT.6/sphere-polynomial-thh
 Kind: theorem; implementation unchecked.
 For S[z]=S[N], THH(S[z])≃S[Bcy N] as coherent S¹-equivariant E∞ ring spectra. Bcy N={0}∪(S¹×N_{>0}); t∈S¹ acts on (s,n) by (t^n s,n). The augmentation sends (s,n)↦n, and cyclotomic Frobenius is induced by (s,n)↦(s^p,pn) into C_p homotopy fixed points. The resulting augmentation square commutes with z↦z^p on S[z].
-Required types/inputs: EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; RefinedTraceMethods:RT.2; StableHomotopyKTheory:H.5:spectra/operadic-algebras; StableHomotopyKTheory:H.5:spectra/ring-spectrum
+Required types/inputs: EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category; RefinedTraceMethods:RT.2/thh-spherical-group-rings; RefinedTraceMethods:RT.2/thh-symmetric-monoidal; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; StableHomotopyKTheory:H.5:spectra/operadic-algebras; StableHomotopyKTheory:H.5:spectra/ring-spectrum
 -/
 
 /-
 RelativeSphereThh — RefinedTraceMethods:RT.6/relative-sphere-thh
 Kind: construction; implementation unchecked.
 For a connective E∞ S[z]-algebra A, define THH(A/S[z])=THH(A)⊗_(THH(S[z]))S[z] with its coherent circle action. Its cyclotomic Frobenius is the composite formed from the absolute Frobenius, the z↦z^p augmentation square and the lax symmetric monoidal finite-Tate functor. It is semilinear over the cyclotomic base S[z] with trivial circle action and Frobenius z↦z^p. Define relative TC⁻ and TP by circle homotopy fixed points and Tate, respectively, with the p-completion convention of the source.
-Required types/inputs: RefinedTraceMethods:RT.6/sphere-polynomial-thh; RefinedTraceMethods:RT.2; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category
+Required types/inputs: RefinedTraceMethods:RT.6/sphere-polynomial-thh; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/tate-multiplicativity; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; RefinedTraceMethods:RT.2/tc-minus-and-tp; EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category
 API RelativeSphereThh.tensor [constructor]: Relative THH is the indicated tensor product of E∞ ring spectra.
 API RelativeSphereThh.circle [structure]: Its coherent circle action is induced before homotopy fixed points.
 API RelativeSphereThh.frobenius [data]: Its C_p-Tate Frobenius is semilinear for z↦z^p.
@@ -861,7 +861,7 @@ example contract RelativeSphereThh.perfectRootBase [compatibility]: After adjoin
 RelativeThhBaseChange — RefinedTraceMethods:RT.6/relative-thh-base-change
 Kind: theorem; implementation unchecked.
 Let O_K be a complete mixed-characteristic DVR with perfect residue field k, π a uniformizer and O_K∞ the p-adic completion after adjoining all p-power roots of π. For an O_K-algebra A viewed over S[z] by z↦π, THH(A/S[z])⊗_(S[z])S≃THH(A⊗^L_(O_K)k), compatibly with circle and Frobenius. The p-completion of THH(S[z^(1/p∞)])→S[z^(1/p∞)] is an equivalence, and after this base extension the p-completed relative THH of A equals THH(A⊗^L_(O_K)O_K∞;Z_p).
-Required types/inputs: RefinedTraceMethods:RT.6/relative-sphere-thh; DerivedDeRhamCohomology:DD.0/cotangent-complex; RefinedTraceMethods:RT.1; RefinedTraceMethods:RT.2; AInfCohomology:AI.0
+Required types/inputs: RefinedTraceMethods:RT.6/relative-sphere-thh; DerivedDeRhamCohomology:DD.0/cotangent-complex; RefinedTraceMethods:RT.1/base-change; RefinedTraceMethods:RT.2/relative-thh; RefinedTraceMethods:RT.2/thh-symmetric-monoidal; RefinedTraceMethods:RT.2/thh-over-thhz; RefinedTraceMethods:RT.2/cyclotomic-frobenius-thh; AInfCohomology:AI.0
 -/
 
 /-
@@ -889,14 +889,14 @@ Required types/inputs: RefinedTraceMethods:RT.6/crystalline-trace-comparison; Re
 SyntomicKSheaf — RefinedTraceMethods:RT.6/syntomic-k-sheaf
 Kind: comparison; implementation unchecked.
 For a p-quasisyntomic scheme X, n≥1 and i≥0, the finite syntomic complex Z/p^n(i)_X in D(X_et,Z/p^n) is the derived pushforward from the syntomic site of X to its étale site of the sheafification of the presheaf K_(2i)(−;Z/p^n). Here p-quasisyntomic means bounded p-power torsion and L_(R/Z)⊗^L_R R/p of Tor-amplitude [−1,0] on affine opens. This is Bhatt–Mathew’s announced Example 1.6, not an identification of the un-sheafified K-group presheaf or of the two sites.
-Required types/inputs: RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.3; GeneralAlgebraicKTheory:K.4; PrismaticCohomology:PR.4; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring; PrismaticCohomology:PR.4/syntomic-complex
+Required types/inputs: RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.3/cyclotomic-trace; RefinedTraceMethods:RT.3/dgm-theorem; RefinedTraceMethods:RT.3/kinv-truncating; GeneralAlgebraicKTheory:K.4; PrismaticCohomology:PR.4; DerivedDeRhamCohomology:DD.5/quasisyntomic-site; GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring; PrismaticCohomology:PR.4/syntomic-complex
 -/
 
 /-
 AmmnFilteredInterface — RefinedTraceMethods:RT.6/ammn-filtered-interface
 Kind: comparison; implementation unchecked.
 For R∈qSyn_(Z_p), in particular p-completely flat over Z_p with the quasisyntomic bounds, the RT.6 motivic filtrations, the cyclic Hodge filtration and the trace maps provide the graded natural comparison used by RT.3b in AMMN Theorem 6.17. On relative QRSP covers, τ_[2i−1,2i] of the rational-after-p-completion TC/HC⁻/HP square is its weight-i square. Unfolding and left Kan extension from p-completed polynomial algebras factor the Hodge-completed comparison through uncompleted LΩ_R and LΩ_R^{≥i}. The pullback theorem and its integral range i≤p−2 are imported from RT.3b; RT.6 supplies its filtration and map-level compatibility, not a second Beilinson theorem.
-Required types/inputs: RefinedTraceMethods:RT.6/cyclic-derham-comparison; RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.3b; DerivedDeRhamCohomology:DD.2/p-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-graded-pieces
+Required types/inputs: RefinedTraceMethods:RT.6/cyclic-derham-comparison; RefinedTraceMethods:RT.6/syntomic-graded-tc; RefinedTraceMethods:RT.6/motivic-filtrations; RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf; RefinedTraceMethods:RT.3b/qp-coefficients; RefinedTraceMethods:RT.3b/beilinson-fibre-sequence; RefinedTraceMethods:RT.3b/graded-beilinson-square; DerivedDeRhamCohomology:DD.2/p-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-completed-derham; DerivedDeRhamCohomology:DD.2/hodge-graded-pieces
 -/
 
 /-
@@ -931,5 +931,5 @@ Required types/inputs: RefinedTraceMethods:RT.5/smooth-proper-category; RefinedT
 CircleCompletionEquivalence — RefinedTraceMethods:RT.5/circle-completion-equivalence
 Kind: theorem; implementation unchecked.
 Let k be a complex orientable E∞ ring spectrum with trivial S¹ action, and choose t∈π_(−2)(k^hS¹) representing an orientation. Homotopy S¹ fixed points give a symmetric monoidal equivalence from coherent circle k-modules to derived t-complete k^hS¹-modules, whose tensor is t-completed. The left adjoint has underlying module reduction modulo t; no bounded-below hypothesis is imposed.
-Required types/inputs: RefinedTraceMethods:RT.2; DerivedDeRhamCohomology:DD.1/derived-completion; EnhancedDerivedSheaves:E5:presentability
+Required types/inputs: RefinedTraceMethods:RT.2/spectra-with-action; RefinedTraceMethods:RT.2/homotopy-orbits-fixed-points; RefinedTraceMethods:RT.2/circle-tate; DerivedDeRhamCohomology:DD.1/derived-completion; EnhancedDerivedSheaves:E5:presentability
 -/
