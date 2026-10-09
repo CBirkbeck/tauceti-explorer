@@ -22,7 +22,7 @@ declaration index, `TAUCETI_BASELINE` set to the swarm baseline). Nothing is cla
   algebra, relative spectrum with API and tests, pullback, base change, morphism properties, qcoh modules,
   symmetric algebra, graded algebras, Proj base change, relative Proj and comparisons), the normal-components theorem
   and the image-ideal left-unit coherence (restating the needed base definitions). **Compiled**:
-  `/home/chris/atlas-workers/bin/lean-check research/blueprint/suggested/SchemeAndStackFoundations--SF.0.lean` →
+  `lean-check research/blueprint/suggested/SchemeAndStackFoundations--SF.0.lean` →
   0 errors, only `declaration uses 'sorry'` warnings (116). The other groups' nodes have **no** Lean prototype yet.
 
 ## What is done (by sub-area of SF.0)
