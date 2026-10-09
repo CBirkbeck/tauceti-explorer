@@ -715,7 +715,7 @@ For smooth S over perfectly covered A, glue the Φ_d(q)-complete pieces (Lη_{[m
 
 Prerequisites: HQ.1, HQ.2, HabiroRings HR.3, EnhancedDerivedSheaves E5:animation, PrismaticCohomology PR.6, PrismaticCohomology PR.3, AInfCohomology AI.1.
 
-Source: QH Paragraph 3.14, §3, p.28; §3.3, p.13; Paragraph 3.16, §3, p.30; Remark 3.17, §3, p.30.
+Source: QH Paragraph 3.14, §3, p.28; §3.3, pp.28–31; Paragraph 3.16, §3, p.30; Remark 3.17, §3, p.30.
 
 API: `twistedQOmega` (constructor); `twistedQOmega.cyclotomicCompletion` (projection); `twistedQOmega.fractureSquare` (characterisation); `twistedQOmega.transition` (data); `twistedQOmega.one` (example); `twistedQOmega.pCompletion_primePower` (projection); `twistedQdR` (functoriality).
 
