@@ -260,6 +260,30 @@
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
   },
+  "research/blueprint/packages/AlgebraicModularFormsAndSerreWeights/review.json": {
+   "promotedAt": "2026-10-09T01:31:14Z",
+   "review": "273b7e79327fca1c",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-AlgebraicModularFormsAndSerreWeights",
+   "sha256": "0545974c340b6e5ab877c1c4892c72cc5409c4b6e1e851f26a0ef89527178c77",
+   "to": [
+    "roadmaps/AlgebraicModularFormsAndSerreWeights/README.md",
+    "roadmaps/AlgebraicModularFormsAndSerreWeights/Suggested.lean",
+    "roadmaps/AlgebraicModularFormsAndSerreWeights/metadata.toml"
+   ]
+  },
+  "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/review.json": {
+   "promotedAt": "2026-10-09T01:31:14Z",
+   "review": "213ecce16568a05d",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-ComplexMultiplicationAndExplicitReciprocity",
+   "sha256": "aabb449258f1d470dcb6867273761ba46b70d5e71b9f46665eb0f948e73fd9f3",
+   "to": [
+    "roadmaps/ComplexMultiplicationAndExplicitReciprocity/README.md",
+    "roadmaps/ComplexMultiplicationAndExplicitReciprocity/Suggested.lean",
+    "roadmaps/ComplexMultiplicationAndExplicitReciprocity/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/DerivedDeRhamCohomology/review.json": {
    "promotedAt": "2026-10-08T23:58:35Z",
    "review": "9da37ba154360bc3",
@@ -282,6 +306,18 @@
     "roadmaps/FarguesFontaineDiamonds/README.md",
     "roadmaps/FarguesFontaineDiamonds/Suggested.lean",
     "roadmaps/FarguesFontaineDiamonds/metadata.toml"
+   ]
+  },
+  "research/blueprint/packages/HeegnerPointEulerSystems/review.json": {
+   "promotedAt": "2026-10-09T01:31:14Z",
+   "review": "37ce04ff8071a5e4",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-HeegnerPointEulerSystems",
+   "sha256": "de5df92bfc2bcb21b2c065274b91211723ad22635159d457ac908f672e2d3aea",
+   "to": [
+    "roadmaps/HeegnerPointEulerSystems/README.md",
+    "roadmaps/HeegnerPointEulerSystems/Suggested.lean",
+    "roadmaps/HeegnerPointEulerSystems/metadata.toml"
    ]
   },
   "research/blueprint/packages/IntegralHeckeAndGaloisDeterminants/review.json": {
@@ -418,6 +454,17 @@
    "to": [
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.json",
     "data/blueprints/AnabelianGeometryAndNonabelianChabauty.md"
+   ]
+  },
+  "research/blueprint/packets/ArithmeticGaloisRepresentations.json": {
+   "promotedAt": "2026-10-09T01:31:14Z",
+   "review": "c92b1b79f23472b3",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-ArithmeticGaloisRepresentations~3",
+   "sha256": "aab9243cf67682cfc62610d285f56ae5da8c3a8024fa8f8bf57027e0361f3090",
+   "to": [
+    "data/blueprints/ArithmeticGaloisRepresentations.json",
+    "data/blueprints/ArithmeticGaloisRepresentations.md"
    ]
   },
   "research/blueprint/packets/ArithmeticKTheory--N.1.json": {
