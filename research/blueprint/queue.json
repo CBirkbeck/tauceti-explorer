@@ -29999,7 +29999,8 @@
    ],
    "avoidAccountOf": "BP-SmoothRepresentationsOfLocalGroups--SR.4",
    "prompt": "research/blueprint/prompts/REV-SmoothRepresentationsOfLocalGroups--SR.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #495"
   },
   {
    "id": "BP-SpecialValuesBirchTate",
@@ -37813,8 +37814,9 @@
    ],
    "revisionOf": "BP-PadicMeasuresIwasawaAlgebras",
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6472"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6472",
+   "finishedAt": "2026-10-09T11:32:49Z"
   },
   {
    "priority": 2,
