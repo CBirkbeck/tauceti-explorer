@@ -1,0 +1,2163 @@
+{
+  "roadmapId": "ArithmeticGaloisRepresentations",
+  "protocol": "blueprint-v1",
+  "part": "R01.3",
+  "scope": [
+    "ArithmeticGaloisRepresentations:R01.3"
+  ],
+  "status": "complete",
+  "summary": "Artin and Swan conductors from finite wild inertia, their quotient-independent definitions, Weil–Deligne and residual comparisons, and elliptic conductors including the geometric inputs for the uniform Ogg formula. This target-level continuation imports the reviewed finite-group, induction, twisting and reduction results and makes the remaining carrier and key-theorem boundaries explicit. The stage is planned; the stated gaps prevent closure.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Finsupp.prod",
+        "kind": "def",
+        "module": "Mathlib/Algebra/BigOperators/Finsupp/Basic.lean",
+        "provides": "Product of g a (f a) over the finite support of f; lines 45–54 read.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Ideal.ramificationIdx",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/RamificationInertia/Ramification.lean",
+        "provides": "For an A-algebra B and ideal q of B, q.ramificationIdx A is the length of the localized quotient by the contracted ideal; lines 44–57 read. The prototype uses the valuation-ring inclusion and its maximal ideal.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:IsDedekindDomain.HeightOneSpectrum",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/DedekindDomain/Ideal/Lemmas.lean",
+        "provides": "The nonzero prime ideal underlying a height-one point of a Dedekind domain; lines 490–513 read.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Nat.digits",
+        "kind": "def",
+        "module": "Mathlib/Data/Nat/Digits/Defs.lean",
+        "provides": "Little-endian finite base-b digit list, with digits b 0=[], lines 70–91 read.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Representation.averageMap",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Invariants.lean",
+        "provides": "For a finite group whose cardinality is invertible in the coefficient ring, the group average acts as a linear projection to Representation.invariants; lines 120–145 read.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Representation.invariants",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Invariants.lean",
+        "provides": "the subspace V^G of invariants of a representation",
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit; adequacy checked for every citing node by REV-ArithmeticGaloisRepresentations~3."
+      },
+      {
+        "ref": "mathlib:Representation.prod",
+        "kind": "def",
+        "module": "Mathlib/RepresentationTheory/Basic.lean",
+        "provides": "Product representation on V×W, with action (ρV g).prodMap (ρW g); lines 595–605 read. Finite products implement the three-character unit test.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.HasAdditiveReduction",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+        "provides": "Minimality, multiplicative valuation of Δ and of c4 less than one; lines 351–357 read.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.HasGoodReduction",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+        "provides": "Minimality and multiplicative valuation of Δ equal to one; lines 320–326 read. This is additive discriminant valuation zero.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.HasMultiplicativeReduction",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+        "provides": "Minimality, multiplicative valuation of Δ less than one and of c4 equal to one; lines 343–350 read.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.IsElliptic",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
+        "provides": "The discriminant is a unit; lines 362–372 read. Over a field this excludes singular equations.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:WeierstrassCurve.minimal",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
+        "provides": "Chooses a minimal Weierstrass equation via a variable change, with IsMinimal instance; lines 285–305 read.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.AbsoluteGaloisGroup",
+        "kind": "abbrev",
+        "module": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup.lean",
+        "provides": "Gal(SeparableClosure K/K), retaining the Krull topology; lines 225–232 read.",
+        "checked": "Declaration and ambient hypotheses read at the pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.absoluteGaloisGroupRestrictEquiv",
+        "kind": "def",
+        "module": "TauCeti/FieldTheory/Galois/AbsoluteGaloisGroup.lean",
+        "provides": "absoluteGaloisGroupRestrictEquiv (K) [Field K] : Field.absoluteGaloisGroup K ≃ₜ* TauCeti.AbsoluteGaloisGroup K, where AbsoluteGaloisGroup K := Gal(SeparableClosure K/K); an isomorphism of topological groups given by restriction to the separable closure (separableClosureRestrictEquiv). The same file proves that the fixed field of Gal(E/F) in a normal E is the perfect closure of F (mem_perfectClosure_iff_fixed).",
+        "checked": "Declaration and ambient hypotheses independently read at the pinned commit; adequacy checked for every citing node by REV-ArithmeticGaloisRepresentations~3."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "ulmer",
+      "title": "Conductors of ℓ-adic representations",
+      "authors": "Douglas Ulmer",
+      "url": "https://arxiv.org/pdf/1307.4525v4",
+      "edition": "arXiv:1307.4525v4, 7 July 2015; Proc. Amer. Math. Soc. 144 (2016)",
+      "sha256": "a7a8039574e4975830de12ed2c23d07c208af95300c3865e941ff51fed0fed73",
+      "readSections": [
+        "§§1–10, pp. 1–9, entire paper"
+      ],
+      "read": "2026-10-09"
+    },
+    {
+      "id": "bk",
+      "title": "The conductor of an abelian variety",
+      "authors": "Armand Brumer and Kenneth Kramer",
+      "url": "https://www.numdam.org/article/CM_1994__92_2_227_0.pdf",
+      "edition": "Compositio Math. 92 (1994), 227–248",
+      "sha256": "fb60a47d07f45d2066fa80d7a307fc8fbe6de1ad04446bcef8bed9d84a898971",
+      "readSections": [
+        "§2, Lemma 2.7, p. 230",
+        "§§3–5, pp. 231–242; Theorem 5.5, p. 242 read on image",
+        "Theorem 6.2, p. 243 read on image"
+      ],
+      "read": "2026-10-09"
+    },
+    {
+      "id": "serre61",
+      "title": "Sur les corps locaux à corps résiduel algébriquement clos",
+      "authors": "Jean-Pierre Serre",
+      "url": "https://www.numdam.org/article/BSMF_1961__89__105_0.pdf",
+      "edition": "Bull. Soc. Math. France 89 (1961), 105–154",
+      "sha256": "52152ad27e8b153e02849710fb59992d7bd970f88156d9297529a42f9b0a85b3",
+      "readSections": [
+        "§3.1, pp. 126–128",
+        "§3.7, pp. 137–139"
+      ],
+      "read": "2026-10-09"
+    },
+    {
+      "id": "serre70",
+      "title": "Facteurs locaux des fonctions zêta des variétés algébriques (définitions et conjectures)",
+      "authors": "Jean-Pierre Serre",
+      "url": "https://www.numdam.org/article/SDPP_1969-1970__11_2_A4_0.pdf",
+      "edition": "Séminaire Delange–Pisot–Poitou 11 (1969/70), exposé 19",
+      "sha256": "7ed71db99ff8cf5e24d2c45056048dadfc29ce4b2e3a387061ccfb7baa875754",
+      "readSections": [
+        "§2.1, PDF pp. 6–8",
+        "§§2.3–2.4, PDF pp. 9–10"
+      ],
+      "read": "2026-10-09"
+    },
+    {
+      "id": "serre87",
+      "title": "Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)",
+      "authors": "Jean-Pierre Serre",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+      "edition": "Duke Math. J. 54 (1987), 179–230",
+      "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038",
+      "readSections": [
+        "§1.2, pp. 180–181",
+        "§4.9, pp. 214–216"
+      ],
+      "read": "2026-10-09"
+    },
+    {
+      "id": "liu-ogg",
+      "title": "Formule d’Ogg d’après Saito",
+      "authors": "Qing Liu",
+      "url": "https://www.math.u-bordeaux.fr/~qliu/Notes/Ogg-Saito.pdf",
+      "edition": "Author-hosted five-page notes",
+      "sha256": "8cd58b04172946baf16b13ac8e4f58276782cc2b16ff5581d478535b21ebad4e",
+      "readSections": [
+        "§§1–4, pp. 1–5, entire notes"
+      ],
+      "read": "2026-10-09"
+    },
+    {
+      "id": "liu94",
+      "title": "Conducteur et discriminant minimal de courbes de genre 2",
+      "authors": "Qing Liu",
+      "url": "https://www.numdam.org/article/CM_1994__94_1_51_0.pdf",
+      "edition": "Compositio Math. 94 (1994), 51–79",
+      "sha256": "9a35e29990280ef364222aa10cdad51866bd095e9cd96d1c29612c72f6a3846c",
+      "readSections": [
+        "Introduction, pp. 51–52",
+        "§2.1, pp. 58–59"
+      ],
+      "read": "2026-10-09"
+    },
+    {
+      "id": "ddt",
+      "title": "Fermat’s Last Theorem",
+      "authors": "Henri Darmon, Fred Diamond and Richard Taylor",
+      "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf",
+      "edition": "Author-hosted expository paper, 1995",
+      "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3",
+      "readSections": [
+        "§1.1, Tate curves",
+        "§2.2, Propositions 2.11–2.13 and Remark 2.14, pp. 57–58"
+      ],
+      "read": "2026-10-09"
+    },
+    {
+      "id": "serre-tate",
+      "title": "Good reduction of abelian varieties",
+      "authors": "Jean-Pierre Serre and John Tate",
+      "url": "https://wstein.org/papers/bib/Serre-Tate-Good_Reduction_of_Abelian_Varieties.pdf?download=1",
+      "edition": "Ann. of Math. 88 (1968), 492–517",
+      "sha256": "93a2f4e0cd8d9e49c4d96baa76753ca8debf2d1f06e58d563fe1f30fd81dfeb7",
+      "readSections": [
+        "§2, Theorem 2 and its proof, pp. 496–498, read on page images"
+      ],
+      "read": "2026-10-09"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/absolute-upper-filtration",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Absolute upper ramification filtration",
+      "kind": "definition",
+      "statement": "For u≥−1 put G_K^u=⋂_{L/K finite Galois in K^sep} res_L⁻¹(Gal(L/K)^u). Put G_K^{u+}=closure(⋃_{w>u}G_K^w). This is a closed normal, decreasing filtration, left continuous; G_K^−1=G_K, G_K^0=I_K and G_K^{0+}=P_K. Transport to Field.absoluteGaloisGroup K only along the topological restriction equivalence; do not use a Galois correspondence in the inseparable algebraic closure.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input."
+      ],
+      "proofSteps": [
+        "Use the finite upper filtration and its quotient compatibility from LocalFieldsRamification layer 3. Restrictions are continuous; inverse images and intersections preserve closedness and normality.",
+        "In a directed tower, finite-level quotient compatibility makes the inverse limit project onto every finite upper group. At zero and immediately above zero, the finite images are inertia and wild inertia, giving the existing layer-4 subgroups. At −1 all finite images are the whole groups.",
+        "For u sufficiently large each finite upper group is trivial. Intersecting over all u and all finite separable Galois extensions leaves the identity. Left continuity is inherited from the finite filtrations."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+        "tauceti:TauCeti.AbsoluteGaloisGroup",
+        "tauceti:TauCeti.absoluteGaloisGroupRestrictEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre61",
+          "locator": "§3.1, pp. 126–128; Proposition 4 and remark, p. 128",
+          "match": "Upper numbering commutes with passage to quotients; the perfect-residue-field generality is explicit."
+        },
+        {
+          "sourceId": "ulmer",
+          "locator": "§3, pp. 2–3",
+          "match": "Fixes the lower and upper conventions used in the finite quotients."
+        }
+      ],
+      "acceptance": [
+        "The separable closure convention works also for k((t))."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "planet": {
+        "name": "Upper ramification filtration"
+      },
+      "uses": [
+        {
+          "where": "R01.3/break-decomposition",
+          "how": "Defines the averaging groups and rational breaks."
+        },
+        {
+          "where": "LocalFieldsRamification layer 4",
+          "how": "Identifies the existing inertia and wild-inertia carriers."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.absoluteUpper_antitone",
+          "role": "structure",
+          "statement": "u≤v implies G_K^v≤G_K^u."
+        },
+        {
+          "name": "TauCeti.ConductorR013.absoluteUpper_finiteImage",
+          "role": "compatibility",
+          "statement": "res_L(G_K^u)=Gal(L/K)^u for every finite Galois L/K and u≥−1."
+        },
+        {
+          "name": "TauCeti.ConductorR013.absoluteUpper_separated",
+          "role": "characterisation",
+          "statement": "⋂_u G_K^u=1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.absoluteUpper_atMinusOne",
+          "kind": "degenerate",
+          "statement": "G_K^−1=G_K."
+        },
+        {
+          "name": "TauCeti.ConductorR013.absoluteUpper_atZero",
+          "kind": "compatibility",
+          "statement": "G_K^0=I_K and G_K^{0+}=P_K."
+        },
+        {
+          "name": "TauCeti.ConductorR013.absoluteUpper_unramifiedQuotient",
+          "kind": "computation",
+          "statement": "For finite unramified L/K, res_L(G_K^0)=1 although res_L(G_K^−1)=Gal(L/K)."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/finite-wild-break-decomposition",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Break decomposition with finite wild image",
+      "kind": "construction",
+      "statement": "There is a unique finite G_K-stable decomposition V=⊕_{λ∈Q≥0} V(λ). Its zero summand is V^{P_K}. For λ>0, V(λ)^{G_K^λ}=0 and V(λ)^{G_K^{λ+}}=V(λ). Define m_ρ:Q→₀N by m_ρ(λ)=dim_F V(λ), supported in Q≥0; the break set is its support and highest break is its maximum, with value 0 on V=0.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "F is a Hausdorff topological field of characteristic different from p; V is finite-dimensional and ρ:G_K→GL_F(V) is continuous with finite wild image. Continuity is joint continuity of the action. Finite wild image does not mean finite inertia image."
+      ],
+      "proofSteps": [
+        "Import finite wild factorisation: choose finite Galois L/K killing ker(ρ|P_K), not necessarily killing ρ|I_K. The positive filtration factors through a finite p-group H and has finitely many rational jumps.",
+        "For each normal subgroup H_u of H, the average e_u projects onto invariants, by Representation.averageMap and Maschke. Normality makes e_u commute with the whole G_K action. Nested averages commute; if H_u⊆H_v then e_u e_v=e_v, the average over the larger group.",
+        "Take V(λ)=im(e_{λ+}−e_λ) at positive jumps and V(0)=im(e_{0+}). Orthogonality and telescoping give the direct sum. The defining invariant conditions recover every projection and prove uniqueness. This is a proof from averaging, with no unread Katz attribution."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/absolute-upper-filtration",
+        "ArithmeticGaloisRepresentations:R01.3/wild-action-factors-through-a-finite-galois-extension",
+        "mathlib:Representation.invariants",
+        "mathlib:Representation.averageMap",
+        "mathlib:Representation.prod"
+      ],
+      "sources": [
+        {
+          "sourceId": "ulmer",
+          "locator": "§§3–4, pp. 2–3",
+          "match": "Supplies the filtration and invariant-codimension calculation; the projector decomposition is derived here."
+        },
+        {
+          "sourceId": "bk",
+          "locator": "§2, p. 230, averaging argument in Lemma 2.7",
+          "match": "Subgroup averages preserve invariant dimensions in prime-to-characteristic representations."
+        }
+      ],
+      "acceptance": [
+        "In residue characteristic p with coefficient characteristic p the conclusion is not asserted."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "planet": {
+        "name": "Break decomposition"
+      },
+      "uses": [
+        {
+          "where": "R01.3/swan-from-breaks",
+          "how": "Weighted sum defining Swan."
+        },
+        {
+          "where": "Ulmer, Proposition 1, §10, pp. 7–8",
+          "how": "Compares the highest break with a twisting character."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.breakDecomposition_internal",
+          "role": "structure",
+          "statement": "The summands form an internal direct sum, are G_K-stable and have total dimension dim V."
+        },
+        {
+          "name": "TauCeti.ConductorR013.breakDecomposition_invariants",
+          "role": "characterisation",
+          "statement": "For u>0, V^{G_K^u}=⊕_{λ<u}V(λ), while V^{G_K^{u+}}=⊕_{λ≤u}V(λ)."
+        },
+        {
+          "name": "TauCeti.ConductorR013.breakMultiplicity_support",
+          "role": "data",
+          "statement": "m_ρ has finite nonnegative support, with m_ρ(0)=dim V^{P_K}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.breakDecomposition_tame",
+          "kind": "degenerate",
+          "statement": "If P_K acts trivially then V(0)=V and every positive summand is zero."
+        },
+        {
+          "name": "TauCeti.ConductorR013.breakDecomposition_quadratic",
+          "kind": "computation",
+          "statement": "Over Q₂, χ₋₄ for Q₂(i) has its only break 1, while χ₈ for Q₂(√2) has its only break 2."
+        },
+        {
+          "name": "TauCeti.ConductorR013.breakDecomposition_directSum",
+          "kind": "computation",
+          "statement": "For 1⊕χ₋₄⊕χ₈, m(0)=m(1)=m(2)=1 and all other multiplicities vanish."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/swan-from-breaks",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Swan conductor",
+      "kind": "definition",
+      "statement": "Define Sw(ρ)=Σ_λ λ m_ρ(λ)∈Q≥0. Equivalently Sw(ρ)=∫₀∞ codim V^{G_K^u} du=Σ_{i≥1}|G_i|/|G_0|·codim V^{G_i}. Here L/K kills the wild kernel and G_i acts via its well-defined lifts in P_K; the formula is independent of such L.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "F is a Hausdorff topological field of characteristic different from p; V is finite-dimensional and ρ:G_K→GL_F(V) is continuous with finite wild image. Continuity is joint continuity of the action. Finite wild image does not mean finite inertia image."
+      ],
+      "proofSteps": [
+        "Apply the break invariant formula: the codimension is Σ_{λ≥u}m(λ) for u>0. Integrate this finite step function to obtain Σλm(λ).",
+        "Substitute u=φ_{L/K}(t); its slope is |G_t|/|G_0| on lower intervals. This gives the weighted lower sum, starting at i=1.",
+        "Import equivariant finite wild factorisation and enlargement. In either quotient the integral uses the same absolute invariant subspaces, so both lower sums agree."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/finite-wild-break-decomposition",
+        "ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-equivariant",
+        "ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-enlargement",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
+      ],
+      "sources": [
+        {
+          "sourceId": "ulmer",
+          "locator": "§§3–4, pp. 2–3, equations (3.1) and (4.1)",
+          "match": "The upper-integral and weighted-lower expressions give the same wild part."
+        },
+        {
+          "sourceId": "serre87",
+          "locator": "§1.2, equations (1.2.1)–(1.2.2), pp. 180–181",
+          "match": "The residual conductor uses exactly these weights."
+        }
+      ],
+      "acceptance": [
+        "No finite inertia quotient is required to compute Sw."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "planet": {
+        "name": "Swan conductor"
+      },
+      "uses": [
+        {
+          "where": "FiniteFieldsAndCharacterSums:FF.2",
+          "how": "Local conductor of an Artin–Schreier sheaf."
+        },
+        {
+          "where": "R01.3/local-induction-formula",
+          "how": "Herbrand substitution in the Swan integral."
+        },
+        {
+          "where": "R01.3/reduction-does-not-increase-the-conductor",
+          "how": "Invariant dimensions of wild groups survive reduction."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.swan_eq_lowerSum",
+          "role": "compatibility",
+          "statement": "The weighted lower sum over every quotient killing the wild kernel equals Sw."
+        },
+        {
+          "name": "TauCeti.ConductorR013.swan_eq_zero_iff",
+          "role": "characterisation",
+          "statement": "Sw=0 exactly when P_K acts trivially."
+        },
+        {
+          "name": "TauCeti.ConductorR013.swan_bound_highest",
+          "role": "relation",
+          "statement": "Sw≤highestBreak·dim V, with equality exactly when all nonzero summands have that highest break, allowing V=0."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.swan_tame",
+          "kind": "degenerate",
+          "statement": "Every tamely ramified representation has Swan conductor zero."
+        },
+        {
+          "name": "TauCeti.ConductorR013.swan_quadraticEight",
+          "kind": "computation",
+          "statement": "Sw(χ₈)=2."
+        },
+        {
+          "name": "TauCeti.ConductorR013.swan_weightsMatter",
+          "kind": "non-example",
+          "statement": "For χ₈ calculated over Q₂(ζ₈), the positive lower sizes are 4,2,2 with |G₀|=4; Sw=1+1/2+1/2=2, whereas the unweighted sum is 3."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Artin conductor",
+      "kind": "definition",
+      "statement": "Put ε(ρ)=dim V−dim V^{ρ(I_K)}, using the actual representation, and a(ρ)=ε(ρ)+Sw(ρ). This definition is rational-valued; the imported integrality theorem subsequently identifies a and Sw with natural numbers. For finite inertia image, a=Σ_{i≥0}|G_i|/|G₀|·codim V^{G_i} over a finite quotient killing its inertia kernel. The finite-wild-only quotient is not sufficient for the i=0 term.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "F is a Hausdorff topological field of characteristic different from p; V is finite-dimensional and ρ:G_K→GL_F(V) is continuous with finite wild image. Continuity is joint continuity of the action. Finite wild image does not mean finite inertia image."
+      ],
+      "proofSteps": [
+        "Use Representation.invariants for the restriction to the existing inertia subgroup. Define ε by its codimension and add the Swan sum.",
+        "At i=0 the weight is one. If the quotient kills the inertia kernel, its G₀-invariants are the actual I_K-invariants, and the Swan lower sum supplies the remaining terms.",
+        "The definition does not depend on integrality. The separately imported hasse-arf-integrality theorem, after applying equivariant simple lifting to the wild orbit sum, promotes its nonnegative rational value to a natural-number exponent for global products."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/swan-from-breaks",
+        "ArithmeticGaloisRepresentations:R01.3/finite-inertia-factorisation",
+        "mathlib:Representation.invariants"
+      ],
+      "sources": [
+        {
+          "sourceId": "ulmer",
+          "locator": "§§4–6, pp. 3–5; end of §6",
+          "match": "For general ℓ-adic representations the tame term uses actual inertia invariants."
+        },
+        {
+          "sourceId": "serre70",
+          "locator": "§2.1, PDF pp. 6–8",
+          "match": "Separates the actual tame codimension from the integer wild term."
+        }
+      ],
+      "acceptance": [
+        "A nontrivial tame unipotent extension of 1 by 1 has a=1 although its semisimplification has a=0."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "planet": {
+        "name": "Artin conductor"
+      },
+      "uses": [
+        {
+          "where": "R01.3/global-away-conductor",
+          "how": "Nonnegative integral local exponents."
+        },
+        {
+          "where": "R01.3/wd-from-monodromy",
+          "how": "Preserves the unipotent inertia contribution."
+        },
+        {
+          "where": "R29.4",
+          "how": "Uses the elliptic conductor without losing the wild term at 2."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.artin_eq_tame_add_swan",
+          "role": "characterisation",
+          "statement": "a=ε+Sw."
+        },
+        {
+          "name": "TauCeti.ConductorR013.artin_eq_lowerSum",
+          "role": "compatibility",
+          "statement": "For a quotient killing inertia, the weighted sum begins at i=0 and equals a."
+        },
+        {
+          "name": "TauCeti.ConductorR013.artin_zero_iff",
+          "role": "characterisation",
+          "statement": "a=0 exactly when I_K acts trivially."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.artin_unramified",
+          "kind": "degenerate",
+          "statement": "If I_K acts trivially, ε=Sw=a=0."
+        },
+        {
+          "name": "TauCeti.ConductorR013.artin_tameCharacter",
+          "kind": "computation",
+          "statement": "A nontrivial tame character has ε=a=1 and Sw=0."
+        },
+        {
+          "name": "TauCeti.ConductorR013.artin_unipotent",
+          "kind": "non-example",
+          "statement": "The two-dimensional tame unipotent representation with nonzero monodromy has ε=a=1; the trivial two-dimensional representation has a=0."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/prime-to-characteristic-simple-lifting",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Equivariant lifting of simple wild modules",
+      "kind": "theorem",
+      "statement": "Let H be a finite p-group, ℓ≠p, and choose a splitting complete mixed-characteristic (0,ℓ) DVR R with fraction field E and residue field F, containing compatible lifts of all |H|-th roots of unity. Reduction of H-stable lattices gives an Aut(H)-equivariant bijection between simple E[H]-module classes and simple F[H]-module classes. It preserves dimensions and dim U^J for every subgroup J≤H. Consequently conjugation stabilisers agree. The bijection depends on the chosen root identification; it is not a canonical functor without that choice.",
+      "hypotheses": [
+        "H finite p-group and ℓ≠p; both coefficient fields split H. Extension to algebraically closed coefficients is by scalar extension."
+      ],
+      "proofSteps": [
+        "For each ordinary irreducible character χ, use its central idempotent e_χ=(χ(1)/|H|)Σ_h χ(h⁻¹)h in R[H]. Its coefficient at 1 is χ(1)²/|H|, an R-unit because χ(1) is a power of p; hence reduction is nonzero.",
+        "The reductions are orthogonal central idempotents. There are as many as conjugacy classes, the dimension of the centre of split semisimple F[H]; therefore they are precisely the primitive central idempotents. Each block has rank χ(1)² over R, so the corresponding split residue matrix algebra has size χ(1). Reduction of a stable rank-χ(1) lattice is the unique simple residue module for that block.",
+        "Automorphisms permute the displayed idempotents and commute with root reduction; thus the bijection is equivariant. For each J, the idempotent |J|⁻¹Σ_j j projects a lattice onto a direct summand; its generic and residue ranks agree.",
+        "For the application to inertia G₀, extend a stable characteristic-zero simple module to its stabiliser T. T/H is cyclic and the scalar obstruction vanishes by the existing Clifford/projective-representation interface. Orbit induction then gives the same lower-group invariant dimensions as the residual orbit."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+        "mathlib:Representation.averageMap"
+      ],
+      "sources": [
+        {
+          "sourceId": "bk",
+          "locator": "§2, Lemma 2.7, p. 230",
+          "match": "States the lifting and invariant-dimension result. The central-idempotent argument here additionally proves the conjugation compatibility needed by the orbit construction."
+        }
+      ],
+      "acceptance": [
+        "For H=C₃ and ℓ=2, the two nontrivial simple classes are interchanged both before and after reduction by inversion.",
+        "For H=C₂ and ℓ=3, sign lifts to sign and has zero H-invariants.",
+        "No claim is made when ℓ=p."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/wd-from-monodromy",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Weil–Deligne conductor",
+      "kind": "definition",
+      "statement": "For a Weil–Deligne representation (r,N) over a characteristic-zero coefficient field, r has finite inertia image, N is nilpotent, and r(w)Nr(w)⁻¹=q^{deg(w)}N with arithmetic Frobenius of degree 1. Define a(r,N)=Sw(r)+dim V−dim(ker N)^{r(I_K)}=a(r)+dim V^{r(I_K)}−dim(ker N)^{r(I_K)}. Retain N when Frobenius-semisimplifying r.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "k finite with cardinality q; use the genuine Weil group, not an arbitrary abstract tuple."
+      ],
+      "proofSteps": [
+        "Pull the absolute upper filtration to the Weil group via its existing inertia identification. On inertia the Weil–Deligne relation makes ker N stable, so its intersection with Representation.invariants is well-defined.",
+        "Define the displayed codimension and use the Artin formula for r to get the second expression. Normalisation q^{deg} uses arithmetic Frobenius.",
+        "Import R01.2 for the actual correspondence. If ρ(σ)=r(σ)exp(t_ℓ(σ)N) on inertia with the full nonzero tame-character package and finite r(I), its invariants are ker N∩V^{r(I)}. Wild inertia has t_ℓ=0, so the Swan terms coincide. Frobenius semisimplification preserves r|I and N."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/swan-from-breaks",
+        "ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia",
+        "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+        "mathlib:Representation.invariants"
+      ],
+      "sources": [
+        {
+          "sourceId": "ulmer",
+          "locator": "§§7–9, pp. 6–7, Theorem 1",
+          "match": "Defines the monodromy correction and proves agreement with the ℓ-adic conductor, noting the needed inertia invariants."
+        }
+      ],
+      "acceptance": [
+        "Full representation semisimplification can erase N and change the conductor."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "planet": {
+        "name": "Weil–Deligne conductor"
+      },
+      "uses": [
+        {
+          "where": "R01.2",
+          "how": "Conductor preserved by its actual correspondence."
+        },
+        {
+          "where": "LocalLanglands",
+          "how": "Monodromy term in a local parameter."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.wd_eq_artin_correction",
+          "role": "characterisation",
+          "statement": "a(r,N)=a(r)+dim V^I−dim(ker N)^I."
+        },
+        {
+          "name": "TauCeti.ConductorR013.wd_eq_ladic",
+          "role": "compatibility",
+          "statement": "For ℓ≠p, a(WD(ρ))=a(ρ) with the genuine full tame-character package."
+        },
+        {
+          "name": "TauCeti.ConductorR013.wd_frobeniusSemisimplification",
+          "role": "functoriality",
+          "statement": "a(r^{F-ss},N)=a(r,N)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.wd_zeroMonodromy",
+          "kind": "degenerate",
+          "statement": "a(r,0)=a(r)."
+        },
+        {
+          "name": "TauCeti.ConductorR013.wd_specialTwo",
+          "kind": "computation",
+          "statement": "For unramified r on a two-dimensional special representation with rank-one N, Sw=0 and a=1."
+        },
+        {
+          "name": "TauCeti.ConductorR013.wd_unramifiedJordan",
+          "kind": "computation",
+          "statement": "For an unramified n-dimensional special representation with one Jordan block N, a=n−1, so using V^I instead of (ker N)^I gives the wrong value zero."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/global-away-conductor",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Global conductor away from excluded places",
+      "kind": "definition",
+      "statement": "For a number field L, a representation ρ of G_L in the valid finite-image or finite ℓ-adic coefficient tier, unramified outside finitely many places, and a finite set Σ containing every place where the coefficient characteristic equals the residue characteristic or the local finite-wild conductor is unavailable, define N^Σ(ρ)=∏_{v finite,v∉Σ}𝔭_v^{a(ρ_v)}. Only finitely many exponents are nonzero. The unit ideal represents conductor one.",
+      "hypotheses": [
+        "Use decomposition groups of NumberFieldArithmetic and R01.1; local conductors have the hypotheses of artin-from-actual-inertia."
+      ],
+      "proofSteps": [
+        "Decomposition embeddings differ by conjugation, so imported conductor invariance makes a_v independent of choice. Integrality gives a finitely supported natural-number exponent function.",
+        "Form the finite product of powers of height-one prime ideals in the ring of integers. Unique factorisation of ideals gives the requested valuations, support and independence."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia",
+        "ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-independence-of-choices",
+        "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+        "mathlib:IsDedekindDomain.HeightOneSpectrum",
+        "mathlib:Finsupp.prod"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre87",
+          "locator": "§1.2, equation (1.2.3), p. 181",
+          "match": "Global conductor as the finite product of the local exponents, omitting the coefficient prime."
+        }
+      ],
+      "acceptance": [
+        "Restriction to local inertia, not the global image alone, determines each exponent."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "uses": [
+        {
+          "where": "R01.3/global-conductor-of-reduction",
+          "how": "Prime-by-prime divisibility."
+        },
+        {
+          "where": "R01.3/induction-formula-for-conductors",
+          "how": "Discriminant and ideal-norm formula."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.globalConductor_valuation",
+          "role": "characterisation",
+          "statement": "v(N^Σ)=a_v for v∉Σ and is zero for v∈Σ."
+        },
+        {
+          "name": "TauCeti.ConductorR013.globalConductor_support",
+          "role": "data",
+          "statement": "Its support is exactly the ramified finite places outside Σ."
+        },
+        {
+          "name": "TauCeti.ConductorR013.globalConductor_enlargeExcluded",
+          "role": "functoriality",
+          "statement": "For Σ⊆Σ′, N^{Σ′} divides N^Σ, with quotient ∏_{v∈Σ′\\Σ}𝔭_v^{a_v}."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.globalConductor_unramified",
+          "kind": "degenerate",
+          "statement": "An everywhere-unramified representation has conductor the unit ideal."
+        },
+        {
+          "name": "TauCeti.ConductorR013.globalConductor_singlePrime",
+          "kind": "computation",
+          "statement": "If a_v=n at a single non-excluded prime and zero elsewhere, N^Σ=𝔭_v^n."
+        },
+        {
+          "name": "TauCeti.ConductorR013.globalConductor_excludedPrime",
+          "kind": "non-example",
+          "statement": "If the only ramified prime lies in Σ, N^Σ is the unit ideal even when that local exponent is positive."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/residual-prime-to-coefficient-conductor",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Prime-to-coefficient conductor",
+      "kind": "definition",
+      "statement": "For a finite-image residual representation ρ̄:G_L→GL_n(F) with char F=ℓ, define N(ρ̄)=N^{Σ_ℓ}(ρ̄), where Σ_ℓ is every finite place above ℓ. This ideal is prime to ℓ. Over Q it is the positive integer ∏_{q≠ℓ}q^{a_q(ρ̄)}. Use raw ρ̄ unless a semisimplification is explicitly indicated.",
+      "hypotheses": [
+        "Finite residual coefficient field, or finite-image representation in an algebraic closure of F_ℓ; ℓ prime."
+      ],
+      "proofSteps": [
+        "Apply global-away-conductor with exactly the excluded places above ℓ. All remaining local representations have prime-to-residue-characteristic coefficients and finite wild image.",
+        "The excluded valuations vanish, proving coprimality. Identify ideals of Z with positive generators over Q."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/global-away-conductor"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre87",
+          "locator": "§1.2, pp. 180–181, equation (1.2.3)",
+          "match": "Defines N by omitting the coefficient prime and proves it is prime to that prime."
+        }
+      ],
+      "acceptance": [
+        "A conductor at the coefficient prime is not supplied by this definition."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "uses": [
+        {
+          "where": "Serre modularity weights and levels",
+          "how": "N is the prime-to-ℓ level."
+        },
+        {
+          "where": "R01.3/residual-elliptic-conductor-away-from-ell",
+          "how": "Keeps raw torsion separate from its global semisimplification."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.primeToConductor_coprime",
+          "role": "relation",
+          "statement": "N(ρ̄) is coprime to every prime above ℓ."
+        },
+        {
+          "name": "TauCeti.ConductorR013.primeToConductor_raw_ss",
+          "role": "relation",
+          "statement": "N(ρ̄^{ss}) divides N(ρ̄); equality is not automatic."
+        },
+        {
+          "name": "TauCeti.ConductorR013.primeToConductor_baseChange",
+          "role": "compatibility",
+          "statement": "Coefficient extension preserving the action leaves N unchanged."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.primeToConductor_trivial",
+          "kind": "degenerate",
+          "statement": "N of the trivial representation is one."
+        },
+        {
+          "name": "TauCeti.ConductorR013.primeToConductor_twoPrimes",
+          "kind": "computation",
+          "statement": "Over Q, local exponents a₂=3 and a₃=1, with coefficient prime ℓ=3 and all other exponents zero, give N=8."
+        },
+        {
+          "name": "TauCeti.ConductorR013.primeToConductor_notCoefficientPrime",
+          "kind": "non-example",
+          "statement": "The same data with coefficient prime ℓ=2 give N=3; neither product may contain the coefficient prime."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/separable-extension-herbrand",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Herbrand function of a separable extension",
+      "kind": "definition",
+      "statement": "For a finite separable L/K, choose finite Galois M/K containing L and put ψ_{L/K}=φ_{M/L}∘ψ_{M/K}, on real parameters ≥0. This increasing piecewise-linear homeomorphism is independent of M. For K⊆L⊆L′, ψ_{L′/K}=ψ_{L′/L}∘ψ_{L/K}. Its inverse is φ_{L/K}; both fix zero.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "L/K finite separable; no Galois hypothesis on L/K."
+      ],
+      "proofSteps": [
+        "Use finite lower subgroup compatibility in M and upper quotient compatibility under enlargement. The two finite Herbrand maps have the same change-of-group transition under a common Galois overfield, proving independence.",
+        "For towers choose a common Galois closure and cancel the intermediate inverse functions. Each map is increasing and piecewise linear with positive slopes, so invertible.",
+        "For u≥0, G_K^u∩G_L=G_L^{ψ_{L/K}(u)}. The slope is [G_K:G_K^u G_L]/f(L/K); integration fixes ψ(0)=0. Beyond all breaks the different identity gives ψ(u)=e(L/K)u−d(L/K)+e(L/K)−1."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/absolute-upper-filtration",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+        "mathlib:Ideal.ramificationIdx"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre61",
+          "locator": "§3.1, pp. 126–128, Proposition 4 and tower discussion",
+          "match": "Supplies the tower calculus of Herbrand maps; the open-subgroup integral is the derived non-Galois formulation."
+        },
+        {
+          "sourceId": "ulmer",
+          "locator": "§3, pp. 2–3",
+          "match": "Uses inverse Herbrand substitution between the lower and upper parameter."
+        }
+      ],
+      "acceptance": [
+        "The residue degree f divides the slope denominator; using [L:K] instead gives the wrong ramified slope."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "uses": [
+        {
+          "where": "R01.3/local-induction-formula",
+          "how": "Change of variables for restriction to an arbitrary finite extension."
+        },
+        {
+          "where": "R01.3/induction-formula-for-conductors",
+          "how": "Slope at infinity supplies the different contribution."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.herbrandExtension_tower",
+          "role": "functoriality",
+          "statement": "ψ_{L′/K}=ψ_{L′/L}∘ψ_{L/K}."
+        },
+        {
+          "name": "TauCeti.ConductorR013.herbrandExtension_index",
+          "role": "characterisation",
+          "statement": "ψ(u)=f⁻¹∫₀^u[G_K:G_K^t G_L]dt."
+        },
+        {
+          "name": "TauCeti.ConductorR013.herbrandExtension_eventual",
+          "role": "relation",
+          "statement": "ψ(u)=eu−d+e−1 beyond the ramification breaks."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.herbrandExtension_identity",
+          "kind": "degenerate",
+          "statement": "ψ_{K/K}(u)=u."
+        },
+        {
+          "name": "TauCeti.ConductorR013.herbrandExtension_unramified",
+          "kind": "computation",
+          "statement": "Every finite unramified L/K has ψ(u)=u for u≥0."
+        },
+        {
+          "name": "TauCeti.ConductorR013.herbrandExtension_tame",
+          "kind": "computation",
+          "statement": "For tame L/K of ramification index e, d=e−1 and ψ(u)=eu for every u≥0, independently of its residue degree."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/elliptic-exponent-and-parts",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Conductor of an elliptic curve",
+      "kind": "definition",
+      "statement": "For an elliptic curve E/K choose an auxiliary prime ℓ₀≠p and put f(E)=a(V_{ℓ₀}E), ε(E)=dim V_{ℓ₀}E−dim(V_{ℓ₀}E)^{I_K}, δ(E)=Sw(V_{ℓ₀}E). The independence theorem makes these intrinsic and gives f=ε+δ. ε is 0,1,2 for good,multiplicative,additive reduction respectively. Over a number field define N_E=∏_v𝔭_v^{f_v(E)}, choosing ℓ₀ separately at each v; unlike a fixed residual conductor, this product includes every bad prime.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "E is a smooth genus-one projective curve with a specified K-rational origin. T_ℓE is the actual Tate module and V_ℓE=T_ℓE⊗Q_ℓ, ℓ≠p."
+      ],
+      "proofSteps": [
+        "Import the existing elliptic Tate module and its continuous action from EllipticCurves layer 2. The general abelian construction in R01.6 is not needed to define this elliptic restriction, and its conductor comparison imports the theorem here. Define the exponent using the local Artin and Swan constructions.",
+        "Use elliptic-local-independence below for independence of ℓ₀ and the reduction-type tame term. Finitely many bad reductions and integrality give the global ideal.",
+        "The dual has the same conductor by the reviewed conductor-dual theorem; H¹_et and V_ℓE have the required dual comparison."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-local-independence",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-dual",
+        "ArithmeticGaloisRepresentations:R01.3/global-away-conductor",
+        "mathlib:WeierstrassCurve.IsElliptic",
+        "mathlib:WeierstrassCurve.minimal",
+        "mathlib:WeierstrassCurve.HasGoodReduction",
+        "mathlib:WeierstrassCurve.HasMultiplicativeReduction",
+        "mathlib:WeierstrassCurve.HasAdditiveReduction"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre70",
+          "locator": "§2.4, PDF p. 10",
+          "match": "The elliptic tame term is 0,1,2 and the wild term vanishes outside 2 and 3."
+        },
+        {
+          "sourceId": "ddt",
+          "locator": "§2.2, Propositions 2.11–2.13 and Remark 2.14, pp. 57–58",
+          "match": "Connects the Tate-module exponent with the elliptic conductor."
+        }
+      ],
+      "acceptance": [
+        "N_E includes the primes above any auxiliary ℓ₀ because its definition uses another auxiliary prime at those places."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "uses": [
+        {
+          "where": "R01.6/conductor-comparison",
+          "how": "Must import this exponent, reversing the old circular conductor dependency."
+        },
+        {
+          "where": "R29.4",
+          "how": "Ogg comparison used in arithmetic modularity."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.ellipticConductor_eq_parts",
+          "role": "characterisation",
+          "statement": "f(E)=ε(E)+δ(E), with ε determined by the reduction type."
+        },
+        {
+          "name": "TauCeti.ConductorR013.ellipticConductor_allEll",
+          "role": "compatibility",
+          "statement": "For every prime ℓ≠p, a(V_ℓE)=f(E) and Sw(E[ℓ])=δ(E)."
+        },
+        {
+          "name": "TauCeti.ConductorR013.ellipticConductor_dual",
+          "role": "functoriality",
+          "statement": "a((V_ℓE)∨)=f(E), and isogenous elliptic curves have the same exponent."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.ellipticConductor_good",
+          "kind": "degenerate",
+          "statement": "Good reduction has (ε,δ,f)=(0,0,0)."
+        },
+        {
+          "name": "TauCeti.ConductorR013.ellipticConductor_multiplicative",
+          "kind": "computation",
+          "statement": "Split or nonsplit multiplicative reduction has (ε,δ,f)=(1,0,1)."
+        },
+        {
+          "name": "TauCeti.ConductorR013.ellipticConductor_additiveTame",
+          "kind": "computation",
+          "statement": "Additive reduction in residue characteristic p≥5 has (ε,δ,f)=(2,0,2); this triple is not asserted for additive reduction at 2 or 3."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/potential-good-common-inertia",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Common finite inertia action under potential good reduction",
+      "kind": "theorem",
+      "statement": "If an elliptic curve E/K acquires good reduction over a finite extension, the inertia action on T_ℓE has finite image for every ℓ≠p. Its kernel is independent of ℓ, and the characteristic polynomial of every inertia element has integral coefficients independent of ℓ. Conversely finite inertia image implies potential good reduction. The theorem applies to complete discretely valued K with perfect residue field; no restriction to residue characteristic at least five.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "E/K an elliptic curve, ℓ prime and ℓ≠p."
+      ],
+      "proofSteps": [
+        "Import potential-good reduction and the good-model/Tate-module specialisation from EllipticCurves for E. Over a finite Galois good-reduction extension, inertia acts on the good special fibre by automorphisms.",
+        "Serre–Tate Theorem 2 extends the action to the good model and compares it with the action on every Tate module. Faithfulness gives the common kernel; the endomorphism characteristic polynomial gives the common integral trace data.",
+        "Finite inertia image kills inertia over a finite extension, so the Néron–Ogg–Shafarevich criterion gives the converse. The source proof uses the torsion-free congruence kernel and bounds tame primes by 3."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre-tate",
+          "locator": "§2, Theorem 2 and proof, pp. 496–498",
+          "match": "Finite inertia, its common kernel and its integral characteristic polynomial are proved together."
+        }
+      ],
+      "acceptance": [
+        "For an elliptic curve with potential good reduction, the finite inertia action comes from automorphisms of a good elliptic special fibre; its order divides 24."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/elliptic-local-independence",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Elliptic conductor independence and wild vanishing",
+      "kind": "theorem",
+      "statement": "For E/K and every prime ℓ≠p, ε(V_ℓE)=0,1,2 according as the minimal equation has good,multiplicative,additive reduction. The Swan term is independent of ℓ and equals Sw(E[ℓ]). It vanishes for p≥5, good reduction, and multiplicative reduction. Thus a(V_ℓE) and a((V_ℓE)∨) are independent of ℓ. Potentially multiplicative E is a quadratic twist of a Tate curve; if the twisting character χ is ramified then a(V_ℓE)=2a(χ), including wild χ at 2.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "ℓ≠p; no general ℓ-adic independence claim for arbitrary geometric representations is inferred."
+      ],
+      "proofSteps": [
+        "Good reduction uses Néron–Ogg–Shafarevich; multiplicative reduction uses the Tate curve and its rank-one unipotent tame inertia, including the unramified nonsplit twist.",
+        "Potential good reduction uses potential-good-common-inertia: finite inertia traces are integral and independent of ℓ. Averaging over every wild group turns the common traces into common invariant dimensions and Swan sums. For p≥5 the elliptic special-fibre automorphism group has order prime to p, so wild inertia is trivial.",
+        "For potentially multiplicative reduction, the Tate curve representation is twisted by the quadratic character; its cyclotomic factor is unramified away from ℓ. A ramified quadratic character has no inertia invariants; its two copies contribute the wild term, giving 2a(χ).",
+        "The reduction theorem preserves Swan on the actual Tate lattice. The tame terms follow from the identity component of the special fibre and the minimal reduction predicates, requested from the upstream elliptic roadmap."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/potential-good-common-inertia",
+        "ArithmeticGaloisRepresentations:R01.3/swan-conductor-of-reduction",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-dual",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-twist-dominant-character",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre70",
+          "locator": "§§2.3–2.4, PDF pp. 9–10",
+          "match": "Elliptic tame and wild terms and their vanishing."
+        },
+        {
+          "sourceId": "ddt",
+          "locator": "Propositions 2.11–2.13, pp. 57–58",
+          "match": "Good and multiplicative inertia and the additive lower bound."
+        },
+        {
+          "sourceId": "serre-tate",
+          "locator": "§2, Theorem 2, pp. 496–498",
+          "match": "Common finite inertia action provides the ℓ-independence input."
+        }
+      ],
+      "acceptance": [
+        "At Q₂ a ramified quadratic twist of a Tate curve can have f=4 or 6; f=2 is not universal for additive reduction."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/surface-artin-conductor",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Cohomological Artin conductor of a regular curve",
+      "kind": "definition",
+      "statement": "Let R be a henselian DVR with algebraically closed residue field k of characteristic p>0, K its fraction field, C/K smooth proper geometrically connected of genus g≥1, and X/R its minimal proper regular model. For ℓ≠p define Art(X/R)=χ_et(C_K̄,Q_ℓ)−χ_et(X_k,Q_ℓ)−Sw(H¹_et(C_K̄,Q_ℓ))∈Z. The sign is the cohomological convention: for a singular degeneration it is typically nonpositive. For a semistable curve it equals minus the number of geometric nodes.",
+      "hypotheses": [
+        "The relative surface is minimal, proper, regular and flat; étale Euler characteristic counts all degrees. This node is not a definition for arbitrary nonproper models."
+      ],
+      "proofSteps": [
+        "Import the minimal regular model from StableReduction. Use finite-dimensional étale cohomology with its continuous Galois action; the new curve-cohomology input in this scope is recorded as a gap rather than cited from a higher tier.",
+        "Form the Euler difference minus the Swan term. Independence and proper specialisation are the precise curve-cohomology input, not consequences of the linear representation alone."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "ArithmeticGaloisRepresentations:R01.3/swan-from-breaks"
+      ],
+      "sources": [
+        {
+          "sourceId": "liu-ogg",
+          "locator": "§2, p. 1",
+          "match": "Defines the sign and relates the surface invariant to the curve conductor when component multiplicities have gcd one."
+        },
+        {
+          "sourceId": "liu94",
+          "locator": "Introduction, p. 51",
+          "match": "Uses the same cohomological Artin invariant of the minimal regular model."
+        }
+      ],
+      "acceptance": [
+        "For genus one with a section, −Art=m−1+f."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "uses": [
+        {
+          "where": "R01.3/saito-verified-statement",
+          "how": "The cohomological side of the discriminant theorem."
+        },
+        {
+          "where": "R01.3/uniform-ogg-comparison",
+          "how": "Converts the surface invariant to m−1+f."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.surfaceArtin_good",
+          "role": "simp",
+          "statement": "A smooth proper model has Art=0."
+        },
+        {
+          "name": "TauCeti.ConductorR013.surfaceArtin_semistable",
+          "role": "characterisation",
+          "statement": "For a semistable model, Art is minus the number of geometric ordinary double points."
+        },
+        {
+          "name": "TauCeti.ConductorR013.surfaceArtin_genusOne",
+          "role": "relation",
+          "statement": "For a minimal regular genus-one model with a section, −Art=m−1+f, where m counts geometric irreducible components without multiplicities."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.surfaceArtin_smoothElliptic",
+          "kind": "degenerate",
+          "statement": "A smooth elliptic special fibre gives χ_generic=χ_special=0 and Sw=0, hence Art=0."
+        },
+        {
+          "name": "TauCeti.ConductorR013.surfaceArtin_nodalCubic",
+          "kind": "computation",
+          "statement": "A nodal rational special fibre has χ_special=1, χ_generic=0, Sw=0 and Art=−1."
+        },
+        {
+          "name": "TauCeti.ConductorR013.surfaceArtin_splitPolygon",
+          "kind": "computation",
+          "statement": "For a split I_n fibre, χ_special=n and Sw=0, so Art=−n, although the curve conductor is 1."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/determinant-discriminant-order",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Determinant discriminant order",
+      "kind": "definition",
+      "statement": "In the surface setting let ω=ω_{X/R} be the invertible relative dualising sheaf. Put M=det Rf_*(ω^⊗2) and L=det Rf_*ω, regarded as rank-one R-lattices. The canonical smooth-curve discriminant isomorphism Δ_K:M_K≃L_K^⊗13 determines the unique integer d with Δ_K(M)=π^d L^⊗13; define ordΔ_{X/R}=d. In genus one with a section, Δ_K is the composite of the canonical determinant identification M_K≃L_K and multiplication by the equation-independent tensor Δ_min·ω_min^⊗12.",
+      "hypotheses": [
+        "The determinant objects require perfect complexes, proper curve duality and flat minimal regular models; these restricted curve inputs are recorded, not assumed to be in the pinned library."
+      ],
+      "proofSteps": [
+        "Choose bases of the two rank-one lattices. The generic isomorphism is multiplication by a nonzero scalar; its normalised valuation gives d, unchanged by unit changes of bases.",
+        "For genus one, the evaluation of the invariant differential trivialises the generic dualising sheaf and χ(ω)=0. Determinant functoriality gives M_K≃L_K. Under a Weierstrass variable change, the discriminant and the twelfth tensor power of the differential compensate, giving a coordinate-independent Δ tensor.",
+        "The restricted minimal-model comparison identifies the integral differential lattice with the minimal Weierstrass differential; the determinant identification extends as a unit. Thus this d is v_K(Δ_min), not an arbitrary equation discriminant."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-minimal-model-comparison",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      ],
+      "sources": [
+        {
+          "sourceId": "liu-ogg",
+          "locator": "§3, p. 2; §4, pp. 2–4",
+          "match": "Defines the determinant lattices and discriminant order; constructs the genus-one isomorphism explicitly."
+        },
+        {
+          "sourceId": "liu94",
+          "locator": "§2.1, pp. 58–59",
+          "match": "Records the conductor–discriminant formulation."
+        }
+      ],
+      "acceptance": [
+        "A nonminimal equation can change v(Δ) by 12 and cannot define this intrinsic order."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "uses": [
+        {
+          "where": "R01.3/saito-verified-statement",
+          "how": "The geometric discriminant side."
+        },
+        {
+          "where": "R01.3/uniform-ogg-comparison",
+          "how": "Identifies the determinant order with the minimal equation discriminant."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.discriminantOrder_basisIndependent",
+          "role": "extensionality",
+          "statement": "Changing either R-basis by a unit leaves d unchanged."
+        },
+        {
+          "name": "TauCeti.ConductorR013.discriminantOrder_extension",
+          "role": "characterisation",
+          "statement": "d≥0 exactly when Δ_K extends to a lattice homomorphism; d=0 exactly when it extends to an isomorphism."
+        },
+        {
+          "name": "TauCeti.ConductorR013.discriminantOrder_genusOne",
+          "role": "compatibility",
+          "statement": "For the minimal regular elliptic model, d=v_K(Δ_min)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.discriminantOrder_good",
+          "kind": "degenerate",
+          "statement": "For a smooth elliptic model, the discriminant is a unit and d=0."
+        },
+        {
+          "name": "TauCeti.ConductorR013.discriminantOrder_I_n",
+          "kind": "computation",
+          "statement": "For split multiplicative type I_n, d=n."
+        },
+        {
+          "name": "TauCeti.ConductorR013.discriminantOrder_nonminimal",
+          "kind": "non-example",
+          "statement": "Replacing a minimal equation by the integral scaling with discriminant multiplied by π^12 changes its equation valuation by 12 but leaves ordΔ of the minimal regular model unchanged."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/elliptic-minimal-model-comparison",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Minimal regular elliptic model and smooth locus",
+      "kind": "comparison",
+      "statement": "For a minimal Weierstrass model W/R of E/K, its minimal resolution X is the minimal proper regular model. The smooth locus X^sm is the Néron model, and its identity component agrees with the smooth locus of W. The relative dualising lattice H⁰(X,ω_{X/R}) is generated by the minimal invariant differential. The geometric irreducible-component count m of X_k includes components of every multiplicity; it is not the cardinality of the Néron component group.",
+      "hypotheses": [
+        "R henselian DVR with algebraically closed residue field; E/K elliptic; use the minimal equation, not any integral equation."
+      ],
+      "proofSteps": [
+        "Use the restricted minimal Weierstrass resolution and contraction statements of StableReduction. The Weierstrass model is normal, and the components contracted to it give rational double-point singularities; the resolution identifies the canonical differential lattice.",
+        "Identify the smooth locus by the Néron mapping property for smooth test schemes; no full higher-tier Néron-model theory is imported. Liu’s lemma and proof give the exact restricted genus-one comparison.",
+        "Record the move downward: this conductor prerequisite is owned here and NeronModelsAndSemistableAbelianVarieties R11.2 must import it. General Néron models remain that roadmap’s responsibility."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
+      "sources": [
+        {
+          "sourceId": "liu-ogg",
+          "locator": "§4, lemma and proof, pp. 3–4",
+          "match": "The minimal Weierstrass resolution, smooth-locus comparison and invariant-differential lattice are the genus-one inputs."
+        }
+      ],
+      "acceptance": [
+        "For I₀* the regular special fibre has five geometric components, while the Néron component group need not have order five."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/saito-verified-statement",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Saito conductor–discriminant theorem in the verified scope",
+      "kind": "theorem",
+      "statement": "For R henselian DVR with algebraically closed residue field of characteristic p>0 and C/K smooth proper geometrically connected of genus at least one, let X/R be its minimal proper regular model. With the preceding cohomological and determinant conventions, ordΔ_{X/R}=−Art(X/R), in every positive residue characteristic, including mixed characteristic (0,2). This is the statement restated in Liu’s notes, §3. Its original finite-extension defect proof remains the specifically recorded source/proof gap.",
+      "hypotheses": [
+        "Exactly the hypotheses of Liu’s author-hosted restatement; no assertion for arbitrary regular nonminimal or nonproper surfaces."
+      ],
+      "proofSteps": [
+        "Liu’s §3 states the theorem in this scope and explains reduction to the semistable case by matching both sides under finite extensions.",
+        "To turn that explanation into a closed prerequisite chain one must supply the discriminant and cohomological Artin change-of-base defect identity from Saito’s original proof. Neither determinant functoriality nor semistable reduction alone proves it; this input remains a named gap."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/surface-artin-conductor",
+        "ArithmeticGaloisRepresentations:R01.3/determinant-discriminant-order",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models"
+      ],
+      "sources": [
+        {
+          "sourceId": "liu-ogg",
+          "locator": "§3, Theorem, p. 2; §4, pp. 4–5",
+          "match": "Explicitly restates Saito Theorem 1 and applies it uniformly to elliptic curves."
+        },
+        {
+          "sourceId": "liu94",
+          "locator": "§2.1, pp. 58–59",
+          "match": "Independently gives the same conductor–discriminant statement."
+        }
+      ],
+      "acceptance": [
+        "The mixed-characteristic dyadic case is included in the verified statement, but not claimed proved from the available sources."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/uniform-ogg-comparison",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Uniform Ogg formula",
+      "kind": "theorem",
+      "statement": "For E/K in the complete perfect-residue-field setting, let X be its minimal proper regular model and m the number of geometric irreducible components of its special fibre, counted once each, irrespective of multiplicities. Then v_K(Δ_min)=f(E)+m−1. The formula includes wild reduction at 2 and 3. Over strictly henselian/algebraically closed residue fields it follows from the preceding genus-one determinant and cohomological comparisons; passage from K to that setting uses the unramified model and conductor invariance inputs.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "X is proper and minimal regular. E has its rational origin, so the gcd of component multiplicities is one."
+      ],
+      "proofSteps": [
+        "After strict henselisation and completion, use the geometric m and the minimal-model base-change input. Unramified extension preserves conductor, valuation and geometric components.",
+        "For genus one with a section, the Euler-characteristic identity gives −Art=m−1+f, without discarding wild δ. The minimal-differential comparison gives ordΔ=vΔ_min. Saito’s theorem equates these two integers.",
+        "Use the upstream Tate-algorithm tables only to compute particular fibres, not as a proof covering all wild cases. This theorem is the conductor comparison imported by R01.6 and by R29.4."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/saito-verified-statement",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-minimal-model-comparison",
+        "ArithmeticGaloisRepresentations:R01.3/surface-artin-conductor",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-exponent-and-parts",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv"
+      ],
+      "sources": [
+        {
+          "sourceId": "liu-ogg",
+          "locator": "Equation (1), p. 1; §4, pp. 4–5",
+          "match": "Proves the genus-one deduction from Saito, explicitly addressing the case absent from Ogg’s original proof."
+        },
+        {
+          "sourceId": "ddt",
+          "locator": "Remark 2.14, p. 58",
+          "match": "Identifies the elliptic Tate-module conductor with the Ogg formula."
+        }
+      ],
+      "acceptance": [
+        "For I_n, (vΔ,m,f)=(n,n,1).",
+        "For good reduction, (vΔ,m,f)=(0,1,0).",
+        "For tame I₀*, (vΔ,m,f)=(6,5,2); replacing m by the component-group cardinality breaks the formula."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "planet": {
+        "name": "Ogg formula"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-digit-function",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Brumer–Kramer digit function",
+      "kind": "definition",
+      "statement": "For a prime p and n=Σ_{i≥0}r_i p^i with 0≤r_i<p, define λ_p(n)=Σ_i i r_i p^i∈N. Define λ_p(0)=0. The weight is the digit position multiplied by p^i, not merely the sum of the digits or their positions.",
+      "hypotheses": [
+        "p prime; the definition also makes sense for any integer base p≥2."
+      ],
+      "proofSteps": [
+        "Use the finite base-p digit expansion of n. Multiplying each digit by its position and place value gives the finite sum.",
+        "For any finitely supported nonnegative s_i with n=Σ_i s_i p^i, carrying p copies at i to one at i+1 increases the weighted value by p^{i+1}. Therefore Σ_i i s_i p^i≤λ_p(n)."
+      ],
+      "prerequisites": [
+        "mathlib:Nat.digits"
+      ],
+      "sources": [
+        {
+          "sourceId": "bk",
+          "locator": "§5, equation (5.4), p. 242",
+          "match": "Defines λ_p using base-p digits and uses the carry inequality in the proof of Theorem 5.5."
+        }
+      ],
+      "acceptance": [
+        "λ₂(2)=2 and λ₂(4)=8."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      },
+      "uses": [
+        {
+          "where": "Brumer–Kramer, Theorems 5.5 and 6.2",
+          "how": "Combines bounds for simple wild constituents of p-power dimension."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ConductorR013.digitWeight_zero",
+          "role": "simp",
+          "statement": "λ_p(0)=0."
+        },
+        {
+          "name": "TauCeti.ConductorR013.digitWeight_singlePlace",
+          "role": "simp",
+          "statement": "For 0≤r<p, λ_p(r p^i)=i r p^i."
+        },
+        {
+          "name": "TauCeti.ConductorR013.digitWeight_carry",
+          "role": "relation",
+          "statement": "For n=Σ_i s_i p^i with arbitrary nonnegative finite s_i, Σ_i i s_i p^i≤λ_p(n)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ConductorR013.digitWeight_smallDigit",
+          "kind": "degenerate",
+          "statement": "If 0≤n<p, λ_p(n)=0."
+        },
+        {
+          "name": "TauCeti.ConductorR013.digitWeight_binaryTwo",
+          "kind": "computation",
+          "statement": "λ₂(2)=2, λ₂(3)=2 and λ₂(4)=8."
+        },
+        {
+          "name": "TauCeti.ConductorR013.digitWeight_ternary",
+          "kind": "computation",
+          "statement": "λ₃(3)=3 and λ₃(6)=6; λ₃(2)=0."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-wild-bound",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Brumer–Kramer Swan bound",
+      "kind": "theorem",
+      "statement": "Let K be a finite extension of Q_p with e_K=v_K(p), M/K finite Galois, G=Gal(M/K), and V a finite-dimensional F[G]-module, char F≠p. Assume either (i) p odd and [F(μ_{p²}):F]=p(p−1), or p=2 and [F(μ₈):F]=4; or (ii) p=2, V restricted to G₁ is isomorphic to its dual, [F(μ₈):F]=2 and 2 is not a square in F. Then dim V−dim V^{G₁}=(p−1)d₁ for an integer d₁≥0, and Sw(V)≤e_K[pd₁+(p−1)λ_p(d₁)]. Self-duality in (ii) means an isomorphism of G₁-modules, not merely real-valued trace.",
+      "hypotheses": [
+        "Mixed characteristic with finite K/Q_p; no claim for all perfect residue fields or equal characteristic. The exact root-of-unity and self-duality hypotheses are required."
+      ],
+      "proofSteps": [
+        "Apply brumer-kramer-constituent-estimate to each simple or *-simple constituent of the nontrivial wild part, after the multiplicity-weighted rational lift. Its dimension is (p−1)p^i and its Swan contribution is at most e_K[p+(p−1)i]p^i.",
+        "Sum the simple bounds with multiplicities. The codimensions add, and the carry inequality for λ_p bounds the weighted digit sum by λ_p(d₁). In the exceptional dyadic case use the self-dual constituents, exactly as Theorem 5.5(ii).",
+        "The finite wild extension is over the fixed field of G₁. Its absolute ramification index scales by the tame index; the Swan base-change formula cancels that index and leaves e_K. No coarser group-order estimate replaces the constituent bound."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-digit-function",
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-constituent-estimate",
+        "ArithmeticGaloisRepresentations:R01.3/swan-from-breaks"
+      ],
+      "sources": [
+        {
+          "sourceId": "bk",
+          "locator": "§§3–4, pp. 231–240; Corollary 5.3 and Theorem 5.5, pp. 241–242",
+          "match": "The conductor estimates and integral-trace lifts combine to give this exact root-of-unity-sensitive bound."
+        }
+      ],
+      "acceptance": [
+        "For p=2,d₁=2, the bracket is 4+λ₂(2)=6, not the value from an unweighted digit sum."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/elliptic-sharp-exponent-bounds",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Sharp small-prime elliptic conductor bounds",
+      "kind": "theorem",
+      "statement": "For E/K with K a finite extension of Q_p, f(E)≤2+6v_K(2) if p=2, f(E)≤2+3v_K(3) if p=3, and f(E)≤2 if p≥5. In particular over Q one has f₂≤8,f₃≤5 and f_q≤2 for q≥5. These are Brumer–Kramer bounds; no unverified Lockhart–Rosen–Silverman attribution is used.",
+      "hypotheses": [
+        "K finite over Q_p and E elliptic; these numeric mixed-characteristic bounds are not extended to k((t))."
+      ],
+      "proofSteps": [
+        "Use Theorem 6.2 of Brumer–Kramer for g=1: d=⌊2/(p−1)⌋ and f≤2+e_K[pd+(p−1)λ_p(d)].",
+        "Choose an auxiliary ℓ satisfying the theorem’s root-of-unity degree condition. A polarization of degree prime to ℓ gives a G₁-invariant perfect alternating pairing because cyclotomic inertia is unramified for ℓ≠p; hence the needed dyadic self-duality. Use ℓ-independence to transfer the resulting bound to f(E).",
+        "Evaluate d and λ: at 2, d=2 and λ₂(2)=2; at 3, d=1 and λ₃(1)=0; at p≥5,d=0."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-wild-bound",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-local-independence",
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-digit-function",
+        "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68"
+      ],
+      "sources": [
+        {
+          "sourceId": "bk",
+          "locator": "Theorem 6.2 and its proof, p. 243",
+          "match": "Bounds the abelian conductor using the choice of auxiliary ℓ and the polarization; specialising to g=1 gives these values."
+        }
+      ],
+      "acceptance": [
+        "At Q₂ the bound is eight; the weaker wild-image bound does not establish it."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/wd-actual-inertia-invariants",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Actual inertia invariants in the Weil–Deligne correspondence",
+      "kind": "comparison",
+      "statement": "For an ℓ-adic representation ρ over a finite extension of Q_ℓ, ℓ≠p, and its genuine Weil–Deligne pair (r,N), V^{ρ(I_K)}=(ker N)∩V^{r(I_K)}. Consequently Sw(ρ)=Sw(r) and a(ρ)=a(r,N). The tame character t_ℓ must be nonzero on every open inertia subgroup, and r(I_K) must be finite. An arbitrary tuple satisfying only a formal exponential equality with t_ℓ=0 does not suffice.",
+      "hypotheses": [
+        "K is complete discretely valued, with valuation v_K(π)=1 and perfect residue field k of characteristic p>0. Finite Galois subextensions lie in K^sep. Tier F means k finite; tier P permits arbitrary perfect k and depends on the recorded Part II ramification input.",
+        "Finite residue field; all inertia and tame-character identifications are those of R01.2’s actual correspondence."
+      ],
+      "proofSteps": [
+        "Choose an open inertia subgroup where r is trivial and the exponential identity holds. The nonzero tame character takes infinitely many ℓ-adic values on it. If v is fixed by ρ, the polynomial exp(tN)v−v vanishes at infinitely many t and hence Nv=0.",
+        "Then the full exponential identity reduces to ρ(σ)v=r(σ)v on ker N, giving equality of the invariant spaces in both directions. Wild inertia has tame character zero, so its representations coincide. Substitute into the conductor formulas."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/wd-from-monodromy",
+        "ArithmeticGaloisRepresentations:R01.2/grothendieck-monodromy-and-the-weil-deligne-functor",
+        "ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia"
+      ],
+      "sources": [
+        {
+          "sourceId": "ulmer",
+          "locator": "§8, end, p. 7; §9, Theorem 1, p. 7",
+          "match": "Compares actual inertia invariants with the monodromy-kernel invariants and the resulting conductor."
+        }
+      ],
+      "acceptance": [
+        "Unramified r with one nonzero 2×2 nilpotent block has invariant dimension one for ρ, not two."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/character-conductor-reciprocity",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Artin conductor and the local reciprocity conductor",
+      "kind": "comparison",
+      "statement": "For a continuous finite-image characteristic-zero character χ:G_K^ab→F× of a nonarchimedean local field, a(χ)=characterConductorExp(χ∘Art_K). The right side is the least n≥0 on whose unit-filtration subgroup U_K^n the multiplicative character is trivial, with U_K^0=O_K×. It uses arithmetic reciprocity; reversing reciprocity does not change the exponent.",
+      "hypotheses": [
+        "Finite inertia image and a coefficient tier in which the character-conductor minimum is attained. The requested unit/upper-filtration compatibility is essential."
+      ],
+      "proofSteps": [
+        "The local reciprocity input says Art_K(U_K^n) is dense in the image of G_K^n in the topological abelianization, including n=0. Continuity to a Hausdorff finite image turns density into equality of the kernels tested by χ.",
+        "For a ramified character, the largest upper break u is integral by the abelian Hasse–Arf theorem; the first unit subgroup in its kernel is U^{u+1}. Thus its conductor is u+1=a(χ). The unramified case has both minima zero."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+        "ArithmeticGaloisRepresentations:R01.3/absolute-upper-filtration",
+        "ArithmeticGaloisRepresentations:R01.3/conductor-of-a-character"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre61",
+          "locator": "§3.7, pp. 137–139",
+          "match": "The upper-break character conductor and ordinary integrality supply the representation side; the reciprocity transport is an explicit supplier request."
+        }
+      ],
+      "acceptance": [
+        "Unramified character: exponent zero. Nontrivial tame character: exponent one. Over Q₂, χ₋₄ and χ₈ have exponents two and three."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-rational-lift",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Rational lift for the sharp conductor estimate",
+      "kind": "theorem",
+      "statement": "Let H be a finite p-group and F a field of characteristic different from p. Under Brumer–Kramer Theorem 5.5(i), let W be simple; under its (ii), let p=2 and W be self-dual and *-simple (having no proper nonzero self-dual submodule). There is a torsion-free finite-rank Z[H]-module M with M_Q simple and m_Q(M_Q)·W≃m_F(W)·M_F. Here m denotes Schur index; in case (ii), m_F(W)=1 and the displayed right multiplicity is one. For every lower ramification subgroup J≤H the same multiplicity-weighted invariant dimensions agree, hence m_Q(M_Q)a(W)=m_F(W)a(M_Q). This is a rational constituent lift, stronger than merely lifting a split simple module to characteristic zero.",
+      "hypotheses": [
+        "The field/root/self-duality hypotheses are exactly those stated in brumer-kramer-wild-bound. *-simple modules are either simple self-dual modules or U⊕U∨ with U nonself-dual simple."
+      ],
+      "proofSteps": [
+        "Use the character-value field and Schur-index dictionary from the existing projective-representation interface. For cyclic H, the unique faithful F-module is a cyclotomic field; the root-degree condition controls its rational orbit.",
+        "Proposition 4.4 reduces a faithful simple module either to H=C_p, H=Q₈, or m(U)W≃m(W)Ind_J^H U for a proper subgroup J. Its proof uses Clifford theory on an abelian normal subgroup and the classification of p-groups with only cyclic abelian normal subgroups. The dihedral/semidihedral and generalized quaternion cases are explicitly handled on pp. 236–237.",
+        "For the self-dual dyadic case, Proposition 4.6 carries out the same induction on *-simple modules. Mackey intertwining and disjoint abelian-character orbits show that the induced integral rational module is simple; averaging preserves each subgroup-invariant rank.",
+        "These p-group classification and Schur-index refinements are precise representation-theory requests, rather than an assertion that modular Maschke supplies a rational form. The arithmetic conductor equality follows by summing the invariant codimensions with the same weights."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/prime-to-characteristic-simple-lifting",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+        "ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia"
+      ],
+      "sources": [
+        {
+          "sourceId": "bk",
+          "locator": "Proposition 4.4, pp. 236–237; Corollary 4.5, p. 237; Proposition 4.6 and proof, pp. 237–239",
+          "match": "Constructs the multiplicity-weighted integral rational forms, including the special self-dual dyadic case."
+        }
+      ],
+      "acceptance": [
+        "A quaternionic rational representation can have Schur index two; dropping the multiplicities gives a false lift statement."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-constituent-estimate",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.3",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.3"
+      ],
+      "title": "Wild constituent conductor estimate",
+      "kind": "theorem",
+      "statement": "Let M/K be a totally wildly ramified Galois extension of p-adic fields. For a simple Q[Gal(M/K)]-module U put δ_Q(U)=ord_p(dim_Q U)−ord_p(m_Q(U)). Then a(U)≤dim U+[δ_Q(U)+p/(p−1)]e_K dim U. Equivalently an ordinary nontrivial irreducible character φ of degree p^d and character field degree [Q(φ):Q]=(p−1)p^{h−1} satisfies a(φ)≤[1+e_K(h+d)+e_K/(p−1)]φ(1). Via brumer-kramer-rational-lift, Sw(W)≤[δ_F(W)+p/(p−1)]e_K dim W for the simple or *-simple W under Theorem 5.5’s hypotheses, where δ_F(W)=ord_p(dim W)−ord_p(m_F(W)).",
+      "hypotheses": [
+        "K finite over Q_p, normalised valuation, M/K totally wild; m denotes the actual Schur index."
+      ],
+      "proofSteps": [
+        "Base cases: for C_p, the different bound d≤p−1+pe_K gives a(nontrivial character)≤1+pe_K/(p−1). For Q₈, Proposition 3.7 gives a(φ)≤2+6e_K for its faithful degree-two character.",
+        "Induct on the group order using Proposition 4.4’s proper-subgroup rational induction. For a subgroup of index p^n, the local induction formula contributes the discriminant, bounded by p^n−1+np^n e_K (Lemma 3.1). Its proof is the Eisenstein derivative estimate: the valuations of j a_j π^{j−1} lie in distinct residue classes modulo p^n, so the least valuation bounds the derivative by the last term.",
+        "Track the dimension and Schur-index multiplicities through the induction. The p-adic order δ increases by the subgroup-index exponent, producing precisely the claimed coefficient.",
+        "Transfer the rational bound with brumer-kramer-rational-lift, then subtract dim W when no inertia invariant survives. Trivial constituents have Swan zero. This gives Corollary 5.3 and is the key arithmetic input for the digit-sum bound."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-rational-lift",
+        "ArithmeticGaloisRepresentations:R01.3/local-induction-formula",
+        "ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia",
+        "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration"
+      ],
+      "sources": [
+        {
+          "sourceId": "bk",
+          "locator": "Lemma 3.1, pp. 231–232; Corollary 3.2, p. 232; Proposition 3.7, pp. 233–234; Theorem 5.1, pp. 239–240; Corollary 5.3, p. 241",
+          "match": "The cyclic and quaternion base cases plus induction give the rational and transferred constituent bounds."
+        }
+      ],
+      "acceptance": [
+        "For p=2 and the faithful quaternionic degree-two character, the character bound is 2+6e_K.",
+        "For a simple wild constituent of dimension (p−1)p^i with Schur index one, the Swan bound is e_K[p+(p−1)i]p^i."
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/Conductor",
+        "namespace": "TauCeti.ConductorR013"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-3-ramification-the-tame-and-wild-cases-and-the-filtration",
+      "need": "Import the canonical lower/upper filtration, finite quotient Herbrand theorem, subgroup/tower calculus, different and Hasse–Arf from this existing roadmap. Its current nonarchimedean-local-field scope is tier F. For tier P, the same declarations for complete DVR fields with arbitrary perfect residue field are a LocalFieldsRamification, Part II extension, justified by Serre 1961 §3.1; do not define a second finite filtration here.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/absolute-upper-filtration",
+        "ArithmeticGaloisRepresentations:R01.3/swan-from-breaks",
+        "ArithmeticGaloisRepresentations:R01.3/separable-extension-herbrand",
+        "ArithmeticGaloisRepresentations:R01.3/character-conductor-reciprocity"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-4-the-tame-quotient-of-the-absolute-galois-group",
+      "need": "Use the canonical inertia and wild-inertia subgroups, their closed normal/pro-p structure and their finite images G₀/G₁, with the exact separable-closure carrier. Current Tau Ceti provides wild inertia after the pin, so these are roadmap imports, not pinned declaration claims.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/absolute-upper-filtration"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-5-clifford-theory-over-a-normal-subgroup",
+      "need": "Supply split semisimple simple-character/central-idempotent correspondence, degrees of irreducible p-group characters as powers of p, and extension of a simple H-module stable under T with cyclic T/H. For the Brumer–Kramer rational lift, export classification of finite p-groups with only cyclic abelian normal subgroups, Clifford induction of rational constituents and the multiplicity/Schur-index dictionary (their Proposition 4.4). The arithmetic cyclic/quaternion estimates and rational-lift application are owned here, not requested as generic representation theory.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/prime-to-characteristic-simple-lifting",
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-rational-lift"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/InductionRestriction#layer-7-projective-representations-factor-sets-and-the-schur-multiplier",
+      "need": "For cyclic C and an algebraically closed characteristic-zero coefficient field E, H²(C,E×)=0, with the Clifford scalar obstruction interface and Schur-index/integral-trace inputs required by Brumer–Kramer Propositions 4.4 and 4.6.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/prime-to-characteristic-simple-lifting",
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-rational-lift"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "need": "Use the existing arithmetic-surface blowup, resolution and intersection theory for the minimal Weierstrass resolution and rational double-point differential-lattice comparison; no second surface theory is planned here.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/surface-artin-conductor",
+        "ArithmeticGaloisRepresentations:R01.3/determinant-discriminant-order",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-minimal-model-comparison"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-5-regular-and-minimal-models",
+      "need": "Import the minimal proper regular model and uniqueness, compatibility with strict henselisation and completion of an unramified extension, preserving v(Δ_min), geometric irreducible components and the minimal differential lattice. Genus-one-with-section cohomological flatness and gcd-one component formula are the restricted comparison inputs needed here.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/surface-artin-conductor",
+        "ArithmeticGaloisRepresentations:R01.3/determinant-discriminant-order",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-minimal-model-comparison",
+        "ArithmeticGaloisRepresentations:R01.3/uniform-ogg-comparison",
+        "ArithmeticGaloisRepresentations:R01.3/saito-verified-statement"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-4-elliptic-curves-over-local-fields--reduction-tates-algorithm-the-tate-curve-aec-vii-ataec-ivv",
+      "need": "Import the canonical minimal reduction predicates, Tate curve, Néron–Ogg–Shafarevich and quadratic potentially-multiplicative twist, minimal discriminant and Tate-algorithm fibre tables. Export the identity-component/Tate-invariant calculation giving tame codimensions 0,1,2. Arithmetic Ogg comparison is supplied by uniform-ogg-comparison here; the algorithmic table is not a second planned target.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/potential-good-common-inertia",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-local-independence",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-minimal-model-comparison",
+        "ArithmeticGaloisRepresentations:R01.3/uniform-ogg-comparison"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-2-torsion-the-weil-pairing-and-the-tate-module-aec-iii68",
+      "need": "Import the actual Tate module, good-model specialisation, endomorphism characteristic polynomial and Néron–Ogg–Shafarevich interface for the elliptic restriction of Serre–Tate Theorem 2. This elliptic restriction uses the existing elliptic Tate module; the general abelian Tate-module construction remains in R01.6.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/potential-good-common-inertia",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-local-independence"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places",
+      "need": "Use the actual number-field completion, decomposition-group inclusion, ring-of-integers height-one prime and ideal exponent dictionary.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/global-away-conductor"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "need": "Export the canonical arithmetic local Artin map, the attained character-conductor minimum, and closure(Art_K(U_K^n)) equal to the image of G_K^n in G_K^ab for n≥0, including U⁰=O×. The present reader states the minima and normalisations but does not state the last filtration compatibility. This is a ClassFieldTheory, Part II refinement, not a new reciprocity map.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/character-conductor-reciprocity"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.3",
+      "status": "planned",
+      "remaining": [
+        "Perfect infinite residue-field ramification supplier: Serre 1961 verifies the mathematical scope, but the current LocalFieldsRamification roadmap and pinned carriers target nonarchimedean local fields. The Part II extension must export the same finite upper quotient theorem, different calculus and absolute inertia images for arbitrary perfect residue fields. Every tier-P assertion is conditional on this precise supplier input.",
+        "Curve cohomology and determinant carriers at this tier: Own the restricted H¹_et representation, proper specialisation/Euler characteristic, perfect direct-image determinant and dualising-lattice interfaces required for minimal regular curves of genus g≥1 over a DVR, together with the genus-one specializations. The smooth-curve determinant input is the canonical, base-change-compatible isomorphism det Rf₊(ω²)≃(det Rf₊ω)^⊗13, including genus one; Liu §3 p. 2 identifies the general Mumford/Deligne input. The precise conductor and lattice statements are given by surface-artin-conductor, determinant-discriminant-order and elliptic-minimal-model-comparison. Current libraries do not provide these carriers, and the higher-tier etale/duality roadmap cannot be a prerequisite. They must move down into this conductor interface, with general theory importing them; no Prop placeholder occurs in the Lean file.",
+        "Saito finite-extension defect identity: The theorem and uniform genus-one deduction were read in Liu’s freely available original notes (§3 p. 2 and §4 pp. 4–5), and the determinant definition is now explicit. Saito 1988 Theorem 1’s proof was not obtained. To close the proof, provide the matching finite-extension defects of ordΔ and −Art, then semistable reduction; the notes’ explanation does not state these defects. This is a precise remaining proof input, especially for mixed characteristic (0,2).",
+        "Reciprocity unit/upper-filtration compatibility: ClassFieldTheory’s current Layer 7 gives character-conductor minima but not the density identity for Art(U^n) and upper ramification. The exact Part II request above is the missing input of the character comparison.",
+        "Rational p-group representation interface: The arithmetic constituent estimates and rational-lift theorem are now explicit nodes with source proofs. The generic Schur-index/character-field dictionary and p-group classification/refined rational Clifford induction used by Brumer–Kramer Proposition 4.4 are not explicit in the upstream interface. The representation-theory refinement requests remain open; simple modular lifting alone does not supply these rational forms."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Perfect infinite residue-field ramification supplier",
+      "detail": "Serre 1961 verifies the mathematical scope, but the current LocalFieldsRamification roadmap and pinned carriers target nonarchimedean local fields. The Part II extension must export the same finite upper quotient theorem, different calculus and absolute inertia images for arbitrary perfect residue fields. Every tier-P assertion is conditional on this precise supplier input.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/absolute-upper-filtration",
+        "ArithmeticGaloisRepresentations:R01.3/finite-wild-break-decomposition",
+        "ArithmeticGaloisRepresentations:R01.3/swan-from-breaks",
+        "ArithmeticGaloisRepresentations:R01.3/artin-from-actual-inertia",
+        "ArithmeticGaloisRepresentations:R01.3/separable-extension-herbrand"
+      ]
+    },
+    {
+      "title": "Curve cohomology and determinant carriers at this tier",
+      "detail": "Own the restricted H¹_et representation, proper specialisation/Euler characteristic, perfect direct-image determinant and dualising-lattice interfaces required for minimal regular curves of genus g≥1 over a DVR, together with the genus-one specializations. The smooth-curve determinant input is the canonical, base-change-compatible isomorphism det Rf₊(ω²)≃(det Rf₊ω)^⊗13, including genus one; Liu §3 p. 2 identifies the general Mumford/Deligne input. The precise conductor and lattice statements are given by surface-artin-conductor, determinant-discriminant-order and elliptic-minimal-model-comparison. Current libraries do not provide these carriers, and the higher-tier etale/duality roadmap cannot be a prerequisite. They must move down into this conductor interface, with general theory importing them; no Prop placeholder occurs in the Lean file.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/surface-artin-conductor",
+        "ArithmeticGaloisRepresentations:R01.3/determinant-discriminant-order",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-minimal-model-comparison",
+        "ArithmeticGaloisRepresentations:R01.3/saito-verified-statement",
+        "ArithmeticGaloisRepresentations:R01.3/uniform-ogg-comparison"
+      ]
+    },
+    {
+      "title": "Saito finite-extension defect identity",
+      "detail": "The theorem and uniform genus-one deduction were read in Liu’s freely available original notes (§3 p. 2 and §4 pp. 4–5), and the determinant definition is now explicit. Saito 1988 Theorem 1’s proof was not obtained. To close the proof, provide the matching finite-extension defects of ordΔ and −Art, then semistable reduction; the notes’ explanation does not state these defects. This is a precise remaining proof input, especially for mixed characteristic (0,2).",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/saito-verified-statement",
+        "ArithmeticGaloisRepresentations:R01.3/uniform-ogg-comparison"
+      ]
+    },
+    {
+      "title": "Reciprocity unit/upper-filtration compatibility",
+      "detail": "ClassFieldTheory’s current Layer 7 gives character-conductor minima but not the density identity for Art(U^n) and upper ramification. The exact Part II request above is the missing input of the character comparison.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/character-conductor-reciprocity"
+      ]
+    },
+    {
+      "title": "Rational p-group representation interface",
+      "detail": "The arithmetic constituent estimates and rational-lift theorem are now explicit nodes with source proofs. The generic Schur-index/character-field dictionary and p-group classification/refined rational Clifford induction used by Brumer–Kramer Proposition 4.4 are not explicit in the upstream interface. The representation-theory refinement requests remain open; simple modular lifting alone does not supply these rational forms.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-rational-lift",
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-constituent-estimate",
+        "ArithmeticGaloisRepresentations:R01.3/brumer-kramer-wild-bound",
+        "ArithmeticGaloisRepresentations:R01.3/elliptic-sharp-exponent-bounds"
+      ]
+    }
+  ],
+  "sourceIssues": [],
+  "upstreamNotes": [
+    {
+      "roadmap": "LocalFieldsRamification",
+      "detail": "Current main includes canonical lowerRamificationGroup, lowerRamificationGroupReal, herbrandOrderIso, inverseHerbrand, upperRamificationGroup and absoluteWildInertia, after the atlas pin. upperRamificationGroupQuotient names a quotient construction; it must not be confused with the upperRamificationGroup_fixedField quotient-compatibility theorem still listed as a target. Import the existing roadmap; no pinned implementation claim."
+    },
+    {
+      "roadmap": "EllipticCurves",
+      "detail": "Layer 4 owns Tate’s algorithm and its tables; uniform Ogg arithmetic conductor comparison is exported by this R01.3 interface. R01.6 imports this comparison rather than supplying it back to R01.3."
+    },
+    {
+      "roadmap": "NeronModelsAndSemistableAbelianVarieties",
+      "detail": "The restricted elliptic minimal-regular smooth-locus and minimal-differential comparison moves down to R01.3/elliptic-minimal-model-comparison. R11.2 is a higher tier and must import this node; this packet does not cite it."
+    },
+    {
+      "roadmap": "RepresentationTheory/ModularInduction",
+      "detail": "Current upstream roadmap explicitly excludes Brauer decomposition maps, character blocks and simple-module lift bijections. Its reduction of an integral G₀ lattice does not supply the Aut(H)-equivariant simple lifting theorem needed here."
+    }
+  ],
+  "restructure": [
+    {
+      "kind": "part-II",
+      "roadmapId": "LocalFieldsRamification",
+      "reason": "Extend its existing ramification and different vocabulary to complete discretely valued fields with arbitrary perfect residue field; tier P conductors must use this supplier, never a second filtration."
+    },
+    {
+      "kind": "part-II",
+      "roadmapId": "ClassFieldTheory",
+      "reason": "Add the local reciprocity unit/upper-filtration compatibility requested by character-conductor-reciprocity; preserve the existing arithmetic Artin map and conductor minimum."
+    }
+  ],
+  "importedTargets": [
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/finite-wild-image",
+      "title": "Finiteness of the wild inertia image for coefficients of characteristic different from p"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/wild-action-factors-through-a-finite-galois-extension",
+      "title": "Wild action factors through a finite Galois extension"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-equivariant",
+      "title": "Equivariance of finite wild factorisation"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/finite-wild-factorisation-enlargement",
+      "title": "Enlargement of a finite wild factorisation"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/finite-inertia-factorisation",
+      "title": "Finite inertia action factors through a finite extension"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-of-a-character",
+      "title": "Conductor of a ramified character"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/artin-conductor-integral-finite-group",
+      "title": "Integrality for a characteristic-zero finite-group representation"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/hasse-arf-integrality",
+      "title": "Integrality of Swan and Artin conductors"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-independence-of-choices",
+      "title": "Independence of conductor choices"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-vanishing-criteria",
+      "title": "Vanishing criteria for conductors"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/wild-character-lift",
+      "title": "Lifting a simple wild-inertia module"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/swan-conductor-of-an-orbit",
+      "title": "Swan conductor of a constituent orbit"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/swan-conductor-orbit-formula",
+      "title": "Orbit formula for Swan conductors"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/swan-additive",
+      "title": "Swan additivity in exact sequences"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/additivity-twist-and-unramified-invariance",
+      "title": "Artin conductor inequality for exact sequences"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-dual",
+      "title": "Conductors of dual representations"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-twist-unramified-tame",
+      "title": "Unramified and tame character twists"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-twist-dominant-character",
+      "title": "Twisting by a character of larger break"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-unramified-base-change",
+      "title": "Unramified base change of conductors"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-tame-base-change",
+      "title": "Tame base change of Swan conductors"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-extend-scalars",
+      "title": "Extension of conductor coefficients"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/induction-formula-for-conductors",
+      "title": "Global induction formula for conductors"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/quadratic-induction-conductor",
+      "title": "Conductor of an induced quadratic-field character"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/invariants-of-an-induced-representation",
+      "title": "Invariants of an induced representation"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/induced-inertia-invariants",
+      "title": "Inertia invariants of local induction"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/induced-finite-wild-image",
+      "title": "Induction preserves finite wild image"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/local-induction-formula",
+      "title": "The local induction formula for conductors, in rational form"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/swan-conductor-of-reduction",
+      "title": "Swan conductor is preserved by reduction"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/reduction-does-not-increase-the-conductor",
+      "title": "Artin conductor under reduction"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/conductor-of-residual-semisimplification",
+      "title": "Conductor of residual semisimplification"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/global-conductor-of-reduction",
+      "title": "Global conductor divisibility under reduction"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/tame-conductor-computations",
+      "title": "Conductor of a Steinberg representation"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/tame-two-dimensional-conductor",
+      "title": "Rank-two tame conductor with no invariants"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/dyadic-quadratic-conductors",
+      "title": "Dyadic quadratic conductors"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/triadic-cubic-conductor",
+      "title": "Ramified cubic characters over Q3"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/artin-schreier-break",
+      "title": "Ramification break of an Artin–Schreier extension"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/artin-schreier-swan-conductor",
+      "title": "Artin–Schreier conductors"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/artin-schreier-twist",
+      "title": "Twists by an Artin–Schreier character"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/deligne-artin-schreier-at-infinity",
+      "title": "Artin–Schreier ramification at infinity"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-potentially-multiplicative",
+      "title": "Additive potentially multiplicative conductor"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-isogeny-invariance",
+      "title": "Isogeny invariance of elliptic conductors"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/elliptic-conductor-over-q",
+      "title": "Elliptic conductor over Q"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/serre-bound-for-the-wild-invariant",
+      "title": "Serre's bound for the wild invariant of a representation of a p-adic Galois group"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/residual-conductor-good",
+      "title": "Residual conductor at good reduction"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/residual-conductor-multiplicative",
+      "title": "Residual conductor at multiplicative reduction"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-multiplicative",
+      "title": "Residual conductor in the ramified quadratic twist case"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/residual-conductor-potentially-good",
+      "title": "Residual conductor with prime-to-ell inertia"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.3/residual-elliptic-conductor-away-from-ell",
+      "title": "Global residual elliptic conductor"
+    }
+  ]
+}
