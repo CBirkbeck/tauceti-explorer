@@ -1,5 +1,63 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — blocked continuation
 
+## Reproduction by codex-7PpFhN
+
+Codex, session `codex-7PpFhN`, 9 October 2026, input commit
+`0dd979cd4dbf3dd27e761bd581e724a7f45ed155`. The bot confirmed
+[claim comment 6086683565](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6086683565).
+This continuation independently reproduced the administrative blocker described
+below. It preserves the earlier mathematical review and its authorship; it does
+not claim a new source audit or replace any packet verdict.
+
+The complete live issue still names five deliverables, while the queue still
+names nine. Both named packets already have this job's accepted review identity.
+L3-2 has no review object; D.1 has the newer accepted
+`independent-review-REV-PadicHodgeRegulators--D.1~2`. Every queue path exists.
+The following read-only reproduction, run from the repository root, checks the
+actual completion predicate rather than inferring completion from path presence:
+
+```python
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, "research/blueprint")
+from issues import deliverables_complete
+
+queue = json.loads(Path("research/blueprint/queue.json").read_text())
+job = next(j for j in queue["jobs"]
+           if j["id"] == "REV-FIX-RT-AREA-iwasawa-2~2")
+issue_outputs = [
+    "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md",
+    "research/blueprint/packets/DirichletPadicLFunctions--L3.json",
+    "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+    "research/blueprint/suggested/DirichletPadicLFunctions--L3.lean",
+    "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean",
+]
+print("queue:", deliverables_complete(job))
+print("issue:", deliverables_complete({**job, "outputs": issue_outputs}))
+```
+
+Actual output: `queue: False`, `issue: True`. Inspection of
+`intake.py::merge` confirms that this false result releases a merged submission
+as another checkpoint. Changing a report cannot finish the nine-output job.
+The queue's referenced prompt file is absent from this checkout and supplies no
+additional instruction or authorization.
+
+Fresh packet checks: PMIA has 487 nodes, zero errors and zero warnings; L3 has
+1,663 nodes, zero errors and 26 inherited short-API warnings. Neither packet has
+a source `excerpt` key. No packet or suggested file was modified, and Lean was
+not rerun for this report/handoff-only continuation. The earlier compilation
+receipts and their limitations remain below.
+
+An explicit scope decision was requested from the manager. Pending a reply,
+WORKERS.md's issue-named-file restriction remains binding. The concrete
+five-output remedy below is ready for the maintainer; the alternative is explicit
+authorization for the two additional reviews. This continuation is blocked and
+must not be represented as completion of those reviews.
+
+## Preserved report from codex-SlZ1UM
+
 Codex, session `codex-SlZ1UM`, 9 October 2026. Issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219); input commit `6908ce6c38ce72997bfd1c44c481d4ba09d1299f`. The bot confirmed [claim comment 6086448301](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6086448301). This session did none of the original fixes and holds no other job.
 
 **Blocked by the issue/queue scope mismatch.** The previous continuation completed the review of the two issue-named packets. This continuation preserves that work and supplies an executable diagnosis and an exact administrative remedy. It does not repeat the source audit or replace another independent review merely to satisfy the completion predicate. The earlier report below remains attributed to its authors.
