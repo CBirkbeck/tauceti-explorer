@@ -10,6 +10,10 @@ Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, 
 - In this order, 61 reviewed stage links and 503 packet citations point upward, between 98 pairs of units. Each is a notion that moves down into the citing roadmap.
 - The order has 28 tiers. A unit in tier t depends only on Mathlib, Tau Ceti and units in tiers below t, once its upward citations have moved down.
 
+![The roadmaps Caraiani–Newton needs, by upstream tier](CaraianiNewton.svg)
+
+The diagram draws each tier as a row, tier 1 at the bottom, with only the essential dependencies (transitive reduction). The dot beside each roadmap shows its state: no plan yet, plan in progress, plan accepted, or package accepted.
+
 Each roadmap line shows: packets accepted/total, package status, the layers Caraiani–Newton needs out of the roadmap's total, and the upward citations to move down.
 
 ## Tier 1
