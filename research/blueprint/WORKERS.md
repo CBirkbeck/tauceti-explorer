@@ -32,11 +32,21 @@ package. The `top` list in `focus.json` is the current tiers. Finish their
 plans, fixes and packages before anything else.
 
 A plan in the current tier cites only Mathlib, Tau Ceti and roadmaps of a lower
-tier (the order file lists, for each roadmap, the citations that point upward). When it needs a definition or result that a higher roadmap
-plans, it plans that notion itself, and the higher roadmap imports it from
-here: the notion moves down. Never cite the higher roadmap. Record each move in
-your handoff note, so that the higher roadmap's plan can be pointed at its new
-owner.
+tier (the order file lists, for each roadmap, the citations that point upward).
+When it needs a definition or result that a higher roadmap plans, it plans that
+notion itself, and the higher roadmap imports it from here: the notion moves
+down. Never cite the higher roadmap. Record each move in your handoff note, so
+that the higher roadmap's plan can be pointed at its new owner.
+
+A package (PROTOCOL.md section 20) cites, for each target, only Mathlib, Tau
+Ceti, its own layers and the layers of lower-tier packages. Two citations are
+replaced as the package is written:
+- `FoundationsAndLibraryIntegration` is bookkeeping for "what the libraries
+  already have", not a roadmap that goes to Tau Ceti. Replace each of its stage
+  ids by the Mathlib or Tau Ceti declaration, or the Tau Ceti roadmap, that it
+  stands for (`LI.4` for class field theory is Tau Ceti's ClassFieldTheory).
+  Mathematics it names that neither library has is planned in the package.
+- An `UPSTREAM:` reference becomes the Tau Ceti roadmap it names.
 
 ## What the roadmap work is
 
