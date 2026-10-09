@@ -35003,8 +35003,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.4",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7949"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7949",
+   "finishedAt": "2026-10-09T23:38:58Z"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.5",
@@ -47187,7 +47188,8 @@
     "PKG-ClassicalSerreModularity~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ClassicalSerreModularity~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7922"
   },
   {
    "id": "PKG-CohomologyComparisons",
@@ -47546,7 +47548,8 @@
     "PKG-DeligneWeightsAndPurity~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DeligneWeightsAndPurity~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7924"
   },
   {
    "id": "PKG-DerivedDeRhamCohomology",
@@ -49713,8 +49716,9 @@
     "PKG-SmallRamificationAndAbelianVarietyBaseCases~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SmallRamificationAndAbelianVarietyBaseCases~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7941"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7941",
+   "finishedAt": "2026-10-09T23:39:01Z"
   },
   {
    "id": "PKG-VStackSheavesAndLisseCategories",
@@ -81248,8 +81252,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
