@@ -32,7 +32,7 @@ most attention here).
 4. **Unit tests.** Read every test of the RG2.2–RG2.5 definitions; checked the small computations
    (|Adm((1,0))| = 3 for GL₂, ℓ(t^{(1,0)}) = 1, (1,0) ≤ (2,−1) via the coroot, Ĝ(PGL₂) = SL₂,
    q+1-regular tree, G_{x,1/2} = G_{x,1} for SL₂ at a hyperspecial vertex, …). None vacuous.
-5. **Lean.** `/home/chris/atlas-workers/bin/lean-check <pkg>/Suggested.lean`: exit 0, 587
+5. **Lean.** `lean-check <pkg>/Suggested.lean`: exit 0, 587
    `declaration uses sorry`, no other warning (run before and after the edits). No `Prop := sorry`,
    no `True` placeholder (the one `True` is a `HasBasis` index). Ten signatures compared with the README
    statements (valuation existence, Lang, Iwahori–Bruhat, Cartan, Iwasawa, Weil `homEquiv`, compact
