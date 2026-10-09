@@ -1,0 +1,757 @@
+{
+  "roadmapId": "KTheoryLowDegrees",
+  "protocol": "blueprint-v1",
+  "part": "U.3",
+  "scope": [
+    "KTheoryLowDegrees:U.3"
+  ],
+  "status": "complete",
+  "summary": "A lemma-level application bridge for the remaining real-circle SK₁ obstruction. Import every determinant, stable-range, division-ring, circle-ring and Spin target from the accepted U.1 packet. Transfer a jointly continuous determinant-one matrix homotopy into native SO, isolate its three boundary equations, and compose the existing Spin obstruction. The precise LieGroups layer-9 retraction remains the sole supplier boundary.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "kind": "def",
+        "provides": "The subtype of square matrices whose determinant is one, with its existing group structure.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup.coe_mk",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "kind": "theorem",
+        "provides": "The matrix underlying the subtype constructor is the given matrix.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup.coe_one",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "kind": "theorem",
+        "provides": "The identity of the determinant-one subtype has identity coordinate matrix.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Continuous.subtype_mk",
+        "module": "Mathlib/Topology/Constructions.lean",
+        "kind": "theorem",
+        "provides": "A continuous function into a subtype remains continuous when the membership proof is provided pointwise.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.comp",
+        "module": "Mathlib/Topology/ContinuousMap/Basic.lean",
+        "kind": "def",
+        "provides": "Composition as a bundled continuous map.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:ContinuousMap.comp_apply",
+        "module": "Mathlib/Topology/ContinuousMap/Basic.lean",
+        "kind": "theorem",
+        "provides": "Evaluation of a bundled composite is ordinary function composition.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "mathlib:Circle.exp_surjective",
+        "module": "Mathlib/Analysis/SpecialFunctions/Complex/Circle.lean",
+        "kind": "lemma",
+        "provides": "Every point of the unit circle is exp of a real angle; only pointwise existence is asserted.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.realCliffordForm",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+        "kind": "def",
+        "provides": "The diagonal signature form; signature (N,0) is the sum of N real squares.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.realCliffordForm_apply",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+        "kind": "theorem",
+        "provides": "Evaluation is the finite sum of signed coordinate squares.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.realCliffordForm_zero_eq_weightedSumSquares_one",
+        "module": "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean",
+        "kind": "theorem",
+        "provides": "The compact signature form agrees with the standard sum-of-squares form.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalGroup",
+        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+        "kind": "def",
+        "provides": "The subgroup of form-preserving linear equivalences with LinearEquiv determinant one.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.mem_specialOrthogonalGroup_iff",
+        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+        "kind": "theorem",
+        "provides": "Special orthogonality is orthogonality together with determinant one.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.mem_orthogonalGroup_iff",
+        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+        "kind": "theorem",
+        "provides": "Orthogonal membership means preservation of the quadratic form on every vector.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear",
+        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+        "kind": "def",
+        "provides": "The faithful general-linear coordinate representation of the native special orthogonal group.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_apply",
+        "module": "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean",
+        "kind": "theorem",
+        "provides": "Column j consists of the values of the linear equivalence on the jth standard basis vector.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.instTopologicalSpaceSpecialOrthogonalGroupPi",
+        "module": "TauCeti/Topology/Algebra/QuadraticForm/SpecialOrthogonal.lean",
+        "kind": "instance",
+        "provides": "The SO topology is induced by the faithful coordinate representation in GL.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      },
+      {
+        "ref": "tauceti:TauCeti.QuadraticMap.isEmbedding_specialOrthogonalToGeneralLinear",
+        "module": "TauCeti/Topology/Algebra/QuadraticForm/SpecialOrthogonal.lean",
+        "kind": "theorem",
+        "provides": "The coordinate representation is a topological embedding for that topology.",
+        "checked": "Statement read in the source at the recorded pinned commit on 2026-10-09."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Kbook.2013",
+      "title": "The K-book: An Introduction to Algebraic K-theory",
+      "authors": "Charles A. Weibel",
+      "edition": "Author-hosted combined draft dated 29 August 2013; published as AMS Graduate Studies in Mathematics 145 (2013).",
+      "url": "https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf",
+      "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "III.1.5, printed p.184 / PDF p.192: elementary coefficient-scaling paths.",
+        "III.1.5.3–III.1.5.4, printed p.185 / PDF p.193: continuous-function comparison and real-circle non-example."
+      ]
+    },
+    {
+      "id": "Morris.2015",
+      "title": "Introduction to Arithmetic Groups",
+      "authors": "Dave Witte Morris",
+      "edition": "Deductive Press, version 1.0, April 2015.",
+      "url": "https://deductivepress.ca/IntroArithGrps-FINAL.pdf",
+      "sha256": "b08e0faff5dd1e26a96dc838ffd1497e05a8a0f5fe46ce75a87c79d470c799fa",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§7.1, Theorem 7.1.1 and Exercises 1–4, printed pp.152–154 / PDF pp.168–170: unique positive-diagonal KAN decomposition, analytic factors and orientation."
+      ]
+    },
+    {
+      "id": "PinnedTopology",
+      "title": "Pinned matrix and special-orthogonal topology sources",
+      "authors": "Mathlib and Tau Ceti contributors",
+      "edition": "Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.",
+      "url": "https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/Topology/Algebra/QuadraticForm/SpecialOrthogonal.lean",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "Mathlib/Topology/Constructions.lean: Continuous.subtype_mk.",
+        "Mathlib/Topology/ContinuousMap/Basic.lean: ContinuousMap.comp and comp_apply.",
+        "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean: determinant-one subtype and coe_mk/coe_one.",
+        "Mathlib/Topology/Algebra/Group/Matrix.lean: SL subtype topology and continuous embedding in GL.",
+        "TauCeti/LinearAlgebra/CliffordAlgebra/RealForm.lean: definition and evaluation of the compact form.",
+        "TauCeti/LinearAlgebra/QuadraticForm/OrthogonalGroup.lean: membership and coordinate representation.",
+        "TauCeti/Topology/Algebra/QuadraticForm/SpecialOrthogonal.lean: induced topology and embedding."
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "KTheoryLowDegrees:U.3/so-homotopy-transfer",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "Transfer a determinant-one circle homotopy into native SO",
+      "kind": "construction",
+      "statement": "Define T_r(H):I×Circle→SO(Q_N) by T_r(H)(p)=r(⟨H(p),det H(p)=1⟩). It is a bundled jointly continuous map, using the existing SL subtype and the native SO topology.",
+      "hypotheses": [
+        "N is a natural number. Q_N=realCliffordForm N 0; SO(Q_N) has the pinned topology induced by specialOrthogonalToGeneralLinear.",
+        "I=[0,1]; Circle is the unit circle in ℂ with basepoint 1. SL_N(ℝ) is the existing determinant-one matrix subtype with its coordinate topology.",
+        "H:I×Circle→M_N(ℝ) is jointly continuous and det H(p)=1 for every p. r:SL_N(ℝ)→SO(Q_N) is continuous."
+      ],
+      "proofSteps": [
+        "Regard p↦⟨H(p),det H(p)=1⟩ as a map to Matrix.SpecialLinearGroup. Continuous.subtype_mk proves joint continuity; no separate continuity in t and z is substituted.",
+        "Compose that bundled map with r using ContinuousMap.comp. No homomorphism, smoothness, compactness or homotopy equivalence property of r is used.",
+        "For the diagonal non-example test, native special orthogonality preserves Q₂. The coordinate formula and realCliffordForm_apply give Q₂(2e₀)=4 while Q₂(e₀)=1."
+      ],
+      "acceptance": [
+        "The construction accepts arbitrary continuous maps r; the identity and fixing conditions are added only to the API lemmas that use them.",
+        "The diagonal test distinguishes the native SO carrier from a second copy of the SL subtype."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.SpecialLinearGroup",
+        "mathlib:Continuous.subtype_mk",
+        "mathlib:ContinuousMap.comp",
+        "tauceti:TauCeti.realCliffordForm",
+        "tauceti:TauCeti.QuadraticMap.specialOrthogonalGroup",
+        "tauceti:TauCeti.QuadraticMap.instTopologicalSpaceSpecialOrthogonalGroupPi",
+        "tauceti:TauCeti.QuadraticMap.mem_specialOrthogonalGroup_iff",
+        "tauceti:TauCeti.QuadraticMap.mem_orthogonalGroup_iff",
+        "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear_apply",
+        "tauceti:TauCeti.realCliffordForm_apply"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5 and III.1.5.4, printed pp.184–185 / PDF pp.192–193.",
+          "match": "The elementary-path implication and real-circle non-example motivate this application bridge. The joint-continuity and boundary lemmas are the present explicit expansion; the source does not name these declarations."
+        },
+        {
+          "sourceId": "PinnedTopology",
+          "locator": "Continuous.subtype_mk; ContinuousMap.comp and comp_apply; Matrix.SpecialLinearGroup.coe_mk and coe_one; native SO induced-topology instance.",
+          "match": "The existing subtype topology and bundled composition provide the construction. Boundary equalities reduce to the displayed pointwise formula and equality in a subtype."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "uses": [
+        {
+          "where": "KTheoryLowDegrees:U.3/circle-no-sl-contraction-via-retraction",
+          "how": "Convert the assumed finite based SL contraction into the exact SO contraction prohibited by the parent packet."
+        },
+        {
+          "where": "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero (imported from U.1)",
+          "how": "Supply the application step from its finite elementary witness to its existing Spin obstruction."
+        },
+        {
+          "where": "KTheoryLowDegrees:U.4; KTheoryLowDegrees:KU-k1classical",
+          "how": "The stage consumers import the resulting SK₁ counterexample or determinant theory; neither requires a new Iwasawa or Spin construction."
+        }
+      ],
+      "api": [
+        {
+          "name": "TauCeti.KTheory.soHomotopyTransfer_apply",
+          "role": "simp",
+          "statement": "T_r(H)(p)=r(⟨H(p),det H(p)=1⟩) for every p."
+        },
+        {
+          "name": "TauCeti.KTheory.soHomotopyTransfer_zero",
+          "role": "compatibility",
+          "statement": "If r(1)=1 and H(0,z)=1 for every z, then T_r(H)(0,z)=1."
+        },
+        {
+          "name": "TauCeti.KTheory.soHomotopyTransfer_one",
+          "role": "compatibility",
+          "statement": "If r fixes native SO coordinate matrices and coord(g)=H(1,z), then T_r(H)(1,z)=g."
+        },
+        {
+          "name": "TauCeti.KTheory.soHomotopyTransfer_basepoint",
+          "role": "compatibility",
+          "statement": "If r(1)=1 and H(t,1)=1 for every t, then T_r(H)(t,1)=1."
+        },
+        {
+          "name": "TauCeti.KTheory.soHomotopyTransfer_congr",
+          "role": "extensionality",
+          "statement": "Pointwise equal matrix homotopies give equal transferred continuous maps, independently of the determinant-one proof witnesses."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.KTheory.soHomotopyTransfer_identity_test",
+          "kind": "degenerate",
+          "statement": "For r(1)=1, transferring the constant identity matrix homotopy gives the constant identity in SO(Q_N)."
+        },
+        {
+          "name": "TauCeti.KTheory.soHomotopyTransfer_quarter_turn_test",
+          "kind": "computation",
+          "statement": "For N=2, a retraction fixing native SO coordinates sends the constant matrix with rows (0,−1),(1,0) to the constant native element g having that coordinate matrix. The parent circle-spin-coordinates at θ=π/4 supplies such a g."
+        },
+        {
+          "name": "TauCeti.KTheory.soHomotopyTransfer_diagonal_nonexample_test",
+          "kind": "non-example",
+          "statement": "For N=2 and any continuous r into native SO, the coordinate matrix of T_r(H)(p), with constant H=diag(2,1/2), is never diag(2,1/2). Its determinant is one, but it sends e₀ to 2e₀ and cannot preserve Q₂."
+        }
+      ]
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/so-homotopy-transfer-apply",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "Evaluation of the transferred homotopy",
+      "kind": "lemma",
+      "statement": "T_r(H)(p)=r(⟨H(p),det H(p)=1⟩) for every p.",
+      "hypotheses": [
+        "N is a natural number. Q_N=realCliffordForm N 0; SO(Q_N) has the pinned topology induced by specialOrthogonalToGeneralLinear.",
+        "I=[0,1]; Circle is the unit circle in ℂ with basepoint 1. SL_N(ℝ) is the existing determinant-one matrix subtype with its coordinate topology.",
+        "H:I×Circle→M_N(ℝ) is jointly continuous and det H(p)=1 for every p. r:SL_N(ℝ)→SO(Q_N) is continuous."
+      ],
+      "proofSteps": [
+        "Evaluate ContinuousMap.comp at p using comp_apply. Matrix.SpecialLinearGroup.coe_mk identifies the underlying matrix of the bundled determinant-one value."
+      ],
+      "acceptance": [
+        "The point p=(t,z) keeps the order of the interval and circle coordinates; the transfer does not reverse time or circle orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/so-homotopy-transfer",
+        "mathlib:ContinuousMap.comp_apply",
+        "mathlib:Matrix.SpecialLinearGroup.coe_mk"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5 and III.1.5.4, printed pp.184–185 / PDF pp.192–193.",
+          "match": "The elementary-path implication and real-circle non-example motivate this application bridge. The joint-continuity and boundary lemmas are the present explicit expansion; the source does not name these declarations."
+        },
+        {
+          "sourceId": "PinnedTopology",
+          "locator": "Continuous.subtype_mk; ContinuousMap.comp and comp_apply; Matrix.SpecialLinearGroup.coe_mk and coe_one; native SO induced-topology instance.",
+          "match": "The existing subtype topology and bundled composition provide the construction. Boundary equalities reduce to the displayed pointwise formula and equality in a subtype."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/so-homotopy-transfer-zero",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "The transfer preserves the initial identity",
+      "kind": "lemma",
+      "statement": "If r(1)=1 and H(0,z)=1 for every z, then T_r(H)(0,z)=1.",
+      "hypotheses": [
+        "N is a natural number. Q_N=realCliffordForm N 0; SO(Q_N) has the pinned topology induced by specialOrthogonalToGeneralLinear.",
+        "I=[0,1]; Circle is the unit circle in ℂ with basepoint 1. SL_N(ℝ) is the existing determinant-one matrix subtype with its coordinate topology.",
+        "H:I×Circle→M_N(ℝ) is jointly continuous and det H(p)=1 for every p. r:SL_N(ℝ)→SO(Q_N) is continuous.",
+        "r(1)=1; H(0,z)=1 for every z."
+      ],
+      "proofSteps": [
+        "Use so-homotopy-transfer-apply. The SL element ⟨H(0,z),det=1⟩ equals 1 by equality of matrices, Matrix.SpecialLinearGroup.coe_one and subtype extensionality. Apply r(1)=1."
+      ],
+      "acceptance": [
+        "This holds for every z, not only for the basepoint."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/so-homotopy-transfer-apply",
+        "mathlib:Matrix.SpecialLinearGroup.coe_one"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5 and III.1.5.4, printed pp.184–185 / PDF pp.192–193.",
+          "match": "The elementary-path implication and real-circle non-example motivate this application bridge. The joint-continuity and boundary lemmas are the present explicit expansion; the source does not name these declarations."
+        },
+        {
+          "sourceId": "PinnedTopology",
+          "locator": "Continuous.subtype_mk; ContinuousMap.comp and comp_apply; Matrix.SpecialLinearGroup.coe_mk and coe_one; native SO induced-topology instance.",
+          "match": "The existing subtype topology and bundled composition provide the construction. Boundary equalities reduce to the displayed pointwise formula and equality in a subtype."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/so-homotopy-transfer-one",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "The transfer fixes each final SO value",
+      "kind": "lemma",
+      "statement": "If r fixes native SO coordinate matrices and coord(g)=H(1,z), then T_r(H)(1,z)=g.",
+      "hypotheses": [
+        "N is a natural number. Q_N=realCliffordForm N 0; SO(Q_N) has the pinned topology induced by specialOrthogonalToGeneralLinear.",
+        "I=[0,1]; Circle is the unit circle in ℂ with basepoint 1. SL_N(ℝ) is the existing determinant-one matrix subtype with its coordinate topology.",
+        "H:I×Circle→M_N(ℝ) is jointly continuous and det H(p)=1 for every p. r:SL_N(ℝ)→SO(Q_N) is continuous.",
+        "For every a∈SL_N(ℝ) and g∈SO(Q_N), coord(g)=the underlying matrix of a implies r(a)=g.",
+        "z∈Circle and g∈SO(Q_N) satisfy coord(g)=H(1,z)."
+      ],
+      "proofSteps": [
+        "Use so-homotopy-transfer-apply at (1,z). Its SL argument has coordinate matrix H(1,z), by coe_mk.",
+        "Apply the precise coordinate-fixing hypothesis to this SL element and g. No continuous family of SO witnesses is required."
+      ],
+      "acceptance": [
+        "The conclusion is equality in the native SO carrier, so applying its coordinate representation gives the exact desired final matrix."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/so-homotopy-transfer-apply",
+        "mathlib:Matrix.SpecialLinearGroup.coe_mk",
+        "tauceti:TauCeti.QuadraticMap.specialOrthogonalToGeneralLinear"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5 and III.1.5.4, printed pp.184–185 / PDF pp.192–193.",
+          "match": "The elementary-path implication and real-circle non-example motivate this application bridge. The joint-continuity and boundary lemmas are the present explicit expansion; the source does not name these declarations."
+        },
+        {
+          "sourceId": "PinnedTopology",
+          "locator": "Continuous.subtype_mk; ContinuousMap.comp and comp_apply; Matrix.SpecialLinearGroup.coe_mk and coe_one; native SO induced-topology instance.",
+          "match": "The existing subtype topology and bundled composition provide the construction. Boundary equalities reduce to the displayed pointwise formula and equality in a subtype."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/so-homotopy-transfer-basepoint",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "The transfer preserves the fixed circle basepoint",
+      "kind": "lemma",
+      "statement": "If r(1)=1 and H(t,1)=1 for every t, then T_r(H)(t,1)=1.",
+      "hypotheses": [
+        "N is a natural number. Q_N=realCliffordForm N 0; SO(Q_N) has the pinned topology induced by specialOrthogonalToGeneralLinear.",
+        "I=[0,1]; Circle is the unit circle in ℂ with basepoint 1. SL_N(ℝ) is the existing determinant-one matrix subtype with its coordinate topology.",
+        "H:I×Circle→M_N(ℝ) is jointly continuous and det H(p)=1 for every p. r:SL_N(ℝ)→SO(Q_N) is continuous.",
+        "r(1)=1; H(t,1)=1 for every t∈I."
+      ],
+      "proofSteps": [
+        "Use so-homotopy-transfer-apply at (t,1). As in the initial-boundary lemma, subtype extensionality and coe_one identify its SL argument with 1; then use r(1)=1."
+      ],
+      "acceptance": [
+        "The entire basepoint line is fixed, which is required for the endpoint-relative path homotopy used by the parent Spin obstruction."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/so-homotopy-transfer-apply",
+        "mathlib:Matrix.SpecialLinearGroup.coe_one"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5 and III.1.5.4, printed pp.184–185 / PDF pp.192–193.",
+          "match": "The elementary-path implication and real-circle non-example motivate this application bridge. The joint-continuity and boundary lemmas are the present explicit expansion; the source does not name these declarations."
+        },
+        {
+          "sourceId": "PinnedTopology",
+          "locator": "Continuous.subtype_mk; ContinuousMap.comp and comp_apply; Matrix.SpecialLinearGroup.coe_mk and coe_one; native SO induced-topology instance.",
+          "match": "The existing subtype topology and bundled composition provide the construction. Boundary equalities reduce to the displayed pointwise formula and equality in a subtype."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-no-sl-contraction-via-retraction",
+      "parentStageId": "KTheoryLowDegrees:U.3",
+      "realises": [
+        "KTheoryLowDegrees:U.3"
+      ],
+      "title": "No based SL contraction of the stabilized circle rotation",
+      "kind": "theorem",
+      "statement": "Let N≥2 and B_N(z) be the circleEval image of stabilise(2≤N,circleRotation), with upper-left rows (Re z,−Im z),(Im z,Re z) and identity on the complement. Given the continuous native SO retraction in the supplier contract, there is no jointly continuous H:I×Circle→M_N(ℝ) with det H=1, H(0,z)=1, H(1,z)=B_N(z), and H(t,1)=1.",
+      "hypotheses": [
+        "N is a natural number. Q_N=realCliffordForm N 0; SO(Q_N) has the pinned topology induced by specialOrthogonalToGeneralLinear.",
+        "I=[0,1]; Circle is the unit circle in ℂ with basepoint 1. SL_N(ℝ) is the existing determinant-one matrix subtype with its coordinate topology.",
+        "N≥2; r satisfies the exact native carrier, continuity, identity and coordinate-fixing conditions requested from LieGroups layer 9."
+      ],
+      "proofSteps": [
+        "Assume such H exists and form T_r(H) by so-homotopy-transfer. The zero and basepoint API lemmas give the initial identity and the fixed basepoint line.",
+        "For each z use Circle.exp_surjective to choose φ with z=Circle.exp φ. Put θ=φ/2. The imported circle-spin-coordinates supplies a native SO element g whose coordinate matrix is B_N(z). This is a pointwise choice only; the already bundled T_r(H) provides continuity.",
+        "The one API lemma gives T_r(H)(1,z)=g, hence its coordinate matrix is B_N(z). Apply the imported circle-no-so-contraction to the resulting three boundary equations.",
+        "In the imported SK1-real-circle-nonzero proof, combine this theorem with circle-trivial-class-based-contraction. Retain that parent target and its id; no duplicate nontriviality theorem is introduced."
+      ],
+      "acceptance": [
+        "The argument applies to every stabilization rank N≥2, including N=2; it uses the parent double-cover endpoint obstruction, not a computation of π₁(SO_N).",
+        "In the suggested signature, B_N and the two imported parent outputs are explicit mathematical parameters. Specialization uses circle-spin-coordinates and circle-no-so-contraction exactly as listed here.",
+        "The consequent ring statement is nontriviality of the displayed SK₁ class and noninjectivity of the canonical determinant, not a computation of the entire SK₁ group."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.3/so-homotopy-transfer",
+        "KTheoryLowDegrees:U.3/so-homotopy-transfer-zero",
+        "KTheoryLowDegrees:U.3/so-homotopy-transfer-one",
+        "KTheoryLowDegrees:U.3/so-homotopy-transfer-basepoint",
+        "KTheoryLowDegrees:U.3/circle-spin-coordinates",
+        "KTheoryLowDegrees:U.3/circle-no-so-contraction",
+        "mathlib:Circle.exp_surjective",
+        "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions"
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/K1/ContinuousFunctions",
+        "namespace": "TauCeti.KTheory"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "III.1.5 and III.1.5.4, printed pp.184–185 / PDF pp.192–193.",
+          "match": "The elementary-path implication and real-circle non-example motivate this application bridge. The joint-continuity and boundary lemmas are the present explicit expansion; the source does not name these declarations."
+        },
+        {
+          "sourceId": "PinnedTopology",
+          "locator": "Continuous.subtype_mk; ContinuousMap.comp and comp_apply; Matrix.SpecialLinearGroup.coe_mk and coe_one; native SO induced-topology instance.",
+          "match": "The existing subtype topology and bundled composition provide the construction. Boundary equalities reduce to the displayed pointwise formula and equality in a subtype."
+        },
+        {
+          "sourceId": "Morris.2015",
+          "locator": "§7.1, Theorem 7.1.1 and Exercises 1, 3, 4; printed pp.152–154 / PDF pp.168–170.",
+          "match": "Positive-diagonal KAN gives a unique analytic K-factor. For an SO input the factors are (g,1,1), so uniqueness fixes it. This supports the precise supplier request; the proof and native topology comparison remain owned by LieGroups layer 9."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "importedTargets": [
+    {
+      "id": "KTheoryLowDegrees:U.3/stable-determinant",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/units-to-K1",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/special-K1",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/K1-units-split",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/stable-special-linear-group",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/special-linear-mod-elementary",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/field-special-linear-eq-elementary",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/SK1-field",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/stable-range",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/stable-range-transitive",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/stable-range-reduction",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/stable-range-one-special-linear",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/semilocal-unit-lemma",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/semilocal-stable-range-one",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/SK1-semilocal",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/SK1-local",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/division-ring-reduction",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/division-ring-elementary-normal",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/division-ring-transvection-conjugacy",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/division-ring-transvections-elementary",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/dieudonne-determinant",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/dieudonne-expansion-properties",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/dieudonne-multiplicative",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/dieudonne-kernel",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/dieudonne-block-triangular",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/dieudonne-commutator-subgroup",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/K1-division-ring",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/no-units-valued-determinant",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-evaluation",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-evaluation-rotation",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-trivial-class-based-contraction",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-coordinate-frame",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-spin-coordinates",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-spin-lift",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-no-so-contraction",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-relation-irreducible",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-ring-domain",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-stereographic-chart",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-chart-cover",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-prime-local-dedekind",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-integrally-closed",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-dimension-le-one",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.3/circle-ring-dedekind",
+      "fromPacket": "KTheoryLowDegrees--U.1.json"
+    }
+  ],
+  "targetRefinements": [
+    {
+      "target": "KTheoryLowDegrees:U.3/SK1-real-circle-nonzero",
+      "suppliedBy": "KTheoryLowDegrees:U.3/circle-no-sl-contraction-via-retraction",
+      "detail": "Refine its SL-to-SO application step with the new transfer construction and three boundary lemmas. Retain the parent target id, its algebraic kernel argument and its separate Dedekind prerequisite; assembly should add this theorem to that target’s proof prerequisites."
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/LieGroups#layer-9-the-cartan-iwasawa-and-kak-decompositions",
+      "need": "For each N≥2 let Q_N=TauCeti.realCliffordForm N 0. Supply r_N:SL_N(ℝ)→SO(Q_N), continuous from the coordinate topology on Matrix.SpecialLinearGroup into the pinned topology induced by specialOrthogonalToGeneralLinear, with r_N(1)=1. For every a∈SL_N(ℝ) and g∈SO(Q_N), if the faithful coordinate matrix of g equals the underlying matrix of a, require r_N(a)=g. The classical source is the K-factor projection of the unique positive-diagonal KAN decomposition. A supplier stated in matrix SO must include a public continuous comparison into the native quadratic-form SO with this exact coordinate equation. A bare algebraic factorization or a nonunique KAK factor does not meet the contract.",
+      "neededBy": [
+        "KTheoryLowDegrees:U.3/circle-no-sl-contraction-via-retraction"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "KTheoryLowDegrees:U.3",
+      "status": "planned",
+      "note": "All U.3 targets are retained by reference to the parent packet. The application bridge is decomposed here into six declarations; no parent node or existing planet is duplicated.",
+      "remaining": [
+        "Discharge the single LieGroups layer-9 contract for every N≥2, including the public native-SO topology and coordinate comparison. Replace this stage prerequisite by the supplied declaration or exact supplier node; the parent nontriviality target then uses the six-node application bridge."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Native continuous SO retraction supplied by LieGroups layer 9",
+      "neededBy": [
+        "KTheoryLowDegrees:U.3/circle-no-sl-contraction-via-retraction"
+      ],
+      "detail": "The pinned trees contain neither the required retraction nor a public analytic K-factor API. Morris §7.1 establishes the classical statement, and LieGroups layer 9 explicitly owns its construction. The native SO topology is public, but the matrix-to-native comparison used inside RealSpecialOrthogonal.lean is private. The request specifies both the continuous native result and its coordinate equation; this packet does not claim that the request has been supplied."
+    }
+  ],
+  "restructure": [],
+  "sourceIssues": [],
+  "upstreamNotes": [],
+  "planetPolicy": "U.1 already assigns six U.3 planets: stable determinant, SK₁, units splitting, semilocal vanishing, Dieudonné determinant and division-ring K₁. This application bridge adds no planet and preserves that stage total.",
+  "libraryAudit": {
+    "record": "data/library-coverage.json, KTheoryLowDegrees:U.3, AUDIT-29",
+    "verdict": "not built",
+    "conclusion": "The audit supplies finite determinant machinery and field transvection generation, not stable K₁/SK₁. Those missing algebraic targets are already planned by the parent; this follow-up adds only the native topology application."
+  },
+  "dependencyAudit": {
+    "incoming": [
+      "KTheoryLowDegrees:U.2"
+    ],
+    "outgoing": [
+      "KTheoryLowDegrees:U.4",
+      "KTheoryLowDegrees:KU-k1classical"
+    ],
+    "linkScreen": "All research/blueprint/links/*.json entries were screened for U.3; none added a new obligation. LieGroups layer 9 is the existing parent supplier, with no reverse dependency from LieGroups to this stage."
+  }
+}
