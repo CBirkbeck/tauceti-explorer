@@ -104948,8 +104948,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-LocallyAnalyticDistributions~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-LocallyAnalyticDistributions~adv.md",
+   "note": "claimed on GitHub issue #8026"
   },
   {
    "id": "REV-PKG-AlgebraicModuliForArithmeticGeometry~adv",
