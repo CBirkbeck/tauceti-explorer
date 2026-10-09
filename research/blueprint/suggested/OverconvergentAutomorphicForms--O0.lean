@@ -608,8 +608,9 @@ structure ContinuousFiniteCoefficient (A H V : Type*) [CommRing A] [Group H]
   representation : Representation A H V
   continuous_action : Continuous (fun hv : H × V => representation hv.1 hv.2)
 
-/-- A specified stable integral lattice, separate from the rational coefficient module. -/
-structure StableLattice (ρ : Representation A H V) (Aplus : Subring A) where
+/-- A specified stable integral spanning submodule. Boundedness and openness for a Banach
+lattice require the analytic supplier and are not asserted by this algebraic core. -/
+structure StableIntegralSubmodule (ρ : Representation A H V) (Aplus : Subring A) where
   lattice : Submodule Aplus V
   stable : ∀ h v, v ∈ lattice → ρ h v ∈ lattice
   spans : Submodule.span A (lattice : Set V) = ⊤
@@ -642,8 +643,8 @@ example (B : Type*) [CommRing B] [Algebra A B] (ρ : Representation A H V)
 -- O0 diagonal tensor prerequisite.
 example (ρ : Representation A H V) (σ : Representation A H W) (h : H) (v : V) (w : W) :
     tensor ρ σ h (v ⊗ₜ[A] w) = ρ h v ⊗ₜ[A] σ h w := sorry
--- Stable-lattice fixture: the trivial representation preserves the full A-lattice.
-example : Nonempty (StableLattice (1 : Representation A H V) (⊤ : Subring A)) := sorry
+-- Stable-integral-submodule fixture: the trivial representation preserves the full A-lattice.
+example : Nonempty (StableIntegralSubmodule (1 : Representation A H V) (⊤ : Subring A)) := sorry
 -- Continuous core fixture on the actual canonical topology of the scalar module.
 example [TopologicalSpace A] [IsTopologicalRing A] [TopologicalSpace H]
     [IsModuleTopology A A] : Nonempty (ContinuousFiniteCoefficient A H A) := sorry
