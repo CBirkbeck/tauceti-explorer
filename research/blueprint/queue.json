@@ -29205,8 +29205,9 @@
     "REV-RS-31"
    ],
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #982"
   },
   {
    "id": "REV-ReductiveGroupsPartII",
@@ -29927,8 +29928,9 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.0.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #996"
   },
   {
    "id": "REV-SmoothRepresentationsOfLocalGroups--SR.0",
@@ -34051,7 +34053,8 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.0.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6325"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.0",
@@ -34095,7 +34098,8 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.1.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6326"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.1",
@@ -34139,7 +34143,8 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6327"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.2",
@@ -34183,7 +34188,8 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6328"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.3",
@@ -34227,7 +34233,8 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6329"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.4",
@@ -46299,8 +46306,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdelicAlgebraicGroups.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7453"
+   "state": "external",
+   "note": "claimed on GitHub issue #7453"
   },
   {
    "id": "REV-PKG-AdelicAlgebraicGroups",
