@@ -48468,7 +48468,8 @@
     "PKG-HabiroCyclotomicCompletions~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroCyclotomicCompletions~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7932"
   },
   {
    "id": "PKG-HabiroRings",
@@ -49778,8 +49779,9 @@
    ],
    "revisionOf": "PKG-VectorBundlesAndIsocrystals",
    "prompt": "research/blueprint/prompts/PKG-VectorBundlesAndIsocrystals~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7914"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7914",
+   "finishedAt": "2026-10-09T19:06:14Z"
   },
   {
    "id": "REV-PKG-VectorBundlesAndIsocrystals~2",
