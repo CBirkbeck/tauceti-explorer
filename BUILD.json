@@ -1,8 +1,8 @@
 {
   "roadmaps": 243,
-  "stages": 5328,
+  "stages": 5329,
   "originalStages": 2197,
-  "sourceRefinements": 3131,
+  "sourceRefinements": 3132,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -201,14 +201,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5227,
+  "mathematicalStars": 5228,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2315,
-  "stageEdges": 14056,
+  "roadmapEdges": 2316,
+  "stageEdges": 14062,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1076,6 +1076,18 @@
       "reviewer": "independent-review-REV-KTheoryLowDegrees--U.1~3"
     },
     {
+      "file": "KTheoryLowDegrees--U.3",
+      "roadmap": "KTheoryLowDegrees",
+      "nodes": 6,
+      "reviewer": "independent-review-REV-KTheoryLowDegrees--U.3"
+    },
+    {
+      "file": "KTheoryLowDegrees--U.6",
+      "roadmap": "KTheoryLowDegrees",
+      "nodes": 26,
+      "reviewer": "independent-review-REV-KTheoryLowDegrees--U.6"
+    },
+    {
       "file": "KTheoryLowDegrees--Z.3",
       "roadmap": "KTheoryLowDegrees",
       "nodes": 260,
@@ -1311,8 +1323,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36573201,
-  "htmlSha256": "9fd38183d3be36268dc6edfc51f3738ebac46fee57cdce39a0bfe72c90e52dda",
+  "htmlBytes": 36581467,
+  "htmlSha256": "0a9d93f517d0d65755c4be0593b5bf40a730371940fa91b4fdbb44540aa629b6",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1344,7 +1356,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "ccc51ca2bf4fa73fa87c8b8ec2f245ab0992803c92d93ae2a24422e3879becdc",
+    "data/roadmap-distances.json": "cab34921d129821358634760e56c1e133493e822cebf9ca2acaef25cb654a9cc",
     "data/galaxy-layout.json": "c4f41c53e501ae0cb94c10f730031eafef5ce9f4ac8c9802cf8d78dcb31c1ab7",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1690,6 +1702,10 @@
     "data/blueprints/KTheoryFiniteLocalFields.md": "0f9ca18b185293e311bbf56d28441ff8894b19d370db12fafe23980d89329d8d",
     "data/blueprints/KTheoryLowDegrees--U.1.json": "2b95aab2818479b25e6826f2f25d22d31cc37fa91a1726debba883f2e5f4767b",
     "data/blueprints/KTheoryLowDegrees--U.1.md": "cadc9d079802557c2ec7ca52bed41fa8759247e16421b2bfa3dc0fd720d34d13",
+    "data/blueprints/KTheoryLowDegrees--U.3.json": "68452a9f543feec7af678c1b5a77345d6d6ab6e114e2060a62c5daf9d44ed56d",
+    "data/blueprints/KTheoryLowDegrees--U.3.md": "f48b6a49aa3d54586f57ec3545b69614b4489e52f028e475d9730aea8ca76aad",
+    "data/blueprints/KTheoryLowDegrees--U.6.json": "71cc930599097f073bdbd3611f84f7f490d1cb045e6691e0a4d6bc3d4c869891",
+    "data/blueprints/KTheoryLowDegrees--U.6.md": "efaff377ae638dcec227e975881af2485a54339f1dc1806a4ec4ce6ba452872b",
     "data/blueprints/KTheoryLowDegrees--Z.3.json": "0a0df0d0da40ad33d96e6de2b05df68007adedb0dba640ecedb7a3a876e1e6c0",
     "data/blueprints/KTheoryLowDegrees--Z.3.md": "1de007c18a4159cf6bfc16149c6422ebf8f5f05c6d4fa9d4bef3f4fa400bcc86",
     "data/blueprints/KatoEulerSystems.json": "2e20bb9c664e69676a7a7916bb051fffc7eb011efbfbb9b90409862b122816f6",

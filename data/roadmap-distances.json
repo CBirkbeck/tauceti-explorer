@@ -3998,12 +3998,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 594,
-     "missingDeclarations": 594,
+     "declarations": 626,
+     "missingDeclarations": 626,
      "depth": 27,
      "layersCovered": 12,
      "layers": 12,
-     "sourcePages": 316
+     "sourcePages": 326
     }
    },
    "measurement": 5.16,

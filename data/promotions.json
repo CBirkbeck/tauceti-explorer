@@ -2024,6 +2024,28 @@
     "data/blueprints/KTheoryLowDegrees--U.1.md"
    ]
   },
+  "research/blueprint/packets/KTheoryLowDegrees--U.3.json": {
+   "promotedAt": "2026-10-09T05:10:00Z",
+   "review": "cbec4050825bf765",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-KTheoryLowDegrees--U.3",
+   "sha256": "a106e9be22936b8f6e97e72ef327de7ff73b9214cbb435d14560226f82b2abe7",
+   "to": [
+    "data/blueprints/KTheoryLowDegrees--U.3.json",
+    "data/blueprints/KTheoryLowDegrees--U.3.md"
+   ]
+  },
+  "research/blueprint/packets/KTheoryLowDegrees--U.6.json": {
+   "promotedAt": "2026-10-09T05:10:00Z",
+   "review": "6769361af97d1392",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-KTheoryLowDegrees--U.6",
+   "sha256": "54b123cab2e7f559cb180a8c29a44ed410704d661d9fc99970b9792bd0a414fb",
+   "to": [
+    "data/blueprints/KTheoryLowDegrees--U.6.json",
+    "data/blueprints/KTheoryLowDegrees--U.6.md"
+   ]
+  },
   "research/blueprint/packets/KTheoryLowDegrees--Z.3.json": {
    "promotedAt": "2026-10-07T20:37:02Z",
    "review": "8b99c67e66672678",
