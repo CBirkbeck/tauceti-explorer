@@ -1,8 +1,8 @@
 {
   "roadmaps": 243,
-  "stages": 5288,
+  "stages": 5297,
   "originalStages": 2197,
-  "sourceRefinements": 3091,
+  "sourceRefinements": 3100,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -105,7 +105,7 @@
     {
       "roadmap": "GrossZagierAndArithmeticHeights",
       "status": "partial",
-      "nodes": 9,
+      "nodes": 8,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -208,14 +208,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5187,
+  "mathematicalStars": 5196,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2295,
-  "stageEdges": 13903,
+  "roadmapEdges": 2300,
+  "stageEdges": 13936,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -739,6 +739,12 @@
       "roadmap": "GlobalGaloisDeformations",
       "nodes": 66,
       "reviewer": "independent-review-REV-FIX-RT-AREA-langlands-1~2"
+    },
+    {
+      "file": "GrossZagierAndArithmeticHeights--GZ.8",
+      "roadmap": "GrossZagierAndArithmeticHeights",
+      "nodes": 36,
+      "reviewer": "independent-review-REV-GrossZagierAndArithmeticHeights--GZ.8~2"
     },
     {
       "file": "HabiroCohomologyFoundations--HQ.1-2",
@@ -1306,8 +1312,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36462893,
-  "htmlSha256": "1eb44271a924b35fd622b6f85c345f9aa8f1db72244a48b602f8548aa87a5ce7",
+  "htmlBytes": 36490877,
+  "htmlSha256": "664ba2a4a4c142dce926dfa6e1acce773716edc368870dc7942adb81d358c04e",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1339,7 +1345,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "c636ab5d1c84632b0b9aa4d07f72264d7459025f30a5e234407d8c634508d010",
+    "data/roadmap-distances.json": "1e29c9713408a6b85f0ac2faa686d45cb7c1939de473077588dd24fb14521729",
     "data/galaxy-layout.json": "c4f41c53e501ae0cb94c10f730031eafef5ce9f4ac8c9802cf8d78dcb31c1ab7",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1571,6 +1577,8 @@
     "data/blueprints/GeometricSatakeAndFusion--GS3.md": "0a777ac0de748cc9367f1271f1518e0b5a75f0cec3a91148f9cd1df5b7d73c61",
     "data/blueprints/GlobalGaloisDeformations.json": "bc830f2181a6806d8161847e18508e4bccec98200e88abc49c9080f9962acdb5",
     "data/blueprints/GlobalGaloisDeformations.md": "4f917fe4c79aa4e3221ea7b4a2ffbaa562c8d034e3f66d80268642ae3e83fa02",
+    "data/blueprints/GrossZagierAndArithmeticHeights--GZ.8.json": "cebabb33af5d0d3e7e9c19952fb06646592e42d8fca98f2666a51eab860f94eb",
+    "data/blueprints/GrossZagierAndArithmeticHeights--GZ.8.md": "c8fee8305becf368feabb7df991061a95d4d1ee99eafcd855c319e18ed44c1d8",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1-2.json": "550d0db0a6700baa6a0235280bfcaf516dd59bb902c710b7ea2866bc57929e0b",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1-2.md": "0204b4018e11abf71ca72310a707882d91a6208d6df2f05f13ee32135d18eb48",
     "data/blueprints/HabiroCohomologyFoundations--HQ.1.json": "198bf1e53c176f02656efd4fbe2edb5486e89b008df505468f37e8ea27ffb1d5",

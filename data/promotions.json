@@ -296,6 +296,18 @@
     "roadmaps/IntegralHeckeAndGaloisDeterminants/metadata.toml"
    ]
   },
+  "research/blueprint/packages/WeightsInEtaleCohomology/review.json": {
+   "promotedAt": "2026-10-09T00:52:17Z",
+   "review": "fdcd8b1ece6277b6",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-WeightsInEtaleCohomology",
+   "sha256": "0d6e42da88636c5cc9102b1fdd855d19904191b3e3a189a65404b7b80f8d6234",
+   "to": [
+    "roadmaps/WeightsInEtaleCohomology/README.md",
+    "roadmaps/WeightsInEtaleCohomology/Suggested.lean",
+    "roadmaps/WeightsInEtaleCohomology/metadata.toml"
+   ]
+  },
   "research/blueprint/packets/AInfCohomology--AI.6.json": {
    "promotedAt": "2026-10-08T12:52:49Z",
    "review": "087a4fb6c17aa571",
@@ -1263,6 +1275,17 @@
    "to": [
     "data/blueprints/GlobalGaloisDeformations.json",
     "data/blueprints/GlobalGaloisDeformations.md"
+   ]
+  },
+  "research/blueprint/packets/GrossZagierAndArithmeticHeights--GZ.8.json": {
+   "promotedAt": "2026-10-09T00:52:17Z",
+   "review": "a4e17e1ccb1784eb",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-GrossZagierAndArithmeticHeights--GZ.8~2",
+   "sha256": "cebabb33af5d0d3e7e9c19952fb06646592e42d8fca98f2666a51eab860f94eb",
+   "to": [
+    "data/blueprints/GrossZagierAndArithmeticHeights--GZ.8.json",
+    "data/blueprints/GrossZagierAndArithmeticHeights--GZ.8.md"
    ]
   },
   "research/blueprint/packets/HabiroCohomologyFoundations--HQ.1-2.json": {
