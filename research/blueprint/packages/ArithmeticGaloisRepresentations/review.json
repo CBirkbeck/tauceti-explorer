@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ArithmeticGaloisRepresentations~adv",
+    "date": "2026-10-09",
+    "notes": "Independent Codex review (codex-KDhvAZ). Corrected cyclotomic/Hodge–Tate dual signs, dyadic eigensum inclusion, PSL versus PGL automorphisms, graph-only adjoint equivalence, Fourier-dual measures, rank-two inverse and continuity controls, positive denominators/ranks, and source attribution. Removed duplicate PSL/PGL simplicity targets; moved the elementary monodromy filtration into Layer 2. Checked a seed-8066 sample of 15 source nodes and dispositioned all 38 recorded gaps, distinguishing verified primary statements from open proof chains. Adversarial subsection table and ten inherited-hypothesis signature checks are in the review report. Final lean-check exited 0 with 979 sorry-only warnings. Exact finite/matrix/Jordan/cyclic-tensor/elliptic computations passed. Not ready upstream: opaque duplicate inertia/Frobenius/tame/Tate carriers still need replacement by current-library contracts; layer dependencies are cyclic; geometric Layer 6 definitions lack typed examples; WD classification, Saito/Dickinson, minuscule/Ext, algebraic-monodromy, small-group and finite-unitary proof chains remain incomplete. The exhaustive per-definition three-example crosswalk and individual target closure audit are still required."
+  }
+}
