@@ -34526,8 +34526,9 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6335"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6335",
+   "finishedAt": "2026-10-09T15:45:02Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.3",
@@ -34706,7 +34707,8 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6339"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7",
