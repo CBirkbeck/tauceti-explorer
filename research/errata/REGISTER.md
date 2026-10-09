@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-8205 new mistakes confirmed · 1387 awaiting review · 2319 already corrected in print · 153 rejected on review · 5 extractions and packets not yet checked.
+8205 new mistakes confirmed · 1387 awaiting review · 2323 already corrected in print · 153 rejected on review · 4 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -19754,6 +19754,10 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Amnon Besser, Rob de Jeu, The syntomic regulator for the K-theory of fields, Ann. Sci. École Norm. Sup. (4) 36 (2003), 867-924 (version of record, read from numdam, PDF sha256 c269f455db5fc0b69452a620d639b3a9d44d56b59ce9d79ec78cd1e5a00fb872); arXiv:math/0110334v2 (sha256 67b19d01ef3da4fdc8c2a3406868fa93abd2ac49782fb536614b2f051f2ed498) and v1 (sha256 043218c8ce5fc058ecb5db1ec779928fb99bcc5fdcf8317b4fb438d1ab5051b8) compared at every cited passage (`ColemanIntegration`), Proof of Proposition 2.6, arXiv v1 and v2, pp. 10-11 (the published version, p. 877, has the corrected text): corrected in corrected in the published version, Ann. Sci. École Norm. Sup. 36 (2003), p. 877 ('For |z − 1| < 1 and m = p').
 - Joaquin Rodrigues Jacinto, Chris Williams, An introduction to p-adic L-functions, arXiv:2309.15692v2 (`ColemanIntegration`), proof of Theorem 6.1(i), end, p. 37 (arXiv v2); p. 150 (version of record): corrected in The proof in the source RJW cite, Washington, Introduction to Cyclotomic Fields (GTM 83), Theorem 4.9, supplies these steps; that book was not read here.
 - Amnon Besser, Heidelberg lectures on Coleman integration, author copy dated 7 November 2010, from the author's page, read 2026-09-25; published in The Arithmetic of Fundamental Groups (PIA 2010), Contributions in Mathematical and Computational Sciences 2, Springer 2012, pp. 3-52 (`ColemanIntegration`), Section 1.4, end of the proof of Theorem 2 (independence of phi), p. 9: corrected in stated in the source itself ('we do not give full details here').
+- Pierre Deligne, Équations différentielles à points singuliers réguliers, Lecture Notes in Mathematics163 (1970), with the author’s 1971 erratum (`ComplexComparisonPartII`), II1.23–1.24 and the proof of II4.1, in LNM163(1970): corrected in Deligne, Erratum to SLN163(1971), all three pages.
+- Jean-Pierre Demailly, Complex Analytic and Differential Geometry, Public version read 2026-10-09 (`ComplexComparisonPartII`), VIII2.4, p.366, author CADG PDF: corrected in No separate correction located on the author’s document page; scoped to this author PDF.
+- Jean-Pierre Demailly, Complex Analytic and Differential Geometry, Public version read 2026-10-09 (`ComplexComparisonPartII`), VI11.3 and proof, pp.322–323, author CADG PDF: corrected in No separate correction located on the author’s document page; scoped to the printed argument.
+- Jean-Pierre Demailly, Complex Analytic and Differential Geometry, Public version read 2026-10-09 (`ComplexComparisonPartII`), VII1.1–1.2 and proofs, pp.329–330, author CADG PDF: corrected in No separate correction located on the author’s document page; scoped to this author PDF.
 - Jacob Tsimerman, The André–Oort conjecture for A_g, Published Annals 187 (2018), 379–390 (`ComplexMultiplicationAndExplicitReciprocity`), Published §5 p.386, norm in definition of H: corrected in new within the original bounded audit; independently confirmed by REV-ComplexMultiplicationAndExplicitReciprocity~2.
 - Jacob Tsimerman, The André–Oort conjecture for A_g, Published Annals 187 (2018), 379–390 (`ComplexMultiplicationAndExplicitReciprocity`), Published Lemma 4.1 proof, p.384: corrected in Previously recorded as PAPER-TSIMERMAN-18/E10 in the existing extraction; no published correction located.
 - Andrew V. Sutherland, 18.783 Elliptic Curves, Lecture 21, Fall 2023 lecture notes (`ComplexMultiplicationAndExplicitReciprocity`), Fall 2023 Lecture 21, Theorem 21.14, p.10: corrected in new; the Fall 2025 OCW lecture repeats the missing hypothesis, rather than correcting it.
@@ -21697,4 +21701,4 @@ None.
 
 ## Not yet checked
 
-These extractions and packets were written before mistakes were recorded, and are being checked: `ComplexComparisonPartII`, `DeformationAndDerivedPatchingAlgebra`, `EnhancedDerivedSheaves`, `GlobalShtukasAndFunctionFieldLanglands`, `ModularCurvesPartII`.
+These extractions and packets were written before mistakes were recorded, and are being checked: `DeformationAndDerivedPatchingAlgebra`, `EnhancedDerivedSheaves`, `GlobalShtukasAndFunctionFieldLanglands`, `ModularCurvesPartII`.
