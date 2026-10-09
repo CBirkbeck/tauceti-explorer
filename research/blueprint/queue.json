@@ -38794,8 +38794,9 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.4~3"
    ],
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.4~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7546"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7546",
+   "finishedAt": "2026-10-09T06:37:38Z"
   },
   {
    "kind": "blueprint",
@@ -41044,7 +41045,8 @@
    ],
    "revisionOf": "BP-RefinedTraceMethods--RT.1",
    "prompt": "research/blueprint/prompts/BP-RefinedTraceMethods--RT.1~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7563"
   },
   {
    "priority": 2,
