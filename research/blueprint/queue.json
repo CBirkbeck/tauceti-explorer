@@ -46443,7 +46443,8 @@
     "PKG-DiamondEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DiamondEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7512"
   },
   {
    "id": "PKG-DiamondsAndVStacks",
@@ -46779,7 +46780,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GeometricSatakeAndFusion.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7473"
   },
   {
    "id": "REV-PKG-GeometricSatakeAndFusion",
@@ -46959,8 +46961,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HabiroRings.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7476"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7476",
+   "finishedAt": "2026-10-09T03:30:29Z"
   },
   {
    "id": "REV-PKG-HabiroRings",
