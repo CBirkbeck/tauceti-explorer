@@ -1293,7 +1293,7 @@ example {𝒟dc ℰdc : Type*} [Category 𝒟dc] [Category ℰdc] [HasPullbacks 
   sorry
 
 
-/-! ### HQ.1 additions — framed and modified q-connections (FIX-RT-AREA-etale~2)
+/-! ### Framed and modified q-connections
 
 Scholze §7 Definition 7.3 supplies the framed definition; Conjecture 7.5 is not
 a theorem. The relative definition below takes the coefficient operators from
@@ -3159,10 +3159,13 @@ structure QWittContext (K : QDeRhamContext A Λ Ani 𝒟 ℰ Mod) (H : HodgeCont
   derivedForms : ℕ → Ani ⥤ 𝒞
   /-- HR.1 with DD.1: `M ↦ M ⊗^L_{A,ψ^d} A[q]` from `E∞`-`A`-algebras. -/
   adamsBase : ℕ+ → ℰ ⥤ 𝒞
-  /-- DD.4: the crystalline Frobenius `φ_{p/A}` of the p-completed de Rham complex, from its
-  identification with crystalline cohomology of `S/p` over `Â_p`. -/
-  crysFrob : ∀ (p : Nat.Primes) (a : ℕ), K.deRham ⋙ adamsBase (pPow p (a + 1)) ⋙ pComplete p ⟶
-    K.deRham ⋙ adamsBase (pPow p a) ⋙ pComplete p
+  /-- DD.4 with DD.1: the crystalline Frobenius `φ_{p/A}`, followed by the coefficient
+  projection from `A[q]/(q^{p^{a+1}} - 1)` to `A[q]/(q^{p^a} - 1)`, on p-completed
+  Adams-base-changed de Rham complexes. -/
+  crysFrob : ∀ (p : Nat.Primes) (a : ℕ),
+    K.deRham ⋙ adamsBase (pPow p (a + 1)) ⋙ quot ((X : A[X]) ^ ((p : ℕ) ^ (a + 1)) - 1) ⋙
+      pComplete p ⟶
+    K.deRham ⋙ adamsBase (pPow p a) ⋙ quot ((X : A[X]) ^ ((p : ℕ) ^ a) - 1) ⋙ pComplete p
 
 variable {K : QDeRhamContext A Λ Ani 𝒟 ℰ Mod} {H : HodgeContext K 𝒞}
 
@@ -3318,9 +3321,13 @@ equivalences of part (iii) for `a` and `a - 1`, the crystalline Frobenius `φ_{p
 the rescaled Frobenius `F̃_p` (`p^i F_p` in degree `i`). -/
 theorem rescaledFrobenius_crystalline (T : QWittContext K H) (hA : Λ.IsPerfectlyCovered)
     (p : Nat.Primes) (a : ℕ) (S : SmoothAlg A) :
-    ∃ (e₁ : (T.pComplete p).obj ((T.adamsBase (pPow p (a + 1))).obj (K.deRham.obj S)) ≅
+    ∃ (e₁ : (T.pComplete p).obj
+        ((T.quot ((X : A[X]) ^ ((p : ℕ) ^ (a + 1)) - 1)).obj
+          ((T.adamsBase (pPow p (a + 1))).obj (K.deRham.obj S))) ≅
         (T.pComplete p).obj ((T.qWittOmegaFun (pPow p (a + 1))).obj S))
-      (e₀ : (T.pComplete p).obj ((T.adamsBase (pPow p a)).obj (K.deRham.obj S)) ≅
+      (e₀ : (T.pComplete p).obj
+        ((T.quot ((X : A[X]) ^ ((p : ℕ) ^ a) - 1)).obj
+          ((T.adamsBase (pPow p a)).obj (K.deRham.obj S))) ≅
         (T.pComplete p).obj ((T.qWittOmegaFun (pPow p a)).obj S)),
       (T.crysFrob p a).app S ≫ e₀.hom =
         e₁.hom ≫ (T.pComplete p).map (eqToHom (T.qWittOmegaFun_obj _ S) ≫

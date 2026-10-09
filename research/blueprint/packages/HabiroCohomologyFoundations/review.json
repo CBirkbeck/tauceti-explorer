@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-HabiroCohomologyFoundations",
+    "date": "2026-10-09",
+    "notes": "Completed independent review of all six package requirements against the four issue inputs: 151 targets, 266 API items and 153 tests. Reader form, fidelity, own words, process separation and math.AG metadata pass. Corrected the §3.3 page locator, removed an obsolete fix-job heading, and restored cyclotomic quotients in the crystalline-Frobenius signature. Final lean-check exits 0 with 472 sorry warnings and no errors or other warnings. Item 5 still fails: the no-go signature replaces reductions of one derived complex by arbitrary module families; perfectoid examples quantify over arbitrary generators; static quasi-regular/free-delta/cotangent supplier records omit the defining relationships used by their assertions. Report REV-PKG-HabiroCohomologyFoundations gives witnesses and exact required repairs. Verdict needs_changes; complete review, not checkpoint."
+  }
+}
