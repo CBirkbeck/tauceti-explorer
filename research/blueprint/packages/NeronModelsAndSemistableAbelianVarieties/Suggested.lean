@@ -416,6 +416,79 @@ example : operator 0 = 0 := by sorry
 /-- The valuation-`5` operator is nonzero but square zero. -/
 example : operator 5 ≠ 0 ∧ (operator 5).comp (operator 5) = 0 := by sorry
 
+/-- The positive period projection in the ordered toric/period basis of a Tate motive
+(Raynaud 1994, §3.1, p. 299). -/
+def periodProjection : (ℤ × ℤ) →ₗ[ℤ] ℤ where
+  toFun v := v.2
+  map_add' := by sorry
+  map_smul' := by sorry
+
+/-- The alternating Weil form in the toric/period basis, with toric vector first.
+This is the coordinate witness for the duality comparison in README 4.3. -/
+def weilForm (v w : ℤ × ℤ) : ℤ := v.1 * w.2 - v.2 * w.1
+
+/-- The Weil quotient evaluates against the dual toric vector in the second argument. -/
+def weilQuotient : (ℤ × ℤ) →ₗ[ℤ] ℤ where
+  toFun v := weilForm v (1, 0)
+  map_add' := by sorry
+  map_smul' := by sorry
+
+/-- The period projection kills the toric coordinate. -/
+theorem periodProjection_apply (v : ℤ × ℤ) : periodProjection v = v.2 := by sorry
+
+/-- Additivity in the first argument of the coordinate Weil form. -/
+theorem weilForm_add_left (v v' w : ℤ × ℤ) :
+    weilForm (v + v') w = weilForm v w + weilForm v' w := by sorry
+
+/-- Additivity in the second argument of the coordinate Weil form. -/
+theorem weilForm_add_right (v w w' : ℤ × ℤ) :
+    weilForm v (w + w') = weilForm v w + weilForm v w' := by sorry
+
+/-- Alternation pins the biduality sign. -/
+theorem weilForm_skew (v w : ℤ × ℤ) : weilForm v w = -weilForm w v := by sorry
+
+/-- The Weil quotient is the negative of the positive period quotient. -/
+theorem weilQuotient_eq_neg_periodProjection : weilQuotient = -periodProjection := by sorry
+
+/-- In Weil coordinates the same positive Kummer operator has coefficient `-n`. -/
+theorem operator_eq_weil_coordinates (n : ℕ) (v : ℤ × ℤ) :
+    operator n v = (-(n : ℤ) * weilQuotient v, 0) := by sorry
+
+/-- The period and toric generators distinguish the two quotient orientations. -/
+example : periodProjection (0, 1) = 1 ∧ weilQuotient (0, 1) = -1 ∧
+    periodProjection (1, 0) = 0 ∧ weilQuotient (1, 0) = 0 := by
+  norm_num [periodProjection, weilQuotient, weilForm]
+
+/-- Nonbasis and zero inputs distinguish the quotient maps from either coordinate or a constant. -/
+example : periodProjection (2, 3) = 3 ∧ weilQuotient (2, 3) = -3 ∧
+    periodProjection 0 = 0 ∧ weilQuotient 0 = 0 := by
+  norm_num [periodProjection, weilQuotient, weilForm]
+
+/-- Swapping the two generators reverses the Weil value. -/
+example : weilForm (1, 0) (0, 1) = 1 ∧ weilForm (0, 1) (1, 0) = -1 := by
+  norm_num [weilForm]
+
+/-- A two-term evaluation also distinguishes the determinant direction away from basis vectors. -/
+example : weilForm (2, 3) (5, -7) = -29 ∧ weilForm (5, -7) (2, 3) = 29 := by
+  norm_num [weilForm]
+
+/-- Zero vectors and equal vectors give zero Weil value. -/
+example (v : ℤ × ℤ) : weilForm v v = 0 ∧ weilForm 0 v = 0 := by
+  simp [weilForm, mul_comm]
+
+/-- Unit and double valuations retain the positive period image and negative Weil coordinate. -/
+example : operator 1 (0, 1) = (1, 0) ∧ operator 2 (0, 1) = (2, 0) ∧
+    -(5 : ℤ) * weilQuotient (0, 1) = 5 := by
+  norm_num [operator, weilQuotient, weilForm]
+
+/-- At the residue prime two, level four distinguishes the signed valuation classes;
+level two alone cannot. These are arithmetic classes, not geometric points of `μ₄`. -/
+example : (5 : ZMod 4) = 1 ∧ (-5 : ZMod 4) = 3 ∧
+    (5 : ZMod 2) = 1 ∧ (-5 : ZMod 2) = 1 := by decide
+
+/-- Level one has no obstruction class. -/
+example : (5 : ZMod 1) = 0 ∧ (-5 : ZMod 1) = 0 := by decide
+
 end TateMonodromy
 
 /-! ## Layer 4: Picard schemes of semistable curves, character lattices and monodromy -/
@@ -619,6 +692,91 @@ example : (2 : ℚ) * (5 / 2) = 5 ∧ (5 / 2 : ℚ) ≠ 5 := by sorry
 
 /-! ## Layer 6: interfaces for modularity and finiteness -/
 
+namespace SemistableTrace
+
+/-- Frobenius on the two graded pieces of a multiplicative elliptic motive in
+cohomological period/torus order. In geometric instances `delta = ±1` is the action
+of the chosen Weil element, and `q^d` is the geometric cyclotomic inverse
+(Coleman–Iovita, Chapter I §2, pp. 9–12; Raynaud 1994, §4.7.4, p. 317). -/
+def toricFrobenius (q delta : ℚ) (d : ℕ) : Matrix (Fin 2) (Fin 2) ℚ :=
+  !![delta, 0; 0, q ^ d * delta]
+
+/-- The full trace contains both lattice contributions. -/
+theorem toricFrobenius_trace (q delta : ℚ) (d : ℕ) :
+    Matrix.trace (toricFrobenius q delta d) = delta + q ^ d * delta := by sorry
+
+/-- The determinant includes the square of the lattice action. -/
+theorem toricFrobenius_det (q delta : ℚ) (d : ℕ) :
+    Matrix.det (toricFrobenius q delta d) = q ^ d * delta ^ 2 := by sorry
+
+/-- Degree zero removes the cyclotomic factor in this arithmetic matrix. -/
+theorem degree_zero (q delta : ℚ) :
+    toricFrobenius q delta 0 = delta • (1 : Matrix (Fin 2) (Fin 2) ℚ) := by sorry
+
+/-- Zero lattice action gives the zero arithmetic matrix; it is not a geometric
+Frobenius action on a positive-rank lattice. -/
+theorem zero_action (q : ℚ) (d : ℕ) : toricFrobenius q 0 d = 0 := by sorry
+
+/-- Geometric Frobenius has the inverse arithmetic monodromy factor:
+`NF = q^d FN`. The arithmetic identity is valid also at degenerate scalar values. -/
+theorem frobenius_monodromy_relation (q delta n : ℚ) (d : ℕ) :
+    (!![0, n; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) * toricFrobenius q delta d =
+      q ^ d • (toricFrobenius q delta d * !![0, n; 0, 0]) := by sorry
+
+/-- At residue size two the geometric monodromy factor is one half;
+reversing multiplication gives ten instead of five. -/
+example :
+    ((!![0, 5; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) * toricFrobenius 2 1 1) 0 1 = 10 ∧
+    (toricFrobenius 2 1 1 * (!![0, 5; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ)) 0 1 = 5 := by
+  norm_num [toricFrobenius, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- A nonsplit lattice action changes both signs and preserves the geometric factor. -/
+example :
+    ((!![0, 5; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) * toricFrobenius 2 (-1) 1) 0 1 = -10 ∧
+    (toricFrobenius 2 (-1) 1 * (!![0, 5; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ)) 0 1 = -5 := by
+  norm_num [toricFrobenius, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- Zero monodromy gives zero in either multiplication order. -/
+example :
+    ((!![0, 0; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ) * toricFrobenius 2 1 1) 0 1 = 0 ∧
+    (toricFrobenius 2 1 1 * (!![0, 0; 0, 0] : Matrix (Fin 2) (Fin 2) ℚ)) 0 1 = 0 := by
+  norm_num [toricFrobenius, Matrix.mul_apply, Fin.sum_univ_two]
+
+/-- Split multiplicative reduction over a residue field of size two has full trace
+three and determinant two, rather than invariant trace one. -/
+example : Matrix.trace (toricFrobenius 2 1 1) = 3 ∧
+    Matrix.det (toricFrobenius 2 1 1) = 2 ∧
+    Matrix.trace (toricFrobenius 2 1 1) ≠ 1 := by
+  norm_num [toricFrobenius, Matrix.trace, Matrix.det_fin_two, Fin.sum_univ_two]
+
+/-- The nonsplit action reverses both trace contributions but preserves the determinant. -/
+example : Matrix.trace (toricFrobenius 2 (-1) 1) = -3 ∧
+    Matrix.det (toricFrobenius 2 (-1) 1) = 2 ∧
+    Matrix.trace (toricFrobenius 2 (-1) 1) ≠ -1 := by
+  norm_num [toricFrobenius, Matrix.trace, Matrix.det_fin_two, Fin.sum_univ_two]
+
+/-- Squaring a nonsplit generator makes the lattice action positive and gives trace five. -/
+example : Matrix.trace (toricFrobenius 2 ((-1) ^ 2) 2) = 5 := by
+  norm_num [toricFrobenius, Matrix.trace, Matrix.det_fin_two, Fin.sum_univ_two]
+
+/-- Degree zero and the nongeometric residue size one cannot distinguish weights. -/
+example : Matrix.trace (toricFrobenius 2 1 0) = 2 ∧
+    Matrix.trace (toricFrobenius 1 1 1) = 2 := by
+  norm_num [toricFrobenius, Matrix.trace, Matrix.det_fin_two, Fin.sum_univ_two]
+
+/-- Zero arithmetic action tests the zero trace and determinant. -/
+example : Matrix.trace (toricFrobenius 2 0 1) = 0 ∧
+    Matrix.det (toricFrobenius 2 0 1) = 0 := by
+  norm_num [toricFrobenius, Matrix.trace, Matrix.det_fin_two, Fin.sum_univ_two]
+
+/-- Adding a good elliptic quotient of trace one gives full trace four; dropping
+its toric graded piece would leave invariant trace two. -/
+example : Matrix.trace (toricFrobenius 2 1 1) + 1 = 4 ∧
+    Matrix.trace (toricFrobenius 2 1 1) + 1 ≠ 2 := by
+  norm_num [toricFrobenius, Matrix.trace, Matrix.det_fin_two, Fin.sum_univ_two]
+
+end SemistableTrace
+
 namespace Interfaces
 
 /-- A `2`-group acting linearly on a nonzero `𝔽₂`-vector space fixes a nonzero vector: the
@@ -677,12 +835,14 @@ end Interfaces
 Geometric definitions and comparisons are recorded there rather than typed here:
 `GoodReduction`, `WeakNeronBlowup`, `DifferentialLattice`, `IdentityComponent`,
 the geometric `ComponentGroup`, `Chevalley`, `ToricCharacter`,
-`SemistableReduction` and `henselization_iff`, `RaynaudExtensionComparison`,
-`PolarizedUniformization`, `PicardZero`,
+`SemistableReduction` and `henselization_iff`, `FiniteFlatToricFiltration`,
+`FiniteFlatOrthogonality`, `RaynaudExtensionComparison`,
+`RigidUniformisation`, `RaynaudOneMotive`, `PicardZero`,
 `IntegralMonodromyPairing`, `ComponentPairing`, `RegularPicardNeronQuotient`,
 `BgwNodalPinch`, `BgwGeneralizedJacobian`, `BgwOddFactorTorsors`, `StableFamilyPicard`,
 `B_cris`, `B_st`, `D_cris`, `D_st`, `D_dR`, the crystalline, semistable and de Rham predicates,
-the `PeriodRealization` API and `AbelianVariety.deRham`, and `SemistableOrdinaryAdapter`.
+the `PeriodRealization` API, `D_pst`, `PadicWeilDeligneRealization`,
+`AbelianVariety.deRham`, and `SemistableOrdinaryAdapter`.
 Their geometric Checks are likewise in README.md.
 
 The corresponding untyped theorems include `GroupLaw`, `Smoothening`, `LocalExistence`,
@@ -690,8 +850,12 @@ The corresponding untyped theorems include `GroupLaw`, `Smoothening`, `LocalExis
 `JacobianIsogenyFactor`, `FiniteSeparableSemistableExtension`, `MonodromyCriterion`,
 `GraphMonodromy`, `ComponentCokernel`, `IntersectionComponentQuotient`, the Picard–Néron
 comparison, Néron–Ogg–Shafarevich, `PadicComparison`, conductor and local-factor comparisons,
-and the geometric exports of Layer 6. The Weil-pairing and coefficient-prime comparisons
-of `IntegralMonodromyPairing` remain explicit gaps in README 4.3.
+and the geometric exports of Layer 6. The signed `prime_adic`, `prime_adic_finite_flat`,
+`prime_adic_transition` and `henselian_valuation_descent` comparisons, together with
+`good_abelian_frobenius_polynomial`, `semistable_trace_comparison`,
+`semistable_trace_descent` and `pure_WD_export`, are stated
+in README 4.3, 5.3 and 6.10. Their coordinate witnesses above do not construct the geometric
+or cohomological carriers.
 -/
 
 end TauCetiRoadmap.NeronModelsAndSemistableAbelianVarieties
