@@ -45694,7 +45694,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdicCoefficientsAndComparisons.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7454"
   },
   {
    "id": "REV-PKG-AdicCoefficientsAndComparisons",
