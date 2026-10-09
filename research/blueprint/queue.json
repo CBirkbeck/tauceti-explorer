@@ -34560,8 +34560,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.3",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6292"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6292",
+   "finishedAt": "2026-10-09T17:40:41Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
@@ -34607,8 +34608,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.4",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6293"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6293",
+   "finishedAt": "2026-10-09T17:40:46Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.5",
@@ -34654,8 +34656,9 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.5",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.5.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6294"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6294",
+   "finishedAt": "2026-10-09T17:40:50Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.6",
@@ -41458,7 +41461,8 @@
     "BP-PrismaticCohomology--PR.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology--PR.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7082"
   },
   {
    "kind": "blueprint",
@@ -43178,8 +43182,9 @@
     "BP-DiophantineApproximationAndTranscendence~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6466"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6466",
+   "finishedAt": "2026-10-09T17:40:54Z"
   },
   {
    "kind": "blueprint",
@@ -47678,7 +47683,8 @@
     "PKG-DiamondsAndVStacks~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DiamondsAndVStacks~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7925"
   },
   {
    "id": "PKG-EllipticCurveModularity",
@@ -49147,8 +49153,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-MetaplecticAutomorphicForms.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7492"
+   "state": "external",
+   "note": "claimed on GitHub issue #7492"
   },
   {
    "id": "REV-PKG-MetaplecticAutomorphicForms",
@@ -49498,7 +49504,8 @@
     "PKG-PotentialModularityAndCompatibleSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PotentialModularityAndCompatibleSystems.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7527"
   },
   {
    "id": "PKG-SemisimpleAlgebrasPartII",
@@ -79858,8 +79865,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81167,7 +81174,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
