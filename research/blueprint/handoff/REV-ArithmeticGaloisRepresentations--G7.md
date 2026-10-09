@@ -1,0 +1,15 @@
+# Handoff: REV-ArithmeticGaloisRepresentations--G7
+
+Codex session `codex-warZZa` reviewed #7945 independently of author session `codex-hMXaBg` (#7954). The claim was confirmed at issue comment 6089914256. Verdict: **accepted**, 13 verified nodes and seven corrected nodes. All 20 new nodes retain `implementationStatus: unchecked`; G7 remains `planned` with 22 gaps. This is a finished review, not a checkpoint.
+
+The report is `research/blueprint/reviews/REV-ArithmeticGaloisRepresentations--G7.md`. It records every correction, source/baseline evidence and validation. The packet, reader and suggested file are synchronized. No parent or upstream file changed.
+
+Corrections concern the framed symmetric-power and residual cyclotomic wrappers (complete APIs, uses and three tests each), Tannakian ownership, trace-zero adjoint weights, central-lift proof dependencies, monodromy torus/unipotent ownership and ambient weight differences. The totally-real weight argument now directly uses central-lift ramification; Tate’s local Brauer-boundary argument imports ClassFieldTheory layer 7. Gap 5 retains the local rank-one algebraicity comparison. Milne Definition 6.24 is p.131; Newton–Thorne's negative cyclotomic weight convention is p.8. There are now 46 API items and 36 tests across the eight constructions and three comparison adapters, and 15 supplier entries. The checker reports only construction counts (32/26).
+
+Assembly must retain the parent's 77 exact G7 imports with their full statements, API/tests and sourceIssues; apply all eight dependency replacements before the 13 additions; and replace the parent G7 planets with the follow-up's six planets. The combined 347-node graph was checked acyclic. All 63 remaining-item dispositions were checked. These metadata transformations have not been applied to the accepted parent file here.
+
+The extra prerequisites import existing ReductiveGroups layers 1,4,5,7 and ClassFieldTheory layer 7. The semisimple-Lie-element/maximal-torus comparison remains gap 22, the tensor-derivation/Lie comparison gap 4, and the topological stable-lattice/congruence-subgroup comparison gap 7. Do not interpret the added section references as proof that those comparison interfaces are implemented. No new ownership move was necessary; the earlier Sen/global lifting moves down to G7 are retained.
+
+All 13 public source hashes matched; all 26 pinned suppliers and five current-library declarations were read. No baseline citation changed. Current continuous transfer, algebraic tensor induction and image/derived/component constructions remain imports. Follow-up sourceIssues are empty; inherited findings and finite/analytic proof boundaries remain as documented.
+
+Checks: packet checker zero errors/warnings; `lean-check` successful with 74 `sorry` warnings only; all 46 API names and 36 test labels correspond, and reader anchors resolve. The five unavailable-carrier targets remain precise comments. These checks establish interface consistency, not proofs. The report contains the baseline/current commits and exact source locators, so no scratch files are needed by the next worker.

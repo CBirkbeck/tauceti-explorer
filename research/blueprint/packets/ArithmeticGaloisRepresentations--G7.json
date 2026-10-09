@@ -16,182 +16,182 @@
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/Tensor/Power.lean",
         "provides": "Diagonal algebraic action on the d-fold tensor power, with its pure-tensor formula.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "tauceti:Representation.symmetricPower",
         "kind": "def",
         "module": "TauCeti/RepresentationTheory/SymmetricPower.lean",
         "provides": "Algebraic symmetric-power action through SymmetricPower.map; intertwining-map identity and composition APIs.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:exteriorPower.map",
         "module": "Mathlib/LinearAlgebra/ExteriorPower/Basic.lean",
         "kind": "def",
         "provides": "The exterior-power linear map, with formula on the universal alternating product, identity and composition.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:IsModuleTopology.continuous_of_linearMap",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "Linear maps out of the module topology into a topological module are continuous.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:IsModuleTopology.continuous_bilinear_of_finite_left",
         "kind": "theorem",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "provides": "Bilinear maps with a finite left module and the module topology are jointly continuous.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:IsModuleTopology.isQuotientMap_of_surjective",
         "module": "Mathlib/Topology/Algebra/Module/ModuleTopology.lean",
         "kind": "theorem",
         "provides": "A surjective linear map between module topologies is a quotient map.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:contractLeft",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Contraction.lean",
         "provides": "Evaluation on dual tensor module, φ tensor x maps to φ(x).",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:dualTensorHomEquiv",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Contraction.lean",
         "provides": "For a finite projective source M, dual M tensor N is linearly equivalent to Hom(M,N).",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:LinearMap.trace",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Trace.lean",
         "provides": "Trace defined using a finite free basis and set to zero when no such basis exists.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:LinearMap.trace_mul_comm",
         "module": "Mathlib/LinearAlgebra/Trace.lean",
         "kind": "theorem",
         "provides": "Cyclic invariance of Mathlib trace, used in the free-local comparison.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:Module.End.independent_maxGenEigenspace",
         "module": "Mathlib/LinearAlgebra/Eigenspace/Basic.lean",
         "kind": "theorem",
         "provides": "The family of maximal generalized eigenspaces is independent.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:Module.End.iSup_maxGenEigenspace_eq_top",
         "module": "Mathlib/LinearAlgebra/Eigenspace/Triangularizable.lean",
         "kind": "theorem",
         "provides": "For a triangularizable finite-dimensional operator the supremum of generalized eigenspaces is the whole space.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:Submodule.projection",
         "module": "Mathlib/LinearAlgebra/Projection.lean",
         "kind": "def",
         "provides": "Projection onto one submodule along a complementary submodule, retaining its inclusion in the ambient module.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:Matrix.GeneralLinearGroup.toLin'",
         "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
         "kind": "def",
         "provides": "Basis-dependent multiplicative equivalence from matrix GL to linear automorphisms.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "tauceti:TauCeti.symPowerRep",
         "module": "TauCeti/RepresentationTheory/ClassicalGroups/SymmetricPower.lean",
         "kind": "def",
         "provides": "Already defined algebraic GL_n action on Sym^d; no new algebraic GL symmetric-power functor is planned.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "tauceti:Module.Basis.symmetricPower",
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/SymmetricPower/Basis.lean",
         "provides": "Basis of a symmetric power indexed by unordered tuples of original basis indices.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "tauceti:TauCeti.symFinTwoEquiv",
         "module": "TauCeti/Data/Sym/Basic.lean",
         "kind": "def",
         "provides": "Equivalence from d-element multisets of Fin 2 to Fin(d+1), counting occurrences of index zero.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:MonoidHom.transfer",
         "kind": "def",
         "module": "Mathlib/GroupTheory/Transfer.lean",
         "provides": "Algebraic finite-index transfer of a character to a commutative group.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:MonoidHom.transfer_def",
         "module": "Mathlib/GroupTheory/Transfer.lean",
         "kind": "theorem",
         "provides": "Computes the existing transfer with any chosen left transversal through its diff product.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:modularCyclotomicCharacter",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
         "provides": "Action on n-th roots of unity, with an explicit cardinality hypothesis.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:cyclotomicCharacter",
         "kind": "def",
         "module": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
         "provides": "The p-adic character as a homomorphism to p-adic units.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:cyclotomicCharacter.continuous",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/Cyclotomic/CyclotomicCharacter.lean",
         "provides": "Continuity after composition with the Galois group action.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:Field.absoluteGaloisGroup",
         "kind": "def",
         "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
         "provides": "Automorphisms of the algebraic closure over the base, with Krull topology; R01.1 supplies the separable profinite comparison.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:PadicComplex",
         "module": "Mathlib/NumberTheory/Padics/Complex.lean",
         "kind": "abbrev",
         "provides": "Completion of the normed algebraic closure of Q_p; normed, algebraically closed field and compatible scalar tower. C_p itself is already present.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:AddCircle",
         "module": "Mathlib/Topology/Instances/AddCircle/Defs.lean",
         "kind": "abbrev",
         "provides": "Additive quotient of an additive group by the integer multiples of a period; at Q and period 1 its algebraic group is Q/Z. The Tate theorem explicitly uses the discrete topology.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       },
       {
         "ref": "mathlib:IntermediateField.restrictRestrictAlgEquivMapHom_surjective",
         "module": "Mathlib/FieldTheory/Galois/Basic.lean",
         "kind": "theorem",
         "provides": "For finite K/F and finite Galois E/L, restriction onto Gal(K/F) is onto when the intermediate fields K and L have intersection F. This is used after adjoining the finite compositum.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source during codex-hMXaBg, 2026-10-09. The suggested file checks its use; this does not certify the planned proof."
+        "checked": "Independently read the exact declaration and ambient hypotheses at the recorded pinned commit in codex-warZZa, 2026-10-09; compared with every new citing node. All 19 cited module files also match the pinned build. Elaboration verifies interface use only, not the planned mathematical proof."
       }
     ]
   },
@@ -245,7 +245,8 @@
       "readSections": [
         "§1.2 p. 7 (weight convention)",
         "Lemma 2.3 p. 11 (symmetric-power image consumer)",
-        "Lemma 4.7 and proof pp. 33–34"
+        "Lemma 4.7 and proof pp. 33–34",
+        "§1.2 Hodge–Tate convention p. 8"
       ],
       "readDate": "2026-10-09"
     },
@@ -337,7 +338,7 @@
         "Propositions 1.68, 1.70 p. 28",
         "Cartier Theorem 3.23 pp. 70–71",
         "Theorem 5.39, Remark 5.42 and Proposition 5.43 pp. 108–110",
-        "Proposition 6.21 and Definition 6.24 p. 130"
+        "Proposition 6.21 p. 130 and Definition 6.24 p. 131"
       ],
       "readDate": "2026-10-09"
     },
@@ -794,7 +795,57 @@
       "declarations": [
         "TauCeti.ArithmeticG7.monomialBasis",
         "TauCeti.ArithmeticG7.framedSymmetricPower",
-        "TauCeti.ArithmeticG7.framedSymmetricPower_matrix"
+        "TauCeti.ArithmeticG7.framedSymmetricPower_matrix",
+        "TauCeti.ArithmeticG7.framedSymmetricPower_diagonal_two"
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticG7.monomialBasis",
+          "role": "constructor",
+          "statement": "The symmetric-power basis indexed so that i represents x^(d−i)y^i, over any commutative ring."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.framedSymmetricPower",
+          "role": "constructor",
+          "statement": "Transport the existing GL₂ action into matrix GL_(d+1) through monomialBasis."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.framedSymmetricPower_matrix",
+          "role": "compatibility",
+          "statement": "The transported matrix equals LinearMap.toMatrix of the pinned symmetric-power action in monomialBasis."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.framedSymmetricPower_diagonal_two",
+          "role": "simp",
+          "statement": "For g=diag(a,b), its degree-two matrix is diag(a²,ab,b²). No factorials or binomial coefficient normalization enter."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticG7.framedSymmetricPower.tests_degreeZero",
+          "kind": "degenerate",
+          "statement": "For every g the degree-zero matrix is 1."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.framedSymmetricPower.tests_degreeOne",
+          "kind": "characterisation",
+          "statement": "For every g the degree-one matrix is g, detecting a swapped input basis."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.framedSymmetricPower.tests_diagonalTwo",
+          "kind": "computation",
+          "statement": "For g=diag(a,b), degree two yields diag(a²,ab,b²), detecting a wrong degree or monomial order."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers",
+          "how": "The finite rank-two image theorem needs a matrix homomorphism of rank d+1."
+        },
+        {
+          "where": "ArithmeticGaloisRepresentations:G7/symmetric-power-polarization",
+          "how": "The pairing formulas use this monomial order."
+        }
       ]
     },
     {
@@ -1240,7 +1291,7 @@
       "id": "ArithmeticGaloisRepresentations:G7/followup-residual-cyclotomic-baseline-comparison",
       "title": "The residual cyclotomic character from Mathlib",
       "kind": "comparison",
-      "statement": "For a field L with exactly p p-th roots of unity and a homomorphism ι:Z/p→k, the residual k-valued character on ring automorphisms of L is Units.map(ι) composed with modularCyclotomicCharacter. On the absolute Galois group use the forgetful action on the chosen closure. For number fields p-th roots have cardinality p. Continuity on the arithmetic group follows through the retained finite-quotient/cyclotomic comparison, not from this algebraic adapter alone.",
+      "statement": "For a field L with exactly p p-th roots of unity and a homomorphism ι:Z/p→k, the residual k-valued character on ring automorphisms of L is Units.map(ι) composed with modularCyclotomicCharacter. On the absolute Galois group use the forgetful action on the chosen closure. In the chosen algebraic closure of a number field, p-th roots have cardinality p. Continuity on the arithmetic group follows through the retained finite-quotient/cyclotomic comparison, not from this algebraic adapter alone.",
       "hypotheses": [
         "p is nonzero in this adapter; the arithmetic application has p prime and char F=0.",
         "The root-cardinality hypothesis and coefficient map are explicit."
@@ -1276,7 +1327,58 @@
       },
       "declarations": [
         "TauCeti.ArithmeticG7.residualCyclotomic",
-        "TauCeti.ArithmeticG7.residualCyclotomic_spec"
+        "TauCeti.ArithmeticG7.residualCyclotomic_spec",
+        "TauCeti.ArithmeticG7.residualCyclotomic_roots",
+        "TauCeti.ArithmeticG7.residualCyclotomic_two"
+      ],
+      "api": [
+        {
+          "name": "TauCeti.ArithmeticG7.residualCyclotomic",
+          "role": "constructor",
+          "statement": "Compose modularCyclotomicCharacter with the coefficient units map, retaining the exact root-cardinality hypothesis."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.residualCyclotomic_spec",
+          "role": "compatibility",
+          "statement": "Evaluation equals the units image of the existing modular cyclotomic character."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.residualCyclotomic_roots",
+          "role": "characterisation",
+          "statement": "With identity coefficients Z/p (p prime), g(t)=t^ε̄(g).val for every p-th root t."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.residualCyclotomic_two",
+          "role": "simp",
+          "statement": "For p=2 the residual character has value 1 on every automorphism, over every coefficient field admitting the map Z/2→k."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.ArithmeticG7.residualCyclotomic.tests_identity",
+          "kind": "degenerate",
+          "statement": "The identity automorphism has value 1."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.residualCyclotomic.tests_rootAction",
+          "kind": "characterisation",
+          "statement": "For p prime and identity Z/p coefficients the returned exponent reproduces the action on every p-th root, detecting an inverse-character convention."
+        },
+        {
+          "name": "TauCeti.ArithmeticG7.residualCyclotomic.tests_two",
+          "kind": "computation",
+          "statement": "At p=2 the character is trivial, including automorphisms that act nontrivially elsewhere in L."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:G7/taylor-wiles-image-conditions",
+          "how": "Use the actual residual character for the scalar witness outside the cyclotomic kernel."
+        },
+        {
+          "where": "ArithmeticGaloisRepresentations:G7/followup-disjoint-base-change-image",
+          "how": "The joint splitting field includes this character, not only the residual representation."
+        }
       ]
     },
     {
@@ -1439,7 +1541,8 @@
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:G7/followup-local-sen-operator",
-        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation"
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules"
       ],
       "sources": [
         {
@@ -1454,7 +1557,7 @@
         }
       ],
       "acceptance": [
-        "Tensor weights are pairwise sums and dual weights are negatives. In rank two the adjoint weights are a−b,0,b−a.",
+        "Tensor weights are pairwise sums and dual weights are negatives. In rank two the trace-zero adjoint weights are a−b,0,b−a.",
         "For a nilpotent nonzero Jordan operator, zero eigenvalues do not imply Hodge–Tate."
       ],
       "parentStageId": "ArithmeticGaloisRepresentations:G7",
@@ -1480,13 +1583,14 @@
       ],
       "proofSteps": [
         "Choose a positive integer clearing all weight denominators. The powered character has integral local Sen weights and hence is locally Hodge–Tate; in rank one this implies the locally algebraic/de Rham character criterion.",
-        "Apply global reciprocity and the classification of algebraic Hecke characters of a totally real field: up to finite order the geometric character is an integer cyclotomic power.",
+        "Apply central-lift ramification to G_m→1 to see that the powered global character is unramified almost everywhere. Together with the rank-one local character criterion this makes it geometric. Apply global reciprocity and the classification of algebraic Hecke characters of a totally real field: up to finite order it is an integer cyclotomic power.",
         "For existence, take a d-th root up to finite order of a suitable cyclotomic power using the retained roots-of-characters theorem; finite-order twists have Sen weight zero."
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input",
         "ArithmeticGaloisRepresentations:G7/roots-of-characters-up-to-finite-order",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
+        "ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification"
       ],
       "sources": [
         {
@@ -1530,7 +1634,8 @@
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants",
         "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity",
         "mathlib:AddCircle",
-        "mathlib:Field.absoluteGaloisGroup"
+        "mathlib:Field.absoluteGaloisGroup",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors"
       ],
       "sources": [
         {
@@ -1575,14 +1680,17 @@
       ],
       "proofSteps": [
         "Descend the compact image to a finite p-adic coefficient field using the Baire argument of Conrad Lemma 5.1.",
-        "After a finite base extension put its image in a torsion-free pro-p subgroup near identity. Away from p and the finite ramification set of the projection, inertia lands centrally and hence factors through local abelian inertia.",
+        "Embed the finite-coefficient algebraic group faithfully in GL_m, stabilize a lattice using compactness, and intersect with 1+p²M_m(O_E). The binomial valuation estimate (or the convergent matrix logarithm) makes this an open torsion-free pro-p subgroup, including p=2. Pass to the finite base extension cut out by its preimage. Away from p and the finite ramification set of the projection, inertia lands centrally and hence factors through local abelian inertia.",
         "Local class field theory splits the relevant inertia into its finite prime-to-residue-characteristic torsion and its pro-residue-characteristic part. A torsion-free pro-p target receives neither part nontrivially when the residue characteristic is not p.",
         "Return from the finite extension, adding only its finite ramification set."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
-        "ArithmeticGaloisRepresentations:R01.1/continuous-representation"
+        "ArithmeticGaloisRepresentations:R01.1/continuous-representation",
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+        "ArithmeticGaloisRepresentations:R01.1/baire-descent-to-a-finite-coefficient-field",
+        "ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices"
       ],
       "sources": [
         {
@@ -1619,7 +1727,7 @@
       "proofSteps": [
         "Import connected monodromy and the strong irreducibility criterion. The unipotent radical of G⁰ fixes a nonzero vector and normality makes the fixed subspace invariant, so faithfulness and irreducibility force it trivial.",
         "Schur’s lemma makes the connected center scalar. Thus G⁰ and D have the same invariant subspaces and D acts irreducibly.",
-        "The canonical Sen operator lies in Lie G⁰ and has distinct eigenvalues. Conjugate its semisimple part into Lie of a maximal torus. Distinct weights on the torus Lie algebra imply that the corresponding root characters are nontrivial in characteristic zero, so the torus, and hence G⁰, contains a regular semisimple element. Scalar multiplication transfers this property to D.",
+        "The canonical Sen operator lies in Lie G⁰ and has distinct eigenvalues, hence is semisimple. Conjugate it into the Lie algebra of a maximal torus T after extending scalars to C_p. For the weights λ_i of T on the ambient GL_n representation, distinct Lie eigenvalues make every difference λ_i−λ_j a nontrivial character in characteristic zero. Avoiding the finitely many kernels of these characters gives an element of T with n distinct eigenvalues. These weight differences need not be roots of G⁰. The central-isogeny decomposition G⁰=Z(G⁰)⁰D on algebraically closed points and the scalar center transfer this property to D.",
         "The cyclotomic kernel gives an abelian quotient of G_F. The Zariski closure of its image is normal, and the quotient of G⁰ by its intersection is commutative; hence it contains D. Apply the retained characteristic-zero enormity criterion."
       ],
       "prerequisites": [
@@ -1628,7 +1736,10 @@
         "ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation",
         "tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components",
-        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups"
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
+        "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory"
       ],
       "sources": [
         {
@@ -1638,7 +1749,7 @@
         },
         {
           "sourceId": "milne-ag17",
-          "locator": "Proposition 6.21 and Definition 6.24 p. 130; image/quotient Theorem 5.39 pp. 108–109",
+          "locator": "Proposition 6.21 p. 130 and Definition 6.24 p. 131; image/quotient Theorem 5.39 pp. 108–109",
           "match": "Closed derived groups and image quotients supply the algebraic group step replacing unread Borel locators."
         }
       ],
@@ -1736,7 +1847,7 @@
     },
     {
       "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups",
-      "need": "Characteristic-zero connected reductive monodromy: faithful semisimple actions have reductive identity component, irreducible connected GL₂ subgroups have derived SL₂, the connected center times derived group covers the reductive group, and a semisimple Lie element can be conjugated into a maximal torus. These are existing ReductiveGroups targets; record a Part II only for a genuinely absent comparison.",
+      "need": "Import the characteristic-zero reductive/linearly-reductive comparison, the derived group and connected center, and the central-isogeny decomposition of a connected reductive group. The arithmetic faithful-action and irreducible GL₂ specializations need the supplier comparisons in gap 22. Maximal tori belong to layer 7 and torus character lattices to layer 4.",
       "neededBy": [
         "ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups",
         "ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy"
@@ -1787,6 +1898,42 @@
       "neededBy": [
         "ArithmeticGaloisRepresentations:G7/transfer-of-determinants-to-representations"
       ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
+      "need": "Import the representations/comodules dictionary and Tannakian reconstruction. Differentiating its tensor-automorphism comparison gives the tensor-derivation/Lie interface needed for the canonical Sen operator; checking that comparison remains gap 4.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori",
+      "need": "Import torus character lattices and the differentiation of characters in characteristic zero. Distinct weights of the ambient GL_n representation give nontrivial pairwise weight-difference characters, not necessarily roots of the monodromy group.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical",
+      "need": "Import the unipotent radical and Lie–Kolchin fixed-vector input. Normality and absolute irreducibility then force the radical to act trivially in the faithful monodromy representation.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory",
+      "need": "Import maximal tori and their conjugacy. The characteristic-zero comparison putting a semisimple Lie element in the Lie algebra of a maximal torus must be checked as part of gap 22; the current layer heading alone is not a supplied proof of that comparison.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors",
+      "need": "Import absolute local reciprocity and the identification of abelian inertia with local units. At residue characteristic q unequal to p, units have finite torsion quotient and a pro-q principal-unit subgroup, so a continuous homomorphism to a torsion-free pro-p group is trivial. Its local character/reciprocity comparison also supplies the local Brauer boundaries in Tate’s proof.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification",
+        "ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing"
+      ]
     }
   ],
   "coverage": [
@@ -1798,9 +1945,9 @@
         "Equivariant form classification interface: The read Gan–Takeda proof resolves the unread-source boundary. Its finite-dimensional semisimple isotypic decomposition and classification of symmetric/alternating multiplicity-space forms still need a checked Lean interface; no proof of the theorem is claimed.",
         "Sen decompletion and completion action proof: C_p and its compatible scalar tower exist at the pins. Missing are the extended arithmetic Galois action and the cyclotomic invariants/decompletion theorem used to construct Θ. Berger II.1.2 states the cohomological descent and decompletion result, but its original Sen proofs and convergence estimates have not been read here. The construction is owned in G7, not requested from higher-tier PadicHodgeTheory. Read and plan the analytic descent and logarithmic convergence proof before claiming closure.",
         "Sen Lie and labelled-comparison interfaces: The minimal local construction belongs here. Tannakian Lie reconstruction and its tensor/dual naturality need a precise interface, as does the actual semilinear C_p Hodge–Tate decomposition. ReductiveGroups layer 2 supplies Lie and algebraic Ad, not Sen theory. The missing conditions prevent an honest typed signature of this combined theorem at the pins.",
-        "Totally real algebraic character classification: Global reciprocity is already ClassFieldTheory layer 11. The additional assertion that a geometric character of a totally real number field is a finite-order twist of a cyclotomic power is not its stated target. G7 owns this extra character lemma and must prove it using the infinity-type/unit constraints (with the number-field Hecke-character carrier imported). The source citation is read, but the proof input and localization/label signatures are still missing.",
+        "Totally real algebraic character classification: Global reciprocity is already ClassFieldTheory layer 11. The additional assertion that a geometric character of a totally real number field is a finite-order twist of a cyclotomic power is not its stated target. G7 owns this extra character lemma and must prove it using the infinity-type/unit constraints (with the number-field Hecke-character carrier imported). The source citation is read, but the proof input and localization/label signatures are still missing. The rank-one Hodge–Tate/locally-algebraic local character comparison is also part of this G7-owned proof input; central-lift ramification supplies the needed finite global ramification.",
         "Finite-order character extension for Tate’s proof: ClassFieldTheory layer 10 supplies the Brauer localization sequence and layer 11 reciprocity. The extra finite-order local-to-global character extension used in Patrikis Theorem 2.1.1 (through Lemma 2.3.6) has not been recursively established here; this includes the coefficient-enlargement step and real places. It is a G7 proof input and not replaced by the class-formation theorem named Tate in ClassFieldTheory layer 3.",
-        "Central-lift ramification typed interface: The source theorem and proof are read. Topological algebraic group points, a central algebraic quotient and almost-everywhere inertia restrictions need compatible carriers. The parent’s arbitrary group-map surrogate does not express these hypotheses. Use R01.2 inertia and ClassFieldTheory local reciprocity with the algebraic ReductiveGroups interface.",
+        "Central-lift ramification typed interface: The source theorem and proof are read. Topological algebraic group points, a central algebraic quotient and almost-everywhere inertia restrictions need compatible carriers. The parent’s arbitrary group-map surrogate does not express these hypotheses. Use R01.2 inertia and ClassFieldTheory local reciprocity with the algebraic ReductiveGroups interface. The finite-coefficient faithful embedding, stable lattice and torsion-free congruence subgroup must be compared to those carriers; the elementary congruence-subgroup argument stays in this target’s proof sketch.",
         "Joint finite splitting field and absolute restriction comparison: The finite Galois linear-disjointness theorem already exists in Mathlib (IntermediateField.restrictRestrictAlgEquivMapHom_surjective). Do not replan it. Missing is the checked comparison that constructs L from the continuous joint kernel and transports finite restriction surjectivity to the chosen absolute Galois maps. The weaker assumption that the image already agrees would make the desired conclusion tautological.",
         "Guralnick–Herzig–Taylor–Thorne adequacy theorem (appendix Theorem 9 / Theorem A.9): The proof uses Proposition 7 of the appendix, which rests on the classification of finite simple groups (Tau Ceti CFSGStatement states the classification but no layer derives the algebraic-group structure of finite linear groups generated by p-elements in small dimension), and Guralnick's 1999 theorem that small modules have no self-extensions (Ext¹ vanishing for dim W_i + dim W_j ≤ p − 2). Neither input is planned by any roadmap.",
         "Ext¹ computations for SL₂(F_{p^r}) behind GHT17 Corollary 9.4: Corollary 9.4 uses Andersen–Jørgensen–Landrock's Ext¹ computations for SL₂(p^r) (r > 1), [GHT, Cor. 1.4] for r = 1, H²(SL₂(F_q), k) = 0 for q ∉ {4, 9}, and tilting-module computations for q = 4, 9. No library or roadmap plans the modular representation theory of SL₂(F_q).",
@@ -1815,7 +1962,7 @@
         "Frobenius-twisted tensor irreducibility proof: For q=p^b, b≥2 and 1≤r≤p−1, the standard Frobenius twist tensor Sym^(r−1) of the standard SL₂(F_q) module must be proved absolutely irreducible with the correct finite-field scope. The accepted remaining item suggests distinct weights and unipotent raising/lowering for p≥5, but it is not a proof at every endpoint; the Steinberg tensor-product input and the small prime endpoints are not checked here. This feeds the retained adequacy and adjoint-invariant targets.",
         "Pilloni and published source collation boundaries: Pilloni §5.7 and Propositions 5.6,5.8 remain unread for the H3/H3′ reading. The published BLGG13 Proposition A.2.1 and published CG18/BCGP21/NT26 locations of parent sourceIssues E702,E703,E704,E720,E754 still need version-of-record collation. The original findings are imported as findings of the accepted parent, not claimed freshly established here.",
         "Finite-projective topological adapters outside the checked power interface: The retained target-level tensor-induction, restriction-of-scalars and CHT induction constructions have exact source statements and APIs in the parent. Current libraries supply the algebraic monomial/tensor action and generic algebraic carriers. What remains is the finite-projective topology comparison, transversal-change coherence, transitive coefficient topology and the CHT induction representative independence in the arithmetic bundles; the accepted parent did not type these proof conditions completely.",
-        "Algebraic monodromy supplier comparison: The unread Borel boundary is replaced by the read Milne locators and current image/derived/component declarations. Matching these to the parent’s subgroup-in-GL monodromy carrier, the finite-index closure argument, the characteristic-zero point-bijection theorem and the torus Lie-weight argument remains a supplier comparison, not a missing source or a new generic group theory plan."
+        "Algebraic monodromy supplier comparison: The unread Borel boundary is replaced by the read Milne locators and current image/derived/component declarations. Matching these to the parent’s subgroup-in-GL monodromy carrier, the finite-index closure argument, the characteristic-zero point-bijection theorem and the torus Lie-weight argument remains a supplier comparison, not a missing source or a new generic group theory plan. In particular, the semisimple-Lie-element/maximal-torus comparison is required from ReductiveGroups layers 2 and 7, with character lattices from layer 4 and the unipotent fixed-vector argument from layer 5; layer 6 alone does not name these inputs."
       ],
       "note": "Every accepted G7 target is imported explicitly and all 63 remaining items are disposed of. Newly exposed key inputs and carrier/construction interfaces are target-level nodes. Chains end in pinned/current library suppliers, existing roadmap targets or the individually named gaps. This is a finished planning pass, not a closed mathematical plan or an implementation."
     }
@@ -1851,7 +1998,7 @@
     },
     {
       "title": "Totally real algebraic character classification",
-      "detail": "Global reciprocity is already ClassFieldTheory layer 11. The additional assertion that a geometric character of a totally real number field is a finite-order twist of a cyclotomic power is not its stated target. G7 owns this extra character lemma and must prove it using the infinity-type/unit constraints (with the number-field Hecke-character carrier imported). The source citation is read, but the proof input and localization/label signatures are still missing.",
+      "detail": "Global reciprocity is already ClassFieldTheory layer 11. The additional assertion that a geometric character of a totally real number field is a finite-order twist of a cyclotomic power is not its stated target. G7 owns this extra character lemma and must prove it using the infinity-type/unit constraints (with the number-field Hecke-character carrier imported). The source citation is read, but the proof input and localization/label signatures are still missing. The rank-one Hodge–Tate/locally-algebraic local character comparison is also part of this G7-owned proof input; central-lift ramification supplies the needed finite global ramification.",
       "neededBy": [
         "ArithmeticGaloisRepresentations:G7/followup-totally-real-rational-sen-weights"
       ]
@@ -1865,7 +2012,7 @@
     },
     {
       "title": "Central-lift ramification typed interface",
-      "detail": "The source theorem and proof are read. Topological algebraic group points, a central algebraic quotient and almost-everywhere inertia restrictions need compatible carriers. The parent’s arbitrary group-map surrogate does not express these hypotheses. Use R01.2 inertia and ClassFieldTheory local reciprocity with the algebraic ReductiveGroups interface.",
+      "detail": "The source theorem and proof are read. Topological algebraic group points, a central algebraic quotient and almost-everywhere inertia restrictions need compatible carriers. The parent’s arbitrary group-map surrogate does not express these hypotheses. Use R01.2 inertia and ClassFieldTheory local reciprocity with the algebraic ReductiveGroups interface. The finite-coefficient faithful embedding, stable lattice and torsion-free congruence subgroup must be compared to those carriers; the elementary congruence-subgroup argument stays in this target’s proof sketch.",
       "neededBy": [
         "ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification"
       ]
@@ -1993,7 +2140,7 @@
     },
     {
       "title": "Algebraic monodromy supplier comparison",
-      "detail": "The unread Borel boundary is replaced by the read Milne locators and current image/derived/component declarations. Matching these to the parent’s subgroup-in-GL monodromy carrier, the finite-index closure argument, the characteristic-zero point-bijection theorem and the torus Lie-weight argument remains a supplier comparison, not a missing source or a new generic group theory plan.",
+      "detail": "The unread Borel boundary is replaced by the read Milne locators and current image/derived/component declarations. Matching these to the parent’s subgroup-in-GL monodromy carrier, the finite-index closure argument, the characteristic-zero point-bijection theorem and the torus Lie-weight argument remains a supplier comparison, not a missing source or a new generic group theory plan. In particular, the semisimple-Lie-element/maximal-torus comparison is required from ReductiveGroups layers 2 and 7, with character lattices from layer 4 and the unipotent fixed-vector argument from layer 5; layer 6 alone does not name these inputs.",
       "neededBy": [
         "ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups",
         "ArithmeticGaloisRepresentations:G7/strong-irreducibility",
@@ -3496,6 +3643,114 @@
       "Import current algebraic tensor induction and continuous transfer, as well as current generic image/derived/component constructions. The older pin prototype does not assert they are absent at current main.",
       "Use the explicit six-planet replacement policy rather than adding to the original G7 planets.",
       "G7 retains every finite-group gap and edition-scoped source finding until independently discharged."
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticGaloisRepresentations--G7",
+    "date": "2026-10-09",
+    "notes": "Independent Codex session codex-warZZa checked all 20 new nodes, all 26 pinned baseline declarations, five current-library declarations, public source locators, 77 exact parent imports, all 63 dispositions and the 347-node assembled dependency graph. Corrected seven nodes in place, added API/tests to both remaining comparison wrappers, and refined supplier routing and source pages. Accepted as a complete target-level planning pass with G7 planned, 22 explicit gaps and no implementation claim; 13 nodes verified, seven corrected, none unverifiable. See REV-ArithmeticGaloisRepresentations--G7.md.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-power-carriers-and-joint-continuity",
+        "verdict": "verified",
+        "note": "Pinned powers supply algebraic actions only; finite-projective direct-summand arguments and joint evaluation use the module-topology suppliers. The symmetric-projective comparison is explicitly gap 1."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-projective-trace-contract",
+        "verdict": "verified",
+        "note": "Read contractLeft and finite-projective dualTensorHomEquiv. Contraction gives the rank-one and cyclic trace contracts; Mathlib trace has a zero fallback outside the free branch. The conditional nonfree test correctly prevents silent substitution."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-adjoint-kernel-quotient-exactness",
+        "verdict": "verified",
+        "note": "Over a field the trace pairing is perfect and annihilators give the stated duality. The natural map from trace kernel to the scalar quotient fails when characteristic divides positive dimension, as the scalar test records. Dimension zero is separated."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-generalized-eigenspace-complement",
+        "verdict": "verified",
+        "note": "Independence and exhaustive supremum of maximal generalized eigenspaces give the complement, including absent eigenvalues and zero space, over the stated algebraically closed finite-dimensional field carrier."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-generalized-eigenprojector",
+        "verdict": "verified",
+        "note": "Projection along that complement is canonical. Jordan-block, zero-space and absent-eigenvalue tests distinguish generalized from ordinary eigenspace projection; GN p.15 and ACC+ p.1045 motivate the precise projector convention."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-framed-symmetric-power-baseline-comparison",
+        "verdict": "corrected",
+        "note": "Read the existing action, symmetric-power basis, count-zero equivalence and GL/basis transport. Retained the correct reversed-input indexing. Added four API entries, uses, and three labelled tests, including the degree-two diagonal matrix without factorial normalization."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-continuous-character-transfer",
+        "verdict": "verified",
+        "note": "Pinned algebraic transfer and its transversal formula give the index-two identities. Current TauCeti.continuous_transfer supplies continuity with weaker assumptions. This is an explicitly pinned comparison wrapper, not a missing generic transfer theorem."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-quadratic-coset-character",
+        "verdict": "verified",
+        "note": "The two-valued sign is a continuous character for an open index-two subgroup, with characteristic-two collapse retained. Tests include restriction, outside coset and characteristic-two behavior; BLGGT pp.11–12 uses exactly this component sign."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-tensor-multiplier",
+        "verdict": "verified",
+        "note": "BLGGT p.11 fixes the disconnected tensor multiplier μνδ, including the outside-component sign. The restriction, trivial-factor and involution tests catch omission of δ."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-power-multiplier",
+        "verdict": "verified",
+        "note": "Integer exponent d−1 gives μ^d δ^(d−1), including d=0, whereas ordinary form similitudes use μ^d. The source fixes ν(j)=−1; the formula follows by the specified component transport, not an unmentioned universal power theorem."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-twist-multiplier",
+        "verdict": "verified",
+        "note": "The rank-one transfer dictionary in BLGGT p.12 and polarized pairs p.31 give μ times transfer. The extending-character, trivial-character and coset tests retain the index-two assumptions."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-residual-cyclotomic-baseline-comparison",
+        "verdict": "corrected",
+        "note": "Pinned modularCyclotomicCharacter requires explicit root cardinality. Clarified that the automatic number-field cardinality assertion concerns its chosen algebraic closure. Added four API entries and three labelled tests, including action on actual roots and p=2 triviality."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-centralizer-conjugacy-of-alternating-forms",
+        "verdict": "verified",
+        "note": "Read Gan–Takeda Lemma 6.1 pp.1859–1860. Its isotypic/multiplicity-space argument extends to the stated algebraically closed characteristic-not-two scope. Centralizing the action and the fixed multiplier are substantive hypotheses; Lean form classification remains gap 2."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-local-sen-operator",
+        "verdict": "verified",
+        "note": "Berger II.1.1–II.1.2 pp.7–9 and Patrikis pp.23–24 support decompletion and log(action)/log(cyclotomic) normalization. C_p already exists. The analytic proof and completed arithmetic action remain gap 3 rather than an implementation assertion."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input",
+        "verdict": "corrected",
+        "note": "Patrikis Lemmas 2.2.4,2.2.6 and Berger p.9 support the Lie and semisimple-integral comparison. Added ReductiveGroups layer 1 alongside layer 2 for tensor reconstruction; clarified that a−b,0,b−a are trace-zero adjoint weights. The reconstruction/label interface stays gap 4."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-totally-real-rational-sen-weights",
+        "verdict": "corrected",
+        "note": "Read Patrikis Lemmas 2.3.15,2.3.17 pp.31–32. Clearing denominators and totally-real algebraic-character classification give one common rational weight; existence retains d≠0. The extra character classification is honestly G7-owned gap 5. Added the central-lift ramification prerequisite to justify the geometric global character and made the local rank-one algebraicity comparison explicit in gap 5."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing",
+        "verdict": "corrected",
+        "note": "Read Patrikis Theorem 2.1.1 pp.15–16 and Conrad Proposition 5.3 pp.15–16. Cochains use trivial discrete Q/Z, not fixed μ_n. Brauer/global reciprocity suppliers do not discharge the separate finite-order character-extension gap 6. Added the direct ClassFieldTheory layer 7 prerequisite for the local character/Brauer-boundary step."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification",
+        "verdict": "corrected",
+        "note": "Conrad Lemmas 5.1,5.2 pp.14–15 retain arbitrary central algebraic quotient and already-continuous lift. Added finite-coefficient descent/stable-lattice and ClassFieldTheory layer 7 dependencies; specified the torsion-free pro-p congruence-subgroup argument, including p=2, and extended gap 7 to its carrier comparison."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy",
+        "verdict": "corrected",
+        "note": "Read NT Lemma 4.7 pp.33–34 and Milne image/derived locators. Added layers 4,5,7, corrected the layer-6 supplier scope, and replaced root-character wording with ambient pairwise weight differences. Corrected Milne Definition 6.24 to p.131. Lie/maximal-torus comparison remains explicit gap 22."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:G7/followup-disjoint-base-change-image",
+        "verdict": "verified",
+        "note": "BCGNT Definition 5.2.1 and Lemma 5.2.2 pp.50–51 supply the joint-image argument. Read Mathlib’s finite-Galois intersection/surjectivity theorem; absolute restriction and joint-kernel comparison remain gap 8. Decomposed genericity retains the stronger imported rational Galois-closure condition."
+      }
     ]
   }
 }
