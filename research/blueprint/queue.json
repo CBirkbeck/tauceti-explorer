@@ -45751,8 +45751,9 @@
     "PKG-AdicCoefficientsAndComparisons"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AdicCoefficientsAndComparisons.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7502"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7502",
+   "finishedAt": "2026-10-09T06:12:51Z"
   },
   {
    "id": "PKG-AdicEtaleGeometry",
@@ -47136,8 +47137,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
