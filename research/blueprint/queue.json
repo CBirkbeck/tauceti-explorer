@@ -29205,9 +29205,9 @@
     "REV-RS-31"
    ],
    "prompt": "research/blueprint/prompts/BP-ReductiveGroupsPartII.md",
-   "state": "external",
+   "state": "pending",
    "suppliers": [],
-   "note": "claimed on GitHub issue #982"
+   "note": "released on GitHub issue #982"
   },
   {
    "id": "REV-ReductiveGroupsPartII",
@@ -37846,8 +37846,8 @@
     "BP-PadicMeasuresIwasawaAlgebras~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PadicMeasuresIwasawaAlgebras~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6415"
+   "state": "pending",
+   "note": "released on GitHub issue #6415"
   },
   {
    "kind": "blueprint",
