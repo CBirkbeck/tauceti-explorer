@@ -1,395 +1,229 @@
-# BP-LocallyAnalyticDistributions — scalar Mellin checkpoint
+# BP-LocallyAnalyticDistributions — completed planning pass
 
-Codex — session `codex-yAUVaO`, 5 October 2026. Refs #641.
-The bot confirmed claim comment 5999079305 in comment 5999082090.
-**Status: partial; no stage is planned or closed.** This is a substantive
-continuation, not a full-pass submission. All five current coverage records
-are partial. The older checkpoint notes below are retained as historical
-provenance; the packet's current coverage and this opening note govern resumption.
+Codex, session `codex-h73CoC`, 9 October 2026. Refs #641.
+The bot confirmed claim comment 6080472050. This process took this job only.
 
-## What changed
+## Status and preservation
 
-All **199 predecessor node objects are unchanged**, including the complete
-thirteen-node integrated L4 decomposition. Added fifteen declarations:
+**Packet status: complete at the approximately 300-node budget in PROTOCOL §0.**
+There are **303 nodes**; all five stages remain **partial**, none is closed.
+This is a completed planning pass for independent review, not a checkpoint,
+a closed roadmap, a completed formalization or a claim that its gaps have disappeared.
+The independent review and subsequent follow-up packets must resolve the explicit
+closure obligations. Stop refining this packet before its review allocates those follow-ups.
 
-- L1: `open-disc-native-radius`, `open-disc-summability`,
-  `open-disc-uniform-tail`, `open-disc-evaluation-analytic`,
-  `open-disc-evaluation-mul`, `open-disc-evaluation-map`.
-- L3: `finite-character-component-mellin`,
-  `component-mellin-coefficient-bound`, `component-mellin-open-disc`,
-  `component-mellin-evaluation`, `branch-mellin`, `branch-coordinate-domain`,
-  `branch-integer-evaluation`, `meromorphic-mellin-clearing`,
-  `meromorphic-clearing-independence`.
+All **214 predecessor node ids** are retained. **213 predecessor node objects
+are unchanged**. The only old mathematical statement edit corrects the C^r
+remainder domain to x∈Z_p and y∈p^hZ_p, from Colmez's definition on p. 18;
+the old text incorrectly restricted x too. The thirteen integrated L4 node ids
+and nineteen integrated links are retained. The inherited entire-division,
+quotient/resultant, generic-matrix, adjugate/Hasse/Riesz and scalar Mellin
+work is included in the organized reader and the full suggested file.
 
-The common module is `TauCeti/NumberTheory/Padics/Mellin`. The three new
-constructions carry sixteen API entries and twelve discriminating tests;
-all have typed forms in the appended `TauCeti.Mellin` section. Four extra
-native-series examples check zero, linear, geometric and boundary cases.
-The three new L3 planets are Component Mellin transform, Mellin branch and
-Meromorphic Mellin evaluation. No stage exceeds six planets.
+Added **89 declarations**: L0 12, L1 16, L2 12, L3 14, L4 35.
+The total is **14 definitions, 34 constructions, 55 theorems, 165 lemmas and
+35 comparisons; 179 definition/construction API entries, 160 tests,
+18 planets, 254 baseline citations, 14 gaps and 9 supplier requests**.
+Every implementation status is unchecked. No stage has more than six planets.
 
-Current validated totals: **214 nodes**, comprising 7 definitions,
-22 constructions, 123 lemmas, 41 theorems and 21 comparisons; **122 API items,
-103 construction/definition tests, 15 planets, 248 baseline declarations,
-10 gaps, 6 supplier requests**. The two inherited source findings are
-preserved; no new erratum is asserted. Every node remains unchecked.
+## Mathematics added
 
-The component adapter takes a supplied compact-space chart G≃Δ×Z_p and a
-finite-character value function; it uses native bounded measures, native
-Mahler functions and native scalar-series summation. It neither constructs
-character spaces nor replaces PMIA's bounded Amice transform. The singleton
-finite factor recovers the latter exactly. Coefficient bounds, uniform tails
-and character evaluation justify scalar evaluation on ||t||<1. The branch
-uses T=κ_q(s)−1 and no arithmetic 1−s shift. Odd-prime and dyadic charts remain
-supplier obligations. Clearing expressions are guarded by the full denominator
-nonvanishing locus; cross-product equality implies independence on overlaps.
-No value at a pole or full pseudomeasure-to-function theorem is asserted.
+L0 now includes the CN Banach/Fréchet/compact-type three-space contracts,
+the separate splitting hypotheses, multivariable coefficient stages, common
+radii, chart pullbacks, compact restrictions and strong-dual/tensor comparisons.
+CN's generic left-heart infrastructure is requested from the shared Part II
+proposal; its assigned locally analytic applications remain here.
 
-## Sources and library evidence
+L1 separates pushforward, convolution, multiplication, differentiation,
+dilation, unit projection, division on units and logarithm cancellation.
+Kohlhaase's strict derivative quotient and lack of a continuous section, and
+the dual logarithm-extension nonsplitting, are explicit target contracts.
+Transpose differentiation uses the positive logarithm multiplier.
 
-Freshly read public passages, independently reproducing their existing hashes:
+L2 adds the intended tensor C^{r_i} model, rectangular wavelets and growth,
+extension for each r_i<1, higher separate degree r_i<N_i+1, the critical
+counterexample, quasi-factorization comparisons and ray-class adapters.
+The strict coordinate threshold is retained even when the sum of the orders
+is at least one. Native box indicators and their exact refinement partition
+are typed; their tensor/wavelet comparison still needs proof closure.
 
-- Rodrigues Jacinto–Williams, arXiv:2309.15692v2: full §§3.7–3.8,
-  pp. 23–26; full §5.3, pp. 34–35.
-  SHA-256 `efa1e10168fb092ffb072bbf147f85f07bea72d2a8f4907d6e9e4fd559c039c4`.
-- Colmez's author PDF: §I.6, pp. 27–28; §II.2, including the proofs on
-  p. 30; §II.4, pp. 34–36.
-  SHA-256 `a18e1b0f96033dbc6d27d39dd330974bed63808286092c11d5c8d232d412c380`.
+L3 adds the global distribution component Mellin map and Fréchet equivalence,
+bounded-measure converse, generator/derivative/twist/pushforward formulas,
+finite coefficient extension, rigid/adic comparison and meromorphic gluing.
+PMIA owns the character space and universal character; no representability
+construction is duplicated here. The earlier bounded-measure and scalar
+branch adapters are preserved as restricted prototypes.
 
-URLs and access dates are in the packet sources. These are bounded passage
-reads, not whole-paper attestations. The elementary adapter estimates are
-explicit worker decompositions of those passages. Newly cited Mathlib
-statements were read at `082e2d37e8b0463410cdb532e111cd43d5a66174`:
-Measure Basic/AmiceTransform, MahlerBasis, AddChar, Restricted power series,
-scalar analytic series, convergence radius, analytic change of origin, and
-continuous-linear-map/nonarchimedean summation. The additive summability
-declaration is generated by `NonarchimedeanGroup.multipliable_of_tendsto_cofinite_one`;
-the baseline records that indexed generating name with the exact additive use.
+L4 adds affinoid analytic and dual stages, norm integral lattices, coefficient
+extension and specialization, universal-character coefficient actions,
+uniform radii and Pan's Tate and bounded formal-series compactness inputs.
+The dual is not automatically c0 or (Pr); the canonical dual-extension map
+is not asserted to be an infinite affinoid isomorphism. Compact restriction
+uses destination Taylor truncation, which handles nonzero residue centres.
 
-The reviewed LAD L0–L4 audit, accepted RS-16 boundary, integrated decomposition,
-applicable link records, PMIA L0a and relevant L2/L3 supplier nodes were read.
-PMIA L0a currently has no finer node to cite. Its request now specifies the
-locally analytic group charts, finite-character inversion, universal-character
-coordinates, generator changes and odd/dyadic conventions. PMIA L3's request
-specifies actual clearing numerators and their cross-product relation.
-Bounded measures, bounded Amice and pseudomeasures remain with PMIA; generic
-family actions remain with LAD L4. Adic open-disc geometry is imported from
-AdicSpaces Layer 5. The upstream AdicSpaces and ModularForms documents supplied
-the reader/API model. No global library-absence claim was made.
+Native cochain and homotopy objects support bounded projective Banach
+complexes, degreewise compact representatives, compact homotopy
+endomorphisms and the nonalternating characteristic product. Numerical
+slope windows include the endpoint and exclude zero eigenvalues from finite
+slopes. A selected window gives a finite-perfect complex. Homotopy
+comparison, derived base change, Euler local constancy, factorized Fréchet
+windows and Stein/solid comparison have precise targets and explicit gaps.
 
-## Validation and the compilation boundary
+## Confirmed red-team input and ownership
 
-- `python3 scripts/check_blueprint.py research/blueprint/packets/LocallyAnalyticDistributions.json`:
-  **zero errors and zero warnings**.
-- Object-level preservation check: all 199 old nodes unchanged. New construction
-  API/test names all have typed counterparts. All fifteen node statements are
-  explained in the new opening reader section.
-- `lean-check` on the isolated Mathlib-only appended section: **exit 0,
-  zero errors, 48 warnings, all omitted-proof warnings**. This checks signatures
-  and test types; it does not prove the planned mathematics.
-- `lean-check` on the full suggested file: **not successful**. It stops at the
-  inherited `TauCeti.RingTheory.Polynomial.Resultant.AdjoinRoot` import because
-  the shared build lacks that module's compiled object. No library build or
-  cache download was attempted. The shared Mathlib is pinned correctly;
-  its Tau Ceti source head is `cf386627e9176a3827c1a5fe804989fd94a4d216`,
-  whereas the packet pin is `f790474821cf4256814db967cb154e7af3d0c369`.
-  The import's source is unchanged between those commits, but that does not
-  establish full dependency/build compatibility. Earlier successful full-file
-  checks are historical evidence, not a result of this run.
+**RT-AREA-iwasawa-2/5:** the missing compact-complex and finite-window content
+is supplied by the new L4 block, including comparison with the module theory,
+finite-slope cohomology and the geometry over which inverse stages are used.
+The raw characteristic product depends on the representative: the contractible
+complex [A --1→ A] with scalar a in both degrees has product (1−aT)^2,
+while the zero complex has product 1. Invariance is asserted for finite-slope
+cohomology/support, not for every raw determinant zero. The currently stated
+homotopy-invariance lemma treats continuous U-equivariant equivalences;
+the stronger functor for actions commuting only up to homotopy is explicitly
+unresolved. This is not recorded as closure of the entire red-team finding.
 
-Compilation used the prescribed wrapper sequentially, with more than 20 GB
-available. No Lean process is left running. No scratch file is required to
-resume; the temporary sources, logs and worklist are deleted after submission.
+BCGP25's full analytic solid localization is deliberately an external
+foundation contract: f_*f^*, analytic-ring coefficients, and an inverse-limit
+reconstruction. Q_p((X)) demonstrates why algebraic inversion of a positive
+operator does not suffice. The shared proposal
+`LocallyAnalyticDistributionsPartIIQuasiAbelianFunctionalAnalysis` is BCGP25
+route 17; it has no catalogue stage/node ids yet. Those ids are not fabricated.
+Generic Stein/quasi-Stein predicates and coherent Theorem B remain owned by
+AdicSpacesPartII R3. The relative compactness/inner restriction comparison is
+requested there. Positive torus/root data is requested from
+ReductiveGroupsPartII RG2.1. Native adic geometry is imported from AdicSpaces
+Layer 5. The Hahn–Banach node already owned by
+PadicDifferentialEquationsAndRigidCohomology RD.5 is reused.
 
-## Where to resume
+RS-16 boundaries are preserved. PMIA supplies bounded measures, bounded
+Amice, characters and pseudomeasures. LAD supplies unbounded distribution
+operations, growth, distribution Mellin, family actions and compact operators.
+Consumer contracts include PadicFamilies L2a and
+HigherHidaAndColemanTheory. All nineteen inherited links are retained;
+no L4→L3 dependency cycle is introduced. No notion has been moved from a
+higher-tier supplier into this packet without recording its owner.
 
-1. **L3 unbounded distributions:** read RJW §3.8 and Schneider–Teitelbaum's
-   relevant character-space construction more broadly. Promote analytic chart
-   pullback, clopen finite-factor decomposition and dual-topology comparison to
-   individual L0/L3 lemmas. Compose them with the inherited L1 Amice isomorphism
-   for the full distribution Mellin equivalence. The new bounded component
-   construction is an entry point, not its inverse or topology theorem.
-2. Obtain the precise PMIA L0a interface, then use the actual
-   `PadicMeasuresIwasawaAlgebras:L2/field-bounded-amice-isometry` and finite
-   Fourier inversion for the converse bounded-functions/measure comparison.
-   Keep splitting-field and invertibility-of-|Δ| assumptions explicit.
-   Decompose branch local analyticity, weight derivatives with log(γ),
-   twists/component changes and locally algebraic specialization. Reuse PMIA's
-   existing derivation and imported operator formulas.
-3. Read Loeffler's multivariable/ray-class source (arXiv:1304.4042 is a lead)
-   before adding vector-radius functoriality and distribution scalar extension.
-   The new field-map evaluation lemma proves only the scalar-series adapter.
-   State the analytic-versus-adic comparison using the owning AdicSpaces
-   interface. Promote genuine PMIA clearing numerators to analytic denominators,
-   then prove gluing and pole bounds; a conditional quotient identity is not
-   geometric gluing.
-4. **L0/L1 assigned source gap:** read Colmez–Nizioł (2025), Appendix A, and
-   the invoked Kohlhaase theorem. Plan the relevant nonarchimedean locally
-   convex/left-heart objects, extension-of-Banach, extension-of-Fréchet and
-   compact-type three-space results with their spherical-completeness or
-   outer-term separability assumptions. Plan the derivative surjection on
-   LA(Z_p) without a continuous section and the equivalent tR⁺ nonsplitting.
-   L1's former source-decomposed label concerned older targets; it is now
-   partial for this source obligation and inherited composite-API refinement.
-5. **L4 derived finite-slope gap:** RT-AREA-iwasawa-2 and RT-AREA-iwasawa-5
-   remain unresolved. Read Pilloni §13, BCGP 2021 §6.1.1, BCGP 2025 §§2.2/4.6
-   and Pan Example 2.2.2. Add bounded projective Banach complex representatives,
-   degreewise compact endomorphisms and the nonalternating product of their
-   characteristic series; prove localization/homotopy compatibility and
-   Stein/quasi-Stein descent. Keep the corrected endpoint inequalities:
-   reciprocal roots have valuation **at most h**, and the complementary
-   invertibility statement uses Q with original roots of valuation **at least
-   −h**. Retain the issue's finite-slope extension correction P=XQ and
-   Ũ(Q(U)f). Source corrections are routed findings, not newly verified errata.
-   Keep solid/discrete-module higher Coleman theory with its own owner.
-6. Continue the exact L0/L2 multivariable and L4 spectral/finite-projective,
-   completed-tensor and entire-characteristic limitations in packet coverage.
-   Refine inherited composite definitions and their missing typed signatures;
-   do not replace their existing mathematics. The handoff history below gives
-   the finite-operator spine and its previous source provenance.
+## Sources and findings
 
-No full-pass completion is claimed. The next worker should keep status partial
-until the target-level pass covers every assigned source and stage, or the
-protocol's node budget is reached; then request independent review with precise
-remaining lists.
+The packet records version URLs, read dates, passage boundaries and hashes.
+Sources were read as target support, never copied or summarized section by
+section. No repository PDF or source excerpt is included. The maintainer's
+library INDEX was read; no cleared book was needed and neither uncleared
+book was used.
 
----
+New public primary passage reads:
 
-## Earlier checkpoint history
+- On the cohomology of p-adic analytic spaces, II: The C_st-conjecture: Appendix A in full, Lemmas A.1–A.4 and Remark A.6, printed pp. 58–59.
+- P-adic integration on ray class groups and non-ordinary p-adic L-functions: §§2.1–2.3 in full, printed pp. 2–5; §3.1, printed pp. 6–7; page images of pp. 4–5 checked.
+- The cohomology of locally analytic representations: Introduction field hypotheses; §1, printed pp. 5–8; Proposition 4.2 and Corollary 4.3 with proofs, printed pp. 20–21; Theorem 4.4 and coefficient model, printed pp. 21–22.
+- Higher coherent cohomology and p-adic modular forms of singular weights: §§13.1.1–13.1.3, printed pp. 84–85; Corollary 13.2.4.2 and proof, printed pp. 87–88.
+- Eigenvarieties for reductive groups: §2.3, printed pp. 23–28 through Lemma 2.3.13; §§3.2.6–3.2.8, printed pp. 33–34; Lemmas 3.4.6–3.4.7 and Definition 3.4.10, printed pp. 43–45.
+- Abelian surfaces over totally real fields are potentially modular: §6.1.1, printed p. 139; Theorem 6.3.16 and proof, printed pp. 152–153.
+- Modularity theorems for abelian surfaces: §1.8.5, printed p. 9; Definition 2.2.17, printed p. 21; §§4.6.46–4.6.49 in full, printed pp. 93–95.
+- On locally analytic vectors of the completed cohomology of modular curves II: §2.2.1 and Example 2.2.2, printed p. 13; Proposition 2.2.3 and Corollary 2.2.4, printed p. 14.
 
-# BP-LocallyAnalyticDistributions: L0, L1 and one-variable L2 (checkpoint by Claude Code cc-39fac3)
+Fresh checks also read Schneider–Teitelbaum §1, pp. 3–6; Colmez's C^r
+definition p. 18 and §II.4, pp. 34–37; Rodrigues Jacinto–Williams §§3.7–3.8,
+pp. 23–26 and §5.3, pp. 34–35; Coleman A5.3, pp. 440–441 and A5.5.1–2,
+pp. 441–442. Earlier source evidence remains historical provenance, not a new
+whole-paper read claim. Native ModuleCat, CochainComplex, Homotopy,
+MvPowerSeries.coeff and the actual Henkel open/quotient map statements were
+read at the specified library pins. In particular the Henkel source,
+first-countability, completeness and target Baire assumptions are retained.
 
-Claude Code — session `cc-39fac3`, 28 September 2026. Refs #641 (claim confirmed by the bot). **Status: partial.**
-- L1 is `source_decomposed`.
-- L0 and L2 are `partial`: one variable is planned (and 𝒪_F for L0), several variables remain.
-- L3 is `not_read`.
-- L4 keeps its earlier status (`partial`).
+There are six source findings, with no review verdict supplied by this author:
 
-## This checkpoint: 13 new nodes, 6 planets
+- E1/E2: the two predecessor Coleman findings and their complete version
+  evidence are retained.
+- E3: the Loeffler arXiv v3 simultaneous first-difference definition fails on
+  the locally constant tensor 1⊗1_(pZ_p) at vector order (1/2,0). Along
+  (m_1,0) the valuation expression is −m_1/2, contradicting its explicit
+  cofinite condition. The plan uses the completed tensor wavelet norm.
+  A bounded correction search checked the arXiv version record, author page,
+  Springer chapter DOI and Warwick record. The publisher PDF request returned
+  HTML and the accepted manuscript was restricted. This finding is scoped to
+  the hashed preprint, with no published-PDF or correction read claimed.
+- E4/E5/E6: the already confirmed extraction corrections E107/E112/E77 are
+  incorporated, with fresh passage reads: inclusive slope endpoint, raising
+  map a(Q(U_C)f) for P=XQ, and inclusive complement polynomial condition.
+  They are not new independent verification verdicts.
 
-Sources are all free:
-- Colmez, *Fonctions d'une variable p-adique*, the author's PDF (sha256 a18e1b0f…).
-- RJW, arXiv:2309.15692v2.
-- Schneider–Teitelbaum, arXiv:math/0102012v1.
+Still unread or unresolved source inputs: Colmez–Gilles–Nizioł
+arXiv:2308.07712 Lemma 2.5; Dierolf–Roelcke Proposition 3.8; the general
+orthonormal basis/controlled-lift theorem; canonical finite-module topology
+and completed tensor sources in the recorded BGR gaps; a published or
+corrected Loeffler chapter; the extension of the checked Coleman closed-disc
+local-constancy argument to general affinoids. Use a public equivalent or a
+maintainer-cleared book if a follow-up needs these.
 
-Every excerpt was checked as an exact substring of its source page. The plan follows RS-16's keeps.
+## Checks and suggested-file boundary
 
-**Nodes:**
-- **L0:**
-  - `disc-analytic-functions`;
-  - `locally-analytic-radius`: LA_h and the inductive limit;
-  - `amice-mahler-basis`: Amice's theorem;
-  - `locally-analytic-topology`: the topology is strictly finer, with the separating sequence p^nC(x, p^{2n});
-  - `locally-analytic-distributions`: the Fréchet dual and the measure injection;
-  - `field-analytic-functions`: F- against ℚ_p-analytic functions on 𝒪_F.
-- **L1:**
-  - `amice-transform`: Colmez II.2.2 and RJW 3.43;
-  - `distribution-operations`;
-  - `division-by-x-and-primitives`: Colmez II.4.1–II.4.2 and I.5.16.
-- **L2:**
-  - `c-r-functions`;
-  - `order-r-distributions`: Colmez II.1, II.3.1, II.3.3, with Pollack–Stevens' h-admissibility;
-  - `order-zero-measures`;
-  - `amice-velu-vishik`: Colmez II.3.2, with the strict threshold r < N + 1 and the counterexample d^{N+1}δ₀.
+- Indexed packet checker: **0 errors, 0 warnings**.
+- Versioned errata wrapper: **0 errors**.
+- Deliverable intake checker: **four allowed files, 0 problems**.
+- All predecessor ids retained; all reader node ids represented; dependency
+  graph checked by the packet checker; no source excerpt fields remain.
+- **Full suggested file: lean-check exit 0, 0 errors, 489 warnings, all
+  declaration-uses-sorry warnings**, in the supplied shared build at
+  Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and
+  Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. Available memory was
+  111 GiB. Checks were sequential; no language server, library build, update
+  or cache download was run. A subsequent comment-only omission register
+  adds no declarations and changes no types.
 
-**Requests:**
-- New: PadicMeasuresIwasawaAlgebras L0 (bounded measures).
-- PM L2 nodes are cited directly: bounded Amice, φ, ψ, weights and unit-support division.
+The suggestion is a **partial typed prototype**, despite the completed
+planning pass. Its checks object and final comments record thirteen exact
+restricted scopes, five new omitted definition/construction groups,
+five inherited global groups, and fourteen new named-theorem omissions.
+Each omitted API/test is named with the missing actual carrier or input.
+Typed stage transpose/finite-group convolution/scalar specialization examples
+do not assert global strong-dual, analytic tensor or family-fibre theorems.
+Numerical root interfaces, global LA/C^r carriers, completed tensors and
+analytic section sheaves are not replaced by Prop-valued placeholders.
+Compilation establishes signature consistency, not proofs.
 
-The gap "Distribution stages and universal-character families" is updated: L0–L2 (one variable) are no longer unread.
+The historical predecessor handoff was replaced by this current note; its
+mathematical material is preserved in the packet and organized reader.
+Nothing in scratch is required to resume. It is deleted after the PR is open
+and its checks have been inspected. No compile is left running.
 
-These nodes answer ModularSymbolsPadicLFunctions L2's requests for LocallyAnalyticDistributions L0 and L2 (in one
-variable).
+## Follow-up work, after independent review
 
-**Lean:**
-- The suggested file gains a L0–L2 section: a signature comment block and three proved examples (v_3(9!) = 4, the
-  d^{N+1}δ₀ counterexample and Haar additivity). It also gains four Mathlib imports.
-- The section was compiled on its own against the pinned Mathlib 082e2d3 oleans, with 0 errors and 0 warnings.
-- The whole file imports four pinned Tau Ceti modules. No build of them exists on this server at f790474, and the
-  swarm rules forbid building Tau Ceti, so the whole file was **not** re-elaborated here. A worker with the pinned build
-  should re-run it.
+### LocallyAnalyticDistributions:L0 — partial
 
-**Continuation:**
-- L0 and L2 in several variables: products of local integer rings, vector radii, and uniqueness with locally algebraic
-  characters. Loeffler, arXiv:1304.4042, is
-  the candidate source.
-- L3: character spaces and Mellin transforms, following Schneider–Teitelbaum and RJW §§3.8 and 5.3.
-- L4's gaps.
+- Implement the native nonarchimedean locally convex stage/limit/strong-dual interface, including the compact-type reflexive duality and product completed inductive tensor theorem; ordered-field LocallyConvexSpace does not supply it.
+- Close the left-heart strict-sequence comparison and the CN three-space proof dependencies: countable orthonormal bases, controlled quotient lifts, separated Ext¹ vanishing (Colmez–Gilles–Nizioł Lemma 2.5), and nuclear Fréchet extension (Dierolf–Roelcke Proposition 3.8).
+- Refine the finite-manifold charts, multivariate substitution bounds and chart-realization signatures beyond the coefficient-stage prototype.
 
----
+### LocallyAnalyticDistributions:L1 — partial
 
-# BP-LocallyAnalyticDistributions: fixed characteristic degree
+- Implement the strong-dual operation signatures through the L0 carrier; the native stage transpose prototype is not a completed global locally analytic construction.
+- Decompose the open-disc differentiation/substitution estimates and the strict smooth-quotient argument behind Kohlhaase Proposition 4.2; prove the derivative/logarithm nonsplitting without adding a section.
+- Refine all parts of the inherited composite Amice and primitive declarations to lemma density, preserving the positive transpose-derivative convention.
 
-Codex — codex-7e92bd. Issue #641; claim comment 5861270362 confirmed by exact
-bot reply 5861271520. The whole issue was read before and after confirmation.
-Partial checkpoint; all nodes remain unchecked.
+### LocallyAnalyticDistributions:L2 — partial
 
-## Delivered
+- Refine Colmez C^r wavelet/density and tensor multidegree moment bounds; connect the typed native locally constant box indicators and refinement partition to the wavelet basis and completed tensor function realization.
+- Close bounded pullback/chart invariance for higher vector orders and finite-group Fourier inversion over the specified splitting field.
+- Independently verify E3 against an accessible published Loeffler chapter or author correction; the present counterexample and repaired tensor proof are scoped to arXiv v3.
 
-186 nodes: 3 definitions, 18 constructions, 112 lemmas, 33 theorems and
-20 comparisons; 92 API items (88 on definitions/constructions), 123 packet
-tests (76 on definitions/constructions), 123 typed examples, 6 planets and
-228 baseline citations. Eight gaps, five requests, two inherited source findings
-and zero closed stages remain.
+### LocallyAnalyticDistributions:L3 — partial
 
-Twelve new L4 nodes comprise one construction, six lemmas, four theorems and
-one comparison. They construct the spectral polynomial for entire functional
-input B and normalized polynomial characteristic input P at an explicit rank,
-and prove its polynomial compatibility, coefficient and Gauss limits, exact
-padding, polynomial factor multiplicativity and linear evaluation. All 174
-predecessor whole nodes, 228 baseline records, five requests, two findings,
-six planets and preceding suggested-file bytes are preserved.
+- Implement the multivariate unbounded Amice topological inverse, finite-character descent and the strong-dual/function-sheaf Mellin map over the imported PMIA character charts.
+- Close the distribution coefficient extension, local weight derivative and rigid/adic sheaf comparisons; scalar bounded point evaluation is insufficient.
+- Build the actual pseudomeasure numerator-to-sheaf gluing from the cited PMIA nodes and local analytic vanishing-order API; poles and denominator components must be retained.
 
-## Mathematics and boundary
+### LocallyAnalyticDistributions:L4 — partial
 
-Use a nontrivial complete normed commutative ring A with norm(1)=1 and
-ultrametric norm. It need not be a field, reduced or Noetherian. Let B be
-entire and P a polynomial with P(0)=1 and natDegree(P)≤n. Put
-Q_n=reflect_n(P), monic of degree n. The construction is the existing finite
-spectral resultant of the entire monic remainder R_(Q_n)(B), with both
-explicit bounds n. Its output is a native polynomial. No quotient topology
-or new carrier is introduced.
+- Complete the inherited entire spectral-resultant construction/quantitative bounds, Coleman A3.8–A3.9 transport, canonical finite-module topology, and determinant/rank proofs over nonreduced coefficient rings.
+- Implement the separated nonarchimedean projective tensor completion, analytic base change, dual scalar-extension image theorem and actual specialization. Verify (Pr) for each same-stage distribution module used in Fredholm theory instead of assuming it for all continuous duals.
+- Close the actual universal-character semigroup chart/multiplier construction, uniform radii and destination Taylor tail estimates; import its arithmetic semigroup and root-data input.
+- Refine the numerical-slope root-location/fibre interface, finite-slope functor for endomorphisms commuting up to continuous homotopy, and native perfect/derived base-change signatures. The representative-product counterexample forbids claiming raw spectral support invariant.
+- Prove exact-h local constancy for general affinoids from finite slope windows; Coleman A5.5 only supplies the checked closed-disc base case. Preserve the rank-one restriction and the distinction between Euler characteristic and individual cohomology dimensions.
+- Obtain the geometric Stein/inner compact-restriction comparison from AdicSpacesPartII R3 and the full solid f_*f^* comparison from the shared Part II proposal. Ordinary inversion or a direct union of finite windows does not discharge BCGP25.
 
-Finite polynomial B may be reduced modulo Q_n without changing the spectral
-transform, using equality of classes of 1−T B in the native finite quotient
-and the preceding norm comparison. The output degree is at most n: the
-native Sylvester determinant has n columns of output degree at most one,
-and all other columns are constant. This degree bound needs no normalization
-or input degree hypotheses.
-
-Each fixed output coefficient is continuous in a finite vector of functional
-polynomial coefficients. Expand the Sylvester determinant and polynomial
-coefficients into finite sums and products; no polynomial topology or
-point-evaluation identity principle is assumed. The existing monic-remainder
-coefficient limits then give the spectral coefficient limits as B is truncated.
-All output degrees are bounded by the same n. The native Gauss supremum is
-bounded by the finite sum of weighted coefficient norms, so these coefficient
-limits converge at every positive Gauss radius.
-
-For B(0)=0, simultaneous truncation of B and the fixed P converges to the
-same construction at rank natDegree(P). Eventually the P truncation is P;
-the existing finite padding-stability law removes the excess rank. For
-general entire P this argument does not apply: its truncation degree grows.
-Uniform estimates in that growing degree remain an explicit gap.
-
-The exact entire padding law is E_(n+1)=E_n(1−B(0)T), and normalized
-polynomial characteristic factors satisfy E_(n+k)(B,PQ)=E_n(B,P)E_k(B,Q).
-Pass through finite polynomial identities coefficientwise. Linear input
-satisfies E_1(B,1−aT)=1−B(a)T, using actual entire evaluation and truncation
-convergence on a ball of radius at least norm(a). No compactness of that
-ball is needed. B(0)=0 is required for rank stability, not for fixed-rank
-construction or polynomial factor multiplicativity.
-
-The six typed tests cover rank zero, zero functional input, nonzero constant
-input with padded zero roots, linear evaluation, surviving nilpotent
-coefficients, and the normalized unit characteristic input. In particular,
-E_2(c,1)=(1−cT)^2, while E_n(B,1)=1 when B(0)=0.
-
-## Sources, native baseline and inputs
-
-Complete published Coleman printed 435–436 / PDF 19–20 was freshly read,
-including the definition of D, both A3.8 identities, the full A3.9 proof and
-the Riesz context. The preceding full printed 432–436 reading is retained.
-Publication SHA256:
-32ff34f60fc2ef4608506daa169c3cc61e07520f019d63928e86b093a16b1973.
-These are worker decompositions of the fixed-polynomial case, not a claim of
-general spectral construction, full-paper coverage or independent review.
-The two inherited source findings and version records are unchanged.
-
-The current handoff, relevant predecessor declarations/signatures and complete
-reviewed AUDIT-25 L4 row were read again. All four predecessor files exactly
-match our merged PR #3289. Earlier whole-packet, other audit rows, two upstream
-model documents, RS-16 ownership, roadmap, integrated decomposition and link
-readings retain their continuous-session provenance. Scalar character spaces
-remain with PMIA L0a and slope-adapted geometry with PadicFamilies.
-
-Native full statements and applicable hypotheses were reread for the Sylvester
-matrix, bounded resultant, determinant expansion, full ofFn coordinate API,
-monic remainder degree, native Gauss definitions, monic quotient basis and
-norm comparison. All needed declarations were already among the 228 baseline
-records; none is duplicated as new native work. The finite spectral and Gauss
-nodes are adapters to the previously planned construction. Pinned-source
-searches found no general spectral transform supplying this missing interface.
-Previous bounded upstream searches retain their recorded provenance; no
-exhaustive upstream absence claim is made.
-
-Compared with the preceding input capture, the changed supplier consists of
-our own authored PMIA continuations through the 304-node PR #3286. The source
-ledger has 7616 entries; the sixteen additions since the old 7600-entry capture
-were fully read in intervening checkpoints, with all old owner/file/id records
-preserved. Both generated source files are unchanged during this claim.
-At publication the only changed guarded input is our own merged PMIA PR #3293,
-whose sixteen new nodes were authored and fully read in this continuous session.
-It changes no interface consumed here. No new supplier dependency is introduced.
-
-## Validation
-
-The complete suggested file elaborated at the pinned baseline with zero errors
-and 367 warnings, all and only expected placeholders. The complete ultrametric,
-norm-one, nontriviality and completeness hypotheses are explicitly retained in
-the new analytic theorem signatures. Its source closure contains 2213 Mathlib
-modules and four previously built pinned TauCeti modules, with no proposed
-supplier import. No native library was built. The existing requested
-AdicSpacesPartII:R3 signature stub and its generality request are preserved.
-
-Suggested SHA256:
-4047ee503601accdd99b790ce2ae654187de293b52c6bf8fca4258daf33bd96c.
-Source-audit SHA256:
-4d6143b39491bf2433f5d4089ff74f8e0b9b33046f5d8837bc9a821317d44a17.
-The 21 new mathematical bodies are placeholders; these are type checks,
-not completed mathematical proofs.
-
-Whole-object preservation and new reader/declaration/API/test parity pass.
-The reachable graph has 186 nodes, 782 acyclic edges and 223 baseline leaves.
-Its sole unresolved stage leaf is the existing requested AdicSpacesPartII:R3.
-The indexed checker, four-file intake, filename-correct errata wrapper and
-whitespace checks pass. Eight explicit gaps and five requests remain.
-
-Exact arithmetic on 24 finite families checks monic spectral reduction,
-output degree, rank padding and factor multiplication, and 336 coefficient
-comparisons modulo 4, 8, 9 and 25. Three nilpotent-coefficient controls and
-24 rank-zero cases pass. Explicit native-convention Sylvester matrices are
-used. The superexponential model with coefficients p^(k²), at p=2,3,5,7,
-gives 384 fixed-rank Gauss tail comparisons, including roots of norm greater
-than one. These check conventions and finite estimates, not uniformity in
-unbounded characteristic degree or the general infinite theorem.
-
-At publication main 2566939af56e4177dfd642feeb41fa7f4785e279,
-47 of 48 guarded inputs and all four predecessor output blobs are unchanged.
-The only input delta is the documented own-supplier continuation. The issue
-body is unchanged. Exactly the four authorized files are submitted.
-
-One persistent checkout and existing pinned builds were used, with one own
-Lean process at a time. No own compiler, watcher or language server remains.
-Retained scratch: WORKLIST.md, inputs.json, input-delta.json, claim.json,
-claim-bot.json, issue-before.json, issue-claimed.json, issue-publication.json,
-comments-after.json, the four predecessor files, new-nodes.json,
-baseline-read.json, append.lean, extend.py, compile.py, lean-source-audit.json,
-suggested-compile.log, arithmetic.py, arithmetic-results.json, verify.py,
-verification.json, write-reader.py, guard.py, publication-guard.json,
-checks.json, submission.json, intake-pr.json and four final files in
-handoff-evidence. The existing PDF and source-registry audit retain their
-previous handoff provenance. No snapshot or native build is kept.
-
-## Resume
-
-For the general D(B,P), prove quantitative bounds uniform in the growing
-characteristic degree of P's truncations. Use the previous all-radius Cauchy
-or bounded-coefficient convergence criteria to construct the actual entire
-limit. Fixed-rank monic reduction now settles convergence for polynomial P but
-supplies no growing-degree estimate. Then identify the general value at one
-using the supplied scalar resultant limit, prove A3.8(10) for entire factors
-and transport A3.9 to infinite operators. Preserve B(0)=0 for padding and
-compact-operator transport.
-
-Other L4 obligations remain canonical finite-module topology/inverse norm
-bounds, completed tensors, finite-projective determinants and rank over
-nonreduced coefficients, remaining analytic APIs, actual distribution families
-and specialization, and Riesz/slope transport. L0–L3 remain not_read with
-unchanged exact coverage lists.
-
-The five unchanged requests concern PMIA L0 bounded duals and coefficients,
-PMIA L2 bounded Amice/operators, PMIA L0a scalar character spaces, PMIA L3
-pseudomeasure evaluation domains, and AdicSpacesPartII:R3 ordinary complete
-continuity over the required Noetherian Banach algebras. Consume exact supplier
-nodes as those layers are decomposed. No stage is closed by this checkpoint.
+Resolve these by small lemma-level packets with an assembly once accepted.
+Start with shared topology, canonical finite-module topology and tensor
+completion, since they unlock the global signatures. Retain the coefficient
+models, all stable ids, and the endpoint/representative counterexamples.
+Do not spend another pass adding more targets to this 303-node packet.

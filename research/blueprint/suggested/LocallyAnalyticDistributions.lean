@@ -1,3 +1,8 @@
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Algebra.Category.ModuleCat.Basic
+import Mathlib.Algebra.Homology.Homotopy
+import Mathlib.Topology.LocallyConstant.Algebra
+import Mathlib.Analysis.Normed.Operator.Mul
 import Mathlib.Analysis.Analytic.ChangeOrigin
 import Mathlib.Analysis.Analytic.OfScalars
 import Mathlib.NumberTheory.Padics.Measure.AmiceTransform
@@ -2400,3 +2405,517 @@ lemma quotientMellin_independent (F D F' D' : PowerSeries K)
 end TauCeti.Mellin
 
 end
+
+/-!
+Native coefficient and cochain prototypes for the 303-node planning pass.
+Global LA strong-dual and analytic sheaf signatures remain explicitly omitted
+below. All maps here use their actual native carrier and hypotheses.
+-/
+namespace TauCeti.AnalyticDistributions
+open scoped ZeroAtInfty
+open CategoryTheory
+
+section Coefficients
+variable {K : Type*} [NontriviallyNormedField K]
+variable {I : Type*} [TopologicalSpace I] [DiscreteTopology I]
+
+-- L0/multivariable-fixed-radius: I is S × (Fin d → ℕ) in chart applications.
+abbrev analyticStage (I : Type*) [TopologicalSpace I] (K : Type*)
+    [NormedAddCommGroup K] := C₀(I,K)
+lemma analyticStage_ext (f g : analyticStage I K) (h : ∀ i, f i = g i) : f = g := by sorry
+lemma analyticStage_single [DecidableEq I] (i j : I) (a : K) :
+    TauCeti.NonarchimedeanFredholm.c0Single i a j = if j=i then a else 0 := by sorry
+-- AnalyticDistributionTests.analyticStage_point
+example : Nonempty (analyticStage PUnit K ≃ₗᵢ[K] K) := by sorry
+-- AnalyticDistributionTests.analyticStage_empty
+example : Subsingleton (analyticStage (Fin 0) K) := by sorry
+-- AnalyticDistributionTests.analyticStage_geometric_excluded
+example : ¬ ∃ f : analyticStage ℕ K, ∀ n, f n = 1 := by sorry
+
+variable {A : Type*} [NormedCommRing A]
+abbrev affinoidAnalyticStage (I : Type*) [TopologicalSpace I] (A : Type*)
+    [NormedAddCommGroup A] := C₀(I,A)
+lemma affinoidAnalyticStage_ext (f g : affinoidAnalyticStage I A)
+    (h : ∀ i, f i = g i) : f = g := by sorry
+lemma affinoidAnalyticStage_integral (f : affinoidAnalyticStage I A) :
+    ‖f‖ ≤ 1 ↔ ∀ i, ‖f i‖ ≤ 1 := by sorry
+-- AnalyticDistributionTests.affinoidStage_scalar
+example : affinoidAnalyticStage I K = analyticStage I K := by sorry
+-- AnalyticDistributionTests.affinoidStage_point
+example [NormedAlgebra K A] : Nonempty (affinoidAnalyticStage PUnit A ≃ₗᵢ[K] A) := by sorry
+-- AnalyticDistributionTests.affinoidStage_empty
+example : Subsingleton (affinoidAnalyticStage (Fin 0) A) := by sorry
+
+abbrev affinoidDistributionStage (I : Type*) [TopologicalSpace I] (A : Type*)
+    [NormedCommRing A] := affinoidAnalyticStage I A →L[A] A
+lemma affinoidDistributionStage_apply (μ : affinoidDistributionStage I A)
+    (a : A) (f : affinoidAnalyticStage I A) : μ (a • f) = a * μ f := by sorry
+lemma affinoidDistributionStage_ext [CompleteSpace A] [DecidableEq I]
+    (μ ν : affinoidDistributionStage I A)
+    (h : ∀ i, μ (TauCeti.NonarchimedeanFredholm.c0Single i (1:A)) =
+      ν (TauCeti.NonarchimedeanFredholm.c0Single i (1:A))) : μ = ν := by sorry
+-- AnalyticDistributionTests.distributionStage_point
+example [NormedAlgebra K A] : Nonempty (affinoidDistributionStage PUnit A ≃ₗ[K] A) := by sorry
+-- AnalyticDistributionTests.distributionStage_zero
+example [NormedAlgebra K A] :
+    ‖(0 : affinoidDistributionStage I A).restrictScalars K‖ = 0 := by sorry
+-- AnalyticDistributionTests.distributionStage_bounded_not_c0
+example [CompleteSpace K] : ∃ μ : affinoidDistributionStage ℕ K,
+    (∀ n, μ (TauCeti.NonarchimedeanFredholm.c0Single n (1:K)) = 1) ∧
+    ¬ ∃ f : C₀(ℕ,K), ∀ n, f n = 1 := by sorry
+
+variable [NormedAlgebra K A]
+def familyIntegralLattice : Set (affinoidDistributionStage I A) :=
+    {μ | ‖μ.restrictScalars K‖ ≤ 1}
+lemma familyIntegralLattice_mem (μ : affinoidDistributionStage I A) :
+    μ ∈ familyIntegralLattice (K:=K) ↔ ‖μ.restrictScalars K‖ ≤ 1 := by sorry
+lemma familyIntegralLattice_smul (a : A) (ha : ‖a‖ ≤ 1)
+    (μ : affinoidDistributionStage I A) (hμ : μ ∈ familyIntegralLattice (K:=K)) :
+    a • μ ∈ familyIntegralLattice (K:=K) := by sorry
+-- AnalyticDistributionTests.integralLattice_zero
+example : (0 : affinoidDistributionStage I A) ∈ familyIntegralLattice (K:=K) := by sorry
+-- AnalyticDistributionTests.integralLattice_point
+example [NormOneClass A] (a : A) (μ : affinoidDistributionStage PUnit A)
+    (hμ : ∀ f, μ f = a * f PUnit.unit) :
+    μ ∈ familyIntegralLattice (K:=K) ↔ ‖a‖ ≤ 1 := by sorry
+-- AnalyticDistributionTests.integralLattice_boundary
+example (a : K) (ha : 1 < ‖a‖) (μ : affinoidDistributionStage PUnit K)
+    (hμ : ∀ f, μ f = a * f PUnit.unit) :
+    μ ∉ familyIntegralLattice (K:=K) := by sorry
+end Coefficients
+
+section Transposes
+variable {K E F H : Type*} [NontriviallyNormedField K]
+    [NormedAddCommGroup E] [NormedSpace K E]
+    [NormedAddCommGroup F] [NormedSpace K F]
+    [NormedAddCommGroup H] [NormedSpace K H]
+-- L1/distribution-pushforward: exact stage transpose. Global strong-dual map omitted.
+def distributionPushforward (P : F →L[K] E) (μ : E →L[K] K) : F →L[K] K := μ.comp P
+lemma distributionPushforward_apply (P : F →L[K] E) (μ : E →L[K] K) (f : F) :
+    distributionPushforward P μ f = μ (P f) := by sorry
+lemma distributionPushforward_comp (P : F →L[K] E) (Q : H →L[K] F) (μ : E →L[K] K) :
+    distributionPushforward (P.comp Q) μ =
+      distributionPushforward Q (distributionPushforward P μ) := by sorry
+-- AnalyticDistributionTests.pushforward_identity
+example (μ : E →L[K] K) : distributionPushforward (ContinuousLinearMap.id K E) μ = μ := by sorry
+-- AnalyticDistributionTests.pushforward_zero
+example (P : F →L[K] E) : distributionPushforward P (0 : E →L[K] K) = 0 := by sorry
+-- AnalyticDistributionTests.pushforward_constant
+example (P : F →L[K] E) (ev : F →L[K] K) (e : E)
+    (hP : ∀ f, P f = ev f • e) (μ : E →L[K] K) :
+    distributionPushforward P μ = μ e • ev := by sorry
+end Transposes
+
+section Multipliers
+variable {K R : Type*} [NontriviallyNormedField K] [NormedCommRing R] [NormedAlgebra K R]
+-- Exact bounded-algebra transpose. The global LF analytic multiplication is omitted.
+def distributionMultiply (g : R) (μ : R →L[K] K) : R →L[K] K :=
+    μ.comp (ContinuousLinearMap.mul K R g)
+lemma distributionMultiply_apply (g f : R) (μ : R →L[K] K) :
+    distributionMultiply g μ f = μ (g*f) := by sorry
+lemma distributionMultiply_assoc (g h : R) (μ : R →L[K] K) :
+    distributionMultiply (g*h) μ = distributionMultiply g (distributionMultiply h μ) := by sorry
+-- AnalyticDistributionTests.multiply_one
+example (μ : R →L[K] K) : distributionMultiply 1 μ = μ := by sorry
+-- AnalyticDistributionTests.multiply_atom
+example (ev : R →L[K] K) (hm : ∀ g f, ev (g*f) = ev g * ev f) (g : R) :
+    distributionMultiply g ev = ev g • ev := by sorry
+-- AnalyticDistributionTests.multiply_bounded
+-- Native bounded-measure compatibility on a finite space is the exact common domain.
+example {G : Type*} [Fintype G] [DecidableEq G] (g f : G → K) (μ : (G → K) →L[K] K) :
+    distributionMultiply g μ f = μ (fun x => g x * f x) := by sorry
+end Multipliers
+
+section FiniteConvolution
+variable {K G : Type*} [NontriviallyNormedField K] [Group G] [Fintype G] [DecidableEq G]
+-- Finite-group specialization; the full compact analytic tensor signature is omitted.
+def pointDistribution (a : G) : (G → K) →L[K] K := by sorry
+lemma pointDistribution_apply (a : G) (f : G → K) : pointDistribution a f = f a := by sorry
+def distributionConvolution (mu1 μ : (G → K) →L[K] K) : (G → K) →L[K] K := by sorry
+lemma distributionConvolution_apply (mu1 μ : (G → K) →L[K] K) (f : G → K) :
+    distributionConvolution mu1 μ f = μ (fun y => mu1 (fun x => f (x*y))) := by sorry
+lemma distributionConvolution_assoc (mu1 μ ν : (G → K) →L[K] K) :
+    distributionConvolution (distributionConvolution mu1 μ) ν =
+      distributionConvolution mu1 (distributionConvolution μ ν) := by sorry
+-- AnalyticDistributionTests.convolution_atoms
+example (a b : G) : distributionConvolution (pointDistribution (K:=K) a) (pointDistribution b) =
+    pointDistribution (a*b) := by sorry
+-- AnalyticDistributionTests.convolution_unit
+example (μ : (G → K) →L[K] K) : distributionConvolution (pointDistribution 1) μ = μ := by sorry
+-- AnalyticDistributionTests.convolution_bounded
+example (w z f : G → K) (mu1 μ : (G → K) →L[K] K)
+    (hmu1 : ∀ f, mu1 f = ∑ x, w x * f x) (hμ : ∀ f, μ f = ∑ y, z y * f y) :
+    distributionConvolution mu1 μ f = ∑ y, ∑ x, z y * w x * f (x*y) := by sorry
+end FiniteConvolution
+
+section Rectangles
+variable {p : ℕ} [Fact p.Prime]
+variable {K : Type*} [NontriviallyNormedField K]
+variable {g : ℕ}
+def padicBox (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) : Set (Fin g → ℤ_[p]) :=
+    {x | ∀ i, x i - a i ∈ Ideal.span ({(p : ℤ_[p]) ^ m i} : Set ℤ_[p])}
+lemma padicBox_isClopen (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) : IsClopen (padicBox a m) := by sorry
+def boxIndicator (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) : LocallyConstant (Fin g → ℤ_[p]) K :=
+    LocallyConstant.charFn K (padicBox_isClopen a m)
+def RectangularGrowth (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
+    (r : Fin g → ℝ) : Prop :=
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ a m, ‖μ (boxIndicator a m)‖ ≤ C * (p : ℝ) ^ (∑ i, r i * (m i : ℝ))
+lemma rectangularGrowth_mono (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
+    (r s : Fin g → ℝ) (h : ∀ i, r i ≤ s i) (hμ : RectangularGrowth μ r) :
+    RectangularGrowth μ s := by sorry
+lemma rectangularGrowth_add (μ ν : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
+    (r : Fin g → ℝ) (hμ : RectangularGrowth μ r) (hν : RectangularGrowth ν r) :
+    RectangularGrowth (μ+ν) r := by sorry
+-- AnalyticDistributionTests.rectangularGrowth_dirac
+example (a : Fin g → ℤ_[p]) (r : Fin g → ℝ) (hr : ∀ i, 0 ≤ r i) :
+    RectangularGrowth (LocallyConstant.evalₗ K a) r := by sorry
+-- AnalyticDistributionTests.rectangularGrowth_zero
+example (r : Fin g → ℝ) :
+    RectangularGrowth (0 : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K) r := by sorry
+-- AnalyticDistributionTests.rectangularGrowth_refinement
+example (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
+    (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) (i : Fin g) :
+    μ (boxIndicator a m) = ∑ j : Fin p,
+      μ (boxIndicator (Function.update a i (a i + (j.val : ℤ_[p]) * (p : ℤ_[p]) ^ m i))
+        (Function.update m i (m i + 1))) := by sorry
+end Rectangles
+
+section CoefficientActions
+variable {A E : Type*} [NormedCommRing A] [NormedAddCommGroup E] [Module A E]
+-- The supplied pullback and multiplier are the exact fixed-stage maps.
+def coefficientAction (P M : E →L[A] E) (μ : E →L[A] A) : E →L[A] A := μ.comp (M.comp P)
+lemma coefficientAction_apply (P M : E →L[A] E) (μ : E →L[A] A) (f : E) :
+    coefficientAction P M μ f = μ (M (P f)) := by sorry
+lemma coefficientAction_comp (Pσ Mσ Pτ Mτ Pστ Mστ : E →L[A] E)
+    (hcocycle : (Mτ.comp Pτ).comp (Mσ.comp Pσ) = Mστ.comp Pστ) (μ : E →L[A] A) :
+    coefficientAction Pσ Mσ (coefficientAction Pτ Mτ μ) = coefficientAction Pστ Mστ μ := by sorry
+-- AnalyticDistributionTests.coefficientAction_identity
+example (μ : E →L[A] A) :
+    coefficientAction (ContinuousLinearMap.id A E) (ContinuousLinearMap.id A E) μ = μ := by sorry
+-- AnalyticDistributionTests.coefficientAction_dirac
+example (evx evφ : E →L[A] A) (j : A) (P M : E →L[A] E)
+    (h : ∀ f, evx (M (P f)) = j * evφ f) : coefficientAction P M evx = j • evφ := by sorry
+-- AnalyticDistributionTests.coefficientAction_specialization
+-- Exact evaluation compatibility; scalar-tensor specialization is explicitly omitted.
+example {B : Type*} [NormedCommRing B] (η : A →+* B) (P M : E →L[A] E)
+    (μ : E →L[A] A) (f : E) : η (coefficientAction P M μ f) = η (μ (M (P f))) := by sorry
+end CoefficientActions
+
+section Complexes
+variable {K A : Type*} [NontriviallyNormedField K] [NormedCommRing A]
+    [NormedAlgebra K A]
+variable (C : CochainComplex (ModuleCat A) ℤ) (E : ℤ → Type*)
+variable [∀ i, NormedAddCommGroup (E i)] [∀ i, Module A (E i)]
+variable (e : ∀ i, C.X i ≃ₗ[A] E i)
+-- The norms live on explicitly identified native modules. This avoids changing
+-- the additive group instance already bundled in ModuleCat.
+def IsProjectiveBanachComplex : Prop :=
+    (∀ i, IsUltrametricDist (E i)) ∧
+    (∀ i (k : K) (x : E i), ‖(algebraMap K A k) • x‖ = ‖k‖ * ‖x‖) ∧
+    (∀ i, ∃ c : ℝ, 0 ≤ c ∧ ∀ (a : A) (x : E i), ‖a • x‖ ≤ c * ‖a‖ * ‖x‖) ∧
+    (∀ i, CompleteSpace (E i)) ∧ (∀ i, ContinuousSMul A (E i)) ∧
+    (∀ i j, Continuous (fun x : E i => e j (C.d i j ((e i).symm x)))) ∧
+    (∃ a b : ℤ, ∀ i : ℤ, i < a ∨ b < i → Subsingleton (E i)) ∧
+    ∀ i, TauCeti.NonarchimedeanFredholm.HasPr A (E i)
+lemma projectiveBanachComplex_zero (hz : ∀ i, Subsingleton (E i)) :
+    IsProjectiveBanachComplex (K := K) C E e := by sorry
+lemma projectiveBanachComplex_shift (n : ℤ)
+    (D : CochainComplex (ModuleCat A) ℤ) (e' : ∀ i, D.X i ≃ₗ[A] E (i+n))
+    (ε : A) (hd : ∀ i j (x : E (i+n)),
+      e' j (D.d i j ((e' i).symm x)) = ε • e (j+n) (C.d (i+n) (j+n) ((e (i+n)).symm x)))
+    (hC : IsProjectiveBanachComplex (K := K) C E e) :
+    IsProjectiveBanachComplex (K := K) D (fun i => E (i+n)) e' := by sorry
+-- AnalyticDistributionTests.banachComplex_one_degree
+example (n : ℤ) [CompleteSpace (E n)] [ContinuousSMul A (E n)]
+    (hu : IsUltrametricDist (E n))
+    (hk : ∀ (k : K) (x : E n), ‖(algebraMap K A k) • x‖ = ‖k‖ * ‖x‖)
+    (ha : ∃ c : ℝ, 0 ≤ c ∧ ∀ (a : A) (x : E n), ‖a • x‖ ≤ c * ‖a‖ * ‖x‖)
+    (hother : ∀ i, i ≠ n → Subsingleton (E i))
+    (hp : TauCeti.NonarchimedeanFredholm.HasPr A (E n)) :
+    IsProjectiveBanachComplex (K := K) C E e := by sorry
+-- AnalyticDistributionTests.banachComplex_infinite_rank
+example [CompleteSpace A] [Nontrivial A] [IsNoetherianRing A]
+    (hu : IsUltrametricDist (E 0))
+    (hk : ∀ (k : K) (x : E 0), ‖(algebraMap K A k) • x‖ = ‖k‖ * ‖x‖)
+    (ha : ∃ c : ℝ, 0 ≤ c ∧ ∀ (a : A) (x : E 0), ‖a • x‖ ≤ c * ‖a‖ * ‖x‖)
+    (hother : ∀ i, i ≠ 0 → Subsingleton (E i)) (e0 : E 0 ≃L[A] C₀(ℕ,A)) :
+    IsProjectiveBanachComplex (K := K) C E e ∧ ¬ Module.Finite A (E 0) := by sorry
+-- AnalyticDistributionTests.banachComplex_differential
+example [CompleteSpace A]
+    (hu : ∀ i : ℤ, i = 0 ∨ i = 1 → IsUltrametricDist (E i))
+    (hk : ∀ i : ℤ, i = 0 ∨ i = 1 → ∀ (k : K) (x : E i),
+      ‖(algebraMap K A k) • x‖ = ‖k‖ * ‖x‖)
+    (ha : ∀ i : ℤ, i = 0 ∨ i = 1 → ∃ c : ℝ, 0 ≤ c ∧
+      ∀ (a : A) (x : E i), ‖a • x‖ ≤ c * ‖a‖ * ‖x‖)
+    (hother : ∀ i, i ≠ 0 ∧ i ≠ 1 → Subsingleton (E i))
+    (a0 : E 0 ≃L[A] A) (a1 : E 1 ≃L[A] A)
+    (hd : ∀ x : E 0, a1 (e 1 (C.d 0 1 ((e 0).symm x))) = a0 x) :
+    IsProjectiveBanachComplex (K := K) C E e ∧
+      Function.Bijective (fun x : E 0 => e 1 (C.d 0 1 ((e 0).symm x))) := by sorry
+def degreeCLM (U : C ⟶ C) (i : ℤ)
+    (hc : Continuous (fun x : E i => e i (U.f i ((e i).symm x)))) : E i →L[A] E i :=
+    ⟨(e i).toLinearMap.comp ((U.f i).hom.comp (e i).symm.toLinearMap), hc⟩
+def DegreewiseCompletelyContinuous (U : C ⟶ C) : Prop :=
+    ∀ i, ∃ hc : Continuous (fun x : E i => e i (U.f i ((e i).symm x))),
+      TauCeti.Huber.IsCompletelyContinuous (degreeCLM C E e U i hc)
+lemma degreewiseCompletelyContinuous_zero : DegreewiseCompletelyContinuous C E e 0 := by sorry
+lemma degreewiseCompletelyContinuous_add (U V : C ⟶ C)
+    (hU : DegreewiseCompletelyContinuous C E e U) (hV : DegreewiseCompletelyContinuous C E e V) :
+    DegreewiseCompletelyContinuous C E e (U+V) := by sorry
+-- AnalyticDistributionTests.complexCompact_one_degree
+example (n : ℤ) (hother : ∀ i, i ≠ n → Subsingleton (E i)) (U : C ⟶ C) :
+    DegreewiseCompletelyContinuous C E e U ↔
+      ∃ hc : Continuous (fun x : E n => e n (U.f n ((e n).symm x))),
+        TauCeti.Huber.IsCompletelyContinuous (degreeCLM C E e U n hc) := by sorry
+-- AnalyticDistributionTests.complexCompact_finite_free
+example (U : C ⟶ C) [∀ i, Module.Finite A (E i)]
+    (hc : ∀ i, Continuous (fun x : E i => e i (U.f i ((e i).symm x)))) :
+    DegreewiseCompletelyContinuous C E e U := by sorry
+-- Native Homotopy with continuity of all transported components.
+def CompactHomotopyEndomorphism (U : C ⟶ C) : Prop :=
+    ∃ V : C ⟶ C, DegreewiseCompletelyContinuous C E e V ∧
+      ∃ H : Homotopy U V, ∀ i j,
+        Continuous (fun x : E i => e j (H.hom i j ((e i).symm x)))
+lemma compactHomotopyEndomorphism_of_rep (U : C ⟶ C)
+    (hU : DegreewiseCompletelyContinuous C E e U) : CompactHomotopyEndomorphism C E e U := by sorry
+lemma compactHomotopyEndomorphism_homotopy (U V : C ⟶ C) (H : Homotopy U V)
+    (hc : ∀ i j, Continuous (fun x : E i => e j (H.hom i j ((e i).symm x)))) :
+    CompactHomotopyEndomorphism C E e U ↔ CompactHomotopyEndomorphism C E e V := by sorry
+-- AnalyticDistributionTests.homotopyCompact_zero
+example : CompactHomotopyEndomorphism C E e 0 := by sorry
+-- AnalyticDistributionTests.homotopyCompact_one_degree
+example (n : ℤ) (hother : ∀ i, i ≠ n → Subsingleton (E i)) (U : C ⟶ C) :
+    CompactHomotopyEndomorphism C E e U ↔ DegreewiseCompletelyContinuous C E e U := by sorry
+-- AnalyticDistributionTests.homotopyCompact_contractible
+example (H : Homotopy (𝟙 C) 0)
+    (hc : ∀ i j, Continuous (fun x : E i => e j (H.hom i j ((e i).symm x)))) :
+    CompactHomotopyEndomorphism C E e (𝟙 C) := by sorry
+end Complexes
+
+section CharacteristicProducts
+variable {K A : Type*} [NontriviallyNormedField K] [CompleteSpace K]
+    [NormedCommRing A] [NormOneClass A] [Nontrivial A] [NormedAlgebra K A]
+    [CompleteSpace A] [IsNoetherianRing A]
+variable {ι : Type*} [Fintype ι]
+variable (E : ι → Type*) [∀ i, NormedAddCommGroup (E i)] [∀ i, NormedSpace K (E i)]
+    [∀ i, Module A (E i)] [∀ i, IsScalarTower K A (E i)]
+    [∀ i, ContinuousSMul A (E i)] [∀ i, CompleteSpace (E i)]
+-- Exact finite-support degree product. Cochain data is supplied by the preceding predicates.
+def complexFredholmProduct (U : ∀ i, E i →L[A] E i)
+    (hp : ∀ i, TauCeti.NonarchimedeanFredholm.HasPr A (E i))
+    (hc : ∀ i, TauCeti.Huber.IsCompletelyContinuous (U i)) : PowerSeries A :=
+    ∏ i, TauCeti.NonarchimedeanFredholm.fredholmSeriesPr (U i) (hp i) (hc i)
+lemma complexFredholmProduct_coeff_zero (U : ∀ i, E i →L[A] E i)
+    (hp : ∀ i, TauCeti.NonarchimedeanFredholm.HasPr A (E i))
+    (hc : ∀ i, TauCeti.Huber.IsCompletelyContinuous (U i)) :
+    (complexFredholmProduct E U hp hc).coeff 0 = 1 := by sorry
+-- AnalyticDistributionTests.complexProduct_single
+example (i : ι) (U : E i →L[A] E i)
+    (hp : TauCeti.NonarchimedeanFredholm.HasPr A (E i))
+    (hc : TauCeti.Huber.IsCompletelyContinuous U) :
+    complexFredholmProduct (fun _ : PUnit => E i) (fun _ => U) (fun _ => hp) (fun _ => hc) =
+      TauCeti.NonarchimedeanFredholm.fredholmSeriesPr U hp hc := by sorry
+lemma complexFredholmProduct_enlarge [DecidableEq ι] (j : ι)
+    (U : ∀ i, E i →L[A] E i)
+    (hp : ∀ i, TauCeti.NonarchimedeanFredholm.HasPr A (E i))
+    (hc : ∀ i, TauCeti.Huber.IsCompletelyContinuous (U i)) (hj : U j = 0) :
+    complexFredholmProduct E U hp hc = ∏ i ∈ Finset.univ.erase j,
+      TauCeti.NonarchimedeanFredholm.fredholmSeriesPr (U i) (hp i) (hc i) := by sorry
+-- AnalyticDistributionTests.complexProduct_empty
+example : complexFredholmProduct (fun _ : Fin 0 => A) (fun _ => 0)
+    (fun i => Fin.elim0 i) (fun i => Fin.elim0 i) = (1 : PowerSeries A) := by sorry
+-- AnalyticDistributionTests.complexProduct_acyclic
+-- These are the two degree operators on [A --1→ A]; the product is nonalternating.
+example (a : A) (hp : TauCeti.NonarchimedeanFredholm.HasPr A A)
+    (hc : TauCeti.Huber.IsCompletelyContinuous (a • ContinuousLinearMap.id A A)) :
+    complexFredholmProduct (fun _ : Fin 2 => A)
+      (fun _ => a • ContinuousLinearMap.id A A) (fun _ => hp) (fun _ => hc) =
+      (1-PowerSeries.C a * PowerSeries.X)^2 := by sorry
+end CharacteristicProducts
+section StageFactorizations
+variable {A : Type*} [NormedCommRing A]
+variable (V : ℕ → Type*) [∀ n, NormedAddCommGroup (V n)] [∀ n, Module A (V n)]
+def CompactStageFactorization (t : ∀ n, V (n+1) →L[A] V n) (U : ∀ n, V n →L[A] V n) : Prop :=
+    (∀ n, TauCeti.Huber.IsCompletelyContinuous (t n)) ∧
+      ∃ a : ∀ n, V n →L[A] V (n+1), ∀ n,
+        (t n).comp (a n) = U n ∧ (a n).comp (t n) = U (n+1)
+lemma compactStageFactorization_zero (t : ∀ n, V (n+1) →L[A] V n)
+    (ht : ∀ n, TauCeti.Huber.IsCompletelyContinuous (t n)) :
+    CompactStageFactorization V t (fun _ => 0) := by sorry
+lemma compactStageFactorization_compatible (t : ∀ n, V (n+1) →L[A] V n)
+    (U : ∀ n, V n →L[A] V n) (h : CompactStageFactorization V t U) (n : ℕ) :
+    (U n).comp (t n) = (t n).comp (U (n+1)) := by sorry
+-- AnalyticDistributionTests.frechetFactor_zero
+example (t : ∀ n, V (n+1) →L[A] V n)
+    (ht : ∀ n, TauCeti.Huber.IsCompletelyContinuous (t n)) :
+    CompactStageFactorization V t (fun _ => 0) := by sorry
+-- AnalyticDistributionTests.frechetFactor_finite
+example (a : A) : CompactStageFactorization (fun _ : ℕ => A)
+    (fun _ => ContinuousLinearMap.id A A) (fun _ => a • ContinuousLinearMap.id A A) := by sorry
+end StageFactorizations
+section InfiniteIdentityTests
+variable {K : Type*} [NontriviallyNormedField K]
+-- AnalyticDistributionTests.complexCompact_missing_degree
+example : ¬ TauCeti.Huber.IsCompletelyContinuous (ContinuousLinearMap.id K C₀(ℕ,K)) := by sorry
+-- AnalyticDistributionTests.frechetFactor_noncompact
+example : ¬ CompactStageFactorization (fun _ : ℕ => C₀(ℕ,K))
+    (fun _ => ContinuousLinearMap.id K C₀(ℕ,K)) (fun _ => 0) := by sorry
+end InfiniteIdentityTests
+end TauCeti.AnalyticDistributions
+
+/-!
+Explicit signature boundary for the 303-node pass.
+The mathematical contracts remain in the reader and packet. These omissions
+are genuine missing carriers or inputs, not assumed conclusions.
+
+LocallyAnalyticDistributions:L0/multivariable-fixed-radius
+  Typed native c0 coefficient stage with a supplied discrete index I. Chart realization, chart-independence and compact-type inductive-limit signatures are omitted.
+LocallyAnalyticDistributions:L1/distribution-pushforward
+  Typed transpose of a supplied continuous linear pullback on stages. Construction of the global strong-dual pullback from an analytic map is omitted.
+LocallyAnalyticDistributions:L1/distribution-convolution
+  Typed finite-group convolution on the dual of all finite-group functions. Extension to a compact analytic group requires the completed analytic tensor carrier and is omitted.
+LocallyAnalyticDistributions:L1/distribution-multiply
+  Typed multiplier transpose on a normed K-algebra. The global locally analytic LF multiplication carrier and continuity theorem are omitted.
+LocallyAnalyticDistributions:L4/affinoid-analytic-stage
+  Typed native c0 coefficient stage over a normed commutative ring, with no automatic global affinoid section or tensor-completion identification.
+LocallyAnalyticDistributions:L4/affinoid-distribution-stage
+  Typed continuous A-linear dual of the native coefficient stage. It is a bounded-family dual, not asserted to be c0 or (Pr).
+LocallyAnalyticDistributions:L4/family-integral-lattice
+  Typed norm unit ball of the stage dual after restriction of scalars to K; no identification with the full power-bounded lattice is asserted.
+LocallyAnalyticDistributions:L4/universal-character-coefficient-action
+  Typed dual action of supplied continuous linear pullback and multiplier maps with their actual cocycle equations. Uniform analytic-radius construction and completed scalar specialization are omitted; the specialization example checks only scalar evaluation.
+LocallyAnalyticDistributions:L4/banach-cochain-complex
+  Typed predicate on native ModuleCat cochain data with explicitly identified normed modules: ultrametric norms, K-homogeneity, bounded A-action, completeness, continuous differentials, bounded support and (Pr). The homotopy-category coefficient comparison is omitted.
+LocallyAnalyticDistributions:L4/compact-complex-representative
+  Typed degreewise continuous operators on a native cochain endomorphism, with the single imported complete-continuity predicate.
+LocallyAnalyticDistributions:L4/compact-homotopy-endomorphism
+  Typed existence of a degreewise compact representative and an actual native Homotopy whose transported components are continuous. No new homotopy category is defined.
+LocallyAnalyticDistributions:L4/representative-fredholm-product
+  Typed finite-family product of native fredholmSeriesPr with actual (Pr) and compactness hypotheses. Association to the finite support of a cochain representative requires the preceding predicate; homotopy invariance of the raw product is false.
+LocallyAnalyticDistributions:L4/compact-frechet-factorization
+  Typed compatible inverse-stage system and compact transition/factorization equations. The global Frechet inverse-limit carrier and numerical finite-slope theorem are omitted.
+
+Definition/construction signatures, API and examples not yet expressible:
+LocallyAnalyticDistributions:L2/anisotropic-tensor-wavelets
+  The completed projective tensor carrier and its separated C^{r_i} completion are unavailable. The rectangular-growth predicate is typed on native locally constant test functions, but does not construct this carrier.
+  Omitted: TauCeti.AnalyticDistributions.anisotropicFunctionSpace
+  Omitted: TauCeti.AnalyticDistributions.anisotropicFunctionSpace_pure
+  Omitted: TauCeti.AnalyticDistributions.anisotropicFunctionSpace_basis
+  Omitted: AnalyticDistributionTests.anisotropic_order_zero
+  Omitted: AnalyticDistributionTests.anisotropic_empty
+  Omitted: AnalyticDistributionTests.anisotropic_one_coordinate
+LocallyAnalyticDistributions:L3/unbounded-component-mellin
+  The global nonarchimedean locally analytic strong-dual and analytic section carriers are unavailable. The inherited native bounded-measure componentMellin and branchMellin are proper special cases, not this global equivalence.
+  Omitted: TauCeti.AnalyticDistributions.distributionMellin
+  Omitted: TauCeti.AnalyticDistributions.distributionMellin_coeff
+  Omitted: TauCeti.AnalyticDistributions.distributionMellin_ext
+  Omitted: AnalyticDistributionTests.distributionMellin_point
+  Omitted: AnalyticDistributionTests.distributionMellin_trivial_group
+  Omitted: AnalyticDistributionTests.distributionMellin_bounded
+LocallyAnalyticDistributions:L4/dual-scalar-extension-map
+  The completed tensor carrier and its universal map are unavailable. No arbitrary infinite affinoid dual-tensor isomorphism is assumed; finite-dimensional comparison alone cannot define the completed source.
+  Omitted: TauCeti.AnalyticDistributions.distributionScalarExtension
+  Omitted: TauCeti.AnalyticDistributions.distributionScalarExtension_pure
+  Omitted: TauCeti.AnalyticDistributions.distributionScalarExtension_finite
+  Omitted: AnalyticDistributionTests.dualExtension_scalar
+  Omitted: AnalyticDistributionTests.dualExtension_point
+  Omitted: AnalyticDistributionTests.dualExtension_derivative
+LocallyAnalyticDistributions:L4/family-specialization
+  The global completed coefficient-extension and fibre carriers are unavailable. Scalar evaluation under a supplied ring map in coefficientAction_specialization is typed; it is not this family specialization construction.
+  Omitted: TauCeti.AnalyticDistributions.familySpecialization
+  Omitted: TauCeti.AnalyticDistributions.familySpecialization_coeff
+  Omitted: TauCeti.AnalyticDistributions.familySpecialization_comp
+  Omitted: AnalyticDistributionTests.specialization_identity
+  Omitted: AnalyticDistributionTests.specialization_atom
+  Omitted: AnalyticDistributionTests.specialization_logarithm
+LocallyAnalyticDistributions:L4/numerical-slope-decomposition
+  The rank-one geometric fibre, valued root-location and finite-projective determinant interfaces are unavailable. The inherited typed Riesz projector does not yet express a numerical slope window.
+  Omitted: TauCeti.AnalyticDistributions.NumericalSlopeDecomposition
+  Omitted: TauCeti.AnalyticDistributions.numericalSlope_projector
+  Omitted: TauCeti.AnalyticDistributions.numericalSlope_module_comparison
+  Omitted: AnalyticDistributionTests.slope_endpoint
+  Omitted: AnalyticDistributionTests.slope_zero_operator
+  Omitted: AnalyticDistributionTests.slope_reciprocal_sign
+
+Named theorem signatures not yet expressible:
+LocallyAnalyticDistributions:L0/banach-three-space
+  The shared left-heart extension and nonarchimedean locally convex carriers are unavailable; the theorem requires actual outer Banach objects, not an assumed Banach middle term.
+LocallyAnalyticDistributions:L0/banach-splitting
+  The shared strict sequence carrier and controlled-lift/orthonormal basis interfaces are unavailable. Keep the spherical-completeness OR separable-outer-terms hypothesis.
+LocallyAnalyticDistributions:L0/frechet-three-space
+  The shared Frechet/left-heart carriers and nuclear Frechet extension input are unavailable.
+LocallyAnalyticDistributions:L0/compact-type-three-space
+  The shared compact-type inductive-limit and left-heart extension carriers are unavailable; keep the splitting hypotheses separate from closure.
+LocallyAnalyticDistributions:L1/derivative-nonsplitting
+  The global LA compact-type carrier, locally constant kernel topology and section carrier are unavailable.
+LocallyAnalyticDistributions:L1/logarithm-extension-nonsplitting
+  The open-disc Frechet quotient topology and strong-dual exactness comparison are unavailable; a formal PowerSeries quotient is not sufficient.
+LocallyAnalyticDistributions:L2/rectangular-extension
+  The anisotropic tensor completion and its continuous dual are unavailable. Rectangular-growth/refinement examples are typed on native locally constant functions.
+LocallyAnalyticDistributions:L2/tensor-multidegree-extension
+  The completed tensor C^r carrier and separate locally polynomial-degree test-space topology are unavailable.
+LocallyAnalyticDistributions:L3/mellin-frechet-isomorphism
+  The global strong-dual and analytic section Frechet carriers are unavailable.
+LocallyAnalyticDistributions:L4/pan-tate-compactness
+  The full multivariable Tate-algebra Banach source interface and chosen algebra-map continuity/topological-nilpotence contract are unavailable in this prototype.
+LocallyAnalyticDistributions:L4/pan-formal-compactness
+  The bounded formal-coefficient Banach carrier is unavailable. Replacing it by polynomial density or a restricted power series carrier would change the theorem.
+LocallyAnalyticDistributions:L4/finite-slope-perfect-complex
+  The numerical window projector and finite-perfect comparison interfaces are unavailable; native cochain/compact representative data alone do not state the conclusion.
+LocallyAnalyticDistributions:L4/finite-slope-euler-local-constancy
+  The finite-projective rank-one fibre and locally constant Euler-rank interfaces are unavailable; individual cohomology ranks are not assumed constant.
+LocallyAnalyticDistributions:L4/frechet-finite-slope
+  The native global inverse-limit Frechet carrier and numerical stage-window comparison are unavailable.
+-/
+
+/-!
+Inherited global signature omissions carried into the current pass.
+These names are preserved as mathematical contracts, with no fake carrier.
+LocallyAnalyticDistributions:L0/disc-analytic-functions
+  The general weighted-radius analytic-disc Banach carrier and Gauss valuation comparison are not typed. Native restricted series and the new normalized c0 stage are building blocks, not the full real-radius carrier.
+  Omitted: TauCeti.LocallyAnalytic.discAnalytic
+  Omitted: TauCeti.LocallyAnalytic.gaussVal_mul
+  Omitted: TauCeti.LocallyAnalytic.gaussVal_eq_inf
+  Omitted: gaussVal_X
+  Omitted: gaussVal_restrict_le
+  Omitted: geometric_not_closed_disc
+LocallyAnalyticDistributions:L0/locally-analytic-radius
+  The chart-realized Banach stage, compact-type locally convex inductive limit and globally cofinal radius maps are unavailable; the earlier LAh comment is not an elaborated declaration.
+  Omitted: TauCeti.LocallyAnalytic.LAh
+  Omitted: TauCeti.LocallyAnalytic.LAh_mono
+  Omitted: TauCeti.LocallyAnalytic.locallyAnalytic_iff_exists_LAh
+  Omitted: TauCeti.LocallyAnalytic.LA
+  Omitted: indicator_mem_LAh
+  Omitted: LAh_basis_orthonormal
+  Omitted: indicator_not_mem_LAh_pred
+LocallyAnalyticDistributions:L0/locally-analytic-distributions
+  The nonarchimedean strong-dual compact-type carrier and native bounded-measure restriction map into it are unavailable. Native CLM stage duals do not establish that global carrier.
+  Omitted: TauCeti.LocallyAnalytic.Dist
+  Omitted: TauCeti.LocallyAnalytic.Dist.valLAh
+  Omitted: TauCeti.LocallyAnalytic.measureToDist
+  Omitted: TauCeti.LocallyAnalytic.measureToDist_injective
+  Omitted: dirac_mem
+  Omitted: measureToDist_injective
+  Omitted: derivative_at_zero_not_measure
+LocallyAnalyticDistributions:L2/c-r-functions
+  The Colmez differentiability/remainder Banach carrier, its wavelet topology and continuous-completion interface are unavailable.
+  Omitted: TauCeti.LocallyAnalytic.Cr
+  Omitted: TauCeti.LocallyAnalytic.Cr_mahler
+  Omitted: TauCeti.LocallyAnalytic.locallyPolynomial_dense_Cr
+  Omitted: Cr_zero_eq_continuous
+  Omitted: Cr_mahler_iff
+  Omitted: digit_doubling_not_C2
+LocallyAnalyticDistributions:L2/order-r-distributions
+  The global strong-dual and C^r carriers needed for the extension predicate are unavailable; the earlier DistOrder comment is not an elaborated declaration.
+  Omitted: TauCeti.LocallyAnalytic.DistOrder
+  Omitted: TauCeti.LocallyAnalytic.mem_distOrder_iff_amice
+  Omitted: TauCeti.LocallyAnalytic.mem_distOrder_iff_growth
+  Omitted: TauCeti.LocallyAnalytic.mem_distOrder_iff_riemann
+  Omitted: dirac_order_zero
+  Omitted: log_order_one
+  Omitted: infinite_order_example
+L0/amice-mahler-basis and L1/amice-transform retain comment signatures only.
+The global stage/strong-dual carriers and topological isomorphism are missing.
+L2/amice-velu-vishik retains a comment signature and a typed polynomial-degree
+control example, not the full C^r extension theorem.
+-/
