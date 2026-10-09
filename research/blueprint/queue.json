@@ -45992,7 +45992,8 @@
     "PKG-AutomorphicGaloisRepresentationsPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicGaloisRepresentationsPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7507"
   },
   {
    "id": "PKG-ClassicalGroupsPartII",
@@ -47430,8 +47431,9 @@
     "PKG-MordellLawrenceVenkatesh"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-MordellLawrenceVenkatesh.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7525"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7525",
+   "finishedAt": "2026-10-09T02:59:45Z"
   },
   {
    "id": "PKG-NeronModelsAndSemistableAbelianVarieties",
