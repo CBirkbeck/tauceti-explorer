@@ -16,63 +16,63 @@
         "kind": "theorem",
         "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
         "provides": "A surjective group homomorphism carries a normal closure to the normal closure of the image; surjectivity is essential.",
-        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+        "checked": "Independently read the declaration and enclosing variables/typeclasses in Mathlib/Algebra/Group/Subgroup/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 1002, on 2026-10-09 by REV-KTheoryLowDegrees--U.5."
       },
       {
         "ref": "mathlib:Subgroup.Normal.subgroupOf",
         "kind": "theorem",
         "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
         "provides": "A normal subgroup remains normal when restricted to any subgroup of the ambient group.",
-        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+        "checked": "Independently read the declaration and enclosing variables/typeclasses in Mathlib/Algebra/Group/Subgroup/Basic.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 981, on 2026-10-09 by REV-KTheoryLowDegrees--U.5."
       },
       {
         "ref": "mathlib:QuotientGroup.lift",
         "kind": "def",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "Descent of an actual homomorphism whose kernel contains the specified normal subgroup.",
-        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+        "checked": "Independently read the declaration and enclosing variables/typeclasses in Mathlib/GroupTheory/QuotientGroup/Defs.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 249, on 2026-10-09 by REV-KTheoryLowDegrees--U.5."
       },
       {
         "ref": "mathlib:QuotientGroup.lift_mk",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "Evaluation of the quotient descent on a representative.",
-        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+        "checked": "Independently read the declaration and enclosing variables/typeclasses in Mathlib/GroupTheory/QuotientGroup/Defs.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 253, on 2026-10-09 by REV-KTheoryLowDegrees--U.5."
       },
       {
         "ref": "mathlib:QuotientGroup.ker_lift",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "Kernel of the descended map is the image of the original kernel.",
-        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+        "checked": "Independently read the declaration and enclosing variables/typeclasses in Mathlib/GroupTheory/QuotientGroup/Defs.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 277, on 2026-10-09 by REV-KTheoryLowDegrees--U.5."
       },
       {
         "ref": "mathlib:QuotientGroup.liftEquiv",
         "kind": "def",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "A surjective map with exactly the prescribed kernel gives the specified quotient equivalence.",
-        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+        "checked": "Independently read the declaration and enclosing variables/typeclasses in Mathlib/GroupTheory/QuotientGroup/Defs.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 292, on 2026-10-09 by REV-KTheoryLowDegrees--U.5."
       },
       {
         "ref": "mathlib:QuotientGroup.map",
         "kind": "def",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "A subgroup-preserving group homomorphism induces the map on normal quotients.",
-        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+        "checked": "Independently read the declaration and enclosing variables/typeclasses in Mathlib/GroupTheory/QuotientGroup/Defs.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 309, on 2026-10-09 by REV-KTheoryLowDegrees--U.5."
       },
       {
         "ref": "mathlib:QuotientGroup.mk'",
         "kind": "def",
         "module": "Mathlib/GroupTheory/QuotientGroup/Defs.lean",
         "provides": "The canonical group homomorphism to a normal quotient.",
-        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+        "checked": "Independently read the declaration and enclosing variables/typeclasses in Mathlib/GroupTheory/QuotientGroup/Defs.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 88, on 2026-10-09 by REV-KTheoryLowDegrees--U.5."
       },
       {
         "ref": "mathlib:Ideal.Quotient.mk_surjective",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
         "provides": "Every element of A/I lifts to A; this does not assert that GL(A)→GL(A/I) is onto.",
-        "checked": "Actual statement read in the Git tree at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09."
+        "checked": "Independently read the declaration and enclosing variables/typeclasses in Mathlib/RingTheory/Ideal/Quotient/Defs.lean at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, line 124, on 2026-10-09 by REV-KTheoryLowDegrees--U.5."
       }
     ]
   },
@@ -93,6 +93,17 @@
         "II.2.9–2.10, printed p.77 / PDF85; Exercises II.2.3–2.4 and II.2.17, printed pp.78–79,81 / PDF86–87,89: augmented-ring K0, projective triples and automorphism boundary.",
         "III.5.1–5.5.1, printed pp.217–220 / PDF225–228: stable Steinberg relations, centrality, universal central extensions and the finite-rank conditional warning; full proofs read."
       ]
+    },
+    {
+      "id": "BMS.1967",
+      "title": "Solution of the congruence subgroup problem for SL_n (n ≥ 3) and Sp_2n (n ≥ 2)",
+      "authors": "Hyman Bass, John Milnor, Jean-Pierre Serre",
+      "edition": "Publications Mathématiques de l’IHÉS 33 (1967), 59–137; numdam scan",
+      "url": "https://www.numdam.org/item/10.1007/BF02684586.pdf",
+      "sha256": "b455790cdaeba5e3a313f1bd4dddfe2892e8a2035067bcdef434ef717edfb996",
+      "readSections": [
+        "Example 4.5 (Stallings) and the following stable SK1 definition, printed p.97 / PDF40; context printed p.96 / PDF39."
+      ]
     }
   ],
   "sourceVersions": [
@@ -102,6 +113,14 @@
       "citation": "29 August 2013 combined author manuscript",
       "read": "2026-10-09",
       "sha256": "a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845"
+    },
+    {
+      "kind": "published",
+      "url": "https://www.numdam.org/item/10.1007/BF02684586.pdf",
+      "citation": "Publications Mathématiques de l’IHÉS 33 (1967), 59–137",
+      "read": "2026-10-09",
+      "sha256": "b455790cdaeba5e3a313f1bd4dddfe2892e8a2035067bcdef434ef717edfb996",
+      "scope": "Example 4.5 and the following stable SK1 definition, printed p.97 / PDF40; context p.96 / PDF39."
     }
   ],
   "nodes": [
@@ -113,33 +132,28 @@
       ],
       "title": "Steinberg group of the acyclic plus fibre",
       "kind": "comparison",
-      "statement": "Write G_R=GL(R), P_R=E(R), j_R:BG_R→BG_R⁺ and V_R=fib(j_R) with paths j_R(x)→base. There is a unique isomorphism κ_R:π1(V_R)≃St(R) over P_R, hence over G_R. Its restriction to the kernel identifies ∂j_R:π2(BG_R⁺)→π1(V_R) with the inclusion of classical K2(R)=ker φ_R in St(R). Define β_R:K2(R)≃π2(BG_R⁺) as the inverse of that restricted map; this fixes its sign.",
+      "statement": "Write G_R=GL(R), P_R=E(R), j_R:BG_R→BG_R⁺ and V_R=fib(j_R) with paths j_R(x)→base. There is a unique isomorphism κ_R:π1(V_R)≃St(R) over P_R, hence over G_R. It identifies the actual fibre projection with the Steinberg homomorphism φ_R.",
       "hypotheses": [
         "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
         "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
       ],
       "proofSteps": [
-        "H.3 identifies π1(V_R)→P_R as a universal central extension. T.1 supplies St(R)→P_R as another; uniqueness and rigidity give the unique isomorphism over P_R.",
-        "The fibre long exact sequence and π2(BG_R)=0 make ∂j_R injective with image ker(π1(V_R)→G_R). Transport that kernel through κ_R to ker φ_R.",
-        "Invert this particular map to obtain β_R. Do not silently replace it by an uncalibrated Hurewicz isomorphism."
+        "H.3 identifies π1(V_R)→P_R as a universal central extension. T.1 supplies St(R)→P_R as another; uniqueness and rigidity give the unique isomorphism over P_R."
       ],
       "acceptance": [
         "All maps preserve the displayed basepoint and the specified loop orientation."
       ],
       "prerequisites": [
         "StableHomotopyKTheory:H.3/plus-pi2-universal-central-extension",
-        "StableHomotopyKTheory:H.2/connecting-map",
-        "StableHomotopyKTheory:H.1/classifying-space-of-group-is-KG1",
         "K2SymbolsBrauer:T.1/steinberg-is-uce",
         "K2SymbolsBrauer:T.1:classical/uce-lift",
-        "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity",
-        "K2SymbolsBrauer:T.1/k2-definition"
+        "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity"
       ],
       "sources": [
         {
           "sourceId": "Kbook.2013",
           "locator": "IV.1.7, proof, and Corollary IV.1.7.1, printed pp.264–265 / PDF272–273",
-          "match": "The acyclic fibre has the universal central extension as its fundamental group; the classical Steinberg extension gives the K2 identification. The specified inverse of the fibre boundary is a worker-pinned orientation."
+          "match": "The acyclic fibre has the universal central extension as its fundamental group. Uniqueness compares it with the stable Steinberg extension, including its projection."
         }
       ],
       "library": {
@@ -161,15 +175,14 @@
       ],
       "title": "Naturality of the whole Steinberg identification",
       "kind": "lemma",
-      "statement": "For a unital ring map f:R→S and a based functorial square of plus maps, κ_S∘π1(V_f)=St(f)∘κ_R. Consequently β_S∘K2(f)=π2(BGL(f)⁺)∘β_R.",
+      "statement": "For a unital ring map f:R→S and the supplied based functorial square of plus maps, κ_S∘π1(V_f)=St(f)∘κ_R, as homomorphisms of the whole Steinberg groups over E(f).",
       "hypotheses": [
         "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
         "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
       ],
       "proofSteps": [
         "Both candidate maps between the two central extensions lift E(f). Pull back the target extension along E(f); uniqueness of the lift from the source UCE identifies them.",
-        "Check that St(f) lifts E(f) on root generators. This proves naturality of the full group, not merely its central kernel.",
-        "Naturality of the fibre boundary then gives the displayed β square. Based coherent squares are part of the supplier interface; arbitrary independently chosen free homotopies are not used."
+        "Check that St(f) lifts E(f) on root generators. This proves naturality of the full group, not merely its central kernel."
       ],
       "acceptance": [
         "All maps preserve the displayed basepoint and the specified loop orientation."
@@ -180,7 +193,9 @@
         "K2SymbolsBrauer:T.1:classical/uce-lift",
         "K2SymbolsBrauer:T.1:classical/perfect-extension-rigidity",
         "K2SymbolsBrauer:T.1/stabilisation",
-        "StableHomotopyKTheory:H.2/long-exact-sequence"
+        "StableHomotopyKTheory:H.2/long-exact-sequence",
+        "StableHomotopyKTheory:H.2",
+        "StableHomotopyKTheory:H.3"
       ],
       "sources": [
         {
@@ -199,6 +214,98 @@
         "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
       ],
       "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/plus-fibre-boundary-kernel",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "The oriented boundary identifies the central kernel",
+      "kind": "comparison",
+      "statement": "The composite κ_R∘∂j_R restricts to an isomorphism π2(BGL(R)⁺)≃K2(R)=ker φ_R. Denote its inverse by β_R:K2(R)≃π2(BGL(R)⁺). This is the comparison determined by the fibre boundary with paths j_R(x)→base.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "The fibre long exact sequence and π2(BG_R)=0 make ∂j_R injective with image ker(π1(V_R)→G_R). Transport that kernel through κ_R to ker φ_R.",
+        "Invert this particular map to obtain β_R. Do not silently replace it by an uncalibrated Hurewicz isomorphism."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg",
+        "StableHomotopyKTheory:H.1/classifying-space-of-group-is-KG1",
+        "StableHomotopyKTheory:H.2/connecting-map",
+        "StableHomotopyKTheory:H.2/long-exact-sequence",
+        "K2SymbolsBrauer:T.1/k2-definition"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.7, proof, and Corollary IV.1.7.1, printed pp.264–265 / PDF272–273",
+          "match": "The source identifies the classical central kernel with π2. The fibre long exact sequence gives the boundary-specific identification here; its inverse defines the chosen orientation."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.PlusFibre"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PlusFibre.k2BoundaryEquiv",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline.",
+      "addedBy": "REV-KTheoryLowDegrees--U.5"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.5/plus-K2-natural",
+      "parentStageId": "KTheoryLowDegrees:U.5",
+      "realises": [
+        "KTheoryLowDegrees:U.5"
+      ],
+      "title": "Naturality of the oriented degree-two comparison",
+      "kind": "lemma",
+      "statement": "For a unital ring map f:R→S and the supplied based plus square, β_S∘K2(f)=π2(BGL(f)⁺)∘β_R. Here β is the inverse boundary-kernel comparison, rather than an independently chosen Hurewicz isomorphism.",
+      "hypotheses": [
+        "A is an associative unital ring, I is a two-sided ideal, B=A/I, and q:A→B is the quotient map.",
+        "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
+      ],
+      "proofSteps": [
+        "Apply naturality of connecting maps to the based square, and naturality of κ to its vertical fibre map.",
+        "Restrict the resulting equation to K2=ker φ and invert the two boundary-kernel isomorphisms."
+      ],
+      "acceptance": [
+        "All maps preserve the displayed basepoint and the specified loop orientation."
+      ],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.5/plus-fibre-boundary-kernel",
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "StableHomotopyKTheory:H.2/connecting-map",
+        "StableHomotopyKTheory:H.2/long-exact-sequence",
+        "K2SymbolsBrauer:T.1/k2-definition"
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "IV.1.7–1.7.1, printed pp.264–265 / PDF272–273; III.5.4, printed pp.219–220 / PDF227–228",
+          "match": "Combining the universal-central-extension characterization with uniqueness of lifts proves the full naturality statement; it is a worker derivation of these results."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/RelativeComparison",
+        "namespace": "TauCeti.PlusFibre"
+      },
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.PlusFibre.k2BoundaryEquiv_natural",
+      "refines": [
+        "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
+      ],
+      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline.",
+      "addedBy": "REV-KTheoryLowDegrees--U.5"
     },
     {
       "id": "KTheoryLowDegrees:U.5/steinberg-kernel-elementary-image",
@@ -319,7 +426,9 @@
       "prerequisites": [
         "KTheoryLowDegrees:U.5/classifying-reduction-fibre-component",
         "StableHomotopyKTheory:H.3/plus-construction-functoriality",
-        "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence"
+        "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
+        "StableHomotopyKTheory:H.2",
+        "StableHomotopyKTheory:H.3"
       ],
       "sources": [
         {
@@ -466,7 +575,9 @@
         "KTheoryLowDegrees:U.5/congruence-subgroup",
         "StableHomotopyKTheory:H.1/classifying-space-of-group-is-KG1",
         "StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence",
-        "StableHomotopyKTheory:H.3/plus-construction-functoriality"
+        "StableHomotopyKTheory:H.3/plus-construction-functoriality",
+        "StableHomotopyKTheory:H.2",
+        "StableHomotopyKTheory:H.3"
       ],
       "sources": [
         {
@@ -657,6 +768,11 @@
           "sourceId": "Kbook.2013",
           "locator": "IV.1.2, IV.1.7 and Exercise IV.1.15, printed pp.262,264,275 / PDF270,272,283; Exercise III.5.1, printed p.228 / PDF236",
           "match": "The two fibre sequences and the explicit Steinberg reduction kernel calculate the kernel of the constructed map. No general excision assertion is used."
+        },
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Example 4.5 (Stallings), printed p.97 / PDF40",
+          "match": "Evaluation on [0,1] gives a surjection from relative SK1 of ℝ[t] at (t²−t) to the stable π1SL(ℝ)=Z/2, although absolute SK1 vanishes. Stabilisation preserves the parity class. This is the discriminating noninjectivity test inherited from the parent."
         }
       ],
       "library": {
@@ -704,6 +820,11 @@
           "sourceId": "Kbook.2013",
           "locator": "III.2.2, printed p.193 / PDF201; Exercise IV.1.15, printed p.275 / PDF283",
           "match": "The classical quotient and the demanded relative homotopy comparison fix this descent, once the previously proved kernel is known."
+        },
+        {
+          "sourceId": "BMS.1967",
+          "locator": "Example 4.5 (Stallings), printed p.97 / PDF40",
+          "match": "Evaluation on [0,1] gives a surjection from relative SK1 of ℝ[t] at (t²−t) to the stable π1SL(ℝ)=Z/2, although absolute SK1 vanishes. Stabilisation preserves the parity class. This is the discriminating noninjectivity test inherited from the parent."
         }
       ],
       "library": {
@@ -1029,7 +1150,8 @@
         "K2SymbolsBrauer:T.1:classical",
         "K2SymbolsBrauer:T.1/k2-definition",
         "KTheoryLowDegrees:U.5/relative-K1",
-        "mathlib:QuotientGroup.mk'"
+        "mathlib:QuotientGroup.mk'",
+        "KTheoryLowDegrees:U.5/plus-fibre-boundary-kernel"
       ],
       "sources": [
         {
@@ -1155,7 +1277,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.2.2 and III.5.7, printed pp.193,222 / PDF201,230",
+          "locator": "Definition III.2.2, printed p.193 / PDF201; Theorem III.5.7.1, printed p.223 / PDF231",
           "match": "The abelianness of relative K1 and the stable sequence give multiplicativity of the inverse convention."
         }
       ],
@@ -1198,7 +1320,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.5.1, III.5.7 and III.2.2, printed pp.217,222,193 / PDF225,230,201",
+          "locator": "Definition III.5.1, printed p.217 / PDF225; Definition III.5.7 and Theorem III.5.7.1, printed pp.222–223 / PDF230–231; Definition III.2.2, printed p.193 / PDF201",
           "match": "Functoriality of root generators and of the relative quotient proves the concrete naturality square."
         }
       ],
@@ -1211,7 +1333,7 @@
       "refines": [
         "KTheoryLowDegrees:U.6/relative-K1-homotopy-comparison"
       ],
-      "prototypeStatus": "Omitted signature: required ring/space carrier is absent at the pinned baseline."
+      "prototypeStatus": "Typed conditional group-quotient interface; ring specialization requires suppliers."
     },
     {
       "id": "KTheoryLowDegrees:U.5/relative-K2-boundary-zero-on-image",
@@ -1240,7 +1362,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.5.7, printed p.222 / PDF230",
+          "locator": "Theorem III.5.7.1 and its proof, printed p.223 / PDF231",
           "match": "Exactness of the relative stable sequence begins with the absolute K2 image; the lifted-word calculation proves the required composite is trivial."
         }
       ],
@@ -1284,7 +1406,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.2.3 and III.5.7, printed pp.193,222 / PDF201,230",
+          "locator": "Proposition III.2.3, printed pp.193–194 / PDF201–202; Theorem III.5.7.1, printed p.223 / PDF231",
           "match": "The classical exact sequences identify the kernel; the explicit inverse lift proves it is exactly the boundary image."
         }
       ],
@@ -1358,7 +1480,7 @@
         "All linear, elementary and Steinberg groups are stable groups; no finite-rank assertion is inferred."
       ],
       "proofSteps": [
-        "Represent a lift w by a loop in V_A, with matrix loop n=φ_A(w) and a null-homotopy η of its plus loop. Its reduction has trivial matrix loop and represents κ_B⁻¹(z)=∂j_B(β_B(z)).",
+        "Represent a lift w by a loop v in V_A with matrix projection x=φ_A(w) and its plus null-homotopy. Its image in V_B represents κ_B⁻¹(z)=∂j_B(β_B(z)). Since π2(BGL(B))=0, the horizontal fibre exact sequence gives the unique class n∈π1(F0) projecting to x; this is the congruence loop under BGL(I)≃F0₀.",
         "R-fibre-interchange supplies the signed path-prism identity c_I(n)=∂F⁺(-β_B(z)). During contraction by η, the fibre path is the reversed prefix of the reduced null-homotopy; dropping that reversal changes the sign.",
         "Invert both sides and apply C_I([n⁻¹])=c_I(n)⁻¹ to obtain the displayed equation. Transport it through R-ring-model by naturality of connecting maps.",
         "Calibrate any independently supplied K2/H2 or T.6 boundary convention against this formula before using it. Do not assert that an uncalibrated Hurewicz map already has the same sign."
@@ -1373,12 +1495,14 @@
         "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
         "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
         "KTheoryLowDegrees:U.5/relative-plus-ring-model",
-        "StableHomotopyKTheory:H.2/connecting-map"
+        "StableHomotopyKTheory:H.2/connecting-map",
+        "KTheoryLowDegrees:U.5/plus-fibre-boundary-kernel",
+        "KTheoryLowDegrees:U.5/plus-K2-natural"
       ],
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "IV.1.2, Proposition IV.1.7 and Exercise IV.1.15, printed pp.262,264–265,275 / PDF270,272–273,283; III.5.7, printed p.222 / PDF230",
+          "locator": "Homotopy Fiber IV.1.2, Proposition IV.1.7 and Corollary IV.1.7.1, printed pp.262,264–265 / PDF270,272–273; Exercise IV.1.15, printed p.275 / PDF283; Theorem III.5.7.1, printed p.223 / PDF231",
           "match": "These locators give the fibre construction, the Steinberg kernel and the relative comparison obligation. The signed prism computation is explicitly a worker derivation whose generic API is requested from H.2."
         }
       ],
@@ -1421,7 +1545,7 @@
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.2.3.1 and III.5.7, printed pp.193,222 / PDF201,230",
+          "locator": "Corollary III.2.3.1, printed p.194 / PDF202; Theorem III.5.7.1, printed p.223 / PDF231",
           "match": "A split quotient gives a split sequence. The word formula exhibits the vanishing of this particular connecting map."
         }
       ],
@@ -1721,7 +1845,7 @@
         "Use the parent degree-one and degree-zero sequences and T.6 absolute-K2 segment after calibrating its boundary to δ_I. These exactness results are not copied into new umbrella theorem nodes.",
         "The matrix projection formula proves the relative-to-absolute K1 square. The signed word comparison proves the K2 connecting square. The triple gluing comparison proves the K1-to-K0 connecting square.",
         "Functoriality of the imported models proves the remaining absolute and projection squares. Use β naturality in degree two, rather than an unrelated K2/H2 orientation.",
-        "Record supplier gaps and the three precise requests as open dependencies; the diagram is a complete conditional proof plan, not a claim of implemented or gap-free closure."
+        "Record supplier gaps and the four precise requests as open dependencies; the diagram is a complete conditional proof plan, not a claim of implemented or gap-free closure."
       ],
       "acceptance": [
         "All maps preserve the displayed basepoint and the specified loop orientation."
@@ -1738,12 +1862,14 @@
         "KTheoryLowDegrees:U.5/ideal-sequence-degree-zero",
         "K2SymbolsBrauer:T.6/relative-steinberg-group",
         "GeneralAlgebraicKTheory:K.5/relative-K-theory",
-        "KTheoryLowDegrees:U.6/pi1-plus-construction"
+        "KTheoryLowDegrees:U.6/pi1-plus-construction",
+        "KTheoryLowDegrees:U.5/plus-fibre-boundary-kernel",
+        "KTheoryLowDegrees:U.5/plus-K2-natural"
       ],
       "sources": [
         {
           "sourceId": "Kbook.2013",
-          "locator": "III.2.3, III.5.7 and Exercises IV.1.15–1.16, printed pp.193,222,275 / PDF201,230,283",
+          "locator": "Proposition III.2.3, printed pp.193–194 / PDF201–202; Theorem III.5.7.1, printed p.223 / PDF231; Exercises IV.1.15–1.16, printed p.275 / PDF283",
           "match": "The relative stable sequences and the two explicit homotopy-comparison exercises specify these terms and arrows. This packet supplies the missing map-level comparison and leaves each existing sequence with its owner."
         }
       ],
@@ -1785,15 +1911,19 @@
     {
       "id": "R-fibre-interchange",
       "supplier": "StableHomotopyKTheory:H.2",
-      "need": "For a based homotopy-commuting square X→Y over X⁺→Y⁺, with square homotopy directed from X→Y→Y⁺ to X→X⁺→Y⁺, V_X=fib(X→X⁺), V_Y=fib(Y→Y⁺), F0=fib(X→Y), F⁺=fib(X⁺→Y⁺), prove the natural based equivalence fib(V_X→V_Y)≃fib(F0→F⁺), including both projection formulas. With fibre paths f(x)→base and connecting maps given by Ωtarget inclusion, supply the signed prism identity: if a loop v∈π1(V_X) projects to n∈π1(F0) and its image in π1(V_Y) is ∂j_Y(b), then c(n)=∂F⁺(-b). Include hypotheses identifying these loop classes and the square homotopy used by both induced fibre maps.",
+      "need": "For a based square X→Y over X⁺→Y⁺ with a specified based homotopy H:j_Y∘a≃a⁺∘j_X, construct maps V_X→V_Y and c:F0→F⁺ for paths f(x)→base; the former uses H followed by the reduced vertical path and the latter uses reversed H followed by the reduced horizontal path. Supply their identity/composition coherence and the natural based equivalence fib(V_X→V_Y)≃fib(F0→F⁺), including both projection formulas. For the signed prism clause assume π2(Y)=0: if v∈π1(V_X) maps to ∂j_Y(b), b∈π2(Y⁺), its projection x∈π1(X) lies in ker a_* and has a unique preimage n∈π1(F0). Prove c_*(n)=∂F⁺(-b). This specifies n through π1(X); there is no asserted map V_X→F0. The classifying-space application satisfies π2(Y)=0.",
       "neededBy": [
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "KTheoryLowDegrees:U.5/congruence-loop-map",
+        "KTheoryLowDegrees:U.5/congruence-loop-natural",
         "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
         "KTheoryLowDegrees:U.5/relative-K2-boundary-plus"
       ],
       "proofPlan": [
+        "Define the two outer fibre maps with opposite uses of the specified square homotopy. Check their based identity/composition homotopies before invoking naturality.",
         "Write a point of either iterated fibre as a point x, its two outgoing paths and a based filling of their image square. Exchange the two directions to define the equivalence.",
         "Use prefix contraction of paths to construct its inverse and based homotopies. Check the maps to X and to both outer fibres, retaining the square homotopy.",
-        "For the sign formula contract the X⁺ loop with its null-homotopy. Keeping the fibre path directed from its image to base requires the reverse of the reduced prefix; the end represents -b.",
+        "In the signed clause the fibre exact sequence and π2(Y)=0 identify π1(F0) injectively with ker a_* in π1(X). Choose a representative loop for x, its Y null-homotopy and the X⁺ null-homotopy representing v. Contract the X⁺ loop using the latter. The residual fibre path is the inverse of the Y⁺ sphere representing b, yielding -b; no direct projection from V_X to F0 is used.",
         "Check the square X=S¹,Y=*,X⁺=*,Y⁺=S² whose based square homotopy is adjoint to degree +1 in ΩS²: the induced V map has degree +1 and the opposite F map degree -1."
       ],
       "sources": [
@@ -1824,6 +1954,28 @@
           "match": "The full K-space and its natural component behaviour motivate the strengthened based comparison; no natural H-space product splitting is asserted."
         }
       ]
+    },
+    {
+      "id": "R-plus-based",
+      "supplier": "StableHomotopyKTheory:H.3",
+      "need": "Supply a based ring-functorial model j_R:BGL(R)→BGL(R)⁺, with based maps for all unital ring homomorphisms, specified based squares for j, and identity/composition coherence adequate for induced fibre maps. A strict functorial model with natural j is sufficient. Compare it with the existing cell-attachment model by natural based weak equivalences. The current plus-construction-functoriality node only promises free homotopies and π1 maps up to conjugacy; that does not provide the based square and fibre data used here.",
+      "neededBy": [
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "KTheoryLowDegrees:U.5/congruence-loop-map",
+        "KTheoryLowDegrees:U.5/congruence-loop-natural"
+      ],
+      "proofPlan": [
+        "Use a strict functorial plus construction for rings, as motivated by IV.1.9(i), so natural j gives constant based square homotopies.",
+        "Alternatively retain based homotopies and supply their composition coherence explicitly. Establish natural based comparison to the cell model using the functorial universal property of IV.1.9(ii).",
+        "Combine these data with the generic H.2 homotopy-square fibre-map interface; do not infer a map of fibres from unrelated free homotopies."
+      ],
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Remark IV.1.9(i)–(ii), printed p.265 / PDF273",
+          "match": "The source distinguishes strict functorial plus models and natural comparisons. The requested based interface strengthens the inspected supplier contract; it is not claimed implemented."
+        }
+      ]
     }
   ],
   "gaps": [
@@ -1835,16 +1987,19 @@
         "KTheoryLowDegrees:U.5/plus-square-inner-fibre-connected",
         "KTheoryLowDegrees:U.5/relative-K2-boundary"
       ],
-      "detail": "For a surjective unital ring map q:A→B with kernel I, prove St(q) surjective and ker St(q) equal to the normal closure in stable St(A) of x_ij(i), i∈I. Supply the generator formula, naturality under commutative quotient-ring squares, and the quotient equivalence St(A)/normalClosure{x_ij(i)}≃St(B). This is an API extension of the existing stable presentation, not a new definition of St. The exact existing supplier node was inspected; its current statement does not expose this full contract. The proof plan is provided above, and U.5 is planned rather than closed."
+      "detail": "For a surjective unital ring map q:A→B with kernel I, prove St(q) surjective and ker St(q) equal to the normal closure in stable St(A) of x_ij(i), i∈I. Supply the generator formula, naturality under commutative quotient-ring squares, and the quotient equivalence St(A)/normalClosure{x_ij(i)}≃St(B). This is an API extension of the existing stable presentation, not a new definition of St. The existing supplier statement was inspected. This extension remains a precise request; U.5 is planned rather than closed."
     },
     {
       "id": "G-fibre-interchange",
       "title": "R-fibre-interchange supplier interface is not yet established",
       "neededBy": [
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "KTheoryLowDegrees:U.5/congruence-loop-map",
+        "KTheoryLowDegrees:U.5/congruence-loop-natural",
         "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
         "KTheoryLowDegrees:U.5/relative-K2-boundary-plus"
       ],
-      "detail": "For a based homotopy-commuting square X→Y over X⁺→Y⁺, with square homotopy directed from X→Y→Y⁺ to X→X⁺→Y⁺, V_X=fib(X→X⁺), V_Y=fib(Y→Y⁺), F0=fib(X→Y), F⁺=fib(X⁺→Y⁺), prove the natural based equivalence fib(V_X→V_Y)≃fib(F0→F⁺), including both projection formulas. With fibre paths f(x)→base and connecting maps given by Ωtarget inclusion, supply the signed prism identity: if a loop v∈π1(V_X) projects to n∈π1(F0) and its image in π1(V_Y) is ∂j_Y(b), then c(n)=∂F⁺(-b). Include hypotheses identifying these loop classes and the square homotopy used by both induced fibre maps. The exact existing supplier node was inspected; its current statement does not expose this full contract. The proof plan is provided above, and U.5 is planned rather than closed."
+      "detail": "For a based square X→Y over X⁺→Y⁺ with a specified based homotopy H:j_Y∘a≃a⁺∘j_X, construct maps V_X→V_Y and c:F0→F⁺ for paths f(x)→base; the former uses H followed by the reduced vertical path and the latter uses reversed H followed by the reduced horizontal path. Supply their identity/composition coherence and the natural based equivalence fib(V_X→V_Y)≃fib(F0→F⁺), including both projection formulas. For the signed prism clause assume π2(Y)=0: if v∈π1(V_X) maps to ∂j_Y(b), b∈π2(Y⁺), its projection x∈π1(X) lies in ker a_* and has a unique preimage n∈π1(F0). Prove c_*(n)=∂F⁺(-b). This specifies n through π1(X); there is no asserted map V_X→F0. The classifying-space application satisfies π2(Y)=0. The existing supplier statement was inspected. This extension remains a precise request; U.5 is planned rather than closed."
     },
     {
       "id": "G-ring-model",
@@ -1853,7 +2008,17 @@
         "KTheoryLowDegrees:U.5/relative-plus-ring-model",
         "KTheoryLowDegrees:U.5/relative-K2-boundary-plus"
       ],
-      "detail": "Strengthen plus-equals-Q to a based weak equivalence BGL(A)⁺≃K(A)₀, natural through coherent based squares for unital ring maps. Give the induced equivalence on the π1 of quotient fibres and compatibility with π2 connecting maps and the matrix-to-absolute-K1 map. An objectwise product decomposition or natural π0/π1 isomorphisms alone do not provide this fibre interface. The exact existing supplier node was inspected; its current statement does not expose this full contract. The proof plan is provided above, and U.5 is planned rather than closed."
+      "detail": "Strengthen plus-equals-Q to a based weak equivalence BGL(A)⁺≃K(A)₀, natural through coherent based squares for unital ring maps. Give the induced equivalence on the π1 of quotient fibres and compatibility with π2 connecting maps and the matrix-to-absolute-K1 map. An objectwise product decomposition or natural π0/π1 isomorphisms alone do not provide this fibre interface. The existing supplier statement was inspected. This extension remains a precise request; U.5 is planned rather than closed."
+    },
+    {
+      "id": "G-plus-based",
+      "title": "R-plus-based supplier interface is not yet established",
+      "neededBy": [
+        "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "KTheoryLowDegrees:U.5/congruence-loop-map",
+        "KTheoryLowDegrees:U.5/congruence-loop-natural"
+      ],
+      "detail": "Supply a based ring-functorial model j_R:BGL(R)→BGL(R)⁺, with based maps for all unital ring homomorphisms, specified based squares for j, and identity/composition coherence adequate for induced fibre maps. A strict functorial model with natural j is sufficient. Compare it with the existing cell-attachment model by natural based weak equivalences. The current plus-construction-functoriality node only promises free homotopies and π1 maps up to conjugacy; that does not provide the based square and fibre data used here. The existing supplier statement was inspected. This extension remains a precise request; U.5 is planned rather than closed."
     }
   ],
   "coverage": [
@@ -1863,6 +2028,7 @@
       "remaining": [
         "Resolve R-St-quotient in the existing T.1:classical presentation API.",
         "Resolve R-fibre-interchange in H.2, including the reversed-prefix boundary sign.",
+        "Resolve R-plus-based in H.3; the currently supplied free-homotopy functoriality is insufficient for these based fibre maps.",
         "Resolve R-ring-model in early K.2:plus with based naturality through degree two.",
         "Implement supplier types and proofs, then replace the omitted ring/topological signatures and tests in the suggested file and elaborate at the exact pinned pair.",
         "The imported parent and supplier packets retain their own implementation gaps; this follow-up does not certify their closure."
@@ -1884,7 +2050,12 @@
         "Author book page https://sites.math.rutgers.edu/~weibel/Kbook.html, checked 2026-10-09.",
         "Author-linked errata https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.errata.pdf returned HTTP 404 on 2026-10-09; the www.math.rutgers.edu hostname also returned 404.",
         "Targeted web searches for the author errata, triangular terminology and central-extension coefficient on 2026-10-09; no correction verified."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Already e_12(1) in rank two has its off-diagonal entry above the diagonal. Products preserve upper triangularity. Independently reread the indicated pages of the dated author copy; the mathematical check agrees.",
+        "by": "REV-KTheoryLowDegrees--U.5"
+      }
     },
     {
       "id": "KTheoryLowDegrees/E117",
@@ -1900,7 +2071,54 @@
         "III.5.3.1 discussion in the same combined author manuscript, printed p.219 / PDF227.",
         "Author book page and linked errata checked 2026-10-09; both attempted errata hostnames returned HTTP 404.",
         "Targeted web search for the K-book central-extension coefficient correction on 2026-10-09; no separate correction verified."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "A central-extension cocycle takes values in its kernel A. For G=C2 and A=0 there is only the identity extension, whereas H²(C2;Z)=Z/2; integral coefficients cannot classify that kernel. The next-page argument uses A. The proof here uses UCE uniqueness and never the erroneous coefficient. Independently reread the indicated pages of the dated author copy; the mathematical check agrees.",
+        "by": "REV-KTheoryLowDegrees--U.5"
+      }
+    },
+    {
+      "id": "KTheoryLowDegrees/E118",
+      "source": "Kbook.2013",
+      "kind": "misprint",
+      "locator": "Opening product construction before Definition III.5.12 and proof of Lemma III.5.12.1, printed p.227 / PDF235, combined author manuscript dated 29 August 2013.",
+      "printed": "The ranks of the tensor-product free module and its endomorphism matrix ring are written using m+n.",
+      "correction": "Replace the tensor-product rank m+n by mn, and use M_{mn}(R). The same rank replacement applies in the conjugation paragraph of Lemma 5.12.1.",
+      "reason": "For a nonzero field and m=n=1 the tensor product is one-dimensional, whereas m+n=2. The elementary tensor basis has mn elements. The next paragraph already checks the rank-one case with E=R.",
+      "affects": "nothing",
+      "known": "Publication status unknown. Scoped to the dated author copy; no correction independently verified.",
+      "searched": [
+        "Author book page https://sites.math.rutgers.edu/~weibel/Kbook.html checked 2026-10-09.",
+        "Author-linked Kbook.errata.pdf returned HTTP 404 on fresh review fetch; its search-index entry was found but the relevant correction could not be read.",
+        "Targeted searches for tensor rank m+n and the Exercise 5.2 domain on 2026-10-09 found no verified correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "For a nonzero field and m=n=1 the tensor product is one-dimensional, whereas m+n=2. The elementary tensor basis has mn elements. The next paragraph already checks the rank-one case with E=R. Checked the actual dated author-copy page; this finding does not affect the U.5 comparison.",
+        "by": "REV-KTheoryLowDegrees--U.5"
+      }
+    },
+    {
+      "id": "KTheoryLowDegrees/E119",
+      "source": "Kbook.2013",
+      "kind": "misprint",
+      "locator": "Exercise III.5.2, definition of P_n after the injectivity check, printed p.228 / PDF236, combined author manuscript dated 29 August 2013.",
+      "printed": "The image defining P_n is written as ρ(R^n), although the displayed function ρ_n has domain R^{n−1}.",
+      "correction": "Define P_n=ρ_n(R^{n−1}).",
+      "reason": "There are precisely n−1 coefficients and root factors in the displayed definition of ρ_n; evaluating that function on R^n is ill-typed. The intended image subgroup and its normalisation claim are unchanged.",
+      "affects": "nothing",
+      "known": "Publication status unknown. Scoped to the dated author copy; no correction independently verified.",
+      "searched": [
+        "Author book page https://sites.math.rutgers.edu/~weibel/Kbook.html checked 2026-10-09.",
+        "Author-linked Kbook.errata.pdf returned HTTP 404 on fresh review fetch; its search-index entry was found but the relevant correction could not be read.",
+        "Targeted searches for tensor rank m+n and the Exercise 5.2 domain on 2026-10-09 found no verified correction."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "There are precisely n−1 coefficients and root factors in the displayed definition of ρ_n; evaluating that function on R^n is ill-typed. The intended image subgroup and its normalisation claim are unchanged. Checked the actual dated author-copy page; this finding does not affect the U.5 comparison.",
+        "by": "REV-KTheoryLowDegrees--U.5"
+      }
     }
   ],
   "restructure": [
@@ -1913,7 +2131,7 @@
         "GeneralAlgebraicKTheory"
       ],
       "detail": "The parent records a coarse T.1→K.2 supplier cycle. Current T.1/classical K2-definition itself now depends only on stabilisation, so that old edge is not an accurate description of the fine-node graph. Import classical Steinberg and UCE nodes plus the early ring model; the relative comparison does not consume its own U.6 target or the relative K2 identification.",
-      "proposal": "Keep existing owners: T.1:classical supplies the Steinberg quotient API; H.2 supplies iterated fibre interchange with its boundary sign; H.3 supplies the acyclic-fibre UCE; early K.2:plus supplies the natural based plus/Q comparison, and K.5 supplies the generic fibre and relative K0. Add the three requested APIs within these existing Part II directions. The existing U.6 comparison milestone realizes U.5 and owns the ring-specific comparison; this U.5 follow-up supplies its fine proof prerequisites and concrete boundary. Do not add a new general relative-plus roadmap, re-plan T.6, or change the six existing U.5 planets."
+      "proposal": "Keep existing owners: T.1:classical supplies the Steinberg quotient API; H.2 supplies iterated fibre interchange with its boundary sign; H.3 supplies the acyclic-fibre UCE; early K.2:plus supplies the natural based plus/Q comparison, and K.5 supplies the generic fibre and relative K0. Add the four requested APIs within these existing Part II directions. The existing U.6 comparison milestone realizes U.5 and owns the ring-specific comparison; this U.5 follow-up supplies its fine proof prerequisites and concrete boundary. Do not add a new general relative-plus roadmap, re-plan T.6, or change the six existing U.5 planets."
     }
   ],
   "parentPacket": "research/blueprint/packets/KTheoryLowDegrees--U.1.json",
@@ -1925,9 +2143,13 @@
       "content/tau-ceti/GrothendieckEulerForms/README.md, read in full"
     ],
     "links": "Read all six link/overlap records touching KTheoryLowDegrees. They concern Z.1/Z.5 and U.4; none supplies the relative comparison. Read all atlas stage edges touching U.5/U.6. ArithmeticKTheory:N.1 and U.6 consume the actual maps, not an abstract isomorphism.",
-    "supplierStatus": "All references are planning imports, not declarations in the pinned library. H.2/H.3, T.1/T.6, K.2:plus/K.5 and the parent have unimplemented contracts or recorded gaps. Only the three new precise API deficiencies are listed as this packet’s gaps; inherited gaps are not erased or counted as closed.",
+    "supplierStatus": "Every external prerequisite and imported target node was read in its current supplier packet. H.2 handles strict-square fibre maps and H.3 promises free-homotopy plus functoriality; the missing based homotopy-square and coherent based plus interfaces are now explicitly requested. T.1/T.6, K.2:plus/K.5 and the parent remain plans with inherited gaps. Four precise API deficiencies are recorded here; no supplier closure is certified.",
     "refinement": "Every new node refines the already-owned U.6/relative-K1-homotopy-comparison, whose realises includes U.5. Keep that parent milestone id at assembly and replace its unfinished proof outline with this fine-node decomposition; do not count a second comparison milestone or introduce new relative-group carriers. The three double-ring algebra nodes make the parent proof’s existing calculation into declaration-sized prerequisites. The degree-zero nodes are map compatibility imports of K.5, not a new construction of its theory.",
-    "suggestedLean": "Uncompiled conditional algebra prototypes for 11 of 32 nodes; the other 21 signatures are explicitly omitted because their required ring/topology carriers are absent. Of 18 API items, 11 are typed algebra prototypes and 7 omitted. Of 13 defining tests, only relativeBoundary_inverseSign is expressible and prototyped; 12 are explicitly omitted. Three supplemental quotient examples check agreement with existing Mathlib notions and are not replacements for the ring tests. No exact paired build was found, and no build or project was created."
+    "suggestedLean": "Conditional algebra prototypes for 12 of 34 nodes and 12 of 18 API items, including a new typed naturality law on actual group diagrams. The other 22 node signatures and 6 API items require absent ring/topological carriers. One of 13 defining tests and three supplemental quotient examples are typed; 12 ring/topological tests remain explicitly omitted. lean-check succeeds with prototype-body warnings against exact Mathlib 082e2d3. The shared Tau Ceti checkout cf386627e9176a3827c1a5fe804989fd94a4d216 differs from the pin, but the file imports only Mathlib. This is not a compile at the exact paired baseline, and no build or project was created.",
+    "independentReviewStyle": [
+      "content/tau-ceti/AlgebraicTopology/README.md, read in full",
+      "content/tau-ceti/RepresentationTheory/SemisimpleAlgebras/README.md, read in full"
+    ]
   },
   "inheritedSourceIssues": [
     {
@@ -2036,5 +2258,183 @@
       "nodeId": "KTheoryLowDegrees:U.5/dvr-boundary",
       "name": "Explicit valuation boundary"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-KTheoryLowDegrees--U.5",
+    "date": "2026-10-09",
+    "notes": "Independent review of all 34 declaration-sized nodes, all 9 exact-pin baseline claims, external supplier contracts, sources, construction APIs/tests and retained planets. Corrected based-square dependencies and the signed prism hypotheses, split two boundary comparisons, fixed exactness locators and the Lean integer-group import. Four precise supplier gaps remain; acceptance certifies the conditional plan, not supplier closure or implementation. The Mathlib-only suggested file elaborates with prototype-body warnings.",
+    "checked": [
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/plus-fibre-steinberg",
+        "verdict": "corrected",
+        "note": "Separate the boundary-kernel isomorphism from the whole-group UCE identification. Checked against IV.1.7, proof, and Corollary IV.1.7.1, printed pp.264–265 / PDF272–273."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/plus-fibre-steinberg-natural",
+        "verdict": "corrected",
+        "note": "Separate degree-two naturality; explicitly request coherent based plus maps and induced fibre maps. Expose the H.2 based homotopy-square fibre-map extension; its current node only handles strictly commuting squares. Expose R-plus-based rather than assuming the supplier already provides based coherent functoriality. Checked against IV.1.7–1.7.1, printed pp.264–265 / PDF272–273; III.5.4, printed pp.219–220 / PDF227–228."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/plus-fibre-boundary-kernel",
+        "verdict": "added",
+        "note": "Split the oriented central-kernel comparison into a declaration-sized node. Checked against IV.1.7, proof, and Corollary IV.1.7.1, printed pp.264–265 / PDF272–273."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/plus-K2-natural",
+        "verdict": "added",
+        "note": "Split naturality of the oriented degree-two comparison into its own lemma. Checked against IV.1.7–1.7.1, printed pp.264–265 / PDF272–273; III.5.4, printed pp.219–220 / PDF227–228."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/steinberg-kernel-elementary-image",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against Definition III.5.1 and Exercise III.5.1, printed pp.217,228 / PDF225,236; III.2.2, printed p.193 / PDF201."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/classifying-reduction-fibre-component",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against IV.1.1, printed p.260 / PDF268; Homotopy Fiber IV.1.2, printed p.262 / PDF270."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/congruence-loop-map",
+        "verdict": "corrected",
+        "note": "Expose the H.2 based homotopy-square fibre-map extension; its current node only handles strictly commuting squares. Expose R-plus-based rather than assuming the supplier already provides based coherent functoriality. Checked against IV.1.1.2 and IV.1.2, printed pp.261–262 / PDF269–270; Exercise IV.1.15, printed p.275 / PDF283. Independently checked every API item and all 4 discriminating tests; ring/topological tests remain planning specifications."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/congruence-loop-projection",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against IV.1.1(1), printed pp.260–261 / PDF268–269; Exercise IV.1.15, printed p.275 / PDF283."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/congruence-loop-natural",
+        "verdict": "corrected",
+        "note": "Expose the H.2 based homotopy-square fibre-map extension; its current node only handles strictly commuting squares. Expose R-plus-based rather than assuming the supplier already provides based coherent functoriality. Checked against IV.1.1.2 and IV.1.2, printed pp.261–262 / PDF269–270."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/plus-square-fibre-sequence",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against Homotopy Fiber IV.1.2, printed p.262 / PDF270; Proposition IV.1.7 and Exercise IV.1.15, printed pp.264,275 / PDF272,283."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/plus-square-inner-fibre-connected",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against IV.1.4–1.4.1 and IV.1.7, printed pp.263–264 / PDF271–272; Exercise III.5.1, printed p.228 / PDF236."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/congruence-loop-surjective",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against IV.1.2 and IV.1.7, printed pp.262,264 / PDF270,272; Exercise IV.1.15, printed p.275 / PDF283."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/congruence-loop-kernel",
+        "verdict": "corrected",
+        "note": "Independently read and cite the actual source of the Stallings acceptance/test case. Checked against IV.1.2, IV.1.7 and Exercise IV.1.15, printed pp.262,264,275 / PDF270,272,283; Exercise III.5.1, printed p.228 / PDF236; Example 4.5 (Stallings), printed p.97 / PDF40."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-plus-map",
+        "verdict": "corrected",
+        "note": "Independently read and cite the actual source of the Stallings acceptance/test case. Checked against III.2.2, printed p.193 / PDF201; Exercise IV.1.15, printed p.275 / PDF283; Example 4.5 (Stallings), printed p.97 / PDF40. Independently checked every API item and all 4 discriminating tests; ring/topological tests remain planning specifications."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-plus-bijective",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against Exercise IV.1.15, printed p.275 / PDF283; III.2.2, printed p.193 / PDF201."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-plus-projection",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against Exercise IV.1.15, printed p.275 / PDF283; III.2.3, printed p.193 / PDF201."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-plus-natural",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against IV.1.1.2 and IV.1.2, printed pp.261–262 / PDF269–270; III.2.2, printed p.193 / PDF201."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-plus-ring-model",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against IV.1.1.1–1.1.2, printed p.261 / PDF269; IV.1.11 and Exercise IV.1.15, printed pp.267–268,275 / PDF275–276,283."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-K2-boundary-lift-independence",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against III.5.7–5.8 and Exercise III.5.1, printed pp.222–223,228 / PDF230–231,236."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-K2-boundary",
+        "verdict": "corrected",
+        "note": "Use the explicit boundary-kernel and degree-two naturality declarations. Checked against III.5.7–5.8, printed pp.222–223 / PDF230–231; Exercise IV.1.15, printed p.275 / PDF283. Independently checked every API item and all 5 discriminating tests; ring/topological tests remain planning specifications."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-K2-boundary-hom",
+        "verdict": "corrected",
+        "note": "Correct the exactness locator to Theorem III.5.7.1, printed p.223 / PDF231; distinguish definitions and the split corollary. Checked against Definition III.2.2, printed p.193 / PDF201; Theorem III.5.7.1, printed p.223 / PDF231."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-K2-boundary-natural",
+        "verdict": "corrected",
+        "note": "Correct the exactness locator to Theorem III.5.7.1, printed p.223 / PDF231; distinguish definitions and the split corollary. Add the expressible conditional group-diagram naturality signature rather than omitting it for lack of ring carriers. Checked against Definition III.5.1, printed p.217 / PDF225; Definition III.5.7 and Theorem III.5.7.1, printed pp.222–223 / PDF230–231; Definition III.2.2, printed p.193 / PDF201."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-K2-boundary-zero-on-image",
+        "verdict": "corrected",
+        "note": "Correct the exactness locator to Theorem III.5.7.1, printed p.223 / PDF231; distinguish definitions and the split corollary. Checked against Theorem III.5.7.1 and its proof, printed p.223 / PDF231."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-K2-boundary-image",
+        "verdict": "corrected",
+        "note": "Correct the exactness locator to Theorem III.5.7.1, printed p.223 / PDF231; distinguish definitions and the split corollary. Checked against Proposition III.2.3, printed pp.193–194 / PDF201–202; Theorem III.5.7.1, printed p.223 / PDF231."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-K2-boundary-kernel",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against III.5.7–5.8 and Exercise III.5.1, printed pp.222–223,228 / PDF230–231,236."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-K2-boundary-plus",
+        "verdict": "corrected",
+        "note": "Use the explicit boundary-kernel and degree-two naturality declarations. Specify the horizontal fibre class through π1(BGL(A)) and use π2(BGL(B))=0 in the signed prism clause. Correct the exactness locator to Theorem III.5.7.1, printed p.223 / PDF231; distinguish definitions and the split corollary. Checked against Homotopy Fiber IV.1.2, Proposition IV.1.7 and Corollary IV.1.7.1, printed pp.262,264–265 / PDF270,272–273; Exercise IV.1.15, printed p.275 / PDF283; Theorem III.5.7.1, printed p.223 / PDF231."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-K2-boundary-zero-split",
+        "verdict": "corrected",
+        "note": "Correct the exactness locator to Theorem III.5.7.1, printed p.223 / PDF231; distinguish definitions and the split corollary. Checked against Corollary III.2.3.1, printed p.194 / PDF202; Theorem III.5.7.1, printed p.223 / PDF231."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-components-comparison",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against II.2.9–2.10 and Exercises II.2.3–2.4, printed pp.77–79 / PDF85–87; Exercise IV.1.16, printed p.275 / PDF283."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-components-boundary",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against Exercise II.2.17, printed p.81 / PDF89; Exercises II.2.3–2.4, printed pp.78–79 / PDF86–87; Exercise IV.1.16, printed p.275 / PDF283."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/double-congruence-isom",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against III.2.2 and Exercise III.5.10, printed pp.193,229 / PDF201,237; Exercise II.2.3, printed p.78 / PDF86."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/double-relative-elementary-image",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against III.2.2 and Exercise III.5.10, printed pp.193,229 / PDF201,237."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/double-relative-K1-isom",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against Exercise III.5.10, printed p.229 / PDF237; III.2.2, printed p.193 / PDF201."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-double-fibre-degree-one",
+        "verdict": "verified",
+        "note": "Statement, hypotheses, proof route, direct prerequisites and prototype/omission agree with the source and the explicit conditional interfaces. Checked against Exercise III.5.10, printed p.229 / PDF237; Exercise II.2.4, printed p.79 / PDF87; Exercises IV.1.15–1.16, printed p.275 / PDF283."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.5/relative-comparison-of-sequences",
+        "verdict": "corrected",
+        "note": "Use the explicit boundary-kernel and degree-two naturality declarations. Correct the exactness locator to Theorem III.5.7.1, printed p.223 / PDF231; distinguish definitions and the split corollary. Checked against Proposition III.2.3, printed pp.193–194 / PDF201–202; Theorem III.5.7.1, printed p.223 / PDF231; Exercises IV.1.15–1.16, printed p.275 / PDF283."
+      }
+    ]
+  }
 }

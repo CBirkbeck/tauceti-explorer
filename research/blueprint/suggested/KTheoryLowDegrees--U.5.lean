@@ -1,6 +1,7 @@
 import Mathlib.GroupTheory.QuotientGroup.Defs
 import Mathlib.Algebra.Group.Subgroup.Basic
-import Mathlib.Algebra.Group.TypeTags.Basic
+import Mathlib.Algebra.Group.Int.TypeTags
+import Mathlib.Algebra.Group.PUnit
 
 set_option linter.unusedVariables false
 
@@ -12,7 +13,9 @@ and signatures. Every proposed proof and construction below is a prototype.
 
 Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Not compiled: no existing build at this exact pair was found. No build was made.
+Reviewed with lean-check against the exact Mathlib pin. The shared Tau Ceti
+checkout differs from the Tau Ceti pin; this file imports only Mathlib.
+This is not a compile of the exact paired baseline. No build was made.
 
 The pinned libraries do not supply the ring-specific stable Steinberg group,
 BGL plus space, or the generic relative K-space. Do not represent those missing
@@ -159,6 +162,29 @@ lemma kernel_characterisation (himage_eq : qS.ker.map phiA = E)
       ∃ w : SA, phiA w = 1 ∧ qS w = z.val := by
   sorry
 
+-- Naturality is expressible on actual group diagrams before ring carriers exist.
+-- fN is the induced congruence-kernel map, with its underlying value specified.
+lemma map {GA' GB' SA' SB' : Type*}
+    [Group GA'] [Group GB'] [Group SA'] [Group SB']
+    (qG' : GA' →* GB') (qS' : SA' →* SB')
+    (phiA' : SA' →* GA') (phiB' : SB' →* GB')
+    (hcomm' : qG'.comp phiA' = phiB'.comp qS')
+    (hq' : Function.Surjective qS')
+    (E' : Subgroup GA') [E'.Normal] (hEN' : E' ≤ qG'.ker)
+    (himage' : qS'.ker.map phiA' ≤ E')
+    [CommGroup (qG'.ker ⧸ E'.subgroupOf qG'.ker)]
+    (u : GA →* GA') (s : SB →* SB') (t : SA →* SA')
+    (fN : qG.ker →* qG'.ker)
+    (hfN : ∀ n : qG.ker, (fN n).val = u n.val)
+    (hE : E.subgroupOf qG.ker ≤ (E'.subgroupOf qG'.ker).comap fN)
+    (hphi : phiA'.comp t = u.comp phiA)
+    (hqS : qS'.comp t = s.comp qS)
+    (z : phiB.ker) (z' : phiB'.ker) (hz : z'.val = s z.val) :
+    QuotientGroup.map (E.subgroupOf qG.ker) (E'.subgroupOf qG'.ker) fN hE
+        (ofLift qG qS phiA phiB hcomm hq E hEN himage z) =
+      ofLift qG' qS' phiA' phiB' hcomm' hq' E' hEN' himage' z' := by
+  sorry
+
 end TauCeti.RelativeBoundary
 
 namespace TauCeti.RelativeBoundarySignTest
@@ -191,7 +217,8 @@ Explicit omission inventory, paired with packet names.
 Missing supplier types: stable GL and St of a ring; the particular plus map;
 based coherent ring-map squares; fundamental groups of these fibres; the full
 ring K-space and its projective-triple component comparison. Requests
-R-St-quotient, R-fibre-interchange, R-ring-model supply the missing interfaces.
+R-St-quotient, R-fibre-interchange, R-plus-based and R-ring-model supply
+the missing interfaces.
 An abstract N, H and c above types the quotient interface, not the topology.
 
 Congruence-loop construction and its API, all omitted as ring/topological
@@ -209,10 +236,10 @@ four actual ring tests are omitted, not replaced by the supplemental examples:
   relativePlus_squareZeroUnits, relativePlus_notAbsoluteKernel.
 
 Relative boundary construction: RelativeBoundary.ofLift, lift_formula, one,
-mul, zero_on_image and split are typed above. The naturality API
-RelativeBoundary.map needs the missing ring St/relative-K1 functors; the
-comparison API RelativeBoundary.plus needs the missing based plus/K-space
-models. Both signatures are omitted. The group-map sign test
+mul, zero_on_image, split and map are typed above. The naturality API uses
+actual maps of group diagrams; its ring specialization requires the supplier
+functors. The comparison API RelativeBoundary.plus needs the missing based
+plus/K-space models and its signature remains omitted. The group-map sign test
 relativeBoundary_inverseSign is the example above. Ring/topology tests omitted:
   relativeBoundary_zeroIdeal, relativeBoundary_splitDualNumbers,
   relativeBoundary_liftedAbsoluteElement, relativeBoundary_prismSign.
@@ -226,18 +253,20 @@ Node-signature coverage:
   relative-K2-boundary-zero-on-image: zero_on_image;
   relative-K2-boundary-image: image_characterisation;
   relative-K2-boundary-kernel: kernel_characterisation;
-  relative-K2-boundary-zero-split: split.
+  relative-K2-boundary-zero-split: split;
+  relative-K2-boundary-natural: map.
 These are conditional algebraic interfaces, not proofs of the ring contracts.
 
 The following complete mathematical packet declarations have no expressible
 ring/topological signature at the pin, and are omitted:
   plus-fibre-steinberg, plus-fibre-steinberg-natural,
+  plus-fibre-boundary-kernel, plus-K2-natural,
   steinberg-kernel-elementary-image, classifying-reduction-fibre-component,
   congruence-loop-map, congruence-loop-projection, congruence-loop-natural,
   plus-square-fibre-sequence,
   plus-square-inner-fibre-connected, congruence-loop-surjective,
   congruence-loop-kernel, relative-plus-ring-model,
-  relative-K2-boundary-natural, relative-K2-boundary-plus,
+  relative-K2-boundary-plus,
   relative-components-comparison, relative-components-boundary,
   double-congruence-isom, double-relative-elementary-image,
   double-relative-K1-isom, relative-double-fibre-degree-one,
@@ -251,6 +280,8 @@ this follow-up. Its six existing planets remain; this file adds no planets.
 Packet declaration ledger (typed = conditional algebra interface; omitted = absent carrier).
   plus-fibre-steinberg : TauCeti.PlusFibre.steinbergEquiv — Omitted signature: required ring/space carrier is absent at the pinned baseline.
   plus-fibre-steinberg-natural : TauCeti.PlusFibre.steinbergEquiv_natural — Omitted signature: required ring/space carrier is absent at the pinned baseline.
+  plus-fibre-boundary-kernel : TauCeti.PlusFibre.k2BoundaryEquiv — Omitted signature: required ring/space carrier is absent at the pinned baseline.
+  plus-K2-natural : TauCeti.PlusFibre.k2BoundaryEquiv_natural — Omitted signature: required ring/space carrier is absent at the pinned baseline.
   steinberg-kernel-elementary-image : TauCeti.SteinbergReduction.elementaryImage — Omitted signature: required ring/space carrier is absent at the pinned baseline.
   classifying-reduction-fibre-component : TauCeti.ReductionFibre.baseComponentEquiv — Omitted signature: required ring/space carrier is absent at the pinned baseline.
   congruence-loop-map : TauCeti.CongruenceLoop.toPlus — Omitted signature: required ring/space carrier is absent at the pinned baseline.
@@ -268,7 +299,7 @@ Packet declaration ledger (typed = conditional algebra interface; omitted = abse
   relative-K2-boundary-lift-independence : TauCeti.RelativeBoundary.lift_independent — Typed conditional group-quotient interface; ring specialization requires suppliers.
   relative-K2-boundary : TauCeti.RelativeBoundary.ofLift — Typed conditional group-quotient interface; ring specialization requires suppliers.
   relative-K2-boundary-hom : TauCeti.RelativeBoundary.mul — Typed conditional group-quotient interface; ring specialization requires suppliers.
-  relative-K2-boundary-natural : TauCeti.RelativeBoundary.map — Omitted signature: required ring/space carrier is absent at the pinned baseline.
+  relative-K2-boundary-natural : TauCeti.RelativeBoundary.map — Typed conditional group-quotient interface; ring specialization requires suppliers.
   relative-K2-boundary-zero-on-image : TauCeti.RelativeBoundary.zero_on_image — Typed conditional group-quotient interface; ring specialization requires suppliers.
   relative-K2-boundary-image : TauCeti.RelativeBoundary.image_characterisation — Typed conditional group-quotient interface; ring specialization requires suppliers.
   relative-K2-boundary-kernel : TauCeti.RelativeBoundary.kernel_characterisation — Typed conditional group-quotient interface; ring specialization requires suppliers.

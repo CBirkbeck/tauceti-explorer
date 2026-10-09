@@ -1,0 +1,60 @@
+# Independent review REV-KTheoryLowDegrees--U.5
+
+Verdict: **accepted after corrections**. Issue #7549. Reviewer: Codex, session `codex-GQ0Idq`, 2026-10-09. The input was written by the independent session `codex-XBFh8y` in #7791. This review completes one bounded review pass. Acceptance concerns the conditional plan; U.5 remains **planned**, with four explicit supplier requests and four matching gaps.
+
+## Counts and scope
+
+The input had 32 nodes. The corrected packet has **34 nodes**: 11 comparisons, 19 lemmas, three constructions and one theorem. Its exhaustive `review.checked` table has **18 verified, 14 corrected and two added** entries, with no unverifiable entry. All nine baseline declarations were independently confirmed. There are 18 API items and 13 defining tests. The three constructions have respectively five/four, five/four and eight/five API/test items. No new planet is introduced; the six parent U.5 landmarks remain owned by their existing declarations.
+
+The native outline types 12 of the 34 node interfaces and 12 of the 18 API items on actual groups, homomorphisms, kernel subgroups and normal quotients. It types the integer-group sign test and three supplemental quotient examples. The other 22 node signatures, six API signatures and 12 ring/topological tests are explicitly omitted because their required supplier carriers are absent. These inventories are synchronized in the packet, reader and suggested file. Elaborating the prototypes does not prove their bodies or the ring/topological specializations.
+
+## Source and dependency evidence
+
+Every input node's statement, hypotheses, proof outline, direct prerequisites, sources and `match` was read, together with every API and test. The two additions were checked by the fibre exact sequence and naturality of its connecting map. The source version is [Weibel's combined author manuscript, 29 August 2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), SHA-256 `a04f53c9393b20672fab2a6818279b2f9996dbc7cf74735789ed13804b058845`. Printed pages in this review refer to that file; PDF page is printed page plus eight. No published edition was read or silently substituted.
+
+The reading covered Definition III.2.2, Relative Whitehead Lemma III.2.1, Proposition III.2.3 and Corollary III.2.3.1, printed pp.193–194; the split and failure-of-excision material through p.197; Definition III.5.1, the central-extension and stable UCE arguments III.5.3–5.5.1, pp.217–220; Definition III.5.7, Theorem III.5.7.1 and its proof, pp.222–223; Exercises III.5.1–5.2 and III.5.10, pp.228–229; IV.1.1–1.2, pp.260–262; IV.1.4–1.7.1 and Remark IV.1.9, pp.263–265; IV.1.11, pp.267–268; and Exercises IV.1.15–1.16, p.275. Degree zero was checked against II.2.9–2.10, p.77, Exercises II.2.3–2.4, pp.78–79, and II.2.17, p.81. The source's fibre-path direction is adapted explicitly to the imported H.2 convention, rather than assuming its signs agree automatically.
+
+The inherited Stallings acceptance case needed a direct citation. [Bass–Milnor–Serre, Example 4.5](https://www.numdam.org/item/10.1007/BF02684586.pdf), printed p.97 / PDF40, was independently read, including the following stable SK1 definition and the p.96 context. The public scan hash is `b455790cdaeba5e3a313f1bd4dddfe2892e8a2035067bcdef434ef717edfb996`. Evaluation on the unit interval gives the nontrivial stable parity class while absolute SK1 vanishes. This read verifies that test, not the full BMS arithmetic development.
+
+All 51 externally supplied node identifiers referenced by the packet or retained target coverage were located and their current statements and proof routes read. The parent U.1 packet supplies the classical groups, double ring, patching boundary, transfers and valuation targets. H.1 supplies the classifying-space calculation; H.2 supplies fibres, exact sequences and low-degree orbit arguments; H.3 supplies the acyclic-fibre UCE. T.1 supplies the classical Steinberg presentation and UCE rigidity; T.6 keeps its relative sequence. Early K.2:plus and K.5 retain the ring-space and relative-triple comparisons. Several suppliers are plans with recorded gaps or earlier `needs_changes` reviews. Their existence is not treated as library implementation or evidence that their gaps are closed.
+
+The reviewed AUDIT-29 entry in `data/library-coverage.json` confirms that general relative K1 and its fibre/sequence comparison are not built. Arithmetic congruence groups and finite-free restriction-of-scalars matrices do not supply these contracts. Generic relative K-theory and the localization boundary remain with their owners; neither is reconstructed here. The AlgebraicTopology and SemisimpleAlgebras upstream reader documents were read as granularity/style references and left unchanged.
+
+## Corrections
+
+1. **Based functoriality.** H.3's current `plus-construction-functoriality` promises free homotopies, whereas this packet needs based squares and their composition coherence. Added `R-plus-based` to H.3, with its matching gap and canonical consuming-node stage edges. Remark IV.1.9(i)–(ii), p.265, motivates strict functorial models and their natural comparison. `R-fibre-interchange` now also requests the generic H.2 map of fibres for a specified based homotopy square; the current fibre construction only states the strict-square interface. Its consumers include the whole-Steinberg naturality and congruence-loop construction/naturality nodes. No supplier file was modified.
+2. **Typed signed prism statement.** Removed the nonexistent direct projection from a vertical fibre loop to π1 of the horizontal fibre. In the signed clause, assume π2(Y)=0 and specify the horizontal loop through its common projection in π1(X). Exactness gives existence and uniqueness. The application uses Y=BGL(B), so the hypothesis holds. The degree-two boundary proof now invokes that classifying-space vanishing explicitly. The inverse lifted-word boundary is retained: reversing the square homotopy and then contracting the plus loop gives the negative sphere class under paths directed image-to-base. The S1/point/S2 square distinguishes the sign without two-torsion ambiguity.
+3. **Declaration-sized comparisons.** Added `plus-fibre-boundary-kernel` (`TauCeti.PlusFibre.k2BoundaryEquiv`) and `plus-K2-natural` (`TauCeti.PlusFibre.k2BoundaryEquiv_natural`), both marked `addedBy: REV-KTheoryLowDegrees--U.5`. The original whole-group UCE identification and its naturality no longer bundle these degree-two assertions. Consumers of β now list the boundary-kernel comparison and, where needed, its naturality. All four declarations continue to refine the existing U.6 milestone.
+4. **Source locators.** Fixed seven nodes' exactness citations: the relative sequence is Theorem III.5.7.1 on printed p.223 / PDF231; Definition III.5.7 is on p.222. The split corollary is III.2.3.1 on p.194 / PDF202. The affected nodes are boundary multiplicativity, naturality, zero-on-image, image, plus comparison, zero-split and the final sequence comparison. The Stallings source was added to `congruence-loop-kernel` and `relative-plus-map`, with source/version provenance.
+5. **Suggested signatures and elaboration.** Added integer-tag and PUnit group-instance imports after the sign example exposed missing instances. Added `RelativeBoundary.map` as a conditional naturality law on actual group diagrams, with the induced kernel map's value specified and its subgroup-preservation hypothesis explicit. The corresponding node/API is now typed; its ring specialization remains a supplier obligation. No proposition-valued surrogate for a missing carrier was introduced.
+6. **Review and synchronization.** Added individual verdicts for every node, independently reconfirmed each baseline `checked` entry, confirmed every source finding, and updated the reader's declarations, requests, counts, compile provenance and source corrections. The four-request coverage and ownership notes now agree. The suggested declaration ledger and omission inventory agree with the packet.
+
+These are all substantive changes. The per-node review entries identify the corrected consumers and their source locators; the two new nodes are additions, rather than duplicate milestones or new carriers.
+
+## Baseline verification
+
+All statements and enclosing variables/typeclasses were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. **No baseline citation was removed or replaced.**
+
+| Declaration | Exact-pin module | Check |
+| --- | --- | --- |
+| `Subgroup.map_normalClosure` | `Mathlib/Algebra/Group/Subgroup/Basic.lean`, line 1002 | Requires a surjective homomorphism; the Steinberg and diagonal-section uses provide it. |
+| `Subgroup.Normal.subgroupOf` | Same module, line 981 | Explicit normality hypothesis restricts a normal subgroup to the congruence kernel. |
+| `QuotientGroup.lift` | `Mathlib/GroupTheory/QuotientGroup/Defs.lean`, line 249 | Descends the actual map under denominator containment in its kernel. |
+| `QuotientGroup.lift_mk` | Same module, line 253 | Evaluates that descent on a representative. |
+| `QuotientGroup.ker_lift` | Same module, line 277 | Identifies the descended kernel with the image of the original kernel. |
+| `QuotientGroup.liftEquiv` | Same module, line 292 | Requires surjectivity and equality of the denominator with the kernel. |
+| `QuotientGroup.map` | Same module, line 309 | Requires normal quotients and subgroup-preservation by the actual homomorphism. |
+| `QuotientGroup.mk'` | Same module, line 88 | Canonical homomorphism to the normal quotient. |
+| `Ideal.Quotient.mk_surjective` | `Mathlib/RingTheory/Ideal/Quotient/Defs.lean`, line 124 | Applies to associative rings with a two-sided ideal; says nothing about surjectivity of GL reduction. |
+
+## Source findings and checks
+
+E116 and E117 are confirmed: Exercise III.5.2, p.228, has the triangular-direction slip, and III.5.3, p.218, uses the wrong coefficient group in the arbitrary-kernel central-extension classification; p.219 clarifies the intended coefficient. Added and confirmed E118, the tensor rank `m+n` in the product construction and Lemma III.5.12.1 on p.227, which must be `mn`; and E119, the domain of ρ in P_n on p.228, which must be R^(n−1). The tensor-rank slip was also checked on the rendered author-copy page. Neither new finding affects the U.5 argument. Each finding has its own correction, small-case/type check and review verdict.
+
+The author's book page and targeted correction searches were checked again. The linked errata PDF returned HTTP 404; its indexed search entry did not verify the relevant correction. Previously-known status therefore remains unknown, scoped to the dated manuscript. Parent E113/E114 and T.1's conditional finite-centrality finding remain inherited.
+
+Validation: `python3 scripts/check_blueprint.py research/blueprint/packets/KTheoryLowDegrees--U.5.json` reports **zero errors and zero warnings**. The embedded source-issue and source-version validators pass. The node/API/test/reader/native-ledger consistency checks and `git diff --check` pass. `lean-check research/blueprint/suggested/KTheoryLowDegrees--U.5.lean` exits zero with only `sorry` warnings after the imports were fixed; memory was checked before each compile and no library build or language server was started. The shared build has the exact Mathlib pin but Tau Ceti `cf386627e9176a3827c1a5fe804989fd94a4d216`; this file imports only Mathlib. This is **not** a compile at the exact paired Mathlib/Tau Ceti baseline.
+
+## Orchestrator follow-up
+
+Route `R-plus-based` to H.3, the expanded `R-fibre-interchange` to H.2, `R-St-quotient` to T.1:classical and `R-ring-model` to early K.2:plus. Preserve the four gaps until those owning interfaces are established. Assembly should retain the existing U.6 comparison milestone and six U.5 planets and use this fine decomposition. Calibrate T.6's boundary against the displayed β convention before comparing arrows. No unresolved question requires a maintainer decision for this review to be accepted.
