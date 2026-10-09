@@ -47903,8 +47903,9 @@
    ],
    "revisionOf": "PKG-EllipticCurveModularityPartII",
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityPartII~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7900"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7900",
+   "finishedAt": "2026-10-09T19:27:00Z"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityPartII~2",
@@ -105116,8 +105117,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidSpaces~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidSpaces~adv.md",
+   "note": "claimed on GitHub issue #8081"
   },
   {
    "id": "REV-PKG-DerivedDeRhamCohomology~adv",
