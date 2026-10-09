@@ -38792,7 +38792,8 @@
     "BP-EtaleDualityAndPerverseSheaves--EDC.4~3"
    ],
    "prompt": "research/blueprint/prompts/REV-EtaleDualityAndPerverseSheaves--EDC.4~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7546"
   },
   {
    "kind": "blueprint",
@@ -41118,7 +41119,8 @@
     "BP-RefinedTraceMethods--RT.5~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RefinedTraceMethods--RT.5~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7552"
   },
   {
    "kind": "blueprint",
@@ -41806,8 +41808,9 @@
     "BP-StableHomotopyKTheory~3"
    ],
    "prompt": "research/blueprint/prompts/REV-StableHomotopyKTheory~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7555"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7555",
+   "finishedAt": "2026-10-09T06:01:05Z"
   },
   {
    "kind": "blueprint",
