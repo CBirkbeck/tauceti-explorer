@@ -47116,7 +47116,8 @@
    ],
    "revisionOf": "PKG-ClassicalSerreModularity",
    "prompt": "research/blueprint/prompts/PKG-ClassicalSerreModularity~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7894"
   },
   {
    "id": "REV-PKG-ClassicalSerreModularity~2",
@@ -47473,7 +47474,8 @@
    ],
    "revisionOf": "PKG-DeligneWeightsAndPurity",
    "prompt": "research/blueprint/prompts/PKG-DeligneWeightsAndPurity~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7896"
   },
   {
    "id": "REV-PKG-DeligneWeightsAndPurity~2",
@@ -48074,7 +48076,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -49189,8 +49192,9 @@
     "PKG-MetaplecticAutomorphicForms"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-MetaplecticAutomorphicForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7524"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7524",
+   "finishedAt": "2026-10-09T18:26:39Z"
   },
   {
    "id": "PKG-MordellLawrenceVenkatesh",
@@ -79877,8 +79881,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
