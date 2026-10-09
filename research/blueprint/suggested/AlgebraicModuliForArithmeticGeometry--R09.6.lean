@@ -54,7 +54,7 @@ theorem FramedDeformation.reframe_frame (g : Aut x₀)
 
 theorem FramedDeformation.arrow_criterion (x y : FramedDeformation reduction x₀)
     (f : x.right ⟶ y.right) :
-    (∃ a : x ⟶ y, a.right = f) ↔ x.hom ≫ reduction.map f = y.hom := by sorry
+    (∃! a : x ⟶ y, a.right = f) ↔ x.hom ≫ reduction.map f = y.hom := by sorry
 
 -- FramedTests.residueIdentity: the framed fibre over k is contractible.
 example (x y : FramedDeformation (𝟭 D) x₀) : Unique (x ⟶ y) := by sorry
@@ -158,7 +158,9 @@ example (x y : FormalObject C reduction) (f : x ⟶ y) (n : ℕ) :
 -- FormalTests.automorphisms: even a constant tower can have nontrivial autos.
 example (G : Type u) [Group G]
     (x : FormalObject (fun _ => SingleObj G) (fun _ => 𝟭 _)) :
-    Aut x ≃* Aut (x.value 0) := by sorry
+    ∃ e : Aut x ≃* Aut (x.value 0),
+      ∀ a, e a = (FormalObject.evaluation
+        (fun _ => SingleObj G) (fun _ => 𝟭 _) 0).mapIso a := by sorry
 
 variable {E : Type w} [Groupoid.{v} E]
   (restriction : E ⥤ FormalObject C reduction)
@@ -214,6 +216,15 @@ theorem CompletedLocalRing.jet_ofStalk (n : ℕ) (a : X.presheaf.stalk x) :
 theorem CompletedLocalRing.ext {a b : CompletedLocalRing X x}
     (h : ∀ n, CompletedLocalRing.jet X x n a = CompletedLocalRing.jet X x n b) :
     a = b := by sorry
+
+/-- Native maximal-ideal completeness, specialized to the actual stalk. -/
+theorem CompletedLocalRing.isAdicComplete [IsNoetherianRing (X.presheaf.stalk x)] :
+    IsAdicComplete (IsLocalRing.maximalIdeal (CompletedLocalRing X x))
+      (CompletedLocalRing X x) := by infer_instance
+
+/-- SF.4's Noetherian-completion theorem, specialized to the actual stalk. -/
+theorem CompletedLocalRing.isNoetherianRing [IsNoetherianRing (X.presheaf.stalk x)] :
+    IsNoetherianRing (CompletedLocalRing X x) := by sorry
 
 -- CompletionTests.residueJet: index zero means reduction modulo m, not the zero ring.
 example (a : X.presheaf.stalk x) :
@@ -275,7 +286,7 @@ signatures yet. Fixed-fibre generic prototypes above do not claim them.
 framedDeformation_twoFibre: A morphism X→Y and a chosen identification of its special-fibre object induce Def_X,x₀→Def_Y,y₀. These assignments preserve 2-fibre products: for W=X×_Y Z and w₀=(x₀,z₀,γ₀), Def_W,w₀≃Def_X,x₀×_(Def_Y,y₀)Def_Z,z₀. A representable formally smooth morphism induces a smooth morphism of predeformation categories.
 Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/framed-deformation, DiamondsAndVStacks:D0, SchemeAndStackFoundations:SF.1, SchemeAndStackFoundations:SF.4/hull
 
-infinitesimalStabilizer_linearization: If X satisfies the Rim–Schlessinger condition, Inf_x₀(X) has a natural k-vector-space structure and its addition agrees with composition. For a small extension A′→A of kernel I killed by m_A′, Inf(y/z) is canonically the corresponding additive group Inf_x₀(X)⊗_k I, with identity as its origin. If Inf_x₀(X)=0, every framed Artinian fibre is a setoid and Def_X,x₀ is equivalent to its isomorphism-class functor.
+infinitesimalStabilizer_linearization: If X satisfies the Rim–Schlessinger condition, Inf_x₀(X) has a natural k-vector-space structure and its addition agrees with composition. For a surjection A′→A of kernel I killed by m_A′ (in particular a small extension), Inf(y/z) is canonically the corresponding additive group Inf_x₀(X)⊗_k I, with identity as its origin. If Inf_x₀(X)=0, every framed Artinian fibre is a setoid and Def_X,x₀ is equivalent to its isomorphism-class functor.
 Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/infinitesimal-stabilizer, AlgebraicModuliForArithmeticGeometry:A0-extension/strong-infinitesimal-gluing, SchemeAndStackFoundations:SF.4/deformation-functor, DiamondsAndVStacks:D0
 
 framedTangent_exactSequence: For X→Y←Z satisfying RS and a point w₀ of W=X×_Y Z, there is a natural exact sequence of k-vector spaces 0→Inf_W→Inf_X⊕Inf_Z→Inf_Y→T_W→T_X⊕T_Z→T_Y. Here T means isomorphism classes of framed dual-number deformations; the map Inf_Y→T_W changes the gluing isomorphism by an infinitesimal automorphism.
@@ -302,7 +313,7 @@ Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/effectivity, Alg
 FamilyVersalAt: Let U be locally of finite type over S, y∈X(U), u a finite-type point and x₀=y|κ(u). The family is versal at u if the induced map Def_U,u→Def_X,x₀ is smooth: for each Artinian surjection B→A the comparison Def_U,u(B)→Def_U,u(A)×_(Def_X,x₀(A))Def_X,x₀(B) is essentially surjective. The 2-product retains its comparison arrow. A formal object ξ over R is versal if h_R→Def_X,x₀ has the same lifting property.
 Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/framed-deformation, AlgebraicModuliForArithmeticGeometry:R09.6/formal-object, SchemeAndStackFoundations:SF.4/hull, DiamondsAndVStacks:D0
 
-API FamilyVersalAt.smallExtension_iff: It suffices to test surjections whose kernel is killed by the source maximal ideal.
+API FamilyVersalAt.smallExtension_iff: It suffices to test small extensions: surjections with nonzero principal kernel killed by the source maximal ideal. Equivalently one may test all surjections with kernel killed by that ideal.
 API FamilyVersalAt.completion_iff: The family is versal at u iff its completed-local formal object is versal.
 API FamilyVersalAt.finiteResidueExtension: Under RS, finite residue extensions preserve the smooth pointed deformation morphism.
 Example VersalTests.identity: The identity family of a locally finite-type scheme is versal at every finite-type point.
@@ -318,9 +329,9 @@ completedAtlasPresentation_equivalence: For a smooth pointed atlas U→X of an a
 Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/space-formal-comparison, AlgebraicModuliForArithmeticGeometry:R09.6/atlas-versality, AlgebraicModuliForArithmeticGeometry:R09.6/framed-functoriality, AlgebraicModuliForArithmeticGeometry:R09.6/tangent-exact-sequence, AlgebraicModuliForArithmeticGeometry:R09.4, DiamondsAndVStacks:D0, SchemeAndStackFoundations:SF.1
 
 effectiveVersal_algebraization: Let S be locally Noetherian, X fibred in groupoids and limit preserving on objects, and ξ a formal object over a complete Noetherian local S-algebra R with residue k finite type over S, image s∈S. If ξ is effective and versal and O_S,s is a G-ring, there are U→S of finite type, a finite-type u∈U with κ(u)=k, and y∈X(U), versal at u, with an isomorphism R≅Ô_U,u and a compatible identification of all the ξ_n with the formal restrictions of y. The isomorphism and family need not be unique.
-Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/effectivity, AlgebraicModuliForArithmeticGeometry:R09.6/family-versality, AlgebraicModuliForArithmeticGeometry:R09.6/completion-versality, AlgebraicModuliForArithmeticGeometry:A0-extension/formal-object-approximation, AlgebraicModuliForArithmeticGeometry:A0-extension/g-ring-finite-type, SchemeAndStackFoundations:SF.0
+Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/effectivity, AlgebraicModuliForArithmeticGeometry:R09.6/family-versality, AlgebraicModuliForArithmeticGeometry:R09.6/completion-versality, AlgebraicModuliForArithmeticGeometry:A0-extension/formal-object-approximation, AlgebraicModuliForArithmeticGeometry:A0-extension/g-ring-finite-type, SchemeAndStackFoundations:SF.0, SchemeAndStackFoundations:SF.4
 
-ParameterFormalExports: Given a parameter functor F on S-schemes with a supplied natural representation θ:Hom_S(-,P)≅F and a finite-type p∈P, let ξ₀=θ(p). Transport schemeFramedCompletionEquiv through θ to obtain h_(Ô_P,p)≅Def_F,ξ₀. Export the representation, universal object, pullback naturality and this formal comparison under named projective-bundle, Grassmannian, flag, Hilbert, Quot, Hom, Isom and Picard-space interfaces. Space-valued parameters use the pointed étale chart comparison instead. Their original representability and geometric hypotheses remain with R09.1/R09.2/SF.1; this node proves only the uniform point/completion transport.
+ParameterFormalExports: Over a locally Noetherian S, given a locally finite-type parameter scheme P→S and a parameter functor F on S-schemes with a supplied natural representation θ:Hom_S(-,P)≅F and a finite-type p∈P, let ξ₀=θ(p). Transport schemeFramedCompletionEquiv through θ to obtain h_(Ô_P,p)≅Def_F,ξ₀. Export the representation, universal object, pullback naturality and this formal comparison under named projective-bundle, Grassmannian, flag, Hilbert, Quot, Hom, Isom and Picard-space interfaces. Space-valued parameters use the pointed étale chart comparison instead. Their original representability and geometric hypotheses remain with R09.1/R09.2/SF.1; this node proves only the uniform point/completion transport.
 Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/scheme-formal-comparison, AlgebraicModuliForArithmeticGeometry:R09.6/space-formal-comparison, mathlib:CategoryTheory.yoneda, AlgebraicModuliForArithmeticGeometry:R09.1, AlgebraicModuliForArithmeticGeometry:R09.2, AlgebraicModuliForArithmeticGeometry:A0-extension/picard-space-representability, SchemeAndStackFoundations:SF.1
 
 API projectiveParameter_formalEquiv: A quotient line of E at p has the deformation functor represented by Ô_(P(E)),p, under the supplier quotient convention.
@@ -337,9 +348,16 @@ Example ParameterTests.quotLengthOne: For E=O on P¹_k, a length-one quotient at
 Example ParameterTests.isomUnit: For endomorphisms of the trivial line over A, Hom gives A and Isom gives A×; an Artinian endomorphism reducing to 1 is invertible, while zero is excluded.
 Example ParameterTests.picardAutomorphisms: For X=Spec A over itself the relative Picard sheaf is terminal, while its line-bundle groupoid has the units A× as automorphisms of the trivial object. The Picard-space completion must not be substituted for the Picard-stack groupoid.
 arithmeticFormalComparison_transfer: Given a supplied algebraic moduli stack M of the required elliptic/abelian objects, an equivalence between its framed fibre and the arithmetic deformation groupoid transports the completed-atlas presentation, infinitesimal stabilizers, tangent comparison and complete-local effectivity to that problem. If the formal object is effective and versal, the G-ring and limit-preservation inputs give a finite-type versal family via effectiveVersal_algebraization. A rigidifying level yields a represented local functor only after the supplied level theorem removes the required automorphisms. Coarse moduli alone does not supply this equivalence.
-Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/completed-atlas-presentation, AlgebraicModuliForArithmeticGeometry:R09.6/stack-restriction, AlgebraicModuliForArithmeticGeometry:R09.6/versal-algebraization, AlgebraicModuliForArithmeticGeometry:R09.6/parameter-formal-exports, AlgebraicModuliForArithmeticGeometry:R09.5, SchemeAndStackFoundations:SF.4/grothendieck-existence, SchemeAndStackFoundations:SF.4/effective-formal-deformations-of-curves, AlgebraicModuliForArithmeticGeometry:A0-extension/artin-stack-criterion, AlgebraicModuliForArithmeticGeometry:A0-extension/artin-space-criterion
+Required interfaces: AlgebraicModuliForArithmeticGeometry:R09.6/completed-atlas-presentation, AlgebraicModuliForArithmeticGeometry:R09.6/stack-restriction, AlgebraicModuliForArithmeticGeometry:R09.6/versal-algebraization, AlgebraicModuliForArithmeticGeometry:R09.6/parameter-formal-exports, AlgebraicModuliForArithmeticGeometry:R09.5, SchemeAndStackFoundations:SF.4/grothendieck-existence, SchemeAndStackFoundations:SF.4/effective-formal-deformations-of-curves, AlgebraicModuliForArithmeticGeometry:A0-extension/artin-stack-criterion, AlgebraicModuliForArithmeticGeometry:A0-extension/artin-space-criterion, tauceti:TauCetiRoadmap/ModularCurves#7b-local-algebra-and-local-schemes, tauceti:TauCetiRoadmap/ModularCurves#7d-universal-deformations-of-elliptic-curves
 
 
 No omitted name is implemented as a placeholder Prop or replacement axiom.
 -/
 end TauCeti.AlgebraicGeometry.ModuliFormal
+
+/-! Independent review: formal-defos 90.19.11, p. 58, contains the tensor-factor
+misprint recorded as AlgebraicModuliForArithmeticGeometry/E6001 in the packet.
+The intended tangent identification is untensored; its lifting action tensors once.
+For the arithmetic elliptic instance use ModularCurves 7B/7D's existing marked
+comparison, including W(k)[[T]], under the supplier's algebraically closed
+characteristic-p and rigidification hypotheses. -/
