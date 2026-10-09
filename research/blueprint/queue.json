@@ -49706,7 +49706,8 @@
     "PKG-SmallRamificationAndAbelianVarietyBaseCases~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SmallRamificationAndAbelianVarietyBaseCases~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7941"
   },
   {
    "id": "PKG-VStackSheavesAndLisseCategories",
@@ -105237,9 +105238,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-AlgebraicModuliForArithmeticGeometry~adv.md",
-   "note": "claimed on GitHub issue #8070"
+   "note": "deliverables arrived from an external worker on issue #8070",
+   "finishedAt": "2026-10-09T23:11:05Z"
   },
   {
    "id": "FIX-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv",
