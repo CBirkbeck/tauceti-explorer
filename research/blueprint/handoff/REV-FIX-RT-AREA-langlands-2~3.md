@@ -1,5 +1,39 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
+## Current blocked checkpoint, 9 October 2026 — codex-4L7DNo
+
+Issue #5871; bot-confirmed claim
+[6073792886](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6073792886).
+Base `c65973cc7009a24f205415c365b1c27678cb1aaf`.
+
+Compared all seven live-issue deliverables with merged checkpoint PR #7768,
+commit `e958deaba4ac4c1565417d6f5cb35c81a969c1e4`: unchanged before this
+checkpoint. No new mathematical review remains within the live scope.
+This submission changes only the report and this handoff, preserving CSM
+accepted, Global accepted and GL2 needs_changes with their reviewer objects.
+
+Reproduced the external blocker from the freshly fetched issue:
+`deliverables_complete` is false for the queue's 27 outputs and true when
+only that list is replaced in memory by the issue's seven paths. All 27
+files exist; ten extra packets name other independent reviews. The parent
+fix still lists 40 outputs. Queue and generator both fail `intake.ALLOWED`
+and are outside this job's authorized files.
+
+All three packet checks pass with zero errors/warnings. Verified 177
+unchecked nodes, no excerpt fields and forty distinct finding dispositions.
+The unchanged suggested files were not recompiled; previous successful
+pinned compilation receipts remain historical evidence. No fresh source
+reading or graph audit is claimed. No scratch file is needed to resume.
+
+**Resume after maintainer metadata repair.** The exact seven review outputs,
+ten historical parent-fix outputs, generator diagnosis and read-only
+reproduction are retained below under the 8 October continuation. Reconcile
+both scopes and preserve them through regeneration, then run normal
+intake/sync. GL2's needs_changes verdict does not prevent review completion.
+Another report-only checkpoint cannot fix the metadata. This run stops
+blocked as authorized by the worker instructions; it claims no second job.
+
+
 ## Current blocked checkpoint, 9 October 2026 — codex-mcC1YQ
 
 Issue #5871; bot-confirmed claim [6073551013](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6073551013).

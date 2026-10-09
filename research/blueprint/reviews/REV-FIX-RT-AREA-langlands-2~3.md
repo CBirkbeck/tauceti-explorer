@@ -1,10 +1,10 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current checkpoint: Codex session `codex-mcC1YQ`, 9 October 2026, issue #5871,
-base `a1104cfa91a4d7c018a57f802e807267dcba3695`. The authorized deliverables are
-unchanged since checkpoint PR #7718. The final dated audit reproduces the
-external completion blocker. The mathematical verdicts and their original
-reviewer attribution are retained; this run makes no new source-review claim.
+Current blocked checkpoint: Codex session `codex-4L7DNo`, 9 October 2026,
+issue #5871, base `c65973cc7009a24f205415c365b1c27678cb1aaf`.
+The authorized inputs are unchanged since PR #7768. The final audit below
+reproduces the scope blocker; existing mathematical verdicts and reviewer
+attributions are retained.
 
 Completed independent review for issue #5871 by Codex, session `codex-t0EaB3`, 7 October 2026.
 Base: `5f858d95`. Work reviewed: FIX-RT-AREA-langlands-2~3, Claude `claude-c9TlsS`, #5870,
@@ -397,3 +397,38 @@ seven-output reconciliation, historical parent-fix scope and read-only
 reproduction are in the handoff. The maintainer must repair that metadata and
 preserve the historical scope through queue regeneration before another
 continuation can finish. No scratch file is needed to resume.
+
+## Scope-blocker verification, 9 October 2026 — codex-4L7DNo
+
+The bot confirmed this session's claim at
+[comment 6073792886](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6073792886).
+Re-read the live issue after confirmation, both protocols, the worker and
+upstream guidance, the previous handoff/report, and the completion, intake
+allowlist and queue-generation code. All seven authorized deliverables are
+byte-for-byte identical to checkpoint PR #7768, commit
+`e958deaba4ac4c1565417d6f5cb35c81a969c1e4`, before this report update.
+There is no new mathematical diff requiring review.
+
+Parsed the seven authorized paths directly from the live issue. Reproduced
+`deliverables_complete(job) = false` for its committed 27-output queue entry
+and `deliverables_complete({**job, "outputs": authorized}) = true`.
+All 27 outputs exist; each of the ten extra packets correctly names a
+separate review job. The parent fix still lists 40 outputs. Neither
+`research/blueprint/queue.json` nor `research/blueprint/make_queue.py` passes
+`intake.ALLOWED`, and neither is an authorized deliverable. This session
+cannot repair the blocking metadata within the binding scope.
+
+Fresh packet checks report zero errors and zero warnings for all three
+packets (37 CSM, 73 GL2, 67 Global nodes). All 177 nodes retain unchecked
+implementation status; no packet contains an excerpt field; the report has
+forty distinct dispositions covering findings /1–/40. Retained CSM accepted,
+Global accepted and GL2 needs_changes. A negative review verdict is a
+completed review outcome, as the scoped completion result confirms.
+The unchanged suggested files were not recompiled; prior successful
+`lean-check` receipts remain historical compilation evidence. No fresh
+primary-source review, Lean compilation or graph audit is claimed.
+
+This checkpoint changes only the report and handoff. The handoff retains
+the exact seven-output correction and historical parent-fix reconciliation,
+with a read-only reproduction. Maintainer metadata repair is required before
+this job can finish; additional unchanged-input checkpoints cannot supply it.
