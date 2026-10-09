@@ -35970,7 +35970,8 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.4",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7548"
   },
   {
    "id": "BP-KTheoryLowDegrees--U.5",
@@ -41511,8 +41512,9 @@
     "BP-ShimuraData~3"
    ],
    "prompt": "research/blueprint/prompts/REV-ShimuraData~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7554"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7554",
+   "finishedAt": "2026-10-09T05:41:30Z"
   },
   {
    "kind": "blueprint",
@@ -45716,8 +45718,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdicCoefficientsAndComparisons.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7454"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7454",
+   "finishedAt": "2026-10-09T05:41:33Z"
   },
   {
    "id": "REV-PKG-AdicCoefficientsAndComparisons",
@@ -77533,8 +77536,8 @@
     "FIX-RT-AREA-langlands-2~3"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-langlands-2~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5871"
+   "state": "pending",
+   "note": "released on GitHub issue #5871"
   },
   {
    "id": "FIX-RT-AREA-langlands-2~4",
