@@ -43,6 +43,7 @@ import Mathlib.Data.ZMod.Basic
 import Mathlib.Algebra.Field.ZMod
 import Mathlib.Basic.Complex.Basic
 import Mathlib.NumberTheory.NumberField.Basic
+import Mathlib.NumberTheory.Divisors
 import Mathlib.AlgebraicGeometry.Scheme
 
 open scoped TensorProduct
@@ -349,9 +350,13 @@ lemma formsLevelOne_baseChange {B L : Type*} [CommRing B] [Algebra A B]
     (b : B ⊗[A] formsLevelOne u v →ₗ[B] L) : Function.Bijective b := by sorry
 
 -- TauCeti.KatzModularForms.levelOne_E4
--- Missing the modularity of the Eisenstein section; the coefficient test is literal.
-example : PowerSeries.coeff 1
-    (PowerSeries.mk (fun n => if n = 0 then (1 : ℤ) else 240 * (n : ℤ))) = 240 := by sorry
+-- Missing the modularity of the Eisenstein section; retain its actual divisor-sum
+-- expansion. The second coefficient distinguishes sigma_3(n) from n.
+example :
+  let e4 : PowerSeries ℤ := PowerSeries.mk
+    (fun n => if n = 0 then 1 else 240 * n.divisors.sum (fun d => (d : ℤ)^3))
+  PowerSeries.coeff 0 e4 = 1 ∧ PowerSeries.coeff 1 e4 = 240 ∧
+    PowerSeries.coeff 2 e4 = 2160 := by sorry
 
 -- TauCeti.KatzModularForms.levelOne_baseChange_fails_at_2_3
 -- Missing the actual characteristic-zero level-one spaces and their comparison.
@@ -770,6 +775,11 @@ example (p : ℕ) (hp : 0 < p) (a : A) :
 example (f : PowerSeries A) (n : ℕ) :
     PowerSeries.coeff n (theta f) = (n : A) * PowerSeries.coeff n f := by sorry
 
+-- The coefficient-2 instance for Delta modulo 5. Its geometric identification
+-- and integral tau(2)=-24 come from the modular-form supplier.
+example (delta : PowerSeries (ZMod 5)) (h : PowerSeries.coeff 2 delta = -24) :
+    PowerSeries.coeff 2 (theta delta) = 2 := by sorry
+
 -- TauCeti.ModPModularForms.theta_kills_pth_powers
 example (p : ℕ) [Fact p.Prime] [CharP A p] (g : PowerSeries A) :
     theta (g^p) = 0 := by sorry
@@ -942,11 +952,16 @@ def largeThetaCycle (p k : ℕ) (ordinary : Bool) : Option (List ℕ) :=
     else if k=p then some (progression 3 (p-2) ++ [p])
     else none
 
--- Missing that cycle is [w(theta f),...,w(theta^(p-1) f)] for the actual
--- nonzero cuspidal eigenform with w(f)=k, theta f!=0, and ordinary=(a_p!=0).
+-- The representable arithmetic portion: every admissible row has p-1 entries.
+-- The geometric classification additionally identifies this list with
+-- [w(theta f),...,w(theta^(p-1) f)] for the actual nonzero cuspidal eigenform
+-- with w(f)=k, theta f!=0, and ordinary=(a_p!=0). Those conditions are missing.
+-- The nonordinary k=p+1 row is excluded, as in Edixhoven Prop. 3.3.
 theorem thetaCycles (p k : ℕ) [Fact p.Prime] (hp : 3 < p)
-    (hk : 1 ≤ k ∧ k ≤ p+1) (ordinary : Bool) (cycle : List ℕ) :
-    largeThetaCycle p k ordinary = some cycle := by sorry
+    (hk : 1 ≤ k ∧ k ≤ p+1) (ordinary : Bool)
+    (hadmissible : ordinary = false → k ≠ p+1) :
+    ∃ cycle : List ℕ, largeThetaCycle p k ordinary = some cycle ∧
+      cycle.length = p-1 := by sorry
 
 -- R15.3/weight-reduction-to-at-most-p-plus-one.
 -- Missing the Hasse LES, supersingular boundary, Hecke-dual KS calculation,
@@ -1091,7 +1106,7 @@ example : serreWeight 2 (.wild 0 1 true) = 2 ∧
     serreWeight 2 (.wild 0 1 false) = 4 := by sorry
 
 -- R15.4/determinant-parity-and-weight-mod-p-minus-one: the local arithmetic.
-theorem determinantWeightCongruence (p a b : ℕ) :
+theorem determinantWeightCongruence (p a b : ℕ) [Fact p.Prime] :
     Nat.ModEq (p-1) ((1+p*a+b)-1) (a+b) := by sorry
 
 -- R15.4/recipe-well-definedness-and-twisting: lower bound on normalized data.
