@@ -37689,8 +37689,9 @@
     "BP-ArithmeticGaloisRepresentations~3"
    ],
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7487"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7487",
+   "finishedAt": "2026-10-09T01:25:45Z"
   },
   {
    "kind": "blueprint",
@@ -45649,7 +45650,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AdelicAlgebraicGroups.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7453"
   },
   {
    "id": "REV-PKG-AdelicAlgebraicGroups",
@@ -47047,8 +47049,9 @@
     "PKG-HeegnerPointEulerSystems"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeegnerPointEulerSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7522"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7522",
+   "finishedAt": "2026-10-09T01:25:48Z"
   },
   {
    "id": "PKG-HodgeStructuresPartII",
@@ -47822,8 +47825,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-WeilConjectures.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7500"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7500",
+   "finishedAt": "2026-10-09T01:25:50Z"
   },
   {
    "id": "REV-PKG-WeilConjectures",
