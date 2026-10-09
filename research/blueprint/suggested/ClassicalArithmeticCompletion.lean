@@ -127,13 +127,14 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 statements suggest Lean forms so that contributors and reviewers can converge on
 names and signatures. They claim no implementation.
 
-BP-ClassicalArithmeticCompletion: partial prototype, implementationStatus = unchecked.
+BP-ClassicalArithmeticCompletion~2: checked planning signatures, implementationStatus = unchecked.
 Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-The author reported Mathlib-only elaboration before this review; that historical receipt
-is archived in the packet. The current edited file was not compiled: no complete existing
-build matches both pins. Where a node imports a Tau Ceti declaration, the
-section says so in a comment and states locally only what the prototype needs.
+Revision round 2 elaborates this file with lean-check in the existing shared build at both
+pins. All executable declarations and examples elaborate; their proofs remain admitted.
+Owner-dependent interfaces remain explicitly commented and are not part of that receipt.
+Historical author and independent-review checks remain attributed in the packet. Where a
+node imports a Tau Ceti declaration, its section identifies that input.
 
 One section per layer, CA.0 to CA.7, in the order of the roadmap; later sections use the
 declarations of earlier ones (CA.5 uses CA.3's Hermite normal form, CA.3's rational
@@ -311,6 +312,11 @@ theorem exists_pow_eq_iff_pow_eq_one {F : Type*} [Field F] [Fintype F] (n : ℕ)
     (∃ b : F, b ^ n = a) ↔
       a ^ ((Fintype.card F - 1) / (Fintype.card F - 1).gcd n) = 1 := by
   sorry
+
+/-- CA.1/power-residue-criterion-in-a-finite-field: nonzero roots, including `n = 0`. -/
+theorem card_nonzero_pow_roots {F : Type*} [Field F] [Fintype F] (n : ℕ) {a : F}
+    (ha : a ≠ 0) (hex : ∃ b : F, b ^ n = a) :
+    Nat.card {b : F // b ≠ 0 ∧ b ^ n = a} = (Fintype.card F - 1).gcd n := by sorry
 
 /-! ### The squarefree part of a rational number -/
 
@@ -585,7 +591,7 @@ theorem factorization_two_le_three_of_isQuadratic {R : Type*} [CommRing R] {N : 
 `b = x ^ 2 - a * y ^ 2` has a solution in `K`, and `-1` otherwise. It is restated here only because
 that roadmap is not built at the pin; it is replaced by the import once it is. -/
 
-/-- Stand-in for Quadratic Form Invariants 6C's `hilbertSymbol` (its item 1, verbatim). -/
+/-- Stand-in for Quadratic Form Invariants 6C's `hilbertSymbol` (its item 1, in the local notation). -/
 noncomputable def normEquationSymbol (K : Type*) [Field K] (a b : K) : ℤ :=
   open Classical in if ∃ x y : K, b = x ^ 2 - a * y ^ 2 then 1 else -1
 
@@ -1455,6 +1461,15 @@ theorem hasSum_bernoulli_mul_pow {z : ℂ} (hz : ‖z‖ < 2 * Real.pi) :
 theorem hasSum_zigzag_mul_pow {z : ℂ} (hz : ‖z‖ < Real.pi / 2) :
     HasSum (fun n => (zigzag n : ℂ) * z ^ n / n.factorial)
       (1 / Complex.cos z + Complex.tan z) := by sorry
+
+/-- CA.2/bernoulli-generating-function-on-its-disc: the sharp outer divergence clause. -/
+theorem not_summable_bernoulli_mul_pow {z : ℂ} (hz : 2 * Real.pi < ‖z‖) :
+    ¬ Summable (fun n : ℕ => (bernoulli n : ℂ) * z ^ n / n.factorial) := by sorry
+
+/-- CA.2/secant-plus-tangent-on-its-disc: the sharp outer divergence clause. -/
+theorem not_summable_zigzag_mul_pow {z : ℂ} (hz : Real.pi / 2 < ‖z‖) :
+    ¬ Summable (fun n : ℕ => (zigzag n : ℂ) * z ^ n / n.factorial) := by sorry
+
 
 /-! ### Radix expansions -/
 
@@ -3000,6 +3015,10 @@ theorem fermat_right_triangle_descent_step {x y z : ℤ} (hx : 0 < x) (hy : 0 < 
 theorem fermat_right_triangle {x y z : ℤ} (hx : 0 < x) (hy : 0 < y) (hz : 0 < z) :
     x ^ 4 - y ^ 4 ≠ z ^ 2 := by sorry
 
+/-- CA.4/fermat-right-triangle-theorem: integral consequence used by quartic descent. -/
+theorem fermat_right_triangle_int {x y z : ℤ} (h : x ^ 4 - y ^ 4 = z ^ 2) :
+    y = 0 ∨ z = 0 := by sorry
+
 /-- CA.4/quartic-descent-t4-plus-v4-equals-2u2 (Bennett–Siksek, §6, p. 372). -/
 theorem quartic_descent_eq_two_mul_sq {T V U : ℕ} (hT : 0 < T) (hV : 0 < V) (hU : 0 < U)
     (hgcd : Nat.gcd (Nat.gcd T V) U = 1) (h : T ^ 4 + V ^ 4 = 2 * U ^ 2) :
@@ -3176,6 +3195,10 @@ theorem markoff_root_generation {x : Fin 3 → ℤ} (hx : x ∈ positiveMarkoffT
 
 /-- CA.4/markoff-tree: the positive Markoff graph is a tree. -/
 theorem markoffGraph_isTree : markoffGraph.IsTree := by sorry
+
+/-- CA.4/markoff-triple-coordinates-coprime: preserve gcd values, not only prime supports. -/
+theorem markoffVieta_pairwise_gcd (i j k : Fin 3) (x : Fin 3 → ℤ) (hjk : j ≠ k) :
+    Int.gcd (markoffVieta i x j) (markoffVieta i x k) = Int.gcd (x j) (x k) := by sorry
 
 /-- CA.4/markoff-triple-coordinates-coprime (Frobenius). -/
 theorem markoff_triple_coprime {x : Fin 3 → ℤ} (hx : x ∈ positiveMarkoffTriples) :
@@ -3389,6 +3412,14 @@ theorem theta_fourth_power_coeff (N : ℕ) :
 theorem jacobi_four_square {n : ℕ} (hn : 0 < n) :
     sumSquaresCount 4 n = 8 * ∑ d ∈ n.divisors with ¬ 4 ∣ d, d := by sorry
 
+/-- CA.4/jacobi-four-square-theorem: the equivalent odd case. -/
+theorem jacobi_four_square_odd {n : ℕ} (hn : 0 < n) (ho : Odd n) :
+    sumSquaresCount 4 n = 8 * ∑ d ∈ n.divisors, d := by sorry
+
+/-- CA.4/jacobi-four-square-theorem: the equivalent even case. -/
+theorem jacobi_four_square_even {n : ℕ} (hn : 0 < n) (he : Even n) :
+    sumSquaresCount 4 n = 24 * ∑ d ∈ n.divisors with Odd d, d := by sorry
+
 /-! ### Pell-type equations (`CA.4/generalised-pell-*`, `CA.4/negative-pell-*`) -/
 
 /-- The solutions of x² − dy² = n, as elements of `ℤ√d` of norm `n`. -/
@@ -3429,6 +3460,11 @@ example : pellNormSet 2 0 = {0} := by sorry
 /-- Unit test `pellNormSet_one_compat`: agreement with Mathlib's carrier of `Pell.Solution₁`. -/
 example (d : ℤ) (z : ℤ√d) : z ∈ pellNormSet d 1 ↔ z ∈ unitary (ℤ√d) := by sorry
 
+/-- CA.4/negative-pell-solution-ordering, positivity before comparing two solutions. -/
+theorem negativePell_pos_of_one_lt {d : ℤ} (hd : 0 < d) (hns : ¬ IsSquare d)
+    {x y : ℤ} (h : x ^ 2 - d * y ^ 2 = -1)
+    (hreal : 1 < (x : ℝ) + y * Real.sqrt d) : 1 ≤ x ∧ 1 ≤ y := by sorry
+
 /-- CA.4/negative-pell-solution-ordering. -/
 theorem negativePell_ordering {d : ℤ} (hd : 0 < d) (hns : ¬ IsSquare d) {x y a b : ℤ}
     (hx : 1 ≤ x) (hy : 1 ≤ y) (ha : 1 ≤ a) (hb : 1 ≤ b) (h : x ^ 2 - d * y ^ 2 = -1)
@@ -3457,6 +3493,11 @@ theorem negativePell_classification {d : ℤ} (hd : 0 < d) (hns : ¬ IsSquare d)
 theorem negativePell_no_solution {d : ℤ}
     (h : 4 ∣ d ∨ ∃ p : ℕ, p.Prime ∧ p % 4 = 3 ∧ (p : ℤ) ∣ d) (x y : ℤ) :
     x ^ 2 - d * y ^ 2 ≠ -1 := by sorry
+
+/-- CA.4/negative-pell-local-obstruction: reduction of a general norm equation. -/
+theorem pellNormSet_mod_prime {d n x y : ℤ} (h : x ^ 2 - d * y ^ 2 = n)
+    {p : ℕ} (hp : p.Prime) (hpd : (p : ℤ) ∣ d) :
+    IsSquare (n : ZMod p) := by sorry
 
 /-- CA.4/chebyshev-bound-generalised-pell. -/
 theorem chebyshev_bound {d : ℤ} (hd : 0 < d) (hns : ¬ IsSquare d) {a b : ℤ} (ha : 0 < a)
@@ -3668,6 +3709,14 @@ theorem aperySet_unique_decomposition {S : AddSubmonoid ℕ} (hS : IsNumericalSe
 theorem selmer_frobenius {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S) {n : ℕ} (hn : n ∈ S)
     (hn0 : 0 < n) : numericalFrobenius S = ((sSup (aperySet S n) : ℕ) : ℤ) - (n : ℤ) := by sorry
 
+/-- CA.4/apery-set-unique-decomposition: the finite generating set. -/
+theorem closure_insert_aperySet_eq {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S)
+    {n : ℕ} (hn : n ∈ S) (hn0 : 0 < n) :
+    _root_.AddSubmonoid.closure (insert n (aperySet S n \ {0})) = S := by sorry
+
+theorem exists_finset_generators {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S) :
+    ∃ D : Finset ℕ, _root_.AddSubmonoid.closure (D : Set ℕ) = S := by sorry
+
 /-- CA.4/selmer-genus-formula. -/
 theorem selmer_genus {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S) {n : ℕ} (hn : n ∈ S)
     (hn0 : 0 < n) : 2 * n * numericalGenus S + n * (n - 1) = 2 * ∑ᶠ w ∈ aperySet S n, w := by
@@ -3682,6 +3731,15 @@ theorem sylvester_gap_count {a b : ℕ} (ha : 0 < a) (hb : 0 < b) (hab : Nat.gcd
 /-- CA.4/genus-frobenius-inequality. -/
 theorem numericalFrobenius_add_one_le {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S) :
     numericalFrobenius S + 1 ≤ 2 * numericalGenus S := by sorry
+
+/-- CA.4/genus-frobenius-inequality: reflection, with integer subtraction at `S = ℕ`. -/
+theorem numericalFrobenius_reflects_to_gap {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S)
+    {s : ℕ} (hs : s ∈ S) (hle : (s : ℤ) ≤ numericalFrobenius S) :
+    (numericalFrobenius S - s).toNat ∈ numericalGaps S := by sorry
+
+theorem numericalFrobenius_card_partition {S : AddSubmonoid ℕ} (hS : IsNumericalSemigroup S) :
+    (({s : ℕ | s ∈ S ∧ (s : ℤ) ≤ numericalFrobenius S}).ncard : ℤ) +
+      numericalGenus S = numericalFrobenius S + 1 := by sorry
 
 /-- `S` is symmetric: every integer `x ∉ S` has `F(S) − x ∈ S`. -/
 def IsSymmetricNumerical (S : AddSubmonoid ℕ) : Prop :=
@@ -3857,6 +3915,13 @@ example : sylvesterSeq 3 ≠ 2 * sylvesterSeq 2 + 1 := by sorry
 theorem sum_one_div_sylvesterSeq (k : ℕ) :
     ∑ j ∈ Finset.range k, (1 : ℚ) / sylvesterSeq j = 1 - 1 / ((sylvesterSeq k : ℚ) - 1) := by sorry
 
+/-- CA.4/sylvester-egyptian-identity: convergence of the telescoping sums. -/
+theorem hasSum_one_div_sylvesterSeq : HasSum (fun j => (1 : ℝ) / sylvesterSeq j) 1 := by sorry
+
+/-- Strict underapproximation uses floor plus one, including when the inverse remainder is integral. -/
+theorem sylvesterSeq_strict_greedy (k : ℕ) :
+    sylvesterSeq k = ⌊1 / (1 - ∑ j ∈ Finset.range k, (1 : ℚ) / sylvesterSeq j)⌋₊ + 1 := by sorry
+
 /-! ### Routing interface (`CA.4/primitive-zero-of-a-form` and consumers) -/
 
 /-- A primitive integer zero of `F`: `F(x) = 0` and the coordinates have gcd 1. -/
@@ -3922,7 +3987,8 @@ theorem IsPrimitiveZero.locally_soluble {n : ℕ} {F : MvPolynomial (Fin (n + 1)
       (∃ i, ¬ (p : ℤ) ∣ x i) ∧
       MvPolynomial.eval (fun i => (x i : ℤ_[p])) (F.map (Int.castRingHom _)) = 0 ∧
       (∃ i, IsUnit (x i : ℤ_[p])) ∧
-      MvPolynomial.eval (fun i => (x i : ℝ)) (F.map (Int.castRingHom ℝ)) = 0 := by sorry
+      MvPolynomial.eval (fun i => (x i : ℝ)) (F.map (Int.castRingHom ℝ)) = 0 ∧
+      (fun i => (x i : ℝ)) ≠ 0 := by sorry
 
 /-- CA.4/rational-points-of-y2-x3-plus-x: the only affine rational point of y² = x³ + x is
 (0, 0). -/
@@ -4074,6 +4140,12 @@ theorem classNumber_mul_relIndex_eq_natAbs_det {N : ℕ} (I : Fin N → (Ideal (
       (relationLattice I).toAddSubgroup = A.det.natAbs := by
   sorry
 
+/-- CA.5/class-number-divides-relation-determinant: equality detects all relations. -/
+theorem natAbs_det_eq_classNumber_iff {N : ℕ} (I : Fin N → (Ideal (𝓞 K))⁰)
+    (hgen : Function.Surjective (classGroupPresentation I)) (A : Matrix (Fin N) (Fin N) ℤ)
+    (hA : LinearMap.range A.mulVecLin ≤ relationLattice I) (hdet : A.det ≠ 0) :
+    A.det.natAbs = classNumber K ↔ LinearMap.range A.mulVecLin = relationLattice I := by sorry
+
 /-! ### Units -/
 
 /-- **A regulator bound certifies a fundamental system** (CA.5/fundamental-units-from-regulator-bound). -/
@@ -4091,7 +4163,8 @@ theorem relations_and_units_complete_of_lt_two_mul {N : ℕ} (I : Fin N → (Ide
     (hlow : hstar ≤ classNumber K * NumberField.Units.regulator K)
     (hlt : A.det.natAbs * NumberField.Units.regOfFamily u < 2 * hstar) :
     LinearMap.range A.mulVecLin = relationLattice I ∧
-      Subgroup.closure (Set.range u) ⊔ NumberField.Units.torsion K = ⊤ := by
+      Subgroup.closure (Set.range u) ⊔ NumberField.Units.torsion K = ⊤ ∧
+      classNumber K = A.det.natAbs ∧ NumberField.Units.regulator K = NumberField.Units.regOfFamily u := by
   sorry
 
 /-! ### Ideals given by integer matrices -/
@@ -4648,6 +4721,12 @@ theorem mahlerMeasure_le_max_house_pow {K : Type*} [Field K] [NumberField K] {α
       max (NumberField.house α) (NumberField.house α⁻¹) ^ (((minpoly ℤ α).natDegree : ℝ) / 2) := by
   sorry
 
+/-- CA.6/mahler-measure-of-unit-le-house: equality under inversion of an algebraic unit. -/
+theorem mahlerMeasure_minpoly_inv {K : Type*} [Field K] [NumberField K] {α : K} (h0 : α ≠ 0)
+    (hα : IsIntegral ℤ α) (hα' : IsIntegral ℤ α⁻¹) :
+    ((minpoly ℤ α).map (Int.castRingHom ℂ)).mahlerMeasure =
+      ((minpoly ℤ α⁻¹).map (Int.castRingHom ℂ)).mahlerMeasure := by sorry
+
 /-- CA.6/one-add-weil-height-le-house (Smyth's survey, (9)): `⌈α⌉ ≥ 1 + h(α)` for a nonzero
 algebraic integer, with `h` the absolute logarithmic Weil height. -/
 theorem one_add_absLogHeight₁_le_house {K : Type*} [Field K] [NumberField K] {α : K}
@@ -4667,6 +4746,7 @@ theorem isIntegral_inv_of_mahlerMeasure_lt_two {K : Type*} [Field K] [CharZero K
 constant iff `P` is reciprocal. -/
 theorem smyth_quotient_series {P : ℤ[X]} (hP : P.Monic) (hunit : IsUnit (P.coeff 0)) :
     ∃ F : PowerSeries ℤ, F * (P.reverse : PowerSeries ℤ) = PowerSeries.C (P.coeff 0) * (P : PowerSeries ℤ) ∧
+      PowerSeries.coeff 0 F = 1 ∧
       ((∃ c : ℤ, F = PowerSeries.C c) ↔ (P.reverse = P ∨ P.reverse = -P)) := by sorry
 
 /-- CA.6/smyth-nonreciprocal-lower-bound (**Smyth's theorem**): a nonzero algebraic integer that is
