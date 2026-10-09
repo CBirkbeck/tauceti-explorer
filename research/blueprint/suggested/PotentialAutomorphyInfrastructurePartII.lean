@@ -9,8 +9,9 @@ signatures. Every proof is `sorry`, and so is every piece of data whose construc
 this roadmap or of the roadmap that owns it. Nothing here claims to be formalised.
 
 Pinned baseline: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The file imports Mathlib only: the Tau Ceti modules at
-the pin contain none of the objects used here.
+`f790474821cf4256814db967cb154e7af3d0c369`. The file imports Mathlib only. Owner theorem exports are represented by the explicitly
+requested interfaces below; this does not claim that all their elementary ingredients are absent
+from Tau Ceti at the pin.
 
 **How the file is built.**
 
@@ -47,8 +48,10 @@ the pin contain none of the objects used here.
 components and finite coefficient descents certified by R08.3. NT21 deformation data and part (d)
 of ordinary freeness have their own signatures. PL.8 states the O + epsilon E/O comparison as an
 IHG.1 input and owns its integral polarized trace equivariance. PL.7 targets that pass through the
-strong-primitive generic R=T theorem require strong primitivity, including the character-sum
-applications; the large-ratio weak-primitive lemma does not establish this extra hypothesis.
+strong-primitive generic R=T theorem retain that hypothesis in general rank. For character-sum
+applications with rank smaller than the residual characteristic, the explicit normal-core averaging
+bridge derives strong primitivity from the source hypotheses; good extensions with p not dividing
+the rank use the kernel-orbit image-invariance bridge.
 PL.9 counts the odd-multiplier local tangent defect and extra generators before its parity
 conclusion. LLHLM source weights label the coefficients and polynomial; sourceToCommon translates
 the Hodge–Tate and HasWeight signatures. The separate change-of-weight route retains the §9.1
@@ -280,6 +283,7 @@ def HasHodgeTate {n : ℕ} (ρ : Gal K →ₜ* GL (Fin n) E) (H : (K →+* E) �
 def IsPotentiallyCrystalline {n : ℕ} (ρ : Gal K →ₜ* GL (Fin n) E) : Prop :=
   ∃ (K' : Type) (_ : Field K') (_ : ValuativeRel K') (_ : TopologicalSpace K')
     (_ : IsNonarchimedeanLocalField K') (f : K →+* K'),
+    (letI := f.toAlgebra; Module.Finite K K') ∧ Continuous f ∧
     (crystalline K' E n).Holds (resField ρ f)
 
 /-- SmoothRepresentationsOfLocalGroups SR.1 (stand-in): irreducible smooth representations of
@@ -620,6 +624,12 @@ is obtained after a finite continuous enlargement and compatible residual base c
 def geometricallyIntegralComponent {ρbar : Gal K →* GL (Fin n) 𝓀[E]} :
     Imported (Ideal (LiftingRing K E ρbar)) := sorry
 
+/-- `E` contains the image of every embedding of the local field `K` into an algebraic extension
+of `E`. -/
+def IsLargeForLocal (K E : Type) [Field K] [Field E] : Prop :=
+  ∀ (E' : Type) [Field E'] [Algebra E E'] [Algebra.IsAlgebraic E E'] (τ : K →+* E'),
+    ∃ τ₀ : K →+* E, τ = (algebraMap E E').comp τ₀
+
 /-- Connection of two lifts of the same residual representation. For `l ≠ p` (the residue
 characteristics of `E` and `K`): a common irreducible component of `Spec R^□[1/l]`. For `l = p`:
 both are potentially crystalline with the same labelled Hodge–Tate weights `H` and lie on a common
@@ -628,8 +638,9 @@ The component condition is over an algebraic closure of E (BLGGT14 §§1.3–1.4
 def ConnectsLift {p l : ℕ} [ResChar K p] [ResChar E l] {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
     (ρ₁ ρ₂ : Lift ρbar) : Prop :=
   (p ≠ l → OnCommonGeometricComponent ⊥ ρ₁ ρ₂) ∧
-  (p = l → ∃ (H : (K →+* E) → Multiset ℤ) (K' : Type) (_ : Field K') (_ : ValuativeRel K')
+  (p = l → IsLargeForLocal K E ∧ ∃ (H : (K →+* E) → Multiset ℤ) (K' : Type) (_ : Field K') (_ : ValuativeRel K')
       (_ : TopologicalSpace K') (_ : IsNonarchimedeanLocalField K') (f : K →+* K'),
+      (letI := f.toAlgebra; Module.Finite K K') ∧ Continuous f ∧
       HasHodgeTate (genericC ρ₁.1) H ∧ HasHodgeTate (genericC ρ₂.1) H ∧
       OnCommonGeometricComponent (crystallineIdeal ρbar H f) ρ₁ ρ₂)
 
@@ -665,17 +676,32 @@ def crystallineComponentDeformationProblem {ρbar : Gal K →* GL (Fin n) 𝓀[E
 
 /-- **`PL.1/potentially-diagonalizable`.** `ρ` is crystalline and connects to a sum of
 crystalline characters (`K` and `E` of the same residue characteristic). -/
-def IsDiagonalizable {l : ℕ} [ResChar K l] [ResChar E l]
+def IsDiagonalizableOver {l : ℕ} [ResChar K l] [ResChar E l]
     (ρ : Gal K →ₜ* GL (Fin n) 𝒪[E]) : Prop :=
   (crystalline K E n).Holds (genericC ρ) ∧
   ∃ χ : Fin n → Gal K →ₜ* (𝒪[E])ˣ,
     (crystalline K E n).Holds (genericC (diagRep χ)) ∧ Connects ρ (diagRep χ)
+
+/-- **`PL.1/potentially-diagonalizable`.** Geometric diagonalizability of an integral
+representation over a finite E. Enlarge E continuously and finitely to E', containing the
+local embeddings, choose an integral realization of the scalar extension, and connect it to
+crystalline characters over E'. This expresses the Qbar_l definition without assuming that
+the original finite E contains the character witnesses. -/
+def IsDiagonalizable {l : ℕ} [ResChar K l] [ResChar E l]
+    (ρ : Gal K →ₜ* GL (Fin n) 𝒪[E]) : Prop :=
+  ∃ (E' : Type) (_ : Field E') (_ : ValuativeRel E') (_ : TopologicalSpace E')
+    (_ : IsNonarchimedeanLocalField E') (_ : CharZero E') (_ : ResChar E' l) (j : E →+* E'),
+    (letI := j.toAlgebra; Module.Finite E E') ∧ Continuous j ∧ IsLargeForLocal K E' ∧
+    ∃ ρ' : Gal K →ₜ* GL (Fin n) 𝒪[E'],
+      Conj (fun σ => Matrix.GeneralLinearGroup.map j (genericC ρ σ)) (genericC ρ') ∧
+      IsDiagonalizableOver ρ'
 
 /-- **`PL.1/potentially-diagonalizable`.** `ρ|G_{K'}` is diagonalizable for some finite `K'/K`. -/
 def IsPotentiallyDiagonalizable {l : ℕ} [ResChar K l] [ResChar E l]
     (ρ : Gal K →ₜ* GL (Fin n) 𝒪[E]) : Prop :=
   ∃ (K' : Type) (_ : Field K') (_ : ValuativeRel K') (_ : TopologicalSpace K')
     (_ : IsNonarchimedeanLocalField K') (_ : ResChar K' l) (f : K →+* K'),
+    (letI := f.toAlgebra; Module.Finite K K') ∧ Continuous f ∧
     IsDiagonalizable (resField ρ f)
 
 /-- Potential diagonalizability of a representation over `E`: some (equivalently every, BLGGT14
@@ -940,12 +966,6 @@ def IsSemisimpleRep {G k : Type*} [Field k] {n : ℕ} (ρ : G → GL (Fin n) k) 
 
 /-- A weight `λ` is dominant: `λ_{τ,1} ≥ ⋯ ≥ λ_{τ,n}` for every `τ`. -/
 def IsDominant {T : Type*} {n : ℕ} (lam : T → Fin n → ℤ) : Prop := ∀ τ, Antitone (lam τ)
-
-/-- `E` contains the image of every embedding of the local field `K` into an algebraic extension
-of `E`. -/
-def IsLargeForLocal (K E : Type) [Field K] [Field E] : Prop :=
-  ∀ (E' : Type) [Field E'] [Algebra E E'] [Algebra.IsAlgebraic E E'] (τ : K →+* E'),
-    ∃ τ₀ : K →+* E, τ = (algebraMap E E').comp τ₀
 
 /-- The absolute ramification index of the local field `K` of residue characteristic `l`: the
 largest `e` with `l ∈ 𝔪_K^e`. -/
@@ -1240,8 +1260,12 @@ section PL0
 variable {F : Type} [Field F] [NumberField F]
 variable {E : Type} [Field E] [ValuativeRel E] [TopologicalSpace E] [IsNonarchimedeanLocalField E]
   [CharZero E]
-variable {l : ℕ} [Fact l.Prime] [ResChar E l] [IsLargeFor F E]
+variable {l : ℕ} [Fact l.Prime] [hres : ResChar E l] [hlarge : IsLargeFor F E]
 variable {n : ℕ}
+
+-- These hypotheses govern every theorem in this section, including slope formulas whose
+-- types alone do not mention either class. Keep them in the elaborated signatures.
+include hres hlarge
 
 /-! ### PL.0/ordinary-of-weight: Ordinary Galois representations of weight λ -/
 
@@ -1954,11 +1978,13 @@ def IsClosedPointAway {R : Type*} [CommRing R] (l : ℕ) (P : Ideal R) : Prop :=
 section PL1Connects
 
 variable {K : Type} [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
-  [CharZero K]
+  [hKzero : CharZero K]
 variable {E : Type} [Field E] [ValuativeRel E] [TopologicalSpace E] [IsNonarchimedeanLocalField E]
-  [CharZero E]
+  [hEzero : CharZero E]
 variable {p l : ℕ} [Fact p.Prime] [Fact l.Prime] [ResChar K p] [ResChar E l]
 variable {n : ℕ}
+
+include hKzero hEzero
 
 /-- The inertial Weil–Deligne types of two lattices agree: `r₁|I_K ≅ r₂|I_K`. -/
 def SameInertialType (ρ₁ ρ₂ : Gal K →ₜ* GL (Fin n) 𝒪[E]) : Prop :=
@@ -2016,7 +2042,8 @@ theorem Connects.of_conj (ρ₁ ρ₂ : Gal K →ₜ* GL (Fin n) 𝒪[E]) (g₁ 
 /-- If `ρ₁ ∼ ρ₂` and `K'/K` is finite then `ρ₁|G_{K'} ∼ ρ₂|G_{K'}`. -/
 theorem Connects.restrict {ρ₁ ρ₂ : Gal K →ₜ* GL (Fin n) 𝒪[E]} (h : Connects ρ₁ ρ₂) (K' : Type)
     [Field K'] [ValuativeRel K'] [TopologicalSpace K'] [IsNonarchimedeanLocalField K']
-    [ResChar K' p] [Algebra K K'] [FiniteDimensional K K'] :
+    [ResChar K' p] [Algebra K K'] [FiniteDimensional K K']
+    (hE : p = l → IsLargeForLocal K' E) :
     Connects (resField ρ₁ (algebraMap K K')) (resField ρ₂ (algebraMap K K')) := by
   sorry
 
@@ -2042,7 +2069,7 @@ theorem componentDeformationProblem_isLocalDeformationProblem (hpl : p ≠ l)
 /-- The corresponding component condition at l=p, BLGGT14 §1.4, pp.26–27.
 All selected components have the fixed Hodge type and crystalline extension. -/
 theorem crystallineComponentDeformationProblem_isLocalDeformationProblem
-    (hpl : p = l) (ρbar : Gal K →* GL (Fin n) 𝓀[E])
+    (hpl : p = l) (hE : IsLargeForLocal K E) (ρbar : Gal K →* GL (Fin n) 𝓀[E])
     (hρbar : IsContinuousResidual ρbar) (H : (K →+* E) → Multiset ℤ)
     (K' : Type) [Field K'] [ValuativeRel K'] [TopologicalSpace K']
     [IsNonarchimedeanLocalField K'] [Algebra K K'] [FiniteDimensional K K']
@@ -2073,7 +2100,7 @@ example (hpl : p ≠ l) (ρ : Gal K →ₜ* GL (Fin n) 𝒪[E]) : Connects ρ ρ
 
 -- second part: for `l = p` exactly the potentially crystalline lifts connect to themselves
 -- test: connects_refl
-example (hpl : p = l) (ρ : Gal K →ₜ* GL (Fin n) 𝒪[E]) :
+example (hpl : p = l) (hE : IsLargeForLocal K E) (ρ : Gal K →ₜ* GL (Fin n) 𝒪[E]) :
     Connects ρ ρ ↔ IsPotentiallyCrystalline (genericC ρ) := by
   sorry
 
@@ -2151,7 +2178,8 @@ extension, direct sums, tensor products and duals. -/
 theorem connects_properties_operations {m : ℕ} (ρ₁ ρ₂ : Gal K →ₜ* GL (Fin n) 𝒪[E])
     (ρ₁' ρ₂' : Gal K →ₜ* GL (Fin m) 𝒪[E]) (h : Connects ρ₁ ρ₂) (h' : Connects ρ₁' ρ₂')
     (K' : Type) [Field K'] [ValuativeRel K'] [TopologicalSpace K']
-    [IsNonarchimedeanLocalField K'] [ResChar K' p] [Algebra K K'] [FiniteDimensional K K'] :
+    [IsNonarchimedeanLocalField K'] [ResChar K' p] [Algebra K K'] [FiniteDimensional K K']
+    (hE : p = l → IsLargeForLocal K' E) :
     Connects (resField ρ₁ (algebraMap K K')) (resField ρ₂ (algebraMap K K')) ∧
       Connects (sumRep ρ₁ ρ₁') (sumRep ρ₂ ρ₂') ∧
       Connects (tensorRep ρ₁ ρ₁') (tensorRep ρ₂ ρ₂') ∧ Connects (dualRep ρ₁) (dualRep ρ₂) := by
@@ -2170,7 +2198,8 @@ remark (6)): `ρ₁ ∼ ρ₁ ⊗ μ` for an unramified character `μ` with triv
 the lift `ρ₁` is assumed potentially crystalline. -/
 theorem connects_properties_unramified_twist (ρ₁ : Gal K →ₜ* GL (Fin n) 𝒪[E])
     (hpc : p = l → IsPotentiallyCrystalline (genericC ρ₁)) (μ : Gal K →ₜ* (𝒪[E])ˣ)
-    (hμ : IsUnramified μ.toMonoidHom) (hμbar : ∀ σ, IsLocalRing.residue 𝒪[E] (μ σ : 𝒪[E]) = 1) :
+    (hμ : IsUnramified μ.toMonoidHom) (hμbar : ∀ σ, IsLocalRing.residue 𝒪[E] (μ σ : 𝒪[E]) = 1)
+    (hE : p = l → IsLargeForLocal K E) :
     Connects ρ₁ (twistRep ρ₁ μ) := by
   sorry
 
@@ -2186,7 +2215,8 @@ theorem connects_properties_filtration (ρ₁ ρ₂ : Gal K →ₜ* GL (Fin n) �
     (d : Fin n → ℕ)
     (hd : ∀ σ, (conjBy g ρ₁ σ : Matrix (Fin n) (Fin n) 𝒪[E]).BlockTriangular d)
     (hgr : ∀ σ i j, (ρ₂ σ : Matrix (Fin n) (Fin n) 𝒪[E]) i j =
-      if d i = d j then (conjBy g ρ₁ σ : Matrix (Fin n) (Fin n) 𝒪[E]) i j else 0) :
+      if d i = d j then (conjBy g ρ₁ σ : Matrix (Fin n) (Fin n) 𝒪[E]) i j else 0)
+    (hE : p = l → IsLargeForLocal K E) :
     Connects ρ₁ ρ₂ := by
   sorry
 
@@ -2257,11 +2287,13 @@ end PL1Connects
 section PL1Diagonalizable
 
 variable {K : Type} [Field K] [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K]
-  [CharZero K]
+  [hKzero : CharZero K]
 variable {E : Type} [Field E] [ValuativeRel E] [TopologicalSpace E] [IsNonarchimedeanLocalField E]
-  [CharZero E]
+  [hEzero : CharZero E]
 variable {l : ℕ} [Fact l.Prime] [ResChar K l] [ResChar E l]
 variable {n : ℕ}
+
+include hKzero hEzero
 
 /-! ### PL.1/potentially-diagonalizable: Diagonalizable and potentially diagonalizable
 representations -/
@@ -3214,7 +3246,8 @@ def HeckeDatum.IsReps (D : HeckeDatum E) (V : Subgroup D.G) (s : Finset D.level)
 `(u·f)(g) = u f(gu)`. -/
 def diamondOp (D : HeckeDatum E) (lam : (D.L →+* E) → Fin D.n → ℤ) (A : Type) [AddCommGroup A]
     [Module 𝒪[E] A] (V : Subgroup D.G) (hV : IsOpen (V : Set D.G))
-    (hc : IsCompact (V : Set D.G)) (u : D.level) :
+    (hc : IsCompact (V : Set D.G)) (hVU : V ≤ D.level)
+    (hnormal : (V.subgroupOf D.level).Normal) (u : D.level) :
     Module.End 𝒪[E] (AlgebraicModularForm (D.withLevel V hV hc) lam A) where
   toFun f := ⟨fun g => tensorAction D lam A u (f.1 (g * u)), by sorry⟩
   map_add' := by sorry
@@ -3243,13 +3276,13 @@ theorem exactness_and_freeness_2 (D : HeckeDatum E) (lam : (D.L →+* E) → Fin
       LinearMap.ker (AlgebraicModularForm.trace D lam A V hV hc hcov.1) =
         Submodule.span 𝒪[E] {x | ∃ (u : D.level)
           (f : AlgebraicModularForm (D.withLevel V hV hc) lam A),
-          x = diamondOp D lam A V hV hc u f - f}) ∧
+          x = diamondOp D lam A V hV hc hcov.1 hcov.2.1 u f - f}) ∧
     ∀ s : Finset D.level, D.IsReps V s →
       ∃ (r : ℕ) (b : Fin r → AlgebraicModularForm (D.withLevel V hV hc) lam 𝒪[E]),
         LinearIndependent 𝒪[E]
-          (fun p : s × Fin r => diamondOp D lam 𝒪[E] V hV hc p.1 (b p.2)) ∧
+          (fun p : s × Fin r => diamondOp D lam 𝒪[E] V hV hc hcov.1 hcov.2.1 p.1 (b p.2)) ∧
         Submodule.span 𝒪[E]
-          (Set.range fun p : s × Fin r => diamondOp D lam 𝒪[E] V hV hc p.1 (b p.2)) = ⊤ := by
+          (Set.range fun p : s × Fin r => diamondOp D lam 𝒪[E] V hV hc hcov.1 hcov.2.1 p.1 (b p.2)) = ⊤ := by
   sorry
 
 /-! #### Imported interfaces used by PL.2 (Galois representations) -/
@@ -5080,6 +5113,11 @@ theorem twLevel0_le : twLevel0 Q ≤ D.level := by
 theorem twLevel1_le : twLevel1 Q ≤ twLevel0 Q := by
   sorry
 
+/-- Normality follows place by place from the kernel defining the parahoric cover;
+it does not require the surjectivity assertion in `twLevel_quotient`. -/
+theorem twLevel1_normal : ((twLevel1 Q).subgroupOf (twLevel0 Q)).Normal := by
+  sorry
+
 /-- `U₁(Q) ⊴ U₀(Q)` with `U₀(Q)/U₁(Q) ≅ Δ_Q = ∏_{v ∈ Q} k(ṽ)^×(l)`. -/
 theorem twLevel_quotient (hlev : D.MinimalLevel) :
     ((twLevel1 Q).subgroupOf (twLevel0 Q)).Normal ∧
@@ -5124,7 +5162,7 @@ class of `u ∈ U₀(Q)` acts by `(u·f)(g) = u f(gu)`. -/
 def twDiamondAction (A : Type) [AddCommGroup A] [Module 𝒪[E] A] (u : Q.datum0.level) :
     Module.End 𝒪[E] (AlgebraicModularForm Q.datum1 lam A) :=
   diamondOp Q.datum0 lam A (twLevel1 Q : Subgroup D.G) (twLevel1_isOpen Q)
-    (twLevel1_isCompact Q) u
+    (twLevel1_isCompact Q) (twLevel1_le Q) (twLevel1_normal Q) u
 
 /-- The diamond operators form an action of `Δ_Q` that commutes with `T^{T ∪ Q}`. -/
 theorem twDiamondAction_spec (A : Type) [AddCommGroup A] [Module 𝒪[E] A] :
@@ -6074,7 +6112,7 @@ Thorne 2017, Proposition 7.1, for hypothesis (b)). Under the hypotheses `TWPrime
 (a) `r̄(G_{F⁺(ζ_l)})` adequate in the sense of Thorne 2012, Definition 2.3, or (b) `ζ_l ∉ F` and
 `ρ̄(G_{F(ζ_l)})` adequate in the sense of Thorne 2017, Definition 2.20. Then the conclusion
 `TWPrimesConclusion` holds. -/
-theorem adequate_taylor_wiles_primes (l : ℕ) (S : DefProblem F E n 𝒪[E]) (T : Set (Place F))
+theorem adequate_taylor_wiles_primes (l : ℕ) [ResChar E l] (S : DefProblem F E n 𝒪[E]) (T : Set (Place F))
     (h : TWPrimesSetup l S T)
     (had : HasAdequateCHTImage l S.resid ∨ HasGHTAdequateImage l S.residGL) :
     TWPrimesConclusion l S T := by
@@ -6121,7 +6159,7 @@ def TwoAdicTWConclusion (p : ℕ) (S : DefProblem F E n 𝒪[E]) : Prop :=
 /-- **PL.3/taylor-wiles-primes-two-adic** (Thorne 2017, Proposition 2.21). Under the hypotheses
 `TwoAdicTWSetup`, if (iv) `ρ̄(G_F)` is adequate in the sense of Thorne 2017, Definition 2.20, then
 the conclusion `TwoAdicTWConclusion` holds. -/
-theorem taylor_wiles_primes_two_adic (p : ℕ) (S : DefProblem F E n 𝒪[E])
+theorem taylor_wiles_primes_two_adic (p : ℕ) [ResChar E p] (S : DefProblem F E n 𝒪[E])
     (h : TwoAdicTWSetup p S) (h_iv : (ghtAdequate 𝓀[E] n).Holds S.residGL.range) :
     TwoAdicTWConclusion p S := by
   sorry
@@ -7435,14 +7473,14 @@ theorem relaxed_adequacy_6 [IsCMField F] [IsLargeFor F E] {l : ℕ} [ResChar E l
 
 /-- **PL.4/relaxed-adequacy**, for PL.3/taylor-wiles-primes-two-adic (Thorne 2017,
 Proposition 2.21): the conclusion holds with `ρ̄(G_F)` relaxed-adequate. -/
-theorem relaxed_adequacy_7 [IsCMField F] (p : ℕ) (S : DefProblem F E n 𝒪[E])
+theorem relaxed_adequacy_7 [IsCMField F] (p : ℕ) [ResChar E p] (S : DefProblem F E n 𝒪[E])
     (h : TwoAdicTWSetup p S) (h_iv : Lifting.IsRelaxedAdequate S.residGL.range) :
     TwoAdicTWConclusion p S := by
   sorry
 
 /-- **PL.4/relaxed-adequacy**, for PL.3/adequate-taylor-wiles-primes (b) (Thorne 2017,
 Proposition 7.1): the conclusion holds when `ζ_l ∉ F` and `ρ̄(G_{F(ζ_l)})` is relaxed-adequate. -/
-theorem relaxed_adequacy_8 [IsCMField F] (l : ℕ) (S : DefProblem F E n 𝒪[E])
+theorem relaxed_adequacy_8 [IsCMField F] (l : ℕ) [ResChar E l] (S : DefProblem F E n 𝒪[E])
     (T : Set (Place F)) (h : TWPrimesSetup l S T) (hζ : ∀ ζ : F, ¬ IsPrimitiveRoot ζ l)
     (had : Lifting.IsRelaxedAdequate (Lifting.imageCyclo l S.residGL)) :
     TWPrimesConclusion l S T := by
@@ -7569,6 +7607,7 @@ theorem minimal_finiteness_blggt [IsCMField F] [IsLargeFor F E] {l : ℕ} [ResCh
     (hCl : ∀ w ∈ S, w.Above l → C w ≤ Lift.prime (Lifting.localLift ρ w) ∧
       ∃ (K' : Type) (_ : Field K') (_ : ValuativeRel K') (_ : TopologicalSpace K')
         (_ : IsNonarchimedeanLocalField K') (f : w.Fv →+* K'),
+        (letI := f.toAlgebra; Module.Finite w.Fv K') ∧ Continuous f ∧
         Lifting.IsComponent (crystallineIdeal (Lifting.resPlaceHom (reduction ρ.toMonoidHom) w)
           (Lifting.localHT (Lifting.weightHT lam) w) f) l (C w)) :
     Module.Finite 𝒪[E] (Lifting.DefProblem.ofLocalConditions S rt (reduction ρ.toMonoidHom)
@@ -7665,6 +7704,7 @@ theorem characteristic_zero_lifts [IsCMField F] [IsLargeFor F E] {l : ℕ} [ResC
     (hCl : ∀ u ∈ S, u.Above l → ∀ q ∈ C u,
       ∃ (K' : Type) (_ : Field K') (_ : ValuativeRel K') (_ : TopologicalSpace K')
         (_ : IsNonarchimedeanLocalField K') (f : u.Fv →+* K'),
+        (letI := f.toAlgebra; Module.Finite u.Fv K') ∧ Continuous f ∧
         Lifting.IsComponent (Lifting.semistableIdeal (Lifting.resPlaceHom rbar u)
           (Lifting.localHT H u) f) l q) :
     Lifting.DefProblem.IsRepresentable (Lifting.DefProblem.ofLocalConditions S rt rbar μ
@@ -7792,6 +7832,7 @@ theorem ordinary_lifts_prescribed_local [IsCMField F] [IsLargeFor F E] {l : ℕ}
     ∃ (E' : Type) (_ : Field E') (_ : ValuativeRel E') (_ : TopologicalSpace E')
       (_ : IsNonarchimedeanLocalField E') (_ : ResChar E' l) (j : E →+* E')
       (r : Gal F⁺ →ₜ* CHT n 𝒪[E']) (ρ : Gal F →ₜ* GL (Fin n) 𝒪[E']),
+      (letI := j.toAlgebra; Module.Finite E E') ∧ Continuous j ∧
       Lifting.CHT.Extends (r : Gal F⁺ → CHT n 𝒪[E']) ⇑ρ ∧
       (∀ τ, CHT.map n (IsLocalRing.residue 𝒪[E']) (r τ) =
         CHT.map n (Lifting.coeffRes j) (rt τ)) ∧
@@ -8166,6 +8207,47 @@ theorem isPrimitive_of_characters [IsTopologicalGroup Γ] [CompactSpace Γ] [T2S
 then `ρ̄` is the semisimplification of `Ind_{Γ'}^Γ σ̄`. -/
 theorem IsStronglyPrimitive.isPrimitive {ρ : Γ →* GL (Fin n) k} (h : IsStronglyPrimitive ρ) :
     IsPrimitive ρ := by
+  sorry
+
+/-- **`PL.6/small-rank-primitivity`.** For a semisimple continuous representation of
+positive rank smaller than the characteristic, weak primitivity implies strong primitivity.
+If an induction has rank `n`, its subgroup index `d` satisfies `1 < d ≤ n < p`.
+The quotient by the subgroup's normal core embeds in `S_d`, so its order is prime to `p`.
+After semisimplifying the inducing module, Clifford theory and Mackey give a semisimple
+restriction to the core. Averaging a core-linear projection over that quotient makes the
+induction semisimple. Thus its semisimplification is already a proper induction.
+This deduction supplies the extra step for NT21's applications with `p > 2n`; NT21 Lemma 5.1
+itself states only weak primitivity. -/
+theorem IsPrimitive.isStronglyPrimitive_of_rank_lt_char
+    [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ] [TotallyDisconnectedSpace Γ]
+    {p : ℕ} [Fact p.Prime] [CharP k p] {ρ : Γ →* GL (Fin n) k}
+    (hρ : IsOpen (ρ.ker : Set Γ))
+    (hss : ComplementedLattice (Subrepresentation (stdRep ρ)))
+    (hn : 0 < n) (hnp : n < p) (hprim : IsPrimitive ρ) : IsStronglyPrimitive ρ := by
+  sorry
+
+/-- **`PL.6/strong-primitivity-image-invariance`.** When p does not divide the rank,
+strong primitivity of a continuous semisimple residual representation depends only on its
+finite image. If an induction has that semisimplification, the kernel acts unipotently on the
+induction and hence has p-group image. Its orbits on the cosets all have equal p-power size,
+since the kernel is normal. The subgroup index divides n and is prime to p, so all these
+orbits are singletons. The inducing subgroup contains the kernel, and semisimplifying the
+inducing module makes it factor through the finite image. Thus semisimplified induction can
+be tested in that image. Apply this to both groups having the same image. This supplies the
+strong-primitive restriction step for ANT good extensions; it does not identify the weak and
+strong predicates in arbitrary rank. -/
+theorem IsStronglyPrimitive.restrict [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ]
+    [TotallyDisconnectedSpace Γ] {p : ℕ} [Fact p.Prime] [CharP k p]
+    (ρ : Γ →* GL (Fin n) k) (hρ : IsOpen (ρ.ker : Set Γ)) (hnp : ¬ p ∣ n)
+    (Γ'' : Subgroup Γ) (hΓ'' : IsOpen (Γ'' : Set Γ)) (himage : Γ''.map ρ = ρ.range) :
+    IsStronglyPrimitive (ρ.comp Γ''.subtype) ↔ IsStronglyPrimitive ρ := by
+  sorry
+
+-- test: strong_primitive_small_rank
+example [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ] [TotallyDisconnectedSpace Γ]
+    [Fact (Nat.Prime 7)] (χ₁ χ₂ : Γ →* (ZMod 7)ˣ) (h₁ : IsOpen (χ₁.ker : Set Γ))
+    (h₂ : IsOpen (χ₂.ker : Set Γ)) (horder : orderOf (χ₁ / χ₂) = 3) :
+    IsStronglyPrimitive (diagChar ![χ₁, χ₂]) := by
   sorry
 
 -- test: primitive_dim_one
@@ -10123,13 +10205,13 @@ structure IsNTSetup (l : ℕ) (S₀ : Set (Place F))
 
 /-- Hypotheses (1)–(3) of Newton–Thorne 2021, Theorem 5.2: `l > 2n`; for `i < j` the character
 `χ̄_i/χ̄_j|G_{F(ζ_l)}` has order greater than `2n` (so `r̄` is Schur); `[F(ζ_l) : F] = l - 1`.
-The proposed finiteness/lifting applications additionally assume strong primitivity of the sum.
-Lemma 5.1 supplies weak primitivity only and is not used to discharge this extra hypothesis. -/
+Lemma 5.1 gives weak primitivity. The small-rank comparison upgrades it to strong primitivity
+for this rank and for the doubled rank 2n<l representation used in the proof. -/
 def NTConditions (l : ℕ) (χ : Fin n → Gal F →* (𝓀[E])ˣ) : Prop :=
   2 * n < l ∧
   (∀ i j, i < j → ∀ N : ℕ, 0 < N → N ≤ 2 * n →
     resFieldHom (χ i / χ j) (algebraMap F (CyclotomicField l F)) ^ N ≠ 1) ∧
-  Module.finrank F (CyclotomicField l F) = l - 1 ∧ IsStronglyPrimitive (diagChar χ)
+  Module.finrank F (CyclotomicField l F) = l - 1
 
 /-- The problem `𝒮_Σ = (F/F⁺, S ∪ Σ, S̃ ∪ Σ̃, Λ, r̄, µ, {R^△_v}_{S_l} ∪ {R^□_v}_{S - S_l} ∪
 {R^{St}_v}_Σ)` of Newton–Thorne 2021 §5, for a finite set `Σ` of places split in `F` and disjoint
@@ -10252,6 +10334,7 @@ theorem ordinary_lifts_every_weight [IsLargeFor F E] (S₀ : Set (Place F))
     ∃ (E' : Type) (_ : Field E') (_ : ValuativeRel E') (_ : TopologicalSpace E')
       (_ : IsNonarchimedeanLocalField E') (j : E →+* E') (g : S.univRing →+* 𝒪[E'])
       (ρ : Gal F →ₜ* GL (Fin n) E') (lam' : (F →+* E') → Fin n → ℤ),
+      (letI := j.toAlgebra; Module.Finite E E') ∧ Continuous j ∧
       (∀ a : 𝒪[E], ((g (algebraMap Λ S.univRing (algebraMap 𝒪[E] Λ a)) : 𝒪[E']) : E') =
         j (a : E)) ∧
       (∀ σ, ρ σ = Matrix.GeneralLinearGroup.map (algebraMap 𝒪[E'] E')
@@ -11082,7 +11165,7 @@ theorem isGeneric_of_pure (D : WeilDeligne (weilGroup K) (weilNorm K) C n)
 theorem IsGeneric.restrict [CharZero E] {K' : Type} [Field K'] [ValuativeRel K']
     [TopologicalSpace K'] [IsNonarchimedeanLocalField K'] {ρ : Gal K →ₜ* GL (Fin n) E}
     {f : K →+* K'} (h : (weilDeligne (resField ρ f)).IsGeneric)
-    (hfin : letI := f.toAlgebra; Module.Finite K K')
+    (hfin : letI := f.toAlgebra; Module.Finite K K') (hcont : Continuous f)
     (hdR : residueChar K = residueChar E → (deRham K E n).Holds ρ) :
     (weilDeligne ρ).IsGeneric := by sorry
 
@@ -11174,7 +11257,10 @@ set-up of Newton–Thorne 2023 §2.4; they are `ConjSelfDualSetup.selmerTorsion`
 section AdjointSelmer
 
 variable {E : Type} [Field E] [ValuativeRel E] [TopologicalSpace E] [IsNonarchimedeanLocalField E]
+variable [hEzero : CharZero E]
 variable {n : ℕ}
+
+include hEzero
 
 /-- **`PL.8/adjoint-bloch-kato-selmer-group`: `ad ρ`.** The `G`-module `ad ρ = gl_n(E)` through
 `ad ∘ r`, for `r : G → 𝒢_n(E)`; for `G = G_{F⁺}` and `ρ = r|G_F`, the subgroup `G_F` acts by
@@ -11222,7 +11308,7 @@ local notation "F⁺" => maximalRealSubfield F
 /-- **API: `adjointSelmerF_le_G`.** `H¹_f(F⁺, ad ρ) ⊂ H¹_{g,S}(F⁺, ad ρ)`, with equality when
 `ρ|G_{F_u}` is generic for every place `u` of `F` above `S` (Newton–Thorne 2023,
 Proposition 2.17(3), through PL.8/bloch-kato-at-generic-places). -/
-theorem adjointSelmerF_le_G [IsCMField F] [CharZero E] (S : Set (Place F⁺))
+theorem adjointSelmerF_le_G [IsCMField F] (S : Set (Place F⁺))
     (hS : IsFinitePlaceSet S) (hSp : ∀ v : Place F⁺, v.Above (residueChar E) → v ∈ S)
     (r : Gal F⁺ →ₜ* CHT n 𝒪[E]) (ρ : Gal F →ₜ* GL (Fin n) E)
     (hρ : RestrictsTo (CHT.rat r.toMonoidHom) ρ.toMonoidHom)
@@ -11238,7 +11324,7 @@ polarized deformations with fixed multiplier that are unramified outside `S` and
 `p`: its classes are those of the continuous lifts `rε` of `r` to `𝒢_n(E[ε])` with these
 properties. `H¹_f(F⁺, ad ρ)` is the subspace cut out by `H¹_f(F⁺_v, ad ρ)` at all `v ∈ S`, and it
 equals `H¹_{g,S}(F⁺, ad ρ)` when `ρ` is generic at every place above `S`. -/
-theorem adjointSelmerF_eq_tangent [IsCMField F] [CharZero E] (S : Set (Place F⁺))
+theorem adjointSelmerF_eq_tangent [IsCMField F] (S : Set (Place F⁺))
     (hS : IsFinitePlaceSet S) (hSp : ∀ v : Place F⁺, v.Above (residueChar E) → v ∈ S)
     (r : Gal F⁺ →ₜ* CHT n E) (ρ : Gal F →ₜ* GL (Fin n) E)
     (hρ : RestrictsTo r.toMonoidHom ρ.toMonoidHom) (hur : IsUnramifiedOutside S r.toMonoidHom)
@@ -11415,6 +11501,7 @@ theorem semistableDetRing_points [CharZero E] [IsLargeFor F E] (S : Set (Place F
     ∃ (E' : Type) (_ : Field E') (_ : ValuativeRel E') (_ : TopologicalSpace E')
       (_ : IsNonarchimedeanLocalField E') (_ : CharZero E') (j : E →+* E')
       (ρ : Gal F →ₜ* GL (Fin n) E'),
+      (letI := j.toAlgebra; Module.Finite E E') ∧ Continuous j ∧
       IsSemisimpleRep (fun σ => ρ σ) ∧
       Determinant.ofHom ρ.toMonoidHom =
         (((detDeformationRing.univ S (Determinant.ofHom ρbar)).map x.toRingHom).map

@@ -4,7 +4,7 @@
  "area": "automorphic",
  "parent": "PotentialAutomorphyInfrastructure",
  "summary": "This Part II of Reusable infrastructure for potential automorphy over CM fields adds the polarized theory. It plans automorphic forms on definite unitary groups and their spherical, Iwahori and ordinary Hecke algebras, Taylor–Wiles data and primes under adequacy, and the patching R = T theorems of Clozel–Harris–Taylor, Thorne and Geraghty. On these it builds the minimal, ordinary, 2-adic and potentially diagonalizable automorphy lifting and finiteness theorems of Thorne and Barnet-Lamb–Gee–Geraghty–Taylor, and the residually reducible lifting theorems of Thorne and Allen–Newton–Thorne with the deformation theory of Newton–Thorne. It also plans the vanishing of adjoint Bloch–Kato Selmer groups of unitary type (Newton–Thorne), and the integral R = T and generic-local-domain lifting theorems of Liu–Tian–Xiao–Zhang–Zhu and Le–Le Hung–Levin–Morra. The notion of an ι-ordinary automorphic representation and soluble base change for GL_n are imported from the parent roadmap.",
- "readme": "The definitive document is research/blueprint/readmes/PotentialAutomorphyInfrastructurePartII.md. This roadmap starts where PotentialAutomorphyInfrastructure stops. The parent follows Allen et al. (ACC+) and treats unpolarized representations through the cohomology of locally symmetric spaces; it owns ι-ordinary automorphic representations of GL_n (PA.2) and soluble base change for GL_n (PA.5), which are imported here. This roadmap treats polarized (conjugate self-dual) representations through algebraic modular forms on definite unitary groups. PL.0–PL.1 fix the automorphy and local vocabulary. PL.2–PL.3 build the definite unitary Hecke algebras, Taylor–Wiles data, level structures and patching. PL.4–PL.5 contain the residually irreducible lifting theorems; PL.6–PL.7 the residually reducible ones. PL.8 plans adjoint Selmer vanishing and PL.9 the integral R = T theorem for rigid residual representations and lifting from generic local domains. Conventions: Art sends uniformizers to geometric Frobenius elements, ε_l has Hodge–Tate weight −1, and '(r, µ) is automorphic' uses the full multiplier µ = r_{l,ι}(χ)ε_l^{1−n} of BLGGT14. Non-goals: the final potential automorphy and symmetric power theorems (ModularityAndLanglandsExtensions ML.2–ML.3), the Dwork families, and the unpolarized lifting theorems, which belong to the other Part IIs of the parent. Consumers: ModularityAndLanglandsExtensions ML.2 and ML.3, and the level-one change of weight of Boxer–Calegari–Gee. Revision 3 completes the target-level pass with 90 nodes. All ten stages are planned; none is closed. Supplier requests and fifteen recorded gaps remain explicit ends of prerequisite chains. The earlier independent review and its node/source judgments are retained as judgments of the preceding version; this revision requires a new independent review. The prototype elaborates against the pinned Mathlib with proof placeholders, which checks types rather than the mathematical assertions.",
+ "readme": "The definitive document is research/blueprint/readmes/PotentialAutomorphyInfrastructurePartII.md. This roadmap starts where PotentialAutomorphyInfrastructure stops. The parent follows Allen et al. (ACC+) and treats unpolarized representations through the cohomology of locally symmetric spaces; it owns ι-ordinary automorphic representations of GL_n (PA.2) and soluble base change for GL_n (PA.5), which are imported here. This roadmap treats polarized (conjugate self-dual) representations through algebraic modular forms on definite unitary groups. PL.0–PL.1 fix the automorphy and local vocabulary. PL.2–PL.3 build the definite unitary Hecke algebras, Taylor–Wiles data, level structures and patching. PL.4–PL.5 contain the residually irreducible lifting theorems; PL.6–PL.7 the residually reducible ones. PL.8 plans adjoint Selmer vanishing and PL.9 the integral R = T theorem for rigid residual representations and lifting from generic local domains. Conventions: Art sends uniformizers to geometric Frobenius elements, ε_l has Hodge–Tate weight −1, and '(r, µ) is automorphic' uses the full multiplier µ = r_{l,ι}(χ)ε_l^{1−n} of BLGGT14. Non-goals: the final potential automorphy and symmetric power theorems (ModularityAndLanglandsExtensions ML.2–ML.3), the Dwork families, and the unpolarized lifting theorems, which belong to the other Part IIs of the parent. Consumers: ModularityAndLanglandsExtensions ML.2 and ML.3, and the level-one change of weight of Boxer–Calegari–Gee. The finished independent revision-3 review accepts 92 proposed nodes, with eight stages planned and PL.6–PL.7 partial; none is closed. The full general weak-primitivity routes remain follow-up targets. There are 32 exact supplier requests and 17 recorded gaps. The suggested file elaborates with planning proof placeholders, which checks the interfaces but does not formalize the results.",
  "prerequisites": [
   "PotentialAutomorphyInfrastructure",
   "AdelicAlgebraicGroups",
@@ -52,7 +52,7 @@
   {
    "key": "PL.1",
    "title": "Connecting local lifts and potential diagonalizability",
-   "description": "**Objects.** For K/Q_p finite and continuous ρ₁, ρ₂ : G_K → GL_n(O_{Q̄_l}): the relation *ρ₁ connects to ρ₂* (ρ₁ ∼ ρ₂): equivalent reductions and points on a common irreducible component of Spec(R^□_{ρ̄₁} ⊗ Q̄_l) when l ≠ p, and, when l = p, both potentially crystalline with the same labelled Hodge–Tate weights and points on a common irreducible component of the K′-crystalline lifting ring of that Hodge type for large K′; *strong connection* ρ₁ ⇝ ρ₂ (l ≠ p: moreover ρ₁ lies on a unique component); the local deformation problem D_C of a finite set C of components; *diagonalizable* (crystalline and connected to a sum of crystalline characters) and *potentially diagonalizable* (diagonalizable after a finite extension) representations, and *potentially diagonalizably automorphic* pairs (BLGGT14 §§1.3–1.4, 2.1).\n\n**Theorems.** The properties of ∼ and ⇝ (BLGGT14 §1.3 remarks (1)–(4) with Lemmas 1.3.4 and 1.3.5; §1.4 remarks (1)–(7)), including equality of (r|_{I_K}, N) under mutual strong connection and strong connection from H⁰(G_K, (ad ρ₁)(1)) = 0; generic local representations are smooth points and robustly smooth points are dense (Lemmas 1.3.2–1.3.3); a potentially crystalline representation with an invariant full flag, and a crystalline representation of an unramified field with Hodge–Tate weights in an interval of length l − 2, are potentially diagonalizable (Lemma 1.4.3); two-dimensional potentially Barsotti–Tate representations are potentially diagonalizable for l > 2 (Gee–Kisin, Lemma 4.4.1); potential diagonalizability is stable under restriction, direct sums, tensor products, duals and symmetric powers.\n\n**Geometric component interface.** Compare primes in (R/I)[1/l]⊗_E Ebar and evaluation kernels there. Arithmetic component primes may represent them only after a geometrically integral descent certificate. At l≠p use I=0; at l=p fix H and K′ and use the crystalline ideal I_H,K′. For a finite nonempty set C of descended primes avoiding l, the quotient by I+⋂C defines D_C. R08.3 supplies enlargement, restriction and sufficiently-large-K′ comparisons (BLGGT14 §§1.3–1.4, pp.20–29).\n\n**Planning scope.** This layer is planned at target level. Its remaining supplier refinements and gaps are listed in the packet; it is not closed.",
+   "description": "**Objects.** For K/Q_p finite and continuous ρ₁, ρ₂ : G_K → GL_n(O_{Q̄_l}): the relation *ρ₁ connects to ρ₂* (ρ₁ ∼ ρ₂): equivalent reductions and points on a common irreducible component of Spec(R^□_{ρ̄₁} ⊗ Q̄_l) when l ≠ p, and, when l = p, both potentially crystalline with the same labelled Hodge–Tate weights and points on a common irreducible component of the K′-crystalline lifting ring of that Hodge type for large K′; *strong connection* ρ₁ ⇝ ρ₂ (l ≠ p: moreover ρ₁ lies on a unique component); the local deformation problem D_C of a finite set C of components; *diagonalizable* (crystalline and connected to a sum of crystalline characters) and *potentially diagonalizable* (diagonalizable after a finite extension) representations, and *potentially diagonalizably automorphic* pairs (BLGGT14 §§1.3–1.4, 2.1).\n\n**Theorems.** The properties of ∼ and ⇝ (BLGGT14 §1.3 remarks (1)–(4) with Lemmas 1.3.4 and 1.3.5; §1.4 remarks (1)–(7)), including equality of (r|_{I_K}, N) under mutual strong connection and strong connection from H⁰(G_K, (ad ρ₁)(1)) = 0; generic local representations are smooth points and robustly smooth points are dense (Lemmas 1.3.2–1.3.3); a potentially crystalline representation with an invariant full flag, and a crystalline representation of an unramified field with Hodge–Tate weights in an interval of length l − 2, are potentially diagonalizable (Lemma 1.4.3); two-dimensional potentially Barsotti–Tate representations are potentially diagonalizable for l > 2 (Gee–Kisin, Lemma 4.4.1); potential diagonalizability is stable under restriction, direct sums, tensor products, duals and symmetric powers.\n\n**Geometric component interface.** Compare primes in (R/I)[1/l]⊗_E Ebar and evaluation kernels there. Arithmetic component primes may represent them only after a geometrically integral descent certificate. At l≠p use I=0; at l=p fix H and K′ and use the crystalline ideal I_H,K′. For a finite nonempty set C of descended primes avoiding l, the quotient by I+⋂C defines D_C. R08.3 supplies enlargement, restriction and sufficiently-large-K′ comparisons (BLGGT14 §§1.3–1.4, pp.20–29).\n\n**Planning scope.** This layer is planned at target level. Its remaining supplier refinements and gaps are listed in the packet; it is not closed.\n\n**Finite witnesses.** Diagonal characters may be realized over a finite continuous coefficient extension E′/E containing the local embeddings. Potential diagonalizability also uses a finite continuous K′/K; after restriction at p=l, coefficients must contain the embeddings of K′.",
    "requires": [
     "PotentialAutomorphyInfrastructurePartII:PL.0",
     "ArithmeticGaloisDuality:D7",
@@ -70,7 +70,7 @@
   {
    "key": "PL.2",
    "title": "Definite unitary groups, algebraic modular forms and their Hecke algebras",
-   "description": "**Objects.** For an imaginary CM field L with L/L⁺ unramified at all finite places: the definite unitary group G/O_{L⁺} attached to M_n(L) with an involution of the second kind, quasi-split at every finite place and compact at every infinite place, with ι_w : G(O_{L⁺_v}) ≅ GL_n(O_{L_w}) at split v = ww^c (Clozel–Harris–Taylor §3.3, as in Thorne 2012 §6), and its variant attached to a division algebra at a finite set S(B) of split places (Thorne 2015 §4.1); the spaces S_{λ,{χ_v}}(U, A) of algebraic modular forms with integral weight-λ coefficients and characters χ_v at Iwahori places, specializing AutomorphicFormsOnReductiveGroups AF.5; the Hecke operators T_w^j and the Hecke algebras T^T_{λ,{χ_v}}(U, A), with the residual representation r̄_m of a maximal ideal; Iwahori levels Iw(ṽ^{b,c}) at l, the rescaled operators U^j_{λ,ϖ_ṽ}, the diamond operators, the ordinary idempotent and the big ordinary Hecke algebra T^{T,ord}(U(l^∞), O) over Λ = O⟦T(l)⟧ (Geraghty, as in Thorne 2012 §8).\n\n**Theorems.** Exactness of A ↦ S(U, A) and freeness of S(V, O) over O[U/V] when the arithmetic stabilisers have no element of order l (Thorne 2012, Lemmas 6.3–6.4); Galois representations attached to constituents (Theorem 6.5); the 𝒢_n-valued Galois representation r_m over the localized Hecke algebra at a non-Eisenstein m (Propositions 6.6–6.7) and over the big ordinary Hecke algebra (Propositions 8.4–8.5), whose restriction above l factors through the ordinary lifting rings; freeness of ordinary forms over Λ (Geraghty Proposition 2.5.3; Thorne 2012 Proposition 8.2; Newton–Thorne 2021 Proposition 6.5); Hida classicality at arithmetic primes, a statement about the isotypic part for the finite-order character of the prime (Geraghty Lemma 2.6.4), and independence of the characters χ_v modulo λ; base change and descent between G and GL_n (Labesse; Clozel–Thorne 2014 Proposition 2.9), by which a point of a Hecke algebra with irreducible Galois representation is automorphic.\n\n**Ordinary deformation datum.** The owned NT21 datum packages the soluble CM extension, polarized residual representation with cyclotomic-delta multiplier, auxiliary sufficiently small local level, supercuspidal/unipotent/Steinberg choices, and their matching local conditions. Construct U(D,c), the integral contragredient type module M_D, ordinary forms and their dual, T_D, the polarized deformation ring and determinant subring P_D, the localized Hecke quotient and J_D=ker(P_D→T_D). The comparison requires no Steinberg choices and is surjective; J_D is proper exactly when the localized quotient is nonzero. Part (d) of the packet’s freeness theorem gives Λ-freeness of the ordinary dual, finiteness of the big Hecke algebra and faithfulness when nonzero. Arithmetic restriction/Hecke maps for field-changing data are exact G7/SR requests, rather than consequences of a generic kernel calculation (NT21 §6, pp.77–80 in arXiv v3).\n\n**Planning scope.** This layer is planned at target level. Its remaining supplier refinements and gaps are listed in the packet; it is not closed.",
+   "description": "**Objects.** For an imaginary CM field L with L/L⁺ unramified at all finite places: the definite unitary group G/O_{L⁺} attached to M_n(L) with an involution of the second kind, quasi-split at every finite place and compact at every infinite place, with ι_w : G(O_{L⁺_v}) ≅ GL_n(O_{L_w}) at split v = ww^c (Clozel–Harris–Taylor §3.3, as in Thorne 2012 §6), and its variant attached to a division algebra at a finite set S(B) of split places (Thorne 2015 §4.1); the spaces S_{λ,{χ_v}}(U, A) of algebraic modular forms with integral weight-λ coefficients and characters χ_v at Iwahori places, specializing AutomorphicFormsOnReductiveGroups AF.5; the Hecke operators T_w^j and the Hecke algebras T^T_{λ,{χ_v}}(U, A), with the residual representation r̄_m of a maximal ideal; Iwahori levels Iw(ṽ^{b,c}) at l, the rescaled operators U^j_{λ,ϖ_ṽ}, the diamond operators, the ordinary idempotent and the big ordinary Hecke algebra T^{T,ord}(U(l^∞), O) over Λ = O⟦T(l)⟧ (Geraghty, as in Thorne 2012 §8).\n\n**Theorems.** Exactness of A ↦ S(U, A) and freeness of S(V, O) over O[U/V] when the arithmetic stabilisers have no element of order l (Thorne 2012, Lemmas 6.3–6.4); Galois representations attached to constituents (Theorem 6.5); the 𝒢_n-valued Galois representation r_m over the localized Hecke algebra at a non-Eisenstein m (Propositions 6.6–6.7) and over the big ordinary Hecke algebra (Propositions 8.4–8.5), whose restriction above l factors through the ordinary lifting rings; freeness of ordinary forms over Λ (Geraghty Proposition 2.5.3; Thorne 2012 Proposition 8.2; Newton–Thorne 2021 Proposition 6.5); Hida classicality at arithmetic primes, a statement about the isotypic part for the finite-order character of the prime (Geraghty Lemma 2.6.4), and independence of the characters χ_v modulo λ; base change and descent between G and GL_n (Labesse; Clozel–Thorne 2014 Proposition 2.9), by which a point of a Hecke algebra with irreducible Galois representation is automorphic.\n\n**Ordinary deformation datum.** The owned NT21 datum packages the soluble CM extension, polarized residual representation with cyclotomic-delta multiplier, auxiliary sufficiently small local level, supercuspidal/unipotent/Steinberg choices, and their matching local conditions. Construct U(D,c), the integral contragredient type module M_D, ordinary forms and their dual, T_D, the polarized deformation ring and determinant subring P_D, the localized Hecke quotient and J_D=ker(P_D→T_D). The comparison requires no Steinberg choices and is surjective; J_D is proper exactly when the localized quotient is nonzero. Part (d) of the packet’s freeness theorem gives Λ-freeness of the ordinary dual, finiteness of the big Hecke algebra and faithfulness when nonzero. Arithmetic restriction/Hecke maps for field-changing data are exact G7/SR requests, rather than consequences of a generic kernel calculation (NT21 §6, pp.77–80 in arXiv v3).\n\n**Planning scope.** This layer is planned at target level. Its remaining supplier refinements and gaps are listed in the packet; it is not closed.\n\n**Diamond action.** For V≤U normal, U/V acts on forms of level V. The operator takes the inclusion and normality as explicit hypotheses.\n\n**Construction order.** The ordinary datum uses the standalone determinant-subring construction PL.6/polarized-pseudodeformation-subring and its Schur input before the datum. Those nodes depend only on their general determinant/deformation suppliers; they do not require the later generic R=T argument. The direct node prerequisites specify this order. Requiring the whole PL.6 stage here would create a false cycle with PL.2’s Hecke constructions.",
    "requires": [
     "PotentialAutomorphyInfrastructurePartII:PL.0",
     "AdelicAlgebraicGroups:AA.1",
@@ -82,13 +82,16 @@
     "AutomorphicGaloisRepresentationsPartII:AG2.6",
     "AutomorphicGaloisRepresentationsPartII:AG2.7",
     "EndoscopicTransferAndUnitaryTraceComparison:ET.7a",
+    "GlobalGaloisDeformations:G7",
     "GlobalGaloisDeformations:R04.2",
     "IntegralHeckeAndGaloisDeterminants:IHG.0",
     "IntegralHeckeAndGaloisDeterminants:IHG.1",
     "LocalGaloisDeformationRings:L7",
     "LocalGaloisDeformationRings:L8",
+    "LocalGaloisDeformationRings:R08.2",
     "PadicFamilies:L0a",
-    "PotentialAutomorphyInfrastructure:PA.2"
+    "PotentialAutomorphyInfrastructure:PA.2",
+    "SmoothRepresentationsOfLocalGroups:SR.2"
    ]
   },
   {
@@ -148,7 +151,7 @@
   {
    "key": "PL.6",
    "title": "Residually reducible deformation rings: Schur representations, pseudodeformations and generic primes",
-   "description": "**Objects.** Schur 𝒢_n-valued residual representations (Thorne 2015, Definition 3.2); primitive representations and the stronger notion, not the semisimplification of a properly induced representation, that the theory uses; the connectedness dimension and the arithmetic rank of a complete Noetherian local ring (Thorne 2015, Definition 1.7); the determinant deformation ring Q_𝒮 and its image P_𝒮 ⊂ R^univ_𝒮, the closed subalgebra generated by the coefficients of characteristic polynomials (Thorne 2015, Definitions 3.25–3.27); the split deformation ideal I_split ⊂ R^univ_𝒮 (Thorne 2015, Definition 3.31, Proposition 3.32) and the determinant reducibility ideal of P_𝒮, the product over two-block partitions of the factorisation ideals (Allen–Newton–Thorne, Proposition 2.5 and §3), which are distinct constructions; liftings generic at l and generic primes of an ordinary deformation ring (Allen–Newton–Thorne, Definition 3.7).\n\n**Theorems.** The connectedness bound c(R/I) ≥ c(R) − r(I) − 1 (Thorne 2015, Proposition 1.8); sums of characters with large ratios are primitive (Newton–Thorne 2021, Lemma 5.1); restriction of determinant deformation rings to a finite-index subgroup is finite under Mazur's condition Φ_p (Newton–Thorne 2021, Lemma 5.3, with Chenevier); the structure of P_𝒮 ⊂ R^univ_𝒮 for Schur r̄: finite, equal to the µ₂^d-invariants, étale at primes with absolutely irreducible generic representation (Thorne 2015, Proposition 3.29; Allen–Newton–Thorne, Proposition 3.2); the prime criterion for absolute irreducibility and the dimension bound for the reducible locus in the presence of Steinberg places (Allen–Newton–Thorne, Lemmas 3.4–3.6); large quotients contain generic primes (Lemmas 3.8–3.9; Thorne 2015, Lemma 1.9); absolute irreducibility at a generic prime survives restriction to open subgroups (Thorne 2015, Proposition 5.3, stated with strong primitivity); twisting and soluble base change of deformation rings and Hecke algebras (Thorne 2015, Lemmas 3.36, 3.38, 3.40, Corollary 4.14, Proposition 4.18); the generic R_𝔭 = T_𝔭 theorem: J·R^univ ⊂ Q for every prime Q contained in a generic prime 𝔭 ⊃ J·R^univ, with J = ker(P_𝒮 → T_m) (Allen–Newton–Thorne, Theorem 4.1; Thorne 2015, Theorem 4.19, Corollary 4.20).\n\n**Primitivity scope.** Weak primitivity excludes actual induction; strong primitivity excludes semisimplified induction. The source large-ratio character lemma supplies only the weak notion. Generic restriction and the proposed generic R=T route use the strong notion. Every dependent lifting target and character application carries that additional hypothesis; recovering the weak source formulations is a recorded gap (Tho15 Proposition 5.3, pp.57–59; NT21 Lemma 5.1, p.67).\n\n**Planning scope.** This layer is planned at target level. Its remaining supplier refinements and gaps are listed in the packet; it is not closed.",
+   "description": "**Objects.** Schur 𝒢_n-valued residual representations (Thorne 2015, Definition 3.2); primitive representations and the stronger notion, not the semisimplification of a properly induced representation, that the theory uses; the connectedness dimension and the arithmetic rank of a complete Noetherian local ring (Thorne 2015, Definition 1.7); the determinant deformation ring Q_𝒮 and its image P_𝒮 ⊂ R^univ_𝒮, the closed subalgebra generated by the coefficients of characteristic polynomials (Thorne 2015, Definitions 3.25–3.27); the split deformation ideal I_split ⊂ R^univ_𝒮 (Thorne 2015, Definition 3.31, Proposition 3.32) and the determinant reducibility ideal of P_𝒮, the product over two-block partitions of the factorisation ideals (Allen–Newton–Thorne, Proposition 2.5 and §3), which are distinct constructions; liftings generic at l and generic primes of an ordinary deformation ring (Allen–Newton–Thorne, Definition 3.7).\n\n**Theorems.** The connectedness bound c(R/I) ≥ c(R) − r(I) − 1 (Thorne 2015, Proposition 1.8); sums of characters with large ratios are primitive (Newton–Thorne 2021, Lemma 5.1); restriction of determinant deformation rings to a finite-index subgroup is finite under Mazur's condition Φ_p (Newton–Thorne 2021, Lemma 5.3, with Chenevier); the structure of P_𝒮 ⊂ R^univ_𝒮 for Schur r̄: finite, equal to the µ₂^d-invariants, étale at primes with absolutely irreducible generic representation (Thorne 2015, Proposition 3.29; Allen–Newton–Thorne, Proposition 3.2); the prime criterion for absolute irreducibility and the dimension bound for the reducible locus in the presence of Steinberg places (Allen–Newton–Thorne, Lemmas 3.4–3.6); large quotients contain generic primes (Lemmas 3.8–3.9; Thorne 2015, Lemma 1.9); absolute irreducibility at a generic prime survives restriction to open subgroups (Thorne 2015, Proposition 5.3, stated with strong primitivity); twisting and soluble base change of deformation rings and Hecke algebras (Thorne 2015, Lemmas 3.36, 3.38, 3.40, Corollary 4.14, Proposition 4.18); the generic R_𝔭 = T_𝔭 theorem: J·R^univ ⊂ Q for every prime Q contained in a generic prime 𝔭 ⊃ J·R^univ, with J = ker(P_𝒮 → T_m) (Allen–Newton–Thorne, Theorem 4.1; Thorne 2015, Theorem 4.19, Corollary 4.20).\n\n**Primitivity scope.** Weak primitivity excludes actual induction; strong primitivity excludes semisimplified induction. For a semisimple continuous residual representation of rank 0<n<p, the normal-core/averaging argument identifies these notions. Under p∤n, strong primitivity is invariant under open restriction preserving the residual image, by the kernel-orbit argument. These two key bridges are explicit nodes. Generic restriction and generic R=T are planned in the strong form; the full general weak source route remains open (Tho15 Proposition 5.3, pp.57–59; ANT20 Theorem 4.1, p.15).\n\n**Planning scope.** This layer is partial at target level: the recorded general weak-primitivity source targets remain to be recovered. The proposed strong forms and small-rank bridges are justified; supplier refinements remain explicit.",
    "requires": [
     "PotentialAutomorphyInfrastructurePartII:PL.2",
     "PotentialAutomorphyInfrastructurePartII:PL.3",
@@ -171,7 +174,7 @@
   {
    "key": "PL.7",
    "title": "Residually reducible automorphy lifting",
-   "description": "**Theorems.** Finiteness over Λ of ordinary, locally Steinberg deformation rings of a residually multiplicity-free representation (Allen–Newton–Thorne, Theorem 6.2), and the variant under the hypothesis of Thorne 2024, Theorem 7.5, used by Newton–Thorne 2026; automorphy lifting for ordinary conjugate self-dual ρ with ρ̄^ss a sum of pairwise distinct absolutely irreducible conjugate self-dual constituents, primitive, with a Steinberg place and an ι-ordinary RACSDC seed (Allen–Newton–Thorne, Theorem 1.1 = 6.1), and Thorne's earlier theorem for two adequate constituents that are potentially automorphic (Thorne 2015, Theorem 7.1); Newton–Thorne 2021 §5: finiteness of ordinary deformation rings of sums of characters with Steinberg places (Theorem 5.2), ordinary lifts of every weight, unramified outside S ∪ Σ (Corollary 5.4), the dimension bound without Steinberg conditions (Corollary 5.5), smallness of the reducible locus (Proposition 5.6), generic primes in large quotients (Theorem 5.7), and automorphic lifts of prescribed type from residual automorphy over a soluble extension (Proposition 5.8, with Bellovin–Gee's Corollary 5.1.1 under the Schur property).\n\n**Narrowed lifting targets.** The proposed finiteness, lifting and character applications that pass through generic R=T explicitly assume strong primitivity. In the character family this is a separate hypothesis on the restricted diagonal residual representation; the large-ratio inequalities alone are not asserted to prove it. Source citations describe the weak source claims while the nodes state the narrower proposed theorems.\n\n**Planning scope.** This layer is planned at target level. Its remaining supplier refinements and gaps are listed in the packet; it is not closed.",
+   "description": "**Theorems.** Finiteness over Λ of ordinary, locally Steinberg deformation rings of a residually multiplicity-free representation (Allen–Newton–Thorne, Theorem 6.2), and the variant under the hypothesis of Thorne 2024, Theorem 7.5, used by Newton–Thorne 2026; automorphy lifting for ordinary conjugate self-dual ρ with ρ̄^ss a sum of pairwise distinct absolutely irreducible conjugate self-dual constituents, primitive, with a Steinberg place and an ι-ordinary RACSDC seed (Allen–Newton–Thorne, Theorem 1.1 = 6.1), and Thorne's earlier theorem for two adequate constituents that are potentially automorphic (Thorne 2015, Theorem 7.1); Newton–Thorne 2021 §5: finiteness of ordinary deformation rings of sums of characters with Steinberg places (Theorem 5.2), ordinary lifts of every weight, unramified outside S ∪ Σ (Corollary 5.4), the dimension bound without Steinberg conditions (Corollary 5.5), smallness of the reducible locus (Proposition 5.6), generic primes in large quotients (Theorem 5.7), and automorphic lifts of prescribed type from residual automorphy over a soluble extension (Proposition 5.8, with Bellovin–Gee's Corollary 5.1.1 under the Schur property).\n\n**Lifting scope.** The general ANT and two-constituent routes through generic R=T are planned in the strong-primitive form, stable under their good extensions when p∤n. Character applications have the source rank bounds: 2n<p for NT21 Theorem 5.2 and p>n for Proposition 5.8, so the added comparison derives strong primitivity without an extra hypothesis. Reducible blocks of rank one use a separate polarized ordinary class-field finiteness request to GlobalGaloisDeformations G7; Theorem 5.2 assumes rank at least two.\n\n**Planning scope.** This layer is partial at target level: recover the full general weak-primitivity source lifting/finiteness targets. The character targets and proposed stronger general forms are justified; the remaining exact supplier inputs are recorded.",
    "requires": [
     "PotentialAutomorphyInfrastructurePartII:PL.0",
     "PotentialAutomorphyInfrastructurePartII:PL.2",
@@ -227,7 +230,10 @@
     "PotentialAutomorphyInfrastructurePartII:PL.2",
     "PotentialAutomorphyInfrastructurePartII:PL.3",
     "PotentialAutomorphyInfrastructurePartII:PL.4",
+    "ArithmeticGaloisDuality:R02.4",
     "ArithmeticGaloisRepresentations:G7",
+    "AutomorphicFormsOnReductiveGroups:AF.4",
+    "AutomorphicGaloisRepresentationsPartII:AG2.0",
     "AutomorphicGaloisRepresentationsPartII:AG2.1a",
     "AutomorphicGaloisRepresentationsPartII:AG2.6",
     "AutomorphicGaloisRepresentationsPartII:AG2.7",
@@ -237,7 +243,8 @@
     "GlobalGaloisDeformations:G7",
     "LocalGaloisDeformationRings:L7",
     "LocalGaloisDeformationRings:R08.2",
-    "LocalGaloisDeformationRings:R08.3"
+    "LocalGaloisDeformationRings:R08.3",
+    "SmoothRepresentationsOfLocalGroups:SR.2"
    ]
   }
  ],
@@ -248,6 +255,7 @@
    "authors": "Thomas Barnet-Lamb, Toby Gee, David Geraghty and Richard Taylor",
    "edition": "Annals of Mathematics 179 (2014), 501–609; read in arXiv:1010.2561v4 (9 December 2013)",
    "url": "https://arxiv.org/abs/1010.2561v4",
+   "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
    "readSections": [
     "Notation (Art, rec, WD, HT conventions), pp. 8–9",
     "§1.2, Lemma 1.2.2 and proof, p. 15",
@@ -289,6 +297,7 @@
    "authors": "Jack Thorne",
    "edition": "Journal of the Institute of Mathematics of Jussieu 11 (2012), 855–920; read in arXiv:1107.5989v1 (29 July 2011)",
    "url": "https://arxiv.org/abs/1107.5989v1",
+   "sha256": "537af0053745f4206157c0441365218285624d95a25ae408149f287372d9ba55",
    "readSections": [
     "§1: RAECSDC definition, Theorem 1.1, weights, Lemma 1.2, PDF pp. 5–6",
     "Notation and §1 (Theorem 1.1, normalisations), pp. 3–6",
@@ -317,6 +326,7 @@
    "authors": "Jack A. Thorne",
    "edition": "Mathematische Zeitschrift 285 (2017), 1–38; read in the author's accepted manuscript dated 16 March 2016 (Apollo, University of Cambridge repository)",
    "url": "https://www.repository.cam.ac.uk/handle/1810/254922",
+   "sha256": "f7b706eb2eb69354f5be3ce846193dc75f73ed46a7437eb54451b8f177af74c9",
    "readSections": [
     "§3.1 to Theorem 3.2 and Definition 3.3, p. 16",
     "§1 (Theorem 1.1 and discussion) and §1.2 notation, pp. 1–4",
@@ -337,6 +347,7 @@
    "authors": "Jack A. Thorne",
    "edition": "Journal of the American Mathematical Society 28 (2015), 785–870; read in the author's accepted manuscript dated 16 April 2014 (Apollo, University of Cambridge repository)",
    "url": "https://www.repository.cam.ac.uk/items/2796d161-598e-44da-83fd-2015c26f1dbc",
+   "sha256": "76393fcb9a31931789fa4f7c6de9a64275fb02e81e5a3b98c53b8aa1a1834928",
    "readSections": [
     "§2 in full (Definition 2.1, Theorem 2.2, Lemma 2.3, Theorem 2.4 with proof, Definition 2.5, Corollary 2.6, Lemma 2.7), PDF pp. 8–12",
     "§4 introduction, §4.1 (set-up, Definitions 4.1–4.2, Propositions 4.3–4.4), §4.2 (Theorem 4.5 to Proposition 4.11), pp. 34–39",
@@ -366,6 +377,7 @@
    "authors": "Patrick B. Allen, James Newton and Jack A. Thorne",
    "edition": "Compositio Mathematica 156 (2020), 2399–2422; read in arXiv:1912.11269v2 (13 August 2020)",
    "url": "https://arxiv.org/abs/1912.11269v2",
+   "sha256": "077a344352c80389ce75d5c61a69fba90413303aca911a616fe46dbeb8514bfa",
    "readSections": [
     "§4.1 and §4.2 to the statement of Theorem 4.1, pp. 13–15",
     "§5 end of the proof of Theorem 5.1 and Corollary 5.4, p. 17",
@@ -381,6 +393,7 @@
    "authors": "James Newton and Jack A. Thorne",
    "edition": "Journal of the European Mathematical Society 25 (2023), 1919–1967; read in arXiv:1912.11265v3 (30 June 2023), whose numbering is used here",
    "url": "https://arxiv.org/abs/1912.11265v3",
+   "sha256": "286597946a3efcac15b1f1d610370ca0cb52619b20954f3c5bd7f224c12bcf5f",
    "readSections": [
     "§4.1 set-up and Theorem 4.1, §4.2, §4.3 to Proposition 4.5, pp. 26–30",
     "page image of p. 28",
@@ -401,6 +414,7 @@
    "authors": "James Newton and Jack A. Thorne",
    "edition": "Publications mathématiques de l'IHÉS 134 (2021), 1–116; read in arXiv:1912.11261v3 (27 September 2021)",
    "url": "https://arxiv.org/abs/1912.11261v3",
+   "sha256": "6d50b558a6182a8d1515a6715529a33079807bf405c8db775e4ed252f5a2f379",
    "readSections": [
     "only the two places citing Geraghty's published numbering, PDF pp. 10 and 22",
     "§1 standard assumptions, pp. 8–9",
@@ -429,6 +443,7 @@
    "authors": "James Newton and Jack A. Thorne",
    "edition": "Publications mathématiques de l'IHÉS 134 (2021), 117–152; read in arXiv:2009.07180v2 (27 September 2021)",
    "url": "https://arxiv.org/abs/2009.07180v2",
+   "sha256": "0f08214ebe03344c2e2851be76c49213dc4adf7928ff561610b674c423a2a6bf",
    "readSections": [
     "§3: Lemma 3.5 with proof, PDF pp. 22–23; Propositions 3.9–3.11; proof of Theorem 3.1, PDF pp. 24–27",
     "§2: assumptions and Theorem 2.1 (p. 5), the preliminary reduction, local rings, the ring P, Lemma 2.2 and the map P → R (pp. 6–8), Propositions 2.3 and 2.5 (pp. 9–12), proof of Theorem 2.1 for p > 2 including Proposition 2.6 (pp. 12–13), statement of Lemma 2.7 (p. 14); the second use of P_{(𝔭′)} in the case p = 2 was located only (by search, lines of p. 18)",
@@ -441,6 +456,7 @@
    "authors": "James Newton and Jack A. Thorne",
    "edition": "Annals of Mathematics 203 (2026); read in arXiv:2212.03595v2",
    "url": "https://arxiv.org/abs/2212.03595v2",
+   "sha256": "6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c",
    "readSections": [
     "§2: Lemma 2.3, Definitions 2.4–2.5, Lemma 2.6, PDF pp. 11–12 (page image of p. 11)",
     "§3: set-up, Lemmas 3.1–3.5 with proofs, PDF pp. 12–18",
@@ -459,6 +475,7 @@
    "authors": "George Boxer, Frank Calegari and Toby Gee",
    "edition": "Journal of the American Mathematical Society 38 (2025), 509–520; read in arXiv:2309.15944v3 (mathematically identical to the published text, as the extraction PAPER-BOXER-CALEGARI-GEE-25 records)",
    "url": "https://arxiv.org/abs/2309.15944v3",
+   "sha256": "abfa9eac9984aa5d0bd5e1700a08993bc3baa6f8435d18f5f0e37f5a84769684",
    "readSections": [
     "§3: statement of Theorem 3.1 and the parts of its proof citing BLGGT14 Cor. A.2.3, Lemma A.2.5 and Lemmas 2.2.1, 2.2.2, 2.2.4, PDF pp. 8–10",
     "§2, proof of Theorem 2.1 from the definition of R_F to the end, and Lemma 2.2, pp. 6–7",
@@ -472,6 +489,7 @@
    "authors": "Yifeng Liu, Yichao Tian, Liang Xiao, Wei Zhang and Xinwen Zhu",
    "edition": "Acta Mathematica Sinica, English Series 40 (2024); read in arXiv:2108.06998v1, the version cited by Liu et al., Invent. Math. 228 (2022)",
    "url": "https://arxiv.org/abs/2108.06998v1",
+   "sha256": "fce1c9ae227dc1fcbc2fa712ae0034f7454b77595f63b927a7bdc7237f81292a",
    "readSections": [
     "§1 (pp. 1–3: introduction, Theorem 1.0.1, notations and conventions)",
     "§2.1, Notation 2.1.1–Lemma 2.1.3 (pp. 4–5, statement part)",
@@ -491,6 +509,7 @@
    "authors": "Daniel Le, Bao V. Le Hung, Brandon Levin and Stefano Morra",
    "edition": "Inventiones mathematicae 231 (2023), 1277–1488; read in arXiv:2007.05398v2",
    "url": "https://arxiv.org/abs/2007.05398v2",
+   "sha256": "3cdae0b192d3ba8d75391fbd2bf40264e23c9d9c69d536ad30b50dddda0d61af",
    "readSections": [
     "§1.2 (pp. 3–4: Theorems 1.2.1, 1.2.5); §1.3 (pp. 5–6); §1.4 opening (pp. 6–7); §1.5, Theorem 1.5.5 and Remark 1.5.6 (p. 12); §1.6 (pp. 14–16, first half)",
     "§1.9.1–1.9.3 (pp. 19–21)",
@@ -509,6 +528,7 @@
    "authors": "Laurent Clozel and Jack A. Thorne",
    "edition": "Compositio Mathematica 150 (2014), 729–748; read in the author manuscript lrspi.pdf",
    "url": "https://www.dpmms.cam.ac.uk/~jat58/lrspi.pdf",
+   "sha256": "f8609496aff7abb2858694331556a635a353a50a8280d5e05d507948d4aa24f7",
    "readSections": [
     "§2.1 (Definition 2.1, RACSD sums, Theorem 2.2, Lemma 2.3), §2.2 (Definition 2.4, Lemmas 2.5–2.6 with proofs), §2.3 Theorem 2.7, PDF pp. 2–7 (page images of pp. 5–6)",
     "§2.3 end of the proof of Theorem 2.7, p. 7",
@@ -523,6 +543,7 @@
    "authors": "Toby Gee and Mark Kisin",
    "edition": "arXiv:1208.3179v5 (12 June 2026); this version, not an unchecked version of record",
    "url": "https://arxiv.org/abs/1208.3179v5",
+   "sha256": "65cb5797bbe10e328843b5fdc73f2623c80e19fa89ceb72ce6cd296881eb68f9",
    "readSections": [
     "§2 conventions (Hodge type, potentially Barsotti–Tate), PDF pp. 5–6",
     "§3.1 standing assumptions, PDF p. 8",
@@ -536,6 +557,7 @@
    "authors": "Gaëtan Chenevier",
    "edition": "arXiv:0809.0415v2 (18 July 2013)",
    "url": "https://arxiv.org/abs/0809.0415v2",
+   "sha256": "f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953",
    "readSections": [
     "§1, Corollary 1.14 and proof (p. 14)",
     "§2, statement of Theorem 2.12 (p. 28)",
@@ -548,6 +570,7 @@
    "authors": "David Geraghty",
    "edition": "Mathematische Annalen 373 (2019), 1341–1427; read in the author's preprint dated 12 March 2010, whose numbering (Lemma 2.6.4, Lemma 5.1.6, …) is the one BLGGT14 and Thorne cite and is used here; the published version numbers its statements differently and was not obtained",
    "url": "https://web.archive.org/web/2id_/https://www2.bc.edu/david-geraghty/files/oml.pdf",
+   "sha256": "18c3b5081c8c8e6af6001fdaa145cd43a51763c5fd72abf6949dd431704a72f1",
    "readSections": [
     "§2.3: Definition 2.3.2, Lemma 2.3.3, Definition 2.3.4, PDF p. 11",
     "§5 preamble: bigness (Definition 5.0.2), PDF p. 57; conventions on Galois representations of RACSDC/RAESDC π and on Steinberg representations, PDF pp. 58–59",
@@ -579,6 +602,7 @@
    "authors": "Rebecca Bellovin and Toby Gee",
    "edition": "Algebra & Number Theory 13 (2019), 333–378; read in arXiv:1708.04885v3 (30 December 2018)",
    "url": "https://arxiv.org/abs/1708.04885v3",
+   "sha256": "afe3ab33eedfd50c5fc943020e494b32d6515802723de982ba0da3848f00c587",
    "readSections": [
     "Introduction, the paragraph comparing Theorem B with BLGGT14 Proposition 1.5.1, p. 2",
     "§4.2, Proposition 4.2.6 with proof, pp. 36–37",
@@ -594,6 +618,7 @@
    "authors": "Jack A. Thorne",
    "edition": "Proceedings of the London Mathematical Society (3) 128 (2024), e12584; read in arXiv:2212.03591v2",
    "url": "https://arxiv.org/abs/2212.03591v2",
+   "sha256": "372ed2cbe894a75e01f8292963eeb9a50ffe7236098f183e3784aa09c98343b1",
    "readSections": [
     "§6 (Lemmas 6.9–6.10, standing assumptions and Theorem 6.11 with proof, pp. 39–41)",
     "§4, statement of Theorem 4.5 (p. 20)",
@@ -606,6 +631,7 @@
    "authors": "Daniel Le, Bao V. Le Hung, Brandon Levin and Stefano Morra",
    "edition": "Forum of Mathematics, Pi 8 (2020), e5; read in arXiv:1608.06570v4",
    "url": "https://arxiv.org/abs/1608.06570v4",
+   "sha256": "cceae9f59d4c8af0a265726c6a35583959b0e1cb0451043ff79170a1def432bd",
    "readSections": [
     "§6, item (16): Definition 6.0.1, Proposition 6.0.2 and its proof, pp. 97–99",
     "read 2026-10-08"
