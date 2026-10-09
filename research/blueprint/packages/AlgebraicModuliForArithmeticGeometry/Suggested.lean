@@ -53,7 +53,7 @@ theorem grassmannian_top_subsingleton [Module.Free R M] [Module.Finite R M] [Non
 
 /-- The Hilbert function of a graded vector space with finite-dimensional pieces. -/
 noncomputable def hilbertFunction (k : Type u) [Field k] (V : ℕ → Type u)
-    [∀ n, AddCommGroup (V n)] [∀ n, Module k (V n)] : ℕ → ℕ :=
+    [∀ n, AddCommGroup (V n)] [∀ n, Module k (V n)] [∀ n, Module.Finite k (V n)] : ℕ → ℕ :=
   fun n => Module.finrank k (V n)
 
 /-- Hilbert–Serre: for a finitely generated graded module `M = ⊕ ℳ n` over the polynomial ring
@@ -66,6 +66,11 @@ theorem exists_hilbertPolynomial (k : Type u) [Field k] (σ : Type u) [Fintype �
     [DirectSum.Decomposition ℳ] :
     ∃ (P : Polynomial ℚ) (N : ℕ), P.natDegree ≤ Fintype.card σ - 1 ∧
       ∀ n, N ≤ n → P.eval (n : ℚ) = Module.finrank k (ℳ n) := sorry
+
+/-- `PluckerTests.sign`: the minors of a quotient with rows `(1,0,a,b)` and `(0,1,c,d)`
+satisfy the alternating Plücker relation, including in characteristic two. -/
+example (K : Type u) [CommRing K] (a b c d : K) :
+    (a * d - b * c) - c * (-b) + d * (-a) = 0 := sorry
 
 end ProjectiveParameterSpaces
 
@@ -94,6 +99,210 @@ theorem not_flat_dualNumberPoint : ¬ Flat (dualNumberPoint k) := sorry
 end HomIsom
 
 end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
+
+/-! ## Layer R09.3: quasi-coherent pullback and faithfully flat module descent -/
+
+namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
+
+open _root_.AlgebraicGeometry
+
+noncomputable def affine_pullback_tensor {R B : CommRingCat.{u}}
+    (f : R ⟶ B) (M : ModuleCat.{u} R) :
+    (Scheme.Modules.pullback (Spec.map f)).obj (tilde M) ≅
+      tilde ((ModuleCat.extendScalars f.hom).obj M) := by
+  sorry
+
+-- API: affine_pullback_tensor.naturality. This compares sheaf maps.
+theorem affine_pullback_tensor.naturality {R B : CommRingCat.{u}}
+    (f : R ⟶ B) {M N : ModuleCat.{u} R} (h : M ⟶ N) :
+    (Scheme.Modules.pullback (Spec.map f)).map ((tilde.functor R).map h) ≫
+        (affine_pullback_tensor f N).hom =
+      (affine_pullback_tensor f M).hom ≫
+        (tilde.functor B).map ((ModuleCat.extendScalars f.hom).map h) := by
+  sorry
+
+-- Test: AffinePullbackTests.nonflat. The original mono becomes zero on a
+-- nonzero sheaf after the nonflat base change Z → Z/2Z.
+example :
+    let f := CommRingCat.ofHom (Int.castRingHom (ZMod 2))
+    let h := (tilde.functor (CommRingCat.of ℤ)).map
+      (ModuleCat.ofHom (2 • LinearMap.id : ℤ →ₗ[ℤ] ℤ))
+    Mono h ∧
+      (Scheme.Modules.pullback (Spec.map f)).map h = 0 ∧
+      ¬ Mono ((Scheme.Modules.pullback (Spec.map f)).map h) := by
+  sorry
+
+/-- Assemble quasi-coherent pullback and its identity and composition comparisons into
+a pseudofunctor. The restricted pullback itself belongs to Tau Ceti's
+`QuasicoherentSheaf.pullback`; this target supplies its bicategorical assembly. -/
+noncomputable def QCohPseudofunctor : LocallyDiscrete Scheme.{u}ᵒᵖ ⥤ᵖ Cat := by
+  sorry
+
+theorem QCohPseudofunctor.fibre (X : Scheme.{u}) :
+    QCohPseudofunctor.obj (.mk (op X)) =
+      Cat.of (SheafOfModules.isQuasicoherent X.ringCatSheaf).FullSubcategory := by
+  sorry
+
+-- Test: QCohPseudoTests.infiniteModule. A particular infinite free module
+-- is admitted, and its failure of finite generation is part of the check.
+example (K : Type u) [Field K] :
+    (tilde (R := CommRingCat.of K) (ModuleCat.of K (ℕ →₀ K))).IsQuasicoherent ∧
+      ¬ Module.Finite K (ℕ →₀ K) := by
+  sorry
+
+-- Test: QCohPseudoTests.nonInvertibleArrow. Test the sheaf-module
+-- arrow; a failure of invertibility only in ModuleCat would be weaker.
+example : ¬ IsIso ((tilde.functor (CommRingCat.of ℤ)).map
+    (ModuleCat.ofHom (2 • LinearMap.id : ℤ →ₗ[ℤ] ℤ))) := by
+  sorry
+
+end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
+
+namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
+
+open TensorProduct
+
+theorem finite_presentation_of_faithfully_flat
+    {R S M : Type u} [CommRing R] [CommRing S] [Algebra R S]
+    [AddCommGroup M] [Module R M] [Module.FaithfullyFlat R S]
+    [Module.FinitePresentation S (S ⊗[R] M)] :
+    Module.FinitePresentation R M := by
+  sorry
+
+end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
+
+namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ModuleDescentBridge
+
+open CategoryTheory
+universe uB
+
+variable {R S : Type uB} [CommRing R] [CommRing S] (f : R →+* S)
+
+-- Partial prototype for tensor-comonad-coordinates.
+-- Tensor instance transport and the full overlap-action signatures remain omitted.
+theorem tensor_comonad_coordinates (N : ModuleCat.{uB} S) :
+    (((ModuleCat.extendRestrictScalarsAdj f).toComonad : ModuleCat S ⥤ ModuleCat S) =
+      ModuleCat.restrictScalars f ⋙ ModuleCat.extendScalars f) ∧
+    ((ModuleCat.extendRestrictScalarsAdj f).toComonad.ε.app N =
+      (ModuleCat.extendRestrictScalarsAdj f).counit.app N) ∧
+    ((ModuleCat.extendRestrictScalarsAdj f).toComonad.δ.app N =
+      (ModuleCat.extendScalars f).map
+        ((ModuleCat.extendRestrictScalarsAdj f).unit.app
+          ((ModuleCat.restrictScalars f).obj N))) := by
+  sorry
+
+-- Partial prototype for overlap-comparison-canonical.
+-- This identifies the comparison fields, not a constructed overlap equivalence.
+theorem overlap_comparison_canonical {M M' : ModuleCat.{uB} R} (h : M ⟶ M') :
+    (((Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).obj M).A =
+      (ModuleCat.extendScalars f).obj M) ∧
+    (((Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).obj M).a =
+      (ModuleCat.extendScalars f).map
+        ((ModuleCat.extendRestrictScalarsAdj f).unit.app M)) ∧
+    (((Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).map h).f =
+      (ModuleCat.extendScalars f).map h) := by
+  sorry
+
+-- Four smoke examples; none substitutes for the omitted overlap tests.
+example (K : (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra) :
+    K.a ≫ (ModuleCat.extendRestrictScalarsAdj f).toComonad.ε.app K.A = 𝟙 K.A := by
+  sorry
+
+example (K : (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra) :
+    K.a ≫ (ModuleCat.extendRestrictScalarsAdj f).toComonad.δ.app K.A =
+      K.a ≫ (ModuleCat.extendRestrictScalarsAdj f).toComonad.map K.a := by
+  sorry
+
+example {K K' : (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra}
+    (h : K ⟶ K') :
+    K.a ≫ (ModuleCat.extendRestrictScalarsAdj f).toComonad.map h.f =
+      h.f ≫ K'.a := by
+  sorry
+
+example (K : (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra) :
+    (𝟙 K : K ⟶ K).f = 𝟙 K.A := by
+  sorry
+
+end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ModuleDescentBridge
+
+namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ModuleDescentAllTests
+
+open CategoryTheory Opposite
+
+universe uD
+
+noncomputable section
+
+-- Transport the pseudofunctor; this is not a second module category.
+abbrev affineModulePullback :
+    Pseudofunctor (LocallyDiscrete CommRingCat.{uD}ᵒᵖᵒᵖ) Cat :=
+  (CategoryTheory.unopUnop CommRingCat.{uD}).toPseudofunctor.comp
+    CommRingCat.moduleCatExtendScalarsPseudofunctor
+
+variable {R A : Type uD} [CommRing R] [CommRing A]
+
+abbrev NativeData (f : R →+* A) :=
+  affineModulePullback.DescentData
+    (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)
+
+-- The coalgebra carrier is retained.
+abbrev NativeCoalgebra (f : R →+* A) :=
+  (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra
+
+-- Projection helper to state the comparison's underlying-module compatibility.
+def forgetNativeData (f : R →+* A) : NativeData f ⥤ ModuleCat.{uD} A := by
+  sorry
+
+-- R09.3/native-module-descent-coalgebra
+-- Construct via DescentData'.descentDataEquivalence and the
+-- module-specific chosen-overlap adapter; no arbitrary coherence assumption.
+def nativeCoalgebraEquivalence (f : R →+* A) :
+    NativeData f ≌ NativeCoalgebra f := by
+  sorry
+
+def nativeCoalgebraEquivalenceForget (f : R →+* A) :
+    (nativeCoalgebraEquivalence f).functor ⋙
+      Comonad.forget (ModuleCat.extendRestrictScalarsAdj f).toComonad ≅
+    forgetNativeData f := by
+  sorry
+
+-- R09.3/native-module-canonical-comparison
+def nativeCanonicalComparison (f : R →+* A) :
+    affineModulePullback.toDescentData
+        (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op) ⋙
+      (nativeCoalgebraEquivalence f).functor ≅
+    Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f) := by
+  sorry
+
+-- R09.3/affine-module-descent-equivalence
+-- This is the exact canonical-functor equivalence signature.
+theorem nativeFaithfullyFlatDescent (f : R →+* A) (hf : f.FaithfullyFlat) :
+    (affineModulePullback.toDescentData
+      (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).IsEquivalence := by
+  sorry
+
+-- Smoke examples use objects and keep all module morphisms.
+example (f : R →+* A) (M : ModuleCat.{uD} R) :
+    Nonempty (((nativeCoalgebraEquivalence f).functor.obj
+      ((affineModulePullback.toDescentData
+        (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).obj M)) ≅
+      (Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).obj M) := by
+  sorry
+
+example (f : R →+* A) (D : NativeData f) :
+    Nonempty ((nativeCoalgebraEquivalence f).inverse.obj
+      ((nativeCoalgebraEquivalence f).functor.obj D) ≅ D) := by
+  sorry
+
+example (f : R →+* A) {M N : ModuleCat.{uD} R} (h : M ⟶ N) :
+    ((affineModulePullback.toDescentData
+      (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).map h).hom PUnit.unit =
+      (ModuleCat.extendScalars f).map h := by
+  sorry
+
+end
+
+end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ModuleDescentAllTests
 
 /-! ## Layer R09.4: gerbes, abelian bandings, neutralizations and classification -/
 
@@ -404,235 +613,6 @@ example :
 end CanonicalFactorTests
 
 end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
-
-/-! ## Layer R09.3: quasi-coherent pullback and faithfully flat module descent -/
-
-namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
-
-open _root_.AlgebraicGeometry
-
-theorem quasicoherent_pullback {X Y : Scheme.{u}} (f : X ⟶ Y)
-    (M : Y.Modules) [M.IsQuasicoherent] :
-    ((Scheme.Modules.pullback f).obj M).IsQuasicoherent := by
-  sorry
-
-noncomputable def affine_pullback_tensor {R B : CommRingCat.{u}}
-    (f : R ⟶ B) (M : ModuleCat.{u} R) :
-    (Scheme.Modules.pullback (Spec.map f)).obj (tilde M) ≅
-      tilde ((ModuleCat.extendScalars f.hom).obj M) := by
-  sorry
-
--- API: affine_pullback_tensor.naturality. This compares sheaf maps.
-theorem affine_pullback_tensor.naturality {R B : CommRingCat.{u}}
-    (f : R ⟶ B) {M N : ModuleCat.{u} R} (h : M ⟶ N) :
-    (Scheme.Modules.pullback (Spec.map f)).map ((tilde.functor R).map h) ≫
-        (affine_pullback_tensor f N).hom =
-      (affine_pullback_tensor f M).hom ≫
-        (tilde.functor B).map ((ModuleCat.extendScalars f.hom).map h) := by
-  sorry
-
--- Test: AffinePullbackTests.nonflat. The original mono becomes zero on a
--- nonzero sheaf after the nonflat base change Z → Z/2Z.
-example :
-    let f := CommRingCat.ofHom (Int.castRingHom (ZMod 2))
-    let h := (tilde.functor (CommRingCat.of ℤ)).map
-      (ModuleCat.ofHom (2 • LinearMap.id : ℤ →ₗ[ℤ] ℤ))
-    Mono h ∧
-      (Scheme.Modules.pullback (Spec.map f)).map h = 0 ∧
-      ¬ Mono ((Scheme.Modules.pullback (Spec.map f)).map h) := by
-  sorry
-
-namespace QCohPseudofunctor
-
--- The exact full-subcategory restriction of the module pullback.
-noncomputable def map {X Y : Scheme.{u}} (f : X ⟶ Y) :
-    (SheafOfModules.isQuasicoherent Y.ringCatSheaf).FullSubcategory ⥤
-      (SheafOfModules.isQuasicoherent X.ringCatSheaf).FullSubcategory := by
-  sorry
-
-noncomputable def map_forget {X Y : Scheme.{u}} (f : X ⟶ Y) :
-    map f ⋙ ObjectProperty.ι (SheafOfModules.isQuasicoherent X.ringCatSheaf) ≅
-      ObjectProperty.ι (SheafOfModules.isQuasicoherent Y.ringCatSheaf) ⋙
-        Scheme.Modules.pullback f := by
-  sorry
-
-end QCohPseudofunctor
-
-/-- The fibres are the
-full categories of quasi-coherent modules, with all module morphisms. -/
-noncomputable def QCohPseudofunctor : LocallyDiscrete Scheme.{u}ᵒᵖ ⥤ᵖ Cat := by
-  refine LocallyDiscrete.mkPseudofunctor
-    (fun X ↦ Cat.of
-      (SheafOfModules.isQuasicoherent X.unop.ringCatSheaf).FullSubcategory)
-    (fun f ↦ (QCohPseudofunctor.map f.unop).toCatHom)
-    (fun X ↦ ?_) (fun f g ↦ ?_) ?_ ?_ ?_
-  all_goals sorry
-
-theorem QCohPseudofunctor.fibre (X : Scheme.{u}) :
-    QCohPseudofunctor.obj (.mk (op X)) =
-      Cat.of (SheafOfModules.isQuasicoherent X.ringCatSheaf).FullSubcategory := by
-  sorry
-
--- Test: QCohPseudoTests.infiniteModule. A particular infinite free module
--- is admitted, and its failure of finite generation is part of the check.
-example (K : Type u) [Field K] :
-    (tilde (R := CommRingCat.of K) (ModuleCat.of K (ℕ →₀ K))).IsQuasicoherent ∧
-      ¬ Module.Finite K (ℕ →₀ K) := by
-  sorry
-
--- Test: QCohPseudoTests.nonInvertibleArrow. Test the sheaf-module
--- arrow; a failure of invertibility only in ModuleCat would be weaker.
-example : ¬ IsIso ((tilde.functor (CommRingCat.of ℤ)).map
-    (ModuleCat.ofHom (2 • LinearMap.id : ℤ →ₗ[ℤ] ℤ))) := by
-  sorry
-
-end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
-
-namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
-
-open TensorProduct
-
-theorem finite_presentation_of_faithfully_flat
-    {R S M : Type u} [CommRing R] [CommRing S] [Algebra R S]
-    [AddCommGroup M] [Module R M] [Module.FaithfullyFlat R S]
-    [Module.FinitePresentation S (S ⊗[R] M)] :
-    Module.FinitePresentation R M := by
-  sorry
-
-end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
-
-namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ModuleDescentBridge
-
-open CategoryTheory
-universe uB
-
-variable {R S : Type uB} [CommRing R] [CommRing S] (f : R →+* S)
-
--- Partial prototype for tensor-comonad-coordinates.
--- Tensor instance transport and the full overlap-action signatures remain omitted.
-theorem tensor_comonad_coordinates (N : ModuleCat.{uB} S) :
-    (((ModuleCat.extendRestrictScalarsAdj f).toComonad : ModuleCat S ⥤ ModuleCat S) =
-      ModuleCat.restrictScalars f ⋙ ModuleCat.extendScalars f) ∧
-    ((ModuleCat.extendRestrictScalarsAdj f).toComonad.ε.app N =
-      (ModuleCat.extendRestrictScalarsAdj f).counit.app N) ∧
-    ((ModuleCat.extendRestrictScalarsAdj f).toComonad.δ.app N =
-      (ModuleCat.extendScalars f).map
-        ((ModuleCat.extendRestrictScalarsAdj f).unit.app
-          ((ModuleCat.restrictScalars f).obj N))) := by
-  sorry
-
--- Partial prototype for overlap-comparison-canonical.
--- This identifies the comparison fields, not a constructed overlap equivalence.
-theorem overlap_comparison_canonical {M M' : ModuleCat.{uB} R} (h : M ⟶ M') :
-    (((Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).obj M).A =
-      (ModuleCat.extendScalars f).obj M) ∧
-    (((Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).obj M).a =
-      (ModuleCat.extendScalars f).map
-        ((ModuleCat.extendRestrictScalarsAdj f).unit.app M)) ∧
-    (((Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).map h).f =
-      (ModuleCat.extendScalars f).map h) := by
-  sorry
-
--- Four smoke examples; none substitutes for the omitted overlap tests.
-example (K : (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra) :
-    K.a ≫ (ModuleCat.extendRestrictScalarsAdj f).toComonad.ε.app K.A = 𝟙 K.A := by
-  sorry
-
-example (K : (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra) :
-    K.a ≫ (ModuleCat.extendRestrictScalarsAdj f).toComonad.δ.app K.A =
-      K.a ≫ (ModuleCat.extendRestrictScalarsAdj f).toComonad.map K.a := by
-  sorry
-
-example {K K' : (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra}
-    (h : K ⟶ K') :
-    K.a ≫ (ModuleCat.extendRestrictScalarsAdj f).toComonad.map h.f =
-      h.f ≫ K'.a := by
-  sorry
-
-example (K : (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra) :
-    (𝟙 K : K ⟶ K).f = 𝟙 K.A := by
-  sorry
-
-end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ModuleDescentBridge
-
-namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ModuleDescentAllTests
-
-open CategoryTheory Opposite
-
-universe uD
-
-noncomputable section
-
--- Transport the pseudofunctor; this is not a second module category.
-abbrev affineModulePullback :
-    Pseudofunctor (LocallyDiscrete CommRingCat.{uD}ᵒᵖᵒᵖ) Cat :=
-  (CategoryTheory.unopUnop CommRingCat.{uD}).toPseudofunctor.comp
-    CommRingCat.moduleCatExtendScalarsPseudofunctor
-
-variable {R A : Type uD} [CommRing R] [CommRing A]
-
-abbrev NativeData (f : R →+* A) :=
-  affineModulePullback.DescentData
-    (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)
-
--- The coalgebra carrier is retained.
-abbrev NativeCoalgebra (f : R →+* A) :=
-  (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra
-
--- Projection helper to state the comparison's underlying-module compatibility.
-def forgetNativeData (f : R →+* A) : NativeData f ⥤ ModuleCat.{uD} A := by
-  sorry
-
--- R09.3/native-module-descent-coalgebra
--- Construct via DescentData'.descentDataEquivalence and the
--- module-specific chosen-overlap adapter; no arbitrary coherence assumption.
-def nativeCoalgebraEquivalence (f : R →+* A) :
-    NativeData f ≌ NativeCoalgebra f := by
-  sorry
-
-def nativeCoalgebraEquivalenceForget (f : R →+* A) :
-    (nativeCoalgebraEquivalence f).functor ⋙
-      Comonad.forget (ModuleCat.extendRestrictScalarsAdj f).toComonad ≅
-    forgetNativeData f := by
-  sorry
-
--- R09.3/native-module-canonical-comparison
-def nativeCanonicalComparison (f : R →+* A) :
-    affineModulePullback.toDescentData
-        (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op) ⋙
-      (nativeCoalgebraEquivalence f).functor ≅
-    Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f) := by
-  sorry
-
--- R09.3/affine-module-descent-equivalence
--- This is the exact canonical-functor equivalence signature.
-theorem nativeFaithfullyFlatDescent (f : R →+* A) (hf : f.FaithfullyFlat) :
-    (affineModulePullback.toDescentData
-      (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).IsEquivalence := by
-  sorry
-
--- Smoke examples use objects and keep all module morphisms.
-example (f : R →+* A) (M : ModuleCat.{uD} R) :
-    Nonempty (((nativeCoalgebraEquivalence f).functor.obj
-      ((affineModulePullback.toDescentData
-        (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).obj M)) ≅
-      (Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).obj M) := by
-  sorry
-
-example (f : R →+* A) (D : NativeData f) :
-    Nonempty ((nativeCoalgebraEquivalence f).inverse.obj
-      ((nativeCoalgebraEquivalence f).functor.obj D) ≅ D) := by
-  sorry
-
-example (f : R →+* A) {M N : ModuleCat.{uD} R} (h : M ⟶ N) :
-    ((affineModulePullback.toDescentData
-      (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).map h).hom PUnit.unit =
-      (ModuleCat.extendScalars f).map h := by
-  sorry
-
-end
-
-end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ModuleDescentAllTests
 
 /-! ## Layer R09.4 (continued): the intrinsic band, conjugation transport and fixtures -/
 
@@ -4923,12 +4903,14 @@ example (U : C) (x : F.obj (.mk (op U)))
       bG.autEquiv U ((η.app (.mk (op U))).toFunctor.obj x) a := by
   sorry
 
--- test: GerbeBandEquivalenceTests.fibre_family_refl
-example : BandPreserving bF bG η := by
+/-- The identity transformation preserves the chosen band without assuming that conclusion. -/
+example : BandPreserving bF bF (Pseudofunctor.StrongTrans.id F) := by
   sorry
 
--- test: GerbeBandEquivalenceTests.modification_refl
-example : BandPreserving bF bG η := by
+/-- A nonidentity coefficient remains nonidentity after a band-preserving transformation. -/
+example (U : C) (x : F.obj (.mk (op U)))
+    (a : Multiplicative (A.obj.obj (op U))) (ha : a ≠ 1) :
+    (η.app (.mk (op U))).toFunctor.mapAut x (bF.autEquiv U x a) ≠ 1 := by
   sorry
 
 -- test: GerbeBandEquivalenceTests.modification_symm
@@ -8827,7 +8809,7 @@ variable {R : Type u} [CommRing R]
 
 open scoped Classical in
 /-- The order of an ideal at a prime: the largest `n` with `I R_𝔭 ⊆ 𝔭ⁿ R_𝔭`, as an extended natural
-number (`⊤` when `I` vanishes in `R_𝔭`). -/
+number. Vanishing implies order `⊤`; the converse needs Noetherianity, by Krull intersection. -/
 noncomputable def _root_.Ideal.orderAt (I : Ideal R) (p : PrimeSpectrum R) : ℕ∞ :=
   ⨆ n : ℕ, if I.map (algebraMap R (Localization.AtPrime p.asIdeal)) ≤
     (IsLocalRing.maximalIdeal (Localization.AtPrime p.asIdeal)) ^ n then (n : ℕ∞) else 0
@@ -8844,8 +8826,10 @@ def MarkedIdeal.cosupport (J : MarkedIdeal R) : Set (PrimeSpectrum R) :=
   {p | (J.mark : ℕ∞) ≤ J.ideal.orderAt p}
 
 /-- The marked ideals `(I, d)` and `(Iᵏ, k d)` have the same cosupport: the first instance of the
-equivalence of marked ideals. -/
+equivalence of marked ideals on a regular ambient scheme. Regularity is essential: the square
+of the maximal ideal of a dual-number ring vanishes although the ideal has order one. -/
 theorem MarkedIdeal.cosupport_pow (J : MarkedIdeal R) (k : ℕ) (hk : 0 < k) :
+    (∀ p : PrimeSpectrum R, IsRegularLocalRing (Localization.AtPrime p.asIdeal)) →
     (MarkedIdeal.mk (J.ideal ^ k) (k * J.mark) (Nat.mul_pos hk J.mark_pos)).cosupport =
       J.cosupport := sorry
 
@@ -8879,12 +8863,92 @@ theorem exists_maximalContact [CharZero k] [Finite σ] (I : Ideal (MvPolynomial 
 open AlgebraicGeometry in
 /-- Resolution of singularities in characteristic zero: an integral scheme of finite type over a
 field of characteristic zero admits a proper surjective morphism from a smooth scheme which is an
-isomorphism over a dense open subscheme (the regular locus). Embedded resolution with normal
+isomorphism over some dense open subscheme. Identification with the regular locus, the reducible
+case, and embedded resolution with normal
 crossings exceptional divisor is in the README. -/
 theorem exists_resolution [CharZero k] (X : Scheme.{u}) (s : X ⟶ Spec (CommRingCat.of k))
-    [LocallyOfFiniteType s] [QuasiCompact s] [IsIntegral X] :
+    [LocallyOfFiniteType s] [QuasiCompact s] [IsSeparated s] [IsIntegral X] :
     ∃ (Y : Scheme.{u}) (π : Y ⟶ X), IsProper π ∧ Function.Surjective π.base ∧
       Smooth (π ≫ s) ∧ ∃ U : X.Opens, Dense (U : Set X) ∧ IsIso (π ∣_ U) := sorry
+
+namespace NegativeControls
+
+/-- `OrderTests.dualNumbers`: a nonregular local ring has order one for its maximal ideal
+but infinite order for its square. This excludes arbitrary rings from `cosupport_pow`. -/
+example (K : Type u) [Field K] :
+    let R := DualNumber K
+    let m := IsLocalRing.maximalIdeal R
+    ∃ p : PrimeSpectrum R, m.orderAt p = 1 ∧ (m ^ 2).orderAt p = ⊤ := sorry
+
+/-- The same dual-number example distinguishes the cosupports of `(m,2)` and `(m²,4)`;
+the regularity hypothesis is not merely a condition needed for a proof technique. -/
+example (K : Type u) [Field K] :
+    let m := IsLocalRing.maximalIdeal (DualNumber K)
+    (MarkedIdeal.mk (m ^ 2) 4 (by decide)).cosupport ≠
+      (MarkedIdeal.mk m 2 (by decide)).cosupport := sorry
+
+/-- `MaxContactTests.characteristicTwoCusp`: the derivative with respect to `y` is `y²`,
+so the derivative ideal of the characteristic-two cusp is not its original ideal. -/
+example :
+    MvPolynomial.pderiv (1 : Fin 2)
+      ((MvPolynomial.X (0 : Fin 2) : MvPolynomial (Fin 2) (ZMod 2)) ^ 2 +
+        MvPolynomial.X (1 : Fin 2) ^ 3) = MvPolynomial.X (1 : Fin 2) ^ 2 := sorry
+
+/-- The ordinary derivative criterion has no order-one tangent direction for `(x²,2)`
+in characteristic two. -/
+example :
+    derivativeIdeal (Ideal.span
+      {((MvPolynomial.X () : MvPolynomial Unit (ZMod 2)) ^ 2)}) =
+      Ideal.span {((MvPolynomial.X () : MvPolynomial Unit (ZMod 2)) ^ 2)} := sorry
+
+/-- `StabiliserTests.signQuotient`: every source deformation of the origin has square zero. -/
+example (K : Type u) [Field K] (a : DualNumber K)
+    (ha : TrivSqZeroExt.fst a = 0) : a ^ 2 = 0 := sorry
+
+/-- The coarse coordinate `t = ε` is nonzero, so it cannot be the square of a source
+deformation of the origin. -/
+example (K : Type u) [Field K] :
+    (DualNumber.eps : DualNumber K) ≠ 0 ∧
+      ¬ ∃ a : DualNumber K, TrivSqZeroExt.fst a = 0 ∧ a ^ 2 = DualNumber.eps := sorry
+
+/-- `DefExamples.nonsmoothGroup`: the `μ₂`-torsor `z² = 1+ε` in characteristic two has
+no section over the dual-number ring, although its special fibre is trivial. -/
+example : ¬ ∃ z : DualNumber (ZMod 2), z ^ 2 = 1 + DualNumber.eps := sorry
+
+/-- `PicardStackTests.disconnected`: the scalar units on two F₃-points have four elements,
+whereas the units on the base have two. -/
+example : Nat.card ((ZMod 3)ˣ × (ZMod 3)ˣ) = 4 ∧ Nat.card (ZMod 3)ˣ = 2 := sorry
+
+/-- `DefGroupoidTests.bg`: at the residue field the framed automorphism group is trivial,
+even when the group of automorphisms of the unframed object is not. -/
+example : (MonoidHom.id (ZMod 3)ˣ).ker = ⊥ ∧ Nat.card (ZMod 3)ˣ = 2 := sorry
+
+/-- `RigidifyTests.gerbe`: the proper kernel of C₄ → C₂ has order two and the target
+still has order two; a gerbe projection need not kill full inertia. -/
+example :
+    Nat.card ((ZMod.castHom (show 2 ∣ 4 from ⟨2, rfl⟩)
+      (ZMod 2)).toAddMonoidHom.ker) = 2 ∧ Nat.card (ZMod 2) = 2 := sorry
+
+/-- `LevelTests.unpolarizedProduct`: an integral unipotent automorphism fixes level three
+but is nonidentity; polarization preservation cannot be omitted from abelian rigidity. -/
+example :
+    let U : Matrix (Fin 2) (Fin 2) ℤ :=
+      fun i j => if i = j then 1 else if i = 0 ∧ j = 1 then 3 else 0
+    U ≠ 1 ∧ Matrix.det U = 1 ∧ U.map (Int.castRingHom (ZMod 3)) = 1 := sorry
+
+/-- `TwistedInertiaTests.frobeniusDirection`: on fifth roots over the binary field, arithmetic
+Frobenius has exponent two and its inverse exponent three, so they differ at a generator. -/
+example : (2 : ZMod 5) * 3 = 1 ∧ (2 : ZMod 5) ≠ 3 := sorry
+
+/-- A map to the constant group of order three over the binary field must be trivial
+if it intertwines the square Frobenius on the source and identity on the target. -/
+example (α : ZMod 3 →+ ZMod 3) (h : ∀ x, α (2 * x) = α x) : α = 0 := sorry
+
+/-- Over the four-element field the fourth-power Frobenius on third roots is identity;
+every homomorphism to the constant group of order three is equivariant. -/
+example (α : ZMod 3 →+ ZMod 3) (x : ZMod 3) : α (4 * x) = α x := sorry
+
+end NegativeControls
 
 end Resolution
 
@@ -8899,7 +8963,10 @@ profinite étale gerbes, locally full morphisms and the canonical factorisation 
 torsor twists of quotient stacks and twisted inertia; inertia subgroup stacks, rigidification and
 base change of coarse spaces; the Picard stack and its algebraicity; Artin's axioms and criterion;
 deformation groupoids of a point of a stack and their comparison with completed local rings;
-controlled transforms, maximal contact as a predicate, coefficient ideals, the resolution invariant,
-global centres and termination; and the strict normal crossings compactification with its polydisc
+controlled transforms, maximal contact as a predicate, coefficient ideals, `MarkedIdeal.homogenize`,
+`homogenize_tangentTransport`, `homogenize_etaleGluing`, the resolution invariant with companion
+ideals and birth history, its component selector and auxiliary multiplicity,
+global centres and termination; resolution of reducible varieties and preservation of the entire
+smooth locus; and the strict normal crossings compactification with its polydisc
 charts.
 -/
