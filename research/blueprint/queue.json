@@ -34648,7 +34648,8 @@
    ],
    "avoidAccountOf": "BP-AlgebraicModuliForArithmeticGeometry--R09.5",
    "prompt": "research/blueprint/prompts/REV-AlgebraicModuliForArithmeticGeometry--R09.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6294"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--R09.6",
@@ -104958,9 +104959,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/REV-PKG-LocallyAnalyticDistributions~adv.md",
-   "note": "claimed on GitHub issue #8026"
+   "note": "deliverables arrived from an external worker on issue #8026",
+   "finishedAt": "2026-10-09T17:05:53Z"
   },
   {
    "id": "REV-PKG-AlgebraicModuliForArithmeticGeometry~adv",
