@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-AutomorphicGaloisRepresentations",
+    "date": "2026-10-09",
+    "notes": "Completed independent package review against all 66 accepted targets, 90 API entries and 66 test specifications, the reviewed library audit, baseline declarations and link records. Corrected README omissions in parabolic/newform pairings and conventions, geometric local hypotheses, CM infinity type, weight-two/residual factors and quaternionic/reduced Hecke settings; corrected two misleading Lean test descriptions. README is 142482 bytes, sources use precise locators and own words, no programme process is present, and metadata is exactly topic = math.NT. Final lean-check exited 0 with 29 sorry warnings and no errors or other Lean warnings at the pinned Mathlib; the file imports Mathlib only, so pinned Tau Ceti elaboration is not established. Needs changes because the active file has 12 definitions, 10 named theorem commands and 55 examples, with only 10 of the 90 API names active, several covering only an algebraic fragment. Most arithmetic definitions, named target theorems and full discriminating tests remain comment-only. PROTOCOL sections 13 and 20 require mathematical signatures and examples, not a commented inventory or unrelated coefficient checks. The report lists every target location and the missing contracts. Packet validation: 0 errors, 0 warnings; the accepted packet was not edited."
+  }
+}
