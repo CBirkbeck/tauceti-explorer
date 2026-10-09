@@ -21927,9 +21927,10 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-AbelianSchemesAndArithmeticModuli.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #666"
+   "note": "deliverables arrived from an external worker on issue #666",
+   "finishedAt": "2026-10-09T21:24:06Z"
   },
   {
    "id": "REV-AbelianSchemesAndArithmeticModuli",
@@ -34869,7 +34870,8 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--R01.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7956"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--R01.2",
