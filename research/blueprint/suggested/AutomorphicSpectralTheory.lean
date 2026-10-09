@@ -6,6 +6,7 @@ carriers are not yet available are omitted explicitly in the adjoining comments;
 proposition is substituted for them. See the packet's gaps and supplier requests.
 -/
 import Mathlib.NumberTheory.LSeries.RiemannZeta
+import Mathlib.NumberTheory.ArithmeticFunction.Moebius
 import Mathlib.MeasureTheory.Function.L2Space
 import Mathlib.MeasureTheory.Integral.Prod
 import Mathlib.MeasureTheory.Integral.DominatedConvergence
@@ -1088,6 +1089,20 @@ theorem gz_65 (s : ℝ) (hs : 1 < s) :
       ‖gz_64 s t + (1 / 2 * Real.log (t - 1) : ℝ)‖ ≤ C) ∧
     ∃ C : ℝ, ∀ t : ℝ, 2 ≤ t → ‖gz_64 s t‖ ≤ C * t ^ (-s) := by sorry
 
+/-- Coordinate adapter for QM.3's weight-zero Laplacian, with the GZ positive
+Euclidean sign. These curves stay in UHP for all real parameters. -/
+def horizontalCurve (z : UpperHalfPlane) (t : ℝ) : UpperHalfPlane :=
+  ⟨(z : ℂ) + t, by sorry⟩
+def verticalLogCurve (z : UpperHalfPlane) (t : ℝ) : UpperHalfPlane :=
+  ⟨(z.re : ℂ) + (z.im * Real.exp t : ℝ) * Complex.I, by sorry⟩
+/-- y²∂x²+∂t²−∂t for t=log(y/y₀), hence y²(∂x²+∂y²).
+Identification with the QM.3 supplier is an adapter obligation, not a second
+Laplacian theory. -/
+def gzLaplacian (f : UpperHalfPlane → ℂ) (z : UpperHalfPlane) : ℂ :=
+  (z.im ^ 2 : ℝ) * deriv (deriv (fun t : ℝ => f (horizontalCurve z t))) 0 +
+    deriv (deriv (fun t : ℝ => f (verticalLogCurve z t))) 0 -
+    deriv (fun t : ℝ => f (verticalLogCurve z t)) 0
+
 def gz_66 (s : ℂ) (z z' : UpperHalfPlane) : ℂ :=
   -2 * gz_64 s (1 + ‖(z : ℂ) - (z' : ℂ)‖ ^ 2 / (2 * z.im * z'.im))
 namespace gz_66
@@ -1103,9 +1118,8 @@ theorem s_one (z z' : UpperHalfPlane) (hne : z ≠ z') :
     gz_66 1 z z' = (Real.log (‖(z : ℂ) - (z' : ℂ)‖ ^ 2 /
       ‖star (z : ℂ) - (z' : ℂ)‖ ^ 2) : ℝ) := by sorry
 
-theorem laplace (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
-    (s : ℂ) (hs : 1 < s.re) (z z' : UpperHalfPlane) (hne : z ≠ z') :
-    lap (fun x => gz_66 s x z') z = s * (s - 1) * gz_66 s z z' := by sorry
+theorem laplace (s : ℂ) (hs : 1 < s.re) (z z' : UpperHalfPlane) (hne : z ≠ z') :
+    gzLaplacian (fun x => gz_66 s x z') z = s * (s - 1) * gz_66 s z z' := by sorry
 
 theorem symmetry (s : ℂ) (z z' : UpperHalfPlane) : gz_66 s z z' = gz_66 s z' z := by sorry
 
@@ -1610,7 +1624,8 @@ the finite smooth inducing vectors. An arbitrary InductionData, arbitrary slice
 and arbitrary operator family do not imply convergence or a constant-term formula.
 The former universally quantified prototypes have therefore been removed.
 
-The general .intertwines and .holomorphic_chamber signatures require that carrier.
+The general convergent_intertwiner.intertwines and
+convergent_intertwiner.holomorphic_chamber signatures require that carrier.
 The concrete integral models below cover the three tests: the point quotient, the
 classical spherical product and a block-permutation slice. The global Bruhat and
 adelic coherence identifying these slices with the full operator remains required.
@@ -2259,6 +2274,12 @@ def gz_69 (N : ℕ) [NeZero N] (congruenceE : ℤ → ℤ → UpperHalfPlane →
   exact (2 * zeta (2 * s) * ∏ p ∈ N.primeFactors, (1 - rpowC p (-2 * s)))⁻¹ *
     ∑ v : ZMod N, if IsUnit v then congruenceE 0 v.val z s else 0
 namespace gz_69
+/-- Prototype of the ER.7-owned meromorphic congruence-pair Eisenstein series.
+Its continuation and initial nonzero integer-pair series are source obligations, not
+claims about arbitrary functions passed to the level adapter. -/
+def continuedCongruenceE (N : ℕ) [NeZero N] :
+    ℤ → ℤ → UpperHalfPlane → ℂ → ℂ := by sorry
+
 def unrestrictedPairs (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   ∑' p : ℤ × ℤ, if p = (0, 0) then 0 else
     rpowC z.im s * rpowC ‖(p.1 : ℂ) * (z : ℂ) + p.2‖ (-2 * s)
@@ -2266,13 +2287,13 @@ def unrestrictedPairs (z : UpperHalfPlane) (s : ℂ) : ℂ :=
 
 def congruence_adapter := gz_69
 
-theorem coset_sum (N : ℕ) [NeZero N] (hN : 1 ≤ N) (E : ℤ → ℤ → UpperHalfPlane → ℂ → ℂ)
-    (zeta : ℂ → ℂ) (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    gz_69 N E zeta z s = ∑' j : (levelModular N).Index,
+theorem coset_sum (N : ℕ) [NeZero N] (hN : 1 ≤ N)
+    (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
+    gz_69 N (continuedCongruenceE N) riemannZeta z s = ∑' j : (levelModular N).Index,
       rpowC ((levelModular N).orbit j z).im s := by sorry
 
-theorem level_one (E : ℤ → ℤ → UpperHalfPlane → ℂ → ℂ) (zeta : ℂ → ℂ)
-    (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) : gz_69 1 E zeta z s = dit_57 z s := by sorry
+theorem level_one (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
+    gz_69 1 (continuedCongruenceE 1) riemannZeta z s = dit_57 z s := by sorry
 
 theorem level_one_test (z : UpperHalfPlane) : scalarCoefficient (continuedE z) 1 (-1) = 3 / Real.pi := by sorry
 
@@ -2281,16 +2302,15 @@ theorem level_one_test (z : UpperHalfPlane) : scalarCoefficient (continuedE z) 1
 example (z : UpperHalfPlane) : scalarCoefficient (continuedE z) 1 (-1) = 3 / Real.pi := by sorry
 
 
-theorem prime_level (p : ℕ) [NeZero p] (hp : p.Prime) (E : ℤ → ℤ → UpperHalfPlane → ℂ → ℂ)
-    (zeta : ℂ → ℂ) (z : UpperHalfPlane) :
-    scalarCoefficient (gz_69 p E zeta z) 1 (-1) = 3 / (Real.pi * (p + 1)) := by sorry
+theorem prime_level (p : ℕ) [NeZero p] (hp : p.Prime) (z : UpperHalfPlane) :
+    scalarCoefficient (gz_69 p (continuedCongruenceE p) riemannZeta z) 1 (-1) =
+      3 / (Real.pi * (p + 1)) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_69.prime_level
--- For N=p, the residue is3/[π(p+1)].
-example (p : ℕ) [NeZero p] (hp : p.Prime) (E : ℤ → ℤ → UpperHalfPlane → ℂ → ℂ)
-    (zeta : ℂ → ℂ) (z : UpperHalfPlane) :
-    scalarCoefficient (gz_69 p E zeta z) 1 (-1) = 3 / (Real.pi * (p + 1)) := by sorry
-
+-- The ER.7 meromorphic congruence series and actual zeta normalization are fixed.
+example (p : ℕ) [NeZero p] (hp : p.Prime) (z : UpperHalfPlane) :
+    scalarCoefficient (gz_69 p (continuedCongruenceE p) riemannZeta z) 1 (-1) =
+      3 / (Real.pi * (p + 1)) := by sorry
 
 /-- The unrestricted sum carries a nontrivial zeta factor even at level one. -/
 theorem nonprimitive (z : UpperHalfPlane) :
@@ -2305,13 +2325,19 @@ example (z : UpperHalfPlane) :
 
 end gz_69
 
-/-- The arithmetic Möbius function is supplied by the existing arithmetic-function API. -/
-theorem gz_70 (N : ℕ) [NeZero N] (hN : 1 ≤ N) (mobius : ℕ → ℤ)
-    (E : ℤ → ℤ → UpperHalfPlane → ℂ → ℂ) (zeta : ℂ → ℂ)
-    (scale : ℝ → UpperHalfPlane → UpperHalfPlane) (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
-    gz_69 N E zeta z s = rpowC N (-s) *
+/-- Positive dilation of the UHP, used only as the GZ level adapter. -/
+def positiveDilation (a : ℝ) (ha : 0 < a) (z : UpperHalfPlane) : UpperHalfPlane :=
+  ⟨a * (z : ℂ), by sorry⟩
+
+/-- Mathlib's Möbius function, the actual positive dilation and the named ER.7
+continuation fix every expressible input. Identification with the supplier's
+congruence-class carrier remains its source obligation. -/
+theorem gz_70 (N : ℕ) [NeZero N] (hN : 1 ≤ N)
+    (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
+    gz_69 N (gz_69.continuedCongruenceE N) riemannZeta z s = rpowC N (-s) *
       (∏ p ∈ N.primeFactors, (1 - rpowC p (-2 * s)))⁻¹ *
-      ∑ d ∈ N.divisors, (mobius d : ℂ) * rpowC d (-s) * dit_57 (scale (N / d) z) s := by sorry
+      ∑ d : N.divisors, (ArithmeticFunction.moebius d.val : ℂ) * rpowC d.val (-s) *
+        dit_57 (positiveDilation ((N : ℝ) / d.val) (by sorry) z) s := by sorry
 
 /-- Unrestricted odd-weight character-pair series; primitive Dirichlet characters and
 fundamental discriminants are imported. Their arithmetic hypotheses are omitted here. -/
@@ -2881,8 +2907,11 @@ theorem inverseEquation (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H) (s : ℂ)
     ∀ v : H, ∃ hD : dit_91 D lap s v ∈ D,
       lap ⟨dit_91 D lap s v, hD⟩ - (s * (1 - s)) • dit_91 D lap s v = v := by sorry
 
-theorem kernelSymmetry (kernel : UpperHalfPlane → UpperHalfPlane → ℂ → ℂ)
-    (z z' : UpperHalfPlane) (s : ℂ) : kernel z z' s = star (kernel z' z (star s)) := by sorry
+/- dit_91.kernelSymmetry: R_s(z,z′)=conj(R_conj(s)(z′,z)).
+The signature is omitted until QM.3 supplies the kernel of the actual self-adjoint
+resolvent on its domain. An arbitrary function of z,z′,s has no such symmetry;
+a Prop field containing this conclusion would not construct that kernel.
+-/
 
 /-- An isolated finite-dimensional eigenspace and its reducing complement are required.
 The spectral isolation carrier is omitted pending the unbounded spectrum adapter. -/
@@ -2975,12 +3004,11 @@ theorem symmetry (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane) (s : ℂ)
     (hOff : ∀ j : (effectiveModularGroup N).Index, z ≠ (effectiveModularGroup N).orbit j z') :
     automorphic_green N z z' s = automorphic_green N z' z s := by sorry
 
-/-- `lap` is the imported QM.2 +y²(∂x²+∂y²) operator; its geometric identification is
-omitted pending the supplier carrier and must not be confused with DIT's sign. -/
-theorem eigenfunction (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
+/-- Actual GZ coordinate Laplacian; QM.3 identification is the supplier adapter. -/
+theorem eigenfunction
     (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re)
     (hOff : ∀ j : (effectiveModularGroup N).Index, z ≠ (effectiveModularGroup N).orbit j z') :
-    lap (fun w => automorphic_green N w z' s) z = s * (s - 1) * automorphic_green N z z' s := by sorry
+    gzLaplacian (fun w => automorphic_green N w z' s) z = s * (s - 1) * automorphic_green N z z' s := by sorry
 
 theorem full_level_residue (z z' : UpperHalfPlane)
     (hOff : ∀ j : (effectiveModularGroup 1).Index, z ≠ (effectiveModularGroup 1).orbit j z') :
@@ -3000,18 +3028,17 @@ theorem point_pair_symmetry (s : ℂ) (z z' : UpperHalfPlane) : gz_66 s z z' = g
 example (s : ℂ) (z z' : UpperHalfPlane) : gz_66 s z z' = gz_66 s z' z := by sorry
 
 
-/-- Same imported Laplacian and off-diagonal convention as `eigenfunction`. -/
-theorem finite_part_not_harmonic (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
+/-- Same concrete Laplacian and off-diagonal convention as `eigenfunction`. -/
+theorem finite_part_not_harmonic
     (z z' : UpperHalfPlane)
     (hOff : ∀ j : (effectiveModularGroup 1).Index, z ≠ (effectiveModularGroup 1).orbit j z') :
-    lap (fun w => greenFinitePart 1 w z') z = -12 ∧ lap (fun w => greenFinitePart 1 w z') z ≠ 0 := by sorry
+    gzLaplacian (fun w => greenFinitePart 1 w z') z = -12 ∧ gzLaplacian (fun w => greenFinitePart 1 w z') z ≠ 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.automorphic_green.finite_part_not_harmonic
 -- At N=1 the finite part after subtracting −12/(s−1) has Δ_GZ=−12≠0, so it is not harmonic.
-example (lap : (UpperHalfPlane → ℂ) → UpperHalfPlane → ℂ)
-    (z z' : UpperHalfPlane)
+example (z z' : UpperHalfPlane)
     (hOff : ∀ j : (effectiveModularGroup 1).Index, z ≠ (effectiveModularGroup 1).orbit j z') :
-    lap (fun w => greenFinitePart 1 w z') z = -12 ∧ lap (fun w => greenFinitePart 1 w z') z ≠ 0 := by sorry
+    gzLaplacian (fun w => greenFinitePart 1 w z') z = -12 ∧ gzLaplacian (fun w => greenFinitePart 1 w z') z ≠ 0 := by sorry
 
 end automorphic_green
 
@@ -3185,12 +3212,16 @@ theorem cusp_fixed (T : Height ι) (f : X → ℂ) (hcusp : ∀ P, D.constantTer
 
 /-- Local finiteness is the regular-T reduction-theory statement below; arbitrary infinite
 summation linearity without convergence is not being asserted. -/
-theorem linear (T : Height ι) (f g : X → ℂ) (a b : ℂ) :
+theorem linear (T : Height ι) (f g : X → ℂ) (a b : ℂ)
+    (hFinite : ∀ P : D.Proper, ∀ x : X,
+      Set.Finite {j : D.Cosets P | D.cutoff P (D.height P (D.translate P j x) - T) ≠ 0}) :
     arthur_truncation D T (a • f + b • g) = a • arthur_truncation D T f + b • arthur_truncation D T g := by sorry
 
-theorem local_finite [TopologicalSpace X] (T : Height ι) (K : Set X) (hK : IsCompact K)
-    (P : D.Proper) :
-    Set.Finite {j : D.Cosets P | ∃ x ∈ K, D.cutoff P (D.height P (D.translate P j x) - T) ≠ 0} := by sorry
+/- arthur_truncation.local_finite is omitted until the rational-parabolic/coset
+carrier and sufficiently regular T supplied by reduction theory are available.
+Its compact-set conclusion is stronger than the pointwise hFinite needed above.
+Arbitrary TruncationData need not have finite coset support.
+-/
 
 theorem cusp (T : Height ι) (f : X → ℂ) (hcusp : ∀ P, D.constantTerm P f = 0) :
     arthur_truncation D T f = f := by sorry
@@ -4496,9 +4527,10 @@ def constant_term {N : Type w} [MeasurableSpace N] (ν : Measure N)
     (leviRational : J → G) (unipotent : N → G) (f : G → ℂ) (x y : G) : ℂ :=
   ∫ n, ∑' gamma : J, f (x⁻¹ * leviRational gamma * unipotent n * y) ∂ν
 
-/-- Inversion permutes rational classes; this arithmetic group condition and convergence
-are omitted until the rational quotient carrier is integrated. -/
-theorem adjoint (rational : J → G) (f : G → ℂ) (x y : G) :
+/-- Inversion on the rational subgroup is supplied as a bijective reindexing. -/
+theorem adjoint (rational : J → G) (inverseIndex : J ≃ J)
+    (hInverse : ∀ j, rational (inverseIndex j) = (rational j)⁻¹)
+    (f : G → ℂ) (x y : G) :
     automorphic_kernel rational (fun g => star (f g⁻¹)) x y = star (automorphic_kernel rational f y x) := by sorry
 
 theorem finite_group [Fintype J] (rational : J → G) (f : G → ℂ) (x y : G) :
@@ -4524,14 +4556,16 @@ example  :
       (Multiplicative.ofAdd x) (Multiplicative.ofAdd x)) volume := by sorry
 
 
-theorem adjoint_swap (rational : J → G) (f : G → ℂ)
-    (hf : ∀ g, f g = star (f g⁻¹)) (x y : G) :
+theorem adjoint_swap (rational : J → G) (inverseIndex : J ≃ J)
+    (hInverse : ∀ j, rational (inverseIndex j) = (rational j)⁻¹)
+    (f : G → ℂ) (hf : ∀ g, f g = star (f g⁻¹)) (x y : G) :
     automorphic_kernel rational f x y = star (automorphic_kernel rational f y x) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.automorphic_kernel.adjoint_swap
 -- Real inversion-invariant f has Hermitian kernel K_f(x,y)=conj(K_f(y,x)).
-example (rational : J → G) (f : G → ℂ)
-    (hf : ∀ g, f g = star (f g⁻¹)) (x y : G) :
+example (rational : J → G) (inverseIndex : J ≃ J)
+    (hInverse : ∀ j, rational (inverseIndex j) = (rational j)⁻¹)
+    (f : G → ℂ) (hf : ∀ g, f g = star (f g⁻¹)) (x y : G) :
     automorphic_kernel rational f x y = star (automorphic_kernel rational f y x) := by sorry
 
 end automorphic_kernel
@@ -4908,16 +4942,25 @@ theorem recursion (J : E →ₗ[ℂ] ℂ) (phi : L → E →ₗ[ℂ] F)
     (lower : L → F →ₗ[ℂ] ℂ) (weyl : L → ℚ) (f : E) :
     invariant_recursion J phi lower weyl f = J f - ∑ l, (weyl l : ℂ) * lower l (phi l f) := by sorry
 
-/-- Conjugation covariance of J and the lower Fourier terms is proved together with the
-recursion in Arthur's induction. The group/test carriers are omitted. -/
+/-- Defect matching is supplied by Arthur's induction. It is an available linear
+condition, not an omitted assertion about arbitrary scalar distributions. -/
 theorem invariance (J : E →ₗ[ℂ] ℂ) (phi : L → E →ₗ[ℂ] F)
-    (lower : L → F →ₗ[ℂ] ℂ) (weyl : L → ℚ) (conjugate : E →ₗ[ℂ] E) (f : E) :
+    (lower : L → F →ₗ[ℂ] ℂ) (weyl : L → ℚ) (conjugate : E →ₗ[ℂ] E)
+    (hDefect : ∀ f, J (conjugate f) - J f =
+      ∑ l, (weyl l : ℂ) * (lower l (phi l (conjugate f)) - lower l (phi l f))) (f : E) :
     invariant_recursion J phi lower weyl (conjugate f) = invariant_recursion J phi lower weyl f := by sorry
 
-/-- The character-support property is the output of the same induction; the invariant
-Fourier transform is imported, never replaced by a chosen representative test function. -/
+/-- A concrete lift of a character-image functional, with its lower-Levi correction. -/
+def characterLift (factored : F →ₗ[ℂ] ℂ) (transform : E →ₗ[ℂ] F)
+    (phi : L → E →ₗ[ℂ] F) (lower : L → F →ₗ[ℂ] ℂ) (weyl : L → ℚ) : E →ₗ[ℂ] ℂ :=
+  factored.comp transform + ∑ l, (weyl l : ℂ) • (lower l).comp (phi l)
+
+/-- Source character support must supply this factorization; arbitrary invariant
+functionals are not presumed to factor through characters. -/
 theorem character_support (J : E →ₗ[ℂ] ℂ) (phi : L → E →ₗ[ℂ] F)
     (lower : L → F →ₗ[ℂ] ℂ) (weyl : L → ℚ) (transform : E →ₗ[ℂ] F)
+    (factored : F →ₗ[ℂ] ℂ)
+    (hFactor : J = characterLift factored transform phi lower weyl)
     (f : E) (hf : transform f = 0) : invariant_recursion J phi lower weyl f = 0 := by sorry
 
 theorem full_levi (J : E →ₗ[ℂ] ℂ) (phi : Fin 0 → E →ₗ[ℂ] F)
@@ -4929,26 +4972,32 @@ example (J : E →ₗ[ℂ] ℂ) (phi : Fin 0 → E →ₗ[ℂ] F)
     (lower : Fin 0 → F →ₗ[ℂ] ℂ) (weyl : Fin 0 → ℚ) : invariant_recursion J phi lower weyl = J := by sorry
 
 
-theorem zero_transform (J : E →ₗ[ℂ] ℂ) (phi : L → E →ₗ[ℂ] F)
+theorem zero_transform (phi : L → E →ₗ[ℂ] F)
     (lower : L → F →ₗ[ℂ] ℂ) (weyl : L → ℚ) (transform : E →ₗ[ℂ] F)
-    (f : E) (hf : transform f = 0) : invariant_recursion J phi lower weyl f = 0 := by sorry
+    (factored : F →ₗ[ℂ] ℂ) (f : E) (hf : transform f = 0) :
+    invariant_recursion (characterLift factored transform phi lower weyl)
+      phi lower weyl f = 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.invariant_recursion.zero_transform
--- A test function with zero invariant Fourier transform is annihilated by every constructed invariant term.
-example (J : E →ₗ[ℂ] ℂ) (phi : L → E →ₗ[ℂ] F)
+-- Build the input from its character image; then test the actual recursive subtraction.
+example (phi : L → E →ₗ[ℂ] F)
     (lower : L → F →ₗ[ℂ] ℂ) (weyl : L → ℚ) (transform : E →ₗ[ℂ] F)
-    (f : E) (hf : transform f = 0) : invariant_recursion J phi lower weyl f = 0 := by sorry
+    (factored : F →ₗ[ℂ] ℂ) (f : E) (hf : transform f = 0) :
+    invariant_recursion (characterLift factored transform phi lower weyl)
+      phi lower weyl f = 0 := by sorry
 
 
 theorem rank_one (J : E →ₗ[ℂ] ℂ) (phi : Unit → E →ₗ[ℂ] F)
     (lower : Unit → F →ₗ[ℂ] ℂ) (f : E) :
-    invariant_recursion J phi lower (fun _ => 1 / 2) f = J f - (1 / 2 : ℂ) * lower () (phi () f) := by sorry
+    invariant_recursion J phi lower (fun _ => 1 / 2) f = J f - (1 / 2 : ℂ) * lower () (phi () f) ∧
+    invariant_recursion J phi lower (fun _ => 1) f = J f - lower () (phi () f) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.invariant_recursion.rank_one
--- For minimal M in GL₂ only the torus Fourier correction remains, matching Arthur §22.
+-- Global GL₂ trace recursion has Weyl ratio 1/2 (23.10); local recursion (23.3) uses one.
 example (J : E →ₗ[ℂ] ℂ) (phi : Unit → E →ₗ[ℂ] F)
     (lower : Unit → F →ₗ[ℂ] ℂ) (f : E) :
-    invariant_recursion J phi lower (fun _ => 1 / 2) f = J f - (1 / 2 : ℂ) * lower () (phi () f) := by sorry
+    invariant_recursion J phi lower (fun _ => 1 / 2) f = J f - (1 / 2 : ℂ) * lower () (phi () f) ∧
+    invariant_recursion J phi lower (fun _ => 1) f = J f - lower () (phi () f) := by sorry
 
 end invariant_recursion
 end Invariance
@@ -4967,11 +5016,11 @@ theorem compact_trace_specialization {H : Type u} [NormedAddCommGroup H]
     (μ : Measure X) (A : Operator H) (kernel : X → X → ℂ) :
     ∃ T : trace_class H, T.val = A ∧ operatorTrace T = ∫ x, kernel x x ∂μ := by sorry
 
-/-- Euler–Poincaré function as an element of the supplied compact Hecke test space.
-Finite-length admissibility, coefficient ξ and Harish–Chandra trace are imported data. -/
+/-- Scalar trace-image model: explicitly invert an available linear trace equivalence.
+The all-representation Hecke realization remains the Clozel–Delorme source target. -/
 def general_euler_poincare {E : Type u} [AddCommGroup E] [Module ℂ E]
-    {RepIndex : Type v} (trace : RepIndex → E →ₗ[ℂ] ℂ) (relativeDimension : RepIndex → ℕ → ℕ)
-    (topDegree : ℕ) : E := by sorry
+    (trace : E ≃ₗ[ℂ] ℂ) (relativeDimension : ℕ → ℕ) (topDegree : ℕ) : E :=
+  trace.symm (∑ q ∈ Finset.range (topDegree + 1), (-1 : ℂ) ^ q * relativeDimension q)
 namespace general_euler_poincare
 def compactRelativeCochains : CochainData where
   V q := Fin (if q = 0 then 1 else 0) → ℂ
@@ -4994,29 +5043,32 @@ def cochainDimensions (C : CochainData.{u}) [∀ q, FiniteDimensional ℂ (cohom
   fun q => Module.finrank ℂ (cohomology C q)
 
 
-theorem trace_identity {E : Type u} [AddCommGroup E] [Module ℂ E] {RepIndex : Type v}
-    (trace : RepIndex → E →ₗ[ℂ] ℂ) (dim : RepIndex → ℕ → ℕ) (top : ℕ) (pi : RepIndex) :
-    trace pi (general_euler_poincare trace dim top) =
-      ∑ q ∈ Finset.range (top + 1), (-1 : ℂ) ^ q * dim pi q := by sorry
+theorem trace_identity {E : Type u} [AddCommGroup E] [Module ℂ E]
+    (trace : E ≃ₗ[ℂ] ℂ) (dim : ℕ → ℕ) (top : ℕ) :
+    trace (general_euler_poincare trace dim top) =
+      ∑ q ∈ Finset.range (top + 1), (-1 : ℂ) ^ q * dim q := by sorry
 
-/-- Proper induction and finite-length relative cohomology are source conditions omitted
-pending AF/ET; cancellation concerns the alternating sum, not every cohomology group. -/
-theorem induced_vanishing (dimensions : ℕ → ℕ) (top : ℕ) :
-    (∑ q ∈ Finset.range (top + 1), (-1 : ℤ) ^ q * dimensions q) = 0 := by sorry
+/-- Concrete rank-one cancellation; source proper-induction vanishing is not asserted
+for arbitrary lists of dimensions. -/
+theorem induced_vanishing :
+    (∑ q ∈ Finset.range 2, (-1 : ℂ) ^ q * cochainDimensions rankOneRelativeCochains q) = 0 := by sorry
 
-theorem no_discrete_series {RepIndex : Type u} (dim : RepIndex → ℕ → ℕ) (top : ℕ) (pi : RepIndex) :
-    (∑ q ∈ Finset.range (top + 1), (-1 : ℤ) ^ q * dim pi q) = 0 := by sorry
+/-- The source no-discrete-series theorem supplies the zero Euler functional. -/
+theorem no_discrete_series {E : Type u} [AddCommGroup E] [Module ℂ E]
+    (trace : E ≃ₗ[ℂ] ℂ) (dim : ℕ → ℕ) (top : ℕ)
+    (hEuler : (∑ q ∈ Finset.range (top + 1), (-1 : ℂ) ^ q * dim q) = 0) :
+    general_euler_poincare trace dim top = 0 := by sorry
 
 theorem compact_group  :
-    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
-      (fun _ => cochainDimensions compactRelativeCochains) 0 = 1 ∧
+    general_euler_poincare (LinearEquiv.refl ℂ ℂ)
+      (cochainDimensions compactRelativeCochains) 0 = 1 ∧
     Module.finrank ℂ (cohomology compactRelativeCochains 0) = 1 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.general_euler_poincare.compact_group
 -- The actual EP test element for the degree-zero relative cochain model has trace one, equal to its one-dimensional zeroth cohomology.
 example  :
-    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
-      (fun _ => cochainDimensions compactRelativeCochains) 0 = 1 ∧
+    general_euler_poincare (LinearEquiv.refl ℂ ℂ)
+      (cochainDimensions compactRelativeCochains) 0 = 1 ∧
     Module.finrank ℂ (cohomology compactRelativeCochains 0) = 1 := by sorry
 
 
@@ -5024,8 +5076,8 @@ theorem no_discrete_series_test (C : CochainData.{u})
     [∀ q, FiniteDimensional ℂ (cohomology C q)] (top : ℕ)
     (hEuler : (∑ q ∈ Finset.range (top + 1),
       (-1 : ℂ) ^ q * cochainDimensions C q) = 0) :
-    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
-      (fun _ => cochainDimensions C) top = 0 := by sorry
+    general_euler_poincare (LinearEquiv.refl ℂ ℂ)
+      (cochainDimensions C) top = 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.general_euler_poincare.no_discrete_series_test
 -- For finite relative cochains with zero Euler characteristic, evaluating the actual scalar-trace EP construction gives zero; the source no-discrete-series theorem must supply this cohomological condition for each representation.
@@ -5033,21 +5085,21 @@ example (C : CochainData.{u})
     [∀ q, FiniteDimensional ℂ (cohomology C q)] (top : ℕ)
     (hEuler : (∑ q ∈ Finset.range (top + 1),
       (-1 : ℂ) ^ q * cochainDimensions C q) = 0) :
-    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
-      (fun _ => cochainDimensions C) top = 0 := by sorry
+    general_euler_poincare (LinearEquiv.refl ℂ ℂ)
+      (cochainDimensions C) top = 0 := by sorry
 
 
 theorem parabolic_induction  :
-    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
-      (fun _ => cochainDimensions rankOneRelativeCochains) 1 = 0 ∧
+    general_euler_poincare (LinearEquiv.refl ℂ ℂ)
+      (cochainDimensions rankOneRelativeCochains) 1 = 0 ∧
     Module.finrank ℂ (cohomology rankOneRelativeCochains 0) = 1 ∧
     Module.finrank ℂ (cohomology rankOneRelativeCochains 1) = 1 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.general_euler_poincare.parabolic_induction
 -- The actual EP construction for the rank-one relative cochain model has trace zero while both its zeroth and first cohomology have dimension one; vanishing of the trace does not imply vanishing of the cohomology.
 example  :
-    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
-      (fun _ => cochainDimensions rankOneRelativeCochains) 1 = 0 ∧
+    general_euler_poincare (LinearEquiv.refl ℂ ℂ)
+      (cochainDimensions rankOneRelativeCochains) 1 = 0 ∧
     Module.finrank ℂ (cohomology rankOneRelativeCochains 0) = 1 ∧
     Module.finrank ℂ (cohomology rankOneRelativeCochains 1) = 1 := by sorry
 
