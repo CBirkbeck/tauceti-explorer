@@ -4,7 +4,7 @@ This roadmap extends the completed-group-algebra direction of Tau Ceti’s Profi
 
 The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Native continuous functions, AbstractMeasure, localisations, power series, linear duals, finite group algebras, ideals and finite presentations are used throughout. A proposed declaration extends those objects rather than introducing a second mathematical carrier.
 
-The declaration specifications below give the hypotheses, statements, construction and proof routes, immediate prerequisites, APIs, uses and acceptance controls for 486 mathematical items. The accompanying suggested file gives proposed library interfaces and examples. These are specifications for a library development, rather than proved results.
+The declaration specifications below give the hypotheses, statements, construction and proof routes, immediate prerequisites, APIs, uses and acceptance controls for 487 mathematical items. The accompanying suggested file gives proposed library interfaces and examples. These are specifications for a library development, rather than proved results.
 
 ## Conventions and dependency direction
 
@@ -35,7 +35,7 @@ LocallyAnalyticDistributions receives the bounded theory and constructs its diff
 | L0 | 29 | partial |
 | L0a | 0 | not_read |
 | L1 | 84 | partial |
-| L2 | 195 | partial |
+| L2 | 196 | partial |
 | L3 | 40 | partial |
 | L4 | 88 | partial |
 | L5 | 0 | not_read |
@@ -4176,6 +4176,7 @@ Required remaining work:
 - The integral ℤ_p prime-root averaging identity, unique integral descent, finite partial fractions, and rational-series comparison over C_p or an embedded cyclotomic field are supplied. Use the supplied bounded inverse and Z_p coefficient extension, but establish the remaining coefficient-lattice and coefficient-general operator comparisons before claiming the full §3.5.3–5 formulas; prove the prime-power Fourier expression for arbitrary residue restrictions and multiplication by z^x with their convergence hypotheses. ColemanPowerSeries:L1 owns the finite-free normalized-trace comparison; locally analytic and period-ring recipients own their comparisons. Keep all these edges directed from the bounded supplier to its consumers. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes. Reduction of the actual integral psi is now identified with the explicit continuous weighted Cartier operator on native F_p power series. Its semilinearity and pole-cancelled fixed-error vanishing are supplied. This does not close the coefficient-general comparisons or the Coleman-owned characteristic-p logarithmic-derivative/Euler-product image argument.
 - Import completed-algebra/procyclic coordinates from L1 and ProfiniteProPGroups Layer9 and compare them with the pinned Amice equivalence. Preserve the joint adic/finite-quotient topology gate; finite-group kernels are ((1+T)^(p^n)−1), with coefficient reduction, not pure T-adic kernels. The native integral Amice and unit-kernel equivalences now have weak/coefficientwise homeomorphism comparisons; broader coefficient and finite-extension lattice comparisons remain separate; the Z_p-domain field norm and rational unit-ball comparison now have exact nodes.
 - RJW 102 requires the additive-convolution multiplicativity of Amice, beyond its existing linear/isometric signatures. RJW 132 gives a linear unit-support inclusion, not a subalgebra: δ_1 * δ_(-1)=δ_0. Preserve that counterexample in every completed-algebra comparison.
+- The power-series Cartier operators are planned in this layer (L2/cartier-power-series, added by REV-PadicMeasuresIwasawaAlgebras~2), so that no prerequisite of the residue operator points to a higher upstream tier; the Laurent-series operator of ClassicalArithmeticCompletion:CA.2 should import the power-series case from here.
 
 #### Weighted measures
 
@@ -9655,6 +9656,68 @@ Source locators:
 
 - RJW-published — §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
 
+#### Cartier operators on power series
+
+**PadicMeasuresIwasawaAlgebras:L2/cartier-power-series** — construction.
+
+For a commutative ring k, a modulus q ≥ 1 and a residue r ∈ ℕ, the Cartier operator Λ_r on k[[T]] is the k-linear map with coeff_n(Λ_r F) = coeff_(qn+r)(F) for every n ≥ 0. It is the power-series restriction, for r < q, of the Cartier operator on Laurent series over a field. For every k one has Λ_r(F(T^q)·G) = F·Λ_r(G) and F = Σ_(r<q) T^r·(Λ_r F)(T^q); when k is a finite field with q elements this reads Λ_r(F^q·G) = F·Λ_r(G) and F = Σ_(r<q) T^r·(Λ_r F)^q.
+
+Proposed declaration: `PowerSeries.cartier`.
+
+Hypotheses and carriers:
+
+- k is a commutative ring; q ≥ 1 is the modulus and r ∈ ℕ the residue. The Frobenius relations need k a finite field with q elements. The residue operator of this layer uses k = ZMod p and q = p with 0 ≤ r < p.
+
+Construction or proof route:
+
+- Construct Λ_r with PowerSeries.mk from the coefficient sequence n ↦ coeff_(qn+r)(F); additivity and k-linearity are coefficientwise, and coefficient extensionality determines the map.
+- For the semilinearity, compare the coefficient of T^(qn+r) in F(T^q)·G, which is Σ_a f_a g_(q(n−a)+r), with the coefficient of T^n in F·Λ_r(G); the residue-class decomposition F = Σ_(r<q) T^r (Λ_r F)(T^q) is the same coefficient bookkeeping.
+- Over a finite field with q elements, FiniteField.PowerSeries.expand_card identifies F(T^q) with F^q, which turns the two identities into Christol's relations.
+
+Immediate prerequisites:
+
+- mathlib:PowerSeries.mk
+- mathlib:PowerSeries.coeff_mk
+- mathlib:PowerSeries.ext
+- mathlib:PowerSeries.monomial
+- mathlib:PowerSeries.expand
+- mathlib:FiniteField.PowerSeries.expand_card
+
+API:
+
+- PowerSeries.cartier (data): For a commutative ring k and q, r ∈ ℕ, the k-linear map Λ_r : k[[T]] → k[[T]] with nth coefficient coeff_(qn+r).
+- PowerSeries.coeff_cartier (simp): coeff_n(Λ_r F) = coeff_(qn+r)(F).
+- PowerSeries.cartier_monomial (simp): For q ≥ 1, Λ_r(aT^m) = aT^((m−r)/q) if r ≤ m and q divides m − r, and 0 otherwise.
+- PowerSeries.cartier_one_zero (example): With modulus 1, Λ_0 is the identity.
+- PowerSeries.cartier_expand_mul (relation): For q ≠ 0 and every commutative ring k, Λ_r(F(T^q)·G) = F·Λ_r(G), with F(T^q) the native expand map.
+- PowerSeries.sum_X_pow_mul_expand_cartier (characterisation): For q ≠ 0, F = Σ_(r<q) T^r·(Λ_r F)(T^q): the residue-class decomposition of a series.
+- PowerSeries.cartier_pow_card_mul (relation): Over a finite field K with q elements, Λ_r(F^q·G) = F·Λ_r(G).
+- PowerSeries.eq_sum_X_pow_mul_cartier_pow (relation): Over a finite field K with q elements, F = Σ_(r<q) T^r·(Λ_r F)^q.
+
+Semantic unit tests:
+
+- CartierTests.single (computation): Over F_3 with q = 3: Λ_1(T^7) = T^2 and Λ_0(T^7) = 0.
+- CartierTests.modulus_one (degenerate): With modulus q = 1, Λ_0 is the identity on ℤ[[T]].
+- CartierTests.frobenius (characterisation): Over F_3 with q = 3, Λ_0(F^3) = F for every F.
+- CartierTests.residue_shift (computation): Over F_3 with q = 3: Λ_1(T) = 1 while Λ_0(T) = 0; the residue r is not ignored.
+- CartierTests.not_multiplicative (non-example): Over F_2 with q = 2: Λ_0(T·T) = T, whereas Λ_0(T)·Λ_0(T) = 0.
+
+Consumers:
+
+- PadicMeasuresIwasawaAlgebras:L2/residue-psi: the residue averaging operator is Σ_(0≤i<p) (−1)^i Λ_i at modulus p over F_p
+- PadicMeasuresIwasawaAlgebras:L2/residue-psi-semilinear: Λ_i(F(T^p) G) = F Λ_i(G) gives the semilinearity of the signed sum
+- ClassicalArithmeticCompletion:CA.2/cartier-operators: the Laurent-series Cartier operator of that higher-tier roadmap restricts to this operator on power series for r < q; that roadmap imports the power-series case from here
+
+Acceptance controls:
+
+- The operator is k-linear and not multiplicative; it is defined on power series for every r, and agrees with the Laurent-series Cartier operator only for r < q.
+- This roadmap is in the first upstream tier, so the notion is planned here rather than cited from ClassicalArithmeticCompletion:CA.2/cartier-operators, which plans the Laurent-series operator in a higher tier and should import the power-series case from this node.
+
+Source locators:
+
+- rowland-stipulanti-yassawi-bridy-2023 — Section 3, definition of the Cartier operators and Proposition 4, PDF p. 5 (v2). The source defines Λ_r by coefficient decimation on power series over a finite field with q elements and proves the relation Λ_r(F^q G) = F Λ_r(G) and the decomposition F = Σ_(r<q) T^r (Λ_r F)^q. The general-ring statements here are the coefficient identities behind that proof, with F(T^q) in place of F^q.
+- RJW-published — Lemma 12.13 and proof, printed pp. 182–183 / PDF 83–84. The use: the reduction modulo p of the integral averaging operator is the signed sum of the Cartier operators of modulus p.
+
 #### Residue averaging operator
 
 **PadicMeasuresIwasawaAlgebras:L2/residue-psi** — construction.
@@ -9669,13 +9732,13 @@ Hypotheses and carriers:
 
 Construction or proof route:
 
-- Import the Cartier supplier only at positive modulus p and residues 0≤i<p. Its power-series restriction is the decimation coeff_n(Lambda_i F)=coeff_(pn+i)(F).
+- Use the Cartier operators Λ_i of modulus p on native F_p power series (L2/cartier-power-series), at residues 0 ≤ i < p: coeff_n(Λ_i F) = coeff_(pn+i)(F).
 - Take the finite weighted sum of these native linear maps. Alternatively construct the same map with PowerSeries.mk and the displayed coefficient formula; linearity is coefficientwise finite-sum algebra and coefficient extensionality identifies the two constructions.
 - The zero, sum and scalar APIs are linear-map laws. The coefficient characterization and weighted-Cartier characterization expose the construction; the separate monomial and left-inverse nodes provide the generator and Frobenius APIs.
 
 Immediate prerequisites:
 
-- ClassicalArithmeticCompletion:CA.2/cartier-operators
+- PadicMeasuresIwasawaAlgebras:L2/cartier-power-series
 - mathlib:PowerSeries.mk
 - mathlib:PowerSeries.ext
 
@@ -9701,7 +9764,7 @@ Semantic unit tests:
 Consumers:
 
 - RJW Lemma12.13 and ColemanPowerSeries:L1 characteristic-p image proof: Identifies reduction of the actual integral bounded operator and supplies the pole-cancelled fixed-error calculation.
-- ClassicalArithmeticCompletion:CA.2/cartier-operators: Reuses its power-series restrictions and finite-field semilinearity, with the precise positive-modulus/range boundary.
+- PadicMeasuresIwasawaAlgebras:L2/cartier-power-series: Reuses its power-series Cartier operators and their finite-field semilinearity, at modulus p and residues 0 ≤ i < p.
 - The residue comparison and polynomial-density declarations above: Provides an explicit continuous native operator whose values on translated polynomial powers agree with actual integral averaging after coefficient reduction.
 
 Acceptance controls:
@@ -9712,7 +9775,7 @@ Acceptance controls:
 Source locators:
 
 - RJW-published — §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
-- rowland-stipulanti-yassawi-bridy-2023 — Section3, definition of the Cartier operators and Proposition4, PDF5 (v2); full PDF5–6 read. Use only K=F_p, q=p>0 and 0≤r<p. The generic Cartier construction and power-series restriction are owned by ClassicalArithmeticCompletion:CA.2/cartier-operators. Its finite-field relation supplies the semilinearity of the weighted sum. No q=0 or r≥q power-series claim is consumed.
+- rowland-stipulanti-yassawi-bridy-2023 — Section3, definition of the Cartier operators and Proposition4, PDF5 (v2); full PDF5–6 read. Use only K = F_p, q = p > 0 and 0 ≤ r < p. The Cartier operators themselves are the power-series operators of PadicMeasuresIwasawaAlgebras:L2/cartier-power-series; their finite-field relation supplies the semilinearity of the weighted sum. No q = 0 or r ≥ q power-series claim is consumed.
 
 #### Coefficients of residue averaging
 
@@ -9733,7 +9796,7 @@ Construction or proof route:
 Immediate prerequisites:
 
 - PadicMeasuresIwasawaAlgebras:L2/residue-psi
-- ClassicalArithmeticCompletion:CA.2/cartier-operators
+- PadicMeasuresIwasawaAlgebras:L2/cartier-power-series
 
 Acceptance controls:
 
@@ -9742,7 +9805,7 @@ Acceptance controls:
 Source locators:
 
 - RJW-published — §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
-- rowland-stipulanti-yassawi-bridy-2023 — Section3, definition of the Cartier operators and Proposition4, PDF5 (v2); full PDF5–6 read. Use only K=F_p, q=p>0 and 0≤r<p. The generic Cartier construction and power-series restriction are owned by ClassicalArithmeticCompletion:CA.2/cartier-operators. Its finite-field relation supplies the semilinearity of the weighted sum. No q=0 or r≥q power-series claim is consumed.
+- rowland-stipulanti-yassawi-bridy-2023 — Section3, definition of the Cartier operators and Proposition4, PDF5 (v2); full PDF5–6 read. Use only K = F_p, q = p > 0 and 0 ≤ r < p. The Cartier operators themselves are the power-series operators of PadicMeasuresIwasawaAlgebras:L2/cartier-power-series; their finite-field relation supplies the semilinearity of the weighted sum. No q = 0 or r ≥ q power-series claim is consumed.
 
 #### Residue averaging on a monomial
 
@@ -9822,13 +9885,13 @@ Hypotheses and carriers:
 Construction or proof route:
 
 - Native FiniteField.PowerSeries.expand_card identifies F(T^p) with F^p over F_p.
-- For each imported Cartier restriction with 0≤i<p, its finite-field relation gives Lambda_i(F^p G)=F Lambda_i(G). Multiply by (−1)^i and add the p identities.
+- For each Cartier operator Λ_i with 0 ≤ i < p, cartier_expand_mul (equivalently cartier_pow_card_mul over F_p) gives Λ_i(F(T^p) G) = F Λ_i(G). Multiply by (−1)^i and add the p identities.
 - Coefficient characterization identifies the weighted sums with psi_0 on each side. No trace division by p is used in characteristic p.
 
 Immediate prerequisites:
 
 - PadicMeasuresIwasawaAlgebras:L2/residue-psi-coefficient
-- ClassicalArithmeticCompletion:CA.2/cartier-operators
+- PadicMeasuresIwasawaAlgebras:L2/cartier-power-series
 - mathlib:PowerSeries.expand
 - mathlib:FiniteField.PowerSeries.expand_card
 
@@ -9839,7 +9902,7 @@ Acceptance controls:
 Source locators:
 
 - RJW-published — §3.5.3–5, printed127–129/PDF28–30; Lemma12.13 and proof, printed182–183/PDF83–84. Worker decomposition of the actual bounded integral averaging operator and its reduction modulo p. The weighted coefficient formula is derived here; it is not asserted to be a separate printed formula. The comparison is proved through the existing Amice transport, then polynomial density.
-- rowland-stipulanti-yassawi-bridy-2023 — Section3, definition of the Cartier operators and Proposition4, PDF5 (v2); full PDF5–6 read. Use only K=F_p, q=p>0 and 0≤r<p. The generic Cartier construction and power-series restriction are owned by ClassicalArithmeticCompletion:CA.2/cartier-operators. Its finite-field relation supplies the semilinearity of the weighted sum. No q=0 or r≥q power-series claim is consumed.
+- rowland-stipulanti-yassawi-bridy-2023 — Section3, definition of the Cartier operators and Proposition4, PDF5 (v2); full PDF5–6 read. Use only K = F_p, q = p > 0 and 0 ≤ r < p. The Cartier operators themselves are the power-series operators of PadicMeasuresIwasawaAlgebras:L2/cartier-power-series; their finite-field relation supplies the semilinearity of the weighted sum. No q = 0 or r ≥ q power-series claim is consumed.
 
 #### Residue averaging below degree p
 
@@ -12671,8 +12734,8 @@ Required remaining work:
 - Add the continuity assertions for the imported Weierstrass division/preparation operations with the precise adic topology and completeness assumptions. Mathlib already supplies algebraic existence and uniqueness, noetherianity and the one-variable UFD input; do not re-plan those results.
 - The freeness, projective-dimension and exact minimal-resolution signatures now use native modules and the correct H₀/H₁ ranks. Supply the minimal-presentation proof, its rank calculation and independent source verification. The rank formula currently appears as the additive Euler equality; compare it with d₀−d₁+d₂.
 - Dasgupta–Kakde items 43–44 are planned in L6: character-group-ring, character-group-ring-finite-index and character-group-ring-lattice (item 43: R_Ψ as an image, of finite index in ∏_{ψ∈Ψ} O and free of rank #Ψ), and component-character-group-ring, component-group-ring-equiv, group-ring-component-decomposition and character-group-ring-local (item 44: R_χ = e_χO[G] ≅ R_{Ψ_χ} ≅ O[G_p]_χ, O[G] ≅ ∏_χ R_χ, and R_χ local). Of these, the nodes on the components import the character idempotents of this layer (character-decomposition with its orthogonality and sum-one lemmas); the others do not use L4. Arbitrary character quotients are not products of coefficient rings and need not be Gorenstein. Still open from item 42: the ψ-component M_ψ = M ⊗_{Z[G]} O_ψ of a Z[G]-module (base change along the character evaluation), with its right exactness and its comparison with the isotypic component e_ωM when #G is prime to p; decide its owner against EulerSystemsCyclotomicMainConjecture L4, which plans χ-parts over Z_p(χ).
-- Supply the exact normal-domain, regular-parameter, monic-root, characteristic-divisor, character-descent and resolution inputs identified below.
-- Supply every named declaration and semantic test below with its native interface. General coefficient-DVR μ, λ and F contracts are now present, with vertical/horizontal elementary specifications and uniformizer/ramification tests. Completed-algebra generator change, norm/base-change, six-term exactness, Euler/growth interfaces and source-authenticated nonsplit descent remain.
+- The review-split L4 declarations each have a signature in the suggested file; the named normal-domain, regular-parameter, monic-root, characteristic-divisor, character-descent, resolution and growth proof inputs remain the recorded gaps of this stage.
+- Every L4 declaration name and every L4 unit test of the packet appears in the suggested file (completed by REV-PadicMeasuresIwasawaAlgebras~2). General coefficient-DVR μ, λ and F contracts have vertical/horizontal elementary specifications and uniformizer/ramification tests. The signatures for generator change, norm/base change, the six-term sequence, the Euler/growth formulas and nonsplit descent are typed contracts whose proof inputs remain in the gaps.
 
 #### Duals and biduals as intersections of localisations
 
@@ -13529,7 +13592,7 @@ Source locators:
 
 **PadicMeasuresIwasawaAlgebras:L4/reflexive-intersection-criterion** — lemma.
 
-For finitely generatedly generated torsion-free M, Module.IsReflexive A M iff M equals the intersection of its height-one localisations inside M⊗K.
+For finitely generated torsion-free M, Module.IsReflexive A M iff M equals the intersection of its height-one localisations inside M⊗K.
 
 Proposed declaration: `TauCeti.Iwasawa.reflexive_intersection_criterion`.
 
@@ -18106,7 +18169,7 @@ This is the finite-presentation Fitting-ideal carrier that accepted RS-16 assign
 Stage PadicMeasuresIwasawaAlgebras:L0 is partial. Clopen restriction/extension, support, complementary decomposition and restriction-pushforward naturality are supplied, with weak continuity and closed embeddings and field-valued strong/norm comparisons, on the native scalar-valued continuous dual for compact X and normed commutative R. Complete the general profinite measure decomposition: clopen density and dense extension from the pinned baseline, finitely additive clopen data with the necessary boundedness, and the general profinite integral-lattice/field-valued comparisons (the Z_p-domain, Q_p-coefficient case now has exact L2 nodes). The actual unit-domain extension now has exact L2 nodes: its inclusion/restriction squares, integral-test uniqueness, rational norm, closed unit-ball image, common denominator and restriction contraction are supplied. General profinite domains and finite-extension coefficient lattices remain separate targets. No identification of weak and norm topologies is asserted. Read and decompose finite free integral lattices, scaling and scalar extension with the required value-group hypotheses, orthonormal bases and completed coefficient tensors. Native weak and field-valued strong topologies, clopen comparisons and Dirac weak/norm separation are supplied. The infinite-domain ultrametric unit ball is not norm compact; native Banach–Alaoglu supplies weak compactness over proper fields. The Z_p-domain, Q_p-coefficient extension has its integral weak topology identified with the weakly compact unit ball in L2. General profinite coefficient extension, finite-extension lattices, and qualified completeness statements remain. Budget-pass frontier: Routed RJW 67–68, 74, 83–84: retain surjectivity in the definition of an orthonormal basis and the value-group hypothesis for its existence; separate weak-dual reflexivity from strong reflexivity, bounded field-valued clopen data from unrestricted additive data, and the unbounded p-adic Haar distribution from bounded measures. Pilloni §2.3 widens the coefficient setting: for R complete Noetherian local with finite residue field and M flat, complete and separated, lifts of a residue-field basis identify M with the m-adic completion of a direct sum of copies of R (coefficients tend to zero), not the unrestricted product. Prove the finite-level flat/free comparison and passage to the limit. A semilocal Iwasawa algebra needs a factorwise argument; it is not thereby a DVR.
 ### 2. L0a remaining source and interface decomposition
 
-Stage PadicMeasuresIwasawaAlgebras:L0a. Read and decompose the continuous character functor and its parameter spaces using the existing partial ℤ_p-character library. Keep family distribution actions at LocallyAnalyticDistributions:L4 under accepted RS-16; do not add a reverse prerequisite. The layer requires a declaration decomposition: RJW 166, 242 and 294 require the scalar continuous-character functor and its rigid representation (p−1 open discs for odd p). The character-functor targets require their own declaration decomposition. Ordinary continuous evaluation in prescribed families at L3 does not prove representability or analyticity. LocallyAnalyticDistributions:L3 owns analytic Mellin evaluation, L4 the family action; Dirichlet owns the Eisenstein arithmetic and its x^(k−1) normalization, and PadicFamilies owns modular geometry.
+Stage PadicMeasuresIwasawaAlgebras:L0a. Read and decompose the continuous character functor and its parameter spaces using the existing partial ℤ_p-character library. Keep family distribution actions at LocallyAnalyticDistributions:L4 under accepted RS-16; do not add a reverse prerequisite. No proposed declaration for this layer is supplied by these checkpoints; the campaign target is retained. Budget-pass frontier: RJW 166, 242 and 294 require the scalar continuous-character functor and its rigid representation (p−1 open discs for odd p). This packet has no L0a nodes. Ordinary continuous evaluation in prescribed families at L3 does not prove representability or analyticity. LocallyAnalyticDistributions:L3 owns analytic Mellin evaluation, L4 the family action; Dirichlet owns the Eisenstein arithmetic and its x^(k−1) normalization, and PadicFamilies owns modular geometry.
 ### 3. L1 remaining source and interface decomposition
 
 The actual unit-measure inverse and its weak topology are decomposed: integral coordinate image is exactly the compatible families, the integral and joint finite coordinate maps are closed embeddings, arbitrary-filter convergence is eventual equality at each joint finite level, and joint/diagonal kernels form a neighborhood basis. The existing convolution ring is compact, topological and linearly topologized. Compare these exact interfaces with the ProfiniteProPGroups Layer9 completedGroupAlgebra anchor using actual unit-kernel cofinality and quotient equivalences; establish the algebra homeomorphism and Dirac/projection compatibility on that existing carrier. Do not define a second completed carrier. General adic coefficients, finite-extension lattices, continuous completed actions and complete source coverage remain separate targets. Budget-pass frontier: Fu finite-group-ring-coefficients: prove O_K ⊗_Zp Z_p[[G]] ≅ O_K[[G]] with its finite-module topology, then invert p. Retain bounded denominators in K[[G]]; it is not lim_U K[G/U]. Finite free coefficient extension includes ramified K and does not repair the unrelated Ore argument in Fu. Rubin IV Lemma 3.3(i)–(ii), routed by PAPER-KOLYVAGIN-90: for finite-index H in profinite abelian G construct the coefficient-projection Hom restriction/coinduction isomorphism; derive Ext¹ vanishing under freeness over R[[H]]. Complete the finite-index norm/action projection formulas on the owned carrier. RJW 369: for odd p identify the plus corner of the completed group algebra with the quotient by complex conjugation. Its identity is e+, not ambient 1; the finite orbit basis maps to twice the quotient basis. Never divide by 2 integrally at p=2. Construct continuous twisting and inversion automorphisms before L4 consumes them.
@@ -18134,67 +18197,57 @@ Required by: PadicMeasuresIwasawaAlgebras:L6.
 The exact minimal-resolution contract now has genuine native finite free modules, two differentials and augmentation, injectivity, exactness, surjectivity and maximal-ideal minimality. All three ranks use H₀=coinvariants and H₁=invariants, expressed by coefficient-ring lengths of p-killed groups. Free and residue controls are (1,0,0) and (1,2,1). Minimal-presentation construction, the rank comparison and source authentication remain proof inputs; elaboration proves none of them.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/projective-dimension-and-resolution.
-### 10. Suggested declaration and test correspondence remains incomplete
-
-Exact post-revision declaration-command and annotated-test inventory is recorded in checks.l4Interfaces. Present commands are typed contracts, not proofs or a semantic bijection. Missing names must be supplied or reconciled, including completed-algebra generator change, norm/base-change, the six-term sequence, Euler/cardinality controls and source-authenticated nonsplit descent. The general uniformizer and ramification examples exercise μ; λ/F have their own module controls. Stronger generator-change and concrete ramified-coefficient controls remain required.
-
-Required by: PadicMeasuresIwasawaAlgebras:L4/character-decomposition, PadicMeasuresIwasawaAlgebras:L4/character-orbit-coefficients, PadicMeasuresIwasawaAlgebras:L4/characteristic-finite-fitting-control, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-8, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-9, PadicMeasuresIwasawaAlgebras:L4/coinvariants-euler-product, PadicMeasuresIwasawaAlgebras:L4/delta-and-cyclotomic-submodules, PadicMeasuresIwasawaAlgebras:L4/delta-cyclotomic-elementary-factors, PadicMeasuresIwasawaAlgebras:L4/disjoint-torsion-extension, PadicMeasuresIwasawaAlgebras:L4/finite-coinvariants-euler-characteristic, PadicMeasuresIwasawaAlgebras:L4/finite-index-inclusion, PadicMeasuresIwasawaAlgebras:L4/iwasawa-growth-formula, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-1, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-2, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-8, PadicMeasuresIwasawaAlgebras:L4/pseudoiso-maximal-ideal-control, PadicMeasuresIwasawaAlgebras:L4/regular-parameter-reflexivity-criterion.
-### 11. Normal-domain localisation and dual comparisons
+### 10. Normal-domain localisation and dual comparisons
 
 Prove or authenticate height-one DVRs, A=intersection A_p, finite torsion support, the semilocal PID localisation, localisation of Hom for finite presentations and compatibility with the bidual map. Class names IsIntegrallyClosed and IsDedekindDomain alone prove none of these. The common fraction-vector-space embeddings are required before writing an intersection signature. The suggested intersections now use native LocalizedModule.lift images in a single K⊗_A M, and dual extension is K-linear. These common-carrier interfaces are supplied; the listed DVR, support, semilocal and local Hom proof inputs remain.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/bidual-intersection, PadicMeasuresIwasawaAlgebras:L4/dual-intersection, PadicMeasuresIwasawaAlgebras:L4/dual-reflexive, PadicMeasuresIwasawaAlgebras:L4/reflexive-hull, PadicMeasuresIwasawaAlgebras:L4/torsion-structure-normal-domain, PadicMeasuresIwasawaAlgebras:L4/torsion-elementary-divisors, PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-4.
-### 12. Regular parameters, dimension and joint completeness
+### 11. Regular parameters, dimension and joint completeness
 
 The suggested maximal ideal, residue field, dimension-two regularity and coefficient-product/joint-adic completeness signatures have native carriers and explicit hypotheses. Their proofs require normality of regular local rings, regular-parameter quotient dimension, dimension-one DVR, the Hom-quotient injection, dim O[[T]]=2 and residue linear independence of ϖ,T. Establish the equivalence of the coefficient-product topology with the maximal-ideal-adic topology and completeness. Existing noetherian/UFD instances do not discharge these inputs; the separate regular_parameter_reflexivity_criterion name remains absent.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/reflexive-free-over-regular-local, PadicMeasuresIwasawaAlgebras:L4/regular-parameter-reflexivity-criterion, PadicMeasuresIwasawaAlgebras:L4/iwasawa-algebra-regular-local, PadicMeasuresIwasawaAlgebras:L4/iwasawa-joint-adic-completeness, PadicMeasuresIwasawaAlgebras:L4/pseudoiso-maximal-ideal-control.
-### 13. Monic root minimal polynomial and Weierstrass characteristic polynomial
+### 12. Monic root minimal polynomial and Weierstrass characteristic polynomial
 
 The native monic-root characteristic-polynomial signature uses AdjoinRoot.powerBasis' over an arbitrary commutative ring, including F=1. Its proof route is the multiplication companion matrix determinant, avoiding the field-only minimal-polynomial theorem. Authenticate/prove that direct determinant calculation and transport the basis/operator through the pinned series quotient equivalence; the latter full interface is still missing.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/weierstrass-adapter.
-### 14. Factorisation and analytic evaluation qualifications
+### 13. Factorisation and analytic evaluation qualifications
 
 Prove monic/distinguished polynomial factors are distinguished up to units and prepare nonunit series factors. For analytic zeros authenticate the compatible valued inclusion, convergence on the open unit disc, the strict unit-tail estimate and polynomial root bound. No assertion is made for an arbitrary incompatible valuation on an extension field.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/distinguished-irreducibility, PadicMeasuresIwasawaAlgebras:L4/power-series-finite-zeros, PadicMeasuresIwasawaAlgebras:L4/power-series-identity.
-### 15. Cyclotomic closed fibres and quotient inverse
+### 14. Cyclotomic closed fibres and quotient inverse
 
 Show each (omega_n) is closed for the joint adic topology, identify the finite free O-quotient through native Weierstrass division, and prove compactness of O[[T]] from O compactness and product topology. Only then apply nested compact fibres. Request the actual completed-algebra comparison from the existing owner, with Dirac/quotient compatibility; pure T-adic coordinates are not acceptable. The compatible-quotient unique-lift contract now uses native Ideal.Quotient.factor and quotient maps. Joint-adic completeness is stated with the coefficient-product induced topology. Closed fibres, compactness and the actual owned completed-algebra comparison are still proof inputs.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/cyclotomic-quotient-limit.
-### 16. Characteristic divisor, base change and restriction of scalars
+### 15. Characteristic divisor, base change and restriction of scalars
 
-Supply finite support and finite local lengths, length of a DVR cyclic quotient, and determinant-versus-cokernel-length. For finite flat maps of complete coefficient DVRs, specify receiving normal rings and ramification lengths. For restriction of scalars specify O finite free over Z_p, the basis-independent multiplication determinant and norm. Authenticate the determinant/norm input cited as Bourbaki AC VII §4.8. The divisor and ideal now use native Finsupp and Ideal multiplication, and the ring-automorphism law uses an actual semilinear equivalence with the inverse-pair witnesses. Base-change and norm/restriction-of-scalars signatures are still missing and require explicit native scalar towers, finite-flat receiving rings and determinant norms.
+Supply finite support and finite local lengths, length of a DVR cyclic quotient, and determinant-versus-cokernel-length. For finite flat maps of complete coefficient DVRs, specify receiving normal rings and ramification lengths. For restriction of scalars specify O finite free over Z_p, the basis-independent multiplication determinant and norm. Bourbaki AC VII §4.8 has not been independently read in this review; only the reduction to this input is verified. The divisor and ideal now use native Finsupp and Ideal multiplication, and the ring-automorphism law uses an actual semilinear equivalence with the inverse-pair witnesses. Base-change and norm/restriction-of-scalars signatures are still missing and require explicit native scalar towers, finite-flat receiving rings and determinant norms.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-0, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-8, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-9.
-### 17. Integral split and Galois-orbit character decomposition
+### 16. Integral split and Galois-orbit character decomposition
 
-Native MonoidAlgebra projectors, unit-order orthogonality and sum-one signatures, actual module ranges and a splitting module equivalence are now supplied. Prove these interfaces over the splitting coefficient DVR with the stated roots-of-unity hypotheses, and construct the completed-algebra comparison on the owned carrier. The nonsplit finite-etale/Galois-orbit descent still lacks its exact signature, authenticated source and coefficient extensions. Authenticate the integral descent input in the Coates–Sujatha appendix cited by RJW. The character controls must be reconciled with the typed examples rather than inferred from their count.
+Native MonoidAlgebra projectors, unit-order orthogonality and sum-one signatures, actual module ranges and a splitting module equivalence are now supplied. Prove these interfaces over the splitting coefficient DVR with the stated roots-of-unity hypotheses, and construct the completed-algebra comparison on the owned carrier. The nonsplit finite-etale/Galois-orbit descent still lacks its exact signature, authenticated source and coefficient extensions. The Coates–Sujatha appendix cited by RJW was not read in this pass; its integral descent is not freshly verified. The remaining packet character tests must be reconciled with the typed examples rather than inferred from their count.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/character-decomposition, PadicMeasuresIwasawaAlgebras:L4/character-decomposition-api-1, PadicMeasuresIwasawaAlgebras:L4/character-decomposition-api-2, PadicMeasuresIwasawaAlgebras:L4/character-decomposition-api-3, PadicMeasuresIwasawaAlgebras:L4/character-decomposition-api-4, PadicMeasuresIwasawaAlgebras:L4/character-decomposition-api-5, PadicMeasuresIwasawaAlgebras:L4/character-orbit-coefficients.
-### 18. Cyclotomic growth, resolution and Euler determinant inputs
+### 17. Cyclotomic growth, resolution and Euler determinant inputs
 
-The native increasing-kernel delta, quotient-preimage cyclotomic saturation, finite coefficient control, minimal exact free resolution, free/projective criteria and cyclotomic image-growth signatures are supplied. Their proofs still need increasing-kernel/quotient comparisons, the finite-field p-Sylow estimate and geometric-sum lift, minimal presentation and rank calculations, resultant/determinant identity and finite DVR cokernel cardinality. The final cardinality and Euler-product names remain absent with explicit module actions and determinant maps. H₀=coinvariants and H₁=invariants throughout. Authenticate the NSW calculations at their numbered locators.
+The native increasing-kernel delta, quotient-preimage cyclotomic saturation, finite coefficient control, minimal exact free resolution, free/projective criteria and cyclotomic image-growth signatures are supplied. Their proofs still need increasing-kernel/quotient comparisons, the finite-field p-Sylow estimate and geometric-sum lift, minimal presentation and rank calculations, resultant/determinant identity and finite DVR cokernel cardinality. The final cardinality and Euler-product names remain absent as indexed in checks.l4Interfaces. H₀=coinvariants and H₁=invariants throughout. Source calculations in the historical independent review are retained; fresh NSW authentication is a separate gap.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/delta-finite-control, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-primary-submodule, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-growth-step, PadicMeasuresIwasawaAlgebras:L4/projective-dimension-and-resolution, PadicMeasuresIwasawaAlgebras:L4/iwasawa-projective-dimension-criterion, PadicMeasuresIwasawaAlgebras:L4/coinvariants-euler-product.
-### 19. Remaining declaration granularity and typed-test correspondence
+### 18. Remaining declaration granularity and typed-test correspondence
 
-The existing cyclotomic-primary node is now a native construction with quotient-preimage iteration, supremum, three API signatures and zero/free/T² semantic controls. Termination and cyclotomic elementary-factor classification remain explicit proof obligations inside this existing node with a separate termination argument and elementary-factor classification.
+The existing cyclotomic-primary node is now a native construction with quotient-preimage iteration, supremum, three API signatures and zero/free/T² semantic controls. Termination and cyclotomic elementary-factor classification remain explicit proof obligations inside this existing node because the inherited packet is already over budget; no additional split node is introduced.
 
 Required by: PadicMeasuresIwasawaAlgebras:L4/cyclotomic-primary-submodule.
-### 20. NSW author-copy authentication for this revision
-
-The author URL for NSW version2.3 now returns an HTML landing page. Authenticate a freely supplied or maintainer-cleared version before claiming fresh verification of the numbered ChapterV inputs, and collate its page and theorem locators with the inherited records. Retain the corrected conventions and collate the numbered inputs with an authenticated edition.
-
-Required by: PadicMeasuresIwasawaAlgebras:L4/bidual-intersection, PadicMeasuresIwasawaAlgebras:L4/pseudo-null, PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism, PadicMeasuresIwasawaAlgebras:L4/torsion-structure-normal-domain, PadicMeasuresIwasawaAlgebras:L4/reflexive-hull, PadicMeasuresIwasawaAlgebras:L4/reflexive-free-over-regular-local, PadicMeasuresIwasawaAlgebras:L4/structure-theorem-regular-dimension-two, PadicMeasuresIwasawaAlgebras:L4/iwasawa-algebra-regular-local, PadicMeasuresIwasawaAlgebras:L4/height-one-primes, PadicMeasuresIwasawaAlgebras:L4/weierstrass-adapter, PadicMeasuresIwasawaAlgebras:L4/nonzero-power-series-factorization, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-weierstrass-polynomials, PadicMeasuresIwasawaAlgebras:L4/iwasawa-module-structure-theorem, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal, PadicMeasuresIwasawaAlgebras:L4/delta-and-cyclotomic-submodules, PadicMeasuresIwasawaAlgebras:L4/iwasawa-growth-formula, PadicMeasuresIwasawaAlgebras:L4/projective-dimension-and-resolution, PadicMeasuresIwasawaAlgebras:L4/finite-coinvariants-euler-characteristic, PadicMeasuresIwasawaAlgebras:L4/finite-quotient-criterion, PadicMeasuresIwasawaAlgebras:L4/dual-intersection, PadicMeasuresIwasawaAlgebras:L4/reflexive-intersection-criterion, PadicMeasuresIwasawaAlgebras:L4/dual-reflexive, PadicMeasuresIwasawaAlgebras:L4/reflexive-torsion-free, PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-1, PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-2, PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-3, PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-4, PadicMeasuresIwasawaAlgebras:L4/pseudo-null-api-5, PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-1, PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-2, PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-3, PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-4, PadicMeasuresIwasawaAlgebras:L4/pseudo-isomorphism-api-5, PadicMeasuresIwasawaAlgebras:L4/pseudoiso-maximal-ideal-control, PadicMeasuresIwasawaAlgebras:L4/torsion-elementary-divisors, PadicMeasuresIwasawaAlgebras:L4/disjoint-torsion-extension, PadicMeasuresIwasawaAlgebras:L4/regular-parameter-reflexivity-criterion, PadicMeasuresIwasawaAlgebras:L4/iwasawa-joint-adic-completeness, PadicMeasuresIwasawaAlgebras:L4/distinguished-irreducibility, PadicMeasuresIwasawaAlgebras:L4/power-series-finite-zeros, PadicMeasuresIwasawaAlgebras:L4/power-series-identity, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-joint-ideal-bound, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-separation, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-quotient-limit, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-1, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-2, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-3, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-4, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-5, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-6, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-7, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-api-8, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-0, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-2, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-3, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-4, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-5, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-6, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-7, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-8, PadicMeasuresIwasawaAlgebras:L4/characteristic-ideal-api-9, PadicMeasuresIwasawaAlgebras:L4/lambda-additivity, PadicMeasuresIwasawaAlgebras:L4/characteristic-finite-fitting-control, PadicMeasuresIwasawaAlgebras:L4/delta-submodule, PadicMeasuresIwasawaAlgebras:L4/delta-finite-control, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-primary-submodule, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-growth-step, PadicMeasuresIwasawaAlgebras:L4/iwasawa-free-criterion, PadicMeasuresIwasawaAlgebras:L4/iwasawa-projective-dimension-criterion, PadicMeasuresIwasawaAlgebras:L4/iwasawa-rank-euler, PadicMeasuresIwasawaAlgebras:L4/coinvariants-euler-product, PadicMeasuresIwasawaAlgebras:L4/finite-index-inclusion, PadicMeasuresIwasawaAlgebras:L4/iwasawa-maximal-ideal, PadicMeasuresIwasawaAlgebras:L4/iwasawa-residue-field, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-distinguished, PadicMeasuresIwasawaAlgebras:L4/cyclotomic-product, PadicMeasuresIwasawaAlgebras:L4/delta-maximal-finite-submodule, PadicMeasuresIwasawaAlgebras:L4/delta-cyclotomic-elementary-factors, PadicMeasuresIwasawaAlgebras:L4/quotient-delta-torsion-free, PadicMeasuresIwasawaAlgebras:L4/iwasawa-invariants-free-criterion.
 
 ## Sources and corrections
 
 All statements and proof routes are expressed in this roadmap’s own words. Source locators identify supporting results, not quoted passages. The published RJW §13.1 refers to the structure theorem without supplying the whole normal-domain proof package. Its Lemma10.7 supplies the finite-zero uniqueness route; a general coefficient and normed-field formulation must state a compatible injective coefficient map, bounded coefficients and a uniformizer of norm less than one.
 
-The NSW Chapter V inputs, the Bourbaki determinant/norm route and the Coates–Sujatha character-descent route require authenticated source input. The exact locations are retained below; their source-access and proof-input limitations are specified in the handoff.
+NSW version 2.3 was retrieved and authenticated against its recorded hash in the review of revision 2, and its Chapter V locators were re-read; the Bourbaki determinant/norm route and the Coates–Sujatha character-descent route still require authenticated source input. The exact locations are retained below.
 
 - RJW-published: Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions; Essential Number Theory 4 (2025), no. 1, 101–216; DOI 10.2140/ent.2025.4.101. [Source](https://msp.org/ent/2025/4-1/ent-v4-n1-p03-s.pdf).
 - RJW-v2: Joaquín Rodrigues Jacinto and Chris Williams, An introduction to p-adic L-functions; arXiv:2309.15692v2, 19 December 2024. [Source](https://arxiv.org/pdf/2309.15692v2).
