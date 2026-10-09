@@ -41090,7 +41090,8 @@
    ],
    "revisionOf": "BP-RefinedTraceMethods--RT.5",
    "prompt": "research/blueprint/prompts/BP-RefinedTraceMethods--RT.5~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7564"
   },
   {
    "priority": 2,
@@ -47129,8 +47130,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
