@@ -87,6 +87,48 @@
         "module": "TauCeti/Geometry/Hodge/Structure.lean",
         "provides": "A bounded decreasing filtration opposed to its conjugate in a specified integer weight. C5 constructs the geometric filtration and its opposedness; it never rebuilds this structure.",
         "checked": "Full declaration and its surrounding API read at the pinned commit,2026-10-09."
+      },
+      {
+        "ref": "mathlib:LocallyContractibleSpace",
+        "kind": "def",
+        "module": "Mathlib/Topology/Homotopy/LocallyContractible.lean",
+        "provides": "Every neighbourhood contains a neighbourhood with null-homotopic inclusion, exactly the semilocal contractibility convention used in Sella.",
+        "checked": "Declaration, hypotheses and surrounding construction independently read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.IsLocallyFree",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
+        "provides": "Local generators whose maps from free sheaves are isomorphisms; combine with finite presentation for the existing finite locally free carrier.",
+        "checked": "Declaration, hypotheses and surrounding construction independently read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.Abelian.Ext.mapExactFunctor",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Ext/Map.lean",
+        "provides": "For an additive functor of abelian categories preserving finite limits and colimits, the canonical Ext map, compatible with Yoneda composition and extension classes. It supplies the map, not GAGA bijectivity.",
+        "checked": "Declaration, hypotheses and surrounding construction independently read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsLocallyNoetherian",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Noetherian.lean",
+        "provides": "A scheme’s affine-open coordinate rings are Noetherian; the native base condition for relative Hodge bundles.",
+        "checked": "Declaration, hypotheses and surrounding construction independently read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:topologicalKrullDim",
+        "kind": "def",
+        "module": "Mathlib/Topology/KrullDimension.lean",
+        "provides": "Krull dimension of the partially ordered irreducible closed subsets of a topological space; retains the dimension-one condition on the supplied curve.",
+        "checked": "Declaration, hypotheses and surrounding construction independently read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-09."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.cechComplexFunctor",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/SheafCohomology/Cech.lean",
+        "provides": "For a family of objects in a category with finite products, turns a presheaf into its native alternating Čech cochain complex. The Leray comparison theorem remains imported from D0.",
+        "checked": "Declaration, hypotheses and surrounding construction independently read at Mathlib082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-09."
       }
     ]
   },
@@ -118,7 +160,7 @@
       "url": "https://www.numdam.org/item/AIF_1956__6__1_0.pdf",
       "accessed": "2026-10-09",
       "readSections": [
-        "§§10–13, Theorems 1–3, pp.19–25: projective GAGA",
+        "§§12–17, Theorems1–3 and proofs, printedpp.19–27, PDF20–28: projective GAGA",
         "§8, Propositions8–9 and proofs, printedpp.13–15, PDF14–16: algebraic graphs and the local-ring intersection argument"
       ],
       "sha256": "9898f985dd6932496e26450bfe0beca8655a937032f545b97cebd88d1bc8eb98"
@@ -138,21 +180,21 @@
     },
     {
       "id": "CARTAN18",
-      "title": "Séminaire Henri Cartan 1953–1954, Exposé 18",
-      "authors": "Henri Cartan",
-      "edition": "Public version read 2026-10-09",
+      "title": "Faisceaux analytiques sur l’espace projectif",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Séminaire Henri Cartan, volume6 (1953–1954), exposé18",
       "url": "https://www.numdam.org/item/SHC_1953-1954__6__A18_0.pdf",
       "accessed": "2026-10-09",
       "readSections": [
-        "§§1–6, pp.18-1–18-10: Dolbeault, Laurent expansions and projective twists"
+        "Entire exposé18, numbered subsections1–7, printedpp.18-1–18-10, PDF2–11"
       ],
       "sha256": "ce144d39ae1aaf19675090f8f1a25252ec3a7ae3905589585c92a7566722c279"
     },
     {
       "id": "CARTAN19",
-      "title": "Séminaire Henri Cartan 1953–1954, Exposé 19",
-      "authors": "Henri Cartan",
-      "edition": "Public version read 2026-10-09",
+      "title": "Faisceaux analytiques sur l’espace projectif (suite)",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Séminaire Henri Cartan, volume6 (1953–1954), exposé19",
       "url": "https://www.numdam.org/item/SHC_1953-1954__6__A19_0.pdf",
       "accessed": "2026-10-09",
       "readSections": [
@@ -220,7 +262,8 @@
       "accessed": "2026-10-09",
       "readSections": [
         "All three pages: deletion of II1.23–1.24 and replacement proof of II4.1"
-      ]
+      ],
+      "sha256": "d603a393015cec4ed55a7ee852957b513526379092ad89231ec6f66e4ec59d2b"
     },
     {
       "id": "HALL",
@@ -240,7 +283,7 @@
       "title": "Complex analytic geometry in a nonstandard setting",
       "authors": "Ya’acov Peterzil and Sergei Starchenko",
       "edition": "Public version read 2026-10-09",
-      "url": "https://math.haifa.ac.il/kobi/Newton.pdf",
+      "url": "http://math.haifa.ac.il/kobi/Newton.pdf",
       "accessed": "2026-10-09",
       "readSections": [
         "Theorems7.1–7.4 and Lemma8.2, author-PDF pp.21–23: dimension and image loci; proof redirect to Whitney9F is recorded separately"
@@ -255,7 +298,7 @@
       "url": "https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf",
       "accessed": "2026-10-09",
       "readSections": [
-        "§§1–3, printedpp.192–205, PDF2–16: logification, charts, log differentials, lifting and the proof3.13 of the chart criterion"
+        "§§1–3, printedpp.192–205, PDF3–16: logification, charts, log differentials, lifting and the proof3.13 of the chart criterion"
       ],
       "sha256": "e68947e38accef5a9f43a5eba47ee4c8ae9cbc660cd0fb1ee8fcbcd72e3ba595"
     },
@@ -276,7 +319,7 @@
       "title": "Potential automorphy for GL_n",
       "authors": "Lie Qian",
       "edition": "Public version read 2026-10-09",
-      "url": "https://par.nsf.gov/purl/10388233",
+      "url": "https://par.nsf.gov/servlets/purl/10388233",
       "accessed": "2026-10-09",
       "readSections": [
         "Relative Hodge bundles, printedp.1264 (PDF26); Lemma3.10(2), printedp.1266 (PDF28)"
@@ -324,7 +367,7 @@
       "title": "Tame topology of arithmetic quotients and algebraicity of Hodge loci",
       "authors": "Benjamin Bakker, Bruno Klingler and Jacob Tsimerman",
       "edition": "Journal of the American Mathematical Society33 (2020)",
-      "url": "https://par.nsf.gov/purl/10200187",
+      "url": "https://par.nsf.gov/servlets/purl/10200187",
       "accessed": "2026-10-09",
       "readSections": [
         "Theorem4.12 and graph argument, printedp.933 (PDF17); Theorem4.13 is definable Chow and stays with LD.6"
@@ -502,15 +545,16 @@
         "The hypotheses and conventions are part of the stated target."
       ],
       "proofSteps": [
-        "Choose a small contour enclosing the d zeros with f nonzero on it.",
-        "Cauchy division produces holomorphic coefficient functions and quotient on a smaller polydisc.",
-        "The residue formula and uniqueness for a distinguished polynomial give uniqueness; formal division alone supplies no convergence."
+        "Apply preparation to f=uP on a common smaller polydisc.",
+        "Divide g by the distinguished polynomial using the Cauchy contour formula; the remainder coefficients and quotient are holomorphic.",
+        "Divide the resulting quotient by u and use polynomial-remainder uniqueness."
       ],
       "acceptance": [
         "Dividing z^3 by z² gives q=z,r=0; dividing z+1 by z² gives r=z+1."
       ],
       "prerequisites": [
-        "ComplexComparisonPartII:C0/convergent-germs"
+        "ComplexComparisonPartII:C0/convergent-germs",
+        "ComplexComparisonPartII:C0/weierstrass-preparation"
       ],
       "sources": [
         {
@@ -536,25 +580,25 @@
       ],
       "title": "Convergent Weierstrass preparation",
       "kind": "theorem",
-      "statement": "For f as in Weierstrass division, f=uP uniquely, where u is a unit of O_n and P is monic of degree d in z_n, with all lower coefficients in the maximal ideal of O_{n−1}. The unit and polynomial are convergent germs.",
+      "statement": "For f∈O_n regular of exact order d in the last variable, f=uP uniquely, where u is a unit of O_n and P is monic of degree d in z_n, with all lower coefficients in the maximal ideal of O_{n−1}. The unit and polynomial are convergent germs.",
       "hypotheses": [
         "The hypotheses and conventions are part of the stated target."
       ],
       "proofSteps": [
-        "Divide z_n^d by f and isolate the polynomial remainder.",
-        "The leading coefficient is a nonvanishing germ and supplies the unit.",
-        "Apply uniqueness of division to compare two factorizations."
+        "Choose a contour avoiding the zeros of the regular germ on a small product polydisc.",
+        "Contour integrals of the logarithmic derivative give holomorphic power sums of its d zeros; Newton identities construct the distinguished polynomial.",
+        "The quotient by that polynomial extends to a holomorphic nonvanishing germ; the zero multiset and monicity give uniqueness."
       ],
       "acceptance": [
         "For f=z²(1+z), the prepared polynomial is z² and the unit is 1+z; preparation retains the exact regular order two."
       ],
       "prerequisites": [
-        "ComplexComparisonPartII:C0/weierstrass-division"
+        "ComplexComparisonPartII:C0/convergent-germs"
       ],
       "sources": [
         {
           "sourceId": "DEMAILLY",
-          "locator": "II2.1 and proof, p.80",
+          "locator": "II2.1 and proof, pp.79–80",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -588,7 +632,8 @@
         "The quotient C{z}/(z²) is a local length-two ring with nonzero square-zero class z; its completion preserves that class."
       ],
       "prerequisites": [
-        "ComplexComparisonPartII:C0/weierstrass-preparation"
+        "ComplexComparisonPartII:C0/weierstrass-preparation",
+        "ComplexComparisonPartII:C0/weierstrass-division"
       ],
       "sources": [
         {
@@ -862,7 +907,8 @@
         "The rank-two trivial bundle has section module O² and determinant O. The coherent torsion module O/(z) is excluded from the finite locally free subcategory."
       ],
       "prerequisites": [
-        "ComplexComparisonPartII:C0/coherent-operations"
+        "ComplexComparisonPartII:C0/coherent-operations",
+        "mathlib:SheafOfModules.IsLocallyFree"
       ],
       "sources": [
         {
@@ -1067,7 +1113,7 @@
       "sources": [
         {
           "sourceId": "SERRE-GAGA",
-          "locator": "§12, Lemma6, printedp.23; SGA1 XII1.3",
+          "locator": "§14, Lemma6 and proof, printedpp.22–23, PDF23–24; SGA1 XII1.3, printedp.241, PDF257",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -1085,14 +1131,14 @@
       ],
       "title": "Cartan–Remmert source fibre-dimension loci",
       "kind": "theorem",
-      "statement": "For a holomorphic map f:T→S of finite-dimensional complex analytic spaces, the set A_k={x∈T:dim_x f^{-1}(f(x))≥k} is a closed analytic subset of T, with the reduced induced analytic structure. Properness is not required for this source locus. For proper f its image B_k={s:dim f^{-1}(s)≥k} is a closed analytic subset of S, by C4 Remmert.",
+      "statement": "For a holomorphic map f:T→S of finite-dimensional complex analytic spaces, the set A_k={x∈T:dim_x f^{-1}(f(x))≥k} is a closed analytic subset of T, with the reduced induced analytic structure. Properness is not required for this source locus.",
       "hypotheses": [
         "The hypotheses and conventions are part of the stated target."
       ],
       "proofSteps": [
         "Upper semicontinuity follows from an adapted finite projection on a common small polydisc, as in Demailly II8.2 pp.116–117.",
         "Analyticity needs the local analytic dimension-locus theorem, not upper semicontinuity alone; the unverified Whitney proof reference is an explicit gap.",
-        "Glue the local defining ideals; nilpotents do not affect local fibre dimension. The proper-image consequence consumes C4 without making this node depend on it."
+        "Glue the local defining ideals; nilpotents do not affect local fibre dimension. The proper-image consequence is stated in C4, so this C0 node has no forward dependency."
       ],
       "acceptance": [
         "For f:C²→C,(z,w)↦zw, every fibre has local dimension1, so A_1=C² and A_2=∅.",
@@ -1143,7 +1189,7 @@
       "sources": [
         {
           "sourceId": "CARTAN18",
-          "locator": "§1, pp.18-1–18-3",
+          "locator": "§1, nos1–3, pp.18-1–18-4: local integral solution, holomorphic parameters and Dolbeault resolution",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -1253,12 +1299,13 @@
       "prerequisites": [
         "ComplexComparisonPartII:C1/stein-coherent-acyclicity",
         "DiamondsAndVStacks:D0/cech-to-derived-comparison",
-        "mathlib:CategoryTheory.Sheaf.H"
+        "mathlib:CategoryTheory.Sheaf.H",
+        "mathlib:CategoryTheory.cechComplexFunctor"
       ],
       "sources": [
         {
           "sourceId": "CARTAN18",
-          "locator": "§§2–4, pp.18-3–18-7",
+          "locator": "§2, no5, Proposition4 and chart intersections, pp.18-5–18-6",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -1295,7 +1342,7 @@
       "sources": [
         {
           "sourceId": "CARTAN18",
-          "locator": "§2, pp.18-3–18-4",
+          "locator": "§2, nos5–6, pp.18-5–18-8: homogeneous sections, transitions and tensor twist",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -1380,7 +1427,7 @@
       "sources": [
         {
           "sourceId": "CARTAN18",
-          "locator": "§§3–6, pp.18-4–18-9",
+          "locator": "§2, no5 and Proposition4, pp.18-5–18-7; no7, Proposition7, hyperplane sequence and Remark1, pp.18-9–18-10",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -1539,7 +1586,7 @@
       "sources": [
         {
           "sourceId": "CARTAN19",
-          "locator": "§§8–9, pp.19-1–19-5; Serre§12, Lemma5 pp.22–23",
+          "locator": "Cartan seminar exposé19, §§8–9, pp.19-1–19-5; Serre GAGA §§16–17, Lemma8 and finite presentation, printedpp.25–27, PDF26–28",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -1664,7 +1711,7 @@
       "sources": [
         {
           "sourceId": "SERRE-GAGA",
-          "locator": "§12, Theorem1 and Lemmas5–7, printedpp.20–24; SGA1 XII4.2",
+          "locator": "§12, Theorem1, printedp.19; §13, Lemmas4–5 and proof, printedpp.20–22, PDF21–23; SGA1 XII4.2",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -1704,7 +1751,7 @@
       "sources": [
         {
           "sourceId": "SERRE-GAGA",
-          "locator": "§12, Theorem2 and Lemma6, printedpp.21–24",
+          "locator": "§12, Theorem2, printedp.19; §14, Lemma6 and proof, printedpp.22–23, PDF23–24",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -1742,7 +1789,7 @@
       "sources": [
         {
           "sourceId": "SERRE-GAGA",
-          "locator": "§12, Theorem3 and proof, printedpp.24–25; SGA1 XII4.4",
+          "locator": "§12, Theorem3, printedp.20; §§15–17 and proof, printedpp.23–27, PDF24–28; SGA1 XII4.4",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -1783,7 +1830,7 @@
       "sources": [
         {
           "sourceId": "SERRE-GAGA",
-          "locator": "Theorems1–3, printedpp.20–25",
+          "locator": "§12, Theorems1–3, printedpp.19–20; §§13–17 proofs, printedpp.20–27, PDF21–28",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -2031,6 +2078,47 @@
       }
     },
     {
+      "id": "ComplexComparisonPartII:C3/proper-coherent-ext-comparison",
+      "parentStageId": "ComplexComparisonPartII:C3",
+      "realises": [
+        "ComplexComparisonPartII:C3"
+      ],
+      "title": "Proper coherent Ext comparison",
+      "kind": "theorem",
+      "statement": "For a proper complex scheme X and coherent algebraic modules F,G, canonical analytification induces Ext^q_OX(F,G) ≅ Ext^q_OXan(F^an,G^an) for every q≥0. These are C-linear isomorphisms, natural in both modules and compatible with Yoneda products and extension classes.",
+      "hypotheses": [
+        "The hypotheses and conventions are part of the stated target."
+      ],
+      "proofSteps": [
+        "Finite-presentation local resolutions and flat analytification identify the coherent sheaf Ext groups term by term.",
+        "Use the natural local-to-global Ext spectral sequences and proper coherent cohomology comparison on their E2 terms.",
+        "The first-quadrant comparison gives the canonical all-degree Ext isomorphism, preserving the exact functor’s Yoneda operations."
+      ],
+      "acceptance": [
+        "In degree zero the map agrees with coherent Hom comparison.",
+        "A short exact analytic extension of algebraized coherent modules has a unique algebraic extension class; a split class maps to a split class."
+      ],
+      "prerequisites": [
+        "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+        "ComplexComparisonPartII:C0/coherent-pullback-operations",
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:CategoryTheory.Abelian.Ext.mapExactFunctor"
+      ],
+      "sources": [
+        {
+          "sourceId": "SGA1-XII",
+          "locator": "XII4.4 proof, printedp.250, PDF266: sheaf Ext and local-to-global spectral sequences",
+          "match": "This is the all-degree Ext comparison used to algebraize the remaining coherent extension."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ComplexComparison/C3",
+        "namespace": "TauCeti.ComplexComparison"
+      },
+      "addedBy": "REV-ComplexComparisonPartII"
+    },
+    {
       "id": "ComplexComparisonPartII:C3/repair-proper-coherent-essential-surjectivity",
       "parentStageId": "ComplexComparisonPartII:C3",
       "realises": [
@@ -2043,9 +2131,9 @@
         "The hypotheses and conventions are part of the stated target."
       ],
       "proofSteps": [
-        "Use a projective Chow modification and its proper fibre product to algebraize the pulled-back module and descent maps on the projective locus.",
-        "Treat modules supported on the modification’s exceptional complement by Noetherian induction.",
-        "Use coherent proper pushforward, the canonical adjunction map and the full-faithfulness result to reconstruct the module on X."
+        "Choose a projective Chow modification f:X′→X that is an isomorphism over a dense open U; projective GAGA algebraizes f^an*F.",
+        "Proper direct-image comparison algebraizes f^an_*f^an*F. The kernel and cokernel of the analytic adjunction F→f^an_*f^an*F are supported outside U and algebraize by Noetherian induction.",
+        "Full faithfulness algebraizes the map to the cokernel. Its algebraic kernel I gives an analytic extension of I^an by the algebraized kernel K^an; proper Ext¹ comparison algebraizes that extension."
       ],
       "acceptance": [
         "A coherent analytic quotient on a proper infinitesimal thickening algebraizes with its quotient map. Nonproper charts of a proper algebraic space remain outside this absolute theorem."
@@ -2053,7 +2141,8 @@
       "prerequisites": [
         "ComplexComparisonPartII:C3/repair-proper-coherent-full-faithfulness",
         "ComplexComparisonPartII:C2/projective-essential-surjectivity",
-        "AlgebraicModuliForArithmeticGeometry:R09.2"
+        "AlgebraicModuliForArithmeticGeometry:R09.2",
+        "ComplexComparisonPartII:C3/proper-coherent-ext-comparison"
       ],
       "sources": [
         {
@@ -2217,7 +2306,7 @@
       "sources": [
         {
           "sourceId": "HALL",
-          "locator": "Theorems3.8,5.5,7.4,8.1,9.1 and proof, pp.8–14,18–21",
+          "locator": "Theorems3.8,8.1,9.1 and Lemmas5.5,7.4 and proof, pp.8–14,18–21",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -2280,7 +2369,7 @@
       ],
       "title": "Remmert proper mapping theorem",
       "kind": "theorem",
-      "statement": "For a proper holomorphic map f:T→S of finite-dimensional complex analytic spaces, the image of a closed analytic subset A⊆T is a closed analytic subset of S, with its reduced analytic structure. Properness may be required only on A. Nilpotent structure is handled by coherent ideals separately; this theorem concerns the underlying analytic subset.",
+      "statement": "For a proper holomorphic map f:T→S of finite-dimensional complex analytic spaces, the image of a closed analytic subset A⊆T is a closed analytic subset of S, with its reduced analytic structure. Properness may be required only on A. Nilpotent structure is handled by coherent ideals separately; this theorem concerns the underlying analytic subset. In particular, for proper f the sets B_k={s:dim f⁻¹(s)≥k} are closed analytic: apply this theorem to the C0 source fibre-dimension loci.",
       "hypotheses": [
         "The hypotheses and conventions are part of the stated target."
       ],
@@ -2295,7 +2384,8 @@
       ],
       "prerequisites": [
         "ComplexComparisonPartII:C0/oka-coherence",
-        "ComplexComparisonPartII:C0/weierstrass-preparation"
+        "ComplexComparisonPartII:C0/weierstrass-preparation",
+        "ComplexComparisonPartII:C0/fiber-dimension-loci"
       ],
       "sources": [
         {
@@ -2562,7 +2652,7 @@
       ],
       "title": "The affine curve–compact Riemann surface interface",
       "kind": "theorem",
-      "statement": "For a smooth affine complex curve U, import its unique smooth projective model C, the open immersion U→C, and the function-field/holomorphy-ring dictionary from AlgebraicCurves Layers12B–12C and6. The boundary D=C minus U is finite, and U^an=C^an minus D under the shared analytification. The construction of the projective model, normalization and rational-map extension belongs to those suppliers.",
+      "statement": "For each connected component U of a finite-type smooth affine complex curve, import its unique smooth projective model C, the open immersion U→C, and the function-field/holomorphy-ring dictionary from AlgebraicCurves Layers12B–12C and6. The boundary D=C minus U is finite, and U^an=C^an minus D under the shared analytification. The construction of the projective model, normalization and rational-map extension belongs to those suppliers.",
       "hypotheses": [
         "The hypotheses and conventions are part of the stated target."
       ],
@@ -2577,7 +2667,8 @@
       "prerequisites": [
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-12-the-dictionary--function-fields--curves-and-the-comparison-contracts",
         "tauceti:TauCetiRoadmap/AlgebraicCurves#layer-6-extensions-of-function-fields",
-        "ComplexComparisonPartII:C0/repair-analytification"
+        "ComplexComparisonPartII:C0/repair-analytification",
+        "mathlib:topologicalKrullDim"
       ],
       "sources": [
         {
@@ -2898,7 +2989,7 @@
       "sources": [
         {
           "sourceId": "DELIGNE70",
-          "locator": "II6.2–6.4, printedpp.98–100, PDF101–103",
+          "locator": "II6.6, printedpp.100–101, PDF103–104: differential operators and coherent principal-parts factorization",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -3099,7 +3190,8 @@
       ],
       "prerequisites": [
         "ComplexComparisonPartII:C5/small-singular-cochain-sheaf",
-        "tauceti:TauCeti.Topology.subsingleton_H_succ_of_isFlasque"
+        "tauceti:TauCeti.Topology.subsingleton_H_succ_of_isFlasque",
+        "mathlib:LocallyContractibleSpace"
       ],
       "sources": [
         {
@@ -3148,7 +3240,7 @@
       "sources": [
         {
           "sourceId": "GROTH1966",
-          "locator": "Theorem1 and proper comparison argument, printedpp.95–96",
+          "locator": "Theorem1′ and proper comparison argument, printedpp.95–96, PDF2–3",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -3266,7 +3358,7 @@
         },
         {
           "sourceId": "TOMDIECK",
-          "locator": "§2.2, Theorem2.2.4 and proofs2.2.1–2.2.3, pp.52–53",
+          "locator": "§2.2, Corollary2.2.4 and proofs2.2.1–2.2.3, pp.52–53",
           "match": "Horizontal vector fields and properness give complete local flows and product trivializations."
         }
       ],
@@ -3284,7 +3376,7 @@
       ],
       "title": "Gauss–Manin connection from the de Rham filtration",
       "kind": "construction",
-      "statement": "For a smooth proper algebraic map f:X→S in characteristic zero with S smooth, the filtration of the absolute de Rham complex by pulled-back base forms gives the integrable connection ∇:H^q_dR(X/S)→Ω¹_S⊗H^q_dR(X/S). It is the connecting morphism of the first two filtration levels, satisfies the Leibniz law, and its analytic horizontal local system is R^qf^an_*C.",
+      "statement": "For a smooth proper algebraic map f:X→S over a characteristic-zero field with S smooth over that field, the filtration of the absolute de Rham complex by pulled-back base forms gives the integrable connection ∇:H^q_dR(X/S)→Ω¹_S⊗H^q_dR(X/S). It is the connecting morphism of the first two filtration levels and satisfies the Leibniz law. Over C, or after a specified base change to C, its analytic horizontal local system is R^qf^an_*C.",
       "hypotheses": [
         "The hypotheses and conventions are part of the stated target."
       ],
@@ -3302,7 +3394,9 @@
         "ComplexComparisonPartII:C5/relative-poincare",
         "ComplexComparisonPartII:C5/relative-betti-local-system",
         "ComplexComparisonPartII:C5/algebraic-connection",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "ComplexComparisonPartII:C5/bounded-operator-hypergaga",
+        "ComplexComparisonPartII:C3/repair-relative-proper-gaga"
       ],
       "sources": [
         {
@@ -3429,12 +3523,14 @@
       "prerequisites": [
         "ComplexComparisonPartII:C5/relative-de-rham-betti",
         "ComplexComparisonPartII:C5/proper-pure-hodge",
-        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change"
+        "tauceti:TauCetiRoadmap/JacobianChallenge#layer-c-relative-coherent-cohomology-and-base-change",
+        "mathlib:AlgebraicGeometry.IsLocallyNoetherian",
+        "mathlib:SheafOfModules.IsLocallyFree"
       ],
       "sources": [
         {
           "sourceId": "DELIGNE1968",
-          "locator": "Theorem5.5 and proof, printedpp.124–125, PDF19–20; Qian23 Lemma3.10(2), printedp.1266",
+          "locator": "Theorem5.5 and proof, printedpp.123–125, PDF18–20; Qian23 Lemma3.10(2), printedp.1266 (public author PDF28)",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -3834,7 +3930,7 @@
       "sources": [
         {
           "sourceId": "DELIGNE1968",
-          "locator": "Proposition4.3 and Theorem5.3, printedpp.120–123, PDF15–18",
+          "locator": "Proposition4.3 and Proposition5.3, printedpp.120–123, PDF15–18",
           "match": "This passage supplies the stated construction or proof; the target is stated here in its own terms."
         }
       ],
@@ -5250,6 +5346,46 @@
       ]
     },
     {
+      "id": "ComplexComparisonPartII:C5/log-differential-transitivity-split",
+      "parentStageId": "ComplexComparisonPartII:C5",
+      "realises": [
+        "ComplexComparisonPartII:C5"
+      ],
+      "title": "Split logarithmic cotangent transitivity",
+      "kind": "theorem",
+      "statement": "For composable morphisms X→Y→S of fine log schemes, if f:X→Y is log smooth, the canonical sequence 0→f*Ω¹_log(Y/S)→Ω¹_log(X/S)→Ω¹_log(X/Y)→0 is exact and locally split. The relative logarithmic cotangent module Ω¹_log(X/Y) is finite locally free. No smoothness of Y→S is needed for this implication.",
+      "hypotheses": [
+        "The hypotheses and conventions are part of the stated target."
+      ],
+      "proofSteps": [
+        "The universal logarithmic derivation gives the right-exact transitivity sequence.",
+        "Apply the square-zero lifting property of f to split this sequence locally, as in Kato Proposition3.12.",
+        "Kato Proposition3.10 identifies the finite locally free relative quotient; exterior powers give the absolute-to-relative short exact log complex sequence over the standard logpoint."
+      ],
+      "acceptance": [
+        "Over the standard logpoint, the first map is multiplication by the base generator dlogt.",
+        "For identity of the standard logpoint, the relative cotangent module is zero and the absolute term is C·dlogt."
+      ],
+      "prerequisites": [
+        "ComplexComparisonPartII:C5/log-differentials",
+        "ComplexComparisonPartII:C5/log-smoothness",
+        "ComplexComparisonPartII:C5/log-chart-criterion"
+      ],
+      "sources": [
+        {
+          "sourceId": "KATO89",
+          "locator": "Propositions3.10 and3.12, printedpp.203–204, PDF14–15",
+          "match": "Log smoothness implies finite locally free relative log differentials and locally split injectivity in transitivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/ComplexComparison/C5",
+        "namespace": "TauCeti.ComplexComparison"
+      },
+      "addedBy": "REV-ComplexComparisonPartII"
+    },
+    {
       "id": "ComplexComparisonPartII:C5/proper-log-gaga-monodromy",
       "parentStageId": "ComplexComparisonPartII:C5",
       "realises": [
@@ -5262,7 +5398,7 @@
         "The hypotheses and conventions are part of the stated target."
       ],
       "proofSteps": [
-        "The chart quotient formula makes each log form coherent and identifies algebraic and analytic absolute-to-relative sequences.",
+        "Kato’s locally split logarithmic cotangent transitivity gives the absolute-to-relative short exact complex sequence with first map dlogt wedge. The chart quotient formula identifies its coherent algebraic and analytic terms.",
         "Apply bounded C-linear differential-operator hyper-GAGA under properness.",
         "Functoriality for the exact triangle identifies the connecting endomorphism N and its sign from the fixed wedge map."
       ],
@@ -5273,7 +5409,8 @@
       "prerequisites": [
         "ComplexComparisonPartII:C5/log-de-rham-complex",
         "ComplexComparisonPartII:C5/bounded-operator-hypergaga",
-        "ComplexComparisonPartII:C5/differential-operator-analytification"
+        "ComplexComparisonPartII:C5/differential-operator-analytification",
+        "ComplexComparisonPartII:C5/log-differential-transitivity-split"
       ],
       "sources": [
         {
@@ -5405,14 +5542,15 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.2",
-      "need": "Native derived sheaf-module exchange maps, bounded hypercohomology and triangle compatibility. Extend the scheme-only D_QCoh nodes to proper algebraic spaces with the QCoh-inclusion right adjoint/quasi-coherator, perfect support approximation (Hall Theorems3.8,5.5), bounded-coherent preservation and residue testing. Also supply Noetherian separated finite-type compactification in the coherent-duality direction; the compactification leaf is not a proved Nagata theorem.",
+      "need": "Native derived sheaf-module exchange maps, bounded hypercohomology and triangle compatibility. Extend the scheme-only D_QCoh nodes to proper algebraic spaces with the QCoh-inclusion right adjoint/quasi-coherator, perfect support approximation (Hall Theorem3.8 and Lemma5.5), bounded-coherent preservation and residue testing. Also supply Noetherian separated finite-type compactification in the coherent-duality direction; the compactification leaf is not a proved Nagata theorem. Supply coherent sheaf Ext under finite local presentations, its flat pullback comparison and the natural local-to-global Ext spectral sequence, used for proper coherent extension algebraization.",
       "neededBy": [
         "ComplexComparisonPartII:C3/repair-higher-image-comparison-map",
         "ComplexComparisonPartII:C4/proper-support-algebraization",
         "ComplexComparisonPartII:C5/algebraic-de-rham-complex",
         "ComplexComparisonPartII:C5/holomorphic-de-rham-complex",
         "ComplexComparisonPartII:C5/differential-operator-analytification",
-        "ComplexComparisonPartII:C5/bounded-operator-hypergaga"
+        "ComplexComparisonPartII:C5/bounded-operator-hypergaga",
+        "ComplexComparisonPartII:C3/proper-coherent-ext-comparison"
       ]
     },
     {
@@ -5685,7 +5823,8 @@
         "ComplexComparisonPartII:C5/log-differentials",
         "ComplexComparisonPartII:C5/log-smoothness",
         "ComplexComparisonPartII:C5/log-chart-criterion",
-        "ComplexComparisonPartII:C5/log-de-rham-complex"
+        "ComplexComparisonPartII:C5/log-de-rham-complex",
+        "ComplexComparisonPartII:C5/log-differential-transitivity-split"
       ],
       "need": "The elementary ringed log prefix moves down to C5 under the current tier rule. CR.5 imports it and retains crystalline sites and divided powers."
     },
@@ -5822,13 +5961,18 @@
       "known": "Deligne, Erratum to SLN163(1971), all three pages",
       "searched": [
         "Author IAS publication page and the linked 1971 erratum"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the complete 1971 author erratum: II1.23–1.24 are withdrawn and II4.1 receives a replacement proof.",
+        "by": "REV-ComplexComparisonPartII"
+      }
     },
     {
       "id": "ComplexComparisonPartII/E2",
       "source": "DEMAILLY",
       "kind": "misprint",
-      "locator": "VIII2.4, p.366, author CADG PDF",
+      "locator": "VIII2.4 proof, p.367 (statement p.366), author CADG PDF",
       "printed": "The cutoff is decreasing from1 to0, while its derivative is bounded between0 and2.",
       "correction": "For the indicated decreasing cutoff use −2≤ρ′≤0, or state |ρ′|≤2.",
       "reason": "A differentiable function with nonnegative derivative cannot decrease from1 to0. The subsequent norm estimate needs only the absolute bound.",
@@ -5836,7 +5980,12 @@
       "known": "No separate correction located on the author’s document page; scoped to this author PDF",
       "searched": [
         "Author documents.html page and current agbook.pdf"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The decreasing cutoff in the proof on p.367 has the wrong signed derivative bound; only its absolute value enters the norm estimate.",
+        "by": "REV-ComplexComparisonPartII"
+      }
     },
     {
       "id": "ComplexComparisonPartII/E3",
@@ -5850,7 +5999,12 @@
       "known": "No separate correction located on the author’s document page; scoped to the printed argument",
       "searched": [
         "Author documents.html page and current agbook.pdf"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The argument on pp.322–323 proves dimension equality and the associated graded, without constructing a canonical splitting on an arbitrary compact complex manifold. The narrower Kähler/proper-algebraic route supplies one.",
+        "by": "REV-ComplexComparisonPartII"
+      }
     },
     {
       "id": "ComplexComparisonPartII/E4",
@@ -5864,7 +6018,12 @@
       "known": "No separate correction located on the author’s document page; scoped to this author PDF",
       "searched": [
         "Author documents.html page and current agbook.pdf"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The normal Chern frame is V12.10 p.270; the Hermitian commutators and graded Jacobi identity used on pp.329–330 are VI6.8 and VI5.7.",
+        "by": "REV-ComplexComparisonPartII"
+      }
     }
   ],
   "sourceVersions": [
@@ -5886,7 +6045,509 @@
       "kind": "author copy",
       "url": "https://publications.ias.edu/sites/default/files/Erratum%20to%20SLN%20163.pdf",
       "citation": "Erratum to SLN163; 1971 author erratum",
-      "read": "2026-10-09"
+      "read": "2026-10-09",
+      "sha256": "d603a393015cec4ed55a7ee852957b513526379092ad89231ec6f66e4ec59d2b"
+    },
+    {
+      "kind": "author erratum",
+      "url": "https://benjamin-bakker.github.io/DefArithErr.pdf",
+      "citation": "Bakker–Klingler–Tsimerman, Erratum to Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+      "read": "2026-10-09",
+      "sha256": "86d76a5d2443840ddcaf2c08966cd236759bade659e338e3fcdb3edcd2b61ac7",
+      "scope": "All four pages checked. The correction to functorial arithmetic quotient structures does not alter Theorem4.12, the definable Chow input used by C4."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ComplexComparisonPartII",
+    "date": "2026-10-09",
+    "notes": "Independent target-level review of all97 nodes, all17 pinned baseline declarations, the current upstream owners, exact supplier scopes, all four sourceIssues and all ten issue-listed red-team findings. Corrected prerequisite direction, source attribution/locators and native Lean signatures; added proper coherent Ext comparison and split logarithmic cotangent transitivity. Accepted as a complete planning pass, with no claim of proof closure or implementation. All nine declared source/interface gaps remain explicit; Whitney9F and the relative algebraic-space proof are not independently verified. Reader/campaign files are outside this issue’s writable deliverables; the review report and handoff specify the reconciliation needed before packaging. Packet checker and pinned lean-check pass; Lean has only admitted-proof warnings.",
+    "checked": [
+      {
+        "nodeId": "ComplexComparisonPartII:C0/repair-analytification",
+        "verdict": "verified",
+        "note": "Correctly applies the shared nonreduced carrier, rather than planning a second analytic-space category; PR196 integration is explicitly outstanding. Source checked: SGA1-XII, XII1.1–1.2, printedpp.239–241, PDF255–257."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/convergent-germs",
+        "verdict": "verified",
+        "note": "Analytic neighbourhood germs and evaluation, not formal series, supply the local algebra; coordinate, point and nonentire-series tests discriminate convergence. Source checked: DEMAILLY, II2.1–2.7, pp.79–81."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/weierstrass-division",
+        "verdict": "corrected",
+        "note": "Recorded preparation before the contour division proof, II2.3, pp.80–81; the convergence assertion remains essential. Source checked: DEMAILLY, II2.3 and proof, pp.80–81."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/weierstrass-preparation",
+        "verdict": "corrected",
+        "note": "Corrected the cited proof and dependency direction: contour preparation precedes division in II2.1–2.3, pp.79–81. Source checked: DEMAILLY, II2.1 and proof, pp.79–80."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/noetherian-germs",
+        "verdict": "corrected",
+        "note": "Retained division as a direct prerequisite after repairing the preparation/division order; Demailly II2.6–2.7 p.81. Source checked: DEMAILLY, II2.6–2.7 and proofs, p.81."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/oka-coherence",
+        "verdict": "verified",
+        "note": "Local uniform relation generators require the preparation/division induction; stalkwise Noetherianness alone is not used as coherence. Source checked: DEMAILLY, II3.11–3.19, pp.87–90; II9.10, pp.123–124."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/coherent-analytic-module",
+        "verdict": "verified",
+        "note": "Finite presentations over the coherent analytic structure sheaf use the pinned sheaf-module carrier; restriction and nonfree torsion tests distinguish coherence from local freeness. Source checked: DEMAILLY, II3.11–3.16, pp.87–89."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/coherent-operations",
+        "verdict": "verified",
+        "note": "The analytic closure theorems are new; general sheaf-module tensor/Hom/duality belongs to current AlgebraicVectorBundles L0A–L0C and remains an imported interface. Source checked: DEMAILLY, II3.13–3.16, pp.88–89; II9.12, p.124."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/coherent-analytic-ideal",
+        "verdict": "verified",
+        "note": "The quotient keeps the full coherent ideal, including a nonzero square-zero element in the doubled-point test; reduced support alone is insufficient. Source checked: DEMAILLY, II9.10–9.14, pp.123–124."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/holomorphic-bundle-dictionary",
+        "verdict": "corrected",
+        "note": "Replaced the Lean prototype’s all-coherent forgetful domain by native finite locally free analytic modules. The general bundle/module equivalence still imports the analytic and AlgebraicVectorBundles carriers. Source checked: DEMAILLY, II3.1–3.6, pp.83–86."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/repair-local-faithful-flatness",
+        "verdict": "verified",
+        "note": "The completion comparison at complex closed points and Noetherian local flatness are the intended route; Jacobson support detection extends faithfulness to sheaves. Source checked: SGA1-XII, XII1.1 and proof, printedpp.239–240, PDF255–256."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/repair-coherent-pullback",
+        "verdict": "verified",
+        "note": "Uses the native ringed-site pullback and its tensor formula, with the actual analytification morphism; structure/free/quotient APIs have three tests. Source checked: SGA1-XII, XII1.3, printedp.241, PDF257."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/repair-exact-faithful-pullback",
+        "verdict": "verified",
+        "note": "Flat stalks prove exactness; closed-point detection proves faithfulness. Neither is asserted for arbitrary geometric maps in the full target. Source checked: SGA1-XII, XII1.3, printedp.241, PDF257."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/coherent-pullback-operations",
+        "verdict": "corrected",
+        "note": "Corrected the source locator or theorem label after checking its statement and proof. Source checked: SERRE-GAGA, §14, Lemma6 and proof, printedpp.22–23, PDF23–24; SGA1 XII1.3, printedp.241, PDF257."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C0/fiber-dimension-loci",
+        "verdict": "corrected",
+        "note": "Moved its forward proper-image consequence to C4. PS08 Lemma8.2 redirects general analyticity to Whitney9F p.240; that unverified proof remains an explicit gap. Source checked: PS08, Theorem7.2 and Lemma8.2, author-PDFpp.21–23; Lemma8.2 redirects analyticity to Whitney9F p.240."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/local-dolbeault",
+        "verdict": "corrected",
+        "note": "Corrected the seminar exposé18 source locator to its numbered subsection and complete proof pages: §1, nos1–3, pp.18-1–18-4: local integral solution, holomorphic parameters and Dolbeault resolution. Source checked: CARTAN18, §1, nos1–3, pp.18-1–18-4: local integral solution, holomorphic parameters and Dolbeault resolution."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/weighted-dolbeault-estimate",
+        "verdict": "verified",
+        "note": "The curvature lower bound, positive degree and complete graph domains are retained; compactly supported density and the minimal solution are distinct steps. Source checked: DEMAILLY, VIII1.2, pp.364–365; VIII3.2–3.3, pp.368–369; VIII4.5–4.8, pp.371–372."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/stein-coherent-acyclicity",
+        "verdict": "verified",
+        "note": "Demailly’s Cartan proof uses weighted estimates and coherent dévissage; Stein exhaustion/Chern inputs remain explicit requests rather than consequences of GAGA. Source checked: DEMAILLY, IX4.1–4.5 and4.12–4.13, pp.419–422 and426–428."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/acyclic-projective-cover",
+        "verdict": "corrected",
+        "note": "The Lean signature now uses the native Čech complex of the supplied sheaf and actual open cover, with acyclicity on every nonempty-index finite intersection. Leray comparison is imported from D0, not assumed for an unrelated complex. Corrected the seminar exposé18 source locator to its numbered subsection and complete proof pages: §2, no5, Proposition4 and chart intersections, pp.18-5–18-6. Source checked: CARTAN18, §2, no5, Proposition4 and chart intersections, pp.18-5–18-6."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/analytic-twisting-sheaf",
+        "verdict": "corrected",
+        "note": "Corrected the seminar exposé18 source locator to its numbered subsection and complete proof pages: §2, nos5–6, pp.18-5–18-8: homogeneous sections, transitions and tensor twist. Source checked: CARTAN18, §2, nos5–6, pp.18-5–18-8: homogeneous sections, transitions and tensor twist."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/twist-cohomology",
+        "verdict": "corrected",
+        "note": "Corrected the seminar exposé18 source locator to its numbered subsection and complete proof pages: §2, no5 and Proposition4, pp.18-5–18-7; no7, Proposition7, hyperplane sequence and Remark1, pp.18-9–18-10. Source checked: CARTAN18, §2, no5 and Proposition4, pp.18-5–18-7; no7, Proposition7, hyperplane sequence and Remark1, pp.18-9–18-10."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/compact-coherent-finiteness",
+        "verdict": "verified",
+        "note": "Montel/Schwartz compact-map cohomology, not Hilbert spectral theory alone, is the declared supplier; singular/nonreduced dévissage remains in scope. Source checked: DEMAILLY, IX4.6–4.8 and proof, pp.422–424."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/analytic-serre-generation",
+        "verdict": "verified",
+        "note": "The analytic generation argument is independent of essential surjectivity; compactness, multiplication and fibre generation are used with Nakayama. Source checked: CARTAN19, §8, ThéorèmeA and proof, pp.19-1–19-4."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/analytic-serre-vanishing",
+        "verdict": "verified",
+        "note": "High-twist positive-degree vanishing uses the analytic proof, not an assumption that the analytic module already algebraizes. Source checked: CARTAN19, §9, ThéorèmeB and proof, pp.19-4–19-5."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/twist-presentations",
+        "verdict": "corrected",
+        "note": "Corrected the statement/proof locator: Cartan seminar exposé19, §§8–9, pp.19-1–19-5; Serre GAGA §§16–17, Lemma8 and finite presentation, printedpp.25–27, PDF26–28. Source checked: CARTAN19, Cartan seminar exposé19, §§8–9, pp.19-1–19-5; Serre GAGA §§16–17, Lemma8 and finite presentation, printedpp.25–27, PDF26–28."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C3/repair-higher-image-comparison-map",
+        "verdict": "verified",
+        "note": "The canonical exchange map is constructed before C2/C3 prove it invertible; naturality, connecting maps and the identity test concern that same map. Source checked: SGA1-XII, XII4.1–4.2, printedpp.247–249, PDF263–265."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C2/projective-cohomology",
+        "verdict": "corrected",
+        "note": "Corrected the statement/proof locator: §12, Theorem1, printedp.19; §13, Lemmas4–5 and proof, printedpp.20–22, PDF21–23; SGA1 XII4.2. Source checked: SERRE-GAGA, §12, Theorem1, printedp.19; §13, Lemmas4–5 and proof, printedpp.20–22, PDF21–23; SGA1 XII4.2."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C2/projective-full-faithfulness",
+        "verdict": "corrected",
+        "note": "Corrected the statement/proof locator: §12, Theorem2, printedp.19; §14, Lemma6 and proof, printedpp.22–23, PDF23–24. Source checked: SERRE-GAGA, §12, Theorem2, printedp.19; §14, Lemma6 and proof, printedpp.22–23, PDF23–24."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C2/projective-essential-surjectivity",
+        "verdict": "corrected",
+        "note": "Corrected the statement/proof locator: §12, Theorem3, printedp.20; §§15–17 and proof, printedpp.23–27, PDF24–28; SGA1 XII4.4. Source checked: SERRE-GAGA, §12, Theorem3, printedp.20; §§15–17 and proof, printedpp.23–27, PDF24–28; SGA1 XII4.4."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C2/projective-gaga-equivalence",
+        "verdict": "corrected",
+        "note": "Corrected the statement/proof locator: §12, Theorems1–3, printedpp.19–20; §§13–17 proofs, printedpp.20–27, PDF21–28. Source checked: SERRE-GAGA, §12, Theorems1–3, printedpp.19–20; §§13–17 proofs, printedpp.20–27, PDF21–28."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C2/relative-projective-comparison",
+        "verdict": "verified",
+        "note": "Relative Serre/coherent finiteness is explicitly requested. The projective reduction keeps nilpotents and does not turn absolute equivalence into relative comparison. Source checked: SGA1-XII, XII4.2, printedpp.248–249, PDF264–265."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C2/gaga-base-change",
+        "verdict": "verified",
+        "note": "Flat ordinary base change and Tor-independent derived exchange are distinguished; arbitrary individual higher-image base change is not asserted. Source checked: SGA1-XII, XII4.2 and its functoriality, printedpp.248–249."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C2/projective-geometric-dictionaries",
+        "verdict": "verified",
+        "note": "Full faithfulness and ideal/module algebraization transport sections, bundle morphisms and quotients, including nilpotent closed subspaces. Source checked: SGA1-XII, XII4.4–4.5, printedpp.249–251, PDF265–267."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C3/repair-relative-proper-gaga",
+        "verdict": "verified",
+        "note": "The proper-to-projective reduction is a Chow/coherent-dé­vissage request from R09.2, not a claim that all proper schemes are projective. Source checked: SGA1-XII, XII4.2, printedpp.248–249, PDF264–265."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C3/repair-proper-coherent-full-faithfulness",
+        "verdict": "verified",
+        "note": "Degree-zero proper comparison applied to coherent internal Hom gives the canonical C-linear Hom map, retaining nonreduced endomorphisms. Source checked: SGA1-XII, XII4.4–4.5, printedpp.249–251, PDF265–267."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C3/proper-coherent-ext-comparison",
+        "verdict": "added",
+        "note": "Added the all-degree canonical Ext comparison used by proper coherent extension algebraization; its local-to-global supplier request is explicit. Source checked: SGA1-XII, XII4.4 proof, printedp.250, PDF266: sheaf Ext and local-to-global spectral sequences."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C3/repair-proper-coherent-essential-surjectivity",
+        "verdict": "corrected",
+        "note": "Replaced unjustified projective fibre-product descent by SGA1 XII4.4 p.250 adjunction/Noetherian induction and the added Ext comparison. Source checked: SGA1-XII, XII4.4, printedpp.249–250, PDF265–266."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C3/proper-gaga-equivalence",
+        "verdict": "verified",
+        "note": "Packages the corrected full faithfulness and algebraization proofs into the same exact analytification equivalence; inverse tests keep morphisms, not dimensions alone. Source checked: SGA1-XII, XII4.2–4.5, printedpp.248–251."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C3/analytic-etale-descent",
+        "verdict": "verified",
+        "note": "Local analytic isomorphisms and effective coherent descent on the entire presentation groupoid are required; nonproper charts are not assigned absolute GAGA. Source checked: HALL, §9, Theorem9.1 and applications, pp.20–21; analytic local presentation discussion."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C3/closed-point-reconstruction",
+        "verdict": "corrected",
+        "note": "Corrected the source locator or theorem label after checking its statement and proof. Source checked: HALL, Theorems3.8,8.1,9.1 and Lemmas5.5,7.4 and proof, pp.8–14,18–21."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C3/proper-algebraic-space-gaga",
+        "verdict": "verified",
+        "note": "Absolute proper equivalence is supported by Hall Theorem9.1. Relative comparison is retained as a target with its separate Stein/étale proof gap, not deduced from absolute GAGA. Source checked: HALL, Theorem9.1 and analytic applications, pp.20–21."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/remmert-proper-image",
+        "verdict": "corrected",
+        "note": "Placed the proper fibre-dimension image consequence here with its actual C0 prerequisite; Demailly II8.7–8.8, pp.118–120, supply the simultaneous induction. Source checked: DEMAILLY, II8.8 and simultaneous proof with II8.7, pp.118–120."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/remmert-stein-extension",
+        "verdict": "verified",
+        "note": "The strict component-dimension inequality and simultaneous Remmert induction are retained; equal-dimensional accumulating sets are excluded. Source checked: DEMAILLY, II8.7 and simultaneous proof, pp.118–120."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/nonreduced-projective-chow",
+        "verdict": "verified",
+        "note": "Algebraizes the coherent ideal together with its inclusion in O and then its quotient; the nonradical doubled-point case tests the stronger scheme statement. Source checked: CARTAN19, §10, Proposition9, pp.19-5–19-7; Demailly II8.10 p.121."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/proper-support-algebraization",
+        "verdict": "verified",
+        "note": "The support is proper and the ambient target is separated finite type. Its compactification extension uses the explicit Nagata supplier leaf. Source checked: SGA1-XII, XII4.4–4.5, printedpp.249–251, together with compactification reduction."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/repair-proper-morphism-algebraicity",
+        "verdict": "verified",
+        "note": "The graph has proper support in the separated target product; faithful exact comparison reflects the projection’s isomorphism. Arbitrary nonseparated targets are excluded. Source checked: SGA1-XII, XII4.5 and application of XII4.4, printedpp.250–251; Serre§19 for reduced projective case."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/algebraic-graph-regular",
+        "verdict": "verified",
+        "note": "Reduced finite-type schemes and an algebraic graph suffice for regularity via the local-ring intersection argument; graph algebraization is a separate prerequisite. Source checked: SERRE-GAGA, §8, Propositions8–9 and proof, printedpp.13–15."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/family-morphism-interface",
+        "verdict": "verified",
+        "note": "Uses only the stated projective-family Hom/Isom representability contract and coherent graph comparison; the broad arithmetic applications are consumer interfaces. Source checked: SGA1-XII, XII4.5, printedpp.250–251."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/repair-affine-curve-completion-interface",
+        "verdict": "corrected",
+        "note": "Restricted the projective function-field model to each connected component of a finite-type smooth affine curve. Lean imports the supplied proper smooth one-dimensional model and dense open immersion, and asserts finite boundary instead of vacuous existence of a morphism. Source checked: CURVE-CONTRACT, Layers12B–12C and6; comparison of the supplied open immersion."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/punctured-riemann-connected",
+        "verdict": "verified",
+        "note": "The finite boundary is removed on a connected real two-dimensional manifold; path detours in punctured charts give the needed local-to-global argument. Source checked: CURVE-CONTRACT, Layer12C analytic dictionary; local complex-disc topology."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C4/affine-curve-connectedness",
+        "verdict": "verified",
+        "note": "Completion is imported from AlgebraicCurves, and clopen idempotents on the proper curve precede finite-boundary removal. No assertion identifies all holomorphic affine functions with polynomials. Source checked: CURVE-CONTRACT, Layer12B–12C, with proper GAGA on the projective model."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/algebraic-de-rham-complex",
+        "verdict": "corrected",
+        "note": "Defined the suggested cochain complex from its specified exterior forms and exterior derivative; the generator and d² APIs now concern those actual terms. Source checked: GROTH1966, Theorems1–2 and notation, printedpp.95–97; Deligne70 II6.2."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/holomorphic-de-rham-complex",
+        "verdict": "verified",
+        "note": "The actual convergent-germ exterior complex and its derivative are used; coordinate and torus-period tests fix the differential and normalization. Source checked: DELIGNE70, I2.17–2.23, printedpp.11–17."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/holomorphic-poincare",
+        "verdict": "verified",
+        "note": "Radial homotopy on a polydisc proves local exactness in positive degrees, with constant C as the degree-zero kernel. Source checked: DELIGNE70, I2.17–2.23 and proof, printedpp.11–17."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/differential-operator-analytification",
+        "verdict": "corrected",
+        "note": "Corrected Deligne II6.6 pp.100–101; Lean now encodes A-module structures and iterated scalar commutators for the order bound. Restricted its chart extension to C[z]→C{z}, removing the false arbitrary-algebra-map extension. Source checked: DELIGNE70, II6.6, printedpp.100–101, PDF103–104: differential operators and coherent principal-parts factorization."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/bounded-operator-hypergaga",
+        "verdict": "verified",
+        "note": "Coherent terms with finite-order C-linear differentials are treated by a bounded hypercohomology comparison, without incorrectly declaring d O-linear. Source checked: DELIGNE70, II6.6 and proof, printedp.101, PDF104; Qian companion Proposition3.6."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/small-singular-cochain-sheaf",
+        "verdict": "verified",
+        "note": "Sella’s nesting/small-simplex construction, its flasqueness and chain homotopies are retained; the actual five-point non-Hausdorff test rules out the naive sheafification argument. Source checked: SELLA, Lemma0.1, Example0.3 and Steps1–3, pp.1–19."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/repair-sheaf-singular-comparison",
+        "verdict": "corrected",
+        "note": "Retained Sella’s arbitrary coefficients and semilocal contractibility without Hausdorffness. Added the equivalent native LocallyContractibleSpace inclusion hypothesis to the suggested comparison. Source checked: SELLA, Theorem and Lemma0.1, pp.1–3; subdivision construction and proof, pp.6–19."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/repair-proper-de-rham-betti",
+        "verdict": "corrected",
+        "note": "Corrected the statement/proof locator: Theorem1′ and proper comparison argument, printedpp.95–96, PDF2–3. Source checked: GROTH1966, Theorem1′ and proper comparison argument, printedpp.95–96, PDF2–3."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/multiplicative-period-interface",
+        "verdict": "verified",
+        "note": "Coefficient change, cup/trace and integral finite-CW freeness have separate inputs; no integral finite-generation claim is made for the complex additive group. Source checked: GROTH1966, Theorems1–2, printedpp.95–97; DGH21 Proposition4.2 for normalization."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/relative-poincare",
+        "verdict": "verified",
+        "note": "The kernel is pulled-back base holomorphic functions, not the constant complex sheaf; the local product homotopy differentiates fibre variables only. Source checked: DELIGNE70, I2.22–2.23 and proof, printedpp.15–17, PDF18–20."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/relative-betti-local-system",
+        "verdict": "corrected",
+        "note": "Corrected the source locator or theorem label after checking its statement and proof. Source checked: DELIGNE70, Deligne70 I2.23 and II7: relative cohomology setup."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/gauss-manin-connection",
+        "verdict": "corrected",
+        "note": "The general connection is constructed from the de Rham filtration (Katz–Oda Theorem1 pp.201–204), not on arbitrary modules. Lean now represents a genuine constant family over C[z], including horizontal comparison, derivative, degree-zero and Leibniz tests; the full family remains the packet target. Source checked: DELIGNE70, II7.4–7.8, printedpp.114–118, PDF117–121; integrability in7.8 refers to Katz–Oda."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/relative-de-rham-betti",
+        "verdict": "verified",
+        "note": "Combines relative proper coherent/operator comparison, relative Poincaré and Betti local constancy, with horizontality through the constructed Gauss–Manin connection. Source checked: DELIGNE70, I2.23 and II7; Deligne1968 Theorem5.5."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/relative-hodge-bundles",
+        "verdict": "corrected",
+        "note": "Corrected Deligne Theorem5.5 pp.123–125 and retained native complex base, local Noetherianness and finite local freeness in Lean; E1 and arbitrary base change remain explicit full targets including nonreduced bases. Source checked: DELIGNE1968, Theorem5.5 and proof, printedpp.123–125, PDF18–20; Qian23 Lemma3.10(2), printedp.1266 (public author PDF28)."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/hodge-star",
+        "verdict": "verified",
+        "note": "Complex linear star and conjugation in the metric pairing are distinguished. The plane test fixes orientation and degree signs; general smooth forms are imported from DifferentialGeometry. Source checked: DEMAILLY, VI3.1–3.9, pp.291–293."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/hodge-laplacian",
+        "verdict": "verified",
+        "note": "The positive dd*+d*d convention is retained; it is the negative of scalar div-grad on functions, and positivity is tested separately from a formal sum of arbitrary operators. Source checked: DEMAILLY, VI1.1–1.2, pp.287–288; VI3.9–3.14, pp.293–294."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/compact-elliptic-hodge",
+        "verdict": "verified",
+        "note": "Requests compact bundle-system Sobolev/Gårding/Rellich/Fredholm inputs beyond PDE D16’s scalar Euclidean statement; no unproved elliptic theorem is attributed to the pin. Source checked: DEMAILLY, VI2.2–2.4, pp.289–291; elliptic regularity VI1.6 pp.288–289."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/harmonic-projection-green",
+        "verdict": "verified",
+        "note": "Finite harmonic kernel, orthogonal projection and the Green inverse on its complement follow from the named compact elliptic interface; inverse and normalization tests discriminate arbitrary projections. Source checked: DEMAILLY, VI2.4, pp.290–291; VI3.15–3.17, pp.294–295."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/kaehler-identities",
+        "verdict": "verified",
+        "note": "The Hermitian commutators and flat mixed differential identity give equal Dolbeault Laplacians and the factor-two de Rham Laplacian, with the stated geometric hypotheses. Source checked: DEMAILLY, VI6.1–6.7, pp.304–306; VI6.8–6.9 pp.306–307."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/kaehler-hodge-decomposition",
+        "verdict": "verified",
+        "note": "Harmonic representatives and Kähler Laplacian identities yield the geometric (p,q) decomposition and symmetry; the existing Hodge library supplies only the abstract carrier. Source checked: DEMAILLY, VI8.1–8.6, pp.309–311; corrected use of VI11.3 pp.322–323."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/proper-pure-hodge",
+        "verdict": "corrected",
+        "note": "Corrected the source locator or theorem label after checking its statement and proof. Source checked: DELIGNE1968, Proposition4.3 and Proposition5.3, printedpp.120–123, PDF15–18."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/analytic-cycle-integration",
+        "verdict": "verified",
+        "note": "Integration over the regular locus produces the positive closed cycle current with locally finite mass; singular loci are controlled rather than discarded without justification. Source checked: DEMAILLY, III2.5–2.7 and proofs, p.140; III2.1–2.3, pp.138–140."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/semipositive-wedge",
+        "verdict": "verified",
+        "note": "Mixed Hermitian positivity yields nonnegative wedge densities and the domination inequality after wedging semipositive factors; the scalar bound is nonnegative. Source checked: DEMAILLY, III1.7–1.12, pp.131–132; DGH21 Proposition4.2, PDFpp.16–18."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/chern-fubini-study-intersection",
+        "verdict": "verified",
+        "note": "The Chern form uses iΘ/(2π), the Fubini–Study hyperplane class integrates to one, and the algebraic intersection correspondence remains an explicit imported contract. Source checked: DEMAILLY, V13.2–13.9, pp.271–273; V15.8,15.10,15.12 and proofs, pp.279–281; DGH21 Proposition4.2."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/dgh-integration-application",
+        "verdict": "verified",
+        "note": "The triple projection uses O(0,1,1), as in DGH Proposition4.2, and the domination bound combines positivity, cycle integration and finite-mass extension. Source checked: DGH21, Proposition4.2 and proof, PDFpp.16–18."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/algebraic-connection",
+        "verdict": "verified",
+        "note": "The native Kähler differential tensor carrier encodes the Leibniz law and curvature, with trivial, point and rank-one monodromy tests; connections are not O-linear maps. Source checked: DELIGNE70, I2.3–2.15, printedpp.6–11, PDF9–14."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/regular-singular-connection",
+        "verdict": "verified",
+        "note": "Regularity is checked along the algebraic boundary, including infinity. The d+dz test is irregular there, and the author’s corrected Deligne proof replaces withdrawn results. Source checked: DELIGNE70, II4.1 and II5.1–5.9, printedpp.91–98; DELIGNE-ERRATUM replacement proof."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/canonical-logarithmic-extension",
+        "verdict": "verified",
+        "note": "The half-open strip 0≤Re(a)<1 fixes lattice uniqueness; general tensor products require integral residue adjustment, unlike the separate unipotent tensor law. Source checked: DELIGNE70, II5.1–5.5 and proof, printedpp.91–95, PDF94–98."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/deligne-regular-singular-equivalence",
+        "verdict": "verified",
+        "note": "Regular algebraic flat bundles and complex local systems are the categories in scope; the SNC compactification supplier and corrected regularity criterion remain explicit. Source checked: DELIGNE70, II5.7–5.9 and proof, printedpp.95–98; corrected II4.1; CS17 §2.3 PDFp.17."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/regular-singular-de-rham-comparison",
+        "verdict": "verified",
+        "note": "The logarithmic coefficient complex compares to Betti cohomology under regularity; the permissible-residue condition and independence of the SNC compactification are retained. Source checked: DELIGNE70, II6.7–6.10 and proof, printedpp.102–105, PDF105–108."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/curve-log-complex",
+        "verdict": "verified",
+        "note": "Imports the single completed curve, defines logarithmic and compact-support twists with the coefficient connection, and distinguishes ordinary, compact and parabolic cohomology. Source checked: GROTH1966, Theorem2, printedp.96; Deligne70 II6.9–6.10, printedpp.103–105."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/curve-residue-localization",
+        "verdict": "verified",
+        "note": "Boundary residues, localization and trace/duality are separate interfaces; the circle period 2πi fixes the comparison’s residue normalization. Source checked: GROTH1966, Theorem2, printedpp.96–97; Deligne70 II6.9–6.10."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/prelog-structure",
+        "verdict": "verified",
+        "note": "The structure is an actual commutative-monoid sheaf map to the multiplicative structure sheaf, with nontrivial standard-logpoint and trivial-structure tests. Source checked: KATO89, §1.1, printedp.192."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/log-structure",
+        "verdict": "verified",
+        "note": "The inverse image of units maps isomorphically to O*, not merely injectively; the nonunit generator of the standard logpoint remains distinct. Source checked: KATO89, §1.2–1.4, printedpp.192–194."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/associated-log-structure",
+        "verdict": "verified",
+        "note": "The unit pushout and its universal property are stated; logification identifies precisely the unit relations, not all monoid elements. Source checked: KATO89, §1.3 and pushout description, printedpp.192–193."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/log-pullback",
+        "verdict": "verified",
+        "note": "Pullback is inverse image followed by logification and the new structure-sheaf units; the standard logpoint pullback test distinguishes it from bare inverse image. Source checked: KATO89, §1.4 and1.6, printedpp.193–195."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/fine-log-chart",
+        "verdict": "verified",
+        "note": "Finite generation and integrality are required étale locally; saturation is not added. Chart changes and group-completion behaviour are explicit APIs. Source checked: KATO89, §2.1–2.5 and2.9–2.10, printedpp.197–200."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/divisorial-log-structure",
+        "verdict": "verified",
+        "note": "For an SNC boundary, the local coordinate monoid describes functions invertible off the boundary, with units retained and generator choices compared. Source checked: KATO89, §1.5(1), printedp.194; Example2.5(1), pp.197–198."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/log-differentials",
+        "verdict": "verified",
+        "note": "The quotient imposes both scalar and base-monoid relations and the universal log derivation. Standard logpoint versus relative identity tests catch omission of the base relation. Source checked: KATO89, §1.7–1.8, pp.195–196; §2.1 p.197; Qian companion Proposition3.6 pp.18–19."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/log-smoothness",
+        "verdict": "verified",
+        "note": "Square-zero exact test diagrams lift étale locally, and log étale adds uniqueness; strict/trivial/semistable cases test the actual condition rather than a named flag. Source checked: KATO89, Definitions3.1–3.3, pp.200–201."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/log-chart-criterion",
+        "verdict": "verified",
+        "note": "Kato’s kernel and torsion-cokernel order conditions and the étale toric factorization are retained; fine is not strengthened to saturated. Source checked: KATO89, Proposition3.4, Theorem3.5 and proof3.13, pp.201–205; Proposition3.10 p.203."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/log-de-rham-complex",
+        "verdict": "verified",
+        "note": "Exterior powers of the universal logarithmic cotangent use C-linear d and its square-zero law; trivial and standard-logpoint computations distinguish absolute from relative forms. Source checked: KATO89, §1.9 p.196 and Proposition3.10 p.203; Qian companion Proposition3.6."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/log-differential-transitivity-split",
+        "verdict": "added",
+        "note": "Added Kato’s locally split logarithmic cotangent transitivity, including finite local freeness, as the prerequisite for the monodromy short exact complex sequence. Source checked: KATO89, Propositions3.10 and3.12, printedpp.203–204, PDF14–15."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/proper-log-gaga-monodromy",
+        "verdict": "corrected",
+        "note": "Added the split cotangent-transitivity prerequisite (Kato3.12 p.204), checked Qian companion Proposition3.6 pp.18–19, and retained native properness in the Lean prototype. Source checked: QIAN-COMPANION, Theorem1.8, pp.3–4; Proposition3.6 and proof, pp.18–19."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C1/bochner-kodaira",
+        "verdict": "verified",
+        "note": "The Chern-curvature commutator is stated before weighted estimates, with the actual V12.10/VI6.8/VI5.7 proof references and the imported Hermitian connection. Source checked: DEMAILLY, VII1.1–1.3 and proofs, pp.329–331; V12.10 p.270."
+      },
+      {
+        "nodeId": "ComplexComparisonPartII:C5/closed-current-extension",
+        "verdict": "verified",
+        "note": "Skoda–El Mir requires positivity, closedness and finite mass near the analytic set; the zero-extension derivative identity is not asserted for arbitrary currents. Source checked: DEMAILLY, III2.3 (Skoda–El Mir) and proof, pp.138–140."
+      }
+    ]
+  }
 }
