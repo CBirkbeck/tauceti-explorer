@@ -24,7 +24,7 @@ The pinned baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Ta
 
 The current read-only Tau Ceti tree was also checked, at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`, with its Mathlib `6b7abb3c7686292736be2955bd3eb9ebf63b456a`. Its actual `LocalField/Tame/Character` and `PadicCharacter` modules already export `TauCeti.inertiaKummerCharacter`, `inertiaKummerCharacter_pow_div`, `inertiaTameCharacter`, `quotientWildInertiaSubgroupEquiv`, `inertiaPadicTameCharacter` and `IsArithFrobeniusLift.inertiaPadicTameCharacter_conj`. They include the finite root formula, choice independence, surjectivity, wild-inertia kernel and Frobenius equivariance. These post-pin results are **not** reported as pinned declarations or planned again. Their arithmetic residual interpretation is the new bridge here.
 
-For K=Q_p, use the unramified degree-n field U to read the order-(p^n−1) roots as F_{p^n}× through the pinned `rootsOfUnityEquivResidueFieldUnits U`. For general residue degree f, choose an unramified U large enough that n divides its absolute residue degree, then select its F_{p^n} subfield. One cannot demand residue cardinality p^n from an extension of K when f does not divide n. The prototype permits any supplied component in μ_{#k_U−1}; an order-(p^n−1) component is included into that group. This makes the coefficient embedding and any subfield restriction explicit. It never embeds all of the algebraic residue closure into a finite field.
+For K=Q_p, use the unramified degree-n field U to read the order-(p^n−1) roots as F_{p^n}× through the pinned `rootsOfUnityEquivResidueFieldUnits U`. For general residue degree f, choose an unramified U large enough that n divides its absolute residue degree, then select its F_{p^n} subfield. One cannot demand residue cardinality p^n from an extension of K when f does not divide n. The whole-residue adapter requires k to contain k_U. The separate subfield adapter accepts the selected S=F_{p^n}⊆k_U, proof that the reduced component lies in S, and only an embedding S→k. An order-(p^n−1) component is included into μ_{#k_U−1} before reduction. Thus the general bridge does not impose an embedding of the larger field k_U into k. It never embeds all of the algebraic residue closure into a finite field.
 
 The current LocalFieldsRamification, ClassFieldTheory, NumberFieldArithmetic and LocalGaloisGroups README and Suggested interfaces were read. LocalGaloisGroups concerns the local cyclotomic and maximal pro-p theory; it does not supply or acquire ownership of a second WD or tame-character theory. The link audit agrees that R01.2 imports Layer 4’s tame character and constructs its residual fundamental-character interpretation. All cross-roadmap requests below are precise supplier bindings, not requests to duplicate their definitions.
 
@@ -48,7 +48,9 @@ The monodromy filtration and its tensor/dual linear algebra stay with the accept
 
 The [suggested file](../suggested/ArithmeticGaloisRepresentations--R01.2.lean) exposes its limitations precisely. The genuine W_K carrier and current tame-character modules are not available at the pinned build. Therefore the file uses an explicitly parameterized W, arithmetic degree and q for the WD linear algebra. The monodromy selector consumes the fully stated unique-existence witness from the parent theorem, and the corrected-action constructor consumes its explicit open corrected-kernel consequence. These hypotheses are not replacements for the local theorem: the accepted parent theorem supplies them on the genuine local field. There are no unknown proposition fields.
 
-The supplier-dependent signatures omitted from this prototype are: the canonical completion-place definition and absolute closed-embedding comparison; transport of local inertia and wild inertia onto their global subgroups; the construction of the selected unramified Kummer component inside the residue subfield; Grothendieck’s theorem instantiated on `ClassFieldTheory.WeilGroup`; and the categorical exact-equivalence operations on the R01.1 bundled continuous objects. Each has a retained parent node or a supplier request. The named definitions, API items and forty-five new tests below do appear in the file. The classification prototype states the indecomposable clause, finite special-block decomposition and uniqueness of each irreducible-factor/length pair. Finite-length uniqueness of the decomposition follows by the stated string argument.
+The supplier-dependent signatures omitted from this prototype are: the canonical completion-place definition and absolute closed-embedding comparison; transport of local inertia and wild inertia onto their global subgroups; the construction of the selected unramified Kummer component inside the residue subfield; Grothendieck’s theorem instantiated on `ClassFieldTheory.WeilGroup`; and the categorical exact-equivalence operations on the R01.1 bundled continuous objects. Each has a retained parent node or a supplier request. The named definitions, API items and fifty new tests below do appear in the file. The classification prototype states the indecomposable clause, finite special-block decomposition and uniqueness of each irreducible-factor/length pair. Finite-length uniqueness of the decomposition follows by the stated string argument.
+
+The confirmed source misprint `ArithmeticGaloisRepresentations/E7947` concerns Bushnell–Henniart §31.2 Exercise, p.201 in the 2006 edition: its dimension index for the irreducible Weil factor repeats the special-block length. These are independent parameters. Sp(2), with a one-dimensional trivial factor and block length two, disproves the literal restriction. The statements below use the corrected indexing; the intended classification is unaffected.
 
 ## R01.2 targets and interfaces
 
@@ -80,7 +82,7 @@ D_w is the stabilizer of w under G_F acting on O_{F̄}; I_w consists of σ with 
 - `ArithmeticLocal.inertiaAt_bottom` (degenerate): For a number field F, additive inertia at the zero ideal of O_{F̄} is trivial, since integral elements generate F̄ as a field.
 - `ArithmeticLocal.inertiaAt_gaussian_two` (computation): For L=Q(i), i²=−1, the image of inertia above 2 in Gal(L/Q) has cardinality 2.
 
-**Source.** deligne73, §3.12, printed p. 533 (Del-33): Local arithmetic representations are obtained by restricting at a chosen place of a global algebraic closure; the stabilizer and residue-kernel definitions make that restriction precise.
+**Source.** deligne73, §3.12, printed p. 533 (Del-33): Deligne restricts finite-image complex global representations at a chosen place. The explicit subgroup carriers here are specializations of the pinned stabilizer/additive-inertia definitions; the absolute completion comparison is the retained parent construction.
 
 **Dependencies.** `mathlib:MulAction.stabilizer`, `mathlib:AddSubgroup.inertia`, `ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place`, `ArithmeticGaloisRepresentations:R01.2/algebraic-closure-of-a-completion-is-generated-by-the-global-closure`, `tauceti:TauCetiRoadmap/NumberFieldArithmetic#layer-5-the-global-local-dictionary-at-finite-places`.
 
@@ -109,33 +111,41 @@ For an embedding ι:F̄→F̄_v compatible with F→F_v, j_ι=Field.absoluteGalo
 - `ArithmeticLocal.restrictAlong_agrees_comp` (compatibility): The underlying representation equals Mathlib composition, not a representation on a new carrier.
 - `ArithmeticLocal.restrictAlong_conjugate_not_equal` (non-example): If ρ(g⁻¹j(h)g)≠ρ(j(h)) for some h, the two restriction homomorphisms are unequal despite the canonical intertwiner.
 
-**Source.** deligne73, §3.12, printed p. 533: A chosen place yields the local restriction of a global representation; conjugation of places supplies the change-of-choice comparison.
+**Source.** deligne73, §3.12, printed p. 533: Deligne restricts finite-image complex representations at a chosen place. The arbitrary-coefficient jointly continuous restriction and coherent change-of-embedding equation here are derived from R01.1 restriction, the pinned closure map and representation composition.
 
 **Dependencies.** `ArithmeticGaloisRepresentations:R01.2/global-place-subgroup-carriers`, `mathlib:Field.absoluteGaloisGroup.mapOfAlgebra`, `mathlib:Representation`, `ArithmeticGaloisRepresentations:R01.1/continuous-representation`, `ArithmeticGaloisRepresentations:R01.1/restriction-dual-tensor-twist`, `ArithmeticGaloisRepresentations:R01.2/local-restriction`.
 
 ### 3. Residual fundamental characters
 
-Let K have residue characteristic p, let n>0 and choose in K̄ an unramified field U containing μ_{p^n−1}, with residue cardinality p^n (for K=Q_p take its unramified degree-n extension). The existing finite tame Kummer character has values in these integral roots of unity. Compose it with reduction and a specified embedding F_{p^n}→k of residual coefficient fields. This is θ_n:I_K→k×, with kernel containing wild inertia. The n fundamental characters are θ_n^{p^i}, 0≤i<n. The residual character, its Teichmüller lift and an ℓ-adic character are different objects. For general K with residue F_{p^f}, use an unramified extension of degree making n divide its absolute residue degree and select its F_{p^n} subfield; do not require a residue-p^n extension when f does not divide n.
+Let K have residue field F_{p^f} and let n>0. Choose in K̄ a finite unramified U/K whose absolute residue degree g is divisible by n (for example g=lcm(f,n)), and let S⊆k_U be its subfield of cardinality p^n. The existing order-(p^n−1) tame Kummer component has integral values in μ_{p^n−1}(O_U). Reduce those values, restrict them to S×, then use a specified embedding S→k. This defines θ_n:I_K→k×, with kernel containing wild inertia; its n fundamental conjugates are θ_n^{p^i}, 0≤i<n. For K=Q_p one may take g=n and S=k_U. The residual character, its Teichmüller lift and an ℓ-adic character remain separate objects. No embedding k_U→k is required when only S embeds into k.
 
-**Hypotheses.** K is nonarchimedean local with residue characteristic p; n>0; k contains the specified finite residue subfield. The finite tame components and their root formula come from LocalFieldsRamification Layer 4; the unramified fields and residue comparison come from Layer 2.
+**Hypotheses.** K has finite residue field F_{p^f}; n>0; U/K is a specified finite unramified extension with n dividing its absolute residue degree. S⊆k_U has cardinality p^n and ι:S→k is a specified field embedding. The finite tame components and their root formula come from LocalFieldsRamification Layer 4; the unramified fields and residue comparison come from Layer 2.
 
-**Construction or proof.** Import the finite component of inertiaTameCharacter; its roots are unramified and integral. Transport to an unramified U large enough to contain these roots; reduce using rootsOfUnityEquivResidueFieldUnits for U, then the selected residue embedding. For K=Q_p and U of degree n the whole unit group is the target. Surjectivity, independence of uniformizer/root and transition under powering are imported finite-level properties, preserved by reduction. For n=2 over Q_p, norm compatibility gives θ₂^{p+1}=θ₁; composition with residue Frobenius gives θ₂ and θ₂^p. Parent cyclotomic comparison gives θ₁=χ̄_p|I.
+**Construction or proof.** Import the finite component of inertiaTameCharacter; its roots are unramified and integral. Transport the order-(p^n−1) roots into U and include them into μ_{#k_U−1}(O_U). Reduce using rootsOfUnityEquivResidueFieldUnits U. Their residues satisfy x^{p^n−1}=1 and hence lie in S×; restrict the values to S before applying ι. If K=Q_p and U has degree n, S is the whole residue field. Surjectivity, independence of uniformizer/root and transition under powering are imported finite-level properties, preserved by reduction. For n=2 over Q_p, norm compatibility gives θ₂^{p+1}=θ₁; composition with residue Frobenius gives θ₂ and θ₂^p. Parent cyclotomic comparison gives θ₁=χ̄_p|I.
 
 **API.**
 
 | Declaration | Contract |
 |---|---|
-| `ArithmeticLocal.residualFundamental` | Given U and the supplied component θ:I→μ_{#k_U−1}(O_U), compose its reduction with ι:k_U→k. |
+| `ArithmeticLocal.residualFundamental` | Whole-residue adapter: for θ:I→μ_{#k_U−1}(O_U) and an embedding ι:k_U→k, compose reduction with ι. This special case requires k to contain all of k_U. |
 | `ArithmeticLocal.residualFundamental_apply` | The value is ι applied to the residue of θ(σ). |
 | `ArithmeticLocal.residualFundamental_order` | Every value has order dividing #k_U−1. |
 | `ArithmeticLocal.residualFundamental_surjective` | With identity residue embedding and surjective θ the character is onto k_U×. |
 | `ArithmeticLocal.residualFundamental_kernel` | Its kernel equals the finite Kummer component’s kernel, because both reduction and ι are injective on these roots. |
+| `ArithmeticLocal.residualFundamentalSubfield` | Given S⊆k_U, θ:I→μ_{#k_U−1}(O_U), proofs that all reduced values lie in S, and ι:S→k, restrict the reduced units to S× and embed into k×. |
+| `ArithmeticLocal.residualFundamentalSubfield_apply` | The value is ι applied to the reduced value θ(σ) regarded as an element of S. |
+| `ArithmeticLocal.residualFundamentalSubfield_order` | Every value has order dividing #S−1, in particular p^n−1 when #S=p^n. |
+| `ArithmeticLocal.residualFundamentalSubfield_kernel` | The kernel equals θ.ker: reduction on these roots and the embedding of S are injective. |
+| `ArithmeticLocal.residualFundamentalSubfield_surjective` | If the reduced θ covers S×, the subfield adapter with identity coefficient embedding is onto S×. |
 
 **Unit tests.**
 
 - `ArithmeticLocal.residualFundamental_identity` (compatibility): For the identity residue embedding, it equals rootsOfUnityEquivResidueFieldUnits composed with θ.
 - `ArithmeticLocal.residualFundamental_one` (degenerate): A trivial supplied component gives the trivial residual character.
 - `ArithmeticLocal.residualFundamental_teichmuller` (computation): If θ(σ) is the Teichmüller lift of a residue unit a, its residual value is ι(a).
+- `ArithmeticLocal.residualFundamentalSubfield_top` (compatibility): For S=k_U and the coefficient embedding induced from ι:k_U→k, the subfield adapter equals residualFundamental U θ ι.
+- `ArithmeticLocal.residualFundamentalSubfield_one` (degenerate): A trivial component gives the trivial character for every selected subfield and embedding.
+- `ArithmeticLocal.residualFundamentalSubfield_primitive` (computation): If θ(σ) has order m, its subfield residual value also has order m; primitive order is preserved even when only S embeds into k.
 
 **Source.** serre72, §1.3 Proposition 2, p. 264; §1.7 fundamental-character examples, p. 267: Finite tame components become finite-field unit characters by reduction; residue-field embeddings give their conjugates.
 
@@ -147,7 +157,7 @@ For p prime, k of characteristic p and χ:I_t→k× with finite image, its level
 
 **Hypotheses.** p is prime; k is a field of characteristic p; χ has finite image. Continuous residual inertia characters have finite image because their coefficients are discrete and inertia is compact.
 
-**Construction or proof.** A finite subgroup of a field’s units is cyclic, of order m prime to p. The set of positive n with m dividing p^n−1 is nonempty; its least element divides precisely the other such n. Use this to prove the degree/divisibility API. Frobenius χ↦χ^p has orbit length this least n. This distinguishes field of values from dimension or residue cardinality of K.
+**Construction or proof.** A finite subgroup of a field’s units is cyclic, of order m prime to p. The set of positive n with m dividing p^n−1 is nonempty; its least element divides precisely the other such n. Use this to prove the degree/divisibility API. Frobenius χ↦χ^p has orbit length this least n. This distinguishes field of values from dimension or residue cardinality of K. A one-dimensional character kills conjugation: the arithmetic p-power relation in the tame quotient of G_{Q_p} forces (χ|I)^p=χ|I. Thus its level is 1, excluding a primitive level-two fundamental character as such a restriction.
 
 **API.**
 
@@ -163,7 +173,7 @@ For p prime, k of characteristic p and χ:I_t→k× with finite image, its level
 
 - `ArithmeticLocal.tameLevel_trivial` (degenerate): The trivial character has level 1, not 0.
 - `ArithmeticLocal.tameLevel_two` (computation): If all values have order dividing p²−1 and one value has order p²−1, the level is 2.
-- `ArithmeticLocal.tameLevel_one_from_extension` (non-example): A character fixed by the p-th power has level 1; a primitive level-two character cannot be the inertia restriction of a one-dimensional character of G_{Q_p}.
+- `ArithmeticLocal.tameLevel_one_from_extension` (non-example): For j:I→G, a one-dimensional character χ:G→k× with finite inertia image, and Φ satisfying Φj(σ)Φ⁻¹=j(σ)^p, the restriction χ∘j has level 1. Specialize to the tame quotient of G_{Q_p}.
 
 **Source.** serre72, §1.7, pp. 266–267, finite characters and the fundamental-character examples: The finite tame character group and its fundamental-character conjugates supply the finite-field interpretation; the minimal degree follows from their Frobenius orbit.
 
@@ -220,6 +230,13 @@ A morphism (V,r,N)→(V′,r′,N′) is an Ω-linear map f with fr(w)=r′(w)f 
 | `WeilDeligneRep.Hom.comp_apply` | (g∘f)(v)=g(f(v)). |
 | `WeilDeligneRep.Hom.comp_id` | Composition with identity on the source preserves f. |
 | `WeilDeligneRep.Hom.id_comp` | Composition with identity on the target preserves f. |
+| `WeilDeligneRep.Hom.comp_assoc` | WD morphism composition is associative. |
+| `WeilDeligneRep.Iso.refl` | The identity linear equivalence gives a WD isomorphism D→D. |
+| `WeilDeligneRep.Iso.symm` | Invert the underlying linear equivalence and obtain a WD isomorphism in the reverse direction. |
+| `WeilDeligneRep.Iso.trans` | Compose two WD isomorphisms, with underlying equivalence g∘f. |
+| `WeilDeligneRep.Iso.refl_apply` | The identity WD isomorphism sends v to v. |
+| `WeilDeligneRep.Iso.symm_apply` | The inverse WD isomorphism acts by the inverse linear equivalence. |
+| `WeilDeligneRep.Iso.trans_apply` | The composite WD isomorphism sends v to g(f(v)). |
 
 **Unit tests.**
 
@@ -227,7 +244,7 @@ A morphism (V,r,N)→(V′,r′,N′) is an Ω-linear map f with fr(w)=r′(w)f 
 - `WeilDeligneRep.Hom.zero` (degenerate): The zero linear map is a morphism between any two objects.
 - `WeilDeligneRep.Hom.requires_monodromy` (non-example): On the same vector space, when N≠N′ the identity linear map is not a WD morphism, even if the Weil actions agree.
 
-**Source.** bh06, §31.1, p. 200; §31.2, p. 201; §32.2, p. 203: Morphisms commute with both the Weil action and monodromy; the finite-dimensional category carries the usual linear operations.
+**Source.** bh06, §31.1, p. 200; §31.2, p. 200; §32.2, p. 203: Morphisms commute with both the Weil action and monodromy; the finite-dimensional category carries the usual linear operations.
 
 **Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `mathlib:Representation`.
 
@@ -237,7 +254,7 @@ D⊕D′ has underlying V×V′, diagonal Weil action and N⊕N′. This is a bi
 
 **Hypotheses.** K is nonarchimedean local, with finite residue cardinality q>1. W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9. Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K.
 
-**Construction or proof.** Use the product representation, with each action and N acting componentwise. Intersect the open inertia kernels; nilpotence is bounded by the maximum of the two exponents. The coordinate inclusions and projections satisfy the two morphism equations.
+**Construction or proof.** Use the product representation, with each action and N acting componentwise. Intersect the open inertia kernels; nilpotence is bounded by the maximum of the two exponents. The coordinate inclusions and projections satisfy the two morphism equations. Pair two morphisms into the product and add two morphisms out of it. Componentwise equivariance and monodromy give both equations; equality on all vectors gives uniqueness. These two universal properties establish the biproduct claim.
 
 **API.**
 
@@ -251,14 +268,17 @@ D⊕D′ has underlying V×V′, diagonal Weil action and N⊕N′. This is a bi
 | `WeilDeligneRep.sumFamily` | Finite direct sum on a dependent product of finite-dimensional spaces; the empty family gives the zero object. |
 | `WeilDeligneRep.sumFamily_r` | The Weil action of the finite family is componentwise. |
 | `WeilDeligneRep.sumFamily_N` | The monodromy of the finite family is componentwise. |
+| `WeilDeligneRep.sum_lift` | For f:X→D and g:X→D′ there is a unique WD morphism h:X→D⊕D′ with h(x)=(f(x),g(x)). |
+| `WeilDeligneRep.sum_desc` | For f:D→X and g:D′→X there is a unique WD morphism h:D⊕D′→X with h(v,v′)=f(v)+g(v′). |
 
 **Unit tests.**
 
 - `WeilDeligneRep.sum_rank` (computation): The underlying dimension is dim V+dim V′.
 - `WeilDeligneRep.sum_kernel` (characterisation): N_sum(v,v′)=0 iff Nv=0 and N′v′=0.
 - `WeilDeligneRep.sum_zero` (degenerate): If both monodromies vanish, the direct-sum monodromy vanishes.
+- `WeilDeligneRep.sum_special_weights` (computation): At arithmetic degree 1, Sp(2)⊕Sp(1) sends (e₁,1) to (q e₁,1), detecting a mistaken trivial action or a shared scalar on both summands.
 
-**Source.** bh06, §31.2, p. 201: The additive category admits direct sums with componentwise monodromy.
+**Source.** bh06, §31.2, p. 200: The additive category admits direct sums with componentwise monodromy.
 
 **Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier`.
 
@@ -286,7 +306,7 @@ D⊗D′ has underlying V⊗ΩV′, the Mathlib tensor representation, and N⊗1
 - `WeilDeligneRep.tensor_zero_N` (degenerate): Both zero monodromies give zero tensor monodromy.
 - `WeilDeligneRep.tensor_both_summands` (non-example): If Nv⊗v′≠0, the tensor monodromy evaluated on v⊗v′ differs from v⊗N′v′; omitting the first summand fails.
 
-**Source.** bh06, §31.2, p. 201: Tensor monodromy is the sum of the operators on the two factors.
+**Source.** bh06, §31.2, p. 200: Tensor monodromy is the sum of the operators on the two factors.
 
 **Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier`, `mathlib:Representation.tprod`.
 
@@ -314,7 +334,7 @@ D∨ has underlying V∨, action r∨(w)(f)=f∘r(w⁻¹) and monodromy −N∨,
 - `WeilDeligneRep.dual_negative_sign` (non-example): If f(Nv)≠0, dual monodromy differs from the positive transpose.
 - `WeilDeligneRep.dual_pairing` (compatibility): (r∨(w)f)(r(w)v)=f(v).
 
-**Source.** bh06, §31.2, p. 201: Dual monodromy has the negative transpose sign and tensor-compatible evaluation.
+**Source.** bh06, §31.2, p. 200: Dual monodromy has the negative transpose sign and tensor-compatible evaluation.
 
 **Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier`, `mathlib:Representation.dual`.
 
@@ -322,15 +342,15 @@ D∨ has underlying V∨, action r∨(w)(f)=f∘r(w⁻¹) and monodromy −N∨,
 
 Sp(n), n≥0, has basis e₀,…,e_{n−1}, r(w)e_i=q^{i deg(w)}e_i, N(e_i)=e_{i+1}, and N(e_{n−1})=0. Sp(0) is the zero object and Sp(1) is trivial. This is the unnormalised convention of the parent: the normalized Sp(n) in Bushnell–Henniart §31.1 is obtained by twisting this object by ω^{(1−n)/2}; classification absorbs that twist into the irreducible Weil factor. No square root of q is required here.
 
-**Hypotheses.** K is nonarchimedean local, with finite residue cardinality q>1. W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9. Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K.
+**Hypotheses.** K is nonarchimedean local, with finite residue cardinality q>1. W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9. Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K. The generic special constructor explicitly requires q≠0 ([NeZero q]); this is weaker than the arithmetic hypothesis q>1 and ensures negative-degree weights are invertible.
 
-**Construction or proof.** Construct the diagonal Weil action and the single nilpotent Jordan string. The next weight is q times the preceding weight, proving the arithmetic relation. Inertia acts trivially. Powers of N shift by their exponent; N^n=0, and for n>0 its kernel is the final basis line.
+**Construction or proof.** With q≠0, the powers q^{i deg(w)} define multiplicative invertible weights, including at negative degree. Construct their diagonal action and the single nilpotent Jordan string. The next weight is q times the preceding weight, proving the arithmetic relation. Inertia acts trivially. Powers of N shift by their exponent; N^n=0, and for n>0 its kernel is the final basis line.
 
 **API.**
 
 | Declaration | Contract |
 |---|---|
-| `WeilDeligneRep.special` | The unnormalised WD object Sp(n) on Fin n→Ω. |
+| `WeilDeligneRep.special` | The unnormalised WD object Sp(n) on Fin n→Ω, with explicit [NeZero q] so every Weil weight is invertible. |
 | `WeilDeligneRep.special_r` | At coordinate i, r(w) multiplies by q^{i deg(w)}. |
 | `WeilDeligneRep.special_N` | Coordinate 0 becomes 0; coordinate i>0 takes the former coordinate i−1. |
 | `WeilDeligneRep.special_nilpotence` | N^n=0. |
@@ -342,6 +362,7 @@ Sp(n), n≥0, has basis e₀,…,e_{n−1}, r(w)e_i=q^{i deg(w)}e_i, N(e_i)=e_{i
 - `WeilDeligneRep.special_zero` (degenerate): Sp(0) has zero monodromy.
 - `WeilDeligneRep.special_one` (computation): Sp(1) has trivial Weil action and N=0.
 - `WeilDeligneRep.special_two` (computation): For Sp(2), N(e₀)=e₁, rather than the reverse shift or zero.
+- `WeilDeligneRep.special_geometric_weight` (computation): For degree −1, the Weil action on Sp(2) sends e₁ to q⁻¹e₁, detecting the Frobenius sign and the negative-power convention.
 
 **Source.** bh06, §31.1, p. 200, special representations; §31.2 Exercise, p. 201: The special monodromy string is the building block for Frobenius-semisimple indecomposables; its normalization is translated by the stated character twist.
 
@@ -442,7 +463,7 @@ A WD object is Frobenius semisimple if r(w) is semisimple for every w of nonzero
 
 **Source.** bh06, §28.7 Proposition, pp. 185–186; §32.7 Proposition and Theorem, p. 208: Semisimplicity of the Weil action is detected at Frobenius, and is distinguished from semisimplicity of a Deligne object. deligne73, Definition 8.6, printed p. 570: Frobenius semisimplicity describes the corrected Weil operators while retaining monodromy.
 
-**Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object`, `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification`, `mathlib:Representation.IsSemisimpleRepresentation`.
+**Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object`, `mathlib:Representation.IsSemisimpleRepresentation`, `tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition`, `tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition_spec`.
 
 ### 15. Frobenius semisimplification
 
@@ -472,7 +493,7 @@ For arithmetic Φ let r(Φ)=su be the existing multiplicative Jordan decompositi
 
 **Source.** deligne73, §8.5, (8.5.1), Definition 8.6, printed p. 570: The unipotent Frobenius factor is removed from the Weil action while the nilpotent operator is retained.
 
-**Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-predicate`, `tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition`, `tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition_spec`, `tauceti:LinearMap.GeneralLinearGroup.unipotentPart`, `tauceti:LinearMap.GeneralLinearGroup.semisimplePart`, `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification`.
+**Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-predicate`, `tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition`, `tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition_spec`, `tauceti:LinearMap.GeneralLinearGroup.unipotentPart`, `tauceti:LinearMap.GeneralLinearGroup.semisimplePart`.
 
 ### 16. Categorical semisimplification
 
@@ -500,7 +521,7 @@ The semisimplification of D in the finite-length abelian WD category has isomorp
 
 **Source.** bh06, §31.1–31.2, pp. 200–201; §32.7, p. 208: The Deligne category and its nonzero-monodromy special objects distinguish categorical semisimplicity from Frobenius semisimplicity; the simple-object argument derives the zero-monodromy semisimplification.
 
-**Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier`, `ArithmeticGaloisRepresentations:R01.1/semisimplification`, `ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt-traces`, `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification`, `mathlib:LinearMap.trace`, `mathlib:Representation.IsSemisimpleRepresentation`.
+**Dependencies.** `ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier`, `ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier`, `ArithmeticGaloisRepresentations:R01.1/semisimplification`, `ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt-traces`, `mathlib:LinearMap.trace`, `mathlib:Representation.IsSemisimpleRepresentation`.
 
 ### 17. Classification by special blocks
 
@@ -512,7 +533,7 @@ Over an algebraically closed characteristic-zero Ω, every nonzero indecomposabl
 
 **Acceptance.** Over an algebraically closed characteristic-zero Ω, every nonzero indecomposable Frobenius-semisimple WD object is r₀⊗Sp(n), n≥1, for an irreducible smooth Weil representation r₀, viewed with zero monodromy. Every Frobenius-semisimple object is a finite direct sum of such blocks, and the pairs (isomorphism class of r₀,n) are unique up to permutation. The zero object corresponds to the empty sum. The r₀ factor absorbs the half-norm twist in the normalization used by Bushnell–Henniart.
 
-**Source.** bh06, §31.2 Exercise, p. 201; §31.1 normalization, p. 200: The indecomposable Frobenius-semisimple objects are special blocks with an irreducible Weil factor, and decomposition is unique. The proof is outlined through their nilpotent strings.
+**Source.** bh06, §31.2 Exercise, p. 201; §31.1 normalization, p. 200: The exercise identifies indecomposable Frobenius-semisimple objects as special blocks with an irreducible Weil factor, in the source’s normalized convention. The stated nilpotent-string argument derives finite decomposition and uniqueness; those stronger clauses are not attributed verbatim to the exercise. The printed dimension index of the irreducible factor is corrected independently of the block length; see confirmed source issue ArithmeticGaloisRepresentations/E7947.
 
 **Dependencies.** `ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object`, `ArithmeticGaloisRepresentations:R01.2/weil-deligne-tensor-product`, `ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-predicate`, `ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier`, `ArithmeticGaloisRepresentations:R01.1/semisimplification`, `mathlib:Representation.IsIrreducible.algebraMap_intertwiningMap_bijective_of_isAlgClosed`.
 
@@ -538,7 +559,7 @@ For ℓ≠p the monodromy theorem must instantiate with the actual tame characte
 
 The final acceptance objects are the zero and rank-one objects, Sp(2), and the unramified Jordan-block action. Sp(2) retains rank-one monodromy under Fss and loses it under categorical ss. The unramified Jordan-block example changes under Fss even though its N was already zero. These examples jointly detect identifying any two of the three operations. Tensor monodromy must include both summands; dual monodromy must have the negative sign. The special-block classification includes the empty direct sum for the zero object and absorbs the source’s normalization twist into r₀.
 
-Assembly replaces the parent bundled carrier and operations with these named refinements, while preserving the principal parent IDs for its comparisons and all ancillary targets. It imports the parent local restriction Mackey formula, ramification sets, Frobenius polynomials, unramified and cyclotomic characters, residual two-dimensional tame classification, inverse WD construction, Euler factors and induced-factor comparison, purity, local constants, and Tate-curve examples. This part closes the classification source-reading request using the cleared Bushnell–Henniart edition. It does not certify the parent’s unrelated local-constant/global-functional-equation gaps, generalized-residue-field reading request, or LPV filtration binding as closed.
+The Frobenius predicate and constructions cite pinned Jordan decomposition directly, instead of taking the bundled parent Frobenius/classification target as a prerequisite. Assembly replaces the parent bundled carrier and operations with these named refinements, while preserving the principal parent IDs for its comparisons and all ancillary targets. It imports the parent local restriction Mackey formula, ramification sets, Frobenius polynomials, unramified and cyclotomic characters, residual two-dimensional tame classification, inverse WD construction, Euler factors and induced-factor comparison, purity, local constants, and Tate-curve examples. This part closes the classification source-reading request using the cleared Bushnell–Henniart edition. It does not certify the parent’s unrelated local-constant/global-functional-equation gaps, generalized-residue-field reading request, or LPV filtration binding as closed.
 
 Use exactly six planets for the assembled R01.2 layer: **Fundamental characters**, **Weil–Deligne representation**, **Monodromy operator**, **Weil–Deligne functor**, **Frobenius semisimplification**, and **Special-block classification**. Replace the parent planet selection rather than displaying the union. There is no new roadmap direction or Part II proposal: all new arithmetic comparisons stay with the existing R01.2 owner.
 
@@ -546,8 +567,10 @@ Use exactly six planets for the assembled R01.2 layer: **Fundamental characters*
 
 All source-dependent statements are written in the worker’s own words, with section and printed-page locators. No source passage or extracted book text is included.
 
-- Pierre Deligne, *Les constantes des équations fonctionnelles des fonctions L*, LNM 349 (1973), pp. 501–597, [IAS scan](https://publications.ias.edu/sites/default/files/Number20.pdf). The local-global comparison and §§8.1–8.6 were read; the formula-sensitive pages were checked as images. In particular §8.4.2 is on printed p. 569, Definition 8.4.1 on p. 568, and §§8.5–8.6 on p. 570.
+- Pierre Deligne, *Les constantes des équations fonctionnelles des fonctions L*, LNM 349 (1973), pp. 501–597, [IAS scan](https://publications.ias.edu/sites/default/files/Number20.pdf). The finite-image complex restriction in §3.12 and §§8.1–8.6 were read; the formula-sensitive pages were checked as images. In particular §8.4.2 is on printed p. 569, Definition 8.4.1 on p. 568, and §§8.5–8.6 on p. 570.
 - Jean-Pierre Serre, *Propriétés galoisiennes des points d’ordre fini des courbes elliptiques*, Invent. Math. 15 (1972), pp. 259–331, [author-institution scan](https://www.college-de-france.fr/media/jean-pierre-serre/UPL5874918517843398173_Serre_proprie_te_s_galoisiennes_des_courbes_elliptiques.pdf). Proposition 2, p. 264, and the finite and fundamental characters on pp. 266–267 were read on images.
 - Colin J. Bushnell and Guy Henniart, *The Local Langlands Conjecture for GL(2)*, Springer 2006, [publisher record](https://doi.org/10.1007/3-540-31511-X). The maintainer-cleared edition was read in place: §28.7 Proposition pp. 185–186, §§31.1–31.2 pp. 200–201 and §§32.2–32.7 pp. 203–208. Its special representation is normalized; the translation to the unnormalised parent convention is explicit above. Tate’s article in Corvallis Part 2 was not needed after this source supplied the classification and equivalence.
 
-The packet records access date 2026-10-09 and SHA-256 values for the public scans. The packet checker validates closure references and counts eighteen nodes, eighty-nine API items, forty-five unit tests and six planets. The suggested file is checked with the shared pinned `lean-check` build; its final elaboration result is recorded in the handoff. Stage R01.2 remains planned with one supplier-binding gap and four supplier requests. None of these counts is an implementation claim.
+The packet records access date 2026-10-09 and SHA-256 values for the public scans. The packet checker validates closure references and counts eighteen nodes, one hundred and three API items, fifty unit tests and six planets. The suggested file is checked with the shared pinned `lean-check` build; its final elaboration result is recorded in the handoff. Stage R01.2 remains planned with one supplier-binding gap and four supplier requests. None of these counts is an implementation claim.
+
+Independent review: [REV-ArithmeticGaloisRepresentations--R01.2](../reviews/REV-ArithmeticGaloisRepresentations--R01.2.md), accepted after the documented corrections. The supplier-binding and retained ancillary gaps remain explicit.

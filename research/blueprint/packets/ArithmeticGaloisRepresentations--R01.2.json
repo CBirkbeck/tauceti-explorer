@@ -16,112 +16,112 @@
         "kind": "def",
         "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
         "provides": "The continuous homomorphism G_L →ₜ* G_K induced by compatible algebraic closures.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:IsNilpotent.exp",
         "kind": "def",
         "module": "Mathlib/RingTheory/Nilpotent/Exp.lean",
         "provides": "Exponential series in a Q-algebra, the finite sum for nilpotent elements.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:IsNilpotent.exp_add_of_commute",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Nilpotent/Exp.lean",
         "provides": "exp(a + b) = exp a · exp b for commuting nilpotent a, b.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:LinearMap.trace",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Trace.lean",
         "provides": "Trace of an endomorphism, independent of the basis, for modules with a finite basis; defined to be 0 when no finite basis exists, so it must NOT be used for non-free projective modules.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:MulAction.stabilizer",
         "kind": "def",
         "module": "Mathlib/GroupTheory/GroupAction/Defs.lean",
         "provides": "The stabilizer subgroup of a point under a group action; used for decomposition groups.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:Representation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Representation k G V := G →* (V →ₗ[k] V), the algebraic carrier underlying ContinuousRep.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:Representation.IsIrreducible.algebraMap_intertwiningMap_bijective_of_isAlgClosed",
         "kind": "theorem",
         "module": "Mathlib/RepresentationTheory/Irreducible.lean",
         "provides": "Schur's lemma: for ρ irreducible, [FiniteDimensional k V] [IsAlgClosed k]: Bijective (algebraMap k (IntertwiningMap ρ ρ)).",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:Representation.IsSemisimpleRepresentation",
         "kind": "abbrev",
         "module": "Mathlib/RepresentationTheory/Semisimple.lean",
         "provides": "Semisimplicity: every subrepresentation has a complement.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:Representation.dual",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Dual representation (dual ρ) g f = f ∘ ρ g⁻¹.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:Representation.tprod",
         "kind": "def",
         "module": "Mathlib/RepresentationTheory/Basic.lean",
         "provides": "Tensor product representation g ↦ ρV g ⊗ ρW g.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition",
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/JordanChevalley/Multiplicative.lean",
         "provides": "Multiplicative Jordan–Chevalley decomposition g = s·u (s semisimple, u unipotent, commuting) over a perfect field, finite dimension.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition_spec",
         "kind": "theorem",
         "module": "TauCeti/LinearAlgebra/JordanChevalley/Multiplicative.lean",
         "provides": "For g : GeneralLinearGroup K V (K a perfect field, V finite-dimensional): IsSemisimple (jordanDecomposition g).1 ∧ IsUnipotent (jordanDecomposition g).2 ∧ Commute (jordanDecomposition g).1 (jordanDecomposition g).2 ∧ g = (jordanDecomposition g).1 * (jordanDecomposition g).2.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "tauceti:LinearMap.GeneralLinearGroup.semisimplePart",
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/JordanChevalley/Multiplicative.lean",
         "provides": "The semisimple factor of the multiplicative Jordan decomposition.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "tauceti:LinearMap.GeneralLinearGroup.unipotentPart",
         "kind": "def",
         "module": "TauCeti/LinearAlgebra/JordanChevalley/Multiplicative.lean",
         "provides": "The unipotent factor of the multiplicative Jordan decomposition.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "tauceti:TauCeti.rootsOfUnityEquivResidueFieldUnits",
         "kind": "def",
         "module": "TauCeti/NumberTheory/LocalField/Teichmuller.lean",
         "provides": "Reduction is an isomorphism from the (q − 1)-st roots of unity of 𝒪[K] to 𝓀[K]ˣ, q = #𝓀[K], for a nonarchimedean local field K.",
-        "checked": "Actual declaration and ambient hypotheses read in the pinned source tree for this part, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       },
       {
         "ref": "mathlib:AddSubgroup.inertia",
         "kind": "def",
         "module": "Mathlib/Algebra/Group/Subgroup/Basic.lean",
         "provides": "For an additive group M with a G-action and additive subgroup I, the subgroup of elements σ satisfying σx−x∈I for all x; specialize to O_{F̄} and its prime ideal.",
-        "checked": "Actual definition at lines 1175–1180 read at the pinned commit, 2026-10-09."
+        "checked": "Independently re-read the declaration and ambient hypotheses at the recorded pin for REV-ArithmeticGaloisRepresentations--R01.2, 2026-10-09; its module in the shared build was byte-checked against the pinned GitHub source."
       }
     ]
   },
@@ -198,7 +198,7 @@
         {
           "sourceId": "deligne73",
           "locator": "§3.12, printed p. 533 (Del-33)",
-          "match": "Local arithmetic representations are obtained by restricting at a chosen place of a global algebraic closure; the stabilizer and residue-kernel definitions make that restriction precise."
+          "match": "Deligne restricts finite-image complex global representations at a chosen place. The explicit subgroup carriers here are specializations of the pinned stabilizer/additive-inertia definitions; the absolute completion comparison is the retained parent construction."
         }
       ],
       "implementationStatus": "unchecked",
@@ -311,7 +311,7 @@
         {
           "sourceId": "deligne73",
           "locator": "§3.12, printed p. 533",
-          "match": "A chosen place yields the local restriction of a global representation; conjugation of places supplies the change-of-choice comparison."
+          "match": "Deligne restricts finite-image complex representations at a chosen place. The arbitrary-coefficient jointly continuous restriction and coherent change-of-embedding equation here are derived from R01.1 restriction, the pinned closure map and representation composition."
         }
       ],
       "implementationStatus": "unchecked",
@@ -390,21 +390,24 @@
       ],
       "title": "Residual fundamental characters",
       "kind": "construction",
-      "statement": "Let K have residue characteristic p, let n>0 and choose in K̄ an unramified field U containing μ_{p^n−1}, with residue cardinality p^n (for K=Q_p take its unramified degree-n extension). The existing finite tame Kummer character has values in these integral roots of unity. Compose it with reduction and a specified embedding F_{p^n}→k of residual coefficient fields. This is θ_n:I_K→k×, with kernel containing wild inertia. The n fundamental characters are θ_n^{p^i}, 0≤i<n. The residual character, its Teichmüller lift and an ℓ-adic character are different objects. For general K with residue F_{p^f}, use an unramified extension of degree making n divide its absolute residue degree and select its F_{p^n} subfield; do not require a residue-p^n extension when f does not divide n.",
+      "statement": "Let K have residue field F_{p^f} and let n>0. Choose in K̄ a finite unramified U/K whose absolute residue degree g is divisible by n (for example g=lcm(f,n)), and let S⊆k_U be its subfield of cardinality p^n. The existing order-(p^n−1) tame Kummer component has integral values in μ_{p^n−1}(O_U). Reduce those values, restrict them to S×, then use a specified embedding S→k. This defines θ_n:I_K→k×, with kernel containing wild inertia; its n fundamental conjugates are θ_n^{p^i}, 0≤i<n. For K=Q_p one may take g=n and S=k_U. The residual character, its Teichmüller lift and an ℓ-adic character remain separate objects. No embedding k_U→k is required when only S embeds into k.",
       "hypotheses": [
-        "K is nonarchimedean local with residue characteristic p; n>0; k contains the specified finite residue subfield.",
+        "K has finite residue field F_{p^f}; n>0; U/K is a specified finite unramified extension with n dividing its absolute residue degree. S⊆k_U has cardinality p^n and ι:S→k is a specified field embedding.",
         "The finite tame components and their root formula come from LocalFieldsRamification Layer 4; the unramified fields and residue comparison come from Layer 2."
       ],
       "proofSteps": [
         "Import the finite component of inertiaTameCharacter; its roots are unramified and integral.",
-        "Transport to an unramified U large enough to contain these roots; reduce using rootsOfUnityEquivResidueFieldUnits for U, then the selected residue embedding. For K=Q_p and U of degree n the whole unit group is the target.",
+        "Transport the order-(p^n−1) roots into U and include them into μ_{#k_U−1}(O_U). Reduce using rootsOfUnityEquivResidueFieldUnits U. Their residues satisfy x^{p^n−1}=1 and hence lie in S×; restrict the values to S before applying ι. If K=Q_p and U has degree n, S is the whole residue field.",
         "Surjectivity, independence of uniformizer/root and transition under powering are imported finite-level properties, preserved by reduction.",
         "For n=2 over Q_p, norm compatibility gives θ₂^{p+1}=θ₁; composition with residue Frobenius gives θ₂ and θ₂^p. Parent cyclotomic comparison gives θ₁=χ̄_p|I."
       ],
       "acceptance": [
         "For the identity residue embedding, it equals rootsOfUnityEquivResidueFieldUnits composed with θ.",
         "A trivial supplied component gives the trivial residual character.",
-        "If θ(σ) is the Teichmüller lift of a residue unit a, its residual value is ι(a)."
+        "If θ(σ) is the Teichmüller lift of a residue unit a, its residual value is ι(a).",
+        "For S=k_U and the coefficient embedding induced from ι:k_U→k, the subfield adapter equals residualFundamental U θ ι.",
+        "A trivial component gives the trivial character for every selected subfield and embedding.",
+        "If θ(σ) has order m, its subfield residual value also has order m; primitive order is preserved even when only S embeds into k."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/LocalFieldsRamification#layer-2-unramified-extensions-and-frobenius",
@@ -424,7 +427,7 @@
         {
           "name": "TauCeti.ArithmeticLocal.residualFundamental",
           "role": "constructor",
-          "statement": "Given U and the supplied component θ:I→μ_{#k_U−1}(O_U), compose its reduction with ι:k_U→k."
+          "statement": "Whole-residue adapter: for θ:I→μ_{#k_U−1}(O_U) and an embedding ι:k_U→k, compose reduction with ι. This special case requires k to contain all of k_U."
         },
         {
           "name": "TauCeti.ArithmeticLocal.residualFundamental_apply",
@@ -445,6 +448,31 @@
           "name": "TauCeti.ArithmeticLocal.residualFundamental_kernel",
           "role": "characterisation",
           "statement": "Its kernel equals the finite Kummer component’s kernel, because both reduction and ι are injective on these roots."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamentalSubfield",
+          "role": "constructor",
+          "statement": "Given S⊆k_U, θ:I→μ_{#k_U−1}(O_U), proofs that all reduced values lie in S, and ι:S→k, restrict the reduced units to S× and embed into k×."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamentalSubfield_apply",
+          "role": "simp",
+          "statement": "The value is ι applied to the reduced value θ(σ) regarded as an element of S."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamentalSubfield_order",
+          "role": "relation",
+          "statement": "Every value has order dividing #S−1, in particular p^n−1 when #S=p^n."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamentalSubfield_kernel",
+          "role": "characterisation",
+          "statement": "The kernel equals θ.ker: reduction on these roots and the embedding of S are injective."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamentalSubfield_surjective",
+          "role": "universal-property",
+          "statement": "If the reduced θ covers S×, the subfield adapter with identity coefficient embedding is onto S×."
         }
       ],
       "tests": [
@@ -462,6 +490,21 @@
           "name": "TauCeti.ArithmeticLocal.residualFundamental_teichmuller",
           "kind": "computation",
           "statement": "If θ(σ) is the Teichmüller lift of a residue unit a, its residual value is ι(a)."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamentalSubfield_top",
+          "kind": "compatibility",
+          "statement": "For S=k_U and the coefficient embedding induced from ι:k_U→k, the subfield adapter equals residualFundamental U θ ι."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamentalSubfield_one",
+          "kind": "degenerate",
+          "statement": "A trivial component gives the trivial character for every selected subfield and embedding."
+        },
+        {
+          "name": "TauCeti.ArithmeticLocal.residualFundamentalSubfield_primitive",
+          "kind": "computation",
+          "statement": "If θ(σ) has order m, its subfield residual value also has order m; primitive order is preserved even when only S embeds into k."
         }
       ],
       "uses": [
@@ -500,12 +543,13 @@
       "proofSteps": [
         "A finite subgroup of a field’s units is cyclic, of order m prime to p.",
         "The set of positive n with m dividing p^n−1 is nonempty; its least element divides precisely the other such n. Use this to prove the degree/divisibility API.",
-        "Frobenius χ↦χ^p has orbit length this least n. This distinguishes field of values from dimension or residue cardinality of K."
+        "Frobenius χ↦χ^p has orbit length this least n. This distinguishes field of values from dimension or residue cardinality of K.",
+        "A one-dimensional character kills conjugation: the arithmetic p-power relation in the tame quotient of G_{Q_p} forces (χ|I)^p=χ|I. Thus its level is 1, excluding a primitive level-two fundamental character as such a restriction."
       ],
       "acceptance": [
         "The trivial character has level 1, not 0.",
         "If all values have order dividing p²−1 and one value has order p²−1, the level is 2.",
-        "A character fixed by the p-th power has level 1; a primitive level-two character cannot be the inertia restriction of a one-dimensional character of G_{Q_p}."
+        "For j:I→G, a one-dimensional character χ:G→k× with finite inertia image, and Φ satisfying Φj(σ)Φ⁻¹=j(σ)^p, the restriction χ∘j has level 1. Specialize to the tame quotient of G_{Q_p}."
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.2/residual-fundamental-character-bridge",
@@ -560,7 +604,7 @@
         {
           "name": "TauCeti.ArithmeticLocal.tameLevel_one_from_extension",
           "kind": "non-example",
-          "statement": "A character fixed by the p-th power has level 1; a primitive level-two character cannot be the inertia restriction of a one-dimensional character of G_{Q_p}."
+          "statement": "For j:I→G, a one-dimensional character χ:G→k× with finite inertia image, and Φ satisfying Φj(σ)Φ⁻¹=j(σ)^p, the restriction χ∘j has level 1. Specialize to the tame quotient of G_{Q_p}."
         }
       ],
       "uses": [
@@ -734,7 +778,7 @@
       "sources": [
         {
           "sourceId": "bh06",
-          "locator": "§31.1, p. 200; §31.2, p. 201; §32.2, p. 203",
+          "locator": "§31.1, p. 200; §31.2, p. 200; §32.2, p. 203",
           "match": "Morphisms commute with both the Weil action and monodromy; the finite-dimensional category carries the usual linear operations."
         }
       ],
@@ -779,6 +823,41 @@
           "name": "TauCeti.WeilDeligneRep.Hom.id_comp",
           "role": "functoriality",
           "statement": "Composition with identity on the target preserves f."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Hom.comp_assoc",
+          "role": "functoriality",
+          "statement": "WD morphism composition is associative."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Iso.refl",
+          "role": "constructor",
+          "statement": "The identity linear equivalence gives a WD isomorphism D→D."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Iso.symm",
+          "role": "functoriality",
+          "statement": "Invert the underlying linear equivalence and obtain a WD isomorphism in the reverse direction."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Iso.trans",
+          "role": "functoriality",
+          "statement": "Compose two WD isomorphisms, with underlying equivalence g∘f."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Iso.refl_apply",
+          "role": "simp",
+          "statement": "The identity WD isomorphism sends v to v."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Iso.symm_apply",
+          "role": "simp",
+          "statement": "The inverse WD isomorphism acts by the inverse linear equivalence."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.Iso.trans_apply",
+          "role": "simp",
+          "statement": "The composite WD isomorphism sends v to g(f(v))."
         }
       ],
       "tests": [
@@ -804,7 +883,7 @@
           "how": "Provides the local arithmetic input for conductor and inertial-type computations."
         },
         {
-          "where": "§31.1, p. 200; §31.2, p. 201; §32.2, p. 203",
+          "where": "§31.1, p. 200; §31.2, p. 200; §32.2, p. 203",
           "how": "Supplies the object used in the cited comparison or construction."
         }
       ],
@@ -833,12 +912,14 @@
       "proofSteps": [
         "Use the product representation, with each action and N acting componentwise.",
         "Intersect the open inertia kernels; nilpotence is bounded by the maximum of the two exponents.",
-        "The coordinate inclusions and projections satisfy the two morphism equations."
+        "The coordinate inclusions and projections satisfy the two morphism equations.",
+        "Pair two morphisms into the product and add two morphisms out of it. Componentwise equivariance and monodromy give both equations; equality on all vectors gives uniqueness. These two universal properties establish the biproduct claim."
       ],
       "acceptance": [
         "The underlying dimension is dim V+dim V′.",
         "N_sum(v,v′)=0 iff Nv=0 and N′v′=0.",
-        "If both monodromies vanish, the direct-sum monodromy vanishes."
+        "If both monodromies vanish, the direct-sum monodromy vanishes.",
+        "At arithmetic degree 1, Sp(2)⊕Sp(1) sends (e₁,1) to (q e₁,1), detecting a mistaken trivial action or a shared scalar on both summands."
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
@@ -847,7 +928,7 @@
       "sources": [
         {
           "sourceId": "bh06",
-          "locator": "§31.2, p. 201",
+          "locator": "§31.2, p. 200",
           "match": "The additive category admits direct sums with componentwise monodromy."
         }
       ],
@@ -892,6 +973,16 @@
           "name": "TauCeti.WeilDeligneRep.sumFamily_N",
           "role": "simp",
           "statement": "The monodromy of the finite family is componentwise."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_lift",
+          "role": "universal-property",
+          "statement": "For f:X→D and g:X→D′ there is a unique WD morphism h:X→D⊕D′ with h(x)=(f(x),g(x))."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_desc",
+          "role": "universal-property",
+          "statement": "For f:D→X and g:D′→X there is a unique WD morphism h:D⊕D′→X with h(v,v′)=f(v)+g(v′)."
         }
       ],
       "tests": [
@@ -909,6 +1000,11 @@
           "name": "TauCeti.WeilDeligneRep.sum_zero",
           "kind": "degenerate",
           "statement": "If both monodromies vanish, the direct-sum monodromy vanishes."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.sum_special_weights",
+          "kind": "computation",
+          "statement": "At arithmetic degree 1, Sp(2)⊕Sp(1) sends (e₁,1) to (q e₁,1), detecting a mistaken trivial action or a shared scalar on both summands."
         }
       ],
       "uses": [
@@ -917,7 +1013,7 @@
           "how": "Provides the local arithmetic input for conductor and inertial-type computations."
         },
         {
-          "where": "§31.2, p. 201",
+          "where": "§31.2, p. 200",
           "how": "Supplies the object used in the cited comparison or construction."
         }
       ],
@@ -961,7 +1057,7 @@
       "sources": [
         {
           "sourceId": "bh06",
-          "locator": "§31.2, p. 201",
+          "locator": "§31.2, p. 200",
           "match": "Tensor monodromy is the sum of the operators on the two factors."
         }
       ],
@@ -1016,7 +1112,7 @@
           "how": "Provides the local arithmetic input for conductor and inertial-type computations."
         },
         {
-          "where": "§31.2, p. 201",
+          "where": "§31.2, p. 200",
           "how": "Supplies the object used in the cited comparison or construction."
         }
       ],
@@ -1060,7 +1156,7 @@
       "sources": [
         {
           "sourceId": "bh06",
-          "locator": "§31.2, p. 201",
+          "locator": "§31.2, p. 200",
           "match": "Dual monodromy has the negative transpose sign and tensor-compatible evaluation."
         }
       ],
@@ -1115,7 +1211,7 @@
           "how": "Provides the local arithmetic input for conductor and inertial-type computations."
         },
         {
-          "where": "§31.2, p. 201",
+          "where": "§31.2, p. 200",
           "how": "Supplies the object used in the cited comparison or construction."
         }
       ],
@@ -1139,17 +1235,19 @@
       "hypotheses": [
         "K is nonarchimedean local, with finite residue cardinality q>1.",
         "W_K and its topology, compact open I_K and the surjective arithmetic degree come from ClassFieldTheory Layer 9.",
-        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K."
+        "Ω is a characteristic-zero field and V is finite dimensional. The generic prototype exposes W, degree and q without claiming it constructs W_K.",
+        "The generic special constructor explicitly requires q≠0 ([NeZero q]); this is weaker than the arithmetic hypothesis q>1 and ensures negative-degree weights are invertible."
       ],
       "proofSteps": [
-        "Construct the diagonal Weil action and the single nilpotent Jordan string.",
+        "With q≠0, the powers q^{i deg(w)} define multiplicative invertible weights, including at negative degree. Construct their diagonal action and the single nilpotent Jordan string.",
         "The next weight is q times the preceding weight, proving the arithmetic relation. Inertia acts trivially.",
         "Powers of N shift by their exponent; N^n=0, and for n>0 its kernel is the final basis line."
       ],
       "acceptance": [
         "Sp(0) has zero monodromy.",
         "Sp(1) has trivial Weil action and N=0.",
-        "For Sp(2), N(e₀)=e₁, rather than the reverse shift or zero."
+        "For Sp(2), N(e₀)=e₁, rather than the reverse shift or zero.",
+        "For degree −1, the Weil action on Sp(2) sends e₁ to q⁻¹e₁, detecting the Frobenius sign and the negative-power convention."
       ],
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier"
@@ -1166,7 +1264,7 @@
         {
           "name": "TauCeti.WeilDeligneRep.special",
           "role": "constructor",
-          "statement": "The unnormalised WD object Sp(n) on Fin n→Ω."
+          "statement": "The unnormalised WD object Sp(n) on Fin n→Ω, with explicit [NeZero q] so every Weil weight is invertible."
         },
         {
           "name": "TauCeti.WeilDeligneRep.special_r",
@@ -1209,6 +1307,11 @@
           "name": "TauCeti.WeilDeligneRep.special_two",
           "kind": "computation",
           "statement": "For Sp(2), N(e₀)=e₁, rather than the reverse shift or zero."
+        },
+        {
+          "name": "TauCeti.WeilDeligneRep.special_geometric_weight",
+          "kind": "computation",
+          "statement": "For degree −1, the Weil action on Sp(2) sends e₁ to q⁻¹e₁, detecting the Frobenius sign and the negative-power convention."
         }
       ],
       "uses": [
@@ -1522,8 +1625,9 @@
       "prerequisites": [
         "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
         "ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object",
-        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification",
-        "mathlib:Representation.IsSemisimpleRepresentation"
+        "mathlib:Representation.IsSemisimpleRepresentation",
+        "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition",
+        "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition_spec"
       ],
       "sources": [
         {
@@ -1631,8 +1735,7 @@
         "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition",
         "tauceti:LinearMap.GeneralLinearGroup.jordanDecomposition_spec",
         "tauceti:LinearMap.GeneralLinearGroup.unipotentPart",
-        "tauceti:LinearMap.GeneralLinearGroup.semisimplePart",
-        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification"
+        "tauceti:LinearMap.GeneralLinearGroup.semisimplePart"
       ],
       "sources": [
         {
@@ -1747,7 +1850,6 @@
         "ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier",
         "ArithmeticGaloisRepresentations:R01.1/semisimplification",
         "ArithmeticGaloisRepresentations:R01.1/brauer-nesbitt-traces",
-        "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification",
         "mathlib:LinearMap.trace",
         "mathlib:Representation.IsSemisimpleRepresentation"
       ],
@@ -1857,7 +1959,7 @@
         {
           "sourceId": "bh06",
           "locator": "§31.2 Exercise, p. 201; §31.1 normalization, p. 200",
-          "match": "The indecomposable Frobenius-semisimple objects are special blocks with an irreducible Weil factor, and decomposition is unique. The proof is outlined through their nilpotent strings."
+          "match": "The exercise identifies indecomposable Frobenius-semisimple objects as special blocks with an irreducible Weil factor, in the source’s normalized convention. The stated nilpotent-string argument derives finite decomposition and uniqueness; those stronger clauses are not attributed verbatim to the exercise. The printed dimension index of the irreducible factor is corrected independently of the block length; see confirmed source issue ArithmeticGaloisRepresentations/E7947."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1982,7 +2084,29 @@
     }
   ],
   "restructure": [],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "ArithmeticGaloisRepresentations/E7947",
+      "source": "bh06",
+      "kind": "misprint",
+      "locator": "§31.2 Exercise, printed p.201 of the 2006 Springer edition, Grundlehren 335; the dimension-index notation is defined in §28.7, p.185.",
+      "printed": "The special-block length n also appears as the dimension index in the requirement ρ∈G_n^0(F). Thus the literal indexing restricts the irreducible Weil factor to dimension n.",
+      "correction": "Allow any finite-dimensional irreducible smooth Weil factor ρ, of dimension d≥1 independent of the special-block length n≥1: ρ∈G_d^0(F). The block has dimension dn.",
+      "reason": "The source defines G_d^0(F) as dimension-d irreducible Weil representations. Sp(2), with a one-dimensional trivial Weil factor, is an indecomposable Frobenius-semisimple object of dimension two and nonzero monodromy. Under the literal restriction d=n, n≥2 forces dimension n²≥4, while n=1 forces dimension one and zero monodromy. Hence the literal restriction excludes Sp(2); separating the indices repairs the intended classification.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "Atlas source-issue registry and existing ArithmeticGaloisRepresentations packets: no entry for this exercise index was found.",
+        "Springer book record https://link.springer.com/book/10.1007/3-540-31511-X and its contents, accessed 2026-10-09: no correction to this exercise was located.",
+        "Targeted web searches for Bushnell Henniart errata 31.2 and the book title with corrections exercise 31.2, 2026-10-09: no correction was located. This records the searches performed, not a claim that no unpublished correction exists."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Read the exercise on the p.201 page image of the maintainer-cleared 2006 edition and the dimension-index definition on p.185. The Sp(2) counterexample verifies the slip; the packet already uses independent dimensions.",
+        "by": "REV-ArithmeticGaloisRepresentations--R01.2"
+      }
+    }
+  ],
   "upstreamNotes": [
     {
       "roadmap": "LocalFieldsRamification",
@@ -2080,6 +2204,112 @@
     "WORKERS.md and detail.json now require target-level planning; the older issue’s requested proof-lemma splits are absorbed in proof sketches/APIs. Parent node IDs are never reused in this part.",
     "The BH §31.2 Exercise supplies the source missing for the parent special-block classification. The normalized special representation is translated by an irreducible-character twist.",
     "Parent Euler factors, purity, monodromy-filtration stability, local constants and Tate-curve examples remain accepted inherited targets with their existing gaps. This pass does not claim those ancillary gaps closed.",
-    "Consolidate parent and part planets to the six choices in this part; do not display their union as more than six planets in R01.2."
+    "Consolidate parent and part planets to the six choices in this part; do not display their union as more than six planets in R01.2.",
+    "The independent review adds a selected-residue-subfield adapter, q≠0 on the special constructor, morphism/isomorphism composition APIs and explicit biproduct universal properties. Import these refinements when replacing the parent signatures; do not broaden the pinned supplier-binding claim."
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticGaloisRepresentations--R01.2",
+    "date": "2026-10-09",
+    "notes": "Independent Codex review, session codex-llTIJn. Checked all 18 nodes, all 16 pinned baseline entries, every source locator, current upstream supplier interfaces and library, target-level closure, API/tests, reader alignment and six planets. Corrected the special q≠0 hypothesis, general residue-subfield bridge, extension test, operation page locators, classification attribution and redundant parent dependencies; added isomorphism composition and biproduct APIs. The revised prototype elaborates with only expected placeholder-proof warnings and the packet checker has no errors or warnings. Acceptance is of a complete target-level pass with one explicit pinned supplier-binding gap and four requests; R01.2 remains planned, not closed, and no implementation is claimed. Recorded the missed Bushnell–Henniart classification index misprint E7947 with a confirmed verdict and edition/search evidence.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/global-place-subgroup-carriers",
+        "verdict": "corrected",
+        "note": "Checked the stabilizer/additive inertia specializations, conjugation, the bottom-ideal integral-generation test and the ramified Q(i)/Q example. Clarified that Deligne §3.12 treats finite-image complex representations; the general carrier and completion comparison use the pinned actions and retained parent nodes."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/coherent-local-restriction",
+        "verdict": "corrected",
+        "note": "Checked mapOfAlgebra for the specified closure algebra structure, the inverse conjugation in j, joint continuity and the intertwiner direction. Clarified the scope of the Deligne locator; the general continuous restriction comes from R01.1 and composition."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/residual-fundamental-character-bridge",
+        "verdict": "corrected",
+        "note": "Replaced the contradictory residue-p^n requirement by an unramified U of absolute residue degree divisible by n. Added a usable selected-subfield adapter requiring only S→k, with reduction, kernel, order and surjectivity APIs and three tests. Read Serre Proposition 2 and the p.267 examples; import current tame components instead of replanning them."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/finite-tame-character-level",
+        "verdict": "corrected",
+        "note": "Verified positivity, divisibility and Frobenius orbit length for finite-image characters in characteristic p. Strengthened the extension test to take an actual one-dimensional character and the arithmetic conjugation relation, rather than assuming its Frobenius invariance as the conclusion."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-object-carrier",
+        "verdict": "verified",
+        "note": "Read Deligne Definition 8.4.1 and Bushnell–Henniart §§31.1,32.2. Verified the open inertia kernel, finite image under compactness, characteristic-zero nilpotence and arithmetic/geometric sign distinction. Zero monodromy does not imply trivial inertia."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-morphism-carrier",
+        "verdict": "corrected",
+        "note": "Both Weil-equivariance and monodromy equations are necessary. Added composition associativity, identity/inverse/composition of WD isomorphisms and their evaluation laws. Corrected the §31.2 operation locator to printed p.200; the different-monodromy identity-map test remains discriminating."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-direct-sum",
+        "verdict": "corrected",
+        "note": "Added the two explicit unique-existence biproduct maps and their proof route, plus a test of the actual Sp(2)⊕Sp(1) arithmetic action. Verified finite family/empty family formulas and corrected the source page to p.200."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-tensor-product",
+        "verdict": "corrected",
+        "note": "Checked the two tensor monodromy terms, common norm weight, positive nilpotence bound a+b−1 and morphism compatibility against (31.2.2). Corrected its printed-page locator from 201 to 200."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-dual-object",
+        "verdict": "corrected",
+        "note": "Checked inverse-transpose Weil action, negative transpose monodromy, contravariant morphisms and pairing against (31.2.1). Corrected its printed-page locator from 201 to 200."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/unnormalised-special-object",
+        "verdict": "corrected",
+        "note": "Added [NeZero q] to special and propagated it to signatures using special. At q=0, degree-one weight on e₁ would kill a nonzero vector and cannot be a group action. Added the geometric q⁻¹ weight test. Verified N orientation and the source normalization twist."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/canonical-local-monodromy-operator",
+        "verdict": "verified",
+        "note": "Read the full finite-residue-field monodromy proof in Bushnell–Henniart §32.5, pp.204–205 and Deligne §§8.1–8.2. The prototype explicitly selects an ∃! nilpotent/open-inertia witness, not a proof of Grothendieck’s theorem. Inverse coordinate scaling follows from that uniqueness; actual arithmetic binding stays in the recorded gap."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/corrected-weil-action-construction",
+        "verdict": "verified",
+        "note": "Read (32.6.2)–(32.6.3) and Deligne §8.4.2. Checked the right exponential correction, F^nσ decomposition, supplied equivariance/open-kernel consequences, unchanged N and Frobenius, and the parent inverse equivalence with its bounded-image Galois-extension condition."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/weil-deligne-choice-comparison",
+        "verdict": "verified",
+        "note": "Checked the conjugator for geometric F′=Fτ against Bushnell–Henniart p.207 and the Deligne p.569 image. Verified the distinct τF constant and inverse scalar change. The arbitrary-field N-rescaling proof uses primary components and nonperiodic q-power orbits, not algebraic closure. Existing confirmed parent E202/E250 are referenced without duplicate records."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-predicate",
+        "verdict": "corrected",
+        "note": "Read Bushnell–Henniart §28.7, pp.185–186 and §32.7, p.208. Compact inertia plus open kernel gives finite image; the central Frobenius power and Jordan decomposition detect semisimplicity at one lift. Replaced the redundant bundled parent Frobenius/classification prerequisite by the pinned Jordan declarations."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimplification-construction",
+        "verdict": "corrected",
+        "note": "Checked the conversion from geometric-source to arithmetic-degree formula r(w)u^{-deg(w)}, centrality of u and its commutation with N. Retains N and inertia; independence is equality on the original V. Removed the bundled parent prerequisite that this node itself refines."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/categorical-semisimplification-construction",
+        "verdict": "corrected",
+        "note": "Checked the simple-object ker N argument, finite length, algebraic semisimplification and characteristic-zero Brauer–Nesbitt from R01.1. Smoothness descends to subquotients. Removed the irrelevant bundled Frobenius prerequisite; only the isomorphism class is canonical."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/frobenius-semisimple-special-block-classification",
+        "verdict": "corrected",
+        "note": "Read Bushnell–Henniart §31.2 Exercise, p.201 and the normalization on p.200. Verified the norm-twist multiplicity-space/string proof, no cycles by q>1, finite decomposition, zero case and uniqueness. Clarified that the exercise supplies the indecomposable clause while the stronger decomposition/uniqueness clauses follow from the stated argument. Confirmed and recorded the exercise’s dimension-index misprint as E7947, without changing the intended classification."
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.2/full-fss-ss-distinction",
+        "verdict": "verified",
+        "note": "Checked both explicit separating examples: Sp(2) is Fss with nonzero N and categorical ss has zero N; the nontrivial unramified Jordan action has N=0 but changes under Fss. The supplied degree-one lift makes the second example nontrivial."
+      }
+    ]
+  },
+  "sourceVersions": [
+    {
+      "kind": "published",
+      "citation": "Colin J. Bushnell and Guy Henniart, The Local Langlands Conjecture for GL(2), Grundlehren 335, Springer, 2006, DOI 10.1007/3-540-31511-X. Read the maintainer-cleared edition in place, specifically pp.185 and 200–201; the finding is scoped to that edition.",
+      "read": "2026-10-09"
+    }
   ]
 }
