@@ -1119,33 +1119,51 @@ theorem support_proper [Fact p.Prime] (hI : IsAdicCoefficientPair p I) (f : Y' �
 def shriekAdjunction (f : Y' ⟶ Y) (hf : SupportData f) :
     AdicSix.support (I := I) f hf ⊣ AdicSix.upperShriek f hf := sorry
 
-/-- `AdicSix.reduce` (ECD Remark 26.3): the operations commute with reduction modulo `Iⁿ`. There
-are isomorphisms `f* ∘ red ≅ red ∘ f*` and `Rf_! ∘ red ≅ red ∘ Rf_!` with the discrete
-operations whose mates, the canonical comparisons `red ∘ Rf_* → Rf_* ∘ red` and
-`red ∘ Rf^! → Rf^! ∘ red`, are isomorphisms. (For `⊗̂` and `RHom` see `AdicEtale.tensor_reduce`
-and `AdicEtale.internalHom_reduce`.) -/
+/-- The canonical scalar-change map for pullback, induced by restriction on the v-site
+and derived reduction (ECD §26, p. 162). -/
+def pullbackReduction [Fact p.Prime] (hI : IsAdicCoefficientPair p I) {n : ℕ} (hn : 1 ≤ n)
+    (f : Y' ⟶ Y) :
+    AdicEtale.reduction Y I n ⋙ DEtale.pullback f ⟶
+      AdicSix.pullback f ⋙ AdicEtale.reduction Y' I n := sorry
+
+/-- The canonical scalar-change map for proper support, from its coherent finite-level
+construction (ECD §26 and Remark 26.3, p. 162). -/
+def supportReduction [Fact p.Prime] (hI : IsAdicCoefficientPair p I) {n : ℕ} (hn : 1 ≤ n)
+    (f : Y' ⟶ Y) (hf : SupportData f) :
+    AdicEtale.reduction Y' I n ⋙ DEtale.shriek f hf ⟶
+      AdicSix.support f hf ⋙ AdicEtale.reduction Y I n := sorry
+
+/-- `AdicSix.reduce` (ECD Remark 26.3): the specified scalar-change maps for pullback and
+proper support, and their right-adjoint mates for direct image and upper shriek, are
+isomorphisms. Enhanced coherence between coefficient levels is stated in the README.
+For `⊗̂` and `RHom` see `AdicEtale.tensor_reduce` and `AdicEtale.internalHom_reduce`. -/
 theorem reduce [Fact p.Prime] (hI : IsAdicCoefficientPair p I) {n : ℕ} (hn : 1 ≤ n)
     (f : Y' ⟶ Y) :
-    (∃ α : AdicEtale.reduction Y I n ⋙ DEtale.pullback f ≅
-        AdicSix.pullback f ⋙ AdicEtale.reduction Y' I n,
+    (IsIso (pullbackReduction hI hn f) ∧
       IsIso (mateEquiv (pushAdjunction f) (DEtale.pullbackAdj f)
-        (TwoSquare.mk _ _ _ _ α.hom)).natTrans) ∧
+        (TwoSquare.mk _ _ _ _ (pullbackReduction hI hn f))).natTrans) ∧
     ∀ hf : SupportData f,
-      ∃ β : AdicEtale.reduction Y' I n ⋙ DEtale.shriek f hf ≅
-          AdicSix.support f hf ⋙ AdicEtale.reduction Y I n,
+      IsIso (supportReduction hI hn f hf) ∧
         IsIso (mateEquiv (shriekAdjunction f hf) (DEtale.shriekAdj f hf)
-          (TwoSquare.mk _ _ _ _ β.hom)).natTrans :=
+          (TwoSquare.mk _ _ _ _ (supportReduction hI hn f hf))).natTrans :=
   sorry
 
-/-- `AdicSix.baseChange`: base change `g* Rf_! ≅ Rf'_! g'*` for a cartesian square of small
-v-stacks with `f` (hence `f'`) support-eligible, obtained levelwise from the discrete statement
-(ECD 22.19). The other base-change and projection formulas are in
+/-- The canonical proper-support exchange map, obtained from the discrete maps at each
+coefficient level (ECD Proposition 22.19 and Remark 26.3). -/
+def baseChangeMap [Fact p.Prime] (hI : IsAdicCoefficientPair p I)
+    {X X' : SmallVStack.{u} p} {f : Y' ⟶ Y} {g : X ⟶ Y} {f' : X' ⟶ X} {g' : X' ⟶ Y'}
+    (sq : IsPullback g' f' f g) (hf : SupportData f) (hf' : SupportData f') :
+    AdicSix.support (I := I) f hf ⋙ AdicSix.pullback g ⟶
+      AdicSix.pullback g' ⋙ AdicSix.support f' hf' := sorry
+
+/-- `AdicSix.baseChange`: the canonical exchange map `g* Rf_! → Rf'_! g'*` is invertible
+for a cartesian square of support-eligible maps (ECD 22.19, lifted by Remark 26.3).
+The other base-change and projection formulas are in
 `L0/adic-forms-of-introduction-theorems`. -/
 theorem baseChange [Fact p.Prime] (hI : IsAdicCoefficientPair p I) {X X' : SmallVStack.{u} p}
     {f : Y' ⟶ Y} {g : X ⟶ Y} {f' : X' ⟶ X} {g' : X' ⟶ Y'} (sq : IsPullback g' f' f g)
     (hf : SupportData f) (hf' : SupportData f') :
-    Nonempty (AdicSix.support (I := I) f hf ⋙ AdicSix.pullback g ≅
-      AdicSix.pullback g' ⋙ AdicSix.support f' hf') :=
+    IsIso (baseChangeMap hI sq hf hf') :=
   sorry
 
 end AdicSix
@@ -1319,7 +1337,9 @@ theorem adicBaseChange_support [Fact p.Prime] (hI : IsAdicCoefficientPair p I)
     (sq : IsPullback g' f' f g) (hf : SupportData f) (hf' : SupportData f') :
     Nonempty (AdicSix.support (I := I) f hf ⋙ AdicSix.pullback g ≅
       AdicSix.pullback g' ⋙ AdicSix.support f' hf') :=
-  AdicSix.baseChange hI sq hf hf'
+  by
+    let inst := AdicSix.baseChange hI sq hf hf'
+    exact ⟨asIso (AdicSix.baseChangeMap hI sq hf hf')⟩
 
 /-- `L0/adic-forms-of-introduction-theorems` (adic ECD Theorem 1.9(iii)): for a cartesian square
 with `g` support-eligible, `Rg^! Rf_* ≅ Rf'_* Rg'^!`. -/
@@ -3289,12 +3309,18 @@ theorem compose {W : Scheme.{u}} (g : X ⟶ W) [CompactSpace W] [QuasiSeparatedS
 theorem extend_id (hΛ : IsInvertibleTorsionOn X Λ) :
     Nonempty (extend (𝟙 X) Λ ≅ 𝟭 (SchemeEtale X Λ)) := sorry
 
-/-- `SchemeSupport.baseChange`: proper base change `g* Rf_! ≅ Rf'_! g'*` for the cartesian square
-of `f` and `g : X' → X`. -/
+/-- The canonical pullback/support exchange map, constructed using compactification and
+the supplied scheme proper-base-change transformation (ECD 27.4, p. 165). -/
+def baseChangeMap {X' : Scheme.{u}} (g : X' ⟶ X) [CompactSpace X'] [QuasiSeparatedSpace X'] :
+    extend f Λ ⋙ SchemeEtale.pullback g ⟶
+      SchemeEtale.pullback (Limits.pullback.fst f g) ⋙ extend (Limits.pullback.snd f g) Λ :=
+  sorry
+
+/-- `SchemeSupport.baseChange`: the specified exchange map `g* Rf_! → Rf'_! g'*` is an
+isomorphism for the cartesian square of `f` and `g : X' → X`, with invertible torsion
+coefficients and qcqs bases. -/
 theorem baseChange {X' : Scheme.{u}} (g : X' ⟶ X) [CompactSpace X'] [QuasiSeparatedSpace X']
-    (hΛ : IsInvertibleTorsionOn X Λ) :
-    Nonempty (extend f Λ ⋙ SchemeEtale.pullback g ≅
-      SchemeEtale.pullback (Limits.pullback.fst f g) ⋙ extend (Limits.pullback.snd f g) Λ) :=
+    (hΛ : IsInvertibleTorsionOn X Λ) : IsIso (baseChangeMap f Λ g) :=
   sorry
 
 /-- `SchemeSupport.projection`: `Rf_!(A ⊗ f*B) ≅ Rf_!A ⊗ B`. -/

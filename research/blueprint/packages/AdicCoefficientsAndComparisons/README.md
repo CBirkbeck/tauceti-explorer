@@ -632,7 +632,7 @@ claim.
 - `RationalLattice.zero` (degenerate): the zero complex stays zero.
 - `RationalLattice.isogeny` (characterisation): multiplication by `ℓ` on the rank-one lattice becomes an isomorphism.
 
-*Source:* [BS] Proposition 6.8.14(2), §6.8, for `X` topologically noetherian.
+*Source:* [BS] Proposition 6.8.14(2), §6.8, pp. 61–62 of the arXiv PDF, for `X` topologically noetherian.
 
 *Prerequisites:* `L0/derived-I-complete-etale-category`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`; `SchemeAndStackFoundations:SF.2`.
 
@@ -703,7 +703,7 @@ cohomological dimension hypothesis); in general the unbounded comparison needs t
 completion. Bounded-below étale complexes agree with their pro-étale pullbacks.
 
 *Proof route.* Use derived completeness on the replete pro-étale topos and Bhatt–Scholze Proposition 5.3.2
-for the unbounded left-completed essential image (Proposition 5.2.6 covers only bounded-below
+(p. 38 of [BS]) for the unbounded left-completed essential image (Proposition 5.2.6, p. 37, covers only bounded-below
 complexes); take the full subcategory.
 
 *API.*
@@ -711,7 +711,7 @@ complexes); take the full subcategory.
 - `SchemeAdic.ofComplete` (constructor): a derived `I`-complete object of `D(X_proét, Λ)` whose reduction modulo `I` has classical étale cohomology sheaves gives an object.
 - `SchemeAdic.forget` (coercion): the inclusion into `D(X_proét, Λ)`; it is fully faithful.
 - `SchemeAdic.reduce` (functoriality): for `n ≥ 1` the reduction modulo `Iⁿ` lies in the image of `D̂(X_ét, Λ/Iⁿ)`.
-- `SchemeAdic.boundedBelow` (compatibility): on bounded-below complexes, the pullback from `X_ét` to `X_proét` is fully faithful and agrees with the left-completed embedding (Bhatt–Scholze Proposition 5.2.6).
+- `SchemeAdic.boundedBelow` (compatibility): on bounded-below complexes, the pullback from `X_ét` to `X_proét` is fully faithful and agrees with the left-completed embedding (Bhatt–Scholze Proposition 5.2.6, p. 37).
 - `SchemeAdic.leftComplete` (equivalence): if `D(X_ét, Λ/I)` is left complete, the condition may be stated with ordinary étale complexes.
 - `SchemeAdic.ext` (extensionality): morphisms are equal if and only if their images in `D(X_proét, Λ)` are.
 
@@ -1231,7 +1231,7 @@ including `q = 2` for `𝔾_m`; continuity of rings of global sections does not 
 equality of maps and descended finite coverings (`L2/fp-relative-diagram-descent`), and apply
 the continuity theorem for étale topoi to `F = colimᵢ πᵢ⁻¹Fᵢ`.
 
-*Source:* [Stacks] Theorem 59.51.3 (Tag 09YQ); [Ces] §4.10, (4.10.5)–(4.10.7), and §§5.3–5.4 use it for finite étale group schemes and for `𝔾_m`.
+*Source:* [Stacks] Theorem 59.51.3 (Tag 09YQ); [Ces] §4.10, (4.10.5)–(4.10.7), pp. 9–11, and §§5.3–5.4, pp. 12–13, use it for finite étale group schemes and for `𝔾_m`.
 
 *Prerequisites:* `L2/fp-relative-diagram-descent`; Mathlib `AlgebraicGeometry.Scheme.smallEtaleTopology`; Mathlib `CategoryTheory.Sheaf.H`; `SchemeAndStackFoundations:SF.2`.
 
@@ -1884,9 +1884,14 @@ checklist, and this README remains definitive.
   associativity coherence of `SchemeSupport.compose` (its identity clause is `SchemeSupport.extend_id`);
   the `v`-local form of `Rf^!Λ̂ ≅ Λ̂[d]` in the adic Theorem 1.10, stated as invertibility; and the
   scalar-change half of `L0/reduction-detects-equivalences`, which concerns the enhancements.
-  Comparison maps are named where the README calls them canonical (the exchange maps of 27.4 and
-  27.5, the direct-image comparison of 27.6, the identifications `Rf_! ≅ Rp_* j_!`), and the
-  theorems assert that these maps are isomorphisms. The compatibility of the normal-crossing comparison with Kummer
+  The scalar-change maps `AdicSix.pullbackReduction` and `AdicSix.supportReduction` are named,
+  and `AdicSix.reduce` asserts their invertibility together with that of their specified
+  right-adjoint mates. The support base-change transformations `AdicSix.baseChangeMap` and
+  `SchemeSupport.baseChangeMap`, the exchange maps of 27.4 and 27.5, and the direct-image
+  comparison of 27.6 are named maps whose invertibility is asserted. The identifications
+  `Rf_! ≅ Rp_* j_!` are named isomorphisms. Other tensor and internal-Hom signatures express
+  isomorphism types in the homotopy categories; enhanced naturality and coherence remain
+  requirements of the README. The compatibility of the normal-crossing comparison with Kummer
   generators, cup products and residues is part of the proof of
   `L5/normal-crossing-local-comparison` and is not a separate signature.
 - **Tests.** Every unit test of §5 is an `example`, introduced by a comment naming it. Where a test
@@ -1902,20 +1907,24 @@ checklist, and this README remains definitive.
   arXiv:1709.07343v4), §§26–27, pp. 161–167, and Theorems 1.8–1.10 and 1.13, pp. 5–8.
   <https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf>
 - [BS] B. Bhatt and P. Scholze, *The pro-étale topology for schemes*, Astérisque 369 (2015);
-  arXiv:1309.1198. Propositions 5.2.6, 5.3.2 and 6.8.14.
+  arXiv:1309.1198. Propositions 5.2.6 (p. 37), 5.3.2 (p. 38) and 6.8.14 (pp. 61–62), with
+  page numbers from the arXiv PDF. <https://arxiv.org/pdf/1309.1198>
 - [Zav] B. Zavyalov, *Mod-p Poincaré duality in p-adic analytic geometry*, Ann. of Math. 201 (2025);
   arXiv:2111.01830v3, §2.1, pp. 10–11.
 - [BP] G. Boxer and V. Pilloni, *Higher Hida theory for Siegel modular forms*, Invent. Math. 244
   (2026); author version, §2.1.1, p. 7. <https://www.ma.imperial.ac.uk/~gboxer/higherhidaSiegel.pdf>
-- [Ces] K. Česnavičius, *Purity for the Brauer group*, Duke Math. J. (2019); arXiv:1711.06456v4, §4.10
-  and §§5.3–5.4.
+- [Ces] K. Česnavičius, *Purity for the Brauer group*, Duke Math. J. (2019); arXiv:1711.06456v4,
+  §4.10, pp. 9–11, and §§5.3–5.4, pp. 12–13. <https://arxiv.org/pdf/1711.06456v4>
 - [Abe] T. Abe, *On the Serre conjecture for Artin characters in the geometric case*,
   arXiv:2405.19601v2, §1.4, pp. 4–5.
 - [dJ] A. J. de Jong, *Smoothness, semi-stability and alterations*, Publ. Math. IHÉS 83 (1996), 51–93:
-  §2.20, Theorems 4.1, 5.8 and 6.5, Remark 4.2.
+  §2.20 (p. 61), Theorem 4.1 and Remark 4.2 (p. 66), Theorem 5.8 (p. 79), and Theorem 6.5
+  (p. 83). <https://www.numdam.org/item/PMIHES_1996__83__51_0.pdf>
 - [Stacks] The Stacks Project: Tags 01YX (Lemma 32.2.2), 01ZA (Proposition 32.5.4), 07RN (Lemma
   32.5.3), 01ZM and 01ZR (Lemmas 32.10.1–2), 0EUU (Lemma 32.8.12), 081F (Lemma 32.13.1), 01ZJ
   (Proposition 32.9.6), 0ATT (Section 38.32), 0ATU (Lemma 38.32.1), 0F41 (Theorem 38.33.8), 0ESN
   (Lemma 31.36.3), 0G41 (Lemma 28.23.5), 09YQ (Theorem 59.51.3). <https://stacks.math.columbia.edu>
-- R. Huber, *Étale cohomology of rigid analytic varieties and adic spaces*, Aspects of Mathematics
-  E30 (1996): the comparison theorems used in L3–L6, through `ClassicalAdicEtaleCohomology`.
+
+The analytic comparison inputs used in L3–L6 are supplied by
+`ClassicalAdicEtaleCohomology:H1`, `H4` and `H5`; their use in the scheme-to-v-sheaf
+comparison is in [ECD], the proofs of Propositions 27.2–27.7, pp. 163–167.
