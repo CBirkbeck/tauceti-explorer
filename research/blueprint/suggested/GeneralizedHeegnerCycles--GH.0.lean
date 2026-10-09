@@ -1615,7 +1615,7 @@ theorem lambdaStructureConsequence (torsionIndex heegnerIndex : ℕ) : torsionIn
 
 /-! GeneralizedHeegnerCycles:GH.7 — Critical character and CM family twist
 Node: GeneralizedHeegnerCycles:GH.7/critical-character-twist
-Fix the Hida component and a lift i modulo 2(p−1). Castella’s critical character is Θ=ω^{i/2}[⟨ε_cyc⟩^{1/2}]. Extend the branch to include the CM character λ, and construct Ξ and ξ=Ξ/Ξ̄ as in §2.6. The self-dual family is T†=T⊗Θ^{-1}; the regulator line is in T†|_{G_K}⊗ξ^{-1}. The induced unramified rank-one character Ψ at p, its Frobenius value and λ_reg=Ψ(Fr_p)−1 must be tracked through this precise twist. ξ is not substituted for an arbitrary anticyclotomic character.
+Fix the Hida component and a lift i modulo 2(p−1). Castella’s critical character is Θ=ω^{i/2}[⟨ε_cyc⟩^{1/2}]. Extend the branch to include the CM character λ, and construct Ξ and ξ=Ξ/Ξ̄ as in §2.6. The critically twisted family is T†=T⊗Θ^{-1}, with determinant ε_f ε_cyc; the self-dual convention requires trivial nebentypus ε_f=1. Keep ε_f in the general family determinant; the regulator line is in T†|_{G_K}⊗ξ^{-1}. The induced unramified rank-one character Ψ at p, its Frobenius value and λ_reg=Ψ(Fr_p)−1 must be tracked through this precise twist. ξ is not substituted for an arbitrary anticyclotomic character.
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
@@ -1626,8 +1626,8 @@ def criticalTwist {G : Type*} [Group G] (Θ ξ : G →* Oˣ) : G →* Oˣ := Θ�
 theorem criticalTwist_apply {G : Type*} [Group G] (Θ ξ : G →* Oˣ) (g : G) : criticalTwist Θ ξ g = (Θ g)⁻¹*(ξ g)⁻¹ := by
   sorry
 
-/-- If the untwisted determinant character δ=Θ²ε_cyc, twisting by Θ⁻¹ξ⁻¹ gives determinant ε_cyc ξ⁻². This records the actual determinant relation, not just the square of an arbitrary inverse character. -/
-theorem criticalTwist_selfDual {G : Type*} [Group G] (δ εcyc Θ ξ : G →* Oˣ) (hdet : δ = Θ^2 * εcyc) : δ * (criticalTwist Θ ξ)^2 = εcyc * ξ^(-2 : ℤ) := by
+/-- If the untwisted determinant character δ=ε_f Θ²ε_cyc, twisting by Θ⁻¹ξ⁻¹ gives determinant ε_f ε_cyc ξ⁻². Setting ε_f=1 recovers the self-dual convention; a nontrivial nebentypus factor survives the critical twist. -/
+theorem criticalTwist_selfDual {G : Type*} [Group G] (δ εf εcyc Θ ξ : G →* Oˣ) (hdet : δ = εf * Θ^2 * εcyc) : δ * (criticalTwist Θ ξ)^2 = εf * εcyc * ξ^(-2 : ℤ) := by
   sorry
 
 /-- Specialization of the coefficient ring commutes with both inverse character factors. -/
@@ -1653,6 +1653,18 @@ theorem criticalTwist_order {G : Type*} [Group G] (Θ ξ : G →* Oˣ) : critica
   sorry
 
 example {G : Type*} [Group G] (Θ ξ : G →* Oˣ) : criticalTwist Θ ξ = criticalTwist ξ Θ := by
+  sorry
+
+/-- Planned test `TauCeti.GeneralizedHeegner.criticalTwist_nebentypus` (non-example):
+The identity nebentypus character survives the trivial critical and CM twists. -/
+theorem criticalTwist_nebentypus :
+    ((MonoidHom.id ℚˣ) * (criticalTwist (1 : ℚˣ →* ℚˣ) 1)^2) (-1) = -1 ∧
+    ((MonoidHom.id ℚˣ) * (criticalTwist (1 : ℚˣ →* ℚˣ) 1)^2) (-1) ≠ 1 := by
+  sorry
+
+example :
+    ((MonoidHom.id ℚˣ) * (criticalTwist (1 : ℚˣ →* ℚˣ) 1)^2) (-1) = -1 ∧
+    ((MonoidHom.id ℚˣ) * (criticalTwist (1 : ℚˣ →* ℚˣ) 1)^2) (-1) ≠ 1 := by
   sorry
 
 /-! GeneralizedHeegnerCycles:GH.7 — Howard family class tower
@@ -1739,7 +1751,7 @@ theorem yagerUnramifiedCheckpoint (trace : Module.End F D) (upper lower : D) : t
 
 /-! GeneralizedHeegnerCycles:GH.7 — Two-variable regulator checkpoint
 Node: GeneralizedHeegnerCycles:GH.7/two-variable-regulator-checkpoint
-With G=U×Γ_cyc and λ_reg=Ψ(Fr_p)−1, the supplier map of Castella Theorem 3.7 has target λ_reg^{-1}J(D⊗Ô_{F∞}[[G]]), is injective, and interpolates the logarithm for w>0 at nonexceptional characters. Corollary 3.9 gives the dual exponential range w≤0 with its factorial and Euler factors. Keep the conductor-zero exceptional denominator and the integral ideal J; the target is not an unlocalized unrestricted coefficient algebra.
+With G=U×Γ_cyc and λ_reg=Ψ(Fr_p)−1, the supplier map of Castella Theorem 3.7 has target λ_reg^{-1}J(D⊗Ô_{F∞}[[G]]), is injective, and interpolates the logarithm for w>0 at nonexceptional characters. For a p-old arithmetic specialization ν, Corollary 3.9 gives the dual exponential range w≤0 with its factorial and Euler factors. Keep the conductor-zero exceptional denominator and the integral ideal J; the target is not an unlocalized unrestricted coefficient algebra.
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
@@ -1769,7 +1781,7 @@ theorem twoVariableReciprocity (RΛ : Type*) [CommRing RΛ] (reg measure σminus
 
 /-! GeneralizedHeegnerCycles:GH.7 — Ordinary localization injectivity
 Node: GeneralizedHeegnerCycles:GH.7/ordinary-localization-injective
-For the ordinary fixed-weight specialization with residual restriction to G_K irreducible, Castella Lemma 6.4 makes the localization Sel_Gr(K_{c₀p∞}/K_{c₀},T_f(r))→H¹_Iw(local,F⁺T_f(r)) injective. The proof uses Λ-torsion freeness and infinitely many arithmetic specializations where the global rank-one class and its local logarithm are nonzero. This additional result is what turns equality of local regulator images into equality of global classes.
+For an ordinary fixed-weight form f of even weight at least two and trivial nebentypus with residual restriction to G_K irreducible, Castella Lemma 6.4 makes the localization Sel_Gr(K_{c₀p∞}/K_{c₀},T_f(r))→H¹_Iw(local,F⁺T_f(r)) injective. The proof uses Λ-torsion freeness and infinitely many arithmetic specializations where the global rank-one class and its local logarithm are nonzero. This additional result is what turns equality of local regulator images into equality of global classes.
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
@@ -1779,7 +1791,7 @@ theorem ordinaryLocalizationInjective (loc : D →ₗ[F] D') : Function.Injectiv
 
 /-! GeneralizedHeegnerCycles:GH.7 — Initial family specialization
 Node: GeneralizedHeegnerCycles:GH.7/initial-family-specialization
-Under Castella Theorem 6.5, at an arithmetic ν of trivial character and weight 2rν>2 with 2rν≡k mod 2(p−1), ν(Z_{c₀,0})=(1−p^{rν−1}/ν(a_p))² AJ_et(Δ_heeg_{rν})/[u_{c₀}(2√−D_K)^{rν−1}], u_{c₀}=|O_{c₀}×|/2. Require k≡2 mod p−1, residual |G_K irreducibility, p-distinguishedness and ramification at every q|(D_K,N), with Castella’s odd-discriminant Heegner and split-p setup. The weight-two p-new exceptional prime is outside this theorem.
+Under Castella Theorem 6.5, at an arithmetic ν of trivial character and weight 2rν>2 with 2rν≡k mod 2(p−1), ν(Z_{c₀,0})=(1−p^{rν−1}/ν(a_p))² AJ_et(Δ_heeg_{rν})/[u_{c₀}(2√−D_K)^{rν−1}], u_{c₀}=|O_{c₀}×|/2. Require trivial nebentypus of the fixed-weight form f, k≡2 mod p−1, residual |G_K irreducibility, p-distinguishedness and ramification at every q|(D_K,N), with Castella’s odd-discriminant Heegner and split-p setup. The weight-two p-new exceptional prime is outside this theorem.
 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/

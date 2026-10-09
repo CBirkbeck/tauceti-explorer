@@ -8,7 +8,7 @@ This roadmap connects graph cycles on a modular Kuga–Sato variety with their G
 
 The target-level pass is complete: 66 declaration nodes cover all eight stages. All stages are **planned**, none is **closed**. There are 17 named source or supplier gaps and 18 supplier requests. Every prerequisite chain ends in a checked baseline declaration, an exact foreign node, a requested stage or a recorded gap. Completion here records the finished planning pass, with proof closure still open. Every declaration has implementation status **unchecked**. GH.8, including its exceptional-zero applications, is outside this part.
 
-The packet is [GeneralizedHeegnerCycles--GH.0.json](../packets/GeneralizedHeegnerCycles--GH.0.json). The [suggested file](../suggested/GeneralizedHeegnerCycles--GH.0.lean) gives proposed names and signatures against the available library interfaces. This document gives the definitive mathematical statements and hypotheses. The plan preserves the 66 existing node IDs and the independent review record. The reader includes the review’s corrected mathematics and the five revised object contracts; independent acceptance of this revision is still required.
+The packet is [GeneralizedHeegnerCycles--GH.0.json](../packets/GeneralizedHeegnerCycles--GH.0.json). The [suggested file](../suggested/GeneralizedHeegnerCycles--GH.0.lean) gives proposed names and signatures against the available library interfaces. This document gives the definitive mathematical statements and hypotheses. The plan preserves the 66 existing node IDs. Independent review of revision 2 accepts the planning pass after the corrections recorded in the review report. The reader includes those corrections and all five repaired object contracts.
 
 ## Conventions
 
@@ -48,7 +48,7 @@ The Abel–Jacobi comparison needs rational Gysin and its derived-limit/support 
 
 ## Baseline and prototype limits
 
-The baseline is Mathlib **082e2d37e8b0463410cdb532e111cd43d5a66174** and Tau Ceti **f790474821cf4256814db967cb154e7af3d0c369**. The nine directly cited declarations were read at those commits, and the reviewed AUDIT-24 lists GH.0–GH.8 as unbuilt. Scheme properties, abelian varieties, their endomorphism/isogeny interfaces and linear algebra are imported rather than reconstructed.
+The baseline is Mathlib **082e2d37e8b0463410cdb532e111cd43d5a66174** and Tau Ceti **f790474821cf4256814db967cb154e7af3d0c369**. The nine directly cited declarations were independently read at those commits for this review on 2026-10-09, and the reviewed AUDIT-24 lists GH.0–GH.8 as unbuilt. Scheme properties, abelian varieties, their endomorphism/isogeny interfaces and linear algebra are imported rather than reconstructed.
 
 The suggested file gives proposed signatures, APIs and examples. Each implementation status is **unchecked**. Its five revised contracts use concrete data: the specified CM endomorphism and normalized vector; the graded permutation representation; the target CM order and actual group-scheme points; an admissible connection with Frobenius and normalization; and a joint compact norm tower with its finite-lift constraints. The coordinate Hodge, finite-kernel, affine-disk and Z/5 tower fixtures test the indicated realization interfaces. They do not construct their geometric comparison maps. Those maps remain precise owner requests.
 
@@ -135,6 +135,7 @@ Prerequisites:
 - `ComplexMultiplicationAndExplicitReciprocity:CM.1`
 - `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.mulBy`
 - `mathlib:Submodule.span`
+- `DerivedDeRhamCohomology:DD.2`
 
 Source evidence:
 
@@ -161,7 +162,7 @@ Construction or proof:
 1. Idempotence: j is a character of Ξ_r, so ε_A = (1/|Ξ_r|) Σ j(ξ)ξ is the idempotent of the character j in ℚ[Ξ_r].
 2. Künneth: H^*(A^r) = ⊕ H^{i_1} ⊗ … ⊗ H^{i_r}, and [−1] acts on H^i by (−1)^i. So the μ_2^r-part of ε_A kills every summand with some i_k ≠ 1, leaving H¹^{⊗r}.
 3. On H¹^{⊗r}, the geometric action of σ ∈ S_r is sgn(σ) times the permutation of tensor factors (odd classes anticommute). The j-twisted average is therefore the symmetrizer, with image Sym^r H¹.
-4. Correspondences: ε_A is an element of the ring of correspondences on A^r with ℚ-coefficients, acting on every cohomology theory by functoriality (MotivicEtaleKTheory M.4).
+4. Use SF.5 for rational graph correspondences and their composition; use DD.2 for the correspondence-compatible de Rham realization and graded Künneth action. Other realizations require their own compatible product export.
 
 Uses of this interface:
 
@@ -192,6 +193,7 @@ Prerequisites:
 - `SchemeAndStackFoundations:SF.5`
 - `mathlib:LinearMap`
 - `mathlib:LinearMap.range`
+- `DerivedDeRhamCohomology:DD.2`
 
 Source evidence:
 
@@ -540,6 +542,7 @@ Prerequisites:
 - `HeegnerPointEulerSystems:HE.0/ring-class-tower-quotients`
 - `ComplexMultiplicationAndExplicitReciprocity:CM.1`
 - `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny`
+- `GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting`
 
 Source evidence:
 
@@ -812,6 +815,7 @@ Prerequisites:
 - `EtaleDualityAndPerverseSheaves:EDC.2:pairings/adic-and-rational-poincare-duality`
 - `PadicHodgeRegulators:L1/bloch-kato-logarithm`
 - `GeneralizedHeegnerCycles:GH.0/projected-hodge-filtration`
+- `GeneralizedHeegnerCycles:GH.0/self-duality-of-the-projected-cohomology`
 
 Source evidence:
 
@@ -902,7 +906,7 @@ Prerequisites:
 
 Source evidence:
 
-- [F. Castella, M.-L. Hsieh](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf), §4.4, (4.5)–(4.7), pp.17–18: The Weil restriction supplies a G_K action that A/H alone does not have.
+- [F. Castella, M.-L. Hsieh](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf), §4.4–4.5, (4.5)–(4.7), pp.17–20: The Weil restriction supplies a G_K action that A/H alone does not have.
 
 ### GH.1.10. Parabolic residue pairing
 
@@ -935,7 +939,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Bertolini, H. Darmon, K. Prasanna; appendix B. Conrad](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf), §3.5, Propositions 3.9–3.10, pp.1073–1074: The cup product is calculated as a sum of annular residues.
+- [M. Bertolini, H. Darmon, K. Prasanna; appendix B. Conrad](https://www.math.mcgill.ca/darmon/pub/Articles/Research/51.BDP1/duke-publishedversion.pdf), §3.5, Propositions 3.9–3.10, pp.1074–1075: The cup product is calculated as a sum of annular residues.
 
 ### GH.1.11. Coleman primitive for the modular differential
 
@@ -1430,7 +1434,7 @@ Prerequisites:
 
 Source evidence:
 
-- [F. Castella, M.-L. Hsieh](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf), §5.2, following Lemma 5.3 and (5.8), pp.23–24: The norm-compatible class is the input to the big logarithm.
+- [F. Castella, M.-L. Hsieh](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf), §5.2, (5.1), (5.5) and Lemma 5.4, pp.23–24: The norm-compatible class is the input to the big logarithm.
 
 ### GH.3.4. Longo–Vigni trace polynomials
 
@@ -1480,7 +1484,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §4.1, Lemmas 4.1–4.2, pp.12–13: Controls the remainder and q_m modulo p.
+- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §4.2, Lemmas 4.1–4.2, p.12: Controls the remainder and q_m modulo p.
 
 ### GH.3.5. Trace polynomial intersection theorem
 
@@ -1509,7 +1513,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §4.1, Corollary 4.3, pp.12–13: Identifies ΦM with the intersection of γ_mM.
+- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §4.2, Corollary 4.3, p.12: Identifies ΦM with the intersection of γ_mM.
 
 ### GH.3.6. Universal norm Heegner class
 
@@ -1564,7 +1568,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §4.2, Definition 4.4 and Proposition 4.5, pp.13–14: Constructs the compatible β[n] and fixes its bottom value.
+- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §4.2, Definition 4.4 and Proposition 4.5, p.13: Constructs the compatible β[n] and fixes its bottom value.
 
 ## GH.4. Special values and explicit reciprocity
 
@@ -1823,7 +1827,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §2.2, Definition 2.1 and Remark 2.2, pp.4–5: The exceptional set and four clauses fix the application’s hypotheses.
+- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §2.2, Definition 2.1 and Remark 2.2, pp.3–4: The exceptional set and four clauses fix the application’s hypotheses.
 
 ### GH.5.2. Higher-weight Howard hypotheses
 
@@ -1867,7 +1871,7 @@ LV Assumption 3.2 requires V crystalline at p; a rank-one ordinary filtration of
 
 Hypotheses and conventions:
 
-- LV §3.1 Assumption 3.2, rather than ordinarity alone; explicit local representation convention.
+- LV §3.3 Assumption 3.2, rather than ordinarity alone; explicit local representation convention.
 
 Construction or proof:
 
@@ -1888,7 +1892,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §3.1, Assumption 3.2, pp.8–9: All local clauses are necessary in the theorem’s hypothesis package.
+- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §3.3, Assumption 3.2, p.9: All local clauses are necessary in the theorem’s hypothesis package.
 
 ### GH.5.4. Specialization and exceptional-prime control
 
@@ -1921,7 +1925,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §3.1, Proposition 3.4, pp.10–11: Provides bounded control outside finitely many primes.
+- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §3.4, Proposition 3.4, pp.10–11: Provides bounded control outside finitely many primes.
 
 ### GH.5.5. Higher-weight Kolyvagin system
 
@@ -2010,7 +2014,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §3.1, Theorem 3.5, pp.11–12: States the rank, paired torsion structure and oriented divisibility.
+- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §3.4, Theorem 3.5, p.11: States the rank, paired torsion structure and oriented divisibility.
 
 ## GH.6. Nonvanishing and Selmer consequences
 
@@ -2121,7 +2125,7 @@ Prerequisites:
 
 Source evidence:
 
-- [F. Castella, M.-L. Hsieh](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf), §6, Theorem 6.2 and proof, p.27; §7.3, Theorem 7.9, p.32: The ordinary central-value implication uses the specialized local class.
+- [F. Castella, M.-L. Hsieh](https://www.math.ntu.edu.tw/~mlhsieh/research/HCES.pdf), §6, Theorem 6.2 and proof, p.27; §7.4, Theorem 7.9, p.33: The ordinary central-value implication uses the specialized local class.
 
 ### GH.6.4. Corrected Selmer growth formula
 
@@ -2229,7 +2233,7 @@ Prerequisites:
 
 Source evidence:
 
-- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §4.4, Definition 4.10 and Theorem 4.12, pp.16–18: Gives freeness and generation, a stronger statement than nonvanishing.
+- [M. Longo, S. Vigni](https://arxiv.org/pdf/1605.03168), §4.3, Definition 4.10 and Theorem 4.12, pp.16–18: Gives freeness and generation, a stronger statement than nonvanishing.
 
 ### GH.6.7. Higher-weight Iwasawa structure
 
@@ -2273,7 +2277,7 @@ Coverage: **planned**. Remaining proof closure: Classical-cycle source compariso
 
 Node: `GeneralizedHeegnerCycles:GH.7/critical-character-twist`.
 
-Fix the Hida component and a lift i modulo 2(p−1). Castella’s critical character is Θ=ω^{i/2}[⟨ε_cyc⟩^{1/2}]. Extend the branch to include the CM character λ, and construct Ξ and ξ=Ξ/Ξ̄ as in §2.6. The self-dual family is T†=T⊗Θ^{-1}; the regulator line is in T†|_{G_K}⊗ξ^{-1}. The induced unramified rank-one character Ψ at p, its Frobenius value and λ_reg=Ψ(Fr_p)−1 must be tracked through this precise twist. ξ is not substituted for an arbitrary anticyclotomic character.
+Fix the Hida component and a lift i modulo 2(p−1). Castella’s critical character is Θ=ω^{i/2}[⟨ε_cyc⟩^{1/2}]. Extend the branch to include the CM character λ, and construct Ξ and ξ=Ξ/Ξ̄ as in §2.6. The critically twisted family is T†=T⊗Θ^{-1}, with determinant ε_f ε_cyc; the self-dual convention requires trivial nebentypus ε_f=1. Keep ε_f in the general family determinant; the regulator line is in T†|_{G_K}⊗ξ^{-1}. The induced unramified rank-one character Ψ at p, its Frobenius value and λ_reg=Ψ(Fr_p)−1 must be tracked through this precise twist. ξ is not substituted for an arbitrary anticyclotomic character.
 
 Atlas planet: Critical family twist.
 
@@ -2295,7 +2299,7 @@ Uses of this interface:
 Planning API:
 
 - **TauCeti.GeneralizedHeegner.criticalTwist_apply** (simp): The twisting character is Θ(g)^{-1}ξ(g)^{-1}.
-- **TauCeti.GeneralizedHeegner.criticalTwist_selfDual** (compatibility): If the untwisted determinant character δ=Θ²ε_cyc, twisting by Θ⁻¹ξ⁻¹ gives determinant ε_cyc ξ⁻². This records the actual determinant relation, not just the square of an arbitrary inverse character.
+- **TauCeti.GeneralizedHeegner.criticalTwist_selfDual** (compatibility): If the untwisted determinant character δ=ε_f Θ²ε_cyc, twisting by Θ⁻¹ξ⁻¹ gives determinant ε_f ε_cyc ξ⁻². Setting ε_f=1 recovers the self-dual convention; a nontrivial nebentypus factor survives the critical twist.
 - **TauCeti.GeneralizedHeegner.criticalTwist_specialize** (functoriality): Specialization of the coefficient ring commutes with both inverse character factors.
 
 Unit tests:
@@ -2303,10 +2307,12 @@ Unit tests:
 - **TauCeti.GeneralizedHeegner.criticalTwist_trivial** (degenerate): With both characters trivial the twist is trivial.
 - **TauCeti.GeneralizedHeegner.criticalTwist_inverse** (characterisation): Multiplying the twist by Θξ gives the trivial character.
 - **TauCeti.GeneralizedHeegner.criticalTwist_order** (compatibility): The CM and critical inverse factors commute in the coefficient unit group.
+- **TauCeti.GeneralizedHeegner.criticalTwist_nebentypus** (non-example): On G=Q× with ε_f the identity character and Θ=ξ=ε_cyc=1, the twisted determinant at −1 remains −1. Dropping ε_f would incorrectly give 1.
 
 Acceptance checks:
 
 - Different lifts of i modulo 2(p−1) can change the half-weight character; a square-root choice must be fixed.
+- A nontrivial ε_f remains in det(T†); the general family reciprocity does not imply a trivial-nebentypus global self-duality theorem.
 
 Prerequisites:
 
@@ -2317,7 +2323,7 @@ Prerequisites:
 
 Source evidence:
 
-- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §2.6, (2.8)–(2.10); §4.1 and §5.1, pp.9–10,18,21: The family CM character and critical twist determine the regulator normalization.
+- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §2.6, Definition 2.8, p.10; §4.1, Theorem 4.3, pp.18–19; §5.1, p.21: The family CM character and critical twist determine the regulator normalization.
 
 ### GH.7.2. Howard family class tower
 
@@ -2496,7 +2502,7 @@ Prerequisites:
 
 Source evidence:
 
-- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §3.3, Proposition 3.5 and Corollary 3.6, pp.15–16: The infinite unramified coefficient module is part of the construction.
+- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §3.3, Proposition 3.5 and (3.6), p.15: The infinite unramified coefficient module is part of the construction.
 
 ### GH.7.7. Two-variable regulator checkpoint
 
@@ -2504,11 +2510,12 @@ Source evidence:
 
 Node: `GeneralizedHeegnerCycles:GH.7/two-variable-regulator-checkpoint`.
 
-With G=U×Γ_cyc and λ_reg=Ψ(Fr_p)−1, the supplier map of Castella Theorem 3.7 has target λ_reg^{-1}J(D⊗Ô_{F∞}[[G]]), is injective, and interpolates the logarithm for w>0 at nonexceptional characters. Corollary 3.9 gives the dual exponential range w≤0 with its factorial and Euler factors. Keep the conductor-zero exceptional denominator and the integral ideal J; the target is not an unlocalized unrestricted coefficient algebra.
+With G=U×Γ_cyc and λ_reg=Ψ(Fr_p)−1, the supplier map of Castella Theorem 3.7 has target λ_reg^{-1}J(D⊗Ô_{F∞}[[G]]), is injective, and interpolates the logarithm for w>0 at nonexceptional characters. For a p-old arithmetic specialization ν, Corollary 3.9 gives the dual exponential range w≤0 with its factorial and Euler factors. Keep the conductor-zero exceptional denominator and the integral ideal J; the target is not an unlocalized unrestricted coefficient algebra.
 
 Hypotheses and conventions:
 
 - The rank-one unramified ordinary line, Yager covariance and nonexceptional arithmetic specialization; all §3 conventions.
+- The dual-exponential conclusion of Corollary 3.9 additionally requires ν to be p-old.
 
 Construction or proof:
 
@@ -2602,11 +2609,12 @@ Source evidence:
 
 Node: `GeneralizedHeegnerCycles:GH.7/ordinary-localization-injective`.
 
-For the ordinary fixed-weight specialization with residual restriction to G_K irreducible, Castella Lemma 6.4 makes the localization Sel_Gr(K_{c₀p∞}/K_{c₀},T_f(r))→H¹_Iw(local,F⁺T_f(r)) injective. The proof uses Λ-torsion freeness and infinitely many arithmetic specializations where the global rank-one class and its local logarithm are nonzero. This additional result is what turns equality of local regulator images into equality of global classes.
+For an ordinary fixed-weight form f of even weight at least two and trivial nebentypus with residual restriction to G_K irreducible, Castella Lemma 6.4 makes the localization Sel_Gr(K_{c₀p∞}/K_{c₀},T_f(r))→H¹_Iw(local,F⁺T_f(r)) injective. The proof uses Λ-torsion freeness and infinitely many arithmetic specializations where the global rank-one class and its local logarithm are nonzero. This additional result is what turns equality of local regulator images into equality of global classes.
 
 Hypotheses and conventions:
 
 - Residual |G_K irreducibility, ordinary filtration, torsion-free global module and nonzero local classes at infinitely many finite characters.
+- The fixed-weight form f in Castella §6.2 has even weight at least two and trivial nebentypus; this is separate from the trivial arithmetic character at ν.
 
 Construction or proof:
 
@@ -2624,10 +2632,11 @@ Prerequisites:
 - `GeneralizedHeegnerCycles:GH.4/castella-hsieh-abel-jacobi-formula-and-big-logarithm-reciprocity`
 - `SelmerIwasawaCohomology:L2/galois-selmer-group`
 - `SelmerIwasawaCohomology:L3/iwasawa-cohomology`
+- `SelmerIwasawaCohomology:L4`
 
 Source evidence:
 
-- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §6.1, Lemma 6.4, pp.26–27: Localization injectivity is a distinct ingredient in the global comparison.
+- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §6.2, Lemma 6.4, p.27: Localization injectivity is a distinct ingredient in the global comparison.
 
 ### GH.7.11. Initial family specialization
 
@@ -2635,13 +2644,14 @@ Source evidence:
 
 Node: `GeneralizedHeegnerCycles:GH.7/initial-family-specialization`.
 
-Under Castella Theorem 6.5, at an arithmetic ν of trivial character and weight 2rν>2 with 2rν≡k mod 2(p−1), ν(Z_{c₀,0})=(1−p^{rν−1}/ν(a_p))² AJ_et(Δ_heeg_{rν})/[u_{c₀}(2√−D_K)^{rν−1}], u_{c₀}=|O_{c₀}×|/2. Require k≡2 mod p−1, residual |G_K irreducibility, p-distinguishedness and ramification at every q|(D_K,N), with Castella’s odd-discriminant Heegner and split-p setup. The weight-two p-new exceptional prime is outside this theorem.
+Under Castella Theorem 6.5, at an arithmetic ν of trivial character and weight 2rν>2 with 2rν≡k mod 2(p−1), ν(Z_{c₀,0})=(1−p^{rν−1}/ν(a_p))² AJ_et(Δ_heeg_{rν})/[u_{c₀}(2√−D_K)^{rν−1}], u_{c₀}=|O_{c₀}×|/2. Require trivial nebentypus of the fixed-weight form f, k≡2 mod p−1, residual |G_K irreducibility, p-distinguishedness and ramification at every q|(D_K,N), with Castella’s odd-discriminant Heegner and split-p setup. The weight-two p-new exceptional prime is outside this theorem.
 
 Atlas planet: Initial family specialization.
 
 Hypotheses and conventions:
 
 - All Castella §6.2 hypotheses; α=ν(a_p) is the ordinary root; period and cycle normalization fixed.
+- The fixed-weight form f in Castella §6.2 has even weight at least two and trivial nebentypus; this is separate from the trivial arithmetic character at ν.
 
 Construction or proof:
 
@@ -2663,7 +2673,7 @@ Prerequisites:
 
 Source evidence:
 
-- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §6.2, Theorem 6.5 and proof, pp.27–28: The first specialization and its stronger residual hypotheses are explicit.
+- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §6.2, Theorem 6.5 and proof, p.28: The first specialization and its stronger residual hypotheses are explicit.
 
 ### GH.7.12. Higher-weight family specialization
 
@@ -2678,6 +2688,7 @@ Atlas planet: Higher-weight specialization.
 Hypotheses and conventions:
 
 - Castella Theorem 6.5: weight and parity congruence, trivial arithmetic character, residual |G_K irreducibility, p-distinguishedness, required bad-prime ramification, odd CM discriminant, split p, c₀ prime to Np.
+- The fixed-weight form f in Castella §6.2 has even weight at least two and trivial nebentypus; this is separate from the trivial arithmetic character at ν.
 
 Construction or proof:
 
@@ -2699,7 +2710,7 @@ Prerequisites:
 
 Source evidence:
 
-- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §6.2, Theorem 6.5, (6.7), pp.27–28: Gives the full higher-weight Iwasawa class comparison, with c₀^{rν−1}.
+- [F. Castella](https://web.math.ucsb.edu/~castella/Heegner.pdf), §6.2, Theorem 6.5 and (6.7), p.28: Gives the full higher-weight Iwasawa class comparison, with c₀^{rν−1}.
 
 ## Supplier requests
 
@@ -2731,9 +2742,9 @@ Consumers: `GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitt
 
 ### DerivedDeRhamCohomology:DD.2
 
-Scheme-level algebraic de Rham realization for smooth proper schemes, filtered Künneth for W_m×A^m, cup product, compatibility with correspondence action and the classical smooth de Rham complex. Extend DD.2 beyond its present algebra/complex interface if this global filtered Künneth theorem is not yet included. Include the cycle-class and correspondence compatibility required for de Rham homological triviality.
+Scheme-level algebraic de Rham realization for smooth proper schemes, filtered Künneth for W_m×A^m, cup product, compatibility with correspondence action and the classical smooth de Rham complex. Extend DD.2 beyond its present algebra/complex interface if this global filtered Künneth theorem is not yet included. Include the cycle-class and correspondence compatibility required for de Rham homological triviality. Also export the normalized H¹ Hodge splitting and cup pairing of the specified CM curve and graded Künneth for A^m used by ε_A.
 
-Consumers: `GeneralizedHeegnerCycles:GH.0/cohomology-of-the-generalized-kuga-sato-variety`, `GeneralizedHeegnerCycles:GH.0/projected-hodge-filtration`, `GeneralizedHeegnerCycles:GH.1/homological-triviality-of-generalized-heegner-cycles`.
+Consumers: `GeneralizedHeegnerCycles:GH.0/cohomology-of-the-generalized-kuga-sato-variety`, `GeneralizedHeegnerCycles:GH.0/projected-hodge-filtration`, `GeneralizedHeegnerCycles:GH.1/homological-triviality-of-generalized-heegner-cycles`, `GeneralizedHeegnerCycles:GH.0/cm-elliptic-curve-and-its-hodge-splitting`, `GeneralizedHeegnerCycles:GH.0/cm-projector-and-symmetric-power`.
 
 ### EtaleDualityAndPerverseSheaves:EDC.6
 
@@ -2767,7 +2778,7 @@ Consumers: `GeneralizedHeegnerCycles:GH.1/syntomic-abel-jacobi-comparison`.
 
 ### PadicHodgeRegulators:L3
 
-Part II of Padic Hodge regulators: integral relative Lubin–Tate Perrin–Riou twists Ω with coefficient-lattice and finite pairing compatibility (KO 3.7, 4.7, 4.10); CH Theorem 5.1 relative regulator with its two interpolation ranges; Castella Theorem 3.4 exponential on J=(Ψ(Fr_p)−1,γ₀−1) with injectivity and pseudo-null cokernel; Yager trace module for the unramified Z_p tower, its rank-one freeness and y^u=[u]y covariance; Theorem 3.7 two-variable map into λ_reg^{-1}J and Corollary 3.9, with arithmetic exceptional denominators. The accepted L3 packet is strictly cyclotomic and finite unramified scalar extension is not an infinite unramified tower. This extension is the preferred local owner required by RT-iwasawa-1/27; AC L2 keeps bounded fixed-weight BK logarithms.
+Part II of Padic Hodge regulators: integral relative Lubin–Tate Perrin–Riou twists Ω with coefficient-lattice and finite pairing compatibility (KO 3.7, 4.7, 4.10); CH Theorem 5.1 relative regulator with its two interpolation ranges; Castella Theorem 3.4 exponential on J=(Ψ(Fr_p)−1,γ₀−1) with injectivity and pseudo-null cokernel; Yager trace module for the unramified Z_p tower, its rank-one freeness and y^u=[u]y covariance; Theorem 3.7 two-variable map into λ_reg^{-1}J and Corollary 3.9, with arithmetic exceptional denominators and its additional p-old specialization hypothesis. The accepted L3 packet is strictly cyclotomic and finite unramified scalar extension is not an infinite unramified tower. This extension is the preferred local owner required by RT-iwasawa-1/27; AC L2 keeps bounded fixed-weight BK logarithms.
 
 Consumers: `GeneralizedHeegnerCycles:GH.2/local-condition-at-p-and-the-castella-hsieh-corrections`, `GeneralizedHeegnerCycles:GH.4/dual-exponential-special-value`, `GeneralizedHeegnerCycles:GH.4/fixed-weight-regulator-adapter`, `GeneralizedHeegnerCycles:GH.5/longo-vigni-local-assumptions`, `GeneralizedHeegnerCycles:GH.7/critical-character-twist`, `GeneralizedHeegnerCycles:GH.7/ochiai-exponential-checkpoint`, `GeneralizedHeegnerCycles:GH.7/two-variable-regulator-checkpoint`, `GeneralizedHeegnerCycles:GH.7/yager-unramified-checkpoint`.
 
@@ -2797,9 +2808,9 @@ Consumers: `GeneralizedHeegnerCycles:GH.0/cm-projector-and-symmetric-power`, `Ge
 
 ### SelmerIwasawaCohomology:L4
 
-Corrected Nekovář family parity theorem (Nek07 Corollary 5.3.2 with Nek09 correction), including the precise self-dual induced family and local plus-module hypotheses used by CH §6.4. This is a proposed Part II arithmetic-consequence extension, not an assertion that RJW criticality examples already prove family parity.
+Corrected Nekovář family parity theorem (Nek07 Corollary 5.3.2 with Nek09 correction), including the precise self-dual induced family and local plus-module hypotheses used by CH §6.4. This is a proposed Part II arithmetic-consequence extension, not an assertion that RJW criticality examples already prove family parity. Supply the source-scoped equality of Greenberg and Bloch–Kato local/Selmer conditions used in Castella Lemma 6.4 (Howard 2007, Eq. (23)), with exact ordinary/weight/twist hypotheses. Propagating the definition of H¹_f alone does not prove this equality.
 
-Consumers: `GeneralizedHeegnerCycles:GH.6/selmer-parity`.
+Consumers: `GeneralizedHeegnerCycles:GH.6/selmer-parity`, `GeneralizedHeegnerCycles:GH.7/ordinary-localization-injective`.
 
 ### EulerSystemsAndKolyvaginSystems:ES.5
 
@@ -2909,9 +2920,9 @@ Consumers: `GeneralizedHeegnerCycles:GH.6/selmer-parity`.
 
 ### Hida point and representation tower exports
 
-Extend the finite-level CM point interface to shared p-parts of conductor/level; provide the ordinary rank-two Hida representation and specialization with its bad-prime residual hypotheses. A weight-two Hecke representation and fixed-weight Hida control alone do not give the complete tower contract.
+Extend the finite-level CM point interface to shared p-parts of conductor/level; provide the ordinary rank-two Hida representation and specialization with its bad-prime residual hypotheses. A weight-two Hecke representation and fixed-weight Hida control alone do not give the complete tower contract. The global comparison also needs the source-specific Greenberg/Bloch–Kato equality in Lemma 6.4, requested from Selmer L4; its definition and a generic ordinary filtration do not prove the comparison.
 
-Consumers: `GeneralizedHeegnerCycles:GH.7/howard-family-tower`, `GeneralizedHeegnerCycles:GH.7/family-representation-specialization`.
+Consumers: `GeneralizedHeegnerCycles:GH.7/howard-family-tower`, `GeneralizedHeegnerCycles:GH.7/family-representation-specialization`, `GeneralizedHeegnerCycles:GH.7/ordinary-localization-injective`.
 
 ### Rational Gysin and continuous extension adapter
 
@@ -2935,7 +2946,7 @@ Reason: A root number +1 gives eventual rank-zero characters and slope 0; root n
 
 Known correction: Castella–Hsieh erratum, first item; incorporated in the July 2, 2022 author copy.
 
-Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0).
+Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0~2).
 
 Sources and notices checked for this finding:
 
@@ -2954,7 +2965,7 @@ Reason: Relative unramifiedness over a ramified conductor field does not put the
 
 Known correction: Castella–Hsieh erratum, second item; correct replacement KO20 Lemma 4.10.
 
-Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0).
+Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0~2).
 
 Sources and notices checked for this finding:
 
@@ -2964,7 +2975,7 @@ Sources and notices checked for this finding:
 
 ### GeneralizedHeegnerCycles/E3
 
-**misprint; affects a stated result.** Lemma 7.10 and explanation; author copy pp.32–33; third erratum item.
+**misprint; affects a stated result.** Lemma 7.10 and explanation; July 2, 2022 author copy p.34; third erratum item.
 
 Source assertion: Lemma 7.10 describes the extension as p-ramified.
 
@@ -2974,7 +2985,7 @@ Reason: The character/class-field argument uses abelianity; it does not classify
 
 Known correction: Castella–Hsieh erratum, third item; corrected in the July 2, 2022 author copy.
 
-Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0).
+Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0~2).
 
 Sources and notices checked for this finding:
 
@@ -2993,7 +3004,7 @@ Reason: The preceding paragraph gives dimension 0 for root sign +1 and dimension
 
 Known correction: new
 
-Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0).
+Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0~2).
 
 Sources and notices checked for this finding:
 
@@ -3004,7 +3015,7 @@ Sources and notices checked for this finding:
 
 ### GeneralizedHeegnerCycles/E5
 
-**misprint; affects nothing.** arXiv:1605.03168v1, §5.1, p.18, opening paragraph; published text not accessible in this run.
+**misprint; affects nothing.** arXiv:1605.03168v1, §4.2 Corollary 4.3 p.12 and §5.1 opening paragraph p.18; published text not collated in this run.
 
 Source assertion: The source cites Assumption 2.3, item (5).
 
@@ -3014,7 +3025,7 @@ Reason: Assumption 2.3 merely states admissibility; Definition 2.1 has four clau
 
 Known correction: new
 
-Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0).
+Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0~2).
 
 Sources and notices checked for this finding:
 
@@ -3024,7 +3035,7 @@ Sources and notices checked for this finding:
 
 ### GeneralizedHeegnerCycles/E6
 
-**misprint; affects the proof.** arXiv:1605.03168v1, §4.4, p.18, proof of Theorem 4.12, Claim 2; published text not accessible in this run.
+**misprint; affects the proof.** arXiv:1605.03168v1, §4.3, p.18, proof of Theorem 4.12, Claim 2; published text not collated in this run.
 
 Source assertion: The augmented trace-polynomial values are asserted equal as scalars.
 
@@ -3034,7 +3045,7 @@ Reason: Corollary 4.3 and the recurrence prove eventual equality of ideals, with
 
 Known correction: new
 
-Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0).
+Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0~2).
 
 Sources and notices checked for this finding:
 
@@ -3054,7 +3065,7 @@ Reason: Write h=[H_K:K] and m=2r−2. The rational ranks are binomial(2h+m−1,m
 
 Known correction: new
 
-Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0).
+Independent verdict: confirmed (REV-GeneralizedHeegnerCycles--GH.0~2).
 
 Sources and notices checked for this finding:
 
@@ -3064,7 +3075,7 @@ Sources and notices checked for this finding:
 
 ## Acquired source versions
 
-The seven public source files were reacquired for this revision and their hashes match these receipts. The reading ranges below retain the prior planning/review record; revision 2 rechecks the repaired interfaces and the review corrections. A scope entry is not a claim to have collated an inaccessible published edition.
+The seven principal public source files and the older author-hosted CH correction notice were independently reacquired for review on 2026-10-09 and their hashes match these receipts. The locators, hypotheses, proof routes and repaired interfaces were checked against these editions; reading ranges include the prior planning record. A scope entry is not a claim to have collated an inaccessible published edition.
 
 ### M. Bertolini, H. Darmon, K. Prasanna; appendix B. Conrad: Generalized Heegner cycles and p-adic Rankin L-series
 
@@ -3129,8 +3140,10 @@ Recorded reading scope:
 
 - §4.4, p.593: coefficient definition and symmetric-power/induction display, collated for E7 only
 
+The [older author-hosted CH erratum](https://web.math.ucsb.edu/~castella/erratum.pdf) was also read in full on 2026-10-09. SHA-256: `1009040cec4e147c3a0dec8377e7f880f9eb4d8d3302f22213c861063a640de7`. It gives the same three corrections, with a KO preprint lemma number; the newer notice points to proceedings Lemma 4.10.
+
 The primary BDP 2017 comparison, Hsieh nonvanishing and corrected Nekovář parity supplier proofs remain the explicit source gaps above. CH publisher-print use is limited to the E7 display on p.593; general CH locators refer to the 2022 author copy. LV findings refer to arXiv v1, not an unavailable collation of Kyoto 2019.
 
 ## Validation and continuation
 
-There are 66 unchanged declaration IDs, 66 API items, 57 tests on all 18 definition/construction nodes and 36 planets. All eight stages are planned and every implementation status is unchecked. The packet checker reports zero errors and warnings. The existing top-level review object is unchanged and remains the previous needs-changes verdict, pending independent assessment of this revision. The [revision handoff](../handoff/BP-GeneralizedHeegnerCycles--GH.0~2.md) records the five repairs, source limits and exact Lean-check scope.
+There are 66 unchanged declaration IDs, 66 API items, 58 tests on all 18 definition/construction nodes and 36 planets. All eight stages are planned and every implementation status is unchecked. The packet checker reports zero errors and warnings. The independent review accepts the target-level plan after the in-place corrections recorded in the [review report](../reviews/REV-GeneralizedHeegnerCycles--GH.0~2.md). The full Lean check stops at the missing shared Isogeny.olean import; the Mathlib-only projection elaborates with no errors and admitted proofs. The seven native-dependent blocks are checked by source/interface inspection, not by successful elaboration. The [review handoff](../handoff/REV-GeneralizedHeegnerCycles--GH.0~2.md) records the precise limits and remaining supplier work.
