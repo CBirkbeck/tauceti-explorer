@@ -3017,6 +3017,13 @@
    "reviewDate": "2026-10-09",
    "reviewer": "independent-review-REV-PKG-SchemeAndStackFoundations"
   },
+  "research/blueprint/packages/SmoothRepresentationsOfLocalGroups/review.json": {
+   "at": "2026-10-09T13:14:35Z",
+   "reason": "REV-PKG-SmoothRepresentationsOfLocalGroups is not a job of the queue",
+   "review": "a14dd81864db0ee2",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-SmoothRepresentationsOfLocalGroups"
+  },
   "research/blueprint/packets/ClassicalAdicEtaleCohomology--H0.json": {
    "at": "2026-10-06T19:18:19Z",
    "reason": "Invalid dependency: ClassicalAdicEtaleCohomology:H1:formal-adic-comparison/vanishing-cycles-comparison-3-5-17 -> LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle",
