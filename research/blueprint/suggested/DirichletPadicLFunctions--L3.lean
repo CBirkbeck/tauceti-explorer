@@ -108,8 +108,9 @@ finishes a planning pass; L3 remains partial with explicit mathematical gaps.
 
 -- The L4 inverse-character shorthand expands to its existing L2/native formula.
 -- This local notation exports no declaration and imports no later layer.
+set_option quotPrecheck false in
 local notation "eisensteinInverseCharacter" =>
-  (fun (p : ℕ) [Fact p.Prime] =>
+  (fun (p : ℕ) [Fact (Nat.Prime p)] =>
     (DirichletPadic.primePowerArithmeticCharacter p 0
       (1 : DirichletCharacter ℤ_[p] (p ^ 0)) 1).comp
       (ContinuousMonoidHom.inv (ℤ_[p])ˣ))

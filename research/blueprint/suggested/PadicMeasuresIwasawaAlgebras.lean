@@ -6105,12 +6105,15 @@ the antipode, the subgroup character sum, column orthogonality of characters, 2Ã
 Auslanderâ€“Reiten transpose instead of restating them. `TauCeti.Module.fittingIdeal` is the suggested interface for the upstream StableReduction
 Layer 1 carrier. The L4 character projector is declared in L4 and reused by L6.
 
-Historical L6 review elaboration (7 October 2026). At that time the shared build at the pinned Mathlib had no object files for the Tau Ceti modules
-this file imports, so the file was not elaborated with its own import lines. The L6 block was
-elaborated with verbatim copies of the pinned Tau Ceti declarations it uses in place of the
-imports, and so was the whole file with every unbuilt pinned module inlined: no errors, and no
-warnings other than the proof placeholders. Nothing here is claimed formalised.
+Historical elaboration (7 October). The shared build then lacked object files for the Tau Ceti
+imports, so the checkpoint used diagnostic harnesses with the missing library declarations.
 
-The packet's review status is needs_changes; the L4 remarks of REV-PadicMeasuresIwasawaAlgebras
-above still apply.
+Completion checks (9 October 2026, Codex, session codex-nikABM). Before integration of
+PR #7967, native `lean-check` passed with 917 warnings, all for `sorry`. The final combined
+file preserves that revision's L4 interfaces and passes with its own pinned imports:
+no errors and 1,041 warnings, all for `sorry`.
+No library source is inlined. All packet implementation statuses remain unchecked.
+
+The packet's review status is needs_changes. PR #7967 addresses several earlier L4 interfaces;
+its remaining named declarations, semantic tests and source/proof inputs require follow-up.
 -/
