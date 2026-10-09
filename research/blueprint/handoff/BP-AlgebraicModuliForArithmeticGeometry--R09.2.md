@@ -14,7 +14,8 @@ The packet, reader and suggested file agree. The suggested file contains native 
 
 - `python3 scripts/check_blueprint.py research/blueprint/packets/AlgebraicModuliForArithmeticGeometry--R09.2.json`: 0 errors, 0 warnings.
 - `lean-check research/blueprint/suggested/AlgebraicModuliForArithmeticGeometry--R09.2.lean`: elaborated at the pinned Mathlib/Tau Ceti build on 2026-10-09, with only admission warnings. All prototype examples were elaborated; no proof or executable-test claim is made.
-- Source-version and issue schema, named-target/API/test correspondence, allowed-file scope and repository-local-path checks were checked before submission.
+- Source-version and issue schema, cross-part finding-ID uniqueness, named-target/API/test correspondence, allowed-file scope and repository-local-path checks were checked before submission. The exact Swarm `intake.py check-files` command passed locally.
+- PR #8019 is open. GitHub held the submission-check workflow for repository-admin approval; the current account received HTTP 403 when attempting to start it. A maintainer must approve the fork workflow before automatic intake can run. This does not change the complete target pass or its local validation.
 
 The Lean run was serial and memory was checked first. The baseline commits are Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. No build or dependency update was run.
 
