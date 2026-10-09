@@ -1,6 +1,8 @@
 # Caraiani–Newton: the roadmaps it needs, in upstream order
 
-Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites.
+Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, `research/blueprint/roadmaps/*.json` and every packet's node prerequisites. Statuses refreshed 2026-10-09; the Tau Ceti stage of each roadmap comes from `tauceti_status.json` next to this file.
+
+**Where it stands.** The `top` label covers tiers 1–4. SchemeAndStackFoundations (TauCetiRoadmap #779) and PadicMeasuresIwasawaAlgebras (#780) are open pull requests under review. ReductiveGroupsPartII, AdelicAlgebraicGroups and SmoothRepresentationsOfLocalGroups are in their final check and go up in one pull request (A), with IntegralHeckeAndGaloisDeterminants stacked on it (A′): one pull request instead of the three the tiers alone would suggest, because the three were gated together and cite each other. The adic package (AdicEtaleGeometry, AdicSpacesPartII, DiamondsAndVStacks, PerfectoidSpaces) is in its final check as the planned merged package (B). The remaining tier 3–4 roadmaps (GeometryOfNumbersAndQuadraticArithmetic, EnhancedDerivedSheaves, AlgebraicModuliForArithmeticGeometry, LocallyAnalyticDistributions, DiophantineApproximationAndTranscendence) are on the explorer board as package and fix jobs.
 
 **Needed.** The main roadmap, EllipticCurveModularityImaginaryQuadratic, reaches 94 roadmaps (601 layers) through the atlas's stage links. Node-by-node packet citations reach 55 more (Habiro, K-theory, Euler systems and others); those are stray citations to be removed, not needs.
 
@@ -10,36 +12,36 @@ Generated 2026-10-09 from tauceti-explorer main: `data/atlas.json` stage links, 
 - In this order, 61 reviewed stage links and 503 packet citations point upward, between 98 pairs of units. Each is a notion that moves down into the citing roadmap.
 - The order has 28 tiers. A unit in tier t depends only on Mathlib, Tau Ceti and units in tiers below t, once its upward citations have moved down.
 
-Each roadmap line shows: packets accepted/total, package status, the layers Caraiani–Newton needs out of the roadmap's total, and the upward citations to move down.
+Each roadmap line shows: packets accepted/total, package status, Tau Ceti stage when it has one, the layers Caraiani–Newton needs out of the roadmap's total, and the upward citations to move down.
 
 ## Tier 1
 
 - **FoundationsAndLibraryIntegration** — Foundations, existing libraries, and proof integrity. No plan yet · package not yet · CN needs 5/6 layers
-- **ReductiveGroupsPartII** — Reductive groups, Part II: local structure and arithmetic models. Plan 0/1 accepted · package not yet · CN needs 7/7 layers · move down: AlgebraicModuliForArithmeticGeometry (1)
-- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 1/1 accepted · package not yet · CN needs 7/8 layers
+- **ReductiveGroupsPartII** — Reductive groups, Part II: local structure and arithmetic models. Plan 0/1 accepted · package not yet · CN needs 7/7 layers · **Tau Ceti: final check, pull request A** · move down: AlgebraicModuliForArithmeticGeometry (1)
+- **PadicMeasuresIwasawaAlgebras** — P-adic measures, completed group algebras, and characteristic ideals. Plan 1/1 accepted · package not yet · CN needs 7/8 layers · **Tau Ceti: pull request #780 open**
 
 ## Tier 2
 
-- **AdelicAlgebraicGroups** — Adelic algebraic groups and arithmetic quotients. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · move down: ModularCurvesPartII (2)
-- **SchemeAndStackFoundations** — Scheme, stack, cohomology and intersection foundations. Plan 2/8 accepted · package not yet · CN needs 6/7 layers · move down: PerfectoidSpaces (1), DeformationAndDerivedPatchingAlgebra (1)
-- **SmoothRepresentationsOfLocalGroups** — Smooth representations of local groups. Plan 0/2 accepted · package not yet · CN needs 10/11 layers · move down: EnhancedDerivedSheaves (1) · cites outside the 94: ExcursionOperatorsAndSpectralAction (3), LanglandsParameterStacks (2)
+- **AdelicAlgebraicGroups** — Adelic algebraic groups and arithmetic quotients. Plan 1/1 accepted · package not yet · CN needs 4/6 layers · **Tau Ceti: final check, pull request A** · move down: ModularCurvesPartII (2)
+- **SchemeAndStackFoundations** — Scheme, stack, cohomology and intersection foundations. Plan 3/8 accepted · package not yet · CN needs 6/7 layers · **Tau Ceti: pull request #779 open** · move down: PerfectoidSpaces (1), DeformationAndDerivedPatchingAlgebra (1)
+- **SmoothRepresentationsOfLocalGroups** — Smooth representations of local groups. Plan 1/2 accepted · package not yet · CN needs 10/11 layers · **Tau Ceti: final check, pull request A** · move down: EnhancedDerivedSheaves (1) · cites outside the 94: ExcursionOperatorsAndSpectralAction (3), LanglandsParameterStacks (2)
 
 ## Tier 3
 
-- **IntegralHeckeAndGaloisDeterminants** — Integral Hecke actions, determinants and interpolation. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · move down: ArithmeticGaloisDuality (6), DerivedDeRhamCohomology (6) · cites outside the 94: LanglandsParameterStacks (23)
-- **GeometryOfNumbersAndQuadraticArithmetic** — Geometry of numbers, quadratic forms and homogeneous arithmetic. Plan 0/1 accepted · package not yet · CN needs 3/7 layers · move down: ClassicalArithmeticCompletion (1) · cites outside the 94: GeneralAlgebraicKTheory (14), StableHomotopyKTheory (6), MetaplecticAutomorphicForms (2)
+- **IntegralHeckeAndGaloisDeterminants** — Integral Hecke actions, determinants and interpolation. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · **Tau Ceti: final check, pull request A′** (stacked on A) · move down: ArithmeticGaloisDuality (6), DerivedDeRhamCohomology (6) · cites outside the 94: LanglandsParameterStacks (23)
+- **GeometryOfNumbersAndQuadraticArithmetic** — Geometry of numbers, quadratic forms and homogeneous arithmetic. Plan 1/1 accepted · package not yet · CN needs 3/7 layers · move down: ClassicalArithmeticCompletion (1) · cites outside the 94: GeneralAlgebraicKTheory (2)
 - **Merged package:** AdicEtaleGeometry + AdicSpacesPartII + DiamondsAndVStacks + PerfectoidSpaces
-  - **AdicEtaleGeometry** — Analytic adic geometry required for diamonds. Plan 1/1 accepted · package accepted · CN needs 5/5 layers · move down: ClassicalAdicEtaleCohomology (2), PerfectoidQuotients (1)
-  - **AdicSpacesPartII** — Adic Spaces PartII. Plan 1/1 accepted · package not yet · CN needs 7/8 layers · move down: AlgebraicModuliForArithmeticGeometry (11), ClassicalAdicEtaleCohomology (3), AdicCoefficientsAndComparisons (2), DeformationAndDerivedPatchingAlgebra (1), ModularCurvesPartII (1) · cites outside the 94: TropicalAndBerkovichArithmetic (1)
-  - **DiamondsAndVStacks** — Pro-étale descent, diamonds and small v-stacks. Plan 1/1 accepted · package not yet · CN needs 7/7 layers · cites outside the 94: TropicalAndBerkovichArithmetic (2)
-  - **PerfectoidSpaces** — Perfectoid rings and spaces. Plan 1/2 accepted · package not yet · CN needs 9/10 layers · move down: PerfectoidQuotients (9), PadicHodgeTheory (9), DerivedDeRhamCohomology (7), ClassicalAdicEtaleCohomology (4) · cites outside the 94: TropicalAndBerkovichArithmetic (2)
+  - **AdicEtaleGeometry** — Analytic adic geometry required for diamonds. Plan 1/1 accepted · package accepted · CN needs 5/5 layers · **Tau Ceti: final check, pull request B** · move down: ClassicalAdicEtaleCohomology (2), PerfectoidQuotients (1)
+  - **AdicSpacesPartII** — Adic Spaces PartII. Plan 1/1 accepted · package accepted · CN needs 7/8 layers · **Tau Ceti: final check, pull request B** · move down: AlgebraicModuliForArithmeticGeometry (11), ClassicalAdicEtaleCohomology (3), AdicCoefficientsAndComparisons (2), DeformationAndDerivedPatchingAlgebra (1), ModularCurvesPartII (1) · cites outside the 94: TropicalAndBerkovichArithmetic (1)
+  - **DiamondsAndVStacks** — Pro-étale descent, diamonds and small v-stacks. Plan 1/1 accepted · package not yet · CN needs 7/7 layers · **Tau Ceti: final check, pull request B** · cites outside the 94: TropicalAndBerkovichArithmetic (2)
+  - **PerfectoidSpaces** — Perfectoid rings and spaces. Plan 1/2 accepted · package not yet · CN needs 9/10 layers · **Tau Ceti: final check, pull request B** · move down: PerfectoidQuotients (9), PadicHodgeTheory (9), DerivedDeRhamCohomology (7), ClassicalAdicEtaleCohomology (4) · cites outside the 94: TropicalAndBerkovichArithmetic (2)
 
 ## Tier 4
 
 - **EnhancedDerivedSheaves** — Enhanced derived categories of sheaves. Plan 0/2 accepted · package not yet · CN needs 7/11 layers · move down: DerivedDeRhamCohomology (15) · cites outside the 94: StableHomotopyKTheory (2)
-- **AlgebraicModuliForArithmeticGeometry** — Algebraic moduli and representability for arithmetic geometry. Plan 1/2 accepted · package not yet · CN needs 10/12 layers
-- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 0/1 accepted · package not yet · CN needs 5/5 layers · move down: PadicDifferentialEquationsAndRigidCohomology (1)
-- **DiophantineApproximationAndTranscendence** — Diophantine approximation and transcendence. Plan 0/1 accepted · package not yet · CN needs 2/6 layers · move down: ClassicalArithmeticCompletion (1)
+- **AlgebraicModuliForArithmeticGeometry** — Algebraic moduli and representability for arithmetic geometry. Plan 6/8 accepted · package not yet · CN needs 10/12 layers
+- **LocallyAnalyticDistributions** — Locally analytic distributions, growth, and character spaces. Plan 1/1 accepted · package not yet · CN needs 5/5 layers · move down: PadicDifferentialEquationsAndRigidCohomology (1)
+- **DiophantineApproximationAndTranscendence** — Diophantine approximation and transcendence. Plan 1/1 accepted · package not yet · CN needs 2/6 layers · move down: ClassicalArithmeticCompletion (1)
 
 ## Tier 5
 
@@ -75,7 +77,7 @@ Each roadmap line shows: packets accepted/total, package status, the layers Cara
 - **FiniteFlatGroupsAndIntegralPadicHodgeTheory** — Finite flat group schemes and integral p-adic Hodge theory. Plan 0/1 accepted · package not yet · CN needs 6/6 layers · move down: PadicHodgeTheory (22), PadicDifferentialEquationsAndRigidCohomology (1) · cites outside the 94: VectorBundlesAndIsocrystals (2), PhiGammaModulesAndIwasawaCohomology (2)
 - **Merged package:** AdicCoefficientsAndComparisons + ClassicalAdicEtaleCohomology + EtaleDualityAndPerverseSheaves + LefschetzPencilsAndVanishingCycles
   - **AdicCoefficientsAndComparisons** — Adic coefficients and comparison with schemes. Plan 1/1 accepted · package accepted · CN needs 6/7 layers · move down: DiamondSixOperations (13), DiamondEtaleCohomology (12)
-  - **ClassicalAdicEtaleCohomology** — The classical analytic cohomology inputs to diamonds. Plan 3/5 accepted · package not yet · CN needs 10/10 layers · cites outside the 94: TropicalAndBerkovichArithmetic (20)
+  - **ClassicalAdicEtaleCohomology** — The classical analytic cohomology inputs to diamonds. Plan 4/5 accepted · package not yet · CN needs 10/10 layers · cites outside the 94: TropicalAndBerkovichArithmetic (20)
   - **EtaleDualityAndPerverseSheaves** — Étale duality, cycle classes and perverse sheaves. Plan 0/2 accepted · package not yet · CN needs 13/13 layers · move down: DeligneWeightsAndPurity (15)
   - **LefschetzPencilsAndVanishingCycles** — Lefschetz pencils, nearby cycles and vanishing cycles. Plan 1/2 accepted · package not yet · CN needs 9/10 layers · move down: DeligneWeightsAndPurity (15), FiniteFieldsAndCharacterSums (1), IgusaVarietiesAndTorsionConcentration (1)
 
@@ -105,7 +107,7 @@ Each roadmap line shows: packets accepted/total, package status, the layers Cara
   - **AInfCohomology** — Integral A_inf cohomology and Breuil–Kisin–Fargues structures. Plan 1/2 accepted · package not yet · CN needs 9/10 layers · move down: RelativeFarguesFontaine (8), CohomologyComparisons (8) · cites outside the 94: RefinedTraceMethods (7), VectorBundlesAndIsocrystals (3)
   - **PadicHodgeTheory** — P-adic Hodge theory and geometric comparison. Plan 0/2 accepted · package not yet · CN needs 9/10 layers · move down: CohomologyComparisons (10), AutomorphicGaloisRepresentations (6), GL2AutomorphicRepresentationsAndTransfer (2), HilbertModularVarietiesAndShimuraCurves (1) · cites outside the 94: PhiGammaModulesAndIwasawaCohomology (33)
   - **PerfectoidQuotients** — Perfectoid quotients and their prismatic prerequisites. Plan 1/1 accepted · package accepted · CN needs 7/7 layers
-  - **PrismaticCohomology** — Prismatic cohomology: relative, absolute, Nygaard and log variants. Plan 0/2 accepted · package not yet · CN needs 3/9 layers · move down: HodgeTateAndCanonicalSubgroups (3) · cites outside the 94: LanglandsParameterStacks (10), RefinedTraceMethods (4), QWittVectors (4), VectorBundlesAndIsocrystals (2)
+  - **PrismaticCohomology** — Prismatic cohomology: relative, absolute, Nygaard and log variants. Plan 1/2 accepted · package not yet · CN needs 3/9 layers · move down: HodgeTateAndCanonicalSubgroups (3) · cites outside the 94: LanglandsParameterStacks (10), RefinedTraceMethods (4), QWittVectors (4), VectorBundlesAndIsocrystals (2)
 - **Merged package:** PELModuli + ShimuraVarieties
   - **PELModuli** — Siegel and PEL moduli problems. Plan 0/1 accepted · package not yet · CN needs 6/7 layers · move down: HilbertModularVarietiesAndShimuraCurves (2), ShimuraCompactifications (1)
   - **ShimuraVarieties** — Complex Shimura varieties and canonical models. Plan 1/2 accepted · package not yet · CN needs 8/10 layers · move down: ShimuraCompactifications (1) · cites outside the 94: ComplexMultiplicationAndExplicitReciprocity (5)
