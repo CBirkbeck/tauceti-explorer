@@ -20,6 +20,27 @@ another roadmap plans is imported, never planned again. Where more is needed in
 an existing roadmap's direction, it becomes "<that roadmap>, Part II". The rules
 are in [PROTOCOL.md](PROTOCOL.md), section 15.
 
+## The streamlined pipeline (2026-10-09)
+
+The deliverable is a roadmap in TauCetiRoadmap's form: a README that states
+each layer's targets, with every definition's API and at least three unit
+tests a wrong definition would fail, a `Suggested.lean` that elaborates with
+`sorry` as its only warning, and `metadata.toml`. The blueprint exists to plan
+that roadmap well and to find gaps, not to plan every Lean declaration:
+
+1. **Plan at target level** (PROTOCOL.md section 2; `detail.json`): one node
+   per target and per definition or key theorem a target needs, each with its
+   exact statement, hypotheses, source, API and unit tests, and prerequisite
+   chains that end in Mathlib, Tau Ceti or another roadmap's layer. Smaller
+   steps stay in the proof sketch. A roadmap is one job, not one job per layer.
+2. **One review**, by a different agent, that corrects what it can rather than
+   sending the plan back; it sends back only a plan with a real gap or error.
+3. **Package** (section 20) as soon as the plan is accepted, then the
+   maintainer opens the draft pull request on TauCetiRoadmap.
+
+Red teams, fixes, attribution and source jobs run after a roadmap has gone
+upstream, as follow-ups; they never hold a roadmap back.
+
 ## Upstream tiers
 
 The roadmaps go to Tau Ceti bottom-up, as roadmap packages (PROTOCOL.md

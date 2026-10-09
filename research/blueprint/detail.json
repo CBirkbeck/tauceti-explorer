@@ -1,5 +1,5 @@
 {
- "purpose": "How finely each roadmap is planned (PROTOCOL.md section 2). A roadmap near the front of the line is planned at lemma level, as is one the maintainer picks for formalisation by adding its id to lemmaLevel. A roadmap is near the front when its prerequisites are mostly built, meaning its distance from the libraries in data/roadmap-classification.json is at most lemmaLevelMaxDistance. Every other roadmap is planned at target level: its stages' targets, the definitions and key theorems they need, and how they connect to the libraries and to other roadmaps.",
- "lemmaLevelMaxDistance": 5,
+ "purpose": "How finely each roadmap is planned (PROTOCOL.md section 2). Since 2026-10-09 every roadmap is planned at target level: one node for each target a stage states and for each definition or key theorem a target needs, with exact statements, hypotheses, sources, an API outline and at least three unit tests per definition, and prerequisite chains that end in the libraries (so that gaps are found). Proof steps smaller than that stay in the proof sketch; declarations are not planned one by one. lemmaLevel lists the roadmaps the maintainer wants at lemma level anyway (none).",
+ "lemmaLevelMaxDistance": -1,
  "lemmaLevel": []
 }
