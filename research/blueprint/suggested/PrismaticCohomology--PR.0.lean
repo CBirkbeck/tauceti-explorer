@@ -52,6 +52,7 @@ import Mathlib.RingTheory.AdicCompletion.Algebra
 import Mathlib.RingTheory.AdicCompletion.Basic
 import Mathlib.RingTheory.AdicCompletion.Completeness
 import Mathlib.RingTheory.DividedPowers.Basic
+import Mathlib.RingTheory.DiscreteValuationRing.Basic
 import Mathlib.RingTheory.Etale.Basic
 import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
 import Mathlib.RingTheory.Ideal.Cotangent
@@ -93,21 +94,20 @@ claim no implementation: every proof is a placeholder.
 
 Layers PR.0–PR.7 of the roadmap `PrismaticCohomology`. Mathlib
 082e2d37e8b0463410cdb532e111cd43d5a66174; no `TauCeti.*` module is imported, because none
-of the objects below exists there.
+of the prismatic constructions is imported as a native Tau Ceti declaration.
 
 How the file is organised.
 * The δ-ring prefix of PR.0 (namespace `TauCeti.Delta`) is stated on Mathlib's own carriers:
   rings, quotients, localizations, adic completions, truncated Witt vectors.
-* A prism (`TauCeti.Prismatic.Prism`) records the data and the conditions Mathlib can state.
-  Derived `(p, I)`-completeness belongs to `DerivedDeRhamCohomology:DD.1` and is left out of
-  the structure; a statement that the sources deduce from it carries the consequence it uses
-  (membership of `p` and `I` in the Jacobson radical) as an explicit hypothesis.
+* A prism (`TauCeti.Prismatic.Prism`) records all three conditions, including derived
+  `(p,I)`-completeness expressed by the DD.1 orthogonality criterion. The completion
+  functor and its properties belong to `DerivedDeRhamCohomology:DD.1`.
 * Complexes are objects of Mathlib's `DerivedCategory (ModuleCat A)`, read as the
   1-categorical shadow of the derived ∞-categories of the sources.
-* An object owned by another layer or another roadmap that Mathlib lacks is never defined
-  here. It enters as a `variable` or as a field of a structure of imported data whose
-  docstring names its owner. No `Prop` stands for a condition that cannot be stated, and
-  no axiom is used.
+* Missing supplier constructions appear as adapters with fixed geometric parameters
+  and named owners. They do not supply proofs or arbitrary comparison isomorphisms.
+  Conditions requiring unavailable carriers are described in construction contracts;
+  no placeholder proposition replaces them and no axiom is used.
 -/
 
 namespace TauCeti.Delta
@@ -162,6 +162,10 @@ theorem Structure.delta_two {R : Type*} [CommRing R] (d : Structure p R) :
     d.delta (1 + 1) = addCorrection p (1 : R) 1 := by sorry
 
 variable (p)
+
+/-- Node integer-cast-delta, second part: characteristic p excludes δ-structures. -/
+theorem no_delta_in_characteristic_prime {R : Type*} [CommRing R] [Nontrivial R]
+    [CharP R p] : IsEmpty (Structure p R) := by sorry
 
 /-- An ordinary Frobenius lift, not a derived Frobenius homotopy. -/
 def FrobeniusLift (p : ℕ) [Fact p.Prime] (R : Type u) [CommRing R] :=
@@ -415,6 +419,11 @@ noncomputable def witt2Map {R : Type u₁} {T : Type u₂}
 theorem witt2Map_coeff {R T : Type*} [CommRing R] [CommRing T]
     (f : R →+* T) (x : TruncatedWittVector p 2 R) (j : Fin 2) :
     (witt2Map p f x).coeff j = f (x.coeff j) := by sorry
+
+theorem witt2Map_truncate {R S : Type*} [CommRing R] [CommRing S]
+    (f : R →+* S) (x : WittVector p R) :
+    witt2Map p f (WittVector.truncate 2 x) =
+      WittVector.truncate 2 (WittVector.map f x) := by sorry
 
 theorem witt2Map_id {R : Type*} [CommRing R] :
     witt2Map p (RingHom.id R) = RingHom.id (TruncatedWittVector p 2 R) := by sorry
@@ -765,6 +774,10 @@ theorem intAtPrime_algebraMap (a : ℤ) :
     (intAtPrime p).delta (algebraMap ℤ (Localization.AtPrime (Ideal.span {(p : ℤ)})) a) =
       algebraMap ℤ (Localization.AtPrime (Ideal.span {(p : ℤ)})) ((intDelta p).delta a) := by sorry
 
+theorem intAtPrime_unique
+    (d : Structure p (Localization.AtPrime (Ideal.span {(p : ℤ)}))) :
+    d = intAtPrime p := by sorry
+
 theorem intAtPrime_frobenius : (toFrobenius p (intAtPrime p)).1 =
     RingHom.id (Localization.AtPrime (Ideal.span {(p : ℤ)})) := by sorry
 
@@ -920,10 +933,9 @@ end TauCeti.Delta
 
 /-! ## Shared prism vocabulary (PR.0), used by every later layer
 
-A prism is recorded with the data and conditions that Mathlib can state today. The
-condition that `A` is derived `(p, I)`-complete belongs to
-`DerivedDeRhamCohomology:DD.1` (derived completion) and is left out of the structure
-until that layer exists; every statement below that needs it says so in its docstring.
+A prism records its three defining conditions, including derived (p,I)-completeness
+expressed by orthogonality in Mathlib’s derived category. Completion functors and
+their universal properties belong to DerivedDeRhamCohomology:DD.1.
 Complexes are objects of Mathlib's derived category `DerivedCategory (ModuleCat A)`,
 read as the 1-categorical shadow of the derived ∞-category the sources use. -/
 
@@ -946,10 +958,18 @@ def IsDeltaHom {A B : Type*} [CommRing A] [CommRing B]
 def IsDistinguished {A : Type*} [CommRing A] (d : Delta.Structure p A) (x : A) : Prop :=
   IsUnit (d.delta x)
 
-/-- Node `PR.0/prism`: a δ-ring `A` with an ideal `I` that is an invertible `A`-module
-(a Cartier divisor on `Spec A`) and satisfies `p ∈ I + φ(I)A`. Derived
-`(p, I)`-completeness (DD.1) is the one condition of Bhatt–Scholze Definition 3.2 not
-recorded here. -/
+/-- Imported DD.1 interface, expressed by derived orthogonality. For a finitely
+ generated ideal J, derived J-completeness means RHom(A[1/f], K)=0 for each f in J.
+ This is a mathematical predicate on Mathlib's derived category, not an unspecified
+ proposition. The completion functor and its properties remain owned by DD.1. -/
+noncomputable def IsDerivedComplete {A : Type u} [CommRing A] (J : Ideal A)
+    (K : DerivedCategory (ModuleCat.{u} A)) : Prop :=
+  ∀ f ∈ J, ∀ n : ℤ,
+    Subsingleton (((DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj
+      (ModuleCat.of A (Localization.Away f))) ⟶ K⟦n⟧)
+
+/-- Node PR.0/prism, BS22 Definition 3.2: all three prism conditions.
+ The finite generation implicit in derived completion follows from invertibility of I. -/
 structure Prism (A : Type u) [CommRing A] where
   /-- The δ-structure. -/
   δ : Delta.Structure p A
@@ -957,8 +977,33 @@ structure Prism (A : Type u) [CommRing A] where
   I : Ideal A
   /-- `I` is an invertible module: locally principal, generated by a nonzerodivisor. -/
   invertible : Module.Invertible A I
+  /-- Derived (p,I)-completeness, using the DD.1 orthogonality criterion. -/
+  complete : IsDerivedComplete (Ideal.span {(p : A)} ⊔ I)
+    ((DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A A))
   /-- `p ∈ I + φ(I)A`. -/
   p_mem : (p : A) ∈ I ⊔ I.map (toFrobenius p δ).1
+
+/-- DD.1 adapter: the canonical derived extension of scalars along f.
+ It is fixed by f; no comparison is quantified over an arbitrary functor. -/
+noncomputable def derivedBaseChange {A B : Type u} [CommRing A] [CommRing B]
+    (f : A →+* B) : DerivedCategory (ModuleCat.{u} A) ⥤
+      DerivedCategory (ModuleCat.{u} B) := sorry
+
+/-- DD.1 adapter: derived extension of scalars followed by derived J-completion. -/
+noncomputable def completedBaseChange {A B : Type u} [CommRing A] [CommRing B]
+    (f : A →+* B) (J : Ideal B) : DerivedCategory (ModuleCat.{u} A) ⥤
+      DerivedCategory (ModuleCat.{u} B) := sorry
+
+/-- DD.1 complete-flatness criterion: ordinary flatness after reduction AND
+ vanishing of all nonzero derived homology after reduction. -/
+noncomputable def IsCompletelyFlat {A B : Type u} [CommRing A] [CommRing B]
+    (J : Ideal A) (f : A →+* B) : Prop :=
+  (Ideal.quotientMap (J.map f) f Ideal.le_comap_map).Flat ∧
+  ∀ i : ℤ, i ≠ 0 → Limits.IsZero
+    ((DerivedCategory.homologyFunctor (ModuleCat.{u} (A ⧸ J)) i).obj
+      ((derivedBaseChange (Ideal.Quotient.mk J)).obj
+        ((DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj
+          ((ModuleCat.restrictScalars f).obj (ModuleCat.of B B)))))
 
 namespace Prism
 
@@ -970,7 +1015,7 @@ noncomputable def φ : A →+* A := (toFrobenius p P.δ).1
 /-- The reduction `Ā = A / I`. -/
 abbrev bar : Type u := A ⧸ P.I
 
-/-- Node `PR.0/bounded-prism`: `A / I` has bounded `p^∞`-torsion. -/
+/-- Node `PR.0/prism-category`: `A / I` has bounded `p^∞`-torsion. -/
 def IsBounded : Prop :=
   ∃ n : ℕ, ∀ x : A ⧸ P.I, (∃ m : ℕ, (p : A ⧸ P.I) ^ m * x = 0) → (p : A ⧸ P.I) ^ n * x = 0
 
@@ -991,6 +1036,17 @@ structure Hom {B : Type u} [CommRing B] (Q : Prism p B) where
   isDeltaHom : IsDeltaHom p P.δ Q.δ toRingHom
   /-- It carries `I` into `J`. -/
   map_I : P.I.map toRingHom ≤ Q.I
+
+/-- Extensionality needed by each site category. -/
+theorem Hom.ext {B : Type u} [CommRing B] {Q : Prism p B} (f g : P.Hom Q)
+    (h : f.toRingHom = g.toRingHom) : f = g := by sorry
+
+/-- The common distinguished-generator constructor. -/
+noncomputable def ofDistinguished (dA : Delta.Structure p A) (d : A)
+    (hd : d ∈ nonZeroDivisors A) (hdist : IsDistinguished p dA d)
+    (hc : IsDerivedComplete (Ideal.span {(p : A), d})
+      ((DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A A))) :
+    Prism p A := by sorry
 
 end Prism
 
@@ -1108,6 +1164,22 @@ theorem witt_frobenius (R : Type u) [CommRing R] :
 noncomputable def wittUnit {A : Type u} [CommRing A] (d : Structure p A) :
     A →+* WittVector p A := sorry
 
+theorem wittUnit_isDeltaHom {A : Type u} [CommRing A] (d : Structure p A) :
+    ∀ x, wittUnit p d (d.delta x) = (witt p A).delta (wittUnit p d x) := by sorry
+
+/-- The cofree lift is the canonical composite W(f) o w_A. -/
+noncomputable def wittLift {A R : Type u} [CommRing A] [CommRing R]
+    (d : Structure p A) (f : A →+* R) : A →+* WittVector p R :=
+  (WittVector.map f).comp (wittUnit p d)
+
+theorem wittLift_universal {A R : Type u} [CommRing A] [CommRing R]
+    (d : Structure p A) (f : A →+* R) :
+    (∀ x, wittLift p d f (d.delta x) = (witt p R).delta (wittLift p d f x)) ∧
+    (∀ x, (wittLift p d f x).coeff 0 = f x) ∧
+    ∀ g : A →+* WittVector p R,
+      (∀ x, g (d.delta x) = (witt p R).delta (g x)) →
+      (∀ x, (g x).coeff 0 = f x) → g = wittLift p d f := by sorry
+
 theorem wittUnit_coeff_zero {A : Type u} [CommRing A] (d : Structure p A) (x : A) :
     (wittUnit p d x).coeff 0 = x := sorry
 
@@ -1131,6 +1203,50 @@ example (x : WittVector p ℤ) :
 -- witt_unit_not_teichmuller
 example [Fact (Nat.Prime 2)] :
     wittUnit 2 (intDelta 2) (2 : ℤ) ≠ WittVector.teichmuller 2 (2 : ℤ) := sorry
+
+/-- Node frobenius-fpqc-local-surjectivity: the pushout construction gives
+ a faithfully flat δ-ring in which x has a Frobenius preimage. -/
+theorem frobenius_fpqc_locally_surjective {A : Type u} [CommRing A]
+    (d : Structure p A) (x : A) :
+    ∃ (B : Type u) (_ : CommRing B) (e : Structure p B) (f : A →+* B),
+      (∀ a, f (d.delta a) = e.delta (f a)) ∧ f.FaithfullyFlat ∧
+        ∃ y : B, (toFrobenius p e).1 y = f x := by sorry
+
+/-- Node delta-prime-power-valuation, nilpotence consequence. -/
+theorem prime_power_ne_zero {A : Type u} [CommRing A] [Nontrivial A]
+    (d : Structure p A) (n : ℕ) : (p : A) ^ n ≠ 0 := by sorry
+
+-- delta_prime_power_two
+example [Fact (Nat.Prime 2)] : (intDelta 2).delta 4 = -6 ∧
+    (intDelta 2).delta ((intDelta 2).delta 4) = -21 := by sorry
+
+/-- Node PR.0/joyal-delta-operations: these are Witt coordinates, not iterates of δ. -/
+noncomputable def joyalDelta {A : Type u} [CommRing A] (d : Structure p A)
+    (n : ℕ) (x : A) : A := (wittUnit p d x).coeff n
+
+theorem joyalDelta_ghost {A : Type u} [CommRing A] (d : Structure p A) (n : ℕ) (x : A) :
+    (toFrobenius p d).1^[n] x =
+      ∑ i ∈ Finset.range (n + 1), (p : A) ^ i * joyalDelta p d i x ^ (p ^ (n - i)) := by sorry
+
+/-- The integral triangular change from iterated δ to Witt coordinates. -/
+noncomputable def joyalDelta_free_generators (p : ℕ) [Fact p.Prime] (S : Type u) :
+    Free S ≃ₐ[ℤ] Free S := sorry
+
+theorem joyalDelta_free_generators_X (S : Type u) (a : S) (n : ℕ) :
+    joyalDelta_free_generators p S (MvPolynomial.X (a,n)) =
+      joyalDelta p (freeDelta p S) n (MvPolynomial.X (a,0)) := by sorry
+
+-- pr0_joyal_zero
+example {A : Type u} [CommRing A] (d : Structure p A) :
+    joyalDelta p d 0 0 = 0 ∧ joyalDelta p d 1 0 = 0 := by sorry
+
+-- pr0_joyal_first
+example {A : Type u} [CommRing A] (d : Structure p A) (x : A) :
+    joyalDelta p d 0 x = x ∧ joyalDelta p d 1 x = d.delta x := by sorry
+
+-- pr0_joyal_second_not_iterate
+example : joyalDelta 2 (intDelta 2) 2 2 = -4 ∧
+    (intDelta 2).delta ((intDelta 2).delta 2) = -1 := by sorry
 
 /-! ### Node `PR.0/animated-delta-rings`
 
@@ -1490,15 +1606,20 @@ example : ¬ ∃ P : Prism p ℤ_[p], P.I = Ideal.span {(p : ℤ_[p]) ^ 2} := so
 
 namespace Prism
 
+attribute [local instance] HasDerivedCategory.standard
+
 /-- The crystalline prism `(A, (p))` of a δ-ring in which `p` is a nonzerodivisor.
 (`p`-adic completeness is the condition supplied by DD.1.) -/
-noncomputable def crystalline {A : Type u} [CommRing A] (d : Delta.Structure p A)
+noncomputable def crystalline {A : Type u} [CommRing A]
+    [IsAdicComplete (Ideal.span {(p : A)}) A] (d : Delta.Structure p A)
     (hp : (p : A) ∈ nonZeroDivisors A) : Prism p A := sorry
 
-theorem crystalline_I {A : Type u} [CommRing A] (d : Delta.Structure p A)
+theorem crystalline_I {A : Type u} [CommRing A]
+    [IsAdicComplete (Ideal.span {(p : A)}) A] (d : Delta.Structure p A)
     (hp : (p : A) ∈ nonZeroDivisors A) : (crystalline p d hp).I = Ideal.span {(p : A)} := sorry
 
-theorem crystalline_isCrystalline {A : Type u} [CommRing A] (d : Delta.Structure p A)
+theorem crystalline_isCrystalline {A : Type u} [CommRing A]
+    [IsAdicComplete (Ideal.span {(p : A)}) A] (d : Delta.Structure p A)
     (hp : (p : A) ∈ nonZeroDivisors A) : (crystalline p d hp).IsCrystalline := sorry
 
 /-- The prism `(ℤ_p, (p))`. -/
@@ -1507,6 +1628,11 @@ noncomputable def padicInt : Prism p ℤ_[p] := sorry
 /-- The prism `(W(k), (p))` of a perfect ring `k` of characteristic `p`. -/
 noncomputable def witt (k : Type u) [CommRing k] [CharP k p] [PerfectRing k p] :
     Prism p (WittVector p k) := sorry
+
+theorem padicInt_I : (padicInt p).I = Ideal.span {(p : ℤ_[p])} := by sorry
+
+theorem witt_I (k : Type u) [CommRing k] [CharP k p] [PerfectRing k p] :
+    (witt p k).I = Ideal.span {(p : WittVector p k)} := by sorry
 
 -- crystalline_prism_padic_phi
 example : (padicInt p).φ = RingHom.id ℤ_[p] := sorry
@@ -1535,24 +1661,30 @@ variable (O : Type u) [CommRing O] [Fact ¬IsUnit (p : O)]
 noncomputable def ainf (ξ : WittVector p (PreTilt O p))
     (hker : RingHom.ker (WittVector.fontaineTheta O p) = Ideal.span {ξ})
     (hnzd : ξ ∈ nonZeroDivisors (WittVector p (PreTilt O p)))
-    (hdist : IsDistinguished p (Delta.witt p (PreTilt O p)) ξ) :
+    (hdist : IsDistinguished p (Delta.witt p (PreTilt O p)) ξ)
+    (hc : IsDerivedComplete (Ideal.span {(p : WittVector p (PreTilt O p)), ξ})
+      ((DerivedCategory.singleFunctor (ModuleCat.{u} (WittVector p (PreTilt O p))) 0).obj
+        (ModuleCat.of (WittVector p (PreTilt O p)) (WittVector p (PreTilt O p))))) :
     Prism p (WittVector p (PreTilt O p)) := sorry
 
 variable (ξ : WittVector p (PreTilt O p))
   (hker : RingHom.ker (WittVector.fontaineTheta O p) = Ideal.span {ξ})
   (hnzd : ξ ∈ nonZeroDivisors (WittVector p (PreTilt O p)))
   (hdist : IsDistinguished p (Delta.witt p (PreTilt O p)) ξ)
+    (hc : IsDerivedComplete (Ideal.span {(p : WittVector p (PreTilt O p)), ξ})
+      ((DerivedCategory.singleFunctor (ModuleCat.{u} (WittVector p (PreTilt O p))) 0).obj
+        (ModuleCat.of (WittVector p (PreTilt O p)) (WittVector p (PreTilt O p)))))
 
-theorem ainf_I : (ainf p O ξ hker hnzd hdist).I = RingHom.ker (WittVector.fontaineTheta O p) :=
+theorem ainf_I : (ainf p O ξ hker hnzd hdist hc).I = RingHom.ker (WittVector.fontaineTheta O p) :=
   sorry
 
-theorem ainf_phi : (ainf p O ξ hker hnzd hdist).φ = WittVector.frobenius := sorry
+theorem ainf_phi : (ainf p O ξ hker hnzd hdist hc).φ = WittVector.frobenius := sorry
 
-theorem ainf_isPerfect : (ainf p O ξ hker hnzd hdist).IsPerfect := sorry
+theorem ainf_isPerfect : (ainf p O ξ hker hnzd hdist hc).IsPerfect := sorry
 
 /-- `θ` induces `A_inf(O) / ker θ ≃ O` when Frobenius is surjective on `O / p`. -/
 noncomputable def ainf_bar_equiv (hF : Function.Surjective (frobenius (ModP O p) p)) :
-    (ainf p O ξ hker hnzd hdist).bar ≃+* O := sorry
+    (ainf p O ξ hker hnzd hdist hc).bar ≃+* O := sorry
 
 -- ainf_prism_theta_teichmuller
 example (x : PreTilt O p) :
@@ -1564,7 +1696,9 @@ example (h : (p : O) ≠ 0) : RingHom.ker (WittVector.fontaineTheta O p) ≠
     Ideal.span {(p : WittVector p (PreTilt O p))} := sorry
 
 -- ainf_prism_perfect_bounded
-example : (ainf p O ξ hker hnzd hdist).IsBounded := sorry
+example (hF : Function.Surjective (frobenius (ModP O p) p))
+    (htor : ∀ x : O, (∃ n : ℕ, (p : O)^n * x = 0) → (p : O) * x = 0) :
+    (ainf p O ξ hker hnzd hdist hc).IsBounded := sorry
 
 end Ainf
 
@@ -1574,26 +1708,28 @@ variable (k : Type u) [Field k] [CharP k p] [PerfectRing k p]
 
 /-- The Breuil–Kisin prism `(W(k)⟦u⟧, (E(u)))`, `φ(u) = u ^ p`, `E` a monic Eisenstein polynomial. -/
 noncomputable def breuilKisin (E : Polynomial (WittVector p k)) (hE : E.Monic)
-    (hEis : E.IsEisensteinAt (Ideal.span {(p : WittVector p k)})) :
+    (hEis : E.IsEisensteinAt (Ideal.span {(p : WittVector p k)}))
+    (hdeg : 0 < E.natDegree) :
     Prism p (PowerSeries (WittVector p k)) := sorry
 
 variable (E : Polynomial (WittVector p k)) (hE : E.Monic)
   (hEis : E.IsEisensteinAt (Ideal.span {(p : WittVector p k)}))
+    (hdeg : 0 < E.natDegree)
 
 theorem breuilKisin_I :
-    (breuilKisin p k E hE hEis).I = Ideal.span {(E : PowerSeries (WittVector p k))} := sorry
+    (breuilKisin p k E hE hEis hdeg).I = Ideal.span {(E : PowerSeries (WittVector p k))} := sorry
 
 theorem breuilKisin_phi_X :
-    (breuilKisin p k E hE hEis).φ PowerSeries.X = PowerSeries.X ^ p := sorry
+    (breuilKisin p k E hE hEis hdeg).φ PowerSeries.X = PowerSeries.X ^ p := sorry
 
 theorem breuilKisin_isBounded :
-    (breuilKisin p k E hE hEis).IsBounded ∧ (breuilKisin p k E hE hEis).IsOrientable := sorry
+    (breuilKisin p k E hE hEis hdeg).IsBounded ∧ (breuilKisin p k E hE hEis hdeg).IsOrientable := sorry
 
 -- breuil_kisin_not_perfect
-example : ¬ (breuilKisin p k E hE hEis).IsPerfect := sorry
+example : ¬ (breuilKisin p k E hE hEis hdeg).IsPerfect := sorry
 
 -- breuil_kisin_not_crystalline
-example (hdeg : 0 < E.natDegree) : ¬ (breuilKisin p k E hE hEis).IsCrystalline := sorry
+example : ¬ (breuilKisin p k E hE hEis hdeg).IsCrystalline := sorry
 
 end BreuilKisin
 
@@ -1639,6 +1775,30 @@ theorem Oriented.generator_mem_nonZeroDivisors {A : Type u} [CommRing A] (O : Or
 
 theorem Oriented.isOrientable {A : Type u} [CommRing A] (O : Oriented p A) :
     O.toPrism.IsOrientable := sorry
+
+/-- The oriented universal prism of BS22 Examples 2.21 and 3.4. Its underlying
+ring is the derived (p,d)-completion of the localized free δ-ring described in the packet. -/
+noncomputable def universalOriented :
+    Σ (A : Type u), Σ (_ : CommRing A), Oriented p A := sorry
+
+noncomputable instance universalOrientedCommRing :
+    CommRing (universalOriented.{u} p).1 := (universalOriented.{u} p).2.1
+
+noncomputable def universalOriented_lift {B : Type u} [CommRing B] (Q : Oriented p B) :
+    let U := universalOriented.{u} p
+    U.2.2.toPrism.Hom Q.toPrism := sorry
+
+theorem universalOriented_lift_generator {B : Type u} [CommRing B] (Q : Oriented p B) :
+    (universalOriented_lift p Q).toRingHom (universalOriented.{u} p).2.2.d = Q.d := by sorry
+
+theorem universalOriented_lift_unique {B : Type u} [CommRing B] (Q : Oriented p B)
+    (f : (universalOriented.{u} p).2.2.toPrism.Hom Q.toPrism)
+    (hf : f.toRingHom (universalOriented.{u} p).2.2.d = Q.d) :
+    f = universalOriented_lift p Q := by sorry
+
+-- distinguished_universal_not_p_multiple
+example : (universalOriented.{u} p).2.2.d ∉
+    Ideal.span {(p : (universalOriented.{u} p).1)} := by sorry
 
 -- oriented_padic
 example : ∃ O : Oriented p ℤ_[p], O.toPrism = padicInt p ∧ O.d = (p : ℤ_[p]) := sorry
@@ -1799,13 +1959,12 @@ Suggested signatures for the nodes of stage `PrismaticCohomology:PR.1` (Bhatt–
 *Prisms and prismatic cohomology*, Corollary 3.12 and §§4–6; Anschütz–Le Bras, Remark 3.1.8 and
 Lemma 5.1.6). The roadmap document is definitive; these statements only suggest Lean forms.
 
-Conventions. A prism is the structure `Prism p A` of the shared vocabulary, which does not record
-derived `(p, I)`-completeness; statements that need it say so. "`R` is `p`-completely smooth over
-`A / I`" is recorded as `SmoothModP`, as far as Mathlib can state it. Derived completed base
-change (`DerivedDeRhamCohomology:DD.1`), crystalline cohomology (`CrystallineCohomology:CR.2`) and
-the de Rham complex (`DerivedDeRhamCohomology:DD.2`) are not defined here: where a statement needs
-one of them it takes it as an explicit argument, named in the docstring. Global statements on the
-étale site of a formal scheme (`SchemeAndStackFoundations:SF.2`) are stated in their affine form. -/
+Conventions. `Prism p A` includes derived `(p,I)`-completeness. `SmoothModP`
+records complete flatness and smoothness after reduction modulo p. Imported completion,
+crystalline and de Rham constructions are canonical functions of the given rings and maps;
+their definitions and universal properties are owned by DD.1, CR.2 and DD.2 respectively.
+Global statements need the formal-scheme site from SF.4, with X_ét identified by X mod p
+through SF.2; their affine forms are prototyped here. -/
 
 namespace TauCeti.Prismatic.Site
 
@@ -1845,12 +2004,10 @@ def reductionMap {P : Prism p A} {Q : Prism p B} (f : P.Hom Q) :
     A ⧸ reductionIdeal P →+* B ⧸ (reductionIdeal P).map f.toRingHom :=
   Ideal.quotientMap _ f.toRingHom Ideal.le_comap_map
 
-/-- Node `PR.1/prismatic-structure-sheaf`: a map of prisms `(B, J) → (C, JC)` is a flat cover
-when `C` is `(p, J)`-completely faithfully flat over `B`. Recorded here: the reduction modulo
-`(p, J)` is faithfully flat. The vanishing of `Tor_i^B(B / (p, J), C)` for `i > 0`
-(`DerivedDeRhamCohomology:DD.1`, complete flatness) is not recorded. -/
-def IsFlatCover {P : Prism p A} {Q : Prism p B} (f : P.Hom Q) : Prop :=
-  (reductionMap f).FaithfullyFlat
+/-- A one-map flat cover has derived complete flatness and faithful flatness
+ after reduction. Covering families for the topology need not contain such a map. -/
+noncomputable def IsFlatCover {P : Prism p A} {Q : Prism p B} (f : P.Hom Q) : Prop :=
+  IsCompletelyFlat (reductionIdeal P) f.toRingHom ∧ (reductionMap f).FaithfullyFlat
 
 end Prisms
 
@@ -1888,6 +2045,35 @@ when it contains a flat cover. -/
 noncomputable def flatTopology (p : ℕ) [Fact p.Prime] :
     GrothendieckTopology (BoundedPrism.{u} p) := sorry
 
+/-- Joint flatness for a finite family is defined on the product map. -/
+noncomputable def IsFlatCoverFamily {X : BoundedPrism.{u} p} {ι : Type u} [Fintype ι]
+    (Y : ι → BoundedPrism.{u} p) (f : ∀ i, Y i ⟶ X) : Prop :=
+  let prodMap : X.carrier →+* (∀ i, (Y i).carrier) :=
+    { toFun := fun x i => ((prismHom (f i)).toRingHom x)
+      map_zero' := by sorry
+      map_one' := by sorry
+      map_add' := by sorry
+      map_mul' := by sorry }
+  IsCompletelyFlat (reductionIdeal X.prism) prodMap ∧
+    (Ideal.quotientMap ((reductionIdeal X.prism).map prodMap) prodMap
+      Ideal.le_comap_map).FaithfullyFlat
+
+theorem family_generate_mem_flatTopology {X : BoundedPrism.{u} p} {ι : Type u}
+    [Fintype ι] (Y : ι → BoundedPrism.{u} p) (f : ∀ i, Y i ⟶ X)
+    (hf : IsFlatCoverFamily Y f) :
+    Sieve.generate (Presieve.ofArrows Y f) ∈ flatTopology p X := by sorry
+
+-- pr1_empty_cover_zero_prism
+example (X : BoundedPrism.{u} p) [Subsingleton X.carrier] :
+    (⊥ : Sieve X) ∈ flatTopology p X := by sorry
+
+-- pr1_product_projection_family_covers
+example (X : BoundedPrism.{u} p) (Y : Fin 2 → BoundedPrism.{u} p)
+    (f : ∀ i, Y i ⟶ X)
+    (hprod : Function.Bijective
+      (fun x : X.carrier => fun i => (prismHom (f i)).toRingHom x)) :
+    Sieve.generate (Presieve.ofArrows Y f) ∈ flatTopology p X := by sorry
+
 /-- A flat cover generates a covering sieve. -/
 theorem generate_mem_flatTopology {X Y : BoundedPrism.{u} p} (f : Y ⟶ X)
     (hf : IsFlatCover (prismHom f)) :
@@ -1896,7 +2082,8 @@ theorem generate_mem_flatTopology {X Y : BoundedPrism.{u} p} (f : Y ⟶ X)
 /-- The pushout of a flat cover `(A, I) → (B, IB)` along a map `(A, I) → (C, IC)` of bounded
 prisms: `D` is the derived `(p, I)`-completion of `B ⊗^L_A C`. In the site it is the fibre
 product of `Y` and `Z` over `X`. -/
-noncomputable def pushout {X Y Z : BoundedPrism.{u} p} (f : Y ⟶ X) (g : Z ⟶ X) :
+noncomputable def pushout {X Y Z : BoundedPrism.{u} p} (f : Y ⟶ X) (g : Z ⟶ X)
+    (hf : IsFlatCover (prismHom f)) :
     BoundedPrism.{u} p := sorry
 
 /-- The structure presheaf `O : (B, J) ↦ B`. -/
@@ -1944,7 +2131,7 @@ example (X : BoundedPrism.{u} p) : IsFlatCover (BoundedPrism.prismHom (𝟙 X)) 
 -- pr1_flat_cover_base_change
 example {X Y Z : BoundedPrism.{u} p} (f : Y ⟶ X) (g : Z ⟶ X)
     (hf : IsFlatCover (BoundedPrism.prismHom f)) :
-    ∃ q : BoundedPrism.pushout f g ⟶ Z, IsFlatCover (BoundedPrism.prismHom q) := sorry
+    ∃ q : BoundedPrism.pushout f g hf ⟶ Z, IsFlatCover (BoundedPrism.prismHom q) := sorry
 
 -- pr1_non_flat_not_cover
 example {X Y : BoundedPrism.{u} p} (f : Y ⟶ X)
@@ -1996,9 +2183,9 @@ instance : Category (RelativePrism P R) where
   comp_id _ := Hom.ext' _ _ (Category.comp_id _)
   assoc _ _ _ := Hom.ext' _ _ (Category.assoc _ _ _)
 
-/-- Rigidity (Bhatt–Scholze, Lemma 3.5): the prism ideal of an object is `IB`. Completeness of
-both prisms, which the structure `Prism` does not record, is assumed in its classical
-`(p, I)`-adic form (valid for bounded prisms). -/
+/-- Rigidity (Bhatt–Scholze, Lemma 3.5): the prism ideal of an object is `IB`. The additional classical
+`(p,I)`-adic completeness hypotheses follow from boundedness; derived completeness
+is already recorded by `Prism`. -/
 theorem ideal_eq_map [IsAdicComplete (reductionIdeal P) A] (X : RelativePrism P R)
     [IsAdicComplete (reductionIdeal X.toBoundedPrism.prism) X.toBoundedPrism.carrier] :
     X.toBoundedPrism.prism.I = P.I.map X.structureMap.toRingHom := sorry
@@ -2083,12 +2270,23 @@ of `Tor_i^k(R, k / p)` for `i > 0`, part of complete smoothness
 structure SmoothModP (p : ℕ) (k R : Type u) [CommRing k] [CommRing R] [Algebra k R] : Prop where
   /-- `R` is `p`-adically complete. -/
   complete : IsAdicComplete (Ideal.span {(p : R)}) R
+  /-- Complete flatness includes vanishing of higher Tor after reduction. -/
+  flat : IsCompletelyFlat (Ideal.span {(p : k)}) (algebraMap k R)
   /-- `R / p` is smooth over `k / p`. -/
   smooth : Algebra.Smooth (k ⧸ Ideal.span {(p : k)}) ((k ⧸ Ideal.span {(p : k)}) ⊗[k] R)
 
 section Cohomology
 
 variable {A : Type u} [CommRing A] (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R]
+
+/-- DD.1 adapter: the canonical derived tensor product in D(A). The
+ commutative algebra enhancements, associativity and coherences belong to E5. -/
+noncomputable def derivedTensor (A : Type u) [CommRing A]
+    (K L : DerivedCategory (ModuleCat.{u} A)) : DerivedCategory (ModuleCat.{u} A) := sorry
+
+noncomputable def cohomologyCup :
+    derivedTensor A (prismaticCohomology P R) (prismaticCohomology P R) ⟶
+      prismaticCohomology P R := sorry
 
 /-- Node `PR.1/relative-prismatic-cohomology`: evaluation `Δ_{R/A} → B` at an object of
 `(R/A)_Δ`, in `D(A)`. -/
@@ -2148,6 +2346,13 @@ example (hb : P.IsBounded) (hR : SmoothModP p P.bar R)
       (hodgeTateCohomology P R)) := sorry
 
 /-! #### Weakly initial objects and Čech–Alexander complexes (Constructions 4.17–4.18) -/
+
+/-- Evaluation from the p-completed polynomial algebra, extending aeval.
+ The target is p-complete when this is used as a presentation. -/
+noncomputable def completedPolynomialEval (P : Prism p A) (R : Type u) [CommRing R]
+    [Algebra P.bar R] {S : Type u} (g : S → R) :
+    AdicCompletion (Ideal.span {(p : MvPolynomial S P.bar)})
+      (MvPolynomial S P.bar) →+* R := sorry
 
 /-- Node `PR.1/cech-alexander-complex`: the weakly initial object attached to a family
 `g : σ → R` generating `R`: with `B₀` the completed polynomial `A`-algebra on `σ` and
@@ -2272,12 +2477,13 @@ theorem prismaticCohomology_baseChange {B : Type u} [CommRing B] {Q : Prism p B}
     [Algebra P.bar Q.bar] (hf : algebraMap P.bar Q.bar = barMap f)
     (R' : Type u) [CommRing R'] [Algebra Q.bar R']
     (e : AdicCompletion (Ideal.span {(p : Q.bar ⊗[P.bar] R)}) (Q.bar ⊗[P.bar] R) ≃+* R')
-    (cbc : DerivedCategory (ModuleCat.{u} A) ⥤ DerivedCategory (ModuleCat.{u} B)) :
-    Nonempty (cbc.obj (prismaticCohomology P R) ≅ prismaticCohomology Q R') := sorry
+ :
+    Nonempty ((completedBaseChange f.toRingHom (reductionIdeal Q)).obj (prismaticCohomology P R) ≅ prismaticCohomology Q R') := sorry
 
 /-- Node `PR.1/p-torsion-free-h0-syntomic` (Anschütz–Le Bras, Lemma 5.1.6), stated here for
 `R` smooth; the source allows `p`-completely syntomic `R`. -/
-theorem zeroth_cohomology_pTorsionFree (hb : P.IsBounded) (hA : ∀ a : A, (p : A) * a = 0 → a = 0)
+theorem zeroth_cohomology_pTorsionFree (hb : P.IsBounded)
+    (hcovered : P.IsCrystalline ∨ P.IsPerfect) (hA : ∀ a : A, (p : A) * a = 0 → a = 0)
     (hR : SmoothModP p P.bar R)
     (x : (DerivedCategory.homologyFunctor (ModuleCat.{u} A) 0).obj (prismaticCohomology P R))
     (hx : (p : A) • x = 0) : x = 0 := sorry
@@ -2358,8 +2564,8 @@ theorem etaleLocalization (hb : P.IsBounded) (hR : SmoothModP p P.bar R) (S : Ty
     [Algebra P.bar S] [Algebra R S] [IsScalarTower P.bar R S]
     [IsAdicComplete (Ideal.span {(p : S)}) S]
     (het : Algebra.Etale (R ⧸ Ideal.span {(p : R)}) ((R ⧸ Ideal.span {(p : R)}) ⊗[R] S))
-    (cbc : DerivedCategory (ModuleCat.{u} R) ⥤ DerivedCategory (ModuleCat.{u} S)) :
-    Nonempty (cbc.obj (hodgeTateCohomology P R) ≅ hodgeTateCohomology P S) := sorry
+    (hflat : IsCompletelyFlat (Ideal.span {(p : R)}) (algebraMap R S)) :
+    Nonempty ((completedBaseChange (algebraMap R S) (Ideal.span {(p : S)})).obj (hodgeTateCohomology P R) ≅ hodgeTateCohomology P S) := sorry
 
 /-! #### The Bockstein differential (Construction 4.9) -/
 
@@ -2402,6 +2608,18 @@ noncomputable def eta0 : R →ₗ[R] twistedCohomology P R 0 := sorry
 /-- `η^1 : Ω^1_{R/(A/I)} → H^1(Δ̄_{R/A}){1}`, `f dg ↦ f β_I(g)`. -/
 noncomputable def eta1 : KaehlerDifferential P.bar R →ₗ[R] twistedCohomology P R 1 := sorry
 
+/-- DD.2 continuous differential forms: complete the algebraic exterior power.
+ For p-completely smooth R the completion is also H^0 of derived completion. -/
+abbrev ContinuousForms (i : ℕ) : Type u :=
+  AdicCompletion (Ideal.span {(p : R)}) (⋀[R]^i (KaehlerDifferential P.bar R))
+
+noncomputable def continuousComparisonMap (i : ℕ) :
+    ContinuousForms P R i →ₗ[R] twistedCohomology P R i := sorry
+
+noncomputable def continuousEta1 :
+    AdicCompletion (Ideal.span {(p : R)}) (KaehlerDifferential P.bar R) →ₗ[R]
+      twistedCohomology P R 1 := sorry
+
 -- pr1_bockstein_eta1_d
 example (g : R) :
     eta1 P R (KaehlerDifferential.D P.bar R g) = bockstein P R 0 (eta0 P R g) := sorry
@@ -2411,7 +2629,8 @@ example (hb : P.IsBounded) : bockstein P P.bar 0 = 0 := sorry
 
 -- pr1_bockstein_not_linear
 example (hb : P.IsBounded) (hR : SmoothModP p P.bar R) (g : R)
-    (hg : KaehlerDifferential.D P.bar R g ≠ 0) : bockstein P R 0 (eta0 P R g) ≠ 0 := sorry
+    (hg : AdicCompletion.of (Ideal.span {(p : R)})
+      (KaehlerDifferential P.bar R) (KaehlerDifferential.D P.bar R g) ≠ 0) : bockstein P R 0 (eta0 P R g) ≠ 0 := sorry
 
 /-! #### The Hodge–Tate comparison map and theorem -/
 
@@ -2461,7 +2680,7 @@ example (hb : P.IsBounded) (hR : SmoothModP p P.bar R) (g : R) :
 crystalline prism; its proof is the crystalline comparison and the Cartier isomorphism
 (`DerivedDeRhamCohomology:DD.3/polynomial-cartier-map`). -/
 theorem comparison_bijective_of_isCrystalline (hc : P.IsCrystalline) (hb : P.IsBounded)
-    (hR : SmoothModP p P.bar R) (i : ℕ) : Function.Bijective (comparisonMap P R i) := sorry
+    (hR : SmoothModP p P.bar R) (i : ℕ) : Function.Bijective (continuousComparisonMap P R i) := sorry
 
 /-- Node `PR.1/hodge-tate-affine-line` (Proposition 6.2): for `R = A / I⟨x⟩`, characterised by
 its universal property among `p`-complete `A / I`-algebras, `η^0` and `η^1` are bijective and
@@ -2469,13 +2688,13 @@ its universal property among `p`-complete `A / I`-algebras, `η^0` and `η^1` ar
 theorem affineLine (hb : P.IsBounded) (x : R) [IsAdicComplete (Ideal.span {(p : R)}) R]
     (hx : ∀ (B : Type u) [CommRing B] [Algebra P.bar B]
       [IsAdicComplete (Ideal.span {(p : B)}) B] (b : B), ∃! φ : R →ₐ[P.bar] B, φ x = b) :
-    Function.Bijective (eta0 P R) ∧ Function.Bijective (eta1 P R) ∧
+    Function.Bijective (eta0 P R) ∧ Function.Bijective (continuousEta1 P R) ∧
       ∀ i : ℤ, 1 < i → Limits.IsZero (cohomologyModule P R i) := sorry
 
 /-- Node `PR.1/hodge-tate-comparison` (Theorems 4.11 and 6.3): the Hodge–Tate comparison,
 `Ω^i_{R/(A/I)} ≅ H^i(Δ̄_{R/A}){i}`, for every bounded prism. There is no Frobenius twist. -/
 theorem comparison_bijective (hb : P.IsBounded) (hR : SmoothModP p P.bar R) (i : ℕ) :
-    Function.Bijective (comparisonMap P R i) := sorry
+    Function.Bijective (continuousComparisonMap P R i) := sorry
 
 end TauCeti.Prismatic.HodgeTate
 
@@ -2491,71 +2710,86 @@ universe u
 
 variable {p : ℕ} [Fact p.Prime] {A : Type u} [CommRing A] (P : Prism p A)
 
+/-- Frobenius between the indicated reductions in Construction 6.1. -/
+noncomputable def crystallizationReductionFrobenius (P : Prism p A) (d : A) :
+    (A ⧸ Ideal.span {(p : A), d}) →+*
+      (A ⧸ Ideal.span {(p : A), d^p}) := sorry
+
 section Crystallization
 
 variable (d : A) (hd : P.I = Ideal.span {d})
+    (htf : ∀ x : P.bar, (p : P.bar) * x = 0 → x = 0)
+    (hflat : (crystallizationReductionFrobenius P d).Flat)
 
 /-- Node `PR.1/crystallization-of-oriented-prism` (Construction 6.1): the bounded crystalline
 prism `(B, (p))`, `B = A{φ(d)/p}^∧`, attached to an oriented prism `(A, (d))` with `A / (d)`
-`p`-torsion-free and `A / (p, d) → A / (p, d^p)`, `x ↦ x^p`, flat. These two hypotheses are not
-recorded in the signature. -/
-noncomputable def crystallization (P : Prism p A) (d : A) (hd : P.I = Ideal.span {d}) :
+`p`-torsion-free and `A / (p, d) → A / (p, d^p)`, `x ↦ x^p`, flat. Both hypotheses are recorded in the signature. -/
+noncomputable def crystallization (P : Prism p A) (d : A) (hd : P.I = Ideal.span {d})
+    (htf : ∀ x : P.bar, (p : P.bar) * x = 0 → x = 0)
+    (hflat : (crystallizationReductionFrobenius P d).Flat) :
     BoundedPrism.{u} p := sorry
 
 /-- The canonical δ-map `A → B`. -/
-noncomputable def crystallizationCan : A →+* (crystallization P d hd).carrier := sorry
+noncomputable def crystallizationCan : A →+* (crystallization P d hd htf hflat).carrier := sorry
 
 /-- The map of prisms `α : (A, (d)) → (B, (p))`. -/
-noncomputable def crystallizationMap : P.Hom (crystallization P d hd).prism := sorry
+noncomputable def crystallizationMap : P.Hom (crystallization P d hd htf hflat).prism := sorry
 
 theorem crystallizationMap_apply (a : A) :
-    (crystallizationMap P d hd).toRingHom a = crystallizationCan P d hd (P.φ a) := sorry
+    (crystallizationMap P d hd htf hflat).toRingHom a = crystallizationCan P d hd htf hflat (P.φ a) := sorry
 
-theorem crystallization_isCrystalline : (crystallization P d hd).prism.IsCrystalline := sorry
+theorem crystallization_isCrystalline : (crystallization P d hd htf hflat).prism.IsCrystalline := sorry
 
 /-- `φ(d) = p · u` in `B` with `u` a unit (Bhatt–Scholze, Lemma 2.24). -/
 theorem crystallization_frobenius_unit :
-    ∃ u : ((crystallization P d hd).carrier)ˣ,
-      crystallizationCan P d hd (P.φ d) = (p : (crystallization P d hd).carrier) * u := sorry
+    ∃ u : ((crystallization P d hd htf hflat).carrier)ˣ,
+      crystallizationCan P d hd htf hflat (P.φ d) = (p : (crystallization P d hd htf hflat).carrier) * u := sorry
 
-/-- Property (3) of Construction 6.1: `α̂^* Δ_{R/A} ≃ Δ_{R_B/B}`. The completed base change
-functor `cbc` along `α` is data of `DerivedDeRhamCohomology:DD.1`; `R'` stands for the
-`p`-completed base change of `R`. -/
-theorem crystallization_cohomology (hb : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R]
-    (hR : SmoothModP p P.bar R) (R' : Type u) [CommRing R']
-    [Algebra (crystallization P d hd).prism.bar R'] (g : R →+* R')
-    (hg : g.comp (algebraMap P.bar R) =
-      (algebraMap (crystallization P d hd).prism.bar R').comp (barMap (crystallizationMap P d hd)))
-    (cbc : DerivedCategory (ModuleCat.{u} A) ⥤
-      DerivedCategory (ModuleCat.{u} (crystallization P d hd).carrier)) :
-    Nonempty (cbc.obj (prismaticCohomology P R) ≅
-      prismaticCohomology (crystallization P d hd).prism R') := sorry
+/-- Construction 6.1(3), on the specified completed algebra base change.
+The hypotheses identify the quotient structure map with the reduction of α. -/
+theorem crystallization_cohomology (R : Type u) [CommRing R] [Algebra P.bar R]
+    (hb : P.IsBounded) (hR : SmoothModP p P.bar R)
+    [Algebra P.bar (crystallization P d hd htf hflat).prism.bar]
+    (hf : algebraMap P.bar (crystallization P d hd htf hflat).prism.bar =
+      barMap (crystallizationMap P d hd htf hflat))
+    (R' : Type u) [CommRing R']
+    [Algebra (crystallization P d hd htf hflat).prism.bar R']
+    (e : AdicCompletion (Ideal.span {(p :
+      (crystallization P d hd htf hflat).prism.bar ⊗[P.bar] R)})
+      ((crystallization P d hd htf hflat).prism.bar ⊗[P.bar] R) ≃+* R') :
+    Nonempty ((completedBaseChange (crystallizationMap P d hd htf hflat).toRingHom
+      (reductionIdeal (crystallization P d hd htf hflat).prism)).obj
+      (prismaticCohomology P R) ≅
+      prismaticCohomology (crystallization P d hd htf hflat).prism R') := by sorry
 
 -- pr1_crystallization_alpha_d
-example : (crystallizationMap P d hd).toRingHom d ∈
-    Ideal.span {(p : (crystallization P d hd).carrier)} := sorry
+example : (crystallizationMap P d hd htf hflat).toRingHom d ∈
+    Ideal.span {(p : (crystallization P d hd htf hflat).carrier)} := sorry
 
 -- pr1_crystallization_alpha_eq
-example (a : A) : (crystallizationMap P d hd).toRingHom a =
-    crystallizationCan P d hd a ^ p + p * crystallizationCan P d hd (P.δ.delta a) := sorry
+example (a : A) : (crystallizationMap P d hd htf hflat).toRingHom a =
+    crystallizationCan P d hd htf hflat a ^ p + p * crystallizationCan P d hd htf hflat (P.δ.delta a) := sorry
 
 -- pr1_crystallization_can_not_prism_map
-example (htf : ∀ x : A ⧸ Ideal.span {d}, (p : A ⧸ Ideal.span {d}) * x = 0 → x = 0)
-    (h1 : (1 : A) ∉ Ideal.span {(p : A), d}) :
-    crystallizationCan P d hd d ∉ Ideal.span {(p : (crystallization P d hd).carrier)} := sorry
+example (h1 : (1 : A) ∉ Ideal.span {(p : A), d}) :
+    crystallizationCan P d hd htf hflat d ∉ Ideal.span {(p : (crystallization P d hd htf hflat).carrier)} := sorry
 
 end Crystallization
 
-/-- Node `PR.1/crystalline-comparison` (Theorem 5.2 with Remark 5.3, the case `I = (p)`): for a
+/- Node `PR.1/crystalline-comparison` (Theorem 5.2 with Remark 5.3, the case `I = (p)`): for a
 crystalline prism and `R` smooth over `A / p`, `φ_A^* Δ_{R/A} ≃ RΓ_crys(R/A)`. The completed
 Frobenius pullback `phiPullback` (`DerivedDeRhamCohomology:DD.1`) and the crystalline cohomology
 `crys` (`CrystallineCohomology:CR.2`) are taken as arguments. The scalar extension along `φ_A`
 is essential; equivalently `Δ_{R^{(1)}/A} ≃ RΓ_crys(R/A)`. -/
-theorem comparison (hc : P.IsCrystalline) (R : Type u) [CommRing R] [Algebra P.bar R]
-    (hR : Algebra.Smooth P.bar R)
-    (phiPullback : DerivedCategory (ModuleCat.{u} A) ⥤ DerivedCategory (ModuleCat.{u} A))
-    (crys : DerivedCategory (ModuleCat.{u} A)) :
-    Nonempty (phiPullback.obj (prismaticCohomology P R) ≅ crys) := sorry
+/-- CR.2 adapter: canonical p-completed crystalline cohomology, defined on
+ the crystalline site over the specified PD base (A,(p)). -/
+noncomputable def crystallineCohomology (R : Type u) [CommRing R] [Algebra P.bar R] :
+    DerivedCategory (ModuleCat.{u} A) := sorry
+
+theorem comparison (hc : P.IsCrystalline) (hb : P.IsBounded)
+    (R : Type u) [CommRing R] [Algebra P.bar R] (hR : SmoothModP p P.bar R) :
+    Nonempty ((completedBaseChange P.φ (reductionIdeal P)).obj
+      (prismaticCohomology P R) ≅ crystallineCohomology P R) := sorry
 
 end TauCeti.Prismatic.Crystalline
 
@@ -2571,17 +2805,20 @@ universe u
 
 variable {p : ℕ} [Fact p.Prime] {A : Type u} [CommRing A] (P : Prism p A)
 
-/-- Node `PR.1/de-rham-comparison` (Theorem 6.4): if `W(A / I)` is `p`-torsion-free, then
+/- Node `PR.1/de-rham-comparison` (Theorem 6.4): if `W(A / I)` is `p`-torsion-free, then
 `Δ_{R/A} ⊗̂^L_{A, φ_A} A / I ≃ Ω^*_{R/(A/I)}`. The Frobenius-twisted completed reduction
 `phiReduction` (`DerivedDeRhamCohomology:DD.1`) and the de Rham complex `deRham`
 (`DerivedDeRhamCohomology:DD.2`) are taken as arguments. The statement without the hypothesis on
 `W(A / I)` is `PrismaticCohomology:PR.3/de-rham-comparison-general`. -/
+/-- DD.2 adapter: the canonical p-completed de Rham complex of R over A/I. -/
+noncomputable def completedDeRham (R : Type u) [CommRing R] [Algebra P.bar R] :
+    DerivedCategory (ModuleCat.{u} P.bar) := sorry
+
 theorem comparison (hb : P.IsBounded)
     (hW : ∀ x : WittVector p P.bar, (p : WittVector p P.bar) * x = 0 → x = 0)
-    (R : Type u) [CommRing R] [Algebra P.bar R] (hR : SmoothModP p P.bar R)
-    (phiReduction : DerivedCategory (ModuleCat.{u} A) ⥤ DerivedCategory (ModuleCat.{u} P.bar))
-    (deRham : DerivedCategory (ModuleCat.{u} P.bar)) :
-    Nonempty (phiReduction.obj (prismaticCohomology P R) ≅ deRham) := sorry
+    (R : Type u) [CommRing R] [Algebra P.bar R] (hR : SmoothModP p P.bar R) :
+    Nonempty ((completedBaseChange ((Ideal.Quotient.mk P.I).comp P.φ)
+      (Ideal.span {(p : P.bar)})).obj (prismaticCohomology P R) ≅ completedDeRham P R) := sorry
 
 end TauCeti.Prismatic.DeRham
 
@@ -2620,23 +2857,43 @@ noncomputable def cohomology (P : Prism p A) (R : SimplicialObject (CommAlgCat.{
 noncomputable def map (P : Prism p A) {R S : SimplicialObject (CommAlgCat.{u} P.bar)}
     (f : R ⟶ S) : cohomology P R ⟶ cohomology P S := sorry
 
-theorem map_id (P : Prism p A) (R : SimplicialObject (CommAlgCat.{u} P.bar)) :
+theorem map_id (P : Prism p A) (hbounded : P.IsBounded) (R : SimplicialObject (CommAlgCat.{u} P.bar)) :
     map P (𝟙 R) = 𝟙 (cohomology P R) := sorry
 
-theorem map_comp (P : Prism p A) {R S T : SimplicialObject (CommAlgCat.{u} P.bar)}
+theorem map_comp (P : Prism p A) (hbounded : P.IsBounded) {R S T : SimplicialObject (CommAlgCat.{u} P.bar)}
     (f : R ⟶ S) (g : S ⟶ T) : map P (f ≫ g) = map P f ≫ map P g := sorry
 
 /-- The `φ_A`-semilinear Frobenius `φ_R : Δ_{R/A} ⟶ φ_{A,*} Δ_{R/A}`. -/
 noncomputable def frobenius (P : Prism p A) (R : SimplicialObject (CommAlgCat.{u} P.bar)) :
     cohomology P R ⟶ (frobeniusPushforward P).obj (cohomology P R) := sorry
 
-theorem frobenius_naturality (P : Prism p A) {R S : SimplicialObject (CommAlgCat.{u} P.bar)}
+theorem frobenius_naturality (P : Prism p A) (hbounded : P.IsBounded) {R S : SimplicialObject (CommAlgCat.{u} P.bar)}
     (f : R ⟶ S) :
     map P f ≫ frobenius P S = frobenius P R ≫ (frobeniusPushforward P).map (map P f) := sorry
 
 /-- Derived Hodge–Tate cohomology `Δ̄_{R/A} = Δ_{R/A} ⊗^L_A A / I`, as an object of `D(A / I)`. -/
 noncomputable def hodgeTate (P : Prism p A) (R : SimplicialObject (CommAlgCat.{u} P.bar)) :
     DerivedCategory (ModuleCat.{u} P.bar) := sorry
+
+/-- E5 adapter: the normalized complex of the underlying animated algebra.
+Its homotopy groups are the homology of this fixed complex. -/
+noncomputable def animatedAlgebraUnderlying (P : Prism p A)
+    (R : SimplicialObject (CommAlgCat.{u} P.bar)) :
+    DerivedCategory (ModuleCat.{u} P.bar) := sorry
+
+/-- The canonical map R→Δ̄, including animated input. -/
+noncomputable def hodgeTateUnit (P : Prism p A)
+    (R : SimplicialObject (CommAlgCat.{u} P.bar)) :
+    animatedAlgebraUnderlying P R ⟶ hodgeTate P R := sorry
+
+/-- Agreement of the animated and discrete Hodge–Tate carriers, after
+restricting the R-module structure to A/I. -/
+noncomputable def hodgeTate_const (P : Prism p A) (hb : P.IsBounded)
+    (R : Type u) [CommRing R] [Algebra P.bar R] :
+    hodgeTate P ((SimplicialObject.const (CommAlgCat.{u} P.bar)).obj
+      (CommAlgCat.of P.bar R)) ≅
+      (ModuleCat.restrictScalars (algebraMap P.bar R)).mapDerivedCategory.obj
+        (hodgeTateCohomology P R) := sorry
 
 /-- The unit `A ⟶ Δ_{R/A}`. -/
 noncomputable def unit (P : Prism p A) (R : SimplicialObject (CommAlgCat.{u} P.bar)) :
@@ -2651,31 +2908,39 @@ noncomputable def constIso (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.
       prismaticCohomology P R := sorry
 
 -- pr2_derived_base_ring
-example (P : Prism p A) :
+example (P : Prism p A) (hbounded : P.IsBounded) :
     Nonempty (prismaticCohomology P P.bar ≅
       (DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A A)) := sorry
 
 -- pr2_derived_const_agrees
-example (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] :
+example (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R] :
     Nonempty (cohomology P
       ((SimplicialObject.const (CommAlgCat.{u} P.bar)).obj (CommAlgCat.of P.bar R)) ≅
       prismaticCohomology P R) := sorry
 
 -- pr2_derived_product
-example (P : Prism p A) :
+example (P : Prism p A) (hbounded : P.IsBounded) :
     Nonempty (prismaticCohomology P (P.bar × P.bar) ≅
       (DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A (A × A))) := sorry
 
 -- pr2_derived_not_pi0_invariant
-example (P : Prism p A) [Nontrivial P.bar] :
+example (P : Prism p A) (hbounded : P.IsBounded) [Nontrivial P.bar] :
     ∃ R : SimplicialObject (CommAlgCat.{u} P.bar),
       ¬ Limits.IsZero
         ((DerivedCategory.homologyFunctor (ModuleCat.{u} P.bar) (-1)).obj (hodgeTate P R)) := sorry
 
--- pr2_derived_frobenius_natural_id
-example (P : Prism p A) (R : SimplicialObject (CommAlgCat.{u} P.bar)) :
-    map P (𝟙 R) ≫ frobenius P R =
-      frobenius P R ≫ (frobeniusPushforward P).map (map P (𝟙 R)) := sorry
+/-- φ_A on the degree-zero ring, with restriction along φ on its target. -/
+noncomputable def prismaticBaseFrobenius (P : Prism p A) :
+    (DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A A) ⟶
+      (frobeniusPushforward P).obj
+        ((DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A A)) := sorry
+
+-- pr2_derived_frobenius_base_value
+example (P : Prism p A) (hbounded : P.IsBounded) :
+    ∃ e : prismaticCohomology P P.bar ≅
+      (DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A A),
+      prismaticFrobenius P P.bar ≫ (frobeniusPushforward P).map e.hom =
+        e.hom ≫ prismaticBaseFrobenius P := by sorry
 
 /-! ### Node `PR.2/conjugate-filtration` -/
 
@@ -2690,10 +2955,10 @@ noncomputable def conjFil (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.b
 noncomputable def conjFilMap (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R]
     {i j : ℕ} (h : i ≤ j) : conjFil P R i ⟶ conjFil P R j := sorry
 
-theorem conjFilMap_refl (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] (i : ℕ) :
+theorem conjFilMap_refl (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R] (i : ℕ) :
     conjFilMap P R (le_refl i) = 𝟙 (conjFil P R i) := sorry
 
-theorem conjFilMap_trans (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R]
+theorem conjFilMap_trans (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R]
     {i j k : ℕ} (h : i ≤ j) (h' : j ≤ k) :
     conjFilMap P R h ≫ conjFilMap P R h' = conjFilMap P R (h.trans h') := sorry
 
@@ -2701,7 +2966,7 @@ theorem conjFilMap_trans (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.ba
 noncomputable def conjFilι (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] (i : ℕ) :
     conjFil P R i ⟶ hodgeTateCohomology P R := sorry
 
-theorem conjFilMap_ι (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R]
+theorem conjFilMap_ι (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R]
     {i j : ℕ} (h : i ≤ j) : conjFilMap P R h ≫ conjFilι P R j = conjFilι P R i := sorry
 
 /-- `Fil_0^conj Δ̄_{R/A} = R`. -/
@@ -2713,22 +2978,41 @@ noncomputable def conjFilZeroIso (P : Prism p A) (R : Type u) [CommRing R] [Alge
 noncomputable def conjGr (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] (i : ℕ) :
     DerivedCategory (ModuleCat.{u} R) := sorry
 
+/-- DD.1 adapter: the completed derived tensor over the specified ring R. -/
+noncomputable def completedDerivedTensor (R : Type u) [CommRing R]
+    (K L : DerivedCategory (ModuleCat.{u} R)) :
+    DerivedCategory (ModuleCat.{u} R) := sorry
+
+/-- Multiplication on the conjugate filtration. -/
+noncomputable def conjFilCup (P : Prism p A) (hb : P.IsBounded)
+    (R : Type u) [CommRing R] [Algebra P.bar R] (i j : ℕ) :
+    completedDerivedTensor R (conjFil P R i) (conjFil P R j) ⟶
+      conjFil P R (i+j) := sorry
+
+/-- The positive-index cofibre sequences; Fil_{−1}=0 supplies gr₀=Fil₀. -/
+theorem conjFil_cofiber (P : Prism p A) (hb : P.IsBounded)
+    (R : Type u) [CommRing R] [Algebra P.bar R] (i : ℕ) :
+    ∃ (g : conjFil P R (i+1) ⟶ conjGr P R (i+1))
+      (h : conjGr P R (i+1) ⟶ (conjFil P R i)⟦(1 : ℤ)⟧),
+      Pretriangulated.Triangle.mk (conjFilMap P R (Nat.le_succ i)) g h ∈
+        distTriang (DerivedCategory (ModuleCat.{u} R)) := by sorry
+
 -- pr2_conj_fil_zero
-example (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] :
+example (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R] :
     Nonempty (conjFil P R 0 ≅
       (DerivedCategory.singleFunctor (ModuleCat.{u} R) 0).obj (ModuleCat.of R R)) := sorry
 
 -- pr2_conj_fil_base
-example (P : Prism p A) (i : ℕ) : IsIso (conjFilι P P.bar i) := sorry
+example (P : Prism p A) (hbounded : P.IsBounded) (i : ℕ) : IsIso (conjFilι P P.bar i) := sorry
 
 -- pr2_conj_fil_smooth_truncation
-example (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] [Algebra.Smooth P.bar R]
+example (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R] [Algebra.Smooth P.bar R]
     (i : ℕ) (n : ℤ) (hn : (i : ℤ) < n) :
     Limits.IsZero
       ((DerivedCategory.homologyFunctor (ModuleCat.{u} R) n).obj (conjFil P R i)) := sorry
 
 -- pr2_conj_fil_not_postnikov
-example (P : Prism p A) (f : P.bar) (hf : f ∈ nonZeroDivisors P.bar)
+example (P : Prism p A) (hbounded : P.IsBounded) (f : P.bar) (hf : f ∈ nonZeroDivisors P.bar)
     [Nontrivial (P.bar ⧸ Ideal.span {f})]
     (hb : ∃ n : ℕ, ∀ x : P.bar ⧸ Ideal.span {f},
       (∃ m : ℕ, (p : P.bar ⧸ Ideal.span {f}) ^ m * x = 0) →
@@ -2737,23 +3021,17 @@ example (P : Prism p A) (f : P.bar) (hf : f ∈ nonZeroDivisors P.bar)
 
 /-! ### Node `PR.2/derived-hodge-tate-comparison` -/
 
-/-- Imported data: the derived `p`-completed derived exterior powers of the cotangent complex
-of `R` over `A / I`. -/
-structure CotangentPowers (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] where
-  /-- `(∧^i L_{R/(A/I)})^∧` as an object of `D(R)`; owned by DerivedDeRhamCohomology DD.0
-  (cotangent complex, derived exterior powers) and DD.1 (derived completion). -/
-  wedge : ℕ → DerivedCategory (ModuleCat.{u} R)
+/-- DD.0/DD.1 adapter: the canonical completed derived exterior powers
+ of L_(R/(A/I)); no arbitrary object is admitted in place of this complex. -/
+noncomputable def completedCotangentPower (P : Prism p A) (R : Type u) [CommRing R]
+    [Algebra P.bar R] (i : ℕ) : DerivedCategory (ModuleCat.{u} R) := sorry
 
-/-- The derived Hodge–Tate comparison for an orientable prism, where a generator of `I`
-trivialises the Breuil–Kisin twists: `gr_i^conj Δ̄_{R/A} ≃ (∧^i L_{R/(A/I)})^∧[-i]`. The
-statement is about the field `wedge` when it is the object its docstring names. -/
-theorem conjGr_iso_cotangentPowers (P : Prism p A) (hP : P.IsOrientable) (R : Type u) [CommRing R]
-    [Algebra P.bar R] (L : CotangentPowers P R) (i : ℕ) :
-    Nonempty (conjGr P R i ≅
-      (shiftFunctor (DerivedCategory (ModuleCat.{u} R)) (-(i : ℤ))).obj (L.wedge i)) := sorry
+theorem conjGr_iso_cotangentPowers (P : Prism p A) (hb : P.IsBounded)
+    (hP : P.IsOrientable) (R : Type u) [CommRing R] [Algebra P.bar R] (i : ℕ) :
+    Nonempty (conjGr P R i ≅ (completedCotangentPower P R i)⟦(-(i : ℤ))⟧) := sorry
 
 /-- The last step of consequence (b): if `Δ̄_{R/A}` is discrete then so is `Δ_{R/A}`. -/
-theorem discrete_of_hodgeTate_discrete (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R]
+theorem discrete_of_hodgeTate_discrete (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R]
     (h : ∀ n : ℤ, n ≠ 0 → Limits.IsZero
       ((DerivedCategory.homologyFunctor (ModuleCat.{u} R) n).obj (hodgeTateCohomology P R)))
     (n : ℤ) (hn : n ≠ 0) :
@@ -2780,14 +3058,14 @@ noncomputable def toPrism (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.b
     prismaticCohomology P R ⟶
       (DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A B) := sorry
 
-theorem toPrism_frobenius (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R]
+theorem toPrism_frobenius (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R]
     [Algebra A R] [IsScalarTower A P.bar R] {B : Type u} [CommRing B] [Algebra A B]
     (Q : Prism p B) (hδ : IsDeltaHom p P.δ Q.δ (algebraMap A B))
     (hI : P.I.map (algebraMap A B) ≤ Q.I) (g : R →ₐ[A] B ⧸ Q.I) :
     toPrism P R Q hδ hI g ≫ prismFrobeniusMap P Q hδ =
       prismaticFrobenius P R ≫ (frobeniusPushforward P).map (toPrism P R Q hδ hI g) := sorry
 
-theorem toPrism_naturality (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R]
+theorem toPrism_naturality (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R]
     [Algebra A R] [IsScalarTower A P.bar R] {B B' : Type u} [CommRing B] [Algebra A B]
     [CommRing B'] [Algebra A B'] (Q : Prism p B) (Q' : Prism p B')
     (hδ : IsDeltaHom p P.δ Q.δ (algebraMap A B)) (hδ' : IsDeltaHom p P.δ Q'.δ (algebraMap A B'))
@@ -2807,23 +3085,31 @@ noncomputable def siteCohomology (P : Prism p A) (R : Type u) [CommRing R] [Alge
 noncomputable def toSite (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] :
     prismaticCohomology P R ⟶ siteCohomology P R := sorry
 
-theorem toSite_isIso_of_smooth (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R]
+theorem toSite_isIso_of_smooth (P : Prism p A) (hbounded : P.IsBounded) (R : Type u) [CommRing R] [Algebra P.bar R]
     [Algebra.Smooth P.bar R] : IsIso (toSite P R) := sorry
 
+-- pr2_evaluation_base_identity
+example (P : Prism p A) (hb : P.IsBounded)
+    (hδ : IsDeltaHom p P.δ P.δ (algebraMap A A))
+    (hI : P.I.map (algebraMap A A) ≤ P.I) :
+    ∃ e : prismaticCohomology P P.bar ≅
+      (DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A A),
+      toPrism P P.bar P hδ hI (AlgHom.id A (A ⧸ P.I)) = e.hom := by sorry
+
 -- pr2_to_prism_base
-example (P : Prism p A) (hδ : IsDeltaHom p P.δ P.δ (algebraMap A A))
+example (P : Prism p A) (hbounded : P.IsBounded) (hδ : IsDeltaHom p P.δ P.δ (algebraMap A A))
     (hI : P.I.map (algebraMap A A) ≤ P.I) :
     IsIso (toPrism P P.bar P hδ hI (AlgHom.id A (A ⧸ P.I))) := sorry
 
 -- pr2_to_site_smooth
-example (P : Prism p A) : IsIso (toSite P (P.bar × P.bar)) := sorry
+example (P : Prism p A) (hbounded : P.IsBounded) : IsIso (toSite P (P.bar × P.bar)) := sorry
 
 -- pr2_to_site_not_iso
-example (P : Prism p A) [Nontrivial P.bar] :
+example (P : Prism p A) (hbounded : P.IsBounded) [Nontrivial P.bar] :
     ∃ R : SimplicialObject (CommAlgCat.{u} P.bar), ¬ (hodgeTate P R).IsGE 0 := sorry
 
 -- pr2_to_prism_frobenius_base
-example (P : Prism p A) (hδ : IsDeltaHom p P.δ P.δ (algebraMap A A))
+example (P : Prism p A) (hbounded : P.IsBounded) (hδ : IsDeltaHom p P.δ P.δ (algebraMap A A))
     (hI : P.I.map (algebraMap A A) ≤ P.I) :
     toPrism P P.bar P hδ hI (AlgHom.id A (A ⧸ P.I)) ≫ prismFrobeniusMap P P hδ =
       prismaticFrobenius P P.bar ≫
@@ -2856,7 +3142,7 @@ of bounded `p^∞`-torsion. The identification with the prismatic envelope and i
 stated in the roadmap; they need derived completion (DD.1) and the envelope of PR.0. The same
 conclusion for a quasiregular semiperfectoid `S` (Proposition 7.10) needs the predicate of
 DerivedDeRhamCohomology DD.5. -/
-theorem regularQuotient_discrete (P : Prism p A) (fs : List P.bar)
+theorem regularQuotient_discrete (P : Prism p A) (hbounded : P.IsBounded) (fs : List P.bar)
     (hreg : RingTheory.Sequence.IsRegular P.bar fs)
     (hb : ∃ n : ℕ, ∀ x : P.bar ⧸ Ideal.ofList fs,
       (∃ m : ℕ, (p : P.bar ⧸ Ideal.ofList fs) ^ m * x = 0) →
@@ -2867,7 +3153,7 @@ theorem regularQuotient_discrete (P : Prism p A) (fs : List P.bar)
 
 /-- In the same situation the comparison map to the cohomology of the prismatic site is an
 isomorphism: `Δ_{R/A}` is the initial object of `(R/A)_Δ`. -/
-theorem regularQuotient_toSite_isIso (P : Prism p A) (fs : List P.bar)
+theorem regularQuotient_toSite_isIso (P : Prism p A) (hbounded : P.IsBounded) (fs : List P.bar)
     (hreg : RingTheory.Sequence.IsRegular P.bar fs)
     (hb : ∃ n : ℕ, ∀ x : P.bar ⧸ Ideal.ofList fs,
       (∃ m : ℕ, (p : P.bar ⧸ Ideal.ofList fs) ^ m * x = 0) →
@@ -2905,14 +3191,14 @@ noncomputable def toPerfection (P : Prism p A) (S : Type u) [CommRing S] [Algebr
     prismaticCohomology P S ⟶ perfection P S := sorry
 
 /-- The Frobenius of the perfection is an isomorphism `Δ_{S/A,perf} ≃ φ_{A,*} Δ_{S/A,perf}`. -/
-noncomputable def perfectionFrobenius (P : Prism p A) (S : Type u) [CommRing S]
+noncomputable def perfectionFrobenius (P : Prism p A) (hP : P.IsPerfect) (S : Type u) [CommRing S]
     [Algebra P.bar S] : perfection P S ≅ (frobeniusPushforward P).obj (perfection P S) := sorry
 
-theorem toPerfection_frobenius (P : Prism p A) (S : Type u) [CommRing S] [Algebra P.bar S] :
-    toPerfection P S ≫ (perfectionFrobenius P S).hom =
+theorem toPerfection_frobenius (P : Prism p A) (hbounded : P.IsBounded) (hP : P.IsPerfect) (S : Type u) [CommRing S] [Algebra P.bar S] :
+    toPerfection P S ≫ (perfectionFrobenius P hP S).hom =
       prismaticFrobenius P S ≫ (frobeniusPushforward P).map (toPerfection P S) := sorry
 
-theorem isIso_toPerfection (P : Prism p A) (S : Type u) [CommRing S] [Algebra P.bar S]
+theorem isIso_toPerfection (P : Prism p A) (hbounded : P.IsBounded) (hP : P.IsPerfect) (S : Type u) [CommRing S] [Algebra P.bar S]
     (h : IsIso (prismaticFrobenius P S)) : IsIso (toPerfection P S) := sorry
 
 /-- The map `S ⟶ S_perfd` in `D(A / I)`. -/
@@ -2920,33 +3206,49 @@ noncomputable def fromRing (P : Prism p A) (S : Type u) [CommRing S] [Algebra P.
     (DerivedCategory.singleFunctor (ModuleCat.{u} P.bar) 0).obj (ModuleCat.of P.bar S) ⟶
       perfectoidization P S := sorry
 
+/-- Functoriality at the fixed perfect base. -/
+noncomputable def perfectionMap (P : Prism p A) (hb : P.IsBounded) (hP : P.IsPerfect)
+    {S T : Type u} [CommRing S] [CommRing T] [Algebra P.bar S] [Algebra P.bar T]
+    (f : S →ₐ[P.bar] T) : perfection P S ⟶ perfection P T := sorry
+
+noncomputable def perfectoidizationMap (P : Prism p A) (hb : P.IsBounded) (hP : P.IsPerfect)
+    {S T : Type u} [CommRing S] [CommRing T] [Algebra P.bar S] [Algebra P.bar T]
+    (f : S →ₐ[P.bar] T) : perfectoidization P S ⟶ perfectoidization P T := sorry
+
+/-- The reduction of the completed perfection, with the canonical scalar extension. -/
+noncomputable def perfectoidization_reduction (P : Prism p A) (hb : P.IsBounded)
+    (hP : P.IsPerfect) (S : Type u) [CommRing S] [Algebra P.bar S] :
+    perfectoidization P S ≅
+      (completedBaseChange (Ideal.Quotient.mk P.I)
+        (Ideal.span {(p : P.bar)})).obj (perfection P S) := sorry
+
 -- pr2_perfection_base
-example (P : Prism p A) (hP : P.IsPerfect) : IsIso (toPerfection P P.bar) := sorry
+example (P : Prism p A) (hbounded : P.IsBounded) (hP : P.IsPerfect) : IsIso (toPerfection P P.bar) := sorry
 
 -- pr2_perfectoidization_base
-example (P : Prism p A) (hP : P.IsPerfect) :
+example (P : Prism p A) (hbounded : P.IsBounded) (hP : P.IsPerfect) :
     Nonempty (perfectoidization P P.bar ≅
       (DerivedCategory.singleFunctor (ModuleCat.{u} P.bar) 0).obj (ModuleCat.of P.bar P.bar)) :=
   sorry
 
 -- pr2_perfectoidization_char_p_discrete
-example (P : Prism p A) (hP : P.IsPerfect) (hc : P.IsCrystalline) (n : ℤ) (hn : n ≠ 0) :
+example (P : Prism p A) (hbounded : P.IsBounded) (hP : P.IsPerfect) (hc : P.IsCrystalline) (n : ℤ) (hn : n ≠ 0) :
     Limits.IsZero ((DerivedCategory.homologyFunctor (ModuleCat.{u} P.bar) n).obj
       (perfectoidization P (Polynomial P.bar))) := sorry
 
 -- pr2_perfection_not_prismatic
-example (P : Prism p A) (hP : P.IsPerfect) (hc : P.IsCrystalline) [Nontrivial P.bar] :
+example (P : Prism p A) (hbounded : P.IsBounded) (hP : P.IsPerfect) (hc : P.IsCrystalline) [Nontrivial P.bar] :
     ¬ IsIso (toPerfection P (Polynomial P.bar)) := sorry
 
 /-! ### Node `PR.2/perfectoidization-coconnective` (Bhatt–Scholze, Lemma 8.4) -/
 
 /-- `Δ_{S/A,perf}` lies in `D^{≥ 0}` for a perfect prism. The proof imports the operation
 `P^0` on `E_∞`-`F_p`-algebras. -/
-theorem perfection_isGE (P : Prism p A) (hP : P.IsPerfect) (S : Type u) [CommRing S]
+theorem perfection_isGE (P : Prism p A) (hbounded : P.IsBounded) (hP : P.IsPerfect) (S : Type u) [CommRing S]
     [Algebra P.bar S] : (perfection P S).IsGE 0 := sorry
 
 /-- `S_perfd` lies in `D^{≥ 0}` for a perfect prism. -/
-theorem perfectoidization_isGE (P : Prism p A) (hP : P.IsPerfect) (S : Type u) [CommRing S]
+theorem perfectoidization_isGE (P : Prism p A) (hbounded : P.IsBounded) (hP : P.IsPerfect) (S : Type u) [CommRing S]
     [Algebra P.bar S] : (perfectoidization P S).IsGE 0 := sorry
 
 /-! ### Node `PR.2/connective-perfectoidization-perfectoid` (Bhatt–Scholze, Corollary 8.14)
@@ -2954,7 +3256,7 @@ theorem perfectoidization_isGE (P : Prism p A) (hP : P.IsPerfect) (S : Type u) [
 The part statable without the perfectoid predicate (PerfectoidQuotients Q0): if `S_perfd` is
 connective then it and `Δ_{S/A,perf}` are discrete. That `S_perfd` is then a perfectoid ring
 and universal, and Proposition 8.13 (symmetric monoidality), are stated in the roadmap. -/
-theorem perfection_discrete_of_connective (P : Prism p A) (hP : P.IsPerfect) (S : Type u)
+theorem perfection_discrete_of_connective (P : Prism p A) (hbounded : P.IsBounded) (hP : P.IsPerfect) (S : Type u)
     [CommRing S] [Algebra P.bar S] (h : (perfectoidization P S).IsLE 0) (n : ℤ) (hn : n ≠ 0) :
     Limits.IsZero
       ((DerivedCategory.homologyFunctor (ModuleCat.{u} A) n).obj (perfection P S)) := sorry
@@ -2964,8 +3266,8 @@ end TauCeti.Prismatic.Perfection
 
 /-! ## PR.3. Nygaard filtration, divided Frobenius and twists
 
-Suggested signatures for the layer `PrismaticCohomology:PR.3`. Derived (p, I)-completeness of
-prisms (DD.1) is not a field of `Prism`; statements that need it say so. Objects of other
+Suggested signatures for the layer `PrismaticCohomology:PR.3`. Derived (p, I)-completeness is a field of Prism; the DD.1 adapter uses the
+localization-orthogonality criterion in the preamble. Objects of other
 layers (the conjugate filtration, `Lη`, de Rham complexes, completed base change) enter as
 fields of structures of imported data, each field naming its owner. -/
 
@@ -3016,6 +3318,15 @@ divisible by `p`. -/
 theorem IsTransversal.cotangent_transition (h : IsTransversal P) (r : ℕ) (y : Ir P (r + 1)) :
     ∃ z : (Ir P r).Cotangent,
       (Ir P r).toCotangent ⟨y, Ir_succ_le P r y.2⟩ = (p : A) • z := by sorry
+
+/-- The divided inclusion on the cotangent lines. -/
+noncomputable def cotangentTransition (h : IsTransversal P) (r : ℕ) (hr : 0 < r) :
+    (Ir P (r+1)).Cotangent →ₗ[A] (Ir P r).Cotangent := sorry
+
+theorem cotangentTransition_spec (h : IsTransversal P) (r : ℕ) (hr : 0 < r)
+    (y : Ir P (r+1)) :
+    (p : A) • cotangentTransition P h r hr ((Ir P (r+1)).toCotangent y) =
+      (Ir P r).toCotangent ⟨y, Ir_succ_le P r y.2⟩ := by sorry
 
 /-- Bhatt–Lurie Remark 2.2.4. -/
 theorem Ir_map {B : Type u} [CommRing B] {Q : Prism p B} (f : P.Hom Q) (r : ℕ) :
@@ -3072,6 +3383,16 @@ noncomputable def twistFrobeniusMap : (twist P) →+ (Module.Dual A P.I ⊗[A] t
 theorem twistFrobeniusMap_smul (a : A) (x : twist P) :
     twistFrobeniusMap P (a • x) = P.φ a • twistFrobeniusMap P x := by sorry
 
+/-- The integer tensor powers I^n, with dual powers for n<0 (DD.1). -/
+noncomputable def idealPowModule (P : Prism p A) (n : ℤ) : ModuleCat.{u} A := sorry
+
+/-- Frobenius on every Breuil–Kisin tensor power, including negative powers. -/
+noncomputable def twistPowFrobeniusMap (n : ℤ) :
+    twistPow P n →+ (idealPowModule P (-n) ⊗[A] twistPow P n) := sorry
+
+theorem twistPowFrobeniusMap_smul (n : ℤ) (a : A) (x : twistPow P n) :
+    twistPowFrobeniusMap P n (a • x) = P.φ a • twistPowFrobeniusMap P n x := by sorry
+
 /-- On modules killed by `I` the twist is the Bhatt–Scholze twist by `I / I²`. -/
 noncomputable def twistModule_of_bar (M : Type u) [AddCommGroup M] [Module A M]
     (hM : ∀ a ∈ P.I, ∀ x : M, a • x = 0) :
@@ -3101,6 +3422,12 @@ theorem transversal_lift (h : IsTransversal P) (y : ∀ r : ℕ, Ir P r)
     (hy : ∀ r, (Ir P r).toCotangent ⟨y (r + 1), Ir_succ_le P r (y (r + 1)).2⟩ =
       (p : A) • (Ir P r).toCotangent (y r)) :
     ∃! x : twist P, ∀ r, transversalProj P h r x = (Ir P r).toCotangent (y r) := by sorry
+
+/-- Compatibility of the twist projections with the divided transitions. -/
+theorem transversalTwist_projection (h : IsTransversal P) (r : ℕ) (hr : 0 < r)
+    (x : twist P) :
+    transversalProj P h r x =
+      cotangentTransition P h r hr (transversalProj P h (r+1) x) := by sorry
 
 -- pr3_bk_transversal_proj_one
 example (h : IsTransversal P) : Function.Surjective (transversalProj P h 1) ∧
@@ -3306,6 +3633,33 @@ noncomputable def completionFrobenius [IsAdicComplete P.I B] : completion P →+
 theorem completionFrobenius_toCompletion [IsAdicComplete P.I B] (x : B) :
     completionFrobenius P (toCompletion P x) = P.φ x := by sorry
 
+/-- The divided Frobenius on the completed Nygaard levels. -/
+noncomputable def completionDividedFrobenius [IsAdicComplete P.I B]
+    (d : B) (hd : P.I = Ideal.span {d}) (i : ℕ) : completionFil P i →+ B := sorry
+
+theorem completionDividedFrobenius_spec [IsAdicComplete P.I B]
+    (d : B) (hd : P.I = Ideal.span {d}) (i : ℕ) (x : completionFil P i) :
+    d ^ i * completionDividedFrobenius P d hd i x = completionFrobenius P x := by sorry
+
+/-- Node delta-nygaard-continuity: the estimate loses one filtration step. -/
+theorem delta_mem_fil (i : ℕ) (x : B) (hx : x ∈ fil P (i+1)) :
+    P.δ.delta x ∈ fil P i := by sorry
+
+/-- δ on the Nygaard completion is obtained using the Nygaard and (p,I) estimates.
+It is not an application of an adic-completion theorem to one Nygaard ideal. -/
+noncomputable def completionDelta
+    [IsAdicComplete (P.I ⊔ Ideal.span {(p : B)}) B] :
+    Delta.Structure p (completion P) := sorry
+
+theorem completionDelta_toCompletion
+    [IsAdicComplete (P.I ⊔ Ideal.span {(p : B)}) B] (x : B) :
+    (completionDelta P).delta (toCompletion P x) = toCompletion P (P.δ.delta x) := by sorry
+
+/-- Under I-adic separatedness, the intersection of Nygaard ideals is ker φ.
+For qrsp charts the required separatedness follows from their bounded prism. -/
+theorem intersection_fil (hI : (⨅ i : ℕ, P.I ^ i) = ⊥) :
+    (⨅ i : ℕ, fil P i) = RingHom.ker P.φ := by sorry
+
 /-- `B` is Nygaard-complete when `c : B → B̂` is bijective. -/
 def IsNygaardComplete : Prop := Function.Bijective (toCompletion P)
 
@@ -3342,35 +3696,27 @@ theorem qNumber_mul {R : Type*} [CommRing R] (q : R) (i n : ℕ) :
 
 /-! ### Graded pieces on a quasiregular semiperfectoid ring -/
 
-/-- Imported data of a quasiregular semiperfectoid ring `S` (owner: PR.2, nodes `qrsp-prism` and
-`derived-hodge-tate-comparison`). -/
-structure QrspData (p : ℕ) [Fact p.Prime] (S : Type u) [CommRing S] where
-  /-- The ring `Δ_S` underlying the initial prism of `S` (PR.2). -/
-  D : Type u
-  /-- Its ring structure (PR.2). -/
-  [commRing : CommRing D]
-  /-- The prism `(Δ_S, I Δ_S)` (PR.2). -/
-  prism : Prism p D
-  /-- The structure map `S → Δ̄_S` (PR.2). -/
-  toBar : S →+* D ⧸ prism.I
-  /-- The conjugate filtration `Fil_i Δ̄_S` relative to a perfectoid ring mapping to `S` (PR.2). -/
-  conj : ℕ → AddSubgroup (D ⧸ prism.I)
+/-! The general qrsp graded-piece theorem requires the DD.5 predicate and
+canonical initial-prism ring structure. Its full signature is deferred until
+those carriers are available. The following anchor is the regular-quotient
+case of Example 7.9, a concrete subclass, rather than arbitrary imported data. -/
+noncomputable def regularQuotientPrism {A : Type u} [CommRing A]
+    (P : Prism p A) (hb : P.IsBounded) (hp : P.IsPerfect)
+    (fs : List P.bar) (hr : RingTheory.Sequence.IsRegular P.bar fs)
+    (ht : ∃ n : ℕ, ∀ x : P.bar ⧸ Ideal.ofList fs,
+      (∃ m : ℕ, (p : P.bar ⧸ Ideal.ofList fs)^m * x = 0) →
+        (p : P.bar ⧸ Ideal.ofList fs)^n * x = 0) : Site.BoundedPrism.{u} p := sorry
 
-attribute [instance] QrspData.commRing
-
-/-- Node `PR.3/nygaard-graded-pieces` (Bhatt–Scholze Theorem 12.2): the image of `φ / d^i` in
-`Δ̄_S` is the conjugate filtration. -/
-theorem range_dividedFrobenius_eq_conj {S : Type u} [CommRing S] (X : QrspData p S) (d : X.D)
-    (hd : X.prism.I = Ideal.span {d}) (i : ℕ) :
-    Set.range (fun x : fil X.prism i =>
-        Ideal.Quotient.mk X.prism.I (dividedFrobenius X.prism d hd i x)) =
-      (X.conj i : Set (X.D ⧸ X.prism.I)) := by sorry
-
-/-- Node `PR.3/nygaard-graded-pieces` (3): `Δ_S / Fil^1_N Δ_S ≅ S`, induced by `φ`. -/
-theorem quotient_fil_one_equiv {S : Type u} [CommRing S] (X : QrspData p S) :
-    ∃ e : (X.D ⧸ fil X.prism 1) ≃+* S, ∀ x : X.D,
-      X.toBar (e (Ideal.Quotient.mk _ x)) = Ideal.Quotient.mk X.prism.I (X.prism.φ x) := by
-  sorry
+/-- The actual regular quotient is recovered by the first Nygaard quotient. -/
+theorem regularQuotient_fil_one {A : Type u} [CommRing A]
+    (P : Prism p A) (hb : P.IsBounded) (hp : P.IsPerfect)
+    (fs : List P.bar) (hr : RingTheory.Sequence.IsRegular P.bar fs)
+    (ht : ∃ n : ℕ, ∀ x : P.bar ⧸ Ideal.ofList fs,
+      (∃ m : ℕ, (p : P.bar ⧸ Ideal.ofList fs)^m * x = 0) →
+        (p : P.bar ⧸ Ideal.ofList fs)^n * x = 0) :
+    Nonempty (((regularQuotientPrism P hb hp fs hr ht).carrier ⧸
+      fil (regularQuotientPrism P hb hp fs hr ht).prism 1) ≃+*
+        (P.bar ⧸ Ideal.ofList fs)) := sorry
 
 section Relative
 
@@ -3456,33 +3802,16 @@ theorem relFil_bar (i : ℕ) :
       (DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A ↥(P.I ^ i))) := by
   sorry
 
-/-- Bhatt–Scholze Theorem 15.2: on a large quasisyntomic algebra (quasisyntomicity, DD.5, is
-left out) the pieces are discrete. -/
-theorem relFil_large (h : IsLarge P R) (i : ℕ) :
-    ∃ M : ModuleCat.{u} A, Nonempty ((relFil P R).obj (Opposite.op i) ≅
-      (DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj M) := by sorry
+/-! Node `PR.3/large-quasisyntomic-algebra`: Theorem 15.2 requires
+both IsLarge and the DD.5 relative quasisyntomic predicate. IsLarge alone does
+not imply discreteness. The packet records the full theorem; its signature
+awaits that predicate.
 
-/-- Imported data of a change of prism (owners: PR.1 for the base-changed algebra, DD.1 for the
-completed derived base change). -/
-structure ChangeOfPrism {B : Type u} [CommRing B] (Q : Prism p B) where
-  /-- The map of prisms (PR.0). -/
-  hom : P.Hom Q
-  /-- The completed derived base change `B ⊗̂^L_A −` (DD.1). -/
-  baseChange : DerivedCategory (ModuleCat.{u} A) ⥤ DerivedCategory (ModuleCat.{u} B)
-  /-- The base-changed algebra `R_B`, the `p`-completion of `R ⊗_A B` (PR.1). -/
-  R' : Type u
-  /-- Its ring structure. -/
-  [commRing : CommRing R']
-  /-- Its structure of `B / J`-algebra. -/
-  [algebra : Algebra Q.bar R']
-
-attribute [instance] ChangeOfPrism.commRing ChangeOfPrism.algebra
-
-/-- Bhatt–Lurie Remark 5.1.10: the filtration commutes with change of prism. -/
-theorem relFilBaseChange {B : Type u} [CommRing B] {Q : Prism p B} (c : ChangeOfPrism P Q)
-    (i : ℕ) :
-    Nonempty (c.baseChange.obj ((relFil P R).obj (Opposite.op i)) ≅
-      (relFil Q c.R').obj (Opposite.op i)) := by sorry
+For change of prism, the target is the actual animated completed tensor
+product R ⊗̂_A B; a general map need not produce a discrete algebra. Hence the
+full filtered base-change statement awaits animated algebra carriers. The
+canonical completed scalar extension itself is already completedBaseChange
+applied to the given prism homomorphism; no arbitrary functor is accepted. -/
 
 -- pr3_rel_fil_zero
 example : Nonempty ((relFil P R).obj (Opposite.op 0) ≅ frobeniusTwist P R) := by sorry
@@ -3507,7 +3836,7 @@ prism (Bhatt–Scholze §§12.4–12.5). The statements below are for `P` perfec
 noncomputable def filDerived (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] :
     ℕᵒᵖ ⥤ DerivedCategory (ModuleCat.{u} A) := sorry
 
-noncomputable def filDerivedZeroIso :
+noncomputable def filDerivedZeroIso (hP : P.IsPerfect) :
     (filDerived P R).obj (Opposite.op 0) ≅ prismaticCohomology P R := sorry
 
 /-- The graded piece `gr^i_N Δ_{R/A}`. -/
@@ -3517,45 +3846,77 @@ noncomputable def grDerived (P : Prism p A) (R : Type u) [CommRing R] [Algebra P
 noncomputable def filDerivedMap {R' : Type u} [CommRing R'] [Algebra P.bar R']
     (f : R →ₐ[P.bar] R') : filDerived P R ⟶ filDerived P R' := sorry
 
-/-- Imported data for the comparison theorems of the layer (owner named at each field). -/
-structure Inputs where
-  /-- `Lη_I` on `D(A)` (AInfCohomology:AI.1). -/
-  Leta : DerivedCategory (ModuleCat.{u} A) ⥤ DerivedCategory (ModuleCat.{u} A)
-  /-- The canonical map `Lη_I Δ_{R/A} → Δ_{R/A}` (AI.1; BMS1 Lemma 6.10). -/
-  letaToSelf : Leta.obj (prismaticCohomology P R) ⟶ prismaticCohomology P R
-  /-- Derived reduction `− ⊗^L_A A / I` (DD.1). -/
-  reduction : DerivedCategory (ModuleCat.{u} A) ⥤ DerivedCategory (ModuleCat.{u} P.bar)
-  /-- The `p`-completed de Rham complex of `R` over `A / I`, derived in general (DD.2). -/
-  deRham : DerivedCategory (ModuleCat.{u} P.bar)
-  /-- `Fil_i^conj Δ̄_{R/A}{i}` as an object of `D(A)` (PR.2). -/
-  conjTwist : ℕ → DerivedCategory (ModuleCat.{u} A)
-  /-- `Fil^i_Hodge` of the derived de Rham complex, as an object of `D(A)` (DD.2). -/
-  hodgeFil : ℕ → DerivedCategory (ModuleCat.{u} A)
-  /-- `I ⊗_A −` on `D(A)` (exact, as `I` is invertible). -/
-  tensorI : DerivedCategory (ModuleCat.{u} A) ⥤ DerivedCategory (ModuleCat.{u} A)
-  /-- The site of quasisyntomic covers: `Čech` totalisation of a functor along a cover is left
-  to DD.5; recorded here is the sheafified value of `Fil^i_N` on `R` (DD.5). -/
-  unfold : ℕ → DerivedCategory (ModuleCat.{u} A)
+/-- Division of derived Frobenius by the chosen generator; changing the generator
+changes this map by its inverse i-th power. -/
+noncomputable def dividedFrobeniusDerivedOriented (hb : P.IsBounded) (hP : P.IsPerfect)
+    (d : A) (hd : P.I = Ideal.span {d}) (i : ℕ) :
+    (filDerived P R).obj (Opposite.op i) ⟶
+      (frobeniusPushforward P).obj (prismaticCohomology P R) := sorry
+
+/-- Completed derived tensor product with the fixed Breuil–Kisin power A{n}.
+DD.1 owns the tensor construction; PR.3 supplies its invertible factor. -/
+noncomputable def derivedBKTwist (P : Prism p A)
+    (K : DerivedCategory (ModuleCat.{u} A)) (n : ℤ) :
+    DerivedCategory (ModuleCat.{u} A) := sorry
+
+/-- The intrinsic twisted divided Frobenius. Its target is restricted along φ_A,
+so the displayed arrow records semilinearity and requires no orientation. -/
+noncomputable def dividedFrobeniusDerived (hb : P.IsBounded) (hP : P.IsPerfect)
+    (i : ℕ) :
+    derivedBKTwist P ((filDerived P R).obj (Opposite.op i)) (i : ℤ) ⟶
+      (frobeniusPushforward P).obj
+        (derivedBKTwist P (prismaticCohomology P R) (i : ℤ)) := sorry
+
+/-- AI.1 adapter: the décalage functor for the actual invertible ideal I. -/
+noncomputable def leta (P : Prism p A) : DerivedCategory (ModuleCat.{u} A) ⥤
+    DerivedCategory (ModuleCat.{u} A) := sorry
+noncomputable def letaToSelf :
+    (leta P).obj (prismaticCohomology P R) ⟶ prismaticCohomology P R := sorry
+
+/-- PR.2 adapter: the actual conjugate piece with its Breuil–Kisin twist,
+restricted from A/I to A. -/
+noncomputable def conjugateTwist (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] (i : ℕ) : DerivedCategory (ModuleCat.{u} A) := sorry
+
+/-- DD.2 adapter: the actual completed derived Hodge filtration of R/(A/I),
+restricted to A. -/
+noncomputable def completedHodgeFil (P : Prism p A) (R : Type u) [CommRing R] [Algebra P.bar R] (i : ℕ) : DerivedCategory (ModuleCat.{u} A) := sorry
+
+/-- Tensor by the invertible ideal, with its actual module structure. -/
+noncomputable def tensorWithI (P : Prism p A) (K : DerivedCategory (ModuleCat.{u} A)) :
+    DerivedCategory (ModuleCat.{u} A) := sorry
+
+/-- Tensor by I^i with the completed derived tensor product (DD.1). -/
+noncomputable def tensorWithIPow (P : Prism p A) (i : ℕ)
+    (K : DerivedCategory (ModuleCat.{u} A)) : DerivedCategory (ModuleCat.{u} A) := sorry
+
+/-- Degree i of the filtered linearized Frobenius; it takes values in I^i Δ. -/
+noncomputable def relativeFilteredFrobenius (hb : P.IsBounded) (i : ℕ) :
+    (relFil P R).obj (Opposite.op i) ⟶ tensorWithIPow P i (prismaticCohomology P R) := sorry
+
+/-- Multiplication by I raises the relative Nygaard filtration by one. -/
+noncomputable def relativeV (hb : P.IsBounded) (i : ℕ) :
+    tensorWithI P ((relFil P R).obj (Opposite.op i)) ⟶
+      (relFil P R).obj (Opposite.op (i+1)) := sorry
 
 variable {P R}
 
 /-- Bhatt–Scholze Proposition 12.10 and §12.5: `gr^i_N Δ_{R/A} ≅ φ_* Fil_i^conj Δ̄_{R/A}{i}`
 (the isomorphism induced by `φ / d^i` is `φ_A`-semilinear). -/
-theorem grDerivedIsoConj (X : Inputs P R) (hP : P.IsPerfect) (i : ℕ) :
-    Nonempty (grDerived P R i ≅ (frobeniusPushforward P).obj (X.conjTwist i)) := by sorry
+theorem grDerivedIsoConj (hb : P.IsBounded) (hP : P.IsPerfect) (i : ℕ) :
+    Nonempty (grDerived P R i ≅ (frobeniusPushforward P).obj (conjugateTwist P R i)) := by sorry
 
-/-- For `R` `p`-completely smooth (condition left out) the graded piece lives in degrees
+/-- For `R` `p`-completely smooth the graded piece lives in degrees
 `[0, i]`: it is `τ^{≤ i} Δ̄_{R/A}{i}`. -/
-theorem grDerived_smooth (hP : P.IsPerfect) (i : ℕ) (n : ℤ) (hn : (i : ℤ) < n) :
+theorem grDerived_smooth (hb : P.IsBounded) (hR : Site.SmoothModP p P.bar R) (hP : P.IsPerfect) (i : ℕ) (n : ℤ) (hn : (i : ℤ) < n) :
     Limits.IsZero ((DerivedCategory.homologyFunctor (ModuleCat.{u} A) n).obj
       (grDerived P R i)) := by sorry
 
-/-- Quasisyntomic descent for `Fil^i_N` (the cover and its Čech nerve belong to DD.5). -/
-theorem filDerived_isSheaf (X : Inputs P R) (hP : P.IsPerfect) (i : ℕ) :
-    Nonempty ((filDerived P R).obj (Opposite.op i) ≅ X.unfold i) := by sorry
+/-! Node `PR.3/nygaard-filtration`: the quasisyntomic sheaf condition
+requires a DD.5 covering diagram and its totalization. Its full contract is in
+the packet; no isomorphism with an arbitrary value called unfold is asserted. -/
 
 -- pr3_nygaard_derived_fil_zero
-example : Nonempty ((filDerived P R).obj (Opposite.op 0) ≅ prismaticCohomology P R) := by sorry
+example (hP : P.IsPerfect) : Nonempty ((filDerived P R).obj (Opposite.op 0) ≅ prismaticCohomology P R) := by sorry
 
 -- pr3_nygaard_derived_gr_zero
 example (hP : P.IsPerfect) (n : ℤ) (hn : 0 < n) :
@@ -3575,33 +3936,32 @@ example (hP : P.IsPerfect) (hA : Nontrivial P.bar) : ¬ Nonempty (grDerived P P.
 /-! ### Named theorems of the layer -/
 
 /-- Node `PR.3/relative-nygaard-graded-pieces` (Bhatt–Lurie Remark 5.1.2). -/
-theorem relGr_iso_conj (X : Inputs P R) (i : ℕ) : Nonempty (relGr P R i ≅ X.conjTwist i) := by
+theorem relGr_iso_conj (hb : P.IsBounded) (i : ℕ) : Nonempty (relGr P R i ≅ conjugateTwist P R i) := by
   sorry
 
 /-- Node `PR.3/leta-frobenius-factorisation` (Bhatt–Scholze Theorem 15.3), for `R`
-`p`-completely smooth over `A / I` and `(A, I)` bounded (conditions left out). -/
-theorem leta_frobenius_factorisation (X : Inputs P R) :
-    ∃ φt : frobeniusTwist P R ⟶ X.Leta.obj (prismaticCohomology P R),
-      IsIso φt ∧ φt ≫ X.letaToSelf = relativeFrobenius P R := by sorry
+`p`-completely smooth over `A / I` and `(A, I)` bounded. -/
+theorem leta_frobenius_factorisation (hb : P.IsBounded) (hR : Site.SmoothModP p P.bar R) :
+    ∃ φt : frobeniusTwist P R ⟶ (leta P).obj (prismaticCohomology P R),
+      IsIso φt ∧ φt ≫ letaToSelf P R = relativeFrobenius P R := by sorry
 
 /-- Node `PR.3/de-rham-comparison-general` (Bhatt–Scholze Corollary 15.4; Bhatt–Lurie
 Proposition 5.2.5), for a bounded prism. -/
-theorem de_rham_comparison_general (X : Inputs P R) :
-    Nonempty (X.reduction.obj (frobeniusTwist P R) ≅ X.deRham) := by sorry
+theorem de_rham_comparison_general (hb : P.IsBounded) (hR : Site.SmoothModP p P.bar R) :
+    Nonempty ((derivedBaseChange (Ideal.Quotient.mk P.I)).obj (frobeniusTwist P R) ≅ DeRham.completedDeRham P R) := by sorry
 
 /-- Node `PR.3/nygaard-hodge-comparison` (Bhatt–Lurie Corollary 5.2.8): a distinguished triangle
 `I ⊗ Fil^i_N → Fil^{i+1}_N → Fil^{i+1}_Hodge`. -/
-theorem nygaard_hodge_triangle (X : Inputs P R) (i : ℕ) :
-    ∃ (v : X.tensorI.obj ((relFil P R).obj (Opposite.op i)) ⟶
-        (relFil P R).obj (Opposite.op (i + 1)))
-      (γ : (relFil P R).obj (Opposite.op (i + 1)) ⟶ X.hodgeFil (i + 1))
-      (h : X.hodgeFil (i + 1) ⟶ (X.tensorI.obj ((relFil P R).obj (Opposite.op i)))⟦(1 : ℤ)⟧),
-      Pretriangulated.Triangle.mk v γ h ∈ distTriang (DerivedCategory (ModuleCat.{u} A)) := by
+theorem nygaard_hodge_triangle (hb : P.IsBounded) (i : ℕ) :
+    ∃ (γ : (relFil P R).obj (Opposite.op (i + 1)) ⟶ completedHodgeFil P R (i + 1))
+      (h : completedHodgeFil P R (i + 1) ⟶ (tensorWithI P ((relFil P R).obj (Opposite.op i)))⟦(1 : ℤ)⟧),
+      Pretriangulated.Triangle.mk (relativeV P R hb i) γ h ∈
+        distTriang (DerivedCategory (ModuleCat.{u} A)) := by
   sorry
 
 /-- Node `PR.3/image-of-frobenius` (Bhatt–Scholze Corollary 15.5) on cohomology, for an
 oriented bounded prism and `R` `p`-completely smooth: `V_i` with `V_i φ = φ V_i = d^i`. -/
-theorem image_of_frobenius (d : A) (hd : P.I = Ideal.span {d}) (i : ℕ) :
+theorem image_of_frobenius (hb : P.IsBounded) (hR : Site.SmoothModP p P.bar R) (d : A) (hd : P.I = Ideal.span {d}) (i : ℕ) :
     ∃ V : (DerivedCategory.homologyFunctor (ModuleCat.{u} A) (i : ℤ)).obj
           (prismaticCohomology P R) ⟶
         (DerivedCategory.homologyFunctor (ModuleCat.{u} A) (i : ℤ)).obj (frobeniusTwist P R),
@@ -3610,16 +3970,11 @@ theorem image_of_frobenius (d : A) (hd : P.I = Ideal.span {d}) (i : ℕ) :
       (∀ y, ((DerivedCategory.homologyFunctor (ModuleCat.{u} A) (i : ℤ)).map
         (relativeFrobenius P R)).hom (V.hom y) = d ^ i • y) := by sorry
 
-/-- Node `PR.3/nygaard-frobenius-colimit` (Bhatt–Lurie Corollary 5.2.16), smooth case: for an
-oriented prism and `R` `p`-completely smooth of dimension `≤ n` the composite
-`Fil^n_N φ_A^* Δ → φ_A^* Δ → Δ` is `d^n` times an isomorphism; stated on cohomology. -/
-theorem frobenius_fil_top (d : A) (hd : P.I = Ideal.span {d}) (n : ℕ) (m : ℤ) :
-    ∃ e : (DerivedCategory.homologyFunctor (ModuleCat.{u} A) m).obj
-          ((relFil P R).obj (Opposite.op n)) ≅
-        (DerivedCategory.homologyFunctor (ModuleCat.{u} A) m).obj (prismaticCohomology P R),
-      ∀ x, ((DerivedCategory.homologyFunctor (ModuleCat.{u} A) m).map
-          ((relFil P R).map (homOfLE (Nat.zero_le n)).op ≫ (relFilZeroIso P R).hom ≫
-            relativeFrobenius P R)).hom x = d ^ n • e.hom.hom x := by sorry
+/-! Node `PR.3/nygaard-frobenius-colimit`: the top-piece isomorphism
+requires p-complete smoothness and relative dimension at most n. The current
+carrier has no rank/dimension predicate for completed differential forms;
+the packet supplies that dimension bound and the typed signature requires the
+corresponding dimension predicate. -/
 
 /-- Node `PR.3/nygaard-completeness` (2): a perfect prism that is classically
 `(p, I)`-complete is Nygaard-complete. -/
@@ -3633,7 +3988,8 @@ end TauCeti.Prismatic.Nygaard
 
 /-! ## PR.4. Étale comparison and p-adic Tate twists
 
-Derived Frobenius fixed points, syntomic complexes and their comparisons. Objects owned by
+Derived Frobenius fixed points, syntomic complexes and their comparisons. Canonical comparison functions below take the geometric parameters. Generic
+fibre and cone operations are stated for arbitrary diagrams. Objects owned by
 other stages or roadmaps (derived prismatic cohomology with its Frobenius, Nygaard-filtered
 twisted prismatic complexes, the Breuil–Kisin twist, étale cohomology) enter as variables or
 as fields of structures of imported data; the docstrings name their owners. A complex is a
@@ -3698,6 +4054,15 @@ theorem fixedPoints_isLE (M : FrobeniusModule Λ) (b : ℤ)
 theorem fixedPoints_isZero_of_isIso (M : FrobeniusModule Λ) :
     IsZero (fixedPoints M) ↔ IsIso (DerivedCategory.Q.map (M.φ - 𝟙 M.K)) := sorry
 
+/-- The canonical kernel/cokernel description of derived fixed-point cohomology. -/
+theorem fixedPoints_cohomology_exact (M : FrobeniusModule Λ) (i : ℤ) :
+    let H := DerivedCategory.homologyFunctor (ModuleCat.{u} Λ)
+    let d := DerivedCategory.Q.map (M.φ - 𝟙 M.K)
+    ∃ (f : Limits.cokernel ((H (i-1)).map d) ⟶ (H i).obj (fixedPoints M))
+      (g : (H i).obj (fixedPoints M) ⟶ Limits.kernel ((H i).map d))
+      (h : f ≫ g = 0),
+      (ShortComplex.mk f g h).Exact ∧ Mono f ∧ Epi g := by sorry
+
 /-- The φ-module `M[1/t]` for an endomorphism `t` of the underlying complex (multiplication
 by an element `t` of `B`) with `φ ∘ t = t ^ p ∘ φ`: the colimit of `M` along `t`, with the
 induced Frobenius. -/
@@ -3708,11 +4073,19 @@ noncomputable def invert (p : ℕ) (M : FrobeniusModule Λ) (t : End M.K)
 /-- The φ-module `M / p ^ n = cone (p ^ n : M ⟶ M)` with the induced Frobenius. -/
 noncomputable def reduce (p n : ℕ) (M : FrobeniusModule Λ) : FrobeniusModule Λ := sorry
 
-/-- `(M / p ^ n)^{φ=1}` is the cone of `p ^ n` on `M^{φ=1}`: there is a map from `M^{φ=1}`
-whose composite with multiplication by `p ^ n` vanishes. -/
+/-- The defining fixed-point fibre gives an actual distinguished triangle. -/
+theorem fixedPointsTriangle (M : FrobeniusModule Λ) :
+    ∃ δ : DerivedCategory.Q.obj M.K ⟶ (fixedPoints M)⟦(1 : ℤ)⟧,
+      Pretriangulated.Triangle.mk (fixedPointsι M)
+        (DerivedCategory.Q.map (M.φ - 𝟙 M.K)) δ ∈
+          distTriang (DerivedCategory (ModuleCat.{u} Λ)) := sorry
+
+/-- Canonical reduction commutes with the fibre, not merely with a zero map. -/
 theorem reduce_fixedPoints (p n : ℕ) (M : FrobeniusModule Λ) :
-    ∃ r : fixedPoints M ⟶ fixedPoints (reduce p n M),
-      ((p ^ n : ℤ) • 𝟙 (fixedPoints M)) ≫ r = 0 := sorry
+    ∃ (r : fixedPoints M ⟶ fixedPoints (reduce p n M))
+      (δ : fixedPoints (reduce p n M) ⟶ (fixedPoints M)⟦(1 : ℤ)⟧),
+      Pretriangulated.Triangle.mk ((p^n : ℤ) • 𝟙 (fixedPoints M)) r δ ∈
+        distTriang (DerivedCategory (ModuleCat.{u} Λ)) := sorry
 
 -- pr4_fixed_points_fp_h1
 example (p : ℕ) [Fact p.Prime] :
@@ -3743,34 +4116,50 @@ example (p : ℕ) [Fact p.Prime]
          (HomologicalComplex.single (ModuleCat.{0} (ZMod p)) (ComplexShape.up ℤ) 0).map F⟩)) :=
   sorry
 
-/-- Imported data for the affine étale comparison at level `p ^ n`, for a `p`-complete
-algebra `S` over a perfectoid ring with perfect prism `(A, (d))`. -/
-structure AffineComparisonDatum (p n : ℕ) where
-  /-- `RΓ_ét(Spec S[1/p], ℤ/p^n)` (owner: `SchemeAndStackFoundations:SF.2`). -/
-  etaleGeneric : DerivedCategory (ModuleCat.{0} (ZMod (p ^ n)))
-  /-- `RΓ_ét(Spec S, ℤ/p^n)` (owner: `SchemeAndStackFoundations:SF.2`). -/
-  etaleIntegral : DerivedCategory (ModuleCat.{0} (ZMod (p ^ n)))
-  /-- `Δ_{S/A} / p^n` with its Frobenius (owners: PR.2, PR.1). -/
-  prismatic : FrobeniusModule (ZMod (p ^ n))
-  /-- `Δ_{S/A}[1/d] / p^n` with its Frobenius (owners: PR.2, PR.1). -/
-  prismaticInverted : FrobeniusModule (ZMod (p ^ n))
+/-- SF.2 adapter: actual finite-coefficient étale cohomology of Spec S[1/p]. -/
+noncomputable def genericEtale (p n : ℕ) (S : Type u) [CommRing S] :
+    DerivedCategory (ModuleCat.{0} (ZMod (p^n))) := sorry
 
-/-- Node `PR.4/etale-comparison` (Bhatt–Scholze Theorem 9.1, affine form):
-`RΓ_ét(Spec S[1/p], ℤ/p^n) ≃ (Δ_{S/A}[1/d]/p^n)^{φ=1}` for every `p`-complete algebra `S`
-over a perfectoid ring; no smoothness hypothesis. -/
-theorem etaleComparison_affine (p n : ℕ) [Fact p.Prime] (X : AffineComparisonDatum p n) :
-    Nonempty (X.etaleGeneric ≅ fixedPoints X.prismaticInverted) := sorry
+/-- SF.2 adapter: actual finite-coefficient étale cohomology of Spec S. -/
+noncomputable def integralEtale (p n : ℕ) (S : Type u) [CommRing S] :
+    DerivedCategory (ModuleCat.{0} (ZMod (p^n))) := sorry
 
-/-- Node `PR.4/etale-comparison-without-inverting-d` (Bhatt–Scholze Remark 9.3, affine form):
-`RΓ_ét(Spec S, ℤ/p^n) ≃ (Δ_{S/A}/p^n)^{φ=1}`. -/
-theorem etaleComparison_integral (p n : ℕ) [Fact p.Prime] (X : AffineComparisonDatum p n) :
-    Nonempty (X.etaleIntegral ≅ fixedPoints X.prismatic) := sorry
+/-- The canonical Δ_(S/A)/p^n Frobenius complex, restricted to Z/p^n. -/
+noncomputable def finitePrismatic {p : ℕ} [Fact p.Prime]
+    {A : Type u} [CommRing A] (P : Prism p A) (n : ℕ)
+    (S : Type u) [CommRing S] [Algebra P.bar S] : FrobeniusModule (ZMod (p^n)) := sorry
+
+/-- The canonical Δ_(S/A)[1/d]/p^n Frobenius complex. -/
+noncomputable def finitePrismaticInverted {p : ℕ} [Fact p.Prime]
+    {A : Type u} [CommRing A] (P : Prism p A) (d : A) (n : ℕ)
+    (S : Type u) [CommRing S] [Algebra P.bar S] : FrobeniusModule (ZMod (p^n)) := sorry
+
+/-- Node PR.4/etale-comparison: Theorem 9.1, with its actual geometric inputs. -/
+theorem etaleComparison_affine {p : ℕ} [Fact p.Prime]
+    {A : Type u} [CommRing A] (P : Prism p A) (hp : P.IsPerfect)
+    (d : A) (hd : P.I = Ideal.span {d}) (n : ℕ) (hn : 1 ≤ n)
+    (S : Type u) [CommRing S] [Algebra P.bar S]
+    [IsAdicComplete (Ideal.span {(p : S)}) S] :
+    Nonempty (genericEtale p n S ≅ fixedPoints (finitePrismaticInverted P d n S)) := sorry
+
+/-- Node PR.4/etale-comparison-without-inverting-d: Remark 9.3. -/
+theorem etaleComparison_integral {p : ℕ} [Fact p.Prime]
+    {A : Type u} [CommRing A] (P : Prism p A) (hp : P.IsPerfect)
+    (n : ℕ) (hn : 1 ≤ n) (S : Type u) [CommRing S] [Algebra P.bar S]
+    [IsAdicComplete (Ideal.span {(p : S)}) S] :
+    Nonempty (integralEtale p n S ≅ fixedPoints (finitePrismatic P n S)) := sorry
+
+/-! PR.4/etale-comparison-scalar-extension applies these canonical functions
+to the completed base change to P's perfect prism. Its animated tensor and
+completed perfection carrier await the corresponding PR.0/PR.2 interfaces.
+The packet states the precise base-changed generic fibre and Frobenius. -/
 
 end TauCeti.Prismatic.Etale
 
 namespace TauCeti.Prismatic.Syntomic
 
 open CategoryTheory CategoryTheory.Limits CategoryTheory.Pretriangulated ZeroObject
+open scoped TensorProduct
 
 attribute [local instance] HasDerivedCategory.standard
 
@@ -3839,10 +4228,11 @@ theorem syntomicComplex_isLE (D : NygaardDatum p)
     (syntomicComplex D).IsLE 1 := sorry
 
 /-- The datum of a perfectoid ring with perfect prism `(A, (d))` in weight `n`: the
-submodule `φ⁻¹(d)^n A = {x | φ x ∈ d ^ n A}` and `A`, the inclusion and `x ↦ φ x / d ^ n`,
-placed in degree `0`. -/
+canonical twisted modules Fil^n_N A{n} and A{n}, the inclusion
+and twisted divided Frobenius, placed in degree zero. A coordinate formula
+using φ/d^n requires a Frobenius-compatible trivialization of A{n}. -/
 noncomputable def perfectoidDatum {A : Type} [CommRing A] [Algebra ℤ_[p] A] (P : Prism p A)
-    (d : A) (n : ℕ) : NygaardDatum p := sorry
+    (n : ℕ) : NygaardDatum p := sorry
 
 -- pr4_syntomic_zero_weight_fp
 example :
@@ -3867,7 +4257,7 @@ example (D : NygaardDatum p) (h : IsIso (DerivedCategory.Q.map (D.divFrob - D.ca
 -- pr4_syntomic_not_fixed_points
 example {A : Type} [CommRing A] [Algebra ℤ_[p] A] (P : Prism p A) (hP : P.IsPerfect) (d : A)
     (hI : P.I = Ideal.span {d}) (hd : ¬ IsUnit d) :
-    ¬ IsIso (DerivedCategory.Q.map (perfectoidDatum P d 1).can) := sorry
+    ¬ IsIso (DerivedCategory.Q.map (perfectoidDatum P 1).can) := sorry
 
 /-- Node `PR.4/syntomic-cohomology-formal-schemes`: the imported data of an animated ring
 `R` in weight `n`. -/
@@ -3879,6 +4269,16 @@ structure AbsoluteDatum (p : ℕ) [Fact p.Prime] where
   completed : NygaardDatum p
   /-- The completion map. -/
   toCompleted : NygaardDatum.Hom p datum completed
+
+/-- PR.5 adapter: the canonical absolute Nygaard data and completion map
+of the specified ring R and integer weight n. -/
+noncomputable def absoluteData (p : ℕ) [Fact p.Prime]
+    (R : Type) [CommRing R] (n : ℤ) : AbsoluteDatum p := sorry
+
+/-- BL Proposition 7.4.6: completion preserves the canonical syntomic fibre.
+It does not require either component of the completion map to be an isomorphism. -/
+theorem canonical_completion (R : Type) [CommRing R] (n : ℤ) :
+    IsIso (syntomicMap (absoluteData p R n).toCompleted) := sorry
 
 /-- `RΓ_syn(Spf R, ℤ_p(n)) = fib(φ{n} - ι)`. -/
 noncomputable def syntomicCohomology (X : AbsoluteDatum p) :
@@ -3933,7 +4333,7 @@ example (X : AbsoluteDatum p) (h₁ : IsIso (DerivedCategory.Q.map X.toCompleted
 example {A : Type} [CommRing A] [Algebra ℤ_[p] A] (P : Prism p A) (hP : P.IsPerfect) (d : A)
     (hI : P.I = Ideal.span {d}) :
     IsZero ((DerivedCategory.Q.obj
-      (CochainComplex.mappingCone (perfectoidDatum P d 0).divFrob))⟦(-1 : ℤ)⟧) := sorry
+      (CochainComplex.mappingCone (perfectoidDatum P 0).divFrob))⟦(-1 : ℤ)⟧) := sorry
 
 /-- Node `PR.4/syntomic-cohomology-schemes`: the imported cospan of an animated ring `R` in
 weight `n`. -/
@@ -3985,19 +4385,14 @@ example : IsZero (syntomicCohomologyScheme (p := p) ⟨0, 0, 0, 0, 0⟩) := sorr
 example (M : DerivedCategory (ModuleCat.{0} ℤ_[p])) :
     Nonempty (syntomicCohomologyScheme (p := p) ⟨M, M, M, 𝟙 M, 𝟙 M⟩ ≅ M) := sorry
 
-/-- Imported data for Bhatt–Scholze Theorem 9.4 in weight `n ≥ 1`. -/
-structure TateTwistDatum (p : ℕ) [Fact p.Prime] where
-  /-- `RΓ_ét(Spec R[1/p], ℤ_p(n))`, the derived limit of the `μ_{p^k}^{⊗ n}`-cohomology
-  (owner: `SchemeAndStackFoundations:SF.2`). -/
-  etaleTwisted : DerivedCategory (ModuleCat.{0} ℤ_[p])
+/-- SF.2 adapter: actual Z_p(n) étale cohomology of Spec((A/I)[1/p]). -/
+noncomputable def perfectoidGenericEtale {A : Type} [CommRing A]
+    (P : Prism p A) (n : ℕ) : DerivedCategory (ModuleCat.{0} ℤ_[p]) := sorry
 
-/-- Node `PR.4/tate-twist-perfectoid` (Bhatt–Scholze Theorem 9.4): for a perfectoid ring `R`
-with perfect prism `(A, (d))` and `n ≥ 1`, `ℤ_p(n)(R) ≃ RΓ_ét(Spec R[1/p], ℤ_p(n))`. Derived
-`(p, d)`-completeness of `A` is left out of `Prism`. -/
-theorem tateTwist_perfectoid {A : Type} [CommRing A] [Algebra ℤ_[p] A] (P : Prism p A)
-    (hP : P.IsPerfect) (d : A) (hI : P.I = Ideal.span {d}) (n : ℕ) (hn : 1 ≤ n)
-    (X : TateTwistDatum p) :
-    Nonempty (syntomicComplex (perfectoidDatum P d n) ≅ X.etaleTwisted) := sorry
+/-- Node PR.4/tate-twist-perfectoid: Theorem 9.4 for the canonical twist. -/
+theorem tateTwist_perfectoid {A : Type} [CommRing A] [Algebra ℤ_[p] A]
+    (P : Prism p A) (hP : P.IsPerfect) (n : ℕ) (hn : 1 ≤ n) :
+    Nonempty (syntomicComplex (perfectoidDatum P n) ≅ perfectoidGenericEtale P n) := sorry
 
 end Complexes
 
@@ -4022,48 +4417,47 @@ def tateModule (p : ℕ) (R : Type u) [CommRing R] : Subgroup (ℕ → Rˣ) wher
   inv_mem' := sorry
 
 variable (P : Prism p A)
-  -- The Breuil–Kisin twist `A{1}` of `P` (owner: `PR.3/breuil-kisin-twist`).
-  (T : Type u) [AddCommGroup T] [Module A T]
 
-/-- The prismatic logarithm `log_Δ : (1 + I)_{rk = 1} ⟶ A{1}`, a group homomorphism; `T` is
-the Breuil–Kisin twist `A{1}` of `PR.3/breuil-kisin-twist`. -/
-noncomputable def prismaticLog : Additive (rankOneUnits P) →+ T := sorry
+/-- Node PR.4/prismatic-logarithm: the target is the actual twist A{1}. -/
+noncomputable def prismaticLog :
+    Additive (rankOneUnits P) →+ BKTwist.twist P := sorry
 
-/-- `φ_{A{1}} (log_Δ u) = log_Δ u`, for `φT` the Frobenius of `A{1}` (owner PR.3). -/
-theorem prismaticLog_frobenius (φT : T →+ T) (u : Additive (rankOneUnits P)) :
-    φT (prismaticLog P T u) = prismaticLog P T u := sorry
+/-- The logarithm is fixed by Frobenius after the canonical inclusion
+A{1} → I⁻¹ ⊗ A{1}; Frobenius is not an endomorphism of A{1}. -/
+theorem prismaticLog_frobenius (u : Additive (rankOneUnits P)) :
+    BKTwist.twistFrobeniusMap P (prismaticLog P u) =
+      (Submodule.subtype P.I : Module.Dual A P.I) ⊗ₜ[A] prismaticLog P u := sorry
 
-/-- Functoriality, on domains: a map of prisms carries rank-one units to rank-one units.
-The equation `f{1} (log_Δ u) = log_Δ (f u)` needs the functoriality of the twist (PR.3) and
-is not stated. -/
+/-- Canonical reduction to I/I², obtained from the twist reduction isomorphism. -/
+noncomputable def twistRed : BKTwist.twist P →ₗ[A] P.I.Cotangent := sorry
+
+theorem prismaticLog_mod (u : rankOneUnits P) :
+    twistRed P (prismaticLog P (Additive.ofMul u)) =
+      P.I.toCotangent ⟨(u : Aˣ) - 1, u.2.1⟩ := sorry
+
 theorem prismaticLog_map {B : Type u} [CommRing B] (Q : Prism p B) (f : P.Hom Q)
-    (u : Aˣ) (hu : u ∈ rankOneUnits P) : Units.map f.toRingHom.toMonoidHom u ∈ rankOneUnits Q :=
-  sorry
+    (u : Aˣ) (hu : u ∈ rankOneUnits P) :
+    Units.map f.toRingHom.toMonoidHom u ∈ rankOneUnits Q := sorry
 
-/-- `log_Δ u` reduces to the class of `u - 1` under `red : A{1} ⟶ I / I ^ 2`, the reduction
-of the twist modulo `I` (owner PR.3). -/
-theorem prismaticLog_mod (red : T →+ P.I.Cotangent) (u : rankOneUnits P) :
-    red (prismaticLog P T (Additive.ofMul u)) = P.I.toCotangent ⟨(u : Aˣ) - 1, u.2.1⟩ := sorry
-
-/-- The prismatic logarithm on Tate modules, `T_p((A / I)^×) ⟶ A{1}`. -/
-noncomputable def tateLog : Additive (tateModule p P.bar) →+ T := sorry
+noncomputable def tateLog :
+    Additive (tateModule p P.bar) →+ BKTwist.twist P := sorry
 
 -- pr4_prismatic_log_one
-example : prismaticLog P T 0 = 0 := sorry
+example : prismaticLog P 0 = 0 := sorry
 
 -- pr4_prismatic_log_q_de_rham
 example (Q : Prism p (PowerSeries ℤ_[p]))
     (hI : Q.I = Ideal.span {∑ i ∈ Finset.range p, (1 + PowerSeries.X : PowerSeries ℤ_[p]) ^ i})
     (hφ : Q.φ PowerSeries.X = (1 + PowerSeries.X) ^ p - 1)
-    (E : Type) [AddCommGroup E] [Module (PowerSeries ℤ_[p]) E] (q : rankOneUnits Q)
+    (q : rankOneUnits Q)
     (hq : ((q : (PowerSeries ℤ_[p])ˣ) : PowerSeries ℤ_[p]) = (1 + PowerSeries.X) ^ p) :
-    ∃ e : E, prismaticLog Q E (Additive.ofMul q) = (PowerSeries.X : PowerSeries ℤ_[p]) • e :=
+    ∃ e : BKTwist.twist Q, prismaticLog Q (Additive.ofMul q) = (PowerSeries.X : PowerSeries ℤ_[p]) • e :=
   sorry
 
 -- pr4_prismatic_log_mul
 example (u v : Additive (rankOneUnits P)) :
-    prismaticLog P T (u + v) = prismaticLog P T u + prismaticLog P T v ∧
-      prismaticLog P T (p • u) = p • prismaticLog P T u := sorry
+    prismaticLog P (u + v) = prismaticLog P u + prismaticLog P v ∧
+      prismaticLog P (p • u) = p • prismaticLog P u := sorry
 
 -- pr4_prismatic_log_not_all_units
 example (Q : Prism p (PowerSeries ℤ_[p]))
@@ -4254,8 +4648,9 @@ noncomputable def toCart (D : CartierWittDivisor p R) : GeneralizedCartierDiviso
 theorem toCart_not_isCartier [Nontrivial R] (D : CartierWittDivisor p R) :
     ¬ (toCart p D).IsCartier := by sorry
 
-/-- Separatedness half of fpqc descent for `WCart`; effectivity of descent data is part of the node
-and needs the stack carriers of `LanglandsParameterStacks:LP1` to be stated. -/
+/-- Separatedness half of fpqc descent for `WCart`. The generic IsStack and DescentData
+carriers and comonadic module descent already exist in Mathlib. The remaining Witt-level
+effectivity and Amitsur inputs are requested from SF.1; groupoid stacks and BG belong to D0. -/
 theorem pullback_faithful {S : Type u} [CommRing S] (f : R →+* S) (hf : f.FaithfullyFlat) :
     (pullback p f).Faithful := by sorry
 
@@ -4360,6 +4755,23 @@ example {A : Type u} [CommRing A] (P : Prism p A) (f : A →+* R)
       ((GeneralizedCartierDivisor.ofIdeal P.I P.invertible).baseChange f)) := by sorry
 
 end CartierWitt
+
+/-- The invariant cyclotomic prism; X in its coefficient ring denotes p̃. -/
+noncomputable def cyclotomicChart (p : ℕ) [Fact p.Prime] :
+    Prism p (PowerSeries ℤ_[p]) := sorry
+
+theorem cyclotomicChart_ideal (p : ℕ) [Fact p.Prime] :
+    (cyclotomicChart p).I = Ideal.span {PowerSeries.X} := by sorry
+
+/-- The Teichmüller-invariant parameter in the q-de Rham chart, q=1+X. -/
+noncomputable def cyclotomicParameter (p : ℕ) [Fact p.Prime] : PowerSeries ℤ_[p] := sorry
+
+-- pr5_cyclotomic_two
+example : cyclotomicParameter 2 = 2 + PowerSeries.X := by sorry
+
+-- pr5_cyclotomic_three
+example : (1 + PowerSeries.X) * cyclotomicParameter 3 =
+    1 + (1 + PowerSeries.X) + (1 + PowerSeries.X)^2 := by sorry
 
 end TauCeti.Prismatic.WCart
 
@@ -4516,6 +4928,9 @@ example {R : Type u} [CommRing R] [Algebra ℚ R] :
 
 -- pr5_gmsharp_fp_trivial
 example : Nonempty (Unique (GmSharp (ZMod p))) := by sorry
+
+-- pr5_gmsharp_fp_not_all_units
+example (hp : 2 < p) : ¬ Function.Surjective (GmSharp.toUnits (R := ZMod p)) := by sorry
 
 /-- Node `PR.5/hodge-tate-divisor`: the point `η(R) = (W(R), V(1)·)`
 (Bhatt–Lurie, Construction 3.4.4). -/
@@ -4718,6 +5133,24 @@ structure Hom (X Y : SiteObj p R) where
   comm : ∀ (r : R) (a : X.A), Ideal.Quotient.mk X.prism.I a = X.str r →
     Ideal.Quotient.mk Y.prism.I (toHom.toRingHom a) = Y.str r
 
+/-- Composition is composition of prism maps; the structure map remains fixed.
+The absolute site uses the opposite of this category. -/
+instance category : Category (SiteObj p R) where
+  Hom X Y := Hom X Y
+  id X := { toHom := Prism.Hom.id X.prism, comm := by sorry }
+  comp f g := { toHom := g.toHom.comp f.toHom, comm := by sorry }
+  id_comp := by sorry
+  comp_id := by sorry
+  assoc := by sorry
+
+/-- An affine formal-scheme map Spf S → Spf R restricts each structure map
+S → A/I along R → S. Prism maps are unchanged. -/
+def map {S : Type u} [CommRing S] (f : R →+* S) : SiteObj p S ⥤ SiteObj p R where
+  obj X := { X with str := X.str.comp f }
+  map g := { toHom := g.toHom, comm := fun r a ha => g.comm (f r) a ha }
+  map_id := by sorry
+  map_comp := by sorry
+
 /-- The tautological object `(A, I, id)` of the site of `Spf (A / I)`. -/
 def ofPrism {A : Type u} [CommRing A] (P : Prism p A) (hP : P.IsBounded) : SiteObj p P.bar where
   A := A
@@ -4890,38 +5323,36 @@ example : Nonempty (hodgeTateSheaf p ℤ ≅ 𝟙_ (carriers p).DHT) := by sorry
 -- pr5_ht_diffracted_integers
 example : Nonempty (diffractedHodge p ℤ ≅ unitComplex ℤ_[p]) := by sorry
 
-/-- Complexes owned by other roadmaps, as data: `crystalline R = RΓ_crys(R / ℤ_p)` for an
-`𝔽_p`-algebra `R` (`CrystallineCohomology:CR.2`); `derivedDeRham R` the `p`-complete derived
-de Rham complex of `R` and `hodgeFil R m` its Hodge filtration with the maps `hodgeFilMap`
-(`DerivedDeRhamCohomology:DD.2`); `cotangentPower R i` the `p`-completed `i`-th derived exterior
-power of the cotangent complex (`DerivedDeRhamCohomology:DD.0`). -/
-structure Imported where
-  /-- `RΓ_crys(R / ℤ_p)`. -/
-  crystalline : ∀ (R : Type) [CommRing R], DZp p
-  /-- `dR̂_R`. -/
-  derivedDeRham : ∀ (R : Type) [CommRing R], DZp p
-  /-- `Fil^m_Hodge dR̂_R`. -/
-  hodgeFil : ∀ (R : Type) [CommRing R], ℤ → DZp p
-  /-- `Fil^m_Hodge dR̂_R → dR̂_R`. -/
-  hodgeFilMap : ∀ (R : Type) [CommRing R] (m : ℤ), hodgeFil R m ⟶ derivedDeRham R
-  /-- `LΩ̂^i_R`. -/
-  cotangentPower : ∀ (R : Type) [CommRing R], ℕ → DZp p
+/-- CR.2 adapter: actual crystalline cohomology of Spec R over Z_p. -/
+noncomputable def crystalline (R : Type) [CommRing R] : DZp p := sorry
+
+/-- DD.2 adapter: actual p-completed derived de Rham complex of R/Z_p. -/
+noncomputable def derivedDeRham (R : Type) [CommRing R] : DZp p := sorry
+
+/-- DD.2 adapter: its canonical completed Hodge filtration. -/
+noncomputable def hodgeFil (R : Type) [CommRing R] (m : ℤ) : DZp p := sorry
+
+noncomputable def hodgeFilMap (R : Type) [CommRing R] (m : ℤ) :
+    hodgeFil p R m ⟶ derivedDeRham p R := sorry
+
+/-- DD.0 adapter: the p-completed derived exterior power of L_(R/Z_p). -/
+noncomputable def cotangentPower (R : Type) [CommRing R] (i : ℕ) : DZp p := sorry
 
 /-- Node `PR.5/absolute-crystalline-comparison` (Bhatt–Lurie, Theorem 4.6.1) for smooth
 `𝔽_p`-algebras; the theorem holds for quasisyntomic `𝔽_p`-schemes (DD.5). -/
-theorem crystalline_comparison (X : Imported p) (R : Type) [CommRing R] [Algebra (ZMod p) R]
-    [Algebra.Smooth (ZMod p) R] : Nonempty (prismaticComplex p R ≅ X.crystalline R) := by sorry
+theorem crystalline_comparison (R : Type) [CommRing R] [Algebra (ZMod p) R]
+    [Algebra.Smooth (ZMod p) R] : Nonempty (prismaticComplex p R ≅ crystalline p R) := by sorry
 
 /-- Node `PR.5/absolute-de-rham-comparison` (Bhatt–Lurie, Proposition 5.4.8): the pullback of
 `H_Δ(R)` to the de Rham point is the `p`-complete derived de Rham complex. -/
-theorem deRhamPullback_prismaticSheaf (X : Imported p) (R : Type) [CommRing R] :
-    Nonempty ((carriers p).deRhamPullback.obj (prismaticSheaf p R) ≅ X.derivedDeRham R) := by
+theorem deRhamPullback_prismaticSheaf (R : Type) [CommRing R] :
+    Nonempty ((carriers p).deRhamPullback.obj (prismaticSheaf p R) ≅ derivedDeRham p R) := by
   sorry
 
 /-- Bhatt–Lurie, Theorem 5.4.2, for `p`-torsion-free `R` (so that `𝔽_p ⊗^L R = R / p`). -/
-theorem deRham_comparison (X : Imported p) (R : Type) [CommRing R]
+theorem deRham_comparison (R : Type) [CommRing R]
     (hR : ∀ x : R, (p : R) * x = 0 → x = 0) :
-    Nonempty (prismaticComplex p (R ⧸ Ideal.span {(p : R)}) ≅ X.derivedDeRham R) := by sorry
+    Nonempty (prismaticComplex p (R ⧸ Ideal.span {(p : R)}) ≅ derivedDeRham p R) := by sorry
 
 /-- Node `PR.5/absolute-nygaard-filtration`: `Fil^m_N Δ_R{n}` (Bhatt–Lurie, Construction 5.5.3). -/
 noncomputable def nygaardFil (R : Type) [CommRing R] (n m : ℤ) : DZp p := sorry
@@ -4951,8 +5382,46 @@ theorem nygaardGr_fibre_sequence (R : Type) [CommRing R] (n m : ℤ) :
   sorry
 
 /-- The filtered de Rham specialisation `Fil^m_N Δ_R{n} → Fil^m_Hodge dR̂_R`. -/
-noncomputable def nygaardToHodge (X : Imported p) (R : Type) [CommRing R] (n m : ℤ) :
-    nygaardFil p R n m ⟶ X.hodgeFil R m := sorry
+noncomputable def nygaardToHodge (R : Type) [CommRing R] (n m : ℤ) :
+    nygaardFil p R n m ⟶ hodgeFil p R m := sorry
+
+/-- DD.1 adapter: the canonical derived tensor of the two complexes. -/
+noncomputable def derivedTensor (K L : DZp p) : DZp p := sorry
+
+/-- Multiplication at arbitrary integer twists and filtration indices. -/
+noncomputable def nygaardMul (R : Type) [CommRing R] (n n' m m' : ℤ) :
+    derivedTensor p (nygaardFil p R n m) (nygaardFil p R n' m') ⟶
+      nygaardFil p R (n+n') (m+m') := sorry
+
+/-- The packet's multiplication name, with all integer indices visible. -/
+noncomputable def absoluteNygaardCup (R : Type) [CommRing R] (m n i j : ℤ) :
+    derivedTensor p (nygaardFil p R m i) (nygaardFil p R n j) ⟶
+      nygaardFil p R (m+n) (i+j) := nygaardMul p R m n i j
+
+/-- BL Corollary 5.5.14: the canonical class e^n lies in H⁰(gr⁰_N Δ_R{n})
+for every integer twist n. Its degree-zero de Rham image is 1. -/
+noncomputable def absoluteNygaardClass (R : Type) [CommRing R] (n : ℤ) :
+    (DerivedCategory.homologyFunctor (ModuleCat.{0} ℤ_[p]) 0).obj
+      (nygaardGr p R n 0) := sorry
+
+/-- BL Remark 5.5.15: multiplication by e^n; inverse multiplication by e^(-n).
+The twist n and the graded index m have different roles. -/
+noncomputable def absoluteNygaardPeriodicity (R : Type) [CommRing R] (m n : ℤ) :
+    nygaardGr p R 0 m ≅ nygaardGr p R n m := sorry
+
+/-- Functoriality of the absolute Nygaard steps. -/
+noncomputable def absoluteNygaardMap {R S : Type} [CommRing R] [CommRing S]
+    (f : R →+* S) (n m : ℤ) : nygaardFil p R n m ⟶ nygaardFil p S n m := sorry
+
+/-- Construction 5.5.20: the canonical Nygaard completion of the twist. -/
+noncomputable def nygaardCompleted (R : Type) [CommRing R] (n : ℤ) : DZp p := sorry
+
+noncomputable def nygaardCompletionMap (R : Type) [CommRing R] (n : ℤ) :
+    absolutePrismatic p R 0 n ⟶ nygaardCompleted p R n := sorry
+
+/-- The canonical maps to the completion at each step. -/
+noncomputable def nygaardToCompleted (R : Type) [CommRing R] (n m : ℤ) :
+    nygaardFil p R n m ⟶ nygaardCompleted p R n := sorry
 
 -- pr5_nyg_fil_zero
 example (R : Type) [CommRing R] (n : ℤ) :
@@ -4972,9 +5441,9 @@ example : Limits.IsZero (nygaardGr p ℤ 0 1) := by sorry
 
 /-- Node `PR.5/absolute-nygaard-graded-pieces` (Bhatt–Lurie, Proposition 5.5.12 and the Corollary
 after Warning 5.5.17): `gr^m_N Δ_R ≅ LΩ̂^m_R[−m]` for `m < p`. -/
-theorem nygaardGr_iso_cotangentPower (X : Imported p) (R : Type) [CommRing R] (m : ℕ)
+theorem nygaardGr_iso_cotangentPower (R : Type) [CommRing R] (m : ℕ)
     (hm : m < p) :
-    Nonempty (nygaardGr p R 0 m ≅ (X.cotangentPower R m)⟦(-(m : ℤ))⟧) := by sorry
+    Nonempty (nygaardGr p R 0 m ≅ (cotangentPower p R m)⟦(-(m : ℤ))⟧) := by sorry
 
 /-- Bhatt–Lurie, Proposition 5.5.19: `gr^m_N Δ_R{n}` has cohomology in degrees `≤ m`. -/
 theorem nygaardGr_isLE (R : Type) [CommRing R] (n m : ℤ) :
@@ -5007,6 +5476,14 @@ noncomputable def absoluteFrobenius (R : Type) [CommRing R] (n : ℤ) :
 noncomputable def nygaardToIdealFil (R : Type) [CommRing R] (n m : ℤ) :
     nygaardFil p R n m ⟶ absolutePrismatic p R (m - n) n := sorry
 
+/-- The fixed completed Nygaard steps; DD.1 owns filtered completion. -/
+noncomputable def nygaardCompletedFil (R : Type) [CommRing R] (n m : ℤ) : DZp p := sorry
+
+/-- The completed filtered map first lands in the filtration-complete I-adic target.
+At m=n, compose with Δ_R{n}→Δ̂_R{n} for the completed syntomic datum. -/
+noncomputable def completedFilteredFrobenius (R : Type) [CommRing R] (n m : ℤ) :
+    nygaardCompletedFil p R n m ⟶ absolutePrismatic p R (m-n) n := sorry
+
 theorem prismaticSheafMap_relativeFrobenius {R S : Type} [CommRing R] [CommRing S] (f : R →+* S) :
     (carriers p).frobPullback.map (prismaticSheafMap p f) ≫ relativeFrobenius p S =
       relativeFrobenius p R ≫ prismaticSheafMap p f := by sorry
@@ -5027,14 +5504,14 @@ end TauCeti.Prismatic.Absolute
 
 Bhatt–Scholze §§16–18. A δ-`ℤ_p⟦q-1⟧`-algebra `D` is recorded as a δ-ring with an element
 `q` such that `δ q = 0`; for a derived `(p, [p]_q)`-complete `D` this is the same datum.
-Derived completeness of ideals, complete flatness, complete Tor-amplitude and completely
-regular sequences belong to `DerivedDeRhamCohomology:DD.1` and are left out of the structures
-below; each docstring says which conditions are left out. The framed algebra with its
+Derived completeness, complete flatness and finite complete Tor-amplitude are
+expressed using the canonical DD.1 adapters. Completely regular sequences use
+the relative regularity criterion after reduction. The framed algebra with its
 automorphisms `γ_s` and `q`-derivatives is owned by `QWittVectors:QW.6`. -/
 
 namespace TauCeti.Prismatic.QCrys
 
-open CategoryTheory TauCeti.Delta
+open CategoryTheory TauCeti.Delta TauCeti.Prismatic.Site
 
 attribute [local instance] HasDerivedCategory.standard
 
@@ -5109,10 +5586,17 @@ example (d : Delta.Structure p (PowerSeries ℤ_[p])) :
 
 /-! ### Node `PR.6/q-pd-pair` -/
 
-/-- A `q`-PD pair (Bhatt–Scholze Definition 16.2). Left out, as notions of
-`DerivedDeRhamCohomology:DD.1`: the derived `(p, [p]_q)`-completeness of the ideal `I`, and
-the finite complete Tor-amplitude of `D/(q-1)` over `D`. Completeness of `D` is recorded
-classically; under condition (2) it is equivalent to derived completeness. -/
+/-- DD.1 interface: the completed quotient has uniformly bounded Tor-amplitude
+on discrete modules. Its completion is along p on the quotient. -/
+noncomputable def HasFiniteCompleteTorAmplitude {D : Type u} [CommRing D] (a : D) : Prop :=
+  ∃ b : ℕ, ∀ M : ModuleCat.{u} D,
+    let K := (completedBaseChange (Ideal.Quotient.mk (Ideal.span {a}))
+      (Ideal.span {(p : D ⧸ Ideal.span {a})})).obj
+        ((DerivedCategory.singleFunctor (ModuleCat.{u} D) 0).obj M)
+    DerivedCategory.IsLE K 0 ∧ DerivedCategory.IsGE K (-(b : ℤ))
+
+/-- A q-PD pair, including derived completeness of I and finite complete
+Tor-amplitude of D/(q−1) (BS22 Definition 16.2). -/
 structure QPDPair (p : ℕ) [Fact p.Prime] (D : Type u) [CommRing D] where
   /-- The δ-structure. -/
   δ : Delta.Structure p D
@@ -5138,6 +5622,11 @@ structure QPDPair (p : ℕ) [Fact p.Prime] (D : Type u) [CommRing D] where
   p_torsionFree : ∀ a : D ⧸ Ideal.span {q - 1}, (p : D ⧸ Ideal.span {q - 1}) * a = 0 → a = 0
   /-- `D` is `(p, [p]_q)`-adically complete. -/
   isAdicComplete : IsAdicComplete (Ideal.span {(p : D), pAnalog p q}) D
+  /-- Derived completeness of the ideal, not only of the ambient ring. -/
+  ideal_complete : IsDerivedComplete (Ideal.span {(p : D), pAnalog p q})
+    ((DerivedCategory.singleFunctor (ModuleCat.{u} D) 0).obj (ModuleCat.of D I))
+  /-- The quotient D/(q−1) has finite complete Tor-amplitude over D. -/
+  quotient_torAmplitude : HasFiniteCompleteTorAmplitude (p := p) (q - 1)
 
 /-- A morphism of `q`-PD pairs. -/
 structure QPDPair.Hom {D E : Type u} [CommRing D] [CommRing E] (P : QPDPair p D)
@@ -5205,83 +5694,116 @@ theorem QPDPair.span_sub_one_le {D : Type u} [CommRing D] (P : QPDPair p D) :
 
 /-! ### Node `PR.6/q-pd-envelope` -/
 
-/-- The ring `D_{J,q}(P)` for `J = (I, x_1, …, x_r)` (Lemma 16.10). Left out (DD.1): `P` is
-derived complete and completely flat over `D`, and `x` is completely regular relative to `D`. -/
+/-- The input conditions of Lemma 16.10, on the given algebra and sequence. -/
+structure EnvelopeInput {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) : Prop where
+  base_delta : IsDeltaHom p B.δ dP (algebraMap D P)
+  complete : IsDerivedComplete
+    ((Ideal.span {(p : D), pAnalog p B.q}).map (algebraMap D P))
+    ((DerivedCategory.singleFunctor (ModuleCat.{u} P) 0).obj (ModuleCat.of P P))
+  flat : IsCompletelyFlat (Ideal.span {(p : D), pAnalog p B.q}) (algebraMap D P)
+  regular : IsRelativelyRegular (Ideal.span {(p : D), pAnalog p B.q})
+    ((List.finRange r).map x)
+
+/-- The universal q-PD envelope of the specified complete-flat regular input. -/
 noncomputable def envelope {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) : CommRingCat.{u} := sorry
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x) : CommRingCat.{u} := sorry
 
 /-- The canonical map `P → D_{J,q}(P)`. -/
 noncomputable def envelopeMap {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) :
-    P →+* envelope B dP x := sorry
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x) :
+    P →+* envelope B dP x h := sorry
 
 /-- The `q`-PD pair `(D_{J,q}(P), K)`. -/
 noncomputable def envelopePair {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) :
-    QPDPair p (envelope B dP x) := sorry
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x) :
+    QPDPair p (envelope B dP x h) := sorry
 
 theorem envelopeMap_delta {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) :
-    IsDeltaHom p dP (envelopePair B dP x).δ (envelopeMap B dP x) := by sorry
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x) :
+    IsDeltaHom p dP (envelopePair B dP x h).δ (envelopeMap B dP x h) := by sorry
 
 theorem envelope_frobenius_mem {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (i : Fin r) :
-    (toFrobenius p (envelopePair B dP x).δ).1 (envelopeMap B dP x (x i)) ∈
-      Ideal.span {pAnalog p (envelopePair B dP x).q} := by sorry
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x) (i : Fin r) :
+    (toFrobenius p (envelopePair B dP x h).δ).1 (envelopeMap B dP x h (x i)) ∈
+      Ideal.span {pAnalog p (envelopePair B dP x h).q} := by sorry
 
 theorem envelopeMap_mem {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) :
-    (B.I.map (algebraMap D P) ⊔ Ideal.span (Set.range x)).map (envelopeMap B dP x) ≤
-      (envelopePair B dP x).I := by sorry
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x) :
+    (B.I.map (algebraMap D P) ⊔ Ideal.span (Set.range x)).map (envelopeMap B dP x h) ≤
+      (envelopePair B dP x h).I := by sorry
 
 /-- `P/J ≅ D_{J,q}(P)/K`. -/
 noncomputable def envelopeQuotientEquiv {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) :
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x) :
     (P ⧸ (B.I.map (algebraMap D P) ⊔ Ideal.span (Set.range x))) ≃+*
-      (envelope B dP x ⧸ (envelopePair B dP x).I) := sorry
+      (envelope B dP x h ⧸ (envelopePair B dP x h).I) := sorry
 
 /-- The universal property: existence. -/
 noncomputable def envelopeLift {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P)
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x)
     {E : Type u} [CommRing E] (Q : QPDPair p E) (g : P →+* E) (hδ : IsDeltaHom p dP Q.δ g)
     (hq : g (algebraMap D P B.q) = Q.q)
     (hJ : (B.I.map (algebraMap D P) ⊔ Ideal.span (Set.range x)).map g ≤ Q.I) :
-    envelope B dP x →+* E := sorry
+    envelope B dP x h →+* E := sorry
+
+theorem envelopePair_q {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P)
+    (h : EnvelopeInput B dP x) :
+    (envelopePair B dP x h).q = envelopeMap B dP x h (algebraMap D P B.q) := by sorry
+
+theorem envelopeLift_isDeltaHom {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P)
+    (h : EnvelopeInput B dP x) {E : Type u} [CommRing E] (Q : QPDPair p E)
+    (g : P →+* E) (hδ : IsDeltaHom p dP Q.δ g)
+    (hq : g (algebraMap D P B.q) = Q.q)
+    (hJ : (B.I.map (algebraMap D P) ⊔ Ideal.span (Set.range x)).map g ≤ Q.I) :
+    IsDeltaHom p (envelopePair B dP x h).δ Q.δ
+      (envelopeLift B dP x h Q g hδ hq hJ) := by sorry
+
+theorem envelopeLift_map_I {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P)
+    (h : EnvelopeInput B dP x) {E : Type u} [CommRing E] (Q : QPDPair p E)
+    (g : P →+* E) (hδ : IsDeltaHom p dP Q.δ g)
+    (hq : g (algebraMap D P B.q) = Q.q)
+    (hJ : (B.I.map (algebraMap D P) ⊔ Ideal.span (Set.range x)).map g ≤ Q.I) :
+    (envelopePair B dP x h).I.map (envelopeLift B dP x h Q g hδ hq hJ) ≤ Q.I := by sorry
 
 theorem envelopeLift_comp {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P)
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x)
     {E : Type u} [CommRing E] (Q : QPDPair p E) (g : P →+* E) (hδ : IsDeltaHom p dP Q.δ g)
     (hq : g (algebraMap D P B.q) = Q.q)
     (hJ : (B.I.map (algebraMap D P) ⊔ Ideal.span (Set.range x)).map g ≤ Q.I) :
-    (envelopeLift B dP x Q g hδ hq hJ).comp (envelopeMap B dP x) = g := by sorry
+    (envelopeLift B dP x h Q g hδ hq hJ).comp (envelopeMap B dP x h) = g := by sorry
 
 /-- The universal property: uniqueness. -/
 theorem envelopeLift_unique {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P)
-    {E : Type u} [CommRing E] (Q : QPDPair p E) (f g : envelope B dP x →+* E)
-    (hf : IsDeltaHom p (envelopePair B dP x).δ Q.δ f)
-    (hg : IsDeltaHom p (envelopePair B dP x).δ Q.δ g)
-    (h : f.comp (envelopeMap B dP x) = g.comp (envelopeMap B dP x)) : f = g := by sorry
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x)
+    {E : Type u} [CommRing E] (Q : QPDPair p E) (f g : envelope B dP x h →+* E)
+    (hf : IsDeltaHom p (envelopePair B dP x h).δ Q.δ f)
+    (hg : IsDeltaHom p (envelopePair B dP x h).δ Q.δ g)
+    (heq : f.comp (envelopeMap B dP x h) = g.comp (envelopeMap B dP x h)) : f = g := by sorry
 
 -- pr6_envelope_empty_sequence
-example {D : Type u} [CommRing D] (B : QPDPair p D) :
-    Function.Bijective (envelopeMap B B.δ (fun i : Fin 0 => i.elim0)) := by sorry
+example {D : Type u} [CommRing D] (B : QPDPair p D)
+    (h : EnvelopeInput B B.δ (fun i : Fin 0 => i.elim0)) :
+    Function.Bijective (envelopeMap B B.δ (fun i : Fin 0 => i.elim0) h) := by sorry
 
 -- pr6_envelope_frobenius_divisible
 example {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) (x : Fin 1 → P) :
-    ∃ z : envelope B dP x,
-      pAnalog p (envelopePair B dP x).q * z =
-          (toFrobenius p (envelopePair B dP x).δ).1 (envelopeMap B dP x (x 0)) ∧
-        z - (envelopePair B dP x).δ.delta (envelopeMap B dP x (x 0)) ∈ (envelopePair B dP x).I := by
+    (B : QPDPair p D) (dP : Delta.Structure p P) (x : Fin 1 → P) (h : EnvelopeInput B dP x) :
+    ∃ z : envelope B dP x h,
+      pAnalog p (envelopePair B dP x h).q * z =
+          (toFrobenius p (envelopePair B dP x h).δ).1 (envelopeMap B dP x h (x 0)) ∧
+        z - (envelopePair B dP x h).δ.delta (envelopeMap B dP x h (x 0)) ∈ (envelopePair B dP x h).I := by
   sorry
 
 -- pr6_envelope_universal_identity
 example {D P : Type u} [CommRing D] [CommRing P] [Algebra D P]
-    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P)
-    (f : envelope B dP x →+* envelope B dP x)
-    (hf : IsDeltaHom p (envelopePair B dP x).δ (envelopePair B dP x).δ f)
-    (h : f.comp (envelopeMap B dP x) = envelopeMap B dP x) : f = RingHom.id _ := by sorry
+    (B : QPDPair p D) (dP : Delta.Structure p P) {r : ℕ} (x : Fin r → P) (h : EnvelopeInput B dP x)
+    (f : envelope B dP x h →+* envelope B dP x h)
+    (hf : IsDeltaHom p (envelopePair B dP x h).δ (envelopePair B dP x h).δ f)
+    (heq : f.comp (envelopeMap B dP x h) = envelopeMap B dP x h) : f = RingHom.id _ := by sorry
 
 -- pr6_envelope_not_surjective
 example : ¬ ∃ z : Polynomial (PowerSeries ℤ_[p]),
@@ -5368,99 +5890,57 @@ example : ∃ (B : QPDPair p (PowerSeries ℤ_[p])) (R : Type) (_ : CommRing R)
 
 /-! ### Node `PR.6/q-crystalline-cech-alexander` -/
 
-/-- The Čech–Alexander complex of a presentation `π : P → R` (Construction 16.13). Left out:
-`P` is a completed polynomial `D`-algebra. -/
+/-- The canonical Čech–Alexander complex formed from the completed polynomial
+presentation indexed by elements of R, with its free δ-envelope (Construction 16.13).
+This construction is fixed by B and R, not by an arbitrary polynomial candidate. -/
 noncomputable def cechAlexanderComplex {D : Type u} [CommRing D] (B : QPDPair p D)
-    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R] (P : Type u) [CommRing P] [Algebra D P]
-    (π : P →+* R) : CochainComplex (ModuleCat.{u} D) ℤ := sorry
+    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R] :
+    CochainComplex (ModuleCat.{u} D) ℤ := sorry
 
-/-- It computes `qΩ_{R/D}`. -/
 noncomputable def cechAlexanderIso {D : Type u} [CommRing D] (B : QPDPair p D)
-    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R] (P : Type u) [CommRing P] [Algebra D P]
-    (π : P →+* R) (hπ : Function.Surjective π) :
-    DerivedCategory.Q.obj (cechAlexanderComplex B R P π) ≅ qCrystallineCohomology B R := sorry
+    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R]
+    (hR : SmoothModP p (D ⧸ B.I) R) :
+    DerivedCategory.Q.obj (cechAlexanderComplex B R) ≅ qCrystallineCohomology B R := sorry
 
-/-- The weakly initial thickening `D_{J,q}(F)`. -/
 noncomputable def cechAlexanderZero {D : Type u} [CommRing D] (B : QPDPair p D)
-    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R] (P : Type u) [CommRing P] [Algebra D P]
-    (π : P →+* R) : Thickening B R := sorry
+    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R]
+    (hR : SmoothModP p (D ⧸ B.I) R) : Thickening B R := sorry
 
 theorem cechAlexanderZero_weaklyInitial {D : Type u} [CommRing D] (B : QPDPair p D)
-    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R] (P : Type u) [CommRing P] [Algebra D P]
-    (π : P →+* R) (hπ : Function.Surjective π) (T : Thickening B R) :
-    Nonempty (Thickening.Hom (cechAlexanderZero B R P π) T) := by sorry
+    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R]
+    (hR : SmoothModP p (D ⧸ B.I) R) (T : Thickening B R) :
+    Nonempty (Thickening.Hom (cechAlexanderZero B R hR) T) := by sorry
 
-/-- The small complex of Remark 16.16, for a δ-`D`-algebra `P` with a surjection onto `R`.
-Left out: `P` is completely (ind-)smooth over `D`. -/
-noncomputable def cechAlexanderSmallComplex {D : Type u} [CommRing D] (B : QPDPair p D)
-    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R] (P : Type u) [CommRing P] [Algebra D P]
-    (dP : Delta.Structure p P) (π : P →+* R) : CochainComplex (ModuleCat.{u} D) ℤ := sorry
-
-/-- It also computes `qΩ_{R/D}`. -/
-noncomputable def cechAlexanderSmallIso {D : Type u} [CommRing D] (B : QPDPair p D)
-    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R] (P : Type u) [CommRing P] [Algebra D P]
-    (dP : Delta.Structure p P) (π : P →+* R) (hπ : Function.Surjective π) :
-    DerivedCategory.Q.obj (cechAlexanderSmallComplex B R P dP π) ≅
-      qCrystallineCohomology B R := sorry
-
--- pr6_cech_alexander_independent
-example {D : Type u} [CommRing D] (B : QPDPair p D) (R : Type u) [CommRing R]
-    [Algebra (D ⧸ B.I) R] (P P' : Type u) [CommRing P] [Algebra D P] [CommRing P'] [Algebra D P']
-    (π : P →+* R) (π' : P' →+* R) (hπ : Function.Surjective π) (hπ' : Function.Surjective π') :
-    Nonempty (DerivedCategory.Q.obj (cechAlexanderComplex B R P π) ≅
-      DerivedCategory.Q.obj (cechAlexanderComplex B R P' π')) := by sorry
-
--- pr6_cech_alexander_weakly_initial_base
-example {D : Type u} [CommRing D] (B : QPDPair p D) (P : Type u) [CommRing P] [Algebra D P]
-    (π : P →+* D ⧸ B.I) (hπ : Function.Surjective π) :
-    Nonempty (Thickening.Hom (cechAlexanderZero B (D ⧸ B.I) P π) (Thickening.base B)) := by sorry
-
--- pr6_cech_alexander_base_presentation
+-- pr6_cech_alexander_base
 example {D : Type u} [CommRing D] (B : QPDPair p D) :
-    Nonempty (DerivedCategory.Q.obj (cechAlexanderComplex B (D ⧸ B.I) D (Ideal.Quotient.mk B.I)) ≅
+    Nonempty (DerivedCategory.Q.obj (cechAlexanderComplex B (D ⧸ B.I)) ≅
       (DerivedCategory.singleFunctor (ModuleCat.{u} D) 0).obj (ModuleCat.of D D)) := by sorry
 
--- pr6_cech_alexander_not_cech_nerve
-example : ∃ (B : QPDPair p (PowerSeries ℤ_[p])) (R : Type) (_ : CommRing R)
-    (_ : Algebra (PowerSeries ℤ_[p] ⧸ B.I) R),
-    IsEmpty (qCrystallineCohomology B R ≅
-      (DerivedCategory.singleFunctor (ModuleCat.{0} (PowerSeries ℤ_[p])) 0).obj
-        (ModuleCat.of (PowerSeries ℤ_[p]) (PowerSeries ℤ_[p]))) := by sorry
+/-! The packet's additional small-complex forms use a completed ind-smooth
+δ-presentation and its actual augmentation. Their full interfaces are contracts
+with DD.1; no computation theorem for an arbitrary surjective ring map is asserted. -/
 
 /-! ### Comparisons of `q`-crystalline cohomology -/
 
-/-- Imported data for the comparison with crystalline cohomology. -/
-structure CrystallineInput {D : Type u} [CommRing D] (B : QPDPair p D) where
-  /-- Owner `DerivedDeRhamCohomology:DD.1`: completed base change along `D → D/(q-1)`. -/
-  baseChange : DerivedCategory (ModuleCat.{u} D) ⥤
-    DerivedCategory (ModuleCat.{u} (D ⧸ Ideal.span {B.q - 1}))
-  /-- Owner `CrystallineCohomology:CR.2`: `RΓ_crys(R/(D/(q-1)))`. -/
-  crystalline : DerivedCategory (ModuleCat.{u} (D ⧸ Ideal.span {B.q - 1}))
+/-- CR.2 adapter: the actual crystalline complex of R over D/(q−1), with the
+PD base ideal induced by the q-PD pair. -/
+noncomputable def crystallineComplex {D : Type u} [CommRing D] (B : QPDPair p D)
+    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R] :
+    DerivedCategory (ModuleCat.{u} (D ⧸ Ideal.span {B.q - 1})) := sorry
 
-/-- Node `PR.6/q-crystalline-crystalline-comparison` (Theorem 16.14), stated against the
-imported completed base change and crystalline cohomology of `R`. -/
+/-- BS22 Theorem 16.14 for the canonical completed specialization at q=1. -/
 theorem qCrystalline_crystalline_comparison {D : Type u} [CommRing D] (B : QPDPair p D)
-    (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R] (X : CrystallineInput B) :
-    Nonempty (X.baseChange.obj (qCrystallineCohomology B R) ≅ X.crystalline) := by sorry
-
-/-- Node `PR.6/q-pd-thickening-invariance` (Theorem 16.17). Left out: `Rt` is `p`-completely
-smooth over `D/J` and `ψ` exhibits `R` as its completed base change to `D/I`. -/
-theorem qCrystalline_thickening_invariance {D : Type u} [CommRing D] (BJ BI : QPDPair p D)
-    (hδ : BJ.δ = BI.δ) (hq : BJ.q = BI.q) (hle : BJ.I ≤ BI.I)
-    (Rt R : Type u) [CommRing Rt] [CommRing R] [Algebra (D ⧸ BJ.I) Rt] [Algebra (D ⧸ BI.I) R]
-    (ψ : Rt →+* R) (hψ : Function.Surjective ψ) :
-    Nonempty (qCrystallineCohomology BJ Rt ≅ qCrystallineCohomology BI R) := by sorry
-
-/-- Node `PR.6/q-crystalline-prismatic-comparison` (Theorem 16.18): `Δ_{R^{(1)}/D} ≅ qΩ_{R/D}`
-over the prism `(D, ([p]_q))`. The Frobenius twist `R1 = R^{(1)}` is given with its
-`φ_D`-semilinear map `ψ : R → R1`. Left out: `R` is `p`-completely smooth and `ψ` exhibits `R1`
-as the `p`-completed base change of `R` along `φ_D`. -/
-theorem qCrystalline_prismatic_comparison {D : Type u} [CommRing D] (B : QPDPair p D)
     (R : Type u) [CommRing R] [Algebra (D ⧸ B.I) R]
-    (R1 : Type u) [CommRing R1] [Algebra B.prism.bar R1] (ψ : R →+* R1)
-    (hψ : ∀ a : D, ψ (algebraMap (D ⧸ B.I) R (Ideal.Quotient.mk B.I a)) =
-      algebraMap B.prism.bar R1 (Ideal.Quotient.mk B.prism.I (B.prism.φ a))) :
-    Nonempty (prismaticCohomology B.prism R1 ≅ qCrystallineCohomology B R) := by sorry
+    (hR : SmoothModP p (D ⧸ B.I) R) :
+    Nonempty ((completedBaseChange (Ideal.Quotient.mk (Ideal.span {B.q - 1}))
+      (Ideal.span {(p : D ⧸ Ideal.span {B.q - 1})})).obj
+        (qCrystallineCohomology B R) ≅ crystallineComplex B R) := by sorry
+
+/-! PR.6/q-pd-thickening-invariance and q-crystalline-prismatic-comparison
+require the completed animated base-change algebra itself, with its universal
+map. The packet specifies those algebras and their smoothness. Until that carrier
+is supplied by DD.1, their signatures are not stated using a merely surjective
+or semilinear map into an arbitrary algebra. -/
 
 /-! ### Node `PR.6/framed-q-pd-datum` -/
 
@@ -5468,7 +5948,7 @@ theorem qCrystalline_prismatic_comparison {D : Type u} [CommRing D] (B : QPDPair
 automorphisms `γ_s` and the `q`-derivatives are owned by `QWittVectors:QW.6`; the δ-structure
 with `δ X_s = 0` is PR.6's. Left out (DD.1, QW.6): `P` is derived `(p, [p]_q)`-complete and the
 framing `D[X_s] → P` is `(p, [p]_q)`-completely ind-étale. -/
-structure FramedAlgebra (p : ℕ) [Fact p.Prime] (D P : Type u) [CommRing D] [CommRing P]
+structure QWFramedAlgebra (p : ℕ) [Fact p.Prime] (D P : Type u) [CommRing D] [CommRing P]
     [Algebra D P] (q : D) (S : Type) where
   /-- The coordinates `X_s`. -/
   X : S → P
@@ -5476,14 +5956,19 @@ structure FramedAlgebra (p : ℕ) [Fact p.Prime] (D P : Type u) [CommRing D] [Co
   γ : S → (P ≃ₐ[D] P)
   /-- The `q`-derivatives `∇_{q,s}`. -/
   nabla : S → P → P
-  /-- The δ-structure. -/
-  δ : Delta.Structure p P
-  delta_coord : ∀ s, δ.delta (X s) = 0
   gamma_coord_self : ∀ s, γ s (X s) = algebraMap D P q * X s
   gamma_coord_of_ne : ∀ s t, s ≠ t → γ s (X t) = X t
   gamma_comm : ∀ s t f, γ s (γ t f) = γ t (γ s f)
-  gamma_delta : ∀ s f, γ s (δ.delta f) = δ.delta (γ s f)
   sub_one_mul_coord_mul_nabla : ∀ s f, algebraMap D P (q - 1) * X s * nabla s f = γ s f - f
+
+/-- PR.6's δ-enhancement of the requested general-base QW.6 adapter.
+The accepted QW scope must be extended as recorded in the packet's explicit gap. -/
+structure FramedAlgebra (p : ℕ) [Fact p.Prime] (D P : Type u) [CommRing D] [CommRing P]
+    [Algebra D P] (q : D) (S : Type) extends QWFramedAlgebra p D P q S where
+  δ : Delta.Structure p P
+  delta_coord : ∀ s, δ.delta (X s) = 0
+  gamma_delta : ∀ s f, γ s (δ.delta f) = δ.delta (γ s f)
+  coord_regular : ∀ s a, algebraMap D P (q - 1) * X s * a = 0 → a = 0
 
 /-- A framed `q`-PD datum `(P, S, J)` for `R`: `J` is the kernel of `toR` (Construction 16.20). -/
 structure FramedDatum (p : ℕ) [Fact p.Prime] {D : Type u} [CommRing D] (B : QPDPair p D)
@@ -5506,6 +5991,7 @@ structure FramedDatum.Hom {D : Type u} [CommRing D] {B : QPDPair p D}
   toAlgHom : P →ₐ[D] P'
   /-- The map on coordinates. -/
   onCoord : S → S'
+  onCoord_injective : Function.Injective onCoord
   map_coord : ∀ s, toAlgHom (F.framed.X s) = F'.framed.X (onCoord s)
   map_ker : (RingHom.ker F.toR).map toAlgHom.toRingHom ≤ RingHom.ker F'.toR
 
@@ -5559,6 +6045,12 @@ theorem FramedDatum.envelopeFramed_gamma {D : Type u} [CommRing D] {B : QPDPair 
     {R : Type u} [CommRing R] [Algebra (D ⧸ B.I) R] {P : Type u} [CommRing P] [Algebra D P]
     {S : Type} (F : FramedDatum p B R P S) (s : S) (f : P) :
     F.envelopeFramed.γ s (F.envelopeMap f) = F.envelopeMap (F.framed.γ s f) := by sorry
+
+/-- The regularity needed to divide the coordinate difference on the envelope. -/
+theorem FramedDatum.coordinate_regular {D : Type u} [CommRing D] {B : QPDPair p D}
+    {R : Type u} [CommRing R] [Algebra (D ⧸ B.I) R] {P : Type u} [CommRing P]
+    [Algebra D P] {S : Type} (F : FramedDatum p B R P S) (s : S) (a : F.envelope) :
+    algebraMap D F.envelope (B.q - 1) * F.envelopeFramed.X s * a = 0 → a = 0 := by sorry
 
 /-- The `q`-de Rham complex `qΩ^{*,□}_{D_{J,q}(P)/D}` (Construction 16.20). -/
 noncomputable def FramedDatum.qDeRhamComplex {D : Type u} [CommRing D] {B : QPDPair p D}
@@ -5619,38 +6111,12 @@ example {D P : Type u} [CommRing D] [CommRing P] [Algebra D P] (q : D) {S : Type
     (hreg : ∀ a : P, algebraMap D P (q - 1) * F.X s * a = 0 → a = 0) (f g : P) :
     F.nabla s (f * g) = f * F.nabla s g + F.γ s g * F.nabla s f := by sorry
 
-/-- Node `PR.6/q-de-rham-comparison` (Theorem 16.22). Left out: `D` is flat over `ℤ_p⟦q-1⟧`
-and `R` is `p`-completely smooth over `D/I`. -/
-theorem qDeRham_comparison {D : Type u} [CommRing D] {B : QPDPair p D}
-    {R : Type u} [CommRing R] [Algebra (D ⧸ B.I) R] {P : Type u} [CommRing P] [Algebra D P]
-    {S : Type} (F : FramedDatum p B R P S) :
-    Nonempty (DerivedCategory.Q.obj F.qDeRhamComplex ≅ qCrystallineCohomology B R) := by sorry
-
-/-- Node `PR.6/change-of-framing`: two framed `q`-PD data for the same `R` have isomorphic
-`q`-de Rham complexes in `D(D)`. -/
-theorem change_of_framing {D : Type u} [CommRing D] {B : QPDPair p D}
-    {R : Type u} [CommRing R] [Algebra (D ⧸ B.I) R] {P P' : Type u} [CommRing P] [CommRing P']
-    [Algebra D P] [Algebra D P'] {S S' : Type}
-    (F : FramedDatum p B R P S) (F' : FramedDatum p B R P' S') :
-    Nonempty (DerivedCategory.Q.obj F.qDeRhamComplex ≅
-      DerivedCategory.Q.obj F'.qDeRhamComplex) := by sorry
-
-/-- Node `PR.6/q-de-rham-prismatic-comparison-zp` (Example 1.9 (4)): over the `q`-PD pair
-`(ℤ_p⟦q-1⟧, (q-1))`, the framed `q`-de Rham complex of a framed lift `P` of `R` is the
-prismatic cohomology of `R1 = R ⊗̂ ℤ_p[ζ_p]` relative to `(ℤ_p⟦q-1⟧, ([p]_q))`. Left out: `R` is
-`p`-completely smooth over `ℤ_p` and `ψ` exhibits `R1` as its completed base change. -/
-theorem qDeRham_prismatic_comparison_padic (B : QPDPair p (PowerSeries ℤ_[p]))
-    (hq : B.q = 1 + PowerSeries.X) (hI : B.I = Ideal.span {PowerSeries.X})
-    (R : Type) [CommRing R] [Algebra (PowerSeries ℤ_[p] ⧸ B.I) R]
-    (P : Type) [CommRing P] [Algebra (PowerSeries ℤ_[p]) P] {S : Type}
-    (F : FramedDatum p B R P S)
-    (hF : RingHom.ker F.toR = Ideal.span {algebraMap (PowerSeries ℤ_[p]) P PowerSeries.X})
-    (R1 : Type) [CommRing R1] [Algebra B.prism.bar R1] (ψ : R →+* R1)
-    (hψ : ∀ a : PowerSeries ℤ_[p], ψ (algebraMap (PowerSeries ℤ_[p] ⧸ B.I) R
-        (Ideal.Quotient.mk B.I a)) =
-      algebraMap B.prism.bar R1 (Ideal.Quotient.mk B.prism.I (B.prism.φ a))) :
-    Nonempty (DerivedCategory.Q.obj F.qDeRhamComplex ≅ prismaticCohomology B.prism R1) := by
-  sorry
+/-! The geometric comparison signatures PR.6/q-de-rham-comparison,
+change-of-framing and q-de-rham-prismatic-comparison-zp require the completed
+(ind-)étale framing, complete flatness over Z_p[[q−1]], complete smoothness of R,
+and the specified completed Frobenius base-change algebra. These are explicit
+contracts of the packet's QW.6/DD.1 requests. The algebraic adapter above is used
+for q-derivative identities; it does not imply any of those geometric conditions. -/
 
 end TauCeti.Prismatic.QCrys
 
@@ -5671,94 +6137,49 @@ theorem gamma_xi {D : Type*} [CommRing D] (d : Delta.Structure p D) (q ξ : D)
 
 /-! ### Node `PR.6/ainf-omega-comparison-map` -/
 
-/-- Imported data of a chart `Σ` of the all-coordinates construction. -/
-structure Chart (P : Type u) [CommRing P] (S : Type) where
-  /-- Owner `AInfCohomology:AI.4`: the ring `A_inf(R_{Σ,∞})`. -/
+/-- A compatible q-PD chart for the all-coordinates envelope. The actual
+AI.4 chart must additionally be A_inf(R_(Σ,∞)); this adapter only states the
+universal-envelope map, not the AΩ comparison. -/
+structure Chart {A : Type u} [CommRing A] {B : QPDPair p A}
+    {R : Type u} [CommRing R] [Algebra (A ⧸ B.I) R]
+    {P : Type u} [CommRing P] [Algebra A P] {S : Type}
+    (F : FramedDatum p B R P S) where
   AinfRinf : CommRingCat.{u}
-  /-- Owners `AInfCohomology:AI.3`, `AI.4`: the automorphisms `σ_s`. -/
-  σ : S → (AinfRinf ≃+* AinfRinf)
-  /-- Owner `AInfCohomology:AI.4` with PR.0: the map from the torus `P_Σ`. -/
+  pair : QPDPair p AinfRinf
   fromTorus : P →+* AinfRinf
+  delta_compat : IsDeltaHom p F.framed.δ pair.δ fromTorus
+  map_q : fromTorus (algebraMap A P B.q) = pair.q
+  map_ker : (RingHom.ker F.toR).map fromTorus ≤ pair.I
 
-/-- Imported data: the complex `AΩ_R` with its Frobenius. -/
-structure AOmegaData {A : Type u} [CommRing A] (B : QPDPair p A) where
-  /-- Owner `AInfCohomology:AI.3`: `AΩ_R` as an object of `D(A_inf)`. -/
-  AΩ : DerivedCategory (ModuleCat.{u} A)
-  /-- Owner `AInfCohomology:AI.3`: the Frobenius of `AΩ_R`. -/
-  frobenius : AΩ ⟶ (frobeniusPushforward B.prism).obj AΩ
-
-/-- `μ_0 : D_{J_Σ,q}(P_Σ) → A_inf(R_{Σ,∞})`, from the universal property of the envelope. -/
 noncomputable def coordinateMap {A : Type u} [CommRing A] {B : QPDPair p A}
-    {R : Type u} [CommRing R] [Algebra (A ⧸ B.I) R] {P : Type u} [CommRing P] [Algebra A P]
-    {S : Type} (F : FramedDatum p B R P S) (ch : Chart P S) : F.envelope →+* ch.AinfRinf := sorry
+    {R : Type u} [CommRing R] [Algebra (A ⧸ B.I) R]
+    {P : Type u} [CommRing P] [Algebra A P] {S : Type}
+    (F : FramedDatum p B R P S) (ch : Chart F) : F.envelope →+* ch.AinfRinf := sorry
 
 theorem coordinateMap_comp {A : Type u} [CommRing A] {B : QPDPair p A}
-    {R : Type u} [CommRing R] [Algebra (A ⧸ B.I) R] {P : Type u} [CommRing P] [Algebra A P]
-    {S : Type} (F : FramedDatum p B R P S) (ch : Chart P S) :
+    {R : Type u} [CommRing R] [Algebra (A ⧸ B.I) R]
+    {P : Type u} [CommRing P] [Algebra A P] {S : Type}
+    (F : FramedDatum p B R P S) (ch : Chart F) :
     (coordinateMap F ch).comp F.envelopeMap = ch.fromTorus := by sorry
-
-theorem coordinateMap_gamma {A : Type u} [CommRing A] {B : QPDPair p A}
-    {R : Type u} [CommRing R] [Algebra (A ⧸ B.I) R] {P : Type u} [CommRing P] [Algebra A P]
-    {S : Type} (F : FramedDatum p B R P S) (ch : Chart P S)
-    (h : ∀ s f, ch.fromTorus (F.framed.γ s f) = ch.σ s (ch.fromTorus f)) (s : S)
-    (x : F.envelope) :
-    coordinateMap F ch (F.envelopeFramed.γ s x) = ch.σ s (coordinateMap F ch x) := by sorry
 
 /-- `φ_A^*` on `D(A)` for a perfect prism: restriction of scalars along `φ⁻¹`. -/
 noncomputable def frobeniusPullback {A : Type u} [CommRing A] (P : Prism p A) (h : P.IsPerfect) :
     DerivedCategory (ModuleCat.{u} A) ⥤ DerivedCategory (ModuleCat.{u} A) :=
   (ModuleCat.restrictScalars (RingEquiv.ofBijective P.φ h).symm.toRingHom).mapDerivedCategory
 
-/-- The comparison map `μ_R : qΩ_{R/A} ⟶ AΩ_R` (proof of Theorem 17.2). Left out: `A` is
-`A_inf(O_C)` with `q = [ε]` and `I = (ξ)`, and `R` is `p`-completely smooth over `O_C`. -/
-noncomputable def comparisonMap {A : Type u} [CommRing A] (B : QPDPair p A)
-    (R : Type u) [CommRing R] [Algebra (A ⧸ B.I) R] (X : AOmegaData B) :
-    qCrystallineCohomology B R ⟶ X.AΩ := sorry
-
-theorem comparisonMap_frobenius {A : Type u} [CommRing A] (B : QPDPair p A)
-    (R : Type u) [CommRing R] [Algebra (A ⧸ B.I) R] (X : AOmegaData B) :
-    comparisonMap B R X ≫ X.frobenius =
-      qCrystallineFrobenius B R ≫ (frobeniusPushforward B.prism).map (comparisonMap B R X) := by
-  sorry
-
--- pr6_mu_torus_coordinate
-example {A : Type u} [CommRing A] {B : QPDPair p A}
-    {R : Type u} [CommRing R] [Algebra (A ⧸ B.I) R] {P : Type u} [CommRing P] [Algebra A P]
-    {S : Type} (F : FramedDatum p B R P S) (ch : Chart P S)
-    (h : ∀ s f, ch.fromTorus (F.framed.γ s f) = ch.σ s (ch.fromTorus f)) (s : S) :
-    ch.σ s (ch.fromTorus (F.framed.X s)) =
-      ch.fromTorus (algebraMap A P B.q) * ch.fromTorus (F.framed.X s) := by sorry
-
--- pr6_mu_point
-example {A : Type u} [CommRing A] (B : QPDPair p A) :
-    Nonempty (qCrystallineCohomology B (A ⧸ B.I) ≅
-      (DerivedCategory.singleFunctor (ModuleCat.{u} A) 0).obj (ModuleCat.of A A)) := by sorry
-
--- pr6_mu_frobenius_square
-example {A : Type u} [CommRing A] (B : QPDPair p A)
-    (R : Type u) [CommRing R] [Algebra (A ⧸ B.I) R] (X : AOmegaData B) :
-    comparisonMap B R X ≫ X.frobenius =
-      qCrystallineFrobenius B R ≫ (frobeniusPushforward B.prism).map (comparisonMap B R X) := by
-  sorry
+/-! PR.6/ainf-omega-comparison-map and ainf-omega-comparison use the actual
+A_inf(O_C) of a complete algebraically closed extension C/Q_p, its q=[ε] and ξ,
+a p-completely smooth O_C-algebra R, and the AI.3/AI.4 all-coordinates construction
+of AΩ_R. The packet specifies the coordinate-injective naturality and the
+Frobenius square. No isomorphism with a freely chosen complex is asserted here:
+the Q0/AI.3 typed geometric carriers are needed for these signatures. -/
 
 -- pr6_mu_needs_decalage
-example {E : Type*} [CommRing E] (σ : E ≃+* E) (q q' y : E) (hq : q' ^ p = q) (hσq : σ q' = q')
-    (hy : σ y = q' * y) : (q - 1) * y = σ (pAnalog p q' * y) - pAnalog p q' * y := by sorry
+example {E : Type*} [CommRing E] (σ : E ≃+* E) (q q' y : E) (hq : q' ^ p = q)
+    (hσq : σ q' = q') (hy : σ y = q' * y) :
+    (q - 1) * y = σ (pAnalog p q' * y) - pAnalog p q' * y := by sorry
 
-/-! ### Named theorems of §§17–18 -/
 
-/-- Node `PR.6/ainf-omega-comparison` (Theorem 17.2): `μ_R` is an isomorphism. -/
-theorem ainfOmega_comparison {A : Type u} [CommRing A] (B : QPDPair p A)
-    (R : Type u) [CommRing R] [Algebra (A ⧸ B.I) R] (X : AOmegaData B) :
-    IsIso (comparisonMap B R X) := by sorry
-
-/-- Node `PR.6/ainf-omega-comparison` (Theorem 17.2): `AΩ_R ≅ φ_A^* Δ_{R/A}` for the perfect
-prism `(A_inf, ker θ)`, whose ideal is the `q`-PD ideal `(ξ)`. The `E_∞`-structure of
-Remark 17.3 needs `E_∞`-algebras, which Mathlib lacks, and is left out. -/
-theorem ainfOmega_prismatic_comparison {A : Type u} [CommRing A] (Pθ : Prism p A)
-    (hperf : Pθ.IsPerfect) (B : QPDPair p A) (hδ : Pθ.δ = B.δ) (hI : Pθ.I = B.I)
-    (R : Type u) [CommRing R] [Algebra Pθ.bar R] (X : AOmegaData B) :
-    Nonempty (X.AΩ ≅ (frobeniusPullback Pθ hperf).obj (prismaticCohomology Pθ R)) := by sorry
 
 /-- Node `PR.6/comparison-uniqueness`, the formal step: an object without nontrivial
 endomorphisms has at most one isomorphism to any other object. Theorem 18.2 itself is a
@@ -5854,6 +6275,17 @@ noncomputable def Crystal.unit (C : Type v) [Category.{w} C] (O : C ⥤ CommRing
 /-- The tensor product of two crystals, with values `E c ⊗_{O c} F c`. -/
 noncomputable def Crystal.tensor (E F : Crystal C O) : Crystal C O where
   M c := E.M c ⊗[O.obj c] F.M c
+  finite _ := sorry
+  projective _ := sorry
+  res _ := sorry
+  res_id _ _ := sorry
+  res_comp _ _ _ := sorry
+  isBaseChange _ := sorry
+
+/-- The dual crystal has value Hom_O(E,O). Finite projectivity identifies
+base change of this dual with the dual of the base change. -/
+noncomputable def Crystal.dual (E : Crystal C O) : Crystal C O where
+  M c := Module.Dual (O.obj c) (E.M c)
   finite _ := sorry
   projective _ := sorry
   res _ := sorry
@@ -5979,6 +6411,16 @@ example {A : Type u} [CommRing A] (P : Prism p A) (L : Type u) [CommRing L] [Alg
 
 /-! ### Prismatic F-crystals on a site (node `PR.7/prismatic-f-crystal`) -/
 
+/-- The `p`-adic completion of `L`; for `L = A[1/I]` this is `A[1/I]^∧_p`. -/
+abbrev LaurentRing (p : ℕ) (L : Type u) [CommRing L] : Type u :=
+  AdicCompletion (Ideal.span {(p : L)}) L
+
+/-- The Frobenius of `A[1/I]^∧_p` induced by `φ`; it exists because `φ(I) ≡ I^p` modulo `p`.
+`L` is meant to satisfy `IsAwayIdeal P.I L`. -/
+noncomputable def laurentFrobenius {A : Type u} [CommRing A] (P : Prism p A) (L : Type u)
+    [CommRing L] [Algebra A L] (hL : IsAwayIdeal P.I L) : LaurentRing p L →+* LaurentRing p L := sorry
+
+
 /-- The absolute prismatic site of a `p`-adic formal scheme `X`, as data.
 * `C`, `O`, `prism`, `bounded`, `isDeltaHom`, `map_ideal`: the category of bounded prisms `(A, I)`
   over `X` with maps of prisms as arrows, and `O_Δ : (A, I) ↦ A`
@@ -6007,17 +6449,27 @@ structure SiteData (p : ℕ) [Fact p.Prime] where
   toInv : O ⟶ Oinv
   /-- `Oinv c` is `A[1/I]`. -/
   isAway : ∀ c, @IsAwayIdeal (O.obj c) _ (prism c).I (Oinv.obj c) _ (toInv.app c).hom.toAlgebra
-  /-- `O_Δ[1/I_Δ]^∧_p`. -/
-  Olaurent : C ⥤ CommRingCat.{u}
-  /-- The completion map. -/
-  toLaurent : Oinv ⟶ Olaurent
-  /-- The Frobenius of `O_Δ[1/I_Δ]^∧_p`. -/
-  laurentFrob : Olaurent ⟶ Olaurent
-
 attribute [instance] SiteData.category
 
 noncomputable instance SiteData.algebraInv (X : SiteData.{u} p) (c : X.C) :
     Algebra (X.O.obj c) (X.Oinv.obj c) := (X.toInv.app c).hom.toAlgebra
+
+/-- The canonical p-completion diagram, with the actual completion as each value. -/
+noncomputable def SiteData.Olaurent (X : SiteData.{u} p) : X.C ⥤ CommRingCat.{u} where
+  obj c := CommRingCat.of (LaurentRing p (X.Oinv.obj c))
+  map f := sorry
+  map_id c := sorry
+  map_comp f g := sorry
+
+noncomputable def SiteData.toLaurent (X : SiteData.{u} p) : X.Oinv ⟶ X.Olaurent where
+  app c := CommRingCat.ofHom (algebraMap (X.Oinv.obj c) (LaurentRing p (X.Oinv.obj c)))
+  naturality f := sorry
+
+/-- Its Frobenius is induced by the actual prism Frobenius after localization
+and p-completion, not a freely chosen endomorphism. -/
+noncomputable def SiteData.laurentFrob (X : SiteData.{u} p) : X.Olaurent ⟶ X.Olaurent where
+  app c := CommRingCat.ofHom (laurentFrobenius (X.prism c) (X.Oinv.obj c) (X.isAway c))
+  naturality f := sorry
 
 noncomputable instance SiteData.algebraLaurent (X : SiteData.{u} p) (c : X.C) :
     Algebra (X.O.obj c) (X.Olaurent.obj c) := ((X.toInv ≫ X.toLaurent).app c).hom.toAlgebra
@@ -6034,9 +6486,6 @@ noncomputable def SiteData.restrict (X : SiteData.{u} p) {D : Type (u + 1)} [Cat
   Oinv := G ⋙ X.Oinv
   toInv := Functor.whiskerLeft G X.toInv
   isAway d := X.isAway (G.obj d)
-  Olaurent := G ⋙ X.Olaurent
-  toLaurent := Functor.whiskerLeft G X.toLaurent
-  laurentFrob := Functor.whiskerLeft G X.laurentFrob
 
 /-- The map `A[1/I] ⊗_A M(A) → B[1/J] ⊗_B M(B)` induced by an arrow, `a ⊗ x ↦ f(a) ⊗ res_f(x)`. -/
 noncomputable def SiteData.tensorRes (X : SiteData.{u} p) (E : Crystal X.C X.O) {c d : X.C}
@@ -6100,6 +6549,9 @@ noncomputable def PrismaticFCrystal.unit (X : SiteData.{u} p) : PrismaticFCrysta
 noncomputable def PrismaticFCrystal.tensor (E F : PrismaticFCrystal X) : PrismaticFCrystal X :=
   sorry
 
+/-- Duality of finite projective prismatic F-crystals. -/
+noncomputable def PrismaticFCrystal.dual (E : PrismaticFCrystal X) : PrismaticFCrystal X := sorry
+
 /-- Pullback of a prismatic F-crystal along a functor of sites. -/
 noncomputable def PrismaticFCrystal.pullback {D : Type (u + 1)} [Category.{u} D] (G : D ⥤ X.C)
     (E : PrismaticFCrystal X) : PrismaticFCrystal (X.restrict G) := sorry
@@ -6121,15 +6573,6 @@ example (c : X.C) (h : (X.prism c).I ≠ ⊤) : ¬ (breuilKisinTwist X 1).IsEffe
 example : (PrismaticFCrystal.unit X).IsEffective := sorry
 
 /-! ### Laurent F-crystals (node `PR.7/laurent-f-crystal`) -/
-
-/-- The `p`-adic completion of `L`; for `L = A[1/I]` this is `A[1/I]^∧_p`. -/
-abbrev LaurentRing (p : ℕ) (L : Type u) [CommRing L] : Type u :=
-  AdicCompletion (Ideal.span {(p : L)}) L
-
-/-- The Frobenius of `A[1/I]^∧_p` induced by `φ`; it exists because `φ(I) ≡ I^p` modulo `p`.
-`L` is meant to satisfy `IsAwayIdeal P.I L`. -/
-noncomputable def laurentFrobenius {A : Type u} [CommRing A] (P : Prism p A) (L : Type u)
-    [CommRing L] [Algebra A L] : LaurentRing p L →+* LaurentRing p L := sorry
 
 /-- A Laurent F-crystal: a crystal over `O_Δ[1/I_Δ]^∧_p` with `φ^* E ≅ E`. -/
 structure LaurentFCrystal (X : SiteData.{u} p) where
@@ -6160,7 +6603,7 @@ example {A : Type u} [CommRing A] (P : Prism p A) (L : Type u) [CommRing L] [Alg
 -- pr7_laurent_frobenius_extends
 example {A : Type u} [CommRing A] (P : Prism p A) (L : Type u) [CommRing L] [Algebra A L]
     (hL : IsAwayIdeal P.I L) (a : A) :
-    laurentFrobenius P L (algebraMap L (LaurentRing p L) (algebraMap A L a)) =
+    laurentFrobenius P L hL (algebraMap L (LaurentRing p L) (algebraMap A L a)) =
       algebraMap L (LaurentRing p L) (algebraMap A L (P.φ a)) := sorry
 
 -- pr7_laurent_fixed_points_res
@@ -6169,9 +6612,9 @@ example (E : LaurentFCrystal X) {c d : X.C} (f : c ⟶ d) (x : E.E.M c)
 
 -- pr7_laurent_p_frobenius_non_example
 example {A : Type u} [CommRing A] (P : Prism p A) (L : Type u) [CommRing L] [Algebra A L]
-    (h : ¬ IsUnit (p : LaurentRing p L)) :
-    ¬ IsBaseChangeAlong (laurentFrobenius P L)
-      ((AddMonoidHom.mulLeft (p : LaurentRing p L)).comp (laurentFrobenius P L).toAddMonoidHom) :=
+    (hL : IsAwayIdeal P.I L) (h : ¬ IsUnit (p : LaurentRing p L)) :
+    ¬ IsBaseChangeAlong (laurentFrobenius P L hL)
+      ((AddMonoidHom.mulLeft (p : LaurentRing p L)).comp (laurentFrobenius P L hL).toAddMonoidHom) :=
   sorry
 
 /-! ### The étale realisation (node `PR.7/etale-realization`) -/
@@ -6257,7 +6700,7 @@ perfect residue field.
   representations (owner `PadicHodgeTheory:R06.2/admissible-representations`).
 * `bk`, `ainf`, `bkToAinf`: a Breuil–Kisin prism, the `A_inf`-prism and the map `u ↦ [π^♭]`
   (owners `PrismaticCohomology:PR.0/breuil-kisin-prism`, `PR.0/ainf-prism`).
-* `MF`, `rankMF`, `dcris`: weakly admissible filtered φ-modules over `K`, their dimension and
+* `MF`, `rankMF`, `dcris`: filtered φ-modules over `K`, their dimension and
   Fontaine's `D_crys` (owners `PadicHodgeTheory:R06.2/weak-admissibility`, `R06.2/period-functors`).
 * `Q`, `rational`, `rationalRestrict`: the category of quasiregular semiperfectoid `O_K`-algebras
   (owner `DerivedDeRhamCohomology:DD.5`) with the diagrams `R ↦ Δ_R⟨φ^n(I)/p⟩[1/p]` and the maps
@@ -6278,7 +6721,7 @@ structure OKData (p : ℕ) [Fact p.Prime] where
   ainf : X.C
   /-- The map `𝔖 → A_inf`. -/
   bkToAinf : bk ⟶ ainf
-  /-- Weakly admissible filtered φ-modules. -/
+  /-- All filtered φ-modules, without an admissibility condition. -/
   MF : Type (u + 1)
   /-- Their dimension over `K_0`. -/
   rankMF : MF → ℕ
@@ -6291,48 +6734,24 @@ structure OKData (p : ℕ) [Fact p.Prime] where
   rational : ℕ → (Q ⥤ CommRingCat.{u})
   /-- `Δ_R⟨φ^{n+1}(I)/p⟩[1/p] → Δ_R⟨φ^n(I)/p⟩[1/p]`. -/
   rationalRestrict : ∀ n, rational (n + 1) ⟶ rational n
+  /-- The same period sheaves with I inverted. -/
+  rationalGeneric : ℕ → (Q ⥤ CommRingCat.{u})
+  /-- Localization at the prism ideal. -/
+  toRationalGeneric : ∀ n, rational n ⟶ rationalGeneric n
+  /-- Frobenius on the period sheaves, followed by the restriction between levels. -/
+  rationalGenericFrobenius : ∀ n, rationalGeneric n ⟶ rationalGeneric n
 
 attribute [instance] OKData.group OKData.categoryQ
 
-/-- For `X = Spf(O_K)`: the `G_K`-representation on the Frobenius-fixed points of the value of a
-Laurent F-crystal on `A_inf` (node `PR.7/laurent-f-crystals-local-systems` (5)). -/
-noncomputable def OKData.galoisRep (D : OKData.{u} p) (E : LaurentFCrystal D.X) :
-    Rep.{u} (PadicInt p) D.G := sorry
-
-/-- The action of `OKData.galoisRep` on morphisms. -/
-noncomputable def OKData.galoisRepMap (D : OKData.{u} p) {E F : LaurentFCrystal D.X}
-    (f : LaurentFCrystal.Hom E F) : D.galoisRep E ⟶ D.galoisRep F := sorry
-
-/-- The Breuil–Kisin prism covers the final object. The `(p, I)`-complete faithful flatness of
-`c ⟶ d` (DD.1) is not stated. -/
-theorem OKData.bk_covers (D : OKData.{u} p) (c : D.X.C) :
-    ∃ d : D.X.C, Nonempty (c ⟶ d) ∧ Nonempty (D.bk ⟶ d) := sorry
-
-/-- The `A_inf`-prism covers the final object (same omission as in `bk_covers`). -/
-theorem OKData.ainf_covers (D : OKData.{u} p) (c : D.X.C) :
-    ∃ d : D.X.C, Nonempty (c ⟶ d) ∧ Nonempty (D.ainf ⟶ d) := sorry
-
-/-- Evaluation at the Breuil–Kisin prism: a Breuil–Kisin module. -/
-noncomputable def OKData.evalBK (D : OKData.{u} p) (E : PrismaticFCrystal D.X) :
-    OverPrism (D.X.prism D.bk) (D.X.Oinv.obj D.bk) := E.eval D.bk
-
-/-- Evaluation at the `A_inf`-prism: a Breuil–Kisin–Fargues module (`AInfCohomology:AI.2`). -/
-noncomputable def OKData.evalAinf (D : OKData.{u} p) (E : PrismaticFCrystal D.X) :
-    OverPrism (D.X.prism D.ainf) (D.X.Oinv.obj D.ainf) := E.eval D.ainf
-
--- pr7_ok_bk_to_ainf_base_change
-example (D : OKData.{u} p) (E : Crystal D.X.C D.X.O) :
-    IsBaseChangeAlong (D.X.O.map D.bkToAinf).hom (E.res D.bkToAinf) := sorry
-
--- pr7_ok_ainf_perfect
-example (D : OKData.{u} p) :
-    (D.X.prism D.ainf).IsPerfect ∧ (D.X.prism D.ainf).IsOrientable := sorry
-
--- pr7_ok_bk_not_perfect
-example (D : OKData.{u} p) : ¬ (D.X.prism D.bk).IsPerfect := sorry
-
--- pr7_ok_bk_orientable
-example (D : OKData.{u} p) : (D.X.prism D.bk).IsOrientable := sorry
+/-- Canonical construction of the data of Spf O from its geometric parameters.
+R06.2 supplies the category of continuous crystalline lattices and period functors;
+DD.5 supplies the quasiregular semiperfectoid site. These are chosen constructions
+of O, not universally quantified abstract categories or rank functions. -/
+noncomputable def geometricData (p : ℕ) [Fact p.Prime]
+    (O : Type u) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [CharZero O]
+    [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+    [CharP (IsLocalRing.ResidueField O) p] [PerfectRing (IsLocalRing.ResidueField O) p]
+    (π : O) (hπ : Irreducible π) : OKData.{u} p := sorry
 
 /-! ### Period rings (node `PR.7/period-sheaves-qrsp`) -/
 
@@ -6394,105 +6813,309 @@ example : ¬ ∀ (A : Type) [CommRing A] (P : Prism p A) (d : A) (hd : P.I = Ide
     (x : Period.Rational p A d),
     Period.rationalFrobenius P d hd x - x ^ p ∈ Ideal.span {(p : Period.Rational p A d)} := sorry
 
+section CompleteDVR
+
+variable (p : ℕ) [Fact p.Prime]
+variable (O : Type u) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O] [CharZero O]
+variable [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+variable [CharP (IsLocalRing.ResidueField O) p] [PerfectRing (IsLocalRing.ResidueField O) p]
+variable (π : O) (hπ : Irreducible π)
+
+local notation "D" => geometricData p O π hπ
+
+/-- For `X = Spf(O_K)`: the `G_K`-representation on the Frobenius-fixed points of the value of a
+Laurent F-crystal on `A_inf` (node `PR.7/laurent-f-crystals-local-systems` (5)). -/
+noncomputable def galoisRep (E : LaurentFCrystal (geometricData p O π hπ).X) :
+    Rep.{u} (PadicInt p) (geometricData p O π hπ).G := sorry
+
+/-- The action of `galoisRep` on morphisms. -/
+noncomputable def galoisRepMap {E F : LaurentFCrystal (geometricData p O π hπ).X}
+    (f : LaurentFCrystal.Hom E F) : galoisRep p O π hπ E ⟶ galoisRep p O π hπ F := sorry
+
+/-- The Breuil–Kisin prism covers the final object. The `(p, I)`-complete faithful flatness of
+`c ⟶ d` (DD.1) is not stated. -/
+theorem bk_covers (c : (geometricData p O π hπ).X.C) :
+    ∃ d : (geometricData p O π hπ).X.C, Nonempty (c ⟶ d) ∧ Nonempty ((geometricData p O π hπ).bk ⟶ d) := sorry
+
+/-- The `A_inf`-prism covers the final object (same omission as in `bk_covers`). -/
+theorem ainf_covers (c : (geometricData p O π hπ).X.C) :
+    ∃ d : (geometricData p O π hπ).X.C, Nonempty (c ⟶ d) ∧ Nonempty ((geometricData p O π hπ).ainf ⟶ d) := sorry
+
+/-- Evaluation at the Breuil–Kisin prism: a Breuil–Kisin module. -/
+noncomputable def evalBK (E : PrismaticFCrystal (geometricData p O π hπ).X) :
+    OverPrism ((geometricData p O π hπ).X.prism (geometricData p O π hπ).bk) ((geometricData p O π hπ).X.Oinv.obj (geometricData p O π hπ).bk) := E.eval (geometricData p O π hπ).bk
+
+/-- Evaluation at the `A_inf`-prism: a Breuil–Kisin–Fargues module (`AInfCohomology:AI.2`). -/
+noncomputable def evalAinf (E : PrismaticFCrystal (geometricData p O π hπ).X) :
+    OverPrism ((geometricData p O π hπ).X.prism (geometricData p O π hπ).ainf) ((geometricData p O π hπ).X.Oinv.obj (geometricData p O π hπ).ainf) := E.eval (geometricData p O π hπ).ainf
+
+-- pr7_ok_bk_to_ainf_base_change
+example (E : Crystal (geometricData p O π hπ).X.C (geometricData p O π hπ).X.O) :
+    IsBaseChangeAlong ((geometricData p O π hπ).X.O.map (geometricData p O π hπ).bkToAinf).hom (E.res (geometricData p O π hπ).bkToAinf) := sorry
+
+-- pr7_ok_ainf_perfect
+example :
+    ((geometricData p O π hπ).X.prism (geometricData p O π hπ).ainf).IsPerfect ∧ ((geometricData p O π hπ).X.prism (geometricData p O π hπ).ainf).IsOrientable := sorry
+
+-- pr7_ok_bk_not_perfect
+example : ¬ ((geometricData p O π hπ).X.prism (geometricData p O π hπ).bk).IsPerfect := sorry
+
+-- pr7_ok_bk_orientable
+example : ((geometricData p O π hπ).X.prism (geometricData p O π hπ).bk).IsOrientable := sorry
+
 /-! ### From filtered φ-modules to crystals (node `PR.7/filtered-phi-module-to-crystal`) -/
 
-/-- The crystal over `Δ_•⟨φ^n(I)/p⟩[1/p]` underlying `M(D)`. Its Frobenius structure
-`(φ^* M)[1/I] ≅ M[1/I]`, which relates the levels `n` and `n + 1`, is part of the node and is not
-recorded here. -/
-noncomputable def OKData.filteredCrystal (D : OKData.{u} p) (n : ℕ) (M : D.MF) :
-    Crystal D.Q (D.rational n) := sorry
+/-- The crystal over `Δ_•⟨φ^n(I)/p⟩[1/p]` underlying M(D), for every filtered
+φ-module. The period sheaves are constructed from O by geometricData. -/
+noncomputable def filteredCrystal (n : ℕ) (M : (geometricData p O π hπ).MF) :
+    Crystal (geometricData p O π hπ).Q ((geometricData p O π hπ).rational n) := sorry
 
-theorem OKData.filteredCrystal_rank (D : OKData.{u} p) (n : ℕ) (M : D.MF) (c : D.Q)
-    (𝔭 : PrimeSpectrum ((D.rational n).obj c)) :
-    Module.rankAtStalk ((D.filteredCrystal n M).M c) 𝔭 = D.rankMF M := sorry
+/-- M(D) on the generic chart where the prism ideal is inverted. -/
+noncomputable def filteredCrystalGeneric (n : ℕ) (M : (geometricData p O π hπ).MF) :
+    Crystal (geometricData p O π hπ).Q ((geometricData p O π hπ).rationalGeneric n) :=
+  Crystal.baseChange ((geometricData p O π hπ).toRationalGeneric n)
+    (filteredCrystal p O π hπ n M)
 
-theorem OKData.filteredCrystal_restrict (D : OKData.{u} p) (n : ℕ) (M : D.MF) :
-    Nonempty (Crystal.Iso (Crystal.baseChange (D.rationalRestrict n)
-      (D.filteredCrystal (n + 1) M)) (D.filteredCrystal n M)) := sorry
+/-- The Frobenius isomorphism after the Beauville–Laszlo modification. Its map
+agrees on the generic chart with the Frobenius inherited from M₂. -/
+noncomputable def filteredCrystal_frobenius (n : ℕ) (M : (geometricData p O π hπ).MF) :
+    Crystal.Iso
+      (Crystal.baseChange ((geometricData p O π hπ).rationalGenericFrobenius n)
+        (filteredCrystalGeneric p O π hπ n M))
+      (filteredCrystalGeneric p O π hπ n M) := sorry
+
+theorem filteredCrystal_rank (n : ℕ) (M : (geometricData p O π hπ).MF) (c : (geometricData p O π hπ).Q)
+    (𝔭 : PrimeSpectrum (((geometricData p O π hπ).rational n).obj c)) :
+    Module.rankAtStalk ((filteredCrystal p O π hπ n M).M c) 𝔭 = (geometricData p O π hπ).rankMF M := sorry
+
+theorem filteredCrystal_restrict (n : ℕ) (M : (geometricData p O π hπ).MF) :
+    Nonempty (Crystal.Iso (Crystal.baseChange ((geometricData p O π hπ).rationalRestrict n)
+      (filteredCrystal p O π hπ (n + 1) M)) (filteredCrystal p O π hπ n M)) := sorry
 
 -- pr7_filtered_crystal_rank_zero
-example (D : OKData.{u} p) (n : ℕ) (M : D.MF) (h : D.rankMF M = 0) (c : D.Q) :
-    Subsingleton ((D.filteredCrystal n M).M c) := sorry
+example (n : ℕ) (M : (geometricData p O π hπ).MF) (h : (geometricData p O π hπ).rankMF M = 0) (c : (geometricData p O π hπ).Q) :
+    Subsingleton ((filteredCrystal p O π hπ n M).M c) := sorry
 
 -- pr7_filtered_crystal_finite_projective
-example (D : OKData.{u} p) (n : ℕ) (M : D.MF) (c : D.Q) :
-    Module.Finite ((D.rational n).obj c) ((D.filteredCrystal n M).M c) ∧
-      Module.Projective ((D.rational n).obj c) ((D.filteredCrystal n M).M c) := sorry
+example (n : ℕ) (M : (geometricData p O π hπ).MF) (c : (geometricData p O π hπ).Q) :
+    Module.Finite (((geometricData p O π hπ).rational n).obj c) ((filteredCrystal p O π hπ n M).M c) ∧
+      Module.Projective (((geometricData p O π hπ).rational n).obj c) ((filteredCrystal p O π hπ n M).M c) := sorry
 
 -- pr7_filtered_crystal_twist
-example (D : OKData.{u} p) (n : ℕ) (M : D.MF) (h : D.rankMF M = 1) (c : D.Q) :
-    Module.Invertible ((D.rational n).obj c) ((D.filteredCrystal n M).M c) := sorry
+example (n : ℕ) (M : (geometricData p O π hπ).MF) (h : (geometricData p O π hπ).rankMF M = 1) (c : (geometricData p O π hπ).Q) :
+    Module.Invertible (((geometricData p O π hπ).rational n).obj c) ((filteredCrystal p O π hπ n M).M c) := sorry
 
 -- pr7_filtered_crystal_not_integral
-example (D : OKData.{u} p) (n : ℕ) (c : D.Q) : IsUnit (p : (D.rational n).obj c) := sorry
+example (n : ℕ) (c : (geometricData p O π hπ).Q) : IsUnit (p : ((geometricData p O π hπ).rational n).obj c) := sorry
 
 /-! ### The inverse functor and the main theorem (nodes `PR.7/crystalline-lattice-to-f-crystal`,
 `PR.7/crystalline-lattices-theorem`) -/
 
 /-- The prismatic F-crystal `𝔐(L)` of a crystalline lattice `L`. -/
-noncomputable def OKData.latticeFCrystal (D : OKData.{u} p) (L : D.RepCrys) :
-    PrismaticFCrystal D.X := sorry
+noncomputable def latticeFCrystal (L : (geometricData p O π hπ).RepCrys) :
+    PrismaticFCrystal (geometricData p O π hπ).X := sorry
 
-theorem OKData.latticeFCrystal_realization (D : OKData.{u} p) (L : D.RepCrys) :
-    Nonempty (D.galoisRep (etaleRealization D.X (D.latticeFCrystal L)) ≅ D.toRep L) := sorry
+theorem latticeFCrystal_realization (L : (geometricData p O π hπ).RepCrys) :
+    Nonempty (galoisRep p O π hπ (etaleRealization (geometricData p O π hπ).X (latticeFCrystal p O π hπ L)) ≅ (geometricData p O π hπ).toRep L) := sorry
 
-theorem OKData.latticeFCrystal_unique (D : OKData.{u} p) (L : D.RepCrys)
-    (E : PrismaticFCrystal D.X)
-    (h : Nonempty (D.galoisRep (etaleRealization D.X E) ≅ D.toRep L)) :
-    ∃ (f : PrismaticFCrystal.Hom E (D.latticeFCrystal L))
-      (g : PrismaticFCrystal.Hom (D.latticeFCrystal L) E),
-      ∀ c x, g.toHom.app c (f.toHom.app c x) = x := sorry
+theorem latticeFCrystal_unique (L : (geometricData p O π hπ).RepCrys)
+    (E : PrismaticFCrystal (geometricData p O π hπ).X)
+    (h : Nonempty (galoisRep p O π hπ (etaleRealization (geometricData p O π hπ).X E) ≅ (geometricData p O π hπ).toRep L)) :
+    ∃ (f : PrismaticFCrystal.Hom E (latticeFCrystal p O π hπ L))
+      (g : PrismaticFCrystal.Hom (latticeFCrystal p O π hπ L) E),
+      (∀ c x, g.toHom.app c (f.toHom.app c x) = x) ∧
+      (∀ c x, f.toHom.app c (g.toHom.app c x) = x) := sorry
 
 -- pr7_lattice_rank
-example (D : OKData.{u} p) (L : D.RepCrys) :
-    Module.finrank (D.X.O.obj D.bk) ((D.latticeFCrystal L).E.M D.bk) =
-      Module.finrank (PadicInt p) (D.toRep L).V := sorry
+example (L : (geometricData p O π hπ).RepCrys) :
+    Module.finrank ((geometricData p O π hπ).X.O.obj (geometricData p O π hπ).bk) ((latticeFCrystal p O π hπ L).E.M (geometricData p O π hπ).bk) =
+      Module.finrank (PadicInt p) ((geometricData p O π hπ).toRep L).V := sorry
 
 -- pr7_lattice_twist
-example (D : OKData.{u} p) (L : D.RepCrys) (n : ℤ)
-    (h : Nonempty (D.toRep L ≅ D.galoisRep (etaleRealization D.X (breuilKisinTwist D.X n)))) :
-    ∃ (f : PrismaticFCrystal.Hom (D.latticeFCrystal L) (breuilKisinTwist D.X n))
-      (g : PrismaticFCrystal.Hom (breuilKisinTwist D.X n) (D.latticeFCrystal L)),
-      ∀ c x, g.toHom.app c (f.toHom.app c x) = x := sorry
+example (L : (geometricData p O π hπ).RepCrys) (n : ℤ)
+    (h : Nonempty ((geometricData p O π hπ).toRep L ≅ galoisRep p O π hπ (etaleRealization (geometricData p O π hπ).X (breuilKisinTwist (geometricData p O π hπ).X n)))) :
+    ∃ (f : PrismaticFCrystal.Hom (latticeFCrystal p O π hπ L) (breuilKisinTwist (geometricData p O π hπ).X n))
+      (g : PrismaticFCrystal.Hom (breuilKisinTwist (geometricData p O π hπ).X n) (latticeFCrystal p O π hπ L)),
+      (∀ c x, g.toHom.app c (f.toHom.app c x) = x) ∧
+      (∀ c x, f.toHom.app c (g.toHom.app c x) = x) := sorry
 
 -- pr7_lattice_hom
-example (D : OKData.{u} p) (L L' : D.RepCrys) :
-    Nonempty (PrismaticFCrystal.Hom (D.latticeFCrystal L) (D.latticeFCrystal L') ≃
-      (D.toRep L ⟶ D.toRep L')) := sorry
+example (L L' : (geometricData p O π hπ).RepCrys) :
+    Nonempty (PrismaticFCrystal.Hom (latticeFCrystal p O π hπ L) (latticeFCrystal p O π hπ L') ≃
+      ((geometricData p O π hπ).toRep L ⟶ (geometricData p O π hπ).toRep L')) := sorry
 
 -- pr7_lattice_not_all_representations
-example (D : OKData.{u} p) : ¬ ∀ V : Rep.{u} (PadicInt p) D.G,
-    ∃ E : PrismaticFCrystal D.X, Nonempty (V ≅ D.galoisRep (etaleRealization D.X E)) := sorry
+example : ¬ ∀ V : Rep.{u} (PadicInt p) (geometricData p O π hπ).G,
+    ∃ E : PrismaticFCrystal (geometricData p O π hπ).X, Nonempty (V ≅ galoisRep p O π hπ (etaleRealization (geometricData p O π hπ).X E)) := sorry
 
 /-- Bhatt–Scholze, F-crystals, Proposition 5.3: the étale realisation of a prismatic F-crystal on
 `Spf(O_K)` is a lattice in a crystalline representation. -/
-theorem OKData.realization_isCrystalline (D : OKData.{u} p) (E : PrismaticFCrystal D.X) :
-    ∃ L : D.RepCrys, Nonempty (D.toRep L ≅ D.galoisRep (etaleRealization D.X E)) := sorry
+theorem realization_isCrystalline (E : PrismaticFCrystal (geometricData p O π hπ).X) :
+    ∃ L : (geometricData p O π hπ).RepCrys, Nonempty ((geometricData p O π hπ).toRep L ≅ galoisRep p O π hπ (etaleRealization (geometricData p O π hπ).X E)) := sorry
 
 /-- Bhatt–Scholze, F-crystals, Theorem 5.6, full faithfulness (node
 `PR.7/etale-realization-fully-faithful`). -/
-theorem OKData.etaleRealization_bijective (D : OKData.{u} p) (E F : PrismaticFCrystal D.X) :
+theorem etaleRealization_bijective (E F : PrismaticFCrystal (geometricData p O π hπ).X) :
     Function.Bijective
-      (fun f : PrismaticFCrystal.Hom E F => D.galoisRepMap (etaleRealizationMap D.X f)) := sorry
+      (fun f : PrismaticFCrystal.Hom E F => galoisRepMap p O π hπ (etaleRealizationMap (geometricData p O π hπ).X f)) := sorry
 
 /-- Bhatt–Scholze, F-crystals, Theorem 5.6, essential surjectivity: with
 `realization_isCrystalline` and `etaleRealization_bijective`, the étale realisation is an
 equivalence onto crystalline lattices (node `PR.7/crystalline-lattices-theorem`). -/
-theorem OKData.etaleRealization_essSurj (D : OKData.{u} p) (L : D.RepCrys) :
-    ∃ E : PrismaticFCrystal D.X,
-      Nonempty (D.galoisRep (etaleRealization D.X E) ≅ D.toRep L) := sorry
+theorem etaleRealization_essSurj (L : (geometricData p O π hπ).RepCrys) :
+    ∃ E : PrismaticFCrystal (geometricData p O π hπ).X,
+      Nonempty (galoisRep p O π hπ (etaleRealization (geometricData p O π hπ).X E) ≅ (geometricData p O π hπ).toRep L) := sorry
 
 /-- Bhatt–Scholze, F-crystals, Theorem 7.9 (Kisin): evaluation of `𝔐(L)` at the Breuil–Kisin prism
 is fully faithful (node `PR.7/breuil-kisin-evaluation`). -/
-theorem OKData.breuilKisinEvaluation_bijective (D : OKData.{u} p) (L L' : D.RepCrys) :
+theorem breuilKisinEvaluation_bijective (L L' : (geometricData p O π hπ).RepCrys) :
     Function.Bijective
-      (fun f : PrismaticFCrystal.Hom (D.latticeFCrystal L) (D.latticeFCrystal L') =>
-        f.eval D.bk) := sorry
+      (fun f : PrismaticFCrystal.Hom (latticeFCrystal p O π hπ L) (latticeFCrystal p O π hπ L') =>
+        f.eval (geometricData p O π hπ).bk) := sorry
 
 /-- Bhatt–Scholze, F-crystals, Remark 7.12 (Liu): the base change to `A_inf` of the Breuil–Kisin
 module of `𝔐(L)` is its value on `A_inf`, for every Breuil–Kisin prism mapping to `A_inf`. -/
-theorem OKData.breuilKisin_baseChange_ainf (D : OKData.{u} p) (L : D.RepCrys) :
-    IsBaseChangeAlong (D.X.O.map D.bkToAinf).hom ((D.latticeFCrystal L).E.res D.bkToAinf) :=
-  (D.latticeFCrystal L).E.isBaseChange D.bkToAinf
+theorem breuilKisin_baseChange_ainf (L : (geometricData p O π hπ).RepCrys) :
+    IsBaseChangeAlong ((geometricData p O π hπ).X.O.map (geometricData p O π hπ).bkToAinf).hom ((latticeFCrystal p O π hπ L).E.res (geometricData p O π hπ).bkToAinf) :=
+  (latticeFCrystal p O π hπ L).E.isBaseChange (geometricData p O π hπ).bkToAinf
+
+end CompleteDVR
 
 end TauCeti.Prismatic.FCrystal
+
+namespace TauCeti.Prismatic.Syntomic
+open CategoryTheory
+attribute [local instance] HasDerivedCategory.standard
+
+/-- Pairing on the canonical ring-derived syntomic fibres at integer weights. -/
+noncomputable def syntomicCup (p : ℕ) [Fact p.Prime]
+    (R : Type) [CommRing R] (m n : ℤ) :
+    Absolute.derivedTensor p
+      (syntomicComplex (absoluteData p R m).datum)
+      (syntomicComplex (absoluteData p R n).datum) ⟶
+        syntomicComplex (absoluteData p R (m+n)).datum := sorry
+
+noncomputable def syntomicCohomologyCup (p : ℕ) [Fact p.Prime]
+    (R : Type) [CommRing R] (m n : ℤ) :
+    Absolute.derivedTensor p
+      (syntomicCohomology (absoluteData p R m))
+      (syntomicCohomology (absoluteData p R n)) ⟶
+        syntomicCohomology (absoluteData p R (m+n)) := syntomicCup p R m n
+end TauCeti.Prismatic.Syntomic
+
+namespace TauCeti.Prismatic.WCart
+-- pr5_cyclotomic_not_unique
+example (p : ℕ) [Fact p.Prime] :
+    ∃ u : ℤ_[p]ˣ, u ≠ 1 ∧ (u : ℤ_[p]) - 1 ∈ Ideal.span {(p : ℤ_[p])} := by sorry
+end TauCeti.Prismatic.WCart
+
+/-! ## Construction contracts requiring supplier carriers
+
+These names are part of the definitive mathematical specification. Their full statements
+are recorded here because the pinned libraries do not yet expose the named carrier.
+They are not Lean propositions, axioms or proved declarations. Introduce their typed
+signatures when the indicated supplier interfaces exist; retain every hypothesis in
+the reader. The typed prototypes above remain suggested forms, not an exhaustive list.
+
+Node `PrismaticCohomology:PR.0/breuil-kisin-prism`; proposed name `TauCeti.Prismatic.Prism.breuilKisin_bar`.
+For E the positive-degree monic Eisenstein minimal polynomial of the uniformizer π, W(k)[[u]]/(E) ≃ O_K via u↦π, respecting W(k). This map supplies the structure map of the Breuil–Kisin object in the absolute site.
+R06 and DD.1 must supply complete DVR geometry, the coefficient embedding W(k)→O_K and continuous evaluation u↦π. The typed Eisenstein prism above does not identify its quotient with an arbitrary target ring.
+
+Node `PrismaticCohomology:PR.0/prism-perfection`; proposed name `prism_perfection_raw_generator_zero_divisor`.
+For the bounded square-zero extension A=Z_p[[u]]⊕∏_(i≥0) Z_p[[u]]/(u^(p^(i+1))−p), d=u−p, the image of d in colim_φ A can kill a nonzero element. This is compatible with regularity of d after p-completion and prevents applying Lemma 2.34 before separatedness.
+E5:animation must supply the raw Frobenius colimit on the specified square-zero product algebra. The example concerns that raw colimit, not its completed perfect-prism carrier.
+
+Node `PrismaticCohomology:PR.2/derived-prismatic-cohomology`; proposed name `TauCeti.Prismatic.Derived.cohomology_realization`.
+For a simplicial diagram of animated A/I-algebras, Δ of its geometric realisation is the derived (p,I)-completed geometric realisation of its Δ-values. Values on p-completed polynomial algebras and this property characterize the left Kan extension; ordinary uncompleted colimits are not claimed.
+E5:animation supplies animated algebras and geometric realisations; DD.1 supplies completed realisations in the derived category. Simplicial diagrams of ordinary rings alone do not encode the stated animated theorem.
+
+Node `PrismaticCohomology:PR.3/nygaard-filtration`; proposed name `TauCeti.Prismatic.Nygaard.filDerived_isSheaf`.
+S ↦ Fil^i_N Δ_{S/A} satisfies quasisyntomic descent on quasisyntomic A/I-algebras.
+DD.5 supplies the quasisyntomic site and its hyperdescent carrier; the ordinary decreasing filtration above does not contain this site.
+
+Node `PrismaticCohomology:PR.3/breuil-kisin-twist-transversal`; proposed name `TauCeti.Prismatic.BKTwist.transversalFrobenius_projection`.
+For r≥1, the identity φ_A^*I_r ≃ I^(-1)I_(r+1) induces, after reduction modulo φ_A^*I_r, an isomorphism φ_A^*(A{1})⊗A/(φ_A^*I_r) ≃ I^(-1)A{1}⊗A/(φ_A^*I_r). The Frobenius on A{1} is characterized by these projected maps for all r. Thus its projections are obtained from φ applied to π_r and the specified ideal identification, not by an arbitrary identification of invertible modules (BL Construction 2.2.14).
+The projected identity requires the DD.1 completed semilinear tensor, reduction modulo φ*I_r, and their compatibility with the cotangent-line inverse system. The typed cotangent transition and projections above fix the system; a freely chosen invertible-module isomorphism cannot replace its Frobenius compatibility.
+
+Node `PrismaticCohomology:PR.3/relative-nygaard-filtration`; proposed name `TauCeti.Prismatic.Nygaard.relFil_large`.
+For R large quasisyntomic, Fil^i_N φ_A^*Δ_{R/A} is concentrated in degree 0 (it is the ideal of Frobenius-divisible elements).
+DD.5 supplies the large quasisyntomic condition; DD.1 and E5 supply the animated completed base change R_B and Frobenius-twisted filtered scalar extension. The ordinary-ring prototypes above give their discrete shadows.
+
+Node `PrismaticCohomology:PR.3/relative-nygaard-filtration`; proposed name `TauCeti.Prismatic.Nygaard.relFilBaseChange`.
+For a map of bounded prisms (A, I) → (B, J) with completed base change functor B ⊗̂^L_A −: B ⊗̂^L_A Fil^i_N φ_A^*Δ_{R/A} ≅ Fil^i_N φ_B^*Δ_{R_B/B}.
+DD.5 supplies the large quasisyntomic condition; DD.1 and E5 supply the animated completed base change R_B and Frobenius-twisted filtered scalar extension. The ordinary-ring prototypes above give their discrete shadows.
+
+Node `PrismaticCohomology:PR.5/generalized-cartier-divisor`; proposed name `TauCeti.Prismatic.WCart.GeneralizedCartierDivisor.isStack`.
+The fibre groupoid of invertible modules with a map to R defines a pseudofunctor on affine rings; its fpqc descent is expressed using Mathlib CategoryTheory.Pseudofunctor.IsStack and DescentData. Start from comonadicExtendScalars for modules, then prove effectivity restricted to invertible modules and the compatibility of the map to R. Torsor and quotient-stack constructions remain owned by D0.
+SF.1 supplies the affine fpqc topology and the precise pseudofunctor of invertible-module pairs. Mathlib already has IsStack and module descent; effectivity for these pairs must be stated on that pseudofunctor.
+
+Node `PrismaticCohomology:PR.5/cartier-witt-divisor`; proposed name `TauCeti.Prismatic.WCart.CartierWittDivisor.zariski_principal`.
+Every Cartier–Witt divisor on a p-nilpotent R is generated by a distinguished Witt vector after a Zariski cover of Spec R. First principalize its reduction to R; lift a generator through W(R)→R, using the nilpotent Verschiebung-adic kernel and Nakayama. The condition that δ generates the unit ideal makes that generator distinguished.
+SF.2 supplies Zariski covers and their restrictions of Cartier–Witt pairs; D0 supplies the groupoid of their generators. A pointwise generator cannot replace a local cover statement.
+
+Node `PrismaticCohomology:PR.5/absolute-frobenius`; proposed name `TauCeti.Prismatic.Absolute.completedNygaard_polynomial_characterization`.
+The completed filtered functor is the sifted-colimit extension, in the category of filtration-complete objects, of the Beilinson connective cover of Δ_R^[•−n]{n} on finitely generated polynomial Z-algebras. The shift is •−n.
+DD.1 supplies the integer-indexed filtered derived ∞-category, its Beilinson connective-cover functor and filtered completion; E5 supplies the sifted-colimit extension on animated rings.
+
+Node `PrismaticCohomology:PR.6/q-crystalline-cech-alexander`; proposed name `TauCeti.Prismatic.QCrys.cechAlexanderSmallComplex`.
+The cochain complex attached to the cosimplicial ring D_{J^•,q}(P^•) of a δ-D-algebra P with a surjection onto R (Remark 16.16).
+The presentation carrier must record a completely ind-smooth δ-algebra, its surjection to R, and the termwise q-PD envelopes. DD.1 and the accepted QW.6 framing prefix supply the complete simplicial and Koszul interfaces. The ordinary nerve of D→P is insufficient.
+
+Node `PrismaticCohomology:PR.6/q-crystalline-cech-alexander`; proposed name `TauCeti.Prismatic.QCrys.cechAlexanderSmallIso`.
+For a completely (ind-)smooth δ-presentation the small complex also represents qΩ_{R/D}.
+The presentation carrier must record a completely ind-smooth δ-algebra, its surjection to R, and the termwise q-PD envelopes. DD.1 and the accepted QW.6 framing prefix supply the complete simplicial and Koszul interfaces. The ordinary nerve of D→P is insufficient.
+
+Node `PrismaticCohomology:PR.6/q-crystalline-cech-alexander`; proposed name `pr6_cech_alexander_independent`.
+The complexes of two presentations of R have isomorphic images in D(D).
+The presentation carrier must record a completely ind-smooth δ-algebra, its surjection to R, and the termwise q-PD envelopes. DD.1 and the accepted QW.6 framing prefix supply the complete simplicial and Koszul interfaces. The ordinary nerve of D→P is insufficient.
+
+Node `PrismaticCohomology:PR.6/q-crystalline-cech-alexander`; proposed name `pr6_cech_alexander_weakly_initial_base`.
+The thickening (D, I) of D/I receives a morphism from the term of degree 0 of every presentation of D/I.
+The presentation carrier must record a completely ind-smooth δ-algebra, its surjection to R, and the termwise q-PD envelopes. DD.1 and the accepted QW.6 framing prefix supply the complete simplicial and Koszul interfaces. The ordinary nerve of D→P is insufficient.
+
+Node `PrismaticCohomology:PR.6/q-crystalline-cech-alexander`; proposed name `pr6_cech_alexander_base_presentation`.
+For R = D/I and the presentation P = D the complex represents D in degree 0.
+The presentation carrier must record a completely ind-smooth δ-algebra, its surjection to R, and the termwise q-PD envelopes. DD.1 and the accepted QW.6 framing prefix supply the complete simplicial and Koszul interfaces. The ordinary nerve of D→P is insufficient.
+
+Node `PrismaticCohomology:PR.6/q-crystalline-cech-alexander`; proposed name `pr6_cech_alexander_not_cech_nerve`.
+The Čech nerve P^• of D → P without envelopes does not compute qΩ_{R/D}: for a faithfully flat P its totalisation is D in degree 0, while over Z_p[[q−1]] there is R (namely Z_p⟨T⟩) with qΩ_{R/D} not isomorphic to D in degree 0.
+The presentation carrier must record a completely ind-smooth δ-algebra, its surjection to R, and the termwise q-PD envelopes. DD.1 and the accepted QW.6 framing prefix supply the complete simplicial and Koszul interfaces. The ordinary nerve of D→P is insufficient.
+
+Node `PrismaticCohomology:PR.6/ainf-omega-comparison-map`; proposed name `TauCeti.Prismatic.AOmega.coordinateMap_gamma`.
+μ_0∘γ_s = σ_s∘μ_0.
+Q0 supplies C, O_C and its A_inf prism; AI.3/AI.4 supply the all-coordinates tower and AΩ_R with the canonical σ_i actions and Frobenius. The universal-envelope Chart above does not assert that an arbitrary target is that tower.
+
+Node `PrismaticCohomology:PR.6/ainf-omega-comparison-map`; proposed name `TauCeti.Prismatic.AOmega.AOmegaData`.
+Imported data (owner AInfCohomology AI.3): the complex AΩ_R in D(A) and its Frobenius AΩ_R → φ_* AΩ_R.
+Q0 supplies C, O_C and its A_inf prism; AI.3/AI.4 supply the all-coordinates tower and AΩ_R with the canonical σ_i actions and Frobenius. The universal-envelope Chart above does not assert that an arbitrary target is that tower.
+
+Node `PrismaticCohomology:PR.6/ainf-omega-comparison-map`; proposed name `TauCeti.Prismatic.AOmega.comparisonMap_frobenius`.
+μ_R commutes with the Frobenius endomorphisms.
+Q0 supplies C, O_C and its A_inf prism; AI.3/AI.4 supply the all-coordinates tower and AΩ_R with the canonical σ_i actions and Frobenius. The universal-envelope Chart above does not assert that an arbitrary target is that tower.
+
+Node `PrismaticCohomology:PR.6/ainf-omega-comparison-map`; proposed name `pr6_mu_torus_coordinate`.
+If the map of the chart sends the coordinate x_s to an element y, then μ_0(x_s) = y and σ_s(y) = q·y: for the torus, y = [x^♭] and σ([x^♭]) = [ε][x^♭].
+Q0 supplies C, O_C and its A_inf prism; AI.3/AI.4 supply the all-coordinates tower and AΩ_R with the canonical σ_i actions and Frobenius. The universal-envelope Chart above does not assert that an arbitrary target is that tower.
+
+Node `PrismaticCohomology:PR.6/ainf-omega-comparison-map`; proposed name `pr6_mu_point`.
+For R = O_C (no coordinates) qΩ_{O_C/A} ≅ A.
+Q0 supplies C, O_C and its A_inf prism; AI.3/AI.4 supply the all-coordinates tower and AΩ_R with the canonical σ_i actions and Frobenius. The universal-envelope Chart above does not assert that an arbitrary target is that tower.
+
+Node `PrismaticCohomology:PR.6/ainf-omega-comparison-map`; proposed name `pr6_mu_frobenius_square`.
+The square formed by μ_R and the two Frobenius maps commutes.
+Q0 supplies C, O_C and its A_inf prism; AI.3/AI.4 supply the all-coordinates tower and AΩ_R with the canonical σ_i actions and Frobenius. The universal-envelope Chart above does not assert that an arbitrary target is that tower.
+
+Node `PrismaticCohomology:PR.7/filtered-phi-module-to-crystal`; proposed name `pr7_filtered_crystal_jump_minus_one`.
+For (D,φ_D)=(K_0,p^(-1)φ) with filtration jumping at −1, M_3=I·M_2 and φ(d e)=(φ(d)/(pd))·d e. This gives φ^*M_3≃I^(-1)⊗M_3, the twist {1}; a jump at 0 produces a different modification.
+R06 supplies the specific one-dimensional filtered φ-module over K_0 with its jump at −1 and φ=p^(-1)φ_K0. The abstract category MF in the fixed geometric adapter does not yet expose this concrete constructor.
+
+Node `PrismaticCohomology:PR.5/cyclotomic-hodge-tate-chart`; proposed name `TauCeti.Prismatic.WCart.cyclotomicHTTrivialization`.
+A choice of the Hodge–Tate-point isomorphism yields a G_m^♯-equivariant identification of each base-changed torsor with G_m^♯; choices form a torsor under G_m^♯(Z_p).
+D0 supplies the G_m^sharp gerbe and its torsor actions; SF.1 supplies the base-changed torsor carrier. The coefficient-ring chart above is not this equivariant gerbe trivialization.
+
+-/
+
+/- Construction contract: node `PrismaticCohomology:PR.6/ainf-omega-comparison-map`; proposed name `TauCeti.Prismatic.AOmega.comparisonMap`.
+μ_R : qΩ_{R/A} → AΩ_R in D(A).
+Q0 supplies C, O_C and its A_inf prism; AI.3/AI.4 supply the all-coordinates tower and AΩ_R with the canonical σ_i actions and Frobenius. The universal-envelope Chart above does not assert that an arbitrary target is that tower.
+-/
