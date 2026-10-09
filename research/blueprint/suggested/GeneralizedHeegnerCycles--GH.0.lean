@@ -9,19 +9,19 @@ on names and signatures. Proofs use sorry; no implementation is claimed.
 
 Baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-Independent review on 2026-10-07 confirmed all nine baseline declarations by
-reading their sources at the pins. The available shared Lean build lacks the
-imported AbelianVariety.Isogeny object file; lean-check stopped at that import
-before checking this body. This review therefore does not claim elaboration.
-The review report lists the remaining interface and test obligations; the reader
-document still requires synchronization in its separately authorized revision.
+Revision 2 preserves the independent review record and repairs its five
+object/test contracts. The full file was attempted with lean-check; the shared
+build lacks the imported AbelianVariety.Isogeny object file, so the body was
+not checked as a whole. A Mathlib-only projection and concrete computation
+receipts check the sections that can be expressed at the pinned Mathlib.
+The reader and revision handoff describe that partial scope precisely.
 
 Carrier convention: D, DQ, Chow, Coh and DualQ below are parameters supplied by
 other owners, with their genuine Mathlib module structures. They do not define
 cohomology or Chow groups. Only the linear realization of the geometric
 construction is expressed when its geometric carrier is absent. Likewise
 ring-class actions, residual-image hypotheses, crystalline/ordinary hypotheses,
-nonexceptional specializations and admissible Coleman primitives are omitted
+and nonexceptional specializations are omitted
 where the owner's precise type is unavailable. Such omissions are recorded
 beside the signatures, and the full mathematical hypotheses remain in the
 packet and document. A displayed theorem with these hypotheses omitted is a
@@ -41,6 +41,14 @@ import Mathlib.Data.Nat.Factorial.Basic
 import Mathlib.Data.Matrix.Basic
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
 import Mathlib.AlgebraicGeometry.Morphisms.Proper
+import Mathlib.Algebra.Polynomial.Eval.Defs
+import Mathlib.NumberTheory.Zsqrtd.GaussianInt
+import Mathlib.GroupTheory.Perm.Sign
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Topology.Instances.ZMod
+import Mathlib.Topology.Compactness.Compact
+import Mathlib.Topology.Algebra.Module.Basic
+import Mathlib.CategoryTheory.Monoidal.Cartesian.Grp
 import TauCeti.AlgebraicGeometry.AbelianVariety.Isogeny
 
 open CategoryTheory AlgebraicGeometry
@@ -84,33 +92,93 @@ theorem CMCurve.h01 (u : Module.End F D) (αbar : F) (η : D) (h : u η = αbar 
 theorem CMCurve.hodgeSplitting (u : Module.End F D) (α αbar : F) (h : α ≠ αbar) (hu : (u-α • LinearMap.id).comp (u-αbar • LinearMap.id) = 0) : LinearMap.ker (u-α • LinearMap.id) ⊔ LinearMap.ker (u-αbar • LinearMap.id) = ⊤ ∧ Disjoint (LinearMap.ker (u-α • LinearMap.id)) (LinearMap.ker (u-αbar • LinearMap.id)) := by
   sorry
 
-/-- Dividing η by ⟨ω,η⟩ gives cup product 1. It is the unique scalar multiple aη with cup product 1; on the one-dimensional conjugate eigenline this gives the unique normalized vector. -/
-theorem CMCurve.etaOfOmega (b : D →ₗ[F] D →ₗ[F] F) (ω η : D) (h : b ω η ≠ 0) : b ω ((b ω η)⁻¹ • η) = 1 ∧ ∀ a : F, b ω (a • η) = 1 → a = (b ω η)⁻¹ := by
+/-- Normalize an actual vector in the conjugate line. Nonzero pairing is
+required by the specification theorem, rather than hidden in the constructor. -/
+noncomputable def CMCurve.etaOfOmega (b : D →ₗ[F] D →ₗ[F] F) (ω η : D) : D :=
+  (b ω η)⁻¹ • η
+
+theorem CMCurve.etaOfOmega_spec (b : D →ₗ[F] D →ₗ[F] F) (ω η : D)
+    (h : b ω η ≠ 0) : b ω (CMCurve.etaOfOmega b ω η) = 1 ∧
+    ∀ a : F, b ω (a • η) = 1 → a • η = CMCurve.etaOfOmega b ω η := by
   sorry
 
-/-- A linear realization map commuting with the CM action transports a character eigenvector to an eigenvector with the same character value. -/
-theorem CMCurve.map_eigenvector (f : D →ₗ[F] D') (u : Module.End F D) (u' : Module.End F D') (hc : f.comp u = u'.comp f) (α : F) (ω : D) (hω : u ω = α • ω) : u' (f ω) = α • f ω := by
+/-- Equivariant realization maps transport the specified CM eigenvector. -/
+theorem CMCurve.map_eigenvector (f : D →ₗ[F] D') (u : Module.End F D)
+    (u' : Module.End F D') (hc : f.comp u = u'.comp f) (α : F) (ω : D)
+    (hω : u ω = α • ω) : u' (f ω) = α • f ω := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.cmCurve_i_action` (computation): For the ordered CM eigenbasis at K=Q(i), [i]* acts diagonally by i and −i. -/
-theorem cmCurve_i_action (i : F) (hi : i^2 = -1) : (i*(1 : F), -i*(0 : F)) = (i,0) ∧ (i*(0 : F),-i*(1 : F)) = (0,-i) := by
+/-- Coordinate realization of the two CM characters for Q(i). This is a
+finite Hodge realization fixture, not a construction of geometric de Rham
+cohomology. The identification with H¹_dR(A) is a CM.1/DD.2 export. -/
+noncomputable def gaussianHodgeAction (z : GaussianInt) : Module.End ℂ (ℂ × ℂ) where
+  toFun v := ((z : ℂ) * v.1, (star z : ℂ) * v.2)
+  map_add' := by sorry
+  map_smul' := by sorry
+
+/-- Pull an actual CM endomorphism back through A.cm before realizing it. -/
+noncomputable def CMCurve.hodgeActionFixture {H : Type*} [Field H]
+    (A : CMCurve H GaussianInt)
+    (u : TauCeti.AlgebraicGeometry.AbelianVariety.End A.curve) :
+    Module.End ℂ (ℂ × ℂ) := gaussianHodgeAction (A.cm.symm u)
+
+/-- The opposite CM normalization on the same native abelian variety. -/
+noncomputable def CMCurve.conjugateCM {H : Type*} [Field H]
+    (A : CMCurve H GaussianInt) : CMCurve H GaussianInt :=
+  { A with cm := (starRingAut : GaussianInt ≃+* GaussianInt).trans A.cm }
+
+noncomputable def cmCupFixture : (ℂ × ℂ) →ₗ[ℂ] (ℂ × ℂ) →ₗ[ℂ] ℂ where
+  toFun v := { toFun := fun w => v.1*w.2-v.2*w.1
+               map_add' := by sorry
+               map_smul' := by sorry }
+  map_add' := by sorry
+  map_smul' := by sorry
+
+/-- Test the actual A.cm endomorphism and reject the swapped normalization. -/
+theorem cmCurve_i_action {H : Type*} [Field H] (A : CMCurve H GaussianInt) :
+    A.hodgeActionFixture (A.cm (⟨0,1⟩ : GaussianInt)) (1,0) = (Complex.I,0) ∧
+    A.hodgeActionFixture (A.cm (⟨0,1⟩ : GaussianInt)) (0,1) = (0,-Complex.I) ∧
+    A.hodgeActionFixture (A.conjugateCM.cm (⟨0,1⟩ : GaussianInt)) (1,0) =
+      (-Complex.I,0) ∧
+    A.hodgeActionFixture (A.conjugateCM.cm (⟨0,1⟩ : GaussianInt)) (1,0) ≠
+      (Complex.I,0) := by
   sorry
 
-example (i : F) (hi : i^2 = -1) : (i*(1 : F), -i*(0 : F)) = (i,0) ∧ (i*(0 : F),-i*(1 : F)) = (0,-i) := by
+example {H : Type*} [Field H] (A : CMCurve H GaussianInt) :
+    A.hodgeActionFixture (A.cm (⟨0,1⟩ : GaussianInt)) (1,0) = (Complex.I,0) ∧
+    A.hodgeActionFixture (A.cm (⟨0,1⟩ : GaussianInt)) (0,1) = (0,-Complex.I) ∧
+    A.hodgeActionFixture (A.conjugateCM.cm (⟨0,1⟩ : GaussianInt)) (1,0) =
+      (-Complex.I,0) ∧
+    A.hodgeActionFixture (A.conjugateCM.cm (⟨0,1⟩ : GaussianInt)) (1,0) ≠
+      (Complex.I,0) := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.cmCurve_normalization` (characterisation): Scaling ω by a≠0 scales its normalized η by a⁻¹, preserving the cup product 1. -/
-theorem cmCurve_normalization (a : F) (ha : a ≠ 0) (b : D →ₗ[F] D →ₗ[F] F) (ω η : D) : b (a • ω) (a⁻¹ • η) = b ω η := by
+/-- The normalized vector is computed by etaOfOmega, not by a free rescaling. -/
+theorem cmCurve_normalization :
+    CMCurve.etaOfOmega cmCupFixture (2,0) (0,1) = (0,(1/2 : ℂ)) ∧
+    cmCupFixture (2,0) (CMCurve.etaOfOmega cmCupFixture (2,0) (0,1)) = 1 ∧
+    gaussianHodgeAction (⟨0,1⟩ : GaussianInt)
+      (CMCurve.etaOfOmega cmCupFixture (2,0) (0,1)) =
+      (-Complex.I) • CMCurve.etaOfOmega cmCupFixture (2,0) (0,1) := by
   sorry
 
-example (a : F) (ha : a ≠ 0) (b : D →ₗ[F] D →ₗ[F] F) (ω η : D) : b (a • ω) (a⁻¹ • η) = b ω η := by
+example : CMCurve.etaOfOmega cmCupFixture (2,0) (0,1) = (0,(1/2 : ℂ)) ∧
+    cmCupFixture (2,0) (CMCurve.etaOfOmega cmCupFixture (2,0) (0,1)) = 1 ∧
+    gaussianHodgeAction (⟨0,1⟩ : GaussianInt)
+      (CMCurve.etaOfOmega cmCupFixture (2,0) (0,1)) =
+      (-Complex.I) • CMCurve.etaOfOmega cmCupFixture (2,0) (0,1) := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.cmCurve_scalar_endomorphism` (compatibility): Integer multiplication on the CM curve agrees with the existing abelian variety mulBy map. -/
-theorem cmCurve_scalar_endomorphism (H O : Type*) [Field H] [CommRing O] (A : CMCurve H O) (n : ℤ) : TauCeti.AlgebraicGeometry.AbelianVariety.mulBy A.curve n = TauCeti.AlgebraicGeometry.AbelianVariety.End.toHom (n : TauCeti.AlgebraicGeometry.AbelianVariety.End A.curve) := by
+/-- Integer multiplication comes from the specified CM ring homomorphism. -/
+theorem cmCurve_scalar_endomorphism {H O : Type*} [Field H] [CommRing O]
+    (A : CMCurve H O) (n : ℤ) :
+    TauCeti.AlgebraicGeometry.AbelianVariety.End.toHom (A.cm (n : O)) =
+      TauCeti.AlgebraicGeometry.AbelianVariety.mulBy A.curve n := by
   sorry
 
-example (H O : Type*) [Field H] [CommRing O] (A : CMCurve H O) (n : ℤ) : TauCeti.AlgebraicGeometry.AbelianVariety.mulBy A.curve n = TauCeti.AlgebraicGeometry.AbelianVariety.End.toHom (n : TauCeti.AlgebraicGeometry.AbelianVariety.End A.curve) := by
+example {H O : Type*} [Field H] [CommRing O] (A : CMCurve H O) (n : ℤ) :
+    TauCeti.AlgebraicGeometry.AbelianVariety.End.toHom (A.cm (n : O)) =
+      TauCeti.AlgebraicGeometry.AbelianVariety.mulBy A.curve n := by
   sorry
 
 /-! GeneralizedHeegnerCycles:GH.0 — The projector ε_A on A^r and Lemma 1.8
@@ -138,25 +206,57 @@ theorem epsA_transpose {G : Type*} [Group G] [Fintype G] (χ : G →* ℚˣ) (ρ
 theorem epsA_natural {G : Type*} [Group G] [Fintype G] (χ : G →* ℚˣ) (ρ : G →* Module.End ℚ DQ) (ρ' : G →* Module.End ℚ Coh) (f : DQ →ₗ[ℚ] Coh) (hf : ∀ g, f.comp (ρ g) = (ρ' g).comp f) : f.comp (epsA χ ρ) = (epsA χ ρ').comp f := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.epsA_order` (computation): For m=2 the character average has denominator 8. -/
-theorem epsA_order : 2^2 * Nat.factorial 2 = 8 := by
+/-- Eight coordinate tensors of a rank-two vector space cubed. -/
+abbrev CubeWord := Fin 3 → Fin 2
+abbrev TensorCube := CubeWord → ℚ
+
+noncomputable def cubeBasis (w : CubeWord) : TensorCube := fun v => if v = w then 1 else 0
+noncomputable def cubeSign : Equiv.Perm (Fin 3) →* ℚˣ :=
+  (Units.map (Int.castRingHom ℚ)).comp Equiv.Perm.sign
+
+/-- The geometric action includes the graded sign of three odd factors. -/
+noncomputable def gradedCubeAction : Equiv.Perm (Fin 3) →* Module.End ℚ TensorCube where
+  toFun σ := { toFun := fun v w => (cubeSign σ : ℚ) * v (w ∘ σ)
+               map_add' := by sorry
+               map_smul' := by sorry }
+  map_one' := by sorry
+  map_mul' := by sorry
+
+noncomputable def trivialCubeSign : Equiv.Perm (Fin 3) →* ℚˣ := 1
+
+/-- Inversion averaging is already identity on the all-H¹ component, so this
+S₃ average is the restriction of the full Ξ₃ average, with denominator 48. -/
+theorem epsA_order :
+    epsA cubeSign gradedCubeAction (cubeBasis ![0,0,1]) =
+      (1/3 : ℚ) • (cubeBasis ![0,0,1] + cubeBasis ![0,1,0] + cubeBasis ![1,0,0]) ∧
+    epsA cubeSign gradedCubeAction (cubeBasis ![0,0,0]) = cubeBasis ![0,0,0] := by
   sorry
 
-example : 2^2 * Nat.factorial 2 = 8 := by
+example : epsA cubeSign gradedCubeAction (cubeBasis ![0,0,1]) =
+    (1/3 : ℚ) • (cubeBasis ![0,0,1] + cubeBasis ![0,1,0] + cubeBasis ![1,0,0]) ∧
+    epsA cubeSign gradedCubeAction (cubeBasis ![0,0,0]) = cubeBasis ![0,0,0] := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.epsA_weight_zero` (degenerate): At m=0 the projector acts as the identity on H⁰(A⁰)=F. -/
-theorem epsA_weight_zero {G : Type*} [Group G] [Fintype G] [Unique G] (χ : G →* ℚˣ) (ρ : G →* Module.End ℚ DQ) : epsA χ ρ = LinearMap.id := by
+/-- At m=0 the actual character average is identity. -/
+theorem epsA_weight_zero {G : Type*} [Group G] [Fintype G] [Unique G]
+    (χ : G →* ℚˣ) (ρ : G →* Module.End ℚ DQ) : epsA χ ρ = LinearMap.id := by
   sorry
 
-example {G : Type*} [Group G] [Fintype G] [Unique G] (χ : G →* ℚˣ) (ρ : G →* Module.End ℚ DQ) : epsA χ ρ = LinearMap.id := by
+example {G : Type*} [Group G] [Fintype G] [Unique G]
+    (χ : G →* ℚˣ) (ρ : G →* Module.End ℚ DQ) : epsA χ ρ = LinearMap.id := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.epsA_koszul` (non-example): A transposition acts with −1 on H¹⊗H¹; multiplying by its character sign therefore selects symmetric tensors. -/
-theorem epsA_koszul (x : ℚ) : (-1 : ℚ) * (-x) = x := by
+/-- S₃ sign cancellation has a four-dimensional image. Omitting χ gives
+Λ³ of a rank-two space, hence the zero operator, rather than Sym³. -/
+theorem epsA_koszul :
+    Module.finrank ℚ (LinearMap.range (epsA cubeSign gradedCubeAction)) = 4 ∧
+    epsA trivialCubeSign gradedCubeAction = 0 ∧
+    epsA cubeSign gradedCubeAction ≠ epsA trivialCubeSign gradedCubeAction := by
   sorry
 
-example (x : ℚ) : (-1 : ℚ) * (-x) = x := by
+example : Module.finrank ℚ (LinearMap.range (epsA cubeSign gradedCubeAction)) = 4 ∧
+    epsA trivialCubeSign gradedCubeAction = 0 ∧
+    epsA cubeSign gradedCubeAction ≠ epsA trivialCubeSign gradedCubeAction := by
   sorry
 
 /-! GeneralizedHeegnerCycles:GH.0 — The eigenbasis ω_A^jη_A^{r−j} of Sym^r H¹_dR(A) and its O_K-characters
@@ -304,43 +404,173 @@ Assume the Heegner hypothesis: there is an ideal 𝔑 ⊂ O_K with O_K/𝔑 ≅ 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
 
-structure IsogPair (H O : Type*) [Field H] [CommRing O] (A : CMCurve H O) where
+/-- Actual rational points of the group scheme, written additively. In the
+geometric use H is an algebraically closed field of characteristic zero. -/
+noncomputable abbrev CMPoints {H : Type*} [Field H]
+    (A : TauCeti.AlgebraicGeometry.AbelianVariety H) :=
+  Additive ((Over.mk (𝟙 (Spec (.of H)))) ⟶ A.toOver)
+
+noncomputable instance CMPoints.addCommGroup {H : Type*} [Field H]
+    (A : TauCeti.AlgebraicGeometry.AbelianVariety H) : AddCommGroup (CMPoints A) := by
+  letI : CommGroup ((Over.mk (𝟙 (Spec (.of H)))) ⟶ A.toOver) :=
+    CategoryTheory.Hom.commGroup
+  exact inferInstance
+
+noncomputable def cmPointMap {H : Type*} [Field H]
+    {A B : TauCeti.AlgebraicGeometry.AbelianVariety H} (f : A ⟶ B) :
+    CMPoints A →+ CMPoints B where
+  toFun t := t ≫ TauCeti.AlgebraicGeometry.AbelianVariety.Hom.toOverHom f
+  map_zero' := by sorry
+  map_add' := by sorry
+
+/-- The literal order Z+cO, not a freely chosen numerical conductor. The
+quadratic maximal-order hypothesis and classification are supplied by CM.1. -/
+def cmOrder (O : Type*) [CommRing O] (c : ℕ) : Subring O where
+  carrier := {z | ∃ a : ℤ, ∃ b : O, z = a + (c : O)*b}
+  zero_mem' := by sorry
+  one_mem' := by sorry
+  add_mem' := by sorry
+  neg_mem' := by sorry
+  mul_mem' := by sorry
+
+noncomputable def cmOrderOne (O : Type*) [CommRing O] : cmOrder O 1 ≃+* O := by
+  sorry
+
+/-- The literal order used in target_cm distinguishes conductor 2 from 1:
+i is excluded, while 2i remains an endomorphism. -/
+theorem isog_conductor_order_test :
+    (⟨0,1⟩ : GaussianInt) ∈ cmOrder GaussianInt 1 ∧
+    (⟨0,1⟩ : GaussianInt) ∉ cmOrder GaussianInt 2 ∧
+    (⟨0,2⟩ : GaussianInt) ∈ cmOrder GaussianInt 2 := by
+  sorry
+
+example : (⟨0,1⟩ : GaussianInt) ∈ cmOrder GaussianInt 1 ∧
+    (⟨0,1⟩ : GaussianInt) ∉ cmOrder GaussianInt 2 ∧
+    (⟨0,2⟩ : GaussianInt) ∈ cmOrder GaussianInt 2 := by
+  sorry
+
+/-- Ideal torsion uses the specified CM endomorphisms of A. -/
+noncomputable def idealTorsion {H O : Type*} [Field H] [CommRing O]
+    (A : CMCurve H O) (𝔑 : Ideal O) : AddSubgroup (CMPoints A.curve) where
+  carrier := {t | ∀ α ∈ 𝔑, cmPointMap
+    (TauCeti.AlgebraicGeometry.AbelianVariety.End.toHom (A.cm α)) t = 0}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  neg_mem' := by sorry
+
+structure IsogPair (H O : Type*) [Field H] [CommRing O] (A : CMCurve H O)
+    (𝔑 : Ideal O) (N : ℕ) (t : CMPoints A.curve) where
   target : TauCeti.AlgebraicGeometry.AbelianVariety H
   dimension_one : target.dim = 1
   morphism : A.curve ⟶ target
   isogeny : TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny morphism
+  c : ℕ
+  conductor_positive : 0 < c
+  target_cm : cmOrder O c ≃+* TauCeti.AlgebraicGeometry.AbelianVariety.End target
+  exact_order : addOrderOf t = N
+  marked_subgroup : idealTorsion A 𝔑 = AddSubgroup.zmultiples t
+  kernel_prime_to_mark : (cmPointMap morphism).ker ⊓ idealTorsion A 𝔑 = ⊥
 
-/-- The target endomorphism order is O_c; the conductor is preserved under isomorphism of marked targets. -/
-theorem IsogPair.conductor (H O : Type*) [Field H] [CommRing O] (A : CMCurve H O) (P Q : IsogPair H O A) (e : P.target ≅ Q.target) (c : {B : TauCeti.AlgebraicGeometry.AbelianVariety H // B.dim = 1} → ℕ) : c ⟨P.target,P.dimension_one⟩ = c ⟨Q.target,Q.dimension_one⟩ := by
+/-- The conductor indexes the order actually identified with End(target). -/
+def IsogPair.conductor {H O : Type*} [Field H] [CommRing O]
+    {A : CMCurve H O} {𝔑 : Ideal O} {N : ℕ} {t : CMPoints A.curve}
+    (P : IsogPair H O A 𝔑 N t) : ℕ := P.c
+
+/-- The transported generator retains its exact additive order. -/
+theorem IsogPair.level {H O : Type*} [Field H] [CommRing O]
+    {A : CMCurve H O} {𝔑 : Ideal O} {N : ℕ} {t : CMPoints A.curve}
+    (P : IsogPair H O A 𝔑 N t) : addOrderOf (cmPointMap P.morphism t) = N := by
   sorry
 
-/-- The kernel condition ker φ∩A[𝔑]=0 transports the marked point of exact order N to a point of exact order N. -/
-theorem IsogPair.level {G G' : Type*} [AddGroup G] [AddGroup G'] (φ : G →+ G') (t : G) (N : ℕ) (h : ∀ n : ℕ, n • φ t = 0 ↔ n • t = 0) : N • φ t = 0 ↔ N • t = 0 := by
+/-- The supplier's ideal quotient isogeny preserves the target order and the
+marked kernel condition; its composite is the ideal action on the pair.
+The quotient and reciprocity theorem themselves are imported from CM.1. -/
+noncomputable def IsogPair.idealAction {H O : Type*} [Field H] [CommRing O]
+    {A : CMCurve H O} {𝔑 : Ideal O} {N : ℕ} {t : CMPoints A.curve}
+    (P : IsogPair H O A 𝔑 N t)
+    (B : TauCeti.AlgebraicGeometry.AbelianVariety H) (hB : B.dim = 1)
+    (b : P.target ⟶ B) (hb : TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny b)
+    (e : cmOrder O P.c ≃+* TauCeti.AlgebraicGeometry.AbelianVariety.End B)
+    (hmark : (cmPointMap (P.morphism ≫ b)).ker ⊓ idealTorsion A 𝔑 = ⊥) :
+    IsogPair H O A 𝔑 N t := by
   sorry
 
-/-- The ideal-action transports the isogeny pair through the commutative CM reciprocity square. -/
-theorem IsogPair.idealAction (H : Type*) [Field H] (A A' B B' : TauCeti.AlgebraicGeometry.AbelianVariety H) (φ : A ⟶ B) (φ' : A' ⟶ B') (a : A ⟶ A') (b : B ⟶ B') : a ≫ φ' = φ ≫ b := by
+noncomputable def IsogPair.identity {H O : Type*} [Field H] [CommRing O]
+    (A : CMCurve H O) (𝔑 : Ideal O) (N : ℕ) (t : CMPoints A.curve)
+    (ht : addOrderOf t = N) (hmark : idealTorsion A 𝔑 = AddSubgroup.zmultiples t) :
+    IsogPair H O A 𝔑 N t where
+  target := A.curve
+  dimension_one := A.dimension_one
+  morphism := 𝟙 A.curve
+  isogeny := TauCeti.AlgebraicGeometry.AbelianVariety.isIsogeny_id A.curve
+  c := 1
+  conductor_positive := by decide
+  target_cm := (cmOrderOne O).trans A.cm
+  exact_order := ht
+  marked_subgroup := hmark
+  kernel_prime_to_mark := by sorry
+
+/-- One cardinality definition for every point-map kernel. In characteristic
+zero, CM.1 must identify this with the geometric degree of a finite isogeny. -/
+noncomputable def kernelDegree {G G' : Type*} [AddCommGroup G] [AddCommGroup G']
+    (f : G →+ G') : ℕ := Nat.card f.ker
+
+noncomputable def IsogPair.degree {H O : Type*} [Field H] [CommRing O]
+    {A : CMCurve H O} {𝔑 : Ideal O} {N : ℕ} {t : CMPoints A.curve}
+    (P : IsogPair H O A 𝔑 N t) : ℕ := kernelDegree (cmPointMap P.morphism)
+
+/-- Identity tests conductor, endomorphism order and the transported mark. -/
+theorem isog_identity_conductor {H O : Type*} [Field H] [CommRing O]
+    (A : CMCurve H O) (𝔑 : Ideal O) (N : ℕ) (t : CMPoints A.curve)
+    (ht : addOrderOf t = N) (hmark : idealTorsion A 𝔑 = AddSubgroup.zmultiples t) :
+    (IsogPair.identity A 𝔑 N t ht hmark).conductor = 1 ∧
+    (IsogPair.identity A 𝔑 N t ht hmark).target_cm 1 = 1 ∧
+    cmPointMap (IsogPair.identity A 𝔑 N t ht hmark).morphism t = t := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.isog_identity_conductor` (degenerate): The identity isogeny of A has target order O_K, conductor 1. -/
-theorem isog_identity_conductor (H O : Type*) [Field H] [CommRing O] (A : CMCurve H O) : ({target := A.curve, dimension_one := A.dimension_one, morphism := 𝟙 A.curve, isogeny := TauCeti.AlgebraicGeometry.AbelianVariety.isIsogeny_id A.curve} : IsogPair H O A).morphism = 𝟙 A.curve := by
+example {H O : Type*} [Field H] [CommRing O]
+    (A : CMCurve H O) (𝔑 : Ideal O) (N : ℕ) (t : CMPoints A.curve)
+    (ht : addOrderOf t = N) (hmark : idealTorsion A 𝔑 = AddSubgroup.zmultiples t) :
+    (IsogPair.identity A 𝔑 N t ht hmark).conductor = 1 ∧
+    (IsogPair.identity A 𝔑 N t ht hmark).target_cm 1 = 1 ∧
+    cmPointMap (IsogPair.identity A 𝔑 N t ht hmark).morphism t = t := by
   sorry
 
-example (H O : Type*) [Field H] [CommRing O] (A : CMCurve H O) : ({target := A.curve, dimension_one := A.dimension_one, morphism := 𝟙 A.curve, isogeny := TauCeti.AlgebraicGeometry.AbelianVariety.isIsogeny_id A.curve} : IsogPair H O A).morphism = 𝟙 A.curve := by
+/-- An actual multiplication endomorphism fails on a nonzero ideal-torsion
+mark; this tests the cyclic subgroup, rather than full A[N]. -/
+theorem isog_level_failure {H O : Type*} [Field H] [CommRing O]
+    (A : CMCurve H O) (𝔑 : Ideal O) (N : ℕ) (t : CMPoints A.curve)
+    (ht : N • t = 0) (hne : t ≠ 0) (hmark : t ∈ idealTorsion A 𝔑) :
+    (cmPointMap (TauCeti.AlgebraicGeometry.AbelianVariety.mulBy A.curve (N : ℤ))).ker
+      ⊓ idealTorsion A 𝔑 ≠ ⊥ := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.isog_level_failure` (non-example): Multiplication by N kills an N-torsion level point and cannot satisfy the prime-to-N condition. -/
-theorem isog_level_failure {G : Type*} [AddGroup G] (t : G) (N : ℕ) (ht : N • t = 0) (hne : t ≠ 0) : N • t ≠ t := by
+example {H O : Type*} [Field H] [CommRing O]
+    (A : CMCurve H O) (𝔑 : Ideal O) (N : ℕ) (t : CMPoints A.curve)
+    (ht : N • t = 0) (hne : t ≠ 0) (hmark : t ∈ idealTorsion A 𝔑) :
+    (cmPointMap (TauCeti.AlgebraicGeometry.AbelianVariety.mulBy A.curve (N : ℤ))).ker
+      ⊓ idealTorsion A 𝔑 ≠ ⊥ := by
   sorry
 
-example {G : Type*} [AddGroup G] (t : G) (N : ℕ) (ht : N • t = 0) (hne : t ≠ 0) : N • t ≠ t := by
+/-- A finite-kernel fixture: Z/6 → Z/3 → Z/1 has kernel degrees 2,3,6.
+These are computed by the same kernelDegree as the geometric point map.
+This fixture does not construct an algebraic elliptic curve. -/
+noncomputable def kernelFixtureFirst : ZMod 6 →+ ZMod 3 :=
+  (ZMod.castHom (by decide : 3 ∣ 6) (ZMod 3)).toAddMonoidHom
+noncomputable def kernelFixtureSecond : ZMod 3 →+ ZMod 1 :=
+  (ZMod.castHom (by decide : 1 ∣ 3) (ZMod 1)).toAddMonoidHom
+
+theorem isog_degree_multiplicativity :
+    kernelDegree kernelFixtureFirst = 2 ∧ kernelDegree kernelFixtureSecond = 3 ∧
+    kernelDegree (kernelFixtureSecond.comp kernelFixtureFirst) = 6 ∧
+    kernelDegree (kernelFixtureSecond.comp kernelFixtureFirst) =
+      kernelDegree kernelFixtureFirst * kernelDegree kernelFixtureSecond := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.isog_degree_multiplicativity` (compatibility): Composing finite isogenies multiplies their degree, in agreement with the elliptic-curve isogeny degree API supplied upstream. -/
-theorem isog_degree_multiplicativity (H : Type*) [Field H] (A B C : TauCeti.AlgebraicGeometry.AbelianVariety H) (f : A ⟶ B) (g : B ⟶ C) (hf : TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny f) (hg : TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny g) (dAB : (A ⟶ B) → ℕ) (dBC : (B ⟶ C) → ℕ) (dAC : (A ⟶ C) → ℕ) : dAC (f ≫ g) = dAB f * dBC g := by
-  sorry
-
-example (H : Type*) [Field H] (A B C : TauCeti.AlgebraicGeometry.AbelianVariety H) (f : A ⟶ B) (g : B ⟶ C) (hf : TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny f) (hg : TauCeti.AlgebraicGeometry.AbelianVariety.IsIsogeny g) (dAB : (A ⟶ B) → ℕ) (dBC : (B ⟶ C) → ℕ) (dAC : (A ⟶ C) → ℕ) : dAC (f ≫ g) = dAB f * dBC g := by
+example : kernelDegree kernelFixtureFirst = 2 ∧ kernelDegree kernelFixtureSecond = 3 ∧
+    kernelDegree (kernelFixtureSecond.comp kernelFixtureFirst) = 6 ∧
+    kernelDegree (kernelFixtureSecond.comp kernelFixtureFirst) =
+      kernelDegree kernelFixtureFirst * kernelDegree kernelFixtureSecond := by
   sorry
 
 /-! GeneralizedHeegnerCycles:GH.1 — The generalized Heegner cycle Δ_φ = ε_X Υ_φ
@@ -576,40 +806,136 @@ For ω_f valued in L_m choose a Frobenius annihilator P killing its parabolic co
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
 
-noncomputable def colemanPrimitive (differential : D) : D := by
+/-- Polynomial functional calculus for the F-linear Frobenius iterate. -/
+noncomputable def frobeniusPolynomial {S : Type*} [AddCommGroup S] [Module F S]
+    (P : Polynomial F) (Φ : Module.End F S) : Module.End F S :=
+  ∑ i ∈ P.support, (P.coeff i) • Φ^i
+
+/-- The section and differential carriers are supplied by RD.3/RD.4. These
+are actual operators/submodules, not arbitrary propositions standing for
+analytic hypotheses. A normalized input lies in the image of the admissible
+connection; proving that modular ω_f belongs to this image is precisely the
+source existence/comparison obligation, not assumed for every differential. -/
+structure ColemanDatum (F S Ω : Type*) [Field F] [AddCommGroup S] [Module F S]
+    [AddCommGroup Ω] [Module F Ω] where
+  connection : S →ₗ[F] Ω
+  frobenius : Module.End F S
+  annihilator : Polynomial F
+  nonzero_at_one : annihilator.eval 1 ≠ 0
+  rigid : Submodule F S
+  normalized : Submodule F S
+  normalized_horizontal : Disjoint normalized (LinearMap.ker connection)
+
+noncomputable def ColemanDatum.admissible {S Ω : Type*}
+    [AddCommGroup S] [Module F S] [AddCommGroup Ω] [Module F Ω]
+    (C : ColemanDatum F S Ω) : Submodule F S :=
+  C.normalized ⊓ C.rigid.comap (frobeniusPolynomial C.annihilator C.frobenius)
+
+noncomputable def ColemanDatum.differential {S Ω : Type*}
+    [AddCommGroup S] [Module F S] [AddCommGroup Ω] [Module F Ω]
+    (C : ColemanDatum F S Ω) : C.admissible →ₗ[F] Ω :=
+  C.connection.comp C.admissible.subtype
+
+noncomputable def colemanPrimitive {S Ω : Type*}
+    [AddCommGroup S] [Module F S] [AddCommGroup Ω] [Module F Ω]
+    (C : ColemanDatum F S Ω) (ω : LinearMap.range C.differential) : S :=
+  (Classical.choose ω.property : C.admissible).val
+
+theorem colemanPrimitive_differential {S Ω : Type*}
+    [AddCommGroup S] [Module F S] [AddCommGroup Ω] [Module F Ω]
+    (C : ColemanDatum F S Ω) (ω : LinearMap.range C.differential) :
+    C.connection (colemanPrimitive C ω) = ω.val := by
   sorry
 
-/-- The Gauss–Manin connection of F_f is ω_f. -/
-theorem colemanPrimitive_differential (connection : Module.End F D) (ω : D) : connection (colemanPrimitive ω) = ω := by
+theorem colemanPrimitive_frobenius {S Ω : Type*}
+    [AddCommGroup S] [Module F S] [AddCommGroup Ω] [Module F Ω]
+    (C : ColemanDatum F S Ω) (ω : LinearMap.range C.differential) :
+    frobeniusPolynomial C.annihilator C.frobenius (colemanPrimitive C ω) ∈ C.rigid := by
   sorry
 
-/-- P(Φ)F_f is a rigid section on a Frobenius neighborhood. -/
-theorem colemanPrimitive_frobenius (PΦ : Module.End F D) (rigid : Submodule F D) (ω : D) : PΦ (colemanPrimitive ω) ∈ rigid := by
+/-- Unnormalized primitives differ by a horizontal section. -/
+theorem colemanPrimitive_choice {S Ω : Type*}
+    [AddCommGroup S] [Module F S] [AddCommGroup Ω] [Module F Ω]
+    (C : ColemanDatum F S Ω) (ω : LinearMap.range C.differential) (x : S)
+    (hx : C.connection x = ω.val) :
+    x - colemanPrimitive C ω ∈ LinearMap.ker C.connection := by
   sorry
 
-/-- Any two admissible primitives differ by a global horizontal section. -/
-theorem colemanPrimitive_choice (connection : Module.End F D) (x y : D) (h : connection x = connection y) : connection (x-y) = 0 := by
+/-- Affine polynomial sections a+bX on a disk, differential b dX,
+Frobenius X↦5X, P(T)=T−5 and normalization F(0)=0. All sections in this
+fixture are rigid. It checks the weight-zero analytic reduction; it does not
+assert a polynomial model for the modular wide-open comparison. -/
+noncomputable def affineConnection : (ℚ × ℚ) →ₗ[ℚ] ℚ := LinearMap.snd ℚ ℚ ℚ
+noncomputable def affineFrobenius : Module.End ℚ (ℚ × ℚ) where
+  toFun v := (v.1,5*v.2)
+  map_add' := by sorry
+  map_smul' := by sorry
+
+noncomputable def affineColemanDatum : ColemanDatum ℚ (ℚ × ℚ) ℚ where
+  connection := affineConnection
+  frobenius := affineFrobenius
+  annihilator := Polynomial.X - Polynomial.C 5
+  nonzero_at_one := by sorry
+  rigid := ⊤
+  normalized := LinearMap.ker (LinearMap.fst ℚ ℚ ℚ)
+  normalized_horizontal := by sorry
+
+noncomputable def affineDifferential (b : ℚ) : LinearMap.range affineColemanDatum.differential :=
+  ⟨b, by sorry⟩
+
+/-- Zero is forced by the chosen complement to horizontal sections. -/
+theorem colemanPrimitive_zero : colemanPrimitive affineColemanDatum (affineDifferential 0) = 0 := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.colemanPrimitive_zero` (degenerate): With the zero normalization the zero differential has zero Coleman primitive. -/
-theorem colemanPrimitive_zero : colemanPrimitive (0 : D) = 0 := by
+example : colemanPrimitive affineColemanDatum (affineDifferential 0) = 0 := by
   sorry
 
-example : colemanPrimitive (0 : D) = 0 := by
+/-- A nonzero differential gives X, with its actual derivative and P(Φ)
+computed. The zero function fails this test. -/
+theorem colemanPrimitive_nonzero :
+    colemanPrimitive affineColemanDatum (affineDifferential 1) = (0,1) ∧
+    affineConnection (colemanPrimitive affineColemanDatum (affineDifferential 1)) = 1 ∧
+    frobeniusPolynomial affineColemanDatum.annihilator affineFrobenius
+      (colemanPrimitive affineColemanDatum (affineDifferential 1)) = 0 := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.colemanPrimitive_constants` (non-example): In weight zero adding a horizontal constant preserves the differential, so uniqueness without normalization is false. -/
-theorem colemanPrimitive_constants (connection : Module.End F D) (x c : D) (hc : connection c = 0) : connection (x+c) = connection x := by
+example : colemanPrimitive affineColemanDatum (affineDifferential 1) = (0,1) ∧
+    affineConnection (colemanPrimitive affineColemanDatum (affineDifferential 1)) = 1 ∧
+    frobeniusPolynomial affineColemanDatum.annihilator affineFrobenius
+      (colemanPrimitive affineColemanDatum (affineDifferential 1)) = 0 := by
   sorry
 
-example (connection : Module.End F D) (x c : D) (hc : connection c = 0) : connection (x+c) = connection x := by
+/-- Translation by the constant 1 preserves the differential and rigid
+Frobenius condition but violates the chosen normalization. -/
+theorem colemanPrimitive_constants :
+    affineConnection (colemanPrimitive affineColemanDatum (affineDifferential 1) + (1,0)) = 1 ∧
+    colemanPrimitive affineColemanDatum (affineDifferential 1) + (1,0) ≠
+      colemanPrimitive affineColemanDatum (affineDifferential 1) ∧
+    (colemanPrimitive affineColemanDatum (affineDifferential 1) + (1,0)).1 = 1 := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.colemanPrimitive_residue_test` (compatibility): Changing a primitive by a horizontal constant does not change its pairing with a zero-residue differential. -/
-theorem colemanPrimitive_residue_test (pair : D →ₗ[F] D →ₗ[F] F) (x c ω : D) (hc : pair c ω = 0) : pair (x+c) ω = pair x ω := by
+example : affineConnection (colemanPrimitive affineColemanDatum (affineDifferential 1) + (1,0)) = 1 ∧
+    colemanPrimitive affineColemanDatum (affineDifferential 1) + (1,0) ≠
+      colemanPrimitive affineColemanDatum (affineDifferential 1) ∧
+    (colemanPrimitive affineColemanDatum (affineDifferential 1) + (1,0)).1 = 1 := by
   sorry
 
-example (pair : D →ₗ[F] D →ₗ[F] F) (x c ω : D) (hc : pair c ω = 0) : pair (x+c) ω = pair x ω := by
+/-- The residue functional on a Laurent differential is its X⁻¹ coefficient.
+For b dX this coefficient is zero. Constant changes pair by c·res(ω), hence
+vanish here. The pairing is tied to the computed primitive. -/
+def affineConstantResidue (c : ℚ) (laurentCoeff : ℤ → ℚ) : ℚ := c * laurentCoeff (-1)
+
+theorem colemanPrimitive_residue_test (c : ℚ) :
+    affineConstantResidue
+      ((colemanPrimitive affineColemanDatum (affineDifferential 1) + (c,0)).1 -
+       (colemanPrimitive affineColemanDatum (affineDifferential 1)).1)
+      (fun n => if n = 0 then 1 else 0) = 0 := by
+  sorry
+
+example (c : ℚ) : affineConstantResidue
+    ((colemanPrimitive affineColemanDatum (affineDifferential 1) + (c,0)).1 -
+     (colemanPrimitive affineColemanDatum (affineDifferential 1)).1)
+    (fun n => if n = 0 then 1 else 0) = 0 := by
   sorry
 
 /-! GeneralizedHeegnerCycles:GH.1 — Coleman Abel–Jacobi formula
@@ -862,40 +1188,167 @@ Let H_m[n] be the O_p[Gal(K_m[n]/K)] submodule generated by the restrictions of 
 The exact arithmetic/geometric conditions and coefficient identifications are
 those of the document; absent owner types are omitted in this prototype. -/
 
-noncomputable def universalNormClass (z : D) : ℕ → D := by
+/-- A common-carrier realization of the conductor-indexed compact tower.
+level m n is the actual Heegner submodule at that level; cor and tame are
+part of this system. The general owner supplies the dependent H_m[n]
+carriers and coefficient-ring linearity; this prototype expresses the
+compact additive realization without identifying distinct Galois groups. -/
+structure NormTower (C : Type*) [AddCommGroup C] [TopologicalSpace C] where
+  level : ℕ → ℕ → AddSubgroup C
+  closed_level : ∀ m n, IsClosed (level m n : Set C)
+  cor : ℕ → ℕ → C →+ C
+  continuous_cor : ∀ m n, Continuous (cor m n)
+  cor_level : ∀ m n x, x ∈ level (m+1) n → cor m n x ∈ level m n
+  lower : ℕ → ℕ
+  upper : ℕ → ℕ
+  tame : ℕ → ℕ → C →+ C
+  continuous_tame : ∀ m e, Continuous (tame m e)
+  eigenvalue : ℕ → ℤ
+  tame_level : ∀ m e x, x ∈ level m (upper e) → tame m e x ∈ level m (lower e)
+  commute : ∀ m e x,
+    cor m (lower e) (tame (m+1) e x) = tame m e (cor m (upper e) x)
+
+/-- Finitely many bottom, vertical norm and tame constraints. Each finite
+conductor set is checked jointly; separate lifts for each n are insufficient.
+Free coordinates of b are harmless and make restriction maps explicit. -/
+def FiniteNormLift {C : Type*} [AddCommGroup C] [TopologicalSpace C]
+    (T : NormTower C) (Φ : C →+ C) (z : ℕ → C)
+    (M : ℕ) (S : Finset ℕ) (b : ℕ → ℕ → C) : Prop :=
+  (∀ n ∈ S, b 0 n = Φ (z n)) ∧
+  (∀ m ≤ M, ∀ n ∈ S, b m n ∈ T.level m n) ∧
+  (∀ m < M, ∀ n ∈ S, T.cor m n (b (m+1) n) = b m n) ∧
+  (∀ m ≤ M, ∀ e ∈ S, T.lower e ∈ S → T.upper e ∈ S →
+    T.tame m e (b m (T.upper e)) = T.eigenvalue e • b m (T.lower e))
+
+/-- The limit carrier enforces all the laws for this specific tower and Φz. -/
+def UniversalNormFamily {C : Type*} [AddCommGroup C] [TopologicalSpace C]
+    (T : NormTower C) (Φ : C →+ C) (z : ℕ → C) :=
+  {b : ℕ → ℕ → C //
+    (∀ n, b 0 n = Φ (z n)) ∧
+    (∀ m n, b m n ∈ T.level m n) ∧
+    (∀ m n, T.cor m n (b (m+1) n) = b m n) ∧
+    (∀ m e, T.tame m e (b m (T.upper e)) = T.eigenvalue e • b m (T.lower e))}
+
+/-- Compactness upgrades finite solvability, not an assumed infinite lift.
+In LV, the presented trace modules and their commuting tame squares supply
+finite solvability. Compactness of the joint conductor family is the second
+limit in Proposition 4.5. No general inverse-limit owner is rebuilt here. -/
+theorem universalNormClass_exists {C : Type*} [AddCommGroup C]
+    [TopologicalSpace C] [CompactSpace C] [T2Space C] [IsTopologicalAddGroup C]
+    (T : NormTower C) (Φ : C →+ C) (z : ℕ → C)
+    (hfinite : ∀ M S, ∃ b, FiniteNormLift T Φ z M S b) :
+    Nonempty (UniversalNormFamily T Φ z) := by
   sorry
 
-/-- β₀[n]=Φz_n. -/
-theorem universalNormClass_bottom (Φ : Module.End F D) (z : D) : universalNormClass (Φ z) 0 = Φ z := by
+/-- Select a simultaneous lift after the finite solvability theorem. Choose
+zero explicitly for zero geometric input; no scalar-root stabilization is
+silently substituted for this construction. -/
+noncomputable def universalNormClass {C : Type*} [AddCommGroup C]
+    [TopologicalSpace C] [CompactSpace C] [T2Space C] [IsTopologicalAddGroup C]
+    (T : NormTower C) (Φ : C →+ C) (z : ℕ → C)
+    (hfinite : ∀ M S, ∃ b, FiniteNormLift T Φ z M S b) : UniversalNormFamily T Φ z := by
+  classical
+  by_cases hz : z = 0
+  · exact ⟨fun _ _ => 0, by sorry⟩
+  · exact Classical.choice (universalNormClass_exists T Φ z hfinite)
+
+theorem universalNormClass_bottom {C : Type*} [AddCommGroup C]
+    [TopologicalSpace C] [CompactSpace C] [T2Space C] [IsTopologicalAddGroup C]
+    (T : NormTower C) (Φ : C →+ C) (z : ℕ → C)
+    (hfinite : ∀ M S, ∃ b, FiniteNormLift T Φ z M S b) (n : ℕ) :
+    (universalNormClass T Φ z hfinite).val 0 n = Φ (z n) := by
   sorry
 
-/-- Each upper component corestricts to the preceding component. -/
-theorem universalNormClass_norm (cor : ℕ → Module.End F D) (z : D) (m : ℕ) : cor m (universalNormClass z (m+1)) = universalNormClass z m := by
+theorem universalNormClass_norm {C : Type*} [AddCommGroup C]
+    [TopologicalSpace C] [CompactSpace C] [T2Space C] [IsTopologicalAddGroup C]
+    (T : NormTower C) (Φ : C →+ C) (z : ℕ → C)
+    (hfinite : ∀ M S, ∃ b, FiniteNormLift T Φ z M S b) (m n : ℕ) :
+    T.cor m n ((universalNormClass T Φ z hfinite).val (m+1) n) =
+      (universalNormClass T Φ z hfinite).val m n := by
   sorry
 
-/-- Corestriction along an inert auxiliary prime is multiplication by a_ℓ. -/
-theorem universalNormClass_tame (cor : Module.End F D) (aℓ : F) (z zn : D) (m : ℕ) : cor (universalNormClass zn m) = aℓ • universalNormClass z m := by
+theorem universalNormClass_tame {C : Type*} [AddCommGroup C]
+    [TopologicalSpace C] [CompactSpace C] [T2Space C] [IsTopologicalAddGroup C]
+    (T : NormTower C) (Φ : C →+ C) (z : ℕ → C)
+    (hfinite : ∀ M S, ∃ b, FiniteNormLift T Φ z M S b) (m e : ℕ) :
+    T.tame m e ((universalNormClass T Φ z hfinite).val m (T.upper e)) =
+      T.eigenvalue e • (universalNormClass T Φ z hfinite).val m (T.lower e) := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.universalNormClass_bottom_test` (characterisation): The zero-level projection keeps Φ rather than dropping it. -/
-theorem universalNormClass_bottom_test (Φ : Module.End F D) (z : D) : universalNormClass (Φ z) 0 = Φ z := by
+/-- Nonzero finite compact fixture: vertical norm is multiplication by 2
+on Z/5; tame edges 1→0 have identity corestriction and eigenvalue 3.
+Φ=2, z_0=1 and z_n=3 for n>0. Thus β_m[0]=2·3^m and β_m[n]=3^m
+for n>0. It is not a model of the arithmetic Heegner lattice. -/
+noncomputable def normFixtureTower : NormTower (ZMod 5) where
+  level := fun _ _ => ⊤
+  closed_level := by sorry
+  cor := fun _ _ => 2 • AddMonoidHom.id (ZMod 5)
+  continuous_cor := by sorry
+  cor_level := by sorry
+  lower := fun _ => 0
+  upper := fun _ => 1
+  tame := fun _ _ => AddMonoidHom.id (ZMod 5)
+  continuous_tame := by sorry
+  eigenvalue := fun _ => 3
+  tame_level := by sorry
+  commute := by sorry
+
+noncomputable def normFixturePhi : ZMod 5 →+ ZMod 5 := 2 • AddMonoidHom.id (ZMod 5)
+def normFixtureInput (n : ℕ) : ZMod 5 := if n = 0 then 1 else 3
+
+theorem normFixture_finite : ∀ M S, ∃ b,
+    FiniteNormLift normFixtureTower normFixturePhi normFixtureInput M S b := by
   sorry
 
-example (Φ : Module.End F D) (z : D) : universalNormClass (Φ z) 0 = Φ z := by
+theorem normFixture_zero_finite : ∀ M S, ∃ b,
+    FiniteNormLift normFixtureTower normFixturePhi 0 M S b := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.universalNormClass_zero` (degenerate): Choosing the zero lift for zero geometric input gives the zero sequence. -/
-theorem universalNormClass_zero : universalNormClass (0 : D) = fun _ => 0 := by
+noncomputable def normFixtureFamily :=
+  universalNormClass normFixtureTower normFixturePhi normFixtureInput normFixture_finite
+
+/-- Φ is retained and the constructed class is nonzero. -/
+theorem universalNormClass_bottom_test :
+    normFixtureFamily.val 0 0 = 2 ∧ normFixtureFamily.val 0 1 = 1 ∧
+    normFixtureFamily.val 0 0 ≠ normFixtureInput 0 := by
   sorry
 
-example : universalNormClass (0 : D) = fun _ => 0 := by
+example : normFixtureFamily.val 0 0 = 2 ∧ normFixtureFamily.val 0 1 = 1 ∧
+    normFixtureFamily.val 0 0 ≠ normFixtureInput 0 := by
   sorry
 
-/-- Planned test `TauCeti.GeneralizedHeegner.universalNormClass_two_steps` (compatibility): Two successive corestrictions equal the corestriction across two levels. -/
-theorem universalNormClass_two_steps (cor : ℕ → Module.End F D) (z : D) : cor 0 (cor 1 (universalNormClass z 2)) = universalNormClass z 0 := by
+theorem universalNormClass_zero :
+    (universalNormClass normFixtureTower normFixturePhi 0 normFixture_zero_finite).val = 0 := by
   sorry
 
-example (cor : ℕ → Module.End F D) (z : D) : cor 0 (cor 1 (universalNormClass z 2)) = universalNormClass z 0 := by
+example : (universalNormClass normFixtureTower normFixturePhi 0 normFixture_zero_finite).val = 0 := by
+  sorry
+
+/-- Actual upper components 1 and 3 corestrict to 2; replacing cor by zero
+cannot satisfy even the first nonzero bottom constraint. -/
+theorem universalNormClass_two_steps :
+    normFixtureFamily.val 1 0 = 1 ∧ normFixtureFamily.val 2 0 = 3 ∧
+    normFixtureTower.cor 0 0 (normFixtureTower.cor 1 0 (normFixtureFamily.val 2 0)) =
+      normFixtureFamily.val 0 0 ∧
+    (0 : ZMod 5 →+ ZMod 5) (normFixtureFamily.val 1 0) ≠ normFixtureFamily.val 0 0 := by
+  sorry
+
+example : normFixtureFamily.val 1 0 = 1 ∧ normFixtureFamily.val 2 0 = 3 ∧
+    normFixtureTower.cor 0 0 (normFixtureTower.cor 1 0 (normFixtureFamily.val 2 0)) =
+      normFixtureFamily.val 0 0 ∧
+    (0 : ZMod 5 →+ ZMod 5) (normFixtureFamily.val 1 0) ≠ normFixtureFamily.val 0 0 := by
+  sorry
+
+/-- Tame laws concern two components of the same constructed family. -/
+theorem universalNormClass_tame_test :
+    normFixtureFamily.val 1 1 = 3 ∧
+    normFixtureTower.tame 1 0 (normFixtureFamily.val 1 1) =
+      (3 : ℤ) • normFixtureFamily.val 1 0 := by
+  sorry
+
+example : normFixtureFamily.val 1 1 = 3 ∧
+    normFixtureTower.tame 1 0 (normFixtureFamily.val 1 1) =
+      (3 : ℤ) • normFixtureFamily.val 1 0 := by
   sorry
 
 /-! GeneralizedHeegnerCycles:GH.4 — BDP special value formula
