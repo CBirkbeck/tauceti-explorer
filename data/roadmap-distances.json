@@ -5423,12 +5423,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 303,
-     "missingDeclarations": 303,
-     "depth": 15,
-     "layersCovered": 3,
+     "declarations": 386,
+     "missingDeclarations": 386,
+     "depth": 23,
+     "layersCovered": 4,
      "layers": 6,
-     "sourcePages": 5
+     "sourcePages": 171
     }
    },
    "measurement": 4.6,
