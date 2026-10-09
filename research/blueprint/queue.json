@@ -45821,7 +45821,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AlgebraicModularFormsAndSerreWeights.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7456"
   },
   {
    "id": "REV-PKG-AlgebraicModularFormsAndSerreWeights",
