@@ -36,12 +36,17 @@ ring \(\mathbb Q\) is not the arithmetic ring attached to the number field
 \(\mathbb Q\). The classical coefficient-change map and the components over
 \(\mathbb Z[1/\Delta]\) constructed here are inputs to that comparison.
 
-The elementary q-analogue library, including q-integers, q-binomial
-coefficients, the q-binomial theorem, and general Pochhammer identities, belongs
-to **QSeriesPartitionsAndMockModularForms:QM.0**. This roadmap needs the
-specific factorial polynomials \(P_N\), their elementary factorization, and
-their completion topology. It should reuse the q-analogue notation and
-identities where available. General derived Habiro completion belongs to
+The elementary q-analogue library belongs to **HC.1**: q-integers,
+q-factorials, Gaussian and multinomial polynomials, finite and infinite
+Pochhammer symbols, their q-binomial and Euler identities, Jackson derivatives,
+and the elementary plethystic substitution operation.
+**QSeriesPartitionsAndMockModularForms:QM.0**, arithmetic q-series consumers,
+and quantum-topology consumers import this toolkit. General lambda-ring theory
+belongs to **QWittVectors:QW.1**. The toolkit's infinite products use
+explicit coefficient topologies; they are distinct from HC.2's convergent
+factorial sums in the cyclotomic completion.
+
+General derived Habiro completion belongs to
 **HabiroRings:HR.2**, which supplies the derived object used in the ordinary
 versus derived comparison of HC.5. The exact ordinary functor on polynomial
 modules is constructed here.
@@ -53,6 +58,7 @@ The consumers of the resulting library are:
 | HabiroRings:HR.2, HR.3, HR.5 and its number-field comparison | Completion systems, factorial expansions, polynomial-module exactness, cyclotomic comaximality, Taylor maps and rigidity |
 | HabiroNumberFields:HB.6 and KU-habiroring | Coefficient change, classical evaluations, Taylor re-expansion, and the components after inverting primes |
 | ArithmeticQuantumTopology:QT.2–QT.6 | Integral Habiro ring, factorial arithmetic, root values, single-root Taylor injectivity, and explicit examples |
+| QSeriesPartitionsAndMockModularForms:QM.0 | HC.1 elementary q-calculus, Gaussian polynomials, Pochhammer identities, and the coefficientwise plethystic operation |
 | QSeriesPartitionsAndMockModularForms:QM.5 | Cyclotomic convergence, root evaluation, Taylor coefficients, and evaluation uniqueness under the adjacency condition |
 | HabiroNahmSeries:HB.4, HB.8 | Factorial convergence, normalized digits, and multiplication at finite precision |
 | HabiroCohomologyFoundations:HQ.1 | Ordinary completion and its compatible Taylor maps |
@@ -142,12 +148,169 @@ for the existing API.
 
 The general completion and category inputs belong to the existing Tau Ceti
 topological-ring theory. The new work below is the particular cyclotomic
-system and its mathematics. Sources are abbreviated H, H₀, G, A and W, with
+system and its mathematics. Sources are abbreviated H, H₀, G, A, W and O, with
 versioned links in the bibliography. H uses printed journal pages; G and W
 use their printed preprint pages. H₀ is cited separately because its numbering
 and some proof details differ from H.
 
 ## HC.1 — Completion systems and factorial ideals
+
+### Elementary q-calculus and its consumers
+
+HC.1 supplies the elementary toolkit used by q-series and quantum-topology
+roadmaps. All finite expressions are integral polynomials before any division
+is introduced. Put
+
+\[
+ [n]_q=\sum_{i=0}^{n-1}q^i,\qquad [n]_q!=\prod_{i=1}^n[i]_q,
+ \qquad (x;q)_n=\prod_{i=0}^{n-1}(1-xq^i).
+\]
+
+Define the Gaussian polynomial \({n\brack k}_q\) by zero outside
+\(0\leq k\leq n\), \({0\brack0}_q=1\), and the integral recursion
+\({n+1\brack k+1}_q=q^{k+1}{n\brack k+1}_q+{n\brack k}_q\).
+For a list \((n_1,\ldots,n_r)\) define the multinomial by successively
+choosing \(n_1\) from the total, then \(n_2\) from the remainder, and so
+on; its empty value is one. The API includes polynomiality, symmetry of
+binomials, permutation invariance of multinomials, both Pascal recursions,
+coefficient change, and specialization at \(q=1\). In particular prove
+
+\[
+ (1-q)[n]_q=1-q^n,\quad
+ (1-q)^n[n]_q!=(q;q)_n,\quad
+ {n\brack k}_q[k]_q![n-k]_q!=[n]_q!\quad(k\leq n).
+\]
+
+These are polynomial identities, so they remain valid in positive
+characteristic and at roots of unity. Quotient formulas are corollaries only
+when the denominators are units. Prove the analogous multinomial factorial
+identity and its specialization to the ordinary integer multinomial.
+For finite Pochhammer products give the empty value, concatenation and shift
+laws, base change, and, for a unit \(q\), the inverse-parameter formula
+
+\[
+ (q^{-1};q^{-1})_n=(-1)^nq^{-n(n+1)/2}(q;q)_n.
+\]
+
+Comparing coefficients of the finite product proves the finite q-binomial
+theorem
+\(\prod_{i=0}^{n-1}(1+tq^i)=
+\sum_{k=0}^n q^{k(k-1)/2}{n\brack k}_q t^k\).
+The factorial polynomials below are the specialization \(P_N=(q;q)_N\).
+**Source and derivation:** O, Definition 1.1, p. 2, Table 1 and Proposition
+2.1, p. 7; the displayed finite coefficient identities follow directly by
+splitting the last factor of that product and induction.
+**Prerequisites:** Mathlib finite sums and products, polynomial coefficients,
+ordinary binomial coefficients, and HC.1's integral recursions.
+
+Define the Jackson derivative coefficientwise on \(A[t]\):
+\(D_q(t^n)=[n]_q t^{n-1}\), and the adapted derivative
+\(D'_q=(1-q)D_q\), so \(D'_q(t^n)=(1-q^n)t^{n-1}\).
+Both exist over any commutative ring and extend by the same coefficient rule
+to \(A[[t]]\). They are additive and A-linear, commute with coefficient
+maps, and satisfy the twisted Leibniz rule
+\(D_q(fg)=D_q(f)g+f(qt)D_q(g)\).
+At \(q=1\) the first is the ordinary derivative and the second is zero.
+No division by \(t\) or \(1-q\) is part of their definition. When all
+positive \([n]_q\) are units, the initial-value problem
+\(D_qf=f\), \(f(0)=1\), has the unique solution
+\(\sum_{n\geq0}t^n/[n]_q!\).
+The adapted problem has the analogous solution
+\(\sum_{n\geq0}t^n/(q;q)_n\) when those factors are units.
+**Source:** O, Table 1 and Proposition 2.1, p. 7, Proposition 2.2, p. 8.
+**Prerequisites:** the q-integer API and Mathlib power-series coefficient
+extensionality and derivative. Define the operators on the existing
+polynomial and power-series carriers.
+
+For a field K and \(q\in K\) with \(q^n\ne1\) for every \(n>0\),
+construct the formal coefficient series
+
+\[
+ E_q(t)=\sum_{n\geq0}\frac{(-1)^nq^{n(n-1)/2}}{(q;q)_n}t^n,
+ \qquad U_q(t)=\sum_{n\geq0}\frac{t^n}{(q;q)_n}.
+\]
+
+The API states \(E_q(t)=(1-t)E_q(qt)\), \(E_qU_q=1\), and the general
+q-binomial identity
+\(E_q(at)U_q(t)=\sum_{n\geq0}(a;q)_nt^n/(q;q)_n\).
+For a Q-algebra field the logarithm is
+
+\[
+ \log E_q(t)=-\sum_{\ell\geq1}\frac{t^\ell}{\ell(1-q^\ell)}.
+\]
+
+Thus \((t;q)_\infty\) denotes this coefficient series over Q(q).
+It is not the t-adic limit of its finite products there: the coefficient of
+\(t\) in the finite product is \(-\sum_{i<N}q^i\), which does not
+stabilize. For the integral product use \(\mathbb Z[[q]][[t]]\), with
+coefficientwise q-adic convergence. For each coefficient \(q^mt^k\),
+products with \(N>m\) stabilize; use those stable coefficients as the
+construction. Mapping into \(\mathbb Q((q))[[t]]\) identifies it with
+\(E_q\). Give polynomial-product projection equations, the shift identity,
+Euler's reciprocal identity, and coefficient change for this integral form.
+**Sources:** O, the t-deformed proof of Proposition 1.5, p. 3, Propositions
+2.2 and 2.5 and Corollary 2.6, p. 8, Proposition 2.7, p. 9; G, §2.1,
+(46), p. 18. The general q-binomial identity follows from its coefficient
+recursion and constant coefficient one. **Prerequisites:** finite
+Pochhammer products, Mathlib `PowerSeries.rescale`, `PowerSeries.logOf`, and
+formal inversion and q-adic coefficient stabilization.
+
+For the elementary plethystic operation use the existing Laurent-series
+carrier, with \(F\in t\mathbb Q((q))[[t]]\). Define Adams dilation for
+positive n by \(\psi^n(t)=t^n\), \(\psi^n(q)=q^n\); its Laurent
+coefficient at i is zero unless \(n\mid i\), when it is the original
+coefficient at \(i/n\). These are ring homomorphisms, fix constants, and
+satisfy \(\psi^m\psi^n=\psi^{mn}\). Put
+
+\[
+ \operatorname{PE}(F)=
+ \exp\left(\sum_{n\geq1}\frac{\psi^n(F)}n\right).
+\]
+
+The sum converges t-adically because F has zero t-constant. The kth
+coefficient needs only \(n\leq k\). Include the zero value, constant
+coefficient one, additivity-to-multiplicativity, Adams compatibility,
+\(\operatorname{PE}(q^it^j)=(1-q^it^j)^{-1}\) for \(j>0\), and
+\(\operatorname{PE}(-q^it^j)=1-q^it^j\). Prove integrality when F lies in
+\(t\mathbb Z((q))[[t]]\), by reducing to finite products at each pair of
+precisions. General lambda-rings are supplied by **QWittVectors:QW.1**;
+this elementary substitution construction does not require that theory.
+**Source:** O, Definitions 5.4–5.5 and the following monomial product
+calculation, pp. 26–27. **Prerequisites:** Mathlib Hahn/Laurent series,
+`PowerSeries.expand`, `PowerSeries.exp` and substitution; the positive
+Adams coefficient rule and the integral product argument just given.
+
+The following are acceptance tests of these definitions; the suggested file
+uses `QToolkit` for their shared namespace.
+
+| Definition or family | Three discriminating tests |
+| --- | --- |
+| q-integer | \([0]_q=0\); \([3]_q=1+q+q^2\); \([3]_1=3\), hence its reduction at one in characteristic three is zero |
+| q-factorial | \([0]_q!=1\); \([3]_q!=(1+q)(1+q+q^2)\); \([3]_1!=6\) |
+| Gaussian polynomial | \({0\brack0}_q=1\) and \({2\brack3}_q=0\); \({3\brack1}_q={3\brack2}_q=1+q+q^2\); \({4\brack2}_1=6\), becoming zero in characteristic two |
+| q-multinomial | empty and all-zero lists give one; the list \((1,1)\) gives \(1+q\); \((1,2)\) and \((2,1)\) give the same polynomial |
+| finite Pochhammer | empty product one; \((q;q)_2=(1-q)(1-q^2)\); \((x;1)_3=(1-x)^3\), with no division at q=1 |
+| Jackson and adapted derivatives | \(D_q(t^2)=(1+q)t\); \(D_1(t^3)=3t^2\); \(D_1(t^2)=0\) in characteristic two while \(D'_1(t^2)=0\) over the integers as well |
+| series Jackson derivative | a constant has derivative zero; \(D_q(t^3)=(1+q+q^2)t^2\); \((1-q)D_qU_q=U_q\) under the stated unit hypotheses |
+| normalized Jackson exponential | constant coefficient one; coefficients of t and \(t^2\) are 1 and \((1+q)^{-1}\); at q=1 over Q it is the ordinary exponential |
+| rational infinite Pochhammer | constant coefficient one; at q=0 it is \(1-t\); its \(t^2\) coefficient is \(q/((1-q)(1-q^2))\) |
+| reciprocal Pochhammer | constant coefficient one; at q=0 it is \((1-t)^{-1}\); its t coefficient is \((1-q)^{-1}\) |
+| q-binomial series | a=1 gives one; a=0 gives \(U_q\); the t coefficient is \((1-a)/(1-q)\) |
+| integral infinite product | t-constant one; \([q^0t]=[q^1t]=-1\); \([q^0t^2]=0\), \([q^1t^2]=1\) |
+| logarithm | constant zero; t coefficient \(-1/(1-q)\); \(t^2\) coefficient \(-1/(2(1-q^2))\) |
+| Adams Laurent dilation | \(q^{-1}\mapsto q^{-2}\) for n=2; a constant is fixed; dilation by 2 followed by 3 is dilation by 6 |
+| Adams double-series dilation | t maps to \(t^2\) for n=2; \(q^{-1}t\) maps to \(q^{-2}t^2\); a coefficient at an odd t exponent vanishes after dilation by 2 |
+| plethystic sum and exponential | zero sum gives PE=1; PE(t) is \((1-t)^{-1}\); PE(-t)=1-t, whose logarithmic sum has kth coefficient \(-1/k\) |
+
+A further test fixes O, Proposition 1.5's normalization. With \(r=q^{1/2}\),
+the raw series is
+\(\sum_{n\geq0}r^{n^2}/(r^2;r^2)_n=
+\prod_{i\geq0}(1+r^{2i+1})\).
+Its constant coefficient is one, its coefficients in degrees 1, 2, 3 are
+1, 0, 1, and its degree-eight coefficient is two. Define both sides by
+coefficient stabilization in \(\mathbb Z[[r]]\) and expose their equality.
+The modular normalization is a separate expression; the raw identity does
+not contain the prefactor printed in that proposition.
 
 ### Indexing, compatible families, and finite quotients
 
@@ -255,6 +418,44 @@ unrelated abstract ring isomorphisms. **Source:** H, §3.1, p. 1131,
 including (3.2). **Prerequisites:** the extension theorem, monic systems,
 and Mathlib adic completion.
 
+The comparison carriers are explicit. For a nonempty directed polynomial
+family \(g:I\to R[q]\), `PolynomialLimit R g` is the subalgebra of
+\(\prod_i R[q]/(g_i)\) cut out by every divisibility transition; its topology
+is induced from discrete factors. Mutual cofinality means
+\(\forall j\ \exists i\ h_j\mid g_i\) and
+\(\forall i\ \exists j\ g_i\mid h_j\). Define
+`PolynomialLimit.equivOfCofinal` by reducing a dominating coordinate.
+Compatibility and directedness prove independence of that choice. Its inverse
+uses the reversed cofinality data. Prove its polynomial equation, continuity
+in both directions, inverse equation, and composition under a third cofinal
+replacement. The coordinate equation is
+\(\pi_{h_j}(E(x))=\operatorname{reduce}_{g_i,h_j}(\pi_{g_i}(x))\)
+whenever \(h_j\mid g_i\).
+`CycloCompletion.cofinalEquiv` provides the same comparison with the actual
+cyclotomic carrier, including associated but nonmonic factorial generators.
+No domain or characteristic-zero assumption enters these comparisons.
+
+For `FiniteOrderLimit R S`, indices are finite subsets U of S and coordinates
+are the **completed** rings \(R[q]^U\). Compatibility is
+\(\rho_{V,U}(x_V)=x_U\) for \(U\subseteq V\).
+`finiteOrderEquiv` sends x to its restrictions. Its inverse reconstructs each
+polynomial residue from a finite U containing the orders of its factors;
+a common finite superset proves independence and compatibility. State the
+reconstruction equation on each U, continuity both ways, the polynomial
+map equation, coefficient-change and order-restriction naturality, and
+extensionality by actual finite restrictions. This also deals with the empty
+subset, whose coordinate is the zero ring.
+
+Tests for the polynomial-family carrier and comparison are: powers
+\((q-1)^k\) and \((q-1)^{2k}\) give the same adic limit; the exponent-zero
+quotient is the zero ring; and powers of \(q-1\) are not cofinal in all
+integral cyclotomic ideals because they never dominate \(\Phi_2\).
+Tests for the finite-subset limit are: empty S gives the zero ring; the
+polynomial q reconstructs q on every finite subset; and the proposed
+coordinates 0 in \(\mathbb Z[q]^{\{1\}}\), 1 in
+\(\mathbb Z[q]^{\{2\}}\) cannot come from a compatible family, since their
+residues disagree modulo \((\Phi_1,\Phi_2)=(2,q-1)\).
+
 ### Factorial polynomials and the full completion
 
 Provide `factorialPoly R N` with `factorialPoly_zero`, the recursion
@@ -273,7 +474,7 @@ The degree formula should be proved from the factors, preserving its
 nontriviality hypothesis. The factorization follows by multiplying the
 standard decompositions of \(q^i-1\). **Sources:** H₀, §1, p. 3; H,
 §7.1, Proposition 7.1, pp. 1141–1142. **Prerequisites:** the polynomial
-cyclotomic product identity and finite products; QM.0 notation when used.
+cyclotomic product identity, finite products, and HC.1 Pochhammer notation.
 
 Prove that the ideals \((P_N)\) are cofinal in the cyclotomic ideals for all
 positive orders. If
@@ -302,6 +503,30 @@ The maps for \(m\mid m'\) are induced by the identity polynomial map.
 Both cofinal isomorphisms must commute with root-order restriction and with
 coefficient change. **Sources:** H, §1, p. 1128; §4, p. 1136; H₀, §1,
 p. 3. **Prerequisites:** factorial factorization and cofinal replacement.
+
+`HabiroRing.factorialEquiv` identifies the full completion with the actual
+`PolynomialLimit R (factorialPoly R)`, and its inverse has projection y_N at
+precision N. `OrderAdic R m` is Mathlib's adic completion for
+\((q^m-1)\), for positive m. Its topology is the inverse limit of the
+discrete power quotients. `orderAdicTransition m n` for \(m\mid n\) goes
+from the n-adic to the m-adic completion; prove its polynomial equation,
+identity, composition and continuity. `OrderAdicLimit R` is the subalgebra
+of the product satisfying those transitions, rather than the unrestricted
+product. `HabiroRing.orderAdicEquiv` and its inverse expose their coordinate
+and polynomial equations and continuity. The inverse can reconstruct first
+the residues modulo \((q^m-1)^k\), then all cyclotomic residues by cofinality.
+`finiteDivisorsAdicEquiv` identifies each coordinate with the completion
+at the divisors of m, making order restriction compatibility explicit.
+Coefficient maps commute with the finite quotient maps, factorial comparison,
+adic transitions and adic coordinates.
+
+Tests for these carriers and maps are: reconstruction at \(P_0=1\) remains
+inverse; the polynomial q has the polynomial q coordinate at every positive
+m; constants 0 at m=1 and 1 at m=2 violate adic compatibility. Check the
+transition \(2\mid6\) on polynomials, coefficient reduction to
+\(\mathbb F_2\) through the factorial comparison, and that m=2 retains both
+orders 1 and 2. These tests distinguish a tower limit from a product or a
+single Taylor completion.
 
 Tests should compute
 \(P_2=1-q-q^2+q^3\) and
@@ -1501,6 +1726,45 @@ result uses the Galois argument above. **Prerequisites:** HC.4 order and
 root chains, HC.1 injective coefficient change, comaximal decomposition,
 finite cyclotomic Galois theory, and localized integer separation.
 
+The component API uses positive `Δ`, `InvertedPrimes Δ`, the tuple
+`ValuationTuple Δ`, and `valuationOrders Δ a`; repeated prime powers in Δ
+do not add tuple coordinates. Prove finite indexing of primes, nonempty
+connected classes, uniqueness of the tuple of a positive order, and
+`LocalizedIntegers.componentEquiv`, with polynomial and restriction equations
+and continuity in both directions. `componentIdempotent a` is one in exactly
+that factor and zero elsewhere. Include its nonzero value, idempotence,
+orthogonality, and the `restrict_injective_iff_meets` and `allValues_injective`
+statements. The latter uses genuine universal root evaluations, not merely
+all completed singleton restrictions.
+
+For descent, `rootAlgebra Δ n` is the subalgebra generated by all nth roots
+inside an algebraically closed characteristic-zero field containing R
+faithfully. It is the localized cyclotomic integer algebra, and is p-adically
+separated for every prime not dividing Δ. Give the transitivity theorem for
+its R-algebra automorphisms on primitive nth roots. Prove joint injectivity
+of all its primitive-root Taylor coordinates by linear-factor decomposition
+and HC.4's root-chain theorem on each close-root class. Then expose two
+naturality equations: every such automorphism fixes the coefficient-change
+image of the base completion, and conjugating the coefficients conjugates
+the root of a Taylor expansion. Thus zero in one coordinate of a base-image
+element implies zero in every coordinate. This proves
+`singleton_zero_of_one_taylor`, then `componentTaylor_injective` and
+`component_isDomain` by connected restriction. None of these statements
+requires p-adic separation at an inverted prime.
+
+Tests of the coefficient ring, tuples and classes are: Δ=1 has one tuple and
+its class is all positive orders; Δ=6 imposes both valuations and Δ=12 has
+the same zero-valuation class; and Δ=3 with valuation one gives a domain
+whose order-three Taylor coordinate detects it. Tests of component equivalence
+and projectors are: restrictions to orders coprime to 6 fail injectivity;
+distinct class projectors are nonzero and have product zero; their product
+coordinates are exactly the respective Kronecker indicators. Tests of the
+root-algebra bridge are: degree-one roots give R itself; the primitive cube
+roots over Δ=3 are conjugate although their difference is a unit after
+adjoining them; and their split completion has two factors while the base
+singleton completion is a domain. This last test prevents descent from
+being replaced by a false domain assertion about the split coefficient ring.
+
 The coefficient map \(H_\mathbb Z\to H_R\) is injective, but the induced
 map \(H_\mathbb Z[1/\Delta]\to H_R\) is not surjective for
 \(\Delta>1\). Its source is a domain and has only the trivial
@@ -1538,6 +1802,21 @@ for the neighboring restricted-order notation.
 **Prerequisites:** the component equivalence, HC.1 universal property,
 HC.4 proper restriction maps, and localization away from an idempotent.
 
+For general R, S and \(T\subseteq S\), require
+\(\Phi_m\) and \(\Phi_n\) comaximal whenever \(m\in T\),
+\(n\in S\setminus T\). `restrictionProjector` is the unique element
+restricting to one on T and zero on its complement. State its idempotence,
+surjectivity of restriction, and the kernel formula. Construct
+`restrictionLocalizationEquiv` from the **actual** Mathlib carrier
+`Localization.Away restrictionProjector` to \(R[q]^T\), with the equation
+on its canonical map from \(R[q]^S\) and therefore on every polynomial.
+For the obstruction, positive m in T and positive n with non-comaximal
+\(\Phi_m,\Phi_n\) imply `excludedFactor_nonunit`; no polynomial-compatible
+map from the completion localized at \(\Phi_n\) can exist.
+Tests are T empty (projector zero, localized zero ring), T=S (projector
+one, identity localization), and the integral example T={1}, n=2, where
+that compatible map is impossible.
+
 There is a different localization theorem for the full integral domain
 \(H_\mathbb Z\). In its fraction field, let \(\Phi^{-1}\) mean inverses
 of all positive cyclotomic polynomials. Then prove
@@ -1560,6 +1839,22 @@ localizations do not identify any arbitrary restricted-order completion.
 **Sources:** H, §7.2, Propositions 7.2 and 7.3, pp. 1142–1143.
 **Prerequisites:** HC.2 Laurent presentation, HC.4 integral domain theorem,
 HC.1 completed finite quotient decomposition, and fraction fields.
+
+Use `HabiroFractionField = FractionRing (HabiroRing ℤ)` after HC.4's
+integral-domain instance. `rationalFunctionsToHabiroFraction` embeds
+\(\operatorname{Frac}(\mathbb Z[q])=\mathbb Q(q)\) and commutes with the
+polynomial maps. Define denominator monoids by mapping the actual
+cyclotomic index monoid into the completed and Laurent rings, and take their
+Mathlib `Localization` carriers. Both embed into this same fraction field,
+with injectivity and their canonical-map equations. Characterize each image
+by one numerator and one finite index denominator. State Proposition 7.2
+as equality of the completed localization image with all sums of a completed
+element and a localized Laurent element, and Proposition 7.3 as the image
+intersection identity. Keep the divisibility theorem `mem_range_fromLaurent_of_mul`
+as the reusable argument for the intersection. Tests are denominator one
+for an arbitrary completed element, \((q-1)^{-1}\) in the localized Laurent
+image but outside the completion, and \(q^{-1}\) already in both original
+rings. These tests constrain the ambient embeddings as well as the fractions.
 
 ### The boundary with derived completion
 
@@ -1593,6 +1888,12 @@ presentation, HC.2 Laurent equivalence, HC.5 polynomial-module exactness,
 and HabiroRings:HR.2/habiro-complete-modules. All other classical results
 here are independent of that derived construction.
 ## HC.6 — Reference calculations and the exported interface
+
+Export the `QToolkit` API of HC.1 directly to QM.0, arithmetic q-series,
+and quantum-topology consumers: its integral polynomial forms, coefficient
+maps, formal coefficient series, and specified convergence topologies are the
+shared definitions. The identities below use that toolkit together with the
+completed-ring interfaces; they introduce no second elementary q-calculus.
 
 These examples are specifications for the completed objects, their finite
 projections, and their comparison maps. Finite polynomial calculations
@@ -1872,6 +2173,17 @@ the displayed series as unsupported formal symbols.
   [PDF](https://arxiv.org/pdf/2410.23078v5),
   §2.1, Lemma 2.1, p. 8. Its prime-power quotient formula is used only for
   distinct orders; equal orders retain the integral cyclotomic quotient.
+- **O.** Wern Juin Gabriel Ong, notes of Peter Scholze's course
+  *V5A2 – The Habiro Ring of a Number Field*, winter 2024/25,
+  50-page text corresponding to the 6 March 2025 version.
+  [Author's notes page](https://wgabrielong.github.io/notes/),
+  [public PDF](https://wgabrielong.github.io/academic-writing/notes/bonn-winter-24-25/V5A2-Habiro-Rings/Habiro_Rings_Notes.pdf).
+  Definition 1.1, p. 2; Proposition 1.5 and its t-deformed proof, p. 3;
+  Table 1 and Proposition 2.1, p. 7; Propositions 2.2 and 2.5 and
+  Corollary 2.6, p. 8; Proposition 2.7, p. 9; Definitions 5.4–5.5,
+  pp. 26–27. These supply the elementary toolkit rather than a general
+  lambda-ring theory. The raw Proposition 1.5 normalization and the
+  convergence topology are specified in HC.1 above.
 - **Fishburn numbers.** [OEIS A022493](https://oeis.org/A022493), for the
   integer sequence defined by \(F(1-x)\). The finite factorial calculations
   specify the coefficients used in the examples, independently of a

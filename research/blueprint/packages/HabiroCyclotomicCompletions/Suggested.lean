@@ -73,6 +73,9 @@ import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.RingTheory.RootsOfUnity.Lemmas
 import Mathlib.RingTheory.RootsOfUnity.Complex
 import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.RingTheory.PowerSeries.Log
+import Mathlib.RingTheory.PowerSeries.Expand
+import Mathlib.RingTheory.LaurentSeries
 import Mathlib.LinearAlgebra.Matrix.Adjugate
 import Mathlib.LinearAlgebra.Matrix.Block
 import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
@@ -86,9 +89,303 @@ import Mathlib.Data.ZMod.Basic
 
 noncomputable section
 
+open scoped Classical
+
 namespace TauCeti.Habiro
 
 open Polynomial
+
+/-! ## HC.1 — elementary q-calculus, owned here and imported by q-series consumers -/
+
+namespace QToolkit
+
+/-- Polynomial definitions avoid division at q=1 or at a root of unity. -/
+def qInteger (R : Type*) [CommRing R] (n : ℕ) : R[X] := ∑ i ∈ Finset.range n, X ^ i
+
+def qFactorial (R : Type*) [CommRing R] (n : ℕ) : R[X] :=
+  ∏ i ∈ Finset.range n, qInteger R (i + 1)
+
+/-- Gaussian binomial, with zero outside 0≤k≤n, by the integral Pascal recursion. -/
+def qBinomial (R : Type*) [CommRing R] : ℕ → ℕ → R[X]
+  | 0, k => if k = 0 then 1 else 0
+  | _n + 1, 0 => 1
+  | n + 1, k + 1 => X ^ (k + 1) * qBinomial R n (k + 1) + qBinomial R n k
+
+/-- The multinomial has total equal to the sum of the list, including empty entries. -/
+def qMultinomial (R : Type*) [CommRing R] : List ℕ → R[X]
+  | [] => 1
+  | n :: ns => qBinomial R (n + ns.sum) n * qMultinomial R ns
+
+/-- Finite Pochhammer in any commutative ring; x and q may themselves be series. -/
+def pochhammer {A : Type*} [CommRing A] (x q : A) (n : ℕ) : A :=
+  ∏ i ∈ Finset.range n, (1 - x * q ^ i)
+
+section Finite
+variable (R : Type*) [CommRing R]
+
+theorem qInteger_geometric (n : ℕ) : (1 - X) * qInteger R n = 1 - X ^ n := sorry
+
+theorem qInteger_at_one (n : ℕ) : (qInteger R n).eval 1 = (n : R) := sorry
+
+theorem qFactorial_at_one (n : ℕ) : (qFactorial R n).eval 1 = (n.factorial : R) := sorry
+
+theorem qFactorial_pochhammer (n : ℕ) :
+    (1 - X) ^ n * qFactorial R n = pochhammer X X n := sorry
+
+theorem qBinomial_zero_of_lt {n k : ℕ} (h : n < k) : qBinomial R n k = 0 := sorry
+
+theorem qBinomial_symm {n k : ℕ} (h : k ≤ n) : qBinomial R n k = qBinomial R n (n - k) := sorry
+
+theorem qBinomial_factorial {n k : ℕ} (h : k ≤ n) :
+    qBinomial R n k * qFactorial R k * qFactorial R (n - k) = qFactorial R n := sorry
+
+theorem qBinomial_at_one (n k : ℕ) : (qBinomial R n k).eval 1 = (n.choose k : R) := sorry
+
+theorem qMultinomial_factorial (ns : List ℕ) :
+    qMultinomial R ns * (ns.map (qFactorial R)).prod = qFactorial R ns.sum := sorry
+
+theorem qMultinomial_perm {ns ms : List ℕ} (h : ns.Perm ms) :
+    qMultinomial R ns = qMultinomial R ms := sorry
+
+theorem pochhammer_append {A : Type*} [CommRing A] (x q : A) (m n : ℕ) :
+    pochhammer x q (m + n) = pochhammer x q m * pochhammer (x * q ^ m) q n := sorry
+
+/-- Negative powers require q a unit; the sign and triangular exponent are both essential. -/
+theorem pochhammer_inverse_parameter {A : Type*} [CommRing A] (q : Aˣ) (n : ℕ) :
+    pochhammer (↑q⁻¹ : A) (↑q⁻¹ : A) n =
+      (-1 : A) ^ n * (↑q⁻¹ : A) ^ (n * (n + 1) / 2) * pochhammer (q : A) (q : A) n := sorry
+
+/-- Finite q-binomial theorem, as a polynomial in the independent variable t. -/
+theorem finite_qBinomial {A : Type*} [CommRing A] (q : A) (n : ℕ) :
+    pochhammer (-X : A[X]) (C q) n =
+      ∑ k ∈ Finset.range (n + 1), C (q ^ (k * (k - 1) / 2) * (qBinomial A n k).eval q) * X ^ k :=
+  sorry
+
+end Finite
+
+/-- Jackson derivative defined coefficientwise; no denominator 1-q or x is inverted. -/
+def jackson {A : Type*} [CommRing A] (q : A) (f : A[X]) : A[X] :=
+  ∑ k ∈ Finset.range f.natDegree, C (f.coeff (k + 1) * (qInteger A (k + 1)).eval q) * X ^ k
+
+def adaptedJackson {A : Type*} [CommRing A] (q : A) (f : A[X]) : A[X] :=
+  C (1 - q) * jackson q f
+
+theorem jackson_monomial {A : Type*} [CommRing A] (q a : A) (n : ℕ) :
+    jackson q (C a * X ^ (n + 1)) = C (a * (qInteger A (n + 1)).eval q) * X ^ n := sorry
+
+theorem jackson_leibniz {A : Type*} [CommRing A] (q : A) (f g : A[X]) :
+    jackson q (f * g) = jackson q f * g + f.comp (C q * X) * jackson q g := sorry
+
+theorem jackson_at_one {A : Type*} [CommRing A] (f : A[X]) : jackson (1 : A) f = f.derivative :=
+  sorry
+
+/-- Series derivative uses the same coefficient formula, including rings with torsion. -/
+def jacksonSeries {A : Type*} [CommRing A] (q : A) (f : PowerSeries A) : PowerSeries A :=
+  PowerSeries.mk (fun n => PowerSeries.coeff (n + 1) f * (qInteger A (n + 1)).eval q)
+
+section Infinite
+variable {K : Type*} [Field K] (q : K)
+
+/-- The coefficient-defined (t;q)_∞ in K[[t]]. Its product interpretation additionally
+requires a topology in which q^i→0. Rational-function coefficients alone do not supply it. -/
+def pochhammerInf : PowerSeries K := PowerSeries.mk (fun n =>
+  (-1 : K) ^ n * q ^ (n * (n - 1) / 2) / pochhammer q q n)
+
+/-- Euler's reciprocal coefficients. -/
+def reciprocalPochhammer : PowerSeries K :=
+  PowerSeries.mk (fun n => 1 / pochhammer q q n)
+
+/-- The general q-binomial series (a t;q)_∞/(t;q)_∞. -/
+def qBinomialSeries (a : K) : PowerSeries K :=
+  PowerSeries.mk (fun n => pochhammer a q n / pochhammer q q n)
+
+/-- Normalized Jackson exponential, V5A2 Proposition 2.1 p.7. -/
+def jacksonExp : PowerSeries K :=
+  PowerSeries.mk (fun n => 1 / (qFactorial K n).eval q)
+
+theorem pochhammerInf_shift (h : ∀ n : ℕ, 0 < n → q ^ n ≠ 1) :
+    pochhammerInf q = (1 - PowerSeries.X) * PowerSeries.rescale q (pochhammerInf q) := sorry
+
+theorem euler_reciprocal (h : ∀ n : ℕ, 0 < n → q ^ n ≠ 1) :
+    pochhammerInf q * reciprocalPochhammer q = 1 := sorry
+
+theorem qBinomial_theorem (h : ∀ n : ℕ, 0 < n → q ^ n ≠ 1) (a : K) :
+    qBinomialSeries q a = PowerSeries.rescale a (pochhammerInf q) * reciprocalPochhammer q :=
+  sorry
+
+theorem jacksonExp_unique (h : ∀ n : ℕ, 0 < n → (qInteger K n).eval q ≠ 0) :
+    ∃! f : PowerSeries K, PowerSeries.constantCoeff f = 1 ∧ jacksonSeries q f = f := sorry
+
+theorem log_pochhammer [Algebra ℚ K] (h : ∀ n : ℕ, 0 < n → q ^ n ≠ 1) :
+    PowerSeries.logOf (pochhammerInf q) = PowerSeries.mk (fun n =>
+      if n = 0 then 0 else -(1 / ((n : K) * (1 - q ^ n)))) := sorry
+
+end Infinite
+
+/-- The integral double series, via coefficient stabilization of the finite products. -/
+def integralPochhammerInf : PowerSeries (PowerSeries ℤ) := PowerSeries.mk (fun k =>
+  PowerSeries.mk (fun m => PowerSeries.coeff m
+    ((pochhammer (X : (PowerSeries ℤ)[X]) (C PowerSeries.X) (m + 1)).coeff k)))
+
+theorem integralPochhammer_stabilizes (k m N : ℕ) (hN : m < N) :
+    PowerSeries.coeff m (PowerSeries.coeff k integralPochhammerInf) =
+      PowerSeries.coeff m ((pochhammer (X : (PowerSeries ℤ)[X]) (C PowerSeries.X) N).coeff k) :=
+  sorry
+
+/-- Adams dilation q→q^n on Laurent series, n>0; no general lambda-ring structure is introduced. -/
+def adamsLaurent (n : ℕ+) : LaurentSeries ℚ →+* LaurentSeries ℚ := sorry
+
+theorem adamsLaurent_coeff (n : ℕ+) (f : LaurentSeries ℚ) (i : ℤ) :
+    (adamsLaurent n f).coeff i =
+      if (n : ℤ) ∣ i then f.coeff (i / (n : ℤ)) else 0 := sorry
+
+/-- Simultaneous dilation t→t^n and q→q^n. -/
+def adamsSeries (n : ℕ+) : PowerSeries (LaurentSeries ℚ) →+* PowerSeries (LaurentSeries ℚ) :=
+  (PowerSeries.expand (R := LaurentSeries ℚ) (n : ℕ) (Nat.ne_of_gt n.2)).toRingHom.comp (PowerSeries.map (adamsLaurent n))
+
+theorem adamsSeries_comp (m n : ℕ+) :
+    (adamsSeries m).comp (adamsSeries n) = adamsSeries (m * n) := sorry
+
+/-- The kth coefficient uses only Adams indices 1,...,k when F has zero t-constant. -/
+def plethysticLogarithmicSum (F : PowerSeries (LaurentSeries ℚ)) :
+    PowerSeries (LaurentSeries ℚ) := PowerSeries.mk (fun k =>
+      ∑ j ∈ Finset.range k, (1 / ((j + 1 : ℕ) : ℚ)) •
+        PowerSeries.coeff k (adamsSeries ⟨j + 1, Nat.succ_pos j⟩ F))
+
+/-- The elementary plethystic exponential on t-divisible series. -/
+def plethysticExp (F : PowerSeries (LaurentSeries ℚ)) : PowerSeries (LaurentSeries ℚ) :=
+  (PowerSeries.exp (LaurentSeries ℚ)).subst (plethysticLogarithmicSum F)
+
+theorem plethysticExp_add (F G : PowerSeries (LaurentSeries ℚ))
+    (hF : PowerSeries.constantCoeff F = 0) (hG : PowerSeries.constantCoeff G = 0) :
+    plethysticExp (F + G) = plethysticExp F * plethysticExp G := sorry
+
+/-- Integrality is coefficientwise in the existing Hahn/Laurent-series carriers. -/
+theorem plethysticExp_integral (F : PowerSeries (LaurentSeries ℚ))
+    (hF : PowerSeries.constantCoeff F = 0)
+    (hint : ∀ k i, ∃ z : ℤ, (PowerSeries.coeff k F).coeff i = (z : ℚ)) :
+    ∀ k i, ∃ z : ℤ, (PowerSeries.coeff k (plethysticExp F)).coeff i = (z : ℚ) := sorry
+
+/-- Integer, factorial and Gaussian tests at 0, 1 and outside the allowed range. -/
+example : qInteger ℤ 0 = 0 ∧ qInteger ℤ 3 = 1 + X + X ^ 2 := sorry
+example : qFactorial ℤ 0 = 1 ∧ qFactorial ℤ 3 = (1 + X) * (1 + X + X ^ 2) := sorry
+example : (qInteger ℤ 3).eval 1 = 3 ∧ (qFactorial ℤ 3).eval 1 = 6 := sorry
+example : qBinomial ℤ 0 0 = 1 ∧ qBinomial ℤ 2 3 = 0 := sorry
+example : qBinomial ℤ 3 1 = 1 + X + X ^ 2 ∧ qBinomial ℤ 3 2 = 1 + X + X ^ 2 := sorry
+example : (qBinomial ℤ 4 2).eval 1 = 6 ∧ (qBinomial (ZMod 2) 4 2).eval 1 = 0 := sorry
+example : qMultinomial ℤ [] = 1 ∧ qMultinomial ℤ [0, 0] = 1 := sorry
+example : qMultinomial ℤ [1, 1] = 1 + X := sorry
+example : qMultinomial ℤ [1, 2] = qMultinomial ℤ [2, 1] := sorry
+
+/-- Finite Pochhammer tests: empty product, nontrivial shift, and q=1 specialization. -/
+example : pochhammer (X : ℤ[X]) X 0 = 1 := sorry
+example : pochhammer (X : ℤ[X]) X 2 = (1 - X) * (1 - X ^ 2) := sorry
+example (x : ℤ[X]) : pochhammer x 1 3 = (1 - x) ^ 3 := sorry
+
+/-- Jackson tests distinguish the ordinary and adapted operators, including characteristic 2. -/
+example : jackson (X : ℤ[X]) (X ^ 2 : ℤ[X][X]) = C (1 + X) * X := sorry
+example : jackson (1 : ℤ) (X ^ 3) = 3 * X ^ 2 := sorry
+example : jackson (1 : ZMod 2) (X ^ 2) = 0 ∧
+    adaptedJackson (1 : ℤ) (X ^ 2) = 0 := sorry
+
+/-- Euler tests: coefficient normalization, q=0, and a=1 termination. -/
+example {K : Type*} [Field K] (q : K) : PowerSeries.constantCoeff (pochhammerInf q) = 1 := sorry
+example {K : Type*} [Field K] : pochhammerInf (0 : K) = 1 - PowerSeries.X := sorry
+example {K : Type*} [Field K] (q : K) : qBinomialSeries q 1 = 1 := sorry
+
+/-- Integral infinite-product tests use q-adic stabilization, not a t-adic product limit. -/
+example : PowerSeries.constantCoeff integralPochhammerInf = 1 := sorry
+example : PowerSeries.coeff 0 (PowerSeries.coeff 1 integralPochhammerInf) = -1 ∧
+    PowerSeries.coeff 1 (PowerSeries.coeff 1 integralPochhammerInf) = -1 := sorry
+example : PowerSeries.coeff 0 (PowerSeries.coeff 2 integralPochhammerInf) = 0 ∧
+    PowerSeries.coeff 1 (PowerSeries.coeff 2 integralPochhammerInf) = 1 := sorry
+
+/-- Adams and plethystic tests detect the positive exponent dilation and its sign. -/
+example : adamsLaurent 2 (HahnSeries.single (-1) (1 : ℚ)) = HahnSeries.single (-2) 1 := sorry
+example : adamsSeries 2 (PowerSeries.X : PowerSeries (LaurentSeries ℚ)) = PowerSeries.X ^ 2 := sorry
+example : plethysticExp (0 : PowerSeries (LaurentSeries ℚ)) = 1 := sorry
+example : plethysticExp (-PowerSeries.X) = (1 - PowerSeries.X : PowerSeries (LaurentSeries ℚ)) :=
+  sorry
+example : plethysticExp (PowerSeries.X : PowerSeries (LaurentSeries ℚ)) * (1 - PowerSeries.X) = 1 :=
+  sorry
+
+/-- The q^(1/2)=r form of V5A2 Proposition 1.5, with constant term 1. -/
+def nahmOne : PowerSeries ℤ := PowerSeries.mk (fun m =>
+  ∑ n ∈ Finset.range (m + 1), PowerSeries.coeff m
+    (PowerSeries.X ^ (n * n) * PowerSeries.invOfUnit
+      (pochhammer (PowerSeries.X ^ 2 : PowerSeries ℤ) (PowerSeries.X ^ 2) n) 1))
+
+def oddDistinctProduct : PowerSeries ℤ := PowerSeries.mk (fun m =>
+  PowerSeries.coeff m (∏ i ∈ Finset.range (m + 1), (1 + (PowerSeries.X : PowerSeries ℤ) ^ (2 * i + 1))))
+
+/-- No r^(-1/24) normalization appears in this raw power series. -/
+theorem nahmOne_eq_oddDistinctProduct : nahmOne = oddDistinctProduct := sorry
+
+example : PowerSeries.constantCoeff nahmOne = 1 ∧ PowerSeries.constantCoeff oddDistinctProduct = 1 :=
+  sorry
+example : PowerSeries.coeff 1 nahmOne = 1 ∧ PowerSeries.coeff 2 nahmOne = 0 ∧
+    PowerSeries.coeff 3 nahmOne = 1 := sorry
+example : PowerSeries.coeff 8 nahmOne = 2 ∧ PowerSeries.coeff 8 oddDistinctProduct = 2 := sorry
+
+/-- Series Jackson derivatives: constants, a cubic, and the adapted normalization. -/
+example {K : Type*} [Field K] (q : K) : jacksonSeries q (1 : PowerSeries K) = 0 := sorry
+example {K : Type*} [Field K] (q : K) :
+    jacksonSeries q (PowerSeries.X ^ 3) = PowerSeries.C (1 + q + q ^ 2) * PowerSeries.X ^ 2 := sorry
+example {K : Type*} [Field K] (q : K) (h : ∀ n : ℕ, 0 < n → q ^ n ≠ 1) :
+    PowerSeries.C (1 - q) * jacksonSeries q (reciprocalPochhammer q) = reciprocalPochhammer q :=
+  sorry
+
+/-- The integral product maps to Euler's coefficients in Q((q))[[t]]. -/
+theorem integralPochhammer_toLaurent :
+    PowerSeries.map ((HahnSeries.ofPowerSeries ℤ ℚ).comp
+      (PowerSeries.map (Int.castRingHom ℚ))) integralPochhammerInf =
+      pochhammerInf (HahnSeries.single 1 (1 : ℚ) : LaurentSeries ℚ) := sorry
+
+example {K : Type*} [Field K] (q : K) : PowerSeries.constantCoeff (jacksonExp q) = 1 := sorry
+example {K : Type*} [Field K] (q : K) :
+    PowerSeries.coeff 1 (jacksonExp q) = 1 ∧ PowerSeries.coeff 2 (jacksonExp q) = 1 / (1 + q) :=
+  sorry
+example : jacksonExp (1 : ℚ) = PowerSeries.exp ℚ := sorry
+example {K : Type*} [Field K] (q : K) : PowerSeries.constantCoeff (reciprocalPochhammer q) = 1 :=
+  sorry
+example {K : Type*} [Field K] : (1 - PowerSeries.X) * reciprocalPochhammer (0 : K) = 1 := sorry
+example {K : Type*} [Field K] (q : K) :
+    PowerSeries.coeff 1 (reciprocalPochhammer q) = 1 / (1 - q) := sorry
+example {K : Type*} [Field K] (q : K) : qBinomialSeries q 0 = reciprocalPochhammer q := sorry
+example {K : Type*} [Field K] (q a : K) :
+    PowerSeries.coeff 1 (qBinomialSeries q a) = (1 - a) / (1 - q) := sorry
+example (n : ℕ+) (c : ℚ) : adamsLaurent n (HahnSeries.single 0 c) = HahnSeries.single 0 c := sorry
+example (m n : ℕ+) : (adamsLaurent m).comp (adamsLaurent n) = adamsLaurent (m * n) := sorry
+example : adamsSeries 2 (PowerSeries.C (HahnSeries.single (-1) 1) * PowerSeries.X) =
+    PowerSeries.C (HahnSeries.single (-2) 1) * PowerSeries.X ^ 2 := sorry
+example (F : PowerSeries (LaurentSeries ℚ)) : PowerSeries.coeff 3 (adamsSeries 2 F) = 0 := sorry
+example : plethysticLogarithmicSum (0 : PowerSeries (LaurentSeries ℚ)) = 0 := sorry
+example : PowerSeries.coeff 1 (plethysticLogarithmicSum PowerSeries.X) = (1 : LaurentSeries ℚ) :=
+  sorry
+example : PowerSeries.coeff 3 (plethysticLogarithmicSum (-PowerSeries.X)) =
+    (-1 / 3 : LaurentSeries ℚ) := sorry
+
+theorem qBinomial_pascal_right (R : Type*) [CommRing R] {n k : ℕ} (h : k ≤ n) :
+    qBinomial R (n + 1) (k + 1) = qBinomial R n (k + 1) + X ^ (n - k) * qBinomial R n k :=
+  sorry
+
+theorem map_finite_toolkit {R R' : Type*} [CommRing R] [CommRing R']
+    (φ : R →+* R') (n k : ℕ) (ns : List ℕ) :
+    (qInteger R n).map φ = qInteger R' n ∧
+    (qFactorial R n).map φ = qFactorial R' n ∧
+    (qBinomial R n k).map φ = qBinomial R' n k ∧
+    (qMultinomial R ns).map φ = qMultinomial R' ns := sorry
+
+theorem plethysticExp_monomial (i : ℤ) (j : ℕ+) :
+    let M : PowerSeries (LaurentSeries ℚ) :=
+      PowerSeries.C (HahnSeries.single i 1) * PowerSeries.X ^ (j : ℕ)
+    plethysticExp M * (1 - M) = 1 ∧ plethysticExp (-M) = 1 - M := sorry
+
+theorem plethysticExp_adams (n : ℕ+) (F : PowerSeries (LaurentSeries ℚ))
+    (hF : PowerSeries.constantCoeff F = 0) :
+    adamsSeries n (plethysticExp F) = plethysticExp (adamsSeries n F) := sorry
+
+end QToolkit
 
 /-! ## HC.1 — the index monoid -/
 
@@ -282,11 +579,6 @@ def equivPowerSeriesOne : CycloCompletion R {1} ≃+* PowerSeries R := sorry
 theorem equivPowerSeriesOne_fromPoly_X :
     equivPowerSeriesOne R (fromPoly R {1} X) = 1 + PowerSeries.X := sorry
 
-/-- Habiro (3.2): `R[q]^S` is the limit of the `R[q]^{S'}`, `S'` finite. -/
-theorem ext_of_finite_restrict {x y : CycloCompletion R S}
-    (h : ∀ f : cycloIndex R S, ∃ S' : Finset ℕ, (↑S' : Set ℕ) ⊆ S ∧
-      (f : R[X]) ∈ cycloIndex R S' ∧ proj R S f x = proj R S f y) : x = y := sorry
-
 /-! ### HC.1/functoriality-in-the-ring-and-in-the-order-set -/
 
 /-- HC.1/functoriality-in-the-ring-and-in-the-order-set: coefficient change `h^S`. -/
@@ -335,6 +627,206 @@ end CycloCompletion
 end Completion
 
 open CycloCompletion
+
+/-! ### HC.1 — actual inverse-limit presentation changes -/
+
+section Presentations
+variable (R : Type*) [CommRing R]
+
+/-- Compatible residues for a polynomial family, with transitions for divisibility. -/
+def polynomialLimitSubalgebra {ι : Type*} (g : ι → R[X]) :
+    Subalgebra R[X] (∀ i, R[X] ⧸ Ideal.span {g i}) where
+  carrier := {x | ∀ i j (h : g i ∣ g j),
+    Ideal.Quotient.factor (Ideal.span_singleton_le_span_singleton.mpr h) (x j) = x i}
+  mul_mem' := sorry
+  add_mem' := sorry
+  algebraMap_mem' := sorry
+
+abbrev PolynomialLimit {ι : Type*} (g : ι → R[X]) := ↥(polynomialLimitSubalgebra R g)
+
+namespace PolynomialLimit
+variable {ι κ : Type*} (g : ι → R[X]) (h : κ → R[X])
+
+instance : TopologicalSpace (PolynomialLimit R g) :=
+  TopologicalSpace.induced (fun x : PolynomialLimit R g => x.val)
+    (@Pi.topologicalSpace _ _ fun _ => ⊥)
+
+abbrev fromPoly : R[X] →+* PolynomialLimit R g := algebraMap R[X] _
+
+def proj (i : ι) : PolynomialLimit R g →+* R[X] ⧸ Ideal.span {g i} :=
+  (Pi.evalRingHom (fun j => R[X] ⧸ Ideal.span {g j}) i).comp
+    (polynomialLimitSubalgebra R g).val.toRingHom
+
+/-- Mutually cofinal directed systems give the same topological ring, H §3.1 p.1131.
+Both cofinality directions are ideal inclusions, hence reversed polynomial divisibility. -/
+def equivOfCofinal [Nonempty ι] [Nonempty κ]
+    (dg : ∀ i j, ∃ k, g i ∣ g k ∧ g j ∣ g k)
+    (dh : ∀ i j, ∃ k, h i ∣ h k ∧ h j ∣ h k)
+    (gh : ∀ j, ∃ i, h j ∣ g i) (hg : ∀ i, ∃ j, g i ∣ h j) :
+    PolynomialLimit R g ≃+* PolynomialLimit R h := sorry
+
+@[simp] theorem equivOfCofinal_fromPoly [Nonempty ι] [Nonempty κ]
+    (dg : ∀ i j, ∃ k, g i ∣ g k ∧ g j ∣ g k)
+    (dh : ∀ i j, ∃ k, h i ∣ h k ∧ h j ∣ h k)
+    (gh : ∀ j, ∃ i, h j ∣ g i) (hg : ∀ i, ∃ j, g i ∣ h j) (p : R[X]) :
+    equivOfCofinal R g h dg dh gh hg (fromPoly R g p) = fromPoly R h p := sorry
+
+theorem equivOfCofinal_proj [Nonempty ι] [Nonempty κ]
+    (dg : ∀ i j, ∃ k, g i ∣ g k ∧ g j ∣ g k)
+    (dh : ∀ i j, ∃ k, h i ∣ h k ∧ h j ∣ h k)
+    (gh : ∀ j, ∃ i, h j ∣ g i) (hg : ∀ i, ∃ j, g i ∣ h j)
+    (x : PolynomialLimit R g) (i : ι) (j : κ) (hji : h j ∣ g i) :
+    proj R h j (equivOfCofinal R g h dg dh gh hg x) =
+      Ideal.Quotient.factor (Ideal.span_singleton_le_span_singleton.mpr hji) (proj R g i x) :=
+  sorry
+
+theorem continuous_equivOfCofinal [Nonempty ι] [Nonempty κ]
+    (dg : ∀ i j, ∃ k, g i ∣ g k ∧ g j ∣ g k)
+    (dh : ∀ i j, ∃ k, h i ∣ h k ∧ h j ∣ h k)
+    (gh : ∀ j, ∃ i, h j ∣ g i) (hg : ∀ i, ∃ j, g i ∣ h j) :
+    Continuous (equivOfCofinal R g h dg dh gh hg) ∧
+      Continuous (equivOfCofinal R g h dg dh gh hg).symm := sorry
+
+theorem equivOfCofinal_symm [Nonempty ι] [Nonempty κ]
+    (dg : ∀ i j, ∃ k, g i ∣ g k ∧ g j ∣ g k)
+    (dh : ∀ i j, ∃ k, h i ∣ h k ∧ h j ∣ h k)
+    (gh : ∀ j, ∃ i, h j ∣ g i) (hg : ∀ i, ∃ j, g i ∣ h j) :
+    (equivOfCofinal R g h dg dh gh hg).symm = equivOfCofinal R h g dh dg hg gh := sorry
+
+theorem equivOfCofinal_trans {ι₃ : Type*} [Nonempty ι] [Nonempty κ] [Nonempty ι₃]
+    (k : ι₃ → R[X])
+    (dg : ∀ i j, ∃ l, g i ∣ g l ∧ g j ∣ g l)
+    (dh : ∀ i j, ∃ l, h i ∣ h l ∧ h j ∣ h l)
+    (dk : ∀ i j, ∃ l, k i ∣ k l ∧ k j ∣ k l)
+    (gh : ∀ j, ∃ i, h j ∣ g i) (hg : ∀ i, ∃ j, g i ∣ h j)
+    (hk : ∀ j, ∃ i, k j ∣ h i) (kh : ∀ i, ∃ j, h i ∣ k j)
+    (gk : ∀ j, ∃ i, k j ∣ g i) (kg : ∀ i, ∃ j, g i ∣ k j) :
+    (equivOfCofinal R g h dg dh gh hg).trans (equivOfCofinal R h k dh dk hk kh) =
+      equivOfCofinal R g k dg dk gk kg := sorry
+
+end PolynomialLimit
+
+/-- Finite subsets of the admitted orders, including the empty subset. -/
+abbrev FiniteOrders (S : Set ℕ) := {U : Finset ℕ // (↑U : Set ℕ) ⊆ S}
+
+/-- The actual limit in H (3.2); compatibility is between completed finite subsets. -/
+def finiteOrderLimitSubalgebra (S : Set ℕ) :
+    Subalgebra R[X] (∀ U : FiniteOrders S, CycloCompletion R (↑U.val : Set ℕ)) where
+  carrier := {x | ∀ (U V : FiniteOrders S) (h : (↑U.val : Set ℕ) ⊆ ↑V.val),
+    restrict R (↑V.val : Set ℕ) h (x V) = x U}
+  mul_mem' := sorry
+  add_mem' := sorry
+  algebraMap_mem' := sorry
+
+abbrev FiniteOrderLimit (S : Set ℕ) := ↥(finiteOrderLimitSubalgebra R S)
+
+instance (S : Set ℕ) : TopologicalSpace (FiniteOrderLimit R S) :=
+  TopologicalSpace.induced (fun x : FiniteOrderLimit R S => x.val) inferInstance
+
+def CycloCompletion.finiteOrderEquiv (S : Set ℕ) :
+    CycloCompletion R S ≃+* FiniteOrderLimit R S := sorry
+
+theorem CycloCompletion.finiteOrderEquiv_apply (S : Set ℕ) (x : CycloCompletion R S)
+    (U : FiniteOrders S) :
+    (finiteOrderEquiv R S x).val U = restrict R S U.2 x := sorry
+
+theorem CycloCompletion.finiteOrderEquiv_fromPoly (S : Set ℕ) (p : R[X]) :
+    finiteOrderEquiv R S (fromPoly R S p) = algebraMap R[X] _ p := sorry
+
+/-- Reconstruction, not merely detection of equality of the original quotient coordinates. -/
+theorem CycloCompletion.finiteOrderEquiv_reconstruct (S : Set ℕ) (y : FiniteOrderLimit R S)
+    (U : FiniteOrders S) :
+    restrict R S U.2 ((finiteOrderEquiv R S).symm y) = y.val U := sorry
+
+theorem CycloCompletion.continuous_finiteOrderEquiv (S : Set ℕ) :
+    Continuous (finiteOrderEquiv R S) ∧ Continuous (finiteOrderEquiv R S).symm := sorry
+
+/-- Compare the cyclotomic presentation with any mutually cofinal directed family. -/
+def CycloCompletion.cofinalEquiv {ι : Type*} [Nonempty ι] (S : Set ℕ) (g : ι → R[X])
+    (dg : ∀ i j, ∃ k, g i ∣ g k ∧ g j ∣ g k)
+    (hg : ∀ f : cycloIndex R S, ∃ i, (f : R[X]) ∣ g i)
+    (gh : ∀ i, ∃ f : cycloIndex R S, g i ∣ (f : R[X])) :
+    CycloCompletion R S ≃+* PolynomialLimit R g := sorry
+
+theorem CycloCompletion.cofinalEquiv_proj {ι : Type*} [Nonempty ι] (S : Set ℕ)
+    (g : ι → R[X]) (dg : ∀ i j, ∃ k, g i ∣ g k ∧ g j ∣ g k)
+    (hg : ∀ f : cycloIndex R S, ∃ i, (f : R[X]) ∣ g i)
+    (gh : ∀ i, ∃ f : cycloIndex R S, g i ∣ (f : R[X]))
+    (x : CycloCompletion R S) (i : ι) (f : cycloIndex R S) (hif : g i ∣ (f : R[X])) :
+    PolynomialLimit.proj R g i (cofinalEquiv R S g dg hg gh x) =
+      Ideal.Quotient.factor (Ideal.span_singleton_le_span_singleton.mpr hif) (proj R S f x) :=
+  sorry
+
+theorem CycloCompletion.cofinalEquiv_fromPoly {ι : Type*} [Nonempty ι] (S : Set ℕ)
+    (g : ι → R[X]) (dg : ∀ i j, ∃ k, g i ∣ g k ∧ g j ∣ g k)
+    (hg : ∀ f : cycloIndex R S, ∃ i, (f : R[X]) ∣ g i)
+    (gh : ∀ i, ∃ f : cycloIndex R S, g i ∣ (f : R[X])) (p : R[X]) :
+    cofinalEquiv R S g dg hg gh (fromPoly R S p) = PolynomialLimit.fromPoly R g p := sorry
+
+theorem CycloCompletion.continuous_cofinalEquiv {ι : Type*} [Nonempty ι] (S : Set ℕ)
+    (g : ι → R[X]) (dg : ∀ i j, ∃ k, g i ∣ g k ∧ g j ∣ g k)
+    (hg : ∀ f : cycloIndex R S, ∃ i, (f : R[X]) ∣ g i)
+    (gh : ∀ i, ∃ f : cycloIndex R S, g i ∣ (f : R[X])) :
+    Continuous (cofinalEquiv R S g dg hg gh) ∧ Continuous (cofinalEquiv R S g dg hg gh).symm :=
+  sorry
+
+/-- Equality is detected by the actual completed finite restrictions. -/
+theorem CycloCompletion.ext_of_finite_restrict (S : Set ℕ) {x y : CycloCompletion R S}
+    (h : ∀ U : FiniteOrders S, restrict R S U.2 x = restrict R S U.2 y) : x = y := sorry
+
+/-- Coefficient map on any polynomial-family limit, acting on quotient coordinates. -/
+def PolynomialLimit.mapRing {ι : Type*} (g : ι → R[X]) {R' : Type*} [CommRing R']
+    (φ : R →+* R') : PolynomialLimit R g →+* PolynomialLimit R' (fun i => (g i).map φ) := sorry
+
+theorem PolynomialLimit.mapRing_fromPoly {ι : Type*} (g : ι → R[X]) {R' : Type*} [CommRing R']
+    (φ : R →+* R') (p : R[X]) :
+    mapRing R g φ (PolynomialLimit.fromPoly R g p) =
+      PolynomialLimit.fromPoly R' (fun i => (g i).map φ) (p.map φ) := sorry
+
+theorem CycloCompletion.finiteOrderEquiv_mapRing (S : Set ℕ) {R' : Type*} [CommRing R']
+    (φ : R →+* R') (x : CycloCompletion R S) (U : FiniteOrders S) :
+    (finiteOrderEquiv R' S (mapRing R S φ x)).val U =
+      mapRing R (↑U.val : Set ℕ) φ ((finiteOrderEquiv R S x).val U) := sorry
+
+theorem CycloCompletion.finiteOrderEquiv_restrict (S T : Set ℕ) (h : T ⊆ S)
+    (x : CycloCompletion R S) (U : FiniteOrders T) :
+    (finiteOrderEquiv R T (restrict R S h x)).val U =
+      (finiteOrderEquiv R S x).val ⟨U.val, U.2.trans h⟩ := sorry
+
+/-- The finite-S equivalence is also topological for the actual adic quotient topology. -/
+theorem CycloCompletion.continuous_adicEquivOfFinite (S : Set ℕ) (hS : S.Finite) :
+    let I : Ideal R[X] := Ideal.span {∏ n ∈ hS.toFinset, cyclotomic n R}
+    letI : TopologicalSpace (AdicCompletion I R[X]) :=
+      TopologicalSpace.induced (fun x : AdicCompletion I R[X] =>
+        fun k : ℕ => AdicCompletion.evalₐ I k x) (@Pi.topologicalSpace _ _ fun _ => ⊥)
+    Continuous (adicEquivOfFinite R S hS) ∧ Continuous (adicEquivOfFinite R S hS).symm := sorry
+
+/-- Test: empty finite subset contributes the zero ring, without losing other coordinates. -/
+example : Subsingleton (FiniteOrderLimit ℤ ∅) := sorry
+
+/-- Test: finite reconstruction sends the polynomial q to q on each subset. -/
+example (U : FiniteOrders ({1, 2} : Set ℕ)) :
+    (CycloCompletion.finiteOrderEquiv ℤ {1, 2} (fromPoly ℤ {1, 2} X)).val U =
+      fromPoly ℤ (↑U.val : Set ℕ) X := sorry
+
+/-- Test: over Z the residues 0 at Φ₁ and 1 at Φ₂ cannot be completed together.
+Independent products without compatibility would admit this family. -/
+example : ¬ ∃ x : CycloCompletion ℤ {1, 2},
+    restrict ℤ {1, 2} (show ({1} : Set ℕ) ⊆ {1, 2} by simp) x = 0 ∧
+    restrict ℤ {1, 2} (show ({2} : Set ℕ) ⊆ {1, 2} by simp) x = 1 := sorry
+
+/-- Test: equivalent powers preserve the zero quotient at exponent zero. -/
+example : Subsingleton (ℤ[X] ⧸ Ideal.span {((X - 1 : ℤ[X]) ^ 0)}) := sorry
+
+/-- Test: doubling powers does not change an adic limit. -/
+example : Nonempty (PolynomialLimit ℤ (fun k : ℕ => (X - 1 : ℤ[X]) ^ k) ≃+*
+    PolynomialLimit ℤ (fun k : ℕ => (X - 1 : ℤ[X]) ^ (2 * k))) := sorry
+
+/-- Test: omitting Φ₂ is not cofinal with all orders over Z. -/
+example : ¬ (∀ f : cycloIndex ℤ Set.univ, ∃ k : ℕ, (f : ℤ[X]) ∣ (X - 1) ^ k) := sorry
+
+end Presentations
+
 
 /-- Test `subsingleton_empty` (degenerate). -/
 example (R : Type*) [CommRing R] : Subsingleton (CycloCompletion R ∅) := subsingleton_empty R
@@ -521,6 +1013,158 @@ end HabiroRing
 theorem not_isAdic_of_infinite (A : Subring (AlgebraicClosure ℚ)) {S : Set ℕ} (hS : S.Infinite) :
     ¬ ∃ (I : Ideal A[X]) (e : CycloCompletion A S ≃+* AdicCompletion I A[X]),
       ∀ p : A[X], e (fromPoly A S p) = algebraMap A[X] _ p := sorry
+
+/-! ### HC.1 — factorial and divisibility-adic limits with inverse reconstruction -/
+
+section FullPresentations
+variable (R : Type*) [CommRing R]
+
+/-- The factorial quotient limit, using all divisibility transitions. -/
+def HabiroRing.factorialEquiv : HabiroRing R ≃+* PolynomialLimit R (factorialPoly R) := sorry
+
+theorem HabiroRing.factorialEquiv_proj (x : HabiroRing R) (N : ℕ) :
+    PolynomialLimit.proj R (factorialPoly R) N (factorialEquiv R x) = projFactorial R N x := sorry
+
+theorem HabiroRing.factorialEquiv_fromPoly (p : R[X]) :
+    factorialEquiv R (fromPoly R Set.univ p) = PolynomialLimit.fromPoly R (factorialPoly R) p :=
+  sorry
+
+theorem HabiroRing.factorialEquiv_reconstruct (y : PolynomialLimit R (factorialPoly R)) (N : ℕ) :
+    projFactorial R N ((factorialEquiv R).symm y) = PolynomialLimit.proj R (factorialPoly R) N y :=
+  sorry
+
+theorem HabiroRing.continuous_factorialEquiv :
+    Continuous (factorialEquiv R) ∧ Continuous (factorialEquiv R).symm := sorry
+
+/-- An actual Mathlib adic completion for each positive order. -/
+abbrev OrderAdic (m : ℕ+) := AdicCompletion (Ideal.span {(X ^ (m : ℕ) - 1 : R[X])}) R[X]
+
+/-- Its topology is the inverse limit of discrete power-ideal quotients. -/
+instance (m : ℕ+) : TopologicalSpace (OrderAdic R m) :=
+  TopologicalSpace.induced
+    (fun x : OrderAdic R m => fun k : ℕ =>
+      AdicCompletion.evalₐ (Ideal.span {(X ^ (m : ℕ) - 1 : R[X])}) k x)
+    (@Pi.topologicalSpace _ _ fun _ => ⊥)
+
+/-- For m|n, identity on polynomials gives the map from n-adic to m-adic completion. -/
+def orderAdicTransition (m n : ℕ+) (h : (m : ℕ) ∣ (n : ℕ)) :
+    OrderAdic R n →+* OrderAdic R m := sorry
+
+theorem orderAdicTransition_fromPoly (m n : ℕ+) (h : (m : ℕ) ∣ (n : ℕ)) (p : R[X]) :
+    orderAdicTransition R m n h (algebraMap R[X] _ p) = algebraMap R[X] _ p := sorry
+
+theorem orderAdicTransition_refl (m : ℕ+) : orderAdicTransition R m m dvd_rfl = RingHom.id _ :=
+  sorry
+
+theorem orderAdicTransition_comp (l m n : ℕ+) (hlm : (l : ℕ) ∣ (m : ℕ))
+    (hmn : (m : ℕ) ∣ (n : ℕ)) :
+    (orderAdicTransition R l m hlm).comp (orderAdicTransition R m n hmn) =
+      orderAdicTransition R l n (dvd_trans hlm hmn) := sorry
+
+theorem continuous_orderAdicTransition (m n : ℕ+) (h : (m : ℕ) ∣ (n : ℕ)) :
+    Continuous (orderAdicTransition R m n h) := sorry
+
+/-- The divisibility limit of adic completions, H Corollary 4.1 p.1136. -/
+def orderAdicLimitSubalgebra : Subalgebra R[X] (∀ m : ℕ+, OrderAdic R m) where
+  carrier := {x | ∀ (m n : ℕ+) (h : (m : ℕ) ∣ (n : ℕ)), orderAdicTransition R m n h (x n) = x m}
+  mul_mem' := sorry
+  add_mem' := sorry
+  algebraMap_mem' := sorry
+
+abbrev OrderAdicLimit := ↥(orderAdicLimitSubalgebra R)
+
+instance : TopologicalSpace (OrderAdicLimit R) :=
+  TopologicalSpace.induced (fun x : OrderAdicLimit R => x.val) inferInstance
+
+def HabiroRing.orderAdicEquiv : HabiroRing R ≃+* OrderAdicLimit R := sorry
+
+theorem HabiroRing.orderAdicEquiv_apply (x : HabiroRing R) (m : ℕ+) :
+    (orderAdicEquiv R x).val m = toAdicXPowSubOne R (m : ℕ) x := sorry
+
+theorem HabiroRing.orderAdicEquiv_fromPoly (p : R[X]) :
+    orderAdicEquiv R (fromPoly R Set.univ p) = algebraMap R[X] _ p := sorry
+
+theorem HabiroRing.orderAdicEquiv_reconstruct (y : OrderAdicLimit R) (m : ℕ+) :
+    toAdicXPowSubOne R (m : ℕ) ((orderAdicEquiv R).symm y) = y.val m := sorry
+
+theorem HabiroRing.continuous_orderAdicEquiv :
+    Continuous (orderAdicEquiv R) ∧ Continuous (orderAdicEquiv R).symm := sorry
+
+theorem HabiroRing.orderAdicEquiv_transition (x : HabiroRing R) (m n : ℕ+)
+    (h : (m : ℕ) ∣ (n : ℕ)) :
+    orderAdicTransition R m n h (toAdicXPowSubOne R (n : ℕ) x) =
+      toAdicXPowSubOne R (m : ℕ) x := sorry
+
+/-- Test: factorial reconstruction is inverse also at P₀=1. -/
+example (y : PolynomialLimit ℤ (factorialPoly ℤ)) :
+    HabiroRing.factorialEquiv ℤ ((HabiroRing.factorialEquiv ℤ).symm y) = y := by simp
+
+/-- Test: the divisibility-adic system remembers q, rather than only its root values. -/
+example (m : ℕ+) :
+    (HabiroRing.orderAdicEquiv ℤ (fromPoly ℤ Set.univ X)).val m = algebraMap ℤ[X] _ X := sorry
+
+/-- Test: incompatible constants at orders 1 and 2 are excluded by the transition. -/
+example : ¬ ∃ y : OrderAdicLimit ℤ, y.val 1 = 0 ∧ y.val 2 = 1 := sorry
+
+/-- The finite-divisor completion is the (q^m-1)-adic completion. -/
+def finiteDivisorsAdicEquiv (m : ℕ+) :
+    CycloCompletion R {d : ℕ | d ∣ (m : ℕ)} ≃+* OrderAdic R m := sorry
+
+theorem finiteDivisorsAdicEquiv_fromPoly (m : ℕ+) (p : R[X]) :
+    finiteDivisorsAdicEquiv R m (fromPoly R {d : ℕ | d ∣ (m : ℕ)} p) = algebraMap R[X] _ p := sorry
+
+theorem HabiroRing.toAdicXPowSubOne_restrict (m : ℕ+) (x : HabiroRing R) :
+    toAdicXPowSubOne R (m : ℕ) x = finiteDivisorsAdicEquiv R m
+      (restrict R Set.univ (Set.subset_univ {d : ℕ | d ∣ (m : ℕ)}) x) := sorry
+
+def orderAdicMapRing {R' : Type*} [CommRing R'] (φ : R →+* R') (m : ℕ+) :
+    OrderAdic R m →+* OrderAdic R' m := sorry
+
+theorem orderAdicMapRing_fromPoly {R' : Type*} [CommRing R'] (φ : R →+* R')
+    (m : ℕ+) (p : R[X]) :
+    orderAdicMapRing R φ m (algebraMap R[X] _ p) = algebraMap R'[X] _ (p.map φ) := sorry
+
+theorem orderAdicMapRing_transition {R' : Type*} [CommRing R'] (φ : R →+* R')
+    (m n : ℕ+) (h : (m : ℕ) ∣ (n : ℕ)) :
+    (orderAdicMapRing R φ m).comp (orderAdicTransition R m n h) =
+      (orderAdicTransition R' m n h).comp (orderAdicMapRing R φ n) := sorry
+
+theorem HabiroRing.toAdicXPowSubOne_mapRing {R' : Type*} [CommRing R']
+    (φ : R →+* R') (m : ℕ+) (x : HabiroRing R) :
+    toAdicXPowSubOne R' (m : ℕ) (mapRing R Set.univ φ x) =
+      orderAdicMapRing R φ m (toAdicXPowSubOne R (m : ℕ) x) := sorry
+
+def factorialLimitMapRing {R' : Type*} [CommRing R'] (φ : R →+* R') :
+    PolynomialLimit R (factorialPoly R) →+* PolynomialLimit R' (factorialPoly R') := sorry
+
+theorem factorialLimitMapRing_proj {R' : Type*} [CommRing R'] (φ : R →+* R')
+    (y : PolynomialLimit R (factorialPoly R)) (N : ℕ)
+    (h : Ideal.span {factorialPoly R N} ≤
+      (Ideal.span {factorialPoly R' N}).comap (Polynomial.mapRingHom φ)) :
+    PolynomialLimit.proj R' (factorialPoly R') N (factorialLimitMapRing R φ y) =
+      Ideal.quotientMap _ (Polynomial.mapRingHom φ) h
+        (PolynomialLimit.proj R (factorialPoly R) N y) := sorry
+
+theorem HabiroRing.factorialEquiv_mapRing {R' : Type*} [CommRing R'] (φ : R →+* R')
+    (x : HabiroRing R) :
+    factorialEquiv R' (mapRing R Set.univ φ x) = factorialLimitMapRing R φ (factorialEquiv R x) :=
+  sorry
+
+/-- Test: the order-2 to order-6 transition is oriented from 6 back to 2. -/
+example (p : ℤ[X]) :
+    orderAdicTransition ℤ 2 6 (by norm_num) (algebraMap ℤ[X] _ p) = algebraMap ℤ[X] _ p := sorry
+
+/-- Test: reducing coefficients to F₂ commutes with full factorial reconstruction. -/
+example (p : ℤ[X]) :
+    factorialLimitMapRing ℤ (Int.castRingHom (ZMod 2))
+      (HabiroRing.factorialEquiv ℤ (fromPoly ℤ Set.univ p)) =
+    HabiroRing.factorialEquiv (ZMod 2) (fromPoly (ZMod 2) Set.univ (p.map (Int.castRingHom _))) :=
+  sorry
+
+/-- Test: finite divisor restriction retains both roots 1 and -1 for m=2. -/
+example : Nonempty (CycloCompletion ℤ {d : ℕ | d ∣ 2} ≃+* OrderAdic ℤ 2) := sorry
+
+end FullPresentations
 
 /-! ## HC.2 — factorial series, normalised expansions, algorithms, `q⁻¹` -/
 
@@ -1331,6 +1975,41 @@ theorem evalCyclotomic_injective (A : Subring (AlgebraicClosure ℚ)) {S T : Set
     (h : ∃ n ∈ S, {m | m ∈ T ∧ Adjacent A m n}.Infinite) :
     Function.Injective (fun x : CycloCompletion A S => fun n : T =>
       proj A S ⟨cyclotomic (n : ℕ) A, cycloIndex.cyclotomic_mem A S (hTS n.2)⟩ x) := sorry
+
+/-- Selected roots really have the specified positive order in S. -/
+def selectedRootEvaluation (A : Subring (AlgebraicClosure ℚ)) (S : Set ℕ)
+    (Z : Set (AlgebraicClosure ℚ)) (hS : ∀ ζ ∈ Z, orderOf ζ ∈ S)
+    (hζ : ∀ ζ ∈ Z, aeval ζ (cyclotomic (orderOf ζ) A) = 0) :
+    CycloCompletion A S →+* (Z → AlgebraicClosure ℚ) :=
+  RingHom.pi (fun ζ : Z => evalAt A S (hS ζ ζ.2) ζ (hζ ζ ζ.2))
+
+/-- H Theorem 6.2 pp.1140–1141 with the necessary residue-field repair:
+cyclotomic irreducibility over Frac(A), not merely irreducibility over A.
+An infinite set of adjacent roots has infinitely many orders because each order has
+only finitely many roots in the algebraic closure. -/
+theorem selectedRootEvaluation_injective (A : Subring (AlgebraicClosure ℚ))
+    {S : Set ℕ} (hconn : IsAdjConnected A S) (hpos : ∀ n ∈ S, 0 < n)
+    (Z : Set (AlgebraicClosure ℚ)) (hS : ∀ ζ ∈ Z, orderOf ζ ∈ S)
+    (hprim : ∀ ζ ∈ Z, IsPrimitiveRoot ζ (orderOf ζ))
+    (hζ : ∀ ζ ∈ Z, aeval ζ (cyclotomic (orderOf ζ) A) = 0)
+    (hirr : ∀ ζ ∈ Z, Irreducible (cyclotomic (orderOf ζ) (FractionRing A)))
+    (hinf : ∃ n ∈ S, {ζ | ζ ∈ Z ∧ Adjacent A (orderOf ζ) n}.Infinite) :
+    Function.Injective (selectedRootEvaluation A S Z hS hζ) := sorry
+
+/-- Test: evaluation at one selected root is genuinely evaluation, not a Φ_n residue. -/
+example (A : Subring (AlgebraicClosure ℚ)) (S : Set ℕ) (Z : Set (AlgebraicClosure ℚ))
+    (hS : ∀ ζ ∈ Z, orderOf ζ ∈ S)
+    (hζ : ∀ ζ ∈ Z, aeval ζ (cyclotomic (orderOf ζ) A) = 0) (ζ : Z) (p : A[X]) :
+    selectedRootEvaluation A S Z hS hζ (fromPoly A S p) ζ = aeval (ζ : AlgebraicClosure ℚ) p :=
+  sorry
+
+/-- Test: an empty root family does not detect the nonzero integral completion. -/
+example : ¬ Function.Injective (fun _ : HabiroRing ℤ => (0 : (∅ : Set ℂ) → ℂ)) := sorry
+
+/-- Test: one primitive fourth root does not detect a polynomial over Z[i].
+This is the obstruction to dropping the fraction-field irreducibility hypothesis. -/
+example (A : Subring (AlgebraicClosure ℚ)) (i : A) (hi : i ^ 2 = -1) :
+    aeval (i : AlgebraicClosure ℚ) (X - C i) = 0 ∧ (X - C i : A[X]) ≠ 0 := sorry
 
 -- Conjecture 6.1 (Habiro, open and not used): for every infinite set `Z` of roots of unity the
 -- evaluation `ℤ[q]^ℕ → ∏_{ζ ∈ Z} ℤ[ζ]` is injective. It is recorded here as open, never as a
@@ -2189,6 +2868,192 @@ and so does injectivity. -/
 example : ¬ Function.Injective (cycloModuleCompletion.restrict ℤ ({1, 2} : Set ℕ)
     (M := Localization.Away (2 : ℤ)) (show ({1} : Set ℕ) ⊆ {1, 2} by simp)) := sorry
 
+/-! ### HC.5 — all finite coefficient localizations and their domain components -/
+
+/-- A positive integer Δ specifies which coefficient primes become units. -/
+abbrev LocalizedIntegers (Δ : ℕ+) := Localization.Away ((Δ : ℕ) : ℤ)
+
+/-- Only prime divisors of Δ enter the tuple, even when Δ has repeated factors. -/
+abbrev InvertedPrimes (Δ : ℕ+) := {p : ℕ // p.Prime ∧ p ∣ (Δ : ℕ)}
+
+abbrev ValuationTuple (Δ : ℕ+) := InvertedPrimes Δ → ℕ
+
+/-- The positive-order component with the prescribed valuations at every inverted prime. -/
+def valuationOrders (Δ : ℕ+) (a : ValuationTuple Δ) : Set ℕ :=
+  {n | 0 < n ∧ ∀ p : InvertedPrimes Δ, padicValNat p.val n = a p}
+
+namespace LocalizedIntegers
+variable (Δ : ℕ+)
+
+theorem finite_invertedPrimes : Finite (InvertedPrimes Δ) := sorry
+
+theorem valuationOrders_nonempty (a : ValuationTuple Δ) : (valuationOrders Δ a).Nonempty := sorry
+
+theorem valuationOrders_connected (a : ValuationTuple Δ) :
+    IsAdjConnected (LocalizedIntegers Δ) (valuationOrders Δ a) := sorry
+
+theorem valuationOrders_partition (n : ℕ) (hn : 0 < n) :
+    ∃! a : ValuationTuple Δ, n ∈ valuationOrders Δ a := sorry
+
+/-- CRT across different tuples, not just a single inverted prime. -/
+def componentEquiv : HabiroRing (LocalizedIntegers Δ) ≃+*
+    (∀ a : ValuationTuple Δ, CycloCompletion (LocalizedIntegers Δ) (valuationOrders Δ a)) := sorry
+
+theorem componentEquiv_apply (x : HabiroRing (LocalizedIntegers Δ)) (a : ValuationTuple Δ) :
+    componentEquiv Δ x a = restrict _ Set.univ (Set.subset_univ (valuationOrders Δ a)) x := sorry
+
+theorem componentEquiv_fromPoly (p : (LocalizedIntegers Δ)[X]) (a : ValuationTuple Δ) :
+    componentEquiv Δ (fromPoly _ Set.univ p) a = fromPoly _ (valuationOrders Δ a) p := sorry
+
+/-- The product has the product of completion topologies. -/
+theorem continuous_componentEquiv :
+    Continuous (componentEquiv Δ) ∧ Continuous (componentEquiv Δ).symm := sorry
+
+/-- Projector onto one nonzero class. -/
+def componentIdempotent (a : ValuationTuple Δ) : HabiroRing (LocalizedIntegers Δ) :=
+  (componentEquiv Δ).symm (fun b => if b = a then 1 else 0)
+
+theorem componentIdempotent_eq (a b : ValuationTuple Δ) :
+    componentEquiv Δ (componentIdempotent Δ a) b = if b = a then 1 else 0 := sorry
+
+theorem componentIdempotent_idempotent (a : ValuationTuple Δ) :
+    IsIdempotentElem (componentIdempotent Δ a) := sorry
+
+theorem componentIdempotent_orthogonal (a b : ValuationTuple Δ) (hab : a ≠ b) :
+    componentIdempotent Δ a * componentIdempotent Δ b = 0 := sorry
+
+theorem componentIdempotent_nonzero (a : ValuationTuple Δ) : componentIdempotent Δ a ≠ 0 := sorry
+
+theorem restrict_injective_iff_meets (T : Set ℕ) :
+    Function.Injective (restrict (LocalizedIntegers Δ) Set.univ (Set.subset_univ T)) ↔
+      ∀ a : ValuationTuple Δ, (T ∩ valuationOrders Δ a).Nonempty := sorry
+
+/-- Universal values at every positive order determine the full localized completion. -/
+theorem allValues_injective :
+    Function.Injective (fun x : HabiroRing (LocalizedIntegers Δ) => fun n : ℕ+ =>
+      evalAt _ Set.univ (Set.mem_univ (n : ℕ))
+        (AdjoinRoot.root (cyclotomic (n : ℕ) (LocalizedIntegers Δ)))
+        (aeval_root_cyclotomic _ (n : ℕ)) x) := sorry
+
+/-! The next four statements expose the Galois bridge used for component domains.
+The split completion over the adjoined root algebra need not itself be a domain.
+Joint Taylor detection follows by splitting Φ_n and applying the linear-root chain
+injection on each close-root class. Conjugation then propagates a zero Taylor
+expansion of a base-ring element to every class. -/
+
+/-- The integral, localized algebra generated by the n-th roots, inside K. -/
+abbrev rootAlgebra {K : Type*} [Field K] [Algebra (LocalizedIntegers Δ) K] (n : ℕ+) :=
+  Algebra.adjoin (LocalizedIntegers Δ) {ζ : K | ζ ^ (n : ℕ) = 1}
+
+theorem rootAlgebra_separated {K : Type*} [Field K] [CharZero K]
+    [Algebra (LocalizedIntegers Δ) K] [FaithfulSMul (LocalizedIntegers Δ) K]
+    (n : ℕ+) (p : ℕ) (hp : p.Prime) (hΔ : ¬ p ∣ (Δ : ℕ)) :
+    IsHausdorff (Ideal.span {(p : rootAlgebra Δ (K := K) n)}) (rootAlgebra Δ (K := K) n) := sorry
+
+/-- Cyclotomic conjugations remain automorphisms after localizing the integer coefficients. -/
+theorem primitiveRoots_galois_transitive {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    [Algebra (LocalizedIntegers Δ) K] [FaithfulSMul (LocalizedIntegers Δ) K]
+    (n : ℕ+) (ζ η : rootAlgebra Δ (K := K) n)
+    (hζ : IsPrimitiveRoot ζ (n : ℕ)) (hη : IsPrimitiveRoot η (n : ℕ)) :
+    ∃ σ : rootAlgebra Δ (K := K) n ≃ₐ[LocalizedIntegers Δ] rootAlgebra Δ (K := K) n,
+      σ ζ = η := sorry
+
+/-- All linear-root Taylor coordinates jointly detect the split singleton completion. -/
+theorem allPrimitiveTaylor_injective {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    [Algebra (LocalizedIntegers Δ) K] [FaithfulSMul (LocalizedIntegers Δ) K] (n : ℕ+)
+    (hroot : ∀ ζ : {ζ : rootAlgebra Δ (K := K) n // IsPrimitiveRoot ζ (n : ℕ)},
+      aeval ζ.val (cyclotomic (n : ℕ) (rootAlgebra Δ (K := K) n)) = 0) :
+    Function.Injective (fun x : CycloCompletion (rootAlgebra Δ (K := K) n) {(n : ℕ)} =>
+      fun ζ : {ζ : rootAlgebra Δ (K := K) n // IsPrimitiveRoot ζ (n : ℕ)} =>
+        taylorAt (rootAlgebra Δ (K := K) n) {(n : ℕ)} (by simp) ζ.val (hroot ζ) x) := sorry
+
+/-- An R-algebra automorphism fixes the scalar-change image of the base completion.
+Apply with B = rootAlgebra Δ n and its cyclotomic conjugations. -/
+theorem scalarImage_mapRing_fixes (B : Type*) [CommRing B]
+    [Algebra (LocalizedIntegers Δ) B] (n : ℕ+)
+    (σ : B ≃ₐ[LocalizedIntegers Δ] B)
+    (x : CycloCompletion (LocalizedIntegers Δ) {(n : ℕ)}) :
+    mapRing B {(n : ℕ)} σ.toRingHom
+      (mapRing (LocalizedIntegers Δ) {(n : ℕ)} (algebraMap (LocalizedIntegers Δ) B) x) =
+    mapRing (LocalizedIntegers Δ) {(n : ℕ)} (algebraMap (LocalizedIntegers Δ) B) x := sorry
+
+/-- Conjugating coefficients conjugates the root of the Taylor expansion. -/
+theorem scalarImage_taylor_conjugate (B : Type*) [CommRing B]
+    [Algebra (LocalizedIntegers Δ) B] (n : ℕ+) (σ : B ≃ₐ[LocalizedIntegers Δ] B) (ζ : B)
+    (hζ : aeval ζ (cyclotomic (n : ℕ) B) = 0)
+    (hσζ : aeval (σ ζ) (cyclotomic (n : ℕ) B) = 0)
+    (y : CycloCompletion B {(n : ℕ)}) :
+    taylorAt B {(n : ℕ)} (by simp) (σ ζ) hσζ (mapRing B {(n : ℕ)} σ.toRingHom y) =
+      PowerSeries.map σ.toRingHom (taylorAt B {(n : ℕ)} (by simp) ζ hζ y) := sorry
+
+/-- Galois invariance of the coefficient image makes a single coordinate detect it. -/
+theorem singleton_zero_of_one_taylor {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    [Algebra (LocalizedIntegers Δ) K] [FaithfulSMul (LocalizedIntegers Δ) K]
+    (n : ℕ+) (ζ : K) (hprim : IsPrimitiveRoot ζ (n : ℕ))
+    (hζ : aeval ζ (cyclotomic (n : ℕ) (LocalizedIntegers Δ)) = 0)
+    (x : CycloCompletion (LocalizedIntegers Δ) {(n : ℕ)})
+    (hx : taylorAt _ {(n : ℕ)} (by simp) ζ hζ x = 0) : x = 0 := sorry
+
+/-- No separation at inverted primes is imposed: descent supplies this injection. -/
+theorem componentTaylor_injective {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    [Algebra (LocalizedIntegers Δ) K] [FaithfulSMul (LocalizedIntegers Δ) K]
+    (a : ValuationTuple Δ) {n : ℕ} (hn : n ∈ valuationOrders Δ a)
+    (ζ : K) (hprim : IsPrimitiveRoot ζ n)
+    (hζ : aeval ζ (cyclotomic n (LocalizedIntegers Δ)) = 0) :
+    Function.Injective (taylorAt _ (valuationOrders Δ a) hn ζ hζ) := sorry
+
+theorem component_isDomain (a : ValuationTuple Δ) :
+    IsDomain (CycloCompletion (LocalizedIntegers Δ) (valuationOrders Δ a)) := sorry
+
+theorem not_isDomain (hΔ : 1 < (Δ : ℕ)) : ¬ IsDomain (HabiroRing (LocalizedIntegers Δ)) := sorry
+
+end LocalizedIntegers
+
+/-- Test: Δ=1 has one tuple, whose class is precisely all positive orders. -/
+example (a : ValuationTuple 1) : valuationOrders 1 a = {n : ℕ | 0 < n} := sorry
+
+/-- Test: both inverted valuations matter when Δ=6, and powers in Δ do not matter. -/
+example : ∀ n : ℕ, (n ∈ valuationOrders 6 (fun _ => 0) ↔ 0 < n ∧ ¬ 2 ∣ n ∧ ¬ 3 ∣ n) ∧
+    (n ∈ valuationOrders 12 (fun _ => 0) ↔ n ∈ valuationOrders 6 (fun _ => 0)) := sorry
+
+/-- Test: a class with inverted odd root order is still a domain. -/
+example : IsDomain (CycloCompletion (LocalizedIntegers 3)
+    (valuationOrders 3 (fun _ => 1))) := LocalizedIntegers.component_isDomain 3 _
+
+/-- Test: restriction to orders coprime to 6 misses components. -/
+example : ¬ Function.Injective (restrict (LocalizedIntegers 6) Set.univ
+    (Set.subset_univ {n : ℕ | 0 < n ∧ Nat.Coprime n 6})) := sorry
+
+/-- Test: two distinct class projectors are nonzero orthogonal idempotents. -/
+example (a b : ValuationTuple 6) (hab : a ≠ b) :
+    LocalizedIntegers.componentIdempotent 6 a ≠ 0 ∧
+    LocalizedIntegers.componentIdempotent 6 b ≠ 0 ∧
+    LocalizedIntegers.componentIdempotent 6 a * LocalizedIntegers.componentIdempotent 6 b = 0 :=
+  sorry
+
+/-- Root-algebra tests: order one adds no coefficients; cubic conjugates act transitively;
+the split localized cubic completion has two factors, whereas its base class is a domain. -/
+example {K : Type*} [Field K] [Algebra (LocalizedIntegers 3) K] :
+    LocalizedIntegers.rootAlgebra 3 (K := K) 1 = ⊥ := sorry
+
+example {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    [Algebra (LocalizedIntegers 3) K] [FaithfulSMul (LocalizedIntegers 3) K]
+    (ζ η : LocalizedIntegers.rootAlgebra 3 (K := K) 3)
+    (hζ : IsPrimitiveRoot ζ 3) (hη : IsPrimitiveRoot η 3) :
+    ∃ σ : LocalizedIntegers.rootAlgebra 3 (K := K) 3 ≃ₐ[LocalizedIntegers 3]
+      LocalizedIntegers.rootAlgebra 3 (K := K) 3, σ ζ = η := sorry
+
+example {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    [Algebra (LocalizedIntegers 3) K] [FaithfulSMul (LocalizedIntegers 3) K] :
+    ¬ IsDomain (CycloCompletion (LocalizedIntegers.rootAlgebra 3 (K := K) 3) {3}) := sorry
+
+example {K : Type*} [Field K] [IsAlgClosed K] [CharZero K]
+    [Algebra (LocalizedIntegers 3) K] [FaithfulSMul (LocalizedIntegers 3) K]
+    (ζ : K) (hζ : IsPrimitiveRoot ζ 3)
+    (hroot : aeval ζ (cyclotomic 3 (LocalizedIntegers 3)) = 0) :
+    Function.Injective (taylorAt (LocalizedIntegers 3) (valuationOrders 3 (fun _ => 1))
+      (show 3 ∈ valuationOrders 3 (fun _ => 1) by sorry) ζ hroot) := sorry
+
 section Components
 
 variable (R : Type*) [CommRing R]
@@ -2271,6 +3136,149 @@ theorem mem_range_fromLaurent_of_mul (x : HabiroRing ℤ) (g : LaurentPolynomial
 
 end Components
 
+/-! ### HC.5 — restriction as actual localization, and fraction-field identities -/
+
+section RestrictionLocalization
+variable (R : Type*) [CommRing R] (S T : Set ℕ) (hTS : T ⊆ S)
+    (hsep : ∀ m ∈ T, ∀ n ∈ S \ T, IsCoprime (cyclotomic m R) (cyclotomic n R))
+
+/-- The unique projector which is 1 on the retained part and 0 on its complement. -/
+def restrictionProjector (hTS : T ⊆ S)
+    (hsep : ∀ m ∈ T, ∀ n ∈ S \ T, IsCoprime (cyclotomic m R) (cyclotomic n R)) :
+    CycloCompletion R S := sorry
+
+theorem restrictionProjector_spec :
+    IsIdempotentElem (restrictionProjector R S T hTS hsep) ∧
+    restrict R S hTS (restrictionProjector R S T hTS hsep) = 1 ∧
+    restrict R S (show S \ T ⊆ S from fun _ h => h.1)
+      (restrictionProjector R S T hTS hsep) = 0 := sorry
+
+theorem restrictionProjector_unique (x : CycloCompletion R S)
+    (hT : restrict R S hTS x = 1)
+    (hC : restrict R S (show S \ T ⊆ S from fun _ h => h.1) x = 0) :
+    x = restrictionProjector R S T hTS hsep := sorry
+
+include hsep in
+theorem restrict_surjective_of_comaximal_complement : Function.Surjective (restrict R S hTS) :=
+  sorry
+
+theorem ker_restrict_of_comaximal_complement :
+    RingHom.ker (restrict R S hTS) = Ideal.span {1 - restrictionProjector R S T hTS hsep} := sorry
+
+/-- The comparison uses Mathlib's Localization.Away, with its canonical algebra map. -/
+def restrictionLocalizationEquiv :
+    Localization.Away (restrictionProjector R S T hTS hsep) ≃+* CycloCompletion R T := sorry
+
+theorem restrictionLocalizationEquiv_algebraMap (x : CycloCompletion R S) :
+    restrictionLocalizationEquiv R S T hTS hsep (algebraMap (CycloCompletion R S) _ x) =
+      restrict R S hTS x := sorry
+
+theorem restrictionLocalizationEquiv_fromPoly (p : R[X]) :
+    restrictionLocalizationEquiv R S T hTS hsep
+      (algebraMap (CycloCompletion R S) _ (fromPoly R S p)) = fromPoly R T p := sorry
+
+/-- A non-comaximal excluded factor stays a nonunit, detected modulo an included Φ_m. -/
+theorem excludedFactor_nonunit [Nontrivial R] {m n : ℕ} (hm : m ∈ T)
+    (hm0 : 0 < m) (hn0 : 0 < n) (hcop : ¬ IsCoprime (cyclotomic m R) (cyclotomic n R)) :
+    ¬ IsUnit (fromPoly R T (cyclotomic n R)) := sorry
+
+/-- Inverting such a factor prevents every polynomial-compatible map to the restriction. -/
+theorem no_map_from_excludedFactor_localization [Nontrivial R] {m n : ℕ}
+    (hm : m ∈ T) (hm0 : 0 < m) (hn0 : 0 < n)
+    (hcop : ¬ IsCoprime (cyclotomic m R) (cyclotomic n R)) :
+    ¬ ∃ φ : Localization.Away (fromPoly R S (cyclotomic n R)) →+* CycloCompletion R T,
+      ∀ p : R[X], φ (algebraMap (CycloCompletion R S) _ (fromPoly R S p)) = fromPoly R T p :=
+  sorry
+
+end RestrictionLocalization
+
+/-- Test: retaining no factors gives the zero ring, with projector 0. -/
+example : Nonempty (Localization.Away (0 : HabiroRing ℚ) ≃+* CycloCompletion ℚ ∅) := sorry
+
+/-- Test: retaining all factors localizes at 1. -/
+example : Nonempty (Localization.Away (1 : HabiroRing ℤ) ≃+* HabiroRing ℤ) := sorry
+
+/-- Test: localization at Φ₂ cannot supply the integral q=1 completion. -/
+example : ¬ ∃ φ : Localization.Away (fromPoly ℤ Set.univ (cyclotomic 2 ℤ)) →+*
+    CycloCompletion ℤ {1}, ∀ p : ℤ[X],
+      φ (algebraMap (HabiroRing ℤ) _ (fromPoly ℤ Set.univ p)) = fromPoly ℤ {1} p := sorry
+
+/-- HC.4 supplies the integral domain used for the following honest fraction field. -/
+instance habiroIntDomain : IsDomain (HabiroRing ℤ) := sorry
+
+abbrev HabiroFractionField := FractionRing (HabiroRing ℤ)
+
+abbrev habiroToFraction : HabiroRing ℤ →+* HabiroFractionField := algebraMap _ _
+
+/-- The rational-function field Q(q), presented as Frac(Z[q]), in Frac(H_Z). -/
+def rationalFunctionsToHabiroFraction : FractionRing ℤ[X] →+* HabiroFractionField := sorry
+
+theorem rationalFunctionsToHabiroFraction_injective :
+    Function.Injective rationalFunctionsToHabiroFraction := sorry
+
+theorem rationalFunctionsToHabiroFraction_fromPoly (p : ℤ[X]) :
+    rationalFunctionsToHabiroFraction (algebraMap ℤ[X] _ p) =
+      habiroToFraction (fromPoly ℤ Set.univ p) := sorry
+
+/-- Denominators are the images of finite products of cyclotomic polynomials. -/
+def habiroCyclotomicDenominators : Submonoid (HabiroRing ℤ) :=
+  (cycloIndex ℤ Set.univ).map (fromPoly ℤ Set.univ)
+
+def laurentCyclotomicDenominators : Submonoid (LaurentPolynomial ℤ) :=
+  (cycloIndex ℤ Set.univ).map Polynomial.toLaurent
+
+abbrev LocalizedHabiro := Localization habiroCyclotomicDenominators
+abbrev LocalizedLaurent := Localization laurentCyclotomicDenominators
+
+/-- Actual localizations are embedded into the SAME ambient fraction field. -/
+def localizedHabiroToFraction : LocalizedHabiro →+* HabiroFractionField := sorry
+
+def localizedLaurentToFraction : LocalizedLaurent →+* HabiroFractionField := sorry
+
+theorem localizedHabiroToFraction_algebraMap (x : HabiroRing ℤ) :
+    localizedHabiroToFraction (algebraMap (HabiroRing ℤ) _ x) = habiroToFraction x := sorry
+
+theorem localizedLaurentToFraction_algebraMap (g : LaurentPolynomial ℤ) :
+    localizedLaurentToFraction (algebraMap (LaurentPolynomial ℤ) _ g) =
+      habiroToFraction (fromLaurent ℤ Set.univ g) := sorry
+
+theorem localizedFraction_embeddings : Function.Injective localizedHabiroToFraction ∧
+    Function.Injective localizedLaurentToFraction ∧ Function.Injective habiroToFraction := sorry
+
+theorem mem_localizedHabiro_iff (z : HabiroFractionField) :
+    z ∈ Set.range localizedHabiroToFraction ↔
+      ∃ x : HabiroRing ℤ, ∃ f : cycloIndex ℤ Set.univ,
+        z = habiroToFraction x / habiroToFraction (fromPoly ℤ Set.univ (f : ℤ[X])) := sorry
+
+theorem mem_localizedLaurent_iff (z : HabiroFractionField) :
+    z ∈ Set.range localizedLaurentToFraction ↔
+      ∃ g : LaurentPolynomial ℤ, ∃ f : cycloIndex ℤ Set.univ,
+        z = habiroToFraction (fromLaurent ℤ Set.univ g) /
+          habiroToFraction (fromPoly ℤ Set.univ (f : ℤ[X])) := sorry
+
+/-- H Proposition 7.2 pp.1142–1143: equality inside Frac(H_Z), not only its finite step. -/
+theorem localizedHabiro_eq_sum : Set.range localizedHabiroToFraction =
+    {z | ∃ x : HabiroRing ℤ, ∃ w ∈ Set.range localizedLaurentToFraction,
+      z = habiroToFraction x + w} := sorry
+
+/-- H Proposition 7.3 p.1143: the intersection inside the same fraction field. -/
+theorem habiro_inter_localizedLaurent :
+    Set.range habiroToFraction ∩ Set.range localizedLaurentToFraction =
+      Set.range (habiroToFraction.comp (fromLaurent ℤ Set.univ)) := sorry
+
+/-- Test: denominator 1 contains every completed element, including factorial series. -/
+example (x : HabiroRing ℤ) : habiroToFraction x ∈ Set.range localizedHabiroToFraction := sorry
+
+/-- Test: 1/(q-1) belongs to the Laurent localization but not to the completion. -/
+example : (habiroToFraction (fromPoly ℤ Set.univ (X - 1)))⁻¹ ∈
+    Set.range localizedLaurentToFraction ∧
+    (habiroToFraction (fromPoly ℤ Set.univ (X - 1)))⁻¹ ∉ Set.range habiroToFraction := sorry
+
+/-- Test: q^-1 already belongs to both original rings, since q is a completed unit. -/
+example : habiroToFraction (fromLaurent ℤ Set.univ (LaurentPolynomial.T (-1))) ∈
+    Set.range habiroToFraction ∩ Set.range localizedLaurentToFraction := sorry
+
+
 /-- HC.5/chinese-remainder-for-disconnected-collections: `Φ₁, Φ₆` are comaximal. -/
 example : IsCoprime (cyclotomic 1 ℤ) (cyclotomic 6 ℤ) := sorry
 
@@ -2286,7 +3294,9 @@ example : ¬ Adjacent (ℤ × ℚ) 1 2 ∧ ¬ IsCoprime (cyclotomic 1 (ℤ × �
 
 /-! ## HC.6 — the exported interface and the acceptance examples -/
 
--- The consumers and ownership boundaries of the exported interfaces are specified in README.md.
+-- QSeriesPartitionsAndMockModularForms:QM.0 and arithmetic/quantum-topology consumers
+-- import HC.1's QToolkit; no second elementary q-calculus is constructed in the consumer.
+-- The remaining consumers and ownership boundaries are specified in README.md.
 
 /-- HC.6/the-acceptance-examples: `1 - q` is not a unit of `ℤ[q]^ℕ` nor of `ℤ[q]^{2}`, but is
 one of `ℤ[q]^{6}` and of `ℤ[1/2][q]^{2}`. -/
