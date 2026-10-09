@@ -2292,7 +2292,7 @@ BFH90, §8, pp.601–602, continuation and pole discussion; §1, pp.550–551, n
 
 #### MP.8.81
 
-**Opposite-cusp zero coefficient regularity.** Prove P(s,0,r) holomorphic near s=2 and polynomial D-growth of P(s,D,r), uniformly on compact pole-free parameter sets. Either compute ramified cusp factors as L(s,0) times rational functions of p^−s, p|N, with denominators nonzero at 2, or deduce this coefficient’s regularity from already established Eisenstein regularity as on BFH p.589. Avoid a circular use of these alternatives.
+**Opposite-cusp zero coefficient regularity.** For the fixed BFH arithmetic data and r, prove P(s,0,r) holomorphic near s=2 and polynomial D-growth of P(s,D,r), uniformly on compact pole-free parameter sets. Compute ramified cusp factors as L(s,0) times rational functions of p^−s, p|N, with denominators nonzero at 2. Obtain growth from the actual cover-compatible Whittaker estimates. Establish this arithmetic result independently of Eisenstein continuation.
 
 H4, H5.
 
