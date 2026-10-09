@@ -141,7 +141,8 @@ namespace DiophantineApproximation
 namespace Imported
 
 /-- Minkowski's linear forms theorem (Evertse, Corollary 2.6); owner GN.1. -/
-theorem minkowski_linear_forms {n : ℕ} (L : Matrix (Fin n) (Fin n) ℝ) (hL : L.det ≠ 0)
+theorem minkowski_linear_forms {n : ℕ} (hn : 0 < n)
+    (L : Matrix (Fin n) (Fin n) ℝ) (hL : L.det ≠ 0)
     (A : Fin n → ℝ) (hA : ∀ i, 0 < A i) (hprod : |L.det| ≤ ∏ i, A i) :
     ∃ x : Fin n → ℤ, x ≠ 0 ∧ ∀ i, |∑ j, L i j * x j| ≤ A i := by
   sorry
@@ -2237,7 +2238,10 @@ section TwistedHeight
 
 variable {K : Type*} [Field K] [NumberField K]
 
-/-- The places of a number field. -/
+/-- Pinned-baseline compatibility prototype for the place type owned by current
+`TauCeti.GlobalNumberFields.Place`. That owner uses `HeightOneSpectrum (𝓞 K) ⊕ InfinitePlace K`;
+the adapter uses `FinitePlace.equivHeightOneSpectrum` and swaps the summands.
+Do not introduce a second place type when implementing at the current upstream baseline. -/
 abbrev Place (K : Type*) [Field K] [NumberField K] := InfinitePlace K ⊕ FinitePlace K
 
 /-- The normalised absolute value `‖x‖_v` of Evertse–Ferretti §1.1. -/
@@ -5014,11 +5018,8 @@ theorem ax_lindemann_weierstrass {n : ℕ} (hn : 1 ≤ n) (f : Fin n → PowerSe
 
 /-! ## Conjectures as explicit hypotheses -/
 
-/-- Schanuel's conjecture. -/
-def SchanuelConjecture : Prop :=
-  ∀ (n : ℕ) (z : Fin n → ℂ), LinearIndependent ℚ z →
-    (n : Cardinal) ≤
-      Algebra.trdeg ℚ (IntermediateField.adjoin ℚ (Set.range z ∪ Set.range (Complex.exp ∘ z)))
+/-- DT.5 namespace adapter for the proposition already defined in DT.3. -/
+abbrev SchanuelConjecture : Prop := Transcendence.SchanuelConjecture
 
 /-- The conjecture on algebraic independence of logarithms of algebraic numbers. -/
 def LogarithmsAlgebraicIndependenceConjecture : Prop :=
@@ -5095,7 +5096,10 @@ theorem algebraicIndependent_e_pi_of_schanuel (h : SchanuelConjecture) :
     AlgebraicIndependent ℚ ![Real.exp 1, Real.pi] := sorry
 
 theorem logarithmsConjecture_of_schanuel (h : SchanuelConjecture) :
-    LogarithmsAlgebraicIndependenceConjecture := sorry
+    LogarithmsAlgebraicIndependenceConjecture := by
+  intro n ℓ halg hlin
+  exact Transcendence.SchanuelConjecture.algebraicIndependent_of_mem_algebraicLogs h
+    (fun i => halg i) hlin
 
 end DiophantineApproximation
 
