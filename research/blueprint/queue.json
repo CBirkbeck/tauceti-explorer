@@ -38976,7 +38976,8 @@
     "BP-ExcursionOperatorsAndSpectralAction--ES5~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES5~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7048"
   },
   {
    "kind": "blueprint",
@@ -39687,8 +39688,9 @@
    ],
    "revisionOf": "BP-HodgeTateAndCanonicalSubgroups--T6",
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups--T6~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6972"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6972",
+   "finishedAt": "2026-10-09T09:32:34Z"
   },
   {
    "priority": 2,
@@ -42226,8 +42228,9 @@
    ],
    "revisionOf": "BP-OverconvergentAutomorphicForms--O0",
    "prompt": "research/blueprint/prompts/BP-OverconvergentAutomorphicForms--O0~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7569"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7569",
+   "finishedAt": "2026-10-09T09:32:35Z"
   },
   {
    "priority": 2,
