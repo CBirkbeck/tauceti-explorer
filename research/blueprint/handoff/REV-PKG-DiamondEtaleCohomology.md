@@ -1,0 +1,13 @@
+# REV-PKG-DiamondEtaleCohomology — complete
+
+Codex, session `codex-aouMvF`; 9 October 2026. [Issue #7512](https://github.com/CBirkbeck/tauceti-explorer/issues/7512) was claimed and bot-confirmed. This worker did none of the original package authorship.
+
+Accepted the package after independently checking all six issue criteria against both accepted plans. All 184 targets, 256 API items and 176 test contracts are retained. Corrected 52 internal references, rephrased seven source-like statements without mathematical changes, named the C9 dualizability input, removed three Lean-comment process references and added five target labels. The README is 185,074 UTF-8 bytes; metadata remains the single-line math.AG category.
+
+The [review report](../reviews/REV-PKG-DiamondEtaleCohomology.md) records the evidence, public source versions/hashes, scope, validation and 32 whole-target omissions. [review.json](../packages/DiamondEtaleCohomology/review.json) records `accepted` by `independent-review-REV-PKG-DiamondEtaleCohomology`.
+
+Final `lean-check research/blueprint/packages/DiamondEtaleCohomology/Suggested.lean` exited 0, with zero errors and 729 warnings, all for `sorry`. The exact Mathlib pin was used; there are no Tau Ceti imports. Pinned Tau Ceti declarations were checked separately. Active Lean content matches the accepted assembly, with 71 individual imports, 768 named declarations and 159 examples. Both unchanged packets passed their checker with zero errors and warnings. The independent local graph has 184 vertices, 535 edges and no cycle. All six public PDF hashes match the accepted records; final README and Lean normalized 18-token scans found no shared run with those sources.
+
+Nothing remains for this review. The twelve plan gaps and twenty-five supplier requests remain mathematical work. Retain higher-degree v-vanishing, general-coefficient perfect descent, arbitrary-characteristic completion, valued amalgamation and finite-witness universe bounds, the quasi-augmentation/support comparison, analytic residue-field interfaces, point cohomology/inertia, and full enhanced left completeness. The Lean omission ledger and nearby comments explain what can currently be stated; nineteen API items are comment-only. The common commutative carrier and homotopy signatures do not replace the stronger README specification.
+
+Only package deliverables, this review report and this handoff are submitted. Normal intake handles promotion. No scratch file or source copy is needed to continue; all necessary review evidence is in the report. The worker stops after opening this job's pull request.
