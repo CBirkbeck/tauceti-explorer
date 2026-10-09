@@ -35098,7 +35098,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.6",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7951"
   },
   {
    "id": "BP-ArithmeticKTheory--N.2",
@@ -47971,7 +47972,8 @@
     "PKG-EllipticCurveModularityPartII~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityPartII~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7928"
   },
   {
    "id": "PKG-EllipticCurveModularityPartIIGL2TypeAbelianVarieties",
@@ -79937,8 +79939,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
