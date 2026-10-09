@@ -13,206 +13,206 @@
     "declarations": [
       {
         "ref": "mathlib:CategoryTheory.Pseudofunctor",
-        "kind": "def",
+        "kind": "structure",
         "module": "Mathlib/CategoryTheory/Bicategory/Functor/Pseudofunctor.lean",
         "provides": "Pseudofunctors including invertible unit and composition constraints.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Bicategory/NaturalTransformation/Pseudo.lean",
         "provides": "Stack morphism prototypes with component functors and invertible restriction coherence.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Pseudofunctor.StrongTrans.Modification",
         "kind": "structure",
         "module": "Mathlib/CategoryTheory/Bicategory/Modification/Pseudo.lean",
         "provides": "Actual compatible two-morphisms; native scoped category on strong transformations.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Pseudofunctor.IsStack",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
         "provides": "Effective object descent plus the Hom-sheaf condition; groupoid fibres must be imposed separately.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Pseudofunctor.sheafHom",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Sites/Descent/IsPrestack.lean",
         "provides": "The actual sheaf of fibre morphisms on the slice site, retaining all restriction coherence.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Aut",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Endomorphism.lean",
         "provides": "Automorphism group of an object, with native composition convention.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Functor.mapAut",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Endomorphism.lean",
         "provides": "Functor-induced group homomorphism on automorphism groups.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Aut.autMulEquivOfIso",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Endomorphism.lean",
         "provides": "Transport of automorphisms by an isomorphism, giving conjugation.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Quotient",
-        "kind": "def",
+        "kind": "structure",
         "module": "Mathlib/CategoryTheory/Quotient.lean",
         "provides": "Quotient of a category by a Hom congruence; use only as the fibrewise prestack precursor, then sheafify and stackify.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Quotient.lift",
         "kind": "def",
         "module": "Mathlib/CategoryTheory/Quotient.lean",
         "provides": "Functor out of the native quotient when the Hom relation is killed.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Quotient.functor_map_eq_iff",
         "kind": "theorem",
         "module": "Mathlib/CategoryTheory/Quotient.lean",
         "provides": "Equality in a quotient by a congruence is exactly the original relation.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.Limits.pullback",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/CategoryTheory/Limits/Shapes/Pullback/HasPullback.lean",
         "provides": "Native categorical pullback, with both projections and the commutativity equation.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsFinite",
         "kind": "class",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
         "provides": "Affine morphism with finite algebra on affine opens; stable under composition and base change.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsFinite.SpecMap_iff",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
         "provides": "Finite spectrum morphism iff the ring homomorphism is finite.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsFinite.iff_isProper_and_isAffineHom",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
         "provides": "Native scheme finite iff proper and affine, not a theorem that all proper quasi-finite space maps are finite.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
         "provides": "Relative normalization of a quasi-compact quasi-separated morphism using the integral closure in its pushforward algebra. It is not ordinary normalization when the morphism is the identity.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.toNormalization",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
         "provides": "Factor from the original source to relative normalization.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.fromNormalization",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
         "provides": "Integral morphism from relative normalization to the original target.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationDesc",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
         "provides": "Universal factor from relative normalization to an integral target in a compatible factorization.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalizationPullback",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
         "provides": "Comparison from normalization of a pulled-back qcqs map to the pullback of its normalization; is an isomorphism under smooth base change.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.image",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
         "provides": "Native schematic image, the subscheme cut out by the kernel ideal sheaf.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.imageι",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
         "provides": "Closed immersion of the native schematic image into the target.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.toImage",
         "kind": "def",
         "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
         "provides": "Native factor through the schematic image.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.toImage_imageι",
-        "kind": "theorem",
+        "kind": "lemma",
         "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
         "provides": "The factor followed by the image immersion is the original morphism.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:Algebra.IsInvariant.isIntegral",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Invariant/Basic.lean",
         "provides": "Finite-group invariant extension is integral. This does not alone supply a quotient universal among algebraic spaces.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:Algebra.IsInvariant.exists_smul_of_under_eq",
         "kind": "theorem",
         "module": "Mathlib/RingTheory/Invariant/Basic.lean",
         "provides": "Primes above the same invariant-ring prime lie in one finite-group orbit.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "tauceti:TauCeti.linearlyReductiveAffineGroupSchemeProperty",
         "kind": "def",
         "module": "TauCeti/AlgebraicGeometry/AffineGroupScheme/LinearlyReductive.lean",
         "provides": "Linear reductivity for affine group schemes over a field via the Hopf-algebra antiequivalence; not the finite flat group-scheme theory over an arbitrary base.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "tauceti:TauCeti.Comodule.fixedSubcomodule",
         "kind": "def",
         "module": "TauCeti/Algebra/Coalgebra/Comodule/Fixed.lean",
         "provides": "Fixed vectors specified by the coaction equation; used to compare trivial stabilizer actions with invariant modules.",
-        "checked": "Statement and surrounding hypotheses read in the pinned local source on 2026-10-09; named declarations are also checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       },
       {
         "ref": "mathlib:CategoryTheory.IsGroupoid",
         "kind": "class",
         "module": "Mathlib/CategoryTheory/Groupoid.lean",
         "provides": "Every morphism in the given category is an isomorphism; retains the original Cat category structure while requiring groupoid fibres.",
-        "checked": "Definition and Groupoid.ofIsGroupoid read at the pinned commit on 2026-10-09; checked in the suggested file."
+        "checked": "Independently read the declaration and surrounding hypotheses at the pinned commit on 2026-10-09 for REV-AlgebraicModuliForArithmeticGeometry--R09.5; the 16 containing modules matched the pinned GitHub bytes, and all 29 names are probed in the suggested file."
       }
     ]
   },
@@ -273,6 +273,7 @@
       "url": "https://www.numdam.org/item/10.5802/aif.2833.pdf",
       "accessDate": "2026-10-09",
       "readSections": [
+        "Definition 4.1 and Remark 4.2, p.2362",
         "Theorem 4.16, pp.2367–2368; Theorem 10.3, Remark 10.4 and proof, pp.2386–2387"
       ],
       "sha256": "6f332f2fd4390bbd7a5d197de0ffa47843509735ae3db18a8aa2f360fcb959bc"
@@ -297,7 +298,7 @@
       "url": "https://stacks.math.columbia.edu/download/spaces-morphisms.pdf",
       "accessDate": "2026-10-09",
       "readSections": [
-        "§49, Lemmas 67.49.1, 67.49.4–67.49.5 (07U4) and 67.49.11, pp.105–109"
+        "§49, Lemmas 67.49.1, 67.49.4–67.49.5 (07U4) and 67.49.9 (0BB5), pp.105–109"
       ],
       "sha256": "46497665981806a93d5b2f315314555ba457aaed3d967bf2d8f0cd4a2310e161"
     },
@@ -328,11 +329,45 @@
       "id": "ModularCurves",
       "title": "Modular curves roadmap",
       "authors": "Tau Ceti Project contributors",
-      "edition": "Current TauCetiRoadmap main, commit 3b51bbf9a925f23bca922570bea8d641b6ec712d",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/3b51bbf9a925f23bca922570bea8d641b6ec712d/TauCetiRoadmap/ModularCurves/README.md",
+      "edition": "Current TauCetiRoadmap main, commit de435a569d325b365a30fe83269ce34674eaea80",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/de435a569d325b365a30fe83269ce34674eaea80/TauCetiRoadmap/ModularCurves/README.md",
       "accessDate": "2026-10-09",
       "readSections": [
         "§4C: rigidifiers and Katz–Mazur 4.7.0; §9D: coarse moduli schemes, Katz–Mazur 8.1.5–8.1.6, finite smooth curve quotients; §9E: integral and arbitrary-base coarse j-line; corresponding Suggested.lean signatures"
+      ]
+    },
+    {
+      "id": "GroupoidsSpaces",
+      "title": "Groupoids in algebraic spaces",
+      "authors": "The Stacks Project authors",
+      "edition": "PDF snapshot ed88ff78, compiled 14 July 2026; independently read 9 October 2026",
+      "url": "https://stacks.math.columbia.edu/download/spaces-groupoids.pdf",
+      "accessDate": "2026-10-09",
+      "readSections": [
+        "§6, Lemma 78.6.1 (06P6), pp.4–5"
+      ],
+      "sha256": "530a97af19dd13c53cddd32663181e19c535623a6898ad3dfb8192b750a49b56"
+    },
+    {
+      "id": "NonSeparatedGroup",
+      "title": "A non-separated group algebraic space over a field",
+      "authors": "The Stacks Project authors",
+      "edition": "Live section/tag page, independently read 9 October 2026",
+      "url": "https://stacks.math.columbia.edu/tag/06E9",
+      "accessDate": "2026-10-09",
+      "readSections": [
+        "§110.50, Lemma 110.50.1 (06EA), construction G=A1_k/Z"
+      ]
+    },
+    {
+      "id": "AlgebraicVectorBundles",
+      "title": "Algebraic vector bundles roadmap",
+      "authors": "Tau Ceti Project contributors",
+      "edition": "Current TauCetiRoadmap main, commit de435a569d325b365a30fe83269ce34674eaea80",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/de435a569d325b365a30fe83269ce34674eaea80/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
+      "accessDate": "2026-10-09",
+      "readSections": [
+        "L1A–L1B and corresponding Suggested.lean signatures; full README read for ownership"
       ]
     }
   ],
@@ -372,7 +407,17 @@
         {
           "sourceId": "AOV08",
           "locator": "Appendix A, setup before Theorem A.1, pp.1086–1087",
-          "match": "A flat finitely presented inertia subgroup is equivalent to compatible subgroup families; isomorphism compatibility forces normality."
+          "match": "A closed flat finitely presented inertia subgroup gives compatible closed subgroup families; isomorphism compatibility forces normality."
+        },
+        {
+          "sourceId": "GroupoidsSpaces",
+          "locator": "Lemma 78.6.1 (06P6), §6, pp.4–5",
+          "match": "For a group algebraic space the identity is closed exactly when the group is separated. Apply this on inertia charts to the geometric bottom constructor."
+        },
+        {
+          "sourceId": "NonSeparatedGroup",
+          "locator": "§110.50, Lemma 110.50.1 (06EA)",
+          "match": "A1_k/Z is a non-separated finite-type group algebraic space. Its classifying stack supplies the counterexample to unconditional geometric bottom."
         }
       ],
       "library": {
@@ -405,12 +450,17 @@
         {
           "name": "TauCeti.ArithmeticModuli.NormalInertiaSubgroup.bottom",
           "role": "constructor",
-          "statement": "The identity subgroup gives a rigidifiable subgroup of every algebraic stack."
+          "statement": "The identity subsheaf exists for every stack. It is a rigidifiable geometric subgroup when the unit X→I_X is a closed immersion, equivalently when I_X→X is separated; this is not imposed by SF.1/algebraic-stack."
         },
         {
           "name": "TauCeti.ArithmeticModuli.NormalInertiaSubgroup.top",
           "role": "constructor",
           "statement": "The entire inertia is rigidifiable when the inertia itself is flat and finitely presented."
+        },
+        {
+          "name": "TauCeti.ArithmeticModuli.NormalInertiaSubgroup.ext",
+          "role": "extensionality",
+          "statement": "Two subgroup interfaces are equal when their subgroups agree at every test object; coherence fields are proof-irrelevant."
         }
       ],
       "tests": [
@@ -433,6 +483,11 @@
           "name": "TauCeti.ArithmeticModuli.NormalInertiaSubgroup.test_base_change",
           "kind": "compatibility",
           "statement": "For Bμ_p in characteristic p, the entire finite flat inertia satisfies arbitrary test-scheme restriction, including nonreduced test schemes."
+        },
+        {
+          "name": "TauCeti.ArithmeticModuli.NormalInertiaSubgroup.test_not_closed_identity",
+          "kind": "non-example",
+          "statement": "For the non-separated group algebraic space G=A1_k/Z of Stacks §110.50 over a characteristic-zero field, the identity subsheaf of I_BG is not a closed subgroup. It satisfies the site-level bottom interface but not the geometric rigidifiability condition."
         }
       ],
       "uses": [
@@ -532,7 +587,7 @@
         {
           "name": "TauCeti.ArithmeticModuli.Rigidification.test_trivial",
           "kind": "degenerate",
-          "statement": "Rigidifying by the identity inertia subgroup is equivalent to X."
+          "statement": "When the identity inertia subgroup is closed, its geometric rigidification is equivalent to X. The site-level equivalence requires no geometric closedness."
         },
         {
           "name": "TauCeti.ArithmeticModuli.Rigidification.test_cyclic_four",
@@ -697,7 +752,7 @@
         {
           "sourceId": "Rom05",
           "locator": "Theorem 5.1(ii)–(iii), pp.224–225",
-          "match": "DM and properness assertions for the fixed-subgroup case."
+          "match": "The fixed-subgroup case preserves DM stacks and descends separatedness/properness of the source stack to the rigidified stack. Properness of the rigidification map for finite G is supplied by AOV Theorem A.1."
         }
       ],
       "library": {
@@ -1059,6 +1114,16 @@
           "name": "TauCeti.ArithmeticModuli.FiniteCorrespondence.jointFinite",
           "role": "characterisation",
           "statement": "Under the separated DM endpoint hypotheses the map to X×_S Y is finite."
+        },
+        {
+          "name": "TauCeti.ArithmeticModuli.FiniteCorrespondence.Iso",
+          "role": "data",
+          "statement": "An isomorphism of spans is an equivalence of their middle stacks with compatible 2-isomorphisms on both legs. For schemes it is an apex isomorphism commuting with both legs."
+        },
+        {
+          "name": "TauCeti.ArithmeticModuli.FiniteCorrespondence.groupoid",
+          "role": "instance",
+          "statement": "Finite correspondences with these span isomorphisms form a groupoid; identities, composition and inverses preserve both leg comparisons."
         }
       ],
       "tests": [
@@ -1159,7 +1224,7 @@
       "proofSteps": [
         "Regard the joint finite map as a commutative quasi-coherent finite algebra on X×_S Y.",
         "Descend this algebra, its multiplication and unit using SF.2/quasi-coherent-algebra-descent and the stack chart version of SF.1/stack-quasi-coherent.",
-        "Recover the middle via relative Spec; descend each leg and the leg compatibility 2-isomorphisms.",
+        "Recover the middle via the requested SF.1 stack relative Spec, extending AlgebraicVectorBundles L1A–L1B; descend each leg and the leg compatibility 2-isomorphisms.",
         "Finiteness and finite local freeness are fpqc local on the target. Descend morphisms by full faithfulness of algebra descent."
       ],
       "acceptance": [
@@ -1171,7 +1236,6 @@
         "SchemeAndStackFoundations:SF.2/quasi-coherent-algebra-descent",
         "SchemeAndStackFoundations:SF.1/stack-quasi-coherent",
         "SchemeAndStackFoundations:SF.1/space-fppf-descent",
-        "SchemeAndStackFoundations:SF.0/relative-spec",
         "SchemeAndStackFoundations:SF.1"
       ],
       "sources": [
@@ -1179,6 +1243,11 @@
           "sourceId": "SpacesDescent",
           "locator": "Proposition 74.4.1 and Lemmas 74.11.23 (0426), 74.11.29 (042C)",
           "match": "Effective quasi-coherent descent and fpqc local finite properties supply the finite-algebra argument; extend through stack charts."
+        },
+        {
+          "sourceId": "AlgebraicVectorBundles",
+          "locator": "L1A–L1B; Suggested.lean, relativeSpecUniversalProperty, relativeSpecPushforwardIso, relativeSpecBaseChangeIso and relativeSpecEquiv",
+          "match": "The scheme quasi-coherent algebra/affine equivalence and arbitrary relative-Spec base change are existing upstream roadmap targets. SF.1 supplies their requested stack extension; they are not replanned here."
         }
       ],
       "library": {
@@ -1262,7 +1331,7 @@
         "Exact coarse QCoh pushforward and O_M≅π_*O_X make this tame coarse morphism a good moduli space in Alper’s sense.",
         "Apply Alper Theorem 10.3 to the vector bundle A.",
         "Full faithfulness of pullback on vector bundles descends multiplication and unit; faithfulness verifies associativity, commutativity and the unit identities.",
-        "Use relative Spec and its base-change comparison to obtain the cartesian square and rank preservation."
+        "Use the requested SF.1 stack relative Spec and its arbitrary base-change comparison, extending AlgebraicVectorBundles L1A–L1B, to obtain the cartesian square and rank preservation."
       ],
       "acceptance": [
         "A pulled-back finite locally free M-algebra descends with the same algebra and rank.",
@@ -1274,8 +1343,6 @@
         "SchemeAndStackFoundations:SF.1/keel-mori",
         "SchemeAndStackFoundations:SF.1/stack-quasi-coherent",
         "SchemeAndStackFoundations:SF.1/space-quasi-coherent",
-        "SchemeAndStackFoundations:SF.0/relative-spec",
-        "SchemeAndStackFoundations:SF.0/qcoh-algebra",
         "SchemeAndStackFoundations:SF.1"
       ],
       "sources": [
@@ -1288,6 +1355,11 @@
           "sourceId": "AOV08",
           "locator": "Definition 3.1 and Theorem 3.2, pp.1077–1078",
           "match": "Tame finite-inertia stacks have exact coarse QCoh pushforward."
+        },
+        {
+          "sourceId": "AlgebraicVectorBundles",
+          "locator": "L1A–L1B; Suggested.lean, relativeSpecUniversalProperty, relativeSpecPushforwardIso, relativeSpecBaseChangeIso and relativeSpecEquiv",
+          "match": "The scheme quasi-coherent algebra/affine equivalence and arbitrary relative-Spec base change are existing upstream roadmap targets. SF.1 supplies their requested stack extension; they are not replanned here."
         }
       ],
       "library": {
@@ -1445,7 +1517,7 @@
       "sources": [
         {
           "sourceId": "SpacesMorph",
-          "locator": "Lemma 67.49.11, p.109; scheme input Morphisms Lemma 29.55.11",
+          "locator": "Lemma 67.49.9 (0BB5), p.109; scheme input Morphisms Lemma 29.55.11",
           "match": "Normalization over a Nagata base is finite, checked on étale charts."
         }
       ],
@@ -1470,7 +1542,7 @@
         "The closure use requires a specified immersion into the ambient stack."
       ],
       "proofSteps": [
-        "Use native Scheme.Hom.image and its kernel ideal sheaf on scheme charts, after an étale chart of the source if needed.",
+        "Work on affine opens of smooth target charts. Quasi-compactness of f makes each pulled-back source quasi-compact; choose a finite union of quasi-compact étale scheme charts surjecting onto it. Use native Scheme.Hom.image and its kernel ideal sheaf for their quasi-compact composite to the target chart; faithfully flat source descent identifies its kernel with that of f.",
         "Flat base change of the kernel identifies ideals on both projections of the atlas overlap. Descend the quasi-coherent ideal using SF.1 stack QCoh descent.",
         "Minimality and factorization are local on the target; prove independence of charts.",
         "For flat base change use the same kernel comparison."
@@ -1645,7 +1717,7 @@
         },
         {
           "sourceId": "SpacesMorph",
-          "locator": "Lemma 67.49.11, p.109",
+          "locator": "Lemma 67.49.9 (0BB5), p.109",
           "match": "Nagata finiteness preserves finite legs after composing normalization."
         }
       ],
@@ -1683,7 +1755,6 @@
         "SchemeAndStackFoundations:SF.1/coarse-moduli-space",
         "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
         "SchemeAndStackFoundations:SF.1/stackification",
-        "AlgebraicModuliForArithmeticGeometry:R09.1",
         "tauceti:TauCetiRoadmap/ModularCurves#4c-rigidifiers-and-km-470",
         "tauceti:TauCetiRoadmap/ModularCurves#9d-coarse-moduli-schemes-and-finite-quotients"
       ],
@@ -1792,7 +1863,7 @@
   "requests": [
     {
       "supplier": "SchemeAndStackFoundations:SF.1",
-      "need": "Supply the following additions in the SF.1 direction (Scheme and stack foundations, Part II, if the packaged layer is fixed): (1) a free flat finitely presented group-algebraic-space action has an algebraic-space fppf quotient with effective quotient-sheaf base change; quotient-stack-algebraic already owns the free-action algebraic-space criterion, so extend its interface rather than add a duplicate; (2) for any flat finitely presented group algebraic space G over T, BG→T is a smooth finitely presented stack morphism, proper for finite G and étale for étale G; do not require G smooth; (3) proper locally quasi-finite algebraic-space morphisms are finite (Stacks 76.35.1, 0A4X), giving in particular the finite separated DM diagonal used in the joint-span map; (4) relative Spec of a commutative quasi-coherent algebra on an algebraic stack, the representable affine equivalence, arbitrary base-change comparison and fpqc algebra descent, extending the existing scheme SF.0 relative-spec and SF.1 stack-quasi-coherent interfaces.",
+      "need": "Supply the following additions in the SF.1 direction (Scheme and stack foundations, Part II, if the packaged layer is fixed): (1) a free flat finitely presented group-algebraic-space action has an algebraic-space fppf quotient with effective quotient-sheaf base change; quotient-stack-algebraic already owns the free-action algebraic-space criterion, so extend its interface rather than add a duplicate; (2) for any flat finitely presented group algebraic space G over T, BG→T is a smooth finitely presented stack morphism, proper for finite G and étale for étale G; do not require G smooth; (3) proper locally quasi-finite algebraic-space morphisms are finite (Stacks 76.35.1, 0A4X), giving in particular the finite separated DM diagonal used in the joint-span map; (4) relative Spec of a commutative quasi-coherent algebra on an algebraic stack, the representable affine equivalence, arbitrary base-change comparison and fpqc algebra descent, extending the existing upstream AlgebraicVectorBundles L1A–L1B scheme relative-Spec/affine anti-equivalence and SF.1 stack-quasi-coherent interfaces. Import the upstream scheme algebra carrier and compare it with the SF.0 affine-site presentation; do not reconstruct the existing scheme targets.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification",
         "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification-geometry",
@@ -1920,7 +1991,7 @@
         "AlgebraicModuliForArithmeticGeometry:R09.5/tame-finite-flat-descent",
         "AlgebraicModuliForArithmeticGeometry:R09.5/finite-closure"
       ],
-      "detail": "Supply the following additions in the SF.1 direction (Scheme and stack foundations, Part II, if the packaged layer is fixed): (1) a free flat finitely presented group-algebraic-space action has an algebraic-space fppf quotient with effective quotient-sheaf base change; quotient-stack-algebraic already owns the free-action algebraic-space criterion, so extend its interface rather than add a duplicate; (2) for any flat finitely presented group algebraic space G over T, BG→T is a smooth finitely presented stack morphism, proper for finite G and étale for étale G; do not require G smooth; (3) proper locally quasi-finite algebraic-space morphisms are finite (Stacks 76.35.1, 0A4X), giving in particular the finite separated DM diagonal used in the joint-span map; (4) relative Spec of a commutative quasi-coherent algebra on an algebraic stack, the representable affine equivalence, arbitrary base-change comparison and fpqc algebra descent, extending the existing scheme SF.0 relative-spec and SF.1 stack-quasi-coherent interfaces."
+      "detail": "Supply the following additions in the SF.1 direction (Scheme and stack foundations, Part II, if the packaged layer is fixed): (1) a free flat finitely presented group-algebraic-space action has an algebraic-space fppf quotient with effective quotient-sheaf base change; quotient-stack-algebraic already owns the free-action algebraic-space criterion, so extend its interface rather than add a duplicate; (2) for any flat finitely presented group algebraic space G over T, BG→T is a smooth finitely presented stack morphism, proper for finite G and étale for étale G; do not require G smooth; (3) proper locally quasi-finite algebraic-space morphisms are finite (Stacks 76.35.1, 0A4X), giving in particular the finite separated DM diagonal used in the joint-span map; (4) relative Spec of a commutative quasi-coherent algebra on an algebraic stack, the representable affine equivalence, arbitrary base-change comparison and fpqc algebra descent, extending the existing upstream AlgebraicVectorBundles L1A–L1B scheme relative-Spec/affine anti-equivalence and SF.1 stack-quasi-coherent interfaces. Import the upstream scheme algebra carrier and compare it with the SF.0 affine-site presentation; do not reconstruct the existing scheme targets."
     },
     {
       "title": "Native geometric signatures await the algebraic-stack and space carriers",
@@ -1978,7 +2049,12 @@
         "Version-of-record AIF 58(4) (2008), specified pages.",
         "Published corrigendum AIF 64(3) (2014), pp.945–946; Numdam original-paper page links this correction.",
         "arXiv math/0703310 submission history (only v1) and v1 Appendix A/Proposition 3.6; no revised preprint is listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the published second proof on pp.1072–1073 and the entire AOV14 corrigendum, p.945. The correction withdraws the Lie-algebra proof and retains the cotangent-complex proof.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.5"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E-R09.5-torsor-obstruction",
@@ -1994,7 +2070,12 @@
         "Version-of-record AIF 58(4) (2008), specified pages.",
         "Published corrigendum AIF 64(3) (2014), pp.945–946; Numdam original-paper page links this correction.",
         "arXiv math/0703310 submission history (only v1) and v1 Appendix A/Proposition 3.6; no revised preprint is listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the original obstruction paragraph on p.1080 and AOV14 p.945. The correct obstruction uses Ext¹ of the cotangent complex; the extra term also permits nontrivial deformations, so no uniqueness assertion is imported.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.5"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E-R09.5-subgroup-pullback",
@@ -2010,7 +2091,12 @@
         "Version-of-record AIF 58(4) (2008), specified pages.",
         "Published corrigendum AIF 64(3) (2014), pp.945–946; Numdam original-paper page links this correction.",
         "arXiv math/0703310 submission history (only v1) and v1 Appendix A/Proposition 3.6; no revised preprint is listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published Appendix A p.1087 and arXiv v1 pp.27–28. With the stated arrow T→T′, the automorphism and subgroup families pull back to T, not T′. The construction later uses the correct orientation.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.5"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E-R09.5-local-chart-base",
@@ -2026,7 +2112,12 @@
         "Version-of-record AIF 58(4) (2008), specified pages.",
         "Published corrigendum AIF 64(3) (2014), pp.945–946; Numdam original-paper page links this correction.",
         "arXiv math/0703310 submission history (only v1) and v1 Appendix A/Proposition 3.6; no revised preprint is listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed visually on published p.1080 and in arXiv v1 Proposition 3.6 p.20. The displayed product is over S while U→M is the coarse chart; the proof requires the product over M. The 2014 corrigendum does not correct this subscript.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.5"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E-R09.5-isom-bound-variables",
@@ -2042,7 +2133,12 @@
         "Version-of-record AIF 58(4) (2008), specified pages.",
         "Published corrigendum AIF 64(3) (2014), pp.945–946; Numdam original-paper page links this correction.",
         "arXiv math/0703310 submission history (only v1) and v1 Appendix A/Proposition 3.6; no revised preprint is listed."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published proof on p.1088 and arXiv v1 p.29. The algebraicity paragraph chooses two same-base lifts ξ,η, but its quotient expression retains f and ξ′ from the earlier cross-base paragraph. Their replacement by η fixes the bound variables.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.5"
+      }
     }
   ],
   "imports": [
@@ -2069,6 +2165,10 @@
     {
       "owner": "SchemeAndStackFoundations:SF.1/finite-quotient-coarse",
       "provides": "A finite quotient scheme is also the uniform coarse algebraic space of the quotient stack."
+    },
+    {
+      "owner": "UPSTREAM:AlgebraicVectorBundles:L1A–L1B",
+      "provides": "Scheme commutative quasi-coherent algebras, relative Spec, the affine anti-equivalence and arbitrary base-change comparisons. The owner is absent from the atlas snapshot; the SF.1 request imports this existing roadmap and extends it to stacks."
     }
   ],
   "upstreamNotes": [
@@ -2083,14 +2183,18 @@
     {
       "roadmap": "ModularCurvesPartII / PELModuli",
       "detail": "RS-27 moves the concrete elliptic/abelian auxiliary-level applications to ModularCurvesPartII:R13.2/R13.4a and PELModuli:M2/M6. Those higher-tier roadmaps consume R09.5 and are not prerequisites here."
+    },
+    {
+      "roadmap": "AlgebraicVectorBundles / SchemeAndStackFoundations:SF.0",
+      "detail": "Current AlgebraicVectorBundles L1A–L1B already owns scheme quasi-coherent algebras, relative Spec, the affine anti-equivalence and arbitrary base change. R09.5 cites that owner through the SF.1 stack-extension request, replacing direct reliance on the overlapping SF.0 relative-spec/qcoh-algebra nodes. Reconcile those SF.0 owners when packaging; neither upstream nor SF.0 is edited by this review. The new upstream roadmap has no stage id in the atlas snapshot, so its precise owner is recorded in imports and sources rather than invented as a library declaration."
     }
   ],
   "currentLibraryAudit": {
     "date": "2026-10-09",
     "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
     "mathlib": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
-    "roadmaps": "3b51bbf9a925f23bca922570bea8d641b6ec712d",
-    "result": "Searched pinned and current library sources and current upstream roadmaps, including the nine post-snapshot roadmaps. Native scheme normalization/image, invariant integrality and field linear reductivity are imported; general algebraic-stack, inertia, rigidification and coarse-space carriers are absent. Nearby current JacobianChallenge and AlgebraicVectorBundles documents were read for style and ownership. SF.1 and ModularCurves own the overlapping targets."
+    "roadmaps": "de435a569d325b365a30fe83269ce34674eaea80",
+    "result": "Searched pinned and current library sources and current upstream roadmaps, including the nine post-snapshot roadmaps. Native scheme normalization/image, invariant integrality and field linear reductivity are imported; general algebraic-stack, inertia, rigidification and coarse-space carriers are absent. Nearby current JacobianChallenge and AlgebraicVectorBundles documents were read for style and ownership. SF.1 and ModularCurves own the overlapping targets. Independent review rechecked current roadmap main at de435a5; ModularCurves and AlgebraicVectorBundles README/Suggested files are unchanged from 3b51bbf. AlgebraicVectorBundles L1A–L1B is the scheme relative-Spec owner; its stack extension is requested from SF.1. The Completed roadmaps were also searched for overlap; none supplies these geometric targets."
   },
   "sourceVersions": [
     {
@@ -2167,8 +2271,8 @@
     {
       "source": "ModularCurves",
       "kind": "author copy",
-      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/3b51bbf9a925f23bca922570bea8d641b6ec712d/TauCetiRoadmap/ModularCurves/README.md",
-      "citation": "Current TauCetiRoadmap main, commit 3b51bbf9a925f23bca922570bea8d641b6ec712d",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/de435a569d325b365a30fe83269ce34674eaea80/TauCetiRoadmap/ModularCurves/README.md",
+      "citation": "Current TauCetiRoadmap main, commit de435a569d325b365a30fe83269ce34674eaea80",
       "read": "2026-10-09"
     },
     {
@@ -2178,6 +2282,156 @@
       "citation": "arXiv:math/0703310v1, 11 March 2007; the submission history has only v1",
       "read": "2026-10-09",
       "sha256": "081c9b056b9bd60c87393529793bdc7796134056064f79a8d7ba7b31f7b36462"
+    },
+    {
+      "source": "GroupoidsSpaces",
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/download/spaces-groupoids.pdf",
+      "citation": "PDF snapshot ed88ff78, compiled 14 July 2026; independently read 9 October 2026",
+      "read": "2026-10-09",
+      "sha256": "530a97af19dd13c53cddd32663181e19c535623a6898ad3dfb8192b750a49b56"
+    },
+    {
+      "source": "NonSeparatedGroup",
+      "kind": "author copy",
+      "url": "https://stacks.math.columbia.edu/tag/06E9",
+      "citation": "Live section/tag page, independently read 9 October 2026",
+      "read": "2026-10-09"
+    },
+    {
+      "source": "AlgebraicVectorBundles",
+      "kind": "author copy",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/de435a569d325b365a30fe83269ce34674eaea80/TauCetiRoadmap/AlgebraicVectorBundles/README.md",
+      "citation": "Current TauCetiRoadmap main, commit de435a569d325b365a30fe83269ce34674eaea80",
+      "read": "2026-10-09"
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.5",
+    "date": "2026-10-09",
+    "notes": "Independent target-level review of every node, all 29 pinned baseline statements, every cross-roadmap supplier contract, the current upstream ownership boundary, five definition/construction APIs and their tests, six planets and the honest Lean omission ledger. Clear mathematical, source-locator, API and ownership corrections were applied in place. All five source findings were independently confirmed. The complete pass and planned stage remain valid with four precise supplier/prototype gaps; no closed-stage or formalization claim is made. The read-only reader needs the corrections listed in the review report when packaged.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/normal-inertia-subgroup",
+        "verdict": "corrected",
+        "note": "Retained closed/flat/finitely-presented subgroup hypotheses and noncentral normality. Restricted the geometric bottom constructor to closed unit/separated inertia, added extensionality and a non-separated-group counterexample, and distinguished the unconditional site-level bottom."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification",
+        "verdict": "corrected",
+        "note": "AOV Appendix A pp.1087–1089 verifies quotient Isom sheaves followed by stackification. The identity-subgroup test now states its closedness hypothesis; global section cosets and nonsmooth bands remain discriminated."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification-universal",
+        "verdict": "verified",
+        "note": "Romagny Theorem 5.1(i), pp.224–225, plus AOV quotient Hom/stackification gives the Hom-groupoid equivalence for any stack target, including modifications and contractible factorization relative to a fixed comparison."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification-stabilizers",
+        "verdict": "verified",
+        "note": "AOV Theorem A.1(b), p.1087: quotient epimorphism and kernel are assertions about fppf sheaves. The native categorical quotient is used only for the precursor congruence."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification-geometry",
+        "verdict": "corrected",
+        "note": "AOV Theorem A.1 and local BG proof, pp.1087–1089, give proper/étale map conditions. Clarified that Romagny 5.1(iii) descends properness of the stack rather than asserting properness of its rigidification map. General BG smoothness is explicitly requested."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification-base-change",
+        "verdict": "verified",
+        "note": "Romagny Theorem 5.1, p.224, and the varying-subgroup quotient-sheaf construction give arbitrary base change; subgroup flatness/finite presentation is preserved."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/nested-rigidification",
+        "verdict": "verified",
+        "note": "A formal consequence of the Hom-groupoid universal property, with the residual G/H explicitly required closed, flat and finitely presented. No reversal for unrelated subgroups is claimed."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/rigidification-coarse",
+        "verdict": "verified",
+        "note": "Romagny Theorem 5.1(iv) and the AOV gerbe model give the same all-algebraic-space universal property and geometric-point classes, without inferring fine moduli."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/vertical-kernel-rigidification",
+        "verdict": "verified",
+        "note": "The closed flat finitely presented vertical kernel is killed by the universal factorization. Full test-scheme stabilizer injectivity, Stacks 101.6.2 (04YY), and the supplier setoid criterion prove representability; geometric injectivity alone is not used."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/affine-gerbe-recovery",
+        "verdict": "verified",
+        "note": "Read the predecessor affine-kernel-rigidification contract. The comparison needs its affine neutralization/descent plus the additional geometric subgroup hypotheses; representable final maps are not mistaken for full maps."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/auxiliary-level-comparison",
+        "verdict": "verified",
+        "note": "A representable level map takes preserving subgroups while rigidification takes quotients. Current ModularCurves 4C/9D supplies concrete rigidifiers; all-test-scheme trivial inertia is required for a space."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence",
+        "verdict": "corrected",
+        "note": "Both representable finite legs and the apex are retained. The separated DM diagonal gives joint finiteness. Added explicit span isomorphisms and their groupoid, needed by effective descent; the scheme prototype records both leg equations."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence-composition",
+        "verdict": "verified",
+        "note": "Two-fibre-product projections and composition preserve finite (or finite locally free) legs. Associators, units and base change follow from the pullback universal property; coarse middle pullbacks are not asserted preserved."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence-fpqc",
+        "verdict": "corrected",
+        "note": "Effective algebra descent includes multiplication, unit, both legs, and the triple-overlap cocycle (Stacks 74.4.1, 74.11.23/.29). Replaced the overlapping SF.0 scheme relative-Spec prerequisite with the SF.1 stack-extension request importing AlgebraicVectorBundles L1A–L1B."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/finite-correspondence-coarse",
+        "verdict": "verified",
+        "note": "The Keel–Mori supplier gives proper coarse maps and separated locally finite-type targets. Stacks 101.37.6 descends universal closedness; finite geometric fibres give quasi-finiteness and 76.35.1 gives finite space maps. Flat base change, or tameness of all three stacks for arbitrary base change, is retained."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/tame-finite-flat-descent",
+        "verdict": "corrected",
+        "note": "Alper Theorem 10.3/Remark 10.4, pp.2386–2387, supplies vector-bundle descent with trivial closed-geometric stabilizer action. Full faithfulness descends the entire algebra, and the requested stack relative Spec imports its scheme owner AlgebraicVectorBundles. No general coherent-sheaf descent is claimed."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/dm-normalization",
+        "verdict": "verified",
+        "note": "Stacks 101.46.1–.3, pp.96–97, and 67.49.5, pp.106–108, construct the normalized groupoid and chartwise integral map. Read the SF.0 generic-point adapter; the native relative-normalization prototype explicitly omits that ordinary adapter."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/dm-normalization-finite",
+        "verdict": "corrected",
+        "note": "The recorded SpacesMorph PDF has Lemma 67.49.9 (0BB5), p.109, not 67.49.11. Corrected its locator. Nagata finite-type charts and target-local finiteness give the stated DM result; no separability restriction is introduced."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/dm-schematic-closure",
+        "verdict": "corrected",
+        "note": "Stacks 101.38.1/.3/.5, pp.81–83, verifies kernel schematic image and flat base change. Made the source scheme-chart reduction explicitly quasi-compact on each affine target chart, using a finite union of charts; arbitrary nonflat base change remains excluded."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/finite-closure",
+        "verdict": "verified",
+        "note": "The joint immersion is finite and thus closed over U. Flat/open restriction recovers the original immersed middle; both representable proper quasi-finite projections are assumed and Stacks 76.35.1 then gives finiteness."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/normalized-correspondence",
+        "verdict": "corrected",
+        "note": "Finite normalization over excellent S preserves both finite legs. Corrected the Nagata source locator to 67.49.9 (0BB5); open restriction agrees with the original middle only under its explicit normality hypothesis."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/elliptic-coarse-recovery",
+        "verdict": "corrected",
+        "note": "Read current ModularCurves 4C/9D and their signatures. Level 3 on D(3), level 4 on D(2), quotient compatibility and all four KM 8.1.6 alternatives, including invertible group order in the target ring, are faithfully imported. Conrad Theorem 3.1/4.2/Corollary 4.3 supplies only the stated all-space and stabilizer-preserving glue interfaces. Removed the unrelated R09.1 projective-parameter-space prerequisite: the concrete elliptic carrier is already supplied by the imported ModularCurves contracts and stackification."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/coarse-j-line-recovery",
+        "verdict": "verified",
+        "note": "Current ModularCurves 9E independently owns integral and arbitrary-ring coarse j-lines, including the small-characteristic inputs. The comparison is imported without treating arbitrary base change as a tame corollary or j as fine moduli."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.5/finite-curve-quotient-recovery",
+        "verdict": "verified",
+        "note": "Current ModularCurves 9D and its smoothOfRelativeDimension_one_of_isCategoricalQuotient signature own the smooth curve quotient over regular locally Noetherian bases, including wild cases. Only the stack/coarse comparison is planned here."
+      }
+    ]
+  }
 }
