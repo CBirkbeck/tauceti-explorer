@@ -22295,8 +22295,9 @@
     "REV-RS-27"
    ],
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7a.md",
-   "state": "pending",
-   "suppliers": []
+   "state": "external",
+   "suppliers": [],
+   "note": "claimed on GitHub issue #673"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7a",
