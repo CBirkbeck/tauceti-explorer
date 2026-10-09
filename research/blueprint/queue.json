@@ -30890,8 +30890,9 @@
    ],
    "avoidAccountOf": "BP-InverseGaloisAndArithmeticFundamentalGroups",
    "prompt": "research/blueprint/prompts/REV-InverseGaloisAndArithmeticFundamentalGroups.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #519"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #519",
+   "finishedAt": "2026-10-09T23:26:21Z"
   },
   {
    "id": "BP-MotivesAndAlgebraicCycles",
@@ -35002,7 +35003,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.4",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7949"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.5",
@@ -35073,8 +35075,9 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--R01.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7960"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7960",
+   "finishedAt": "2026-10-09T23:26:24Z"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--R01.6",
@@ -79934,8 +79937,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -105324,8 +105327,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-NeronModelsAndSemistableAbelianVarieties~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-NeronModelsAndSemistableAbelianVarieties~adv.md",
+   "note": "claimed on GitHub issue #8074"
   },
   {
    "id": "PKG-GeneralAlgebraicKTheory~codex",
