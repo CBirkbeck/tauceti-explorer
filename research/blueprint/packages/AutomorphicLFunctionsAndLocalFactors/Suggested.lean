@@ -1278,11 +1278,16 @@ theorem OrdinaryGl2EulerFactor.refinement (p : ℝ) (hp : 0 < p)
       (1-χp*(p : ℂ)^j/α)*
       (1-χinvp*(εp*(p : ℂ)^(k+1)/α)/(p : ℂ)^(j+1)) := by sorry
 
-/-- Scalar part of the complex normalization interface, with an actual
-    critical-value algebraicity theorem and nonzero period as inputs. -/
-theorem CriticalValuePeriodInterface (completed finite gamma period : ℂ)
-    (hgamma : gamma ≠ 0) (hperiod : period ≠ 0) (h : completed = gamma*finite) :
-    completed/(gamma*period) = finite/period := by sorry
+/-- Scalar normalization and coefficient-field transport. The input `halg`
+    is membership after the full period/Gauss/archimedean normalization,
+    supplied by the critical-value algebraicity theorem;
+    this comparison does not prove that theorem. -/
+theorem CriticalValuePeriodInterface (E : Subfield ℂ)
+    (completed finite gamma normalization : ℂ)
+    (hgamma : gamma ≠ 0) (hnormalization : normalization ≠ 0)
+    (h : completed = gamma*finite) (halg : finite/normalization ∈ E) :
+    completed/(gamma*normalization) = finite/normalization ∧
+      completed/(gamma*normalization) ∈ E := by sorry
 
 end TauCeti.AutomorphicLFunctions.AL5
 
@@ -1405,7 +1410,7 @@ TauCeti.TateZeta.eigenSpaceZero_eq
 AutomorphicLFunctionsAndLocalFactors:AL.1/unramified-local-theory
 Unavailable full input: CFT Layer7 local-character filtration and AA.0/AA.2 idele/Schwartz carriers; local distribution families need those types and continuous-dual restrictions.
 TauCeti.TateZeta.zetaIntegral_eq_L_mul_normalized
-  Let F be nonarchimedean and ω unramified with ω(ϖ) = t; put L(s, ω) = (1 − tq^{−s})^{−1}. For τ = [1] − [ϖ^{−1}] ∈ ℤ[F^×] and f ∈ S(F), r(τ)f = f − r(ϖ^{−1})f has compact support in F^×, so ⟨z₀(s, ω), f⟩ = ∫_{F^×}(r(τ)f)(x)ωω_s(x)d^×x (3.5) is entire in s and z₀(s, ω) ∈ S′(ωω_s). For Re s > 0, z(s, ω) = L(s, ω)z₀(s, ω) (3.6), which continues z(s, ω) meromorphically to ℂ. With f^o = 1_O, ⟨z₀(s, ω), f^o⟩ = 1 for all s (3.8); so z₀(s, ω) is never zero, z(s, ω; f)/L(s, ω) is entire for every f, and for each s some f (namely f^o) makes it nonzero: L(s, ω) is the greatest common denominator of the zeta integrals (3.9).
+  Let F be nonarchimedean and ω unramified with ω(ϖ) = t; put L(s, ω) = (1 − tq^{−s})^{−1}. For τ = [1] − [ϖ^{−1}] ∈ ℤ[F^×] and f ∈ S(F), r(τ)f = f − r(ϖ^{−1})f has compact support in F^×, so ⟨z₀(s, ω), f⟩ = ∫_{F^×}(r(τ)f)(x)ωω_s(x)d^×x (3.5) is entire in s and z₀(s, ω) ∈ S′(ωω_s). When ‖tq^(−s)‖<1, equivalently Re(s)>log‖t‖/log q, z(s, ω) = L(s, ω)z₀(s, ω) (3.6); this identity continues z(s, ω) meromorphically to ℂ. For unitary ω the convergence region is Re(s)>0. With f^o = 1_O, ⟨z₀(s, ω), f^o⟩ = 1 for all s (3.8); so z₀(s, ω) is never zero, z(s, ω; f)/L(s, ω) is entire for every f, and for each s some f (namely f^o) makes it nonzero: L(s, ω) is the greatest common denominator of the zeta integrals (3.9).
 
 AutomorphicLFunctionsAndLocalFactors:AL.1/invariant-distributions-exceptional-case
 Unavailable full input: CFT Layer7 local-character filtration and AA.0/AA.2 idele/Schwartz carriers; local distribution families need those types and continuous-dual restrictions.
@@ -1420,7 +1425,7 @@ TauCeti.TateZeta.zetaIntegral_entire_of_ramified
 AutomorphicLFunctionsAndLocalFactors:AL.1/archimedean-local-theory
 Unavailable full input: CFT Layer7 local-character filtration and AA.0/AA.2 idele/Schwartz carriers; local distribution families need those types and continuous-dual restrictions.
 TauCeti.TateZeta.archimedean_normalized_entire
-  F = ℝ: for ω(x) = x^{−a}, a ∈ {0, 1}, put L(s, ω) = π^{−s/2}Γ(s/2) (3.19) and f^o = f_a = x^a e^{−πx²}. F = ℂ: for ω(x) = x^{−a}x̄^{−b}, min(a, b) = 0, put L(s, ω) = (2π)^{1−s}Γ(s) (3.21) and f^o = f_{a,b} = x^a x̄^b e^{−2πxx̄}. Then (i) z₀(s, ω) := L(s, ω)^{−1}z(s, ω) continues to an entire function of s and is a basis vector of S′(ωω_s) for every s; (ii) ⟨z₀(s, ω), f^o⟩ = 1. (iii) z(s, ω) is meromorphic with simple poles exactly at the poles of L(s, ω): at F = ℝ, s = −r with r ∈ 2ℤ_{≥0}, residue a nonzero multiple of D^{a+r}δ₀ ∈ S′(ωω_{−r}); at F = ℂ, s = −r with r ∈ ℤ_{≥0}, residue a nonzero multiple of D^{a+r}D̄^{b+r}δ₀. At a pole the constant term of the Laurent expansion extends ωω_{−r}(x)d^×x to S(F) but not to an element of S′(ωω_{−r}). (For the corrected real residues see AutomorphicLFunctionsAndLocalFactors/E4.)
+  F = ℝ: for ω(x) = x^{−a}, a ∈ {0, 1}, put L(s, ω) = π^{−s/2}Γ(s/2) (3.19) and f^o = f_a = x^a e^{−πx²}. F = ℂ: for ω(x) = x^{−a}x̄^{−b}, min(a, b) = 0, put L(s, ω) = (2π)^{1−s}Γ(s) (3.21) and f^o = f_{a,b} = x^a x̄^b e^{−2πxx̄}. Then (i) z₀(s, ω) := L(s, ω)^{−1}z(s, ω) continues to an entire function of s and is a basis vector of S′(ωω_s) for every s; (ii) ⟨z₀(s, ω), f^o⟩ = 1. (iii) z(s, ω) is meromorphic with simple poles exactly at the poles of L(s, ω): at F = ℝ, s = −r with r ∈ 2ℤ_{≥0}, residue a nonzero multiple of D^{a+r}δ₀ ∈ S′(ωω_{−r}); at F = ℂ, s = −r with r ∈ ℤ_{≥0}, residue a nonzero multiple of D^{a+r}D̄^{b+r}δ₀. At a pole the constant term of the Laurent expansion extends ωω_{−r}(x)d^×x to S(F) but not to an element of S′(ωω_{−r}).
 
 AutomorphicLFunctionsAndLocalFactors:AL.1/local-uniqueness-theorem
 Unavailable full input: CFT Layer7 local-character filtration and AA.0/AA.2 idele/Schwartz carriers; local distribution families need those types and continuous-dual restrictions.
@@ -1651,7 +1656,7 @@ TauCeti.AutomorphicLFunctions.AL3.GlnFourierExpansion.equivariant: W_{R(h)φ}(g)
 AutomorphicLFunctionsAndLocalFactors:AL.3/global-multiplicity-one
 TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne
 For an irreducible admissible smooth representation π of GL_n(𝔸_K), K a number field, its multiplicity in the smooth cuspidal spectrum with fixed central character is at most one. If π is cuspidal, the multiplicity is one: any two nonzero equivariant embeddings into that cusp space differ by a nonzero scalar and have the same image. This is the ordinary multiplicity theorem; it assumes the same global representation, rather than cofinite local agreement.
-Hypotheses: n≥1; K a number field; characteristic-zero complex automorphic forms. Work with the unitary central-character Hilbert realization or an explicitly fixed norm twist. Use continuous equivariant embeddings and continuous Whittaker functionals on the smooth moderate-growth globalizations at infinity. Multiplicity in the Hilbert spectrum is compared through the existing AS.4/AF.3 realization, not a freely chosen numerical function.
+Hypotheses: n≥1; K a number field; characteristic-zero complex automorphic forms. Work with the unitary central-character Hilbert realization or an explicitly fixed norm twist. Use continuous equivariant embeddings and continuous Whittaker functionals on the smooth moderate-growth globalizations at infinity. Compare smooth and Hilbert cusp multiplicities by the dense smooth-vector realization in AF.3’s cuspidal Hilbert subspace, using AF.1 globalization and AF.2 restricted tensors. Prove this comparison here as part of the multiplicity theorem.
 TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.embeddings: Two nonzero equivariant embeddings of π into the fixed smooth cusp space differ by c∈ℂ×.
 TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.same_image: The ranges of those two embeddings coincide.
 TauCeti.AutomorphicLFunctions.AL3.GlobalMultiplicityOne.rescaling: For c≠0, i and c·i have the same image and the same cuspidal constituent.
@@ -2007,8 +2012,9 @@ characters correspond to dual lines.
 
 TwoLegShtuka: the bundle modification diagram and Frobenius isomorphism,
 its moduli, central degree quotient, partial Frobenius, Hecke maps,
-sufficiently convex Harder--Narasimhan truncations and no-level proper
-compactification over the locus avoiding Frobenius-translated leg diagonals.
+sufficiently convex Harder--Narasimhan truncations and no-level compactification smooth and proper over X × X,
+with relative normal-crossing boundary. Fixed-point comparisons use distinct
+Frobenius orbits for the two legs.
 API: legs, baseChange, partialFrobenius_commute, hecke_comp,
 truncation_inclusion, boundary_rank_partition.
 Tests: relative dimension zero at rank one; a rank-two boundary has rank-one
