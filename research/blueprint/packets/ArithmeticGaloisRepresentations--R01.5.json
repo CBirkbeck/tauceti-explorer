@@ -1,0 +1,2282 @@
+{
+  "roadmapId": "ArithmeticGaloisRepresentations",
+  "protocol": "blueprint-v1",
+  "part": "R01.5",
+  "scope": [
+    "ArithmeticGaloisRepresentations:R01.5"
+  ],
+  "status": "complete",
+  "summary": "Follow-up of the accepted ArithmeticGaloisRepresentations packet. It retains the 53 R01.5 target IDs by import, separates the trace field, image algebra, trace-dual coordinates, attached Brauer class and Schur index into declarations, and supplies the rank-two group-element Cayley–Hamilton bridge. Existing determinant reconstruction, coefficient descent, Brauer theory and density theory are imported. The remaining nonarchimedean analytic and minuscule/algebraic-monodromy inputs are explicitly bounded gaps; planned coverage does not assert closure.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "tauceti:TauCeti.CSA.of",
+        "kind": "abbrev",
+        "module": "TauCeti/Algebra/BrauerGroup/Basic.lean",
+        "provides": "Bundles a K-algebra A with instances Algebra.IsCentral K A, IsSimpleRing A, FiniteDimensional K A as a term of Mathlib's CSA K with carrier A.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk",
+        "kind": "abbrev",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "The Brauer class of a term of Mathlib's CSA K: the projection CSA K → BrauerGroup K.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.instCommGroup",
+        "kind": "instance",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "CommGroup structure on BrauerGroup.{u, u} K (K a field in Type u, algebras in Type u): product induced by the tensor product over K, identity the class of K, inverse the class of the opposite algebra.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.baseChange",
+        "kind": "def",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "For a field extension L/K (both in Type u): the group homomorphism BrauerGroup.{u,u} K →* BrauerGroup.{u,u} L induced by A ↦ L ⊗[K] A.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.baseChange_mk",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "baseChange K L (mk A) = mk (CSA.baseChange L A): the base change of the class of A is the class of L ⊗[K] A.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk_eq_one_iff_isSplittingField",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/Splitting.lean",
+        "provides": "[A] = 1 in Br(K) iff K splits A (K ⊗ A ≅ M_n(K)).",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/BaseChange.lean",
+        "provides": "[A] dies in Br(L) iff L splits A.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.subsingleton_brauerGroup_of_finite",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/Trivial.lean",
+        "provides": "The Brauer group of a finite field is trivial.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.Quaternion.mk_ne_one",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/Quaternion.lean",
+        "provides": "The Brauer class of ℍ[ℝ] is not the identity.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index",
+        "kind": "def",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "For a finite-dimensional central simple K-algebra A: the degree of the central division algebra in a chosen Wedderburn presentation of A.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_dvd_deg",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "For a finite-dimensional central simple K-algebra A: index K A divides deg K A.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_eq_deg_of_algEquiv_matrix",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "If A ≃ₐ[K] M_n(D) with n ≠ 0 and D a finite-dimensional central division K-algebra, then index K A = deg K D (the index does not depend on the presentation).",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.isSplittingField_self_iff_index_eq_one",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "A finite-dimensional central simple K-algebra A is split over K (IsSplittingField K A K) iff index K A = 1.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.deg",
+        "kind": "def",
+        "module": "TauCeti/Algebra/CentralSimple/Degree.lean",
+        "provides": "deg K A := Nat.sqrt (finrank K A), the degree of a central simple K-algebra (defined for every K-algebra; meaningful when the dimension is a square).",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.isCentral_baseChange_iff",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/Central/BaseChange.lean",
+        "provides": "For a field K, a nontrivial commutative K-algebra L and a K-algebra A: L ⊗[K] A is central over L iff A is central over K.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.IsSimpleRing.nonempty_algEquiv_matrix_baseChange_of_isSepClosed",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Degree.lean",
+        "provides": "For a finite-dimensional central simple K-algebra A and a separably closed field extension L/K: L ⊗[K] A ≃ₐ[L] M_d(L) with d = TauCeti.Algebra.deg K A.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.index_pos",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "The index of a finite-dimensional central simple algebra is positive.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.deg_eq_of_finrank_eq_sq",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Degree.lean",
+        "provides": "If the finite dimension of an algebra is n², its degree, defined by the natural square root, is n.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "tauceti:TauCeti.Algebra.deg_eq_mul_index_of_algEquiv_matrix",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/Index.lean",
+        "provides": "A presentation A ≃ M_a(D), with a positive and D central division, gives deg(A)=a·index(A).",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "tauceti:TauCeti.skolemNoether",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/CentralSimple/SkolemNoether.lean",
+        "provides": "Two K-algebra maps from a central simple algebra B to a finite-dimensional simple algebra A differ by conjugation by a unit of A.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:IntermediateField.adjoin",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
+        "provides": "The least intermediate field containing a specified set.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:IntermediateField.adjoin_le_iff",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IntermediateField/Adjoin/Defs.lean",
+        "provides": "An adjoined field lies in L exactly when its generating set lies in L.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Algebra.adjoin",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Algebra/Subalgebra/Lattice.lean",
+        "provides": "The least unital subalgebra containing a set.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_mul_comm",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "For matrices of compatible sizes over a commutative coefficient structure, tr(AB)=tr(BA).",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Matrix.ext_iff_trace_mul_right",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Trace.lean",
+        "provides": "A=B exactly when tr(Ax)=tr(Bx) for all x of transposed dimensions; this gives a nondegenerate matrix trace pairing in every characteristic.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Module.Basis.ofSpan",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
+        "provides": "A spanning set over a division ring contains a basis.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Module.Basis.ofSpan_subset",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Basis/VectorSpace.lean",
+        "provides": "The chosen basis elements belong to the original spanning set.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Module.finrank_matrix",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "provides": "The dimension of matrices over a module is the product of the two index cardinalities and its dimension.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Module.finrank_baseChange",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Dimension/Constructions.lean",
+        "provides": "The finite rank after scalar extension equals the original finite rank for the free modules in question.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Submodule.eq_of_le_of_finrank_eq",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Basic.lean",
+        "provides": "Contained submodules of equal finite dimension agree.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:IsSimpleRing.matrix",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/SimpleRing/Matrix.lean",
+        "provides": "Nonempty finite square matrices over a simple ring form a simple ring.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:IsSimpleRing.of_eq_bot_or_eq_top",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/SimpleRing/Basic.lean",
+        "provides": "A nontrivial ring is simple when every two-sided ideal is bottom or top.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_map",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+        "provides": "Mapping entries along a coefficient ring homomorphism maps the characteristic polynomial along the same homomorphism.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Matrix.charpoly_units_conj",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+        "provides": "Characteristic polynomials are invariant under conjugation by a matrix unit.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Matrix.trace_eq_neg_charpoly_coeff",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Coeff.lean",
+        "provides": "In positive matrix size, the trace is minus the coefficient immediately below the leading term.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:separableClosure.isGalois",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IsSepClosed.lean",
+        "provides": "The relative separable closure in a normal extension is Galois; use the algebraic closure to obtain the absolute separable closure.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:SeparableClosure.isSepClosed",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IsSepClosed.lean",
+        "provides": "The separable closure constructed inside an algebraic closure is separably closed.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:IsSepClosed.lift",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IsSepClosed.lean",
+        "provides": "A separable extension embeds over its base into a separably closed extension.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:AlgebraicClosure.isAlgClosed",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/IsAlgClosed/AlgebraicClosure.lean",
+        "provides": "The algebraic closure is an algebraically closed field.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:InfiniteGalois.fixedField_fixingSubgroup",
+        "kind": "theorem",
+        "module": "Mathlib/FieldTheory/Galois/Infinite.lean",
+        "provides": "For a Galois extension, the fixed field of the fixing subgroup of an intermediate field is that field; the base-field case detects coefficients fixed by every automorphism.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:MonoidAlgebra.lift",
+        "kind": "def",
+        "module": "Mathlib/Algebra/MonoidAlgebra/Basic.lean",
+        "provides": "A monoid map into a unital algebra extends uniquely to an algebra map on its monoid algebra.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:TwoSidedIdeal.span",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/TwoSidedIdeal/Operations.lean",
+        "provides": "The two-sided ideal generated by a subset of a possibly noncommutative ring.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:TwoSidedIdeal.ker",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/TwoSidedIdeal/Operations.lean",
+        "provides": "The kernel of a ring homomorphism as a two-sided ideal.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.Measure.IsHaarMeasure.noAtoms",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Group/Measure.lean",
+        "provides": "Indexed deprecated alias of IsHaarMeasure.nullSingletonClass (actual instance at line 943): Haar measure on a T1 weakly locally compact topological group has null singletons when the identity is not isolated. The source statement is read; prefer the instance name after the declaration index is regenerated.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "tauceti:TauCeti.BrauerGroup.mk_eq_mk_of_algEquiv",
+        "kind": "theorem",
+        "module": "TauCeti/Algebra/BrauerGroup/Group.lean",
+        "provides": "Isomorphic bundled central simple algebras have equal classes in the existing Brauer group.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:Matrix.aeval_self_charpoly",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean",
+        "provides": "Cayley–Hamilton: for a square matrix M over a commutative ring, aeval M M.charpoly = 0.",
+        "checked": "Statement reread at the pinned commit; matching source bytes confirmed in the shared pinned build."
+      },
+      {
+        "ref": "mathlib:Module.Basis.baseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Basis.lean",
+        "provides": "A basis over R gives a basis of S tensor_R M over S, with basis vectors 1 tensor b_i.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:LinearMap.injective_iff_surjective_of_finrank_eq_finrank",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Lemmas.lean",
+        "provides": "A linear map between finite-dimensional spaces of equal dimension is injective exactly when it is surjective.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      },
+      {
+        "ref": "mathlib:FiniteDimensional.span_of_finite",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/FiniteDimensional/Defs.lean",
+        "provides": "The span of a finite set in a vector space over a division ring is finite-dimensional.",
+        "checked": "Statement read in the source at the pinned commit; Tau Ceti source bytes compared with the pinned Git object where read from the current checkout."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BLGGT14",
+      "title": "Potential automorphy and change of weight",
+      "authors": "T. Barnet-Lamb, T. Gee, D. Geraghty, R. Taylor",
+      "edition": "arXiv:1010.2561v4 (2013); Ann. of Math. 179 (2014)",
+      "url": "https://arxiv.org/pdf/1010.2561v4",
+      "sha256": "c953df6229ba8d8b4ae25b1a00cf11592864c74692859d324ff10d3eef645d24",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "Appendix A, Lemma A.1.5 and proof, printed p.85"
+      ]
+    },
+    {
+      "id": "ChenevierV2",
+      "title": "The p-adic analytic space of pseudocharacters of a profinite group, and pseudorepresentations over arbitrary rings",
+      "authors": "G. Chenevier",
+      "edition": "arXiv:0809.0415v2 (2008); published chapter numbering not collated",
+      "url": "https://arxiv.org/pdf/0809.0415v2",
+      "sha256": "f3c0e0d86e803301c617d3023d425752e30da46673ed5af932647eb284286953",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "Theorem 2.12 and proof pp.28–30; Theorem 2.16 and proof pp.31–32; Definition–Proposition 2.18 pp.32–33; Definition 2.19 p.33; Theorem 2.22 and proof pp.34–35"
+      ]
+    },
+    {
+      "id": "SerreCarayol93",
+      "title": "Représentations linéaires sur des anneaux locaux, d’après Carayol",
+      "authors": "J.-P. Serre; lecture notes by R. Rouquier",
+      "edition": "Cours de Jean-Pierre Serre, no.14 (8 October 1993), four pages",
+      "url": "https://www.numdam.org/item/CJPS_1993__14_.pdf",
+      "sha256": "dbed0ea5c2ba7b158ffc270828554fcecadcbc9e579aef10e4a1bd0df75d66ea",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "Theorem 1 and proof pp.1–2; Theorem 4 and Corollary 5 with trace-Gram proof p.3"
+      ]
+    },
+    {
+      "id": "BLR91",
+      "title": "Quotients of group rings arising from two-dimensional representations",
+      "authors": "N. Boston, H. W. Lenstra Jr., K. A. Ribet",
+      "edition": "C. R. Acad. Sci. Paris, Sér. I 312 (1991), 323–328",
+      "url": "https://math.berkeley.edu/~ribet/Articles/blr.pdf",
+      "sha256": "4aaae7228ea025a9355aa590182ba209bb7b62ad7f99b1201460fb14070c9f96",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "Propositions 1–2 and Theorem 1, pp.323–325; counterexamples and concluding discussion pp.327–328; all six scanned pages read"
+      ]
+    },
+    {
+      "id": "Nek18",
+      "title": "Eichler–Shimura relations and semisimplicity of étale cohomology of quaternionic Shimura varieties",
+      "authors": "J. Nekovář",
+      "edition": "Ann. Sci. Éc. Norm. Supér. (4) 51 (2018), 1179–1252",
+      "url": "https://www.numdam.org/article/ASENS_2018__51_5_1179_0.pdf",
+      "sha256": "2755c5f4dee84b3a30ddaf38655c7b4ffd0cd28788505336a2376dfdd73ae4ed",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "Proposition 1.3 and §§1.4–1.6, pp.1187–1189; Theorem 3.7 and Proposition 3.10 including (A′), (C′) and case (3), pp.1195–1198"
+      ]
+    },
+    {
+      "id": "BCGP25V1",
+      "title": "Modularity of abelian surfaces over totally real fields",
+      "authors": "G. Boxer, F. Calegari, T. Gee, V. Pilloni",
+      "edition": "arXiv:2502.20645v1 (2025)",
+      "url": "https://arxiv.org/pdf/2502.20645v1",
+      "sha256": "51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§4.11, Propositions 4.11.1–4.11.2 and proofs, printed pp.109–112"
+      ]
+    },
+    {
+      "id": "DS74",
+      "title": "Formes modulaires de poids 1",
+      "authors": "P. Deligne, J.-P. Serre",
+      "edition": "Ann. Sci. Éc. Norm. Supér. (4) 7 (1974), 507–530",
+      "url": "https://www.numdam.org/article/ASENS_1974_4_7_4_507_0.pdf",
+      "sha256": "65b390f6d33e827e30c6c66bbc15421eca51db3180bdf5996dcee19047be97fc",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "Lemma 6.13 and proof, printed p.523"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/trace-field",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Trace field of a representation",
+      "kind": "definition",
+      "leanName": "TauCeti.GaloisRep.traceField",
+      "statement": "Z is the smallest intermediate field of Ω/k containing every matrix trace tr(ρ(g)). It is defined for every n, without absolute irreducibility, finiteness, continuity or a characteristic restriction.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "Take the intermediate-field adjoin of the range of the trace function. Its order universal property supplies membership and minimality. Cyclic invariance of trace supplies conjugacy invariance."
+      ],
+      "acceptance": [
+        "The statement uses the stated full-span and dimension assumptions; no semisimplicity or splitting hypothesis is silently added."
+      ],
+      "prerequisites": [
+        "mathlib:IntermediateField.adjoin",
+        "mathlib:IntermediateField.adjoin_le_iff"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.GaloisRep.traceField_mem",
+          "role": "simp",
+          "statement": "For every g∈Γ, tr(ρ(g))∈Z."
+        },
+        {
+          "name": "TauCeti.GaloisRep.traceField_le_iff",
+          "role": "universal-property",
+          "statement": "For any intermediate field L, Z⊂L iff tr(ρ(g))∈L for every g."
+        },
+        {
+          "name": "TauCeti.GaloisRep.traceField_conjugate",
+          "role": "functoriality",
+          "statement": "If ρ′(g)=Pρ(g)P⁻¹ for a fixed P∈GL_n(Ω), then their trace fields agree as intermediate fields of Ω/k."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GaloisRep.traceField_trivial",
+          "kind": "degenerate",
+          "statement": "The trivial one-dimensional representation has trace field k (the bottom intermediate field)."
+        },
+        {
+          "name": "TauCeti.GaloisRep.traceField_cubic_character",
+          "kind": "computation",
+          "statement": "Over k=ℚ, Ω=ℂ, if a one-dimensional character has image exactly {1,ζ,ζ²} with ζ a primitive cube root, its trace field is ℚ(ζ), strictly larger than ℚ."
+        },
+        {
+          "name": "TauCeti.GaloisRep.traceField_quaternion_real",
+          "kind": "non-example",
+          "statement": "Over ℝ⊂ℂ the rank-two representation with image {±I,±A,±J,±AJ}, A=diag(i,−i), J=((0,1),(−1,0)), has trace field ℝ although some matrix entry is nonreal."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BLGGT14, Lemma A.1.5, p.85",
+          "how": "The trace field is the scalar field of each absolutely irreducible image algebra."
+        },
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.5/descent-obstruction-absolutely-irreducible",
+          "how": "A field of moduli becomes a field of definition precisely when the attached Brauer class splits."
+        },
+        {
+          "where": "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-coefficient-subring",
+          "how": "For a full-span field representation, compare this field with the field generated by all characteristic-polynomial coefficients."
+        }
+      ],
+      "planet": {
+        "name": "Trace field"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/trace-field-conjugacy",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Conjugacy invariance of the trace field",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.traceField_conjugate",
+      "statement": "If ρ′=PρP⁻¹, then traceField(k,ρ)=traceField(k,ρ′) inside Ω.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "Use tr(PMP⁻¹)=tr(M), with the unit inverse identities. The two generating sets of the intermediate-field adjoins are equal."
+      ],
+      "acceptance": [
+        "Uses GL-conjugacy rather than entrywise equality; the quaternion test has real traces and nonreal entries."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/trace-field",
+        "mathlib:Matrix.trace_mul_comm"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Image algebra over the trace field",
+      "kind": "construction",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra",
+      "statement": "B is the unital Z-subalgebra of M_n(Ω) generated by the group matrices ρ(g). Its underlying Z-submodule is their linear span. The construction does not assert that B is central simple when the full-span hypothesis fails.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "Adjoin the range of the group representation as a subalgebra over Z. Closure under multiplication follows from ρ(g)ρ(h)=ρ(gh), and the identity is ρ(1). The span comparison is promoted as a separate lemma."
+      ],
+      "acceptance": [
+        "The statement uses the stated full-span and dimension assumptions; no semisimplicity or splitting hypothesis is silently added."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/trace-field",
+        "mathlib:Algebra.adjoin"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.GaloisRep.imageAlgebra_mem",
+          "role": "constructor",
+          "statement": "Each ρ(g) belongs to B."
+        },
+        {
+          "name": "TauCeti.GaloisRep.imageAlgebra_span",
+          "role": "characterisation",
+          "statement": "The underlying submodule of B is span_Z{ρ(g):g∈Γ}."
+        },
+        {
+          "name": "TauCeti.GaloisRep.imageAlgebra_trace_mem",
+          "role": "projection",
+          "statement": "For each b∈B, its matrix trace belongs to Z."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GaloisRep.imageAlgebra_trivial_rank_two",
+          "kind": "degenerate",
+          "statement": "For the trivial rank-two representation, B is the scalar subalgebra Z·I (the bottom subalgebra), not all M₂(Ω)."
+        },
+        {
+          "name": "TauCeti.GaloisRep.imageAlgebra_one_dim",
+          "kind": "compatibility",
+          "statement": "For every one-dimensional character, B is canonically Z-algebra isomorphic to Z."
+        },
+        {
+          "name": "TauCeti.GaloisRep.imageAlgebra_cubic_not_base_span",
+          "kind": "non-example",
+          "statement": "For the primitive cubic character over ℚ⊂ℂ, span_ℚ(ρ(Γ)) has ℚ-dimension 2, whereas B has dimension 1 over Z=ℚ(ζ)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "BLGGT14, Lemma A.1.5, p.85",
+          "how": "Its constituent image algebra identifies the descent obstruction and its multiplicity."
+        },
+        {
+          "where": "ChenevierV2, Definition–Proposition 2.18(iii), p.32",
+          "how": "This concrete image is compared with the faithful determinant quotient."
+        },
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.5/simple-module-of-an-irreducible-representation",
+          "how": "The central division algebra presentation controls constituent multiplicities and the Schur index."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra-span",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Image algebra equals the group span",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_span",
+      "statement": "B.toSubmodule=span_Z(ρ(Γ)), including n=0.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "The linear span contains I and is closed under multiplication because products of group generators are group generators. It is therefore a subalgebra containing the generating set. Apply the two minimality properties."
+      ],
+      "acceptance": [
+        "A span over the original k is generally too small; the cubic-character test detects it."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra-trace",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Traces of the whole image algebra",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_trace_mem",
+      "statement": "For every b∈B, tr(b)∈Z.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "Write b as a finite Z-linear combination of group elements. Matrix trace is linear, and each generator trace lies in Z."
+      ],
+      "acceptance": [
+        "No use of tr(I)=n as an invertible scalar; valid when the characteristic divides n."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/trace-field",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-span"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-basis",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "A matrix basis from the group image",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_image_basis",
+      "statement": "Under full span there exist g_i∈Γ and an Ω-basis e_i=ρ(g_i) of M_n(Ω), indexed by Fin(n²).",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "Choose a basis inside the spanning range. Its cardinality is n² by the matrix dimension formula; reindex it and choose a preimage g_i of each basis vector."
+      ],
+      "acceptance": [
+        "The basis is drawn from group elements, so every Gram entry is a trace of another group element."
+      ],
+      "prerequisites": [
+        "mathlib:Module.Basis.ofSpan",
+        "mathlib:Module.Basis.ofSpan_subset",
+        "mathlib:Module.finrank_matrix"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/trace-dual-basis",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Trace-dual descent of coordinates",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_traceDualBasis",
+      "statement": "If e_i=ρ(g_i) form an Ω-basis of M_n(Ω), then B.toSubmodule=span_Z{e_i}.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "Form Q_ij=tr(e_i e_j)=tr(ρ(g_i g_j))∈Z. The matrix trace pairing is nondegenerate by Matrix.ext_iff_trace_mul_right, so Q is invertible over Ω and hence over Z (its determinant lies in Z and is nonzero).",
+        "For b∈B, all coordinates of the vector (tr(b e_j)) lie in Z. Solving the Gram system gives the Ω-coordinates of b in Z. This gives the reverse inclusion; basis generators give the forward inclusion."
+      ],
+      "acceptance": [
+        "Over characteristic 2 in size 2, tr(I)=0 but tr(E₀₁E₁₀)=1. The pairing remains nondegenerate; no Newton identities or factorial inversions occur."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-span",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-trace",
+        "mathlib:Matrix.ext_iff_trace_mul_right"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Finite-dimensionality of the image algebra",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_finiteDimensional",
+      "statement": "Under full span, B is finite-dimensional over Z.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "Use the finite family e_i supplied by image-basis and its Z-span description from trace-dual-basis. A finite spanning family gives Module.Finite."
+      ],
+      "acceptance": [
+        "The statement uses the stated full-span and dimension assumptions; no semisimplicity or splitting hypothesis is silently added."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-basis",
+        "ArithmeticGaloisRepresentations:R01.5/trace-dual-basis",
+        "mathlib:FiniteDimensional.span_of_finite"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Dimension of the image algebra",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_finrank",
+      "statement": "Under full span, dim_Z B=n².",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "The e_i span over Z and remain linearly independent over Z because they are independent over Ω and Z embeds in Ω. Thus they are a Z-basis of B indexed by Fin(n²)."
+      ],
+      "acceptance": [
+        "The equality is 0 at n=0; positivity is required only for the central-simple and Brauer interfaces."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-basis",
+        "ArithmeticGaloisRepresentations:R01.5/trace-dual-basis",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra-base-change",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Canonical scalar extension of the image algebra",
+      "kind": "theorem",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_baseChange",
+      "statement": "Under full span, the canonical Ω-algebra homomorphism Ω⊗_Z B → M_n(Ω), x⊗b ↦ x·b, is an isomorphism.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "Use the tensor universal property to define multiplication on pure tensors. It is onto because every matrix is an Ω-linear combination of the e_i. Both sides have Ω-dimension n², so the map is bijective; bundle its algebra equivalence."
+      ],
+      "acceptance": [
+        "The equivalence is fixed on pure tensors, so it is the canonical map rather than an unspecified abstract isomorphism."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-span",
+        "ArithmeticGaloisRepresentations:R01.5/image-basis",
+        "ArithmeticGaloisRepresentations:R01.5/trace-dual-basis",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension",
+        "mathlib:Module.finrank_baseChange",
+        "mathlib:LinearMap.injective_iff_surjective_of_finrank_eq_finrank"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra-central",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Centrality over the trace field",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_isCentral",
+      "statement": "Under full span, B is central over Z.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible."
+      ],
+      "proofSteps": [
+        "The tensor extension identifies with M_n(Ω), which is central over Ω. Transport centrality along that equivalence and apply the baseline base-change iff."
+      ],
+      "acceptance": [
+        "The statement uses the stated full-span and dimension assumptions; no semisimplicity or splitting hypothesis is silently added."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-base-change",
+        "tauceti:TauCeti.Algebra.isCentral_baseChange_iff"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra-simple",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Simplicity of the image algebra",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_isSimple",
+      "statement": "Under full span and n>0, B is a simple ring.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible.",
+        "n>0."
+      ],
+      "proofSteps": [
+        "For a nonzero two-sided ideal I of B, extend its Z-vector space to Ω. Inside the canonical matrix scalar extension its image is a nonzero two-sided ideal: multiplication by the Ω-span of B preserves it. Simplicity of M_n(Ω) makes it all matrices.",
+        "Scalar extension of an injective map of vector spaces is injective (choose and extend a basis), so dim_Z I=dim_Ω(Ω·I)=n²=dim_Z B. The submodule dimension criterion gives I=B. Nontriviality follows from n>0 and the unital embedding in matrices."
+      ],
+      "acceptance": [
+        "The zero matrix algebra at n=0 is excluded from IsSimpleRing and the Brauer construction."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-base-change",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension",
+        "mathlib:IsSimpleRing.matrix",
+        "mathlib:IsSimpleRing.of_eq_bot_or_eq_top",
+        "mathlib:Submodule.eq_of_le_of_finrank_eq",
+        "mathlib:Module.finrank_baseChange",
+        "mathlib:Module.Basis.baseChange"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/split-characteristic-polynomial-invariance",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Splitting-field automorphism invariance",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_split_charpoly_invariant",
+      "statement": "Let n>0 and assume full span. If L/Z is a field extension and e:L⊗_Z B ≃ M_n(L) is an L-algebra splitting, then for every b∈B and σ∈Aut_Z(L), the characteristic polynomial of e(1⊗b) is fixed coefficientwise by σ.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible.",
+        "n>0; a specified splitting e over L."
+      ],
+      "proofSteps": [
+        "Apply σ to both coefficients of the splitting matrix and to the L-factor of its tensor input. Their two semilinearities cancel to give a second L-algebra splitting, sending 1⊗b to the σ-mapped matrix.",
+        "The two matrix identifications differ by an L-algebra automorphism of M_n(L). Baseline Skolem–Noether realizes it by inner conjugation. Matrix.charpoly_map and conjugacy invariance identify the two characteristic polynomials."
+      ],
+      "acceptance": [
+        "L need not be Galois here: the equality is asserted for each specified automorphism."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-central",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-simple",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional",
+        "tauceti:TauCeti.skolemNoether",
+        "mathlib:Matrix.charpoly_map",
+        "mathlib:Matrix.charpoly_units_conj"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra-characteristic-polynomials",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Characteristic-polynomial coefficients in the trace field",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_charpoly_mem",
+      "statement": "For n>0 and full span, every coefficient of the ambient matrix characteristic polynomial of each b∈B belongs to Z.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible.",
+        "n>0."
+      ],
+      "proofSteps": [
+        "Split B over the absolute separable closure Zˢ using the baseline separably-closed splitting theorem; dim_Z B=n² makes its matrix size n. The preceding invariance lemma and the Galois fixed-field theorem put all splitting-polynomial coefficients in Z.",
+        "Embed Zˢ over Z into an algebraic closure of Ω using IsSepClosed.lift. Extend this splitting and the canonical Ω splitting to that common field. Skolem–Noether compares the resulting matrix identifications, and charpoly_map plus conjugacy invariance identify their polynomials. Injectivity of Ω into its algebraic closure places the original Ω coefficients in Z."
+      ],
+      "acceptance": [
+        "Works in small positive characteristic and for imperfect Z; it uses a separable splitting, not the false assertion that all algebraic-closure invariants equal an imperfect base field."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-base-change",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension",
+        "ArithmeticGaloisRepresentations:R01.5/split-characteristic-polynomial-invariance",
+        "tauceti:TauCeti.IsSimpleRing.nonempty_algEquiv_matrix_baseChange_of_isSepClosed",
+        "tauceti:TauCeti.Algebra.deg_eq_of_finrank_eq_sq",
+        "mathlib:SeparableClosure.isSepClosed",
+        "mathlib:separableClosure.isGalois",
+        "mathlib:InfiniteGalois.fixedField_fixingSubgroup",
+        "mathlib:AlgebraicClosure.isAlgClosed",
+        "mathlib:IsSepClosed.lift",
+        "tauceti:TauCeti.skolemNoether",
+        "mathlib:Matrix.charpoly_map",
+        "mathlib:Matrix.charpoly_units_conj"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/polynomial-field-equals-trace-field",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Equality of trace and polynomial coefficient fields",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.traceField_eq_polynomialField",
+      "statement": "For n>0 and full span, Z equals the intermediate field generated over k by all coefficients of charpoly(ρ(g)), for every g∈Γ.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible.",
+        "n>0."
+      ],
+      "proofSteps": [
+        "The image-algebra coefficient lemma puts every generator of the polynomial field in Z. In the reverse direction, each trace is minus the coefficient of X^(n−1), so the trace-field universal property gives inclusion."
+      ],
+      "acceptance": [
+        "This equality does not assert that arbitrary semisimple representations in small characteristic are recognized by traces. Characteristic polynomials remain the residual recognition invariant."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/trace-field",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-characteristic-polynomials",
+        "mathlib:Matrix.trace_eq_neg_charpoly_coeff",
+        "mathlib:IntermediateField.adjoin_le_iff"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/image-algebra-faithful-determinant-quotient",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Faithful determinant quotient of the image algebra",
+      "kind": "comparison",
+      "leanName": "TauCeti.GaloisRep.imageAlgebra_faithfulDeterminantQuotient",
+      "statement": "For n>0 and full span, let φ:Z[Γ]→B be the Z-algebra map sending [g] to ρ(g). It is onto. For x∈Z[Γ], φ(x)=0 iff charpoly(bφ(x))=X^n for every b∈B. Under the determinant-law kernel convention of IHG.1, this detects exactly ker(D), where D is det∘φ, and hence identifies Z[Γ]/ker(D) with B.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible.",
+        "n>0; φ is the specified group-algebra map."
+      ],
+      "proofSteps": [
+        "Form the Ω-valued matrix determinant law using IHG.0/determinant-of-matrix-representation. All group characteristic coefficients lie in Z, so IHG.0/determinant-coefficient-subring descends it to the coefficient subring and then extends it to Z. This constructs the determinant D rather than assuming a pointwise determinant function is a polynomial law.",
+        "Surjectivity follows from the Z-span of the group matrices. A zero matrix has characteristic polynomial X^n after any left multiplication. Conversely the coefficient of X^(n−1) gives tr(bφ(x))=0 for all b; full Ω-span and the nondegenerate trace pairing force φ(x)=0.",
+        "The universal determinant-law kernel is contained in these tests over B and therefore in ker(φ). The other inclusion holds after every scalar extension because φ(x)=0 persists. The first isomorphism theorem gives the quotient comparison. The suggested declaration exposes the surjectivity and concrete matrix-kernel test; the abstract determinant and its quotient use the existing IHG interfaces."
+      ],
+      "acceptance": [
+        "Testing only det(φ(x))=0 would describe singular matrices and is not a kernel; all left-multiplication tests are essential."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-span",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-characteristic-polynomials",
+        "ArithmeticGaloisRepresentations:R01.5/image-basis",
+        "mathlib:MonoidAlgebra.lift",
+        "mathlib:Matrix.trace_eq_neg_charpoly_coeff",
+        "mathlib:Matrix.ext_iff_trace_mul_right",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/field-faithful-quotient",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-of-matrix-representation",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-coefficient-subring",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-kernel-characterisation"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Theorem 2.16 and proof, pp.31–32",
+          "match": "The faithful determinant quotient is assembled from simple image factors. The full-span case here is one central simple factor and uses the imported determinant-kernel convention."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/representation-brauer-class",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Brauer class attached to a representation",
+      "kind": "construction",
+      "leanName": "TauCeti.GaloisRep.brauerClass",
+      "statement": "For n>0 and full span, β(ρ) is the class of the finite-dimensional central simple Z-algebra B in Tau Ceti’s Brauer group Br(Z). Construct it with the existing CSA.of and BrauerGroup.mk, without a private quotient or replacement equivalence relation.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible.",
+        "n>0."
+      ],
+      "proofSteps": [
+        "Supply the three actual CSA instances from the image-algebra lemmas, then apply the existing class map. Conjugation identifies the image subalgebras and their equal trace fields; the baseline alg-equivalence invariance identifies the classes. Base change is the existing Brauer-group homomorphism."
+      ],
+      "acceptance": [
+        "The statement uses the stated full-span and dimension assumptions; no semisimplicity or splitting hypothesis is silently added."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-central",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-simple",
+        "ArithmeticGaloisRepresentations:R01.5/trace-field-conjugacy",
+        "tauceti:TauCeti.CSA.of",
+        "tauceti:TauCeti.BrauerGroup.mk",
+        "tauceti:TauCeti.BrauerGroup.instCommGroup",
+        "tauceti:TauCeti.BrauerGroup.mk_eq_mk_of_algEquiv",
+        "tauceti:TauCeti.BrauerGroup.baseChange",
+        "tauceti:TauCeti.BrauerGroup.baseChange_mk",
+        "tauceti:TauCeti.subsingleton_brauerGroup_of_finite",
+        "tauceti:TauCeti.Quaternion.mk_ne_one"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.GaloisRep.brauerClass_eq_mk",
+          "role": "compatibility",
+          "statement": "β(ρ)=BrauerGroup.mk(CSA.of Z B), with the finite-dimensional, central and simple instances supplied by this packet."
+        },
+        {
+          "name": "TauCeti.GaloisRep.brauerClass_congr",
+          "role": "functoriality",
+          "statement": "GL_n(Ω)-conjugate representations have equal Brauer classes after transport along their equality of trace fields. The suggested HEq expresses exactly that transport."
+        },
+        {
+          "name": "TauCeti.GaloisRep.brauerClass_baseChange",
+          "role": "compatibility",
+          "statement": "For any extension L/Z, res_{L/Z}(β(ρ))=[L⊗_Z B], using the baseline CSA.baseChange and BrauerGroup.baseChange."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GaloisRep.brauerClass_one_dim",
+          "kind": "computation",
+          "statement": "For any one-dimensional representation, β=1 (the neutral element of the multiplicative Brauer group)."
+        },
+        {
+          "name": "TauCeti.GaloisRep.brauerClass_finite_field",
+          "kind": "compatibility",
+          "statement": "If Z is finite, β=1, by the existing finite-field Brauer-group theorem."
+        },
+        {
+          "name": "TauCeti.GaloisRep.brauerClass_quaternion_real",
+          "kind": "non-example",
+          "statement": "For the explicit rank-two Q₈ image over ℝ⊂ℂ from traceField_quaternion_real, with full complex span, B≅ℍ[ℝ] and β≠1."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.5/descent-obstruction-absolutely-irreducible",
+          "how": "The class detects whether the trace field is a field of definition."
+        },
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.5/finite-field-realisability",
+          "how": "The trivial Brauer group of a finite field removes each absolutely irreducible obstruction."
+        },
+        {
+          "where": "ChenevierV2, Definition–Proposition 2.18(iii), p.32",
+          "how": "The central simple quotient carries the obstruction for an absolutely irreducible determinant."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/split-image-realisation",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Trace-field realization criterion",
+      "kind": "theorem",
+      "leanName": "TauCeti.GaloisRep.brauerClass_eq_one_iff",
+      "statement": "For n>0 and full span, β(ρ)=1 iff there is P∈GL_n(Ω) with every entry of Pρ(g)P⁻¹ in Z for every g∈Γ. Thus ρ has a Z-linear form in dimension n exactly when its attached class is neutral.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible.",
+        "n>0."
+      ],
+      "proofSteps": [
+        "The baseline splitting criterion gives a Z-algebra equivalence B≃M_n(Z), with n fixed by dim_Z B=n². Extend it to Ω and compare with the canonical splitting by Skolem–Noether, obtaining P and Z-valued entries.",
+        "Conversely a Z-valued conjugated image generates a subalgebra of M_n(Z) whose scalar extension is all M_n(Ω). Its dimension n² forces it to be all M_n(Z); this splits B. Matrices of g⁻¹ also have Z-valued entries, so the form lands in GL_n(Z), not merely M_n(Z)."
+      ],
+      "acceptance": [
+        "The real quaternion representation has Z=ℝ but no real rank-two form; traces alone do not remove this obstruction."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/representation-brauer-class",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-base-change",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension",
+        "tauceti:TauCeti.BrauerGroup.mk_eq_one_iff_isSplittingField",
+        "tauceti:TauCeti.skolemNoether",
+        "tauceti:TauCeti.Algebra.deg_eq_of_finrank_eq_sq"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/split-image-realisation-extension",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Realization after a coefficient-field extension",
+      "kind": "theorem",
+      "leanName": "TauCeti.GaloisRep.brauerClass_baseChange_eq_one_iff",
+      "statement": "For n>0, full span, and an intermediate field L of Ω/Z, the image of β(ρ) in Br(L) is neutral iff ρ is conjugate over Ω to a representation all of whose entries lie in L.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible.",
+        "n>0; Z⊂L⊂Ω."
+      ],
+      "proofSteps": [
+        "Apply the baseline base-change splitting criterion to L⊗_Z B. Its degree remains n. Compare its matrix realization over Ω with the canonical one by Skolem–Noether. The reverse implication uses the dimension-n² L-span of the conjugated image."
+      ],
+      "acceptance": [
+        "For the quaternion example the class dies after ℝ→ℂ, and the displayed matrices give the complex form."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/representation-brauer-class",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-base-change",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension",
+        "tauceti:TauCeti.BrauerGroup.mk_mem_ker_baseChange_iff_isSplittingField",
+        "tauceti:TauCeti.skolemNoether",
+        "tauceti:TauCeti.Algebra.deg_eq_of_finrank_eq_sq"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/representation-schur-index",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Schur index attached to a representation",
+      "kind": "definition",
+      "leanName": "TauCeti.GaloisRep.schurIndex",
+      "statement": "For n>0 and full span, s(ρ)=TauCeti.Algebra.index Z B. It is the degree of the central division algebra D in a Wedderburn presentation B≃M_a(D), independent of the presentation. It is not dim_Z D and not dim_Z B.",
+      "hypotheses": [
+        "k and Ω are fields with a fixed embedding k → Ω; Γ is a group; ρ:Γ → GL_n(Ω). Write Z=k(tr(ρ(g)):g∈Γ), B=Z[ρ(Γ)].",
+        "Full span means Ω·ρ(Γ)=M_n(Ω). For absolutely irreducible ρ over an algebraic closure it is supplied by ArithmeticGaloisRepresentations:R01.1/absolutely-irreducible.",
+        "n>0."
+      ],
+      "proofSteps": [
+        "Supply the already planned CSA instances and use the existing presentation-independent index. The degree computation gives deg(B)=n. Each API statement is a specialization of a cited index or splitting theorem. The finite-field and quaternion tests reuse the same B and class as the Brauer tests."
+      ],
+      "acceptance": [
+        "The statement uses the stated full-span and dimension assumptions; no semisimplicity or splitting hypothesis is silently added."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-central",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-simple",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension",
+        "ArithmeticGaloisRepresentations:R01.5/representation-brauer-class",
+        "tauceti:TauCeti.Algebra.index",
+        "tauceti:TauCeti.Algebra.index_pos",
+        "tauceti:TauCeti.Algebra.index_dvd_deg",
+        "tauceti:TauCeti.Algebra.index_eq_deg_of_algEquiv_matrix",
+        "tauceti:TauCeti.Algebra.deg_eq_mul_index_of_algEquiv_matrix",
+        "tauceti:TauCeti.Algebra.deg_eq_of_finrank_eq_sq",
+        "tauceti:TauCeti.Algebra.isSplittingField_self_iff_index_eq_one",
+        "tauceti:TauCeti.BrauerGroup.mk_eq_one_iff_isSplittingField"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLGGT14",
+          "locator": "Lemma A.1.5, proof, printed p.85",
+          "match": "The proof descends a full matrix image algebra using an invertible trace Gram matrix. This packet isolates its algebraic steps; the continuous and rational-eigenvalue conclusions retain their parent IDs."
+        },
+        {
+          "sourceId": "SerreCarayol93",
+          "locator": "Theorem 4 and proof, p.3",
+          "match": "The trace pairing on an Azumaya algebra is used to descend a generating lattice to the trace ring. Over fields, the same coordinate argument needs no characteristic-zero restriction."
+        },
+        {
+          "sourceId": "ChenevierV2",
+          "locator": "Definition–Proposition 2.18(iii), p.32",
+          "match": "For the absolutely irreducible Cayley–Hamilton quotient the image is central simple of rank d² and has a nondegenerate trace pairing; determinant-law reconstruction itself is imported from IHG.1."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "api": [
+        {
+          "name": "TauCeti.GaloisRep.schurIndex_pos",
+          "role": "relation",
+          "statement": "s(ρ)>0."
+        },
+        {
+          "name": "TauCeti.GaloisRep.schurIndex_dvd",
+          "role": "relation",
+          "statement": "s(ρ) divides n."
+        },
+        {
+          "name": "TauCeti.GaloisRep.schurIndex_eq_one_iff",
+          "role": "characterisation",
+          "statement": "s(ρ)=1 iff β(ρ)=1."
+        },
+        {
+          "name": "TauCeti.GaloisRep.schurIndex_of_matrix",
+          "role": "compatibility",
+          "statement": "If a>0, D is finite-dimensional central division over Z, and B≃M_a(D), then s(ρ)=deg_Z(D) and n=a·s(ρ)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GaloisRep.schurIndex_one_dim",
+          "kind": "computation",
+          "statement": "A one-dimensional representation has s=1."
+        },
+        {
+          "name": "TauCeti.GaloisRep.schurIndex_finite_field",
+          "kind": "compatibility",
+          "statement": "If Z is finite, s=1."
+        },
+        {
+          "name": "TauCeti.GaloisRep.schurIndex_quaternion_real",
+          "kind": "non-example",
+          "statement": "For the explicit rank-two quaternion image over ℝ⊂ℂ, s=2, whereas dim_ℝ B=4."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.5/simple-modules-over-the-algebraic-closure",
+          "how": "The index is the multiplicity in the scalar extension of the simple module of B."
+        },
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.5/descent-obstruction",
+          "how": "Constituent multiplicities must be divisible by the attached division-algebra degree."
+        },
+        {
+          "where": "BLGGT14, Lemma A.1.5, p.85",
+          "how": "Simple eigenvalues exclude the multiplicities produced by a nonsplit division algebra."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/rank-two-polarized-relations",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Polarization of rank-two group-element relations",
+      "kind": "lemma",
+      "leanName": "TauCeti.GaloisRep.rankTwo_polarized_relations",
+      "statement": "There is an F-linear involutive anti-automorphism s of F[Γ], s([g])=det(r([g]))[g⁻¹]. For every x, x+s(x)−tr(r(x))·1∈J and x·s(x)−det(r(x))·1∈J. This one declaration collects the relations proved simultaneously in BLR Proposition 1.",
+      "hypotheses": [
+        "F is an arbitrary field, Γ a group, and r:F[Γ]→M₂(F) a unital F-algebra homomorphism.",
+        "For each g, r([g]) is invertible. J is the two-sided ideal generated by [g]²−tr(r([g]))[g]+det(r([g]))·1 for every g∈Γ."
+      ],
+      "proofSteps": [
+        "The determinant character defines the anti-involution on the group basis and extends F-linearly. On 2×2 matrices it is the adjugate, a linear map satisfying adj(AB)=adj(B)adj(A).",
+        "The relation for one group element gives x+s(x)≡tr(r(x)) on the basis and hence on every x. Apply it to the relevant group products and polarize to obtain the determinant relation for finite linear combinations. Follow the characteristic-free calculation of Proposition 1."
+      ],
+      "acceptance": [
+        "Works in characteristic 2. It extends relations from group elements, rather than assuming relations for every element of the group algebra."
+      ],
+      "prerequisites": [
+        "mathlib:MonoidAlgebra.lift",
+        "mathlib:TwoSidedIdeal.span",
+        "ArithmeticGaloisRepresentations:R01.5/rank-two-trace-determinant-identities"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLR91",
+          "locator": "Proposition 1 and proof, pp.323–324",
+          "match": "The adjugate involution and polarized trace/determinant relations hold modulo the ideal generated only by the characteristic relations of group elements; the proof does not divide by 2."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/rank-two-quadratic-ideal-kernel",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Kernel of a full rank-two image",
+      "kind": "theorem",
+      "leanName": "TauCeti.GaloisRep.rankTwo_quadratic_relations_kernel",
+      "statement": "If r:F[Γ]→M₂(F) is surjective, then J=ker(r) as two-sided ideals.",
+      "hypotheses": [
+        "F is an arbitrary field, Γ a group, and r:F[Γ]→M₂(F) a unital F-algebra homomorphism.",
+        "For each g, r([g]) is invertible. J is the two-sided ideal generated by [g]²−tr(r([g]))[g]+det(r([g]))·1 for every g∈Γ.",
+        "r is surjective."
+      ],
+      "proofSteps": [
+        "Cayley–Hamilton gives J⊂ker(r). Work in F[Γ]/J with its induced onto matrix map. For x in its kernel, the polarized relations imply yx=xy* and show that the annihilator of x is a two-sided ideal whose matrix image contains matrix commutators.",
+        "Since M₂(F) is noncommutative and simple, that image ideal is all matrices. Choose w annihilating x whose matrix image is I. The determinant relation gives w·w*=1, so w is invertible in the quotient and x=0. This proves the opposite kernel inclusion."
+      ],
+      "acceptance": [
+        "Surjectivity is the full-span/Burnside output; a reducible or scalar rank-two image is excluded. No characteristic restriction on F is used."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/rank-two-polarized-relations",
+        "mathlib:TwoSidedIdeal.ker",
+        "mathlib:IsSimpleRing.matrix"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLR91",
+          "locator": "Proposition 2 and proof, p.324",
+          "match": "For an onto rank-two representation algebra, the group-element characteristic-relation ideal equals the representation kernel; the annihilator argument uses the simplicity and noncommutativity of M₂."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.5/rank-two-annihilation-isotypic",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.5",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.5"
+      ],
+      "title": "Rank-two annihilation implies isotypy",
+      "kind": "theorem",
+      "leanName": "TauCeti.GaloisRep.rankTwo_annihilation_isotypic",
+      "statement": "Let r:F[Γ]→M₂(F) be onto and let σ:Γ→GL_N(F), with N finite. If charpoly(r([g])) evaluated on σ(g) vanishes for every g∈Γ, then there exist m≥0 and a Γ-equivariant F-linear isomorphism F^N≃F²⊗_F F^m, where Γ acts through r on F² and trivially on the multiplicity space. Thus N=2m and σ is semisimple and isotypic.",
+      "hypotheses": [
+        "F is an arbitrary field, Γ a group, and r:F[Γ]→M₂(F) a unital F-algebra homomorphism.",
+        "For each g, r([g]) is invertible. J is the two-sided ideal generated by [g]²−tr(r([g]))[g]+det(r([g]))·1 for every g∈Γ.",
+        "r is onto; σ has finite dimension N (N=0 is permitted)."
+      ],
+      "proofSteps": [
+        "Extend σ to F[Γ]. The annihilation hypothesis kills each generator of J, hence kills ker(r) by the preceding kernel theorem. The module therefore factors through M₂(F).",
+        "The full matrix action kills CH(det r), including all polarized relations: apply matrix Cayley–Hamilton after adjoining formal scalar variables, not only to group matrices. This verifies the imported module-recognition hypothesis.",
+        "Apply the imported full matrix-module equivalence: the multiplicity space is E₁₁F^N and the module is F²⊗E₁₁F^N. Choose a basis of that finite-dimensional space to obtain F^m; the matrix action gives equivariance."
+      ],
+      "acceptance": [
+        "For N=0 take m=0. For a standard rank-two representation, take m=1. A nonsplit extension satisfying these relations cannot survive.",
+        "The theorem is rank-two-specific. BLR §5, pp.327–328 gives a rank-three A₄ example where elementwise annihilation does not force isotypy; this is not replaced by an unrestricted-degree Cayley–Hamilton assertion."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.5/rank-two-quadratic-ideal-kernel",
+        "mathlib:MonoidAlgebra.lift",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/brauer-nesbitt-module-recognition",
+        "IntegralHeckeAndGaloisDeterminants:IHG.0/determinant-of-matrix-representation",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/cayley-hamilton-ideal",
+        "mathlib:Matrix.aeval_self_charpoly"
+      ],
+      "library": {
+        "module": "TauCeti/RepresentationTheory/Galois/Recognition",
+        "namespace": "TauCeti.GaloisRep"
+      },
+      "sources": [
+        {
+          "sourceId": "BLR91",
+          "locator": "Theorem 1 and proof, pp.324–325",
+          "match": "An arbitrary module satisfying all the group-element rank-two characteristic relations factors through M₂ and is a direct sum of its standard simple module. No prior semisimplicity assumption is made."
+        },
+        {
+          "sourceId": "BCGP25V1",
+          "locator": "Proposition 4.11.2, proof on pp.110–111",
+          "match": "The induced GSp₄ argument uses BLR to force the two-dimensional restricted factors to occur isotypically; the rest of its monodromy and extension proof is retained separately."
+        }
+      ],
+      "implementationStatus": "unchecked"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-10-dirichlet-density-chebotarev",
+      "need": "hasDirichletDensity_frobeniusPrimeSet: for every finite Galois extension L/K of number fields and every conjugacy class C of Gal(L/K), frobeniusPrimeSet K L C has Dirichlet density #C/#Gal(L/K); with its corollaries (infinitude of each class, invariance under finite symmetric difference).",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.5/frobenius-density-finite-level",
+        "ArithmeticGaloisRepresentations:R01.5/frobenius-density",
+        "ArithmeticGaloisRepresentations:R01.5/frobenius-density-image",
+        "ArithmeticGaloisRepresentations:R01.5/every-element-of-a-finite-image-is-a-frobenius",
+        "ArithmeticGaloisRepresentations:R01.5/forall-image-of-forall-frobenius",
+        "ArithmeticGaloisRepresentations:R01.5/multiquadratic-sign-vectors",
+        "ArithmeticGaloisRepresentations:R01.5/prescribed-quadratic-residue-symbols",
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen",
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev",
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null",
+        "ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/Chebotarev#layer-14-natural-density-and-consistency-theorems",
+      "need": "hasNaturalDensity_frobeniusPrimeSet with value #C/#G, for the natural-density form of Haar-measure Chebotarev (a).",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen",
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev",
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null",
+        "ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero"
+      ]
+    },
+    {
+      "supplier": "InverseGaloisAndArithmeticFundamentalGroups:IG.1",
+      "need": "The étale fundamental group of a connected normal F_q-scheme with Frobenius conjugacy classes at closed points, surjectivity of π_1(U) → π_1(C) for a dense open U of a normal connected C, and lisse ℚ_ℓ/E-sheaves as continuous π_1-representations.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.5/curve-recognition-from-an-open-subset"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-7-dirichlet-density",
+      "need": "HasDirichletDensity (ratio to the all-prime sum), IsUpperDirichletDensityBound, IsLowerDirichletDensityBound, hasDirichletDensity_of_symmDiff_finite, hasDirichletDensity_of_upperBound_of_lowerBound, and the calculus of layer 7.3 in this form: (1) a finite set has density 0; (2) if S has density 1 then its complement has density 0; (3) a subset of a set of density 0 has density 0; (4) if A has density δ and Z has density 0 then A ∖ Z and A ∩ Zᶜ have density δ (in particular the intersection of a set of density δ with a set of density 1 has density δ); (5) a set of positive density is infinite and is not contained in a set of density 0; (6) a finite union of sets of density 0 has density 0 (BLGGT Lemma A.1.7).",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.5/frobenius-density-finite-level",
+        "ArithmeticGaloisRepresentations:R01.5/frobenius-density",
+        "ArithmeticGaloisRepresentations:R01.5/frobenius-density-image",
+        "ArithmeticGaloisRepresentations:R01.5/every-element-of-a-finite-image-is-a-frobenius",
+        "ArithmeticGaloisRepresentations:R01.5/forall-image-of-forall-frobenius",
+        "ArithmeticGaloisRepresentations:R01.5/multiquadratic-sign-vectors",
+        "ArithmeticGaloisRepresentations:R01.5/prescribed-quadratic-residue-symbols",
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen",
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev",
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null",
+        "ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero"
+      ]
+    },
+    {
+      "supplier": "FunctionFieldArithmetic:FA.5",
+      "need": "Function-field Chebotarev in the following form, as an exported node: let U be a smooth geometrically connected curve over F_q and V → U a connected finite étale Galois cover with group G, with field of constants F_{q^m}, so that G → Gal(F_{q^m}/F_q) = ℤ/m is surjective. Then for every g ∈ G mapping to the class of d mod m and every sufficiently large n ≡ d mod m there is a closed point x of U of degree n and a point of V above x whose arithmetic Frobenius is g (indeed the proportion of closed points of degree n with Frobenius class the class C of g tends to m·#C/#G). Only the existence of one such x for each g is used, to conclude that the Frobenius elements at closed points of U are dense in π_1(U). The same theorem is requested by DeligneWeightsAndPurity:DWP.3/exceptional-frobenius-set-has-density-zero.",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.5/curve-recognition-from-an-open-subset"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras#layer-2-artin-wedderburn-assembled-with-uniqueness",
+      "need": "The algebra Wedderburn presentation B ≅ ∏ M_{m_j}(D_j) of a finite-dimensional semisimple algebra over a field, with centres Z(D_j) and the dimension count; in particular a finite-dimensional algebra with a faithful simple module W is simple with W as its simple module, and its centre is a field over which it is central simple. (For central simple algebras the pinned tree has TauCeti.IsSimpleRing.exists_algEquiv_matrix_centralDivisionRing.)",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.5/galois-action-on-constituents",
+        "ArithmeticGaloisRepresentations:R01.5/descent-obstruction",
+        "ArithmeticGaloisRepresentations:R01.5/descent-obstruction-absolutely-irreducible",
+        "ArithmeticGaloisRepresentations:R01.5/descent-obstruction-determinant-form",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-semisimple-representation",
+        "ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent",
+        "ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent-continuous",
+        "ArithmeticGaloisRepresentations:R01.5/simple-modules-over-the-algebraic-closure",
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-constituent",
+        "ArithmeticGaloisRepresentations:R01.5/simple-module-of-an-irreducible-representation"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.5",
+      "status": "planned",
+      "remaining": [
+        "Discharge the nonarchimedean analytic Haar-null bridge shared with DeligneWeightsAndPurity:DWP.3; include all components met by the compact group.",
+        "Plan and discharge the minuscule Lie/logarithm/finite-component inputs with the actual Nek18 Proposition 3.10(A′),(C′), case (3) contract. Its GL₂ specialization is now supplied by BLR.",
+        "Discharge the induced GSp₄/Asai algebraic-monodromy and extension-comparison inputs; move the Ext¹ comparison down rather than cite the higher ArithmeticGaloisDuality roadmap.",
+        "Resolve the six retained supplier requests: Dirichlet and natural Chebotarev, density calculus, semisimple block dictionary, curve Chebotarev with constant-field congruence, and étale fundamental-group/Frobenius interfaces.",
+        "Read original Carayol 1994 Theorems 1 and 2 to settle their exact attribution; the mathematics uses the read Serre/Rouquier trace-Gram statement and the existing IHG coefficient-descent contract.",
+        "Collate Chenevier arXiv v2 Definition 2.19 and Theorems 2.16/2.22 with the published 2014 chapter, and Kisin–Zhou Proposition 5.3.5 with Annals 202 (2025). No correction is asserted for an unread published version.",
+        "Assembly retains all 53 parent R01.5 principal IDs, applies the carrier split and exact prerequisite refinements, and reconciles prototype names. The new file does not duplicate the retained parent signatures."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Nonarchimedean analytic Haar-null bridge",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev"
+      ],
+      "detail": "For a compact open subgroup G of H(E), E a finite extension of ℚ_ℓ and H a smooth closed algebraic subgroup of GL_n, construct nonarchimedean analytic charts and identify Haar measure locally with a nonvanishing analytic density times additive chart measure. Deduce that a closed analytic subset of G with empty interior is Haar-null. For a polynomial f, require that its restriction not vanish identically on any algebraic component met by G; a condition on H° alone is sufficient only for a subgroup contained in that component or after checking the other cosets. The existing open-GL_n polynomial proof does not cover lower-dimensional groups such as GSp₄. DeligneWeightsAndPurity:DWP.3/haar-null-exceptional-eigenvalue-locus needs the same bridge and must share its owner. DifferentialGeometry currently uses real manifolds and does not provide it. This gap blocks the symplectic zero-locus application, not abstract clopen or boundary-null Chebotarev."
+    },
+    {
+      "title": "Minuscule Lie-algebra semisimplicity input",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-sp4"
+      ],
+      "detail": "Nek18 Proposition 3.10 is now read with its actual hypotheses: (A′) each W_i is a sum of simple modules for the ℚ̄_ℓ-span of Lie(ρ_i(Γ)), each simple module one-dimensional or minuscule; (C′) an open Γ′, a dense Σ and a positive integer a satisfy P_(⊗ρ_i)(g^a)(σ(g^a))=0 for g∈Σ. Case (3) requires a=r=1 and W_1 minuscule. Its conclusion is global semisimplicity of σ and σ|Γ′≅ρ_1|Γ′^⊕m, not automatically global isotypy for an arbitrary Γ. Needed declarations: the finite-local-coefficient/logarithm passage for compact profinite images; minuscule weight detection under semisimplification of a module with unipotent radical (Theorem 3.7, Proposition 1.3(2) and §§1.4–1.5); verification for the standard sp₄/gsp₄ module; and the finite-component argument turning the open-subgroup result into the retained GSp₄ target. The rank-two BLR input is separately supplied and must not be used as a theorem in arbitrary rank."
+    },
+    {
+      "title": "Induced GSp₄ and Asai algebraic-monodromy inputs",
+      "neededBy": [
+        "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-induced-constituents",
+        "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-no-self-extensions",
+        "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria"
+      ],
+      "detail": "BCGP25V1 Proposition 4.11.2, pp.110–112, still needs algebraic Goursat with quotient representability; the char-zero normal-unipotent/radical argument; classification up to central twist of simple representations of the relevant quotient of SL₂×SL₂; verification that the twisted Asai image has closures O₄ and SO₄; and the classification of closed subgroups of N⋊O₄ surjecting onto O₄, with the degree-five minimal-polynomial witness in the nonsplit case. The last two are representation-specific R01.5/G7 inputs. ReductiveGroups layers 3, 5 and 6 supply the surrounding notions, but their current contracts do not explicitly export algebraic Goursat or the specialized SL₂×SL₂ classification. These additions need a Part II with exact targets. The Ext¹ restriction/induction comparison used here must be owned in this lower-tier direction and imported by ArithmeticGaloisDuality, rather than introducing an upward prerequisite."
+    }
+  ],
+  "sourceIssues": [],
+  "imports": {
+    "parentPacket": "ArithmeticGaloisRepresentations.json",
+    "acceptedReview": "REV-ArithmeticGaloisRepresentations",
+    "targets": [
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/frobenius-density-finite-level",
+        "title": "Frobenius density in a finite quotient"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/frobenius-density",
+        "title": "Density of arithmetic Frobenius elements"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/frobenius-density-image",
+        "title": "Density of Frobenius images"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/every-element-of-a-finite-image-is-a-frobenius",
+        "title": "Every element of a finite image is a Frobenius at a set of primes of positive density"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/forall-image-of-forall-frobenius",
+        "title": "Properties on finite images follow from Frobenius"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/multiquadratic-sign-vectors",
+        "title": "Sign vectors of multiquadratic automorphisms"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/prescribed-quadratic-residue-symbols",
+        "title": "Primes with prescribed quadratic residue symbols, possibly coincident quadratic fields"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/recognition-on-a-dense-subset",
+        "title": "Recognition on a dense subset"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent",
+        "title": "Recognition by Frobenius polynomials"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/recognition-by-traces",
+        "title": "Recognition by traces with invertible factorial"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/rank-two-trace-determinant-identities",
+        "title": "Rank-two trace and determinant identities"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/rank-two-trace-and-determinant-comparison",
+        "title": "Rank-two determinants and trace data"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/rank-two-recognition",
+        "title": "Rank-two recognition in every characteristic"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/brauer-class-of-an-absolutely-irreducible-representation",
+        "title": "The image algebra, field of definition and Brauer class of an absolutely irreducible representation"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/surjectivity-onto-product-of-endomorphism-algebras",
+        "title": "Surjectivity onto simple endomorphism factors"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/linear-independence-of-absolutely-irreducible-characters",
+        "title": "Linear independence of absolutely irreducible characters"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/absolutely-irreducible-determined-by-trace",
+        "title": "Absolutely irreducible representations are determined by trace"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/simple-modules-over-the-algebraic-closure",
+        "title": "Base change of a simple module"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-constituent",
+        "title": "Trace field and index of a geometric constituent"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/simple-module-of-an-irreducible-representation",
+        "title": "The simple module attached to an irreducible representation"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/galois-action-on-constituents",
+        "title": "Galois invariance of constituent multiplicities"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/descent-obstruction",
+        "title": "Schur-index obstruction to descent"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/descent-obstruction-absolutely-irreducible",
+        "title": "Descent of an absolutely irreducible representation"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/descent-obstruction-determinant-form",
+        "title": "Descent obstruction and determinant reconstruction"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/finite-field-realisability",
+        "title": "Realisation over a finite polynomial field"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/residual-realisability-over-frobenius-field",
+        "title": "Residual realisation over its Frobenius field"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/image-algebra-of-a-semisimple-representation",
+        "title": "Descent of a semisimple image algebra"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent",
+        "title": "Descent from distinct rational eigenvalues"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/rational-eigenvalue-descent-continuous",
+        "title": "Continuity of rational-eigenvalue descent"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/additive-haar-invariant-under-units",
+        "title": "Additive Haar invariance under units"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/haar-measure-on-open-subgroups-of-gl-n",
+        "title": "Haar probability on open unit subgroups"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/additive-measure-of-gl-n-of-integers",
+        "title": "Additive measure of integral invertible matrices"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/polynomial-zero-sets-are-haar-null",
+        "title": "Polynomial zero sets are Haar-null"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/polynomial-zero-sets-in-open-subgroups-of-gl-n",
+        "title": "Polynomial zero sets in open matrix groups"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-clopen",
+        "title": "Chebotarev for clopen subsets"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev",
+        "title": "Chebotarev upper bound for closed subsets"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/haar-measure-chebotarev-boundary-null",
+        "title": "Chebotarev for subsets with null boundary"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/polynomial-conditions-on-frobenius-have-density-zero",
+        "title": "Polynomial Frobenius conditions of density zero"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/matrix-algebra-endomorphisms-are-inner-over-local-rings",
+        "title": "R-algebra endomorphisms of M_d(R) are inner for a local ring R"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/carayol-lifts-recognition",
+        "title": "Carayol recognition of lifts"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/carayol-symplectic",
+        "title": "Carayol recognition with a fixed symplectic form"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/lifting-symplectic-similitudes",
+        "title": "Lifting symplectic similitudes over a local ring"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/carayol-gluing",
+        "title": "Gluing compatible polynomial data"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/frobenius-annihilation-extends",
+        "title": "Frobenius annihilation extends to the image closure"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-sp4",
+        "title": "Semisimplicity with Sp4 monodromy"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-induced-constituents",
+        "title": "Constituents with induced GSp4 monodromy"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-no-self-extensions",
+        "title": "Absence of self-extensions of the two constituents"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/asai-eigenvalues-off-the-subgroup",
+        "title": "Asai eigenvalues outside the inducing subgroup"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-criteria",
+        "title": "Semisimplicity with induced GSp4 monodromy"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/potentially-abelian-restriction",
+        "title": "Restriction of a potentially abelian representation"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/potentially-abelian-representations",
+        "title": "Induction from a character stabiliser"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/potentially-abelian-scalar-case",
+        "title": "Scalar restriction and finite projective image"
+      },
+      {
+        "nodeId": "ArithmeticGaloisRepresentations:R01.5/curve-recognition-from-an-open-subset",
+        "title": "Recognition of lisse sheaves on a curve over a finite field from a dense open subset"
+      }
+    ],
+    "rule": "Retain these 53 IDs and their declarations. New carrier and comparison IDs refine their proof dependencies; they do not replace the principal target IDs or edit the parent packet."
+  },
+  "principalRefinement": {
+    "principalNode": "ArithmeticGaloisRepresentations:R01.5/brauer-class-of-an-absolutely-irreducible-representation",
+    "declarationNodes": [
+      "ArithmeticGaloisRepresentations:R01.5/trace-field",
+      "ArithmeticGaloisRepresentations:R01.5/trace-field-conjugacy",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra-span",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra-trace",
+      "ArithmeticGaloisRepresentations:R01.5/image-basis",
+      "ArithmeticGaloisRepresentations:R01.5/trace-dual-basis",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra-finite-dimensional",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra-dimension",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra-base-change",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra-central",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra-simple",
+      "ArithmeticGaloisRepresentations:R01.5/split-characteristic-polynomial-invariance",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra-characteristic-polynomials",
+      "ArithmeticGaloisRepresentations:R01.5/polynomial-field-equals-trace-field",
+      "ArithmeticGaloisRepresentations:R01.5/image-algebra-faithful-determinant-quotient",
+      "ArithmeticGaloisRepresentations:R01.5/representation-brauer-class",
+      "ArithmeticGaloisRepresentations:R01.5/split-image-realisation",
+      "ArithmeticGaloisRepresentations:R01.5/split-image-realisation-extension",
+      "ArithmeticGaloisRepresentations:R01.5/representation-schur-index"
+    ],
+    "assembly": "Keep the principal parent ID as the descent-obstruction target. Replace its bundled trace-field/image-algebra/trace-coordinate/central-simple/Brauer/index clauses by the named declarations here. Reconcile the parent’s prototype names with these actual baseline Brauer constructors and equal trace-field transports."
+  },
+  "prerequisiteRefinements": [
+    {
+      "consumers": [
+        "ArithmeticGaloisRepresentations:R01.5/descent-obstruction-determinant-form"
+      ],
+      "replace": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "with": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/algebraically-closed-reconstruction",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/field-faithful-quotient"
+      ],
+      "contract": "Use algebraically closed reconstruction in every characteristic and the arbitrary-field faithful quotient, retaining the imperfect-field finiteness qualifications; an arbitrary determinant is not assumed to come from a k-valued representation."
+    },
+    {
+      "consumers": [
+        "ArithmeticGaloisRepresentations:R01.5/carayol-lifts-recognition",
+        "ArithmeticGaloisRepresentations:R01.5/carayol-gluing"
+      ],
+      "replace": "IntegralHeckeAndGaloisDeterminants:IHG.1",
+      "with": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/henselian-irreducible",
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/coefficient-descent"
+      ],
+      "contract": "Henselian Cayley–Hamilton reconstruction requires the residual determinant to be absolutely irreducible AND split. Coefficient descent uses the complete Noetherian subring contract with the same residue field and a strict conjugator; it is already owned upstream."
+    },
+    {
+      "consumers": [
+        "ArithmeticGaloisRepresentations:R01.5/carayol-symplectic"
+      ],
+      "supplement": [
+        "IntegralHeckeAndGaloisDeterminants:IHG.1/symplectic-coefficient-descent"
+      ],
+      "contract": "Distinguish GSp recognition with two given perfect alternating forms from descent of a form. The imported coefficient-descent result assumes p>2 and the full multiplier valued in the subring. It supplies no characteristic-two descent theorem."
+    },
+    {
+      "consumers": [
+        "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-induced-constituents",
+        "ArithmeticGaloisRepresentations:R01.5/gsp4-semisimplicity-no-self-extensions"
+      ],
+      "supplement": [
+        "ArithmeticGaloisRepresentations:R01.5/rank-two-annihilation-isotypic"
+      ],
+      "contract": "The BLR input is now a named theorem. Invoke it only after obtaining the full rank-two image and extending dense Frobenius annihilation to every group element. The higher-rank monodromy and extension arguments remain explicit gaps."
+    },
+    {
+      "consumers": [
+        "ArithmeticGaloisRepresentations:R01.5/polynomial-zero-sets-are-haar-null"
+      ],
+      "replaceWhenIndexRegenerated": "mathlib:MeasureTheory.Measure.IsHaarMeasure.noAtoms",
+      "preferredDeclaration": "MeasureTheory.Measure.IsHaarMeasure.nullSingletonClass",
+      "indexReference": "mathlib:MeasureTheory.Measure.IsHaarMeasure.noAtoms",
+      "contract": "The baseline supplies this instance under the nonisolated-identity, T1, weak local compactness and Borel hypotheses. Use its additive counterpart for E^d. It does not supply nonarchimedean analytic charts or their Haar measure comparison."
+    },
+    {
+      "consumers": [
+        "ArithmeticGaloisRepresentations:R01.5/brauer-class-of-an-absolutely-irreducible-representation",
+        "ArithmeticGaloisRepresentations:R01.5/simple-modules-over-the-algebraic-closure"
+      ],
+      "removeAssumption": "Generic reduced characteristic polynomials are supplied by SemisimpleAlgebras layer 4.",
+      "with": [
+        "ArithmeticGaloisRepresentations:R01.5/image-algebra-characteristic-polynomials"
+      ],
+      "contract": "The current layer 4 contains central-simple structure but no reduced-polynomial target. The attached matrix coefficient descent is proved here by separable splitting; a reusable generic reduced-polynomial API is a Part II proposal, not a baseline or existing-roadmap claim."
+    }
+  ],
+  "inheritedSourceIssues": [
+    {
+      "parentIssue": "ArithmeticGaloisRepresentations/E501",
+      "scope": "Chenevier arXiv:0809.0415v2, Definition 2.19, p.33",
+      "effect": "Use the corrected residual split condition already recorded by the accepted parent. No claim about the unread published wording."
+    },
+    {
+      "parentIssue": "ArithmeticGaloisRepresentations/E502",
+      "scope": "BCGP25V1 Proposition 4.11.2, p.111",
+      "effect": "The twisted Asai off-subgroup eigenvalues are {1,−1,λ,λ⁻¹}. Retain the corrected reciprocal pair and its determinant/characteristic-polynomial test, not a repeated λ."
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras"
+      ],
+      "note": "Current layer 4 is read directly: it does not state a generic reduced characteristic polynomial/reduced trace API. The parent remaining list treated it as a supplier. This packet supplies only the attached matrix coefficient descent via separable splitting. Generic reduced characteristic polynomials and their scalar-extension/reduced-norm API belong in Semisimple algebras, Part II."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups"
+      ],
+      "note": "Current layers 3, 5 and 6 cover quotients, unipotent radicals and char-zero reductivity but do not explicitly state algebraic Goursat or the specialized SL₂×SL₂ quotient representation classification. Record exact extensions rather than claiming those named theorems are existing targets."
+    },
+    {
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/DifferentialGeometry"
+      ],
+      "note": "Current manifolds are over ℝ. Their chart/volume machinery is not a supplier for nonarchimedean analytic Haar-null zero loci."
+    }
+  ],
+  "restructure": [
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "ArithmeticGaloisRepresentations",
+        "DeligneWeightsAndPurity"
+      ],
+      "detail": "Both plans need the same nonarchimedean analytic Haar-null bridge; duplicating the zero-locus proof would create two owners.",
+      "proposal": "Assign the shared analytic/Haar interface to one lower-tier nonarchimedean Lie/analysis extension and import it in both consumers. Keep the representation-specific GSp₄ applications in their current stages; do not move real DifferentialGeometry targets."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/RepresentationTheory/SemisimpleAlgebras",
+        "ArithmeticGaloisRepresentations"
+      ],
+      "detail": "A reusable reduced-characteristic-polynomial API lies beyond the current SemisimpleAlgebras roadmap, while the attached representation comparison is in R01.5.",
+      "proposal": "Semisimple algebras, Part II: reduced characteristic polynomials and norms. Extend the existing central-simple algebra, splitting-field and Skolem–Noether APIs; state splitting-independence, coefficient descent, scalar-extension compatibility and reduced trace/norm identities. R01.5 supplies only its attached matrix coefficient theorem, and should import the generic API when available."
+    },
+    {
+      "action": "rescope",
+      "roadmaps": [
+        "tauceti:TauCetiRoadmap/ReductiveGroups",
+        "ArithmeticGaloisRepresentations"
+      ],
+      "detail": "Algebraic Goursat and specialized SL₂×SL₂ quotient representation classification are not explicit current targets.",
+      "proposal": "Reductive groups, Part II: subgroup and representation comparisons. Build on layers 3, 5, 6 and their algebraic representations. Export algebraic Goursat with quotient hypotheses and the exact SL₂×SL₂ central-quotient/central-torus representation classification. Keep Asai/O₄ and N⋊O₄ witnesses in ArithmeticGaloisRepresentations."
+    }
+  ]
+}
