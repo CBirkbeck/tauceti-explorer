@@ -4,7 +4,7 @@ The atlas's workers read papers and books line by line to extract and plan their
 
 Collected by `scripts/errata.py` from the paper extractions and blueprint packets (research/blueprint/PROTOCOL.md, section 18); the data is in `data/source-issues.json`.
 
-8266 new mistakes confirmed · 1400 awaiting review · 2239 already corrected in print · 150 rejected on review · 5 extractions and packets not yet checked.
+8266 new mistakes confirmed · 1400 awaiting review · 2240 already corrected in print · 150 rejected on review · 5 extractions and packets not yet checked.
 
 ## New mistakes, confirmed
 
@@ -19737,6 +19737,7 @@ The cause is a leftover from HAL v3, where w and w' played swapped roles (𝔏^{
 - Sources of the blueprint of ClassicalAdicEtaleCohomology (`ClassicalAdicEtaleCohomology`), arXiv v1, Remark 3.1.10, p. 23: corrected in new: no correction located in the checked public versions; independent verification required.
 - Sources of the blueprint of ClassicalAdicEtaleCohomology (`ClassicalAdicEtaleCohomology`), arXiv v1, Construction 3.2.1, p. 23: corrected in new: no correction located in the checked public versions; independent verification required.
 - Sources of the blueprint of ClassicalAdicEtaleCohomology (`ClassicalAdicEtaleCohomology`), arXiv v1, Lemma 6.1.3 proof, support Čech spectral sequence, p. 68: corrected in new: no correction located in the checked public versions; independent verification required.
+- Sources of the blueprint of ClassicalAdicEtaleCohomology (`ClassicalAdicEtaleCohomology`), arXiv v1, paragraph before Definition 2.5.10, p. 20: corrected in new: retained in the checked current author version; no published correction located.
 - Parvati Shastri, Reciprocity Laws: Artin–Hilbert, In: Cyclotomic Fields and Related Topics, Proceedings of the Summer School on Cyclotomic Fields, Pune, June 1999, eds. S. D. Adhikari, S. A. Katre, D. Thakur, Bhaskaracharya Pratishthana, 2000, pp. 175–183; the publisher's free PDF (`ClassicalArithmeticCompletion`), §9, proof of Theorem 5, p. 182 (publisher's PDF of the proceedings): corrected in none found.
 - Parvati Shastri, Reciprocity Laws: Artin–Hilbert, In: Cyclotomic Fields and Related Topics, Proceedings of the Summer School on Cyclotomic Fields, Pune, June 1999, eds. S. D. Adhikari, S. A. Katre, D. Thakur, Bhaskaracharya Pratishthana, 2000, pp. 175–183; the publisher's free PDF (`ClassicalArithmeticCompletion`), §10, p. 183: corrected in none found.
 - Matias Carl Relyea, On finite fields and higher reciprocity, arXiv:2407.03559v3 (3 August 2024) (`ClassicalArithmeticCompletion`), Theorem 4.4 (The Law of Biquadratic Reciprocity), p. 45, arXiv v3: corrected in No correction located; the same Theorem4.4 passage was actually read in arXiv v1, v2 and v3..
