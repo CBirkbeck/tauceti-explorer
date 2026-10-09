@@ -428,8 +428,9 @@ example (t s q : ℚ) :
 example : hilbertGeomCharpoly (-3) 9 3 ≠ carayolGeomCharpoly (-3) 9 3 := by
   sorry
 
-/-- Test `hilbertGaloisRep_branches` and acceptance of the dictionary: for trivial central character (`s = 1`) the two
-normalisations agree, as for the unitary `π_E` of an elliptic curve, where both are `H¹_ét(E_ℚ̄, ℚ_ℓ)`. -/
+/-- Polynomial normalization check for trivial central character (`s = 1`).
+This coefficient identity does not test `hilbertGaloisRep_branches`, which
+requires an isomorphism between the geometric and congruence constructions. -/
 example (t q : ℚ) : hilbertGeomCharpoly t 1 q = carayolGeomCharpoly t 1 q := by
   sorry
 
@@ -601,8 +602,9 @@ theorem ordinaryLatticePlus_saturated (T : Submodule O V) (Vplus : Submodule K V
   change v ∈ Vplus
   simpa only [smul_smul, inv_mul_cancel₀ hc, one_smul] using hi
 
-/-- Test `ordinaryLatticePlus_saturation`: membership is tested in the original
-lattice and the K-line, so replacing the intersection by p times it is invalid. -/
+/-- Membership part of `ordinaryLatticePlus_saturation`. This example checks
+the intersection, but does not test the torsion quotient of a nonsaturated
+sublattice; that non-example still requires its own statement. -/
 example (T : Submodule O V) (Vplus : Submodule K V) (v : V) (hv : v ∈ T)
     (hl : v ∈ Vplus) : v ∈ ordinaryLatticePlus T Vplus := ⟨hv, hl⟩
 end OrdinaryLattice

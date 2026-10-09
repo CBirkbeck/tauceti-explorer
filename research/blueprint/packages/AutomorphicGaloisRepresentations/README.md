@@ -215,11 +215,26 @@ Concrete tests for this interface:
 
 **Parabolic realisations.** Package the image of H¹_c→H¹ with Sym^{k−2} coefficients as M(N,ψ)_!, with Betti conjugation, filtered de Rham and every λ-adic realisation and their comparisons. At an auxiliary fine level M≥3 with N|M and the same excluded prime set, require canonical change-of-level identifications. For each coefficient embedding its rank is twice the dimension of the corresponding ψ-cusp space; its top filtration has the cusp-space dimension. After tensoring over Q with C the top filtration is the product of those cusp spaces over all coefficient embeddings. The twisted Fricke pairing takes values in M_ψ(1−k) and is rationally perfect. Transport the full Hecke action with the DFG ψ⁻¹ convention. Integral/crystalline comparisons are restricted by the excluded set; λ-adic existence is not. The parabolic image excludes Eisenstein boundary classes.
 
+Here k≥2, N≥1 and ψ has conductor dividing N and values in K. The excluded
+set is S_N={ℓ:ℓ divides Nk!}, and the fine level satisfies S_M=S_N.
+For DFG's action, T_p is the double coset of diag(p,1) multiplied by
+ψ(p_p)⁻¹; for p∤N the scalar-p double coset multiplied by ψ(p_p)⁻²
+acts by ψ(p_p)⁻¹p^{k−2}. These conventions hold on the entire parabolic
+structure, before selecting a newform factor.
+
 *Inputs:* `ModularCurvesPartII:R14.3`; `GeneralizedHeegnerCycles:GH.0`; `mathlib:ModularForm`; `mathlib:CuspForm`.
 
 *Reference:* [F. Diamond, M. Flach and L. Guo](https://arxiv.org/pdf/2512.02348v2) — Theorem 2.4, p. 24 (arXiv v2); [F. Diamond, M. Flach and L. Guo](https://arxiv.org/pdf/2512.02348v2) — §4.5, (28) and Lemma 4.12, p. 51 (arXiv v2); [F. Diamond, M. Flach and L. Guo](https://arxiv.org/pdf/2512.02348v2) — Proposition 5.6, p. 56 (arXiv v2); [F. Diamond, M. Flach and L. Guo](https://arxiv.org/pdf/2512.02348v2) — §5.2, Lemma 5.2 and formula (29), pp. 53–54 (arXiv v2); [F. Diamond, M. Flach and L. Guo](https://arxiv.org/pdf/2512.02348v2) — §1.3, p. 12 (arXiv v2).
 
 **Rank-two newform realisation.** For a normalized cusp newform g, take the common kernel of its Hecke ideal in the rational parabolic realisation. It has rank two over the coefficient field. DFG's factor M_g^DFG realizes the conjugate form, with geometric good polynomial `X²−ψ(p)⁻¹a_pX+ψ(p)⁻¹p^{k−1}`. Define our cohomological factor by `M_g=M_g^DFG⊗M_{ψ⁻¹}`; its polynomial becomes `X²−a_pX+ψ(p)p^{k−1}` and its arithmetic dual is the classical Galois representation. Identify the top Hodge line with Kg and show oddness at every λ. Rational irreducibility has its own target in R19.3. For k=2 use the modular abelian quotient, and for k>2 use the Kuga–Sato projector.
+
+The restricted Fricke pairing on M_g^DFG is alternating and perfect, giving
+`∧²_K M_g^DFG ≅ M_ψ(1−k)`. After the twist,
+`∧²_K M_g ≅ M_{ψ⁻¹}(1−k)`. Thus the arithmetic dual satisfies
+`ρ_{g,λ} ≅ M_{g,λ}^DFG(k−1)` and
+`det ρ_{g,λ}=ψχ_ℓ^{k−1}`, with ψ interpreted by arithmetic reciprocity.
+It is continuous and unramified outside Nℓ, and complex conjugation is
+conjugate to diag(1,−1). These rational statements hold at every finite λ.
 
 *Inputs:* `R19.1/parabolic-realisation-premotive`; `R19.1/geometric-construction-and-the-eichler-congruence-relation`; `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.6`; `R19.1/newform-projector-and-coefficient-descent`.
 
@@ -452,7 +467,7 @@ Concrete tests for this interface:
 
 *Reference:* [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 3.3, Proposition, p. 422; [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 5.5, pp. 428–429; [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 5.6.1, p. 429.
 
-**Carayol's geometric Hilbert theorem.** For π of type (k,w), require additionally a finite essentially square-integrable place if d is even. After enlarging the coefficient field construct Carayol's σ_λ system with the Hecke-correspondence local representation at every finite v of residue characteristic different from λ. The auxiliary-place and extraordinary-place exclusions of Theorem B are removed by base change and the primitive-restriction argument; the even-degree existence hypothesis is retained. Translate σ_λ to ρ_{π,λ} by the dictionary. This geometric theorem is distinct from the unrestricted Hilbert construction below.
+**Carayol's geometric Hilbert theorem.** For π of type (k,w), require additionally a finite essentially square-integrable place if d is even. After enlarging the coefficient field construct Carayol's σ_λ system with the Hecke-correspondence local representation at every finite v of residue characteristic different from λ. The auxiliary-place and extraordinary-place exclusions of Theorem B are removed by base change and the primitive-restriction argument; the even-degree existence hypothesis is retained. Translate σ_λ to ρ_{π,λ} by the dictionary. This geometric theorem is distinct from the unrestricted Hilbert construction above.
 
 *Inputs:* `HilbertModularVarietiesAndShimuraCurves:R18.4`; `HilbertModularVarietiesAndShimuraCurves:R18.2`; `R19.1/newform-rank-two-realisation`; `R19.2/carayol-theorem-b`; `R19.2/carayol-primitive-restriction-lemma`; `R19.2/carayol-cubic-base-change-of-extraordinary`; `R19.2/carayol-twisting-and-determinant`; `GL2AutomorphicRepresentationsAndTransfer:R17.4`; `R19.2/hilbert-uniqueness-determinant-oddness-irreducibility`; `ArithmeticGaloisRepresentations:R01.1`.
 
@@ -474,6 +489,11 @@ Concrete tests for this interface:
 - `Carayol.parabolic_needed_over_Q` (non-example): For F = ℚ, using the full H¹ of the open modular curve adds Eisenstein classes, so σ(π) must be taken in parabolic cohomology.
 
 ### Bad reduction and local geometric multiplicities
+
+Throughout these geometric local arguments, the finite place v has residue
+characteristic different from λ and differs from the auxiliary quaternionic
+ramification place v₀ when that place is present. Theorem A removes the
+v₀ exclusion by its separate base-change argument.
 
 **Vanishing-cycle filtration.** At the bad place, identify the two-step filtration of σ_λ furnished by vanishing cycles and the further decomposition of its first piece into supersingular and normalized-curve contributions. If the normalized contribution σ̃₁ is nonzero, π_v is principal series. If dim σ̃₁=2, then σ_v=σ̃₁ and it is the full local parameter. At a smooth unramified place the multiplicity is already the two-dimensional normalized cohomology. Import bad-reduction models and equivariant vanishing cycles, and retain the distinction between these geometrically defined pieces and residual characters. The weight-two exception in the cohomological argument must be retained.
 
@@ -515,6 +535,11 @@ Concrete tests for this interface:
 
 **The extraordinary cubic step.** Carry out base change along the chosen degree-at-most-three extension and compare the resulting local parameter with restriction of the Galois representation. Use cyclic base change in the normal case and the separate nonnormal cubic theorem in the other case. At the chosen place the transferred principal/special/ordinary-cuspidal parameter must agree with restriction, not merely at almost all places. Globalize the primitive local representation using the tetrahedral/octahedral inputs, apply Theorem B upstairs and descend with the preceding restriction lemma. This also provides the final comparison at the auxiliary place.
 
+The local statement applies to every extension L/F_v of degree at most three
+and every extraordinary cuspidal π_v: its base-change lift corresponds to
+the irreducible restriction of its Weil representation to W_L. The comparison
+also holds in the Hecke normalization.
+
 *Inputs:* `GL2AutomorphicRepresentationsAndTransfer:R17.4`; `GL2AutomorphicRepresentationsAndTransfer:R17.5`; `GL2AutomorphicRepresentationsAndTransfer:R16.3`; `GL2AutomorphicRepresentationsAndTransfer:R17.4/nonnormal-cubic-base-change`.
 
 *Reference:* [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 12.2.2, Proposition, p. 457; [Henri Carayol](https://www.numdam.org/article/ASENS_1986_4_19_3_409_0.pdf) — 12.2.3, p. 458.
@@ -536,6 +561,10 @@ Concrete tests for this interface:
 ### CM and strong irreducibility
 
 **The CM predicate.** On an existing regular Hilbert eigensystem define CM by π_f=AI_L^F(α), for a totally imaginary quadratic L/F and the matching infinity type. The infinity exponents of α are half-integral; the algebraic character is α′=α|·|_L⁻¹/². Its λ-adic induction is our ρ, and α′_λ must differ from its conjugate to give cuspidality and irreducibility. Carayol's inducing character is `(α⁻¹|·|_L⁻¹/²)_λ`; the arithmetic dual uses `(α′_λ)⁻¹`. Supply the inducing field, split/inert trace formulas and compatibility with twists and coefficient extension. The regular k_τ≥2 definition does not silently include the different finite-order weight-one case.
+
+At a complex embedding above τ, the prescribed component of α is
+`z^{(k_τ−1−w)/2} z̄^{(−k_τ+1−w)/2}`, or its conjugate. Twisting by
+`|·|_L⁻¹/²` makes both exponents integral because k_τ≡w modulo 2.
 
 *Inputs:* `GL2AutomorphicRepresentationsAndTransfer:R17.5`; `R19.2/all-cohomological-hilbert-representation`; `ArithmeticGaloisRepresentations:R01.5`; `R19.2/hilbert-normalisation-dictionary`; `AutomorphicGaloisRepresentationsPartII:AG2.0/galois-character-of-an-algebraic-hecke-character`.
 
@@ -796,11 +825,22 @@ Concrete tests for this interface:
 
 **Weight-two Tate-module decomposition.** For a weight-two newform f, its modular abelian variety A_f has V_ℓ(A_f) free of rank two over K_f⊗Q_ℓ. Decompose along λ|ℓ and identify each factor with the arithmetic representation of f, giving Q_ℓ-dimension 2[K_f:Q]. This requires the coefficient action, Weil-pairing adjointness and Eichler–Shimura, not just an equality of Hecke traces. The abelian quotient is specific to weight two; it is not a construction for arbitrary higher weight.
 
+Use the imported quotient `A_f=J₁(N)/𝔭_fJ₁(N)`. The λ-factor is
+`K_{f,λ}⊗_{K_f⊗Q_ℓ}V_ℓ(A_f)`, and the direct sum of these factors is
+an isomorphism of Q_ℓ[G_Q]-modules preserving the K_f-action. For K_f=Q,
+A_f is the elliptic curve E_f.
+
 *Inputs:* `ModularCurvesPartII:R14.5/modular-quotient`; `ModularCurvesPartII:R14.5/modular-quotient-dimension`; `ModularCurvesPartII:R14.6/special-fibre-eichler-shimura`; `R19.1/newform-rank-two-realisation`; `ArithmeticGaloisRepresentations:R01.6`; `R19.3/classical-newform-irreducibility`; `ModularCurvesPartII:R14.2`.
 
 *Reference:* [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — Lemma 1.48, p. 46 (revision of 9 September 2007); [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — §3.1, (3.1.1), p. 85; [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — Theorem 1.41, pp. 42–43, with Lemma 1.38, p. 41.
 
 **Residual newform representation.** Choose a stable lattice in the arithmetic ρ_{f,λ} and define its semisimplified reduction over κ_λ. Its prime-to-ℓ conductor divides N. It is unramified outside Nℓ, has trace a_p modulo λ and determinant ψ̄χ̄_ℓ^{k−1}, and is independent of the lattice up to isomorphism. In odd residue characteristic it is odd. Prove uniqueness from good characteristic polynomials; full polynomials are required even for semisimple representations in characteristic two. A globally irreducible characteristic-zero representation may have reducible reduction. At weight two with rational coefficients compare it with E_f[ℓ]^{ss}, keeping nonsplit lattice reductions distinct before semisimplification.
+
+For odd ℓ, irreducibility of this residual representation is equivalent to
+absolute irreducibility. At every good arithmetic Frobenius p∤Nℓ the full
+polynomial is `X²−(a_p mod λ)X+(ψ(p)p^{k−1} mod λ)`; both coefficients
+are part of the recognition statement. The identity `det ρ̄(c)=−1` holds
+in κ_λ for complex conjugation, including when ℓ=2 and −1=1.
 
 *Inputs:* `R19.1/newform-rank-two-realisation`; `ArithmeticGaloisRepresentations:R01.1`; `ArithmeticGaloisRepresentations:R01.5/recognition-by-characteristic-polynomials-and-coefficient-descent`; `R19.3/classical-newform-irreducibility`.
 
@@ -828,11 +868,20 @@ Concrete tests for this interface:
 
 **The full weight-two Hecke algebra.** For Γ_H(N), take T_Z generated by all T_n and diamond operators, and extend coefficients to R. It is finite free and acts faithfully on the weight-two space and the Jacobian. V_ℓ(J_Γ) is free of rank two over the full rational Hecke algebra; “full” retains generalized oldform eigenspaces and possible nilpotents. Its arithmetic Galois action has good polynomial `X²−T_pX+p〈p〉`. Field factors give characteristic-zero representations, while for odd ℓ reduction gives a semisimple representation depending only on the maximal ideal. A newform factor agrees with the previously constructed representation. Empty cusp spaces give the zero ring, not a rank-two representation over an invented coefficient field.
 
+For an old eigenform the field-factor representation is the scalar extension
+of the representation of its associated newform. Thus passing to an old level
+does not construct a new Galois representation unrelated to that newform.
+
 *Inputs:* `R19.1/geometric-construction-and-the-eichler-congruence-relation`; `R19.1/newform-rank-two-realisation`; `R19.6/weight-two-tate-module-decomposition`; `ModularCurvesPartII:R14.2`; `ArithmeticGaloisRepresentations:R01.6`; `ArithmeticGaloisRepresentations:R01.1`; `AlgebraicModularFormsAndSerreWeights:R15.2`.
 
 *Reference:* [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — §4.1, p. 107 (revision of 9 September 2007); [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — §1.6, Lemma 1.39, p. 42; [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — §4.1, "Associated Galois representations", p. 109; [H. Darmon, F. Diamond and R. Taylor](https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf) — §4.1, "The structure of TK", p. 110.
 
 **The specified reduced localization.** At `N_Σ=ℓ^δ∏_{p|N(ρ̄)}p∏_{p∈Σ\{ℓ}}p²`, modify each optimized newform's old coefficients by a_p(g)=a_p(f) if p∤N_Σ/N_f, by zero at p≠ℓ dividing N_Σ/N_f, and at ℓ by the unit root of `X²−a_ℓ(f)X+ℓ` when ℓ|N_Σ/N_f. The common residual eigenform has a_p=tr(Frob_p on ρ̄'s I_p-coinvariants) for p=ℓ or p∉Σ and a_p=0 otherwise. It defines m in the full Hecke algebra, and the resulting localization is T_Σ≅T_m. This particular T_m is reduced: over a sufficiently large K it is the product of the optimized newform fields, with T_p=0 at p∈Σ\{ℓ} and the unit-root choice at ℓ∈Σ. At p|N(ρ̄)ℓ^δ the arithmetic Frobenius on the representation's inertia coinvariants is T_p. This reduced statement depends on the prescribed Σ and residual localization; a full old Hecke algebra at an unrelated level may contain nilpotents.
+
+Retain all hypotheses of the classical type-Σ Hecke-representation theorem
+below, including odd ℓ, modular irreducible ρ̄ with cyclotomic determinant,
+semistability at ℓ, the inertia-order condition away from ℓ and the allowed
+set Σ. These hypotheses are part of the reduced-localization theorem.
 
 *Inputs:* `R19.6/hecke-algebra-representation-classical`; `R19.6/full-weight-two-hecke-algebra-and-its-galois-representations`; `R19.4/conductor-and-local-factors-classical`; `R19.5/potential-semistability-and-compatibility-at-the-coefficient-prime`; `AlgebraicModularFormsAndSerreWeights:R15.2`; `tauceti:TauCetiRoadmap/ModularForms#layer-4-eigenforms-newforms-primitive-forms-the-conductor`.
 
@@ -892,6 +941,11 @@ Concrete tests for this interface:
 ### Arithmetic representations over Hecke algebras
 
 **Quaternionic Hecke-algebra representations.** Use the Khare–Wintenberger setting: F totally real of even degree, p unramified in F, D definite at infinity and ramified at a finite even-cardinality set Σ, forms S_{k,ψ}(U,O), and the Hecke algebra generated outside a bad set S. Take k≥2 parallel, k=2 if p=2; exclude Σ∩{v|p} if k>2. Choose a sufficiently large p-adic coefficient field containing the embeddings of F, splitting D at p, and a coefficient action with central restriction ψ⁻¹ and ψ on sufficiently small p-units equal to the norm power 2−k. For noncompact U at p=2 specify the extension of the weight-two trivial action from the maximal compact subgroup. S includes infinity, p, Σ, nonmaximal level and nontrivial coefficient action. At a non-Eisenstein maximal ideal, whose residual representation is absolutely irreducible, construct the arithmetic representation over the completed local Hecke algebra, unramified outside S with good polynomial `X²−T_vX+Nvψ(ϖ_v)`. Identify every eigenform specialization and construct the fixed-determinant deformation map; additional local conditions must be named individually.
+
+The level `U=∏_v U_v` is open and compact modulo the centre in
+`(D⊗_F A_F^∞)×`, and ψ is an O-valued character of
+`F×\(A_F^∞)×`. The representation is unique up to conjugacy, or up to
+strict equivalence once its residual identification is fixed.
 
 *Inputs:* `R19.6/determinants-and-representability-over-a-hecke-algebra`; `GL2AutomorphicRepresentationsAndTransfer:R17.3`; `IntegralHeckeAndGaloisDeterminants:IHG.1`; `R19.2/all-cohomological-hilbert-representation`; `ArithmeticGaloisRepresentations:R01.1`; `IntegralHeckeAndGaloisDeterminants:IHG.4`; `GlobalGaloisDeformations:R04.2/universal-deformation-ring`; `GlobalGaloisDeformations:R04.2/fixed-determinant-rings`; `GlobalGaloisDeformations:R04.3`; `R19.2/hilbert-normalisation-dictionary`.
 
