@@ -37060,7 +37060,8 @@
    ],
    "revisionOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "prompt": "research/blueprint/prompts/DESIGN-PotentialAutomorphyInfrastructurePartII~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7529"
   },
   {
    "priority": 2,
@@ -41047,8 +41048,9 @@
    ],
    "revisionOf": "BP-RefinedTraceMethods--RT.1",
    "prompt": "research/blueprint/prompts/BP-RefinedTraceMethods--RT.1~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7563"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7563",
+   "finishedAt": "2026-10-09T06:56:55Z"
   },
   {
    "priority": 2,
@@ -41328,8 +41330,9 @@
    ],
    "revisionOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7565"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7565",
+   "finishedAt": "2026-10-09T06:56:57Z"
   },
   {
    "priority": 2,
@@ -47645,8 +47648,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7495"
+   "state": "external",
+   "note": "claimed on GitHub issue #7495"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems",
