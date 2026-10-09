@@ -1,8 +1,8 @@
 {
   "roadmaps": 243,
-  "stages": 5371,
+  "stages": 5523,
   "originalStages": 2197,
-  "sourceRefinements": 3174,
+  "sourceRefinements": 3326,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -89,23 +89,9 @@
       "deferredLinks": 0
     },
     {
-      "roadmap": "GeneralizedHeegnerCycles",
-      "status": "partial",
-      "nodes": 6,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
       "roadmap": "GrossZagierAndArithmeticHeights",
       "status": "partial",
       "nodes": 8,
-      "review": "accepted",
-      "deferredLinks": 0
-    },
-    {
-      "roadmap": "LanglandsParameterStacks",
-      "status": "partial",
-      "nodes": 16,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -201,14 +187,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5270,
+  "mathematicalStars": 5422,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2324,
-  "stageEdges": 14174,
+  "roadmapEdges": 2354,
+  "stageEdges": 14558,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -372,6 +358,12 @@
       "roadmap": "AutomorphicLFunctionsAndLocalFactors",
       "nodes": 124,
       "reviewer": "independent-review-REV-FIX-RT-AREA-automorphic-1~5"
+    },
+    {
+      "file": "AutomorphicSpectralTheory",
+      "roadmap": "AutomorphicSpectralTheory",
+      "nodes": 190,
+      "reviewer": "independent-review-REV-AutomorphicSpectralTheory~2"
     },
     {
       "file": "BorelRegulators",
@@ -714,6 +706,12 @@
       "roadmap": "GeneralAlgebraicKTheory",
       "nodes": 22,
       "reviewer": "independent-review-REV-GeneralAlgebraicKTheory--K.6"
+    },
+    {
+      "file": "GeneralizedHeegnerCycles--GH.0",
+      "roadmap": "GeneralizedHeegnerCycles",
+      "nodes": 66,
+      "reviewer": "independent-review-REV-GeneralizedHeegnerCycles--GH.0~2"
     },
     {
       "file": "GeneralizedHeegnerCycles--GH.8",
@@ -1118,6 +1116,12 @@
       "reviewer": "independent-review-REV-KatoEulerSystems~2"
     },
     {
+      "file": "LanglandsParameterStacks",
+      "roadmap": "LanglandsParameterStacks",
+      "nodes": 79,
+      "reviewer": "independent-review-REV-LanglandsParameterStacks~2"
+    },
+    {
       "file": "LefschetzPencilsAndVanishingCycles--LPV.7",
       "roadmap": "LefschetzPencilsAndVanishingCycles",
       "nodes": 36,
@@ -1262,6 +1266,12 @@
       "reviewer": "independent-review-REV-RankZeroOneBSD--BSD.7"
     },
     {
+      "file": "RefinedTraceMethods--RT.1",
+      "roadmap": "RefinedTraceMethods",
+      "nodes": 154,
+      "reviewer": "independent-review-REV-RefinedTraceMethods--RT.1~3"
+    },
+    {
       "file": "RefinedTraceMethods--RT.5",
       "roadmap": "RefinedTraceMethods",
       "nodes": 84,
@@ -1278,6 +1288,12 @@
       "roadmap": "SchemeAndStackFoundations",
       "nodes": 303,
       "reviewer": "independent-review-REV-SchemeAndStackFoundations"
+    },
+    {
+      "file": "SchemeKTheoryOperations",
+      "roadmap": "SchemeKTheoryOperations",
+      "nodes": 284,
+      "reviewer": "independent-review-REV-SchemeKTheoryOperations~3"
     },
     {
       "file": "SemisimpleAlgebrasPartII",
@@ -1353,8 +1369,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36557818,
-  "htmlSha256": "13500d75bbb78931a1d214d77b9f9c0342347f28ebf6cf63e617921f130c1922",
+  "htmlBytes": 36764160,
+  "htmlSha256": "7d9f55157192997229d214e7e1e7a5873644d8c55daceac84ae75467ab2f4846",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1386,7 +1402,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "34fce4eb5e48594e31cf1fe6f3879d5f6f3668d53dab49bc1276f3b4e463bc39",
+    "data/roadmap-distances.json": "50aa7ac875e4654002061d6647317a3998168555664cee770f33e28586278179",
     "data/galaxy-layout.json": "c4f41c53e501ae0cb94c10f730031eafef5ce9f4ac8c9802cf8d78dcb31c1ab7",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1498,6 +1514,8 @@
     "data/blueprints/AutomorphicGaloisRepresentationsPartII--AG2.6.md": "90bf042687f2e683c79931526fe09f0062466d8eee1ac5dd5564e002f460b086",
     "data/blueprints/AutomorphicLFunctionsAndLocalFactors.json": "027d276a86a22f4639b70de5b89178ae37aac422d47ef4ebd8484522e91733f8",
     "data/blueprints/AutomorphicLFunctionsAndLocalFactors.md": "4ed406b134a1c3a759d05d53540a5e0768a740ae68bb7e32c4f57ef48cc79f99",
+    "data/blueprints/AutomorphicSpectralTheory.json": "77f187b0fe9069ab8da85878cf0994dd8cbbdcf6833d6dd687281cde8ff021c0",
+    "data/blueprints/AutomorphicSpectralTheory.md": "7a64bbcd6818769c8b9a5922133c9839f7bda0539aa20a7541c9cd69fd768479",
     "data/blueprints/BorelRegulators.json": "0db5afd8caf537c2bb641834f9e6f34bd1bd5972101f6dfccbf6e0712ed1929b",
     "data/blueprints/BorelRegulators.md": "af26308ddd8367c99df9c1636903574f4b68042c041d700b18abf03236c78259",
     "data/blueprints/ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.json": "1d997f9d4e41b1cfb689e02c9f442b315110361d8659ca205401703f020096e2",
@@ -1612,6 +1630,8 @@
     "data/blueprints/GeneralAlgebraicKTheory--K.1.md": "0897b3b7abb9bdfd592bc3324b70acc5cc9905d85d84c923d90a8d3c033d29f0",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.json": "2da20e3f8f6d3e492835c2623df3a72c79de4e27814c7a1f55fd50674dee2b4c",
     "data/blueprints/GeneralAlgebraicKTheory--K.6.md": "acccd72a10a82d52e7b0981a1975476cefb9578c8a2b876a1491e53c808a8f8f",
+    "data/blueprints/GeneralizedHeegnerCycles--GH.0.json": "af37167db19731219a66dfe274d0a777dcec92d615747573e8a0be8bc0d9fb7a",
+    "data/blueprints/GeneralizedHeegnerCycles--GH.0.md": "dc5d597d6fdc2402d4e688c9a831b220f19fec43dfa3da392daa3e4f6319cda0",
     "data/blueprints/GeneralizedHeegnerCycles--GH.8.json": "56c0ee0c5a5d941673f9116bff1efe737128efaf998bc8f1dfd6023bd738c846",
     "data/blueprints/GeneralizedHeegnerCycles--GH.8.md": "86378323be2194b15d677548c2c9c031d79422f226c27a3f06d2782661f65ea3",
     "data/blueprints/GenericDoublePointInterpolation.json": "f45d5d1dd9f71817a69d6168f5cea23288ef6ef802f18b239c1d50be5bd6b5de",
@@ -1746,6 +1766,8 @@
     "data/blueprints/KTheoryLowDegrees--Z.3.md": "1de007c18a4159cf6bfc16149c6422ebf8f5f05c6d4fa9d4bef3f4fa400bcc86",
     "data/blueprints/KatoEulerSystems.json": "2e20bb9c664e69676a7a7916bb051fffc7eb011efbfbb9b90409862b122816f6",
     "data/blueprints/KatoEulerSystems.md": "29f96a8aae6d685c9edf38cda00a3fe0d6b8b09dfc210237a73645da1100a476",
+    "data/blueprints/LanglandsParameterStacks.json": "3b6e2dcfecf2d5e737711f16cdd707b316fe3e1f5b4f4f2106011731258c36c7",
+    "data/blueprints/LanglandsParameterStacks.md": "c8a8027d8c9ebfb7550e61066166662a12e3abde64aef3a07a4faf10375cca7f",
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.json": "2094b25ba6edf1a354a117c28ec9e365def97ae9c533ca75da347cf4db5859a3",
     "data/blueprints/LefschetzPencilsAndVanishingCycles--LPV.7.md": "13091d41320605895a5f4d857dd9ce0df5caa88b68f4ea3e54effba78aab68cd",
     "data/blueprints/LocalGaloisDeformationRings.json": "b2f9fa6210210c97bc6f612363d33dad2c4eefc07a62ed92168143b6e4a809bc",
@@ -1794,12 +1816,16 @@
     "data/blueprints/ProbabilisticAndMetricNumberTheory.md": "b7e90cc06297f3f3fd9baf7e5e8c452a935a601fc650bf168b2a5cae6932052b",
     "data/blueprints/RankZeroOneBSD--BSD.7.json": "b1187dca247854b2b93544536d74a0ff73d3db52af7f291853546c0baa270ba6",
     "data/blueprints/RankZeroOneBSD--BSD.7.md": "e777bf66c64a8bedcd7760fa7c76e2ccbbfb1426cba59336b6d2aab20d9535e8",
+    "data/blueprints/RefinedTraceMethods--RT.1.json": "e433ebf0ac3e9c6bd33379f255c3a3dc22311c1da5e24225c7b4e8b1e7f750bf",
+    "data/blueprints/RefinedTraceMethods--RT.1.md": "b30d0f001b8b534cec376b02326998c122620078f91336329298d9dba231db05",
     "data/blueprints/RefinedTraceMethods--RT.5.json": "7317ebbb1fe702a4d9e69857b74b00944958be37bd2e35472ad31cced0c7e3bd",
     "data/blueprints/RefinedTraceMethods--RT.5.md": "48578b673528545e0dd8db2b49f4f60b4a9281c680e4a7b2243fb79cd65e5a33",
     "data/blueprints/RelativeFarguesFontaine--RF4.json": "1a9cc6a6c7eef8d7f34e6b4dbbede0d75a8ba06026f62d7b4cdb6a4be18d8d7a",
     "data/blueprints/RelativeFarguesFontaine--RF4.md": "1997bc7142a2067443aefee87480617c1fe9f999cffc7121d48575d04dc1241e",
     "data/blueprints/SchemeAndStackFoundations.json": "749297387814712aa9b9e2578add55c10bbad82374f71d56b7ee65c5cfeee1cf",
     "data/blueprints/SchemeAndStackFoundations.md": "cb63bfd11a0822a766181443e2c4c49d6dd0a7e0f431035d5cb619af5e65f7c7",
+    "data/blueprints/SchemeKTheoryOperations.json": "6f3216be07092e979c67f2e31857aa7e5babc8a66bbc00edea297283755bcb86",
+    "data/blueprints/SchemeKTheoryOperations.md": "e002f3468d3e1be5f8d00715ed3f06a1079af252fee4b041a8a4e702013afeb4",
     "data/blueprints/SemisimpleAlgebrasPartII.json": "26bf94e0d4e7b2d8d52705e6af8cf16412a1b3e48024d05e481021719107a2f3",
     "data/blueprints/SemisimpleAlgebrasPartII.md": "7d72aa9a82427470a96a523a502fdd12fee1268a581dd08fd02e94d143bec247",
     "data/blueprints/ShimuraCompactifications--C6.json": "1106fa4773d45d8ca2ebe86e66aa02ae62a56341e9828c07f65aca690da7d771",

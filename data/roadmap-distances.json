@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.173
+  "declarationsVsDistance": -0.187
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -1195,7 +1195,17 @@
     "missingLayers": 36.0,
     "missingTargets": 173.2,
     "depth": 15,
-    "suppliers": 14
+    "suppliers": 14,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 190,
+     "missingDeclarations": 190,
+     "depth": 22,
+     "layersCovered": 7,
+     "layers": 7,
+     "sourcePages": 110
+    }
    },
    "measurement": 4.21,
    "judgements": 10,
@@ -3098,12 +3108,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 16,
-     "missingDeclarations": 16,
-     "depth": 6,
-     "layersCovered": 1,
+     "declarations": 82,
+     "missingDeclarations": 82,
+     "depth": 17,
+     "layersCovered": 9,
      "layers": 9,
-     "sourcePages": 21
+     "sourcePages": 106
     }
    },
    "measurement": 8.98,
@@ -4066,14 +4076,14 @@
     "depth": 35,
     "suppliers": 31,
     "declarationLevel": {
-     "source": "decomposition",
+     "source": "blueprint",
      "reviewed": true,
-     "declarations": 16,
-     "missingDeclarations": 16,
-     "depth": 6,
+     "declarations": 79,
+     "missingDeclarations": 79,
+     "depth": 15,
      "layersCovered": 7,
      "layers": 7,
-     "sourcePages": 23
+     "sourcePages": 80
     }
    },
    "measurement": 5.72,
@@ -5305,12 +5315,12 @@
     "declarationLevel": {
      "source": "blueprint",
      "reviewed": true,
-     "declarations": 84,
-     "missingDeclarations": 84,
+     "declarations": 238,
+     "missingDeclarations": 238,
      "depth": 21,
-     "layersCovered": 2,
+     "layersCovered": 9,
      "layers": 9,
-     "sourcePages": 121
+     "sourcePages": 470
     }
    },
    "measurement": 6.18,
@@ -5444,7 +5454,17 @@
     "missingLayers": 110.5,
     "missingTargets": 602.4,
     "depth": 17,
-    "suppliers": 25
+    "suppliers": 25,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 284,
+     "missingDeclarations": 284,
+     "depth": 34,
+     "layersCovered": 7,
+     "layers": 7,
+     "sourcePages": 336
+    }
    },
    "measurement": 5.18,
    "judgements": 10,
