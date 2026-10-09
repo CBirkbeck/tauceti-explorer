@@ -1,0 +1,3001 @@
+{
+  "roadmapId": "AlgebraicModuliForArithmeticGeometry",
+  "protocol": "blueprint-v1",
+  "part": "R09.7a",
+  "scope": [
+    "AlgebraicModuliForArithmeticGeometry:R09.7a",
+    "AlgebraicModuliForArithmeticGeometry:R09.7b",
+    "AlgebraicModuliForArithmeticGeometry:R09.7c",
+    "AlgebraicModuliForArithmeticGeometry:R09.7d"
+  ],
+  "status": "complete",
+  "summary": "Target-level plan for characteristic-zero resolution, from permissible transforms through the full Bierstone–Milman invariant and global termination to smooth projective SNC compactifications. General blowups are imported from StableReduction under accepted RS-27. Includes arbitrary-scheme Cartier separation and the finite-cover compactification interface. This pass is complete for review, not mathematically closed: missing supplier interfaces, topological boundary-monodromy proofs, and geometric Lean signatures are recorded explicitly.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Ideal",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Defs.lean",
+        "provides": "Native ring ideals, their membership and containment.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:Ideal.map",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Maps.lean",
+        "provides": "Extension of an ideal along a ring homomorphism; not contraction.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:Ideal.span",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Span.lean",
+        "provides": "Smallest ideal containing the given set.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "Power series indexed by finitely supported multiindices with coefficientwise equality.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.order",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Order.lean",
+        "provides": "Total-degree order in extended natural numbers; zero has infinite order.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData",
+        "kind": "structure",
+        "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
+        "provides": "Affine ideal data compatible with principal-open restriction, not yet an actual subsheaf carrier.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Smooth",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
+        "provides": "Smoothness of scheme morphisms defined by smooth affine ring maps.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:reesAlgebra",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/ReesAlgebra.lean",
+        "provides": "Native subalgebra of R[t] with coefficient in I^n at degree n; does not itself construct a relative blowup.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.«Proj»",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean",
+        "provides": "Scheme Proj of a graded ring; affine opens do not supply the global resolution theorem.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:HasStrictFDerivAt.toOpenPartialHomeomorph",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Calculus/InverseFunctionTheorem/FDeriv.lean",
+        "provides": "Native local inverse construction for a strict derivative which is a continuous linear equivalence; applicable over C.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsProper",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
+        "provides": "Proper scheme morphisms; the predicate supplies separatedness, universal closedness and local finite type.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.IsOpenImmersion",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/OpenImmersion.lean",
+        "provides": "Native open immersion of schemes, with open range; not an arbitrary injective function.",
+        "checked": "Actual definition and its ambient hypotheses read in the shared build at the recorded Mathlib pin on 2026-10-09; selected forms elaborated in the companion suggested file."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "BM97",
+      "title": "Canonical desingularization in characteristic zero by blowing up the maximum strata of a local invariant",
+      "authors": "Edward Bierstone and Pierre D. Milman",
+      "edition": "Inventiones Mathematicae128 (1997), 207–302; full 96-page published version",
+      "url": "https://www.mahalex.net/teaching/seminars/gabber/Bierstone-Milman%20Canonical%20desingularization%20in%20characteristic%20zero.pdf",
+      "sha256": "f01ebbb0591fa62f9b65c16ab54f35e7409cf4fb0abd1f01bf3bf9b59d87ecaf",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§§1, 3–9, pp. 207–225, 230–283",
+        "§§10–13, pp. 283–298; Theorems 11.14, 12.2, 12.4, 13.2",
+        "Examples 2.1–2.3, pp. 226–229; principalization Theorem 1.10, p. 216"
+      ]
+    },
+    {
+      "id": "BP26",
+      "title": "Higher Hida theory for Siegel modular forms",
+      "authors": "George Boxer and Vincent Pilloni",
+      "edition": "Author PDF accessed 2026-10-09",
+      "url": "https://www.ma.imperial.ac.uk/~gboxer/higherhidaSiegel.pdf",
+      "sha256": "b97084726de7a30645a7e154a0bd68de86bdda00d36ead35c5e248fde14662ee",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§4.1.10, Proposition-construction4.1.11, p. 42"
+      ]
+    },
+    {
+      "id": "LL24",
+      "title": "Canonical representations of surface groups",
+      "authors": "Aaron Landesman and Daniel Litt",
+      "edition": "arXiv2205.15352v4",
+      "url": "https://arxiv.org/pdf/2205.15352v4",
+      "sha256": "4cb511ba40675aa6899b351f2ee27eb9487b4a21f65ec8000c1f2cc1a5107ceb",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "Lemma 8.3.3 and proof, pp. 40–41; Proposition 8.3.2, p. 40"
+      ]
+    },
+    {
+      "id": "BKT20",
+      "title": "Tame topology of arithmetic quotients and algebraicity of Hodge loci",
+      "authors": "Benjamin Bakker, Bruno Klingler and Jacob Tsimerman",
+      "edition": "Author preprint of JAMS33 (2020), 917–939",
+      "url": "https://benjamin-bakker.github.io/DefArith.pdf",
+      "sha256": "b559c652490eb54595e86ec063945d016dd104949a91f9d6b4616cc4e25b8c8e",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§4.1 and Theorem 4.1, preprint p. 13; compactification used as input"
+      ]
+    },
+    {
+      "id": "SR",
+      "title": "Stable reduction of curves",
+      "authors": "Tau Ceti roadmap contributors",
+      "edition": "Current read-only TauCetiRoadmap main inspected2026-10-09",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/StableReduction",
+      "readSections": [
+        "Layer 2 coherent sheaves, relative Proj and Cartier interfaces",
+        "Layer 4 general blowups, strict transforms and flat base change; arithmetic-surface specialization"
+      ]
+    },
+    {
+      "id": "BM89",
+      "title": "Uniformization of analytic spaces",
+      "authors": "Edward Bierstone and Pierre D. Milman",
+      "edition": "Journal of the American Mathematical Society2 (1989), 801–836",
+      "url": "https://www.researchgate.net/publication/255647609_Uniformization_of_Analytic_Spaces",
+      "canonicalUrl": "https://doi.org/10.1090/S0894-0347-1989-1001853-2",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "Theorem 5.2.1 and Corollary 5.2.2 with proof, pp. 820–821; primary paper full text read through ResearchGate because the AMS PDF returned403"
+      ]
+    },
+    {
+      "id": "SERRE56",
+      "title": "Géométrie algébrique et géométrie analytique",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Annales de l’Institut Fourier6 (1956), 1–42",
+      "url": "https://www.numdam.org/article/AIF_1956__6__1_0.pdf",
+      "sha256": "9898f985dd6932496e26450bfe0beca8655a937032f545b97cebd88d1bc8eb98",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§1nos.1–2, pp. 3–5; §2no. 5, Lemma 1 and Proposition 2, pp. 7–9; no. 6, pp. 9–11; no. 7Proposition6, p. 12"
+      ]
+    },
+    {
+      "id": "LLSS23",
+      "title": "Surface bundles and the section conjecture",
+      "authors": "Wanlin Li, Daniel Litt, Nick Salter and Padmavathi Srinivasan",
+      "edition": "Author PDF of Mathematische Annalen386 (2023), 1057–1116",
+      "url": "https://nsalter.science.nd.edu/research/sectconj.pdf",
+      "sha256": "861d5317374d0cc7184d42afb21a4497dddae85502cebab68b66112fdd5dab44",
+      "accessed": "2026-10-09",
+      "readSections": [
+        "§2.1, Lemma 2.1.1 and its proof, author PDFpp.6–8"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/order-filtration",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "title": "Order along a centre",
+      "kind": "definition",
+      "statement": "For an ideal I in a Noetherian local ring A and a centre ideal P, orderAlong(P, I) is the supremum of d with I contained in P^d, valued in N∪{∞}. For point order use P=m_a. The predicate orderAtLeast(P, I, d) is exactly that containment; order of the zero ideal is infinite and order of the unit ideal at a proper P is zero. Finite order and generic centre order require separatedness and nonvanishing, not merely a numerical annotation.",
+      "hypotheses": [
+        "Commutative rings for the containment predicate; Noetherian local separated rings for finite-order consequences."
+      ],
+      "proofSteps": [
+        "Use native ideal powers and containment.",
+        "Apply Krull intersection to prove finiteness for nonzero ideals when required.",
+        "On regular coordinate charts compare with least nonzero Taylor degree."
+      ],
+      "prerequisites": [
+        "mathlib:Ideal",
+        "mathlib:MvPowerSeries.order"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§3, pp. 230–231; Remark 1.8, p. 215",
+          "match": "The local order and admissibility clauses use ideal-power containment. Krull-intersection finiteness is an additional algebraic proof step, not inferred from an arbitrary numerical annotation."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Transforms",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Order along a centre"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Elaborates the exact order-at-least predicate; numerical order on arbitrary local rings and its stalk comparison are omitted."
+      },
+      "uses": [
+        {
+          "where": "BM97 §4.3 admissible centres",
+          "how": "Ensures divisibility by the exceptional equation to the mark; supplies orders for µ and ν."
+        }
+      ],
+      "api": [
+        {
+          "name": "orderAtLeast_iff",
+          "role": "characterisation",
+          "statement": "Order at least d iff I≤P^d."
+        },
+        {
+          "name": "orderAtLeast_antitone",
+          "role": "compatibility",
+          "statement": "If e≤d then order at least d implies order at least e."
+        },
+        {
+          "name": "orderAtLeast_zero",
+          "role": "simp",
+          "statement": "Every ideal has order at least zero."
+        }
+      ],
+      "tests": [
+        {
+          "name": "order_zero_ideal",
+          "kind": "degenerate",
+          "statement": "The zero ideal has order at least every d."
+        },
+        {
+          "name": "order_unit_ideal",
+          "kind": "non-example",
+          "statement": "At a proper ideal P, the unit ideal does not have positive order."
+        },
+        {
+          "name": "order_power",
+          "kind": "computation",
+          "statement": "P^d has order at least d, including d=0."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.orderAtLeast"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/snc-pair",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "title": "SNC boundaries and permissible centres",
+      "kind": "definition",
+      "statement": "On a smooth finite-type k-scheme M, a labelled SNC boundary E is a finite family of distinct smooth effective Cartier hypersurfaces such that at every geometric point their local equations are distinct members of one regular parameter system. A smooth closed centre C is boundary-permissible when in the same parameters C is a coordinate subspace. Components may contain C or meet it transversely; requiring transversality to every divisor would incorrectly exclude monomial centres. In a chosen formal chart the boundary and centre are recorded by subsets B, J of coordinate indices.",
+      "hypotheses": [
+        "k has characteristic zero for resolution; SNC and coordinate permissibility themselves make sense over any perfect field.",
+        "Boundary labels are retained after strict transform; new exceptional labels are appended."
+      ],
+      "proofSteps": [
+        "Import regular local and effective Cartier interfaces.",
+        "Express simultaneous normal crossings by a common étale parameter chart.",
+        "Use SR4 coordinate blowup charts to retain smoothness and SNC after a permissible blowup."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "mathlib:AlgebraicGeometry.Smooth"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§3, pp. 234–237; §4.1–4.3, pp. 241–242",
+          "match": "The local-coordinate boundary and admissible-centre conditions allow a centre contained in exceptional components; their coordinate blowup calculation preserves normal crossings."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Transforms",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "SNC pairs"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "coordinateIdeal is the faithful chosen-chart centre. Global SNC, regular parameters and étale charts are omitted, never assumed in fields."
+      },
+      "uses": [
+        {
+          "where": "BM97 §6.7, §12.3",
+          "how": "Tracks the boundary through each step and permits centres contained in old exceptional components."
+        }
+      ],
+      "api": [
+        {
+          "name": "coordinateIdeal_empty",
+          "role": "simp",
+          "statement": "Empty coordinate set cuts out the whole chart."
+        },
+        {
+          "name": "coordinateIdeal_mono",
+          "role": "compatibility",
+          "statement": "Including more coordinates enlarges the ideal and shrinks the centre."
+        },
+        {
+          "name": "coordinateIdeal_mem",
+          "role": "projection",
+          "statement": "Each selected coordinate vanishes on the centre."
+        }
+      ],
+      "tests": [
+        {
+          "name": "centre_empty",
+          "kind": "degenerate",
+          "statement": "The empty subset gives zero ideal, not the empty centre."
+        },
+        {
+          "name": "centre_singleton",
+          "kind": "computation",
+          "statement": "A one-coordinate centre has ideal generated by that coordinate."
+        },
+        {
+          "name": "boundary_contained_centre",
+          "kind": "compatibility",
+          "statement": "The origin centre contains each boundary equation in its ideal; containment is allowed."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.coordinateIdeal"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/marked-ideal",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "title": "Marked ideals and cosupport",
+      "kind": "definition",
+      "statement": "A geometric marked ideal consists of a smooth ambient M, a smooth embedded N meeting the boundary transversely, a coherent ideal I on N, a positive integer b and the labelled boundary E. Its cosupport consists of a∈N with ord_a(I)≥b. A permissible marked-ideal centre is a smooth boundary-coordinate centre contained in this cosupport; locally normal flatness or coordinate order comparison gives I⊂I_C^b. The local ring carrier retains I and b without confusing a mark with the actual order.",
+      "hypotheses": [
+        "Coherent ideal on smooth N over a characteristic-zero field.",
+        "b>0; zero ideals are allowed locally but excluded in principalization of an ideal on a component."
+      ],
+      "proofSteps": [
+        "Use order-filtration at each stalk to define the cosupport.",
+        "Prove invariance under a change of generators.",
+        "Check containment along permissible smooth centres in adapted coordinates."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/order-filtration",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/snc-pair"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§4.1–4.4, pp. 241–242",
+          "match": "Function-mark families and their common order loci supply the local marked-ideal contract; ideal operations assemble the corresponding coherent-ideal form."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Transforms",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Marked ideals"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Exact local carrier and cosupport at a supplied prime/maximal ideal. Smooth ambient, coherent stalks, boundary and global centre conditions remain omitted."
+      },
+      "uses": [
+        {
+          "where": "BM974.18, 4.23, 6.10",
+          "how": "Normalizes weighted coefficient data and encodes invariant strata as intersections of cosupports."
+        }
+      ],
+      "api": [
+        {
+          "name": "MarkedIdeal.cosupport_iff",
+          "role": "characterisation",
+          "statement": "Cosupport membership at P is I≤P^b."
+        },
+        {
+          "name": "MarkedIdeal.power",
+          "role": "constructor",
+          "statement": "For q>0 replace (I, b) by (I^q, qb), used after denominator clearing."
+        },
+        {
+          "name": "MarkedIdeal.intersection",
+          "role": "constructor",
+          "statement": "Weighted intersection uses a common mark d: sum of I_i^(d/b_i); its cosupport is the intersection in regular local rings."
+        }
+      ],
+      "tests": [
+        {
+          "name": "marked_zero",
+          "kind": "degenerate",
+          "statement": "A zero ideal with positive mark has full cosupport."
+        },
+        {
+          "name": "marked_unit",
+          "kind": "non-example",
+          "statement": "A unit ideal with positive mark has empty cosupport at a proper P."
+        },
+        {
+          "name": "mark_changes_cosupport",
+          "kind": "computation",
+          "statement": "In K[[x]], (x, 1) has origin in cosupport while (x, 2) does not."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.MarkedIdeal"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "title": "Total, strict, weak and controlled transforms",
+      "kind": "construction",
+      "statement": "For a permissible blowup σ with exceptional Cartier ideal H=(y), total transform is I·O_M′; strict transform of a closed subscheme is the saturation ⋃_q(I_total:H^q), imported from SR4. Controlled transform of (I, b) is H^(−b)I_total with b unchanged. Weak transform divides by the generic order c along the centre, hence H^(−c)I_total. These operations generally differ. Locally controlled division is the unique ideal J satisfying (y^b)J=I_total when y is a nonzerodivisor; the colon ideal realizes J when divisibility holds.",
+      "hypotheses": [
+        "Permissible centre gives I_total⊂(y^b).",
+        "y is a nonzerodivisor on the smooth blowup chart.",
+        "Weak generic order may be defined separately on centre components."
+      ],
+      "proofSteps": [
+        "Import SR4 blowup, Cartier exceptional ideal and saturation.",
+        "Apply centre-order divisibility in every chart.",
+        "Glue local divided ideals using unit changes of y."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/marked-ideal"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§3.13, p. 237; §4.4, pp. 242–243; Lemma 5.1, p. 248",
+          "match": "The source distinguishes strict and weak transforms from fixed-mark division; exceptional test blowups use total pullback. The plan preserves all four distinctions."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Transforms",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Controlled transforms"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Exact affine total extension and colon division. It represents controlled transform only under the stated divisibility and nonzerodivisor hypotheses; saturation/weak/global transforms are omitted."
+      },
+      "uses": [
+        {
+          "where": "BM974.4 and5.1; BP264.1.11",
+          "how": "Controlled exponents retain the mark; SR4 strict transform is reused rather than replanned."
+        }
+      ],
+      "api": [
+        {
+          "name": "totalTransform_id",
+          "role": "simp",
+          "statement": "Identity ring map leaves the total ideal fixed."
+        },
+        {
+          "name": "dividedIdeal_mem",
+          "role": "characterisation",
+          "statement": "r belongs to the divided ideal iff y^b r belongs to I."
+        },
+        {
+          "name": "dividedIdeal_recover",
+          "role": "compatibility",
+          "statement": "If y is a nonzerodivisor and I=(y^b)J, dividedIdeal I y b=J."
+        }
+      ],
+      "tests": [
+        {
+          "name": "divide_mark_zero",
+          "kind": "degenerate",
+          "statement": "Division by y^0 leaves I fixed."
+        },
+        {
+          "name": "divide_monomial",
+          "kind": "computation",
+          "statement": "In a domain, total (y^3), mark 2 divides to (y), whereas strict saturation is the unit ideal if y≠0."
+        },
+        {
+          "name": "zero_divisor_division",
+          "kind": "non-example",
+          "statement": "Colon division need not uniquely recover J when y=0: division of the zero ideal by mark 1 is the unit ideal."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.dividedIdeal"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/transform-base-change",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "title": "Smooth base change of resolution transforms",
+      "kind": "theorem",
+      "statement": "A smooth base change of a permissible blowup identifies the pulled-back controlled transform and marked ideal with their transforms on the base-changed blowup. The analogous strict-transform comparison follows from the flat-base-change statement supplied by SR4. Permissibility and boundary-coordinate charts pull back smoothly. This is a one-step transform theorem; it does not assert that the chosen global invariant or resolution tower commutes with every smooth map.",
+      "hypotheses": [
+        "Smooth finite-type base change; permissible centre, finite-type coherent ideal and labelled SNC boundary."
+      ],
+      "proofSteps": [
+        "Use SR4 flat blowup/strict-transform base change.",
+        "Pull back the exceptional Cartier ideal and its powers.",
+        "Use flatness to preserve the exact sequence expressing controlled division; pull back the local coordinate centre."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/snc-pair",
+        "mathlib:AlgebraicGeometry.Smooth"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§3, pp. 235–237; §4.4, p. 242; assembly using SR4",
+          "match": "The cited chart formulas identify the controlled quotient. Flat pullback and the global blowup comparison are assembled using the imported SR4 theorem; full algorithm functoriality is not inferred."
+        }
+      ],
+      "acceptance": [
+        "Polynomial projection commutes with the controlled chart formula.",
+        "No conclusion about selection of global centres is inferred."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Transforms",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.transform_base_change"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/test-equivalence",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "title": "Test transformations and equivalence of presentations",
+      "kind": "definition",
+      "statement": "A presentation P=(N, {(h_i, b_i)}, E) uses finitely many regular function-mark pairs on a smooth germ and its common cosupport. Type(i) is permissible controlled blowup; type(ii) is product with A¹ based at(a, 0), adding the zero-section to the boundary; type(iii) blows up the intersection of two exceptional divisors and uses total, not controlled, pullback of the h_i. Two presentations are equivalent for a named test class if their cosupports remain equal after every finite legal common test sequence. Keep weak(i, ii), strong(i, ii, iii), and the restricted s* class of Definition 4.10 separate; residualization is only certified for s*.",
+      "hypotheses": [
+        "Equal ambient germs and boundary identification; compare µ invariants only at equal codimension.",
+        "Restricted s* strings are those of Definition 4.10 with its distinguished exceptional divisor, not all type(iii) strings."
+      ],
+      "proofSteps": [
+        "Define legal sequences by their transformations of germs, functions and boundary.",
+        "Quantify over all finite sequences and compare terminal cosupports.",
+        "Transport common transformations to prove reflexivity, symmetry and transitivity."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/marked-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Definitions 4.6, 4.10, pp. 242–244; Propositions 4.8, 4.11, 4.24",
+          "match": "These definitions separate the weak, strong and restricted test classes. The numerical invariance propositions have different test hypotheses, which remain explicit here."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Transforms",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Test equivalence"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Elaborates the universal terminal-outcome equality and its relation API. Outcomes of actual legal geometric transformations, weak/strong/s* legality and boundary transport remain omitted; no arbitrary outcomes are claimed to come from geometry."
+      },
+      "uses": [
+        {
+          "where": "BM974.8, 4.11, 4.19, 4.24",
+          "how": "Recovers numerical invariant values from presentation classes; controls permissible re-presentations."
+        }
+      ],
+      "api": [
+        {
+          "name": "Presentation.equivalent_refl",
+          "role": "relation",
+          "statement": "Every presentation is equivalent to itself in each fixed test class."
+        },
+        {
+          "name": "Presentation.equivalent_trans",
+          "role": "relation",
+          "statement": "Equivalence is transitive for the same test class and boundary identification."
+        },
+        {
+          "name": "Presentation.strong_implies_weak",
+          "role": "compatibility",
+          "statement": "Strong equivalence implies weak equivalence; reverse implication is not asserted."
+        }
+      ],
+      "tests": [
+        {
+          "name": "equivalence_generator_change",
+          "kind": "compatibility",
+          "statement": "Changing a finite generating family of one marked ideal preserves its legal-test cosupports."
+        },
+        {
+          "name": "equivalence_not_same_support",
+          "kind": "non-example",
+          "statement": "(x², 1) and(x, 1) have the same initial cosupport but differ after a Cartier-centre controlled blowup: the first retains(x), the second becomes unit."
+        },
+        {
+          "name": "exceptional_total_pullback",
+          "kind": "computation",
+          "statement": "Under x1=y1, x2=y1y2 in an exceptional test, x1 pulls back to y1 without division by its mark."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.testEquivalent"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7a/cartier-separation",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a"
+      ],
+      "title": "Separation of two effective Cartier divisors",
+      "kind": "construction",
+      "statement": "For any scheme X and effective Cartier divisors D1, D2, set I=O_X(−D1)+O_X(−D2). On p:Bl_I X→X, degree-one generators define regular sections s1, s2 of O(1). Their zero divisors D1′, D2′ are effective Cartier, have disjoint supports, and satisfy p*D1+D2′=p*D2+D1′. In local equations x1, x2, the s_i are the degree-one x_i t. Nonzerodivisor regularity must be proved in the Rees algebra/charts; disjointness alone does not prove the Cartier claim.",
+      "hypotheses": [
+        "No Noetherian, reduced, integral or characteristic-zero assumption on X.",
+        "Each original x_i is a nonzerodivisor where it represents D_i."
+      ],
+      "proofSteps": [
+        "Import SR4 blowup of a finitely generated quasi-coherent ideal on an arbitrary scheme and SR2 effective Cartier/tautological O(1).",
+        "Multiplication by each x_i t on homogeneous Rees pieces is injective because x_i is regular; localizing preserves injectivity.",
+        "Degree-one generators cover Proj, so s1, s2 have no common zero.",
+        "The identity s1·p*x2=s2·p*x1 gives equality of tensor-product sections and divisors."
+      ],
+      "prerequisites": [
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+        "mathlib:reesAlgebra"
+      ],
+      "sources": [
+        {
+          "sourceId": "BP26",
+          "locator": "§4.1.10–4.1.11, p. 42",
+          "match": "The construction is on any scheme: the two degree-one Rees sections define regular residual divisors with disjoint support and the balancing identity. Characteristic-zero and integrality assumptions would incorrectly narrow it."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Transforms",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Cartier divisor separation"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Elaborates Rees-chart data, residual prime supports, the exact section balance and local tests. Blowup/Proj gluing, regular-section and Cartier-divisor predicates, global balance and flat comparison are omitted."
+      },
+      "uses": [
+        {
+          "where": "BP26 Proposition 4.1.13, pp. 42–43",
+          "how": "Separates competing vertical/boundary Cartier divisors before integral Hecke correspondences are used."
+        }
+      ],
+      "api": [
+        {
+          "name": "CartierSeparation.disjoint",
+          "role": "projection",
+          "statement": "Supports of D1′ and D2′ are disjoint."
+        },
+        {
+          "name": "CartierSeparation.balance",
+          "role": "compatibility",
+          "statement": "p*D1+D2′ equals p*D2+D1′ with the stated orientation."
+        },
+        {
+          "name": "CartierSeparation.flatPullback",
+          "role": "functoriality",
+          "statement": "Flat base change carries the construction to that for the pulled-back two divisors."
+        }
+      ],
+      "tests": [
+        {
+          "name": "cartier_equal_inputs",
+          "kind": "degenerate",
+          "statement": "If D1=D2 then blowup along its invertible ideal is identity and both residual divisors are zero."
+        },
+        {
+          "name": "cartier_coordinate_axes",
+          "kind": "computation",
+          "statement": "For(x, y) in A², the x-chart has s1=1, s2=y/x and the y-chart has the opposite residual; no common zero."
+        },
+        {
+          "name": "cartier_mixed_characteristic",
+          "kind": "non-example",
+          "statement": "On Spec Z[t] with D1=(p), D2=(t), the same disjointness/balance theorem holds; it has no characteristic-zero hypothesis."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.CartierSeparationChart"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-diagram",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Initial exponents and Hilbert–Samuel diagrams",
+      "kind": "definition",
+      "statement": "In K[[X1, …, Xn]], order multiindices by(total degree, α1, …, αn). For f≠0 its initial exponent is the least exponent with nonzero coefficient. D(I) is the set of initial exponents of nonzero elements of I; it is closed under addition by N^n. Its finite vertices and the disjoint regions Δ_i=(α_i+N^n) minus previous regions determine standard division. H_I(l) counts exponents outside D(I) with degree≤l, equivalently length of A/(I+m^(l+1)). Use residue-field length intrinsically; a coefficient-field vector-space identification requires a chosen completion chart.",
+      "hypotheses": [
+        "K any field for formal division; finite n.",
+        "No zero series initial exponent; do not identify diagrams with Hilbert–Samuel functions injectively."
+      ],
+      "proofSteps": [
+        "Use the native power-series coefficients and degree-lex well-order.",
+        "Apply Dickson finiteness to the upward-closed diagram.",
+        "Formal division identifies the quotient jets with the complement monomial basis."
+      ],
+      "prerequisites": [
+        "mathlib:MvPowerSeries",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/order-filtration"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§3.17–3.20, pp. 238–240; §7.1, p. 261; §9.15(1), p. 282",
+          "match": "Initial exponents in a fixed degree-compatible order form an upward-closed diagram; complement counts recover the Hilbert–Samuel function in the later invariant construction."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Hilbert–Samuel diagrams"
+      },
+      "leanPrototype": {
+        "status": "signature",
+        "detail": "Named target signatures; no implementation claimed."
+      },
+      "uses": [
+        {
+          "where": "BM97 §§7–9",
+          "how": "Supports the general, non-hypersurface Hilbert–Samuel presentation."
+        }
+      ],
+      "api": [
+        {
+          "name": "initialDiagram_mem",
+          "role": "characterisation",
+          "statement": "Membership is witnessed by an ideal element whose least nonzero coefficient has that exponent."
+        },
+        {
+          "name": "initialDiagram_add",
+          "role": "compatibility",
+          "statement": "Adding any multiindex to a diagram element stays in the diagram."
+        },
+        {
+          "name": "initialExponent_unique",
+          "role": "characterisation",
+          "statement": "A nonzero series has at most one initial exponent."
+        }
+      ],
+      "tests": [
+        {
+          "name": "diagram_zero",
+          "kind": "degenerate",
+          "statement": "The zero ideal has empty diagram."
+        },
+        {
+          "name": "diagram_unit",
+          "kind": "computation",
+          "statement": "The unit ideal has full diagram."
+        },
+        {
+          "name": "diagram_monomial",
+          "kind": "computation",
+          "statement": "A monomial ideal generated by X^α has diagram α+N^n."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.initialDiagram"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-division",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Formal division and standard bases",
+      "kind": "theorem",
+      "statement": "For a finite ordered family g_i of nonzero formal series with initial exponents α_i and disjoint regions Δ_i, every f admits unique q_i, r with f=Σq_i g_i+r, α_i+supp(q_i)⊂Δ_i and supp(r) in the complement. Orders of q_i satisfy ord(q_i)≥ord(f)−|α_i|. A reduced standard basis indexed by the vertices of D(I) generates I and its complement monomials form every finite jet quotient basis.",
+      "hypotheses": [
+        "Field coefficients, finitely many variables, finite family; no convergence assertion is needed."
+      ],
+      "proofSteps": [
+        "Eliminate the least remaining degree-lex term in its unique region.",
+        "At each bounded degree only finitely many coefficients are involved; compatible truncations define formal limits.",
+        "Uniqueness follows by inspecting the least exponent of a difference.",
+        "Dickson vertices plus zero remainder for ideal elements yield the standard basis and Hilbert–Samuel count."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-diagram",
+        "mathlib:MvPowerSeries"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 3.17, Corollaries 3.19–3.20, pp. 238–240; Lemma 7.3, p. 263",
+          "match": "Formal division with specified support regions yields a standard basis and uniqueness of the supported remainder; these are the formal ingredients for the jet-minor construction."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.formal_division"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/weighted-presentation",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Weighted presentations and numerical data",
+      "kind": "definition",
+      "statement": "A finite nonempty list of pairs(h_i, b_i), with positive integral marks, on a smooth germ N defines common cosupport ord(h_i)≥b_i. At a point let µ=min_i ord(h_i)/b_i. For every boundary hypersurface H let µ_H=min_i ord_H(h_i)/b_i, and if µ is finite set ν=µ−Σ_H µ_H; all-zero data give µ=ν=∞. These are different orders: ord_H is divisibility by a local Cartier equation, not point order. For equal codimension, µ is invariant under weak test equivalence and µ_H under restricted s* equivalence.",
+      "hypotheses": [
+        "Finite nonempty marked family, SNC boundary transverse to N, characteristic zero regular chart.",
+        "All finite values are rational, with explicit denominator bounds after equalizing marks."
+      ],
+      "proofSteps": [
+        "Use point and divisor orders, with zero represented by infinity.",
+        "Factor the common boundary monomial after clearing denominators.",
+        "Recover µ and µ_H from repeated test blowups as in Propositions 4.8, 4.11."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/order-filtration",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/test-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-diagram"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Definitions 4.7, 4.9; Propositions 4.8, 4.11, pp. 243–244; proof §5, pp. 248–250",
+          "match": "The point and divisor minima are different numerical functions. The cited definitions and test-invariance proofs justify each under its own equivalence class."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Weighted presentations"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Exact finite weighted carrier, cosupport, reindexing and common-mark power construction; finite normalized minimum from supplied numerical orders. Actual stalk/divisor orders, infinity, legal-test equivalence and global smooth germ are omitted. Common-mark equivalence requires every original mark to divide d; the power constructor alone does not assert that."
+      },
+      "uses": [
+        {
+          "where": "BM974.18–4.24 and6.10–6.15",
+          "how": "Expresses each truncated invariant stratum and its residual numerical term."
+        }
+      ],
+      "api": [
+        {
+          "name": "WeightedPresentation.cosupportAt_iff",
+          "role": "characterisation",
+          "statement": "All marked generator ideals satisfy the prescribed order threshold."
+        },
+        {
+          "name": "WeightedPresentation.permute",
+          "role": "compatibility",
+          "statement": "Permuting pairs leaves cosupport, µ and each µ_H unchanged."
+        },
+        {
+          "name": "WeightedPresentation.equalize",
+          "role": "constructor",
+          "statement": "For a common multiple d of the marks replace h_i by h_i^(d/b_i), all marked by d; equivalent under the specified tests."
+        },
+        {
+          "name": "WeightedPresentation.normalizedOrder_le",
+          "role": "characterisation",
+          "statement": "For supplied finite orders, the normalized minimum is at most each order divided by its positive mark. Geometric µ requires supplying the genuine orders."
+        }
+      ],
+      "tests": [
+        {
+          "name": "presentation_all_zero",
+          "kind": "degenerate",
+          "statement": "All zero functions give full cosupport and infinite µ."
+        },
+        {
+          "name": "presentation_one_unit",
+          "kind": "non-example",
+          "statement": "One unit function makes cosupport empty at every proper P."
+        },
+        {
+          "name": "presentation_ratio_min",
+          "kind": "computation",
+          "statement": "For(x^3, 2), (x^5, 4), µ=5/4; maximum or sum gives a wrong invariant."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.WeightedPresentation"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/test-invariance",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Recovering µ and exceptional orders by tests",
+      "kind": "theorem",
+      "statement": "For equal-codimension equivalent presentations µ is equal under tests(i, ii), and each µ_H is equal under the restricted s* tests with matched boundary H. Thus ν is well-defined for these presentation classes. No equality across arbitrary codimensions is asserted; the full invariant later supplies the codimension normalization.",
+      "hypotheses": [
+        "Semicoherent weighted presentations, boundary identification and the exact named test class."
+      ],
+      "proofSteps": [
+        "Use a product line followed by repeated permissible point blowups to recover µ from allowable lengths and asymptotic slopes.",
+        "Repeat the distinguished exceptional substitutions to recover µ_H from successive µ differences.",
+        "Subtract the common exceptional sums."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/weighted-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/test-equivalence"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Propositions 4.8, 4.11 and proofs, pp. 243–244, 248–250",
+          "match": "Repeated product and point tests recover the point minimum; the distinguished exceptional tests recover divisor minima. Equal codimension and the restricted test class cannot be dropped."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.test_invariance"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/maximal-contact",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Maximal contact in characteristic zero",
+      "kind": "theorem",
+      "statement": "If a weighted presentation has µ=1, assume a pair(f, d) is chosen of point order d and a regular coordinate x with ∂_x^d f a unit and no boundary equation involving x. Then z=∂_x^(d−1)f has order 1, V(z) is smooth and transverse to the boundary, adjoining(z, 1) is strongly equivalent, and the strict transforms of V(z) contain the transformed cosupport through every allowed test string.",
+      "hypotheses": [
+        "Characteristic zero; regular coordinate chart and transverse boundary.",
+        "The derivative-unit hypothesis is explicit; positive characteristic maximal contact is not claimed.",
+        "µ=1 alone does not guarantee a boundary-transverse derivative direction. At a birth stage use empty remaining boundary; persistence and the old-component augmentation are the extra mechanism of Example 4.16 and conditions 4.17."
+      ],
+      "proofSteps": [
+        "Differentiate the equalized marked functions up to one less than their mark.",
+        "Use the Jacobian unit for smoothness and the coordinate choice for transversality.",
+        "Check controlled derivatives on blowup charts; the chart transverse to V(z) leaves the cosupport.",
+        "Verify product and exceptional tests with total-pullback convention."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/weighted-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/test-invariance"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Proposition 4.12, Remarks 4.14–4.16, pp. 244–245; proof §5, pp. 250–251",
+          "match": "The proposition requires an essential derivative in a coordinate outside the boundary. Its persistence and the old-boundary augmentation are separately used, so a bare normalized minimum of one is insufficient."
+        }
+      ],
+      "acceptance": [
+        "For z²−x³, z=0 is maximal contact at the origin.",
+        "For z^p−x^(p+1) in characteristic p the derivative-unit argument fails."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Maximal contact"
+      },
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.maximal_contact"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/coefficient-presentation",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Coefficient presentations on maximal contact",
+      "kind": "construction",
+      "statement": "For a chosen order-one maximal-contact coordinate z and (f, d), use coefficients c_q=(1/q!)∂_z^q f|_(z=0), 0≤q<d, marked by d−q. Taking all pairs gives the coefficient presentation on V(z). It is test-equivalent to the original, its construction commutes with permissible transforms, and its cosupport is precisely the original cosupport within V(z). The omission of the q=d coefficient is essential.",
+      "hypotheses": [
+        "Characteristic zero; chosen regular maximal-contact coordinate, positive integral marks; keep all weighted coefficients."
+      ],
+      "proofSteps": [
+        "Use Taylor expansion and regular derivatives from §3.5.",
+        "Compute c_q′=y_exc^(−(d−q))c_q∘σ on the strict maximal-contact chart.",
+        "Use Proposition 4.19 and the transverse chart to compare terminal cosupports."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/maximal-contact",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Construction 4.18, Proposition 4.19, pp. 246–247; proof §5, pp. 251–252",
+          "match": "The finite derivative family with marks d−q restricts to maximal contact and has the stated controlled transformation law; the omitted normal direction is accounted for by the derivative hypothesis."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Coefficient presentations"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Exact formal coefficient extraction with z the last variable; global derivatives, maximal contact and controlled-transform comparison are omitted."
+      },
+      "uses": [
+        {
+          "where": "BM97 §6 induction",
+          "how": "Lowers dimension while retaining the stratum and information required by the invariant."
+        }
+      ],
+      "api": [
+        {
+          "name": "coefficientSlice_coeff",
+          "role": "characterisation",
+          "statement": "A coefficient of the q-slice is the coefficient with last exponent q."
+        },
+        {
+          "name": "coefficientSlice_add",
+          "role": "compatibility",
+          "statement": "Coefficient extraction is additive."
+        },
+        {
+          "name": "coefficientSlice_reconstruct",
+          "role": "characterisation",
+          "statement": "All coefficient slices determine the original series."
+        }
+      ],
+      "tests": [
+        {
+          "name": "coefficient_zero",
+          "kind": "degenerate",
+          "statement": "Zero has all coefficient slices zero."
+        },
+        {
+          "name": "coefficient_z_power",
+          "kind": "computation",
+          "statement": "For z^d the d-slice is1 and all other slices vanish."
+        },
+        {
+          "name": "coefficient_cusp",
+          "kind": "computation",
+          "statement": "For z²−x³ the q=0 slice is−x³, q=1 is0, and the mark 2 coefficient family therefore has residual order 3/2."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.coefficientSlice"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/residual-presentation",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Residual presentation and exceptional monomial",
+      "kind": "construction",
+      "statement": "Equalize all marks to d. Let M=∏_H x_H^(dµ_H) divide each h and write h=M g. If0<ν<∞, form pairs(g, dν), and when ν<1 also(M, d(1−ν)); clear rational marks by taking powers. Ifν=0 use only(M, d); ifν=∞ stop. The positive residual presentation has µ=1 and its restricted s* class is independent of the chosen equivalent initial data. Do not divide without retaining the extra monomial pair when ν<1.",
+      "hypotheses": [
+        "SNC boundary transverse to N; nonnegative exceptional orders; common multiple d makes exponents integral.",
+        "Zero, positive finite and infinite residual values are separate cases."
+      ],
+      "proofSteps": [
+        "Compute greatest common boundary factor using divisor orders.",
+        "Subtract Σµ_H from µ and verify ν≥0.",
+        "Use the transform factorization in Proposition 4.24.",
+        "Clear denominators and prove restricted s* equivalence, preserving the additional monomial cosupport."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/weighted-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/coefficient-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/test-invariance"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Construction 4.23, Proposition 4.24, pp. 247–248; proof §5, pp. 252–253",
+          "match": "Factoring the common exceptional monomial gives the residual mark and, for a residual value below one, an additional monomial pair. The equivalence conclusion uses the restricted test class."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Exact numerical finite residual formula only; global greatest common monomial, rational-mark clearing and restricted test class are omitted."
+      },
+      "uses": [
+        {
+          "where": "BM97§6.12–6.15",
+          "how": "Creates the normalized next-stage data and separates monomial from residual order."
+        }
+      ],
+      "api": [
+        {
+          "name": "residualValue_zeroBoundary",
+          "role": "simp",
+          "statement": "No exceptional contribution leaves µ unchanged."
+        },
+        {
+          "name": "residualValue_balance",
+          "role": "characterisation",
+          "statement": "ν plus the sum of exceptional orders equals µ."
+        },
+        {
+          "name": "residualValue_nonneg",
+          "role": "compatibility",
+          "statement": "ν is nonnegative when the exceptional sum is at most µ."
+        }
+      ],
+      "tests": [
+        {
+          "name": "residual_first_year",
+          "kind": "computation",
+          "statement": "For the BM97 Example2.1 year1 coefficient y1³y2³ of mark 2, µ=3, µ_H=3/2, ν=3/2."
+        },
+        {
+          "name": "residual_monomial",
+          "kind": "degenerate",
+          "statement": "A pure boundary monomial has residual value0."
+        },
+        {
+          "name": "residual_not_total_order",
+          "kind": "non-example",
+          "statement": "Subtracting exceptional contributions is essential: with µ=3, µ_H=3/2 the residual is not3."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.residualValue"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/jet-minors",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Hilbert–Samuel strata from finite jet minors",
+      "kind": "theorem",
+      "statement": "For I⊂K[[X]], form the finite jet module F_l=K[[X]][[Y]]/((Y)^(l+1), J^l I). A generator matrix B_l has rows monomials Y^α, |α|≤l and columns Y^β j_X^l f_i. If r_l=rank B_l(0), the(r_l+1)-minors generate the l-th jet rank condition near the reference point. The formal Hilbert–Samuel stratum idealI_S^l is the sum of these minor ideals over jetsk≤l. Under properties7.2(1)–(5), for l≥max_i ord(f_i)−1, the sum of these minor ideals equals the ideal generated by derivatives D^αf_i with|α|<ord(f_i). This is a finite determinantal, generator-independent presentation, not an assumed flatness theorem.",
+      "hypotheses": [
+        "Formal characteristic-zero regular chartK[[W, Z]], finite upward-closed diagram with verticesα_i ordered in total-degree blocks; d_i=|α_i|, chosen derivative multiindicesβ_j=α_(i(j))−e_j, block counts s_l and essential coordinates Z^l; K≥max d_i−1.",
+        "(1)Each f_i∈I has order d_i. (2)For every degree block, homogeneous division by the corresponding initial forms is unique, with quotient supports in the disjoint Δ_i and remainder outside that partial diagram.",
+        "(3)Every f∈I has a supported expansionΣq_i f_i with supp(q_i)⊂Δ_i. This is stronger than merely choosing generators.",
+        "(4)For each essential-variable block, g_j=D^(β_j)f_(i(j)) lies in its coordinate ideal (Z^l), and its square Jacobian determinant in those coordinates is nonzero at 0.",
+        "(5)For every later generator i>s_l and β in the partial essential diagram with |β|≤K, the derivative D_(Z^l)^β f_i belongs to (Z^l). These vanishings are required separately from the Jacobian unit."
+      ],
+      "proofSteps": [
+        "Prove generator independence of minor ideals by column changes.",
+        "Use homogeneous division to obtain a unit rank minor.",
+        "Adjoin each derivative column and compare its cofactor with the corresponding larger minor.",
+        "Use essential-variable conditions to induct through the vertex-order blocks; compare reverse inclusion by zero excess columns."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-division",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/coefficient-presentation"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Definitions 7.9–7.13, Theorem 7.14 and proof, pp. 265–268",
+          "match": "The determinantal jet ideal encodes the order threshold under the five formal presentation conditions. The cumulative ideal sums the relevant jet-minor ideals, rather than retaining only one degree."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.jet_minors"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/diagram-stabilization",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Finite-degree stabilization for monotone diagrams",
+      "kind": "theorem",
+      "statement": "For a monotone diagram D⊂N^n with ordered vertices α_i and division regions Δ_i, there exists k(D) such that for any commutative coefficient ring A and homogeneous H_i of degree|α_i|, if the prescribed family {Y^βH_i:α_i+β∈Δ_i} together with complement monomials spans degree k≥k(D), it spans every degree l≥k. Monotone means replacing a later-coordinate exponent by the same added exponent in an earlier coordinate preserves membership.",
+      "hypotheses": [
+        "Finite n, monotone upward-closed diagram; arbitrary commutative coefficient ring."
+      ],
+      "proofSteps": [
+        "Construct the finite complement slices F_r and k(D) of Definition 8.3.",
+        "Above k(D), multiplication by the first surviving variable stays in the same division region.",
+        "Induct through coordinate slices, decompose a degree(k+1) polynomial into pieces divisible by successive variables, and lift each span."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-diagram",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-division"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 8.1, Definition 8.3 and proof, pp. 273–275",
+          "match": "A nonincreasing sequence of ordered diagrams stabilizes. The finite-degree spanning threshold reduces the formal support condition to finitely many coefficient tests."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.diagram_stabilization"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/hs-semi-presentation",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Semicoherent Hilbert–Samuel presentations",
+      "kind": "theorem",
+      "statement": "For a closed finite-type subscheme X in smooth M over characteristic zero, every closed point a has a neighbourhood, a smooth germ N and finitely many regular weighted coefficient functions whose cosupport equals the Hilbert–Samuel stratum through a. These presentations are semicoherent: the same regular data restrict along that stratum, and under legal test transforms unchanged Hilbert–Samuel value is equivalent to membership in the transformed cosupport. The Hilbert–Samuel function is Zariski upper semicontinuous and locally has finitely many values.",
+      "hypotheses": [
+        "Finite-type characteristic zero scheme, coherent ideal, regular coordinates; allow non-k-rational closed points using residue-field completions."
+      ],
+      "proofSteps": [
+        "Construct formal generators satisfying all five conditions 7.2; group vertices by degree and eliminate their essential variables using Jacobian-unit equations.",
+        "Obtain regular coefficient functions by finite matrix inversion/Cramer division, not by pretending the formal standard basis is convergent.",
+        "Apply diagram-stabilization to reduce openness of all homogeneous divisions to finitely many degrees.",
+        "Jet-minors identifies the common cosupport; Theorems 7.20, 7.21 supply admissible and exceptional transform comparisons."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/jet-minors",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/diagram-stabilization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-division",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorems 7.20–7.21, pp. 268–273; Theorems 9.2, 9.4, 9.6, pp. 276–282",
+          "match": "The transformation theorem controls Hilbert–Samuel functions after admissible blowup; the semicontinuity and semicoherence proofs replace formal coefficients by regular local data on finite threshold opens."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Hilbert–Samuel presentations"
+      },
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.hs_semi_presentation"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/exceptional-history",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Exceptional birth blocks",
+      "kind": "definition",
+      "statement": "For a resolution history and a point a at stage j, the birth of a truncated half-invariant is the earliest ancestor stage with its current value. E^r(a) consists of remaining divisors through a descending from boundary divisors present at that birth, excluding previous blocks; s_r=#E^r(a). The complementary recent divisors enter residual µ_H calculations. These blocks are disjoint and semicoherent along fixed truncated-invariant strata. Two identical final equations with different histories may have different invariants.",
+      "hypotheses": [
+        "Admissible tower whose relevant truncated invariant never increases; boundary labels and ancestry are part of the data."
+      ],
+      "proofSteps": [
+        "Take the minimum stage with the equal ancestor value.",
+        "Transport boundary labels by strict transform and remove earlier blocks.",
+        "Use Proposition 6.6 to identify blocks after shrinking along a stratum."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/hs-semi-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/snc-pair",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/residual-presentation"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Proposition 6.6, Definitions 6.8, 6.15, pp. 255–259",
+          "match": "The old exceptional blocks are determined at the birth of the successive truncated invariants. Earlier blocks are removed and divisor labels are transported through strict transform."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Exact finite-history earliest-index helper. Geometric ancestor transport and semicoherence remain omitted."
+      },
+      "uses": [
+        {
+          "where": "BM97§6.8–6.15",
+          "how": "Separates old exceptional components from the recent monomial part in each invariant slot."
+        }
+      ],
+      "api": [
+        {
+          "name": "birthIndex_lt",
+          "role": "characterisation",
+          "statement": "If current occurs in the ancestor list, birth index is less than its length."
+        },
+        {
+          "name": "birthIndex_get",
+          "role": "projection",
+          "statement": "The value at the birth index is current, when it occurs."
+        },
+        {
+          "name": "birthIndex_first",
+          "role": "characterisation",
+          "statement": "Every earlier value differs from current."
+        }
+      ],
+      "tests": [
+        {
+          "name": "birth_plateau",
+          "kind": "computation",
+          "statement": "In history[5, 3, 3], current3 is born at stage1, not2."
+        },
+        {
+          "name": "birth_new_value",
+          "kind": "computation",
+          "statement": "In history[5, 3, 2], current2 is born at stage2."
+        },
+        {
+          "name": "birth_missing",
+          "kind": "degenerate",
+          "statement": "Absent values return length only as a helper convention; valid tower histories must contain current."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.birthIndex"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/full-invariant",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Full desingularization invariant",
+      "kind": "construction",
+      "statement": "Construct inv_X(a)=(H_X, a, s1; ν2, s2; …; νt, st; ν_(t+1)), where finalν is0 or∞ and intermediateν are positive rational. For hypersurfaces H may be replaced by multiplicity. At each slot add old-boundary equations(mark 1), pass to maximal contact/coefficient data, subtract only the recent boundary monomial, normalize residual data, and take its birth block. General-variety presentations are padded as in Remark 9.15(3) using embedding dimension e=H(1)−1 so the invariant is independent of presentation codimension and ambient embedding. At most the ambient dimension many paired stages are followed by one terminal slot; denominators satisfy recursively e_r!ν_(r+1)∈N. Order or Hilbert–Samuel value alone is insufficient.",
+      "hypotheses": [
+        "Char0, finite-type smooth local embedding, admissible history, labelled exceptional boundary.",
+        "Hilbert–Samuel functions ordered pointwise then subsequent slots lexicographically."
+      ],
+      "proofSteps": [
+        "Start from the semicoherent Hilbert–Samuel presentation and old-boundary block.",
+        "For positive finite residual values repeatedly lower dimension by maximal contact and coefficient presentations.",
+        "Record zero and infinity as distinct terminal cases, not rationals.",
+        "For ambient dimension n, codimension r and e=H(1)−1, if n−r<e insert e−(n−r)−1 copies of (1, 0), reindex the given presentation as slot e−(n−r), and set the intervening old blocks empty. If n−r=e, retain the initial slot with no padding. Resume the next residual value at index e−(n−r)+1, or at 2 in the equality case. Compare presentations and embeddings using Remark 9.15(3).",
+        "Track common-mark denominators using e_(r+1)=max(e_r!, e_r!ν_(r+1))."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/hs-semi-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/maximal-contact",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/coefficient-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/residual-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/exceptional-history"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§6.7–6.17, pp. 256–260; Remark 9.15(3), pp. 282–283",
+          "match": "The recursive invariant combines the whole Hilbert–Samuel function, old-boundary counts and residual minima, with a distinct terminal value. Remark 9.15 supplies the explicit padding that removes presentation-codimension dependence."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Desingularization invariant"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Data carrier retains every slot and terminal case. Realization from geometry, lex ordering, padding, denominator constraints and embedding independence are omitted."
+      },
+      "uses": [
+        {
+          "where": "BM97 Theorem1.14 and§§10–13",
+          "how": "The complete value determines globally permissible maximal strata and supplies termination."
+        }
+      ],
+      "api": [
+        {
+          "name": "InvariantData.hilbertSamuel",
+          "role": "projection",
+          "statement": "The initial slot is the entire Hilbert–Samuel function, not just multiplicity."
+        },
+        {
+          "name": "InvariantData.slots",
+          "role": "projection",
+          "statement": "Each intermediate slot retains residual rational order and old-exceptional cardinality."
+        },
+        {
+          "name": "InvariantData.terminal",
+          "role": "projection",
+          "statement": "The last value distinguishes0(monomial)and∞(smooth stratum)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "invariant_terminal_distinct",
+          "kind": "non-example",
+          "statement": "Terminal0 and∞ are different constructors."
+        },
+        {
+          "name": "invariant_cusp_tail",
+          "kind": "computation",
+          "statement": "Cusp z²−x³ with empty boundary has tail(3/2, 0; ∞)after(2, 0)."
+        },
+        {
+          "name": "invariant_history_matters",
+          "kind": "non-example",
+          "statement": "BM97 Examples2.1(year4)and2.2 have the same equation z²−xy² but different residual tails0 and3/2 because their histories differ."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.InvariantData"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/invariant-semicontinuity",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Semicontinuity and permissible monotonicity",
+      "kind": "theorem",
+      "statement": "The full inv_X is Zariski upper semicontinuous and locally has finitely many values. Along inv-admissible blowups it never increases at points above the centre. In the terminal∞ case its stratum is smooth; in the terminal0 case the stratum is a union of boundary-coordinate intersections in the final maximal-contact space. The assertions apply to the full history-sensitive invariant and its semicoherent presentations.",
+      "hypotheses": [
+        "All conditions of full-invariant; compare admissible rather than arbitrary blowups."
+      ],
+      "proofSteps": [
+        "Induct slotwise through semicoherent presentations and exceptional birth blocks.",
+        "On a fixed earlier stratum residual order is the order of the divided regular functions divided by the common mark.",
+        "Apply Lemma 5.1 and Hilbert–Samuel transform theorem7.20 for no increase.",
+        "Use terminal zero monomial inequalities and terminal infinity all-zero coefficient data to identify strata."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/full-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/test-invariance",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/exceptional-history"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 1.14(1), (3), pp. 220–221; Proposition 6.13 and proof §6, pp. 258–260",
+          "match": "Semicoherent presentations produce closed threshold loci for the complete invariant and identify the smooth local maximal locus; numerical order alone does not give this result."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.invariant_semicontinuity"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7b/value-stabilization",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b"
+      ],
+      "title": "Well-founded invariant values",
+      "kind": "theorem",
+      "statement": "Every nonincreasing sequence of realizable Hilbert–Samuel functions in fixed bounded ambient dimension stabilizes; with the recursive bounded-denominator conditions of the full invariant and finite length, every nonincreasing sequence of inv_X values stabilizes. The proof cannot use the false assertion that arbitrary rational numbers form a well-founded decreasing order.",
+      "hypotheses": [
+        "Realizable local Hilbert–Samuel functions; bounded ambient dimension; denominator recursion attached to fixed preceding slots."
+      ],
+      "proofSteps": [
+        "Apply BM89 Theorem5.2.1: from a strictly descending sequence extract successive subsequences with each initial diagram vertex fixed; bounded degree gives finitely many choices at each extraction. Dickson finiteness forces the limiting vertex list to terminate, contradicting strict descent. This combinatorial proof works over any coefficient field.",
+        "Once the initial slot stabilizes, the old count lies in bounded naturals.",
+        "Freeze earlier slots so later denominators are bounded; clear denominators and apply natural-number stabilization slotwise."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-diagram",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/full-invariant"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 1.14(2), p. 220; proof §6, p. 260",
+          "match": "The finite-denominator recursion controls each rational slot once preceding slots are fixed. The separate BM89 diagram argument supplies stabilization of the initial Hilbert–Samuel slot."
+        },
+        {
+          "sourceId": "BM89",
+          "locator": "Theorem 5.2.1 and Corollary 5.2.2, with proof, pp. 820–821",
+          "match": "Stabilization of complement-count functions of upward-closed monomial diagrams; via formal division this supplies Hilbert–Samuel stabilization."
+        }
+      ],
+      "acceptance": [
+        "The rational sequence1, 1/2, 1/3, …is explicitly excluded by the bounded-denominator requirement."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Invariant",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.value_stabilization"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/monomial-centres",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Minimal monomial centres",
+      "kind": "definition",
+      "statement": "For nonnegative rational boundary weights Ω_i, a subset J of the components through a point is minimally admissible if Σ_(i∈J)Ω_i≥1 and removing any member makes that sum<1. In the terminalν=0 case these subsets index the smooth coordinate components of the invariant stratum in maximal-contact space. In a chart pivot l∈J, controlled transformation changes Ω_l to Σ_JΩ_i−1 and leaves other exponents unchanged. Minimality gives0≤Ω_l′<Ω_l and thus decreases the auxiliary µ=ΣΩ_i whenever inv remains fixed.",
+      "hypotheses": [
+        "Finite boundary set, nonnegative rational weights with bounded common denominator; nonempty J."
+      ],
+      "proofSteps": [
+        "Identify monomial cosupport by which coordinate divisors vanish.",
+        "Use nonnegativity to reduce minimal-subset testing to one-member deletion.",
+        "Compute the controlled monomial exponent in each SR4 blowup chart."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/invariant-semicontinuity",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/residual-presentation",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 1.14(3)–(4), p. 220; proof §6, p. 260",
+          "match": "At terminal residual value zero the permissible components come from inclusion-minimal boundary subsets whose weights reach one. The pivot update lowers the corresponding auxiliary order."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Monomial centres"
+      },
+      "leanPrototype": {
+        "status": "signature",
+        "detail": "Named target signatures; no implementation claimed."
+      },
+      "uses": [
+        {
+          "where": "BM97 Theorem1.14(4), §10",
+          "how": "Selects permissible components when the full invariant ends in zero and supplies strict auxiliary decrease."
+        }
+      ],
+      "api": [
+        {
+          "name": "monomialChartWeights_pivot",
+          "role": "simp",
+          "statement": "The pivot exponent is the centre-weight sum minus1."
+        },
+        {
+          "name": "monomialChartWeights_other",
+          "role": "simp",
+          "statement": "Nonpivot exponents stay unchanged."
+        },
+        {
+          "name": "monomialChartWeights_decrease",
+          "role": "compatibility",
+          "statement": "For a minimally admissible J and pivot in J, its new exponent is nonnegative and strictly smaller."
+        }
+      ],
+      "tests": [
+        {
+          "name": "monomial_exact_threshold",
+          "kind": "computation",
+          "statement": "Weights1/2, 1/2 require both components; after blowing up their intersection the pivot exponent is0."
+        },
+        {
+          "name": "monomial_single_component",
+          "kind": "computation",
+          "statement": "Weight3/2 admits its singleton centre; new weight1/2."
+        },
+        {
+          "name": "monomial_nonminimal",
+          "kind": "non-example",
+          "statement": "With two weights1 the pair is not minimal; choosing it would fail strict decrease at the pivot."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.minimalMonomialCentre"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/chronological-tie",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Chronological tie breaking and maximal loci",
+      "kind": "construction",
+      "statement": "Label exceptional divisors by creation stage, with fixed initial boundary order. Order subsets by their chronological binary words, with older labels compared first. For a fixed full invariant value choose the largest boundary subset J(a) that cuts out a component of the monomial stratum; at terminal∞ use its smooth stratum. The augmented(inv_X, J) has a smooth closed maximum locus on each quasi-compact unresolved locus. Local choices agree on overlaps because the invariant, labels and component equations agree. The whole unrefined maximum locus may be reducible and nonsmooth.",
+      "hypotheses": [
+        "Quasi-compact Noetherian finite-type spaces; fixed compatible chronological boundary ordering.",
+        "Use only invariant strata and their components supplied by the preceding targets."
+      ],
+      "proofSteps": [
+        "Apply local finite-valued semicontinuity to obtain maxima.",
+        "Refine each monomial stratum by its largest chronological component.",
+        "Compare local closed ideals on overlaps, then glue using ideal-sheaf descent."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/monomial-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/invariant-semicontinuity",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/exceptional-history",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Remarks 1.15–1.16, pp. 220–221; Remark 6.17, p. 260; §10, p. 285",
+          "match": "The boundary components carry chronological order, and the refined invariant selects one component of the unrefined maximum. This supplies a canonical smooth centre, rather than a potentially intersecting union."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Canonical centres"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Exact finite chronological-word score with older labels first; the selection/gluing of geometric maximum components is omitted."
+      },
+      "uses": [
+        {
+          "where": "BM97§§10, 11, 13",
+          "how": "Turns local components into global smooth centres and gives choice-independent local-isomorphism compatibility."
+        }
+      ],
+      "api": [
+        {
+          "name": "chronologicalScore_empty",
+          "role": "simp",
+          "statement": "The empty subset has score0."
+        },
+        {
+          "name": "chronologicalScore_injective",
+          "role": "characterisation",
+          "statement": "The score uniquely identifies a finite subset of fixed ordered labels."
+        },
+        {
+          "name": "chronologicalScore_add_label",
+          "role": "compatibility",
+          "statement": "Adding an absent label adds exactly its binary weight."
+        }
+      ],
+      "tests": [
+        {
+          "name": "tie_older_first",
+          "kind": "computation",
+          "statement": "With two labels the older singleton wins, as in BM97 Example2.1year2."
+        },
+        {
+          "name": "tie_not_cardinality",
+          "kind": "non-example",
+          "statement": "With three labels{oldest}outranks{two younger}, even though it has fewer members."
+        },
+        {
+          "name": "tie_empty_history",
+          "kind": "degenerate",
+          "statement": "An empty boundary has only the empty score0."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.chronologicalScore"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/global-permissibility",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Global maximum centres are permissible",
+      "kind": "theorem",
+      "statement": "For the refined maximal stratum on the closed unresolved locus, the glued centre is smooth, closed, contained in the relevant marked cosupport and in the target unresolved set, and has normal crossings with the labelled boundary. Its blowup is proper and projective, retains ambient smoothness and the SNC boundary, and agrees with the chartwise controlled and strict transforms.",
+      "hypotheses": [
+        "Quasi-compact finite-type characteristic zero input; unresolved locus invariant-stratum saturated and closed; canonical tie rule."
+      ],
+      "proofSteps": [
+        "Use local strata descriptions to prove smoothness and coordinate permissibility.",
+        "Check order divisibility along each centre component.",
+        "Descend the equal ideals on overlaps.",
+        "Apply imported SR4 projectivity and smooth coordinate blowup charts."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/chronological-tie",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/marked-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 1.14 and §10, pp. 220–221, 284–285; Theorem 11.14, p. 291",
+          "match": "The local maximal-locus description and chronological refinement glue to a smooth globally permissible centre. The old and recent boundary conditions remain part of this conclusion."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.global_permissibility"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/strict-progress",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Progress of the full invariant and monomial cleanup",
+      "kind": "theorem",
+      "statement": "Blowing up the selected centre gives inv_X′(a′)≤inv_X(a). At a maximal terminal∞ stratum the full invariant strictly decreases. At a terminal0 stratum either inv decreases or it stays equal and the auxiliary µ strictly decreases, with denominator bounded by the corresponding e_t!. Thus the lexicographic progress measure(inv, µ)has no infinite stationary-inv chain. Neither point order nor multiplicity is required to decrease at every step.",
+      "hypotheses": [
+        "Permissible refined-maximal centre, full invariant with bounded denominators, point a′ above it."
+      ],
+      "proofSteps": [
+        "If∞, the maximal-contact stratum is the centre and its strict transform is empty.",
+        "If0, apply the minimal monomial exponent update in every pivot chart.",
+        "Use no-increase for earlier slots and denominator bounds for the auxiliary order."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/global-permissibility",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/monomial-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/value-stabilization"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 1.14(4), p. 220; proof §6, p. 260; Example 2.1, pp. 226–228",
+          "match": "The infinite terminal case strictly lowers the full invariant; the zero terminal case first lowers the bounded-denominator monomial auxiliary value. These alternatives are retained in the progress contract."
+        }
+      ],
+      "acceptance": [
+        "BM97 Example2.1years2–4 has constant inv ending0 while auxiliaryµ decreases7/2→5/2→3/2."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Invariant decrease"
+      },
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.strict_progress"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/finite-termination",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Finite termination on quasi-compact input",
+      "kind": "theorem",
+      "statement": "The global algorithm has a finite number of blowups on a quasi-compact finite-type characteristic zero scheme. At each fixed maximum value, strict progress removes that value after finitely many steps; otherwise choose a persistent branch of maximum-value points through the proper towers and contradict the bounded-denominator auxiliary decrease. The successive maximum values form a nonincreasing realizable sequence and stabilize, so infinitely many strict global decreases are impossible. Termination depends on the Hilbert–Samuel stabilization proof and the proper/quasi-compact argument, not only on local strict decrease.",
+      "hypotheses": [
+        "Quasi-compact finite-type input, proper blowup maps, locally finite-valued full invariant with the established stabilization property."
+      ],
+      "proofSteps": [
+        "Use properness to retain nonempty inverse images of persistent closed maximum loci.",
+        "Compactness/Noetherian finite-stratum selection supplies a compatible persistent history when the maximum survives forever.",
+        "Contradict strict-progress on that history.",
+        "Apply value-stabilization to the sequence of global maxima and iterate until the unresolved locus is empty."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/strict-progress",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/value-stabilization",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Proof of Theorem 1.6, §10, p. 285; proof of Theorem 11.14, p. 291",
+          "match": "The global proof combines quasi-compactness, a persistent maximum branch and stabilization of the invariant with strict local progress. Finite global termination is not deduced solely from pointwise termination."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite termination"
+      },
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.finite_termination"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/resolution-tower",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Resolution towers and their output",
+      "kind": "definition",
+      "statement": "A finite resolution tower is a composable finite sequence of blowups of smooth ambient schemes in smooth permissible centres, with strict transforms of the closed target and labelled exceptional histories at every stage. Its output morphism is the composite from the last stage to the initial one. Record the open set preserved by every centre, projectivity and properness of the composite, transformed ideals and boundary—not only an abstract existence of a smooth model.",
+      "hypotheses": [
+        "Finite-type characteristic zero ambient, closed target and(initially possibly empty)SNC boundary.",
+        "All geometric tower assertions are properties to prove using earlier nodes, not input axioms asserting resolution."
+      ],
+      "proofSteps": [
+        "Represent finite stages and connecting maps, with boundary/ideal transport.",
+        "Compose maps in the final-to-initial direction.",
+        "Induct projectivity, properness and identity over the chosen open set."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/global-permissibility",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "§6.7, p. 256; Theorems 11.14, 13.2, pp. 291, 297",
+          "match": "The transformation sequence and the global universality theorem supply finite towers with transported centres and boundary; the Lean carrier records only their underlying scheme data."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Finite-prefix scheme-map and centre-ideal data, with correctly oriented composite. Blowup identification, smooth/SNC/transforms/history and open-preservation conditions are omitted."
+      },
+      "uses": [
+        {
+          "where": "BM97§§11–13; compactification assembly",
+          "how": "Supplies the actual morphism and preserved open embedding, not an arbitrary smooth variety."
+        }
+      ],
+      "api": [
+        {
+          "name": "ResolutionTower.composite_proper",
+          "role": "compatibility",
+          "statement": "A tower of proper blowups has proper composite."
+        },
+        {
+          "name": "ResolutionTower.composite_projective",
+          "role": "compatibility",
+          "statement": "A finite tower of projective blowups has projective composite."
+        },
+        {
+          "name": "ResolutionTower.over_open",
+          "role": "compatibility",
+          "statement": "If every centre is disjoint from the current preimage of U, the composite restricts to an isomorphism above U."
+        }
+      ],
+      "tests": [
+        {
+          "name": "tower_length_zero",
+          "kind": "degenerate",
+          "statement": "A zero-length tower has identity composite."
+        },
+        {
+          "name": "tower_orientation",
+          "kind": "compatibility",
+          "statement": "For length2 the composite is step1 followed by step0, from M2 to M0."
+        },
+        {
+          "name": "tower_disjoint_open",
+          "kind": "non-example",
+          "statement": "For A² blown up at the origin, the composite is identity over A² outside the origin, not over the origin."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.ResolutionTowerData"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/embedded-resolution",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Embedded resolution of finite-type varieties",
+      "kind": "theorem",
+      "statement": "For a reduced closed finite-type k-subscheme X⊂M with M smooth and k characteristic zero, there is a finite projective permissible ambient blowup tower whose final strict transform X′ is smooth and meets the final exceptional divisor with simultaneous normal crossings. The composite restricts to an isomorphism above Reg(X). For a nonreduced closed subscheme, the source theorem instead gives smooth reduced final support and locally constant Hilbert–Samuel function; it does not claim the nonreduced transform is smooth.",
+      "hypotheses": [
+        "Reduced target for smooth-output version; finite-type smooth ambient, characteristic zero; quasi-compact support."
+      ],
+      "proofSteps": [
+        "Use Hilbert–Samuel/Jacobian strata to identify the singular unresolved locus.",
+        "Apply canonical centres and finite termination until the reduced strict transform is smooth.",
+        "Run the boundary-transversality cleanup on the remaining closed bad locus.",
+        "Keep strict transform and exceptional-support identities; use the stronger preservation target for an initial boundary."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/finite-termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/resolution-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/hs-semi-presentation"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 11.14, p. 291; §10, p. 285",
+          "match": "The reduced conclusion is smooth strict transform with SNC boundary and preservation of the original regular locus. The nonreduced conclusion is stated separately in its weaker form."
+        }
+      ],
+      "acceptance": [
+        "A cusp in A² has a smooth strict transform after the permissible tower.",
+        "For nonreduced X no false smoothness of X′ is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Embedded resolution"
+      },
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.embedded_resolution"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/principalization",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Principalization of coherent ideals",
+      "kind": "theorem",
+      "statement": "For a coherent ideal I nonzero on every component of a quasi-compact smooth finite-type characteristic zero scheme M, there is a finite permissible blowup tower such that the final weak transform is the unit ideal and the total transform is an invertible monomial ideal with respect to an SNC boundary. The product of the total transformed ideal with the Jacobian ideal of the composite is also normal crossing. Centres lie over the nonunit locus of I, so the unit open is preserved.",
+      "hypotheses": [
+        "I not identically zero on any component; coherent finite-type ideal, characteristic zero smooth M.",
+        "Weak transform uses generic centre order, not fixed controlled mark."
+      ],
+      "proofSteps": [
+        "Present the initial ideal order by its finite generators marked with its current order, as in §1.19.",
+        "Apply the same presentation/invariant construction to weak transforms.",
+        "At zero order, the weak ideal is unit; all removed exceptional factors form the total monomial ideal.",
+        "Track the Jacobian exceptional factors in adapted smooth blowup coordinates."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/full-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/finite-termination"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 1.10, p. 216; §1.19, p. 225",
+          "match": "For an ideal nonzero on each component, the theorem gives a unit weak transform and a monomial total transform, together with normal-crossing Jacobian data. The unit locus is unchanged."
+        }
+      ],
+      "acceptance": [
+        "Unit ideal requires no blowups.",
+        "Zero ideal on a component is excluded: it cannot become a unit weak transform."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.principalization"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/preserve-resolved",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Preservation of prescribed regular and SNC open sets",
+      "kind": "theorem",
+      "statement": "For a smooth embedded X with SNC ambient boundary E, modify boundary cleanup so every centre lies in the closed locus where X and E fail simultaneous normal crossings; already resolved points are never blown up. More generally combine the singular-locus stage with this cleanup to preserve a prescribed open locus on which the input pair is already resolved. For compactification, principalize the boundary ideal while keeping the smooth dense open U fixed, and resolve/clean the boundary outside U.",
+      "hypotheses": [
+        "Finite-type characteristic zero; the chosen open locus is already smooth and has the required SNC relation; no assertion that arbitrary boundary-containing centres avoid it."
+      ],
+      "proofSteps": [
+        "Use the closed bad-intersection locus from Lemma 12.5.",
+        "Factor restricted boundary equations into exceptional monomials and strict components.",
+        "Resolve the reduced restricted components by induction on dimX as in §12.4.",
+        "Apply the strengthened combinatorial Lemma 12.8 to remove remaining exceptional factors with centres inside the unresolved locus."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/monomial-centres"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorems 12.2, 12.4, Lemmas 12.5–12.8, pp. 292–295",
+          "match": "The modified construction excludes already resolved points. Closedness of the unresolved locus and the final monomial cleanup are separate proof ingredients."
+        }
+      ],
+      "acceptance": [
+        "The pair X=(z−xy), E=(z)has only the origin initially unresolved; centres elsewhere are forbidden.",
+        "For an SNC pair the modified tower is empty."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.preserve_resolved"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7c/local-isomorphism-functoriality",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c"
+      ],
+      "title": "Global gluing and local-isomorphism universality",
+      "kind": "theorem",
+      "statement": "The intrinsic invariant is independent of the smooth local embedding after Remark 9.15(3)normalization. Canonical centres glue across local embeddings, giving a finite resolution of quasi-compact finite-type X even without a global embedding. Every isomorphism X|U≅Y|V lifts uniquely to the complete towers and their final morphisms, with empty stages handled compatibly. Open restrictions are covered. Smooth-morphism functoriality is not concluded from this theorem; it requires an additional proof of invariant and centre compatibility.",
+      "hypotheses": [
+        "Quasi-compact finite-type characteristic zero schemes, compatible boundary labels; local-isomorphism universality as stated in BM97."
+      ],
+      "proofSteps": [
+        "Compare minimal embeddings by local ambient isomorphisms.",
+        "Apply Remarks 13.1 to a smooth ambient enlargement; use Hilbert–Samuel padding to retain the same invariant.",
+        "Compare local maximum-centre ideals on overlaps and descend them.",
+        "Lift local isomorphisms through each blowup via SR4 universal property; uniqueness holds because the maps agree on the dense unchanged open."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/full-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/chronological-tie",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/preserve-resolved",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Remarks 13.1, Theorem 13.2, pp. 296–298",
+          "match": "The source compares different smooth embeddings and glues the canonical construction, then states universality for local isomorphisms. General smooth-morphism universality is left outside that claim."
+        }
+      ],
+      "acceptance": [
+        "Two different smooth ambient embeddings give the same intrinsic resolution morphism.",
+        "Open restriction yields the corresponding restricted tower.",
+        "No unproved all-smooth-maps functoriality is included."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Global",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.local_isomorphism_functoriality"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-ideal",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Boundary ideal on a projective closure",
+      "kind": "application",
+      "statement": "Let U be a smooth quasi-projective finite-type k-scheme in characteristic zero, with a chosen locally closed embedding in projective space. Import its reduced projective closure Y from R09.1. U is a dense open in Y and is contained in Reg(Y). Resolve Y by the intrinsic embedded-resolution output, preserving U. On the resulting smooth projective Y1 take the coherent radical ideal of the reduced closed complement Y1\\U; it is unit on U and nonzero on each component of Y1.",
+      "hypotheses": [
+        "Smooth quasi-projective U; finite-type characteristic zero field; take reduced closure componentwise.",
+        "A merely separated finite-type scheme is not thereby projectively compactifiable."
+      ],
+      "proofSteps": [
+        "Import R09.1 projective-space/closure and dense-open factorization.",
+        "Apply embedded resolution and local-embedding gluing; compose projective morphisms.",
+        "Extend the reduced complement ideal using Noetherian closed-subscheme correspondence.",
+        "Use density of U in every component to exclude an identically zero boundary ideal."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/local-isomorphism-functoriality",
+        "mathlib:AlgebraicGeometry.Scheme.IdealSheafData"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorems 11.14, 13.2, pp. 291, 297; Theorem 1.10, p. 216",
+          "match": "Resolution and principalization apply to the coherent ideal of the closed complement. Its pullback controls the exceptional boundary while centres stay outside the chosen smooth open."
+        }
+      ],
+      "acceptance": [
+        "For U=A¹, the projective closure isP¹ with a single missing point.",
+        "For projective smooth U the complement ideal is unit."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Compactification",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.boundary_ideal"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/good-compactification",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Smooth projective SNC compactifications",
+      "kind": "definition",
+      "statement": "A good compactification of U over a characteristic zero field k consists of a smooth projective k-scheme X, a dense open immersion j:U→X, and a finite labelled reduced SNC divisor D whose support is exactly X\\j(U). Include j and the boundary identification as data with properties to prove; an abstract smooth X without this identification is insufficient. In dimension0, the boundary is empty. The geometric carrier is owned here; HodgeStructuresPartII:H.5 imports it and adds monodromy rather than defining another compactification.",
+      "hypotheses": [
+        "U smooth quasi-projective finite type; X projective over k and smooth, not just a proper algebraic space.",
+        "For complex analytic outputs specialize k=C."
+      ],
+      "proofSteps": [
+        "Use snc-pair for the boundary condition.",
+        "Represent actual open immersion and structural morphism.",
+        "Record density, projectivity and exact support equality for all components."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/snc-pair",
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "mathlib:AlgebraicGeometry.IsOpenImmersion",
+        "mathlib:AlgebraicGeometry.IsProper"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 1.10, p. 216 and Theorem 13.2, p. 297; assembly specified here",
+          "match": "This is a geometric carrier assembled from projective closure, resolution and principalization; it is not an extra theorem attributed to the source. Density, smoothness and boundary support are explicit conditions."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Compactification",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Good compactifications"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Uses native open-immersion/proper/smooth predicates, actual morphisms and ideal-sheaf data. Density, projectivity over a field, reduced Cartier boundary and SNC/support equality are omitted. This data carrier is not named GoodCompactification until those conditions exist."
+      },
+      "uses": [
+        {
+          "where": "ShimuraVarieties:V3; HodgeStructuresPartII:H.5 andH.7; LL24 Lemma8.3.3",
+          "how": "Exports the geometric compactification before Borel extension, period-map boundary analysis and finite-cover local monodromy."
+        }
+      ],
+      "api": [
+        {
+          "name": "CompactificationData.openRange_iff",
+          "role": "characterisation",
+          "statement": "The retained open range is precisely the image of the supplied inclusion."
+        },
+        {
+          "name": "GoodCompactification.support_complement",
+          "role": "projection",
+          "statement": "The boundary support is the complement of the dense open image."
+        },
+        {
+          "name": "GoodCompactification.projective_proper",
+          "role": "compatibility",
+          "statement": "Projectivity over k implies properness; the converse is not substituted in the definition."
+        }
+      ],
+      "tests": [
+        {
+          "name": "compactification_affine_line",
+          "kind": "computation",
+          "statement": "A¹→P¹ has boundary∞ with multiplicity1 and smooth proper ambient."
+        },
+        {
+          "name": "compactification_projective",
+          "kind": "degenerate",
+          "statement": "A smooth projective U has the identity good compactification with empty boundary."
+        },
+        {
+          "name": "compactification_cusp_rejected",
+          "kind": "non-example",
+          "statement": "A projective cuspidal curve is not a good compactification, even with an empty boundary; smoothness fails."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.CompactificationData"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-existence",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Existence of good compactifications",
+      "kind": "theorem",
+      "statement": "Every smooth quasi-projective finite-type characteristic zero U admits a good compactification. After resolving its reduced projective closure while preserving U, principalize the reduced boundary ideal on the smooth output. The total ideal becomes an invertible monomial ideal; take its reduced support D. Every blowup centre is outside U, so the final inclusion is the original U, and D has exactly the complement support. The result remains projective because every step is projective.",
+      "hypotheses": [
+        "Characteristic zero, quasi-projectivity and smoothness of U; boundary ideal nonzero on every component.",
+        "The final reduced boundary need not have the multiplicities of the total ideal."
+      ],
+      "proofSteps": [
+        "Apply boundary-ideal to obtain smooth projective Y1 and its complement ideal.",
+        "Apply principalization with its unit-open preservation.",
+        "Replace the monomial Cartier divisor by its reduced SNC support.",
+        "Identify complement support by total pullback and preserved open; compose projective morphisms."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/good-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/resolution-tower"
+      ],
+      "sources": [
+        {
+          "sourceId": "BM97",
+          "locator": "Theorem 1.10, p. 216; Theorems 11.14, 13.2, pp. 291, 297",
+          "match": "The cited resolution and principalization results, with the projective-closure supplier, produce a smooth projective compactification with SNC complement and unchanged original smooth open."
+        }
+      ],
+      "acceptance": [
+        "Already projective smooth input permits an empty tower.",
+        "The resulting map retains the actual prescribed U, not only a birationally equivalent open."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Compactification",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "SNC compactification theorem"
+      },
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.snc_existence"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/complex-realization",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Complex points for compactification charts",
+      "kind": "construction",
+      "statement": "For a reduced separated finite-type C-scheme presented by affine polynomial charts, construct its analytic complex-point space by gluing those charts with Euclidean topology and holomorphic regular maps. Open immersions realize as open embeddings; divisor equations realize as holomorphic zero sets. A smooth n-dimensional scheme becomes a complex n-manifold via its Jacobian charts. For projective X, the complex-point space is compact, using closedness in complex projective space. This elementary realization is the lower-tier prerequisite for SNC charts; coherent GAGA, Chow and de Rham comparison remain with ComplexComparisonPartII.",
+      "hypotheses": [
+        "Reduced separated finite-type over C; smoothness for manifold conclusion; projectivity for compactness.",
+        "Use X(C), not the underlying Zariski topological space of X."
+      ],
+      "proofSteps": [
+        "On affine embeddings use polynomial equations and holomorphic rational functions with nonvanishing denominators.",
+        "Glue transition functions; separatedness gives Hausdorffness.",
+        "Apply the Jacobian criterion and native complex local inverse theorem to the smooth coordinates.",
+        "For projective X use the compact quotient sphere model forPⁿ(C) and its closed polynomial zero locus."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1",
+        "mathlib:HasStrictFDerivAt.toOpenPartialHomeomorph"
+      ],
+      "sources": [
+        {
+          "sourceId": "SERRE56",
+          "locator": "§2no. 5, Lemma 1 and Proposition 2, pp. 7–9; no. 7Proposition6, p. 12",
+          "match": "The elementary affine and projective complex-point results supply holomorphic realization and compactness. The plan uses only this reduced geometric comparison, leaving coherent GAGA to its existing owner."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Compactification",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Complex point charts"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Elaborates affine polynomial complex-point zero sets and the divisor-equation API. Analytic topology, holomorphic scheme-map realization, projective gluing/compactness and global tests remain omitted. Local examples are explicitly projections of the geometric tests."
+      },
+      "uses": [
+        {
+          "where": "Good compactification analytic boundary charts; ComplexComparisonPartII:C0",
+          "how": "Supplies the basic local analytic realization needed before the higher-tier cohomological comparison."
+        }
+      ],
+      "api": [
+        {
+          "name": "ComplexPoints.openImmersion",
+          "role": "functoriality",
+          "statement": "A scheme open immersion gives a holomorphic open embedding of complex points."
+        },
+        {
+          "name": "ComplexPoints.projective_compact",
+          "role": "compatibility",
+          "statement": "A projective complex scheme has compact complex-point space."
+        },
+        {
+          "name": "ComplexPoints.divisor_zeroSet",
+          "role": "characterisation",
+          "statement": "On every realized affine chart, the Cartier divisor support is the zero set of its local regular equation."
+        }
+      ],
+      "tests": [
+        {
+          "name": "complex_affine_line",
+          "kind": "computation",
+          "statement": "A¹(C) has the Euclidean complex-plane topology."
+        },
+        {
+          "name": "complex_projective_line",
+          "kind": "computation",
+          "statement": "P¹(C) is compact; its affine chart isC and the complement is one point."
+        },
+        {
+          "name": "complex_topology_not_zariski",
+          "kind": "non-example",
+          "statement": "A small Euclidean disk inC is analytically open but is not a Zariski open subset ofA¹."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.affineComplexPoints"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/punctured-polydisc",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "SNC punctured polydiscs",
+      "kind": "definition",
+      "statement": "For n≥0, positive radiusρ and0≤r≤n, define the polydisc Δ_ρ^n by |z_i|<ρ for all i and its boundary B_r by the union of coordinate hyperplanes z_i=0 for i<r. The complement is(Δ_ρ*)^r×Δ_ρ^(n−r). The local SNC analytic chart is a biholomorphism to the polydisc identifying D with B_r, not just a homeomorphism or a count of boundary components. Buffered radii and sector refinements are consuming adaptations already owned by HodgeStructuresPartII:H.7.",
+      "hypotheses": [
+        "n finite, r≤n, ρ>0; zero-coordinate exclusions for all first r coordinates."
+      ],
+      "proofSteps": [
+        "Define the domain and removed-coordinate predicate.",
+        "Split the coordinates into r and n−r for the product equivalence.",
+        "Check openness and extreme cases before using it as a chart contract."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/complex-realization"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.1, preprint p.13; underlying coordinate-domain definition stated here",
+          "match": "The source uses the coordinate domain obtained by removing boundary coordinate hyperplanes. The product domain and its nonempty and empty-boundary tests are stated explicitly in this plan."
+        }
+      ],
+      "acceptance": [
+        "All hypotheses remain visible; the contract distinguishes the identified edge cases."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Compactification",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Punctured polydiscs"
+      },
+      "leanPrototype": {
+        "status": "projection",
+        "detail": "Exact coordinate domains elaborate. The biholomorphic chart and scheme-boundary identification are omitted; r≤n andρ>0 are explicit theorem hypotheses, not implicit definition assumptions."
+      },
+      "uses": [
+        {
+          "where": "ShimuraVarieties:V3 Borel extension; HodgeStructuresPartII:H.7 BKT boundary analysis",
+          "how": "Gives the geometric punctured-polydisc neighbourhoods required by their separate analytic arguments."
+        }
+      ],
+      "api": [
+        {
+          "name": "puncturedPolydisc_mem",
+          "role": "characterisation",
+          "statement": "Membership requires both all norm bounds and nonvanishing of every removed coordinate."
+        },
+        {
+          "name": "puncturedPolydisc_zero",
+          "role": "simp",
+          "statement": "With no boundary the punctured polydisc is the full polydisc."
+        },
+        {
+          "name": "puncturedPolydisc_mono",
+          "role": "compatibility",
+          "statement": "Increasing r deletes more hyperplanes and shrinks the domain."
+        }
+      ],
+      "tests": [
+        {
+          "name": "puncture_dimension_zero",
+          "kind": "degenerate",
+          "statement": "At n=r=0 the domain contains its unique empty tuple."
+        },
+        {
+          "name": "puncture_one_coordinate",
+          "kind": "non-example",
+          "statement": "For n=2, r=1 the origin is excluded even when radius is positive."
+        },
+        {
+          "name": "puncture_unremoved_zero",
+          "kind": "computation",
+          "statement": "For n=2, r=1, radius1 the tuple(1/2, 0)lies in the domain; the second zero is allowed."
+        }
+      ],
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.puncturedPolydisc"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-holomorphic-charts",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Finite holomorphic boundary charts",
+      "kind": "theorem",
+      "statement": "For a good compactification overC and each point x∈X(C), there is a biholomorphic polydisc chart with D equal to the union of its first r coordinate hyperplanes. The complement chart is exactly the punctured polydisc. Compactness of X(C) yields a finite such cover. The holomorphic map and its inverse extend over each full polydisc; a coordinate map defined only on the punctured locus would not suffice. Hodge H.7 may further shrink these charts to its own inner/outer buffered cover.",
+      "hypotheses": [
+        "Smooth projectiveC compactification, strict SNC reduced boundary; at each point use simultaneous regular parameters."
+      ],
+      "proofSteps": [
+        "Realize regular coordinate functions as holomorphic functions and use their nonzero Jacobian determinant.",
+        "Apply native inverse function theorem overC; shrink to a centred polydisc.",
+        "Identify each boundary equation up to a nowherezero holomorphic unit.",
+        "Use compactness and the open neighbourhoods to select a finite subcover."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/good-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/complex-realization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/punctured-polydisc",
+        "mathlib:HasStrictFDerivAt.toOpenPartialHomeomorph"
+      ],
+      "sources": [
+        {
+          "sourceId": "SERRE56",
+          "locator": "§2no. 5, Lemma 1 and Proposition 2, pp. 7–9; elementary Jacobian/inverse-function assembly specified here",
+          "match": "Regular coordinate functions become holomorphic in the elementary complex-point comparison. The SNC equations and the complex inverse-function theorem then supply the stated chart; full GAGA is unnecessary."
+        }
+      ],
+      "acceptance": [
+        "A point off D has r=0.",
+        "At a transverse intersection of two components, r=2 and both coordinate zeros are removed.",
+        "Chart inverses are holomorphic on the full disc."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Compactification",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Holomorphic boundary charts"
+      },
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.snc_holomorphic_charts"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/borel-geometric-input",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Geometric input to Borel extension",
+      "kind": "application",
+      "statement": "Export the actual smooth projective compactification, finite full-polydisc SNC cover and its punctured complement cover to ShimuraVarieties:V3. Borel extension for maps into an arithmetic quotient is proved there from this geometric input and its own arithmetic/analytic hypotheses. Export the same geometry to HodgeStructuresPartII:H.5/H.7 for local monodromy and definable period maps. No extension theorem, quasi-unipotence, sector uniformization or Hodge-theoretic algebraicity follows from compactification alone.",
+      "hypotheses": [
+        "The complex source U is smooth quasi-projective; all target-group and variation hypotheses belong to the consuming theorem."
+      ],
+      "proofSteps": [
+        "Assemble snc-existence and snc-holomorphic-charts.",
+        "State the precise preserved-open and boundary equations in the consumer interface.",
+        "Keep DeligneHodgeII4.4.3 out of the compactification proof to avoid a Borel-algebraicity dependency cycle."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-existence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-holomorphic-charts"
+      ],
+      "sources": [
+        {
+          "sourceId": "BKT20",
+          "locator": "§4.1, Theorem 4.1, preprint p.13:compactification is an input to period-map analysis",
+          "match": "The period-map theorem consumes a smooth SNC compactification and punctured polydisc charts. This node exports those geometric inputs; buffered domains, sectors and period-map analysis keep their Hodge owner."
+        }
+      ],
+      "acceptance": [
+        "Borel consumer receives full holomorphic boundary charts.",
+        "No arbitrary holomorphic map is claimed algebraic from this geometry."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Compactification",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.borel_geometric_input"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/finite-cover-compactification",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Good compactification of a finite étale scheme cover",
+      "kind": "theorem",
+      "statement": "Let C°→M° be a finite étale cover by a smooth quasi-projectiveC scheme, with M° a scheme open in a projective normal model. Normalize that model in the finite extensions of its component function fields; the result is finite and projective by the imported Nagata-normalization theorem and agrees with C° over M°. It may be singular along the boundary. Resolve that model while preserving C°, then principalize the complement to obtain a good compactification. For covers of the moduli stack of stable pointed curves, use R09.4/R09.5 to supply the representable scheme model and its compactification/descent first; scheme normalization is not silently applied to an arbitrary stack.",
+      "hypotheses": [
+        "Finite étale cover, normal dense-open source and target; quasi-projective smooth scheme cover.",
+        "Finite extensions componentwise; excellent/Nagata base; stable pointed curves require2g−2+n>0."
+      ],
+      "proofSteps": [
+        "Import finiteness of normalization and finite-type-over-a-field excellence.",
+        "Normality identifies normalization over the dense étale open with the given cover.",
+        "Track projectivity under finite maps and the preserved open.",
+        "Apply the intrinsic resolution and complement principalization; normality alone does not give smoothness."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.0/nagata-normalization-finite",
+        "SchemeAndStackFoundations:SF.0/excellent-examples",
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-existence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/local-isomorphism-functoriality"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "Lemma 8.3.3 proof, pp. 40–41",
+          "match": "The proof normalizes the cover over a compactification and refines the boundary. The normalization may be singular, so scheme resolution and the stack/model suppliers are made explicit."
+        }
+      ],
+      "acceptance": [
+        "Normalize a finite étale scheme cover before boundary repair; do not assert the normalization is already smooth.",
+        "Stack inputs have an explicit supplier requirement; they are not included in the scheme theorem."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Compactification",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite cover compactifications"
+      },
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.finite_cover_compactification"
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-stratum-refinement",
+      "parentStageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "realises": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d"
+      ],
+      "title": "Boundary-stratum refinement and geometric meridians",
+      "kind": "application",
+      "statement": "For a proper smooth DM compactification with ordinary normal-crossing boundary, blow up the boundary strata in a compatible order to separate local branches and obtain strict SNC boundary on the resulting model. This is the conditional stack interface used in LL24 Lemma8.3.3, distinct from the proved scheme compactification theorem. Locally a blowup of the intersection of r coordinate divisors pulls a new exceptional meridian back to the product of their r commuting meridians; on further boundary modifications the exponents are the nonnegative orders of the pulled-back boundary equations along the new divisor. Under the supplied stable-curve monodromy identification those images are products of commuting Dehn twists, up to conjugacy and finite-cover powers.",
+      "hypotheses": [
+        "Smooth proper DM input with toroidal normal-crossing boundary strata; stack blowup/descent supplied byR09.4/R09.5.",
+        "Topology supplies local meridians, commutativity and stable-curve Dehn-twist identification; normalization or resolution alone does not prove it."
+      ],
+      "proofSteps": [
+        "Work on étale charts with boundary coordinate equations; use SR4 intersection blowup charts and descend.",
+        "In the pivot chart, x_p=y_p andx_i=y_p y_i for selectedi; around y_p=0 all selectedx_i wind once.",
+        "Read valuation exponents along successive exceptional divisors and compose the meridian maps.",
+        "Apply the topological monodromy supplier, whose proof must include the plumbing/Picard–Lefschetz calculation; LLSS23 itself citesAMO95Theorem2.2."
+      ],
+      "prerequisites": [
+        "AlgebraicModuliForArithmeticGeometry:R09.4",
+        "AlgebraicModuliForArithmeticGeometry:R09.5",
+        "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-holomorphic-charts"
+      ],
+      "sources": [
+        {
+          "sourceId": "LL24",
+          "locator": "Lemma 8.3.3 proof, pp. 40–41",
+          "match": "The source passes from ordinary to strict normal crossings by boundary-stratum blowups. Scheme chart calculations are planned here; stack descent and stable-curve monodromy remain separate supplier obligations."
+        },
+        {
+          "sourceId": "LLSS23",
+          "locator": "Lemma 2.1.1 and proof, author PDF pp.7–8",
+          "match": "Exceptional-boundary inertia is generated by a Dehn multitwist; the referenced original plumbing input remains a gap in the topological supplier."
+        }
+      ],
+      "acceptance": [
+        "Two transverse coordinate divisors give meridian(1, 1), not merely one old meridian.",
+        "OrdinaryNC need not be strictNC; the distinction survives stack descent.",
+        "Boundary monodromy is a supplier claim, not inferred from SNC geometry."
+      ],
+      "library": {
+        "module": "TauCeti/AlgebraicGeometry/Resolution/Compactification",
+        "namespace": "TauCetiRoadmap.AlgebraicModuli.Resolution"
+      },
+      "implementationStatus": "unchecked",
+      "leanPrototype": {
+        "status": "omitted",
+        "detail": "Global geometric signature omitted until the requested supplier carriers exist."
+      },
+      "leanName": "TauCetiRoadmap.AlgebraicModuli.Resolution.boundary_stratum_refinement"
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
+      "need": "General relative Rees blowup of finite-type quasi-coherent ideals, universal property, projectivity, affine pivot charts, exceptional invertibility, strict-transform saturation and flat base change. Current newer TauCeti affineBlowupι is only an affine-chart implementation and is not in the pin.",
+      "consumers": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/snc-pair",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transform-base-change",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/cartier-separation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/monomial-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/global-permissibility",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/finite-termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/local-isomorphism-functoriality",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-stratum-refinement"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/StableReduction#layer-2-coherent-curve-theory-duality-and-positivity",
+      "need": "Effective Cartier divisors and their local regular sections on arbitrary schemes, invertible ideal/sheaf arithmetic, pullback of the two original regular sections to their blowup, relative Proj O(1), and projectivity composition. Do not restrict the Cartier-separation use to integral schemes or curves.",
+      "consumers": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/snc-pair",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/cartier-separation"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.1",
+      "need": "Reduced projective closure of a chosen quasi-projective finite-type embedding, with dense-open factorization, coherent closed-complement ideal, and finite/projective composition. Needed in this part; general parameter-space theory remains inR09.1.",
+      "consumers": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/good-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/complex-realization"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
+      "need": "Algebraicity and smooth separated DM property ofM_g, n for2g−2+n>0; proper stable-pointed compactification with ordinary NC boundary; finite étale covers by smooth quasi-projective schemes; étale descent for boundary-stratum blowups. Tameness, properness and separatedness must be proved separately.",
+      "consumers": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/finite-cover-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-stratum-refinement"
+      ],
+      "status": "open"
+    },
+    {
+      "supplier": "AlgebraicModuliForArithmeticGeometry:R09.5",
+      "need": "Representable scheme models/coarse-space or level-cover compactifications sufficient to normalize the finite étale scheme cover, with correct dense-open identification and projectivity; do not treat a coarse-space map as automatically étale.",
+      "consumers": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/finite-cover-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-stratum-refinement"
+      ],
+      "status": "open"
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7a",
+      "status": "planned",
+      "nodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/order-filtration",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/snc-pair",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/marked-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transform-base-change",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/test-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/cartier-separation"
+      ],
+      "remaining": [
+        "Bind global geometric signatures toSR2/SR4 suppliers; retain arbitrary-scheme Cartier scope."
+      ]
+    },
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7b",
+      "status": "planned",
+      "nodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-diagram",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-division",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/weighted-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/test-invariance",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/maximal-contact",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/coefficient-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/residual-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/jet-minors",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/diagram-stabilization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/hs-semi-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/exceptional-history",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/full-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/invariant-semicontinuity",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/value-stabilization"
+      ],
+      "remaining": [
+        "Expand the semicoherent presentation/invariant carrier and all global typed APIs from the exact contracts; no missing Hilbert–Samuel proof citation remains."
+      ]
+    },
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7c",
+      "status": "planned",
+      "nodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/monomial-centres",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/chronological-tie",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/global-permissibility",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/strict-progress",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/finite-termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/resolution-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/preserve-resolved",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/local-isomorphism-functoriality"
+      ],
+      "remaining": [
+        "Replace finite-prefix/data prototypes with actual permissible blowup towers and formalize the persistent-maximum termination argument."
+      ]
+    },
+    {
+      "stageId": "AlgebraicModuliForArithmeticGeometry:R09.7d",
+      "status": "planned",
+      "nodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/good-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-existence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/complex-realization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/punctured-polydisc",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-holomorphic-charts",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/borel-geometric-input",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/finite-cover-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-stratum-refinement"
+      ],
+      "remaining": [
+        "CompleteR09.1/R09.4/R09.5 supplier interfaces and complex-point gluing; prove the conditional stack application and obtain the independent topological monodromy supplier."
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Global geometric Lean carriers and signatures",
+      "detail": "The pinned build has no full SNC/marked-presentation/legal-test/resolution tower/relative blowup/analytic realization interface. Companion signatures project to explicit local algebra, data or coordinate domains; the exact omitted conditions are recorded per node. Before packaging, replace these projections and omitted API/test comments with global declarations and examples as the supplier carriers become expressible. Elaboration of the projections is not evidence of geometric formalization.",
+      "nodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/order-filtration",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/snc-pair",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/marked-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transforms",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/transform-base-change",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/test-equivalence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7a/cartier-separation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/formal-division",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/weighted-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/test-invariance",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/maximal-contact",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/coefficient-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/residual-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/jet-minors",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/diagram-stabilization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/hs-semi-presentation",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/exceptional-history",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/full-invariant",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/invariant-semicontinuity",
+        "AlgebraicModuliForArithmeticGeometry:R09.7b/value-stabilization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/chronological-tie",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/global-permissibility",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/strict-progress",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/finite-termination",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/resolution-tower",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/embedded-resolution",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/principalization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/preserve-resolved",
+        "AlgebraicModuliForArithmeticGeometry:R09.7c/local-isomorphism-functoriality",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-ideal",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/good-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-existence",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/complex-realization",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/punctured-polydisc",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/snc-holomorphic-charts",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/borel-geometric-input",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/finite-cover-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-stratum-refinement"
+      ]
+    },
+    {
+      "title": "Stack boundary refinement and finite-cover descent",
+      "detail": "The scheme compactification assembly is planned. The stack application ofLL24 Lemma8.3.3 additionally needs theR09.4/R09.5 requests:normalization in a scheme model, descent of the boundary-stratum blowups, and a proof that branch separation gives globally smooth distinct boundary components. It is not supplied by intrinsic scheme resolution alone.",
+      "nodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/finite-cover-compactification",
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-stratum-refinement"
+      ]
+    },
+    {
+      "title": "Stable-curve boundary monodromy supplier",
+      "detail": "LL24 Lemma8.3.3 andLLSS23 Lemma2.1.1 were read. The latter points toAMO95Theorem2.2 for the original stable-curve plumbing/Dehn-twist identification; that source proof has not been read. MappingClassGroupsAndCanonicalRepresentations is currently a design job with no valid layer id, so no invented prerequisite is used. Its future plan must supply local inertia/Picard–Lefschetz, commuting twists and conjugacy/cover powers; only the local coordinate winding calculation is planned here.",
+      "nodes": [
+        "AlgebraicModuliForArithmeticGeometry:R09.7d/boundary-stratum-refinement"
+      ]
+    }
+  ],
+  "upstreamNotes": [
+    {
+      "title": "Current main differs from the pin",
+      "detail": "Read-only currentTauCeti commit a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 includes Ideal.affineBlowup and AlgebraicGeometry.affineBlowupι with opensRange_affineBlowupι, iSup_opensRange_affineBlowupι and affineBlowupι_toSpecZero in AlgebraicGeometry/Blowup/AffineCharts.lean. These are newer than the recorded pin. SR4 should reuse them; they do not provide global marked transforms, SNC centres or the invariant."
+    },
+    {
+      "title": "Elementary analytic realization moves down",
+      "detail": "This roadmap is tier4; ComplexComparisonPartII is tier5. R09.7d owns the elementary reduced-complex-point realization and SNC holomorphic charts needed here. Retarget the corresponding C0 prerequisite to complex-realization/snc-holomorphic-charts; leave coherent GAGA, proper GAGA, Chow and deRham comparison inC0–C5. No upward prerequisite is introduced."
+    },
+    {
+      "title": "Good compactification geometry moves down",
+      "detail": "HodgeStructuresPartII:H.5/boundary-monodromy-data currently packages good compactification geometry whileH.5 andH.7 depend onR09.7d. The geometric carrier is owned by good-compactification here. RetargetH.5 to that node; H.5 retains monodromy andH.7 retains buffered charts, sectors and BKT period-map analysis. This avoids a compactification-to-Hodge-to-compactification cycle."
+    },
+    {
+      "title": "Current roadmap reuse screen",
+      "detail": "Current StableReduction README/Suggested were read for general blowups and relative coherent/Cartier/projective interfaces, and AlgebraicVectorBundles for coherent tensor/dual/invertible-sheaf operations. The nine post-snapshot roadmaps were screened:AlgebraicVectorBundles, DifferentialGeometry, IntegralLattices, LocalGaloisGroups, OperatorTheory, OrthogonalSpinGroups, PeripheralActions, ProfiniteArithmetic, RealAlgebraicGeometry; the relevant smooth/analytic material in DifferentialGeometry and RealAlgebraicGeometry was inspected. None supplies the history-sensitive characteristic-zero invariant or these marked-ideal transforms. OperatorTheory has no Suggested file in the current checkout. The current toric complex boundary normal form is a special toric result, not a general SNC compactification supplier."
+    }
+  ]
+}
