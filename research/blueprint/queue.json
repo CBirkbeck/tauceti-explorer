@@ -45945,8 +45945,9 @@
     "PKG-AutomorphicGaloisRepresentations"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicGaloisRepresentations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7506"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7506",
+   "finishedAt": "2026-10-09T02:54:08Z"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentationsPartII",
@@ -45964,8 +45965,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicGaloisRepresentationsPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7459"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7459",
+   "finishedAt": "2026-10-09T02:54:12Z"
   },
   {
    "id": "REV-PKG-AutomorphicGaloisRepresentationsPartII",
@@ -46412,7 +46414,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-DiamondEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7466"
   },
   {
    "id": "REV-PKG-DiamondEtaleCohomology",
@@ -47744,7 +47747,8 @@
     "PKG-VStackSheavesAndLisseCategories"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-VStackSheavesAndLisseCategories.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7541"
   },
   {
    "id": "PKG-VectorBundlesAndIsocrystals",
