@@ -350,3 +350,119 @@ also inspected. This table is a revision index, not a formalization claim.
 | Accepted plan | `a427a7649fb43e0e20477e090dac6bc8d44ffd73d8fb4be0a65e4afd26b7f4d4` |
 | Corrected README | `1f9f057abc360b9d7b918e479df9df4cab99b5f69a107213ae504852936ce5a5` |
 | Corrected Suggested.lean | `bdc7ddf2f0f044647690ea093c08ee8128a163c7defe382bb0409ee798658a56` |
+
+## Round 2 — 9 October 2026 (fixing review, streamlined pipeline)
+
+**Verdict: accepted**, by Claude (Fable 5.1), session `cc-c62abc`, as
+`independent-review-REV-PKG-DiamondsAndVStacks~2`. Round 1's only ground for
+`needs_changes` was that 49 named targets, 126 API items and 96 tests were
+comment-only. Under the streamlined pipeline a statement whose carriers do not
+exist at the pins is simply absent from `Suggested.lean`; that is not a defect.
+What follows was fixed in place; nothing was sent back.
+
+### What was fixed
+
+1. **`Suggested.lean` rewritten in TauCetiRoadmap form**, after the model
+   `AdicSpaces/Suggested.lean`: `import Mathlib`; one module docstring stating
+   the three design choices (extend Mathlib's spectral predicates, state the
+   geometric layers relative to a supplied category with an underlying-space
+   functor and supplied morphism classes, carry `Pro C` by `(Ind Cᵒᵖ)ᵒᵖ`);
+   `namespace TauCetiRoadmap.DiamondsAndVStacks` for the whole file with topic
+   sub-namespaces (`Spectral`, `Pro`, `Topos`, `Stack`, `Perfd`, `Perf`,
+   `PreAdic`, `BerkovichSpectrum`); `/-! ## Layer k -/` sections in README
+   order; a docstring on every declaration; `theorem` throughout; examples for
+   unit tests. The 500-line omission ledger, every process comment and the
+   `TauCeti.Diamonds`/`CategoryTheory.*`/`CompHaus` namespaces are gone; a
+   short closing comment names the untyped targets. Wrapping in one namespace
+   worked without breaking resolution; the only adjustments `import Mathlib`
+   forced were `CategoryTheory.Equivalence.refl` (the root `Equivalence.refl`
+   is the `Prop` one) and an explicit `[HasCoproduct F]` on the finite-coproduct
+   test, whose instance search otherwise times out.
+2. **Five previously comment-only targets typed with `sorry`** from Mathlib
+   carriers: D0.8 (`ProConstructibleEquivalenceRelation`: `T0` quotient and
+   invariant neighbourhoods, with the graph closed in
+   `constructibleTopology (X × X)` and relative-spectral generalizing
+   projections), D0.9 (`SpectralQuotientCriterion` with the qc-basis
+   hypothesis, and `.of_isOpenMap` for the open case), D0.18
+   (`Topos.preservesFilteredColimits_cohomology`: `Sheaf.cohomologyPresheafFunctor`
+   evaluated at a qcqs object preserves filtered colimits on an algebraic
+   site), D0.20 (`ConstantSheafOnIrreducibleSpace`: surjective restrictions and
+   `Subsingleton (Sheaf.H _ (n+1))` for `constantSheaf` on
+   `Opens.grothendieckTopology`), D1.2 (`OpenCoversSplit` and
+   `SplitCoverCharacterisation`: the four equivalences of ECD 7.2 with the
+   epimorphism-to-surjection clause on set-valued global sections). The new
+   D5.13 is typed as `BerkovichSpectrum` (continuous `MulRingSeminorm`s with
+   `φ ϖ = 1/2`, pointwise topology), `compactSpace_t2Space` for a complete Tate
+   ring presented by an open `ϖ`-adic subring, and `changeNormalization`.
+3. **Upward and out-of-order citations.** `FoundationsAndLibraryIntegration:LI.0`
+   (a process stage, "pinned libraries and declarations") is replaced by the
+   Mathlib and Tau Ceti items it stood for. `TropicalAndBerkovichArithmetic:TB.0`
+   lies outside the 94 roadmaps of the order file, so the notion moved down:
+   new target **D5.13 — The Berkovich spectrum of a complete Tate ring and the
+   maximal Hausdorff quotient of Spa**, sourced to ECD Definition 13.7, Remark
+   13.8 and Proposition 13.9 (p. 79; ECD states it for affinoid perfectoid
+   spaces and the argument uses only that `R` is complete Tate), with seven API
+   items and four tests; the former D5.13–D5.15 are now D5.14–D5.16 and D5.14
+   takes its spectrum from D5.13. The `AdicCoefficientsAndComparisons:L1`
+   dependency inside D6.6 (API item `PreAdic.diamond_integralScheme` and the
+   comparison clause) is dropped: that comparison is the consumer's. Pointers
+   to DiamondEtaleCohomology, EnhancedDerivedSheaves, RelativeFarguesFontaine
+   and AdicCoefficientsAndComparisons now appear only in the boundaries
+   section; the inline DiamondSixOperations name in D5.12 is gone.
+4. **Form of the upstream README.** "Ownership and imported geometry" is now
+   "Prerequisites and boundaries" and lists what Tau Ceti already has (the
+   pro-constructible calculus, patch criterion, spectrality of `Spv`/`Cont`/`Spa`,
+   AdicSpaces Layers 1–3, and the Mathlib carriers) as deferrals, with the one
+   clause by which D0.1, D0.3 and D0.5 extend them. No "(removed)" stubs; the
+   nine `Hypotheses and scope` lines without terminal punctuation were
+   completed. Layer table and D5 introduction mention the Berkovich spectrum.
+
+### Duplication sweep (TauCeti a91d3aaf and current roadmaps)
+
+Searched by object (spectral spaces, constructible topology, pro-constructible
+sets, generalizing maps, quotient criteria, Hochster dual, pro-categories,
+Stone–Čech presentations, stackification, cutoff cardinals, w-local spaces,
+split covers, perfectoid/tilt/pro-étale/v-topology/diamond/Berkovich). In the
+library: `Topology/Spectral/{PatchCriterion,ProConstructible,SpectralMap}.lean`
+and the `AdicSpace` spectrality modules are unchanged since the atlas pin
+(`ProConstructible.lean` differs by one import) and were already cited;
+`AdicSpace/FarguesFontaine/{Y,Window,Quotient}.lean` build the Frobenius orbit
+space `𝒴/φ^ℤ` as a topological quotient, not a diamond; `RingTheory/Huber/WittVector.lean`
+gives `A_inf` its Huber structure only; the new `Topology/Category/TopCat/Cech/*`
+is the Čech diagram of an open cover in `TopCat`, not the site-level comparison
+of D0.19. No perfectoid, tilting, pro-étale, v-sheaf, diamond or Berkovich
+material exists. In the roadmaps (including the nine newer than the atlas
+snapshot and `Completed/*`): only AdicSpaces touches these notions (Layers 1–2,
+already the roadmap's cited supplier); the other hits were instance diamonds
+and Leray in unrelated senses. **No target was removed.**
+
+### Checks
+
+- Sources: 30 locators re-read in the downloaded texts (ECD 2.1, 2.2, 2.5, 2.7,
+  2.9, 2.11, 4.1, 7.1, 7.12, 7.18, 7.19, 8.1, 9.6, 10.12, 11.1, 11.17, 11.31,
+  12.1, 13.7, 15.1; Arc 2.14, 2.18, 3.10; GLX 3.2; KL16 3.5.8, 8.2.3; Berkeley
+  10.2.3, 18.1.1, 18.1.2, 18.2.2). All on the stated pages (Berkeley printed
+  page + 10 = PDF page, as the README says). Downloads reproduce Round 1's
+  hashes.
+- Gaps: every prerequisite is Mathlib, Tau Ceti, an earlier target, a bundle
+  roadmap (PerfectoidSpaces, AdicEtaleGeometry, AdicSpacesPartII) or
+  SchemeAndStackFoundations (tier 2). No `UPSTREAM:` ids remain.
+- Unit tests: 120 (116 + 4 for D5.13), each discriminating; 23 typed as
+  `example`s.
+- Lean: `lean-check …/Suggested.lean` → exit 0,
+  104 `declaration uses sorry` warnings, nothing else; 150 declarations.
+  Ten signatures spot-checked against the README (D0.1, D0.5, D0.8, D0.9,
+  D0.11, D0.17, D0.18, D1.2, D4.1, D5.13): hypotheses present, nothing vacuous,
+  no `True` or `Prop := sorry`.
+- Own words: the new D5.13 paragraph and all docstrings are original prose.
+- `python3 research/blueprint/intake.py check-files` on the five files: 0
+  problems; no `/home/` paths.
+
+### What remains (not defects)
+
+The statements still absent from `Suggested.lean` are exactly those needing
+the perfectoid category, tilting, pro-étale limits, or the pre-adic and
+rigid-analytic interfaces: D0.14, D0.19, D0.21, D0.22, most of D1–D6 beyond the
+generic relative forms, and the `Spa`-side half of D5.13. They are named in
+the file's closing comment and fully stated in the README. README: 91 targets,
+219 API items, 120 tests, 190,943 bytes.

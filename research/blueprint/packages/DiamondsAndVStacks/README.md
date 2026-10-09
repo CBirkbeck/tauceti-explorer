@@ -11,12 +11,14 @@ The construction has seven layers. The four independent foundation strands in D0
 | [D2](#d2) | Pro-étale and v-sites | Small sheaves, subcanonicity, descent and acyclicity of functions, vector bundles |
 | [D3](#d3) | Effective descent and morphisms of stacks | Affinoid and separated pro-étale descent, étale and quasi-pro-étale classes, immersions and torsors |
 | [D4](#d4) | Quotients and underlying spaces | Diamonds, small v-sheaves and v-stacks, geometric point criteria and topological quotients |
-| [D5](#d5) | Spatial geometry | Permanence and limits, universally open presentations, relative representability and Hausdorff reduction |
+| [D5](#d5) | Spatial geometry | Permanence and limits, universally open presentations, relative representability, Berkovich spectra and Hausdorff reduction |
 | [D6](#d6) | Diamondification | Analytic diamonds and their étale sites; integral pre-adic v-sheaves and seminormal rigid full faithfulness |
 
-## Ownership and imported geometry
+## Prerequisites and boundaries
 
-The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The dependencies beside each target name the declarations or layer that supply its inputs. Existing definitions retain their library namespaces. In particular, D0 extends `SpectralSpace`, `IsSpectralMap` and `TauCeti.IsProConstructible`; it does not introduce competing versions of these predicates. Tau Ceti's AdicSpaces Layer 1 supplies valuation spectra and the pro-constructible calculus, while its later layers supply rational localizations and the adic structure presheaf.
+The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The dependencies beside each target name the declarations or layer that supply its inputs. Existing definitions retain their library namespaces. In particular, D0 extends `SpectralSpace`, `IsSpectralMap` and `TauCeti.IsProConstructible`; it does not introduce competing versions of these predicates.
+
+Tau Ceti already has, and this roadmap uses without restating: the pro-constructible calculus and the spectrality of pro-constructible subspaces (`TauCeti.IsProConstructible`, `TauCeti.IsProConstructible.spectralSpace`, `TauCeti.IsSpectralMap.continuous_constructibleTopology`), the patch criterion for spectrality (`TauCeti.spectralSpace_of_isClopen_generateFrom`), the spectrality of `Spv`, `Cont` and `Spa` (`TauCeti.ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition`; AdicSpaces Layers 1–2), and the Huber pairs, rational subsets and adic structure presheaf of AdicSpaces Layers 2–3. From Mathlib it uses `SpectralSpace`, `IsSpectralMap`, `WithConstructibleTopology`, `GeneralizingMap`, `Ind`, `Stonean` and `CompHaus.projectivePresentation`, the descent API `Pseudofunctor.IsStack` and `DescentData`, and the Ext-based sheaf cohomology `Sheaf.H`. D0.1, D0.3 and D0.5 state in one clause how they extend these: locally spectral spaces and relative spectral maps, images of pro-constructible subsets under spectral maps, and the Hochster dual.
 
 | Supplier | Interface used here |
 | --- | --- |
@@ -31,11 +33,10 @@ The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti 
 | `AdicEtaleGeometry:A4` | Finite étale torsor towers with perfectoid uniform completion |
 | `SchemeAndStackFoundations:SF.2` | Scheme-theoretic flat-cover refinements used in the perfectoid ball argument |
 | `AdicSpacesPartII:R0`, `R2` | Rigid seminormalization; arbitrary-height valuation algebra and integral pre-adic mapping spaces |
-| `TropicalAndBerkovichArithmetic:TB.0` | The early complete-Tate seminorm spectrum and its affinoid maximal Hausdorff quotient |
 
-D1 imports the perfectoid pro-étale morphism calculus from P6. D2 constructs topologies on that category; it does not define the morphisms themselves. D6 imports the tower construction from A4 and proves the resulting geometric quotient and comparison. D5 extends the TB.0 seminorm functor from affinoids to small v-sheaves. The complete-Tate spectrum must be available from the early TB.0 spectrum interface, depending on `FoundationsAndLibraryIntegration:LI.0` and Tau Ceti's AdicSpaces Layer 2, without depending on D5.
+D1 imports the perfectoid pro-étale morphism calculus from P6. D2 constructs topologies on that category; it does not define the morphisms themselves. D6 imports the tower construction from A4 and proves the resulting geometric quotient and comparison. D5 constructs the Berkovich spectrum of a complete Tate ring (D5.14) from Mathlib's `MulRingSeminorm` and Tau Ceti's `Spa`, and extends it from affinoids to small v-sheaves (D5.15).
 
-General canonical compactification, including ECD §18, belongs to `DiamondEtaleCohomology:C4`. D3 proves only the elementary special construction needed for its descent argument. D5 must establish the early minimal-plus-ring extension used in its spatial reduction directly from its earlier inputs, without importing C4. Ordinary profinite sheaves and ordinary ultrafilter stalks belong to D0; their infinity-valued and hypercomplete enhancements belong to `EnhancedDerivedSheaves` and consume these foundations.
+General canonical compactification, including ECD §18, belongs to the étale cohomology of diamonds downstream of this roadmap (DiamondEtaleCohomology); D3 proves only the elementary special construction needed for its descent argument, and D5 establishes the early minimal-plus-ring extension used in its spatial reduction directly from its earlier inputs. Ordinary profinite sheaves and ordinary ultrafilter stalks belong to D0; their infinity-valued and hypercomplete enhancements belong to the enhanced derived-sheaf roadmap (EnhancedDerivedSheaves), which consumes these foundations. The comparison of integral pre-adic diamondification with the adic-coefficient functors of schemes (AdicCoefficientsAndComparisons) and the divisor geometry of symmetric powers of Spd O_E (RelativeFarguesFontaine) consume D6 and are not targets here.
 
 ## Conventions
 
@@ -181,7 +182,7 @@ Let X be a spectral space and S a pro-constructible subset. Then the closure of 
 
 For a spectral space X, the inverse topology is generated by complements of qc opens of X. It is spectral, has the same constructible topology, and reverses specialization; applying the operation twice recovers the original topology. Maps are spectral for the original topologies iff spectral for the inverse topologies.
 
-**Hypotheses and scope.** Spectral X and Y
+**Hypotheses and scope.** Spectral X and Y.
 
 **API.**
 
@@ -206,7 +207,7 @@ For a spectral space X, the inverse topology is generated by complements of qc o
 
 For a spectral space X, ConnectedComponents X with the quotient topology is profinite. Its clopens correspond exactly to clopens of X; the component of x is the intersection of all clopen neighbourhoods of x.
 
-**Hypotheses and scope.** Spectral X
+**Hypotheses and scope.** Spectral X.
 
 **Sources.** [ECD](#source-ecd) — §7, proof of Lemma 7.2, pp. 29–30.
 
@@ -272,7 +273,7 @@ Take a cofiltered diagram (X_i) of spectral spaces with spectral transition maps
 
 A spectral submersion is a surjective spectral map f:X→Y of spectral spaces such that, for every subset U⊆Y, if f⁻¹(U) is qc open then U is open. It is weaker than an ordinary submersion (Mathlib Topology.IsQuotientMap). Equivalently it suffices to test constructible U; surjectivity and patch compactness then also imply qc of U.
 
-**Hypotheses and scope.** Spectral X and Y
+**Hypotheses and scope.** Spectral X and Y.
 
 **API.**
 
@@ -297,7 +298,7 @@ A spectral submersion is a surjective spectral map f:X→Y of spectral spaces su
 
 Let f_i:X_i→Y_i be a morphism of small cofiltered diagrams of spectral spaces and spectral transition maps. If every f_i is a spectral submersion then lim f_i is a spectral submersion. The ordinary quotient-map property is not preserved in this statement: Arc Remark 2.18 supplies an inverse system of ordinary submersions whose limit is not a submersion.
 
-**Hypotheses and scope.** Small cofiltered diagram; all transition maps spectral
+**Hypotheses and scope.** Small cofiltered diagram; all transition maps spectral.
 
 **Sources.** [Arc](#source-arc) — §2, Lemma 2.17 and Remark 2.18, pp. 12–13.
 
@@ -469,7 +470,7 @@ For a site (C, J), a cover of an object X and an abelian sheaf F there is a spec
 
 For an irreducible topological space X and an abelian group A, the constant sheaf has sections A on every nonempty open and the zero group on the empty open. All restriction maps are surjective, so it is flasque and H^i(X,A_X)=0 for i>0. A spectral space with a generic point is such an X.
 
-**Hypotheses and scope.** Irreducible X; abelian group A
+**Hypotheses and scope.** Irreducible X; abelian group A.
 
 **Sources.** [Stacks constant sheaves](#source-stacks-02uw) — Lemma 20.20.2, tag 02UW (stable tag pagination).
 
@@ -602,7 +603,7 @@ The purpose of disconnected covers is to turn geometry into valuation-field comp
 
 #### D1.1 — Totally disconnected perfectoid spaces
 
-A perfectoid space X is totally disconnected if X is qcqs and every open cover of X splits, that is, for every open cover {U_i} of X the map from the disjoint union of the U_i to X admits a section. These are the analogues of profinite sets in the perfectoid setting. The name refers to the connected components of |X|, which are the fibres of the projection to the profinite set pi_0(X) and are of the form Spa(K, K^+); it does not say that |X| is a totally disconnected topological space.
+Call a perfectoid space X totally disconnected when it is quasi-compact quasi-separated and each of its open covers admits a splitting, that is, for every open cover {U_i} of X the map from the disjoint union of the U_i to X admits a section. These are the analogues of profinite sets in the perfectoid setting. The name refers to the connected components of |X|, which are the fibres of the projection to the profinite set pi_0(X) and are of the form Spa(K, K^+); it does not say that |X| is a totally disconnected topological space.
 
 **Hypotheses and scope.** X is required to be qcqs; without quasicompactness the splitting condition is vacuous on the pieces of an infinite disjoint union and the structure theory fails. The condition is on open covers, not on étale covers: the étale version is the strictly totally disconnected condition of ECD 7.15, which is strictly stronger.
 
@@ -1367,7 +1368,7 @@ For a qcqs morphism f:Y′→Y of v-stacks, geometric-point evaluation character
 
 For a small v-sheaf F with an action of a locally profinite group G, the v-sheaf quotient Q=F/underline(G) is small and |Q| is homeomorphic to |F|/G with the quotient topology. A quotient diamond is obtained when the relation is pro-étale and representable by a perfectoid presentation. No formula for set-valued π₀ is asserted without additional hypotheses.
 
-**Hypotheses and scope.** Small F; a continuous sheaf action of underline(G) for locally profinite G
+**Hypotheses and scope.** Small F; a continuous sheaf action of underline(G) for locally profinite G.
 
 **Sources.** [GLX](#source-glx) — §3, Lemma 3.2, first assertion, pp. 16–17.
 
@@ -1377,7 +1378,7 @@ For a small v-sheaf F with an action of a locally profinite group G, the v-sheaf
 
 ## D5: Spatial geometry and Hausdorff reduction
 
-First establish spatiality, qc injections and finite étale permanence. Then construct spatial limits and universally open presentations; use these to prove quasi-pro-étale permanence and local étale structure. The later limit-based point localization is distinct from the early localization needed for finite étale permanence. Relative representability and Hausdorff reduction use the ordinary D0 sheaf theory.
+First establish spatiality, qc injections and finite étale permanence. Then construct spatial limits and universally open presentations; use these to prove quasi-pro-étale permanence and local étale structure. The later limit-based point localization is distinct from the early localization needed for finite étale permanence. The Berkovich spectrum of a complete Tate ring is constructed here before it is extended to small v-sheaves; relative representability and Hausdorff reduction use the ordinary D0 sheaf theory.
 
 ### Spatiality and its first permanence properties
 
@@ -1500,7 +1501,7 @@ Let f : Y' → Y be an étale map of locally spatial diamonds. Then for every po
 
 For a spatial diamond Y and y∈|Y|, let Y_y be the inverse limit of all qc open subdiamonds U⊆Y containing y, along inclusions. It is spatial; |Y_y| is the generalization set of y with the induced topology, and its map to Y is a qc injection. Morphisms whose underlying image is contained in that generalization set factor uniquely through Y_y. This is a diamond localization, not a new definition of a local ring.
 
-**Hypotheses and scope.** Spatial Y; y∈|Y|
+**Hypotheses and scope.** Spatial Y; y∈|Y|.
 
 **API.**
 
@@ -1550,7 +1551,7 @@ For a locally spatial diamond Y and a locally closed subset D⊆|Y| stable under
 
 For a profinite set P and a locally spatial diamond S, underline(P)×S is locally spatial and |underline(P)×S|≅P×|S|. The projection to S is qc, separated and universally closed; hence it sends closed subsets to closed subsets after any locally spatial base change. Compactness of P is essential for closedness of the projection.
 
-**Hypotheses and scope.** P profinite; S locally spatial
+**Hypotheses and scope.** P profinite; S locally spatial.
 
 **Sources.** [HK](#source-hk) — Proof of Proposition 9.3.4, printed p. 60.
 
@@ -1576,7 +1577,7 @@ A spatial v-sheaf Y is a spatial diamond if some perfectoid X admits a quasi-pro
 
 A map f : Y' → Y of v-stacks is representable in diamonds if for every diamond X with a map X → Y the fibre product Y' x_Y X is a diamond; it is representable in (locally) spatial diamonds if for every (locally) spatial diamond X over Y the fibre product is a (locally) spatial diamond. For a map of diamonds that is representable in (locally) spatial diamonds one says simply that it is a (locally) spatial map. A map is representable in spatial diamonds exactly when it is representable in locally spatial diamonds and qcqs. All these notions are examples of 0-truncated maps.
 
-**Hypotheses and scope.** The pro-étale locality and the v-locality conditions in the two descent statements are different: for representability in diamonds a surjection of pro-étale stacks suffices, while for representability in locally spatial diamonds one needs quasiseparatedness of f as well. These are the notions in which the six operations of DiamondSixOperations are indexed, so their exact form matters.
+**Hypotheses and scope.** The pro-étale locality and the v-locality conditions in the two descent statements are different: for representability in diamonds a surjection of pro-étale stacks suffices, while for representability in locally spatial diamonds one needs quasiseparatedness of f as well. These are the notions in which the six-operations formalism is indexed, so their exact form matters.
 
 **Construction and auxiliary results.** For a surjection of pro-étale stacks on the target, representability in diamonds descends; representability in locally spatial diamonds also descends when f is qs. For a surjection of v-stacks, the locally spatial descent assertion assumes f is already representable in diamonds and is qs. Include ECD Lemma 13.5: a qs small v-sheaf over an underlined profinite S is locally spatial if its fibres are locally spatial and it has a surjective qcqs map from a locally spatial diamond. A separated map is quasi-pro-étale exactly when it is representable in locally spatial diamonds and its fibres at Spa(C,O_C), for algebraically closed C, are pro-étale.
 
@@ -1604,19 +1605,50 @@ A map f : Y' → Y of v-stacks is representable in diamonds if for every diamond
 
 <a id="d5-13"></a>
 
-#### D5.13 — The Berkovich space and the maximal Hausdorff quotient of a small v-sheaf
+#### D5.13 — The Berkovich spectrum of a complete Tate ring and the maximal Hausdorff quotient of Spa
 
-Import M(R), the normalized bounded multiplicative-seminorm space for complete Tate rings (choose a topologically nilpotent unit ϖ and |ϖ|=1/2, with the canonical change-of-normalization homeomorphisms), and Spa(R,R⁺)→M(R) as its maximal Hausdorff quotient from an early TropicalAndBerkovichArithmetic:TB.0 spectrum substage. Extend this affinoid-perfectoid functor to small v-sheaves by left Kan extension through perfectoid atlases: B(Y)=colim_{X→Y} M(O(X)) over affinoid perfectoid X. It preserves colimits and has |Y|→B(Y). For qcqs v-sheaves this is the maximal Hausdorff quotient and B(Y) is compact Hausdorff. The section selecting maximal generalizations is set-theoretic and need not be continuous. D5 proves ECD 13.10–13.13, not the seminorm spectrum or the Tate-pair maximal-Hausdorff theorem.
+Let R be a complete Tate ring and ϖ a topologically nilpotent unit of R. The Berkovich spectrum M(R) is the set of continuous multiplicative seminorms |·| : R → ℝ≥0 with |ϖ| = 1/2, with the topology of pointwise convergence. It is compact Hausdorff. For a second topologically nilpotent unit ϖ′, raising each seminorm to the exponent that renormalizes |ϖ′| to 1/2 is a homeomorphism between the two spectra, so M(R) is canonically independent of ϖ. For an open and integrally closed subring R⁺ ⊆ R, every point of Spa(R,R⁺) has a unique rank-one generalization; sending a point to the seminorm given by that generalization is a continuous surjection Spa(R,R⁺) → M(R), which is a quotient map and identifies M(R) with the maximal Hausdorff quotient of Spa(R,R⁺): every continuous map from Spa(R,R⁺) to a Hausdorff space factors uniquely through it. Sending a seminorm to the corresponding rank-one point is a section of sets, not asserted to be continuous.
+
+**Hypotheses and scope.** R complete Tate; ϖ a topologically nilpotent unit; R⁺ open and integrally closed. Boundedness of a multiplicative seminorm with respect to a ring of definition is equivalent to continuity, which is the condition used in the definition. ECD states the result for affinoid perfectoid spaces; its argument uses only that R is complete Tate, and the general form is what D5.14 extends to small v-sheaves.
+
+**Construction and auxiliary results.** Continuity and the normalization bound a seminorm by 1 on a ring of definition, so M(R) is a closed subspace of a product of compact intervals, and compactness is Tychonoff; Hausdorffness is separation by evaluation at elements of R. The map from Spa(R,R⁺) is continuous because the value of |f| at the rank-one generalization of x is determined by the rational subsets containing x, and it is a quotient map by the compact Hausdorff criterion of D0.7.
+
+**API.**
+
+- `BerkovichSpectrum`: The set of continuous multiplicative seminorms on R normalized by |ϖ| = 1/2, with the topology of pointwise convergence.
+- `BerkovichSpectrum.compactSpace_t2Space`: For a complete Tate ring, M(R) is compact Hausdorff.
+- `BerkovichSpectrum.changeNormalization`: The canonical homeomorphism between the spectra normalized at two topologically nilpotent units.
+- `BerkovichSpectrum.ofSpa`: The continuous surjection Spa(R,R⁺) → M(R) sending a point to its rank-one generalization.
+- `BerkovichSpectrum.isQuotientMap_ofSpa`: That surjection is a quotient map.
+- `BerkovichSpectrum.universal`: Every continuous map from Spa(R,R⁺) to a Hausdorff space factors uniquely through M(R).
+- `BerkovichSpectrum.section`: The set-theoretic section of `ofSpa` selecting the rank-one point of a seminorm.
+
+**Examples and compatibility.**
+
+- `field`: For a complete nonarchimedean field K, M(K) is a single point (the degenerate case).
+- `gauss_point`: For the Tate algebra K⟨T⟩, the Gauss norm is a point of M(K⟨T⟩) and M(K⟨T⟩) has more than one point; a construction returning a point for every affinoid is wrong.
+- `not_injective_on_spa`: A rank-two point of Spa(K⟨T⟩, O_K⟨T⟩) and its rank-one generalization have the same image in M(K⟨T⟩), so `ofSpa` is not injective; a construction that returns Spa itself, which is not Hausdorff, is wrong (a non-example).
+- `normalization_square`: For ϖ′ = ϖ², the change-of-normalization map sends |·| to |·|^{1/2}.
+
+**Sources.** [ECD](#source-ecd) — Section 13, Definition 13.7, Remark 13.8 and Proposition 13.9 with proof, p. 79.
+
+**Prerequisites.** `mathlib:MulRingSeminorm`, `mathlib:IsTopologicallyNilpotent`, `mathlib:IsAdic`, [D0.7](#d0-7), `tauceti:TauCeti.ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition`.
+
+<a id="d5-14"></a>
+
+#### D5.14 — The Berkovich space and the maximal Hausdorff quotient of a small v-sheaf
+
+Take the Berkovich spectrum M(R) of a complete Tate ring, with its normalization |ϖ|=1/2 and its change-of-normalization homeomorphisms, and the maximal Hausdorff quotient Spa(R,R⁺)→M(R) from D5.13. Extend this affinoid-perfectoid functor to small v-sheaves by left Kan extension through perfectoid atlases: B(Y)=colim_{X→Y} M(O(X)) over affinoid perfectoid X. It preserves colimits and has |Y|→B(Y). For qcqs v-sheaves this is the maximal Hausdorff quotient and B(Y) is compact Hausdorff. The section selecting maximal generalizations is set-theoretic and need not be continuous. This target proves ECD 13.10–13.11; the seminorm spectrum and the affinoid maximal-Hausdorff theorem are D5.13.
 
 **Hypotheses and scope.** |X|_B is canonically independent of the choice of varpi. The map |Y|_B → |Y| is a section of sets, not a continuous map; this is stated explicitly by ECD and must not be strengthened.
 
-**Construction and auxiliary results.** The supplier is the early TB.0 spectrum for complete Tate rings, normalized by |ϖ| = 1/2 and canonically independent of normalization, with its evaluation topology and affinoid maximal Hausdorff theorem. Apply left Kan extension along affinoid perfectoid atlases, prove it preserves colimits and identify the maximal Hausdorff quotient for qcqs v-sheaves. D5 does not redevelop the seminorm carrier.
+**Construction and auxiliary results.** Apply left Kan extension along affinoid perfectoid atlases to the spectrum of D5.13, prove that the extension preserves colimits, and identify the maximal Hausdorff quotient for qcqs v-sheaves by writing such a v-sheaf as a quotient of spatial diamonds and using that quotients of compact Hausdorff spaces are compact Hausdorff.
 
 **API.**
 
 - `Perf.berkovich`: The functor Y mapsto |Y|_B from small v-sheaves to topological spaces.
-- `Perf.berkovich_affinoid`: For a complete perfectoid Tate pair (R,R⁺), B(Spd(R,R⁺)) is the supplied TB.0 spectrum M(R).
-- `Perf.berkovich_indep_varpi`: The extension uses the intrinsic TB.0 spectrum, hence does not depend on a chosen pseudouniformizer.
+- `Perf.berkovich_affinoid`: For a complete perfectoid Tate pair (R,R⁺), B(Spd(R,R⁺)) is the spectrum M(R) of D5.13.
+- `Perf.berkovich_indep_varpi`: The extension uses the normalization-independent spectrum of D5.13, hence does not depend on a chosen pseudouniformizer.
 - `Perf.berkovich_compactHausdorff`: For Y qcqs, |Y|_B is compact Hausdorff.
 - `Perf.berkovich_isQuotientMap`: |Y| → |Y|_B is a continuous quotient map.
 - `Perf.berkovich_section`: The set-theoretic section |Y|_B → |Y| satisfies q∘s=id; it need not be continuous (it is continuous in the profinite and single-point cases).
@@ -1626,17 +1658,17 @@ Import M(R), the normalized bounded multiplicative-seminorm space for complete T
 **Examples and compatibility.**
 
 - `point`: For X = Spa(C, C^+), |X|_B is a point (the degenerate case).
-- `disc`: For an affinoid perfectoid disc with ring R, B(X)=M(R) from TB.0; no identification with the spectrum of the ordinary rigid disc is asserted.
+- `disc`: For an affinoid perfectoid disc with ring R, B(X)=M(R) as in D5.13; no identification with the spectrum of the ordinary rigid disc is asserted.
 - `section_not_continuous`: The maximal-generalization section is a set section q∘s=id; continuity is not part of its specification.
 - `compact_hausdorff_diamond`: For Y = T underline times Spa(K, O_K) with T compact Hausdorff, |Y|_B = T.
 
 **Sources.** [ECD](#source-ecd) — Section 13, Definition 13.7, Remark 13.8 and Proposition 13.9, p. 79; [ECD](#source-ecd) — Section 13, Proposition 13.10 and Proposition 13.11, pp. 79-80.
 
-**Prerequisites.** [D0.7](#d0-7), [D0.16](#d0-16), [D4.5](#d4-5), [D5.1](#d5-1), [D4.7](#d4-7), [D3.10](#d3-10), `PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting`, `TropicalAndBerkovichArithmetic:TB.0/spectrum`, `TropicalAndBerkovichArithmetic:TB.0`.
+**Prerequisites.** [D0.7](#d0-7), [D0.16](#d0-16), [D4.5](#d4-5), [D5.1](#d5-1), [D4.7](#d4-7), [D3.10](#d3-10), `PerfectoidSpaces:P2/perfectoid-spaces-and-glued-tilting`, [D5.13](#d5-13).
 
-<a id="d5-14"></a>
+<a id="d5-15"></a>
 
-#### D5.14 — A quasicompact separated diamond maps representably to its maximal Hausdorff quotient, and the cohomology comparison
+#### D5.15 — A quasicompact separated diamond maps representably to its maximal Hausdorff quotient, and the cohomology comparison
 
 Let Y be a quasicompact separated diamond. Then the map Y → |Y|_B underline is representable in locally spatial diamonds; equivalently a general quasicompact separated diamond differs from a locally spatial one only through a map to a compact Hausdorff space. Moreover, for f : |Y| → |Y|_B the pullback f^* induces a fully faithful functor from D^+(|Y|_B, Z) to D^+(|Y|, Z), so that H^i(|Y|_B, F) is isomorphic to H^i(|Y|, f^* F) for every abelian sheaf F on |Y|_B. This cohomological assertion is proved with ordinary sheaf cohomology, not with the later diamond coefficient category.
 
@@ -1646,13 +1678,13 @@ Let Y be a quasicompact separated diamond. Then the map Y → |Y|_B underline is
 
 **Sources.** [ECD](#source-ecd) — Section 13, Proposition 13.12 with proof, pp. 80-81; [ECD](#source-ecd) — Section 13, Proposition 13.13 with proof, p. 81.
 
-**Prerequisites.** [D5.13](#d5-13), [D5.12](#d5-12), [D5.5](#d5-5), [D5.4](#d5-4), [D3.10](#d3-10), [D3.8](#d3-8), [D0.19](#d0-19), [D0.4](#d0-4), [D0.20](#d0-20), [D5.8](#d5-8), `PerfectoidSpaces:P4/residue-field-point-injection`.
+**Prerequisites.** [D5.14](#d5-14), [D5.12](#d5-12), [D5.5](#d5-5), [D5.4](#d5-4), [D3.10](#d3-10), [D3.8](#d3-8), [D0.19](#d0-19), [D0.4](#d0-4), [D0.20](#d0-20), [D5.8](#d5-8), `PerfectoidSpaces:P4/residue-field-point-injection`.
 
 ### Components of group quotients
 
-<a id="d5-15"></a>
+<a id="d5-16"></a>
 
-#### D5.15 — Components of restricted group quotients
+#### D5.16 — Components of restricted group quotients
 
 Let a topological group G act continuously on X and give both orbit spaces their quotient topologies. If B=(ConnectedComponents X)/G is totally disconnected, then the canonical map B→ConnectedComponents(X/G) is a bijection of sets. A sufficient condition is that G-invariant clopens of X separate distinct G-orbits of components. In particular, for spectral X and profinite G with continuous action, B is profinite and the formula holds. For a locally spatial diamond torsor F→Y under noncompact G(Q_p) or Γ_K and connected base Y, the desired conclusion is transitivity on π₀(F); this requires verifying the separation hypothesis or an independent geometric transitivity proof. The printed universal GLX 3.2 is false.
 
@@ -1782,7 +1814,7 @@ Fix a prime p. For any pre-adic space X over Spa(ℤ_p,ℤ_p), define X^diamond 
 
 **Hypotheses and scope.** Pre-adic spaces over Spa(ℤ_p,ℤ_p), including nonanalytic loci; marked untilts from P1/P2; pair morphisms preserve A⁺ and are continuous.
 
-**Construction and auxiliary results.** The R2 pre-adic interface must include complete nonnoetherian integral pairs such as (O_C,O_C), gluing, and maps from perfectoid untilts. Apply v-descent of marked untilts and the mapping functor. Compare with analytic diamondification on the analytic locus, and with AdicCoefficientsAndComparisons:L1 on continuous integral maps. Products and finite symmetric-group quotients use D4; the associated divisor geometry belongs to RelativeFarguesFontaine:RF2.
+**Construction and auxiliary results.** The R2 pre-adic interface must include complete nonnoetherian integral pairs such as (O_C,O_C), gluing, and maps from perfectoid untilts. Apply v-descent of marked untilts and the mapping functor. Compare with analytic diamondification on the analytic locus. Products and finite symmetric-group quotients use D4.
 
 **API.**
 
@@ -1792,7 +1824,6 @@ Fix a prime p. For any pre-adic space X over Spa(ℤ_p,ℤ_p), define X^diamond 
 - `PreAdic.diamond_isVSheaf`: The mapping presheaf satisfies v-descent.
 - `PreAdic.diamond_analytic`: On analytic X it equals the existing analytic diamondification.
 - `PreAdic.diamond_formal`: For Spf A, the integral v-sheaf is Spd(A,A); its analytic generic-fibre locus agrees with analytic diamondification.
-- `PreAdic.diamond_integralScheme`: For an integral scheme and its associated pre-adic mapping functor, agree with AdicCoefficientsAndComparisons:L1 on continuous integral maps, with the same valuation subrings.
 
 **Examples and compatibility.**
 
@@ -1800,7 +1831,7 @@ Fix a prime p. For any pre-adic space X over Spa(ℤ_p,ℤ_p), define X^diamond 
 - `integral_spd_oc`: For a complete algebraically closed extension C/ℚ_p, Spd O_C is Spd(O_C,O_C), not Spd(C,O_C).
 - `integral_pair_variants`: Spd(R,R) and Spd(R⁺,R⁺) use the two different complete integral rings and their own continuous maps; neither is silently replaced by Spd(R[1/ϖ],R⁺).
 - `integral_formal_affine`: The integral v-sheaf of Spf A is Spd(A,A).
-- `integral_symmetric_power`: Products (Spd O_E)^d exist as small v-sheaves and their Σ_d quotient uses D4’s small quotient construction; divisor geometry belongs to RF2.
+- `integral_symmetric_power`: Products (Spd O_E)^d exist as small v-sheaves and their Σ_d quotient uses D4’s small quotient construction.
 
 **Sources.** [Berkeley](#source-berkeley) — Lecture 18, §18.1, Lemma 18.1.1, p. 161 (PDF p. 171).
 
@@ -1826,7 +1857,7 @@ Let K be a complete nonarchimedean field in which p is topologically nilpotent, 
 
 For a pre-adic space X over Spa ℤ_p, the point map |X^diamond|→|X| is a continuous surjection. If X is analytic it is a homeomorphism. For general nonanalytic X it need not be a homeomorphism: Berkeley Example 18.2.1 gives extra opens detected by topological nilpotence on the diamondification.
 
-**Hypotheses and scope.** Pre-adic X over Spa ℤ_p
+**Hypotheses and scope.** Pre-adic X over Spa ℤ_p.
 
 **Sources.** [Berkeley](#source-berkeley) — Lecture 18, §18.2, Example 18.2.1 and Proposition 18.2.2, p. 162 (PDF p. 172).
 
