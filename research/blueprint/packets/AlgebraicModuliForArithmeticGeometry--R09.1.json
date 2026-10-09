@@ -6,7 +6,7 @@
     "AlgebraicModuliForArithmeticGeometry:R09.1"
   ],
   "status": "complete",
-  "summary": "Projective parameter spaces beyond the finite locally free Grassmannian of ModularCurves 0G and relative Proj and ampleness of StableReduction Layer 2: coherent quotient Grassmannians, projective twists and their cohomology, Plücker and flag geometry, Hilbert polynomials and regularity, numerical boundedness, and distinct determinantal and Frobenius equations. All statements are planning specifications, with the unresolved numerical very-ampleness input explicitly isolated.",
+  "summary": "Projective parameter spaces beyond the finite locally free Grassmannian of ModularCurves 0G and relative Proj and ampleness of StableReduction Layer 2: coherent quotient Grassmannians, projective twists and their cohomology, Plücker and flag geometry, Hilbert polynomials and regularity, numerical boundedness, and distinct determinantal and Frobenius equations. All statements are planning specifications, with the unresolved numerical very-ampleness input explicitly isolated. The generic birational-system bridge for fibrewise big families is a fourth explicit gap; bounded smooth varieties use Chow-support families without a dependency on R09.2.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -17,7 +17,7 @@
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "line": 36,
         "provides": "Native sheaves of modules over a scheme structure sheaf; not a vector-bundle or Grassmann scheme construction.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
@@ -25,7 +25,7 @@
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "line": 182,
         "provides": "Contravariant pullback functor for actual module sheaves.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp",
@@ -33,7 +33,7 @@
         "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
         "line": 236,
         "provides": "Natural isomorphism pullback(g) followed by pullback(f) to pullback(f composed with g); transport the quotient universal property with its inverse.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "tauceti:AlgebraicGeometry.Scheme.Modules.tensorProduct",
@@ -41,7 +41,7 @@
         "module": "TauCeti/AlgebraicGeometry/Modules/TensorProduct.lean",
         "line": 44,
         "provides": "Tensor product of actual scheme-module sheaves; the scheme argument is explicit.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
@@ -49,7 +49,7 @@
         "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
         "line": 78,
         "provides": "Full subcategory of module sheaves locally free of rank one, with trivial and free examples.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
@@ -57,7 +57,7 @@
         "module": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
         "line": 61,
         "provides": "Underlying additive sheaf cohomology on the small Zariski site. Affine acyclicity, coherent finiteness and projective-space computations are not consequences of this carrier alone.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyZeroEquiv",
@@ -65,7 +65,7 @@
         "module": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
         "line": 80,
         "provides": "Additive equivalence between H⁰ and global sections; used for multiplication comparison.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "tauceti:AlgebraicGeometry.Scheme.Modules.eulerCharBelow",
@@ -73,7 +73,7 @@
         "module": "TauCeti/AlgebraicGeometry/Cohomology/EulerCharacteristic.lean",
         "line": 105,
         "provides": "Truncated alternating sum of finranks over a field. It computes an Euler characteristic only with finite-dimensionality and a valid vanishing cutoff; it is not itself a Hilbert polynomial.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:Module.Grassmannian",
@@ -81,7 +81,7 @@
         "module": "Mathlib/RingTheory/Grassmannian.lean",
         "line": 68,
         "provides": "Submodules with finite projective quotient of constant rank k at all prime stalks: k is the quotient rank, not the kernel rank.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:Module.Grassmannian.functor",
@@ -89,7 +89,7 @@
         "module": "Mathlib/RingTheory/Grassmannian.lean",
         "line": 188,
         "provides": "Module-valued Grassmannian functor on R-algebras with quotient-compatible base change, not a representing scheme.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.tilde",
@@ -97,7 +97,7 @@
         "module": "Mathlib/AlgebraicGeometry/Modules/Tilde.lean",
         "line": 151,
         "provides": "Associated sheaf of a module on Spec R, including affine localization; use for the exact module/scheme comparison.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:MvPolynomial.homogeneousSubmodule",
@@ -105,7 +105,7 @@
         "module": "Mathlib/RingTheory/MvPolynomial/Homogeneous.lean",
         "line": 89,
         "provides": "Degree-n polynomial submodule defined by support-total-degree; provides the native homogeneous carrier, not its finite rank formula.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:SymmetricAlgebra",
@@ -113,7 +113,7 @@
         "module": "Mathlib/LinearAlgebra/SymmetricAlgebra/Basic.lean",
         "line": 50,
         "provides": "The module symmetric algebra with its algebraic universal property. Sheaf symmetric/exterior powers are imported from AlgebraicVectorBundles L0C.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:Polynomial.hilbertPoly",
@@ -121,7 +121,7 @@
         "module": "Mathlib/RingTheory/Polynomial/HilbertPoly.lean",
         "line": 117,
         "provides": "Numerical polynomial attached to p/(1-X)^d in a characteristic-zero coefficient field. No finitely generated graded-module Hilbert polynomial is built by this declaration.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:Polynomial.coeff_mul_invOneSubPow_eq_hilbertPoly_eval",
@@ -129,7 +129,7 @@
         "module": "Mathlib/RingTheory/Polynomial/HilbertPoly.lean",
         "line": 173,
         "provides": "For n greater than the numerator natural degree, coefficients of the rational Hilbert series equal the native hilbertPoly evaluation.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:Module.length",
@@ -137,7 +137,7 @@
         "module": "Mathlib/RingTheory/Length.lean",
         "line": 32,
         "provides": "Extended-natural module length; finite length must be established before conversion to an integer.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:Module.length_eq_add_of_exact",
@@ -145,7 +145,7 @@
         "module": "Mathlib/RingTheory/Length.lean",
         "line": 170,
         "provides": "Additivity of extended module length for an exact sequence with injective first map and surjective last map.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:Matrix.det",
@@ -153,7 +153,7 @@
         "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
         "line": 60,
         "provides": "Determinant over a commutative ring by the alternating Leibniz formula; supplies minor equations.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.AlgebraicCycle",
@@ -161,7 +161,7 @@
         "module": "Mathlib/AlgebraicGeometry/AlgebraicCycle/Basic.lean",
         "line": 44,
         "provides": "Locally finite functions on scheme points with coefficients; use generic points of irreducible closed subsets. Effectivity, purity and degree are extra restrictions, not part of this native carrier.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsImmersion",
@@ -169,7 +169,7 @@
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Immersion.lean",
         "line": 45,
         "provides": "Native locally closed immersion predicate; used in relative very ampleness.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsClosedImmersion",
@@ -177,7 +177,7 @@
         "module": "Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
         "line": 45,
         "provides": "Native scheme-level closed immersion predicate, retaining ideals and nilpotents.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.IsProper",
@@ -185,7 +185,7 @@
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
         "line": 42,
         "provides": "Native proper morphism predicate and its stable-base-change interface; projectivity itself is supplied by StableReduction Layer 2.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
       },
       {
         "ref": "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
@@ -193,7 +193,71 @@
         "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
         "line": 130,
         "provides": "Native smooth-relative-dimension predicate defined by standard smooth affine neighborhoods, stable under base change; it does not prove Grassmann smoothness.",
-        "checked": "Statement and surrounding hypotheses read in the pinned source on 2026-10-09; this entry claims only the stated substrate."
+        "checked": "Independently re-read at the recorded pin on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1; declaration name, carrier, surrounding hypotheses and quotient/tensor conventions confirmed. This entry supplies only the described substrate."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.IsFiniteType",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Generators.lean",
+        "line": 142,
+        "provides": "Native locally finite generated sheaf predicate; it is available at the pin, not a missing supplier condition.",
+        "checked": "Name and statement independently read at Mathlib 082e2d3 on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.IsFinitePresentation",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean",
+        "line": 269,
+        "provides": "Native local finite presentation of a module sheaf. Over Noetherian schemes this is the coherent-sheaf condition used in the Serre interfaces.",
+        "checked": "Name and statement independently read at Mathlib 082e2d3 on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1."
+      },
+      {
+        "ref": "mathlib:SheafOfModules.IsLocallyFree",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/LocallyFree.lean",
+        "line": 61,
+        "provides": "Native locally free sheaf predicate; fixed finite constant rank requires additional supplier data.",
+        "checked": "Name and statement independently read at Mathlib 082e2d3 on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.QuasiCompact",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiCompact.lean",
+        "line": 43,
+        "provides": "Native quasi-compact morphism predicate; needed for locality and complete evaluation.",
+        "checked": "Name and statement independently read at Mathlib 082e2d3 on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.QuasiSeparated",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiSeparated.lean",
+        "line": 50,
+        "provides": "Native quasi-separated morphism predicate; needed for quasi-coherent complete pushforward.",
+        "checked": "Name and statement independently read at Mathlib 082e2d3 on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1."
+      },
+      {
+        "ref": "mathlib:Matrix.mulVecLin",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Matrix/ToLin.lean",
+        "line": 286,
+        "provides": "For finite column index, a matrix over a commutative ring induces the native coefficient-linear map on coordinate vectors.",
+        "checked": "Name and statement independently read at Mathlib 082e2d3 on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pushforward",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "line": 165,
+        "provides": "The native pushforward on module sheaves; quasi-coherent preservation is a separate theorem under the appropriate morphism hypotheses.",
+        "checked": "Name and surrounding statement independently read at Mathlib 082e2d3 on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackPushforwardAdjunction",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
+        "line": 188,
+        "provides": "Native pullback is left adjoint to native pushforward; its counit is the actual evaluation morphism f*f_*L→L.",
+        "checked": "Name and surrounding statement independently read at Mathlib 082e2d3 on 2026-10-09 by REV-AlgebraicModuliForArithmeticGeometry--R09.1."
       }
     ]
   },
@@ -207,7 +271,9 @@
       "sha256": "8f70bb66f5bec27649fd70e68e60266fa97e7b56d043410c0c8fbc35c1f2ff4d",
       "accessed": "2026-10-09",
       "readSections": [
-        "§21, Definition 21.1, Example 21.3 and Lemmas 21.4–21.5, pp.45–47"
+        "§21, Definition 21.1 and following quotient universal property, p.45; Lemmas 21.4–21.5, pp.46–47",
+        "§16, Lemmas 16.10–16.11, p.40; §10, Lemmas 10.2–10.3, p.18",
+        "§13, Lemma 13.6 (Segre embedding), p.29"
       ]
     },
     {
@@ -235,7 +301,8 @@
       "readSections": [
         "§39, Definition 39.1 and Lemmas 39.7–39.8, pp.86–89",
         "§40, Lemmas 40.4–40.5, pp.91–92",
-        "§35, Lemma 35.12 and Definition 35.13, p.70, smooth cotangent rank"
+        "§35, Lemma 35.12 and Definition 35.13, p.70, smooth cotangent rank",
+        "§40, Lemma 40.3, pp.90–91, fixed-twist very-ampleness proof"
       ]
     },
     {
@@ -267,12 +334,12 @@
       "id": "NI",
       "title": "Construction of Hilbert and Quot Schemes",
       "authors": "Nitin Nitsure",
-      "edition": "arXiv:math/0504590, 2005",
+      "edition": "arXiv:math/0504590v1, 29 April 2005",
       "url": "https://arxiv.org/pdf/math/0504590",
       "sha256": "edbab8363ccfd8fe07f855c27498c784ecac26482043663f0b56972c85c7ed6d",
       "accessed": "2026-10-09",
       "readSections": [
-        "§2, Definition 2.1, Lemma 2.1 and Theorem 2.3, pp.9–13",
+        "§2, unnumbered regularity definition preceding Lemma 2.1, p.9; Lemma 2.1, pp.10–11; Theorem 2.3 and proof, pp.11–13",
         "§4, Lemma 4.1 and Theorem 4.2, pp.18–19"
       ]
     },
@@ -310,7 +377,8 @@
       "accessed": "2026-10-09",
       "readSections": [
         "§1.3, Proposition 1.3.5, Theorem 1.3.8 and proof, pp.54–58",
-        "§1.4.5, Chow varieties and other variants, p.64"
+        "§1.4.5, Chow varieties and other variants, p.64",
+        "§1.4, p.62, equations for the coherent quotient extension"
       ]
     },
     {
@@ -340,9 +408,9 @@
     },
     {
       "id": "GG",
-      "title": "The geometric André–Grothendieck period conjecture",
-      "authors": "Ziyang Gao, Bruno Klingler",
-      "edition": "Published IHÉS version, 2026",
+      "title": "The Uniform Mordell–Lang Conjecture",
+      "authors": "Ziyang Gao, Tangli Ge, Lars Kühne",
+      "edition": "Publications Mathématiques de l’IHÉS 143 (2026), 189–235",
       "url": "https://pmihes.centre-mersenne.org/item/10.5802/pmihes.26.pdf",
       "sha256": "4ee5a38b327807289885a1d7292bddc3341b7fc3e0aa8a3682d995d13237834f",
       "accessed": "2026-10-09",
@@ -352,14 +420,14 @@
     },
     {
       "id": "DM",
-      "title": "Uniform Manin–Mumford for a family of genus 2 curves",
+      "title": "Bounded geometry for PCF-special subvarieties",
       "authors": "Laura DeMarco, Niki Myrto Mavraki, Hexi Ye",
-      "edition": "arXiv:2405.17343v3, 2026",
+      "edition": "arXiv:2405.17343v3, 10 January 2026",
       "url": "https://arxiv.org/pdf/2405.17343v3",
       "sha256": "bb103ede86e058ca2a2601ce9f6a18bb3590f014ee186f6766c198c0eeeb4384",
       "accessed": "2026-10-09",
       "readSections": [
-        "§2.5, p.7, bounded Chow parameters and support-meets-open condition"
+        "§2.5, p.10, bounded Chow parameters and support-meets-open condition"
       ]
     },
     {
@@ -524,7 +592,7 @@
       "sources": [
         {
           "sourceId": "SC",
-          "locator": "§21, Definition 21.1, Example 21.3, pp.45–46",
+          "locator": "§21, Definition 21.1 and following unnumbered quotient universal property, p.45",
           "match": "Degree-one relative Proj supplies the invertible quotient and its exact functor of points."
         }
       ],
@@ -558,13 +626,28 @@
           "name": "projectiveBundle.rankOne",
           "role": "compatibility",
           "statement": "P_S(L)≅S for invertible L, with O(1) identified with L."
+        },
+        {
+          "name": "projectiveBundle.fromQuotient",
+          "role": "constructor",
+          "statement": "Construct the classifying map of an invertible quotient of f*E."
+        },
+        {
+          "name": "projectiveBundle.fromQuotient_over",
+          "role": "relation",
+          "statement": "The classifying map composed with the projection is f."
+        },
+        {
+          "name": "projectiveBundle.universalQuotient_epi",
+          "role": "structure",
+          "statement": "The universal quotient is an epimorphism of native module sheaves."
         }
       ],
       "tests": [
         {
           "name": "ProjectiveBundleTests.rankOne",
           "kind": "compatibility",
-          "statement": "For every invertible L, P(L)≅S and the quotient convention identifies O(1) with L."
+          "statement": "For every invertible L, P(L)≅S; the O(1)=L comparison is additionally tested under TwistingSheafTests.rankOne."
         },
         {
           "name": "ProjectiveBundleTests.zero",
@@ -574,7 +657,7 @@
         {
           "name": "ProjectiveBundleTests.rankTwo",
           "kind": "computation",
-          "statement": "P(O_S²)=P¹_S."
+          "statement": "Over Spec R, points over the identity of P(O²) correspond to native rank-one quotient Grassmannian data for R²."
         },
         {
           "name": "ProjectiveBundleTests.baseChange",
@@ -621,7 +704,7 @@
       "sources": [
         {
           "sourceId": "SC",
-          "locator": "§21, Lemma 21.5, pp.46–47",
+          "locator": "§16, Lemmas 16.10–16.11, p.40; §21, Definition 21.1, p.45 (absolute twist comparison: §10, Lemma 10.3, p.18)",
           "match": "All integer twists of a degree-one generated projective bundle are invertible and tensor-compatible."
         }
       ],
@@ -697,7 +780,7 @@
       "sources": [
         {
           "sourceId": "SC",
-          "locator": "§21, Example 21.3, pp.45–46",
+          "locator": "§21, Definition 21.1 and following unnumbered quotient universal property, p.45",
           "match": "The projective bundle represents the same rank-one quotient functor."
         }
       ],
@@ -749,7 +832,25 @@
       },
       "implementationStatus": "unchecked",
       "declarations": [
-        "projectiveSpaceTwistCohomology"
+        "projectiveSpaceTwistCohomology",
+        "projectiveTwistBasis"
+      ],
+      "tests": [
+        {
+          "name": "ProjectiveTwistCohomologyTests.pointNegative",
+          "kind": "computation",
+          "statement": "H⁰(P⁰_A,O(-7)) is additively equivalent to A over every commutative ring A."
+        },
+        {
+          "name": "ProjectiveTwistCohomologyTests.topLine",
+          "kind": "computation",
+          "statement": "H¹(P¹_A,O(-2)) is additively equivalent to A."
+        },
+        {
+          "name": "ProjectiveTwistCohomologyTests.lineBoundary",
+          "kind": "non-example",
+          "statement": "H¹(P¹_A,O(-1)) is zero."
+        }
       ]
     },
     {
@@ -805,6 +906,16 @@
           "name": "twistMultiplication.section_product",
           "role": "compatibility",
           "statement": "Via the native H⁰/global-section equivalence, degree-zero cup product is the tensor product of sections."
+        },
+        {
+          "name": "twistMultiplication.sectionProduct",
+          "role": "constructor",
+          "statement": "Canonical tensor product of global sections through O(a)⊗O(b)≅O(a+b)."
+        },
+        {
+          "name": "twistMultiplication.unit",
+          "role": "data",
+          "statement": "The H⁰(O(0)) class obtained from the actual section 1 through O(0)≅O and the native H⁰≅Γ equivalence."
         }
       ],
       "tests": [
@@ -980,7 +1091,10 @@
         "mathlib:Module.Grassmannian",
         "mathlib:Module.Grassmannian.functor",
         "mathlib:AlgebraicGeometry.tilde",
-        "AlgebraicModuliForArithmeticGeometry:R09.1/projective-bundle"
+        "AlgebraicModuliForArithmeticGeometry:R09.1/projective-bundle",
+        "mathlib:SheafOfModules.IsFiniteType",
+        "mathlib:SheafOfModules.IsFinitePresentation",
+        "mathlib:SheafOfModules.IsLocallyFree"
       ],
       "sources": [
         {
@@ -1072,7 +1186,9 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.1/coherent-grassmannian",
         "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
-        "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension"
+        "mathlib:AlgebraicGeometry.SmoothOfRelativeDimension",
+        "mathlib:SheafOfModules.IsLocallyFree",
+        "mathlib:SheafOfModules.IsFinitePresentation"
       ],
       "sources": [
         {
@@ -1201,7 +1317,9 @@
         "AlgebraicModuliForArithmeticGeometry:R09.1/coherent-grassmannian",
         "AlgebraicModuliForArithmeticGeometry:R09.1/grassmann-smoothness",
         "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
-        "SchemeAndStackFoundations:SF.5/flag-bundle"
+        "SchemeAndStackFoundations:SF.5/flag-bundle",
+        "mathlib:SheafOfModules.IsLocallyFree",
+        "mathlib:SheafOfModules.IsFinitePresentation"
       ],
       "sources": [
         {
@@ -1230,6 +1348,11 @@
           "name": "flagBundle.baseChange",
           "role": "functoriality",
           "statement": "Flags and universal steps commute with arbitrary base change."
+        },
+        {
+          "name": "flagBundle.affinePoints",
+          "role": "universal-property",
+          "statement": "For the free rank-n sheaf over Spec R and a strictly increasing admissible list a, points over the identity correspond to tuples of native quotient-rank n−aᵢ Grassmannian data with nested kernels."
         }
       ],
       "tests": [
@@ -1246,7 +1369,7 @@
         {
           "name": "FlagTests.nested",
           "kind": "non-example",
-          "statement": "In k³, a line U not contained in a plane V fails the flag incidence condition."
+          "statement": "For the free rank-three sheaf over a field, nonnested native kernels of quotient ranks two and one are not the two components of any point of flagBundle with type [1,2]."
         }
       ],
       "uses": [
@@ -1267,13 +1390,13 @@
       ],
       "title": "Relative very ampleness",
       "kind": "definition",
-      "statement": "An invertible L on X is very ample relative to f:X→S when there are a quasi-coherent E on S and an immersion i:X→P_S(E) over S with L≅i*O(1). The immersion convention includes nonproper X. For quasi-compact f, the evaluation criterion requires f quasi-separated (so f_*L is quasi-coherent), surjective evaluation f* f_*L→L, and immersion of the complete classifying map into P(f_*L). This property is local on S and stable under arbitrary base change. If f is proper, a representing immersion is closed. Over a field, for projective X, this agrees with SF.5/very-ample; that absolute notion and its power/restriction API are imported.",
+      "statement": "An invertible L on X is very ample relative to f:X→S when there are a quasi-coherent E on S and an immersion i:X→P_S(E) over S with L≅i*O(1). The immersion convention includes nonproper X. For quasi-compact f, the evaluation criterion requires f quasi-separated (so f_*L is quasi-coherent), surjective evaluation f* f_*L→L, and immersion of the complete classifying map into P(f_*L). For quasi-compact f this property is local on S. It is stable under arbitrary base change without that hypothesis. If f is proper, a representing immersion is closed. Over a field, for projective X, this agrees with SF.5/very-ample; that absolute notion and its power/restriction API are imported.",
       "hypotheses": [
-        "S and X arbitrary for the definition; quasi-compactness for the evaluation criterion and implication very ample⇒ample."
+        "S and X arbitrary for the definition; quasi-compactness of f for locality on S and very ample⇒ample; quasi-compactness and quasi-separatedness for the complete evaluation criterion."
       ],
       "proofSteps": [
         "Define the property using native invertible sheaves and native immersions into the already defined P(E).",
-        "Use the quotient property for the evaluation map and factor a chosen embedding through complete sections; the corresponding projective affine-open charts prove the criterion.",
+        "For quasi-compact and quasi-separated f, f_*L is quasi-coherent. Use its surjective evaluation and the quotient property to obtain the canonical classifying map; compare a chosen embedding on projective affine charts. For quasi-compact f, Stacks Lemma 39.7 gives locality on S.",
         "Apply base change to the immersion and O(1). A proper immersion into the separated projective bundle is closed."
       ],
       "acceptance": [
@@ -1286,13 +1409,17 @@
         "mathlib:AlgebraicGeometry.IsImmersion",
         "mathlib:AlgebraicGeometry.IsClosedImmersion",
         "mathlib:AlgebraicGeometry.IsProper",
-        "SchemeAndStackFoundations:SF.5/very-ample"
+        "SchemeAndStackFoundations:SF.5/very-ample",
+        "mathlib:AlgebraicGeometry.QuasiCompact",
+        "mathlib:AlgebraicGeometry.QuasiSeparated",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pushforward",
+        "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackPushforwardAdjunction"
       ],
       "sources": [
         {
           "sourceId": "SM",
           "locator": "§39, Definition 39.1, Lemmas 39.7–39.8, pp.86–89; tags 01VM,01VR,0B3F",
-          "match": "Relative very ampleness is an immersion with a specified line-bundle pullback; its evaluation criterion needs quasi-compactness."
+          "match": "The immersion definition is general; Lemma 39.7 assumes quasi-compact f for locality and complete evaluation. The evaluation construction uses quasi-separatedness to ensure quasi-coherent pushforward; Lemma 39.8 gives arbitrary base change."
         }
       ],
       "library": {
@@ -1309,12 +1436,27 @@
         {
           "name": "IsRelativelyVeryAmple.evaluation_criterion",
           "role": "characterisation",
-          "statement": "For quasi-compact and quasi-separated f, surjective complete evaluation and immersion of the classifying map are equivalent to relative very ampleness."
+          "statement": "For quasi-compact quasi-separated f with quasi-coherent f_*L and epimorphic native evaluation, relative very ampleness is equivalent to the canonical completeMap being an immersion."
         },
         {
           "name": "IsRelativelyVeryAmple.closed_of_proper",
           "role": "structure",
           "statement": "A witnessing immersion is closed when f is proper."
+        },
+        {
+          "name": "IsRelativelyVeryAmple.evaluation_epi",
+          "role": "structure",
+          "statement": "For quasi-compact quasi-separated f, relative very ampleness makes the actual adjunction counit f*f_*L→L an epimorphism."
+        },
+        {
+          "name": "IsRelativelyVeryAmple.evaluationQuotient",
+          "role": "constructor",
+          "statement": "Given epimorphic evaluation, form the invertible quotient using the native adjunction counit and L."
+        },
+        {
+          "name": "IsRelativelyVeryAmple.completeMap",
+          "role": "data",
+          "statement": "Classify the actual evaluation quotient, with the quasi-coherent pushforward supplied under quasi-compact/quasi-separated hypotheses."
         }
       ],
       "tests": [
@@ -1326,7 +1468,7 @@
         {
           "name": "VeryAmpleTests.veronese",
           "kind": "computation",
-          "statement": "O(2) on P¹_k gives a conic Veronese closed embedding."
+          "statement": "O(2) on P¹_k is relatively very ample; the positive-power case differs from the globally generated trivial line."
         },
         {
           "name": "VeryAmpleTests.trivialNotVeryAmple",
@@ -1370,6 +1512,16 @@
           "sourceId": "SM",
           "locator": "§40, Lemmas 40.4–40.5, pp.91–92; tags 01VT,01VU",
           "match": "Ample high powers yield immersions; the fixed-twist consequence is proved here with Serre generation and the explicit Segre construction."
+        },
+        {
+          "sourceId": "SM",
+          "locator": "§40, Lemma 40.3 and proof, pp.90–91; Lemmas 40.4–40.5, pp.91–92",
+          "match": "The proof of relative ampleness constructs sufficiently positive fixed twists as very ample on affine base charts; quasi-compactness permits a common bound."
+        },
+        {
+          "sourceId": "SC",
+          "locator": "§13, Lemma 13.6, p.29",
+          "match": "The tensor product of a fixed very ample system with a sufficiently high globally generated twist is very ample through the Segre closed immersion."
         }
       ],
       "library": {
@@ -1644,7 +1796,7 @@
       "sources": [
         {
           "sourceId": "NI",
-          "locator": "§2, Definition 2.1 and Lemma 2.1, pp.9–10",
+          "locator": "§2, unnumbered regularity definition preceding Lemma 2.1, p.9; Lemma 2.1 and proof, pp.10–11",
           "match": "Regularity gives higher vanishings, generation and multiplication surjectivity over all fields."
         }
       ],
@@ -1725,7 +1877,7 @@
       "sources": [
         {
           "sourceId": "NI",
-          "locator": "§2, Theorem 2.3 and proof, pp.10–13",
+          "locator": "§2, Theorem 2.3 and proof, pp.11–13, with the auxiliary-index correction recorded in E5",
           "match": "Fixed polynomial subsheaves of a fixed free sheaf have uniform regularity; twisting and kernels give the quotient formulation."
         },
         {
@@ -1773,7 +1925,7 @@
       "sources": [
         {
           "sourceId": "NI",
-          "locator": "§2, Theorem 2.3, pp.10–13; §4, Theorem 4.2, p.19",
+          "locator": "§2, Theorem 2.3 and proof, pp.11–13, with the auxiliary-index correction recorded in E5",
           "match": "Uniform field regularity combines with finitely many Noetherian family polynomials."
         },
         {
@@ -1894,7 +2046,7 @@
       ],
       "title": "Bounded degree gives finitely many Hilbert polynomials",
       "kind": "theorem",
-      "statement": "For a fixed projective complex scheme X with a fixed very ample embedding in Pⁿ and integers r,D, only finitely many Hilbert polynomials occur among reduced pure r-dimensional closed subschemes Y⊂X of degree at most D. More generally Grothendieck Lemma 2.4 gives this finiteness for reduced equidimensional geometric-fibre subschemes of a fixed projective Noetherian family with a fixed relatively very ample embedding. Reducedness and purity are part of the assertion; the Chow cycle does not record arbitrary embedded structure.",
+      "statement": "For a fixed projective complex scheme X with a fixed very ample embedding in Pⁿ and integers r,D, finitely many finite-type projective families contain all the reduced supports, and hence only finitely many Hilbert polynomials occur among reduced pure r-dimensional closed subschemes Y⊂X of degree at most D. More generally Grothendieck Lemma 2.4 gives this finiteness for reduced equidimensional geometric-fibre subschemes of a fixed projective Noetherian family with a fixed relatively very ample embedding. Reducedness and purity are part of the assertion; the Chow cycle does not record arbitrary embedded structure.",
       "hypotheses": [
         "Reduced pure dimension r; fixed embedding; geometric fibres in the family formulation; Noetherian projective ambient family."
       ],
@@ -1922,7 +2074,7 @@
         {
           "sourceId": "GG",
           "locator": "§3.1, p.198",
-          "match": "A Noetherian projective family has only finitely many such polynomials for bounded-degree reduced irreducible subschemes."
+          "match": "For a fixed complex abelian variety A, bounded-degree reduced irreducible subschemes have finitely many Hilbert polynomials. The general family assertion is sourced to GR, not inferred from this application."
         },
         {
           "sourceId": "MM",
@@ -1970,7 +2122,7 @@
       "sources": [
         {
           "sourceId": "DM",
-          "locator": "§2.5, p.7",
+          "locator": "§2.5, p.10",
           "match": "The open support-meets-Y Chow locus and the change-of-embedding boundedness are the routed inputs."
         },
         {
@@ -2055,13 +2207,13 @@
       ],
       "title": "Bounded smooth polarizations with trivial canonical bundle",
       "kind": "application",
-      "statement": "Fix n≥1 and r>0. Smooth projective complex varieties X of dimension 2n with K_X trivial and an ample L satisfying L^(2n)=r form a bounded family of underlying varieties. A uniform power L^m embeds them into one fixed P^N with bounded degree, hence only finitely many Hilbert polynomials and finitely many finite-type parameter families are required. The Hilbert-scheme representation producing the final parameter families is imported by the consumer from R09.2, not constructed here.",
+      "statement": "Fix n≥1 and r>0. Smooth projective complex varieties X of dimension 2n with K_X trivial and an ample L satisfying L^(2n)=r form a bounded family of underlying varieties. A uniform power L^m embeds them into one fixed P^N with degree m^(2n)r. The characteristic-zero Chow-support families of the bounded-degree target then supply finitely many finite-type projective parameter families, and finitely many Hilbert polynomials. These families need no Hilbert-functor representability; R09.2 later imports the polynomial finiteness for its Hilbert construction.",
       "hypotheses": [
         "Ample L, not merely big; K_X trivial; fixed dimension and top self-intersection. This is a complex geometric family statement, not descent of L over a smaller field."
       ],
       "proofSteps": [
         "Apply the numerical theorem with w=0 to get a uniform very ample exponent and section-dimension bound. Increase the ambient dimension to one N by padding the section basis. The degree becomes m^(2n)r.",
-        "Apply the reduced bounded-degree polynomial theorem. The remaining passage from finitely many polynomials to Hilbert families is the R09.2 target, and no circular dependence on R09.2 is needed for the polynomial conclusion here."
+        "Apply the complex reduced bounded-degree target, including its finite Chow-support-family construction, to the fixed P^N and degree bound. Its generic reduction, spreading and Noetherian induction produce the finite-type projective families of underlying reduced varieties. No R09.2 prerequisite is used."
       ],
       "acceptance": [
         "The degree of the embedding by L^m is m^(2n)r; forgetting this exponent gives the wrong bound."
@@ -2075,7 +2227,7 @@
         {
           "sourceId": "CH",
           "locator": "§3, Lemma 3.5 and proof, pp.507–508",
-          "match": "Fixed dimension and polarization intersection for trivial canonical bundle yield bounded embeddings and a bounded family."
+          "match": "The intermediate K-trivial ample-polarization argument in the proof gives this algebraic boundedness consequence. The full Lemma 3.5 additionally asserts deformation equivalence for holomorphic symplectic pairs; that stronger conclusion is outside this layer."
         }
       ],
       "library": {
@@ -2100,7 +2252,7 @@
         "Fixed finite-type complex family; geometrically integral fibres and fibrewise bigness; no arbitrary numerical boundedness inference for big L."
       ],
       "proofSteps": [
-        "On an irreducible reduced base, fibrewise bigness supplies a countable union of loci where some section system is birational. Uncountability of C, proved algebraically by induction on dimension using finite morphisms to affine space, implies one such system works generically. Spread the rational inverse and finitely many section relations to a dense open.",
+        "Use the recorded algebraic generic-birational-system input to bridge the SF.5 section-growth definition to sufficiently divisible birational systems. Its constructibility and complex uncountability argument give one fixed exponent on a dense open; spread the rational inverse and finite section relations. These are not consequences of section-growth alone.",
         "Choose an exponent all of whose positive multiples give a birational map on that open; generic freeness and cohomological base change control sections. Induct on the proper closed complement, then choose a common positive multiple of the exponents for the finitely many strata.",
         "Upper semicontinuity bounds h⁰ globally. On each stratum spread the graph of the rational map, shrink to a flat image family, and use finite Hilbert polynomials to bound its degree; repeat on complements. This retains a rational map, and does not replace bigness by very ampleness."
       ],
@@ -2119,7 +2271,7 @@
         {
           "sourceId": "CH",
           "locator": "§3, Lemma 3.6 and proof, p.508",
-          "match": "In a Noetherian complex projective family with fibrewise big L, a fixed exponent gives birational maps and bounded sections/image degree; this plan supplies an algebraic uncountability step instead of an upward analytic import."
+          "match": "The source states the fixed-family result and invokes Baire’s theorem for generic bigness. The desired purely algebraic replacement, compatible with the lower-tier boundary, is a separately recorded proof gap."
         }
       ],
       "library": {
@@ -2234,7 +2386,9 @@
       "prerequisites": [
         "AlgebraicModuliForArithmeticGeometry:R09.1/coherent-grassmannian",
         "AlgebraicModuliForArithmeticGeometry:R09.1/rank-locus",
-        "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes"
+        "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
+        "mathlib:SheafOfModules.IsLocallyFree",
+        "mathlib:SheafOfModules.IsFinitePresentation"
       ],
       "sources": [
         {
@@ -2262,7 +2416,17 @@
         {
           "name": "incidenceLocus.baseChange",
           "role": "functoriality",
-          "statement": "Pullback carries the incidence scheme and its inclusion to the corresponding scheme for the pulled-back E."
+          "statement": "The incidence scheme for f*E is isomorphic to the actual pullback of the incidence scheme over S, preserving its closed inclusion."
+        },
+        {
+          "name": "incidenceLocus.projection",
+          "role": "projection",
+          "statement": "Compose the actual closed inclusion, the first relative-product projection and the Grassmannian structure map."
+        },
+        {
+          "name": "incidenceLocus.fieldPoints",
+          "role": "universal-property",
+          "statement": "For the free rank-n sheaf over a field, points over the identity correspond to pairs of native quotient kernels whose intersection has dimension at least k."
         }
       ],
       "tests": [
@@ -2274,7 +2438,7 @@
         {
           "name": "IncidenceTests.lines",
           "kind": "computation",
-          "statement": "Two lines in k² meet in dimension at least one exactly when equal."
+          "statement": "For two rank-one quotient kernels U,W in k², a point of incidenceLocus of type (n,a,b,k)=(2,1,1,1) over (U,W) exists exactly when U=W."
         },
         {
           "name": "IncidenceTests.impossible",
@@ -2315,7 +2479,10 @@
         "mathlib:AlgebraicGeometry.Scheme.Modules.pullback",
         "mathlib:AlgebraicGeometry.Scheme.Modules.pullbackComp",
         "mathlib:AlgebraicGeometry.IsClosedImmersion",
-        "AlgebraicModuliForArithmeticGeometry:R09.1/rank-locus"
+        "AlgebraicModuliForArithmeticGeometry:R09.1/rank-locus",
+        "mathlib:SheafOfModules.IsLocallyFree",
+        "mathlib:SheafOfModules.IsFinitePresentation",
+        "mathlib:SheafOfModules.IsFiniteType"
       ],
       "sources": [
         {
@@ -2403,7 +2570,8 @@
         "tauceti:TauCetiRoadmap/ModularCurves#0g-parameter-spaces-for-subgroup-schemes",
         "AlgebraicModuliForArithmeticGeometry:R09.1/incidence-locus",
         "AlgebraicModuliForArithmeticGeometry:R09.1/flag-bundle",
-        "AlgebraicModuliForArithmeticGeometry:R09.1/rank-locus"
+        "AlgebraicModuliForArithmeticGeometry:R09.1/rank-locus",
+        "mathlib:Matrix.mulVecLin"
       ],
       "sources": [
         {
@@ -2418,7 +2586,25 @@
       },
       "implementationStatus": "unchecked",
       "declarations": [
-        "coefficientFrobeniusLattice"
+        "coefficientFrobeniusLattice",
+        "coefficientFrobeniusCutoff"
+      ],
+      "tests": [
+        {
+          "name": "CoefficientFrobeniusTests.zero",
+          "kind": "degenerate",
+          "statement": "The native coefficient-linear cutoff map carries the zero vector to zero."
+        },
+        {
+          "name": "CoefficientFrobeniusTests.monomial",
+          "kind": "computation",
+          "statement": "A coefficient t at exponent j is carried unchanged to exponent pj in the larger target cutoff."
+        },
+        {
+          "name": "CoefficientFrobeniusTests.nonFixedCoefficient",
+          "kind": "non-example",
+          "statement": "In characteristic p with t^p≠t, the constant coefficient of the cutoff image is t and differs from t^p."
+        }
       ]
     }
   ],
@@ -2474,7 +2660,7 @@
     },
     {
       "supplier": "SchemeAndStackFoundations:SF.5",
-      "need": "Import the existing finite locally free projective bundle, complete flags, field-projective very ampleness, componentwise big-line predicate, first Chern operators and proper degree. Extend the same intersection-theory direction with the proper-scheme multivariable Euler polynomial of Stacks Varieties Lemma 45.1 (all integer powers, degree ≤ support dimension), its generic-length top coefficient, integral symmetric multilinear mixed intersection degrees, positivity for ample factors, and r! times leading-coefficient comparison (45.2–45.10). R09.1 specialises this input to Hilbert polynomials and embedding degree bounds; it constructs no competing intersection calculus.",
+      "need": "Import the existing finite locally free projective bundle, complete flags, field-projective very ampleness, componentwise big-line predicate, first Chern operators and proper degree. Extend the same intersection-theory direction with the proper-scheme multivariable Euler polynomial of Stacks Varieties Lemma 45.1 (all integer powers, degree ≤ support dimension), its generic-length top coefficient, integral symmetric multilinear mixed intersection degrees, positivity for ample factors, and r! times leading-coefficient comparison (45.2–45.10). R09.1 specialises this input to Hilbert polynomials and embedding degree bounds; it constructs no competing intersection calculus. Export Kodaira’s ample-plus-effective criterion and the consequence that sufficiently divisible powers of a big line on a geometrically integral projective variety are birational onto their image. Fixed-family generic birationality also needs the separately recorded algebraic constructibility/uncountability proof input.",
       "neededBy": [
         "AlgebraicModuliForArithmeticGeometry:R09.1/projective-bundle",
         "AlgebraicModuliForArithmeticGeometry:R09.1/flag-bundle",
@@ -2501,9 +2687,10 @@
       "remaining": [
         "Register the existing AlgebraicVectorBundles sheaf-operation imports",
         "Corrected algebraic numerical very-ampleness proof",
-        "Arbitrary-characteristic relative bounded-degree Chow input"
+        "Arbitrary-characteristic relative bounded-degree Chow input",
+        "Algebraic generic birational system for a fibrewise big family"
       ],
-      "note": "Every target in the predecessor coverage and RS-27 narrowing has a target-level node. Mathematical closure remains open at the numerical and arbitrary-characteristic source inputs; supplier registry repair and six precise exports are recorded. Hilbert/Quot/Chow functor representability and polarized descent remain outside R09.1."
+      "note": "Every target in the predecessor coverage and RS-27 narrowing has a target-level node. Prerequisites end in native libraries, lower supplier exports or the four explicit gaps. Mathematical closure remains open at the numerical, positive-characteristic Chow and generic-birational-system inputs; registration is administrative. Hilbert/Quot functor representability and polarized descent remain outside R09.1."
     }
   ],
   "gaps": [
@@ -2535,6 +2722,13 @@
         "AlgebraicModuliForArithmeticGeometry:R09.1/bounded-degree-hilbert-polynomials"
       ],
       "detail": "The complex fixed-embedding case has an explicit characteristic-zero support-spreading proof. Grothendieck exposé 221 Lemma 2.4 states the more general arbitrary-characteristic geometric-fibre bounded-family input without proving it. Supply a read proof of relative Chow coefficient descent and geometric generic reduction in positive characteristic, or an independent reduced equidimensional ideal bound; the characteristic-zero argument is not asserted to prove this extension."
+    },
+    {
+      "title": "Algebraic generic birational system for a fibrewise big family",
+      "neededBy": [
+        "AlgebraicModuliForArithmeticGeometry:R09.1/big-family-birational-bounds"
+      ],
+      "detail": "SF.5/big-line defines section growth and proves power/ample laws, but supplies neither Kodaira’s ample-plus-effective criterion nor birationality of sufficiently divisible systems. Establish that criterion for geometrically integral projective varieties; construct algebraic constructible strata for fixed-exponent birational systems using coherent base change; prove that a finite-type irreducible complex variety cannot be a countable union of proper closed subvarieties; then deduce a fixed birational system on a dense open and spread its inverse. Charles Lemma 3.6, p.508, uses Baire’s theorem instead. Its statement was read, but the proposed purely algebraic substitute is a key missing proof input, not a routine step. The final h⁰ and image-degree bounds remain conditional on this bridge."
     }
   ],
   "sourceIssues": [
@@ -2550,7 +2744,12 @@
       "known": "Grothendieck, Erratum à l’exposé n°221, 1962, p.302",
       "searched": [
         "Numdam original exposé and the published 1962 erratum"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed directly against GR Theorem 2.1, collected p.254, its sufficiency proof, and the published GE correction p.302. The theorem must be an equivalence.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.1"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E2",
@@ -2564,7 +2763,12 @@
       "known": "Sign corrected in Alper author draft 5 January 2026, Theorem 2.3.8 proof, p.58",
       "searched": [
         "Author versions index, 19 August 2024 and 5 January 2026 drafts; Nitsure Theorem 2.3 proof"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on AL p.58 and compared with AL26 p.58: χ=h⁰−h¹ forces subtraction. The January 2026 version repairs this sign.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.1"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E3",
@@ -2578,7 +2782,12 @@
       "known": "new",
       "searched": [
         "Alper author versions index and current January 2026 draft; the August 2024 draft has the correct extra 1; Nitsure Theorem 2.3 pp.11–13"
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed on AL26 pp.57–58. Embed O_P¹(-2) in O_P¹ using a nonzero quadratic and choose a hyperplane point outside its zeros. The restriction is 0-regular, but the proposed m₂=1 leaves H¹(O(-2)) nonzero. The final displayed bound already restores the missing 1.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.1"
+      }
     },
     {
       "id": "AlgebraicModuliForArithmeticGeometry/E4",
@@ -2592,7 +2801,33 @@
       "known": "Previously reported by Martin Orr, Stacks §10.57 comment #11304 (17 March 2026); the text remains unchanged. The Stacks Project reply #11474 (23 May 2026) declines that correction. The containment correction here is independently justified and previously reported, not a new discovery.",
       "searched": [
         "Current Stacks tag 00JT and chapter PDF; section 10.57 comments #11304 and #11474; the tag history endpoint did not serve a page."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the current SA p.134/tag 00JT: homogeneous-part q⊆p, as the next lemma uses. The example p=(x−1) in k[x] makes the printed reverse containment false. Comments 11304 and 11474 on section 10.57 confirm the previously reported status and the reply; they do not override the calculation.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.1"
+      }
+    },
+    {
+      "id": "AlgebraicModuliForArithmeticGeometry/E5",
+      "source": "NI",
+      "kind": "misprint",
+      "locator": "§2, Theorem 2.3 proof, final choice of the auxiliary polynomial, p.13; arXiv:math/0504590v1, 29 April 2005",
+      "printed": "The last auxiliary polynomial is chosen as G+P after proving H¹(F(m))=0 only for m≥G+P; this does not imply (G+P)-regularity.",
+      "correction": "Include one more step: use G+P+1 for the H¹ regularity index, with a nonnegative hyperplane bound chosen in the induction. Preserve the higher-degree regularity estimates in the hyperplane argument.",
+      "reason": "For p=n=1 choose the permitted zero polynomial at the n=0 base step. The subsheaf F=O_P¹(-2)⊂O_P¹ has Hilbert polynomial t−1 and hyperplane restriction 0-regular, so G=0 and P=1. The printed output 1 is not a regularity index because H¹(F(0)) has dimension one. The existence theorem survives the auxiliary-index repair.",
+      "affects": "the proof",
+      "known": "new (for the checked arXiv v1 artifact; no claim about an unread published edition)",
+      "searched": [
+        "The arXiv abstract/version history https://arxiv.org/abs/math/0504590 lists v1 only.",
+        "Author drafts AL 19 August 2024 and AL26 5 January 2026, and Alper’s version index https://sites.math.washington.edu/~jarod/lecture-notes.html.",
+        "Primary-source search for a Nitsure Theorem 2.3 erratum; Romagny’s Hilbert seminar page https://imag.umontpellier.fr/~romagny/GT_Hilb/index.html notes other preprint corrections but supplies no correction of this index. No such correction located in this search."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently verified the O(-2) counterexample and the exact final polynomial on NI p.13. Regularity needs H¹ at index m−1; vanishing beginning at m does not suffice.",
+        "by": "REV-AlgebraicModuliForArithmeticGeometry--R09.1"
+      }
     }
   ],
   "sourceVersions": [
@@ -2630,6 +2865,14 @@
       "citation": "The Stacks Project: Commutative Algebra; PDF accessed 2026-10-09",
       "read": "2026-10-09",
       "sha256": "b035a1f02104906a1820636cd332a0d7962fef3318d207a056634cb14dc86947"
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/math/0504590",
+      "citation": "Construction of Hilbert and Quot Schemes; arXiv:math/0504590v1, 29 April 2005",
+      "read": "2026-10-09",
+      "sha256": "edbab8363ccfd8fe07f855c27498c784ecac26482043663f0b56972c85c7ed6d",
+      "version": "arXiv v1, math/0504590, 29 April 2005"
     }
   ],
   "upstreamImports": [
@@ -2707,5 +2950,168 @@
       "finding": "Use quotient rank for schemes and compare kernel ranks explicitly; the AIM24 private thread was not accessed."
     }
   },
-  "prototypePolicy": "The suggested file uses native mathematical carriers. It omits explicitly identified missing supplier hypotheses and numerical intersection/cycle-dimension constraints; these omissions are prototype limitations, never weakened mathematical assertions in this packet. All implementationStatus values remain unchecked."
+  "prototypePolicy": "The suggested file uses native carriers, the actual exponent basis, canonical degree-zero unit, the native evaluation counit and larger coefficient-linear cutoffs. Available native quasi-compactness/quasi-separatedness, properness, Noetherian/Artinian coefficients and sheaf finite presentation/local freeness are included in the reviewed interfaces. Missing supplier rank, twist-family, rational-map and numerical/cycle comparisons remain explicit prototype limitations. All implementationStatus values remain unchecked.",
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-AlgebraicModuliForArithmeticGeometry--R09.1",
+    "date": "2026-10-09",
+    "notes": "Independent complete review of all 31 nodes, all source locators and artifacts, the 23 original plus eight added baseline entries, current suppliers, audit, RS-27 and RT-AREA-algebraicgeometry/12. Clear packet/prototype errors corrected, four original source issues confirmed and E5 added. No claimed implementations. The review is complete but the definitive reader is outside this issue’s edit scope: its unconditional very-ampleness locality, wrong bibliography/locators, missing generic-birational gap and circular boundedness wording must be synchronized before acceptance. Native hypotheses and statement/test alignment have been strengthened; the report lists the exact reader synchronization and the permitted supplier-interface omissions.",
+    "checked": [
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/projective-bundle",
+        "verdict": "corrected",
+        "note": "Corrected the quotient universal-property locator; added the classifying-map and epimorphism API; affine rank-two test now specifies actual quotient points. StableReduction and SF.5 remain owners of their existing cases."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/integer-twists",
+        "verdict": "corrected",
+        "note": "Corrected the twist locator to degree-one relative-Proj multiplication and base change. Integer inverse, zero and rank-one signs agree with SC."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/rank-one-grassmann-comparison",
+        "verdict": "corrected",
+        "note": "Corrected the locator to the actual quotient universal property. Rank-one comparison uses quotient rank, not subspace rank."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/projective-space-twist-cohomology",
+        "verdict": "corrected",
+        "note": "Specified the actual Laurent-exponent basis and n=0 exception in Lean and added the three acceptance instances. Arbitrary-ring and arbitrary-base-change scope matches CC."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/twist-multiplication",
+        "verdict": "corrected",
+        "note": "Replaced arbitrary section-product and unit parameters with canonical interfaces and an actual transported section 1. CC top-boundary action matches the quotient convention."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/relative-bundle-cohomology",
+        "verdict": "verified",
+        "note": "Determinant is dual in the quotient convention; n=0 is separated from the top-degree formula. Sheaf symmetric/exterior operations are imported from current AlgebraicVectorBundles, not replanned."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/absolute-serre",
+        "verdict": "corrected",
+        "note": "CC Serre theorem matches proper coherent field scope. Native properness and sheaf finite presentation now appear in the prototype; ampleness/twist identifications remain explicit supplier limitations."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/relative-serre",
+        "verdict": "corrected",
+        "note": "Noetherian/quasi-compact base is necessary for a single bound; locally Noetherian versions are local. Native affine-base Noetherianity, properness and finite presentation are included."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/coherent-grassmannian",
+        "verdict": "corrected",
+        "note": "AL p.62 supplies the coherent quotient extension through fixed relation equations. Native finite-type/finitely-presented/local-free predicates added to baseline; native quotient finiteness is included where available. General carrier and finite structure conclusions distinguished."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/grassmann-smoothness",
+        "verdict": "corrected",
+        "note": "GO graph charts prove relative dimension d(n−d) only for locally free rank-n E. The pinned smooth predicate is substrate, not a preexisting Grassmann smoothness proof. Native local freeness and finite presentation are now included in the scheme interfaces; missing free-tilde instances appear as explicit hypotheses of the affine comparisons."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/plucker",
+        "verdict": "verified",
+        "note": "Checked GO quotient Plücker convention and determinant sign; the explicit six chart coordinates test the quadric relation. Global exterior-power/determinant identifications remain supplier limitations."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/flag-bundle",
+        "verdict": "corrected",
+        "note": "Added affine-point universal comparison and linked the nonnested example to flagBundle itself. Complete flags are compared with SF.5, partial types remain this extension. Native local freeness and finite presentation are now included in the scheme interfaces; missing free-tilde instances appear as explicit hypotheses of the affine comparisons."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/relative-very-ample",
+        "verdict": "corrected",
+        "note": "Corrected locality to quasi-compact f. Complete evaluation now uses the actual native pushforward and adjunction counit, with a canonical quotient/classifying map; no arbitrary E,i substitution remains. Definitive reader still has unconditional locality and the earlier prototype policy."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/ample-powers-and-fixed-twists",
+        "verdict": "corrected",
+        "note": "Added SM 40.3 proof locator for fixed twists and checked the quasi-compact common-bound argument of 40.5."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/graded-pieces",
+        "verdict": "verified",
+        "note": "SA 58.6 finite pieces follows from finitely many positive-degree generators; native homogeneous components are not claimed to give finiteness by themselves."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/hilbert-serre",
+        "verdict": "corrected",
+        "note": "SA 58.5/58.7 supply eventual polynomiality; standard degree-one grading and finite length are essential. Native Artinian coefficients and finite pieces now protect length.toNat in the prototype."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/hilbert-polynomial",
+        "verdict": "corrected",
+        "note": "Checked all-integer Euler polynomial via SV 45.1–45.10 and GR; finrank needs finite dimensions plus cutoff. Numerical-series hilbertPoly is not mistaken for the sheaf polynomial. Exact-sequence and shift tests use the sheaf construction. Native finite presentation is now included in its prototype API; the Hilbert-polynomial laws also include properness."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/family-hilbert-polynomials",
+        "verdict": "verified",
+        "note": "NI 4.1/4.2 and GR finite family statements match a single projective Noetherian family. Flatness is required for local constancy, not finiteness of the set of polynomials."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/cm-regularity",
+        "verdict": "corrected",
+        "note": "Corrected unnumbered definition locator and Lemma 2.1 pages. The vanishing indices and P¹ line-bundle threshold match NI; genuine twist identification remains explicit. Native finite presentation is now included in its regularity API."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/uniform-quotient-regularity",
+        "verdict": "corrected",
+        "note": "Read NI 2.3 and AL/AL26 proofs; corrected NI pages and recorded previously missed E5. Fixed quotient ambient E is essential; the packet already uses the safe extra 1."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/family-regularity",
+        "verdict": "verified",
+        "note": "NI family regularity uses one flat coherent family over a Noetherian base. High twists have vanishing higher fibres, locally free degree-zero pushforward and arbitrary base change; uniformity is not asserted for an uncontrolled collection."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/chow-parameters",
+        "verdict": "verified",
+        "note": "CW Sätze 1–3 and closed-support discussion, AL p.64 and FL cycle conventions checked. Multiplicities are retained; no arbitrary-base cycle functor or flat universal support is asserted."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/bounded-degree-hilbert-polynomials",
+        "verdict": "corrected",
+        "note": "Corrected GG bibliography and distinguished its fixed-abelian-variety application from GR generality. Made the complex support-family consequence explicit; arbitrary-characteristic relative extension remains a named proof gap."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/chow-open-and-embedding",
+        "verdict": "corrected",
+        "note": "Corrected DM bibliography and §2.5 locator to p.10. Support meets the open is weaker than every component meeting it; FL uses the other condition. Hilbert representability stays downstream."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/numerical-very-ampleness",
+        "verdict": "verified",
+        "note": "SI 0.1 numerical scope and CH intermediate application confirmed. Corrected algebraic proof is unread and explicitly gapped; no analytic higher-tier import is introduced."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/smooth-polarized-boundedness",
+        "verdict": "corrected",
+        "note": "Removed the forward R09.2 proof endpoint: complex Chow-support families from the preceding bounded-degree node supply bounded underlying varieties. CH citation is the intermediate K-trivial argument, not all of its deformation lemma."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/big-family-birational-bounds",
+        "verdict": "corrected",
+        "note": "Recorded the missing algebraic generic-birational-system bridge as a fourth gap and strengthened SF.5 request. The source uses Baire; section-growth bigness alone does not supply the proposed replacement proof."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/rank-locus",
+        "verdict": "verified",
+        "note": "Minor ideals, nilpotent scheme structure and arbitrary base change match native determinant calculus. The one-by-one and maximal-rank tests distinguish reduced support from the determinantal ideal."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/incidence-locus",
+        "verdict": "corrected",
+        "note": "Base change now returns the actual pullback isomorphism. Added the structure projection and field-point comparison; the equal-lines test now concerns the incidence scheme. Native local freeness and finite presentation are now included in the scheme interfaces; missing free-tilde instances appear as explicit hypotheses of the affine comparisons."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/frobenius-stable-locus",
+        "verdict": "corrected",
+        "note": "Checked pullback source F*U→E→Q and graph equation c+d t^p−t(a+b t^p). Absolute Frobenius coefficients are distinguished from coefficient-fixing u-exponent Frobenius; universal finite-rank chart identifications remain explicit. Native quasi-coherence/finite type of U and finite presentation/local freeness of Q are now included in the zero-map prototype."
+      },
+      {
+        "nodeId": "AlgebraicModuliForArithmeticGeometry:R09.1/coefficient-frobenius-lattice",
+        "verdict": "corrected",
+        "note": "Replaced a coordinate tautology with a native matrix-induced coefficient-linear map into a larger cutoff. Arbitrary coefficient and non-Frobenius-fixed coefficient tests distinguish the intended arithmetic operation."
+      }
+    ]
+  }
 }

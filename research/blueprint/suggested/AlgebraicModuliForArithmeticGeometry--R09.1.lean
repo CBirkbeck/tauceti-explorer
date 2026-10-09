@@ -12,8 +12,9 @@ projective bundle, complete flags, absolute very ampleness, bigness and intersec
 Native schemes, module sheaves, invertible sheaves, tensor
 products, cohomology and the module Grassmannian are used directly.
 
-Finite type, constant sheaf rank, relative higher direct images and supplier comparison maps
-whose APIs are not at the pin are explicitly omitted where indicated. No missing condition is
+Native finite-type, finite-presentation and locally-free sheaf predicates are available at the
+pin. Constant rank, relative higher direct images and supplier comparison maps remain limited
+as explicitly indicated below. No missing condition is
 encoded by an unspecified proposition. The mathematical hypotheses are in the document.
 -/
 
@@ -28,6 +29,8 @@ import Mathlib.RingTheory.MvPolynomial.Homogeneous
 import Mathlib.RingTheory.Polynomial.HilbertPoly
 import Mathlib.RingTheory.Length
 import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.LinearAlgebra.Matrix.ToLin
+import Mathlib.Algebra.Category.ModuleCat.Sheaf.LocallyFree
 import TauCeti.AlgebraicGeometry.LineBundle.Basic
 import TauCeti.AlgebraicGeometry.Modules.TensorProduct
 import TauCeti.AlgebraicGeometry.Cohomology.EulerCharacteristic
@@ -48,8 +51,9 @@ structure LineQuotient {S T : Scheme.{u}} (f : T ⟶ S) (E : S.Modules) where
   quotient : (Scheme.Modules.pullback f).obj E ⟶ line.obj
   surjective : Epi quotient
 
-/-- The finitely generated case is an application of the supplier's relative Proj of Sym E.
-Finite type is omitted from the signature; quasi-coherence is native. -/
+/-- Relative Proj of Sym E in the requested arbitrary-quasicoherent extension.
+Projectivity and finite-presentation conclusions need the corresponding native sheaf
+finiteness predicates and are not asserted by this carrier declaration. -/
 def projectiveBundle (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] : Scheme.{u} := by
   sorry
 
@@ -152,18 +156,22 @@ theorem add_left (a b : ℤ) (i j : ℕ)
     (y : Cohomology (projectiveBundle.twistingSheaf S E b).obj j) :
     twistMultiplication S E a b i j (x + x') y =
       twistMultiplication S E a b i j x y + twistMultiplication S E a b i j x' y := by sorry
-/-- The comparison to multiplication of sections uses the native H⁰ equivalence. -/
+/-- Tensor multiplication of sections through the canonical twisting-sheaf comparison. -/
+def sectionProduct (a b : ℤ) :
+    Γ((projectiveBundle.twistingSheaf S E a).obj, ⊤) →+
+      Γ((projectiveBundle.twistingSheaf S E b).obj, ⊤) →+
+      Γ((projectiveBundle.twistingSheaf S E (a + b)).obj, ⊤) := by sorry
+/-- The actual structure-sheaf section 1 transported through O(0)≅O and H⁰≅Γ. -/
+def unit : Cohomology (projectiveBundle.twistingSheaf S E 0).obj 0 :=
+  (cohomologyZeroEquiv _).symm
+    ((projectiveBundle.twistingSheaf.zero S E).inv.app ⊤
+      (1 : Γ(projectiveBundle S E, ⊤)))
+/-- The comparison uses the canonical product, rather than an arbitrary bilinear map. -/
 theorem section_product (a b : ℤ)
     (x : Cohomology (projectiveBundle.twistingSheaf S E a).obj 0)
-    (y : Cohomology (projectiveBundle.twistingSheaf S E b).obj 0)
-    (product : Γ((projectiveBundle.twistingSheaf S E a).obj, ⊤) →+
-      Γ((projectiveBundle.twistingSheaf S E b).obj, ⊤) →+
-      Γ((projectiveBundle.twistingSheaf S E (a + b)).obj, ⊤))
-    -- The comparison identifying `product` with tensor multiplication is omitted.
-    : TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyZeroEquiv _
-        (twistMultiplication S E a b 0 0 x y) =
-      product (TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyZeroEquiv _ x)
-        (TauCeti.AlgebraicGeometry.Scheme.Modules.cohomologyZeroEquiv _ y) := by sorry
+    (y : Cohomology (projectiveBundle.twistingSheaf S E b).obj 0) :
+    cohomologyZeroEquiv _ (twistMultiplication S E a b 0 0 x y) =
+      sectionProduct S E a b (cohomologyZeroEquiv _ x) (cohomologyZeroEquiv _ y) := by sorry
 end twistMultiplication
 namespace TwistMultiplicationTests
 -- TwistMultiplicationTests.zero
@@ -173,9 +181,7 @@ example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent]
 -- TwistMultiplicationTests.unit
 example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent]
     (x : Cohomology (projectiveBundle.twistingSheaf S E 1).obj 0)
-    (one : Cohomology (projectiveBundle.twistingSheaf S E 0).obj 0)
-    -- `one` is the structure-sheaf unit, an identification omitted here.
-    : twistMultiplication S E 1 0 0 0 x one = x := by sorry
+    : twistMultiplication S E 1 0 0 0 x (twistMultiplication.unit S E) = x := by sorry
 -- TwistMultiplicationTests.topBoundary
 example (k : Type u) [Field k]
     (x : Cohomology (projectiveBundle.twistingSheaf (Spec (.of k))
@@ -185,8 +191,8 @@ example (k : Type u) [Field k]
     twistMultiplication _ _ (-2) 1 1 0 x y = 0 := by sorry
 end TwistMultiplicationTests
 
-/-- Coherent/finite-type extension of the supplier Grassmannian. Finite presentation and
-constant rank conditions absent from the pin are omitted, rather than encoded by new predicates. -/
+/-- Quotient Grassmannian carrier. Its finite-type/finitely-presented structure results
+require the native finiteness predicates on E. Constant quotient rank is a supplier limitation. -/
 def coherentGrassmann (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] (d : ℕ) :
     Scheme.{u} := by sorry
 namespace coherentGrassmann
@@ -197,9 +203,10 @@ def universalQuotient : (Scheme.Modules.pullback (projection S E d)).obj E ⟶
     universalQuotientSheaf S E d := by sorry
 theorem universalQuotient_epi : Epi (universalQuotient S E d) := by sorry
 def fromQuotient {T : Scheme.{u}} (f : T ⟶ S) (Q : T.Modules)
-    (q : (Scheme.Modules.pullback f).obj E ⟶ Q) [Epi q] :
+    (q : (Scheme.Modules.pullback f).obj E ⟶ Q) [Epi q]
+    [Q.IsLocallyFree] [Q.IsFinitePresentation] :
     T ⟶ coherentGrassmann S E d := by sorry
--- `Q` must be finite locally free of rank d; this supplier condition is omitted.
+-- Constant quotient rank d is omitted; native finite presentation and local freeness are included.
 def baseChange {T : Scheme.{u}} (f : T ⟶ S)
     [((Scheme.Modules.pullback f).obj E).IsQuasicoherent] :
     coherentGrassmann T ((Scheme.Modules.pullback f).obj E) d ≅
@@ -267,30 +274,51 @@ example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] :
 end PluckerTests
 
 /-- Quotient indices `n-aᵢ` correspond to increasing kernel ranks `aᵢ`.
-The sheaf rank n and strictly increasing admissible type are omitted supplier conditions. -/
-def flagBundle (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent]
+Native local freeness and finite presentation are included. Fixed sheaf rank n is a supplier
+limitation; the comparison below includes the native strictly increasing admissible list conditions. -/
+def flagBundle (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] [E.IsLocallyFree] [E.IsFinitePresentation]
     (n : ℕ) (ranks : List ℕ) : Scheme.{u} := by sorry
 namespace flagBundle
-variable (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] (n : ℕ) (ranks : List ℕ)
+variable (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] [E.IsLocallyFree] [E.IsFinitePresentation] (n : ℕ) (ranks : List ℕ)
 def projection : flagBundle S E n ranks ⟶ S := by sorry
 def toGrassmann (i : Fin ranks.length) : flagBundle S E n ranks ⟶
     coherentGrassmann S E (n - ranks[i]) := by sorry
 def baseChange {T : Scheme.{u}} (f : T ⟶ S)
-    [((Scheme.Modules.pullback f).obj E).IsQuasicoherent] :
+    [((Scheme.Modules.pullback f).obj E).IsQuasicoherent]
+    [((Scheme.Modules.pullback f).obj E).IsLocallyFree]
+    [((Scheme.Modules.pullback f).obj E).IsFinitePresentation] :
     flagBundle T ((Scheme.Modules.pullback f).obj E) n ranks ≅
       Limits.pullback (projection S E n ranks) f := by sorry
+/-- Over the free rank-n affine chart, points are actual nested quotient-kernel data.
+The list conditions are native, so they are included in this comparison. -/
+def affinePoints (R : CommRingCat.{u}) (n : ℕ) (ranks : List ℕ)
+    (hr : ranks.Pairwise (· < ·)) (hb : ∀ a ∈ ranks, a ≤ n)
+    [(tilde (R := R) (ModuleCat.of R (Fin n → R))).IsLocallyFree]
+    [(tilde (R := R) (ModuleCat.of R (Fin n → R))).IsFinitePresentation] :
+    {g : Spec R ⟶ flagBundle (Spec R) (tilde (ModuleCat.of R (Fin n → R))) n ranks //
+      g ≫ projection (Spec R) (tilde (ModuleCat.of R (Fin n → R))) n ranks = 𝟙 (Spec R)} ≃
+    {Q : ∀ i : Fin ranks.length, Module.Grassmannian R (Fin n → R) (n - ranks[i]) //
+      ∀ i j : Fin ranks.length, i < j → (Q i).toSubmodule ≤ (Q j).toSubmodule} := by sorry
 end flagBundle
 namespace FlagTests
 -- FlagTests.empty
-example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] (n : ℕ) :
+example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] [E.IsLocallyFree] [E.IsFinitePresentation] (n : ℕ) :
     Nonempty (flagBundle S E n [] ≅ S) := by sorry
 -- FlagTests.single
-example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] (a n : ℕ) (h : a ≤ n) :
+example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] [E.IsLocallyFree] [E.IsFinitePresentation] (a n : ℕ) (h : a ≤ n) :
     Nonempty (flagBundle S E n [a] ≅ coherentGrassmann S E (n - a)) := by sorry
 -- FlagTests.nested
-example (k : Type u) [Field k] (U V : Submodule k (Fin 3 → k))
-    (hU : Module.finrank k U = 1) (hV : Module.finrank k V = 2) (h : ¬ U ≤ V) :
-    ¬ (U ≤ V ∧ Module.finrank k U = 1 ∧ Module.finrank k V = 2) := by sorry
+example (k : Type u) [Field k]
+    [(tilde (R := CommRingCat.of k) (ModuleCat.of k (Fin 3 → k))).IsLocallyFree]
+    [(tilde (R := CommRingCat.of k) (ModuleCat.of k (Fin 3 → k))).IsFinitePresentation]
+    (U : Module.Grassmannian k (Fin 3 → k) 2)
+    (V : Module.Grassmannian k (Fin 3 → k) 1) (h : ¬ U.toSubmodule ≤ V.toSubmodule) :
+    ¬ ∃ g : {g : Spec (.of k) ⟶
+        flagBundle (Spec (.of k)) (tilde (ModuleCat.of k (Fin 3 → k))) 3 [1, 2] //
+      g ≫ flagBundle.projection (Spec (.of k))
+        (tilde (ModuleCat.of k (Fin 3 → k))) 3 [1, 2] = 𝟙 (Spec (.of k))},
+      ((flagBundle.affinePoints (.of k) 3 [1, 2] (by decide) (by decide)) g).val 0 = U ∧
+      ((flagBundle.affinePoints (.of k) 3 [1, 2] (by decide) (by decide)) g).val 1 = V := by sorry
 end FlagTests
 
 /-- Relative very ampleness with the Stacks immersion convention, using supplied projective bundles.
@@ -306,14 +334,27 @@ theorem of_embedding (E : S.Modules) [E.IsQuasicoherent]
     (hi : i ≫ projectiveBundle.projection S E = f)
     (e : (Scheme.Modules.pullback i).obj (projectiveBundle.twistingSheaf S E 1).obj ≅ L.obj) :
     IsRelativelyVeryAmple f L := by sorry
-/-- The complete evaluation criterion needs quasi-compactness and quasi-separatedness of f,
-omitted here along with the surjective-evaluation identification. -/
-theorem evaluation_criterion (E : S.Modules) [E.IsQuasicoherent]
-    (i : X ⟶ projectiveBundle S E)
-    (hi : i ≫ projectiveBundle.projection S E = f)
-    (e : (Scheme.Modules.pullback i).obj (projectiveBundle.twistingSheaf S E 1).obj ≅ L.obj)
-    -- `E = f_* L`, and i is the evaluation classifying map; those identifications are omitted.
-    : IsRelativelyVeryAmple f L ↔ IsImmersion i := by sorry
+/-- Surjectivity of the actual counit of native pullback/pushforward. -/
+theorem evaluation_epi [QuasiCompact f] [QuasiSeparated f]
+    (h : IsRelativelyVeryAmple f L) :
+    Epi ((Scheme.Modules.pullbackPushforwardAdjunction f).counit.app L.obj) := by sorry
+/-- The line quotient is the actual evaluation map, not an arbitrary sheaf map. -/
+def evaluationQuotient
+    [Epi ((Scheme.Modules.pullbackPushforwardAdjunction f).counit.app L.obj)] :
+    LineQuotient f ((Scheme.Modules.pushforward f).obj L.obj) where
+  line := L
+  quotient := (Scheme.Modules.pullbackPushforwardAdjunction f).counit.app L.obj
+  surjective := inferInstance
+/-- The canonical complete linear-system map. Quasi-coherence of the pushforward
+is supplied by the coherent-sheaf owner under the quasi-compact/quasi-separated hypotheses. -/
+def completeMap [((Scheme.Modules.pushforward f).obj L.obj).IsQuasicoherent]
+    [Epi ((Scheme.Modules.pullbackPushforwardAdjunction f).counit.app L.obj)] :
+    X ⟶ projectiveBundle S ((Scheme.Modules.pushforward f).obj L.obj) :=
+  projectiveBundle.fromQuotient S _ f (evaluationQuotient f L)
+theorem evaluation_criterion [QuasiCompact f] [QuasiSeparated f]
+    [((Scheme.Modules.pushforward f).obj L.obj).IsQuasicoherent]
+    [Epi ((Scheme.Modules.pullbackPushforwardAdjunction f).counit.app L.obj)] :
+    IsRelativelyVeryAmple f L ↔ IsImmersion (completeMap f L) := by sorry
 theorem closed_of_proper [IsProper f] (E : S.Modules) [E.IsQuasicoherent]
     (i : X ⟶ projectiveBundle S E) [IsImmersion i]
     (hi : i ≫ projectiveBundle.projection S E = f) : IsClosedImmersion i := by sorry
@@ -347,7 +388,7 @@ def hilbertPolynomial (k : Type u) [Field k] (X : Scheme.{u}) [X.Over (Spec (.of
 namespace hilbertPolynomial
 variable (k : Type u) [Field k] (X : Scheme.{u}) [X.Over (Spec (.of k))]
 variable (L : InvertibleSheaf X) (F : X.Modules)
-theorem eval_euler (m : ℤ) (Lm : InvertibleSheaf X) (c : ℕ)
+theorem eval_euler [IsProper (X ↘ Spec (.of k))] [F.IsFinitePresentation] (m : ℤ) (Lm : InvertibleSheaf X) (c : ℕ)
     (hf : ∀ i < c, FiniteDimensional k
       (TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology
         (Scheme.Modules.tensorProduct X F Lm.obj) i))
@@ -357,10 +398,12 @@ theorem eval_euler (m : ℤ) (Lm : InvertibleSheaf X) (c : ℕ)
     -- Lm = L^m is omitted; finiteness and vanishing are included to avoid junk finrank.
     : (hilbertPolynomial k X L F).eval (m : ℚ) =
       (Scheme.Modules.eulerCharBelow k X (Scheme.Modules.tensorProduct X F Lm.obj) c : ℚ) := by sorry
-theorem add (Q : ShortComplex X.Modules) (hQ : Q.ShortExact) :
+theorem add [IsProper (X ↘ Spec (.of k))] (Q : ShortComplex X.Modules)
+    [Q.X₁.IsFinitePresentation] [Q.X₂.IsFinitePresentation] [Q.X₃.IsFinitePresentation]
+    (hQ : Q.ShortExact) :
     hilbertPolynomial k X L Q.X₂ =
       hilbertPolynomial k X L Q.X₁ + hilbertPolynomial k X L Q.X₃ := by sorry
-theorem twist (a : ℤ) (La : InvertibleSheaf X)
+theorem twist [IsProper (X ↘ Spec (.of k))] [F.IsFinitePresentation] (a : ℤ) (La : InvertibleSheaf X)
     -- La = L^a is omitted.
     : hilbertPolynomial k X L (Scheme.Modules.tensorProduct X F La.obj) =
       (hilbertPolynomial k X L F).comp (Polynomial.X + Polynomial.C (a : ℚ)) := by sorry
@@ -371,7 +414,10 @@ example (k : Type u) [Field k] (X : Scheme.{u}) [X.Over (Spec (.of k))]
     (L : InvertibleSheaf X) : hilbertPolynomial k X L (0 : X.Modules) = 0 := by sorry
 -- HilbertPolynomialTests.projectiveLine
 example (k : Type u) [Field k] (a : ℤ)
-    [ (projectiveSpace (Spec (.of k)) 1).Over (Spec (.of k)) ] :
+    [ (projectiveSpace (Spec (.of k)) 1).Over (Spec (.of k)) ]
+    (hOver : (projectiveSpace (Spec (.of k)) 1 ↘ Spec (.of k)) =
+      projectiveBundle.projection (Spec (.of k))
+        (SheafOfModules.free (R := (Spec (.of k)).ringCatSheaf) (ULift.{u} (Fin 2)))) :
     hilbertPolynomial k (projectiveSpace (Spec (.of k)) 1)
       (projectiveBundle.twistingSheaf (Spec (.of k))
         (SheafOfModules.free (R := (Spec (.of k)).ringCatSheaf) (ULift.{u} (Fin 2))) 1)
@@ -379,23 +425,23 @@ example (k : Type u) [Field k] (a : ℤ)
         (SheafOfModules.free (R := (Spec (.of k)).ringCatSheaf) (ULift.{u} (Fin 2))) a).obj =
         Polynomial.X + Polynomial.C ((a : ℚ) + 1) := by sorry
 -- HilbertPolynomialTests.projectivePoint
-example (k : Type u) [Field k] [ (Spec (.of k)).Over (Spec (.of k)) ] :
+example (k : Type u) [Field k] [ (Spec (.of k)).Over (Spec (.of k)) ]
+    (hOver : (Spec (.of k) ↘ Spec (.of k)) = 𝟙 (Spec (.of k))) :
     hilbertPolynomial k (Spec (.of k)) (InvertibleSheaf.trivial _) (SheafOfModules.unit _) = 1 := by sorry
 end HilbertPolynomialTests
 
-/-- Vanishing is stated with the pinned cohomology carrier. Projective-space, coherence,
-and the identification of Ftw m with F(m) are omitted supplier conditions. -/
+/-- Vanishing is stated with the pinned cohomology carrier. Projective-space and the identification of Ftw m with F(m) are omitted supplier conditions. Native finite presentation is included in its API. -/
 def IsCMRegular (X : Scheme.{u}) (Ftw : ℤ → X.Modules) (m : ℤ) : Prop :=
   ∀ i : ℕ, 0 < i → Subsingleton
     (TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology (Ftw (m - (i : ℤ))) i)
 namespace IsCMRegular
 variable (X : Scheme.{u}) (Ftw : ℤ → X.Modules)
-theorem monotone (m r : ℤ) (h : IsCMRegular X Ftw m) (hmr : m ≤ r) :
+theorem monotone [∀ r, (Ftw r).IsFinitePresentation] (m r : ℤ) (h : IsCMRegular X Ftw m) (hmr : m ≤ r) :
     IsCMRegular X Ftw r := by sorry
-theorem vanish (m r : ℤ) (i : ℕ) (h : IsCMRegular X Ftw m) (hi : 0 < i)
+theorem vanish [∀ r, (Ftw r).IsFinitePresentation] (m r : ℤ) (i : ℕ) (h : IsCMRegular X Ftw m) (hi : 0 < i)
     (hr : m - (i : ℤ) ≤ r) :
     Subsingleton (TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology (Ftw r) i) := by sorry
-theorem multiplication (m r : ℤ) (h : IsCMRegular X Ftw m) (hr : m ≤ r)
+theorem multiplication [∀ r, (Ftw r).IsFinitePresentation] (m r : ℤ) (h : IsCMRegular X Ftw m) (hr : m ≤ r)
     (V : Type u) [AddCommGroup V]
     (μ : TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology (Ftw r) 0 ⊗[ℤ] V →+
       TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology (Ftw (r + 1)) 0)
@@ -445,40 +491,68 @@ example {R : Type u} [CommRing R] (ε : R) (hne : ε ≠ 0) (hsq : ε * ε = 0) 
     rankLocus (!![ε] : Matrix (Fin 1) (Fin 1) R) 0 ≠ ⊥ := by sorry
 end RankLocusTests
 
-/-- On finite locally free E, the locus rank(U → E/W) ≤ a-k. Rank a,b and LF E are omitted. -/
-def incidenceLocus (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent]
+/-- On finite locally free E, the locus rank(U → E/W) ≤ a-k. Fixed rank n and the universal-subobject comparisons remain supplier limitations;
+native local freeness and finite presentation of E are included. -/
+def incidenceLocus (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] [E.IsLocallyFree] [E.IsFinitePresentation]
     (n a b k : ℕ) : Scheme.{u} := by sorry
 namespace incidenceLocus
-variable (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] (n a b k : ℕ)
+variable (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] [E.IsLocallyFree] [E.IsFinitePresentation] (n a b k : ℕ)
 def inclusion : incidenceLocus S E n a b k ⟶
     Limits.pullback (coherentGrassmann.projection S E (n - a))
       (coherentGrassmann.projection S E (n - b)) := by sorry
 -- The ambient scheme is the relative product over S.
 theorem isClosedImmersion : IsClosedImmersion (inclusion S E n a b k) := by sorry
+def projection : incidenceLocus S E n a b k ⟶ S :=
+  inclusion S E n a b k ≫
+    Limits.pullback.fst (coherentGrassmann.projection S E (n - a))
+      (coherentGrassmann.projection S E (n - b)) ≫ coherentGrassmann.projection S E (n - a)
 def baseChange {T : Scheme.{u}} (f : T ⟶ S)
-    [((Scheme.Modules.pullback f).obj E).IsQuasicoherent] :
-    incidenceLocus T ((Scheme.Modules.pullback f).obj E) n a b k ⟶
-      incidenceLocus S E n a b k := by sorry
+    [((Scheme.Modules.pullback f).obj E).IsQuasicoherent]
+    [((Scheme.Modules.pullback f).obj E).IsLocallyFree]
+    [((Scheme.Modules.pullback f).obj E).IsFinitePresentation] :
+    incidenceLocus T ((Scheme.Modules.pullback f).obj E) n a b k ≅
+      Limits.pullback (projection S E n a b k) f := by sorry
+/-- Field points of the incidence scheme, using actual quotient kernels. -/
+def fieldPoints (K : Type u) [Field K] (n a b r : ℕ) (ha : a ≤ n) (hb : b ≤ n)
+    [(tilde (R := CommRingCat.of K) (ModuleCat.of K (Fin n → K))).IsLocallyFree]
+    [(tilde (R := CommRingCat.of K) (ModuleCat.of K (Fin n → K))).IsFinitePresentation] :
+    {g : Spec (.of K) ⟶
+      incidenceLocus (Spec (.of K)) (tilde (ModuleCat.of K (Fin n → K))) n a b r //
+      g ≫ projection (Spec (.of K)) (tilde (ModuleCat.of K (Fin n → K))) n a b r =
+        𝟙 (Spec (.of K))} ≃
+    {Q : Module.Grassmannian K (Fin n → K) (n - a) ×
+        Module.Grassmannian K (Fin n → K) (n - b) //
+      r ≤ Module.finrank K ↥(Q.1.toSubmodule ⊓ Q.2.toSubmodule)} := by sorry
 end incidenceLocus
 namespace IncidenceTests
 -- IncidenceTests.zeroBound
-example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] (n a b : ℕ) :
+example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] [E.IsLocallyFree] [E.IsFinitePresentation] (n a b : ℕ) :
     IsIso (incidenceLocus.inclusion S E n a b 0) := by sorry
 -- IncidenceTests.lines
-example (k : Type u) [Field k] (U W : Submodule k (Fin 2 → k))
-    (hU : Module.finrank k U = 1) (hW : Module.finrank k W = 1) :
-    1 ≤ Module.finrank k ↥(U ⊓ W : Submodule k (Fin 2 → k)) ↔ U = W := by sorry
+example (k : Type u) [Field k]
+    [(tilde (R := CommRingCat.of k) (ModuleCat.of k (Fin 2 → k))).IsLocallyFree]
+    [(tilde (R := CommRingCat.of k) (ModuleCat.of k (Fin 2 → k))).IsFinitePresentation] (U W : Module.Grassmannian k (Fin 2 → k) 1) :
+    (∃ g : {g : Spec (.of k) ⟶
+        incidenceLocus (Spec (.of k)) (tilde (ModuleCat.of k (Fin 2 → k))) 2 1 1 1 //
+      g ≫ incidenceLocus.projection (Spec (.of k))
+        (tilde (ModuleCat.of k (Fin 2 → k))) 2 1 1 1 = 𝟙 (Spec (.of k))},
+      ((incidenceLocus.fieldPoints k 2 1 1 1 (by decide) (by decide)) g).val = (U, W)) ↔
+        U = W := by sorry
 -- IncidenceTests.impossible
-example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] (n a b k : ℕ)
+example (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] [E.IsLocallyFree] [E.IsFinitePresentation] (n a b k : ℕ)
     (h : min a b < k) : Nonempty (incidenceLocus S E n a b k ≅ Scheme.empty) := by sorry
 end IncidenceTests
 
 /-- F must be the absolute Frobenius of a characteristic-p scheme, a missing supplier API.
 Its actual source matters: F⁎U → E → Q, rather than an O-linear E → E invariant locus. -/
-def frobeniusStableLocus (X : Scheme.{u}) (E U Q : X.Modules) (i : U ⟶ E) (q : E ⟶ Q)
+def frobeniusStableLocus (X : Scheme.{u}) (E U Q : X.Modules)
+    [U.IsQuasicoherent] [U.IsFiniteType] [Q.IsLocallyFree] [Q.IsFinitePresentation]
+    (i : U ⟶ E) (q : E ⟶ Q)
     (F : X ⟶ X) (Φ : (Scheme.Modules.pullback F).obj E ⟶ E) : Scheme.{u} := by sorry
 namespace frobeniusStableLocus
-variable (X : Scheme.{u}) (E U Q : X.Modules) (i : U ⟶ E) (q : E ⟶ Q)
+variable (X : Scheme.{u}) (E U Q : X.Modules)
+    [U.IsQuasicoherent] [U.IsFiniteType] [Q.IsLocallyFree] [Q.IsFinitePresentation]
+    (i : U ⟶ E) (q : E ⟶ Q)
 variable (F : X ⟶ X) (Φ : (Scheme.Modules.pullback F).obj E ⟶ E)
 def inclusion : frobeniusStableLocus X E U Q i q F Φ ⟶ X := by sorry
 theorem isClosedImmersion : IsClosedImmersion (inclusion X E U Q i q F Φ) := by sorry
@@ -497,7 +571,9 @@ def graphEquation {R : Type u} [CommRing R] (p : ℕ) (a b c d t : R) : R :=
 end frobeniusStableLocus
 namespace FrobeniusTests
 -- FrobeniusTests.zeroOperator
-example (X : Scheme.{u}) (E U Q : X.Modules) (i : U ⟶ E) (q : E ⟶ Q) (F : X ⟶ X) :
+example (X : Scheme.{u}) (E U Q : X.Modules)
+    [U.IsQuasicoherent] [U.IsFiniteType] [Q.IsLocallyFree] [Q.IsFinitePresentation]
+    (i : U ⟶ E) (q : E ⟶ Q) (F : X ⟶ X) :
     IsIso (frobeniusStableLocus.inclusion X E U Q i q F 0) := by sorry
 -- FrobeniusTests.identityChart
 example (p : ℕ) (hp : p.Prime) (k : Type u) [Field k] [CharP k p] (t : k) :
@@ -555,15 +631,33 @@ omission is identified below and in the document; no unspecified proposition is 
 def rankOneGrassmannComparison (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent] :
     projectiveBundle S E ≅ coherentGrassmann S E 1 := by sorry
 
-/-- The all-degree additive Čech basis comparison. `basis` is the set of exponent vectors
-from the document (nonnegative in degree zero, all negative in top degree, empty otherwise).
-That identification, and the n=0 special rule, are omitted here. -/
-def projectiveSpaceTwistCohomology (A : Type u) [CommRing A] (n : ℕ) (m : ℤ) (q : ℕ)
-    (basis : Type u) :
+/-- The exponent basis is specified, including the rank-one projective-space exception. -/
+def projectiveTwistBasis (n q : ℕ) (m : ℤ) : Type :=
+  {e : Fin (n + 1) → ℤ // (∑ i, e i) = m ∧
+    ((q = 0 ∧ (n = 0 ∨ ∀ i, 0 ≤ e i)) ∨ (0 < n ∧ q = n ∧ ∀ i, e i < 0))}
+/-- All-degree additive Čech comparison with the actual Laurent-exponent basis. -/
+def projectiveSpaceTwistCohomology (A : Type u) [CommRing A] (n : ℕ) (m : ℤ) (q : ℕ) :
     Cohomology (projectiveBundle.twistingSheaf (Spec (.of A))
       (SheafOfModules.free (R := (Spec (.of A)).ringCatSheaf)
         (ULift.{u} (Fin (n + 1)))) m).obj q ≃+
-      (basis →₀ A) := by sorry
+      (projectiveTwistBasis n q m →₀ A) := by sorry
+namespace ProjectiveTwistCohomologyTests
+-- ProjectiveTwistCohomologyTests.pointNegative
+example (A : Type u) [CommRing A] :
+    Nonempty (Cohomology (projectiveBundle.twistingSheaf (Spec (.of A))
+      (SheafOfModules.free (R := (Spec (.of A)).ringCatSheaf)
+        (ULift.{u} (Fin 1))) (-7)).obj 0 ≃+ A) := by sorry
+-- ProjectiveTwistCohomologyTests.topLine
+example (A : Type u) [CommRing A] :
+    Nonempty (Cohomology (projectiveBundle.twistingSheaf (Spec (.of A))
+      (SheafOfModules.free (R := (Spec (.of A)).ringCatSheaf)
+        (ULift.{u} (Fin 2))) (-2)).obj 1 ≃+ A) := by sorry
+-- ProjectiveTwistCohomologyTests.lineBoundary
+example (A : Type u) [CommRing A] :
+    Subsingleton (Cohomology (projectiveBundle.twistingSheaf (Spec (.of A))
+      (SheafOfModules.free (R := (Spec (.of A)).ringCatSheaf)
+        (ULift.{u} (Fin 2))) (-1)).obj 1) := by sorry
+end ProjectiveTwistCohomologyTests
 
 /-- On rank-one E=L the relative formula reduces to the actual pullback along P(L)≅S.
 The higher-direct-image signatures for rank n+1, with their determinant dual, are omitted:
@@ -574,21 +668,25 @@ def relativeBundleCohomology (S : Scheme.{u}) (L Lm : InvertibleSheaf S)
     (Scheme.Modules.pullback (projectiveBundle.rankOne S L).inv).obj
       (projectiveBundle.twistingSheaf S L.obj m).obj ≅ Lm.obj := by sorry
 
-/-- Properness/coherence of F and ampleness of L are omitted supplier hypotheses.
+/-- Native properness and finite presentation are included. Ampleness of L is a supplier limitation.
 The sequence Ftw m is F tensor L^m, also an omitted identification. -/
 theorem absoluteSerre (k : Type u) [Field k] (X : Scheme.{u})
-    [X.Over (Spec (.of k))] (F : X.Modules) (Ftw : ℤ → X.Modules) :
+    [X.Over (Spec (.of k))] [IsProper (X ↘ Spec (.of k))] (F : X.Modules)
+    [F.IsFinitePresentation] (Ftw : ℤ → X.Modules) :
     (∀ q : ℕ, FiniteDimensional k (Cohomology F q)) ∧
     ∃ m₀ : ℤ, ∀ m ≥ m₀, ∀ q : ℕ, 0 < q → Subsingleton (Cohomology (Ftw m) q) := by sorry
 
 /-- This affine-base form checks the native cohomology types. Relative Rⁱf_*, coherent
 pushforward and the evaluation map in the general-base target need the supplier's interfaces.
-Properness, Noetherianity, coherence and relative ampleness are omitted conditions. -/
-theorem relativeSerre (A : Type u) [CommRing A] (X : Scheme.{u})
-    (f : X ⟶ Spec (.of A)) (Ftw : ℤ → X.Modules) :
+Native affine-base Noetherianity, properness and finite presentation are included;
+relative ampleness and the twist-family identification remain supplier limitations. -/
+theorem relativeSerre (A : Type u) [CommRing A] [IsNoetherianRing A] (X : Scheme.{u})
+    (f : X ⟶ Spec (.of A)) [IsProper f] (Ftw : ℤ → X.Modules)
+    [∀ m, (Ftw m).IsFinitePresentation] :
     ∃ m₀ : ℤ, ∀ m ≥ m₀, ∀ q : ℕ, 0 < q → Subsingleton (Cohomology (Ftw m) q) := by sorry
 
 theorem grassmannSmoothness (S : Scheme.{u}) (E : S.Modules) [E.IsQuasicoherent]
+    [E.IsLocallyFree] [E.IsFinitePresentation]
     (n d : ℕ) (hd : d ≤ n) :
     -- E is locally free of rank n, omitted supplier hypothesis.
     SmoothOfRelativeDimension (d * (n - d)) (coherentGrassmann.projection S E d) := by sorry
@@ -609,10 +707,10 @@ theorem gradedPiecesFinite (A : Type u) [CommRing A] (M : ℤ → Type u)
     [∀ d, AddCommGroup (M d)] [∀ d, Module A (M d)] :
     ∀ d, Module.Finite A (M d) := by sorry
 
-/-- Artinian coefficients and the finite standard graded-module condition are omitted.
-This is the numerical consequence; the series identity uses the imported Hilbert-series API. -/
-theorem hilbertSerre (A : Type u) [CommRing A] (M : ℤ → Type u)
-    [∀ d, AddCommGroup (M d)] [∀ d, Module A (M d)] :
+/-- Artinian coefficients and finite pieces are native; the finite standard graded-module
+identification remains omitted. The series identity uses the imported Hilbert-series API. -/
+theorem hilbertSerre (A : Type u) [CommRing A] [IsArtinianRing A] (M : ℤ → Type u)
+    [∀ d, AddCommGroup (M d)] [∀ d, Module A (M d)] [∀ d, Module.Finite A (M d)] :
     ∃ P : Polynomial ℚ, ∃ d₀ : ℤ, ∀ d ≥ d₀,
       P.eval (d : ℚ) = ((Module.length A (M d)).toNat : ℚ) := by sorry
 
@@ -678,12 +776,29 @@ theorem bigFamilyBirationalBounds (ι : Type u) (k : ι → Type u) [∀ s, Fiel
     (Ftw : ∀ s, ℤ → (Xs s).Modules) :
     ∃ a N : ℕ, 0 < a ∧ ∀ s, Module.finrank (k s) (Cohomology (Ftw s a) 0) ≤ N := by sorry
 
-/-- Native matrix model of a finite monomial cutoff, with τ|R=id. For exponent j with pj<N,
-the image monomial has coefficient one at pj and zero elsewhere. This is the cutoff comparison,
-not absolute Frobenius of coefficients. -/
+/-- Finite cutoff from degrees <N to degrees ≤pN. Every matrix coefficient is 0 or 1;
+the associated native R-linear map fixes coefficients and multiplies monomial exponents. -/
+def coefficientFrobeniusCutoff (R : Type u) [CommRing R] (p N : ℕ) :
+    (Fin N → R) →ₗ[R] (Fin (p * N + 1) → R) :=
+  Matrix.mulVecLin (fun (i : Fin (p * N + 1)) (j : Fin N) =>
+    if i.val = p * j.val then (1 : R) else 0)
+/-- A coefficient t remains t, including when t^p differs from t. -/
 theorem coefficientFrobeniusLattice (R : Type u) [CommRing R] (p N : ℕ)
-    (j : Fin N) (hj : p * j.val < N) :
-    (fun i : Fin N => if i.val = p * j.val then (1 : R) else 0)
-      ⟨p * j.val, hj⟩ = 1 := by sorry
+    (j : Fin N) (t : R) :
+    coefficientFrobeniusCutoff R p N (Pi.single j t) =
+      fun i => if i.val = p * j.val then t else 0 := by sorry
+namespace CoefficientFrobeniusTests
+-- CoefficientFrobeniusTests.zero
+example (R : Type u) [CommRing R] (p N : ℕ) :
+    coefficientFrobeniusCutoff R p N 0 = 0 := by sorry
+-- CoefficientFrobeniusTests.monomial
+example (R : Type u) [CommRing R] (p N : ℕ) (j : Fin N)
+    (i : Fin (p * N + 1)) (hi : i.val = p * j.val) (t : R) :
+    coefficientFrobeniusCutoff R p N (Pi.single j t) i = t := by sorry
+-- CoefficientFrobeniusTests.nonFixedCoefficient
+example (p : ℕ) (hp : p.Prime) (k : Type u) [Field k] [CharP k p]
+    (t : k) (h : t ^ p ≠ t) :
+    coefficientFrobeniusCutoff k p 1 (fun _ => t) 0 ≠ t ^ p := by sorry
+end CoefficientFrobeniusTests
 
 end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.R09_1
