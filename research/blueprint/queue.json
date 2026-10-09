@@ -38422,8 +38422,9 @@
    ],
    "revisionOf": "BP-CrystallineCohomology--CR.5",
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.5~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7557"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7557",
+   "finishedAt": "2026-10-09T06:19:16Z"
   },
   {
    "priority": 2,
@@ -41320,7 +41321,8 @@
    ],
    "revisionOf": "BP-SchemeKTheoryOperations",
    "prompt": "research/blueprint/prompts/BP-SchemeKTheoryOperations~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7565"
   },
   {
    "priority": 2,
