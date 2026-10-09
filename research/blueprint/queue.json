@@ -39333,8 +39333,9 @@
     "BP-GrossZagierAndArithmeticHeights--GZ.8~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GrossZagierAndArithmeticHeights--GZ.8~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7054"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7054",
+   "finishedAt": "2026-10-09T00:36:04Z"
   },
   {
    "kind": "blueprint",
@@ -46591,7 +46592,8 @@
     "PKG-EllipticCurveModularityPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityPartII.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7515"
   },
   {
    "id": "PKG-ErdosProgressionPowers",
@@ -47784,8 +47786,9 @@
     "PKG-WeightsInEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-WeightsInEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7543"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7543",
+   "finishedAt": "2026-10-09T00:36:08Z"
   },
   {
    "id": "PKG-WeilConjectures",
