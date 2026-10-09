@@ -34807,8 +34807,9 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--G7",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--G7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7945"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7945",
+   "finishedAt": "2026-10-09T22:15:24Z"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.1",
@@ -34901,7 +34902,8 @@
    ],
    "avoidAccountOf": "BP-ArithmeticGaloisRepresentations--R01.2",
    "prompt": "research/blueprint/prompts/REV-ArithmeticGaloisRepresentations--R01.2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7947"
   },
   {
    "id": "BP-ArithmeticGaloisRepresentations--R01.3",
@@ -34924,8 +34926,9 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--R01.3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7957"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7957",
+   "finishedAt": "2026-10-09T22:15:28Z"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--R01.3",
@@ -34969,7 +34972,8 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--R01.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7958"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--R01.4",
@@ -35013,7 +35017,8 @@
    ],
    "followUpOf": "BP-ArithmeticGaloisRepresentations",
    "prompt": "research/blueprint/prompts/BP-ArithmeticGaloisRepresentations--R01.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7959"
   },
   {
    "id": "REV-ArithmeticGaloisRepresentations--R01.5",
@@ -43149,8 +43154,9 @@
     "BP-ClassicalArithmeticCompletion~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ClassicalArithmeticCompletion~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6465"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6465",
+   "finishedAt": "2026-10-09T22:15:29Z"
   },
   {
    "kind": "blueprint",
