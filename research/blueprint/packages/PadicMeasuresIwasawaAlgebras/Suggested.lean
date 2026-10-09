@@ -1,4 +1,6 @@
 import Mathlib.Topology.Algebra.ContinuousMonoidHom
+import Mathlib.Algebra.Exact.Basic
+import Mathlib.RingTheory.AdicCompletion.Basic
 import Mathlib.Topology.Algebra.Module.ContinuousLinearMap.Extend
 import Mathlib.Topology.ContinuousMap.LocallyConstant
 import TauCeti.Topology.Algebra.Group.LocallyConstant
@@ -99,8 +101,8 @@ import TauCeti.LinearAlgebra.ExteriorPower
 # Suggested Lean forms: p-adic measures, completed group algebras, and characteristic ideals
 
 This file is not the roadmap and it is not exhaustive. The roadmap document (README.md) is
-definitive. These signatures suggest names, hypotheses and tests so that contributors and
-reviewers converge on them. All new proofs use `sorry`; nothing here is claimed formalised.
+definitive. These signatures suggest names, hypotheses and tests so that contributors
+converge on them. All new proofs use `sorry`; nothing here is claimed formalised.
 Mathlib 082e2d3 and Tau Ceti f790474 are the baseline. The layers appear in the order
 L0, L1, L2, L3, L4, L6; the statements of L0a and L5 that cannot be typed at this baseline are
 named in the closing comment.
@@ -848,7 +850,7 @@ theorem translated_polynomial_descent_ne_zero (j : Z →+* K) (e : K →+* ℂ_[
     let c := ι.comp (PowerSeries.C : K →+* PowerSeries K)
     P.eval₂ (RingHom.comp c j) (c ζ * ι (1 + X) - 1) ≠ 0 := by sorry
 
-/-- The receiving field can be the actual finite cyclotomic subfield of C_p. -/
+/-- The receiving field can be the finite cyclotomic subfield of C_p. -/
 theorem rational_root_average_descent (j : Z →+* K) (e : K →+* ℂ_[p])
     (he : e.comp j = j₀) (ζ : K) (hζ : IsPrimitiveRoot ζ p)
     (P Q₀ : Polynomial Z) (hQ : IsUnit (Q₀.coeff 0)) (F : B)
@@ -925,7 +927,7 @@ theorem boundedMahlerPairing_integral (F : ℤ_[p]⟦X⟧) (c : ℕ →ᵇ ℤ_[
     (hc : ∀ n, c n = F.coeff n) (f : C(ℤ_[p], ℤ_[p])) :
     boundedMahlerPairing c f = invTransform F f := sorry
 
-/-- The actual continuous functional; boundedness is part of the input type. -/
+/-- The continuous functional; boundedness is part of the input type. -/
 def boundedInvTransform {p : ℕ} [Fact p.Prime] {R : Type*}
     [NormedCommRing R] [Algebra ℤ_[p] R] [IsUltrametricDist R]
     [CompleteSpace R] [IsBoundedSMul ℤ_[p] R] : (ℕ →ᵇ R) →ₗ[R] D(ℤ_[p], R) := sorry
@@ -1024,7 +1026,6 @@ open AbstractMeasure
 open scoped BoundedContinuousFunction
 
 -- Assemble the pinned norm-bound constructor with the existing subtype norm.
--- The scratch regression checks this small receiving-instance proof completely.
 local instance (p : ℕ) [Fact p.Prime] : IsBoundedSMul ℤ_[p] ℚ_[p] :=
   IsBoundedSMul.of_norm_smul_le (by sorry)
 
@@ -1208,7 +1209,7 @@ theorem restrictUnits_dirac_nonunit (x : ℤ_[p]) (hx : ¬ IsUnit x) :
     restrictUnits p R (dirac R x) = 0 := sorry
 end IntrinsicUnits
 
-/-- Integral unit measures identify with the kernel of the already planned bounded series ψ. -/
+/-- Integral unit measures identify with the kernel of the bounded series ψ. -/
 def unitsMeasureAmiceEquiv (p : ℕ) [Fact p.Prime] :
     D((ℤ_[p])ˣ, ℤ_[p]) ≃ₗ[ℤ_[p]] LinearMap.ker (psiSeries p) := sorry
 
@@ -1786,7 +1787,7 @@ The coefficient-decimation operators `Λ_r` (`r ∈ ℕ`) of modulus `q ≥ 1` o
 commutative ring `k`: `coeff n (Λ_r F) = coeff (q * n + r) F`. For every `k` one has
 `Λ_r (F(X^q) * G) = F * Λ_r G` and `F = ∑_{r<q} X^r · (Λ_r F)(X^q)`; over a finite field with
 `q` elements, `F(X^q) = F^q`, which gives Christol's relations. This roadmap plans the operator
-here because the Laurent-series version is planned in a higher upstream tier; the residue
+here; the Laurent-series version belongs to a later roadmap; the residue
 averaging operator below is the signed sum `∑_{i<p} (-1)^i Λ_i` at `q = p` over `ZMod p`. -/
 namespace PowerSeries
 
@@ -1850,10 +1851,10 @@ example : cartier (ZMod 2) 2 0 ((X : (ZMod 2)⟦X⟧) * X) ≠
 end CartierTests
 
 /-!
-## Residue of the actual integral averaging operator
+## Residue of the integral averaging operator
 
 Existing ZMod p and existing power series are used. The Cartier operators are the power-series
-operators `PowerSeries.cartier` planned above (L2/cartier-power-series); only modulus q=p and
+operators `PowerSeries.cartier` defined above (L2/cartier-power-series); only modulus q=p and
 0≤i<p are consumed. The residue operator is their signed sum; its semilinearity is the finite-field
 specialization of `cartier_expand_mul`.
 The previous AbstractMeasure.psiMeasure_dirac signature is promoted, not declared twice.
@@ -1944,7 +1945,7 @@ example : residuePsi 3 (monomial 7 (2 : ZMod 3)) = monomial 2 (1 : ZMod 3) := so
 -- ResiduePsiTests.nonmultiplicative: linear averaging is not a ring map.
 example : residuePsi 2 ((1+X : (ZMod 2)⟦X⟧)^2) ≠
     (residuePsi 2 (1+X : (ZMod 2)⟦X⟧))^2 := sorry
--- ResiduePsiTests.integral_ternary: actual integral operator before reduction.
+-- ResiduePsiTests.integral_ternary: the integral operator before reduction.
 example : AbstractMeasure.psiSeries 3 ((1+X : ℤ_[3]⟦X⟧)^6) = (1+X)^2 := sorry
 -- ResiduePsiTests.actual_reduction: exact comparison on an arbitrary series.
 example (F : ℤ_[2]⟦X⟧) : PowerSeries.map PadicInt.toZMod (AbstractMeasure.psiSeries 2 F) =
@@ -2115,7 +2116,7 @@ example (μ : D(Z,Z)) :
 example (F : B) : subst (ba (1 : Z)) F = F := by sorry
 -- DilationTests.negative_scalar: binomial substitution is not coefficient dilation.
 example : coeff 2 ((map (dil (-1 : Z)) (dirac Z (2 : Z))).amiceTransform) = 3 := by sorry
--- DilationTests.prime_scalar: agreement with the already planned Frobenius map.
+-- DilationTests.prime_scalar: agreement with the Frobenius map.
 example (μ : D(Z,Z)) : (map (dil (p : Z)) μ).amiceTransform =
     (phiMeasure p Z μ).amiceTransform := by sorry
 end
@@ -2137,10 +2138,10 @@ example : psiSeries 3 (1 + PowerSeries.X) = 0 ∧
 end AbstractMeasure
 
 /-! Convolution and finite algebra coordinates (L1).
-The right-handed orientation and principal names follow the identified upstream
-PR41961. Its module is absent from the fixed baseline. All mathematical proofs
-and proposed constructions below are placeholders. Existing structural fields
-only fix the intended multiplication and identity for the Ring instance. -/
+The right-handed orientation and the principal names follow Mathlib pull request 41961
+(`Mathlib/NumberTheory/Padics/Measure/Monoid.lean`), which is not in Mathlib 082e2d3. All
+proofs below are `sorry`; the structural fields fix the multiplication and the identity of the
+ring instance. -/
 namespace AbstractMeasure
 noncomputable section
 open scoped AbstractMeasure
@@ -2312,7 +2313,7 @@ end AbstractMeasure
 
 /-! ## Concrete finite quotients of p-adic units
 The local-field unit filtration is imported from the pinned Tau Ceti library.
-These signatures compare it with the actual modular-unit reductions.
+These signatures compare it with the modular-unit reductions.
 -/
 namespace PadicInt
 open Filter Topology ValuativeRel IsNonarchimedeanLocalField
@@ -2402,9 +2403,7 @@ end UnitReductionTests
 
 /-! Concrete locally constant tests and measure separation on p-adic units.
 Existing uniform local constancy is imported from Tau Ceti. All bodies below are
-planning placeholders. The source-grounded proof outlines are in the roadmap;
-the additional scratch proof experiment is unconfirmed. The compatible-family
-inverse remains a stated gap. -/
+`sorry`; the proof outlines are in the roadmap. -/
 
 noncomputable section
 open scoped AbstractMeasure
@@ -2652,9 +2651,9 @@ example (a : ℤ_[p]) : unitCoordinateIntegral p c hc (LocallyConstant.const _ a
 example (u : (ℤ_[p])ˣ) (a : ℤ_[p])
     (hca : ∀ n, c n = Finsupp.single (PadicInt.unitToZModPow p n u) a)
     (f : LocallyConstant (ℤ_[p])ˣ ℤ_[p]) : unitCoordinateIntegral p c hc f = a * f u := by sorry
--- UnitCoordinateTests.zero: a zero family gives the zero actual measure.
+-- UnitCoordinateTests.zero: a zero family gives the zero measure.
 example (hcz : ∀ n, c n = 0) : ofUnitCoordinates p c hc = 0 := by sorry
--- UnitCoordinateTests.dirac: actual existing Dirac compatibility, with arbitrary integral mass.
+-- UnitCoordinateTests.dirac: Dirac compatibility, with arbitrary integral mass.
 example (u : (ℤ_[p])ˣ) (a : ℤ_[p])
     (hca : ∀ n, c n = Finsupp.single (PadicInt.unitToZModPow p n u) a) :
     ofUnitCoordinates p c hc = a • dirac ℤ_[p] u := by sorry
@@ -2674,7 +2673,7 @@ example : finiteProjection
 end UnitCoordinateTests
 end
 
-/-! Weak topology from actual finite unit coordinates. These are adapters on
+/-! Weak topology from the finite unit coordinates. These are adapters on
 existing measures and function products, not a second completed group algebra. -/
 noncomputable section
 open scoped AbstractMeasure Topology
@@ -2781,9 +2780,124 @@ example :
 end UnitCoordinateTopologyTests
 end
 
-/-! Continuous-character integration and positive moments on actual unit measures.
-No completed group algebra or total-fraction-ring character extension is assumed.
-All new mathematical signatures are unchecked proof plans. -/
+/-! Comparison with the completed group algebra (L1/finite-quotient-tower,
+L1/measure-completed-algebra-equiv, L1/completed-algebra-coefficients). The carrier is Tau Ceti's
+`TauCeti.completedGroupAlgebra ℤ_[p] Γ` (a91d3aaf), absent at the pin f790474; it is read here
+along a cofinal tower of finite quotients as the ring of compatible families in
+`∀ n, MonoidAlgebra ℤ_[p] (A n)`. -/
+noncomputable section
+open scoped AbstractMeasure
+namespace AbstractMeasure
+section CompletedGroupAlgebra
+variable (p : ℕ) [Fact p.Prime]
+variable {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [IsTopologicalGroup Γ] [CompactSpace Γ]
+  [TotallyDisconnectedSpace Γ]
+variable {A : ℕ → Type*} [∀ n, Group (A n)] [∀ n, Fintype (A n)] [∀ n, TopologicalSpace (A n)]
+  [∀ n, DiscreteTopology (A n)]
+
+/-- `L1/finite-quotient-tower`: a countable tower of finite quotients of a topological group
+`Γ`: continuous surjections `q n : Γ →* A n` with transition maps `t h : A n →* A m` for
+`m ≤ n`, compatible with the `q`, whose kernels separate points. -/
+structure FiniteQuotientTower (Γ : Type*) [Group Γ] [TopologicalSpace Γ]
+    (A : ℕ → Type*) [∀ n, Group (A n)] [∀ n, TopologicalSpace (A n)] where
+  q : ∀ n, Γ →* A n
+  continuous_q : ∀ n, Continuous (q n)
+  surjective_q : ∀ n, Function.Surjective (q n)
+  t : ∀ {m n : ℕ}, m ≤ n → (A n →* A m)
+  t_q : ∀ {m n : ℕ} (h : m ≤ n) (x : Γ), t h (q n x) = q m x
+  separates : ∀ x : Γ, x ≠ 1 → ∃ n, q n x ≠ 1
+
+lemma FiniteQuotientTower.t_comp (T : FiniteQuotientTower Γ A) {k m n : ℕ} (hkm : k ≤ m)
+    (hmn : m ≤ n) (x : Γ) : T.t hkm (T.t hmn (T.q n x)) = T.t (hkm.trans hmn) (T.q n x) := sorry
+lemma FiniteQuotientTower.ker_cofinal (T : FiniteQuotientTower Γ A) (U : Subgroup Γ)
+    (hU : IsOpen (U : Set Γ)) : ∃ n, (T.q n).ker ≤ U := sorry
+/-- The tower `red_n : ℤ_pˣ → (ℤ/pⁿ)ˣ` of the units. -/
+def FiniteQuotientTower.unitTower :
+    FiniteQuotientTower (ℤ_[p])ˣ (fun n => (ZMod (p ^ n))ˣ) := sorry
+/-- The tower `ρ_n : ℤ_p → ℤ/pⁿ` of the additive group, written multiplicatively. -/
+def FiniteQuotientTower.padicTower :
+    FiniteQuotientTower (Multiplicative ℤ_[p]) (fun n => Multiplicative (ZMod (p ^ n))) := sorry
+
+-- test unitTower_q (agreement) [L1/finite-quotient-tower]
+example (n : ℕ) : (FiniteQuotientTower.unitTower p).q n = PadicInt.unitToZModPow p n := sorry
+-- test constant_tower_finite (degenerate) [L1/finite-quotient-tower]
+example {B : Type*} [Group B] [Fintype B] [TopologicalSpace B] [DiscreteTopology B] :
+    Nonempty (FiniteQuotientTower B (fun _ => B)) ∧
+      ∀ T : FiniteQuotientTower B (fun _ => B), (∀ n, T.q n = MonoidHom.id B) →
+        ∀ {m n : ℕ} (h : m ≤ n), T.t h = MonoidHom.id B := sorry
+-- test trivial_maps_not_a_tower (non-example) [L1/finite-quotient-tower]
+example [Nontrivial Γ] :
+    ¬ ∃ T : FiniteQuotientTower Γ (fun _ => PUnit), ∀ n, T.q n = 1 := sorry
+
+variable (T : FiniteQuotientTower Γ A)
+
+/-- `L1/measure-completed-algebra-equiv`: the coordinates of an integral measure on all levels
+of the tower, an algebra map into `∏ n, ℤ_p[A n]`. -/
+def toCompletedGroupAlgebra (T : FiniteQuotientTower Γ A) :
+    D(Γ,ℤ_[p]) →ₐ[ℤ_[p]] ∀ n, MonoidAlgebra ℤ_[p] (A n) := sorry
+lemma toCompletedGroupAlgebra_apply (μ : D(Γ,ℤ_[p])) (n : ℕ) :
+    toCompletedGroupAlgebra p T μ n = finiteProjectionAlgHom (T.q n) (T.continuous_q n) μ := sorry
+lemma toCompletedGroupAlgebra_dirac (x : Γ) :
+    toCompletedGroupAlgebra p T (dirac ℤ_[p] x) = fun n => MonoidAlgebra.single (T.q n x) 1 := sorry
+lemma toCompletedGroupAlgebra_injective : Function.Injective (toCompletedGroupAlgebra p T) := sorry
+theorem range_toCompletedGroupAlgebra :
+    Set.range (toCompletedGroupAlgebra p T) =
+      {c : ∀ n, MonoidAlgebra ℤ_[p] (A n) |
+        ∀ {m n : ℕ} (h : m ≤ n), MonoidAlgebra.mapDomainRingHom ℤ_[p] (T.t h) (c n) = c m} := sorry
+theorem isClosedEmbedding_toCompletedGroupAlgebra :
+    letI : TopologicalSpace D(Γ,ℤ_[p]) := WeakTopology
+    Topology.IsClosedEmbedding
+      (fun μ : D(Γ,ℤ_[p]) => fun (n : ℕ) (a : A n) =>
+        (toCompletedGroupAlgebra p T μ n).coeff a) := sorry
+theorem compactSpace_integralMeasures_weak_of_tower :
+    letI : TopologicalSpace D(Γ,ℤ_[p]) := WeakTopology
+    CompactSpace D(Γ,ℤ_[p]) := sorry
+
+-- test dirac_product_levels (computation) [L1/measure-completed-algebra-equiv]
+example (x y : Γ) (n : ℕ) :
+    toCompletedGroupAlgebra p T (dirac ℤ_[p] x * dirac ℤ_[p] y) n =
+      MonoidAlgebra.single (T.q n x * T.q n y) 1 := sorry
+-- test dirac_separated (non-example) [L1/measure-completed-algebra-equiv]
+example (x y : Γ) (hxy : x ≠ y) :
+    toCompletedGroupAlgebra p T (dirac ℤ_[p] x) ≠ toCompletedGroupAlgebra p T (dirac ℤ_[p] y) := sorry
+-- test incompatible_family_not_in_range (non-example) [L1/measure-completed-algebra-equiv]
+example (c : ∀ n, MonoidAlgebra ℤ_[p] (A n)) {m n : ℕ} (h : m ≤ n)
+    (hc : MonoidAlgebra.mapDomainRingHom ℤ_[p] (T.t h) (c n) ≠ c m) :
+    c ∉ Set.range (toCompletedGroupAlgebra p T) := sorry
+
+/-- `L1/completed-algebra-coefficients`: coefficient extension along a finite free `ℤ_p`-algebra. -/
+def completedGroupAlgebraBaseChange (O : Type*) [NormedCommRing O] [Algebra ℤ_[p] O]
+    [Module.Free ℤ_[p] O] [Module.Finite ℤ_[p] O] :
+    TensorProduct ℤ_[p] O D(Γ,ℤ_[p]) ≃ₗ[O] D(Γ,O) := sorry
+lemma completedGroupAlgebraBaseChange_tmul_dirac (O : Type*) [NormedCommRing O] [Algebra ℤ_[p] O]
+    [Module.Free ℤ_[p] O] [Module.Finite ℤ_[p] O] (a : O) (x : Γ) :
+    completedGroupAlgebraBaseChange p O (TensorProduct.tmul ℤ_[p] a (dirac ℤ_[p] x)) =
+      a • dirac O x := sorry
+lemma completedGroupAlgebraBaseChange_mul (O : Type*) [NormedCommRing O] [Algebra ℤ_[p] O]
+    [Module.Free ℤ_[p] O] [Module.Finite ℤ_[p] O] (a b : O) (μ ν : D(Γ,ℤ_[p])) :
+    completedGroupAlgebraBaseChange p O (TensorProduct.tmul ℤ_[p] (a * b) (μ * ν)) =
+      completedGroupAlgebraBaseChange p O (TensorProduct.tmul ℤ_[p] a μ) *
+        completedGroupAlgebraBaseChange p O (TensorProduct.tmul ℤ_[p] b ν) := sorry
+
+-- test baseChange_padicInt (degenerate) [L1/completed-algebra-coefficients]
+example (μ : D(Γ,ℤ_[p])) :
+    completedGroupAlgebraBaseChange p ℤ_[p] (TensorProduct.tmul ℤ_[p] 1 μ) = μ := sorry
+-- test baseChange_one_tmul_dirac (computation) [L1/completed-algebra-coefficients]
+example (O : Type*) [NormedCommRing O] [Algebra ℤ_[p] O] [Module.Free ℤ_[p] O]
+    [Module.Finite ℤ_[p] O] (x : Γ) :
+    completedGroupAlgebraBaseChange p O (TensorProduct.tmul ℤ_[p] 1 (dirac ℤ_[p] x)) =
+      dirac O x := sorry
+-- test baseChange_injective_on_basis (non-example) [L1/completed-algebra-coefficients]
+example (O : Type*) [NormedCommRing O] [Algebra ℤ_[p] O] [Module.Free ℤ_[p] O]
+    [Module.Finite ℤ_[p] O] (a b : O) (hab : a ≠ b) (x : Γ) :
+    completedGroupAlgebraBaseChange p O (TensorProduct.tmul ℤ_[p] a (dirac ℤ_[p] x)) ≠
+      completedGroupAlgebraBaseChange p O (TensorProduct.tmul ℤ_[p] b (dirac ℤ_[p] x)) := sorry
+end CompletedGroupAlgebra
+end AbstractMeasure
+end
+
+/-! Continuous-character integration and positive moments on unit measures.
+No completed group algebra or total-fraction-ring character extension is assumed. -/
 namespace AbstractMeasure
 noncomputable section
 open scoped AbstractMeasure
@@ -2791,7 +2905,7 @@ section CharacterIntegration
 variable {G R : Type*} [TopologicalSpace G] [Monoid G] [ContinuousMul G]
   [LocallyCompactSpace G] [CommRing R] [TopologicalSpace R] [IsTopologicalRing R]
 
--- This spelling follows the identified post-baseline Mathlib PR41961.
+-- This spelling follows Mathlib pull request 41961.
 def diracHom : G →* D(G,R) := sorry
 lemma diracHom_apply (g : G) : diracHom (R := R) g = dirac R g := sorry
 lemma diracHom_pow (g : G) (k : ℕ) : diracHom (R := R) (g^k) = (dirac R g)^k := sorry
@@ -2934,7 +3048,7 @@ local notation "δ" => (diracHom (G := U) (R := Z))
 local notation "PM" => Iwasawa.pseudomeasures δ Q
 local notation "uTest" => (ContinuousMap.mk Units.val Units.continuous_val : C(U,Z))
 
-/-- The actual integral-character specialization, on the pseudomeasure module only. -/
+/-- The integral-character specialization, on the pseudomeasure module only. -/
 def unitCharacterEval (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1) : PM →+ ℚ_[p] := sorry
 lemma unitCharacterEval_eq (κ : ContinuousMonoidHom U Z) (hκ : κ ≠ 1)
     (g : U) (hg : κ g ≠ 1) (z : PM) :
@@ -3395,7 +3509,7 @@ theorem sum_charIdempotent [HasEnoughRootsOfUnity O (Monoid.exponent H)] :
 
 variable (M : Type*) [AddCommGroup M] [Module O M] [Module (MonoidAlgebra O H) M]
   [IsScalarTower O (MonoidAlgebra O H) M]
-/-- L4/character-decomposition-api-3: image of the actual integral projector. -/
+/-- L4/character-decomposition-api-3: image of the integral projector. -/
 def isotypicComponent (χ : H →* Oˣ) : Submodule O M :=
   LinearMap.range (Algebra.lsmul O O M (charIdempotent χ))
 
@@ -3423,7 +3537,7 @@ variable {ι : Type*} [Finite ι] (A : Type*) [CommRing A] [IsDomain A]
   [IsNoetherianRing A] [IsIntegrallyClosed A] [UniqueFactorizationMonoid A]
   (M : ι → Type*) [∀ i, AddCommGroup (M i)] [∀ i, Module A (M i)]
   [∀ i, Module.Finite A (M i)]
-/-- L4/character-decomposition-api-5: ideal on the actual product ring, by its components.
+/-- L4/character-decomposition-api-5: ideal on the product ring, by its components.
 A completed-algebra result pulls this ideal back along the owner's split ring equivalence. -/
 def charIdealProduct (hM : ∀ i, Module.IsTorsion A (M i)) : Ideal (ι → A) :=
   ⨅ i, (charIdeal A (M i) (hM i)).comap (Pi.evalRingHom (fun _ : ι => A) i)
@@ -3729,7 +3843,7 @@ theorem bidual_eq_iInf_localization [Module.IsTorsionFree A M] :
         fractionLattice A M 𝔭 := sorry
 
 /-- L4/dual-intersection: integrality of a K-linear functional on every height-one lattice.
-The right side spells out membership in A_𝔭 using actual numerator/denominator pairs. -/
+The right side spells out membership in A_𝔭 using numerator/denominator pairs. -/
 theorem dual_intersection [Module.IsTorsionFree A M] :
     ∃ j : Module.Dual A M →ₗ[A]
       ((FractionRing A ⊗[A] M) →ₗ[FractionRing A] FractionRing A),
@@ -3867,7 +3981,7 @@ theorem iwasawa_joint_adic_completeness :
     IsAdic (IsLocalRing.maximalIdeal (PowerSeries O)) ∧
       IsAdicComplete (IsLocalRing.maximalIdeal (PowerSeries O)) (PowerSeries O) := sorry
 
--- This separation uses actual cyclotomic ideals, rather than powers of T.
+-- This separation uses the cyclotomic ideals, rather than powers of T.
 theorem cyclotomic_separation :
     (⨅ n : ℕ, Ideal.span {((1 + PowerSeries.X) ^ (p ^ n) - 1 : PowerSeries O)}) = ⊥ := sorry
 
@@ -4340,10 +4454,9 @@ Conventions.
   `[CharP (IsLocalRing.ResidueField O) p]`; and Mathlib's `[Ring.HasFiniteQuotients O]` for the
   finite quotients `O/(a)`, `a ≠ 0`. A set of characters "belonging to one `χ`" is a set whose
   pairwise quotients have `p`-power order.
-* `Fitt⁰`: `TauCeti.Module.fittingIdeal R M` stands for the initial Fitting ideal of a finitely
-  presented module, the carrier that this roadmap imports from the Tau Ceti roadmap
-  StableReduction, Layer 1. It is written out by minors of relations so that the
-  statements below can be stated; L6 does not own it. `Fittⁱ` for every `i` is L6's
+* `Fitt⁰`: `TauCeti.Module.fittingIdeal R M` is the initial Fitting ideal of a finitely
+  presented module, `L4/initial-fitting-ideal`, declared with its API after the
+  contragredient block below because L6 is its main consumer. `Fittⁱ` for every `i` is L6's
   `TauCeti.Module.higherFittingIdeal R M i` (`L6/higher-fitting-ideal`), and the two agree at
   `i = 0` by `Module.higherFittingIdeal_zero`. Both take `[Module.FinitePresentation R M]`; where
   a statement concludes that a module is finitely presented, that instance is an argument,
@@ -5341,21 +5454,59 @@ example {O G : Type*} [CommRing O] [CommGroup G] (g h : G)
 
 end Contragredient
 
-/-! ## The initial Fitting ideal imported from StableReduction, Layer 1 (stand-in, not an L6
-target) -/
+/-! ## L4/initial-fitting-ideal (definition), declared here because L6 is its main consumer -/
 
-/-- Stand-in for the finite-presentation Fitting-ideal carrier `Fitt⁰` of the Tau Ceti roadmap
-StableReduction, Layer 1, which this roadmap imports; L6 does not own it, and it
-is written out only so that the statements below can be stated. For a finitely presented
-`A`-module `M` with chosen generators `x₁, …, x_n` it is generated by the determinants of the
-`n × n` matrices whose columns are relations among the `xᵢ`, that is by the `n × n` minors of the
-relation matrix; it does not depend on the generators. The higher Fitting ideals are L6's
+/-- `L4/initial-fitting-ideal`: stand-in, at the pin f790474, for Tau Ceti's `TauCeti.fittingIdeal A M 0`
+(a91d3aaf, `RingTheory/FittingIdeal/Basic.lean`): the initial Fitting ideal `Fitt⁰_A(M)` of a finitely
+presented `A`-module `M`. For chosen generators `x₁, …, x_n` it is generated by the determinants of the
+`n × n` matrices whose columns are relations among the `xᵢ`, that is by the `n × n` minors of
+the relation matrix of a presentation; it does not depend on the generators
+(`Module.fittingIdeal_eq_span_minors`). The higher Fitting ideals are L6's
 `Module.higherFittingIdeal` below. -/
 def Module.fittingIdeal (A M : Type*) [CommRing A] [AddCommGroup M] [Module A M]
     [Module.FinitePresentation A M] : Ideal A :=
   let n := (Module.Finite.exists_fin (R := A) (M := M)).choose
   let x : Fin n → M := (Module.Finite.exists_fin (R := A) (M := M)).choose_spec.choose
   Ideal.span {a | ∃ φ : Matrix (Fin n) (Fin n) A, (∀ j, ∑ i, φ i j • x i = 0) ∧ a = φ.det}
+
+section FittingIdealAPI
+open scoped TensorProduct
+variable {A M N : Type*} [CommRing A] [AddCommGroup M] [Module A M] [Module.FinitePresentation A M]
+  [AddCommGroup N] [Module A N] [Module.FinitePresentation A N]
+
+/-- Independence of the presentation: for any presentation `Aᵐ → Aⁿ → M → 0`, `Fitt⁰_A(M)` is
+the ideal of the `n × n` minors of the relation matrix (columns indexed by `n` chosen
+relations). -/
+theorem Module.fittingIdeal_eq_span_minors {m n : ℕ} (f : (Fin m → A) →ₗ[A] (Fin n → A))
+    (g : (Fin n → A) →ₗ[A] M) (hg : Function.Surjective g) (hfg : Function.Exact f g) :
+    Module.fittingIdeal A M =
+      Ideal.span {d | ∃ s : Fin n → Fin m,
+        d = (Matrix.of fun i j => f (Pi.single (s j) 1) i).det} := sorry
+theorem Module.fittingIdeal_le_annihilator : Module.fittingIdeal A M ≤ Module.annihilator A M :=
+  sorry
+theorem Module.fittingIdeal_quotient_span (I : Ideal A) [Module.FinitePresentation A (A ⧸ I)] :
+    Module.fittingIdeal A (A ⧸ I) = I := sorry
+theorem Module.fittingIdeal_baseChange (B : Type*) [CommRing B] [Algebra A B]
+    [Module.FinitePresentation B (B ⊗[A] M)] :
+    Module.fittingIdeal B (B ⊗[A] M) = (Module.fittingIdeal A M).map (algebraMap A B) := sorry
+theorem Module.fittingIdeal_prod [Module.FinitePresentation A (M × N)] :
+    Module.fittingIdeal A (M × N) = Module.fittingIdeal A M * Module.fittingIdeal A N := sorry
+theorem Module.fittingIdeal_eq_top_iff : Module.fittingIdeal A M = ⊤ ↔ Subsingleton M := sorry
+theorem Module.fittingIdeal_equiv (e : M ≃ₗ[A] N) :
+    Module.fittingIdeal A M = Module.fittingIdeal A N := sorry
+
+-- test fitting_cyclic (computation) [L4/initial-fitting-ideal]
+example (a : A) [Module.FinitePresentation A (A ⧸ Ideal.span {a})] :
+    Module.fittingIdeal A (A ⧸ Ideal.span {a}) = Ideal.span {a} := sorry
+-- test fitting_free_and_zero (degenerate) [L4/initial-fitting-ideal]
+example [Nontrivial A] (n : ℕ) [Module.FinitePresentation A (Fin (n + 1) → A)]
+    [Module.FinitePresentation A (Fin 0 → A)] :
+    Module.fittingIdeal A (Fin (n + 1) → A) = ⊥ ∧ Module.fittingIdeal A (Fin 0 → A) = ⊤ := sorry
+-- test fitting_not_annihilator (non-example) [L4/initial-fitting-ideal]
+example [Module.FinitePresentation ℤ (ZMod 2 × ZMod 2)] :
+    Module.fittingIdeal ℤ (ZMod 2 × ZMod 2) = Ideal.span {4} ∧
+      Module.annihilator ℤ (ZMod 2 × ZMod 2) = Ideal.span {2} := sorry
+end FittingIdealAPI
 
 /-! ## PadicMeasuresIwasawaAlgebras:L6/quadratic-presentation (definition) and
 L6/fitting-quadratic (theorem) -/
@@ -5605,7 +5756,7 @@ theorem Module.relationMinorsIdeal_snoc {n : ℕ} (x : Fin n → M) (y : M)
       Module.relationMinorsIdeal x i := sorry
 
 variable (R M) in
-/-- `L6/higher-fitting-ideal`: the `i`-th Fitting ideal `Fittⁱ_R(M)` of a finitely presented
+/-- Stand-in, at the pin f790474, for Tau Ceti's `TauCeti.fittingIdeal R M i` (a91d3aaf): the `i`-th Fitting ideal `Fittⁱ_R(M)` of a finitely presented
 module (Dasgupta–Kakde, Appendix B.2): the sum, over all finite generating families of `M`, of
 their relation-minors ideals in degree `i`. No generating family is chosen. By presentation
 independence every generating family gives the whole ideal
@@ -6460,6 +6611,64 @@ end L4Tests
 end FittingControl
 end TauCeti.Iwasawa
 
+/-! ### L4/iwasawa-coordinate: `O⟦T⟧ ≅ lim_n O[ℤ/pⁿ]` for a complete noetherian local `O` -/
+noncomputable section
+namespace TauCeti.Iwasawa
+section Coordinate
+variable (p : ℕ) [Fact p.Prime] (O : Type*) [CommRing O]
+
+/-- `L4/iwasawa-coordinate`, level `n`: `O⟦T⟧ → O[ℤ/pⁿ]`, `T ↦ [1] − 1`. -/
+def levelCoordinate (n : ℕ) :
+    PowerSeries O →+* MonoidAlgebra O (Multiplicative (ZMod (p ^ n))) := sorry
+lemma levelCoordinate_X (n : ℕ) :
+    levelCoordinate p O n PowerSeries.X =
+      MonoidAlgebra.single (Multiplicative.ofAdd (1 : ZMod (p ^ n))) 1 - 1 := sorry
+lemma levelCoordinate_surjective (n : ℕ) : Function.Surjective (levelCoordinate p O n) := sorry
+lemma ker_levelCoordinate (n : ℕ) :
+    RingHom.ker (levelCoordinate p O n) =
+      Ideal.span {(1 + PowerSeries.X : PowerSeries O) ^ (p ^ n) - 1} := sorry
+
+/-- The transition map `ℤ/pⁿ → ℤ/pᵐ` for `m ≤ n`, written multiplicatively. -/
+def transition {m n : ℕ} (h : m ≤ n) :
+    Multiplicative (ZMod (p ^ n)) →* Multiplicative (ZMod (p ^ m)) :=
+  AddMonoidHom.toMultiplicative (ZMod.castHom (pow_dvd_pow p h) (ZMod (p ^ m))).toAddMonoidHom
+lemma levelCoordinate_transition {m n : ℕ} (h : m ≤ n) (F : PowerSeries O) :
+    MonoidAlgebra.mapDomainRingHom O (transition p h) (levelCoordinate p O n F) =
+      levelCoordinate p O m F := sorry
+
+/-- `L4/iwasawa-coordinate`: `O⟦T⟧ → lim_n O[ℤ/pⁿ]`, the coordinate `γ ↦ 1 + T`. -/
+def iwasawaCoordinate : PowerSeries O →+* ∀ n, MonoidAlgebra O (Multiplicative (ZMod (p ^ n))) :=
+  sorry
+lemma iwasawaCoordinate_apply (F : PowerSeries O) (n : ℕ) :
+    iwasawaCoordinate p O F n = levelCoordinate p O n F := sorry
+
+-- test coordinate_level_zero (degenerate) [L4/iwasawa-coordinate]
+example (F : PowerSeries O) :
+    levelCoordinate p O 0 F = MonoidAlgebra.single 1 (PowerSeries.constantCoeff F) := sorry
+-- test coordinate_group_element (computation) [L4/iwasawa-coordinate]
+example (n k : ℕ) :
+    levelCoordinate p O n ((1 + PowerSeries.X) ^ k) =
+      MonoidAlgebra.single (Multiplicative.ofAdd (k : ZMod (p ^ n))) 1 := sorry
+-- test coordinate_omega_not_power_of_T (non-example) [L4/iwasawa-coordinate]
+example (n : ℕ) [Nontrivial O] :
+    levelCoordinate p O n ((1 + PowerSeries.X) ^ (p ^ n) - 1) = 0 ∧
+      levelCoordinate p O (n + 1) ((1 + PowerSeries.X) ^ (p ^ n) - 1) ≠ 0 ∧
+      levelCoordinate p O (n + 1) (PowerSeries.X ^ (p ^ n)) ≠ 0 := sorry
+
+variable [IsLocalRing O] [IsNoetherianRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+  [CharP (IsLocalRing.ResidueField O) p]
+
+theorem iwasawaCoordinate_injective : Function.Injective (iwasawaCoordinate p O) := sorry
+theorem range_iwasawaCoordinate :
+    Set.range (iwasawaCoordinate p O) =
+      {c | ∀ {m n : ℕ} (h : m ≤ n),
+        MonoidAlgebra.mapDomainRingHom O (transition p h) (c n) = c m} := sorry
+theorem iInf_span_cyclotomic_eq_bot :
+    ⨅ n : ℕ, Ideal.span {(1 + PowerSeries.X : PowerSeries O) ^ (p ^ n) - 1} = ⊥ := sorry
+end Coordinate
+end TauCeti.Iwasawa
+end
+
 /-!
 ## L0a and L5: statements this file does not type
 
@@ -6468,12 +6677,11 @@ decomposition over the torsion characters, the identification of the characters 
 units with the open unit disc of `ℂ_p`, the bounded functions `F_μ` of measures and the
 meromorphic functions of pseudo-measures on it, and the universal character `Γ → Λˣ` with its
 universal property. Mathlib has no rigid analytic spaces; the roadmap states these targets on
-`ContinuousMonoidHom`, `PadicComplex` and `completedGroupAlgebra`. Owner: L0a.
+`ContinuousMonoidHom`, `PadicComplex` and `completedGroupAlgebra`.
 
 L5 (determinants, specialization and exactness): the determinant line of a bounded complex of
 finite projective modules with its quasi-isomorphism invariance, short-exact multiplicativity,
 base change and duality; its rational trivialization and the comparison with characteristic
 ideals; specialization with the Tor correction; exactness of inverse limits of compact modules;
 topological Nakayama. These need a graded-invertible-module carrier that Mathlib does not have.
-Owner: L5.
 -/
