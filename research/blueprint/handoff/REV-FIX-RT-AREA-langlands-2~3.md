@@ -1,13 +1,14 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-## Current blocker, 9 October 2026 — codex-pUhc7Z
+## Current blocker, 9 October 2026 — codex-IfSuv6
 
 Issue #5871; bot-confirmed claim
-[6074706916](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074706916).
-Base `94404825e616d3808274c3ab1898841f796c44bb`. Before this update, all seven live-issue outputs
-matched merged [PR #7780](https://github.com/CBirkbeck/tauceti-explorer/pull/7780),
-commit `80353a01e61bff319775e0fbafaaddb43d5fae78`, byte for byte.
-The three packets and three suggested files also match PR #7776.
+[6074977052](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6074977052).
+Base `e57e29c1f813ea669d9f7e9de986223e0b987862`. Before this update, all seven live-issue outputs
+matched merged [PR #7795](https://github.com/CBirkbeck/tauceti-explorer/pull/7795),
+commit `244b3bc00`, byte for byte. The three packets and three suggested files
+also match [PR #7780](https://github.com/CBirkbeck/tauceti-explorer/pull/7780),
+commit `80353a01e61bff319775e0fbafaaddb43d5fae78`.
 
 The inherited mathematical review is complete for this scope. Verdicts remain
 CSM accepted, Global accepted and GL2 needs_changes. The GL2 revision's 53 API
@@ -15,10 +16,12 @@ signatures and 46 tests are listed below; a negative verdict completes a review.
 
 Fresh read-only reproduction: the pending review queue entry has 27 outputs,
 all present, and `deliverables_complete` is false. Replacing only its output
-list in memory with the seven live-issue paths makes completion true. The ten
-extra packets name other review jobs; the done parent fix still lists 40 outputs.
-Queue and generator repairs are outside this issue's edits and fail the intake
-allowlist. Read the relevant completion function and generation path.
+list in memory with the seven live-issue paths makes completion true; both
+results were asserted in one process. The ten extra packets name other review
+jobs; the done parent fix still lists 40 outputs. Queue and generator repairs
+are outside this issue's edits and fail the intake allowlist. Read the relevant
+completion function, intake allowlist and generation path. No allowed edit can
+reconcile those historical output lists without overwriting other jobs' reviews.
 
 All three packet validators pass with zero errors/warnings. All 177 nodes are
 unchecked, no packet has an excerpt field, and the report covers all forty
