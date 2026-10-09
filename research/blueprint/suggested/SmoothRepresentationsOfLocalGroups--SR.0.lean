@@ -141,11 +141,18 @@ example (p : ℕ) [Fact p.Prime] (U : OpenNormalSubgroup (Multiplicative ℤ_[p]
 -- TauCeti.Representation.isSmooth_of_discreteTopology
 example [DiscreteTopology G] (ρ : _root_.Representation A G V) : IsSmooth ρ := by sorry
 -- TauCeti.Representation.isSmooth_iff_isSmoothDiscrete_test
-example [TopologicalSpace A] [DiscreteTopology A] [TopologicalSpace V]
-    [DiscreteTopology V] [DistribMulAction G V] [SMulCommClass G A V]
-    [ContinuousSMul A V] [ContinuousSMul G V] :
-    IsSmooth (_root_.Representation.ofDistribMulAction A G V) ∧
-      TauCeti.IsSmoothDiscrete A (TauCeti.ofDiscreteModule A G V) := by sorry
+section SmoothDiscretePositiveTest
+example :
+    IsSmooth (_root_.Representation.ofDistribMulAction ℤ (ZMod 3)ˣ (ZMod 3)) ∧
+      TauCeti.IsSmoothDiscrete ℤ (TauCeti.ofDiscreteModule ℤ (ZMod 3)ˣ (ZMod 3)) := by sorry
+end SmoothDiscretePositiveTest
+
+section SmoothDiscreteNegativeTest
+local instance : TopologicalSpace (ZMod 3)ˣ := ⊤
+example :
+    ¬ IsSmooth (_root_.Representation.ofDistribMulAction ℤ (ZMod 3)ˣ (ZMod 3)) ∧
+      ¬ TauCeti.IsSmoothDiscrete ℤ (TauCeti.ofDiscreteModule ℤ (ZMod 3)ˣ (ZMod 3)) := by sorry
+end SmoothDiscreteNegativeTest
 
 def smoothVectors (ρ : _root_.Representation A G V) : Subrepresentation ρ := by sorry
 lemma mem_smoothVectors_iff (ρ : _root_.Representation A G V) (v : V) :
@@ -961,7 +968,14 @@ def involution (U₀ : CompactOpenSubgroup G) (hU₀ : HasUnitProOrder A U₀.1)
 lemma involution_apply (U₀ : CompactOpenSubgroup G) (hU₀ : HasUnitProOrder A U₀.1)
     (hμ : μ = HaarMeasureWithValues.normalized U₀ hU₀) (f : HeckeAlgebra μ) (g : G) :
     MulOpposite.unop (involution μ U₀ hU₀ hμ f) g =
-      f g⁻¹ * (HaarMeasureWithValues.modularCharacter U₀ hU₀ g⁻¹ : A) := by sorry
+      f g⁻¹ * (HaarMeasureWithValues.modularCharacter U₀ hU₀ g : A) := by sorry
+
+-- TauCeti.HeckeAlgebra.involution_integral
+example (U₀ : CompactOpenSubgroup G) (hU₀ : HasUnitProOrder A U₀.1)
+    (hμ : μ = HaarMeasureWithValues.normalized U₀ hU₀) (f : HeckeAlgebra μ) :
+    LocallyConstantCompact.integral μ
+      (toTestFunction μ (MulOpposite.unop (involution μ U₀ hU₀ hμ f))) =
+        LocallyConstantCompact.integral μ (toTestFunction μ f) := by sorry
 
 def smul (V : SmoothRep A G) : HeckeAlgebra μ →ₗ[A] V.obj →ₗ[A] V.obj := by sorry
 lemma smul_mul (V : SmoothRep A G) (f₁ f₂ : HeckeAlgebra μ) (v : V.obj) :
@@ -1986,6 +2000,7 @@ structure KFlatResolution (X : CochainComplex (SmoothRep A G) ℤ) where
   quasiIso : QuasiIso arrow
   isKFlat : IsKFlat complex
 
+-- Conditional prototype: existence is the recorded equivariant K-flat gap.
 def kFlatResolution (X : CochainComplex (SmoothRep A G) ℤ) : KFlatResolution X := by sorry
 
 def derivedTensor : DerivedCat A G ⥤ DerivedCat A G ⥤ DerivedCat A G := by sorry
@@ -1995,6 +2010,7 @@ def derivedTensor_on_kFlat (P X : CochainComplex (SmoothRep A G) ℤ) (hP : IsKF
 
 -- RHom_G is A-valued; the internal derived Hom retains the smooth G-action.
 -- They are distinct carriers and are related by the following adjunction.
+-- Conditional prototype: tensor/internal Hom is the recorded equivariant K-flat gap.
 def derivedInternalHom : (DerivedCat A G)ᵒᵖ ⥤ DerivedCat A G ⥤ DerivedCat A G := by sorry
 def rHom_tensor_adjunction (B V W : DerivedCat A G) :
     ((rHom_functorial (A := A) (G := G)).obj
@@ -2002,6 +2018,7 @@ def rHom_tensor_adjunction (B V W : DerivedCat A G) :
     (rHom_functorial.obj (Opposite.op B)).obj
       ((derivedInternalHom.obj (Opposite.op V)).obj W) := by sorry
 
+-- Conditional prototype: derived smooth duality uses the recorded tensor/internal-Hom gap.
 def derivedSmoothDual : (DerivedCat A G)ᵒᵖ ⥤ DerivedCat A G := by sorry
 def derivedSmoothDual_eq_internalHom (V : DerivedCat A G) :
     (derivedSmoothDual (A := A) (G := G)).obj (Opposite.op V) ≅
@@ -2079,6 +2096,16 @@ def derivedInvariants_comp_normal [CompactSpace G] (N : Subgroup G) [N.Normal]
       derivedQuotientInvariants N ⋙ derivedInvariants (compactOpenTop (G ⧸ N)) := by sorry
 end TauCeti.SmoothRep
 
+
+namespace TauCeti.SmoothRep
+/-- Schur is available before reductive admissibility. The countable orbit of a
+cyclic smooth vector suffices; the endomorphism division ring need not be commutative. -/
+lemma countableSchur {G : Type} [Group G] [TopologicalSpace G]
+    [IsTopologicalGroup G] [T2Space G] [LocallyCompactSpace G]
+    [TotallyDisconnectedSpace G] [SigmaCompactSpace G]
+    (V : SmoothRep ℂ G) [Simple V] :
+    ∀ f : V ⟶ V, ∃ c : ℂ, f = c • 𝟙 V := by sorry
+end TauCeti.SmoothRep
 
 namespace TauCeti
 -- Concrete reductive theorem prototypes use GL_n(Q_p). General reductive
@@ -2382,7 +2409,8 @@ def smoothEndTensorEquiv (V : SmoothRep ℂ G)
     (hV : Representation.IsAdmissible V.obj.ρ) :
     (Representation.smoothVectors (leftRightEndRepresentation V)).toSubmodule ≃ₗ[ℂ]
       V.obj ⊗[ℂ] (smoothDual V).obj := by sorry
-lemma isotypicQuotient_regular (V : SmoothRep ℂ G) [Simple V]
+lemma isotypicQuotient_regular (hG : MeasureTheory.Measure.modularCharacter (G := G) = 1)
+    (V : SmoothRep ℂ G) [Simple V]
     (hV : Representation.IsAdmissible V.obj.ρ) :
     Function.Surjective (regularFourier V) := by sorry
 end TauCeti.SmoothRep
@@ -2461,7 +2489,7 @@ test: TauCeti.HasIwahoriDecomposition.trivial_parabolic
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.1/positive-hecke-homomorphism
 Requires the requested parabolic-pair, Iwahori, relative-root and positive-cone carriers of ReductiveGroups Layer 7 and ReductiveGroupsPartII RG2.1/RG2.3/RG2.4. Positivity and the normaliser hypothesis are retained in the mathematical statement.
 declaration: TauCeti.positiveHeckeHom
-  Let U have an Iwahori decomposition with respect to (P, P̄) and let H(Δ_M⁺, U_M) ⊆ H(M, U_M) and H(Δ⁺, U) ⊆ H(G, U) be the ℤ-spans of the double cosets [U_M m U_M] (m ∈ Δ_M⁺) and [U δ U] (δ ∈ Δ⁺). Then: (1) for m, m' ∈ Δ_M⁺, U m U m' U = U m U_M m' U; if m and m' also normalise U_M, this becomes U m m' U and [U m U][U m' U] = [U m m' U] in H(G, U; ℤ); (2) the ℤ-linear map t : H(Δ_M⁺, U_M) → H(Δ⁺, U), [U_M m U_M] ↦ [U m U], is an injective ring homomorphism; (3) with 𝒮 = r_M ∘ r_P the restriction–integration map, t ∘ 𝒮 and 𝒮 ∘ t multiply [U m U], resp. [U_M m U_M], by |δ_P(m)|⁻¹ = #(U_N / m U_N m⁻¹). In particular the span of {[U m U] : m in a commutative submonoid of Δ_M⁺ that normalises U_M} is a commutative subalgebra of H(G, U; ℤ). For M = T a maximal torus of a split group, U = K_p with an Iwahori decomposition relative to (B, B̄) and T⁺ the monoid of t with t U_{K_p} t⁻¹ ⊆ U_{K_p} and t⁻¹ Ū_{K_p} t ⊆ Ū_{K_p}, t ↦ [K_p t K_p] is an algebra homomorphism ℤ[T⁺/T_{K_p}] → H(G, K_p; ℤ). The two contraction conditions are needed: the product decomposition alone does not make t ↦ [K_p t K_p] multiplicative.
+  Let U have an Iwahori decomposition with respect to (P, P̄) and let H(Δ_M⁺, U_M) ⊆ H(M, U_M) and H(Δ⁺, U) ⊆ H(G, U) be the ℤ-spans of the double cosets [U_M m U_M] (m ∈ Δ_M⁺) and [U δ U] (δ ∈ Δ⁺). Then: (1) for m, m' ∈ Δ_M⁺, U m U m' U = U m U_M m' U; if m and m' also normalise U_M, this becomes U m m' U and [U m U][U m' U] = [U m m' U] in H(G, U; ℤ); (2) the ℤ-linear map t : H(Δ_M⁺, U_M) → H(Δ⁺, U), [U_M m U_M] ↦ [U m U], is an injective ring homomorphism; (3) with 𝒮 = r_M ∘ r_P the restriction–integration map, t ∘ 𝒮 and 𝒮 ∘ t multiply [U m U], resp. [U_M m U_M], by |δ_P(m)|⁻¹ = #(U_N / m U_N m⁻¹). In particular the span of {[U m U] : m in a commutative submonoid of Δ_M⁺ that normalises U_M} is a commutative subalgebra of H(G, U; ℤ). For M = T a maximal torus of a split group, U = K_p with an Iwahori decomposition relative to (B, B̄) and T⁺ the monoid of t with t U_{K_p} t⁻¹ ⊆ U_{K_p} and t⁻¹ Ū_{K_p} t ⊆ Ū_{K_p}, t ↦ [K_p t K_p] is an algebra homomorphism ℤ[T⁺/T_{K_p}] → H(G, K_p; ℤ). The two contraction conditions are needed: the product decomposition alone does not make t ↦ [K_p t K_p] multiplicative. The general Levi transfer of structure constants remains conditional on the explicit Bushnell–Kutzko gap; the normalizer and torus single-coset cases have the elementary proof below.
 API: TauCeti.positiveHeckeHom_injective
   t is injective.
 API: TauCeti.doubleCoset_mul_of_positive
@@ -2481,7 +2509,7 @@ declaration: TauCeti.positiveHeckeHom_localization
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.1/pro-iwahori-torus
 Requires the requested parabolic-pair, Iwahori, relative-root and positive-cone carriers of ReductiveGroups Layer 7 and ReductiveGroupsPartII RG2.1/RG2.3/RG2.4. Positivity and the normaliser hypothesis are retained in the mathematical statement.
 declaration: TauCeti.proIwahoriTorusHom
-  Let G be a split reductive group over the ring of integers O_v of a nonarchimedean local field F_v with residue field k(v) of characteristic p, B = TU a Borel, Iw(v) and Iw₁(v) the preimages of B(k(v)) and U(k(v)) under G(O_v) → G(k(v)), O a ring containing q_v^{1/2}, and H₁ = O[Iw₁(v)\G(F_v)/Iw₁(v)]. For x, y in the positive monoid T(F_v)⁺ = {t : α(t) ∈ O_v for every simple root α}, [Iw₁ x Iw₁][Iw₁ y Iw₁] = [Iw₁ xy Iw₁], and [Iw₁ x Iw₁] is a unit of H₁[1/p] (of H₁ when p is invertible in O). Writing t = x y⁻¹ with x, y positive, t ↦ δ_B^{1/2}(t)[Iw₁ x Iw₁][Iw₁ y Iw₁]⁻¹ is a well-defined homomorphism T(F_v) → (H₁[1/p])ˣ with kernel T(O_v)₁ = ker(T(O_v) → T(k(v))); the Iwahori analogue embeds O[X_*(T)] ⊗ O[1/p] into O[Iw(v)\G(F_v)/Iw(v)][1/p].
+  Let G be a split reductive group over the ring of integers O_v of a nonarchimedean local field F_v with residue field k(v) of characteristic p, B = TU a Borel, Iw(v) and Iw₁(v) the preimages of B(k(v)) and U(k(v)) under G(O_v) → G(k(v)), O a ring containing q_v^{1/2}, and H₁ = O[Iw₁(v)\G(F_v)/Iw₁(v)]. For x, y in the positive monoid T(F_v)⁺ = {t : α(t) ∈ O_v for every simple root α}, [Iw₁ x Iw₁][Iw₁ y Iw₁] = [Iw₁ xy Iw₁], and [Iw₁ x Iw₁] is a unit of H₁[1/p] (of H₁ when p is invertible in O). Writing t = x y⁻¹ with x, y positive, t ↦ δ_B^{1/2}(t)[Iw₁ x Iw₁][Iw₁ y Iw₁]⁻¹ is a well-defined homomorphism T(F_v) → (H₁[1/p])ˣ with kernel T(O_v)₁ = ker(T(O_v) → T(k(v))) when O[1/p] ≠ 0; the Iwahori analogue embeds O[X_*(T)] ⊗ O[1/p] into O[Iw(v)\G(F_v)/Iw(v)][1/p].
 -/
 
 /-
@@ -2509,7 +2537,7 @@ declaration: TauCeti.IwahoriHecke.bernsteinPresentation
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.1/iwahori-hecke-centre
 Requires the requested parabolic-pair, Iwahori, relative-root and positive-cone carriers of ReductiveGroups Layer 7 and ReductiveGroupsPartII RG2.1/RG2.3/RG2.4. Positivity and the normaliser hypothesis are retained in the mathematical statement.
 declaration: TauCeti.IwahoriHecke.center_eq_invariants
-  With A ∋ q^{±1/2} a domain (or any ring after base change from ℤ[v, v⁻¹]), the centre of H(G, I; A) is θ(A[X_*(T)])^W = θ(A[X_*(T)]^W), free over A on the orbit sums z_λ = Σ_{μ ∈ Wλ} θ_μ for λ dominant. H(G, I; A) is free of rank |W| over θ(A[X_*(T)]), which is finite over the centre, so H(G, I; A) is a finitely generated module over its centre. For q = 1 in A the centre of A[X_*(T) ⋊ W] is again A[X_*(T)]^W, W acting faithfully on X_*(T). The comparison of this centre with the spherical Hecke algebra (z ↦ e_K z, the Satake isomorphism) is an SR.4 target, not part of this node.
+  With A ∋ q^{±1/2} any commutative ring with the chosen square root a unit, the centre of H(G, I; A) is θ(A[X_*(T)])^W = θ(A[X_*(T)]^W), free over A on the orbit sums z_λ = Σ_{μ ∈ Wλ} θ_μ for λ dominant. H(G, I; A) is free of rank |W| over θ(A[X_*(T)]), which is finite over the centre, so H(G, I; A) is a finitely generated module over its centre. For q = 1 in A the centre of A[X_*(T) ⋊ W] is again A[X_*(T)]^W, W acting faithfully on X_*(T). The comparison of this centre with the spherical Hecke algebra (z ↦ e_K z, the Satake isomorphism) is an SR.4 target, not part of this node.
 -/
 
 /-
@@ -2587,7 +2615,7 @@ test: TauCeti.SmoothRep.jacquet_trivial_gl2
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.2/parabolic-induction
 Requires the requested Levi/parabolic pair and its quotient identification P/N ≅ M, modulus square-root choice and relative-root/orbit data. The normal-subgroup coinvariant core is already above.
 declaration: TauCeti.SmoothRep.parabolicInd
-  For a parabolic subgroup P = M ⋉ N of a reductive p-adic group G (or a parabolic pair in a locally profinite G with P\G compact) and A ∋ q^{±1/2}, normalised parabolic induction is i_P^G σ := Ind_P^G(δ_P^{1/2} ⊗ infl_M^P σ), an exact functor SmoothRep A M ⥤ SmoothRep A G (P\G is compact, so Ind = c-Ind). Unnormalised induction Ind_P^G ∘ infl is available over every A. It satisfies transitivity i_P^G ∘ i_{Q ∩ M}^M ≅ i_Q^G for Q ⊆ P, preserves admissibility and finite generation, and is compatible with twisting by unramified characters of M and with base change.
+  For a parabolic subgroup P = M ⋉ N of a reductive p-adic group G (or a parabolic pair in a locally profinite G with P\G compact) and A ∋ q^{±1/2}, normalised parabolic induction is i_P^G σ := Ind_P^G(δ_P^{1/2} ⊗ infl_M^P σ), an exact functor SmoothRep A M ⥤ SmoothRep A G (P\G is compact, so Ind = c-Ind). Unnormalised induction Ind_P^G ∘ infl is available over every A. It satisfies transitivity i_P^G ∘ i_{Q ∩ M}^M ≅ i_Q^G for Q ⊆ P, preserves admissibility (by the compact-quotient invariant formula); preservation of finite generation over ℂ is proved later in noetherian, by the first-adjunction/cuspidal-block route, and is compatible with twisting by unramified characters of M and with base change.
 API: TauCeti.SmoothRep.unnormalizedParabolicInd
   Ind_P^G ∘ infl, over any A.
 API: TauCeti.SmoothRep.parabolicInd_exact
@@ -2595,7 +2623,7 @@ API: TauCeti.SmoothRep.parabolicInd_exact
 API: TauCeti.SmoothRep.parabolicInd_trans
   i_P^G ∘ i_{Q∩M}^M ≅ i_Q^G for parabolics Q ⊆ P.
 API: TauCeti.SmoothRep.parabolicInd_admissible
-  i_P^G preserves admissibility and finite generation.
+  i_P^G preserves admissibility over the stated coefficient ring; finite-generation preservation over ℂ is the later noetherian theorem, rather than an input here.
 API: TauCeti.SmoothRep.parabolicInd_twist
   i_P^G(σ ⊗ χ|_M) ≅ i_P^G σ ⊗ χ for a smooth character χ of G.
 API: TauCeti.SmoothRep.parabolicInd_eq_unnormalized
@@ -2628,14 +2656,14 @@ declaration: TauCeti.SmoothRep.smoothDual_parabolicInd
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.2/geometric-lemma
 Requires the requested Levi/parabolic pair and its quotient identification P/N ≅ M, modulus square-root choice and relative-root/orbit data. The normal-subgroup coinvariant core is already above.
 declaration: TauCeti.SmoothRep.geometricLemma
-  Let G be a connected reductive group over F, P = MN and Q = LV standard parabolic subgroups, W the Weyl group and W^{M,L} the set of minimal-length representatives of W_L\W/W_M. For every smooth σ of M (complex coefficients, or any A ∋ q^{±1/2} with p ∈ Aˣ), r_Q ∘ i_P (σ) has a filtration, natural in σ, whose graded pieces are F_w(σ) = i^L_{L ∩ wPw⁻¹}(w · r^M_{M ∩ w⁻¹Qw}(σ)), w ∈ W^{M,L}, in an order compatible with the closure order on the double cosets PwQ (open orbits give subfunctors, closed orbits quotients). More generally, for an l-group G with closed subgroups P = MU, Q = NV satisfying Bernstein–Zelevinsky's conditions (finitely many Q-orbits on P\G, U and V unions of compact subgroups, decomposability), r_{V} ∘ i_{U} is glued from functors indexed by the Q-orbits on P\G.
+  Let G be a connected reductive group over F, P = MN and Q = LV standard parabolic subgroups, W the Weyl group and W^{M,L} the set of minimal-length representatives of W_L\W/W_M. For every smooth σ of M (complex coefficients, or any A ∋ q^{±1/2} with p ∈ Aˣ), r_Q ∘ i_P (σ) has a filtration, natural in σ, whose graded pieces are F_w(σ) = i^L_{L ∩ wPw⁻¹}(w · r^M_{M ∩ w⁻¹Qw}(σ)), w ∈ W^{M,L}, in an order compatible with the closure order on the double cosets QwP (open orbits give subfunctors, closed orbits quotients). More generally, for an l-group G with closed subgroups P = MU, Q = NV satisfying Bernstein–Zelevinsky's conditions (finitely many Q-orbits on P\G, U and V unions of compact subgroups, decomposability), r_{V} ∘ i_{U} is glued from functors indexed by the Q-orbits on P\G.
 -/
 
 /-
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.2/principal-series-jacquet
 Requires the requested Levi/parabolic pair and its quotient identification P/N ≅ M, modulus square-root choice and relative-root/orbit data. The normal-subgroup coinvariant core is already above.
 declaration: TauCeti.SmoothRep.jacquet_principalSeries
-  Let B = TU be a minimal parabolic (Borel, for split G) and χ a smooth character of T over ℂ. Then r_B(i_B χ) has a filtration with graded pieces the Weyl conjugates wχ (w ∈ W), so its semisimplification is ⊕_{w ∈ W} wχ; if χ is regular (wχ ≠ χ for w ≠ 1) the filtration splits. Consequently every irreducible subquotient π of i_B χ has r_B(π) ≠ 0, its semisimplified Jacquet module is a sub-sum of ⊕ wχ, and π embeds in i_B(wχ) for some w; i_B χ has length ≤ |W|.
+  Let G be split and B = TU a Borel subgroup and χ a smooth character of T over ℂ. Then r_B(i_B χ) has a filtration with graded pieces the Weyl conjugates wχ (w ∈ W), so its semisimplification is ⊕_{w ∈ W} wχ; if χ is regular (wχ ≠ χ for w ≠ 1) the filtration splits. Consequently every irreducible subquotient π of i_B χ has r_B(π) ≠ 0, its semisimplified Jacquet module is a sub-sum of ⊕ wχ, and π embeds in i_B(wχ) for some w; i_B χ has length ≤ |W|.
 -/
 
 /-
@@ -2692,7 +2720,7 @@ test: TauCeti.SmoothRep.isQuasiCuspidal_torus
 test: TauCeti.SmoothRep.not_isQuasiCuspidal_principalSeries
   For GL_2(ℚ_p) and any smooth χ, i_B χ is not quasi-cuspidal.
 test: TauCeti.SmoothRep.isCuspidal_depthZero_gl2
-  The compact induction from ℚ_p^× GL_2(ℤ_p) of an inflated cuspidal representation of GL_2(F_p) is irreducible and cuspidal.
+  The compact induction from ℚ_p^× GL_2(ℤ_p) of an inflated cuspidal representation of GL_2(F_p), extended to Z·GL_2(ℤ_p) through a compatible smooth central character, is irreducible and cuspidal.
 test: TauCeti.SmoothRep.not_isQuasiCuspidal_trivial
   The trivial representation of GL_2(ℚ_p) is not quasi-cuspidal (its Jacquet module along N is the trivial character).
 -/
@@ -2742,15 +2770,13 @@ test: TauCeti.SmoothRep.not_unramified_ramified
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.3/cuspidal-support
 Requires the requested reductive/Levi carriers and their cuspidal-data, inertial-class, affine-torus or quotient-variety structures. These objects are not replaced by opaque proposition fields.
 declaration: TauCeti.SmoothRep.cuspidalSupport
-  A cuspidal datum of G is a pair (M, σ) of a Levi subgroup M (of a parabolic of G) and an irreducible cuspidal representation σ of M, up to G-conjugacy. Every irreducible V is a subquotient of i_P σ for some cuspidal datum (M, σ) (jacquet-subrepresentation), and the datum is unique up to G-conjugacy: the cuspidal support scs(V). Each cuspidal datum is the support of finitely many irreducibles, namely the irreducible subquotients of i_P σ, independent of the parabolic P with Levi M; every irreducible subquotient of i_P σ embeds into i_P(wσ) for some w ∈ W(M) = N_G(M)/M.
+  A cuspidal datum of G is a pair (M, σ) of a Levi subgroup M (of a parabolic of G) and an irreducible cuspidal representation σ of M, up to G-conjugacy. Every irreducible V is a subquotient of i_P σ for some cuspidal datum (M, σ) (jacquet-subrepresentation), and the datum is unique up to G-conjugacy: the cuspidal support scs(V). The irreducible subquotients of i_P σ depend only on this datum, independently of the parabolic P with Levi M; finiteness of that set is the later finite-length theorem; every irreducible subquotient of i_P σ embeds into i_P(wσ) for some w ∈ W(M) = N_G(M)/M.
 API: TauCeti.SmoothRep.CuspidalDatum
   Pairs (M, σ) with M a Levi and σ irreducible cuspidal, modulo G-conjugacy.
 API: TauCeti.SmoothRep.cuspidalSupport_spec
   V is a subquotient of i_P σ iff scs(V) = [M, σ].
 API: TauCeti.SmoothRep.cuspidalSupport_unique
   Uniqueness up to G-conjugacy.
-API: TauCeti.SmoothRep.cuspidalSupport_fiber_finite
-  Each fibre of scs is finite.
 API: TauCeti.SmoothRep.embedding_weyl_translate
   Every irreducible subquotient of i_P σ embeds in i_P(wσ) for some w ∈ W(M).
 test: TauCeti.SmoothRep.cuspidalSupport_trivial_gl2
@@ -2767,14 +2793,16 @@ test: TauCeti.SmoothRep.cuspidalSupport_ne_twist
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.3/finite-length
 Requires the requested reductive/Levi carriers and their cuspidal-data, inertial-class, affine-torus or quotient-variety structures. These objects are not replaced by opaque proposition fields.
 declaration: TauCeti.SmoothRep.finiteLength_parabolicInd
-  (1) If σ is an admissible representation of finite length of a Levi M, then i_P σ has finite length; for σ irreducible cuspidal its length is at most |W(M)|. (2) Every finitely generated admissible complex representation of G has finite length (Howe). (3) A smooth V all of whose irreducible subquotients are non-cuspidal has finite length if r_P V has finite length for every maximal standard parabolic P; length(V) ≤ Σ_P length(r_P V).
+  (1) If σ is an admissible representation of finite length of a Levi M, then i_P σ has finite length; for σ irreducible cuspidal its length is at most |W(M)|. (2) Every finitely generated admissible complex representation of G has finite length (Howe). (3) A smooth V all of whose irreducible subquotients are non-cuspidal has finite length if r_P V has finite length for every maximal standard parabolic P; length(V) ≤ Σ_P length(r_P V). Consequently each fiber of cuspidalSupport is finite, equal to the finite set of irreducible constituents of any i_Pσ with that cuspidal datum.
+API: TauCeti.SmoothRep.cuspidalSupport_fiber_finite
+  Each fibre of scs is finite.
 -/
 
 /-
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.3/generic-irreducibility
 Requires the requested reductive/Levi carriers and their cuspidal-data, inertial-class, affine-torus or quotient-variety structures. These objects are not replaced by opaque proposition fields.
 declaration: TauCeti.SmoothRep.parabolicInd_irreducible_generic
-  Let σ be an irreducible cuspidal (more generally discrete series) representation of a Levi M and P = MN. For ψ in a nonempty Zariski-open subset of the torus Ψ(M), i_P(ψσ) is irreducible. In particular every element z of the centre acts on i_P(ψσ) by a scalar z(ψσ), and ψ ↦ z(ψσ) is a regular function on Ψ(M).
+  Conditional on the generic Zariski-openness/rational-intertwiner input recorded in gaps: for an irreducible cuspidal representation σ of a Levi M and P=MN, i_P(ψσ) is irreducible for ψ in a nonempty Zariski-open subset of Ψ(M). The extension to irreducible discrete series requires the additional inputs of Konno03 Corollary 4.3. For cuspidal σ, every ordinary categorical central element acts on the universal induced family by a scalar regular function, as in BD84 Proposition 2.11; this follows from the generically irreducible fibers and finite free invariant spaces.
 -/
 
 /-
@@ -2806,7 +2834,7 @@ test: TauCeti.SmoothRep.inertialSupport_ne_ramified
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.3/cuspidal-splitting
 Requires the requested reductive/Levi carriers and their cuspidal-data, inertial-class, affine-torus or quotient-variety structures. These objects are not replaced by opaque proposition fields.
 declaration: TauCeti.SmoothRep.cuspidalComponent_splits
-  Each cuspidal component D of G (an unramified-twist class of irreducible cuspidal representations) splits SmoothRep ℂ G, and so does the set of all irreducible cuspidals: SmoothRep ℂ G = M_cusp × M_ind with M_cusp = ∏_D M(D). For D = Ψ(G)ρ, Π(D) = c-Ind_{G°}^G(ρ|_{G°}) ≅ ℂ[Λ(G)] ⊗ ρ is a finitely generated projective generator of M(D), and M(D) is equivalent to modules over End(Π(D))ᵒᵖ, a twisted group algebra of the finite stabiliser of ρ over ℂ[Ψ(G)].
+  Each cuspidal component D of G (an unramified-twist class of irreducible cuspidal representations) splits SmoothRep ℂ G, and so does the set of all irreducible cuspidals: SmoothRep ℂ G = M_cusp × M_ind with M_cusp = ∏_D M(D). For D = Ψ(G)ρ, Π(D) = c-Ind_{G°}^G(ρ|_{G°}) ≅ ℂ[Λ(G)] ⊗ ρ is a finitely generated projective generator of M(D), and M(D) is equivalent to modules over End(Π(D))ᵒᵖ, the opposite of a crossed algebra ⊕_{γ∈Γ} F a_γ, where F=ℂ[Ψ(G)] and Γ is the finite unramified stabilizer of ρ acting on F by translation; a_γ f=γ(f)a_γ and a_γa_δ=c(γ,δ)a_{γδ} for a unit-valued cocycle. Its scalars from F are generally not central; the center is F^Γ. Equivalently use right End(Π(D))-modules, with the matching opposite convention.
 -/
 
 /-
@@ -2827,13 +2855,13 @@ declaration: TauCeti.SmoothRep.bernsteinCentreEquiv
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.3/universal-unramified-twist
 Requires the requested reductive/Levi carriers and their cuspidal-data, inertial-class, affine-torus or quotient-variety structures. These objects are not replaced by opaque proposition fields.
 declaration: TauCeti.SmoothRep.universalUnramifiedTwist
-  For a parabolic P = MN and a smooth σ of M, let ℂ[Λ(M)] = ℂ[M/M°] with the tautological unramified character χ_univ : M → ℂ[Λ(M)]^×. The universal twist i_P(σ ⊗ χ_univ) is a smooth (G, ℂ[Λ(M)])-module, and for every ψ ∈ Ψ(M), specialisation at ψ gives i_P(σ ⊗ χ_univ) ⊗_{ℂ[Λ(M)], ψ} ℂ ≅ i_P(σ ⊗ ψ). If σ is admissible, its K-invariants are finitely generated projective ℂ[Λ(M)]-modules (free for the unramified principal series), compatibly with specialisation. For σ cuspidal and P = G this is Π(D) of cuspidal-splitting; for the unramified principal series it is c-Ind_{T(O)N}^G 1.
+  For a parabolic P = MN and a smooth σ of M, let ℂ[Λ(M)] = ℂ[M/M°] with the tautological unramified character χ_univ : M → ℂ[Λ(M)]^×. The universal twist i_P(σ ⊗ χ_univ) is a smooth (G, ℂ[Λ(M)])-module, and for every ψ ∈ Ψ(M), specialisation at ψ gives i_P(σ ⊗ χ_univ) ⊗_{ℂ[Λ(M)], ψ} ℂ ≅ i_P(σ ⊗ ψ). If σ is admissible, its K-invariants are finitely generated projective ℂ[Λ(M)]-modules (free for the unramified principal series), compatibly with specialisation. For σ cuspidal and P = G this is Π(D) of cuspidal-splitting; for the unramified principal series its inverse-tautological variant identifies with c-Ind_{T(O)N}^G 1 under HKP’s Laurent-ring action; lattice inversion transports to the tautological convention.
 API: TauCeti.SmoothRep.universalUnramifiedTwist_specialize
   Specialisation at ψ is i_P(σ ⊗ ψ).
 API: TauCeti.SmoothRep.universalUnramifiedTwist_invariants_projective
   For σ admissible, K-invariants are finitely generated projective over ℂ[Λ(M)].
 API: TauCeti.SmoothRep.universalUnramifiedTwist_principal
-  For M = T and σ = 1: i_B(χ_univ) ≅ c-Ind_{T(O)N}^G 1.
+  For M = T and σ = 1: i_B(χ_univ⁻¹) ≅ c-Ind_{T(O)N}^G 1 with HKP’s left Laurent-ring action; i_B(χ_univ) uses that action transported through λ↦−λ.
 test: TauCeti.SmoothRep.universalUnramifiedTwist_gl1
   For G = M = ℚ_p^× and σ = 1, the universal twist is ℂ[t^{±1}] with p acting by t.
 test: TauCeti.SmoothRep.universalUnramifiedTwist_trivial_levi
@@ -2855,9 +2883,9 @@ declaration: TauCeti.SmoothRep.bernsteinCentre_conj_eq_id
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.3/square-integrable-tempered
 Requires the central character, quotient Haar measure, normalised Jacquet exponents and relative real chambers from the reductive suppliers; the recorded tempered-classification gap remains separate.
 declaration: TauCeti.SmoothRep.IsTempered
-  Let V be an admissible complex representation of G with central character ω. V is square-integrable modulo the centre (discrete series) if ω is unitary and every matrix coefficient g ↦ ⟨ṽ, π(g)v⟩ has |c|² integrable on G/Z(G) (with Mathlib's Lp and the quotient Haar measure); V is tempered if ω is unitary and every matrix coefficient lies in L^{2+ε}(G/Z) for all ε > 0. Equivalently (Casselman's criterion) in terms of the exponents: the central characters χ of A_M on the Jacquet modules r_P(V) satisfy |χ(a)| < 1 (resp. ≤ 1) on the strictly negative cone. An irreducible square-integrable V is unitary and has a formal degree.
+  Let V be an admissible complex representation of G with central character ω. V is square-integrable modulo the centre (discrete series) if ω is unitary and every matrix coefficient g ↦ ⟨ṽ, π(g)v⟩ has |c|² (which descends to G/Z(G) because ω is unitary) integrable on G/Z(G) (with Mathlib's Lp and the quotient Haar measure); V is tempered if ω is unitary and the absolute value of every matrix coefficient lies in L^{2+ε}(G/Z) for all ε > 0. For V of finite length, equivalently (the separately planned Casselman criterion) in terms of the exponents: the central characters χ of A_M on the Jacquet modules r_P(V) satisfy |χ(a)| < 1 (resp. ≤ 1) on the strictly negative cone. An irreducible square-integrable V is unitary and has a formal degree.
 API: TauCeti.SmoothRep.IsSquareIntegrable
-  Unitary central character and matrix coefficients in L²(G/Z).
+  Unitary central character and absolute values of matrix coefficients in L²(G/Z).
 API: TauCeti.SmoothRep.centralExponents
   The characters of the split centre A_M occurring in r_P(V).
 API: TauCeti.SmoothRep.IsSquareIntegrable.isTempered
@@ -2887,14 +2915,14 @@ declaration: TauCeti.SmoothRep.isSquareIntegrable_iff_exponents
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.3/langlands-classification
 Requires the central character, quotient Haar measure, normalised Jacquet exponents and relative real chambers from the reductive suppliers; the recorded tempered-classification gap remains separate.
 declaration: TauCeti.SmoothRep.langlandsClassification
-  (1) Every irreducible tempered representation is a direct summand of i_P σ for a parabolic P = MN and a square-integrable σ of M, unique up to conjugacy. (2) For a standard parabolic P = MN, an irreducible tempered τ of M and ν in the open positive chamber a_P^{*,+} (|χ_ν| = q^{⟨ν, H_M⟩}), the standard module i_P(τ ⊗ χ_ν) has a unique irreducible quotient J_P(τ, ν) (the Langlands quotient). Every irreducible admissible V is isomorphic to some J_P(τ, ν), and the triple (P, τ, ν) is unique up to W-conjugacy. V is tempered iff P = G and ν = 0.
+  (1) Every irreducible tempered representation is a direct summand of i_P σ for a parabolic P = MN and a square-integrable σ of M, unique up to conjugacy. (2) For a standard parabolic P = MN, an irreducible tempered τ of M and ν in the open positive chamber a_P^{*,+} (|χ_ν| = q^{⟨ν, H_M⟩}), the standard module i_P(τ ⊗ χ_ν) has a unique irreducible quotient J_P(τ, ν) (the Langlands quotient). Every irreducible admissible V is isomorphic to some J_P(τ, ν), and the triple (P, τ, ν) is unique up to W-conjugacy. V is tempered iff P = G and ν = 0. Part (1) is the explicitly recorded Harish-Chandra/Plancherel input, not a result proved by the Langlands quotient argument in this packet; (2) is conditional on that input.
 -/
 
 /-
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.3/borel-casselman-block
 Requires the requested reductive/Levi carriers and their cuspidal-data, inertial-class, affine-torus or quotient-variety structures. These objects are not replaced by opaque proposition fields.
 declaration: TauCeti.SmoothRep.iwahoriBlockEquiv
-  Let G be connected reductive over F (split, or more generally with an Iwahori subgroup I in good position) and complex coefficients. The Iwahori subgroup splits SmoothRep ℂ G: the full subcategory of representations generated by their I-fixed vectors is the block of the unramified principal series [T, 1] (T a minimal Levi), and V ↦ V^I is an equivalence between this block and the category of modules over H(G, I; ℂ). An irreducible V has V^I ≠ 0 iff V is a subquotient (equivalently a subrepresentation) of an unramified principal series i_B χ. For admissible V generated by V^I, V^I is a finite-dimensional H(G, I)-module and the subcategory is closed under subobjects.
+  Let G be split connected reductive over F, with I an Iwahori subgroup in good position and complex coefficients. The Iwahori subgroup splits SmoothRep ℂ G: the full subcategory of representations generated by their I-fixed vectors is the block of the unramified principal series [T, 1] (T a minimal Levi), and V ↦ V^I is an equivalence between this block and the category of modules over H(G, I; ℂ). An irreducible V has V^I ≠ 0 iff V is a subquotient (equivalently a subrepresentation) of an unramified principal series i_B χ. For admissible V generated by V^I, V^I is a finite-dimensional H(G, I)-module and the subcategory is closed under subobjects. For nonsplit G the corresponding Iwahori block target is conditional on the relative-root/unequal-parameter extension recorded in the gaps list; it is not deduced from the split presentation here.
 -/
 
 /-
@@ -2909,7 +2937,7 @@ API: TauCeti.SmoothRep.jacquet_steinberg
 API: TauCeti.SmoothRep.steinberg_isSquareIntegrable
   St_G is square-integrable modulo the centre.
 API: TauCeti.SmoothRep.steinberg_iwahori
-  dim St_G^I = 1 and St_G^{K₀} = 0.
+  dim St_G^I = 1. If G has positive semisimple rank, St_G^{K₀}=0 for hyperspecial K₀; for a torus St_T=1 and its K₀-fixed space instead has dimension one.
 test: TauCeti.SmoothRep.steinberg_gl2_exact
   For GL_2(ℚ_p): 0 → 1 → Ind_B^G 1 → St → 0 is exact.
 test: TauCeti.SmoothRep.steinberg_torus
@@ -2931,7 +2959,7 @@ declaration: TauCeti.SmoothRep.stabilization
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.2a/jacquet-lemma-smooth
 Requires the requested opposite-parabolic pair, normalised functors, good-position compact subgroup and strongly positive element, before the stabilisation and adjunction conditions can be typed.
 declaration: TauCeti.SmoothRep.invariants_jacquet_surjective_of_smooth
-  For every smooth complex representation V of G and K, P = MN in good position, the projection V^K → (V_N)^{K_M} is surjective, and it has a natural section (Bernstein's canonical lifting) identifying (V_N)^{K_M} with the direct summand V^K_* of V^K, functorially in V. The section is independent of the strictly dominant element used to define it, and compatible with shrinking K.
+  For every smooth complex representation V of G and K, P = MN in good position, the projection V^K → (V_N)^{K_M} is surjective, and it has a natural section (Bernstein's canonical lifting) identifying (V_N)^{K_M} with the direct summand V^K_* of V^K, functorially in V. The section is independent of the strictly dominant element used to define it, and compatible with shrinking K through the averaging transition maps: if K′⊆K and u∈(V_N)^{K_M}, then e_K lift_{K′}(u)=lift_K(u), whenever both subgroups are in good position.
 -/
 
 /-
@@ -2945,28 +2973,30 @@ declaration: TauCeti.SmoothRep.jacquet_smoothDual_opposite
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.2a/second-adjunction-unit
 Requires the requested opposite-parabolic pair, normalised functors, good-position compact subgroup and strongly positive element, before the stabilisation and adjunction conditions can be typed.
 declaration: TauCeti.SmoothRep.secondAdjunctionUnit
-  For opposite parabolics P = MN and P̄ = MN̄ and complex coefficients, the unit of the second adjunction is the natural embedding η_τ : τ ↪ r_{P̄}(i_P τ) given by the open orbit P·P̄ of P̄ on P\G: functions in i_P τ supported in the big cell P N̄ form the bottom piece of the geometric-lemma filtration of r_{P̄} i_P, isomorphic to τ. The counit ε_π : i_P(r_{P̄} π) → π is the map corresponding, under the Hom isomorphism of second-adjointness, to the identity of r_{P̄} π; explicitly it is described by Bezrukavnikov–Kazhdan's asymptotic (co-specialisation) map. The triangle identities r_{P̄}(ε) ∘ η_{r_{P̄}} = id and ε_{i_P} ∘ i_P(η) = id hold, and the unit agrees with the geometric-lemma map of Bernstein's β.
-API: TauCeti.SmoothRep.secondAdjunctionCounit
-  ε : r_{P̄} ⋙ i_P ⟶ 𝟭.
-API: TauCeti.SmoothRep.secondAdjunction_left_triangle
-  r_{P̄}(ε_π) ∘ η_{r_{P̄}π} = id.
-API: TauCeti.SmoothRep.secondAdjunction_right_triangle
-  ε_{i_P τ} ∘ i_P(η_τ) = id.
+  For opposite parabolics P = MN and P̄ = MN̄ and complex coefficients, the unit of the second adjunction is the natural embedding η_τ : τ ↪ r_{P̄}(i_P τ) given by the open orbit P·P̄ of P̄ on P\G: functions in i_P τ supported in the big cell P N̄ form the bottom piece of the geometric-lemma filtration of r_{P̄} i_P, isomorphic to τ. The counit and both triangle identities are proved after this construction in second-adjointness; constructing this open-cell map does not assume an adjunction.
 API: TauCeti.SmoothRep.secondAdjunctionUnit_eq_geometricLemma
   η is the open-orbit piece of the geometric-lemma filtration of r_{P̄} ∘ i_P.
+API: TauCeti.SmoothRep.secondAdjunctionUnit_naturality
+  For f:τ→τ′ the big-cell embeddings commute with r_{P̄}i_P(f), before using second adjointness.
 test: TauCeti.SmoothRep.secondAdjunctionUnit_gl2
   For GL_2 and τ = χ, η_χ identifies χ with the subrepresentation of r_{B̄}(i_B χ) coming from functions supported on B N̄.
 test: TauCeti.SmoothRep.secondAdjunctionUnit_trivial_parabolic
-  For P = G, η and ε are identities.
+  For P=G the big-cell map η is the identity; after second-adjointness the counit is also the identity.
 test: TauCeti.SmoothRep.secondAdjunctionUnit_injective
   η_τ is injective for every τ.
 test: TauCeti.SmoothRep.firstAdjunctionUnit_ne_second
-  The unit of the first adjunction r_P ⊣ i_P is π → i_P(r_P π) (closed orbit, a quotient piece), not η: the two adjunctions use opposite parabolics.
+  The unit of the first adjunction r_P ⊣ i_P has source π and target i_P(r_P π); the big-cell map has source τ and target r_{P̄}(i_P τ). Their sources, targets and parabolics differ.
 -/
 
 /-
 Omission ledger — SmoothRepresentationsOfLocalGroups:SR.2a/second-adjointness
 Requires the requested opposite-parabolic pair, normalised functors, good-position compact subgroup and strongly positive element, before the stabilisation and adjunction conditions can be typed.
 declaration: TauCeti.SmoothRep.secondAdjunction
-  For a connected reductive group G over a nonarchimedean local field F, opposite parabolics P = MN and P̄ = MN̄, and complex coefficients: normalised parabolic induction i_P is left adjoint to the normalised Jacquet functor r_{P̄} along the opposite parabolic, Hom_G(i_P τ, π) ≅ Hom_M(τ, r_{P̄} π) naturally in τ and π, with unit and counit those of second-adjunction-unit. This is separate from the first adjunction r_P ⊣ i_P. Consequences: r_{P̄} commutes with arbitrary products; i_P preserves projective objects; for admissible π, Hom_G(i_P τ, π̃) ≅ Hom_M(τ, (r_P π)~), compatibly with Casselman's pairing. In unnormalised terms the right adjoint of Ind_P^G ∘ infl is δ_P⁻¹ ⊗ (−)_{N̄}.
+  For a connected reductive group G over a nonarchimedean local field F, opposite parabolics P = MN and P̄ = MN̄, and complex coefficients: normalised parabolic induction i_P is left adjoint to the normalised Jacquet functor r_{P̄} along the opposite parabolic, Hom_G(i_P τ, π) ≅ Hom_M(τ, r_{P̄} π) naturally in τ and π, with unit the independently constructed big-cell map of second-adjunction-unit and counit constructed here. This is separate from the first adjunction r_P ⊣ i_P. Consequences: r_{P̄} commutes with arbitrary products; i_P preserves projective objects; for admissible π, Hom_G(i_P τ, π̃) ≅ Hom_M(τ, (r_P π)~), compatibly with Casselman's pairing. In unnormalised terms the right adjoint of Ind_P^G ∘ infl is δ_P⁻¹ ⊗ (−)_{N̄}.
+API: TauCeti.SmoothRep.secondAdjunctionCounit
+  ε : r_{P̄} ⋙ i_P ⟶ 𝟭.
+API: TauCeti.SmoothRep.secondAdjunction_left_triangle
+  r_{P̄}(ε_π) ∘ η_{r_{P̄}π} = id.
+API: TauCeti.SmoothRep.secondAdjunction_right_triangle
+  ε_{i_P τ} ∘ i_P(η_τ) = id.
 -/
