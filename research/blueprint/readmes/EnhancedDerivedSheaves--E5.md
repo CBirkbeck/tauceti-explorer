@@ -1,1985 +1,1121 @@
-# The shared monoidal enhancement, Ind-completion and animated algebra
+# Shared monoidal enhancement, presentability and animation
 
-*A blueprint packet for the Tau Ceti Atlas roadmap `EnhancedDerivedSheaves`,
-part `E5` (layers E5, E5:abstract, E5:presentability, E5:animation,
-E5:cotangent-export, E5:spectra-comparison). Written by Claude Code, session
-`cc-7b31c4`, 24 September 2026, for issue #720.*
+This part supplies the categorical operations shared by enhanced sheaf theory,
+algebraic K-theory, trace methods and the geometric Langlands constructions.
+The carriers are the pinned simplicial sets and quasicategories. Passing to an
+ordinary homotopy category is a comparison, never the definition of an enhanced
+limit, action or algebra object. All results below are targets for formalization;
+no target is claimed implemented.
 
-## What this document is
+The six stage ids remain those of the atlas. E0 supplies mapping spaces,
+restricted straightening, stability, exact functors and the cochain suspension
+sign. E1 supplies the concrete enhanced derived category and K-flat derived
+tensor. E3 supplies coherent Kan extensions, accessible localizations and
+adjoints. E5 adds the monoidal, presentable and animated structures to these
+interfaces. The cotangent complex remains owned by DerivedDeRhamCohomology:DD.0,
+and concrete spectra by StableHomotopyKTheory:H.5. Neither supplier is an input
+to the animation or the monoidal stable foundation. The parent acceptance
+diagram uses both comparison branches.
 
-The shared monoidal enhancement, Ind-completion and animated algebra: layers E5,
-E5:abstract, E5:presentability, E5:animation, E5:cotangent-export and E5:spectra-
-comparison. Twenty-two nodes. This roadmap has NO integrated decomposition, so every
-node was written from Lurie's Higher Algebra and Higher Topos Theory, both downloaded
-from the author's page, hashed and read in this session. E5:abstract plans symmetric
-monoidal infinity-categories as coCartesian fibrations over finite pointed sets
-satisfying the Segal condition (HA 2.0.0.7), infinity-operads with their three
-conditions (2.1.1.10), O-monoidal categories (2.1.2.13), algebra objects and CAlg
-(2.1.3.1), module objects through the two-coloured operad LM (4.2.1.12-13), stable
-infinity-categories with the triangulated structure on the homotopy category (1.1.1.9,
-1.1.2.14), the equivalence of left and right exactness (1.1.4.1), and the existence of
-idempotent completions (HTT 5.1.4.1-2). E5:presentability plans compact objects (HTT
-5.3.4.5), Ind (5.3.5.1), its universal property (5.3.5.10), the stability of Ind of a
-stable category (HA 1.1.3.6), presentability with Simpson's characterisation (HTT
-5.5.0.1), and coherent group actions. E5:animation plans sifted colimits, P_Sigma (HTT
-5.5.8.10), its universal property (5.5.8.15) and animated commutative rings. The two
-return layers construct nothing and say so: E5:cotangent-export re-exports
-DerivedDeRhamCohomology:DD.0's interface, and E5:spectra-comparison waits on
-StableHomotopyKTheory H.5; both are recorded with coverage not_read. The reviewed audit
-AUDIT-22 was read first and shapes the packet throughout. Its partial verdicts name
-exactly what the pinned libraries do have, and each is CITED rather than replanned: the
-1-categorical Karoubi envelope, the 1-categorical monoidal categories, the 1-categorical
-Ind-completion, sifted categories with the commutation of sifted colimits and finite
-products, polynomial presentations of algebras, and the naive two-term cotangent complex
-with the Jacobi-Zariski sequence. Twenty-three baseline declarations, all read at the
-pins. Ten gaps, the largest being that BS22 - named in the stage's own source route -
-could not be identified, that the coherent-group-action node has no source statement,
-and that Higher Algebra Chapter 3, which gives Ind and module categories their monoidal
-structures, was not read. Sixteen requests. Three structural findings.
+Work in fixed nested universes: a category described as small belongs to the
+input universe, and its space-valued presheaves to the next. A large-universe
+Ind(C) for a presentable category requires one further enlargement. Compact
+means omega-compact unless a regular cardinal is specified. Homotopy of an
+animated ring is indexed homologically, so π_n appears in cohomological degree
+−n. Ordinary polynomial algebras use Mathlib's MvPolynomial, ordinary rings use
+CommRingCat, and ordinary Witt vectors use WittVector.
 
-Nothing here is formalised. Every node carries `implementationStatus: "unchecked"`,
-no Lean was compiled for this job, and the suggested file is a set of signatures and
-`example` statements, not a development.
+The reviewed AUDIT-22 identifies all six stages as unbuilt, while recording
+ordinary monoidal categories, the Karoubi envelope, set-valued Ind, sifted
+categories, polynomial rings and the naive cotangent complex as partial
+foundations. These declarations are imported rather than recreated. In
+particular MonoidalCategory alone does not impose symmetry: the ordinary
+comparison uses SymmetricCategory. A naive two-term cotangent construction is
+not the entire cotangent complex. Ordinary siftedness by connected comma
+categories is not automatically homotopy cofinality.
 
-## The sources, and how they were read
+The dependencies printed with each target are its direct interfaces. Supplier
+nodes already state their own prerequisite chains; they are not reproved here.
+When a needed statement has no precise supplier node, the packet records a
+request with its owner. The target-level construction or proof records the
+major steps; elementary steps remain inside that proof. Readers should keep
+stable, thick and localizing closures separate, distinguish finite generation
+from compactness of a mapping-space functor, and distinguish recovery by
+completion from descendability with a finite index.
 
-### Higher Algebra
+## Monoidal stable constructions
 
-- Jacob Lurie.
-- `https://www.math.ias.edu/~lurie/papers/HA.pdf`
-- SHA-256 `112b145a95a62daefb8275851cac9ab6430004cfc8f751a33a8d981fd7ad68c3`, accessed 2026-09-24.
-- Author-hosted PDF dated September 18, 2017; 1553 pages. PDF page = printed page.
+### Symmetric monoidal infinity-categories
 
-- Chapter 1, Section 1.1, printed pp. 15-35: Definition 1.1.1.9 of a stable infinity-
-  category with Remark 1.1.1.10 and Example 1.1.1.11; Theorem 1.1.2.14 on the
-  triangulated homotopy category with Remark 1.1.2.15 and the beginning of its proof;
-  Proposition 1.1.3.6 that Ind of a stable category is stable, with its proof; and
-  Section 1.1.4 with Proposition 1.1.4.1 on the equivalence of left and right exactness.
-- Chapter 2, Section 2.0 and Section 2.1, printed pp. 169-183: Definition 2.0.0.7 of a
-  symmetric monoidal infinity-category with the Segal condition; Definition 2.1.1.10 of
-  an infinity-operad with its three conditions; Definition 2.1.2.13 of a coCartesian
-  fibration of infinity-operads and Remarks 2.1.2.14 to 2.1.2.19; Definition 2.1.3.1 of
-  algebra objects and of CAlg(C); and Section 2.1.4's construction of the infinity-
-  category of infinity-operads.
-- Chapter 4, Section 4.2.1, printed pp. 381-384: Definitions 4.2.1.1 and 4.2.1.7 of the
-  operad LM, Definition 4.2.1.12 of a weak enrichment, and Definition 4.2.1.13 of left
-  module objects with Remark 4.2.1.14's warning about the notation.
-- NOT READ: Chapter 3 (operadic colimits), Chapter 5 onwards, and in particular Chapter
-  7 on E-infinity rings, which the E5:cotangent-export and E5:spectra-comparison layers
-  would need.
+Target: `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`.
 
-### Higher Topos Theory
+A symmetric monoidal infinity-category is a cocartesian fibration C⊗ → N(Fin_*) whose fibre over ⟨n⟩ maps equivalently to C^n through the n inert projections; C is the fibre at ⟨1⟩. The fibre at ⟨0⟩ is terminal. Active fold maps give tensor products and the nullary fold gives the unit.
 
-- Jacob Lurie.
-- `https://www.math.ias.edu/~lurie/papers/HTT.pdf`
-- SHA-256 `58855f3a0ad6d9c470ded74a38938b9468927592e9ae1209bab6a068e67ede6e`, accessed 2026-09-24.
-- Author-hosted PDF dated April 9, 2017, corresponding to the Annals of Mathematics Studies 170 edition (Princeton University Press, 2009); 949 pages. PDF page = printed page.
+Conventions and hypotheses. Work in specified nested universes; finite pointed sets are ordinary finite sets with a distinguished base point. Cocartesian lifts over all maps are required, not only inert lifts.
 
-- Section 5.1.4, printed pp. 321-322: Definition 5.1.4.1 of an idempotent completion and
-  Proposition 5.1.4.2 on its existence, with the proof; Lemma 5.1.4.3 and the pointer to
-  the uniqueness statement 5.1.4.9, which was not read.
-- Section 5.3.4, printed p. 392: Definition 5.3.4.5 of kappa-continuous functors and
-  kappa-compact objects, with Notation 5.3.4.6.
-- Section 5.3.5, printed pp. 405-407: Definition 5.3.5.1 of Ind_kappa(C), Remark 5.3.5.2
-  and Proposition 5.3.5.3 on stability under filtered colimits, and Proposition 5.3.5.10
-  with its statement of the universal property and the paragraph restating it;
-  Proposition 5.3.5.11 located but not read.
-- Section 5.5.0 and 5.5.1, printed p. 453: Definition 5.5.0.1 of presentability and the
-  discussion of Simpson's Theorem 5.5.1.1, the representability criterion and the
-  adjoint functor theorem.
-- Section 5.5.8, printed pp. 506-509: the introduction on compact projective objects and
-  nonabelian homological algebra, Proposition 5.5.8.10 with its six clauses on
-  P_Sigma(C), and Proposition 5.5.8.15 with its universal property and the first line of
-  its proof.
-- NOT READ: Chapter 4 in its entirety, which the stage's source route names alongside
-  Chapter 5; Section 5.5.9 on Quillen's simplicial formulation and the rectification
-  result 5.5.9.2; and the proofs of 5.5.1.1, 5.5.2.4 and 5.5.2.9.
+Construction or proof. Extend E0’s restricted straightening to the base N(Fin_*); assemble the fibrewise product diagrams. Impose the Segal equivalences and recover coherent tensor and unit from active lifts. Apply the Grothendieck construction to an ordinary symmetric monoidal category and compare its nerve fibrewise.
 
-## What this packet does not plan, and why
+Direct inputs: `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`, `mathlib:CategoryTheory.Grothendieck`, `mathlib:CategoryTheory.SymmetricCategory`, `mathlib:SSet`, `mathlib:SSet.Quasicategory`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.MonoidalCategory`.
 
-Material read here that belongs elsewhere is left to its owner (PROTOCOL.md §15).
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Definition 2.0.0.7, p. 169; Remark 2.1.2.19, p. 182.
 
-| Statement | Where | Owner |
+Uses. FS21, Theorem X.1.1: Coherent monoidal representations require the total operadic fibration, not a tensor on isomorphism classes.
+
+| API name | Role | Specification |
 | --- | --- | --- |
-| The cotangent complex, derived exterior powers, Tor amplitude | HA/HTT, unread here | `DerivedDeRhamCohomology:DD.0` |
-| Concrete spectra and spectral module categories | HA Ch. 1.4 and 7, unread | `StableHomotopyKTheory:H.5` |
-| Quasicategories, coCartesian fibrations, straightening | HTT Ch. 2–3 | `EnhancedDerivedSheaves:E0` |
-| Kan extensions, adjoints, presentability assertions | HTT Ch. 4 | `EnhancedDerivedSheaves:E3` |
-| The generic prismatic application | — | `PrismaticCohomology:PR.0–2` |
-| The perfectoidization application | — | `PerfectoidQuotients:Q0–4` |
-| Derived affine, quotient and mapping stacks | — | `LanglandsParameterStacks` |
+| `SymMonData` | data | Total space, projection to N(Fin_*), fibres and Segal equivalences; the full definition also imposes cocartesianness. |
+| `SymMonData.tensor` | projection | Tensor is the active binary pushforward. |
+| `SymMonData.unit` | projection | Unit is the active nullary pushforward. |
+| `SymMonData.ofOrdinary` | constructor | The nerve of an ordinary SymmetricCategory gives the corresponding operadic fibration. |
 
-## E5 — Shared monoidal enhancement, Ind-completion and animated algebra
+The following tests separate the intended definition from plausible substitutes.
 
-*Coverage: **partial**. 1 node.*
+- `SymMonData.test_zero` (degenerate): The zero-ary fibre is equivalent to the terminal infinity-category.
+- `SymMonData.test_one` (computation): The one-ary fibre is equivalent to the underlying category.
+- `SymMonData.test_ordinary` (compatibility): For an ordinary symmetric monoidal C the homotopy category of the underlying fibre is equivalent to C.
 
-The parent layer: one node recording that E5 is an abstract branch from E0 with no
-dependence on diamonds or prismatic cohomology, that it is the SINGLE enhancement
-supplier for StableHomotopyKTheory, GeneralAlgebraicKTheory and the geometric-Langlands
-family, and that the discipline it imposes is that every use include an actual
-construction and a comparison with the existing Mathlib ordinary category rather than a
-second private carrier.
+### Infinity-operads
 
-### One enhancement supplier for three consumer families, and the comparison discipline it imposes
+Target: `EnhancedDerivedSheaves:E5:abstract/infinity-operad`.
 
-`EnhancedDerivedSheaves:E5/single-enhancement-supplier` — *comparison*
+An infinity-operad O⊗ → N(Fin_*) is an inner fibration with cocartesian inert lifts. For each map f:⟨m⟩→⟨n⟩, its mapping space over f is the product of the mapping spaces over ρ_i f to the n output colours. Its fibre at ⟨n⟩ is equivalent, via inert projections, to the n-fold product of its colour fibre. The mapping-space condition includes nullary operations.
 
-**Statement.**
+Conventions and hypotheses. Mapping spaces are those of E0, with fibres over specified base morphisms. An infinity-operad need not admit active cocartesian lifts.
 
-E5 is an ABSTRACT BRANCH from E0, with E3 supplying presentability assertions when used,
-and it has NO DEPENDENCE ON DIAMONDS OR PRISMATIC COHOMOLOGY. It is the SINGLE
-ENHANCEMENT SUPPLIER for three families: StableHomotopyKTheory, GeneralAlgebraicKTheory,
-and geometric local Langlands - which in the atlas means
-ExcursionOperatorsAndSpectralAction, LanglandsParameterStacks,
-VStackSheavesAndLisseCategories and GeometricSatakeAndFusion. The discipline this
-imposes is stated by the roadmap: EVERY USE INCLUDES AN ACTUAL CONSTRUCTION AND
-COMPARISON TO THE EXISTING MATHLIB ORDINARY CATEGORY RATHER THAN A SECOND PRIVATE
-CARRIER. The acceptance tests the stage names are: a polynomial algebra's cotangent
-module; a regular quotient's two-term cotangent complex; a nonregular quotient with
-higher homology; the Ind-envelope of perfect modules; and a coherent action whose
-invariants carry higher group cohomology.
+Construction or proof. Construct the inert/active factorization in Fin_*. Use E0 mapping spaces and lifting predicates to state the inert, operation-product and object-Segal axioms. Check the commutative operad and the associative operad with ordered fibres.
 
-**Hypotheses and warnings.**
+Direct inputs: `EnhancedDerivedSheaves:E0/right-mapping-space`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`.
 
-- The comparison discipline is the substantive part: for every notion this roadmap
-  builds - symmetric monoidal category, stable category, idempotent completion, Ind,
-  sifted colimits - Mathlib has an ordinary counterpart, and the packet cites it and
-  states the comparison rather than introducing a parallel carrier
-- The independence from diamonds and prismatic cohomology is what makes E5 usable by
-  StableHomotopyKTheory and GeneralAlgebraicKTheory as well; a dependence introduced
-  here would propagate to both
-- Two of the five acceptance tests - the cotangent ones - are
-  DerivedDeRhamCohomology:DD.0's by the ownership this roadmap declares, and this packet
-  does not plan them
-- The stage's source route is HA sections 1 to 4, HTT sections 4 to 5, BS22 sections 2
-  to 7, and FS VIII.3 and X.1. This packet read HA sections 1, 2 and 4 and HTT section 5
-  for the statements it plans; BS22 was NOT identified in the maintainer's library and
-  was not read
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Definition 2.1.1.10, pp. 174–175.
 
-**Proof outline.**
+Uses. NS18, Appendix B, p. 140: Ordered fibres and the cuts functor produce the associative algebra interface.
 
-1. Record the branch structure: abstract from E0, presentability from E3, no dependence
-   on diamonds or prismatic cohomology.
-2. Record the three consumer families and the single-supplier role.
-3. Record the comparison discipline and check it against each node of this packet.
-4. Record the five acceptance tests and which layer owns each.
-
-**Acceptance.**
-
-- Check that no node of this packet depends on diamonds or prismatic cohomology
-- Check that every definition cites its ordinary Mathlib counterpart and states the comparison
-- Check that the cotangent acceptance tests are routed to DD.0
-- Check that the Ind-envelope and coherent-action tests are planned here
-
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `EnhancedDerivedSheaves:E5:animation`, `EnhancedDerivedSheaves:E5:cotangent-export`, `EnhancedDerivedSheaves:E5:spectra-comparison`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E3`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `mathlib:CategoryTheory.Ind`, `mathlib:CategoryTheory.IsSifted`, `mathlib:Algebra.Extension.H1Cotangent`
-
-**Sources.**
-
-- *Higher Algebra, Chapter 1 and Chapter 2 openings, printed pp. 15 and 169.* “Stable infinity-Categories ... Symmetric monoidal infinity-categories”
-  The two chapters of Higher Algebra this packet reads for E5:abstract, of the four
-  the stage's source route names.
-- *Higher Topos Theory, Chapter 5, printed pp. 321-509.* “Presentable and accessible infinity-categories”
-  The chapter of Higher Topos Theory this packet reads for E5:presentability and
-  E5:animation, of the two the stage's source route names.
-
-**What remains in this layer.**
-
-- BS22, named in the stage's source route as sections 2 to 7, was NOT identified. The
-  references catalogue and the papers listing were searched and no item matching 'BS22'
-  for this material was found; the most likely candidate, Bhatt-Scholze's prismatic
-  paper, has no sections on animation. The animation material is therefore planned from
-  Higher Topos Theory Section 5.5.8, which is the canonical source for it and which the
-  stage's route also names.
-- Two of the five acceptance tests the stage names - the cotangent module of a
-  polynomial algebra and the two-term cotangent complex of a regular quotient - belong
-  to DerivedDeRhamCohomology:DD.0 by this roadmap's own declaration and are not planned
-  here.
-- Higher Topos Theory Chapter 4, which the source route names alongside Chapter 5, was
-  not read.
-
-## E5:abstract — Monoidal stable categorical baseline
-
-*Coverage: **partial**. 8 nodes.*
-
-Symmetric monoidal infinity-categories as coCartesian fibrations over finite pointed
-sets with the Segal condition; infinity-operads with their three conditions; O-monoidal
-categories and monoidal functors; algebra objects and CAlg; module objects through the
-two-coloured operad LM; stable infinity-categories with the triangulated structure on
-the homotopy category; the equivalence of left and right exactness; and the existence of
-idempotent completions.
-
-### HA 2.0.0.7: a symmetric monoidal infinity-category is a coCartesian fibration over finite pointed sets satisfying the Segal condition
-
-`EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category` — *definition* · planet **Symmetric monoidal infinity-categories**
-
-**Statement.**
-
-A SYMMETRIC MONOIDAL infinity-category is a coCartesian fibration of simplicial sets p :
-C^tensor -> N(Fin_*) with the following property: for each n >= 0, the maps rho^i : <n>
--> <1> for 1 <= i <= n induce functors rho^i_! : C^tensor_{<n>} -> C^tensor_{<1>} which
-determine an EQUIVALENCE C^tensor_{<n>} = (C^tensor_{<1>})^n. Equivalently, a symmetric
-monoidal infinity-category is a coCartesian fibration p : C^tensor -> N(Fin_*) which
-induces equivalences C^tensor_{<n>} = C^n for each n >= 0, where C denotes the fibre
-C^tensor_{<1>}. The underlying infinity-category is that fibre, and the tensor product
-is the coCartesian pushforward along the active map <2> -> <1>.
-
-**Hypotheses and warnings.**
-
-- The datum is the TOTAL SPACE C^tensor together with the fibration, NOT a tensor
-  functor on C with coherence data; the coherences are encoded by the coCartesian lifts
-  and this is the whole point of the definition
-- The condition marked (*) is the SEGAL CONDITION; without it p is a fibration of
-  infinity-operads but not a monoidal structure
-- N(Fin_*) is the nerve of the category of FINITE POINTED sets <n> = {*, 1, ..., n}, and
-  the inert maps rho^i are the ones that keep only the ith element; the active maps are
-  the ones that do not send anything to the base point
-- An ordinary symmetric monoidal category gives one of these by the Grothendieck
-  construction; the comparison with Mathlib's 1-categorical MonoidalCategory and
-  BraidedCategory is part of the roadmap's requirement that every use include a
-  comparison with the existing ordinary category rather than a second private carrier
-- The roadmap is explicit that ordinary actions on isomorphism classes do not replace
-  this data, and the same holds for a monoidal structure given as a bifunctor with
-  associators
-
-**Proof outline.**
-
-1. Fix the category Fin_* of finite pointed sets and its nerve.
-2. Define a symmetric monoidal infinity-category as a coCartesian fibration over it
-   satisfying the Segal condition.
-3. Read off the underlying infinity-category as the fibre over <1> and the tensor product
-   as the pushforward along the unique active map <2> -> <1>.
-4. Compare with the 1-categorical notion through the Grothendieck construction on the
-   nerve.
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `SymMonInftyCat` | data | A coCartesian fibration p : C^tensor -> N(Fin_*) satisfying the Segal condition. |
-| `SymMonInftyCat.underlying` | projection | The fibre C = C^tensor_{<1>}, the underlying infinity-category. |
-| `SymMonInftyCat.segal` | structure | C^tensor_{<n>} = C^n; this condition is what makes the fibration a monoidal structure rather than an operad. |
-| `SymMonInftyCat.tensor` | data | The tensor product, as the coCartesian pushforward along the active map <2> -> <1>. |
-| `SymMonInftyCat.ofOrdinary` | constructor | An ordinary symmetric monoidal category gives one, by the Grothendieck construction on the nerve; this is the comparison the roadmap requires. |
-| `SymMonInftyCat.toMathlibMonoidal` | compatibility | On homotopy categories it recovers Mathlib's MonoidalCategory, with the same unit and associators. |
+| `OperadData` | data | Underlying operadic map and colour category; lifting and operation-space axioms belong to the full definition. |
+| `commOperad` | constructor | The identity operad of N(Fin_*) is the commutative operad. |
+| `assOperad` | constructor | The associative operad has ordered nonbasepoint fibres; composition concatenates their orders. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:abstract/algebra-objects` — commutative algebra objects are sections of this fibration
-- `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad` — the general O-monoidal notion specialises to it
-- `ExcursionOperatorsAndSpectralAction:ES0` — the Hecke datum is an exact monoidal functor out of Rep((G-hat semidirect Q)^I)
+- `OperadData.test_comm` (degenerate): The colour category of the commutative operad is terminal.
+- `OperadData.test_assoc` (computation): The associative n-input operation space has n! components, represented by total orders.
+- `OperadData.test_nullary` (degenerate): The associative zero-input operation space is terminal.
 
-**Unit tests.**
+### Monoidal categories over an operad
 
-- `segal_is_required` — Without the Segal condition the datum is an infinity-operad, not a monoidal structure.
-- `ordinary_example` — An ordinary symmetric monoidal category gives an example whose homotopy category is the original one.
-- `tensor_is_pushforward` — The tensor product is the coCartesian pushforward along <2> -> <1>; a separately specified bifunctor with associators is a different and weaker datum.
-- `unit_from_zero` — The fibre over <0> is contractible and supplies the unit.
+Target: `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad`.
 
-**Acceptance.**
+An O-monoidal infinity-category is a cocartesian fibration C⊗ → O⊗ such that, for T with inert components T_i, C_T → ∏_i C_(T_i) is an equivalence. The composite to N(Fin_*) is then an infinity-operad. A map is O-monoidal if it preserves cocartesian edges; it is lax O-monoidal if it is an operad map and only preserves the inert edges.
 
-- Check that the Segal condition is imposed and that dropping it gives an infinity-operad instead
-- Check that an ordinary symmetric monoidal category gives an example, and that the comparison recovers Mathlib's MonoidalCategory on homotopy categories
-- Check that the tensor product is the pushforward along the active map and that its associativity is not extra data
-- Check the case n = 0, where the fibre is contractible and gives the unit
+Conventions and hypotheses. O⊗ is an infinity-operad. The product condition is on the fibres over individual objects T of O⊗.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E3`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.Functor`, `mathlib:SSet.Quasicategory`, `mathlib:CategoryTheory.Limits.HasLimits`, `mathlib:CategoryTheory.Grothendieck`
+Construction or proof. Use the fibre criterion in HA 2.1.2.12, rather than assuming any cocartesian fibration is monoidal. Compose the operadic maps and verify the mapping-space and Segal conditions. Build the full functor categories of strong and lax maps over the base.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/infinity-operad`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`.
 
-- *Definition 2.0.0.7, printed p. 169.* “A symmetric monoidal infinity-category is a coCartesian fibration of simplicial sets p : C^tensor -> N(Fin_*) with the following property: (*) For each n >= 0, the maps {rho^i : <n> -> <1>}_{1 <= i <= n} induce functors rho^i_! : C^tensor_{<n>} -> C^tensor_{<1>} which determine an equivalence C^tensor_{<n>} = (C^tensor_{<1>})^n.”
-  The definition, quoted verbatim from Higher Algebra read in this session; the file
-  was downloaded from the author's page and its SHA-256 is recorded in the source
-  entry.
-- *Remark 2.1.2.19, printed p. 180.* “In other words, a symmetric monoidal infinity-category is a coCartesian fibration p : C^tensor -> N(Fin_*) which induces equivalences of infinity-categories C^tensor_{<n>} = C^n for each n >= 0, where C denotes the infinity-category C^tensor_{<1>}.”
-  The same definition restated once the operadic language is available, which is how
-  the packet's other nodes refer to it.
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Proposition 2.1.2.12, p. 180; Definition 2.1.2.13, p. 182.
 
-### HA 2.1.1.10: infinity-operads, inert maps and the Segal-type conditions
+Uses. NS18, Appendix A: Localization must distinguish strong from lax functor universal properties.
 
-`EnhancedDerivedSheaves:E5:abstract/infinity-operad` — *definition* · planet **Infinity-operads**
-
-**Statement.**
-
-An INFINITY-OPERAD is a functor p : O^tensor -> N(Fin_*) between infinity-categories
-satisfying: (1) for every INERT morphism f : <m> -> <n> in N(Fin_*) and every object C
-in O^tensor_{<m>} there exists a p-coCartesian morphism f-tilde : C -> C' lifting f, so
-that f induces a functor f_! : O^tensor_{<m>} -> O^tensor_{<n>}; (2) for objects C in
-O^tensor_{<m>} and C' in O^tensor_{<n>}, a morphism f : <m> -> <n>, and
-Map^f_{O^tensor}(C,C') the union of those connected components of Map_{O^tensor}(C,C')
-lying over f, the induced map Map^f(C,C') -> product over 1 <= i <= n of Map^{rho^i
-f}(C, C'_i) is a HOMOTOPY EQUIVALENCE, where the C'_i are obtained by p-coCartesian
-lifts of the inert rho^i; (3) for every finite collection of objects C_1,...,C_n of O =
-O^tensor_{<1>} there is an object C in O^tensor_{<n>} and p-coCartesian morphisms C ->
-C_i covering the rho^i.
-
-**Hypotheses and warnings.**
-
-- Condition (1) asks for coCartesian lifts of INERT maps only; asking for them over all
-  maps is what upgrades an infinity-operad to a monoidal infinity-category, which is the
-  next node
-- Condition (2) is the Segal-type condition on mapping spaces; it is what makes the
-  multi-mapping spaces of the operad recoverable
-- Condition (3) is essential surjectivity of the Segal maps on objects
-- The colours of the operad are the objects of the fibre over <1>; a one-coloured operad
-  is one whose fibre over <1> is contractible
-- Mathlib has NO operads at all: AUDIT-22 records that a grep for 'operad', 'Gamma
-  space' and 'E-infinity' finds nothing but a bibliography entry
-
-**Proof outline.**
-
-1. Fix N(Fin_*) with its inert and active morphisms.
-2. Impose the three conditions on a functor p : O^tensor -> N(Fin_*).
-3. Read off the colours and the multi-mapping spaces.
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `InftyOperad` | data | A functor p : O^tensor -> N(Fin_*) satisfying the three conditions. |
-| `InftyOperad.inertLifts` | structure | coCartesian lifts of INERT maps only; this is what distinguishes an operad from a monoidal structure. |
-| `InftyOperad.segalMapping` | structure | The Segal condition on mapping spaces, condition (2). |
-| `InftyOperad.colours` | projection | The fibre over <1>; a one-coloured operad has contractible fibre. |
-| `InftyOperad.commutative` | example | N(Fin_*) with the identity is the commutative infinity-operad. |
+| `OMonoidalData` | data | Cocartesian operadic map with componentwise fibre-product equivalences. |
+| `strongMonoidalFunctors` | data | The infinity-category of maps preserving all cocartesian edges. |
+| `laxMonoidalFunctors` | data | The infinity-category of operad maps preserving inert edges. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad` — O-monoidal categories are fibrations over an operad
-- `EnhancedDerivedSheaves:E5:abstract/algebra-objects` — algebras are maps of operads
-- `EnhancedDerivedSheaves:E5:abstract/module-objects` — modules are algebras over the operad LM
+- `OMonoidalData.test_comm` (compatibility): For O=Comm, this recovers symmetric monoidal categories.
+- `OMonoidalData.test_identity` (degenerate): The identity operad map is strong monoidal.
+- `OMonoidalData.test_unit` (characterisation): A lax map supplies a unit comparison; a strong map has an invertible unit comparison.
 
-**Unit tests.**
+### Operadic algebras
 
-- `inert_only` — Requiring coCartesian lifts over all maps gives a monoidal structure, not a general operad.
-- `commutative_operad` — N(Fin_*) with the identity map is an infinity-operad.
-- `symmetric_monoidal_is_operad` — Every symmetric monoidal infinity-category is an infinity-operad.
-- `no_operads_in_mathlib` — Neither pinned library has operads at all; this is planned and not cited.
+Target: `EnhancedDerivedSheaves:E5:abstract/algebra-objects`.
 
-**Acceptance.**
+Alg_O(C) is the full infinity-category of sections O⊗ → C⊗ over O⊗ that preserve inert edges. For O=Comm write CAlg(C); for O=Ass use associative algebra objects. Algebra maps are coherent transformations over the operad. In a cartesian monoidal ordinary category, the construction agrees with ordinary commutative or associative monoid objects after passing to nerves.
 
-- Check that only inert maps are required to have coCartesian lifts
-- Check that the commutative operad N(Fin_*) itself satisfies the conditions
-- Check that a symmetric monoidal infinity-category is an infinity-operad with coCartesian lifts of all maps
-- Check that the multi-mapping spaces are recovered from condition (2)
+Conventions and hypotheses. C⊗ is O-monoidal. A section need not preserve active cocartesian edges.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `mathlib:CategoryTheory.Functor`, `mathlib:SSet.Quasicategory`, `mathlib:CategoryTheory.Limits.HasLimits`
+Construction or proof. Form the functor category over O⊗ using E0; select inert-preserving sections. Compare with ordinary algebra objects by evaluating operation maps. For Ass use the cuts functor Δop→Ass⊗; the resulting simplicial object satisfies the Segal condition with A_0 terminal.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad`, `EnhancedDerivedSheaves:E5:abstract/infinity-operad`.
 
-- *Definition 2.1.1.10, printed p. 172.* “An infinity-operad is a functor p : O^tensor -> N(Fin_*) between infinity-categories which satisfies the following conditions: (1) For every inert morphism f : <m> -> <n> in N(Fin_*) and every object C in O^tensor_{<m>}, there exists a p-coCartesian morphism f-tilde : C -> C' in O^tensor lifting f. In particular, f induces a functor f_! : O^tensor_{<m>} -> O^tensor_{<n>}.”
-  The definition's first condition, quoted verbatim from Higher Algebra read in this
-  session.
-- *Definition 2.1.1.10, printed p. 172.* “(2) Let C in O^tensor_{<m>} and C' in O^tensor_{<n>} be objects, let f : <m> -> <n> be a morphism in Fin_*, and let Map^f_{O^tensor}(C,C') be the union of those connected components of Map_{O^tensor}(C,C') which lie over f. Choose p-coCartesian morphisms C' -> C'_i lying over the inert morphisms rho^i : <n> -> <1> for 1 <= i <= n. Then the induced map Map^f(C,C') -> product of ...”
-  The remaining two conditions, quoted verbatim. The excerpt is truncated at a word
-  boundary; the full passage is on the printed page named in the locator.
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Definition 2.1.3.1, p. 184.
 
-### HA 2.1.2.13: O-monoidal infinity-categories as coCartesian fibrations of infinity-operads
+Uses. EnhancedDerivedSheaves:E5: Supplies this layer’s shared enhancement and its comparisons.
 
-`EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad` — *definition* · planet **O-monoidal infinity-categories**
-
-**Statement.**
-
-Let O^tensor be an infinity-operad. A map p : C^tensor -> O^tensor is a COCARTESIAN
-FIBRATION OF INFINITY-OPERADS if it satisfies the hypotheses of Proposition 2.1.2.12; in
-that case p EXHIBITS C^tensor AS AN O-MONOIDAL INFINITY-CATEGORY. Such a p is in
-particular a fibration of infinity-operads. For an object X in O = O^tensor_{<1>} one
-writes C_X for the fibre; if X in O^tensor_{<n>} corresponds to a sequence (X_i), there
-is a canonical equivalence C_X = product over i of C_{X_i}. The underlying map C^tensor
--> O^tensor is a coCartesian fibration of infinity-categories, classified by a functor
-O^tensor -> Cat_infinity, so an O-monoidal infinity-category may be thought of as an
-assignment of a category to each colour together with coherent multiplication functors.
-
-**Hypotheses and warnings.**
-
-- The general notion specialises to the symmetric monoidal one by taking O^tensor =
-  N(Fin_*); Remark 2.1.2.19 spells the specialisation out
-- The classifying functor O^tensor -> Cat_infinity is the 'straightening' of the
-  fibration; it is equivalent data, but the fibration is the one with no coherence to
-  check, which is why it is the definition
-- The product decomposition C_X = product of C_{X_i} is the Segal condition again, now
-  relative to O
-- The roadmap asks for 'monoidal functors with their coherent universal properties';
-  those are maps of O-monoidal categories, that is functors over O^tensor preserving
-  coCartesian edges
-
-**Proof outline.**
-
-1. Fix an infinity-operad O^tensor and a map p : C^tensor -> O^tensor.
-2. Impose the conditions of Proposition 2.1.2.12, which say that p has coCartesian lifts
-   of all morphisms and that the resulting structure is compatible with the operadic one.
-3. Read off the fibres, the product decomposition and the classifying functor to
-   Cat_infinity.
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `OMonoidal` | data | A coCartesian fibration of infinity-operads p : C^tensor -> O^tensor. |
-| `OMonoidal.fibre` | projection | C_X for X in O^tensor, with C_X = product of C_{X_i} for X over <n>. |
-| `OMonoidal.classify` | equivalence | The classifying functor O^tensor -> Cat_infinity; equivalent data, with coherences straightened. |
-| `OMonoidal.functor` | data | A monoidal functor: a map over O^tensor preserving coCartesian edges. |
-| `OMonoidal.symmetricCase` | example | O^tensor = N(Fin_*) gives the symmetric monoidal notion. |
+| `operadicAlgebras` | constructor | The category of inert-preserving sections. |
+| `commutativeAlgebras` | data | The specialization CAlg(C). |
+| `algebraForget` | projection | Evaluation at the unique input colour. |
+| `assCuts` | data | The cuts functor gives the Segal simplicial presentation of associative algebras. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:abstract/algebra-objects` — algebras are sections of such a fibration
-- `ExcursionOperatorsAndSpectralAction:ES2` — the Hecke data are monoidal functors into endofunctor categories
-- `GeometricSatakeAndFusion:GS4:integral-dual-group` — the Satake category is a symmetric monoidal infinity-category in this sense
+- `operadicAlgebras.test_terminal` (degenerate): Algebras in the terminal monoidal category form a terminal category.
+- `operadicAlgebras.test_sets` (compatibility): Commutative algebras in cartesian sets are ordinary commutative monoids.
+- `operadicAlgebras.test_segal` (characterisation): An associative algebra has A_2 ≃ A_1 × A_1, and A_0 terminal.
 
-**Unit tests.**
+### Modules and extension of scalars
 
-- `specialises_to_symmetric` — Taking O = N(Fin_*) gives the symmetric monoidal notion.
-- `fibre_product_decomposition` — C_X = product of C_{X_i} over the colours of X.
-- `monoidal_functor_is_coCartesian` — A monoidal functor preserves coCartesian edges; a functor merely commuting with tensor up to isomorphism is weaker.
-- `straightening_equivalence` — The fibration and the classifying functor are equivalent data.
+Target: `EnhancedDerivedSheaves:E5:abstract/module-objects`.
 
-**Acceptance.**
+For an associative algebra A in C and a left C-tensored infinity-category M, LMod_A(M) is the fibre of the category of LM-algebras at A. Its objects have a coherently unital associative action A⊗M→M. If geometric realizations exist and the action preserves them separately, f:A→B has an extension-of-scalars left adjoint B⊗_A− to restriction. Compute it by the two-sided bar realization.
 
-- Check that O^tensor = N(Fin_*) recovers the symmetric monoidal notion
-- Check the product decomposition of the fibres
-- Check that a monoidal functor is a functor over O^tensor preserving coCartesian edges
-- Check that the classifying functor to Cat_infinity is equivalent data
+Conventions and hypotheses. LM is the two-coloured operad distinguishing the algebra and module colours. For a commutative A in presentably symmetric monoidal C, Mod_A(C) has relative tensor and unit A; tensors must preserve colimits.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract/infinity-operad`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E3`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.MonoidalCategory`, `mathlib:CategoryTheory.Grothendieck`
+Construction or proof. Apply the algebra-section construction to LM and take the fibre over A. Realize Bar(B,A,M) and prove its mapping-space adjunction with restriction. Use commutativity of A to descend tensor and its symmetry to the relative bar construction.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/algebra-objects`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`.
 
-- *Definition 2.1.2.13, printed p. 179.* “Let O^tensor be an infinity-operad. We will say that a map p : C^tensor -> O^tensor is a coCartesian fibration of infinity-operads if it satisfies the hypotheses of Proposition 2.1.2.12. In this case, we also say that p exhibits C^tensor as an O-monoidal infinity-category.”
-  The definition, quoted verbatim from Higher Algebra read in this session.
-- *Remarks 2.1.2.16 and 2.1.2.17, printed p. 179.* “For every object X in O^tensor, we let C_X denote the inverse image of X under p. ... Note that if X in O^tensor_{<n>} corresponds to a sequence of objects {X_i} in O, then we have a canonical equivalence C_X = product over 1 <= i <= n of C_{X_i}. ... Then the underlying map C^tensor -> O^tensor is a coCartesian fibration of infinity-categories, which is classified by a ...”
-  The fibres, their product decomposition and the classifying functor, quoted
-  verbatim. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Definitions 4.2.1.12–13, pp. 506–507; Proposition 4.6.2.17, p. 627.
 
-### HA 2.1.3.1: algebra objects, and commutative algebras as sections over N(Fin_*)
+Uses. EnhancedDerivedSheaves:E5: Supplies this layer’s shared enhancement and its comparisons.
 
-`EnhancedDerivedSheaves:E5:abstract/algebra-objects` — *construction* · planet **Algebra objects**
-
-**Statement.**
-
-Let p : C^tensor -> O^tensor be a fibration of infinity-operads and alpha : O'^tensor ->
-O^tensor a map of infinity-operads. Then Alg_{O'/O}(C) denotes the FULL SUBCATEGORY OF
-Fun_{O^tensor}(O'^tensor, C^tensor) SPANNED BY THE MAPS OF INFINITY-OPERADS;
-equivalently, the fibre over alpha of the categorical fibration Alg_{O'}(C^tensor) ->
-Alg_{O'}(O^tensor) given by composition with p. When O' = O and alpha is the identity
-one writes Alg_{/O}(C); when O' = O = N(Fin_*) one writes CAlg(C), THE INFINITY-CATEGORY
-OF COMMUTATIVE ALGEBRA OBJECTS of C. So a commutative algebra object is a SECTION of the
-fibration C^tensor -> N(Fin_*) which is a map of infinity-operads, that is, which sends
-inert maps to coCartesian edges.
-
-**Hypotheses and warnings.**
-
-- An algebra object is a SECTION, not an object with multiplication maps; the coherence
-  is the condition that the section be a map of operads, and that is the whole content
-  of the definition
-- The condition 'map of infinity-operads' is exactly that inert morphisms go to
-  p-coCartesian ones; without it one gets a lax algebra
-- CAlg(C) for C an ordinary symmetric monoidal category recovers the ordinary
-  commutative monoid objects on homotopy categories, and the roadmap requires that
-  comparison to be made rather than a second carrier introduced
-- Mathlib has 1-categorical Mon_ and CommMon_ objects in a monoidal category; those are
-  the ordinary shadow of this construction
-
-**Proof outline.**
-
-1. Form Fun_{O^tensor}(O'^tensor, C^tensor) and cut out the maps of infinity-operads.
-2. Identify the result with a fibre of the induced map on algebra categories.
-3. Specialise to O' = O and to O = N(Fin_*) to get CAlg(C).
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `Alg` | data | Alg_{O'/O}(C), the maps of infinity-operads over O^tensor. |
-| `CAlg` | data | CAlg(C) = Alg_{N(Fin_*)}(C), the commutative algebra objects. |
-| `CAlg.isSection` | characterisation | A commutative algebra object is a section of C^tensor -> N(Fin_*) sending inert maps to coCartesian edges. |
-| `CAlg.unit` | example | The unit of C is the initial commutative algebra object. |
-| `CAlg.toCommMon` | compatibility | On homotopy categories this recovers Mathlib's CommMon_ objects; the comparison is required and not a second carrier. |
+| `leftModuleObjects` | constructor | The LM-fibre LMod_A(M) for an associative algebra A and a left C-tensored category M. |
+| `moduleObjects` | constructor | The commutative specialization Mod_A(C). |
+| `extensionScalars` | functoriality | B⊗_A−, computed by a bar realization and left adjoint to restriction. |
+| `moduleUnit` | projection | The unit of Mod_A(C) is A. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:abstract/module-objects` — modules are taken over an algebra object
-- `EnhancedDerivedSheaves:E5:animation` — animated commutative rings are the commutative algebra objects that arise from polynomial resolutions
-- `LanglandsParameterStacks:LP1` — the cocycle algebra is a commutative algebra object in the relevant category
+- `moduleObjects.test_unit` (degenerate): Modules over the tensor unit are equivalent to C.
+- `moduleObjects.test_identity` (degenerate): Extension along the identity A→A is equivalent to the identity.
+- `moduleObjects.test_composition` (characterisation): C⊗_B(B⊗_A M) ≃ C⊗_A M for composable algebra maps.
 
-**Unit tests.**
+### Stable monoidal enhancement comparison
 
-- `section_not_multiplication` — An algebra object is a section of the fibration; an object with multiplication maps and coherences is the unstraightened shadow.
-- `inert_to_coCartesian` — The operad condition is that inert maps go to coCartesian edges; dropping it gives lax algebras.
-- `unit_is_initial` — The unit is the initial commutative algebra object.
-- `ordinary_comparison` — For an ordinary symmetric monoidal category the homotopy category of CAlg is the ordinary commutative monoid objects.
+Target: `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`.
 
-**Acceptance.**
+Import E0’s stable infinity-category and its exact/triangulated API. If C is also symmetric monoidal and its tensor is exact separately, the tensor descends to a symmetric monoidal structure on hC compatible with suspension and distinguished cofiber triangles. For derived modules it agrees with Mathlib’s ordinary derived category through E1’s enhancement; constructing the tensor uses K-flat replacements, not closure of K-injectives under tensor.
 
-- Check that a commutative algebra object is a section sending inert maps to coCartesian edges
-- Check the comparison with Mathlib's CommMon_ on homotopy categories
-- Check that the unit of a symmetric monoidal infinity-category is the initial commutative algebra
-- Check that a lax monoidal functor out of the trivial operad is the same as an algebra object
+Conventions and hypotheses. Stability and cochain suspension signs are supplied by E0. Require exactness separately; it does not follow from merely having a monoidal structure.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad`, `EnhancedDerivedSheaves:E5:abstract/infinity-operad`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E0`, `mathlib:CommMonCat`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.MonoidalCategory`
+Construction or proof. Transport the operadic coherent tensor along h and identify its associator, unit and symmetry. Apply E0’s finite cofiber/triangle comparison to tensor in either variable. Use E1’s derived tensor comparison to ordinary complexes.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `mathlib:DerivedCategory`.
 
-- *Definition 2.1.3.1, printed p. 182.* “Let p : C^tensor -> O^tensor be a fibration of infinity-operads, and suppose we are given infinity-operads alpha : O'^tensor -> O^tensor. We let Alg_{O'/O}(C) denote the full subcategory of Fun_{O^tensor}(O'^tensor, C^tensor) spanned by the maps of infinity-operads. ... In the special case where O' = O = N(Fin_*), we will denote the infinity-category Alg_{O'/O}(C) by CAlg(C). ...”
-  The definition, quoted verbatim from Higher Algebra read in this session. The
-  excerpt is truncated at a word boundary; the full passage is on the printed page
-  named in the locator.
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), §1.1.2, Theorem 1.1.2.14, pp. 27–28; §4.8.1, pp. 712–715.
 
-### HA 4.2.1.12-4.2.1.13: modules over an algebra, through the operad LM
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-`EnhancedDerivedSheaves:E5:abstract/module-objects` — *construction*
+### Exact monoidal functors and triangles
 
-**Statement.**
+Target: `EnhancedDerivedSheaves:E5:abstract/exact-functors`.
 
-Let C^tensor -> Assoc be a fibration of infinity-operads and M an infinity-category. A
-WEAK ENRICHMENT of M over C is a fibration of infinity-operads q : O^tensor -> LM
-together with isomorphisms O^tensor_a = C^tensor and O^tensor_m = M, where LM is the
-infinity-operad of Definition 4.2.1.7 with two colours a and m. Given such a q, one sets
-LMod(M) = Alg_{/LM}(O), THE INFINITY-CATEGORY OF LEFT MODULE OBJECTS of M. Composition
-with the inclusion Assoc -> LM determines a categorical fibration LMod(M) -> Alg(C), and
-for an algebra object A of C one sets LModA(M) to be the fibre over A, the infinity-
-category of LEFT A-MODULE OBJECTS of M.
+For stable C,D, import E0’s equivalence of finite-limit and finite-colimit preservation. An exact strong or lax monoidal functor then induces the corresponding ordinary monoidal functor on homotopy categories and carries the cofiber triangle of f to that of Ff, with the suspension comparison inherited from E0. Coherent functors are retained before passing to homotopy categories.
 
-**Hypotheses and warnings.**
+Conventions and hypotheses. Exactness is an E0 property of the underlying functor. Lax monoidal does not imply exact, and exact does not imply strong monoidal.
 
-- The notation LMod(M) is, as Lurie warns, ABUSIVE: the category depends not only on M
-  but on the fibration M -> LM, that is on the chosen enrichment
-- Modules are algebras over a TWO-COLOURED operad; that is how the module structure and
-  its coherences are encoded, and it is why no separate coherence data appear
-- The forgetful map to Alg(C) is a categorical fibration, so that the fibre over an
-  algebra is the right notion of modules over it
-- For a symmetric monoidal C one gets the usual Mod_A(C); the roadmap's requirement of a
-  comparison with the ordinary notion applies here as everywhere
+Construction or proof. Restrict the coherent strong/lax functor categories by E0 exactness. Apply h, transport suspension isomorphisms, and verify compatibility with the tensor structure.
 
-**Proof outline.**
+Direct inputs: `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`, `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad`, `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`.
 
-1. Fix the two-coloured operad LM and the notion of weak enrichment.
-2. Define LMod(M) as the algebras over LM in the enrichment.
-3. Take the fibre over an algebra object A to get LModA(M).
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Proposition 1.1.4.1, pp. 33–35; §2.1.2, pp. 177–182.
 
-**Planning API.**
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-| Name | Role | Statement |
+### Idempotent completion and its monoidal extension
+
+Target: `EnhancedDerivedSheaves:E5:abstract/idempotent-completion`.
+
+Idem(C) is the full subcategory of P(C) spanned by retracts of representables. C→Idem(C) is fully faithful; restriction Fun(Idem(C),D)→Fun(C,D) is an equivalence for idempotent-complete D. For small stable C it is stable. A separately exact tensor extends to retracts, giving a symmetric monoidal completion and the corresponding monoidal universal property. For an ordinary category C this agrees with the nerve of its Mathlib Karoubi envelope.
+
+Conventions and hypotheses. Use homotopy coherent idempotents, not just idempotents in hC. The ordinary comparison has discrete mapping spaces; no claim hIdem(C)=Karoubi(hC) in complete generality is needed.
+
+Construction or proof. Take the retract closure of the representable Yoneda image in space-valued presheaves. Use HTT’s functor restriction theorem for uniqueness of extensions. Extend tensor on retracts and check closure of finite cofibers using E0.
+
+Direct inputs: `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`, `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), §5.1.4, Propositions 5.1.4.2 and 5.1.4.9, pp. 321–323.
+
+Uses. GeneralAlgebraicKTheory:K.1: K-theory uses stable idempotent-complete categories. Compatibility is an output, not a prerequisite.
+
+| API name | Role | Specification |
 | --- | --- | --- |
-| `LMod` | data | LMod(M) = Alg_{/LM}(O) for a weak enrichment of M over C. |
-| `LMod.dependsOnEnrichment` | structure | The construction depends on the fibration M -> LM, not only on M; Lurie's own warning. |
-| `LMod.toAlg` | projection | The categorical fibration LMod(M) -> Alg(C). |
-| `LModA` | data | The fibre over an algebra A: the left A-modules. |
-| `LMod.ordinaryComparison` | compatibility | For an ordinary monoidal category this recovers the ordinary modules on homotopy categories. |
+| `idemCompletion` | constructor | Retracts of representables in P(C). |
+| `idemInclusion` | data | The fully faithful embedding C→Idem(C). |
+| `idemRestriction` | universal-property | Restriction is an equivalence for idempotent-complete targets. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `LanglandsParameterStacks:LP4` — IndPerf of the parameter stack is identified with modules over the cocycle algebra
-- `EnhancedDerivedSheaves:E5:presentability` — module and base-change compatibilities are stated for these categories
-- `ExcursionOperatorsAndSpectralAction:ES3` — the integral spectral action is an action by a module category
+- `idemCompletion.test_idempotent` (degenerate): Completing a completed category changes it by an equivalence.
+- `idemCompletion.test_ordinary` (compatibility): Idem(NC) is equivalent to N(Karoubi C).
+- `idemCompletion.test_terminal` (degenerate): Idem(*) is terminal.
 
-**Unit tests.**
+### The monoidal envelope
 
-- `depends_on_enrichment` — Two different enrichments of the same M give different module categories.
-- `usual_modules` — For C symmetric monoidal and M = C one recovers Mod_A(C).
-- `fibration_to_alg` — The forgetful functor is a categorical fibration, so fibres are the right notion.
-- `ordinary_comparison` — On homotopy categories this is the ordinary module category.
+Target: `EnhancedDerivedSheaves:E5:abstract/monoidal-envelope`.
 
-**Acceptance.**
+Env(C⊗) has objects finite lists of colours of C; maps are active operadic maps, tensor concatenates lists. Inclusion of C as singleton lists extends lax maps: restriction Fun⊗(Env(C⊗),D) ≃ Fun_lax(C,D). Thus lax functors can be handled by strong functors out of a universal envelope. The envelope of the unit category has one object per arity, not just one object.
 
-- Check that the construction depends on the enrichment and not only on M
-- Check that for C symmetric monoidal and M = C one recovers the usual modules
-- Check that the forgetful functor to Alg(C) is a categorical fibration
-- Check the comparison with ordinary modules on homotopy categories
+Conventions and hypotheses. D is symmetric monoidal. Use the operadic active-arrow construction, not a free ordinary tensor category on hC.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract/algebra-objects`, `EnhancedDerivedSheaves:E5:abstract/infinity-operad`, `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad`, `EnhancedDerivedSheaves:E0`, `mathlib:CommMonCat`, `mathlib:Module.Free`, `mathlib:CategoryTheory.Functor`
+Construction or proof. Pull back the operad along the active-arrow category of Fin_* and evaluate targets. Check the Segal equivalences for concatenation. Give inverse functors by applying a lax functor to each list and using its coherent structure maps; verify the mapping-space equivalence.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad`, `EnhancedDerivedSheaves:E5:abstract/algebra-objects`.
 
-- *Definition 4.2.1.12, printed p. 383.* “Let C^tensor -> Assoc be a fibration of infinity-operads and let M be an infinity-category. A weak enrichment of M over C is a fibration of infinity-operads q : O^tensor -> LM together with isomorphisms O^tensor_a = C^tensor and O^tensor_m = M. In this situation, we will say that q exhibits M as weakly enriched over C.”
-  The enrichment datum, quoted verbatim from Higher Algebra read in this session.
-- *Definition 4.2.1.13 and Remark 4.2.1.14, printed p. 383.* “We let LMod(M) denote the infinity-category Alg_{/LM}(O). We will refer to LMod(M) as the infinity-category of left module objects of M. Composition with the inclusion Assoc -> LM determines a categorical fibration LMod(M) -> Alg(C). If A is an algebra object of C, we let LModA(M) denote the fibre LMod(M) x_{Alg(C)} {A}. ... The notation of Definition 4.2.1.13 is somewhat ...”
-  The definition and Lurie's own warning about the notation, quoted verbatim. The
-  excerpt is truncated at a word boundary; the full passage is on the printed page
-  named in the locator.
+Source: [On topological cyclic homology](https://people.mpim-bonn.mpg.de/scholze/CyclotomicSpectra.pdf), Proposition III.3.2, p. 76.
 
-### HA 1.1.1.9 and 1.1.2.14: stable infinity-categories and their triangulated homotopy categories
+Uses. NS18, Proposition III.3.2: Changes lax universal properties into strong ones.
 
-`EnhancedDerivedSheaves:E5:abstract/stable-infinity-category` — *definition* · planet **Stable infinity-categories**
-
-**Statement.**
-
-An infinity-category C is STABLE if: (1) there exists a zero object 0 in C; (2) every
-morphism in C admits a FIBER and a COFIBER; (3) a triangle in C is a fiber sequence if
-and only if it is a cofiber sequence. Condition (3) is the analogue of the axiom for
-abelian categories requiring the image of a morphism to be isomorphic to its coimage.
-Moreover, if C is a pointed infinity-category admitting cofibers and the suspension
-functor is an equivalence, then the translation functor and the class of distinguished
-triangles ENDOW THE HOMOTOPY CATEGORY hC WITH THE STRUCTURE OF A TRIANGULATED CATEGORY;
-those hypotheses hold whenever C is stable, and are in fact EQUIVALENT to stability.
-
-**Hypotheses and warnings.**
-
-- Stability is a PROPERTY of an infinity-category, not extra structure; this is the
-  fundamental contrast with the 1-categorical notion of a triangulated category, where
-  the distinguished triangles are data
-- The homotopy category is triangulated, and Mathlib HAS triangulated categories with
-  distinguished triangles and Verdier localisation; the comparison must go through hC,
-  and the roadmap requires exactly such a comparison rather than a second private
-  carrier
-- The equivalence of stability with the hypotheses of Theorem 1.1.2.14 is Corollary
-  1.4.2.27, which was not read
-- The verification of Verdier's axioms (TR1) to (TR4) is the content of the proof of
-  Theorem 1.1.2.14, and the octahedral axiom (TR4) is the one that is genuinely easier
-  here than classically
-
-**Proof outline.**
-
-1. Define stability by the three conditions.
-2. Define the translation functor by suspension and the distinguished triangles by the
-   cofiber sequences.
-3. Verify Verdier's axioms on the homotopy category.
-4. Record the comparison with Mathlib's triangulated categories.
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `IsStable` | data | Zero object; every morphism has a fiber and a cofiber; fiber sequences are cofiber sequences. |
-| `IsStable.isProperty` | structure | Stability is a PROPERTY, not structure; contrast with a triangulated category, where the triangles are data. |
-| `IsStable.homotopyCategory` | compatibility | hC is triangulated, matching Mathlib's Pretriangulated and Triangulated structures. |
-| `IsStable.suspension` | equivalence | The suspension functor is an equivalence, and that together with cofibers characterises stability. |
-| `IsStable.derivedCategory` | example | The derived category of an abelian category is stable; Mathlib's DerivedCategory is its homotopy category. |
+| `monoidalEnvelope` | constructor | The symmetric monoidal active-arrow envelope. |
+| `envelopeSingleton` | data | The canonical lax singleton inclusion. |
+| `envelopeRestriction` | universal-property | Strong functors out of the envelope are equivalent to lax functors out of C. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:abstract/exact-functors` — exactness is defined for functors between stable categories
-- `EnhancedDerivedSheaves:E5:presentability` — Ind of a stable category is stable
-- `ExcursionOperatorsAndSpectralAction:ES2` — every category the spectral action acts on is stable
+- `monoidalEnvelope.test_arity` (computation): For the terminal input category, envelope objects up to isomorphism are indexed by ℕ.
+- `monoidalEnvelope.test_concat` (computation): Tensor of an m-list and an n-list has arity m+n.
+- `monoidalEnvelope.test_empty` (degenerate): The envelope unit is the empty list, of arity zero.
 
-**Unit tests.**
+### Symmetric monoidal Dwyer–Kan localization
 
-- `property_not_structure` — Stability is a property; a triangulated structure is data, and two different triangulations of the same category are possible classically.
-- `homotopy_is_triangulated` — hC is triangulated; the comparison with Mathlib's structure must be made.
-- `derived_category_example` — The derived category of an abelian category is stable.
-- `suspension_equivalence` — In a stable category the suspension is an equivalence; in a merely pointed one it need not be.
+Target: `EnhancedDerivedSheaves:E5:abstract/monoidal-dwyer-kan-localization`.
 
-**Acceptance.**
+If C⊗ is symmetric monoidal and a class W of underlying morphisms is stable under tensoring with any object in either variable, C[W⁻¹] carries a symmetric monoidal structure. The localization is strong monoidal. Restriction is fully faithful on strong and on lax monoidal functor categories with essential image the functors inverting W. For every base change K→N(Fin_*), the total operadic localization is the corresponding Dwyer–Kan localization.
 
-- Check that stability is a property and not extra data
-- Check that the homotopy category is triangulated and matches Mathlib's structure
-- Check that the derived category of an abelian category gives an example
-- Check that a nonzero stable category has a nontrivial suspension equivalence
+Conventions and hypotheses. Use the saturated class generated by W; an ordinary categorical localization of hC alone does not supply this theorem. The tensor-stability hypothesis is essential for the fibrewise assertion.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E1`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.Limits.HasZeroObject`, `mathlib:CategoryTheory.HasShift`
+Construction or proof. Mark the vertical product edges of W in the fibres of C⊗. Localize the total space over Fin_* and use inert/product compatibility to prove the Segal equivalences. Verify universal properties after arbitrary base change; distinguish the strong and lax subcategories.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`.
 
-- *Definition 1.1.1.9, printed p. 19.* “An infinity-category C is stable if it satisfies the following conditions: (1) There exists a zero object 0 in C. (2) Every morphism in C admits a fiber and a cofiber. (3) A triangle in C is a fiber sequence if and only if it is a cofiber sequence.”
-  The definition, quoted verbatim from Higher Algebra read in this session.
-- *Remark 1.1.1.10, printed p. 20.* “Condition (3) of Definition 1.1.1.9 is analogous to the axiom for abelian categories which requires that the image of a morphism be isomorphic to its coimage.”
-  Why condition (3) is the right one.
-- *Theorem 1.1.2.14 and Remark 1.1.2.15, printed p. 27.* “Let C be a pointed infinity-category which admits cofibers, and suppose that the suspension functor is an equivalence. Then the translation functor and the class of distinguished triangles endow hC with the structure of a triangulated category. ... The hypotheses of Theorem 1.1.2.14 hold whenever C is stable. In fact, the hypotheses of Theorem 1.1.2.14 are equivalent to the ...”
-  The triangulated structure on the homotopy category, quoted verbatim. The excerpt is
-  truncated at a word boundary; the full passage is on the printed page named in the
-  locator.
+Source: [On topological cyclic homology](https://people.mpim-bonn.mpg.de/scholze/CyclotomicSpectra.pdf), Definitions A.1–A.4 and Proposition A.5, pp. 128–130.
 
-### HA 1.1.4.1: for functors between stable categories, left exact, right exact and exact agree
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-`EnhancedDerivedSheaves:E5:abstract/exact-functors` — *theorem*
+### Monoidal localization of a model category
 
-**Statement.**
+Target: `EnhancedDerivedSheaves:E5:abstract/monoidal-model-category-localization`.
 
-Let F : C -> C' be a functor between stable infinity-categories. If F carries zero
-objects to zero objects then it carries triangles to triangles; if in addition it
-carries fiber sequences to fiber sequences, F is called EXACT. The following are
-EQUIVALENT: (1) F is LEFT EXACT, that is F commutes with finite limits; (2) F is RIGHT
-EXACT, that is F commutes with finite colimits; and these are equivalent to exactness.
+A symmetric monoidal model category satisfying the pushout-product and unit axioms has a symmetric monoidal infinity-localization. Its cofibrant-object localization gives the derived tensor and agrees with the underlying Dwyer–Kan localization. The map from the category of all objects is lax monoidal; the cofibrant presentation is strong monoidal in the derived sense. The universal property holds for strong/lax maps and after base change over Fin_*.
 
-**Hypotheses and warnings.**
+Conventions and hypotheses. The model structure and Quillen tensor hypotheses must be supplied for each application. Tensor need not preserve weak equivalences between all objects; cofibrant replacements are indispensable.
 
-- The equivalence of left and right exactness is special to the stable setting and is
-  the reason one may speak simply of 'exact functors'
-- Preservation of zero objects is assumed; a functor that does not preserve the zero
-  object is not exact in any of these senses
-- In the 1-categorical world the analogue is that an additive functor between
-  triangulated categories is triangulated iff it commutes with the shift and sends
-  triangles to triangles, which is a weaker and less well behaved condition
-- This is the notion of exactness used everywhere in the consumer roadmaps: 'an exact
-  Rep(Q^I)-linear monoidal functor' in the spectral-action statements means exactly this
+Construction or proof. Apply the preceding localization theorem on cofibrant objects, where tensor preserves weak equivalences. Use the unit axiom and cofibrant replacement to identify the all-object localization. Construct the lax all-object comparison and verify its universal property on each fibre.
 
-**Proof outline.**
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/monoidal-dwyer-kan-localization`.
 
-1. Note that a functor preserving zero objects carries triangles to triangles.
-2. Prove the equivalence of left and right exactness using that fiber and cofiber
-   sequences coincide.
-3. Record that either condition is equivalent to exactness.
+Source: [On topological cyclic homology](https://people.mpim-bonn.mpg.de/scholze/CyclotomicSpectra.pdf), Theorem A.7, pp. 130–131.
 
-**Acceptance.**
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-- Check that left and right exactness agree for functors between stable categories
-- Check that a functor not preserving the zero object is not exact
-- Check that the induced functor on homotopy categories is triangulated
-- Check the example of a localisation functor
+### Derived cocartesian families
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.Limits.PreservesLimits`, `mathlib:CategoryTheory.Pretriangulated`
+Target: `EnhancedDerivedSheaves:E5:abstract/left-derivable-cocartesian-families`.
 
-**Sources.**
+For a cocartesian fibration X→S with vertical marked weak equivalences, call it left derivable when every transition has an absolute left derived functor, described as an absolute right Kan extension along the source localization, and the derived-composition comparisons are equivalences for all 2-simplices. Localizing X fibrewise gives a cocartesian fibration over S, with those derived transitions, compatible with every base change. An original cocartesian edge survives as cocartesian only when the corresponding original transition preserves weak equivalences.
 
-- *Section 1.1.4 and Proposition 1.1.4.1, printed p. 33.* “Let F : C -> C' be a functor between stable infinity-categories. Suppose that F carries zero objects into zero objects. It follows immediately that F carries triangles into triangles. If, in addition, F carries fiber sequences to fiber sequences, then we will say that F is exact. ... The following conditions are equivalent: (1) The functor F is left exact. That is, F commutes ...”
-  The definition and the equivalence, quoted verbatim from Higher Algebra read in this
-  session. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
+Conventions and hypotheses. Left derived is the source-localization right-Kan convention of NS A.8. S may be any small simplicial base; E0 only supplies restricted shapes initially.
 
-### HTT 5.1.4.1-5.1.4.2: every infinity-category admits an idempotent completion, unique up to equivalence
+Construction or proof. Extend the E0 restricted straightening interface to arbitrary small bases using NS A.16–A.17: glue simplices by colimits and use cocartesian base-change preservation. Localize fibres and derive transitions using E3 Kan extensions. Use the absolute property and the 2-simplex comparisons to assemble a coherent functor S→Cat∞. Apply NS A.14–A.15 to identify the total localization and its base-change comparison.
 
-`EnhancedDerivedSheaves:E5:abstract/idempotent-completion` — *theorem* · planet **Idempotent completion**
+Direct inputs: `EnhancedDerivedSheaves:E0/cocartesian-fibrations-and-restricted-straightening`, `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`.
 
-**Statement.**
+Source: [On topological cyclic homology](https://people.mpim-bonn.mpg.de/scholze/CyclotomicSpectra.pdf), Definition A.8, pp. 131–132; Proposition A.14, Corollary A.15, pp. 134–135; Lemmas A.16–A.17, pp. 136–137.
 
-A functor f : C -> D EXHIBITS D AS AN IDEMPOTENT COMPLETION of C if D is idempotent
-complete, f is fully faithful, and every object of D is a RETRACT of f(C) for some
-object C of C. Every infinity-category C ADMITS an idempotent completion, and it is
-UNIQUE UP TO EQUIVALENCE. The existence is proved by taking C' to be the full
-subcategory of the presheaf category P(C) spanned by the retracts of objects in the
-image of the Yoneda embedding: P(C) admits all small colimits, hence is idempotent
-complete; C' is stable under retracts in P(C), hence idempotent complete; and the Yoneda
-embedding is fully faithful and therefore exhibits C' as the idempotent completion.
+Uses. NS18, Appendix A: Derives coherent diagram transports without pretending underived transition functors preserve weak equivalences.
 
-**Hypotheses and warnings.**
-
-- The idempotent completion is the KAROUBI ENVELOPE in the infinity-categorical sense,
-  and it is what 'idempotent-complete' means in every hypothesis of the consumer
-  roadmaps
-- Mathlib HAS the 1-categorical Karoubi envelope with its universal property; AUDIT-22
-  records this as the partial half of the target, the missing half being the stable
-  structure on idempotent completions and the infinity-categorical version
-- The construction embeds C into presheaves and cuts out retracts; the enlargement of
-  universe in the proof is a size issue and not a mathematical one
-- Uniqueness is Proposition 5.1.4.9, which was not read; only the existence proof was
-
-**Proof outline.**
-
-1. Define an idempotent completion by the three conditions.
-2. Construct one as the retract-closure of the Yoneda image inside presheaves.
-3. Note that presheaves are idempotent complete because they admit all small colimits,
-   and that a retract-closed subcategory of an idempotent complete category is idempotent
-   complete.
-4. Quote the uniqueness.
-
-**Acceptance.**
-
-- Check that the construction gives an idempotent complete category
-- Check that the Yoneda embedding is fully faithful and that every object is a retract
-- Check the comparison with Mathlib's 1-categorical Karoubi envelope
-- Check that the idempotent completion of an idempotent complete category is itself
-
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E0`, `EnhancedDerivedSheaves:E3`, `mathlib:CategoryTheory.Idempotents.Karoubi`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.yoneda`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`
-
-**Sources.**
-
-- *Definition 5.1.4.1, printed p. 321.* “Let f : C -> D be a functor between infinity-categories. We will say that f exhibits D as an idempotent completion of C if D is idempotent complete, f is fully faithful, and every object of D is a retract of f(C) for some object C in C.”
-  The definition, quoted verbatim from Higher Topos Theory read in this session; the
-  file was downloaded from the author's page and its SHA-256 is recorded in the source
-  entry.
-- *Proposition 5.1.4.2 with its proof, printed p. 321.* “Let C be an infinity-category. Then C admits an idempotent completion. Proof. Enlarging the universe if necessary, we may suppose that C is small. Let C' denote the full subcategory of P(C) spanned by those objects which are retracts of objects which belong to the image of the Yoneda embedding j : C -> P(C). Then C' is stable under retracts in P(C). Since P(C) admits all small ...”
-  The existence, with its proof, quoted verbatim. The excerpt is truncated at a word
-  boundary; the full passage is on the printed page named in the locator.
-
-**What remains in this layer.**
-
-- Proposition 2.1.2.12, whose hypotheses define a coCartesian fibration of infinity-
-  operads, was located but its statement was not recovered cleanly from the extraction;
-  the node states the definition as Lurie does, by reference to that proposition, and
-  does not restate its conditions.
-- Corollary 1.4.2.27, which gives the converse that the hypotheses of Theorem 1.1.2.14
-  are equivalent to stability, was not read.
-- The uniqueness of idempotent completions, Proposition 5.1.4.9, was not read; only the
-  existence and its proof.
-- Higher Algebra Chapter 3, on operadic colimits and the tensor product of infinity-
-  operads, was not read; it is what would be needed to construct the symmetric monoidal
-  structure on Ind and on module categories.
-- AUDIT-22 records that neither library has infinity-operads, stable infinity-categories
-  or E-infinity structures; the two partial targets are the 1-categorical Karoubi
-  envelope and the 1-categorical monoidal structures, both of which are cited here.
-
-## E5:presentability — Ind-completion and extensions
-
-*Coverage: **partial**. 6 nodes.*
-
-Compact objects and continuous functors; the Ind-completion with its stability under
-filtered colimits; its universal property, which is the extension of a functor to a
-continuous functor; the stability of Ind of a stable category; presentability with
-Simpson's characterisation and the adjoint functor theorem it yields; and coherent group
-actions with homotopy fixed points and equivariant functor categories.
-
-### HTT 5.3.4.5: kappa-compact objects and kappa-continuous functors
-
-`EnhancedDerivedSheaves:E5:presentability/compact-objects` — *definition*
-
-**Statement.**
-
-Let C be an infinity-category admitting small kappa-filtered colimits. A functor f : C
--> D is KAPPA-CONTINUOUS if it preserves kappa-filtered colimits. For an object C of C,
-let j_C : C -> S-hat be the functor corepresented by C; if C admits kappa-filtered
-colimits, C is KAPPA-COMPACT if j_C is kappa-continuous, and simply COMPACT if it is
-omega-compact. One writes C^kappa for the full subcategory spanned by the kappa-compact
-objects, and C^omega for the compact objects.
-
-**Hypotheses and warnings.**
-
-- Compactness is defined by corepresentability commuting with FILTERED colimits, not
-  with all colimits; the distinction is what makes compact generation a nontrivial
-  condition
-- The functor is corepresented in the LARGE category S-hat of spaces, because the
-  mapping spaces need not be small before one knows C is accessible
-- Mathlib has finitely presentable objects and 1-categorical Ind-objects; AUDIT-22
-  records that this is the partial half of the target and that the infinity-categorical
-  Ind-completion and the compact-generation compatibilities are missing
-- In the consumer roadmaps, D_lis(Bun_G,Lambda)^omega and Perf are compact objects in
-  this sense, and the whole spectral-action formalism is stated on them
-
-**Proof outline.**
-
-1. Define kappa-continuity as preservation of kappa-filtered colimits.
-2. Define kappa-compactness of an object by kappa-continuity of the corepresented
-   functor.
-3. Record the full subcategory of kappa-compact objects.
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `IsKappaCompact` | data | The corepresented functor preserves kappa-filtered colimits. |
-| `IsCompact` | data | The omega case; the notion every consumer roadmap uses. |
-| `compactObjects` | data | C^omega, the full subcategory of compact objects. |
-| `IsCompact.retract` | structure | A retract of a compact object is compact. |
-| `IsCompact.ofFinitelyPresentable` | compatibility | On an ordinary category this recovers Mathlib's finitely presentable objects. |
+| `DerivedFamilyData` | data | Base, total space, projection and localized fibres; full derivability conditions are additional. |
+| `derivedFamily` | constructor | The localized cocartesian family with derived transports. |
+| `derivedFamilyBaseChange` | compatibility | Pullback of the derived family equals deriving the pulled-back family. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:presentability/ind-completion` — Ind is generated by the compact objects
-- `LanglandsParameterStacks:LP4` — Perf and its compact objects are the subject of the generation statement
-- `ExcursionOperatorsAndSpectralAction:ES2` — the spectral action is on the compact objects of D_lis(Bun_G,L)
+- `DerivedFamilyData.test_point` (degenerate): Over a point the construction is the fibre localization.
+- `DerivedFamilyData.test_interval` (characterisation): Over Δ¹ the transition is the derived transition, not the underived functor.
+- `DerivedFamilyData.test_identity` (degenerate): For identity weak-equivalence classes the localized family is equivalent to the original one.
 
-**Unit tests.**
+### Stable subcategories and tensor ideals
 
-- `filtered_not_all` — Compactness is about filtered colimits; preservation of all colimits is a different condition.
-- `finite_sets` — In spaces, the compact objects are the finite ones up to retract.
-- `retracts` — A retract of a compact object is compact.
-- `ordinary_comparison` — On an ordinary category this is Mathlib's finite presentability.
+Target: `EnhancedDerivedSheaves:E5:abstract/stable-tensor-ideals`.
 
-**Acceptance.**
+A stable subcategory D⊆C is a full subcategory closed under zero objects, fibers and cofibers; it need not be closed under retracts. In a stable monoidal C with separately exact tensor, it is a tensor ideal if X⊗Y lies in D whenever X lies in C and Y lies in D. The thick tensor ideal adds closure under retracts. For commutative A→B, the thick tensor ideal generated by B is taken in Mod_A(C), not in C unless A is the unit.
 
-- Check that compactness is about filtered colimits and not about all colimits
-- Check that in the category of sets the compact objects are the finite sets
-- Check that a retract of a compact object is compact
-- Check the comparison with Mathlib's finitely presentable objects on ordinary categories
+Conventions and hypotheses. C is stable; tensor-ideal statements require separately exact symmetric tensor. Keep stable, thick and localizing closure distinct.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.IsFiltered`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.yoneda`
+Construction or proof. Use E0 stable full-subcategory operations and the existing object-property carrier. Define the closures by intersection and derive inclusions and induction principles. Tensor ideals and thick closure are used in quotient kernels and descendability.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`, `EnhancedDerivedSheaves:E5:abstract/module-objects`.
 
-- *Definition 5.3.4.5, printed p. 392.* “Let C be an infinity-category which admits small kappa-filtered colimits. We will say a functor f : C -> D is kappa-continuous if it preserves kappa-filtered colimits. Let C be an infinity-category containing an object C and let j_C : C -> S-hat denote the functor corepresented by C. If C admits kappa-filtered colimits, then we will say that C is kappa-compact if j_C is ...”
-  The definition, quoted verbatim from Higher Topos Theory read in this session. The
-  excerpt is truncated at a word boundary; the full passage is on the printed page
-  named in the locator.
+Source: [On topological cyclic homology](https://people.mpim-bonn.mpg.de/scholze/CyclotomicSpectra.pdf), Definition I.3.2, p. 18; [The Galois group of a stable homotopy theory](https://arxiv.org/pdf/1404.2156), Definition 3.18, p. 19.
 
-### HTT 5.3.5.1: the Ind-completion, and its stability under filtered colimits
+Uses. NS18, Theorem I.3.6: The quotient tensor needs an ideal. BS17, Definition 11.14: Descendability is thick tensor generation of the unit.
 
-`EnhancedDerivedSheaves:E5:presentability/ind-completion` — *definition* · planet **The Ind-completion**
-
-**Statement.**
-
-Let C be a small infinity-category and kappa a regular cardinal. Ind_kappa(C) is the
-FULL SUBCATEGORY OF THE PRESHEAF CATEGORY P(C) spanned by those functors f : C^op -> S
-which classify right fibrations C-tilde -> C with C-tilde kappa-FILTERED. For kappa =
-omega one writes Ind(C), THE INFINITY-CATEGORY OF IND-OBJECTS of C. The Yoneda embedding
-j : C -> P(C) factors through Ind_kappa(C), since j(C) classifies the right fibration
-C_{/C} -> C and C_{/C} has a final object and is therefore kappa-filtered. The full
-subcategory Ind_kappa(C) inside P(C) is STABLE UNDER kappa-FILTERED COLIMITS.
-
-**Hypotheses and warnings.**
-
-- Ind is defined inside PRESHEAVES by a filteredness condition on the classifying right
-  fibration, not as a formal colimit completion; the two descriptions agree but only the
-  first is a definition
-- The Yoneda embedding lands in Ind because slice categories have final objects; this is
-  what makes C a full subcategory of Ind(C)
-- Mathlib has `CategoryTheory.Ind`, the 1-categorical Ind-completion, in
-  Mathlib/CategoryTheory/Limits/Indization/Category.lean; AUDIT-22 records it as the
-  partial half and the infinity-categorical version as missing. The comparison with it
-  is the roadmap's requirement
-- Stability under kappa-filtered colimits is what makes Ind_kappa(C) admit them
-
-**Proof outline.**
-
-1. Form the presheaf category P(C).
-2. Cut out the functors whose classifying right fibration is kappa-filtered.
-3. Check that the Yoneda embedding factors through, and that the subcategory is stable
-   under kappa-filtered colimits.
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `Ind` | data | Ind_kappa(C) inside P(C): the presheaves classifying kappa-filtered right fibrations. |
-| `Ind.yoneda` | structure | The Yoneda embedding factors through Ind; C is a full subcategory. |
-| `Ind.stableUnderFilteredColimits` | structure | Ind_kappa(C) is stable under kappa-filtered colimits in P(C). |
-| `Ind.admitsFilteredColimits` | structure | Hence Ind_kappa(C) admits kappa-filtered colimits. |
-| `Ind.toMathlibInd` | compatibility | On an ordinary category this recovers Mathlib's CategoryTheory.Ind. |
+| `stableClosure` | constructor | Smallest full stable subcategory containing the given objects. |
+| `thickTensorClosure` | constructor | Closure additionally under retracts and tensoring with arbitrary objects. |
+| `tensorIdealInduction` | characterisation | Any full thick tensor ideal containing the generators contains their thick tensor closure. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind` — the universal property is about this category
-- `EnhancedDerivedSheaves:E5:presentability/ind-of-a-stable-category-is-stable` — stability is proved for it
-- `LanglandsParameterStacks:LP4` — IndPerf of the parameter stack is Ind of Perf
+- `stableClosure.test_zero` (degenerate): The thick tensor closure of zero contains only zero objects.
+- `stableClosure.test_unit` (characterisation): The thick tensor closure of the tensor unit is all of C.
+- `stableClosure.test_retract` (characterisation): Any retract of a generating object belongs to its thick tensor closure.
 
-**Unit tests.**
+### Verdier quotient of a small stable infinity-category
 
-- `yoneda_factors` — The Yoneda embedding lands in Ind; C is full in Ind(C).
-- `filtered_stability` — Ind is stable under filtered colimits inside presheaves.
-- `ordinary_comparison` — On an ordinary category this is Mathlib's Ind.
-- `not_idempotent` — Ind of a category that already has filtered colimits is strictly larger in general.
+Target: `EnhancedDerivedSheaves:E5:abstract/verdier-quotient`.
 
-**Acceptance.**
+For small stable C and full stable D⊆C, C/D is the Dwyer–Kan localization at maps with cofiber in D. It is stable and universal for exact functors C→E annihilating D. For X,Y∈C its mapping space is the filtered colimit over maps Z→Y with Z∈D of Map_C(X,cofib(Z→Y)). The kernel on objects is the retract closure of D, rather than D itself when D is not thick. If D is a tensor ideal and tensor is separately exact, the quotient is symmetric monoidal with the analogous universal property for exact lax monoidal functors.
 
-- Check that the Yoneda embedding factors through Ind
-- Check stability under filtered colimits
-- Check the comparison with Mathlib's 1-categorical Ind on ordinary categories
-- Check that Ind of a category with filtered colimits is not itself
+Conventions and hypotheses. No compact-generation assumption is used. Idempotent completion of the quotient is a separate construction.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.Ind`, `mathlib:CategoryTheory.IsFiltered`, `mathlib:CategoryTheory.yoneda`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`
+Construction or proof. Invert maps with cofiber in D; identify their calculus through the filtered approximation of Y by cofibers of Z→Y. Use the formula to establish mapping-space universality and stability. Apply monoidal localization to an ideal; derive the lax monoidal universality, preserving the distinction from strong maps.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/stable-tensor-ideals`, `EnhancedDerivedSheaves:E5:abstract/monoidal-dwyer-kan-localization`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`.
 
-- *Definition 5.3.5.1, printed p. 405.* “Let C be a small infinity-category and let kappa be a regular cardinal. We let Ind_kappa(C) denote the full subcategory of P(C) spanned by those functors f : C^op -> S which classify right fibrations C-tilde -> C, where the infinity-category C-tilde is kappa-filtered. In the case where kappa = omega, we will simply write Ind(C) for Ind_omega(C). We will refer to Ind_kappa(C) ...”
-  The definition, quoted verbatim from Higher Topos Theory read in this session. The
-  excerpt is truncated at a word boundary; the full passage is on the printed page
-  named in the locator.
-- *Remark 5.3.5.2 and Proposition 5.3.5.3, printed p. 405.* “the Yoneda embedding j : C -> P(C) factors through Ind_kappa(C). This follows immediately from Lemma 5.1.5.2, since j(C) classifies the right fibration C_{/C} -> C. The infinity-category C_{/C} has a final object and is therefore kappa-filtered. ... The full subcategory Ind_kappa(C) inside P(C) is stable under kappa-filtered colimits.”
-  The factorisation and the stability, quoted verbatim.
+Source: [On topological cyclic homology](https://people.mpim-bonn.mpg.de/scholze/CyclotomicSpectra.pdf), Theorems I.3.3 and I.3.6, pp. 18–23.
 
-### HTT 5.3.5.10: every functor out of C extends essentially uniquely to a continuous functor out of Ind(C)
+Uses. RefinedTraceMethods:RT.5: Imports the quotient formalism; trace-specific arguments are not prerequisites.
 
-`EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind` — *theorem* · planet **The universal property of Ind**
-
-**Statement.**
-
-Let C and D be infinity-categories and kappa a regular cardinal. Suppose C is SMALL and
-D ADMITS SMALL kappa-FILTERED COLIMITS. Then composition with the Yoneda embedding
-induces an EQUIVALENCE of infinity-categories Map^kappa(Ind_kappa(C), D) -> Fun(C, D),
-where the left-hand side denotes the infinity-category of all kappa-CONTINUOUS functors.
-In other words, any functor f : C -> D determines an ESSENTIALLY UNIQUE extension F :
-Ind_kappa(C) -> D with f equivalent to F composed with j.
-
-**Hypotheses and warnings.**
-
-- This is the extension property the stage text asks for: 'extension of exact functors
-  to colimit-preserving functors'. The exactness is inherited because the extension is
-  computed as a filtered colimit and exactness is a finite-limit condition
-- C must be SMALL and D must admit kappa-filtered colimits; both hypotheses are used
-- The equivalence is of infinity-categories, not merely a bijection on objects; that is
-  what makes the extension functorial in f
-- Proposition 5.3.5.11 gives the criterion for when the extension is an equivalence, and
-  was read only as a pointer
-
-**Proof outline.**
-
-1. Form the restriction functor along the Yoneda embedding.
-2. Show it is an equivalence onto Fun(C,D) by combining Lemma 5.3.5.8 with Corollary
-   4.3.2.16.
-3. Read off the essentially unique extension of a given functor.
-
-**Acceptance.**
-
-- Check that C small and D with filtered colimits are both used
-- Check that the equivalence is of categories and not merely of sets of objects
-- Check that an exact functor extends to an exact colimit-preserving functor
-- Check that the extension restricts back to the original functor
-
-**Prerequisites.** `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E5:abstract/exact-functors`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E3`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.Limits.PreservesLimits`, `mathlib:CategoryTheory.Ind`
-
-**Sources.**
-
-- *Proposition 5.3.5.10, printed p. 406.* “Let C and D be infinity-categories and let kappa be a regular cardinal. Suppose that C is small and that D admits small kappa-filtered colimits. Then composition with the Yoneda embedding induces an equivalence of infinity-categories Map^kappa(Ind_kappa(C), D) -> Fun(C,D); where the left hand side denotes the infinity-category of all kappa-continuous functors from Ind_kappa(C) to D.”
-  The universal property, quoted verbatim from Higher Topos Theory read in this
-  session.
-- *After Proposition 5.3.5.10, printed p. 406.* “In other words, if C is small and D admits kappa-filtered colimits, then any functor f : C -> D determines an essentially unique extension F : Ind_kappa(C) -> D (such that f is equivalent to F composed with j).”
-  The form in which the stage text uses it.
-
-### HA 1.1.3.6: Ind of a stable infinity-category is stable
-
-`EnhancedDerivedSheaves:E5:presentability/ind-of-a-stable-category-is-stable` — *theorem* · planet **Ind of a stable category is stable**
-
-**Statement.**
-
-Let C be a small STABLE infinity-category and kappa a regular cardinal. Then
-Ind_kappa(C) is STABLE. The proof: the Yoneda embedding j preserves finite limits and
-colimits, so j(0) is a zero object and Ind_kappa(C) is pointed; every morphism f admits
-a cofiber, because f may be written as a kappa-filtered colimit of morphisms in the
-essential image of j and cofibers commute with colimits; the existence of fibers is
-slightly harder and is obtained by presenting f as a filtered colimit of a diagram of
-arrows in C and taking fibers there.
-
-**Hypotheses and warnings.**
-
-- Stability of Ind is what makes IndPerf a stable category in every consumer statement,
-  and it is not formal: the existence of fibers requires the filtered presentation of
-  the morphism
-- The result holds for any regular kappa, not only omega
-- That j preserves finite limits and colimits is HTT 5.1.3.2 and 5.3.5.14; neither was
-  read beyond the citation
-- AUDIT-22 records that neither library has stable infinity-categories at all, so this
-  is planned and not cited
-
-**Proof outline.**
-
-1. Note that j preserves finite limits and colimits, so Ind is pointed.
-2. Present a morphism as a kappa-filtered colimit of morphisms in the image of j.
-3. Take cofibers levelwise; the colimit of the cofibers is a cofiber.
-4. For fibers, choose a filtered diagram of arrows and take fibers there.
-
-**Acceptance.**
-
-- Check that pointedness comes from preservation of the zero object
-- Check that cofibers are the easy half and fibers the hard half
-- Check the statement for kappa different from omega
-- Check that Ind of a non-stable category need not be stable
-
-**Prerequisites.** `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`, `EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E3`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:CategoryTheory.Ind`, `mathlib:CategoryTheory.Limits.HasZeroObject`
-
-**Sources.**
-
-- *Proposition 1.1.3.6 with its proof, printed p. 30.* “Let C be a (small) stable infinity-category and let kappa be a regular cardinal. Then the infinity-category Ind_kappa(C) is stable. Proof. The functor j preserves finite limits and colimits (Propositions HTT.5.1.3.2 and HTT.5.3.5.14). It follows that j(0) is a zero object of Ind_kappa(C), so that Ind_kappa(C) is pointed. We next show that every morphism f : X -> Y in ...”
-  The statement and the beginning of the proof, quoted verbatim from Higher Algebra
-  read in this session. The excerpt is truncated at a word boundary; the full passage
-  is on the printed page named in the locator.
-
-### HTT 5.5.0.1: presentable infinity-categories
-
-`EnhancedDerivedSheaves:E5:presentability/presentable-categories` — *definition* · planet **Presentable infinity-categories**
-
-**Statement.**
-
-An infinity-category C is PRESENTABLE if C is ACCESSIBLE and ADMITS SMALL COLIMITS.
-Simpson's theorem (HTT 5.5.1.1) gives the main reformulation: C is presentable if and
-only if it arises as an ACCESSIBLE LOCALIZATION of an infinity-category of presheaves. A
-functor F : C -> S^op out of a presentable C is representable if and only if it
-preserves colimits, and this representability criterion implies that C admits small
-LIMITS and yields the infinity-categorical adjoint functor theorem.
-
-**Hypotheses and warnings.**
-
-- Presentability is accessibility PLUS small colimits; accessibility alone is not
-  enough, and admitting colimits alone is not either
-- The adjoint functor theorem in this setting is a consequence of the representability
-  criterion, and it is what every 'left adjoint exists' statement in the consumer
-  roadmaps rests on
-- Simpson's characterisation as an accessible localisation of presheaves is the one that
-  makes presentability checkable
-- AUDIT-22 records the whole infinity-categorical package as absent; Mathlib has locally
-  presentable structure only through finitely presentable objects and Ind
-
-**Proof outline.**
-
-1. Define accessibility and presentability.
-2. Record Simpson's characterisation as an accessible localisation of presheaves.
-3. Record the representability criterion and the adjoint functor theorem it yields.
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `IsPresentable` | data | Accessible and admitting small colimits. |
-| `IsPresentable.bothNeeded` | structure | Accessibility alone and cocompleteness alone are each insufficient. |
-| `IsPresentable.simpson` | characterisation | Equivalently, an accessible localisation of a presheaf category (Simpson, HTT 5.5.1.1). |
-| `IsPresentable.hasLimits` | structure | A presentable category admits small LIMITS as well as colimits. |
-| `IsPresentable.adjointFunctorTheorem` | structure | The representability criterion yields the infinity-categorical adjoint functor theorem. |
-| `IsPresentable.presheaves` | example | Presheaf categories are presentable. |
+| `verdierQuotient` | constructor | The stable localization C/D. |
+| `verdierProjection` | data | The exact localization map. |
+| `verdierRestriction` | universal-property | Exact functors out of C/D are exact functors out of C killing D. |
+| `verdierMapping` | characterisation | Mapping spaces are the filtered cofiber approximation stated above. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category` — P_Sigma is an accessible localisation of a presheaf category, hence presentable
-- `EnhancedDerivedSheaves:E5:presentability/coherent-group-actions` — homotopy fixed points are limits, which exist by presentability
-- `LanglandsParameterStacks:LP3` — the good-filtration t-structure lives on a presentable stable category
+- `verdierQuotient.test_zero` (degenerate): C/0 is equivalent to C.
+- `verdierQuotient.test_all` (degenerate): C/C is the zero stable category.
+- `verdierQuotient.test_suspension` (characterisation): q(ΣX) ≃ ΣqX.
 
-**Unit tests.**
+### Barr–Beck–Lurie monadicity
 
-- `both_conditions` — Accessibility alone, or cocompleteness alone, does not give presentability.
-- `presheaves_presentable` — Presheaf categories are presentable.
-- `has_limits` — A presentable category admits small limits; this is a consequence, not part of the definition.
-- `adjoint_functor_theorem` — A colimit-preserving functor out of a presentable category has a right adjoint.
+Target: `EnhancedDerivedSheaves:E5:abstract/barr-beck-lurie`.
 
-**Acceptance.**
+For F:C⇄D:G with unit and counit, let T=GF be the coherent monad on C. The comparison D→LMod_T(C) is an equivalence precisely when G is conservative and D admits geometric realizations of G-split simplicial objects which G preserves. Split refers to the augmented simplicial diagram after applying G. The algebra comparison preserves the forgetful functor to C.
 
-- Check that both conditions are needed
-- Check that presheaf categories are presentable
-- Check that the adjoint functor theorem follows from the representability criterion
-- Check that a presentable category admits small limits as well as colimits
+Conventions and hypotheses. The coherent adjunction is imported from E3. Preservation of all colimits is sufficient in applications but is not the criterion’s hypothesis.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:CategoryTheory.Limits.HasLimits`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.yoneda`
+Construction or proof. Construct the coherent monad and comparison from the unit and counit. Use the split augmented bar resolution and conservativity to prove full faithfulness and essential surjectivity. Apply the exact G-split realization condition; do not replace it by unqualified preservation of arbitrary limits.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`, `EnhancedDerivedSheaves:E5:abstract/algebra-objects`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`.
 
-- *Definition 5.5.0.1, printed p. 453.* “An infinity-category C is presentable if C is accessible and admits small colimits.”
-  The definition, quoted verbatim from Higher Topos Theory read in this session.
-- *After Definition 5.5.0.1, printed p. 453.* “The main result, Theorem 5.5.1.1, is due to Carlos Simpson: an infinity-category C is presentable if and only if it arises as an (accessible) localization of an infinity-category of presheaves. ... In 5.5.2, we will prove that the converse holds when C is presentable. This representability criterion has a number of consequences: it implies that C admits (small) limits ...”
-  Simpson's theorem and the consequences, quoted verbatim. The excerpt is truncated at
-  a word boundary; the full passage is on the printed page named in the locator.
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Theorem 4.7.3.5, p. 685.
 
-### Coherent group actions on categories, homotopy fixed points, and why isomorphism classes do not suffice
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-`EnhancedDerivedSheaves:E5:presentability/coherent-group-actions` — *construction*
+### Descendable algebras and finite index
 
-**Statement.**
+Target: `EnhancedDerivedSheaves:E5:abstract/descendable-algebras`.
 
-A COHERENT ACTION of a group G on an infinity-category C is a functor BG -> Cat_infinity
-carrying the base point to C; equivalently, by straightening, a coCartesian fibration
-over BG with fibre C. Its HOMOTOPY FIXED POINTS are the limit of that functor, written
-C^{BG}, and the EQUIVARIANT FUNCTOR CATEGORY between two such actions is the limit of
-the functor categories. For a PROFINITE group one asks in addition for CONTINUITY
-THROUGH FINITE QUOTIENTS: the action is a filtered colimit of actions of the finite
-quotients, so that C^{BG} is the corresponding filtered colimit of the C^{BG/N}. The
-roadmap is explicit that these supply the categorical action data used in the spectral
-action and that ORDINARY ACTIONS ON ISOMORPHISM CLASSES DO NOT REPLACE THEM.
+In a presentable stable symmetric monoidal C whose tensor preserves colimits separately, A→B is descendable when A belongs to the thick tensor ideal generated by B in Mod_A(C). Write I=fib(A→B). It has index at most m when the natural map I^⊗_A m→A is nullhomotopic. Descendability is equivalent to such a finite m and to the augmented Amitsur totalization tower being pro-isomorphic to the constant A tower. Its definition uses finite thick generation, not merely recovery of the completed unit by the infinite totalization.
 
-**Hypotheses and warnings.**
+Conventions and hypotheses. m is a nonnegative integer; m=0 forces the unit A to be zero. Nullhomotopy is a nullhomotopy of the map, stronger than vanishing on cohomology.
 
-- The datum is a functor out of BG, not an action of G on objects up to isomorphism; the
-  difference is exactly the higher coherence, and in the consumer roadmaps it is what
-  makes C^{BW_E^I} meaningful
-- For a profinite group the continuity condition must be imposed; without it C^{BG} is
-  the fixed points of an abstract action and has no relation to the topology. Fargues-
-  Scholze's use is through a CONDENSED enhancement, which is HeckeStacksAndLocalShtukas'
-  and stronger than the filtered-colimit formulation here
-- AUDIT-22 records that a grep for 'homotopy fixed' and for equivariantisation finds
-  NOTHING in either library, and that only monoidal actions and shift structures exist
-- NO numbered statement in the sources read fixes this construction; Fargues-Scholze use
-  C^{BW^I} throughout and define the functoriality in finite sets as a map on total
-  spaces over Fin of the corresponding coCartesian fibrations. That convention is the
-  only thing read that pins the notion down, and this node records it as the interface
-  rather than quoting a theorem
+Construction or proof. Define the augmentation fibre and its tensor powers in Mod_A(C). Relate the cubical bar tower to the cosimplicial partial-totalization tower by a pro-comparison. Use nilpotence of the augmentation maps to prove finite-index ⇔ thick generation ⇔ pro-constant Amitsur tower.
 
-**Proof outline.**
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/module-objects`, `EnhancedDerivedSheaves:E5:abstract/stable-tensor-ideals`, `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`.
 
-1. Define a coherent action as a functor BG -> Cat_infinity, equivalently a coCartesian
-   fibration over BG.
-2. Define homotopy fixed points as the limit, and equivariant functor categories as
-   limits of functor categories.
-3. For a profinite G, impose continuity through the finite quotients and identify C^{BG}
-   with the filtered colimit of the C^{BG/N}.
+Source: [Projectivity of the Witt vector affine Grassmannian](https://people.mpim-bonn.mpg.de/scholze/Witt.pdf), Definitions 11.14 and 11.18, p. 43; Lemma 11.20, p. 44; [The Galois group of a stable homotopy theory](https://arxiv.org/pdf/1404.2156), Definition 3.18 and Proposition 3.20, pp. 19–20.
 
-**Planning API.**
+Uses. BS17, Theorem 11.15: Finite nilpotence supplies coherent module descent. BM26, item 47: Descendability is categorical, independent of later concrete spectra.
 
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `CoherentAction` | data | A functor BG -> Cat_infinity, equivalently a coCartesian fibration over BG. |
-| `CoherentAction.notIsoClasses` | structure | This is strictly more than an action on isomorphism classes; the roadmap forbids the substitution. |
-| `homotopyFixedPoints` | data | C^{BG}, the limit of the functor. |
-| `equivariantFunctors` | data | The limit of the functor categories between two actions. |
-| `CoherentAction.profiniteContinuity` | structure | For profinite G, the action is a filtered colimit of actions of finite quotients, and C^{BG} is the corresponding colimit. |
-| `CoherentAction.coCartesianConvention` | compatibility | Matches the convention the consumer roadmaps use, where functoriality in a finite set I is a map on total spaces over Fin of coCartesian fibrations. |
+| `descendable` | characterisation | The thick tensor generation criterion in Mod_A(C). |
+| `descendabilityIndex` | characterisation | The canonical augmentation-fibre tensor-power map is nullhomotopic. |
+| `amitsurTower` | data | The coherent tower of finite Amitsur totalizations, with augmentation. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `ExcursionOperatorsAndSpectralAction:ES0` — the Hecke datum lands in End(C)^{BW^I}
-- `ExcursionOperatorsAndSpectralAction:ES2` — the spectral action is an action in this coherent sense
-- `LanglandsParameterStacks:LP3` — the good-filtration arguments are made in equivariant categories
+- `descendable.test_identity` (degenerate): An identity algebra map has index at most one.
+- `descendable.test_zero_index` (non-example): Index at most zero forces A=0.
+- `descendable.test_completion` (non-example): ℤ_p→𝔽_p is not descendable, although its Amitsur completion recovers the p-complete unit.
 
-**Unit tests.**
+### Module descent and permanence of descendability
 
-- `not_isomorphism_classes` — A coherent action carries more data than an action on isomorphism classes; the roadmap names this as the error to avoid.
-- `higher_group_cohomology` — For a finite group, the homotopy fixed points carry higher group cohomology; this is the roadmap's own acceptance test.
-- `profinite_continuity` — Without the continuity condition, C^{BG} for a profinite G has no relation to its topology.
-- `coCartesian_convention` — The finite-set functoriality is a map on total spaces over Fin, not a compatible family.
+Target: `EnhancedDerivedSheaves:E5:abstract/module-descent-and-functoriality`.
 
-**Acceptance.**
+For descendable A→B, Mod_A(C) → lim_[n] Mod_(B^⊗_A(n+1))(C) is a symmetric monoidal equivalence along extension-of-scalars transitions. Descendability is preserved by composition, by passage to an intermediate algebra, and by exact strong monoidal functors. Cocontinuous lax monoidal functors preserve a specified finite index after applying their algebra and module structure maps. For a finite simplicial diagram of presentably stable symmetric monoidal categories, a commutative algebra in its limit is descendable if and only if its evaluations at every vertex are descendable. Extension of scalars along a descendable map is conservative.
 
-- Check that a coherent action is more than an action on isomorphism classes
-- Check that homotopy fixed points of a finite group action carry higher group cohomology, which is the roadmap's own acceptance test
-- Check that the profinite continuity condition is imposed and what it excludes
-- Check the compatibility with the coCartesian-fibration convention that the consumer roadmaps use
+Conventions and hypotheses. All limits of module categories are coherent limits. For the finite-limit statement use a finite simplicial indexing set; arbitrary inverse limits are not asserted.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E5:abstract`, `mathlib:CategoryTheory.Grothendieck`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.Limits.HasLimits`, `mathlib:SSet.Quasicategory`
+Construction or proof. Use the finite index to show the augmented Amitsur resolutions are effective for every module. Apply the dual Barr–Beck–Lurie criterion to extension of scalars, whose conservativity follows from finite thick generation; the finite-index Amitsur resolution supplies the required split-totalization preservation. Prove composition and intermediate-algebra assertions by induction through thick ideals. Transport the canonical augmentation-power nullhomotopy under the functor. For finite limits of categories use the pointwise detection of a pro-constant bar tower (Mathew Proposition 3.25); for conservativity use the thick-generation argument.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/descendable-algebras`, `EnhancedDerivedSheaves:E5:abstract/barr-beck-lurie`, `EnhancedDerivedSheaves:E5:abstract/module-objects`, `EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories`.
 
-- *Section 5.5 and the straightening equivalence, printed pp. 453 onwards.* “An infinity-category C is presentable if C is accessible and admits small colimits.”
-  The ambient setting. NO numbered statement in Higher Topos Theory or Higher Algebra
-  read in this session defines coherent group actions on categories in the form this
-  stage asks for; this node records the interface and says so.
+Source: [Projectivity of the Witt vector affine Grassmannian](https://people.mpim-bonn.mpg.de/scholze/Witt.pdf), Theorem 11.15 and Lemma 11.17, p. 43; Lemma 11.20, p. 44; [The Galois group of a stable homotopy theory](https://arxiv.org/pdf/1404.2156), Propositions 3.19, 3.22, 3.24–3.27, pp. 19–22.
 
-**What remains in this layer.**
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-- The coherent-group-action node has NO numbered statement behind it. Neither Higher
-  Topos Theory nor Higher Algebra, in the sections read, defines coherent actions on
-  categories in the form the stage text asks for. The node records the interface - a
-  functor out of BG, homotopy fixed points as its limit, continuity through finite
-  quotients for a profinite group - and says explicitly that it is an interface and not
-  a quotation.
-- The tensor and module base-change compatibilities under compact generation, which the
-  stage text asks for, are Higher Algebra Chapter 4's and were not read beyond the
-  definitions of algebra and module objects.
-- Proposition 5.3.5.11, the criterion for the extension to be an equivalence, was
-  located but not read.
-- The proofs of Simpson's theorem, of the representability criterion and of the adjoint
-  functor theorem were not read; only their statements and the summary of their
-  consequences.
+### Uniform index and categorical descendability examples
 
-## E5:animation — Simplicial commutative algebra
+Target: `EnhancedDerivedSheaves:E5:abstract/uniform-index-colimits`.
 
-*Coverage: **partial**. 4 nodes.*
+Let I be a filtered category of finite cohomological dimension, and A_i→B_i a coherent I-diagram of algebra maps with a uniform descendability-index bound. Then colim A_i→colim B_i is descendable. Without the uniform bound this fails. Nilpotent ideal quotients are descendable; the quotient by a locally nilpotent ideal need not be. For a faithfully flat map with countably presented target algebra, descendability follows from Mathew’s countable-presentation theorem. In the Noetherian Gorenstein dimension-d case faithful flatness has index at most d+1.
 
-Sifted simplicial sets and the fact that sifted colimits commute with finite products;
-P_Sigma(C) as the sifted-colimit completion of a category with finite coproducts, with
-its six properties; its universal property, which is the sifted left Kan extension the
-stage text asks for; and animated commutative rings as P_Sigma of the polynomial
-algebras, with pushouts computed as derived tensor products.
+Conventions and hypotheses. The finite cohomological dimension and uniform bound are both needed. Countably presented means both generators and relations, not merely countably generated. For I=ℕ the BS proof gives a bound 2m through the vanishing of lim²; no quantitative bound for arbitrary I is asserted here.
 
-### HTT 5.5.8: sifted simplicial sets, and why they are the right index shapes for animation
+Construction or proof. First reduce a varying-source diagram to the constant source A∞ by extension of scalars; uniform index is preserved and filtered diagonal cofinality identifies the resulting colimit target. For sequential diagrams apply the multiplicative derived-limit filtration to the powers of the augmentation map; two filtration-one maps have zero composite. For finite-cohomological-dimension I use the finite derived-limit filtration and multiplicativity; isolate this general tower input in the recorded gap. Apply the augmentation-fibre nilpotence criterion to nilpotent quotients and BS’s locally-nilpotent counterexample. Import E1’s ordinary Ext/projective-dimension statements to obtain the Gorenstein bound; use Mathew Corollary 3.33 for countable presentations.
 
-`EnhancedDerivedSheaves:E5:animation/sifted-colimits` — *definition*
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/descendable-algebras`, `EnhancedDerivedSheaves:E1`, `EnhancedDerivedSheaves:E2`, `EnhancedDerivedSheaves:E5:abstract/module-descent-and-functoriality`.
 
-**Statement.**
+Source: [Projectivity of the Witt vector affine Grassmannian](https://people.mpim-bonn.mpg.de/scholze/Witt.pdf), Examples 11.19 and 11.21; Lemma 11.22; Remark 11.24, pp. 44–45; [The Galois group of a stable homotopy theory](https://arxiv.org/pdf/1404.2156), Corollary 3.33, p. 24.
 
-A simplicial set K is SIFTED if it is nonempty and the diagonal K -> K x K is cofinal;
-equivalently, colimits indexed by K COMMUTE WITH FINITE PRODUCTS in spaces. The two
-basic examples are the FILTERED categories and N(Delta^op), whose colimits are the
-geometric realisations. A functor preserves sifted colimits if and only if it preserves
-both filtered colimits and geometric realisations, which is the form in which the
-condition is checked.
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-**Hypotheses and warnings.**
+### Formal inversion of a tensor object
 
-- Siftedness is exactly the condition that makes colimits commute with finite products,
-  and that is what makes a sifted-colimit completion of a category with finite
-  coproducts inherit an algebraic structure
-- Filtered colimits and geometric realisations generate the sifted ones, which is why
-  the universal property of the animation is stated with those two conditions
-- Mathlib HAS sifted categories: `CategoryTheory.IsSifted` in
-  Mathlib/CategoryTheory/Limits/Sifted.lean, with the statement that sifted colimits
-  commute with finite products. AUDIT-22 records exactly this as available, and it is
-  cited here rather than replanned
-- The infinity-categorical notion is about simplicial sets and cofinality; the pinned
-  1-categorical class is its ordinary shadow and the comparison is the roadmap's
-  requirement
+Target: `EnhancedDerivedSheaves:E5:abstract/formal-tensor-inversion`.
 
-**Proof outline.**
+For presentably symmetric monoidal C and X∈C, C[X⁻¹] is initial among presentably symmetric monoidal categories receiving a colimit-preserving strong monoidal functor from C in which X becomes tensor invertible. For a presentable C-module M its base change M⊗_C C[X⁻¹] is the universal inversion of X on M. If the cyclic permutation of X⊗X⊗X is homotopic to the identity, its underlying category is the telescope M→M→⋯ with transition X⊗−. Without this symmetric-object hypothesis the telescope formula is not asserted.
 
-1. Define siftedness by cofinality of the diagonal.
-2. Record the equivalence with commutation of colimits and finite products.
-3. Record that filtered colimits and geometric realisations generate.
+Conventions and hypotheses. Universes and presentability are fixed. The cyclic symmetry is a coherent homotopy condition, not equality in an ordinary Grothendieck group.
 
-**Planning API.**
+Construction or proof. Construct the inversion as a localization in commutative algebra objects of PrL. Base change modules along its universal map. Apply Robalo’s symmetric-object argument to identify the telescope, checking the permutation hypothesis.
 
-| Name | Role | Statement |
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/algebra-objects`, `EnhancedDerivedSheaves:E5:abstract/module-objects`, `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`.
+
+Source: [K-theory and the bridge from motives to noncommutative motives](https://arxiv.org/pdf/1206.3645), Proposition 4.10, pp. 75–76; Definition 4.18, p. 88; Proposition 4.21, p. 90; Corollary 4.24, p. 92.
+
+Uses. BM26, item 47: Imports formal categorical tensor inversion; motive-specific objects belong to the Berkovich continuation.
+
+| API name | Role | Specification |
 | --- | --- | --- |
-| `IsSifted` | data | K nonempty with K -> K x K cofinal. |
-| `IsSifted.commutesWithFiniteProducts` | characterisation | Equivalently, K-indexed colimits commute with finite products. |
-| `IsSifted.filtered` | example | Filtered categories are sifted. |
-| `IsSifted.simplicial` | example | N(Delta^op) is sifted; its colimits are geometric realisations. |
-| `IsSifted.generation` | structure | Filtered colimits and geometric realisations generate the sifted colimits. |
-| `IsSifted.toMathlib` | compatibility | On ordinary categories this is Mathlib's `CategoryTheory.IsSifted`, which already proves the commutation with finite products. |
+| `tensorInversion` | constructor | The universal presentable symmetric monoidal inversion. |
+| `tensorInversionMap` | data | The colimit-preserving strong monoidal universal map. |
+| `tensorInversionUniversal` | universal-property | Restriction identifies functors with those carrying X to an invertible object. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category` — P_Sigma is the sifted-colimit completion
-- `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation` — the universal property is about sifted colimits
-- `ExcursionOperatorsAndSpectralAction:ES3` — the sifted-colimit approximation of FS X.3 is an instance of this
+- `tensorInversion.test_unit` (degenerate): Inverting the unit changes C by an equivalence.
+- `tensorInversion.test_zero` (degenerate): Inverting zero in a stable C gives the zero category.
+- `tensorInversion.test_idempotent` (characterisation): Inverting the already inverted object again changes nothing.
 
-**Unit tests.**
+## Presentable categories and coherent extensions
 
-- `filtered_is_sifted` — Filtered categories are sifted.
-- `delta_op_is_sifted` — N(Delta^op) is sifted.
-- `products_commute` — Sifted colimits commute with finite products; this is the pinned Mathlib statement on ordinary categories.
-- `generated_by_two` — Preserving filtered colimits and geometric realisations is the same as preserving sifted colimits.
+### Compact objects
 
-**Acceptance.**
+Target: `EnhancedDerivedSheaves:E5:presentability/compact-objects`.
 
-- Check that filtered categories are sifted
-- Check that N(Delta^op) is sifted
-- Check that sifted colimits commute with finite products, against the pinned Mathlib statement
-- Check that a functor preserves sifted colimits iff it preserves filtered colimits and geometric realisations
+For regular κ, an object x of C is κ-compact if Map_C(x,−) preserves κ-filtered colimits. Compact means ω-compact. Write C^κ for the full subcategory. In a presentable stable C, compact generation means a small set of compact objects whose shifts detect zero. Finite colimits and retracts of compact objects are compact. Compactness is a mapping-space condition, not merely finite generation of the cohomology groups.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E3`, `EnhancedDerivedSheaves:E0`, `mathlib:CategoryTheory.IsSifted`, `mathlib:CategoryTheory.IsFiltered`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`, `mathlib:SSet`
+Conventions and hypotheses. C admits the indicated filtered colimits. Use universes where C^κ is essentially small when forming its Ind-completion.
 
-**Sources.**
+Construction or proof. Apply E0 mapping spaces to the canonical filtered-colimit comparison. Identify the full subcategory by this preservation property. For stable C use finite-limit commutation in spaces and the suspension equivalence.
 
-- *Section 5.5.8 and Lemma 5.5.8.11 region, printed pp. 506-508.* “Before giving the proof, we need a preliminary result concerning the interactions between products and sifted colimits.”
-  Where the interaction of sifted colimits with products is established in Higher
-  Topos Theory, read in this session. The pinned `CategoryTheory.IsSifted` states the
-  ordinary form of the same fact and is cited rather than replanned.
-- *Proposition 5.5.8.15, printed p. 509.* “let D be an infinity-category which admits filtered colimits and geometric realizations. ... (2) Any functor g in Fun'(P_Sigma(C),D) preserves sifted colimits.”
-  That filtered colimits and geometric realisations generate the sifted ones, in the
-  form the universal property uses.
+Direct inputs: `EnhancedDerivedSheaves:E0/right-mapping-space`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`.
 
-### HTT 5.5.8.10: P_Sigma(C), the sifted-colimit completion of a category with finite coproducts
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Definition 5.3.4.5, printed p. 396 (PDF p. 414).
 
-`EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category` — *construction* · planet **The sifted-colimit completion**
+Uses. FS21, Lemma IV.2.20: Compact objects test preservation of coproducts by right adjoints.
 
-**Statement.**
-
-Let C be a small infinity-category which admits FINITE COPRODUCTS. Then P_Sigma(C), the
-full subcategory of P(C) spanned by the presheaves carrying finite coproducts to
-products, satisfies: (1) it is an ACCESSIBLE LOCALIZATION of P(C); (2) the Yoneda
-embedding factors through it and carries finite coproducts to finite coproducts; (3) for
-an adjunction between P_Sigma(C) and a presentable D, the right adjoint factors through
-P_Sigma(C) if and only if the composite of the left adjoint with the Yoneda embedding
-preserves finite coproducts; (4) P_Sigma(C) inside P(C) is STABLE UNDER SIFTED COLIMITS;
-(5) the left adjoint L : P(C) -> P_Sigma(C) PRESERVES SIFTED COLIMITS; (6) P_Sigma(C) is
-COMPACTLY GENERATED.
-
-**Hypotheses and warnings.**
-
-- C must admit FINITE COPRODUCTS; without them there is no condition to impose and
-  P_Sigma is all of P(C)
-- P_Sigma(C) is the ANIMATION of C in the modern terminology: the free sifted-colimit
-  completion. When C is the category of finitely generated free R-algebras, P_Sigma(C)
-  is the animated R-algebras
-- AUDIT-22 records that a grep for 'animated' and 'simplicial commutative ring' returns
-  nothing in either library, and that what Mathlib does have is sifted categories and
-  polynomial presentations of algebras
-- Clause (5) is what makes the localisation compatible with the sifted colimits one
-  wants to compute with, and clause (6) is what makes it presentable and compactly
-  generated
-
-**Proof outline.**
-
-1. Impose on a presheaf the condition of carrying finite coproducts to products.
-2. Show the resulting full subcategory is an accessible localisation and that Yoneda
-   factors through it.
-3. Prove stability under sifted colimits and that the localisation preserves them.
-4. Deduce compact generation.
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `PSigma` | data | The full subcategory of P(C) of presheaves carrying finite coproducts to products. |
-| `PSigma.needsFiniteCoproducts` | structure | C must admit finite coproducts; otherwise the condition is vacuous. |
-| `PSigma.yoneda` | structure | Yoneda factors through and carries finite coproducts to finite coproducts. |
-| `PSigma.siftedStable` | structure | Stable under sifted colimits, and the localisation preserves them. |
-| `PSigma.compactlyGenerated` | structure | Compactly generated, with the image of C among the compact objects. |
-| `PSigma.isAnimation` | example | For C the finitely generated free R-algebras this is the animated R-algebras. |
+| `compactObjects` | constructor | The full subcategory of ω-compact objects. |
+| `compactMappingComparison` | characterisation | Map(x,colim y_i) ≃ colim Map(x,y_i) for x compact. |
+| `compactRetract` | structure | Retracts of compact objects are compact. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation` — the universal property is about this category
-- `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings` — animated rings are the instance for polynomial algebras
-- `LanglandsParameterStacks:LP1` — the derived moduli problem is defined on animated Z_l-algebras
+- `compactObjects.test_zero` (degenerate): Zero is compact in any stable C.
+- `compactObjects.test_ring` (compatibility): R in D(R) is compact and its shifts detect zero.
+- `compactObjects.test_infinite_sum` (non-example): The countable direct sum of copies of a nonzero field is not compact in its derived category.
 
-**Unit tests.**
+### Ind-completion
 
-- `finite_coproducts_needed` — Without finite coproducts in C the condition is vacuous and P_Sigma is P.
-- `yoneda_preserves_coproducts` — Yoneda carries finite coproducts to finite coproducts.
-- `sifted_stability` — Stable under sifted colimits, and L preserves them.
-- `compact_generation` — Compactly generated, with the image of C compact.
+Target: `EnhancedDerivedSheaves:E5:presentability/ind-completion`.
 
-**Acceptance.**
+Ind_κ(C) is the full subcategory of P(C)=Fun(Cop,Spaces) spanned by κ-filtered colimits of representables. Yoneda lands in it and is fully faithful; the representables are κ-compact, and every object has a κ-filtered presentation. For a small idempotent-complete C with finite colimits, Ind(C) is compactly generated and its compact objects recover C. On ordinary C the 0-truncated presheaf part compares with Mathlib’s set-valued Ind(C); it is not an unconditional equivalence with the full space-valued completion.
 
-- Check that finite coproducts in C are required
-- Check that Yoneda carries finite coproducts to finite coproducts
-- Check stability under sifted colimits and preservation by the localisation
-- Check compact generation, with the image of C among the compact objects
+Conventions and hypotheses. C is small in the input universe. For κ>ω the generation equivalence uses the relevant κ-small colimits; the finite-colimit formulation here is for ω.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:animation/sifted-colimits`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E3`, `mathlib:CategoryTheory.IsSifted`, `mathlib:CategoryTheory.Limits.HasCoproducts`, `mathlib:CategoryTheory.yoneda`, `mathlib:CategoryTheory.Limits.HasFilteredColimits`
+Construction or proof. Use E3 presheaf Yoneda and select filtered colimits of representables. Prove full faithfulness, compactness and filtered presentation using the mapping-space formula. Identify compact objects as retracts of representables under the finite-colimit hypotheses.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`, `mathlib:CategoryTheory.Ind`.
 
-- *Proposition 5.5.8.10, printed pp. 507-508.* “Let C be a small infinity-category which admits finite coproducts. Then (1) The infinity-category P_Sigma(C) is an accessible localization of P(C). (2) The Yoneda embedding j : C -> P(C) factors through P_Sigma(C). Moreover, j carries finite coproducts in C to finite coproducts in P_Sigma(C). ... (4) The full subcategory P_Sigma(C) inside P(C) is stable under sifted colimits. ...”
-  The construction and its six properties, quoted verbatim from Higher Topos Theory
-  read in this session. The excerpt is truncated at a word boundary; the full passage
-  is on the printed page named in the locator.
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Definition 5.3.5.1, printed p. 403; Propositions 5.3.5.10–11, printed pp. 406–407.
 
-### HTT 5.5.8.15: functors out of P_Sigma(C) are functors out of C, by sifted left Kan extension
+Uses. NS18, Proposition I.3.5: The large quotient is the Ind extension of the small quotient.
 
-`EnhancedDerivedSheaves:E5:animation/universal-property-of-animation` — *theorem* · planet **The universal property of animation**
-
-**Statement.**
-
-Let C be a small infinity-category which admits finite coproducts and let D be an
-infinity-category which admits FILTERED COLIMITS and GEOMETRIC REALIZATIONS. Let
-Fun'(P_Sigma(C),D) be the full subcategory of functors preserving filtered colimits and
-geometric realisations. Then: (1) composition with the Yoneda embedding induces an
-EQUIVALENCE Fun'(P_Sigma(C),D) -> Fun(C,D); (2) any functor in Fun'(P_Sigma(C),D)
-PRESERVES SIFTED COLIMITS; (3) if D admits finite coproducts, a functor g in
-Fun'(P_Sigma(C),D) preserves SMALL COLIMITS if and only if g composed with the Yoneda
-embedding preserves FINITE COPRODUCTS.
-
-**Hypotheses and warnings.**
-
-- This is the SIFTED LEFT KAN EXTENSION the stage text asks for: a functor on C extends
-  essentially uniquely to a sifted-colimit-preserving functor on the animation
-- D must admit filtered colimits AND geometric realisations; those two together are the
-  sifted colimits, by the previous node
-- Clause (3) is the criterion for the extension to preserve all colimits, and it is
-  checked on C alone
-- The proof rests on P_Sigma(C) being the smallest full subcategory of P(C) closed under
-  filtered colimits and geometric realisations and containing the Yoneda image; that is
-  Lemma 5.5.8.14 together with Proposition 5.5.8.10
-- This is the statement that makes 'animation' a construction one can compute with:
-  every operation on polynomial algebras extends uniquely
-
-**Proof outline.**
-
-1. Note that P_Sigma(C) is the smallest full subcategory of P(C) closed under filtered
-   colimits and geometric realisations and containing the Yoneda image.
-2. Deduce that restriction along Yoneda is an equivalence onto Fun(C,D).
-3. Deduce that any such functor preserves sifted colimits.
-4. Give the criterion for preservation of all colimits in terms of finite coproducts.
-
-**Acceptance.**
-
-- Check that both filtered colimits and geometric realisations are required of D
-- Check that the extension preserves sifted colimits
-- Check the finite-coproduct criterion for preservation of all colimits
-- Check that the extension restricts back to the given functor
-
-**Prerequisites.** `EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category`, `EnhancedDerivedSheaves:E5:animation/sifted-colimits`, `EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E3`, `mathlib:CategoryTheory.IsSifted`, `mathlib:CategoryTheory.Limits.HasCoproducts`, `mathlib:CategoryTheory.Functor`, `mathlib:CategoryTheory.yoneda`
-
-**Sources.**
-
-- *Proposition 5.5.8.15, printed p. 509.* “Let C be a small infinity-category which admits finite coproducts and let D be an infinity-category which admits filtered colimits and geometric realizations. Let Fun'(P_Sigma(C),D) denote the full subcategory spanned by those functors P_Sigma(C) -> D which preserve filtered colimits and geometric realizations. Then (1) Composition with the Yoneda embedding j : C -> P_Sigma(C) ...”
-  The universal property, quoted verbatim from Higher Topos Theory read in this
-  session. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
-- *Proof of Proposition 5.5.8.15, printed p. 509.* “Lemma 5.5.8.14 and Proposition 5.5.8.10 imply that P_Sigma(C) is the smallest full subcategory of P(C) which is closed under filtered colimits, is closed under geometric realizations, and contains the essential image of the Yoneda embedding.”
-  The key step of the proof, quoted verbatim.
-
-### Animated commutative rings as P_Sigma of the polynomial algebras, with tensor pushouts
-
-`EnhancedDerivedSheaves:E5:animation/animated-commutative-rings` — *definition* · planet **Animated commutative rings**
-
-**Statement.**
-
-For a commutative ring R, the infinity-category of ANIMATED COMMUTATIVE R-ALGEBRAS is
-P_Sigma(Poly_R), where Poly_R is the ordinary category of FINITELY GENERATED FREE - that
-is, polynomial - R-algebras, which admits finite coproducts, the coproduct being the
-tensor product over R. By the universal property, every functor on Poly_R extends
-essentially uniquely to a sifted-colimit-preserving functor on animated R-algebras; in
-particular the tensor product extends, and the PUSHOUT of animated R-algebras along a
-pair of maps is computed by the derived tensor product, because pushouts of polynomial
-algebras are tensor products and the extension preserves all colimits by the finite-
-coproduct criterion. Equivalently, animated R-algebras are the infinity-category
-underlying simplicial commutative R-algebras.
-
-**Hypotheses and warnings.**
-
-- The generators are the POLYNOMIAL algebras, not the finitely presented ones; that is
-  what makes the completion free and the universal property applicable
-- The coproduct in Poly_R is the tensor product over R, so the extension criterion of
-  clause (3) applies and the extended functors preserve all colimits
-- The comparison with simplicial commutative rings is the classical formulation; HTT
-  5.5.9 presents the same ideas in Quillen's form, through a rectification result, and
-  that section was NOT read
-- AUDIT-22 records that neither library has animated or simplicial commutative rings,
-  and that what exists is sifted categories and polynomial presentations of algebras
-- The roadmap's consumers use this in two places: LanglandsParameterStacks:LP1 needs the
-  moduli problem on animated Z_l-algebras, and DerivedDeRhamCohomology:DD.0 builds the
-  cotangent complex from this prefix
-
-**Proof outline.**
-
-1. Take Poly_R, the polynomial R-algebras, and note it admits finite coproducts.
-2. Form P_Sigma(Poly_R) and call it the animated R-algebras.
-3. Extend the tensor product by the universal property and identify pushouts with derived
-   tensor products.
-4. Record the comparison with simplicial commutative rings.
-
-**Planning API.**
-
-| Name | Role | Statement |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `AnimatedAlg` | data | P_Sigma(Poly_R), the animated commutative R-algebras. |
-| `AnimatedAlg.generators` | structure | The generators are the POLYNOMIAL algebras; the coproduct in Poly_R is the tensor product over R. |
-| `AnimatedAlg.pushout` | characterisation | Pushouts are derived tensor products, by the finite-coproduct criterion. |
-| `AnimatedAlg.discrete` | structure | Ordinary R-algebras sit inside as the discrete objects. |
-| `AnimatedAlg.simplicialComparison` | compatibility | Equivalent to simplicial commutative R-algebras, by the rectification of HTT 5.5.9, which was not read. |
+| `indCompletion` | constructor | The space-valued filtered-colimit completion. |
+| `indYoneda` | data | The fully faithful representable embedding. |
+| `indCompactComparison` | equivalence | For small stable idempotent-complete C, compact objects of Ind(C) are C. |
 
-**Where it is used.**
+The following tests separate the intended definition from plausible substitutes.
 
-- `LanglandsParameterStacks:LP1` — the derived moduli problem of L-parameters is defined on animated Z_l-algebras
-- `DerivedDeRhamCohomology:DD.0` — the cotangent complex is built from this prefix
-- `PrismaticCohomology:PR.5` — the prismatic applications consume animated rings
+- `indCompletion.test_terminal` (degenerate): Ind(*) is terminal.
+- `indCompletion.test_compacts` (characterisation): For small stable idempotent-complete C, the compact comparison is an equivalence.
+- `indCompletion.test_discrete` (computation): For an ordinary discrete category, no filtered presentation creates a new connected component.
 
-**Unit tests.**
+### The universal property of Ind
 
-- `polynomial_generators` — The generators are polynomial algebras; using finitely presented ones changes the completion.
-- `pushout_is_tensor` — Pushouts are derived tensor products.
-- `discrete_inclusion` — Ordinary R-algebras embed as the discrete objects.
-- `simplicial_comparison` — The comparison with simplicial commutative rings is a rectification theorem, not a definition.
+Target: `EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind`.
 
-**Acceptance.**
+If small C and D admits κ-filtered colimits, restriction along Yoneda gives Fun_κ(Ind_κ(C),D) ≃ Fun(C,D). The extension sends a filtered presentation colim_i y(c_i) to colim_i F(c_i), independently of the presentation. If C,D have finite colimits and F preserves them, its Ind extension preserves all colimits. The extension is an equivalence exactly when the input is fully faithful, its objects are κ-compact in D, and they κ-filtered-generate D.
 
-- Check that the generators are the polynomial algebras
-- Check that pushouts are derived tensor products
-- Check that an ordinary R-algebra is an animated one, and that the inclusion is fully faithful on discrete objects
-- Check the comparison with simplicial commutative rings
+Conventions and hypotheses. The equivalence criterion refers to the stated fully faithful input, not an arbitrary functor.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category`, `EnhancedDerivedSheaves:E5:animation/sifted-colimits`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E3`, `mathlib:CommRing`, `mathlib:MvPolynomial`, `mathlib:CategoryTheory.IsSifted`, `mathlib:CategoryTheory.Limits.HasCoproducts`
+Construction or proof. Apply the E3 full-inclusion left Kan extension to Yoneda. Use filtered presentations to prove evaluation and uniqueness on mapping spaces. Use compactness to prove full faithfulness of the extension, then generation for essential surjectivity.
 
-**Sources.**
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`.
 
-- *Section 5.5.8 introduction, printed p. 506.* “The presence of enough compact projective objects in an infinity-category allows us to construct projective resolutions, which gives rise to the theory of nonabelian homological algebra (or 'homotopical algebra'). We will review the rudiments of this theory in 5.5.8. Finally, in 5.5.9 we will present the same ideas in a more classical form following Quillen's manuscript. The ...”
-  The setting and the comparison with Quillen's simplicial commutative rings, quoted
-  verbatim from Higher Topos Theory read in this session. Section 5.5.9 itself was NOT
-  read. The excerpt is truncated at a word boundary; the full passage is on the
-  printed page named in the locator.
-- *Proposition 5.5.8.15 (3), printed p. 509.* “Assume that D admits finite coproducts. A functor g in Fun'(P_Sigma(C),D) preserves small colimits if and only if g composed with j preserves finite coproducts.”
-  The criterion that makes the extended tensor product preserve colimits, hence
-  compute pushouts.
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Propositions 5.3.5.10–11, printed pp. 406–407 (PDF pp. 424–425).
 
-**What remains in this layer.**
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-- Section 5.5.9, which compares this construction with Quillen's simplicial commutative
-  rings through the rectification result 5.5.9.2, was NOT read. So the identification of
-  animated rings with simplicial commutative rings - which the stage text states as the
-  definition - is recorded as an imported comparison and not as a quotation.
-- Lemma 5.5.8.14, on which the proof of the universal property rests, was located but
-  not read.
-- The compact projective objects that make the nonabelian homological algebra work were
-  read only in the section's introduction.
-- BS22, named in the source route, was not identified; see the note on the parent layer.
+### Stable and monoidal Ind-completion
 
-## E5:cotangent-export — The return from derived de Rham
+Target: `EnhancedDerivedSheaves:E5:presentability/ind-of-a-stable-category-is-stable`.
 
-*Coverage: **not_read**. 2 nodes.*
+For small stable C, Ind_κ(C) is stable and Yoneda is exact. For small symmetric monoidal C, Ind(C) has a symmetric monoidal structure whose tensor preserves filtered colimits separately and extends C’s tensor. If C is stable and tensor exact separately, this tensor preserves all colimits separately. Exact strong monoidal functors on C extend to colimit-preserving strong monoidal functors on Ind(C); uniqueness includes their coherent monoidal structure.
 
-This layer constructs nothing: DerivedDeRhamCohomology:DD.0 owns the cotangent complex,
-its derivation characterisation, transitivity and base change, derived exterior powers
-and Tor-amplitude tests, and E5 re-exports that one interface. Two nodes record the
-import and the positive-characteristic restriction on comparing with E-infinity
-algebras.
+Conventions and hypotheses. The monoidal colimit-preservation conclusion needs stability and exactness, not just existence of tensor.
 
-### What this layer re-exports, and why it constructs nothing
+Construction or proof. Express arrows as filtered colimits of arrows in C and compute their cofibers. Use finite-limit commutation with filtered colimits in spaces to identify fibers. Apply the monoidal free-colimit completion in HA 4.8.1.14; check finite cofiber compatibility to upgrade filtered preservation to all colimits.
 
-`EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface` — *comparison*
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind`, `EnhancedDerivedSheaves:E5:abstract/symmetric-monoidal-infinity-category`, `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison`.
 
-**Statement.**
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Proposition 1.1.3.6, p. 32; Corollary 4.8.1.14, pp. 711–712.
 
-This layer constructs NOTHING of its own. The cotangent complex, its derivation
-characterisation, transitivity and base change, derived exterior powers and Tor-
-amplitude tests are constructed by DerivedDeRhamCohomology:DD.0 FROM THE ANIMATION
-PREFIX of E5:animation, and this layer re-exports that ONE interface. The reviewed audit
-AUDIT-22 records DD.0 as a duplicate of this stage's target for exactly that reason, and
-records the pinned state precisely: Mathlib has the NAIVE two-term cotangent complex
-with its H^1 and the Jacobi-Zariski sequence, while the full derived cotangent complex,
-derived exterior powers and Tor amplitude are missing and DD.0 owns them.
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-**Hypotheses and warnings.**
+### Presentable infinity-categories
 
-- By PROTOCOL.md section 15 a construction two layers share is planned once, by the
-  owner; DD.0 is the owner and this layer imports
-- The direction matters: DD.0 consumes E5:animation and is consumed by E5:cotangent-
-  export, so the animation prefix must be built before the cotangent complex, and the
-  export after it
-- Mathlib's `Algebra.Extension.H1Cotangent` and the Jacobi-Zariski sequence are the
-  pinned partial half and are cited, not replanned
-- The roadmap also names PrismaticCohomology PR.0-2 as the owner of the generic
-  prismatic application, PerfectoidQuotients Q0-4 of the perfectoidization application,
-  and LanglandsParameterStacks of the derived affine, quotient and mapping stacks; none
-  of those is planned here either
+Target: `EnhancedDerivedSheaves:E5:presentability/presentable-categories`.
 
-**Proof outline.**
+C is presentable when it is accessible and admits all small colimits. Equivalently it is an accessible reflective localization of a presheaf infinity-category. PrL has these objects and colimit-preserving functors; PrR uses accessible right adjoints. Accessibility entails a regular cardinal and an essentially small subcategory of compact objects generating by that cardinal’s filtered colimits. Presentability alone does not assert compact generation at ω.
 
-1. Record that DD.0 owns the construction and that this layer re-exports it.
-2. Record the pinned partial state: the naive cotangent complex and the Jacobi-Zariski
-   sequence exist; the derived version, derived exterior powers and Tor amplitude do not.
-3. Record the three other ownerships the stage text names.
+Conventions and hypotheses. Maintain the specified universe of small colimits. Representability and adjoint existence are supplied by E3, including the accessibility condition.
 
-**Acceptance.**
+Construction or proof. Describe accessibility by the essentially small κ-compact subcategory and its filtered generation. Construct the space-valued presheaf category using E0 functor/limit infrastructure; use HTT 5.5.1.1 to compare accessible presheaf localizations with the definition. Define PrL and PrR by their coherent preservation/adjoint properties; E1’s concrete sheaf application imports this generic definition.
 
-- Check that nothing is constructed here
-- Check that the import direction is E5:animation, then DD.0, then this layer
-- Check that the pinned naive cotangent complex is cited and not replanned
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/ind-completion`, `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`.
 
-**Prerequisites.** `EnhancedDerivedSheaves:E5:animation`, `DerivedDeRhamCohomology:DD.0`, `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `mathlib:Algebra.Extension.H1Cotangent`, `mathlib:CommRing`, `mathlib:MvPolynomial`
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Definition 5.5.0.1, printed p. 456 (PDF p. 474); Theorem 5.5.1.1, printed pp. 457–459.
 
-**Sources.**
+Uses. Diamonds, Lemma 17.1 and Proposition 26.2: The generic limit theorem is here; the geometric full subcategory and completion are consumers.
 
-- *Section 5.5.8, printed p. 506.* “The presence of enough compact projective objects in an infinity-category allows us to construct projective resolutions, which gives rise to the theory of nonabelian homological algebra.”
-  The only thing this layer needs from the sources read: the animation prefix out of
-  which DerivedDeRhamCohomology:DD.0 builds the cotangent complex. Nothing about the
-  cotangent complex itself is quoted here, because nothing about it is planned here.
-
-### In positive characteristic, compare with E-infinity algebras only in proved ranges
-
-`EnhancedDerivedSheaves:E5:cotangent-export/e-infinity-comparison-in-proved-ranges` — *comparison*
-
-**Statement.**
-
-The stage text imposes a restriction that this packet records and does not weaken: in
-POSITIVE CHARACTERISTIC, the comparison between animated commutative algebras and
-E-INFINITY ALGEBRAS is to be made ONLY IN PROVED RANGES, and STRICTLY COMMUTATIVE
-DIFFERENTIAL GRADED ALGEBRAS ARE NOT A GENERAL REPLACEMENT. The two notions agree in
-characteristic zero, where a strictly commutative dg algebra models an E-infinity
-algebra and the animation of polynomial algebras is equivalent to connective E-infinity
-algebras; in characteristic p they DIVERGE, and an animated ring is in general strictly
-more rigid than the underlying E-infinity ring.
-
-**Hypotheses and warnings.**
-
-- The warning is the roadmap's, and it is right: in characteristic p the free E-infinity
-  algebra on one generator has Dyer-Lashof operations that the free animated algebra
-  does not, so the forgetful functor from animated to E-infinity rings is neither full
-  nor essentially surjective
-- AUDIT-22 records that NEITHER LIBRARY HAS E-INFINITY ALGEBRAS at all - a grep for
-  prespectrum and for orthogonal and symmetric spectra returns nothing - so the
-  comparison cannot even be stated at the pins
-- The characteristic-zero agreement is what makes the confusion tempting, and it is why
-  the roadmap states the restriction rather than leaving it implicit
-- NO statement in Higher Topos Theory or Higher Algebra read in this session makes this
-  comparison; HA Chapter 7 treats E-infinity rings and HTT 5.5.9 the simplicial ones,
-  and neither section was read. This node records the restriction as an obligation with
-  no locator
-
-**Proof outline.**
-
-1. Record that the two notions agree in characteristic zero.
-2. Record that in characteristic p they diverge and that the divergence is not a
-   technicality.
-3. Record that no comparison may be asserted outside a proved range, and that strictly
-   commutative dg algebras are not a general replacement.
-
-**Acceptance.**
-
-- Check that the characteristic-zero agreement is not extended to characteristic p
-- Check that no statement in this packet asserts an equivalence outside a proved range
-- Check that neither library has E-infinity algebras, so the comparison is not available at the pins
-
-**Prerequisites.** `EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface`, `EnhancedDerivedSheaves:E5:animation`, `DerivedDeRhamCohomology:DD.0`, `EnhancedDerivedSheaves:E5:spectra-comparison`, `mathlib:CommRing`, `mathlib:CategoryTheory.MonoidalCategory`
-
-**Sources.**
-
-- *Section 5.5.9, printed p. 506 (located, not read).* “Finally, in 5.5.9 we will present the same ideas in a more classical form following Quillen's manuscript. The comparison of these two perspectives is based on a rectification result (Proposition 5.5.9.2).”
-  The rectification comparison between the animation and simplicial commutative rings,
-  which is a DIFFERENT comparison from the one this node is about. NO statement read
-  in this session compares animated with E-infinity algebras, and this node records
-  the restriction as an obligation rather than quoting a theorem.
-
-**What remains in this layer.**
-
-- NOTHING about the cotangent complex was read in this session. The layer's content is
-  entirely an import from DD.0, which AUDIT-22 records as a duplicate of this stage's
-  target, and this packet plans none of it.
-- The comparison with E-infinity algebras in positive characteristic has NO locator: no
-  statement read in this session makes it. Higher Algebra Chapter 7, which treats
-  E-infinity rings, was not read, and neither library has E-infinity algebras at all.
-- The status is recorded as not_read rather than partial, because the two nodes here are
-  boundary markers and neither plans a construction.
-
-## E5:spectra-comparison — Late concrete realization
-
-*Coverage: **not_read**. 1 node.*
-
-A late return: after StableHomotopyKTheory H.5 supplies concrete spectra, this layer
-compares them with the abstract stable and monoidal construction. One node records the
-three comparisons and the two structural facts the roadmap insists on - that this is not
-a prerequisite of E5:abstract or E5:animation, and that the concrete spectra are not
-rebuilt here.
-
-### The late comparison with concrete spectra, and why it is not a prerequisite
-
-`EnhancedDerivedSheaves:E5:spectra-comparison/late-realisation` — *comparison*
-
-**Statement.**
-
-After StableHomotopyKTheory H.5 supplies CONCRETE SPECTRA and spectral module
-categories, this layer compares them with the abstract stable and monoidal construction
-of E5:abstract: the EXACT TENSOR comparison, the EILENBERG-MAC LANE comparison, and the
-COHERENT ACTION comparison used by E1's spectral realisation. The roadmap states two
-things about this return that a reader must not lose: it is NOT A PREREQUISITE of
-E5:abstract or E5:animation, so neither of those may cite it; and StableHomotopyKTheory
-supplies the concrete spectrum objects, so E5:presentability does not construct them
-again.
-
-**Hypotheses and warnings.**
-
-- The return structure is the point: E5:abstract and E5:animation are complete without
-  spectra, and the whole of the geometric-Langlands consumer chain goes through them and
-  not through this layer
-- Higher Algebra constructs the stable infinity-category Sp of spectra and shows it is
-  in a sense the universal stable infinity-category; that construction is
-  StableHomotopyKTheory's by the roadmap's division, and this layer only compares
-- AUDIT-22 records that neither library has spectra: a grep for prespectrum and for
-  orthogonal and symmetric spectra returns nothing, and Tau Ceti has only K(G,1) spaces
-- The Eilenberg-Mac Lane comparison is the statement that the derived category of a ring
-  is the modules over its Eilenberg-Mac Lane spectrum; that is HA Chapter 7 and was NOT
-  read
-
-**Proof outline.**
-
-1. Record that H.5 supplies the concrete spectra.
-2. State the three comparisons: exact tensor, Eilenberg-Mac Lane, and coherent actions.
-3. Record that this layer is a return and is not a prerequisite of the abstract or
-   animation layers.
-
-**Acceptance.**
-
-- Check that E5:abstract and E5:animation do not cite this layer
-- Check that the concrete spectra come from H.5 and are not rebuilt
-- Check that neither pinned library has spectra
-
-**Prerequisites.** `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `StableHomotopyKTheory:H.5`, `EnhancedDerivedSheaves:E1`, `mathlib:CategoryTheory.Pretriangulated`, `mathlib:DerivedCategory`, `mathlib:CategoryTheory.HasShift`
-
-**Sources.**
-
-- *Example 1.1.1.11, printed p. 20.* “Recall that a spectrum consists of an infinite sequence of pointed topological spaces {X_i}_{i >= 0}, together with homeomorphisms X_i = Omega X_{i+1}, where Omega denotes the loop space functor. The collection of spectra can be organized into a stable infinity-category Sp. Moreover, Sp is in some sense the universal example of a stable infinity-category. This motivates the ...”
-  What is being compared with, in Higher Algebra's own words, read in this session.
-  The construction of Sp belongs to StableHomotopyKTheory by the roadmap's division
-  and is not planned here. The excerpt is truncated at a word boundary; the full
-  passage is on the printed page named in the locator.
-
-**What remains in this layer.**
-
-- Higher Algebra Chapter 1's Example 1.1.1.11 is the only thing read about spectra: that
-  they form a stable infinity-category Sp which is in a sense the universal one. The
-  construction of Sp, and Chapter 7's Eilenberg-Mac Lane comparison, were NOT read.
-- Neither pinned library has spectra at all, as AUDIT-22 records.
-- The status is not_read: this layer has one node and it is a boundary marker.
-
-## Baseline: what the pinned libraries already have
-
-Mathlib `082e2d3`, Tau Ceti `f790474`. The reviewed audit **AUDIT-20** (reviewed as
-`REV-AUDIT-20`, 17 September 2026, 240 targets checked, 89 corrections) covers every
-layer of this roadmap and returns **not built** for each. Two of its targets are
-recorded as *partial*, and both are cited below rather than planned: `ES0`'s algebra
-of natural endomorphisms of the identity, which is Mathlib's `CategoryTheory.CatCenter`,
-and `ES3`'s coefficient hypothesis, which the pinned root pairings can state. Every
-declaration below was read at the pins before being cited.
-
-| Declaration | Module | Why it is baseline |
+| API name | Role | Specification |
 | --- | --- | --- |
-| `mathlib:CategoryTheory.Functor` | `Mathlib/CategoryTheory/Functor/Basic.lean` | Functors. Every construction of this packet is a functor or a fibration of quasicategories built from one; the ordinary notion is the one the comparison discipline of E5 refers back to. |
-| `mathlib:SSet.Quasicategory` | `Mathlib/AlgebraicTopology/Quasicategory/Basic.lean` | QUASICATEGORIES, at the pins. This is the carrier of every infinity-category in this packet, and AUDIT-22's finding that Mathlib has 'only strict Segal simplicial sets and 1-categorical symmetric monoidal categories' is a statement about what is built ON this carrier, not about the carrier itself. |
-| `mathlib:SSet` | `Mathlib/AlgebraicTopology/SimplicialSet/Basic.lean` | Simplicial sets. N(Fin_*), N(Delta^op) and the nerves of ordinary categories are simplicial sets, and the sifted index shapes are simplicial sets. |
-| `mathlib:CategoryTheory.Grothendieck` | `Mathlib/CategoryTheory/Grothendieck.lean` | THE GROTHENDIECK CONSTRUCTION, at the pins. It is the ordinary shadow of straightening and unstraightening, and it is how an ordinary symmetric monoidal category is turned into a coCartesian fibration over the nerve of finite pointed sets - the comparison that HA Definition 2.0.0.7 is designed to generalise. |
-| `mathlib:CategoryTheory.MonoidalCategory` | `Mathlib/CategoryTheory/Monoidal/Category.lean` | The 1-CATEGORICAL symmetric monoidal structure. AUDIT-22 records that this is what exists and that the infinity-categorical version is absent; the roadmap requires that every use compare with it rather than introduce a second private carrier, and each definition node of this packet states that comparison. |
-| `mathlib:CommMonCat` | `Mathlib/Algebra/Category/MonCat/Basic.lean` | Commutative monoids as a category. The ordinary shadow of CAlg(C) for C the category of sets with product, and the object the comparison for commutative algebra objects lands in on homotopy categories. |
-| `mathlib:CategoryTheory.Pretriangulated` | `Mathlib/CategoryTheory/Triangulated/Pretriangulated.lean` | PRETRIANGULATED CATEGORIES with distinguished triangles, at the pins. HA Theorem 1.1.2.14 says the homotopy category of a stable infinity-category carries this structure, and AUDIT-22 records that the stable infinity-categorical notion itself is absent. |
-| `mathlib:CategoryTheory.HasShift` | `Mathlib/CategoryTheory/Shift/Basic.lean` | Shift functors. The translation functor of the triangulated homotopy category is a shift in this sense. |
-| `mathlib:DerivedCategory` | `Mathlib/Algebra/Homology/DerivedCategory/Basic.lean` | The derived category of an abelian category, at the pins. It is the homotopy category of the basic example of a stable infinity-category, and the comparison with it is what makes the abstract notion recognisable. |
-| `mathlib:CategoryTheory.Limits.HasZeroObject` | `Mathlib/CategoryTheory/Limits/Shapes/ZeroObjects.lean` | Zero objects, the first condition in the definition of stability. |
-| `mathlib:CategoryTheory.Limits.HasLimits` | `Mathlib/CategoryTheory/Limits/HasLimits.lean` | Existence of limits. Homotopy fixed points are limits, presentable categories admit small limits, and the Segal conditions are statements about products. |
-| `mathlib:CategoryTheory.Limits.PreservesLimits` | `Mathlib/CategoryTheory/Limits/Preserves/Basic.lean` | Preservation of limits. Exactness of a functor between stable categories is preservation of finite limits, equivalently of finite colimits. |
-| `mathlib:CategoryTheory.Limits.HasFilteredColimits` | `Mathlib/CategoryTheory/Limits/FilteredColimitCommutesFiniteLimit.lean` | Filtered colimits. Compactness is defined by their preservation, Ind is defined by a filteredness condition, and the sifted colimits are generated by them together with geometric realisations. |
-| `mathlib:CategoryTheory.IsFiltered` | `Mathlib/CategoryTheory/Filtered/Basic.lean` | Filtered categories, at the pins. The index shapes of the Ind-completion. |
-| `mathlib:CategoryTheory.IsSifted` | `Mathlib/CategoryTheory/Limits/Sifted.lean` | SIFTED CATEGORIES, at the pins, together with the statement that sifted colimits commute with finite products. AUDIT-22 names this explicitly as what Mathlib has for E5:animation's target, and this packet cites it rather than replanning it: it is the ordinary form of the condition that makes P_Sigma inherit an algebraic structure. |
-| `mathlib:CategoryTheory.Limits.HasCoproducts` | `Mathlib/CategoryTheory/Limits/Shapes/Products.lean` | Coproducts. P_Sigma is defined for a category with FINITE COPRODUCTS, and the criterion for the extension to preserve all colimits is about finite coproducts. |
-| `mathlib:CategoryTheory.Ind` | `Mathlib/CategoryTheory/Limits/Indization/Category.lean` | THE 1-CATEGORICAL IND-COMPLETION, at the pins. AUDIT-22 records it as the partial half of E5:presentability's first target; the infinity-categorical Ind, the extension of exact functors and the compact-generation compatibilities are what is missing, and the comparison with this declaration is what the roadmap asks for. |
-| `mathlib:CategoryTheory.yoneda` | `Mathlib/CategoryTheory/Yoneda.lean` | The Yoneda embedding. Ind and P_Sigma are both defined as subcategories of presheaves containing the Yoneda image, and both universal properties are restriction along it. |
-| `mathlib:CategoryTheory.Idempotents.Karoubi` | `Mathlib/CategoryTheory/Idempotents/Karoubi.lean` | THE 1-CATEGORICAL KAROUBI ENVELOPE with its universal property, at the pins. AUDIT-22 records it as the partial half of E5:abstract's second target; what is missing is the infinity-categorical idempotent completion and the stable structure on it. |
-| `mathlib:Algebra.Extension.H1Cotangent` | `Mathlib/RingTheory/Extension/Cotangent/Basic.lean` | THE NAIVE TWO-TERM COTANGENT COMPLEX and its H^1, at the pins, with the Jacobi-Zariski sequence. AUDIT-22 records this as the partial half of E5:cotangent-export's target; the full derived cotangent complex, derived exterior powers and Tor amplitude are missing and DerivedDeRhamCohomology:DD.0 owns them. |
-| `mathlib:CommRing` | `Mathlib/Algebra/Ring/Defs.lean` | Commutative rings. The animated commutative R-algebras are built from the ordinary polynomial R-algebras, and the ordinary rings sit inside as the discrete objects. |
-| `mathlib:MvPolynomial` | `Mathlib/Algebra/MvPolynomial/Basic.lean` | Polynomial algebras, at the pins. These are the generators of the animation: P_Sigma(Poly_R) is taken over the finitely generated free R-algebras, and AUDIT-22 records polynomial presentations of algebras as what Mathlib has for this target. |
-| `mathlib:Module.Free` | `Mathlib/LinearAlgebra/FreeModule/Basic.lean` | Free modules. The finitely generated free algebras that generate the animation, and the free modules underlying the module objects, are of this kind. |
+| `PresentableData` | data | A category, a regular accessibility cardinal and a small generating subcategory; accessibility/colimit axioms are part of the full definition. |
+| `presentableLeftFunctors` | data | Colimit-preserving coherent functors. |
+| `presentableRightFunctors` | data | Accessible right adjoints. |
 
-Confirmed **absent** at both pins by AUDIT-20 and by direct search, and therefore not
-cited: the Bernstein centre of a locally profinite group, the Weil group of a local
-field as a topological group, the Langlands dual group, stable infinity-categories and
-their Ind-completions, perfect complexes on a stack, animated rings and animated groups,
-anima, derived mapping stacks, good filtrations and Donkin's theorem, and the Bernstein
-decomposition. Everything this packet needs from those notions is requested from another
-roadmap rather than cited as baseline.
+The following tests separate the intended definition from plausible substitutes.
 
-## Gaps
+- `PresentableData.test_modules` (compatibility): The enhanced derived category of R-modules is presentable.
+- `PresentableData.test_terminal` (degenerate): The zero stable category is presentable.
+- `PresentableData.test_representability` (characterisation): A small-limit-preserving functor Cᵒᵖ→Spaces on a presentable C is represented by an object of C, as provided by E3’s criterion.
 
-Twelve. The first two are the standing caveats on this packet; the rest each carry a
-next source action.
+### Limits in PrL
 
-### 1. BS22, named in the stage's source route, could not be identified
+Target: `EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories`.
 
-The E5 stage text names its sources as 'HA sections 1-4, HTT sections 4-5, BS22 sections
-2-7, FS VIII.3 and X.1'. Higher Algebra and Higher Topos Theory were downloaded from the
-author's page, hashed and read in this session, and Fargues-Scholze VIII.3 and X.1 were
-read in this session for the companion LanglandsParameterStacks and
-ExcursionOperatorsAndSpectralAction jobs. BS22 WAS NOT IDENTIFIED: the references
-catalogue and the papers listing contain no item under that key for this material, and
-the most likely candidate by the abbreviation - Bhatt-Scholze, Prisms and prismatic
-cohomology - has no sections on animation or on monoidal enhancement, its sections 2 to
-7 being delta-rings, prisms, the prismatic site and its comparisons. The animation
-material is therefore planned from Higher Topos Theory Section 5.5.8, which is the
-canonical source for it and which the same route names. NEXT SOURCE ACTION: ask the
-maintainer which work 'BS22' denotes, or check whether it is Bhatt-Scholze's lecture
-notes on prismatic cohomology or Cesnavicius-Scholze; until then the animation nodes
-rest on Higher Topos Theory alone.
+Every small diagram of presentable categories and colimit-preserving functors has a limit in PrL, and its underlying category is the limit in Cat∞. Colimits in that limit are detected and computed by the projections. In particular pullbacks of presentable colimit-preserving functors are presentable. The limit remains stable when the diagram categories are stable. This does not imply that an unrelated forgetful functor from a completed subcategory preserves colimits.
 
-### 2. The coherent-group-action node has no source statement
+Conventions and hypotheses. The diagram is coherent in PrL, not a diagram of triangulated categories.
 
-E5:presentability's stage text asks to 'Construct finite and profinite coherent group
-actions, homotopy fixed points and equivariant functor categories with explicit
-continuity through finite quotients where appropriate', and adds that 'ordinary actions
-on isomorphism classes do not replace them'. NO numbered statement in the sections of
-Higher Topos Theory or Higher Algebra read in this session defines coherent group
-actions on categories. The node records the interface - a functor out of BG,
-equivalently a coCartesian fibration over BG; homotopy fixed points as the limit;
-equivariant functor categories as limits of functor categories; and for a profinite
-group, continuity as a filtered colimit of finite-quotient actions - and says in its own
-sources that it is an interface and not a quotation. AUDIT-22 confirms that a grep for
-'homotopy fixed' and for equivariantisation finds nothing in either library. NEXT SOURCE
-ACTION: read Higher Algebra Section 4.2 and Higher Topos Theory Section 4.2.4 for the
-general theory of diagrams and limits over BG, and Fargues-Scholze IX.1 for the
-condensed enhancement the geometric-Langlands consumers actually use.
+Construction or proof. Construct the Cat∞ limit using E0/E3 coherent diagrams. Use the presentable pullback theorem and accessible-localization presentations to verify presentability. Compute colimits pointwise and check the projection joint-detection property; stability follows from pointwise finite fibers and cofibers.
 
-### 3. Higher Topos Theory Chapter 4 was not read, although the source route names it
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E5:abstract/left-derivable-cocartesian-families`.
 
-The stage's route says 'HTT sections 4-5'. Chapter 5 was read in the parts this packet
-plans - 5.1.4, 5.3.4, 5.3.5, 5.5.0, 5.5.1 and 5.5.8. CHAPTER 4, on limits and colimits
-in infinity-categories, cofinality, Kan extensions and the theory of coCartesian
-fibrations over a simplex, was NOT read. Several proofs this packet quotes cite it -
-Corollary 4.3.2.16 in the proof of the universal property of Ind, Corollary 4.4.5.15 in
-the proof that presheaf categories are idempotent complete - so those citations are
-unverified. NEXT SOURCE ACTION: read HTT 4.3.2 and 4.4.5, which are the two the quoted
-proofs use.
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Propositions 5.5.3.12–13, printed pp. 469–470 (PDF pp. 487–488); [Étale cohomology of diamonds](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf), Lemma 17.1, p. 97; Proposition 26.2, p. 162.
 
-### 4. Higher Algebra Chapter 3 was not read, and it is what gives Ind and modules their monoidal structures
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-This packet plans the symmetric monoidal formalism (HA Chapter 2) and the module
-formalism (HA Section 4.2), and separately plans Ind (HTT 5.3.5). What it does NOT plan
-is the SYMMETRIC MONOIDAL STRUCTURE on Ind, on module categories, or on the idempotent
-completion - the statements that make 'IndPerf is a symmetric monoidal stable category'
-meaningful, and that every consumer roadmap uses without comment. Those are Higher
-Algebra Chapter 3, on operadic colimits and the tensor product of infinity-operads, and
-Chapter 4's later sections. Neither was read. NEXT SOURCE ACTION: read HA Chapter 3, in
-particular the construction of the tensor product of infinity-operads and the monoidal
-structure on Ind.
+### Tensor products of presentable categories and module base change
 
-### 5. Proposition 2.1.2.12's conditions were not recovered from the extraction
+Target: `EnhancedDerivedSheaves:E5:presentability/tensor-product-and-module-base-change`.
 
-HA Definition 2.1.2.13 defines a coCartesian fibration of infinity-operads as a map
-satisfying 'the hypotheses of Proposition 2.1.2.12'. The extraction used here renders
-Proposition 2.1.2.12's statement as a bare label followed by the next section heading,
-so its conditions were not recovered. The node states the definition exactly as Lurie
-does, by reference, and does not restate conditions it did not read. NEXT SOURCE ACTION:
-read printed page 178 of Higher Algebra in a viewer and record the conditions verbatim.
+For presentable C,D, C⊗D represents functors C×D→E preserving colimits separately: FunL(C⊗D,E) ≃ FunL,L(C×D,E). PrL is symmetric monoidal with unit Spaces; its stable subcategory has unit the abstract stabilization Sp, with no concrete spectral model required. For presentably monoidal C, a presentable right C-module M and algebra A∈C, M⊗_C RMod_A(C) ≃ RMod_A(M). Extension of scalars and these comparisons are coherent for compositions and units.
 
-### 6. The comparison with E-infinity algebras in positive characteristic has no locator
+Conventions and hypotheses. The required geometric realizations exist and tensor actions preserve colimits separately. The relative tensor is categorical; distinguish it from an object’s derived tensor over a ring.
 
-E5:cotangent-export's stage text says 'In positive characteristic, compare with
-E-infinity algebras only in proved ranges: strictly commutative dg algebras are not a
-general replacement.' No statement read in this session makes any such comparison.
-Higher Algebra Chapter 7, which treats E-infinity rings, was not read; Higher Topos
-Theory Section 5.5.9, which compares the animation with Quillen's simplicial commutative
-rings, was not read either - and that is in any case a DIFFERENT comparison. AUDIT-22
-records that neither library has E-infinity algebras at all, so the statement cannot
-even be formulated at the pins. The node records the restriction as an obligation and
-says so. NEXT SOURCE ACTION: read HA Chapter 7 and HTT 5.5.9.
+Construction or proof. Use HA’s separately-colimit universal property to construct C⊗D and its internal FunL category. Realize the categorical two-sided bar construction for relative module tensors. Evaluate the universal balanced functors on free A-modules to prove the module base-change comparison.
 
-### 7. Nothing about spectra was read beyond one example
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E5:abstract/module-objects`, `EnhancedDerivedSheaves:E5:presentability/ind-of-a-stable-category-is-stable`.
 
-E5:spectra-comparison is a late return after StableHomotopyKTheory H.5. The only thing
-read about spectra in this session is Higher Algebra's Example 1.1.1.11, which says that
-spectra form a stable infinity-category Sp and that Sp is in a sense the universal
-stable infinity-category. The construction of Sp, the Eilenberg-Mac Lane comparison and
-the spectral module categories were NOT read. The layer's coverage is recorded as
-not_read for that reason. NEXT SOURCE ACTION: this is StableHomotopyKTheory H.5's
-material; read HA Chapter 1.4 for the construction of Sp and Chapter 7 for the
-Eilenberg-Mac Lane comparison when this layer is taken up.
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Propositions 4.8.1.15 and 4.8.1.17, pp. 712–715; Theorem 4.8.4.6, p. 737.
 
-### 8. Uniqueness of idempotent completions and the converse to the triangulation theorem were not read
+Uses. BM26, item 60: Dualizability and rigidity use the tensor of categories rather than tensor of coefficient modules.
 
-Two pointers in the sections read were not followed. HTT Proposition 5.1.4.9 gives the
-uniqueness of idempotent completions; only the existence, Proposition 5.1.4.2, and its
-proof were read. HA Corollary 1.4.2.27 gives the converse that the hypotheses of Theorem
-1.1.2.14 - pointed, with cofibers, suspension an equivalence - are EQUIVALENT to
-stability; only the forward direction and Remark 1.1.2.15's assertion of the converse
-were read. Neither affects a statement planned here, but both are cited in the nodes.
-NEXT SOURCE ACTION: read HTT 5.1.4.9 and HA 1.4.2.27.
+| API name | Role | Specification |
+| --- | --- | --- |
+| `presentableTensor` | constructor | The separately-colimit-preserving tensor of categories. |
+| `presentableTensorUniversal` | universal-property | The equivalence of colimit-preserving and separately colimit-preserving functors. |
+| `categoricalModuleBaseChange` | compatibility | The relative categorical tensor agrees with the category of modules in M. |
 
-### 9. Two of the layer's own acceptance tests belong to another roadmap
+The following tests separate the intended definition from plausible substitutes.
 
-The E5 stage text lists five acceptance tests: a polynomial algebra's cotangent module;
-a regular quotient's two-term cotangent complex; a nonregular quotient with higher
-homology; the Ind-envelope of perfect modules; and a coherent action whose invariants
-carry higher group cohomology. The first three are cotangent-complex computations, and
-by this roadmap's own declaration DerivedDeRhamCohomology:DD.0 owns the cotangent
-complex; AUDIT-22 records DD.0 as a duplicate of E5:cotangent-export's target for
-exactly that reason. This packet therefore does NOT plan them, and plans the last two -
-the Ind-envelope in E5:presentability and the coherent action in the same layer's unit
-tests. A reader should not take the layer's test list as a list of what this packet
-establishes.
+- `presentableTensor.test_spaces` (degenerate): Spaces⊗C ≃ C for presentable C.
+- `presentableTensor.test_stable_unit` (degenerate): Sp⊗C ≃ C for presentable stable C.
+- `presentableTensor.test_zero` (degenerate): Zero⊗C is zero in PrL_st.
 
-### 10. No source read states the comparison with Mathlib that the roadmap requires
+### Ind of a Verdier quotient
 
-The E5 stage text ends: 'Every use includes an actual construction and comparison to the
-existing Mathlib ordinary category rather than a second private carrier.' That is a
-requirement on the FORMALISATION, not a theorem of Lurie's, and no statement in Higher
-Topos Theory or Higher Algebra mentions Mathlib. This packet discharges it by citing,
-for each notion it plans, the pinned ordinary counterpart - MonoidalCategory,
-CommMonCat, Pretriangulated and DerivedCategory, Idempotents.Karoubi,
-CategoryTheory.Ind, IsSifted, MvPolynomial - and by making the comparison an explicit
-API item and unit test of the corresponding node. What is NOT done, and cannot be until
-the infinity-categorical carriers exist, is to PROVE any of those comparisons.
+Target: `EnhancedDerivedSheaves:E5:presentability/ind-verdier-localization`.
 
-## Requests to other roadmaps
+For small stable C and full stable D, Ind(C)→Ind(C/D) is a localization with kernel Ind(D), interpreted by its fully faithful extension. Its right adjoint is fully faithful and preserves colimits; the right adjoint extends the quotient-Yoneda approximation C/D→Ind(C). The monoidal version exists for separately exact tensors and tensor ideals. Compact objects of the target are Idem(C/D), not C/D without an idempotent-completeness hypothesis.
 
-| Supplier | What is needed |
-| --- | --- |
-| `EnhancedDerivedSheaves:E0` | The concrete enhancement and the higher-categorical operations this branch is abstract from: quasicategories, coCartesian fibrations, straightening and unstraightening, limits and colimits of infinity-categories, and the nerve. Everything in this packet is built on them. |
-| `EnhancedDerivedSheaves:E3` | Coherent diagrams, Kan extensions and adjoints, and the presentability assertions the E5 stage text says E3 supplies when used. The universal properties of Ind and of P_Sigma are left Kan extensions, and the adjoint functor theorem is used throughout. |
-| `EnhancedDerivedSheaves:E1` | Derived sheaves and presentability, and the spectral realisation whose comparisons E5:spectra-comparison is the return for. |
-| `DerivedDeRhamCohomology:DD.0` | THE COTANGENT COMPLEX with its derivation characterisation, transitivity and base change, derived exterior powers and Tor-amplitude tests, built from the animation prefix of E5:animation. AUDIT-22 records DD.0 as the owner and as a duplicate of E5:cotangent-export's target; by PROTOCOL.md section 15 it is planned once, there, and re-exported here. |
-| `StableHomotopyKTheory:H.5` | CONCRETE SPECTRA and spectral module categories. The E5:presentability stage text says StableHomotopyKTheory supplies them and that this stage does not construct them again; E5:spectra-comparison is the return that compares them with the abstract construction. |
-| `LanglandsParameterStacks:LP1` | The consumer side of E5:animation: the moduli problem of L-parameters is defined on animated Z_l-algebras, and the statement that the classical stack represents the derived one is a statement about that. |
-| `LanglandsParameterStacks:LP3` | The consumer side of E5:presentability: the good-filtration t-structure lives on IndPerf of a classifying stack, and its separatedness is a statement about that presentable stable category. |
-| `LanglandsParameterStacks:LP4` | The consumer side of both: Perf and IndPerf of the parameter stack, the generation statement under cones and retracts, and the module description by Barr-Beck-Lurie. |
-| `ExcursionOperatorsAndSpectralAction:ES0` | The consumer side of E5:abstract: the Hecke datum is an exact monoidal functor into an endofunctor category with a coherent Weil-group action, and the Bernstein centre is End(id) of a stable category. |
-| `ExcursionOperatorsAndSpectralAction:ES2` | The rational spectral action, an action of a symmetric monoidal stable category on another; the equivalence of Theorem X.1.1 is a statement about the anima of such data, which is why the coherence matters. |
-| `ExcursionOperatorsAndSpectralAction:ES3` | The integral spectral action, whose sifted-colimit approximation is an instance of the animation formalism of E5:animation. |
-| `VStackSheavesAndLisseCategories:VS2` | The coefficient interpretation that the solid and condensed formalisms need from the enhancement; VS2 is recorded as a consumer of E5:presentability. |
-| `GeometricSatakeAndFusion:GS4:integral-dual-group` | The dual group and the Satake category as a symmetric monoidal infinity-category over the integral coefficients; GS4 is recorded as a consumer of E5:abstract. |
-| `GeneralAlgebraicKTheory:K.4:construction` | The K-theory construction, the second of the three consumer families the E5 stage text names. |
-| `PrismaticCohomology:PR.5` | The prismatic consumer of E5:animation; the roadmap declares PrismaticCohomology PR.0-2 the owner of the generic prismatic application. |
-| `PerfectoidQuotients:Q0:animated-application` | The perfectoid-quotient consumer of E5:animation; the roadmap declares PerfectoidQuotients Q0-4 the owner of that application. |
+Conventions and hypotheses. No retract closure hypothesis on D is necessary for the Ind localization statement.
 
-## Structural findings
+Construction or proof. Extend the small quotient using the Ind universal property. Use the mapping-space approximation to construct the right adjoint on quotient generators. Extend it by colimits; verify the unit and counit on generators and identify the kernel.
 
-### 1. E5:cotangent-export duplicates DerivedDeRhamCohomology:DD.0 by construction, and the stage text says so
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/verdier-quotient`, `EnhancedDerivedSheaves:E5:presentability/universal-property-of-ind`, `EnhancedDerivedSheaves:E5:presentability/ind-of-a-stable-category-is-stable`.
 
-*Kind: `duplicate-layer`.*
+Source: [On topological cyclic homology](https://people.mpim-bonn.mpg.de/scholze/CyclotomicSpectra.pdf), Proposition I.3.5, pp. 21–22.
 
-AUDIT-22 records DD.0 as a duplicate of both E5 and E5:cotangent-export, with the note
-that 'DD.0 constructs the cotangent complex, derived exterior powers and Tor-amplitude
-criteria that E5 re-exports'. The stage text agrees: 'The cotangent complex ... are now
-constructed by DerivedDeRhamCohomology DD.0 from this animation prefix; E5 reexports
-that one interface.' So the duplication is deliberate and documented, and this packet
-plans nothing there. What is worth a restructuring decision is whether a layer whose
-entire content is a re-export should be a LAYER at all. As it stands E5:cotangent-export
-has two nodes in this packet, both boundary markers, and its coverage is recorded as
-not_read. The alternative shapes are: fold it into E5 as a sentence in the parent
-layer's text; or keep it as a layer but give it the one piece of content that is
-genuinely its own and that DD.0 does not claim - the positive-characteristic comparison
-with E-infinity algebras, which AUDIT-22 notes 'is stated only in this stage (DD.0 does
-not mention E-infinity algebras)'. The second seems better: it gives the layer a reason
-to exist, and it puts the warning about strictly commutative dg algebras somewhere a
-reader will find it.
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
 
-### 2. E5:abstract has one recorded input and ten recorded consumers, and its own text needs more than E0
+### Compactness and right adjoints
 
-*Kind: `missing-links`.*
+Target: `EnhancedDerivedSheaves:E5:presentability/neeman-compactness-criterion`.
 
-The atlas records E5:abstract as requiring only EnhancedDerivedSheaves:E0, and as
-supplying E5, E5:animation, E5:presentability, E5:spectra-comparison,
-ExcursionOperatorsAndSpectralAction ES0, ES2 and ES3, GeneralAlgebraicKTheory
-K.4:construction, and GeometricSatakeAndFusion GS4:integral-dual-group and GS4:rational-
-reductivity - ten consumers against one supplier. The nodes of this packet that realise
-E5:abstract need more: the idempotent-completion node needs presheaf categories and
-their colimits, which is E3's; the stable-category node needs the derived category
-comparison, which is E1's. The wider point is that E5:abstract is the single most
-consumed layer in this part of the atlas, and it is also the one whose targets AUDIT-22
-marks most comprehensively absent - no operads, no stable infinity-categories, no
-E-infinity structures, only 1-categorical monoidal categories and the 1-categorical
-Karoubi envelope. A kind:link job should draw the two missing edges; and a scheduling
-decision is worth recording, that this layer gates ten others.
+For F:C⇄D:G between presentable stable categories, if C is compactly generated then F preserves compact objects if and only if G preserves coproducts, equivalently all colimits. The forward direction tests the coproduct comparison against compact generators of C; the reverse uses the mapping-space adjunction. The general κ-accessible version replaces compact/coproduct preservation by κ-compact/κ-filtered preservation with the accessibility hypotheses of HTT 5.5.7.2.
 
-### 3. E5's acceptance tests mix this layer's obligations with DD.0's
+Conventions and hypotheses. The source C of the left adjoint is compactly generated in the converse test; presentability alone is insufficient. G is already exact as a right adjoint between stable categories.
 
-*Kind: `narrow-text`.*
+Construction or proof. Apply the adjunction to maps out of compact source generators. Use detection by their shifts to identify the canonical coproduct comparison. Use exactness plus coproduct preservation to obtain all colimits, and the adjunction to get preservation of compactness back.
 
-The five acceptance tests the E5 stage text names are: a polynomial algebra's cotangent
-module; a regular quotient's two-term cotangent complex; a nonregular quotient with
-higher homology; the Ind-envelope of perfect modules; and a coherent action whose
-invariants carry higher group cohomology. The first three are cotangent computations
-that DerivedDeRhamCohomology:DD.0 owns by this roadmap's own declaration and that
-AUDIT-22 records as DD.0's. Only the last two are E5's. Leaving all five in E5's text
-makes the layer look responsible for the cotangent complex, which the very next sentence
-of the same text denies. The list should be split: the Ind-envelope and coherent-action
-tests kept here, the three cotangent tests moved to DD.0's acceptance list with a
-pointer. This packet plans the last two and records the first three as not planned,
-which is the right outcome but should not have to be inferred.
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations`.
 
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Proposition 5.5.7.2, printed p. 501 (PDF p. 519); [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), Lemma IV.2.20, pp. 123–124; [Étale cohomology of diamonds](https://people.mpim-bonn.mpg.de/scholze/EtCohDiamonds.pdf), Proposition 23.7, p. 144.
+
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
+
+### Coherent actions and continuous fixed points
+
+Target: `EnhancedDerivedSheaves:E5:presentability/coherent-group-actions`.
+
+For a finite group G, an action on C is a coherent functor BG→Cat∞, equivalently a cocartesian fibration over BG. Its homotopy fixed point category is its limit; for two actions, equivariant functors are the homotopy fixed points of Fun(C,D) under conjugation. Presentable stable actions by equivalences have presentable stable fixed point categories. For a profinite G, categorical actions factoring through a specified finite quotient are pulled back coherently from that quotient. The continuous coefficient specialization uses the E1 enhancement of discrete continuous G-modules: derived invariants agree with the canonical continuous-cochain object and, in degree n, the ProfiniteCohomology finite-quotient system colim_U Hⁿ(G/U,M^U). No filtered-colimit formula for arbitrary categorical homotopy fixed points is asserted.
+
+Conventions and hypotheses. For profinite coefficient modules M the topology is discrete and stabilizers of each element are open. The all-degree finite-quotient statement is ProfiniteCohomology Layer 10; Layer 4 supplies only degrees 0,1,2. General topological actions on Cat∞ beyond finite-quotient factoring require a chosen continuity model.
+
+Construction or proof. Use the arbitrary-base extension of E0 straightening and coherent limits to construct actions and fixed points. Construct conjugation coherently on the functor category and take its limit. For continuous modules use E1’s enhancement and import the existing ProfiniteCohomology dictionary and canonical comparisons; do not replan its cochain theory.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:abstract/left-derivable-cocartesian-families`, `EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Propositions 5.5.3.12–13, printed pp. 469–470; [On topological cyclic homology](https://people.mpim-bonn.mpg.de/scholze/CyclotomicSpectra.pdf), Lemma A.16, p. 136.
+
+Uses. FS21, Theorem X.1.1: Coherent actions on a stable category enter the representation comparison.
+
+| API name | Role | Specification |
+| --- | --- | --- |
+| `CoherentActionData` | data | The cocartesian family over BG, retaining coherent transitions. |
+| `homotopyFixedPoints` | constructor | The coherent limit over BG. |
+| `equivariantFunctors` | constructor | The limit of the conjugation action on Fun(C,D). |
+| `continuousDerivedInvariants` | compatibility | The enhanced derived invariants specialize to the upstream canonical continuous cochains. |
+
+The following tests separate the intended definition from plausible substitutes.
+
+- `CoherentActionData.test_trivial_group` (degenerate): The trivial group has C as its fixed point category.
+- `CoherentActionData.test_trivial_action` (characterisation): The trivial action of finite G on C has fixed point category Fun(BG,C).
+- `CoherentActionData.test_finite_coefficients` (compatibility): For finite G and coefficients M, derived invariants agree with ordinary group cohomology in every nonnegative degree.
+
+### Compact morphisms and compact exhaustions
+
+Target: `EnhancedDerivedSheaves:E5:presentability/compact-morphisms`.
+
+A weakly compact map f:x→y factors through some stage whenever y maps into a filtered colimit. A compact map has the coherent lifting property for the square obtained by precomposition with f between colim_i Map(y,z_i)→Map(y,colim z_i) and colim_i Map(x,z_i)→Map(x,colim z_i). A strongly compact map has its representable transformation factoring through a filtered-colimit-preserving functor. A compact exhaustion is a sequential presentation x≃colim x_n with compact transition maps. In compactly assembled categories these three notions agree; outside this hypothesis they are kept distinct.
+
+Conventions and hypotheses. Compactness of an object means compactness of its identity map. Weak factorization on components alone does not impose coherent diagonal fillers.
+
+Construction or proof. Form the precomposition square in mapping spaces, then its coherent diagonal-lift condition. Define sequential exhaustion using E0 coherent diagrams. Apply Ramzi’s representable factorization argument to compare the notions under compact assembly.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/compact-objects`, `EnhancedDerivedSheaves:E0/right-mapping-space`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `mathlib:CategoryTheory.IsFiltered`.
+
+Source: [Dualizable presentable infinity-categories](https://arxiv.org/pdf/2410.21537), Definitions 2.1, 2.3 and 2.5, pp. 26–27; Definition 2.23 and Lemma 2.24, pp. 31–32.
+
+Uses. BM26, Definition 2.7: Compact transitions, not compact terms, allow categories with too few compact objects.
+
+| API name | Role | Specification |
+| --- | --- | --- |
+| `compactMorphismSquare` | data | The precomposition square whose diagonal fillers define compactness. |
+| `compactExhaustion` | data | A sequential diagram with compact transitions realizing the given object. |
+| `compactIdentityComparison` | characterisation | The identity is compact precisely when its object is compact. |
+
+The following tests separate the intended definition from plausible substitutes.
+
+- `compactMorphismSquare.test_zero` (degenerate): The zero morphism is compact in a stable compactly assembled category.
+- `compactMorphismSquare.test_identity` (non-example): The identity of a countably infinite-dimensional rational vector space is not compact.
+- `compactMorphismSquare.test_finite_rank` (computation): Every finite-rank map of rational vector spaces in degree zero is compact.
+
+### Dualizable and compactly assembled categories
+
+Target: `EnhancedDerivedSheaves:E5:presentability/dualizable-compactly-assembled-categories`.
+
+A presentable stable C is dualizable in PrL_st if it admits a dual, evaluation and coevaluation with triangle homotopies. Equivalently C is a retract, through colimit-preserving functors, of a compactly generated stable category. Equivalently its large-universe colimit functor Ind(C)→C has a left adjoint. In the compactly assembled description filtered colimits commute with finite limits, and objects admitting compact exhaustions generate under filtered colimits. No compact-generation assumption on C is imposed.
+
+Conventions and hypotheses. The Ind(C) criterion uses a larger universe; it is not Ind(C^ω). The triangle homotopies and coherent retraction are part of the categorical statement.
+
+Construction or proof. Use the categorical tensor to define dual pairs. Apply the retract/atomic-generator characterization of Ramzi Theorem 1.49 in the stable absolute specialization. Identify the compact-exhaustion characterization via Theorem 2.39 and BM Remark 2.8.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E5:presentability/tensor-product-and-module-base-change`, `EnhancedDerivedSheaves:E5:presentability/compact-morphisms`, `EnhancedDerivedSheaves:E5:presentability/ind-completion`.
+
+Source: [Dualizable presentable infinity-categories](https://arxiv.org/pdf/2410.21537), Theorem 1.49, pp. 17–18; Definition 1.68, p. 25; Theorem 2.39, p. 39; [Berkovich Motives](https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf), Definition 2.7 and Remark 2.8, pp. 9–10.
+
+Uses. BM26, Lemma 10.5: Filtered colimits preserve dualizability under strong continuity even without compact generation. RefinedTraceMethods:RT.5: Imports dualizable categories as the trace-theoretic input.
+
+| API name | Role | Specification |
+| --- | --- | --- |
+| `DualPairData` | data | Dual, evaluation and coevaluation; triangle homotopies are required in the full interface. |
+| `dualizableRetractComparison` | characterisation | Dualizable stable presentable categories are retracts of compactly generated ones. |
+| `assemblyLeftAdjoint` | data | The left adjoint to large-universe Ind colimit. |
+
+The following tests separate the intended definition from plausible substitutes.
+
+- `DualPairData.test_modules` (compatibility): D(R) is dualizable, with the expected dual evaluation via relative tensor.
+- `DualPairData.test_zero` (degenerate): The zero category is self-dual.
+- `DualPairData.test_retract` (characterisation): A coherent colimit-preserving retract of a compactly generated category is dualizable.
+
+### Filtered colimits of dualizable categories
+
+Target: `EnhancedDerivedSheaves:E5:presentability/strongly-continuous-filtered-colimits`.
+
+A left adjoint is strongly continuous when its right adjoint also preserves colimits. A filtered diagram of dualizable stable presentable categories with strongly continuous transitions has dualizable colimit in PrL_st. The canonical comparison from the colimit of their compact subcategories to the compact subcategory of the result is an equivalence, with colimits of small stable categories taken in the idempotent-complete convention. The result does not assert that any input or the colimit is compactly generated.
+
+Conventions and hypotheses. Use strong continuity, not merely that the left adjoint preserves filtered colimits. For arbitrary presentable inputs the compact-subcategory comparison is not asserted.
+
+Construction or proof. Use Ramzi Proposition 1.62: the canonical atomic presentations form a coherent retraction of diagrams along internal left adjoints, so their colimit remains a retract of an atomically generated category. Construct the induced dual pair through the dualizable-category colimit theorem in BM Lemma 10.5. Check compact-object comparison through the strongly continuous adjoints and the retract convention.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/dualizable-compactly-assembled-categories`, `EnhancedDerivedSheaves:E5:presentability/neeman-compactness-criterion`.
+
+Source: [Berkovich Motives](https://people.mpim-bonn.mpg.de/scholze/BerkovichMotives.pdf), Lemma 10.5, pp. 54–56; Corollary 10.6, p. 56; [Dualizable presentable infinity-categories](https://arxiv.org/pdf/2410.21537), Proposition 1.62, p. 22.
+
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
+
+### Trace-class maps and rigid categories
+
+Target: `EnhancedDerivedSheaves:E5:presentability/rigid-presentable-categories`.
+
+In a presentable closed symmetric monoidal C, f:x→y is trace-class if there are d, a pairing d⊗x→1 and a map 1→y⊗d whose contraction is f. Equivalently its class in Hom(x,y) lifts through Hom(x,1)⊗y. C is locally rigid over V when it is dualizable as a V-module and multiplication C⊗_V C→C is an internal left adjoint over C⊗_V C: its right adjoint preserves colimits and is bilinear. It is rigid when additionally its unit is V-atomic; absolutely over Sp this means compact. In the absolute stable case local rigidity is equivalent to dualizability plus every compact morphism being trace-class. Compact unit together with trace-class compact exhaustions generating under colimits implies rigidity.
+
+Conventions and hypotheses. Objectwise dualizability is distinct from categorical rigidity. Absolute stable formulations use the abstract unit Sp of PrL_st, not a concrete spectrum model.
+
+Construction or proof. Define the contraction of evaluation and coevaluation and the trace-class factorization. Use the internal adjoint criterion for multiplication, with both linearity and preservation of colimits. Apply Ramzi v2 Proposition 4.15 and Corollary 4.60, translating v1 locator 4.57 to v2 4.60.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:presentability/dualizable-compactly-assembled-categories`, `EnhancedDerivedSheaves:E5:presentability/compact-morphisms`, `EnhancedDerivedSheaves:E5:presentability/tensor-product-and-module-base-change`, `EnhancedDerivedSheaves:E5:abstract/module-objects`.
+
+Source: [Locally rigid infinity-categories](https://arxiv.org/pdf/2410.21524), Definition 3.1, p. 21; Definition 4.5, p. 24; Proposition 4.15, pp. 26–27; Definition 4.36, p. 33; Corollary 4.60, p. 38.
+
+Uses. BM26, item 60: Rigid coefficient categories supply linear and colimit-preserving right adjoints.
+
+| API name | Role | Specification |
+| --- | --- | --- |
+| `TraceClassData` | data | A factorization through an evaluation/coevaluation contraction. |
+| `RigidData` | data | A dual pair and the bilinear colimit-preserving right adjoint to multiplication; compact unit is additional. |
+| `rigidRightAdjointLinearity` | compatibility | Right adjoints to strong monoidal maps between rigid categories are strong module-linear and colimit-preserving. |
+
+The following tests separate the intended definition from plausible substitutes.
+
+- `RigidData.test_modules` (compatibility): For commutative R, D(R) is rigid with compact unit R.
+- `TraceClassData.test_dualizable` (characterisation): The identity of a dualizable object is trace-class.
+- `TraceClassData.test_infinite` (non-example): The identity of an infinite-dimensional rational vector space is not trace-class.
+
+## Animation and characteristic-p adapters
+
+### Sifted colimits
+
+Target: `EnhancedDerivedSheaves:E5:animation/sifted-colimits`.
+
+A small infinity-category I is sifted if it is nonempty and the diagonal I→I×I is cofinal; equivalently its colimits in spaces commute with finite products. Filtered categories and Δop are sifted. Empty is not sifted: its colimit does not preserve the empty product. Nerves of ordinary sifted categories compare with Mathlib’s IsSifted where the diagonal is homotopy cofinal; ordinary connectedness of comma categories alone does not establish homotopy cofinality.
+
+Conventions and hypotheses. Infinity-categorical cofinality is supplied by the E0/E3 mapping-space machinery. Do not identify ordinary finality with homotopy cofinality without contractibility.
+
+Construction or proof. Define the nonempty and diagonal cofinality criterion. Use the spaces-colimit criterion to prove finite-product commutation. Check Δop by its standard simplicial contraction, and filtered shapes by contractibility of finite cone categories.
+
+Direct inputs: `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`, `mathlib:CategoryTheory.IsSifted`.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), §5.5.8, especially Proposition 5.5.8.10, printed pp. 506–508; §5.5.8 introduction.
+
+Uses. HTT, Proposition 5.5.8.15: The animation universal property uses filtered colimits and realizations, hence all sifted colimits.
+
+| API name | Role | Specification |
+| --- | --- | --- |
+| `siftedDiagonal` | data | The diagonal I→I×I, with nonemptiness and cofinality as the definitive definition’s hypotheses. |
+| `siftedProductComparison` | characterisation | The comparison colim(F×G)→colim F×colim G is an equivalence. |
+| `siftedRealization` | compatibility | Geometric realization is a sifted colimit and commutes with finite products of spaces. |
+
+The following tests separate the intended definition from plausible substitutes.
+
+- `siftedDiagonal.test_empty` (non-example): The empty category is not sifted.
+- `siftedDiagonal.test_simplex` (computation): Δop is sifted.
+- `siftedDiagonal.test_two_points` (non-example): The discrete category with two objects is not sifted.
+
+### The nonabelian derived category
+
+Target: `EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category`.
+
+For a small category C with finite coproducts, PΣ(C) is the full subcategory of Fun(Cop,Spaces) sending finite coproducts to products, including the empty coproduct. It is presentable. Yoneda is fully faithful, preserves finite coproducts and its image consists of compact projective objects. Every object is a sifted colimit of representables, more precisely a geometric realization of coproducts of representables. Compact-projective means Map(x,−) preserves sifted colimits, a stronger property than ordinary compactness.
+
+Conventions and hypotheses. Space-valued presheaves are essential; replacing them by set-valued presheaves would remove animation. The target Spaces has cartesian products.
+
+Construction or proof. Impose finite-coproduct relations on presheaves as an accessible localization. Use Yoneda evaluation and sifted-product commutation for compact projectivity. Use HTT’s simplicial resolution by representables for generation.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:animation/sifted-colimits`, `EnhancedDerivedSheaves:E5:presentability/presentable-categories`, `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Proposition 5.5.8.10 and Lemma 5.5.8.14, printed pp. 507–510.
+
+Uses. DerivedDeRhamCohomology:DD.0/cotangent-complex: Polynomial resolutions use this single animation foundation.
+
+| API name | Role | Specification |
+| --- | --- | --- |
+| `nonabelianDerived` | constructor | The finite-coproduct-to-product space-valued presheaves. |
+| `animationYoneda` | data | The compact-projective representable embedding. |
+| `animationResolution` | characterisation | Each object has a simplicial resolution by coproducts of representables. |
+
+The following tests separate the intended definition from plausible substitutes.
+
+- `nonabelianDerived.test_initial` (degenerate): For the category with just its zero coproduct object, PΣ is terminal.
+- `nonabelianDerived.test_finite_sets` (computation): PΣ(FinSet) is Spaces.
+- `nonabelianDerived.test_coproduct` (characterisation): Yoneda preserves finite coproducts in PΣ, rather than pointwise coproducts of unrestricted presheaves.
+
+### The universal property of animation
+
+Target: `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`.
+
+If C is small with finite coproducts and D admits filtered colimits and geometric realizations, restriction gives Fun_sifted(PΣ(C),D) ≃ Fun(C,D). The inverse is sifted left Kan extension. It preserves all colimits exactly when its input preserves finite coproducts, provided D admits those coproducts. Evaluation on a simplicial polynomial resolution is realization of the values. HTT’s strict simplicial algebra model presents PΣ(C) by objectwise weak equivalences; rectification is part of the comparison, not a definition by assertion.
+
+Conventions and hypotheses. The full equivalence includes coherent natural transformations and uniqueness. Model rectification uses the finite-product theory Cop.
+
+Construction or proof. Use the representable resolution and E3 left Kan extension to construct the inverse. Prove resolution independence and sifted-colimit preservation, then the restriction equivalence. Apply HTT 5.5.9.2–3 for the strict-product-preserving simplicial model.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category`, `EnhancedDerivedSheaves:E3/left-kan-extension-along-a-full-inclusion`.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), Proposition 5.5.8.15, printed p. 510 (PDF p. 528); Proposition 5.5.9.1 and Corollary 5.5.9.3, printed pp. 516–517.
+
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
+
+### Animated commutative rings
+
+Target: `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`.
+
+For an ordinary commutative R, let Poly_R be the category of polynomial R-algebras in finitely many variables and all R-algebra maps. AnimAlg_R=PΣ(Poly_R) is equivalent to the infinity-localization of simplicial commutative R-algebras at maps inducing isomorphisms on all homotopy groups. Its discrete subcategory is ordinary R-algebras; inclusion has π₀ as left adjoint. Pushouts B⊗^L_A C are computed by simplicial polynomial resolutions. Their additive homotopy groups are Tor when the bases are ordinary; an underived pushout is correct only under suitable Tor vanishing.
+
+Conventions and hypotheses. Animated means simplicial commutative, not strictly commutative cochain dg in positive characteristic. Higher homotopy groups have homological indices n≥0, corresponding to cohomological degree −n.
+
+Construction or proof. Construct Poly_R using the existing MvPolynomial universal property and animate it. Apply the strict-product model rectification to identify simplicial commutative algebras. Use cofibrant polynomial resolutions to compute homotopy pushouts and the discrete/π₀ adjunction.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:animation/nonabelian-derived-category`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `mathlib:MvPolynomial`, `mathlib:CommRingCat`, `mathlib:CategoryTheory.SimplicialObject`.
+
+Source: [Higher Topos Theory](https://www.math.ias.edu/~lurie/papers/HTT.pdf), §5.5.9, Propositions 5.5.9.1–2 and Corollary 5.5.9.3, printed pp. 516–517.
+
+Uses. BS17, Proposition 11.6: Frobenius discreteness is a statement about this animation, independent of cotangent and spectra returns.
+
+| API name | Role | Specification |
+| --- | --- | --- |
+| `animatedAlgebras` | constructor | The animation of finite polynomial R-algebras. |
+| `animatedDiscrete` | constructor | Inclusion of ordinary rings as constant simplicial rings. |
+| `animatedPiZero` | projection | The ordinary π₀ ring. |
+| `animatedPushout` | data | The derived pushout in animated rings. |
+
+The following tests separate the intended definition from plausible substitutes.
+
+- `animatedAlgebras.test_polynomial` (computation): The polynomial algebra in n generators remains discrete under inclusion and π₀.
+- `animatedAlgebras.test_tor` (non-example): For k=𝔽₂, π₁(k⊗^L_(k[t])k)≅k when t acts by zero on both factors.
+- `animatedAlgebras.test_identity` (degenerate): A⊗^L_A B≃B.
+
+### Frobenius discreteness and perfection
+
+Target: `EnhancedDerivedSheaves:E5:animation/frobenius-and-perfection`.
+
+For a simplicial commutative 𝔽_p-algebra A, Frobenius acts by zero on π_i(A) for i>0. Thus perfection, the sequential Frobenius colimit, is discrete and equals the perfection of π₀A. Perfect discrete 𝔽_p-algebras are closed under ordinary and derived colimits. In particular a derived tensor of perfect B←A→C is discrete, perfect and equals its ordinary tensor. The perfection of a derived affine scheme is the perfection of its classical truncation; global scheme glueing is imported from E1/E2. The multiplication map A×A→A, based at (0,0), induces zero on positive homotopy because its restrictions to both axes are zero. This does not say multiplication as a bilinear graded ring operation vanishes. An imperfect base cannot be dropped: for A=𝔽_p(t), A_perf⊗_A A_perf has the nonzero nilpotent t^(1/p)⊗1−1⊗t^(1/p). Cosimplicial perfection need not be discrete, as the perfected elliptic-cohomology example in Remark 11.7 shows.
+
+Conventions and hypotheses. p is prime and the algebra is commutative simplicial in characteristic p. A cosimplicial or arbitrary E∞ algebra does not satisfy this assertion.
+
+Construction or proof. Resolve A by free simplicial algebras and calculate Frobenius on positive homotopy using the graded free resolution argument in BS. Use filtered-colimit preservation of π_i to kill all positive homotopy in perfection. Apply the same calculation to derived pushouts between perfect rings; identify π₀ with the ordinary pushout.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`.
+
+Source: [Projectivity of the Witt vector affine Grassmannian](https://people.mpim-bonn.mpg.de/scholze/Witt.pdf), Proposition 11.6, Remarks 11.7–11.8 and Lemma 11.10, pp. 41–42; [On the direct summand conjecture and its derived variant](https://arxiv.org/pdf/1608.08882v2), Lemma 2.6, p. 5.
+
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
+
+### The simplicial Witt adapter
+
+Target: `EnhancedDerivedSheaves:E5:animation/derived-witt-adapter`.
+
+Apply the existing p-typical Witt vector functor degreewise to a simplicial commutative 𝔽_p-algebra A. This preserves weak equivalences since its underlying simplicial set is A^ℕ, with π_i W(A)≅∏_ℕ π_i A. Witt Frobenius induces zero on positive homotopy; its sequential localization is discrete and the map to W(π₀A) becomes an equivalence after Frobenius localization. The fibre of W(A)→W(π₀A) is killed by p in the derived sense, using the coherent Witt identity VF=p and the Frobenius nullhomotopy, rather than inferring a null map just from p-torsion cohomology.
+
+Conventions and hypotheses. Use the pinned WittVector carrier, functorial maps and Frobenius/Verschiebung formulas. The p-nullhomotopy is stronger than the homotopy-group computation; its coherent construction is recorded as a remaining gap.
+
+Construction or proof. Lift WittVector’s ordinary functor degreewise; compare its underlying simplicial set with the countable product. Use fibrant simplicial abelian groups to compute homotopy groups of that product and hence weak-equivalence preservation. Apply Frobenius discreteness to the coordinate Frobenius and take the telescope. Construct the p-annihilation nullhomotopy on the fibre from the coherent factorization through Frobenius and Verschiebung.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `EnhancedDerivedSheaves:E5:animation/frobenius-and-perfection`, `mathlib:WittVector`.
+
+Source: [Projectivity of the Witt vector affine Grassmannian](https://people.mpim-bonn.mpg.de/scholze/Witt.pdf), Lemma 11.43 and Remark 11.44, p. 52.
+
+Uses. BS17, Lemma 11.43: Derived Witt constructions are reduced to the ordinary coefficient functor.
+
+| API name | Role | Specification |
+| --- | --- | --- |
+| `simplicialWitt` | constructor | The degreewise existing Witt vector functor. |
+| `simplicialWittPi` | characterisation | π_iW(A) is the product of the π_iA over Witt coordinates. |
+| `wittFrobeniusLocalization` | compatibility | Frobenius localization is discrete and insensitive to the higher homotopy of A. |
+
+The following tests separate the intended definition from plausible substitutes.
+
+- `simplicialWitt.test_constant` (compatibility): For constant A the result is constant W(A).
+- `simplicialWitt.test_coordinates` (computation): For constant A, the n-th coordinate is the existing WittVector.coeff n.
+- `simplicialWitt.test_positive` (degenerate): If A is discrete, positive homotopy groups of W(A) vanish.
+
+### Bounded totalizations and filtered colimits
+
+Target: `EnhancedDerivedSheaves:E5:animation/bounded-totalization-colimits`.
+
+For a uniformly n-truncated cosimplicial diagram of spaces, totalization is computed by a finite partial-totalization stage and hence commutes with filtered colimits. For cosimplicial complexes with a uniform cohomological bound that yields the same finite-stage computation in each desired degree, the degreewise comparison is an isomorphism. Without uniform truncation or degree control, filtered colimits need not commute with totalization. The unbounded Postnikov-convergence and hypercompleteness input belongs to E2. In particular totalization of cosimplicial coconnective spectra commutes with filtered colimits: each homotopy degree is determined by a finite Postnikov window. This is the abstract stable-categorical statement; no concrete spectrum model is used.
+
+Conventions and hypotheses. The bound must hold uniformly over both the filtered index and cosimplicial degree. A claim that an arbitrary infinite limit commutes with filtered colimits is excluded.
+
+Construction or proof. Use the matching-object obstruction tower and truncation to find the finite determining stage in each degree. Apply finite-limit commutation with filtered colimits. Use E2’s Postnikov/derived-limit convergence for any reconstruction from degreewise comparisons.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:animation/sifted-colimits`, `EnhancedDerivedSheaves:E0/limits-colimits-and-slices`, `EnhancedDerivedSheaves:E2`.
+
+Source: [Projectivity of the Witt vector affine Grassmannian](https://people.mpim-bonn.mpg.de/scholze/Witt.pdf), §11, footnote 22, p. 46; the bounded totalization arguments in Lemma 11.38 and Proposition 11.41, pp. 51–53.
+
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
+
+## The cotangent comparison branch
+
+### The cotangent-complex interface
+
+Target: `EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface`.
+
+Import L_(B/A) from DD.0 with Map_B(L_(B/A),M) ≃ Der_A(B,M), its transitivity cofiber sequence B⊗^L_A L_(A/R)→L_(B/R)→L_(B/A), and derived base change for a homotopy pushout. E5 identifies these maps with its animated and monoidal module structures, without defining a second cotangent complex. The low-degree comparison with Mathlib’s naive cotangent construction covers H⁰=Ω and H⁻¹, not the entire complex. Re-export derived exterior powers and the DD.0 amplitude tests through the same interface.
+
+Conventions and hypotheses. Cohomological indexing puts connective animated homotopy in nonpositive degrees. Ordinary tensor base change needs Tor-independence unless explicitly derived.
+
+Construction or proof. Import DD.0’s stated constructions and characterize the comparison by the same derivation mapping spaces. Identify transitivity and base-change arrows by naturality, including composite algebra maps. Transport the supplied polynomial and regular-quotient examples; retain the naive truncation boundary.
+
+Direct inputs: `DerivedDeRhamCohomology:DD.0/cotangent-complex`, `DerivedDeRhamCohomology:DD.0/derivations-cotangent-comparison`, `DerivedDeRhamCohomology:DD.0/cotangent-naive-comparison`, `DerivedDeRhamCohomology:DD.0/cotangent-transitivity`, `DerivedDeRhamCohomology:DD.0/cotangent-base-change`, `DerivedDeRhamCohomology:DD.0/derived-exterior-powers`, `DerivedDeRhamCohomology:DD.0/smooth-cotangent`, `DerivedDeRhamCohomology:DD.0/regular-quotient-cotangent`, `DerivedDeRhamCohomology:DD.0/lci-amplitude`, `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `EnhancedDerivedSheaves:E5:abstract/module-objects`, `mathlib:Algebra.Extension.H1Cotangent`.
+
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), §7.1.4, pp. 1223–1227.
+
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
+
+### Animation and E-infinity algebra comparison
+
+Target: `EnhancedDerivedSheaves:E5:cotangent-export/e-infinity-comparison-in-proved-ranges`.
+
+There is a sifted-colimit-preserving comparison from animated commutative R-algebras to connective E∞ HR-algebras, determined on polynomial generators. It is an equivalence for R a ℚ-algebra. For any commutative R, simplicial associative R-algebras compare equivalently with connective E₁ HR-algebras. In positive characteristic the commutative comparison is not an equivalence in general: spectral free algebras retain the homology of symmetric groups, absent from a polynomial animated algebra on a degree-zero generator. Strictly commutative dg algebras are a general model only in characteristic zero. Cotangent comparisons are asserted only after the relevant equivalence or separately verified hypotheses.
+
+Conventions and hypotheses. This is a return comparison requiring the concrete spectral supplier; it is not an input to animation. No positive-characteristic commutative dg replacement or unrestricted equivalence is asserted.
+
+Construction or proof. Extend the polynomial-generator spectral comparison by the animation universal property. Apply HA 7.1.4.20 over ℚ and 7.1.4.18 for associative algebras over any R. Check the positive-characteristic free algebra counterexample and record the exact comparison boundary.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:animation/universal-property-of-animation`, `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface`, `StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-spectrum`, `StableHomotopyKTheory:H.5:spectra/module-spectra-model-structure`.
+
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Proposition 7.1.4.11, p. 1223; Propositions 7.1.4.18 and 7.1.4.20, pp. 1225–1227; Remark 7.1.4.21, p. 1227.
+
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
+
+## The spectral comparison branch
+
+### Concrete spectral realization of the enhancement
+
+Target: `EnhancedDerivedSheaves:E5:spectra-comparison/late-realisation`.
+
+Import the H.5 symmetric-spectrum stable model, derived smash, Eilenberg–Mac Lane object and module model. Apply the E5 monoidal model-localization interface to compare its infinity-localization with the abstract stable monoidal category Sp. For each ordinary commutative R, Mod_HR is symmetric monoidally equivalent to the E1 enhanced D(R), carrying HR to R and derived smash over HR to derived tensor over R. On homotopy categories it recovers Mathlib’s DerivedCategory of R-modules, with the same cochain shifts and exact triangles.
+
+Conventions and hypotheses. Concrete spectra, stable model structures and Eilenberg–Mac Lane objects are supplied by H.5. This layer has no outgoing prerequisite edge to E5:abstract or E5:animation; its supplier direction must remain a return branch.
+
+Construction or proof. Verify the supplier’s monoidal model axioms and apply NS A.7. Use HA 7.1.2.13 to identify spectral modules with the enhanced derived category. Compare E1’s homotopy category and tensor using E0’s sign convention and E5’s exact monoidal comparison.
+
+Direct inputs: `StableHomotopyKTheory:H.5:spectra/stable-model-structure`, `StableHomotopyKTheory:H.5:spectra/derived-smash-product`, `StableHomotopyKTheory:H.5:spectra/module-spectra-model-structure`, `StableHomotopyKTheory:H.5:spectra/eilenberg-maclane-spectrum`, `EnhancedDerivedSheaves:E1/enhanced-derived-category`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`, `EnhancedDerivedSheaves:E5:abstract/monoidal-model-category-localization`, `EnhancedDerivedSheaves:E5:abstract/stable-infinity-category`.
+
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Theorem 7.1.2.13, p. 1212.
+
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
+
+## The common acceptance diagram
+
+### Compatibility of enhancement and algebra comparisons
+
+Target: `EnhancedDerivedSheaves:E5/single-enhancement-supplier`.
+
+The shared interface commutes with passage from ordinary rings to animated rings and from algebra objects to modules. For the unit R, the enhanced module category, its tensor unit and ordinary derived-category comparison agree across E1, abstract E5 and the spectral return. For polynomial R[x₁,…,x_n], the imported cotangent complex is the free rank-n B-module in degree zero. For a quotient by a regular sequence of length c, the imported relative cotangent complex is (I/I²)[1], free rank c in cohomological degree −1. These computations, the homotopy pushout Tor example and preservation of exact triangles are the parent layer’s acceptance diagram.
+
+Conventions and hypotheses. The cotangent and spectra supplier branches are prerequisites only for this joint acceptance diagram, not for abstract constructions. The regular-quotient statement is relative to the ambient ring, rather than its absolute cotangent complex.
+
+Construction or proof. Apply the animation, unit-module and enhanced derived comparisons. Transport the DD.0 polynomial and regular-quotient tests through the same module functor. Use uniqueness from the universal properties to identify the comparison composites and their naturality.
+
+Direct inputs: `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings`, `EnhancedDerivedSheaves:E5:cotangent-export/the-imported-interface`, `EnhancedDerivedSheaves:E5:spectra-comparison/late-realisation`, `EnhancedDerivedSheaves:E5:abstract/exact-functors`.
+
+Source: [Higher Algebra](https://www.math.ias.edu/~lurie/papers/HA.pdf), Theorem 7.1.2.13, p. 1212.
+
+Acceptance. Verify the stated equivalence on objects and mapping spaces, including naturality in the input.
+
+## Scope and source intake
+
+The additional paper routes are covered by the targets above or by the stated supplier boundaries. Geometry-specific Dqc and h-descent assertions remain E1/E2 results. Coherent towers remain E2 constructions, and adic completion remains E4. The Witt adapter imports the ordinary coefficient formulas directly from Mathlib; it does not introduce another Witt ring. The full item-to-owner ledger is sourceCoverage in the packet. The grouped ledger below makes the scope decisions reviewable without reproducing source passages.
+
+| Extraction | Items | Target or owner |
+| --- | --- | --- |
+| PAPER-BHATT-SCHOLZE-17 | S318, S319, S320, S321, F618, F619, Q1101, Q1127, Q1128, Q1129, Q1130, Q1136, Q1141, Q1143, Q1145, Q1146, Q1147, Q1148, dqc-definition, remark-11-34-literature | `EnhancedDerivedSheaves:E1` |
+| PAPER-BHATT-SCHOLZE-17 | S322, F607, F609, F610, Q1132, Q1133, Q1135, Q1137, Q1138, Q1140, Q1142, Q1144, Q1149, Q1150, Q1151, Q1152, definition-11-1-h-topology-on-perf, theorem-11-2-3-bounded-dqc-h-sheaf, remark-11-3-quotients-of-regular, remark-11-4-derived-perf-not-hypercomplete, remark-11-5-h-amplitude, black-box-htt-hypercompleteness, black-box-dag8-remark-2-1-11 | `EnhancedDerivedSheaves:E2` |
+| PAPER-BHATT-SCHOLZE-17 | Q1103 | `EnhancedDerivedSheaves:E5:animation/animated-commutative-rings` |
+| PAPER-BHATT-SCHOLZE-17 | Q1106, Q1107, Q1108, Q1109, Q1110, Q1111 | `EnhancedDerivedSheaves:E5:animation/frobenius-and-perfection` |
+| PAPER-BHATT-SCHOLZE-17 | Q1114 | `EnhancedDerivedSheaves:E5:presentability/presentable-categories` |
+| PAPER-BHATT-SCHOLZE-17 | Q1115, Q1117, Q1120, Q1121, black-box-carlsson-fibre-of-tot | `EnhancedDerivedSheaves:E5:abstract/descendable-algebras` |
+| PAPER-BHATT-SCHOLZE-17 | Q1116, Q1118, Q1119, Q1122, black-box-mathew-3-24 | `EnhancedDerivedSheaves:E5:abstract/module-descent-and-functoriality` |
+| PAPER-BHATT-SCHOLZE-17 | Q1123, Q1124, Q1125, Q1126, Q1131, Q1160 | `EnhancedDerivedSheaves:E5:abstract/uniform-index-colimits` |
+| PAPER-BHATT-SCHOLZE-17 | Q1153, Q1154, Q1155 | `EnhancedDerivedSheaves:E5:animation/derived-witt-adapter` |
+| PAPER-BHATT-SCHOLZE-17 | tot-commutes-with-filtered-colimits | `EnhancedDerivedSheaves:E5:animation/bounded-totalization-colimits` |
+| PAPER-BHATT-SCHOLZE-17 | black-box-bhl15-thm-1-10 | `LanglandsParameterStacks:LP2` |
+| PAPER-BHATT-SCHOLZE-17 | black-box-carlsson-completion | `EnhancedDerivedSheaves:E4` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 23 | `EnhancedDerivedSheaves:E5:abstract/stable-tensor-ideals` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 24, 26 | `EnhancedDerivedSheaves:E5:abstract/verdier-quotient` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 25 | `EnhancedDerivedSheaves:E5:presentability/ind-verdier-localization` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 91 | `EnhancedDerivedSheaves:E5:abstract/algebra-objects` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 95 | `EnhancedDerivedSheaves:E5:abstract/monoidal-envelope` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 139 | `EnhancedDerivedSheaves:E5:abstract/monoidal-categories-over-an-operad` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 140, 141 | `EnhancedDerivedSheaves:E5:abstract/monoidal-dwyer-kan-localization` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 142 | `EnhancedDerivedSheaves:E5:abstract/monoidal-model-category-localization` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 143, 144, 145, 146 | `EnhancedDerivedSheaves:E5:abstract/left-derivable-cocartesian-families` |
+| PAPER-NIKOLAUS-SCHOLZE-18 | 147 | `EnhancedDerivedSheaves:E5:abstract/infinity-operad` |
+| PAPER-SCHOLZE-26 | 47 | `EnhancedDerivedSheaves:E5:abstract/formal-tensor-inversion` |
+| PAPER-SCHOLZE-26 | 60 | `EnhancedDerivedSheaves:E5:presentability/dualizable-compactly-assembled-categories` |
+| PAPER-SCHOLZE-26 | 64 | `EnhancedDerivedSheaves:E2` |
+| PAPER-BHATT-18 | simplicial-perfection | `EnhancedDerivedSheaves:E5:animation/frobenius-and-perfection` |
+| PAPER-BHATT-18 | obstruction, derived-tensor-api, cohomology-base-change-map, splitting-through-comparison | `EnhancedDerivedSheaves:E1` |
+| PAPER-BHATT-18 | tower-roos, pro-zero-roos, module-tower-milnor, pro-tower | `EnhancedDerivedSheaves:E2` |
+| PAPER-BHATT-ETAL-23 | enhancement, triangulated-limit-warning | `EnhancedDerivedSheaves:E0/stable-api-and-the-sign-comparison` |
+| PAPER-FARGUES-SCHOLZE-21 | c4a-right-adjoint-sums-IV.2.20 | `EnhancedDerivedSheaves:E5:presentability/neeman-compactness-criterion` |
+| PAPER-SCHOLZE-17 | 407, 611 | `EnhancedDerivedSheaves:E5:presentability/limits-of-presentable-categories` |
+| PAPER-SCHOLZE-17 | 603 | `EnhancedDerivedSheaves:E5:presentability/neeman-compactness-criterion` |
+| PAPER-SCHOLZE-17 | 406 | `EnhancedDerivedSheaves:E3/adjoint-functor-theorem-and-localisations` |
+
+BS17 Remark 11.24 attributes a countability result with only generators mentioned. The verified input here is Mathew Corollary 3.33, which also bounds relations. This packet does not promote countable generation alone to a theorem. The sourceIssue records the citation gap already identified by the extraction. Versioned Ramzi references use the downloaded v2 numbering: the trace-class rigidity criterion is Corollary 4.60. Author PDFs use the page conventions recorded in the packet; HTT PDF pages are 18 greater than the printed page numbers.
+
+## Planning status and refinements
+
+All six stages are planned and this planning pass is complete. No stage is called closed. The following obligations are precise leaves in the graph, not silently assumed results.
+
+- **Refine abstract supplier dependencies across parts.** E3’s existing full-inclusion Kan-extension node lists whole E1/E2 stages, and its adjoint/localization node also lists E1’s concrete presentability result and the whole E5:presentability stage. The abstract Kan-extension and adjoint interfaces must be isolated from those concrete applications before the combined package has an acyclic prerequisite graph. This packet removes the direct E1/E3-application inputs from its generic presentability definition, preserves the exact existing supplier ids, and requests the dependency refinement from E3. Its own node graph is acyclic; no claim of cross-part closure is made. The separate signatureOmissions record incomplete prototypes, rather than treating absent implementations as mathematical results.
+- **Amitsur tower and general uniform-index proof input.** Prove the cubical bar/partial-cosimplicial-totalization pro-comparison and import E2’s multiplicative derived-limit filtration for a finite-cohomological-dimension indexing category. The sequential 2m proof is read in BS17 Lemma 11.22; the general case is asserted there without a worked multiplicative-filtration proof. Do not claim a termwise fibre formula for the usual Tot_n solely from a pro-equivalence.
+- **Coherent p-annihilation for the derived Witt fibre.** BS17 Remark 11.44 asserts p-annihilation. The π_i calculation alone proves p-torsion in positive homotopy, not a nullhomotopy of multiplication by p on the entire fibre. Construct the fibre-level Frobenius nullhomotopy and combine it with the ordinary VF=p identity before claiming the derived map is zero.
+- **Continuous categorical action beyond finite quotient factoring.** The finite-group construction and the discrete-continuous-module adapter have precise models. A general profinite action on an infinity-category requires a specified topology or condensed continuity model; no universal filtered-colimit formula for categorical fixed points is supplied. The stage’s appropriate finite-quotient cases are planned; any broader application must name and supply its continuity model.
+
+The suggested file records data and homotopy-category consequences where full coherent predicates are unavailable. In particular its homotopy-category equivalence signatures do not replace the mapping-space equivalences stated in this document. Compiling that file checks the displayed types and existing carrier compatibility. It cannot certify the omitted cocartesian axioms, higher naturality, regular accessibility, model axioms, duality triangles or bilinear adjoint conditions. These omissions must be refined against the completed E0/E3 interfaces. The mathematical statements and tests above remain the definitive specifications.
+
+Supplier requests.
+
+- `EnhancedDerivedSheaves:E1`: Module specialization: perfect-ring Tor vanishing; flat Frobenius-root ideals; the projective/flat dimension bounds for perfections and finite presentations, with their countability hypotheses; valuation-module finite-freeness criterion; derived tensor/Hom and the splitting-obstruction triangle. Concrete qcqs Dqc, base change, Zariski/fppf/nilpotent-cover descent, and affine-to-scheme perfection comparison must use E1/E2’s enhancement. The claims and counterexamples in BS17 S318–S321, F618–F619 and Q1141,Q1143,Q1145–Q1148 remain in E1, with the source’s finite-dimension bounds stated separately from unsupported general finite global dimension.
+- `EnhancedDerivedSheaves:E2`: Pro-zero towers and pro-isomorphisms of modules and their coherent enhancement; the strict countable Roos derived-limit model, Milnor sequence, pro-zero invariance, and multiplicative finite-cohomological-dimension derived-limit filtration used in uniform descendability. Supply bounded/Postnikov totalization convergence, h-descent/hypercompleteness and the geometric Dqc descent results of BS17 Q1132–Q1152 in this direction. CompletedCohomologyPartII and ArithmeticGaloisDuality consume this E2 construction; they do not supply it.
+- `EnhancedDerivedSheaves:E4`: Identify Amitsur completion of a finitely generated module for a Noetherian ring and ideal quotient with derived adic completion (the Carlsson completion input); do not confuse this comparison with finite-index descendability.
+- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-0-discrete-modules-and-continuous-sections`: Import the upstream discrete continuous coefficient dictionary and finite-quotient actions unchanged; no new cochain theory is planned here.
+- `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`: Import its canonical all-degree continuous finite-quotient cocone, with coefficients M^U and inflation-and-inclusion transitions, to test the E1 enhanced-invariants adapter.
+
+The two comparison returns must retain their supplier direction when the roadmap is packaged. E0 remains the unique owner of minimal stability and exactness. RefinedTraceMethods and the Berkovich continuation import the general categorical targets from E5; their specialized trace and geometric theorems are not prerequisites here. The broader profinite categorical theory needs a chosen continuity model before an application can ask for it. None of these boundaries changes the existing Tau Ceti ProfiniteCohomology roadmap.
+
+Additional supplier refinement: `EnhancedDerivedSheaves:E3` must isolate the abstract Kan-extension and conditional adjoint statements from their E1/E2 application inputs. The existing exact ids are preserved; the unresolved cross-part dependencies are the first gap and the additional restructuring proposal. The generic E5 presentability definition does not import E1’s concrete application.
+
+The compact-map prototype records diagonal data only for small ordinary filtered shapes; it omits higher filler compatibility and universe enlargement. Siftedness’s cofinality predicate is omitted from the prototype: the empty-product failure, Δop product comparison and two-point binary-product failure are explicit consequences instead. Left/right action data do not yet impose coherent tensored-category axioms.
