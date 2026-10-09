@@ -6,7 +6,8 @@ so contributors and reviewers converge on names and signatures.
 
 Mathlib pin: 082e2d37e8b0463410cdb532e111cd43d5a66174.
 Tau Ceti pin: f790474821cf4256814db967cb154e7af3d0c369.
-Not compiled: no existing shared build at both required pins was found.
+Elaborated with lean-check at the pinned shared baseline; only sorry warnings.
+Compilation covers the finite linear prototypes, not the analytic inventory.
 Every implementation status in the packet remains unchecked.
 -/
 import Mathlib.Data.ZMod.Defs
@@ -45,7 +46,9 @@ variable (B : ι → Type v) [∀ i, AddCommGroup (B i)] [∀ i, Module (ZMod n)
 The geometric degrees must be constructed from the actual henselian boundary fields. -/
 def boundaryPretrace (degree : ∀ i, B i →ₗ[ZMod n] ZMod n) :
     ((i : ι) → B i) →ₗ[ZMod n] ZMod n :=
-  LinearMap.lsum (ZMod n) B (ZMod n) degree
+  by
+  classical
+  exact LinearMap.lsum (ZMod n) B (ZMod n) degree
 
 namespace BoundaryPretrace
 
@@ -78,7 +81,7 @@ theorem descend (degree : ∀ i, B i →ₗ[ZMod n] ZMod n)
 
 /-- Algebraic form of BoundaryPretrace.norm, allowing many branches over one branch.
 The geometric norm identity is the equality hdegree on the component maps. -/
-theorem norm {κ : Type w} [Fintype κ] [DecidableEq κ]
+theorem norm [DecidableEq ι] {κ : Type w} [Fintype κ] [DecidableEq κ]
     (C : κ → Type v) [∀ j, AddCommGroup (C j)] [∀ j, Module (ZMod n) (C j)]
     (φ : ι → κ) (N : ∀ i, B i →ₗ[ZMod n] C (φ i))
     (degreeB : ∀ i, B i →ₗ[ZMod n] ZMod n)
@@ -171,7 +174,7 @@ Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/compactificati
 ClassicalAdicEtaleCohomology:H3/closed-pseudo-fibre-torsion-acyclicity (theorem)
 Proposed theorem AdicSpace.closedPseudoFibre_acyclic
 Intended signature: Let S=Spa(C,C⁺), where C is complete algebraically closed nonarchimedean and C⁺ is an open bounded valuation subring; write s for its unique closed point. Let f:X→S be proper, with X locally noetherian, and let F be an étale Z/n-module sheaf, n>0. If F restricts to zero on the pseudo-adic fibre (X,f⁻¹(s)), then RΓ(X,F)=0. The same vanishing holds for K∈D⁺ with all cohomology sheaves restricting to zero. This includes extension by zero from f⁻¹(S∖{s}) and does not require n to be a unit in C⁺.
-Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space, ClassicalAdicEtaleCohomology:H3/proper-closed-fibre-vanishing, ClassicalAdicEtaleCohomology:H3/proper-torsion-cohomological-amplitude, ClassicalAdicEtaleCohomology:H0/leray-spectral-sequence
+Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space, ClassicalAdicEtaleCohomology:H3/proper-torsion-cohomological-amplitude, ClassicalAdicEtaleCohomology:H0/leray-spectral-sequence
 -/
 
 /-
@@ -199,14 +202,14 @@ Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/proper-etale-e
 ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison (comparison)
 Proposed theorem AdicSpace.boundary_kummer_comparison
 Intended signature: Let X=Spa(A,A°) be a nonempty smooth affinoid curve over a complete algebraically closed nonarchimedean field C, and let j:X→Xᶜ be the universal compactification over Spa(C,O_C). Its boundary I is finite and discrete, consisting of rank-two closed points, with at least one point on every connected component. For x∈I set K_x=k(x)ʰ, or its completion after henselization, and use the corresponding henselian valuation pair. The boundary étale topos is the finite product of the topoi (Spec K_x)_ét. For n>0 invertible in C, H⁰({x},μ_n)=μ_n(C), H¹({x},μ_n)=K_x×/(K_x×)ⁿ, and Hⁱ({x},μ_n)=0 for i≥2. These identifications carry finite-flat cohomological trace on H¹ to the field norm.
-Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space, ClassicalAdicEtaleCohomology:H3/universal-compactification, ClassicalAdicEtaleCohomology:H3/flat-quasi-finite-trace, AdicSpacesPartII:R0, ClassicalAdicEtaleCohomology:H1:henselian, ClassicalAdicEtaleCohomology:H0/kummer-sequence, SchemeAndStackFoundations:SF.2
+Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space, ClassicalAdicEtaleCohomology:H3/universal-compactification, ClassicalAdicEtaleCohomology:H3/flat-quasi-finite-trace, AdicSpacesPartII:R0, ClassicalAdicEtaleCohomology:H1:henselian, ClassicalAdicEtaleCohomology:H0/kummer-sequence, SchemeAndStackFoundations:SF.2, tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory
 -/
 
 /-
 ClassicalAdicEtaleCohomology:H3/boundary-localization-presentation (theorem)
 Proposed theorem AdicSpace.boundary_localization
 Intended signature: In the preceding affinoid-curve setting, let r=#I and s=#π₀(X). For n invertible in C, H⁰_c(X,μ_n)=0 and Hⁱ_c(X,μ_n)=0 for i≥3, and localization gives the exact sequence 0→μ_n(C)^(r−s)→H¹_c(X,μ_n)→H¹(Xᶜ,μ_n)→⊕_{x∈I}K_x×/(K_x×)ⁿ→H²_c(X,μ_n)→0. Moreover H¹(Xᶜ,μ_n)≅H¹(X,μ_n), with 0→A×/(A×)ⁿ→H¹(X,μ_n)→Pic(X)[n]→0. Thus H²_c is canonically the cokernel of the boundary restriction β, as a Z/n-module.
-Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison, ClassicalAdicEtaleCohomology:H3/lower-shriek-open-closed-triangle, ClassicalAdicEtaleCohomology:H0, ClassicalAdicEtaleCohomology:H1:henselian, SchemeAndStackFoundations:SF.2, AdicSpacesPartII:R0
+Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison, ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion, ClassicalAdicEtaleCohomology:H0, ClassicalAdicEtaleCohomology:H1:henselian, SchemeAndStackFoundations:SF.2, AdicSpacesPartII:R0
 -/
 
 /-
@@ -281,7 +284,7 @@ example -- BoundaryResidueTrace.test_finite_split (compatibility)
 Intended test: For a disjoint union of two copies mapping finitely to X, trace is the sum of the two component traces.
 
 example -- BoundaryResidueTrace.test_residue_p (non-example)
-Intended test: For a mixed-characteristic closed disc and n=p, surjectivity cannot be strengthened to an isomorphism: LRZ Lemma 5.5.21 and Remark 5.1.14 describe extra compactly supported classes.
+Intended test: For a mixed-characteristic closed disc and n=p, the trace is onto but has nonzero kernel: the difference of point classes at 0 and 1 is nonzero by LRZ Lemma 5.5.21, pp. 60–61, while both have trace 1 by Corollary 5.5.18, p. 60.
 -/
 
 /-
@@ -295,7 +298,7 @@ Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/boundary-resid
 ClassicalAdicEtaleCohomology:H3/weak-geometric-support-base-change (theorem)
 Proposed theorem AdicSpace.support_weak_baseChange
 Intended signature: Let f:X→Y be a compactifiable locally +weakly finite type morphism of locally noetherian analytic adic spaces and K a bounded-below torsion complex. Formation of R⁺f! has a base-change transformation for every analytic pullback. This transformation is an isomorphism for pullbacks of transcendence dimension zero, in particular the canonical completed algebraic-closure field-pair maps used to compute geometric stalks. This weak assertion does not require torsion orders to be units in O_Y⁺. If torsion orders are units there, the inherited full base-change theorem applies to arbitrary pullbacks.
-Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/proper-support-direct-image, ClassicalAdicEtaleCohomology:H3/lower-shriek-factorisation-independence, ClassicalAdicEtaleCohomology:H0/geometric-stalks-at-field-pairs, AdicEtaleGeometry:A2, EnhancedDerivedSheaves:E1
+Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/proper-support-direct-image, ClassicalAdicEtaleCohomology:H3/proper-etale-exchange-all-torsion, ClassicalAdicEtaleCohomology:H0/geometric-stalks-at-field-pairs, AdicEtaleGeometry:A2, EnhancedDerivedSheaves:E1
 -/
 
 /-
@@ -309,14 +312,14 @@ Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/proper-support
 ClassicalAdicEtaleCohomology:H3/smooth-trace-source-descent (theorem)
 Proposed theorem AdicSpace.smoothTrace_sourceDescent
 Intended signature: For f as in smooth-constant-support-top-degree and a cover X=⋃_i U_i by taut open immersions, write f_i=f|U_i and f_ii′=f|U_i∩U_i′. The alternating sum of the two extension-by-zero maps gives an exact sequence ⊕_{i,i′}R²ᵈf_ii′!Λ(d)→⊕_i R²ᵈf_i!Λ(d)→R²ᵈf!Λ(d)→0. Consequently trace maps Rf_i!Λ(d)[2d]→Λ that agree on overlaps descend to one unique trace on X. The result allows infinite covers.
-Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/smooth-constant-support-top-degree, ClassicalAdicEtaleCohomology:H3/lower-shriek-quasi-compact-exhaustion, ClassicalAdicEtaleCohomology:H3/lower-shriek-direct-sums, ClassicalAdicEtaleCohomology:H3/lower-shriek-open-closed-triangle, ClassicalAdicEtaleCohomology:H0, EnhancedDerivedSheaves:E1/presentability-and-derived-tensor
+Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/smooth-constant-support-top-degree, ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion, ClassicalAdicEtaleCohomology:H0, EnhancedDerivedSheaves:E1/presentability-and-derived-tensor
 -/
 
 /-
 ClassicalAdicEtaleCohomology:H3/affine-space-trace-model (construction)
 Proposed construction AdicSpace.AffineSpaceTrace
 Intended signature: Let Y be locally noetherian analytic, n>0 invertible in O_Y, and Λ=Z/n. The trace for π:A¹,an_Y→Y is the composite Rπ!Λ(1)[2]→Rπ̄_*Λ(1)[2]→R²π̄_*Λ(1)≅Λ, where π̄:P¹,an_Y→Y and the last map is the inverse of the first-Chern-class projective-bundle isomorphism. Define the trace for Aᵈ,an_Y by successive projections and the support composition comparison, with twists and shifts added. For d=0 it is the identity. This trace is independent of a permutation of the affine coordinates and commutes with base-change transformations.
-Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/smooth-constant-support-top-degree, ClassicalAdicEtaleCohomology:H3/weak-geometric-support-base-change, ClassicalAdicEtaleCohomology:H3/lower-shriek-composition, ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization, AdicSpacesPartII:R3, ClassicalAdicEtaleCohomology:H1, EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace, ClassicalAdicEtaleCohomology:H0
+Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/smooth-constant-support-top-degree, ClassicalAdicEtaleCohomology:H3/weak-geometric-support-base-change, ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion, ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization, AdicSpacesPartII:R3, ClassicalAdicEtaleCohomology:H1, EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace, ClassicalAdicEtaleCohomology:H0
 
 lemma AffineSpaceTrace.projectiveLine
 Intended statement: For d=1 the trace is restriction to P¹ followed by the inverse Chern-class isomorphism in degree two.
@@ -337,7 +340,7 @@ example -- AffineSpaceTrace.test_zero (degenerate)
 Intended test: Dimension zero gives the identity Λ→Λ.
 
 example -- AffineSpaceTrace.test_line_class (computation)
-Intended test: The zero-section class in H²_c(A¹,an_C,Λ(1)) has trace 1.
+Intended test: Under the requested H1 compact-support comparison for A¹_C, the image of the scheme degree-one point class has trace 1 in H²_c(A¹,an_C,Λ(1)).
 
 example -- AffineSpaceTrace.test_swap (compatibility)
 Intended test: Interchanging the two coordinates of A²,an_C preserves its trace.
@@ -456,5 +459,12 @@ example -- GeneralSmoothTrace.test_higher_rank (characterisation)
 Intended test: The trace is defined for the relative disc over Spa(C,C⁺) of rank(C⁺)>1 and is compatible with the rank-one generic pullback.
 
 example -- GeneralSmoothTrace.test_residue_p_scope (non-example)
-Intended test: For a mixed-characteristic closed disc with Λ=F_p the trace exists, but its existence must not imply a one-dimensional H²_c or nonproper arbitrary-sheaf duality.
+Intended test: For the mixed-characteristic closed disc with Λ=F_p, the nonzero difference of the point classes at 0 and 1 lies in the kernel of its trace; trace existence therefore cannot give an isomorphism H²_c≅F_p (LRZ Corollary 5.5.18 and Lemma 5.5.21, pp. 60–61).
+-/
+
+/-
+ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion (theorem)
+Proposed theorem AdicSpace.boundedBelow_support_calculus
+Intended signature: Let Λ=Z/n, n>0 invertible in O_Y, and let f:X→Y and g:Y→Z be separated taut locally finite type maps of locally noetherian analytic adic spaces, with n invertible in O_Z when composing. For the inherited classical bounded-below support functors there are natural, unital and associative comparisons R⁺(g∘f)!≅R⁺g!R⁺f!, compatible with the proper and exact étale cases, forget-supports maps and Tate twists. Open/pseudo-adic-closed localization holds in this coefficient range. Taut open-cover support descent, including infinite covers by quasi-compact opens, gives the support Čech spectral sequence used to glue top-degree traces. These comparisons are coherent with the canonical weak base-change transformations; this statement does not assert that arbitrary base-change transformations are isomorphisms.
+Unavailable carriers / suppliers: ClassicalAdicEtaleCohomology:H3/proper-support-direct-image, ClassicalAdicEtaleCohomology:H3/partially-proper-lower-shriek, ClassicalAdicEtaleCohomology:H3/compactification-proper-factorisation, ClassicalAdicEtaleCohomology:H3/proper-etale-exchange-all-torsion, ClassicalAdicEtaleCohomology:H3/proper-projection-formula-all-torsion, ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space, ClassicalAdicEtaleCohomology:H0/supports-and-extension-by-zero, ClassicalAdicEtaleCohomology:H0, EnhancedDerivedSheaves:E1
 -/

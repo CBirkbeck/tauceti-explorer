@@ -134,7 +134,7 @@ The closed fibre is a pseudo-adic support subset, not a presumed closed analytic
 2. Pass from sheaves to D⁺ by the hypercohomology spectral sequence; finite proper amplitude gives the unbounded extension used by the next node.
 3. The non-algebraizable proper-space proof of 4.4.3 remains a gap. H1’s henselian comparison of algebraizable models alone does not prove it.
 
-**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space`, `ClassicalAdicEtaleCohomology:H3/proper-closed-fibre-vanishing`, `ClassicalAdicEtaleCohomology:H3/proper-torsion-cohomological-amplitude`, `ClassicalAdicEtaleCohomology:H0/leray-spectral-sequence`.
+**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space`, `ClassicalAdicEtaleCohomology:H3/proper-torsion-cohomological-amplitude`, `ClassicalAdicEtaleCohomology:H0/leray-spectral-sequence`.
 
 **Acceptance.**
 
@@ -231,8 +231,9 @@ X uses the maximal plus ring A° and the base plus ring is O_C. The henselian fi
 2. Apply H1’s requested closed-point topos equivalence and the finite closed-subset decomposition of the pseudo-adic topos. Correct the valuation-ring target misprint in LRZ Appendix B.2 to Spec K_x.
 3. Use Kummer, Hilbert 90 and the cohomological dimension ≤1 of the henselian boundary fields.
 4. Apply the finite-flat norm comparison under these equivalences.
+5. Import the current-library Kummer isomorphism and norm compatibility through the requested field étale-topos/Galois comparison. The fixed blueprint pin has only the Kummer injection; its missing surjectivity is already supplied upstream and is not a new SF.2 target.
 
-**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space`, `ClassicalAdicEtaleCohomology:H3/universal-compactification`, `ClassicalAdicEtaleCohomology:H3/flat-quasi-finite-trace`, `AdicSpacesPartII:R0`, `ClassicalAdicEtaleCohomology:H1:henselian`, `ClassicalAdicEtaleCohomology:H0/kummer-sequence`, `SchemeAndStackFoundations:SF.2`.
+**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space`, `ClassicalAdicEtaleCohomology:H3/universal-compactification`, `ClassicalAdicEtaleCohomology:H3/flat-quasi-finite-trace`, `AdicSpacesPartII:R0`, `ClassicalAdicEtaleCohomology:H1:henselian`, `ClassicalAdicEtaleCohomology:H0/kummer-sequence`, `SchemeAndStackFoundations:SF.2`, `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory`.
 
 **Acceptance.**
 
@@ -257,7 +258,7 @@ The compact support is relative to Spa(C,O_C); all Kummer groups are written add
 3. Apply the inherited open/closed support triangle to X⊂Xᶜ and the boundary Kummer computation.
 4. The map H⁰(Xᶜ,μ_n)→H⁰(I,μ_n) is injective because each component meets the boundary; its cokernel has rank r−s.
 
-**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-open-closed-triangle`, `ClassicalAdicEtaleCohomology:H0`, `ClassicalAdicEtaleCohomology:H1:henselian`, `SchemeAndStackFoundations:SF.2`, `AdicSpacesPartII:R0`.
+**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison`, `ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion`, `ClassicalAdicEtaleCohomology:H0`, `ClassicalAdicEtaleCohomology:H1:henselian`, `SchemeAndStackFoundations:SF.2`, `AdicSpacesPartII:R0`.
 
 **Acceptance.**
 
@@ -372,7 +373,7 @@ All compact supports are relative to Spa(C,O_C); no extension of this boundary c
 - `BoundaryResidueTrace.test_disc` (computation): For the disc, t_X(∂[T])=−1 modulo n; equivalently the class ∂[T⁻¹] has trace 1.
 - `BoundaryResidueTrace.test_annulus_relation` (characterisation): The boundary restriction of any global annulus Kummer class has trace zero after applying ∂, by reciprocity on both branches.
 - `BoundaryResidueTrace.test_finite_split` (compatibility): For a disjoint union of two copies mapping finitely to X, trace is the sum of the two component traces.
-- `BoundaryResidueTrace.test_residue_p` (non-example): For a mixed-characteristic closed disc and n=p, surjectivity cannot be strengthened to an isomorphism: LRZ Lemma 5.5.21 and Remark 5.1.14 describe extra compactly supported classes.
+- `BoundaryResidueTrace.test_residue_p` (non-example): For a mixed-characteristic closed disc and n=p, the trace is onto but has nonzero kernel: the difference of point classes at 0 and 1 is nonzero by LRZ Lemma 5.5.21, pp. 60–61, while both have trace 1 by Corollary 5.5.18, p. 60.
 
 **Acceptance.**
 
@@ -415,11 +416,11 @@ The dimension-zero condition is on the base-change morphism, not on f. Only the 
 
 **Proof or construction.**
 
-1. Construct the transformation by the inherited support factorization, with generic mate coherence supplied by E1.
+1. Construct the transformation directly with the canonical universal compactification, proper pushforward mates and exact open extension by zero, using all-torsion proper–étale exchange for refinement. Generic mate coherence is supplied by E1; the O⁺-restricted inherited factorization-independence theorem is not used for arbitrary torsion.
 2. Use Huber Theorem 5.4.6 and Corollary 5.4.8 for the dimension-zero criterion; the public LRZ proof states this application but does not reproduce its book proof.
 3. Use this weak comparison at geometric points, rather than assuming arbitrary residue-p proper base change.
 
-**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/proper-support-direct-image`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-factorisation-independence`, `ClassicalAdicEtaleCohomology:H0/geometric-stalks-at-field-pairs`, `AdicEtaleGeometry:A2`, `EnhancedDerivedSheaves:E1`.
+**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/proper-support-direct-image`, `ClassicalAdicEtaleCohomology:H3/proper-etale-exchange-all-torsion`, `ClassicalAdicEtaleCohomology:H0/geometric-stalks-at-field-pairs`, `AdicEtaleGeometry:A2`, `EnhancedDerivedSheaves:E1`.
 
 **Acceptance.**
 
@@ -466,7 +467,7 @@ All restricted maps remain separated, taut, smooth and equidimensional d.
 3. Use exact direct sums and support exhaustion to pass from finite subcovers to arbitrary index sets.
 4. Apply the unique top-degree factorization to convert this cokernel into descent of trace morphisms.
 
-**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/smooth-constant-support-top-degree`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-quasi-compact-exhaustion`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-direct-sums`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-open-closed-triangle`, `ClassicalAdicEtaleCohomology:H0`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
+**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/smooth-constant-support-top-degree`, `ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion`, `ClassicalAdicEtaleCohomology:H0`, `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`.
 
 **Acceptance.**
 
@@ -492,7 +493,7 @@ Projective bundle geometry is imported from R3; its cohomological normalization 
 4. For coordinate permutations reduce equality to rank-one stalks using the overconvergent codomain Λ. Use H1’s requested algebraic–analytic support comparison for A² to identify H⁴_c(A²,an_C,Λ(2)) with the scheme value Λ; the GL₂(C) action is trivial because its abelianization is divisible and Λ× is finite.
 5. This argument is deliberately not transferred to the residue-p closed polydisc, whose permutation action can be nontrivial.
 
-**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/smooth-constant-support-top-degree`, `ClassicalAdicEtaleCohomology:H3/weak-geometric-support-base-change`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-composition`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`, `AdicSpacesPartII:R3`, `ClassicalAdicEtaleCohomology:H1`, `EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace`, `ClassicalAdicEtaleCohomology:H0`.
+**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/smooth-constant-support-top-degree`, `ClassicalAdicEtaleCohomology:H3/weak-geometric-support-base-change`, `ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`, `AdicSpacesPartII:R3`, `ClassicalAdicEtaleCohomology:H1`, `EtaleDualityAndPerverseSheaves:EDC.2:trace-purity/affine-space-trace`, `ClassicalAdicEtaleCohomology:H0`.
 
 **Uses.**
 
@@ -510,7 +511,7 @@ Projective bundle geometry is imported from R3; its cohomological normalization 
 **Unit tests.**
 
 - `AffineSpaceTrace.test_zero` (degenerate): Dimension zero gives the identity Λ→Λ.
-- `AffineSpaceTrace.test_line_class` (computation): The zero-section class in H²_c(A¹,an_C,Λ(1)) has trace 1.
+- `AffineSpaceTrace.test_line_class` (computation): Under the requested H1 compact-support comparison for A¹_C, the image of the scheme degree-one point class has trace 1 in H²_c(A¹,an_C,Λ(1)).
 - `AffineSpaceTrace.test_swap` (compatibility): Interchanging the two coordinates of A²,an_C preserves its trace.
 - `AffineSpaceTrace.test_closed_polydisc` (non-example): At residue-p coefficients the same permutation-triviality assertion for H⁴_c(D²_C,μ_p⊗²) is false; LRZ Remark 6.1.8 gives two distinct point classes.
 
@@ -749,7 +750,7 @@ n must be a unit in O_Y; it can fail to be a unit in O_Y⁺. Classical Rf! on th
 - `GeneralSmoothTrace.test_finite_etale` (computation): For a split finite étale cover with r sheets, the trace sums the r components and its composite with the unit is multiplication by r.
 - `GeneralSmoothTrace.test_projective_line` (compatibility): The analytified degree-one point class of P¹_C has trace 1.
 - `GeneralSmoothTrace.test_higher_rank` (characterisation): The trace is defined for the relative disc over Spa(C,C⁺) of rank(C⁺)>1 and is compatible with the rank-one generic pullback.
-- `GeneralSmoothTrace.test_residue_p_scope` (non-example): For a mixed-characteristic closed disc with Λ=F_p the trace exists, but its existence must not imply a one-dimensional H²_c or nonproper arbitrary-sheaf duality.
+- `GeneralSmoothTrace.test_residue_p_scope` (non-example): For the mixed-characteristic closed disc with Λ=F_p, the nonzero difference of the point classes at 0 and 1 lies in the kernel of its trace; trace existence therefore cannot give an isomorphism H²_c≅F_p (LRZ Corollary 5.5.18 and Lemma 5.5.21, pp. 60–61).
 
 **Acceptance.**
 
@@ -757,6 +758,31 @@ n must be a unit in O_Y; it can fail to be a unit in O_Y⁺. Classical Rf! on th
 - Residue-p coefficients on a nonproper disc do not satisfy full classical Poincaré duality merely because this trace exists.
 
 **Sources.** Li-Reinecke-Zavyalov-v1, Theorem 6.1.1 and its proof, pp. 66–74; Theorem 1.2.1, pp. 3–4. The public construction gives the stated general analytic trace and its uniqueness and normalization, with pullback compatibility through a possibly noninvertible map.
+
+### 25. Bounded-below support calculus for open-ring torsion
+
+`ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion` · theorem · proposed name `AdicSpace.boundedBelow_support_calculus`.
+
+Let Λ=Z/n, n>0 invertible in O_Y, and let f:X→Y and g:Y→Z be separated taut locally finite type maps of locally noetherian analytic adic spaces, with n invertible in O_Z when composing. For the inherited classical bounded-below support functors there are natural, unital and associative comparisons R⁺(g∘f)!≅R⁺g!R⁺f!, compatible with the proper and exact étale cases, forget-supports maps and Tate twists. Open/pseudo-adic-closed localization holds in this coefficient range. Taut open-cover support descent, including infinite covers by quasi-compact opens, gives the support Čech spectral sequence used to glue top-degree traces. These comparisons are coherent with the canonical weak base-change transformations; this statement does not assert that arbitrary base-change transformations are isomorphisms.
+
+Only D⁺ support calculus is asserted. Constant complexes and their shifts used by the smooth trace lie in this range. The operators are the inherited proper-support functors, not a second construction of analytic cohomology.
+
+**Proof or construction.**
+
+1. For quasi-compact maps use proper universal compactifications and exact open extension by zero. Compare compactifications by proper maps; the all-torsion proper–étale exchange gives the required refinement isomorphisms.
+2. Use common refinements to prove composition, units and associativity, checking the maps on proper and étale factors. Tate twists are finite locally free coefficients and commute with this calculus.
+3. Apply pseudo-adic recollement for localization. Extend the quasi-compact computation to taut source covers by the support Čech construction requested from H0, identifying its augmentation with the inherited partially proper support functor.
+4. Compare the canonical weak base-change maps under refinement and composition. Their existence and coherence do not establish arbitrary proper base change.
+5. LRZ uses this calculus with n invertible in O throughout §6.1. Its foundational compactification/exhaustion proof is a recorded proof obligation; the inherited O⁺-restricted calculus is not sufficient evidence for the larger range.
+
+**Direct prerequisites.** `ClassicalAdicEtaleCohomology:H3/proper-support-direct-image`, `ClassicalAdicEtaleCohomology:H3/partially-proper-lower-shriek`, `ClassicalAdicEtaleCohomology:H3/compactification-proper-factorisation`, `ClassicalAdicEtaleCohomology:H3/proper-etale-exchange-all-torsion`, `ClassicalAdicEtaleCohomology:H3/proper-projection-formula-all-torsion`, `ClassicalAdicEtaleCohomology:H3/pseudo-adic-support-space`, `ClassicalAdicEtaleCohomology:H0/supports-and-extension-by-zero`, `ClassicalAdicEtaleCohomology:H0`, `EnhancedDerivedSheaves:E1`.
+
+**Acceptance.**
+
+- A mixed-characteristic n=p affine chart must not invoke an O⁺-restricted support-composition theorem.
+- The support Čech abutment uses Λ_X; the open-ring calculus does not imply residue-p base-change isomorphisms.
+
+**Sources.** Li-Reinecke-Zavyalov-v1, Lemma 6.1.3, pp. 67–68; Lemma 6.1.6, pp. 69–70; Theorem 6.1.1 proof, pp. 73–74. These public arguments use source support descent, successive affine projections and support composition with n invertible in O, including residue-p coefficients. They supply the required scope and applications, not the full foundational proof. Zavyalov-Foundations-v2, Lemma 9.2 and Proposition 9.3(1)–(2), pp. 25–27. Proper–étale exchange and projection formula allow every positive torsion order and supply the quasi-compact refinement argument without arbitrary proper base change.
 
 ## Imported supplier contracts
 
@@ -766,27 +792,29 @@ E1/enhanced-derived-category supplies the enhancement and ordinary derived-categ
 
 2. **`AdicSpacesPartII:R0`.** Build on R0/affinoid-noether-normalisation: for smooth affinoid C-curves its finite map to D¹ is flat. Supply boundary geometry in LRZ 4.2.1–4.2.5: finite discrete rank-two boundary meeting every component, exact inverse-image boundary and finite compactified map, curve-like henselized boundary fields, their defectlessness and secondary residue field, the greatest value γ₀<1 and #v(T)=−1 for the disc, and #v_K(N_L/K u)=#v_L(u). These geometric/valuation extensions belong to AdicSpaces, Part II, not a duplicate valuation theory in H3. Required by `ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison`, `ClassicalAdicEtaleCohomology:H3/boundary-pretrace`, `ClassicalAdicEtaleCohomology:H3/boundary-pretrace-reciprocity`.
 
-3. **`AdicSpacesPartII:R0`.** Supply étale coordinate neighborhoods for smooth maps over arbitrary locally noetherian analytic bases, including higher-rank field pairs, with the differential criterion used for mixed coordinate systems in LRZ 6.1.10. The existing smooth-toric-chart has a rigid rank-one base and does not supply this scope. Also supply projective-line geometry over these bases and its O(1), compatible with relative analytification. Required by `ClassicalAdicEtaleCohomology:H3/etale-coordinate-trace-independence`, `ClassicalAdicEtaleCohomology:H3/general-analytic-smooth-trace`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`.
+3. **`AdicSpacesPartII:R0`.** Supply étale coordinate neighborhoods for smooth maps over arbitrary locally noetherian analytic bases, including higher-rank field pairs, with the differential criterion used for mixed coordinate systems in LRZ 6.1.10. The existing smooth-toric-chart has a rigid rank-one base and does not supply this scope. Required by `ClassicalAdicEtaleCohomology:H3/etale-coordinate-trace-independence`, `ClassicalAdicEtaleCohomology:H3/general-analytic-smooth-trace`.
 
 4. **`AdicSpacesPartII:R2`.** For a smooth affinoid C-curve, supply embedding into a smooth proper algebraizable C-curve and the semistable formal O_C-models and pointed reductions used in LRZ 4.1.6, 5.5–5.6. The existing formal/rigid properness comparison is retained; semistable curve models over nondiscrete O_C are an extension, not the discrete-dagger F1 theorem. Required by `ClassicalAdicEtaleCohomology:H3/boundary-algebraic-trace-comparison`.
 
-5. **`AdicSpacesPartII:R3`.** Use R3/locally-free-sheaf and its coherent tensor/pullback API for line bundles and O(1). Supply the line-bundle/G_m-torsor equivalence, compatible with the analytic étale site. This request concerns the carrier and torsor comparison; H3 owns the Kummer first Chern class and trace normalization, and R3’s finite algebra trace is not a cohomological curve trace. Required by `ClassicalAdicEtaleCohomology:H3/analytic-first-chern-class`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`, `ClassicalAdicEtaleCohomology:H3/affine-space-trace-model`.
+5. **`AdicSpacesPartII:R3`.** Use R3/locally-free-sheaf and its coherent tensor/pullback API for line bundles and O(1). Supply the line-bundle/G_m-torsor equivalence, compatible with the analytic étale site. This request concerns the carrier and torsor comparison; H3 owns the Kummer first Chern class and trace normalization, and R3’s finite algebra trace is not a cohomological curve trace. Supply projective-line geometry over general locally noetherian analytic bases and its O(1), compatible with relative analytification; the geometry and line bundle have this single owner. Required by `ClassicalAdicEtaleCohomology:H3/analytic-first-chern-class`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`, `ClassicalAdicEtaleCohomology:H3/affine-space-trace-model`.
 
-6. **`ClassicalAdicEtaleCohomology:H0`.** Supply the additional analytic sheaf lemmas: (a) equality of maps F→G is detected on rank-one stalks if the codomain G alone is overconvergent (LRZ 6.1.5); the existing maximal-stalk node requires both sheaves overconvergent; (b) for a dense quasi-compact pro-open j and overconvergent complex F, F→Rj*j*F is an equivalence (Zavyalov 10.3), with the corrected plus-ring inclusion; (c) Rᑫp_*Λ is overconvergent for the proper projective-line morphism over arbitrary analytic bases, as used in LRZ 3.2.2; (d) exact étale slice base change and the resolution of module sheaves by colimits of j!Λ generators for arbitrary n; (e) the support Čech spectral sequence used in LRZ 6.1.3, compatible with infinite-cover exhaustion. Existing H0/cech-to-derived-comparison is ordinary cohomology, so (e) requires its support extension. Required by `ClassicalAdicEtaleCohomology:H3/boundary-localization-presentation`, `ClassicalAdicEtaleCohomology:H3/etale-coordinate-trace-independence`, `ClassicalAdicEtaleCohomology:H3/affine-space-trace-model`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`, `ClassicalAdicEtaleCohomology:H3/proper-projection-formula-all-torsion`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-source-descent`, `ClassicalAdicEtaleCohomology:H3/plus-ring-finite-local-system-pairing`.
+6. **`ClassicalAdicEtaleCohomology:H0`.** Supply the additional analytic sheaf lemmas: (a) equality of maps F→G is detected on rank-one stalks if the codomain G alone is overconvergent (LRZ 6.1.5); the existing maximal-stalk node requires both sheaves overconvergent; (b) for a dense quasi-compact pro-open j and overconvergent complex F, F→Rj*j*F is an equivalence (Zavyalov 10.3), with the corrected plus-ring inclusion; (c) Rᑫp_*Λ is overconvergent for the proper projective-line morphism over arbitrary analytic bases, as used in LRZ 3.2.2; (d) exact étale slice base change and the resolution of module sheaves by colimits of j!Λ generators for arbitrary n; (e) the support Čech spectral sequence used in LRZ 6.1.3, compatible with infinite-cover exhaustion. Existing H0/cech-to-derived-comparison is ordinary cohomology, so (e) requires its support extension. Required by `ClassicalAdicEtaleCohomology:H3/boundary-localization-presentation`, `ClassicalAdicEtaleCohomology:H3/etale-coordinate-trace-independence`, `ClassicalAdicEtaleCohomology:H3/affine-space-trace-model`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`, `ClassicalAdicEtaleCohomology:H3/proper-projection-formula-all-torsion`, `ClassicalAdicEtaleCohomology:H3/smooth-trace-source-descent`, `ClassicalAdicEtaleCohomology:H3/plus-ring-finite-local-system-pairing`, `ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion`.
 
 7. **`ClassicalAdicEtaleCohomology:H1:henselian`.** Extend the pro-special constant-cohomology comparison to the closed-point étale-topos equivalence (X,{x})_ét≃(Spec k(x)ʰ)_ét≃(Spec completed k(x)ʰ)_ét used in LRZ B.2.1. Prove functoriality for finite boundary maps, norm comparison on Kummer cohomology, and the affinoid-curve comparison with the algebraized finite-type C-curve needed for vanishing above degree one. Henselization is required before completion. Required by `ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison`, `ClassicalAdicEtaleCohomology:H3/boundary-localization-presentation`, `ClassicalAdicEtaleCohomology:H3/plus-ring-curve-effacement`.
 
-8. **`ClassicalAdicEtaleCohomology:H1`.** Supply algebraic–analytic cohomology comparison for P¹_C and compact-support comparison for A²_C with n invertible in C, including residue-p n in mixed characteristic and compatibility with Chern classes and the GL₂(C) action. The inherited H3 algebraic-curve comparison covers curves; the A² comparison used in LRZ 6.1.6 needs the higher-dimensional henselian/proper comparison plus H3 support localization. Required by `ClassicalAdicEtaleCohomology:H3/affine-space-trace-model`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`.
+8. **`ClassicalAdicEtaleCohomology:H1`.** Supply algebraic–analytic cohomology comparison for P¹_C and compact-support comparison for A²_C with n invertible in C, including residue-p n in mixed characteristic and compatibility with Chern classes and the GL₂(C) action. The inherited H3 algebraic-curve comparison covers curves; the A² comparison used in LRZ 6.1.6 needs the higher-dimensional henselian/proper comparison plus H3 support localization. Extend the compact-support comparison to every Aᵈ_C by compatible successive affine-line projections, so AffineSpaceTrace.algebraic has its stated dimension range. Identify the degree-one A¹ class by localization from the scheme point class, avoiding a new analytic cycle-class construction in H3. Required by `ClassicalAdicEtaleCohomology:H3/affine-space-trace-model`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`.
 
 9. **`ClassicalAdicEtaleCohomology:H2`.** For a surjective extension Spa(C′,C′⁺)→Spa(C,C⁺), prove cohomological invariance for arbitrary étale Z/n-module sheaves on proper spaces and their pseudo-adic fibres, n invertible in C⁺. Existing H2/invariance-for-affinoids-of-finite-type supplies j!M on finite-type affinoids; provide the sheaf dévissage and the exact base-change-map identification, as required by Huber 4.3.2 and Zavyalov Lemma 9.1(3). Required by `ClassicalAdicEtaleCohomology:H3/proper-pushforward-base-change`, `ClassicalAdicEtaleCohomology:H3/lower-shriek-base-change`.
 
-10. **`SchemeAndStackFoundations:SF.2`.** Supply Hilbert 90/Kummer over the henselized boundary fields, with cohomological dimension ≤1 for the curve-like fields in LRZ Lemma 5.1.4; give the hypotheses and valuation input rather than applying a bound for an arbitrary field. Also supply Artin vanishing above degree one for torsion étale cohomology on smooth affine curves over algebraically closed C with torsion order invertible in C. The analytic-to-algebraic comparison belongs to H1, and affinoid Noether normalization to R0. Required by `ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison`, `ClassicalAdicEtaleCohomology:H3/boundary-localization-presentation`.
+10. **`SchemeAndStackFoundations:SF.2`.** Import generic Hilbert 90 and Kummer from current Tau Ceti (TauCeti.hilbert90, TauCeti.kummerIso and TauCeti.kummerIso_norm), also cited by ProfiniteCohomology Layer 9; do not plan them again. They postdate the fixed blueprint pin, so this is a current-library/upstream import, not a claim at that pin. SF.2 must supply the field étale-topos/Galois-cohomology comparison that connects those declarations to Spec K_x, and the cohomological dimension ≤1 bound for the specific curve-like henselian boundary fields in LRZ Lemma 5.1.4, with its valuation hypotheses. Also supply Artin vanishing above degree one for torsion étale cohomology on smooth affine curves over algebraically closed C with torsion order invertible in C. The analytic comparison belongs to H1 and affinoid Noether normalization to R0. Required by `ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison`, `ClassicalAdicEtaleCohomology:H3/boundary-localization-presentation`.
 
 11. **`EtaleDualityAndPerverseSheaves:EDC.2`.** Supply the scheme P¹ cohomology decomposition with its c₁(O(1)) generator and Tate convention, and compatibility of the scheme first Chern class and curve trace with analytification through the supplied site comparison. Existing EDC.2 curve/affine trace and effacement nodes are imported directly, not reconstructed. Required by `ClassicalAdicEtaleCohomology:H3/analytic-first-chern-class`, `ClassicalAdicEtaleCohomology:H3/analytic-projective-line-chern-normalization`.
 
-12. **`EnhancedDerivedSheaves:E1`.** Supply the coherent proper/étale gluing fragment used in Zavyalov Theorem 9.4: from proper pushforwards and exact étale ! with exchange, base change, projection formula and descent, construct the corresponding support functors on locally +weakly finite type maps with composition and agreement on D⁺. Do not assume exceptional right adjoints, diamond duality, or the result of the H3 instance. Also give support-mate pasting, tensor/internal-Hom coherence, and mapping-complex conversion of first-argument homotopy colimits to homotopy limits, with the ordinary/enhanced comparison. Required by `ClassicalAdicEtaleCohomology:H3/unbounded-classical-support-comparison`, `ClassicalAdicEtaleCohomology:H3/weak-geometric-support-base-change`, `ClassicalAdicEtaleCohomology:H3/general-analytic-smooth-trace`, `ClassicalAdicEtaleCohomology:H3/analytic-first-chern-class`, `ClassicalAdicEtaleCohomology:H3/unbounded-open-coefficient-curve-duality`, `ClassicalAdicEtaleCohomology:H3/smooth-proper-relative-local-system-duality`.
+12. **`EnhancedDerivedSheaves:E1`.** Supply the coherent proper/étale gluing fragment used in Zavyalov Theorem 9.4: from proper pushforwards and exact étale ! with exchange, base change, projection formula and descent, construct the corresponding support functors on locally +weakly finite type maps with composition and agreement on D⁺. Do not assume exceptional right adjoints, diamond duality, or the result of the H3 instance. Also give support-mate pasting, tensor/internal-Hom coherence, and mapping-complex conversion of first-argument homotopy colimits to homotopy limits, with the ordinary/enhanced comparison. Separately supply the bounded-below refinement and composition coherence of the classical support instance with n invertible in O, without assuming arbitrary proper base-change isomorphisms; its analytic content is the H3 bounded-below-support-calculus-open-ring-torsion target. Required by `ClassicalAdicEtaleCohomology:H3/unbounded-classical-support-comparison`, `ClassicalAdicEtaleCohomology:H3/weak-geometric-support-base-change`, `ClassicalAdicEtaleCohomology:H3/general-analytic-smooth-trace`, `ClassicalAdicEtaleCohomology:H3/analytic-first-chern-class`, `ClassicalAdicEtaleCohomology:H3/unbounded-open-coefficient-curve-duality`, `ClassicalAdicEtaleCohomology:H3/smooth-proper-relative-local-system-duality`, `ClassicalAdicEtaleCohomology:H3/bounded-below-support-calculus-open-ring-torsion`.
 
 13. **`EnhancedDerivedSheaves:E2`.** Retain the accepted integral request: for smooth proper rigid f and the epimorphic top finite-level systems, identify R²ᵈf_proét,*Ẑ_p(d) with lim_r ν*R²ᵈf_*Z/pʳ(d), give the next-degree vanishing and inverse-limit lifting that proves integral trace surjectivity. This is not needed for the finite-coefficient curve input to ECD 24.1. Required by `ClassicalAdicEtaleCohomology:H3/integral-smooth-proper-trace`, `ClassicalAdicEtaleCohomology:H3/guo-reinecke-etale-trace-normalization-export`.
+
+14. **`tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-9-the-galois-interface-hilbert-90-and-kummer-theory`.** Import the existing Layer 9 Hilbert 90, Kummer isomorphism and norm/corestriction interface. Current Tau Ceti supplies TauCeti.hilbert90, TauCeti.kummerIso and TauCeti.kummerIso_norm; these are not new H3 or SF.2 targets. SF.2 supplies the separate étale-topos comparison needed to apply this Galois interface to the boundary fields. Required by `ClassicalAdicEtaleCohomology:H3/henselian-boundary-kummer-comparison`.
 
 ## Proof obligations and completion boundary
 
@@ -814,6 +842,10 @@ E1/enhanced-derived-category supplies the enhancement and ordinary derived-categ
 
 12. **Coherent support transport and unbounded gluing.** The E1 generic proper/étale gluing fragment and tensor/internal-Hom transfer remain supplier proof tasks. H3 must prove base-change coherence of its Berkovich support comparison α_f itself; only the generic derived coherence belongs to E1. Check the all-G open-coefficient equivalence on mapping complexes before using any downstream Yoneda mate identification.
 
+13. **Weak geometric base-change proof.** LRZ §6.1, pp. 66–74, explicitly uses Huber Theorem 5.4.6 and Corollary 5.4.8 at geometric rank-one stalks, but does not reproduce their proofs. Verify the weak support transformation and its dimension-zero isomorphism criterion, including all positive torsion orders at completed algebraic-closure stalk maps. Prime-to-residue arbitrary proper base change is a different theorem and cannot supply the residue-p instance.
+
+14. **Bounded-below open-ring support calculus.** The inherited factorization, composition, exhaustion and localization calculus nodes impose n invertible in O⁺. They do not supply the n invertible in O range used by LRZ §6.1. The added bounded-below support-calculus target specifies that extension: prove compactification-refinement coherence using all-torsion proper–étale exchange and taut support descent, and compare with the inherited operators. Do not substitute the O⁺-restricted unbounded six-functor theorem or assert arbitrary residue-p base-change isomorphisms.
+
 The completion test for the planning pass is coverage of every H3 target by the dependency graph, without duplicate ownership or hidden assumptions. Closing H3 additionally requires every listed proof obligation and supplier extension. The independent review must inspect the exact plus-ring scope of the trace and effacement contracts, the all-G mapping argument and the separation between proper–étale exchange and arbitrary proper base change.
 
 ## Source versions and corrections
@@ -824,7 +856,7 @@ The following freely accessible editions were consulted on 9 October 2026. Packe
 - **Shizhang Li, Emanuel Reinecke and Bogdan Zavyalov, Relative Poincaré duality in nonarchimedean geometry.** [arXiv:2410.08200v1, 10 October 2024](https://arxiv.org/pdf/2410.08200v1). Read: Theorem 1.2.1, pp. 3–4; §2.2, Definition 2.2.8, Warning 2.2.9 and Lemma 2.2.10, pp. 11–12; §§4.1–4.2, pp. 29–33; §§5.1–5.2, pp. 42–48, first reciprocity proof; §5.4, Theorem 5.4.2 and Corollary 5.4.3, p. 53; final reduction in §5.6, p. 66; intermediate §§5.5–5.6 proofs not fully inspected; §6.1, pp. 66–74, complete construction proof; §6.2, Lemmas 6.2.1–6.2.3 and proofs, pp. 74–76; §6.3, Example 6.3.3, pp. 79–80; Appendix A, pp. 122–123; Appendix B.1–B.2, pp. 123–124; Variant 3.1.8 through Proposition 3.2.2 and its proof, pp. 22–23; adjacent displayed definitions read for type checking; Remark 5.1.14 and the statement of Lemma 5.5.21, pp. 45, 60–61; counterexamples only, full §5.5 proof not claimed read.
 - **Peter Scholze, Étale cohomology of diamonds.** [arXiv:1709.07343v4, 14 April 2026](https://arxiv.org/pdf/1709.07343v4). Read: Lemma 9.5 and proof, pp. 46–47; Proposition 23.10 and proof, pp. 145–146; Theorem 24.1 and proof, pp. 152–153.
 
-The seven local correction candidates are recorded for independent verification. None changes a theorem hypothesis to make it stronger. The checked arXiv and author PDFs did not provide a correction.
+The independent review confirmed the seven original local correction candidates and added an eighth. None changes a theorem hypothesis to make it stronger. The checked arXiv and author PDFs retain these slips.
 
 - **ClassicalAdicEtaleCohomology/EH31**, Zavyalov-Foundations-v2, arXiv v2, Lemma 10.3 proof, p. 32. The plus subring of the source field pair is described as contained in the target plus subring. For j:Spa(C,C′⁺)→Spa(C,C⁺), use C⁺⊆C′⁺. A morphism of Huber pairs on the identity field requires the target integral elements to map into the source integral elements. Increasing the plus ring restricts the Spa subset, as required for the pro-open j.
 - **ClassicalAdicEtaleCohomology/EH32**, Zavyalov-Foundations-v2, arXiv v2, Lemma 9.1(3), proof Step 3, p. 24. The truncation reduction is described as bounded above, while the next displayed proof is for F∈D⁺. Use bounded below in that reduction sentence to match D⁺ and the following spectral-sequence argument. Finite amplitude permits truncation from below; D⁺ denotes bounded-below complexes. The two descriptions in the printed proof have opposite directions.
@@ -833,6 +865,9 @@ The seven local correction candidates are recorded for independent verification.
 - **ClassicalAdicEtaleCohomology/EH35**, Li-Reinecke-Zavyalov-v1, arXiv v1, Remark 3.1.10, p. 23. The pullback equality for the line-bundle classes [L] is placed in H² with μ_n coefficients. Place [L] and its pullback in H¹(G_m), or apply the Kummer boundary and write c₁(L) and c₁(g*L) in H²(μ_n). Variant 3.1.8 defines [L] as the Picard/G_m-torsor class; only its Kummer boundary has degree two and μ_n coefficients.
 - **ClassicalAdicEtaleCohomology/EH36**, Li-Reinecke-Zavyalov-v1, arXiv v1, Construction 3.2.1, p. 23. Before adjunction, the twisted Chern-class map has source Λ_P(−1)[−2] and displayed target Λ_X. The target before applying (f*,Rf_*) adjunction is Λ_P. The Chern-class morphism is in D(P_ét); its source is f*Λ_X(−1)[−2]. Adjunction then gives the displayed map Λ_X(−1)[−2]→Rf_*Λ_P.
 - **ClassicalAdicEtaleCohomology/EH37**, Li-Reinecke-Zavyalov-v1, arXiv v1, Lemma 6.1.3 proof, support Čech spectral sequence, p. 68. The abutment is displayed as a direct image f! applied to Λ_Y. The coefficient in that abutment is Λ_X. The functor f! has domain D(X_ét); the next displayed top-degree cokernel already uses Λ_X.
+- **ClassicalAdicEtaleCohomology/EH38**, Li-Reinecke-Zavyalov-v1, arXiv v1, paragraph before Definition 2.5.10, p. 20. The exact étale extension-by-zero functor f! is called a right adjoint of f*. It is the exact left adjoint of f*. The right adjoint of f* is the usual pushforward f_*. Definition 2.5.10 immediately uses the counit f!f*→id. That is the counit for f! left adjoint to f*, and the general open-immersion case distinguishes f! from f_*.
+
+All eight local source issues were independently confirmed in review; the current author PDFs retain them. They are local type, label or terminology corrections and do not supply any missing foundational proof.
 
 ## Baseline and suggested forms
 
@@ -840,4 +875,6 @@ The reviewed H3 audit reports that the cohomological targets are not built. At M
 
 The [suggested file](../suggested/ClassicalAdicEtaleCohomology--H3.lean) prototypes the finite boundary assembly and quotient-descent forms against those actual linear-algebra types. It inventories every analytic declaration, API item and test by the packet name with its intended mathematical signature and missing supplier carriers. It introduces no proposition-valued stand-ins for geometric hypotheses. The linear prototypes illustrate assembly only; they are not definitions of analytic cohomology. The analytic prototypes become executable signatures when their supplier objects are available.
 
-The file was **not compiled**: no existing shared build at both required pins was found. The available shared checkout has the pinned Mathlib source but a different Tau Ceti commit. No build, project creation or library download was attempted. The packet checker and submission file checks are the validation available for this planning pass; they do not certify Lean elaboration or the mathematical proofs.
+Elaborated with lean-check against the existing pinned shared build after correcting the two missing DecidableEq instances; exit 0, eleven sorry warnings and no other warnings. Mathlib HEAD is the exact baseline pin; all 25 Tau Ceti modules in the imported HuberPair source closure are byte-identical to the baseline git objects. This checks the finite assembly/quotient prototypes only. The analytic declaration inventory awaits supplier carriers and is not executable Lean.
+
+The independent review preserves planned coverage and all implementation statuses as unchecked. The 25 continuation targets include the additional bounded-below open-ring support calculus; fourteen proof-obligation groups remain.
