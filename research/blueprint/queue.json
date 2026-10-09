@@ -43158,7 +43158,8 @@
     "BP-DiophantineApproximationAndTranscendence~2"
    ],
    "prompt": "research/blueprint/prompts/REV-DiophantineApproximationAndTranscendence~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6466"
   },
   {
    "kind": "blueprint",
