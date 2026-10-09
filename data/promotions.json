@@ -3010,6 +3010,13 @@
  },
  "purpose": "Work promoted into the atlas by scripts/promote.py: each source file, the data files it became, and the review that accepted it; and work refused, with the reason. A file goes live again only after a new accepted review.",
  "refused": {
+  "research/blueprint/packages/PadicMeasuresIwasawaAlgebras/review.json": {
+   "at": "2026-10-09T13:18:03Z",
+   "reason": "REV-PKG-PadicMeasuresIwasawaAlgebras is not a job of the queue",
+   "review": "78cc53ea223e1362",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-PadicMeasuresIwasawaAlgebras"
+  },
   "research/blueprint/packages/SchemeAndStackFoundations/review.json": {
    "at": "2026-10-09T13:08:54Z",
    "reason": "REV-PKG-SchemeAndStackFoundations is not a job of the queue",
