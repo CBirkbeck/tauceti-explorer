@@ -10,6 +10,8 @@ import Mathlib.NumberTheory.NumberField.ClassNumber
 import Mathlib.RingTheory.RootsOfUnity.Basic
 import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.Data.Rat.Floor
+import Mathlib.Topology.Algebra.Category.ProfiniteGrp.Completion
+import Mathlib.NumberTheory.Cyclotomic.Basic
 import Mathlib.Tactic
 
 /-!
@@ -22,12 +24,15 @@ not a second plan for them. Assembly should use those declarations directly. Onl
 imports are used: the shared build has the pinned Mathlib, while some parent Tau Ceti imports
 lack compiled objects. Tau Ceti baseline statements were read at their pinned git objects.
 
-The two-sided rational completions, Moore-relative-cover conditions and the arithmetic Hecke
-support condition have not yet been expressed against concrete supplier objects. The three
-completion theorem signatures and `cgLocalizedH1Vanishing` are consequently omitted, as
-required by the protocol; no opaque Prop-valued replacement is introduced. The packet names
-these omissions in its completion, Moore and Hecke gaps. The matrix and arithmetic-defect
-signatures below include every new definition, API item and unit test in this part.
+The congruence kernel of the lattice `SLₙ(O_{F,S})` is stated against Mathlib's native profinite
+completion (`latticeCongruenceKernel`), so the lattice forms of Bass–Milnor–Serre Theorem 14.1 and
+of Serre's Théorème 2 appear below. The two-sided rational completions, Moore's relative covering
+groups and the Hecke modules of locally symmetric spaces have not yet been expressed against
+concrete supplier objects, so `higherRankCentralKernel`, `rational_completions_lattice_open`,
+`serre_relative_universal_cover` and `cgLocalizedH1Vanishing` are omitted, as the protocol
+requires; no opaque Prop-valued replacement is introduced. The packet names these omissions in
+its completion and Moore gaps and in the ArithmeticLocallySymmetricSpaces request. The
+signatures below include every definition, API item and unit test of this part.
 -/
 
 noncomputable section
@@ -179,15 +184,6 @@ def kubotaHom [IsDedekindDomain A] {I : Ideal A} {C : Type v} [Group C]
   map_one' := by sorry
   map_mul' _ _ := by sorry
 
-/-- These helpers are owned by the accepted parent, not this packet. -/
-def ordAt (F : Type u) [Field F] [NumberField F]
-    (𝔭 : HeightOneSpectrum (𝓞 F)) (I : Ideal (𝓞 F)) : ℕ :=
-  (UniqueFactorizationMonoid.normalizedFactors I).count 𝔭.asIdeal
-
-def jIndex (F : Type u) [Field F] [NumberField F] (p n : ℕ) (I : Ideal (𝓞 F)) : ℕ :=
-  ⨅ (𝔭 : HeightOneSpectrum (𝓞 F)) (_ : (p : 𝓞 F) ∈ 𝔭.asIdeal),
-    min n (⌊(ordAt F 𝔭 I : ℚ) / ordAt F 𝔭 (Ideal.span {(p : 𝓞 F)}) -
-      1 / ((p : ℚ)-1)⌋).toNat
 end Inherited
 
 open Inherited
@@ -242,19 +238,38 @@ example : (extendedHom k hk hn hsr ht hmul).comp (embedLevel (Nat.le_succ (n+1))
 end ExtensionAPI
 
 -- test extendedHom_nonabelian_target_test
--- A noncommutative codomain is allowed; the character itself has commutative image.
-example :
-    ∃ k : Level 2 (⊤ : Ideal ℚ) →* (ℚˣ × Equiv.Perm (Fin 3)),
-    ∃ f : Level 3 (⊤ : Ideal ℚ) →* (ℚˣ × Equiv.Perm (Fin 3)),
-      f.comp (embedLevel (by decide : 2 ≤ 3) (⊤ : Ideal ℚ)) = k ∧
-      (∀ g, k g = (Matrix.GeneralLinearGroup.det g.val, 1)) ∧
-      (∀ g, f g = (Matrix.GeneralLinearGroup.det g.val, 1)) ∧
-      ∃ x y : ℚˣ × Equiv.Perm (Fin 3), x*y ≠ y*x := by sorry
+-- The codomain ℚˣ × S₃ is noncommutative; extendedHom must accept it and agree with ι ∘ det.
+example (κ : Level 2 (⊤ : Ideal ℚ) →* (ℚˣ × Equiv.Perm (Fin 3)))
+    (hκ : ∀ g, κ g = (Matrix.GeneralLinearGroup.det g.val, 1)) : ExtensionConditions κ := by
+  sorry
+example (κ : Level 2 (⊤ : Ideal ℚ) →* (ℚˣ × Equiv.Perm (Fin 3)))
+    (hκ : ∀ g, κ g = (Matrix.GeneralLinearGroup.det g.val, 1))
+    (hk : ExtensionConditions κ) (hsr : HasStableRange ℚ 2)
+    (ht : ∀ J : Ideal ℚ, ∀ a : Fin 2 → ℚ, RelativeColumn J 1 a →
+      ∃ u : Level 2 J, u.val.val *ᵥ a = Pi.single 0 1)
+    (hmul : ∀ x y, extendedValue κ le_rfl hsr ht (x*y) =
+      extendedValue κ le_rfl hsr ht x * extendedValue κ le_rfl hsr ht y) :
+    (∀ g : Level 3 (⊤ : Ideal ℚ),
+      extendedHom κ hk le_rfl hsr ht hmul g = (Matrix.GeneralLinearGroup.det g.val, 1)) ∧
+    ∃ x y : ℚˣ × Equiv.Perm (Fin 3), x * y ≠ y * x := by sorry
 
 /-! Last-swap statements on actual matrices. -/
 def lastSwap (n : ℕ) : GLn (n+2) A :=
   let p : Equiv.Perm (Fin (n+2)) := Equiv.swap (Fin.last (n+1)) (⟨n,by omega⟩ : Fin (n+2))
   ⟨p.permMatrix A,(p⁻¹).permMatrix A,by sorry,by sorry⟩
+-- test extendedHom_right_corner_test
+-- The value on diag(1,1,2) and on the last swap comes from the right corner of the standard form.
+example (κ : Level 2 (⊤ : Ideal ℚ) →* (ℚˣ × Equiv.Perm (Fin 3)))
+    (hκ : ∀ g, κ g = (Matrix.GeneralLinearGroup.det g.val, 1))
+    (hk : ExtensionConditions κ) (hsr : HasStableRange ℚ 2)
+    (ht : ∀ J : Ideal ℚ, ∀ a : Fin 2 → ℚ, RelativeColumn J 1 a →
+      ∃ u : Level 2 J, u.val.val *ᵥ a = Pi.single 0 1)
+    (hmul : ∀ x y, extendedValue κ le_rfl hsr ht (x*y) =
+      extendedValue κ le_rfl hsr ht x * extendedValue κ le_rfl hsr ht y)
+    (d s : Level 3 (⊤ : Ideal ℚ)) (hd : d.val.val = Matrix.diagonal ![1, 1, 2])
+    (hs : s.val = lastSwap 1) :
+    extendedHom κ hk le_rfl hsr ht hmul d = (Units.mk0 (2 : ℚ) two_ne_zero, 1) ∧
+      extendedHom κ hk le_rfl hsr ht hmul s = ((-1 : ℚˣ), (1 : Equiv.Perm (Fin 3))) := by sorry
 
 theorem last_swap_higher_rank {n : ℕ} (hn : 1 ≤ n)
     (hs : HasStableRange A n) (hw : HasStableRange A (n+1))
@@ -308,6 +323,8 @@ lemma finiteDefectMk_surjective [IsDedekindDomain A] {n : ℕ} (hn : 3 ≤ n) :
     Function.Surjective (finiteDefectMk (I := I) hn) := by sorry
 lemma finiteDefectMk_eq_one [IsDedekindDomain A] {n : ℕ} (hn : 3 ≤ n) (g : gamma n I) :
     finiteDefectMk hn g = 1 ↔ Matrix.SpecialLinearGroup.toGL g.val ∈ relElementary n I := by sorry
+lemma relElementary_le_SL (n : ℕ) (I : Ideal A) :
+    relElementary n I ≤ (Matrix.SpecialLinearGroup.toGL : SLn n A →* GLn n A).range := by sorry
 lemma finiteDefect_ext [IsDedekindDomain A] {n : ℕ} (hn : 3 ≤ n)
     (f g : FiniteDefect n I hn →* C)
     (h : f.comp (finiteDefectMk hn) = g.comp (finiteDefectMk hn)) : f = g := by sorry
@@ -323,6 +340,8 @@ example :
     let d : Fin 3 → ℤˣ := ![-1,1,1]
     diagUnit d ∈ congruenceSubgroup 3 (Ideal.span {(2 : ℤ)}) ∧
       ¬ ∃ g : gamma 3 (Ideal.span {(2 : ℤ)}), Matrix.SpecialLinearGroup.toGL g.val = diagUnit d := by sorry
+-- test finiteDefect_top_test
+example {n : ℕ} (hn : 3 ≤ n) : Subsingleton (FiniteDefect n (⊤ : Ideal ℤ) hn) := by sorry
 -- test finiteDefect_quotient_test
 example [IsDedekindDomain A] {n : ℕ} (hn : 3 ≤ n) :
     (finiteDefectMk (I := I) hn).ker = elementaryInGamma n I := by sorry
@@ -344,6 +363,27 @@ theorem finite_defect_stabilization [IsDedekindDomain A] {n : ℕ} (hn : 3 ≤ n
       ∀ g : gamma n I,
         f (finiteDefectMk hn g) =
           finiteDefectMk (by omega) (embedGamma (Nat.le_succ n) g) := by sorry
+
+/-- The exponent of a prime in the factorization of an ideal of `𝓞 F`. -/
+def ordAt (F : Type u) [Field F] [NumberField F]
+    (𝔭 : HeightOneSpectrum (𝓞 F)) (I : Ideal (𝓞 F)) : ℕ :=
+  (UniqueFactorizationMonoid.normalizedFactors I).count 𝔭.asIdeal
+
+/-- `jIndex` (API of `arithmetic-defect-order`): the minimum, over the primes above `p`, of the
+clipped floors of Bass–Milnor–Serre (3.3). It is total; its value at `I = ⊥` is never used. -/
+def jIndex (F : Type u) [Field F] [NumberField F] (p n : ℕ) (I : Ideal (𝓞 F)) : ℕ :=
+  -- The index is the subtype of primes above `p` (nonempty for `p` prime). An ℕ-valued
+  -- infimum over a Prop-guarded index would be `0`, because `sInf ∅ = 0` in `ℕ`.
+  ⨅ 𝔭 : {𝔭 : HeightOneSpectrum (𝓞 F) // (p : 𝓞 F) ∈ 𝔭.asIdeal},
+    min n (⌊(ordAt F 𝔭.1 I : ℚ) / ordAt F 𝔭.1 (Ideal.span {(p : 𝓞 F)}) -
+      1 / ((p : ℚ)-1)⌋).toNat
+
+lemma jIndex_le (F : Type u) [Field F] [NumberField F] (p n : ℕ) (hp : p.Prime)
+    (I : Ideal (𝓞 F)) :
+    jIndex F p n I ≤ n ∧ (0 < jIndex F p n I → ∀ 𝔭 : HeightOneSpectrum (𝓞 F),
+      (p : 𝓞 F) ∈ 𝔭.asIdeal →
+        (ordAt F 𝔭 (Ideal.span {(p : 𝓞 F)}) : ℚ) * ((jIndex F p n I : ℚ) + 1 / ((p : ℚ)-1)) ≤
+          (ordAt F 𝔭 I : ℚ)) := by sorry
 
 /-! The order is defined on nonzero levels only. The ordinary unit torsion carrier is
 native Mathlib, as is its finite cardinality; it represents all roots of unity in F. -/
@@ -400,6 +440,14 @@ example (I : Ideal (𝓞 F)) (p n : ℕ)
       min n (⌊(ordAt F 𝔭 I : ℚ) / ordAt F 𝔭 (Ideal.span {(p : 𝓞 F)}) -
         1 / ((p : ℚ)-1)⌋).toNat = if 𝔭 = 𝔭₁ then 1 else 3) :
     jIndex F p n I = 1 ∧ jIndex F p n I ≠ 3 := by sorry
+-- test defectOrder_mixed_primes_test
+example (h6 : Ideal.span {(6 : 𝓞 (CyclotomicField 3 ℚ))} ≠ ⊥)
+    (h12 : Ideal.span {(12 : 𝓞 (CyclotomicField 3 ℚ))} ≠ ⊥)
+    (h18 : Ideal.span {(18 : 𝓞 (CyclotomicField 3 ℚ))} ≠ ⊥)
+    (h36 : Ideal.span {(36 : 𝓞 (CyclotomicField 3 ℚ))} ≠ ⊥) :
+    defectOrder (CyclotomicField 3 ℚ) _ h6 = 1 ∧ defectOrder (CyclotomicField 3 ℚ) _ h12 = 2 ∧
+      defectOrder (CyclotomicField 3 ℚ) _ h18 = 3 ∧ defectOrder (CyclotomicField 3 ℚ) _ h36 = 6 := by
+  sorry
 end ArithmeticOrder
 
 /-- The additional Dedekind instance and nonzero contraction are the inherited localization
@@ -435,17 +483,91 @@ lemma serreElementary_le_iff (N : Subgroup (SLn 2 A)) [N.Normal] :
     SerreElementary I ≤ N ↔ ∀ t ∈ I,
       Matrix.SpecialLinearGroup.transvection (by decide : (0 : Fin 2) ≠ 1) t ∈ N := by sorry
 
+lemma serreElementary_map_le_iff {F : Type v} [Field F] [Algebra A F]
+    (X : Subgroup (Matrix.SpecialLinearGroup (Fin 2) F)) :
+    (SerreElementary I).map (Matrix.SpecialLinearGroup.map (algebraMap A F)) ≤ X ↔
+      ∀ γ : SLn 2 A, ∀ t ∈ I, Matrix.SpecialLinearGroup.map (algebraMap A F)
+        (γ * Matrix.SpecialLinearGroup.transvection (by decide : (0 : Fin 2) ≠ 1) t * γ⁻¹) ∈ X := by
+  sorry
+
 -- test serreElementary_zero_test
 example : SerreElementary (⊥ : Ideal A) = ⊥ := by sorry
 -- test serreElementary_field_test
 example (k : Type u) [Field k] : SerreElementary (⊤ : Ideal k) = ⊤ := by sorry
--- test serreElementary_ambient_test
-example : SerreElementary I = Subgroup.normalClosure
-    {g : SLn 2 A | ∃ t ∈ I,
-      g = Matrix.SpecialLinearGroup.transvection (by decide : (0 : Fin 2) ≠ 1) t} := by sorry
+-- test serreElementary_not_generated_test
+-- [[3,-2],[2,-1]] = E₁₂(1)E₂₁(2)E₁₂(-1) is in the normal closure but not in the subgroup
+-- generated by the level-2 roots, on which the (0,0) entry is 1 modulo 4.
+example (x : SLn 2 ℤ) (hx : x.val = !![3, -2; 2, -1]) :
+    x ∈ SerreElementary (Ideal.span {(2 : ℤ)}) ∧
+      x ∉ Subgroup.closure {g : SLn 2 ℤ | ∃ t ∈ Ideal.span {(2 : ℤ)},
+        g = Matrix.SpecialLinearGroup.transvection (by decide : (0 : Fin 2) ≠ 1) t ∨
+        g = Matrix.SpecialLinearGroup.transvection (by decide : (1 : Fin 2) ≠ 0) t} := by sorry
 -- test serreElementary_congruence_test
 example (t : A) (ht : t ∉ I) :
     Matrix.SpecialLinearGroup.transvection (by decide : (0 : Fin 2) ≠ 1) t ∉
       SerreElementary I := by sorry
+
+/-! Lattice congruence kernels. The arithmetic completion of the lattice Γ = SLₙ(O_{F,S}) is
+Mathlib's native profinite completion. The kernel of its map to the congruence completion is the
+intersection, over nonzero levels I, of the closures of the images of Γₙ(I). This describes the
+kernel without constructing the congruence completion or the noncompact rational completions. -/
+section LatticeCongruenceKernel
+open CategoryTheory
+variable (F : Type u) [Field F] [NumberField F] (S : Set (HeightOneSpectrum (𝓞 F)))
+
+/-- `arithmetic-congruence-index`: every nonzero congruence level has finite index. -/
+theorem arithmetic_congruence_index (hS : S.Finite) (n : ℕ) (I : Ideal (S.integer F))
+    (hI : I ≠ ⊥) : (gamma n I).FiniteIndex := by sorry
+
+/-- The S-arithmetic lattice `SLₙ(O_{F,S})` as an object of `GrpCat`. -/
+abbrev latticeGrp (n : ℕ) : GrpCat.{u} := GrpCat.of (SLn n (S.integer F))
+
+/-- The canonical map from the lattice to its native profinite completion. -/
+abbrev latticeEta (n : ℕ) :
+    SLn n (S.integer F) →* ProfiniteGrp.ProfiniteCompletion.completion (latticeGrp F S n) :=
+  (ProfiniteGrp.ProfiniteCompletion.eta (latticeGrp F S n)).hom
+
+/-- `lattice-congruence-kernel`: the congruence kernel of `SLₙ(O_{F,S})`. -/
+def latticeCongruenceKernel (n : ℕ) :
+    Subgroup (ProfiniteGrp.ProfiniteCompletion.completion (latticeGrp F S n)) :=
+  ⨅ (I : Ideal (S.integer F)) (_ : I ≠ ⊥),
+    ((gamma n I).map (latticeEta F S n)).topologicalClosure
+
+lemma latticeCongruenceKernel_le (n : ℕ) (I : Ideal (S.integer F)) (hI : I ≠ ⊥) :
+    latticeCongruenceKernel F S n ≤ ((gamma n I).map (latticeEta F S n)).topologicalClosure := by
+  sorry
+lemma latticeCongruenceKernel_isClosed (n : ℕ) :
+    IsClosed ((latticeCongruenceKernel F S n : Subgroup _) : Set (ProfiniteGrp.ProfiniteCompletion.completion (latticeGrp F S n))) := by sorry
+instance latticeCongruenceKernel_normal (n : ℕ) : (latticeCongruenceKernel F S n).Normal := by
+  sorry
+lemma latticeEta_mem_latticeCongruenceKernel_iff (hS : S.Finite) (n : ℕ)
+    (g : SLn n (S.integer F)) :
+    latticeEta F S n g ∈ latticeCongruenceKernel F S n ↔ g = 1 := by sorry
+-- test latticeCongruenceKernel_rank_one_test
+example : latticeCongruenceKernel F S 1 = ⊥ := by sorry
+-- test latticeCongruenceKernel_sl2_integers_test
+example : ¬ Finite (latticeCongruenceKernel ℚ (∅ : Set (HeightOneSpectrum (𝓞 ℚ))) 2) := by sorry
+-- test latticeCongruenceKernel_gaussian_test
+example : Nonempty (latticeCongruenceKernel (CyclotomicField 4 ℚ)
+    (∅ : Set (HeightOneSpectrum (𝓞 (CyclotomicField 4 ℚ)))) 3 ≃* Multiplicative (ZMod 4)) := by
+  sorry
+-- test latticeCongruenceKernel_rational_test
+example {n : ℕ} (hn : 3 ≤ n) :
+    latticeCongruenceKernel ℚ (∅ : Set (HeightOneSpectrum (𝓞 ℚ))) n = ⊥ := by sorry
+
+/-- `higher-rank-lattice-congruence-kernel` (Bass–Milnor–Serre, Theorem 14.1 for SLₙ, n ≥ 3). -/
+theorem higherRankLatticeCongruenceKernel (hS : S.Finite) {n : ℕ} (hn : 3 ≤ n) :
+    ((S.Nonempty ∨ ∃ v : InfinitePlace F, v.IsReal) → latticeCongruenceKernel F S n = ⊥) ∧
+    (S = ∅ → (∀ v : InfinitePlace F, ¬ v.IsReal) →
+      Nonempty (latticeCongruenceKernel F S n ≃* NumberField.Units.torsion F)) := by sorry
+
+/-- `serre-infinite-unit-congruence-kernel` (Serre 1970, Théorème 2): SL₂ under the
+infinite-unit-rank hypothesis r₁ + r₂ + |S| ≥ 2. -/
+theorem serreInfiniteUnitCongruenceKernel (hS : S.Finite)
+    (hrank : 2 ≤ Fintype.card (InfinitePlace F) + S.ncard) :
+    ((S.Nonempty ∨ ∃ v : InfinitePlace F, v.IsReal) → latticeCongruenceKernel F S 2 = ⊥) ∧
+    (S = ∅ → (∀ v : InfinitePlace F, ¬ v.IsReal) →
+      Nonempty (latticeCongruenceKernel F S 2 ≃* NumberField.Units.torsion F)) := by sorry
+end LatticeCongruenceKernel
 
 end TauCeti.FiniteMennicke
