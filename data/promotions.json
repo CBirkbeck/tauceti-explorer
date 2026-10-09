@@ -260,6 +260,18 @@
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
   },
+  "research/blueprint/packages/DerivedDeRhamCohomology/review.json": {
+   "promotedAt": "2026-10-08T23:58:35Z",
+   "review": "9da37ba154360bc3",
+   "reviewDate": "2026-10-08",
+   "reviewer": "independent-review-REV-PKG-DerivedDeRhamCohomology",
+   "sha256": "d38e888422ec8e4f64d7213eed8e44bdb23d005b8535f93003dd300964686569",
+   "to": [
+    "roadmaps/DerivedDeRhamCohomology/README.md",
+    "roadmaps/DerivedDeRhamCohomology/Suggested.lean",
+    "roadmaps/DerivedDeRhamCohomology/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/IntegralHeckeAndGaloisDeterminants/review.json": {
    "promotedAt": "2026-10-08T21:34:12Z",
    "review": "174a182332191321",
