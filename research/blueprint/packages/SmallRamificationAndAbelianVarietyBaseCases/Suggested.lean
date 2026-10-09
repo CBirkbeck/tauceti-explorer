@@ -22,7 +22,13 @@ import Mathlib.RingTheory.RootsOfUnity.AlgebraicallyClosed
 import Mathlib.RingTheory.Localization.Away.Basic
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
 import Mathlib.GroupTheory.SpecificGroups.Dihedral
+import Mathlib.GroupTheory.QuotientGroup.Basic
+import Mathlib.GroupTheory.SpecificGroups.Cyclic
+import Mathlib.AlgebraicGeometry.EllipticCurve.Affine.Point
+import Mathlib.Algebra.Module.Torsion.Basic
+import Mathlib.Algebra.Module.ZMod
 import Mathlib.Topology.Algebra.ContinuousMonoidHom
+import Mathlib.Topology.Instances.ZMod
 import Mathlib.AlgebraicGeometry.Morphisms.Etale
 import Mathlib.AlgebraicGeometry.Morphisms.ClosedImmersion
 import Mathlib.CategoryTheory.Limits.Shapes.BinaryProducts.BinaryFan
@@ -68,6 +74,13 @@ Data placeholders (`def … := sorry`), because the pinned libraries cannot yet 
 * `differentExponent`, `ramificationIndex`, `discriminantExponent`, `inertiaSubgroup`,
   `wildInertiaSubgroup`, `upperRamificationGroup` — Tau Ceti LocalFieldsRamification, Layer 3;
 * `serreWeight` — AlgebraicModularFormsAndSerreWeights R15.4.
+
+The local-data placeholders are specific to this pinned baseline. General local invariants
+and different estimates already have native interfaces in the current Tau Ceti library,
+including `TauCeti.differentExponent`, `TauCeti.ramificationIndex`,
+`TauCeti.LocalFieldsRamification.lowerRamificationGroup` and
+`TauCeti.differentExponent_le_ramificationIndex_sub_one_add_natCastValuation`.
+Use those supplier imports when advancing the baseline; this roadmap does not redevelop them.
 
 Concrete stand-ins, stated here against what Mathlib and Tau Ceti contain, for the owners to
 adopt or replace:
@@ -144,13 +157,48 @@ stated with the pinned libraries; their intended signatures are recorded here, i
   - `paso_six`: for an almost strictly compatible system `{ρ_ℓ}` with empty ramification set and
     `ρ̄₅` irreducible, `k(ρ̄₅) ∈ {2, 4}` gives a modular 3-adic member and `k(ρ̄₅) = 6` does not
     occur (DP23, Paso 6).
+
+## Tests requiring unavailable integral or modular-Jacobian constructions
+
+The following three tests remain mathematical specifications. They are not anonymous
+existence assertions in the code. The named objects, and the precise absent supplier
+interfaces needed to test them, are:
+
+* `not_mem_semistableCategory_quadratic_twist`: let `χ₋₇ : G_ℚ → (ZMod 3)ˣ` be the quadratic
+  character with kernel `G_{ℚ(√−7)}`, acting by `-1` on the nontrivial coset. Let `V₋₇` be
+  the unique finite étale group scheme over `ℤ[1/7]` whose geometric point module is
+  `(ZMod 3, χ₋₇)`. Its intended test is
+  `IsEtaleGroupScheme V₋₇ ∧ order V₋₇ = 3 ∧ ¬ SemistableCategory 3 7 V₋₇`.
+  R07.1 supplies finite étale descent from a finite Galois module unramified away from `7`
+  and the equivariant identification of its points; that construction is absent from the
+  pinned finite-locally-free category. The character and its field are specified, so choosing
+  an arbitrary order-three étale object would not satisfy this test (Schoof §2.2, p. 849).
+* `X0_eleven_two_torsion_mem`: put `𝒥₁₁` equal to the abelian-scheme model of the actual
+  `J₀(11)` over `ℤ[1/11]`, identified with the equation `x0Eleven` below, and put
+  `G₁₁ = ker([2] : 𝒥₁₁ → 𝒥₁₁)`. The intended test is
+  `SemistableCategory 2 11 G₁₁ ∧ IsSimpleGroupScheme G₁₁ ∧ order G₁₁ = 4`.
+  The integral abelian-scheme model (R11.1) and its finite flat multiplication kernel and
+  generic-fibre comparison (AbelianSchemesAndArithmeticModuli A3 / R07.1) are absent.
+  Mathlib's geometric point group, used for the separate R25.2 test below, supplies neither
+  this integral model nor a finite flat subgroup scheme (Schoof §1, p. 848; §2.1, p. 849).
+* `isGL2Type_J0_23`: for the actual `J₀(23) : AbelianVariety ℚ`, use the Hecke embedding
+  `ℚ(√5) →+* endZeroAlgebra J₀(23)` and test
+  `J₀(23).dim = 2 ∧ IsGL2Type J₀(23) ℚ(√5)`.
+  The missing interfaces are the modular curve `X₀(23)`, its Jacobian as an abelian variety,
+  and the rational Hecke endomorphisms identifying the quadratic coefficient field.
+  Tau Ceti's ModularCurves Layer 10 supplies the compactified curve and JacobianChallenge
+  Layer E its Jacobian. The geometric Hecke action is a separate absent interface:
+  ModularCurves' Mazur interface assigns it to a downstream Eisenstein-ideal supplier using
+  ModularForms' Hecke theory. The test requires that action on the actual Jacobian, together
+  with its coefficient-field identification. The universal dimension-one, dimension-two and
+  dimension-zero tests below are still expressible.
 -/
 
 noncomputable section
 
 open NumberField NumberField.InfinitePlace Module Polynomial MeasureTheory Set Filter Topology
 open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
-open scoped Real TensorProduct CategoryTheory.MonObj
+open scoped Classical Real TensorProduct CategoryTheory.MonObj
 
 namespace TauCeti.SmallRamification
 
@@ -300,9 +348,9 @@ theorem orderOf_map_inertia_dvd_card_residueField_sub_one (p : ℕ) [Fact p.Prim
       ∀ σ ∈ inertiaSubgroup K E,
         orderOf (ψ σ) ∣ p ^ (finrank ℚ_[p] K / ramificationIndex ℚ_[p] K) - 1 := sorry
 
-/-- Wild local images of mod-`p` representations are Borel: after conjugation in `GL₂(F̄)` the
-image is upper triangular, the wild inertia is unipotent of exponent `p`, and `I = P` if
-`p = 2`. -/
+/-- The full wild Borel normal form: diagonal characters, their common kernel on inertia,
+the cyclic tame quotient of order dividing `p - 1`, and the diagonal-ratio conjugation action.
+The upper-right entry identifies wild inertia with an additive subgroup of `F̄`. -/
 theorem exists_upperTriangular_of_wildInertia_ne_bot (p : ℕ) [Fact p.Prime] {F : Type*}
     [Field F] [Fintype F] [CharP F p] (E : Type*) [Field E] [Algebra ℚ_[p] E]
     [FiniteDimensional ℚ_[p] E] [IsGalois ℚ_[p] E] (emb : (E ≃ₐ[ℚ_[p]] E) →* GL (Fin 2) F)
@@ -311,8 +359,24 @@ theorem exists_upperTriangular_of_wildInertia_ne_bot (p : ℕ) [Fact p.Prime] {F
       let M : (E ≃ₐ[ℚ_[p]] E) → Matrix (Fin 2) (Fin 2) (AlgebraicClosure F) := fun σ =>
         ((g * Matrix.GeneralLinearGroup.map (algebraMap F (AlgebraicClosure F)) (emb σ) * g⁻¹ :
           GL (Fin 2) (AlgebraicClosure F)) : Matrix (Fin 2) (Fin 2) (AlgebraicClosure F))
-      (∀ σ, M σ 1 0 = 0) ∧
+      ∃ ψ₁ ψ₂ : (E ≃ₐ[ℚ_[p]] E) →* (AlgebraicClosure F)ˣ,
+      (∀ σ, M σ 1 0 = 0 ∧ M σ 0 0 = ψ₁ σ ∧ M σ 1 1 = ψ₂ σ) ∧
         (∀ σ ∈ wildInertiaSubgroup ℚ_[p] E, M σ 0 0 = 1 ∧ M σ 1 1 = 1 ∧ σ ^ p = 1) ∧
+        (wildInertiaSubgroup ℚ_[p] E ≤ inertiaSubgroup ℚ_[p] E) ∧
+        (∀ σ ∈ inertiaSubgroup ℚ_[p] E,
+          (ψ₁ σ = 1 ∧ ψ₂ σ = 1) ↔ σ ∈ wildInertiaSubgroup ℚ_[p] E) ∧
+        (∀ σ ∈ wildInertiaSubgroup ℚ_[p] E, ∀ τ ∈ wildInertiaSubgroup ℚ_[p] E,
+          M (σ * τ) 0 1 = M σ 0 1 + M τ 0 1 ∧
+          (M σ 0 1 = M τ 0 1 ↔ σ = τ) ∧ σ * τ = τ * σ) ∧
+        (∃ hnormal : ((wildInertiaSubgroup ℚ_[p] E).subgroupOf
+            (inertiaSubgroup ℚ_[p] E)).Normal,
+          letI := hnormal
+          IsCyclic ((inertiaSubgroup ℚ_[p] E) ⧸
+            (wildInertiaSubgroup ℚ_[p] E).subgroupOf (inertiaSubgroup ℚ_[p] E)) ∧
+          Nat.card ((inertiaSubgroup ℚ_[p] E) ⧸
+            (wildInertiaSubgroup ℚ_[p] E).subgroupOf (inertiaSubgroup ℚ_[p] E)) ∣ p - 1) ∧
+        (∀ d, ∀ τ ∈ wildInertiaSubgroup ℚ_[p] E,
+          M (d * τ * d⁻¹) 0 1 = ((ψ₁ d : AlgebraicClosure F) / ψ₂ d) * M τ 0 1) ∧
         (p = 2 → inertiaSubgroup ℚ_[p] E = wildInertiaSubgroup ℚ_[p] E) := sorry
 
 /-- Part (a) of the unit-filtration lemma: over an unramified extension of `ℚ₂`,
@@ -557,6 +621,93 @@ def modCyclotomicCharacter (p : ℕ) [Fact p.Prime] (F : Type*) [Field F] [CharP
         map_mul' := fun _ _ => rfl })
   continuous_toFun := sorry
 
+/-- The concrete diagonal sum `1 ⊕ ω_p`; only its homomorphism and continuity proofs are
+prototypes, while both the matrix and its inverse are specified. -/
+def oneAddCyclotomic (p : ℕ) [Fact p.Prime] (F : Type*) [Field F] [CharP F p]
+    [TopologicalSpace F] [DiscreteTopology F] : ResidualRep F where
+  toFun σ :=
+    { val := Matrix.diagonal ![1, (modCyclotomicCharacter p F σ : F)]
+      inv := Matrix.diagonal ![1, ((modCyclotomicCharacter p F σ)⁻¹ : F)]
+      val_inv := sorry
+      inv_val := sorry }
+  map_one' := sorry
+  map_mul' := sorry
+  continuous_toFun := sorry
+
+/-- The native mod-nine cyclotomic character, regarded as continuous for discrete coefficients. -/
+def modNineCyclotomicCharacter : Field.absoluteGaloisGroup ℚ →ₜ* (ZMod 9)ˣ where
+  toMonoidHom :=
+    (modularCyclotomicCharacter (AlgebraicClosure ℚ) (n := 9)
+      (HasEnoughRootsOfUnity.natCard_rootsOfUnity _ _)).comp
+      { toFun := fun σ => (galAut σ).toRingEquiv
+        map_one' := rfl
+        map_mul' := fun _ _ => rfl }
+  continuous_toFun := sorry
+
+/-- The specified generator matrix of order three over `𝔽₂`. -/
+def cubicOrderThreeMatrix : GL (Fin 2) (ZMod 2) :=
+  Matrix.GeneralLinearGroup.mkOfDetNeZero !![0, 1; 1, 1] (by decide)
+
+/-- Quotient the mod-nine cyclotomic character by `±1` and send the class of `2` to
+`(0 1; 1 1)`. The three cosets are `{1,8}`, `{2,7}`, `{4,5}`. -/
+def realCubicModTwo : ResidualRep (ZMod 2) where
+  toFun σ :=
+    if (modNineCyclotomicCharacter σ : ZMod 9) = 1 ∨
+        (modNineCyclotomicCharacter σ : ZMod 9) = 8 then 1
+    else if (modNineCyclotomicCharacter σ : ZMod 9) = 2 ∨
+        (modNineCyclotomicCharacter σ : ZMod 9) = 7 then cubicOrderThreeMatrix
+    else cubicOrderThreeMatrix ^ 2
+  map_one' := sorry
+  map_mul' := sorry
+  continuous_toFun := sorry
+
+/-- The maximal real cyclotomic subfield, specified inside `ℚ̄` by sums `ζ + ζ⁻¹`. -/
+def realCyclotomicSubfield (n : ℕ) : IntermediateField ℚ (AlgebraicClosure ℚ) :=
+  IntermediateField.adjoin ℚ {x | ∃ ζ : AlgebraicClosure ℚ, ζ ^ n = 1 ∧ x = ζ + ζ⁻¹}
+
+/-- The specified conductor-eleven equation `y² + y = x³ - x² - 10x - 20`. -/
+def x0Eleven : WeierstrassCurve ℚ where
+  a₁ := 0
+  a₂ := -1
+  a₃ := 1
+  a₄ := -10
+  a₆ := -20
+
+/-- The actual two-torsion subgroup of the equation's geometric point group. -/
+abbrev X0ElevenTwoTorsion : Type :=
+  ↥(AddSubgroup.torsionBy (x0Eleven.baseChange (AlgebraicClosure ℚ)).toAffine.Point 2)
+
+instance module_X0ElevenTwoTorsion : Module (ZMod 2) X0ElevenTwoTorsion :=
+  AddSubgroup.torsionBy.zmodModule
+
+/-- Act on the specified torsion points by applying the Galois automorphism to their
+coordinates; the torsion-membership and homomorphism obligations are proofs. -/
+def x0ElevenTwoTorsionAction (σ : Field.absoluteGaloisGroup ℚ) :
+    X0ElevenTwoTorsion →ₗ[ZMod 2] X0ElevenTwoTorsion :=
+  AddMonoidHom.toZModLinearMap 2
+    { toFun := fun P =>
+        ⟨WeierstrassCurve.Affine.Point.map (W' := x0Eleven.toAffine) (galAut σ).toAlgHom P,
+          by sorry⟩
+      map_zero' := sorry
+      map_add' := sorry }
+
+/-- The specified geometric two-torsion has a two-element `𝔽₂`-basis. This is a true
+existence theorem about the already defined point group, not an unspecified representation. -/
+theorem x0ElevenTwoTorsion_basis_exists :
+    Nonempty (Basis (Fin 2) (ZMod 2) X0ElevenTwoTorsion) := sorry
+
+/-- The coordinate Galois action on the specified `E[2]`, written in any chosen basis. -/
+def x0ElevenTwoTorsionRep (b : Basis (Fin 2) (ZMod 2) X0ElevenTwoTorsion) :
+    ResidualRep (ZMod 2) where
+  toFun σ := (Matrix.GeneralLinearGroup.toLin' b).symm
+    { val := x0ElevenTwoTorsionAction σ
+      inv := x0ElevenTwoTorsionAction σ⁻¹
+      val_inv := sorry
+      inv_val := sorry }
+  map_one' := sorry
+  map_mul' := sorry
+  continuous_toFun := sorry
+
 section Residual
 
 variable {F : Type*} [Field F] [Fintype F] [TopologicalSpace F] [DiscreteTopology F]
@@ -636,15 +787,19 @@ theorem IsLevelOneResidual.isTotallyComplex {p : ℕ} (hp : p.Prime) (hp2 : p �
     {ρ : ResidualRep F} (hρ : IsLevelOneResidual p ρ) : IsTotallyComplex (kernelField ρ) :=
   sorry
 
-/-- `not_isLevelOneResidual_one_add_omega` (non-example): `ρ̄ = 1 ⊕ ω̄` in characteristic `3` is
-odd and unramified outside `3` but not absolutely irreducible. -/
-example [CharP F 3] : ∃ ρ : ResidualRep F, IsOdd ρ ∧
-    (∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 3 → IsUnramifiedAt ℓ ρ) ∧ ¬ IsLevelOneResidual 3 ρ := sorry
+/-- `not_isLevelOneResidual_one_add_omega` (non-example): test the actual diagonal character
+sum, including its failure of absolute irreducibility. -/
+example [CharP F 3] : IsOdd (oneAddCyclotomic 3 F) ∧
+    (∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 3 → IsUnramifiedAt ℓ (oneAddCyclotomic 3 F)) ∧
+    ¬ IsAbsolutelyIrreducible (oneAddCyclotomic 3 F) ∧
+    ¬ IsLevelOneResidual 3 (oneAddCyclotomic 3 F) := sorry
 
 /-- `not_isLevelOneResidual_X0_eleven_two_torsion` (non-example): the action on `E[2]` for
 `E : y² + y = x³ − x² − 10x − 20` is absolutely irreducible (image `S₃`) and ramified at `11`. -/
-example [CharP F 2] : ∃ ρ : ResidualRep F, IsAbsolutelyIrreducible ρ ∧
-    ¬ IsUnramifiedAt 11 ρ ∧ ¬ IsLevelOneResidual 2 ρ := sorry
+example (b : Basis (Fin 2) (ZMod 2) X0ElevenTwoTorsion) :
+    IsAbsolutelyIrreducible (F := ZMod 2) (x0ElevenTwoTorsionRep b) ∧
+    ¬ IsUnramifiedAt (F := ZMod 2) 11 (x0ElevenTwoTorsionRep b) ∧
+    ¬ IsLevelOneResidual (F := ZMod 2) 2 (x0ElevenTwoTorsionRep b) := sorry
 
 /-- `isOdd_of_ringChar_two` (degenerate): in characteristic `2` every `ρ̄` is odd. -/
 example [CharP F 2] (ρ : ResidualRep F) : IsOdd ρ := isOdd_of_ringChar_two (ringChar.eq F 2) ρ
@@ -657,8 +812,11 @@ example {F' : Type*} [Field F'] [Fintype F'] [TopologicalSpace F'] [DiscreteTopo
 
 /-- `not_isAbsolutelyIrreducible_cyclic_cubic_mod_two` (non-example): `G_ℚ ↠ Gal(ℚ(ζ₉)⁺/ℚ)`
 followed by `(0 1; 1 1)` is irreducible over `𝔽₂` but not absolutely irreducible. -/
-example (hF : Fintype.card F = 2) : ∃ ρ : ResidualRep F,
-    IsIrreducibleSubgroup ρ.toMonoidHom.range ∧ ¬ IsAbsolutelyIrreducible ρ := sorry
+example : kernelField (F := ZMod 2) realCubicModTwo = realCyclotomicSubfield 9 ∧
+    finrank ℚ (kernelField (F := ZMod 2) realCubicModTwo) = 3 ∧
+    cubicOrderThreeMatrix ^ 3 = 1 ∧
+    IsIrreducibleSubgroup realCubicModTwo.toMonoidHom.range ∧
+    ¬ IsAbsolutelyIrreducible (F := ZMod 2) realCubicModTwo := sorry
 
 theorem det_eq_one_of_char_two [CharP F 2] (ρ : ResidualRep F)
     (hρ : ∀ ℓ : ℕ, ℓ.Prime → ℓ ≠ 2 → IsUnramifiedAt ℓ ρ) (σ : Field.absoluteGaloisGroup ℚ) :
@@ -684,14 +842,22 @@ theorem not_isLevelOneResidual_of_le_three {p : ℕ} (hp : p = 2 ∨ p = 3) [Cha
 end Residual
 
 /-- Irreducible finite subgroups of `SL₂(F̄₂)`: dihedral of order `2r`, `r ≥ 3` odd, with
-self-normalising subgroups of order `2`, or of order `q(q² − 1) ≥ 60` with `q = 2^j ≥ 4`. -/
+self-normalising subgroups of order `2`, or conjugate to the embedded `SL₂(K)` for a finite
+subfield `K ⊆ F̄₂` of order `q = 2^j ≥ 4`, with group order `q(q² − 1) ≥ 60`. -/
 theorem dihedral_or_SL2_of_irreducible_char_two
     (G : Subgroup (GL (Fin 2) (AlgebraicClosure (ZMod 2)))) [Finite G]
     (hdet : ∀ g ∈ G, (g : Matrix (Fin 2) (Fin 2) (AlgebraicClosure (ZMod 2))).det = 1)
     (hG : IsIrreducibleSubgroup G) :
     (∃ r : ℕ, Odd r ∧ 3 ≤ r ∧ Nonempty (G ≃* DihedralGroup r) ∧
         ∀ Q : Subgroup G, Nat.card Q = 2 → Subgroup.normalizer (Q : Set G) = Q) ∨
-      ∃ j : ℕ, 2 ≤ j ∧ Nat.card G = 2 ^ j * (2 ^ (2 * j) - 1) := sorry
+      ∃ (j : ℕ) (K : Subfield (AlgebraicClosure (ZMod 2))),
+        2 ≤ j ∧ Nat.card K = 2 ^ j ∧ Nat.card G = 2 ^ j * (2 ^ (2 * j) - 1) ∧
+        60 ≤ Nat.card G ∧
+        ∃ g : GL (Fin 2) (AlgebraicClosure (ZMod 2)),
+          ∀ h : GL (Fin 2) (AlgebraicClosure (ZMod 2)), h ∈ G ↔
+            ∃ s : Matrix.SpecialLinearGroup (Fin 2) K,
+              g * h * g⁻¹ = Matrix.GeneralLinearGroup.map K.subtype
+                (Matrix.SpecialLinearGroup.toGL s) := sorry
 
 /-- Irreducible finite subgroups of `GL₂(F̄₃)` with `3 ∣ |G|`. -/
 theorem twentyFour_dvd_card_of_irreducible_char_three
@@ -915,15 +1081,9 @@ example (hpl : p ≠ l) (G : FFGroupSchemeAway l) (i : muScheme _ p ⟶ G)
     (q : G ⟶ zModScheme _ p)
     (h : IsShortExact i q) : SemistableCategory p l G := sorry
 
-/-- `not_mem_semistableCategory_quadratic_twist` (non-example): the étale group scheme over
-`ℤ[1/7]` of order `3` on which `Gal(ℚ(√−7)/ℚ)` acts by `−1` is not in `D(3, 7)`. -/
-example [Fact (Nat.Prime 7)] : ∃ G : FFGroupSchemeAway 7, IsEtaleGroupScheme G ∧ order G = 3 ∧
-    ¬ SemistableCategory 3 7 G := sorry
-
-/-- `X0_eleven_two_torsion_mem` (computation): `J₀(11)[2]` is a simple object of `D(2, 11)` of
-order `4`, so the simple-object criterion fails at `l = 11`. -/
-example [Fact (Nat.Prime 11)] : ∃ G : FFGroupSchemeAway 11, SemistableCategory 2 11 G ∧
-    IsSimpleGroupScheme G ∧ order G = 4 := sorry
+/- The two concrete integral examples `not_mem_semistableCategory_quadratic_twist` and
+`X0_eleven_two_torsion_mem` are specified, with their absent construction interfaces, in the
+header. No existence assertion about an unidentified group scheme substitutes for them. -/
 
 /-- Étale `p`-group schemes over `ℤ[1/l]` that are iterated extensions of `ℤ/pℤ`: `G_ℚ` acts on
 their points through `Gal(ℚ(ζ_l)/ℚ)`, so they become constant over `ℤ[1/l, ζ_l]`. -/
@@ -991,14 +1151,55 @@ theorem classNumber_eq_one_small_fields :
         [IsSplittingField ℚ K ((X ^ 2 + 1) * (X ^ 2 - 13) : ℚ[X])], classNumber K = 1) :=
   sorry
 
-/-- `(l, p) = (2, 3)`: `M = ℚ(ζ₃, ∛2)` and every admissible `L` equals `M`. -/
+/-- The actual auxiliary field `ℚ(ζ₃, ∛2)`, as a subfield of `ℚ̄`. -/
+def schoofFieldTwoThree : IntermediateField ℚ (AlgebraicClosure ℚ) :=
+  cyclotomicSubfield 3 ⊔ IntermediateField.adjoin ℚ {x | x ^ 3 = (2 : AlgebraicClosure ℚ)}
+
+/-- The actual auxiliary field `ℚ(ζ₁₂)`. -/
+def schoofFieldThreeTwo : IntermediateField ℚ (AlgebraicClosure ℚ) := cyclotomicSubfield 12
+
+/-- The actual auxiliary field `ℚ(i, √5)`. -/
+def schoofFieldFiveTwo : IntermediateField ℚ (AlgebraicClosure ℚ) :=
+  cyclotomicSubfield 4 ⊔ IntermediateField.adjoin ℚ {x | x ^ 2 = (5 : AlgebraicClosure ℚ)}
+
+/-- `(l, p) = (2, 3)`: the criterion; its stronger field conclusion follows below. -/
 theorem fieldCriterion_two_three : FieldCriterion 2 3 := sorry
 
-/-- `(l, p) = (3, 2)`: `M = ℚ(ζ₁₂)` and every admissible `L` has degree `4` or `8`. -/
+/-- Every admissible Galois `L` equals the specified degree-six field `ℚ(ζ₃, ∛2)`.
+The inertia premise is relative unramifiedness of `L/M` away from `3`. -/
+theorem fieldCriterion_two_three_eq_auxiliaryField
+    (L : IntermediateField ℚ (AlgebraicClosure ℚ)) [NumberField L]
+    (hG : IsGalois ℚ L) (hM : schoofFieldTwoThree ≤ L)
+    (hunram : ∀ q : ℕ, q.Prime → q ≠ 3 → ∀ σ ∈ inertiaAbove q,
+      galAut σ ∈ schoofFieldTwoThree.fixingSubgroup → galAut σ ∈ L.fixingSubgroup)
+    (hdisc : (padicValInt 3 (discr L) : ℝ) / finrank ℚ L < 3 / 2) :
+    L = schoofFieldTwoThree ∧ finrank ℚ L = 6 := sorry
+
+/-- `(l, p) = (3, 2)`: the criterion; its exact degree possibilities follow below. -/
 theorem fieldCriterion_three_two : FieldCriterion 3 2 := sorry
 
-/-- `(l, p) = (5, 2)`: `M = ℚ(i, √5)` and every admissible `L` has degree `4`, `8` or `16`. -/
+/-- A finite Galois `L ⊇ ℚ(ζ₁₂)`, relatively unramified away from `2` with strict normalized
+two-adic discriminant exponent below `2`, has absolute degree `4` or `8`. -/
+theorem fieldCriterion_three_two_degree
+    (L : IntermediateField ℚ (AlgebraicClosure ℚ)) [NumberField L]
+    (hG : IsGalois ℚ L) (hM : schoofFieldThreeTwo ≤ L)
+    (hunram : ∀ q : ℕ, q.Prime → q ≠ 2 → ∀ σ ∈ inertiaAbove q,
+      galAut σ ∈ schoofFieldThreeTwo.fixingSubgroup → galAut σ ∈ L.fixingSubgroup)
+    (hdisc : (padicValInt 2 (discr L) : ℝ) / finrank ℚ L < 2) :
+    finrank ℚ L = 4 ∨ finrank ℚ L = 8 := sorry
+
+/-- `(l, p) = (5, 2)`: the criterion; its exact degree possibilities follow below. -/
 theorem fieldCriterion_five_two : FieldCriterion 5 2 := sorry
+
+/-- A finite Galois `L ⊇ ℚ(i, √5)`, relatively unramified away from `2` with strict normalized
+two-adic discriminant exponent below `2`, has absolute degree `4`, `8` or `16`. -/
+theorem fieldCriterion_five_two_degree
+    (L : IntermediateField ℚ (AlgebraicClosure ℚ)) [NumberField L]
+    (hG : IsGalois ℚ L) (hM : schoofFieldFiveTwo ≤ L)
+    (hunram : ∀ q : ℕ, q.Prime → q ≠ 2 → ∀ σ ∈ inertiaAbove q,
+      galAut σ ∈ schoofFieldFiveTwo.fixingSubgroup → galAut σ ∈ L.fixingSubgroup)
+    (hdisc : (padicValInt 2 (discr L) : ℝ) / finrank ℚ L < 2) :
+    finrank ℚ L = 4 ∨ finrank ℚ L = 8 ∨ finrank ℚ L = 16 := sorry
 
 /-- `(l, p) = (7, 3)`: `M = ℚ(ζ₃, ζ₇ + ζ₇⁻¹, ∛7)`, of degree `18`. -/
 theorem fieldCriterion_seven_three : FieldCriterion 7 3 := sorry
@@ -1036,10 +1237,8 @@ theorem IsGL2Type.baseChange {F : Type} [Field F] [NumberField F] {A : AbelianVa
 /-- `isGL2Type_ellipticCurve` (computation): an elliptic curve over `ℚ` is of GL₂(ℚ)-type. -/
 example (A : AbelianVariety ℚ) (hA : A.dim = 1) : IsGL2Type A ℚ := sorry
 
-/-- `isGL2Type_J0_23` (computation): `J₀(23)`, of dimension `2` with `ℚ(√5)` acting through Hecke
-operators, is of GL₂(ℚ(√5))-type. -/
-example (K : Type) [Field K] [NumberField K] [IsSplittingField ℚ K (X ^ 2 - 5 : ℚ[X])] :
-    ∃ A : AbelianVariety ℚ, A.dim = 2 ∧ IsGL2Type A K := sorry
+/- `isGL2Type_J0_23` needs the actual modular Jacobian and its Hecke action, as specified in
+the header. An unspecified abelian surface is not a computation on `J₀(23)`. -/
 
 /-- `not_isGL2Type_prod_rat` (non-example): a surface such as `E × E` is not of GL₂(ℚ)-type. -/
 example (A : AbelianVariety ℚ) (hA : A.dim = 2) : ¬ IsGL2Type A ℚ := sorry
