@@ -1,8 +1,8 @@
 {
   "roadmaps": 243,
-  "stages": 5329,
+  "stages": 5340,
   "originalStages": 2197,
-  "sourceRefinements": 3132,
+  "sourceRefinements": 3143,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -168,7 +168,7 @@
     {
       "roadmap": "StableHomotopyKTheory",
       "status": "partial",
-      "nodes": 25,
+      "nodes": 0,
       "review": "accepted",
       "deferredLinks": 0
     },
@@ -201,14 +201,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5228,
+  "mathematicalStars": 5239,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 2316,
-  "stageEdges": 14064,
+  "stageEdges": 14092,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1292,6 +1292,12 @@
       "reviewer": "independent-review-REV-SpecialValuesBirchTate~2"
     },
     {
+      "file": "StableHomotopyKTheory",
+      "roadmap": "StableHomotopyKTheory",
+      "nodes": 223,
+      "reviewer": "independent-review-REV-StableHomotopyKTheory~3"
+    },
+    {
       "file": "VStackSheavesAndLisseCategories",
       "roadmap": "VStackSheavesAndLisseCategories",
       "nodes": 80,
@@ -1329,8 +1335,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36586678,
-  "htmlSha256": "6069453e1f78d2d59ade8501a033b64aaa26fbcce9b5e08167f0e32a911ed210",
+  "htmlBytes": 36456805,
+  "htmlSha256": "8f6395228dd46eead8f6fb26c6ae2d07d4aef51226ce7de2e9b0c4c0350ecdfd",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1362,7 +1368,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "2e22a707e6e9656d002a8f114d75c90b11be810e566b1abf25a08025a29986f8",
+    "data/roadmap-distances.json": "359041188394a56eb865ae65c6f6d84c43e3c97ea904be233a6cc5eebc9c556d",
     "data/galaxy-layout.json": "c4f41c53e501ae0cb94c10f730031eafef5ce9f4ac8c9802cf8d78dcb31c1ab7",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1780,6 +1786,8 @@
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
     "data/blueprints/SpecialValuesBirchTate.json": "4f757c294cfa0a140e437995ab1486bf8d53560fa7f8461d4f8ab742684139aa",
     "data/blueprints/SpecialValuesBirchTate.md": "93437444f62052d2c2a0681d4f321c6b9ca026b233c3fc85c72224a10cdf323d",
+    "data/blueprints/StableHomotopyKTheory.json": "d5e026d6da6fc421a5a79a5bc0361b07cbf24302709b09e5ee45ab76906836f3",
+    "data/blueprints/StableHomotopyKTheory.md": "03801edda3725652cccc22ae0ee1793b89a91c72bd56f87cb3e8860bd4f6a78e",
     "data/blueprints/VStackSheavesAndLisseCategories.json": "cfd7a4f623917ce5e9978d46fab8dca26920d67164f54aaeae1ae4763ba7b498",
     "data/blueprints/VStackSheavesAndLisseCategories.md": "1ae6af76aa58883b7d60348103d94d13e6090df5835181bf5951ac5ff96d6e4b",
     "data/blueprints/VectorBundlesAndIsocrystals--VB0.json": "f2a4bae90b4976971bdbda0b8cc380630e95fa6511dcc9037a39bb97e42163e3",

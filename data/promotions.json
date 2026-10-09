@@ -260,6 +260,18 @@
     "data/links/tauceti_TauCetiRoadmap_ZigzagPreprojective.json"
    ]
   },
+  "research/blueprint/packages/AdicCoefficientsAndComparisons/review.json": {
+   "promotedAt": "2026-10-09T06:13:03Z",
+   "review": "d37aa81bc76e9927",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-AdicCoefficientsAndComparisons",
+   "sha256": "deffaffd10e51eca699d9887feeea6afbcfd257794747810e7d3b2ba6effbbb9",
+   "to": [
+    "roadmaps/AdicCoefficientsAndComparisons/README.md",
+    "roadmaps/AdicCoefficientsAndComparisons/Suggested.lean",
+    "roadmaps/AdicCoefficientsAndComparisons/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/AlgebraicModularFormsAndSerreWeights/review.json": {
    "promotedAt": "2026-10-09T01:31:14Z",
    "review": "273b7e79327fca1c",
@@ -2420,6 +2432,17 @@
    "to": [
     "data/blueprints/SpecialValuesBirchTate.json",
     "data/blueprints/SpecialValuesBirchTate.md"
+   ]
+  },
+  "research/blueprint/packets/StableHomotopyKTheory.json": {
+   "promotedAt": "2026-10-09T06:13:03Z",
+   "review": "45b9f7e3ce9ed446",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-StableHomotopyKTheory~3",
+   "sha256": "d5e026d6da6fc421a5a79a5bc0361b07cbf24302709b09e5ee45ab76906836f3",
+   "to": [
+    "data/blueprints/StableHomotopyKTheory.json",
+    "data/blueprints/StableHomotopyKTheory.md"
    ]
   },
   "research/blueprint/packets/VStackSheavesAndLisseCategories.json": {
