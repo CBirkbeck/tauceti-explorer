@@ -105066,6 +105066,26 @@
    "prompt": "research/blueprint/prompts/REV-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv.md",
    "note": "deliverables arrived from an external worker on issue #8031",
    "finishedAt": "2026-10-09T17:09:22Z"
+  },
+  {
+   "id": "REV-PKG-ArithmeticGaloisRepresentations~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "ArithmeticGaloisRepresentations"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-ArithmeticGaloisRepresentations~adv.md",
+    "research/blueprint/packages/ArithmeticGaloisRepresentations/review.json",
+    "research/blueprint/packages/ArithmeticGaloisRepresentations/README.md",
+    "research/blueprint/packages/ArithmeticGaloisRepresentations/Suggested.lean",
+    "research/blueprint/packages/ArithmeticGaloisRepresentations/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticGaloisRepresentations~adv.md"
   }
  ]
 }
