@@ -546,15 +546,16 @@ def inertiaAbove (ℓ : ℕ) : Set (Field.absoluteGaloisGroup ℚ) :=
       (y : AlgebraicClosure ℚ) = galAut σ x - x}
 
 /-- The mod-`p` cyclotomic character `ω : G_ℚ → 𝔽_p^× ⊆ F^×` (Mathlib's
-`modularCyclotomicCharacter`). -/
-def modCyclotomicCharacter (p : ℕ) [Fact p.Prime] (F : Type*) [Field F] [CharP F p] :
-    Field.absoluteGaloisGroup ℚ →* Fˣ :=
-  (Units.map (ZMod.castHom (dvd_refl p) F).toMonoidHom).comp
+`modularCyclotomicCharacter`), with its continuity for discrete coefficients. -/
+def modCyclotomicCharacter (p : ℕ) [Fact p.Prime] (F : Type*) [Field F] [CharP F p]
+    [TopologicalSpace F] [DiscreteTopology F] : Field.absoluteGaloisGroup ℚ →ₜ* Fˣ where
+  toMonoidHom := (Units.map (ZMod.castHom (dvd_refl p) F).toMonoidHom).comp
     ((modularCyclotomicCharacter (AlgebraicClosure ℚ) (n := p)
       (HasEnoughRootsOfUnity.natCard_rootsOfUnity _ _)).comp
       { toFun := fun σ => (galAut σ).toRingEquiv
         map_one' := rfl
         map_mul' := fun _ _ => rfl })
+  continuous_toFun := sorry
 
 section Residual
 
@@ -601,8 +602,8 @@ def ResidualRep.map {F' : Type*} [Field F'] [TopologicalSpace F'] (f : F →+* F
   toMonoidHom := (Matrix.GeneralLinearGroup.map f).comp ρ.toMonoidHom
   continuous_toFun := sorry
 
-/-- R01.2 (stand-in): the twist `ρ ⊗ χ` by a character `χ : G_ℚ → F^×`. -/
-def twist (ρ : ResidualRep F) (χ : Field.absoluteGaloisGroup ℚ →* Fˣ) : ResidualRep F where
+/-- R01.2 (stand-in): the twist `ρ ⊗ χ` by a continuous character `χ : G_ℚ → F^×`. -/
+def twist (ρ : ResidualRep F) (χ : Field.absoluteGaloisGroup ℚ →ₜ* Fˣ) : ResidualRep F where
   toFun σ := Units.map (algebraMap F (Matrix (Fin 2) (Fin 2) F)).toMonoidHom (χ σ) * ρ σ
   map_one' := sorry
   map_mul' := sorry
@@ -888,7 +889,7 @@ theorem SemistableCategory.prod {G G' P : FFGroupSchemeAway l} (π₁ : P ⟶ G)
     (hP : IsLimit (BinaryFan.mk π₁ π₂)) (hG : SemistableCategory p l G)
     (hG' : SemistableCategory p l G') : SemistableCategory p l P := sorry
 
-theorem SemistableCategory.cartierDual {G : FFGroupSchemeAway l}
+theorem SemistableCategory.cartierDual (hpl : p ≠ l) {G : FFGroupSchemeAway l}
     (hG : SemistableCategory p l G) :
     SemistableCategory p l
       (TauCeti.FiniteLocallyFreeCommAffineGroupSchemeCat.cartierDual _ G) := sorry
@@ -904,12 +905,14 @@ theorem SemistableCategory.of_extension {G₂ G G₁ : FFGroupSchemeAway l} (i :
     SemistableCategory p l G := sorry
 
 /-- `zModP_mem_semistableCategory` (degenerate): `ℤ/pℤ` and `μ_p` are objects of `D(p, l)`. -/
-example : SemistableCategory p l (zModScheme _ p) ∧ SemistableCategory p l (muScheme _ p) :=
+example (hpl : p ≠ l) :
+    SemistableCategory p l (zModScheme _ p) ∧ SemistableCategory p l (muScheme _ p) :=
   sorry
 
 /-- `katzMazur_mem_semistableCategory` (computation): every extension of `ℤ/pℤ` by `μ_p` over
 `ℤ[1/l]`, in particular the Katz–Mazur `G_ε`, is in `D`: inertia acts by `(1 x; 0 1)`. -/
-example (G : FFGroupSchemeAway l) (i : muScheme _ p ⟶ G) (q : G ⟶ zModScheme _ p)
+example (hpl : p ≠ l) (G : FFGroupSchemeAway l) (i : muScheme _ p ⟶ G)
+    (q : G ⟶ zModScheme _ p)
     (h : IsShortExact i q) : SemistableCategory p l G := sorry
 
 /-- `not_mem_semistableCategory_quadratic_twist` (non-example): the étale group scheme over
@@ -1131,13 +1134,16 @@ structure BaseCaseRow where
 R21.5; failure of (A1) away from level one: R27.1, R33.2) are recorded in the roadmap document. -/
 def baseCases : List BaseCaseRow :=
   [ { characteristics := {2}, weights := fun _ => Set.univ, levelOne := true, oddness := false,
-      badPrimes := none, imageCondition := "any", coefficientCondition := "finite, char 2",
+      badPrimes := none, imageCondition := "absolutely irreducible",
+      coefficientCondition := "finite, char 2",
       supplier := "R25.2/tate-theorem", consumer := "R26 (initial characteristic); DP23 Thm 1.1",
-      localCheck := "none", statement := `TauCeti.SmallRamification.tate_no_levelOne_char_two },
+      localCheck := "unramified outside 2; determinant oddness is automatic",
+      statement := `TauCeti.SmallRamification.tate_no_levelOne_char_two },
     { characteristics := {3}, weights := fun _ => Set.univ, levelOne := true, oddness := true,
-      badPrimes := none, imageCondition := "any", coefficientCondition := "finite, char 3",
+      badPrimes := none, imageCondition := "absolutely irreducible",
+      coefficientCondition := "finite, char 3",
       supplier := "R25.2/serre-mod-three-theorem", consumer := "R26; R33.4 (3-adic members)",
-      localCheck := "none",
+      localCheck := "odd and unramified outside 3",
       statement := `TauCeti.SmallRamification.serre_no_levelOne_char_three },
     { characteristics := ∅, weights := fun _ => ∅, levelOne := true, oddness := false,
       badPrimes := some ∅, imageCondition := "abelian variety over ℚ",
@@ -1163,7 +1169,8 @@ def baseCases : List BaseCaseRow :=
       statement := `TauCeti.SmallRamification.not_levelOne_weight_succ_of_schoofPrime },
     { characteristics := {3, 5, 7, 13}, weights := fun p => if p = 3 then {2, 4} else {p + 1},
       levelOne := true, oddness := true, badPrimes := none,
-      imageCondition := "residually reducible", coefficientCondition := "crystalline p-adic",
+      imageCondition := "irreducible p-adic representation with reducible reduction",
+      coefficientCondition := "crystalline p-adic, Hodge–Tate weights {0, k - 1}",
       supplier := "R25.5/ordinary-reducible-terminal-weights", consumer := "R33.4 (p = 3); R26.5",
       localCheck := "ordinary and p-distinguished at p",
       statement := `TauCeti.SmallRamification.no_levelOne_crystalline_of_reducible_terminal },

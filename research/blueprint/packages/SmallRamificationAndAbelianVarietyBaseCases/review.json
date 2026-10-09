@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-SmallRamificationAndAbelianVarietyBaseCases",
+    "date": "2026-10-09",
+    "notes": "Completed independent package review by Codex, session codex-KeelQ5, issue #7528. Read the package and accepted plan; compared all 59 targets, 45 API entries and 34 tests, the 80 pinned baseline entries, 31 supplier requests and relevant link maps. Source versions matched the plan's digests; the published Khare-Wintenberger Theorem 5.4 was additionally checked. Items 1-4 and 6 pass after correcting the characteristic-three involution explanation. Corrected continuous-character hypotheses, distinct-prime hypotheses for Cartier duality and examples, and base-case metadata in Suggested.lean. Item 5 remains unsatisfied: the Borel, SL2 classification and first three field-criterion signatures omit target conclusions, and six named examples assert anonymous existence rather than test the named objects. lean-check was run and exited 1 at import line 5 because TauCeti/Analysis/PositiveDefinite/AddGroup.olean was missing; the file body was not elaborated. The shared checkout also had a different Tau Ceti commit, and no inspected existing build had both pinned commits. No dependency build or substitute-commit elaboration was performed. The corrected file has not been elaborated. Revision must repair the stated fidelity gaps and pass lean-check at Mathlib 082e2d3 and Tau Ceti f790474 with only sorry warnings. check_blueprint: zero errors and warnings; submission file checks and git diff --check pass. See the independent report for exact declarations, tests and source locators. This is a completed needs_changes review, not a checkpoint."
+  }
+}
