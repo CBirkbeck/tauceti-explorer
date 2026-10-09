@@ -104927,6 +104927,26 @@
    "state": "superseded",
    "prompt": "research/blueprint/prompts/REV-DESIGN-AREA-ComputabilityProofTheory.md",
    "note": "Withdrawn. This area was queued from the atlas's coverage listing, which records what the atlas lacks, not what the mathematics needs: no roadmap names it as a prerequisite, and the library is for algebraic number theory and arithmetic geometry. A roadmap here needs a dependency to justify it."
+  },
+  {
+   "id": "REV-PKG-LocallyAnalyticDistributions~adv",
+   "kind": "review",
+   "priority": 1,
+   "order": 4400,
+   "roadmapIds": [
+    "LocallyAnalyticDistributions"
+   ],
+   "outputs": [
+    "research/blueprint/reviews/REV-PKG-LocallyAnalyticDistributions~adv.md",
+    "research/blueprint/packages/LocallyAnalyticDistributions/review.json",
+    "research/blueprint/packages/LocallyAnalyticDistributions/README.md",
+    "research/blueprint/packages/LocallyAnalyticDistributions/Suggested.lean",
+    "research/blueprint/packages/LocallyAnalyticDistributions/metadata.toml"
+   ],
+   "after": [],
+   "independentOf": [],
+   "state": "pending",
+   "prompt": "research/blueprint/prompts/REV-PKG-LocallyAnalyticDistributions~adv.md"
   }
  ]
 }
