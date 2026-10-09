@@ -1,5 +1,199 @@
 # PKG-HodgeStructuresPartII — checkpoint handoff
 
+Status: partial; blocked on the complete native build at both required pins
+and on unresolved geometric supplier signatures. Issue
+[#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
+Continued by Codex (GPT-6), session `codex-bIhl76`, on 9 October 2026, after
+[the claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6075064852).
+
+## This continuation: H.0 operator and comparison fidelity
+
+The [package README](../packages/HodgeStructuresPartII/README.md) gives more
+precise H.0 statements, API and discriminating computations. Its H.1–H.8
+text and the whole Suggested.lean remain byte-for-byte unchanged. No input
+packet, supplier roadmap or original assembly artifact was edited. Metadata
+remains absent because the complete-package requirements are not met.
+
+The mathematical changes are:
+
+- Fix the coordinate convention to `s′=Gs`, hence
+  `A′=GAG⁻¹−λδ(G)G⁻¹`, including the determinant trace correction with
+  its minus sign. For a matrix whose rows are sections, the connection acts
+  on those rows by `S Aᵗ`; distinguish this from the auxiliary `A S`
+  row-action determinant identity. Flat determinant does not imply a flat
+  original operator, as the `E12,E21` test shows.
+- Specify the intrinsic balanced extension, its odd-degree sign, curvature
+  square identity, horizontal maps, restriction, descent cocycle, tensor
+  unit, dual, rescaling and genuine differential-chart comparison. Include
+  the discrete-space example with finite stalk ranks but no finite cover
+  by constant-rank free charts.
+- Specify the symmetric action's augmentation ideal in its source algebra,
+  the exact quotient exponent, and its uniqueness. An ambient endomorphism
+  ideal is different. The characteristic-two truncated-polynomial example
+  has nonzero ordered second iterate and zero symmetric projection.
+- State the exact flatness hypotheses for injective horizontal and
+  coefficient reflection, and the retract alternative. Give the actual
+  arbitrary-coefficient base-change equivalences in every degree and the
+  faithfully flat reflection theorem. A principal affine cover has a finite
+  subcover; arbitrary infinite ringed-site covers still need uniformity.
+- Specify finite-direction exterior detection, its arbitrary-coefficient
+  forward implication and finite-basis converse. For ordered tensor powers,
+  retain the integral subset shuffle, stable slot order, mixed-sign exterior
+  cancellation, larger bounds and the zero-iterate premise. The torsion
+  coefficient and independent-direction F₂ examples reject dual testing
+  and tests using only individual powers.
+- Make the parameter residue's equality criterion, quotient naturality and
+  nonzero mod-2 example explicit. Remove an unnecessary integrability
+  premise from the ordered nilpotence/finite-lowering-filtration equivalence;
+  kernels need not be subbundles over a nonreduced base.
+- Specify the additive affine extension, the same-parameter balancing
+  restriction, actual coordinate conjugation, ramified calculus morphism
+  and receiving-ring derivative term. Give native tensorator/cotensorator
+  and unit maps, triple tensor formulas and both directions of monoidal
+  natural comparisons.
+- State the dual curvature pairing with the term
+  `λ(d₀λ∧d₀(φ(e)))`, in that wedge order; negative transpose and
+  dual flatness reflection require `d₀λ=0`. Native bidual transport itself
+  is horizontal for arbitrary λ. Include actual four- and six-scalar dual
+  evaluation formulas and polynomial/nonreduced derivative and sign tests.
+- Spell out the Griffiths symbol's scalar-term cancellation, shift,
+  bound `b−a+1`, finite relative Rees generator and failed-transversality
+  example. The unbounded period-lattice adapter remains a supplier boundary.
+
+The statements and definition/construction API and test records of the
+569-node original H.0 plan and seven H.0 additions were read for this semantic
+comparison. This is **not** a certification of complete 576-target source,
+hypothesis, prerequisite, proof-outline and typed-signature fidelity: those
+records are much larger, and their complete audit is still required. In
+particular, literal node-id comments do not account for every active affine
+declaration; match the packet's `declaration` names to the actual namespaces
+instead of treating absence of an id comment as absence of a signature.
+
+H.0 resume map, using zero-based indices in the unchanged original packet:
+
+| README subsection | Original target indices and additions |
+| --- | --- |
+| Intrinsic operators | 12–31; reserved `key/higgs-parameter-connections`; intrinsic tensor/dual/pullback/descent |
+| Matrix charts, gauge and determinant | 0–11, 47–59 |
+| Twisted fields and symmetric actions | 32–34, 60–70, 131–160 |
+| Ordered powers and local detection | 35–41, 71–130 |
+| Tensor fields and shuffle | 161–223; `h0-tensor-valued-shuffle`, `h0-shuffle-term-vanishing`, `h0-ordered-shuffle-expansion`, `h0-arbitrary-coefficient-tensor-bound` |
+| Rank bounds and parameter residue | `h0-field-rank-bound`, `h0-reduced-free-rank-bound`, `h0-parameter-residue` |
+| Additive calculus and transport | 224–304 |
+| Scalar extension and towers | 305–367 |
+| Categories and monoidal pullback | 368–507 |
+| Finite-projective duality | 508–568 |
+| Griffiths symbols and Rees | 42–46 |
+
+## Reading and native interfaces
+
+Fresh source checks used freely readable versions, with no source passages
+or restricted books copied:
+
+- [Esnault–Groechenig's 44-page author manuscript](https://www.mi.fu-berlin.de/users/esnault/preprints/helene/126_esn_gro.pdf):
+  §2.1, pp.5–6; §4.2, pp.23–24, including Lemma 4.9 and its printed proof.
+  These are the parameter, Higgs and filtered-symbol conventions; the
+  arbitrary-ring coherence is an authored algebraic deduction.
+- [Liu–Zhu, arXiv v3](https://arxiv.org/pdf/1602.06282v3):
+  Theorem 2.1(i),(iii),(iv), pp.7–8; Lemma 2.15 and proof, pp.18–19;
+  Definitions 3.5–3.6, pp.21–22; Remark 3.2, p.24. Their correspondence
+  supplies the nilpotence premise; the elementary rank bounds here assume it.
+- [Heuer's published article](https://link.springer.com/content/pdf/10.1007/s00222-025-01321-4.pdf):
+  Definition 1.2(2), p.262; Definition 4.1 and Remark 4.2, pp.297–298.
+  This preserves the published locators used by the package.
+- Stacks [§60.15, 07J5](https://stacks.math.columbia.edu/tag/07J5),
+  connection/extension paragraphs and Lemma 60.15.1;
+  [§17.16, 01CA](https://stacks.math.columbia.edu/tag/01CA),
+  sheaf tensor construction and Lemmas 17.16.1–5;
+  [§10.39, 00H9](https://stacks.math.columbia.edu/tag/00H9),
+  Definition 10.39.1 and Lemmas 10.39.5 and 10.39.14;
+  [§10.23, 00EN](https://stacks.math.columbia.edu/tag/00EN),
+  Lemmas 10.23.1–2; and
+  [§15.74, 0FNJ](https://stacks.math.columbia.edu/tag/0FNJ),
+  Lemma 15.74.1(1)–(3), finite-projective evaluation.
+
+Read the pinned Mathlib statements for `Derivation`, `MvPolynomial.pderiv`,
+the matrix trace cyclicity identity, `dualTensorHomEquiv`,
+`Functor.CoreMonoidal`, `TensorProduct.liftAddHom`,
+`AlgebraTensorModule.cancelBaseChange` and `distribBaseChange`,
+`PiTensorProduct.tmulEquiv`, and `SheafOfModules.IsLocallyFree`. This is a
+focused interface check, not a fresh audit of every baseline declaration in
+the 885-target plan. The upstream HodgeStructures and UniversalCovers readers,
+WORKERS, both protocols, UPSTREAM_GUIDE and the Hodge library audit were also
+consulted before editing.
+
+## Checks and blocking evidence
+
+- All ten unchanged accepted packets pass `scripts/check_blueprint.py`:
+  zero errors and zero warnings each.
+- The README is 181,496 bytes; H.0–H.8 occur in order. All edits are within
+  H.0. Suggested.lean is unchanged, including its 108 distinct imports,
+  single header and geometric omission inventories. `git diff --check`
+  passes. No mathematical claim of formalisation or completion was added.
+- Full-file command:
+  `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`.
+  It exits 1 while loading imports, before checking any body, because the
+  object for `TauCeti.AlgebraicTopology.LocalCoefficient` is missing. All ten
+  native Tau Ceti direct-import objects are missing in the configured build;
+  their module names are retained in the prior receipt below.
+- The configured build has the exact Mathlib pin
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`, but Tau Ceti HEAD
+  `cf386627e9176a3827c1a5fe804989fd94a4d216` instead of required
+  `f790474821cf4256814db967cb154e7af3d0c369`. An existing exact-pin
+  source tree has no native import objects. A different existing build has
+  all ten, but Tau Ceti `d4cf9545db80ecae6c0afd176120cbf86971d26b`
+  and Mathlib `f6090c7095e1e56b3464c1daba5f24631f1290d2`;
+  it cannot validate the required baseline. Read-only inspection found no
+  usable complete build at both pins. No dependency build or modification
+  is authorized by WORKERS; none was attempted. Available memory was 113 GB.
+- A disposable **H.0 projection** passes `lean-check`, exit 0, with 982
+  warnings, all `declaration uses sorry`, and no errors. It contains the
+  exact shared representation adapter, original H.0 and H.0 additions,
+  preceded by every Mathlib import from the package, and excludes the Tau
+  Ceti imports and H.1–H.8. Its 8,730 lines check available affine forms at
+  the exact Mathlib pin. This is not a full-file or native Tau Ceti check,
+  does not discharge the geometric omission inventories, and proves no
+  admitted theorem. Suggested.lean itself retains every native import.
+
+To reproduce the diagnostic, use this extraction in the next worker's own
+disposable on-disk scratch, then run `lean-check` on that file:
+
+```python
+from pathlib import Path
+import sys
+s = Path("research/blueprint/packages/HodgeStructuresPartII/Suggested.lean").read_text()
+imports = "\n".join(line for line in s.splitlines() if line.startswith("import Mathlib."))
+body = s[s.index("/-! Shared native representation adapter"):s.index("/-! ## H.1 -/")]
+Path(sys.argv[1]).write_text(imports + "\n\n" + body)
+```
+
+## What remains
+
+1. Select an existing complete build at both exact pins through
+   `ATLAS_LEAN_BUILD`, then check the **whole** Suggested.lean. Do not remove
+   native imports or use different pins to certify completion.
+2. Finish the complete target-by-target audit of hypotheses, source locators,
+   prerequisites and typed signatures. H.0's statements/API/tests comparison
+   now has the corrections above; H.8's prior full prose audit is retained
+   below. This continuation did not audit H.1–H.7 afresh.
+3. Restore omitted global signatures only against actual CR.1/E1/DD.1 and
+   geometric supplier interfaces. H.0's inventory begins in the intrinsic
+   namespace before `signature omitted: Preconnection`; its global bundle,
+   tensor, dual, pullback, descent, filtration and Rees targets remain
+   untyped there. The detailed H.6 inventory below remains outstanding too.
+   An affine diagnostic does not solve these supplier boundaries.
+4. Fix all full-file elaboration errors, retain only sorry warnings, and add
+   `metadata.toml` with `topic = "math.AG"` only after all package requirements
+   are met. Its absence preserves checkpoint classification in intake.
+
+No scratch file is needed for continuation. The diagnostic is reproducible
+above and its result and blocker are recorded here. No compile from this
+session remains in the background. The previous H.8 and H.6 receipts follow intact.
+
+---
+
+## Prior continuation receipt (codex-Zdji46)
+
 Status: partial; the full pinned Lean check is blocked on unavailable native
 Tau Ceti dependency objects. Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
 Continued by Codex, session `codex-Zdji46`, on 9 October 2026, after the bot
