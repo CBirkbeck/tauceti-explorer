@@ -1,5 +1,39 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
+## Current blocked checkpoint, 9 October 2026 — codex-mcC1YQ
+
+Issue #5871; bot-confirmed claim [6073551013](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6073551013).
+Base commit `a1104cfa91a4d7c018a57f802e807267dcba3695`.
+
+All seven authorized deliverables were byte-for-byte unchanged from the last
+checkpoint, commit `aa5770f7f` (PR #7718). This run changes only this handoff
+and the review report. The existing mathematical verdicts and packet review
+objects are retained: CSM **accepted**, Global **accepted**, GL2
+**needs_changes**. No new source review or mathematical repair is claimed.
+
+Fresh validation: all three packet checks have zero errors and warnings;
+177 nodes retain unchecked implementation status; no packet contains an
+excerpt field; forty findings have forty distinct report dispositions.
+The unchanged suggested files were not recompiled. The previous run's
+successful pinned `lean-check` receipts remain the compilation evidence.
+
+The intake blocker persists. Parsed the seven paths from the current live
+issue body and reproduced **false** for `deliverables_complete(job)` and
+**true** for `deliverables_complete({**job, "outputs": authorized})`. All 27
+queue outputs exist. The ten extra packets still name other review jobs.
+Both the queue and generator are outside the issue's editable scope and
+fail `intake.ALLOWED`.
+
+**Resume only after maintainer metadata repair.** Reconcile this review's
+seven outputs and its historical parent fix's ten outputs, using the exact
+lists and generation diagnosis below. Preserve those scopes through queue
+regeneration, then run the normal intake/sync completion check. A GL2
+needs_changes verdict does not prevent completion of this review job.
+Another report-only checkpoint cannot remove the blocker. If metadata is
+unchanged, no mathematical work remains within this review's live scope.
+The report's dated audit and the reproduction below contain everything
+needed; scratch is disposable.
+
 ## Blocked intake continuation, 8 October 2026 — codex-CiCHr3
 
 Codex session `codex-CiCHr3` claimed issue #5871 after the bot confirmed
