@@ -1,5 +1,5 @@
 /-
-Suggested interfaces for EtaleDualityAndPerverseSheaves EDC.4–8, revision #6958.
+Suggested interfaces for EtaleDualityAndPerverseSheaves EDC.4–8, revision #7558.
 Every mathematical proof is admitted. Carrier-valued stand-ins have named suppliers;
 no mathematical predicate is replaced by an admitted Prop. Geometric objects are finite-type
 separated schemes over a common field and maps are maps over that field. Coefficient regimes
@@ -8,10 +8,10 @@ Pins: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. This file imports only Mathlib.
 This file is not the roadmap and is not exhaustive. The reader document is definitive;
 the signatures are provisional and converge with the roadmap.
-The round-two independent review remains needs_changes. In particular, the bounded
-tensor/RHom and level-reduction stand-ins below require an ambient unbounded-category
-repair; elaboration does not establish their mathematical validity. The review report
-also identifies the missing compatible descent and general recollement/semismall forms.
+Tensor, RHom and coefficient transitions live in ambient unbounded categories.
+Their bounded restrictions require witnesses established there. Dbc retains nonperfect
+constructible objects. Elaboration checks the signatures and does not establish
+mathematical validity.
 -/
 import Mathlib.RingTheory.Regular.RegularSequence
 import Mathlib.RingTheory.MvPolynomial.Homogeneous
@@ -445,6 +445,19 @@ class PerverseContext (Λ : Type u) [CommRing Λ] : Prop where
      (BBDBase (k := k) ell ∧ ∃ D : RationalDatum (k := k) Λ, D.integral.ell = ell))
 attribute [instance] PerverseContext.perfect
 
+/-- EDC.1/SF.2 bounded duality is supplied only for the stated Gorenstein coefficient regimes.
+This condition places no finite-Tor restriction on the objects of Dbc. -/
+class BoundedDualityCoefficients (Λ : Type u) [CommRing Λ] : Prop where
+  regime :
+    (IsField Λ ∧ ∃ ell : ℕ, ell.Prime ∧ IsUnit (ell : k) ∧
+      ∃ n : ℕ, 0 < n ∧ (ell ^ n : Λ) = 0) ∨
+    (∃ D : IntegralDatum (k := k) Λ, True) ∨
+    (∃ D : RationalDatum (k := k) Λ, True) ∨
+    (∃ O : Type u, ∃ _ : CommRing O, ∃ D : IntegralDatum (k := k) O,
+      ∃ n : ℕ, 0 < n ∧ Nonempty (O ⧸ Ideal.span {D.uniformizer ^ n} ≃+* Λ))
+instance {Λ : Type u} [CommRing Λ] [PerverseContext (k := k) Λ] : BoundedDualityCoefficients (k := k) Λ := sorry
+instance {Λ : Type u} [CommRing Λ] [IntegralDatum (k := k) Λ] : BoundedDualityCoefficients (k := k) Λ := sorry
+
 /-- The base point belongs to the finite-type separated category. -/
 def basePoint (k : Type u) [Field k] : Geo k := sorry
 lemma basePoint_space : (basePoint k).space = Spec (CommRingCat.of k) := sorry
@@ -466,6 +479,20 @@ lemma fiberProduct_isPullback {X Y Z : Geo k} (f : X ⟶ Z) (g : Y ⟶ Z) :
     IsPullback (fiberProductFst f g).hom.left (fiberProductSnd f g).hom.left
       f.hom.left g.hom.left := sorry
 
+/-- Existing EDC.0 unbounded carrier; no new derived category is planned here. -/
+abbrev SchemeEtaleDerived (Λ : Type u) [CommRing Λ] (X : Geo k) :=
+  DerivedCategory (Sheaf X.space.smallEtaleTopology (ModuleCat.{u} Λ))
+
+/-- EDC.0/SF.2 coefficient-module sheaves: ordinary small-étale module sheaves for
+finite torsion coefficients, and modules over the completed coefficient sheaf O_X or E_X
+on the pro-etale site for integral/rational coefficients (Bhatt–Scholze 6.8.15, p.62).
+The category is unbounded before constructibility or derived-completeness is imposed. -/
+def CoefficientModuleSheaves (Λ : Type u) [CommRing Λ] (X : Geo k) : Type (u + 1) := sorry
+instance (Λ : Type u) [CommRing Λ] (X : Geo k) : Category.{u} (CoefficientModuleSheaves Λ X) := sorry
+instance (Λ : Type u) [CommRing Λ] (X : Geo k) : Abelian (CoefficientModuleSheaves Λ X) := sorry
+abbrev CoefficientDerived (Λ : Type u) [CommRing Λ] (X : Geo k) :=
+  DerivedCategory (CoefficientModuleSheaves Λ X)
+
 section Imported
 variable {Λ : Type u} [CommRing Λ]
 /-- EDC.0/constructible-ctf-complexes and EDC.6: bounded constructible complexes,
@@ -479,15 +506,30 @@ instance (X : Geo k) : HasShift (Dbc Λ X) ℤ := sorry
 instance (X : Geo k) (n : ℤ) : (shiftFunctor (Dbc Λ X) n).Additive := sorry
 instance (X : Geo k) : Pretriangulated (Dbc Λ X) := sorry
 instance (X : Geo k) : IsTriangulated (Dbc Λ X) := sorry
-/-- EDC.0/etale-derived-category: the faithful realization is actual étale derived data. -/
-def etaleRealization (X : Geo k) :
-    Dbc Λ X ⥤ DerivedCategory (Sheaf X.space.smallEtaleTopology (ModuleCat.{u} Λ)) := sorry
+/-- EDC.0/SF.2 fully faithful constructible realization in the correct coefficient category. -/
+def coefficientRealization (X : Geo k) : Dbc Λ X ⥤ CoefficientDerived Λ X := sorry
+instance (X : Geo k) : (coefficientRealization (Λ := Λ) X).Full := sorry
+instance (X : Geo k) : (coefficientRealization (Λ := Λ) X).Faithful := sorry
+/-- EDC.0 finite torsion étale realization, used below only with annihilator invertible in k. -/
+def etaleRealization (X : Geo k) : Dbc Λ X ⥤ SchemeEtaleDerived Λ X := sorry
+/-- The finite-coefficient identification with the native small étale derived category. -/
+def finiteCoefficientEquivalence (n : ℕ) (hn : 0 < n) (hkill : (n : Λ) = 0)
+    (hunit : IsUnit (n : k)) (X : Geo k) : CoefficientDerived Λ X ≌ SchemeEtaleDerived Λ X := sorry
+lemma finiteCoefficientEquivalence_tExact (n : ℕ) (hn : 0 < n) (hkill : (n : Λ) = 0)
+    (hunit : IsUnit (n : k)) (X : Geo k) :
+    Functor.IsTExact (finiteCoefficientEquivalence n hn hkill hunit X).functor
+      (DerivedCategory.TStructure.t (C := CoefficientModuleSheaves Λ X))
+      (DerivedCategory.TStructure.t (C := Sheaf X.space.smallEtaleTopology (ModuleCat.{u} Λ))) := sorry
+lemma finiteCoefficientEquivalence_realization (n : ℕ) (hn : 0 < n) (hkill : (n : Λ) = 0)
+    (hunit : IsUnit (n : k)) (X : Geo k) :
+    Nonempty (coefficientRealization (Λ := Λ) X ⋙
+      (finiteCoefficientEquivalence n hn hkill hunit X).functor ≅ etaleRealization X) := sorry
 /-- EDC.0–3 six operations, twists and cohomology, all over the common base. -/
 def pullback {X Y : Geo k} (f : X ⟶ Y) : Dbc Λ Y ⥤ Dbc Λ X := sorry
 def pushforward {X Y : Geo k} (f : X ⟶ Y) : Dbc Λ X ⥤ Dbc Λ Y := sorry
 def lowerShriek {X Y : Geo k} (f : X ⟶ Y) : Dbc Λ X ⥤ Dbc Λ Y := sorry
 def upperShriek {X Y : Geo k} (f : X ⟶ Y) : Dbc Λ Y ⥤ Dbc Λ X := sorry
-def verdierDual (X : Geo k) : (Dbc Λ X)ᵒᵖ ⥤ Dbc Λ X := sorry
+def verdierDual [BoundedDualityCoefficients (k := k) Λ] (X : Geo k) : (Dbc Λ X)ᵒᵖ ⥤ Dbc Λ X := sorry
 def twist (X : Geo k) (m : ℤ) : Dbc Λ X ⥤ Dbc Λ X := sorry
 def constant (X : Geo k) : Dbc Λ X := sorry
 def standardTStructure (Λ : Type u) [CommRing Λ] (X : Geo k) : TStructure (Dbc Λ X) := sorry
@@ -505,24 +547,71 @@ structure GeomPoint (X : Geo k) where
   [sepClosed : IsSepClosed Ω]
   pt : Spec (CommRingCat.of Ω) ⟶ X.space
 attribute [instance] GeomPoint.field GeomPoint.sepClosed
+def GeomPoint.map {X Y : Geo k} (f : X ⟶ Y) (x : GeomPoint X) : GeomPoint Y where
+  Ω := x.Ω
+  pt := x.pt ≫ f.hom.left
 def GeomPoint.dim {X : Geo k} (x : GeomPoint X) : WithBot ℕ∞ :=
   topologicalKrullDim (closure ({x.pt.base (IsLocalRing.closedPoint x.Ω)} : Set X.space))
 def stalkCohomology {X : Geo k} (x : GeomPoint X) (j : ℤ) (K : Dbc Λ X) : ModuleCat.{u} Λ := sorry
 def costalkCohomology {X : Geo k} (x : GeomPoint X) (j : ℤ) (K : Dbc Λ X) : ModuleCat.{u} Λ := sorry
-/-- SF.2 internal derived Hom. -/
-def derivedInternalHom {X : Geo k} : Dbc Λ X → Dbc Λ X → Dbc Λ X := sorry
+/-- EDC.0/EDC.1 and SF.2 internal Hom, before any bounded restriction. -/
+def derivedInternalHom {X : Geo k} : CoefficientDerived Λ X → CoefficientDerived Λ X → CoefficientDerived Λ X := sorry
+def schemeEtaleRHom {X : Geo k} : SchemeEtaleDerived Λ X → SchemeEtaleDerived Λ X → SchemeEtaleDerived Λ X := sorry
 /-- SF.2/EDC.0: finite locally constant coefficient modules, realized in ordinary degree zero. -/
 def Lisse (Λ : Type u) [CommRing Λ] (X : Geo k) : Type (u + 1) := sorry
 instance (X : Geo k) : Category.{u} (Lisse Λ X) := sorry
 def lisseComplex {X : Geo k} : Lisse Λ X ⥤ Dbc Λ X := sorry
 def constantLisse (X : Geo k) : Lisse Λ X := sorry
 def restrictLisse {U X : Geo k} (j : U ⟶ X) [Etale j.hom.left] : Lisse Λ X ⥤ Lisse Λ U := sorry
-/-- EDC.0: finite Tor amplitude, stated through the actual derived tensor products. -/
-def derivedTensor {X : Geo k} : Dbc Λ X → Dbc Λ X → Dbc Λ X := sorry
+/-- EDC.0 ambient derived tensor. The native standard t-structure tests its actual amplitude. -/
+def derivedTensor {X : Geo k} : CoefficientDerived Λ X → CoefficientDerived Λ X → CoefficientDerived Λ X := sorry
+abbrev ambientStandardT (Λ : Type u) [CommRing Λ] (X : Geo k) :=
+  DerivedCategory.TStructure.t (C := CoefficientModuleSheaves Λ X)
+lemma coefficientRealization_bounds {X : Geo k} (K : Dbc Λ X) (a b : ℤ) :
+    ((standardTStructure Λ X).IsGE K a ∧ (standardTStructure Λ X).IsLE K b) ↔
+      ((ambientStandardT Λ X).IsGE ((coefficientRealization X).obj K) a ∧
+       (ambientStandardT Λ X).IsLE ((coefficientRealization X).obj K) b) := sorry
 def HasFiniteTorAmplitude {X : Geo k} (K : Dbc Λ X) : Prop :=
-  ∃ a b : ℤ, ∀ M : Dbc Λ X, (standardTStructure Λ X).heart M →
-    (standardTStructure Λ X).IsGE (derivedTensor K M) a ∧
-    (standardTStructure Λ X).IsLE (derivedTensor K M) b
+  ∃ a b : ℤ, ∀ M : CoefficientDerived Λ X, (ambientStandardT Λ X).heart M →
+    (ambientStandardT Λ X).IsGE (derivedTensor ((coefficientRealization X).obj K) M) a ∧
+    (ambientStandardT Λ X).IsLE (derivedTensor ((coefficientRealization X).obj K) M) b
+/-- Essential-image witness, obtained only after ambient boundedness and constructibility. -/
+def BoundedConstructible {X : Geo k} (K : CoefficientDerived Λ X) : Prop :=
+  ∃ L : Dbc Λ X, Nonempty ((coefficientRealization X).obj L ≅ K)
+def boundedRestriction {X : Geo k} (K : CoefficientDerived Λ X)
+    (h : BoundedConstructible K) : Dbc Λ X := h.choose
+def boundedRestrictionIso {X : Geo k} (K : CoefficientDerived Λ X)
+    (h : BoundedConstructible K) : (coefficientRealization X).obj (boundedRestriction K h) ≅ K :=
+  h.choose_spec.some
+/-- SF.2 restriction receipts; finite Tor is a hypothesis, not built into Dbc. -/
+lemma tensor_boundedConstructible [Coefficients (k := k) Λ] {X : Geo k} (K L : Dbc Λ X)
+    (hK : HasFiniteTorAmplitude K) :
+    BoundedConstructible (derivedTensor ((coefficientRealization X).obj K) ((coefficientRealization X).obj L)) := sorry
+lemma RHom_boundedConstructible [Coefficients (k := k) Λ] {X : Geo k} (K L : Dbc Λ X)
+    (hK : HasFiniteTorAmplitude K) :
+    BoundedConstructible (derivedInternalHom ((coefficientRealization X).obj K) ((coefficientRealization X).obj L)) := sorry
+/-- SF.0 finite locally closed stratification, with an actual partition of the underlying space. -/
+structure AlgebraicStratification (X : Geo k) where
+  size : ℕ
+  strata : Fin size → Geo k
+  closures : Fin size → Geo k
+  openPart : ∀ s, strata s ⟶ closures s
+  closedPart : ∀ s, closures s ⟶ X
+  openImmersion : ∀ s, IsOpenImmersion (openPart s).hom.left
+  closedImmersion : ∀ s, IsClosedImmersion (closedPart s).hom.left
+  disjoint : ∀ s t, s ≠ t → Disjoint
+    (Set.range ((openPart s ≫ closedPart s).hom.left.base))
+    (Set.range ((openPart t ≫ closedPart t).hom.left.base))
+  cover : ⋃ s, Set.range ((openPart s ≫ closedPart s).hom.left.base) = Set.univ
+abbrev AlgebraicStratification.inclusion {X : Geo k} (T : AlgebraicStratification X) (s : Fin T.size) :=
+  T.openPart s ≫ T.closedPart s
+/-- Ordinary cohomology, included back into the derived category. -/
+def ordinaryCohomologyObject {Λ : Type u} [CommRing Λ] {X : Geo k} (i : ℤ) (K : Dbc Λ X) : Dbc Λ X :=
+  (TStructure.homology (standardTStructure Λ X) i).obj K |>.obj
+def pullbackCompIso {X Y Z : Geo k} (f : X ⟶ Y) (g : Y ⟶ Z) :
+    pullback (Λ := Λ) g ⋙ pullback f ≅ pullback (f ≫ g) := sorry
+def pullbackPushforwardAdjunction {X Y : Geo k} (f : X ⟶ Y) :
+    pullback (Λ := Λ) f ⊣ pushforward f := sorry
 end Imported
 
 /-! EDC.5: BBD base/coefficient hypotheses are explicit in every geometric perverse signature. -/
@@ -637,21 +726,88 @@ example {X : Geo k} [IsEmpty X.space] (P : PerverseSheaf Λ X) : IsZero P := sor
 
 
 
-/-- SF.2 effective derived etale descent data: local derived objects, isomorphisms
-on the native relative double intersections, and identity/triple cocycle laws.
-This is the existing derived-sheaf descent carrier, not a perverse-specific axiom. -/
-def EtaleDescentData (Λ : Type u) [CommRing Λ] {I : Type u} {X : Geo k} (U : I → Geo k) (f : ∀ i, U i ⟶ X) :
-    Type (u + 1) := sorry
-def EtaleDescentData.component {I : Type u} {X : Geo k} {U : I → Geo k}
-    {f : ∀ i, U i ⟶ X} (D : EtaleDescentData (Λ := Λ) U f) (i : I) : Dbc Λ (U i) := sorry
-/-- The perverse heart inherits effective object descent from the derived carrier,
-because both stalk/costalk inequalities are etale-local. -/
+/-- SF.0's chosen native pullback lift; its projection equations fix the maps. -/
+def fiberProductLift {V X Y Z : Geo k} (f : X ⟶ Z) (g : Y ⟶ Z)
+    (a : V ⟶ X) (b : V ⟶ Y) (h : a ≫ f = b ≫ g) : V ⟶ fiberProduct f g := sorry
+lemma fiberProductLift_fst {V X Y Z : Geo k} (f : X ⟶ Z) (g : Y ⟶ Z)
+    (a : V ⟶ X) (b : V ⟶ Y) (h : a ≫ f = b ≫ g) :
+    fiberProductLift f g a b h ≫ fiberProductFst f g = a := sorry
+lemma fiberProductLift_snd {V X Y Z : Geo k} (f : X ⟶ Z) (g : Y ⟶ Z)
+    (a : V ⟶ X) (b : V ⟶ Y) (h : a ≫ f = b ≫ g) :
+    fiberProductLift f g a b h ≫ fiberProductSnd f g = b := sorry
+/-- The actual relative triple intersection with three projections and all double projections. -/
+structure CechTriple {X U V W : Geo k} (f : U ⟶ X) (g : V ⟶ X) (h : W ⟶ X) where
+  space : Geo k
+  p₁ : space ⟶ U
+  p₂ : space ⟶ V
+  p₃ : space ⟶ W
+  p₁₂ : space ⟶ fiberProduct f g
+  p₂₃ : space ⟶ fiberProduct g h
+  p₁₃ : space ⟶ fiberProduct f h
+  square : IsPullback p₁₂ p₃ (fiberProductFst f g ≫ f) h
+  fst₁₂ : p₁₂ ≫ fiberProductFst f g = p₁
+  snd₁₂ : p₁₂ ≫ fiberProductSnd f g = p₂
+  fst₂₃ : p₂₃ ≫ fiberProductFst g h = p₂
+  snd₂₃ : p₂₃ ≫ fiberProductSnd g h = p₃
+  fst₁₃ : p₁₃ ≫ fiberProductFst f h = p₁
+  snd₁₃ : p₁₃ ≫ fiberProductSnd f h = p₃
+/-- SF.0 chooses this from the iterated native fibre product, not an arbitrary overlap. -/
+def cechTriple {X U V W : Geo k} (f : U ⟶ X) (g : V ⟶ X) (h : W ⟶ X) : CechTriple f g h := sorry
+/-- Pull a transition to a further overlap, using the specified projection equations. -/
+def pullTransitionIso {X U V Q : Geo k} {f : U ⟶ X} {g : V ⟶ X}
+    {K : Dbc Λ U} {L : Dbc Λ V}
+    (e : (pullback (fiberProductFst f g)).obj K ≅ (pullback (fiberProductSnd f g)).obj L)
+    (p : Q ⟶ U) (q : Q ⟶ V) (r : Q ⟶ fiberProduct f g)
+    (hp : r ≫ fiberProductFst f g = p) (hq : r ≫ fiberProductSnd f g = q) :
+    (pullback p).obj K ≅ (pullback q).obj L :=
+  (eqToIso (congrArg (fun a => (pullback a).obj K) hp)).symm ≪≫
+    ((pullbackCompIso r (fiberProductFst f g)).app K).symm ≪≫
+    (pullback r).mapIso e ≪≫ ((pullbackCompIso r (fiberProductSnd f g)).app L) ≪≫
+    eqToIso (congrArg (fun a => (pullback a).obj L) hq)
+/-- EDC.0/SF.2 ordinary derived descent data. Identity and cocycle are actual equalities. -/
+structure EtaleDescentData (Λ : Type u) [CommRing Λ] {I : Type u} {X : Geo k}
+    (U : I → Geo k) (f : ∀ i, U i ⟶ X) where
+  component : ∀ i, Dbc Λ (U i)
+  transition : ∀ i j, (pullback (fiberProductFst (f i) (f j))).obj (component i) ≅
+    (pullback (fiberProductSnd (f i) (f j))).obj (component j)
+  identity : ∀ i, pullTransitionIso (transition i i) (𝟙 (U i)) (𝟙 (U i))
+    (fiberProductLift (f i) (f i) (𝟙 _) (𝟙 _) rfl)
+    (fiberProductLift_fst _ _ _ _ rfl) (fiberProductLift_snd _ _ _ _ rfl) =
+      Iso.refl ((pullback (𝟙 (U i))).obj (component i))
+  cocycle : ∀ i j l, let T := cechTriple (f i) (f j) (f l)
+    pullTransitionIso (transition i j) T.p₁ T.p₂ T.p₁₂ T.fst₁₂ T.snd₁₂ ≪≫
+      pullTransitionIso (transition j l) T.p₂ T.p₃ T.p₂₃ T.fst₂₃ T.snd₂₃ =
+        pullTransitionIso (transition i l) T.p₁ T.p₃ T.p₁₃ T.fst₁₃ T.snd₁₃
+/-- The two pullbacks of a global object to a double intersection have a canonical comparison. -/
+def overlapPullbackIso {X U V : Geo k} (f : U ⟶ X) (g : V ⟶ X) :
+    pullback (Λ := Λ) f ⋙ pullback (fiberProductFst f g) ≅
+      pullback g ⋙ pullback (fiberProductSnd f g) :=
+  pullbackCompIso (fiberProductFst f g) f ≪≫
+    eqToIso (congrArg (fun a => pullback (Λ := Λ) a) (fiberProduct_square f g)) ≪≫
+      (pullbackCompIso (fiberProductSnd f g) g).symm
+structure EtaleDescentData.CompatibleTrivialization {I : Type u} {X : Geo k}
+    {U : I → Geo k} {f : ∀ i, U i ⟶ X} (D : EtaleDescentData Λ U f) (K : Dbc Λ X) where
+  localIso : ∀ i, (pullback (f i)).obj K ≅ D.component i
+  compatible : ∀ i j,
+    (pullback (fiberProductFst (f i) (f j))).map (localIso i).hom ≫ (D.transition i j).hom =
+      (overlapPullbackIso (f i) (f j)).hom.app K ≫
+        (pullback (fiberProductSnd (f i) (f j))).map (localIso j).hom
+/-- BBD 3.2.4: a finite refinement gives common bounds; heart orthogonality gives
+negative Ext vanishing. The conclusion preserves the prescribed transitions. -/
 lemma perverse_effective_descent {I : Type u} {X : Geo k} (U : I → Geo k)
     (f : ∀ i, U i ⟶ X) (hf : ∀ i, Etale (f i).hom.left)
     (hcover : ⋃ i, Set.range (f i).hom.left.base = Set.univ)
-    (D : EtaleDescentData (Λ := Λ) U f)
+    (D : EtaleDescentData Λ U f)
     (hD : ∀ i, (perverseTStructure Λ (U i)).heart (D.component i)) :
-    ∃ P : PerverseSheaf Λ X, ∀ i, Nonempty ((pullback (f i)).obj P.obj ≅ D.component i) := sorry
+    ∃ P : PerverseSheaf Λ X, Nonempty (D.CompatibleTrivialization P.obj) := sorry
+/-- Test `TauCeti.EtaleDuality.perverse_descent_preserves_transitions`: identifications
+must recover the input transition, rather than arbitrary isomorphisms of local objects. -/
+example {I : Type u} {X : Geo k} {U : I → Geo k} {f : ∀ i, U i ⟶ X}
+    (D : EtaleDescentData Λ U f) (K : Dbc Λ X) (e : D.CompatibleTrivialization K) (i j : I) :
+    (D.transition i j).hom =
+      (pullback (fiberProductFst (f i) (f j))).map (e.localIso i).inv ≫
+        (overlapPullbackIso (f i) (f j)).hom.app K ≫
+          (pullback (fiberProductSnd (f i) (f j))).map (e.localIso j).hom := sorry
 
 /-- EDC.5/perverse-recollement: all six directional assertions. -/
 theorem perverse_recollement {Z X U : Geo k} (i : Z ⟶ X) [IsClosedImmersion i.hom.left]
@@ -715,8 +871,46 @@ structure ExactFour {X : Geo k} {A B C D : PerverseSheaf Λ X} (f : A ⟶ B) (g 
   epi : Epi h
   exact₁ : (ShortComplex.mk f g fg).Exact
   exact₂ : (ShortComplex.mk g h gh).Exact
-/-- BBD 4.1.11, p. 106. Amplitude one is asserted under the affine-open hypothesis. -/
+/-- SF.2 open-immersion adjunction j_! ⊣ j^*=j^!. -/
+def openLowerShriekAdjunction {U X : Geo k} (j : U ⟶ X) [IsOpenImmersion j.hom.left] :
+    lowerShriek (Λ := Λ) j ⊣ pullback j := sorry
+/-- Canonical identification H^0_p(K)=K for a heart object. -/
+def perverseHeartIso {X : Geo k} (K : PerverseSheaf Λ X) :
+    (perverseCohomology 0).obj K.obj ≅ K := sorry
+def recollementCounit {U X : Geo k} (j : U ⟶ X) [IsOpenImmersion j.hom.left]
+    (K : PerverseSheaf Λ X) :
+    (perverseCohomology 0).obj ((lowerShriek j).obj ((pullback j).obj K.obj)) ⟶ K :=
+  (perverseCohomology 0).map ((openLowerShriekAdjunction j).counit.app K.obj) ≫
+    (perverseHeartIso K).hom
+def recollementUnit {U X : Geo k} (j : U ⟶ X) (K : PerverseSheaf Λ X) :
+    K ⟶ (perverseCohomology 0).obj ((pushforward j).obj ((pullback j).obj K.obj)) :=
+  (perverseHeartIso K).inv ≫
+    (perverseCohomology 0).map ((pullbackPushforwardAdjunction j).unit.app K.obj)
+def pClosedPush {Z X : Geo k} (i : Z ⟶ X) : PerverseSheaf Λ Z ⥤ PerverseSheaf Λ X :=
+  Functor.heartFunctor (pushforward i) (perverseTStructure Λ Z) (perverseTStructure Λ X)
+/-- BBD 1.4.19, p.52: both general five-term sequences for arbitrary perverse K.
+There is no affine-open hypothesis and no amplitude-one assertion for i^*K or i^!K. -/
 lemma perverse_recollement_five_term {Z U X : Geo k} (i : Z ⟶ X) [IsClosedImmersion i.hom.left]
+    (j : U ⟶ X) [IsOpenImmersion j.hom.left]
+    (hcomp : Set.range j.hom.left.base = (Set.range i.hom.left.base)ᶜ) (K : PerverseSheaf Λ X) :
+    (∃ (f : (pClosedPush i).obj ((perverseCohomology (-1)).obj ((pullback i).obj K.obj)) ⟶
+          (perverseCohomology 0).obj ((lowerShriek j).obj ((pullback j).obj K.obj)))
+        (h : K ⟶ (pClosedPush i).obj ((perverseCohomology 0).obj ((pullback i).obj K.obj))),
+      ExactFour f (recollementCounit j K) h) ∧
+    (∃ (f : (pClosedPush i).obj ((perverseCohomology 0).obj ((upperShriek i).obj K.obj)) ⟶ K)
+        (h : (perverseCohomology 0).obj ((pushforward j).obj ((pullback j).obj K.obj)) ⟶
+          (pClosedPush i).obj ((perverseCohomology 1).obj ((upperShriek i).obj K.obj))),
+      ExactFour f (recollementUnit j K) h) := sorry
+/-- Test `TauCeti.EtaleDuality.recollement_surface_amplitude`: restriction from a smooth
+surface to a closed point has degrees -2 and +2, beyond the displayed five-term pieces. -/
+example [Field Λ] [IsSepClosed k] {X : Geo k} [SmoothOfRelativeDimension 2 X.structural]
+    (i : basePoint k ⟶ X) [IsClosedImmersion i.hom.left] :
+    ¬ IsZero ((perverseCohomology (-2)).obj
+      ((pullback i).obj (constantPerverse (Λ := Λ) (X := X) 2).obj)) ∧
+    ¬ IsZero ((perverseCohomology 2).obj
+      ((upperShriek i).obj (constantPerverse (Λ := Λ) (X := X) 2).obj)) := sorry
+/-- BBD 4.1.11, p. 106. Amplitude one is asserted under the affine-open hypothesis. -/
+lemma affine_open_extension_sequence {Z U X : Geo k} (i : Z ⟶ X) [IsClosedImmersion i.hom.left]
     (j : U ⟶ X) [IsOpenImmersion j.hom.left] [IsAffineHom j.hom.left]
     (hcomp : Set.range j.hom.left.base = (Set.range i.hom.left.base)ᶜ) (A : PerverseSheaf Λ U) :
     ∃ (B D : PerverseSheaf Λ X)
@@ -908,8 +1102,50 @@ def IsSemismall {X Y : Geo k} (f : X ⟶ Y) (n : ℕ) : Prop :=
 def IsSmall {X Y : Geo k} (f : X ⟶ Y) (n : ℕ) : Prop :=
   IsSemismall f n ∧ ∀ r : ℕ, 0 < r →
     topologicalKrullDim (closure (fiberDimensionLocus f r)) + 2 * r < n
+/-- SF.0 stratification by smooth equidimensional locally closed subschemes. -/
+structure SmoothStratification (X : Geo k) extends AlgebraicStratification X where
+  dimension : Fin size → ℕ
+  smooth : ∀ s, SmoothOfRelativeDimension (dimension s) (strata s).structural
+/-- Adapted means actual lisse ordinary cohomology on every source stratum. -/
+def IsAdapted {X : Geo k} (S : SmoothStratification X) (K : Dbc Λ X) : Prop :=
+  ∀ i s, ∃ L : Lisse Λ (S.strata s),
+    Nonempty ((pullback (S.toAlgebraicStratification.inclusion s)).obj
+      (ordinaryCohomologyObject i K) ≅ lisseComplex.obj L)
+/-- Explicit etale local product charts for every source-stratum intersection above
+one target stratum. The covering family is common to all those intersections. -/
+structure StratifiedLocalTriviality {X Y : Geo k} (f : X ⟶ Y)
+    (S : SmoothStratification X) (T : SmoothStratification Y) where
+  chartIndex : Fin T.size → Type u
+  chart : ∀ t, chartIndex t → Geo k
+  chartMap : ∀ t a, chart t a ⟶ T.strata t
+  etale : ∀ t a, Etale (chartMap t a).hom.left
+  cover : ∀ t, ⋃ a, Set.range (chartMap t a).hom.left.base = Set.univ
+  fibre : ∀ t, chartIndex t → Fin S.size → Geo k
+  productIso : ∀ t a s,
+    fiberProduct (fiberProductSnd (S.toAlgebraicStratification.inclusion s ≫ f)
+        (T.toAlgebraicStratification.inclusion t)) (chartMap t a) ≅
+      fiberProduct (toBasePoint (fibre t a s)) (toBasePoint (chart t a))
+  overChart : ∀ t a s,
+    (productIso t a s).hom ≫
+      fiberProductSnd (toBasePoint (fibre t a s)) (toBasePoint (chart t a)) =
+        fiberProductSnd (fiberProductSnd (S.toAlgebraicStratification.inclusion s ≫ f)
+          (T.toAlgebraicStratification.inclusion t)) (chartMap t a)
+/-- The fibre here is the locally closed source-stratum intersection, not the whole fibre. -/
+def IsStratifiedSemismall {X Y : Geo k} (f : X ⟶ Y)
+    (S : SmoothStratification X) (T : SmoothStratification Y) : Prop :=
+  ∀ s t (x : GeomPoint (T.strata t)),
+    2 * topologicalKrullDim (geometricFiber (S.toAlgebraicStratification.inclusion s ≫ f)
+      (x.map (T.toAlgebraicStratification.inclusion t))) + T.dimension t ≤ S.dimension s
+/-- EDC.5/semismall-pushforward-perverse. MV 4.3, p.14 supplies the complex-topological
+model; the etale form is a dimensional argument from proper base change and localization.
+It acts on arbitrary adapted perverse input, with all geometry in the hypotheses. -/
+theorem semismall_pushforward_perverse {X Y : Geo k} (f : X ⟶ Y)
+    [IsProper f.hom.left] (S : SmoothStratification X) (T : SmoothStratification Y)
+    (hlocal : Nonempty (StratifiedLocalTriviality f S T)) (hsmall : IsStratifiedSemismall f S T)
+    (K : PerverseSheaf Λ X) (hK : IsAdapted S K.obj) :
+    (perverseTStructure Λ Y).heart ((pushforward f).obj K.obj) := sorry
 /-- EDC.5/semismall-pushforward-perverse, for a smooth source and a field. -/
-theorem semismall_pushforward_perverse [Field Λ] {X Y : Geo k} (f : X ⟶ Y)
+theorem semismall_constant_pushforward_perverse [Field Λ] {X Y : Geo k} (f : X ⟶ Y)
     [IsProper f.hom.left] (n : ℕ) [SmoothOfRelativeDimension n X.structural] (h : IsSemismall f n) :
     (perverseTStructure Λ Y).heart ((pushforward f).obj ((constant X)⟦(n : ℤ)⟧)) := sorry
 /-- EDC.5/small-map-intersection-complex, with its actual smooth finite-etale open. -/
@@ -1119,8 +1355,6 @@ def derivedChernColumn {X : Geo k} (L : LineBundle X) (j : ℕ) :
 def pullbackTwistedConstant {X Y : Geo k} (f : X ⟶ Y) (a b : ℤ) :
     (pullback (Λ := Λ) f).obj (((twist Y a).obj (constant Y))⟦b⟧) ≅
       ((twist X a).obj (constant X))⟦b⟧ := sorry
-def pullbackPushforwardAdjunction {X Y : Geo k} (f : X ⟶ Y) :
-    pullback (Λ := Λ) f ⊣ pushforward f := sorry
 /-- EDC.3 action of the same class on arbitrary K, via tensor product. -/
 def derivedChernAction {X : Geo k} (L : LineBundle X) (K : Dbc Λ X) :
     K ⟶ ((twist X 1).obj K)⟦(2 : ℤ)⟧ := sorry
@@ -1496,6 +1730,8 @@ end SupportedSplittings
 section AdicComparison
 variable {O : Type u} [CommRing O] [D : IntegralDatum (k := k) O]
 abbrev levelRing (n : ℕ) := O ⧸ Ideal.span {D.uniformizer ^ (n + 1)}
+instance levelRing_boundedDuality (n : ℕ) :
+    BoundedDualityCoefficients (k := k) (levelRing (k := k) (O := O) n) := sorry
 /-- BBD 4.3.1 with the finite uniformizer filtration also gives finite length for
 DVR-quotient coefficients; the free integral category is deliberately excluded. -/
 lemma perverseSheaf_quotient_finite_length (n : ℕ)
@@ -1504,44 +1740,29 @@ lemma perverseSheaf_quotient_finite_length (n : ℕ)
     IsArtinianObject P ∧ IsNoetherianObject P := sorry
 /-- SF.2 finite-level derived coefficient reduction, including its canonical associator. -/
 def levelReduction (X : Geo k) (n m : ℕ) (h : m ≤ n) :
-    Dbc (levelRing (k := k) (O := O) n) X ⥤ Dbc (levelRing (k := k) (O := O) m) X := sorry
+    CoefficientDerived (levelRing (k := k) (O := O) n) X ⥤
+      CoefficientDerived (levelRing (k := k) (O := O) m) X := sorry
 def levelReductionComp (X : Geo k) (n m l : ℕ) (h : m ≤ n) (h' : l ≤ m) :
     levelReduction (O := O) X n m h ⋙ levelReduction X m l h' ≅
     levelReduction X n l (h'.trans h) := sorry
 def levelReductionSelf (X : Geo k) (n : ℕ) : levelReduction (O := O) X n n le_rfl ≅ 𝟭 _ := sorry
 structure AdicSystem (X : Geo k) where
   obj : (n : ℕ) → Dbc (levelRing (k := k) (O := O) n) X
-  reduce : ∀ n m (h : m ≤ n), (levelReduction X n m h).obj (obj n) ≅ obj m
-  identity : ∀ n, (reduce n n le_rfl).hom = (levelReductionSelf X n).hom.app (obj n)
+  reduce : ∀ n m (h : m ≤ n), (levelReduction X n m h).obj ((coefficientRealization X).obj (obj n)) ≅
+    (coefficientRealization X).obj (obj m)
+  identity : ∀ n, (reduce n n le_rfl).hom = (levelReductionSelf X n).hom.app ((coefficientRealization X).obj (obj n))
   coherence : ∀ n m l (h : m ≤ n) (h' : l ≤ m),
     (levelReduction X m l h').map (reduce n m h).hom ≫ (reduce m l h').hom =
-      (levelReductionComp X n m l h h').hom.app (obj n) ≫ (reduce n l (h'.trans h)).hom
-/-- SF.0 finite locally closed stratification, with an actual partition of the underlying space. -/
-structure AlgebraicStratification (X : Geo k) where
-  size : ℕ
-  strata : Fin size → Geo k
-  closures : Fin size → Geo k
-  openPart : ∀ s, strata s ⟶ closures s
-  closedPart : ∀ s, closures s ⟶ X
-  openImmersion : ∀ s, IsOpenImmersion (openPart s).hom.left
-  closedImmersion : ∀ s, IsClosedImmersion (closedPart s).hom.left
-  disjoint : ∀ s t, s ≠ t → Disjoint
-    (Set.range ((openPart s ≫ closedPart s).hom.left.base))
-    (Set.range ((openPart t ≫ closedPart t).hom.left.base))
-  cover : ⋃ s, Set.range ((openPart s ≫ closedPart s).hom.left.base) = Set.univ
-abbrev AlgebraicStratification.inclusion {X : Geo k} (T : AlgebraicStratification X) (s : Fin T.size) :=
-  T.openPart s ≫ T.closedPart s
-/-- Ordinary cohomology, included back into the derived category. -/
-def ordinaryCohomologyObject {Λ : Type u} [CommRing Λ] {X : Geo k} (i : ℤ) (K : Dbc Λ X) : Dbc Λ X :=
-  (TStructure.homology (standardTStructure Λ X) i).obj K |>.obj
+      (levelReductionComp X n m l h h').hom.app ((coefficientRealization X).obj (obj n)) ≫ (reduce n l (h'.trans h)).hom
 /-- The same finite stratification and both ordinary and Tor bounds work at every level. -/
 def AdicSystem.IsNormalized {X : Geo k} (K : AdicSystem (O := O) X) : Prop :=
   ∃ (a b c d : ℤ) (T : AlgebraicStratification X),
     (∀ n, (standardTStructure _ X).IsGE (K.obj n) a ∧
       (standardTStructure _ X).IsLE (K.obj n) b) ∧
-    (∀ n (M : Dbc (levelRing (k := k) (O := O) n) X), (standardTStructure _ X).heart M →
-      (standardTStructure _ X).IsGE (derivedTensor (K.obj n) M) c ∧
-      (standardTStructure _ X).IsLE (derivedTensor (K.obj n) M) d) ∧
+    (∀ n (M : CoefficientDerived (levelRing (k := k) (O := O) n) X),
+      (ambientStandardT _ X).heart M →
+      (ambientStandardT _ X).IsGE (derivedTensor ((coefficientRealization X).obj (K.obj n)) M) c ∧
+      (ambientStandardT _ X).IsLE (derivedTensor ((coefficientRealization X).obj (K.obj n)) M) d) ∧
     ∀ n i s, ∃ L : Lisse (levelRing (k := k) (O := O) n) (T.strata s),
       Nonempty ((pullback (T.inclusion s)).obj (ordinaryCohomologyObject i (K.obj n)) ≅ lisseComplex.obj L)
 /-- Morphisms are coherent levelwise maps; SF.2 supplies their category structure. -/
@@ -1553,13 +1774,21 @@ def ProetaleCons (O : Type u) [CommRing O] (X : Geo k) : Type (u + 1) := sorry
 instance (X : Geo k) : Category.{u} (ProetaleCons O X) := sorry
 def classical_proetale_equivalence (X : Geo k) : Dbc O X ≌ ProetaleCons O X := sorry
 def normalized_system_equivalence (X : Geo k) : Dbc O X ≌ NormalizedSystem (O := O) X := sorry
+def ambientIntegralReduction (X : Geo k) (n : ℕ) :
+    CoefficientDerived O X ⥤ CoefficientDerived (levelRing (k := k) (O := O) n) X := sorry
+/-- O has global dimension one: this restriction is bounded, unlike quotient-to-quotient reduction. -/
 def integralReduction (X : Geo k) (n : ℕ) : Dbc O X ⥤ Dbc (levelRing (k := k) (O := O) n) X := sorry
+lemma integralReduction_realization (X : Geo k) (n : ℕ) :
+    Nonempty (integralReduction (O := O) X n ⋙ coefficientRealization X ≅
+      coefficientRealization X ⋙ ambientIntegralReduction X n) := sorry
 lemma normalized_system_reduction (X : Geo k) (K : Dbc O X) (n : ℕ) :
     Nonempty ((((normalized_system_equivalence (O := O) X).functor.obj K).obj.obj n) ≅
       (integralReduction X n).obj K) := sorry
 lemma normalized_system_uniform_bounds {X : Geo k} (K : NormalizedSystem (O := O) X) :
     ∃ a b : ℤ, ∀ n, (standardTStructure _ X).IsGE (K.obj.obj n) a ∧
       (standardTStructure _ X).IsLE (K.obj.obj n) b := sorry
+lemma normalized_system_finiteTor {X : Geo k} (K : NormalizedSystem (O := O) X) (n : ℕ) :
+    HasFiniteTorAmplitude (K.obj.obj n) := sorry
 lemma normalized_system_common_strata {X : Geo k} (K : NormalizedSystem (O := O) X) :
     ∃ T : AlgebraicStratification X, ∀ n i s,
       ∃ L : Lisse (levelRing (k := k) (O := O) n) (T.strata s),
@@ -1570,7 +1799,7 @@ example (X : Geo k) :
 /-- Test `TauCeti.EtaleDuality.adic_reduction_coherence`: transition identifications compose canonically. -/
 example {X : Geo k} (K : NormalizedSystem (O := O) X) (n m l : ℕ) (h : m ≤ n) (h' : l ≤ m) :
     (levelReduction X m l h').map (K.obj.reduce n m h).hom ≫ (K.obj.reduce m l h').hom =
-      (levelReductionComp X n m l h h').hom.app (K.obj.obj n) ≫
+      (levelReductionComp X n m l h h').hom.app ((coefficientRealization X).obj (K.obj.obj n)) ≫
         (K.obj.reduce n l (h'.trans h)).hom := sorry
 /-- Test `TauCeti.EtaleDuality.adic_unbounded_shifts_excluded`: coherent reductions alone do not assert boundedness. -/
 example {X : Geo k} (K : AdicSystem (O := O) X)
@@ -1666,6 +1895,10 @@ end CoefficientExtension
 /-! Analytic constructibility is for algebraic stratifications. It is a separate category;
 complex coefficients are not misrepresented as a finite extension of Q_ell. -/
 abbrev ComplexBase := ULift.{u} ℂ
+/-- Classical analytification, supplied by the analytic comparison owner. -/
+def analytification (X : Geo ComplexBase) : TopCat.{u} := sorry
+abbrev AnalyticDerived (Λ : Type u) [CommRing Λ] (X : Geo ComplexBase) :=
+  DerivedCategory (Sheaf (Opens.grothendieckTopology (analytification X)) (ModuleCat.{u} Λ))
 section AnalyticComparison
 variable {Λ : Type u} [CommRing Λ]
 def AnalyticDbc (Λ : Type u) [CommRing Λ] (X : Geo ComplexBase) : Type (u + 1) := sorry
@@ -1686,11 +1919,31 @@ def analyticPullback {X Y : Geo ComplexBase} (f : X ⟶ Y) : AnalyticDbc Λ Y �
 def analyticPushforward {X Y : Geo ComplexBase} (f : X ⟶ Y) : AnalyticDbc Λ X ⥤ AnalyticDbc Λ Y := sorry
 def analyticLowerShriek {X Y : Geo ComplexBase} (f : X ⟶ Y) : AnalyticDbc Λ X ⥤ AnalyticDbc Λ Y := sorry
 def analyticUpperShriek {X Y : Geo ComplexBase} (f : X ⟶ Y) : AnalyticDbc Λ Y ⥤ AnalyticDbc Λ X := sorry
-def analyticTensor {X : Geo ComplexBase} : AnalyticDbc Λ X → AnalyticDbc Λ X → AnalyticDbc Λ X := sorry
-def analyticRHom {X : Geo ComplexBase} : AnalyticDbc Λ X → AnalyticDbc Λ X → AnalyticDbc Λ X := sorry
+def analyticRealization (X : Geo ComplexBase) : AnalyticDbc Λ X ⥤ AnalyticDerived Λ X := sorry
+def analyticTensor {X : Geo ComplexBase} : AnalyticDerived Λ X → AnalyticDerived Λ X → AnalyticDerived Λ X := sorry
+def analyticRHom {X : Geo ComplexBase} : AnalyticDerived Λ X → AnalyticDerived Λ X → AnalyticDerived Λ X := sorry
+def AnalyticBoundedConstructible {X : Geo ComplexBase} (K : AnalyticDerived Λ X) : Prop :=
+  ∃ L : AnalyticDbc Λ X, Nonempty ((analyticRealization X).obj L ≅ K)
+def analyticBoundedRestriction {X : Geo ComplexBase} (K : AnalyticDerived Λ X)
+    (h : AnalyticBoundedConstructible K) : AnalyticDbc Λ X := h.choose
+def analyticBoundedRestrictionIso {X : Geo ComplexBase} (K : AnalyticDerived Λ X)
+    (h : AnalyticBoundedConstructible K) :
+    (analyticRealization X).obj (analyticBoundedRestriction K h) ≅ K := h.choose_spec.some
+lemma analytic_tensor_field_bounded [Field Λ] {X : Geo ComplexBase} (K L : AnalyticDbc Λ X) :
+    AnalyticBoundedConstructible (analyticTensor ((analyticRealization X).obj K) ((analyticRealization X).obj L)) := sorry
+lemma analytic_RHom_field_bounded [Field Λ] {X : Geo ComplexBase} (K L : AnalyticDbc Λ X) :
+    AnalyticBoundedConstructible (analyticRHom ((analyticRealization X).obj K) ((analyticRealization X).obj L)) := sorry
+def analyticBoundedTensor [Field Λ] {X : Geo ComplexBase} (K L : AnalyticDbc Λ X) : AnalyticDbc Λ X :=
+  analyticBoundedRestriction _ (analytic_tensor_field_bounded K L)
+def analyticBoundedRHom [Field Λ] {X : Geo ComplexBase} (K L : AnalyticDbc Λ X) : AnalyticDbc Λ X :=
+  analyticBoundedRestriction _ (analytic_RHom_field_bounded K L)
 def analyticCohomology {X : Geo ComplexBase} (q : ℤ) (K : AnalyticDbc Λ X) : ModuleCat.{u} Λ := sorry
 def analyticCompactCohomology {X : Geo ComplexBase} (q : ℤ) (K : AnalyticDbc Λ X) : ModuleCat.{u} Λ := sorry
 def analyticComparison (X : Geo ComplexBase) : Dbc Λ X ⥤ AnalyticDbc Λ X := sorry
+def ambientAnalyticComparison (X : Geo ComplexBase) : CoefficientDerived Λ X ⥤ AnalyticDerived Λ X := sorry
+lemma analyticComparison_realization (X : Geo ComplexBase) :
+    Nonempty (analyticComparison (Λ := Λ) X ⋙ analyticRealization X ≅
+      coefficientRealization X ⋙ ambientAnalyticComparison X) := sorry
 /-- SGA 4 XVI 4.1 / BBD 6.1.2(A'),(B'): finite coefficients. -/
 def finite_analytic_equivalence [Finite Λ] (X : Geo ComplexBase) : Dbc Λ X ≌ AnalyticDbc Λ X := sorry
 lemma finite_analytic_equivalence_functor [Finite Λ] (X : Geo ComplexBase) :
@@ -1713,13 +1966,17 @@ lemma analytic_upperShriek_comparison [Coefficients (k := ComplexBase) Λ]
     {X Y : Geo ComplexBase} (f : X ⟶ Y) :
     Nonempty (upperShriek (Λ := Λ) f ⋙ analyticComparison X ≅ analyticComparison Y ⋙ analyticUpperShriek f) := sorry
 lemma analytic_tensor_comparison [Coefficients (k := ComplexBase) Λ]
-    {X : Geo ComplexBase} (K L : Dbc Λ X) :
-    Nonempty ((analyticComparison X).obj (derivedTensor K L) ≅
-      analyticTensor ((analyticComparison X).obj K) ((analyticComparison X).obj L)) := sorry
+    {X : Geo ComplexBase} (K L : Dbc Λ X) (hK : HasFiniteTorAmplitude K) :
+    Nonempty ((ambientAnalyticComparison X).obj
+      (derivedTensor ((coefficientRealization X).obj K) ((coefficientRealization X).obj L)) ≅
+      analyticTensor ((analyticRealization X).obj ((analyticComparison X).obj K))
+        ((analyticRealization X).obj ((analyticComparison X).obj L))) := sorry
 lemma analytic_RHom_comparison [Coefficients (k := ComplexBase) Λ]
-    {X : Geo ComplexBase} (K L : Dbc Λ X) :
-    Nonempty ((analyticComparison X).obj (derivedInternalHom K L) ≅
-      analyticRHom ((analyticComparison X).obj K) ((analyticComparison X).obj L)) := sorry
+    {X : Geo ComplexBase} (K L : Dbc Λ X) (hK : HasFiniteTorAmplitude K) :
+    Nonempty ((ambientAnalyticComparison X).obj
+      (derivedInternalHom ((coefficientRealization X).obj K) ((coefficientRealization X).obj L)) ≅
+      analyticRHom ((analyticRealization X).obj ((analyticComparison X).obj K))
+        ((analyticRealization X).obj ((analyticComparison X).obj L))) := sorry
 /-- A rational analytic local system is algebraic étale only when its monodromy preserves a lattice. -/
 def analyticFundamentalGroup (X : Geo ComplexBase) : Type u := sorry
 instance (X : Geo ComplexBase) : Group (analyticFundamentalGroup X) := sorry
@@ -1734,8 +1991,6 @@ def HasStableLattice {O E : Type u} [CommRing O] [Field E] [Algebra O E]
   ∃ M : Submodule O (analyticCohomologyFiber K q), Module.Finite O M ∧
     Submodule.span E (M : Set (analyticCohomologyFiber K q)) = ⊤ ∧
     ∀ (g : analyticFundamentalGroup.{u, u} X) v, v ∈ M → analyticMonodromy K q g v ∈ M
-/-- Classical analytification and its ordinary cohomology sheaves are supplied by the analytic comparison owner. -/
-def analytification (X : Geo ComplexBase) : TopCat.{u} := sorry
 def analyticOrdinarySheaf {E : Type u} [Field E] {X : Geo ComplexBase}
     (K : AnalyticDbc E X) (q : ℤ) : Sheaf (Opens.grothendieckTopology (analytification X)) (ModuleCat.{u} E) := sorry
 /-- Local constancy uses the actual analytic sheaf, not pointwise equal fibre dimensions. -/
@@ -1815,8 +2070,6 @@ section DiamondComparison
 variable {Λ : Type u} [CommRing Λ]
 def DiamondDerived (Λ : Type u) [CommRing Λ] (X : Geo k) : Type (u + 1) := sorry
 instance (X : Geo k) : Category.{u} (DiamondDerived Λ X) := sorry
-abbrev SchemeEtaleDerived (Λ : Type u) [CommRing Λ] (X : Geo k) :=
-  DerivedCategory (Sheaf X.space.smallEtaleTopology (ModuleCat.{u} Λ))
 def diamondPullback (X : Geo k) : SchemeEtaleDerived Λ X ⥤ DiamondDerived Λ X := sorry
 def diamondRightAdjoint (X : Geo k) : DiamondDerived Λ X ⥤ SchemeEtaleDerived Λ X := sorry
 def diamondAdjunction (X : Geo k) : diamondPullback (Λ := Λ) X ⊣ diamondRightAdjoint X := sorry
@@ -1824,7 +2077,6 @@ def diamondUpperShriek {X Y : Geo k} (f : X ⟶ Y) : DiamondDerived Λ Y ⥤ Dia
 def diamondLowerShriek {X Y : Geo k} (f : X ⟶ Y) : DiamondDerived Λ X ⥤ DiamondDerived Λ Y := sorry
 /-- EDC.0/EDC.1 unbounded étale six-operation interfaces. -/
 def schemeEtaleUpperShriek {X Y : Geo k} (f : X ⟶ Y) : SchemeEtaleDerived Λ Y ⥤ SchemeEtaleDerived Λ X := sorry
-def schemeEtaleRHom {X : Geo k} : SchemeEtaleDerived Λ X → SchemeEtaleDerived Λ X → SchemeEtaleDerived Λ X := sorry
 /-- Imported L3/27.2 full faithfulness in the unbounded category. -/
 lemma scheme_diamond_fullyFaithful (p n : ℕ) [CharP k p] (hp : p.Prime)
     (hn : 0 < n) (hkill : (n : Λ) = 0) (hunit : IsUnit (n : k)) (X : Geo k) :
@@ -1858,6 +2110,21 @@ def schemeEtaleDualizing (X : Geo k) : SchemeEtaleDerived Λ X :=
   (schemeEtaleUpperShriek (toBasePoint X)).obj ((etaleRealization _).obj (constant _))
 /-- EDC.0/SF.2 derived global sections followed by ordinary cohomology. -/
 def etaleHypercohomology {X : Geo k} (q : ℤ) (K : SchemeEtaleDerived Λ X) : ModuleCat.{u} Λ := sorry
+/-- SF.2 global cohomology in the correct finite or adic ambient coefficient category. -/
+def coefficientHypercohomology {X : Geo k} (q : ℤ) (K : CoefficientDerived Λ X) : ModuleCat.{u} Λ := sorry
+/-- Test `TauCeti.EtaleDuality.nonperfect_point_unbounded_operations`.
+The periodic multiplication-by-ell resolution over Z/ell² has residue cohomology
+in every Tor and Ext degree. This is an object of Dbc, but it is not finite-Tor. -/
+example [IsSepClosed k] (ell : ℕ) (hp : ell.Prime) (hunit : IsUnit (ell : k)) :
+    let R := ULift.{u} (ZMod (ell ^ 2))
+    let M := R ⧸ Ideal.span {(ell : R)}
+    ∃ K : Dbc R (basePoint k),
+      Nonempty (cohomology 0 K ≅ ModuleCat.of R M) ∧
+      (∀ q : ℤ, q ≠ 0 → IsZero (cohomology q K)) ∧ ¬ HasFiniteTorAmplitude K ∧
+      (∀ q : ℕ, Nonempty (coefficientHypercohomology (-(q : ℤ))
+        (derivedTensor ((coefficientRealization _).obj K) ((coefficientRealization _).obj K)) ≅ ModuleCat.of R M)) ∧
+      (∀ q : ℕ, Nonempty (coefficientHypercohomology (q : ℤ)
+        (derivedInternalHom ((coefficientRealization _).obj K) ((coefficientRealization _).obj K)) ≅ ModuleCat.of R M)) := sorry
 /-- EDC.1 dualizing H0; its input need not be placed in Dbc. -/
 def dualizingCohomology (X : Geo k) : ModuleCat.{u} Λ :=
   etaleHypercohomology 0 (schemeEtaleDualizing X)
@@ -2210,10 +2477,10 @@ inductive GeometricOrigin : ∀ (X : Geo ComplexBase), AnalyticComplexPerv X →
       (hS : SimpleConstituent S ((analyticPCohom Y i).obj ((analyticLowerShriek f).obj P.obj))) : GeometricOrigin Y S
   | tensor {X} {P Q : AnalyticComplexPerv X} (hP : GeometricOrigin X P) (hQ : GeometricOrigin X Q)
       (i : ℤ) (S : AnalyticComplexPerv X)
-      (hS : SimpleConstituent S ((analyticPCohom X i).obj (analyticTensor P.obj Q.obj))) : GeometricOrigin X S
+      (hS : SimpleConstituent S ((analyticPCohom X i).obj (analyticBoundedTensor P.obj Q.obj))) : GeometricOrigin X S
   | hom {X} {P Q : AnalyticComplexPerv X} (hP : GeometricOrigin X P) (hQ : GeometricOrigin X Q)
       (i : ℤ) (S : AnalyticComplexPerv X)
-      (hS : SimpleConstituent S ((analyticPCohom X i).obj (analyticRHom P.obj Q.obj))) : GeometricOrigin X S
+      (hS : SimpleConstituent S ((analyticPCohom X i).obj (analyticBoundedRHom P.obj Q.obj))) : GeometricOrigin X S
 /-- Finite direct sums of simple objects in the smallest family just defined. -/
 def SemisimpleGeometricOrigin {X : Geo ComplexBase} (P : AnalyticComplexPerv X) : Prop :=
   ∃ (n : ℕ) (S : Fin n → AnalyticComplexPerv X),
@@ -2492,8 +2759,6 @@ def CohCorr.changeCoefficients {X Y : Geo k} {L L' : Dbc Λ X} {M M' : Dbc Λ Y}
 def compositionMate {Y C D : Geo k} (r : C ⟶ Y) (l : D ⟶ Y) :
     upperShriek (Λ := Λ) r ⋙ pullback (fiberProductFst r l) ⟶
       pullback l ⋙ upperShriek (fiberProductSnd r l) := sorry
-def pullbackCompIso {X Y Z : Geo k} (f : X ⟶ Y) (g : Y ⟶ Z) :
-    pullback (Λ := Λ) g ⋙ pullback f ≅ pullback (f ≫ g) := sorry
 def upperShriekCompIso {X Y Z : Geo k} (f : X ⟶ Y) (g : Y ⟶ Z) :
     upperShriek (Λ := Λ) g ⋙ upperShriek f ≅ upperShriek (f ≫ g) := sorry
 def compUMorphism {X Y Z : Geo k} {L : Dbc Λ X} {M : Dbc Λ Y} {N : Dbc Λ Z}
@@ -2731,6 +2996,13 @@ lemma relativePair_snd {C X Y : Geo k} (l : C ⟶ X) (r : C ⟶ Y) :
 /-- EDC.1/SF.2 external derived tensor product, used only with finite Tor amplitude. -/
 def externalProductObject {X Y : Geo k} (L : Dbc Λ X) (M : Dbc Λ Y)
     (hL : HasFiniteTorAmplitude L) (hM : HasFiniteTorAmplitude M) : Dbc Λ (relativeProduct X Y) := sorry
+lemma externalProductObject_realization {X Y : Geo k} (L : Dbc Λ X) (M : Dbc Λ Y)
+    (hL : HasFiniteTorAmplitude L) (hM : HasFiniteTorAmplitude M) :
+    Nonempty ((coefficientRealization _).obj (externalProductObject L M hL hM) ≅
+      derivedTensor ((coefficientRealization _).obj
+        ((pullback (fiberProductFst (toBasePoint X) (toBasePoint Y))).obj L))
+        ((coefficientRealization _).obj
+          ((pullback (fiberProductSnd (toBasePoint X) (toBasePoint Y))).obj M))) := sorry
 /-- The exterior morphism is u box-times v, transported by the Künneth pullback
 and exceptional-pullback exchange maps; those maps are supplied by EDC.1/SF.2. -/
 def externalCorrespondenceMorphism {X Y X' Y' : Geo k} {L : Dbc Λ X} {M : Dbc Λ Y}
