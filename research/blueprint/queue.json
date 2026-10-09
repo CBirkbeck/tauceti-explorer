@@ -45870,7 +45870,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicBundles.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7457"
   },
   {
    "id": "REV-PKG-AutomorphicBundles",
@@ -46042,8 +46043,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ClassicalSerreModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7460"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7460",
+   "finishedAt": "2026-10-09T01:41:31Z"
   },
   {
    "id": "REV-PKG-ClassicalSerreModularity",
@@ -46486,8 +46488,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7469"
+   "state": "pending",
+   "note": "released on GitHub issue #7469"
   },
   {
    "id": "REV-PKG-EllipticCurveModularity",
