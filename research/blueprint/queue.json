@@ -47503,7 +47503,8 @@
     "PKG-PerfectoidQuotients"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-PerfectoidQuotients.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7526"
   },
   {
    "id": "PKG-PotentialAutomorphyInfrastructure",
@@ -47568,8 +47569,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-PotentialModularityAndCompatibleSystems.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7495"
+   "state": "pending",
+   "note": "released on GitHub issue #7495"
   },
   {
    "id": "REV-PKG-PotentialModularityAndCompatibleSystems",
