@@ -46322,7 +46322,8 @@
     "PKG-DeligneWeightsAndPurity"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DeligneWeightsAndPurity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7510"
   },
   {
    "id": "PKG-DerivedDeRhamCohomology",
@@ -46563,8 +46564,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7471"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7471",
+   "finishedAt": "2026-10-09T00:22:42Z"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityPartII",
@@ -46677,8 +46679,9 @@
     "PKG-FarguesFontaineDiamonds"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-FarguesFontaineDiamonds.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7516"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7516",
+   "finishedAt": "2026-10-09T00:22:47Z"
   },
   {
    "id": "PKG-GenericDoublePointInterpolation",
@@ -47780,7 +47783,8 @@
     "PKG-WeightsInEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-WeightsInEtaleCohomology.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7543"
   },
   {
    "id": "PKG-WeilConjectures",
