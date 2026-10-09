@@ -18047,7 +18047,7 @@
       "status": "not_read",
       "remaining": [
         "Formal geometry, deformation/lifting, algebraization, non-Noetherian modifications, strict transforms and source-qualified alterations remain unread at their primary locators.",
-        "Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9 where a source theorem uses them. SF.4 is the single owner of the schematic alteration theorems (RS-25; RT-AREA-algebraicgeometry/16; requested by AdicCoefficientsAndComparisons L5 and needed by PadicDifferentialEquationsAndRigidCohomology RD.5). Plan them in the forms that request states, importing blow-ups, strict transforms and flattening from StableReductionLayer4 and the stable pointed-curve stack from StableReductionPartII key/moduli-curves and MC.2 (RT-AREA-algebraicgeometry/17), not from R09.4/R09.5. Import the projective cover of 2.24 from StableReductionPartII MC.4, extended to n ≥ 3 marked points in every genus, only once the SF.5 rescope removes SF.4 → SF.5 (gap: Alteration owner settled; the moduli cover waits for the SF.5 rescope)."
+        "Import NeronModelsAndSemistableAbelianVarieties R11.1/R11.3 and StableReductionLayer7/8/9 where a source theorem uses them. SF.4 is the single owner of the schematic alteration theorems (RS-25; RT-AREA-algebraicgeometry/16; requested by AdicCoefficientsAndComparisons L5 and needed by PadicDifferentialEquationsAndRigidCohomology RD.5). Plan them in the forms that request states, importing blow-ups, strict transforms and flattening from StableReductionLayer4 and the stable pointed-curve stack from StableReductionPartII key/moduli-curves and MC.2 (RT-AREA-algebraicgeometry/17), not from R09.4/R09.5. Import the projective cover of 2.24 from StableReductionPartII MC.4, extended to n ≥ 3 marked points in every genus, only through a source-checked alteration-node supplier split: the SF.5 rescope removes the short cycle but leaves the promoted DD.5/PEL path back to MC.4 (gap: Alteration owner settled; the moduli cover needs a finer prerequisite split)."
       ]
     },
     {
@@ -18109,11 +18109,11 @@
       "detail": "The four reserved scheme-brauer, coherent-duality, equivariant-sheaf-cohomology and galois-gerbs contracts are now mathematically specified with APIs/tests, rather than unplanned. Their actual Lean carriers, supplier bridges and proof frontiers remain open in the four named carrier gaps. Complete Br₀/Br₁ with ground-field/base-change data; coherent lci fundamental-class and cotangent determinant comparisons; equivariant category/acyclicity and support comparisons; pro-gerb descent and the Kottwitz protorus application. Excellent schemes still need CM/(S_n) variants and pathological examples; henselization still needs its recorded comparisons and owner consolidation. No reserved brief is claimed fully closed."
     },
     {
-      "title": "Alteration owner settled; the moduli cover waits for the SF.5 rescope",
+      "title": "Alteration owner settled; the moduli cover needs a finer prerequisite split",
       "neededBy": [
         "SchemeAndStackFoundations:SF.4"
       ],
-      "detail": "SF.4 is the single owner of the schematic alteration theorems (de Jong 1996: alterations in the sense of 2.20, Theorem 4.1 with Remark 4.2 over a field, the curve-fibration step 5.8 and Theorem 6.5 over a trait). Accepted RS-25 keeps them here, RT-AREA-algebraicgeometry/16 recommends it, and the accepted AdicCoefficientsAndComparisons packet imports them from SF.4 and keeps only proper-hypercover comparison descent and local calculations in L5. RT-AREA-etale/21 asked that the alteration theorems not inherit H1/H5; a schematic SF.4 prefix meets that, so no L5:alterations stage is created. PadicDifferentialEquationsAndRigidCohomology RD.5 still requests the alterations from L5 and proposes L5 as owner; its blueprint job should retarget that request to SF.4. What remains open: the proofs of Theorems 4.1 and 5.8 use de Jong’s 2.24: the stack of stable pointed curves, and a projective scheme with a finite dominant map to it carrying a stable family, obtained by normalising the stack in the function field of the cover that trivialises ℓ-torsion of the universal Jacobian (two primes ℓ ≥ 3), which is projective (de Jong cites Deligne, ‘Le lemme de Gabber’, with Knudsen as general reference). The stack and its properness are StableReductionPartII key/moduli-curves (MC.0) and MC.2; the level cover and projective cover are planned in MC.4 for unpointed curves of genus at least 2, so the range de Jong uses, n ≥ 3 marked points and every genus g ≥ 0 (genus 0 and 1 included), must be added there (as the AdicCoefficientsAndComparisons request to SF.4 also notes), with torsion of abelian schemes from AbelianSchemes A3. MC.0, MC.2 and A3 do not depend on SF.4, but MC.4 requires SF.5, so while SF.4 → SF.5 stands, importing MC.4 into SF.4 closes the cycle SF.4 → SF.5 → MC.4 → SF.4. The rescope entry for RT-AREA-algebraicgeometry/15 removes SF.4 → SF.5; the import of MC.4 waits for it."
+      "detail": "SF.4 is the single owner of the schematic alteration theorems (de Jong 1996: alterations in the sense of 2.20, Theorem 4.1 with Remark 4.2 over a field, the curve-fibration step 5.8 and Theorem 6.5 over a trait). Accepted RS-25 keeps them here, RT-AREA-algebraicgeometry/16 recommends it, and the accepted AdicCoefficientsAndComparisons packet imports them from SF.4 and keeps only proper-hypercover comparison descent and local calculations in L5. RT-AREA-etale/21 asked that the alteration theorems not inherit H1/H5; a schematic SF.4 supplier component must meet that boundary, so no second L5:alterations owner is created. PadicDifferentialEquationsAndRigidCohomology RD.5 still requests the alterations from L5 and proposes L5 as owner; its blueprint job should retarget that request to SF.4. What remains open: the proofs of Theorems 4.1 and 5.8 use de Jong’s 2.24: the stack of stable pointed curves, and a projective scheme with a finite dominant map to it carrying a stable family, obtained by normalising the stack in the function field of the cover that trivialises ℓ-torsion of the universal Jacobian (two primes ℓ ≥ 3), which is projective (de Jong cites Deligne, ‘Le lemme de Gabber’, with Knudsen as general reference). The stack and its properness are StableReductionPartII key/moduli-curves (MC.0) and MC.2; the level cover and projective cover are planned in MC.4 for unpointed curves of genus at least 2, so the range de Jong uses, n ≥ 3 marked points and every genus g ≥ 0 (genus 0 and 1 included), must be added there (as the AdicCoefficientsAndComparisons request to SF.4 also notes), with torsion of abelian schemes from AbelianSchemes A3. MC.0, MC.2 and A3 do not depend on SF.4, but MC.4 requires SF.5, so while SF.4 → SF.5 stands, importing MC.4 into SF.4 closes the cycle SF.4 → SF.5 → MC.4 → SF.4. The rescope entry for RT-AREA-algebraicgeometry/15 removes SF.4 → SF.5, but that alone does not enable a whole-stage MC.4 import: the assembled atlas with promoted blueprints has the longer SF.4 → DD.5 → Q3 → Q4 → AdicEtaleGeometry A3 → RF0:integral-Y → VB0 → AbelianSchemes A4 → PEL M2 → M6 → MC.4 path. The exact path is in the rescope proposal. Keep the cover request at alteration-node level; the formal/cohomological consumers must be split or rerouted and the resulting graph independently checked before adding an edge. No cover import or supplier split is certified here."
     },
     {
       "title": "Seven-stage and all routed-source closure",
@@ -19323,7 +19323,7 @@
         "PadicDifferentialEquationsAndRigidCohomology"
       ],
       "detail": "RT-AREA-algebraicgeometry/15 (confirmed): the only atlas input of SF.5 is SF.4 (deformation, formal schemes, algebraization, alterations), which Chow groups, Gysin maps, Chern classes, Grothendieck–Riemann–Roch, surface Riemann–Roch and the Hodge index theorem do not use. RS-25 also forwarded R11.1, R11.3 and StableReduction Layers 7–9 into SF.5, so SF.5 and its consumers inherit Néron-model, abelian-scheme, p-divisible-group and adic-space ancestors. SF.5’s real inputs are curve Riemann–Roch and adjunction (SF.3), projective and flag bundles with O(1) (AlgebraicModuli R09.1), coherent duality on smooth projective surfaces (SF.2 key/coherent-duality, reaching SF.5 through SF.3) and arithmetic-surface intersections (StableReduction Layer 4). The edge SF.4 → SF.5 also blocks SF.4 from importing StableReductionPartII MC.4, which requires SF.5.",
-      "proposal": "Replace SF.4 → SF.5 by SF.3 → SF.5 and AlgebraicModuli R09.1 → SF.5; keep StableReduction Layer 4 → SF.5. Delete the RS-25 forwarding links R11.1 → SF.5, R11.3 → SF.5 and StableReduction Layers 7, 8 and 9 → SF.5. Add SF.4 → AdicCoefficientsAndComparisons L5 and SF.4 → PadicDifferentialEquationsAndRigidCohomology RD.5 (RT-AREA-algebraicgeometry/16, RT-AREA-etale/21), and StableReductionPartII MC.2 → SF.4 (RT-AREA-algebraicgeometry/17). Then add StableReductionPartII MC.4 → SF.4 for de Jong’s projective cover (2.24): in the atlas stage edges and requires together with the roadmap definitions in research/blueprint/roadmaps, it is acyclic once SF.4 → SF.5 is gone (checked 2026-10-09). The unreviewed research packets add a longer path from SF.4 through PrismaticCohomology PR.1 to PELModuli M6 and so to MC.4; check it again when those packets are reviewed, and import the cover at node level. This proposal edits no other packet or atlas file."
+      "proposal": "Replace SF.4 → SF.5 by SF.3 → SF.5 and AlgebraicModuli R09.1 → SF.5; keep StableReduction Layer 4 → SF.5. Delete the RS-25 forwarding links R11.1 → SF.5, R11.3 → SF.5 and StableReduction Layers 7, 8 and 9 → SF.5. Add SF.4 → AdicCoefficientsAndComparisons L5 and SF.4 → PadicDifferentialEquationsAndRigidCohomology RD.5 (RT-AREA-algebraicgeometry/16, RT-AREA-etale/21), and StableReductionPartII MC.2 → SF.4 (RT-AREA-algebraicgeometry/17). These changes are acyclic in the current assembled atlas with promoted blueprints and research roadmap definitions, checked 2026-10-09. Defer MC.4 → SF.4: removing SF.4 → SF.5 is insufficient in that graph. It still has SF.4 → DerivedDeRhamCohomology DD.5 → PerfectoidQuotients Q3 → Q4 → AdicEtaleGeometry A3 → RelativeFarguesFontaine RF0:integral-Y → VectorBundlesAndIsocrystals VB0 → AbelianSchemesAndArithmeticModuli A4 → PELModuli M2 → M6 → StableReductionPartII MC.4. Attach the projective-cover request only to the schematic alteration nodes and split/reroute the formal and cohomological consumers before considering any whole-stage edge. The broader unreviewed research packets also have the PrismaticCohomology PR.1 path described by the fixer; check all these routes at node granularity when implementing the supplier split. This proposal edits no other packet or atlas file."
     }
   ],
   "targetInventory": [
@@ -19972,1525 +19972,1533 @@
   },
   "review": {
     "status": "accepted",
-    "reviewer": "independent-review-REV-SchemeAndStackFoundations",
-    "date": "2026-10-05",
-    "notes": "Independent review of all303 nodes, all191 pinned baseline statements and selected primary locators, API, tests, proof outlines and the full incoming suggested file. Corrected60 nodes; verified243; no added or unverifiable nodes. Fixed52 literal excerpts, general-pair henselization import/presentation ownership, five excellence interfaces, normalization source and equivariant-injective acyclicity; added a concrete nonsemilinear gerb non-example. Fixed five baseline kinds and scalar-restriction adequacy; confirmed all citations. Confirmed ten source issues at exact selected versions. Complete denotes a finished303-node budget pass: SF.0–SF.2 partial, SF.3–SF.6 not_read,16 specific gaps, no stage planned/closed. Final Mathlib-only prototype elaborates with zero errors and362 admission warnings; omitted mathematical carriers and interfaces remain explicit. Read-only candidate assembly has no cycles, skipped links, new orphan endpoints or foreign-stage changes; two exact supplier nodes are not yet promoted. See the independent report for corrections, primary reading receipts and reader synchronization handoff.",
-    "checked": [
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/etale-neighbourhood",
-        "verdict": "corrected",
-        "note": "Native CommAlgCat full-subcategory predicate requires canonical quotient bijectivity, not an arbitrary abstract quotient isomorphism; localization and two-sheet tests discriminate. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/tensor-neighbourhood",
-        "verdict": "corrected",
-        "note": "Tensor base change and composition preserve etaleness; quotient tensor identities retain the actual canonical reduction, including I=top. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/parallel-equalization",
-        "verdict": "corrected",
-        "note": "The iterated balancing tensor equalizes actual parallel arrows; native algebra/scalar-tower transport is honestly an existing gap. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/filtered-neighbourhoods",
-        "verdict": "corrected",
-        "note": "Identity, tensor common targets and parallel-arrow equalization give all native IsFiltered fields, not merely directed objects. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/small-neighbourhoods",
-        "verdict": "corrected",
-        "note": "Finite type provides essential smallness via the native skeleton; colimit universes are deliberately common and comparison to larger universes remains a gap. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:key/henselization",
-        "verdict": "corrected",
-        "note": "Corrected to directly import the exact existing P3 general-pair carrier; the small-neighbourhood colimit is its prototype presentation with an explicit canonical comparison gap, not a second henselization. Canonical residue, unit and ideal contracts and degenerate tests are sound. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/extended-ideal-stage",
-        "verdict": "corrected",
-        "note": "Finitary ideal span plus representative/equality detection uses filteredness, not finite generation of I or injective maps. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/monic-polynomial-stage",
-        "verdict": "corrected",
-        "note": "Monic polynomial descent chooses leading coefficient 1 at a stage, preserving zero-ring boundary without asserting degree preservation. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-unit-stage",
-        "verdict": "corrected",
-        "note": "Invertibility in a quotient descends via an inverse and one ideal-membership witness; it does not imply invertibility in the original stage ring. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/simple-root-stage",
-        "verdict": "corrected",
-        "note": "Polynomial, root, ideal membership and inverse derivative can be transported to one common stage; the F2/F5 tests correctly separate simple roots. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/residue-comparison",
-        "verdict": "corrected",
-        "note": "Surjectivity and injectivity of the canonical quotient map follow from stage representations and ideal detection, retaining arbitrary ideals and zero rings. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/jacobson-containment",
-        "verdict": "corrected",
-        "note": "For any extended-ideal element and multiplier, refining to a stage and localizing 1+bc proves the native Jacobson unit criterion, even if I is not Jacobson downstairs. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/simple-root-realization",
-        "verdict": "corrected",
-        "note": "Simple-root realization uses a standard-etale finite-stage presentation and selected residue factor; lifted selector localization/tower coherences are honestly still gaps. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/henselian-pair",
-        "verdict": "corrected",
-        "note": "The native HenselianRing has exactly Jacobson containment and monic simple-root lifting; its source factorization/section comparison is not definitional. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/etale-section-selector",
-        "verdict": "verified",
-        "note": "The actual algebra section is surjective; its finitely generated idempotent kernel gives e=1-k with the exact selector equation, including the zero ring."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/etale-selector-kernel",
-        "verdict": "verified",
-        "note": "The selector law and sigma(e)=1 give ker sigma=(1-e) without etaleness or a separate idempotence premise."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/etale-section-product",
-        "verdict": "verified",
-        "note": "Complementary-idempotent quotients identify the first factor with the actual section target; the first-projection equation rules out an arbitrary product equivalence."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/etale-section-localization",
-        "verdict": "verified",
-        "note": "Localization is at an actual idempotent selector in B and respects each source element; a lifted residue idempotent is explicitly a separate missing adapter."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/etale-lift-uniqueness",
-        "verdict": "corrected",
-        "note": "The Jacobson hypothesis is essential; actual-selector unit cancellation proves uniqueness of lifts, and the F2-product counterexample without it is valid. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/etale-section-comparison",
-        "verdict": "verified",
-        "note": "Simple-root HenselianRing supplies Gabber roots but the source etale-section criterion needs the recorded integral-closure/Zariski Main/annihilating-polynomial inputs."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/initial-henselian-pair",
-        "verdict": "corrected",
-        "note": "Base-changed etale stage sections form a cocone by lift uniqueness and canonical reduction; the native colimit gives the initial pair in a common universe. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/fixed-henselian-pair",
-        "verdict": "corrected",
-        "note": "The initial property gives inverse maps for an already henselian pair; no completeness hypothesis or assertion is added. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ordinary-local-henselization",
-        "verdict": "verified",
-        "note": "The maximal residue quotient plus Jacobson containment makes ordinary local henselization local and preserves the original residue field."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map",
-        "verdict": "verified",
-        "note": "Pair maps give unique extensions to the actual target henselization; identity/composition/reduction are coherent and maps need not be injective."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map-unit",
-        "verdict": "verified",
-        "note": "The unit naturality equation is the chosen extension property; the Z to F5 scalar-seven example has residue two."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map-ideal",
-        "verdict": "verified",
-        "note": "Ideal preservation is inclusion of extended ideals through the pair condition and unit equation; no image-ideal equality is asserted."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map-identity",
-        "verdict": "verified",
-        "note": "Uniqueness of extensions gives the identity map, independent of its pair-condition proof and including the zero target."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map-composition",
-        "verdict": "verified",
-        "note": "Composition follows by comparing extensions of the same base map; order of noncommuting product projections is preserved."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/henselization-residue-naturality",
-        "verdict": "verified",
-        "note": "Canonical quotient maps commute by representative evaluation and the unit equation, not by a chosen residue-field isomorphism."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-map-tensor-range",
-        "verdict": "verified",
-        "note": "Ideal extension is the range of the actual tensor subtype followed by the right-unit map, without flatness."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/flat-kernel-membership",
-        "verdict": "verified",
-        "note": "Flat exactness gives membership in the extended kernel precisely when s tensor f(1)=0; M need not be finite."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/annihilator-generator-kernel",
-        "verdict": "verified",
-        "note": "Killing any spanning family is equivalent to annihilating the whole module, even for an infinite index family."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/flat-annihilator-generators",
-        "verdict": "verified",
-        "note": "Flat tensor commutes with the finite product of action maps; this is where finite generation is essential, and the full annihilator ideals are compared."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/flat-annihilator",
-        "verdict": "verified",
-        "note": "Flatness and finite generation are exactly the whole-module hypotheses in 07T8; the tests retain the nilpotent annihilator rather than replacing it by support."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/flat-element-annihilator",
-        "verdict": "verified",
-        "note": "The element statement in 07T8 holds for arbitrary modules; no finite-generation assumption is inserted."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/annihilator-basechange-inclusion",
-        "verdict": "verified",
-        "note": "Tensor generators give unconditional annihilator inclusion for arbitrary base change; equality is not asserted."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/flat-finite-ideal-intersections",
-        "verdict": "verified",
-        "note": "Finite intersections use the flat exact-sequence argument of 0BBY, with arbitrary ideals and the empty intersection equal to top."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-basechange-square",
-        "verdict": "verified",
-        "note": "The native tensor quotient equivalence uses the range of the tensor of the subtype; no injectivity or flatness is needed."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-basechange-annihilator",
-        "verdict": "verified",
-        "note": "Actual S-linear equivalence transports the whole annihilator; the comparison retains the tensor and quotient maps."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/flat-quotient-annihilator",
-        "verdict": "verified",
-        "note": "Only the quotient module must be finite; applying 07T8 to M/Q gives the proposed full-ideal equality under flatness."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-annihilator-basechange-inclusion",
-        "verdict": "verified",
-        "note": "The unconditional inclusion follows from the arbitrary-module tensor annihilator inclusion and the native quotient equivalence."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/range-basechange",
-        "verdict": "verified",
-        "note": "Image equality is right exact and needs no flatness; restriction of scalars translates the existing lTensor_range statement."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/submodule-image-basechange",
-        "verdict": "verified",
-        "note": "Writing image as range of composition gives the claimed tensor-image equality with the actual subtype map."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-map-basechange-containment",
-        "verdict": "verified",
-        "note": "The image/comap adjunction and monotonicity supply exactly the containment required for the native induced quotient map."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-map-basechange-naturality",
-        "verdict": "verified",
-        "note": "Both composites send s tensor [m] to [s tensor f(m)]; the naturality square uses the native equivalence, not an arbitrary isomorphism."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/flat-cokernel-annihilator",
-        "verdict": "verified",
-        "note": "The finite-cokernel hypothesis alone suffices; quotient flat annihilator equality and range comparison leave consumer conductor identification open."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/cokernel-basechange-comparison",
-        "verdict": "verified",
-        "note": "The comparison is the existing tensor quotient equivalence followed by quotient transport along range equality; eight controls distinguish right exactness, nonflat failure, zero ring and nilpotents."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/cokernel-basechange-representative",
-        "verdict": "verified",
-        "note": "The defining composite sends s tensor [n] to [s tensor n], preserving the actual range quotient."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/cokernel-basechange-inverse",
-        "verdict": "verified",
-        "note": "The inverse composite gives s tensor [n] from [s tensor n]; nonflat multiplication-by-two control is legitimate."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/cokernel-basechange-square",
-        "verdict": "verified",
-        "note": "Tensor extensionality gives the projection square with the actual quotient mkQ maps."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-top",
-        "verdict": "corrected",
-        "note": "For affine X,Y the ideal-sheaf adjunction identifies inverse-image ideal with actual ideal extension, without flatness; source image must be quoted as closed immersion. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-restrict",
-        "verdict": "corrected",
-        "note": "Native comap_comp and the morphism restriction square identify the ideal data on the restricted chart. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-restrict-top",
-        "verdict": "corrected",
-        "note": "Restriction to an affine open uses the canonical top-section isomorphism in its actual contravariant direction. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-affine-open",
-        "verdict": "corrected",
-        "note": "The two local affineness witnesses suffice; applying the global affine formula to the restricted morphism proves the chart equality. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-affine-hom",
-        "verdict": "corrected",
-        "note": "Native preimage affineness for an affine morphism specializes the local chart equality; finiteness is unnecessary. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-comparison",
-        "verdict": "corrected",
-        "note": "The native subschemeObjIso followed by quotient transport fixes full-ideal coordinates; nonflat and Z/4 nilpotent controls distinguish it from radical support. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-inclusion",
-        "verdict": "corrected",
-        "note": "Cancelling the native subschemeObjIso components yields the actual quotient projection as a CommRingCat map. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-representative",
-        "verdict": "corrected",
-        "note": "Evaluation of the projection square fixes each actual section representative. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-inverse",
-        "verdict": "corrected",
-        "note": "Applying the inverse to the forward representative formula gives the exact native restriction of b. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/extended-ideal-restriction",
-        "verdict": "corrected",
-        "note": "Ideal map_map and section naturality identify the restriction of extended ideals; only the target opens need be affine. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-restriction",
-        "verdict": "corrected",
-        "note": "The ideal extension equality gives precisely the containment for the native quotientMap, with nonreduced, empty and triple-overlap tests. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-restriction-representative",
-        "verdict": "corrected",
-        "note": "The native quotientMap_mk formula gives restriction of each representative with no preimage-affineness assumption. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-restriction-identity",
-        "verdict": "corrected",
-        "note": "Quotient hom extensionality and presheaf identity prove the identity ring map. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-restriction-composition",
-        "verdict": "corrected",
-        "note": "Quotient representatives and presheaf composition give the asserted contravariant order. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-naturality",
-        "verdict": "corrected",
-        "note": "Surjectivity of affine closed-immersion sections supplies representatives; the actual immersion naturality square proves compatibility. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-inverse-naturality",
-        "verdict": "corrected",
-        "note": "Invertibility of the canonical component converts the forward square into the inverse naturality square. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf",
-        "verdict": "corrected",
-        "note": "The affine-open quotient functor is assembled from native quotient rings and the previously checked restriction laws; its basic-open, nonflat and nilpotent controls retain actual coordinates. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf-object",
-        "verdict": "corrected",
-        "note": "The object projection is the concrete native quotient ring, without replacing its carrier. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf-map",
-        "verdict": "corrected",
-        "note": "The morphism projection is exactly the native quotientRestriction on the opposite inclusion. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/closed-subscheme-quotient-natural-isomorphism",
-        "verdict": "corrected",
-        "note": "Affine f supplies all local affine-preimage witnesses; actual components give an affine-indexed presheaf isomorphism, without claiming an all-open comparison. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-component",
-        "verdict": "corrected",
-        "note": "Unfolding NatIso.ofComponents fixes the isomorphism component to comapObjIso. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-forward",
-        "verdict": "corrected",
-        "note": "The forward component is exactly the native forward quotient comparison. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-inverse",
-        "verdict": "corrected",
-        "note": "The inverse component is exactly the native inverse quotient comparison. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/extended-ideal-kernel-inclusion",
-        "verdict": "corrected",
-        "note": "The ideal-sheaf Galois unit and unconditional ideal_ker_le supply containment without quasi-compactness; ker_apply equality is explicitly avoided. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-sections",
-        "verdict": "corrected",
-        "note": "The actual immersion section map factors through the extended ideal using the proved containment; four controls include nonflat and nonreduced sections. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-representative",
-        "verdict": "corrected",
-        "note": "The concrete quotient lift evaluates to the actual immersion section map on a representative. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-uniqueness",
-        "verdict": "corrected",
-        "note": "Native quotient hom extensionality gives unique factorization through the actual quotient. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-naturality",
-        "verdict": "corrected",
-        "note": "Native immersion naturality on representatives proves the square without affine preimages. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-affine-comparison",
-        "verdict": "corrected",
-        "note": "On an affine preimage both maps agree on quotient representatives, fixing the existing inverse comparison. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-injective",
-        "verdict": "corrected",
-        "note": "The affine comparison is an actual isomorphism; concrete bijectivity implies injectivity. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-surjective",
-        "verdict": "corrected",
-        "note": "The same affine comparison gives surjectivity; no arbitrary-open surjectivity is asserted. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-transformation",
-        "verdict": "corrected",
-        "note": "The natural transformation has actual quotient-lift components for arbitrary f; it becomes invertible only under affineness, and its nonaffine test is honestly parameterized. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-component",
-        "verdict": "corrected",
-        "note": "The concrete NatTrans component unfolds to the actual quotientToClosed map. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-affine",
-        "verdict": "corrected",
-        "note": "Component extensionality and the local affine inverse comparison give equality of actual natural transformations. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-isomorphism",
-        "verdict": "corrected",
-        "note": "The affine transformation equals an inverse NatIso component, giving the native IsIso instance. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-kernel-restriction",
-        "verdict": "verified",
-        "note": "Naturality of the immersion preserves its actual section kernel on any opens, without affine or quasi-compact hypotheses."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction",
-        "verdict": "verified",
-        "note": "The quotient map uses the full all-open section kernel; two-step, unit-ideal and nonreduced tests distinguish its actual restriction maps."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-representative",
-        "verdict": "verified",
-        "note": "The native quotientMap evaluates to restriction of the original section representative."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-identity",
-        "verdict": "verified",
-        "note": "Presheaf identity and quotient hom extensionality give the identity map."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-composition",
-        "verdict": "verified",
-        "note": "Presheaf composition gives the contravariant quotient restriction order."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf",
-        "verdict": "verified",
-        "note": "The all-open kernel quotient is only a presheaf at this point; no unsupported sheaf axiom is assumed."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-object",
-        "verdict": "verified",
-        "note": "The object is exactly the actual section ring modulo the actual immersion section kernel."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-map",
-        "verdict": "verified",
-        "note": "The presheaf map is precisely the checked native allOpenRestriction."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed",
-        "verdict": "verified",
-        "note": "Actual kerLift components form a natural transformation; affine bijectivity and only local general surjectivity are kept separate."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-representative",
-        "verdict": "verified",
-        "note": "The kernel lift sends [a] to the actual immersion section image of a."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-injective",
-        "verdict": "verified",
-        "note": "Quotient by the full kernel makes kerLift injective on every open, independently of affine geometry."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-affine-bijective",
-        "verdict": "verified",
-        "note": "Native affine closed-immersion section surjectivity combines with unconditional kernel-lift injectivity."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-affine-agreement",
-        "verdict": "verified",
-        "note": "The kernel-to-ideal identity quotientMap is retained explicitly before the native affine subschemeObjIso inverse."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-surjective",
-        "verdict": "verified",
-        "note": "An affine neighbourhood subordinate to U lifts each restricted section; this proves local rather than arbitrary componentwise surjectivity."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-injective",
-        "verdict": "verified",
-        "note": "Native componentwise-to-local injectivity applies to the actual kerLift components."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison",
-        "verdict": "verified",
-        "note": "Ring-valued sheafification and the existing direct-image sheaf construct the actual lift of q; tests fix representatives and allow sheafified sections without global representatives."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-factorization",
-        "verdict": "verified",
-        "note": "The native sheafifyLift factorization is exactly the required natural-transformation equation."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-representative",
-        "verdict": "verified",
-        "note": "Evaluating that factorization at a quotient representative gives the actual immersion section image."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-uniqueness",
-        "verdict": "verified",
-        "note": "The native universal-property uniqueness determines the actual sheafification lift."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism",
-        "verdict": "verified",
-        "note": "Local bijectivity makes the sheafified map invertible; the already-sheaf target unit and factorization then identify the proposed comparison, without global surjectivity."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel",
-        "verdict": "verified",
-        "note": "The actual extended ideal E lies in section kernel K; identity-induced quotient comparison is always surjective and affine-preimage bijective, with explicit strict-kernel obstruction."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-representative",
-        "verdict": "verified",
-        "note": "Native quotientMap with the identity preserves every actual section representative."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-surjective",
-        "verdict": "verified",
-        "note": "Surjectivity follows from the identity source ring map; it is surjectivity between quotients and not onto all closed-subscheme sections."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-factor",
-        "verdict": "verified",
-        "note": "Representative evaluation proves the two-step quotient-to-kernel-to-closed factorization for arbitrary morphisms."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-injective-criterion",
-        "verdict": "verified",
-        "note": "Injectivity is equivalent because the kernel-to-closed map is always injective; no affineness is imposed."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-affine-bijective",
-        "verdict": "verified",
-        "note": "A single affine inverse image suffices for quotient-to-kernel bijectivity; the whole morphism need not be affine."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-naturality",
-        "verdict": "verified",
-        "note": "Restrictions preserve the actual quotient representatives on both arbitrary inverse images."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-transformation",
-        "verdict": "verified",
-        "note": "The quotient-to-kernel natural transformation uses actual affine-open inclusion and inverse-image functors; the tests include nilpotents and two restrictions."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-component",
-        "verdict": "verified",
-        "note": "The component is precisely the previously defined quotient map rather than a replacement ring map."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-factor",
-        "verdict": "verified",
-        "note": "Whiskering the all-open sheaf factorization yields the stated natural-transformation equation."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-isomorphism",
-        "verdict": "verified",
-        "note": "Affineness of the morphism supplies all component bijections, yielding a native natural isomorphism."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-sheaf-factor",
-        "verdict": "verified",
-        "note": "The actual sheafification-unit/comparison composite replaces the closed quotient comparison without assuming affine inverse images."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-extended-ideal",
-        "verdict": "verified",
-        "note": "Extended ideals agree on composite pullback when the intermediate inverse image is affine; the final inverse image may be arbitrary."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-isomorphism",
-        "verdict": "verified",
-        "note": "The quotient equivalence is induced by equality of ideals in the same actual section ring; controls include zero and nilpotent rings."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-representative",
-        "verdict": "verified",
-        "note": "The forward quotient equivalence preserves the actual ambient representative."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-inverse-representative",
-        "verdict": "verified",
-        "note": "The inverse quotient equivalence preserves the actual ambient representative."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-restriction",
-        "verdict": "verified",
-        "note": "Restriction compatibility requires both intermediate inverse images to be affine."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-quotient-isomorphism",
-        "verdict": "verified",
-        "note": "The native comap_comp equality gives immersion-kernel transport on every open, with no affineness restriction."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-representative",
-        "verdict": "verified",
-        "note": "The forward kernel transport preserves the same ambient section class."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-inverse-representative",
-        "verdict": "verified",
-        "note": "The inverse kernel transport preserves the same ambient section class."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-kernel-square",
-        "verdict": "verified",
-        "note": "The comparison square follows on representatives under affineness of the single intermediate inverse image."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-restriction",
-        "verdict": "verified",
-        "note": "Kernel transport commutes with all-open restrictions for arbitrary composable scheme morphisms."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism",
-        "verdict": "verified",
-        "note": "The quotient natural isomorphism retains affine inverse-image reindexing and requires only the second morphism to be affine; vertical comparisons remain possibly noninvertible."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-natural-component",
-        "verdict": "verified",
-        "note": "The actual natural component is the previously constructed quotient equivalence."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-natural-representative",
-        "verdict": "verified",
-        "note": "The forward natural component preserves the same ambient representative."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-natural-inverse-representative",
-        "verdict": "verified",
-        "note": "The inverse natural component preserves the same ambient representative."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-isomorphism",
-        "verdict": "verified",
-        "note": "The all-open kernel natural isomorphism retains comap_comp transport and full naturality; tests distinguish nilpotents and composed restrictions."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-component",
-        "verdict": "verified",
-        "note": "The natural component is exactly the all-open kernel transport equivalence."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-representative",
-        "verdict": "verified",
-        "note": "The forward component preserves all ambient quotient classes."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-inverse-representative",
-        "verdict": "verified",
-        "note": "The inverse component preserves all ambient quotient classes."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-closed-presheaf-isomorphism",
-        "verdict": "verified",
-        "note": "The whole closed-section natural isomorphism is defined by conjugating the sheafified kernel isomorphism through actual comparison isomorphisms and dependent inverse images."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-closed-presheaf-representative",
-        "verdict": "verified",
-        "note": "The forward closed-section comparison preserves restrictions of ambient sections; this does not assert all closed sections lift."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-closed-presheaf-inverse-representative",
-        "verdict": "verified",
-        "note": "The inverse closed-section comparison preserves restrictions of ambient sections."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-closed-square",
-        "verdict": "verified",
-        "note": "The kernel-to-closed square is an equality of actual natural transformations on quotient representatives."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-isomorphism",
-        "verdict": "verified",
-        "note": "Native sheafification maps the kernel natural isomorphism on all sheafified sections; the nilpotent control uses injective ring isomorphisms."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-unit",
-        "verdict": "verified",
-        "note": "The native sheafification unit is natural with respect to the kernel comparison."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-unit-representative",
-        "verdict": "verified",
-        "note": "Forward comparison preserves unit images of ambient representatives."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-inverse-unit-representative",
-        "verdict": "verified",
-        "note": "Inverse comparison preserves unit images of ambient representatives."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
-        "verdict": "verified",
-        "note": "The closed/sheaf square holds on every sheafified section by the definition of the conjugated closed comparison."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-uniqueness",
-        "verdict": "verified",
-        "note": "Uniqueness follows by cancelling the actual invertible iterated sheaf comparison."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/quotient-transport",
-        "verdict": "verified",
-        "note": "Equality transport of ideal data preserves all quotient representatives by equality induction."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/quotient-characterization",
-        "verdict": "verified",
-        "note": "Surjectivity of the quotient projection identifies the whole natural isomorphism with equality transport; no closed-section lifting is asserted."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-transport",
-        "verdict": "verified",
-        "note": "The representative characterization identifies the native kernel comparison with comap_comp equality transport."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-transport",
-        "verdict": "verified",
-        "note": "Functoriality of native sheafification identifies its whole comparison with equality transport."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/comparison-transport",
-        "verdict": "verified",
-        "note": "Conjugation by native comparisons along equality of ideal data gives transport of the actual dependent closed-section family."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-transport",
-        "verdict": "verified",
-        "note": "The closed comparison is the native dependent-family equality transport after the sheaf transport identification."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-left",
-        "verdict": "verified",
-        "note": "Left identity kernel coherence retains both comap_id and morphism identity endpoint transports."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-right",
-        "verdict": "verified",
-        "note": "Right identity kernel coherence retains comap_id after pullback along the first morphism."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-assoc",
-        "verdict": "verified",
-        "note": "Kernel associativity retains source associativity and final comap_comp after pullback endpoint transports."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-left",
-        "verdict": "verified",
-        "note": "Left identity sheaf coherence follows from equality transport for the actual sheafification family."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-right",
-        "verdict": "verified",
-        "note": "Right identity sheaf coherence retains the pulled-back comap_id endpoint transport."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-assoc",
-        "verdict": "verified",
-        "note": "Whole sheaf associativity includes both scheme-morphism associativity and final ideal pullback transports."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-left",
-        "verdict": "verified",
-        "note": "Left identity closed coherence is an equality of complete dependent direct-image presheaf isomorphisms."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-right",
-        "verdict": "verified",
-        "note": "Right identity closed coherence retains the actual dependent inverse-image family and endpoint transport."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-assoc",
-        "verdict": "verified",
-        "note": "Closed-section associativity applies to all sections and retains both necessary endpoint transports."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-map",
-        "verdict": "verified",
-        "note": "The quotient-to-sheaf transformation composes the existing quotient-to-kernel map with the actual whiskered unit; four controls include nilpotents and conditional surjectivity obstruction."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/representative",
-        "verdict": "verified",
-        "note": "The quotient-to-sheaf representative formula follows by unfolding its actual composition."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/factor",
-        "verdict": "verified",
-        "note": "The closed factorization associates and combines actual whiskered maps before applying the existing sheaf factorization."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/unique",
-        "verdict": "verified",
-        "note": "Cancel the actual whiskered comparison as a monomorphism using the explicitly cited native dual cancellation API."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/component-iso",
-        "verdict": "verified",
-        "note": "Only the one affine inverse image is needed; cancel the invertible comparison from the actual factorization."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/natural-iso",
-        "verdict": "verified",
-        "note": "Affine inverse images give component isomorphisms and the native functor-category criterion gives the whole isomorphism."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/kernel-forward",
-        "verdict": "verified",
-        "note": "The kernel square retains both inverse-image reindexings, arbitrary first morphism, and affine second morphism."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-forward",
-        "verdict": "verified",
-        "note": "The closed square compares maps from quotient classes; it does not assume all closed sections lift."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-forward",
-        "verdict": "verified",
-        "note": "The sheaf square compares maps from quotient classes with the actual whiskered sheafification."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/kernel-inverse",
-        "verdict": "verified",
-        "note": "The inverse kernel square cancels the forward quotient isomorphism and uses kernel comparison inverse identities."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-inverse",
-        "verdict": "verified",
-        "note": "The inverse closed square never assumes the vertical quotient-to-closed comparison is invertible."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-inverse",
-        "verdict": "verified",
-        "note": "The inverse sheaf square never assumes the vertical quotient-to-sheaf comparison is invertible."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-component",
-        "verdict": "verified",
-        "note": "The closed component square only requires the single intermediate inverse image to be affine."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-component",
-        "verdict": "verified",
-        "note": "The sheaf component square only requires the single intermediate inverse image to be affine."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/injective-iff",
-        "verdict": "verified",
-        "note": "Bijectivity of the actual second factor transfers injectivity in both directions without assuming it."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/surjective-iff",
-        "verdict": "verified",
-        "note": "Bijectivity of the actual second factor transfers surjectivity in both directions without asserting nonaffine lifting."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/ideal-transport",
-        "verdict": "verified",
-        "note": "Transport is along equality of full ideal data and preserves all actual quotient representatives."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/ext",
-        "verdict": "verified",
-        "note": "Extensionality uses surjectivity of the source quotient projection; the target need not admit ambient lifts."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/arrow-assoc",
-        "verdict": "verified",
-        "note": "Morphism associativity transports the actual inverse-image section ring and quotient representatives."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/left-representative",
-        "verdict": "verified",
-        "note": "Two successive comparisons preserve representatives when the two subsequent morphisms are affine."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/composition-transport",
-        "verdict": "verified",
-        "note": "Arbitrary equality of pulled-back ideal data is eliminated before evaluating the actual whiskered comparison."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/post-assoc",
-        "verdict": "verified",
-        "note": "Postcomposition applies an arbitrary target component to the associativity representative equality."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/right-representative",
-        "verdict": "verified",
-        "note": "The right route retains both morphism associativity and comap_comp ideal transport after composite reindexing."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/assoc",
-        "verdict": "verified",
-        "note": "Whole natural-isomorphism associativity follows from the two routes on source quotient representatives."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/arrow-unit",
-        "verdict": "verified",
-        "note": "The right identity transport preserves representatives for arbitrary first morphism."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/right-unit",
-        "verdict": "verified",
-        "note": "The right identity comparison retains full ideal-data transport and requires no affineness of the first morphism."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/geometrically-regular-algebra",
-        "verdict": "verified",
-        "note": "Geometric regularity is Noetherian and tests finite purely inseparable extensions; zero, dual-number and inseparable-field controls discriminate."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-geometricallyregular-regular",
-        "verdict": "verified",
-        "note": "Specializing the geometric-regularity condition to the trivial extension gives regularity."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-geometricallyregular-finite-extension",
-        "verdict": "verified",
-        "note": "The finite extension comparison includes separable extensions through the cited source reduction, rather than identifying it definitionally."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-geometricallyregular-algequiv",
-        "verdict": "verified",
-        "note": "The specified algebra equivalence transports the scalar action and tensor regularity predicates."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/regular-algebra-map",
-        "verdict": "verified",
-        "note": "The regular-map predicate uses flatness and every residue-field fibre, without finite presentation or ambient Noetherianity."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-regularalgebramap-flat",
-        "verdict": "verified",
-        "note": "Flatness is an explicit projection from the regular-map predicate."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-regularalgebramap-fibre",
-        "verdict": "verified",
-        "note": "Every actual residue-field fibre has the stated Noetherian geometric-regularity predicate."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-regularalgebramap-field-iff",
-        "verdict": "verified",
-        "note": "The separability equivalence is limited to finite field extensions; transcendental extensions are excluded explicitly."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/regular-locus",
-        "verdict": "corrected",
-        "note": "Regular locus is a subset before openness; added ring-equivalence transport through the contracted prime and native localization comparison. Field/zero/dual-number tests distinguish regularity from flatness."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-mem-regularlocus",
-        "verdict": "verified",
-        "note": "Membership uses the actual native localization at the selected prime."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-regularlocus-eq-univ",
-        "verdict": "verified",
-        "note": "Regularity of the ring supplies regularity of all prime localizations, including the empty spectrum."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/g-ring",
-        "verdict": "corrected",
-        "note": "All local-completion prime fibres, native Noetherianity and the canonical completion map are retained; added ring-equivalence transport. Complete local G-ring source proof leaves remain explicit."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isgring-noetherian",
-        "verdict": "verified",
-        "note": "Noetherianity is projected from the G-ring condition."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isgring-completion-regular",
-        "verdict": "verified",
-        "note": "The completion map is the actual local maximal-ideal adic completion map, not just a closed-fibre comparison."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/j2-ring",
-        "verdict": "corrected",
-        "note": "J-2 quantifies over every finite-type algebra, allowing singular and empty regular loci; added ring-equivalence transport of that quantification."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isj2-noetherian",
-        "verdict": "verified",
-        "note": "Noetherianity is retained in the J-2 predicate."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isj2-regularlocus-open",
-        "verdict": "verified",
-        "note": "The open regular locus is supplied for each finite-type algebra rather than only the base ring."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quasi-excellent-ring",
-        "verdict": "corrected",
-        "note": "Quasi-excellence is G-ring and J-2 without universal catenarity; added the explicit Noetherian projection, proved by the first conjunct in the suggested file."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isquasiexcellentring-gring",
-        "verdict": "verified",
-        "note": "The G-ring condition is the first quasi-excellence projection."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isquasiexcellentring-j2",
-        "verdict": "verified",
-        "note": "The J-2 condition is the second quasi-excellence projection."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellent-ring",
-        "verdict": "verified",
-        "note": "Excellence imports the existing strict-chain boundedness/saturated-length catenary carrier rather than defining a second one."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentring-quasiexcellent",
-        "verdict": "verified",
-        "note": "An excellent ring projects to quasi-excellence without imposing reducedness."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentring-finitetype",
-        "verdict": "verified",
-        "note": "Finite-type excellent-algebra closure retains its specified base action and source proof leaves."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentring-localization",
-        "verdict": "verified",
-        "note": "Excellent localization allows arbitrary multiplicative submonoids, without finite-generation assumptions."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/quasi-excellent-scheme",
-        "verdict": "corrected",
-        "note": "Existential affine neighborhoods define quasi-excellence, while every-affine equivalence is a separate API; added scheme-isomorphism transport via actual affine section-ring equivalences."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isquasiexcellentscheme-affine-iff",
-        "verdict": "verified",
-        "note": "The every-affine equivalence requires the source locality comparison, recorded as an open proof obligation."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isquasiexcellentscheme-locallynoetherian",
-        "verdict": "verified",
-        "note": "Local Noetherianity follows from the actual quasi-excellent affine section rings."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:key/excellent-schemes",
-        "verdict": "verified",
-        "note": "The reserved excellent-schemes definition is planned with discriminating nonreduced and empty controls; CM/S_n extensions remain explicitly unplanned."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentscheme-affine-iff",
-        "verdict": "verified",
-        "note": "The every-affine excellence criterion follows from the recorded source locality comparison."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentscheme-quasiexcellent",
-        "verdict": "verified",
-        "note": "Affine excellent rings give the quasi-excellent scheme condition pointwise."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentscheme-locallynoetherian",
-        "verdict": "verified",
-        "note": "Affine excellent section rings give native local Noetherianity."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/representable-diagonal",
-        "verdict": "verified",
-        "note": "Representable diagonal is a relative Yoneda pullback condition, without quasi-compactness or a sheaf assumption."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/representable-diagonal-of-scheme",
-        "verdict": "verified",
-        "note": "Native scheme fibre products represent every scheme diagonal, without quasi-separatedness."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/representable-diagonal-iso",
-        "verdict": "verified",
-        "note": "Actual presheaf isomorphisms transport relative diagonal representability."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/representable-diagonal-from-scheme",
-        "verdict": "verified",
-        "note": "Pulling back the representable diagonal represents every morphism from a scheme presheaf."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas",
-        "verdict": "verified",
-        "note": "An etale atlas is representable with etale surjective scheme base changes; objectwise surjectivity is correctly excluded."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas-representable",
-        "verdict": "verified",
-        "note": "Relative scheme representability is an explicit atlas projection."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas-etale",
-        "verdict": "verified",
-        "note": "Etaleness holds for every represented scheme base change of the atlas."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas-surjective",
-        "verdict": "verified",
-        "note": "Surjectivity holds for every represented scheme base change of the atlas."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas-yoneda-iff",
-        "verdict": "verified",
-        "note": "Yoneda identifies the atlas condition with the actual scheme morphism being etale and surjective."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space",
-        "verdict": "verified",
-        "note": "Algebraic spaces use the native fppf sheaf, diagonal and etale atlas; the relative slice-site bridge remains explicit."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-sheaf",
-        "verdict": "verified",
-        "note": "The fppf sheaf condition is an algebraic-space projection."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-diagonal",
-        "verdict": "verified",
-        "note": "Representable diagonal is an algebraic-space projection."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-atlas",
-        "verdict": "verified",
-        "note": "The atlas projection supplies both a scheme and the actual relatively representable map."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-of-scheme",
-        "verdict": "verified",
-        "note": "Native fppf subcanonicity and the identity atlas embed every scheme, without quasi-separatedness."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-iso",
-        "verdict": "verified",
-        "note": "Presheaf isomorphisms transport all three conditions; a chosen atlas is not part of the object carrier."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/sheaf-algebra",
-        "verdict": "verified",
-        "note": "Associative unital central-scalars sheaf algebras must admit noncommutative matrices; the native module/algebra-object bridge remains a gap."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/azumaya",
-        "verdict": "verified",
-        "note": "Azumaya degree is locally constant, not a forced global integer; positive matrix degrees and dual-number exclusion are retained."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/stabilized-equivalence",
-        "verdict": "verified",
-        "note": "Stabilization uses positive-rank vector bundles and algebra isomorphisms; zero-rank stabilization would collapse all classes."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:key/scheme-brauer",
-        "verdict": "verified",
-        "note": "The reserved scheme Brauer construction uses the stabilized Azumaya quotient, tensor and opposite; its map into H2 is injective without claiming equality with all torsion."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/cohomological-brauer",
-        "verdict": "verified",
-        "note": "Cohomological Brauer is the positive-integer torsion subgroup of the existing H2 carrier; units-sheaf transport remains open."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/affine-comparison",
-        "verdict": "verified",
-        "note": "The affine comparison must prove equivalence with native IsAzumaya through the actual quasi-coherent dictionary."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/tensor",
-        "verdict": "verified",
-        "note": "A common etale splitting cover gives the positive-degree matrix tensor comparison."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/opposite",
-        "verdict": "verified",
-        "note": "Matrix transposition splits the opposite algebra on the same etale cover."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/equivalence-refl",
-        "verdict": "verified",
-        "note": "Rank-one scalar bundles and tensor units give reflexivity."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/equivalence-symm",
-        "verdict": "verified",
-        "note": "Inverting the actual algebra isomorphism and swapping bundles gives symmetry."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/equivalence-trans",
-        "verdict": "verified",
-        "note": "Tensoring positive-rank bundle witnesses proves transitivity through the recorded endomorphism comparison gap."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/operation-well-defined",
-        "verdict": "verified",
-        "note": "Tensoring stabilization witnesses gives well-defined multiplication on classes."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/unit",
-        "verdict": "verified",
-        "note": "The scalar sheaf algebra is the tensor unit with the actual algebra structure."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/inverse",
-        "verdict": "verified",
-        "note": "The enveloping-endomorphism isomorphism uses the affine native criterion and positive-rank descent."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/pullback-id",
-        "verdict": "verified",
-        "note": "Identity pullback descends its canonical algebra-sheaf isomorphism to quotient classes."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/pullback-comp",
-        "verdict": "verified",
-        "note": "Composite pullback descends the canonical comparison, without equating selected charts."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/end-zero",
-        "verdict": "verified",
-        "note": "The stabilization witness identifies every positive-rank bundle endomorphism algebra with the neutral class."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/field-comparison",
-        "verdict": "verified",
-        "note": "The existing field Brauer carrier alone does not supply the scheme/field bridge; central-simple and stabilization comparisons remain explicit."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/delta-injective",
-        "verdict": "verified",
-        "note": "Equal splitting-gerbe classes give a neutral difference and positive-rank stabilization witness; no surjectivity is asserted."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/degree-annihilation",
-        "verdict": "verified",
-        "note": "Degree annihilation follows the antisymmetrizer image construction and does not assume factorial invertibility."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/torsion-image",
-        "verdict": "verified",
-        "note": "Torsion requires connected or quasi-compact scope to obtain a uniform degree bound; no unrestricted disconnected claim appears."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/pullback",
-        "verdict": "verified",
-        "note": "Brauer pullback needs no flatness; identity, split matrices and real-to-complex quaternion controls discriminate."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/splitting-torsor",
-        "verdict": "verified",
-        "note": "The frame sheaf is a PGL torsor using algebra isomorphisms, with generic torsor and PGL carrier suppliers explicitly missing."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/delta",
-        "verdict": "verified",
-        "note": "The cohomology class uses the GL/PGL boundary and scalar-banded gerbe for variable degree; tensor compatibility and units sheaf remain gaps."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/affine-dualizing",
-        "verdict": "verified",
-        "note": "Dualizing complexes use finite injective dimension, finite cohomology and the actual homothety, with a non-CM two-degree control."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/scheme-dualizing",
-        "verdict": "verified",
-        "note": "Scheme dualizing complexes use affine-local derived sheafification; disconnected components may have unequal shifts."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/normalized-dualizing",
-        "verdict": "corrected",
-        "note": "Normalization uses derived residue field in degree zero and cohomological shifts; added the actual section 47.16 opening definition as source, separately retaining finite-local preservation 47.16.1."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:key/coherent-duality",
-        "verdict": "verified",
-        "note": "The reserved coherent-duality construction is on Noetherian separated finite-type schemes and actual derived O-modules; proper adjunction, compactification and coherence remain gaps."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/affine-cover",
-        "verdict": "verified",
-        "note": "Affine-cover recognition requires localized derived complexes and the explicitly unread source leaves."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/biduality",
-        "verdict": "verified",
-        "note": "Biduality is on coherent derived complexes and exchanges bounded-above and bounded-below scopes, with affine descent still open."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/composition",
-        "verdict": "verified",
-        "note": "Composition retains both unit and associativity pseudofunctor constraints."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/proper-adjunction",
-        "verdict": "verified",
-        "note": "Proper upper shriek on the bounded-below category is the restriction of the unbounded proper right adjoint."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/trace-comp",
-        "verdict": "verified",
-        "note": "Proper trace transitivity follows from composite adjunction and actual counit uniqueness."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/finite-formula",
-        "verdict": "verified",
-        "note": "Finite pushforward of upper shriek is derived Hom with its algebra action; affine descent remains explicit."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/closed-formula",
-        "verdict": "verified",
-        "note": "The closed-immersion formula recovers the complex on X through its O_X-module action on derived Hom."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/cartier-formula",
-        "verdict": "verified",
-        "note": "The Cartier formula retains the restricted normal line and negative cohomological shift."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/regular-immersion",
-        "verdict": "verified",
-        "note": "The Koszul-regular formula retains the top exterior normal bundle and codimension negative shift; Koszul infrastructure is an external leaf."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/smooth-proper",
-        "verdict": "verified",
-        "note": "Smooth proper relative dimension d gives the top differential bundle and positive shift d."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/preserves-dualizing",
-        "verdict": "verified",
-        "note": "Upper shriek preserves dualizing complexes via the closed-immersion and affine-space comparisons, with exact source leaves recorded."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/serre-proper",
-        "verdict": "verified",
-        "note": "Proper Serre duality uses H^-i and the vector-space dual on unbounded quasi-coherent complexes, not an unmentioned boundedness restriction."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/canonical-module",
-        "verdict": "verified",
-        "note": "The bottom dualizing cohomology has S2 and support on top-dimensional components; no Cohen-Macaulay collapse is assumed."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/trace",
-        "verdict": "verified",
-        "note": "Proper coherent trace is derived evaluation/counit; the dual-number algebra trace pairing is correctly excluded as a substitute."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/linearized-sheaf",
-        "verdict": "verified",
-        "note": "The general semilinear action may move the ringed base; native Action on a fixed module category is only a special case."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/enough-injectives",
-        "verdict": "verified",
-        "note": "Enough injectives is stated for arbitrary discrete groups; coinduction, products and the unread Tohoku leaf are explicit."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/invariant-sections",
-        "verdict": "verified",
-        "note": "Invariant global sections form a left-exact functor since the total open is stable even for moving bases; sign and trivial actions discriminate."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:key/equivariant-sheaf-cohomology",
-        "verdict": "verified",
-        "note": "The reserved equivariant cohomology derives the composite rather than taking invariants afterward; C2 integral and translation controls detect the distinction."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/ext",
-        "verdict": "verified",
-        "note": "Equivariant Ext derives Hom in the second variable, with the integral C2 point comparison retained."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/support",
-        "verdict": "verified",
-        "note": "Supported equivariant cohomology derives the kernel of restriction and invariants; unstable support is excluded."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/hom-invariants",
-        "verdict": "verified",
-        "note": "Equivariant maps are invariants under conjugation of actual semilinear linearizations."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/degree-zero",
-        "verdict": "verified",
-        "note": "The zeroth derived functor is actual invariant global sections."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/ordinary-comparison",
-        "verdict": "verified",
-        "note": "The trivial group comparison transports the equivalence with ordinary sheaf categories."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/point-comparison",
-        "verdict": "verified",
-        "note": "On a point the native group-cohomology comparison still requires resolution transport."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/invariants-acyclic",
-        "verdict": "corrected",
-        "note": "Corrected false exact-free-sheaf proof. Embed an underlying equivariant injective in ordinary injective J, split the induced mono into coinduction, take sections and use coinduced group-module acyclicity and retracts. All formal comparison leaves stay open; F_p tensoring disproves the old argument."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/spectral-sequence",
-        "verdict": "verified",
-        "note": "The first-quadrant spectral sequence requires the corrected acyclicity and ordinary-derived-sections comparison; convergence remains a proof gap."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.2/localization",
-        "verdict": "verified",
-        "note": "Localization requires stable closed support and invariant complement, plus ordinary support exactness and equivariant acyclicity leaves."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/topological-extension",
-        "verdict": "verified",
-        "note": "The native abstract extension is refined by actual embedding, continuity and quotient topology with discrete kernel."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/local-splitting-chart",
-        "verdict": "verified",
-        "note": "Local splitting includes an open subgroup, continuous homomorphism and actual product homeomorphism; C4 prevents a false global-splitting requirement."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/kernel-iff",
-        "verdict": "verified",
-        "note": "The native exact range/kernel equation gives kernel recognition in the topological refinement."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/inl-project",
-        "verdict": "verified",
-        "note": "The native extension projection-of-inclusion lemma kills every kernel point."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/section-one",
-        "verdict": "verified",
-        "note": "The witnessed section is a homomorphism and preserves one."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/section-mul",
-        "verdict": "verified",
-        "note": "The witnessed section preserves group multiplication."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/chart-value",
-        "verdict": "verified",
-        "note": "The witnessed homeomorphism has the required actual kernel-times-section evaluation formula."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:key/galois-gerbs",
-        "verdict": "corrected",
-        "note": "The algebraic kernel, Krull quotient, algebraic semilinearity and effective local descent are essential, beyond the typed topological prefix. Added a split topological extension whose real-linear involution is not complex-antilinear as a concrete non-example; original C4 test already detects lack of global splitting."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/morphism",
-        "verdict": "verified",
-        "note": "Gerb morphisms retain both continuous extension and algebraic kernel maps; discrete continuity alone does not imply algebraicity."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/conjugacy",
-        "verdict": "verified",
-        "note": "Conjugators lie in the target algebraic kernel and are retained before any requested quotient."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/neutral",
-        "verdict": "verified",
-        "note": "The neutral extension imports native semidirect products; finite fields of point definition give continuity of the discrete Galois action."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/conjugator-scheme",
-        "verdict": "verified",
-        "note": "Conjugator representability and algebraic descent are explicit obligations beyond the R-point formula."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/pro-gerb",
-        "verdict": "verified",
-        "note": "Pro-gerbs retain finite stages and stagewise conjugacy, with no unproved compatible inverse-limit conjugator."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/centralizer",
-        "verdict": "verified",
-        "note": "The neutral-target centralizer descends independently of lifts because source-kernel images centralize the centralizer."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/cocycle",
-        "verdict": "verified",
-        "note": "Fixed-algebraic-kernel maps give continuous cocycles for the descended centralizer action, with conjugacy corresponding to a trivial H1 class."
-      },
-      {
-        "nodeId": "SchemeAndStackFoundations:SF.1/splitting-field-extension",
-        "verdict": "verified",
-        "note": "Splitting-field extension changes both Galois quotient and algebraic-kernel points through pullback and pushout; topology and algebraic comparisons remain gaps."
-      }
-    ]
-  }
+    "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+    "date": "2026-10-09",
+    "notes": "Bounded independent area-fix review of findings /1, /8, /11 and /15–/18, /31. Checked single spaces/stacks, coherent-duality and schematic-alteration owners and current upstream suppliers. Corrected the SF.5/MC.4 proposal and matching gap/coverage: current promoted blueprints retain a long SF.4→DD.5→p-adic geometry→PEL M6→MC.4 path, so removal of SF.4→SF.5 does not make MC.4→SF.4 safe. The cover remains a node-level request pending an independently checked supplier/consumer split; the rest of the proposed rescope is acyclic. Follows independent-review-REV-SchemeAndStackFoundations, preserved in reviewHistory. All incomplete source work and requests remain; no atlas edge is installed."
+  },
+  "reviewHistory": [
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-SchemeAndStackFoundations",
+      "date": "2026-10-05",
+      "notes": "Independent review of all303 nodes, all191 pinned baseline statements and selected primary locators, API, tests, proof outlines and the full incoming suggested file. Corrected60 nodes; verified243; no added or unverifiable nodes. Fixed52 literal excerpts, general-pair henselization import/presentation ownership, five excellence interfaces, normalization source and equivariant-injective acyclicity; added a concrete nonsemilinear gerb non-example. Fixed five baseline kinds and scalar-restriction adequacy; confirmed all citations. Confirmed ten source issues at exact selected versions. Complete denotes a finished303-node budget pass: SF.0–SF.2 partial, SF.3–SF.6 not_read,16 specific gaps, no stage planned/closed. Final Mathlib-only prototype elaborates with zero errors and362 admission warnings; omitted mathematical carriers and interfaces remain explicit. Read-only candidate assembly has no cycles, skipped links, new orphan endpoints or foreign-stage changes; two exact supplier nodes are not yet promoted. See the independent report for corrections, primary reading receipts and reader synchronization handoff.",
+      "checked": [
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/etale-neighbourhood",
+          "verdict": "corrected",
+          "note": "Native CommAlgCat full-subcategory predicate requires canonical quotient bijectivity, not an arbitrary abstract quotient isomorphism; localization and two-sheet tests discriminate. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/tensor-neighbourhood",
+          "verdict": "corrected",
+          "note": "Tensor base change and composition preserve etaleness; quotient tensor identities retain the actual canonical reduction, including I=top. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/parallel-equalization",
+          "verdict": "corrected",
+          "note": "The iterated balancing tensor equalizes actual parallel arrows; native algebra/scalar-tower transport is honestly an existing gap. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/filtered-neighbourhoods",
+          "verdict": "corrected",
+          "note": "Identity, tensor common targets and parallel-arrow equalization give all native IsFiltered fields, not merely directed objects. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/small-neighbourhoods",
+          "verdict": "corrected",
+          "note": "Finite type provides essential smallness via the native skeleton; colimit universes are deliberately common and comparison to larger universes remains a gap. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:key/henselization",
+          "verdict": "corrected",
+          "note": "Corrected to directly import the exact existing P3 general-pair carrier; the small-neighbourhood colimit is its prototype presentation with an explicit canonical comparison gap, not a second henselization. Canonical residue, unit and ideal contracts and degenerate tests are sound. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/extended-ideal-stage",
+          "verdict": "corrected",
+          "note": "Finitary ideal span plus representative/equality detection uses filteredness, not finite generation of I or injective maps. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/monic-polynomial-stage",
+          "verdict": "corrected",
+          "note": "Monic polynomial descent chooses leading coefficient 1 at a stage, preserving zero-ring boundary without asserting degree preservation. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-unit-stage",
+          "verdict": "corrected",
+          "note": "Invertibility in a quotient descends via an inverse and one ideal-membership witness; it does not imply invertibility in the original stage ring. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/simple-root-stage",
+          "verdict": "corrected",
+          "note": "Polynomial, root, ideal membership and inverse derivative can be transported to one common stage; the F2/F5 tests correctly separate simple roots. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/residue-comparison",
+          "verdict": "corrected",
+          "note": "Surjectivity and injectivity of the canonical quotient map follow from stage representations and ideal detection, retaining arbitrary ideals and zero rings. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/jacobson-containment",
+          "verdict": "corrected",
+          "note": "For any extended-ideal element and multiplier, refining to a stage and localizing 1+bc proves the native Jacobson unit criterion, even if I is not Jacobson downstairs. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/simple-root-realization",
+          "verdict": "corrected",
+          "note": "Simple-root realization uses a standard-etale finite-stage presentation and selected residue factor; lifted selector localization/tower coherences are honestly still gaps. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/henselian-pair",
+          "verdict": "corrected",
+          "note": "The native HenselianRing has exactly Jacobson containment and monic simple-root lifting; its source factorization/section comparison is not definitional. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/etale-section-selector",
+          "verdict": "verified",
+          "note": "The actual algebra section is surjective; its finitely generated idempotent kernel gives e=1-k with the exact selector equation, including the zero ring."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/etale-selector-kernel",
+          "verdict": "verified",
+          "note": "The selector law and sigma(e)=1 give ker sigma=(1-e) without etaleness or a separate idempotence premise."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/etale-section-product",
+          "verdict": "verified",
+          "note": "Complementary-idempotent quotients identify the first factor with the actual section target; the first-projection equation rules out an arbitrary product equivalence."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/etale-section-localization",
+          "verdict": "verified",
+          "note": "Localization is at an actual idempotent selector in B and respects each source element; a lifted residue idempotent is explicitly a separate missing adapter."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/etale-lift-uniqueness",
+          "verdict": "corrected",
+          "note": "The Jacobson hypothesis is essential; actual-selector unit cancellation proves uniqueness of lifts, and the F2-product counterexample without it is valid. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/etale-section-comparison",
+          "verdict": "verified",
+          "note": "Simple-root HenselianRing supplies Gabber roots but the source etale-section criterion needs the recorded integral-closure/Zariski Main/annihilating-polynomial inputs."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/initial-henselian-pair",
+          "verdict": "corrected",
+          "note": "Base-changed etale stage sections form a cocone by lift uniqueness and canonical reduction; the native colimit gives the initial pair in a common universe. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/fixed-henselian-pair",
+          "verdict": "corrected",
+          "note": "The initial property gives inverse maps for an already henselian pair; no completeness hypothesis or assertion is added. Corrected literal source excerpt: Literal phrase in lemma15.12.1; ordinary local henselization bindings are retained separately."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ordinary-local-henselization",
+          "verdict": "verified",
+          "note": "The maximal residue quotient plus Jacobson containment makes ordinary local henselization local and preserves the original residue field."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map",
+          "verdict": "verified",
+          "note": "Pair maps give unique extensions to the actual target henselization; identity/composition/reduction are coherent and maps need not be injective."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map-unit",
+          "verdict": "verified",
+          "note": "The unit naturality equation is the chosen extension property; the Z to F5 scalar-seven example has residue two."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map-ideal",
+          "verdict": "verified",
+          "note": "Ideal preservation is inclusion of extended ideals through the pair condition and unit equation; no image-ideal equality is asserted."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map-identity",
+          "verdict": "verified",
+          "note": "Uniqueness of extensions gives the identity map, independent of its pair-condition proof and including the zero target."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/henselization-map-composition",
+          "verdict": "verified",
+          "note": "Composition follows by comparing extensions of the same base map; order of noncommuting product projections is preserved."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/henselization-residue-naturality",
+          "verdict": "verified",
+          "note": "Canonical quotient maps commute by representative evaluation and the unit equation, not by a chosen residue-field isomorphism."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-map-tensor-range",
+          "verdict": "verified",
+          "note": "Ideal extension is the range of the actual tensor subtype followed by the right-unit map, without flatness."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/flat-kernel-membership",
+          "verdict": "verified",
+          "note": "Flat exactness gives membership in the extended kernel precisely when s tensor f(1)=0; M need not be finite."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/annihilator-generator-kernel",
+          "verdict": "verified",
+          "note": "Killing any spanning family is equivalent to annihilating the whole module, even for an infinite index family."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/flat-annihilator-generators",
+          "verdict": "verified",
+          "note": "Flat tensor commutes with the finite product of action maps; this is where finite generation is essential, and the full annihilator ideals are compared."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/flat-annihilator",
+          "verdict": "verified",
+          "note": "Flatness and finite generation are exactly the whole-module hypotheses in 07T8; the tests retain the nilpotent annihilator rather than replacing it by support."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/flat-element-annihilator",
+          "verdict": "verified",
+          "note": "The element statement in 07T8 holds for arbitrary modules; no finite-generation assumption is inserted."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/annihilator-basechange-inclusion",
+          "verdict": "verified",
+          "note": "Tensor generators give unconditional annihilator inclusion for arbitrary base change; equality is not asserted."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/flat-finite-ideal-intersections",
+          "verdict": "verified",
+          "note": "Finite intersections use the flat exact-sequence argument of 0BBY, with arbitrary ideals and the empty intersection equal to top."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-basechange-square",
+          "verdict": "verified",
+          "note": "The native tensor quotient equivalence uses the range of the tensor of the subtype; no injectivity or flatness is needed."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-basechange-annihilator",
+          "verdict": "verified",
+          "note": "Actual S-linear equivalence transports the whole annihilator; the comparison retains the tensor and quotient maps."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/flat-quotient-annihilator",
+          "verdict": "verified",
+          "note": "Only the quotient module must be finite; applying 07T8 to M/Q gives the proposed full-ideal equality under flatness."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-annihilator-basechange-inclusion",
+          "verdict": "verified",
+          "note": "The unconditional inclusion follows from the arbitrary-module tensor annihilator inclusion and the native quotient equivalence."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/range-basechange",
+          "verdict": "verified",
+          "note": "Image equality is right exact and needs no flatness; restriction of scalars translates the existing lTensor_range statement."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/submodule-image-basechange",
+          "verdict": "verified",
+          "note": "Writing image as range of composition gives the claimed tensor-image equality with the actual subtype map."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-map-basechange-containment",
+          "verdict": "verified",
+          "note": "The image/comap adjunction and monotonicity supply exactly the containment required for the native induced quotient map."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-map-basechange-naturality",
+          "verdict": "verified",
+          "note": "Both composites send s tensor [m] to [s tensor f(m)]; the naturality square uses the native equivalence, not an arbitrary isomorphism."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/flat-cokernel-annihilator",
+          "verdict": "verified",
+          "note": "The finite-cokernel hypothesis alone suffices; quotient flat annihilator equality and range comparison leave consumer conductor identification open."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/cokernel-basechange-comparison",
+          "verdict": "verified",
+          "note": "The comparison is the existing tensor quotient equivalence followed by quotient transport along range equality; eight controls distinguish right exactness, nonflat failure, zero ring and nilpotents."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/cokernel-basechange-representative",
+          "verdict": "verified",
+          "note": "The defining composite sends s tensor [n] to [s tensor n], preserving the actual range quotient."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/cokernel-basechange-inverse",
+          "verdict": "verified",
+          "note": "The inverse composite gives s tensor [n] from [s tensor n]; nonflat multiplication-by-two control is legitimate."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/cokernel-basechange-square",
+          "verdict": "verified",
+          "note": "Tensor extensionality gives the projection square with the actual quotient mkQ maps."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-top",
+          "verdict": "corrected",
+          "note": "For affine X,Y the ideal-sheaf adjunction identifies inverse-image ideal with actual ideal extension, without flatness; source image must be quoted as closed immersion. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-restrict",
+          "verdict": "corrected",
+          "note": "Native comap_comp and the morphism restriction square identify the ideal data on the restricted chart. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-restrict-top",
+          "verdict": "corrected",
+          "note": "Restriction to an affine open uses the canonical top-section isomorphism in its actual contravariant direction. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-affine-open",
+          "verdict": "corrected",
+          "note": "The two local affineness witnesses suffice; applying the global affine formula to the restricted morphism proves the chart equality. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-affine-hom",
+          "verdict": "corrected",
+          "note": "Native preimage affineness for an affine morphism specializes the local chart equality; finiteness is unnecessary. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-comparison",
+          "verdict": "corrected",
+          "note": "The native subschemeObjIso followed by quotient transport fixes full-ideal coordinates; nonflat and Z/4 nilpotent controls distinguish it from radical support. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-inclusion",
+          "verdict": "corrected",
+          "note": "Cancelling the native subschemeObjIso components yields the actual quotient projection as a CommRingCat map. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-representative",
+          "verdict": "corrected",
+          "note": "Evaluation of the projection square fixes each actual section representative. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/ideal-comap-quotient-inverse",
+          "verdict": "corrected",
+          "note": "Applying the inverse to the forward representative formula gives the exact native restriction of b. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/extended-ideal-restriction",
+          "verdict": "corrected",
+          "note": "Ideal map_map and section naturality identify the restriction of extended ideals; only the target opens need be affine. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-restriction",
+          "verdict": "corrected",
+          "note": "The ideal extension equality gives precisely the containment for the native quotientMap, with nonreduced, empty and triple-overlap tests. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-restriction-representative",
+          "verdict": "corrected",
+          "note": "The native quotientMap_mk formula gives restriction of each representative with no preimage-affineness assumption. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-restriction-identity",
+          "verdict": "corrected",
+          "note": "Quotient hom extensionality and presheaf identity prove the identity ring map. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-restriction-composition",
+          "verdict": "corrected",
+          "note": "Quotient representatives and presheaf composition give the asserted contravariant order. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-naturality",
+          "verdict": "corrected",
+          "note": "Surjectivity of affine closed-immersion sections supplies representatives; the actual immersion naturality square proves compatibility. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-inverse-naturality",
+          "verdict": "corrected",
+          "note": "Invertibility of the canonical component converts the forward square into the inverse naturality square. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf",
+          "verdict": "corrected",
+          "note": "The affine-open quotient functor is assembled from native quotient rings and the previously checked restriction laws; its basic-open, nonflat and nilpotent controls retain actual coordinates. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf-object",
+          "verdict": "corrected",
+          "note": "The object projection is the concrete native quotient ring, without replacing its carrier. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/affine-quotient-presheaf-map",
+          "verdict": "corrected",
+          "note": "The morphism projection is exactly the native quotientRestriction on the opposite inclusion. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/closed-subscheme-quotient-natural-isomorphism",
+          "verdict": "corrected",
+          "note": "Affine f supplies all local affine-preimage witnesses; actual components give an affine-indexed presheaf isomorphism, without claiming an all-open comparison. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-component",
+          "verdict": "corrected",
+          "note": "Unfolding NatIso.ofComponents fixes the isomorphism component to comapObjIso. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-forward",
+          "verdict": "corrected",
+          "note": "The forward component is exactly the native forward quotient comparison. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/closed-subscheme-natural-isomorphism-inverse",
+          "verdict": "corrected",
+          "note": "The inverse component is exactly the native inverse quotient comparison. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/extended-ideal-kernel-inclusion",
+          "verdict": "corrected",
+          "note": "The ideal-sheaf Galois unit and unconditional ideal_ker_le supply containment without quasi-compactness; ker_apply equality is explicitly avoided. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-sections",
+          "verdict": "corrected",
+          "note": "The actual immersion section map factors through the extended ideal using the proved containment; four controls include nonflat and nonreduced sections. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-representative",
+          "verdict": "corrected",
+          "note": "The concrete quotient lift evaluates to the actual immersion section map on a representative. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-uniqueness",
+          "verdict": "corrected",
+          "note": "Native quotient hom extensionality gives unique factorization through the actual quotient. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-naturality",
+          "verdict": "corrected",
+          "note": "Native immersion naturality on representatives proves the square without affine preimages. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-affine-comparison",
+          "verdict": "corrected",
+          "note": "On an affine preimage both maps agree on quotient representatives, fixing the existing inverse comparison. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-injective",
+          "verdict": "corrected",
+          "note": "The affine comparison is an actual isomorphism; concrete bijectivity implies injectivity. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-surjective",
+          "verdict": "corrected",
+          "note": "The same affine comparison gives surjectivity; no arbitrary-open surjectivity is asserted. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-transformation",
+          "verdict": "corrected",
+          "note": "The natural transformation has actual quotient-lift components for arbitrary f; it becomes invertible only under affineness, and its nonaffine test is honestly parameterized. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-component",
+          "verdict": "corrected",
+          "note": "The concrete NatTrans component unfolds to the actual quotientToClosed map. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-affine",
+          "verdict": "corrected",
+          "note": "Component extensionality and the local affine inverse comparison give equality of actual natural transformations. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-closed-natural-isomorphism",
+          "verdict": "corrected",
+          "note": "The affine transformation equals an inverse NatIso component, giving the native IsIso instance. Corrected literal source excerpt: Literal phrase from lemma26.17.6, preserving its image-ideal content."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-kernel-restriction",
+          "verdict": "verified",
+          "note": "Naturality of the immersion preserves its actual section kernel on any opens, without affine or quasi-compact hypotheses."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction",
+          "verdict": "verified",
+          "note": "The quotient map uses the full all-open section kernel; two-step, unit-ideal and nonreduced tests distinguish its actual restriction maps."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-representative",
+          "verdict": "verified",
+          "note": "The native quotientMap evaluates to restriction of the original section representative."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-identity",
+          "verdict": "verified",
+          "note": "Presheaf identity and quotient hom extensionality give the identity map."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-restriction-composition",
+          "verdict": "verified",
+          "note": "Presheaf composition gives the contravariant quotient restriction order."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-presheaf",
+          "verdict": "verified",
+          "note": "The all-open kernel quotient is only a presheaf at this point; no unsupported sheaf axiom is assumed."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-object",
+          "verdict": "verified",
+          "note": "The object is exactly the actual section ring modulo the actual immersion section kernel."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-quotient-map",
+          "verdict": "verified",
+          "note": "The presheaf map is precisely the checked native allOpenRestriction."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed",
+          "verdict": "verified",
+          "note": "Actual kerLift components form a natural transformation; affine bijectivity and only local general surjectivity are kept separate."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-representative",
+          "verdict": "verified",
+          "note": "The kernel lift sends [a] to the actual immersion section image of a."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-injective",
+          "verdict": "verified",
+          "note": "Quotient by the full kernel makes kerLift injective on every open, independently of affine geometry."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-affine-bijective",
+          "verdict": "verified",
+          "note": "Native affine closed-immersion section surjectivity combines with unconditional kernel-lift injectivity."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-affine-agreement",
+          "verdict": "verified",
+          "note": "The kernel-to-ideal identity quotientMap is retained explicitly before the native affine subschemeObjIso inverse."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-surjective",
+          "verdict": "verified",
+          "note": "An affine neighbourhood subordinate to U lifts each restricted section; this proves local rather than arbitrary componentwise surjectivity."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-to-closed-locally-injective",
+          "verdict": "verified",
+          "note": "Native componentwise-to-local injectivity applies to the actual kerLift components."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison",
+          "verdict": "verified",
+          "note": "Ring-valued sheafification and the existing direct-image sheaf construct the actual lift of q; tests fix representatives and allow sheafified sections without global representatives."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-factorization",
+          "verdict": "verified",
+          "note": "The native sheafifyLift factorization is exactly the required natural-transformation equation."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-representative",
+          "verdict": "verified",
+          "note": "Evaluating that factorization at a quotient representative gives the actual immersion section image."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-uniqueness",
+          "verdict": "verified",
+          "note": "The native universal-property uniqueness determines the actual sheafification lift."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/all-open-sheaf-comparison-isomorphism",
+          "verdict": "verified",
+          "note": "Local bijectivity makes the sheafified map invertible; the already-sheaf target unit and factorization then identify the proposed comparison, without global surjectivity."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel",
+          "verdict": "verified",
+          "note": "The actual extended ideal E lies in section kernel K; identity-induced quotient comparison is always surjective and affine-preimage bijective, with explicit strict-kernel obstruction."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-representative",
+          "verdict": "verified",
+          "note": "Native quotientMap with the identity preserves every actual section representative."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-surjective",
+          "verdict": "verified",
+          "note": "Surjectivity follows from the identity source ring map; it is surjectivity between quotients and not onto all closed-subscheme sections."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-factor",
+          "verdict": "verified",
+          "note": "Representative evaluation proves the two-step quotient-to-kernel-to-closed factorization for arbitrary morphisms."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-injective-criterion",
+          "verdict": "verified",
+          "note": "Injectivity is equivalent because the kernel-to-closed map is always injective; no affineness is imposed."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-affine-bijective",
+          "verdict": "verified",
+          "note": "A single affine inverse image suffices for quotient-to-kernel bijectivity; the whole morphism need not be affine."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-naturality",
+          "verdict": "verified",
+          "note": "Restrictions preserve the actual quotient representatives on both arbitrary inverse images."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-transformation",
+          "verdict": "verified",
+          "note": "The quotient-to-kernel natural transformation uses actual affine-open inclusion and inverse-image functors; the tests include nilpotents and two restrictions."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-component",
+          "verdict": "verified",
+          "note": "The component is precisely the previously defined quotient map rather than a replacement ring map."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-factor",
+          "verdict": "verified",
+          "note": "Whiskering the all-open sheaf factorization yields the stated natural-transformation equation."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-natural-isomorphism",
+          "verdict": "verified",
+          "note": "Affineness of the morphism supplies all component bijections, yielding a native natural isomorphism."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-to-kernel-sheaf-factor",
+          "verdict": "verified",
+          "note": "The actual sheafification-unit/comparison composite replaces the closed quotient comparison without assuming affine inverse images."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-extended-ideal",
+          "verdict": "verified",
+          "note": "Extended ideals agree on composite pullback when the intermediate inverse image is affine; the final inverse image may be arbitrary."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-isomorphism",
+          "verdict": "verified",
+          "note": "The quotient equivalence is induced by equality of ideals in the same actual section ring; controls include zero and nilpotent rings."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-representative",
+          "verdict": "verified",
+          "note": "The forward quotient equivalence preserves the actual ambient representative."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-inverse-representative",
+          "verdict": "verified",
+          "note": "The inverse quotient equivalence preserves the actual ambient representative."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-restriction",
+          "verdict": "verified",
+          "note": "Restriction compatibility requires both intermediate inverse images to be affine."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-quotient-isomorphism",
+          "verdict": "verified",
+          "note": "The native comap_comp equality gives immersion-kernel transport on every open, with no affineness restriction."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-representative",
+          "verdict": "verified",
+          "note": "The forward kernel transport preserves the same ambient section class."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-inverse-representative",
+          "verdict": "verified",
+          "note": "The inverse kernel transport preserves the same ambient section class."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-kernel-square",
+          "verdict": "verified",
+          "note": "The comparison square follows on representatives under affineness of the single intermediate inverse image."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-restriction",
+          "verdict": "verified",
+          "note": "Kernel transport commutes with all-open restrictions for arbitrary composable scheme morphisms."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-natural-isomorphism",
+          "verdict": "verified",
+          "note": "The quotient natural isomorphism retains affine inverse-image reindexing and requires only the second morphism to be affine; vertical comparisons remain possibly noninvertible."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-natural-component",
+          "verdict": "verified",
+          "note": "The actual natural component is the previously constructed quotient equivalence."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-natural-representative",
+          "verdict": "verified",
+          "note": "The forward natural component preserves the same ambient representative."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-quotient-natural-inverse-representative",
+          "verdict": "verified",
+          "note": "The inverse natural component preserves the same ambient representative."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-isomorphism",
+          "verdict": "verified",
+          "note": "The all-open kernel natural isomorphism retains comap_comp transport and full naturality; tests distinguish nilpotents and composed restrictions."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-component",
+          "verdict": "verified",
+          "note": "The natural component is exactly the all-open kernel transport equivalence."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-representative",
+          "verdict": "verified",
+          "note": "The forward component preserves all ambient quotient classes."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-inverse-representative",
+          "verdict": "verified",
+          "note": "The inverse component preserves all ambient quotient classes."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-closed-presheaf-isomorphism",
+          "verdict": "verified",
+          "note": "The whole closed-section natural isomorphism is defined by conjugating the sheafified kernel isomorphism through actual comparison isomorphisms and dependent inverse images."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-closed-presheaf-representative",
+          "verdict": "verified",
+          "note": "The forward closed-section comparison preserves restrictions of ambient sections; this does not assert all closed sections lift."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-closed-presheaf-inverse-representative",
+          "verdict": "verified",
+          "note": "The inverse closed-section comparison preserves restrictions of ambient sections."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-kernel-presheaf-closed-square",
+          "verdict": "verified",
+          "note": "The kernel-to-closed square is an equality of actual natural transformations on quotient representatives."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-isomorphism",
+          "verdict": "verified",
+          "note": "Native sheafification maps the kernel natural isomorphism on all sheafified sections; the nilpotent control uses injective ring isomorphisms."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-unit",
+          "verdict": "verified",
+          "note": "The native sheafification unit is natural with respect to the kernel comparison."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-unit-representative",
+          "verdict": "verified",
+          "note": "Forward comparison preserves unit images of ambient representatives."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-inverse-unit-representative",
+          "verdict": "verified",
+          "note": "Inverse comparison preserves unit images of ambient representatives."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-closed-square",
+          "verdict": "verified",
+          "note": "The closed/sheaf square holds on every sheafified section by the definition of the conjugated closed comparison."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-sheafification-uniqueness",
+          "verdict": "verified",
+          "note": "Uniqueness follows by cancelling the actual invertible iterated sheaf comparison."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/quotient-transport",
+          "verdict": "verified",
+          "note": "Equality transport of ideal data preserves all quotient representatives by equality induction."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/quotient-characterization",
+          "verdict": "verified",
+          "note": "Surjectivity of the quotient projection identifies the whole natural isomorphism with equality transport; no closed-section lifting is asserted."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-transport",
+          "verdict": "verified",
+          "note": "The representative characterization identifies the native kernel comparison with comap_comp equality transport."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-transport",
+          "verdict": "verified",
+          "note": "Functoriality of native sheafification identifies its whole comparison with equality transport."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/comparison-transport",
+          "verdict": "verified",
+          "note": "Conjugation by native comparisons along equality of ideal data gives transport of the actual dependent closed-section family."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-transport",
+          "verdict": "verified",
+          "note": "The closed comparison is the native dependent-family equality transport after the sheaf transport identification."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-left",
+          "verdict": "verified",
+          "note": "Left identity kernel coherence retains both comap_id and morphism identity endpoint transports."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-right",
+          "verdict": "verified",
+          "note": "Right identity kernel coherence retains comap_id after pullback along the first morphism."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/kernel-assoc",
+          "verdict": "verified",
+          "note": "Kernel associativity retains source associativity and final comap_comp after pullback endpoint transports."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-left",
+          "verdict": "verified",
+          "note": "Left identity sheaf coherence follows from equality transport for the actual sheafification family."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-right",
+          "verdict": "verified",
+          "note": "Right identity sheaf coherence retains the pulled-back comap_id endpoint transport."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/sheaf-assoc",
+          "verdict": "verified",
+          "note": "Whole sheaf associativity includes both scheme-morphism associativity and final ideal pullback transports."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-left",
+          "verdict": "verified",
+          "note": "Left identity closed coherence is an equality of complete dependent direct-image presheaf isomorphisms."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-right",
+          "verdict": "verified",
+          "note": "Right identity closed coherence retains the actual dependent inverse-image family and endpoint transport."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/composite-coherence/closed-assoc",
+          "verdict": "verified",
+          "note": "Closed-section associativity applies to all sections and retains both necessary endpoint transports."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-map",
+          "verdict": "verified",
+          "note": "The quotient-to-sheaf transformation composes the existing quotient-to-kernel map with the actual whiskered unit; four controls include nilpotents and conditional surjectivity obstruction."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/representative",
+          "verdict": "verified",
+          "note": "The quotient-to-sheaf representative formula follows by unfolding its actual composition."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/factor",
+          "verdict": "verified",
+          "note": "The closed factorization associates and combines actual whiskered maps before applying the existing sheaf factorization."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/unique",
+          "verdict": "verified",
+          "note": "Cancel the actual whiskered comparison as a monomorphism using the explicitly cited native dual cancellation API."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/component-iso",
+          "verdict": "verified",
+          "note": "Only the one affine inverse image is needed; cancel the invertible comparison from the actual factorization."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/natural-iso",
+          "verdict": "verified",
+          "note": "Affine inverse images give component isomorphisms and the native functor-category criterion gives the whole isomorphism."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/kernel-forward",
+          "verdict": "verified",
+          "note": "The kernel square retains both inverse-image reindexings, arbitrary first morphism, and affine second morphism."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-forward",
+          "verdict": "verified",
+          "note": "The closed square compares maps from quotient classes; it does not assume all closed sections lift."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-forward",
+          "verdict": "verified",
+          "note": "The sheaf square compares maps from quotient classes with the actual whiskered sheafification."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/kernel-inverse",
+          "verdict": "verified",
+          "note": "The inverse kernel square cancels the forward quotient isomorphism and uses kernel comparison inverse identities."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-inverse",
+          "verdict": "verified",
+          "note": "The inverse closed square never assumes the vertical quotient-to-closed comparison is invertible."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-inverse",
+          "verdict": "verified",
+          "note": "The inverse sheaf square never assumes the vertical quotient-to-sheaf comparison is invertible."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/closed-component",
+          "verdict": "verified",
+          "note": "The closed component square only requires the single intermediate inverse image to be affine."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/sheaf-component",
+          "verdict": "verified",
+          "note": "The sheaf component square only requires the single intermediate inverse image to be affine."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/injective-iff",
+          "verdict": "verified",
+          "note": "Bijectivity of the actual second factor transfers injectivity in both directions without assuming it."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-comparison-squares/surjective-iff",
+          "verdict": "verified",
+          "note": "Bijectivity of the actual second factor transfers surjectivity in both directions without asserting nonaffine lifting."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/ideal-transport",
+          "verdict": "verified",
+          "note": "Transport is along equality of full ideal data and preserves all actual quotient representatives."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/ext",
+          "verdict": "verified",
+          "note": "Extensionality uses surjectivity of the source quotient projection; the target need not admit ambient lifts."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/arrow-assoc",
+          "verdict": "verified",
+          "note": "Morphism associativity transports the actual inverse-image section ring and quotient representatives."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/left-representative",
+          "verdict": "verified",
+          "note": "Two successive comparisons preserve representatives when the two subsequent morphisms are affine."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/composition-transport",
+          "verdict": "verified",
+          "note": "Arbitrary equality of pulled-back ideal data is eliminated before evaluating the actual whiskered comparison."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/post-assoc",
+          "verdict": "verified",
+          "note": "Postcomposition applies an arbitrary target component to the associativity representative equality."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/right-representative",
+          "verdict": "verified",
+          "note": "The right route retains both morphism associativity and comap_comp ideal transport after composite reindexing."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/assoc",
+          "verdict": "verified",
+          "note": "Whole natural-isomorphism associativity follows from the two routes on source quotient representatives."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/arrow-unit",
+          "verdict": "verified",
+          "note": "The right identity transport preserves representatives for arbitrary first morphism."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quotient-tower/right-unit",
+          "verdict": "verified",
+          "note": "The right identity comparison retains full ideal-data transport and requires no affineness of the first morphism."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/geometrically-regular-algebra",
+          "verdict": "verified",
+          "note": "Geometric regularity is Noetherian and tests finite purely inseparable extensions; zero, dual-number and inseparable-field controls discriminate."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-geometricallyregular-regular",
+          "verdict": "verified",
+          "note": "Specializing the geometric-regularity condition to the trivial extension gives regularity."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-geometricallyregular-finite-extension",
+          "verdict": "verified",
+          "note": "The finite extension comparison includes separable extensions through the cited source reduction, rather than identifying it definitionally."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-geometricallyregular-algequiv",
+          "verdict": "verified",
+          "note": "The specified algebra equivalence transports the scalar action and tensor regularity predicates."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/regular-algebra-map",
+          "verdict": "verified",
+          "note": "The regular-map predicate uses flatness and every residue-field fibre, without finite presentation or ambient Noetherianity."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-regularalgebramap-flat",
+          "verdict": "verified",
+          "note": "Flatness is an explicit projection from the regular-map predicate."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-regularalgebramap-fibre",
+          "verdict": "verified",
+          "note": "Every actual residue-field fibre has the stated Noetherian geometric-regularity predicate."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-regularalgebramap-field-iff",
+          "verdict": "verified",
+          "note": "The separability equivalence is limited to finite field extensions; transcendental extensions are excluded explicitly."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/regular-locus",
+          "verdict": "corrected",
+          "note": "Regular locus is a subset before openness; added ring-equivalence transport through the contracted prime and native localization comparison. Field/zero/dual-number tests distinguish regularity from flatness."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-mem-regularlocus",
+          "verdict": "verified",
+          "note": "Membership uses the actual native localization at the selected prime."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-regularlocus-eq-univ",
+          "verdict": "verified",
+          "note": "Regularity of the ring supplies regularity of all prime localizations, including the empty spectrum."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/g-ring",
+          "verdict": "corrected",
+          "note": "All local-completion prime fibres, native Noetherianity and the canonical completion map are retained; added ring-equivalence transport. Complete local G-ring source proof leaves remain explicit."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isgring-noetherian",
+          "verdict": "verified",
+          "note": "Noetherianity is projected from the G-ring condition."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isgring-completion-regular",
+          "verdict": "verified",
+          "note": "The completion map is the actual local maximal-ideal adic completion map, not just a closed-fibre comparison."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/j2-ring",
+          "verdict": "corrected",
+          "note": "J-2 quantifies over every finite-type algebra, allowing singular and empty regular loci; added ring-equivalence transport of that quantification."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isj2-noetherian",
+          "verdict": "verified",
+          "note": "Noetherianity is retained in the J-2 predicate."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isj2-regularlocus-open",
+          "verdict": "verified",
+          "note": "The open regular locus is supplied for each finite-type algebra rather than only the base ring."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quasi-excellent-ring",
+          "verdict": "corrected",
+          "note": "Quasi-excellence is G-ring and J-2 without universal catenarity; added the explicit Noetherian projection, proved by the first conjunct in the suggested file."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isquasiexcellentring-gring",
+          "verdict": "verified",
+          "note": "The G-ring condition is the first quasi-excellence projection."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isquasiexcellentring-j2",
+          "verdict": "verified",
+          "note": "The J-2 condition is the second quasi-excellence projection."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellent-ring",
+          "verdict": "verified",
+          "note": "Excellence imports the existing strict-chain boundedness/saturated-length catenary carrier rather than defining a second one."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentring-quasiexcellent",
+          "verdict": "verified",
+          "note": "An excellent ring projects to quasi-excellence without imposing reducedness."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentring-finitetype",
+          "verdict": "verified",
+          "note": "Finite-type excellent-algebra closure retains its specified base action and source proof leaves."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentring-localization",
+          "verdict": "verified",
+          "note": "Excellent localization allows arbitrary multiplicative submonoids, without finite-generation assumptions."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/quasi-excellent-scheme",
+          "verdict": "corrected",
+          "note": "Existential affine neighborhoods define quasi-excellence, while every-affine equivalence is a separate API; added scheme-isomorphism transport via actual affine section-ring equivalences."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isquasiexcellentscheme-affine-iff",
+          "verdict": "verified",
+          "note": "The every-affine equivalence requires the source locality comparison, recorded as an open proof obligation."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isquasiexcellentscheme-locallynoetherian",
+          "verdict": "verified",
+          "note": "Local Noetherianity follows from the actual quasi-excellent affine section rings."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:key/excellent-schemes",
+          "verdict": "verified",
+          "note": "The reserved excellent-schemes definition is planned with discriminating nonreduced and empty controls; CM/S_n extensions remain explicitly unplanned."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentscheme-affine-iff",
+          "verdict": "verified",
+          "note": "The every-affine excellence criterion follows from the recorded source locality comparison."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentscheme-quasiexcellent",
+          "verdict": "verified",
+          "note": "Affine excellent rings give the quasi-excellent scheme condition pointwise."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.0/excellence-isexcellentscheme-locallynoetherian",
+          "verdict": "verified",
+          "note": "Affine excellent section rings give native local Noetherianity."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/representable-diagonal",
+          "verdict": "verified",
+          "note": "Representable diagonal is a relative Yoneda pullback condition, without quasi-compactness or a sheaf assumption."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/representable-diagonal-of-scheme",
+          "verdict": "verified",
+          "note": "Native scheme fibre products represent every scheme diagonal, without quasi-separatedness."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/representable-diagonal-iso",
+          "verdict": "verified",
+          "note": "Actual presheaf isomorphisms transport relative diagonal representability."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/representable-diagonal-from-scheme",
+          "verdict": "verified",
+          "note": "Pulling back the representable diagonal represents every morphism from a scheme presheaf."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas",
+          "verdict": "verified",
+          "note": "An etale atlas is representable with etale surjective scheme base changes; objectwise surjectivity is correctly excluded."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas-representable",
+          "verdict": "verified",
+          "note": "Relative scheme representability is an explicit atlas projection."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas-etale",
+          "verdict": "verified",
+          "note": "Etaleness holds for every represented scheme base change of the atlas."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas-surjective",
+          "verdict": "verified",
+          "note": "Surjectivity holds for every represented scheme base change of the atlas."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/etale-atlas-yoneda-iff",
+          "verdict": "verified",
+          "note": "Yoneda identifies the atlas condition with the actual scheme morphism being etale and surjective."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space",
+          "verdict": "verified",
+          "note": "Algebraic spaces use the native fppf sheaf, diagonal and etale atlas; the relative slice-site bridge remains explicit."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-sheaf",
+          "verdict": "verified",
+          "note": "The fppf sheaf condition is an algebraic-space projection."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-diagonal",
+          "verdict": "verified",
+          "note": "Representable diagonal is an algebraic-space projection."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-atlas",
+          "verdict": "verified",
+          "note": "The atlas projection supplies both a scheme and the actual relatively representable map."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-of-scheme",
+          "verdict": "verified",
+          "note": "Native fppf subcanonicity and the identity atlas embed every scheme, without quasi-separatedness."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/algebraic-space-iso",
+          "verdict": "verified",
+          "note": "Presheaf isomorphisms transport all three conditions; a chosen atlas is not part of the object carrier."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/sheaf-algebra",
+          "verdict": "verified",
+          "note": "Associative unital central-scalars sheaf algebras must admit noncommutative matrices; the native module/algebra-object bridge remains a gap."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/azumaya",
+          "verdict": "verified",
+          "note": "Azumaya degree is locally constant, not a forced global integer; positive matrix degrees and dual-number exclusion are retained."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/stabilized-equivalence",
+          "verdict": "verified",
+          "note": "Stabilization uses positive-rank vector bundles and algebra isomorphisms; zero-rank stabilization would collapse all classes."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:key/scheme-brauer",
+          "verdict": "verified",
+          "note": "The reserved scheme Brauer construction uses the stabilized Azumaya quotient, tensor and opposite; its map into H2 is injective without claiming equality with all torsion."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/cohomological-brauer",
+          "verdict": "verified",
+          "note": "Cohomological Brauer is the positive-integer torsion subgroup of the existing H2 carrier; units-sheaf transport remains open."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/affine-comparison",
+          "verdict": "verified",
+          "note": "The affine comparison must prove equivalence with native IsAzumaya through the actual quasi-coherent dictionary."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/tensor",
+          "verdict": "verified",
+          "note": "A common etale splitting cover gives the positive-degree matrix tensor comparison."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/opposite",
+          "verdict": "verified",
+          "note": "Matrix transposition splits the opposite algebra on the same etale cover."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/equivalence-refl",
+          "verdict": "verified",
+          "note": "Rank-one scalar bundles and tensor units give reflexivity."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/equivalence-symm",
+          "verdict": "verified",
+          "note": "Inverting the actual algebra isomorphism and swapping bundles gives symmetry."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/equivalence-trans",
+          "verdict": "verified",
+          "note": "Tensoring positive-rank bundle witnesses proves transitivity through the recorded endomorphism comparison gap."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/operation-well-defined",
+          "verdict": "verified",
+          "note": "Tensoring stabilization witnesses gives well-defined multiplication on classes."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/unit",
+          "verdict": "verified",
+          "note": "The scalar sheaf algebra is the tensor unit with the actual algebra structure."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/inverse",
+          "verdict": "verified",
+          "note": "The enveloping-endomorphism isomorphism uses the affine native criterion and positive-rank descent."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/pullback-id",
+          "verdict": "verified",
+          "note": "Identity pullback descends its canonical algebra-sheaf isomorphism to quotient classes."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/pullback-comp",
+          "verdict": "verified",
+          "note": "Composite pullback descends the canonical comparison, without equating selected charts."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/end-zero",
+          "verdict": "verified",
+          "note": "The stabilization witness identifies every positive-rank bundle endomorphism algebra with the neutral class."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/field-comparison",
+          "verdict": "verified",
+          "note": "The existing field Brauer carrier alone does not supply the scheme/field bridge; central-simple and stabilization comparisons remain explicit."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/delta-injective",
+          "verdict": "verified",
+          "note": "Equal splitting-gerbe classes give a neutral difference and positive-rank stabilization witness; no surjectivity is asserted."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/degree-annihilation",
+          "verdict": "verified",
+          "note": "Degree annihilation follows the antisymmetrizer image construction and does not assume factorial invertibility."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/torsion-image",
+          "verdict": "verified",
+          "note": "Torsion requires connected or quasi-compact scope to obtain a uniform degree bound; no unrestricted disconnected claim appears."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/pullback",
+          "verdict": "verified",
+          "note": "Brauer pullback needs no flatness; identity, split matrices and real-to-complex quaternion controls discriminate."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/splitting-torsor",
+          "verdict": "verified",
+          "note": "The frame sheaf is a PGL torsor using algebra isomorphisms, with generic torsor and PGL carrier suppliers explicitly missing."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/delta",
+          "verdict": "verified",
+          "note": "The cohomology class uses the GL/PGL boundary and scalar-banded gerbe for variable degree; tensor compatibility and units sheaf remain gaps."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/affine-dualizing",
+          "verdict": "verified",
+          "note": "Dualizing complexes use finite injective dimension, finite cohomology and the actual homothety, with a non-CM two-degree control."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/scheme-dualizing",
+          "verdict": "verified",
+          "note": "Scheme dualizing complexes use affine-local derived sheafification; disconnected components may have unequal shifts."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/normalized-dualizing",
+          "verdict": "corrected",
+          "note": "Normalization uses derived residue field in degree zero and cohomological shifts; added the actual section 47.16 opening definition as source, separately retaining finite-local preservation 47.16.1."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:key/coherent-duality",
+          "verdict": "verified",
+          "note": "The reserved coherent-duality construction is on Noetherian separated finite-type schemes and actual derived O-modules; proper adjunction, compactification and coherence remain gaps."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/affine-cover",
+          "verdict": "verified",
+          "note": "Affine-cover recognition requires localized derived complexes and the explicitly unread source leaves."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/biduality",
+          "verdict": "verified",
+          "note": "Biduality is on coherent derived complexes and exchanges bounded-above and bounded-below scopes, with affine descent still open."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/composition",
+          "verdict": "verified",
+          "note": "Composition retains both unit and associativity pseudofunctor constraints."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/proper-adjunction",
+          "verdict": "verified",
+          "note": "Proper upper shriek on the bounded-below category is the restriction of the unbounded proper right adjoint."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/trace-comp",
+          "verdict": "verified",
+          "note": "Proper trace transitivity follows from composite adjunction and actual counit uniqueness."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/finite-formula",
+          "verdict": "verified",
+          "note": "Finite pushforward of upper shriek is derived Hom with its algebra action; affine descent remains explicit."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/closed-formula",
+          "verdict": "verified",
+          "note": "The closed-immersion formula recovers the complex on X through its O_X-module action on derived Hom."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/cartier-formula",
+          "verdict": "verified",
+          "note": "The Cartier formula retains the restricted normal line and negative cohomological shift."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/regular-immersion",
+          "verdict": "verified",
+          "note": "The Koszul-regular formula retains the top exterior normal bundle and codimension negative shift; Koszul infrastructure is an external leaf."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/smooth-proper",
+          "verdict": "verified",
+          "note": "Smooth proper relative dimension d gives the top differential bundle and positive shift d."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/preserves-dualizing",
+          "verdict": "verified",
+          "note": "Upper shriek preserves dualizing complexes via the closed-immersion and affine-space comparisons, with exact source leaves recorded."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/serre-proper",
+          "verdict": "verified",
+          "note": "Proper Serre duality uses H^-i and the vector-space dual on unbounded quasi-coherent complexes, not an unmentioned boundedness restriction."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/canonical-module",
+          "verdict": "verified",
+          "note": "The bottom dualizing cohomology has S2 and support on top-dimensional components; no Cohen-Macaulay collapse is assumed."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/trace",
+          "verdict": "verified",
+          "note": "Proper coherent trace is derived evaluation/counit; the dual-number algebra trace pairing is correctly excluded as a substitute."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/linearized-sheaf",
+          "verdict": "verified",
+          "note": "The general semilinear action may move the ringed base; native Action on a fixed module category is only a special case."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/enough-injectives",
+          "verdict": "verified",
+          "note": "Enough injectives is stated for arbitrary discrete groups; coinduction, products and the unread Tohoku leaf are explicit."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/invariant-sections",
+          "verdict": "verified",
+          "note": "Invariant global sections form a left-exact functor since the total open is stable even for moving bases; sign and trivial actions discriminate."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:key/equivariant-sheaf-cohomology",
+          "verdict": "verified",
+          "note": "The reserved equivariant cohomology derives the composite rather than taking invariants afterward; C2 integral and translation controls detect the distinction."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/ext",
+          "verdict": "verified",
+          "note": "Equivariant Ext derives Hom in the second variable, with the integral C2 point comparison retained."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/support",
+          "verdict": "verified",
+          "note": "Supported equivariant cohomology derives the kernel of restriction and invariants; unstable support is excluded."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/hom-invariants",
+          "verdict": "verified",
+          "note": "Equivariant maps are invariants under conjugation of actual semilinear linearizations."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/degree-zero",
+          "verdict": "verified",
+          "note": "The zeroth derived functor is actual invariant global sections."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/ordinary-comparison",
+          "verdict": "verified",
+          "note": "The trivial group comparison transports the equivalence with ordinary sheaf categories."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/point-comparison",
+          "verdict": "verified",
+          "note": "On a point the native group-cohomology comparison still requires resolution transport."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/invariants-acyclic",
+          "verdict": "corrected",
+          "note": "Corrected false exact-free-sheaf proof. Embed an underlying equivariant injective in ordinary injective J, split the induced mono into coinduction, take sections and use coinduced group-module acyclicity and retracts. All formal comparison leaves stay open; F_p tensoring disproves the old argument."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/spectral-sequence",
+          "verdict": "verified",
+          "note": "The first-quadrant spectral sequence requires the corrected acyclicity and ordinary-derived-sections comparison; convergence remains a proof gap."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.2/localization",
+          "verdict": "verified",
+          "note": "Localization requires stable closed support and invariant complement, plus ordinary support exactness and equivariant acyclicity leaves."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/topological-extension",
+          "verdict": "verified",
+          "note": "The native abstract extension is refined by actual embedding, continuity and quotient topology with discrete kernel."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/local-splitting-chart",
+          "verdict": "verified",
+          "note": "Local splitting includes an open subgroup, continuous homomorphism and actual product homeomorphism; C4 prevents a false global-splitting requirement."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/kernel-iff",
+          "verdict": "verified",
+          "note": "The native exact range/kernel equation gives kernel recognition in the topological refinement."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/inl-project",
+          "verdict": "verified",
+          "note": "The native extension projection-of-inclusion lemma kills every kernel point."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/section-one",
+          "verdict": "verified",
+          "note": "The witnessed section is a homomorphism and preserves one."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/section-mul",
+          "verdict": "verified",
+          "note": "The witnessed section preserves group multiplication."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/chart-value",
+          "verdict": "verified",
+          "note": "The witnessed homeomorphism has the required actual kernel-times-section evaluation formula."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:key/galois-gerbs",
+          "verdict": "corrected",
+          "note": "The algebraic kernel, Krull quotient, algebraic semilinearity and effective local descent are essential, beyond the typed topological prefix. Added a split topological extension whose real-linear involution is not complex-antilinear as a concrete non-example; original C4 test already detects lack of global splitting."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/morphism",
+          "verdict": "verified",
+          "note": "Gerb morphisms retain both continuous extension and algebraic kernel maps; discrete continuity alone does not imply algebraicity."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/conjugacy",
+          "verdict": "verified",
+          "note": "Conjugators lie in the target algebraic kernel and are retained before any requested quotient."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/neutral",
+          "verdict": "verified",
+          "note": "The neutral extension imports native semidirect products; finite fields of point definition give continuity of the discrete Galois action."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/conjugator-scheme",
+          "verdict": "verified",
+          "note": "Conjugator representability and algebraic descent are explicit obligations beyond the R-point formula."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/pro-gerb",
+          "verdict": "verified",
+          "note": "Pro-gerbs retain finite stages and stagewise conjugacy, with no unproved compatible inverse-limit conjugator."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/centralizer",
+          "verdict": "verified",
+          "note": "The neutral-target centralizer descends independently of lifts because source-kernel images centralize the centralizer."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/cocycle",
+          "verdict": "verified",
+          "note": "Fixed-algebraic-kernel maps give continuous cocycles for the descended centralizer action, with conjugacy corresponding to a trivial H1 class."
+        },
+        {
+          "nodeId": "SchemeAndStackFoundations:SF.1/splitting-field-extension",
+          "verdict": "verified",
+          "note": "Splitting-field extension changes both Galois quotient and algebraic-kernel points through pullback and pushout; topology and algebraic comparisons remain gaps."
+        }
+      ]
+    }
+  ]
 }
