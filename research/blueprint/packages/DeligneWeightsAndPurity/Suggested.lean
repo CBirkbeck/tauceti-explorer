@@ -48,8 +48,14 @@ import Mathlib.LinearAlgebra.Dimension.Finrank
 import Mathlib.RingTheory.IntegralClosure.IsIntegral.Basic
 import Mathlib.Algebra.DirectSum.Module
 import Mathlib.Order.SupIndep
+import Mathlib.LinearAlgebra.TensorPower.Basic
+import Mathlib.LinearAlgebra.PiTensorProduct.Finite
+import Mathlib.LinearAlgebra.Charpoly.BaseChange
+import Mathlib.NumberTheory.Padics.PadicNumbers
+import Mathlib.LinearAlgebra.Semisimple
 
 open Polynomial
+open scoped TensorProduct
 
 namespace TauCeti.Weights
 
@@ -175,6 +181,10 @@ example (ι : E →+* ℂ) (q : ℝ) {ζ : E} {k : ℕ} (hk : 0 < k) (hζ : ζ ^
 example [CharZero E] (ι : E →+* ℂ) : iotaWeight ι 2 2 = 2 ∧ iotaWeight ι 2 (2⁻¹) = -2 := by
   sorry
 
+/-- Rational bases are fixed by every coefficient embedding (README 0.4). -/
+theorem iotaWeight_rat [CharZero E] (ι : E →+* ℂ) (q : ℚ) (hq : 1 < q) :
+    iotaWeight ι q (q : E) = 2 ∧ iotaWeight ι q (q⁻¹ : E) = -2 := by sorry
+
 end IotaWeight
 
 /-! ## Weights of an invertible endomorphism (`DeligneWeightsAndPurity:DWP.0/endomorphism-weights`) -/
@@ -218,11 +228,14 @@ theorem eigenvalues_map_aut (F : V →ₗ[E] V) (τ : AlgebraicClosure E ≃ₐ[
   sorry
 
 /-- Test `isPure_jordanBlock`: `[[q, 1], [0, q]]` is pure of weight `2` (here `q = 2`, over `ℚ`). -/
-example : IsPure (E := ℚ) 2 2 (Matrix.toLin' !![(2 : ℚ), 1; 0, 2]) := by
+example : IsPure (E := ℚ) 2 2 (Matrix.toLin' !![(2 : ℚ), 1; 0, 2]) ∧
+    ¬ Module.End.IsSemisimple (Matrix.toLin' !![(2 : ℚ), 1; 0, 2]) := by
   sorry
 
 /-- Test `not_isPure_diag`: `diag(1, 2)` is not pure relative to `2`. -/
-example : ∀ n : ℤ, ¬ IsPure (E := ℚ) 2 n (Matrix.toLin' !![(1 : ℚ), 0; 0, 2]) := by
+example : (∀ n : ℤ, ¬ IsPure (E := ℚ) 2 n (Matrix.toLin' !![(1 : ℚ), 0; 0, 2])) ∧
+    ∀ ι : AlgebraicClosure ℚ →+* ℂ,
+      iotaWeights ι 2 (Matrix.toLin' !![(1 : ℚ), 0; 0, 2]) = {0, 2} := by
   sorry
 
 end Endomorphism
@@ -416,7 +429,7 @@ theorem eigenvalues_exteriorPower (F : V →ₗ[E] V) (k d : ℕ)
       ((Finset.univ : Finset (Fin d)).powersetCard k).val.map
         (fun s => ∏ i ∈ s, a i) := by sorry
 
-theorem IsPure.exteriorPower {q : ℝ} {n : ℤ} {F : V →ₗ[E] V}
+theorem IsPure.exteriorPower {q : ℝ} (hq : 1 < q) {n : ℤ} {F : V →ₗ[E] V}
     (hF : IsPure q n F) (k : ℕ) :
     IsPure q ((k : ℤ) * n) (exteriorPower.map k F) := by sorry
 
@@ -426,7 +439,9 @@ example (ι : AlgebraicClosure ℚ →+* ℂ) :
     iotaWeights ι 2 ((2 : ℚ) • (0 : ℚ →ₗ[ℚ] ℚ)) ≠ {2} := by sorry
 
 /-- Test `isPure_zero_space`: the zero-dimensional module has no eigenvalues. -/
-example (q : ℝ) (n : ℤ) : IsPure q n (LinearMap.id : (Fin 0 → E) →ₗ[E] (Fin 0 → E)) := by sorry
+example (q : ℝ) (n : ℤ) (ι : AlgebraicClosure E →+* ℂ) :
+    IsPure q n (LinearMap.id : (Fin 0 → E) →ₗ[E] (Fin 0 → E)) ∧
+      iotaWeights ι q (LinearMap.id : (Fin 0 → E) →ₗ[E] (Fin 0 → E)) = ∅ := by sorry
 
 /-- Test `tateTwist_weight`: geometric q⁻¹ on a line has weight −2. -/
 example : IsPure 2 (-2) ((2⁻¹ : ℚ) • LinearMap.id : ℚ →ₗ[ℚ] ℚ) := by sorry
@@ -652,6 +667,48 @@ example (b : ℂ) (hb : ¬ IsAlgebraic ℚ b) (hnorm : ‖b‖ = (2 : ℝ) ^ (1 
 
 /-- Test `isWeilNumber_rootOfUnity`, zero non-example. -/
 example {q : ℝ} (hq : 1 < q) (n : ℤ) : ¬ IsWeilNumber q n (0 : ℚ) := by sorry
+/-- Repeated roots remain repeated when a polynomial merges their values
+(README 0.11): squaring diag(2,-2) has two roots equal to 4. -/
+example : eigenvalues ((Matrix.toLin' !![(2 : ℚ), 0; 0, -2]) ^ 2) = {4, 4} := by sorry
+
+/-- A reciprocal pairing sees the full Jordan block, not just its eigenline
+(README 0.16). Here the scalar is 3 and the paired operator is 3 times the inverse transpose. -/
+example :
+    let F := Matrix.toLin' !![(2 : ℚ), 1; 0, 2]
+    let G := Matrix.toLin' !![(3 / 2 : ℚ), 0; -3 / 4, 3 / 2]
+    (∀ x y : Fin 2 → ℚ, (∑ i, F x i * G y i) = 3 * ∑ i, x i * y i) ∧
+      eigenvalues G = {3 / 2, 3 / 2} ∧
+      Module.finrank (AlgebraicClosure ℚ)
+        (Module.End.maxGenEigenspace (G.baseChange (AlgebraicClosure ℚ)) (3 / 2)) = 2 := by sorry
+
+/-- Positive traces fail to determine the characteristic polynomial in characteristic
+p, even when dimensions agree (README 0.10). -/
+example (p : ℕ) [Fact p.Prime] :
+    let F : (Fin p → ZMod p) →ₗ[ZMod p] (Fin p → ZMod p) := LinearMap.id
+    let G : (Fin p → ZMod p) →ₗ[ZMod p] (Fin p → ZMod p) := 0
+    (∀ k : ℕ, 0 < k → LinearMap.trace (ZMod p) (Fin p → ZMod p) (F ^ k) =
+      LinearMap.trace (ZMod p) (Fin p → ZMod p) (G ^ k)) ∧ F.charpoly ≠ G.charpoly := by sorry
+
+/-- Purity of the zero space is vacuous but its zeroth exterior power is a line.
+This catches an exterior-purity statement that drops `q > 1` (README 0.14). -/
+example :
+    IsPure 1 0 (LinearMap.id : (Fin 0 → ℚ) →ₗ[ℚ] (Fin 0 → ℚ)) ∧
+      ¬ IsPure 1 0 (exteriorPower.map 0
+        (LinearMap.id : (Fin 0 → ℚ) →ₗ[ℚ] (Fin 0 → ℚ))) := by sorry
+
+/-- The rational operator with eigenvalues 1 ± √2 has no rational stable line;
+its fixed-ι weight lines therefore require coefficient extension (README 0.18). -/
+example :
+    let F := Matrix.toLin' !![(1 : ℚ), 2; 1, 1]
+    ∀ U : Submodule ℚ (Fin 2 → ℚ), (∀ x ∈ U, F x ∈ U) → Module.finrank ℚ U ≠ 1 := by sorry
+
+/-- Every complex embedding gives the repeated Jordan root weight two, while
+rotation roots have weight one (README 0.7). -/
+example (ι : AlgebraicClosure ℚ →+* ℂ) :
+    IsIotaPureEnd ι 2 2 (Matrix.toLin' !![(2 : ℚ), 1; 0, 2]) ∧
+      IsIotaPureEnd ι 2 1 (Matrix.toLin' !![(0 : ℚ), -2; 1, 0]) ∧
+      iotaWeights ι 2 (Matrix.toLin' !![(0 : ℚ), -2; 1, 0]) = {1} := by sorry
+
 end NumericCounterexamples
 
 /-! ## Stalkwise operations. A mixed subsheaf filtration still requires the genuine category. -/
@@ -741,6 +798,34 @@ theorem complex_isomorphism_extends [IsAlgClosed E] (j : k →+* E) (σ : k →+
 theorem isWeilNumber_iff_all_complex_embeddings [Algebra ℚ E]
     (hcard : Cardinal.mk E ≤ Cardinal.mk ℂ) {q : ℝ} (hq : 1 < q) {n : ℤ} {α : E} :
     IsWeilNumber q n α ↔ ∀ ι : E →+* ℂ, ‖ι α‖ = q ^ ((n : ℝ) / 2) := by sorry
+/-- A prescribed transcendental image can be obtained by first identifying the
+rational function subfields (README 0.5(iv); Weil II (1.2.11), p. 156). -/
+theorem complex_embedding_prescribed_transcendental [Algebra ℚ E]
+    (hcard : Cardinal.mk E ≤ Cardinal.mk ℂ) (α : E) (hα : ¬ IsAlgebraic ℚ α)
+    (z : ℂ) (hz : ¬ IsAlgebraic ℚ z) : ∃ ι : E →+* ℂ, ι α = z := by sorry
+
+theorem complex_isomorphism_prescribed_transcendental [Algebra ℚ E] [IsAlgClosed E]
+    (hcard : Cardinal.mk E = Cardinal.mk ℂ) (α : E) (hα : ¬ IsAlgebraic ℚ α)
+    (z : ℂ) (hz : ¬ IsAlgebraic ℚ z) : ∃ ι : E ≃+* ℂ, ι α = z := by sorry
+
+/-- The cardinality input needed for the chosen p-adic coefficient isomorphism
+(README 0.5(iii); Weil II (1.2.11), p. 156). -/
+theorem cardinal_padic_and_algebraicClosure (p : ℕ) [Fact p.Prime] :
+    Cardinal.mk ℚ_[p] = Cardinal.mk ℂ ∧
+      Cardinal.mk (AlgebraicClosure ℚ_[p]) = Cardinal.mk ℂ := by sorry
+
+/-- Specifying the embedding of the countable subfield remains part of the
+p-adic coefficient isomorphism, rather than just its cardinality. -/
+theorem padic_complex_isomorphism_extends (p : ℕ) [Fact p.Prime]
+    (j : k →+* AlgebraicClosure ℚ_[p]) (σ : k →+* ℂ) :
+    ∃ ι : AlgebraicClosure ℚ_[p] ≃+* ℂ, ι.toRingHom.comp j = σ := by sorry
+
+/-- For an algebraically closed coefficient field of continuum cardinality, all
+isomorphisms suffice in the all-embeddings purity criterion (README 0.6). -/
+theorem isWeilNumber_iff_all_complex_isomorphisms [Algebra ℚ E] [IsAlgClosed E]
+    (hcard : Cardinal.mk E = Cardinal.mk ℂ) {q : ℝ} (hq : 1 < q) {n : ℤ} {α : E} :
+    IsWeilNumber q n α ↔ ∀ ι : E ≃+* ℂ, ‖ι α‖ = q ^ ((n : ℝ) / 2) := by sorry
+
 end ComplexEmbeddings
 
 section FurtherSpectral
@@ -767,8 +852,399 @@ theorem weight_decomposition (F : V ≃ₗ[E] V) {q : ℝ} (hq : 1 < q)
 theorem trace_pow_eq_sum_eigenvalues (F : V →ₗ[E] V) (n : ℕ) :
     algebraMap E (AlgebraicClosure E) (LinearMap.trace E V (F ^ n)) =
       ((eigenvalues F).map fun α => α ^ n).sum := by sorry
+
+/-- Finite trace determinacy (README 0.10(iii), Weil I (1.5.3), p. 275).
+Equal dimensions are essential: positive traces do not see extra zero roots. -/
+theorem charpoly_eq_of_trace_powers [CharZero E]
+    {W : Type*} [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (F : V →ₗ[E] V) (G : W →ₗ[E] W)
+    (hdim : Module.finrank E V = Module.finrank E W)
+    (htrace : ∀ k : ℕ, 1 ≤ k → k ≤ Module.finrank E V →
+      LinearMap.trace E V (F ^ k) = LinearMap.trace E W (G ^ k)) :
+    F.charpoly = G.charpoly ∧ F.charpoly.reverse = G.charpoly.reverse ∧
+      eigenvalues F = eigenvalues G := by sorry
+
+/-- Polynomial spectral mapping retains every generalized eigenvector, even when
+several characteristic roots have the same polynomial image (README 0.11). -/
+theorem maxGenEigenspace_le_polynomial (F : V →ₗ[E] V) (p : E[X])
+    (α : AlgebraicClosure E) :
+    Module.End.maxGenEigenspace (F.baseChange (AlgebraicClosure E)) α ≤
+      Module.End.maxGenEigenspace ((aeval F p).baseChange (AlgebraicClosure E))
+        (p.eval₂ (algebraMap E (AlgebraicClosure E)) α) := by sorry
+
+/-- Inverse spectral mapping before taking a dual (README 0.11). -/
+theorem eigenvalues_inverse (F : V ≃ₗ[E] V) :
+    eigenvalues F.symm.toLinearMap = (eigenvalues F.toLinearMap).map (·⁻¹) := by sorry
+
+/-- Finite constant-field extension reflects purity, including root collisions
+(README 0.12; Weil II (1.1.13), p. 152). -/
+theorem isPure_pow_iff (F : V ≃ₗ[E] V) {q : ℝ} (hq : 1 < q)
+    (n : ℤ) {r : ℕ} (hr : 0 < r) :
+    IsPure (q ^ r) n (F.toLinearMap ^ r) ↔ IsPure q n F.toLinearMap := by sorry
+
+theorem isIotaPureEnd_pow_iff (ι : AlgebraicClosure E →+* ℂ)
+    (F : V ≃ₗ[E] V) {q : ℝ} (hq : 1 < q) (β : ℝ) {r : ℕ} (hr : 0 < r) :
+    IsIotaPureEnd ι (q ^ r) β (F.toLinearMap ^ r) ↔
+      IsIotaPureEnd ι q β F.toLinearMap := by sorry
+
+/-- A multiset equality, rather than only the equality of weight sets. -/
+theorem iotaWeight_multiset_pow (ι : AlgebraicClosure E →+* ℂ)
+    (F : V ≃ₗ[E] V) {q : ℝ} (hq : 1 < q) {r : ℕ} (hr : 0 < r) :
+    (eigenvalues (F.toLinearMap ^ r)).map (iotaWeight ι (q ^ r)) =
+      (eigenvalues F.toLinearMap).map (iotaWeight ι q) := by sorry
+
+/-- Different integer pure weights have no intertwiner (README 0.17(i)). -/
+theorem eq_zero_of_pure_weights
+    {W : Type*} [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    {q : ℝ} (hq : 1 < q) {n m : ℤ} (hnm : n ≠ m)
+    (F : V →ₗ[E] V) (G : W →ₗ[E] W) (hF : IsPure q n F) (hG : IsPure q m G)
+    (u : V →ₗ[E] W) (hu : u ∘ₗ F = G ∘ₗ u) : u = 0 := by sorry
+
+theorem eq_zero_of_iotaPure_weights
+    {W : Type*} [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (ι : AlgebraicClosure E →+* ℂ) {q : ℝ} (hq : 1 < q) {β γ : ℝ} (hβγ : β ≠ γ)
+    (F : V →ₗ[E] V) (G : W →ₗ[E] W)
+    (hF : IsIotaPureEnd ι q β F) (hG : IsIotaPureEnd ι q γ G)
+    (u : V →ₗ[E] W) (hu : u ∘ₗ F = G ∘ₗ u) : u = 0 := by sorry
+
+/-- A distinct-weight extension has a unique stable complement; vector-space
+splitting alone would not give uniqueness (README 0.17(ii), Weil I p. 277). -/
+theorem existsUnique_invariant_complement_of_pure
+    (F : V →ₗ[E] V) (U : Submodule E V) (hU : ∀ x ∈ U, F x ∈ U)
+    {q : ℝ} (hq : 1 < q) {n m : ℤ} (hnm : n ≠ m)
+    (hsub : IsPure q n (F.restrict hU)) (hquot : IsPure q m (U.mapQ U F hU)) :
+    ∃! C : Submodule E V, IsCompl U C ∧ ∀ x ∈ C, F x ∈ C := by sorry
+
+theorem existsUnique_invariant_complement_of_iotaPure
+    (ι : AlgebraicClosure E →+* ℂ) (F : V →ₗ[E] V)
+    (U : Submodule E V) (hU : ∀ x ∈ U, F x ∈ U)
+    {q : ℝ} (hq : 1 < q) {β γ : ℝ} (hβγ : β ≠ γ)
+    (hsub : IsIotaPureEnd ι q β (F.restrict hU))
+    (hquot : IsIotaPureEnd ι q γ (U.mapQ U F hU)) :
+    ∃! C : Submodule E V, IsCompl U C ∧ ∀ x ∈ C, F x ∈ C := by sorry
+
+/-- The descended integer summands are stable, pure, and have precisely the
+weight-factor characteristic polynomials (README 0.18(i), Weil I p. 277).
+The coefficient field has characteristic zero, so it is perfect. -/
+theorem weight_decomposition_stable_pure (F : V ≃ₗ[E] V) {q : ℝ} (hq : 1 < q)
+    (hweights : ∀ α ∈ eigenvalues F.toLinearMap, ∃ n : ℤ, IsWeilNumber q n α) :
+    ∃ s : Finset ℤ, ∃ p : ℤ → E[X],
+      F.toLinearMap.charpoly = ∏ n ∈ s, p n ∧
+      (∀ n : ℤ, (p n).Monic) ∧ (∀ n ∉ s, p n = 1) ∧
+      let 𝒱 := fun n : ℤ => LinearMap.ker (aeval F.toLinearMap (p n))
+      DirectSum.IsInternal 𝒱 ∧
+      ∃ hstable : ∀ n : ℤ, ∀ x ∈ 𝒱 n, F x ∈ 𝒱 n,
+        ∀ n : ℤ, IsPure q n (F.toLinearMap.restrict (hstable n)) ∧
+          (F.toLinearMap.restrict (hstable n)).charpoly = p n := by sorry
+
+/-- Equivariant maps preserve any descended pure-weight decomposition
+(README 0.18(iii)); no choice of an eigenbasis or semisimplicity. -/
+theorem weight_decomposition_functorial
+    {W : Type*} [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (F : V →ₗ[E] V) (G : W →ₗ[E] W) {q : ℝ} (hq : 1 < q)
+    (𝒱 : ℤ → Submodule E V) (𝒲 : ℤ → Submodule E W)
+    (h𝒱 : DirectSum.IsInternal 𝒱) (h𝒲 : DirectSum.IsInternal 𝒲)
+    (hF : ∀ n, ∀ x ∈ 𝒱 n, F x ∈ 𝒱 n) (hG : ∀ n, ∀ x ∈ 𝒲 n, G x ∈ 𝒲 n)
+    (hpF : ∀ n, IsPure q n (F.restrict (hF n)))
+    (hpG : ∀ n, IsPure q n (G.restrict (hG n)))
+    (u : V →ₗ[E] W) (hu : u ∘ₗ F = G ∘ₗ u) (n : ℤ) :
+    (𝒱 n).map u ≤ 𝒲 n := by sorry
+
+/-- Fixed-ι real summands live over the algebraic closure, unlike the descended
+integer summands. Their restriction is pure in the split-field sense: every
+characteristic root has that real weight (README 0.18(ii)). -/
+theorem iota_weight_decomposition (ι : AlgebraicClosure E →+* ℂ)
+    (F : V ≃ₗ[E] V) {q : ℝ} (hq : 1 < q) :
+    letI : AddCommGroup (AlgebraicClosure E ⊗[E] V) := TensorProduct.addCommGroup
+    let Fbar := F.toLinearMap.baseChange (AlgebraicClosure E)
+    let 𝒱 : ℝ → Submodule (AlgebraicClosure E) (AlgebraicClosure E ⊗[E] V) :=
+      fun β : ℝ => ⨆ α : AlgebraicClosure E, ⨆ (_ : IsIotaPure ι q β α),
+      Module.End.maxGenEigenspace Fbar α
+    DirectSum.IsInternal 𝒱 ∧
+      (∃ s : Finset ℝ, ∀ β ∉ s, 𝒱 β = ⊥) ∧
+      ∃ hstable : ∀ β, ∀ x ∈ 𝒱 β, Fbar x ∈ 𝒱 β,
+        ∀ (β : ℝ) (α : AlgebraicClosure E), α ∈ (Fbar.restrict (hstable β)).charpoly.roots → IsIotaPure ι q β α := by sorry
+
+/-- The base-changed intertwiner transports real-weight generalized-eigenspace
+sums to the same real weight in the target (README 0.18(iii)). -/
+theorem iota_weight_decomposition_functorial
+    {W : Type*} [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (ι : AlgebraicClosure E →+* ℂ) (q β : ℝ)
+    (F : V →ₗ[E] V) (G : W →ₗ[E] W)
+    (u : V →ₗ[E] W) (hu : u ∘ₗ F = G ∘ₗ u) :
+    (⨆ α : AlgebraicClosure E, ⨆ (_ : IsIotaPure ι q β α),
+      Module.End.maxGenEigenspace (F.baseChange (AlgebraicClosure E)) α).map
+        (u.baseChange (AlgebraicClosure E)) ≤
+      ⨆ α : AlgebraicClosure E, ⨆ (_ : IsIotaPure ι q β α),
+        Module.End.maxGenEigenspace (G.baseChange (AlgebraicClosure E)) α := by sorry
+
+/-- The pairing identifies the second operator with the scalar times the inverse dual
+of the first (README 0.16(i); Weil I (2.5), p. 281). -/
+theorem pairing_dual_identification (F : V ≃ₗ[E] V) {W : Type*}
+    [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (F' : W →ₗ[E] W) (B : V →ₗ[E] W →ₗ[E] E) (hB : Function.Bijective B)
+    (c : E) (hc : c ≠ 0) (hFF' : ∀ x y, B (F x) (F' y) = c * B x y) :
+    Function.Bijective B.flip ∧
+      B.flip.comp F' = (c • F.symm.toLinearMap.dualMap).comp B.flip := by
+  sorry
+
+/-- A polynomial version of the reciprocal characteristic identity, avoiding a rational
+function variable (README 0.16(ii)). The degree is the dimension even in dimension zero. -/
+theorem charpoly_of_pairing (F : V ≃ₗ[E] V) {W : Type*}
+    [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (F' : W →ₗ[E] W) (B : V →ₗ[E] W →ₗ[E] E) (hB : Function.Bijective B)
+    (c : E) (hc : c ≠ 0) (hFF' : ∀ x y, B (F x) (F' y) = c * B x y) :
+    F'.charpoly =
+      C (((-1 : E) ^ Module.finrank E V * c ^ Module.finrank E V) /
+        LinearMap.det F.toLinearMap) *
+        F.toLinearMap.charpoly.reverse.comp (C c⁻¹ * X) := by
+  sorry
+
+/-- After extension to a splitting field, nonreciprocal maximal generalized eigenspaces
+are orthogonal and reciprocal ones pair perfectly (README 0.16(iii)).
+This statement applies to the scalar extension of the original perfect pairing. -/
+theorem pairing_maxGenEigenspaces [IsAlgClosed E] (F : V ≃ₗ[E] V) {W : Type*}
+    [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (F' : W →ₗ[E] W) (B : V →ₗ[E] W →ₗ[E] E) (hB : Function.Bijective B)
+    (c : E) (hc : c ≠ 0) (hFF' : ∀ x y, B (F x) (F' y) = c * B x y) :
+    (∀ α β : E, α * β ≠ c →
+      ∀ x ∈ Module.End.maxGenEigenspace F.toLinearMap α,
+      ∀ y ∈ Module.End.maxGenEigenspace F' β, B x y = 0) ∧
+    (∀ α : E, α ≠ 0 → Function.Bijective
+      (B.compl₁₂ (Module.End.maxGenEigenspace F.toLinearMap α).subtype
+        (Module.End.maxGenEigenspace F' (c / α)).subtype)) := by
+  sorry
+
+/-- The target scalar contributes its weight and inverse duality subtracts the first
+weight (README 0.16(iv); Weil I (2.5), p. 281). -/
+theorem isPure_of_pairing (F : V ≃ₗ[E] V) {W : Type*}
+    [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (F' : W →ₗ[E] W) (B : V →ₗ[E] W →ₗ[E] E) (hB : Function.Bijective B)
+    (c : E) (hc : c ≠ 0) (hFF' : ∀ x y, B (F x) (F' y) = c * B x y)
+    {q : ℝ} {n w : ℤ} (hF : IsPure q n F.toLinearMap) (hcw : IsWeilNumber q w c) :
+    IsPure q (w - n) F' := by
+  sorry
+
+theorem isIotaPureEnd_of_pairing (ι : AlgebraicClosure E →+* ℂ)
+    (F : V ≃ₗ[E] V) {W : Type*}
+    [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (F' : W →ₗ[E] W) (B : V →ₗ[E] W →ₗ[E] E) (hB : Function.Bijective B)
+    (c : E) (hc : c ≠ 0) (hFF' : ∀ x y, B (F x) (F' y) = c * B x y)
+    {q β γ : ℝ} (hF : IsIotaPureEnd ι q β F.toLinearMap)
+    (hcw : IsIotaPure ι q γ (algebraMap E (AlgebraicClosure E) c)) :
+    IsIotaPureEnd ι q (γ - β) F' := by
+  sorry
+
+/-- Tensor and Hom Frobenius weights, including multiplicities through the root formulas
+above (README 0.13; Weil II (1.2.5)(ii), p. 154). Hom acts by `u ↦ G ∘ u ∘ F⁻¹`. -/
+theorem IsPure.tensor {W : Type*} [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    {q : ℝ} {n m : ℤ} {F : V →ₗ[E] V} {G : W →ₗ[E] W}
+    (hF : IsPure q n F) (hG : IsPure q m G) :
+    IsPure q (n + m) (TensorProduct.map F G) := by
+  sorry
+
+theorem IsIotaPureEnd.tensor {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] {ι : AlgebraicClosure E →+* ℂ} {q β γ : ℝ}
+    {F : V →ₗ[E] V} {G : W →ₗ[E] W}
+    (hF : IsIotaPureEnd ι q β F) (hG : IsIotaPureEnd ι q γ G) :
+    IsIotaPureEnd ι q (β + γ) (TensorProduct.map F G) := by
+  sorry
+
+theorem IsPure.contragredient {q : ℝ} {n : ℤ} (F : V ≃ₗ[E] V)
+    (hF : IsPure q n F.toLinearMap) :
+    IsPure q (-n) F.symm.toLinearMap.dualMap := by
+  sorry
+
+theorem IsIotaPureEnd.contragredient {ι : AlgebraicClosure E →+* ℂ} {q β : ℝ}
+    (F : V ≃ₗ[E] V) (hF : IsIotaPureEnd ι q β F.toLinearMap) :
+    IsIotaPureEnd ι q (-β) F.symm.toLinearMap.dualMap := by
+  sorry
+
+theorem IsPure.hom {W : Type*} [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    {q : ℝ} {n m : ℤ} (F : V ≃ₗ[E] V) (G : W →ₗ[E] W)
+    (hF : IsPure q n F.toLinearMap) (hG : IsPure q m G) :
+    IsPure q (m - n) ((LinearMap.llcomp E V W W G).comp (LinearMap.lcomp E W F.symm.toLinearMap)) := by
+  sorry
+
+theorem IsIotaPureEnd.hom {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] {ι : AlgebraicClosure E →+* ℂ} {q β γ : ℝ}
+    (F : V ≃ₗ[E] V) (G : W →ₗ[E] W)
+    (hF : IsIotaPureEnd ι q β F.toLinearMap) (hG : IsIotaPureEnd ι q γ G) :
+    IsIotaPureEnd ι q (γ - β) ((LinearMap.llcomp E V W W G).comp (LinearMap.lcomp E W F.symm.toLinearMap)) := by
+  sorry
+
+/-- The zeroth tensor power is the unit line of weight zero. -/
+theorem IsPure.tensorPower {q : ℝ} (hq : 1 < q) {n : ℤ} {F : V →ₗ[E] V}
+    (hF : IsPure q n F) (k : ℕ) :
+    IsPure q ((k : ℤ) * n) (PiTensorProduct.map (fun _ : Fin k => F)) := by
+  sorry
+
+theorem IsIotaPureEnd.tensorPower {ι : AlgebraicClosure E →+* ℂ} {q β : ℝ}
+    (hq : 1 < q) {F : V →ₗ[E] V} (hF : IsIotaPureEnd ι q β F) (k : ℕ) :
+    IsIotaPureEnd ι q ((k : ℝ) * β) (PiTensorProduct.map (fun _ : Fin k => F)) := by
+  sorry
+
+/-- Exterior powers add the weights of distinct eigenvalue positions (README 0.14). -/
+theorem IsIotaPureEnd.exteriorPower {ι : AlgebraicClosure E →+* ℂ} {q β : ℝ}
+    (hq : 1 < q) {F : V →ₗ[E] V} (hF : IsIotaPureEnd ι q β F) (k : ℕ) :
+    IsIotaPureEnd ι q ((k : ℝ) * β) (exteriorPower.map k F) := by
+  sorry
+
+/-- The root multiset of a block sum includes both summands, including zero roots
+(README 0.8–0.9; Weil I (1.5.3), p. 276). -/
+theorem eigenvalues_prodMap {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] (F : V →ₗ[E] V) (G : W →ₗ[E] W) :
+    eigenvalues (LinearMap.prodMap F G) = eigenvalues F + eigenvalues G := by sorry
+
+theorem iotaWeights_prodMap {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] (ι : AlgebraicClosure E →+* ℂ) (q : ℝ)
+    (F : V →ₗ[E] V) (G : W →ₗ[E] W) :
+    iotaWeights ι q (LinearMap.prodMap F G) = iotaWeights ι q F ∪ iotaWeights ι q G := by sorry
+
+/-- The determinant, reverse characteristic polynomial and root multiset all
+factor along a stable subspace (README 0.8). -/
+theorem spectral_factorization_of_mapsTo (F : V →ₗ[E] V) (U : Submodule E V)
+    (hU : ∀ x ∈ U, F x ∈ U) :
+    F.charpoly.reverse = (F.restrict hU).charpoly.reverse * (U.mapQ U F hU).charpoly.reverse ∧
+    LinearMap.det F = LinearMap.det (F.restrict hU) * LinearMap.det (U.mapQ U F hU) ∧
+    eigenvalues F = eigenvalues (F.restrict hU) + eigenvalues (U.mapQ U F hU) := by sorry
+
+/-- Compatible algebraic-closure embeddings transport the actual root multiset
+(README 0.7). No arbitrary identification of the two closures is implicit. -/
+theorem eigenvalues_baseChange {E' : Type*} [Field E'] [Algebra E E']
+    (ρ : AlgebraicClosure E →+* AlgebraicClosure E')
+    (hρ : ρ.comp (algebraMap E (AlgebraicClosure E)) =
+      (algebraMap E' (AlgebraicClosure E')).comp (algebraMap E E')) (F : V →ₗ[E] V) :
+    eigenvalues (F.baseChange E') = (eigenvalues F).map ρ := by sorry
+
+theorem isIotaPureEnd_baseChange_iff {E' : Type*} [Field E'] [Algebra E E']
+    (ρ : AlgebraicClosure E →+* AlgebraicClosure E')
+    (hρ : ρ.comp (algebraMap E (AlgebraicClosure E)) =
+      (algebraMap E' (AlgebraicClosure E')).comp (algebraMap E E'))
+    (ι' : AlgebraicClosure E' →+* ℂ) (q β : ℝ) (F : V →ₗ[E] V) :
+    IsIotaPureEnd ι' q β (F.baseChange E') ↔ IsIotaPureEnd (ι'.comp ρ) q β F := by sorry
+
+/-- Hom roots retain every pair of eigenvalue positions (README 0.13(iii)). -/
+theorem eigenvalues_hom {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] (F : V ≃ₗ[E] V) (G : W →ₗ[E] W) :
+    eigenvalues ((LinearMap.llcomp E V W W G).comp
+      (LinearMap.lcomp E W F.symm.toLinearMap)) =
+      ((eigenvalues F.toLinearMap).product (eigenvalues G)).map
+        (fun p => p.2 / p.1) := by sorry
+
+/-- Enumerate eigenvalue positions before taking tensor products, so repeated roots
+contribute separately and the empty product gives the zeroth tensor power. -/
+theorem eigenvalues_tensorPower (F : V →ₗ[E] V) (k d : ℕ)
+    (a : Fin d → AlgebraicClosure E)
+    (ha : eigenvalues F = (↑(List.ofFn a) : Multiset (AlgebraicClosure E))) :
+    eigenvalues (PiTensorProduct.map (fun _ : Fin k => F)) =
+      (Finset.univ : Finset (Fin k → Fin d)).val.map (fun indices => ∏ j, a (indices j)) := by sorry
+
+/-- This is the root-multiset notation for the native determinant/root-product
+identity `Matrix.det_eq_prod_roots_charpoly` after scalar extension (README 0.13(iv)). -/
+theorem det_eq_prod_eigenvalues (F : V →ₗ[E] V) :
+    algebraMap E (AlgebraicClosure E) (LinearMap.det F) = (eigenvalues F).prod := by sorry
+
+/-- The reverse characteristic polynomial is the product of the linear local
+factors, including factors equal to one for zero roots (README 0.10(i)).
+Its determinant interpretation is Mathlib's `Matrix.reverse_charpoly`. -/
+theorem reverse_charpoly_eq_prod_eigenvalues (F : V →ₗ[E] V) :
+    F.charpoly.reverse.map (algebraMap E (AlgebraicClosure E)) =
+      ((eigenvalues F).map (fun α => (1 - C α * X : (AlgebraicClosure E)[X]))).prod := by sorry
+
+/-- The exterior endpoints and vanishing beyond the dimension (README 0.14). -/
+theorem eigenvalues_exteriorPower_endpoints (F : V →ₗ[E] V) :
+    eigenvalues (exteriorPower.map 0 F) = {1} ∧
+    eigenvalues (exteriorPower.map (Module.finrank E V) F) =
+      {algebraMap E (AlgebraicClosure E) (LinearMap.det F)} ∧
+    ∀ k : ℕ, Module.finrank E V < k → eigenvalues (exteriorPower.map k F) = 0 := by sorry
+
+/-- Arbitrary exterior ι-weights are sums over subsets of positions, without
+assuming purity (README 0.14). Invertibility excludes the total logarithm at zero. -/
+theorem iotaWeight_multiset_exteriorPower (ι : AlgebraicClosure E →+* ℂ) (q : ℝ)
+    (F : V ≃ₗ[E] V) (k d : ℕ) (a : Fin d → AlgebraicClosure E)
+    (ha : eigenvalues F.toLinearMap = (↑(List.ofFn a) : Multiset (AlgebraicClosure E))) :
+    (eigenvalues (exteriorPower.map k F.toLinearMap)).map (iotaWeight ι q) =
+      ((Finset.univ : Finset (Fin d)).powersetCard k).val.map
+        (fun s => ∑ i ∈ s, iotaWeight ι q (a i)) := by sorry
+
+/-- The scalar-extension pairing is uniquely characterized by its values on pure
+tensors. It stays perfect and carries the same Frobenius similitude (README 0.16).
+Apply `pairing_maxGenEigenspaces` to these genuine algebraic-closure modules. -/
+theorem pairing_baseChange (F : V ≃ₗ[E] V) {W : Type*}
+    [AddCommGroup W] [Module E W] [FiniteDimensional E W]
+    (F' : W →ₗ[E] W) (B : V →ₗ[E] W →ₗ[E] E) (hB : Function.Bijective B)
+    (c : E) (hc : c ≠ 0) (hFF' : ∀ x y, B (F x) (F' y) = c * B x y) :
+    ∃! Bbar : (AlgebraicClosure E ⊗[E] V) →ₗ[AlgebraicClosure E]
+        (AlgebraicClosure E ⊗[E] W) →ₗ[AlgebraicClosure E] AlgebraicClosure E,
+      (∀ a b x y, Bbar (a ⊗ₜ[E] x) (b ⊗ₜ[E] y) =
+        a * b * algebraMap E (AlgebraicClosure E) (B x y)) ∧
+      Function.Bijective Bbar ∧
+      ∀ x y, Bbar (F.toLinearMap.baseChange (AlgebraicClosure E) x)
+        (F'.baseChange (AlgebraicClosure E) y) =
+        algebraMap E (AlgebraicClosure E) c * Bbar x y := by sorry
+
+/-- Scalar twist compatibility with an intertwiner (README 0.15). -/
+theorem twist_comp_of_comp {W : Type*} [AddCommGroup W] [Module E W]
+    (b : Eˣ) (F : V →ₗ[E] V) (G : W →ₗ[E] W) (u : V →ₗ[E] W)
+    (hu : u ∘ₗ F = G ∘ₗ u) : u ∘ₗ twist b F = twist b G ∘ₗ u := by sorry
+
+/-- The contragredient of a scalar twist has the inverse scalar (README 0.15). -/
+theorem twist_contragredient (b : Eˣ) (F : V ≃ₗ[E] V)
+    (G : V ≃ₗ[E] V) (hG : G.toLinearMap = twist b F.toLinearMap) :
+    G.symm.toLinearMap.dualMap = twist b⁻¹ F.symm.toLinearMap.dualMap := by sorry
+
+/-- Purity is detected on each direct summand (README 0.9). -/
+theorem isPure_prodMap_iff {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] (q : ℝ) (n : ℤ) (F : V →ₗ[E] V) (G : W →ₗ[E] W) :
+    IsPure q n (LinearMap.prodMap F G) ↔ IsPure q n F ∧ IsPure q n G := by sorry
+
+theorem isIotaPureEnd_prodMap_iff {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] (ι : AlgebraicClosure E →+* ℂ) (q β : ℝ)
+    (F : V →ₗ[E] V) (G : W →ₗ[E] W) :
+    IsIotaPureEnd ι q β (LinearMap.prodMap F G) ↔
+      IsIotaPureEnd ι q β F ∧ IsIotaPureEnd ι q β G := by sorry
+
+/-- The tensor formula also transports arbitrary weight multisets, rather than
+just pure factors (README 0.13). -/
+theorem iotaWeight_multiset_tensor {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] (ι : AlgebraicClosure E →+* ℂ) (q : ℝ)
+    (F : V ≃ₗ[E] V) (G : W ≃ₗ[E] W) :
+    (eigenvalues (TensorProduct.map F.toLinearMap G.toLinearMap)).map (iotaWeight ι q) =
+      (((eigenvalues F.toLinearMap).map (iotaWeight ι q)).product
+        ((eigenvalues G.toLinearMap).map (iotaWeight ι q))).map (fun p => p.1 + p.2) := by sorry
+
+theorem iotaWeight_multiset_hom {W : Type*} [AddCommGroup W] [Module E W]
+    [FiniteDimensional E W] (ι : AlgebraicClosure E →+* ℂ) (q : ℝ)
+    (F : V ≃ₗ[E] V) (G : W ≃ₗ[E] W) :
+    (eigenvalues ((LinearMap.llcomp E V W W G.toLinearMap).comp
+      (LinearMap.lcomp E W F.symm.toLinearMap))).map (iotaWeight ι q) =
+      (((eigenvalues F.toLinearMap).map (iotaWeight ι q)).product
+        ((eigenvalues G.toLinearMap).map (iotaWeight ι q))).map (fun p => p.2 - p.1) := by sorry
+
+theorem iotaWeight_multiset_contragredient (ι : AlgebraicClosure E →+* ℂ) (q : ℝ)
+    (F : V ≃ₗ[E] V) :
+    (eigenvalues F.symm.toLinearMap.dualMap).map (iotaWeight ι q) =
+      ((eigenvalues F.toLinearMap).map (iotaWeight ι q)).map (fun β => -β) := by sorry
+
+/-- Twisting preserves precisely the invariant subspaces, as well as all
+intertwiners; underlying vector-space exact sequences are unchanged (README 0.15). -/
+theorem twist_mapsTo_iff (b : Eˣ) (F : V →ₗ[E] V) (U : Submodule E V) :
+    (∀ x ∈ U, twist b F x ∈ U) ↔ ∀ x ∈ U, F x ∈ U := by sorry
+
 end FurtherSpectral
 
+
+section AllEmbeddingsEndomorphism
+variable {E V : Type} [Field E] [Algebra ℚ E] [AddCommGroup V] [Module E V]
+    [FiniteDimensional E V]
+
+/-- The all-embeddings scalar criterion detects endomorphism purity, including
+algebraicity of the characteristic roots (README 0.6; Weil II (1.2.6), p. 154). -/
+theorem isPure_iff_all_iotaPureEnd (hcard : Cardinal.mk E ≤ Cardinal.mk ℂ)
+    {q : ℝ} (hq : 1 < q) (n : ℤ) (F : V →ₗ[E] V) :
+    IsPure q n F ↔ ∀ ι : AlgebraicClosure E →+* ℂ, IsIotaPureEnd ι q n F := by sorry
+end AllEmbeddingsEndomorphism
 
 section ArithmeticComplements
 variable {K : Type*} [Field K] [Algebra ℚ K]
@@ -783,6 +1259,17 @@ theorem rational_pow_weil (q : ℚ) (hq : 1 < q) (k : ℤ) :
 theorem IsWeilNumber.conjugate {q : ℚ} (hq : 1 < q) {n : ℤ} {α : K}
     (hα : IsWeilNumber (q : ℝ) n α) (σ : K →+* ℂ) :
     star (σ α) = (q : ℂ) ^ n / σ α := by sorry
+/-- Integer powers use inverses for negative exponents (README 0.2(i)). -/
+theorem IsWeilNumber.zpow {q : ℝ} {n : ℤ} {α : K} (hα : IsWeilNumber q n α) (k : ℤ) :
+    IsWeilNumber q (k * n) (α ^ k) := by sorry
+
+/-- Rational reciprocal conjugation also identifies the totally real sum
+(README 0.2(iii); Weil II (1.2.12), p. 156). -/
+theorem IsWeilNumber.reciprocal_sum_totallyReal {q : ℚ} (hq : 1 < q) {n : ℤ} {α : K}
+    (hα : IsWeilNumber (q : ℝ) n α) :
+    IsAlgebraic ℚ (α + (q : K) ^ n / α) ∧
+      ∀ σ : K →+* ℂ, (σ (α + (q : K) ^ n / α)).im = 0 := by sorry
+
 end ArithmeticComplements
 
 section CharacteristicSeries
@@ -1774,6 +2261,90 @@ theorem lefschetzPairing_nondegenerate (𝒱 : ℤ → Submodule K V) (h𝒱 : D
     ((B.comp (lam ^ r) LinearMap.id).restrict (𝒱 ((n : ℤ) - r))).Nondegenerate ∧
       ((B.comp (lam ^ r) LinearMap.id).restrict (primitivePiece 𝒱 lam n r)).Nondegenerate := by
   sorry
+
+/-- The upper-degree decomposition has exponent `r + k`, rather than `k`
+(README 9.7; Deligne (1968), (1.5)–(1.6), p. 108). -/
+theorem iSupIndep_lefschetzDecomposition_upper (𝒱 : ℤ → Submodule K V)
+    (h𝒱 : DirectSum.IsInternal 𝒱) (n : ℕ)
+    (hout : ∀ j : ℤ, (j < 0 ∨ 2 * (n : ℤ) < j) → 𝒱 j = ⊥) (lam : V →ₗ[K] V)
+    (hlam : ∀ j : ℤ, ∀ x ∈ 𝒱 j, lam x ∈ 𝒱 (j + 2))
+    (hHL : ∀ r : ℕ, r ≤ n → Set.BijOn (lam ^ r) (𝒱 ((n : ℤ) - r)) (𝒱 ((n : ℤ) + r)))
+    (r : ℕ) (hr : r ≤ n) :
+    iSupIndep (fun k : ℕ => (primitivePiece 𝒱 lam n (r + 2 * k)).map (lam ^ (r + k))) ∧
+      (⨆ k : ℕ, (primitivePiece 𝒱 lam n (r + 2 * k)).map (lam ^ (r + k))) =
+        𝒱 ((n : ℤ) + r) := by
+  sorry
+
+/-- Different primitive images in `V^{n-r}` are orthogonal for `ψ_r`.
+No semisimplicity of the degree-two operator is assumed (README 9.7). -/
+theorem lefschetzPairing_primitive_orthogonal (𝒱 : ℤ → Submodule K V)
+    (h𝒱 : DirectSum.IsInternal 𝒱) (n : ℕ)
+    (hout : ∀ j : ℤ, (j < 0 ∨ 2 * (n : ℤ) < j) → 𝒱 j = ⊥) (lam : V →ₗ[K] V)
+    (hlam : ∀ j : ℤ, ∀ x ∈ 𝒱 j, lam x ∈ 𝒱 (j + 2))
+    (hHL : ∀ r : ℕ, r ≤ n → Set.BijOn (lam ^ r) (𝒱 ((n : ℤ) - r)) (𝒱 ((n : ℤ) + r)))
+    (B : LinearMap.BilinForm K V) (hB : B.Nondegenerate)
+    (hdeg : ∀ a b : ℤ, a + b ≠ 2 * n → ∀ x ∈ 𝒱 a, ∀ y ∈ 𝒱 b, B x y = 0)
+    (hadj : ∀ x y, B (lam x) y = B x (lam y)) (r : ℕ) (hr : r ≤ n)
+    (k l : ℕ) (hkl : k ≠ l)
+    (x : V) (hx : x ∈ (primitivePiece 𝒱 lam n (r + 2 * k)).map (lam ^ k))
+    (y : V) (hy : y ∈ (primitivePiece 𝒱 lam n (r + 2 * l)).map (lam ^ l)) :
+    B ((lam ^ r) x) y = 0 := by
+  sorry
+
+/-- A graded-symmetric ambient pairing induces the sign of degree `n-r` on `ψ_r`
+and on its primitive restriction (README 9.7; Weil II (4.1.5), p. 218).
+Symmetry is an additional hypothesis, independent of perfectness. -/
+theorem lefschetzPairing_gradedSymmetry (𝒱 : ℤ → Submodule K V)
+    (h𝒱 : DirectSum.IsInternal 𝒱) (n : ℕ)
+    (hout : ∀ j : ℤ, (j < 0 ∨ 2 * (n : ℤ) < j) → 𝒱 j = ⊥) (lam : V →ₗ[K] V)
+    (hlam : ∀ j : ℤ, ∀ x ∈ 𝒱 j, lam x ∈ 𝒱 (j + 2))
+    (hHL : ∀ r : ℕ, r ≤ n → Set.BijOn (lam ^ r) (𝒱 ((n : ℤ) - r)) (𝒱 ((n : ℤ) + r)))
+    (B : LinearMap.BilinForm K V) (hB : B.Nondegenerate)
+    (hdeg : ∀ a b : ℤ, a + b ≠ 2 * n → ∀ x ∈ 𝒱 a, ∀ y ∈ 𝒱 b, B x y = 0)
+    (hadj : ∀ x y, B (lam x) y = B x (lam y))
+    (hsym : ∀ a : ℤ, ∀ x ∈ 𝒱 a, ∀ y : V,
+      B y x = (-1 : K) ^ a * B x y) (r : ℕ) (hr : r ≤ n) :
+    ∀ x ∈ 𝒱 ((n : ℤ) - r), ∀ y ∈ 𝒱 ((n : ℤ) - r),
+      B ((lam ^ r) y) x = (-1 : K) ^ ((n : ℤ) - r) * B ((lam ^ r) x) y := by
+  sorry
+
+/-- The two families of primitive-image maps are injective on their primitive
+sources; together with the independent spanning images they give the two
+isomorphisms in README 9.7(i). -/
+theorem injOn_lefschetzDecomposition (𝒱 : ℤ → Submodule K V)
+    (h𝒱 : DirectSum.IsInternal 𝒱) (n : ℕ)
+    (hout : ∀ j : ℤ, (j < 0 ∨ 2 * (n : ℤ) < j) → 𝒱 j = ⊥) (lam : V →ₗ[K] V)
+    (hlam : ∀ j : ℤ, ∀ x ∈ 𝒱 j, lam x ∈ 𝒱 (j + 2))
+    (hHL : ∀ r : ℕ, r ≤ n → Set.BijOn (lam ^ r) (𝒱 ((n : ℤ) - r)) (𝒱 ((n : ℤ) + r)))
+    (r : ℕ) (hr : r ≤ n) (k : ℕ) :
+    Set.InjOn (lam ^ k) (primitivePiece 𝒱 lam n (r + 2 * k)) ∧
+      Set.InjOn (lam ^ (r + k)) (primitivePiece 𝒱 lam n (r + 2 * k)) := by sorry
+
+/-- On a three-step Lefschetz chain, only the bottom vector is primitive.
+The upper decomposition sends it to degree four by λ² (README 9.7). -/
+example :
+    let 𝒱 : ℤ → Submodule ℚ (Fin 3 → ℚ) := fun j =>
+      if j = 0 then Submodule.span ℚ {![1, 0, 0]} else
+      if j = 2 then Submodule.span ℚ {![0, 1, 0]} else
+      if j = 4 then Submodule.span ℚ {![0, 0, 1]} else ⊥
+    let lam := Matrix.toLin' !![(0 : ℚ), 0, 0; 1, 0, 0; 0, 1, 0]
+    primitivePiece 𝒱 lam 2 2 = 𝒱 0 ∧
+      primitivePiece 𝒱 lam 2 0 = ⊥ ∧
+      (primitivePiece 𝒱 lam 2 2).map (lam ^ 2) = 𝒱 4 := by sorry
+
+/-- The primitive kernel has exponent r+1: replacing it by r discards the
+bottom vector of this length-three chain. -/
+example :
+    let 𝒱 : ℤ → Submodule ℚ (Fin 3 → ℚ) := fun j =>
+      if j = 0 then Submodule.span ℚ {![1, 0, 0]} else ⊥
+    let lam := Matrix.toLin' !![(0 : ℚ), 0, 0; 1, 0, 0; 0, 1, 0]
+    primitivePiece 𝒱 lam 2 2 ≠ 𝒱 0 ⊓ LinearMap.ker (lam ^ 2) := by sorry
+
+/-- The primitive construction uses the specified degree even when the operator
+is zero: only degree zero exists in this one-dimensional grading. -/
+example :
+    let 𝒱 : ℤ → Submodule ℚ ℚ := fun j => if j = 0 then ⊤ else ⊥
+    primitivePiece 𝒱 0 0 0 = ⊤ ∧ primitivePiece 𝒱 0 0 1 = ⊥ := by sorry
 
 end LefschetzDecomposition
 
