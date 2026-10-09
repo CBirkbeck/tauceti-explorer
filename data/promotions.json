@@ -828,6 +828,17 @@
     "data/blueprints/ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.md"
    ]
   },
+  "research/blueprint/packets/ClassicalAdicEtaleCohomology--H3.json": {
+   "promotedAt": "2026-10-09T18:02:22Z",
+   "review": "d4f95a4c6f88651a",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-ClassicalAdicEtaleCohomology--H3",
+   "sha256": "0dcd7fb4bcc29ae87e75a3fdf511882a0cf13ff673cc46b87a913e15b0b1d1eb",
+   "to": [
+    "data/blueprints/ClassicalAdicEtaleCohomology--H3.json",
+    "data/blueprints/ClassicalAdicEtaleCohomology--H3.md"
+   ]
+  },
   "research/blueprint/packets/ClassicalArithmeticCompletion.json": {
    "promotedAt": "2026-10-01T20:54:46Z",
    "review": "cee58cf39ff3ce8a",

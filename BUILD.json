@@ -180,7 +180,7 @@
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
   "roadmapEdges": 2383,
-  "stageEdges": 14958,
+  "stageEdges": 14961,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -386,6 +386,12 @@
       "roadmap": "ClassicalAdicEtaleCohomology",
       "nodes": 13,
       "reviewer": "independent-review-REV-ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles"
+    },
+    {
+      "file": "ClassicalAdicEtaleCohomology--H3",
+      "roadmap": "ClassicalAdicEtaleCohomology",
+      "nodes": 25,
+      "reviewer": "independent-review-REV-ClassicalAdicEtaleCohomology--H3"
     },
     {
       "file": "ClassicalArithmeticCompletion",
@@ -1433,8 +1439,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 37350644,
-  "htmlSha256": "b4cdfea1b47cd951bc44b3c336818088a0c8cc20c95b50fe2fe84d48024c94f6",
+  "htmlBytes": 37356331,
+  "htmlSha256": "e8285d413afd30c9f5b18558ee9a0b020cb8cc289045be7b126cd97bc9e8ee4d",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1466,7 +1472,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "cbde9024042dc186731d41055934a6a06e30adf8198134f9deaad89bc897b84b",
+    "data/roadmap-distances.json": "23d37418a5f1c9d87941fb058396cd1b47e2f635c196c696ff2ac9ff49f9cf51",
     "data/galaxy-layout.json": "2c89ea58b5f5ad9fc7715ddcc8193de9d1fadb2e1fdc452020cd7432f12c819d",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1592,6 +1598,8 @@
     "data/blueprints/BorelRegulators.md": "af26308ddd8367c99df9c1636903574f4b68042c041d700b18abf03236c78259",
     "data/blueprints/ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.json": "1d997f9d4e41b1cfb689e02c9f442b315110361d8659ca205401703f020096e2",
     "data/blueprints/ClassicalAdicEtaleCohomology--H1-valuation-nearby-cycles.md": "f1c856e675cd626cf14c4d9670d6651723873a856d07c0d7aaf2d19c7e94074d",
+    "data/blueprints/ClassicalAdicEtaleCohomology--H3.json": "53b490ef9056e6b7575e839ea187cfcc4bb98b13b89908a2a15b59021e60f114",
+    "data/blueprints/ClassicalAdicEtaleCohomology--H3.md": "cee15795fa0e8c9883b10061d54d440b79c9febb8aef5c1b2346ee3d337be100",
     "data/blueprints/ClassicalArithmeticCompletion.json": "edada99f284e6d97094d2e7dea4951265e5bfc4f0b7278c588c8a38fc4991be2",
     "data/blueprints/ClassicalArithmeticCompletion.md": "eaa6512cd30fe16e148b6e2f8d6607297174066d96839eacf97b3cb427e41b7d",
     "data/blueprints/ClassicalGroupsPartII.json": "31b6a516f9a537c878ea3a652de0a1a1b559f3c9433879b08191c90183da8eb2",
