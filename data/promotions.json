@@ -284,6 +284,18 @@
     "roadmaps/AdicEtaleGeometry/metadata.toml"
    ]
   },
+  "research/blueprint/packages/AdicSpacesPartII/review.json": {
+   "promotedAt": "2026-10-09T15:24:47Z",
+   "review": "b55724f346fc0e88",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-AdicSpacesPartII",
+   "sha256": "9ed9e64c930e9eaa241c8b5eab0404e992b07f6f5df2e62765212c7cb64fff4c",
+   "to": [
+    "roadmaps/AdicSpacesPartII/README.md",
+    "roadmaps/AdicSpacesPartII/Suggested.lean",
+    "roadmaps/AdicSpacesPartII/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/AlgebraicModularFormsAndSerreWeights/review.json": {
    "promotedAt": "2026-10-09T01:31:14Z",
    "review": "273b7e79327fca1c",
@@ -3040,6 +3052,13 @@
    "reviewDate": "2026-10-09",
    "reviewer": "independent-review-REV-PKG-AdelicAlgebraicGroups~2"
   },
+  "research/blueprint/packages/AlgebraicModuliForArithmeticGeometry/review.json": {
+   "at": "2026-10-09T15:24:47Z",
+   "reason": "REV-PKG-AlgebraicModuliForArithmeticGeometry is not a job of the queue",
+   "review": "ba44d5283c84e630",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-AlgebraicModuliForArithmeticGeometry"
+  },
   "research/blueprint/packages/IntegralHeckeAndGaloisDeterminants/review.json": {
    "at": "2026-10-09T14:48:55Z",
    "reason": "REV-PKG-IntegralHeckeAndGaloisDeterminants~2 is not a job of the queue",
@@ -3053,6 +3072,13 @@
    "review": "78cc53ea223e1362",
    "reviewDate": "2026-10-09",
    "reviewer": "independent-review-REV-PKG-PadicMeasuresIwasawaAlgebras"
+  },
+  "research/blueprint/packages/PerfectoidSpaces/review.json": {
+   "at": "2026-10-09T15:24:47Z",
+   "reason": "REV-PKG-PerfectoidSpaces is not a job of the queue",
+   "review": "ced114753d827db7",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-PerfectoidSpaces"
   },
   "research/blueprint/packages/ReductiveGroupsPartII/review.json": {
    "at": "2026-10-09T13:55:57Z",
