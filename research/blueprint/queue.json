@@ -21927,9 +21927,9 @@
     "REV-RS-02"
    ],
    "prompt": "research/blueprint/prompts/BP-AbelianSchemesAndArithmeticModuli.md",
-   "state": "pending",
+   "state": "external",
    "suppliers": [],
-   "note": "released on GitHub issue #666"
+   "note": "claimed on GitHub issue #666"
   },
   {
    "id": "REV-AbelianSchemesAndArithmeticModuli",
@@ -105243,9 +105243,10 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "external",
+   "state": "done",
    "prompt": "research/blueprint/prompts/FIX-PKG-LocallyAnalyticDistributions~adv.md",
-   "note": "claimed on GitHub issue #8073"
+   "note": "deliverables arrived from an external worker on issue #8073",
+   "finishedAt": "2026-10-09T20:36:15Z"
   },
   {
    "id": "FIX-PKG-DiamondsAndVStacks~adv",
