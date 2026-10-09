@@ -1,0 +1,2142 @@
+{
+  "roadmapId": "ArithmeticGaloisRepresentations",
+  "protocol": "blueprint-v1",
+  "part": "R01.4",
+  "scope": [
+    "ArithmeticGaloisRepresentations:R01.4"
+  ],
+  "status": "complete",
+  "summary": "Target-level completion of the accepted residual-image layer. It retains the 31 principal target IDs by reference, promotes the reusable carrier constructions and key comparisons, gives an all-field characteristic-two cocycle proof, supplies the primary semilinear automorphism proof, and exhibits an explicit tame niveau-two bad-dihedral Galois representation. The six existing planets are retained without adding duplicate landmarks. No formalisation is claimed.",
+  "planningLevel": "target",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:Complex.conjAe",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Complex/Module.lean",
+        "provides": "complex conjugation as an ℝ-algebra automorphism of ℂ",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Field.absoluteGaloisGroup",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/AbsoluteGaloisGroup.lean",
+        "provides": "G_K := Aut_K(AlgebraicClosure K) as a plain def with derived Group, Krull TopologicalSpace and IsTopologicalGroup instances only; profiniteness (compact, Hausdorff, totally disconnected) is not an instance on it and has to be transported, for imperfect K through TauCeti.absoluteGaloisGroupRestrictEquiv to Gal(SeparableClosure K/K).",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:IntermediateField.fixedField",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/Galois/Basic.lean",
+        "provides": "The intermediate field fixed by an automorphism subgroup.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:IntermediateField.lift",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/IntermediateField/Basic.lean",
+        "provides": "An intermediate field inside an intermediate field is mapped into the ambient extension.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:IsCyclotomicExtension.Rat.galEquivZMod",
+        "kind": "abbrev",
+        "module": "Mathlib/NumberTheory/NumberField/Cyclotomic/Galois.lean",
+        "provides": "Gal(Q(ζ_n)/Q) ≃* (Z/n)^× with σ(ζ_n) = ζ_n^a.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:IsGalois.intermediateFieldEquivSubgroup",
+        "kind": "def",
+        "module": "Mathlib/FieldTheory/Galois/Basic.lean",
+        "provides": "the Galois correspondence for finite Galois extensions",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:IsPrimitiveRoot.autToPow_injective",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/Cyclotomic/Gal.lean",
+        "provides": "For a primitive n-th root μ in a domain L with [IsCyclotomicExtension {n} K L], the homomorphism hμ.autToPow K : Gal(L/K) →* (ZMod n)ˣ is injective; no irreducibility of the cyclotomic polynomial is assumed.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "GL_n(R) as the units of the matrix ring.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup.det",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "determinant GL n R →* Rˣ",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup.toLin'",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "For a basis b, GL of matrices is multiplicatively equivalent to the general linear group of the module.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Matrix.ProjGenLinGroup",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Projective.lean",
+        "provides": "PGL n R := GL n R ⧸ centre",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Matrix.ProjectiveSpecialLinearGroup.rank_two_simple",
+        "kind": "theorem",
+        "module": "Mathlib/LinearAlgebra/Projectivization/PSL/PSL2.lean",
+        "provides": "PSL(2, F) is simple when 4 ≤ Nat.card F (so F is finite with at least 4 elements; for infinite F use rank_two_simple').",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Matrix.ProjectiveSpecialLinearGroup.toPGL",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Projective.lean",
+        "provides": "the inclusion PSL → PGL (injective by toPGL_injective)",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Matrix.SL2.commutator_eq_top",
+        "kind": "lemma",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "provides": "commutator SL(2, F) = ⊤ given a ≠ 0, a² ≠ 1",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Matrix.SpecialLinearGroup",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
+        "provides": "SL n R",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:NumberField.InfinitePlace.IsReal",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/NumberField/InfinitePlace/Basic.lean",
+        "provides": "an infinite place is real if defined by a real embedding",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:Subfield.closure",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Field/Subfield/Basic.lean",
+        "provides": "The smallest subfield containing a set.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:gaussSum_sq",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/GaussSum.lean",
+        "provides": "For a finite field R, an integral domain R', a nontrivial quadratic χ : MulChar R R' and a primitive ψ : AddChar R R': gaussSum χ ψ ^ 2 = χ(−1) · |R| (Fintype.card).",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "mathlib:groupCohomology.H1",
+        "kind": "abbrev",
+        "module": "Mathlib/RepresentationTheory/Homological/GroupCohomology/LowDegree.lean",
+        "provides": "H¹(G, A) := groupCohomology A 1, first cohomology of the inhomogeneous cochain complex of A : Rep k G for an abstract group G (k, G, A in one universe; no continuity).",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.GL2NonSplitTorus",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/NonSplitTorus.lean",
+        "provides": "The image of Eˣ in GL (Fin 2) F under left multiplication read in the chosen basis nonSplitTorusBasis F E hE, for a field extension E/F with hE : Module.finrank F E = 2 (any field F; another basis gives a conjugate subgroup).",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.GL2NonSplitTorus.centralizer_gl2NonSplitTorusHom",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Centralizer.lean",
+        "provides": "the centraliser of a non-scalar torus element is the torus",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.GL2NonSplitTorus.natCard_eq",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/NonSplitTorus.lean",
+        "provides": "the non-split torus has q² − 1 elements",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.GL2NonSplitTorus.unitsEquiv",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/NonSplitTorus.lean",
+        "provides": "The multiplicative equivalence of E× and the existing non-split torus.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.GL2NonSplitTorusHom",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/NonSplitTorus.lean",
+        "provides": "The unit homomorphism of a quadratic field extension to GL₂ by left multiplication in nonSplitTorusBasis.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.diagonalNormalizerQuotientMulEquivPerm",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Diagonal/Normalizer.lean",
+        "provides": "For a field with a nontrivial unit group, the normaliser quotient of the diagonal torus is the permutation group of Fin n.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.diagonalTorus",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Diagonal/Basic.lean",
+        "provides": "diagonalTorus k n : Subgroup (GL (Fin n) k), the range of diagGL.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.diagonalTorusEquiv",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Diagonal/Basic.lean",
+        "provides": "The product of units indexed by Fin n is multiplicatively equivalent to diagonalTorus.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.mem_diagonalTorus_iff",
+        "kind": "lemma",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/Diagonal/Basic.lean",
+        "provides": "Membership in diagonalTorus is equivalent to being a diagonal matrix.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      },
+      {
+        "ref": "tauceti:TauCeti.nonSplitTorusBasis",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/Matrix/GeneralLinearGroup/NonSplitTorus.lean",
+        "provides": "A chosen F-basis, indexed by Fin 2, of a field extension E with hE : Module.finrank F E = 2; the non-split torus is the image of Eˣ in this basis.",
+        "checked": "Statement and ambient hypotheses read at the pinned baseline in this follow-up; inherited metadata supplies the fully qualified name and module."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "accplus-cm-potential-automorphy",
+      "title": "Potential automorphy over CM fields",
+      "authors": "Allen, Calegari, Caraiani, Gee, Helm, Le Hung, Newton, Scholze, Taylor, Thorne",
+      "edition": "Annals of Math. 197 (2023), 897–1113, published PDF from Calegari's page",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+      "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02",
+      "readSections": [
+        "Lemma 7.1.6 and proof, printed p. 1090; Lemma 7.1.8(2) and proof, printed pp. 1091–1092"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "bcg25-gln",
+      "title": "Cuspidal cohomology classes for GL_n(Z)",
+      "authors": "George Boxer, Frank Calegari, Toby Gee",
+      "edition": "J. Amer. Math. Soc. 38 (2025), 509–520, free offprint WeightZero.pdf",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/WeightZero.pdf",
+      "sha256": "4d27afabbef371babf3a73dad19bc8ccee180636be27bd6ebee17f58f7150290",
+      "readSections": [
+        "Theorem 3.1 and its image argument, printed p. 516"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "bcgnt25",
+      "title": "The Ramanujan and Sato–Tate conjectures for Bianchi modular forms",
+      "authors": "Boxer, Calegari, Gee, Newton, Thorne",
+      "edition": "arXiv:2309.15880v3",
+      "url": "https://arxiv.org/pdf/2309.15880v3",
+      "sha256": "0ad015dfe35d40489a2b8b462ac93d5dd715dbbae7d3fbf18377beaed654579d",
+      "readSections": [
+        "Lemmas 5.2.2–5.2.4 and proof, arXiv v3 pp. 51–52; Proposition 6.2.3 hypothesis (13) and proof, p. 62; published Lemma 5.2.4 proof, p. 47, compared for the known product-automorphism misprint"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "cn23",
+      "title": "On the modularity of elliptic curves over imaginary quadratic fields",
+      "authors": "Ana Caraiani, James Newton",
+      "edition": "arXiv:2301.10509v3",
+      "url": "https://arxiv.org/pdf/2301.10509v3",
+      "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3",
+      "readSections": [
+        "§6.2, p. 91; Lemma 6.1.4 and proof, p. 88; Lemma 7.1.1 and proof, p. 92, arXiv v3"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "ddt-fermat",
+      "title": "Fermat's Last Theorem",
+      "authors": "Henri Darmon, Fred Diamond and Richard Taylor",
+      "edition": "2007 revised version from Darmon's McGill page; pages are the PDF's printed page numbers",
+      "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf",
+      "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3",
+      "readSections": [
+        "§2.1, p. 55; Theorem 2.47, p. 81; Theorem 2.49, p. 82; Remark 3.11, p. 89"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "dickson-linear-groups",
+      "title": "Linear groups with an exposition of the Galois field theory",
+      "authors": "Leonard Eugene Dickson",
+      "edition": "Teubner, Leipzig 1901; archive.org scan lineargroupswith00dickuoft (331 PDF pages; printed page = PDF page − 14); read on page images, the text layer is poor",
+      "url": "https://archive.org/download/lineargroupswith00dickuoft/lineargroupswith00dickuoft.pdf",
+      "sha256": "1d4ad61f79b22926ad39a3d13429cc178bc0e9f42ab0b8896c0b466079c7d07e",
+      "readSections": [
+        "Chapter XII, §§239–262, printed pp. 260–287; especially §§251–254, pp. 272–279, and §§258–259, pp. 282–285"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "dieulefait-pacetti",
+      "title": "A simplified proof of Serre's conjecture",
+      "authors": "Luis Victor Dieulefait and Ariel Martín Pacetti",
+      "edition": "arXiv:2108.07577v2",
+      "url": "https://arxiv.org/pdf/2108.07577v2",
+      "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6",
+      "readSections": [
+        "§1.5, Definition 1.12, Lemmas 1.13–1.14 and their proofs, Remark 5, preprint pp. 7–9"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "guralnick-herzig-tiep17",
+      "title": "Adequate subgroups and indecomposable modules",
+      "authors": "Robert Guralnick, Florian Herzig and Pham Huu Tiep",
+      "edition": "Journal of the European Mathematical Society 19 (2017), 1231–1291",
+      "url": "https://ems.press/content/serial-article-files/32200?nt=1",
+      "readSections": [
+        "Corollary 9.4 and proof, pp. 1282–1283; corroboration, not a dependency on its quoted Ext calculation"
+      ],
+      "sha256": "b6e7ba4737c5bfa1392823ca77f8237b48c65646815cf67e323207931337f250",
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "kw-serre-modularity-I",
+      "title": "Serre's modularity conjecture (I)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "edition": "Author's preprint results.pdf of Invent. Math. 178 (2009)",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+      "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82",
+      "readSections": [
+        "§1, p. 2; §6, Lemmas 6.1–6.2 and proofs, pp. 10–11"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "kw-serre-modularity-II",
+      "title": "Serre's modularity conjecture (II)",
+      "authors": "Chandrashekhar Khare, Jean-Pierre Wintenberger",
+      "edition": "author copy proofs.pdf (98 pp., 30 May 2009) of Invent. Math. 178 (2009), 505–586",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "readSections": [
+        "§4.1.4, Lemma 4.3 and proof, preprint pp. 40–41"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "nt26",
+      "title": "Symmetric power functoriality for Hilbert modular forms",
+      "authors": "James Newton and Jack A. Thorne",
+      "edition": "arXiv:2212.03595v2 (19 February 2025); published Annals 203 (2026) not consulted",
+      "url": "https://arxiv.org/pdf/2212.03595v2",
+      "sha256": "6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c",
+      "readSections": [
+        "Lemma 2.3(3), arXiv v2 p. 11; group discussion after Theorem 4.1, p. 26"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "serre72-proprietes",
+      "title": "Propriétés galoisiennes des points d'ordre fini des courbes elliptiques",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Invent. Math. 15 (1972), 259–331; freely readable scanned author copy from Collège de France, checked printed pp. 279–283 (PDF pp. 22–26)",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5874918517843398173_Serre_proprie_te_s_galoisiennes_des_courbes_elliptiques.pdf",
+      "sha256": "93970ed93730194af8bed0f1f59d29cbed061d20f34f4bcffc079ad8aedf01d5",
+      "readSections": [
+        "§§2.1–2.7, Propositions 14–18 and remarks, printed pp. 278–283; scanned page images read"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "serre87-duke",
+      "title": "Sur les représentations modulaires de degré 2 de Gal(Q̄/Q)",
+      "authors": "Jean-Pierre Serre",
+      "edition": "Duke Math. J. 54 (1987), 179–230, Collège de France PDF; printed pages",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+      "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038",
+      "readSections": [
+        "§1.3, (1.3.7)–(1.3.9), printed p. 182; §3.3, p. 198"
+      ],
+      "accessed": "2026-10-09"
+    },
+    {
+      "id": "steinberg60",
+      "title": "Automorphisms of Finite Linear Groups",
+      "authors": "Robert Steinberg",
+      "edition": "Canadian Journal of Mathematics 12 (1960), 606–615",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/16023F257E0F21D57873B1450E9F15E4/S0008414X00010245a.pdf/div-class-title-automorphisms-of-finite-linear-groups-div.pdf",
+      "readSections": [
+        "§§2–3, p. 607–608; rank-one relations §4.10, p. 610; §§5.1–5.2, pp. 610–611; §5.7 and completion, pp. 612–613"
+      ],
+      "sha256": "08c198776cfce234e3282ef37fc368b40aca33df3e880b967003c44a33ebfe4b",
+      "accessed": "2026-10-09"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/complex-conjugation",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "Complex conjugation at a real place",
+      "kind": "construction",
+      "statement": "For a number field F, a real infinite place v, and an embedding ι:F̄→ℂ inducing v, construct the unique c_ι∈G_F satisfying ι(c_ι x)=conj(ι x) for every x∈F̄. Choose one such element c_v from v alone. It has order two. Any two choices over the same v are conjugate in G_F. The embedding is not an inverse map on all of ℂ: the inverse used in the construction is on the algebraic closure of ι(F) inside ℂ.",
+      "hypotheses": [
+        "F is a number field; F̄ is AlgebraicClosure F; G_F has the Krull topology.",
+        "v is real; ι restricts to the unique real embedding of F inducing v."
+      ],
+      "proofSteps": [
+        "Extend the real embedding F→ℝ→ℂ to F̄ using algebraic-closure embedding extension. Its image is precisely the elements of ℂ algebraic over that copy of F, so conjugation preserves the image.",
+        "Transport complex conjugation along this embedding. It fixes F and squares to the identity; a root of X²+1 in F̄ proves it is not the identity.",
+        "For another ι′ above v, the images coincide. The comparison g=ι⁻¹ι′ is an F-automorphism, and c_ι′=g⁻¹c_ιg. Choosing an extension gives c_v and its choice-independent conjugacy class."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.1/continuous-representation",
+        "mathlib:Field.absoluteGaloisGroup",
+        "mathlib:NumberField.InfinitePlace.IsReal",
+        "mathlib:Complex.conjAe"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre87-duke",
+          "locator": "§1.3, remark before (1.3.7), printed p. 182",
+          "match": "Serre fixes an embedding into ℂ and obtains the order-two Galois element used in oddness. The real-place and choice-comparison formulations here are the explicit number-field extension of that construction."
+        }
+      ],
+      "acceptance": [
+        "Verify the intertwining identity on every element, not only roots of unity.",
+        "Two embeddings over one real place give the same determinant value for every representation."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+      "api": [
+        {
+          "name": "TauCeti.GaloisRep.complexConjugationOfEmbedding",
+          "role": "constructor",
+          "statement": "Given ι above a real place, return the transported F-automorphism of F̄."
+        },
+        {
+          "name": "TauCeti.GaloisRep.complexConjugationOfEmbedding_spec",
+          "role": "simp",
+          "statement": "ι(c_ιx)=conj(ιx) for every x."
+        },
+        {
+          "name": "TauCeti.GaloisRep.complexConjugationOfEmbedding_unique",
+          "role": "universal-property",
+          "statement": "An F-automorphism satisfying the intertwining identity equals c_ι."
+        },
+        {
+          "name": "TauCeti.GaloisRep.complexConjugation_spec",
+          "role": "projection",
+          "statement": "There exists an embedding above v for which the chosen c_v satisfies the same identity."
+        },
+        {
+          "name": "TauCeti.GaloisRep.complexConjugation_sq",
+          "role": "structure",
+          "statement": "c_v²=1, c_v≠1, and order(c_v)=2."
+        },
+        {
+          "name": "TauCeti.GaloisRep.isConj_complexConjugation",
+          "role": "compatibility",
+          "statement": "Every transported c_ι above v is conjugate to c_v in G_F."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GaloisRep.complexConjugation_on_sqrt_minus_one",
+          "kind": "computation",
+          "statement": "If i²=−1 in F̄ then c_ι(i)=−i. The identity automorphism fails this test."
+        },
+        {
+          "name": "TauCeti.GaloisRep.complexConjugation_on_real_base",
+          "kind": "degenerate",
+          "statement": "c_ι fixes every algebraMap(F,F̄)(a), because the chosen place is real."
+        },
+        {
+          "name": "TauCeti.GaloisRep.complexConjugation_on_primitive_root",
+          "kind": "compatibility",
+          "statement": "For a root of unity ζ in F̄, c_ι(ζ)=ζ⁻¹; this agrees with complex conjugation and the cyclotomic character."
+        },
+        {
+          "name": "TauCeti.GaloisRep.complexConjugation_change_embedding",
+          "kind": "characterisation",
+          "statement": "If ι′=ι∘g for g∈G_F, then c_ι′=g⁻¹c_ιg, without asserting equality of the chosen elements."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+          "how": "Makes the determinant condition at each real place independent of the embedding."
+        },
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.6/determinant-and-oddness",
+          "how": "Computes the action on roots of unity and hence the determinant of Tate modules."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/ResidualImage/GaloisRep.lean",
+        "namespace": "TauCeti.GaloisRep"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/totally-odd-character",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "Totally odd characters",
+      "kind": "definition",
+      "statement": "For a commutative ring A and a homomorphism μ:G_F→A×, IsTotallyOddChar μ means μ(c_v)=−1 for every real infinite place v of F. Continuity is required when μ is used as an arithmetic character, but is not part of this algebraic predicate. The condition is invariant under the choice of c_v. When F has no real places it is vacuous. The existing odd-representation node defines oddness of a rank-two finite projective representation by this predicate on its determinant character.",
+      "hypotheses": [
+        "F is a number field and A a commutative ring.",
+        "A topological ring and a continuous character are used in arithmetic applications."
+      ],
+      "proofSteps": [
+        "Use the complex-conjugation construction and impose the stated equalities at all real places.",
+        "A character kills conjugation because its target is commutative. Ring maps preserve −1. Restriction along G_L→G_F sends a real-place conjugation to one of F.",
+        "If A is reduced and 2=0, μ(c_v)²=1 implies (μ(c_v)−1)²=0 and hence μ(c_v)=1=−1. Without reducedness this implication fails."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.4/complex-conjugation",
+        "ArithmeticGaloisRepresentations:R01.1/restriction-dual-tensor-twist"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre87-duke",
+          "locator": "§1.3, (1.3.8)–(1.3.9), printed p. 182",
+          "match": "The determinant character takes value −1 at complex conjugation. Here the predicate is separated from the representation and imposed at all real places."
+        },
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "§1, first definition of S-type, preprint p. 2",
+          "match": "Oddness of the residual determinant is one of the hypotheses; continuity and absolute irreducibility are separate conditions."
+        }
+      ],
+      "acceptance": [
+        "The determinant interface agrees with the accepted odd-representation node, including its reduced-ring characteristic-two convention."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+      "api": [
+        {
+          "name": "TauCeti.GaloisRep.IsTotallyOddChar",
+          "role": "data",
+          "statement": "μ is totally odd exactly when μ(c_v)=−1 at every real v."
+        },
+        {
+          "name": "TauCeti.GaloisRep.isTotallyOddChar_iff_embeddings",
+          "role": "characterisation",
+          "statement": "The same equalities hold for every embedding of F̄ into ℂ above a real place."
+        },
+        {
+          "name": "TauCeti.GaloisRep.isTotallyOddChar_map",
+          "role": "functoriality",
+          "statement": "A ring map A→B preserves total oddness; an injective map also reflects it."
+        },
+        {
+          "name": "TauCeti.GaloisRep.isTotallyOddChar_restrict",
+          "role": "functoriality",
+          "statement": "Restriction to a finite extension preserves the condition at every real place of the extension."
+        },
+        {
+          "name": "TauCeti.GaloisRep.isTotallyOddChar_mul_square",
+          "role": "compatibility",
+          "statement": "μψ² is totally odd iff μ is; ψ(c_v)²=1."
+        },
+        {
+          "name": "TauCeti.GaloisRep.isOdd_iff_isTotallyOddChar",
+          "role": "equivalence",
+          "statement": "A rank-two representation is odd iff its determinant character is totally odd."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GaloisRep.totallyOdd_trivial_Five",
+          "kind": "non-example",
+          "statement": "The trivial character of G_ℚ with values in F₅× is not totally odd."
+        },
+        {
+          "name": "TauCeti.GaloisRep.totallyOdd_cyclotomic",
+          "kind": "computation",
+          "statement": "The mod-p cyclotomic character of G_ℚ is totally odd for every odd prime p."
+        },
+        {
+          "name": "TauCeti.GaloisRep.totallyOdd_reduced_charTwo",
+          "kind": "degenerate",
+          "statement": "Every character to the units of a reduced ring with 2=0 is totally odd; over F₂[ε]/(ε²), the quadratic character of ℚ(i) with c↦1+ε fails the condition."
+        },
+        {
+          "name": "TauCeti.GaloisRep.totallyOdd_every_real_place",
+          "kind": "non-example",
+          "statement": "For F=ℚ(√2), the character of F(√√2)/F with values in F₃× takes 1 at √2>0 and −1 at √2<0; it is not totally odd."
+        },
+        {
+          "name": "TauCeti.GaloisRep.totallyOdd_no_real_place",
+          "kind": "degenerate",
+          "statement": "When F has no real places, including F=ℚ(i), every character is totally odd."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+          "how": "Is the basis-independent determinant predicate, including coefficient extension and twisting."
+        },
+        {
+          "where": "PotentialModularityAndCompatibleSystems:R24.6/residual-members",
+          "how": "Reduction of an odd determinant preserves its real-place values."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/ResidualImage/GaloisRep.lean",
+        "namespace": "TauCeti.GaloisRep"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/split-cartan",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "Split Cartan subgroups",
+      "kind": "definition",
+      "statement": "For a two-dimensional k-vector space V and distinct one-dimensional subspaces D₁,D₂, split(D₁,D₂) is the subgroup of GL(V) preserving each line individually. It is naturally the product of the automorphism groups of the two lines, and after choosing a nonzero vector in each line it is (k×)². The definition uses ordered lines, but the subgroup is unchanged by swapping them. Its matrix model under an adapted basis is the already implemented TauCeti.diagonalTorus k 2.",
+      "hypotheses": [
+        "k is a field; V has dimension two.",
+        "D₁ and D₂ are distinct lines; no cardinality bound is needed for the definition or comparison."
+      ],
+      "proofSteps": [
+        "Distinct lines are complementary. Restriction of an automorphism to each summand gives the product equivalence; conversely combine two line automorphisms.",
+        "Transport along an adapted basis using Matrix.GeneralLinearGroup.toLin′. Diagonal matrices are exactly the operators preserving both coordinate lines, by the existing diagonal-torus membership theorem.",
+        "Conjugation carries each line to its image. For a finite k the order is (q−1)². When q=2 the subgroup is trivial, so its normaliser is all GL₂(F₂)."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.GeneralLinearGroup.toLin'",
+        "tauceti:TauCeti.diagonalTorus",
+        "tauceti:TauCeti.mem_diagonalTorus_iff",
+        "tauceti:TauCeti.diagonalTorusEquiv"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre72-proprietes",
+          "locator": "§2.1(a), printed pp. 278–279",
+          "match": "Defines the subgroup preserving the two lines and identifies it with a product of multiplicative groups. The coordinate API here uses the existing Tau Ceti model."
+        }
+      ],
+      "acceptance": [
+        "No new node for the coordinate diagonal torus or its normaliser quotient: those are baseline declarations."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "api": [
+        {
+          "name": "TauCeti.GL2Cartan.split",
+          "role": "constructor",
+          "statement": "Return the simultaneous line stabiliser as a subgroup of GL(V)."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.mem_split_iff",
+          "role": "characterisation",
+          "statement": "g∈split(D₁,D₂) iff gD₁=D₁ and gD₂=D₂."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.split_comm",
+          "role": "simp",
+          "statement": "split(D₁,D₂)=split(D₂,D₁)."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.splitEquivUnits",
+          "role": "equivalence",
+          "statement": "An adapted basis identifies split(D₁,D₂) with k××k×."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.split_diagonalTorus",
+          "role": "compatibility",
+          "statement": "For b=(v₁,v₂) with vᵢ spanning Dᵢ, mapping TauCeti.diagonalTorus k 2 along Matrix.GeneralLinearGroup.toLin′ b gives split(D₁,D₂)."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.split_conj",
+          "role": "functoriality",
+          "statement": "Conjugation by g gives split(gD₁,gD₂)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GL2Cartan.split_card_Five",
+          "kind": "computation",
+          "statement": "The split Cartan in GL₂(F₅) has order 16 and its normaliser has order 32."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.split_trivial_q_two",
+          "kind": "degenerate",
+          "statement": "Over F₂ the split Cartan is trivial and its normaliser has order 6, with index 6 rather than 2."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.split_diagonal_baseline",
+          "kind": "compatibility",
+          "statement": "For the coordinate axes, the transported subgroup is exactly TauCeti.diagonalTorus k 2."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.swap_not_mem_split",
+          "kind": "non-example",
+          "statement": "The coordinate swap over F₅ normalises the split Cartan but is not in it. Defining an unordered-pair stabiliser would fail this test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Serre 1972, Propositions 14–18, pp. 279–283",
+          "how": "Distinguishes Cartans from their normalisers and half-Cartans in subgroup recognition."
+        },
+        {
+          "where": "Caraiani–Newton, Lemma 7.1.1(2), p. 92",
+          "how": "Identifies the exceptional mod-3 normaliser through its split Cartan."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/ResidualImage/GL2Cartan.lean",
+        "namespace": "TauCeti.GL2Cartan"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/half-cartan",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "Split half-Cartan subgroups",
+      "kind": "definition",
+      "statement": "For distinct lines D₁,D₂ in a plane V over k, halfSplit(D₁,D₂) consists of the automorphisms preserving D₁ and fixing D₂ pointwise. In an adapted basis it is diag(a,1), a∈k×. It is isomorphic to k× through the determinant. Multiplying it by the scalar subgroup gives split(D₁,D₂); both have the same projective image. For finite q≥3 it determines the unique split Cartan containing it.",
+      "hypotheses": [
+        "k is a field and dim V=2; D₁,D₂ are distinct lines.",
+        "The uniqueness statement requires |k|≥3. Serre fixes the other ordered line; interchanging D₁,D₂ reconciles the conventions."
+      ],
+      "proofSteps": [
+        "Use the direct-sum decomposition of V; an automorphism on D₁ together with the identity on D₂ is the required element.",
+        "In coordinates, determinant is a and every diagonal matrix diag(a,b) factors as the scalar b times diag(a/b,1).",
+        "For q≥3 choose a≠1. The two distinct eigenspaces of diag(a,1) force the two lines of any split Cartan containing the half-Cartan. The argument fails over F₂, where the half-Cartan is trivial."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.4/split-cartan",
+        "mathlib:Matrix.GeneralLinearGroup.det"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre72-proprietes",
+          "locator": "§2.1(a), printed pp. 278–279; Proposition 14, p. 279",
+          "match": "The subgroup fixing one line pointwise generates the split Cartan with scalars and supplies the half-Cartan hypotheses in image recognition."
+        }
+      ],
+      "acceptance": [
+        "Use pointwise fixation of D₂; preserving D₂ merely gives the full split Cartan."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "api": [
+        {
+          "name": "TauCeti.GL2Cartan.halfSplit",
+          "role": "constructor",
+          "statement": "Return the subgroup preserving D₁ and fixing every vector of D₂."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.mem_halfSplit_iff",
+          "role": "characterisation",
+          "statement": "g belongs iff gD₁=D₁ and g x=x for every x∈D₂."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.halfSplit_le_split",
+          "role": "relation",
+          "statement": "halfSplit(D₁,D₂)≤split(D₁,D₂)."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.halfSplitEquivUnits",
+          "role": "equivalence",
+          "statement": "The determinant identifies the half-Cartan with k×."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.halfSplit_sup_center",
+          "role": "compatibility",
+          "statement": "The subgroup generated by the half-Cartan and scalars equals the split Cartan; their projective images agree."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.halfSplit_unique_split",
+          "role": "characterisation",
+          "statement": "For finite q≥3, a split Cartan containing this half-Cartan equals split(D₁,D₂)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GL2Cartan.halfSplit_card_Five",
+          "kind": "computation",
+          "statement": "Over F₅ the half-Cartan has order 4, compared with order 16 for the split Cartan."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.halfSplit_second_axis",
+          "kind": "non-example",
+          "statement": "diag(1,2) over F₅ is in the full split Cartan but not the half-Cartan fixing the second axis; diag(2,1) is in the half-Cartan."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.halfSplit_det_baseline",
+          "kind": "compatibility",
+          "statement": "On diag(a,1), Mathlib Matrix.GeneralLinearGroup.det returns a, giving the stated equivalence."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.halfSplit_q_two",
+          "kind": "degenerate",
+          "statement": "Over F₂ the half-Cartan is trivial; distinct unordered pairs of lines give the same subgroup, so uniqueness of the defining pair fails."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Serre 1972, Propositions 14, 17, 18, pp. 279–283",
+          "how": "The half-Cartan hypothesis is weaker than containing the full split Cartan and still forces the image alternatives."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/ResidualImage/GL2Cartan.lean",
+        "namespace": "TauCeti.GL2Cartan"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/basis-free-nonsplit-cartan",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "Basis-free non-split Cartan subgroups",
+      "kind": "construction",
+      "statement": "Let k be a finite field and V a k-vector space of dimension two. For a subalgebra E⊂End_k(V) that is a field and has dimension two over k, nonsplit(E) is the image of E× in GL(V). This is a basis-free unit subgroup, not a replacement for the existing coordinate TauCeti.GL2NonSplitTorus. V is free of rank one over E. An E-linear identification V≃E, followed by TauCeti.nonSplitTorusBasis, transports nonsplit(E) to that existing left-multiplication matrix subgroup.",
+      "hypotheses": [
+        "k is finite; dim_k V=2.",
+        "E is an actual field subalgebra of End_k(V), not merely a two-dimensional commutative algebra."
+      ],
+      "proofSteps": [
+        "The subalgebra inclusion is injective and maps units to invertible operators. Define the subgroup by the range of the induced unit homomorphism.",
+        "A nonzero v∈V makes a↦a v an injective k-linear map E→V because every nonzero a is invertible. Equal dimensions make it an equivalence and give the rank-one E-module description.",
+        "In these coordinates the action is left multiplication, exactly GL2NonSplitTorusHom. The existing norm, trace and cardinality formulas transfer along this equivalence."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.GL2NonSplitTorus",
+        "tauceti:TauCeti.GL2NonSplitTorusHom",
+        "tauceti:TauCeti.nonSplitTorusBasis",
+        "tauceti:TauCeti.GL2NonSplitTorus.unitsEquiv",
+        "tauceti:TauCeti.GL2NonSplitTorus.natCard_eq",
+        "mathlib:Matrix.GeneralLinearGroup.toLin'"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre72-proprietes",
+          "locator": "§2.1(b), printed p. 279",
+          "match": "Defines the non-split Cartan by a quadratic field inside the endomorphism algebra. The coordinate identification is the transport to the existing library construction."
+        }
+      ],
+      "acceptance": [
+        "For the regular representation V=E, compare the transported subgroup directly with GL2NonSplitTorus k E hE, not with a fresh unverified matrix model."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "api": [
+        {
+          "name": "TauCeti.GL2Cartan.nonsplit",
+          "role": "constructor",
+          "statement": "The range of the unit homomorphism E×→GL(V)."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.mem_nonsplit_iff",
+          "role": "characterisation",
+          "statement": "g belongs iff its underlying endomorphism is a nonzero element of E."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.nonsplitEquivUnits",
+          "role": "equivalence",
+          "statement": "E×≃nonsplit(E), with forward map the subalgebra inclusion on units."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.nonsplit_GL2NonSplitTorus",
+          "role": "compatibility",
+          "statement": "For V=E with left-multiplication subalgebra, the subgroup in TauCeti.nonSplitTorusBasis is exactly TauCeti.GL2NonSplitTorus k E hE."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.nonsplit_trace_det",
+          "role": "projection",
+          "statement": "Multiplication by a∈E× has trace Tr_E/k(a) and determinant N_E/k(a)."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.nonsplit_conj",
+          "role": "functoriality",
+          "statement": "Conjugating the field subalgebra conjugates its unit subgroup."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GL2Cartan.nonsplit_card_Three",
+          "kind": "computation",
+          "statement": "For E=F₉ acting on itself over F₃, the unit subgroup has order 8, and its normaliser has order 16."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.nonsplit_card_Two",
+          "kind": "degenerate",
+          "statement": "For E=F₄ over F₂, the unit subgroup is cyclic of order 3 and its normaliser is GL₂(F₂) of order 6."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.nonsplit_eq_GL2NonSplitTorus",
+          "kind": "compatibility",
+          "statement": "The regular-representation subgroup mapped through nonSplitTorusBasis equals the pinned Tau Ceti subgroup."
+        },
+        {
+          "name": "TauCeti.GL2Cartan.nonsplit_no_rational_line",
+          "kind": "non-example",
+          "statement": "The F₉× subgroup of GL₂(F₃) preserves no F₃-line. Treating the split algebra F₃×F₃ as a quadratic field would fail this test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Serre 1972, §§2.1–2.2, pp. 279–280",
+          "how": "Normalisers are field-semilinear operators."
+        },
+        {
+          "where": "Caraiani–Newton, Lemma 7.1.1(3), p. 92",
+          "how": "Places the exceptional mod-5 image in a non-split Cartan normaliser."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/ResidualImage/GL2Cartan.lean",
+        "namespace": "TauCeti.GL2Cartan"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/cartan-normaliser-semilinear",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "Semilinear description of Cartan normalisers",
+      "kind": "theorem",
+      "statement": "For nonsplit(E), the normaliser consists of E-linear operators and operators semilinear for the nontrivial k-automorphism of E. Its quotient by nonsplit(E) is Aut_k(E), cyclic of order two. In E-coordinates, an element is x↦a x or x↦a x^q. The latter has trace zero and scalar square N_E/k(a). The projective Cartan has order q+1 and the projective normaliser is dihedral of order 2(q+1). For the split Cartan with q≥3, transport the already proved diagonal-normaliser quotient to get the permutation group on its two lines, and the analogous trace-zero, scalar-square and dihedral formulas with q−1.",
+      "hypotheses": [
+        "k is finite; q=|k|; dim V=2.",
+        "The split case requires q≥3. The non-split case includes q=2."
+      ],
+      "proofSteps": [
+        "Units of E span E as a k-algebra, so conjugation by a normaliser induces a k-algebra automorphism of E. Its kernel is the centraliser of E, which is E× because V is a one-dimensional E-module.",
+        "Every automorphism of E lifts on V≃E. The two automorphisms are identity and q-Frobenius. Compose Frobenius with multiplication by a to compute the square and trace (including characteristic two).",
+        "Modulo k× the action of Frobenius sends a to a^q≡a⁻¹. This proves the dihedral description. In the split case cite diagonalNormalizerQuotientMulEquivPerm and compute the off-diagonal matrices in an adapted basis."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.4/split-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/basis-free-nonsplit-cartan",
+        "tauceti:TauCeti.diagonalNormalizerQuotientMulEquivPerm",
+        "tauceti:TauCeti.GL2NonSplitTorus.centralizer_gl2NonSplitTorusHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre72-proprietes",
+          "locator": "§2.2, printed p. 279",
+          "match": "Gives the order-two normaliser quotient and the field-automorphism action. The trace, square and projective formulas are direct computations in that description."
+        }
+      ],
+      "acceptance": [
+        "At q=2 only the non-split quotient has order two; the split quotient has order six.",
+        "At q=3 the split projective normaliser is the Klein four-group."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/regular-semisimple-cartan",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "The unique Cartan of a regular semisimple element",
+      "kind": "theorem",
+      "statement": "Let k be finite of characteristic different from two, V a plane and s∈GL(V). If Δ(s)=Tr(s)²−4det(s) is nonzero, then exactly one Cartan subgroup contains s. This Cartan is split iff Δ(s) is a square in k. In the split case its lines are the two eigenspaces; otherwise it is the unit group of the quadratic field k[s] inside End_k(V).",
+      "hypotheses": [
+        "dim V=2; k finite; char k≠2; Δ(s)≠0."
+      ],
+      "proofSteps": [
+        "The characteristic polynomial has distinct roots. If Δ is a square, its two k-rational eigenspaces give the split Cartan and force uniqueness.",
+        "Otherwise the characteristic polynomial is irreducible, k[s] is a quadratic field and s is in its unit subgroup. The existing centraliser theorem in a quadratic-extension basis shows that every commuting operator lies in this field.",
+        "Every Cartan containing s is commutative, hence is contained in this centraliser; equal orders give equality."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.4/split-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/basis-free-nonsplit-cartan",
+        "tauceti:TauCeti.GL2NonSplitTorus.centralizer_gl2NonSplitTorusHom"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre72-proprietes",
+          "locator": "§2.1, final paragraph, printed p. 279",
+          "match": "The nonzero discriminant identifies the unique Cartan and determines whether it is split."
+        }
+      ],
+      "acceptance": [
+        "diag(1,2) over F₅ has split Cartan; [[0,2],[1,0]] has the non-split F₂₅ Cartan.",
+        "The scalar identity has zero discriminant and lies in several Cartans, so the nonzero hypothesis cannot be omitted."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/cartan-contained-in-normaliser",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "Cartans contained in a Cartan normaliser",
+      "kind": "theorem",
+      "statement": "Let C be a Cartan subgroup of GL₂(F_p). A split Cartan C′ contained in N(C) equals C if p≥5; a split half-Cartan C′ contained in N(C) lies in C under the same bound. A non-split Cartan C′ contained in N(C) equals C if p≥3. These are the hypotheses of Serre Proposition 14, including the different bounds. Over F₃ the split-Cartan equality is false.",
+      "hypotheses": [
+        "p is prime; p≥5 for the split and half-split alternatives; p≥3 for the non-split alternative."
+      ],
+      "proofSteps": [
+        "Pass to the projective quotient. Its Cartan rotation subgroup is cyclic and its normaliser is dihedral; outside the rotations every element has order two.",
+        "The projective orders p−1 for split/half-split and p+1 for non-split are greater than two under the stated bounds. A generator must therefore lie in the rotation subgroup.",
+        "Lift through scalars and compare orders for full Cartans. For a half-Cartan multiply by scalars to recover the full split Cartan, using halfSplit_sup_center. At p=3 the rotation order is two, so the argument does not apply."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.4/half-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/cartan-normaliser-semilinear"
+      ],
+      "sources": [
+        {
+          "sourceId": "serre72-proprietes",
+          "locator": "Proposition 14, printed p. 279; following remark, p. 280",
+          "match": "Proves the inclusions and records the split-Cartan exception at p=3."
+        }
+      ],
+      "acceptance": [
+        "Keep the p=3 pair of distinct split Cartans with equal normaliser as a negative regression fixture."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/projective-trace-field",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "The projective trace field",
+      "kind": "definition",
+      "statement": "For a subgroup G≤GL₂(k) over a field k, projectiveTraceField(G) is the smallest subfield of k containing Tr(g)²/det(g) for every g∈G. This scalar is unchanged by conjugation or multiplication of g by a scalar unit, so the field is an invariant of the projective image with its embedding in PGL₂(k). It is not defined as the field generated by the matrix entries. In the standard nonsolvable PSL₂/PGL₂ alternatives it is the coefficient field F₀ used by the accepted classification nodes.",
+      "hypotheses": [
+        "k is a field; G is an actual subgroup of GL₂(k).",
+        "The descent and standard-image comparisons use the hypotheses of the accepted coefficient-field target; arbitrary projective groups are not asserted to descend to this field."
+      ],
+      "proofSteps": [
+        "Take Subfield.closure of the stated set of scalars. The determinant is nonzero because g is invertible.",
+        "Trace is invariant under conjugation. Multiplication by λ scales trace by λ and determinant by λ², proving scalar invariance.",
+        "A field embedding carries the generators to the same expressions in the image group. For a standard subfield subgroup, evaluate diagonal and unipotent products as in the accepted Dickson coefficient-field proof; do not infer a coefficient field from entry values of a chosen conjugate."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.GeneralLinearGroup",
+        "mathlib:Subfield.closure",
+        "mathlib:Matrix.GeneralLinearGroup.det"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-serre-modularity-I",
+          "locator": "§6, Lemmas 6.1–6.2, preprint pp. 10–11",
+          "match": "The projective classification and lifting to scalar multiples of a subfield group motivate making the coefficient field explicit. The closure by projective traces is the accepted parent convention and its nonsolvable comparison is retained there."
+        },
+        {
+          "sourceId": "dickson-linear-groups",
+          "locator": "Chapter XII, §§251–253, printed pp. 272–278",
+          "match": "The root-group argument recovers the field of a standard PSL₂/PGL₂ subgroup; the trace-field API records the invariant field rather than an arbitrary matrix realization."
+        }
+      ],
+      "acceptance": [
+        "A group conjugate over a larger field to a standard subfield subgroup retains its projective trace field."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field",
+      "api": [
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField",
+          "role": "constructor",
+          "statement": "The subfield closure of the set Tr(g)²/det(g)."
+        },
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField_le_iff",
+          "role": "universal-property",
+          "statement": "It is contained in E⊂k iff every projective trace lies in E."
+        },
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField_conj",
+          "role": "functoriality",
+          "statement": "Conjugation of G in GL₂(k) leaves the field unchanged."
+        },
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField_scalars",
+          "role": "compatibility",
+          "statement": "Adjoining all scalar units to G leaves the field unchanged."
+        },
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField_map",
+          "role": "functoriality",
+          "statement": "For a field embedding f:k→k′, the trace field of f(G) is the image under f of the trace field of G."
+        },
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField_standard",
+          "role": "compatibility",
+          "statement": "For a standard SL₂(E) or GL₂(E) image with finite |E|≥4, the field equals E as a subfield of k."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField_scalar",
+          "kind": "degenerate",
+          "statement": "The scalar subgroup has prime trace field (the bottom subfield), also in characteristic two where every generator is zero."
+        },
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField_Four_in_Sixteen",
+          "kind": "computation",
+          "statement": "For SL₂(F₄) embedded in GL₂(F₁₆), the trace field has 4 elements, not 16."
+        },
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField_conjugated_subfield",
+          "kind": "non-example",
+          "statement": "Conjugating that SL₂(F₄) by a matrix over F₁₆ outside GL₂(F₄) leaves the field F₄, even when some matrix entries leave F₄."
+        },
+        {
+          "name": "TauCeti.GL2Subgroup.projectiveTraceField_scalar_trace_ratio",
+          "kind": "compatibility",
+          "statement": "For λ∈k× and g∈GL₂(k), the two projective trace ratios of g and λg agree; the expression Tr(g)/det(g) would fail this test."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field",
+          "how": "Exports the field appearing in the standard projective image."
+        },
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field",
+          "how": "Pins the coefficient field of the commutator SL₂ group and the containing scalar-GL₂ group."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/ResidualImage/GL2Subgroup.lean",
+        "namespace": "TauCeti.GL2Subgroup"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/cyclotomic-square-subfield",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representation",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "The cyclotomic square subfield",
+      "kind": "construction",
+      "statement": "For a number field F and an odd prime p, let K=F(ζ_p) inside F̄ and H=Gal(K/F). Define cyclotomicSquareSubfield(F,p) as the lift to F̄ of the fixed field K^{H²}, where H²={h²:h∈H}; H is cyclic, so these squares form a subgroup. This field E equals F if [K:F] is odd, and is the unique quadratic subextension of K/F if the degree is even. For F=ℚ it is ℚ(√p*) with p*=(−1)^((p−1)/2)p, also the field generated by a primitive quadratic Gauss sum. Formation of E is not asserted to commute with arbitrary base change.",
+      "hypotheses": [
+        "F is a number field; p is an odd prime.",
+        "K is the actual cyclotomic extension, whose Galois group can be a proper subgroup of F_p×."
+      ],
+      "proofSteps": [
+        "Use the action on a primitive p-th root of unity to inject H into F_p×. The resulting cyclic group has a square subgroup of index one or two according to its parity.",
+        "Apply fixedField and lift for the concrete intermediate field in K. Finite Galois correspondence gives the degree and unique quadratic-subfield assertions.",
+        "Over ℚ, galEquivZMod identifies H with all F_p×. The quadratic Gauss sum transforms by the quadratic character and its square is p*. The baseline gaussSum_sq supplies the square identity; this nonrational Gauss sum generates the index-two fixed field."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.2/cyclotomic-and-dirichlet-characters",
+        "mathlib:IsPrimitiveRoot.autToPow_injective",
+        "mathlib:IsCyclotomicExtension.Rat.galEquivZMod",
+        "mathlib:IntermediateField.fixedField",
+        "mathlib:IntermediateField.lift",
+        "mathlib:IsGalois.intermediateFieldEquivSubgroup",
+        "mathlib:gaussSum_sq"
+      ],
+      "sources": [
+        {
+          "sourceId": "dieulefait-pacetti",
+          "locator": "§1.5, Definition 1.12 and proof of Lemma 1.13, preprint pp. 7–8",
+          "match": "Uses the quadratic subfield of ℚ(ζ_p) for the residual restriction criterion. The number-field square-subgroup construction here is an explicit generalization; it does not replace it by F(√p*) uniformly."
+        }
+      ],
+      "acceptance": [
+        "For F=ℚ(√5), p=5, E=F(ζ₅) while F(√p*)=F. This prevents the incorrect uniform square-root definition."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representation",
+      "api": [
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSubfield",
+          "role": "constructor",
+          "statement": "Adjoin the primitive p-th roots to F inside F̄."
+        },
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSquareSubfield",
+          "role": "constructor",
+          "statement": "Lift the fixed field of the subgroup of squares in Gal(K/F)."
+        },
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSquareSubfield_le",
+          "role": "projection",
+          "statement": "F≤E≤K as intermediate fields of F̄/F."
+        },
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSquareSubfield_degree",
+          "role": "characterisation",
+          "statement": "[E:F]=1 when [K:F] is odd and 2 when [K:F] is even."
+        },
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSquareSubfield_unique",
+          "role": "universal-property",
+          "statement": "Every quadratic intermediate field of K/F is E; one exists exactly when [K:F] is even."
+        },
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSquareSubfield_rat",
+          "role": "compatibility",
+          "statement": "For ℚ it equals the adjoin of a root of X²−p* and the adjoin of a primitive quadratic Gauss sum."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSquareSubfield_rat_three",
+          "kind": "computation",
+          "statement": "At F=ℚ,p=3, E=K=ℚ(√−3)."
+        },
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSquareSubfield_rat_five",
+          "kind": "computation",
+          "statement": "At F=ℚ,p=5, E=ℚ(√5) is a proper quadratic subfield of K of degree four."
+        },
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSquareSubfield_odd_degree",
+          "kind": "degenerate",
+          "statement": "If [F(ζ_p):F] is odd, E=F; in particular this holds when ζ_p∈F."
+        },
+        {
+          "name": "TauCeti.GaloisRep.cyclotomicSquareSubfield_sqrt_five",
+          "kind": "non-example",
+          "statement": "At F=ℚ(√5),p=5, E=ℚ(ζ₅)≠F, whereas adjoining √p* to F gives F."
+        }
+      ],
+      "uses": [
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representation",
+          "how": "Specifies the exact subgroup on which absolute irreducibility fails."
+        },
+        {
+          "where": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion",
+          "how": "The square subgroup of a cyclic cyclotomic quotient fixes the possible two stable lines."
+        }
+      ],
+      "library": {
+        "module": "TauCeti/NumberTheory/GaloisRepresentation/ResidualImage/GaloisRep.lean",
+        "namespace": "TauCeti.GaloisRep"
+      }
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/semilinear-projective-automorphisms",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "Automorphisms of the projective linear groups",
+      "kind": "theorem",
+      "statement": "For a finite field k with q≥4, every automorphism of PSL₂(k) is the composite of conjugation by an element of PGL₂(k) and entrywise application of a field automorphism of k. These factors are unique in PGL₂(k) and Aut(k). Thus Aut(PSL₂(k))≃PΓL₂(k). Restriction from Aut(PGL₂(k)) to Aut(PSL₂(k)) is an isomorphism, so Aut(PGL₂(k)) has the same semilinear description. There is no additional graph automorphism in type A₁.",
+      "hypotheses": [
+        "k is a finite field with q≥4; the automorphisms are automorphisms of finite abstract groups.",
+        "Inner-diagonal means conjugation by PGL₂(k), not only by PSL₂(k)."
+      ],
+      "proofSteps": [
+        "Specialize Steinberg Theorem 3.2 to type A₁. His §5.1 normalizes a pair of opposite Sylow subgroups by an inner automorphism; §5.2 normalizes a chosen root generator by a diagonal automorphism.",
+        "Write the induced map on upper root elements as x₊(a)↦x₊(f(a)). Addition follows from the root-group law. The rank-one relations of §4.10 and §5.7 recover field multiplication: in characteristic two use surjectivity of squaring, and in odd characteristic polarize the square relation. The lower root subgroup is determined by the Weyl element.",
+        "The two root subgroups generate, so the normalized automorphism is the entrywise field automorphism. A semilinear operator centralizing PSL₂(k) has trivial field component and scalar linear component, proving uniqueness.",
+        "The derived subgroup of PGL₂(k) is its characteristic PSL₂(k). An automorphism restricting to the identity changes every element by something centralizing PSL₂(k); this centralizer in PGL₂(k) is trivial. Every semilinear automorphism extends, giving the restriction isomorphism."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.ProjectiveSpecialLinearGroup.rank_two_simple",
+        "mathlib:Matrix.SL2.commutator_eq_top",
+        "mathlib:Matrix.ProjGenLinGroup",
+        "mathlib:Matrix.ProjectiveSpecialLinearGroup.toPGL"
+      ],
+      "sources": [
+        {
+          "sourceId": "steinberg60",
+          "locator": "Theorem 3.2 and Corollary 3.3, printed p. 608; §§4.10, 5.1–5.2, 5.7 and completion of proof, pp. 610–613",
+          "match": "The theorem decomposes automorphisms into graph, field, diagonal and inner components. For A₁ the graph component is trivial; the cited proof reconstructs the field map from root-group parameters. The PGL₂ extension is the derived-subgroup argument given here."
+        }
+      ],
+      "acceptance": [
+        "At q=4 the result identifies Aut(A₅) with S₅, including the nontrivial field automorphism.",
+        "At q=9 both the diagonal outer automorphism and the field automorphism of A₆ are present."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/characteristic-two-matrix-cocycles",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/characteristic-two-residual-image-facts",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "Matrix cocycles for SL₂ in characteristic two",
+      "kind": "theorem",
+      "statement": "Let k₀ be a finite field of characteristic two with q≥4, let k be any extension field, and let SL₂(k₀) act on M₂(k) by conjugation through entrywise inclusion. Every function f:SL₂(k₀)→M₂(k) satisfying f(gh)=f(g)+g f(h)g⁻¹ is of the form f(g)=g Xg⁻¹−X for one X∈M₂(k). Equivalently H¹(SL₂(k₀),M₂(k))=0. This is an all-q proof, not an extrapolation from computations at q=4,8,16.",
+      "hypotheses": [
+        "q=2^r with r≥2; k₀→k is a field embedding; no finiteness of k is required.",
+        "Coefficients are all matrices, not the trace-zero submodule or the quotient by scalars."
+      ],
+      "proofSteps": [
+        "Average f over T={diag(a,a⁻¹):a∈k₀×}; |T|=q−1 is odd and invertible in k. Subtract its coboundary to arrange f|_T=0.",
+        "Put u(t)=[[1,t],[0,1]] and f(u(t))=[[A(t),B(t)],[C(t),D(t)]]. The identity u(t)²=1 and the cocycle identity imply C(t)=0 and A(t)=D(t) for t≠0; f(1)=0 covers t=0. The root-group law then makes A and B additive.",
+        "Conjugation by diag(a,a⁻¹) gives A(a²t)=A(t) and B(a²t)=a²B(t). Squaring is bijective on k₀, so A is constant on nonzero t. Since q≥4 choose distinct nonzero t,s with t+s≠0; additivity forces that constant to be zero. The second identity gives B(t)=t B(1).",
+        "Subtract the coboundary of diag(B(1),0), which is T-fixed and takes u(t) to t B(1)E₁₂. The cocycle now vanishes on the upper Borel B=TU.",
+        "The cocycle is constant on right B-cosets. Average its values over G/B, of cardinal q+1, again odd and invertible. Left multiplication permutes these cosets, and the cocycle equation shows that the average supplies a global coboundary. This proves the asserted vanishing for every r≥2 and every extension field."
+      ],
+      "prerequisites": [
+        "mathlib:Matrix.SpecialLinearGroup",
+        "mathlib:groupCohomology.H1",
+        "ArithmeticGaloisRepresentations:R01.4/p-subgroups-and-borel-subgroups"
+      ],
+      "sources": [
+        {
+          "sourceId": "kw-serre-modularity-II",
+          "locator": "§4.1.4, Lemma 4.3(5)(i), preprint pp. 40–41",
+          "match": "States the vanishing and attributes it to Dickinson Lemma 42. Dickinson is not claimed read. The explicit torus/root-group/odd-index averaging proof in this node replaces the previously missing proof."
+        },
+        {
+          "sourceId": "guralnick-herzig-tiep17",
+          "locator": "Corollary 9.4, proof, printed p. 1282",
+          "match": "Independently records self-extension vanishing when r>1; it is corroboration only. Its cited Ext calculation is not used as an unread input to the elementary proof here."
+        }
+      ],
+      "acceptance": [
+        "In the root calculation use all matrices: removing scalar matrices changes the cohomology problem.",
+        "The argument needs q≥4 to kill the constant diagonal function on nonzero root parameters."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/characteristic-two-residual-image-facts"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/niveau-two-bad-dihedral-witness",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion",
+      "realises": [
+        "ArithmeticGaloisRepresentations:R01.4"
+      ],
+      "title": "An explicit niveau-two bad-dihedral representation",
+      "kind": "application",
+      "statement": "Let L be the splitting field over ℚ of X⁴+3, with α⁴=−3 and i²=−1, so L=ℚ(α,i). Its Galois group is D₈, with r(α)=iα, r(i)=i, s(α)=α, s(i)=−i. Define the representation over F₃ by r↦R=[[0,−1],[1,0]], s↦S=diag(1,−1), and compose with G_ℚ→Gal(L/ℚ). It is continuous, faithful on Gal(L/ℚ), odd and absolutely irreducible. The subgroup fixing ℚ(√−3)=ℚ(ζ₃) is ⟨r²,s⟩ and acts diagonally, so the representation is bad dihedral. At 3, tame inertia is ⟨r⟩ of order four; over F₉ its characters are ω₂² and ω₂⁶. Thus b=2 satisfies (3+1)/2 dividing b and the projective inertia image has order two.",
+      "hypotheses": [
+        "p=3; the coefficient field is F₃ and absolute irreducibility is tested after coefficient extension.",
+        "Choose α with complex argument π/4; then complex conjugation is r³s. The inertial eigencharacters are unordered."
+      ],
+      "proofSteps": [
+        "X⁴+3 is Eisenstein at 3. Over K=ℚ(α²)=ℚ(√−3), adjoining i is unramified quadratic at 3 (−1 is a nonsquare unit in the residue F₃), whereas adjoining α is ramified quadratic because α² is a uniformizer of K₃. The quadratic extensions are distinct. Thus [L:ℚ]=8; r and s give the displayed D₈ presentation.",
+        "The matrices satisfy R⁴=S²=1 and SRS=R⁻¹. Their F₃-span as group elements is all M₂(F₃), so the representation is absolutely irreducible; the resulting D₈ matrix map is injective. Complex conjugation r³s has determinant −1.",
+        "r² and s fix α² and act by −I and diag(1,−1), so restriction to K splits. This is the bad-dihedral definition at p=3.",
+        "Locally at 3, ℚ₃(i)/ℚ₃ is unramified quadratic and X⁴+3 is Eisenstein over it. The ramification index is four and the full extension has degree eight, so inertia is precisely ⟨r⟩; its order is prime to 3.",
+        "A primitive level-two character has order eight. R has eigenvalues i and −i in F₉, which have exponents 2 and 6 relative to a primitive eighth root (changing the fundamental-character choice permutes these two). Their ratio is −1, giving projective order two."
+      ],
+      "prerequisites": [
+        "ArithmeticGaloisRepresentations:R01.4/cyclotomic-square-subfield",
+        "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representation",
+        "ArithmeticGaloisRepresentations:R01.1/finite-galois-factorisation",
+        "ArithmeticGaloisRepresentations:R01.2/tame-inertia-and-fundamental-characters",
+        "ArithmeticGaloisRepresentations:R01.2/decomposition-group-at-a-place"
+      ],
+      "sources": [
+        {
+          "sourceId": "dieulefait-pacetti",
+          "locator": "§1.5, proof of Lemma 1.14 and Remark 5, preprint p. 9",
+          "match": "Supplies the projective-inertia and niveau-two divisibility criterion tested by this example. The polynomial and the explicit D₈ construction are a calculation of this packet, not an example attributed to the source."
+        }
+      ],
+      "acceptance": [
+        "Compute all eight matrices and their span, determinant and restriction subgroup.",
+        "Verify the local ramification calculation, not just an abstract representation of D₈."
+      ],
+      "implementationStatus": "unchecked",
+      "refines": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion"
+    }
+  ],
+  "inheritedTargets": [
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/rational-lines-of-a-split-nonscalar-element",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/absolute-irreducibility-from-dyadic-conjugation",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/dyadic-solvable-projective-image",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/dyadic-nonsolvable-projective-image",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/large-order-projective-image-criterion",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/subgroups-of-gl2-over-a-prime-field",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/prime-to-ell-subgroups-of-gl2",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/semisimple-subgroups-over-a-prime-field",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/subgroup-containing-a-cartan",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/normal-subgroup-containing-a-cartan",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/p-subgroups-and-borel-subgroups",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/subgroups-of-psl2-with-several-sylow-p-subgroups",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/finite-subgroups-of-pgl2-of-order-prime-to-the-characteristic",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/two-transvections-generate-sl2-over-a-prime-field",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/dihedral-projective-image-iff-induced",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/irreducible-with-abelian-projective-image-is-klein",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representation",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/image-of-restriction-to-a-subfield",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/large-image-persistence",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/minimal-index-of-proper-subgroups-of-psl2",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/characteristic-two-residual-image-facts",
+      "sourcePacket": "ArithmeticGaloisRepresentations.json",
+      "role": "Accepted principal target retained by reference; its statement, API and tests remain in force."
+    }
+  ],
+  "requests": [],
+  "gaps": [],
+  "coverage": [
+    {
+      "stageId": "ArithmeticGaloisRepresentations:R01.4",
+      "status": "closed",
+      "remaining": []
+    }
+  ],
+  "planetSelection": [
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+      "name": "Odd representation"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible",
+      "name": "Oddness and absolute irreducibility"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+      "name": "Dickson's classification"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+      "name": "Cartan subgroups and their normalisers"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/dihedral-projective-image-iff-induced",
+      "name": "Dihedral images are induced"
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representation",
+      "name": "Bad dihedral representation"
+    }
+  ],
+  "gapResolutions": [
+    {
+      "parentGapTitle": "Automorphisms of PSL_2(F_q) and PGL_2(F_q) (Dieudonné / Steinberg) not read in their own source",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/semilinear-projective-automorphisms"
+      ],
+      "reason": "Primary Steinberg source read; its rank-one proof specialized and the PGL extension supplied."
+    },
+    {
+      "parentGapTitle": "H¹(SL_2(F_{2^r}), M_2(F)) = 0 for all r ≥ 2 (Dickinson 2001, Lemma 42): source not read, proof not planned",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/characteristic-two-matrix-cocycles"
+      ],
+      "reason": "Explicit torus/root-group/Borel averaging proof for all q≥4; no uninspected Dickinson or Ext theorem is required."
+    }
+  ],
+  "inheritedRemainingResolution": [
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 0,
+      "obligation": "Planning boundary and consumer interfaces",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+        "ArithmeticGaloisRepresentations:R01.4/rational-lines-of-a-split-nonscalar-element",
+        "ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible",
+        "ArithmeticGaloisRepresentations:R01.4/absolute-irreducibility-from-dyadic-conjugation",
+        "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+        "ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images",
+        "ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field",
+        "ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field",
+        "ArithmeticGaloisRepresentations:R01.4/dyadic-solvable-projective-image",
+        "ArithmeticGaloisRepresentations:R01.4/dyadic-nonsolvable-projective-image",
+        "ArithmeticGaloisRepresentations:R01.4/large-order-projective-image-criterion",
+        "ArithmeticGaloisRepresentations:R01.4/subgroups-of-gl2-over-a-prime-field",
+        "ArithmeticGaloisRepresentations:R01.4/prime-to-ell-subgroups-of-gl2",
+        "ArithmeticGaloisRepresentations:R01.4/semisimple-subgroups-over-a-prime-field",
+        "ArithmeticGaloisRepresentations:R01.4/subgroup-containing-a-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/normal-subgroup-containing-a-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+        "ArithmeticGaloisRepresentations:R01.4/p-subgroups-and-borel-subgroups",
+        "ArithmeticGaloisRepresentations:R01.4/subgroups-of-psl2-with-several-sylow-p-subgroups",
+        "ArithmeticGaloisRepresentations:R01.4/finite-subgroups-of-pgl2-of-order-prime-to-the-characteristic",
+        "ArithmeticGaloisRepresentations:R01.4/two-transvections-generate-sl2-over-a-prime-field",
+        "ArithmeticGaloisRepresentations:R01.4/dihedral-projective-image-iff-induced",
+        "ArithmeticGaloisRepresentations:R01.4/irreducible-with-abelian-projective-image-is-klein",
+        "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representation",
+        "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion",
+        "ArithmeticGaloisRepresentations:R01.4/image-of-restriction-to-a-subfield",
+        "ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2",
+        "ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field",
+        "ArithmeticGaloisRepresentations:R01.4/large-image-persistence",
+        "ArithmeticGaloisRepresentations:R01.4/minimal-index-of-proper-subgroups-of-psl2",
+        "ArithmeticGaloisRepresentations:R01.4/characteristic-two-residual-image-facts"
+      ],
+      "method": "All 31 principal IDs retained; only reusable definitions/constructions and key theorems promoted. Exact local, induction and matrix inputs are named in the reader and the prototype.",
+      "reader": "Conventions and existing inputs",
+      "suggestedDeclarations": [],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 1,
+      "obligation": "Complex conjugation, total oddness and rank-two criteria",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/complex-conjugation",
+        "ArithmeticGaloisRepresentations:R01.4/totally-odd-character"
+      ],
+      "method": "Construction, comparison of choices, all-real-place predicate and diagonal/trace contracts supplied.",
+      "reader": "§1",
+      "suggestedDeclarations": [
+        "complexConjugationOfEmbedding_spec",
+        "isTotallyOddChar_iff_embeddings",
+        "isOdd_iff_conj_diag"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 2,
+      "obligation": "Modular Dickson counts, multiplier field and cases A/B",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/subgroups-of-psl2-with-several-sylow-p-subgroups"
+      ],
+      "method": "Count and complete parameter alternatives typed; additive-field recovery and A5 recognition stay in the target proof sketch.",
+      "reader": "§4",
+      "suggestedDeclarations": [
+        "dickson_sylow_count",
+        "dickson_sylow_parameters"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 3,
+      "obligation": "Tame maximal-cyclic partition, class equation and recognition",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/finite-subgroups-of-pgl2-of-order-prime-to-the-characteristic"
+      ],
+      "method": "Partition and class equation typed; full list of numerical solutions and its group recognition stated with a proof chain.",
+      "reader": "§4",
+      "suggestedDeclarations": [
+        "tame_projective_class_equation",
+        "finite_subgroup_PGL2_of_prime_to_char"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 4,
+      "obligation": "Cartan carriers, normalisers, regular elements and containment",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/split-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/half-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/basis-free-nonsplit-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/cartan-normaliser-semilinear",
+        "ArithmeticGaloisRepresentations:R01.4/regular-semisimple-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/cartan-contained-in-normaliser"
+      ],
+      "method": "All carriers and coordinate comparisons supplied; existing Tau Ceti torus models reused.",
+      "reader": "§2",
+      "suggestedDeclarations": [
+        "mem_normalizer_nonsplit_semilinear",
+        "trace_eq_zero_of_mem_normalizer_not_mem",
+        "exists_unique_of_disc_ne_zero",
+        "eq_of_le_normalizer"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 5,
+      "obligation": "Normal p-subgroups, Sylow groups and projective fixed point",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/p-subgroups-and-borel-subgroups"
+      ],
+      "method": "Unique fixed line, normal Sylow, full linear Sylow order/count and projective normal-p consequence supplied.",
+      "reader": "§4",
+      "suggestedDeclarations": [
+        "normal_p_subgroup_reducible",
+        "reducible_subgroup_normal_sylow",
+        "sylow_GL2_order",
+        "normal_p_subgroup_PGL2_fixes_point"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 6,
+      "obligation": "Induction, character data, uniqueness, self-twist and normal abelian restriction",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/dihedral-projective-image-iff-induced"
+      ],
+      "method": "The stable-line criterion has character/determinant data and all small/characteristic-two cases; generic induction stays upstream.",
+      "reader": "§5",
+      "suggestedDeclarations": [
+        "dihedral_iff_induced",
+        "induced_character_data",
+        "induction_subgroup_count",
+        "quadratic_self_twist_iff_induced",
+        "normal_abelian_restriction_rank_two"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 7,
+      "obligation": "Cyclotomic square field, rational Gauss sum and bad predicate",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/cyclotomic-square-subfield",
+        "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representation"
+      ],
+      "method": "Actual cyclic Galois square subgroup used over every number field; rational Gauss-sum and Q(sqrt(5)) counterexample supplied.",
+      "reader": "§6",
+      "suggestedDeclarations": [
+        "cyclotomicSquareSubfield",
+        "cyclotomicSquareSubfield_rat",
+        "IsBadDihedral"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 8,
+      "obligation": "Cyclic restriction, prime-power cyclotomic restriction, induced and inertia clauses",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion"
+      ],
+      "method": "No oddness assumption added. Exact order two and both niveau divisibilities have typed statements.",
+      "reader": "§§5–6",
+      "suggestedDeclarations": [
+        "cyclic_restriction_square_criterion",
+        "isAbsolutelyIrreducible_res_cyclotomic_iff",
+        "IsBadDihedral.isInduced",
+        "IsBadDihedral.projInertia_card_eq_two",
+        "badDihedral_niveau_divisibilities"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 9,
+      "obligation": "Restriction intersections, cyclotomic pair and soluble persistence",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/image-of-restriction-to-a-subfield"
+      ],
+      "method": "Finite kernel-field factorisation fixes the identifications; joint-field disjointness controls both images; perfect groups survive each soluble step.",
+      "reader": "§7",
+      "suggestedDeclarations": [
+        "image_restriction_intersection",
+        "images_restriction_cyclotomic_pair",
+        "perfect_subgroup_survives_soluble_quotient"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 10,
+      "obligation": "Normal groups, abelianizations, small fields, automorphisms and intersections",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2",
+        "ArithmeticGaloisRepresentations:R01.4/semilinear-projective-automorphisms"
+      ],
+      "method": "Normal/commutator lists, independent product automorphisms and Goursat field intersections supplied, with correct q bounds.",
+      "reader": "§8",
+      "suggestedDeclarations": [
+        "normal_subgroups_GL2",
+        "normal_subgroups_SL2_PGL2",
+        "abelianizations_GL2_PGL2",
+        "small_fields_GL2",
+        "automorphisms_PSL2_semilinear",
+        "automorphisms_PGL2_semilinear",
+        "automorphisms_PSL2_product",
+        "projective_kernel_field_intersections"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 11,
+      "obligation": "Eight cyclotomic-image clauses",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field"
+      ],
+      "method": "Each letter is stated in the reader; the exceptional 3/5 cases, determinant equality, noncontainment and trace-zero clauses are typed.",
+      "reader": "§7",
+      "suggestedDeclarations": [
+        "image_normalizer_cartan_of_res_cyclotomic",
+        "cyclotomic_exception_three",
+        "cyclotomic_exception_five",
+        "SL2_in_cyclotomic_image",
+        "cyclotomic_not_le_projective_field",
+        "cyclotomic_five_not_le_projective_field",
+        "traceZero_adjoint_eigenvectors_vanish"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 12,
+      "obligation": "Small-index, soluble and tame-inertia large-image statements",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/large-image-persistence"
+      ],
+      "method": "Small-index theorem keeps the same conjugate and a>=2; soluble clause imports the perfect-subgroup result; tame criterion uses explicit Galois hypotheses.",
+      "reader": "§9",
+      "suggestedDeclarations": [
+        "le_of_relIndex_lt",
+        "perfect_subgroup_survives_soluble_quotient",
+        "large_image_from_tame_inertia"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 13,
+      "obligation": "Characteristic-two invariants, cohomology, submodules and Frobenius quotient",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/characteristic-two-residual-image-facts",
+        "ArithmeticGaloisRepresentations:R01.4/characteristic-two-matrix-cocycles"
+      ],
+      "method": "Actual scalar quotient condition and squared-entry irreducible plane action supplied; all-field H1 proof given.",
+      "reader": "§10",
+      "suggestedDeclarations": [
+        "sl2_submodules_charTwo",
+        "matrix_mod_scalars_invariants_charTwo",
+        "matrix_cocycle_is_coboundary_charTwo",
+        "traceZero_quotient_frobenius_charTwo",
+        "frobenius_plane_irreducible_charTwo"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 14,
+      "obligation": "Read the original Dickson construction and conjugacy pages",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+        "ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images"
+      ],
+      "method": "Original §§239–250 and 258–259 read, together with §§251–257 and 260–262; no unread reference supplies the classification proof.",
+      "reader": "§§3–4,8",
+      "suggestedDeclarations": [
+        "dickson_all_projective_subgroups",
+        "standard_projective_images_conjugate",
+        "icosahedral_standard_image"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 15,
+      "obligation": "Primary automorphism proof gap",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/semilinear-projective-automorphisms"
+      ],
+      "method": "Steinberg 1960 read directly; rank-one root-parameter proof specialized, uniqueness and extension to PGL proved in outline.",
+      "reader": "§8",
+      "suggestedDeclarations": [
+        "automorphisms_PSL2_semilinear",
+        "automorphisms_PGL2_restrict"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 16,
+      "obligation": "All-r characteristic-two H1 proof gap",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/characteristic-two-matrix-cocycles"
+      ],
+      "method": "Complete elementary torus/root-group/Borel-coset averaging argument supplied; Dickinson is not assumed read.",
+      "reader": "§10",
+      "suggestedDeclarations": [
+        "matrix_cocycle_is_coboundary_charTwo"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 17,
+      "obligation": "Actual niveau-two bad-dihedral acceptance example",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/niveau-two-bad-dihedral-witness"
+      ],
+      "method": "X^4+3 kernel field, D8 representation and local ramification establish an actual witness with omega2^2 and omega2^6.",
+      "reader": "§6",
+      "suggestedDeclarations": [
+        "exists_niveauTwo_badDihedral_three",
+        "niveauTwo_characters_of_x4_plus_three"
+      ],
+      "status": "supplied"
+    },
+    {
+      "parentPacket": "ArithmeticGaloisRepresentations.json",
+      "parentStageId": "ArithmeticGaloisRepresentations:R01.4",
+      "parentCoverageIndex": 18,
+      "obligation": "Missing typed clauses in the earlier prototype",
+      "suppliedBy": [
+        "ArithmeticGaloisRepresentations:R01.4/odd-representation",
+        "ArithmeticGaloisRepresentations:R01.4/rational-lines-of-a-split-nonscalar-element",
+        "ArithmeticGaloisRepresentations:R01.4/odd-irreducible-implies-absolutely-irreducible",
+        "ArithmeticGaloisRepresentations:R01.4/absolute-irreducibility-from-dyadic-conjugation",
+        "ArithmeticGaloisRepresentations:R01.4/dickson-classification-and-the-dyadic-refinement",
+        "ArithmeticGaloisRepresentations:R01.4/conjugacy-of-standard-projective-images",
+        "ArithmeticGaloisRepresentations:R01.4/projective-image-and-its-coefficient-field",
+        "ArithmeticGaloisRepresentations:R01.4/linear-image-over-the-projective-trace-field",
+        "ArithmeticGaloisRepresentations:R01.4/dyadic-solvable-projective-image",
+        "ArithmeticGaloisRepresentations:R01.4/dyadic-nonsolvable-projective-image",
+        "ArithmeticGaloisRepresentations:R01.4/large-order-projective-image-criterion",
+        "ArithmeticGaloisRepresentations:R01.4/subgroups-of-gl2-over-a-prime-field",
+        "ArithmeticGaloisRepresentations:R01.4/prime-to-ell-subgroups-of-gl2",
+        "ArithmeticGaloisRepresentations:R01.4/semisimple-subgroups-over-a-prime-field",
+        "ArithmeticGaloisRepresentations:R01.4/subgroup-containing-a-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/normal-subgroup-containing-a-cartan",
+        "ArithmeticGaloisRepresentations:R01.4/cartan-subgroups-and-normalisers",
+        "ArithmeticGaloisRepresentations:R01.4/p-subgroups-and-borel-subgroups",
+        "ArithmeticGaloisRepresentations:R01.4/subgroups-of-psl2-with-several-sylow-p-subgroups",
+        "ArithmeticGaloisRepresentations:R01.4/finite-subgroups-of-pgl2-of-order-prime-to-the-characteristic",
+        "ArithmeticGaloisRepresentations:R01.4/two-transvections-generate-sl2-over-a-prime-field",
+        "ArithmeticGaloisRepresentations:R01.4/dihedral-projective-image-iff-induced",
+        "ArithmeticGaloisRepresentations:R01.4/irreducible-with-abelian-projective-image-is-klein",
+        "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representation",
+        "ArithmeticGaloisRepresentations:R01.4/bad-dihedral-representations-and-the-oddness-criterion",
+        "ArithmeticGaloisRepresentations:R01.4/image-of-restriction-to-a-subfield",
+        "ArithmeticGaloisRepresentations:R01.4/normal-subgroups-and-automorphisms-of-psl2-pgl2",
+        "ArithmeticGaloisRepresentations:R01.4/restriction-to-the-cyclotomic-field",
+        "ArithmeticGaloisRepresentations:R01.4/large-image-persistence",
+        "ArithmeticGaloisRepresentations:R01.4/minimal-index-of-proper-subgroups-of-psl2",
+        "ArithmeticGaloisRepresentations:R01.4/characteristic-two-residual-image-facts"
+      ],
+      "method": "Typed signatures and actual predicates supplied throughout the standalone file; routine numerical class-equation solutions remain in the definitive reader.",
+      "reader": "§§1–10",
+      "suggestedDeclarations": [
+        "dickson_sylow_parameters",
+        "tame_projective_class_equation",
+        "induced_character_data",
+        "cyclotomic_exception_three",
+        "cyclotomic_exception_five",
+        "large_image_from_tame_inertia",
+        "projective_kernel_field_intersections"
+      ],
+      "status": "supplied"
+    }
+  ],
+  "restructure": [],
+  "upstreamNotes": [
+    {
+      "roadmap": "RepresentationTheory/InductionRestriction",
+      "detail": "Current upstream layers already plan general induction, Clifford restriction and projective-representation machinery; this packet owns only the rank-two residual-image consequences and imports the existing interfaces."
+    },
+    {
+      "roadmap": "LocalGaloisGroups",
+      "detail": "The current upstream local Galois roadmap and Tau Ceti library were checked. Fundamental characters, inertia and decomposition groups retain their R01.2/upstream ownership; they are not replanned in R01.4."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "sourceId": "accplus-cm-potential-automorphy",
+      "kind": "published",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/Ramanujan.pdf",
+      "read": "2026-10-09",
+      "sha256": "c5429e4f384384045dbb48502d71547bb21699783c0f77cce27b24e742467f02"
+    },
+    {
+      "sourceId": "bcg25-gln",
+      "kind": "published",
+      "url": "https://www.math.uchicago.edu/~fcale/papers/WeightZero.pdf",
+      "read": "2026-10-09",
+      "sha256": "4d27afabbef371babf3a73dad19bc8ccee180636be27bd6ebee17f58f7150290"
+    },
+    {
+      "sourceId": "bcgnt25",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2309.15880v3",
+      "read": "2026-10-09",
+      "sha256": "0ad015dfe35d40489a2b8b462ac93d5dd715dbbae7d3fbf18377beaed654579d"
+    },
+    {
+      "sourceId": "cn23",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2301.10509v3",
+      "read": "2026-10-09",
+      "sha256": "57abc79ad46875b0ea432ce1193f517b8dbb0ad0448cb51942bc20ed95ffd0c3"
+    },
+    {
+      "sourceId": "ddt-fermat",
+      "kind": "author copy",
+      "url": "https://www.math.mcgill.ca/darmon/pub/Articles/Expository/05.DDT/paper.pdf",
+      "read": "2026-10-09",
+      "sha256": "254f6e29957f95219eff046c29478f5ee584615bee12c8aa8357f499c8cbe8b3"
+    },
+    {
+      "sourceId": "dickson-linear-groups",
+      "kind": "published",
+      "url": "https://archive.org/download/lineargroupswith00dickuoft/lineargroupswith00dickuoft.pdf",
+      "read": "2026-10-09",
+      "sha256": "1d4ad61f79b22926ad39a3d13429cc178bc0e9f42ab0b8896c0b466079c7d07e"
+    },
+    {
+      "sourceId": "dieulefait-pacetti",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2108.07577v2",
+      "read": "2026-10-09",
+      "sha256": "0c6850dafda032f7a4008947c519b5aef8cc13762207bb67c36810170a8eebe6"
+    },
+    {
+      "sourceId": "guralnick-herzig-tiep17",
+      "kind": "published",
+      "url": "https://ems.press/content/serial-article-files/32200?nt=1",
+      "read": "2026-10-09",
+      "sha256": "b6e7ba4737c5bfa1392823ca77f8237b48c65646815cf67e323207931337f250"
+    },
+    {
+      "sourceId": "kw-serre-modularity-I",
+      "kind": "preprint",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/results.pdf",
+      "read": "2026-10-09",
+      "sha256": "3c389dc33e09fe847f5d8189ffd8915b5c1a73424e64e4fed6769829883bad82"
+    },
+    {
+      "sourceId": "kw-serre-modularity-II",
+      "kind": "preprint",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "read": "2026-10-09",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4"
+    },
+    {
+      "sourceId": "nt26",
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/2212.03595v2",
+      "read": "2026-10-09",
+      "sha256": "6a156f7a5567226e0bd2209d5b237cbbc150dc10cfbd9ffd060a3245328cb82c"
+    },
+    {
+      "sourceId": "serre72-proprietes",
+      "kind": "published",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5874918517843398173_Serre_proprie_te_s_galoisiennes_des_courbes_elliptiques.pdf",
+      "read": "2026-10-09",
+      "sha256": "93970ed93730194af8bed0f1f59d29cbed061d20f34f4bcffc079ad8aedf01d5"
+    },
+    {
+      "sourceId": "serre87-duke",
+      "kind": "published",
+      "url": "https://www.college-de-france.fr/media/jean-pierre-serre/UPL5835292064138487263_Serre_Repr.modulaires_Galois.pdf",
+      "read": "2026-10-09",
+      "sha256": "8048919db24dcb972435aaaa2a74d1168d0fe533af3aa26c6c809b12ddaee038"
+    },
+    {
+      "sourceId": "steinberg60",
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/16023F257E0F21D57873B1450E9F15E4/S0008414X00010245a.pdf/div-class-title-automorphisms-of-finite-linear-groups-div.pdf",
+      "read": "2026-10-09",
+      "sha256": "08c198776cfce234e3282ef37fc368b40aca33df3e880b967003c44a33ebfe4b"
+    },
+    {
+      "sourceId": "bcgnt25",
+      "kind": "published",
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/0A073881B84E8654DB6D11D064B78A4B/S2050508624000295a.pdf/the-ramanujan-and-sato-tate-conjectures-for-bianchi-modular-forms.pdf",
+      "read": "2026-10-09",
+      "sha256": "a376f683f80c11138545f6d66aa2855886de1c8a436d2bfbb01acdafec9b893a"
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "ArithmeticGaloisRepresentations/E1401",
+      "source": "accplus-cm-potential-automorphy",
+      "kind": "error",
+      "locator": "Published Lemma 7.1.8(2), proof, pp. 1091–1092; public journal offprint Ramanujan.pdf",
+      "printed": "The proof applies the central-or-containing-SL2 normal-subgroup alternative without excluding the two smallest prime fields.",
+      "correction": "Use q>=4 for that normal-subgroup theorem. For the prime-field determinant-surjectivity consequence require l>=3 and treat l=3 by its normal-subgroup list.",
+      "reason": "GL2(F2)=S3 has a noncentral normal C3, and GL2(F3) has a normal Q8 not containing SL2. The l=3 determinant conclusion still holds because every proper normal subgroup has trivial determinant. The parent records the l=2 arithmetic failure.",
+      "affects": "a stated result",
+      "known": "Inherited ArithmeticGaloisRepresentations/E450; independently registered and confirmed as PAPER-ALLEN-ETAL-23/E100.",
+      "searched": [
+        "Parent packet E450 and data/source-issues.json PAPER-ALLEN-ETAL-23/E100; their independent reviews establish the correction. No claim of a new discovery or a new full erratum search."
+      ]
+    },
+    {
+      "id": "ArithmeticGaloisRepresentations/E1402",
+      "source": "bcgnt25",
+      "kind": "misprint",
+      "locator": "Proof of Lemma 5.2.4: arXiv v3 p. 52 and published Forum of Mathematics, Pi 13 (2025), e10, p. 47",
+      "printed": "The product-automorphism formula has only one copy of Aut(G) alongside the factor permutation group.",
+      "correction": "For r factors use Aut(G)^r semidirect S_r; each factor has its own automorphism.",
+      "reason": "Applying a nonidentity automorphism to one simple factor and the identity to another yields independent automorphisms that the single-copy formula cannot represent.",
+      "affects": "nothing",
+      "known": "Already registered and independently confirmed as PAPER-BOXER-CALEGARI-GEE-ETAL-25/E26.",
+      "searched": [
+        "data/source-issues.json E26 and its published-page review; arXiv v3 and the Cambridge published PDF compared directly in this continuation."
+      ]
+    }
+  ],
+  "validation": {
+    "blueprint": "check_blueprint.py with the pinned declaration index: 0 errors, 0 warnings.",
+    "lean": "lean-check at the pinned shared build: exit 0; 177 warnings, all declaration uses a proof placeholder; no other warnings or errors.",
+    "definitionApiEntries": 42,
+    "definitionTests": 29,
+    "existingPrincipalTargets": 31,
+    "newNodes": 13,
+    "mathematics": "Independent finite-matrix calculations confirmed the D8 witness, its four-dimensional image span, diagonal quadratic restriction and projective inertia order; split/nonsplit Cartan normalizer orders checked over F2, F3 and F5."
+  }
+}
