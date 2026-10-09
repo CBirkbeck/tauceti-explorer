@@ -21711,11 +21711,12 @@
     "REV-RS-16"
    ],
    "prompt": "research/blueprint/prompts/BP-LocallyAnalyticDistributions.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [
     "BP-PadicMeasuresIwasawaAlgebras"
    ],
-   "note": "claimed on GitHub issue #641"
+   "note": "deliverables arrived from an external worker on issue #641",
+   "finishedAt": "2026-10-09T13:23:50Z"
   },
   {
    "id": "REV-LocallyAnalyticDistributions",
@@ -34386,7 +34387,8 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6332"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
