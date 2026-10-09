@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-FarguesFontaineDiamonds",
+    "date": "2026-10-09",
+    "notes": "Independent complete package review by Codex, session codex-iNwsul, which did none of the package job. All six checks pass; no in-place correction needed. Compared all 37 targets, 33 API items and 31 named tests with the accepted plan, checked hypotheses, six stronger prerequisite contracts, supplier statements, audit, RS-20 and the AdicSpaces link. Read both upstream comparison roadmaps, four public primary PDFs with matching edition hashes and all seven baseline declarations at the pins. README is 80,572 bytes, uses its own mathematical presentation and numbered locators, and contains no programme process. metadata.toml is exactly topic = math.AG. Active Lean agrees with the accepted input. Independent lean-check: exit 0, no errors, 102 warnings, all declaration uses sorry. Mathlib is exactly pinned; the shared build uses newer Tau Ceti cf386627e9176a3827c1a5fe804989fd94a4d216, with all seven imported Tau Ceti source modules identical to pin f790474821cf4256814db967cb154e7af3d0c369. This is source-compatible shared-build elaboration, not a fresh full pinned rebuild. Generic signature shapes are accepted under Protocol section 13 only with the documented omitted supplier conditions restored before specialization; they assert no universal geometric theorem or implementation. The boundary maximum principle, finite-root approximation and geometric-fiber passages remain explicit targets to prove. Blueprint checker: 0 errors, 0 warnings; package/path/JSON checks and git diff --check pass. Full evidence and limits are in the review report."
+  }
+}
