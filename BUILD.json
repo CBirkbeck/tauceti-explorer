@@ -1,8 +1,8 @@
 {
   "roadmaps": 244,
-  "stages": 5619,
+  "stages": 5654,
   "originalStages": 2207,
-  "sourceRefinements": 3412,
+  "sourceRefinements": 3447,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -187,14 +187,14 @@
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5518,
+  "mathematicalStars": 5553,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2377,
-  "stageEdges": 14837,
+  "roadmapEdges": 2378,
+  "stageEdges": 14899,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1350,6 +1350,12 @@
       "reviewer": "independent-review-REV-SmallRamificationAndAbelianVarietyBaseCases"
     },
     {
+      "file": "SmoothRepresentationsOfLocalGroups--SR.0",
+      "roadmap": "SmoothRepresentationsOfLocalGroups",
+      "nodes": 100,
+      "reviewer": "independent-review-REV-SmoothRepresentationsOfLocalGroups--SR.0"
+    },
+    {
       "file": "SpecialValuesBirchTate",
       "roadmap": "SpecialValuesBirchTate",
       "nodes": 54,
@@ -1399,8 +1405,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 37206869,
-  "htmlSha256": "1e5562a8781796b6f16b96026bd0c5b2133fa0b4f01753d1b58b2a3b31c3d95e",
+  "htmlBytes": 37309458,
+  "htmlSha256": "798f2dcd02de1fcfa41a21cbe54c79d856ca15ae883de4830239e4377b29e48d",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1432,7 +1438,7 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "76761d5caf8d80bcbbd5dd7a3febcef3036cfcfd9dc3185a41f7ac2fa5a5a8c3",
+    "data/roadmap-distances.json": "6a6b6dc2eac5d7cf51a52e03b779866e12143756d3cb49421dd06a62e5997abd",
     "data/galaxy-layout.json": "2c89ea58b5f5ad9fc7715ddcc8193de9d1fadb2e1fdc452020cd7432f12c819d",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
@@ -1874,6 +1880,8 @@
     "data/blueprints/ShimuraVarieties--V8.md": "9acb2e576482bd0f6c667e3c138e3193fc40257df88491d45f83339bbc2e7b78",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.json": "23f958611ab637021db69e31c3df861049f38d88d4e32d7f0be79f45dc3496ea",
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md": "bf5bb37e33b91d56f46879172730f6ced43c4f448c1ff01efeec27bc66d0141e",
+    "data/blueprints/SmoothRepresentationsOfLocalGroups--SR.0.json": "75dd0ad6a287e7f19d317c849a89cf5c0bc92ce345dafcd343a6b35e627b9b1c",
+    "data/blueprints/SmoothRepresentationsOfLocalGroups--SR.0.md": "5f920d6e6829c0dd7a028dd2f390632a2e7dc851b1d43daae929c1fc31e711a5",
     "data/blueprints/SpecialValuesBirchTate.json": "4f757c294cfa0a140e437995ab1486bf8d53560fa7f8461d4f8ab742684139aa",
     "data/blueprints/SpecialValuesBirchTate.md": "93437444f62052d2c2a0681d4f321c6b9ca026b233c3fc85c72224a10cdf323d",
     "data/blueprints/StableHomotopyKTheory.json": "d5e026d6da6fc421a5a79a5bc0361b07cbf24302709b09e5ee45ab76906836f3",

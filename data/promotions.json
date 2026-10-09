@@ -2591,6 +2591,17 @@
     "data/blueprints/SmallRamificationAndAbelianVarietyBaseCases.md"
    ]
   },
+  "research/blueprint/packets/SmoothRepresentationsOfLocalGroups--SR.0.json": {
+   "promotedAt": "2026-10-09T16:16:10Z",
+   "review": "b49bf66e4b9fa00b",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-SmoothRepresentationsOfLocalGroups--SR.0",
+   "sha256": "75dd0ad6a287e7f19d317c849a89cf5c0bc92ce345dafcd343a6b35e627b9b1c",
+   "to": [
+    "data/blueprints/SmoothRepresentationsOfLocalGroups--SR.0.json",
+    "data/blueprints/SmoothRepresentationsOfLocalGroups--SR.0.md"
+   ]
+  },
   "research/blueprint/packets/SpecialValuesBirchTate.json": {
    "promotedAt": "2026-10-08T05:04:20Z",
    "review": "f4e37432feb75b9e",
