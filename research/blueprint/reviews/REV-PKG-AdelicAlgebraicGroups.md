@@ -143,3 +143,45 @@ All PDF copies listed here were accessed on 2026-10-09 for this review. SHA-256 
 - [lt](https://arxiv.org/pdf/1511.02212v1): `5ceed8168ce37b75da67699189e7e8730527c31f3339dce979a1a1901243f81a`.
 - [khayutin](https://arxiv.org/pdf/1710.04557v3): `f740c4200434b0989bb6f728e4a385769b669320eec94ee8ace0e34279a53eb9`.
 - [borel](https://www.numdam.org/item/PMIHES_1963__16__5_0.pdf): `678a378a947a25edd682942539cc9d22de47e8e141db0a19dd124e5138d2fedc`.
+
+## Round 2 (2026-10-09, independent-review-REV-PKG-AdelicAlgebraicGroups~2, session cc-0e9921)
+
+**Verdict: accepted.** Reviewed after the bundle fix #8002 (ReductiveGroupsPartII RG2.4 `iwasawa_parabolic`, `kneserTits_local`; the RG2.0a Weil restriction and `PointTopology` signatures). Under the streamlined pipeline an untyped item in the closing comment is not a defect; the file is not required to be exhaustive.
+
+### Suggested.lean, TauCetiRoadmap form (maintainer rule of 2026-10-09)
+
+- `import Mathlib` plus the Tau Ceti modules used (one added: `TauCeti.Algebra.AlgebraicGroup.SimplyConnected.Basic`), one module docstring, `namespace TauCetiRoadmap.AdelicAlgebraicGroups` around the whole file. Wrapping works: the inner namespaces `NumberField`, `RestrictedProduct` and `MeasureTheory.Measure` shadow the library ones, so each is followed by `open _root_.<name>` and the two `open NumberField` lines open both. No `#print`, `#eval`, `#synth`, `#check`, `lemma` or `True` placeholder was present.
+- The 2,100-line commented catalogue is removed. Packet ids `` `AA.k/slug` `` in docstrings are rewritten as "AA.k target *slug words*"; "catalogue" comments are gone; the layer headings read `## Layer k: ...`. Declarations stay in dependency order (the file interleaves layers because later blocks consume earlier carriers); each heading names the README layer of its block. A closing comment lists the untyped targets by group.
+- `lean-check research/blueprint/packages/AdelicAlgebraicGroups/Suggested.lean`: exit 0, 567 `declaration uses sorry` warnings, no other warning or error (before this round: exit 0, 542).
+
+### Typed in this round (signatures with `sorry`)
+
+Imported block (marked; the owners' declarations replace it): `WeilRestriction.ResHopf` with its `CommRing`/`HopfAlgebra` instances, `pointsMulEquiv`, `mapHopf`, `compHopfEquiv` (RG2.0a) and `adeleBaseChange : E ⊗[F] 𝔸_F ≃ₐ[E] 𝔸_E` with `continuous_adeleBaseChange` (module topology, right `𝔸_F`-structure) and `adeleBaseChange_self` (Global number fields, layer 8).
+
+| Catalogued item | Declaration(s) |
+| --- | --- |
+| AA.1/base-change-adelic (definition) | `AdelicPoints.resEquiv`, pinned by `resEquiv_apply` (point adjunction then base change on values); `continuous_resEquiv` |
+| API `resEquiv_diagonal`, `resEquiv_natural`, `resEquiv_trans` | stated; `resRationalEquiv` with `resRationalEquiv_apply` supplies the rational-point comparison |
+| Tests `resEquiv_gm`, `resEquiv_self`, `res_not_base_change` | stated (the last for a field containing `√-1`: an element of order 4 in `E^×`, none in `ℚ^×`) |
+| AA.1/weil-restriction-naturality | covered by the three API lemmas except the `F_v`-projection clause (needs the local comparison, still untyped) |
+| AA.2 tests `RationalCharacter.res_norm`, `RealCharacterSpace.res_gm_rank` | stated for a quadratic field |
+| AA.4/kneser-local-torsor | `Approximation.Torsor.isTrivial_of_simplyConnected_local` (nonarchimedean local field of characteristic 0, `SemisimpleCommHopfAlgCat` object with `simplyConnectedSemisimpleCommHopfAlgProperty`) |
+| AA.4/hasse-principle-simply-connected | `Approximation.Torsor.isTrivial_iff_forall_real` (base change along `embedding_of_isReal` at every real place), plus a `μ₂` control example |
+
+Counts of catalogued items without a declaration: definition targets 14 → 13, theorem targets 87 → 84, API items 66 → 62, tests 49 → 44.
+
+### Still untyped, and why
+
+- Rational parabolic subgroups, Levi decompositions, relative roots and the Siegel sets built on them (84 catalogue lines; ReductiveGroups layer 7): the upstream `ReductiveGroups/Suggested.lean` contains no parabolic carrier (`grep -c -i parabolic` = 0 against 6 README mentions), and RG2.4's `parabolicOfVector` is local. Nothing to copy.
+- Galois action on the character lattice, Artin leading coefficient, gauge-form measures in analytic charts (14): no carrier in Mathlib, Tau Ceti or the bundle.
+- Centre/adjoint quotient of a reductive group and the central-character `L²` (12): Tau Ceti has `centerDefiningIdeal` but no adjoint quotient; the Hermitian line bundle has no carrier.
+- Absolutely almost simple groups with local isotropy, `S`-arithmetic lattices, Borel density (16): RG2's pattern (`AbsoluteRootData` + irreducibility + `LocalRootData` with `Nonempty ι`) would require copying the `RootDatum`/`LocalRootData`/`AbsoluteRootData` structures; not done in the time.
+- `G(𝔸)^+`, the residual quotient and its four quaternion consequences, and the Weyl-orbit product (6): typable with a bundled simply-connected-cover structure (`derivedDefiningIdeal` + `IsCentralIsogeny` + the simply connected property, all at the pin) or a copied `RootDatum`; **not done in the time** — the one follow-up this round leaves.
+- Local factors of restriction of scalars, local polynomial heights, level-volume/fibre-mass statements needing the rational centre or a named `K_∞`, and the AA.5.2 complex structures (Fuchsian orbifolds): as in round 1.
+
+### README
+
+- Form check: no planning residue (grep for "(removed)", "catalogue", "packet", "job", "review", "TODO", "later revision": 0 hits); deferrals only in "Scope and prerequisites"; the API names it lists are the planned interface, and the only sentence about Suggested.lean says it proposes signatures.
+- Duplication sweep (current upstream roadmaps including the nine newer ones and `Completed/*`, and Tau Ceti a91d3aaf; search by object with positive controls): two targets exist verbatim and were **deleted** from AA.0, now cited under prerequisites — "Splitting off finitely many factors" = `TauCeti.awayDecomposition` (`Topology/Algebra/RestrictedProduct/Away/Decomposition.lean:73`), "Topology of the infinite-adele mixed-space comparison" = `InfiniteAdeleRing.homeomorphMixedSpace` (`NumberTheory/NumberField/Global/Adeles/Basic.lean:55`). The AA.5.1 clause "F^×\𝔸_F^1 is compact" now cites `IdeleClassGroup.isCompact_normOne` (`Global/Ideles/Norm/Compact.lean:126`). The Lean carriers `splitFinite` and `continuous_ringEquiv_mixedSpace` stay, with docstrings naming the Tau Ceti declaration, because the pinned f790474 lacks them and the Fubini statements consume `splitFinite`. Variants found and kept (one clause each already distinguishes them): `restrictedProductCongr` (no measure clause), `ratFundamentalDomain` (no measure), `ofFiniteIdele` and `exists_ideleCongruenceSubgroup_le_of_isOpen` (G_m only), `DoubleCoset.quotientMapOfLELeft`/`quotientCongr` and `finite_fiber_orbitRel_map_of_isFiniteRelIndex` (other subgroup, no bound), `covolume_eq_card_mul_covolume` (single lattice), IntegralLattices 2G/7C/B7 and OrthogonalSpinGroups 3D–3G (orthogonal/rank-one instances). Ownership note for the maintainer: `Completed/RestrictedProducts/README.md` assigns this material to roadmaps named `AlgebraicGroupStrongApproximation`, `ArithmeticReductionTheory`, `TamagawaMeasures` (none exists), while `GlobalNumberFields/README.md` names "Adelic Algebraic Groups".
+- Locators: no author-flagged unverified locator. Sample of 15 (reproducible `shuf` with a fixed random source over the 140 not-yet-checked locator phrases; PDFs fetched 2026-10-09 into scratch, titles checked): 14 confirmed (Arthur (2.1) p. 13, §4 p. 22, Thm 8.1 p. 37, §16 p. 89; Milne Thm 3.3/Ex 3.4 pp. 33–34, p. 34 neat, Lemma 5.12 p. 57, Lemma 5.21(b) p. 61; BKT Prop 2.7(2) p. 9; BKT erratum §1.5 and proof of Thm 1.2 pp. 2–3; Borel §5.5 p. 21; Gordon §5.1.1 (48) pp. 31–33 and Remark 2.1 p. 3; Orr §4.5 Lemmas 4.12–4.13 pp. 21–22). One wrong: "[Arthur], §8, Theorem 8.1, pp. 37–39" for "Exponential integrability on the relative chamber" — those pages hold Theorem 8.1 and Lemma 8.2 only; replaced by an explicit source gap in the README.
+- `python3 research/blueprint/intake.py check-files` on README.md, Suggested.lean, metadata.toml: 0 problems; no `/home/` paths; README 198,134 bytes.
