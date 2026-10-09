@@ -101,7 +101,7 @@
       "edition": "arXiv:2410.23115v4, 8 October 2025",
       "url": "https://arxiv.org/pdf/2410.23115v4",
       "sha256": "4479788e04da71cfb76596b4375b6b1e4c9bcd940ad92e1ab7c8ededba446dd4",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
         "Construction 1.3; Construction 1.7; Definition 2.1 and Lemma 2.2; Definition 2.3, Theorem 2.4 and Remark 2.5; Constructions 2.6–2.14 and Lemmas 2.15–2.19; Theorem 2.21 and its Lemmas 2.22–2.26; Burklund/Moore inputs 2.27–2.30; Convention 3.1, Lemma 3.2 and finite-coefficient calculation through Theorem 3.14 and proof."
       ]
@@ -113,7 +113,7 @@
       "edition": "arXiv:2510.17010v1, 19 October 2025",
       "url": "https://arxiv.org/pdf/2510.17010v1",
       "sha256": "0969afe53a4f9f3f46a369d0d533e53bd2c7cc093aabe9e76ffe6ba5a224d6d6",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
         "Rigidity and trace-class conventions in §§1.2–1.5; Definition 1.2 and continuous-extension discussion in §1.6; Theorem 2.1 and proof; Theorem 3.1, Definition 3.2, Proposition 3.6, Proposition 3.13 and proof of Theorem 3.1."
       ]
@@ -125,9 +125,9 @@
       "edition": "Published version, Publ. Math. IHÉS 129 (2019), 199–310, DOI 10.1007/s10240-019-00106-9",
       "url": "https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf",
       "sha256": "6b43d1ff3c3f345db85100562a30c2bcbb6fcbfc2874ce899f8b4ded23ff23dd",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
-        "Theorems 1.8, 1.12 and 1.17; Corollary 3.4/Remark 3.5; QRSP unfolding interface in §4.6; Proposition 5.8 and Corollary 5.10; Lemma 5.14/Proposition 5.15; relevant perfectoid, cotangent and Nygaard computations and proofs in §§6–7; Theorem 8.17/Corollary 8.18 and TC-sheaf part of 8.19–8.20; almost/AΩ/Adams constructions and proofs in §9; relative trace computations in §11.1–11.2 through relevant parts of Corollary 11.12."
+        "Theorems 1.8, 1.12 and 1.17; Corollary 3.4/Remark 3.5; QRSP unfolding interface in §4.4, Lemmas 4.28–4.30 and Proposition 4.31, pp.229–230; projective and absolute variants 4.33–4.36, pp.231–232; Proposition 5.8 and Corollary 5.10; Lemma 5.14/Proposition 5.15; relevant perfectoid, cotangent and Nygaard computations and proofs in §§6–7; Theorem 8.17/Corollary 8.18 and TC-sheaf part of 8.19–8.20; almost/AΩ/Adams constructions and proofs in §9; relative trace computations in §11.1–11.2 through relevant parts of Corollary 11.12."
       ]
     },
     {
@@ -137,7 +137,7 @@
       "edition": "arXiv:2202.04818v2, 1 December 2022; Forum Math. Pi 11 (2023), e1",
       "url": "https://arxiv.org/pdf/2202.04818v2",
       "sha256": "12eb19e417531addbcf70d85facf33b1649ba5d8845c31ade9128c6000032955",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
         "Example 1.6 and the introductory finite syntomic/K-sheaf conventions."
       ]
@@ -149,7 +149,7 @@
       "edition": "arXiv:1001.2282v4, 5 February 2013",
       "url": "https://arxiv.org/pdf/1001.2282v4",
       "sha256": "08a8ae7fb5715d8269fd728c8a20d72403527aaefbeaa974b7040ec21d667a2d",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
         "Definition 8.1; Proposition 8.6, Theorem 8.7 and its localization proof; statement of Theorem 9.8 and its initial proof reduction."
       ]
@@ -161,7 +161,7 @@
       "edition": "arXiv:2510.06057v1, 7 October 2025",
       "url": "https://arxiv.org/pdf/2510.06057v1",
       "sha256": "fe9d7d71478eb546f89784f2eabdb15ec4f1e5ff8870c6c84909896c1543ea7d",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
         "4.18(A),(R), 4.18a(R2), Theorem 4.27 and Remark 4.28; 5.43(A2); Theorem 5.63 and proof, pp.79–80; Corollary 6.15 and proof, p.86."
       ]
@@ -173,7 +173,7 @@
       "edition": "arXiv:2412.03382v3, 22 January 2026; J. Amer. Math. Soc. 39 (2026), 697–764",
       "url": "https://arxiv.org/pdf/2412.03382v3",
       "sha256": "440b4a82eca992d1b7edb5c608bd7de8c336cce7f623f290aa95002cab57d484",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
         "§8 almost-module/continuous-K paragraph before Proposition 8.7, pp.46–47."
       ]
@@ -185,7 +185,7 @@
       "edition": "arXiv:2405.12169v4, 5 October 2026",
       "url": "https://arxiv.org/pdf/2405.12169v4",
       "sha256": "9ba8f87032b58ae70ab8597b01d8f5fd1a8e6740a131664d21a34b6ade03fb0b",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
         "Definition 2.58; Propositions 2.59 and 2.61, pp.50–51; Definition 8.5, Propositions 8.6–8.8 and Theorem 8.10 with proofs, pp.105–107."
       ]
@@ -197,7 +197,7 @@
       "edition": "arXiv:1905.08229v4, 12 January 2022",
       "url": "https://arxiv.org/pdf/1905.08229v4",
       "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
         "Theorem 13.1 and Lemma 13.2 with proofs, pp.94–96; Proposition 15.7 and proof, p.105."
       ]
@@ -209,7 +209,7 @@
       "edition": "arXiv:2003.12541v2, 29 September 2021",
       "url": "https://arxiv.org/pdf/2003.12541v2",
       "sha256": "2a0224b2e8b7c5f19f326886b130f8be0158ba4cb602ba7eb5821990ca22b3fd",
-      "accessed": "2026-10-08",
+      "accessed": "2026-10-09",
       "readSections": [
         "Construction 6.16 and Theorem 6.17 with proof, pp.44–45."
       ]
@@ -309,7 +309,7 @@
       ],
       "title": "Refined TC⁻ of rational ku",
       "kind": "theorem",
-      "statement": "TC−,ref((ku ⊗ Q)/ku) is even. Its even graded homotopy is the idempotent nuclear ind-graded B = Z[β][[t]]-algebra A*ku obtained by killing the idempotent pro-algebra F_m = Fil*qHdg(derived qdR(Z/m)/Z), indexed by high-powered m under divisibility; |β|=2, |t|=−2 and q−1=βt. There is a natural exact sequence 0 → B → A*ku → ind-colim_(m∈N^op) Ext¹_B(F_m,B) → 0. Ext and duals are in the graded derived t-complete category; no canonical splitting is asserted. The exact sequence comes from the cofiber of the duals of the unit maps in TC⁻.",
+      "statement": "TC−,ref((ku ⊗ Q)/ku) is even. Its even graded homotopy is the idempotent nuclear ind-graded B = Z[β][[t]]-algebra A*ku obtained by killing the idempotent pro-algebra F_m = Fil*qHdg(Hodge-completed derived qdR(Z/m)/Z), indexed by high-powered m under divisibility; |β|=2, |t|=−2 and q−1=βt. There is a natural exact sequence 0 → B → A*ku → ind-colim_(m∈N^op) Ext¹_B(F_m,B) → 0. Ext and duals are in the graded derived t-complete category; no canonical splitting is asserted. The exact sequence comes from the cofiber of the duals of the unit maps in TC⁻.",
       "hypotheses": [],
       "proofSteps": [
         "Use the trace-class pro-algebra TC⁻((ku/m)/ku) and the localization cofiber from the refined invariant.",
@@ -335,7 +335,7 @@
       "sources": [
         {
           "sourceId": "mw",
-          "locator": "Theorem 3.14(a) and proof, pp. 36–37; Convention 3.1, p. 28",
+          "locator": "Theorem 3.14(a) and proof, pp. 36–37; Convention 3.1, p. 29",
           "match": "This locator supplies refined tc⁻ of rational ku. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Odd homotopy groups vanish in the ind-category."
         }
       ],
@@ -467,7 +467,7 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Theorem 1.12(4), pp. 210–211; Proposition 7.13, pp. 259–260",
+          "locator": "Theorem 1.12(4), p. 207; Proposition 7.13, pp. 259–260",
           "match": "This locator supplies the graded bms2 trace comparison. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For perfectoid R, gr^iTHH is R{i}[2i] for i≥0 and zero for i<0."
         }
       ],
@@ -505,7 +505,7 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Theorem 1.12(5), p. 211; §7.4, p. 261, corrected weight index",
+          "locator": "Theorem 1.12(5), p. 207; §7.4, p. 261, corrected weight index",
           "match": "This locator supplies syntomic complexes as graded tc. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Weight zero is the fiber of φ−1 on the trace complex."
         }
       ],
@@ -1809,12 +1809,12 @@
       ],
       "title": "Base change in the refined construction",
       "kind": "theorem",
-      "statement": "Let E → X be strongly continuous symmetric monoidal with E and X rigid and X smooth and proper over E. Forgetting X-linearity in Catdual preserves trace-class morphisms, so the refined functors computed over X and over E have their comparison induced by this map. For an additional symmetric monoidal colimit-preserving X → X′ and a dualizable algebra V₀ in X, the kernel V of X → X^{V₀} satisfies V⊗_X X′≃V′. The pro-algebra killing comparison is preserved after applying a symmetric monoidal functor when its transitions are eventually trace-class.",
+      "statement": "Let E → X be strongly continuous symmetric monoidal with E and X rigid and X smooth and proper over E. Forgetting X-linearity in Catdual preserves trace-class morphisms, so the refined functors computed over X and over E have their comparison induced by this map. For an additional symmetric monoidal colimit-preserving X → X′ with X′ rigid, and a dualizable algebra V₀ in X, the kernel V of X → X^{V₀} satisfies V⊗_X X′≃V′. The pro-algebra killing comparison is preserved after applying a symmetric monoidal functor when its transitions are eventually trace-class.",
       "hypotheses": [],
       "proofSteps": [
         "Use dualizability of X in Catdual_E to make its forgetful functor preserve the trace-class classifier.",
         "Identify V as the tensor ideal generated by V₀ and use compactly generated reduction Ind(X^ω) → X.",
-        "Base-change the kernel adjunction; apply the preserved dual-ind cofiber for the multiplicative comparison."
+        "Use rigidity of X′ to base-change the kernel adjunction as in Lemma 2.26; apply the preserved dual-ind cofiber for the multiplicative comparison."
       ],
       "acceptance": [
         "The forgetful Motloc_(O_C) → Motloc does not in general preserve trace-class maps; no base-independent refinement is asserted."
@@ -1915,7 +1915,7 @@
       "sources": [
         {
           "sourceId": "mw",
-          "locator": "Construction 1.7, p. 4; Convention 3.1, p. 28; Lemma 3.2, pp. 29–30",
+          "locator": "Construction 1.7, p. 4; Convention 3.1, p. 29; Lemma 3.2, pp. 29–30",
           "match": "This locator supplies refined thh and tc⁻. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The ordinary p-completed THH of a rational input can vanish while the refined nuclear ind-object retains p-complete information."
         }
       ],
@@ -2078,7 +2078,7 @@
       ],
       "title": "Finite-coefficient TC⁻ and q-Hodge complexes",
       "kind": "comparison",
-      "statement": "Choose the compatible E₁ quotient spectra S/m for high-powered m. Then TC⁻((ku⊗S/m)/ku) and TC⁻((KU⊗S/m)/KU) are even; their even homotopy identifies with respectively Fil*qHdg(derived qdR(Z/m)/Z) over Z[β][[t]], and qHdg(derived qdR(Z/m)/Z)[β±¹] over Z[[q−1]]. Both carry the chosen even filtration, the specified E₁-induced multiplicative data, and quotient transition maps. Any p=2 application requires RT.4’s separate E₁ even-resolution input; Wagner’s general theorem with 2 invertible and a connective spherical E₂ lift alone does not supply it.",
+      "statement": "Choose the compatible E₁ quotient spectra S/m for high-powered m. Then TC⁻((ku⊗S/m)/ku) and TC⁻((KU⊗S/m)/KU) are even; their even homotopy identifies with respectively Fil*qHdg(Hodge-completed derived qdR(Z/m)/Z) over Z[β][[t]], and qHdg(derived qdR(Z/m)/Z)[β±¹] over Z[[q−1]]. Both carry the chosen even filtration, the specified E₁-induced multiplicative data, and quotient transition maps. Any p=2 application requires RT.4’s separate E₁ even-resolution input; Wagner’s general theorem with 2 invertible and a connective spherical E₂ lift alone does not supply it.",
       "hypotheses": [],
       "proofSteps": [
         "Use the compatible H.6 Moore-algebra tower, not the bare cofiber definition.",
@@ -2386,7 +2386,7 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Corollary 3.4 and Remark 3.5, pp. 218–219; §4.6, pp. 228–230",
+          "locator": "Corollary 3.4 and Remark 3.5, pp. 218–219; §4.4, Lemmas 4.28–4.30 and Proposition 4.31, pp. 229–230",
           "match": "This locator supplies flat and quasisyntomic descent for trace spectra. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For a faithfully flat polynomial Čech cover the augmentation is an equivalence of trace spectra."
         }
       ],
@@ -3138,8 +3138,13 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Construction 7.12, pp. 258–259; BS Theorem 13.1 proof, pp. 94–96",
+          "locator": "Construction 7.12, p. 259",
           "match": "This locator supplies the non-nygaard-completed trace extension. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: For A=R, Cnc=Ainf(R)."
+        },
+        {
+          "sourceId": "bs",
+          "locator": "Theorem 13.1 proof and Lemma 13.2, pp. 94–96",
+          "match": "The proof uses the animated noncompleted extension and its θ-specialization before identifying the Nygaard completion with the trace complex; the independent prismatic object is retained."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3232,7 +3237,7 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Construction 7.4 and Proposition 7.5, pp. 256–257; Proposition 7.13, pp. 259–260; Theorem 1.12, pp. 210–211",
+          "locator": "Construction 7.4 and Proposition 7.5, pp. 256–257; Proposition 7.13, pp. 259–260; Theorem 1.12, pp. 206–207",
           "match": "This locator supplies the bms2 motivic filtrations. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: On QRSP S the filtration is double-speed Postnikov."
         }
       ],
@@ -3365,7 +3370,7 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Theorem 1.12(3), p. 210; Proposition 6.5, pp. 248–250; Lemma 7.14, pp. 260–261",
+          "locator": "Theorem 1.12(3), pp. 206–207; Proposition 6.5, pp. 248–250; Lemma 7.14, pp. 260–261",
           "match": "This locator supplies the trace breuil–kisin twist. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: Over a ring receiving a perfectoid map the twist can be trivialized, but the trivialization depends on generator data."
         }
       ],
@@ -3495,7 +3500,7 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Theorem 1.12(5), p. 211; §7.4, pp. 261–262; Theorem 7.2, pp. 255–256",
+          "locator": "Theorem 1.12(5), p. 207; §7.4, pp. 261–262; Theorem 7.2, pp. 255–256",
           "match": "This locator supplies filtered can, frobenius and the tc fiber. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: At weight zero over a perfectoid base, can=id and φ is Witt Frobenius."
         }
       ],
@@ -3587,7 +3592,7 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Theorem 1.12(4)–(5), pp. 210–211; Proposition 7.13, pp. 259–260",
+          "locator": "Theorem 1.12(4)–(5), p. 207; Proposition 7.13, pp. 259–260",
           "match": "This locator supplies derived convergence of the trace spectral sequences. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The signs of weight −b, cohomological degree a−b and homotopical abutment −a−b agree."
         }
       ],
@@ -4163,7 +4168,7 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Theorem 9.6 and proof, pp. 286–290; Theorem 1.8",
+          "locator": "Theorem 9.6 and proof, pp. 286–290; Theorem 1.8, p. 204",
           "match": "This locator supplies the honest trace-to-aω comparison. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: On O_C the comparison is the canonical Ainf identification."
         }
       ],
@@ -4205,7 +4210,7 @@
       "sources": [
         {
           "sourceId": "bms",
-          "locator": "Proposition 9.10 and Remark 9.11, p. 290",
+          "locator": "Proposition 9.10 and Remark 9.11, pp. 289–290",
           "match": "This locator supplies nygaard agrees with the aω décalage filtration. The statement and proof retain the source hypotheses, maps and completion conventions; the acceptance check is: The Frobenius pullback and ξ are retained in the filtration identity."
         }
       ],
@@ -5021,7 +5026,7 @@
     },
     {
       "supplier": "HabiroCohomologyFoundations:HQ.3",
-      "need": "Supply the chosen finite-torsion q-Hodge filtrations and qHdg objects on derived qdR(Z/m)/Z used in MW Corollary 3.8 and Theorem 3.14, with m varying along the compatible high-powered Moore tower. State the separate p=2 choice/input if the general supplied spherical E₂ lift assumes 2 invertible. Supply transition maps, graded shearing, derived t/(q−1)-completion and compatibility with the general HQ.3/q-hodge-filtrations and /the-q-hodge-complex nodes; no universal functorial choice for all animated rings is presumed.",
+      "need": "Supply the chosen finite-torsion q-Hodge filtrations on Hodge-completed derived qdR(Z/m)/Z for ku, and qHdg objects on derived qdR(Z/m)/Z for KU used in MW Corollary 3.8 and Theorem 3.14, with m varying along the compatible high-powered Moore tower. Retain this distinction: the filtered ku input is Hodge-completed, whereas qHdg is insensitive to Hodge completion by the HQ.3 colimit comparison. State the separate p=2 choice/input if the general supplied spherical E₂ lift assumes 2 invertible. Supply transition maps, graded shearing, derived t/(q−1)-completion and compatibility with the general HQ.3/q-hodge-filtrations and /the-q-hodge-complex nodes; no universal functorial choice for all animated rings is presumed.",
       "neededBy": [
         "RefinedTraceMethods:RT.5/torsion-qhodge"
       ],
@@ -5370,8 +5375,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The proof uses the S-module M and Lemma 5.14 over S. The printed Γ_R label disagrees with the theorem and its adjoining identifications.",
-        "by": "REV-RefinedTraceMethods--RT.5"
+        "reason": "Fresh comparison of Theorem 7.1(3), Lemma 5.14 and the proof on p.255 confirms that divided powers are taken over the algebra S, on which M is a module.",
+        "by": "REV-RefinedTraceMethods--RT.5~2"
       }
     },
     {
@@ -5394,8 +5399,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The asserted filtration is on the traces of S. Their spectral sequences, not those of the perfectoid base R, give that filtration.",
-        "by": "REV-RefinedTraceMethods--RT.5"
+        "reason": "On p.255 the abutment being filtered is π₀ of the trace spectra of S. Replacing those spectra by the traces of R would filter a different object.",
+        "by": "REV-RefinedTraceMethods--RT.5~2"
       }
     },
     {
@@ -5418,8 +5423,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The weight i must occur both in gr^i and in the shift [−2i], consistently with Theorem 1.12(5).",
-        "by": "REV-RefinedTraceMethods--RT.5"
+        "reason": "The definition on p.261 has weight i and shift −2i. Theorem 1.12(5), p.207, confirms that the graded index must be i.",
+        "by": "REV-RefinedTraceMethods--RT.5~2"
       }
     },
     {
@@ -5442,8 +5447,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The construction at this point is indexed by the projective QRSP algebra S; the adjoining construction and its unfolding use d_S.",
-        "by": "REV-RefinedTraceMethods--RT.5"
+        "reason": "The honest comparison in the lifting step on p.288 is attached to the projective QRSP algebra S; the subsequent unfolding uses that same S-indexed map.",
+        "by": "REV-RefinedTraceMethods--RT.5~2"
       }
     },
     {
@@ -5466,15 +5471,15 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The chosen coefficient embedding has target Ainf(O_(K∞)) in Notation 11.1 and throughout §11; the O_K target is a stray label.",
-        "by": "REV-RefinedTraceMethods--RT.5"
+        "reason": "Notation 11.1 and the coefficient construction on p.302 both place the embedding in Ainf(O_(K∞)). The occurrence of O_K gives the wrong target.",
+        "by": "REV-RefinedTraceMethods--RT.5~2"
       }
     },
     {
       "id": "RefinedTraceMethods/E6",
       "kind": "misprint",
       "sourceId": "bms",
-      "locator": "Published DOI PDF, proof of Lemma 9.4, p. 285; text and page image checked 8 October 2026",
+      "locator": "Published DOI PDF, proof of Lemma 9.4, p. 285; text and page image checked 9 October 2026",
       "printed": "The source describes M/ξ ⊂ N as consisting of sequences (a_i) ∈ ∏_(i∈I) O_C^flat.",
       "correction": "The sequences lie in ∏_(i∈I) O_C.",
       "reason": "The preceding line defines N=∏ O_C and M/ξ is a completed free O_C-module. The mixed-characteristic valuative argument uses p in O_C. The page image of the published DOI PDF still prints the flat superscript.",
@@ -5489,8 +5494,8 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "The published DOI page image still contains the flat superscript. But M/ξ is a completed free O_C-module inside a product of O_C, and the proof uses the nonzero p-valuative bound in O_C. The correction is confirmed, including the edition discrepancy.",
-        "by": "REV-RefinedTraceMethods--RT.5"
+        "reason": "Fresh text and page-image inspection of the published p.285 confirms the flat superscript is still present. The surrounding completed free module and the valuative argument are over O_C, so its sequence entries must be in O_C.",
+        "by": "REV-RefinedTraceMethods--RT.5~2"
       }
     },
     {
@@ -5513,8 +5518,31 @@
       ],
       "review": {
         "verdict": "confirmed",
-        "reason": "Definition 1.1(b) reverses the classifier factors. Evaluation of that classifier gives the opposite transition; Definition 2.1 supplies the correct source-dual then target order.",
-        "by": "REV-RefinedTraceMethods--RT.5"
+        "reason": "Definition 1.1(b), p.2, orders the factors oppositely to Definition 2.1, p.11. Evaluating its classifier gives the reverse transition; the body definition correctly dualizes the source.",
+        "by": "REV-RefinedTraceMethods--RT.5~2"
+      }
+    },
+    {
+      "id": "RefinedTraceMethods/E8",
+      "kind": "misprint",
+      "sourceId": "mw",
+      "locator": "arXiv:2410.23115v4, proof of Corollary 3.13, p. 36, sentence after the displayed trace-class classifier; text and page image checked 9 October 2026",
+      "printed": "In the sentence identifying the global ku transition, the filtered Hodge-completed q-de Rham source for Z/m³ is labelled relative to Z_p, while the target for Z/m is relative to Z.",
+      "correction": "Use the filtered Hodge-completed derived q-de Rham source for Z/m³ relative to Z, with the same global base as the target.",
+      "reason": "The corollary and preceding displayed classifier use the global Z[β][[t]]-algebra and both finite complexes relative to Z. Here m is any high-powered integer, with no fixed prime p. The Z_p base label introduces an unspecified prime and changes the source of the transition.",
+      "affects": "nothing",
+      "known": "No correction was identified in the inspected v4 statement/proof or in this packet’s existing findings. The packet already uses the global Z-base transition.",
+      "searched": [
+        "The v4 PDF statement, displayed classifier and following sentence on p.36; text and page image compared.",
+        "Existing packet findings and the repository paper-finding search for Corollary 3.13."
+      ],
+      "neededBy": [
+        "RefinedTraceMethods:RT.5/graded-trace-class"
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The p.36 image confirms the Z_p subscript. The immediately preceding classifier has both complexes relative to Z, and the global high-powered m is not restricted to one prime. Removing the stray p gives the transition being classified.",
+        "by": "REV-RefinedTraceMethods--RT.5~2"
       }
     }
   ],
@@ -5942,498 +5970,498 @@
       "sourceId": "mw",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2410.23115v4",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "4479788e04da71cfb76596b4375b6b1e4c9bcd940ad92e1ab7c8ededba446dd4"
     },
     {
       "sourceId": "efimov",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2510.17010v1",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "0969afe53a4f9f3f46a369d0d533e53bd2c7cc093aabe9e76ffe6ba5a224d6d6"
     },
     {
       "sourceId": "bms",
       "kind": "published",
       "url": "https://www.numdam.org/item/10.1007/s10240-019-00106-9.pdf",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "6b43d1ff3c3f345db85100562a30c2bcbb6fcbfc2874ce899f8b4ded23ff23dd"
     },
     {
       "sourceId": "bm",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2202.04818v2",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "12eb19e417531addbcf70d85facf33b1649ba5d8845c31ade9128c6000032955"
     },
     {
       "sourceId": "bgt",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1001.2282v4",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "08a8ae7fb5715d8269fd728c8a20d72403527aaefbeaa974b7040ec21d667a2d"
     },
     {
       "sourceId": "wagner",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2510.06057v1",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "fe9d7d71478eb546f89784f2eabdb15ec4f1e5ff8870c6c84909896c1543ea7d"
     },
     {
       "sourceId": "scholze",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2412.03382v3",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "440b4a82eca992d1b7edb5c608bd7de8c336cce7f623f290aa95002cab57d484"
     },
     {
       "sourceId": "continuous",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2405.12169v4",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "9ba8f87032b58ae70ab8597b01d8f5fd1a8e6740a131664d21a34b6ade03fb0b"
     },
     {
       "sourceId": "bs",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/1905.08229v4",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "1d91a6eb85828feb73f84ab3b27ced17514f0855d61c3bff71ab9d8287891e4a"
     },
     {
       "sourceId": "ammn",
       "kind": "preprint",
       "url": "https://arxiv.org/pdf/2003.12541v2",
-      "read": "2026-10-08",
+      "read": "2026-10-09",
       "sha256": "2a0224b2e8b7c5f19f326886b130f8be0158ba4cb602ba7eb5821990ca22b3fd"
     }
   ],
   "review": {
-    "status": "needs_changes",
-    "reviewer": "independent-review-REV-RefinedTraceMethods--RT.5",
-    "date": "2026-10-08",
-    "notes": "Independent review by Codex, session codex-EwSLyF; the original pass was by another session. All 79 original nodes were checked, five used key API theorems were added, all ten pinned baseline statements confirmed, all ten public PDF hashes matched and all seven source findings confirmed. Clear mathematical, dependency, audit and locator fixes were applied in the packet and suggested file. Both stages remain planned, not closed; the complete-pass status and eight honest gaps/sixteen open requests are appropriate. The remaining reason for needs_changes is the accompanying reader document, which is read-only for this review: it still asserts the circular AΩ Frobenius equivalence, overstates Habiro multiplicativity/hypotheses, omits the promoted theorem nodes, and contains verbatim source passages contrary to protocol §5 and the maintainer instruction. The revision must synchronize that document from the corrected packet and replace source quotations by own-word statements. The report gives exact sections and the complete change inventory. Existing gaps, omitted higher signatures and the announced BM proof are not independently grounds for rejection.",
+    "status": "accepted",
+    "reviewer": "independent-review-REV-RefinedTraceMethods--RT.5~2",
+    "date": "2026-10-09",
+    "notes": "Independent review by Codex, session codex-vJYMBU, which wrote neither planning pass. Rechecked all 84 nodes at their public source locators, all ten pinned baseline statements, 102 exact external supplier contracts, target coverage, API/tests/planets, the reviewed library audit and all three assigned red-team findings. All ten PDF hashes match and all seven existing source findings were independently confirmed and one additional MW base-label slip was recorded with its own verdict. Restored rigid target in base change, made connective ku Hodge completion explicit, corrected page/section locators and separated the BS source attribution. Packet, reader and suggested contracts are synchronized; the first review’s reader objections are resolved. This is an accepted complete target-level planning pass with RT.5 and RT.6 planned, eight honest gaps and seventeen open owner requests; no stage is closed and no mathematics is claimed formalized.",
     "checked": [
       {
         "nodeId": "RefinedTraceMethods:RT.5/motives-rigidity",
-        "verdict": "corrected",
-        "note": "Checked Efimov Theorem 3.1 and its nuclear-resolution proof. Retained E₁ duality with the mop base and E₂ rigidity; no claim that each motive is dualizable."
+        "verdict": "verified",
+        "note": "Efimov Theorem 3.1 supplies the finitary motive duality over the opposite-monoidal base and the E₂ rigidity enhancement; its nuclear resolution does not imply objectwise dualizability."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/refined-invariant-universality",
-        "verdict": "corrected",
-        "note": "Checked MW Construction 1.3 and §§2.1–2.3. Added direct trace-class functoriality and rigidity-criterion prerequisites; the general κ/Q proof remains an explicit gap."
+        "verdict": "verified",
+        "note": "MW Construction 1.3 and Lemmas 2.15–2.17 give the factorization and realization map. The unresolved general cardinal/Q-indexed proof is explicitly recorded rather than treated as closed."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/refined-ku-computation",
         "verdict": "corrected",
-        "note": "Checked Theorem 3.14(a): evenness, graded completed Ext¹, ind-colimit and nonsplit exact sequence agree. Added the nuclear-closure prerequisite used by the cofiber argument."
+        "note": "Made Hodge completion explicit in the filtered finite ku input and corrected Convention 3.1 to p.29. Theorem 3.14(a) supplies evenness and the nonsplit completed graded Ext¹ extension."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/refined-ku-periodic-computation",
-        "verdict": "corrected",
-        "note": "Checked Theorem 3.14(b) and periodic proofs of 3.11–3.13. Kept (q−1)-completion and periodic reconstruction; no bounded-below HR embedding is used."
+        "verdict": "verified",
+        "note": "Theorem 3.14(b) and Lemma 3.11 retain the (q−1)-complete periodic calculation. The qHdg colimit comparison explains why its expression does not need the connective filtered Hodge-completion correction."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/trace-prismatic-comparison",
         "verdict": "verified",
-        "note": "Checked BS Theorem 13.1 and Lemma 13.2 against the independent PR.3 recognition supplier. Nygaard completion and Frobenius are retained; the supplier does not presuppose TC identification."
+        "note": "BS Theorem 13.1 and Lemma 13.2 compare the independently constructed prism with the Nygaard-completed trace object. The PR.3 supplier provides recognition without assuming that trace comparison."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/graded-motivic-comparison",
         "verdict": "corrected",
-        "note": "Checked BMS Theorem 1.12(4) and Proposition 7.13. The twist and shift [2i] remain and Nygaard graded pieces are cofibers, not filtration levels."
+        "note": "Corrected Theorem 1.12(4) to published p.207. The Nygaard cofiber, Breuil–Kisin twist and [2i] shearing agree with the graded trace identifications."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/syntomic-graded-tc",
         "verdict": "corrected",
-        "note": "Checked Theorem 1.12(5) and §7.4. The weight and shift agree and syntomic fibers come independently from PR.4; the confirmed weight misprint is not followed."
+        "note": "Corrected Theorem 1.12(5) to p.207. The weight-i graded TC fiber matches the independent PR.4 syntomic fiber, with derived finite-coefficient reduction."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/habiro-trace-interface",
-        "verdict": "corrected",
-        "note": "Corrected the generic multiplicativity claim: Theorem 5.63 gives a module equivalence. Recorded 4.18, R2, 2-invertibility and A2 explicitly, and qualified the E_(n−1) enhancement by Remark 4.28. Corrected the arithmetic divisibility convention."
+        "verdict": "verified",
+        "note": "Wagner 4.18/4.18a, 4.27/4.28, 5.43, 5.63 and 6.15 justify the qualified interface. The module comparison, extra lift hypotheses and periodic reconstruction are kept distinct."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/dualizable-categories",
-        "verdict": "corrected",
-        "note": "Checked Efimov §1.5: dualizable category objects and strong-continuity morphisms are distinct conditions. Qualified ofInd as an absolute E=Sp constructor unless an E-action is supplied."
+        "verdict": "verified",
+        "note": "Efimov §1.5 defines dualizable presentable modules and strongly continuous arrows. The Ind construction is correctly restricted to the absolute case unless compatible E-action data are supplied."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/trace-class",
-        "verdict": "corrected",
-        "note": "Checked MW Definition 2.1 classifier order and Lemma 2.2. Added composition, tensor and identity criteria to the API; the used predual/functoriality theorem is promoted separately."
+        "verdict": "verified",
+        "note": "MW Definition 2.1 fixes source-dual then target order. The classifier, composition, tensor and identity tests distinguish finite-rank from arbitrary maps."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/rigid-category",
-        "verdict": "corrected",
-        "note": "Checked Efimov §1.2 and Proposition 1.1. Corrected the section and made compactness of the unit explicit in the generation criterion; its used theorem has its own node."
+        "verdict": "verified",
+        "note": "Efimov Proposition 1.1 requires compact unit and two-sided trace-class generation; multiplication with bilinear continuous right adjoint is the defining criterion."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/nuclear-objects",
-        "verdict": "corrected",
-        "note": "Checked MW Definition 2.3, Theorem 2.4 and Remark 2.5. The compact-generation/unit assumptions and countable-versus-uncountable vector-space tests are retained; the used closure theorem is promoted."
+        "verdict": "verified",
+        "note": "MW Theorem 2.4 gives the compact-source characterization, colimit stability and basic nuclear presentations. The countable/uncountable test detects the ω₁-compactness distinction."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/continuous-calkin",
-        "verdict": "corrected",
-        "note": "Checked continuous-K Definition 2.58 and Propositions 2.59, 2.61. Corrected the locator which included Remark 2.60 as a proposition; quotient, strong-continuity functoriality and ring test agree."
+        "verdict": "verified",
+        "note": "Continuous K-theory Definition 2.58 and Propositions 2.59/2.61 provide the quotient/kernel Calkin model and its strongly continuous functoriality with the chosen cardinal."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/localizing-invariant",
-        "verdict": "corrected",
-        "note": "Checked Efimov Definition 1.2 and §1.6 with the exactness conventions. Finitary means κ=ω; connective K is not substituted in the all-degree localization test."
+        "verdict": "verified",
+        "note": "Efimov Definition 1.2 and §1.6 separate small and continuous invariants and preserve the intended accessible cardinal rather than silently imposing arbitrary filtered-colimit preservation."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/continuous-extension",
-        "verdict": "corrected",
-        "note": "Checked continuous-K Definition 8.5 and Propositions 8.6–8.8. The loop, ω₁ Calkin, swindle and specified κ-colimit laws agree; the concrete K model remains an owner input."
+        "verdict": "verified",
+        "note": "Continuous K-theory Definition 8.5, Propositions 8.6–8.8 and Theorem 8.10 give the Calkin desuspension and exact continuous extension, with concrete K imported from its owner."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/continuous-extension-uniqueness",
-        "verdict": "corrected",
-        "note": "Checked continuous-K Theorem 8.10 and the relative statement in rigidity §1.6. The inverse uses continuous extension and the same regular-cardinal convention."
+        "verdict": "verified",
+        "note": "Theorem 8.10 supplies the restriction/extension equivalence and uniqueness. The relative enriched implementation remains an explicit interface obligation."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/localizing-motives",
-        "verdict": "corrected",
-        "note": "Checked Efimov Definition 1.2 and BGT 8.6–8.7, 9.8. The relative tensor localization/corepresentability proof remains the precise existing gap, not a new definition of K."
+        "verdict": "verified",
+        "note": "Efimov §1.6 and BGT 8.6/8.7/9.8 provide localization and corepresentability. The relative Day-convolution and concrete-K comparison are acknowledged gaps, not new definitions of K."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/relative-nuclear-module",
-        "verdict": "corrected",
-        "note": "Checked Efimov Definition 3.2 and Proposition 3.6. Nuclearity is relative compact-morphism testing and the ω₁-compact/basic equivalence; it is not monoidal-object nuclearity."
+        "verdict": "verified",
+        "note": "Efimov Definition 3.2 and Proposition 3.6 retain E-linear module structure and sequential nuclear presentations; the absolute Ind example includes its qualification."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/nuclear-module-resolution",
         "verdict": "verified",
-        "note": "Checked Proposition 3.13 and proof. The directed repetition Homs, representable transitions, fully faithful right adjoint and nonzero one-object kernel test agree."
+        "note": "Proposition 3.13 gives the two-term enriched nuclear resolution used by motive rigidity. Functoriality and the bar construction remain over the specified rigid base."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/enriched-duality",
-        "verdict": "corrected",
-        "note": "Checked all three hypotheses and both triangle identities in Efimov Theorem 2.1. The compact unit is 1_X; the proof extends through p.29, now included in the locator."
+        "verdict": "verified",
+        "note": "Efimov Theorem 2.1 uses left/right trace-class generation and compact identities to obtain strongly continuous composition and duality. The prerequisites retain both sides."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/rigidification",
-        "verdict": "corrected",
-        "note": "Checked MW Construction 1.3 and Remark 2.5. Q-indexing is retained generally and sequential replacement only under local rigidity/ω₁-unit assumptions. Added the used functoriality and nuclear-closure theorems."
+        "verdict": "verified",
+        "note": "MW Construction 1.3 locates general rigidification and Remark 2.5 locates the nuclear special case. The unaudited external Ramzi/cardinal proof is explicitly a gap."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/algebra-killing",
-        "verdict": "corrected",
-        "note": "Checked Constructions 2.6, 2.9, 2.11 and Proposition 2.14. Idempotence and eventual trace-class assumptions are retained for the multiplicative cofiber. Added direct functoriality/closure prerequisites."
+        "verdict": "verified",
+        "note": "MW 2.6–2.14 gives algebra annihilation, internal-Hom iteration and the idempotent pro-object dual cofiber. Ordinary versus ind/pro localization is retained."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/smooth-proper-category",
-        "verdict": "corrected",
-        "note": "Corrected properness to strong continuity of relative evaluation, following Efimov §1.5. Compact-object preservation is used only in compactly generated algebra models; the refined normalization is promoted separately."
+        "verdict": "verified",
+        "note": "MW Lemma 2.18 and Efimov §1.5 use relative evaluation for properness and dualizability for smoothness. The compact-object normalization is limited to the algebra compactly generated case."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/refined-base-change",
         "verdict": "corrected",
-        "note": "Checked Corollary 2.19 and Lemma 2.26. Added direct smooth-proper normalization and trace-class functoriality prerequisites for restriction and pro-killing base change."
+        "note": "Restored rigidity of X′ in the additional base-change statement and its kernel proof, as required by MW Lemma 2.26. The smooth/proper restriction remains essential for forgetting linearity."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/localization-tower-formula",
-        "verdict": "corrected",
-        "note": "Checked Theorem 2.21 and Lemmas 2.22–2.26. The bimodule transition factorization, not compactness over the previous algebra alone, is used; added the diagonal predual-comparison theorem."
+        "verdict": "verified",
+        "note": "MW Theorem 2.21 and its proof give the localization tower under eventual trace-class transitions and dualizable algebra input, with the Moore-tower choices requested separately."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/refined-traces",
         "verdict": "corrected",
-        "note": "Checked Construction 1.7 and Lemma 3.2. The oriented circle/completion equivalence and smooth-proper normalization are now direct theorem prerequisites; the unit and rational-input tests retain their different targets."
+        "note": "Corrected Convention 3.1 to p.29. Construction 1.7 and Lemma 3.2 use coherent circle modules and the derived t-complete target, with the chosen orientation retained."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/high-powered",
-        "verdict": "corrected",
-        "note": "Checked paragraph 3.3 and pinned Nat.factorization. Zero is excluded separately; the 2-exponent must be even and at least four, and all other nonzero prime exponents at least two."
+        "verdict": "verified",
+        "note": "MW §3.1 requires positivity, the special even exponent at 2 and the odd-prime exponent bounds. The actual Nat.factorization convention and fourth-power cofinality match the Lean signature."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/torsion-qhodge",
         "verdict": "corrected",
-        "note": "Checked Corollary 3.8 and the preceding torsion calculation. The E₁ Moore tower and separate p=2 q-Hodge extension remain requested; the 2-invertible spherical-lift theorem is not applied to all m."
+        "note": "Made Hodge completion explicit for the filtered ku input of Corollary 3.8. Kept the periodic qHdg expression and the chosen multiplicative Moore/p=2 obligations; the HQ.3 request now distinguishes the completions."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/even-derived-hom",
-        "verdict": "corrected",
-        "note": "Checked Lemma 3.9 and its filtered Hom proof. Even E₁ base/modules, double shearing, completeness and exhaustiveness are retained without claiming ordinary strong convergence."
+        "verdict": "verified",
+        "note": "MW Lemma 3.9 gives the even derived internal-Hom computation in the sheared graded category; it does not substitute ordinary Hom for derived completed Hom."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/torsion-duality",
-        "verdict": "corrected",
-        "note": "Checked Corollary 3.10 and its distinct ku/KU reductions. The graded dual has homological degree −1 and the spectrum dual odd degrees, giving the Ext¹ convention used later."
+        "verdict": "verified",
+        "note": "Corollary 3.10 uses the finite-torsion derived Ext term and its shearing, retaining derived duals and quotient transitions."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/even-completed-tensor",
-        "verdict": "corrected",
-        "note": "Checked Lemma 3.11: homogeneous t, even E∞ base, even modules and graded completed derived tensor. The completion/exhaustiveness bound is retained."
+        "verdict": "verified",
+        "note": "Lemma 3.11 proves the completed tensor and periodic reconstruction statements with its connectivity argument; no bounded-below formula is applied directly to KU."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/pro-qhodge-idempotence",
-        "verdict": "corrected",
-        "note": "Checked Corollary 3.12 and Corollary 2.30. The m³/m² factorization and amplitude [0,1] justify the transfer from spectra to graded coefficients; multiplicativity is not assumed for arbitrary π_*."
+        "verdict": "verified",
+        "note": "Corollary 3.12 and Corollary 2.30 give pro-idempotence for the chosen tower. H.6's additive Moore cofiber alone does not discharge its multiplicative assumptions."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/graded-trace-class",
-        "verdict": "corrected",
-        "note": "Checked Corollary 3.13. The shifted dual-tensor has amplitude [−1,0], which permits passage of the actual classifier to the graded trace-class transition."
+        "verdict": "verified",
+        "note": "Corollary 3.13 supplies the graded trace-class transitions needed by the refined cofiber computation; the corrected classifier direction is used. Recorded the stray Z_p source-base label in the proof as E8; the packet’s global Z-base transition was already correct."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/almost-module-k",
         "verdict": "verified",
-        "note": "Checked Scholze §8 pp.46–47. This uses concrete continuous K and the precise almost ideal/nonunital comparison, not an abstract universally defined K object."
+        "note": "Scholze §8, pp.46–47, identifies the firm almost-module category and its continuous-K fiber. The idempotent flat ideal and nonunital coefficient convention are retained."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/trace-flat-descent",
         "verdict": "corrected",
-        "note": "Checked BMS Corollary 3.4, Remark 3.5 and basis unfolding. Circle maps and product totalization come from the RT.1/RT.2 contracts."
+        "note": "Replaced nonexistent BMS §4.6 by §4.4, Lemmas 4.28–4.30 and Proposition 4.31, pp.229–230. Corollary 3.4/Remark 3.5 support Čech trace descent, with no blanket hyperdescent claim."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/qrsp-hochschild",
-        "verdict": "corrected",
-        "note": "Checked Lemma 5.14 and Theorem 7.1. Divided powers are over S, applied to the p-completed π₁ cotangent module; this agrees with the E1 correction."
+        "verdict": "verified",
+        "note": "BMS Lemma 5.14 identifies the shifted flat cotangent module and its S-relative divided powers; the integral HKR supplier uses the required derived filtration."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/cyclic-derham-comparison",
         "verdict": "verified",
-        "note": "Checked Proposition 5.15 and the proof of Theorem 1.17. Relative derived de Rham, Hodge completion and negative/periodic totalizations have the stated shifts and maps."
+        "note": "Proposition 5.15 and Theorem 1.17 use Hodge-and-p-completed de Rham and the Beilinson differential. The imported DD.2 completion is not erased on general inputs."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/uv-presentation",
-        "verdict": "corrected",
-        "note": "Checked Proposition 6.2 and the coefficient diagram. The ordinary quotient prototype, its two semilinear maps and all four tests agree; added scalar functoriality through its existing universal lift."
+        "verdict": "verified",
+        "note": "Proposition 6.2's underlying quotient and can/Frobenius generator images match actual MvPolynomial, quotient and Laurent APIs. Grading and spectral realization remain separate obligations."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/perfectoid-thh",
         "verdict": "verified",
-        "note": "Checked Theorem 6.1 and proof: perfectoid input and p-completion give the even polynomial THH coefficient algebra; ordinary uncompleted THH is not substituted."
+        "note": "Theorem 6.1 gives even polynomial perfectoid THH with its conormal generator and base-change convention; the finite-field special case is a supplied computation."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/perfectoid-tc-maps",
         "verdict": "verified",
-        "note": "Checked Propositions 6.2–6.3. can and Frobenius have different u,v images and φ-semilinear coefficients; generator normalization is kept separate from the spectral realization gap."
+        "note": "Propositions 6.2–6.3 distinguish θ-linear can from φ-semilinear Frobenius and their generator images, including the finite-field coefficient test."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/perfectoid-quotient-comparison",
-        "verdict": "corrected",
-        "note": "Checked Proposition 6.4 and proof through p.248. The v and φ(ξ) quotients retain their stated coefficient maps; this is not an unqualified identification of TC⁻ and TP."
+        "verdict": "verified",
+        "note": "Proposition 6.4 uses derived coefficient tensors to recover THH and finite Tate objects from TC⁻/TP. Ordinary quotient arithmetic alone would not prove these spectral equivalences."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/thh-hochschild-deformation",
         "verdict": "verified",
-        "note": "Checked Theorem 6.7. The perfectoid-base THH-to-HH deformation retains the correct relative algebra, completion and generator map."
+        "note": "Theorem 6.7 constructs the T-equivariant deformation cofiber and its fixed/Tate variants over the perfectoid base, with the coefficient u retained."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/antisymmetrization",
         "verdict": "verified",
-        "note": "Checked Construction 6.8. Relative differentials, multiplication and odd-square-zero behavior, including p=2, agree with the antisymmetrization tests."
+        "note": "Construction 6.8 gives the differential-class map and p-complete multiplicativity, using the supplied integral HKR map rather than rational antisymmetrization."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/quasismooth-thh-filtration",
-        "verdict": "corrected",
-        "note": "Checked Corollaries 6.9–6.10, whose discussion continues on p.254. The finite cotangent filtration and its p-completely quasismooth hypotheses remain."
+        "verdict": "verified",
+        "note": "Corollaries 6.9–6.10 distinguish the quasismooth homotopy formula from the complete connective cotangent filtration on arbitrary p-complete inputs."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/qrsp-even-thh",
         "verdict": "verified",
-        "note": "Checked Theorem 7.1 and proof. QRSP evenness uses p-completed divided powers and the u-exact sequences; source E1 is corrected to the S-base."
+        "note": "Theorem 7.1 gives QRSP evenness and the divided-power filtration over S. The confirmed base-ring label slip is corrected in the statement."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/qrsp-tc-nygaard",
         "verdict": "verified",
-        "note": "Checked Theorem 7.2 and Remark 7.3. Complete Nygaard filtration and can/Frobenius retain the generator normalization, and the S-trace spectral sequences supply the filtration."
+        "note": "Theorem 7.2/Remark 7.3 give trace evenness, Nygaard divisibility and the Hodge-completed θ-specialization; spectral sequences are taken on S."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/trace-nygaard-complex",
-        "verdict": "corrected",
-        "note": "Checked Construction 7.7 and Propositions 7.8–7.9. The QRSP sheaf unfolds with Frobenius and θ-specialization to Hodge-completed de Rham; the θ/θ̃ test catches a misplaced twist."
+        "verdict": "verified",
+        "note": "Construction 7.7 and Propositions 7.8–7.9 provide QRSP unfolding with Frobenius and its Hodge-completed specialization. The θ/θ̃ test catches a misplaced twist."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/smooth-trace-frobenius",
-        "verdict": "corrected",
-        "note": "Checked Corollary 7.10 and Remark 7.11. Added the existing AI.1 filtered-Beilinson theorem used by the proof. Frobenius is only a factorization here; ξ_r uses inverse translates."
+        "verdict": "verified",
+        "note": "Corollary 7.10 and Remark 7.11 provide Frobenius factorization maps and inverse-translate ξ_r products. Their equivalence is not assumed before the AΩ comparison; the direct AI.1 filtration supplier is present."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/trace-noncompleted-extension",
         "verdict": "corrected",
-        "note": "Checked Construction 7.12 and BS Theorem 13.1 proof. Left Kan extension retains (p,ξ)-completion and uncompleted derived de Rham modulo ξ; QRSP discreteness does not erase Nygaard completion."
+        "note": "Separated BMS Construction 7.12, p.259, from the BS 13.1/13.2 proof locator under its own sourceId. The animated extension preserves uncompleted derived de Rham modulo θ and (p,ξ)-completion."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/motivic-filtrations",
         "verdict": "corrected",
-        "note": "Checked Constructions 7.4, Proposition 7.5 and Proposition 7.13. The unfolded double-speed filtration is complete/exhaustive and multiplicative; odd differential classes on smooth algebras remain possible."
+        "note": "Corrected the overview locator to Theorem 1.12, pp.206–207. Construction 7.4/Proposition 7.13 supply the unfolded complete exhaustive filtrations and coherent filtered trace maps."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/filtered-invertibility",
-        "verdict": "corrected",
-        "note": "Checked Lemma 7.14 through p.261. Both natural graded base-change equivalences are essential; generation from degree zero alone is not enough."
+        "verdict": "verified",
+        "note": "Lemma 7.14 needs both graded base-change equivalences and a degree-zero pairing. The API and counterexample tests do not reduce invertibility to generation in degree zero alone."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/trace-breuil-kisin-twist",
         "verdict": "corrected",
-        "note": "Checked Theorem 1.12(3), Proposition 6.5 and Lemma 7.14. The invertible filtered line has θ and θ̃ specializations as stated, without a global chosen basis."
+        "note": "Corrected Theorem 1.12(3) to pp.206–207. Proposition 6.5 and Lemma 7.14 produce an invertible filtered line with distinct θ and θ̃ specializations."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/bms1-twist-comparison",
         "verdict": "verified",
-        "note": "Checked Remark 6.6. The BMS1 comparison keeps the trace twist and its specialization conventions, rather than identifying every twist with a free module by a chosen generator."
+        "note": "Remark 6.6 compares the trace twist with BMS1 using p-torsion-freeness, finite conormals and TR/Witt transition maps; no arbitrary canonical trivialization is asserted."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/filtered-frobenius",
         "verdict": "corrected",
-        "note": "Checked §7.4 and Theorem 1.12(5). Filtered can and Frobenius give a stable fiber with multiplicative equalizer structure; subtraction is not performed in E∞ algebras."
+        "note": "Corrected Theorem 1.12(5) to p.207. §7.4 constructs the stable fiber of filtered φ−can; subtraction is not claimed to be a map of E∞ algebras."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/motivic-convergence",
         "verdict": "corrected",
-        "note": "Checked Proposition 7.13 and Theorem 1.12. Derived completeness/exhaustiveness give the indicated abutments; the exact-couple implementation is an existing H.6 gap."
+        "note": "Corrected Theorem 1.12(4)–(5) to p.207. Proposition 7.13 supplies the derived abutments; the unbounded exact-couple implementation is explicitly requested from H.6."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/tc-negative-degrees",
         "verdict": "verified",
-        "note": "Checked the TC-internal portion of Proposition 7.16. The assertion stops before the downstream K-theory ranks, so it does not use the K comparison it is intended to support."
+        "note": "The TC-internal proof of Proposition 7.16 gives negative-degree vanishing and the Artin–Schreier local coker calculation without presupposing the downstream K comparison."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/crystalline-trace-comparison",
         "verdict": "verified",
-        "note": "Checked Theorem 8.17 and its de Rham–Witt recognition proof. The comparison is trace-to-crystalline with its Frobenius and completion, using the imported DD.4 inputs."
+        "note": "Theorem 8.17 constructs the Frobenius-compatible trace-to-crystalline map from independent PD and de Rham–Witt data and retains Nygaard completion."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/group-algebra-trace-test",
         "verdict": "verified",
-        "note": "Checked the group-algebra key case on pp.277–278. The root monoid, Tate vanishing and Hochschild calculation retain their coefficient and relative-base conventions."
+        "note": "The key group-algebra case in Theorem 8.17 keeps the root monoid, relative integral Hochschild calculation and Tate completion used in the recognition proof."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/segal-char-p",
         "verdict": "verified",
-        "note": "Checked Corollary 8.18. The characteristic-p Segal map and its connectivity range follow from the preceding crystalline comparison; no mixed-characteristic assertion is inferred."
+        "note": "Corollary 8.18 gives the characteristic-p Segal connectivity range from the crystalline comparison; no mixed-characteristic generalization is inferred."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/almost-root-ideals",
         "verdict": "verified",
-        "note": "Checked Notation 9.1 and Lemma 9.2. The ξ_r/root ideals and W(m^flat) almost convention agree with the subsequent limit comparison."
+        "note": "Notation 9.1/Lemma 9.2 give inverse-Frobenius root ideals and the W(m^flat) almost convention. Generic almost structures remain owned by AI.0."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/almost-decalage-limit",
         "verdict": "verified",
-        "note": "Checked Lemma 9.3 and proof. The bounded cohomological amplitude and root-ideal almost annihilation justify the Lη_μ/root-limit comparison."
+        "note": "Lemma 9.3 applies to p-complete connective K with torsion-free H⁰. Truncation to finite amplitude is a proof reduction, not an additional global boundedness hypothesis."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/almost-free-elements",
         "verdict": "verified",
-        "note": "Checked Lemma 9.4 and its adjoint extraction discussion. Completed freeness is required; page-image inspection confirms the flat superscript typo while leaving the proof over O_C."
+        "note": "Lemma 9.4 extracts maps from completed free modules; fresh published-page image inspection confirms the stray flat superscript while the argument takes place over O_C."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/animated-aomega-extension",
         "verdict": "verified",
-        "note": "Checked Construction 9.5. The functor is the complete-target animated left Kan extension of imported geometric AΩ; its ξ-specialization and QRSP discreteness are correctly distinguished."
+        "note": "Construction 9.5 left Kan extends the imported geometric AΩ in the (p,ξ)-complete target. QRSP discreteness and uncompleted θ-specialization are correctly separated from Nygaard completion."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/aomega-almost-map",
-        "verdict": "corrected",
-        "note": "Corrected the circular equivalence assumption to the Corollary 7.10 factorization map. The pro-étale target has invertible Frobenius; its compatible root-limit maps give the almost comparison before the honest equivalence."
+        "verdict": "verified",
+        "note": "Theorem 9.6's primitive/almost comparison uses the prior Frobenius factorization map, invertible Frobenius on the pro-étale target and the almost root-limit lemma; it does not assume the desired equivalence."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/projective-qrsp-aomega",
         "verdict": "verified",
-        "note": "Checked Lemma 9.8. Projective QRSP covers give the completed-free AΩ values needed to extract an honest map; this is not an assertion for every QRSP algebra."
+        "note": "Lemma 9.8 uses projective QRSP covers to obtain completed-free AΩ and honest extraction. The test excludes an unrestricted claim for all QRSP algebras."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/cartier-comparison-test",
         "verdict": "verified",
-        "note": "Checked Lemma 9.9. The mod-ξ Cartier/Bockstein criterion and H⁰ identity are the recognition step used before complete Nakayama."
+        "note": "Lemma 9.9 uses Cartier and the Bockstein to propagate the H⁰ mod-p identity, then derived completeness to prove an integral equivalence; it does not prove integral identity."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/aomega-comparison",
         "verdict": "corrected",
-        "note": "Checked Theorem 9.6 and proof. Removed PR.6’s qΩ→AΩ supplier: it supplies a different map and is not used here. The honest map comes from extraction and agrees with ξ-specialized de Rham."
+        "note": "Added p.204 to the Theorem 1.8 overview locator. Theorem 9.6 obtains the honest comparison from almost extraction and Cartier recognition, without the unrelated PR.6 qΩ→AΩ map."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/aomega-nygaard-decalage",
         "verdict": "corrected",
-        "note": "Checked Proposition 9.10 and Remark 9.11 after the honest comparison. Added the exact filtered-Beilinson prerequisite; only here is the Frobenius factorization an equivalence."
+        "note": "Corrected Proposition 9.10/Remark 9.11 to pp.289–290. Only after the honest AΩ comparison is the earlier factorization identified as an equivalence and its filtration compared through AI.1."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/segal-oc",
         "verdict": "verified",
-        "note": "Checked Corollary 9.12. The Segal comparison over O_C uses the now-established AΩ equivalence and the stated twist/connectivity conventions."
+        "note": "Corollary 9.12 uses the established smooth O_C comparison, Hodge–Tate twist and dimension bound to give the Segal connectivity assertion."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/adams-operations",
         "verdict": "verified",
-        "note": "Checked Construction 9.13 and Proposition 9.14. Adams operations preserve coefficients and act by γ^i on the weight-i line, including negative weights."
+        "note": "Construction 9.13/Proposition 9.14 give the Z_p× action, triviality on the base Nygaard complex and γ^i action on weight-i graded pieces, including negative i."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/sphere-polynomial-thh",
         "verdict": "verified",
-        "note": "Checked Proposition 11.3. The sphere-polynomial trace coefficient/cyclotomic structure retains the source base and the map z↦z^p."
+        "note": "Proposition 11.3 computes the sphere-polynomial cyclic monoid and z↦z^p Frobenius; this structured base is necessary for the relative cyclotomic construction."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/relative-sphere-thh",
         "verdict": "verified",
-        "note": "Checked §11.1 and Construction 11.5. Relative tensor construction is cyclotomic before taking fixed points; the three base-change tests match the source."
+        "note": "§11.1/Construction 11.5 gives relative cyclic tensor with a compatible base Frobenius. It does not attribute a cyclotomic structure to arbitrary relative THH."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/relative-thh-base-change",
         "verdict": "verified",
-        "note": "Checked Lemma 11.6, Proposition 11.7 and Corollary 11.8. Both z↦0 and perfect-root base changes keep their derived tensors and p-completions."
+        "note": "Lemma 11.6, Proposition 11.7 and Corollary 11.8 preserve derived tensor and p-completion in the z↦0 and perfect-root base changes."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/relative-dvr-coefficients",
         "verdict": "verified",
-        "note": "Checked Proposition 11.10 and Notation 11.1. The ξ/E generator and coefficient embedding use O_(K∞), with the confirmed source label correction."
+        "note": "Proposition 11.10 retains the twisted scalar algebra, uniformizer generator and embedding into Ainf(O_(K∞)); the confirmed O_K label slip is not propagated."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/relative-qrsp-evenness",
-        "verdict": "corrected",
-        "note": "Checked Proposition 11.11 and the relevant parts of Corollary 11.12; BS Proposition 15.7 is on printed p.105, corrected here. Relative QRSP evenness and acyclicity are not used to descend the later Nygaard filtration."
+        "verdict": "verified",
+        "note": "Proposition 11.11/Corollary 11.12 and BS Proposition 15.7, p.105, give relative QRSP evenness and acyclicity. They are not used as an unproved descent of the later Nygaard filtration."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/characteristic-p-tc-sheaf",
         "verdict": "verified",
-        "note": "Checked Lemma 8.19 and the TC-sheaf part of Proposition 8.20. The trace assertion stops before an even K-sheaf identification; its source site is retained."
+        "note": "Lemma 8.19 and the TC portion of Proposition 8.20 give the characteristic-p sheaf sequence before any K-sheaf comparison; source-site conventions are retained."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/syntomic-k-sheaf",
         "verdict": "verified",
-        "note": "Checked BM Example 1.6. It announces the finite K-sheaf pushforward comparison without proof, so the exact change-of-site/rigidity proof remains a gap and precise owner request."
+        "note": "BM Example 1.6 really is an announced finite K-sheaf derived-pushforward statement without proof. Its exact site-change and henselian rigidity obligations remain open, beyond the RT.3 nilpotent theorem."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/ammn-filtered-interface",
         "verdict": "verified",
-        "note": "Checked AMMN Construction 6.16 and Theorem 6.17. qSyn_Zp, rational-after-completion, uniform bounds and the i≤p−2 integral range agree with the imported RT.3b contract; PR.7 is a consumer."
+        "note": "AMMN Construction 6.16/Theorem 6.17 use the relative p-flat quasisyntomic site and rationalization after p-completion. RT.3b owns the pullback and integral range; the trace input does not depend on PR.7."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.6/mixed-complex-map-compatibility",
-        "verdict": "corrected",
-        "note": "Checked the pinned Hom.comm equation and the separately assumed B-compatibility equation. The executable pair equality is an ordinary chain-level prototype, not a coherent circle action."
+        "verdict": "verified",
+        "note": "The pinned Hom.comm statement supplies b-compatibility; the separate hB assumption supplies B-compatibility. The executable degreewise pair equality does not stand in for a coherent circle module."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/trace-class-functoriality",
-        "verdict": "added",
-        "note": "Added from MW Lemma 2.2(a)–(c), with the proof read on pp.11–12. The diagonal is used by universality and pro-algebra killing; its direction is explicit."
+        "verdict": "verified",
+        "note": "MW Lemma 2.2(a)–(c) supplies the functorial classifier and predual diagonal used in the refinement and localization proofs. This previously added theorem is justified and retained."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/rigidity-criterion",
-        "verdict": "added",
-        "note": "Added from Efimov Proposition 1.1, p.16. Both compactness of the unit and two-sided trace-class generation are required, and direct consumers now cite it."
+        "verdict": "verified",
+        "note": "Efimov Proposition 1.1 supplies the compact-unit/two-sided trace-class equivalence with rigidity. This previously added theorem realizes the characterization API."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/nuclear-closure",
-        "verdict": "added",
-        "note": "Added from MW Theorem 2.4 and Remark 2.5, p.12. Promotes the closure, generation and size-control input used by the ind/cofiber constructions."
+        "verdict": "verified",
+        "note": "MW Theorem 2.4/Remark 2.5 supplies nuclear closure, basic generation and the dualizable locally rigid subcategory. The suggested contract honestly omits unavailable higher types."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/smooth-proper-normalization",
-        "verdict": "added",
-        "note": "Added from MW Lemmas 2.16, 2.18 and Corollary 2.19, with properness as in Efimov §1.5. Promotes the constant-value and restriction-of-scalars input."
+        "verdict": "verified",
+        "note": "MW Lemmas 2.16/2.18 and Corollary 2.19 normalize smoothness/properness and the forgetful trace-class comparison under relative rigidity; the algebra compact-object criterion is qualified."
       },
       {
         "nodeId": "RefinedTraceMethods:RT.5/circle-completion-equivalence",
-        "verdict": "added",
-        "note": "Added from MW Lemma 3.2 and proof, pp.29–30. The orientation, trivial base action and completed tensor are all explicit, and the refined trace construction cites it."
+        "verdict": "verified",
+        "note": "MW Lemma 3.2 proves the circle-module/t-complete equivalence using the free circle generator and the t-cofiber criterion; the chosen complex orientation and completed tensor are retained."
       }
     ]
   }
