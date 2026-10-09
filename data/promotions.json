@@ -2378,6 +2378,18 @@
     "data/blueprints/PotentialAutomorphyInfrastructure.md"
    ]
   },
+  "research/blueprint/packets/PotentialAutomorphyInfrastructurePartII.json": {
+   "promotedAt": "2026-10-09T10:27:04Z",
+   "review": "6747f68e3dcf803c",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-DESIGN-PotentialAutomorphyInfrastructurePartII~3",
+   "sha256": "f565e8be589c30aa4e9dec13b9272f552bd06e9b5467e2addf03738c031c26c7",
+   "to": [
+    "data/blueprints/PotentialAutomorphyInfrastructurePartII.json",
+    "data/blueprints/PotentialAutomorphyInfrastructurePartII.md",
+    "data/blueprints/roadmaps/PotentialAutomorphyInfrastructurePartII.json"
+   ]
+  },
   "research/blueprint/packets/PotentialModularityAndCompatibleSystems--R23.1.json": {
    "promotedAt": "2026-10-08T17:37:00Z",
    "review": "29f7da7013b79321",

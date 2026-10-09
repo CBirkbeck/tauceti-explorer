@@ -1,8 +1,8 @@
 {
-  "roadmaps": 243,
-  "stages": 5536,
-  "originalStages": 2197,
-  "sourceRefinements": 3339,
+  "roadmaps": 244,
+  "stages": 5581,
+  "originalStages": 2207,
+  "sourceRefinements": 3374,
   "reviewedDecompositions": [
     {
       "roadmap": "AInfCohomology",
@@ -166,7 +166,7 @@
       "deferredLinks": 0
     }
   ],
-  "terminalTargets": 2125,
+  "terminalTargets": 2135,
   "groups": 27,
   "retiredRoadmaps": [
     "FoundationsAndLibraryIntegration"
@@ -175,7 +175,7 @@
   "estimatedRoadmaps": 0,
   "distanceBases": {
     "judged": 203,
-    "measured": 17,
+    "measured": 18,
     "built": 7,
     "children": 1
   },
@@ -183,18 +183,18 @@
   "unmappedAreas": 0,
   "areasWithRoadmaps": 27,
   "additionalRegions": 0,
-  "mathematicalSummaries": 243,
+  "mathematicalSummaries": 244,
   "editedRoadmapSummaries": 181,
   "curatedStagePresentations": 339,
   "administrativeStages": 101,
-  "mathematicalStars": 5435,
+  "mathematicalStars": 5480,
   "plainTextPlanetLabels": 398,
   "hiddenPlanets": 600,
   "mappedStageStatuses": 350,
   "libraryAuditStatuses": 19,
   "bibliographicSources": 46,
-  "roadmapEdges": 2355,
-  "stageEdges": 14586,
+  "roadmapEdges": 2374,
+  "stageEdges": 14762,
   "reviewedLinkPackets": 25,
   "promotedBlueprints": [
     {
@@ -1248,6 +1248,12 @@
       "reviewer": "independent-review-REV-PotentialAutomorphyInfrastructure~2"
     },
     {
+      "file": "PotentialAutomorphyInfrastructurePartII",
+      "roadmap": "PotentialAutomorphyInfrastructurePartII",
+      "nodes": 92,
+      "reviewer": "independent-review-REV-DESIGN-PotentialAutomorphyInfrastructurePartII~3"
+    },
+    {
       "file": "PotentialModularityAndCompatibleSystems--R23.1",
       "roadmap": "PotentialModularityAndCompatibleSystems",
       "nodes": 49,
@@ -1375,8 +1381,8 @@
     }
   ],
   "sourceDocuments": 296,
-  "htmlBytes": 36809095,
-  "htmlSha256": "82bf38c4875bea9c305cdea23434d4ee10f29a2f0cdaf7316aceb8549c9a4a96",
+  "htmlBytes": 37048526,
+  "htmlSha256": "0dc36b9fa121e6a56b25787c2a52ccd5115f99db3c35c89f4c06078c522d1a4c",
   "networkDependencies": 0,
   "localProgressOverridesIncluded": false,
   "assets": {
@@ -1408,8 +1414,8 @@
     "data/roadmap-summaries.json": "c8bdd0a9105f5d3c4a858c8b635990729f8e94497dee784a71fae659b8c05b9f",
     "data/roadmap-classification.json": "2641dbc97eb2566c715162d011b46890d1635629181ef8126ac7aed9e24a3b13",
     "data/classification-estimates.json": "625d35fe6121bf099dc5de9e6a9111793596f9b664e3fbd439841434bb4a57d6",
-    "data/roadmap-distances.json": "25857ff0da99735e9477b036b124ccffcafc2d45e449654f789c6e9710f8045e",
-    "data/galaxy-layout.json": "c4f41c53e501ae0cb94c10f730031eafef5ce9f4ac8c9802cf8d78dcb31c1ab7",
+    "data/roadmap-distances.json": "f54f2f039c28fd8433851f21f28a241bed1c58e2565249adba0121d9e9c0dfc7",
+    "data/galaxy-layout.json": "2c89ea58b5f5ad9fc7715ddcc8193de9d1fadb2e1fdc452020cd7432f12c819d",
     "data/bibliography.json": "bef230a41fad22d6b790c7564061c4d05c2ae5b78cab53d005eb404afab2b122",
     "NOTICE": "a285b95d5adbf5c2bcc82db36e2a77b797f84a2c5cbb30292efd0bae17cc4f34",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
@@ -1816,6 +1822,8 @@
     "data/blueprints/Polylogarithms.md": "1d28e812ddc1cdf712e71814d4ba70a913d2107cd694003639dd5cc7ea08cf43",
     "data/blueprints/PotentialAutomorphyInfrastructure.json": "eb472418e07c0614e6ee0a0b34e57306c769ff2444e5891ab1858cd924303650",
     "data/blueprints/PotentialAutomorphyInfrastructure.md": "10ee61f30ef0c9093e185e7f45d41044f1df91f23c7808802767b016a9f2d3a9",
+    "data/blueprints/PotentialAutomorphyInfrastructurePartII.json": "f565e8be589c30aa4e9dec13b9272f552bd06e9b5467e2addf03738c031c26c7",
+    "data/blueprints/PotentialAutomorphyInfrastructurePartII.md": "7cf2c48cbc964a316041534b92e1667ecece743620c30fe3c0bcdabcfa986113",
     "data/blueprints/PotentialModularityAndCompatibleSystems--R23.1.json": "594e9901124fdeca5a15c74ea078e4e06eb29b625754043230311e4d91d7df83",
     "data/blueprints/PotentialModularityAndCompatibleSystems--R23.1.md": "f7a5f39730a8df6116bec36b4547575a25ff7307682f6641f554960268cab566",
     "data/blueprints/PotentialModularityAndCompatibleSystems--R24.3.json": "a7a13460a3861c20be1d309cea4527d6727c14ad972eb60429f9712a90a53fc1",
@@ -1874,6 +1882,7 @@
     "data/blueprints/roadmaps/InductionRestrictionPartII.json": "610f6d9d6d58360ee2e0f342c5a27188ba677510f9f294f621675be04172ed16",
     "data/blueprints/roadmaps/JacobianChallengePartII.json": "9125c2f7116f65188ada8a2d42c9c4220297bf09ac49d4de1235728506276698",
     "data/blueprints/roadmaps/MordellLawrenceVenkatesh.json": "6a5cc42ef2a4a3f3d2e5daa0f4e89143a08cb55604fabaa7ef3215081a04eb5c",
+    "data/blueprints/roadmaps/PotentialAutomorphyInfrastructurePartII.json": "260d7c3d96417aed26513667e2dc51b81033d9b2462606c9c78e652b34be5e87",
     "data/blueprints/roadmaps/SemisimpleAlgebrasPartII.json": "deab3aab287fec5e5304f5ca49ea05c149e532c66341477eff5c83ea6ac9d4fc",
     "data/links/tauceti_Completed_EffectiveBounds.json": "a1493c80585e5e41a95005979315013c4406ce3be31b57b9fd2fb8bc9c278805",
     "data/links/tauceti_Completed_OrthogonalL2Bases.json": "34ad7cad18dde976767ba8df3183e3b3ec9586ddb040ecff1654dbdd2bec5a46",

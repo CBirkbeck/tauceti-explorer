@@ -10,7 +10,7 @@
  },
  "bases": {
   "judged": 203,
-  "measured": 17,
+  "measured": 18,
   "built": 7,
   "children": 1
  },
@@ -69,7 +69,7 @@
   "splitHalfShiftSpearman": 0.483,
   "splitHalfRoadmaps": 136,
   "distanceVsClassification": 0.846,
-  "distanceVsMissingTargets": 0.963,
+  "distanceVsMissingTargets": 0.964,
   "distanceVsMissingLayers": 0.965,
   "distanceVsDepth": 0.95,
   "completedRoadmaps": {
@@ -78,7 +78,7 @@
    "tauceti:Completed/IntegralLattices": 0.0,
    "tauceti:Completed/OrthogonalL2Bases": 0.0
   },
-  "declarationsVsDistance": -0.181
+  "declarationsVsDistance": -0.179
  },
  "roadmaps": {
   "AInfCohomology": {
@@ -697,6 +697,10 @@
      "roadmaps": 6
     },
     {
+     "galaxy": "automorphic",
+     "roadmaps": 3
+    },
+    {
      "galaxy": "etale",
      "roadmaps": 3
     },
@@ -706,10 +710,6 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 2
-    },
-    {
-     "galaxy": "automorphic",
      "roadmaps": 2
     },
     {
@@ -755,7 +755,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 8
+     "roadmaps": 9
     },
     {
      "galaxy": "etale",
@@ -1111,7 +1111,7 @@
    "usedBy": [
     {
      "galaxy": "automorphic",
-     "roadmaps": 2
+     "roadmaps": 3
     }
    ]
   },
@@ -1882,12 +1882,12 @@
      "roadmaps": 6
     },
     {
-     "galaxy": "ktheory",
+     "galaxy": "automorphic",
      "roadmaps": 3
     },
     {
-     "galaxy": "automorphic",
-     "roadmaps": 2
+     "galaxy": "ktheory",
+     "roadmaps": 3
     },
     {
      "galaxy": "padic",
@@ -2520,7 +2520,7 @@
    "usedBy": [
     {
      "galaxy": "automorphic",
-     "roadmaps": 1
+     "roadmaps": 2
     },
     {
      "galaxy": "geomlanglands",
@@ -3236,7 +3236,7 @@
    "usedBy": [
     {
      "galaxy": "automorphic",
-     "roadmaps": 1
+     "roadmaps": 2
     },
     {
      "galaxy": "iwasawa",
@@ -3803,7 +3803,7 @@
    "usedBy": [
     {
      "galaxy": "automorphic",
-     "roadmaps": 2
+     "roadmaps": 3
     },
     {
      "galaxy": "iwasawa",
@@ -3853,7 +3853,7 @@
    "usedBy": [
     {
      "galaxy": "automorphic",
-     "roadmaps": 1
+     "roadmaps": 2
     }
    ]
   },
@@ -4172,11 +4172,11 @@
    "basis": "judged",
    "usedBy": [
     {
-     "galaxy": "algebraicnt",
-     "roadmaps": 1
+     "galaxy": "automorphic",
+     "roadmaps": 2
     },
     {
-     "galaxy": "automorphic",
+     "galaxy": "algebraicnt",
      "roadmaps": 1
     },
     {
@@ -4814,7 +4814,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 3
+     "roadmaps": 4
     },
     {
      "galaxy": "geomlanglands",
@@ -5099,9 +5099,37 @@
    "usedBy": [
     {
      "galaxy": "automorphic",
-     "roadmaps": 2
+     "roadmaps": 3
     }
    ]
+  },
+  "PotentialAutomorphyInfrastructurePartII": {
+   "classification": 10,
+   "structure": {
+    "layers": 10,
+    "missingOwn": 10.0,
+    "missingLayers": 552.0,
+    "missingTargets": 2632.3,
+    "depth": 68,
+    "suppliers": 98,
+    "declarationLevel": {
+     "source": "blueprint",
+     "reviewed": true,
+     "declarations": 92,
+     "missingDeclarations": 92,
+     "depth": 16,
+     "layersCovered": 10,
+     "layers": 10,
+     "sourcePages": 377
+    }
+   },
+   "measurement": 7.83,
+   "judgements": 0,
+   "distance": 7.83,
+   "low": 6.67,
+   "high": 8.99,
+   "basis": "measured",
+   "usedBy": []
   },
   "PotentialModularityAndCompatibleSystems": {
    "classification": 9,
@@ -5131,11 +5159,11 @@
    "basis": "judged",
    "usedBy": [
     {
-     "galaxy": "arithmeticgeometry",
-     "roadmaps": 2
+     "galaxy": "automorphic",
+     "roadmaps": 3
     },
     {
-     "galaxy": "automorphic",
+     "galaxy": "arithmeticgeometry",
      "roadmaps": 2
     }
    ]
@@ -5497,15 +5525,15 @@
    "basis": "judged",
    "usedBy": [
     {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
      "galaxy": "ktheory",
      "roadmaps": 2
     },
     {
      "galaxy": "algebraicnt",
-     "roadmaps": 1
-    },
-    {
-     "galaxy": "automorphic",
      "roadmaps": 1
     },
     {
@@ -5773,7 +5801,7 @@
    "usedBy": [
     {
      "galaxy": "automorphic",
-     "roadmaps": 7
+     "roadmaps": 8
     },
     {
      "galaxy": "geomlanglands",
@@ -6431,6 +6459,10 @@
    "basis": "judged",
    "usedBy": [
     {
+     "galaxy": "automorphic",
+     "roadmaps": 2
+    },
+    {
      "galaxy": "iwasawa",
      "roadmaps": 2
     },
@@ -6440,10 +6472,6 @@
     },
     {
      "galaxy": "arithmeticgeometry",
-     "roadmaps": 1
-    },
-    {
-     "galaxy": "automorphic",
      "roadmaps": 1
     }
    ]
@@ -6466,11 +6494,11 @@
    "basis": "judged",
    "usedBy": [
     {
-     "galaxy": "arithmeticgeometry",
-     "roadmaps": 4
+     "galaxy": "automorphic",
+     "roadmaps": 5
     },
     {
-     "galaxy": "automorphic",
+     "galaxy": "arithmeticgeometry",
      "roadmaps": 4
     },
     {
@@ -7989,7 +8017,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -8012,7 +8040,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 46,
+   "frontierRoadmaps": 47,
    "upstreamOnly": false
   },
   "algebraicnt": {
@@ -8057,7 +8085,7 @@
     },
     {
      "galaxy": "automorphic",
-     "links": 12,
+     "links": 15,
      "examples": [
       {
        "supplier": "ArithmeticGaloisDuality",
@@ -8068,8 +8096,8 @@
        "consumer": "CompletedCohomologyPartII"
       },
       {
-       "supplier": "tauceti:TauCetiRoadmap/Chebotarev",
-       "consumer": "EllipticCurveModularityPartIIGL2TypeAbelianVarieties"
+       "supplier": "ArithmeticGaloisDuality",
+       "consumer": "PotentialAutomorphyInfrastructurePartII"
       }
      ]
     },
@@ -8231,7 +8259,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -8254,7 +8282,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 46,
+   "frontierRoadmaps": 47,
    "upstreamOnly": false
   },
   "analysis": {
@@ -8432,7 +8460,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 8
+     "roadmaps": 9
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -8451,7 +8479,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 42,
+   "frontierRoadmaps": 43,
    "upstreamOnly": false
   },
   "arithmeticgeometry": {
@@ -8460,7 +8488,7 @@
    "supplies": [
     {
      "galaxy": "automorphic",
-     "links": 45,
+     "links": 46,
      "examples": [
       {
        "supplier": "AbelianSchemesAndArithmeticModuli",
@@ -8696,7 +8724,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "geomlanglands",
@@ -8715,12 +8743,12 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 41,
+   "frontierRoadmaps": 42,
    "upstreamOnly": false
   },
   "automorphic": {
-   "distance": 6.1,
-   "roadmaps": 21,
+   "distance": 6.18,
+   "roadmaps": 22,
    "supplies": [
     {
      "galaxy": "iwasawa",
@@ -9054,7 +9082,7 @@
     },
     {
      "galaxy": "automorphic",
-     "links": 3,
+     "links": 4,
      "examples": [
       {
        "supplier": "DeformationAndDerivedPatchingAlgebra",
@@ -9065,8 +9093,8 @@
        "consumer": "CrystallineLocalGlobalCompatibilityCM"
       },
       {
-       "supplier": "HabiroCyclotomicCompletions",
-       "consumer": "QSeriesPartitionsAndMockModularForms"
+       "supplier": "DeformationAndDerivedPatchingAlgebra",
+       "consumer": "PotentialAutomorphyInfrastructurePartII"
       }
      ]
     },
@@ -9130,7 +9158,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -9153,7 +9181,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 46,
+   "frontierRoadmaps": 47,
    "upstreamOnly": false
   },
   "computational": {
@@ -9542,7 +9570,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -9565,7 +9593,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 46,
+   "frontierRoadmaps": 47,
    "upstreamOnly": false
   },
   "finitefields": {
@@ -9694,7 +9722,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 8
+     "roadmaps": 9
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -9713,7 +9741,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 41,
+   "frontierRoadmaps": 42,
    "upstreamOnly": false
   },
   "geomlanglands": {
@@ -9880,7 +9908,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -9899,7 +9927,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 45,
+   "frontierRoadmaps": 46,
    "upstreamOnly": false
   },
   "homological": {
@@ -10106,7 +10134,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -10129,7 +10157,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 46,
+   "frontierRoadmaps": 47,
    "upstreamOnly": false
   },
   "iwasawa": {
@@ -10138,7 +10166,7 @@
    "supplies": [
     {
      "galaxy": "automorphic",
-     "links": 12,
+     "links": 13,
      "examples": [
       {
        "supplier": "AutomorphicPadicLFunctions",
@@ -10254,7 +10282,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 6
+     "roadmaps": 7
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -10265,7 +10293,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 22,
+   "frontierRoadmaps": 23,
    "upstreamOnly": false
   },
   "ktheory": {
@@ -10426,7 +10454,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 5
+     "roadmaps": 6
     },
     {
      "galaxy": "langlands",
@@ -10437,7 +10465,7 @@
      "roadmaps": 4
     }
    ],
-   "frontierRoadmaps": 26,
+   "frontierRoadmaps": 27,
    "upstreamOnly": false
   },
   "langlands": {
@@ -10446,7 +10474,7 @@
    "supplies": [
     {
      "galaxy": "automorphic",
-     "links": 34,
+     "links": 42,
      "examples": [
       {
        "supplier": "ArithmeticGaloisRepresentations",
@@ -10586,7 +10614,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -10609,7 +10637,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 31,
+   "frontierRoadmaps": 32,
    "upstreamOnly": false
   },
   "modeltheory": {
@@ -10757,7 +10785,7 @@
     },
     {
      "galaxy": "automorphic",
-     "links": 16,
+     "links": 17,
      "examples": [
       {
        "supplier": "AdicSpacesPartII",
@@ -10881,7 +10909,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -10900,7 +10928,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 45,
+   "frontierRoadmaps": 46,
    "upstreamOnly": false
   },
   "pde": {
@@ -10936,7 +10964,7 @@
    "supplies": [
     {
      "galaxy": "automorphic",
-     "links": 16,
+     "links": 17,
      "examples": [
       {
        "supplier": "ReductiveGroupsPartII",
@@ -11098,7 +11126,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -11117,7 +11145,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 45,
+   "frontierRoadmaps": 46,
    "upstreamOnly": false
   },
   "topology": {
@@ -11220,7 +11248,7 @@
     },
     {
      "galaxy": "automorphic",
-     "roadmaps": 9
+     "roadmaps": 10
     },
     {
      "galaxy": "arithmeticgeometry",
@@ -11239,7 +11267,7 @@
      "roadmaps": 1
     }
    ],
-   "frontierRoadmaps": 44,
+   "frontierRoadmaps": 45,
    "upstreamOnly": false
   }
  }
