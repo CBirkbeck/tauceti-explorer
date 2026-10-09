@@ -38944,8 +38944,8 @@
    ],
    "revisionOf": "BP-ExcursionOperatorsAndSpectralAction--ES5",
    "prompt": "research/blueprint/prompts/BP-ExcursionOperatorsAndSpectralAction--ES5~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6961"
+   "state": "external",
+   "note": "claimed on GitHub issue #6961"
   },
   {
    "priority": 2,
@@ -39681,7 +39681,8 @@
    ],
    "revisionOf": "BP-HodgeTateAndCanonicalSubgroups--T6",
    "prompt": "research/blueprint/prompts/BP-HodgeTateAndCanonicalSubgroups--T6~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6972"
   },
   {
    "priority": 2,
@@ -41373,8 +41374,9 @@
     "BP-SchemeKTheoryOperations~3"
    ],
    "prompt": "research/blueprint/prompts/REV-SchemeKTheoryOperations~3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7553"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7553",
+   "finishedAt": "2026-10-09T08:53:27Z"
   },
   {
    "kind": "blueprint",
