@@ -2,7 +2,7 @@
 
 This document specifies the target-level plan for `CrystallineCohomology:CR.5`, `CrystallineCohomology:CR.5:log-algebra`, `CrystallineCohomology:CR.6` and `CrystallineCohomology:CR.7`. The packet is [CrystallineCohomology--CR.5.json](../packets/CrystallineCohomology--CR.5.json); the signature experiment is [CrystallineCohomology--CR.5.lean](../suggested/CrystallineCohomology--CR.5.lean). The mathematical statements here are definitive. They are proposals, with implementation status unchecked. All four stages are planned; none is closed. The explicit proof gaps and supplier interfaces at the end remain part of this plan.
 
-The scope has 88 declarations: 22 definitions, 33 constructions, 27 theorems and 6 comparisons. The 55 definitions and constructions each have three API declarations and three discriminating tests, giving 165 API items and 165 tests. Nineteen planets identify the central objects and named results. A complete target-level pass records a dependency chain ending in an existing declaration, an owner interface, or an explicit gap; it does not assert that every proof input has been supplied.
+The scope has 88 declarations: 22 definitions, 33 constructions, 27 theorems and 6 comparisons. The 55 definitions and constructions each have three API declarations and at least three discriminating tests, giving 165 API items and 167 tests. Two additional tests distinguish sheaf tensors from tensors of sections and local splitting from global complements. Nineteen planets identify the central objects and named results. A complete target-level pass records a dependency chain ending in an existing declaration, an owner interface, or an explicit gap; it does not assert that every proof input has been supplied.
 
 ## Conventions and acceptance discipline
 
@@ -14,6 +14,8 @@ Fine log smoothness uses local finite presentation and étale-local square-zero 
 
 Finite-level log PD sites are formed over p-nilpotent compatible PD bases. In the integral quasi-coherent theory the defining PD ideal is nil; a single ordinary nilpotence bound is not imposed without a source hypothesis. Fine exactification precedes ordinary PD enveloping. Beilinson’s finite-level integral quasi-coherent envelopes cover the non-fine branch. Their construction does not settle the uncompleted, non-exact envelope question over a base where p is not nilpotent, discussed in Česnavičius–Koshikawa’s footnote 11. PD smoothness uses its stated affine lifting property; its étale locality is not asserted.
 
+Crystal evaluations are modules on the whole ambient small étale site. Their cartesian maps are the adjoints of the actual restricted sheaf maps under ringed-site pullback. Tensor products are sheafified module tensors, and coefficient de Rham terms are sections of those sheaf tensors. An affine coordinate calculation supplies a local description, with descent to the full module-sheaf interface. Quasi-nilpotence quantifies over each geometric stalk and section germ, allowing its own Taylor bound for each coordinate frame; it imposes no uniform bound on an arbitrary étale object.
+
 Connections are actual additive Leibniz maps into coefficient log differentials, and curvature is the degree-two differential. Logarithmic quasi-nilpotence uses products of falling factorials of the coordinate connection operators, with a sufficiently large total multiindex degree, or their p-adic convergence in formal evaluations. Replacing these operators by plain powers changes the condition. The PD differential identity is dγₙ(x)=γₙ₋₁(x)dx; the structure-complex filtration is FᵐΩᵃ=J^[m−a]Ωᵃ, with nonpositive PD powers equal to the whole ring.
 
 Complexes are cohomological. Formal crystalline cohomology uses the derived inverse limit. The point model must have degree-zero Witt cohomology and zero positive cohomology; a separate inverse system with transition multiplication by p detects the failure of replacing a derived limit by an underived one. Rationalization is explicit inversion of p and retains a distinction from integral lattices with torsion.
@@ -21,6 +23,10 @@ Complexes are cohomological. Formal crystalline cohomology uses the derived inve
 The Hyodo–Kato Witt log base has generator 1 mapping to zero, rather than p. Frobenius is Witt-semilinear and multiplies a logarithmic q-form by p^q on a coordinate model. Fix θ=dlog(t) and the injection into the absolute complex by right wedge with θ. Its boundary is N, and Nφ=pφN. With this convention changing π to πu gives ρ_(πu)=ρ_π exp(log_K(u)N). The unit logarithm kills Teichmüller and torsion units; the construction assigns no value to a logarithm of π. Nilpotence makes this exponential a finite sum on each finite-dimensional rational cohomology space.
 
 Proper comparisons, Qian’s proper log-family comparison, convergent tube comparisons and Stein/tower comparisons have distinct hypotheses and targets. Disegni–Liu’s supported complex is defined by an exact kernel on the quasi-étale analytic tube site; the map from special-fiber support need not be an isomorphism. Sato’s residue variant has the q+1 shift and ordered-stratum signs, and its Witt object is a module. Stein cohomology requires strict continuous limits, its Fréchet topology and completed scalar extension; the tower uses the category of ind-Fréchet objects with continuous actions. Geometric symmetries act linearly, while arithmetic Galois transport is semilinear for its action on K̆₀; its linearization has the coefficient-twisted object as domain.
+
+The Sato residue client specifies the actual degree-zero lift to Spec W[t]. It is smooth over W, flat over W[t], and smooth over the generic point of Spec W[t]. Its actual t=0 fibre is a relative SNC divisor over W, the log structure is the associated divisor log, and the actual base log fibre recovers the special-fibre embedding. Higher simplicial levels are induced by the Grosse-Klönne construction and identified compatibly with the same embedding system. Absolute log-form cokernels, analytic realization, specialization and support all use that system; the support comparison remains a natural map.
+
+Geometric rational coefficients belong to CR.5/CR.7. Start with compatible finite locally free crystals on M/p over W/p^(n+1), evaluated on its canonical PD thickening in M/p^(n+1), and invert p on the completed category's Hom modules. The resulting object has a canonical formal evaluation. A de Rham sheaf on the algebraic generic fibre requires specified compatible algebraization data; arbitrary formal data on a nonproper model are not asserted to algebraize. Filtrations are submodule sheaves with étale-local complements and Griffiths transversality. R06.2 supplies filtered (φ,N) normalization conventions.
 
 Dieudonné theory is contravariant. The constant p-divisible group has F=σ and V=pσ⁻¹; the multiplicative group has F=pσ and V=σ⁻¹. A rational twist by r scales Frobenius by p^(−r), so the multiplicative group corresponds to K₀(−1) and Cartier duality to D(G)∨(−1). The Hodge sequence is 0→ω_G→D(G)→Lie(G∨)→0. Over a nilpotent PD thickening a chosen lift of G determines the lifted Hodge filtration; there is no canonical filtration depending only on the special-fiber group. An individual relative cohomology group receives a finite locally free Gauss–Manin interface only with the stated cohomology base-change and rank/torsion hypotheses; perfectness of the derived image alone is insufficient.
 
@@ -57,6 +63,13 @@ The existing divided-power algebra Γ_R(M) and its generators are reused. Their 
 | `mathlib:CategoryTheory.Ind.lim` | `Mathlib/CategoryTheory/Limits/Indization/Category.lean` | Functor from small filtered diagrams in C to their ind-colimit in Ind C. |
 | `mathlib:DividedPowerAlgebra` | `Mathlib/RingTheory/DividedPowerAlgebra/Init.lean` | Existing quotient algebra Γ_R(M) by the divided-power generator relations; no canonical augmentation PD structure is asserted here. |
 | `mathlib:DividedPowerAlgebra.dp` | `Mathlib/RingTheory/DividedPowerAlgebra/Init.lean` | Degree-indexed class of the polynomial generator in the existing Γ_R(M). |
+| `mathlib:SheafOfModules` | `Mathlib/Algebra/Category/ModuleCat/Sheaf.lean` | Existing category of module sheaves over a ring sheaf on a small site, with sheaf condition on the underlying additive presheaf. |
+| `mathlib:SheafOfModules.pullback` | `Mathlib/Algebra/Category/ModuleCat/Sheaf/PullbackContinuous.lean` | Pullback on module sheaves for a continuous ringed-site morphism, as the left adjoint to pushforward. Retain the right-adjoint existence hypothesis; the same module proves its sheafification construction under the stated site hypotheses. |
+| `mathlib:PresheafOfModules.sheafification` | `Mathlib/Algebra/Category/ModuleCat/Presheaf/Sheafification.lean` | Associated module-sheaf functor for a locally bijective structure-ring map, under HasWeakSheafify and WEqualsLocallyBijective; the identity ring map is the tensor-sheaf client used here. |
+| `mathlib:ModuleCat.restrictScalars` | `Mathlib/Algebra/Category/ModuleCat/ChangeOfRings.lean` | Restriction of scalars along a ring homomorphism; used to transport actual section modules across the canonical structure-ring isomorphism and to the PD base. |
+| `mathlib:SheafOfModules.Submodule` | `Mathlib/Algebra/Category/ModuleCat/Sheaf/Submodule.lean` | Submodule of a module presheaf with a local membership condition, with the associated module sheaf, inclusion and complete lattice. It is not merely a submodule of global sections. |
+| `mathlib:AlgebraicGeometry.«Proj»` | `Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Scheme.lean` | Scheme Proj of an N-graded commutative ring; used with two polynomial variables for the nonaffine projective-line tests. |
+| `mathlib:MvPolynomial.gradedAlgebra` | `Mathlib/RingTheory/MvPolynomial/Homogeneous.lean` | The homogeneous-degree decomposition gives the polynomial ring its graded algebra structure. It is not a global instance; instantiate it locally for Proj. |
 
 The Tau Ceti nilpotent exponential source was checked at its pin. Its module is absent from the shared compiled build, so the signature experiment uses the underlying existing Mathlib finite exponential. The revised experiment elaborated against pinned Mathlib; this does not certify an import of the unbuilt Tau Ceti module.
 
@@ -72,9 +85,9 @@ Exact external node IDs appear in every declaration’s direct dependencies. Enh
 
 Shared A_cris, its completion and finite PD quotients remain in CR.0 in the current integrated scope. AI.0:integral supplies the tilt, sharp, Teichmüller, A_inf and θ interfaces. This packet constructs only the induced log structure and its canonical lifts. AI.6 consumes this generic log input for its specialized semistable AΩ-envelope comparisons. The generic crystal or period ring is not constructed a second time.
 
-This is revision 2 by Codex session codex-bTg5jr, dated 8 October 2026. The previous independent needs_changes review is retained in reviewHistory as review provenance. The 88 stable node identifiers and the corrected mathematical inventory are retained. The signature experiment now constrains schemes, étale log sheaves, compatible PD data and canonical comparison maps. Affine evaluation, finite semistable chart and proper cohomology specializations are identified on the corresponding declaration cards. Supplier client names specify required exports, rather than claiming their implementations exist.
+This is revision 3 by Codex session codex-P0tL2J, dated 9 October 2026. It retains the 88 stable node IDs, 19 planets and accepted inventory. It replaces the R2, R4 and R5 interfaces jointly in the packet, reader and signature experiment. R1's fine integralized versus fs Kummer-étale scope and R3's bounded-below support qualifier have been checked and retained. Supplier client names specify required exports; they do not claim implementations exist.
 
-Independent revision-2 review by Codex session codex-I5hOH7, 8 October 2026: **needs_changes**. All 88 nodes, the pinned baseline, APIs, tests, supplier contracts and planets were checked. Fine/fs base-change scope and the bounded-below tube-support negative test were corrected. The geometric coefficient category belongs to CR.5/CR.7; R06.2 supplies its filtered (φ,N) normalization conventions. Remaining interface repairs are R2 (module-sheaf crystals, sheaf tensors and local quasi-nilpotence), R4 (the actual admissible residue embedding geometry) and R5 (geometric rational coefficient adapters and locally split sheaf filtrations). These are recorded as gaps and in the [review report](../reviews/REV-CrystallineCohomology--CR.5~2.md). Successful signature elaboration with sorry certifies typechecking only.
+The independent revision-2 review by Codex session codex-I5hOH7, 8 October 2026, remains **needs_changes** as historical review provenance. Its entire review object and all checked verdicts are unchanged. The [review report](../reviews/REV-CrystallineCohomology--CR.5~2.md) records the defects addressed here; these author repairs require a fresh independent review. The earlier review remains in reviewHistory. Successful elaboration checks proposed types, with placeholder proofs, and certifies no implementation.
 
 ## CrystallineCohomology:CR.5:log-algebra — Log algebra and logarithmic geometry
 
@@ -1383,7 +1396,7 @@ Direct dependencies: `CrystallineCohomology:CR.5/log-pd-thickening`; `Crystallin
 
 Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.5, pp.6–7; [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §5.2 and §5.9, fine log crystalline site, pp.215–217.
 
-Suggested signature scope: LogCrysObject has a source étale over Z with its pulled-back log structure and a compatible PD thickening. Covers are jointly surjective strict étale ambient maps with the canonical cartesian source square. The structure sheaf and ordinary forgetful functor are fixed constructions for this same site.
+Suggested signature scope: LogCrysObject has a source étale over Z with its pulled-back log structure and a compatible PD thickening. Covers are jointly surjective strict étale ambient maps with the canonical cartesian source square. The structure sheaf and ordinary forgetful functor are fixed constructions for this same site. Revision 3 uses the full ambient site, with no affineAmbient field; affine objects remain a basis for coordinate computations rather than an imposed global restriction.
 
 Use driving the interface: `CrystallineCohomology:CR.5/log-crystal` — Its structure sheaf and PD pullback maps define cartesian coefficient evaluations; its projection to the étale site is the functor used in log crystalline derived pushforward.
 
@@ -1407,18 +1420,19 @@ Acceptance:
 
 Node `CrystallineCohomology:CR.5/log-crystal`; definition; declaration `TauCeti.LogCrystalline.LogCrystal`. Proposed module: `TauCeti/AlgebraicGeometry/LogCrystalline`.
 
-A log crystal is a sheaf F of O_crys-modules for which every site morphism g:(U′,T′)→(U,T) gives an isomorphism g*F_T→F_T′ of O_T′-modules. Finite locally free, quasi-coherent and flat are additional properties of evaluations, not implicit in the word crystal. Pullback, tensor and dual on finite locally free crystals use these actual transition maps.
+A log crystal is a sheaf F of O_crys-modules. Restricting F to all étale pullbacks of a PD object (U,T) gives the module sheaf F_T on T_et. Every site morphism g:(U′,T′)→(U,T) induces the canonical map g*F_T→F_T′, adjoint to the restriction map into g_*F_T′; require it to be an isomorphism. Here g* is pullback on ringed ambient étale sites, including sheafification. Quasi-coherence, flatness and finite local freeness are additional evaluation properties. Tensor is the sheaf tensor, and duality is internal O-linear Hom for finite locally free evaluations.
 
 Construction or proof outline:
 
-1. Use sheaves of modules on the log crystalline site.
-2. Impose the cartesian evaluation condition on every PD morphism and verify the composition coherence.
+1. Use the module-sheaf category on the log crystalline site and restrict along the functor taking an ambient étale object to its pulled-back PD thickening. Identify the two structure rings canonically, so section evaluation is a linear isomorphism after scalar transport.
+2. Form the ambient ringed-site pullback using its adjunction with pushforward. Take the adjoint of the crystalline restriction map and impose its invertibility for every PD morphism; restriction functoriality supplies identity and composition coherence.
+3. Sheafify pointwise module tensors and use internal Hom for finite locally free duals. Pullback commutes with these operations, giving cartesian evaluation maps without imposing quasi-coherence on general crystals.
 
-Direct dependencies: `CrystallineCohomology:CR.5/log-crystalline-site`; `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `mathlib:ModuleCat`; `mathlib:PresheafOfModulesOfCommRing`; `mathlib:ModuleCat.extendScalars`.
+Direct dependencies: `CrystallineCohomology:CR.5/log-crystalline-site`; `EnhancedDerivedSheaves:E1/sheaves-of-modules-and-the-grothendieck-property`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `mathlib:ModuleCat`; `mathlib:PresheafOfModulesOfCommRing`; `mathlib:ModuleCat.extendScalars`; `mathlib:SheafOfModules`; `mathlib:SheafOfModules.pullback`; `mathlib:PresheafOfModules.sheafification`; `mathlib:ModuleCat.restrictScalars`.
 
 Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Definition 6.1, p.218; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7, crystals and log connections, pp.8–11.
 
-Suggested signature scope: Independent review R2a: this module-presheaf signature is a quasi-coherent affine-basis slice, since cartesianness uses scalar extension of global sections. The target definition permits all module-sheaf crystals. Supply the unrestricted sheaf-pullback category, or explicitly restrict both sides of the comparison to quasi-coherent evaluations; the present type is not that full target.
+Suggested signature scope: R2 repair: LogCrysObject no longer requires an affine ambient. EtaleModules uses the native SheafOfModules carrier. crystalAmbientEvaluation restricts the same crystalline sheaf along actual étale PD pullbacks, with a ModuleCat section comparison after the canonical ring identification. crystalTransition is explicitly the adjoint of crystalEvaluationRestriction through the native SheafOfModules adjunction. LogCrystal.cartesian requires this sheaf map to be invertible. Tensor evaluation and finite locally free internal dual evaluation use that same adapter; no tensor-of-global-sections cartesianness is imposed.
 
 Use driving the interface: `CrystallineCohomology:CR.5/log-pd-stratification` — Cartesian transition isomorphisms evaluated on double/triple diagonals yield the identity and cocycle of the PD stratification; finite locally free duals remain cartesian.
 
@@ -1432,7 +1446,7 @@ Discriminating unit tests:
 
 - `TauCeti.LogCrystalline.LogCrystal.structure_sheaf` (computation): O_crys has its canonical cartesian transitions.
 - `TauCeti.LogCrystalline.LogCrystal.zero` (degenerate): The zero sheaf is a crystal.
-- `TauCeti.LogCrystalline.LogCrystal.arbitrary_sheaf` (non-example): A sheaf whose evaluation on a PD extension is not the base extension of its source value is not a crystal.
+- `TauCeti.LogCrystalline.LogCrystal.arbitrary_sheaf` (non-example): A crystalline module sheaf whose canonical ambient sheaf-pullback transition fails to be invertible is not a crystal, even if it is a sheaf.
 
 Acceptance:
 
@@ -1442,18 +1456,19 @@ Acceptance:
 
 Node `CrystallineCohomology:CR.5/log-pd-stratification`; definition; declaration `TauCeti.LogCrystalline.LogPDStratification`. Proposed module: `TauCeti/AlgebraicGeometry/LogCrystalline`.
 
-For an embedding into a log smooth ambient scheme with log PD envelope D, a log PD stratification on an O_D-module M is an isomorphism ε:p₂*M→p₁*M on the log PD diagonal D(1), identity on the diagonal and satisfying p₁₂*ε∘p₂₃*ε=p₁₃*ε on D(2). The diagonal is log exactified before PD enveloping. Its first PD infinitesimal term gives a log connection.
+For a log PD envelope D of a closed embedding into a log smooth ambient over the compatible PD base, a log PD stratification on an O_D-module sheaf M is an isomorphism ε:p₂*M→p₁*M on the exactified double PD diagonal D(1). All pullbacks are sheaf pullbacks on the ambient étale sites. Require diagonal restriction to be the identity and p₁₂*ε∘p₂₃*ε=p₁₃*ε on the exactified triple PD diagonal D(2), using the canonical pullback coherence isomorphisms. The first PD order produces a sheaf log connection on this same M.
 
 Construction or proof outline:
 
-1. Evaluate a crystal on the two PD projections.
-2. Use the cartesian condition and the triple diagonal to construct ε and its cocycle, with identity on the diagonal.
+1. Exactify and PD-envelope the double and triple ambient diagonals over the same base. Their projections, diagonal section and triple-to-double maps induce actual ringed-site module pullbacks.
+2. Evaluate a crystal on these PD objects. Its cartesian transitions give ε; identity and composition produce the diagonal and cocycle equations.
+3. Reduce ε modulo the second PD order. The first-order coefficient is additive, respects restriction and satisfies the Leibniz rule with target M tensor the sheaf of PD log one-forms.
 
-Direct dependencies: `CrystallineCohomology:CR.5/log-pd-envelope`; `CrystallineCohomology:CR.5/log-crystal`; `CrystallineCohomology:CR.5/log-differentials`.
+Direct dependencies: `CrystallineCohomology:CR.5/log-pd-envelope`; `CrystallineCohomology:CR.5/log-crystal`; `CrystallineCohomology:CR.5/log-differentials`; `mathlib:SheafOfModules.pullback`.
 
 Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Proposition 6.5 and proof §6.6–6.7, pp.219–220; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §2.16–2.17, logarithmic PD differential operators, pp.234–235.
 
-Suggested signature scope: Independent review R2a: the double/triple PD-diagonal identity and cocycle equations are retained, but the suggested module prototype uses global rings for unrestricted thickenings. State its affine/QC slice and descent, or use sheaf pullbacks for the full target. This is part of the unresolved crystal/connection repair.
+Suggested signature scope: R2 repair: pdDiagonalThickening specifies the actual exactified PD envelope; its ambient scheme defines pdDiagonalScheme. pdDiagonalDiagram explicitly uses native sheaf pullbacks for both double projections, the diagonal and all three triple projections. LogPDStratification is on an EtaleModules sheaf, retains the identity/cocycle equations with their coherence maps, and first_order returns a PDConnectionSheaf whose underlying module is this same M. Global section rings are confined to the separately identified affine coordinate clients.
 
 Use driving the interface: `CrystallineCohomology:CR.5/crystal-connection-equivalence` — Differentiating the first PD order gives the connection; diagonal identity and triple cocycle supply its Leibniz rule and zero curvature. Taylor coefficients recover the stratification.
 
@@ -1548,19 +1563,20 @@ Acceptance:
 
 Node `CrystallineCohomology:CR.5/crystal-connection-equivalence`; theorem; declaration `TauCeti.LogCrystalline.logCrystal_connection_equivalence`. Proposed module: `TauCeti/AlgebraicGeometry/LogCrystalline`.
 
-For a fine closed log embedding X→Y with Y log smooth over a p-nilpotent fine log PD base S, evaluation on the log PD envelope D gives an equivalence between crystals on X/S and O_D-modules with integrable log quasi-nilpotent connection valued in Ω¹_{Y/S,log}|_D. The coordinate PD-smooth integral quasi-coherent extension uses Beilinson §1.7 and its PD smooth hypotheses. Finite locally free evaluations correspond to finite locally free modules. Formal versions use compatible levels and p-adically complete modules.
+For a fine closed log embedding X→Y with Y log smooth over a p-nilpotent fine log PD base S, evaluation on the log PD envelope D gives an equivalence between module-sheaf crystals on X/S and O_D-module sheaves with integrable, stalkwise log quasi-nilpotent connection valued in the sheaf M⊗Ω¹_{Y/S,log}|_D. On every étale U, the connection therefore lands in Γ(U,M⊗Ω¹), with tensor formed as a sheaf. Quasi-nilpotence means eventual vanishing of local PD Taylor coefficients for each stalk element; it does not require one bound on a section of an arbitrary non-quasicompact U. Beilinson §1.7 supplies the coordinate PD-smooth integral quasi-coherent extension under its stated hypotheses. Finite locally free evaluations match finite locally free modules. Formal versions use compatible p-power levels and complete modules.
 
 Construction or proof outline:
 
-1. Differentiate the PD diagonal stratification to obtain the integrable connection.
-2. Recover the stratification from the convergent logarithmic Taylor series, using falling factorials and PD unit-ratio coordinates.
-3. Descend the cartesian evaluation data to the site; apply Beilinson finite-chart approximation for its coordinate PD-smooth extension.
+1. Restrict the given crystal to the ambient étale site of D; differentiate its sheaf PD diagonal stratification. Sheaf tensor terms give the Leibniz rule and the triple cocycle gives zero curvature.
+2. At each geometric stalk use the local logarithmic falling-factorial and ordinary Taylor coefficients. Stalkwise eventual vanishing makes the PD Taylor expression finite locally for each section germ; change of coordinates preserves the intrinsic stratification.
+3. Recover cartesian evaluation by sheaf pullback and descend it across local PD lifts. The functor sends F to crystalEvaluation F D, with its underlying sheaf equal to F_D. Apply Beilinson finite-chart approximation only for the stated coordinate PD-smooth extension.
+4. Apply the construction at each finite formal level and retain compatible reduction maps before invoking p-adic completion.
 
-Direct dependencies: `CrystallineCohomology:CR.5/log-crystal`; `CrystallineCohomology:CR.5/log-pd-stratification`; `CrystallineCohomology:CR.5/log-connection`; `CrystallineCohomology:CR.5/log-quasi-nilpotence`; `CrystallineCohomology:CR.5/log-pd-smooth`.
+Direct dependencies: `CrystallineCohomology:CR.5/log-crystal`; `CrystallineCohomology:CR.5/log-pd-stratification`; `CrystallineCohomology:CR.5/log-connection`; `CrystallineCohomology:CR.5/log-quasi-nilpotence`; `CrystallineCohomology:CR.5/log-pd-smooth`; `mathlib:SheafOfModules`; `mathlib:PresheafOfModules.sheafification`.
 
 Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.2 and proof §6.7–6.8, pp.218–221; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7, Theorem after the crystal definition, p.11.
 
-Suggested signature scope: Independent review R2b: the suggested sheaf adapter tensors global sections on every étale object and imposes a uniform Taylor bound over each arbitrary object. Kato and Beilinson require sheaf tensors and stalkwise/local quasi-nilpotence. Repair the sheaf or affine-basis interface before using the displayed equivalence; elaboration with sorry does not establish it.
+Suggested signature scope: R2 repair: PDConnectionSheaf has a module sheaf, restriction-compatible additive maps into sections of the sheaf tensor, the canonical Leibniz equation and zero curvature. PDConnectionQuasiNilpotent quantifies over geometric points, actual stalk coordinate frames and stalk elements; its Taylor bound may depend on the frame and germ. pdStalkCoordinateOperator is explicitly contraction of the stalk connection with the dual differential basis; pdTaylorStalkCoefficient explicitly composes ordinary powers and logarithmic falling factorials. HorizontalPDMap is a sheaf map compatible with the sheaf tensor map. The equivalence functor is tied to crystalEvaluation, whose module is definitionally the given crystal ambient evaluation; logPDDeRham and logPoincare consume this very adapter. The affine LogConnection and PDCoordinateFrame computations remain separate local clients.
 
 Acceptance:
 
@@ -1570,18 +1586,19 @@ Acceptance:
 
 Node `CrystallineCohomology:CR.5/log-pd-de-rham`; construction; declaration `TauCeti.LogCrystalline.logPDDeRham`. Proposed module: `TauCeti/AlgebraicGeometry/LogCrystalline`.
 
-For a log PD envelope D in a log smooth ambient Y/S, form M⊗_O_D Ω^•_{Y/S,log}|_D with the coefficient connection differential, imposing dγ_n(x)=γ_{n−1}(x)dx for the PD ideal. Its PD filtration on the structure complex is F^mΩ^a=J^[m−a]Ω^a, with J^[b]=O for b≤0. For filtered coefficients use the convolution filtration and require Griffiths transversality. This uses the generic PD filtration owned by CR.0.
+On the log PD envelope D in a log smooth ambient Y/S, form the sheaf complex M⊗_O_D Ω^•_{Y/S,log}|_D with the coefficient connection differential. On any étale U its degree q term is Γ(U,M⊗Ω^q), using the sheaf tensor and then restriction of scalars to the PD base. Impose dγ_n(x)=γ_{n−1}(x)dx locally. The structure-complex PD filtration is F^mΩ^a=J^[m−a]Ω^a, with nonpositive powers the whole structure sheaf. Filtered coefficients use the convolution sheaf filtration and Griffiths transversality. The generic PD filtration is supplied by CR.0. A tensor of section modules computes these terms only under a justified affine quasi-coherent hypothesis.
 
 Construction or proof outline:
 
-1. Use the coefficient log complex on the envelope and impose the PD differential identity.
-2. Import the PD ideal filtration and form its degree-shifted filtration; prove d preserves it using the identity for γ.
+1. Form the sheaf tensor of the module sheaf from the common crystal/connection adapter with the locally defined PD log form sheaves. Sheafify pointwise tensors; restrict to étale U only after this operation.
+2. Extend the restriction-compatible coefficient connection by the graded Leibniz rule and the PD differential identity. Integrability gives a complex with these actual sheaf tensor terms.
+3. Import the PD ideal sheaf filtration, shift its index by form degree and prove differential preservation locally. For filtered coefficients use convolution with their transverse sheaf filtration.
 
-Direct dependencies: `CrystallineCohomology:CR.5/log-pd-envelope`; `CrystallineCohomology:CR.5/log-connection`; `CrystallineCohomology:CR.0/pd-filtration`; `mathlib:DividedPowerAlgebra`; `mathlib:DividedPowerAlgebra.dp`.
+Direct dependencies: `CrystallineCohomology:CR.5/log-pd-envelope`; `CrystallineCohomology:CR.5/log-connection`; `CrystallineCohomology:CR.0/pd-filtration`; `mathlib:DividedPowerAlgebra`; `mathlib:DividedPowerAlgebra.dp`; `mathlib:PresheafOfModules.sheafification`; `mathlib:AlgebraicGeometry.«Proj»`; `mathlib:MvPolynomial.gradedAlgebra`.
 
 Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7, pp.8–11; §1.8, pp.11–12.
 
-Suggested signature scope: Independent review R2b: PD derivative and filtration signatures are retained, but coefficient_tensor is false for arbitrary nonaffine étale objects when its target is sections of the coefficient-form sheaf. Use the sheaf tensor, or a justified affine/QC basis with descent, shared with the connection repair.
+Suggested signature scope: R2 repair: pdCoefficientFormSheaf is explicitly etaleModuleTensor C.modules (pdFormSheaf T q). pdCoefficientForms evaluates this sheaf, and logPDDeRham_terms identifies each term after scalar restriction to the same PD base. coefficient_tensor is a sheaf-level identity. The retained global PD-filtration formulas are affine coordinate clients of the sheaf construction. A new P1/F_p identity-PD test uses the native Proj scheme and the Cartier connection on O(p): the section tensor is zero while the actual coefficient-form sections are nonzero.
 
 Use driving the interface: `CrystallineCohomology:CR.5/log-poincare` — The PD derivative identity makes the degree-shifted ideal filtration a subcomplex; the resulting coefficient complex computes crystalline evaluation by the Poincaré comparison.
 
@@ -1589,13 +1606,14 @@ Use driving the interface: `CrystallineCohomology:CR.5/log-poincare` — The PD 
 | --- | --- | --- |
 | `TauCeti.LogCrystalline.logPDDeRham.pd_derivative` | relation | dγ_n(x)=γ_{n−1}(x)dx for n≥1. |
 | `TauCeti.LogCrystalline.logPDDeRham.filtration_degree` | simp | F^mΩ^a=J^[m−a]Ω^a for structure coefficients. |
-| `TauCeti.LogCrystalline.logPDDeRham.coefficient_tensor` | compatibility | Finite locally free coefficients use M⊗Ω^• with the connection differential. |
+| `TauCeti.LogCrystalline.logPDDeRham.coefficient_tensor` | compatibility | The degree-q coefficient sheaf is M⊗Ω^q with its extended connection differential. Evaluation on U gives Γ(U,M⊗Ω^q); no unqualified isomorphism with Γ(U,M)⊗Γ(U,Ω^q) is asserted. |
 
 Discriminating unit tests:
 
 - `TauCeti.LogCrystalline.logPDDeRham.degree_zero` (computation): F^mΩ⁰=J^[m].
 - `TauCeti.LogCrystalline.logPDDeRham.zero_pd_ideal` (degenerate): For J=0, F^mΩ^a is zero when m>a and the full term when m≤a.
 - `TauCeti.LogCrystalline.logPDDeRham.ordinary_power_failure` (non-example): In the existing divided-power algebra Γ_{F_p}(F_p), x=γ₁(1) satisfies x^p=0 while γ_p(1)≠0. Replacing the PD filtration by ordinary powers loses this generator.
+- `TauCeti.LogCrystalline.logPDDeRham.section_tensor_failure` (non-example): For the identity PD thickening of P1 over F_p, p prime, with trivial log and the canonical Cartier connection on Frob*O(1)=O(p), Ω¹=O(−2). Its section tensor Γ(O(p))⊗Γ(Ω¹) is zero, but Γ(O(p)⊗Ω¹)=Γ(O(p−2)) has dimension p−1 and is nonzero. The coefficient-form sheaf must retain the latter term.
 
 Acceptance:
 
@@ -1609,15 +1627,15 @@ Under the fine log smooth embedding hypotheses of the crystal–connection equiv
 
 Construction or proof outline:
 
-1. Resolve the crystal by the linearized PD diagonal complex.
-2. In ordinary/logarithmic coordinates contract the PD additive and multiplicative coordinate directions.
-3. Push forward and compare evaluation; use the PD Taylor equivalence and compatible filtrations.
+1. Use crystalEvaluation on the same ambient module sheaf and resolve the crystal by the linearized sheaf PD diagonal complex.
+2. Contract the ordinary additive and logarithmic multiplicative PD coordinate directions locally, using stalkwise quasi-nilpotence and the PD Taylor equivalence.
+3. Push forward and descend the resulting sheaf comparison. Its coefficient terms are M tensor the PD log form sheaves; transport the compatible PD filtration.
 
 Direct dependencies: `CrystallineCohomology:CR.5/crystal-connection-equivalence`; `CrystallineCohomology:CR.5/log-pd-de-rham`; `CrystallineCohomology:CR.5/log-pd-smooth`; `EnhancedDerivedSheaves:E2/bounded-below-hypercover-descent`; `EnhancedDerivedSheaves:E1/enhanced-derived-category`.
 
 Source locators: [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), Theorem 6.4, p.219; Proposition 6.5 and proof §6.9, pp.219–221; [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.6 acyclicity, pp.7–8; §1.8 comparison theorem, pp.11–12.
 
-Suggested signature scope: The source Poincaré comparison is retained. Independent review R2b: its prototype uses the unresolved crystalEvaluation/PDConnectionSheaf interfaces, so their sheaf and local quasi-nilpotence repair is a prerequisite to matching this comparison.
+Suggested signature scope: R2 repair: logPoincare is indexed by the actual crystal F and PD-smooth thickening T. Its target is pdDeRhamCohomology T (crystalEvaluation F T), using the very same evaluation as the crystal/connection equivalence and the sheaf-tensor de Rham complex. The source-qualified fine and coordinate PD-smooth branches remain distinct; no independent replacement coefficient object or section-tensor shortcut enters this map.
 
 Acceptance:
 
@@ -2333,19 +2351,21 @@ Acceptance:
 
 Node `CrystallineCohomology:CR.6/sato-residue-variant`; comparison; declaration `TauCeti.LogCrystalline.convergent_sato_residue_comparison`. Proposed module: `TauCeti/AlgebraicGeometry/LogCrystalline`.
 
-For the strict semistable setup of DL Appendix B.2, define the specialized residue quotient Ω_+^q=Ω_log^{q+1}/Ω_ordinary^{q+1} on its ambient log lift and compare the resulting rational ω_X^+ with WΞ_X⊗ℚ. Import WΞ and its local Poincaré residue exact sequence from CR.4, following Sato Definition 8.3 and Proposition 8.4. The shift q+1 and the ordered-stratum residue signs are essential. WΞ is a module over the cohomological Witt complex, not a generally asserted differential graded algebra.
+For a strictly semistable X/k^log, use an admissible embedding system over W(k)[t]^log with source a strict Zariski hypercover of X. Its degree-zero lift Z⁰ is flat and generically smooth over W[t], smooth over W, and the actual fibre Y⁰=(t=0) is a relative strict normal crossings divisor over W. Its log structure is the divisor log of Y⁰, and its special fibre is formed by the actual structure map and k^log→W[t]^log. Higher levels are the compatible Grosse-Klönne induced system. On each lift define Ω_+^q as the sheaf cokernel of ordinary absolute (q+1)-forms into absolute log (q+1)-forms over W; restrict to the prescribed fibre, realize on the tube and totalize. Derived specialization gives ω_X^+, naturally comparable with WΞ_X⊗ℚ. For support along U, apply the analytic tube support functor before specialization in this same system; retain the natural special-fibre-support comparison without declaring it invertible. CR.4 owns WΞ and its ordered residue sequence. The q+1 shift, stratum ordering and coefficient-module convention are essential.
 
 Construction or proof outline:
 
-1. Use the absolute ambient logarithmic forms and divide by the ordinary form subcomplex with the indicated degree shift.
-2. Apply Sato’s residue exact sequence on the ordered SNC strata and the rational embedding comparison.
-3. Transport the module structure and residue morphisms; do not invent a product on the homological Witt complex.
+1. Choose the source strict Zariski hypercover and the degree-zero W[t] lift satisfying flatness, generic smoothness over Frac(W[t]), W-smoothness and the actual relative SNC zero-divisor condition. Identify the log structure with that divisor log and the special fibre by pullback along the prescribed log point.
+2. Use Grosse-Klönne §§5.1–5.2: form products of degree-zero lifts over W, blow up the corresponding products of flat divisor components, remove strict transforms, and take the exceptional divisor with the diagonal embeddings. Retain all face, degeneracy, augmentation and structure-map compatibilities.
+3. Form the sheaf cokernel of ordinary-to-log absolute forms in degree q+1 on these actual lifts. Restrict to the zero fibre and use the RD Part II completion/tube realization and totalization tied to the same embedding system.
+4. Apply Sato Definition 8.3 and Propositions 8.4 and 8.6, pp.211–213, to compare the ordered-stratum residue complexes with rational WΞ. Transport its module structure.
+5. For U⊂X use the same embedding’s exact tube support kernel before derived specialization. Construct the map from special-fibre extension by zero to that supported residue complex; DL does not identify these two support procedures.
 
-Direct dependencies: `CrystallineCohomology:CR.6/convergent-log-complex`; `CrystallineCohomology:CR.5/semistable-residues`; `CrystallineCohomology:CR.4`.
+Direct dependencies: `CrystallineCohomology:CR.6/convergent-log-complex`; `CrystallineCohomology:CR.5/semistable-residues`; `CrystallineCohomology:CR.4`; `CrystallineCohomology:CR.6/tube-proper-support`; `AlgebraicModuliForArithmeticGeometry:R09.7a`; `PadicDifferentialEquationsAndRigidCohomology:RD.4`; `mathlib:SheafOfModules`.
 
-Source locators: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.2, residue quotient, diagrams (B.7)–(B.9), PDF p.118; [Kanetomo Sato, Cycle classes for p-adic étale Tate twists and the image of p-adic regulators](https://ems.press/content/serial-article-files/26173), Definition 8.3 and Proposition 8.4, pp.211–212; §8.6, p.213.
+Source locators: [Daniel Disegni and Yifeng Liu, A p-adic arithmetic inner product formula](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf), Appendix B.1 admissible embeddings, PDF pp.114–115; B.2 residue bridge and diagrams (B.7)–(B.9), PDF p.118; [Elmar Grosse-Klönne, Frobenius and monodromy operators in rigid analysis, and Drinfel’d’s symmetric space](https://arxiv.org/pdf/1408.3346v1), §§5.1–5.2, pp.26–27; [Kanetomo Sato, Cycle classes for p-adic étale Tate twists and the image of p-adic regulators](https://ems.press/content/serial-article-files/26173), Definition 8.3, Proposition 8.4 and Proposition 8.6, pp.211–213.
 
-Suggested signature scope: Independent review R4: the q+1 residue quotient and Witt module convention are retained. AdmissibleTubeEmbedding does not yet state the DL B.2 geometry: degree-zero lift smooth over W, flat and generically smooth over W[t], t=0 fibre a relative SNC divisor over W, and its divisor log. Its K-generic map and unrelated mod-p family identification are insufficient. Specify those objects/maps and compatible higher embedding levels before claiming the comparison.
+Suggested signature scope: R4 repair: AdmissibleDegreeZeroLift records the actual W[t] map, its Frac(W[t]) pullback, W-smoothness, the relative SNC boundary supplied by R09.7a, an isomorphism of its closed divisor with the actual t=0 fibre over the ambient scheme, the precise divisor log, and the actual k-log fibre with its embedding. AdmissibleTubeEmbedding then compares the full system to gkInducedEmbeddingSystem built from this degree-zero lift. residueQuotientSheaf is the native cokernel in EtaleModules in degree q+1; tubeResidueFormComplex, convergentResidueQuotient, supportedConvergentResidue and satoSupportedComparison all use the same E and admissibility witness. Ordinary boundary and analytic carriers remain single-owner client exports, not new local foundations.
 
 Acceptance:
 
@@ -2493,7 +2513,7 @@ Acceptance:
 
 Coverage: **planned**.
 
-Finite-projective coefficients retain the actual crystal and its PD evaluations. Frobenius, monodromy and a transverse filtration are supplied data; a crystal alone does not determine a filtration. The arithmetic package uses the R06.2 horizontal category with the same twist convention as R07.2. Contravariant Dieudonné evaluation and the chosen-lift Messing filtration are R07.2 clients, and their tests use the actual constant and multiplicative p-divisible groups.
+Finite-projective coefficients retain the actual crystal and its PD evaluations. Frobenius, monodromy and a transverse filtration are supplied data; a crystal alone does not determine a filtration. The geometric arithmetic package is built here from compatible completed CR.5/CR.7 crystals; R06.2 supplies the filtered (φ,N) normalization conventions, also used by R07.2. Contravariant Dieudonné evaluation and the chosen-lift Messing filtration are R07.2 clients, and their tests use the actual constant and multiplicative p-divisible groups.
 
 A proper smooth family with a flat coefficient determines its derived crystalline image. The base-change theorem uses compatible PD bases and the cartesian pulled-back family. Gauss–Manin in one degree requires that degree’s finite projectivity and canonical cohomology base-change isomorphisms. The boundary construction determines the connection, its curvature and horizontal transport; the identity and constant-family tests compute these specific maps. PD coefficient compatibility differentiates the actual coefficient stratification.
 
@@ -2503,25 +2523,26 @@ Planets: **Crystalline coefficients**; **Dieudonné crystal interface**; **Gauss
 
 Node `CrystallineCohomology:CR.7/finite-projective-coefficients`; construction; declaration `TauCeti.LogCrystalline.coefficientInterface`. Proposed module: `TauCeti/AlgebraicGeometry/LogCrystalline`.
 
-Import a finite locally free crystal F from CR.1, or a finite locally free log crystal from CR.5. At every compatible PD object T export the actual finite projective module F_T and coherent pullback isomorphisms; on a log PD-smooth embedding export its integrable quasi-nilpotent connection. Tensor, dual and End use evaluation-compatible maps. On a compatible p-adic tower require separated complete evaluations with the finite-level reductions specified; rational coefficients mean explicit inversion of p.
+Import a finite locally free ordinary crystal from CR.1 or log crystal from CR.5. At every PD object T export its actual finite locally free module sheaf F_T and coherent sheaf-pullback isomorphisms. Only on affine T identify its sections with a finite projective Γ(T,O_T)-module. A log PD-smooth embedding gives the integrable stalkwise quasi-nilpotent sheaf connection using the common crystal evaluation. Tensor, internal dual and End preserve these evaluation maps. Completed coefficients are compatible finite locally free crystals at all W/p^(n+1) levels, with compatible reductions and morphisms; on an O-model use the canonical PD thickenings M/p⊂M/p^(n+1). Rational coefficients retain an integral system and invert p on morphisms, giving K₀-linear Hom spaces.
 
 Construction or proof outline:
 
-1. Import the ordinary crystal and finite-projective categories rather than redefine them.
-2. Package the evaluation and connection equivalences with their actual structural maps.
-3. Check tensor/dual/base-change compatibility and retain the completed reductions in the p-adic interface.
+1. Reuse the CR.1/CR.5 module-sheaf crystal category and add finite local freeness on every ambient evaluation. The affine QC equivalence then gives finite projective section modules.
+2. Use the same ambient sheaf evaluation and canonical transition maps for tensor, dual and the PD connection; do not replace nonaffine sheaves by global modules.
+3. Form compatible crystal systems over the trivial-log Witt PD bases W/p^(n+1), with source M/p and the canonical PD(p) model evaluations. Require adjacent reduction isomorphisms and their morphism squares; compose them for all reductions.
+4. Retain the integral system as an object presentation and localize Hom by K₀⊗_W Hom, extending composition bilinearly. Evaluation on the actual model PD thickenings retains the same reduction isomorphisms before rationalization.
 
-Direct dependencies: `CrystallineCohomology:CR.1`; `CrystallineCohomology:CR.5/log-crystal`; `CrystallineCohomology:CR.5/crystal-connection-equivalence`; `CrystallineCohomology:CR.5/p-adic-log-crystalline`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `mathlib:ModuleCat`.
+Direct dependencies: `CrystallineCohomology:CR.1`; `CrystallineCohomology:CR.5/log-crystal`; `CrystallineCohomology:CR.5/crystal-connection-equivalence`; `CrystallineCohomology:CR.5/p-adic-log-crystalline`; `EnhancedDerivedSheaves:E1/presentability-and-derived-tensor`; `mathlib:ModuleCat`; `mathlib:SheafOfModules`; `mathlib:SheafOfModules.pullback`.
 
-Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.2.2–2.2.4(b,e,h), pp.18–20.
+Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §§2.2.1–2.2.4, pp.18–21; formal crystals and completed evaluation.
 
-Suggested signature scope: FiniteProjectiveCrystal consists of an actual module-sheaf crystal with finite projective evaluations. Evaluation, pullback, tensor and dual use that crystal and its ring maps; the dual evaluation is the actual linear dual. PD-smooth evaluation supplies its connection.
+Suggested signature scope: R2/R5 repair: FiniteProjectiveCrystal contains the same LogCrystal and finite local freeness of all its sheaf evaluations. evaluate and pullback return actual sheaves and native sheaf-pullback isomorphisms. coefficientInterface’s global FiniteProjectiveEvaluation now requires IsAffine. CompletedCoefficientCrystal is a compatible family of these very objects, and RationalCoefficientCrystal has K₀⊗_W Hom from the completed category. coefficientModelPDObject is the actual M/p⊂M/p^(n+1) PD thickening; coefficientEvaluationReduction uses its ambient reduction and the stored crystal reduction maps. The base here has trivial log; it is not the HK zero-generator base.
 
 Use driving the interface: `CrystallineCohomology:CR.7/dieudonne-evaluation` — Actual finite projective evaluations and pullback maps transport R07.2 F,V to the coefficient interfaces. Tensor/dual coherence is also needed by relative crystalline direct images.
 
 | API declaration | Role | Required statement |
 | --- | --- | --- |
-| `TauCeti.LogCrystalline.coefficientInterface.evaluate` | projection | Evaluation at T returns the finite projective O_T-module F_T. |
+| `TauCeti.LogCrystalline.coefficientInterface.evaluate` | projection | Evaluation at T returns the actual finite locally free O_T-module sheaf F_T; on affine T its section module is finite projective. |
 | `TauCeti.LogCrystalline.coefficientInterface.pullback` | equivalence | For a compatible PD map g, g*F_T≅F_T′. |
 | `TauCeti.LogCrystalline.coefficientInterface.tensor_dual` | compatibility | Evaluation and connection commute with tensor products and finite locally free duals. |
 
@@ -2539,19 +2560,21 @@ Acceptance:
 
 Node `CrystallineCohomology:CR.7/filtered-frobenius-coefficients`; construction; declaration `TauCeti.LogCrystalline.arithmeticCoefficientInterface`. Proposed module: `TauCeti/AlgebraicGeometry/LogCrystalline`.
 
-For a supplied finite locally free crystal with Frobenius linearization φ:F_S^*F→F, export this actual horizontal map. If invertibility after p-inversion is needed, require it. A filtration on its de Rham evaluation is additional specified locally split data satisfying Griffiths transversality; a log monodromy map must be horizontal and obey Nφ=pφN. None of these structures is inferred from the word crystal. Twist F(r) multiplies φ by p^{−r} rationally and shifts Fil^i to Fil^{i+r}.
+On a semistable O-model M, a rational coefficient is a compatible completed finite locally free crystal system over W/p^(n+1), with source M/p, followed by explicit p-inversion. Geometric Frobenius pullback is levelwise crystalline pullback along absolute Frobenius of M/p and Witt σ; require an invertible horizontal linearization φ:σ*C→C when used. A monodromy map N:C→C is a crystal morphism with Nφ=pφσ*N. To specify a de Rham sheaf on the full algebraic generic fibre, supply a finite locally free integrable O_M/W connection lattice whose reductions are horizontally and coherently identified with these very model PD evaluations. This algebraization is additional data; formal completion alone does not supply it on an arbitrary nonproper M. Restrict that lattice to M_K and pass to K-relative forms. Give this sheaf an exhaustive separated decreasing filtration by étale-locally split sheaf submodules, with ∇Fil^i contained in the sheaf image of Fil^(i−1)⊗Ω¹. Compatible model pullback retains level reductions, commutes with Frobenius, and pulls back this realized filtration and connection. Twist C(r) scales φ by p^(−r), retains N and shifts Fil^i to Fil^(i+r). R06.2 supplies these normalization conventions, not the geometric crystal category.
 
 Construction or proof outline:
 
-1. Construct the geometric adapter from CR.5/CR.7 compatible completed finite locally free crystals and their p-inversion; import only the filtered (φ,N) and period normalization conventions from R06.2.
-2. Transport them through evaluation, keeping σ-linearization and transversality.
-3. Use the stated Tate twist convention to scale Frobenius and shift the filtration.
+1. Use the completed finite locally free systems and localized Hom category from finite-projective-coefficients. Construct levelwise model and Frobenius pullback, with natural comparison isomorphisms commuting with level reduction and Witt-semilinear scalars.
+2. Evaluate C_n on the actual M/p⊂M/p^(n+1) PD thickenings. Specify a finite locally free integrable algebraic lattice and horizontal reduction isomorphisms commuting with adjacent ambient reduction; this is an algebraization of the same formal evaluation, not a universal algebraization theorem.
+3. Pull that lattice back to the actual generic fibre and quotient W-relative forms to K-relative forms. Define filtration subobjects using the native module-sheaf submodule lattice, with complements only after étale localization. Express Griffiths transversality in the sheaf tensor image.
+4. Pull back the integral systems, realized connection and locally split filtration along a compatible model morphism. Check the Frobenius commutation square, monodromy conjugation and sheaf filtration transport on that same evaluation.
+5. Apply the R06.2 period convention φ_r=p^(−r)φ and Fil^i_r=Fil^(i+r); scalars preserve invertibility and the Nφ relation.
 
-Direct dependencies: `CrystallineCohomology:CR.7/finite-projective-coefficients`; `CrystallineCohomology:CR.6/n-phi-relation`; `PadicHodgeTheory:R06.2`.
+Direct dependencies: `CrystallineCohomology:CR.7/finite-projective-coefficients`; `CrystallineCohomology:CR.6/n-phi-relation`; `PadicHodgeTheory:R06.2`; `CrystallineCohomology:CR.5/log-differentials`; `mathlib:SheafOfModules.Submodule`; `mathlib:SheafOfModules.pullback`; `mathlib:AlgebraicGeometry.«Proj»`; `mathlib:MvPolynomial.gradedAlgebra`.
 
-Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §2.3.1–2.3.2, pp.21–22; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.4, pp.244–245; Theorem 5.1, pp.262–263.
+Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §§2.2.1–2.2.4 and 2.3.1–2.3.4, pp.18–22; [Osamu Hyodo and Kazuya Kato, Semi-stable reduction and crystalline cohomology with logarithmic poles](https://www.numdam.org/item/AST_1994__223__221_0.pdf), §3.4, pp.244–245; Theorem 5.1, pp.262–263.
 
-Suggested signature scope: The geometric rational-crystal category, compatible completed levels, Frobenius pullback and de Rham evaluation belong to CR.5 and CR.7/finite-projective-coefficients. R06.2 supplies filtered (φ,N) conventions and period normalizations. Independent review R5: connect the proposed category to those actual crystals and replace global module complements by locally split sheaf filtrations or an explicit affine slice with descent. The relation and twist formulas are retained; the present nonaffine interface remains unresolved.
+Suggested signature scope: R5 repair: the rational category is explicitly tied to CompletedCoefficientCrystal with K₀⊗_W Hom and levelwise crystalline pullback. CoefficientAlgebraization supplies a finite locally free integrable sheaf connection on the same model, reduction isomorphisms to C_n.crystal.evaluation on coefficientModelPDObject, horizontality and compatibleReduction. coefficientDeRhamSheaf is native pullback of that very lattice to M_K, with its induced K-relative connection. ArithmeticCoefficientData uses native SheafOfModules.Submodule, EtaleLocallySplit, exhaustive/separated sheaf lattices and sheaf-tensor Griffiths transversality. base_change_crystal, base_change_deRham, base_change_frobenius, base_change_monodromy, base_change_horizontal and base_change_filtration bind pullback to these constructions. Frobenius and N are horizontal in the formal crystalline category; a generic algebraization of an arbitrary formal morphism is not inferred. The Euler-sequence test separates local splitting from a global complement on P1. The horizontal square compares the actual generic sheaf isomorphism with the chain-rule pullback connection.
 
 Use driving the interface: `CrystallineCohomology:CR.7/dieudonne-variance-twist` — The specified Frobenius scaling and filtration shift identify the multiplicative Dieudonné module as the −1 twist; horizontal filtered maps feed the semistable comparison owner.
 
@@ -2559,13 +2582,14 @@ Use driving the interface: `CrystallineCohomology:CR.7/dieudonne-variance-twist`
 | --- | --- | --- |
 | `TauCeti.LogCrystalline.arithmeticCoefficientInterface.frobenius` | projection | Export the horizontal linearization F_S^*F→F. |
 | `TauCeti.LogCrystalline.arithmeticCoefficientInterface.twist` | relation | On F(r), φ_r=p^{−r}φ and Fil^i(F(r))=Fil^{i+r}F. |
-| `TauCeti.LogCrystalline.arithmeticCoefficientInterface.base_change` | functoriality | Compatible base change preserves the specified filtration, Frobenius and monodromy maps. |
+| `TauCeti.LogCrystalline.arithmeticCoefficientInterface.base_change` | functoriality | Compatible model pullback is levelwise crystalline pullback, commutes with Frobenius and transports N. On the specified algebraization its generic realization is sheaf pullback, with the pulled-back connection and sheaf filtration; the comparison preserves Griffiths transversality. |
 
 Discriminating unit tests:
 
 - `TauCeti.LogCrystalline.arithmeticCoefficientInterface.twist_zero` (degenerate): Twist by zero is the original coefficient package.
 - `TauCeti.LogCrystalline.arithmeticCoefficientInterface.twist_minus_one` (computation): The twist F(−1) multiplies Frobenius by p and shifts the filtration by −1.
-- `TauCeti.LogCrystalline.arithmeticCoefficientInterface.crystal_not_filtered` (non-example): On an affine nonempty generic model, the same constant rank-one rational crystal admits two distinct split exhaustive separated transverse filtrations, with jumps in degrees 0 and 1. Thus the crystal does not determine its filtration.
+- `TauCeti.LogCrystalline.arithmeticCoefficientInterface.crystal_not_filtered` (non-example): On any nonempty generic model, the same constant rank-one rational crystal with its specified de Rham realization admits distinct exhaustive separated locally split transverse sheaf filtrations with jumps in degrees 0 and 1. Thus the crystal does not determine its filtration.
+- `TauCeti.LogCrystalline.arithmeticCoefficientInterface.local_split_not_global` (non-example): On P1 over a field, the Euler sequence 0→O(−1)→O²→O(1)→0 gives a subbundle that has complements on the two standard affine charts but has no global sheaf complement. It must satisfy the local splitting predicate.
 
 Acceptance:
 
@@ -2587,7 +2611,7 @@ Direct dependencies: `CrystallineCohomology:CR.7/finite-projective-coefficients`
 
 Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), Definition 2.3.2 and construction 2.3.3, pp.21–22.
 
-Suggested signature scope: PDivisibleGroup and the contravariant dieudonneFunctor are fixed R07.2 clients on the same characteristic-p source. Evaluation is the actual D(G) crystal value; constant and multiplicative tests use those named groups, their Witt evaluations, F and V, not arbitrary rank-one modules.
+Suggested signature scope: PDivisibleGroup and the contravariant dieudonneFunctor are fixed R07.2 clients on the same characteristic-p source. Evaluation is the actual D(G) crystal value; constant and multiplicative tests use those named groups, their Witt evaluations, F and V, not arbitrary rank-one modules. Its global finite-projective section evaluation explicitly assumes an affine ambient; general evaluations remain finite locally free sheaves.
 
 Use driving the interface: `CrystallineCohomology:CR.7/messing-filtration-interface` — The actual contravariant evaluated crystal supplies the middle term and structural maps of the Hodge exact sequence. Standard R07.2 modules check F,V and Cartier duality conventions.
 
@@ -2643,7 +2667,7 @@ Construction or proof outline:
 
 Direct dependencies: `CrystallineCohomology:CR.7/dieudonne-evaluation`; `FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2`.
 
-Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §3.1, pp.28–32; Theorem 3.2.1 and proof, pp.32–34, using the Messing deformation theorem.
+Source locators: [Aise Johan de Jong, Crystalline Dieudonné module theory via formal and rigid geometry](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf), §3.1, pp.28–32; Proposition 3.2.1 and proof, pp.32–34, using the Messing deformation theorem.
 
 Suggested signature scope: The Hodge sequence uses the actual cotangent, evaluated Dieudonné module and dual Lie maps. On a nilpotent PD thickening, the lifted direct summand is indexed by a chosen lifted p-divisible group with its reduction identification. It is not a canonical filtration on D(G₀)_S independent of a lift.
 
@@ -2783,7 +2807,7 @@ Direct dependencies: `CrystallineCohomology:CR.7/finite-projective-coefficients`
 
 Source locators: [Alexander Beilinson, On the crystalline period map](https://arxiv.org/pdf/1111.3316v4), §1.7(a), PD compatibility criterion, p.10; §1.7(b); [Kazuya Kato, Logarithmic structures of Fontaine–Illusie](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf), §6.4, coefficient PD log de Rham complex, p.219.
 
-Suggested signature scope: The PD derivative uses the actual geometric form derivation and existing divided powers. A compatible PD map preserves all operations. Differentiating the actual coefficient PD stratification gives its evaluated connection, so the interface no longer assumes the identities it purports to prove.
+Suggested signature scope: The PD derivative uses the actual geometric form derivation and existing divided powers. A compatible PD map preserves all operations. Differentiating the actual coefficient PD stratification gives its evaluated connection, so the interface no longer assumes the identities it purports to prove. Its coefficientPDConnection and coefficientPDStratification share the actual ambient sheaf F_T and the same sheaf diagonal; global PD identities retain their declared affine evaluation scope.
 
 Acceptance:
 
@@ -2791,113 +2815,129 @@ Acceptance:
 
 ## Source ledger and corrections
 
-All statements above are expressed in the plan’s own words. The ledger identifies the exact public versions, not a substitute book edition. All 18 SHA-256 values were reproduced on 8 October 2026. The packet preserves the independent review’s 6 October reading history and records this revision’s passage reading separately. Where a cited proof remains unobtained, it is in the gap list below.
+All statements above are expressed in the plan’s own words. The ledger identifies the exact public versions, not a substitute book edition. The prior revision reproduced all 18 SHA-256 values on 8 October 2026. This run reacquired eight public versions and reproduced their hashes; the packet records only this run’s focused passage reading in revision3ReadSections. The other ten sources retain their reading and hash provenance without a new verification claim. Where a cited proof remains unobtained, it is in the gap list below.
 
 ### Kazuya Kato: Logarithmic structures of Fontaine–Illusie
 
-[Algebraic Analysis, Geometry and Number Theory (1989), pp.191–224](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf). Exact-file SHA-256: `e68947e38accef5a9f43a5eba47ee4c8ae9cbc660cd0fb1ee8fcbcd72e3ba595`. Revision read: 2026-10-08.
+[Algebraic Analysis, Geometry and Number Theory (1989), pp.191–224](https://math.uchicago.edu/~drinfeld/p-adic_periods/Kato_log-structures.pdf). Exact-file SHA-256: `e68947e38accef5a9f43a5eba47ee4c8ae9cbc660cd0fb1ee8fcbcd72e3ba595`. Prior revision read: 2026-10-08.
 
 §§2.4, 3.5–3.6, 3.13, 4.10–4.14; §5.3–5.8, pp.215–217; §§6.2–6.5, pp.218–219; final Künneth theorem 6.12, p.222. The scan’s PD, connection and Künneth pages were read visually.
 
+Revision-3 passage check (2026-10-09): §§2.7–2.8, p.199; §3.3, p.201; §4.6, p.209 (fine/fs correction). Definitions and theorems §§6.1–6.9, pp.218–221, with PD diagonal/Taylor proofs pp.219–221 read as page images.
+
 ### Osamu Hyodo and Kazuya Kato: Semi-stable reduction and crystalline cohomology with logarithmic poles
 
-[Astérisque 223 (1994), pp.221–268](https://www.numdam.org/item/AST_1994__223__221_0.pdf). Exact-file SHA-256: `220873e91f89094d14f1a82631c6887a40ec362139990928236ca0525b1050cf`. Revision read: 2026-10-08.
+[Astérisque 223 (1994), pp.221–268](https://www.numdam.org/item/AST_1994__223__221_0.pdf). Exact-file SHA-256: `220873e91f89094d14f1a82631c6887a40ec362139990928236ca0525b1050cf`. Prior revision read: 2026-10-08.
 
 §§2.16–2.17, pp.234–235; §§2.22–2.24, pp.240–242; §§3.1–3.6, pp.242–246; §§4.19–4.20, pp.260–262; §§5.1–5.5, pp.262–266.
 
+Revision-3 passage check (2026-10-09): §5.1–5.2, pp.262–263, checked for comparison context; this is not the higher residue-embedding construction cited by DL, whose reference is Grosse-Klönne.
+
 ### Alexander Beilinson: On the crystalline period map
 
-[arXiv:1111.3316v4 (2013)](https://arxiv.org/pdf/1111.3316v4). Exact-file SHA-256: `fbe6b5976929db122d55fc0c95958796eace5842f3629351b49b9a53b48bfe4e`. Revision read: 2026-10-08.
+[arXiv:1111.3316v4 (2013)](https://arxiv.org/pdf/1111.3316v4). Exact-file SHA-256: `fbe6b5976929db122d55fc0c95958796eace5842f3629351b49b9a53b48bfe4e`. Prior revision read: 2026-10-08.
 
 §1.1, pp.2–3; §§1.2–1.3, pp.3–6; §§1.4–1.6, pp.6–8; §1.7, pp.8–11; §1.8, pp.11–12; §1.12, pp.16–17; §1.17, pp.25–26, including compatible base PD structures, coordinate lifting, full Taylor condition and uniquely p-divisible lifting.
 
+Revision-3 passage check (2026-10-09): §1.7, pp.8–11, including the equivalence theorem on p.11; §1.8, pp.11–12 (same coefficient sheaf and PD de Rham/Poincaré adapter).
+
 ### Kęstutis Česnavičius and Teruhisa Koshikawa: The A_inf-cohomology in the semistable case
 
-[arXiv:1710.06145v3 (2018); published Compositio Mathematica (2019)](https://arxiv.org/pdf/1710.06145v3). Exact-file SHA-256: `47000db58599c20831223f43df1d13466c913fdda617070f5cc3458631d36c57`. Revision read: 2026-10-08.
+[arXiv:1710.06145v3 (2018); published Compositio Mathematica (2019)](https://arxiv.org/pdf/1710.06145v3). Exact-file SHA-256: `47000db58599c20831223f43df1d13466c913fdda617070f5cc3458631d36c57`. Prior revision read: 2026-10-08.
 
 §5.2, p.32; §§5.9–5.13, pp.36–38; footnote 11, p.45, distinguishing finite p-nilpotent envelopes from the uncompleted mixed-characteristic question.
 
 ### Teruhisa Koshikawa: Logarithmic prismatic cohomology I
 
-[arXiv:2007.14037v3 (2022)](https://arxiv.org/pdf/2007.14037v3). Exact-file SHA-256: `90f68a84bc17618b9bf491ad1b6c43e69e81620f3e2ae1139047cb31ab3a180d`. Revision read: 2026-10-08.
+[arXiv:2007.14037v3 (2022)](https://arxiv.org/pdf/2007.14037v3). Exact-file SHA-256: `90f68a84bc17618b9bf491ad1b6c43e69e81620f3e2ae1139047cb31ab3a180d`. Prior revision read: 2026-10-08.
 
 Appendix A, §A.1 Examples (1)–(2), p.50: normal-crossing charts, finite semistable O_K models and integral O_C base change.
 
 ### Federico Binda, Hiroki Kato and Alberto Vezzani: On the p-adic weight-monodromy conjecture for complete intersections in toric varieties
 
-[arXiv:2207.00369v2 (2025)](https://arxiv.org/pdf/2207.00369v2). Exact-file SHA-256: `150ba49710056b7de62ca91467cd7e4cde2aaba6a053a5f83bd0c35e0addfea9`. Revision read: 2026-10-08.
+[arXiv:2207.00369v2 (2025)](https://arxiv.org/pdf/2207.00369v2). Exact-file SHA-256: `150ba49710056b7de62ca91467cd7e4cde2aaba6a053a5f83bd0c35e0addfea9`. Prior revision read: 2026-10-08.
 
 Definitions 2.1–2.9 and Proposition 2.2, pp.5–7; §§3.1–3.7, pp.15–17; Remark 3.12 monoidality.
 
 ### Michael Temkin: Tame distillation and desingularization by p-alterations
 
-[Annals of Mathematics 186 (2017), pp.97–126](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf). Exact-file SHA-256: `1f4ac06f2f31430abdd984d8e635a324defb6de340f6a599f708c04996fbfba4`. Revision read: 2026-10-08.
+[Annals of Mathematics 186 (2017), pp.97–126](https://annals.math.princeton.edu/wp-content/uploads/annals-v186-n1-p03-p.pdf). Exact-file SHA-256: `1f4ac06f2f31430abdd984d8e635a324defb6de340f6a599f708c04996fbfba4`. Prior revision read: 2026-10-08.
 
 §1.2.7, pp.99–100; Theorem 4.2.1 proof, Steps 9–10, p.123.
 
+Revision-3 passage check (2026-10-09): §1.2.7, p.100 and Theorem 4.2.1 proof Step 10, p.123 (fs Kummer étale correction). The previously recorded complete log-Abhyankar proof gap remains.
+
 ### Wiesława Nizioł: Toric singularities: log-blow-ups and global resolutions
 
-[Author copy of Journal of Algebraic Geometry 15 (2006)](https://webusers.imj-prg.fr/~wieslawa.niziol/resol7.pdf). Exact-file SHA-256: `b22e9be85861759ab55efad8d43e6da40e063ee220ca46b385e0e6908d49e986`. Revision read: 2026-10-08.
+[Author copy of Journal of Algebraic Geometry 15 (2006)](https://webusers.imj-prg.fr/~wieslawa.niziol/resol7.pdf). Exact-file SHA-256: `b22e9be85861759ab55efad8d43e6da40e063ee220ca46b385e0e6908d49e986`. Prior revision read: 2026-10-08.
 
 Definition 2.2 and Lemmas 2.3–2.4, pp.2–3; Proposition 2.6 and proof, pp.4–5.
 
 ### Lie Qian: Ordinarity of local Galois representation arising from Dwork motives
 
-[arXiv:2103.00106v1 (2021), companion source routed with 2023 paper](https://arxiv.org/pdf/2103.00106v1). Exact-file SHA-256: `87c4ee8499f3a615a81307e17d38d6f00ab544da9d22384f213bbc06052722e9`. Revision read: 2026-10-08.
+[arXiv:2103.00106v1 (2021), companion source routed with 2023 paper](https://arxiv.org/pdf/2103.00106v1). Exact-file SHA-256: `87c4ee8499f3a615a81307e17d38d6f00ab544da9d22384f213bbc06052722e9`. Prior revision read: 2026-10-08.
 
 Theorem 1.6, PDF p.4; Theorem 3.2 and entire proof, PDF pp.14–18, including the properness-dependent final limit step.
 
 ### Daniel Disegni and Yifeng Liu: A p-adic arithmetic inner product formula
 
-[2024 publisher-formatted author copy](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf). Exact-file SHA-256: `03237af87c4c5d8ee5aa8ea253f6c6f0607e98fea645635f4da98e21ff62e7b9`. Revision read: 2026-10-08.
+[2024 publisher-formatted author copy](https://disegni-daniel.perso.math.cnrs.fr/AIPF.pdf). Exact-file SHA-256: `03237af87c4c5d8ee5aa8ea253f6c6f0607e98fea645635f4da98e21ff62e7b9`. Prior revision read: 2026-10-08.
 
 Appendix B.1–B.2, Definition B.1 through the residue diagram, PDF pp.113–118; triangles (B.1)–(B.2), pp.115–116; equation (B.5), p.117.
 
+Revision-3 passage check (2026-10-09): Appendix B.1–B.2, PDF pp.113–118: tube support order and bounded-below nonfactorization, admissible embedding geometry, residue quotient and supported bridge.
+
 ### Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł: Cohomologie p-adique de la tour de Drinfeld: le cas de la dimension 1
 
-[April 2019 author version, published JAMS (2020)](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf). Exact-file SHA-256: `2cdb1de25b5201ed46f8af6c06c19b72fdc5cbe1dd2037b4e1d24dee30155776`. Revision read: 2026-10-08.
+[April 2019 author version, published JAMS (2020)](https://webusers.imj-prg.fr/~wieslawa.niziol/GPW5.pdf). Exact-file SHA-256: `2cdb1de25b5201ed46f8af6c06c19b72fdc5cbe1dd2037b4e1d24dee30155776`. Prior revision read: 2026-10-08.
 
 §0.3, pp.6–7; §0.6, pp.10–12: completed unramified coefficients and geometric ind-Fréchet comparison.
 
 ### Pierre Colmez, Gabriel Dospinescu and Wiesława Nizioł: Cohomology of p-adic Stein spaces
 
-[arXiv:1801.06686v2 (2019)](https://arxiv.org/pdf/1801.06686v2). Exact-file SHA-256: `3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89`. Revision read: 2026-10-08.
+[arXiv:1801.06686v2 (2019)](https://arxiv.org/pdf/1801.06686v2). Exact-file SHA-256: `3c448b957f3e842d24145c46b6c8776143608c1ebc232f7d9a552f5eab62dc89`. Prior revision read: 2026-10-08.
 
 §2.2.3 cohomology topology; §§3.1.1–3.1.3, pp.13–18, especially Stein exhaustion and Proposition 3.12; Appendix A.1–A.5, pp.60–61.
 
 ### Elmar Grosse-Klönne: Frobenius and monodromy operators in rigid analysis, and Drinfel’d’s symmetric space
 
-[JAG 14 (2005), author arXiv:1408.3346v1 (2014)](https://arxiv.org/pdf/1408.3346v1). Exact-file SHA-256: `84d6c4b36a3e1908f989ac1a139fb28055f6e7ab51384c26a48cd517f87e0713`. Revision read: 2026-10-08.
+[JAG 14 (2005), author arXiv:1408.3346v1 (2014)](https://arxiv.org/pdf/1408.3346v1). Exact-file SHA-256: `84d6c4b36a3e1908f989ac1a139fb28055f6e7ab51384c26a48cd517f87e0713`. Prior revision read: 2026-10-08.
 
 Theorem 3.4 and proof, pp.16–17; §3.11, pp.18–19, proper log crystalline comparison.
 
+Revision-3 passage check (2026-10-09): §§5.1–5.2, pp.26–27: induced embedding systems from products over W and blowups of flat divisor components, with exceptional divisor and diagonal embeddings.
+
 ### Kanetomo Sato: Cycle classes for p-adic étale Tate twists and the image of p-adic regulators
 
-[Documenta Mathematica 18 (2013), pp.177–247](https://ems.press/content/serial-article-files/26173). Exact-file SHA-256: `6b1131e5635bd2fcf2aa64c117d44712ad1d560af7a2e3cb83a58db6a7f22766`. Revision read: 2026-10-08.
+[Documenta Mathematica 18 (2013), pp.177–247](https://ems.press/content/serial-article-files/26173). Exact-file SHA-256: `6b1131e5635bd2fcf2aa64c117d44712ad1d560af7a2e3cb83a58db6a7f22766`. Prior revision read: 2026-10-08.
 
 Definition 8.3, Proposition 8.4 and its residue proof; Proposition 8.6, pp.211–213.
 
+Revision-3 passage check (2026-10-09): Definition 8.3 and Propositions 8.4 and 8.6, pp.211–213: the residue module, ordered residue sequence and shifted logarithmic quotient.
+
 ### Pierre Berthelot and Arthur Ogus: Notes on crystalline cohomology
 
-[Mathematical Notes 21 (1978), public scan](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf). Exact-file SHA-256: `f3565d2ce264c92a71f8f98495df563bbacfcbe75ee83b834aa620931c2e5534`. Revision read: 2026-10-08.
+[Mathematical Notes 21 (1978), public scan](https://math.bu.edu/people/yangzhe/BO_Crystalline.pdf). Exact-file SHA-256: `f3565d2ce264c92a71f8f98495df563bbacfcbe75ee83b834aa620931c2e5534`. Prior revision read: 2026-10-08.
 
 Theorem 7.8 and proof, pp.7.12–7.15 (statement visually read at PDF p.147); §§7.11–7.13, pp.7.16–7.18; Appendix B2.1 compared with the official correction.
 
 ### Pierre Berthelot and Arthur Ogus: Erratum to Notes on Crystalline Cohomology
 
-[Official erratum, 21 August 2013](https://math.berkeley.edu/~ogus/preprints/BO_B2_Erratumre.pdf). Exact-file SHA-256: `7a31ee9881433d3db283bbfcdfbba23e39e53acd919d9230a054cc3c3bc8fc0a`. Revision read: 2026-10-08.
+[Official erratum, 21 August 2013](https://math.berkeley.edu/~ogus/preprints/BO_B2_Erratumre.pdf). Exact-file SHA-256: `7a31ee9881433d3db283bbfcdfbba23e39e53acd919d9230a054cc3c3bc8fc0a`. Prior revision read: 2026-10-08.
 
 Entire two-page correction of 21 August 2013.
 
 ### Aise Johan de Jong: Crystalline Dieudonné module theory via formal and rigid geometry
 
-[Publ. Math. IHÉS 82 (1995), pp.5–96](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf). Exact-file SHA-256: `7295b9cb11cb2fed09c139738f71d3983199373d7bf91e21f4278e9c0954cb7d`. Revision read: 2026-10-08.
+[Publ. Math. IHÉS 82 (1995), pp.5–96](https://www.numdam.org/article/PMIHES_1995__82__5_0.pdf). Exact-file SHA-256: `7295b9cb11cb2fed09c139738f71d3983199373d7bf91e21f4278e9c0954cb7d`. Prior revision read: 2026-10-08.
 
-§§2.2.1–2.3.4, pp.18–22; §3.1, pp.28–32; Theorem 3.2.1 and proof, pp.32–34.
+§§2.2.1–2.3.4, pp.18–22; §3.1, pp.28–32; Proposition 3.2.1 and proof, pp.32–34.
+
+Revision-3 passage check (2026-10-09): §§2.2.1–2.3.4, pp.18–22: compatible completed crystal evaluations and connections/Frobenius. Proposition 3.2.1 and proof, pp.32–34, read to verify its deformation scope; no general algebraization theorem inferred.
 
 ### Howard M. Thompson: Toric singularities revisited
 
-[arXiv:math/0305441 author version (2003); Journal of Algebra 299 (2006)](https://arxiv.org/pdf/math/0305441). Exact-file SHA-256: `830cdd56e6948f44c433cfb9d07b158bde8bdea03bf9ae368940aae221c3365c`. Revision read: 2026-10-08.
+[arXiv:math/0305441 author version (2003); Journal of Algebra 299 (2006)](https://arxiv.org/pdf/math/0305441). Exact-file SHA-256: `830cdd56e6948f44c433cfb9d07b158bde8bdea03bf9ae368940aae221c3365c`. Prior revision read: 2026-10-08.
 
 §1.2, Definition 1.6, p.7; §3.5, Theorem 3.14 and subsequent discussion, p.32. The cited Kato Toric singularities proof remains unread and is a gap.
 
@@ -2910,7 +2950,7 @@ The four existing source issues retain their independent confirmed verdicts:
 
 ## Proof gaps and supplier requests
 
-Seven proof/interface gaps remain: the four previously recorded below and the three independent-review repairs at the end. They are prerequisite endpoints of the target-level plan, so all four stages are planned and none is closed.
+Four inherited proof/owner gaps remain. R2, R4 and R5 are repaired at interface level; their construction proofs remain proposed. All four stages are planned and none is closed.
 
 ### Logarithmic Abhyankar and log-regularity proof inputs
 
@@ -2928,13 +2968,13 @@ Needed by `CrystallineCohomology:CR.5:log-algebra/formal-semistable-log`; `Cryst
 
 Needed by `CrystallineCohomology:CR.5/p-adic-log-crystalline`. The DD.1 derived-completion node constructs a specific completion localization, not Rlim for an arbitrary coherent tower. The precise generic DD.1 export is requested separately. Its enhancement, coherent transition maps, projections and Milnor/lim-one comparison must be supplied before the finite-level log crystalline tower is assembled; a bare function from sequences of objects does not supply it.
 
-The nine owner requests are part of the prerequisite closure; no second implementation of their objects is planned here.
+The nine owner requests are part of the prerequisite closure; their objects remain with their existing owners.
 
 ### `AlgebraicModuliForArithmeticGeometry:R09.7a`
 
-Export the existing regular SNC boundary carrier, open complement, local equations and their unit-change compatibility to the étale log chart constructor. This extends that carrier without introducing a second divisor predicate; if the interface exceeds the existing stage, provide Algebraic moduli for arithmetic geometry, Part II: logarithmic boundary interfaces.
+Export the existing regular SNC boundary carrier, open complement, local equations and their unit-change compatibility to the étale log chart constructor. This extends that carrier without introducing a second divisor predicate; if the interface exceeds the existing stage, provide Algebraic moduli for arithmetic geometry, Part II: logarithmic boundary interfaces. For the residue embedding client export the actual closed Cartier divisor and its inclusion, with the relative SNC local coordinate charts over W and their identification with the displayed t=0 fibre.
 
-Consumers: `CrystallineCohomology:CR.5:log-algebra/divisorial-log`; `CrystallineCohomology:CR.5:log-algebra/log-regularity`.
+Consumers: `CrystallineCohomology:CR.5:log-algebra/divisorial-log`; `CrystallineCohomology:CR.5:log-algebra/log-regularity`; `CrystallineCohomology:CR.6/sato-residue-variant`.
 
 ### `LefschetzPencilsAndVanishingCycles:LPV.5`
 
@@ -2956,9 +2996,9 @@ Consumers: `CrystallineCohomology:CR.5/a-cris-log`; `CrystallineCohomology:CR.6/
 
 ### `PadicDifferentialEquationsAndRigidCohomology:RD.4`
 
-Provide a source-qualified extension, p-adic differential equations and rigid cohomology, Part II: logarithmic convergent and weak formal cohomology. Needed interfaces are the DL quasi-étale tube specialization, exact tube support kernel and natural map (B.3), embedding independence for log convergent complexes, Grosse-Klönne log rigid boundary models and proper crystalline comparison. Existing ordinary j† overconvergent nodes are near misses and are not used as exact substitutes. Export semistable weak formal models with their actual special-fibre and tube maps, affinoid presentations and dagger-radius containment witnesses T_n(δ)/I→T_n/IT_n for δ>1. These include the spectrum factorization for a relatively compact nested piece and the finite-component special-fibre Stein cover.
+Provide a source-qualified extension, p-adic differential equations and rigid cohomology, Part II: logarithmic convergent and weak formal cohomology. Needed interfaces are the DL quasi-étale tube specialization, exact tube support kernel and natural map (B.3), embedding independence for log convergent complexes, Grosse-Klönne log rigid boundary models and proper crystalline comparison. Existing ordinary j† overconvergent nodes are near misses and are not used as exact substitutes. Export semistable weak formal models with their actual special-fibre and tube maps, affinoid presentations and dagger-radius containment witnesses T_n(δ)/I→T_n/IT_n for δ>1. These include the spectrum factorization for a relatively compact nested piece and the finite-component special-fibre Stein cover. Tie the weak completion and analytic tube to the specified algebraic W[t] embedding system, including the Grosse-Klönne degree-zero-induced higher system and its coherent maps. Realize the shifted ordinary-to-log sheaf cokernel on that same system and apply tube support before specialization.
 
-Consumers: `CrystallineCohomology:CR.6/convergent-log-complex`; `CrystallineCohomology:CR.6/tube-proper-support`; `CrystallineCohomology:CR.6/proper-log-rigid-hk`; `CrystallineCohomology:CR.6/ramified-hk-base-change`; `CrystallineCohomology:CR.6/stein-hk`.
+Consumers: `CrystallineCohomology:CR.6/convergent-log-complex`; `CrystallineCohomology:CR.6/tube-proper-support`; `CrystallineCohomology:CR.6/proper-log-rigid-hk`; `CrystallineCohomology:CR.6/ramified-hk-base-change`; `CrystallineCohomology:CR.6/stein-hk`; `CrystallineCohomology:CR.6/sato-residue-variant`.
 
 ### `PadicDifferentialEquationsAndRigidCohomology:RD.5`
 
@@ -2987,9 +3027,9 @@ Consumers: `CrystallineCohomology:CR.5/p-adic-log-crystalline`.
 Stage acceptance work still required:
 
 - `CrystallineCohomology:CR.5:log-algebra` (planned): Obtain the full logarithmic Abhyankar proof and supplier boundary/tame-cover interfaces. Obtain the local Kato log smooth/log regular proof cited by Thompson Theorem 3.14. Verify the nonnoetherian formal-boundary approximation proof chain under the exact finite-model hypotheses.
-- `CrystallineCohomology:CR.5` (planned): Supply the generic ordinary PD envelope/canonical-base imports from CR.0 and completion interface. Apply the proposed Beilinson substage and AI.6 dependency; verify the complete O_C/A_cris chart-lift proof chain. Repair sheaf-level crystal/connection tensors and local quasi-nilpotence (R2). Supply the requested DD.1 enhanced countable Rlim functor, Milnor comparison and compatible surjective PD de Rham resolutions; the prototype is a client interface.
-- `CrystallineCohomology:CR.6` (planned): Provide CR.4 log Witt and Sato residue objects and the RD Part II analytic/topological interfaces. Supply the Tate-curve geometric monodromy calculation and compare its basis orientation. State the full admissible residue embedding geometry (R4).
-- `CrystallineCohomology:CR.7` (planned): Provide the R07.2 crystalline Dieudonné/Grothendieck–Messing construction and actual evaluation maps. Verify the CR.3 torsion/rank and completed base-change inputs for the stated Gauss–Manin degrees. Build the geometric rational coefficient adapter and locally split sheaf filtration (R5).
+- `CrystallineCohomology:CR.5` (planned): Supply the generic ordinary PD envelope/canonical-base imports from CR.0 and completion interface. Apply the proposed Beilinson substage and AI.6 dependency; verify the complete O_C/A_cris chart-lift proof chain. Supply the requested DD.1 enhanced countable Rlim functor, Milnor comparison and compatible surjective PD de Rham resolutions; the prototype is a client interface.
+- `CrystallineCohomology:CR.6` (planned): Provide CR.4 log Witt and Sato residue objects and the RD Part II analytic/topological interfaces. Supply the Tate-curve geometric monodromy calculation and compare its basis orientation.
+- `CrystallineCohomology:CR.7` (planned): Provide the R07.2 crystalline Dieudonné/Grothendieck–Messing construction and actual evaluation maps. Verify the CR.3 torsion/rank and completed base-change inputs for the stated Gauss–Manin degrees.
 
 ## Proposed atlas structure
 
@@ -3003,14 +3043,10 @@ The source-qualified extension needed here uses weak formal/dagger semistable ch
 
 ## Signature experiment and review boundary
 
-The suggested file includes all 88 primary declarations, 165 named APIs and 165 named tests, with supplementary geometric checks. Its geometric predicates use schemes, small étale log sheaves, compatible PD objects and their canonical maps. DD.1, RD.4/RD.5, R06.1/R06.2 and R07.2 names stand for the requested supplier exports. Affine PD bases/evaluations, finite semistable chart calculations and proper cohomology comparisons are explicit prototype slices; the mathematical statements above govern the full target.
+The suggested file includes all 88 primary declarations, 165 named APIs and 167 named tests, with supplementary geometric checks. R2 uses actual ambient sheaf pullback, sheafified tensors and stalkwise Taylor quasi-nilpotence. The connection equivalence and Poincaré complex share the same coefficient evaluation. Its P1/F_p test compares the tensor of global sections with global sections of O(p) tensor Ω¹=O(p−2): the first is zero, the second has dimension p−1.
 
-The file was checked with lean-check at the existing pinned Mathlib build, with only expected placeholder-proof warnings. Elaboration checks types and no proof or implementation is certified. The Tau Ceti exponential wrapper is unbuilt in that shared environment, so the prototype uses its underlying existing Mathlib operation. The packet remains complete at target level with implementation status unchecked. The previous needs_changes review and all its checked verdicts are preserved in reviewHistory. The current independent revision-2 review also returns needs_changes for the three interface repairs below.
+R4 records the actual admissible W[t] lift, its t=0 relative SNC closed divisor, exact divisor log, actual special log fibre and induced compatible higher levels. Residue complexes and their supported realizations use that same system. The general boundary and analytic carriers remain requested owner exports.
 
-## Independent review repairs remaining
+R5 constructs the proposed completed finite locally free crystal category and K0-localized Hom interface, actual level/model pullbacks and Frobenius transport. Algebraic generic evaluation carries explicit compatible algebraization data. Native submodule sheaves express the locally split filtration and its transversality. The Euler-sequence test on P1 exhibits an étale-locally split O(−1) subbundle of O² without a global complement.
 
-**R2: unrestricted module-sheaf crystals, coefficient tensors and local quasi-nilpotence**. The all-module crystal target requires ambient sheaf pullback; the current affine-basis global tensor transitions only describe QC evaluations. PDConnectionSheaf and logPDDeRham.coefficient_tensor tensor sections on arbitrary nonaffine small-étale objects, where the section tensor need not equal sections of the sheaf tensor. On P1/F_p with M=Frob*O(1)=O(p), Gamma(Omega1)=0 but Gamma(M tensor Omega1)=Gamma(O(p-2)) is nonzero. Implement sheaf tensors and stalkwise/local Taylor quasi-nilpotence, or a justified affine/QC basis with descent and an explicitly restricted equivalence. State the affine scope of the PD-stratification prototype. See independent review R2.
-
-**R4: source-qualified admissible residue embeddings**. DL Appendix B.2 requires the degree-zero embedding lift smooth over W, flat and generically smooth over W[t], the t=0 fibre a relative SNC divisor over W, and precisely its divisor log. Relate the special fibre to this actual map and construct compatible higher embedding levels. The current AdmissibleTubeEmbedding records only a flat finite-presentation map, arbitrary SNC boundary, unrelated mod-p family identification and K-generic smoothness. These do not state the source geometry; see independent review R4.
-
-**R5: geometric rational coefficient adapter and filtered sheaf evaluation**. R06.2 owns filtered (φ,N) modules/period normalization, not geometric coefficient crystals on semistable models. Build the rational category from CR.5/CR.7 compatible completed finite locally free crystals with p-inversion, specify its Frobenius/model pullback and de Rham sheaf evaluation, and define a locally split transverse sheaf filtration. Global module complements on arbitrary nonaffine generic fibres are not the intended condition. An explicitly affine/QC client needs descent to reach the full target; see independent review R5.
+The file was checked with lean-check in the existing pinned Mathlib build, with only placeholder-proof warnings. Elaboration checks types; no proof or implementation is certified. The Tau Ceti exponential wrapper is unbuilt in that shared environment, so the prototype uses its underlying existing Mathlib operation. Coordinate ring clients and global finite projectivity retain explicit affine hypotheses. All four stages are planned, the four inherited gaps and nine owner requests remain, and a fresh independent review is required.
