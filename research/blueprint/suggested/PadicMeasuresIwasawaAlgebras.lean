@@ -5343,11 +5343,13 @@ Auslander–Reiten transpose instead of restating them. `TauCeti.Module.fittingI
 `TauCeti.Iwasawa.charIdempotent` are stand-ins for objects that L6 does not own (the Fitting-ideal
 carrier of the Tau Ceti roadmap StableReduction, Layer 1, and the L4 character idempotent).
 
-Elaboration. The shared build at the pinned Mathlib has no object files for the Tau Ceti modules
-this file imports, so the file was not elaborated with its own import lines. The L6 block was
-elaborated with verbatim copies of the pinned Tau Ceti declarations it uses in place of the
-imports, and so was the whole file with every unbuilt pinned module inlined: no errors, and no
-warnings other than the proof placeholders. Nothing here is claimed formalised.
+Historical elaboration (7 October). The shared build then lacked object files for the Tau Ceti
+imports, so the checkpoint used diagnostic harnesses with the missing library declarations.
+
+Completion check (9 October 2026, Codex, session codex-nikABM). The shared build now contains
+the pinned Tau Ceti modules. `lean-check` elaborates this file with its own import lines:
+no errors and 917 warnings, all for `sorry`. No library source is inlined for this check.
+This validates the signatures; all packet implementation statuses remain unchecked.
 
 The packet's review status is needs_changes; the L4 remarks of REV-PadicMeasuresIwasawaAlgebras
 above still apply.
