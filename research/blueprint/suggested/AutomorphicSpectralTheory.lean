@@ -5,6 +5,7 @@ names and signatures. Every proof and construction is provisional. Conditions wh
 carriers are not yet available are omitted explicitly in the adjoining comments; no opaque
 proposition is substituted for them. See the packet's gaps and supplier requests.
 -/
+import Mathlib.NumberTheory.LSeries.RiemannZeta
 import Mathlib.MeasureTheory.Function.L2Space
 import Mathlib.MeasureTheory.Integral.Prod
 import Mathlib.MeasureTheory.Integral.DominatedConvergence
@@ -12,6 +13,7 @@ import Mathlib.Analysis.Calculus.ParametricIntegral
 import Mathlib.Analysis.InnerProductSpace.l2Space
 import Mathlib.Analysis.InnerProductSpace.Spectrum
 import Mathlib.Analysis.Distribution.SchwartzSpace.Fourier
+import Mathlib.Analysis.Distribution.TestFunction
 import Mathlib.Analysis.LocallyConvex.Barrelled
 import Mathlib.Analysis.Meromorphic.Basic
 import Mathlib.Analysis.SpecialFunctions.RegularizedHypergeometric
@@ -20,17 +22,14 @@ import Mathlib.Analysis.Complex.UpperHalfPlane.Metric
 import Mathlib.Analysis.Complex.UpperHalfPlane.Measure
 import Mathlib.RepresentationTheory.Basic
 import Mathlib.Analysis.Fourier.AddCircleMulti
-import Mathlib.Analysis.Fourier.FiniteAbelian.Orthogonality
+import Mathlib.Analysis.Fourier.FiniteAbelian.PontryaginDuality
 import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
 import Mathlib.RingTheory.RootsOfUnity.PrimitiveRoots
 import Mathlib.Topology.Algebra.Module.Basic
+import Mathlib.Algebra.Polynomial.Module.AEval
 import Mathlib.Algebra.Homology.HomologicalComplex
 import Mathlib.Algebra.Category.ModuleCat.Basic
-import TauCeti.Analysis.Semigroups.Group.Stone.Unbounded
-import TauCeti.RepresentationTheory.Compact.PeterWeyl
-import TauCeti.Analysis.Complex.Conformal.Vitali
-import TauCeti.Analysis.Fredholm.CompactPerturbation
 
 noncomputable section
 set_option autoImplicit false
@@ -124,6 +123,7 @@ theorem constant_scalar (M : measurable_hilbert_field X
     (s : X → ℂ) : s ∈ M.sections ↔ Measurable s := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.measurable_hilbert_field.constant_scalar
+-- For the standard constant ℂ field, with the constant-one section in M, M is exactly the measurable complex functions.
 -- For the standard constant ℂ field (the constant-one section is measurable),
 -- M is exactly the measurable complex functions.
 example (M : measurable_hilbert_field X
@@ -188,6 +188,7 @@ theorem scalar_L2 (M : measurable_hilbert_field X
     Nonempty ((direct_integral M μ).Carrier ≃ₗᵢ[ℂ] Lp ℂ 2 μ) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.direct_integral.scalar_L2
+-- The standard constant ℂ field, with the constant-one section in M, identifies unitarily with L²(μ;ℂ).
 -- The standard constant ℂ field identifies unitarily with L²(μ;ℂ).
 example (M : measurable_hilbert_field X
     (fun _ => (⟨ℂ, inferInstance, inferInstance, inferInstance⟩ : HilbertModel)))
@@ -227,6 +228,13 @@ def decomposable_operator {X : Type u} [MeasurableSpace X] {H K : X → HilbertM
     (direct_integral M μ).Carrier →L[ℂ] (direct_integral N μ).Carrier := by sorry
 
 namespace decomposable_operator
+theorem identityMeas {X : Type u} [MeasurableSpace X] {H : X → HilbertModel.{v}}
+    (M : measurable_hilbert_field X H) :
+    ∀ s ∈ M.sections, (fun x => ContinuousLinearMap.id ℂ (H x).Carrier (s x)) ∈ M.sections := by sorry
+
+theorem identityBound {X : Type u} [MeasurableSpace X] {H : X → HilbertModel.{v}}
+    (μ : Measure X) : ∃ C : ℝ, ∀ᵐ x ∂μ, ‖ContinuousLinearMap.id ℂ (H x).Carrier‖ ≤ C := by sorry
+
 variable {X : Type u} [MeasurableSpace X] {H K : X → HilbertModel.{v}}
 variable (M : measurable_hilbert_field X H) (N : measurable_hilbert_field X K) (μ : Measure X)
 variable (A : ∀ x, (H x).Carrier →L[ℂ] (K x).Carrier)
@@ -247,12 +255,18 @@ theorem adjoint (A' : ∀ x, (K x).Carrier →L[ℂ] (H x).Carrier)
       decomposable_operator N M μ A' hA' hB' := by sorry
 
 theorem identity (hNonzero : Nontrivial (direct_integral M μ).Carrier) :
-    ‖(ContinuousLinearMap.id ℂ (direct_integral M μ).Carrier)‖ = 1 := by sorry
+    decomposable_operator M M μ (fun x => ContinuousLinearMap.id ℂ (H x).Carrier)
+      (identityMeas M) (identityBound μ) = ContinuousLinearMap.id ℂ (direct_integral M μ).Carrier ∧
+    ‖decomposable_operator M M μ (fun x => ContinuousLinearMap.id ℂ (H x).Carrier)
+      (identityMeas M) (identityBound μ)‖ = 1 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.decomposable_operator.identity
--- The identity field induces the identity operator with norm 1 on a nonzero direct integral.
+-- For the identity operator field, its decomposable operator is the identity on the direct integral and has norm one on a nonzero scalar fibre model.
 example (hNonzero : Nontrivial (direct_integral M μ).Carrier) :
-    ‖(ContinuousLinearMap.id ℂ (direct_integral M μ).Carrier)‖ = 1 := by sorry
+    decomposable_operator M M μ (fun x => ContinuousLinearMap.id ℂ (H x).Carrier)
+      (identityMeas M) (identityBound μ) = ContinuousLinearMap.id ℂ (direct_integral M μ).Carrier ∧
+    ‖decomposable_operator M M μ (fun x => ContinuousLinearMap.id ℂ (H x).Carrier)
+      (identityMeas M) (identityBound μ)‖ = 1 := by sorry
 
 
 theorem null_change (B : ∀ x, (H x).Carrier →L[ℂ] (K x).Carrier)
@@ -268,11 +282,19 @@ example (B : ∀ x, (H x).Carrier →L[ℂ] (K x).Carrier)
     decomposable_operator M N μ A hA hB = decomposable_operator M N μ B hMeas hBound := by sorry
 
 
-theorem unbounded_multiplier : ¬ ∃ C : ℝ, ∀ᵐ x : ℝ ∂volume, |x| ≤ C := by sorry
+theorem unbounded_multiplier :
+    ¬ ∃ T : Lp ℂ 2 (volume : Measure ℝ) →L[ℂ] Lp ℂ 2 (volume : Measure ℝ),
+      ∀ f : Lp ℂ 2 (volume : Measure ℝ),
+        HasCompactSupport (fun x : ℝ => f x) →
+        ∀ᵐ x : ℝ ∂volume, T f x = (x : ℂ) * f x := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.decomposable_operator.unbounded_multiplier
--- Multiplication by x on L²(ℝ) is not a bounded decomposable operator.
-example : ¬ ∃ C : ℝ, ∀ᵐ x : ℝ ∂volume, |x| ≤ C := by sorry
+-- Multiplication by the real coordinate on L²(ℝ) has no bounded extension agreeing almost everywhere on all compactly supported vectors.
+example :
+    ¬ ∃ T : Lp ℂ 2 (volume : Measure ℝ) →L[ℂ] Lp ℂ 2 (volume : Measure ℝ),
+      ∀ f : Lp ℂ 2 (volume : Measure ℝ),
+        HasCompactSupport (fun x : ℝ => f x) →
+        ∀ᵐ x : ℝ ∂volume, T f x = (x : ℂ) * f x := by sorry
 
 end decomposable_operator
 
@@ -438,18 +460,24 @@ example (b : HilbertBasis ι ℂ H) (u : H) (v : K) :
     ∃ T : hilbert_schmidt (K := K) b, T.val = rankOne u v ∧ hsNorm b T = ‖u‖ * ‖v‖ := by sorry
 
 
-theorem infinite_identity : ¬ Summable (fun _ : ℕ => (1 : ℝ) ^ 2) := by sorry
+theorem infinite_identity (b : HilbertBasis ℕ ℂ H) :
+    ¬ ∃ T : hilbert_schmidt (K := H) b, T.val = ContinuousLinearMap.id ℂ H := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.hilbert_schmidt.infinite_identity
--- The identity on ℓ²(ℕ) is not Hilbert–Schmidt.
-example : ¬ Summable (fun _ : ℕ => (1 : ℝ) ^ 2) := by sorry
+-- On a Hilbert space with an ℕ-indexed Hilbert basis the identity has no Hilbert–Schmidt representative.
+example (b : HilbertBasis ℕ ℂ H) :
+    ¬ ∃ T : hilbert_schmidt (K := H) b, T.val = ContinuousLinearMap.id ℂ H := by sorry
 
 
-theorem finite_identity (n : ℕ) : Real.sqrt (∑ _ : Fin n, (1 : ℝ) ^ 2) = Real.sqrt n := by sorry
+theorem finite_identity (n : ℕ) (b : HilbertBasis (Fin n) ℂ H) :
+    ∃ T : hilbert_schmidt (K := H) b,
+      T.val = ContinuousLinearMap.id ℂ H ∧ hsNorm b T = Real.sqrt n := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.hilbert_schmidt.finite_identity
--- The identity on ℂⁿ has HS norm √n.
-example (n : ℕ) : Real.sqrt (∑ _ : Fin n, (1 : ℝ) ^ 2) = Real.sqrt n := by sorry
+-- On an n-dimensional Hilbert space the actual identity is Hilbert–Schmidt and has Hilbert–Schmidt norm √n.
+example (n : ℕ) (b : HilbertBasis (Fin n) ℂ H) :
+    ∃ T : hilbert_schmidt (K := H) b,
+      T.val = ContinuousLinearMap.id ℂ H ∧ hsNorm b T = Real.sqrt n := by sorry
 
 end hilbert_schmidt
 
@@ -464,6 +492,12 @@ def traceNorm (A : trace_class H) : ℝ := by sorry
 def operatorTrace (A : trace_class H) : ℂ := by sorry
 
 namespace trace_class
+/-- Bounded diagonal operator on the supplied complete orthonormal basis. -/
+def harmonicDiagonal (b : HilbertBasis ℕ ℂ H) : H →L[ℂ] H := by sorry
+
+theorem harmonicDiagonal_apply (b : HilbertBasis ℕ ℂ H) (n : ℕ) :
+    harmonicDiagonal b (b n) = ((n + 1 : ℂ)⁻¹) • b n := by sorry
+
 variable {ι κ : Type v} [Countable ι] [Countable κ]
 theorem trace_basis (A : trace_class H) (b : HilbertBasis ι ℂ H) :
     Summable (fun i => ‖inner ℂ (b i) (A.val (b i))‖) ∧
@@ -490,15 +524,15 @@ example (u v : H) :
     ∃ T : trace_class H, T.val = rankOne u v ∧ operatorTrace T = inner ℂ u v := by sorry
 
 
-theorem diagonal_harmonic :
-    Summable (fun n : ℕ => ((n + 1 : ℝ)⁻¹) ^ 2) ∧
-      ¬ Summable (fun n : ℕ => (n + 1 : ℝ)⁻¹) := by sorry
+theorem diagonal_harmonic (b : HilbertBasis ℕ ℂ H) :
+    (∃ T : hilbert_schmidt (K := H) b, T.val = harmonicDiagonal b) ∧
+      ¬ ∃ T : trace_class H, T.val = harmonicDiagonal b := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.trace_class.diagonal_harmonic
--- diag(1/(n+1)) on ℓ² is Hilbert–Schmidt and is not trace class.
-example :
-    Summable (fun n : ℕ => ((n + 1 : ℝ)⁻¹) ^ 2) ∧
-      ¬ Summable (fun n : ℕ => (n + 1 : ℝ)⁻¹) := by sorry
+-- The bounded diagonal operator with basis coefficients 1/(n+1) is Hilbert–Schmidt and has no trace-class representative.
+example (b : HilbertBasis ℕ ℂ H) :
+    (∃ T : hilbert_schmidt (K := H) b, T.val = harmonicDiagonal b) ∧
+      ¬ ∃ T : trace_class H, T.val = harmonicDiagonal b := by sorry
 
 
 theorem projection_trace (P : H →L[ℂ] H) (hIdem : P.comp P = P)
@@ -538,6 +572,30 @@ Nuclearity and the general LF universal property are omitted here, not made opaq
     TopologicalSpace E := by sorry
 
 namespace nuclear_lf_space
+abbrev RealTests := TestFunction (⊤ : TopologicalSpace.Opens ℝ) ℂ ⊤
+
+def realCompact (n : ℕ) : TopologicalSpace.Compacts ℝ :=
+  ⟨Set.Icc (-(n : ℝ)) n, isCompact_Icc⟩
+
+def realPieces (n : ℕ) : Submodule ℂ RealTests where
+  carrier := {f | Function.support f ⊆ realCompact n}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+/-- Actual identification with the fixed-support smooth carrier, preserving evaluations. -/
+def realStageEquiv (n : ℕ) :
+    realPieces n ≃ₗ[ℂ] ContDiffMapSupportedIn ℝ ℂ ⊤ (realCompact n) := by sorry
+
+@[instance_reducible] def realStageTopology (n : ℕ) : TopologicalSpace (realPieces n) :=
+  TopologicalSpace.induced (realStageEquiv n) inferInstance
+
+theorem realStageEquiv_apply (n : ℕ) (f : realPieces n) (x : ℝ) :
+    realStageEquiv n f x = f.val x := by sorry
+
+def translate (f : RealTests) (n : ℕ) : RealTests :=
+  ⟨fun x => f (x - n), by sorry, by sorry, by sorry⟩
+
 variable {E : Type u} [AddCommGroup E] [Module ℂ E]
 def supportLevelPiece {G : Type v} (support : Set G) (invariant : (G → ℂ) → Prop) :
     Set (G → ℂ) := {f | Function.support f ⊆ support ∧ invariant f}
@@ -562,32 +620,42 @@ theorem bounded_stage [TopologicalSpace E] (pieces : ℕ → Submodule ℂ E)
 
 def distributionDual [TopologicalSpace E] : Type u := E →L[ℂ] ℂ
 
-theorem finite_group (G : Type u) [Fintype G] : FiniteDimensional ℂ (G → ℂ) := by sorry
+theorem finite_group (G : Type u) [Fintype G] :
+    nuclear_lf_space (G → ℂ) (fun _ => ⊤)
+      (fun _ => TopologicalSpace.induced (Subtype.val : (⊤ : Submodule ℂ (G → ℂ)) → G → ℂ)
+        inferInstance) = (inferInstance : TopologicalSpace (G → ℂ)) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.nuclear_lf_space.finite_group
--- For a finite discrete group, 𝓓(G)=ℂ^G with its finite-dimensional topology.
-example (G : Type u) [Fintype G] : FiniteDimensional ℂ (G → ℂ) := by sorry
+-- The constant finite-group function stages induce exactly the usual finite-dimensional topology on their function space.
+example (G : Type u) [Fintype G] :
+    nuclear_lf_space (G → ℂ) (fun _ => ⊤)
+      (fun _ => TopologicalSpace.induced (Subtype.val : (⊤ : Submodule ℂ (G → ℂ)) → G → ℂ)
+        inferInstance) = (inferInstance : TopologicalSpace (G → ℂ)) := by sorry
 
 
-theorem real_line (K : Set ℝ) :
-    supportLevelPiece K (fun f : ℝ → ℂ => ContDiff ℝ ⊤ f) =
-      {f : ℝ → ℂ | Function.support f ⊆ K ∧ ContDiff ℝ ⊤ f} := by sorry
+theorem real_line :
+    nuclear_lf_space RealTests realPieces realStageTopology =
+      (inferInstance : TopologicalSpace RealTests) ∧
+    ∀ n : ℕ, @Topology.IsClosedEmbedding (realPieces n) RealTests
+      (realStageTopology n) inferInstance Subtype.val := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.nuclear_lf_space.real_line
--- For G=(ℝ,+), fixed-compact pieces agree with the usual C∞ compact-support seminorm spaces.
-example (K : Set ℝ) :
-    supportLevelPiece K (fun f : ℝ → ℂ => ContDiff ℝ ⊤ f) =
-      {f : ℝ → ℂ | Function.support f ⊆ K ∧ ContDiff ℝ ⊤ f} := by sorry
+-- For real smooth compactly supported tests, the support-stage construction agrees with Mathlib TestFunction topology, and each fixed-support stage embeds as a closed subspace.
+example :
+    nuclear_lf_space RealTests realPieces realStageTopology =
+      (inferInstance : TopologicalSpace RealTests) ∧
+    ∀ n : ℕ, @Topology.IsClosedEmbedding (realPieces n) RealTests
+      (realStageTopology n) inferInstance Subtype.val := by sorry
 
 
 /-- An escaping support family is not confined to any fixed compact piece. -/
-theorem escaping_support (f : ℝ → ℂ) (hf : f 0 ≠ 0) (K : Set ℝ) (hK : IsCompact K) :
-    ∃ n : ℕ, ¬ Function.support (fun x : ℝ => f (x - n)) ⊆ K := by sorry
+theorem escaping_support (f : RealTests) (hf : f 0 ≠ 0) :
+    ¬ Bornology.IsVonNBounded ℂ (Set.range (translate f)) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.nuclear_lf_space.escaping_support
--- Unit translated bumps with supports escaping every compact are not a bounded set in 𝓓(ℝ).
-example (f : ℝ → ℂ) (hf : f 0 ≠ 0) (K : Set ℝ) (hK : IsCompact K) :
-    ∃ n : ℕ, ¬ Function.support (fun x : ℝ => f (x - n)) ⊆ K := by sorry
+-- The translates by n of a fixed nonzero real test function are not von Neumann bounded in the actual LF topology; failure of a common support alone is not the conclusion.
+example (f : RealTests) (hf : f 0 ≠ 0) :
+    ¬ Bornology.IsVonNBounded ℂ (Set.range (translate f)) := by sorry
 
 end nuclear_lf_space
 
@@ -709,6 +777,13 @@ def operator_meromorphic {E : Type u} {F : Type v} [NormedAddCommGroup E] [Norme
   {A : ℂ → E →L[ℂ] F // CommonDenominator U A}
 
 namespace operator_meromorphic
+/-- Algebraic direct-sum example: every vector has finite support, so these are
+linear maps although no bounded operator exists on the Hilbert completion for small z. -/
+def directSumPoles (z : ℂ) : (ℕ →₀ ℂ) →ₗ[ℂ] (ℕ →₀ ℂ) := by sorry
+
+theorem directSumPoles_apply (z : ℂ) (v : ℕ →₀ ℂ) (n : ℕ) :
+    directSumPoles z v n = z ^ (-(n : ℤ)) * v n := by sorry
+
 variable {E : Type u} {F : Type v} {G : Type w} [NormedAddCommGroup E] [NormedSpace ℂ E]
 variable [NormedAddCommGroup F] [NormedSpace ℂ F]
 variable [NormedAddCommGroup G] [NormedSpace ℂ G]
@@ -745,11 +820,23 @@ example (U : Set ℂ) (A : operator_meromorphic (E := E) (F := F) U)
 
 
 /-- Finite pole orders on individual basis vectors do not imply one bound. -/
-theorem pointwise_orders : ¬ ∃ N : ℕ, ∀ n : ℕ, n ≤ N := by sorry
+theorem pointwise_orders :
+    (∀ v : ℕ →₀ ℂ, ∀ n : ℕ,
+      CommonDenominator Set.univ (fun z => directSumPoles z v n)) ∧
+    ¬ ∃ N : ℕ, ∃ r : ℝ, 0 < r ∧ ∀ n : ℕ, ∃ g : ℂ → ℂ,
+      AnalyticOnNhd ℂ g (Metric.ball 0 r) ∧
+        ∀ z ∈ Metric.ball 0 r, z ≠ 0 →
+          g z = z ^ N * directSumPoles z (Finsupp.single n 1) n := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.operator_meromorphic.pointwise_orders
--- On the algebraic direct sum with A(z)e_n=z^(−n)e_n, pointwise scalar meromorphy supplies no common finite pole order.
-example : ¬ ∃ N : ℕ, ∀ n : ℕ, n ≤ N := by sorry
+-- For the direct-sum family with nth coordinate z^(−n), every finitely supported vector has a local denominator, but no common exponent and radius regularize all basis vectors.
+example :
+    (∀ v : ℕ →₀ ℂ, ∀ n : ℕ,
+      CommonDenominator Set.univ (fun z => directSumPoles z v n)) ∧
+    ¬ ∃ N : ℕ, ∃ r : ℝ, 0 < r ∧ ∀ n : ℕ, ∃ g : ℂ → ℂ,
+      AnalyticOnNhd ℂ g (Metric.ball 0 r) ∧
+        ∀ z ∈ Metric.ball 0 r, z ≠ 0 →
+          g z = z ^ N * directSumPoles z (Finsupp.single n 1) n := by sorry
 
 end operator_meromorphic
 
@@ -850,6 +937,7 @@ theorem test2 (y : ℝ) (hy : 0 < y) :
     dit_112 1 (1 / 2) y = y * Complex.exp (-y / 2) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_112.test2
+-- At μ=1, ν=1/2 and y>0, M_{1,1/2}(y)=y e^(−y/2), so the growing-asymptotic coefficient vanishes.
 -- At μ=ν+1/2, the general growing-asymptotic coefficient can vanish, so exceptional parameters require care.
 example (y : ℝ) (hy : 0 < y) :
     dit_112 1 (1 / 2) y = y * Complex.exp (-y / 2) := by sorry
@@ -859,6 +947,7 @@ theorem test3 (t : ℝ) (ht : 0 < t) :
     dit_112 0 (1 / 2) (2 * t * Real.sin (Real.pi / 2)) = (2 * Real.sinh t : ℝ) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_112.test3
+-- For t>0, M_{0,1/2}(2t sin(π/2))=2 sinh(t); replacing the argument by t sin(π/2) gives the wrong value.
 -- The argument in Lemma 7 is 2 t sin θ, not t sin θ.
 example (t : ℝ) (ht : 0 < t) :
     dit_112 0 (1 / 2) (2 * t * Real.sin (Real.pi / 2)) = (2 * Real.sinh t : ℝ) := by sorry
@@ -1042,6 +1131,7 @@ theorem bare_sum (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane)
       gz_66 1 z ((effectiveModularGroup N).orbit j z')) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_66.bare_sum
+-- The Γ₀(N) sum at s=1 diverges; subtract the pole before taking the finite part.
 -- Full Γ₀(N)/±I lattice, off the diagonal; subtract the pole before taking the finite part.
 example (N : ℕ) (hN : 1 ≤ N) (z z' : UpperHalfPlane)
     (hOff : ∀ j : (effectiveModularGroup N).Index,
@@ -1146,22 +1236,73 @@ theorem gz_217 (B : SpecialFunctions) (s : ℂ) (t : ℝ) (ht : 0 < t) :
     normalizedV 1 s t = -2 * Complex.I / Real.sqrt t *
       (B.besselK (1 / 2 + s) (2 * Real.pi * t) + B.besselK (1 / 2 - s) (2 * Real.pi * t)) := by sorry
 
-/-- Review blocker: these two signatures still omit the source's initial continuous data,
-two-sided functional equation and uniform finite strip order. These conditions are already
-expressible in the normed restrictions and must be restored; see the independent review. -/
-theorem schwartz_family_continuation (Z : ℂ → SchwartzMap ℝ ℂ)
-    (scalar : ℝ → ℂ → ℂ) (hScalar : ∀ x, AnalyticOnNhd ℂ (scalar x) Set.univ)
-    (hInitial : ∀ s : ℂ, 1 < s.re → ∀ x : ℝ, Z s x = scalar x s) :
-    ∃ Y : ℂ → SchwartzMap ℝ ℂ, ∀ s x, Y s x = scalar x s := by sorry
+/-- Finite strip order in the full Schwartz topology: one exponent works for every
+weighted derivative seminorm; the bounding constant may depend on the seminorm. -/
+def SchwartzStripOrder {A : Type u} [NormedAddCommGroup A] [NormedSpace ℝ A]
+    (Z : ℂ → SchwartzMap A ℂ) (d C : ℝ) : Prop :=
+  ∀ d' : ℝ, d < d' → ∀ a b : ℝ, C < a → a ≤ b → ∀ k n : ℕ,
+    ∃ M : ℝ, ∀ s : ℂ, a ≤ s.re → s.re ≤ b →
+      Real.exp (-(‖s‖ ^ d')) * SchwartzMap.seminorm ℂ k n (Z s) ≤ M
 
+/-- BPCZ A.0.11.1, pp.332–333. Differentiability here uses Mathlib's general
+TVS calculus and the usual Fréchet topology of SchwartzMap, not a single norm. -/
+theorem schwartz_family_continuation {A : Type u} [NormedAddCommGroup A]
+    [NormedSpace ℝ A] [FiniteDimensional ℝ A]
+    (C : ℝ) (hC : 0 < C) (Zp Zm : ℂ → SchwartzMap A ℂ)
+    (hp : DifferentiableOn ℂ Zp {s | C < s.re})
+    (hm : DifferentiableOn ℂ Zm {s | C < s.re})
+    (hOrderp : ∃ d : ℝ, 0 < d ∧ SchwartzStripOrder Zp d C)
+    (hOrderm : ∃ d : ℝ, 0 < d ∧ SchwartzStripOrder Zm d C)
+    (scalarp scalarm : A → ℂ → ℂ)
+    (hScalarp : ∀ x, AnalyticOnNhd ℂ (scalarp x) Set.univ)
+    (hScalarm : ∀ x, AnalyticOnNhd ℂ (scalarm x) Set.univ)
+    (hScalarOrderp : ∀ x, ∀ a : ℝ, FiniteStripOrder (scalarp x) a)
+    (hScalarOrderm : ∀ x, ∀ a : ℝ, FiniteStripOrder (scalarm x) a)
+    (hInitialp : ∀ s, C < s.re → ∀ x, Zp s x = scalarp x s)
+    (hInitialm : ∀ s, C < s.re → ∀ x, Zm s x = scalarm x s)
+    (hFE : ∀ s x, scalarp x s = scalarm x (-s)) :
+    ∃ Yp Ym : ℂ → SchwartzMap A ℂ,
+      DifferentiableOn ℂ Yp Set.univ ∧ DifferentiableOn ℂ Ym Set.univ ∧
+      (∀ s x, Yp s x = scalarp x s ∧ Ym s x = scalarm x s) ∧
+      (∀ s, C < s.re → Yp s = Zp s ∧ Ym s = Zm s) ∧
+      (∀ s, Yp s = Ym (-s)) ∧
+      (∀ a : ℝ, (∃ d : ℝ, 0 < d ∧ SchwartzStripOrder Yp d a) ∧
+        (∃ d : ℝ, 0 < d ∧ SchwartzStripOrder Ym d a)) ∧
+      (∀ Yp' Ym' : ℂ → SchwartzMap A ℂ,
+        (∀ s x, Yp' s x = scalarp x s ∧ Ym' s x = scalarm x s) →
+        Yp' = Yp ∧ Ym' = Ym) := by sorry
+
+/-- BPCZ A.0.11.2, p.333, restricted to Banach spaces (one-stage LF spaces).
+The conclusion constructs continuous functionals and asserts weak holomorphy and weak
+finite order through evaluations. General LF carriers are not encoded by this specialization. -/
 theorem lf_dual_continuation {E : Type u} [NormedAddCommGroup E] [NormedSpace ℂ E]
     [CompleteSpace E] (H : Submodule ℂ E) (hDense : Dense (H : Set E))
-    (Zp Zm : ℂ → E →ₗ[ℂ] ℂ)
-    (hp : ∀ h : H, AnalyticOnNhd ℂ (fun s => Zp s h) Set.univ)
-    (hm : ∀ h : H, AnalyticOnNhd ℂ (fun s => Zm s h) Set.univ)
-    (hFE : ∀ s (h : H), Zp s h = Zm (-s) h) :
-    (∀ s, Continuous (Zp s) ∧ Continuous (Zm s)) ∧
-      ∀ s x, Zp s x = Zm (-s) x := by sorry
+    (C d : ℝ) (hC : 0 < C) (hd : 0 < d) (Zp Zm : ℂ → E →L[ℂ] ℂ)
+    (hp : ∀ w, AnalyticOnNhd ℂ (fun s => Zp s w) {s | C < s.re})
+    (hm : ∀ w, AnalyticOnNhd ℂ (fun s => Zm s w) {s | C < s.re})
+    (hOrderp : ∀ w, StripOrder (fun s => Zp s w) d C)
+    (hOrderm : ∀ w, StripOrder (fun s => Zm s w) d C)
+    (scalarp scalarm : H → ℂ → ℂ)
+    (hScalarp : ∀ h, AnalyticOnNhd ℂ (scalarp h) Set.univ)
+    (hScalarm : ∀ h, AnalyticOnNhd ℂ (scalarm h) Set.univ)
+    (hScalarOrderp : ∀ h, ∀ a : ℝ, FiniteStripOrder (scalarp h) a)
+    (hScalarOrderm : ∀ h, ∀ a : ℝ, FiniteStripOrder (scalarm h) a)
+    (hInitialp : ∀ s, C < s.re → ∀ h : H, Zp s h = scalarp h s)
+    (hInitialm : ∀ s, C < s.re → ∀ h : H, Zm s h = scalarm h s)
+    (hFE : ∀ s h, scalarp h s = scalarm h (-s)) :
+    ∃ Yp Ym : ℂ → E →L[ℂ] ℂ,
+      (∀ w, AnalyticOnNhd ℂ (fun s => Yp s w) Set.univ ∧
+        AnalyticOnNhd ℂ (fun s => Ym s w) Set.univ) ∧
+      (∃ D : ℝ, 0 < D ∧ ∀ w, ∀ a : ℝ,
+        StripOrder (fun s => Yp s w) D a ∧ StripOrder (fun s => Ym s w) D a) ∧
+      (∀ s, C < s.re → Yp s = Zp s ∧ Ym s = Zm s) ∧
+      (∀ s (h : H), Yp s h = scalarp h s ∧ Ym s h = scalarm h s) ∧
+      (∀ s w, Yp s w = Ym (-s) w) ∧
+      (∀ Yp' Ym' : ℂ → E →L[ℂ] ℂ,
+        (∀ w, AnalyticOnNhd ℂ (fun s => Yp' s w) Set.univ ∧
+          AnalyticOnNhd ℂ (fun s => Ym' s w) Set.univ) →
+        (∀ s, C < s.re → Yp' s = Zp s ∧ Ym' s = Zm s) →
+        Yp' = Yp ∧ Ym' = Ym) := by sorry
 end TauCeti.AutomorphicSpectral
 
 namespace TauCeti.AutomorphicSpectral
@@ -1238,6 +1379,17 @@ variable (p : H →* K) [Fintype p.ker] (hp : Function.Surjective p)
 def yu_148 (f : H → ℂ) (y : K) : ℂ :=
   (Fintype.card p.ker : ℂ)⁻¹ * ∑ k : p.ker, f (Classical.choose (hp y) * k.val)
 namespace yu_148
+def squareCover : Circle →* Circle where
+  toFun z := z ^ 2
+  map_one' := by sorry
+  map_mul' := by sorry
+
+instance squareCoverKernel : Fintype squareCover.ker := by sorry
+
+theorem squareCoverSurjective : Function.Surjective squareCover := by sorry
+
+theorem squareCover_kernel : Fintype.card squareCover.ker = 2 := by sorry
+
 
 theorem transfer (f : H → ℂ) (x : H) :
     yu_148 p hp f (p x) = (Fintype.card p.ker : ℂ)⁻¹ * ∑ k : p.ker, f (x * k.val) := by sorry
@@ -1259,34 +1411,64 @@ example (y : K) : yu_148 p hp (fun _ => 1) y = 1 := by sorry
 
 
 /-- Finite-fibre square-map computation, independent of any choice of square-root branch. -/
-theorem test2 (z : ℂ) : ((z ^ 2 + (-z) ^ 2) / 2 = z ^ 2) ∧ (z + (-z)) / 2 = 0 := by sorry
+theorem test2 (y : Circle) :
+    yu_148 squareCover squareCoverSurjective (fun z => (z : ℂ) ^ 2) y = (y : ℂ) ∧
+      yu_148 squareCover squareCoverSurjective (fun z => (z : ℂ)) y = 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_148.test2
--- For p:Circle→Circle,z↦z², Tr_p(z↦z²)(y)=y and Tr_p(z↦z)(y)=0.
-example (z : ℂ) : ((z ^ 2 + (-z) ^ 2) / 2 = z ^ 2) ∧ (z + (-z)) / 2 = 0 := by sorry
+-- For the circle square-cover, normalized transfer of z² is the target coordinate and transfer of z is zero.
+example (y : Circle) :
+    yu_148 squareCover squareCoverSurjective (fun z => (z : ℂ) ^ 2) y = (y : ℂ) ∧
+      yu_148 squareCover squareCoverSurjective (fun z => (z : ℂ)) y = 0 := by sorry
 
 
-theorem test3 : ((1 : ℂ) + 1) ≠ 1 := by sorry
+theorem test3 (y : Circle) :
+    (∑ k : squareCover.ker,
+      (fun _ : Circle => (1 : ℂ)) (Classical.choose (squareCoverSurjective y) * k.val)) = 2 ∧
+      yu_148 squareCover squareCoverSurjective (fun _ => 1) y = 1 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_148.test3
--- For z↦z² the unnormalized sum of the constant function one is two; it cannot replace Tr_p.
-example : ((1 : ℂ) + 1) ≠ 1 := by sorry
+-- For the same degree-two cover the normalized transfer of one is one, whereas the unnormalized kernel sum is two.
+example (y : Circle) :
+    (∑ k : squareCover.ker,
+      (fun _ : Circle => (1 : ℂ)) (Classical.choose (squareCoverSurjective y) * k.val)) = 2 ∧
+      yu_148 squareCover squareCoverSurjective (fun _ => 1) y = 1 := by sorry
 
 end yu_148
 
-/-- The character lattice and manifold smoothness are supplier interfaces. Absolute
-summability is part of the conclusion; the smooth compact-torus hypotheses are omitted
-in this general character-index signature. -/
-theorem yu_149 {I : Type w} [Countable I] [MeasurableSpace H] [MeasurableSpace K]
-    (μ : Measure H) (characters : I → K → ℂˣ) (f : H → ℂ) (y : K) :
-    HasSum (fun i => ∫ x, (characters i (p x / y) : ℂ) * f x ∂μ) (yu_148 p hp f y) ∧
-      Summable (fun i => ‖∫ x, (characters i (p x / y) : ℂ) * f x ∂μ‖) := by sorry
 end Transfer
 
-theorem yu_150 {d : ℕ} (coeff : (Fin d → ℤ) → ℂ) (s : ℕ) (hs : d < 2 * s)
-    (hSmoothBound : ∃ C : ℝ, ∀ k, ‖coeff k‖ ≤ C *
+/-- The finite compact abelian specialization of Yu §5.2.3, pp.34–36.
+The index is the entire complex character group; counting Haar is normalized to mass one.
+The smooth torus/manifold and finite-component transport needed for the full packet
+statement is not encoded by this finite specialization. -/
+theorem yu_149 {H : Type u} {K : Type v} [CommGroup H] [CommGroup K]
+    [Fintype H] [Fintype K] [MeasurableSpace H] [MeasurableSingletonClass H]
+    (p : H →* K) [Fintype p.ker] (hp : Function.Surjective p)
+    (μ : Measure H) [IsProbabilityMeasure μ]
+    (hHaar : μ = (Fintype.card H : ℝ≥0∞)⁻¹ • Measure.count)
+    (f : H → ℂ) (y : K) :
+    HasSum (fun χ : AddChar (Additive K) ℂ =>
+      ∫ x, χ (Additive.ofMul (p x / y)) * f x ∂μ) (yu_148 p hp f y) ∧
+      Summable (fun χ : AddChar (Additive K) ℂ =>
+        ‖∫ x, χ (Additive.ofMul (p x / y)) * f x ∂μ‖) := by sorry
+
+/-- The numerical lattice estimate is a helper, not the smooth Fourier theorem. -/
+theorem fourierDecaySummable {d : ℕ} (coeff : (Fin d → ℤ) → ℂ) (s : ℕ)
+    (hs : d < 2 * s)
+    (hBound : ∃ C : ℝ, ∀ k, ‖coeff k‖ ≤ C *
       (1 + 4 * Real.pi ^ 2 * ∑ i, (k i : ℝ) ^ 2) ^ (-(s : ℤ))) :
     Summable (fun k => ‖coeff k‖) := by sorry
+
+/-- Smoothness is imposed on the periodic lift to the covering real vector space.
+This connected-torus specialization includes dimension zero; finite component transport
+and uniform auxiliary-parameter estimates remain the packet's stated adapters. -/
+theorem yu_150 {d : ℕ} (f : UnitAddTorus (Fin d) → ℂ) (hf : Continuous f)
+    (hSmooth : ContDiff ℝ ⊤ (fun x : Fin d → ℝ => f (fun i => (x i : UnitAddCircle)))) :
+    Summable (fun k => ‖UnitAddTorus.mFourierCoeff f k‖) ∧
+      ∀ s : ℕ, d < 2 * s → ∃ C : ℝ, ∀ k : Fin d → ℤ,
+        ‖UnitAddTorus.mFourierCoeff f k‖ ≤ C *
+          (1 + 4 * Real.pi ^ 2 * ∑ i, (k i : ℝ) ^ 2) ^ (-(s : ℤ)) := by sorry
 end TauCeti.AutomorphicSpectral
 
 namespace TauCeti.AutomorphicSpectral
@@ -1311,6 +1493,20 @@ variable {G : Type u} [Group G] {ι : Type v} [Fintype ι]
 variable (D : InductionData G ι)
 def induced_family (lam : Parameter ι) (g : G) : Operator D.space.Carrier := by sorry
 namespace induced_family
+/-- Rank-one open-cell model of normalized induction. The Haar Jacobian of
+x ↦ r x is compensated by δ^(1/2)=sqrt(r). -/
+def rankOneDilation (r : ℝ) (hr : 0 < r) :
+    Lp ℂ 2 (volume : Measure ℝ) →L[ℂ] Lp ℂ 2 (volume : Measure ℝ) := by sorry
+
+theorem rankOneDilation_apply (r : ℝ) (hr : 0 < r) (f : Lp ℂ 2 (volume : Measure ℝ)) :
+    ∀ᵐ x : ℝ ∂volume, rankOneDilation r hr f x = (Real.sqrt r : ℂ) * f (r * x) := by sorry
+
+def rankOneAction (r : ℝ) (hr : 0 < r) (s : ℂ) :=
+  Complex.exp (s * Real.log r) • rankOneDilation r hr
+
+def unnormalizedDilation (r : ℝ) (hr : 0 < r) :=
+  ((Real.sqrt r : ℂ)⁻¹) • rankOneDilation r hr
+
 /-- The omitted Iwasawa coherence is precisely the source of this representation law. -/
 theorem action_comp (lam : Parameter ι) (g h : G) :
     induced_family D lam (g * h) = (induced_family D lam g).comp (induced_family D lam h) := by sorry
@@ -1341,22 +1537,30 @@ example (g h : G) (v : D.space.Carrier) (hRho : D.rho = 0)
     D.evaluate (induced_family D 0 g v) h = D.evaluate v (h * g) := by sorry
 
 
-theorem rank_one_half_modulus (r : ℝ) (hr : 0 < r) (s : ℂ) :
-    Complex.exp ((s + 1 / 2) * Real.log r) =
-      Complex.exp (s * Real.log r) * (Real.sqrt r : ℂ) := by sorry
+theorem rank_one_half_modulus (r : ℝ) (hr : 0 < r) (s : ℂ)
+    (f : Lp ℂ 2 (volume : Measure ℝ)) :
+    (∀ᵐ x : ℝ ∂volume,
+      rankOneAction r hr s f x = Complex.exp ((s + 1 / 2) * Real.log r) * f (r * x)) ∧
+      (s.re = 0 → ‖rankOneAction r hr s f‖ = ‖f‖) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.induced_family.rank_one_half_modulus
--- For GL₂, δ_B(diag(a,d))=|a/d| and the compact-picture multiplier is |a/d|^(s+1/2), with λ(H)=s log|a/d|.
-example (r : ℝ) (hr : 0 < r) (s : ℂ) :
-    Complex.exp ((s + 1 / 2) * Real.log r) =
-      Complex.exp (s * Real.log r) * (Real.sqrt r : ℂ) := by sorry
+-- The GL₂ open-cell torus model acts by r^(s+1/2)f(rx), and preserves the L² norm for purely imaginary s.
+example (r : ℝ) (hr : 0 < r) (s : ℂ)
+    (f : Lp ℂ 2 (volume : Measure ℝ)) :
+    (∀ᵐ x : ℝ ∂volume,
+      rankOneAction r hr s f x = Complex.exp ((s + 1 / 2) * Real.log r) * f (r * x)) ∧
+      (s.re = 0 → ‖rankOneAction r hr s f‖ = ‖f‖) := by sorry
 
 
-theorem unnormalized_not_unitary : Real.sqrt (4 : ℝ) ≠ 1 := by sorry
+theorem unnormalized_not_unitary (f : Lp ℂ 2 (volume : Measure ℝ)) (hf : f ≠ 0) :
+    ‖unnormalizedDilation 4 (by norm_num) f‖ = ‖f‖ / 2 ∧
+      ‖unnormalizedDilation 4 (by norm_num) f‖ ≠ ‖f‖ := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.induced_family.unnormalized_not_unitary
--- Omitting the half-modulus does not preserve the compact-picture norm for a non-unimodular parabolic.
-example : Real.sqrt (4 : ℝ) ≠ 1 := by sorry
+-- Dropping the half-modulus in the same dilation model, at r=4 a nonzero vector has half its original norm.
+example (f : Lp ℂ 2 (volume : Measure ℝ)) (hf : f ≠ 0) :
+    ‖unnormalizedDilation 4 (by norm_num) f‖ = ‖f‖ / 2 ∧
+      ‖unnormalizedDilation 4 (by norm_num) f‖ ≠ ‖f‖ := by sorry
 
 end induced_family
 
@@ -1406,13 +1610,83 @@ the finite smooth inducing vectors. An arbitrary InductionData, arbitrary slice
 and arbitrary operator family do not imply convergence or a constant-term formula.
 The former universally quantified prototypes have therefore been removed.
 
-convergent_intertwiner.intertwines, .identity, .holomorphic_chamber and packet unit
-tests .identity_quotient, .sl2_spherical and .target_parabolic remain requested exact
-signatures of that carrier. In particular the SL₂ test must evaluate the actual
-convergent integral with completed ξ(s), and the target test must transport the
-inducing datum; an arbitrary M or an inhabited CLM type is not the test.
+The general .intertwines and .holomorphic_chamber signatures require that carrier.
+The concrete integral models below cover the three tests: the point quotient, the
+classical spherical product and a block-permutation slice. The global Bruhat and
+adelic coherence identifying these slices with the full operator remains required.
 -/
 end Induction
+
+/-- Convergent operator integral, restricted to supplied complete normed compact pictures.
+The full adelic integrand, quotient and positive chamber are specified in the packet;
+this constructor does not assert convergence for arbitrary data. -/
+def convergent_intertwiner {U E F : Type*} [MeasurableSpace U]
+    [NormedAddCommGroup E] [NormedSpace ℂ E]
+    [NormedAddCommGroup F] [NormedSpace ℂ F] [CompleteSpace F]
+    (μ : Measure U) (kernel : U → E →L[ℂ] F) : E →L[ℂ] F :=
+  ∫ u, kernel u ∂μ
+
+namespace convergent_intertwiner
+
+def completedXi (s : ℂ) : ℂ :=
+  rpowC Real.pi (-s / 2) * Complex.Gamma (s / 2) * riemannZeta s
+
+/-- Real spherical integral times the unramified finite-prime Euler product.
+The integral is convergent when Re(s)>1; that stronger chamber also converges the
+zeta factors. Identifying the product with an adelic quotient uses the global
+Bruhat/tensor supplier and is not inferred from this scalar model. -/
+def sphericalKernel (s : ℂ) (u : ℝ) : ℂ →L[ℂ] ℂ :=
+  (riemannZeta (2 * s - 1) / riemannZeta (2 * s) *
+    rpowC (1 + u ^ 2) (-s)) • ContinuousLinearMap.id ℂ ℂ
+
+def permuteBlocks {n : ℕ} (w : Equiv.Perm (Fin n)) :
+    (Fin n → ℂ) →L[ℂ] (Fin n → ℂ) := by sorry
+
+theorem permuteBlocks_apply {n : ℕ} (w : Equiv.Perm (Fin n))
+    (v : Fin n → ℂ) (i : Fin n) : permuteBlocks w v i = v (w.symm i) := by sorry
+
+/-- The tuple is (inducing labels, spectral parameter). Both are transported,
+so this slice cannot replace the target picture by an unrelated endomorphism. -/
+def transportDatum {n : ℕ} (w : Equiv.Perm (Fin n))
+    (datum parameter : Fin n → ℂ) : (Fin n → ℂ) × (Fin n → ℂ) :=
+  (datum ∘ w.symm, parameter ∘ w.symm)
+
+theorem identity_quotient (v : ℂ) :
+    convergent_intertwiner (Measure.dirac ())
+      (fun _ : Unit => ContinuousLinearMap.id ℂ ℂ) v = v := by sorry
+
+-- Packet unit test: TauCeti.AutomorphicSpectral.convergent_intertwiner.identity_quotient
+-- The actual point-quotient integral returns the original vector.
+example (v : ℂ) :
+    convergent_intertwiner (Measure.dirac ())
+      (fun _ : Unit => ContinuousLinearMap.id ℂ ℂ) v = v := by sorry
+
+theorem sl2_spherical (s : ℂ) (hs : 1 < s.re) :
+    Integrable (sphericalKernel s) (volume : Measure ℝ) ∧
+      convergent_intertwiner volume (sphericalKernel s) (1 : ℂ) =
+        completedXi (2 * s - 1) / completedXi (2 * s) := by sorry
+
+-- Packet unit test: TauCeti.AutomorphicSpectral.convergent_intertwiner.sl2_spherical
+-- The convergent real spherical integral times its finite-prime Euler product gives ξ(2s−1)/ξ(2s) on the spherical eigenline.
+example (s : ℂ) (hs : 1 < s.re) :
+    Integrable (sphericalKernel s) (volume : Measure ℝ) ∧
+      convergent_intertwiner volume (sphericalKernel s) (1 : ℂ) =
+        completedXi (2 * s - 1) / completedXi (2 * s) := by sorry
+
+theorem target_parabolic {n : ℕ} (w : Equiv.Perm (Fin n))
+    (datum parameter v : Fin n → ℂ) (i : Fin n) :
+    transportDatum w datum parameter = (datum ∘ w.symm, parameter ∘ w.symm) ∧
+      convergent_intertwiner (Measure.dirac ())
+        (fun _ : Unit => permuteBlocks w) v i = v (w.symm i) := by sorry
+
+-- Packet unit test: TauCeti.AutomorphicSpectral.convergent_intertwiner.target_parabolic
+-- The block-permutation slice transports both inducing labels and parameter, and its operator integral applies the same permutation to the section coordinates; full GL_n induction coherence is required.
+example {n : ℕ} (w : Equiv.Perm (Fin n))
+    (datum parameter v : Fin n → ℂ) (i : Fin n) :
+    transportDatum w datum parameter = (datum ∘ w.symm, parameter ∘ w.symm) ∧
+      convergent_intertwiner (Measure.dirac ())
+        (fun _ : Unit => permuteBlocks w) v i = v (w.symm i) := by sorry
+end convergent_intertwiner
 
 /- The following is the one-dimensional full-height specialization. The forward
 Laplace transform has the negative sign, and parametrizing the imaginary dual by
@@ -1453,12 +1727,14 @@ theorem eisenstein_integral (h : ℝ → V) (Λ : ℝ) :
 
 theorem zero (Λ : ℝ) : pseudo_eisenstein E (fun _ : ℝ => (0 : V)) Λ = 0 := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.pseudo_eisenstein.zero
+-- The zero Paley–Wiener section gives zero.
 example (Λ : ℝ) : pseudo_eisenstein E (fun _ : ℝ => (0 : V)) Λ = 0 := by sorry
 
 theorem split_torus (h : ℝ → ℂ) (hh : ContDiff ℝ ⊤ h)
     (hc : HasCompactSupport h) (x Λ : ℝ) :
     pseudo_eisenstein (torusEisenstein x) h Λ = h x := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.pseudo_eisenstein.split_torus
+-- For a split torus in the full-height variant, P=G and Eψ is ordinary inverse Fourier–Laplace transformation on 𝔞_G; in the fixed-central-character version 𝔞_P^G=0, so this height transform is absent.
 -- Actual full-height torus specialization, with the dual measure in its definition.
 example (h : ℝ → ℂ) (hh : ContDiff ℝ ⊤ h) (hc : HasCompactSupport h) (x Λ : ℝ) :
     pseudo_eisenstein (torusEisenstein x) h Λ = h x := by sorry
@@ -1466,6 +1742,7 @@ example (h : ℝ → ℂ) (hh : ContDiff ℝ ⊤ h) (hc : HasCompactSupport h) (
 theorem wrong_entire_growth :
     ¬ IsPaleyWienerSection (fun z : ℂ => Complex.exp (z ^ 4)) := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.pseudo_eisenstein.wrong_entire_growth
+-- For V=ℂ, Ψ(z)=exp(z⁴) is entire but not Paley–Wiener and does not qualify for this construction. More generally exp(z⁴)v is excluded only when v≠0.
 -- The entire function is excluded from the actual compact-support transform domain.
 example : ¬ IsPaleyWienerSection (fun z : ℂ => Complex.exp (z ^ 4)) := by sorry
 end pseudo_eisenstein
@@ -1484,6 +1761,10 @@ variable {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [Complete
 def cuspidal_datum_space (generators : Set H) : Submodule ℂ H :=
   (Submodule.span ℂ generators).topologicalClosure
 namespace cuspidal_datum_space
+/-- Quotient model detecting equality of actual generated blocks. Identifying this
+relation with Weyl association of AF cuspidal data is the missing source adapter. -/
+def blockSetoid : Setoid (Set H) := Setoid.ker (cuspidal_datum_space (H := H))
+
 theorem generator_mem (S : Set H) (x : H) (hx : x ∈ S) : x ∈ cuspidal_datum_space S := by sorry
 
 theorem right_invariant (S : Set H) (R : H →L[ℂ] H) (hR : R '' S ⊆ S) :
@@ -1503,13 +1784,19 @@ example (C : Submodule ℂ H) (hClosed : IsClosed (C : Set H)) :
     cuspidal_datum_space (C : Set H) = C := by sorry
 
 
-theorem inequivalent_same_levi {Sig : Type v} (σ τ : Sig) (h : σ ≠ τ) :
-    (((), σ) : Unit × Sig) ≠ ((), τ) := by sorry
+theorem inequivalent_same_levi (C D : Submodule ℂ H)
+    (hC : IsClosed (C : Set H)) (hD : IsClosed (D : Set H)) (hCD : C ≠ D) :
+    cuspidal_datum_space (C : Set H) ≠ cuspidal_datum_space (D : Set H) ∧
+      Quotient.mk (blockSetoid (H := H)) (C : Set H) ≠
+        Quotient.mk (blockSetoid (H := H)) (D : Set H) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.cuspidal_datum_space.inequivalent_same_levi
--- Inequivalent non-Weyl-conjugate σ and τ on one Levi are not identified as a datum.
-example {Sig : Type v} (σ τ : Sig) (h : σ ≠ τ) :
-    (((), σ) : Unit × Sig) ≠ ((), τ) := by sorry
+-- Distinct closed generated blocks remain distinct in the quotient by equality of cuspidal_datum_space; identifying this block relation with AF Weyl-associate cuspidal data is required.
+example (C D : Submodule ℂ H)
+    (hC : IsClosed (C : Set H)) (hD : IsClosed (D : Set H)) (hCD : C ≠ D) :
+    cuspidal_datum_space (C : Set H) ≠ cuspidal_datum_space (D : Set H) ∧
+      Quotient.mk (blockSetoid (H := H)) (C : Set H) ≠
+        Quotient.mk (blockSetoid (H := H)) (D : Set H) := by sorry
 
 
 theorem zero_generators : cuspidal_datum_space ({0} : Set H) = ⊥ := by sorry
@@ -1595,11 +1882,15 @@ theorem test2 {M : Type*} (φ : M → ℂ) : yu_060 id (fun _ => 1) φ = φ := b
 example {M : Type*} (φ : M → ℂ) : yu_060 id (fun _ => 1) φ = φ := by sorry
 
 
-theorem test3 : (2 : ℂ)⁻¹ ≠ 2 := by sorry
+theorem test3 :
+    yu_060 id (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num)) (fun _ => 1) () = 2 ∧
+      yu_060 id (fun _ : Unit => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 1) () = 1 / 2 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_060.test3
--- At rho_R(m)=2 and phi_pi(m)=1, the p32 membership convention requires section value2 while the p39 basis gives1/2; they cannot be identified without transport.
-example : (2 : ℂ)⁻¹ ≠ 2 := by sorry
+-- Apply yu_060 to the constant vector one with ρ=2: the positive section gives two and the inverse section gives one half.
+example :
+    yu_060 id (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num)) (fun _ => 1) () = 2 ∧
+      yu_060 id (fun _ : Unit => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 1) () = 1 / 2 := by sorry
 
 end yu_060
 
@@ -1617,11 +1908,15 @@ theorem conjugateOperators {V : Type u} [AddCommGroup V] [Module ℂ V]
     [FiniteDimensional ℂ V] (C : V ≃ₗ[ℂ] V) (A : V →ₗ[ℂ] V) :
     LinearMap.trace ℂ V (C.toLinearMap.comp (A.comp C.symm.toLinearMap)) = LinearMap.trace ℂ V A := by sorry
 
-theorem test1 : ((2 : ℂ)⁻¹ / 2) * 2 = 1 / 2 := by sorry
+theorem test1 :
+    yu_153 (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num))
+      (fun _ => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 2) () = 1 / 2 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_153.test1
--- With s=rho and t=rho⁻¹, C multiplies by rho⁻²; at rho(m)=2 a vector of value2 goes to1/2.
-example : ((2 : ℂ)⁻¹ / 2) * 2 = 1 / 2 := by sorry
+-- The actual section transport from ρ to ρ⁻¹ sends a value-two vector to one half when ρ=2.
+example :
+    yu_153 (fun _ : Unit => Units.mk0 (2 : ℂ) (by norm_num))
+      (fun _ => (Units.mk0 (2 : ℂ) (by norm_num))⁻¹) (fun _ => 2) () = 1 / 2 := by sorry
 
 
 theorem test2 {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) (m : M) :
@@ -1633,11 +1928,17 @@ example {M : Type*} (s : M → ℂˣ) (φ : M → ℂ) (m : M) :
     (s m : ℂ)⁻¹ * normalizedSection s φ m = φ m := by sorry
 
 
-theorem test3 : ((2 : ℂ)⁻¹) ^ 2 ≠ 1 := by sorry
+theorem test3 {M : Type*} [MeasurableSpace M] (μ : Measure M)
+    (rho : M → ℂˣ) (phi : M → ℂ) (hInt : Integrable (fun m => ‖phi m‖ ^ 2) μ) :
+    ∫ m, ‖yu_153 rho (fun m => (rho m)⁻¹) phi m‖ ^ 2 * ‖(rho m : ℂ)‖ ^ 4 ∂μ =
+      ∫ m, ‖phi m‖ ^ 2 ∂μ := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_153.test3
--- Using the s=rho membership test on the t=rho⁻¹ basis produces rho⁻²*phi_pi, which differs from phi_pi where rho≠1 and phi_pi≠0.
-example : ((2 : ℂ)⁻¹) ^ 2 ≠ 1 := by sorry
+-- The squared norm of the transported section, integrated with the compensating factor |ρ|⁴, equals the original integrated squared norm.
+example {M : Type*} [MeasurableSpace M] (μ : Measure M)
+    (rho : M → ℂˣ) (phi : M → ℂ) (hInt : Integrable (fun m => ‖phi m‖ ^ 2) μ) :
+    ∫ m, ‖yu_153 rho (fun m => (rho m)⁻¹) phi m‖ ^ 2 * ‖(rho m : ℂ)‖ ^ 4 ∂μ =
+      ∫ m, ‖phi m‖ ^ 2 ∂μ := by sorry
 
 end yu_153
 end TauCeti.AutomorphicSpectral
@@ -1648,6 +1949,16 @@ universe u v w
 def dit_57 (z : UpperHalfPlane) (s : ℂ) : ℂ :=
   ∑' j : fullModular.Index, rpowC (fullModular.orbit j z).im s
 namespace dit_57
+def imaginaryPoint (y : ℝ) : UpperHalfPlane := ⟨(max y 1 : ℝ) * Complex.I, by sorry⟩
+
+def identityCoset : fullModular.Index := by sorry
+
+theorem identityCoset_orbit (z : UpperHalfPlane) :
+    fullModular.orbit identityCoset z = z := by sorry
+
+def summand (j : fullModular.Index) (z : UpperHalfPlane) (s : ℂ) : ℂ :=
+  rpowC (fullModular.orbit j z).im s
+
 def cosetSum := dit_57
 
 theorem primitivePairs (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
@@ -1661,11 +1972,13 @@ theorem automorphy (gamma : UpperHalfPlane → UpperHalfPlane)
     (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
     dit_57 (gamma z) s = dit_57 z s ∧ lap (fun w => dit_57 w s) z = s * (1 - s) * dit_57 z s := by sorry
 
-theorem test1 (z : UpperHalfPlane) (s : ℂ) : rpowC z.im s = Complex.exp (s * Real.log z.im) := by sorry
+theorem test1  :
+    Tendsto (fun y : ℝ => dit_57 (imaginaryPoint y) 2 / (y : ℂ) ^ 2) atTop (𝓝 1) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_57.test1
--- The identity-coset contribution is y^s.
-example (z : UpperHalfPlane) (s : ℂ) : rpowC z.im s = Complex.exp (s * Real.log z.im) := by sorry
+-- Along the imaginary axis E(iy,2)/y² tends to one as y tends to infinity, testing the actual Eisenstein leading constant term.
+example  :
+    Tendsto (fun y : ℝ => dit_57 (imaginaryPoint y) 2 / (y : ℂ) ^ 2) atTop (𝓝 1) := by sorry
 
 
 theorem test2 (z : UpperHalfPlane) (s : ℂ) (hs : 1 < s.re) :
@@ -1758,6 +2071,10 @@ def dit_88 (B : SpecialFunctions) (Kloosterman : ℤ → ℤ → ℕ → ℂ)
     (if m * n < 0 then B.besselI else B.besselJ)
       (2 * s - 1) (4 * Real.pi * Real.sqrt |(m * n : ℝ)| / c)
 namespace dit_88
+def nonzeroCoefficient (B : SpecialFunctions) (K : ℤ → ℤ → ℕ → ℂ)
+    (m n : ℤ) (s : ℂ) : Option ℂ :=
+  if m = 0 ∨ n = 0 then none else some (dit_88 B K m n s)
+
 def signBranch (B : SpecialFunctions) (m n : ℤ) := if m * n < 0 then B.besselI else B.besselJ
 
 theorem initialConvergence (B : SpecialFunctions) (K : ℤ → ℤ → ℕ → ℂ)
@@ -1785,11 +2102,15 @@ theorem test2 (B : SpecialFunctions) : signBranch B (-1) 1 = B.besselI := by sor
 example (B : SpecialFunctions) : signBranch B (-1) 1 = B.besselI := by sorry
 
 
-theorem test3 : ¬ ((1 : ℤ) ≠ 0 ∧ (0 : ℤ) ≠ 0) := by sorry
+theorem test3 (B : SpecialFunctions) (K : ℤ → ℤ → ℕ → ℂ) (s : ℂ) :
+    nonzeroCoefficient B K 1 0 s = none ∧
+      nonzeroCoefficient B K 1 1 s = some (dit_88 B K 1 1 s) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_88.test3
--- n=0 is excluded and requires a separate constant coefficient.
-example : ¬ ((1 : ℤ) ≠ 0 ∧ (0 : ℤ) ≠ 0) := by sorry
+-- The guarded nonzero-frequency coefficient returns no value at index zero and the actual dit_88 coefficient at index one.
+example (B : SpecialFunctions) (K : ℤ → ℤ → ℕ → ℂ) (s : ℂ) :
+    nonzeroCoefficient B K 1 0 s = none ∧
+      nonzeroCoefficient B K 1 1 s = some (dit_88 B K 1 1 s) := by sorry
 
 end dit_88
 
@@ -1826,13 +2147,27 @@ example (B : SpecialFunctions) (m : ℤ) (s : ℂ) (z : UpperHalfPlane) :
       B.besselI (s - 1 / 2) (2 * Real.pi * |(m : ℝ)| * z.im) * phase (-m * z.re) := by sorry
 
 
-theorem test3 (a : ℝ) (ha : 0 < a) : ¬ IntegrableOn
-    (fun y : ℝ => Real.exp (a * y) / y ^ 2) (Set.Ioi 1) := by sorry
+theorem test3 (B : SpecialFunctions) (m : ℤ) (hm : m ≠ 0) (s : ℝ) (hs : 1 < s)
+    (hAsymptotic : Tendsto
+      (fun y : ℝ => Complex.ofReal (Real.sqrt (4 * Real.pi ^ 2 * |(m : ℝ)| * y)) *
+        B.besselI ((s : ℂ) - 1 / 2) (2 * Real.pi * |(m : ℝ)| * y) *
+        Complex.ofReal (Real.exp (-2 * Real.pi * |(m : ℝ)| * y)))
+      atTop (𝓝 1)) :
+    ¬ IntegrableOn (fun y : ℝ =>
+      ‖poincareSeed B m s ⟨(max y 1 : ℝ) * Complex.I, by sorry⟩‖ ^ 2 / y ^ 2)
+      (Set.Ioi 1) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_89.test3
--- An exponentially growing cusp seed must not be inserted directly into an L² orthogonal expansion.
-example (a : ℝ) (ha : 0 < a) : ¬ IntegrableOn
-    (fun y : ℝ => Real.exp (a * y) / y ^ 2) (Set.Ioi 1) := by sorry
+-- Under the standard large-argument I-Bessel asymptotic, the actual nonzero Poincaré seed has nonintegrable squared norm on the cusp for real s>1; it cannot be inserted directly as an L² vector.
+example (B : SpecialFunctions) (m : ℤ) (hm : m ≠ 0) (s : ℝ) (hs : 1 < s)
+    (hAsymptotic : Tendsto
+      (fun y : ℝ => Complex.ofReal (Real.sqrt (4 * Real.pi ^ 2 * |(m : ℝ)| * y)) *
+        B.besselI ((s : ℂ) - 1 / 2) (2 * Real.pi * |(m : ℝ)| * y) *
+        Complex.ofReal (Real.exp (-2 * Real.pi * |(m : ℝ)| * y)))
+      atTop (𝓝 1)) :
+    ¬ IntegrableOn (fun y : ℝ =>
+      ‖poincareSeed B m s ⟨(max y 1 : ℝ) * Complex.I, by sorry⟩‖ ^ 2 / y ^ 2)
+      (Set.Ioi 1) := by sorry
 
 end dit_89
 
@@ -1844,6 +2179,11 @@ def dit_105 (m : ℤ) (phi : ℝ → ℂ) (z : UpperHalfPlane) : ℂ :=
   ∑' j : fullModular.Index, phase (m * (fullModular.orbit j z).re) *
     phi (fullModular.orbit j z).im * fullModular.derivative j z
 namespace dit_105
+def inversion (z : UpperHalfPlane) : UpperHalfPlane := ⟨-(z : ℂ)⁻¹, by sorry⟩
+def cyclePullback (m : ℤ) (phi : ℝ → ℂ) (c : ℝ → UpperHalfPlane)
+    (dc : ℝ → ℂ) (t : ℝ) : ℂ := dit_105 m phi (c t) * dc t
+def oscillatingSeed (y : ℝ) : ℂ := y ^ 2 * Real.sin (Real.exp y⁻¹)
+
 def oneFormSum := dit_105
 
 theorem weightTwo (m : ℤ) (phi : ℝ → ℂ) (gamma : UpperHalfPlane → UpperHalfPlane)
@@ -1853,26 +2193,44 @@ theorem weightTwo (m : ℤ) (phi : ℝ → ℂ) (gamma : UpperHalfPlane → Uppe
 def parameterBounds (phi : ℝ → ℂ) (eps : ℝ) : Prop :=
   ∃ C : ℝ, ∀ y : ℝ, 0 < y → y ≤ 1 → ‖phi y‖ ≤ C * y ^ eps
 
-theorem test1 : (1 : ℂ) * 2 ≠ 1 := by sorry
+theorem test1 (m : ℤ) (phi : ℝ → ℂ)
+    (hphi : ContDiffOn ℝ ⊤ phi (Set.Ioi 0))
+    (hSupport : ∃ a b : ℝ, 0 < a ∧ Function.support phi ⊆ Set.Icc a b)
+    (z : UpperHalfPlane) :
+    dit_105 m phi (inversion z) * (z : ℂ) ^ (-2 : ℤ) = dit_105 m phi z := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_105.test1
--- A constant scalar invariant f does not transform like a weight-two coefficient.
-example : (1 : ℂ) * 2 ≠ 1 := by sorry
+-- For a smooth compactly supported seed, inversion transforms the actual Poincaré coefficient with derivative z^(−2), as required for the descended weight-two one-form.
+example (m : ℤ) (phi : ℝ → ℂ)
+    (hphi : ContDiffOn ℝ ⊤ phi (Set.Ioi 0))
+    (hSupport : ∃ a b : ℝ, 0 < a ∧ Function.support phi ⊆ Set.Icc a b)
+    (z : UpperHalfPlane) :
+    dit_105 m phi (inversion z) * (z : ℂ) ^ (-2 : ℤ) = dit_105 m phi z := by sorry
 
 
-theorem test2 (f : ℝ → ℂ) (a b : ℝ) : (∫ t in b..a, f t) = -(∫ t in a..b, f t) := by sorry
+theorem test2 (m : ℤ) (phi : ℝ → ℂ) (c : ℝ → UpperHalfPlane)
+    (dc : ℝ → ℂ) (a b : ℝ) :
+    (∫ t in b..a, cyclePullback m phi c dc t) =
+      -(∫ t in a..b, cyclePullback m phi c dc t) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_105.test2
--- Reversing a cycle reverses the one-form integral.
-example (f : ℝ → ℂ) (a b : ℝ) : (∫ t in b..a, f t) = -(∫ t in a..b, f t) := by sorry
+-- Reversing the interval orientation negates the integral of the actual dit_105 one-form pulled back along a parametrized cycle.
+example (m : ℤ) (phi : ℝ → ℂ) (c : ℝ → UpperHalfPlane)
+    (dc : ℝ → ℂ) (a b : ℝ) :
+    (∫ t in b..a, cyclePullback m phi c dc t) =
+      -(∫ t in a..b, cyclePullback m phi c dc t) := by sorry
 
 
 /-- A value bound alone cannot supply the requested first-derivative majorant. -/
-theorem test3 : ∃ f : ℝ → ℝ, (∀ x, |f x| ≤ 1) ∧ ¬ DifferentiableAt ℝ f 0 := by sorry
+theorem test3  : ContDiffOn ℝ ⊤ oscillatingSeed (Set.Ioi 0) ∧
+    parameterBounds oscillatingSeed 2 ∧
+    ¬ ∃ C : ℝ, ∀ y : ℝ, 0 < y → y ≤ 1 → ‖deriv oscillatingSeed y‖ ≤ C := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_105.test3
--- A function with only a value bound but uncontrolled derivatives cannot justify termwise differentiation.
-example : ∃ f : ℝ → ℝ, (∀ x, |f x| ≤ 1) ∧ ¬ DifferentiableAt ℝ f 0 := by sorry
+-- The smooth positive-axis seed y² sin(exp(1/y)) satisfies the named value-bound condition of order two (hence the small-y value condition with ε = 1), while its derivative has no uniform bound near zero; a value bound does not imply the derivative majorant.
+example  : ContDiffOn ℝ ⊤ oscillatingSeed (Set.Ioi 0) ∧
+    parameterBounds oscillatingSeed 2 ∧
+    ¬ ∃ C : ℝ, ∀ y : ℝ, 0 < y → y ≤ 1 → ‖deriv oscillatingSeed y‖ ≤ C := by sorry
 
 end dit_105
 
@@ -1901,6 +2259,11 @@ def gz_69 (N : ℕ) [NeZero N] (congruenceE : ℤ → ℤ → UpperHalfPlane →
   exact (2 * zeta (2 * s) * ∏ p ∈ N.primeFactors, (1 - rpowC p (-2 * s)))⁻¹ *
     ∑ v : ZMod N, if IsUnit v then congruenceE 0 v.val z s else 0
 namespace gz_69
+def unrestrictedPairs (z : UpperHalfPlane) (s : ℂ) : ℂ :=
+  ∑' p : ℤ × ℤ, if p = (0, 0) then 0 else
+    rpowC z.im s * rpowC ‖(p.1 : ℂ) * (z : ℂ) + p.2‖ (-2 * s)
+-- The ER.7 pair-index/coset adapter must identify this explicit sum with its carrier.
+
 def congruence_adapter := gz_69
 
 theorem coset_sum (N : ℕ) [NeZero N] (hN : 1 ≤ N) (E : ℤ → ℤ → UpperHalfPlane → ℂ → ℂ)
@@ -1930,11 +2293,15 @@ example (p : ℕ) [NeZero p] (hp : p.Prime) (E : ℤ → ℤ → UpperHalfPlane 
 
 
 /-- The unrestricted sum carries a nontrivial zeta factor even at level one. -/
-theorem nonprimitive : (∑' n : ℕ, if n = 0 then (0 : ℝ) else (n : ℝ) ^ (-2 : ℤ)) ≠ 1 := by sorry
+theorem nonprimitive (z : UpperHalfPlane) :
+    unrestrictedPairs z 2 = (2 * riemannZeta 4) * dit_57 z 2 ∧
+      unrestrictedPairs z 2 ≠ dit_57 z 2 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_69.nonprimitive
--- Summing unrestricted pairs without removing the zeta/Euler factor has a different constant term.
-example : (∑' n : ℕ, if n = 0 then (0 : ℝ) else (n : ℝ) ^ (-2 : ℤ)) ≠ 1 := by sorry
+-- The actual unrestricted nonzero integer-pair Eisenstein sum at s=2 equals 2ζ(4) times the primitive-coset dit_57 series and differs from that normalized series.
+example (z : UpperHalfPlane) :
+    unrestrictedPairs z 2 = (2 * riemannZeta 4) * dit_57 z 2 ∧
+      unrestrictedPairs z 2 ≠ dit_57 z 2 := by sorry
 
 end gz_69
 
@@ -1958,6 +2325,12 @@ def gz_179 (N delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) 
     eps p.2 * ((p.1 : ℂ) * (z : ℂ) + p.2) ^ (-(2 * k - 1 : ℤ)) *
       rpowC z.im s * rpowC ‖(p.1 : ℂ) * (z : ℂ) + p.2‖ (-2 * s) else 0
 namespace gz_179
+def latticeTerm (N delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane)
+    (s : ℂ) (p : ℤ × ℤ) : ℂ :=
+  if (N * delta : ℤ) ∣ p.1 ∧ p.2.gcd (N * delta) = 1 then
+    eps p.2 * ((p.1 : ℂ) * (z : ℂ) + p.2) ^ (-(2 * k - 1 : ℤ)) *
+      rpowC z.im s * rpowC ‖(p.1 : ℂ) * (z : ℂ) + p.2‖ (-2 * s) else 0
+
 
 theorem primitive_to_full (primitive : UpperHalfPlane → ℂ → ℂ)
     (Laway : ℂ → ℂ) (N delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
@@ -1971,13 +2344,17 @@ theorem automorphy (N delta k : ℕ) (eps : ℤ → ℂ)
 theorem n_one (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
     gz_179 1 delta k eps z s = gz_192 delta (fun _ => 1) eps k z s := by sorry
 
-theorem sign_pair (eps : ℤ → ℂ) (hOdd : eps (-1) = -1) (k : ℕ) (hk : 1 ≤ k) :
-    eps (-1) * (-1 : ℂ) ^ (2 * k - 1) = 1 := by sorry
+theorem sign_pair (N delta k : ℕ) (hk : 1 ≤ k) (eps : ℤ → ℂ)
+    (hOdd : ∀ n, eps (-n) = -eps n) (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) :
+    latticeTerm N delta k eps z s (-p.1, -p.2) = latticeTerm N delta k eps z s p ∧
+      gz_179 N delta k eps z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm N delta k eps z s p := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_179.sign_pair
--- ε(−1)(−1)^(2k−1)=1 makes the ±pair terms equal.
-example (eps : ℤ → ℂ) (hOdd : eps (-1) = -1) (k : ℕ) (hk : 1 ≤ k) :
-    eps (-1) * (-1 : ℂ) ^ (2 * k - 1) = 1 := by sorry
+-- With an odd character, negating both lattice indices leaves the actual gz_179 summand unchanged; the half-sum equals the series constructor.
+example (N delta k : ℕ) (hk : 1 ≤ k) (eps : ℤ → ℂ)
+    (hOdd : ∀ n, eps (-n) = -eps n) (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) :
+    latticeTerm N delta k eps z s (-p.1, -p.2) = latticeTerm N delta k eps z s p ∧
+      gz_179 N delta k eps z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm N delta k eps z s p := by sorry
 
 
 theorem n_one_test (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
@@ -1989,14 +2366,31 @@ example (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
     gz_179 1 delta k eps z s = gz_192 delta (fun _ => 1) eps k z s := by sorry
 
 
-theorem wrong_parity (k : ℕ) (hk : 1 ≤ k) : 1 + (-1 : ℂ) ^ (2 * k - 1) = 0 := by sorry
+theorem wrong_parity (N delta k : ℕ) (hk : 1 ≤ k) (eps : ℤ → ℂ)
+    (hEven : ∀ n, eps (-n) = eps n) (z : UpperHalfPlane) (s : ℂ)
+    (hSum : Summable (latticeTerm N delta k eps z s)) :
+    gz_179 N delta k eps z s = 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_179.wrong_parity
--- Replacing the odd character by an even one makes paired terms cancel in odd weight.
-example (k : ℕ) (hk : 1 ≤ k) : 1 + (-1 : ℂ) ^ (2 * k - 1) = 0 := by sorry
+-- With an even character and an absolutely summable odd-weight lattice family, the actual gz_179 series vanishes by cancellation of opposite indices.
+example (N delta k : ℕ) (hk : 1 ≤ k) (eps : ℤ → ℂ)
+    (hEven : ∀ n, eps (-n) = eps n) (z : UpperHalfPlane) (s : ℂ)
+    (hSum : Summable (latticeTerm N delta k eps z s)) :
+    gz_179 N delta k eps z s = 0 := by sorry
 
 end gz_179
 namespace gz_192
+def latticeTerm (D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ)
+    (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) : ℂ :=
+  if D2 ∣ p.1 then eps1 p.1 * eps2 p.2 *
+    ((p.1 : ℂ) * (z : ℂ) + p.2) ^ (-(2 * k - 1 : ℤ)) *
+      rpowC z.im s * rpowC ‖(p.1 : ℂ) * (z : ℂ) + p.2‖ (-2 * s) else 0
+/-- Guard adapter for the upstream fundamental-discriminant predicate. The full
+criterion in the tests fixes its meaning; Basic.olean is unavailable in this build. -/
+def guardedPairSeries (fundamental : ℤ → Prop) [DecidablePred fundamental]
+    (D1 D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ) (z : UpperHalfPlane) (s : ℂ) : Option ℂ :=
+  if fundamental D1 ∧ fundamental D2 then some (gz_192 D2 eps1 eps2 k z s) else none
+
 
 def pair_sum := gz_192
 
@@ -2017,20 +2411,38 @@ example (delta k : ℕ) (eps : ℤ → ℂ) (z : UpperHalfPlane) (s : ℂ) :
     gz_192 delta (fun _ => 1) eps k z s = gz_179 1 delta k eps z s := by sorry
 
 
-theorem odd_product (a b : ℂ) (h : a * b = -1) (k : ℕ) (hk : 1 ≤ k) :
-    a * b * (-1 : ℂ) ^ (2 * k - 1) = 1 := by sorry
+theorem odd_product (D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ) (hk : 1 ≤ k)
+    (hParity : ∀ m n, eps1 (-m) * eps2 (-n) = -(eps1 m * eps2 n))
+    (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) :
+    latticeTerm D2 eps1 eps2 k z s (-p.1, -p.2) = latticeTerm D2 eps1 eps2 k z s p ∧
+      gz_192 D2 eps1 eps2 k z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm D2 eps1 eps2 k z s p := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_192.odd_product
--- ε₁(−1)ε₂(−1)=−1 compensates the odd denominator power.
-example (a b : ℂ) (h : a * b = -1) (k : ℕ) (hk : 1 ≤ k) :
-    a * b * (-1 : ℂ) ^ (2 * k - 1) = 1 := by sorry
+-- When the product of the two character parities is odd, simultaneous sign reversal preserves the actual two-character lattice summand and its half-sum is gz_192.
+example (D2 : ℤ) (eps1 eps2 : ℤ → ℂ) (k : ℕ) (hk : 1 ≤ k)
+    (hParity : ∀ m n, eps1 (-m) * eps2 (-n) = -(eps1 m * eps2 n))
+    (z : UpperHalfPlane) (s : ℂ) (p : ℤ × ℤ) :
+    latticeTerm D2 eps1 eps2 k z s (-p.1, -p.2) = latticeTerm D2 eps1 eps2 k z s p ∧
+      gz_192 D2 eps1 eps2 k z s = 1 / 2 * ∑' p : ℤ × ℤ, latticeTerm D2 eps1 eps2 k z s p := by sorry
 
 
-theorem nonfundamental : ¬ Squarefree (12 : ℕ) := by sorry
+theorem nonfundamental (fundamental : ℤ → Prop) [DecidablePred fundamental]
+    (hCriterion : ∀ D, fundamental D ↔
+      (D % 4 = 1 ∧ Squarefree D) ∨
+        ∃ m : ℤ, D = 4 * m ∧ (m % 4 = 2 ∨ m % 4 = 3) ∧ Squarefree m)
+    (eps1 eps2 : ℤ → ℂ) (k : ℕ) (z : UpperHalfPlane) (s : ℂ) :
+    guardedPairSeries fundamental 12 1 eps1 eps2 k z s = some (gz_192 1 eps1 eps2 k z s) ∧
+      guardedPairSeries fundamental 16 1 eps1 eps2 k z s = none := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gz_192.nonfundamental
--- A factorization not by fundamental discriminants need not supply the asserted primitive characters or Gauss sums.
-example : ¬ Squarefree (12 : ℕ) := by sorry
+-- The constructor guard using the upstream fundamental-discriminant criterion accepts 12 and rejects 16. The raw analytic lattice sum alone does not construct primitive arithmetic characters.
+example (fundamental : ℤ → Prop) [DecidablePred fundamental]
+    (hCriterion : ∀ D, fundamental D ↔
+      (D % 4 = 1 ∧ Squarefree D) ∨
+        ∃ m : ℤ, D = 4 * m ∧ (m % 4 = 2 ∨ m % 4 = 3) ∧ Squarefree m)
+    (eps1 eps2 : ℤ → ℂ) (k : ℕ) (z : UpperHalfPlane) (s : ℂ) :
+    guardedPairSeries fundamental 12 1 eps1 eps2 k z s = some (gz_192 1 eps1 eps2 k z s) ∧
+      guardedPairSeries fundamental 16 1 eps1 eps2 k z s = none := by sorry
 
 end gz_192
 
@@ -2077,6 +2489,11 @@ def local_intertwiner {N : Type w} [MeasurableSpace N] (μ : Measure N)
     (integrand : ℂ → N → H →L[ℂ] K) (s : ℂ) : H →L[ℂ] K :=
   ∫ n, integrand s n ∂μ
 namespace local_intertwiner
+-- The chamber integral and its continued spherical eigenline are explicitly linked.
+
+def continuedSphericalIntegral (q : ℝ) (z : ℂ) : ℂ →L[ℂ] ℂ :=
+  ((1 - (q : ℂ)⁻¹ * z) / (1 - z)) • ContinuousLinearMap.id ℂ ℂ
+
 variable {N : Type w} [MeasurableSpace N] (μ : Measure N) (k : ℂ → N → H →L[ℂ] K)
 
 theorem intertwines {G : Type*} [Group G] (IP : ℂ → G → Operator H)
@@ -2115,6 +2532,7 @@ theorem p_adic_gl2_spherical (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : ‖z‖ < 1)
       cFunction q z • ContinuousLinearMap.id ℂ ℂ := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.local_intertwiner.p_adic_gl2_spherical
+-- For GL₂(k), unramified χ₁⊗χ₂ and hyperspecial normalization, the nontrivial Weyl integral on the spherical vector equals (1−q⁻¹z)/(1−z), z=χ₁(ϖ)/χ₂(ϖ), in |z|<1.
 -- The normalized valuation-shell model calls the actual integral constructor.
 -- Identifying these shells with the GL₂ unipotent quotient is a supplier omission.
 -- This signature does not evaluate an arbitrary unrelated operator J.
@@ -2123,11 +2541,19 @@ example (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : ‖z‖ < 1) :
       cFunction q z • ContinuousLinearMap.id ℂ ℂ := by sorry
 
 
-theorem raw_not_unitary : ‖cFunction 2 (-1)‖ ≠ 1 := by sorry
+theorem raw_not_unitary  :
+    ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ = 3 / 4 ∧
+      ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ ≠ ‖(1 : ℂ)‖ := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.local_intertwiner.raw_not_unitary
--- The preceding scalar generally has modulus unequal to 1 on |z|=1, so the unnormalized local integral is not automatically unitary.
-example : ‖cFunction 2 (-1)‖ ≠ 1 := by sorry
+-- The continued spherical eigenline, identified with the valuation-shell integral in its chamber, sends one to a vector of norm 3/4 at q=2,z=−1; it does not preserve norm on the unitary axis.
+example  :
+    ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ = 3 / 4 ∧
+      ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ ≠ ‖(1 : ℂ)‖ := by sorry
+
+theorem continuedSphericalIntegral_eq_integral (q : ℝ) (hq : 1 < q)
+    (z : ℂ) (hz : ‖z‖ < 1) : continuedSphericalIntegral q z =
+      local_intertwiner Measure.count (gl2ShellKernel q z) 0 := by sorry
 
 end local_intertwiner
 
@@ -2176,12 +2602,14 @@ theorem rank_one_product {I : Type*} [Fintype I] (D : ScalarIntertwinerPair H)
 
 theorem no_roots : mu_function (noRootPair (H := H)) = 1 := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.mu_function.no_roots
+-- For M=G the point integral gives μ=1.
 example : mu_function (noRootPair (H := H)) = 1 := by sorry
 
 theorem gl2_spherical (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : z ≠ 0) (hPole : z ≠ 1) :
     (mu_function (sphericalPair q z))⁻¹ =
       local_intertwiner.cFunction q z * local_intertwiner.cFunction q z⁻¹ := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.mu_function.gl2_spherical
+-- For unramified GL₂, μ⁻¹=c(z)c(z⁻¹), c(z)=(1−q⁻¹z)/(1−z), interpreted meromorphically.
 -- The scalar eigenline is linked to the μ construction; the actual local integral
 -- supplying cFunction remains a separate local-representation obligation.
 example (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : z ≠ 0) (hPole : z ≠ 1) :
@@ -2192,6 +2620,7 @@ theorem measure_scaling :
     (mu_function (rescale (noRootPair (H := ℂ)) 2 2))⁻¹ = 4 ∧
       mu_function (rescale (noRootPair (H := ℂ)) 2 2) ≠ mu_function (noRootPair (H := ℂ)) := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.mu_function.measure_scaling
+-- Rescaling both opposite measures by 2 changes μ⁻¹ by 4; μ is not measure independent.
 example : (mu_function (rescale (noRootPair (H := ℂ)) 2 2))⁻¹ = 4 ∧
     mu_function (rescale (noRootPair (H := ℂ)) 2 2) ≠ mu_function (noRootPair (H := ℂ)) := by sorry
 end mu_function
@@ -2268,6 +2697,13 @@ def shahidi_normalization (Lcross Lrho epsCross epsRho : ℂ → ℂ) (M : ℂ �
   (Lcross (1 + s) * Lrho (1 + 2 * s) * epsCross s * epsRho (2 * s) /
     (Lcross s * Lrho (2 * s))) • M s
 namespace shahidi_normalization
+def unramifiedFactor (eigenvalues : List ℂ) (s : ℂ) : ℂ :=
+  (eigenvalues.map (fun a => (1 - a * rpowC 2 (-s))⁻¹)).prod
+-- A two-dimensional Satake parameter: ∧² has weight αβ; Sym² has α², αβ, β².
+def exteriorFactor := unramifiedFactor [6]
+def symmetricFactor := unramifiedFactor [4, 6, 9]
+def conjugateDual {G : Type*} [Group G] (tau : G →* ℂˣ) (g : G) : ℂˣ := (star (tau g))⁻¹
+
 
 theorem normalized_eq (Lc Lr ec er : ℂ → ℂ) (M : ℂ → H →L[ℂ] K) (s : ℂ) :
     shahidi_normalization Lc Lr ec er M s =
@@ -2281,31 +2717,59 @@ theorem global_product (Lc Lr ec er : ℂ → ℂ) (s : ℂ)
     (Lc (1 + s) * Lr (1 + 2 * s) * ec s * er (2 * s) / (Lc s * Lr (2 * s)))⁻¹ =
       Lc s * Lr (2 * s) / (Lc (1 + s) * Lr (1 + 2 * s) * ec s * er (2 * s)) := by sorry
 
-theorem spherical (Lc Lr ec er : ℂ → ℂ) (M : ℂ → Operator H) (v : H) (s : ℂ) :
+theorem spherical (Lc Lr ec er : ℂ → ℂ) (M : ℂ → Operator H)
+    (v : H) (s : ℂ) (c : ℂ)
+    (hEigen : M s v = c • v)
+    (hNormalize : (Lc (1 + s) * Lr (1 + 2 * s) * ec s * er (2 * s) /
+      (Lc s * Lr (2 * s))) * c = 1) :
     shahidi_normalization Lc Lr ec er M s v = v := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.shahidi_normalization.spherical
--- At an unramified place with unramified ψ, the normalized spherical vector is fixed.
-example (Lc Lr ec er : ℂ → ℂ) (M : ℂ → Operator H) (v : H) (s : ℂ) :
+-- If the spherical vector has the supplied raw eigenvalue and the actual local-factor normalizer times that eigenvalue is one, the shahidi_normalization operator fixes it. This is not asserted for an arbitrary raw operator.
+example (Lc Lr ec er : ℂ → ℂ) (M : ℂ → Operator H)
+    (v : H) (s : ℂ) (c : ℂ)
+    (hEigen : M s v = c • v)
+    (hNormalize : (Lc (1 + s) * Lr (1 + 2 * s) * ec s * er (2 * s) /
+      (Lc s * Lr (2 * s))) * c = 1) :
     shahidi_normalization Lc Lr ec er M s v = v := by sorry
 
 
 /-- Distinct functor tags for the even/odd orthogonal local factors. -/
 inductive OrthogonalFactor | exteriorSquare | symmetricSquare
 
-theorem orthogonal_parity : OrthogonalFactor.exteriorSquare ≠ OrthogonalFactor.symmetricSquare := by sorry
+theorem orthogonal_parity  :
+    shahidi_normalization (fun _ => 1) exteriorFactor (fun _ => 1) (fun _ => 1)
+      (fun _ => ContinuousLinearMap.id ℂ ℂ) 3 (1 : ℂ) ≠
+    shahidi_normalization (fun _ => 1) symmetricFactor (fun _ => 1) (fun _ => 1)
+      (fun _ => ContinuousLinearMap.id ℂ ℂ) 3 (1 : ℂ) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.shahidi_normalization.orthogonal_parity
--- Even orthogonal uses ∧² and odd orthogonal uses Sym²; swapping them is rejected.
-example : OrthogonalFactor.exteriorSquare ≠ OrthogonalFactor.symmetricSquare := by sorry
+-- For the two-dimensional Satake parameter (2,3), exterior-square weight 6 and symmetric-square weights 4,6,9 give different actual normalized operators at a regular parameter.
+example  :
+    shahidi_normalization (fun _ => 1) exteriorFactor (fun _ => 1) (fun _ => 1)
+      (fun _ => ContinuousLinearMap.id ℂ ℂ) 3 (1 : ℂ) ≠
+    shahidi_normalization (fun _ => 1) symmetricFactor (fun _ => 1) (fun _ => 1)
+      (fun _ => ContinuousLinearMap.id ℂ ℂ) 3 (1 : ℂ) := by sorry
 
 
 /-- Conjugate contragredient acts by inverse conjugate on a one-dimensional character. -/
-theorem unitary_dual (z : ℂˣ) : ((star z)⁻¹ : ℂˣ) = star (z⁻¹) := by sorry
+theorem unitary_dual {G : Type*} [Group G] (tau : G →* ℂˣ)
+    (g : G) (Lcross : (G → ℂˣ) → ℂ → ℂ) (Lrho ec er : ℂ → ℂ)
+    (M : ℂ → Operator H) (s : ℂ) :
+    conjugateDual tau g = star ((tau g)⁻¹) ∧
+    shahidi_normalization (Lcross (conjugateDual tau)) Lrho ec er M s =
+      (Lcross (conjugateDual tau) (1 + s) * Lrho (1 + 2 * s) * ec s * er (2 * s) /
+        (Lcross (conjugateDual tau) s * Lrho (2 * s))) • M s := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.shahidi_normalization.unitary_dual
--- For unitary groups the target uses conjugate contragredient τ*, not a plain unchanged τ.
-example (z : ℂˣ) : ((star z)⁻¹ : ℂˣ) = star (z⁻¹) := by sorry
+-- For a one-dimensional representation, the cross-factor argument used in the actual normalizer is its inverse conjugate character; the test exposes that argument in the normalization formula.
+example {G : Type*} [Group G] (tau : G →* ℂˣ)
+    (g : G) (Lcross : (G → ℂˣ) → ℂ → ℂ) (Lrho ec er : ℂ → ℂ)
+    (M : ℂ → Operator H) (s : ℂ) :
+    conjugateDual tau g = star ((tau g)⁻¹) ∧
+    shahidi_normalization (Lcross (conjugateDual tau)) Lrho ec er M s =
+      (Lcross (conjugateDual tau) (1 + s) * Lrho (1 + 2 * s) * ec s * er (2 * s) /
+        (Lcross (conjugateDual tau) s * Lrho (2 * s))) • M s := by sorry
 
 end shahidi_normalization
 
@@ -2327,43 +2791,54 @@ theorem jiang_zhang_holomorphy (Lc Lr ec er : ℂ → ℂ) (M : ℂ → H →L[�
     AnalyticOnNhd ℂ (shahidi_normalization Lc Lr ec er M) {s : ℂ | 1 / 2 ≤ s.re} ∧
       ∀ s, 1 / 2 ≤ s.re → shahidi_normalization Lc Lr ec er M s ≠ 0 := by sorry
 
-/-- Function-field multiplicative parameter family. -/
-def yu_061 {P : Type*} (M : P → P → ℂˣ → Operator H) := M
+/-- Regular invertible slice of the function-field family. The source integral,
+continuation, rationality and Weyl transport must provide this data; it is not
+asserted for an arbitrary family of continuous linear maps. -/
+structure RegularFunctionFieldFamily (P : Type*) (H : Type u)
+    [NormedAddCommGroup H] [InnerProductSpace ℂ H] where
+  map : P → P → ℂˣ → H ≃L[ℂ] H
+  identity : ∀ P z, (map P P z).toContinuousLinearMap = ContinuousLinearMap.id ℂ H
+  cocycle : ∀ S Q P z, (map S Q z).toContinuousLinearMap.comp
+    (map Q P z).toContinuousLinearMap = (map S P z).toContinuousLinearMap
+
+def yu_061 {P : Type*} (D : RegularFunctionFieldFamily P H)
+    (Q P : P) (z : ℂˣ) : Operator H := (D.map Q P z).toContinuousLinearMap
 namespace yu_061
 
-def integralIntertwiner {P : Type*} (M : P → P → ℂˣ → Operator H) := yu_061 M
+def integralIntertwiner {P : Type*} (D : RegularFunctionFieldFamily P H) := yu_061 D
 
-theorem continueOperator {P : Type*} (M : P → P → ℂˣ → Operator H) (S Q P : P) (z : ℂˣ) :
-    (M S Q z).comp (M Q P z) = M S P z := by sorry
+theorem continueOperator {P : Type*} (D : RegularFunctionFieldFamily P H) (S Q P : P) (z : ℂˣ) :
+    (yu_061 D S Q z).comp (yu_061 D Q P z) = yu_061 D S P z := by sorry
 
-def ratioFamily {P : Type*} (M : P → P → ℂˣ → Operator H) (Q P : P)
-    (invM : Operator H) (z mu : ℂˣ) : Operator H := invM.comp (M Q P (z / mu))
+def ratioFamily {P : Type*} (D : RegularFunctionFieldFamily P H) (Q P : P)
+    (z mu : ℂˣ) : Operator H :=
+  (D.map Q P z).symm.toContinuousLinearMap.comp (yu_061 D Q P (z / mu))
 
-theorem test1 {P : Type*} (M : P → P → ℂˣ → Operator H) (P : P) (z : ℂˣ) :
-    M P P z = ContinuousLinearMap.id ℂ H := by sorry
+theorem test1 {P : Type*} (D : RegularFunctionFieldFamily P H) (P : P) (z : ℂˣ) :
+    yu_061 D P P z = ContinuousLinearMap.id ℂ H := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_061.test1
--- M_(P|P)(1,lambda)=Id on its defined induced space.
-example {P : Type*} (M : P → P → ℂˣ → Operator H) (P : P) (z : ℂˣ) :
-    M P P z = ContinuousLinearMap.id ℂ H := by sorry
+-- The actual regular-point family constructor on a same-parabolic input is the identity, using its typed identity data.
+example {P : Type*} (D : RegularFunctionFieldFamily P H) (P : P) (z : ℂˣ) :
+    yu_061 D P P z = ContinuousLinearMap.id ℂ H := by sorry
 
 
-theorem test2 (e : H ≃L[ℂ] H) :
-    e.symm.toContinuousLinearMap.comp e.toContinuousLinearMap = ContinuousLinearMap.id ℂ H := by sorry
+theorem test2 {P : Type*} (D : RegularFunctionFieldFamily P H) (Q P : P) (z : ℂˣ) :
+    ratioFamily D Q P z 1 = ContinuousLinearMap.id ℂ H := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_061.test2
--- For a regular invertible intertwiner, R_Q(lambda;1)=M_(R|P)(lambda)⁻¹∘M_(R|P)(lambda)=Id.
-example (e : H ≃L[ℂ] H) :
-    e.symm.toContinuousLinearMap.comp e.toContinuousLinearMap = ContinuousLinearMap.id ℂ H := by sorry
+-- The ratio family built from the inverse regular intertwiner and yu_061 at λ/μ gives the identity at μ=1.
+example {P : Type*} (D : RegularFunctionFieldFamily P H) (Q P : P) (z : ℂˣ) :
+    ratioFamily D Q P z 1 = ContinuousLinearMap.id ℂ H := by sorry
 
 
-theorem test3 {P : Type*} (M : P → P → ℂˣ → Operator H) (S Q P : P) (z : ℂˣ) :
-    (M S Q z).comp (M Q P z) = M S P z := by sorry
+theorem test3 {P : Type*} (D : RegularFunctionFieldFamily P H) (S Q P : P) (z : ℂˣ) :
+    (yu_061 D S Q z).comp (yu_061 D Q P z) = yu_061 D S P z := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_061.test3
--- For compatible R,S,T and regular parameters, M_(T|S)(lambda)∘M_(S|R)(lambda)=M_(T|R)(lambda), with the corresponding Weyl transport when present.
-example {P : Type*} (M : P → P → ℂˣ → Operator H) (S Q P : P) (z : ℂˣ) :
-    (M S Q z).comp (M Q P z) = M S P z := by sorry
+-- Composition of two members of the typed regular family agrees with its composed member. The source integral, continuation and Weyl transport must supply the identity/cocycle data.
+example {P : Type*} (D : RegularFunctionFieldFamily P H) (S Q P : P) (z : ℂˣ) :
+    (yu_061 D S Q z).comp (yu_061 D Q P z) = yu_061 D S P z := by sorry
 
 end yu_061
 
@@ -2397,6 +2872,9 @@ extension, cusp boundary condition and continuous-spectrum continuation are omit
 those are exactly the modular-resolvent gap, not consequences of compactness. -/
 def dit_91 (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H) (s : ℂ) : Operator H := by sorry
 namespace dit_91
+def scalarLaplacian (eigenvalue : ℂ) : (⊤ : Submodule ℂ ℂ) →ₗ[ℂ] ℂ :=
+  eigenvalue • (⊤ : Submodule ℂ ℂ).subtype
+
 
 theorem inverseEquation (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H) (s : ℂ)
     (hOff : ∀ v : H, ∃! u : D, lap u - (s * (1 - s)) • u.val = v) :
@@ -2415,26 +2893,34 @@ theorem restrictedResolvent (D : Submodule ℂ H) (lap : D →ₗ[ℂ] H)
       (fun s => (dit_91 D lap s).comp (ContinuousLinearMap.id ℂ H - P)) (Metric.ball s₀ r) := by sorry
 
 theorem test1 (s : ℂ) (hs : s ≠ 0) (hs' : s ≠ 1) :
-    (0 - s * (1 - s))⁻¹ = -(s * (1 - s))⁻¹ := by sorry
+    dit_91 ⊤ (scalarLaplacian 0) s (1 : ℂ) = -(s * (1 - s))⁻¹ := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_91.test1
--- The constant eigenfunction creates its own pole at λ=0.
+-- On the constant eigenline, the actual resolvent of the scalar Laplacian has value −1/[s(1−s)] away from its poles.
 example (s : ℂ) (hs : s ≠ 0) (hs' : s ≠ 1) :
-    (0 - s * (1 - s))⁻¹ = -(s * (1 - s))⁻¹ := by sorry
+    dit_91 ⊤ (scalarLaplacian 0) s (1 : ℂ) = -(s * (1 - s))⁻¹ := by sorry
 
 
-theorem test2 (t : ℝ) : (1 / 2 + t * Complex.I : ℂ) * (1 - (1 / 2 + t * Complex.I)) = 1 / 4 + t ^ 2 := by sorry
+theorem test2 (t : ℝ) :
+    ¬ (∀ v : ℂ, ∃! u : (⊤ : Submodule ℂ ℂ),
+      scalarLaplacian (1 / 4 + t ^ 2) u -
+        ((1 / 2 + t * Complex.I) * (1 - (1 / 2 + t * Complex.I))) • u.val = v) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_91.test2
--- A continuous-spectrum parameter needs continuation, not a bounded inverse on the spectrum.
-example (t : ℝ) : (1 / 2 + t * Complex.I : ℂ) * (1 - (1 / 2 + t * Complex.I)) = 1 / 4 + t ^ 2 := by sorry
+-- At the parameter 1/2+it for the scalar Laplacian eigenvalue 1/4+t², its defining inverse equation has no solution for every right-hand side; a bounded inverse cannot be used there.
+example (t : ℝ) :
+    ¬ (∀ v : ℂ, ∃! u : (⊤ : Submodule ℂ ℂ),
+      scalarLaplacian (1 / 4 + t ^ 2) u -
+        ((1 / 2 + t * Complex.I) * (1 - (1 / 2 + t * Complex.I))) • u.val = v) := by sorry
 
 
-theorem test3 (s : ℂ) : (1 / 4 : ℂ) - s * (1 - s) = (s - 1 / 2) ^ 2 := by sorry
+theorem test3 (s : ℂ) (hs : s ≠ 1 / 2) :
+    dit_91 ⊤ (scalarLaplacian (1 / 4)) s (1 : ℂ) = ((s - 1 / 2) ^ 2)⁻¹ := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.dit_91.test3
--- At r=0 the parameter denominator has a double zero; the simple-pole formula for r>0 cannot be applied.
-example (s : ℂ) : (1 / 4 : ℂ) - s * (1 - s) = (s - 1 / 2) ^ 2 := by sorry
+-- The actual scalar resolvent on the eigenline of eigenvalue 1/4 is (s−1/2)^(−2), so the parameter pole is double at the threshold.
+example (s : ℂ) (hs : s ≠ 1 / 2) :
+    dit_91 ⊤ (scalarLaplacian (1 / 4)) s (1 : ℂ) = ((s - 1 / 2) ^ 2)⁻¹ := by sorry
 
 end dit_91
 end ModularResolvent
@@ -2612,6 +3098,11 @@ def truncation_cones {r : ℕ} (roots : Fin r → Height ι →ₗ[ℝ] ℝ) (H 
 def theta {r : ℕ} (coroots : Fin r → Height ι) (volume : ℝ) (nu : Parameter ι) : ℂ :=
   (volume : ℂ)⁻¹ * ∏ i, Pairing nu (coroots i)
 namespace truncation_cones
+def a2Roots : Fin 2 → Height (Fin 2) →ₗ[ℝ] ℝ := fun i => LinearMap.proj i
+def a2Weights : Fin 2 → Height (Fin 2) →ₗ[ℝ] ℝ :=
+  ![(2 / 3 : ℝ) • LinearMap.proj 0 + (1 / 3 : ℝ) • LinearMap.proj 1,
+    (1 / 3 : ℝ) • LinearMap.proj 0 + (2 / 3 : ℝ) • LinearMap.proj 1]
+
 
 theorem rank_zero (roots : Fin 0 → Height ι →ₗ[ℝ] ℝ) (coroots : Fin 0 → Height ι)
     (H : Height ι) (nu : Parameter ι) : truncation_cones roots H = 1 ∧ theta coroots 1 nu = 1 := by sorry
@@ -2644,13 +3135,13 @@ example {r : ℕ} (roots : Fin r → Height ι →ₗ[ℝ] ℝ) (H : Height ι)
 
 
 /-- Type A₂: root-coordinate inverse Cartan matrix makes the two cones distinct. -/
-theorem a2_distinction :
-    (2 * (-1 : ℝ) + 3) / 3 > 0 ∧ ((-1 : ℝ) + 2 * 3) / 3 > 0 ∧ ¬ (0 < (-1 : ℝ)) := by sorry
+theorem a2_distinction  :
+    truncation_cones a2Roots ![-1, 3] = 0 ∧ truncation_cones a2Weights ![-1, 3] = 1 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.truncation_cones.a2_distinction
--- In type A₂, a point can be positive on both fundamental weights but negative on one simple root, so τ̂ and τ are not interchangeable.
-example :
-    (2 * (-1 : ℝ) + 3) / 3 > 0 ∧ ((-1 : ℝ) + 2 * 3) / 3 > 0 ∧ ¬ (0 < (-1 : ℝ)) := by sorry
+-- The named A₂ simple-root cutoff is zero at root coordinates (−1,3), while the cutoff for the two inverse-Cartan fundamental weights is one.
+example  :
+    truncation_cones a2Roots ![-1, 3] = 0 ∧ truncation_cones a2Weights ![-1, 3] = 1 := by sorry
 
 end truncation_cones
 end Cones
@@ -2674,6 +3165,19 @@ def arthur_truncation {X : Type u} {ι : Type v} [Fintype ι]
     D.constantTerm P f (D.translate P j x) *
       D.cutoff P (D.height P (D.translate P j x) - T)
 namespace arthur_truncation
+/-- Single embedded cusp strip. Global reduction theory identifies this datum with
+SL₂ truncation only for sufficiently large Y on the chosen fundamental domain. -/
+def cuspStripData : TruncationData ℝ Unit where
+  Proper := Unit
+  finite := inferInstance
+  Cosets := fun _ => Unit
+  countable := fun _ => inferInstance
+  rank := fun _ => 1
+  constantTerm := fun _ => LinearMap.id
+  translate := fun _ _ y => y
+  height := fun _ y _ => Real.log y
+  cutoff := fun _ H => if 0 < H () then 1 else 0
+
 variable {X : Type u} {ι : Type v} [Fintype ι] (D : TruncationData X ι)
 
 theorem cusp_fixed (T : Height ι) (f : X → ℂ) (hcusp : ∀ P, D.constantTerm P f = 0) :
@@ -2699,12 +3203,14 @@ example (T : Height ι) (f : X → ℂ) (hcusp : ∀ P, D.constantTerm P f = 0) 
 
 /-- Standard cusp strip specialization with the strict y>Y cutoff. -/
 theorem sl2_constant (y Y : ℝ) (hy : 0 < y) (hY : 0 < Y) :
-    (1 : ℂ) - (if Y < y then 1 else 0) = if y ≤ Y then 1 else 0 := by sorry
+    arthur_truncation cuspStripData (fun _ => Real.log Y) (fun _ => 1) y =
+      if y ≤ Y then 1 else 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.arthur_truncation.sl2_constant
--- For Γ=SL₂(ℤ), Λ^{log Y}1 equals 1 minus the cusp indicator y>Y for Y sufficiently large.
+-- The actual one-cusp strip truncation datum at T=log Y sends the constant function one to the indicator y≤Y. Global identification with SL₂ truncation uses the sufficiently-large-Y reduction theorem.
 example (y Y : ℝ) (hy : 0 < y) (hY : 0 < Y) :
-    (1 : ℂ) - (if Y < y then 1 else 0) = if y ≤ Y then 1 else 0 := by sorry
+    arthur_truncation cuspStripData (fun _ => Real.log Y) (fun _ => 1) y =
+      if y ≤ Y then 1 else 0 := by sorry
 
 
 theorem rank_zero [IsEmpty D.Proper] (T : Height ι) (f : X → ℂ) : arthur_truncation D T f = f := by sorry
@@ -2759,6 +3265,9 @@ Individual E(λ) are not vectors in the untruncated global L² space. -/
 def eisenstein_wave_packet (μ : Measure X) (E : X → V →L[ℂ] H) (F : X → V) : H :=
   ∫ x, E x (F x) ∂μ
 namespace eisenstein_wave_packet
+local instance boolMeasurable : MeasurableSpace Bool := ⊤
+def twoWeylMeasure : Measure Bool := (2 : ENNReal)⁻¹ • (Measure.dirac true + Measure.dirac false)
+
 
 theorem linear (μ : Measure X) (E : X → V →L[ℂ] H) (F G : X → V) (a b : ℂ)
     (hF : Integrable (fun x => E x (F x)) μ) (hG : Integrable (fun x => E x (G x)) μ) :
@@ -2790,11 +3299,19 @@ example (v : H) : eisenstein_wave_packet (Measure.dirac ())
     (fun _ : Unit => ContinuousLinearMap.id ℂ H) (fun _ => v) = v := by sorry
 
 
-theorem weyl_overcount (v : H) : (2 : ℂ)⁻¹ • (v + v) = v := by sorry
+theorem weyl_overcount (v : H) :
+    eisenstein_wave_packet twoWeylMeasure
+      (fun _ : Bool => ContinuousLinearMap.id ℂ H) (fun _ => v) = v ∧
+    eisenstein_wave_packet (Measure.dirac true + Measure.dirac false)
+      (fun _ : Bool => ContinuousLinearMap.id ℂ H) (fun _ => v) = 2 • v := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.eisenstein_wave_packet.weyl_overcount
--- For a rank-one associate family the stabilizer/Weyl denominator prevents counting λ and −λ twice.
-example (v : H) : (2 : ℂ)⁻¹ • (v + v) = v := by sorry
+-- The packet constructor over a two-element Weyl orbit with measure half counting sends a compatible constant section v to v; omitting the denominator gives 2v.
+example (v : H) :
+    eisenstein_wave_packet twoWeylMeasure
+      (fun _ : Bool => ContinuousLinearMap.id ℂ H) (fun _ => v) = v ∧
+    eisenstein_wave_packet (Measure.dirac true + Measure.dirac false)
+      (fun _ : Bool => ContinuousLinearMap.id ℂ H) (fun _ => v) = 2 • v := by sorry
 
 end eisenstein_wave_packet
 
@@ -2819,6 +3336,12 @@ universe u v w
 def yu_022 {I J : Type*} [Fintype I] [Fintype J] [DecidableEq J]
     (block : I → J) (H : I → ℝ) : J → ℝ := fun j => ∑ i ∈ Finset.univ.filter (fun i => block i = j), H i
 namespace yu_022
+def relativeProjection {r : ℕ} (n : Fin r → ℕ) (H : Fin r → ℝ) : Fin r → ℝ :=
+  fun i => H i - (n i : ℝ) / (∑ j, (n j : ℝ)) * ∑ j, H j
+def oneTwoBlocks : Fin 3 → Fin 2 := ![0, 1, 1]
+def dualBlockProjection (H : Fin 3 → ℝ) : Fin 2 → ℝ :=
+  fun i => yu_022 oneTwoBlocks H i / (![1, 2] i : ℝ)
+
 def blockProjection {I J : Type*} [Fintype I] [Fintype J] [DecidableEq J]
     (block : I → J) := yu_022 block
 
@@ -2828,18 +3351,24 @@ def fundamentalWeight {r : ℕ} (n : Fin r → ℕ) (j : ℕ) (H : Fin r → ℝ
   (∑ i ∈ Finset.univ.filter (fun i => i.val < j), H i) -
     (∑ i ∈ Finset.univ.filter (fun i => i.val < j), (n i : ℝ)) / (∑ i, n i) * ∑ i, H i
 
-theorem test1 : (1 + 2 + 3 : ℝ) = 6 ∧ (2 + 3 : ℝ) / 2 = 5 / 2 := by sorry
+theorem test1  :
+    yu_022 oneTwoBlocks ![1, 2, 3] = ![1, 5] ∧
+      dualBlockProjection ![1, 2, 3] = ![1, 5 / 2] := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_022.test1
--- For blocks1|23, the vector (1,2,3) projects in a-space to(1,5), and the dual coordinate vector projects to(1,5/2).
-example : (1 + 2 + 3 : ℝ) = 6 ∧ (2 + 3 : ℝ) / 2 = 5 / 2 := by sorry
+-- The actual block projection for 1|23 sends (1,2,3) to (1,5), and its averaged dual projection gives (1,5/2).
+example  :
+    yu_022 oneTwoBlocks ![1, 2, 3] = ![1, 5] ∧
+      dualBlockProjection ![1, 2, 3] = ![1, 5 / 2] := by sorry
 
 
-theorem test2 (x : ℝ) (hDegreeZero : x = 0) : x = 0 := by sorry
+theorem test2 (n : ℕ) (hn : 0 < n) (H : Fin 1 → ℝ) :
+    relativeProjection (fun _ : Fin 1 => n) H = 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_022.test2
--- For M=G, a_M^G={0}.
-example (x : ℝ) (hDegreeZero : x = 0) : x = 0 := by sorry
+-- For the single rank-n block, n>0, subtracting the central projection gives the zero relative-height vector for every input.
+example (n : ℕ) (hn : 0 < n) (H : Fin 1 → ℝ) :
+    relativeProjection (fun _ : Fin 1 => n) H = 0 := by sorry
 
 
 theorem test3 (x y : ℝ) : relativeRoot 1 2 ![x, y] = x - y / 2 := by sorry
@@ -2879,11 +3408,25 @@ example {ι : Type*} [Fintype ι] {r : ℕ} (roots : Fin r → Height ι →ₗ[
 
 /-- The Iwasawa determinant-height identities are supplied by AA; here the invariant
 unipotent and compact factors have zero determinant degree. -/
-theorem test3 (n m k : ℤ) (hn : n = 0) (hk : k = 0) : n + m + k = m := by sorry
+theorem test3 {G : Type*} [Group G] {ι : Type*} [Fintype ι] {r : ℕ}
+    (degree : G →* Multiplicative (Height ι))
+    (roots weights : Fin r → Height ι →ₗ[ℝ] ℝ) (n m k : G)
+    (hn : degree n = 1) (hk : degree k = 1) :
+    height (fun g => Multiplicative.toAdd (degree g)) (n * m * k) =
+      height (fun g => Multiplicative.toAdd (degree g)) m ∧
+    yu_023 roots weights (Multiplicative.toAdd (degree (n * m * k))) =
+      yu_023 roots weights (Multiplicative.toAdd (degree m)) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_023.test3
--- H_P(nmk)=H_P(m) for n∈N_P(A), k∈K, and the total of its coordinates is deg(det m).
-example (n m k : ℤ) (hn : n = 0) (hk : k = 0) : n + m + k = m := by sorry
+-- For the determinant-height homomorphism with trivial unipotent and compact factors, the named height of nmk is that of m, and both actual cone cutoffs agree.
+example {G : Type*} [Group G] {ι : Type*} [Fintype ι] {r : ℕ}
+    (degree : G →* Multiplicative (Height ι))
+    (roots weights : Fin r → Height ι →ₗ[ℝ] ℝ) (n m k : G)
+    (hn : degree n = 1) (hk : degree k = 1) :
+    height (fun g => Multiplicative.toAdd (degree g)) (n * m * k) =
+      height (fun g => Multiplicative.toAdd (degree g)) m ∧
+    yu_023 roots weights (Multiplicative.toAdd (degree (n * m * k))) =
+      yu_023 roots weights (Multiplicative.toAdd (degree m)) := by sorry
 
 end yu_023
 
@@ -2891,6 +3434,11 @@ end yu_023
 def yu_056 {ι : Type*} [Fintype ι] {r : ℕ}
     (roots : Fin r → Height ι →ₗ[ℝ] ℝ) : Set (Height ι) := {k | ∀ i, roots i k ≠ 0}
 namespace yu_056
+def crossedBlockRoot : Height (Fin 3) →ₗ[ℝ] ℝ :=
+  (1 / 2 : ℝ) • ((LinearMap.proj (R := ℝ) (φ := fun _ : Fin 3 => ℝ) 0) + (LinearMap.proj (R := ℝ) (φ := fun _ : Fin 3 => ℝ) 2)) - (LinearMap.proj (R := ℝ) (φ := fun _ : Fin 3 => ℝ) 1)
+def gl2Root : Height (Fin 2) →ₗ[ℝ] ℝ := (LinearMap.proj (R := ℝ) (φ := fun _ : Fin 2 => ℝ) 0) -
+  (LinearMap.proj (R := ℝ) (φ := fun _ : Fin 2 => ℝ) 1)
+
 
 theorem avoidHyperplanes {ι : Type*} [Fintype ι] {r : ℕ}
     (roots : Fin r → Height ι →ₗ[ℝ] ℝ) (hRoots : ∀ i, roots i ≠ 0) :
@@ -2904,18 +3452,20 @@ theorem weylTransport {ι : Type*} [Fintype ι] {r : ℕ}
     (roots : Fin r → Height ι →ₗ[ℝ] ℝ) (e : Height ι ≃ₗ[ℝ] Height ι) (k : Height ι) :
     orderedParabolic (fun i => (roots i).comp e.toLinearMap) k = orderedParabolic roots (e k) := by sorry
 
-theorem test1 : (3 + 1 : ℝ) / 2 = 2 := by sorry
+theorem test1  : ![3, 2, 1] ∉ yu_056 (fun _ : Fin 1 => crossedBlockRoot) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_056.test1
--- kappa=(3,2,1) has equal block averages for {1,3}|{2} and does not define a generic selector.
-example : (3 + 1 : ℝ) / 2 = 2 := by sorry
+-- The vector (3,2,1) fails membership in the selector for the crossed partition {1,3}|{2}, because its block averages are equal.
+example  : ![3, 2, 1] ∉ yu_056 (fun _ : Fin 1 => crossedBlockRoot) := by sorry
 
 
-theorem test2 : (2 : ℝ) - 0 ≠ 0 := by sorry
+theorem test2  : ![2, 0] ∈ yu_056 (fun _ : Fin 1 => gl2Root) ∧
+    orderedParabolic (fun _ : Fin 1 => gl2Root) ![2, 0] = fun _ => true := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_056.test2
--- For GL₂, kappa=(2,0) is regular for the unique proper root hyperplane.
-example : (2 : ℝ) - 0 ≠ 0 := by sorry
+-- The vector (2,0) belongs to the actual GL₂ regular selector and chooses the positive ordered parabolic.
+example  : ![2, 0] ∈ yu_056 (fun _ : Fin 1 => gl2Root) ∧
+    orderedParabolic (fun _ : Fin 1 => gl2Root) ![2, 0] = fun _ => true := by sorry
 
 
 theorem test3 {ι : Type*} [Fintype ι] {r : ℕ}
@@ -2983,6 +3533,11 @@ theorem yu_059 {r : ℕ} (ranks : Fin (r + 1) → ℕ) (n : ℕ) (hn : 0 < n)
 def yu_115 {r : ℕ} (ranks : Fin (r + 1) → ℕ) (n : ℕ) (e : ℤ) : Fin r → ℤ :=
   fun i => floorHeight ranks n e i + if i.val = 0 then 0 else 1
 namespace yu_115
+/-- Arthur's linear θ in Yu's multiplicative character coordinates. The monomial
+λ₂⁻¹ in (5.2.4) converts its geometric-series denominator to this difference. -/
+def twoBlockTheta (lambda : Fin 2 → ℂˣ) : ℂ := (lambda 0 : ℂ) - (lambda 1 : ℂ)
+def twoBlockCutoff (lambda : Fin 2 → ℂˣ) : ℂ := -(twoBlockTheta lambda)⁻¹
+
 
 def floorExponent := @yu_115
 
@@ -2993,13 +3548,13 @@ theorem wallAgreement (a b : ℤ) (z : ℂˣ) : z ^ a * z ^ b = z ^ (a + b) := b
 theorem cutoffFactor (cutoff monomial thetaValue : ℂ) (hTheta : thetaValue ≠ 0)
     (hCutoff : cutoff = -monomial / thetaValue) : cutoff * thetaValue = -monomial := by sorry
 
-theorem test1 : (⌊(1 : ℝ) * 0 / 3⌋ - ⌊(1 : ℝ) * 1 / 3⌋ : ℤ) = 0 ∧
-    (⌊(1 : ℝ) * 1 / 3⌋ - ⌊(1 : ℝ) * 3 / 3⌋ + 1 : ℤ) = 0 := by sorry
+theorem test1  : floorHeight ![0, 1, 3] 3 1 = ![0, -1] ∧
+    yu_115 ![0, 1, 3] 3 1 = ![0, 0] := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_115.test1
--- For n=3, ordered blocks(1,2), e=1: H=(0,−1), I=(0,0), and hat1_Q^1=−1/(lambda1−lambda2).
-example : (⌊(1 : ℝ) * 0 / 3⌋ - ⌊(1 : ℝ) * 1 / 3⌋ : ℤ) = 0 ∧
-    (⌊(1 : ℝ) * 1 / 3⌋ - ⌊(1 : ℝ) * 3 / 3⌋ + 1 : ℤ) = 0 := by sorry
+-- The named floor-height and shifted-exponent constructions for ranks (1,2), total rank three and degree one give H=(0,−1), I=(0,0).
+example  : floorHeight ![0, 1, 3] 3 1 = ![0, -1] ∧
+    yu_115 ![0, 1, 3] 3 1 = ![0, 0] := by sorry
 
 
 theorem test2 {r : ℕ} (hr : 0 < r) (ranks : Fin (r + 1) → ℕ) (n : ℕ) (hn : 0 < n)
@@ -3013,11 +3568,17 @@ example {r : ℕ} (hr : 0 < r) (ranks : Fin (r + 1) → ℕ) (n : ℕ) (hn : 0 <
     (∑ i, yu_115 ranks n e i) = (r : ℤ) - 1 - e := by sorry
 
 
-theorem test3 (z : ℂ) (hz : z ≠ 0) : (-z⁻¹) * z = -1 := by sorry
+theorem test3 (lambda : Fin 2 → ℂˣ) (hWall : lambda 0 ≠ lambda 1) :
+    (lambda 1 : ℂ)⁻¹ / (1 - (lambda 0 : ℂ) / (lambda 1 : ℂ)) = twoBlockCutoff lambda ∧
+    twoBlockCutoff lambda * twoBlockTheta lambda = -1 ∧
+      twoBlockCutoff lambda * (twoBlockTheta lambda)⁻¹ = -((twoBlockTheta lambda) ^ 2)⁻¹ := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_115.test3
--- For two blocks, multiplying hat1_Q^e by theta_Q removes the simple wall denominator; multiplying by theta_Q⁻¹ instead produces a double denominator.
-example (z : ℂ) (hz : z ≠ 0) : (-z⁻¹) * z = -1 := by sorry
+-- In multiplicative character coordinates the two-block cone expression λ₂^(−1)/(1−λ₁/λ₂) equals −1/(λ₁−λ₂). Multiplication by the actual linear θ cancels the pole; multiplying by its inverse gives a double denominator.
+example (lambda : Fin 2 → ℂˣ) (hWall : lambda 0 ≠ lambda 1) :
+    (lambda 1 : ℂ)⁻¹ / (1 - (lambda 0 : ℂ) / (lambda 1 : ℂ)) = twoBlockCutoff lambda ∧
+    twoBlockCutoff lambda * twoBlockTheta lambda = -1 ∧
+      twoBlockCutoff lambda * (twoBlockTheta lambda)⁻¹ = -((twoBlockTheta lambda) ^ 2)⁻¹ := by sorry
 
 end yu_115
 
@@ -3059,6 +3620,16 @@ def associate_parameter_fields (μ : Measure X) (n : P → ℕ)
     (transport : P → P → X → X) (M : P → P → X → Operator H) :
     HilbertModel.{max u v w} := by sorry
 namespace associate_parameter_fields
+def pointSection (v : H) : SymmetricSection (Measure.dirac ())
+    (fun _ _ x => x : Unit → Unit → Unit → Unit)
+    (fun _ _ _ => ContinuousLinearMap.id ℂ H) := ⟨fun _ _ => v, by sorry⟩
+def reflectedSection (F : ℝ → H) (hF : MemLp F 2 volume) (A : Operator H)
+    (hWeyl : ∀ x, F (-x) = A (F x)) : SymmetricSection volume
+    (fun _ _ x => -x : Unit → Unit → ℝ → ℝ) (fun _ _ _ => A) := ⟨fun _ => F, by sorry⟩
+def fixedPointSection (A : Operator H) (v : H) (hFixed : A v = v) :
+    SymmetricSection (Measure.dirac ())
+      (fun _ _ x => x : Unit → Unit → Unit → Unit) (fun _ _ _ => A) := ⟨fun _ _ => v, by sorry⟩
+
 
 def mk (μ : Measure X) (n : P → ℕ) (t : P → P → X → X)
     (M : P → P → X → Operator H) (F : SymmetricSection μ t M) :
@@ -3078,27 +3649,45 @@ def quotient_equiv (μ : Measure X) (n : P → ℕ) (t : P → P → X → X)
     (M : P → P → X → Operator H) (quotientModel : HilbertModel.{max u v w}) :
     (associate_parameter_fields μ n t M).Carrier ≃ₗᵢ[ℂ] quotientModel.Carrier := by sorry
 
-theorem rank_zero : (1 : ℝ)⁻¹ = 1 := by sorry
+theorem rank_zero (v : H) :
+    ‖mk (Measure.dirac ()) (fun _ : Unit => 1) (fun _ _ x => x)
+      (fun _ _ _ => ContinuousLinearMap.id ℂ H) (pointSection v)‖ ^ 2 = ‖v‖ ^ 2 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.associate_parameter_fields.rank_zero
--- For P=G there is one zero-dimensional parameter and n_G=1.
-example : (1 : ℝ)⁻¹ = 1 := by sorry
+-- A constant section over the single point with n_G=1 maps to an actual field vector whose squared norm is the original squared norm.
+example (v : H) :
+    ‖mk (Measure.dirac ()) (fun _ : Unit => 1) (fun _ _ x => x)
+      (fun _ _ _ => ContinuousLinearMap.id ℂ H) (pointSection v)‖ ^ 2 = ‖v‖ ^ 2 := by sorry
 
 
-theorem rank_one (a : ℝ) : (2 : ℝ)⁻¹ * a = a / 2 := by sorry
+theorem rank_one (F : ℝ → H) (hF : MemLp F 2 volume)
+    (A : Operator H) (hWeyl : ∀ x, F (-x) = A (F x)) :
+    ‖mk volume (fun _ : Unit => 2) (fun _ _ x => -x) (fun _ _ _ => A)
+      (reflectedSection F hF A hWeyl)‖ ^ 2 = (1 / 2 : ℝ) * ∫ x, ‖F x‖ ^ 2 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.associate_parameter_fields.rank_one
--- For one self-associate rank-one parabolic with two Weyl elements, n_P=2 and the norm is 1/2 times the full imaginary-axis norm.
-example (a : ℝ) : (2 : ℝ)⁻¹ * a = a / 2 := by sorry
+-- For a reflected compatible section over the real parameter line with n_P=2, the actual field vector has half the full integrated squared norm.
+example (F : ℝ → H) (hF : MemLp F 2 volume)
+    (A : Operator H) (hWeyl : ∀ x, F (-x) = A (F x)) :
+    ‖mk volume (fun _ : Unit => 2) (fun _ _ x => -x) (fun _ _ _ => A)
+      (reflectedSection F hF A hWeyl)‖ ^ 2 = (1 / 2 : ℝ) * ∫ x, ‖F x‖ ^ 2 := by sorry
 
 
-theorem stabilizer_not_removed (A : Operator H) (v : H) (hv : A v = v) :
-    v ∈ (A - ContinuousLinearMap.id ℂ H).ker := by sorry
+theorem stabilizer_not_removed (A : Operator H) (v : H)
+    (hv : A v = v) (hNonzero : v ≠ 0) :
+    ‖mk (Measure.dirac ()) (fun _ : Unit => 2) (fun _ _ x => x)
+      (fun _ _ _ => A) (fixedPointSection A v hv)‖ ^ 2 = (1 / 2 : ℝ) * ‖v‖ ^ 2 ∧
+    mk (Measure.dirac ()) (fun _ : Unit => 2) (fun _ _ x => x)
+      (fun _ _ _ => A) (fixedPointSection A v hv) ≠ 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.associate_parameter_fields.stabilizer_not_removed
--- At a stabilizer parameter, the invariant fibre is retained; the quotient is not formed by arbitrarily deleting every fixed point.
-example (A : Operator H) (v : H) (hv : A v = v) :
-    v ∈ (A - ContinuousLinearMap.id ℂ H).ker := by sorry
+-- A nonzero vector fixed by the stabilizer operator defines a nonzero point-field vector, with the reciprocal stabilizer norm factor retained.
+example (A : Operator H) (v : H)
+    (hv : A v = v) (hNonzero : v ≠ 0) :
+    ‖mk (Measure.dirac ()) (fun _ : Unit => 2) (fun _ _ x => x)
+      (fun _ _ _ => A) (fixedPointSection A v hv)‖ ^ 2 = (1 / 2 : ℝ) * ‖v‖ ^ 2 ∧
+    mk (Measure.dirac ()) (fun _ : Unit => 2) (fun _ _ x => x)
+      (fun _ _ _ => A) (fixedPointSection A v hv) ≠ 0 := by sorry
 
 end associate_parameter_fields
 
@@ -3173,6 +3762,10 @@ variable {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [Complete
 
 def residual_spectrum (disc cusp : Submodule ℂ H) : Submodule ℂ H := disc ⊓ cusp.orthogonal
 namespace residual_spectrum
+def cuspMeasure : Measure ℝ := (volume.restrict (Set.Ioi 1)).withDensity
+  (fun y => ENNReal.ofReal (y ^ (-2 : ℤ)))
+def cuspPower (a : ℝ) (y : ℝ) : ℂ := (y ^ a : ℝ)
+
 
 theorem orthogonal (disc cusp : Submodule ℂ H) (hC : IsClosed (cusp : Set H))
     (hD : IsClosed (disc : Set H)) (hCD : cusp ≤ disc) :
@@ -3196,21 +3789,31 @@ theorem anisotropic : residual_spectrum (⊤ : Submodule ℂ H) ⊤ = ⊥ := by 
 example : residual_spectrum (⊤ : Submodule ℂ H) ⊤ = ⊥ := by sorry
 
 
-theorem sl2_constant (z : UpperHalfPlane) : scalarCoefficient (continuedE z) 1 (-1) = 3 / Real.pi := by sorry
+theorem sl2_constant (disc cusp : Submodule ℂ H) (v : H) (hv : v ≠ 0)
+    (hC : IsClosed (cusp : Set H)) (hOrth : v ∈ cusp.orthogonal)
+    (hDisc : disc = cusp ⊔ Submodule.span ℂ {v}) (z : UpperHalfPlane) :
+    scalarCoefficient (continuedE z) 1 (-1) = 3 / Real.pi ∧
+      residual_spectrum disc cusp = Submodule.span ℂ {v} := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.residual_spectrum.sl2_constant
--- For PSL₂(ℤ), the residue at s=1 of E(z,s) is 3/π and spans the constant residual space.
-example (z : UpperHalfPlane) : scalarCoefficient (continuedE z) 1 (-1) = 3 / Real.pi := by sorry
+-- The Eisenstein residue is 3/π. In a Hilbert model with discrete space equal to cusp plus an orthogonal nonzero constant line, the actual residual_spectrum is precisely that line; the modular spectral theorem must establish the model hypotheses.
+example (disc cusp : Submodule ℂ H) (v : H) (hv : v ≠ 0)
+    (hC : IsClosed (cusp : Set H)) (hOrth : v ∈ cusp.orthogonal)
+    (hDisc : disc = cusp ⊔ Submodule.span ℂ {v}) (z : UpperHalfPlane) :
+    scalarCoefficient (continuedE z) 1 (-1) = 3 / Real.pi ∧
+      residual_spectrum disc cusp = Submodule.span ℂ {v} := by sorry
 
 
 /-- Cusp measure computation excludes an exponent at the nonnegative L² boundary. -/
 theorem non_l2_pole (a : ℝ) (ha : 1 / 2 ≤ a) :
-    ¬ IntegrableOn (fun y : ℝ => y ^ (2 * a - 2)) (Set.Ioi 1) := by sorry
+    ¬ MemLp (cuspPower a) 2 cuspMeasure ∧
+      ¬ ∃ f : Lp ℂ 2 cuspMeasure, (fun y => (f : ℝ → ℂ) y) =ᵐ[cuspMeasure] cuspPower a := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.residual_spectrum.non_l2_pole
--- A meromorphic pole with a surviving nonnegative proper-parabolic exponent does not by itself give an L² residual vector.
+-- For a surviving cusp power y^a with a≥1/2, there is no L² representative for the hyperbolic cusp measure, so the power cannot be a vector in any L² residual subspace.
 example (a : ℝ) (ha : 1 / 2 ≤ a) :
-    ¬ IntegrableOn (fun y : ℝ => y ^ (2 * a - 2)) (Set.Ioi 1) := by sorry
+    ¬ MemLp (cuspPower a) 2 cuspMeasure ∧
+      ¬ ∃ f : Lp ℂ 2 cuspMeasure, (fun y => (f : ℝ → ℂ) y) =ᵐ[cuspMeasure] cuspPower a := by sorry
 
 end residual_spectrum
 
@@ -3272,11 +3875,17 @@ theorem cuspidalInclusion {H : Type*} [NormedAddCommGroup H] [InnerProductSpace 
     (cusp disc : Submodule ℂ H) (hInclusion : cusp ≤ disc) :
     ∀ v ∈ cusp, v ∈ disc := by sorry
 
-theorem test1 : (1 : ℂ) ≠ 0 := by sorry
+theorem test1  :
+    (1 : ℂ) ∈ discreteSubspace ({1} : Set ℂ) ∧
+      (1 : ℂ) ∈ residual_spectrum (⊤ : Submodule ℂ ℂ) ⊥ ∧
+      yu_017 (Measure.dirac ()) (fun _ : Unit => 1) (fun _ => 1) = 1 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_017.test1
--- The GL₂ constant automorphic function, with trivial central character, is residual discrete data and is not cuspidal.
-example : (1 : ℂ) ≠ 0 := by sorry
+-- In the constant-line model the vector one lies in the constructed discrete span and residual_spectrum, and its actual yu_017 point-quotient norm is one. The GL₂ automorphic embedding remains a supplier obligation.
+example  :
+    (1 : ℂ) ∈ discreteSubspace ({1} : Set ℂ) ∧
+      (1 : ℂ) ∈ residual_spectrum (⊤ : Submodule ℂ ℂ) ⊥ ∧
+      yu_017 (Measure.dirac ()) (fun _ : Unit => 1) (fun _ => 1) = 1 := by sorry
 
 
 theorem test2 (μ : Measure X) (theta phi : X → ℂ) (htheta : ∀ x, ‖theta x‖ = 1) :
@@ -3288,11 +3897,19 @@ example (μ : Measure X) (theta phi : X → ℂ) (htheta : ∀ x, ‖theta x‖ 
     yu_017 μ theta phi = ∫ x, ‖phi x‖ ^ 2 ∂μ := by sorry
 
 
-theorem test3 (a b t : ℂ) (ht : t ≠ 0) : ‖t * a‖ ^ 2 / ‖t * b‖ ^ 2 = ‖a‖ ^ 2 / ‖b‖ ^ 2 := by sorry
+theorem test3 (μ : Measure X) {G : Type*} [Group G] [MulAction G X]
+    (theta phi : X → ℂ) (chi : G →* ℂˣ)
+    (hPhi : ∀ g x, phi (g • x) = (chi g : ℂ) * phi x)
+    (hTheta : ∀ g x, theta (g • x) = (chi g : ℂ) * theta x) (g : G) :
+    yu_017 μ (fun x => theta (g • x)) (fun x => phi (g • x)) = yu_017 μ theta phi := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_017.test3
--- If phi(zm)=theta(z)phi(m), then |phi(zm)|²/|theta(zm)|²=|phi(m)|²/|theta(m)|², so the integrand descends to the central quotient.
-example (a b t : ℂ) (ht : t ≠ 0) : ‖t * a‖ ^ 2 / ‖t * b‖ ^ 2 = ‖a‖ ^ 2 / ‖b‖ ^ 2 := by sorry
+-- When the section and its weight transform by the same nonzero central character, the actual integrated yu_017 norm is unchanged under central translation.
+example (μ : Measure X) {G : Type*} [Group G] [MulAction G X]
+    (theta phi : X → ℂ) (chi : G →* ℂˣ)
+    (hPhi : ∀ g x, phi (g • x) = (chi g : ℂ) * phi x)
+    (hTheta : ∀ g x, theta (g • x) = (chi g : ℂ) * theta x) (g : G) :
+    yu_017 μ (fun x => theta (g • x)) (fun x => phi (g • x)) = yu_017 μ theta phi := by sorry
 
 end yu_017
 end YuDiscrete
@@ -3345,6 +3962,14 @@ end yu_018
 def yu_019 {I : Type u} {C : Type v} (inertialClass : I → C) (chooseRep : C → I) : I → I :=
   chooseRep ∘ inertialClass
 namespace yu_019
+def distinguishedTuple {I C : Type*} {r : ℕ} (inertialClass : I → C)
+    (chooseRep : C → I) (pi : Fin r → I) : Fin r → I := fun i => yu_019 inertialClass chooseRep (pi i)
+def pairStabilizer {I C T : Type*} [Group T] [MulAction T I] {r : ℕ}
+    (inertialClass : I → C) (chooseRep : C → I) (pi : Fin r → I) :
+    Set (Equiv.Perm (Fin r) × T) :=
+  {p | ∀ i, p.2 • distinguishedTuple inertialClass chooseRep pi (p.1 i) =
+    distinguishedTuple inertialClass chooseRep pi i}
+
 
 def groupEqualTypes := @yu_019
 
@@ -3355,30 +3980,56 @@ finite twist stabilizer cardinal. The good-pair carrier is omitted. -/
 def stabilizerCard {r : ℕ} (multiplicity : Fin r → ℕ) (twistCard : ℕ) : ℕ :=
   twistCard * ∏ i, (multiplicity i).factorial
 
-theorem test1 {I : Type*} (pi : I) : (![pi, pi] : Fin 2 → I) ∘ Equiv.swap 0 1 = ![pi, pi] := by sorry
+theorem test1 {I C : Type*} (inertialClass : I → C) (chooseRep : C → I)
+    (pi tau : I) (hSame : inertialClass pi = inertialClass tau) :
+    distinguishedTuple inertialClass chooseRep ![pi, tau] ∘ Equiv.swap 0 1 =
+      distinguishedTuple inertialClass chooseRep ![pi, tau] := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_019.test1
--- For pi=Π⊗Π, the transposition belongs to the permutation part of the stabilizer.
-example {I : Type*} (pi : I) : (![pi, pi] : Fin 2 → I) ∘ Equiv.swap 0 1 = ![pi, pi] := by sorry
+-- Two raw representations in the same inertial class have equal chosen representatives under yu_019, so their distinguished tuple is fixed by transposition.
+example {I C : Type*} (inertialClass : I → C) (chooseRep : C → I)
+    (pi tau : I) (hSame : inertialClass pi = inertialClass tau) :
+    distinguishedTuple inertialClass chooseRep ![pi, tau] ∘ Equiv.swap 0 1 =
+      distinguishedTuple inertialClass chooseRep ![pi, tau] := by sorry
 
 
-theorem test2 {I : Type*} (pi tau : I) (h : pi ≠ tau) :
-    (![pi, tau] : Fin 2 → I) ∘ Equiv.swap 0 1 ≠ ![pi, tau] := by sorry
+theorem test2 {I C : Type*} (inertialClass : I → C) (chooseRep : C → I)
+    (hSection : ∀ c, inertialClass (chooseRep c) = c)
+    (pi tau : I) (hDifferent : inertialClass pi ≠ inertialClass tau) :
+    distinguishedTuple inertialClass chooseRep ![pi, tau] ∘ Equiv.swap 0 1 ≠
+      distinguishedTuple inertialClass chooseRep ![pi, tau] := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_019.test2
--- For two inertially inequivalent Π₁,Π₂, the transposition is excluded.
-example {I : Type*} (pi tau : I) (h : pi ≠ tau) :
-    (![pi, tau] : Fin 2 → I) ∘ Equiv.swap 0 1 ≠ ![pi, tau] := by sorry
+-- For two distinct inertial classes and a representative section of the class map, transposition does not fix the actual distinguished tuple.
+example {I C : Type*} (inertialClass : I → C) (chooseRep : C → I)
+    (hSection : ∀ c, inertialClass (chooseRep c) = c)
+    (pi tau : I) (hDifferent : inertialClass pi ≠ inertialClass tau) :
+    distinguishedTuple inertialClass chooseRep ![pi, tau] ∘ Equiv.swap 0 1 ≠
+      distinguishedTuple inertialClass chooseRep ![pi, tau] := by sorry
 
 
 /-- Product decomposition of good-pair stabilizers is an output, not an input assumption. -/
-theorem test3 {W T : Type*} (stabilizer : Set (W × T)) (permFix : Set W) (twistFix : Set T) :
-    stabilizer = permFix ×ˢ twistFix := by sorry
+theorem test3 {I C T : Type*} [Group T] [MulAction T I] {r : ℕ}
+    (inertialClass : I → C) (chooseRep : C → I)
+    (hSection : ∀ c, inertialClass (chooseRep c) = c)
+    (hTwist : ∀ (t : T) (x : I), inertialClass (t • x) = inertialClass x) (pi : Fin r → I) :
+    pairStabilizer (T := T) inertialClass chooseRep pi =
+      {w | ∀ i, distinguishedTuple inertialClass chooseRep pi (w i) =
+        distinguishedTuple inertialClass chooseRep pi i} ×ˢ
+      {t | ∀ i, t • distinguishedTuple inertialClass chooseRep pi i =
+        distinguishedTuple inertialClass chooseRep pi i} := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_019.test3
--- For a good representative, (w,tau)∈stab iff (w,1)∈stab and tau∈Fix(pi).
-example {W T : Type*} (stabilizer : Set (W × T)) (permFix : Set W) (twistFix : Set T) :
-    stabilizer = permFix ×ˢ twistFix := by sorry
+-- On the distinguished tuple, the actual Weyl/twist stabilizer is the product of permutation and twist stabilizers when twisting preserves inertial classes; no equality of arbitrary sets is assumed.
+example {I C T : Type*} [Group T] [MulAction T I] {r : ℕ}
+    (inertialClass : I → C) (chooseRep : C → I)
+    (hSection : ∀ c, inertialClass (chooseRep c) = c)
+    (hTwist : ∀ (t : T) (x : I), inertialClass (t • x) = inertialClass x) (pi : Fin r → I) :
+    pairStabilizer (T := T) inertialClass chooseRep pi =
+      {w | ∀ i, distinguishedTuple inertialClass chooseRep pi (w i) =
+        distinguishedTuple inertialClass chooseRep pi i} ×ˢ
+      {t | ∀ i, t • distinguishedTuple inertialClass chooseRep pi i =
+        distinguishedTuple inertialClass chooseRep pi i} := by sorry
 
 end yu_019
 
@@ -3473,13 +4124,19 @@ example (μ : Measure X) (p : X → ℝ) (hp : Measurable p)
     weighted_l2_complex μ p d = weighted_l2_complex μ (fun _ => 1) d := by sorry
 
 
-theorem cusp_power (a b : ℝ) :
-    IntegrableOn (fun y : ℝ => y ^ (2 * (a + b) - 2)) (Set.Ioi 1) ↔ a + b < 1 / 2 := by sorry
+theorem cusp_power (a b : ℝ) (d : (ℝ → ℂ) →ₗ[ℂ] (ℝ → ℂ))
+    (hDifferential : d (residual_spectrum.cuspPower a) =
+      (a : ℂ) • residual_spectrum.cuspPower a) :
+    residual_spectrum.cuspPower a ∈
+      weighted_l2_complex residual_spectrum.cuspMeasure (fun y => y ^ b) d ↔ a + b < 1 / 2 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.weighted_l2_complex.cusp_power
--- On y>Y with dμ=dx dy/y², a degree-zero y^a with weight y^b is integrable at infinity iff Re a+b<1/2; equality diverges logarithmically.
-example (a b : ℝ) :
-    IntegrableOn (fun y : ℝ => y ^ (2 * (a + b) - 2)) (Set.Ioi 1) ↔ a + b < 1 / 2 := by sorry
+-- For the power vector y^a, weight y^b and its actual radial differential ay^a, membership in the named graph domain is equivalent to a+b<1/2; the critical boundary fails membership.
+example (a b : ℝ) (d : (ℝ → ℂ) →ₗ[ℂ] (ℝ → ℂ))
+    (hDifferential : d (residual_spectrum.cuspPower a) =
+      (a : ℂ) • residual_spectrum.cuspPower a) :
+    residual_spectrum.cuspPower a ∈
+      weighted_l2_complex residual_spectrum.cuspMeasure (fun y => y ^ b) d ↔ a + b < 1 / 2 := by sorry
 
 end weighted_l2_complex
 
@@ -3525,6 +4182,12 @@ def finite_character_functor (J : Ideal R) : Submodule R V where
   add_mem' := by sorry
   smul_mem' := by sorry
 namespace finite_character_functor
+def jordanNilpotent : (Fin 2 → ℂ) →ₗ[ℂ] (Fin 2 → ℂ) where
+  toFun v := ![v 1, 0]
+  map_add' := by sorry
+  map_smul' := by sorry
+abbrev JordanModule := Module.AEval' jordanNilpotent
+
 
 theorem mem_iff (J : Ideal R) (v : V) :
     v ∈ finite_character_functor (V := V) J ↔ ∃ n : ℕ, ∀ r ∈ J ^ n, r • v = 0 := by sorry
@@ -3554,15 +4217,17 @@ example : finite_character_functor (V := V) (⊤ : Ideal R) = ⊥ := by sorry
 
 /-- Size-two nilpotent Jordan block has all vectors in generalized torsion, with a proper
 first kernel. This numerical test isolates the error of retaining only ker(t−a). -/
-theorem nilpotent_jordan (N : (Fin 2 → ℂ) →ₗ[ℂ] (Fin 2 → ℂ))
-    (hN : ∀ v, N v = ![v 1, 0]) :
-    N.comp N = 0 ∧ LinearMap.ker N ≠ ⊤ := by sorry
+theorem nilpotent_jordan  :
+    finite_character_functor (V := JordanModule)
+      (Ideal.span ({Polynomial.X} : Set (Polynomial ℂ))) = ⊤ ∧
+    ∃ v : JordanModule, (Polynomial.X : Polynomial ℂ) • v ≠ 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.finite_character_functor.nilpotent_jordan
--- For Z=ℂ[t], J=(t−a) and a size-two Jordan block at a, Fin_J is the whole block although ker(t−a) is only one dimensional.
-example (N : (Fin 2 → ℂ) →ₗ[ℂ] (Fin 2 → ℂ))
-    (hN : ∀ v, N v = ![v 1, 0]) :
-    N.comp N = 0 ∧ LinearMap.ker N ≠ ⊤ := by sorry
+-- On the actual polynomial module defined by the size-two nilpotent Jordan operator, finite_character_functor for (X) is the whole module, although X does not annihilate every vector.
+example  :
+    finite_character_functor (V := JordanModule)
+      (Ideal.span ({Polynomial.X} : Set (Polynomial ℂ))) = ⊤ ∧
+    ∃ v : JordanModule, (Polynomial.X : Polynomial ℂ) • v ≠ 0 := by sorry
 
 end finite_character_functor
 end FiniteCharacter
@@ -3585,6 +4250,9 @@ def franke_filtration (coeff : Q → L → V →ₗ[ℂ] W) (T : L → ℤ) (i :
   add_mem' := by sorry
   smul_mem' := by sorry
 namespace franke_filtration
+def sameParabolicCoefficients : Unit → Fin 2 → (Fin 2 → ℂ) →ₗ[ℂ] ℂ :=
+  fun _ i => LinearMap.proj i
+
 
 theorem mem_iff (coeff : Q → L → V →ₗ[ℂ] W) (T : L → ℤ) (i : ℤ) (v : V) :
     v ∈ franke_filtration coeff T i ↔ ∀ q l, T l < i → coeff q l v = 0 := by sorry
@@ -3617,11 +4285,15 @@ example (coeff : Q → L → V →ₗ[ℂ] W) (T : L → ℤ) (i : ℤ) :
     (0 : V) ∈ franke_filtration coeff T i := by sorry
 
 
-theorem rank_only_fails : (0 : ℤ) < 1 ∧ ¬ (1 : ℤ) < 1 := by sorry
+theorem rank_only_fails  :
+    (![0, 1] : Fin 2 → ℂ) ∈ franke_filtration sameParabolicCoefficients ![0, 1] 1 ∧
+      (![1, 0] : Fin 2 → ℂ) ∉ franke_filtration sameParabolicCoefficients ![0, 1] 1 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.franke_filtration.rank_only_fails
--- A non-L² residue on a maximal parabolic of G₂ can have the wrong exponent positivity although its Levi rank is fixed; a rank-only filtration does not meet this definition.
-example : (0 : ℤ) < 1 ∧ ¬ (1 : ℤ) < 1 := by sorry
+-- For two exponent coefficients of the same parabolic with T-values zero and one, the vector supported at exponent one lies in step one and the vector at exponent zero does not. Equal parabolic rank does not determine membership.
+example  :
+    (![0, 1] : Fin 2 → ℂ) ∈ franke_filtration sameParabolicCoefficients ![0, 1] 1 ∧
+      (![1, 0] : Fin 2 → ℂ) ∉ franke_filtration sameParabolicCoefficients ![0, 1] 1 := by sorry
 
 end franke_filtration
 end Filtration
@@ -3630,6 +4302,10 @@ end Filtration
 def eisenstein_principal_value {V : Type u} [NormedAddCommGroup V] [NormedSpace ℂ V]
     (f : ℂ → V) : V := by sorry
 namespace eisenstein_principal_value
+def twoVariableGerm (z : Fin 2 → ℂ) : ℂ := z 0 / z 1
+def alongDirection (f : (Fin 2 → ℂ) → ℂ) (direction : Fin 2 → ℂ) : ℂ → ℂ :=
+  fun t => f (t • direction)
+
 variable {V : Type u} [NormedAddCommGroup V] [NormedSpace ℂ V]
 variable {W : Type v} [NormedAddCommGroup W] [NormedSpace ℂ W]
 
@@ -3661,13 +4337,15 @@ theorem holomorphic (v : V) : eisenstein_principal_value (fun _ : ℂ => v) = v 
 example (v : V) : eisenstein_principal_value (fun _ : ℂ => v) = v := by sorry
 
 
-theorem direction_dependence : eisenstein_principal_value (fun z : ℂ => z / z) = (1 : ℂ) ∧
-    eisenstein_principal_value (fun z : ℂ => (2 * z) / z) = (2 : ℂ) := by sorry
+theorem direction_dependence  :
+    eisenstein_principal_value (alongDirection twoVariableGerm ![1, 1]) = (1 : ℂ) ∧
+      eisenstein_principal_value (alongDirection twoVariableGerm ![2, 1]) = (2 : ℂ) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.eisenstein_principal_value.direction_dependence
--- For f(z₁,z₂)=z₁/z₂ at 0, MW along (1,1) is 1 and along (2,1) is 2; raw principal value is not canonical.
-example : eisenstein_principal_value (fun z : ℂ => z / z) = (1 : ℂ) ∧
-    eisenstein_principal_value (fun z : ℂ => (2 * z) / z) = (2 : ℂ) := by sorry
+-- Restrict the same named germ (z₁,z₂)↦z₁/z₂ along directions (1,1) and (2,1): the actual principal values are one and two.
+example  :
+    eisenstein_principal_value (alongDirection twoVariableGerm ![1, 1]) = (1 : ℂ) ∧
+      eisenstein_principal_value (alongDirection twoVariableGerm ![2, 1]) = (2 : ℂ) := by sorry
 
 end eisenstein_principal_value
 
@@ -3738,7 +4416,7 @@ structure PWMultiplier (W : Submodule ℂ (I → ℂ)) where
   preserves : ∀ f ∈ W, (fun i => symbol i * f i) ∈ W
 
 def PWMultiplier.map {W : Submodule ℂ (I → ℂ)} (gamma : PWMultiplier W) : W →ₗ[ℂ] W where
-  toFun f := ⟨fun i => gamma.symbol i * f i, gamma.preserves f f.property⟩
+  toFun f := ⟨fun i => gamma.symbol i * f.val i, gamma.preserves f f.property⟩
   map_add' := by sorry
   map_smul' := by sorry
 
@@ -3764,7 +4442,7 @@ def spectral_multiplier {W : Submodule ℂ (I → ℂ)} (T : E ≃ₗ[ℂ] W)
 namespace spectral_multiplier
 variable {W : Submodule ℂ (I → ℂ)}
 theorem character (T : E ≃ₗ[ℂ] W) (gamma : PWMultiplier W) (f : E) (i : I) :
-    T (spectral_multiplier T gamma f) i = gamma.symbol i * T f i := by sorry
+    (T (spectral_multiplier T gamma f)).val i = gamma.symbol i * (T f).val i := by sorry
 
 theorem composition (T : E ≃ₗ[ℂ] W) (gamma eta : PWMultiplier W) (f : E) :
     spectral_multiplier T eta (spectral_multiplier T gamma f) =
@@ -3777,20 +4455,23 @@ functions E→ℝ. The packet's N+N_gamma and fixed-K-type conclusions remain re
 theorem dirac (T : E ≃ₗ[ℂ] W) (f : E) :
     spectral_multiplier T (PWMultiplier.one W) f = f := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.spectral_multiplier.dirac
+-- The Dirac distribution at 0 acts as identity.
 example (T : E ≃ₗ[ℂ] W) (f : E) :
     spectral_multiplier T (PWMultiplier.one W) f = f := by sorry
 
 theorem central_polynomial (T : E ≃ₗ[ℂ] W) (p : PWMultiplier W)
-    (z : E →ₗ[ℂ] E) (hz : ∀ f i, T (z f) i = p.symbol i * T f i) (f : E) :
+    (z : E →ₗ[ℂ] E) (hz : ∀ f i, (T (z f)).val i = p.symbol i * (T f).val i) (f : E) :
     spectral_multiplier T p f = z f := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.spectral_multiplier.central_polynomial
+-- For the distribution whose transform is the Harish-Chandra polynomial p_z, f_γ=zf.
 example (T : E ≃ₗ[ℂ] W) (p : PWMultiplier W) (z : E →ₗ[ℂ] E)
-    (hz : ∀ f i, T (z f) i = p.symbol i * T f i) (f : E) :
+    (hz : ∀ f i, (T (z f)).val i = p.symbol i * (T f).val i) (f : E) :
     spectral_multiplier T p f = z f := by sorry
 
 theorem zero (T : E ≃ₗ[ℂ] W) (f : E) :
     spectral_multiplier T (PWMultiplier.zero W) f = 0 := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.spectral_multiplier.zero
+-- The zero distribution sends every f to zero.
 example (T : E ≃ₗ[ℂ] W) (f : E) :
     spectral_multiplier T (PWMultiplier.zero W) f = 0 := by sorry
 end spectral_multiplier
@@ -3801,6 +4482,10 @@ variable {G : Type u} [Group G] {J : Type v} [Countable J]
 def automorphic_kernel (rational : J → G) (f : G → ℂ) (x y : G) : ℂ :=
   ∑' gamma : J, f (x⁻¹ * rational gamma * y)
 namespace automorphic_kernel
+def compactLogSeed (g : Multiplicative ℝ) : ℂ :=
+  (max (1 - |Multiplicative.toAdd g|) 0 : ℝ)
+def trivialLattice : Unit → Multiplicative ℝ := fun _ => 1
+
 
 theorem operator {X : Type w} [MeasurableSpace X] (μ : Measure X)
     (representative : X → G) (rational : J → G) (f : G → ℂ) (u : X → ℂ)
@@ -3826,11 +4511,17 @@ example [Fintype J] (rational : J → G) (f : G → ℂ) (x y : G) :
 
 
 /-- A model cusp diagonal with nonzero constant contribution has divergent volume integral. -/
-theorem noncompact_diagonal : ¬ IntegrableOn (fun _ : ℝ => (1 : ℝ)) (Set.Ioi 1) := by sorry
+theorem noncompact_diagonal  :
+    HasCompactSupport (fun x : ℝ => compactLogSeed (Multiplicative.ofAdd x)) ∧
+    ¬ Integrable (fun x : ℝ => automorphic_kernel trivialLattice compactLogSeed
+      (Multiplicative.ofAdd x) (Multiplicative.ofAdd x)) volume := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.automorphic_kernel.noncompact_diagonal
--- For the modular quotient a test function meeting the identity has a cusp contribution; its raw diagonal integral need not be finite.
-example : ¬ IntegrableOn (fun _ : ℝ => (1 : ℝ)) (Set.Ioi 1) := by sorry
+-- For the compact logarithmic seed on the additive real group and the trivial discrete lattice, the actual periodized kernel has nonintegrable diagonal on the infinite-volume quotient. This is a kernel counterexample model; the finite-volume modular cusp estimate remains a source adapter.
+example  :
+    HasCompactSupport (fun x : ℝ => compactLogSeed (Multiplicative.ofAdd x)) ∧
+    ¬ Integrable (fun x : ℝ => automorphic_kernel trivialLattice compactLogSeed
+      (Multiplicative.ofAdd x) (Multiplicative.ofAdd x)) volume := by sorry
 
 
 theorem adjoint_swap (rational : J → G) (f : G → ℂ)
@@ -3854,6 +4545,11 @@ def coarse_truncated_kernel {P : Type u} [Fintype P] {X : Type v}
   ∑ p, (-1 : ℂ) ^ rank p * ∑' j : Cosets p,
     cutoff p (translate p j x) * K p (translate p j x) (translate p j x)
 namespace coarse_truncated_kernel
+def cuspDiagonal (T : ℝ) : ℝ → ℂ :=
+  coarse_truncated_kernel (fun _ : Bool => Unit) (fun b => if b then 1 else 0)
+    (fun _ _ => id) (fun b x => if b then (if T < x then 1 else 0) else 1)
+    (fun _ _ _ => 1)
+
 
 /-- Summability of geometric/spectral class diagonals and quotient realization are omitted
 until the class-kernel interface is integrated; indices are not put in bijection. -/
@@ -3866,20 +4562,26 @@ theorem levi_translation (J shifted : ℝ → ℂ) (coneContribution : ℝ → �
 
 def canonical_value (polynomial : ℝ → ℂ) (T₀ : ℝ) : ℂ := polynomial T₀
 
-theorem anisotropic (kernel : ℝ → ℂ) (T T' : ℝ) (hKernel : ∀ t, kernel t = kernel 0) :
-    kernel T = kernel T' := by sorry
+theorem anisotropic {X : Type u} (K : X → X → ℂ) (x : X) :
+    coarse_truncated_kernel (fun _ : Unit => Unit) (fun _ => 0)
+      (fun _ _ => id) (fun _ _ => 1) (fun _ => K) x = K x x := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.coarse_truncated_kernel.anisotropic
--- If G has no proper F-parabolic, k_f^T=K_f(x,x) and J^T is independent of T.
-example (kernel : ℝ → ℂ) (T T' : ℝ) (hKernel : ∀ t, kernel t = kernel 0) :
-    kernel T = kernel T' := by sorry
+-- With only the whole-group parabolic, the actual coarse_truncated_kernel equals the original kernel diagonal.
+example {X : Type u} (K : X → X → ℂ) (x : X) :
+    coarse_truncated_kernel (fun _ : Unit => Unit) (fun _ => 0)
+      (fun _ _ => id) (fun _ _ => 1) (fun _ => K) x = K x x := by sorry
 
 
-theorem rank_one (a b T : ℂ) : a + b * T - a = b * T := by sorry
+theorem rank_one (T : ℝ) (hT : 0 ≤ T) :
+    Integrable (cuspDiagonal T) (volume.restrict (Set.Ioi 0)) ∧
+      (∫ x, cuspDiagonal T x ∂volume.restrict (Set.Ioi 0)) = (T : ℂ) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.coarse_truncated_kernel.rank_one
--- In relative rank one the polynomial has degree≤1; the cusp-height logarithm supplies the linear term.
-example (a b T : ℂ) : a + b * T - a = b * T := by sorry
+-- In the constant-term logarithmic cusp model, the actual two-parabolic truncated diagonal is integrable on positive heights and its integral is T for T≥0, a degree-one polynomial.
+example (T : ℝ) (hT : 0 ≤ T) :
+    Integrable (cuspDiagonal T) (volume.restrict (Set.Ioi 0)) ∧
+      (∫ x, cuspDiagonal T x ∂volume.restrict (Set.Ioi 0)) = (T : ℂ) := by sorry
 
 
 theorem zero_test {P : Type u} [Fintype P] {X : Type v}
@@ -3913,6 +4615,11 @@ structure gm_family (P : Type u) (adjacent : Set (P × P)) (wall : P × P → �
   analytic : ∀ p, AnalyticOnNhd ℂ (member p) U
   wall_agreement : ∀ pq ∈ adjacent, ∀ z ∈ U, wall pq z = 0 → member pq.1 z = member pq.2 z
 namespace gm_family
+def zeroValue {P : Type u} [Fintype P] {A : Set (P × P)}
+    {w : P × P → ℂ → ℂ} {U : Set ℂ} (c : gm_family P A w U)
+    (theta : P → ℂ → ℂ) : ℂ :=
+  eisenstein_principal_value (fun z => ∑ p, c.member p z / theta p z)
+
 
 theorem wall {P : Type u} {A : Set (P × P)} {w : P × P → ℂ → ℂ} {U : Set ℂ}
     (c : gm_family P A w U) (pq : P × P) (hAdj : pq ∈ A) (z : ℂ) (hz : z ∈ U)
@@ -3930,29 +4637,39 @@ theorem regularized_sum {P : Type u} [Fintype P] {A : Set (P × P)}
     ∃ g : ℂ → ℂ, AnalyticOnNhd ℂ g U ∧
       ∀ z ∈ U, (∀ p, theta p z ≠ 0) → g z = ∑ p, c.member p z / theta p z := by sorry
 
-theorem rank_zero (f : ℂ → ℂ) : (∑ _ : Unit, f 0 / (1 : ℂ)) = f 0 := by sorry
+theorem rank_zero (c : gm_family Unit ∅ (fun _ _ => 1) Set.univ) :
+    zeroValue c (fun _ _ => 1) = c.member () 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gm_family.rank_zero
--- For M=G there is one parabolic and θ=1, so c_M=c_G(0).
-example (f : ℂ → ℂ) : (∑ _ : Unit, f 0 / (1 : ℂ)) = f 0 := by sorry
+-- For a genuine one-member gm_family with no walls, the actual regularized zero value equals its member at zero.
+example (c : gm_family Unit ∅ (fun _ _ => 1) Set.univ) :
+    zeroValue c (fun _ _ => 1) = c.member () 0 := by sorry
 
 
-theorem rank_one (f g : ℂ → ℂ) (hf : AnalyticAt ℂ f 0) (hg : AnalyticAt ℂ g 0)
-    (hWall : f 0 = g 0) :
-    Tendsto (fun z => f z / z + g z / (-z)) (𝓝[≠] 0) (𝓝 (deriv f 0 - deriv g 0)) := by sorry
+theorem rank_one (c : gm_family Bool {(true, false)} (fun _ z => z) Set.univ) :
+    Tendsto (fun z => ∑ b : Bool, c.member b z / (if b then z else -z))
+      (𝓝[≠] 0) (𝓝 (deriv (c.member true) 0 - deriv (c.member false) 0)) ∧
+    zeroValue c (fun b z => if b then z else -z) =
+      deriv (c.member true) 0 - deriv (c.member false) 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gm_family.rank_one
--- For θ_+=z, θ_−=−z and c_+(0)=c_−(0), c_M=c_+′(0)−c_−′(0).
-example (f g : ℂ → ℂ) (hf : AnalyticAt ℂ f 0) (hg : AnalyticAt ℂ g 0)
-    (hWall : f 0 = g 0) :
-    Tendsto (fun z => f z / z + g z / (-z)) (𝓝[≠] 0) (𝓝 (deriv f 0 - deriv g 0)) := by sorry
+-- For a genuine two-member family with agreement on the shared wall, the full regularized sum has limit c₊′(0)−c₋′(0), and its zero-value construction has that value.
+example (c : gm_family Bool {(true, false)} (fun _ z => z) Set.univ) :
+    Tendsto (fun z => ∑ b : Bool, c.member b z / (if b then z else -z))
+      (𝓝[≠] 0) (𝓝 (deriv (c.member true) 0 - deriv (c.member false) 0)) ∧
+    zeroValue c (fun b z => if b then z else -z) =
+      deriv (c.member true) 0 - deriv (c.member false) 0 := by sorry
 
 
-theorem bad_wall : ¬ ((1 : ℂ) = 0) := by sorry
+theorem bad_wall  :
+    ¬ ∃ c : gm_family Bool {(true, false)} (fun _ z => z) Set.univ,
+      (∀ z, c.member true z = 1) ∧ (∀ z, c.member false z = 0) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.gm_family.bad_wall
--- c_+=1,c_−=0 with θ_±=±z has a pole and is not a family.
-example : ¬ ((1 : ℂ) = 0) := by sorry
+-- No actual gm_family on a domain containing the shared wall can have constant members one and zero on the adjacent parabolics.
+example  :
+    ¬ ∃ c : gm_family Bool {(true, false)} (fun _ z => z) Set.univ,
+      (∀ z, c.member true z = 1) ∧ (∀ z, c.member false z = 0) := by sorry
 
 end gm_family
 
@@ -3989,18 +4706,25 @@ example {P : Type*} [Fintype P] [Unique P] : weight (fun _ : P => 0) (fun _ _ =>
 
 theorem rank_one_volume (r vol : ℝ) (hr : 0 ≤ r) (hvol : 0 < vol) :
     weight (fun b : Bool => if b then (r : ℂ) else 0)
-      (fun b z => if b then -z / (vol : ℂ) else z / (vol : ℂ)) = (r * vol : ℝ) := by sorry
+      (fun b z => if b then -z / (vol : ℂ) else z / (vol : ℂ)) = (r * vol : ℝ) ∧
+    weighted_orbital_integral (Measure.dirac ()) 1 (fun _ : Unit => 1)
+      (fun _ => weight (fun b : Bool => if b then (r : ℂ) else 0)
+        (fun b z => if b then -z / (vol : ℂ) else z / (vol : ℂ))) = (r * vol : ℝ) := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.weighted_orbital_integral.rank_one_volume
--- The actual two-height family has positive order r≥0 and the fixed coroot covolume.
+-- The actual two-height weight with coroot covolume vol is r·vol for r≥0, and the named point-quotient weighted orbital integral with discriminant one takes exactly that value.
 example (r vol : ℝ) (hr : 0 ≤ r) (hvol : 0 < vol) :
     weight (fun b : Bool => if b then (r : ℂ) else 0)
-      (fun b z => if b then -z / (vol : ℂ) else z / (vol : ℂ)) = (r * vol : ℝ) := by sorry
+      (fun b z => if b then -z / (vol : ℂ) else z / (vol : ℂ)) = (r * vol : ℝ) ∧
+    weighted_orbital_integral (Measure.dirac ()) 1 (fun _ : Unit => 1)
+      (fun _ => weight (fun b : Bool => if b then (r : ℂ) else 0)
+        (fun b z => if b then -z / (vol : ℂ) else z / (vol : ℂ))) = (r * vol : ℝ) := by sorry
 
 theorem measure_scaling {X : Type u} [MeasurableSpace X] (μ : Measure X)
     (D : ℝ) (f w : X → ℂ) (c : ℝ≥0) (hc : c ≠ 0) :
     (c : ℂ) * weighted_orbital_integral (c⁻¹ • μ) D f w =
       weighted_orbital_integral μ D f w := by sorry
 -- Packet unit test: TauCeti.AutomorphicSpectral.weighted_orbital_integral.measure_scaling
+-- Scaling the centralizer Haar by c scales the quotient integral by c⁻¹; the global centralizer-volume coefficient scales by c and cancels it.
 -- Centralizer scaling uses the inverse quotient measure and cancels its coefficient.
 example {X : Type u} [MeasurableSpace X] (μ : Measure X)
     (D : ℝ) (f w : X → ℂ) (c : ℝ≥0) (hc : c ≠ 0) :
@@ -4014,6 +4738,11 @@ variable {H : Type u} [NormedAddCommGroup H] [InnerProductSpace ℂ H] [Complete
 def weighted_character (R : Operator H) (I : Operator H) (hTrace : trace_class H)
     (_hProduct : hTrace.val = R.comp I) : ℂ := operatorTrace hTrace
 namespace weighted_character
+def logarithmicWeight (R : ℂ → Operator H) (invR : Operator H) (z : ℂ) : Operator H :=
+  invR.comp (deriv R z)
+def scalarTraceClass (c : ℂ) : trace_class ℂ := ⟨c • ContinuousLinearMap.id ℂ ℂ, by sorry⟩
+theorem scalarTraceClass_val (c : ℂ) : (scalarTraceClass c).val = c • ContinuousLinearMap.id ℂ ℂ := by sorry
+
 
 theorem trace (R I : Operator H) (T : trace_class H) (h : T.val = R.comp I) :
     weighted_character R I T h = operatorTrace T := by sorry
@@ -4035,22 +4764,44 @@ example (T : trace_class H) :
 
 
 /-- On a regular invertible local intertwiner family, its first derivative gives the weight. -/
-theorem rank_one_derivative (R : ℂ → Operator H) (invR : Operator H) (z : ℂ)
-    (hR : AnalyticAt ℂ R z) :
-    deriv (fun s => invR.comp (R (z + s))) 0 = invR.comp (deriv R z) := by sorry
+theorem rank_one_derivative [FiniteDimensional ℂ H]
+    (R : ℂ → Operator H) (invR I : Operator H) (z : ℂ) (hR : AnalyticAt ℂ R z)
+    (hInverse : invR.comp (R z) = ContinuousLinearMap.id ℂ H)
+    (T : trace_class H) (hProduct : T.val = (logarithmicWeight R invR z).comp I) :
+    weighted_character (logarithmicWeight R invR z) I T hProduct =
+      LinearMap.trace ℂ H ((invR.comp (deriv R z)).comp I).toLinearMap := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.weighted_character.rank_one_derivative
--- The rank-one zero-value family is the logarithmic intertwiner derivative divided by the coroot normalization.
-example (R : ℂ → Operator H) (invR : Operator H) (z : ℂ)
-    (hR : AnalyticAt ℂ R z) :
-    deriv (fun s => invR.comp (R (z + s))) 0 = invR.comp (deriv R z) := by sorry
+-- On a finite-dimensional regular invertible slice, the actual weighted_character equals the trace of R(λ)^(−1)R′(λ) composed with the test operator; the trace-class witness is tied to that product.
+example [FiniteDimensional ℂ H]
+    (R : ℂ → Operator H) (invR I : Operator H) (z : ℂ) (hR : AnalyticAt ℂ R z)
+    (hInverse : invR.comp (R z) = ContinuousLinearMap.id ℂ H)
+    (T : trace_class H) (hProduct : T.val = (logarithmicWeight R invR z).comp I) :
+    weighted_character (logarithmicWeight R invR z) I T hProduct =
+      LinearMap.trace ℂ H ((invR.comp (deriv R z)).comp I).toLinearMap := by sorry
 
 
-theorem normalization_change : deriv (fun z : ℂ => Complex.exp z) 0 = 1 ∧ (1 : ℂ) ≠ 0 := by sorry
+theorem normalization_change  :
+    weighted_character
+      (logarithmicWeight (fun z => Complex.exp z • ContinuousLinearMap.id ℂ ℂ)
+        (ContinuousLinearMap.id ℂ ℂ) 0)
+      (ContinuousLinearMap.id ℂ ℂ) (scalarTraceClass 1) (by sorry) = 1 ∧
+    weighted_character
+      (logarithmicWeight (fun _ => ContinuousLinearMap.id ℂ ℂ)
+        (ContinuousLinearMap.id ℂ ℂ) 0)
+      (ContinuousLinearMap.id ℂ ℂ) (scalarTraceClass 0) (by sorry) = 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.weighted_character.normalization_change
--- Multiplying R by a nonconstant unitary scalar changes the derivative weight; local normalization cannot be suppressed.
-example : deriv (fun z : ℂ => Complex.exp z) 0 = 1 ∧ (1 : ℂ) ≠ 0 := by sorry
+-- The actual scalar weighted traces for the families exp(z)Id and Id at zero are one and zero. The scalar exp(z) is unitary on the imaginary axis but changes the logarithmic derivative weight.
+example  :
+    weighted_character
+      (logarithmicWeight (fun z => Complex.exp z • ContinuousLinearMap.id ℂ ℂ)
+        (ContinuousLinearMap.id ℂ ℂ) 0)
+      (ContinuousLinearMap.id ℂ ℂ) (scalarTraceClass 1) (by sorry) = 1 ∧
+    weighted_character
+      (logarithmicWeight (fun _ => ContinuousLinearMap.id ℂ ℂ)
+        (ContinuousLinearMap.id ℂ ℂ) 0)
+      (ContinuousLinearMap.id ℂ ℂ) (scalarTraceClass 0) (by sorry) = 0 := by sorry
 
 end weighted_character
 end WeightedCharacters
@@ -4081,6 +4832,12 @@ def almost_compact_test_space {G : Type u} (compactPiece : Set (G → ℂ))
   {f | ∀ b : ℝ → ℂ, ContDiff ℝ ⊤ b → HasCompactSupport b →
     (fun x => f x * b (height x)) ∈ compactPiece}
 namespace almost_compact_test_space
+/-- Coefficient model of a finite K-type Hecke piece. The label n stands for the
+circle character z↦zⁿ; reconstructing the actual group function is an adapter. -/
+def finiteTypePiece (Gamma : Finset ℕ) : Set ((ℝ × ℕ) → ℂ) :=
+  {f | HasCompactSupport f ∧ ∀ x n, n ∉ Gamma → f (x, n) = 0}
+def typeFamily (b : ℕ → ℝ → ℂ) (p : ℝ × ℕ) : ℂ := b p.2 p.1
+
 
 theorem cutoff {G : Type u} (C : Set (G → ℂ)) (H : G → ℝ) (f : G → ℂ)
     (hf : f ∈ almost_compact_test_space C H) (b : ℝ → ℂ)
@@ -4118,11 +4875,23 @@ example {G : Type u} (C : Set (G → ℂ))
 
 
 /-- Unbounded K-type labels on a compact height interval cannot fit a single finite Γ. -/
-theorem fiberwise_only : ¬ ∃ S : Finset ℕ, ∀ n : ℕ, n ∈ S := by sorry
+theorem fiberwise_only  :
+    ∃ b : ℕ → ℝ → ℂ,
+      (∀ n, ContDiff ℝ ⊤ (b n) ∧ HasCompactSupport (b n)) ∧
+      (∀ x, Set.Finite {n | b n x ≠ 0}) ∧
+      (∀ n, ∃ x ∈ Set.Icc (0 : ℝ) 1, b n x ≠ 0) ∧
+      ¬ ∃ Gamma : Finset ℕ,
+        typeFamily b ∈ almost_compact_test_space (finiteTypePiece Gamma) Prod.fst := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.almost_compact_test_space.fiberwise_only
--- A family with compact fibers but unbounded K-types over one compact height interval need not lie in H_ac(G)_Γ for any Γ.
-example : ¬ ∃ S : Finset ℕ, ∀ n : ℕ, n ∈ S := by sorry
+-- There is a smooth coefficient family with compact support for each K-type and finitely many nonzero types at each height, but all labels occur in one compact height interval. It lies in no almost-compact space for a fixed finite type set.
+example  :
+    ∃ b : ℕ → ℝ → ℂ,
+      (∀ n, ContDiff ℝ ⊤ (b n) ∧ HasCompactSupport (b n)) ∧
+      (∀ x, Set.Finite {n | b n x ≠ 0}) ∧
+      (∀ n, ∃ x ∈ Set.Icc (0 : ℝ) 1, b n x ≠ 0) ∧
+      ¬ ∃ Gamma : Finset ℕ,
+        typeFamily b ∈ almost_compact_test_space (finiteTypePiece Gamma) Prod.fst := by sorry
 
 end almost_compact_test_space
 
@@ -4204,6 +4973,26 @@ def general_euler_poincare {E : Type u} [AddCommGroup E] [Module ℂ E]
     {RepIndex : Type v} (trace : RepIndex → E →ₗ[ℂ] ℂ) (relativeDimension : RepIndex → ℕ → ℕ)
     (topDegree : ℕ) : E := by sorry
 namespace general_euler_poincare
+def compactRelativeCochains : CochainData where
+  V q := Fin (if q = 0 then 1 else 0) → ℂ
+  add q := inferInstance
+  module q := inferInstance
+  d q := 0
+  square_zero q := by sorry
+
+def rankOneRelativeCochains : CochainData where
+  V q := Fin (if q = 0 ∨ q = 1 then 1 else 0) → ℂ
+  add q := inferInstance
+  module q := inferInstance
+  d q := 0
+  square_zero q := by sorry
+
+instance compactCohomologyFinite (q : ℤ) : FiniteDimensional ℂ (cohomology compactRelativeCochains q) := by sorry
+instance rankOneCohomologyFinite (q : ℤ) : FiniteDimensional ℂ (cohomology rankOneRelativeCochains q) := by sorry
+
+def cochainDimensions (C : CochainData.{u}) [∀ q, FiniteDimensional ℂ (cohomology C q)] : ℕ → ℕ :=
+  fun q => Module.finrank ℂ (cohomology C q)
+
 
 theorem trace_identity {E : Type u} [AddCommGroup E] [Module ℂ E] {RepIndex : Type v}
     (trace : RepIndex → E →ₗ[ℂ] ℂ) (dim : RepIndex → ℕ → ℕ) (top : ℕ) (pi : RepIndex) :
@@ -4218,27 +5007,49 @@ theorem induced_vanishing (dimensions : ℕ → ℕ) (top : ℕ) :
 theorem no_discrete_series {RepIndex : Type u} (dim : RepIndex → ℕ → ℕ) (top : ℕ) (pi : RepIndex) :
     (∑ q ∈ Finset.range (top + 1), (-1 : ℤ) ^ q * dim pi q) = 0 := by sorry
 
-theorem compact_group (d : ℕ) : (∑ q ∈ Finset.range 1, (-1 : ℤ) ^ q * d) = d := by sorry
+theorem compact_group  :
+    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
+      (fun _ => cochainDimensions compactRelativeCochains) 0 = 1 ∧
+    Module.finrank ℂ (cohomology compactRelativeCochains 0) = 1 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.general_euler_poincare.compact_group
--- For compact G, relative cohomology lies in degree0 and the trace is dim(π⊗ξ)^G.
-example (d : ℕ) : (∑ q ∈ Finset.range 1, (-1 : ℤ) ^ q * d) = d := by sorry
+-- The actual EP test element for the degree-zero relative cochain model has trace one, equal to its one-dimensional zeroth cohomology.
+example  :
+    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
+      (fun _ => cochainDimensions compactRelativeCochains) 0 = 1 ∧
+    Module.finrank ℂ (cohomology compactRelativeCochains 0) = 1 := by sorry
 
 
-theorem no_discrete_series_test {E : Type u} [AddCommGroup E] [Module ℂ E]
-    (trace : E →ₗ[ℂ] ℂ) : trace 0 = 0 := by sorry
+theorem no_discrete_series_test (C : CochainData.{u})
+    [∀ q, FiniteDimensional ℂ (cohomology C q)] (top : ℕ)
+    (hEuler : (∑ q ∈ Finset.range (top + 1),
+      (-1 : ℂ) ^ q * cochainDimensions C q) = 0) :
+    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
+      (fun _ => cochainDimensions C) top = 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.general_euler_poincare.no_discrete_series_test
--- In a group without discrete series every finite-length EP trace is zero.
-example {E : Type u} [AddCommGroup E] [Module ℂ E]
-    (trace : E →ₗ[ℂ] ℂ) : trace 0 = 0 := by sorry
+-- For finite relative cochains with zero Euler characteristic, evaluating the actual scalar-trace EP construction gives zero; the source no-discrete-series theorem must supply this cohomological condition for each representation.
+example (C : CochainData.{u})
+    [∀ q, FiniteDimensional ℂ (cohomology C q)] (top : ℕ)
+    (hEuler : (∑ q ∈ Finset.range (top + 1),
+      (-1 : ℂ) ^ q * cochainDimensions C q) = 0) :
+    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
+      (fun _ => cochainDimensions C) top = 0 := by sorry
 
 
-theorem parabolic_induction : (1 : ℤ) + (-1) * 1 = 0 ∧ (1 : ℕ) ≠ 0 := by sorry
+theorem parabolic_induction  :
+    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
+      (fun _ => cochainDimensions rankOneRelativeCochains) 1 = 0 ∧
+    Module.finrank ℂ (cohomology rankOneRelativeCochains 0) = 1 ∧
+    Module.finrank ℂ (cohomology rankOneRelativeCochains 1) = 1 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.general_euler_poincare.parabolic_induction
--- A proper induced representation may have nonzero cohomology in multiple degrees but its alternating EP trace is zero.
-example : (1 : ℤ) + (-1) * 1 = 0 ∧ (1 : ℕ) ≠ 0 := by sorry
+-- The actual EP construction for the rank-one relative cochain model has trace zero while both its zeroth and first cohomology have dimension one; vanishing of the trace does not imply vanishing of the cohomology.
+example  :
+    general_euler_poincare (fun _ : Unit => LinearMap.id : Unit → ℂ →ₗ[ℂ] ℂ)
+      (fun _ => cochainDimensions rankOneRelativeCochains) 1 = 0 ∧
+    Module.finrank ℂ (cohomology rankOneRelativeCochains 0) = 1 ∧
+    Module.finrank ℂ (cohomology rankOneRelativeCochains 1) = 1 := by sorry
 
 end general_euler_poincare
 
@@ -4296,11 +5107,21 @@ example {X : Type u} [MeasurableSpace X] (μ : Measure X) (degree : X → ℤ)
       ∫ x, k 0 x ∂μ.restrict {x | degree x = e} := by sorry
 
 
-theorem test3 (a b : ℂ) (hb : b ≠ 0) : a - b ≠ a := by sorry
+theorem test3 (T : ℝ) (hT : 0 < T) (e : ℤ) :
+    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
+      (coarse_truncated_kernel.cuspDiagonal T) = (T : ℂ) ∧
+    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
+      (coarse_truncated_kernel.cuspDiagonal T) ≠
+    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e (fun _ => 1) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_024.test3
--- For a group of semisimple rank one the truncation includes both the G term and the proper-parabolic subtraction; retaining only G changes its defining expression.
-example (a b : ℂ) (hb : b ≠ 0) : a - b ≠ a := by sorry
+-- The actual fixed-degree integral of the two-parabolic cusp model on [0,2T] is T and differs from the whole-group-only integral when T>0.
+example (T : ℝ) (hT : 0 < T) (e : ℤ) :
+    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
+      (coarse_truncated_kernel.cuspDiagonal T) = (T : ℂ) ∧
+    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e
+      (coarse_truncated_kernel.cuspDiagonal T) ≠
+    yu_024 (volume.restrict (Set.Icc (0 : ℝ) (2 * T))) (fun _ => e) e (fun _ => 1) := by sorry
 
 end yu_024
 
@@ -4336,6 +5157,7 @@ theorem test1 {F : Type u} [Field F] (n : ℕ) (a : F) :
     a • (1 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n ((Polynomial.X - Polynomial.C a) ^ n) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_038.test1
+-- The scalar matrix a·Id belongs to the (X−a)^n characteristic-polynomial fibre.
 -- The scalar matrix belongs to the specified (X−a)^n fibre.
 example {F : Type u} [Field F] (n : ℕ) (a : F) :
     a • (1 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n ((Polynomial.X - Polynomial.C a) ^ n) := by sorry
@@ -4347,6 +5169,7 @@ theorem test2 {F : Type u} [Field F] (n : ℕ) (hn : 0 < n) :
       (0 : Matrix (Fin n) (Fin n) F) ∉ yu_038 n ((Polynomial.X - 1) ^ n) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_038.test2
+-- For n>0, the zero matrix belongs to the X^n fibre, is not invertible, and does not belong to the (X−1)^n fibre.
 -- Zero lies in the X^n fibre, is not invertible, and is excluded from the (X−1)^n fibre.
 example {F : Type u} [Field F] (n : ℕ) (hn : 0 < n) :
     (0 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n (Polynomial.X ^ n) ∧
@@ -4358,6 +5181,7 @@ theorem test3 {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) (A : Matrix (F
     (hA : A ∈ yu_038 n p) : IsUnit A ↔ p.coeff 0 ≠ 0 := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_038.test3
+-- For A in the p characteristic-polynomial fibre, A is invertible iff p has nonzero constant term; on a bundle use the corresponding global Cayley–Hamilton inverse.
 -- Within the p fibre, invertibility is equivalent to a nonzero constant coefficient of p.
 example {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) (A : Matrix (Fin n) (Fin n) F)
     (hA : A ∈ yu_038 n p) : IsUnit A ↔ p.coeff 0 ≠ 0 := by sorry
@@ -4478,11 +5302,17 @@ theorem test1 (a b : ℂˣ) : theta (fun _ : Fin 1 => ![1, -1]) ![a, b] = (a : �
 example (a b : ℂˣ) : theta (fun _ : Fin 1 => ![1, -1]) ![a, b] = (a : ℂ) - (b : ℂ) := by sorry
 
 
-theorem test2 : (1 : ℂ) ≠ 2 := by sorry
+theorem test2  :
+    ¬ ∃ c : yu_049 Bool {(true, false)}
+      (fun _ => ![1, -1]) (Set.univ : Set (Fin 2 → ℂˣ)),
+      (∀ lam, c.member true lam = 1) ∧ (∀ lam, c.member false lam = 2) := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_049.test2
--- The pair c_B=1,c_Bop=2 is not a family on a domain meeting lambda1=lambda2.
-example : (1 : ℂ) ≠ 2 := by sorry
+-- The multiplicative wall equation from the actual coroot (1,−1) rejects any yu_049 family with constant adjacent members one and two on the whole character domain.
+example  :
+    ¬ ∃ c : yu_049 Bool {(true, false)}
+      (fun _ => ![1, -1]) (Set.univ : Set (Fin 2 → ℂˣ)),
+      (∀ lam, c.member true lam = 1) ∧ (∀ lam, c.member false lam = 2) := by sorry
 
 
 theorem test3 {r : ℕ} (roots : Fin 0 → Fin r → ℤ) (lam : Fin r → ℂˣ) : theta roots lam = 1 := by sorry
@@ -4566,13 +5396,19 @@ def spectralContribution {A : Type u} [MeasurableSpace A] {C : Type v} [Fintype 
     (probabilityHaar : Measure A) (stabilizerCard D : ℕ) (F : A → C → ℂ) : ℂ :=
   (stabilizerCard : ℂ)⁻¹ * ∫ lam, (D : ℂ)⁻¹ * ∑ c, F lam c ∂probabilityHaar
 
-theorem test1 {I : Type u} [Fintype I] (d : I → ℕ) :
-    (∏ _ : I, (1 : ℕ)) * (∏ i, 1 * d i) = ∏ i, d i := by sorry
+theorem test1 {r : ℕ} (d : Fin r → ℕ) (hd : ∀ j, 0 < d j) :
+    Nat.card {p : (Fin r → ℂˣ) × CycleCoordinates (fun _ : Fin r => 1) //
+      p.1 ∈ yu_145.A (fun _ => 1) d ∧ p.2 ∈ yu_145.B (fun _ => 1) d ∧
+        (fun j t => p.1 j * cycleDifference (fun _ => 1) (by intro j; norm_num) p.2 j t) = 1} =
+      ∏ j, d j := by sorry
 
 -- Packet unit test: TauCeti.AutomorphicSpectral.yu_151.test1
--- For w=1, b=1, a=tau and c∈∏μ_(d_j); the denominator D=∏d_j must remain even though |w|=1.
-example {I : Type u} [Fintype I] (d : I → ℕ) :
-    (∏ _ : I, (1 : ℕ)) * (∏ i, 1 * d i) = ∏ i, d i := by sorry
+-- For all cycle lengths one, count the actual finite kernel of the map (a,c)↦aδ(c) on the constructed A×B cover: its cardinal is ∏d_j, retaining every finite component.
+example {r : ℕ} (d : Fin r → ℕ) (hd : ∀ j, 0 < d j) :
+    Nat.card {p : (Fin r → ℂˣ) × CycleCoordinates (fun _ : Fin r => 1) //
+      p.1 ∈ yu_145.A (fun _ => 1) d ∧ p.2 ∈ yu_145.B (fun _ => 1) d ∧
+        (fun j t => p.1 j * cycleDifference (fun _ => 1) (by intro j; norm_num) p.2 j t) = 1} =
+      ∏ j, d j := by sorry
 
 
 /-- A twist can land in a different carrier; only the composition is an endomorphism. -/
