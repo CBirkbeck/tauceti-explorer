@@ -34954,8 +34954,9 @@
    ],
    "followUpOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H3.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6948"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6948",
+   "finishedAt": "2026-10-09T10:01:39Z"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H3",
@@ -38977,8 +38978,9 @@
     "BP-ExcursionOperatorsAndSpectralAction--ES5~2"
    ],
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES5~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7048"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7048",
+   "finishedAt": "2026-10-09T10:01:46Z"
   },
   {
    "kind": "blueprint",
@@ -39716,7 +39718,8 @@
     "BP-HodgeTateAndCanonicalSubgroups--T6~2"
    ],
    "prompt": "research/blueprint/prompts/REV-HodgeTateAndCanonicalSubgroups--T6~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7067"
   },
   {
    "kind": "blueprint",
@@ -40850,7 +40853,8 @@
    ],
    "revisionOf": "BP-PrismaticCohomology--PR.0",
    "prompt": "research/blueprint/prompts/BP-PrismaticCohomology--PR.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7001"
   },
   {
    "priority": 2,
@@ -71378,8 +71382,9 @@
     "REV-PotentialAutomorphyInfrastructure~2"
    ],
    "prompt": "research/blueprint/prompts/RT-BP-PotentialAutomorphyInfrastructure~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7293"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7293",
+   "finishedAt": "2026-10-09T10:01:50Z"
   },
   {
    "id": "REV-RT-BP-PotentialAutomorphyInfrastructure~2",
