@@ -35989,7 +35989,8 @@
    ],
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7561"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.5",
@@ -46514,8 +46515,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7469"
+   "state": "pending",
+   "note": "released on GitHub issue #7469"
   },
   {
    "id": "REV-PKG-EllipticCurveModularity",
