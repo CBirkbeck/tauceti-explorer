@@ -34729,8 +34729,9 @@
    ],
    "followUpOf": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension",
    "prompt": "research/blueprint/prompts/BP-AlgebraicModuliForArithmeticGeometry--R09.7.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6339"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6339",
+   "finishedAt": "2026-10-09T17:46:23Z"
   },
   {
    "id": "REV-AlgebraicModuliForArithmeticGeometry--R09.7",
@@ -49109,7 +49110,8 @@
    ],
    "revisionOf": "PKG-LocalGaloisDeformationRings",
    "prompt": "research/blueprint/prompts/PKG-LocalGaloisDeformationRings~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7910"
   },
   {
    "id": "REV-PKG-LocalGaloisDeformationRings~2",
