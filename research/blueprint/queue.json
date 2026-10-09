@@ -34218,7 +34218,8 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.3",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6285"
   },
   {
    "id": "BP-SchemeAndStackFoundations--SF.4",
