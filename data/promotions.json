@@ -272,6 +272,18 @@
     "roadmaps/AlgebraicModularFormsAndSerreWeights/metadata.toml"
    ]
   },
+  "research/blueprint/packages/AutomorphicGaloisRepresentationsPartII/review.json": {
+   "promotedAt": "2026-10-09T03:24:51Z",
+   "review": "4f1decbeb5006835",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-AutomorphicGaloisRepresentationsPartII",
+   "sha256": "f5fb2a8d44d331c628a7eec7fa84efa1705ede6486b9fbb9977baac8c922ef9b",
+   "to": [
+    "roadmaps/AutomorphicGaloisRepresentationsPartII/README.md",
+    "roadmaps/AutomorphicGaloisRepresentationsPartII/Suggested.lean",
+    "roadmaps/AutomorphicGaloisRepresentationsPartII/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/ComplexMultiplicationAndExplicitReciprocity/review.json": {
    "promotedAt": "2026-10-09T01:31:14Z",
    "review": "213ecce16568a05d",
