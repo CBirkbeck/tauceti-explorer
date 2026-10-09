@@ -4,9 +4,9 @@ These statements suggest Lean forms so contributors and reviewers can converge
 on names and signatures. Proof placeholders are not implementations.
 
 The full geometric, smoothness, growth, measure and analytic assumptions in the
-README remain required. Comments below identify signatures whose actual
-supplier carriers cannot yet be expressed. Such signatures are omitted rather
-than asserted for arbitrary independently chosen representations or functions.
+README remain required. Comments identify untyped supplier conditions and
+absent signatures. Algebraic and scalar prototypes cover their stated fragments;
+a theorem with an untyped condition is schematic until that condition is supplied.
 
 Pinned baseline: Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
@@ -314,7 +314,9 @@ variable {F V W G N : Type*} [Field F] [AddCommGroup V] [Module F V]
 open Heisenberg
 
 /- MetaplecticAutomorphicForms:MP.0/topological-heisenberg
-The native extension receives the product topology. Joint continuity of the isometry evaluation is an explicit hypothesis, rather than a consequence of algebraic isometries. Native closed-embedding and open-projection tests concern this product topology. Their finite-dimensional local-field specialization still requires the requested topological suppliers.
+Use TauCeti.FactorSet.Extension.instTopologicalSpace and homeomorphProd, and specialize
+TauCeti.FactorSet.Extension.isTopologicalGroup to the continuous bilinear factor set.
+The signatures below express these existing operations in additive coordinates. Joint continuity of the isometry evaluation is an explicit hypothesis, rather than a consequence of algebraic isometries. Native closed-embedding and open-projection tests concern this product topology. Their finite-dimensional local-field specialization still requires the requested topological suppliers.
 -/
 @[instance_reducible] def heisenbergTopology (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] : TopologicalSpace (bilinearFactorSet B).Extension := by sorry
 def heisenbergCoordinates (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] : letI := heisenbergTopology B; (bilinearFactorSet B).Extension ≃ₜ F × V := by sorry
@@ -327,7 +329,7 @@ example (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] 
 -- Test: TauCeti.Metaplectic.heisenbergTopology_projection
 example (B : LinearMap.BilinForm F V) [TopologicalSpace F] [TopologicalSpace V] [T2Space F] [T2Space V] : letI := heisenbergTopology B; Topology.IsClosedEmbedding (fun t : F => (bilinearFactorSet B).inl (Multiplicative.ofAdd t)) ∧ Continuous (fun p : (bilinearFactorSet B).Extension => p.right.toAdd) ∧ IsOpenMap (fun p : (bilinearFactorSet B).Extension => p.right.toAdd) ∧ Function.Surjective (fun p : (bilinearFactorSet B).Extension => p.right.toAdd) := by sorry
 /- MetaplecticAutomorphicForms:MP.0/heisenberg-haar
-Emitted: left-translation invariance of the product of two additive invariant measures, with Borel, second-countable, SFinite and continuous-bilinear hypotheses. Missing: right translation, transported native-extension Haar instance, finite-dimensional determinant/self-dual normalization and symplectic invariance. Dirac mass at zero is no longer admitted as arbitrary Haar data.
+Emitted: left-translation invariance of the product of two additive invariant measures, with Borel, second-countable, SFinite and continuous-bilinear hypotheses. Missing: right translation, transported native-extension Haar instance, finite-dimensional determinant/self-dual normalization and symplectic invariance. The measures must satisfy the stated translation-invariance hypotheses.
 -/
 theorem heisenberg_haar (B : LinearMap.BilinForm F V)
     [TopologicalSpace F] [TopologicalSpace V] [IsTopologicalAddGroup F]
@@ -363,7 +365,7 @@ example (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W →ₗ[F] F) (y : 
 -- Test: TauCeti.Metaplectic.schroedinger_commutator
 example (ψ : Multiplicative F →* ℂˣ) (B : V →ₗ[F] W →ₗ[F] F) (x : V) (y : W) (h2 : (2:F) ≠ 0) : (schroedinger ψ B 0 x 0).comp (schroedinger ψ B 0 0 y) = (ψ (Multiplicative.ofAdd (B x y)) : ℂ) • ((schroedinger ψ B 0 0 y).comp (schroedinger ψ B 0 x 0)) := by sorry
 /- MetaplecticAutomorphicForms:MP.0/induced-schroedinger
-Emitted: evaluation at the section, explicit central covariance, and the coordinate translation computed from the same Schrödinger formula. The inverse is no longer paired with an independently chosen translation. Missing: local smoothness and compact support modulo the polarization subgroup, and identification with SR.2 compact induction. The rational half-argument test is an obstruction fragment; it is not a Q₂ conductor theorem.
+Emitted: evaluation at the section, explicit central covariance, and the coordinate translation computed from the same Schrödinger formula. Use that same translation in the intertwining identity. Missing: local smoothness and compact support modulo the polarization subgroup, and identification with SR.2 compact induction. The rational half-argument test is an obstruction fragment; it is not a Q₂ conductor theorem.
 -/
 def inducedSchroedingerEquiv (ψ : Multiplicative F →* ℂˣ) : {f : F × V → ℂ // ∀ t u, f (t,u) = (ψ (Multiplicative.ofAdd t) : ℂ)*f (0,u)} ≃ (V → ℂ) := by sorry
 lemma inducedSchroedingerEquiv_apply (ψ : Multiplicative F →* ℂˣ) (f : {f : F × V → ℂ // ∀ t u, f (t,u) = (ψ (Multiplicative.ofAdd t) : ℂ)*f (0,u)}) (u : V) : inducedSchroedingerEquiv ψ f u = f.val (0,u) := by sorry
@@ -525,7 +527,7 @@ variable {G H V W U : Type*} [Group G] [Group H]
  [AddCommGroup V] [Module ℂ V] [AddCommGroup W] [Module ℂ W] [AddCommGroup U] [Module ℂ U]
 
 /- MetaplecticAutomorphicForms:MP.3/big-theta-module
-Emitted: native algebraic tensor coinvariants and invariant-map universal property. H-equivariance now requires commuting G,H actions. Missing: SR.3 smooth dual and admissibility, the actual maximal π-isotypic quotient and smooth tensor–Hom adjunction. The algebraic universal map is recorded separately from the full source Hom identity.
+Emitted: native algebraic tensor coinvariants and invariant-map universal property. H-equivariance requires commuting G,H actions. Missing: SR.3 smooth dual and admissibility, the actual maximal π-isotypic quotient and smooth tensor–Hom adjunction. The algebraic universal map is recorded separately from the full source Hom identity.
 -/
 abbrev bigTheta (ρ : Representation ℂ G V) (πdual : Representation ℂ G W) : Type _ := Representation.Coinvariants (ρ.tprod πdual)
 def bigTheta_hom (ρ : Representation ℂ G V) (πdual : Representation ℂ G W) : (bigTheta ρ πdual →ₗ[ℂ] U) ≃ {f : V ⊗[ℂ] W →ₗ[ℂ] U // ∀ g x, f ((ρ.tprod πdual) g x) = f x} := by sorry
@@ -702,7 +704,7 @@ example [MeasurableSpace H] (μ : Measure H) (τ κ a : ℂ) (ha : a ≠ 0) (P :
 -- Test: TauCeti.Metaplectic.regularizedTheta_splitBinary
 example [MeasurableSpace H] (μ : Measure H) (P : ℂ → ℂ) (θ : G → H → ℂ) (E : ℂ → H → ℂ) (s : ℂ) (g : G) : regularizedTheta μ (1/2) 2 P θ E s g = (P s)⁻¹*(∫ h, θ g h*E s h ∂μ) := by sorry
 /- MetaplecticAutomorphicForms:MP.5/extended-schwartz-weil
-Emitted: the polynomial Gaussian function and sign/zero/scaling tests. Missing: extension of the actual oscillator to the source similitude group and its action on the specified Schwartz module; arbitrary linear operators no longer serve as the extension or restriction comparison.
+Emitted: the polynomial Gaussian function and sign/zero/scaling tests. Missing: extension of the actual oscillator to the source similitude group and its action on the specified Schwartz module; the extension and restriction comparison require those source actions.
 -/
 def extendedSchwartzWeil (q : X → ℝ) (P₁ P₂ : ℝ → ℂ) (x : X) (u : ℝ) : ℂ := (P₁ (u*q x)+(SignType.sign u : ℂ)*P₂ (u*q x))*Real.exp (-2*Real.pi*abs u*q x)
 -- Omitted at the supplier boundary: TauCeti.Metaplectic.extendedSchwartzWeil_similitude
@@ -769,7 +771,7 @@ example (ω : Representation ℂ G (X → ℂ)) (φ : X → ℂ) : siegelWeilSec
 -- Test: TauCeti.Metaplectic.siegelWeilSection_parameter
 example : ((2:ℂ) - (1+1))/2 = 0 ∧ ((2:ℂ)/2) ≠ 0 := by sorry
 /- MetaplecticAutomorphicForms:MP.6/ikeda-map
-Emitted: the explicit integral, identity and separated-variable tests and Fubini composition with SFinite measures and joint Integrable hypothesis. Missing: actual smaller-tower Schwartz data, self-dual measures, source oscillator actions and equivariance. Unrelated representations no longer occur in its intertwining API.
+Emitted: the explicit integral, identity and separated-variable tests and Fubini composition with SFinite measures and joint Integrable hypothesis. Missing: actual smaller-tower Schwartz data, self-dual measures, source oscillator actions and equivariance. Equivariance must concern those same source actions.
 -/
 def ikedaMap (μ : Measure X) (φ : X → Y → Z → ℂ) (a : Y) : ℂ := ∫ x, φ x a 0 ∂μ
 lemma ikedaMap_apply (μ : Measure X) (φ : X → Y → Z → ℂ) (a : Y) : ikedaMap μ φ a = ∫ x, φ x a 0 ∂μ := by sorry
@@ -806,7 +808,7 @@ variable {G X H : Type*} [Group G] [MeasurableSpace G] [Zero X]
 open scoped InnerProductSpace
 
 /- MetaplecticAutomorphicForms:MP.6/local-doubling-integral
-Emitted: the integral of the same ContRepresentation matrix coefficient, native conjugate-first inner product, elementary normalization, zero, measure scaling and Unit-group integral=1 tests. Missing: actual doubling embedding, section/evaluation data, convergence chamber, zeta normalization and spherical L-factor theorem. An arbitrary scalar is no longer asserted to be an unramified ratio.
+Emitted: the integral of the same ContRepresentation matrix coefficient, native conjugate-first inner product, elementary normalization, zero, measure scaling and Unit-group integral=1 tests. Missing: actual doubling embedding, section/evaluation data, convergence chamber, zeta normalization and spherical L-factor theorem. The unramified ratio requires the actual normalized local data.
 -/
 def localDoublingZeta (μ : Measure G) (ρ : ContRepresentation ℂ G H) (sectionFn : ℂ → G → ℂ) (s : ℂ) (φ ψ : H) : ℂ := ∫ g, sectionFn s g*⟪ψ,ρ g φ⟫_ℂ ∂μ
 lemma localDoublingZeta_integral (μ : Measure G) (ρ : ContRepresentation ℂ G H) (sectionFn : ℂ → G → ℂ) (s : ℂ) (φ ψ : H) : localDoublingZeta μ ρ sectionFn s φ ψ = ∫ g, sectionFn s g*⟪ψ,ρ g φ⟫_ℂ ∂μ := by sorry
@@ -1164,7 +1166,7 @@ end FiniteFourier
 section TraceInterfaces
 
 /- MetaplecticAutomorphicForms:MP.7/geometric-trace
-Emitted: inverse-norm normalization and CM/cycle scalar fragments; odd cancellation now pairs an actual finite index set by an involution preserving weights and reversing function values. Missing: the actual source CM points/stabilizers and oriented cycles, genus-character symmetry and integral reflection law for each branch. RawTrace=0 is not used as a substitute for odd parity. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
+Emitted: inverse-norm normalization and CM/cycle scalar fragments; odd cancellation pairs an actual finite index set by an involution preserving weights and reversing function values. Missing: the actual source CM points/stabilizers and oriented cycles, genus-character symmetry and integral reflection law for each branch. RawTrace=0 is not used as a substitute for odd parity. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
 -/
 def geometricTrace (measure : Measure ℍ) (φ : ℍ → ℂ) (rawTrace : ℂ) : ℂ := ((∫ z, ‖φ z‖^2 ∂measure : ℝ):ℂ)⁻¹*rawTrace
 lemma geometricTrace_cm (I : Type*) [Fintype I] (measure : Measure ℍ) (φ : ℍ → ℂ) (points : I → ℍ) (weights : I → ℂ) : geometricTrace measure φ ((2*Real.sqrt Real.pi : ℂ)*∑ i, weights i*φ (points i)) = ((∫ z, ‖φ z‖^2 ∂measure : ℝ):ℂ)⁻¹*(2*Real.sqrt Real.pi : ℂ)*∑ i, weights i*φ (points i) := by sorry
@@ -1214,17 +1216,17 @@ end
 end TauCeti.Metaplectic
 
 /-
-Protocol §13: omitted declarations, API items and tests.
-Each name below is a planning target, not a Lean assertion. Its actual carrier
-and comparison maps must be constructed before its signature can be emitted.
-The packet and reader retain the full statements, hypotheses and proof routes.
+Signature requirements for declarations, API items and tests.
+The names below specify mathematical targets without asserting Lean theorems.
+Construct their actual carriers and comparison maps before stating signatures.
+The roadmap document gives the full statements and hypotheses.
 
 MetaplecticAutomorphicForms:MP.3/orthogonal-cover-restriction — Cover over orthogonal–symplectic pairs
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: The scalar cover pulls back to O(V)×Sp(W). O(V) has the Schrödinger splitting h↦[φ(x)↦φ(h⁻¹x)]. The restriction over Sp(W) of the μ₂ cover is trivial when m=dim V is even and is the metaplectic cover of W when m is odd. The tensor Weil representation consequently descends to O(V)×Sp(W) for even m and is genuine on O(V)×Mp(W) for odd m.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.orthogonalCover_parity [target]: The scalar cover pulls back to O(V)×Sp(W). O(V) has the Schrödinger splitting h↦[φ(x)↦φ(h⁻¹x)]. The restriction over Sp(W) of the μ₂ cover is trivial when m=dim V is even and is the metaplectic cover of W when m is odd. The tensor Weil representation consequently descends to O(V)×Sp(W) for even m and is genuine on O(V)×Mp(W) for odd m.
 
 MetaplecticAutomorphicForms:MP.3/unitary-splitting — Unitary dual-pair splittings
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited papers invoke Kudla’s unitary splitting formula; its original proof must be collated. Gan–Ichino §4 fixes the trace pairing and asserts δ-independence. General E/F Hermitian-space and quaternionic group carriers are requested ClassicalGroups Part-II inputs; the existing complex classical-group carriers do not provide them.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.unitaryWeilRepresentation [target]: For E/F quadratic, an ε-Hermitian V and a −ε-Hermitian W, construct their commuting actions on the F-symplectic tensor space with trace pairing. A pair of characters χV,χW of E× with χV|F×=ωE/F^dim V and χW|F×=ωE/F^dim W gives the two compatible scalar-cover splittings and the Weil representation ωψ,χV,χW. Record dependence on ψ and the auxiliary characters. With the trace symplectic pairing fixed, the splitting is independent of the trace-zero δ used to express the construction.
   TauCeti.Metaplectic.unitarySplitting_cocycle [api]: Each splitting cochain cancels the pulled-back scalar cocycle.
   TauCeti.Metaplectic.unitarySplitting_character_change [api]: If χ is replaced by χη with η|F×=1, transport η to η̃:E¹→C× by η̃(x/xᶜ)=η(x). Changing χV twists the W-factor by η̃∘det; changing χW twists the V-factor by η̃∘det.
@@ -1234,7 +1236,7 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.unitarySplitting_twist [tests]: Two valid characters differing by η trivial on F× produce η̃∘det, where η̃(x/xᶜ)=η(x). Testing ξ directly on det∈E¹ would miss the Hilbert-90 transport.
 
 MetaplecticAutomorphicForms:MP.3/big-theta-module — Big theta module
-Emitted: native algebraic tensor coinvariants and invariant-map universal property. H-equivariance now requires commuting G,H actions. Missing: SR.3 smooth dual and admissibility, the actual maximal π-isotypic quotient and smooth tensor–Hom adjunction. The algebraic universal map is recorded separately from the full source Hom identity.
+Emitted: native algebraic tensor coinvariants and invariant-map universal property. H-equivariance requires commuting G,H actions. Missing: SR.3 smooth dual and admissibility, the actual maximal π-isotypic quotient and smooth tensor–Hom adjunction. The algebraic universal map is recorded separately from the full source Hom identity.
   TauCeti.Metaplectic.bigTheta_isotypic [api]: The maximal π-isotypic quotient of S is π⊗Θ(π).
 
 MetaplecticAutomorphicForms:MP.3/small-theta-module — Small theta quotient
@@ -1242,75 +1244,75 @@ Emitted: quotient by a specified native submodule and its quotient-map universal
   TauCeti.Metaplectic.smallTheta_semisimple [api]: θ(π) is semisimple in the supplied smooth category.
 
 MetaplecticAutomorphicForms:MP.3/theta-finite-length — Finite length of theta modules
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The generic SR criteria are requested; the exact archimedean finite-generation proof and its globalization/automatic-continuity bridge remain unverified. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicFormsOnReductiveGroups:AF.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicFormsOnReductiveGroups:AF.1.
   TauCeti.Metaplectic.bigTheta_finiteLength [target]: For a type-I reductive dual pair over a nonarchimedean characteristic-zero local field and irreducible admissible π, Θ(π) is an admissible smooth H-module of finite length. At archimedean places state the corresponding finitely generated admissible (g,K)-module result on the oscillator Harish-Chandra module, with its own source gate.
 
 MetaplecticAutomorphicForms:MP.3/howe-duality — Howe duality
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Gan–Takeda proof continuation PDF11–21 and its type-II/MVW inputs need complete proof closure; the full quaternionic Gan–Sun theorem and archimedean Howe/automatic-continuity sources remain requested.; Gan–Ichino18 and Gan–Savin23 invoke classical Howe duality. Their invocation is read; Howe’s archimedean original proof and its Harish-Chandra/globalization comparison have not been read here. Supply the full real/complex theorem with exact categories before closing this node. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicFormsOnReductiveGroups:AF.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicFormsOnReductiveGroups:AF.1.
   TauCeti.Metaplectic.howeDuality [target]: For an orthogonal–symplectic or unitary type-I pair over a nonarchimedean local field of characteristic different from two, θ(π) is zero or irreducible, and nonzero θ(π)≃θ(π′) implies π≃π′. This includes residue characteristic two. For quaternionic pairs use the additional theorem explicitly, rather than treating Gan–Takeda’s partial quaternionic statement as full Howe duality. For real or complex type-I pairs, use the archimedean Howe theorem in the appropriate Harish-Chandra/smooth-globalization category; this is a separate original-source input, not a consequence of Gan–Takeda’s nonarchimedean theorem.
 
 MetaplecticAutomorphicForms:MP.3/local-see-saw — Local see-saw identity
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Kudla IV.1 pp59–66 has been read. Its common oscillator, sum tensorization and specialized application supply the route; a general native smooth tensor–Hom/dual adjunction, with the exact infinite-dimensional dual and admissibility conditions, remains to be supplied from SR and the unread original references. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.2, AutomorphicFormsOnReductiveGroups:AF.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.2, AutomorphicFormsOnReductiveGroups:AF.1.
   TauCeti.Metaplectic.localSeeSaw [target]: For a see-saw of commuting dual pairs inside one symplectic space with compatible splittings, identify HomH1(ΘG1(π1),π2) with HomH2(ΘG2(π2∨),π1∨), after writing the common oscillator Hom space and its exact tensor/dual conventions. State the identity first for big theta coinvariants; a small-theta version needs semisimplicity/Howe hypotheses.
 
 MetaplecticAutomorphicForms:MP.3/persistence-and-stable-range — Persistence and stable range
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: In a fixed orthogonal Witt tower V_r=V_0⊕H^r paired with Sp(W), dim W=2n, a nonzero theta lift persists for larger r. Every irreducible admissible genuine π has nonzero theta lift in stable range r≥2n; in the reverse direction a fixed O(V)-representation has nonzero lift when n≥dim V. These are sufficient bounds, not minimal first-occurrence formulas. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.theta_persistence_stableRange [target]: In a fixed orthogonal Witt tower V_r=V_0⊕H^r paired with Sp(W), dim W=2n, a nonzero theta lift persists for larger r. Every irreducible admissible genuine π has nonzero theta lift in stable range r≥2n; in the reverse direction a fixed O(V)-representation has nonzero lift when n≥dim V. These are sufficient bounds, not minimal first-occurrence formulas.
 
 MetaplecticAutomorphicForms:MP.3/supercuspidal-first-occurrence — Supercuspidal first occurrence
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For a supercuspidal π in Kudla’s nonarchimedean orthogonal–symplectic range, let r₀ (respectively n₀ in the reverse direction) be first occurrence. At every larger rank the big lift is irreducible admissible and equals the small lift. At first occurrence it is supercuspidal; above first occurrence it is not supercuspidal and embeds in the normalized parabolic induction of the first lift with the explicit tower characters of III.6 Theorems6.1–6.2. Do not extend this big=small assertion to arbitrary nonsupercuspidal π. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.supercuspidal_firstOccurrence [target]: For a supercuspidal π in Kudla’s nonarchimedean orthogonal–symplectic range, let r₀ (respectively n₀ in the reverse direction) be first occurrence. At every larger rank the big lift is irreducible admissible and equals the small lift. At first occurrence it is supercuspidal; above first occurrence it is not supercuspidal and embeds in the normalized parabolic induction of the first lift with the explicit tower characters of III.6 Theorems6.1–6.2. Do not extend this big=small assertion to arbitrary nonsupercuspidal π.
 
 MetaplecticAutomorphicForms:MP.3/kudla-jacquet-filtration — Kudla’s Jacquet filtration
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For Q(X_a)⊂G(W_n), the normalized Jacquet module of ω has a finite filtration with kth quotient, 0≤k≤min(a,q_V), equal to normalized induction from Q(X_{a−k},X_a)×G(W_{n−2a})×P(Y_k) of χV|det X_{a−k}|^{s_{m,n}+(a−k)/2}⊗Cc∞(Isom_{E,c}(X_k,Y_k))⊗ω_{smaller}. Here s_{m,n}=(m−n−ε₀)/2 and (b,c) acts on f(g) by χV(det b)χW(det c)f(c⁻¹gb). Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.oscillator_jacquetFiltration [target]: For Q(X_a)⊂G(W_n), the normalized Jacquet module of ω has a finite filtration with kth quotient, 0≤k≤min(a,q_V), equal to normalized induction from Q(X_{a−k},X_a)×G(W_{n−2a})×P(Y_k) of χV|det X_{a−k}|^{s_{m,n}+(a−k)/2}⊗Cc∞(Isom_{E,c}(X_k,Y_k))⊗ω_{smaller}. Here s_{m,n}=(m−n−ε₀)/2 and (b,c) acts on f(g) by χV(det b)χW(det c)f(c⁻¹gb).
 
 MetaplecticAutomorphicForms:MP.3/doubling-filtration — Doubling principal-series filtration
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For I(s)=normalized Ind_{Siegel}^{G(W⊕W⁻)}χV|det|^s, its restriction to G(W)×G(W) has rank-t quotients induced from Q_t×Q_t with characters χV|det X_t|^{s+t/2} on both GL_t factors and χV(det W⁻_{n−2t})⊗Cc∞(G(W_{n−2t})) on the remaining factors. The open-orbit quotient R_0=χV(det W⁻)⊗Cc∞G(W) is independent of s. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.doubling_rankFiltration [target]: For I(s)=normalized Ind_{Siegel}^{G(W⊕W⁻)}χV|det|^s, its restriction to G(W)×G(W) has rank-t quotients induced from Q_t×Q_t with characters χV|det X_t|^{s+t/2} on both GL_t factors and χV(det W⁻_{n−2t})⊗Cc∞(G(W_{n−2t})) on the remaining factors. The open-orbit quotient R_0=χV(det W⁻)⊗Cc∞G(W) is independent of s.
 
 MetaplecticAutomorphicForms:MP.3/type-ii-theta — Type-II theta input
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Mínguez’s original proof and the full unequal-rank parameter formula have not been read; only the cited input needed by Gan–Takeda is planned. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.typeII_theta [target]: For the split type-II pair GL_m(F)×GL_n(F), the small theta lift of an irreducible smooth representation is zero or irreducible, and nonzero lifts determine the source representation uniquely. The unequal-rank parameter formula used by a boundary argument is a separately requested Mínguez input; no general n<m vanishing is asserted.
 
 MetaplecticAutomorphicForms:MP.3/mvw-and-cover-induction — MVW involution and metaplectic induction
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Original MVW irreducible-duality proof and real-cover variant remain supplier/source requests; a cited use does not close those proofs. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicFormsOnReductiveGroups:AF.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicFormsOnReductiveGroups:AF.1.
   TauCeti.Metaplectic.mvw_coverInduction [target]: Transport the native smooth dual/induction operations to the canonical split unipotent radicals of Mp. The MVW involution is an exact covariant functor and for irreducible π gives π^MVW≃π∨; it is not the contragredient functor on every module. On a standard Levi GL_k×Mp_{2n−2k}, τ̃ψ=(τ∘projection)⊗χψ has central −1 acting by −1 and determines normalized parabolic induction.
 
 MetaplecticAutomorphicForms:MP.3/nonarchimedean-conservation — Nonarchimedean conservation relations
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For the two enhanced Witt towers differing by the anti-split class in Sun–Zhu, the dimension first-occurrence indices satisfy n_t₁(π)+n_t₂(π)=2 dim_D U+d_{D,ε}. Here d is 4 for orthogonal, 2 for unitary, 1 for quaternionic Hermitian, 3 for quaternionic skew-Hermitian and 0 for symplectic U. In particular an Sp_{2n} representation in the two even-orthogonal towers has dimension sum 4n+4, and for O(V) the symplectic rank indices of π and π⊗det sum dim V. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.theta_conservation [target]: For the two enhanced Witt towers differing by the anti-split class in Sun–Zhu, the dimension first-occurrence indices satisfy n_t₁(π)+n_t₂(π)=2 dim_D U+d_{D,ε}. Here d is 4 for orthogonal, 2 for unitary, 1 for quaternionic Hermitian, 3 for quaternionic skew-Hermitian and 0 for symplectic U. In particular an Sp_{2n} representation in the two even-orthogonal towers has dimension sum 4n+4, and for O(V) the symplectic rank indices of π and π⊗det sum dim V.
 
 MetaplecticAutomorphicForms:MP.3/archimedean-conservation — Archimedean first-occurrence cases
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited degenerate-principal-series and archimedean Howe/automatic-continuity inputs are not proved here; §7 references are recorded as requests. Supplier categories: AutomorphicFormsOnReductiveGroups:AF.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicFormsOnReductiveGroups:AF.1.
   TauCeti.Metaplectic.theta_archimedeanFirstOccurrence [target]: For real/complex orthogonal U, n_t₁(π)+n_t₂(π)=2 dim U for the towers differing by the sign class. For complex symplectic or real quaternionic Hermitian U there is no two-tower conservation relation: the parity-compatible first occurrence is at most dim U or dim U+1. For real symplectic, complex unitary, or real quaternionic skew-Hermitian U, each K_U-coset T has a distinct pair with dimension sum 2 dim U+d; every other pair has sum at least 2 dim U+d|t₃−t₄|, and the two minima modulo 2K_U sum 2 dim U+d.
 
 MetaplecticAutomorphicForms:MP.3/unitary-equal-almost-equal-rank — Unitary equal and almost equal rank
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: LLC/root-number supplier stage and original theta-dichotomy proofs require an exact owner mapping; the packet requests that mapping rather than inventing an existing declaration. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, ModularityAndLanglandsExtensions:ML.4.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, ModularityAndLanglandsExtensions:ML.4.
   TauCeti.Metaplectic.unitaryTheta_equalAlmostEqualRank [target]: For tempered π of U(W_n) over a nonarchimedean characteristic-zero F, equal-rank theta to U(V_n^ε) is nonzero in exactly one sign, determined by ε(1/2,φπχV⁻¹,ψ₂^E)=εε′, and its parameter is φπχV⁻¹χW. For rank n+1, if χV is absent from φπ both signs are nonzero, while if χV occurs exactly one sign is nonzero; the lifted parameter is (φπχV⁻¹χW)⊕χW. In these stated tempered ranges the big nonzero lift is irreducible.
 
 MetaplecticAutomorphicForms:MP.3/unitary-doubling-dichotomy — Unitary doubling multiplicity and dichotomy
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Li–Liu’s broader semisimplicity assertion refers to the same argument as Gan–Ichino; matching that argument to its complete hypotheses remains open (existing paper finding E15). Supplier categories: AutomorphicFormsOnReductiveGroups:AF.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicFormsOnReductiveGroups:AF.1.
   TauCeti.Metaplectic.unitaryTheta_doublingDichotomy [target]: In Li–Liu Assumption3.1’s rank-2r skew-Hermitian setting, the two equal-rank Hermitian theta choices give the local dichotomy of Proposition3.6 and the local doubling Hom space has dimension at most one. Keep its assertion that the relevant big theta module is semisimple as a separate source/proof gate; Gan–Ichino’s scoped irreducibility theorem alone does not prove that broader assertion.
 
 MetaplecticAutomorphicForms:MP.3/mp-odd-orthogonal-unramified — Unramified metaplectic theta and induction
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: PDF24 start of Lemma6.8 and every removed-pair exponent must be collated before the smaller-tower parameter signature is closed; this node does not substitute an unqualified Satake assertion. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.mpTheta_unramifiedInduction [target]: For nonarchimedean odd-residue F and ψ of conductor O_F, the standard compact splitting identifies unramified genuine Mp₂n representations with unramified principal-series constituents induced from χψ|·|^{s_i}. The ψ-relative parameter is ⊕i(|·|^{s_i}⊕|·|^{−s_i}). Smaller odd-orthogonal towers obey the first-occurrence vanishing and induction principle of Gan–Ichino Lemmas6.3,6.8,6.10, with the removed character pairs and their modulus factors explicit.
 
 MetaplecticAutomorphicForms:MP.3/rallis-unramified-satake — Rallis unramified theta parameters
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Ral82 original local computation is cited but unread; the exact dimension-dependent segment remains a source gate rather than an invented formula. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, AdelicAlgebraicGroups:AA.2.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, AdelicAlgebraicGroups:AA.2.
   TauCeti.Metaplectic.theta_unramifiedSatake [target]: Relate the spherical Hecke characters of a nonzero local theta lift by Rallis’s L-group map, including the additional SL₂/principal-series segment specified by the dimension difference. For the orthogonal–symplectic instances of Chenevier–Taïbi §5.3.2, keep the local Satake relation separate from their global level-one multiplicity computation.
 
 MetaplecticAutomorphicForms:MP.3/unitary-hecke-compatibility — Unitary theta Hecke compatibility
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original Liu spherical module theorem and split-place AppendixA computation are unread; the broader tempered big-lift semisimplicity cited in Proposition3.9 remains the same explicit proof gate. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, AdelicAlgebraicGroups:AA.2.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, AdelicAlgebraicGroups:AA.2.
   TauCeti.Metaplectic.unitaryTheta_hecke [target]: For Li–Liu’s unramified/almost-unramified and split local places, the oscillator spherical module induces the surjective Hecke map θ^R:H^R_W→T^R, and the π Hecke character factors through it. The operator on the theta output has the contragredient/conjugate character χπ(s)^c. At ramified odd places of Li–Liu22, use the special compact K_r and the trace-self-dual lattice indicator, not the unramified hyperspecial vector.
 
 MetaplecticAutomorphicForms:MP.1/smooth-stone-von-neumann — Smooth Stone–von Neumann theorem
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Kudla and Sun–Zhu both refer this proof to MVW 2.I.2; that book proof has not been read. The smooth uniqueness and scalar Schur step remain explicit proof gaps until a matching source is checked. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.0:abelian-category, SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.smooth_stoneVonNeumann [target]: For a finite-dimensional symplectic space over a nonarchimedean local field of characteristic different from two and a nontrivial continuous unitary ψ, every irreducible smooth complex representation of H(W) with central character ψ is isomorphic to the Schrödinger model. Its Heisenberg intertwining endomorphism algebra is C.
 
 MetaplecticAutomorphicForms:MP.1/unitary-stone-von-neumann — Unitary Stone–von Neumann theorem
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Garrett’s real proof supplies the route with the two recorded textual corrections; its Schwartz Fourier-density step, the complex reduction and nonarchimedean unitary analogue still need analytic proof closure and native irreducibility formulation.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.unitary_stoneVonNeumann [target]: Every irreducible strongly continuous unitary representation of the real Heisenberg group with nontrivial unitary central character is unitarily equivalent to L²(X); all unitary representations with that character are Hilbert multiplicities of it. The complex local-field Heisenberg statement is obtained by viewing its alternating pairing and character on the underlying real group.
 
 MetaplecticAutomorphicForms:MP.1/scalar-normalizer-extension — Unitary normalizer extension
@@ -1319,11 +1321,11 @@ Emitted: the covariance subgroup of G×unitary(H→L[ℂ]H), its two homomorphis
   TauCeti.Metaplectic.scalarNormalizer_nonsplitting [tests]: For W≠0 over R the normalized μ₂ subextension does not admit a continuous homomorphic section; arbitrary lift choice does not prove a splitting.
 
 MetaplecticAutomorphicForms:MP.1/intertwiner-lines — Scalar ambiguity and composition of intertwiners
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.intertwinerLine_dim [target]: For each g∈Sp(W), the smooth intertwiner space between ρ and its g-twist is a one-dimensional C vector space; its nonzero operators are invertible. Choosing A_g with A_1=1 yields A_gA_h=c(g,h)A_{gh}, where c is a normalized scalar factor set. Rescaling A_g by b(g) changes c by b(g)b(h)/b(gh). If the chosen A_g are unitary operators, the resulting cocycle scalars have norm one; arbitrary nonzero intertwiners need not have that normalization.
 
 MetaplecticAutomorphicForms:MP.2/weil-index — Weil index
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: AL.0 Part II must supply Fourier transforms of oscillatory distributions and finite-dimensional self-dual measure; the native Fourier integral on integrable functions cannot itself define γ. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion, AutomorphicLFunctionsAndLocalFactors:AL.0.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion, AutomorphicLFunctionsAndLocalFactors:AL.0.
   TauCeti.Metaplectic.weilIndex [target]: For a nondegenerate quadratic form q on F^d, define γψ(q)∈U(1) as the scalar in the Fourier transform of the oscillatory distribution ψ∘q: with positive Fourier kernel ψ(x·y) and coordinate self-dual Haar, its transform at y is γψ(q)|det Bq|⁻¹/²ψ(−q(Bq⁻¹y)), where Bq(x,y)=q(x+y)−q(x)−q(y). In the Bq-self-dual measure this is γψ(q)ψ(−q(y)). This is not an absolutely convergent integral over F^d.
   TauCeti.Metaplectic.weilIndex_distribution [api]: The Fourier transform identity above characterizes γψ(q).
   TauCeti.Metaplectic.weilIndex_norm [api]: |γψ(q)|=1.
@@ -1335,7 +1337,7 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.weilIndex_hyperbolic [tests]: The hyperbolic form xy has index one with the same Fourier convention.
 
 MetaplecticAutomorphicForms:MP.2/weil-index-identities — Weil index and Hilbert symbol
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: The index is multiplicative under orthogonal sums, invariant under isometry and trivial on hyperbolic planes, with γψ(−q)=γψ(q)⁻¹. For η=ψ/2 define γ(a,η)=γ(η a x²)/γ(η x²). Then γ(ab,η)=(a,b)F γ(a,η)γ(b,η), γ(a,ηb)=(a,b)F γ(a,η), γ(a,η)²=(−1,a)F and γ(a,η)⁴=1. If q=Σa_ix_i², γψ(q)=γ(det q,ψ)γψ(x²)^d∏_{i<j}(a_i,a_j)F; det q means ∏a_i, not det Bq=2^d∏a_i.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.weilIndex_hilbertSymbol [target]: The index is multiplicative under orthogonal sums, invariant under isometry and trivial on hyperbolic planes, with γψ(−q)=γψ(q)⁻¹. For η=ψ/2 define γ(a,η)=γ(η a x²)/γ(η x²). Then γ(ab,η)=(a,b)F γ(a,η)γ(b,η), γ(a,ηb)=(a,b)F γ(a,η), γ(a,η)²=(−1,a)F and γ(a,η)⁴=1. If q=Σa_ix_i², γψ(q)=γ(det q,ψ)γψ(x²)^d∏_{i<j}(a_i,a_j)F; det q means ∏a_i, not det Bq=2^d∏a_i.
 
 MetaplecticAutomorphicForms:MP.2/leray-form — Leray quadratic form
@@ -1343,11 +1345,11 @@ Emitted: the graph quadratic map ½ω(y,Ty), transport under isometry and coordi
   TauCeti.Metaplectic.lerayForm_reduction [api]: The general triple is the transverse construction on its reduced symplectic quotient.
 
 MetaplecticAutomorphicForms:MP.2/leray-cocycle — Leray cocycle of intertwiners
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Kudla refers the integral-composition proof to Rao; exact quotient integral normalizations must be checked before promoting this proof route to closure.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.leray_cocycle [target]: For the unitary normalized integral operators r_Y(g), their factor set is c_Y(g₁,g₂)=γψ(L(Y,Yg₁⁻¹,Yg₂⁻¹g₁⁻¹))=γψ(L(Y,Yg₂⁻¹,Yg₁)). This obeys normalization and the two-cocycle identity because it computes actual operator composition.
 
 MetaplecticAutomorphicForms:MP.1/rao-factor-set — Rao factor set
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Bruhat x(g), j(g), Leray rank and t-integrality still require their full sourced definitions/proofs; the formula specifies the target but does not conceal those data as arbitrary functions.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.raoFactorSet [target]: Relative to Y, write j(g)=rank(c_g) and x(g)∈F×/(F×)² for the Bruhat square class. For q=L(Y,Yg₂⁻¹,Yg₁), let t=(j(g₁)+j(g₂)−j(g₁g₂)−dim q)/2. Define the μ₂-valued Rao factor set by (x₁,x₂)(−x₁x₂,x₁₂)(−1,det(2q))^t(−1,−1)^{t(t−1)/2}Hasse(2q). Its normalization and cocycle equation make a native FactorSet with trivial μ₂ action.
   TauCeti.Metaplectic.raoFactorSet_values [api]: Its values lie in μ₂.
   TauCeti.Metaplectic.raoFactorSet_cocycle [api]: c(g,h)c(gh,k)=c(g,hk)c(h,k).
@@ -1364,15 +1366,15 @@ Emitted: restriction of the supplied unitary normalizer action to ker lambda2 an
   TauCeti.Metaplectic.weilRepresentation_genuine [tests]: In a nonzero model the two lifts of the same g have opposite operators.
 
 MetaplecticAutomorphicForms:MP.2/generator-operators — Weil operators on generators
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: In the polarized nonarchimedean model, the scalar-normalized integral operators satisfy r(m(a))φ(x)=|det a|^{1/2}φ(xa), r(n(b))φ(x)=ψ(½x bᵗx)φ(x), and r(w) is the self-dual Fourier operator for the explicitly chosen w. The double-cover action is εβ(g)r(g), hence the Levi acquires the Weil-index character and Fourier the corresponding Weil factor. For an orthogonal space V of dimension m, ω(m(a),ε)φ(x)=χV,ψ(det a,ε)|det a|^{m/2}φ(xa), ω(n(b))φ(x)=ψ(½tr(b·Gram(x)))φ(x), and ω(w)φ=γ(ψ∘V)^{−n} times the negative-kernel Fourier transform for Kudla’s w. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
   TauCeti.Metaplectic.weil_generators [target]: In the polarized nonarchimedean model, the scalar-normalized integral operators satisfy r(m(a))φ(x)=|det a|^{1/2}φ(xa), r(n(b))φ(x)=ψ(½x bᵗx)φ(x), and r(w) is the self-dual Fourier operator for the explicitly chosen w. The double-cover action is εβ(g)r(g), hence the Levi acquires the Weil-index character and Fourier the corresponding Weil factor. For an orthogonal space V of dimension m, ω(m(a),ε)φ(x)=χV,ψ(det a,ε)|det a|^{m/2}φ(xa), ω(n(b))φ(x)=ψ(½tr(b·Gram(x)))φ(x), and ω(w)φ=γ(ψ∘V)^{−n} times the negative-kernel Fourier transform for Kudla’s w.
 
 MetaplecticAutomorphicForms:MP.2/operator-relations — Generator relations and intrinsic comparison
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Weil’s big-cell proof continuation and the complete presentation-to-operator calculation must be checked; this node records the exact comparison target rather than assuming all generator formulas define a representation.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.weil_generatorRelations [target]: The unipotent, Levi and Fourier operators satisfy their presentation relations with exactly the Rao central factors; their action is the intrinsic genuine representation obtained from the normalizer. In particular Fourier squared is reflection times its Weil scalar, and conjugating a unipotent by Fourier gives the opposite unipotent with its prescribed phase.
 
 MetaplecticAutomorphicForms:MP.3/quaternionic-similitude-datum — Quaternionic similitude dual pair
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Quaternionic Hermitian and connected similitude carriers are imported from upstream; exact layer mapping is requested.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSimilitudeEmbedding [target]: Let B=E⊕Ej over F, E=F(i), i²=u, j²=J. For a right skew-Hermitian B-space V of rank m with diagonal κ_i i and the left Hermitian line W=B, construct the F-symplectic space V⊗B W with pairing (1/2)Tr_{B/F}(the tensor product of the skew-Hermitian and Hermitian pairings). The matched subgroup G={(g,h)∈GU(V)^0×B×:ν(g)=ν(h)∈N_{E/F}(E×)} acts by g⁻¹v⊗wh. The bases e_i⊗1,e_i⊗j and e_i⊗i,e_i⊗ij give X,Y.
   TauCeti.Metaplectic.quaternionTensor_pairing [api]: The pairing is half the reduced trace.
   TauCeti.Metaplectic.quaternionSimilitude_invariant [api]: Matched multipliers preserve the tensor pairing.
@@ -1382,7 +1384,7 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.quaternionTensor_mismatch [tests]: Unequal multipliers rescale the pairing, hence do not give a symplectic isometry.
 
 MetaplecticAutomorphicForms:MP.3/quaternionic-splitting — Quaternionic similitude splitting
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Original Kudla unitary and Periods-I/II splittings remain unread inputs. Existing E6 replaces s(g₂) by s_v(g₂).
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting [target]: Construct s_v:G_v→C¹ with z_Y(g₁,g₂)=s_v(g₁g₂)/(s_v(g₁)s_v(g₂)). It obeys s_v(zg)=ξE_v(z)^m s_v(g), agrees with the standard compact splitting almost everywhere, and ∏v s_v(γ)=1 for γ∈G(F). This splits the scalar-circle cover on the norm-image subgroup; no μ₂ splitting is inferred.
   TauCeti.Metaplectic.quaternionSplitting_cocycle [api]: The cochain cancels z_Y in the stated quotient direction.
   TauCeti.Metaplectic.quaternionSplitting_central [api]: Central scalars give ξE(z)^m.
@@ -1392,107 +1394,107 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.quaternionSplitting_product [tests]: For rational γ the product of local values is1.
 
 MetaplecticAutomorphicForms:MP.3/quaternionic-first-doubled-splitting — First doubled quaternionic splitting
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On U(V⊕V⁻), ŝ₁ is1 for split B and (−1)^j on a Bruhat stratum for division B. It cancels z_{V△}, is invariant under E× conjugation, and on the norm-one scalar embedding α has value1 if α=1 and (−1)^m otherwise in the division case.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting_firstDoubled [target]: On U(V⊕V⁻), ŝ₁ is1 for split B and (−1)^j on a Bruhat stratum for division B. It cancels z_{V△}, is invariant under E× conjugation, and on the norm-one scalar embedding α has value1 if α=1 and (−1)^m otherwise in the division case.
 
 MetaplecticAutomorphicForms:MP.3/quaternionic-second-doubled-splitting — Second doubled quaternionic splitting
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For the doubled unitary W-model, ŝ₂(h)=χ(x(h))^mγ^{−j(h)}, γ=(u,det V)_F γ_F(−u,ψ/2)^mγ_F(−1,ψ/2)^{−m}. It is invariant under E× conjugation. The diagonal norm-one scalar gives χ(α)^{−2m}; the mixed embedding of A.7 gives χ(α)^{−m} times1 for split B and (−1)^m for division B.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting_secondDoubled [target]: For the doubled unitary W-model, ŝ₂(h)=χ(x(h))^mγ^{−j(h)}, γ=(u,det V)_F γ_F(−u,ψ/2)^mγ_F(−1,ψ/2)^{−m}. It is invariant under E× conjugation. The diagonal norm-one scalar gives χ(α)^{−2m}; the mixed embedding of A.7 gives χ(α)^{−m} times1 for split B and (−1)^m for division B.
 
 MetaplecticAutomorphicForms:MP.3/quaternionic-sharp-descent — Sharp splitting and norm-one descent
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting_sharpDescent [target]: On G^sharp={(g,h,α,α):ν(g)=ν(h)=Nα}, set ŝ^sharp=χ(α)^{−m}ŝ₁(ι(gα⁻¹,1))ŝ₂(ι(hα⁻¹,1))z_{V△}(ι(gα⁻¹,1),ι(hα⁻¹,1)). Define μ(σ)=z_{Y□}(σ₀,σ)⁻¹z_{Y□}(σ₀σσ₀⁻¹,σ₀), so z_{Y□}=z_{V△}δμ. Put s^sharp=ŝ^sharp·μ and s₂=ŝ₂·μ on their respective embedded groups. Descend s(g,h)=s^sharp(g,h,α,α)/s₂(ι(1,[α,α])). LemmaA.10 proves independence of the norm lift using LemmaA.9; LemmaA.12 cancels auxiliary χ.
 
 MetaplecticAutomorphicForms:MP.3/quaternionic-see-saw-compatibility — Quaternionic see-saw and Periods-II comparison
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original Periods-II splitting remains unread; AppendixA supplies the comparison.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting_seeSaw [target]: For an orthogonal sum V=V′⊕V″ with matched similitude triple, s=s′s″ on the see-saw restriction. In rank-one Periods-II conventions, s^natural(α,h)=s(α,h)χ(α)⁻¹.
 
 MetaplecticAutomorphicForms:MP.3/periods-i-comparison — Periods-I splitting comparison
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original Periods-I construction is an unread referenced input.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting_periodsI [target]: For m=2, V=B₁⊗E B₂, J₁J₂=J, κ₁=1, κ₂=−J₁, the ratio ζ=tilde s/s is an automorphic character. If F is totally real, E totally imaginary and B₁,B₂ split at one common real place, ζ=1 at every local place.
 
 MetaplecticAutomorphicForms:MP.3/periods-i-first-scalar-calculation — First scalar splitting calculation
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting_scalarA9 [target]: For α=a+bi with a,b≠0, tilde s(1,α,α)=γ_F(J₁,ψ/2)(−2abJ₂,J₁)_F; ŝ₂(ι([α,α],1))=χ(α)⁻²(u,J₁)_F; μ on that matrix is γ_F(J₁,ψ/2)(−2abuJ₂,J₁)_F. Together these give s=tilde s on the first E× embedding.
 
 MetaplecticAutomorphicForms:MP.3/periods-i-second-scalar-calculation — Second scalar splitting calculation
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For α=a+bi with a,b≠0, tilde s(α,α⁻¹,1)=γ_F(J,ψ/2)(−2abJ₁,J)_F; ŝ₁(ι([α,α⁻¹],1))=(u,J)_F; μ is γ_F(J,ψ/2)(−2abuJ₁,J)_F. Together these give s=tilde s on the second E× embedding.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting_scalarA10 [target]: For α=a+bi with a,b≠0, tilde s(α,α⁻¹,1)=γ_F(J,ψ/2)(−2abJ₁,J)_F; ŝ₁(ι([α,α⁻¹],1))=(u,J)_F; μ is γ_F(J,ψ/2)(−2abuJ₁,J)_F. Together these give s=tilde s on the second E× embedding.
 
 MetaplecticAutomorphicForms:MP.3/periods-i-square-quaternion-calculation — Square quaternion splitting calculation
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: When J_i=t_i², the normalized generators j_i^natural=j_i/t_i have both splittings equal to1 on the matrices of A.21–A.23. Combined with the scalar calculations and the negative real generator, this gives (A.11).
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting_scalarA11 [target]: When J_i=t_i², the normalized generators j_i^natural=j_i/t_i have both splittings equal to1 on the matrices of A.21–A.23. Combined with the scalar calculations and the negative real generator, this gives (A.11).
 
 MetaplecticAutomorphicForms:MP.3/harris-kudla-morita-comparison — Harris–Kudla splitting comparison
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For split B and idempotent e, V^dagger=Ve and W^dagger=eW have dimensions2m and2; V^dagger has symmetric diagonal (κ_i u/2,−κ_i/2). Set s^dagger(h)=ξE(x(h))^m(γ′)^{−j(h)}, γ′=γ_F(ψ/2)^{2m}γ_F(det V^dagger,ψ/2)Hasse(V^dagger). Extend to similitudes by h↦h d(ν(h))⁻¹. The polarization correction gives s₀=s^daggerμ₀=s.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.quaternionSplitting_harrisKudla [target]: For split B and idempotent e, V^dagger=Ve and W^dagger=eW have dimensions2m and2; V^dagger has symmetric diagonal (κ_i u/2,−κ_i/2). Set s^dagger(h)=ξE(x(h))^m(γ′)^{−j(h)}, γ′=γ_F(ψ/2)^{2m}γ_F(det V^dagger,ψ/2)Hasse(V^dagger). Extend to similitudes by h↦h d(ν(h))⁻¹. The polarization correction gives s₀=s^daggerμ₀=s.
 
 MetaplecticAutomorphicForms:MP.3/similitude-theta-howe — Similitude theta correspondence
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Original similitude Howe and Clifford inputs must be instantiated; compact induction is supplied by SR.2. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicFormsOnReductiveGroups:AF.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.2, SmoothRepresentationsOfLocalGroups:SR.3, AutomorphicFormsOnReductiveGroups:AF.1.
   TauCeti.Metaplectic.similitudeTheta_howe [target]: For the matched multiplier subgroup R⊂G×H^+ and its extended oscillator action, Ω=compact Ind_R^{G×H^+}ω has finite-length big theta quotients. In the classical pairs scoped by Ichino–Prasanna, the small lift is zero or irreducible and injective on its nonzero domain. H^+ is the multiplier-image subgroup.
 
 MetaplecticAutomorphicForms:MP.3/real-discrete-series-theta — Real discrete-series theta lifts
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original archimedean identification and complete root data remain an AF.1/source gate. Supplier categories: AutomorphicFormsOnReductiveGroups:AF.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicFormsOnReductiveGroups:AF.1.
   TauCeti.Metaplectic.theta_realDiscreteSeries [target]: For ψ_R(t)=exp(2πit), k≥2 and holomorphic SL₂(R) discrete series of weight k+1, theta to O(4,2) restricts to the identity component as A_q₀(0,0,k−2), while its dual lifts as A_q₁(k−2,0,0). q₀ has Levi so(4)+so(2); q₁ has Levi so(2)+so(2,2) and minimal K-type(k,0,0). To O(0,6) the holomorphic lift has highest weight(k−2,0,0), and the dual lift is zero.
 
 MetaplecticAutomorphicForms:MP.3/quaternionic-unramified-theta — Quaternionic unramified theta lift
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Lemma9.4 omits its local calculation; an explicit Hecke computation must close it. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, AdelicAlgebraicGroups:AA.2.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, AdelicAlgebraicGroups:AA.2.
   TauCeti.Metaplectic.theta_quaternionUnramified [target]: In Lemma9.4’s odd-residue unramified E/F, split B, self-dual V^dagger and conductor-zero ψ setup, an unramified H^+ constituent of normalized GL₂ induction χ₁⊗χ₂ lifts to the GSO(3,3)-form constituent induced from (χ₁χ₂⁻¹ξE)⊗|·|⊗((χ₂|·|⁻¹/²)∘N_{E/F}), on the source’s torus coordinates.
 
 MetaplecticAutomorphicForms:MP.3/rank-one-oscillator-constituents — Rank-one oscillator constituents
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The §11.4 proof continuation and original rank-one extension theorem require full reading; existing E36 corrects ψ to its conjugate in the theta input.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.theta_rankOneConstituents [target]: On S(F), the genuine rank-one oscillator splits into even and odd functions ρψ⁺,ρψ⁻. For the split O₃ pair, the corrected Gan–Savin convention uses the conjugate oscillator: Θ(ρbarψ⁻)=St⁻ and 0→St⁺→Θ(ρbarψ⁺)→1→0. These are big-lift assertions; the even big lift is an extension, while its small lift is1.
 
 MetaplecticAutomorphicForms:MP.3/gl2-gso4-theta — GL₂–GSO₄ theta correspondence
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For irreducible generic π of GL₂(F), the similitude theta lift of π∨ to GSO₄≃(GL₂×GL₂)/diagonal center is π⊗π, and theta back from π⊗π is π∨, in Gan–Savin Lemma13.2’s action convention. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.theta_gl2Gso4 [target]: For irreducible generic π of GL₂(F), the similitude theta lift of π∨ to GSO₄≃(GL₂×GL₂)/diagonal center is π⊗π, and theta back from π⊗π is π∨, in Gan–Savin Lemma13.2’s action convention.
 
 MetaplecticAutomorphicForms:MP.3/minimal-orthogonal-theta — Minimal orthogonal theta lift
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Yamana Proposition8.4 is invoked for the minimal theta realization but its original proof is unread. GS23 Proposition14.2 and §14.3 prove finite length of the specified Hom modules; the original exceptional realization and generic smooth tensor–Hom/finite-index restriction steps remain supplier inputs. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3.
   TauCeti.Metaplectic.theta_minimalOrthogonal [target]: For split SO₂n with n=5 or6, the big theta lift of the trivial SL₂ representation is the minimal representation Π_n (the irreducibility is the cited Yamana input). For tempered π of G₂ its Π_n lift to SO₂n−7 has finite length, as in Proposition14.2. For the tensor restriction Sp(V₂)×Sp(V₆)→SO(V₂⊗V₆), the see-saw identifies the relevant Hom module with Hom_{Sp(V₂′)}(Θ′(σ),1); it has finite length as an Sp(V₂)-module, as in §14.3. This is a finite-length assertion, not finite-dimensionality of the entire Hom space.
 
 MetaplecticAutomorphicForms:MP.3/division-ternary-theta — Division ternary theta lift
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The source domain is irreducible supercuspidal rho on PGL2 and its JL(rho) on PB×, as read before GS23 Lemma15.4. The original rank-one Waldspurger/Jacquet–Langlands proofs and exact carrier/psi comparison remain unread supplier inputs. Supplier categories: ModularityAndLanglandsExtensions:ML.4.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: ModularityAndLanglandsExtensions:ML.4.
   TauCeti.Metaplectic.theta_divisionTernary [target]: Let ρ be an irreducible supercuspidal representation of PGL₂(F), for characteristic-zero nonarchimedean F. If B is the division quaternion algebra, JL(ρ) is its representation on PB×≃SO(B₀,N). With fixed nontrivial ψ, the rank-one theta lift σ_ρ=θ_ψ(JL(ρ)) to Mp₂ is nonzero irreducible, genuine and supercuspidal. This is the classical input in Gan–Savin §15.1; the exceptional lift to G₂ is separately owned.
 
 MetaplecticAutomorphicForms:MP.3/pgsp6-pgso8-similitude-theta — PGSp₆–PGSO₈ similitude theta
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Exact local LLC and Spin representation supplier mapping must be supplied; the generic theta theorem is cited in the source rather than reproved there. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, ModularityAndLanglandsExtensions:ML.4.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: SmoothRepresentationsOfLocalGroups:SR.3, ModularityAndLanglandsExtensions:ML.4.
   TauCeti.Metaplectic.theta_pgsp6Pgso8 [target]: For generic irreducible σ of PGSp₆(F), its classical similitude theta lift to PGSO₈ is nonzero. If σ_b is a constituent on Sp₆, its SO₈ theta lift occurs in the similitude restriction and has standard parameter φ_b⊕1. At unramified places the Satake embedding is Spin₇→Spin₈ with standard representation 1⊕std₇ and the corresponding spin restrictions.
 
 MetaplecticAutomorphicForms:MP.3/pgsp6-theta-dichotomy — PGSp₆ theta dichotomy
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Every irreducible σ of PGSp₆(F) has nonzero theta lift to exactly one of PGO₈ and PGO_{5,1} in Gan–Savin’s two matched towers. Some representations already occur at PGO₆≃PGL₄⋊{±1}; first occurrence determines this case.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.theta_pgsp6Dichotomy [target]: Every irreducible σ of PGSp₆(F) has nonzero theta lift to exactly one of PGO₈ and PGO_{5,1} in Gan–Savin’s two matched towers. Some representations already occur at PGO₆≃PGL₄⋊{±1}; first occurrence determines this case.
 
 MetaplecticAutomorphicForms:MP.3/relevant-unitary-dichotomy — Relevant unitary local dichotomy
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original [20,Thm3.10]/[19,Thm1.3(ii)] proof scope and big-lift irreducibility still require collation.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.theta_relevantDichotomy [target]: For a relevant tempered L-representation π_v in Disegni–Liu’s rank n=2r setting, there is a unique rank-n Hermitian space V_πv for which theta is nonzero, for every embedding L→C. Its lift is tempered irreducible admissible and the double-theta Hom recovers π_v. Keep the stated semisimplicity/irreducibility reference gate separate from Howe duality.
 
 MetaplecticAutomorphicForms:MP.3/theta-coefficient-rationality — Rationality of local theta lifting
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For the same relevant π, let U_π be the finite-place set where π_v is not invariant under every similitude conjugation †a, a∈F_v×. Define Q_π by the open subgroup {a∈Zhat×:a_v∈N(E_v×) for every v∈U_π}. For σ∈Aut(C/Q_π), θ(σιπ_v)≃σθ(ιπ_v). The comparison changes ψ to ψ_a and π to π^{†a}; the norm/symmetry condition removes that change. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0.
   TauCeti.Metaplectic.theta_coefficientRationality [target]: For the same relevant π, let U_π be the finite-place set where π_v is not invariant under every similitude conjugation †a, a∈F_v×. Define Q_π by the open subgroup {a∈Zhat×:a_v∈N(E_v×) for every v∈U_π}. For σ∈Aut(C/Q_π), θ(σιπ_v)≃σθ(ιπ_v). The comparison changes ψ to ψ_a and π to π^{†a}; the norm/symmetry condition removes that change.
 
 MetaplecticAutomorphicForms:MP.2/quadratic-uncertainty — Quadratic uncertainty principle
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The native valuation and finite-dimensional Schwartz carriers must be supplied by AL.0 Part II; the proof and exact strict/non-strict cone definitions were read, including residue characteristic2. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
   TauCeti.Metaplectic.weil_quadraticUncertainty [target]: Let (V,q) be a positive-dimensional nondegenerate quadratic space over nonarchimedean F, char F≠2, with conductor-zero ψ and self-dual Fourier transform. If φ∈S(V) has support in {q>0 in valuation, i.e. q∈p_F} and its Fourier transform has support in {q∈O_F}, then φ=0 identically. Corollary8.1.4 says that supp φ⊂{val q>0} and a scalar-multiple Fourier eigenfunction condition also force φ=0.
 
 MetaplecticAutomorphicForms:MP.2/hermitian-uncertainty — Hermitian uncertainty principle
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For a positive-dimensional nondegenerate Hermitian space V over E/F with conjugation c, set q(x)=½Tr_E/F⟨x,x⟩=⟨x,x⟩∈F. Use the Fourier kernel ψ(Tr_E/F⟨x,y⟩) and its self-dual measure. If supp φ⊆{x | val_F⟨x,x⟩>0} and supp φ̂⊆{x | val_F⟨x,x⟩≥0}, then φ=0 by the quadratic uncertainty principle. The half-trace form is the Hermitian norm, not its unscaled trace 2⟨x,x⟩. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
   TauCeti.Metaplectic.weil_hermitianUncertainty [target]: For a positive-dimensional nondegenerate Hermitian space V over E/F with conjugation c, set q(x)=½Tr_E/F⟨x,x⟩=⟨x,x⟩∈F. Use the Fourier kernel ψ(Tr_E/F⟨x,y⟩) and its self-dual measure. If supp φ⊆{x | val_F⟨x,x⟩>0} and supp φ̂⊆{x | val_F⟨x,x⟩≥0}, then φ=0 by the quadratic uncertainty principle. The half-trace form is the Hermitian norm, not its unscaled trace 2⟨x,x⟩.
 
 MetaplecticAutomorphicForms:MP.2/hermitian-operator-normalizations — Hermitian oscillator normalizations
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The γ_V=−1 assertion for the specific nonsplit Hermitian datum in Li–Zhang Lemma6.3.1 and Zhang’s Deligne epsilon-factor input need original proof closure. General Fourier theory stays with AL.0/AL.2. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion, AutomorphicLFunctionsAndLocalFactors:AL.2.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion, AutomorphicLFunctionsAndLocalFactors:AL.2.
   TauCeti.Metaplectic.weil_hermitianNormalizations [target]: Compare the Hermitian Weil operators in Li–Liu22, Li–Zhang22B, Disegni–Liu24 and Zhang21 with MP.2: m(a) has the specified character and |det a|_E^{dim_E V/2}, n(b) has ψ(tr bT(x)), and w has γ_V^{rank} times the positive Fourier transform for the source’s chosen trace pairing. Zhang’s even quadratic formula uses χV(a)=(a,(−1)^{dim V/2}det q)_F. His AppendixA gives γ_V=η(det Hermitian V)ε(η,1/2,ψ)^{dim_E V} and the hyperbolic constant1.
 
 MetaplecticAutomorphicForms:MP.4/unramified-compact-splittings — Unramified compact splittings
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For a nonarchimedean odd-residue local field, conductor-zero ψ and a self-dual symplectic lattice, the normalized oscillator supplies the distinguished splitting of Sp(W)(O) into Mp(W), fixing the lattice indicator in its Schrödinger model. For a global datum these conditions hold at all but finitely many places. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
   TauCeti.Metaplectic.metaplectic_compactSplitting [target]: For a nonarchimedean odd-residue local field, conductor-zero ψ and a self-dual symplectic lattice, the normalized oscillator supplies the distinguished splitting of Sp(W)(O) into Mp(W), fixing the lattice indicator in its Schrödinger model. For a global datum these conditions hold at all but finitely many places.
 
 MetaplecticAutomorphicForms:MP.4/global-weil-index-product — Weil product formula
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The oscillatory-distribution version of AL.0 Poisson and its finite-dimensional self-dual normalization remain a Part-II request. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation.
   TauCeti.Metaplectic.weilIndex_productFormula [target]: For a nondegenerate quadratic form q over a global field F and the factorizable additive character ψ of A/F with compatible self-dual measures, γψ_v(q_v)=1 almost everywhere and ∏_vγψ_v(q_v)=1. This is the analytic Weil-index product formula; local Hilbert/Hasse formulas are its local adapters.
 
 MetaplecticAutomorphicForms:MP.4/rational-symplectic-splitting — Rational symplectic splitting
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: The product formula gives a canonical homomorphism Sp(W)(F)→Mp(W)(A) splitting the adelic projection, characterized by preservation of the theta summation functional. It agrees with rational Levi/unipotent/Fourier lifts and respects a change of polarization. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation.
   TauCeti.Metaplectic.rationalMetaplecticSplitting [target]: The product formula gives a canonical homomorphism Sp(W)(F)→Mp(W)(A) splitting the adelic projection, characterized by preservation of the theta summation functional. It agrees with rational Levi/unipotent/Fourier lifts and respects a change of polarization.
   TauCeti.Metaplectic.rationalSplitting_projection [api]: Projection of the rational lift is the diagonal adelic symplectic element.
   TauCeti.Metaplectic.rationalSplitting_mul [api]: The rational lift is a group homomorphism.
@@ -1502,7 +1504,7 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.rationalSplitting_section [tests]: An arbitrary single-place sign change of a rational lift generally destroys theta preservation.
 
 MetaplecticAutomorphicForms:MP.4/adelic-weil-representation — Adelic Weil representation
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: AL.0’s scalar adelic space needs the finite-dimensional/joint archimedean extension; the completion and continuous action comparison must be supplied. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space, AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-schwartz-bruhat-space, AutomorphicLFunctionsAndLocalFactors:AL.0/local-schwartz-bruhat-space.
   TauCeti.Metaplectic.adelicWeil [target]: Construct the global oscillator action on S(X(A))=S(X_∞)⊗(∏′_{v finite}S(X_v)), the algebraic finite-place restricted tensor product with standard lattice indicators and the full joint archimedean Schwartz space. Pure tensor operators use the product of local Weil actions; the product-one central subgroup acts trivially, so the action descends to Mp(W)(A).
   TauCeti.Metaplectic.adelicWeil_pureTensor [api]: On a factorizable vector, each local operator acts on its own factor.
   TauCeti.Metaplectic.adelicWeil_central [api]: The single adelic central −1 acts as scalar −1.
@@ -1512,7 +1514,7 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.adelicWeil_jointSchwartz [tests]: In two archimedean coordinates there exists a joint Schwartz function outside every finite sum of products of one-coordinate Schwartz functions. The adelic model must accept it.
 
 MetaplecticAutomorphicForms:MP.4/adelic-choice-compatibility — Adelic choice compatibility
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Changing local sections by coboundaries, polarization, or finitely many integral reference vectors produces the corresponding isomorphic restricted-product cover and oscillator model, provided the central product quotient and rational splitting are transported together. Changing ψ to ψ_a, a∈F×, is the scaled rational datum and respects the product formula.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.adelicWeil_choiceCompatibility [target]: Changing local sections by coboundaries, polarization, or finitely many integral reference vectors produces the corresponding isomorphic restricted-product cover and oscillator model, provided the central product quotient and rational splitting are transported together. Changing ψ to ψ_a, a∈F×, is the scaled rational datum and respects the product formula.
 
 MetaplecticAutomorphicForms:MP.4/finite-weil-representation — Finite Weil representation
@@ -1520,7 +1522,7 @@ Emitted: native T and S linear operators on D→ℂ, negative T exponent, positi
   TauCeti.Metaplectic.finiteWeil [target]: For an even integral lattice L with discriminant module D=L∨/L, realize C[D] as the finite adelic Schwartz subspace S_L supported on Lhat∨ and periodic under Lhat. Restrict the adelic Weil action along the rational lift whose real component is γ̃∈Mp₂(Z). In the AGHMP convention this is ω_L, while the frequently cited ρ_L is its complex conjugate. Since ψ_Q is trivial on Q and ψ_Q,∞(q)=exp(2πiq), ψ_Q,f(q)=exp(−2πiq). Thus T in ω_L multiplies e_μ by exp(−2πiq(μ)); in ρ_L it multiplies by exp(2πiq(μ)). S in ω_L has the positive discriminant-pairing exponential and the conjugate of the usual ρ_L Weil phase, namely it is the discriminant-pairing finite Fourier transform with the signature/Weil phase dictated by ψ.
 
 MetaplecticAutomorphicForms:MP.4/function-field-metaplectic-programme — Function-field metaplectic programme
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Metaplectic Satake/fusion, gerbe sheaves and modified excursion operators are a proposed upstream Part-II request; §14 does not establish all of them. Supplier categories: GeometricSatakeAndFusion:GS3, GlobalShtukasAndFunctionFieldLanglands:GS.5, GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule, GlobalShtukasAndFunctionFieldLanglands:GS.5/excursion-operator, GlobalShtukasAndFunctionFieldLanglands:GS.5/the-excursion-algebra.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: GeometricSatakeAndFusion:GS3, GlobalShtukasAndFunctionFieldLanglands:GS.5, GeometricSatakeAndFusion:GS3:fusion/fusion-product-and-sign-rule, GlobalShtukasAndFunctionFieldLanglands:GS.5/excursion-operator, GlobalShtukasAndFunctionFieldLanglands:GS.5/the-excursion-algebra.
   TauCeti.Metaplectic.metaplectic_functionFieldProgramme [target]: Lafforgue §14 sketches a conditional extension of shtuka excursion constructions to metaplectic groups: replace ordinary geometric Satake by its metaplectic version and use the modified dual group and gerbe/twisting data of (14.1)–(14.5). Record this as a programme with explicit missing hypotheses and constructions, not as a proved metaplectic global Langlands theorem.
 
 MetaplecticAutomorphicForms:MP.5/theta-kernel — Theta kernel
@@ -1528,15 +1530,15 @@ Emitted: summation of a given representation action, rational invariance under a
   TauCeti.Metaplectic.thetaKernel_fourier [tests]: The rational Fourier generator preserves the sum by Poisson with covolume1.
 
 MetaplecticAutomorphicForms:MP.5/theta-growth-transfer — Theta smoothness and growth transfer
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Weil’s cited continuity proof alone does not prove uniform moderate growth. The differentiated lattice majorant and finite-cover height comparison are explicit missing proof steps, requested from AA.3/AF.2 with an MP-specific transfer. Supplier categories: AdelicAlgebraicGroups:AA.3/adelic-siegel-set, AdelicAlgebraicGroups:AA.3/siegel-covering-adelic, AdelicAlgebraicGroups:AA.3/height-siegel-estimate, AutomorphicFormsOnReductiveGroups:AF.2/automorphic-forms-uniform-growth.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AdelicAlgebraicGroups:AA.3/adelic-siegel-set, AdelicAlgebraicGroups:AA.3/siegel-covering-adelic, AdelicAlgebraicGroups:AA.3/height-siegel-estimate, AutomorphicFormsOnReductiveGroups:AF.2/automorphic-forms-uniform-growth.
   TauCeti.Metaplectic.theta_uniformModerateGrowth [target]: The theta kernel is smooth at infinity, locally constant at finite places, and every archimedean differential operator can be applied termwise on compact subsets. On the specified adelic Siegel sets its derivatives satisfy a common polynomial height bound for each finite Schwartz seminorm family. With fixed finite level and finite K-type this gives uniform moderate growth in the AF.2 sense, after comparison of the cover height with the base-group height.
 
 MetaplecticAutomorphicForms:MP.5/unipotent-splitting — Unipotent splittings
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The complete root-relation proof and native rational-unipotent carrier are supplier/gap inputs; the Siegel formula alone is not a proof for every U.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.metaplectic_unipotentSplitting [target]: Each rational unipotent subgroup U of Sp(W) has the canonical continuous splitting in the local and adelic metaplectic double cover, compatible with conjugation and the rational splitting. On the Siegel unipotent this is the phase-multiplication operator. Uniqueness is in the characteristic-zero unipotent setting and follows from absence of nontrivial continuous μ₂-valued characters.
 
 MetaplecticAutomorphicForms:MP.5/theta-integral-convergence — Weil convergence criterion
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original convergence proof referenced by GQT is not fully read; its finite-cover/reduction comparison is retained as a proof gap. Supplier categories: AdelicAlgebraicGroups:AA.3, AdelicAlgebraicGroups:AA.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AdelicAlgebraicGroups:AA.3, AdelicAlgebraicGroups:AA.1.
   TauCeti.Metaplectic.thetaIntegral_converges [target]: For the GQT type-I datum with dim_E V=m=m₀+2r, dim_E W=n, ε₀∈{−1,0,1}, d(n)=n+ε₀, the theta integral of every Schwartz vector over H(V)(F)\H(V)(A) converges absolutely if r=0 or m−r>d(n). The borderline and second-term cases require the regularized construction. This is a criterion for the theta integral, not for the pointwise rational theta sum.
 
 MetaplecticAutomorphicForms:MP.5/regularized-theta-integral — Regularized theta integral
@@ -1545,7 +1547,7 @@ Emitted: the normalized integral expression for given smoothing/Eisenstein data,
   TauCeti.Metaplectic.regularizedTheta_laurent [api]: B_k is the coefficient of (s−ρ_H)^k with no reindexing.
 
 MetaplecticAutomorphicForms:MP.5/extended-schwartz-weil — Extended Schwartz Weil action
-Emitted: the polynomial Gaussian function and sign/zero/scaling tests. Missing: extension of the actual oscillator to the source similitude group and its action on the specified Schwartz module; arbitrary linear operators no longer serve as the extension or restriction comparison.
+Emitted: the polynomial Gaussian function and sign/zero/scaling tests. Missing: extension of the actual oscillator to the source similitude group and its action on the specified Schwartz module; the extension and restriction comparison require those source actions.
   TauCeti.Metaplectic.extendedSchwartzWeil_similitude [api]: A similitude transports the u parameter with the source’s multiplier convention.
   TauCeti.Metaplectic.extendedSchwartzWeil_restrict [api]: At u=1 and in the isometry subgroup the usual even oscillator action is recovered.
 
@@ -1554,7 +1556,7 @@ Emitted: a double series and exact reindexing/stabilizer-cardinality fragments. 
   TauCeti.Metaplectic.unitTheta_rational [api]: The series satisfies the stated GL₂(F) transformation.
 
 MetaplecticAutomorphicForms:MP.5/extended-restriction-comparison — Extended restriction comparison
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The abbreviated restriction formula suppresses splitting-character data. The generator comparison and exact source convention must be reconciled; only the matching-character version is targeted without an extra ratio.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.extendedWeil_restriction [target]: For V₁⊂V nondegenerate even-dimensional spaces of dimensions d₁,d, restrict a standard tensor test vector along V₁ and compare its transformed restrictions. In the finite-place normalized model the modulus ratio is δ(g)^((d−d₁)/2), where δ(diag(a,d))=|a/d|^{1/2}; at infinity include the prescribed ρ(g) power. The quadratic-character/Weil-index ratio must also be retained unless the two splitting characters agree.
 
 MetaplecticAutomorphicForms:MP.6/siegel-weil-section — Siegel–Weil section
@@ -1562,19 +1564,19 @@ Emitted: evaluation at zero of a supplied representation with covariance only wh
   TauCeti.Metaplectic.siegelWeilSection_laurent [api]: A_k is indexed by powers of s−s₀.
 
 MetaplecticAutomorphicForms:MP.6/ikeda-map — Ikeda map
-Emitted: the explicit integral, identity and separated-variable tests and Fubini composition with SFinite measures and joint Integrable hypothesis. Missing: actual smaller-tower Schwartz data, self-dual measures, source oscillator actions and equivariance. Unrelated representations no longer occur in its intertwining API.
+Emitted: the explicit integral, identity and separated-variable tests and Fubini composition with SFinite measures and joint Integrable hypothesis. Missing: actual smaller-tower Schwartz data, self-dual measures, source oscillator actions and equivariance. Equivariance must concern those same source actions.
   TauCeti.Metaplectic.ikedaMap_equivariant [api]: The smaller dual-pair action intertwines with its prescribed character.
 
 MetaplecticAutomorphicForms:MP.6/anisotropic-siegel-weil — Anisotropic Siegel–Weil formula
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original anisotropic identity and exact constant proof are cited by GQT but not fully read; the scalar must be rechecked against the adopted normalized I convention.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.siegelWeil_anisotropic [target]: For anisotropic H(V), E(g,s₀,Φφ)=c_{m,n} τ(H)/[E:F]·I_{n,0}(φ), with the source’s definition of I and its measure comparison, c=1 for s₀>0 and c=2 for s₀≤0. Retain the split exceptional-group normalization wherever it enters a boundary comparison; do not transfer this anisotropic formula to a split divergent norm form.
 
 MetaplecticAutomorphicForms:MP.6/first-term-identity — Regularized first-term identity
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The first-term identity proof inputs and the exceptional boundary calculation require their referenced original proofs; all ranges and coefficient conventions are retained for review.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.siegelWeil_firstTerm [target]: For r>0 and 0<m≤d(n), the GQT normalized Laurent coefficients satisfy A₀(φ)=2B₋₁(φ), both in the strict first-term range 0<m<d(n) (Theorem7.4) and at the boundary m=d(n) (Theorem7.3(ii)). In the split O(1,1) exception in either range, A₀=B₋₁=0 and A₁=B₀. All coefficients are evaluated at their respective s₀ and ρ_H. The r=0 anisotropic identity is the separate Theorem7.1 node.
 
 MetaplecticAutomorphicForms:MP.6/second-term-identity — Regularized second-term identity
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The induction and constant-term proof continuation after the read statements is not fully checked. The exact κ_{r,r′} evaluation and quotient carrier remain implementation/review work. Supplier categories: AutomorphicSpectralTheory:AS.2.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicSpectralTheory:AS.2.
   TauCeti.Metaplectic.siegelWeil_secondTerm [target]: In d(n)<m≤d(n)+r with r≤n, let m+m′=2d(n), V′ the complementary Witt-tower space of index r′. Then A₋₁(φ)=B₋₂(φ), and A₀(φ)=B₋₁(φ)−κ_{r,r′}B₀(Ik_{r,r′}(π_KHφ)) modulo Im A₋₁. The correction is zero for r′=0 or H(V′)=O(1,1), with the source’s stipulated interpretation. Equality of A₀ and B₋₁ is only a quotient identity unless the residual image vanishes.
 
 MetaplecticAutomorphicForms:MP.6/coherent-incoherent-sections — Coherent and incoherent sections
@@ -1582,15 +1584,15 @@ Emitted: restricted tprod of given local functions, good-place evaluations and f
   TauCeti.Metaplectic.thetaSectionCollection_global [api]: For a coherent datum the section equals that of the global Schwartz vector.
 
 MetaplecticAutomorphicForms:MP.6/unitary-siegel-weil-measure — Unitary Siegel–Weil measure
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The referenced LL21 local identity proof is unread; its rational Haar scalar and native orbital-integral carrier remain precise supplier/proof inputs. Supplier categories: AdelicAlgebraicGroups:AA.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AdelicAlgebraicGroups:AA.1.
   TauCeti.Metaplectic.unitary_siegelWeilMeasure [target]: For DL’s rank n=2r unitary local datum and a nonsingular moment matrix T, use the unique rationally normalized H(F_v)-Haar measure stipulated in §4.1(H8): I_T(φ)=b_{2r,v}(1)·W_T(SW(φ)), with the source Whittaker character and local standard section. At an unramified hyperspecial place the designated compact subgroup has volume1. This equality specifies a normalization; it is not an arbitrary Haar choice.
 
 MetaplecticAutomorphicForms:MP.6/pi-coherence-parity — Unitary theta coherence parity
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The exact global Hermitian existence theorem needs a separate source-qualified Hermitian supplier (not QFI6C or GlobalQuadraticForms); the native local invariant carrier is a QFI Part-II adapter request; no arithmetic height assertion is part of this node.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.unitaryTheta_coherenceParity [target]: For DL’s tempered relevant π with rank n=2r, prescribed infinity signature (n−1,1) at one place and (n,0) elsewhere, the locally distinguished finite Hermitian spaces V_{π_v} form a coherent global collection exactly when ∏_{v finite}η_v((−1)^r det V_{π_v})=−(−1)^{r[F:Q]}. Retain the ordinary norm-character conventions at every v. This global form-existence test is distinct from the local theta dichotomy.
 
 MetaplecticAutomorphicForms:MP.6/doubling-schwartz-map — Doubling Schwartz map
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The exact partial Fourier kernel and native completed/joint tensor comparison remain a finite-dimensional AL Part-II input. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion.
   TauCeti.Metaplectic.doublingSchwartz [target]: Identify the doubled oscillator space for W⊕W⁻ with the tensor of the ψ and ψ⁻¹ oscillator models. Define δ:S(V^n)⊗conjugate(S(V^n))→S(V^n⊕V^n) by the source partial Fourier/polarization transform. Normalize it so δ(φ₁⊗conjugate φ₂)(0)=⟨φ₁,φ₂⟩. Under G×G its action is the two commuting Weil actions with the explicit χV determinant twist in the doubled embedding.
   TauCeti.Metaplectic.doublingSchwartz_eval_zero [api]: δ(φ₁⊗conjugate φ₂)(0)=⟨φ₁,φ₂⟩.
   TauCeti.Metaplectic.doublingSchwartz_equivariant [api]: δ intertwines the doubled action with the stipulated χV determinant twist.
@@ -1600,19 +1602,19 @@ No target theorem is emitted against arbitrary independent data. Required source
   TauCeti.Metaplectic.doublingSchwartz_conjugate [tests]: Replacing conjugate φ₂ by φ₂ changes a Hermitian pairing into a bilinear one.
 
 MetaplecticAutomorphicForms:MP.6/local-doubling-integral — Local doubling zeta integral
-Emitted: the integral of the same ContRepresentation matrix coefficient, native conjugate-first inner product, elementary normalization, zero, measure scaling and Unit-group integral=1 tests. Missing: actual doubling embedding, section/evaluation data, convergence chamber, zeta normalization and spherical L-factor theorem. An arbitrary scalar is no longer asserted to be an unramified ratio.
+Emitted: the integral of the same ContRepresentation matrix coefficient, native conjugate-first inner product, elementary normalization, zero, measure scaling and Unit-group integral=1 tests. Missing: actual doubling embedding, section/evaluation data, convergence chamber, zeta normalization and spherical L-factor theorem. The unramified ratio requires the actual normalized local data.
   TauCeti.Metaplectic.localDoublingZeta_unramified [api]: The designated spherical data give L_v/d_v.
 
 MetaplecticAutomorphicForms:MP.6/theta-integral-factorization — Factorization of theta pairings
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The complete unfolding proof and each ramified integral comparison require their original sources and native restricted quotient integration. Supplier categories: AdelicAlgebraicGroups:AA.0/restricted-haar-factorizable-integral, AutomorphicLFunctionsAndLocalFactors:AL.0.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AdelicAlgebraicGroups:AA.0/restricted-haar-factorizable-integral, AutomorphicLFunctionsAndLocalFactors:AL.0.
   TauCeti.Metaplectic.thetaPairing_factorization [target]: For pure tensor Schwartz vectors, matrix coefficients and sections in a proved absolute-convergence chamber, the unfolded doubled theta pairing equals the product of its normalized local integrals times the designated partial/global L-factor and almost-everywhere denominators. Restricted-product Fubini uses AA.0’s countability, second-countability, open compact and cofinite indicator hypotheses; ramified and real factors are computed independently. A rational theta sum itself is generally not the product of local theta sums.
 
 MetaplecticAutomorphicForms:MP.6/rallis-inner-product — Rallis inner product formula
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The referenced Yamana/PSR proof, holomorphy criterion and exact Val interpretation are not fully read; statement and ranges are checked but the proof chain remains open. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0.
   TauCeti.Metaplectic.rallis_innerProduct [target]: In the GQT positive range d(n)<m≤2d(n), r≤n, allowing both its second-term and convergent cases, for cuspidal π whose lower theta lifts vanish, the theta inner product is [E:F]·Val_{s=s_{m,n}} L(s+1/2,π⊗χV)·Z*(s,Φ,f₁,f₂), with the exact normalized doubled section and global measures. If every relevant local theta lift is nonzero, the stated L-factor is holomorphic at that point and the formula uses its value. The lower-lift vanishing is essential to the cuspidal and residual-term elimination.
 
 MetaplecticAutomorphicForms:MP.6/global-theta-nonvanishing — Global theta nonvanishing criterion
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The cited real induced-module diagrams and original local comparison proofs are unread; Conjecture11.5 is not used as a theorem. The target preserves Proposition11.6/Theorem11.7’s restricted hypotheses.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.globalTheta_nonvanishing [target]: In the same first-occurrence range, the global theta lift is nonzero exactly when the relevant normalized local functionals and the special L-value are nonzero. Replacing local-functional nonvanishing by local-theta nonvanishing requires GQT’s extra archimedean/range hypotheses: ε₀=−1, or all unitary archimedean places split, or orthogonal F totally complex, or m=d(n)+1. In the remaining cases the source permits modifying real signatures; it does not prove the unrestricted assertion for the original V.
 
 MetaplecticAutomorphicForms:MP.6/jacobi-spaces — Jacobi spaces
@@ -1625,7 +1627,7 @@ Emitted: the Fourier integral, covariance under commuting action, a.e.-measurabl
   TauCeti.Metaplectic.fourierJacobi_index [api]: The coefficient has ψ_m central character.
 
 MetaplecticAutomorphicForms:MP.6/jacobi-theta-decomposition-interface — Jacobi theta decomposition interface
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The generic lattice theta-decomposition proof/carrier remains open. MP.8 depends on the common MP.6 interface; cross-references record the specialization contract rather than a closed cyclic proof.; QM.1’s request to MP.6, items(a)–(e), is binding: the discrete J_n(Γ) and Heisenberg-center bridge; matrix-index slash action; typus(Γ,V) and Fourier cusp support; half-integral scalar index through central characters or z↦2z; the elliptic-function theta decomposition and Skoruppa Theorem5, with the dual finite Weil module and finite-image hypothesis. The existing four adelic integral-index contracts do not yet supply these outputs, so QM.1’s eight stage prerequisites remain. Also extract the unitary Jacobi/Schrödinger–Weil and Fourier–Jacobi instance needed by AutomorphicCongruences:L2s, with its unitary splitting, coefficient/index and multiplier conventions. No use by L2 itself has been established, and no L2 edge is added. BFH genus-two and QM classical q-series specializations retain their owners. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation.
   TauCeti.Metaplectic.jacobi_thetaDecomposition [target]: For a positive integral index and normally convergent Jacobi section, elliptic invariance decomposes its Fourier indices into finitely many discriminant residues; its unique theta components transform through the finite Weil module. Prove the general statement using compact torus orthogonality and Poisson summation. MP.8/theta-decomposition, theta-pairing and theta-fourier-transform specialize this interface to the exact genus-two BFH formulas, including the positive-on-iY determinant-root branch; this node does not use them.
 
 MetaplecticAutomorphicForms:MP.5/ideal-class-theta — Ideal-class theta series
@@ -1634,23 +1636,23 @@ Emitted: a weighted norm-index series on a supplied lattice and coefficient sequ
   TauCeti.Metaplectic.idealClassTheta_lattice [api]: The w-normalized lattice sum equals the ideal-count series.
 
 MetaplecticAutomorphicForms:MP.5/ideal-class-theta-modularity — Ideal-class theta modularity
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Hecke/Schoeneberg’s original all-discriminant modularity proof is not read; GZ quotes it. Its exact classical modular-form carrier and cusp comparison remain requested. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.idealClassTheta_modular [target]: θ_A is holomorphic of weight1 on Γ₀(|D|) with Nebentypus ε_D: θ_A(γz)=ε_D(d)(cz+d)θ_A(z), and it is holomorphic at every cusp. This holds for every negative fundamental D; the explicit all-SL₂(Z) transformation node below is restricted to odd D.
 
 MetaplecticAutomorphicForms:MP.5/ideal-class-theta-conjugation — Ideal-class theta conjugation
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For every ideal class A and n≥1, conjugation gives r_A(n)=r_{A⁻¹}(n), hence θ_A=θ_{A⁻¹}. For the ramified ideal d₁ in an odd-discriminant factorization, d₁²=(D₁), so its class D₁ has square1; consequently θ_{A⁻¹D₁⁻¹}=θ_{AD₁}. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.idealClassTheta_conjugation [target]: For every ideal class A and n≥1, conjugation gives r_A(n)=r_{A⁻¹}(n), hence θ_A=θ_{A⁻¹}. For the ramified ideal d₁ in an odd-discriminant factorization, d₁²=(D₁), so its class D₁ has square1; consequently θ_{A⁻¹D₁⁻¹}=θ_{AD₁}.
 
 MetaplecticAutomorphicForms:MP.6/ideal-lattice-poisson — Ideal-lattice Poisson comparison
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The finite-dimensional complex Gaussian Fourier/covolume comparison is an AL Part-II input; ideal trace-duality belongs to GN.3. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation, AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0/adelic-poisson-summation, AutomorphicLFunctionsAndLocalFactors:AL.0/local-fourier-inversion
   TauCeti.Metaplectic.idealLattice_poisson [target]: For an imaginary quadratic K, fractional ideal b, λ∈C and z∈H, Σμ∈b exp(2πiN(λ+μ)z)=i/(sqrt(|D|)N(b)z) Σν∈b⁻¹d⁻¹ exp(−2πiN(ν)/z)exp(2πiTr(λν)). The trace-dual ideal is b⁻¹d⁻¹, and the additive measure is matched to its discriminant covolume. This is an adapter of the supplied finite-dimensional Poisson theorem.
 
 MetaplecticAutomorphicForms:MP.5/ideal-class-theta-general-transform — Ideal-class theta transformation
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The finite Gauss-sum proof needs the exact quadratic-character supplier; the visually read statement and its odd-D hypothesis are retained without claiming the full computation is implemented. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.idealClassTheta_transform [target]: For odd negative fundamental D=D₁D₂, δ_i=|D_i|, γ=[[a,b],[c,d]]∈SL₂(Z) with gcd(c,|D|)=δ₂, and c* inverse to c modulo δ₁ chosen0 modulo δ₂, (θ_A|₁γ)(z)=ε_{D₁}(c/δ₂)ε_{D₂}(d)κ(D₁)⁻¹δ₁⁻¹/²χ_{D₁,D₂}(A)θ_{A D₁}((z+c*d)/δ₁). Here κ(D₁)=1 or i by its sign, and D₁ also denotes the class of the ideal of normδ₁ only in the last subscript. Use SL₂, correcting the printed PSL₂ because weight1 detects −I.
 
 MetaplecticAutomorphicForms:MP.7/half-weight-fourier-expansion — Whittaker Fourier expansion
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The broad QM.2 imports are replaced by its existing I/J nodes and AS.0/dit-112 for Whittaker M/W. The three fine-node requests retain the missing complex-order uniform differentiated bounds and continued exceptional-parameter domains. Neither a real-order I estimate nor a fixed-parameter Whittaker asymptotic proves these uniform estimates. Supplier categories: AutomorphicSpectralTheory:AS.0/dit-112.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicSpectralTheory:AS.0/dit-112.
   TauCeti.Metaplectic.halfWeight_fourierExpansion [target]: A cuspidal weight-one-half eigenform has F(z)=Σ_{n≠0}b(n)W_{sgn(n)/4,ir/2}(4π|n|y)e(nx), with convergence and coefficient recovery. The spectral parameter is r/2 here, versus r in weight zero.
 
 MetaplecticAutomorphicForms:MP.7/half-weight-eisenstein — Completed half-weight Eisenstein family
@@ -1662,15 +1664,15 @@ Emitted: the |d|^(-3/4)(4π)^(-1/4) coefficient prefactor and its product formul
   TauCeti.Metaplectic.fundamentalEisensteinCoefficient_parityFactor [api]: The paper completion is |d|^(s/2)π^(α/2) times Mathlib completed L.
 
 MetaplecticAutomorphicForms:MP.7/eisenstein-divisor-coefficients — Half-weight Eisenstein coefficient expansion
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: The nonconstant coefficients of E*_{1/2} are b(n,s), supported on n≡0,1 mod4. For fundamental d and m>0, mΣ_{n|m}n^(−3/2)(d/n)b(m²d/n²,s)=m^(s−1/2)σ_{1−2s}(m)b(d,s).
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.halfWeightEisenstein_coefficients [target]: The nonconstant coefficients of E*_{1/2} are b(n,s), supported on n≡0,1 mod4. For fundamental d and m>0, mΣ_{n|m}n^(−3/2)(d/n)b(m²d/n²,s)=m^(s−1/2)σ_{1−2s}(m)b(d,s).
 
 MetaplecticAutomorphicForms:MP.7/theta-residue-normalization — Theta residue and Petersson normalization
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Res_{s=1}E*_{1/2}(z,s) = ½θ(z) (the pole comes from Λ(2−2s) in the constant term and from Λ(s,χ_1)=Λ(s) in the coefficients b(m²,s); checked). The paper states ⟨½θ,½θ⟩ = 6 citing [7], but with the paper's product ⟨F,F⟩=∫_{Γ_0(4)\H}|F|²dμ one has ⟨θ,θ⟩ = 2π = area(Γ_0(4)\H), hence ⟨½θ,½θ⟩ = π/2. The number 6 = [Γ:Γ_0(4)] is (3/π)⟨θ,θ⟩, i.e. ⟨θ,θ⟩ for the product normalized by area(Γ\H)=π/3. Rescaling F from ⟨F,F⟩=1 to ⟨F,F⟩=6 does turn 12 into 2 on the left of (5.16). The remark is heuristic and used in no proof. Supplier categories: AdelicAlgebraicGroups:AA.1, QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-nonvanishing.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AdelicAlgebraicGroups:AA.1, QSeriesPartitionsAndMockModularForms:QM.1/jacobi-theta-nonvanishing.
   TauCeti.Metaplectic.halfWeightEisenstein_thetaResidue [target]: Res_{s=1}E*_{1/2}(z,s) = ½θ(z) (the pole comes from Λ(2−2s) in the constant term and from Λ(s,χ_1)=Λ(s) in the coefficients b(m²,s); checked). The paper states ⟨½θ,½θ⟩ = 6 citing [7], but with the paper's product ⟨F,F⟩=∫_{Γ_0(4)\H}|F|²dμ one has ⟨θ,θ⟩ = 2π = area(Γ_0(4)\H), hence ⟨½θ,½θ⟩ = π/2. The number 6 = [Γ:Γ_0(4)] is (3/π)⟨θ,θ⟩, i.e. ⟨θ,θ⟩ for the product normalized by area(Γ\H)=π/3. Rescaling F from ⟨F,F⟩=1 to ⟨F,F⟩=6 does turn 12 into 2 on the left of (5.16). The remark is heuristic and used in no proof.
 
 MetaplecticAutomorphicForms:MP.7/plus-projection — Plus projection and old normalization bridge
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.kohnenPlus_projection [target]: Prove pr⁺ is the orthogonal projection onto V_r^+, with the same extension on the relevant Poincaré families. DIT11 (2.19) must read P_d^+=(3/2)pr⁺P_d; DIT16 footnote7 corrects it. The principal term of pr⁺F_{1/2,d} thus has factor2/3.
 
 MetaplecticAutomorphicForms:MP.7/plus-kloosterman — Modified plus Kloosterman sum
@@ -1678,11 +1680,11 @@ Emitted: exact dyadic scalar multiple and concrete c=4 values under the specifie
   TauCeti.Metaplectic.plusKloosterman_discriminantSymmetry [api]: For allowed indices, K⁺ is real and symmetric.
 
 MetaplecticAutomorphicForms:MP.7/plus-kloosterman-symmetry — Reality and symmetry of plus sums
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For c>0 with 4|c and all m,n∈ℤ, K⁺(m,n;c)=K⁺(n,m;c)=conj(K⁺(n,m;c)). This is (8.9), stated without any congruence condition on m,n, as in DIT11 (3.5).
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.plusKloosterman_symmetry [target]: For c>0 with 4|c and all m,n∈ℤ, K⁺(m,n;c)=K⁺(n,m;c)=conj(K⁺(n,m;c)). This is (8.9), stated without any congruence condition on m,n, as in DIT11 (3.5).
 
 MetaplecticAutomorphicForms:MP.7/half-weight-resolvent — Half-weight resolvent kernel
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure. Supplier categories: AutomorphicSpectralTheory:AS.0.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicSpectralTheory:AS.0.
   TauCeti.Metaplectic.halfWeightResolvent [target]: Construct the resolvent G_{1/2}(z,z′;s) on the Γ₀(4) unitary-multiplier L² space, with its three-cusp domain, hermitian kernel symmetry and discrete polar projectors. This is a cover-specific adaptation of AS.0, not an ordinary scalar kernel on Γ\H.
   TauCeti.Metaplectic.halfWeightResolvent_weightedDomain [api]: Use functions with J automorphy and all three cusps in the self-adjoint domain.
   TauCeti.Metaplectic.halfWeightResolvent_covariance [api]: Transform each kernel variable with its J or conjugate J factor.
@@ -1696,7 +1698,7 @@ Emitted: quotient-indexed sum and source prefactor/Whittaker-parameter arithmeti
   TauCeti.Metaplectic.halfWeightPoincare_multiplierInverse [api]: J(γ, z)⁻¹ in the coset sum gives the correct automorphy.
 
 MetaplecticAutomorphicForms:MP.7/poincare-residues — Half-weight Poincaré residues
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.halfWeightPoincare_residue [target]: At s₀=1/2+ir/2, r>0, Res[(2s−1)F_{1/2,n}(z,s)]=Σ_ψ conj(b_ψ(n))ψ(z) over an orthonormal cuspidal eigenbasis, in the kernel convention verified from Fay. Preserve conjugation; raw PDF text drops bars.
 
 MetaplecticAutomorphicForms:MP.7/plus-bessel-coefficient — Plus Bessel coefficient family
@@ -1704,11 +1706,11 @@ Emitted: the full two-sign Γ/power/sqrt prefactor and K⁺/c series, with direc
   TauCeti.Metaplectic.plusBesselCoefficient_continuation [api]: Extend using the projected resolvent coefficient, preserving its initial series.
 
 MetaplecticAutomorphicForms:MP.7/projected-poincare-expansion — Projected Fourier expansion
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Let Re(s)>1 and let d≠0 with d≡0,1 mod 4. Then pr⁺F_{1/2,d}(z,s)=(2/3)Γ(s−sgn(d)/4)/(4π|d|Γ(2s))·M_{sgn(d)/4,s−1/2}(4π|d|y)e(dx)+Σ_{n≡0,1(4),n≠0}Φ⁺(n,d;s)W_{sgn(n)/4,s−1/2}(4π|n|y)e(nx)+(a constant term that the paper does not display). Φ⁺ is given by (8.11). The paper's sum over n≡0,1(4) formally includes n=0, where W(4π|n|y) is meaningless.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.plusPoincare_expansion [target]: Let Re(s)>1 and let d≠0 with d≡0,1 mod 4. Then pr⁺F_{1/2,d}(z,s)=(2/3)Γ(s−sgn(d)/4)/(4π|d|Γ(2s))·M_{sgn(d)/4,s−1/2}(4π|d|y)e(dx)+Σ_{n≡0,1(4),n≠0}Φ⁺(n,d;s)W_{sgn(n)/4,s−1/2}(4π|n|y)e(nx)+(a constant term that the paper does not display). Φ⁺ is given by (8.11). The paper's sum over n≡0,1(4) formally includes n=0, where W(4π|n|y) is meaningless.
 
 MetaplecticAutomorphicForms:MP.7/plus-coefficient-residue — Plus coefficient residue theorem
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.plusBesselCoefficient_residue [target]: Φ⁺(d′,d;s) continues meromorphically to Re(s)>0 and Res_{s=1/2+ir/2}[(2s−1)Φ⁺(d′,d;s)]=Σ_ψ b_ψ(d′)conj(b_ψ(d)), for an orthonormal basis of V_r^+.
 
 MetaplecticAutomorphicForms:MP.7/quadratic-root-weyl-sum — Quadratic-root Weyl sum
@@ -1716,31 +1718,31 @@ Emitted: root-congruence finite sum, discriminant arithmetic and phase/range tes
   TauCeti.Metaplectic.quadraticRootWeylSum_evenness [api]: S_{−m}=S_m=conj(S_m) under the stated genus character convention.
 
 MetaplecticAutomorphicForms:MP.7/kohnen-salie-identity — Kohnen–Salié divisor identity
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.kohnenSalie_identity [target]: For c>0 divisible by4, d fundamental, d′≡0,1 mod4 and integer m, S_m(d′,d;c)=Σ_{n|gcd(m,c/4),n>0}(d/n)√(n/c)K⁺(d′,m²d/n²;c/n). Include even-prime factors and the c≡4 mod8 multiplier.
 
 MetaplecticAutomorphicForms:MP.7/weight-two-cycle-unfolding — Weight-two cycle unfolding
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Let d be fundamental, d′,d<0, D=d′d nonsquare, and let φ be as in item 105. Put Φ_m(t)=−it∫_0^π e(mt cosθ)φ(t sinθ)e^{iθ}dθ (9.3). For every m∈ℤ, Σ_{Q∈Γ\Q_D}χ(Q)∫_{C_Q}P_m(τ,φ)dτ=ε·Σ_{0<c≡0(4)}S_m(d′,d;c)Φ_m(2√D/c). With this corrected −it kernel, ε=+1 when C_Q runs from z to γ_Qz (clockwise on S_Q for a>0, the C_A orientation of §2 under which Lemma5 holds), and ε=−1 for z→g_Qz=γ_Q⁻¹z (DIT11's counterclockwise orientation for a>0). The paper's printed +it kernel uses the opposite sign: its Lemma6 needs a leading minus for z→γ_Qz. Correcting the kernel and also inserting that minus would double-correct E28. Work in a proved convergence range (or with the weaker actual decay O(y^ε)); the printed stronger decay hypothesis is not inferred automatically for Re(s)>1. Supplier categories: AutomorphicSpectralTheory:AS.0. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
-  TauCeti.Metaplectic.halfWeight_cycleUnfolding [target]: Let d be fundamental, d′,d<0, D=d′d nonsquare, and let φ be as in item 105. Put Φ_m(t)=−it∫_0^π e(mt cosθ)φ(t sinθ)e^{iθ}dθ (9.3). For every m∈ℤ, Σ_{Q∈Γ\Q_D}χ(Q)∫_{C_Q}P_m(τ,φ)dτ=ε·Σ_{0<c≡0(4)}S_m(d′,d;c)Φ_m(2√D/c). With this corrected −it kernel, ε=+1 when C_Q runs from z to γ_Qz (clockwise on S_Q for a>0, the C_A orientation of §2 under which Lemma5 holds), and ε=−1 for z→g_Qz=γ_Q⁻¹z (DIT11's counterclockwise orientation for a>0). The paper's printed +it kernel uses the opposite sign: its Lemma6 needs a leading minus for z→γ_Qz. Correcting the kernel and also inserting that minus would double-correct E28. Work in a proved convergence range (or with the weaker actual decay O(y^ε)); the printed stronger decay hypothesis is not inferred automatically for Re(s)>1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicSpectralTheory:AS.0
+  TauCeti.Metaplectic.halfWeight_cycleUnfolding [target]: Let d be fundamental, d′,d<0, D=d′d nonsquare, and let φ be as in item 105. Put Φ_m(t)=−it∫_0^π e(mt cosθ)φ(t sinθ)e^{iθ}dθ (9.3). For every m∈ℤ, Σ_{Q∈Γ\Q_D}χ(Q)∫_{C_Q}P_m(τ,φ)dτ=ε·Σ_{0<c≡0(4)}S_m(d′,d;c)Φ_m(2√D/c). With this corrected −it kernel, ε=+1 when C_Q runs from z to γ_Qz (clockwise on S_Q for a>0, the C_A orientation of §2 under which Lemma5 holds), and ε=−1 for z→g_Qz=γ_Q⁻¹z (DIT11's counterclockwise orientation for a>0). The paper's printed +it kernel uses the opposite sign: its Lemma6 needs a leading minus for z→γ_Qz. Correcting the kernel and also inserting that minus would reverse the sign twice. Work in a proved convergence range (or with the weaker actual decay O(y^ε)); the printed stronger decay hypothesis is not inferred automatically for Re(s)>1.
 
 MetaplecticAutomorphicForms:MP.7/cm-poincare-sum — CM Poincaré sum
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For m≠0, Re(s)>1 and d′d=D<0, Σ_Qχ(Q)ω_Q⁻¹F_m(z_Q,s)=2^(−1/2)|D|^(1/4)Σ_{c>0,4|c}S_m(d′,d;c)c^(−1/2)I_{s−1/2}(4π|m|√|D|/c). The square root is of |D|. Supplier categories: AutomorphicSpectralTheory:AS.0. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicSpectralTheory:AS.0
   TauCeti.Metaplectic.poincare_cmSum [target]: For m≠0, Re(s)>1 and d′d=D<0, Σ_Qχ(Q)ω_Q⁻¹F_m(z_Q,s)=2^(−1/2)|D|^(1/4)Σ_{c>0,4|c}S_m(d′,d;c)c^(−1/2)I_{s−1/2}(4π|m|√|D|/c). The square root is of |D|.
 
 MetaplecticAutomorphicForms:MP.7/positive-cycle-poincare-sum — Positive cycle Poincaré sum
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For m≠0, Re(s)>1 and d,d′>0, D nonsquare, Σ_Qχ(Q)∫_{C_Q}F_m ds=2^(s−1/2)Γ(s/2)²D^(1/4)/Γ(s) times Σ_{c>0,4|c}S_m(d′,d;c)c^(−1/2)J_{s−1/2}(4π|m|√D/c). Supplier categories: AutomorphicSpectralTheory:AS.0. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicSpectralTheory:AS.0
   TauCeti.Metaplectic.poincare_positiveCycle [target]: For m≠0, Re(s)>1 and d,d′>0, D nonsquare, Σ_Qχ(Q)∫_{C_Q}F_m ds=2^(s−1/2)Γ(s/2)²D^(1/4)/Γ(s) times Σ_{c>0,4|c}S_m(d′,d;c)c^(−1/2)J_{s−1/2}(4π|m|√D/c).
 
 MetaplecticAutomorphicForms:MP.7/negative-cycle-poincare-sum — Negative-factor cycle Poincaré sum
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The broad QM.2 imports are replaced by its existing I/J nodes and AS.0/dit-112 for Whittaker M/W. The three fine-node requests retain the missing complex-order uniform differentiated bounds and continued exceptional-parameter domains. Neither a real-order I estimate nor a fixed-parameter Whittaker asymptotic proves these uniform estimates. Supplier categories: QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: QSeriesPartitionsAndMockModularForms:QM.2/bessel-function-j.
   TauCeti.Metaplectic.poincare_negativeCycle [target]: Let m≠0, Re(s)>1, d fundamental, d′,d<0 and D=d′d nonsquare. Orient C_Q from z to γ_Qz, with γ_Q from (2.11); this is clockwise on S_Q when a>0 and is the orientation of C_A in §2. Then Σ_{Q∈Γ\Q_D}χ(Q)∫_{C_Q}i∂_zF_m(z,s)dz=2^{s−1/2}Γ((s+1)/2)²Γ(s)⁻¹D^{1/4}Σ_{0<c≡0(4)}S_m(d′,d;c)c^{−1/2}J_{s−1/2}(4π|m|√D/c). With DIT11's orientation (z to γ_Q⁻¹z) the right side changes sign.
 
 MetaplecticAutomorphicForms:MP.7/three-case-poincare-identity — Exact three-case Poincaré identity
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Let m≠0 and Re(s)>1, let d be a fundamental discriminant and d′ a discriminant with D=d′d nonsquare. Then 6π^{1/2}|D|^{3/4}|m|Σ_{n|m,n>0}n^{−3/2}(d/n)Φ⁺(d′,m²d/n²;s/2+1/4)=Σ_{Q∈Γ\Q_D}χ(Q)·X_Q, where X_Q=2√πω_Q⁻¹F_m(z_Q,s) if d′d<0, X_Q=∫_{C_Q}F_m(z,s)y⁻¹|dz| if d′,d>0, and X_Q=∫_{C_Q}i∂_zF_m(z,s)dz if d′,d<0. In the third case C_Q runs from z to γ_Qz, as in item 109.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.halfWeight_threeCasePoincare [target]: Let m≠0 and Re(s)>1, let d be a fundamental discriminant and d′ a discriminant with D=d′d nonsquare. Then 6π^{1/2}|D|^{3/4}|m|Σ_{n|m,n>0}n^{−3/2}(d/n)Φ⁺(d′,m²d/n²;s/2+1/4)=Σ_{Q∈Γ\Q_D}χ(Q)·X_Q, where X_Q=2√πω_Q⁻¹F_m(z_Q,s) if d′d<0, X_Q=∫_{C_Q}F_m(z,s)y⁻¹|dz| if d′,d>0, and X_Q=∫_{C_Q}i∂_zF_m(z,s)dz if d′,d<0. In the third case C_Q runs from z to γ_Qz, as in item 109.
 
 MetaplecticAutomorphicForms:MP.7/plus-hecke-basis — Plus Hecke eigenbasis
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.kohnenPlus_heckeBasis [target]: V_r^+ has an orthonormal basis B_r of simultaneous eigenforms for T_{p²}, p>2. Supply the p=2 plus-space convention needed for the Euler product over all primes; diagonalization away from2 alone does not define that factor. The all-prime version explicitly includes the plus-space p=2 Hecke operator; an odd-prime eigenbasis alone is insufficient.
 
 MetaplecticAutomorphicForms:MP.7/shimura-eigenline-lift — Shimura lift from an eigenline
@@ -1748,63 +1750,63 @@ Emitted: coefficient-ratio Fourier series and nonzero-scalar invariance. Missing
   TauCeti.Metaplectic.shimuraEigenlineLift_fundamentalChoice [api]: Different nonzero fundamental coefficients produce the same a_ψ(n), using the Hecke relations.
 
 MetaplecticAutomorphicForms:MP.7/shimura-coefficient-relation — Shimura coefficient relation
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For m>0 and fundamental d, mΣ_{n|m}n^(−3/2)(d/n)b_ψ(m²d/n²)=a_ψ(m)b_ψ(d). Prove that some fundamental coefficient is nonzero, so these relations determine the lift and all coefficients from fundamental ones.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.shimura_coefficientRelation [target]: For m>0 and fundamental d, mΣ_{n|m}n^(−3/2)(d/n)b_ψ(m²d/n²)=a_ψ(m)b_ψ(d). Prove that some fundamental coefficient is nonzero, so these relations determine the lift and all coefficients from fundamental ones.
 
 MetaplecticAutomorphicForms:MP.7/spectral-residue-substitution — Spectral substitution residue factor four
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Set w=s/2+1/4, s₀=1/2+ir and w₀=1/2+ir/2, r>0. Then Res_{s=s₀}[(2s−1)H(s/2+1/4)]=4 Res_{w=w₀}[(2w−1)H(w)] for H with a simple pole at w₀. One factor2 is the derivative of the coordinate change, the other the linear spectral factor.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.spectralResidue_substitution [target]: Set w=s/2+1/4, s₀=1/2+ir and w₀=1/2+ir/2, r>0. Then Res_{s=s₀}[(2s−1)H(s/2+1/4)]=4 Res_{w=w₀}[(2w−1)H(w)] for H with a simple pole at w₀. One factor2 is the derivative of the coordinate change, the other the linear spectral factor.
 
 MetaplecticAutomorphicForms:MP.7/spectral-trace-identity — Spectral trace identity before multiplicity one
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Taking residues in119 and using93,100,122,123 yields 12√π|D|^(3/4)Σ_ψ b_ψ(d′)conj(b_ψ(d))a_ψ(m)=Σ_φa_φ(m)T(φ,χ), where T is ||φ||⁻² times the appropriate three-case geometric trace. Keep the finite eigenspace sums until the Shimura bijection is proved. Supplier categories: AutomorphicSpectralTheory:AS.0.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicSpectralTheory:AS.0.
   TauCeti.Metaplectic.halfWeight_spectralTrace [target]: Taking residues in119 and using93,100,122,123 yields 12√π|D|^(3/4)Σ_ψ b_ψ(d′)conj(b_ψ(d))a_ψ(m)=Σ_φa_φ(m)T(φ,χ), where T is ||φ||⁻² times the appropriate three-case geometric trace. Keep the finite eigenspace sums until the Shimura bijection is proved.
 
 MetaplecticAutomorphicForms:MP.7/shimura-series-automorphy — Automorphy of the Shimura series
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Use the family of trace identities and the Biró linear-independence argument to prove Shim(ψ) is an even level-one Hecke–Maass cusp form with eigenvalue1/4+r². Formal Fourier series with the right Euler factors alone do not imply automorphy.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.shimura_automorphy [target]: Use the family of trace identities and the Biró linear-independence argument to prove Shim(ψ) is an even level-one Hecke–Maass cusp form with eigenvalue1/4+r². Formal Fourier series with the right Euler factors alone do not imply automorphy.
 
 MetaplecticAutomorphicForms:MP.7/shimura-eigenline-bijection — Shimura bijection of eigenlines
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.shimura_eigenlineBijection [target]: The weight-one-half Kohnen-plus Hecke eigenlines at parameter r/2 correspond bijectively to normalized even level-one Hecke–Maass forms at parameter r. On a previously chosen orthonormal basis B_r this gives one selected vector for each line; it does not produce a phase-independent unit vector.
 
 MetaplecticAutomorphicForms:MP.7/extended-shimura-trace — Extended trace formula for all discriminants
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For a normalized even φ and a unit ψ on its corresponding plus eigenline, T(φ,χ)=12√π|D|^(3/4)b_ψ(d′)conj(b_ψ(d)) for fundamental d, discriminant d′, D=d′d nonsquare. General negative D requires |D|^(3/4).
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.shimura_extendedTrace [target]: For a normalized even φ and a unit ψ on its corresponding plus eigenline, T(φ,χ)=12√π|D|^(3/4)b_ψ(d′)conj(b_ψ(d)) for fundamental d, discriminant d′, D=d′d nonsquare. General negative D requires |D|^(3/4).
 
 MetaplecticAutomorphicForms:MP.7/negative-factor-trace — Theorem4 negative factors
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Let φ(z)=2y^{1/2}Σ_{n≠0}a(n)K_{ir}(2π|n|y)e(nx) be an even Hecke–Maass cusp form for Γ=PSL(2,Z) with a(1)=1 and Laplace eigenvalue λ=1/4+r², and let F(z)=Σ_{n≡0,1 (mod 4), n≠0} b(n)W_{sgn(n)/4, ir/2}(4π|n|y)e(nx) be the weight-1/2 form for Γ_0(4) of Theorem 4, with ⟨F,F⟩=∫_{Γ_0(4)\H}|F|²dμ=1 and b(dm²) given by m Σ_{n|m} n^{−3/2}(d/n) b(m²d/n²) = a(m)b(d) (F is unique only up to a unimodular constant). For coprime negative fundamental discriminants d′, d, D=d′d>0 and χ the genus character of D=d′d: 12√π D^{3/4} b(d′) conj(b(d)) = ⟨φ,φ⟩^{−1}(λ/2)Σ_{A∈Cl⁺(K)} χ(A)∫_{F_A}φ(z)dμ(z).
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.shimura_negativeTrace [target]: Let φ(z)=2y^{1/2}Σ_{n≠0}a(n)K_{ir}(2π|n|y)e(nx) be an even Hecke–Maass cusp form for Γ=PSL(2,Z) with a(1)=1 and Laplace eigenvalue λ=1/4+r², and let F(z)=Σ_{n≡0,1 (mod 4), n≠0} b(n)W_{sgn(n)/4, ir/2}(4π|n|y)e(nx) be the weight-1/2 form for Γ_0(4) of Theorem 4, with ⟨F,F⟩=∫_{Γ_0(4)\H}|F|²dμ=1 and b(dm²) given by m Σ_{n|m} n^{−3/2}(d/n) b(m²d/n²) = a(m)b(d) (F is unique only up to a unimodular constant). For coprime negative fundamental discriminants d′, d, D=d′d>0 and χ the genus character of D=d′d: 12√π D^{3/4} b(d′) conj(b(d)) = ⟨φ,φ⟩^{−1}(λ/2)Σ_{A∈Cl⁺(K)} χ(A)∫_{F_A}φ(z)dμ(z).
 
 MetaplecticAutomorphicForms:MP.7/positive-factor-trace — Theorem4 positive factors
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For coprime positive fundamental d,d′, 12√πD^(3/4)b(d′)conj(b(d))=||φ||⁻²Σ_Aχ(A)∫_{C_A}φds, with the same normalized φ and unit half-weight eigenline. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.shimura_positiveTrace [target]: For coprime positive fundamental d,d′, 12√πD^(3/4)b(d′)conj(b(d))=||φ||⁻²Σ_Aχ(A)∫_{C_A}φds, with the same normalized φ and unit half-weight eigenline.
 
 MetaplecticAutomorphicForms:MP.7/cm-trace — Theorem4 CM factors
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: For coprime fundamental d,d′ of opposite sign, 12√π|D|^(3/4)b(d′)conj(b(d))=||φ||⁻²(2√π/ω_D)Σ_Aχ(A)φ(z_A). Keep both 2√π and ω_D; the paper explicitly corrects the earlier CM constant. Independent arithmetic outputs are requested as GN PartII; no whole GN.2/3 stage is a prerequisite.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.shimura_cmTrace [target]: For coprime fundamental d,d′ of opposite sign, 12√π|D|^(3/4)b(d′)conj(b(d))=||φ||⁻²(2√π/ω_D)Σ_Aχ(A)φ(z_A). Keep both 2√π and ω_D; the paper explicitly corrects the earlier CM constant.
 
 MetaplecticAutomorphicForms:MP.7/duke-coefficient-bound — Duke coefficient estimate with spectral factor
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.halfWeight_dukeBound [target]: For an L²-unit weight k=1/2 spectral cusp form on fixed Γ₀(4), eigenvalue1/4+t², its standard W coefficient at a fundamental discriminant n satisfies |b(n)|≪_ε(1+|t|)^C cosh(πt/2)|n|^(−2/7+ε). Here the half-weight form in Theorem4 has t=r/2. The exponential factor is explicitly present in Duke88 Theorem5. The bound is for unit Petersson norm; translating to the a(1)=1 lift keeps the norm and its spectral factor. No unverified r^ε symmetric-square estimate is imported.
 
 MetaplecticAutomorphicForms:MP.7/plus-normalization-conjugation — Exact conjugation of the two U and W normalizations
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: On functions on H let C f(z)=Im(z)^(1/4)f(z), U₄f(z)=¼Σ_{ν mod4}f((z+ν)/4), W₄f(z)=(2z/i)^(−1/2)f(−1/(4z)) with the principal square root. Then CU₄C⁻¹=U and CW₄C⁻¹=W for the U,W displayed in DIT16 p976, and C(U₄∘W₄)C⁻¹=U∘W. This calculation alone does not identify U∘W with W∘U on the automorphic subspace.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.plusOperators_conjugation [target]: On functions on H let C f(z)=Im(z)^(1/4)f(z), U₄f(z)=¼Σ_{ν mod4}f((z+ν)/4), W₄f(z)=(2z/i)^(−1/2)f(−1/(4z)) with the principal square root. Then CU₄C⁻¹=U and CW₄C⁻¹=W for the U,W displayed in DIT16 p976, and C(U₄∘W₄)C⁻¹=U∘W. This calculation alone does not identify U∘W with W∘U on the automorphic subspace.
 
 MetaplecticAutomorphicForms:MP.7/finite-fourier-automorphy — Automorphy from finite Fourier separation
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Supply the source Lemma10 and equation(14) (Biró printed128–129, PDF26–27), including the Kuznetsov/special-function convergence argument, actual genus-weighted traces and V*_{1/2}(4N)→Γ₀(N) spaces. Finite coefficient separation proves automorphy only after this identity; an unnamed identity183 or a nonexistent source theta kernel cannot supply it.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.shimura_finiteFourierAutomorphy [target]: At N=1, assume convergence of the source-defined Biró Fourier series and equation(14) on printed129/PDF27 for every positive admissible n=s/D. This identity states that the conjugated-coefficient linear combination of Sh_D f_j equals the stated finite genus-weighted weight-zero cusp trace combination. Then each Sh_D f is a level-one weight-zero cusp eigenform at parameter r (possibly zero), for every f∈W. If D>0 the coefficient formula is even in the Fourier index, so the lift is even.
 
-MetaplecticAutomorphicForms:MP.7/dit11-eisenstein-comparison — Coefficients of the weight-1/2 plus-space Eisenstein series (black box from [16])
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: In the notation of DIT11 ([16]): for m∈Z⁺ and D a fundamental discriminant, Σ_{n|m}(D/n) b_0(Dm²/n², s) = 2^{2−4s}π^{s+1/4}m^{3/2−2s}|D|^{s−1/4}σ_{4s−2}(m)L_D(2s−1/2)/ζ(4s−1), and b_0(0,s)=π^{1/2}2^{5/2−6s}Γ(2s)ζ(4s−2)/ζ(4s−1), where b_0(n,s) are the Fourier coefficients of P⁺_0(τ,s) in [16, (2.20)–(2.21)]. Consequently E*_{1/2}(z,s) = 2^sΛ(2s) y^{1/4} P⁺_0(z, s/2+1/4) has the expansion displayed on DIT16 p964, with b(d,s)=(4π)^{−1/4}|d|^{−3/4}Λ(s,χ_d) for fundamental d and the stated Shimura relation.
+MetaplecticAutomorphicForms:MP.7/dit11-eisenstein-comparison — Coefficients of the weight-1/2 plus-space Eisenstein series
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.halfWeightEisenstein_dit11 [target]: In the notation of DIT11 ([16]): for m∈Z⁺ and D a fundamental discriminant, Σ_{n|m}(D/n) b_0(Dm²/n², s) = 2^{2−4s}π^{s+1/4}m^{3/2−2s}|D|^{s−1/4}σ_{4s−2}(m)L_D(2s−1/2)/ζ(4s−1), and b_0(0,s)=π^{1/2}2^{5/2−6s}Γ(2s)ζ(4s−2)/ζ(4s−1), where b_0(n,s) are the Fourier coefficients of P⁺_0(τ,s) in [16, (2.20)–(2.21)]. Consequently E*_{1/2}(z,s) = 2^sΛ(2s) y^{1/4} P⁺_0(z, s/2+1/4) has the expansion displayed on DIT16 p964, with b(d,s)=(4π)^{−1/4}|d|^{−3/4}Λ(s,χ_d) for fundamental d and the stated Shimura relation.
 
 MetaplecticAutomorphicForms:MP.7/resolvent-fourier-comparison — Fourier expansion and residues of the weight-1/2 resolvent (Fay, cited)
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The original projection/Fay resolvent, Kohnen finite-sum, p=2 Hecke, Baruch–Mao or Duke proof used by this target has not all been read. Its exact source and native spectral/Hecke carrier are required before closure; the read DIT statement is not itself proof closure.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.halfWeightResolvent_fourier [target]: Let Re(s)>1 and Im z′>Im z, with z in reduced position. Then G_{1/2}(z′,z;s)=Σ_{n≠0}F_{1/2,n}(z,s)W_{sgn(n)/4,s−1/2}(4π|n|y′)e(−nx′) plus the n=0 (Eisenstein) term, with F_{1/2,n} as in (8.6). G_{1/2} continues meromorphically in s, and Res_{s=1/2+ir/2}(2s−1)G_{1/2}(z′,z;s)=Σ_ψ conj(ψ(z′))ψ(z) over an orthonormal basis of V_r. By Fay [20, Cor. 3.6, p.178], Φ⁺(n,d;s) continues meromorphically to all s.
 
 MetaplecticAutomorphicForms:MP.7/shimura-dirichlet-series — Shimura Dirichlet-series identity for ψ∈B_r
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: Construct the source objects in the stated categories and identify the maps in the mathematical target: Let ψ∈B_r have coefficients b(n) as in (10.1), and let d be a fundamental discriminant. Then L_d(s+1/2)Σ_{n≥1}b(dn²)n^{1−s}=b(d)Π_p(1−a_ψ(p)p^{−s}+p^{−2s})⁻¹, where L_d(s)=L(s,χ_d)=Σ_{n≥1}(d/n)n^{−s} and a_ψ(p) is the T_{p²}-eigenvalue for odd p and the specified plus-space Hecke eigenvalue at p=2. Comparing coefficients gives mΣ_{n|m}n^{−3/2}(d/n)b(m²d/n²)=a_ψ(m)b(d) (item 122).
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.shimura_dirichletSeries [target]: Let ψ∈B_r have coefficients b(n) as in (10.1), and let d be a fundamental discriminant. Then L_d(s+1/2)Σ_{n≥1}b(dn²)n^{1−s}=b(d)Π_p(1−a_ψ(p)p^{−s}+p^{−2s})⁻¹, where L_d(s)=L(s,χ_d)=Σ_{n≥1}(d/n)n^{−s} and a_ψ(p) is the T_{p²}-eigenvalue for odd p and the specified plus-space Hecke eigenvalue at p=2. Comparing coefficients gives mΣ_{n|m}n^{−3/2}(d/n)b(m²d/n²)=a_ψ(m)b(d) (item 122).
 
 MetaplecticAutomorphicForms:MP.7/biro-shintani-lift — Biró lift
@@ -1812,23 +1814,23 @@ Emitted: the Fourier series over all nonzero positive and negative indices with 
   TauCeti.Metaplectic.biroLift_spectral [api]: Half-weight parameter t gives weight-zero parameter2t in the negative Laplacian convention.
 
 MetaplecticAutomorphicForms:MP.7/adelic-classical-half-weight — Adelic and classical half-weight comparison
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: The full adelization equivalence and metaplectic Hecke comparison need an exact original proof source. QM.3 owns the holomorphic-weight Laplacian; its concrete conjugacy, not an identical formula, supplies this comparison. Supplier categories: AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicFormsOnReductiveGroups:AF.2, QSeriesPartitionsAndMockModularForms:QM.3/weight-k-hyperbolic-laplacian.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicFormsOnReductiveGroups:AF.1, AutomorphicFormsOnReductiveGroups:AF.2, QSeriesPartitionsAndMockModularForms:QM.3/weight-k-hyperbolic-laplacian.
   TauCeti.Metaplectic.halfWeight_adelicClassical [target]: For the actual rank-one adelic cover and a specified finite-level genuine vector, evaluate along the real Iwasawa section over H to obtain a classical half-integral-weight form with its theta multiplier. Conversely adelize a classical form with the compatible congruence/character and cusp conditions. The comparison intertwines right Hecke actions and matches the positive Fourier e(nx), chosen Whittaker normalization, and the y^{k/2} holomorphic-to-unitary weight change. At weight1/2 the conjugated Laplacian is Δ_unit,1/2=y^{1/4}Δ_hol,1/2 y^{−1/4}+3/16.
 
 MetaplecticAutomorphicForms:MP.7/bfh-kernel-import — BFH metaplectic kernel interface
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: BFH proofs after printed553 and its local Whittaker/Euler computations have no newly checked proof in this revision. They are supplied as planned MP.8 nodes with their own open proof gates, not promoted to checked results.
+Signature requires the actual source carriers and comparison maps specified below.
   TauCeti.Metaplectic.bfh_halfWeightKernelComparison [target]: Import the genuine genus-two BFH kernel, its theta components, two-cusp Whittaker expansions, actual local test vectors and unramified Euler-factor ratio from MP.8. Its normalized Siegel parameter is s−2 and its original newform conductor is M, while the auxiliary arithmetic level is N. MP.7 supplies the common multiplier/Fourier conventions and compares their restriction with the rank-one half-weight theory; BSD.2 consumes MP.8/bsd2-export and owns the final twist nonvanishing argument.
 
 MetaplecticAutomorphicForms:MP.7/ramified-quadratic-twist-kernel-inputs — Ramified quadratic-twist kernel inputs
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: FH95 full public mathematical text was not obtained: only the publisher metadata was read. Its exact kernel/ramified-local adapter remains to be stated after acquisition. This records the missing MP.7 target explicitly instead of claiming the BFH family proves it.; Removed BSD.2 as a prerequisite and request: RankZeroOneBSD--BSD.0.json, BSD.2/twist-series-residue imports MP.7 and MP.8, so importing the whole BSD.2 stage back into the MP.7 kernel interface creates feedback. The separate original FH95 kernel, level/character restrictions and ramified/dyadic comparison are still unread/unavailable in this packet. Establish that analytic adapter from the original source and route its own independent supplier; BSD.2 remains the owner of continuation/residue/positivity and nonvanishing. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0.
-  TauCeti.Metaplectic.quadraticTwist_kernelInputs [target]: For the BFH route, export the supplier’s actual ramified local character/test-vector integrals and nonzero finite K-type tests together with its normalized Euler factors. For the separate Friedberg–Hoffstein route, require the original kernel, its exact level/character restrictions, each ramified and dyadic integral, and its Fourier coefficient comparison before an identification with this common interface is asserted. The unavailable original FH kernel formula is an explicit source gap; no generic formal half-weight symbol is used in its place.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AutomorphicLFunctionsAndLocalFactors:AL.0.
+  TauCeti.Metaplectic.quadraticTwist_kernelInputs [target]: For the BFH route, export the supplier’s actual ramified local character/test-vector integrals and nonzero finite K-type tests together with its normalized Euler factors. For the separate Friedberg–Hoffstein route, require the original kernel, its exact level/character restrictions, each ramified and dyadic integral, and its Fourier coefficient comparison before an identification with this common interface is asserted. The Friedberg–Hoffstein comparison requires that original kernel formula, not an identification through a formal half-weight symbol.
 
 MetaplecticAutomorphicForms:MP.5/genuine-eisenstein-family — Genuine Eisenstein families
 Emitted: coset-sum formula, termwise central-sign covariance and zero/one-term tests. Missing: the actual normalized induced representation, verified chamber, convergence, continuation and normalized-cover constant-term intertwiners. The one-term example is not the Siegel evaluation-section parameter theorem.
   TauCeti.Metaplectic.genuineEisenstein_constantTerm [api]: Its constant term is expressed by the specified normalized cover intertwiners.
 
 MetaplecticAutomorphicForms:MP.6/toric-theta-pairing-interface — Toric theta pairing interface
-No target theorem is emitted against arbitrary independent data. Required source construction or proof input: YZZ’s 6 November 2011 author draft §§2.2–2.4 pp.48–55 was reported read in the earlier source pass: it gives the nonsplit Shimizu contraction, toric unfolding and normalization, but sends the split quaternion case to Waldspurger’s different argument without Siegel–Weil. The original split proof and its exact normalized local/global contraction are still required. A source-qualified regularized replacement would instead have to identify the GQT quotient terms with the actual cuspidal pairing and justify every residual/projection term. MP.6 supplies that analytic adapter, never the downstream GZ.5 special-value theorem; native carriers and ramified/source-proof closure remain open.; Removed GZ.5 as a prerequisite and request: this node explicitly exports the normalized pairing to the Waldspurger owner, so the consumer period identity cannot justify its input. Supply the precise norm-torus orbit/character dictionary independently (with arithmetic and AA quotient/measure owners), including ramified factors and absolute integrability on both quotients. Do not move the Waldspurger special-value theorem into MP.6. Supplier categories: AdelicAlgebraicGroups:AA.1.
+Signature requires the actual source carriers and comparison maps specified below. Supplier categories: AdelicAlgebraicGroups:AA.1.
   TauCeti.Metaplectic.toricTheta_pairingComparison [target]: For an anisotropic norm torus T and a compatible quadratic/quaternionic theta kernel, unfold the toric theta pairing into the local oscillator/orbital integrals only after proving the product integrand absolutely integrable on [T] and the companion quotient. Match the torus character, rational splitting, self-dual additive measures and quotient Haar. Export these local factors and the global see-saw to GZ.5; the exact Waldspurger special-value identity and its arithmetic comparisons stay there.
 -/
 
@@ -2640,7 +2642,7 @@ theorem test_coefficient_strip (k : ℕ) (phi : KTwo → ℂ) (hp : phi∈testCo
 
 -- Use the actual compact product (3.38), with the full scalar W prefactor.
 -- The published (3.31) chart equality is false on the negative branch.
--- A compact-transition and uniform-majorant proof remains a packet gap.
+-- The bound requires a cover-compatible compact transition and a uniform integrable majorant.
 def rotatedWhittakerKernel (k : ℕ) (phi : KTwo → ℂ) (eps : ℤ)
     (y1 y2 : ℝ) (s : ℂ) (z : ℝ) (x : Fin 3 → ℝ) : ℂ :=
   ((y1*y2 : ℝ) : ℂ)^(4-s)*(y2 : ℂ)^((k : ℂ)/2)*
@@ -2820,7 +2822,7 @@ example (g : similitudeCover) (h : g.base=1) (hroot : ∀ z, g.root z=-1) :
 -- arithmetic_adelic_comparison: signature omitted. MP.4 must supply the native
 -- restricted product of local covers, rational splitting, dyadic compact-open lattice
 -- stabilizer and rational-similitude extension before this comparison can be typed.
--- Its full statement, prerequisite request and exact gap are in the definitive packet.
+-- The roadmap specifies the full arithmetic and adelic comparison and its prerequisites.
 
 
 -- MetaplecticAutomorphicForms:MP.8/theta-levi-transform
@@ -2836,7 +2838,7 @@ theorem theta_levi_transform (N m : ℕ) (hN : 0<N) (hm : 0<m) (hNm : N∣m)
 -- MetaplecticAutomorphicForms:MP.8/theta-unipotent-transforms
 
 
--- The cover-valued lower-unipotent root law remains in the definitive packet;
+-- The roadmap also specifies the cover-valued lower-unipotent root law;
 -- this native signature is its upper-unipotent specialization.
 theorem theta_unipotent_transforms (N m : ℕ) (hN : 0<N) (hm : 0<m) (hNm : N∣m)
     (phi : bfhJacobiFunctions N m 1) (g : positiveSimilitudes) (r : ℤ)
