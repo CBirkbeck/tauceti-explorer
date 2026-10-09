@@ -41122,8 +41122,9 @@
     "BP-RefinedTraceMethods--RT.5~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RefinedTraceMethods--RT.5~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7552"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7552",
+   "finishedAt": "2026-10-09T06:26:54Z"
   },
   {
    "kind": "blueprint",
