@@ -24,11 +24,525 @@ namespace TauCetiRoadmap.LocallyAnalyticDistributions
 
 noncomputable section
 open Filter
-open scoped Topology ZeroAtInfty
-/-! ## Layer 4: analytic families, Fredholm theory and finite-slope complexes — operator theory
+open scoped Topology ZeroAtInfty AbstractMeasure
+/-! ## Layer 0: analytic Banach stages, locally analytic functions and their strong duals (one variable) -/
 
-The operator-theoretic half of Layer 4 (§4.1–§4.12 of the README) comes first because the Layer 0–3
-signatures below reuse its coefficient spaces. -/
+namespace LocallyAnalytic.SuggestedTest
+
+/-- Amice's theorem on Mahler coefficients: `v_3((3²)!) = (3² − 1)/(3 − 1) = 4`, the size of `C(x, 9)` in `LA₀`. -/
+example : Nat.factorial 9 % 3 ^ 4 = 0 ∧ Nat.factorial 9 % 3 ^ 5 ≠ 0 := by
+  norm_num [Nat.factorial]
+
+/-- The maximum principle uses C_p-points: X^3-X has Gauss norm one but is bounded by 1/3
+on Z_3. A supremum restricted to coefficient-field points would give a false comparison. -/
+example : (Polynomial.X^3 - Polynomial.X : Polynomial ℤ_[3]).coeff 3 = 1 ∧
+    ∀ x : ℤ_[3], ‖x^3-x‖ ≤ (1/3 : ℝ) := by sorry
+
+end LocallyAnalytic.SuggestedTest
+
+namespace NonarchimedeanFredholm
+variable {A : Type*} [NormedCommRing A]
+/-- Bounded coefficient action on c0: transfer the existing bounded-function sup norm. -/
+theorem c0_norm_smul_le {I : Type*} [TopologicalSpace I]
+    (a : A) (x : C₀(I, A)) : ‖a • x‖ ≤ ‖a‖ * ‖x‖ := by sorry
+
+/-- Pointwise scalar multiplication is jointly continuous for the sup norm. -/
+instance c0ContinuousSMul {I : Type*} [TopologicalSpace I] :
+    ContinuousSMul A C₀(I, A) := by sorry
+
+variable {I : Type*} [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
+/-- The finitely supported element of the native C0 space with coefficient a at i and zero
+at every other coordinate; this supplies the chart monomials of Layer 0. -/
+def c0Single (i : I) (a : A) : C₀(I, A) := by sorry
+
+/-- The selected coordinate has its prescribed coefficient. -/
+example (i : I) (a : A) : c0Single i a i = a := by sorry
+/-- A distinct coordinate has coefficient zero. -/
+example (i j : I) (h : i ≠ j) (a : A) : c0Single i a j = 0 := by sorry
+/-- The native sup norm detects the coefficient rather than its support size. -/
+example (i : I) (a : A) : ‖c0Single i a‖ = ‖a‖ := by sorry
+end NonarchimedeanFredholm
+
+namespace AnalyticDistributions
+open scoped ZeroAtInfty
+open CategoryTheory
+
+section Coefficients
+variable {K : Type*} [NontriviallyNormedField K]
+variable {I : Type*} [TopologicalSpace I] [DiscreteTopology I]
+
+/-- Analytic functions on finitely many polydiscs. For a finite clopen chart set S and coordinates
+z∈Z_p^d, the radius-h analytic stage is the finite product over S of restricted power series in
+normalized coordinates (z−a)/p^h. Coefficients tend to zero outside finite subsets of N^d; the
+norm is the maximum coefficient norm. Its coefficient model is native c₀(S×N^d,K). The chart
+realization, rather than a second power-series carrier, identifies this with actual functions.
+(Source: Schneider–Teitelbaum, §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6.) -/
+abbrev analyticStage (I : Type*) [TopologicalSpace I] (K : Type*)
+    [NormedAddCommGroup K] := C₀(I,K)
+/-- Equality is coefficientwise equality. Part of the API of the target *Analytic functions on
+finitely many polydiscs*. -/
+theorem analyticStage_ext (f g : analyticStage I K) (h : ∀ i, f i = g i) : f = g := by sorry
+/-- A monomial on one chart has its specified single coefficient. Part of the API of the target
+*Analytic functions on finitely many polydiscs*. -/
+theorem analyticStage_single [DecidableEq I] (i j : I) (a : K) :
+    NonarchimedeanFredholm.c0Single i a j = if j=i then a else 0 := by sorry
+-- AnalyticDistributionTests.analyticStage_point
+example : Nonempty (analyticStage PUnit K ≃ₗᵢ[K] K) := by sorry
+-- AnalyticDistributionTests.analyticStage_empty
+example : Subsingleton (analyticStage (Fin 0) K) := by sorry
+-- AnalyticDistributionTests.analyticStage_geometric_excluded
+example : ¬ ∃ f : analyticStage ℕ K, ∀ n, f n = 1 := by sorry
+
+end Coefficients
+
+end AnalyticDistributions
+
+/-! ## Layer 1: the unbounded Amice transform and operations on distributions -/
+
+namespace LocallyAnalytic.SuggestedTest
+
+/-- Positive transpose differentiation gives coefficient a−1/2 in degree two of
+log(1+T)(1+aT+a(a−1)T²/2). -/
+example (a : ℚ) :
+    ((PowerSeries.mk (fun n : ℕ => if n = 0 then 0 else
+        ((-1 : ℚ)^(n+1) / (n : ℚ)))) *
+      (1 + PowerSeries.C a * PowerSeries.X +
+        PowerSeries.C (a*(a-1)/2) * PowerSeries.X^2)).coeff 2 = a-1/2 := by sorry
+
+end LocallyAnalytic.SuggestedTest
+
+namespace Mellin
+variable {p : ℕ} [Fact p.Prime]
+variable {K : Type*} [NontriviallyNormedField K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [IsUltrametricDist K]
+
+-- The predicate uses native radius-restricted series; it is not a new carrier.
+/-- Convergence at every positive radius strictly below one, using native restrictedness. -/
+def OnOpenDisc (F : PowerSeries K) : Prop :=
+  ∀ R : ℝ, 0 < R → R < 1 → PowerSeries.IsRestricted R F
+
+-- Evaluation is the native scalar-series sum, not a second construction.
+/-- Native scalar-series evaluation; convergence is asserted only on the specified open disc. -/
+abbrev evalOpen (F : PowerSeries K) (t : K) : K :=
+  FormalMultilinearSeries.ofScalarsSum (fun n => F.coeff n) t
+/-- Scalar-series evaluation equals the sum of the evaluated coefficients. -/
+theorem evalOpen_def (F : PowerSeries K) (t : K) :
+    evalOpen F t = ∑' n : ℕ, F.coeff n * t ^ n := by sorry
+/-- Evaluation at zero selects the constant coefficient. -/
+theorem evalOpen_zero (F : PowerSeries K) : evalOpen F 0 = F.coeff 0 := by sorry
+/-- Evaluation of a constant series returns its coefficient. -/
+theorem evalOpen_C (a t : K) : evalOpen (PowerSeries.C a) t = a := by sorry
+/-- Evaluation of the coordinate series returns the coordinate. -/
+theorem evalOpen_X (t : K) : evalOpen PowerSeries.X t = t := by sorry
+/-- Evaluation is additive for open-disc series at points of norm below one. -/
+theorem evalOpen_add (F H : PowerSeries K) (hF : OnOpenDisc F) (hH : OnOpenDisc H)
+    (t : K) (ht : ‖t‖ < 1) : evalOpen (F + H) t = evalOpen F t + evalOpen H t := by sorry
+/-- Evaluation respects scalar multiplication on the open disc. -/
+theorem evalOpen_smul (F : PowerSeries K) (hF : OnOpenDisc F) (a t : K) (ht : ‖t‖ < 1) :
+    evalOpen (a • F) t = a * evalOpen F t := by sorry
+-- MellinEvalTests.zero_series
+example (t : K) : evalOpen 0 t = 0 := by sorry
+-- MellinEvalTests.linear
+example (a b t : K) : evalOpen (PowerSeries.C a + PowerSeries.C b * PowerSeries.X) t =
+    a + b*t := by sorry
+-- MellinEvalTests.geometric
+example (t : K) (ht : ‖t‖ < 1) : evalOpen (PowerSeries.mk (fun _ => (1 : K))) t =
+    (1-t)⁻¹ := by sorry
+-- MellinEvalTests.boundary
+example : ¬ Summable (fun _ : ℕ => (1 : K)) := by sorry
+
+/-- Open-disc series and the native analytic radius. For an open-disc series F, the native scalar
+formal multilinear series ofScalars(K,coeff(F)) has radius at least 1. E(F,t) is therefore the sum
+of this native analytic series on ||t||<1. This is an adapter between two existing library
+encodings, not a second definition of summation or of analyticity. (Source: Colmez, §II.2, Lemma
+II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
+theorem openDisc_native_radius (F : PowerSeries K) (hF : OnOpenDisc F) :
+    (1 : ENNReal) ≤ (FormalMultilinearSeries.ofScalars K (fun n => F.coeff n)).radius := by sorry
+
+/-- Summability inside the open disc. For every open-disc series F and t∈K with ||t||<1, the series
+Σ_n a_n t^n is summable in K. (Source: Colmez, §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs,
+author PDF p. 30.) -/
+theorem openDisc_summable (F : PowerSeries K) (hF : OnOpenDisc F)
+    (t : K) (ht : ‖t‖ < 1) : Summable (fun n : ℕ => F.coeff n * t ^ n) := by sorry
+/-- Uniform geometric tails on a smaller disc. Let 0<R<S<1, M≥0, and ||a_n||S^n≤M for every n. For
+||t||≤R and N≥0, ||E(F,t)−Σ_{n<N}a_n t^n||≤M(R/S)^N. Thus truncations converge uniformly on the
+closed radius-R disc; this is a coefficient estimate, with no compactness assumption on that disc.
+(Source: Colmez, §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
+theorem evalOpen_tail_bound (F : PowerSeries K) (hF : OnOpenDisc F) (R S M : ℝ)
+    (hR : 0 < R) (hRS : R < S) (hS : S < 1) (hM : 0 ≤ M)
+    (hb : ∀ n : ℕ, ‖F.coeff n‖ * S^n ≤ M) (t : K) (ht : ‖t‖ ≤ R) (N : ℕ) :
+    ‖evalOpen F t - ∑ n ∈ Finset.range N, F.coeff n * t^n‖ ≤ M * (R/S)^N := by sorry
+/-- Analytic evaluation of an open-disc series. For every open-disc series F, the function E(F,−):K→K
+is analytic at every t with ||t||<1, using Mathlib’s AnalyticOnNhd. This does not identify an
+arbitrary function on C_p-valued points with a rigid analytic function. (Source: Colmez, §II.2,
+Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
+theorem analyticOnNhd_evalOpen (F : PowerSeries K) (hF : OnOpenDisc F) :
+    AnalyticOnNhd K (evalOpen F) {t : K | ‖t‖ < 1} := by sorry
+/-- Evaluation preserves products inside the disc. For open-disc series F,H and ||t||<1,
+E(FH,t)=E(F,t)E(H,t). The corresponding additivity and scalar-linearity follow from summability.
+(Source: Colmez, §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
+theorem evalOpen_mul (F H : PowerSeries K) (hF : OnOpenDisc F) (hH : OnOpenDisc H)
+    (t : K) (ht : ‖t‖ < 1) : evalOpen (F * H) t = evalOpen F t * evalOpen H t := by sorry
+/-- Evaluation commutes with an isometric coefficient extension. For an isometric field homomorphism
+φ:K→K′ into a complete ultrametric field, an open-disc series F and ||t||<1,
+E(map(φ,F),φ(t))=φ(E(F,t)). The coefficient map is the native PowerSeries.map; no arbitrary
+C_p-point function or completed distribution-family object is introduced. (Source: Colmez, §II.2,
+Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
+theorem evalOpen_map {L : Type*} [NontriviallyNormedField L] [CompleteSpace L]
+    [IsUltrametricDist L] (φ : K →+* L) (hφ : Isometry φ)
+    (F : PowerSeries K) (hF : OnOpenDisc F) (t : K) (ht : ‖t‖ < 1) :
+    evalOpen (PowerSeries.map φ F) (φ t) = φ (evalOpen F t) := by sorry
+
+end Mellin
+
+namespace AnalyticDistributions
+open scoped ZeroAtInfty
+open CategoryTheory
+
+section Transposes
+variable {K E F H : Type*} [NontriviallyNormedField K]
+    [NormedAddCommGroup E] [NormedSpace K E]
+    [NormedAddCommGroup F] [NormedSpace K F]
+    [NormedAddCommGroup H] [NormedSpace K H]
+/-- Pushforward of analytic distributions. For an analytic map f:X→Y of compact p-adic manifolds,
+define f_*μ by (f_*μ)(g)=μ(g∘f). This is a continuous K-linear map D(X,K)→D(Y,K) for the strong
+dual topologies. (Source: Colmez, §II.4, printed pp. 34–37.) -/
+def distributionPushforward (P : F →L[K] E) (μ : E →L[K] K) : F →L[K] K := μ.comp P
+/-- Evaluation is μ applied to pullback. Part of the API of the target *Pushforward of analytic
+distributions*. -/
+theorem distributionPushforward_apply (P : F →L[K] E) (μ : E →L[K] K) (f : F) :
+    distributionPushforward P μ f = μ (P f) := by sorry
+/-- (g∘f)_*=g_*∘f_*. Part of the API of the target *Pushforward of analytic distributions*. -/
+theorem distributionPushforward_comp (P : F →L[K] E) (Q : H →L[K] F) (μ : E →L[K] K) :
+    distributionPushforward (P.comp Q) μ =
+      distributionPushforward Q (distributionPushforward P μ) := by sorry
+-- AnalyticDistributionTests.pushforward_identity
+example (μ : E →L[K] K) : distributionPushforward (ContinuousLinearMap.id K E) μ = μ := by sorry
+-- AnalyticDistributionTests.pushforward_zero
+example (P : F →L[K] E) : distributionPushforward P (0 : E →L[K] K) = 0 := by sorry
+-- AnalyticDistributionTests.pushforward_constant
+example (P : F →L[K] E) (ev : F →L[K] K) (e : E)
+    (hP : ∀ f, P f = ev f • e) (μ : E →L[K] K) :
+    distributionPushforward P μ = μ e • ev := by sorry
+end Transposes
+
+section Multipliers
+variable {K R : Type*} [NontriviallyNormedField K] [NormedCommRing R] [NormedAlgebra K R]
+-- Exact bounded-algebra transpose. The global LF analytic multiplication is omitted.
+/-- Transpose multiplication on analytic test functions. Part of the API of the target *Multiplication
+by an analytic function*. -/
+def distributionMultiply (g : R) (μ : R →L[K] K) : R →L[K] K :=
+    μ.comp (ContinuousLinearMap.mul K R g)
+/-- (gμ)(f)=μ(gf). Part of the API of the target *Multiplication by an analytic function*. -/
+theorem distributionMultiply_apply (g f : R) (μ : R →L[K] K) :
+    distributionMultiply g μ f = μ (g*f) := by sorry
+/-- Successive multiplications multiply their analytic factors. Part of the API of the target
+*Multiplication by an analytic function*. -/
+theorem distributionMultiply_assoc (g h : R) (μ : R →L[K] K) :
+    distributionMultiply (g*h) μ = distributionMultiply g (distributionMultiply h μ) := by sorry
+-- AnalyticDistributionTests.multiply_one
+example (μ : R →L[K] K) : distributionMultiply 1 μ = μ := by sorry
+-- AnalyticDistributionTests.multiply_atom
+example (ev : R →L[K] K) (hm : ∀ g f, ev (g*f) = ev g * ev f) (g : R) :
+    distributionMultiply g ev = ev g • ev := by sorry
+-- AnalyticDistributionTests.multiply_bounded
+-- Native bounded-measure compatibility on a finite space is the exact common domain.
+example {G : Type*} [Fintype G] [DecidableEq G] (g f : G → K) (μ : (G → K) →L[K] K) :
+    distributionMultiply g μ f = μ (fun x => g x * f x) := by sorry
+end Multipliers
+
+section FiniteConvolution
+variable {K G : Type*} [NontriviallyNormedField K] [Group G] [Fintype G] [DecidableEq G]
+-- Finite-group specialization; the full compact analytic tensor signature is omitted.
+/-- Evaluation at a point, as a continuous functional on functions on a finite set. -/
+def pointDistribution (a : G) : (G → K) →L[K] K := by sorry
+/-- The point functional evaluates its test function at the chosen point. -/
+theorem pointDistribution_apply (a : G) (f : G → K) : pointDistribution a f = f a := by sorry
+/-- Push forward the tensor distribution along group multiplication. Part of the API of the target
+*Convolution by iterated analytic evaluation*. -/
+def distributionConvolution (mu1 μ : (G → K) →L[K] K) : (G → K) →L[K] K := by sorry
+/-- Its value is the specified iterated integral. Part of the API of the target *Convolution by
+iterated analytic evaluation*. -/
+theorem distributionConvolution_apply (mu1 μ : (G → K) →L[K] K) (f : G → K) :
+    distributionConvolution mu1 μ f = μ (fun y => mu1 (fun x => f (x*y))) := by sorry
+/-- Convolution is associative. Part of the API of the target *Convolution by iterated analytic
+evaluation*. -/
+theorem distributionConvolution_assoc (mu1 μ ν : (G → K) →L[K] K) :
+    distributionConvolution (distributionConvolution mu1 μ) ν =
+      distributionConvolution mu1 (distributionConvolution μ ν) := by sorry
+-- AnalyticDistributionTests.convolution_atoms
+example (a b : G) : distributionConvolution (pointDistribution (K:=K) a) (pointDistribution b) =
+    pointDistribution (a*b) := by sorry
+-- AnalyticDistributionTests.convolution_unit
+example (μ : (G → K) →L[K] K) : distributionConvolution (pointDistribution 1) μ = μ := by sorry
+-- AnalyticDistributionTests.convolution_bounded
+example (w z f : G → K) (mu1 μ : (G → K) →L[K] K)
+    (hmu1 : ∀ f, mu1 f = ∑ x, w x * f x) (hμ : ∀ f, μ f = ∑ y, z y * f y) :
+    distributionConvolution mu1 μ f = ∑ y, ∑ x, z y * w x * f (x*y) := by sorry
+end FiniteConvolution
+
+end AnalyticDistributions
+
+/-! ## Layer 2: admissible growth, vector order and uniqueness -/
+
+namespace LocallyAnalytic.SuggestedTest
+
+/-- The Amice–Vélu–Vishik extension and uniqueness theorem: `d^{N+1}δ₀` kills every polynomial of degree `≤ N`, so uniqueness fails at
+`r = N + 1`. -/
+example (P : Polynomial ℚ) (N : ℕ) (h : P.natDegree ≤ N) :
+    Polynomial.derivative^[N + 1] P = 0 :=
+  Polynomial.iterate_derivative_eq_zero (by omega)
+
+/-- The normalized locally constant Haar functional has mass `p⁻ⁿ` on a residue ball and is
+additive over its `p` sub-balls. Additivity alone does not make it a bounded p-adic measure. -/
+example (p : ℚ) (hp : p ≠ 0) (n : ℕ) : (p ^ n)⁻¹ = p * (p ^ (n + 1))⁻¹ := by
+  field_simp
+  ring
+
+/-- The locally constant normalized Haar masses are unbounded in the 3-adic norm. -/
+example : Tendsto (fun n : ℕ => ‖((3 : ℚ_[3]) ^ n)⁻¹‖) atTop atTop := by sorry
+
+end LocallyAnalytic.SuggestedTest
+
+namespace AnalyticDistributions
+open scoped ZeroAtInfty
+open CategoryTheory
+
+section Rectangles
+variable {p : ℕ} [Fact p.Prime]
+variable {K : Type*} [NontriviallyNormedField K]
+variable {g : ℕ}
+/-- The rectangular residue class with one independent conductor exponent per coordinate. -/
+def padicBox (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) : Set (Fin g → ℤ_[p]) :=
+    {x | ∀ i, x i - a i ∈ Ideal.span ({(p : ℤ_[p]) ^ m i} : Set ℤ_[p])}
+/-- A finite product of residue classes is clopen. -/
+theorem padicBox_isClopen (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) : IsClopen (padicBox a m) := by sorry
+/-- The locally constant indicator of a rectangular residue class. -/
+def boxIndicator (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) : LocallyConstant (Fin g → ℤ_[p]) K :=
+    LocallyConstant.charFn K (padicBox_isClopen a m)
+/-- The displayed uniform bound on all rectangular cosets. Part of the API of the target *Rectangular
+growth for a locally constant functional*. -/
+def RectangularGrowth (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
+    (r : Fin g → ℝ) : Prop :=
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ a m, ‖μ (boxIndicator a m)‖ ≤ C * (p : ℝ) ^ (∑ i, r i * (m i : ℝ))
+/-- Increasing each component r_i preserves the bound. Part of the API of the target *Rectangular
+growth for a locally constant functional*. -/
+theorem rectangularGrowth_mono (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
+    (r s : Fin g → ℝ) (h : ∀ i, r i ≤ s i) (hμ : RectangularGrowth μ r) :
+    RectangularGrowth μ s := by sorry
+/-- A sum of two bounded-growth functionals has the same growth order with a larger constant. Part of
+the API of the target *Rectangular growth for a locally constant functional*. -/
+theorem rectangularGrowth_add (μ ν : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
+    (r : Fin g → ℝ) (hμ : RectangularGrowth μ r) (hν : RectangularGrowth ν r) :
+    RectangularGrowth (μ+ν) r := by sorry
+-- AnalyticDistributionTests.rectangularGrowth_dirac
+example (a : Fin g → ℤ_[p]) (r : Fin g → ℝ) (hr : ∀ i, 0 ≤ r i) :
+    RectangularGrowth (LocallyConstant.evalₗ K a) r := by sorry
+-- AnalyticDistributionTests.rectangularGrowth_zero
+example (r : Fin g → ℝ) :
+    RectangularGrowth (0 : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K) r := by sorry
+-- AnalyticDistributionTests.rectangularGrowth_refinement
+example (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
+    (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) (i : Fin g) :
+    μ (boxIndicator a m) = ∑ j : Fin p,
+      μ (boxIndicator (Function.update a i (a i + (j.val : ℤ_[p]) * (p : ℤ_[p]) ^ m i))
+        (Function.update m i (m i + 1))) := by sorry
+end Rectangles
+
+end AnalyticDistributions
+
+/-! ## Layer 3: character spaces and Mellin transforms -/
+
+namespace Mellin
+variable {p : ℕ} [Fact p.Prime]
+variable {K : Type*} [NontriviallyNormedField K] [CompleteSpace K]
+  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [IsUltrametricDist K]
+
+section Components
+variable {G Δ : Type*} [TopologicalSpace G] [CompactSpace G]
+  [Fintype Δ] [TopologicalSpace Δ] [DiscreteTopology Δ]
+/-- Mellin series on a finite-character component. Let G be compact and let H:G≃Δ×Z_p be an imported
+character chart, Δ a finite discrete set. Let ν:Δ→K be the finite-character value function (the
+formula also makes sense for any ν). For a native bounded measure μ on G define
+F_{μ,ν,H}(T)=Σ_{n≥0} μ(g↦ν(H(g)_Δ) binom(H(g)_Z,n)) T^n. Multiplication uses K, with the native
+algebra map Z_p→K on binomial values. This is the Mellin series adapter on the imported component;
+it does not construct Δ, H, the character functor or its representing space. (Source: RJW, Remark
+3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22).) -/
+def componentMellin (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) : PowerSeries K := by sorry
+/-- The nth coefficient is μ(ν∘H_Δ times binom(H_Z,n)). Part of the API of the target *Mellin series
+on a finite-character component*. -/
+theorem componentMellin_coeff (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) (n : ℕ) :
+    (componentMellin H ν μ).coeff n = μ ⟨fun g =>
+      ν (H g).1 * algebraMap ℤ_[p] K (mahler n (H g).2), by fun_prop⟩ := by sorry
+/-- F_{μ+η,ν,H}=F_{μ,ν,H}+F_{η,ν,H}. Part of the API of the target *Mellin series on a
+finite-character component*. -/
+theorem componentMellin_add (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ η : AbstractMeasure G K K) :
+    componentMellin H ν (μ+η) = componentMellin H ν μ + componentMellin H ν η := by sorry
+/-- F_{aμ,ν,H}=aF_{μ,ν,H}. Part of the API of the target *Mellin series on a finite-character
+component*. -/
+theorem componentMellin_smul (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (a : K) (μ : AbstractMeasure G K K) :
+    componentMellin H ν (a • μ) = a • componentMellin H ν μ := by sorry
+/-- F_{δ_g,ν,H}=ν(H_Δg)Σ_n binom(H_Zg,n)T^n. Part of the API of the target *Mellin series on a
+finite-character component*. -/
+theorem componentMellin_dirac (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) (g : G) :
+    componentMellin H ν (AbstractMeasure.dirac K g) =
+      PowerSeries.mk (fun n => ν (H g).1 * algebraMap ℤ_[p] K (mahler n (H g).2)) := by sorry
+/-- coeff_0 F=μ(ν∘H_Δ). Part of the API of the target *Mellin series on a finite-character component*. -/
+theorem componentMellin_mass (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) :
+    (componentMellin H ν μ).coeff 0 = μ ⟨fun g => ν (H g).1, by fun_prop⟩ := by sorry
+-- ComponentMellinTests.zero
+example (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) : componentMellin H ν 0 = 0 := by sorry
+-- ComponentMellinTests.finite_atom
+example (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) (δ : Δ) :
+    componentMellin H ν (AbstractMeasure.dirac K (H.symm (δ,0))) =
+      PowerSeries.C (ν δ) := by sorry
+-- ComponentMellinTests.generator_atom
+example (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) (δ : Δ) :
+    componentMellin H ν (AbstractMeasure.dirac K (H.symm (δ,1))) =
+      PowerSeries.C (ν δ) * (1+PowerSeries.X) := by sorry
+-- ComponentMellinTests.native_amice
+example (μ : AbstractMeasure ℤ_[p] K K) :
+    componentMellin (Homeomorph.uniqueProd PUnit ℤ_[p]).symm (fun _ => (1 : K)) μ =
+      μ.amiceTransform := by sorry
+/-- Bounded component Mellin coefficients. Under the component-Mellin hypotheses, if C≥0 and
+||ν(δ)||≤C for every δ, then ||coeff_n F_{μ,ν,H}||≤||μ||C for every n, where ||μ|| is the native
+continuous-linear-functional operator norm. For finite characters in a splitting field one may
+take C=1. (Source: RJW, Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark
+5.22).) -/
+theorem componentMellin_coeff_bound (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) (C : ℝ) (hC : 0 ≤ C) (hν : ∀ δ, ‖ν δ‖ ≤ C) (n : ℕ) :
+    ‖(componentMellin H ν μ).coeff n‖ ≤ ‖AbstractMeasure.toCLMEquiv μ‖ * C := by sorry
+/-- Bounded component series are analytic on the disc. For every μ,ν,H as above, the component series
+is open-disc analytic and has uniformly bounded coefficients. It is therefore a bounded rigid
+function when transported to the imported component. This forward comparison does not by itself
+prove that every bounded rigid function comes from a measure. (Source: RJW, Remark 3.47, pp.
+25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22).) -/
+theorem componentMellin_onOpenDisc (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) : OnOpenDisc (componentMellin H ν μ) := by sorry
+/-- Character evaluation equals the component Mellin value. For ||t||<1 let κ_t:Z_p→K be the native
+additive character with κ_t(1)=1+t. Then E(F_{μ,ν,H},t)=μ(g↦ν(H_Δg)κ_t(H_Zg)). If H is a group
+chart and ν a finite character, its right side is the scalar character integral on the imported
+component. The statement uses continuous maps and genuine coefficient-field points. (Source: RJW,
+Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22); Colmez, §II.2,
+Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
+theorem componentMellin_eval (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
+    (μ : AbstractMeasure G K K) (t : K) (ht : ‖t‖ < 1) :
+    evalOpen (componentMellin H ν μ) t = μ ⟨fun g => ν (H g).1 *
+      PadicInt.addChar_of_value_at_one t
+        (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr ht) (H g).2, by fun_prop⟩ := by sorry
+end Components
+
+/-- Mellin branches in an arithmetic parameter. For an open-disc series F, q∈K with ||q||<1, and
+s∈Z_p, put B_{F,q}(s)=E(F,κ_q(s)−1), using the native κ_q(1)=1+q. In the standard odd-prime unit
+chart, γ=1+p, q=γ−1, and ν=ω^i, this is Mel_{μ,i}(s)=∫ω(x)^i〈x〉^s dμ. At p=2 the imported chart is
+{±1}×(1+4Z_2), with γ=5; the odd-prime chart is not used there. (Source: RJW, Remark 3.47, pp.
+25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22).) -/
+def branchMellin (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) : K :=
+    evalOpen F (PadicInt.addChar_of_value_at_one q
+      (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr hq) s - 1)
+/-- B_{F,q}(s)=E(F,κ_q(s)−1). Part of the API of the target *Mellin branches in an arithmetic
+parameter*. -/
+theorem branchMellin_def (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
+    branchMellin F q hq s = evalOpen F (PadicInt.addChar_of_value_at_one q
+      (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr hq) s - 1) := by sorry
+/-- B_{F,q}(0)=coeff_0 F. Part of the API of the target *Mellin branches in an arithmetic parameter*. -/
+theorem branchMellin_zero (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) :
+    branchMellin (p := p) F q hq 0 = F.coeff 0 := by sorry
+/-- B_{F,q}(1)=E(F,q). Part of the API of the target *Mellin branches in an arithmetic parameter*. -/
+theorem branchMellin_one (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) :
+    branchMellin (p := p) F q hq 1 = evalOpen F q := by sorry
+/-- B_{F+H,q}(s)=B_{F,q}(s)+B_{H,q}(s) for two open-disc series. Part of the API of the target *Mellin
+branches in an arithmetic parameter*. -/
+theorem branchMellin_add (F H : PowerSeries K) (hF : OnOpenDisc F) (hH : OnOpenDisc H)
+    (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
+    branchMellin (F+H) q hq s = branchMellin F q hq s + branchMellin H q hq s := by sorry
+-- BranchMellinTests.zero
+example (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) : branchMellin 0 q hq s = 0 := by sorry
+-- BranchMellinTests.constant
+example (a q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
+    branchMellin (PowerSeries.C a) q hq s = a := by sorry
+-- BranchMellinTests.linear_at_one
+example (q : K) (hq : ‖q‖ < 1) : branchMellin (p := p) PowerSeries.X q hq 1 = q := by sorry
+-- BranchMellinTests.generator_at_zero
+example (q : K) (hq : ‖q‖ < 1) : branchMellin (p := p) (1+PowerSeries.X) q hq 0 = 1 := by sorry
+/-- Arithmetic branches stay inside the character disc. For q∈K with ||q||<1 and s∈Z_p,
+||κ_q(s)−1||≤||q||<1. (Source: Colmez, §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author
+PDF p. 30.) -/
+theorem branchCoordinate_norm_le (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
+    ‖PadicInt.addChar_of_value_at_one q
+      (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr hq) s - 1‖ ≤ ‖q‖ := by sorry
+/-- Mellin evaluation at integral weights. For n≥0, B_{F,q}(n)=E(F,(1+q)^n−1). This pins integral
+specialization of a branch independently of arithmetic L-value interpolation. In the canonical
+unit chart, recovering x^k additionally requires the finite character ν=ω^i with k≡i modulo p−1
+for odd p, and the corresponding parity branch at p=2; those coordinate comparisons are a
+remaining supplier interface. (Source: RJW, Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula
+immediately before Remark 5.22).) -/
+theorem branchMellin_nat (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (n : ℕ) :
+    branchMellin F q hq (n : ℤ_[p]) = evalOpen F ((1+q)^n-1) := by sorry
+
+/-- A torsion point with zero principal coordinate has weight-independent Mellin value. -/
+example {G Δ : Type*} [TopologicalSpace G] [CompactSpace G] [Fintype Δ]
+    [TopologicalSpace Δ] [DiscreteTopology Δ] (H : G ≃ₜ Δ × ℤ_[p])
+    (ν : Δ → K) (δ : Δ) (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
+    branchMellin (componentMellin H ν (AbstractMeasure.dirac K (H.symm (δ,0))))
+      q hq s = ν δ := by sorry
+
+/-- The trivial torsion character gives an identically zero clearing denominator on a torsion
+point, independently of principal-unit weights. -/
+example {G Δ : Type*} [TopologicalSpace G] [CompactSpace G] [Fintype Δ]
+    [TopologicalSpace Δ] [DiscreteTopology Δ] (H : G ≃ₜ Δ × ℤ_[p]) (δ : Δ) :
+    componentMellin H (fun _ => (1 : K))
+      (AbstractMeasure.dirac K (H.symm (δ,0))) - 1 = 0 := by sorry
+
+/-- Mellin evaluation on a clearing-factor domain. For open-disc numerator F and denominator D define
+Q_{F,D}(t)=E(F,t)/E(D,t) only as a meromorphic chart expression. All evaluation theorems require
+||t||<1 and E(D,t)≠0. For a pseudomeasure λ imported from PMIA L3 and a genuine clearing numerator
+μ=([a]−[1])λ, F is the component Mellin series of μ and D represents κ_t(a)−1. A quotient’s total
+value at a zero denominator has no meromorphic meaning; no extension of the pseudomeasure’s value
+is asserted there. (Source: RJW, Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately
+before Remark 5.22).) -/
+def quotientMellin (F D : PowerSeries K) (t : K) : K := evalOpen F t / evalOpen D t
+/-- Q_{F,D}(t)=E(F,t)/E(D,t); meaningful use is guarded by the nonvanishing condition. Part of the API
+of the target *Mellin evaluation on a clearing-factor domain*. -/
+theorem quotientMellin_def (F D : PowerSeries K) (t : K) :
+    quotientMellin F D t = evalOpen F t / evalOpen D t := by sorry
+/-- E(D,t)Q_{F,D}(t)=E(F,t) when E(D,t)≠0. Part of the API of the target *Mellin evaluation on a
+clearing-factor domain*. -/
+theorem quotientMellin_clear (F D : PowerSeries K) (t : K) (hD : evalOpen D t ≠ 0) :
+    evalOpen D t * quotientMellin F D t = evalOpen F t := by sorry
+/-- Q_{F,1}(t)=E(F,t). Part of the API of the target *Mellin evaluation on a clearing-factor domain*. -/
+theorem quotientMellin_one (F : PowerSeries K) (t : K) :
+    quotientMellin F 1 t = evalOpen F t := by sorry
+/-- A zero numerator yields zero on every admissible domain. Part of the API of the target *Mellin
+evaluation on a clearing-factor domain*. -/
+theorem quotientMellin_zero (D : PowerSeries K) (t : K) : quotientMellin 0 D t = 0 := by sorry
+-- QuotientMellinTests.no_denominator
+example (F : PowerSeries K) (t : K) : quotientMellin F 1 t = evalOpen F t := by sorry
+-- QuotientMellinTests.simple_pole
+example (t : K) (ht : t ≠ 0) : quotientMellin 1 PowerSeries.X t = t⁻¹ := by sorry
+-- QuotientMellinTests.removable_on_punctured_disc
+example (t : K) (ht : t ≠ 0) : quotientMellin PowerSeries.X PowerSeries.X t = 1 := by sorry
+-- QuotientMellinTests.trivial_character_excluded
+example : evalOpen (PowerSeries.X : PowerSeries K) 0 = 0 := by sorry
+/-- Agreement of Mellin clearing expressions. If F,D,F′,D′ are open-disc series with FD′=F′D, then
+Q_{F,D}(t)=Q_{F′,D′}(t) at every ||t||<1 for which both denominator values are nonzero. Applied to
+the algebraic clearing compatibility imported from PMIA L3 this proves independence on chart
+overlaps; it does not construct a total-fraction-ring character homomorphism. (Source: RJW, Remark
+3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22).) -/
+theorem quotientMellin_independent (F D F' D' : PowerSeries K)
+    (hF : OnOpenDisc F) (hD : OnOpenDisc D) (hF' : OnOpenDisc F') (hD' : OnOpenDisc D')
+    (h : F*D'=F'*D) (t : K) (ht : ‖t‖ < 1)
+    (hDt : evalOpen D t ≠ 0) (hD't : evalOpen D' t ≠ 0) :
+    quotientMellin F D t = quotientMellin F' D' t := by sorry
+end Mellin
+
+
+/-! ## Layer 4: analytic families, Fredholm theory and finite-slope complexes -/
 
 namespace Huber
 variable {A M N : Type*} [NormedCommRing A]
@@ -125,19 +639,9 @@ theorem isClosed_completelyContinuous :
 -- Unit test: identity_on_A, even when A has infinite K-dimension.
 example : IsCompletelyContinuous (ContinuousLinearMap.id A A) := by sorry
 
-/-- Bounded coefficient action on c0: transfer the existing bounded-function sup norm. -/
-theorem c0_norm_smul_le {I : Type*} [TopologicalSpace I]
-    (a : A) (x : C₀(I, A)) : ‖a • x‖ ≤ ‖a‖ * ‖x‖ := by sorry
-
-/-- Pointwise scalar multiplication is jointly continuous for the sup norm. -/
-instance c0ContinuousSMul {I : Type*} [TopologicalSpace I] :
-    ContinuousSMul A C₀(I, A) := by sorry
-
 section Coordinates
 variable {I : Type w} [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
 
-/-- Helpers use the existing C0 carrier, not a competing sequence space. -/
-def c0Single (i : I) (a : A) : C₀(I, A) := by sorry
 /-- Finite coordinate truncation. For a finite T⊆I, the existing helper π_T is the native continuous
 A-linear endomorphism of c_A(I) that retains coordinates in T and sets every other coordinate to
 zero. Its value is the finite sum Σ_{j∈T}x_j e_j; the carrier remains the native C0 space.
@@ -149,6 +653,7 @@ def coordinateProjection (S : Finset I) : C₀(I, A) →L[A] C₀(I, A) := by so
 theorem coordinateProjection_norm_le (S : Finset I) (x : C₀(I, A)) :
     ‖coordinateProjection S x‖ ≤ ‖x‖ := by sorry
 
+/-- The continuous extension of a bounded family by unconditional coefficient summation. -/
 def c0Lift
     (hM : ∀ x y : M, ‖x + y‖ ≤ max ‖x‖ ‖y‖)
     (hAM : ∀ (a : A) (x : M), ‖a • x‖ ≤ ‖a‖ * ‖x‖)
@@ -221,6 +726,7 @@ def PotentiallyONable (A : Type u) (M : Type v) [NormedCommRing A]
     letI : TopologicalSpace I := t
     DiscreteTopology I ∧ Nonempty (M ≃L[A] C₀(I, A))
 
+/-- A Banach module with continuous inclusion and retraction into a native c0 module. -/
 def HasPr (A : Type u) (M : Type v) [NormedCommRing A]
     [NormedAddCommGroup M] [Module A M] : Prop :=
   ∃ (I : Type v) (t : TopologicalSpace I),
@@ -278,6 +784,7 @@ example (ρ : K) (hρ : 0 < ‖ρ‖) (hρ' : ‖ρ‖ < 1) :
     ¬ ∃ f : C₀(ℕ, K) →L[K] K,
       ∀ n, f (c0Single n (1 : K)) = (ρ⁻¹)^n := by sorry
 
+/-- The continuous diagonal endomorphism associated with a uniformly bounded sequence. -/
 def diagonalOperator (a : ℕ → A) (ha : ∃ C : ℝ, ∀ n, ‖a n‖ ≤ C) :
     C₀(ℕ, A) →L[A] C₀(ℕ, A) := by sorry
 
@@ -287,9 +794,11 @@ example (ρ : K) (hρ : 0 < ‖ρ‖) (hρ' : ‖ρ‖ < 1)
     IsCompletelyContinuous (diagonalOperator (fun n => algebraMap K A (ρ^n)) hb) := by sorry
 
 /- Entire series: all positive radii, not just radii below one. -/
+/-- Coefficient decay in every positive real Gauss radius. -/
 def IsEntire (f : PowerSeries A) : Prop :=
   ∀ R : ℝ, 0 < R → Tendsto (fun n : ℕ => ‖f.coeff n‖ * R^n) atTop (𝓝 0)
 
+/-- The subring of native formal power series with all-radius coefficient decay. -/
 def entireSeries (A : Type u) [NormedCommRing A] : Subring (PowerSeries A) where
   carrier := {f | ∀ R : ℝ, 0 < R →
     Tendsto (fun n : ℕ => ‖f.coeff n‖ * R^n) atTop (𝓝 0)}
@@ -381,6 +890,7 @@ include hNontrivialA in
 example : entire_eval (PowerSeries.X : PowerSeries A) 0 = 0 ∧
     ¬ IsUnit (0 : A) := by sorry
 
+/-- The supremum of the coefficient norms weighted by the chosen real radius. -/
 def gaussSize (R : ℝ) (f : PowerSeries A) : ℝ :=
   sSup (Set.range (fun n : ℕ => ‖f.coeff n‖ * R^n))
 
@@ -396,6 +906,7 @@ include hCompleteA in
 def entireEvalHom (hA : ∀ x y : A, ‖x + y‖ ≤ max ‖x‖ ‖y‖) (a : A) :
     entireSeries A →+* A := by sorry
 
+/-- The native inclusion of a polynomial into formal power series. -/
 def polynomialSeries (Q : Polynomial A) : PowerSeries A :=
   Q.eval₂ PowerSeries.C PowerSeries.X
 
@@ -410,9 +921,11 @@ section FredholmON
 variable {I : Type w} [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
 variable (hA : ∀ x y : A, ‖x + y‖ ≤ max ‖x‖ ‖y‖)
 
+/-- The output coordinate j of the image of input basis vector i. -/
 def operatorEntry (f : C₀(I, A) →L[A] C₀(I, A)) (i j : I) : A :=
   f (c0Single i (1 : A)) j
 
+/-- The supremum of the norms in one output column of the input-first matrix. -/
 def columnSize (f : C₀(I, A) →L[A] C₀(I, A)) (j : I) : ℝ :=
   sSup (Set.range (fun i : I => ‖operatorEntry f i j‖))
 
@@ -442,6 +955,7 @@ theorem fredholmSeries_isEntire (f : C₀(I, A) →L[A] C₀(I, A))
     (hf : IsCompletelyContinuous f) : IsEntire (fredholmSeries f hf) := by sorry
 
 include K hA hNoeth in
+/-- A geometric Fredholm coefficient bound from finitely many large output columns. -/
 theorem minor_tail_estimate (f : C₀(I, A) →L[A] C₀(I, A))
     (hf : IsCompletelyContinuous f) (b : I → ℝ)
     (hb0 : ∀ j, 0 ≤ b j) (hb : ∀ j, columnSize f j ≤ b j)
@@ -452,6 +966,7 @@ theorem minor_tail_estimate (f : C₀(I, A) →L[A] C₀(I, A))
       (max 1 (R*L))^T.card * q^(n-T.card) := by sorry
 
 include hA hNoeth in
+/-- The degree-n Fredholm coefficient is Lipschitz on an operator-norm bounded set. -/
 theorem coefficient_continuity (f g : C₀(I, A) →L[A] C₀(I, A))
     (hf : IsCompletelyContinuous f) (hg : IsCompletelyContinuous g)
     (C : ℝ) (hC : 1 ≤ C)
@@ -461,6 +976,7 @@ theorem coefficient_continuity (f g : C₀(I, A) →L[A] C₀(I, A))
       ‖(f-g).restrictScalars K‖ * C^(n-1) := by sorry
 
 include hA hNoeth in
+/-- A common vanishing column bound upgrades operator convergence to all-radius Gauss convergence. -/
 theorem gauss_convergence
     (f : ℕ → C₀(I, A) →L[A] C₀(I, A)) (g : C₀(I, A) →L[A] C₀(I, A))
     (hf : ∀ n, IsCompletelyContinuous (f n)) (hg : IsCompletelyContinuous g)
@@ -473,6 +989,7 @@ theorem gauss_convergence
       atTop (𝓝 0) := by sorry
 
 include K hA hNoeth in
+/-- The Fredholm product identity at T=1 on a c0 module; no commutation is required. -/
 theorem evaluated_product_on (f g : C₀(I, A) →L[A] C₀(I, A))
     (hf : IsCompletelyContinuous f) (hg : IsCompletelyContinuous g)
     (hw : IsCompletelyContinuous (f + g - f.comp g)) :
@@ -489,9 +1006,11 @@ end FredholmON
 def finiteMatrixOperator {n : ℕ} (D : Matrix (Fin n) (Fin n) A) :
     C₀(Fin n, A) →L[A] C₀(Fin n, A) := by sorry
 
+/-- The nonzero two-coordinate nilpotent Jordan matrix. -/
 def nilpotentTwo : Matrix (Fin 2) (Fin 2) A :=
   fun i j => if i = 0 ∧ j = 1 then 1 else 0
 
+/-- The two-coordinate diagonal matrix with the specified diagonal coefficients. -/
 def diagonalTwo (a b : A) : Matrix (Fin 2) (Fin 2) A :=
   fun i j => if i = j then (if i = 0 then a else b) else 0
 
@@ -515,6 +1034,7 @@ example : (1 - PowerSeries.X : PowerSeries A) ≠
 section FredholmPr
 variable (hA : ∀ x y : A, ‖x + y‖ ≤ max ‖x‖ ‖y‖)
 
+/-- The Fredholm series of a continuous retract, obtained by zero extension in a c0 module. -/
 def fredholmSeriesPr (f : M →L[A] M) (hp : HasPr A M)
     (hf : IsCompletelyContinuous f) : PowerSeries A := by sorry
 
@@ -539,6 +1059,7 @@ theorem fredholmSeriesPr_agrees_ON
     fredholmSeriesPr f hp hf = fredholmSeries f hf := by sorry
 
 include K hA hNoeth in
+/-- The Fredholm product identity at T=1 on a module with property (Pr). -/
 theorem evaluated_product_pr (f g : M →L[A] M) (hp : HasPr A M)
     (hf : IsCompletelyContinuous f) (hg : IsCompletelyContinuous g)
     (hw : IsCompletelyContinuous (f+g-f.comp g)) :
@@ -565,6 +1086,7 @@ example {I J : Type w} [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
     fredholmSeries (i.comp (f.comp r)) h =
       fredholmSeries (i'.comp (f.comp r')) h' := by sorry
 
+/-- The operator coefficients with initial identity and Fredholm scalar recurrence. -/
 def resolventCoeff (f : M →L[A] M) (hp : HasPr A M)
     (hf : IsCompletelyContinuous f) : ℕ → (M →L[A] M) := by sorry
 
@@ -583,6 +1105,7 @@ theorem resolvent_entire (f : M →L[A] M) (hp : HasPr A M)
     Tendsto (fun n => ‖(resolventCoeff f hp hf n).restrictScalars K‖ * R^n)
       atTop (𝓝 0) := by sorry
 
+/-- Evaluation of the entire Fredholm resolvent numerator as a continuous endomorphism. -/
 def resolventAt (f : M →L[A] M) (hp : HasPr A M)
     (hf : IsCompletelyContinuous f) (a : A) : M →L[A] M := by sorry
 
@@ -870,8 +1393,7 @@ variable [NormedAlgebra K A] [CompleteSpace A] [IsNoetherianRing A]
 variable {I : Type w} [TopologicalSpace I] [DiscreteTopology I] [DecidableEq I]
 
  /-- Evaluation of a finite coordinate projection. For T finite, x∈c_A(I) and j∈I, (π_T x)_j=x_j when
- j∈T, and (π_T x)_j=0 otherwise. (Source: Serre, §6, Proposition10 and Lemma3(a)–(c), printed78–79
- ; full fresh reading and printed79 page image checked on27 September2026.) -/
+ j∈T, and (π_T x)_j=0 otherwise. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
  theorem coordinateProjection_apply (T : Finset I) (x : C₀(I,A)) (j : I) :
     coordinateProjection T x j = if j ∈ T then x j else 0 := by sorry
 
@@ -891,12 +1413,10 @@ truncation*. -/
 theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
     coordinateProjection T (c0Single j a) = if j ∈ T then c0Single j a else 0 := by sorry
 
--- already appears above and is promoted with the same statement and hypotheses.
 
  /-- Operator bound from the coordinate vectors. For a continuous A-linear f:c_A(I)→c_A(I) and C≥0,
- ‖f‖_K≤C if and only if ‖f(e_i)‖≤C for every i∈I. (Source: Serre, §6, Proposition10 and
- Lemma3(a)–(c), printed78–79 ; full fresh reading and printed79 page image checked on27
- September2026.) -/
+ ‖f‖_K≤C if and only if ‖f(e_i)‖≤C for every i∈I. (Source: Serre, §6, Proposition 10 and
+ Lemma 3(a)–(c), printed pp. 78–79.) -/
  theorem c0_operator_norm_le_iff
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (f : C₀(I,A) →L[A] C₀(I,A)) (C : ℝ) (hC : 0 ≤ C) :
@@ -904,8 +1424,8 @@ theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
 
  /-- Coefficients of the finite adjugate. For a d×d matrix D over A, put H(T)=I−TD, c_n=coeff_n det(H),
  and B_n=(coeff_n adj(H)_ij)_ij. Then B₀=I and B_(n+1)=c_(n+1)I+B_nD. This order is compatible with
- the input-first operator convention. (Source: Serre, §6, Proposition10 and Lemma3(a)–(c),
- printed78–79 ; full fresh reading and printed79 page image checked on27 September2026.) -/
+ the input-first operator convention. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c),
+ printed pp. 78–79.) -/
  theorem finite_adjugate_recurrence {d : ℕ} (D : Matrix (Fin d) (Fin d) A) (n : ℕ) :
     (fun i j : Fin d => ((Matrix.adjugate (1 - (Polynomial.X : Polynomial A) • D.map (Polynomial.C : A →+* Polynomial A))) i j).coeff 0) =
       (1 : Matrix (Fin d) (Fin d) A) ∧
@@ -916,8 +1436,7 @@ theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
  /-- Distinct-column bound for adjugate coefficients. Let D be a d×d matrix, b_j≥0 with ‖D_ij‖≤b_j, n≥0
  and C≥0. Assume ∏_{j∈S}b_j≤C for every n-element subset S of its column index set. Every
  coefficient of degree n of every entry of adj(I−TD) then has norm at most C. (Source: Serre, §6,
- Proposition10 and Lemma3(a)–(c), printed78–79 ; full fresh reading and printed79 page image
- checked on27 September2026.) -/
+ Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
  theorem finite_adjugate_coeff_bound {d : ℕ}
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (D : Matrix (Fin d) (Fin d) A) (b : Fin d → ℝ)
@@ -930,8 +1449,7 @@ theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
  output support in a finite J. Let V₀=I and V_(n+1)=c_(n+1)(u)I+uV_n, where c_n(u) are the actual
  Fredholm coefficients. For every finite L⊇J, the entries of V_n between coordinates i,j∈L equal
  the degree-n coefficients of adj(I−T D_L), where D_L=(u_ij)_(i,j∈L). (Source: Serre, §6,
- Proposition10 and Lemma3(a)–(c), printed78–79 ; full fresh reading and printed79 page image
- checked on27 September2026.) -/
+ Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
  theorem finite_coordinate_resolvent_comparison
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
@@ -946,8 +1464,7 @@ theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
 
  /-- Resolvent bound for finite output support. Suppose u has output support in finite J. Let b_j≥0
  bound its output-column norms, fix n≥0 and C≥0, and assume every product of n distinct b_j is at
- most C. Then ‖V_n‖_K≤C. (Source: Serre, §6, Proposition10 and Lemma3(a)–(c), printed78–79 ; full
- fresh reading and printed79 page image checked on27 September2026.) -/
+ most C. Then ‖V_n‖_K≤C. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
  theorem finite_output_resolvent_bound
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
@@ -963,8 +1480,7 @@ theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
  /-- Continuity of the finite recurrence. Let α carry any filter l. Suppose u_α→u in K-operator norm on
  c_A(I), and c_(α,n)→c_n in A for each n. Define sequences V_(α,n) and V_n by initial identity and
  V_(α,n+1)=c_(α,n+1)I+u_αV_(α,n), respectively V_(n+1)=c_(n+1)I+uV_n. For every fixed n,
- V_(α,n)→V_n in K-operator norm. (Source: Serre, §6, Proposition10 and Lemma3(a)–(c), printed78–79
- ; full fresh reading and printed79 page image checked on27 September2026.) -/
+ V_(α,n)→V_n in K-operator norm. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
  theorem recurrence_coefficient_tendsto {ι : Type*} (l : Filter ι)
     (f : ι → C₀(I,A) →L[A] C₀(I,A)) (g : C₀(I,A) →L[A] C₀(I,A))
     (c : ι → ℕ → A) (d : ℕ → A)
@@ -979,8 +1495,7 @@ theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
 
  /-- Adjugate bound for the Fredholm resolvent. Let u be completely continuous on c_A(I), and let b_j≥0
  bound its output-column norms. For n≥0 and C≥0, if every product of n distinct b_j is at most C,
- then ‖V_n‖_K≤C. (Source: Serre, §6, Proposition10 and Lemma3(a)–(c), printed78–79 ; full fresh
- reading and printed79 page image checked on27 September2026.) -/
+ then ‖V_n‖_K≤C. (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
  theorem resolvent_recurrence_norm_bound
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
@@ -995,8 +1510,7 @@ theorem coordinateProjection_single (T : Finset I) (j : I) (a : A) :
  /-- Entire tail estimate for resolvent coefficients. Let b_j≥0 bound the output-column norms of
  completely continuous u and satisfy b_j≤L. Fix R>0, 0<q<1 and finite T with Rb_j≤q off T. Put
  m=|T| and B=max(1,RL). Then ‖V_n‖_K Rⁿ≤B^m q^(max(n−m,0)) for every n≥0. (Source: Serre, §6,
- Proposition10 and Lemma3(a)–(c), printed78–79 ; full fresh reading and printed79 page image
- checked on27 September2026.) -/
+ Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
  theorem resolvent_recurrence_tail_bound
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (f : C₀(I,A) →L[A] C₀(I,A)) (hf : IsCompletelyContinuous f)
@@ -1016,8 +1530,7 @@ variable [Module A M] [IsScalarTower K A M] [ContinuousSMul A M] [CompleteSpace 
  /-- Compression of the coefficient recurrence. Let i:M→c_A(I) and r:c_A(I)→M be native continuous
  A-linear maps with ri=I. For u:M→M put U=iur. For any scalar sequence c_n, suppose V₀=I_M,
  W₀=I_c0, V_(n+1)=c_(n+1)I_M+uV_n and W_(n+1)=c_(n+1)I_c0+UW_n. Then rW_n i=V_n for every n.
- (Source: Serre, §6, Proposition10 and Lemma3(a)–(c), printed78–79 ; full fresh reading and
- printed79 page image checked on27 September2026.) -/
+ (Source: Serre, §6, Proposition 10 and Lemma 3(a)–(c), printed pp. 78–79.) -/
  theorem recurrence_retraction (f : M →L[A] M)
     (i : M →L[A] C₀(I,A)) (r : C₀(I,A) →L[A] M)
     (hri : r.comp i = ContinuousLinearMap.id A M) (c : ℕ → A)
@@ -1030,9 +1543,8 @@ variable [Module A M] [IsScalarTower K A M] [ContinuousSMul A M] [CompleteSpace 
 
  /-- Entireness of the recurrence on a projective Banach module. Let M have (Pr), u:M→M be completely
  continuous, and c_n be its actual summand Fredholm coefficients. For any V₀=I and
- V_(n+1)=c_(n+1)I+uV_n, and every R>0, ‖V_n‖_K Rⁿ tends to zero. (Source: Serre, §6, Proposition10
- and Lemma3(a)–(c), printed78–79 ; full fresh reading and printed79 page image checked on27
- September2026; Buzzard, §2, pp.7–12 for coordinates; §3, full manuscript p.22.) -/
+ V_(n+1)=c_(n+1)I+uV_n, and every R>0, ‖V_n‖_K Rⁿ tends to zero. (Source: Serre, §6, Proposition 10
+ and Lemma 3(a)–(c), printed pp. 78–79.7–12 for coordinates; §3, full manuscript p.22.) -/
  theorem resolvent_recurrence_entire
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (f : M →L[A] M) (hp : HasPr A M) (hf : IsCompletelyContinuous f)
@@ -1293,7 +1805,7 @@ theorem entire_tail_summable (f : PowerSeries A) (hf : IsEntire f) (a : A) (m : 
 def entireLinearQuotient (a : A) (f : PowerSeries A) : PowerSeries A :=
   PowerSeries.mk (fun n => ∑' k : ℕ, f.coeff (n+1+k) * a^k)
 
-/-- Coefficient formula for the tail quotient: promoted data API. -/
+/-- Coefficient formula for the tail quotient. -/
 theorem entireLinearQuotient_coeff (a : A) (f : PowerSeries A) (n : ℕ) :
     (entireLinearQuotient a f).coeff n = ∑' k : ℕ, f.coeff (n+1+k) * a^k := by sorry
 
@@ -1357,9 +1869,6 @@ theorem entire_linear_division_unique (a b c : A) (f g h : PowerSeries A)
     (hb : f = (PowerSeries.X - PowerSeries.C a) * g + PowerSeries.C b)
     (hc : f = (PowerSeries.X - PowerSeries.C a) * h + PowerSeries.C c) :
     g = h ∧ b = c := by sorry
-
-/-- Native polynomials are entire: promoted existing polynomial test. -/
-theorem polynomialSeries_entire (P : Polynomial A) : IsEntire (polynomialSeries P) := by sorry
 
 /-- Agreement with native monic polynomial division. -/
 theorem entireLinearQuotient_polynomial
@@ -1617,8 +2126,7 @@ theorem entireAdjoinRoot_linear [CompleteSpace A] [Nontrivial A]
     entireAdjoinRoot hA (Polynomial.X - Polynomial.C a) (Polynomial.monic_X_sub_C a) F =
       AdjoinRoot.of (Polynomial.X - Polynomial.C a) (entire_eval F a) := by sorry
 
-/- The existing resultant definition is moved here to use this actual quotient
-   map and to state its complete/ultrametric hypotheses explicitly. -/
+/-- The norm of analytic reduction in the native quotient by a monic polynomial. -/
 def entireResultant [CompleteSpace A] [Nontrivial A]
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (Q : Polynomial A) (hQ : Q.Monic)
@@ -1661,7 +2169,7 @@ theorem entireResultant_linear [CompleteSpace A] [Nontrivial A]
 theorem entireResultant_polynomial [CompleteSpace A] [Nontrivial A]
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (Q P : Polynomial A) (hQ : Q.Monic) :
-    entireResultant hA Q hQ (polynomialSeries P) (polynomialSeries_entire P) =
+    entireResultant hA Q hQ (polynomialSeries P) (by sorry) =
       Q.resultant P Q.natDegree P.natDegree := by sorry
 
 /-- Bounded polynomial coefficient in the resultant Bezout identity: the coefficient of F is a bounded-degree polynomial. -/
@@ -1673,7 +2181,7 @@ theorem entireResultant_bezout [CompleteSpace A] [Nontrivial A]
         (entireResultant hA Q hQ F F.property)) =
         entirePolynomial Q * G + entirePolynomial H * F := by sorry
 
-/-- The target Resultant detects analytic coprimality now has its full analytic statement. -/
+/-- The entire resultant is a unit exactly when Q and F are coprime in the entire-series ring. -/
 theorem entireResultant_isUnit_iff [CompleteSpace A] [Nontrivial A]
     (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
     (Q : Polynomial A) (hQ : Q.Monic) (F : entireSeries A) :
@@ -1710,12 +2218,16 @@ example (a b : A) (hf : IsEntire (1 - PowerSeries.C b * PowerSeries.X)) :
       (1 - PowerSeries.C b * PowerSeries.X) hf = 1-b*a := by sorry
 -- Existing test common_factor.
 example (Q : Polynomial A) (hQ : Q.Monic) (hd : 0 < Q.natDegree) :
-    entireResultant hA Q hQ (polynomialSeries Q) (polynomialSeries_entire Q) = 0 := by sorry
+    entireResultant hA Q hQ (polynomialSeries Q) (by sorry) = 0 := by sorry
+/-- Positive-degree resultant against zero is zero; the degree-zero quotient instead has norm one. -/
+example (Q : Polynomial A) (hQ : Q.Monic) (hd : 0 < Q.natDegree) :
+    entireResultant hA Q hQ 0 (by sorry) = 0 := by sorry
+
 -- Test resultant_nilpotent_linear: handles a nonreduced quotient and coefficients.
 example (a b : A) :
     entireResultant hA (Polynomial.X^2) (Polynomial.monic_X_pow 2)
       (polynomialSeries (Polynomial.C a + Polynomial.C b * Polynomial.X))
-      (polynomialSeries_entire _) = a^2 := by sorry
+      (by sorry) = a^2 := by sorry
 end Tests
 end NonarchimedeanFredholm
 
@@ -1728,7 +2240,7 @@ open Polynomial
 variable {A S : Type*} [CommRing A] [CommRing S]
 /-- Monic reversal of a normalized polynomial. If A is nontrivial, Q_n is monic of degree exactly n,
 even when degree(P)<n. (Source: Coleman, Appendix A3, printed434–436: finite definition of D(B,P),
-LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27 September2026.) -/
+Lemma A3.8 and Theorem A3.9.) -/
 theorem spectralReversal_monic [Nontrivial A] (P : A[X]) (n : ℕ)
     (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) :
     (P.reflect n).Monic ∧ (P.reflect n).natDegree = n := sorry
@@ -1737,8 +2249,7 @@ theorem spectralReversal_monic [Nontrivial A] (P : A[X]) (n : ℕ)
 Q_n(Y), with its coefficients included as constants, and K_B(T,Y)=1−T B(Y), with degree bounds
 n,m. Its value is a native polynomial in T. The expression is total; its spectral interpretation
 uses the stated degree bounds and P(0)=1. (Source: Coleman, Appendix A3, printed434–436: finite
-definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27
-September2026.) -/
+definition of D(B,P), Lemma A3.8 and Theorem A3.9.) -/
 def polynomialSpectralResultant (n m : ℕ) (B P : A[X]) : A[X] := sorry
 /-- The value is the native bounded resultant over A[T] of the mapped reversal and1−T B(Y), with the
 two displayed bounds. Part of the API of the target *The finite polynomial spectral transform*. -/
@@ -1746,12 +2257,12 @@ theorem polynomialSpectralResultant_def (n m : ℕ) (B P : A[X]) :
     polynomialSpectralResultant n m B P =
       Polynomial.resultant ((P.reflect n).map Polynomial.C)
         (1-Polynomial.C Polynomial.X * B.map Polynomial.C) n m := sorry
-/-- Evaluation at t is the bounded resultant Res(Q_n,1−tB); promoted. Part of the API of the target
+/-- Evaluation at t is the bounded resultant Res(Q_n,1−tB). Part of the API of the target
 *The finite polynomial spectral transform*. -/
 theorem polynomialSpectralResultant_eval (n m : ℕ) (B P : A[X]) (t : A) :
     (polynomialSpectralResultant n m B P).eval t =
       Polynomial.resultant (P.reflect n) (1-Polynomial.C t*B) n m := sorry
-/-- For P(0)=1 the constant coefficient is1; promoted. Part of the API of the target *The finite
+/-- For P(0)=1 the constant coefficient is1. Part of the API of the target *The finite
 polynomial spectral transform*. -/
 theorem polynomialSpectralResultant_constantCoeff (n m : ℕ) (B P : A[X])
     (hP : P.coeff 0 = 1) : (polynomialSpectralResultant n m B P).coeff 0 = 1 := sorry
@@ -1765,26 +2276,25 @@ theorem polynomialSpectralResultant_oneInput (m : ℕ) (B : A[X]) :
     polynomialSpectralResultant 0 m B 1 = 1 := sorry
 /-- Independence of the auxiliary degree bound. For any m≥degree(B),
 D_(n,m)(B,P)=D_(n,degree(B))(B,P). (Source: Coleman, Appendix A3, printed434–436: finite
-definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete printed432–436 freshly read27
-September2026.) -/
+definition of D(B,P), Lemma A3.8 and Theorem A3.9.) -/
 theorem polynomialSpectralResultant_rightBound (n m : ℕ) (B P : A[X])
     (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
     polynomialSpectralResultant n m B P =
       polynomialSpectralResultant n B.natDegree B P := sorry
-/-- For P=1−aY,n=1 the value is1−B(a)T; promoted. Part of the API of the target *The finite polynomial
+/-- For P=1−aY,n=1 the value is1−B(a)T. Part of the API of the target *The finite polynomial
 spectral transform*. -/
 theorem polynomialSpectralResultant_linear (m : ℕ) (B : A[X]) (a : A)
     (hm : B.natDegree ≤ m) :
     polynomialSpectralResultant 1 m B (1-Polynomial.C a*Polynomial.X) =
       1-Polynomial.C (B.eval a)*Polynomial.X := sorry
-/-- Multiplication in P adds its two degree bounds and multiplies D; promoted. Part of the API of the
+/-- Multiplication in P adds its two degree bounds and multiplies D. Part of the API of the
 target *The finite polynomial spectral transform*. -/
 theorem polynomialSpectralResultant_mul (n k m : ℕ) (B P Q : A[X])
     (hP : P.coeff 0 = 1) (hQ : Q.coeff 0 = 1)
     (hn : P.natDegree ≤ n) (hk : Q.natDegree ≤ k) (hm : B.natDegree ≤ m) :
     polynomialSpectralResultant (n+k) m B (P*Q) =
       polynomialSpectralResultant n m B P * polynomialSpectralResultant k m B Q := sorry
-/-- Increasing n by one multiplies D by1−B(0)T; promoted. Part of the API of the target *The finite
+/-- Increasing n by one multiplies D by1−B(0)T. Part of the API of the target *The finite
 polynomial spectral transform*. -/
 theorem polynomialSpectralResultant_padding (n m : ℕ) (B P : A[X])
     (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
@@ -1792,18 +2302,17 @@ theorem polynomialSpectralResultant_padding (n m : ℕ) (B P : A[X])
       polynomialSpectralResultant n m B P * (1-Polynomial.C (B.coeff 0)*Polynomial.X) := sorry
 /-- Stability when the operator series vanishes at zero. If B(0)=0, then D_(n+k,m)(B,P)=D_(n,m)(B,P)
 for every k≥0. Hence any two valid bounds on degree(P) give the same transform. (Source: Coleman,
-Appendix A3, printed434–436: finite definition of D(B,P), LemmaA3.8 and TheoremA3.9; complete
-printed432–436 freshly read27 September2026.) -/
+Appendix A3, printed434–436: finite definition of D(B,P), Lemma A3.8 and Theorem A3.9.) -/
 theorem polynomialSpectralResultant_stable (n k m : ℕ) (B P : A[X])
     (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m)
     (hB : B.coeff 0 = 0) : polynomialSpectralResultant (n+k) m B P =
       polynomialSpectralResultant n m B P := sorry
-/-- Fixed-bound construction commutes with every coefficient ring map; promoted. Part of the API of
+/-- Fixed-bound construction commutes with every coefficient ring map. Part of the API of
 the target *The finite polynomial spectral transform*. -/
 theorem polynomialSpectralResultant_map (f : A →+* S) (n m : ℕ) (B P : A[X]) :
     (polynomialSpectralResultant n m B P).map f =
       polynomialSpectralResultant n m (B.map f) (P.map f) := sorry
-/-- The value is a native finite-quotient algebra norm; promoted. Part of the API of the target *The
+/-- The value is a native finite-quotient algebra norm. Part of the API of the target *The
 finite polynomial spectral transform*. -/
 theorem polynomialSpectralResultant_norm (n m : ℕ) (B P : A[X])
     (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
@@ -1812,8 +2321,8 @@ theorem polynomialSpectralResultant_norm (n m : ℕ) (B P : A[X])
         (1-Polynomial.C Polynomial.X * B.map Polynomial.C)) := sorry
 /-- The finite root-product formula. For a finite index set I, arbitrary elements a_i∈A and
 m≥degree(B), D_(|I|,m)(B,∏_i(1−a_iY))=∏_i(1−B(a_i)T). Repetitions and zero a_i are allowed.
-(Source: Coleman, Appendix A3, printed434–436: finite definition of D(B,P), LemmaA3.8 and
-TheoremA3.9; complete printed432–436 freshly read27 September2026.) -/
+(Source: Coleman, Appendix A3, printed434–436: finite definition of D(B,P), Lemma A3.8 and
+Theorem A3.9.) -/
 theorem polynomialSpectralResultant_split {ι : Type*} (s : Finset ι) (a : ι → A)
     (m : ℕ) (B : A[X]) (hm : B.natDegree ≤ m) :
     polynomialSpectralResultant s.card m B (∏ i ∈ s, (1-Polynomial.C (a i)*Polynomial.X)) =
@@ -1855,11 +2364,6 @@ theorem Matrix.charpolyRev_map (f : R →+* S) (M : Matrix ι ι R) :
 /-- Similarity invariance of the characteristic series. -/
 theorem Matrix.charpolyRev_units_conj (u : (Matrix ι ι R)ˣ) (M : Matrix ι ι R) :
     (u.val * M * u.val⁻¹).charpolyRev = M.charpolyRev := by sorry
-
-/-- Diagonal entries of a triangular product. -/
-theorem Matrix.IsUpperTriangular.mul_apply_diag {M N : Matrix ι ι R}
-    (hM : M.IsUpperTriangular) (hN : N.IsUpperTriangular) (i : ι) :
-    (M*N) i i = M i i * N i i := by sorry
 
 /-- Polynomial evaluation preserves upper triangularity. -/
 theorem Matrix.IsUpperTriangular.aeval {M : Matrix ι ι R} (hM : M.IsUpperTriangular) (B : R[X]) :
@@ -1918,7 +2422,7 @@ example : aeval (!![2,1;0,2] : Matrix (Fin 2) (Fin 2) (ZMod 8))
 
 end FiniteSpectralCharacteristic
 
-/-! Universal finite characteristic comparison. 
+/-! Universal finite characteristic comparison.
 The native polynomial and matrix carriers are used throughout. The local
 notations abbreviate types only; no alternative generic-matrix carrier is defined.
 TauCeti's discriminant lemmas are proof-plan dependencies, not stubbed here. -/
@@ -1942,7 +2446,7 @@ polynomial coefficients*. -/
 theorem spectralUniversalPolynomial_coeff (n m : ℕ) (i : Fin (m+1)) :
     (spectralUniversalPolynomial n m).coeff i.val =
       MvPolynomial.C (MvPolynomial.X i) := sorry
-/-- Its natural degree is at most m; promoted as spectral-universal-degree. Part of the API of the
+/-- Its natural degree is at most m. Part of the API of the
 target *Universal polynomial coefficients*. -/
 theorem spectralUniversalPolynomial_natDegree_le (n m : ℕ) :
     (spectralUniversalPolynomial n m).natDegree ≤ m := sorry
@@ -1979,12 +2483,12 @@ theorem spectralSpecialization_comp {n : ℕ} (m : ℕ) (M : Matrix (Fin n) (Fin
     (B : R[X]) (f : R →+* S) :
     f.comp (spectralSpecialization m M B) =
       spectralSpecialization m (M.map f) (B.map f) := sorry
-/-- Entrywise specialization of native G is M; promoted. Part of the API of the target *Simultaneous
+/-- Entrywise specialization of native G is M. Part of the API of the target *Simultaneous
 coefficient and matrix specialization*. -/
 theorem spectralSpecialization_matrix {n : ℕ} (m : ℕ)
     (M : Matrix (Fin n) (Fin n) R) (B : R[X]) :
     (Matrix.mvPolynomialX (Fin n) (Fin n) (C[m])).map (spectralSpecialization m M B) = M := sorry
-/-- If natural degree(B)≤m, specialization of B_(N,m) is B; promoted. Part of the API of the target
+/-- If natural degree(B)≤m, specialization of B_(N,m) is B. Part of the API of the target
 *Simultaneous coefficient and matrix specialization*. -/
 theorem spectralSpecialization_polynomial {n : ℕ} (m : ℕ)
     (M : Matrix (Fin n) (Fin n) R) (B : R[X]) (hm : B.natDegree ≤ m) :
@@ -2134,7 +2638,7 @@ variable {R : Type*} [CommRing R]
 /-- Simultaneous reflection of the Sylvester matrix. Reindex both axes of Sylvester(f,g;m,n) by the
 global reversal of Fin(m+n), followed by the canonical cast to Fin(n+m). The result is
 Sylvester(reflect_n(g),reflect_m(f);n,m). (Source: Coleman, Appendix A3, printed434–435: resultant
-norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete.) -/
+norm interpretation, reciprocity(9), and the full proof of Lemma A3.8(11). Complete.) -/
 theorem sylvester_reflect_swap (f g : Polynomial R) (m n : ℕ) :
     (Polynomial.sylvester f g m n).reindex
         ((Fin.revPerm : Equiv.Perm (Fin (m+n))).trans (finCongr (Nat.add_comm m n)))
@@ -2142,20 +2646,20 @@ theorem sylvester_reflect_swap (f g : Polynomial R) (m n : ℕ) :
       Polynomial.sylvester (g.reflect n) (f.reflect m) n m := by sorry
 /-- Reciprocal resultant with swapped factors. Res(reflect_m(f),reflect_n(g);m,n)=Res(g,f;n,m).
 (Source: Coleman, Appendix A3, printed434–435: resultant norm interpretation, reciprocity(9), and
-the full proof of LemmaA3.8(11). Complete.) -/
+the full proof of Lemma A3.8(11). Complete.) -/
 theorem resultant_reflect_swap (f g : Polynomial R) (m n : ℕ) :
     Polynomial.resultant (f.reflect m) (g.reflect n) m n =
       Polynomial.resultant g f n m := by sorry
 /-- Finite reciprocal spectral evaluation. For monic Q of degree d and P.natDegree≤n,
 D_(n,d)(1−Q.reverse,P)(1)=Res(Q,P;d,P.natDegree). (Source: Coleman, Appendix A3, printed434–435:
-resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete.) -/
+resultant norm interpretation, reciprocity(9), and the full proof of Lemma A3.8(11). Complete.) -/
 theorem polynomialSpectralResultant_one_sub_reverse_eval
     (Q P : Polynomial R) (hQ : Q.Monic) (n : ℕ) (hP : P.natDegree ≤ n) :
     (polynomialSpectralResultant n Q.natDegree (1-Q.reverse) P).eval 1 =
       Polynomial.resultant Q P Q.natDegree P.natDegree := by sorry
 /-- A fixed-size resultant of the monic remainder. For monic Q of degree d and every polynomial P,
 Res(Q,P;d,P.natDegree)=Res(Q,P modByMonic Q;d,d). (Source: Coleman, Appendix A3, printed434–435:
-resultant norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete.) -/
+resultant norm interpretation, reciprocity(9), and the full proof of Lemma A3.8(11). Complete.) -/
 theorem resultant_modByMonic_fixedBound (Q P : Polynomial R) (hQ : Q.Monic) :
     Polynomial.resultant Q P Q.natDegree P.natDegree =
       Polynomial.resultant Q (P %ₘ Q) Q.natDegree Q.natDegree := by sorry
@@ -2166,7 +2670,7 @@ variable {R : Type*} [CommRing R] [TopologicalSpace R] [IsTopologicalRing R] [De
 /-- Continuity of a fixed coefficient resultant. For fixed Q and m,n, the function
 v↦Res(Q,Polynomial.ofFn(n+1,v);m,n) from the native finite product R^(n+1) to R is continuous.
 (Source: Coleman, Appendix A3, printed434–435: resultant norm interpretation, reciprocity(9), and
-the full proof of LemmaA3.8(11). Complete.) -/
+the full proof of Lemma A3.8(11). Complete.) -/
 theorem continuous_resultant_ofFn (Q : Polynomial R) (m n : ℕ) :
     Continuous (fun v : Fin (n+1) → R =>
       Polynomial.resultant Q (Polynomial.ofFn (n+1) v) m n) := by sorry
@@ -2177,7 +2681,7 @@ variable {A : Type*} [NormedCommRing A] [NormOneClass A] [CompleteSpace A] [Nont
 variable (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
 /-- Truncation limit of each monic quotient coefficient. For every k≥0, coeff_k(S_Q(F_n)) converges to
 coeff_k(S_Q(F)) as n tends to infinity. (Source: Coleman, Appendix A3, printed434–435: resultant
-norm interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete.) -/
+norm interpretation, reciprocity(9), and the full proof of Lemma A3.8(11). Complete.) -/
 theorem tendsto_entireMonicQuotient_trunc_coeff
     (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) (k : ℕ) :
     Tendsto (fun n : ℕ => (entireMonicQuotient Q
@@ -2185,7 +2689,7 @@ theorem tendsto_entireMonicQuotient_trunc_coeff
       atTop (𝓝 ((entireMonicQuotient Q F).coeff k)) := by sorry
 /-- Truncation limit of each monic remainder coefficient. For every k≥0, coeff_k(F_n modByMonic Q)
 converges to coeff_k(R_Q(F)). (Source: Coleman, Appendix A3, printed434–435: resultant norm
-interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete.) -/
+interpretation, reciprocity(9), and the full proof of Lemma A3.8(11). Complete.) -/
 theorem tendsto_modByMonic_trunc_coeff
     (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) (k : ℕ) :
     Tendsto (fun n : ℕ => ((PowerSeries.trunc (n+1) F) %ₘ Q).coeff k)
@@ -2194,7 +2698,7 @@ theorem tendsto_modByMonic_trunc_coeff
 
 /-- Entire resultant as a limit of polynomial resultants. Res(Q,F_n;d,F_n.natDegree) converges to the
 existing entire resultant Res(Q,F). (Source: Coleman, Appendix A3, printed434–435: resultant norm
-interpretation, reciprocity(9), and the full proof of LemmaA3.8(11). Complete.) -/
+interpretation, reciprocity(9), and the full proof of Lemma A3.8(11). Complete.) -/
 theorem tendsto_resultant_trunc
     (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) :
     Tendsto (fun n : ℕ => Polynomial.resultant Q (PowerSeries.trunc (n+1) F)
@@ -2202,7 +2706,7 @@ theorem tendsto_resultant_trunc
       atTop (𝓝 (entireResultant hA Q hQ F hF)) := by sorry
 /-- Scalar spectral limit with a fixed reciprocal polynomial. D_(n,d)(1−Q.reverse,F_n)(1) converges to
 Res(Q,F). (Source: Coleman, Appendix A3, printed434–435: resultant norm interpretation,
-reciprocity(9), and the full proof of LemmaA3.8(11). Complete.) -/
+reciprocity(9), and the full proof of Lemma A3.8(11). Complete.) -/
 theorem tendsto_spectral_one_sub_reverse_eval
     (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F) :
     Tendsto (fun n : ℕ => (polynomialSpectralResultant n Q.natDegree
@@ -2212,7 +2716,7 @@ theorem tendsto_spectral_one_sub_reverse_eval
 /-- The normalized scalar limit in Coleman A3.8. Assume F(0)=1 and let B=1−Q.reverse and
 B_n=trunc(n+1,B). Then D_(n,n)(B_n,F_n)(1) converges to Res(Q,F). (Source: Coleman, Appendix A3,
 printed434–435: resultant norm interpretation, reciprocity(9), and the full proof of
-LemmaA3.8(11). Complete.) -/
+Lemma A3.8(11). Complete.) -/
 theorem tendsto_spectral_simultaneous_trunc_eval
     (Q : Polynomial A) (hQ : Q.Monic) (F : PowerSeries A) (hF : IsEntire F)
     (hF0 : F.coeff 0 = 1) :
@@ -2446,22 +2950,19 @@ section FiniteSpectralCoordinates
 variable {R : Type*} [CommRing R]
 /-- Reduction of the functional polynomial at fixed characteristic rank. If P(0)=1, natDegree(P)≤n and
 natDegree(B)≤m, then D_(n,m)(B,P)=D_(n,n)(B modByMonic reflect_n(P),P). (Source: Coleman, Appendix
-A3, published435: definition of D and LemmaA3.8; full published435–436 freshly read28
-September2026, with preceding full432–436 reading retained.) -/
+A3, printed pp. 435–436: definition of D and Lemma A3.8.) -/
 theorem polynomialSpectralResultant_modByMonic (n m : ℕ) (B P : Polynomial R)
     (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
     polynomialSpectralResultant n m B P =
       polynomialSpectralResultant n n (B %ₘ P.reflect n) P := sorry
 /-- The finite spectral output has degree at most its rank. For any B,P and any n,m,
-natDegree(D_(n,m)(B,P))≤n. (Source: Coleman, Appendix A3, published435: definition of D and
-LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading
-retained.) -/
+natDegree(D_(n,m)(B,P))≤n. (Source: Coleman, Appendix A3, printed pp. 435–436: definition of D and
+Lemma A3.8.) -/
 theorem polynomialSpectralResultant_natDegree_le (n m : ℕ) (B P : Polynomial R) :
     (polynomialSpectralResultant n m B P).natDegree ≤ n := sorry
 /-- Continuity of finite spectral coefficients. Over a topological commutative ring R, fix n,m,k and
 P. The kth coefficient of D_(n,m)(ofFn_(m+1)(b),P) is continuous as a function of b∈R^(m+1).
-(Source: Coleman, Appendix A3, published435: definition of D and LemmaA3.8; full published435–436
-freshly read28 September2026, with preceding full432–436 reading retained.) -/
+(Source: Coleman, Appendix A3, printed pp. 435–436: definition of D and Lemma A3.8.) -/
 theorem continuous_polynomialSpectralResultant_coeff [TopologicalSpace R]
     [IsTopologicalRing R] [DecidableEq R] (n m k : ℕ) (P : Polynomial R) :
     Continuous (fun b : Fin (m+1) → R =>
@@ -2472,9 +2973,8 @@ section BoundedDegreeGauss
 variable {A : Type*} [NormedCommRing A]
 /-- Gauss convergence of bounded-degree coefficient limits. For any filter l, polynomials F_i and f
 over a normed commutative ring with all natural degrees≤d, and coefficientwise F_i→f along l, one
-has G_R(F_i−f)→0 for every R>0. (Source: Coleman, Appendix A3, published435: definition of D and
-LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading
-retained.) -/
+has G_R(F_i−f)→0 for every R>0. (Source: Coleman, Appendix A3, printed pp. 435–436: definition of D and
+Lemma A3.8.) -/
 theorem tendsto_gaussNorm_of_bounded_degree {ι : Type*} (l : Filter ι)
     (F : ι → Polynomial A) (f : Polynomial A) (d : ℕ)
     (hF : ∀ i, (F i).natDegree ≤ d) (hf : f.natDegree ≤ d)
@@ -2485,8 +2985,7 @@ theorem tendsto_gaussNorm_of_bounded_degree {ι : Type*} (l : Filter ι)
 
 /-- Spectral transform with entire functional input and fixed polynomial input. Define
 E_n(B,P)=D_(n,n)(R_(Q_n)(B),P), a native polynomial, using the existing entire monic remainder and
-Q_n=reflect_n(P). (Source: Coleman, Appendix A3, published435: definition of D and LemmaA3.8; full
-published435–436 freshly read28 September2026, with preceding full432–436 reading retained.) -/
+Q_n=reflect_n(P). (Source: Coleman, Appendix A3, printed pp. 435–436: definition of D and Lemma A3.8.) -/
 def entirePolynomialSpectral (n : ℕ) (B : PowerSeries A) (P : Polynomial A) : Polynomial A := sorry
 /-- The value is D_(n,n) of trunc_n(B−Q_n S_(Q_n)(B)) and P. Part of the API of the target *Spectral
 transform with entire functional input and fixed polynomial input*. -/
@@ -2512,23 +3011,20 @@ variable (hA : ∀ x y : A, ‖x+y‖ ≤ max ‖x‖ ‖y‖)
 include hA hNormOne hComplete hNontrivial
 
 /-- Agreement with the polynomial spectral construction. For polynomial B with natDegree(B)≤m,
-E_n(B,P)=D_(n,m)(B,P). (Source: Coleman, Appendix A3, published435: definition of D and LemmaA3.8;
-full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.) -/
+E_n(B,P)=D_(n,m)(B,P). (Source: Coleman, Appendix A3, printed pp. 435–436: definition of D and Lemma A3.8.) -/
 theorem entirePolynomialSpectral_polynomial (n m : ℕ) (B P : Polynomial A)
     (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (hm : B.natDegree ≤ m) :
     entirePolynomialSpectral n (B : PowerSeries A) P = polynomialSpectralResultant n m B P := sorry
 /-- Coefficient limits at fixed characteristic rank. For every k, coeff_k D_(n,N)(trunc_(N+1)(B),P)
-tends to coeff_k E_n(B,P) as N→∞. (Source: Coleman, Appendix A3, published435: definition of D and
-LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436 reading
-retained.) -/
+tends to coeff_k E_n(B,P) as N→∞. (Source: Coleman, Appendix A3, printed pp. 435–436: definition of D and
+Lemma A3.8.) -/
 theorem tendsto_spectral_fixed_polynomial_coeff (n : ℕ) (B : PowerSeries A)
     (hB : IsEntire B) (P : Polynomial A) (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) (k : ℕ) :
     Tendsto (fun N : ℕ => (polynomialSpectralResultant n N (PowerSeries.trunc (N+1) B) P).coeff k)
       atTop (𝓝 ((entirePolynomialSpectral n B P).coeff k)) := sorry
 /-- All-radius Gauss convergence at fixed characteristic rank. For every R>0,
-G_R(D_(n,N)(trunc_(N+1)(B),P)−E_n(B,P)) tends to0. (Source: Coleman, Appendix A3, published435:
-definition of D and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding
-full432–436 reading retained.) -/
+G_R(D_(n,N)(trunc_(N+1)(B),P)−E_n(B,P)) tends to0. (Source: Coleman, Appendix A3, printed pp. 435–436:
+definition of D and Lemma A3.8.) -/
 theorem tendsto_spectral_fixed_polynomial_gauss (n : ℕ) (B : PowerSeries A)
     (hB : IsEntire B) (P : Polynomial A) (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n)
     (R : ℝ) (hR : 0 < R) :
@@ -2537,8 +3033,7 @@ theorem tendsto_spectral_fixed_polynomial_gauss (n : ℕ) (B : PowerSeries A)
         entirePolynomialSpectral n B P : Polynomial A) : PowerSeries A)) atTop (𝓝 0) := sorry
 /-- Simultaneous truncation convergence for polynomial characteristic input. If also B(0)=0, the
 simultaneous D_(N,N)(trunc_(N+1)(B),trunc_(N+1)(P)) converges in every G_R to
-E_(natDegree(P))(B,P). (Source: Coleman, Appendix A3, published435: definition of D and LemmaA3.8;
-full published435–436 freshly read28 September2026, with preceding full432–436 reading retained.) -/
+E_(natDegree(P))(B,P). (Source: Coleman, Appendix A3, printed pp. 435–436: definition of D and Lemma A3.8.) -/
 theorem tendsto_spectral_simultaneous_fixed_polynomial_gauss
     (B : PowerSeries A) (hB : IsEntire B) (hB0 : B.coeff 0 = 0)
     (P : Polynomial A) (hP : P.coeff 0 = 1) (R : ℝ) (hR : 0 < R) :
@@ -2547,25 +3042,22 @@ theorem tendsto_spectral_simultaneous_fixed_polynomial_gauss
         (PowerSeries.trunc (N+1) (P : PowerSeries A)) -
         entirePolynomialSpectral P.natDegree B P : Polynomial A) : PowerSeries A)) atTop (𝓝 0) := sorry
 /-- The exact zero-root padding law for entire functional input. E_(n+1)(B,P)=E_n(B,P)(1−B(0)T).
-(Source: Coleman, Appendix A3, published435: definition of D and LemmaA3.8; full published435–436
-freshly read28 September2026, with preceding full432–436 reading retained.) -/
+(Source: Coleman, Appendix A3, printed pp. 435–436: definition of D and Lemma A3.8.) -/
 theorem entirePolynomialSpectral_padding (n : ℕ) (B : PowerSeries A) (hB : IsEntire B)
     (P : Polynomial A) (hP : P.coeff 0 = 1) (hn : P.natDegree ≤ n) :
     entirePolynomialSpectral (n+1) B P = entirePolynomialSpectral n B P *
       (1 - Polynomial.C (B.coeff 0) * Polynomial.X) := sorry
 /-- Factor products for polynomial characteristic inputs. If Q is also normalized with natDegree(Q)≤k,
-then E_(n+k)(B,PQ)=E_n(B,P)E_k(B,Q). (Source: Coleman, Appendix A3, published435: definition of D
-and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436
-reading retained.) -/
+then E_(n+k)(B,PQ)=E_n(B,P)E_k(B,Q). (Source: Coleman, Appendix A3, printed pp. 435–436: definition of D
+and Lemma A3.8.) -/
 theorem entirePolynomialSpectral_mul (n k : ℕ) (B : PowerSeries A) (hB : IsEntire B)
     (P Q : Polynomial A) (hP : P.coeff 0 = 1) (hQ : Q.coeff 0 = 1)
     (hn : P.natDegree ≤ n) (hk : Q.natDegree ≤ k) :
     entirePolynomialSpectral (n+k) B (P*Q) =
       entirePolynomialSpectral n B P * entirePolynomialSpectral k B Q := sorry
 /-- Linear characteristic input evaluates the entire function. For a∈A, E_1(B,1−aT)=1−B(a)T, with the
-preceding actual entire evaluation. (Source: Coleman, Appendix A3, published435: definition of D
-and LemmaA3.8; full published435–436 freshly read28 September2026, with preceding full432–436
-reading retained.) -/
+preceding actual entire evaluation. (Source: Coleman, Appendix A3, printed pp. 435–436: definition of D
+and Lemma A3.8.) -/
 theorem entirePolynomialSpectral_linear (B : PowerSeries A) (hB : IsEntire B) (a : A) :
     entirePolynomialSpectral 1 B (1-Polynomial.C a*Polynomial.X) =
       1-Polynomial.C (entire_eval B a)*Polynomial.X := sorry
@@ -2593,337 +3085,6 @@ end EntireFixedCharacteristic
 end NonarchimedeanFredholm
 end
 
-/-!
-## L0–L2: locally analytic functions, the Amice transform and order-r distributions
-
-Signatures (comment only; the objects are Colmez's `LA_h`, `D(ℤ_p, L)`, `C^r` and `D_r`):
-
-```
-/-- Locally analytic functions of fixed radius. For h ∈ ℕ, LA_h(ℤ_p, L) is the space of φ : ℤ_p → L
-whose restriction to each a + p^hℤ_p is the restriction of some φ_{a,h} ∈ An(B(a, h), L), with
-v_{LA_h}(φ) = inf_a v_{B(a,h)}(φ_{a,h}) (the infimum may be taken over any set of representatives
-of ℤ_p/p^h). It is an L-Banach space with orthonormal basis e_{h,n}(x) = 1_{n+p^hℤ_p}(x)·((x +
-i(n))/p^h)^{m(n)} (n = (m(n) + 1)p^h − i(n), 1 ≤ i(n) ≤ p^h), LA_h(ℤ_p, L) = L ⊗̂_{ℚ_p} LA_h(ℤ_p,
-ℚ_p), and the inclusions LA_h ⊂ LA_{h+1} are continuous of norm ≤ 1. Since ℤ_p is compact, every
-locally analytic function lies in some LA_h, and LA(ℤ_p, L) = lim→_h LA_h(ℤ_p, L) carries the
-locally convex inductive-limit topology. (Source: Colmez, §I.4.2, Remark I.4.4, Lemma I.4.5,
-Corollary I.4.6, pp. 14–15; RJW, Definition 3.40 and the description of C^{n−an}, p. 24.) -/
-def LAh (h : ℕ) : Type _            -- LA_h(ℤ_p, L), Banach with v_{LA_h}
-/-- LA(ℤ_p, L) = lim→ LA_h with the inductive-limit topology. Part of the API of the target *Locally
-analytic functions of fixed radius*. -/
-def LA : Type _ := lim→ LAh          -- inductive-limit (compact type) topology
-/-- D(ℤ_p, L), the continuous dual of LA(ℤ_p, L). Part of the API of the target *Locally analytic
-distributions*. -/
-def Dist : Type _ := LA →L[L] L      -- Fréchet dual = lim← (LAh h)′
-theorem amice_mahler_basis (h : ℕ) : IsOrthonormalBasis (fun n ↦ ((n / p ^ h)! : L) • binomial n)
-/-- The Amice transform of distributions. For μ ∈ D(ℤ_p, L) let A_μ(T) = ∫(1 + T)^x μ(x) = Σ_n T^n
-∫C(x, n)μ ∈ L⟦T⟧. Then μ ↦ A_μ is an isomorphism of Fréchet spaces from D(ℤ_p, L) onto R⁺, the
-power series converging on the open unit disc v_p(T) > 0 with the valuations v_{B(0,u_h)}, u_h =
-1/((p − 1)p^h). Precisely, v_{B(0,u_h)}(A_μ) ≥ v_{LA_h}(μ) ≥ v_{B(0,u_{h+1})}(A_μ) − 1. Moreover
-∫(1 + z)^x μ = A_μ(z) for v_p(z) > 0, and on bounded measures A_μ is the bounded Amice (Mahler)
-transform, so D ⊃ M corresponds to R⁺ ⊃ 𝒪_L⟦T⟧ ⊗ L. (Source: Colmez, Lemma II.2.1 and Theorem
-II.2.2, p. 30; RJW, Theorem 3.43 and (3.12), p. 25.) -/
-def amice : Dist ≃L[L] OpenDiscFunctions L   -- μ ↦ Σ Tⁿ ∫ C(x, n) μ
-/-- Distributions of order r (admissible distributions). For r ≥ 0, a distribution μ ∈ D(ℤ_p, L) has
-order r (is r-admissible, or h-admissible with h = r) if it extends continuously to C^r(ℤ_p, L);
-D_r(ℤ_p, L) = C^r(ℤ_p, L)′. The following are equivalent: (a) μ ∈ D_r; (b) the Amice transform A_μ
-= Σ b_nT^n has v_p(b_n) + rℓ(n) bounded below (A_μ ∈ R⁺_r); (c) inf_h(v_{B(0,u_h)}(A_μ) + rh) >
-−∞; (d) v_{D_r}(μ) = inf_n(v_{LA_n}(μ) + rn) > −∞, i.e. ‖μ‖_{LA_n} = O(p^{rn}) (on the ball of
-radius p^{−n}); (e) there is C with v_p(∫_{a+p^nℤ_p}((x − a)/p^n)^k μ) ≥ C − rn for all a ∈ ℤ_p,
-k, n. The valuations of (b)–(e) are equivalent to v′_{D_r}, and μ ↦ A_μ is an isometry (D_r,
-v′_{D_r}) ≅ (R⁺_r, v_r). Orders add under products of transforms and under convolution. (Source:
-Colmez, §II.1, Lemma II.1.1, §II.3.1, Proposition II.3.1, Theorem II.3.2(i), Proposition II.3.3,
-pp. 29–34.) -/
-def DistOrder (r : ℝ≥0) : Submodule L Dist   -- extends continuously to C^r
-theorem amice_velu_vishik (r : ℝ≥0) (N : ℕ∞) (hN : ⌊r⌋₊ ≤ N) (μ : LocPoly N →ₗ[L] L)
-    (hμ : ∃ C, ∀ a k n, k ≤ N → C - r * n ≤ v (μ (ballMonomial a n k))) :
-    ∃! μ' ∈ DistOrder r, ∀ f, μ' f = μ f
-```
--/
-
-/-! ## Layer 0: analytic Banach stages, locally analytic functions and their strong duals (one variable) -/
-
-namespace LocallyAnalytic.SuggestedTest
-
-/-- Amice's theorem on Mahler coefficients: `v_3((3²)!) = (3² − 1)/(3 − 1) = 4`, the size of `C(x, 9)` in `LA₀`. -/
-example : Nat.factorial 9 % 3 ^ 4 = 0 ∧ Nat.factorial 9 % 3 ^ 5 ≠ 0 := by
-  norm_num [Nat.factorial]
-
-/-- The Amice–Vélu–Vishik extension and uniqueness theorem: `d^{N+1}δ₀` kills every polynomial of degree `≤ N`, so uniqueness fails at
-`r = N + 1`. -/
-example (P : Polynomial ℚ) (N : ℕ) (h : P.natDegree ≤ N) :
-    Polynomial.derivative^[N + 1] P = 0 :=
-  Polynomial.iterate_derivative_eq_zero (by omega)
-
-/-- Order zero is bounded measures: the Haar distribution `μ(a + pⁿℤ_p) = p^{−n}` is additive over the `p`
-sub-balls. -/
-example (p : ℚ) (hp : p ≠ 0) (n : ℕ) : (p ^ n)⁻¹ = p * (p ^ (n + 1))⁻¹ := by
-  field_simp
-  ring
-
-end LocallyAnalytic.SuggestedTest
-
-/-! Mellin transforms of bounded measures on a finite-character component (README §3.1–§3.2),
-and series on the open disc (§1.2).  -/
-noncomputable section
-open Filter
-open scoped Topology AbstractMeasure
-/-! ## Layer 1: the unbounded Amice transform — series on the open disc (§1.2);
-## Layer 3: character spaces and Mellin transforms — component and branch Mellin (§3.1–§3.2) -/
-
-namespace Mellin
-variable {p : ℕ} [Fact p.Prime]
-variable {K : Type*} [NontriviallyNormedField K] [CompleteSpace K]
-  [Algebra ℤ_[p] K] [IsBoundedSMul ℤ_[p] K] [IsUltrametricDist K]
-
--- The predicate uses native radius-restricted series; it is not a new carrier.
-def OnOpenDisc (F : PowerSeries K) : Prop :=
-  ∀ R : ℝ, 0 < R → R < 1 → PowerSeries.IsRestricted R F
-
--- Evaluation is the native scalar-series sum, not a second construction.
-abbrev evalOpen (F : PowerSeries K) (t : K) : K :=
-  FormalMultilinearSeries.ofScalarsSum (fun n => F.coeff n) t
-theorem evalOpen_def (F : PowerSeries K) (t : K) :
-    evalOpen F t = ∑' n : ℕ, F.coeff n * t ^ n := by sorry
-theorem evalOpen_zero (F : PowerSeries K) : evalOpen F 0 = F.coeff 0 := by sorry
-theorem evalOpen_C (a t : K) : evalOpen (PowerSeries.C a) t = a := by sorry
-theorem evalOpen_X (t : K) : evalOpen PowerSeries.X t = t := by sorry
-theorem evalOpen_add (F H : PowerSeries K) (hF : OnOpenDisc F) (hH : OnOpenDisc H)
-    (t : K) (ht : ‖t‖ < 1) : evalOpen (F + H) t = evalOpen F t + evalOpen H t := by sorry
-theorem evalOpen_smul (F : PowerSeries K) (hF : OnOpenDisc F) (a t : K) (ht : ‖t‖ < 1) :
-    evalOpen (a • F) t = a * evalOpen F t := by sorry
--- MellinEvalTests.zero_series
-example (t : K) : evalOpen 0 t = 0 := by sorry
--- MellinEvalTests.linear
-example (a b t : K) : evalOpen (PowerSeries.C a + PowerSeries.C b * PowerSeries.X) t =
-    a + b*t := by sorry
--- MellinEvalTests.geometric
-example (t : K) (ht : ‖t‖ < 1) : evalOpen (PowerSeries.mk (fun _ => (1 : K))) t =
-    (1-t)⁻¹ := by sorry
--- MellinEvalTests.boundary
-example : ¬ Summable (fun _ : ℕ => (1 : K)) := by sorry
-
-/-- Open-disc series and the native analytic radius. For an open-disc series F, the native scalar
-formal multilinear series ofScalars(K,coeff(F)) has radius at least 1. E(F,t) is therefore the sum
-of this native analytic series on ||t||<1. This is an adapter between two existing library
-encodings, not a second definition of summation or of analyticity. (Source: Colmez, §II.2, Lemma
-II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
-theorem openDisc_native_radius (F : PowerSeries K) (hF : OnOpenDisc F) :
-    (1 : ENNReal) ≤ (FormalMultilinearSeries.ofScalars K (fun n => F.coeff n)).radius := by sorry
-
-/-- Summability inside the open disc. For every open-disc series F and t∈K with ||t||<1, the series
-Σ_n a_n t^n is summable in K. (Source: Colmez, §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs,
-author PDF p. 30.) -/
-theorem openDisc_summable (F : PowerSeries K) (hF : OnOpenDisc F)
-    (t : K) (ht : ‖t‖ < 1) : Summable (fun n : ℕ => F.coeff n * t ^ n) := by sorry
-/-- Uniform geometric tails on a smaller disc. Let 0<R<S<1, M≥0, and ||a_n||S^n≤M for every n. For
-||t||≤R and N≥0, ||E(F,t)−Σ_{n<N}a_n t^n||≤M(R/S)^N. Thus truncations converge uniformly on the
-closed radius-R disc; this is a coefficient estimate, with no compactness assumption on that disc.
-(Source: Colmez, §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
-theorem evalOpen_tail_bound (F : PowerSeries K) (hF : OnOpenDisc F) (R S M : ℝ)
-    (hR : 0 < R) (hRS : R < S) (hS : S < 1) (hM : 0 ≤ M)
-    (hb : ∀ n : ℕ, ‖F.coeff n‖ * S^n ≤ M) (t : K) (ht : ‖t‖ ≤ R) (N : ℕ) :
-    ‖evalOpen F t - ∑ n ∈ Finset.range N, F.coeff n * t^n‖ ≤ M * (R/S)^N := by sorry
-/-- Analytic evaluation of an open-disc series. For every open-disc series F, the function E(F,−):K→K
-is analytic at every t with ||t||<1, using Mathlib’s AnalyticOnNhd. This does not identify an
-arbitrary function on C_p-valued points with a rigid analytic function. (Source: Colmez, §II.2,
-Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
-theorem analyticOnNhd_evalOpen (F : PowerSeries K) (hF : OnOpenDisc F) :
-    AnalyticOnNhd K (evalOpen F) {t : K | ‖t‖ < 1} := by sorry
-/-- Evaluation preserves products inside the disc. For open-disc series F,H and ||t||<1,
-E(FH,t)=E(F,t)E(H,t). The corresponding additivity and scalar-linearity follow from summability.
-(Source: Colmez, §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
-theorem evalOpen_mul (F H : PowerSeries K) (hF : OnOpenDisc F) (hH : OnOpenDisc H)
-    (t : K) (ht : ‖t‖ < 1) : evalOpen (F * H) t = evalOpen F t * evalOpen H t := by sorry
-/-- Evaluation commutes with an isometric coefficient extension. For an isometric field homomorphism
-φ:K→K′ into a complete ultrametric field, an open-disc series F and ||t||<1,
-E(map(φ,F),φ(t))=φ(E(F,t)). The coefficient map is the native PowerSeries.map; no arbitrary
-C_p-point function or completed distribution-family object is introduced. (Source: Colmez, §II.2,
-Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
-theorem evalOpen_map {L : Type*} [NontriviallyNormedField L] [CompleteSpace L]
-    [IsUltrametricDist L] (φ : K →+* L) (hφ : Isometry φ)
-    (F : PowerSeries K) (hF : OnOpenDisc F) (t : K) (ht : ‖t‖ < 1) :
-    evalOpen (PowerSeries.map φ F) (φ t) = φ (evalOpen F t) := by sorry
-
-section Components
-variable {G Δ : Type*} [TopologicalSpace G] [CompactSpace G]
-  [Fintype Δ] [TopologicalSpace Δ] [DiscreteTopology Δ]
-/-- Mellin series on a finite-character component. Let G be compact and let H:G≃Δ×Z_p be an imported
-character chart, Δ a finite discrete set. Let ν:Δ→K be the finite-character value function (the
-formula also makes sense for any ν). For a native bounded measure μ on G define
-F_{μ,ν,H}(T)=Σ_{n≥0} μ(g↦ν(H(g)_Δ) binom(H(g)_Z,n)) T^n. Multiplication uses K, with the native
-algebra map Z_p→K on binomial values. This is the Mellin series adapter on the imported component;
-it does not construct Δ, H, the character functor or its representing space. (Source: RJW, Remark
-3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22).) -/
-def componentMellin (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
-    (μ : AbstractMeasure G K K) : PowerSeries K := by sorry
-/-- The nth coefficient is μ(ν∘H_Δ times binom(H_Z,n)). Part of the API of the target *Mellin series
-on a finite-character component*. -/
-theorem componentMellin_coeff (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
-    (μ : AbstractMeasure G K K) (n : ℕ) :
-    (componentMellin H ν μ).coeff n = μ ⟨fun g =>
-      ν (H g).1 * algebraMap ℤ_[p] K (mahler n (H g).2), by fun_prop⟩ := by sorry
-/-- F_{μ+η,ν,H}=F_{μ,ν,H}+F_{η,ν,H}. Part of the API of the target *Mellin series on a
-finite-character component*. -/
-theorem componentMellin_add (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
-    (μ η : AbstractMeasure G K K) :
-    componentMellin H ν (μ+η) = componentMellin H ν μ + componentMellin H ν η := by sorry
-/-- F_{aμ,ν,H}=aF_{μ,ν,H}. Part of the API of the target *Mellin series on a finite-character
-component*. -/
-theorem componentMellin_smul (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
-    (a : K) (μ : AbstractMeasure G K K) :
-    componentMellin H ν (a • μ) = a • componentMellin H ν μ := by sorry
-/-- F_{δ_g,ν,H}=ν(H_Δg)Σ_n binom(H_Zg,n)T^n. Part of the API of the target *Mellin series on a
-finite-character component*. -/
-theorem componentMellin_dirac (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) (g : G) :
-    componentMellin H ν (AbstractMeasure.dirac K g) =
-      PowerSeries.mk (fun n => ν (H g).1 * algebraMap ℤ_[p] K (mahler n (H g).2)) := by sorry
-/-- coeff_0 F=μ(ν∘H_Δ). Part of the API of the target *Mellin series on a finite-character component*. -/
-theorem componentMellin_mass (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
-    (μ : AbstractMeasure G K K) :
-    (componentMellin H ν μ).coeff 0 = μ ⟨fun g => ν (H g).1, by fun_prop⟩ := by sorry
--- ComponentMellinTests.zero
-example (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) : componentMellin H ν 0 = 0 := by sorry
--- ComponentMellinTests.finite_atom
-example (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) (δ : Δ) :
-    componentMellin H ν (AbstractMeasure.dirac K (H.symm (δ,0))) =
-      PowerSeries.C (ν δ) := by sorry
--- ComponentMellinTests.generator_atom
-example (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K) (δ : Δ) :
-    componentMellin H ν (AbstractMeasure.dirac K (H.symm (δ,1))) =
-      PowerSeries.C (ν δ) * (1+PowerSeries.X) := by sorry
--- ComponentMellinTests.native_amice
-example (μ : AbstractMeasure ℤ_[p] K K) :
-    componentMellin (Homeomorph.uniqueProd PUnit ℤ_[p]).symm (fun _ => (1 : K)) μ =
-      μ.amiceTransform := by sorry
-/-- Bounded component Mellin coefficients. Under the component-Mellin hypotheses, if C≥0 and
-||ν(δ)||≤C for every δ, then ||coeff_n F_{μ,ν,H}||≤||μ||C for every n, where ||μ|| is the native
-continuous-linear-functional operator norm. For finite characters in a splitting field one may
-take C=1. (Source: RJW, Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark
-5.22).) -/
-theorem componentMellin_coeff_bound (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
-    (μ : AbstractMeasure G K K) (C : ℝ) (hC : 0 ≤ C) (hν : ∀ δ, ‖ν δ‖ ≤ C) (n : ℕ) :
-    ‖(componentMellin H ν μ).coeff n‖ ≤ ‖AbstractMeasure.toCLMEquiv μ‖ * C := by sorry
-/-- Bounded component series are analytic on the disc. For every μ,ν,H as above, the component series
-is open-disc analytic and has uniformly bounded coefficients. It is therefore a bounded rigid
-function when transported to the imported component. This forward comparison does not by itself
-prove that every bounded rigid function comes from a measure. (Source: RJW, Remark 3.47, pp.
-25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22).) -/
-theorem componentMellin_onOpenDisc (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
-    (μ : AbstractMeasure G K K) : OnOpenDisc (componentMellin H ν μ) := by sorry
-/-- Character evaluation equals the component Mellin value. For ||t||<1 let κ_t:Z_p→K be the native
-additive character with κ_t(1)=1+t. Then E(F_{μ,ν,H},t)=μ(g↦ν(H_Δg)κ_t(H_Zg)). If H is a group
-chart and ν a finite character, its right side is the scalar character integral on the imported
-component. The statement uses continuous maps and genuine coefficient-field points. (Source: RJW,
-Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22); Colmez, §II.2,
-Lemma II.2.1 and Theorem II.2.2 with proofs, author PDF p. 30.) -/
-theorem componentMellin_eval (H : G ≃ₜ Δ × ℤ_[p]) (ν : Δ → K)
-    (μ : AbstractMeasure G K K) (t : K) (ht : ‖t‖ < 1) :
-    evalOpen (componentMellin H ν μ) t = μ ⟨fun g => ν (H g).1 *
-      PadicInt.addChar_of_value_at_one t
-        (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr ht) (H g).2, by fun_prop⟩ := by sorry
-end Components
-
-/-- Mellin branches in an arithmetic parameter. For an open-disc series F, q∈K with ||q||<1, and
-s∈Z_p, put B_{F,q}(s)=E(F,κ_q(s)−1), using the native κ_q(1)=1+q. In the standard odd-prime unit
-chart, γ=1+p, q=γ−1, and ν=ω^i, this is Mel_{μ,i}(s)=∫ω(x)^i〈x〉^s dμ. At p=2 the imported chart is
-{±1}×(1+4Z_2), with γ=5; the odd-prime chart is not used there. (Source: RJW, Remark 3.47, pp.
-25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22).) -/
-def branchMellin (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) : K :=
-    evalOpen F (PadicInt.addChar_of_value_at_one q
-      (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr hq) s - 1)
-/-- B_{F,q}(s)=E(F,κ_q(s)−1). Part of the API of the target *Mellin branches in an arithmetic
-parameter*. -/
-theorem branchMellin_def (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
-    branchMellin F q hq s = evalOpen F (PadicInt.addChar_of_value_at_one q
-      (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr hq) s - 1) := by sorry
-/-- B_{F,q}(0)=coeff_0 F. Part of the API of the target *Mellin branches in an arithmetic parameter*. -/
-theorem branchMellin_zero (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) :
-    branchMellin (p := p) F q hq 0 = F.coeff 0 := by sorry
-/-- B_{F,q}(1)=E(F,q). Part of the API of the target *Mellin branches in an arithmetic parameter*. -/
-theorem branchMellin_one (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) :
-    branchMellin (p := p) F q hq 1 = evalOpen F q := by sorry
-/-- B_{F+H,q}(s)=B_{F,q}(s)+B_{H,q}(s) for two open-disc series. Part of the API of the target *Mellin
-branches in an arithmetic parameter*. -/
-theorem branchMellin_add (F H : PowerSeries K) (hF : OnOpenDisc F) (hH : OnOpenDisc H)
-    (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
-    branchMellin (F+H) q hq s = branchMellin F q hq s + branchMellin H q hq s := by sorry
--- BranchMellinTests.zero
-example (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) : branchMellin 0 q hq s = 0 := by sorry
--- BranchMellinTests.constant
-example (a q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
-    branchMellin (PowerSeries.C a) q hq s = a := by sorry
--- BranchMellinTests.linear_at_one
-example (q : K) (hq : ‖q‖ < 1) : branchMellin (p := p) PowerSeries.X q hq 1 = q := by sorry
--- BranchMellinTests.generator_at_zero
-example (q : K) (hq : ‖q‖ < 1) : branchMellin (p := p) (1+PowerSeries.X) q hq 0 = 1 := by sorry
-/-- Arithmetic branches stay inside the character disc. For q∈K with ||q||<1 and s∈Z_p,
-||κ_q(s)−1||≤||q||<1. (Source: Colmez, §II.2, Lemma II.2.1 and Theorem II.2.2 with proofs, author
-PDF p. 30.) -/
-theorem branchCoordinate_norm_le (q : K) (hq : ‖q‖ < 1) (s : ℤ_[p]) :
-    ‖PadicInt.addChar_of_value_at_one q
-      (tendsto_pow_atTop_nhds_zero_iff_norm_lt_one.mpr hq) s - 1‖ ≤ ‖q‖ := by sorry
-/-- Mellin evaluation at integral weights. For n≥0, B_{F,q}(n)=E(F,(1+q)^n−1). This pins integral
-specialization of a branch independently of arithmetic L-value interpolation. In the canonical
-unit chart, recovering x^k additionally requires the finite character ν=ω^i with k≡i modulo p−1
-for odd p, and the corresponding parity branch at p=2; those coordinate comparisons are a
-remaining supplier interface. (Source: RJW, Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula
-immediately before Remark 5.22).) -/
-theorem branchMellin_nat (F : PowerSeries K) (q : K) (hq : ‖q‖ < 1) (n : ℕ) :
-    branchMellin F q hq (n : ℤ_[p]) = evalOpen F ((1+q)^n-1) := by sorry
-
-/-- Mellin evaluation on a clearing-factor domain. For open-disc numerator F and denominator D define
-Q_{F,D}(t)=E(F,t)/E(D,t) only as a meromorphic chart expression. All evaluation theorems require
-||t||<1 and E(D,t)≠0. For a pseudomeasure λ imported from PMIA L3 and a genuine clearing numerator
-μ=([a]−[1])λ, F is the component Mellin series of μ and D represents κ_t(a)−1. A quotient’s total
-value at a zero denominator has no meromorphic meaning; no extension of the pseudomeasure’s value
-is asserted there. (Source: RJW, Remark 3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately
-before Remark 5.22).) -/
-def quotientMellin (F D : PowerSeries K) (t : K) : K := evalOpen F t / evalOpen D t
-/-- Q_{F,D}(t)=E(F,t)/E(D,t); meaningful use is guarded by the nonvanishing condition. Part of the API
-of the target *Mellin evaluation on a clearing-factor domain*. -/
-theorem quotientMellin_def (F D : PowerSeries K) (t : K) :
-    quotientMellin F D t = evalOpen F t / evalOpen D t := by sorry
-/-- E(D,t)Q_{F,D}(t)=E(F,t) when E(D,t)≠0. Part of the API of the target *Mellin evaluation on a
-clearing-factor domain*. -/
-theorem quotientMellin_clear (F D : PowerSeries K) (t : K) (hD : evalOpen D t ≠ 0) :
-    evalOpen D t * quotientMellin F D t = evalOpen F t := by sorry
-/-- Q_{F,1}(t)=E(F,t). Part of the API of the target *Mellin evaluation on a clearing-factor domain*. -/
-theorem quotientMellin_one (F : PowerSeries K) (t : K) :
-    quotientMellin F 1 t = evalOpen F t := by sorry
-/-- A zero numerator yields zero on every admissible domain. Part of the API of the target *Mellin
-evaluation on a clearing-factor domain*. -/
-theorem quotientMellin_zero (D : PowerSeries K) (t : K) : quotientMellin 0 D t = 0 := by sorry
--- QuotientMellinTests.no_denominator
-example (F : PowerSeries K) (t : K) : quotientMellin F 1 t = evalOpen F t := by sorry
--- QuotientMellinTests.simple_pole
-example (t : K) (ht : t ≠ 0) : quotientMellin 1 PowerSeries.X t = t⁻¹ := by sorry
--- QuotientMellinTests.removable_on_punctured_disc
-example (t : K) (ht : t ≠ 0) : quotientMellin PowerSeries.X PowerSeries.X t = 1 := by sorry
--- QuotientMellinTests.trivial_character_excluded
-example : evalOpen (PowerSeries.X : PowerSeries K) 0 = 0 := by sorry
-/-- Agreement of Mellin clearing expressions. If F,D,F′,D′ are open-disc series with FD′=F′D, then
-Q_{F,D}(t)=Q_{F′,D′}(t) at every ||t||<1 for which both denominator values are nonzero. Applied to
-the algebraic clearing compatibility imported from PMIA L3 this proves independence on chart
-overlaps; it does not construct a total-fraction-ring character homomorphism. (Source: RJW, Remark
-3.47, pp. 25–26; §5.3, pp. 34–35 (formula immediately before Remark 5.22).) -/
-theorem quotientMellin_independent (F D F' D' : PowerSeries K)
-    (hF : OnOpenDisc F) (hD : OnOpenDisc D) (hF' : OnOpenDisc F') (hD' : OnOpenDisc D')
-    (h : F*D'=F'*D) (t : K) (ht : ‖t‖ < 1)
-    (hDt : evalOpen D t ≠ 0) (hD't : evalOpen D' t ≠ 0) :
-    quotientMellin F D t = quotientMellin F' D' t := by sorry
-end Mellin
-
-end
-
-/-!
-Coefficient and cochain signatures of the analytic layers.
-Global LA strong-dual and analytic sheaf signatures remain explicitly omitted
-below. All maps here use their actual native carrier and hypotheses.
--/
-/-! ## Layer 0 (§0.3), Layer 1 (§1.3), Layer 2 (§2.2) and Layer 4 (§4.13–§4.15): charts, transposes,
-rectangular growth, coefficient actions and Banach complexes -/
-
 namespace AnalyticDistributions
 open scoped ZeroAtInfty
 open CategoryTheory
@@ -2931,29 +3092,6 @@ open CategoryTheory
 section Coefficients
 variable {K : Type*} [NontriviallyNormedField K]
 variable {I : Type*} [TopologicalSpace I] [DiscreteTopology I]
-
-/-- Analytic functions on finitely many polydiscs. For a finite clopen chart set S and coordinates
-z∈Z_p^d, the radius-h analytic stage is the finite product over S of restricted power series in
-normalized coordinates (z−a)/p^h. Coefficients tend to zero outside finite subsets of N^d; the
-norm is the maximum coefficient norm. Its coefficient model is native c₀(S×N^d,K). The chart
-realization, rather than a second power-series carrier, identifies this with actual functions.
-(Source: Schneider–Teitelbaum, §1, Lemmas 1.1–1.2 and Proposition 1.4, printed pp. 3–6.) -/
-abbrev analyticStage (I : Type*) [TopologicalSpace I] (K : Type*)
-    [NormedAddCommGroup K] := C₀(I,K)
-/-- Equality is coefficientwise equality. Part of the API of the target *Analytic functions on
-finitely many polydiscs*. -/
-theorem analyticStage_ext (f g : analyticStage I K) (h : ∀ i, f i = g i) : f = g := by sorry
-/-- A monomial on one chart has its specified single coefficient. Part of the API of the target
-*Analytic functions on finitely many polydiscs*. -/
-theorem analyticStage_single [DecidableEq I] (i j : I) (a : K) :
-    NonarchimedeanFredholm.c0Single i a j = if j=i then a else 0 := by sorry
--- AnalyticDistributionTests.analyticStage_point
-example : Nonempty (analyticStage PUnit K ≃ₗᵢ[K] K) := by sorry
--- AnalyticDistributionTests.analyticStage_empty
-example : Subsingleton (analyticStage (Fin 0) K) := by sorry
--- AnalyticDistributionTests.analyticStage_geometric_excluded
-example : ¬ ∃ f : analyticStage ℕ K, ∀ n, f n = 1 := by sorry
-
 variable {A : Type*} [NormedCommRing A]
 /-- The native c₀ coefficient module over A. Part of the API of the target *Affinoid-valued analytic
 stages*. -/
@@ -2994,9 +3132,14 @@ example [NormedAlgebra K A] : Nonempty (affinoidDistributionStage PUnit A ≃ₗ
 example [NormedAlgebra K A] :
     ‖(0 : affinoidDistributionStage I A).restrictScalars K‖ = 0 := by sorry
 -- AnalyticDistributionTests.distributionStage_bounded_not_c0
-example [CompleteSpace K] : ∃ μ : affinoidDistributionStage ℕ K,
+example [CompleteSpace K] [IsUltrametricDist K] : ∃ μ : affinoidDistributionStage ℕ K,
     (∀ n, μ (NonarchimedeanFredholm.c0Single n (1:K)) = 1) ∧
     ¬ ∃ f : C₀(ℕ,K), ∀ n, f n = 1 := by sorry
+
+/-- Over the real field, boundedness forbids the coefficient-sum functional on c₀: the finite
+vectors with N coordinates equal to one all have norm one and would have image N. -/
+example : ¬ ∃ μ : C₀(ℕ,ℝ) →L[ℝ] ℝ,
+    ∀ n, μ (NonarchimedeanFredholm.c0Single n (1 : ℝ)) = 1 := by sorry
 
 variable [NormedAlgebra K A]
 /-- The stage-dual norm unit ball. Part of the API of the target *Integral distribution lattices*. -/
@@ -3021,124 +3164,6 @@ example (a : K) (ha : 1 < ‖a‖) (μ : affinoidDistributionStage PUnit K)
     (hμ : ∀ f, μ f = a * f PUnit.unit) :
     μ ∉ familyIntegralLattice (K:=K) := by sorry
 end Coefficients
-
-section Transposes
-variable {K E F H : Type*} [NontriviallyNormedField K]
-    [NormedAddCommGroup E] [NormedSpace K E]
-    [NormedAddCommGroup F] [NormedSpace K F]
-    [NormedAddCommGroup H] [NormedSpace K H]
-/-- Pushforward of analytic distributions. For an analytic map f:X→Y of compact p-adic manifolds,
-define f_*μ by (f_*μ)(g)=μ(g∘f). This is a continuous K-linear map D(X,K)→D(Y,K) for the strong
-dual topologies. (Source: Colmez, §II.4, printed pp. 34–37.) -/
-def distributionPushforward (P : F →L[K] E) (μ : E →L[K] K) : F →L[K] K := μ.comp P
-/-- Evaluation is μ applied to pullback. Part of the API of the target *Pushforward of analytic
-distributions*. -/
-theorem distributionPushforward_apply (P : F →L[K] E) (μ : E →L[K] K) (f : F) :
-    distributionPushforward P μ f = μ (P f) := by sorry
-/-- (g∘f)_*=g_*∘f_*. Part of the API of the target *Pushforward of analytic distributions*. -/
-theorem distributionPushforward_comp (P : F →L[K] E) (Q : H →L[K] F) (μ : E →L[K] K) :
-    distributionPushforward (P.comp Q) μ =
-      distributionPushforward Q (distributionPushforward P μ) := by sorry
--- AnalyticDistributionTests.pushforward_identity
-example (μ : E →L[K] K) : distributionPushforward (ContinuousLinearMap.id K E) μ = μ := by sorry
--- AnalyticDistributionTests.pushforward_zero
-example (P : F →L[K] E) : distributionPushforward P (0 : E →L[K] K) = 0 := by sorry
--- AnalyticDistributionTests.pushforward_constant
-example (P : F →L[K] E) (ev : F →L[K] K) (e : E)
-    (hP : ∀ f, P f = ev f • e) (μ : E →L[K] K) :
-    distributionPushforward P μ = μ e • ev := by sorry
-end Transposes
-
-section Multipliers
-variable {K R : Type*} [NontriviallyNormedField K] [NormedCommRing R] [NormedAlgebra K R]
--- Exact bounded-algebra transpose. The global LF analytic multiplication is omitted.
-/-- Transpose multiplication on analytic test functions. Part of the API of the target *Multiplication
-by an analytic function*. -/
-def distributionMultiply (g : R) (μ : R →L[K] K) : R →L[K] K :=
-    μ.comp (ContinuousLinearMap.mul K R g)
-/-- (gμ)(f)=μ(gf). Part of the API of the target *Multiplication by an analytic function*. -/
-theorem distributionMultiply_apply (g f : R) (μ : R →L[K] K) :
-    distributionMultiply g μ f = μ (g*f) := by sorry
-/-- Successive multiplications multiply their analytic factors. Part of the API of the target
-*Multiplication by an analytic function*. -/
-theorem distributionMultiply_assoc (g h : R) (μ : R →L[K] K) :
-    distributionMultiply (g*h) μ = distributionMultiply g (distributionMultiply h μ) := by sorry
--- AnalyticDistributionTests.multiply_one
-example (μ : R →L[K] K) : distributionMultiply 1 μ = μ := by sorry
--- AnalyticDistributionTests.multiply_atom
-example (ev : R →L[K] K) (hm : ∀ g f, ev (g*f) = ev g * ev f) (g : R) :
-    distributionMultiply g ev = ev g • ev := by sorry
--- AnalyticDistributionTests.multiply_bounded
--- Native bounded-measure compatibility on a finite space is the exact common domain.
-example {G : Type*} [Fintype G] [DecidableEq G] (g f : G → K) (μ : (G → K) →L[K] K) :
-    distributionMultiply g μ f = μ (fun x => g x * f x) := by sorry
-end Multipliers
-
-section FiniteConvolution
-variable {K G : Type*} [NontriviallyNormedField K] [Group G] [Fintype G] [DecidableEq G]
--- Finite-group specialization; the full compact analytic tensor signature is omitted.
-def pointDistribution (a : G) : (G → K) →L[K] K := by sorry
-theorem pointDistribution_apply (a : G) (f : G → K) : pointDistribution a f = f a := by sorry
-/-- Push forward the tensor distribution along group multiplication. Part of the API of the target
-*Convolution by iterated analytic evaluation*. -/
-def distributionConvolution (mu1 μ : (G → K) →L[K] K) : (G → K) →L[K] K := by sorry
-/-- Its value is the specified iterated integral. Part of the API of the target *Convolution by
-iterated analytic evaluation*. -/
-theorem distributionConvolution_apply (mu1 μ : (G → K) →L[K] K) (f : G → K) :
-    distributionConvolution mu1 μ f = μ (fun y => mu1 (fun x => f (x*y))) := by sorry
-/-- Convolution is associative. Part of the API of the target *Convolution by iterated analytic
-evaluation*. -/
-theorem distributionConvolution_assoc (mu1 μ ν : (G → K) →L[K] K) :
-    distributionConvolution (distributionConvolution mu1 μ) ν =
-      distributionConvolution mu1 (distributionConvolution μ ν) := by sorry
--- AnalyticDistributionTests.convolution_atoms
-example (a b : G) : distributionConvolution (pointDistribution (K:=K) a) (pointDistribution b) =
-    pointDistribution (a*b) := by sorry
--- AnalyticDistributionTests.convolution_unit
-example (μ : (G → K) →L[K] K) : distributionConvolution (pointDistribution 1) μ = μ := by sorry
--- AnalyticDistributionTests.convolution_bounded
-example (w z f : G → K) (mu1 μ : (G → K) →L[K] K)
-    (hmu1 : ∀ f, mu1 f = ∑ x, w x * f x) (hμ : ∀ f, μ f = ∑ y, z y * f y) :
-    distributionConvolution mu1 μ f = ∑ y, ∑ x, z y * w x * f (x*y) := by sorry
-end FiniteConvolution
-
-section Rectangles
-variable {p : ℕ} [Fact p.Prime]
-variable {K : Type*} [NontriviallyNormedField K]
-variable {g : ℕ}
-def padicBox (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) : Set (Fin g → ℤ_[p]) :=
-    {x | ∀ i, x i - a i ∈ Ideal.span ({(p : ℤ_[p]) ^ m i} : Set ℤ_[p])}
-theorem padicBox_isClopen (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) : IsClopen (padicBox a m) := by sorry
-def boxIndicator (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) : LocallyConstant (Fin g → ℤ_[p]) K :=
-    LocallyConstant.charFn K (padicBox_isClopen a m)
-/-- The displayed uniform bound on all rectangular cosets. Part of the API of the target *Rectangular
-growth for a locally constant functional*. -/
-def RectangularGrowth (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
-    (r : Fin g → ℝ) : Prop :=
-    ∃ C : ℝ, 0 ≤ C ∧ ∀ a m, ‖μ (boxIndicator a m)‖ ≤ C * (p : ℝ) ^ (∑ i, r i * (m i : ℝ))
-/-- Increasing each component r_i preserves the bound. Part of the API of the target *Rectangular
-growth for a locally constant functional*. -/
-theorem rectangularGrowth_mono (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
-    (r s : Fin g → ℝ) (h : ∀ i, r i ≤ s i) (hμ : RectangularGrowth μ r) :
-    RectangularGrowth μ s := by sorry
-/-- A sum of two bounded-growth functionals has the same growth order with a larger constant. Part of
-the API of the target *Rectangular growth for a locally constant functional*. -/
-theorem rectangularGrowth_add (μ ν : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
-    (r : Fin g → ℝ) (hμ : RectangularGrowth μ r) (hν : RectangularGrowth ν r) :
-    RectangularGrowth (μ+ν) r := by sorry
--- AnalyticDistributionTests.rectangularGrowth_dirac
-example (a : Fin g → ℤ_[p]) (r : Fin g → ℝ) (hr : ∀ i, 0 ≤ r i) :
-    RectangularGrowth (LocallyConstant.evalₗ K a) r := by sorry
--- AnalyticDistributionTests.rectangularGrowth_zero
-example (r : Fin g → ℝ) :
-    RectangularGrowth (0 : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K) r := by sorry
--- AnalyticDistributionTests.rectangularGrowth_refinement
-example (μ : LocallyConstant (Fin g → ℤ_[p]) K →ₗ[K] K)
-    (a : Fin g → ℤ_[p]) (m : Fin g → ℕ) (i : Fin g) :
-    μ (boxIndicator a m) = ∑ j : Fin p,
-      μ (boxIndicator (Function.update a i (a i + (j.val : ℤ_[p]) * (p : ℤ_[p]) ^ m i))
-        (Function.update m i (m i + 1))) := by sorry
-end Rectangles
 
 section CoefficientActions
 variable {A E : Type*} [NormedCommRing A] [NormedAddCommGroup E] [Module A E]
@@ -3223,6 +3248,7 @@ example [CompleteSpace A]
     (hd : ∀ x : E 0, a1 (e 1 (C.d 0 1 ((e 0).symm x))) = a0 x) :
     IsProjectiveBanachComplex (K := K) C E e ∧
       Function.Bijective (fun x : E 0 => e 1 (C.d 0 1 ((e 0).symm x))) := by sorry
+/-- The degree map of a cochain endomorphism, transferred to the specified Banach module. -/
 def degreeCLM (U : C ⟶ C) (i : ℤ)
     (hc : Continuous (fun x : E i => e i (U.f i ((e i).symm x)))) : E i →L[A] E i :=
     ⟨(e i).toLinearMap.comp ((U.f i).hom.comp (e i).symm.toLinearMap), hc⟩
@@ -3321,6 +3347,7 @@ example (a : A) (hp : NonarchimedeanFredholm.HasPr A A)
       (fun _ => a • ContinuousLinearMap.id A A) (fun _ => hp) (fun _ => hc) =
       (1-PowerSeries.C a * PowerSeries.X)^2 := by sorry
 end CharacteristicProducts
+
 section StageFactorizations
 variable {A : Type*} [NormedCommRing A]
 variable (V : ℕ → Type*) [∀ n, NormedAddCommGroup (V n)] [∀ n, Module A (V n)]
@@ -3348,6 +3375,7 @@ example (t : ∀ n, V (n+1) →L[A] V n)
 example (a : A) : CompactStageFactorization (fun _ : ℕ => A)
     (fun _ => ContinuousLinearMap.id A A) (fun _ => a • ContinuousLinearMap.id A A) := by sorry
 end StageFactorizations
+
 section InfiniteIdentityTests
 variable {K : Type*} [NontriviallyNormedField K]
 -- AnalyticDistributionTests.complexCompact_missing_degree
@@ -3356,14 +3384,16 @@ example : ¬ Huber.IsCompletelyContinuous (ContinuousLinearMap.id K C₀(ℕ,K))
 example : ¬ CompactStageFactorization (fun _ : ℕ => C₀(ℕ,K))
     (fun _ => ContinuousLinearMap.id K C₀(ℕ,K)) (fun _ => 0) := by sorry
 end InfiniteIdentityTests
+
 end AnalyticDistributions
 
 /-!
 The README states the following targets, which cannot be typed at the pinned APIs because their
 carriers (the compact-type inductive limit of the Banach stages and its strong dual, the completed
 projective tensor product of Banach spaces, the left-heart extension groups, the analytic character
-spaces and the derived finite-slope window) are not in the libraries: the disc and stage carriers
-`discAnalytic`, `LAh`, `LA` and `Dist` with their Gauss valuations and the maps `measureToDist`;
+spaces and the derived finite-slope window) are not in the libraries: the pointwise translated-disc realization
+`discAnalytic`, its evaluation and maximum-principle comparisons, `LAh`, `LA` and `Dist` with their
+Gauss valuations and the maps `measureToDist`;
 the three-space theorems of §0.2 and the Hahn–Banach theorem; the chart pullback, chart independence,
 completed analytic tensor and strong-duality statements of §0.3; the unbounded Amice transform and
 its operator dictionary on the global carrier (§1.1, §1.4), the non-splitting theorems (§1.5);
@@ -3372,7 +3402,8 @@ and multidegree extension theorems (§2.1–§2.2); the distribution Mellin tran
 `distributionMellin` and its Fréchet isomorphism, coefficient extension and adic comparison (§3.3,
 §3.4); the dual scalar-extension map, the Tate-algebra and formal-series compactness theorems, the
 finite-slope perfect complex and its homotopy invariance, the Euler-characteristic local constancy
-and the Fréchet finite-slope theorem (§4.13–§4.15).
+and the Fréchet finite-slope theorem (§4.13–§4.15); the torus character-valuation and
+positive-monoid comparisons of §4.15.
 -/
 
 end
