@@ -35947,8 +35947,9 @@
    ],
    "followUpOf": "BP-KTheoryLowDegrees--U.1",
    "prompt": "research/blueprint/prompts/BP-KTheoryLowDegrees--U.4.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7560"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7560",
+   "finishedAt": "2026-10-09T05:15:34Z"
   },
   {
    "id": "REV-KTheoryLowDegrees--U.4",
@@ -36015,7 +36016,8 @@
    ],
    "avoidAccountOf": "BP-KTheoryLowDegrees--U.5",
    "prompt": "research/blueprint/prompts/REV-KTheoryLowDegrees--U.5.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7549"
   },
   {
    "id": "BP-KTheoryLowDegrees--U.6",
@@ -38418,7 +38420,8 @@
    ],
    "revisionOf": "BP-CrystallineCohomology--CR.5",
    "prompt": "research/blueprint/prompts/BP-CrystallineCohomology--CR.5~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7557"
   },
   {
    "priority": 2,
@@ -38759,7 +38762,8 @@
    ],
    "revisionOf": "BP-EtaleDualityAndPerverseSheaves--EDC.4",
    "prompt": "research/blueprint/prompts/BP-EtaleDualityAndPerverseSheaves--EDC.4~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7558"
   },
   {
    "priority": 2,
@@ -41796,7 +41800,8 @@
     "BP-StableHomotopyKTheory~3"
    ],
    "prompt": "research/blueprint/prompts/REV-StableHomotopyKTheory~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7555"
   },
   {
    "kind": "blueprint",
