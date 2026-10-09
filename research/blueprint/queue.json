@@ -42256,7 +42256,8 @@
     "BP-OverconvergentAutomorphicForms--O0~3"
    ],
    "prompt": "research/blueprint/prompts/REV-OverconvergentAutomorphicForms--O0~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7556"
   },
   {
    "kind": "blueprint",
