@@ -21,9 +21,9 @@ Mathlib supplies restricted-product carriers and topologies, finite and probabil
 
 Algebraic structure belongs to **ReductiveGroupsPartII**: **RG2.0** supplies finite-type affine evaluation topology, compact open local subgroups and the finite-dimensional comodule/tensor dictionary; **RG2.0a** supplies coefficient-natural Weil restriction, its tower maps and tensor comparison; **RG2.1** supplies rational parabolics, relative roots, character lattices, derived covers and closed homogeneous embeddings; **RG2.3** supplies good integral models, integral Iwasawa decompositions, Lang–Hensel lifting, central-cover compatibility and quasi-splitness at almost all places; **RG2.4** supplies local decompositions and integration, and the characteristic-zero isotropic simply connected Kneser–Tits theorem. The [Reductive groups roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ReductiveGroups/README.md), layer 9, supplies finite reductive groups and their order estimates.
 
-The [Global number fields roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GlobalNumberFields/README.md) supplies places and the product formula (layer 0), weak approximation (layer 1), finite adeles (layer 4), full adeles and the discrete rational diagonal (layer 5), additive strong approximation and idele norm structure (layer 6), and scalar extension of adeles (layer 8). NumberFieldArithmetic, layer 4, supplies the discriminant identities used in scalar Jacobians. RepresentationTheory/LieGroups, layer 9, supplies Cartan and Iwasawa theory, including simultaneous self-adjointness. GlobalQuadraticForms, layer 5, supplies local and global quadratic isotropy. Chebotarev, layer 10, supplies the density input for approximation obstructions. ClassFieldTheory, layer 12, supplies quadratic idele characters, reciprocity and the global norm-index theorem. RepresentationTheory/CompactGroups, layer 5, supplies compact abelian Fourier theory. AlgebraicTopology, stage 6, supplies the integral cohomology of products of circles. ModularCurvesPartII:R12.2 supplies the analytic principal-congruence modular curves used in AA.5.
+The [Global number fields roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GlobalNumberFields/README.md) supplies places and the product formula (layer 0), weak approximation (layer 1), finite adeles (layer 4), full adeles and the discrete rational diagonal (layer 5), additive strong approximation and idele norm structure (layer 6), and scalar extension of adeles (layer 8). NumberFieldArithmetic, layer 4, supplies the discriminant identities used in scalar Jacobians. RepresentationTheory/LieGroups, layer 9, supplies Cartan and Iwasawa theory, including simultaneous self-adjointness. GlobalQuadraticForms, layer 5, supplies local and global quadratic isotropy. Chebotarev, layer 10, supplies the density input for approximation obstructions. ClassFieldTheory, layer 12, supplies quadratic idele characters, reciprocity and the global norm-index theorem. RepresentationTheory/CompactGroups, layer 5, supplies compact abelian Fourier theory. AlgebraicTopology, stage 6, supplies the integral cohomology of products of circles. RepresentationTheory/CompactGroups, layer 0, supplies the Haar probability measure of a compact group; on a compact open factor B_i it is the restriction of a local Haar measure normalized as in AA.0. The [Fuchsian orbifolds roadmap](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/FuchsianOrbifolds/README.md) supplies the coarse quotient Riemann surface Γ\ℍ of a Fuchsian group (layers 0–1), its cusp compactification and the maps induced by conjugation and finite-index inclusions (layer 4), and degree theory for finite holomorphic maps (layer 5). AA.5 identifies the GL₂ components with these quotients for its congruence groups; the comparison with algebraic modular curves lies outside this roadmap.
 
-AA.0 is the shared measure theory for restricted products, including function-field applications. AA.3 owns the generic adelic heights and reduction statements. AA.4 owns neat elements and neat compact open levels; ArithmeticLocallySymmetricSpaces:ALS.0, ShimuraVarieties:V0 and ShimuraData:D5 consume that theory and add their own geometric applications. AutomorphicFormsOnReductiveGroups consumes adelic groups, measures and reduction here; its representation and spectral theory lies beyond this roadmap. The residual quaternion calculations in AA.4 give the abelian part needed for arithmetic torus distributions; they do not specify an equidistribution theorem on the whole automorphic quotient.
+AA.0 is the shared measure theory for restricted products, including function-field applications. AA.3 owns the generic adelic heights and reduction statements. AA.4 owns neat elements and neat compact open levels; locally symmetric spaces, Shimura data and Shimura varieties build on that theory and add their own geometric applications. Automorphic forms on reductive groups use the adelic groups, measures and reduction theory of this roadmap; their representation and spectral theory lie outside it. AA.5 owns the analytic identification of the GL₂ level quotients over ℚ with quotients of the upper half-plane by congruence groups, together with its behaviour under change of level. The residual quaternion calculations in AA.4 give the abelian part needed for arithmetic torus distributions; they do not specify an equidistribution theorem on the whole automorphic quotient.
 
 ## Conventions
 
@@ -201,7 +201,7 @@ Equip Hopf-algebra points with their evaluation topology and compare points over
 
 ### AA.1.1 — Affine points and integral models
 
-- **Adelic points of an affine algebraic group.** For a finitely generated commutative Hopf algebra H over a number field F, G(𝔸_F) is the group of F-algebra maps H → 𝔸_F under convolution (TauCeti.HopfAlgebra.points H 𝔸_F), with the topology of affine points over the topological ring 𝔸_F (weakest topology making every evaluation h ↦ x(h) continuous). Likewise G(𝔸_{F,f}), G(F_∞) = G(F ⊗_ℚ ℝ) and G(F_v). The diagonal ι : G(F) → G(𝔸_F) is mapPoints along F → 𝔸_F and the local projection p_v : G(𝔸_F) → G(F_v) is mapPoints along the projection 𝔸_F → F_v. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Adelic points of an affine algebraic group.** For a finitely generated commutative Hopf algebra H over a number field F, G(𝔸_F) is the group of F-algebra maps H → 𝔸_F under convolution (TauCeti.HopfAlgebra.points H 𝔸_F), with the topology of affine points over the topological ring 𝔸_F (weakest topology making every evaluation h ↦ x(h) continuous). Likewise G(𝔸_{F,f}), G(F_∞) = G(F ⊗_ℚ ℝ) and G(F_v). The diagonal ι : G(F) → G(𝔸_F) is mapPoints along F → 𝔸_F and the local projection p_v : G(𝔸_F) → G(F_v) is mapPoints along the projection 𝔸_F → F_v. Assumptions: H finitely generated.
 
   API: `AdelicPoints` — AdelicPoints H := WithConv (H →ₐ[F] 𝔸_F), a group under convolution; `AdelicPoints.instTopologicalSpace` — The affine-points topology: induced from 𝔸_F^H by evaluation; `AdelicPoints.instIsTopologicalGroup` — AdelicPoints H is a topological group; `AdelicPoints.diagonal` — The diagonal G(F) →* AdelicPoints H, mapPoints along algebraMap F 𝔸_F; `AdelicPoints.proj` — For a finite place v, the continuous homomorphism AdelicPoints H →* G(F_v); `AdelicPoints.continuous_eval` — For h ∈ H, x ↦ x h is continuous AdelicPoints H → 𝔸_F; `AdelicPoints.proj_diagonal` — proj v (diagonal g) is the image of g in G(F_v); `AdelicPoints.finiteEmbed` — The finite-supported homomorphism G(𝔸_f)→G(𝔸), x↦(1,x), under the canonical archimedean/finite splitting. This is an embedding of point groups, not a ring inclusion with archimedean coordinate zero; `AdelicPoints.finiteEmbed_finite` — The finite projection of finiteEmbed x equals x; `AdelicPoints.finiteEmbed_infinite` — The infinite projection of finiteEmbed x equals 1.
 
@@ -209,7 +209,7 @@ Equip Hopf-algebra points with their evaluation topology and compare points over
 
   Sources: [Conrad], Proposition 2.1, p. 2; [Arthur], §2, p. 11. Requires: Tau Ceti `TauCeti.HopfAlgebra.points`; Tau Ceti `TauCeti.HopfAlgebra.mapPoints`; Tau Ceti `TauCeti.HopfAlgebra.pointsFunctor`; Mathlib `NumberField.AdeleRing`; Mathlib `IsDedekindDomain.FiniteAdeleRing`; Mathlib `RestrictedProduct.evalRingHom`; `ReductiveGroupsPartII:RG2.0`; GlobalNumberFields, layer 4.
 
-- **Integral models over S-integers.** An integral model of H away from a finite set S of places of F (containing the archimedean places) is a finitely presented commutative Hopf algebra 𝓗 over the S-integers 𝒪_{F,S} together with an isomorphism of Hopf algebras F ⊗_{𝒪_{F,S}} 𝓗 ≅ H. For v ∉ S its integral points are 𝓗(𝒪_v) = Hom_{𝒪_{F,S}}(𝓗, 𝒪_v) ⊂ G(F_v). Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G); S a finite set of places containing the archimedean ones.
+- **Integral models over S-integers.** An integral model of H away from a finite set S of places of F (containing the archimedean places) is a finitely presented commutative Hopf algebra 𝓗 over the S-integers 𝒪_{F,S} together with an isomorphism of Hopf algebras F ⊗_{𝒪_{F,S}} 𝓗 ≅ H. For v ∉ S its integral points are 𝓗(𝒪_v) = Hom_{𝒪_{F,S}}(𝓗, 𝒪_v) ⊂ G(F_v). Assumptions: H finitely generated; S a finite set of places containing the archimedean ones.
 
   API: `IntegralModel` — A finitely presented commutative Hopf algebra over O_{F,S} and a specified Hopf isomorphism of its F-generic fibre with H; S is finite and all infinite places are understood to be included; `IntegralModel.localPoints` — For v ∉ S, the subgroup 𝓗(𝒪_v) of G(F_v); `IntegralModel.enlarge` — For S ⊆ S′, the base-changed model over 𝒪_{F,S′}, with localPoints unchanged at v ∉ S′; `IntegralModel.localPoints_injective` — The map 𝓗(𝒪_v) → G(F_v) induced by the injection 𝒪_v → F_v is injective.
 
@@ -217,19 +217,19 @@ Equip Hopf-algebra points with their evaluation topology and compare points over
 
   Sources: [Conrad], Remark 3.5 and §3, p. 6. Requires: Tau Ceti `TauCeti.HopfAlgebra.points`; Tau Ceti `TauCeti.CommHopfAlgCat.baseChangePointsMulEquiv`; Mathlib `Set.integer`.
 
-- **Spreading Hopf structure and its identities.** A finitely presented affine F-algebra with Hopf structure descends to a finitely presented Hopf algebra over O_{F,S} after enlarging finite S. A prescribed finite collection of Hopf morphisms and their identities descends simultaneously. Assumptions: F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
+- **Spreading Hopf structure and its identities.** A finitely presented affine F-algebra with Hopf structure descends to a finitely presented Hopf algebra over O_{F,S} after enlarging finite S. A prescribed finite collection of Hopf morphisms and their identities descends simultaneously. Assumptions: integral generic-fibre identifications are Hopf isomorphisms.
 
   Sources: [Conrad], Theorem 3.4(1)–(2), pp. 5–6; Remark 3.5, p. 6. Requires: Mathlib finite presentation and localization.
 
-- **Spreading out.** Every finitely generated commutative Hopf algebra H over F has an integral model away from some finite set S of places. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Spreading out.** Every finitely generated commutative Hopf algebra H over F has an integral model away from some finite set S of places. Assumptions: H finitely generated.
 
   Sources: [Conrad], Theorem 3.4(1), p. 5. Requires: AA.1.1.
 
-- **Uniqueness of integral models up to enlarging S.** Two integral models 𝓗, 𝓗′ of H (away from S and S′) become isomorphic, compatibly with their identifications with H, after base change to 𝒪_{F,S″} for some finite S″ ⊇ S ∪ S′. Consequently 𝓗(𝒪_v) = 𝓗′(𝒪_v) inside G(F_v) for all but finitely many v. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Uniqueness of integral models up to enlarging S.** Two integral models 𝓗, 𝓗′ of H (away from S and S′) become isomorphic, compatibly with their identifications with H, after base change to 𝒪_{F,S″} for some finite S″ ⊇ S ∪ S′. Consequently 𝓗(𝒪_v) = 𝓗′(𝒪_v) inside G(F_v) for all but finitely many v. Assumptions: H finitely generated.
 
   Sources: [Conrad], Theorem 3.4(3), p. 5. Requires: AA.1.1.
 
-- **Integral points are compact open subgroups.** For an integral model 𝓗 away from S and a finite place v ∉ S, 𝓗(𝒪_v) is a compact open subgroup of G(F_v). Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Integral points are compact open subgroups.** For an integral model 𝓗 away from S and a finite place v ∉ S, 𝓗(𝒪_v) is a compact open subgroup of G(F_v). Assumptions: H finitely generated.
 
   Sources: [Conrad], Example 2.3, p. 3. Requires: AA.1.1; `ReductiveGroupsPartII:RG2.0`.
 
@@ -240,46 +240,46 @@ Equip Hopf-algebra points with their evaluation topology and compare points over
 
   Sources: [Conrad], Proposition 2.1, proof, p. 2. Requires: AA.1.1; Mathlib `AlgHom.prod`.
 
-- **Finite adeles as a directed union of S-adeles.** For finite sets S of finite places, the S-adeles 𝔸_{F,S} = ∏_{v∈S} F_v × ∏_{v∉S} 𝒪_v are open subrings of 𝔸_{F,f} forming a directed union, and every F-algebra map H → 𝔸_{F,f} from a finitely generated H restricts to a map of models 𝓗 → 𝔸_{F,S} for S large: G(𝔸_{F,f}) = ⋃_S 𝓗(𝔸_{F,S}). Assumptions: H finitely generated; 𝓗 an integral model; F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
+- **Finite adeles as a directed union of S-adeles.** For finite sets S of finite places, the S-adeles 𝔸_{F,S} = ∏_{v∈S} F_v × ∏_{v∉S} 𝒪_v are open subrings of 𝔸_{F,f} forming a directed union, and every F-algebra map H → 𝔸_{F,f} from a finitely generated H restricts to a map of models 𝓗 → 𝔸_{F,S} for S large: G(𝔸_{F,f}) = ⋃_S 𝓗(𝔸_{F,S}). Assumptions: H finitely generated; 𝓗 an integral model; integral generic-fibre identifications are Hopf isomorphisms.
 
   Sources: [Conrad], Remark 3.5, p. 6. Requires: AA.1.1; Mathlib `RestrictedProduct.isOpenEmbedding_inclusion_principal`.
 
-- **The restricted-product bijection on S-adelic points.** For a fixed affine finitely presented model over O_{F,S}, the evaluation map from its S′-adelic points to ∏_{v∈S′}G(F_v)×∏_{v∉S′}𝓗(O_v), for finite S′⊃S, is a bijection. This is a set and group statement; the topology is proved separately. Assumptions: 𝓗 affine over 𝒪_{F,S}; F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
+- **The restricted-product bijection on S-adelic points.** For a fixed affine finitely presented model over O_{F,S}, the evaluation map from its S′-adelic points to ∏_{v∈S′}G(F_v)×∏_{v∉S′}𝓗(O_v), for finite S′⊃S, is a bijection. This is a set and group statement; the topology is proved separately. Assumptions: 𝓗 affine over 𝒪_{F,S}; integral generic-fibre identifications are Hopf isomorphisms.
 
   Sources: [Conrad], Theorem 3.6, p. 6. Requires: AA.1.1; AA.1.2; `ReductiveGroupsPartII:RG2.0`.
 
-- **Topology of the restricted-product comparison.** The bijection G(A_{F,f})→∏ʳ_v[G(F_v),B_v] induced by coordinate projections is a homeomorphism. On each S-integral principal piece it is the product homeomorphism of affine points, and the principal pieces are open on both sides. Assumptions: F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
+- **Topology of the restricted-product comparison.** The bijection G(A_{F,f})→∏ʳ_v[G(F_v),B_v] induced by coordinate projections is a homeomorphism. On each S-integral principal piece it is the product homeomorphism of affine points, and the principal pieces are open on both sides. Assumptions: integral generic-fibre identifications are Hopf isomorphisms.
 
   Sources: [Conrad], Theorem 3.6, pp. 7–8; §4, p. 9. Requires: AA.1.2; `ReductiveGroupsPartII:RG2.0`; Mathlib `RestrictedProduct.topologicalSpace_eq_iSup`.
 
-- **Adelic points as a restricted product.** Let 𝓗 be an integral model of H away from S. The map x ↦ (p_v(x))_v is an isomorphism of topological groups G(𝔸_{F,f}) ≃ₜ* Πʳ v, [G(F_v), B_v], where B_v = 𝓗(𝒪_v) for v ∉ S and B_v = G(F_v) for the finitely many finite v ∈ S; and G(𝔸_F) ≃ₜ* G(F_∞) × G(𝔸_{F,f}). Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G); 𝓗 an integral model away from S.
+- **Adelic points as a restricted product.** Let 𝓗 be an integral model of H away from S. The map x ↦ (p_v(x))_v is an isomorphism of topological groups G(𝔸_{F,f}) ≃ₜ* Πʳ v, [G(F_v), B_v], where B_v = 𝓗(𝒪_v) for v ∉ S and B_v = G(F_v) for the finitely many finite v ∈ S; and G(𝔸_F) ≃ₜ* G(F_∞) × G(𝔸_{F,f}). Assumptions: H finitely generated; 𝓗 an integral model away from S.
 
   Sources: [Conrad], Theorem 3.6, p. 6; [Borel], §1.2, p. 7. Requires: AA.1.1; Mathlib `RestrictedProduct.topologicalSpace_eq_iSup`; AA.0.3; `ReductiveGroupsPartII:RG2.0`; AA.1.2.
 
-- **Independence of the model and of the exceptional set.** The topological group structure on Πʳ v, [G(F_v), 𝓗(𝒪_v)] obtained from restricted-product-comparison does not depend on the integral model 𝓗 or on S: for two models the identity of G(𝔸_{F,f}) corresponds to the canonical isomorphism of RestrictedProduct.changeSubgroups, and enlarging S does not change it. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Independence of the model and of the exceptional set.** The topological group structure on Πʳ v, [G(F_v), 𝓗(𝒪_v)] obtained from restricted-product-comparison does not depend on the integral model 𝓗 or on S: for two models the identity of G(𝔸_{F,f}) corresponds to the canonical isomorphism of RestrictedProduct.changeSubgroups, and enlarging S does not change it. Assumptions: H finitely generated.
 
   Sources: [Conrad], Theorem 3.6, p. 6. Requires: AA.1.2; AA.1.1; AA.0.3.
 
-- **Adelic groups are locally compact.** G(𝔸_F), G(𝔸_{F,f}) and G(F_∞) are second countable, locally compact, Hausdorff topological groups. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Adelic groups are locally compact.** G(𝔸_F), G(𝔸_{F,f}) and G(F_∞) are second countable, locally compact, Hausdorff topological groups. Assumptions: H finitely generated.
 
   Sources: [Borel], §1.2, p. 7. Requires: AA.1.2; Mathlib `RestrictedProduct.locallyCompactSpace_of_group`; AA.0.1; `ReductiveGroupsPartII:RG2.0`; GlobalNumberFields, layer 5.
 
-- **Splitting off finitely many places.** For a finite set S of places, G(𝔸_F) ≃ₜ* G(F_S) × G(𝔸_F^S), with G(F_S) = ∏_{v∈S} G(F_v) and G(𝔸_F^S) the adelic points away from S; in particular G(𝔸_F) ≃ₜ* G(F_∞) × G(𝔸_{F,f}). The diagonal G(F) maps to the pair of diagonals. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Splitting off finitely many places.** For a finite set S of places, G(𝔸_F) ≃ₜ* G(F_S) × G(𝔸_F^S), with G(F_S) = ∏_{v∈S} G(F_v) and G(𝔸_F^S) the adelic points away from S; in particular G(𝔸_F) ≃ₜ* G(F_∞) × G(𝔸_{F,f}). The diagonal G(F) maps to the pair of diagonals. Assumptions: H finitely generated.
 
   Sources: [Borel], §1.2, p. 7. Requires: AA.1.2; AA.0.3.
 
 
 ### AA.1.3 — Rational points and functoriality
 
-- **Rational points are discrete in the full adeles.** The diagonal G(F) → G(𝔸_F) is injective, its image is a discrete subgroup, and the image is closed. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Rational points are discrete in the full adeles.** The diagonal G(F) → G(𝔸_F) is injective, its image is a discrete subgroup, and the image is closed. Assumptions: H finitely generated.
 
   Sources: [Conrad], Example 2.3, p. 3; [Borel], §1.2, p. 7. Requires: AA.1.1; Tau Ceti `TauCeti.GlobalNumberFields.discreteTopology_principalSubgroup`; Tau Ceti `TauCeti.GlobalNumberFields.isClosed_principalSubgroup`; Mathlib `Subgroup.isClosed_of_discrete`; Tau Ceti `NumberField.AdeleRing.instT2Space`; `ReductiveGroupsPartII:RG2.0`.
 
-- **Discreteness in the finite adeles alone.** G(F) is discrete in G(𝔸_{F,f}) if and only if G(F) ∩ U is finite for one (equivalently every) compact open subgroup U ⊂ G(𝔸_{F,f}). In particular G_a(F) = F is not discrete in 𝔸_{F,f}, SL_2(ℚ) is not discrete in SL_2(𝔸_{ℚ,f}) because SL_2(ℤ) is infinite, and ℚ^× is discrete in 𝔸_{ℚ,f}^× because ℚ^× ∩ ∏_p ℤ_p^× = {±1}. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Discreteness in the finite adeles alone.** G(F) is discrete in G(𝔸_{F,f}) if and only if G(F) ∩ U is finite for one (equivalently every) compact open subgroup U ⊂ G(𝔸_{F,f}). In particular G_a(F) = F is not discrete in 𝔸_{F,f}, SL_2(ℚ) is not discrete in SL_2(𝔸_{ℚ,f}) because SL_2(ℤ) is infinite, and ℚ^× is discrete in 𝔸_{ℚ,f}^× because ℚ^× ∩ ∏_p ℤ_p^× = {±1}. Assumptions: H finitely generated.
 
   Sources: [Borel], §1.8, p. 9. Requires: AA.1.3; AA.1.2.
 
-- **Functoriality of adelic points.** A homomorphism of affine algebraic groups φ : G → G′ over F (a Hopf algebra map φ* : H′ → H) induces a continuous homomorphism φ_𝔸 : G(𝔸_F) → G′(𝔸_F), x ↦ x ∘ φ*, commuting with the diagonals and with the local projections, with (id)_𝔸 = id and (ψ ∘ φ)_𝔸 = ψ_𝔸 ∘ φ_𝔸. Under restricted-product-comparison it is the restricted product of the local maps φ_v, which send 𝓗(𝒪_v) into 𝓗′(𝒪_v) for almost all v. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G); φ a homomorphism of affine algebraic groups over F.
+- **Functoriality of adelic points.** A homomorphism of affine algebraic groups φ : G → G′ over F (a Hopf algebra map φ* : H′ → H) induces a continuous homomorphism φ_𝔸 : G(𝔸_F) → G′(𝔸_F), x ↦ x ∘ φ*, commuting with the diagonals and with the local projections, with (id)_𝔸 = id and (ψ ∘ φ)_𝔸 = ψ_𝔸 ∘ φ_𝔸. Under restricted-product-comparison it is the restricted product of the local maps φ_v, which send 𝓗(𝒪_v) into 𝓗′(𝒪_v) for almost all v. Assumptions: H finitely generated; φ a homomorphism of affine algebraic groups over F.
 
   API: `AdelicPoints.map` — AdelicPoints.map φ : AdelicPoints H →* AdelicPoints H′ for a Hopf algebra map H′ → H; `AdelicPoints.continuous_map` — AdelicPoints.map φ is continuous; `AdelicPoints.map_id` — AdelicPoints.map (id) = id; `AdelicPoints.map_comp` — AdelicPoints.map (φ ∘ ψ) = AdelicPoints.map ψ ∘ AdelicPoints.map φ (contravariance on Hopf algebras); `AdelicPoints.map_diagonal` — map φ (diagonal g) = diagonal (φ g); `AdelicPoints.proj_map` — proj v ∘ map φ = φ_v ∘ proj v.
 
@@ -287,22 +287,22 @@ Equip Hopf-algebra points with their evaluation topology and compare points over
 
   Sources: [Borel], §1.3, p. 7. Requires: AA.1.1; Tau Ceti `TauCeti.CommHopfAlgCat.pointsFunctor`; AA.1.2; Mathlib `RestrictedProduct.mapAlong_continuous`; Tau Ceti `TauCeti.GeneralLinear.determinantCoordinateMap`; Tau Ceti `TauCeti.GeneralLinear.pointsMulEquiv_determinantPoints`.
 
-- **Closed subgroups give closed embeddings.** If H′ = H/I for a Hopf ideal I (a closed subgroup G′ ⊂ G), the induced map G′(𝔸_F) → G(𝔸_F) is a closed embedding of topological groups with image quotientPointsSubgroup H I 𝔸_F. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G); I a Hopf ideal of H.
+- **Closed subgroups give closed embeddings.** If H′ = H/I for a Hopf ideal I (a closed subgroup G′ ⊂ G), the induced map G′(𝔸_F) → G(𝔸_F) is a closed embedding of topological groups with image quotientPointsSubgroup H I 𝔸_F. Assumptions: H finitely generated; I a Hopf ideal of H.
 
   Sources: [Conrad], Proposition 2.1, p. 2. Requires: AA.1.3; Tau Ceti `TauCeti.CommHopfAlgCat.quotientPointsSubgroup`; `ReductiveGroupsPartII:RG2.0`; Tau Ceti `NumberField.AdeleRing.instT2Space`.
 
-- **Products of groups.** For affine algebraic groups G, G′ over F, (G × G′)(𝔸_F) ≃ₜ* G(𝔸_F) × G′(𝔸_F), compatibly with diagonals and local projections. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Products of groups.** For affine algebraic groups G, G′ over F, (G × G′)(𝔸_F) ≃ₜ* G(𝔸_F) × G′(𝔸_F), compatibly with diagonals and local projections. Assumptions: H finitely generated.
 
   Sources: [Conrad], Proposition 2.1, proof, p. 2. Requires: AA.1.1; Tau Ceti `TauCeti.AffineGroup.Product.pointsMulEquiv`; `ReductiveGroupsPartII:RG2.0`.
 
-- **The centre on adelic points.** Let Z ⊂ G be the centre (centerDefiningIdeal). Then Z(𝔸_F) is a closed subgroup of G(𝔸_F) contained in the centre of G(𝔸_F), and Z(F) = Z(𝔸_F) ∩ G(F). Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **The centre on adelic points.** Let Z ⊂ G be the centre (centerDefiningIdeal). Then Z(𝔸_F) is a closed subgroup of G(𝔸_F) contained in the centre of G(𝔸_F), and Z(F) = Z(𝔸_F) ∩ G(F). Assumptions: H finitely generated.
 
   Sources: [Borel], §1.6, p. 8. Requires: AA.1.3; Tau Ceti `TauCeti.CommHopfAlgCat.centerDefiningIdeal`; Tau Ceti `TauCeti.CommHopfAlgCat.centerPointsSubgroup_eq_center`.
 
 
 ### AA.1.4 — Restriction of scalars and concrete groups
 
-- **Local factors of restriction of scalars.** Under base-change-adelic, the projection to F_v corresponds to Res(F_v) ≃ ∏_{w|v} G_E(E_w), and for almost all v the integral points of a model of Res correspond to ∏_{w|v} 𝓗_E(𝒪_w). Assumptions: E/F finite; G_E affine over E; The Weil restriction and the completion/adelic base-change maps are the natural adjunction and canonical tensor-product maps; arbitrary point equivalences are excluded; F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
+- **Local factors of restriction of scalars.** Under base-change-adelic, the projection to F_v corresponds to Res(F_v) ≃ ∏_{w|v} G_E(E_w), and for almost all v the integral points of a model of Res correspond to ∏_{w|v} 𝓗_E(𝒪_w). Assumptions: E/F finite; G_E affine over E; The Weil restriction and the completion/adelic base-change maps are the natural adjunction and canonical tensor-product maps; arbitrary point equivalences are excluded; integral generic-fibre identifications are Hopf isomorphisms.
 
   Sources: [Borel], §1.4, p. 8. Requires: AA.1.4; GlobalNumberFields, layer 8; `ReductiveGroupsPartII:RG2.0a`.
 
@@ -310,7 +310,7 @@ Equip Hopf-algebra points with their evaluation topology and compare points over
 
   Sources: [Conrad], Examples 2.4 and 4.2, pp. 3 and 9–10. Requires: AA.1.4; `ReductiveGroupsPartII:RG2.0a`; GlobalNumberFields, layer 8.
 
-- **Restriction of scalars on adelic points.** For a finite extension E/F and an affine algebraic group G_E over E, with Res = Res_{E/F} G_E, there is an isomorphism of topological groups Res(𝔸_F) ≃ₜ* G_E(𝔸_E), natural in G_E, compatible with Res(F) = G_E(E) on diagonals. Assumptions: E/F a finite extension of number fields; G_E an affine algebraic group over E; The Weil restriction and the completion/adelic base-change maps are the natural adjunction and canonical tensor-product maps; arbitrary point equivalences are excluded; F is a number field and O(G) is a finite-type commutative Hopf F-algebra; integral generic-fibre identifications respect the Hopf structure.
+- **Restriction of scalars on adelic points.** For a finite extension E/F and an affine algebraic group G_E over E, with Res = Res_{E/F} G_E, there is an isomorphism of topological groups Res(𝔸_F) ≃ₜ* G_E(𝔸_E), natural in G_E, compatible with Res(F) = G_E(E) on diagonals. Assumptions: E/F a finite extension of number fields; G_E an affine algebraic group over E; The Weil restriction and the completion/adelic base-change maps are the natural adjunction and canonical tensor-product maps; arbitrary point equivalences are excluded; integral generic-fibre identifications are Hopf isomorphisms.
 
   API: `AdelicPoints.resEquiv` — The isomorphism of topological groups Res_{E/F}(G_E)(𝔸_F) ≃ₜ* G_E(𝔸_E); `AdelicPoints.resEquiv_diagonal` — resEquiv carries the diagonal of Res(F) to the diagonal of G_E(E); `AdelicPoints.resEquiv_natural` — resEquiv is natural in homomorphisms G_E → G′_E; `AdelicPoints.resEquiv_trans` — In a tower F ⊂ E ⊂ L, resEquiv for L/F is the composite of those for L/E and E/F.
 
@@ -349,11 +349,11 @@ Equip Hopf-algebra points with their evaluation topology and compare points over
 
   Sources: [Borel], §5.5, p. 20. Requires: AA.1.5; AA.0.3; AA.1.2.
 
-- **Compact open subgroups and product levels.** Every compact open subgroup U ⊂ G(𝔸_{F,f}) contains a product subgroup ∏_v U_v with U_v ⊂ G(F_v) compact open and U_v = 𝓗(𝒪_v) for all but finitely many v, and is contained in such a product; any two compact open subgroups are commensurable. Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Compact open subgroups and product levels.** Every compact open subgroup U ⊂ G(𝔸_{F,f}) contains a product subgroup ∏_v U_v with U_v ⊂ G(F_v) compact open and U_v = 𝓗(𝒪_v) for all but finitely many v, and is contained in such a product; any two compact open subgroups are commensurable. Assumptions: H finitely generated.
 
   Sources: [Borel], §1.7, p. 8. Requires: AA.1.2; AA.0.1; `ReductiveGroupsPartII:RG2.0`.
 
-- **Conjugation changes a level at finitely many places.** For g ∈ G(𝔸_{F,f}) and an integral model 𝓗, g_v ∈ 𝓗(𝒪_v) for all but finitely many v; hence for a product level U = ∏_v U_v, the conjugate gUg⁻¹ = ∏_v g_v U_v g_v⁻¹ agrees with U at all but finitely many v, and the element g can be written as g_B · u with g_B supported on a finite set B of places and u ∈ ∏_v 𝓗(𝒪_v). Assumptions: H a finitely generated commutative Hopf algebra over F (the coordinate ring of an affine algebraic group G).
+- **Conjugation changes a level at finitely many places.** For g ∈ G(𝔸_{F,f}) and an integral model 𝓗, g_v ∈ 𝓗(𝒪_v) for all but finitely many v; hence for a product level U = ∏_v U_v, the conjugate gUg⁻¹ = ∏_v g_v U_v g_v⁻¹ agrees with U at all but finitely many v, and the element g can be written as g_B · u with g_B supported on a finite set B of places and u ∈ ∏_v 𝓗(𝒪_v). Assumptions: H finitely generated.
 
   Sources: [Borel], §1.2, p. 7. Requires: AA.1.2; AA.1.5.
 
@@ -1392,13 +1392,21 @@ Work out the quotient topology, connected components, cohomology and level chang
 
   Sources: [Milne], Lemma 5.11, p. 56. Requires: AA.5.2.
 
+- **Congruence groups of the GL₂ components.** For a compact open subgroup U ⊂ GL₂(𝔸_f) and g ∈ GL₂(𝔸_f) put Γ_{g,U} = GL₂(ℚ)^+ ∩ gUg⁻¹, with GL₂(ℚ) embedded diagonally. Every element of Γ_{g,U} has determinant 1: det U is a compact subgroup of 𝔸_f^×, hence lies in ℤ̂^×, and ℚ_{>0} ∩ ℤ̂^× = {1}. Thus Γ_{g,U} = SL₂(ℚ) ∩ gUg⁻¹. If K(M) = ker(GL₂(ℤ̂) → GL₂(ℤ/M)) lies in gUg⁻¹ (such M exists because these kernels form a neighbourhood basis of 1), then Γ(M) ⊂ Γ_{g,U}, and Γ_{g,U} ∩ SL₂(ℤ) has finite index in both Γ_{g,U} and SL₂(ℤ). Hence the image of Γ_{g,U} in GL₂(ℝ) is arithmetic in Mathlib's sense, discrete, and acts properly discontinuously on ℍ; its image in PSL₂(ℝ) is a Fuchsian group, and the orbit space Γ_{g,U}\ℍ with the quotient topology is Hausdorff and is the coarse quotient Riemann surface of the Fuchsian orbifolds roadmap. For q ∈ GL₂(ℚ)^+ and u ∈ U, Γ_{qgu,U} = qΓ_{g,U}q⁻¹ and z ↦ q·z induces a biholomorphism Γ_{g,U}\ℍ → Γ_{qgu,U}\ℍ. For a compact open U′ ⊂ U, Γ_{g,U′} has finite index in Γ_{g,U}, and z ↦ z induces a finite holomorphic map Γ_{g,U′}\ℍ → Γ_{g,U}\ℍ. Assumptions: U′ ⊂ U compact open subgroups of GL₂(𝔸_f); g ∈ GL₂(𝔸_f); q ∈ GL₂(ℚ) with det q > 0; u ∈ U.
+
+  Sources: [Milne], §4, definition of congruence subgroups, p. 42, and Proposition 4.1, p. 43; Lemma 5.13 and the remarks after it, pp. 57–58. The determinant argument is a direct computation. Requires: AA.5.2; AA.4.4; Mathlib `Subgroup.IsArithmetic`; Mathlib `Subgroup.IsArithmetic.conj`; Mathlib `Subgroup.IsArithmetic.properlyDiscontinuous`; Mathlib `Subgroup.IsArithmetic.discreteTopology`; Mathlib `CongruenceSubgroup.Gamma`; Mathlib `t2Space_of_properlyDiscontinuousSMul_of_t2Space`; FuchsianOrbifolds, layers 0, 1 and 4.
+
 - **The GL_2/ℚ quotient and the upper half-plane.** For G = GL_2 over ℚ, K_∞ = ℝ^× SO(2) and U ⊂ GL_2(𝔸_f) compact open, G(ℚ)\G(𝔸)/K_∞U ≃ ⊔_{c ∈ ℚ_{>0}\𝔸_f^×/det U} Γ_c\ℍ, where Γ_c = GL_2(ℚ)^+ ∩ g_c U g_c⁻¹ for g_c ∈ GL_2(𝔸_f) with det g_c = c, acting on ℍ by Möbius transformations; for det U = ℤ̂^× there is a single component. Assumptions: G = GL_2/ℚ; U compact open.
 
-  Sources: [Milne], Lemma 5.13, p. 57. Requires: AA.3.4; AA.4.5; AA.4.2; Tau Ceti `Matrix.SpecialLinearGroup.map_intCast_zmod_surjective`; AA.5.2; Mathlib `Matrix.GeneralLinearGroup.det`; `ModularCurvesPartII:R12.2`; AA.4.4.
+  Sources: [Milne], Lemma 5.13, p. 57. Requires: AA.3.4; AA.4.5; AA.4.2; Tau Ceti `Matrix.SpecialLinearGroup.map_intCast_zmod_surjective`; AA.5.2, including the congruence groups of the components; Mathlib `Matrix.GeneralLinearGroup.det`; AA.4.4.
 
 - **Principal congruence level.** For U = K(N) = ker(GL_2(ℤ̂) → GL_2(ℤ/N)), det K(N) = {x ∈ ℤ̂^× : x ≡ 1 mod N}, the components are indexed by (ℤ/N)^×, and each Γ_c is Γ(N) = ker(SL_2(ℤ) → SL_2(ℤ/N)) (Mathlib CongruenceSubgroup.Gamma). Assumptions: N ≥ 1.
 
   Sources: [Milne], Lemma 5.13, p. 57. Requires: AA.5.2; Mathlib `CongruenceSubgroup.Gamma`; AA.3.4.
+
+- **Riemann-surface structure and change of level for GL₂ quotients.** Let X_U = G(ℚ)\G(𝔸)/K_∞U for G = GL₂ over ℚ, K_∞ = ℝ^×SO(2) and U ⊂ GL₂(𝔸_f) compact open. Transport the Riemann-surface structures of the components Γ_c\ℍ along the homeomorphism of the upper half-plane decomposition. The resulting complex structure on X_U does not depend on the representatives g_c. For a compact open U′ ⊂ U the projection X_{U′} → X_U is holomorphic: if g′ = qgu with q ∈ GL₂(ℚ)^+ and u ∈ U, it maps the component Γ_{g′,U′}\ℍ to Γ_{g,U}\ℍ by z ↦ q⁻¹·z. For h ∈ GL₂(𝔸_f), right translation [x, a] ↦ [x, ah] is a biholomorphism X_U → X_{h⁻¹Uh}. For N ≥ 1 let K₀(N) and K₁(N) be the matrices (a b; c d) ∈ GL₂(ℤ̂) with c ≡ 0 mod N, respectively with c ≡ 0 and d ≡ 1 mod N. Their determinants fill ℤ̂^×, so X_{K₀(N)} and X_{K₁(N)} are connected, isomorphic to Γ₀(N)\ℍ and Γ₁(N)\ℍ as Riemann surfaces, and the projections X_{K(N)} → X_{K₁(N)} → X_{K₀(N)} restrict on the component of 1 to the natural maps Γ(N)\ℍ → Γ₁(N)\ℍ → Γ₀(N)\ℍ. Assumptions: G = GL₂ over ℚ; U′ ⊂ U compact open subgroups of GL₂(𝔸_f); h ∈ GL₂(𝔸_f); N ≥ 1.
+
+  Sources: [Milne], Lemma 5.13, p. 57, and the maps Sh_{K′} → Sh_K and T(g), p. 58; π₀ at principal level, p. 63. The K₀(N) and K₁(N) cases are direct computations from the component decomposition. Requires: AA.5.2; AA.4.4; Mathlib `CongruenceSubgroup.Gamma0`; Mathlib `CongruenceSubgroup.Gamma1`; Mathlib `CongruenceSubgroup.Gamma`; FuchsianOrbifolds, layers 1, 4 and 5.
 
 - **GL₂ components for O(2) and SO(2).** For GL₂/ℚ and principal finite level K(N), the quotient with K∞=ℝ×SO(2) has components (ℤ/N)× and raw real symmetric space ℍ± before rational orientation reduction. With K∞=ℝ×O(2), the real space is the folded ℍ and the component set is (ℤ/N)×/{±1}. At N=3 these cardinalities are respectively two and one. Assumptions: G = GL₂ over ℚ; N ≥ 1 and K(N) = ker(GL₂(ℤ̂) → GL₂(ℤ/N)); K∞ = ℝ^×SO(2) with the raw Möbius action on ℍ±, or K∞ = ℝ^×O(2) with the folded action on ℍ.
 
