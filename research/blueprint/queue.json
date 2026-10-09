@@ -41471,7 +41471,8 @@
    ],
    "revisionOf": "BP-ShimuraData",
    "prompt": "research/blueprint/prompts/BP-ShimuraData~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7567"
   },
   {
    "priority": 2,
