@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-HeckeStacksAndLocalShtukas",
+    "date": "2026-10-09",
+    "notes": "Complete independent package review. All 51 README targets, 215 API items and 94 tests checked against the accepted plan; prerequisites, ownership, source locators, own-word prose, process exclusion, size (190869 bytes) and math.NT metadata checked. Qualified the Beauville–Laszlo B(G,mu) image bound to the trivial target, retaining the relative Kottwitz identity for general b; removed machine-specific prose and simplified the omissions footer. Final lean-check exited 0 with 999 sorry warnings and no errors or other warnings. R1 remains: RedGrp replaces the existing pinned TauCeti.ReductiveAffineGroupSchemeCat with an admitted Type and category instance, contrary to Protocol section 13 and upstream prototyping guidance. Import and adapt the native carrier and validate in a prebuilt environment at both pins; current stand-in compilation does not establish native compatibility."
+  }
+}
