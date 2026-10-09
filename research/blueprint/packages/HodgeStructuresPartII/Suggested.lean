@@ -645,9 +645,12 @@ end TauCeti.Hodge.ParameterConnection.Intrinsic
 /-
 GLOBAL SIGNATURE OMISSION LEDGER — all 35 added nodes.
 The native local core above covers only degree-zero/one/two additive-balanced
-operator tests. Global sheaf signatures are omitted until the exact CR.1/E1/DD.1
-requests resolve. Missing tensor/dual/coherence, higher forms, subquotients and
-filtered-coefficient carriers are real omissions, not assumed axioms.
+operator tests. Global sheaf signatures still need the CR.1/E1/DD.1
+comparisons. Native SheafOfModules.tensorProduct, its unitors, symmetry,
+associator and over-site restriction already exist in Tau Ceti. General
+scheme bundle operations belong to AlgebraicVectorBundles L0A--L0C.
+The remaining omissions concern the differential, finite-dual/exterior,
+subquotient and filtered-coefficient interfaces and their operator comparisons.
 Each name below is the specification name; the statement is its intended signature.
 Unit tests below remain mathematical acceptance tests and are not Lean examples
 for invented stand-in carriers. Their absence prevents any completeness claim.
@@ -8822,6 +8825,49 @@ example (δ : Γ →* ℂˣ) :
 
 end BettiStableRepresentation
 
+/-- Betti part of H.1/stable-automorphisms, for an arbitrary group and character.
+The native Schur lemma applies to the associated irreducible representation.
+The geometric stable-operator assertion remains in the omission inventory. -/
+theorem stable_automorphisms_betti {r : ℕ} {δ : Γ →* ℂˣ}
+    (ρ : BettiStableRepresentation Γ r δ) (g : Matrix.GeneralLinearGroup (Fin r) ℂ) :
+    (∀ γ, g * ρ.hom γ = ρ.hom γ * g) ↔
+      ∃! c : ℂˣ, g = Matrix.GeneralLinearGroup.scalar (Fin r) c := by
+  sorry
+
+/-- Requiring the automorphism to act identically on the determinant cuts
+the scalar group to the r-th roots of unity; det ρ = δ alone does not do so. -/
+theorem determinant_rigidified_automorphisms_betti {r : ℕ} {δ : Γ →* ℂˣ}
+    (ρ : BettiStableRepresentation Γ r δ) (g : Matrix.GeneralLinearGroup (Fin r) ℂ) :
+    ((∀ γ, g * ρ.hom γ = ρ.hom γ * g) ∧ Matrix.GeneralLinearGroup.det g = 1) ↔
+      ∃! c : ℂˣ, g = Matrix.GeneralLinearGroup.scalar (Fin r) c ∧ c ^ r = 1 := by
+  sorry
+
+-- stable_automorphisms_betti_test_rank_one: rigidification removes the scalars.
+example {δ : Γ →* ℂˣ} (ρ : BettiStableRepresentation Γ 1 δ)
+    (g : Matrix.GeneralLinearGroup (Fin 1) ℂ)
+    (hg : ∀ γ, g * ρ.hom γ = ρ.hom γ * g)
+    (hdet : Matrix.GeneralLinearGroup.det g = 1) : g = 1 := by
+  sorry
+
+-- stable_automorphisms_betti_test_unrigidified: fixing the character retains every scalar.
+example {r : ℕ} {δ : Γ →* ℂˣ} (ρ : BettiStableRepresentation Γ r δ) (c : ℂˣ) :
+    ∀ γ, Matrix.GeneralLinearGroup.scalar (Fin r) c * ρ.hom γ *
+      (Matrix.GeneralLinearGroup.scalar (Fin r) c)⁻¹ = ρ.hom γ := by
+  sorry
+
+-- stable_automorphisms_betti_test_nontrivial_scalar: this automorphism fails rigidification.
+example {δ : Γ →* ℂˣ} (ρ : BettiStableRepresentation Γ 1 δ)
+    (c : ℂˣ) (hc : c ≠ 1) :
+    (∀ γ, Matrix.GeneralLinearGroup.scalar (Fin 1) c * ρ.hom γ =
+      ρ.hom γ * Matrix.GeneralLinearGroup.scalar (Fin 1) c) ∧
+    Matrix.GeneralLinearGroup.det (Matrix.GeneralLinearGroup.scalar (Fin 1) c) ≠ 1 := by
+  sorry
+
+-- stable_automorphisms_betti_test_native_determinant: rank r gives c^r, not c.
+example (r : ℕ) (c : ℂˣ) :
+    Matrix.GeneralLinearGroup.det (Matrix.GeneralLinearGroup.scalar (Fin r) c) = c ^ r := by
+  sorry
+
 def bettiStableSetoid (Γ : Type*) [Group Γ] (r : ℕ) (δ : Γ →* ℂˣ) :
     Setoid (BettiStableRepresentation Γ r δ) where
   r ρ σ := Nonempty (ρ.toRepresentation.Equiv σ.toRepresentation)
@@ -8900,6 +8946,9 @@ G10 additionally records the regularity boundary of the coarse homeomorphism.
 Omitted node: HodgeStructuresPartII:H.1/stable-automorphisms
 Required inputs: Actual geometric carriers and the prerequisite supplier exports (G1-G9); G11.
 Declaration: TauCeti.NonabelianHodge.stable_automorphisms
+Typed component: stable_automorphisms_betti and determinant_rigidified_automorphisms_betti
+state the representation assertions. The stable coherent-operator, stack-inertia
+and absence-of-universal-bundle assertions have no geometric signatures here.
 
 Omitted node: HodgeStructuresPartII:H.1/torsion-determinant-dictionary
 Required inputs: G1; G11.
@@ -9194,7 +9243,7 @@ def ComplexPVHS.hodgeFiltration (A : ComplexPVHS V n) (a : ℤ) : Submodule ℂ 
   ⨆ p, ⨆ (_ : a ≤ p), A.piece p
 
 /-- Constant-family shadow of forgetting the variation. -/
-def ComplexPVHS.localSystem (A : ComplexPVHS V n) (X : TopCat) :
+def ComplexPVHS.localSystem (_A : ComplexPVHS V n) (X : TopCat) :
     TauCeti.LocalCoefficientSystem ℂ X :=
   (TauCeti.LocalCoefficientSystem.constantFunctor X).obj (ModuleCat.of ℂ V)
 
@@ -9204,7 +9253,7 @@ def ComplexPVHS.pullback (A : ComplexPVHS V n) {X Y : TopCat} (_ : C(X, Y)) :
 
 /-- Pointwise constructor from an ACTUAL native real-conjugation fibre and Hermitian data.
 The missing global and real-bilinear polarization signatures are G1/G2. -/
-def ComplexPVHS.ofReal [FiniteDimensional ℂ V] (ω : Conjugation V) (hs : HodgeStructureOn V ω n)
+def ComplexPVHS.ofReal (ω : Conjugation V) (hs : HodgeStructureOn V ω n)
     (ψ : V →ₗ[ℂ] V →ₛₗ[starRingEnd ℂ] ℂ)
     (hherm : ∀ x y, ψ x y = star (ψ y x))
     (hnd : ∀ x, (∀ y, ψ x y = 0) → x = 0)
@@ -9301,11 +9350,11 @@ variable [FiniteDimensional ℚ VQ]
 variable {iQ : VZ →ₗ[ℤ] VQ} {iC : VZ →ₗ[ℤ] VC}
 variable (hQ : IsBaseChange ℚ iQ) (hC : IsBaseChange ℂ iC)
 
-abbrev MixedVariation [FiniteDimensional ℚ VQ] := MixedHodgeStructure hQ hC
+abbrev MixedVariation := MixedHodgeStructure hQ hC
 
 variable {hQ hC}
 
-def MixedVariation.localSystem (A : MixedVariation hQ hC) (X : TopCat) :
+def MixedVariation.localSystem (_A : MixedVariation hQ hC) (X : TopCat) :
     TauCeti.LocalCoefficientSystem ℚ X :=
   (TauCeti.LocalCoefficientSystem.constantFunctor X).obj (ModuleCat.of ℚ VQ)
 
@@ -9317,7 +9366,7 @@ def MixedVariation.pullback (A : MixedVariation hQ hC) {X Y : TopCat} (_ : C(X,Y
     MixedVariation hQ hC := A
 
 def MixedVariation.ofPure {n : ℤ} (A : HodgeStructure hC n) : MixedVariation hQ hC :=
-  MixedHodgeStructure.ofPure (hℚ := hQ) A
+  MixedHodgeStructure.ofPure hQ hC A
 
 /-- MixedVariationTest.pureWeight: the actual native concentrated W. -/
 example {n k : ℤ} (A : HodgeStructure hC n) :
@@ -9785,6 +9834,9 @@ end Layer3
 
 section Layer4
 
+-- Endomorphisms carry the commutator bracket in this layer.
+attribute [local instance 100] LieRing.ofAssociativeRing
+
 /-! ### H.3: signature boundary
 
 Every proof below is a placeholder. The existing Hodge and period-point carriers
@@ -9897,7 +9949,7 @@ example : realLineFlag.F 1 = Submodule.span ℂ {e1} ∧
       ((realLineFlag.F 1).map (by
         exact { toFun := fun x i => star (x i)
                 map_add' := by intros; ext; simp
-                map_smul' := by intros; ext; simp } : Plane →ₗ[starRingEnd ℂ] Plane)) := by
+                map_smul' := by intros; ext; simp } : Plane →ₛₗ[starRingEnd ℂ] Plane)) := by
   sorry
 
 section NativePoints
@@ -14400,6 +14452,7 @@ lemma tensorHodgeLocus.zero [Zero T] (hs : U → HodgeStructureOn W ω k)
     (r : T → W) (hr : r 0 = 0) : tensorHodgeLocus hs r 0 = Set.univ := by
   sorry
 
+open Classical in
 lemma tensorHodgeLocus.constant (h : HodgeStructureOn W ω k) (r : T → W) (t : T) :
     tensorHodgeLocus (fun _ : U => h) r t =
       if r t ∈ (if k = 0 then h.piece 0 else (⊥ : Submodule ℂ W))
