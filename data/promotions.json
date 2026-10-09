@@ -332,6 +332,18 @@
     "roadmaps/IntegralHeckeAndGaloisDeterminants/metadata.toml"
    ]
   },
+  "research/blueprint/packages/PerfectoidQuotients/review.json": {
+   "promotedAt": "2026-10-09T02:38:45Z",
+   "review": "2d9f1ce6c3a4af8e",
+   "reviewDate": "2026-10-09",
+   "reviewer": "independent-review-REV-PKG-PerfectoidQuotients",
+   "sha256": "165904272282d27a57746eeb1be7153d373f3d8bdfd3d7afc697bb1f05a9b12d",
+   "to": [
+    "roadmaps/PerfectoidQuotients/README.md",
+    "roadmaps/PerfectoidQuotients/Suggested.lean",
+    "roadmaps/PerfectoidQuotients/metadata.toml"
+   ]
+  },
   "research/blueprint/packages/WeightsInEtaleCohomology/review.json": {
    "promotedAt": "2026-10-09T00:52:17Z",
    "review": "fdcd8b1ece6277b6",
