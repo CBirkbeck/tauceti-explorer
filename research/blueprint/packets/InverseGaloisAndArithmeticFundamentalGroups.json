@@ -646,7 +646,7 @@
    "sha256": "9628210e96313805ceac89594c64e2eceb3aaebf044f617cee4d7f25ee7ef673",
    "accessDate": "2026-10-09",
    "readSections": [
-    "Entire paper, especially Theorem3.1 pp.4–6; Theorem5.3 and Remark5.4 pp.10–12"
+    "Entire paper, especially Theorem3.1 pp.4–6; Theorem5.2, Remark5.4 and Theorem6.1 pp.10–12"
    ]
   },
   {
@@ -862,7 +862,7 @@
    "sha256": "7c60db9e91bf82e79cff771e0d5148147ef23898342257c171269ea904ebfb2a",
    "accessDate": "2026-10-09",
    "readSections": [
-    "§§1.1–1.2 pp.1–4; §§3.1–3.6 pp.19–33 (including §3.5.3 auxiliary-place thin-set argument); §§7.1–7.3 pp.65–71; §8.1 pp.81–83; §9.2 pp.88–91."
+    "§§1.1–1.2, printed pp.1–4; §§2.1, pp.9–14; §§3.1–3.6, pp.19–33, especially §3.5 Theorems3.5.3/3.5.7 and §3.6 Theorem3.6.2; §§7.1–7.3, pp.65–71; §8.1, pp.81–83; §8.3, pp.86–88 (does not supply dessin faithfulness); Appendix §§10.1–10.4, pp.103–107. Selected source ranges only, not the entire book."
    ]
   },
   {
@@ -935,6 +935,17 @@
    "accessDate": "2026-10-09",
    "readSections": [
     "§3.2.1, PDF p.11; the whole v2 paper was not read"
+   ]
+  },
+  {
+   "id": "upstream-belyi",
+   "title": "BelyiMaps roadmap, Layer13.5: Faithfulness on genus-zero dessins",
+   "authors": "Tau Ceti Project",
+   "edition": "Current TauCetiRoadmap main at 94ff6a17fb5f138baeac6cd961cd5c21e40f6696",
+   "url": "https://github.com/TauCetiProject/TauCetiRoadmap/blob/94ff6a17fb5f138baeac6cd961cd5c21e40f6696/TauCetiRoadmap/BelyiMaps/README.md",
+   "accessDate": "2026-10-09",
+   "readSections": [
+    "Layer13.5, README lines4388–4466: statement, algebraic-number encoding and normalized-composition proof"
    ]
   }
  ],
@@ -1116,7 +1127,7 @@
    ],
    "title": "The étale fundamental group",
    "kind": "construction",
-   "statement": "For a nonempty connected scheme X with geometric point x, π₁^ét(X,x)=Aut(Fib_x) with the native profinite fiber-functor topology. Its tautological action yields FEt(X)≃finite continuous π₁^ét(X,x)-sets. Connected nonempty covers correspond to transitive nonempty sets; pointed connected covers correspond to open subgroups and pointed Galois covers to open normal subgroups. For a disconnected scheme apply the construction to the connected component containing the point; no point sees all components.",
+   "statement": "For a nonempty connected scheme X with geometric point x, π₁^ét(X,x)=Aut(Fib_x) with the native profinite fiber-functor topology. Its tautological action yields FEt(X)≃finite continuous π₁^ét(X,x)-sets. Connected nonempty covers correspond to transitive nonempty sets; pointed connected covers correspond to open subgroups and pointed Galois covers to open normal subgroups. For a disconnected locally connected scheme whose components are open and closed, apply the construction to the component scheme containing the point; no point sees all components. An arbitrary connected component of a scheme need not be an open component scheme, so no unrestricted component-restriction assertion is made.",
    "hypotheses": [],
    "proofSteps": [
     "Apply the native Galois-category reconstruction to the verified instance, not a new reconstruction theorem.",
@@ -1316,7 +1327,7 @@
    ],
    "title": "Finite Galois algebras and torsors",
    "kind": "definition",
-   "statement": "For a field K and finite group H, an H-Galois algebra is a finite étale K-algebra A with an H-action by K-algebra automorphisms such that Spec A is an H-torsor: its geometric fiber is a free transitive H-set. A may be disconnected. Equivalently the canonical map A⊗_K A→∏_{h∈H}A, a⊗b↦(a·h(b))_h, is an isomorphism. For N normal in H, A^N is an H/N-Galois algebra. Use the torsor convention once and translate the right action on points against the left algebra action.",
+   "statement": "For a field K and finite group H, an H-Galois algebra is a nonzero finite étale K-algebra A with an H-action by K-algebra automorphisms such that Spec A is an H-torsor: its geometric fiber is a nonempty free transitive H-set. A may be disconnected. Equivalently A is nonzero and the canonical map A⊗_K A→∏_{h∈H}A, a⊗b↦(a·h(b))_h, is an isomorphism. For N normal in H, A^N is an H/N-Galois algebra. Use the torsor convention once and translate the right action on points against the left algebra action.",
    "hypotheses": [],
    "proofSteps": [
     "Use the finite étale affine fiber anti-equivalence to test the torsor condition after a separable closure.",
@@ -1325,7 +1336,8 @@
    "acceptance": [
     "K^H is valid even when |H|>1 and is not a field.",
     "A separable quadratic extension with its nontrivial involution is a C₂-Galois algebra.",
-    "The trivial homomorphism Γ_K→C₂ corresponds to K×K, not a quadratic field."
+    "The trivial homomorphism Γ_K→C₂ corresponds to K×K, not a quadratic field.",
+    "The zero K-algebra has an isomorphic zero tensor-to-product map but is not an H-Galois algebra: its geometric fiber is empty."
    ],
    "prerequisites": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers",
@@ -1353,7 +1365,7 @@
     {
      "name": "GaloisAlgebra.torsorMap",
      "role": "characterisation",
-     "statement": "The displayed tensor-to-product map is an algebra isomorphism exactly for the torsor condition."
+     "statement": "For a nonzero finite étale K-algebra with H-action, the displayed tensor-to-product map is an algebra isomorphism exactly for the torsor condition."
     },
     {
      "name": "GaloisAlgebra.invariants",
@@ -1381,6 +1393,11 @@
      "name": "GaloisAlgebra.weak_test",
      "kind": "non-example",
      "statement": "The trivial homomorphism Γ_K→C₂ corresponds to K×K, not a quadratic field."
+    },
+    {
+     "name": "GaloisAlgebra.zero_test",
+     "kind": "non-example",
+     "statement": "The zero K-algebra has an isomorphic zero tensor-to-product map but is not an H-Galois algebra: its geometric fiber is empty."
     }
    ],
    "uses": [
@@ -1644,7 +1661,7 @@
    "acceptance": [
     "Every profinite group is Noohi.",
     "Every discrete group is Noohi; infinite Z is not profinite.",
-    "Reconstruction of all continuous actions needs categorical tameness; the remaining infinite-category axioms alone do not assert transitivity."
+    "In the category of discrete Z-sets the connected object Z/2Z has a two-point fiber, and its reconstructed Z-action is transitive and nontrivial. A reconstruction that gives this fiber the trivial action fails categorical tameness."
    ],
    "prerequisites": [
     "SchemeAndStackFoundations:SF.2"
@@ -1697,7 +1714,7 @@
     {
      "name": "NoohiGroup.tameness_test",
      "kind": "non-example",
-     "statement": "Reconstruction of all continuous actions needs categorical tameness; the remaining infinite-category axioms alone do not assert transitivity."
+     "statement": "In the category of discrete Z-sets the connected object Z/2Z has a two-point fiber, and its reconstructed Z-action is transitive and nontrivial. A reconstruction that gives this fiber the trivial action fails categorical tameness."
     }
    ],
    "uses": [
@@ -1855,7 +1872,7 @@
    ],
    "title": "Scheme decomposition and inertia groups",
    "kind": "construction",
-   "statement": "Let X be a normal integral locally noetherian scheme, L/K(X) a finite Galois extension with group G, and Y its finite normalization (assume finiteness, for example X Nagata). At a geometric or valuation point y above x, D_y stabilizes the point and I_y is the kernel of its residue-field action. Conjugating y conjugates D_y,I_y. On the discrete-valuation curve range D_y/I_y≃Gal(κ(y)/κ(x)) when the residue extension is separable; |I_y|=e only under the defectless finite-valuation hypotheses, including the characteristic-zero curve range. For intermediate covers G/H, D- and I-orbits give residue-degree/ramification data. Local henselian-field groups are imported from LocalFieldsRamification, and the curve-place dictionary from AlgebraicCurves8.",
+   "statement": "Let X be a normal integral locally noetherian scheme, L/K(X) a finite Galois extension with group G, and Y its finite normalization (assume finiteness, for example X Nagata). At an underlying scheme point y above x (or an extension of a valuation), D_y stabilizes that point and I_y is the kernel of its residue-field action. Under the separable-residue hypotheses, the stabilizer of a chosen geometric lift of y is I_y, rather than D_y. Conjugating y conjugates D_y,I_y. On the discrete-valuation curve range D_y/I_y≃Gal(κ(y)/κ(x)) when the residue extension is separable; |I_y|=e only under the defectless finite-valuation hypotheses, including the characteristic-zero curve range. For intermediate covers G/H, D- and I-orbits give residue-degree/ramification data. Local henselian-field groups are imported from LocalFieldsRamification, and the curve-place dictionary from AlgebraicCurves8.",
    "hypotheses": [],
    "proofSteps": [
     "Use normalization, integral closure and the imported valuation decomposition sequence.",
@@ -1888,7 +1905,7 @@
     {
      "name": "SchemeInertia.decomposition",
      "role": "projection",
-     "statement": "D_y is the point stabilizer in G."
+     "statement": "D_y is the stabilizer of the underlying scheme point or valuation in G; a geometric lift has inertia stabilizer under the separable-residue hypotheses."
     },
     {
      "name": "SchemeInertia.inertia",
@@ -2095,7 +2112,7 @@
     },
     {
      "sourceId": "wood21",
-     "locator": "Theorem5.3 and proof, pp.10–12",
+     "locator": "Theorem5.2, PDF p.10; §6.1 and Theorem6.1 with proof, pp.11–12",
      "match": "The corrected invariant comparison uses common tame Tate generators."
     }
    ],
@@ -2132,7 +2149,7 @@
    "sources": [
     {
      "sourceId": "wood21",
-     "locator": "§5 Theorem5.3, pp.10–12",
+     "locator": "Theorem5.2 and its inverse-cyclotomic action, PDF p.10; §6.1, pp.11–12",
      "match": "Fixes the inverse cyclotomic convention for the discrete-action invariant."
     }
    ],
@@ -2290,8 +2307,9 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/charzero-base-extension",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.3/general-riemann-existence",
-    "AlgebraicModuliForArithmeticGeometry:R09.4",
-    "SchemeAndStackFoundations:SF.3"
+    "SchemeAndStackFoundations:SF.3",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ],
    "sources": [
     {
@@ -3447,7 +3465,7 @@
    "sources": [
     {
      "sourceId": "serre",
-     "locator": "§3.3 Proposition3.3.1 and §3.4, printed pp.25–30",
+     "locator": "§3.3 Proposition3.3.1, printed p.23; §3.4 Theorem3.4.1, p.25",
      "match": "Hilbert specialization preserves a regular cover’s full Galois group."
     }
    ],
@@ -3486,7 +3504,7 @@
    "sources": [
     {
      "sourceId": "serre",
-     "locator": "§3.3–3.4, printed pp.25–30",
+     "locator": "§3.3 Proposition3.3.3 and Corollary3.3.4, printed p.24; §3.4 Theorem3.4.1, p.25",
      "match": "The regular Hilbert specialization method allows disjointness from a fixed finite extension."
     }
    ],
@@ -3529,8 +3547,8 @@
     },
     {
      "sourceId": "serre",
-     "locator": "§9.2, printed pp.88–91",
-     "match": "Local constancy of specialized finite covers supplies the neighborhood condition."
+     "locator": "§3.5 Theorems3.5.3 and 3.5.7, printed pp.28–30",
+     "match": "The auxiliary-place thin-set argument gives density in every prescribed finite product of local opens. Local constancy of finite étale fibers is a separate geometric input."
     }
    ],
    "implementationStatus": "unchecked",
@@ -3567,7 +3585,7 @@
    "sources": [
     {
      "sourceId": "harpaz-wittenberg20",
-     "locator": "Proof of Theorem4.2, arXiv v2 pp.13–17",
+     "locator": "§4.2 Theorem4.2 and Lemmas4.3–4.4, arXiv v2 pp.16–17, especially the Hilbert pullback step on p.17",
      "match": "Uses the norm map and geometrically integral pullback in the Hilbert condition."
     }
    ],
@@ -3642,6 +3660,11 @@
      "sourceId": "masser-zannier",
      "locator": "Proof of Lemma5.1, p.659, citing Cohen and Serre Lectures on the Mordell–Weil theorem",
      "match": "Provides the exact quantitative target; the cited large-sieve proof is not yet source-certified."
+    },
+    {
+     "sourceId": "serre",
+     "locator": "§3.4 Theorem3.4.4, printed p.27; §3.6 Theorem3.6.2, pp.32–33; Appendix §§10.1–10.4, pp.103–107",
+     "match": "The exact integral-box bound is stated in the primary source. Appendix §§10.1–10.4 proves the large-sieve ingredient. The geometric finite-field density and splitting-prime inputs invoked in §3.6 remain explicit proof gaps."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4008,7 +4031,7 @@
    ],
    "acceptance": [
     "Length zero remains in the monoid even for nontrivial G.",
-    "Adding an identity puncture changes the length but not the generated subgroup.",
+    "If 1∈c, adjoining an identity puncture changes the length by one but not the generated subgroup. If 1∉c this tuple is outside the c-valued carrier.",
     "An S₃ tuple of repeated (12) belongs to the monoid despite having proper monodromy."
    ],
    "prerequisites": [
@@ -4062,7 +4085,7 @@
     {
      "name": "BraidOrbitMonoid.identity_test",
      "kind": "computation",
-     "statement": "Adding an identity puncture changes the length but not the generated subgroup."
+     "statement": "If 1∈c, adjoining an identity puncture changes the length by one but not the generated subgroup. If 1∉c this tuple is outside the c-valued carrier."
     },
     {
      "name": "BraidOrbitMonoid.generation_test",
@@ -4341,7 +4364,7 @@
    ],
    "title": "Field of moduli and the central descent obstruction",
    "kind": "construction",
-   "statement": "For a G-cover of P¹_{K̄} with Galois-invariant G-equivariant isomorphism class, the field of moduli is the fixed field of that class stabilizer. Choose a rational or imported tangential basepoint on the branch complement and comparison isomorphisms h_σ in G/Z(G). Their obstruction h_σh_τh_{στ}⁻¹ defines a continuous H²(Γ_K,Z(G)) class, with the exact action supplied by the G-cover convention. The class vanishes exactly when the comparisons lift to effective G-cover descent over K. Choices change the cocycle by a coboundary; a model of the target and its branch divisor are part of the problem. General three-point field-of-moduli theory is imported from Belyi11.",
+   "statement": "Let K have characteristic zero and let a G-cover of P¹_{K̄} have Galois-invariant G-equivariant isomorphism class, with a fixed model of its target and branch divisor. Its field of moduli is the fixed field of the specified class stabilizer. Choose a rational or tame tangential basepoint on the branch complement and its arithmetic π₁ section. The comparison elements are cosets h̄_σ∈G/Z(G); choose continuous lifts h_σ∈G. Then c(σ,τ)=h_σh_τh_{στ}⁻¹ lies in Z(G) and defines a continuous H²(Γ_K,Z(G)) class with trivial Γ_K-action on Z(G), for the specified constant G-action convention. The class vanishes exactly when the comparisons can be made into effective G-cover descent over K. Changing the lifts changes the cocycle by a central coboundary; changing the chosen section preserves the obstruction class. General three-point field-of-moduli theory is imported from Belyi11.",
    "hypotheses": [],
    "proofSteps": [
     "Use the arithmetic π₁ sequence and its chosen section to obtain comparison elements modulo the centralizer.",
@@ -4351,14 +4374,15 @@
    "acceptance": [
     "If Z(G)=1 the central obstruction vanishes.",
     "For the SL₂(F₅) four-branch example below, a real field of moduli has a nonzero obstruction.",
-    "Fixing branch labels can change the stabilizer and field of moduli; the unlabeled field cannot be substituted."
+    "The C₂-cover y²=x²−2 with unordered branch set {√2,−√2} has field of moduli Q and a Q-model. Ordering the first branch point as √2 changes the field of moduli to Q(√2); the unlabeled stabilizer cannot be substituted."
    ],
    "prerequisites": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.3/branch-cycle-realization",
     "SchemeAndStackFoundations:SF.1",
     "SchemeAndStackFoundations:SF.2",
-    "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits"
+    "tauceti:TauCetiRoadmap/BelyiMaps#layer-11-fields-of-moduli-fields-of-definition-and-galois-orbits",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-tangential-fiber"
    ],
    "sources": [
     {
@@ -4381,7 +4405,7 @@
     {
      "name": "CoverDescent.obstruction",
      "role": "data",
-     "statement": "The comparison lifts define the specified central continuous H² class."
+     "statement": "Continuous lifts in G of the comparison cosets in G/Z(G) give c(σ,τ)=h_σh_τh_{στ}⁻¹∈Z(G) and its continuous H² class with trivial central Γ-action."
     },
     {
      "name": "CoverDescent.changeChoices",
@@ -4408,7 +4432,7 @@
     {
      "name": "CoverDescent.labels_test",
      "kind": "non-example",
-     "statement": "Fixing branch labels can change the stabilizer and field of moduli; the unlabeled field cannot be substituted."
+     "statement": "The C₂-cover y²=x²−2 with unordered branch set {√2,−√2} has field of moduli Q and a Q-model. Ordering the first branch point as √2 changes the field of moduli to Q(√2); the unlabeled stabilizer cannot be substituted."
     }
    ],
    "uses": [
@@ -4507,7 +4531,7 @@
    "acceptance": [
     "The empty tuple has invariant one and zero class-degree vector.",
     "The invariants of (a,b) and (aba⁻¹,a) are equal.",
-    "Adding an identity or a full order block changes the class-degree vector; the multiplier alone cannot record all components."
+    "For a∈c, adjoining a full block of ord(a) copies of a leaves the G-product unchanged and increases the a-class degree by ord(a). Thus the reduced multiplier alone cannot record the invariant; an identity block is allowed only if 1∈c."
    ],
    "prerequisites": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.3/braid-orbit-monoid",
@@ -4563,7 +4587,7 @@
     {
      "name": "LiftingInvariant.degree_test",
      "kind": "non-example",
-     "statement": "Adding an identity or a full order block changes the class-degree vector; the multiplier alone cannot record all components."
+     "statement": "For a∈c, adjoining a full block of ord(a) copies of a leaves the G-product unchanged and increases the a-class degree by ord(a). Thus the reduced multiplier alone cannot record the invariant; an identity block is allowed only if 1∈c."
     }
    ],
    "uses": [
@@ -4622,11 +4646,11 @@
    ],
    "title": "Tate-twisted arithmetic lifting invariants",
    "kind": "comparison",
-   "statement": "For general finite G and rational class union c, import the inverse-Tate-twisted U(G,c) SET action and compare the lift-product invariant of a tame marked cover with its topological tuple, as in Wood2021 Theorems3.1/5.3. For Wood2019 Theorem3.13 retain its narrower F_ε wreath-product subgroup G, single outside involution class c and chosen embedding at infinity. With m the total geometric branch multiplicity (including infinity when ramified), the proof convention is J=[c₀]^m I(φ,u) φ(δ_∞)⁻¹ in U(G,c). Here u is the specified norm-compatible root-of-unity input and δ_∞ is the chosen positive tame generator. If infinity is unramified its factor is one. Do not export this specific formula for arbitrary class unions, and reconcile the statement/proof inversion by the generator choice.",
+   "statement": "For general finite G and rational class union c, import the inverse-Tate-twisted U(G,c) SET action and compare the lift-product invariant of a tame marked cover with its topological tuple, as in Wood2021 Theorems3.1/5.2 and §6.1/Theorem6.1. For Wood2019 Theorem3.13 retain its narrower F_ε wreath-product subgroup G, single outside involution class c and chosen embedding at infinity. With m the total geometric branch multiplicity (including infinity when ramified), the proof convention is J=[c₀]^m I(φ,u) φ(δ_∞)⁻¹ in U(G,c). Here u is the specified norm-compatible root-of-unity input and δ_∞ is the chosen positive tame generator. If infinity is unramified its factor is one. Do not export this specific formula for arbitrary class unions, and reconcile the statement/proof inversion by the generator choice.",
    "hypotheses": [],
    "proofSteps": [
     "Use the common prime-to-p peripheral Tate identification; compare chosen generators at every finite branch place.",
-    "Apply Wood21 Theorem5.3 to make the lift product independent of the chosen Tate generator by twisting.",
+    "Apply Wood21 Theorem5.2 and §6.1 to make the lift product independent of the chosen Tate generator by twisting.",
     "Compare the global arithmetic product place by place with Wood19 Theorem3.13, retaining its normalization exponent."
    ],
    "acceptance": [
@@ -4643,7 +4667,7 @@
    "sources": [
     {
      "sourceId": "wood21",
-     "locator": "Theorem3.1 pp.4–6; Theorem5.3 and Remark5.4 pp.10–12",
+     "locator": "Theorem3.1 and proof, PDF pp.5–6; Theorem5.2, p.10; Remark5.4 and §6.1, p.11; Theorem6.1 and proof, pp.11–12",
      "match": "General Tate covariance and the generating-cover invariant."
     },
     {
@@ -5178,7 +5202,7 @@
    "proofSteps": [
     "Apply finite-S duality and the cokernel-capture lemma.",
     "Select new primes with the required split/Frobenius properties and solve the character corrections by reciprocity.",
-    "For characteristic p use the three additive classes and their specified disjoint ramification supports."
+    "For p=2 (still char(k)≠p), combine the three multiplicative/Kummer classes with their specified conjugate-prime and ramification separation. The additive Artin–Schreier argument in characteristic p belongs to Theorem15, not this theorem."
    ],
    "acceptance": [
     "A zero y permits zero x.",
@@ -5579,7 +5603,7 @@
     {
      "name": "UnramifiedGammaGroup.baseChange",
      "role": "compatibility",
-     "statement": "Finite Γ-stable quotients correspond to characteristic prime-to-Δ unramified split-infinity fields."
+     "statement": "Finite continuous quotients by Γ-stable open normal subgroups of H correspond to finite prime-to-Δ unramified split-infinity extensions of K that are Galois over Q₀. Γ-stability does not assert characteristicity under every automorphism of H."
     },
     {
      "name": "AdmissibleGammaGroup.coinvariants",
@@ -5624,11 +5648,12 @@
    ],
    "title": "Central Property E",
    "kind": "definition",
-   "statement": "An admissible profinite Γ-group H has Property E if for every finite admissible Γ-quotient H→F and every nonsplit central Γ-equivariant extension 1→C_p→E→F→1 with p∤Δ, the quotient map has a proper Γ-equivariant lift H→E. This is a restricted family of central problems; it is not projectivity for all finite embedding problems. A weak lift here is automatically proper: a proper image still surjecting to F would have trivial intersection with the prime-order kernel and would split the extension.",
+   "statement": "Fix Δ and the full category C of pro-Δ′ profinite Γ-groups. An admissible H in C has Property E for C if, for every Γ-equivariant quotient H→F in C and every nonsplit central Γ-equivariant extension 1→C_p→E→F→1 in C with trivial Γ-action on C_p (so p∤Δ), there is a proper Γ-equivariant lift H→E. The finite-F test criterion is equivalent by the finite-to-profinite approximation/compactness argument used for LWZB Lemma2.7. This is a restricted family of central problems, not projectivity for all finite embedding problems. A weak lift here is automatically proper: its closed image surjects to F; if it were proper, its intersection with the prime-order kernel would be trivial and it would split the extension.",
    "hypotheses": [],
    "proofSteps": [
     "Use the imported finite embedding carrier and add the Γ-equivariance condition.",
-    "For a weak lift apply the prime-order intersection dichotomy and nonsplitting to prove surjectivity."
+    "For a weak lift apply the prime-order intersection dichotomy and nonsplitting to prove surjectivity.",
+    "Reduce profinite quotient problems to compatible finite quotients as in LWZB Lemma2.7 and take the compact inverse limit; retain the exact compatibility/compactness proof as a named gap."
    ],
    "acceptance": [
     "A weak lift to C_{p²} over C_p is automatically surjective.",
@@ -5643,7 +5668,7 @@
    "sources": [
     {
      "sourceId": "lwzb",
-     "locator": "Definition2.4 and Theorem2.5, PDF pp.11–13",
+     "locator": "Definition2.3, displayed extension (2.4), Theorem2.5 and Lemma2.7, PDF pp.11–13",
      "match": "The special central property of the arithmetic admissible group."
     }
    ],
@@ -5666,12 +5691,12 @@
     {
      "name": "PropertyE.finiteReduction",
      "role": "compatibility",
-     "statement": "Each problem factors through a finite Γ-stable quotient."
+     "statement": "Finite central problems factor through finite Γ-stable quotients of H. For a profinite quotient problem, compatible finite-level solutions and compactness supply the full lift; this is an additional argument, not factorization of an arbitrary profinite quotient through a finite group."
     },
     {
      "name": "PropertyE.admissibility",
      "role": "data",
-     "statement": "The ambient H retains its prime-to-Δ admissibility hypotheses."
+     "statement": "The ambient H is admissible and pro-Δ′; generic admissibility alone only imposes pro-|Γ|′ and does not supply the stronger Δ restriction."
     }
    ],
    "tests": [
@@ -5798,7 +5823,7 @@
    "acceptance": [
     "The value at u=1 is one.",
     "If every finite inertia image of the chosen lift is trivial the product is one.",
-    "For classes of general order the involution-class z and ε parity proof do not apply; one cannot reuse this definition without a new theorem."
+    "For G=C₃ and c={a,a⁻¹} with a of order three, there is no epimorphism G→C₂ and c is not an involution class. This datum is outside the constructor: the involution-class z and parity proof cannot be reused."
    ],
    "prerequisites": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.4/tame-central-lift",
@@ -5854,7 +5879,7 @@
     {
      "name": "ArithmeticLiftingInvariant.scope_test",
      "kind": "non-example",
-     "statement": "For classes of general order the involution-class z and ε parity proof do not apply; one cannot reuse this definition without a new theorem."
+     "statement": "For G=C₃ and c={a,a⁻¹} with a of order three, there is no epimorphism G→C₂ and c is not an involution class. This datum is outside the constructor: the involution-class z and parity proof cannot be reused."
     }
    ],
    "uses": [
@@ -6356,8 +6381,8 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-g-cover",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/forget-hurwitz-marking",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.3/bounded-cover-count",
-    "AlgebraicModuliForArithmeticGeometry:R09.4",
-    "SchemeAndStackFoundations:SF.4"
+    "SchemeAndStackFoundations:SF.4",
+    "SchemeAndStackFoundations:SF.1"
    ],
    "sources": [
     {
@@ -6454,7 +6479,8 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arithmetic-hurwitz-moduli",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/topological-hurwitz-covers",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.3/branch-cycle-realization",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ],
    "sources": [
     {
@@ -6532,7 +6558,7 @@
    ],
    "title": "Analytic and topological Hurwitz comparison",
    "kind": "theorem",
-   "statement": "Analytification of the algebraic tame Hurwitz stack agrees with the analytic cover stack, and its ordinary marked unramified-infinity scheme agrees with the topological associated cover of configurations. Its product-one full-monodromy fiber is the specified Nielsen tuple set; components are braid orbits. For the EVW unmarked affine-branch scheme and centerless G the complex space is CHur_{G,n}/G. No Frobenius equivariance is supplied by this complex comparison.",
+   "statement": "Analytification of the algebraic tame Hurwitz stack agrees with the analytic cover stack, and its ordinary marked unramified-infinity scheme agrees with the product-one part of the marked topological associated cover of configurations. Its product-one full-monodromy fiber is the specified Nielsen tuple set; components are braid orbits. For the EVW unmarked affine-branch scheme and centerless G the complex space is CHur_{G,n}/G. No Frobenius equivariance is supplied by this complex comparison.",
    "hypotheses": [],
    "proofSteps": [
     "Apply general finite-cover Riemann existence on every fixed fiber.",
@@ -6549,7 +6575,8 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/topological-hurwitz-covers",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/forget-hurwitz-marking",
     "ComplexComparisonPartII:C3",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ],
    "sources": [
     {
@@ -6592,7 +6619,8 @@
    "prerequisites": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-g-cover",
     "SchemeAndStackFoundations:SF.3",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ],
    "sources": [
     {
@@ -6678,7 +6706,7 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-g-covers",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arithmetic-hurwitz-moduli",
     "SchemeAndStackFoundations:SF.4",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1"
    ],
    "sources": [
     {
@@ -6720,8 +6748,9 @@
    ],
    "prerequisites": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/configuration-spaces",
-    "AlgebraicModuliForArithmeticGeometry:R09.4",
-    "SchemeAndStackFoundations:SF.3"
+    "SchemeAndStackFoundations:SF.3",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ],
    "sources": [
     {
@@ -6789,16 +6818,17 @@
    ],
    "title": "Tame cohomological specialization with symmetry",
    "kind": "theorem",
-   "statement": "Let A be a henselian DVR with characteristic-zero fraction field, X/A proper smooth, D a reduced relative normal-crossings divisor, U=X−D, and U′→U finite étale as in EVW Proposition7.7. For every prime ℓ invertible in A, its geometric special and generic cohomology with Z/ℓ coefficients are isomorphic, equivariantly for a finite group acting compatibly on U′ and U over A. Construct the comparison from compactly supported cohomology of j!π*(Z/ℓ), its vanishing-cycle triangle and duality. For use here require the prime-to-residue-characteristic cover range, which ensures the exact tame boundary/local-acyclicity input rather than claiming it for arbitrary wild boundary degeneration.",
+   "statement": "Let A be a henselian DVR with characteristic-zero fraction field, X/A proper smooth, D a reduced relative normal-crossings divisor, U=X−D, and U′→U any finite étale cover as in EVW Proposition7.7. For every prime ℓ invertible in A, the geometric special and generic cohomology of U′ with Z/ℓ coefficients are isomorphic, equivariantly for a finite group acting compatibly on U′ and U over A. Construct the comparison from compactly supported cohomology of j!π*(Z/ℓ), its vanishing-cycle triangle and duality. EVW uses generic-fiber tameness along the horizontal normal-crossings boundary (characteristic zero) and the precise SGA local-acyclicity theorem; no prime-to-residue-characteristic bound on the degree of U′→U is required. These mixed-characteristic boundary hypotheses must not be replaced by a claim for an arbitrary degenerating family.",
    "hypotheses": [],
    "proofSteps": [
-    "Check relative boundary tameness of π*(Z/ℓ), and state the exact local-acyclicity hypothesis.",
+    "Use characteristic-zero generic-fiber tameness along D and SGA1 XIII Corollary2.3(c), then the exact SGA7 XIII §2.1.11 local-acyclicity input invoked by EVW. Retain this source-proof bridge as an explicit gap; do not assume the cover degree prime to the residue characteristic.",
     "Use proper base change and vanishing of the boundary vanishing cycles to obtain a compact-support isomorphism.",
     "Use smooth-fiber Poincaré duality; track finite symmetry through the sheaf maps."
    ],
    "acceptance": [
-    "The normal-crossings compactification and prime-to-residue tame Galois closure are both retained.",
-    "An arbitrary wild finite cover of the open is not covered."
+    "EVW Proposition7.7 applies to every finite étale cover of U under its mixed-characteristic smooth proper normal-crossings hypotheses, including covers of degree divisible by the residue characteristic.",
+    "The condition q∤|G| for the Hurwitz moduli is separate from the degree of its finite cover of configuration space.",
+    "An arbitrary degenerating family without this compactification and local-acyclicity input is not covered."
    ],
    "prerequisites": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/ordered-configuration-compactification",
@@ -7070,7 +7100,7 @@
     },
     {
      "sourceId": "wood21",
-     "locator": "Theorem5.3 and Remark5.4, PDF pp.10–12",
+     "locator": "Theorem5.2, PDF p.10; Remark5.4, p.11; Theorem6.1 and proof, pp.11–12",
      "match": "Corrected generating stable classification."
     },
     {
@@ -7303,7 +7333,7 @@
    ],
    "prerequisites": [
     "SchemeAndStackFoundations:SF.3",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1"
    ],
    "sources": [
     {
@@ -7424,7 +7454,7 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/double-cover-trace-zero",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/lifted-affine-coordinate-group",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/configuration-spaces",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1"
    ],
    "sources": [
     {
@@ -7529,7 +7559,7 @@
    ],
    "title": "Field patching for curves over a complete DVR",
    "kind": "theorem",
-   "statement": "Let T be a complete DVR with parameter t, and X̂ a smooth connected projective T-curve with connected closed fiber X and function field F. For U⊂X put R_U={f∈F regular at each point of U}, let R̂_U be its t-adic completion and F_U=Frac(R̂_U) for U≠X; define F_X=F. For U₁,U₂⊂X, inside F_{U₁∩U₂} the intersection F_{U₁}∩F_{U₂} is F_{U₁∪U₂}, and every invertible matrix on the overlap factors into matrices from the two patches. Consequently finite-dimensional vector spaces over F_{U₁∪U₂} are equivalent to pairs over F_{U₁},F_{U₂} with an overlap isomorphism. The tensor equivalence extends to finite separable commutative algebras and finite-group Galois algebras, with effective actions. It is not an equivalence of just field extensions: connectedness/properness must be checked after gluing.",
+   "statement": "Let T be a complete DVR with parameter t, and X̂ a smooth connected projective T-curve with connected closed fiber X and function field F. For U⊂X let R_U consist of f∈F regular at the generic point η of the closed fiber and at every point of U; in particular R_∅=O_{X̂,η}, as stipulated in HH Notation4.3, rather than F. Let R̂_U be its t-adic completion and F_U=Frac(R̂_U) for U≠X; define F_X=F. For U₁,U₂⊂X, inside F_{U₁∩U₂} the intersection F_{U₁}∩F_{U₂} is F_{U₁∪U₂}, and every invertible matrix on the overlap factors into matrices from the two patches. Consequently finite-dimensional vector spaces over F_{U₁∪U₂} are equivalent to pairs over F_{U₁},F_{U₂} with an overlap isomorphism. The tensor equivalence extends to finite separable commutative algebras and finite-group Galois algebras, with effective actions. It is not an equivalence of just field extensions: connectedness/properness must be checked after gluing.",
    "hypotheses": [],
    "proofSteps": [
     "Use the precise patch rings and their inclusions; apply the intersection calculation of Theorem4.9.",
@@ -7775,7 +7805,7 @@
     {
      "name": "ArtinNeighborhood.aspherical",
      "role": "characterisation",
-     "statement": "All positive higher homotopy groups of U^an vanish."
+     "statement": "π_i(U^an)=0 for every i≥2; π₁ may be nontrivial."
     },
     {
      "name": "ArtinNeighborhood.cohomology",
@@ -7867,7 +7897,8 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arithmetic-hurwitz-moduli",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-analytic-comparison",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-stacks-and-stable-curves",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ],
    "sources": [
     {
@@ -8367,9 +8398,9 @@
    ],
    "sources": [
     {
-     "sourceId": "serre",
-     "locator": "§8.3, printed pp.86–87, Belyi discussion",
-     "match": "Motivation only; the complete current BelyiMaps13.5 proof supplies the stronger precise faithfulness scope."
+     "sourceId": "upstream-belyi",
+     "locator": "Layer13.5, README lines4388–4466 at commit 94ff6a17fb5f138baeac6cd961cd5c21e40f6696",
+     "match": "The current supplier explicitly states and proves faithfulness on genus-zero dessins and its plane-tree refinement. Serre §8.3 pp.86–87 discusses Sn, A5 and Shih instead and does not support this import."
     }
    ],
    "implementationStatus": "unchecked",
@@ -8687,8 +8718,8 @@
     },
     {
      "sourceId": "dlan",
-     "locator": "Proposition2.4 and proof, published pp.1016–1017",
-     "match": "Full image is forced rather than inferred from a nonabelian H¹ class."
+     "locator": "Proposition2.4 and proof, published p.1018",
+     "match": "Identifies quotient weak approximation with H¹ localization surjectivity. The additional full-image argument is the elementary coset/Burnside argument in this node; Proposition2.4 alone does not supply properness."
     }
    ],
    "implementationStatus": "unchecked",
@@ -8809,7 +8840,7 @@
    "sources": [
     {
      "sourceId": "dlan",
-     "locator": "Proposition2.4, published p.1018; §2.5 discussion pp.1016–1018",
+     "locator": "§2.5 Proposition2.4 and proof, published p.1018",
      "match": "The exact weak-approximation/localization equivalence."
     },
     {
@@ -8936,14 +8967,12 @@
   },
   {
    "supplier": "SchemeAndStackFoundations:SF.3",
-   "need": "Smooth proper curve compactifications with relative disjoint sections, the universal stable pointed curve and its punctured family.",
+   "need": "Smooth proper curve compactification and disjoint-section/punctured-family interfaces. SF.3/nonsingular-projective-model gives the individual normal curve completion; relative smooth-pair compactification remains a requested adapter. The universal stable pointed curve and boundary charts are supplied separately by SF.4.",
    "neededBy": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/punctured-specialization",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/stack-and-family-exactness",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.3/branch-cycle-realization",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-g-cover",
-    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-g-covers",
-    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/ordered-configuration-compactification",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/double-cover-trace-zero",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/formal-curve-patching",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.3/artin-good-neighborhoods",
@@ -8951,8 +8980,8 @@
    ]
   },
   {
-   "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
-   "need": "Representable finite étale covers of Deligne–Mumford stacks, geometric points and effective descent; stable curve moduli and universal-family charts.",
+   "supplier": "SchemeAndStackFoundations:SF.1",
+   "need": "General stack, representable morphism, quotient-stack and finite-cover descent interfaces. Use SF.1/stack-in-groupoids, representable-stack-morphism, quotient-stack-algebraic and affine-fpqc-descent; the representable finite étale cover adapter for DM stacks remains a requested interface, not an existing theorem. Stable pointed-curve charts come from SF.4, not R09.4’s elliptic/abelian moduli plan.",
    "neededBy": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/stack-and-family-exactness",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arithmetic-hurwitz-moduli",
@@ -9032,15 +9061,17 @@
    ]
   },
   {
-   "supplier": "AlgebraicModuliForArithmeticGeometry:R09.4",
-   "need": "Stable marked curves, finite quotient/torsor stacks, effective finite-cover moduli and rigidification. The general Hurwitz carrier and its marking adapters stay in IG.5.",
+   "supplier": "SchemeAndStackFoundations:SF.4",
+   "need": "Stable pointed curves, their universal family and boundary/deformation charts: SF.4/stable-curve-stack, stable-curve-stack-algebraic, stable-curve-stack-smooth and node-local-structure. General quotient-stack/descent interfaces are SF.1; admissible G-cover representability and marking/rigidification proofs remain the IG.5 targets.",
    "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/stack-and-family-exactness",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arithmetic-hurwitz-moduli",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arbitrary-monodromy-marked-moduli",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-analytic-comparison",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-g-covers",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-stacks-and-stable-curves",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/ordered-configuration-compactification",
-    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/labelled-hyperelliptic-family"
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/versal-phi-cover-families"
    ]
   },
   {
@@ -9345,7 +9376,8 @@
    "status": "planned",
    "remaining": [
     "Scheme Galois-category bridge: At the pin the abstract Galois-category and finite-étale-algebra APIs exist, but the connected scheme FEt category, geometric fiber instance, quotients and affine-to-scheme gluing have no complete native bridge. Build the exact carrier above before the omitted scheme and local-system Lean signatures; no abstract axioms are treated as a proof for schemes.",
-    "Noohi and pro-étale carrier signatures: The pin has the scheme pro-étale site but no Noohi or infinite Galois-category reconstruction API. Construct the explicit Loc/Cov and continuous target groupoids before stating these in Lean; the categorical set-sized generator argument in Bhatt–Scholze7.4.1 is also an explicit proof obligation."
+    "Noohi and pro-étale carrier signatures: The pin has the scheme pro-étale site but no Noohi or infinite Galois-category reconstruction API. Construct the explicit Loc/Cov and continuous target groupoids before stating these in Lean; the categorical set-sized generator argument in Bhatt–Scholze7.4.1 is also an explicit proof obligation.",
+    "Supplier comparison adapters: Supplier statements were read. SF.1 supplies general stack/quotient/descent carriers and SF.4 supplies stable pointed curves; R09.4’s existing packet covers elliptic and abelian moduli, not these general objects. The representable finite étale cover adapter on DM stacks and the relative smooth-pair/finite-cover lifting interface still need exact supplier proofs. C0 supplies coherent analytification, and C4 proper-source morphism comparison/affine-curve connectedness; neither statement supplies the requested arbitrary finite-CW, curve homotopy or fibration theorem. E1/E2 supplies derived sheaves, inverse limits, repleteness and descent, not by itself finite-coefficient compact support, proper base change, nearby-cycle local acyclicity or ML for the chosen tower. These precise requests remain unfulfilled until the manager routes them to an existing lower-tier theorem or the restricted IG proof kernels; no request is treated as an already proved prerequisite."
    ]
   },
   {
@@ -9355,14 +9387,15 @@
     "Stack completion exactness source: Read Anderson1974 Proposition3 and the topological bundle hypotheses in full before certifying the geometric moduli π₁ exactness proof. Landesman–Litt pp.46–47 explicitly cites it; no unconditional centreless-kernel theorem is substituted.",
     "Geometric specialization carrier: The native scheme π₁ bridge and supplier smooth-pair lifting are required before the exact specialization and scheme-inertia signatures can be stated. The complete SGA1 target statements are specified above.",
     "Semisimple-group simply connected comparison: Supply the original topology-to-finite-etale proof that an algebraically simply connected semisimple group in characteristic zero has trivial étale π₁. Algebraic simple connectedness is not by itself a proof about the scheme fiber functor.",
-    "Nonproper characteristic-zero base-extension proof: Read the original algebraically closed extension-invariance argument cited by Gao–Habegger LemmaB.2 (Cadoret Corollary6.5/Remark6.8 and SGA1 XIII). SGA1 X1.8 was read and supplies the proper case only. The finite-type nonproper characteristic-zero statement has its own exact target and remains an original-proof obligation."
+    "Nonproper characteristic-zero base-extension proof: Read the original algebraically closed extension-invariance argument cited by Gao–Habegger LemmaB.2 (Cadoret Corollary6.5/Remark6.8 and SGA1 XIII). SGA1 X1.8 was read and supplies the proper case only. The finite-type nonproper characteristic-zero statement has its own exact target and remains an original-proof obligation.",
+    "Supplier comparison adapters: Supplier statements were read. SF.1 supplies general stack/quotient/descent carriers and SF.4 supplies stable pointed curves; R09.4’s existing packet covers elliptic and abelian moduli, not these general objects. The representable finite étale cover adapter on DM stacks and the relative smooth-pair/finite-cover lifting interface still need exact supplier proofs. C0 supplies coherent analytification, and C4 proper-source morphism comparison/affine-curve connectedness; neither statement supplies the requested arbitrary finite-CW, curve homotopy or fibration theorem. E1/E2 supplies derived sheaves, inverse limits, repleteness and descent, not by itself finite-coefficient compact support, proper base change, nearby-cycle local acyclicity or ML for the chosen tower. These precise requests remain unfulfilled until the manager routes them to an existing lower-tier theorem or the restricted IG proof kernels; no request is treated as an already proved prerequisite."
    ]
   },
   {
    "stageId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2",
    "status": "planned",
    "remaining": [
-    "Quantitative and local Hilbert proof sources: Read Ekedahl1990 Theorem1.3 and its proof, Cohen’s integral thin-set large-sieve proof, and Serre’s compact-analytic Frattini proposition in full before certifying these proof chains. The papers naming them were read; those references alone do not certify the missing proofs.",
+    "Quantitative and local Hilbert proof sources: Serre §3.5 Theorems3.5.3/3.5.7 and proofs, §3.6 Theorem3.6.2, and Appendix §§10.1–10.4 were read. The large-sieve argument is available there; its geometric finite-field density and positive-density splitting-prime inputs still need their exact proof interfaces. Local constancy of the finite étale fiber with its group action is a separate geometric obligation for prescribed local extensions. Read Ekedahl1990 Theorem1.3 and its proof and Serre’s compact-analytic Frattini proposition before certifying the broader formulations cited by the secondary sources.",
     "Norm Hilbert all-point comparison: The norm construction requires exact all-point inclusion and rational-fiber equality after shrinking. Resolve the algebraic residue-field argument before strengthening the target to equality on all scheme points; no such strengthened equality is used.",
     "Absolute Galois original proof and ownership: Read Fried–Jarden2008 Proposition16.11.6 and Weissauer’s original theorem from a cleared source before certifying this stronger target. The ownership proposal gives it the named IG.2 continuation; the extraction’s UNACCEPTED route cannot be declared accepted by this blueprint."
    ]
@@ -9376,7 +9409,8 @@
     "General nonproper Riemann-existence algebraization: SGA1 XII5.1 is stronger than proper coherent GAGA; its local finite analytic-algebra algebraization and gluing proof is a target-level proof obligation. The arbitrary-dimensional finite-CW input in Gao–Habegger also needs its exact source and proof before certification.",
     "General cover descent signature: The native scheme-cover and continuous H²/torsor carriers must be connected before the general r-branch descent and Tate-twist signatures can be stated. The real example additionally needs a checked SL₂(F₅) double-cover model and the four-branch path computation.",
     "Artin and residual-finiteness original proofs: Read SGA4 XI §§4.4–4.6, construct the elementary-fibration tower and coefficient-compatible site maps; supply the original residual-finiteness proof for compact surface groups. These are finite kernels owned here because general downstream comparison/representation roadmaps are later-tier.",
-    "Nonproper characteristic-zero base-extension proof: Read the original algebraically closed extension-invariance argument cited by Gao–Habegger LemmaB.2 (Cadoret Corollary6.5/Remark6.8 and SGA1 XIII). SGA1 X1.8 was read and supplies the proper case only. The finite-type nonproper characteristic-zero statement has its own exact target and remains an original-proof obligation."
+    "Nonproper characteristic-zero base-extension proof: Read the original algebraically closed extension-invariance argument cited by Gao–Habegger LemmaB.2 (Cadoret Corollary6.5/Remark6.8 and SGA1 XIII). SGA1 X1.8 was read and supplies the proper case only. The finite-type nonproper characteristic-zero statement has its own exact target and remains an original-proof obligation.",
+    "Supplier comparison adapters: Supplier statements were read. SF.1 supplies general stack/quotient/descent carriers and SF.4 supplies stable pointed curves; R09.4’s existing packet covers elliptic and abelian moduli, not these general objects. The representable finite étale cover adapter on DM stacks and the relative smooth-pair/finite-cover lifting interface still need exact supplier proofs. C0 supplies coherent analytification, and C4 proper-source morphism comparison/affine-curve connectedness; neither statement supplies the requested arbitrary finite-CW, curve homotopy or fibration theorem. E1/E2 supplies derived sheaves, inverse limits, repleteness and descent, not by itself finite-coefficient compact support, proper base change, nearby-cycle local acyclicity or ML for the chosen tower. These precise requests remain unfulfilled until the manager routes them to an existing lower-tier theorem or the restricted IG proof kernels; no request is treated as an already proved prerequisite."
    ]
   },
   {
@@ -9388,7 +9422,8 @@
     "Homogeneous-space arithmetic proof input: The exact supersolvable, quaternion and collective-degree conclusions are source-checked. Their geometric fibration/descent theorem, Demarche’s quaternion Brauer computation and the regular collective-degree refinement cited to Colliot-Thélène2000 need full proof collation. Keep these restricted arithmetic targets here under the tier order; route broader homogeneous-space geometry separately through the manager.",
     "Central global-character criterion: LWZB’s full finite/profinite argument was read, but its central global lift invokes Malle–Matzat Theorem10.2, whose proof was not read. Supply this restricted root-of-unity-free global central criterion from the finite-coefficient kernel above; do not silently infer proper solvability for every central problem.",
     "Arithmetic embedding signatures: The current TauCeti FiniteEmbeddingProblem and generic extension dictionary must be reconciled with the pinned roadmap imports; number-field place, continuous cohomology, free operator filtration, and Cartier-dual carriers remain unavailable at the pinned build. Omit exact affected signatures rather than invent obstruction or proper-solution axioms.",
-    "Profinite complement conjugacy proof: Read Ribes–Zalesskii2010 Theorem2.3.15 from a cleared source, including finite complement conjugacy and the inverse-limit argument. The pinned Mathlib Schur–Zassenhaus theorem supplies finite existence only. No Belyi layer is cited as supplying this result."
+    "Profinite complement conjugacy proof: Read Ribes–Zalesskii2010 Theorem2.3.15 from a cleared source, including finite complement conjugacy and the inverse-limit argument. The pinned Mathlib Schur–Zassenhaus theorem supplies finite existence only. No Belyi layer is cited as supplying this result.",
+    "Property E finite-to-profinite criterion: LWZB Definition2.3 quantifies over the full pro-Δ′ category, not just finite quotients. Supply the compatible finite-quotient and compactness argument of Lemma2.7 before using the finite central test criterion for a profinite quotient. Finite-level factorization of a map to a finite group does not by itself construct a lift to an infinite extension."
    ]
   },
   {
@@ -9400,7 +9435,8 @@
     "Low-class orbit and lattice proof input: LWZB component-count proofs were read, but Ellenberg–Venkatesh2005 Lemma3.3, used to bound components outside the stable range, was not read. Supply that exact estimate and verify strictly positive lattice weights and the n≥1 boundary before certification.",
     "Wild patching and Abhyankar proof sources: A lawful primary field-patching version was read: Harbater–Hartmann4.9–4.11/7.1. Supply its complete §3 approximation/factorization proof and the formal branched-cover patching theorem used in the Raynaud–Harbater construction. HOPS §3.3 proof outlines were read; original Raynaud/Harbater sufficiency proofs still require full reading and formal local lifting/deformation contracts. Field-algebra patching alone does not certify those formal cover constructions.",
     "Hurwitz geometry signatures: Native finite-cover, stack, branched-cover, analytic comparison and ℓ-adic cohomology carriers are unavailable at the pinned build. Ordinary configuration subtype/quotient, tuple and affine-coordinate signatures can be stated; omit the exact remaining node/API/test declarations and list their IDs in the suggested file.",
-    "Versal-family original construction: Read Wewers1998 Theorem4, match its general genus/marking stack and chosen-cover point, and prove the dominant étale multisection construction with the section contract."
+    "Versal-family original construction: Read Wewers1998 Theorem4, match its general genus/marking stack and chosen-cover point, and prove the dominant étale multisection construction with the section contract.",
+    "Supplier comparison adapters: Supplier statements were read. SF.1 supplies general stack/quotient/descent carriers and SF.4 supplies stable pointed curves; R09.4’s existing packet covers elliptic and abelian moduli, not these general objects. The representable finite étale cover adapter on DM stacks and the relative smooth-pair/finite-cover lifting interface still need exact supplier proofs. C0 supplies coherent analytification, and C4 proper-source morphism comparison/affine-curve connectedness; neither statement supplies the requested arbitrary finite-CW, curve homotopy or fibration theorem. E1/E2 supplies derived sheaves, inverse limits, repleteness and descent, not by itself finite-coefficient compact support, proper base change, nearby-cycle local acyclicity or ML for the chosen tower. These precise requests remain unfulfilled until the manager routes them to an existing lower-tier theorem or the restricted IG proof kernels; no request is treated as an already proved prerequisite."
    ]
   },
   {
@@ -9460,7 +9496,7 @@
   },
   {
    "title": "Quantitative and local Hilbert proof sources",
-   "detail": "Read Ekedahl1990 Theorem1.3 and its proof, Cohen’s integral thin-set large-sieve proof, and Serre’s compact-analytic Frattini proposition in full before certifying these proof chains. The papers naming them were read; those references alone do not certify the missing proofs.",
+   "detail": "Serre §3.5 Theorems3.5.3/3.5.7 and proofs, §3.6 Theorem3.6.2, and Appendix §§10.1–10.4 were read. The large-sieve argument is available there; its geometric finite-field density and positive-density splitting-prime inputs still need their exact proof interfaces. Local constancy of the finite étale fiber with its group action is a separate geometric obligation for prescribed local extensions. Read Ekedahl1990 Theorem1.3 and its proof and Serre’s compact-analytic Frattini proposition before certifying the broader formulations cited by the secondary sources.",
    "neededBy": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-local-conditions",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.2/integral-thin-count",
@@ -9699,6 +9735,38 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/charzero-base-extension",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.3/bounded-cover-count"
    ]
+  },
+  {
+   "title": "Property E finite-to-profinite criterion",
+   "detail": "LWZB Definition2.3 quantifies over the full pro-Δ′ category, not just finite quotients. Supply the compatible finite-quotient and compactness argument of Lemma2.7 before using the finite central test criterion for a profinite quotient. Finite-level factorization of a map to a finite group does not by itself construct a lift to an infinite extension.",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.4/property-e"
+   ]
+  },
+  {
+   "title": "Supplier comparison adapters",
+   "detail": "Supplier statements were read. SF.1 supplies general stack/quotient/descent carriers and SF.4 supplies stable pointed curves; R09.4’s existing packet covers elliptic and abelian moduli, not these general objects. The representable finite étale cover adapter on DM stacks and the relative smooth-pair/finite-cover lifting interface still need exact supplier proofs. C0 supplies coherent analytification, and C4 proper-source morphism comparison/affine-curve connectedness; neither statement supplies the requested arbitrary finite-CW, curve homotopy or fibration theorem. E1/E2 supplies derived sheaves, inverse limits, repleteness and descent, not by itself finite-coefficient compact support, proper base change, nearby-cycle local acyclicity or ML for the chosen tower. These precise requests remain unfulfilled until the manager routes them to an existing lower-tier theorem or the restricted IG proof kernels; no request is treated as an already proved prerequisite.",
+   "neededBy": [
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.0/proetale-fundamental-group",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/proper-specialization",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.1/stack-and-family-exactness",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3/artin-good-neighborhoods",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3/bounded-cover-count",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3/curve-topological-density",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.3/general-riemann-existence",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-g-covers",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-stacks-and-stable-curves",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arbitrary-monodromy-marked-moduli",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arithmetic-hurwitz-moduli",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/coefficient-tower-comparison",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/double-cover-trace-zero",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-analytic-comparison",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/labelled-hyperelliptic-family",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/ordered-configuration-compactification",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/restricted-hurwitz-trace-kernel",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-cohomological-specialization",
+    "InverseGaloisAndArithmeticFundamentalGroups:IG.5/versal-phi-cover-families"
+   ]
   }
  ],
  "sourceIssues": [
@@ -9716,7 +9784,12 @@
     "2026-09-27: current author-hosted V2-ArithRevDte-v2.pdf, exact hash in sourceVersions, still prints r.",
     "2026-09-27: author institutional profile https://pro.univ-lille.fr/pierre-debes/ and indexed author teaching page; no correction for this index found.",
     "2026-09-27: public search for Pierre Dèbes Arithmétique des revêtements de la droite errata 5.2.2; no matching erratum found. This report is scoped to the author working text, not a publisher edition."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed visually in the cited version and by the mathematical index count.",
+    "by": "REV-InverseGaloisAndArithmeticFundamentalGroups"
+   }
   },
   {
    "id": "InverseGaloisAndArithmeticFundamentalGroups/E2",
@@ -9732,7 +9805,32 @@
     "2026-10-09: arXiv history has v1 (2014) and final v2 (2017); §3.2.1 of both still has the negative exponent. Exact hashes appear in sourceVersions.",
     "2026-10-09: AMS DOI10.1090/bull/1594 record/PDF and Harbater institutional abhsurvey.pdf could not be served (HTTP403); no claim against the published version.",
     "2026-10-09: public search for the paper title with errata and the authors’ institutional listings located no correction."
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed visually in both cited preprints; the prime-to-p pole at the affine origin has wild inertia, so the stated affine étaleness fails. The finding remains restricted to these preprints.",
+    "by": "REV-InverseGaloisAndArithmeticFundamentalGroups"
+   }
+  },
+  {
+   "id": "InverseGaloisAndArithmeticFundamentalGroups/E3",
+   "source": "wewers-fmfd",
+   "kind": "misprint",
+   "locator": "arXiv:math/0108003v1, Example1.6, PDF p.6, final Hurwitz description",
+   "printed": "The final three-entry Hurwitz description repeats the second generator in the third position.",
+   "correction": "Use g₃ in the third position of that description.",
+   "reason": "The example introduces the tuple (g₁,g₂,g₃); g₂ and g₃ belong to distinct conjugacy classes, denoted ℓA and ℓB. Repeating g₂ does not describe that tuple. The subscripts were checked visually against the page.",
+   "affects": "nothing",
+   "known": "new",
+   "searched": [
+    "2026-10-09: arXiv:math/0108003 version history and the v1 PDF; the cited preprint still repeats the second subscript.",
+    "2026-10-09: public search for the exact title with errata and correction found no matching notice. This finding is restricted to the preprint; no assertion is made about the published edition."
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The displayed initial tuple and the distinct second/third conjugacy classes determine the third entry; visual inspection confirms the repeated subscript. No target depends on this example.",
+    "by": "REV-InverseGaloisAndArithmeticFundamentalGroups"
+   }
   }
  ],
  "sourceVersions": [
@@ -9967,7 +10065,9 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-and-prime-to-p",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/finite-field-frobenius",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-gamma-groups"
-   ]
+   ],
+   "reviewCheckedCommit": "94ff6a17fb5f138baeac6cd961cd5c21e40f6696",
+   "reviewCheckedDate": "2026-10-09"
   },
   {
    "roadmap": "PeripheralActions",
@@ -9980,7 +10080,9 @@
     "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-tangential-fiber",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-g-cover",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.6/belyi-arithmetic-interface"
-   ]
+   ],
+   "reviewCheckedCommit": "94ff6a17fb5f138baeac6cd961cd5c21e40f6696",
+   "reviewCheckedDate": "2026-10-09"
   },
   {
    "roadmap": "LocalGaloisGroups",
@@ -9989,7 +10091,9 @@
    "usedBy": [
     "InverseGaloisAndArithmeticFundamentalGroups:IG.4/finite-galois-localization",
     "InverseGaloisAndArithmeticFundamentalGroups:IG.4/restricted-poitou-tate"
-   ]
+   ],
+   "reviewCheckedCommit": "94ff6a17fb5f138baeac6cd961cd5c21e40f6696",
+   "reviewCheckedDate": "2026-10-09"
   }
  ],
  "importedSourceCorrections": [
@@ -11713,7 +11817,8 @@
    "omittedTests": [
     "GaloisAlgebra.split_test",
     "GaloisAlgebra.quadratic_test",
-    "GaloisAlgebra.weak_test"
+    "GaloisAlgebra.weak_test",
+    "GaloisAlgebra.zero_test"
    ],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
@@ -11848,7 +11953,8 @@
    ],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
-    "Noohi and pro-étale carrier signatures"
+    "Noohi and pro-étale carrier signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "SchemeAndStackFoundations:SF.2",
@@ -11935,7 +12041,8 @@
    "omittedTests": [],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
-    "Geometric specialization carrier"
+    "Geometric specialization carrier",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "SchemeAndStackFoundations:SF.4"
@@ -12026,11 +12133,13 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Stack completion exactness source",
-    "Geometric specialization carrier"
+    "Geometric specialization carrier",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
-    "AlgebraicModuliForArithmeticGeometry:R09.4",
-    "SchemeAndStackFoundations:SF.3"
+    "SchemeAndStackFoundations:SF.3",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ]
   },
   {
@@ -12477,7 +12586,8 @@
    "omittedTests": [],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
-    "General nonproper Riemann-existence algebraization"
+    "General nonproper Riemann-existence algebraization",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "ComplexComparisonPartII:C0",
@@ -12498,7 +12608,8 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "General nonproper Riemann-existence algebraization",
-    "Nonproper characteristic-zero base-extension proof"
+    "Nonproper characteristic-zero base-extension proof",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
@@ -13148,7 +13259,8 @@
    ],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
-    "Arithmetic embedding signatures"
+    "Arithmetic embedding signatures",
+    "Property E finite-to-profinite criterion"
    ],
    "suppliers": [
     "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-5-presentations-extensions-and-the-rank-interpretations"
@@ -13374,11 +13486,12 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Original tame/admissible moduli construction proofs",
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
-    "AlgebraicModuliForArithmeticGeometry:R09.4",
-    "SchemeAndStackFoundations:SF.4"
+    "SchemeAndStackFoundations:SF.4",
+    "SchemeAndStackFoundations:SF.1"
    ]
   },
   {
@@ -13401,10 +13514,12 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Original tame/admissible moduli construction proofs",
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ]
   },
   {
@@ -13418,11 +13533,13 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Original tame/admissible moduli construction proofs",
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "ComplexComparisonPartII:C3",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ]
   },
   {
@@ -13445,11 +13562,13 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Original tame/admissible moduli construction proofs",
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "SchemeAndStackFoundations:SF.3",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ]
   },
   {
@@ -13463,11 +13582,12 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Original tame/admissible moduli construction proofs",
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "SchemeAndStackFoundations:SF.4",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1"
    ]
   },
   {
@@ -13489,11 +13609,13 @@
    ],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
-    "AlgebraicModuliForArithmeticGeometry:R09.4",
-    "SchemeAndStackFoundations:SF.3"
+    "SchemeAndStackFoundations:SF.3",
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ]
   },
   {
@@ -13507,7 +13629,8 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Nonproper cohomology kernel and coefficient tower",
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "EnhancedDerivedSheaves:E2",
@@ -13542,7 +13665,8 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Nonproper cohomology kernel and coefficient tower",
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "EnhancedDerivedSheaves:E1",
@@ -13561,7 +13685,8 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Nonproper cohomology kernel and coefficient tower",
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "EnhancedDerivedSheaves:E2",
@@ -13695,11 +13820,12 @@
    "omittedTests": [],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "SchemeAndStackFoundations:SF.3",
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1"
    ]
   },
   {
@@ -13747,10 +13873,11 @@
    ],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
-    "Hurwitz geometry signatures"
+    "Hurwitz geometry signatures",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1"
    ]
   },
   {
@@ -13862,7 +13989,8 @@
    ],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
-    "Artin and residual-finiteness original proofs"
+    "Artin and residual-finiteness original proofs",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "ComplexComparisonPartII:C0",
@@ -13879,7 +14007,8 @@
    "omittedTests": [],
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
-    "Artin and residual-finiteness original proofs"
+    "Artin and residual-finiteness original proofs",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
     "ComplexComparisonPartII:C0"
@@ -13905,10 +14034,12 @@
    "boundary": "Full mathematical target remains the packet statement. The whole target declaration is omitted until its prerequisites have actual Lean carriers and the source-proof interfaces are connected.",
    "gaps": [
     "Hurwitz geometry signatures",
-    "Versal-family original construction"
+    "Versal-family original construction",
+    "Supplier comparison adapters"
    ],
    "suppliers": [
-    "AlgebraicModuliForArithmeticGeometry:R09.4"
+    "SchemeAndStackFoundations:SF.1",
+    "SchemeAndStackFoundations:SF.4"
    ]
   },
   {
@@ -14230,5 +14361,698 @@
     "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants"
    ]
   }
- ]
+ ],
+ "review": {
+  "status": "accepted",
+  "reviewer": "independent-review-REV-InverseGaloisAndArithmeticFundamentalGroups",
+  "date": "2026-10-09",
+  "notes": "Independent completed target-level review by Codex — codex-vvqpUi of another worker’s plan. All 137 nodes, 67 pinned baseline citations, 49 requests, definition/construction APIs and tests, 33 planets and signature coverage were checked. Corrected 36 nodes, added one zero-algebra test and Property E finite-to-profinite and supplier-adapter gaps; confirmed two inherited source issues and recorded a third visually confirmed preprint misprint. Existing original-proof and native-carrier gaps remain explicit: 29 gaps, seven planned stages, none closed. Complete means a finished pass, not mathematical closure or implementation. Current upstream imports were checked at 94ff6a17fb5f138baeac6cd961cd5c21e40f6696. The final suggested file elaborates with only warnings for admitted proofs. The read-only reader handles both inherited red-team findings; the packager must synchronize this review’s corrections into it.",
+  "checked": [
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-covers",
+    "verdict": "verified",
+    "note": "Native finite-plus-étale morphism carrier and affine finite étale algebra equivalence match the pin; the geometric fiber clauses remain in the named scheme bridge. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/geometric-fiber",
+    "verdict": "verified",
+    "note": "Finite geometric fibers use a separably closed geometric point; pullback and reflection of isomorphisms require the recorded scheme Galois-category bridge. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/etale-fundamental-group",
+    "verdict": "corrected",
+    "note": "Restricted disconnected component reduction to locally connected schemes with open-and-closed components; the connected fiber-functor statement is unchanged. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/basepoint-and-components",
+    "verdict": "verified",
+    "note": "Paths are fiber-functor isomorphisms, so transport is inner up to choice; different components do not acquire paths. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/field-and-torus-comparisons",
+    "verdict": "verified",
+    "note": "Field absolute Galois and prime-to-characteristic peripheral Tate identifications are imports of ModularCurves0d and Belyi12–13, using current ProfiniteArithmetic powers. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-galois-algebras",
+    "verdict": "corrected",
+    "note": "Added nonzero/nonempty to the tensor criterion, with a fourth zero-algebra counterexample; disconnected torsor algebras and surjective field realizations remain distinct. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/finite-etale-idempotents",
+    "verdict": "verified",
+    "note": "Kedlaya–Liu1.2.2/1.2.3 gives the finite étale idempotent/component argument; neither arbitrary disconnected cover nor a chosen nontrivial idempotent is silently treated as connected. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/integral-monodromy",
+    "verdict": "verified",
+    "note": "A continuous action on a finite-rank discrete integral lattice has finite image; this topology differs from an adic representation. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/adic-local-systems",
+    "verdict": "verified",
+    "note": "Inverse-limit integral systems, isogeny localization and its stackification are distinguished, retaining the nodal counterexample and geometric bridge. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/adic-representations",
+    "verdict": "verified",
+    "note": "Continuous adic representations and lattice data retain the actual coefficient topology; incidence and join operations are not replaced by constant rational lattices. Recorded obligations: Scheme Galois-category bridge. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/noohi-groups",
+    "verdict": "corrected",
+    "note": "Infinite reconstruction retains categorical tameness; replaced the ambiguous test by the nontrivial transitive two-point Z-action. The set-sized generator proof remains a gap. Recorded obligations: Noohi and pro-étale carrier signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.0/proetale-fundamental-group",
+    "verdict": "verified",
+    "note": "Bhatt–Scholze7.3–7.4 uses Loc/Cov and Noohi reconstruction rather than the finite SGA1 category; Caraiani–Scholze's noncompact J_b torsors require this distinction. Recorded obligations: Noohi and pro-étale carrier signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-exact-sequence",
+    "verdict": "verified",
+    "note": "Geometric connectedness and the selected geometric basepoint are retained; rational sections are additional data, not automatic splitting. Recorded obligations: Geometric specialization carrier. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/decomposition-inertia",
+    "verdict": "corrected",
+    "note": "D stabilizes an underlying point/valuation; a geometric lift has inertia stabilizer under separable-residue hypotheses. Quotient and conjugacy conventions agree. Recorded obligations: Geometric specialization carrier. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-and-prime-to-p",
+    "verdict": "verified",
+    "note": "Tame covers may have p-divisible monodromy order; the maximal prime-to-p quotient and the p=1 convention stay separate. Recorded obligations: Geometric specialization carrier. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/proper-specialization",
+    "verdict": "verified",
+    "note": "Proper smooth specialization keeps the full surjection and prime-to-p isomorphism scopes of SGA1, rather than claiming a full isomorphism in mixed characteristic. Recorded obligations: Geometric specialization carrier, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/punctured-specialization",
+    "verdict": "corrected",
+    "note": "Retained the smooth pair/disjoint sections and prime-to-p scope; replaced nonexistent Wood5.3 with 5.2 and the family argument6.1. Recorded obligations: Geometric specialization carrier. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/finite-field-frobenius",
+    "verdict": "corrected",
+    "note": "Arithmetic q-power and geometric inverse-q power on the peripheral Tate carrier agree with the supplier conventions; corrected the Wood locator. Recorded obligations: Geometric specialization carrier. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/charzero-base-extension",
+    "verdict": "verified",
+    "note": "Proper SGA1 X1.8 is not used to prove unrestricted nonproper invariance. The latter is an explicit target with its own original-proof obligation. Recorded obligations: Geometric specialization carrier, Nonproper characteristic-zero base-extension proof. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/arithmetic-representation",
+    "verdict": "verified",
+    "note": "An outer arithmetic action becomes an actual action only after a chosen section; finite and adic coefficient topologies are retained. Recorded obligations: Geometric specialization carrier. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/stack-and-family-exactness",
+    "verdict": "corrected",
+    "note": "Landesman–Litt9.1.1/9.1.2 supplies distinct scheme/stack hypotheses; profinite completion exactness is retained as the Anderson proof gap. Corrected the general stack/descent owner to SF.1 and stable pointed-curve owner to SF.4; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Stack completion exactness source, Geometric specialization carrier, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-subring",
+    "verdict": "verified",
+    "note": "Uses reduced native rational-function denominators. Removable singularities and a genuine pole distinguish the intended carrier."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-membership",
+    "verdict": "verified",
+    "note": "Membership is exactly nonvanishing of the reduced denominator, matching RatFunc rather than a chosen unreduced presentation."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-evaluation",
+    "verdict": "verified",
+    "note": "Native total evaluation restricts to a ring map only on the regular subring; the regularity hypotheses of multiplication are necessary."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/polynomial-specialization",
+    "verdict": "verified",
+    "note": "Coefficientwise evaluation is total, with conditional ring laws; the pole-multiplication counterexample prevents an unconditional ring homomorphism."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-coefficients",
+    "verdict": "verified",
+    "note": "Finite-sum monomial evaluation gives each coefficient directly using the native Polynomial API."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-map-regular",
+    "verdict": "verified",
+    "note": "Specialization on coefficients in the regular subring agrees with Polynomial.map of the restricted evaluation homomorphism."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-add",
+    "verdict": "verified",
+    "note": "Each input coefficient is regular; native evaluation additivity applies coefficientwise with these hypotheses."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-mul",
+    "verdict": "verified",
+    "note": "Regularity of both coefficient families is retained through the finite convolution, using the restricted evaluation map."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product",
+    "verdict": "verified",
+    "note": "The product ranges over polynomial support and uses reduced denominators with repetitions; zero has empty product one."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product-nonzero",
+    "verdict": "verified",
+    "note": "Every reduced denominator is nonzero, so the finite product is nonzero over a field, including empty support."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/denominator-product-domain",
+    "verdict": "verified",
+    "note": "The guard detects regularity of every coefficient, with the zero-coefficient denominator convention handled separately."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-degree",
+    "verdict": "verified",
+    "note": "The leading coefficient must remain nonzero in addition to coefficient regularity; the proposed degree-drop test catches omission of that guard."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/specialization-guard",
+    "verdict": "verified",
+    "note": "A nonzero parameter polynomial simultaneously protects regularity and degree; it does not by itself enforce irreducibility."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/finite-bad-specializations",
+    "verdict": "verified",
+    "note": "The exceptional set is bounded by roots of a nonzero polynomial; infinite parameter field and nonzero guard are essential."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/simultaneous-finite-avoidance",
+    "verdict": "verified",
+    "note": "A finite product of nonzero guards and infinitude gives simultaneous avoidance without an unproved countable-avoidance claim."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-subsets",
+    "verdict": "verified",
+    "note": "Polynomial degree and regularity restrictions are reconciled with the connected finite étale fiber definition at all scheme points."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/number-field-hilbert",
+    "verdict": "verified",
+    "note": "Hilbert irreducibility uses a number field/Hilbertian base and finite data; the Hilbert–Dörge proof chain is explicit in the source range."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/thin-sets",
+    "verdict": "verified",
+    "note": "Types I and II use proper closed sets and generically finite degree-greater-than-one maps with the stated geometric irreducibility assumptions."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/regular-full-group",
+    "verdict": "corrected",
+    "note": "Regular Galois covers have a thin exceptional specialization set; corrected to Serre3.3.1 p.23 and3.4.1 p.25."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/disjoint-specializations",
+    "verdict": "corrected",
+    "note": "Auxiliary finite extensions enforce linear disjointness via regularity and Hilbert irreducibility; corrected Serre3.3.3/3.3.4 p.24."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/hilbert-local-conditions",
+    "verdict": "corrected",
+    "note": "Affine-space approximation and an actual nonempty local open are retained; corrected the unrelated Serre9.2 citation to3.5.3/3.5.7 pp.28–30. Recorded obligations: Quantitative and local Hilbert proof sources. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/norm-pullback-hilbert",
+    "verdict": "corrected",
+    "note": "Geometric integrality and shrinking are explicit. All-point inclusion is distinguished from equality on rational points; narrowed HW20's locator to16–17. Recorded obligations: Norm Hilbert all-point comparison. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/frattini-full-image",
+    "verdict": "verified",
+    "note": "Full image in a finite Frattini quotient forces full closed image; openness of the compact analytic Frattini subgroup remains a named original-proof input. Recorded obligations: Quantitative and local Hilbert proof sources. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/integral-thin-count",
+    "verdict": "corrected",
+    "note": "Added primary Serre3.4.4/3.6.2 and Appendix10.1–10.4 for the box estimate and large sieve; finite-field density and splitting-prime inputs remain gaps. Recorded obligations: Quantitative and local Hilbert proof sources. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/absolute-galois-normal-subgroups",
+    "verdict": "verified",
+    "note": "The stronger no-nontrivial-finitely-generated-closed-normal-subgroup statement is not replaced by finite-quotient Hilbert irreducibility. Original proof and ownership remain explicit. Recorded obligations: Absolute Galois original proof and ownership. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/quadratic-specialization-example",
+    "verdict": "verified",
+    "note": "The nonsquare quadratic specialization realizes C2 away from the degree/discriminant guard; no assertion treats all parameter values as irreducible."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/general-riemann-existence",
+    "verdict": "verified",
+    "note": "Finite analytic covers of arbitrary finite-type complex schemes require SGA1 XII5.1's nonproper algebraization, beyond proper coherent GAGA. Recorded obligations: General nonproper Riemann-existence algebraization, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/bounded-cover-count",
+    "verdict": "verified",
+    "note": "Degree-bounded covers follow from topological finite generation and finite permutation representations; base extension and finite-CW proof inputs are recorded separately. Recorded obligations: General nonproper Riemann-existence algebraization, Nonproper characteristic-zero base-extension proof, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/branch-tuples",
+    "verdict": "verified",
+    "note": "Raw tuples, product-one sphere tuples, generating tuples and inner/absolute quotients remain distinct; disk boundary product is allowed to vary."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/hurwitz-braid-action",
+    "verdict": "verified",
+    "note": "The left move and its inverse preserve exact product, subgroup and class multiset; ordered classes use the appropriate color-preserving subgroup."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/braid-orbit-monoid",
+    "verdict": "corrected",
+    "note": "The full carrier includes empty and nongenerating tuples; the identity-puncture test now requires 1 in c."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/exterior-epimorphisms",
+    "verdict": "verified",
+    "note": "Epi modulo target inner automorphisms is separate from Out(F2) or Aut(G) quotients, preventing confusion between Nielsen classes and T-systems."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/nielsen-open-statements",
+    "verdict": "verified",
+    "note": "Conjectures and the divisibility question remain open predicates; primary McCullough–Wanderley weak trace and exceptional fields are distinguished from the secondary formulation. Recorded obligations: Exact open Nielsen predicates. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/branch-cycle-realization",
+    "verdict": "verified",
+    "note": "Product-one plus generation gives a connected sphere G-cover; identity labels and Riemann–Hurwitz are retained with the geometric carrier gap. Recorded obligations: General cover descent signature. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/rational-rigidity",
+    "verdict": "verified",
+    "note": "Rational conjugacy classes, rigidity and the centerless/appropriate descent conditions are retained; rationality alone does not prove a rational model. Recorded obligations: General cover descent signature. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/general-cover-moduli-descent",
+    "verdict": "corrected",
+    "note": "Specified continuous lifts of comparison cosets in G/Z(G), trivial central action and the basepoint section; added its direct prerequisite and a concrete ordered quadratic branch test. Recorded obligations: General cover descent signature. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/real-moduli-counterexample",
+    "verdict": "verified",
+    "note": "Wewers1.10's SL2(F5) obstruction is distinguished from its real field of moduli; the actual group model/path computation remains a proof obligation. Recorded obligations: General cover descent signature. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/rigid-s3-comparison",
+    "verdict": "verified",
+    "note": "The worked S3 comparison retains the specific branch classes, product and rational descent hypotheses rather than importing general rigidity without them. Recorded obligations: General cover descent signature. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/lifting-invariant",
+    "verdict": "corrected",
+    "note": "The universal marked extension records degree as well as reduced multiplier. The degree test now uses a full order block of an element in c. Recorded obligations: General cover descent signature. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/stable-braid-classification",
+    "verdict": "verified",
+    "note": "Wood3.1 applies to generating tuples with every class sufficiently frequent; its Fried–Völklein cancellation input remains a gap. Recorded obligations: Stable braid cancellation proof, General cover descent signature. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/arithmetic-lift-comparison",
+    "verdict": "corrected",
+    "note": "Corrected Wood5.3 to5.2/6.1 throughout. General twisted-set covariance is separate from Wood19's narrower involution-class product with infinity correction. Recorded obligations: General cover descent signature. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/proper-local-embedding-problem",
+    "verdict": "verified",
+    "note": "Weak and proper solutions and kernel-conjugate versus full-group-conjugate local prescriptions are separate, using the current generic supplier. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/abelian-kernel-obstruction",
+    "verdict": "verified",
+    "note": "The pulled-back H2 class detects weak lifting only; A-conjugacy classes form an H1 torsor after choosing a lift. Arbitrary finite abelian coefficients need the recorded adapter. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/finite-galois-localization",
+    "verdict": "verified",
+    "note": "Local continuous maps retain decomposition embeddings and conjugacy; torsor algebras do not automatically become fields. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/restricted-poitou-tate",
+    "verdict": "verified",
+    "note": "Finite-coefficient global duality retains restricted unramified products, Cartier duality and modified real terms; the original reciprocity proof is explicitly missing. Recorded obligations: Original finite-module global duality proof, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/solution-twisting",
+    "verdict": "verified",
+    "note": "Twisting weak solutions uses the actual conjugation action on the kernel; the local adjustment and properness criteria remain separate. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/grunwald-wang-boundary",
+    "verdict": "verified",
+    "note": "The special 2-primary obstruction is retained rather than claiming unrestricted abelian local solvability; restricted duality is a direct proof input. Recorded obligations: Original finite-module global duality proof, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/independent-cyclic-eight-lifts",
+    "verdict": "verified",
+    "note": "HW23 Lemma7.6 requires independent quadratic classes and the stated prime congruences; dependent classes need not give the full product image. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/free-operator-shrinking",
+    "verdict": "verified",
+    "note": "Schmidt–Wingberg's operator filtration and degree-shifting cohomology are arithmetic additions to imported free pro-p carriers, not a duplicate construction of those carriers. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/induced-proper-solutions",
+    "verdict": "verified",
+    "note": "Induction/Shapiro and the stated local vanishing support the operator embedding argument; a weak lift is not used as a proper solution without the shrinking step. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/cyclic-ramification-correction",
+    "verdict": "corrected",
+    "note": "Corrected the p=2 proof branch to multiplicative/Kummer classes under char(k) unequal to p; the characteristic-p additive argument belongs to Theorem15. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/split-nilpotent-proper-solutions",
+    "verdict": "verified",
+    "note": "Schmidt–Wingberg15 retains prescribed local behavior, properness and ramification control; the characteristic-p case and prime-to-characteristic induction are distinct. Recorded obligations: Original finite-module global duality proof, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/fitting-supplement",
+    "verdict": "verified",
+    "note": "The supplement construction needs the finite solvable Frattini/Fitting structural theorem, kept as a gap rather than attributed to the Mathlib solvability API. Recorded obligations: Finite solvable structural proof, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/shafarevich-solvable-realization",
+    "verdict": "verified",
+    "note": "Solvable realization follows by the stated nilpotent-kernel induction; it does not entail arbitrary bad-place Grunwald prescriptions. Recorded obligations: Finite solvable structural proof, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/supersolvable-grunwald",
+    "verdict": "verified",
+    "note": "HW20 TheoremB's supersolvable quotient-space argument applies at the stated good places; this is stronger local control in a narrower group range. Recorded obligations: Homogeneous-space arithmetic proof input, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/quaternion-all-place-prescriptions",
+    "verdict": "verified",
+    "note": "The all-place result uses Demarche's unramified Brauer computation for the specified generalized quaternion groups; that proof remains an explicit input. Recorded obligations: Homogeneous-space arithmetic proof input, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/collective-degree-realization",
+    "verdict": "verified",
+    "note": "Collectively coprime field degrees do not provide a single base-field realization; the regular refinement has its own cited proof gap. Recorded obligations: Homogeneous-space arithmetic proof input, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/base-no-unramified-extension",
+    "verdict": "verified",
+    "note": "Minkowski for Q and the genus formula with split infinity for Fq(t) give the two stated base cases, with no general number-field assertion. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-gamma-groups",
+    "verdict": "corrected",
+    "note": "Changed the base-change API to Γ-stable open normal quotients/Galois over the base; this does not imply characteristicity under all automorphisms. Recorded obligations: Arithmetic embedding signatures, Profinite complement conjugacy proof. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/property-e",
+    "verdict": "corrected",
+    "note": "Corrected Definition2.3, the trivial Cp action and full pro-Δ′ quotient scope; added the finite-to-profinite compatibility/compactness gap. Recorded obligations: Arithmetic embedding signatures, Property E finite-to-profinite criterion. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/unramified-property-e",
+    "verdict": "verified",
+    "note": "LWZB's root-of-unity-free central criterion and global character adjustment remain explicit inputs; Γ-stable quotient subgroups must be normal. Recorded obligations: Original finite-module global duality proof, Central global-character criterion, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/tame-central-lift",
+    "verdict": "verified",
+    "note": "The local tame central lifting result keeps the root-of-unity and prime-to-order range and its reduced-cover input; no universal proper-lifting theorem is asserted. Recorded obligations: Original finite-module global duality proof, Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/global-arithmetic-invariant",
+    "verdict": "corrected",
+    "note": "Wood19's single outside involution class and epimorphism to C2 are essential; replaced the scope test by an explicit incompatible C3 datum. Recorded obligations: Arithmetic embedding signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/marked-arithmetic-extensions",
+    "verdict": "verified",
+    "note": "The embedding at infinity is part of the arithmetic datum, affecting conjugacy and the point dictionary; it cannot be discarded without changing the moduli problem."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/configuration-spaces",
+    "verdict": "verified",
+    "note": "Ordered distinct tuples and their symmetric quotient use the native subtype/quotient; discriminant, empty and one-point tests agree."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/configuration-braid-group",
+    "verdict": "verified",
+    "note": "The analytic configuration π1 is the braid group; the ordered cover has pure braid π1. The exact analytic comparison carrier is omitted honestly. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/topological-hurwitz-covers",
+    "verdict": "verified",
+    "note": "Associated configuration covers use all tuples before restricting boundary product or generation; markings identify homomorphisms rather than conjugacy classes. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/forget-hurwitz-marking",
+    "verdict": "verified",
+    "note": "Simultaneous G-conjugacy models forgetting the mark; centralizers give stabilizers, so the full G-action need not be free on the disconnected locus. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-g-cover",
+    "verdict": "verified",
+    "note": "Finite flat generically torsor maps, actual target labels and tame boundary conditions are retained. Inactive labels and connectedness are separate. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arithmetic-hurwitz-moduli",
+    "verdict": "corrected",
+    "note": "Romagny–Wewers4.4–4.12, LWZB11 and Wood4.5 have different marking scopes; scheme representability is not inferred from an arbitrary ramified marking. Corrected the general stack/descent owner to SF.1 and stable pointed-curve owner to SF.4; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Original tame/admissible moduli construction proofs, Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/arbitrary-monodromy-marked-moduli",
+    "verdict": "corrected",
+    "note": "Seguin permits disconnected covers and inactive punctures; the enlargement of the original Emsalem/Kanev construction remains a representability proof gap. Corrected the general stack/descent owner to SF.1 and stable pointed-curve owner to SF.4; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Original tame/admissible moduli construction proofs, Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-analytic-comparison",
+    "verdict": "corrected",
+    "note": "Restricted the unramified-infinity arithmetic comparison to the product-one part of the marked topological configuration cover. Corrected the general stack/descent owner to SF.1 and stable pointed-curve owner to SF.4; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Original tame/admissible moduli construction proofs, Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-g-covers",
+    "verdict": "corrected",
+    "note": "Node charts are balanced with inverse inertia characters, and degree/rank, labels and stability are retained for general genus and markings. Corrected the general stack/descent owner to SF.1 and stable pointed-curve owner to SF.4; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Original tame/admissible moduli construction proofs, Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/admissible-stacks-and-stable-curves",
+    "verdict": "corrected",
+    "note": "Chen2.4.4–2.4.9 preserves the decomposed marking and quotient; general proper DM construction and the special (1,1) rigidification remain separate. Corrected the general stack/descent owner to SF.1 and stable pointed-curve owner to SF.4; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Original tame/admissible moduli construction proofs, Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/ordered-configuration-compactification",
+    "verdict": "corrected",
+    "note": "The M0,n+1 and affine-coordinate factorization carries the relative normal-crossings divisor and pure-ordering cover used for fixed-degree comparison. Corrected the general stack/descent owner to SF.1 and stable pointed-curve owner to SF.4; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/tame-cohomological-specialization",
+    "verdict": "corrected",
+    "note": "Removed the unsupported prime-to-residue-characteristic bound on cover degree; EVW7.7 uses proper smooth mixed-characteristic normal-crossings hypotheses and SGA local acyclicity. Recorded obligations: Nonproper cohomology kernel and coefficient tower, Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/fixed-degree-mod-l-comparison",
+    "verdict": "verified",
+    "note": "EVW7.8 uses an auxiliary coefficient prime exceeding n to take Sn invariants; the comparison does not assert arbitrary Frobenius-equivariant singular cohomology. Recorded obligations: Nonproper cohomology kernel and coefficient tower, Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/coefficient-tower-comparison",
+    "verdict": "verified",
+    "note": "Coefficient-compatible transition maps, finiteness/ML and invariant descent are required before passing to Ql; these remain explicit proof obligations. Recorded obligations: Nonproper cohomology kernel and coefficient tower, Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/restricted-hurwitz-trace-kernel",
+    "verdict": "verified",
+    "note": "Compact support, duality, trace and weights are planned here in the restricted finite Hurwitz range; later general cohomology roadmaps are not treated as proof suppliers. Recorded obligations: Nonproper cohomology kernel and coefficient tower, Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/fixed-degree-point-estimate",
+    "verdict": "verified",
+    "note": "For each fixed degree the error depends on its Betti data; no unproved uniform-in-degree estimate or withdrawn homological stability input is used. Recorded obligations: Nonproper cohomology kernel and coefficient tower, Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-points-and-extensions",
+    "verdict": "verified",
+    "note": "LWZB10.2 and Wood4.4 retain constants, splitting and the infinity marking; weak torsor maps are distinguished from full-image fields. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/hurwitz-component-invariants",
+    "verdict": "corrected",
+    "note": "Stable generating components use the inverse-Tate set action and tame transport; corrected Wood's theorem locator and retained the restricted withdrawn-proof use. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/frobenius-component-count",
+    "verdict": "verified",
+    "note": "LWZB12.7–12.9 keeps root-valued corrections, positive lattice weights and the degree progression; the low-class orbit input remains a gap. Recorded obligations: Low-class orbit and lattice proof input, Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/semidirect-component-comparison",
+    "verdict": "verified",
+    "note": "LWZB10.4's semidirect admissibility and q−1 restrictions are retained; the component/count comparison is not claimed for arbitrary semidirect products. Recorded obligations: Low-class orbit and lattice proof input, Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/product-one-component-monoid",
+    "verdict": "verified",
+    "note": "Seguin's arithmetic multiplicativity is restricted to permuting/nested monodromy families; the full product-one monoid is not declared Galois-equivariant without conditions. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/bounded-core-galois-reduction",
+    "verdict": "verified",
+    "note": "Seguin6.1 removes full order blocks while retaining the generated subgroup; the finite quotient combines bounded-core action with a finite cyclotomic modulus. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/double-cover-trace-zero",
+    "verdict": "corrected",
+    "note": "With two invertible, trace/2 splits a finite flat rank-two algebra into its unit and trace-zero line. The odd-degree monic hyperelliptic form additionally needs a distinguished branch section and étale frames. Corrected the general stack/descent owner to SF.1; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/lifted-affine-coordinate-group",
+    "verdict": "verified",
+    "note": "The square-root scale lift is a central double cover of the affine-coordinate group; native equations and the deck involution distinguish it from the ordinary affine group."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/labelled-hyperelliptic-family",
+    "verdict": "corrected",
+    "note": "Ordered branch roots and the lifted affine action retain the hyperelliptic involution and parity; this is not the unordered moduli family. Corrected the general stack/descent owner to SF.1; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Hurwitz geometry signatures, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/finite-cover-image-lemmas",
+    "verdict": "verified",
+    "note": "Stack fundamental-group surjectivity is tested by connected finite covers. Smooth geometrically connected fibers and normal dense-open restriction preserve connected pullbacks under the stated hypotheses. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/formal-curve-patching",
+    "verdict": "corrected",
+    "note": "Corrected R_empty to the closed-fiber generic local ring. HH4.9–4.11/7.1 patches vector spaces/algebras; formal branched-cover sufficiency still needs its own proof. Recorded obligations: Wild patching and Abhyankar proof sources, Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/abhyankar-affine-curve-realization",
+    "verdict": "verified",
+    "note": "HOPS3.2/3.3 requires an affine curve, algebraically closed positive-characteristic base and the prime-to-p generator bound 2g+r−1; original sufficiency proofs remain gaps. Recorded obligations: Wild patching and Abhyankar proof sources, Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/tame-tangential-fiber",
+    "verdict": "verified",
+    "note": "The restricted boundary fiber uses a chosen parameter and prime-to-characteristic Tate roots; it supplies arithmetic sections and convention transport, not general logarithmic geometry."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/finite-coefficient-comparison",
+    "verdict": "verified",
+    "note": "Finite locally constant coefficients and coefficient-compatible maps are required; the general higher comparison roadmap is a consumer under the tier order. Recorded obligations: Artin and residual-finiteness original proofs. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/artin-good-neighborhoods",
+    "verdict": "corrected",
+    "note": "Corrected the asphericity API to π_i=0 for i at least two; elementary fibration construction is an explicit SGA4 proof input. Recorded obligations: Artin and residual-finiteness original proofs, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/curve-topological-density",
+    "verdict": "verified",
+    "note": "Curve completion density and goodness retain residual finiteness/asphericity hypotheses; these are not substituted by an assertion for arbitrary varieties. Recorded obligations: Artin and residual-finiteness original proofs, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/versal-phi-cover-families",
+    "verdict": "corrected",
+    "note": "Landesman–Litt7.3.1's dominant étale multisection and section preserve the chosen cover; the original Wewers construction is still a named proof input. Corrected the general stack/descent owner to SF.1 and stable pointed-curve owner to SF.4; R09.4’s existing elliptic/abelian moduli plan is not a supplier of these general objects. Recorded obligations: Hurwitz geometry signatures, Versal-family original construction, Supplier comparison adapters. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/general-fixed-fiber-equation",
+    "verdict": "verified",
+    "note": "The finite reduced-kernel torsor and its normalized inverse-Tate set action give h^(q−1)=W; nonempty solution sets are torsors under A[q−1]. The general class-union equation is not imported from the involution-only formulas. Recorded obligations: Hurwitz geometry signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/realization-certificates",
+    "verdict": "verified",
+    "note": "Native splitting-field, degree, Galois and group-isomorphism data certify a realization. A polynomial without the full group is not a certificate."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/specialization-export",
+    "verdict": "verified",
+    "note": "Polynomial guard and full-group regular specialization supply different parts of the exported certificate; the remaining geometric specialization bridge is omitted in Lean. Recorded obligations: Realization and generic-polynomial signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/cyclic-worked-realizations",
+    "verdict": "verified",
+    "note": "The quadratic prime, square-discriminant irreducible cubic and fifth cyclotomic examples give C2,C3,C4 with full field/group data."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/dihedral-eight-realization",
+    "verdict": "verified",
+    "note": "The degree-eight real/complex tower and root assignments give the group of order eight; the D8/D4 naming convention and exact native adjoin carrier are explicit. Recorded obligations: Realization and generic-polynomial signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/symmetric-family-import",
+    "verdict": "verified",
+    "note": "Full Sn polynomial construction is imported from PolynomialGaloisGroups9; no competing symmetric-family proof is planned."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/belyi-arithmetic-interface",
+    "verdict": "verified",
+    "note": "Belyi12–13 supplies Tate powers, branch cycles and peripheral comparisons; current ProfiniteArithmetic/PeripheralActions ownership is respected."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/faithful-dessin-action-import",
+    "verdict": "corrected",
+    "note": "Replaced unrelated Serre8.3 pages by the current Belyi13.5 proof encoding a moved algebraic number; genus-zero and plane-tree scope is retained."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/inverse-galois-frontier",
+    "verdict": "verified",
+    "note": "General inverse Galois and regular realization questions remain open predicates; explicit solvable and imported families do not imply the general conjecture."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.6/generic-polynomial-universality",
+    "verdict": "verified",
+    "note": "Universality quantifies over extension fields with the exact coefficient/pole domain and full specialization group; a regular polynomial alone is insufficient. Recorded obligations: Realization and generic-polynomial signatures. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.1/homogeneous-space-fundamental-group",
+    "verdict": "verified",
+    "note": "HW20 §5.1/5.3 uses an algebraically simply connected semisimple group and finite stabilizer; its étale simply-connected comparison is a named proof gap. Recorded obligations: Semisimple-group simply connected comparison. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.3/eventual-class-element-extraction",
+    "verdict": "verified",
+    "note": "EVW3.4's generating tuple and eventual bound permit extraction without losing generation; its finite braid argument is distinct from the stronger stable classification."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.5/finite-degree-component-bound",
+    "verdict": "verified",
+    "note": "EVW2.5 bounds cells via a finite configuration cover; it gives fixed-degree Betti control, independent of an unproved stability theorem."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/identity-root-invariant",
+    "verdict": "verified",
+    "note": "The arithmetic invariant is a homomorphism on roots of unity, so its value at the identity is one; a nonidentity prescribed value gives an empty numerator whenever the denominator is nonzero."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/auxiliary-class-properness",
+    "verdict": "corrected",
+    "note": "Corrected DLAN2.4 to p.1018; localization gives weak torsors and the separate finite coset/derangement argument forces full image."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/coprime-profinite-complements",
+    "verdict": "verified",
+    "note": "Mathlib Schur–Zassenhaus provides finite existence only; finite conjugacy and profinite inverse-limit existence/conjugacy remain explicit proof inputs. Recorded obligations: Profinite complement conjugacy proof. This verdict verifies the planned target and its honest boundary; it does not certify those missing proofs or carriers."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.2/general-hilbert-local-approximation",
+    "verdict": "verified",
+    "note": "Serre3.5.3/3.5.7's auxiliary-place argument uses weak approximation or the precise weak-weak variant, with its exceptional place set."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/finite-quotient-approximation",
+    "verdict": "corrected",
+    "note": "SLn/F weak approximation is equivalent to H1 localization surjectivity, with nonconstant cocycles retained; corrected the precise DLAN2.5 locator."
+   },
+   {
+    "nodeId": "InverseGaloisAndArithmeticFundamentalGroups:IG.4/wang-cyclic-eight-counterexample",
+    "verdict": "verified",
+    "note": "The independent reciprocity proof uses 16 as an eighth power away from two and the norm-valuation obstruction at two; it rules out the specified unramified C8 local field."
+   }
+  ]
+ }
 }
