@@ -1,10 +1,10 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current continuation: Codex session `codex-CiCHr3`, 8 October 2026, issue #5871,
-base `c1083c227a727701522fb930d7082b0fc1286de2`. The verdicts below are retained;
-the final dated audit records the subsequent supplier changes, fresh checks and
-the unresolved intake blocker. The original review evidence remains attributed
-to the preceding reviewer.
+Current checkpoint: Codex session `codex-mcC1YQ`, 9 October 2026, issue #5871,
+base `a1104cfa91a4d7c018a57f802e807267dcba3695`. The authorized deliverables are
+unchanged since checkpoint PR #7718. The final dated audit reproduces the
+external completion blocker. The mathematical verdicts and their original
+reviewer attribution are retained; this run makes no new source-review claim.
 
 Completed independent review for issue #5871 by Codex, session `codex-t0EaB3`, 7 October 2026.
 Base: `5f858d95`. Work reviewed: FIX-RT-AREA-langlands-2~3, Claude `claude-c9TlsS`, #5870,
@@ -363,3 +363,37 @@ The parent fix is already done but now lists 40 files despite its report's
 explicit three-blueprint scope. The maintainer must reconcile both historical
 scopes and preserve them through regeneration. This diagnosis is not a tested
 generator repair. Further checkpoints alone cannot resolve it.
+
+## Unchanged-input checkpoint, 9 October 2026 — codex-mcC1YQ
+
+Claim confirmed by the bot for [comment 6073551013](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6073551013).
+Base `a1104cfa91a4d7c018a57f802e807267dcba3695`. Read the live issue, the
+previous report and handoff, and the completion and queue-generation code.
+Compared each of the seven live-issue deliverables byte for byte against the
+last merged checkpoint, commit `aa5770f7f` (PR #7718): all are unchanged before
+this report update. There is no new mathematical diff to review. The existing
+packet review objects and verdicts remain untouched: CSM accepted, Global
+accepted, GL2 needs_changes. GL2's negative verdict is a completed review
+outcome; its next mathematical revision is described above.
+
+Fresh checks of all three packets report zero errors and zero warnings, for
+37, 73 and 67 nodes. Verified that all 177 implementation statuses remain
+unchecked, no packet contains an excerpt field, and the report gives one
+disposition for each finding /1–/40. The three suggested files were not
+recompiled because they are unchanged. The preceding run's successful
+`lean-check` receipts remain applicable; this run does not claim fresh Lean
+compilation, primary-source reading or a graph audit.
+
+Parsed the seven deliverable paths from the freshly fetched live issue body.
+`issues.deliverables_complete` returns **false** for the committed job's 27
+outputs and **true** with only its outputs replaced in memory by those seven
+paths. All 27 files exist. Each of the ten extra packets names another review
+job; replacing those reviews would exceed this issue's scope. Both
+`research/blueprint/queue.json` and `research/blueprint/make_queue.py` fail
+`intake.ALLOWED` and are outside the binding editable-file list.
+
+This is a blocked checkpoint, not another mathematical revision. The exact
+seven-output reconciliation, historical parent-fix scope and read-only
+reproduction are in the handoff. The maintainer must repair that metadata and
+preserve the historical scope through queue regeneration before another
+continuation can finish. No scratch file is needed to resume.
