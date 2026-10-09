@@ -1,3 +1,7 @@
+import Mathlib.LinearAlgebra.RootSystem.Base
+import Mathlib.LinearAlgebra.RootSystem.WeylGroup
+import Mathlib.LinearAlgebra.UnitaryGroup
+import Mathlib.NumberTheory.NumberField.Basic
 import Mathlib.FieldTheory.Galois.Basic
 import Mathlib.RingTheory.Trace.Basic
 import Mathlib.RingTheory.Valuation.Basic
@@ -27,6 +31,10 @@ import TauCeti.Algebra.HopfAlgebra.HopfIdeal.Basic
 import TauCeti.Geometry.Hodge.Polarization
 import Mathlib.LinearAlgebra.TensorProduct.Tower
 import Mathlib.Geometry.Manifold.VectorBundle.Basic
+import Mathlib.Analysis.Complex.Basic
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+import Mathlib.Analysis.Complex.Trigonometric
 import Mathlib.Analysis.Complex.Exponential
 import Mathlib.LinearAlgebra.Projectivization.Basic
 import Mathlib.RingTheory.DedekindDomain.FiniteAdeleRing
@@ -58,12 +66,11 @@ holomorphic bundle with a horizontal filtration; rational torus immersions and c
 connected adjoint data; and the actual cocharacters, domains and Cartan group of the examples.
 No statement claims implementation or supplier closure.
 
-REV-ShimuraData~2 records nine residual named prototypes in its review report:
-hilbertDeterminantMap, siegelRootConvention, siegelWeylPermutations,
-kostantSequenceGeometry, gsp4CgRoots, gsp4Kostant, gsp4Unitary,
-gsp4PilloniConvention and iwahoriNeat. Their current auxiliary calculations do
-not state the full conclusions assigned to those names in the packet. They must
-be replaced during revision; omitted unavailable hypotheses are a separate matter.
+BP-ShimuraData~3 replaces the nine residual conclusions identified by the independent
+review. Native root pairings and bases, matrix groups and Bruhat-cell membership now
+appear in those comparisons; strong adelic neatness precedes its rational consequence.
+The supplier identifications and analytic/Lie compatibility conditions remain omitted
+openly, as specified in the packet. These interfaces are unproved planning material.
 
 Deligne 1979: type (p,q) means character (-p,-q), μ(z)=h_C(z,1). The diagonal
 restriction acts by t^(-n); inverse diagonal weight acts by t^n. h(i) is inverse to
@@ -1778,8 +1785,31 @@ lemma hilbertReflexDual (F : Supplier.TotallyRealField) :
     reflexField (Supplier.classFromS (Supplier.hilbertSMap F)) = ⊥ ∧
     Nonempty (Supplier.datumDual (hilbertDatum F) ≃ₜ
       (Supplier.RealEmbeddings F → Projectivization ℂ (Fin 2 → ℂ))) := by sorry
-lemma hilbertDeterminantMap (F : Supplier.TotallyRealField) (z : ℂˣ) (i : Supplier.RealEmbeddings F) :
-    (gl2Matrix (z : ℂ)).det = (z : ℂ).re^2 + (z : ℂ).im^2 := by sorry
+namespace Supplier
+ -- RG2.0a: Res_F/ℚ Gm, its split real points and the determinant on Res GL₂.
+ -- This is not the one-dimensional norm torus used in the preceding CM example.
+ def hilbertDeterminantTorus (F : TotallyRealField) : TorusCommHopfAlgCat ℚ := sorry
+ def hilbertNormSMap (F : TotallyRealField) : RealSMap (hilbertDeterminantTorus F).obj.obj := sorry
+ def hilbertTorusPoints (F : TotallyRealField) : (RealEmbeddings F → ℝˣ) ≃*
+     Points (hilbertDeterminantTorus F).obj.obj ℝ := sorry
+ def hilbertDeterminantCoordinate (F : TotallyRealField) :
+     (hilbertDeterminantTorus F).obj.obj ⟶ (hilbertCoordinate F).obj := sorry
+end Supplier
+-- Omitted supplier conditions: split-point functoriality, Res(det) coordinate
+-- identification and the diagonal norm S-map. The conclusion is a rational datum map.
+lemma hilbertDeterminantMap (F : Supplier.TotallyRealField) :
+    ∃ f : datumMorphism (hilbertDatum F)
+        (torusDatum (Supplier.hilbertDeterminantTorus F) (Supplier.hilbertNormSMap F)),
+      f.coordinate = Supplier.hilbertDeterminantCoordinate F ∧
+      CommHopfAlgCat.baseChangeMap (K := ℝ) f.coordinate ≫ Supplier.hilbertSMap F =
+        Supplier.hilbertNormSMap F ∧
+      (∀ M : HilbertRealGroup (Supplier.RealEmbeddings F),
+        Supplier.pointMap f.coordinate ℝ (Supplier.hilbertPoints F M) =
+          Supplier.hilbertTorusPoints F (fun i => (M i).det)) ∧
+      (∀ z : ℂˣ, ∀ i : Supplier.RealEmbeddings F,
+        (Supplier.hilbertTorusPoints F).symm
+          (Supplier.realSPoints (Supplier.hilbertNormSMap F) z) i = (gl2Hom z).det) := by sorry
+
 -- TauCeti.Shimura.tests.hilbertRational
 example : Nonempty (hilbertDatum Supplier.rationalField ≅ gl2Datum) := by sorry
 -- TauCeti.Shimura.tests.hilbertQuadratic
@@ -1988,12 +2018,75 @@ example : Supplier.datumDualDimension (siegelDatum 2) = 3 ∧
     Nonempty (Supplier.datumDual (siegelDatum 2) ≃ LagrangianGrassmannian 2) ∧
     ∀ L : LagrangianGrassmannian 2, ∀ x ∈ L.val, ∀ y ∈ L.val, complexPsi 2 x y = 0 := by sorry
 
-/- Absolute roots and Weyl actions are imported from native R7; RG2.5 supplies dualization. Here only datum-dependent convention comparisons are used. -/
-lemma siegelRootConvention (g : ℕ) (i : Fin g) :
-    ((g : ℚ)-2*(i.val+1)+1)/2 - ((g : ℚ)+1)/2 = -(i.val+1 : ℚ) := by sorry
--- Cyclic order sends g+1,...,2g,1,...,g to 0,...,2g-1.
+/- Absolute roots and Weyl actions are R7 objects, represented in the existing
+RootPairing carrier. No absolute root system is constructed by this roadmap.
+Omitted input: these pairings/lattices/bases are the specified GSp torus and
+Borel under R7's algebraic comparison, with its length and Levi inclusion. -/
+abbrev BPWeight (g : ℕ) := (Fin g → ℚ) × ℚ
+def bpBasisWeight {g : ℕ} (i : Fin g) : BPWeight g := (Pi.single i 1, 0)
+def positiveRoots {ι X Y : Type*} [AddCommGroup X] [Module ℚ X]
+    [AddCommGroup Y] [Module ℚ Y] (P : RootPairing ι ℚ X Y) (b : P.Base) : Set X :=
+  P.root '' {i | b.IsPos i}
+def dominantWeights {ι X Y : Type*} [AddCommGroup X] [Module ℚ X]
+    [AddCommGroup Y] [Module ℚ Y] (P : RootPairing ι ℚ X Y) (s : Finset ι) : Set X :=
+  {x | ∀ i ∈ s, 0 ≤ P.toLinearMap x (P.coroot i)}
+def halfRootSum {ι X Y : Type*} [Fintype ι] [AddCommGroup X] [Module ℚ X]
+    [AddCommGroup Y] [Module ℚ Y] (P : RootPairing ι ℚ X Y) (s : Set ι) : X := by
+  classical
+  exact (1/2 : ℚ) • ∑ i ∈ Finset.univ.filter (fun i => i ∈ s), P.root i
+namespace Supplier
+ def siegelRootPairing (g : ℕ) : RootPairing (Fin (2*g*g)) ℚ (BPWeight g) (BPWeight g) := sorry
+ def bpBase (g : ℕ) : (siegelRootPairing g).Base := sorry
+ def bpCompactIndices (g : ℕ) : Set (Fin (2*g*g)) := sorry
+ def bpLeviBase (g : ℕ) : Finset (Fin (2*g*g)) := sorry
+ def bpCharacters (g : ℕ) : AddSubgroup ((Fin g → ℤ) × ℤ) := sorry
+ abbrev BPWeyl (g : ℕ) := (siegelRootPairing g).weylGroup
+ def bpLeviWeyl (g : ℕ) : Subgroup (BPWeyl g) := sorry
+ def bpLength (g : ℕ) : BPWeyl g → ℕ := sorry
+ -- Permutation of the standard representation's torus weights, not a chosen bijection.
+ def bpWeylPermutation (g : ℕ) : BPWeyl g →* Equiv.Perm (Fin (2*g)) := sorry
+end Supplier
+lemma siegelRootConvention (g : ℕ) (hg : 0 < g) :
+    (∀ x : (Fin g → ℤ) × ℤ, x ∈ Supplier.bpCharacters g ↔
+      (∑ i, x.1 i) ≡ x.2 [ZMOD 2]) ∧
+    (Supplier.siegelRootPairing g).root ''
+      {i | (Supplier.bpBase g).IsPos i ∧ i ∈ Supplier.bpCompactIndices g} =
+        {x | ∃ i j : Fin g, i < j ∧ x = bpBasisWeight i - bpBasisWeight j} ∧
+    (Supplier.siegelRootPairing g).root ''
+      {i | (Supplier.bpBase g).IsPos i ∧ i ∉ Supplier.bpCompactIndices g} =
+        {x | ∃ i j : Fin g, i ≤ j ∧ x = -bpBasisWeight i - bpBasisWeight j} ∧
+    halfRootSum (Supplier.siegelRootPairing g) {i | (Supplier.bpBase g).IsPos i} =
+      ((fun i : Fin g => -(i.val+1 : ℚ)), 0) ∧
+    halfRootSum (Supplier.siegelRootPairing g)
+      {i | (Supplier.bpBase g).IsPos i ∧ i ∉ Supplier.bpCompactIndices g} =
+      ((fun _ : Fin g => -((g : ℚ)+1)/2), 0) ∧
+    dominantWeights (Supplier.siegelRootPairing g) (Supplier.bpBase g).support =
+      {x | (∀ i, x.1 i ≤ 0) ∧ ∀ i j, i ≤ j → x.1 j ≤ x.1 i} ∧
+    dominantWeights (Supplier.siegelRootPairing g) (Supplier.bpLeviBase g) =
+      {x | ∀ i j, i ≤ j → x.1 j ≤ x.1 i} := by sorry
+
+-- Zero-based indices: reflection is i↦2g−1−i. The cyclic rank is 0 on g.
+def reflectedSiegelIndex (g : ℕ) (i : Fin (2*g)) : Fin (2*g) := ⟨2*g-1-i.val, by omega⟩
+def reflectedSiegelPermutations (g : ℕ) : Subgroup (Equiv.Perm (Fin (2*g))) where
+  carrier := {w | ∀ i, w (reflectedSiegelIndex g i) = reflectedSiegelIndex g (w i)}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
 def cyclicSiegelRank (g : ℕ) (i : Fin (2*g)) : ℕ := (i.val+g) % (2*g)
-lemma siegelWeylPermutations (g : ℕ) : Fintype.card (Fin g → Bool) = 2^g := by sorry
+def siegelLastIndex {g : ℕ} (i : Fin g) : Fin (2*g) := ⟨g+i.val, by omega⟩
+def bpStandardWeight (g : ℕ) (i : Fin (2*g)) : BPWeight g :=
+  if hi : i.val < g then (Pi.single ⟨i.val, hi⟩ 1, 1)
+  else (-(Pi.single ⟨2*g-1-i.val, by omega⟩ 1), 1)
+lemma siegelWeylPermutations (g : ℕ) (hg : 0 < g) :
+    ∃ e : Supplier.BPWeyl g ≃* reflectedSiegelPermutations g,
+      (∀ w, (e w).val = Supplier.bpWeylPermutation g w) ∧
+      (∀ w i, w • bpStandardWeight g i = bpStandardWeight g ((e w).val i)) ∧
+      (∀ w, w ∈ Supplier.bpLeviWeyl g ↔
+        ∀ i : Fin (2*g), i.val < g ↔ ((e w).val i).val < g) ∧
+      (∀ w, w ∈ kostantRepresentatives (Supplier.bpLeviWeyl g) (Supplier.bpLength g) ↔
+        StrictMono (fun i : Fin g => cyclicSiegelRank g ((e w).val.symm (siegelLastIndex i)))) ∧
+      Nat.card {w : Supplier.BPWeyl g //
+        w ∈ kostantRepresentatives (Supplier.bpLeviWeyl g) (Supplier.bpLength g)} = 2^g := by sorry
 
 def kostantSequence (g : ℕ) (S : Finset (Fin g)) (i : ℕ) : ℕ :=
   (S.filter (fun j => j.val < i)).card
@@ -2010,11 +2103,45 @@ example : (kostantSequence 2 ∅ 1,kostantSequence 2 ∅ 2) = (0,0) ∧
     (kostantSequence 2 {0,1} 1,kostantSequence 2 {0,1} 2) = (1,2) := by sorry
 -- TauCeti.Shimura.tests.sequenceStepFalse
 example : ¬ ∃ S : Finset (Fin 2), kostantSequence 2 S 1 = 0 ∧ kostantSequence 2 S 2 = 2 := by sorry
--- Scheme cell identification omitted; rank equalities supplied by RG9's cell coordinates.
-lemma kostantSequenceGeometry {K V : Type*} [Field K] [AddCommGroup V] [Module K V]
-    [FiniteDimensional K V] (L : Submodule K V) (E : ℕ → Submodule K V)
-    (g : ℕ) (S : Finset (Fin g)) (rank : ∀ i, Module.finrank K (L ⊓ E i) = kostantSequence g S i) :
-    ∀ i, Module.finrank K (L ⊓ E i) = kostantSequence g S i := by sorry
+
+namespace Supplier
+ -- R9 integral model, evaluated over ANY field, including positive characteristic.
+ -- Omitted: P stabilizes the last-half Lagrangian, B⊂P preserves its partial flag,
+ -- and this Weyl lift acts on the standard basis by bpWeylPermutation up to units.
+ def integralSiegelGroup (g : ℕ) (K : Type*) [Field K] :
+     Subgroup (Matrix.GeneralLinearGroup (Fin (2*g)) K) := sorry
+ def bpParabolic (g : ℕ) (K : Type*) [Field K] : Subgroup (integralSiegelGroup g K) := sorry
+ def bpBorel (g : ℕ) (K : Type*) [Field K] : Subgroup (integralSiegelGroup g K) := sorry
+ def bpWeylLift (g : ℕ) (K : Type*) [Field K] (w : BPWeyl g) : integralSiegelGroup g K := sorry
+end Supplier
+def siegelReferenceFlag (g : ℕ) (K : Type*) [Field K] (i : ℕ) :
+    Submodule K (Fin (2*g) → K) :=
+  Submodule.span K {v | ∃ j : Fin g, j.val < i ∧ v = Pi.single (siegelLastIndex j) 1}
+def siegelRepresentativeLagrangian (g : ℕ) (K : Type*) [Field K]
+    (x : Supplier.integralSiegelGroup g K) : Submodule K (Fin (2*g) → K) :=
+  (siegelReferenceFlag g K g).map
+    (Matrix.GeneralLinearGroup.toLin x.val⁻¹).toLinearEquiv.toLinearMap
+def siegelBruhatCell (g : ℕ) (K : Type*) [Field K] (w : Supplier.BPWeyl g) :
+    Set (Supplier.integralSiegelGroup g K) :=
+  {x | ∃ p ∈ Supplier.bpParabolic g K, ∃ b ∈ Supplier.bpBorel g K,
+    x = p * Supplier.bpWeylLift g K w * b}
+def siegelIncrementSubset (g : ℕ) (w : Supplier.BPWeyl g) : Finset (Fin g) := by
+  classical
+  exact Finset.univ.filter (fun j =>
+    g ≤ (Supplier.bpWeylPermutation g w (siegelLastIndex j)).val)
+-- Membership in P w B supplies the rank formula, not a premise asserting that formula.
+theorem kostantSequenceGeometry (g : ℕ) (hg : 0 < g) (K : Type*) [Field K]
+    (w : Supplier.BPWeyl g)
+    (hw : w ∈ kostantRepresentatives (Supplier.bpLeviWeyl g) (Supplier.bpLength g))
+    (x : Supplier.integralSiegelGroup g K) (hx : x ∈ siegelBruhatCell g K w) :
+    (∀ i : Fin (g+1), Module.finrank K
+      ↥(siegelRepresentativeLagrangian g K x ⊓ siegelReferenceFlag g K i.val) =
+        kostantSequence g (siegelIncrementSubset g w) i.val) ∧
+    (∀ p ∈ Supplier.bpParabolic g K,
+      siegelRepresentativeLagrangian g K (p*x) = siegelRepresentativeLagrangian g K x) ∧
+    (∀ y ∈ siegelBruhatCell g K w, ∀ i : Fin (g+1), Module.finrank K
+      ↥(siegelRepresentativeLagrangian g K y ⊓ siegelReferenceFlag g K i.val) =
+      Module.finrank K ↥(siegelRepresentativeLagrangian g K x ⊓ siegelReferenceFlag g K i.val)) := by sorry
 
 abbrev CGWeight := ℚ × ℚ × ℚ
 def cgToParity (x : ℤ × ℤ × ℤ) : ℤ × ℤ × ℤ := (x.1,x.2.1,x.1+x.2.1+2*x.2.2)
@@ -2024,10 +2151,52 @@ def cgWeyl (i : Fin 4) (x : CGWeight) : CGWeight :=
   | 1 => (x.1,-x.2.1,x.2.1+x.2.2)
   | 2 => (x.2.1,-x.1,x.1+x.2.2)
   | _ => (-x.2.1,-x.1,x.1+x.2.1+x.2.2)
-lemma gsp4CgRoots (a b c : ℤ) : (cgToParity (a,b,c)).1 + (cgToParity (a,b,c)).2.1 ≡
-    (cgToParity (a,b,c)).2.2 [ZMOD 2] := by sorry
-lemma gsp4Kostant (a b c : ℚ) : cgWeyl 2 (a,b,c) = (b,-a,a+c) ∧ cgWeyl 3 (a,b,c) = (-b,-a,a+b+c) := by sorry
 def cgDominant : Set CGWeight := {x | x.2.1 ≤ x.1 ∧ 0 ≤ x.2.1}
+namespace Supplier
+ -- R7's GSp₄ torus in CG coordinates. Its pairing is character/cocharacter evaluation.
+ def cgRootPairing : RootPairing (Fin 8) ℚ CGWeight CGWeight := sorry
+ def cgBase : cgRootPairing.Base := sorry
+ def cgLeviBase : Finset (Fin 8) := sorry
+ def cgCharacter (x : ℤ×ℤ×ℤ) : (ℂˣ × ℂˣ × ℂˣ) →* ℂˣ := sorry
+ abbrev CGWeyl := cgRootPairing.weylGroup
+ def cgLeviWeyl : Subgroup CGWeyl := sorry
+ def cgLength : CGWeyl → ℕ := sorry
+ def cgLongestLevi : CGWeyl := sorry
+ def cgLongestFull : CGWeyl := sorry
+end Supplier
+-- Full roots, their paired coroots, base, rho and cones on the actual R7 object.
+lemma gsp4CgRoots :
+    {r | ∃ i : Fin 8, Supplier.cgBase.IsPos i ∧
+      r = (Supplier.cgRootPairing.root i, Supplier.cgRootPairing.coroot i)} =
+      ({((1,-1,0),(1,-1,0)), ((0,2,-1),(0,1,0)),
+        ((1,1,-1),(1,1,0)), ((2,0,-1),(1,0,0))} : Set (CGWeight×CGWeight)) ∧
+    Supplier.cgRootPairing.root '' (Supplier.cgBase.support : Set (Fin 8)) =
+      ({(1,-1,0),(0,2,-1)} : Set CGWeight) ∧
+    Supplier.cgRootPairing.root '' (Supplier.cgLeviBase : Set (Fin 8)) =
+      ({(1,-1,0)} : Set CGWeight) ∧
+    (∀ x y : CGWeight, Supplier.cgRootPairing.toLinearMap x y =
+      x.1*y.1 + x.2.1*y.2.1 + x.2.2*y.2.2) ∧
+    halfRootSum Supplier.cgRootPairing {i | Supplier.cgBase.IsPos i} = (2,1,-3/2) ∧
+    dominantWeights Supplier.cgRootPairing Supplier.cgBase.support = cgDominant ∧
+    dominantWeights Supplier.cgRootPairing Supplier.cgLeviBase = {x | x.2.1 ≤ x.1} ∧
+    (∀ x : ℤ×ℤ×ℤ, ∀ t : ℂˣ × ℂˣ × ℂˣ,
+      Supplier.cgCharacter x t = t.1^x.1*t.2.1^x.2.1*t.2.2^x.2.2) ∧
+    (∀ a b c : ℤ, (cgToParity (a,b,c)).1 + (cgToParity (a,b,c)).2.1 ≡
+      (cgToParity (a,b,c)).2.2 [ZMOD 2]) := by sorry
+lemma gsp4Kostant :
+    ∃ r : Fin 4 ≃ {w : Supplier.CGWeyl //
+      w ∈ kostantRepresentatives Supplier.cgLeviWeyl Supplier.cgLength},
+      (∀ i x, (r i).val • x = cgWeyl i x) ∧
+      (∀ i, Supplier.cgLength (r i).val = i.val) ∧
+      Supplier.cgLongestLevi ∈ Supplier.cgLeviWeyl ∧
+      Supplier.cgLength Supplier.cgLongestLevi = 1 ∧
+      Supplier.cgLength Supplier.cgLongestFull = 4 ∧
+      (∀ w ∈ Supplier.cgLeviWeyl, Supplier.cgLength w ≤ Supplier.cgLength Supplier.cgLongestLevi) ∧
+      (∀ w, Supplier.cgLength w ≤ Supplier.cgLength Supplier.cgLongestFull) ∧
+      (∀ x : CGWeight, Supplier.cgLongestLevi • x = (x.2.1,x.1,x.2.2) ∧
+        Supplier.cgLongestFull • x = (-x.1,-x.2.1,x.1+x.2.1+x.2.2)) ∧
+      (∀ i : Fin 4, Supplier.cgLongestLevi * (r i).val * Supplier.cgLongestFull =
+        (r ⟨3-i.val, by omega⟩).val) := by sorry
 lemma gsp4ConeReversal (i : Fin 4) :
     (fun x : CGWeight => (-x.2.1,-x.1,-x.2.2)) '' (cgWeyl i '' cgDominant) =
       cgWeyl ⟨3-i.val, by omega⟩ '' cgDominant := by sorry
@@ -2037,11 +2206,34 @@ private def cgJ : Matrix (Fin 4) (Fin 4) ℝ :=
 lemma gsp4Centralizer (M : Matrix (Fin 4) (Fin 4) ℝ) (ν : ℝ) (hν : ν ≠ 0)
     (hsp : M.transpose * cgJ * M = ν • cgJ)
     (hcentral : M*cgJ = cgJ*M) : M.transpose*M = ν • (1 : Matrix _ _ ℝ) ∧ 0 < ν := by sorry
--- Block Cayley transform supplies the unitary group identification; Lie-group structure omitted.
-lemma gsp4Unitary (A B : Matrix (Fin 2) (Fin 2) ℝ)
-    (h1 : A.transpose*A+B.transpose*B=1) (h2 : A.transpose*B=B.transpose*A) :
-    (A.map (algebraMap ℝ ℂ) + Complex.I • B.map (algebraMap ℝ ℂ)).conjTranspose *
-      (A.map (algebraMap ℝ ℂ) + Complex.I • B.map (algebraMap ℝ ℂ)) = 1 := by sorry
+-- K∞,1 consists of orthogonal real matrices commuting with the specified J.
+def gsp4CompactUnit : Subgroup (Matrix.GeneralLinearGroup (Fin 4) ℝ) where
+  carrier := {k | (k : Matrix (Fin 4) (Fin 4) ℝ).transpose * (k : Matrix (Fin 4) (Fin 4) ℝ) = 1 ∧
+    (k : Matrix (Fin 4) (Fin 4) ℝ) * cgJ = cgJ * (k : Matrix (Fin 4) (Fin 4) ℝ)}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+def cgSwap : Matrix (Fin 2) (Fin 2) ℝ := !![0,1;1,0]
+def cgUnitaryBlock (A B : Matrix (Fin 2) (Fin 2) ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
+  Matrix.reindex finSumFinEquiv finSumFinEquiv
+    (Matrix.fromBlocks (cgSwap*A*cgSwap) (cgSwap*B) (-B*cgSwap) A)
+def cgCompactA (k : gsp4CompactUnit) : Matrix (Fin 2) (Fin 2) ℝ :=
+  fun i j => (k.val : Matrix (Fin 4) (Fin 4) ℝ) ⟨i.val+2, by omega⟩ ⟨j.val+2, by omega⟩
+def cgCompactB (k : gsp4CompactUnit) : Matrix (Fin 2) (Fin 2) ℝ :=
+  let C : Matrix (Fin 2) (Fin 2) ℝ := fun i j =>
+    (k.val : Matrix (Fin 4) (Fin 4) ℝ)
+      ⟨i.val, by omega⟩ ⟨j.val+2, by omega⟩
+  cgSwap * C
+-- Real analytic/Lie compatibility of the matrix realizations is an omitted AF.1/Lie
+-- point input. The group isomorphism itself, its map and inverse are all retained.
+theorem gsp4Unitary : ∃ e : gsp4CompactUnit ≃* Matrix.unitaryGroup (Fin 2) ℂ,
+    (∀ k, (e k).val = (cgCompactA k).map (algebraMap ℝ ℂ) +
+      Complex.I • (cgCompactB k).map (algebraMap ℝ ℂ)) ∧
+    (∀ u, ((e.symm u).val : Matrix (Fin 4) (Fin 4) ℝ) =
+      cgUnitaryBlock (u.val.map Complex.re) (u.val.map Complex.im)) ∧
+    (∀ k, (k.val : Matrix (Fin 4) (Fin 4) ℝ) = cgUnitaryBlock (cgCompactA k) (cgCompactB k) ∧
+      (cgCompactA k).transpose * cgCompactA k + (cgCompactB k).transpose * cgCompactB k = 1 ∧
+      (cgCompactA k).transpose * cgCompactB k = (cgCompactB k).transpose * cgCompactA k) := by sorry
 
 -- The compact Cartan is a real matrix subgroup. Its character lattice is a separate object.
 def cgRotationMatrix (r a b : ℝ) : Matrix (Fin 4) (Fin 4) ℝ :=
@@ -2076,12 +2268,12 @@ lemma compactCartanParity (a b c : ℤ) :
 namespace Supplier
  -- Complexification of the rotation/scalar map: diagonal after the specified Cayley basis.
  -- Its diagonal entries are r/u,r/v,r*v,r*u; kernel is {(1,1,1),(-1,-1,-1)}.
- def complexCartanMap : (ℂˣ×ℂˣ×ℂˣ) →* Matrix.GeneralLinearGroup (Fin 4) ℂ := sorry
+ def complexCartanMap : (ℂˣ × ℂˣ × ℂˣ) →* Matrix.GeneralLinearGroup (Fin 4) ℂ := sorry
  def compactCartanComplexPoints : gsp4CompactCartan →* complexCartanMap.range := sorry
  def complexCartanExponential (a b u : ℂ) : complexCartanMap.range := sorry
 end Supplier
 lemma compactCartanEmbedding (a b c : ℤ) :
-    (∃ χ : Supplier.complexCartanMap.range →* ℂˣ, ∀ t : ℂˣ×ℂˣ×ℂˣ,
+    (∃ χ : Supplier.complexCartanMap.range →* ℂˣ, ∀ t : ℂˣ × ℂˣ × ℂˣ,
       χ ⟨Supplier.complexCartanMap t, by sorry⟩ = t.1^a*t.2.1^b*t.2.2^c) ↔
         (a,b,c) ∈ compactCartanCharacterLattice := by sorry
 -- TauCeti.Shimura.tests.cartanParityTrue
@@ -2090,7 +2282,7 @@ example : (1,0,1) ∈ compactCartanCharacterLattice ∧
 -- TauCeti.Shimura.tests.cartanParityFalse
 example : (1,0,0) ∉ compactCartanCharacterLattice ∧
     ¬ ∃ χ : Supplier.complexCartanMap.range →* ℂˣ,
-      ∀ t : ℂˣ×ℂˣ×ℂˣ, χ ⟨Supplier.complexCartanMap t, by sorry⟩ = t.1 := by sorry
+      ∀ t : ℂˣ × ℂˣ × ℂˣ, χ ⟨Supplier.complexCartanMap t, by sorry⟩ = t.1 := by sorry
 -- TauCeti.Shimura.tests.cartanRank
 example : Nonempty (gsp4CompactCartan ≃* (positiveUnits × unitCircle × unitCircle)) ∧
     Function.Bijective (fun x : ℤ×ℤ×ℤ =>
@@ -2125,11 +2317,50 @@ lemma gsp4CayleyAction (A B : Matrix (Fin 2) (Fin 2) ℝ)
       (Matrix.fromBlocks (S*A*S) (S*B) (-B*S) A)).map (algebraMap ℝ ℂ) * gsp4CayleyBasis =
       Matrix.reindex finSumFinEquiv finSumFinEquiv (Matrix.fromBlocks ((S*A*S).map (algebraMap ℝ ℂ) - Complex.I • (S*B*S).map (algebraMap ℝ ℂ)) 0 0
         (A.map (algebraMap ℝ ℂ) + Complex.I • B.map (algebraMap ℝ ℂ))) := by sorry
--- Absolute root and dual lattices come from R7; RG2.5 supplies dualization.
--- This is half the sum for the corrected lower Borel; simples have coroots f₂−f₁,−f₂.
+-- These are comparisons with R7's lattices, not a second lattice construction.
+def cgParityLinear : CGWeight ≃ₗ[ℚ] CGWeight where
+  toFun x := (x.1,x.2.1,x.1+x.2.1+2*x.2.2)
+  invFun x := (x.1,x.2.1,(x.2.2-x.1-x.2.1)/2)
+  left_inv := by sorry
+  right_inv := by sorry
+  map_add' := by sorry
+  map_smul' := by sorry
+def cgParityDual (x : CGWeight) : CGWeight := (x.1-x.2.2/2,x.2.1-x.2.2/2,x.2.2/2)
+namespace Supplier
+ def pilloniCharacters : AddSubgroup (ℤ×ℤ×ℤ) := sorry
+ def pilloniCocharacters : AddSubgroup CGWeight := sorry
+ def pilloniSimilitude : pilloniCharacters := sorry
+ def pilloniRootPairing : RootPairing (Fin 8) ℚ CGWeight CGWeight := sorry
+ def pilloniLowerBase : pilloniRootPairing.Base := sorry
+ def pilloniCompactIndices : Set (Fin 8) := sorry
+end Supplier
+-- Lower full Borel after E11's correction; BP instead has the other compact order.
+-- R7's torus/lattice and RG2.5's dualization compatibility are omitted supplier inputs.
 lemma gsp4PilloniConvention :
-    ((-1 : ℚ)+(-2)+(-1)+0)/2 = -2 ∧
-    ((1 : ℚ)+0+(-1)+(-2))/2 = -1 := by sorry
+    Supplier.pilloniCharacters = compactCartanCharacterLattice ∧
+    (∀ y : CGWeight, y ∈ Supplier.pilloniCocharacters ↔
+      ∃ m n r : ℤ, y = ((m : ℚ)-r/2,(n : ℚ)-r/2,(r : ℚ)/2)) ∧
+    (∃ e : (ℤ×ℤ×ℤ) ≃+ Supplier.pilloniCharacters,
+      ∀ x, (e x).val = cgToParity x) ∧
+    Supplier.pilloniSimilitude.val = (0,0,2) ∧
+    (∀ x y : CGWeight, Supplier.pilloniRootPairing.toLinearMap x y =
+      x.1*y.1+x.2.1*y.2.1+x.2.2*y.2.2) ∧
+    (∀ i j : Fin 3, Supplier.pilloniRootPairing.toLinearMap
+      (![ (1,0,1), (0,1,1), (0,0,2) ] i)
+      (![ (1,0,0), (0,1,0), (-1/2,-1/2,1/2) ] j) = if i = j then 1 else 0) ∧
+    (∃ e : Fin 8 ≃ Fin 8, ∀ i,
+      Supplier.pilloniRootPairing.root (e i) = cgParityLinear (Supplier.cgRootPairing.root i) ∧
+      Supplier.pilloniRootPairing.coroot (e i) = cgParityDual (Supplier.cgRootPairing.coroot i)) ∧
+    positiveRoots Supplier.pilloniRootPairing Supplier.pilloniLowerBase =
+      ({(-1,1,0),(-2,0,0),(-1,-1,0),(0,-2,0)} : Set CGWeight) ∧
+    {r | ∃ i ∈ Supplier.pilloniLowerBase.support,
+      r = (Supplier.pilloniRootPairing.root i, Supplier.pilloniRootPairing.coroot i)} =
+      ({((-1,1,0),(-1,1,0)), ((0,-2,0),(0,-1,0))} : Set (CGWeight×CGWeight)) ∧
+    Supplier.pilloniRootPairing.root ''
+      {i | Supplier.pilloniLowerBase.IsPos i ∧ i ∈ Supplier.pilloniCompactIndices} =
+      ({(-1,1,0)} : Set CGWeight) ∧
+    halfRootSum Supplier.pilloniRootPairing {i | Supplier.pilloniLowerBase.IsPos i} = (-2,-1,0) ∧
+    halfRootSum (Supplier.siegelRootPairing 2) {i | (Supplier.bpBase 2).IsPos i} = (![-1,-2],0) := by sorry
 
 /- Local valuations use Mathlib's existing AddValuation. The absolutely-unramified
 local field, extended normalized valuation and Iw₁ characteristic-polynomial comparison
@@ -2137,18 +2368,84 @@ are LF.0/RG2.3 inputs. The polynomial calculation and generated subgroup bound a
 lemma localEigenvalueBound {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ))
     (y : K) (a : Fin 4 → K) (ha : ∀ i, (1 : WithTop ℚ) ≤ v (a i))
     (hroot : y^4 + ∑ i : Fin 4, a i * y^i.val = 0) :
-    (1/4 : WithTop ℚ) ≤ v y := by sorry
+    ((1/4 : ℚ) : WithTop ℚ) ≤ v y := by sorry
 lemma localProductsBound {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ))
-    (eigen : Set Kˣ) (heigen : ∀ x ∈ eigen, (1/4 : WithTop ℚ) ≤ v ((x : K)-1)) :
-    ∀ x ∈ Subgroup.closure eigen, (1/4 : WithTop ℚ) ≤ v ((x : K)-1) := by sorry
+    (eigen : Set Kˣ) (heigen : ∀ x ∈ eigen, ((1/4 : ℚ) : WithTop ℚ) ≤ v ((x : K)-1)) :
+    ∀ x ∈ Subgroup.closure eigen, ((1/4 : ℚ) : WithTop ℚ) ≤ v ((x : K)-1) := by sorry
 lemma localTorsionGap {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ)) (l : ℕ) (hl : 5 < l)
     (ζ : Kˣ) (hζ : ζ ≠ 1) (n : ℕ) (hn : 0 < n) (htors : ζ^n=1)
-    (cyclotomic : v ((ζ : K)-1) ≤ (1/(l-1) : WithTop ℚ)) :
-    v ((ζ : K)-1) < (1/4 : WithTop ℚ) := by sorry
-lemma iwahoriNeat {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ)) (eigen : Set Kˣ)
-    (hbound : ∀ x ∈ Subgroup.closure eigen, (1/4 : WithTop ℚ) ≤ v ((x : K)-1))
-    (htors : ∀ x : Kˣ, x ≠ 1 → ∀ n : ℕ, 0 < n → x^n=1 → v ((x : K)-1) < (1/4 : WithTop ℚ)) :
+    (cyclotomic : v ((ζ : K)-1) ≤ ((1/((l : ℚ)-1) : ℚ) : WithTop ℚ)) :
+    v ((ζ : K)-1) < ((1/4 : ℚ) : WithTop ℚ) := by sorry
+-- This auxiliary is the old single-local-group calculation, under an accurate name.
+lemma localGeneratedNeat {K : Type*} [Field K] (v : AddValuation K (WithTop ℚ)) (eigen : Set Kˣ)
+    (hbound : ∀ x ∈ Subgroup.closure eigen, ((1/4 : ℚ) : WithTop ℚ) ≤ v ((x : K)-1))
+    (htors : ∀ x : Kˣ, x ≠ 1 → ∀ n : ℕ, 0 < n → x^n=1 → v ((x : K)-1) < ((1/4 : ℚ) : WithTop ℚ)) :
     ∀ x ∈ Subgroup.closure eigen, ∀ n : ℕ, 0 < n → x^n=1 → x=1 := by sorry
+
+def cgForm (R : Type*) [CommRing R] : Matrix (Fin 4) (Fin 4) R :=
+  !![0,0,0,1; 0,0,1,0; 0,-1,0,0; -1,0,0,0]
+def gsp4MatrixGroup (R : Type*) [CommRing R] : Subgroup (Matrix.GeneralLinearGroup (Fin 4) R) where
+  carrier := {M | ∃ ν : Rˣ, (M : Matrix _ _ R).transpose * cgForm R * (M : Matrix _ _ R) =
+    (ν : R) • cgForm R}
+  one_mem' := by sorry
+  mul_mem' := by sorry
+  inv_mem' := by sorry
+abbrev NumberFieldFinitePlace (F : Type*) [Field F] [NumberField F] :=
+  IsDedekindDomain.HeightOneSpectrum (NumberField.RingOfIntegers F)
+abbrev NumberFieldAdeles (F : Type*) [Field F] [NumberField F] :=
+  IsDedekindDomain.FiniteAdeleRing (NumberField.RingOfIntegers F) F
+abbrev AdelicGsp4 (F : Type*) [Field F] [NumberField F] := gsp4MatrixGroup (NumberFieldAdeles F)
+namespace Supplier
+ -- AA.1 supplies these point maps and the residue-characteristic dictionary.
+ def localGsp4Projection (F : Type*) [Field F] [NumberField F] (v : NumberFieldFinitePlace F) :
+     AdelicGsp4 F →* gsp4MatrixGroup (v.adicCompletion F) := sorry
+ def placeResidueCharacteristic (F : Type*) [Field F] [NumberField F]
+     (v : NumberFieldFinitePlace F) : ℕ := sorry
+ -- RG2.3: the integral subgroup reducing to the upper unipotent radical, not all Iwahori.
+ def iw1 (F : Type*) [Field F] [NumberField F] (v : NumberFieldFinitePlace F) :
+     Subgroup (gsp4MatrixGroup (v.adicCompletion F)) := sorry
+ def rationalGsp4Diagonal (F : Type*) [Field F] [NumberField F] :
+     gsp4MatrixGroup F →* AdelicGsp4 F := sorry
+ -- AA.1/R1: the faithful Q-representation on the Q-space underlying F⁴.
+ def rationalRestrictionMatrix (F : Type*) [Field F] [NumberField F] :
+     gsp4MatrixGroup F →* Matrix.GeneralLinearGroup (Fin (4*Module.finrank ℚ F)) ℚ := sorry
+ -- Definition 3.2.1: pull back to Qbarˣ the subgroup generated by ALL eigenvalues
+ -- of k_ℓ in that faithful Q_ℓ representation. This includes every F-place above ℓ.
+ -- Algebraic products of nonalgebraic local eigenvalues must also be retained.
+ def strongLocalEigenvalueGroup (F : Type*) [Field F] [NumberField F]
+     (ℓ : Nat.Primes) (k : AdelicGsp4 F) : Subgroup Qbarˣ := sorry
+ -- Faithful matrix topology, using both a matrix and its inverse.
+ @[instance_reducible] def adelicGsp4Topology (F : Type*) [Field F] [NumberField F] : TopologicalSpace (AdelicGsp4 F) :=
+   TopologicalSpace.induced (fun M =>
+     ((M.val : Matrix (Fin 4) (Fin 4) (NumberFieldAdeles F)), (M.val⁻¹ : Matrix (Fin 4) (Fin 4) (NumberFieldAdeles F)))) inferInstance
+end Supplier
+attribute [local instance] Supplier.adelicGsp4Topology
+def rationalGsp4Eigenvalues (F : Type*) [Field F] [NumberField F]
+    (q : gsp4MatrixGroup F) : Set ℂˣ :=
+  {u | (((Supplier.rationalRestrictionMatrix F q) : Matrix (Fin (4*Module.finrank ℚ F)) (Fin (4*Module.finrank ℚ F)) ℚ).map
+    (algebraMap ℚ ℂ)).charpoly.IsRoot (u : ℂ)}
+-- E17 correction: certify EVERY place over one rational prime, not only one F-place.
+-- Omitted LF.0 input: all those completions are absolutely unramified, with the
+-- extended valuation normalized by v(ℓ)=1. Omitted AA.1/R1 input: the faithful
+-- restriction-of-scalars eigenvalue comparison and its conjugation compatibility.
+-- Those are hypotheses on these objects, never a premise asserting neatness.
+theorem iwahoriNeat (F : Type*) [Field F] [NumberField F]
+    (K : Subgroup (AdelicGsp4 F)) (hcompact : IsCompact (K : Set (AdelicGsp4 F)))
+    (hopen : IsOpen (K : Set (AdelicGsp4 F))) (ℓ : Nat.Primes) (hℓ : 5 < ℓ.val)
+    (hlevel : ∀ v : NumberFieldFinitePlace F,
+      Supplier.placeResidueCharacteristic F v = ℓ.val →
+      K ≤ (Supplier.iw1 F v).comap (Supplier.localGsp4Projection F v)) :
+    (∀ k ∈ K, adelicNeat (fun l : Nat.Primes => Supplier.strongLocalEigenvalueGroup F l k)) ∧
+    neatLevel (Supplier.rationalGsp4Diagonal F) (rationalGsp4Eigenvalues F) K ∧
+    (∀ I : Set Nat.Primes, ℓ ∈ I → ∀ k ∈ K,
+      adelicNeat (fun l : I => Supplier.strongLocalEigenvalueGroup F l.val k)) := by sorry
+-- For I={l | l≠p}, the last clause is the prime-to-p statement when ℓ≠p.
+-- Source E17's quadratic-unit obstruction: norm −1 and a single-place congruence.
+example (α : ℂ) (hα : α^2 = 2) : (7+5*α)*(7-5*α) = -1 := by
+  calc
+    (7+5*α)*(7-5*α) = 49-25*α^2 := by ring
+    _ = -1 := by rw [hα]; norm_num
+example : (7+5*3 : ℤ) ≡ 1 [ZMOD 7] := by decide
 
 -- Rational adelic lattice conjugation and generated eigenvalue identification are omitted.
 -- For det M=1 the two eigenvalues are inverses, so this calculation excludes every torsion product.
