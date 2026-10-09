@@ -8,8 +8,8 @@ Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
 Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
 
 FiniteIsocrystal extends the native WittVector isocrystal class by finiteness
-and general coefficients. CurveBundle uses a single finite locally free
-local-generator witness. Categorical cohomology is taken after derived
+and general coefficients. CurveBundle specializes current Tau Ceti's finite locally free category;
+its generic schematic infrastructure is imported, not reconstructed. Categorical cohomology is taken after derived
 sections, not from cokernels of raw sections. Algebraic component interfaces
 and numerical slope profiles do not construct the perfectoid site, the curve,
 period sheaves, sympathetic algebras or diamond geometry. Conditions whose
@@ -358,82 +358,15 @@ example : Nonempty (FiniteIsocrystal.Equiv
 
 end HigherRankWitt
 
-/-! ## Finite locally free schematic module sheaves -/
+/-! ## Schematic bundle supplier
 
-/-- One witness, two predicates. The scheme is supplied by RF3/VB2; no curve
-or site is reconstructed. This is the schematic carrier of CurveBundle. -/
-structure CurveBundle (X : AlgebraicGeometry.Scheme.{u}) where
-  sheaf : X.Modules
-  generators : sheaf.LocalGeneratorsData
-  finite : generators.IsFiniteType
-  free : generators.IsLocallyFreeData
-
-namespace CurveBundle
-
-variable {X : AlgebraicGeometry.Scheme.{u}}
-
-instance (V : CurveBundle X) : V.generators.IsFiniteType := V.finite
-instance (V : CurveBundle X) : V.generators.IsLocallyFreeData := V.free
-
-/-- Morphisms forget witness choices. -/
-instance : Category (CurveBundle X) where
-  Hom V W := V.sheaf ⟶ W.sheaf
-  id V := 𝟙 V.sheaf
-  comp f g := f ≫ g
-
-/-- The finite free sheaf. -/
-def ofFree (X : AlgebraicGeometry.Scheme.{u}) (n : ℕ) : CurveBundle X where
-  sheaf := SheafOfModules.free (R := X.ringCatSheaf) (ULift.{u} (Fin n))
-  generators := (SheafOfModules.free.generatingSections (R := X.ringCatSheaf)
-    (ULift.{u} (Fin n))).localGeneratorsData
-  finite := by sorry
-  free := by infer_instance
-
-lemma ext {V W : CurveBundle X} (f g : V ⟶ W)
-    (h : ∀ U : X.Opens, f.app U = g.app U) : f = g := by
-  sorry
-
-/-- Apply the pinned theorem, not a second finite-presentation definition. -/
-lemma finitePresentation (V : CurveBundle X) : V.sheaf.IsFinitePresentation := by
-  sorry
-
-/-- Pullback is the existing module-sheaf pullback; the new obligation is
-preservation of the paired finite locally free witness. -/
-def pullback {Y : AlgebraicGeometry.Scheme.{u}} (f : X ⟶ Y)
-    (V : CurveBundle Y) : CurveBundle X where
-  sheaf := (AlgebraicGeometry.Scheme.Modules.pullback f).obj V.sheaf
-  generators := by sorry
-  finite := by sorry
-  free := by sorry
-
-end CurveBundle
-
-section BundleTests
-
-variable (X : AlgebraicGeometry.Scheme.{u})
-
--- test: curveBundle_zero
-example : Nonempty ((CurveBundle.ofFree X 0).sheaf ≅
-    (0 : X.Modules)) := by
-  sorry
-
--- test: curveBundle_free_two
-example : (CurveBundle.ofFree X 2).sheaf =
-    SheafOfModules.free (R := X.ringCatSheaf) (ULift.{u} (Fin 2)) := by
-  sorry
-
--- test: curveBundle_schematic
-example (V : CurveBundle X) : V.generators.IsFiniteType ∧
-    V.generators.IsLocallyFreeData ∧ V.sheaf.IsFinitePresentation := by
-  sorry
-
--- test: curveBundle_not_infinite
-example (hX : Nonempty X) :
-    ¬ (SheafOfModules.free (R := X.ringCatSheaf)
-      (ULift.{u} ℕ)).IsFiniteType := by
-  sorry
-
-end BundleTests
+CurveBundle on the schematic curve specializes the current Tau Ceti category
+TauCeti.AlgebraicGeometry.FiniteLocallyFreeSheaf. Its free sheaves, finite
+presentation, pullback and rank are imports, not new generic constructions.
+Those modules postdate this file's pinned baseline, so their executable aliases
+and examples are omitted here. The full contracts below retain the curve's
+analytic/schematic comparison and its nonempty geometric stalk test.
+-/
 
 /-! ## Algebraic Frobenius modules over the supplied tilted Robba ring -/
 
@@ -1014,38 +947,45 @@ Unavailable hypothesis/carrier: the actual FF coefficient/period curve and its s
 /-
 Node: VectorBundlesAndIsocrystals:VB1/finite-locally-free-bundles
 Finite locally free bundles on the curve
-Infrastructure for omitted parts: AdicSpacesPartII R3 ringed-site bundle carrier; Tau Ceti sheaf tensor/dual modules and paired-witness transport.
+Infrastructure: current Tau Ceti FiniteLocallyFreeSheaf supplies the schematic
+category, finite local-basis comparison, free sheaves, tensor, dual, ranks and
+functorial pullbacks. These supplier modules postdate the pinned baseline.
+The analytic FF curve comparison still needs AdicSpacesPartII R3.
 
-API CurveBundle [typed specialization]
+API CurveBundle [omitted signature: current Tau Ceti supplier]
 A structure-sheaf module with a single finite locally free local generator witness.
-The schematic specialization is typed. The analytic ringed-site specialization requires the AdicSpacesPartII R3 carrier.
+The schematic specialization imports TauCeti.AlgebraicGeometry.FiniteLocallyFreeSheaf.
+Its finite local-basis witness is characterized by
+SheafOfModules.isFiniteLocallyFree_iff_exists_isLocallyFreeData_isFiniteType.
+The analytic specialization still requires the AdicSpacesPartII R3 carrier.
 
-API CurveBundle.ofFree [typed specialization]
+API CurveBundle.ofFree [omitted signature: current Tau Ceti supplier]
 The free sheaf of finite rank n.
 
-API CurveBundle.ext [typed specialization]
+API CurveBundle.ext [omitted signature: current Tau Ceti supplier]
 Bundle morphisms are equal iff the underlying sheaf morphisms are equal.
 
-API CurveBundle.pullback [typed specialization]
+API CurveBundle.pullback [omitted signature: current Tau Ceti supplier]
 Pullback along curve-base change, with identity and composition isomorphisms.
-The object pullback is typed. Identity/composition natural isomorphisms use the existing Scheme.Modules API and remain indexed obligations.
+Schematic pullback, identity and composition comparisons import
+FiniteLocallyFreeSheaf.pullback, pullbackId and pullbackComp.
 
-API CurveBundle.tensorDual [omitted signature]
+API CurveBundle.tensorDual [omitted signature: current Tau Ceti supplier]
 Tensor, unit, dual and evaluation from the structure-sheaf module category.
 
-API CurveBundle.finitePresentation [typed specialization]
+API CurveBundle.finitePresentation [omitted signature: current Tau Ceti supplier]
 Apply the pinned finite-presentation theorem to the same finite locally free witness.
 
-TEST curveBundle_zero [example specialization]
+TEST curveBundle_zero [omitted example: current Tau Ceti supplier]
 The free sheaf on the empty family is a bundle of rank 0.
 
-TEST curveBundle_free_two [example specialization]
+TEST curveBundle_free_two [omitted example: current Tau Ceti supplier]
 O_X⊕O_X is a bundle of rank 2.
 
-TEST curveBundle_not_infinite [example specialization]
+TEST curveBundle_not_infinite [omitted example: current Tau Ceti supplier]
 On a nonempty geometric curve, a free sheaf on an infinite constant basis is not finite locally free; test its nonzero residue-field stalk. The nonempty hypothesis excludes the empty scheme, where the zero sheaf admits every vacuous presentation.
 
-TEST curveBundle_schematic [example specialization]
+TEST curveBundle_schematic [omitted example: current Tau Ceti supplier]
 For a scheme, forgetting CurveBundle returns its Scheme.Modules object with the pinned finite locally free data.
 
 -/
@@ -1805,11 +1745,6 @@ theorem exactSequence (s : ShortComplex (CochainComplex C ℤ)) (hs : s.ShortExa
     (ShortComplex.mk _ _ (hs.comp_δ 0 1 (by simp))).Exact ∧
     (ShortComplex.mk _ _ (hs.δ_comp 0 1 (by simp))).Exact :=
   ⟨hs.homology_exact₂ 0, hs.homology_exact₃ 0 1 (by simp), hs.homology_exact₁ 0 1 (by simp)⟩
-/-- Restriction comparison as a *natural isomorphism*, not an untyped predicate.
-Construction requires the missing relative derived-section base-change theorem. -/
-def baseChange {D : Type u} [Category.{v} D] [Abelian D]
-    (R : C ⥤ D) (pullback : C ⥤ D) (RGamma' : D ⥤ CochainComplex D ℤ) :
-    map RGamma ⋙ R ≅ pullback ⋙ map RGamma' := by sorry
 /-- Requires the omitted additive derived-section interface. -/
 def directSum (K L : CochainComplex C ℤ) :
     BCcomplex (K ⊞ L) ≅ BCcomplex K ⊞ BCcomplex L := by sorry
@@ -1818,12 +1753,6 @@ namespace BCtest
 /-- Zero *derived* complex. -/
 example : BCcomplex (0 : CochainComplex C ℤ) ≅ (0 : C) := by sorry
 -- Name: BCtest.zero.
-/-- single: two supplied embeddings place E at degree 0 or −1 before RGamma.
-Their cohomology/shift comparison is the omitted clause. -/
-example (degreeZero negativeShift : C ⥤ C) (E : C) :
-    Nonempty (BCcomplex (RGamma.obj (degreeZero.obj E)) ≅ BC RGamma E) ∧
-    Nonempty (BCcomplex (RGamma.obj (negativeShift.obj E)) ≅ BCneg RGamma E) := by sorry
--- Name: BCtest.single.
 /-- constantSections: sections on two connected components are a product.
 The identification of components of Perf_S is omitted. -/
 example (E : Type u) [Field E] :
@@ -1858,9 +1787,6 @@ def additive (S : Type u) [Category.{v} S] (A : S ⥤ ModuleCat K)
 def exact (S : Type u) [Category.{v} S]
     (s : ShortComplex (S ⥤ ModuleCat K)) : Prop :=
     ∀ a : S, (s.map ((evaluation S (ModuleCat K)).obj a)).ShortExact
-/-- The BdR/B_m *functors*, not just their values at C, are supplier data. -/
-def periodTargets (S : Type u) [Category.{v} S] :
-    (S ⥤ ModuleCat K) × (S ⥤ ModuleCat K) × (ℕ → S ⥤ ModuleCat K) := by sorry
 end SympatheticVS
 
 /-- Both exact sequences retain their actual arrows, Y and their endpoints. -/
@@ -1885,12 +1811,10 @@ namespace BCPresentation
 variable {constant : ModuleCat K ⥤ C} {V : ℕ → C} {W : C}
 def height (P : BCPresentation constant V W) : ℤ :=
   (Module.finrank K P.V₁ : ℤ) - (Module.finrank K P.V₂ : ℤ)
-/-- Independence requires the actual sympathetic category (G-LEBRAS).
-The supplied constant/additive functors' geometric conditions are omitted. -/
-theorem dimension (P Q : BCPresentation constant V W) :
-    (P.dim, P.height) = (Q.dim, Q.height) := by sorry
-/-- Construction retains both exact sequences, not just a changed integer. -/
-def stabilize (P : BCPresentation constant V W) (T : ModuleCat K)
+/-- Additivity of the constant-space functor makes stabilization preserve
+both short exact complexes. This algebraic construction does not establish
+independence of arbitrary presentations. -/
+def stabilize [constant.Additive] (P : BCPresentation constant V W) (T : ModuleCat K)
     [FiniteDimensional K T] :
     {Q : BCPresentation constant V W // Q.dim = P.dim ∧ Q.height = P.height ∧
       Module.finrank K Q.V₁ = Module.finrank K P.V₁ + Module.finrank K T ∧
@@ -1977,9 +1901,14 @@ structure BCHNInvariants where
   degree : ℤ
   isZero : Bool
 namespace BCHNInvariants
-/-- Curve degrees and ranks enter with different signs. -/
-def fromHeart (deg₀ degNeg : ℤ) (rank₀ rankNeg : ℕ) (h : 0 ≤ deg₀-degNeg) :
-    BCHNInvariants := by sorry
+/-- Numerical conversion only: degrees give dimension, ranks give minus
+height. `isZero` here tests vanishing of all input numbers; agreement with the
+zero coherent object needs the omitted geometric invariant comparison. -/
+def fromHeart (deg₀ degNeg : ℤ) (rank₀ rankNeg : ℕ) (_h : 0 ≤ deg₀-degNeg) :
+    BCHNInvariants where
+  rank := (deg₀ - degNeg).toNat
+  degree := (rankNeg : ℤ) - rank₀
+  isZero := decide (deg₀ = 0 ∧ degNeg = 0 ∧ rank₀ = 0 ∧ rankNeg = 0)
 /-- none belongs to the zero object; a nonzero dimension-zero object has −∞. -/
 def slope (I : BCHNInvariants) : Option (WithBot ℚ) :=
   if I.isZero then none else if I.rank = 0 then some ⊥
@@ -1987,11 +1916,6 @@ def slope (I : BCHNInvariants) : Option (WithBot ℚ) :=
 /-- U_{h,d}: curve slope d/h, BC slope −h/d. Nonzero d is essential. -/
 theorem standard (h : ℕ) (d : ℤ) (hh : 0 < h) (hd : d ≠ 0) :
     ((- (h : ℚ)) / d) = -1 / ((d : ℚ) / h) := by sorry
-/-- Rank and degree add; this does not assert slope additivity. -/
-theorem additive {C : Type u} [Category.{v} C] [Abelian C]
-    (invariants : C → BCHNInvariants) (s : ShortComplex C) (hs : s.ShortExact) :
-    (invariants s.X₂).rank = (invariants s.X₁).rank + (invariants s.X₃).rank ∧
-    (invariants s.X₂).degree = (invariants s.X₁).degree + (invariants s.X₃).degree := by sorry
 end BCHNInvariants
 namespace BCHNInvariantsTest
 example : (BCHNInvariants.mk 0 0 true).slope = none := by sorry -- zero
@@ -2005,10 +1929,6 @@ end BCHNInvariantsTest
 def PointwiseAmple {X : Type u} (slopes : X → List ℚ) : Prop :=
   ∀ x, ∀ a ∈ slopes x, 0 < a
 namespace PointwiseAmple
-/-- Openness of the pointwise-ample locus (KL Theorem 7.4.5). `slopes` is the
-fibre slope profile of a bundle; the semicontinuity input is omitted. -/
-theorem isOpen {X : Type u} [TopologicalSpace X] (slopes : X → List ℚ) :
-    IsOpen {x | ∀ a ∈ slopes x, 0 < a} := by sorry
 theorem pullback {X Y : Type u} (slopes : X → List ℚ) (f : Y → X)
     (h : PointwiseAmple slopes) : PointwiseAmple (slopes ∘ f) := by sorry
 /-- Tensor slopes are the pairwise sums, with multiplicities. -/
@@ -2054,17 +1974,22 @@ end RelativeAmpleTest
 /-! Pure-model lattice interface. Boundedness is commensurability with a
 finite R-submodule, as in KL Definition 7.3.1, p. 147; it is not generic
 bornological boundedness. The period rings and localization are suppliers.
-The lattice is not assumed finitely generated. For perfect Frobenius coefficients
-bijectivity below expresses the invertible linearization. -/
+The lattice is not assumed finitely generated. This is normalized lattice data:
+`generates` expresses only B-span, not the tensor identification M₀⊗B≅M.
+The actual integral coefficient Frobenius, its restriction/linearization on the
+lattice and scalar-extension isomorphism remain omitted. Thus bijectivity on
+the underlying set is not asserted to establish a pure model over period rings. -/
 section PureModels
 variable {R B M : Type u} [CommRing R] [Field B] [Algebra R B]
 variable [AddCommGroup M] [Module B M] [Module R M] [IsScalarTower R B M]
 structure PureModel (p : B) (F : M ≃+ M) (c : ℤ) (d : ℕ) where
+  uniformizerNonzero : p ≠ 0
   lattice : Submodule R M
   bounded : ∃ N : Submodule R M, Module.Finite R N ∧ ∃ n : ℕ,
     (∀ x ∈ lattice, p^n • x ∈ N) ∧ (∀ x ∈ N, p^n • x ∈ lattice)
   generates : Submodule.span B (lattice : Set M) = ⊤
   coefficientFrobenius : B ≃+* B
+  fixedUniformizer : coefficientFrobenius p = p
   semilinear : ∀ b x, F (b • x) = coefficientFrobenius b • F x
   exponent : ℕ
   exponentPositive : 0 < exponent
@@ -2073,14 +1998,6 @@ structure PureModel (p : B) (F : M ≃+ M) (c : ℤ) (d : ℕ) where
   frobenius : Set.BijOn (fun x => p^c • (F^[d]) x)
     (lattice : Set M) (lattice : Set M)
 namespace PureModel
-/-- Localization includes its real scalar ring map and semilinear module map.
-Boundedness of localization and compatibility with Frobenius are omitted. -/
-def baseChange {R' B' M' : Type u} [CommRing R'] [Field B'] [Algebra R' B']
-    [AddCommGroup M'] [Module B' M'] [Module R' M'] [IsScalarTower R' B' M']
-    (p : B) (F : M ≃+ M) (c : ℤ) (d : ℕ)
-    (P : PureModel (R := R) p F c d) (r : R →+* R')
-    (f : M →ₛₗ[r] M') (p' : B') (F' : M' ≃+ M') :
-    PureModel (R := R') p' F' c d := by sorry
 /-- The supported criterion is normalized Frobenius bijectivity at c=0.
 The comparison with the geometric étale module category is omitted. -/
 theorem etale (p : B) (F : M ≃+ M) (d : ℕ)
@@ -2094,12 +2011,12 @@ theorem fibreSlope (p : B) (hp : p ≠ 0) (F : M ≃+ M) (c : ℤ) (d : ℕ)
 end PureModel
 namespace PureModelTest
 -- Named tests state the normalization core; integral period lattices are omitted.
-example (p : B) (d : ℕ) (hd : 0 < d) (N : Submodule R M)
+example (p : B) (hp : p ≠ 0) (d : ℕ) (hd : 0 < d) (N : Submodule R M)
     (bounded : ∃ N₀ : Submodule R M, Module.Finite R N₀ ∧ ∃ n : ℕ,
       (∀ x ∈ N, p^n • x ∈ N₀) ∧ (∀ x ∈ N₀, p^n • x ∈ N))
     (generates : Submodule.span B (N : Set M) = ⊤) :
     ∃ P : PureModel (R := R) p (AddEquiv.refl M) 0 d, P.lattice = N := by sorry -- unit
-example [Subsingleton M] (p : B) (F : M ≃+ M) (c : ℤ) (d : ℕ) (hd : 0 < d) :
+example [Subsingleton M] (p : B) (hp : p ≠ 0) (F : M ≃+ M) (c : ℤ) (d : ℕ) (hd : 0 < d) :
     Nonempty (PureModel (R := R) p F c d) := by sorry -- zero
 example (p : B) (hp : p ≠ 0) (c : ℤ) (x : M) : p^c • (p^(-c) • x) = x := by sorry -- scaled
 end PureModelTest
@@ -2150,15 +2067,19 @@ def TiltCondition (K : DerivedCategory C) : Prop :=
   (∀ a ∈ slopes ((DerivedCategory.homologyFunctor C 0).obj K), 0 ≤ a)
 abbrev BCTiltedHeart := ObjectProperty.FullSubcategory (TiltCondition slopes)
 namespace BCTiltedHeart
-/-- Requires the omitted compatibility assigning the zero sheaf an empty profile. -/
-def positive (E : C) (h : ∀ a ∈ slopes E, 0 ≤ a) : BCTiltedHeart slopes := by sorry
+/-- The underlying object is the actual degree-zero embedding. Zero and
+isomorphism compatibility of profiles are ordinary explicit hypotheses. -/
+def positive
+    (zeroProfile : ∀ Z : C, IsZero Z → slopes Z = [])
+    (isoProfile : ∀ {X Y : C}, (X ≅ Y) → slopes X = slopes Y)
+    (E : C) (h : ∀ a ∈ slopes E, 0 ≤ a) : BCTiltedHeart slopes :=
+  ⟨(DerivedCategory.singleFunctor C 0).obj E, by sorry⟩
 /-- Places a negative sheaf at degree −1, equivalently E[1]. -/
-def negative (E : C) (h : ∀ a ∈ slopes E, a < 0) : BCTiltedHeart slopes := by sorry
-/-- The curve's Ext² vanishing is omitted, not assumed as an arbitrary Prop. -/
-theorem split (K : BCTiltedHeart slopes) :
-    Nonempty (K.obj ≅
-      (DerivedCategory.singleFunctor C 0).obj ((DerivedCategory.homologyFunctor C 0).obj K.obj) ⊞
-      (DerivedCategory.singleFunctor C (-1)).obj ((DerivedCategory.homologyFunctor C (-1)).obj K.obj)) := by sorry
+def negative
+    (zeroProfile : ∀ Z : C, IsZero Z → slopes Z = [])
+    (isoProfile : ∀ {X Y : C}, (X ≅ Y) → slopes X = slopes Y)
+    (E : C) (h : ∀ a ∈ slopes E, a < 0) : BCTiltedHeart slopes :=
+  ⟨(DerivedCategory.singleFunctor C (-1)).obj E, by sorry⟩
 /-- Off-diagonal Hom is Ext¹(E₀,F₋₁); there is no opposite off-diagonal. -/
 def homMatrix (E₀ E₁ F₀ F₁ : C) :
     (((DerivedCategory.singleFunctor C 0).obj E₀ ⊞ (DerivedCategory.singleFunctor C (-1)).obj E₁ ⟶
@@ -2169,14 +2090,26 @@ end BCTiltedHeart
 namespace BCTiltedHeartTest
 -- Source-specific identifications O(1), O(−1), torsion and O are omitted.
 -- The actual single-degree derived objects and their slope profiles remain.
-example (E : C) (h : slopes E = [1]) :
+example
+    (zeroProfile : ∀ Z : C, IsZero Z → slopes Z = [])
+    (isoProfile : ∀ {X Y : C}, (X ≅ Y) → slopes X = slopes Y)
+    (E : C) (h : slopes E = [1]) :
     TiltCondition slopes ((DerivedCategory.singleFunctor C 0).obj E) := by sorry -- positive
-example (E : C) (h : slopes E = [(-1 : ℚ)]) :
+example
+    (zeroProfile : ∀ Z : C, IsZero Z → slopes Z = [])
+    (isoProfile : ∀ {X Y : C}, (X ≅ Y) → slopes X = slopes Y)
+    (E : C) (h : slopes E = [(-1 : ℚ)]) :
     TiltCondition slopes ((DerivedCategory.singleFunctor C (-1)).obj E) ∧
     ¬ TiltCondition slopes ((DerivedCategory.singleFunctor C 0).obj E) := by sorry -- negative
-example (E : C) (h : slopes E = [⊤]) :
+example
+    (zeroProfile : ∀ Z : C, IsZero Z → slopes Z = [])
+    (isoProfile : ∀ {X Y : C}, (X ≅ Y) → slopes X = slopes Y)
+    (E : C) (h : slopes E = [⊤]) :
     TiltCondition slopes ((DerivedCategory.singleFunctor C 0).obj E) := by sorry -- torsion
-example (E : C) (h : slopes E = [0]) :
+example
+    (zeroProfile : ∀ Z : C, IsZero Z → slopes Z = [])
+    (isoProfile : ∀ {X Y : C}, (X ≅ Y) → slopes X = slopes Y)
+    (E : C) (h : slopes E = [0]) :
     ¬ TiltCondition slopes ((DerivedCategory.singleFunctor C (-1)).obj E) := by sorry -- shift
 end BCTiltedHeartTest
 end Heart
@@ -2199,11 +2132,6 @@ namespace AbstractBC
 theorem kernelCokernel (Qp Ga : C) {X Y : C} (f : X ⟶ Y)
     (hX : AbstractBC Qp Ga X) (hY : AbstractBC Qp Ga Y) :
     AbstractBC Qp Ga (Limits.kernel f) ∧ AbstractBC Qp Ga (Limits.cokernel f) := by sorry
-/-- The actual RGamma functor, full faithfulness and exactness are omitted.
-The proposed result has the *category equivalence* type. -/
-def leBras {D : Type u} [Category.{v} D] [Abelian D] [HasDerivedCategory.{w} D]
-    (Qp Ga : C) (slopes : D → List (WithTop ℚ)) :
-    ObjectProperty.FullSubcategory (AbstractBC Qp Ga) ≌ BCTiltedHeart slopes := by sorry
 end AbstractBC
 namespace AbstractBCTest
 example (Qp Ga : C) : AbstractBC Qp Ga Qp ∧ AbstractBC Qp Ga Ga := by sorry -- generators
@@ -2282,12 +2210,6 @@ theorem ContractingActionLemma (γ : X ≃ₜ X)
       (fun z : movedSet γ × ℤ => (z.1, movedIterate γ z.2 z.1)) ∧
     SpectralSpace (Quotient (contractingOrbit γ)) := by sorry
 end Contraction
-namespace BCProjectivizationTest
-/-- absolute: X is punctured BC(O(d)), γ is multiplication by π. Their
-realization and d≥1 are omitted; the actual failure of quasiseparation is retained. -/
-example {X : Type u} [TopologicalSpace X] (γ : X ≃ₜ X) :
-    ¬ QuasiSeparatedSpace (Quotient (contractingOrbit γ)) := by sorry
-end BCProjectivizationTest
 
 /-! Additional discriminating components of the source's unit tests. -/
 section VSExamples
@@ -2308,38 +2230,14 @@ end VSExamples
 
 section CurvatureExamples
 variable {C : Type u} [Category.{v} C] [Abelian C]
-variable (Qp Ga BdRplus negativeBC otherPoint : C) (powers : ℕ → C)
-variable (height : C → ℤ)
--- These are source-object placeholders with actual categorical types.
--- Their period/curve realization hypotheses, not arbitrary Prop fields, are omitted.
+variable (Ga BdRplus : C)
 namespace BCCurvatureTest
-example : BCCurvature.negative powers Qp ∧ height Qp = 1 := by sorry -- rational
-example : BCCurvature.affine Ga Ga ∧ height Ga = 0 := by sorry -- affine
-example : BCCurvature.positive Ga negativeBC ∧ height negativeBC = -1 := by sorry -- shifted
-example : height otherPoint = 0 ∧ BCCurvature.positive Ga otherPoint ∧
-    ¬ BCCurvature.affine Ga otherPoint := by sorry -- otherPoint
 /-- All five geometric predicates hold at zero. Here the three Hom/filtration
 predicates require no period-module realization. -/
 example : BCCurvature.positive Ga (0 : C) ∧
     BCCurvature.nonnegative BdRplus (0 : C) ∧ BCCurvature.affine Ga (0 : C) := by sorry -- zero
 end BCCurvatureTest
 end CurvatureExamples
-
-section FiltrationExamples
-variable {K : Type u} [Field K] {S : Type u} [Category.{v} S]
-variable (Qp Ga shifted otherPoint : S ⥤ ModuleCat K)
-variable (B : ℕ → S ⥤ ModuleCat K) (D : S ⥤ ModuleCat K) (a : S)
--- Period realization and the named BC object's HN data are omitted.
-namespace BCCanonicalFiltrationTest
-example : BCCanonicalFiltration.positive Qp B a = ⊥ ∧
-    BCCanonicalFiltration.nonnegative Qp D a = ⊥ := by sorry -- rational
-example : BCCanonicalFiltration.positive Ga B a = ⊥ ∧
-    BCCanonicalFiltration.nonnegative Ga D a = ⊤ := by sorry -- affine
-example : BCCanonicalFiltration.positive shifted B a = ⊤ ∧
-    BCCanonicalFiltration.nonnegative shifted D a = ⊤ := by sorry -- positive
-example : BCCanonicalFiltration.positive otherPoint B a = ⊤ := by sorry -- otherPoint
-end BCCanonicalFiltrationTest
-end FiltrationExamples
 
 section LatticeMonodromy
 variable {R Kp V : Type u} [CommRing R] [NormedField Kp] [Algebra R Kp]
@@ -2353,81 +2251,21 @@ example (p : Kp) (hp : p ≠ 0) (hnorm : ‖p‖ ≠ 1) :
       Set.BijOn (fun x : V => p • x) (N : Set V) (N : Set V) := by sorry
 end LatticeMonodromy
 
-/-! Named theorem signatures. The full geometric contracts and omitted clauses
-are recorded by declaration in the contract index following these signatures.
-The category C in each section is the owner's category, not an arbitrary
-asserted model of the curve. -/
-section BasicTheorems
-variable {K U V T : Type u} [Field K] [AddCommGroup U] [Module K U]
-variable [AddCommGroup V] [Module K V] [AddCommGroup T] [Module K T]
-/-- Lubin–Tate universal cover and eigensections have a linear comparison
-compatible with evaluation/logarithm. Period expansion and v-naturality omitted. -/
-theorem LubinTateUniversalCover (evaluation : V →ₗ[K] T) (logarithm : U →ₗ[K] T) :
-    ∃ e : U ≃ₗ[K] V, evaluation.comp e.toLinearMap = logarithm := by sorry
-end BasicTheorems
+/-! Generic categorical and numerical components. Source-specific exactness,
+equivalences, resolutions and geometric comparisons are omitted in the full
+contract index below, rather than asserted for arbitrary categories. -/
 section CategoricalTheorems
 variable {C : Type u} [Category.{v} C] [Abelian C]
-/-- The source identifies the three objects/arrows with O, O(1), O_untilt.
-Those identifications and the E_infty untilt condition are omitted. -/
-theorem FundamentalExactSequence (s : ShortComplex C) : s.ShortExact := by sorry
-/-- Actual exact complex on BC objects. Negativity, relative base change and
-the derived-boundary construction of f,g are omitted; geometry is in the index. -/
-theorem FamiliesOfBanachColmezSpaces {A B D : C} (f : A ⟶ B) (g : B ⟶ D)
-    (h : f ≫ g = 0) : (ShortComplex.mk f g h).ShortExact := by sorry
-/-- The finite-dimensional-constant and slope-zero-bundle categories are supplier
-categories. Tensor/exact structures and the implementing functor are omitted. -/
-def SlopeZeroLocalSystems {D : Type u} [Category.{v} D] : C ≌ D := by sorry
-/-- Le Bras's exact hypercohomology equivalence, with the tilted heart's type.
-The supplied C category must be Coh_X and D the realized BC category. -/
-def LeBrasEquivalence {D : Type u} [Category.{v} D]
-    [HasDerivedCategory.{w} C] (slopes : C → List (WithTop ℚ)) :
-    BCTiltedHeart slopes ≌ D := by sorry
 /-- Generated kernel/cokernel/extension closure is abelian. The independent
 Dimension formula belongs to BCPresentation.dimension and the contract index. -/
 @[instance_reducible]
 def DimensionAbelian (Qp Ga : C) :
     Abelian (ObjectProperty.FullSubcategory (AbstractBC Qp Ga)) := by sorry
-/-- Faithfulness of evaluation on realized BC, with exactness on a supplied
-short complex. Banach topology/strictness is omitted. -/
-theorem ExactBanachPoints {D : Type u} [Category.{v} D] [Abelian D]
-    (evaluate : C ⥤ D) [evaluate.PreservesZeroMorphisms]
-    (s : ShortComplex C) (hs : s.ShortExact) :
-    evaluate.Faithful ∧ (s.map evaluate).ShortExact := by sorry
-/-- The actual Hom zero statement; source curvature, not height, is the input. -/
-theorem CurvatureHomOrthogonality (Ga : C) (powers : ℕ → C) {X Y : C}
-    (hx : BCCurvature.positive Ga X) (hy : BCCurvature.negative powers Y) :
-    ∀ f : X ⟶ Y, f = 0 := by sorry
-/-- Artinian means descending chains of BC subobjects stabilize. -/
-theorem ArtinianBc (W : C) (chain : ℕ → Subobject W)
-    (h : ∀ n, chain (n+1) ≤ chain n) :
-    ∃ N, ∀ n, N ≤ n → chain n = chain N := by sorry
-/-- Source heights on actual BC objects; period realization omitted. -/
-theorem CurvatureHeightSigns (Ga : C) (powers : ℕ → C) (height : C → ℤ)
-    (W : C) :
-    (BCCurvature.affine Ga W → height W = 0) ∧
-    (BCCurvature.negative powers W → ¬ IsZero W → 0 < height W) ∧
-    (BCCurvature.positive Ga W → height W ≤ 0) := by sorry
-/-- Height-zero subobjects of torsion objects are torsion; realization as
-BdRplus-modules and its forgetful functor are omitted. -/
-theorem TorsionSubobjectsHeight (height : C → ℤ) {U W : C}
-    (f : U ⟶ W) [Mono f] : 0 ≤ height U := by sorry
-/-- The source's generating-image and BdRplus-target hypotheses are omitted.
-The nonzero cokernel condition remains expressible and indispensable. -/
-theorem GeneratingImageCokernel (Ga : C) (height : C → ℤ)
-    {W₁ W₂ : C} (f : W₁ ⟶ W₂) (h : ¬ IsZero (cokernel f)) :
-    BCCurvature.positive Ga (cokernel f) ∧ height (cokernel f) < 0 := by sorry
 /-- Monos preserve negative curvature; quotients preserve positive curvature. -/
 theorem CurvatureSubquotients (Ga : C) (powers : ℕ → C) {U W Q : C}
     (i : U ⟶ W) [Mono i] (q : W ⟶ Q) [Epi q] :
     (BCCurvature.negative powers W → BCCurvature.negative powers U) ∧
     (BCCurvature.positive Ga W → BCCurvature.positive Ga Q) := by sorry
-/-- Actual extension pattern of the source. Identifying V as finite constant
-and M as a finite-length BdRplus-module is omitted. -/
-theorem NonpositiveCurvatureExtensions {D : Type u} [Category.{v} D]
-    (forget : D ⥤ C) (Ga W : C) :
-    BCCurvature.nonpositive forget W ↔
-    ∃ s : ShortComplex C, s.ShortExact ∧ Nonempty (s.X₂ ≅ W) ∧
-      BCCurvature.affine Ga s.X₃ := by sorry
 end CategoricalTheorems
 
 section NumericalTheorems
@@ -2437,13 +2275,6 @@ theorem StandardDimensionExamples (h m : ℕ) (d : ℤ) :
     presentationDimension m 0 0 = (m,0) ∧
     (if 0 ≤ d then (d,(h : ℤ)) else (-d,-(h : ℤ))) =
       (|d|, if 0 ≤ d then (h : ℤ) else -(h : ℤ)) := by sorry
-/-- Typed Euler–Poincaré height comparison. The h₀,h₁ supplied are actual
-cohomology heights; computing them from Coh_X is omitted. -/
-theorem EulerPoincareHeight {C D : Type u} [Category.{v} C] [Category.{v} D]
-    [Abelian C] [Abelian D] (RGamma : C ⥤ CochainComplex D ℤ)
-    (height : D → ℤ) (rank : C → ℕ) (E : C) :
-    height ((RGamma.obj E).homology (0 : ℤ)) -
-      height ((RGamma.obj E).homology (1 : ℤ)) = (rank E : ℤ) := by sorry
 /-- The embedding/no-V₁ condition is a categorical statement in the full
 contract. Its numerical consequence excludes the zero object. -/
 theorem EmbeddingHeightBound (dim : ℕ) (height : ℤ)
@@ -2467,165 +2298,18 @@ end NumericalTheorems
 
 section RelativeSignatures
 variable {X : Type u} [TopologicalSpace X]
-/-- Upper semicontinuity of ordinates, with its precise strict-sublevel convention.
-Actual FF polygons and rank/degree local constancy are omitted. -/
-theorem SemicontinuityOfHnPolygon (polygon : X → ℚ → ℚ) (n : ℕ)
-    (t : ℚ) (ht : 0 ≤ t ∧ t ≤ n) :
-    ∀ a : ℚ, IsOpen {x | polygon x t < a} := by sorry
-/-- KL lower semicontinuity uses strict *superlevel* sets. -/
-theorem RobbaPolygonSemicontinuity (polygon : X → ℚ → ℚ) (n : ℕ)
-    (t : ℚ) (ht : 0 ≤ t ∧ t ≤ n) :
-    ∀ a : ℚ, IsOpen {x | a < polygon x t} := by sorry
-/-- An open dense locus with locally constant polygon; coefficient/continuity
-bounds needed for finiteness of profiles are in the full contract. -/
-theorem BoundedPolygonsDenseLocus (polygon : X → ℚ → ℚ) :
-    ∃ U : Set X, IsOpen U ∧ Dense U ∧
-      ∀ x ∈ U, ∃ V : Set X, IsOpen V ∧ x ∈ V ∧ V ⊆ U ∧
-        ∀ y ∈ V, polygon y = polygon x := by sorry
-/-- Actual pointwise-pure locus defined by equality of fibre slopes.
-The period-module and analytic-field hypotheses are omitted. -/
-theorem PurityOpenness (slopes : X → List ℚ) :
-    IsOpen {x | ∀ a ∈ slopes x, ∀ b ∈ slopes x, a=b} := by sorry
-/-- Partial properness is a diamond/adic predicate missing at the pins. -/
-theorem AdicPurityLoci (slopes : X → List ℚ) :
-    IsOpen {x | ∀ a ∈ slopes x, a=0} ∧
-    IsOpen {x | ∀ a ∈ slopes x, ∀ b ∈ slopes x, a=b} := by sorry
 /-- Surjective descent of the every-fibre slope condition. -/
 theorem SurjectivePurityDescent {Y : Type u} (f : Y → X)
     (hf : Function.Surjective f) (s : X → List ℚ) (a : ℚ) :
     (∀ x, ∀ b ∈ s x, b=a) ↔ (∀ y, ∀ b ∈ s (f y), b=a) := by sorry
 end RelativeSignatures
 
-section PureComparisons
-variable {C D : Type u} [Category.{v} C] [Category.{v} D]
-/-- Only full Robba coefficients have this equivalence; the full-faithful
-bounded/integral cases and Tate-curve counterexample are in the contract index. -/
-def RingSheafFrobeniusComparison : C ≌ D := by sorry
-/-- C,D represent two of the six explicitly listed coefficient/site categories. -/
-def PureModulesLocalSystems : C ≌ D := by sorry
-/-- Integral étale local systems and integral Frobenius models, retaining
-lattices. Rationalization/isogeny compatibility is in the contract index. -/
-def IntegralFrobeniusLocalSystems : C ≌ D := by sorry
-/-- C=finite free Z_p local systems, D=φ^{-1} modules on Y_[0,r].
-The characteristic-p boundary is not discarded in this signature's contract. -/
-def IntegralBoundaryRealization : C ≌ D := by sorry
-/-- C=G(Z_p) torsors, D=φ^{-1}-G torsors on Y_[0,r].
-Smoothness, affineness and connected integral fibres of G are omitted. -/
-def IntegralGroupTorsors : C ≌ D := by sorry
-/-- Torsion coherent sheaves supported at a specified untilt point vs finite
-length completed-DVR modules. Constructing C,D and the point is omitted. -/
-def TorsionPointRealization : C ≌ D := by sorry
-/-- Only support at the distinguished point gives curvature zero. -/
-def AffineFiniteLengthEquivalence : C ≌ D := by sorry
-end PureComparisons
-
-section RemainingGeometry
-variable {X : Type u} [TopologicalSpace X]
-/-- Supported underlying-space clause. The diamond and proper-morphism
-clauses have no pinned carrier and are omitted. -/
-theorem PropernessOfProjectivizedBc :
-    ∀ x : X, ∃ U : Set X, x ∈ U ∧ IsOpen U ∧ SpectralSpace U := by sorry
-/-- X is the *punctured* absolute space of a nonzero pure isocrystal.
-Purity, sign reversal, smoothness and relative projectivization are omitted. -/
-theorem AbsoluteBcSpatiality : SpectralSpace X := by sorry
-/-- The failure of absolute quasiseparation is a real topology condition.
-X is punctured BC(O(d)), γ is multiplication by π, d≥1; realization omitted. -/
-theorem PuncturedAbsoluteQuotients (γ : X ≃ₜ X) :
-    ¬ QuasiSeparatedSpace (Quotient (contractingOrbit γ)) := by sorry
-/-- Div^d is supplied by RF2; scalar quotient comparison at points only.
-Σ_d cover, v-sheafification, spatiality and smoothness are omitted. -/
-def DivisorSectionComparison {E V Div : Type u} [Field E] [AddCommGroup V]
-    [Module E V] : BCProjectivization (E := E) (V := V) ≃ Div := by sorry
-/-- D is the quaternion division group, N its reduced norm, U punctured
-positive BC. The determinant-one quotient is retained in the type. -/
-def NegativeQuaternionExample {E G U W : Type u} [Field E] [Group G]
-    (N : G →* Eˣ) [MulAction N.ker U] : W ≃ Quotient (MulAction.orbitRel N.ker U) := by sorry
-/-- U is the independent-pair locus. The untilt and extension construction
-are omitted, but the actual quotient group is SL₂, not GL₂. -/
-def NegativeSl2Example {E U W : Type u} [Field E]
-    [MulAction (Matrix.SpecialLinearGroup (Fin 2) E) U] :
-    W ≃ Quotient (MulAction.orbitRel (Matrix.SpecialLinearGroup (Fin 2) E) U) := by sorry
-end RemainingGeometry
-
-section Resolutions
-variable {C : Type u} [Category.{v} C] [Abelian C]
-variable (slopes : C → List ℚ) (rank : C → ℕ) (degree : C → ℤ)
-/-- Analytic locality and actual identifications with unit/twist bundles are
-omitted. The rank and degree of the slope-1/r middle term remain. -/
-theorem PositiveSlopeResolution (E : C) (r : ℕ) (hr : 0 < r)
-    (h : ∀ a ∈ slopes E, (1 : ℚ)/r ≤ a) :
-    ∃ s : ShortComplex C, s.ShortExact ∧ Nonempty (s.X₃ ≅ E) ∧
-      (∀ a ∈ slopes s.X₂, a=(1 : ℚ)/r) ∧
-      (rank s.X₂ : ℤ) = degree E * r ∧
-      (rank s.X₁ : ℤ) = degree E * r - rank E := by sorry
-/-- First of the three source presentations; E′ is explicitly retained in
-variants two and three in the contract index. Étale locality is omitted. -/
-theorem StrictPositiveEtalePresentations (E : C) (r : ℕ) (hr : 0 < r)
-    (h : ∀ a ∈ slopes E, (1 : ℚ)/r < a) :
-    ∃ s : ShortComplex C, s.ShortExact ∧ Nonempty (s.X₃ ≅ E) ∧
-      (∀ a ∈ slopes s.X₁, a=0) ∧ (degree s.X₂ = degree E) := by sorry
-/-- Only the universally negative H⁰ clause. The distinct pro-étale and
-étale-local H¹ clauses are omitted until cover/base-change carriers exist. -/
-theorem RelativeCohomologyVanishing (RGamma : C ⥤ CochainComplex C ℤ)
-    (E : C) (h : ∀ a ∈ slopes E, a < 0) :
-    IsZero ((RGamma.obj E).homology (0 : ℤ)) := by sorry
-/-- The canonical nested subobjects; pro-étale splitting requires a cover
-carrier and O(λ) identifications, which are omitted. -/
-theorem RelativeHnFiltrationAndProetaleSplitting (E : C) :
-    ∃ F : ℚ → Subobject E, (∀ a b, a ≤ b → F b ≤ F a) ∧
-      (∃ a, F a = ⊤) ∧ (∃ b, F b = ⊥) := by sorry
-/-- Actual étale-at-the-point slope condition for the middle object.
-Perfectoid point and Proj/Robba comparison are omitted. -/
-theorem EtaleAtPointResolution (E : C) (h : ∀ a ∈ slopes E, 0 ≤ a) :
-    ∃ s : ShortComplex C, s.ShortExact ∧ Nonempty (s.X₃ ≅ E) ∧
-      ∀ a ∈ slopes s.X₂, a=0 := by sorry
-/-- Nonnegative middle term; O(−1) identification of the first object and
-KL's hypothesis at a chosen point are omitted. -/
-theorem NonnegativeExtension (E : C) (h : ∀ a ∈ slopes E, 0 ≤ a)
-    (nonzeroSlope : ∃ a ∈ slopes E, a ≠ 0) :
-    ∃ s : ShortComplex C, s.ShortExact ∧ Nonempty (s.X₃ ≅ E) ∧
-      ∀ a ∈ slopes s.X₂, 0 ≤ a := by sorry
+section AmplenessComparison
 /-- Supplied profile agrees with every-chart profile; Proj ample criterion omitted. -/
 theorem AmpleIffPointwise {I X : Type u} [Nonempty I] (s : X → List ℚ) :
     RelativeAmple (fun _ : I => s) ↔ PointwiseAmple s := by sorry
-/-- On a geometric analytic-field fibre. H⁰ generation is a separate clause
-of the full contract, requiring the missing evaluation sheaf map. -/
-theorem GeometricPositiveGeneration (RGamma : C ⥤ CochainComplex C ℤ)
-    (E : C) (h : ∀ a ∈ slopes E, 0 < a) :
-    IsZero ((RGamma.obj E).homology (1 : ℤ)) := by sorry
-end Resolutions
+end AmplenessComparison
 
-section LinearFrobenius
-variable {R M : Type u} [Field R] [AddCommGroup M] [Module R M]
-/-- Bases on annuli and Frobenius matrix bounds are omitted; the basis
-extension target retains an actual linear equivalence. -/
-def AnnularBasisApproximation (n : ℕ) : (Fin n → R) ≃ₗ[R] M := by sorry
-/-- A normalized Frobenius has a fixed basis after the finite-étale extension
-in the contract; that coefficient-extension/locality carrier is omitted. -/
-theorem PureModelTrivialization (F : M ≃+ M) (p : R) (c : ℤ) (d n : ℕ) :
-    ∃ e : (Fin n → R) ≃ₗ[R] M, ∀ v, p^c • (F^[d]) (e v) = e v := by sorry
-/-- Actual gauge equation. The finite-étale extension, near-identity matrix
-bounds, diagonal powers and mod-p assertion are omitted. -/
-theorem DiagonalGaugeNormalForm {n : ℕ}
-    (A D : Matrix (Fin n) (Fin n) R)
-    (φ : Matrix (Fin n) (Fin n) R → Matrix (Fin n) (Fin n) R) :
-    ∃ U : Matrix (Fin n) (Fin n) R, IsUnit U ∧ U⁻¹ * A * D * φ U = D := by sorry
-/-- The unique proper nontrivial HN vertex, retaining its actual submodule.
-Slope, rank and saturated quotient conditions are omitted. -/
-theorem ConstantVertexSubmodule (m : ℕ) (F : M ≃+ M) :
-    ∃ N : Submodule R M, Module.finrank R N = m ∧
-      ∀ x ∈ N, F x ∈ N := by sorry
-/-- Coefficient, constant-polygon, purity and uniqueness clauses are omitted;
-this signature gives the actual nested exhaustive finite module filtration. -/
-theorem RobbaConstantPolygonFiltration :
-    ∃ n : ℕ, ∃ N : Fin (n+1) → Submodule R M,
-      N 0 = ⊥ ∧ N (Fin.last n) = ⊤ ∧ Monotone N := by sorry
-/-- H⁰_F is its actual fixed vectors; H¹ detection is an actual injectivity
-statement for a supplied map to the fibre product. Negative slopes are omitted. -/
-theorem NegativeFrobeniusCohomologyDetection (F : M ≃+ M)
-    {I : Type u} (H1 : Type u) (fibres : I → Type u) (restrict : H1 → ∀ i, fibres i) :
-    (∀ x : M, F x = x → x=0) ∧ Function.Injective restrict := by sorry
-end LinearFrobenius
 
 section RemainingProfiles
 /-- Positive F eventually dominates fixed G: exact finite-profile slope sums.
@@ -2650,47 +2334,26 @@ theorem LocalGlobalPurityCounterexamples (p : ℚ) (hp : p ≠ 0) (h : p ≠ 1) 
     Function.Bijective (fun x : ℚ => p*x) ∧ ¬ ∀ x : ℚ, p*x=x := by sorry
 end RemainingProfiles
 
-section RemainingBC
-variable {C : Type u} [Category.{v} C] [Abelian C]
-/-- Actual splitting type; geometric HN grades and the connected/étale
-quotient distinction are omitted and retained in the full contract. -/
-theorem BcHnDecomposition (W : C) :
-    ∃ A B : C, Nonempty (W ≅ A ⊞ B) := by sorry
-/-- The matrix Hom equivalence is already BCTiltedHeart.homMatrix.
-This signature retains the End ring's carrier as an actual endomorphism set;
-Brauer invariant and period-basis formula are omitted. -/
-def BcMorphismCalculus (W : C) (D : Type u) : (W ⟶ W) ≃ D := by sorry
-/-- The finite BC carrier, BdRplus-module realization and killed-by-t^r
-hypotheses are omitted.
-Maps are arbitrary VS maps, not assumed BdR-linear. -/
-theorem TorsionVsHomVanishing (W BdRplus BdR : C) :
-    (∀ f : W ⟶ BdRplus, f=0) ∧ (∀ f : W ⟶ BdR, f=0) := by sorry
-/-- Subobject curvature criterion using actual section functors. The
-nonnegative coherent slope condition and torsion support at ∞ are omitted. -/
-theorem CurvatureHnCharacterisation (powers : ℕ → C) (sections : C ⥤ C) (W : C) :
-    BCCurvature.negative powers W ↔ ∃ E : C, Nonempty (W ≅ sections.obj E) := by sorry
-end RemainingBC
 
 end TauCeti.BanachColmez
 
 /-! Full contract index
 
-Each named signature above gives the supported component only. The precise
-contract below is the roadmap statement. A missing Perf/FF/period/local-system
-realization, cover, diamond properness or smoothness clause remains omitted from
-the type, as required by PROTOCOL section 13. No arbitrary Prop field stands
-in for it. Functors, category parameters, object names, slopes and height maps
-are supplier interfaces: the prototype does not prove they form a geometric
-model. In particular the pointwise scalar quotient is not a v-sheaf quotient,
-the sympathetic domain is not arbitrary Banach algebras, and fibre semilinearity
-is not the local-system sheaf condition.
+`[component signature]` and `[component example]` refer only to the explicitly
+typed algebraic, categorical or numerical component above. They do not identify
+an arbitrary category, functor, height or profile with the geometric source.
+`[omitted signature]` and `[omitted example]` have no executable assertion; the
+full target below and its source/hypotheses specify what is needed. In particular,
+short-complex formation does not imply exactness, arbitrary categories are not
+equivalent, and arbitrary slope functions are not semicontinuous.
 
-Names after "Test" label the corresponding example in its namespace. Numerical
-components do not verify geometric fixtures such as O(−1), the untilt point or
-the Tate-curve local system. The contracting-action lemma has all its stated
-topological hypotheses; most geometric target signatures are schematic. G-LEAN
-records these limitations. Geometric proofs remain admitted; the cohomology
-exact-sequence component uses the baseline theorem.
+The scalar-orbit quotient is pointwise, not a v-sheaf quotient. SympatheticVS
+is only a functor-category interface until the specified sympathetic domain is
+constructed. PureModel records bounded normalized lattice data, with its
+scalar-extension and integral linearization clauses omitted. Fibre semilinearity
+is not the local-system sheaf condition. Numerical examples do not construct
+O(−1), the untilt point or the Tate-curve local system. ContractingActionLemma
+retains all topological hypotheses of FS Lemma II.2.17, pp.72–74.
 
 CN contracts assume E=Q_p and C the completion of an algebraic closure of a
 complete discretely valued characteristic-zero K with perfect countable residue
@@ -2698,7 +2361,8 @@ field. SW’s abstract BC category allows arbitrary complete algebraically close
 C/Q_p. Relative FS statements allow general local E.
 
 VectorBundlesAndIsocrystals:VB3:positive-basic-examples/banach-colmez-space-definition
-Declaration: BC
+Sources: FS-geometrization, Definition I.3.5, p. 19; two-term definition after II.2.1, p. 58; FS-geometrization, Two-term definition after Proposition II.2.1, p. 58.
+Declaration: BC [component signature]
 Contract: For a perfectoid S/F_q and a bundle E on X_S, BC(E)(T)=H⁰(X_T,E_T). If E has
 only negative geometric slopes, BCneg(E)(T)=H¹(X_T,E_T). For a complex [E₁→E₀] in
 COHOMOLOGICAL degrees −1,0 with H⁰(X_T,E₁,T)=0 for EVERY T/S, BCcomplex(T)=H⁰
@@ -2707,29 +2371,31 @@ assumed. FS calls these homological degrees [0,1].
 Hypotheses: S belongs to Perf_Fq; coefficients are the fixed local field E with
 uniformizer π. Derived v-descent is imported from the companion; the universal H⁰
 vanishing prevents negative cohomology of the section complex.
-API BC: The v-sheaf T↦H⁰(X_T,E_T).
-API BCneg: For universally negative slopes, T↦H¹(X_T,E_T).
-API BCcomplex: Degree-zero hypercohomology of [E₁→E₀] in degrees −1,0, with universal
+API BC [component signature]: The v-sheaf T↦H⁰(X_T,E_T).
+API BCneg [component signature]: For universally negative slopes, T↦H¹(X_T,E_T).
+API BCcomplex [component signature]: Degree-zero hypercohomology of [E₁→E₀] in degrees −1,0, with universal
 H⁰(E₁) vanishing.
-API BC.module: BC(E), BCneg(E) and BCcomplex are sheaves of E-modules on Perf_S, E
+API BC.module [component signature]: BC(E), BCneg(E) and BCcomplex are sheaves of E-modules on Perf_S, E
 acting through O_{X_T}, and BC.map is E-linear. This scalar action is the one
 BCProjectivization divides out.
-API BC.map: A bundle or complex map induces the corresponding E-linear map of v-sheaves;
+API BC.map [component signature]: A bundle or complex map induces the corresponding E-linear map of v-sheaves;
 identity and composition are preserved.
-API BC.exactSequence: A short exact sequence 0→E′→E→E″→0 of bundles gives an exact
+API BC.exactSequence [component signature]: A short exact sequence 0→E′→E→E″→0 of bundles gives an exact
 sequence of E-module v-sheaves 0→BC(E′)→BC(E)→BC(E″)→H¹(E′)→H¹(E)→H¹(E″)→0 (Prop. II.2.1
 and the two-term complex); for [E₁→E₀] with E₁ universally negative it gives
 0→BC(E₀)→BCcomplex→BCneg(E₁)→H¹(E₀).
-API BC.baseChange: For U→S, restriction of BCcomplex on Perf_U is BCcomplex of the
+Missing interface for BC.baseChange: Actual relative derived sections and its restriction/base-change comparison are unavailable; arbitrary functors need not commute.
+API BC.baseChange [omitted signature]: For U→S, restriction of BCcomplex on Perf_U is BCcomplex of the
 pulled-back complex.
-API BC.directSum: BCcomplex(K⊕L)≅BCcomplex(K)⊕BCcomplex(L) in the abelian category of
+API BC.directSum [component signature]: BCcomplex(K⊕L)≅BCcomplex(K)⊕BCcomplex(L) in the abelian category of
 E-module v-sheaves.
-Test BCtest.zero (degenerate): The zero complex has zero BC v-sheaf.
-Test BCtest.single (compatibility): BCcomplex([0→E])=BC(E) and BCcomplex([E→0])=BCneg(E)
+Test BCtest.zero [component example] (degenerate): The zero complex has zero BC v-sheaf.
+Missing fixture for BCtest.single: The actual degree-zero/shifted curve embeddings and their derived-section comparison are unavailable; arbitrary functors need not recover H⁰ and H¹.
+Test BCtest.single [omitted example] (compatibility): BCcomplex([0→E])=BC(E) and BCcomplex([E→0])=BCneg(E)
 when E is negative.
-Test BCtest.constantSections (computation): For S the disjoint union of two geometric
+Test BCtest.constantSections [component example] (computation): For S the disjoint union of two geometric
 points, BC(O)(S)=E², not E; BC(O) is the constant SHEAF underline E.
-Test BCtest.hypercohomology (non-example): For [O(−1)→0] over a geometric point,
+Test BCtest.hypercohomology [component example] (non-example): For [O(−1)→0] over a geometric point,
 BCcomplex=H¹(O(−1))≠0 although the cokernel of the map of H⁰ groups is zero.
 Direct imports: VectorBundlesAndIsocrystals:VB1/finite-locally-free-bundles,
 VectorBundlesAndIsocrystals:VB1/frobenius-two-term-cohomology,
@@ -2737,7 +2403,9 @@ VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology,
 mathlib:CategoryTheory.Sheaf, mathlib:CategoryTheory.ShortComplex.homology.
 
 VectorBundlesAndIsocrystals:VB3:positive-basic-examples/lubin-tate-universal-cover
-Declaration: LubinTateUniversalCover
+Sources: FS-geometrization, Proposition II.2.2, p. 60; SW13-moduli, Theorem A, p. 3; SW13-moduli, Proposition 3.1.3(iii), p. 22; SW13-moduli, Lemma 3.5.1, p. 29.
+Declaration: LubinTateUniversalCover [omitted signature]
+Missing interface: Actual Lubin–Tate universal cover, untilt, eigensection module and logarithm/evaluation maps are required.
 Contract: Let S = Spa(R,R^+) be affinoid perfectoid over F_q with untilt S^sharp over E,
 and let O_{X_S}(1) correspond to the isocrystal (E, pi^{-1}). Then X -> sum over i in Z
 of pi^i [X^{q^{-i}}] defines a natural isomorphism G-tilde(R^{sharp+}) = R^{circ circ}
@@ -2776,7 +2444,9 @@ FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2,
 tauceti:TauCetiRoadmap/ClassFieldTheory#layer-8-separate-arithmetic-local-existence-and-the-local-class-field-correspondence.
 
 VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequence
-Declaration: FundamentalExactSequence
+Sources: FS-geometrization, Propositions II.2.3–II.2.4, pp. 60–61.
+Declaration: FundamentalExactSequence [omitted signature]
+Missing interface: The actual O→O(1)→O_untilt sequence with untilt over E_infty is required; a short complex alone is not short exact.
 Contract: For any perfectoid S with untilt S^sharp over E_infty, the above construction
 gives an exact sequence 0 -> O_{X_S} -> O_{X_S}(1) -> O_{S^sharp} -> 0 of
 O_{X_S}-modules. Consequently there is a well-defined map BC(O(1)) minus {0} -> Div^1
@@ -2800,7 +2470,9 @@ RelativeFarguesFontaine:RF2:untilts/div1-moduli-and-properness,
 VStackSheavesAndLisseCategories:VS1.
 
 VectorBundlesAndIsocrystals:VB3:projectivized-properness/properness-of-projectivized-BC
-Declaration: PropernessOfProjectivizedBc
+Sources: FS-geometrization, Proposition II.2.16, p. 72.
+Declaration: PropernessOfProjectivizedBc [omitted signature]
+Missing interface: The relative BC v-sheaf, its scalar sheaf quotient and the partially proper/proper morphisms are required.
 Contract: For a bundle E on X_S with S perfectoid over F_q, its section v-sheaf
 BC(E)(T)=H⁰(X_T,E_T) is a locally spatial diamond and is partially proper over S.
 Removing its zero section and taking the E^×-quotient yields a locally spatial diamond
@@ -2822,7 +2494,8 @@ DiamondsAndVStacks:D5/relative-representability, DiamondEtaleCohomology:C4,
 VectorBundlesAndIsocrystals:VB3:projectivized-properness/scalar-projectivization.
 
 VectorBundlesAndIsocrystals:VB3:projectivized-properness/contracting-action-lemma
-Declaration: ContractingActionLemma
+Sources: FS-geometrization, Lemma II.2.17, pp. 72–74.
+Declaration: ContractingActionLemma [component signature]
 Contract: Suppose X is locally spectral and taut, and the generalizations of each point
 are linearly ordered by specialization. An automorphism γ has a spectral fixed locus X₀.
 Assume that for every x∈X and every open neighborhood U of X₀, γⁿ(x) lies in U for all
@@ -2842,7 +2515,9 @@ tauceti:TauCeti.ValuationSpectrum.spectralSpace_spa_of_pairOfDefinition,
 DiamondEtaleCohomology:C4.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/positive-slope-resolution
-Declaration: PositiveSlopeResolution
+Sources: FS-geometrization, Proposition II.3.1, pp. 75–76; Corollary II.3.3(i), p. 78.
+Declaration: PositiveSlopeResolution [omitted signature]
+Missing interface: Actual relative curve bundles, rank/degree and standard slope-1/r bundles on an analytic cover are required.
 Contract: If all geometric slopes of a bundle E are ≥1/r, r≥1, then analytically locally
 on S there is 0→O^m→F→E→0 with F fibrewise semistable of SLOPE 1/r. On a constant-rank
 n, degree d component, rank(F)=dr and m=dr−n. This extends FS II.3.1’s geometric
@@ -2860,7 +2535,9 @@ VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequen
 VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces
-Declaration: FamiliesOfBanachColmezSpaces
+Sources: FS-geometrization, Proposition II.3.5, pp. 79–81.
+Declaration: FamiliesOfBanachColmezSpaces [omitted signature]
+Missing interface: The actual derived boundary maps, universal negative source slopes and positive target slopes with the specified locality are required.
 Contract: For [E₁→E₀] in degrees −1,0, with E₁ negative at every geometric point of S,
 BCcomplex is a locally spatial diamond partially proper over S; its punctured
 E×-quotient is locally spatial and proper over S. If E₀ is everywhere strictly positive,
@@ -2888,7 +2565,9 @@ VectorBundlesAndIsocrystals:VB4/relative-cohomology-vanishing,
 VectorBundlesAndIsocrystals:VB3:projectivized-properness/scalar-projectivization.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/absolute-BC-spatiality
-Declaration: AbsoluteBcSpatiality
+Sources: FS-geometrization, Proposition II.3.7, pp. 82–83.
+Declaration: AbsoluteBcSpatiality [omitted signature]
+Missing interface: The actual punctured absolute BC space attached to a nonzero pure isocrystal, with its sign and scalar action, is required.
 Contract: On the absolute site Perf_k, with k an algebraic closure of F_q, take a
 nonzero isocrystal D whose slopes all have the same strict sign. If they are negative,
 put W=BC(E(D)); if positive, put W=BC(E(D)[1]). These choices reflect the reversal of
@@ -2921,7 +2600,9 @@ VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting,
 DiamondsAndVStacks:D3/locally-profinite-torsors.
 
 VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon
-Declaration: SemicontinuityOfHnPolygon
+Sources: FS-geometrization, Theorem II.2.19(i) and proof, p. 74.
+Declaration: SemicontinuityOfHnPolygon [omitted signature]
+Missing interface: Actual constant-rank relative FF bundles, geometric fibre HN polygons and the proper projectivized-BC argument are required.
 Contract: For a constant-rank n bundle E on X_S, the concave HN polygon, horizontal
 coordinate rank and decreasing slopes repeated with their ranks, is upper semicontinuous
 on |S|: for every x∈[0,n] its ordinate is upper semicontinuous. Rank and total degree
@@ -2940,7 +2621,9 @@ VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of
 VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change.
 
 VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting
-Declaration: RelativeHnFiltrationAndProetaleSplitting
+Sources: FS-geometrization, Theorem II.2.19(ii) and proof, pp. 74–75.
+Declaration: RelativeHnFiltrationAndProetaleSplitting [omitted signature]
+Missing interface: Actual constant fibre polygon, saturated subbundles, HN graded pieces, standard blocks and pro-étale cover are required; an arbitrary flag is insufficient.
 Contract: Assume the HN polygon of E is constant on S. Then there exists a global
 separated exhaustive decreasing Harder-Narasimhan filtration E^{>= lambda} in E
 specialising to the HN filtration at each point; and after replacing S by a PRO-ETALE
@@ -2958,7 +2641,9 @@ VectorBundlesAndIsocrystals:VB1/cohomology-of-twists,
 VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology.
 
 VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems
-Declaration: SlopeZeroLocalSystems
+Sources: FS-geometrization, Corollary II.2.20, p. 75.
+Declaration: SlopeZeroLocalSystems [omitted signature]
+Missing interface: The actual pro-étale E-local-system and relative bundle categories with every geometric slope zero are required.
 Contract: There is an exact tensor equivalence between finite-rank pro-étale E-local
 systems on S and vector bundles on X_S whose EVERY geometric HN slope is zero, via
 L↦L⊗_E O_X. The quasi-inverse is T↦H⁰(X_T,E_T); it commutes with perfectoid base change
@@ -2979,7 +2664,9 @@ DiamondsAndVStacks:D3/locally-profinite-torsors, mathlib:CategoryTheory.Equivale
 VectorBundlesAndIsocrystals:VB1/cohomology-of-twists.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/strict-positive-etale-presentations
-Declaration: StrictPositiveEtalePresentations
+Sources: FS-geometrization, Corollary II.3.3(i)–(iv), pp. 78–79; II.3.2 proof, pp. 76–78.
+Declaration: StrictPositiveEtalePresentations [omitted signature]
+Missing interface: Actual relative curve bundles, standard twists, étale covers and the source-specific direct-summand E′ variants are required.
 Contract: Let S∈Perf_Fq, E a bundle on X_S and r≥1. (a) If all HN slopes of E at all
 geometric points are >1/r, then étale locally on S, for some m≥0, there is
 0→G→O(1/r)^m→E→0 with G fibrewise SEMISTABLE of slope 0 (FS II.3.2, II.3.3(iii)). (b) If
@@ -3002,7 +2689,9 @@ VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of
 VectorBundlesAndIsocrystals:VB4/semicontinuity-of-HN-polygon.
 
 VectorBundlesAndIsocrystals:VB4/relative-cohomology-vanishing
-Declaration: RelativeCohomologyVanishing
+Sources: FS-geometrization, Proposition II.3.4(i)–(iii), p. 79.
+Declaration: RelativeCohomologyVanishing [omitted signature]
+Missing interface: Actual relative FF derived sections and geometric slopes with the distinct global/pro-étale/étale vanishing conditions are required.
 Contract: For a bundle E on X_S: everywhere negative slopes imply H⁰(X_S,E)=0,
 universally after perfectoid base change; everywhere nonnegative slopes imply
 H¹(X_S,E)=0 after some pro-étale cover of S; everywhere positive slopes imply an étale
@@ -3018,7 +2707,9 @@ VectorBundlesAndIsocrystals:VB1/cohomology-of-twists,
 VectorBundlesAndIsocrystals:VB1/v-descent-for-bundles-and-cohomology.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/divisor-section-comparison
-Declaration: DivisorSectionComparison
+Sources: FS-geometrization, Proposition II.3.6, pp. 81–82.
+Declaration: DivisorSectionComparison [omitted signature]
+Missing interface: Actual Div^d, degree-d sections, symmetric-power cover and the v-sheaf scalar quotient are required.
 Contract: For d≥1, the already owned absolute divisor v-sheaf Div^d of degree-d relative
 Cartier divisors is (BC(O(d))∖{0})/E^×. It is proper over ∗, representable in spatial
 diamonds and cohomologically smooth. The sum map (Div¹)^d→Div^d is a quasi-pro-étale
@@ -3038,7 +2729,9 @@ VectorBundlesAndIsocrystals:VB1/cohomology-of-twists,
 DiamondsAndVStacks:D3/locally-profinite-torsors.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/punctured-absolute-quotients
-Declaration: PuncturedAbsoluteQuotients
+Sources: FS-geometrization, Remarks II.3.10–II.3.11, pp. 83–84; FS-geometrization, Proof of Lemma II.2.15 and footnote 5, p. 71.
+Declaration: PuncturedAbsoluteQuotients [omitted signature]
+Missing interface: The actual punctured absolute BC(O(d)), d≥1, with uniformizer action is required; arbitrary contracting-orbit spaces may be quasiseparated.
 Contract: For d≥1 on Perf_k, punctured BC(O(d)) is a spatial diamond. Write
 Q=(BC(O(d))∖{0})/π^Z. Although Q is not quasiseparated, Q→∗ is representable in spatial
 diamonds. The full scalar quotient identifies with Div^d, and Div^d→∗ is both proper and
@@ -3056,7 +2749,9 @@ DiamondsAndVStacks:D5/relative-representability, DiamondsAndVStacks:D5,
 VectorBundlesAndIsocrystals:VB1/cohomology-of-twists.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/negative-quaternion-example
-Declaration: NegativeQuaternionExample
+Sources: FS-geometrization, Example II.3.12, p. 84.
+Declaration: NegativeQuaternionExample [omitted signature]
+Missing interface: The actual quaternion division algebra, reduced norm, independent section locus and negative BC space are required.
 Contract: Over Perf_k, the absolute punctured BC(O(−1)[1])∖{0} classifies extensions
 0→O(−1)→E→O→0 that are non-split fiberwise; geometrically E≅O(−1/2). It identifies with
 (BC(O(1/2))∖{0})/SL₁(D), where D is the quaternion division algebra over E (invariant
@@ -3077,7 +2772,9 @@ VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting,
 DiamondsAndVStacks:D3/locally-profinite-torsors.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/negative-sl2-example
-Declaration: NegativeSl2Example
+Sources: FS-geometrization, Example II.3.13, p. 85.
+Declaration: NegativeSl2Example [omitted signature]
+Missing interface: The actual independent-pair section locus, untilt and negative BC extension construction are required.
 Contract: Over Perf_k, the absolute punctured BC(O(−2)[1])∖{0}≅U/SL₂(E), where
 U⊂(BC(O(1))∖{0})² is the open locus of pairs of sections that are fiberwise nonzero and
 E-linearly independent, U=(BC(O(1))∖{0})²∖(E^××1).Δ. The corresponding extension
@@ -3094,7 +2791,9 @@ VectorBundlesAndIsocrystals:VB4/relative-HN-filtration-and-proetale-splitting,
 DiamondsAndVStacks:D3/locally-profinite-torsors.
 
 VectorBundlesAndIsocrystals:VB4/annular-basis-approximation
-Declaration: AnnularBasisApproximation
+Sources: KL15, §7.1, Lemmas 7.1.1–7.1.2, pp. 145–146.
+Declaration: AnnularBasisApproximation [omitted signature]
+Missing interface: A given annular basis of the actual phi-module with its radius and invertible Frobenius matrix bounds is required; arbitrary modules have no specified rank.
 Contract: For a φ^a-module M over ℛ̃_R, write M_r for its radius-r model. A basis of the
 annular restriction M_[r/q,r] extends as a basis of M_r if its Frobenius matrix is
 invertible over ℛ̃_R^{r/q} (Lemma 7.1.1). For the quantitative version (Lemma 7.1.2),
@@ -3110,7 +2809,8 @@ Direct imports: VectorBundlesAndIsocrystals:VB1/annular-frobenius-descent,
 VectorBundlesAndIsocrystals:VB1/tilted-robba-ring.
 
 VectorBundlesAndIsocrystals:VB4/pure-models
-Declaration: PureModel
+Sources: KL15, §7.3, Definitions 7.3.1 and 7.3.4, Lemma 7.3.3 and Remarks 7.3.2, 7.3.5, 7.3.11, pp. 147–152.
+Declaration: PureModel [component signature]
 Contract: Choose integers c,d with d>0 and a|d. For a φ^a-module M, let A₀=W(R) when M
 has ℰ̃_R coefficients, and A₀=ℛ̃^int_R for bounded or full Robba coefficients. A
 (c,d)-pure model is an A₀-submodule M₀⊂M satisfying three conditions: there exist a
@@ -3139,29 +2839,32 @@ coefficient ring.
 Hypotheses: KL Hypotheses 5.0.1 and 6.0.1: R is a perfect uniform Banach F_p-algebra
 over an analytic field; a≥1 and q=p^a. Ring/sheaf, full/bounded Robba and integral
 coefficients are kept distinct.
-API PureModel: A bounded integral submodule generating the ambient Frobenius module,
+API PureModel [component signature]: A bounded integral submodule generating the ambient Frobenius module,
 with p^cφ^d linearization invertible.
-API PureModel.lattice: The integral lattice is a Submodule of the restricted-scalars
+API PureModel.lattice [component signature]: The integral lattice is a Submodule of the restricted-scalars
 module, with its actual inclusion.
-API PureModel.baseChange: Rational localization transports the pure model, its
+Missing interface for PureModel.baseChange: Rational localization of the actual period rings, boundedness under localization, scalar extension and compatible normalized Frobenius are unavailable; an arbitrary semilinear map and F′ do not define base change.
+API PureModel.baseChange [omitted signature]: Rational localization transports the pure model, its
 boundedness and its Frobenius isomorphism.
-API PureModel.etale: A (0,d)-pure model is an étale model; globally pure means a
+API PureModel.etale [component signature]: A (0,d)-pure model is an étale model; globally pure means a
 globally finite locally free such model.
-API PureModel.fibreSlope: On a nonzero fibre a (c,d)-pure model forces the Robba slope
+API PureModel.fibreSlope [component signature]: On a nonzero fibre a (c,d)-pure model forces the Robba slope
 c/d, with p^cφ^d=1 on a trivializing basis.
-Test PureModelTest.unit (computation): The trivial φ-module with unit integral lattice
+Test PureModelTest.unit [component example] (computation): The trivial φ-module with unit integral lattice
 is (0,a)-pure.
-Test PureModelTest.zero (degenerate): The zero module is pure of every slope; it has no
+Test PureModelTest.zero [component example] (degenerate): The zero module is pure of every slope; it has no
 distinguished numeric slope.
-Test PureModelTest.scaled (computation): A rank-one action φ^d=p^{−c} with standard
+Test PureModelTest.scaled [component example] (computation): A rank-one action φ^d=p^{−c} with standard
 lattice is (c,d)-pure, detecting the sign of p^c.
-Test PureModelTest.localNotGlobal (non-example): The perfected Tate-curve local system
+Test PureModelTest.localNotGlobal [component example] (non-example): The perfected Tate-curve local system
 with p monodromy is locally étale but has no global integral étale model.
 Direct imports: VectorBundlesAndIsocrystals:VB1/robba-frobenius-modules,
 VectorBundlesAndIsocrystals:VB1/tilted-robba-ring, mathlib:Submodule.
 
 VectorBundlesAndIsocrystals:VB4/pure-model-trivialization
-Declaration: PureModelTrivialization
+Sources: KL15, §7.3, Proposition 7.3.6, p. 149.
+Declaration: PureModelTrivialization [omitted signature]
+Missing interface: A free actual pure model of its specified rank and the completed faithfully finite-étale coefficient extension are required.
 Contract: If a φ^a-module M over ℰ̃_R (resp. ℛ̃^bd_R, ℛ̃_R) has a free (c,d)-pure model
 M_0, there is an R-algebra S, the completed direct limit of faithfully finite étale
 R-subalgebras, such that M_0 ⊗ W(S) (resp. M_0 ⊗ ℛ̃^int_S) has a basis fixed by p^cφ^d.
@@ -3171,7 +2874,9 @@ coefficients are kept distinct.
 Direct imports: VectorBundlesAndIsocrystals:VB4/pure-models.
 
 VectorBundlesAndIsocrystals:VB4/purity-openness
-Declaration: PurityOpenness
+Sources: KL15, §7.3, Theorem 7.3.7 and Corollaries 7.3.8–7.3.10, pp. 150–151.
+Declaration: PurityOpenness [omitted signature]
+Missing interface: Actual relative Robba modules, rational localizations and extension of a fibre pure model are required.
 Contract: Take a φ^a-module M over ℛ̃_R with nonzero rank at every point, and β in its
 pure locus. For integers c,d with d>0 divisible by a and c/d=μ(M,β), a (c,d)-pure model
 of the fibre over ℛ̃_{ℋ(β)} spreads to a free pure model on a rational neighborhood of β
@@ -3186,7 +2891,9 @@ Direct imports: VectorBundlesAndIsocrystals:VB4/annular-basis-approximation,
 VectorBundlesAndIsocrystals:VB4/pure-models.
 
 VectorBundlesAndIsocrystals:VB4/diagonal-gauge-normal-form
-Declaration: DiagonalGaugeNormalForm
+Sources: KL15, §7.4, Lemma 7.4.4, pp. 152–153.
+Declaration: DiagonalGaugeNormalForm [omitted signature]
+Missing interface: Actual near-identity integral Frobenius matrix, diagonal uniformizer powers and finite-étale coefficient extension are required.
 Contract: For a φ^a-module over ℛ̃^bd_R, suppose its chosen Frobenius matrix is AD, with
 D diagonal, D_ii∈p^Z, and A−I∈p Mat(ℛ̃^int_R). One can find an R-algebra S formed as a
 union of faithfully finite étale R-subalgebras and U∈GL_n(W(S)), U≡I mod p, satisfying
@@ -3198,7 +2905,9 @@ coefficients are kept distinct.
 Direct imports: VectorBundlesAndIsocrystals:VB4/annular-basis-approximation.
 
 VectorBundlesAndIsocrystals:VB4/robba-polygon-semicontinuity
-Declaration: RobbaPolygonSemicontinuity
+Sources: KL15, §7.4, Theorem 7.4.5, p. 153.
+Declaration: RobbaPolygonSemicontinuity [omitted signature]
+Missing interface: Actual relative Robba Frobenius modules, residue-field fibres and locally constant rank/degree are required.
 Contract: For any φ^a-module M over ℛ̃_R, β ↦ the slope polygon of M ⊗ ℛ̃_{ℋ(β)} is
 lower semicontinuous on ℳ(R): where the rank is constant, for each x ∈ [0, rank M] the
 y-coordinate of the polygon at x is a lower semicontinuous function of β, and it is
@@ -3215,7 +2924,9 @@ VectorBundlesAndIsocrystals:VB1/robba-bundle-equivalence,
 VectorBundlesAndIsocrystals:VB2:classification/HN-filtration-base-change.
 
 VectorBundlesAndIsocrystals:VB4/bounded-polygons-dense-locus
-Declaration: BoundedPolygonsDenseLocus
+Sources: KL15, §7.4, Proposition 7.4.6 and Corollary 7.4.7, pp. 153–154.
+Declaration: BoundedPolygonsDenseLocus [omitted signature]
+Missing interface: Actual relative Robba modules with bounded fibre polygons, semicontinuity and locally constant rank/degree are required.
 Contract: For any φ^a-module M over ℛ̃_R, the slope polygons of M at the points of ℳ(R)
 are bounded above and below (all slopes are at least −N/a for N as in Proposition 6.2.4,
 and the sum of the slopes is continuous). Hence the polygon takes finitely many values
@@ -3228,7 +2939,9 @@ VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation,
 VectorBundlesAndIsocrystals:VB4/robba-polygon-semicontinuity.
 
 VectorBundlesAndIsocrystals:VB4/constant-vertex-submodule
-Declaration: ConstantVertexSubmodule
+Sources: KL15, §7.4, Lemma 7.4.8 and Theorem 7.4.9, pp. 154–155.
+Declaration: ConstantVertexSubmodule [omitted signature]
+Missing interface: Actual relative Robba module, a proper constant polygon vertex with strict adjacent slope gap, and saturated Frobenius quotient are required.
 Contract: (7.4.8) Let A be an n × n matrix over ℛ̃^int_R invertible over ℛ̃^bd_R, x_1,
 …, x_n ∈ ℛ̃^bd_R, and y_1, …, y_n ∈ ℰ̃_R with y_i − x_i = Σ_j A_{ij}φ^a(y_j). Then all
 y_i lie in ℛ̃^bd_R iff their images lie in ℛ̃^bd_{ℋ(β)} for every β ∈ ℳ(R). (7.4.9) Let
@@ -3245,7 +2958,9 @@ PadicDifferentialEquationsAndRigidCohomology:RD.2/coincident-polygons-common-fil
 VectorBundlesAndIsocrystals:VB4/diagonal-gauge-normal-form.
 
 VectorBundlesAndIsocrystals:VB4/robba-constant-polygon-filtration
-Declaration: RobbaConstantPolygonFiltration
+Sources: KL15, §7.4, Corollary 7.4.10, p. 155.
+Declaration: RobbaConstantPolygonFiltration [omitted signature]
+Missing interface: Actual constant fibre polygon, canonical Frobenius-stable submodules and pure graded pieces are required; an arbitrary two-step flag is insufficient.
 Contract: If the slope polygon of a φ^a-module M over ℛ̃_R is constant on ℳ(R), there is
 a unique filtration 0 = M_0 ⊂ ⋯ ⊂ M_l = M by φ^a-submodules whose quotients are
 φ^a-modules pure of constant slope with μ(M_1/M_0) > ⋯ > μ(M_l/M_{l−1}).
@@ -3256,7 +2971,9 @@ Direct imports: VectorBundlesAndIsocrystals:VB4/constant-vertex-submodule,
 VectorBundlesAndIsocrystals:VB4/purity-openness.
 
 VectorBundlesAndIsocrystals:VB4/negative-frobenius-cohomology-detection
-Declaration: NegativeFrobeniusCohomologyDetection
+Sources: KL15, §7.4, Corollary 7.4.11 and Remark 7.4.12, pp. 155–156.
+Declaration: NegativeFrobeniusCohomologyDetection [omitted signature]
+Missing interface: Actual negative-slope relative Robba modules and the canonical geometric-fibre H¹ restriction maps are required.
 Contract: If M over ℛ̃_R has everywhere negative slopes, then H^0_{φ^a}(M) = 0,
 H^0_{φ^a}(M ⊗ ℛ̃_{ℋ(β)}) = 0 for all β ∈ ℳ(R), and H^1_{φ^a}(M) → ∏_β H^1_{φ^a}(M ⊗
 ℛ̃_{ℋ(β)}) is injective. For any M this applies to M(n) for n small enough (by
@@ -3272,7 +2989,9 @@ VectorBundlesAndIsocrystals:VB1/robba-bundle-equivalence,
 VectorBundlesAndIsocrystals:VB1/cohomology-of-twists.
 
 VectorBundlesAndIsocrystals:VB4/ring-sheaf-frobenius-comparison
-Declaration: RingSheafFrobeniusComparison
+Sources: KL15, §8.5, Remark 8.5.10, p. 172 (arXiv 1301.0792v5).
+Declaration: RingSheafFrobeniusComparison [omitted signature]
+Missing interface: The actual full Robba ring and Frobenius-sheaf categories are required; bounded/integral cases have different comparison strengths.
 Contract: Let (R, R⁺) be a perfect uniform adic Banach algebra over 𝔽_p and X = Spa(R,
 R⁺). For ∗ ∈ {ℰ̃, ℛ̃^bd, ℛ̃}, the natural functor from φ^d-modules over ∗_R to
 φ^d-modules over the sheaf ∗_X (called local φ^d-modules over ∗_R) is fully faithful
@@ -3286,7 +3005,9 @@ Direct imports: VectorBundlesAndIsocrystals:VB1/robba-bundle-equivalence,
 VectorBundlesAndIsocrystals:VB4/pure-models.
 
 VectorBundlesAndIsocrystals:VB4/adic-purity-loci
-Declaration: AdicPurityLoci
+Sources: KL15, §8.5, Lemma 8.5.11, p. 173 (arXiv 1301.0792v5).
+Declaration: AdicPurityLoci [omitted signature]
+Missing interface: Actual perfectoid/adic coefficient space and module fibres, with the period-model purity and partial-properness comparisons, are required.
 Contract: For a φ^d-module M on ℛ̃_X, where X is perfect uniform over F_{p^d}, purity
 and étaleness define open subspaces of X. If X lies over an analytic field, these opens
 are partially proper in the sense of KL Definition 8.2.11. When X is taut, both
@@ -3298,7 +3019,9 @@ coefficients are kept distinct.
 Direct imports: VectorBundlesAndIsocrystals:VB4/purity-openness.
 
 VectorBundlesAndIsocrystals:VB4/pure-modules-local-systems
-Declaration: PureModulesLocalSystems
+Sources: KL15, §8.5, Theorem 8.5.12, p. 173 (arXiv 1301.0792v5).
+Declaration: PureModulesLocalSystems [omitted signature]
+Missing interface: The six specified ring/site categories and normalized twisted local-system descent are required.
 Contract: Fix c∈Z and a perfectoid space X over Q_{p^d}, with characteristic-p partner
 X′ over F_{p^d}. Twisted étale (c,d)-Q_p-local systems on X, on X′, and on any adic X₀′
 with inverse perfection X′ give equivalent categories. Each is also equivalent to the
@@ -3316,7 +3039,8 @@ VectorBundlesAndIsocrystals:VB4/integral-frobenius-local-systems,
 mathlib:CategoryTheory.Equivalence.
 
 VectorBundlesAndIsocrystals:VB4/purity-denominator-independence
-Declaration: PurityDenominatorIndependence
+Sources: KL15, §8.5, Corollary 8.5.13, p. 173 (arXiv 1301.0792v5).
+Declaration: PurityDenominatorIndependence [component signature]
 Contract: Let X be perfect uniform over F_{p^d}, and use any of the coefficient sheaves
 ℰ̃_X, ℛ̃^bd_X, ℛ̃_X for a φ^d-module M. At a fixed point x, purity with slope s is
 independent of the presentation of s: it is equivalent to (c′,d′)-purity at x for all
@@ -3327,7 +3051,8 @@ coefficients are kept distinct.
 Direct imports: VectorBundlesAndIsocrystals:VB4/pure-modules-local-systems.
 
 VectorBundlesAndIsocrystals:VB4/all-rings-pointwise-purity
-Declaration: AllRingsPointwisePurity
+Sources: KL15, §8.5, Corollary 8.5.14, p. 173 (arXiv 1301.0792v5).
+Declaration: AllRingsPointwisePurity [component signature]
 Contract: Let (R, R⁺) be as in Hypothesis 5.0.1 (a perfect uniform adic Banach algebra
 over 𝔽_p that is a Banach algebra over an analytic field) and M a φ^d-module over ℰ̃_R,
 ℛ̃^bd_R or ℛ̃_R. If M is pointwise pure (M ⊗ ℋ(β) is pure for every β ∈ ℳ(R)), then M is
@@ -3339,7 +3064,8 @@ Direct imports: VectorBundlesAndIsocrystals:VB4/purity-openness,
 VectorBundlesAndIsocrystals:VB4/pure-modules-local-systems.
 
 VectorBundlesAndIsocrystals:VB4/surjective-purity-descent
-Declaration: SurjectivePurityDescent
+Sources: KL15, §8.5, Corollaries 8.5.15–8.5.16, p. 174 (arXiv 1301.0792v5).
+Declaration: SurjectivePurityDescent [component signature]
 Contract: Consider a bounded map (R,R⁺)→(S,S⁺) between perfect uniform adic Banach
 F_{p^d}-algebras, with surjective induced map of adic spectra. For a local φ^d-module M,
 purity is equivalent to purity after scalar extension from R to S, for each of ℰ̃,
@@ -3351,7 +3077,8 @@ coefficients are kept distinct.
 Direct imports: VectorBundlesAndIsocrystals:VB4/all-rings-pointwise-purity.
 
 VectorBundlesAndIsocrystals:VB4/local-global-purity-counterexamples
-Declaration: LocalGlobalPurityCounterexamples
+Sources: KL15, §8.5, Examples 8.5.17–8.5.18, pp. 174–175 (arXiv 1301.0792v5).
+Declaration: LocalGlobalPurityCounterexamples [component signature]
 Contract: KL constructs a rational local system with p-monodromy by identifying the two
 boundary circles of a punctured annulus over K=F_p((q)), |q|=ω<1. Its affinoid algebra
 is B=K{ω²/T,T,U/ω^{−2}}/(U(T−q)−1); the boundaries have algebras B₁=K{ω²/T,T/ω²} and
@@ -3372,7 +3099,8 @@ Direct imports: VectorBundlesAndIsocrystals:VB4/ring-sheaf-frobenius-comparison,
 VectorBundlesAndIsocrystals:VB4/pure-modules-local-systems.
 
 VectorBundlesAndIsocrystals:VB4/pure-two-out-of-three
-Declaration: PureTwoOutOfThree
+Sources: KL15, §8.6, Lemma 8.6.3, p. 176 (arXiv 1301.0792v5).
+Declaration: PureTwoOutOfThree [component signature]
 Contract: Under KL Hypothesis 8.6.1, (c,d)-purity has the two-out-of-three property for
 0→M₁→M→M₂→0 in φ-modules over ℛ̃_R: purity of any pair among M₁,M,M₂ forces purity of
 the remaining term.
@@ -3382,7 +3110,8 @@ coefficients are kept distinct.
 Direct imports: VectorBundlesAndIsocrystals:VB4/all-rings-pointwise-purity.
 
 VectorBundlesAndIsocrystals:VB4/pointwise-ampleness
-Declaration: PointwiseAmple
+Sources: KL15, §8.8, Definition 8.8.10, pp. 182–183 (arXiv 1301.0792v5).
+Declaration: PointwiseAmple [component signature]
 Contract: In the setting of KL Hypothesis 8.7.1, take an integer a≥1 and q=p^a, a
 perfectoid adic Banach pair (A,A⁺) over Q_p with associated perfect uniform
 characteristic-p pair (R,R⁺), and a perfectoid space X/Q_p with its corresponding
@@ -3397,28 +3126,30 @@ Hypotheses: KL Hypotheses 5.0.1 and 6.0.1: R is a perfect uniform Banach F_p-alg
 over an analytic field; a≥1 and q=p^a. Ring/sheaf, full/bounded Robba and integral
 coefficients are kept distinct. KL Hypothesis 8.7.1: mixed characteristic, perfectoid
 untilt over Q_p, q=p^a.
-API PointwiseAmple: At β the predicate that all slopes of the fibre polygon are strictly
+API PointwiseAmple [component signature]: At β the predicate that all slopes of the fibre polygon are strictly
 positive.
-API PointwiseAmple.isOpen: The set of β∈ℳ(R) at which F is pointwise ample is open (KL
+Missing interface for PointwiseAmple.isOpen: Openness requires fibre polygons of a relative Robba module and KL semicontinuity; arbitrary profiles need not have open positivity loci.
+API PointwiseAmple.isOpen [omitted signature]: The set of β∈ℳ(R) at which F is pointwise ample is open (KL
 Theorem 7.4.5), and so is its preimage in Spa(R,R⁺) under the retraction.
-API PointwiseAmple.pullback: The predicate is preserved under residue-field extension
+API PointwiseAmple.pullback [component signature]: The predicate is preserved under residue-field extension
 and perfectoid pullback.
-API PointwiseAmple.tensor: Tensor products of positive fibres are positive, with slopes
+API PointwiseAmple.tensor [component signature]: Tensor products of positive fibres are positive, with slopes
 added with their multiplicities.
-API PointwiseAmple.projComparison: The predicate agrees for a Proj bundle and its full
+API PointwiseAmple.projComparison [component signature]: The predicate agrees for a Proj bundle and its full
 Robba module under the companion equivalence.
-Test PointwiseAmpleTest.positive (computation): O(1) is pointwise ample.
-Test PointwiseAmpleTest.unit (non-example): O is not pointwise ample: its slope is zero.
-Test PointwiseAmpleTest.mixed (non-example): O(2)⊕O(−1) has positive total degree but is
+Test PointwiseAmpleTest.positive [component example] (computation): O(1) is pointwise ample.
+Test PointwiseAmpleTest.unit [component example] (non-example): O is not pointwise ample: its slope is zero.
+Test PointwiseAmpleTest.mixed [component example] (non-example): O(2)⊕O(−1) has positive total degree but is
 not pointwise ample.
-Test PointwiseAmpleTest.zero (degenerate): The zero bundle satisfies the every-slope
+Test PointwiseAmpleTest.zero [component example] (degenerate): The zero bundle satisfies the every-slope
 predicate vacuously; it has no positive rank or numerical slope.
 Direct imports: VectorBundlesAndIsocrystals:VB1/harder-narasimhan-polygon,
 VectorBundlesAndIsocrystals:VB2:ampleness/tensor-global-ampleness,
 VectorBundlesAndIsocrystals:VB4/robba-polygon-semicontinuity.
 
 VectorBundlesAndIsocrystals:VB4/positive-tensor-domination
-Declaration: PositiveTensorDomination
+Sources: KL15, §8.8, Lemma 8.8.11 and its proof, p. 183 (arXiv 1301.0792v5).
+Declaration: PositiveTensorDomination [component signature]
 Contract: In the setting of KL Hypothesis 8.7.1, take an integer a≥1 and q=p^a, a
 perfectoid adic Banach pair (A,A⁺) over Q_p with associated perfect uniform
 characteristic-p pair (R,R⁺), and a perfectoid space X/Q_p with its corresponding
@@ -3434,7 +3165,9 @@ Direct imports: VectorBundlesAndIsocrystals:VB4/bounded-polygons-dense-locus,
 VectorBundlesAndIsocrystals:VB4/pointwise-ampleness.
 
 VectorBundlesAndIsocrystals:VB4/geometric-positive-generation
-Declaration: GeometricPositiveGeneration
+Sources: KL15, §8.8, Lemma 8.8.12(a)–(b) and its proof, p. 183 (arXiv 1301.0792v5).
+Declaration: GeometricPositiveGeneration [omitted signature]
+Missing interface: Actual analytic-field curve fibre, positive slopes, evaluation map and coherent cohomology are required.
 Contract: In the setting of KL Hypothesis 8.7.1, take an integer a≥1 and q=p^a, a
 perfectoid adic Banach pair (A,A⁺) over Q_p with associated perfect uniform
 characteristic-p pair (R,R⁺), and a perfectoid space X/Q_p with its corresponding
@@ -3455,7 +3188,9 @@ VectorBundlesAndIsocrystals:VB2:ampleness/quantitative-global-generation,
 VectorBundlesAndIsocrystals:VB2:classification/dieudonne-manin-classification-of-bundles.
 
 VectorBundlesAndIsocrystals:VB4/nonnegative-extension
-Declaration: NonnegativeExtension
+Sources: KL15, §8.8, Lemma 8.8.13 and its proof, pp. 183–185 (arXiv 1301.0792v5).
+Declaration: NonnegativeExtension [omitted signature]
+Missing interface: Actual period-module bundle extension with O(-1) kernel and KL hypotheses at the chosen point is required; the identity extension is insufficient.
 Contract: In the setting of KL Hypothesis 8.7.1, take an integer a≥1 and q=p^a, a
 perfectoid adic Banach pair (A,A⁺) over Q_p with associated perfect uniform
 characteristic-p pair (R,R⁺), and a perfectoid space X/Q_p with its corresponding
@@ -3471,7 +3206,9 @@ Direct imports: VectorBundlesAndIsocrystals:VB4/robba-polygon-semicontinuity,
 VectorBundlesAndIsocrystals:VB4/geometric-positive-generation.
 
 VectorBundlesAndIsocrystals:VB4/etale-at-point-resolution
-Declaration: EtaleAtPointResolution
+Sources: KL15, §8.8, Corollary 8.8.14, p. 185 (arXiv 1301.0792v5).
+Declaration: EtaleAtPointResolution [omitted signature]
+Missing interface: Actual perfectoid point, relative Robba/Proj comparison and an étale-at-that-point middle term are required.
 Contract: In the setting of KL Hypothesis 8.7.1, take an integer a≥1 and q=p^a, a
 perfectoid adic Banach pair (A,A⁺) over Q_p with associated perfect uniform
 characteristic-p pair (R,R⁺), and a perfectoid space X/Q_p with its corresponding
@@ -3486,7 +3223,8 @@ Direct imports: VectorBundlesAndIsocrystals:VB4/nonnegative-extension,
 VectorBundlesAndIsocrystals:VB4/purity-openness.
 
 VectorBundlesAndIsocrystals:VB4/ample-iff-pointwise
-Declaration: AmpleIffPointwise
+Sources: KL15, §8.8, Theorem 8.8.15 and Remark 8.8.16, p. 185 (arXiv 1301.0792v5).
+Declaration: AmpleIffPointwise [component signature]
 Contract: Under Hypothesis 8.7.1 (a ≥ 1 an integer, q = p^a; (A, A⁺) a perfectoid adic
 Banach algebra over ℚ_p and (R, R⁺) the perfect uniform adic Banach algebra over 𝔽_p
 corresponding to it by Theorem 3.6.5; X a perfectoid adic space over ℚ_p and X′ the
@@ -3506,7 +3244,8 @@ VectorBundlesAndIsocrystals:VB2:ampleness/ampleness-power-criterion,
 VectorBundlesAndIsocrystals:VB4/purity-openness.
 
 VectorBundlesAndIsocrystals:VB4/relative-ampleness
-Declaration: RelativeAmple
+Sources: KL15, §8.8, Definition 8.8.17, pp. 185–186 (arXiv 1301.0792v5).
+Declaration: RelativeAmple [component signature]
 Contract: In the setting of KL Hypothesis 8.7.1, take an integer a≥1 and q=p^a, a
 perfectoid adic Banach pair (A,A⁺) over Q_p with associated perfect uniform
 characteristic-p pair (R,R⁺), and a perfectoid space X/Q_p with its corresponding
@@ -3522,27 +3261,28 @@ Hypotheses: KL Hypotheses 5.0.1 and 6.0.1: R is a perfect uniform Banach F_p-alg
 over an analytic field; a≥1 and q=p^a. Ring/sheaf, full/bounded Robba and integral
 coefficients are kept distinct. KL Hypothesis 8.7.1: mixed characteristic, perfectoid
 untilt over Q_p, q=p^a.
-API RelativeAmple: A bundle on FF_X is ample if all perfectoid affinoid pullbacks are
+API RelativeAmple [component signature]: A bundle on FF_X is ample if all perfectoid affinoid pullbacks are
 ample in the already owned Proj sense.
-API RelativeAmple.fibreCriterion: Relative ampleness is equivalent to every geometric
+API RelativeAmple.fibreCriterion [component signature]: Relative ampleness is equivalent to every geometric
 fibre slope being strictly positive.
-API RelativeAmple.pullback: Perfectoid pullback preserves ampleness.
-API RelativeAmple.surjectiveDescent: A bundle is ample iff its pullback along a
+API RelativeAmple.pullback [component signature]: Perfectoid pullback preserves ampleness.
+API RelativeAmple.surjectiveDescent [component signature]: A bundle is ample iff its pullback along a
 surjective perfectoid map is ample.
-API RelativeAmple.openLocus: The ample locus is a partially proper open subset on a base
+API RelativeAmple.openLocus [component signature]: The ample locus is a partially proper open subset on a base
 over an analytic field.
-Test RelativeAmpleTest.affinoid (compatibility): On an affinoid perfectoid untilt,
+Test RelativeAmpleTest.affinoid [component example] (compatibility): On an affinoid perfectoid untilt,
 relative ampleness agrees with the companion Proj ampleness.
-Test RelativeAmpleTest.untiltLine (computation): The untilt divisor line L_X is
+Test RelativeAmpleTest.untiltLine [component example] (computation): The untilt divisor line L_X is
 relatively ample; in KL normalization its slope is 1/a.
-Test RelativeAmpleTest.unit (non-example): The unit bundle is not relatively ample on a
+Test RelativeAmpleTest.unit [component example] (non-example): The unit bundle is not relatively ample on a
 nonempty base.
 Direct imports: RelativeFarguesFontaine:RF1,
 VectorBundlesAndIsocrystals:VB2:ampleness/tensor-global-ampleness,
 VectorBundlesAndIsocrystals:VB4/ample-iff-pointwise.
 
 VectorBundlesAndIsocrystals:VB4/untilt-positive-line
-Declaration: UntiltPositiveLine
+Sources: KL15, §8.8, Lemma 8.8.19 and its proof, p. 186 (arXiv 1301.0792v5).
+Declaration: UntiltPositiveLine [component signature]
 Contract: Under Hypothesis 8.7.1 (a ≥ 1 an integer, q = p^a; (A, A⁺) a perfectoid adic
 Banach algebra over ℚ_p and (R, R⁺) the perfect uniform adic Banach algebra over 𝔽_p
 corresponding to it by Theorem 3.6.5; X a perfectoid adic space over ℚ_p and X′ the
@@ -3563,7 +3303,8 @@ VectorBundlesAndIsocrystals:VB4/pure-models,
 VectorBundlesAndIsocrystals:VB4/relative-ampleness.
 
 VectorBundlesAndIsocrystals:VB4/twisted-local-systems
-Declaration: TwistedLocalSystem
+Sources: KL15, Definition 8.5.7, p. 172.
+Declaration: TwistedLocalSystem [component signature]
 Contract: For c∈Z and d>0, a (c,d)-Q_p local system is an étale local system of
 finite-dimensional Q_{p^d}-vector spaces equipped with a Frobenius-semilinear
 automorphism τ such that p^c τ^d=1. Scheme-side isogeny (c,d)-Z_p local systems carry
@@ -3571,20 +3312,20 @@ the same data on an isogeny Z_{p^d} local system. The categories for proportiona
 (c,d) are naturally equivalent, not literally equal.
 Hypotheses: Q_{p^d}/Q_p unramified; τ acts semilinearly for arithmetic Frobenius. Étale
 rational local systems need not admit a global integral lattice.
-API TwistedLocalSystem: Finite-rank Q_{p^d} étale local system with
+API TwistedLocalSystem [component signature]: Finite-rank Q_{p^d} étale local system with
 arithmetic-Frobenius-semilinear τ and p^cτ^d=1.
-API TwistedLocalSystem.frobenius: The specified semilinear automorphism τ, with its
+API TwistedLocalSystem.frobenius [component signature]: The specified semilinear automorphism τ, with its
 coefficient Frobenius.
-API TwistedLocalSystem.iterate: For every section v, p^c τ^d(v)=v.
-API TwistedLocalSystem.pullback: Pullback transports τ and its equation; identities and
+API TwistedLocalSystem.iterate [component signature]: For every section v, p^c τ^d(v)=v.
+API TwistedLocalSystem.pullback [component signature]: Pullback transports τ and its equation; identities and
 composition agree.
-API TwistedLocalSystem.reindex: Pairs of positive denominator with the same c/d give
+API TwistedLocalSystem.reindex [component signature]: Pairs of positive denominator with the same c/d give
 naturally equivalent categories by unramified scalar extension/descent.
-Test TwistedLocalSystemTest.zeroSlope (compatibility): At (0,1), τ=1 and the object is
+Test TwistedLocalSystemTest.zeroSlope [component example] (compatibility): At (0,1), τ=1 and the object is
 an ordinary Q_p local system.
-Test TwistedLocalSystemTest.nonzeroTwist (non-example): For c≠0,d=1, τ=1 on a nonzero
+Test TwistedLocalSystemTest.nonzeroTwist [component example] (non-example): For c≠0,d=1, τ=1 on a nonzero
 Q_p line fails p^cτ=1.
-Test TwistedLocalSystemTest.reindex (compatibility): The categories for (1,2) and (2,4)
+Test TwistedLocalSystemTest.reindex [component example] (compatibility): The categories for (1,2) and (2,4)
 are equivalent; the coefficient fields and underlying vector-space ranks are not
 literally identical.
 Direct imports: DiamondsAndVStacks:D3,
@@ -3592,7 +3333,9 @@ tauceti:TauCetiRoadmap/ClassFieldTheory#layer-5-local-coefficients-the-brauer-gr
 mathlib:ModuleCat.
 
 VectorBundlesAndIsocrystals:VB4/integral-frobenius-local-systems
-Declaration: IntegralFrobeniusLocalSystems
+Sources: KL15, Theorems 8.5.3–8.5.6, pp. 169–171; SW20, Theorem 12.3.4, book p. 104.
+Declaration: IntegralFrobeniusLocalSystems [omitted signature]
+Missing interface: The actual integral Frobenius-model and Z_p-local-system categories, with lattices and rationalization, are required.
 Contract: For a perfect uniform adic Banach pair over F_{p^d}, étale Z_{p^d} local
 systems on Spec(R), on its inverse-perfecting complete subring, and on the corresponding
 untilt agree with φ^d-modules over W(R) and the integral relative Robba ring; the ring
@@ -3607,7 +3350,9 @@ VectorBundlesAndIsocrystals:VB4/twisted-local-systems,
 FiniteFlatGroupsAndIntegralPadicHodgeTheory:R07.2, PerfectoidSpaces:P3.
 
 VectorBundlesAndIsocrystals:VB4/integral-boundary-realization
-Declaration: IntegralBoundaryRealization
+Sources: SW20, Proposition 22.3.2, book p. 209.
+Declaration: IntegralBoundaryRealization [omitted signature]
+Missing interface: The actual Z_p-local-system and phi^{-1}-module categories on Y_[0,r], including the characteristic-p boundary, are required.
 Contract: For S∈Perf, finite free Z_p local systems on S_proét are equivalent to
 φ^{-1}-modules on Y_[0,r](S), including the characteristic-p boundary. Restriction to
 Y_(0,r] realizes the rationalized local system L[1/p], which has all Newton slopes zero.
@@ -3622,7 +3367,9 @@ VectorBundlesAndIsocrystals:VB4/slope-zero-local-systems,
 RelativeFarguesFontaine:RF0:integral-Y, DiamondsAndVStacks:D3/locally-profinite-torsors.
 
 VectorBundlesAndIsocrystals:VB4/integral-group-torsors
-Declaration: IntegralGroupTorsors
+Sources: SW20, Proposition 22.6.1, book p. 213.
+Declaration: IntegralGroupTorsors [omitted signature]
+Missing interface: Smooth affine integral G with connected fibres, actual G(Z_p)-torsors and phi^{-1}-G-torsors on Y_[0,r] are required.
 Contract: For a smooth affine group scheme G/Z_p with connected fibres, pro-étale
 G(Z_p)-torsors on S are equivalent to φ^{-1}-G-torsors on Y_[0,r](S). For G=GL_n this is
 the integral local-system equivalence. Connectedness of fibres and the integral boundary
@@ -3635,7 +3382,8 @@ tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules,
 RelativeFarguesFontaine:RF0:integral-Y, DiamondsAndVStacks:D3/locally-profinite-torsors.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/sympathetic-vector-spaces
-Declaration: SympatheticVS
+Sources: CN25, §3.1.1 with footnote 6, p. 12.
+Declaration: SympatheticVS [component signature]
 Contract: Use the category of connected spectral C-Banach algebras whose p-power map is
 onto the open unit neighborhood of 1. CN further require faithful evaluation on C-valued
 spectral points and a dense C-linear subspace with a countable basis. Write O_Λ for the
@@ -3650,27 +3398,29 @@ closures separable and Hahn–Banach available. ∞ is the point of X_FF with re
 C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm
 Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for
 any algebraically closed nonarchimedean C/Q_p.
-API SympatheticVS: A covariant functor from the stated sympathetic C-Banach algebras to
+API SympatheticVS [component signature]: A covariant functor from the stated sympathetic C-Banach algebras to
 ModuleCat Q_p.
-API SympatheticVS.constant: The constant functor of a finite-dimensional Q_p vector
+API SympatheticVS.constant [component signature]: The constant functor of a finite-dimensional Q_p vector
 space.
-API SympatheticVS.additive: V_d evaluates to Λ^d and maps by the C-algebra homomorphism
+API SympatheticVS.additive [component signature]: V_d evaluates to Λ^d and maps by the C-algebra homomorphism
 in every coordinate.
-API SympatheticVS.exact: A short complex is short exact iff its evaluated ModuleCat
+API SympatheticVS.exact [component signature]: A short complex is short exact iff its evaluated ModuleCat
 complex is short exact at every Λ.
-API SympatheticVS.periodTargets: The source period Rings BdR⁺ and BdR and the quotients
+Missing interface for SympatheticVS.periodTargets: The sympathetic period-ring functors BdR+, BdR and B_m, with their specified maps, are unavailable; choosing arbitrary functors does not identify these objects.
+API SympatheticVS.periodTargets [omitted signature]: The source period Rings BdR⁺ and BdR and the quotients
 B_m are VS targets via the R06.1 period-functor construction.
-Test SympatheticVSTest.constants (computation): The constant Q_p functor evaluates to
+Test SympatheticVSTest.constants [component example] (computation): The constant Q_p functor evaluates to
 Q_p at C, whereas V₁ evaluates to C.
-Test SympatheticVSTest.zero (degenerate): V₀ is the zero functor.
-Test SympatheticVSTest.finiteSum (compatibility): V_{d+e}≅V_d⊕V_e coordinatewise.
-Test SympatheticVSTest.evaluation (non-example): The C-valued spectrum-injectivity
+Test SympatheticVSTest.zero [component example] (degenerate): V₀ is the zero functor.
+Test SympatheticVSTest.finiteSum [component example] (compatibility): V_{d+e}≅V_d⊕V_e coordinatewise.
+Test SympatheticVSTest.evaluation [component example] (non-example): The C-valued spectrum-injectivity
 condition excludes the spherical-closure example singled out by footnote 6; p-root
 surjectivity alone is insufficient.
 Direct imports: mathlib:NormedAlgebra, mathlib:ModuleCat.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/banach-colmez-presentations
-Declaration: BCPresentation
+Sources: CN25, §3.1.1, pp. 12–13.
+Declaration: BCPresentation [component signature]
 Contract: A sympathetic Vector Space W admits a finite Banach–Colmez presentation when
 some Y fits into 0→V₁→Y→V_d→0 and 0→V₂→Y→W→0, where V_d(Λ)=Λ^d and V₁,V₂ are constant
 finite-dimensional Q_p spaces. Such W is a BC object. The presentation assigns dim(W)=d
@@ -3683,26 +3433,29 @@ closures separable and Hahn–Banach available. ∞ is the point of X_FF with re
 C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm
 Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for
 any algebraically closed nonarchimedean C/Q_p.
-API BCPresentation: Y and exact 0→V₁→Y→V_d→0, 0→V₂→Y→W→0 with finite Q_p spaces V₁,V₂.
-API BCPresentation.dim: The natural number d.
-API BCPresentation.height: The integer finrank_Qp(V₁)−finrank_Qp(V₂).
-API BCPresentation.dimension: The pair (d,height) is independent of the presentation by
+API BCPresentation [component signature]: Y and exact 0→V₁→Y→V_d→0, 0→V₂→Y→W→0 with finite Q_p spaces V₁,V₂.
+API BCPresentation.dim [component signature]: The natural number d.
+API BCPresentation.height [component signature]: The integer finrank_Qp(V₁)−finrank_Qp(V₂).
+Missing interface for BCPresentation.dimension: Presentation independence requires realized sympathetic Banach–Colmez spaces and their Dimension invariant, not arbitrary constant/additive functors.
+API BCPresentation.dimension [omitted signature]: The pair (d,height) is independent of the presentation by
 DimensionAbelian.
-API BCPresentation.stabilize: Adding the same finite Q_p vector space to Y,V₁,V₂ gives
+API BCPresentation.stabilize [component signature]: Adding the same finite Q_p vector space to Y,V₁,V₂ gives
 another presentation of W and the same Dimension.
-Test BCPresentationTest.additive (computation): The tautological presentation of V_d has
+Test BCPresentationTest.additive [component example] (computation): The tautological presentation of V_d has
 Dimension (d,0).
-Test BCPresentationTest.constant (computation): A finite Q_p vector space of dimension h
+Test BCPresentationTest.constant [component example] (computation): A finite Q_p vector space of dimension h
 has Dimension (0,h).
-Test BCPresentationTest.quotient (computation): The cokernel V₁/Q_p of a nonzero Q_p→V₁
+Test BCPresentationTest.quotient [component example] (computation): The cokernel V₁/Q_p of a nonzero Q_p→V₁
 map has Dimension (1,−1).
-Test BCPresentationTest.stabilize (compatibility): Increasing both finite Q_p dimensions
+Test BCPresentationTest.stabilize [component example] (compatibility): Increasing both finite Q_p dimensions
 by one leaves height unchanged.
 Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/sympathetic-vector-spaces,
 mathlib:CategoryTheory.ShortComplex.ShortExact, mathlib:Module.finrank.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/exact-banach-points
-Declaration: ExactBanachPoints
+Sources: CN25, Remark 3.1, p. 13; FF18-courbes, §8.4.1, main text pp. 245–247.
+Declaration: ExactBanachPoints [omitted signature]
+Missing interface: Evaluation at sympathetic algebras on the realized BC category, including the strict Banach exactness theorem, is required; zero preservation alone is insufficient.
 Contract: Evaluation at C is faithful on BC objects. Evaluation at any sympathetic
 algebra Λ gives a Q_p-Banach space; BC morphisms evaluate to continuous strict linear
 maps, and BC short exact sequences evaluate to strict short exact sequences.
@@ -3719,7 +3472,8 @@ Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/banach-colmez-present
 VectorBundlesAndIsocrystals:VB3:general-BC/dimension-abelian.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/dimension-abelian
-Declaration: DimensionAbelian
+Sources: CN25, Proposition 3.2, p. 13; FF18-courbes, Preface, Theorem 2.12(i)–(ii), printed pp. 16–17.
+Declaration: DimensionAbelian [component signature]
 Contract: BC is an abelian category. The presentation invariant Dim=(dim,ht) is well
 defined and additive in short exact sequences. In particular, any BC map f has BC
 kernel, image and cokernel, with Dim(W₁)=Dim(ker f)+Dim(im f) and Dim(W₂)=Dim(im
@@ -3738,7 +3492,8 @@ VectorBundlesAndIsocrystals:VB3:general-BC/banach-colmez-presentations,
 mathlib:CategoryTheory.Abelian.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/standard-dimension-examples
-Declaration: StandardDimensionExamples
+Sources: CN25, Example 3.3, p. 13.
+Declaration: StandardDimensionExamples [component signature]
 Contract: For integers h≥1, d∈Z and m≥1, the period objects B_m=B⁺_dR/t^m and U_{h,d}
 belong to BC. Their Dimensions are Dim(B_m)=(m,0), Dim(U_{h,d})=(d,h) for d≥0, and
 Dim(U_{h,d})=(−d,−h) for d<0. In particular U_{1,0}=Q_p has Dimension (0,1); the
@@ -3756,7 +3511,8 @@ VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequen
 RelativeFarguesFontaine:RF2:untilts/BdR-completion-and-filtration.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/curvature
-Declaration: BCCurvature.positive
+Sources: CN25, Definition 3.5, p. 13.
+Declaration: BCCurvature.positive [component signature]
 Contract: Use five curvature classes for W∈BC. Positive curvature means Hom(W,V₁)=0;
 nonnegative curvature means Hom(W,BdR⁺)=0. Curvature zero, also called affine, means a
 finite successive extension of V₁. Negative curvature means that W embeds in BdR^d for
@@ -3770,21 +3526,25 @@ closures separable and Hahn–Banach available. ∞ is the point of X_FF with re
 C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm
 Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for
 any algebraically closed nonarchimedean C/Q_p.
-API BCCurvature.positive: Hom_VS(W,V₁)=0.
-API BCCurvature.nonnegative: Hom_VS(W,BdR⁺)=0.
-API BCCurvature.affine: A finite filtration with V₁ quotients.
-API BCCurvature.negative: An injection into (BdR⁺)^d for some finite d, equivalently
+API BCCurvature.positive [component signature]: Hom_VS(W,V₁)=0.
+API BCCurvature.nonnegative [component signature]: Hom_VS(W,BdR⁺)=0.
+API BCCurvature.affine [component signature]: A finite filtration with V₁ quotients.
+API BCCurvature.negative [component signature]: An injection into (BdR⁺)^d for some finite d, equivalently
 BdR^d.
-API BCCurvature.nonpositive: An injection into a VS carrying a BdR⁺-Module structure.
-API BCCurvature.iso: Every curvature predicate is invariant under BC isomorphism.
-Test BCCurvatureTest.rational (computation): Q_p has strict negative curvature and
+API BCCurvature.nonpositive [component signature]: An injection into a VS carrying a BdR⁺-Module structure.
+API BCCurvature.iso [component signature]: Every curvature predicate is invariant under BC isomorphism.
+Missing fixture for BCCurvatureTest.rational: The named BC object, its actual period realization and Dimension height are unavailable; arbitrary objects and heights do not satisfy this fixture.
+Test BCCurvatureTest.rational [omitted example] (computation): Q_p has strict negative curvature and
 height one.
-Test BCCurvatureTest.affine (computation): V₁ has curvature zero and height zero.
-Test BCCurvatureTest.shifted (computation): H¹(O(−1)) has positive curvature and height
+Missing fixture for BCCurvatureTest.affine: The named BC object, its actual period realization and Dimension height are unavailable; arbitrary objects and heights do not satisfy this fixture.
+Test BCCurvatureTest.affine [omitted example] (computation): V₁ has curvature zero and height zero.
+Missing fixture for BCCurvatureTest.shifted: The named BC object, its actual period realization and Dimension height are unavailable; arbitrary objects and heights do not satisfy this fixture.
+Test BCCurvatureTest.shifted [omitted example] (computation): H¹(O(−1)) has positive curvature and height
 −1.
-Test BCCurvatureTest.otherPoint (non-example): At x≠∞, U₁/Q_p t_x has height zero and
+Missing fixture for BCCurvatureTest.otherPoint: The named BC object, its actual period realization and Dimension height are unavailable; arbitrary objects and heights do not satisfy this fixture.
+Test BCCurvatureTest.otherPoint [omitted example] (non-example): At x≠∞, U₁/Q_p t_x has height zero and
 positive curvature but not curvature zero.
-Test BCCurvatureTest.zero (degenerate): The zero object satisfies all five predicates;
+Test BCCurvatureTest.zero [component example] (degenerate): The zero object satisfies all five predicates;
 strict height inequalities require nonzero objects.
 Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/sympathetic-vector-spaces,
 VectorBundlesAndIsocrystals:VB3:general-BC/banach-colmez-presentations,
@@ -3792,7 +3552,9 @@ RelativeFarguesFontaine:RF2:untilts/BdR-completion-and-filtration,
 PadicHodgeTheory:R06.1.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hom-orthogonality
-Declaration: CurvatureHomOrthogonality
+Sources: CN25, Remark 3.6, p. 13.
+Declaration: CurvatureHomOrthogonality [omitted signature]
+Missing interface: The actual sympathetic period targets and curvature comparison are required; arbitrary additive generators and powers are unrelated.
 Contract: Hom_BC(W,W′) vanishes for either of the following curvature pairs: (>0,≤0) or
 (≥0,<0). The classes of nonpositive and of strictly negative curvature are each
 preserved under VS subobjects. Dually, nonnegative and strictly positive curvature are
@@ -3808,7 +3570,8 @@ Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/curvature,
 VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hn-characterisation.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/canonical-curvature-filtration
-Declaration: BCCanonicalFiltration
+Sources: CN25, Proposition 3.7 and Remark 3.8, pp. 13–14; CN25, §3.2.8, p. 18.
+Declaration: BCCanonicalFiltration [component signature]
 Contract: The canonical curvature filtration of a BC object W is uniquely specified by
 W_{>0}⊂W_{≥0}⊂W: the subobject has curvature >0, the middle quotient has curvature 0,
 and the final quotient has curvature <0. Define W_{>0}=∩_{m≥1, f:W→B_m}ker f and
@@ -3828,20 +3591,24 @@ closures separable and Hahn–Banach available. ∞ is the point of X_FF with re
 C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm
 Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for
 any algebraically closed nonarchimedean C/Q_p.
-API BCCanonicalFiltration: Subobjects W_{>0}≤W_{≥0}≤W with positive, affine and negative
+API BCCanonicalFiltration [component signature]: Subobjects W_{>0}≤W_{≥0}≤W with positive, affine and negative
 graded pieces.
-API BCCanonicalFiltration.positive: W_{>0} is the intersection of kernels of all W→B_m.
-API BCCanonicalFiltration.nonnegative: W_{≥0} is the intersection of kernels of all
+API BCCanonicalFiltration.positive [component signature]: W_{>0} is the intersection of kernels of all W→B_m.
+API BCCanonicalFiltration.nonnegative [component signature]: W_{≥0} is the intersection of kernels of all
 W→BdR.
-API BCCanonicalFiltration.map: Every BC map preserves these subobjects.
-API BCCanonicalFiltration.nonpositiveQuotient: Every map from W to a
+API BCCanonicalFiltration.map [component signature]: Every BC map preserves these subobjects.
+API BCCanonicalFiltration.nonpositiveQuotient [component signature]: Every map from W to a
 nonpositive-curvature BC factors uniquely through W/W_{>0}.
-API BCCanonicalFiltration.affinePart: W_{≥0}/W_{>0} is the maximal affine subobject of
+API BCCanonicalFiltration.affinePart [component signature]: W_{≥0}/W_{>0} is the maximal affine subobject of
 W/W_{>0}.
-Test BCCanonicalFiltrationTest.rational (computation): For Q_p, W_{>0}=W_{≥0}=0.
-Test BCCanonicalFiltrationTest.affine (computation): For V₁, W_{>0}=0 and W_{≥0}=W.
-Test BCCanonicalFiltrationTest.positive (computation): For H¹(O(−1)), W_{>0}=W_{≥0}=W.
-Test BCCanonicalFiltrationTest.otherPoint (non-example): For torsion at x≠∞, W_{>0}=W
+Missing fixture for BCCanonicalFiltrationTest.rational: The actual constant/additive/negative BC object and period functors are unavailable; arbitrary functors have different intersections of kernels.
+Test BCCanonicalFiltrationTest.rational [omitted example] (computation): For Q_p, W_{>0}=W_{≥0}=0.
+Missing fixture for BCCanonicalFiltrationTest.affine: The actual constant/additive/negative BC object and period functors are unavailable; arbitrary functors have different intersections of kernels.
+Test BCCanonicalFiltrationTest.affine [omitted example] (computation): For V₁, W_{>0}=0 and W_{≥0}=W.
+Missing fixture for BCCanonicalFiltrationTest.positive: The actual constant/additive/negative BC object and period functors are unavailable; arbitrary functors have different intersections of kernels.
+Test BCCanonicalFiltrationTest.positive [omitted example] (computation): For H¹(O(−1)), W_{>0}=W_{≥0}=W.
+Missing fixture for BCCanonicalFiltrationTest.otherPoint: The actual constant/additive/negative BC object and period functors are unavailable; arbitrary functors have different intersections of kernels.
+Test BCCanonicalFiltrationTest.otherPoint [omitted example] (non-example): For torsion at x≠∞, W_{>0}=W
 despite BC HN slope zero; HN cut at zero alone is insufficient.
 Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/curvature,
 VectorBundlesAndIsocrystals:VB3:general-BC/bc-hn-decomposition,
@@ -3849,7 +3616,9 @@ VectorBundlesAndIsocrystals:VB3:general-BC/artinian-bc,
 VectorBundlesAndIsocrystals:VB3:general-BC/torsion-vs-hom-vanishing.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/euler-poincare-height
-Declaration: EulerPoincareHeight
+Sources: CN25, Remark 3.11, p. 15.
+Declaration: EulerPoincareHeight [omitted signature]
+Missing interface: Derived sections of the actual coherent FF curve and the actual BC height/coherent rank compatibility are required.
 Contract: For every coherent sheaf F on the geometric curve,
 ht(H⁰(X,F))−ht(H¹(X,F))=rk(F). For a standard block O(λ), where λ=d/h is reduced with
 h>0, the difference is h. Additivity and coherent-sheaf classification extend this
@@ -3865,7 +3634,8 @@ Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/standard-dimension-ex
 VectorBundlesAndIsocrystals:VB2:classification/coherent-sheaf-classification.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/tilted-coherent-heart
-Declaration: BCTiltedHeart
+Sources: CN25, §3.2.4, p. 15.
+Declaration: BCTiltedHeart [component signature]
 Contract: Coh⁻_X is the full subcategory of Dᵇ(Coh_X) with cohomology only in degrees −1
 and 0, H^{−1} of negative slopes and H⁰ of nonnegative slopes INCLUDING torsion sheaves.
 It is the torsion-pair tilt heart, hence abelian. Objects split noncanonically as
@@ -3879,21 +3649,22 @@ closures separable and Hahn–Banach available. ∞ is the point of X_FF with re
 C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm
 Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for
 any algebraically closed nonarchimedean C/Q_p.
-API BCTiltedHeart: Objects K∈Dᵇ(Coh_X) with HⁱK=0 except i=−1,0, H^{-1} negative and H⁰
+API BCTiltedHeart [component signature]: Objects K∈Dᵇ(Coh_X) with HⁱK=0 except i=−1,0, H^{-1} negative and H⁰
 nonnegative including torsion.
-API BCTiltedHeart.positive: A coherent sheaf of nonnegative slopes enters in degree
+API BCTiltedHeart.positive [component signature]: A coherent sheaf of nonnegative slopes enters in degree
 zero.
-API BCTiltedHeart.negative: A negative bundle enters with shift [1].
-API BCTiltedHeart.split: K is isomorphic to H⁰K⊕H^{-1}K[1], noncanonically, using Ext²=0
+API BCTiltedHeart.negative [component signature]: A negative bundle enters with shift [1].
+Missing interface for BCTiltedHeart.split: Splitting requires the coherent FF curve and Ext² vanishing; arbitrary abelian categories do not have this property.
+API BCTiltedHeart.split [omitted signature]: K is isomorphic to H⁰K⊕H^{-1}K[1], noncanonically, using Ext²=0
 on the curve.
-API BCTiltedHeart.homMatrix: Morphisms between these decompositions have diagonal Hom
+API BCTiltedHeart.homMatrix [component signature]: Morphisms between these decompositions have diagonal Hom
 and off-diagonal Ext¹(E₀,F₋₁).
-Test BCTiltedHeartTest.positive (computation): O(1) in degree zero belongs to the heart.
-Test BCTiltedHeartTest.negative (computation): O(−1)[1] belongs, while O(−1) in degree
+Test BCTiltedHeartTest.positive [component example] (computation): O(1) in degree zero belongs to the heart.
+Test BCTiltedHeartTest.negative [component example] (computation): O(−1)[1] belongs, while O(−1) in degree
 zero does not.
-Test BCTiltedHeartTest.torsion (compatibility): The torsion skyscraper at any untilt
+Test BCTiltedHeartTest.torsion [component example] (compatibility): The torsion skyscraper at any untilt
 point belongs in degree zero.
-Test BCTiltedHeartTest.shift (non-example): O[1] is excluded, since its H^{-1} has slope
+Test BCTiltedHeartTest.shift [component example] (non-example): O[1] is excluded, since its H^{-1} has slope
 zero rather than negative.
 Direct imports: mathlib:DerivedCategory, SchemeAndStackFoundations:SF.0,
 VectorBundlesAndIsocrystals:VB1/degree-rank-slope-and-HN-formalism,
@@ -3901,7 +3672,9 @@ VectorBundlesAndIsocrystals:VB2:classification/coherent-sheaf-classification,
 VectorBundlesAndIsocrystals:VB2:ampleness/two-affine-cover-cohomological-dimension.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/le-bras-equivalence
-Declaration: LeBrasEquivalence
+Sources: CN25, Theorem 3.12, p. 15.
+Declaration: LeBrasEquivalence [omitted signature]
+Missing interface: The realized sympathetic BC category and curve hypercohomology comparison are unavailable; arbitrary categories cannot be equivalent.
 Contract: The functor BC realises an equivalence of categories Coh^-_X ≃ BC. In its
 pro-étale sheaf realization every BC object is a diamond (SW Theorem 15.2.12); no
 perfectoid representability is inferred.
@@ -3924,7 +3697,8 @@ VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces,
 mathlib:CategoryTheory.Equivalence.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/bc-hn-invariants
-Declaration: BCHNInvariants
+Sources: CN25, §3.2.5, p. 16.
+Declaration: BCHNInvariants [component signature]
 Contract: On the tilted coherent heart, assign rk⁻([E₋₁→E₀])=deg(E₀)−deg(E₋₁) and
 deg⁻([E₋₁→E₀])=rk(E₋₁)−rk(E₀). Under Le Bras these become dim and −ht, defining the BC
 HN structure. A nonzero torsion object has slope zero. Write W_{≥λ},W_{>λ} for the HN
@@ -3940,31 +3714,34 @@ closures separable and Hahn–Banach available. ∞ is the point of X_FF with re
 C, t=t_∞. Sympathetic algebras carry the two extra CN conditions (evaluation into C(Spm
 Λ,C) injective; separable). SW20 Definition 15.2.1 and Theorem 15.2.12 are stated for
 any algebraically closed nonarchimedean C/Q_p.
-API BCHNInvariants: BC rank=dim, BC degree=−ht, with the zero object assigned no slope.
-API BCHNInvariants.fromHeart: For E₋₁[1]⊕E₀, rank=deg E₀−deg E₋₁ and degree=rank
+API BCHNInvariants [component signature]: BC rank=dim, BC degree=−ht, with the zero object assigned no slope.
+API BCHNInvariants.fromHeart [component signature]: For E₋₁[1]⊕E₀, rank=deg E₀−deg E₋₁ and degree=rank
 E₋₁−rank E₀.
-API BCHNInvariants.slope: For positive dimension use −ht/dim; a nonzero dimension-zero
+API BCHNInvariants.slope [component signature]: For positive dimension use −ht/dim; a nonzero dimension-zero
 object has slope −∞.
-API BCHNInvariants.standard: For a nonzero standard curve slope λ, BC slope of U_λ is
+API BCHNInvariants.standard [component signature]: For a nonzero standard curve slope λ, BC slope of U_λ is
 −1/λ.
-API BCHNInvariants.additive: Rank and degree add in a BC short exact sequence; slope
+Missing interface for BCHNInvariants.additive: Additivity requires the actual Dimension/HN invariant of a realized BC object, not an arbitrary function on objects.
+API BCHNInvariants.additive [omitted signature]: Rank and degree add in a BC short exact sequence; slope
 does not simply add.
-Test BCHNInvariantsTest.rational (computation): Q_p has rank zero, degree −1 and slope
+Test BCHNInvariantsTest.rational [component example] (computation): Q_p has rank zero, degree −1 and slope
 −∞.
-Test BCHNInvariantsTest.affine (computation): V₁ has rank one, degree zero and slope
+Test BCHNInvariantsTest.affine [component example] (computation): V₁ has rank one, degree zero and slope
 zero.
-Test BCHNInvariantsTest.inversion (computation): U_{2,1} has BC rank one, degree −2 and
+Test BCHNInvariantsTest.inversion [component example] (computation): U_{2,1} has BC rank one, degree −2 and
 slope −2, while O(1/2) has curve rank two and degree one.
-Test BCHNInvariantsTest.negative (computation): U_{1,−1}=H¹(O(−1)) has BC rank one,
+Test BCHNInvariantsTest.negative [component example] (computation): U_{1,−1}=H¹(O(−1)) has BC rank one,
 degree one and slope one.
-Test BCHNInvariantsTest.zero (degenerate): The zero object has BC rank and degree zero
+Test BCHNInvariantsTest.zero [component example] (degenerate): The zero object has BC rank and degree zero
 and no slope; it is not assigned the slope −∞ of a nonzero finite Q_p space.
 Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/dimension-abelian,
 VectorBundlesAndIsocrystals:VB3:general-BC/le-bras-equivalence,
 VectorBundlesAndIsocrystals:VB1/degree-rank-slope-and-HN-formalism.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/bc-hn-decomposition
-Declaration: BcHnDecomposition
+Sources: CN25, Remark 3.13 and (3.14), p. 16.
+Declaration: BcHnDecomposition [omitted signature]
+Missing interface: The realized finite BC category and actual HN graded pieces, torsion supports and connected/étale quotient are required; W⊕0 is insufficient.
 Contract: The object U₀=Q_p has BC slope −∞. The diamond realization of W identifies its
 identity component with W_{>−∞} and its component quotient W_{−∞} with the maximal étale
 quotient, a finite-dimensional Q_p-space. The BC HN filtration admits a noncanonical
@@ -3986,7 +3763,9 @@ VectorBundlesAndIsocrystals:VB3:general-BC/le-bras-equivalence,
 DiamondsAndVStacks:D5/relative-representability.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/artinian-bc
-Declaration: ArtinianBc
+Sources: CN25, Remark 3.15, p. 16.
+Declaration: ArtinianBc [omitted signature]
+Missing interface: The realized finite BC category and its finite Dimension/connected–étale decomposition are required.
 Contract: Every descending chain W₀ ⊇ W₁ ⊇ ⋯ of BC subobjects stabilizes. In the
 dimension-height argument, dim(W_n) first becomes constant; the quotients W_N/W_n then
 have dimension zero and come from the maximal finite Q_p quotient of W_N, so their
@@ -4005,7 +3784,8 @@ Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/bc-hn-decomposition,
 VectorBundlesAndIsocrystals:VB3:general-BC/dimension-abelian.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/embedding-height-bound
-Declaration: EmbeddingHeightBound
+Sources: CN25, Lemma 3.16, pp. 16–17.
+Declaration: EmbeddingHeightBound [component signature]
 Contract: For a NONZERO sub-BC W⊂V_N which contains no subobject isomorphic to V₁,
 dim(W)<ht(W); all its BC HN slopes are <−1. The zero object has no slopes but does not
 satisfy the strict numerical inequality. Include finite Q_p summands (slope −∞) in the
@@ -4022,7 +3802,9 @@ VectorBundlesAndIsocrystals:VB3:general-BC/dimension-abelian,
 VectorBundlesAndIsocrystals:VB3:general-BC/bc-morphism-calculus.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/bc-morphism-calculus
-Declaration: BcMorphismCalculus
+Sources: CN25, §3.2.4 and §3.2.6, pp. 15,17.
+Declaration: BcMorphismCalculus [omitted signature]
+Missing interface: The actual standard BC objects, endomorphism division algebras and period morphism formulas are required.
 Contract: For zero-map tilted-heart representatives E₋₁[1]⊕E₀ and F₋₁[1]⊕F₀, BC
 morphisms are triangular matrices with diagonal Hom(E₋₁,F₋₁), Hom(E₀,F₀) and
 off-diagonal Ext¹(E₀,F₋₁). End_BC(U_λ)=End(O(λ))=D_λ. For λ=d/h≥0 in lowest terms
@@ -4043,7 +3825,9 @@ VectorBundlesAndIsocrystals:VB2:classification/hom-and-ext-calculus,
 RelativeFarguesFontaine:RF2:untilts/BdR-completion-and-filtration.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/torsion-point-realization
-Declaration: TorsionPointRealization
+Sources: CN25, §3.2.7, pp. 17–18.
+Declaration: TorsionPointRealization [omitted signature]
+Missing interface: The actual coherent sheaves supported at the chosen untilt point and finite-length completed-DVR modules are required.
 Contract: At a closed untilt point x, torsion coherent sheaves supported at x are
 equivalent to finite-length B⁺_dR(C_x)-modules via global sections. The indecomposable
 modules are B_m(C_x)=B⁺_dR(C_x)/t_x^m, m≥1. The divisor sequence
@@ -4065,7 +3849,9 @@ VectorBundlesAndIsocrystals:VB1/completed-local-ring-comparison,
 VectorBundlesAndIsocrystals:VB2:classification/coherent-sheaf-classification.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/affine-finite-length-equivalence
-Declaration: AffineFiniteLengthEquivalence
+Sources: CN25, Proposition 3.17, p. 18.
+Declaration: AffineFiniteLengthEquivalence [omitted signature]
+Missing interface: The actual sympathetic realization of finite-length BdR+-modules at the distinguished point is required.
 Contract: Finite-length modules over the ring B⁺_dR form a category equivalent to the
 curvature-zero full subcategory of BC. The realization of M is the period Vector Space
 Λ↦M⊗_{B⁺_dR}B⁺_dR(Λ), using the period-ring functor on sympathetic algebras; this is not
@@ -4081,7 +3867,9 @@ Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/torsion-point-realiza
 VectorBundlesAndIsocrystals:VB3:general-BC/curvature.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/torsion-vs-hom-vanishing
-Declaration: TorsionVsHomVanishing
+Sources: CN25, Corollary 3.18, p. 18.
+Declaration: TorsionVsHomVanishing [omitted signature]
+Missing interface: A finite BC object realized by a BdR+-module killed by t^r, r≥1, and the actual sympathetic BdR+/BdR functors are required; maps remain arbitrary VS maps.
 Contract: The curvature-zero BC category is closed under kernels and cokernels of its
 morphisms. Let W be a BC object carrying a B⁺_dR-Module structure with t^rW=0 for some
 r≥1. Then every VS natural map W→B⁺_dR or W→B_dR is zero. The BC hypothesis permits the
@@ -4101,7 +3889,9 @@ VectorBundlesAndIsocrystals:VB3:general-BC/affine-finite-length-equivalence,
 VectorBundlesAndIsocrystals:VB3:general-BC/bc-morphism-calculus, PadicHodgeTheory:R06.1.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hn-characterisation
-Declaration: CurvatureHnCharacterisation
+Sources: CN25, §3.2.8 and Corollary 3.19, p. 18.
+Declaration: CurvatureHnCharacterisation [omitted signature]
+Missing interface: Actual nonnegative coherent bundles, distinguished-point torsion and the curve-to-BC sections equivalence are required.
 Contract: A BC object has curvature <0 exactly when it is H⁰(X,E) for a vector bundle E
 with nonnegative curve slopes. Curvature ≤0 permits, in addition, a torsion coherent
 summand supported at ∞ in E. Both curvature classes are stable under extensions within
@@ -4119,7 +3909,9 @@ VectorBundlesAndIsocrystals:VB3:general-BC/torsion-point-realization,
 VectorBundlesAndIsocrystals:VB3:general-BC/torsion-vs-hom-vanishing.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/curvature-height-signs
-Declaration: CurvatureHeightSigns
+Sources: CN25, Corollary 3.20 and footnote 9, p. 18.
+Declaration: CurvatureHeightSigns [omitted signature]
+Missing interface: The actual BC height and period/curve curvature realization are required; arbitrary height functions have no sign constraint.
 Contract: Curvature zero implies height zero; NONZERO strictly negative-curvature BC
 objects have strictly positive height; positive-curvature objects have height ≤0. A
 nonzero torsion object at x≠∞ has height zero and strictly positive curvature, so ≤
@@ -4136,7 +3928,8 @@ VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hn-characterisation,
 VectorBundlesAndIsocrystals:VB3:general-BC/standard-dimension-examples.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/curvature-subquotients
-Declaration: CurvatureSubquotients
+Sources: CN25, Corollary 3.21, p. 18; corrected (iv).
+Declaration: CurvatureSubquotients [component signature]
 Contract: Negative/nonpositive curvature is preserved by sub-BCs; positive/nonnegative
 curvature is preserved by quotients. A height-zero subobject of a nonpositive-curvature
 object has curvature zero. The printed dual quotient assertion is false: a height-zero
@@ -4154,7 +3947,9 @@ VectorBundlesAndIsocrystals:VB3:general-BC/curvature-hn-characterisation,
 VectorBundlesAndIsocrystals:VB3:general-BC/dimension-abelian.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/torsion-subobjects-height
-Declaration: TorsionSubobjectsHeight
+Sources: CN25, Remark 3.22, p. 19.
+Declaration: TorsionSubobjectsHeight [omitted signature]
+Missing interface: A finite BC target realized by a torsion BdR+-module and its actual height are required.
 Contract: For any BC inclusion U⊂W with W a torsion B⁺_dR-Module, ht(U) is nonnegative.
 Equality holds precisely when U is itself a torsion B⁺_dR-Module. An alternative to HN
 theory is induction on the length of W: subobjects of V₁ are V₁ or finite-dimensional
@@ -4171,7 +3966,9 @@ Direct imports: VectorBundlesAndIsocrystals:VB3:general-BC/curvature-subquotient
 VectorBundlesAndIsocrystals:VB3:general-BC/affine-finite-length-equivalence.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/generating-image-cokernel
-Declaration: GeneratingImageCokernel
+Sources: CN25, Proposition 3.23, p. 19.
+Declaration: GeneratingImageCokernel [omitted signature]
+Missing interface: The actual BdR+-module target, a generating image over BdR+, BC height and the nonzero cokernel are required.
 Contract: Suppose f : W₁ → W₂ is a BC morphism, W₂ is a finite-length BdR⁺-module, and
 the BdR⁺-span of im(f) equals W₂. Any nonzero BC cokernel of f has positive curvature
 and negative height. After quotienting W₁ by ker(f), represent f by a coherent map F₁ →
@@ -4194,7 +3991,9 @@ VectorBundlesAndIsocrystals:VB3:general-BC/euler-poincare-height,
 VectorBundlesAndIsocrystals:VB3:general-BC/le-bras-equivalence.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/nonpositive-curvature-extensions
-Declaration: NonpositiveCurvatureExtensions
+Sources: CN25, Lemma 3.24, p. 19.
+Declaration: NonpositiveCurvatureExtensions [omitted signature]
+Missing interface: Finite constant Q_p spaces, finite-length BdR+-modules and their realized BC curvature comparison are required.
 Contract: A BC object W has curvature ≤0 exactly when it admits a BC short exact
 sequence 0→V→W→M→0 with V finite-dimensional over Q_p and M affine (curvature 0). For
 existence, decompose W into torsion at ∞ and U_{d_i/h_i} with d_i/h_i≥0; their
@@ -4213,7 +4012,8 @@ VectorBundlesAndIsocrystals:VB3:positive-basic-examples/fundamental-exact-sequen
 VectorBundlesAndIsocrystals:VB3:general-BC/standard-dimension-examples.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/abstract-banach-colmez-category
-Declaration: AbstractBC
+Sources: SW20, Definition 15.2.1, book p. 133; SW20, Theorem 15.2.12, book p. 139.
+Declaration: AbstractBC [component signature]
 Contract: For fixed C/Q_p algebraically closed and complete, BC is the smallest strictly
 full abelian subcategory of sheaves of Q_p-modules on Perf_C,proét, stable under
 extensions and containing underline Q_p and the additive untilt sheaf G_a. Equivalently
@@ -4222,27 +4022,29 @@ BETWEEN BC objects, extensions and isomorphisms. Do not require closure under ev
 ambient subobject.
 Hypotheses: The untilt additive sheaf is over Perf_C; Frobenius coefficients are Q_p
 here.
-API AbstractBC: The generated abelian extension-closed strictly full subcategory of
+API AbstractBC [component signature]: The generated abelian extension-closed strictly full subcategory of
 Q_p-module sheaves containing Q_p and G_a.
-API AbstractBC.rational: The constant sheaf Q_p is a member.
-API AbstractBC.additive: The untilt additive sheaf G_a is a member.
-API AbstractBC.kernelCokernel: Kernels and cokernels of maps between member objects
+API AbstractBC.rational [component signature]: The constant sheaf Q_p is a member.
+API AbstractBC.additive [component signature]: The untilt additive sheaf G_a is a member.
+API AbstractBC.kernelCokernel [component signature]: Kernels and cokernels of maps between member objects
 remain members, computed in the ambient abelian sheaf category.
-API AbstractBC.extension: A short exact extension of two members is a member.
-API AbstractBC.leBras: Degree-zero hypercohomology induces the exact equivalence with
+API AbstractBC.extension [component signature]: A short exact extension of two members is a member.
+Missing interface for AbstractBC.leBras: The realized sympathetic BC category and curve hypercohomology comparison are unavailable; arbitrary categories cannot be equivalent.
+API AbstractBC.leBras [omitted signature]: Degree-zero hypercohomology induces the exact equivalence with
 BCTiltedHeart; sympathetic values agree with the presentation realization.
-Test AbstractBCTest.generators (computation): The two generators are Q_p and G_a, with
+Test AbstractBCTest.generators [component example] (computation): The two generators are Q_p and G_a, with
 Dimensions (0,1) and (1,0).
-Test AbstractBCTest.zero (degenerate): The zero sheaf is in AbstractBC.
-Test AbstractBCTest.quotient (compatibility): The cokernel G_a/Q_p belongs and is
+Test AbstractBCTest.zero [component example] (degenerate): The zero sheaf is in AbstractBC.
+Test AbstractBCTest.quotient [component example] (compatibility): The cokernel G_a/Q_p belongs and is
 BC(O(−1)[1]) after choosing ∞.
-Test AbstractBCTest.points (non-example): C and C⊕Q_p are isomorphic as topological
+Test AbstractBCTest.points [component example] (non-example): C and C⊕Q_p are isomorphic as topological
 Q_p-vector spaces but their BC Dimensions (1,0) and (1,1) differ.
 Direct imports: mathlib:CategoryTheory.Sheaf, mathlib:CategoryTheory.Abelian,
 DiamondsAndVStacks:D6/etale-site-comparison, DiamondsAndVStacks:D3.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/semistable-period-example
-Declaration: SemistablePeriodExample
+Sources: CDN20, §2.1.2, Proposition 2.5 and Lemma 2.7, author preprint pp. 21–23.
+Declaration: SemistablePeriodExample [component signature]
 Contract: For the supercuspidal rank-two slope-1/2 L-(φ,N,G_F)-module M of CDN §2.1.2,
 X_st⁺(M)=(B_cris⁺⊗M)^{φ=p} is a positive Banach–Colmez space of L-Dimension ([L:Q_p],2).
 The one-dimensional multiplicity conclusion of Lemma 2.7 also uses the
@@ -4257,23 +4059,25 @@ VectorBundlesAndIsocrystals:VB3:general-BC/families-of-banach-colmez-spaces,
 PadicHodgeTheory:R06.2.
 
 VectorBundlesAndIsocrystals:VB3:projectivized-properness/scalar-projectivization
-Declaration: BCProjectivization
+Sources: FS-geometrization, Propositions II.2.16 and II.3.5, pp. 72,80.
+Declaration: BCProjectivization [component signature]
 Contract: For an E-module BC v-sheaf W over S, define W× as the complement of its zero
 section and PBC(W)=W×/underline E×, the v-sheaf quotient of the scalar action. The
 quotient map is an E×-torsor on this punctured locus. Representability and properness
 are separate theorems. Apply to both section and two-term hypercohomology objects.
 Hypotheses: W is an E-module v-sheaf; the zero section is closed in the locally spatial
 cases where complement is used.
-API BCProjectivization: The v-sheaf quotient of punctured W by scalar E×.
-API BCProjectivization.torsor: W×→PBC(W) is an underline E× torsor.
-API BCProjectivization.lift: An E×-invariant map W×→Z descends uniquely to PBC(W).
-API BCProjectivization.baseChange: Perfectoid base change commutes with scalar
+API BCProjectivization [component signature]: The v-sheaf quotient of punctured W by scalar E×.
+API BCProjectivization.torsor [component signature]: W×→PBC(W) is an underline E× torsor.
+API BCProjectivization.lift [component signature]: An E×-invariant map W×→Z descends uniquely to PBC(W).
+API BCProjectivization.baseChange [component signature]: Perfectoid base change commutes with scalar
 projectivization.
-Test BCProjectivizationTest.zero (degenerate): PBC(0) is empty.
-Test BCProjectivizationTest.line (computation): PBC(underline E)=S.
-Test BCProjectivizationTest.unitTwist (compatibility): PBC(BC(O(1)))≅Div¹, with the
+Test BCProjectivizationTest.zero [component example] (degenerate): PBC(0) is empty.
+Test BCProjectivizationTest.line [component example] (computation): PBC(underline E)=S.
+Test BCProjectivizationTest.unitTwist [component example] (compatibility): PBC(BC(O(1)))≅Div¹, with the
 fundamental scalar torsor.
-Test BCProjectivizationTest.absolute (non-example): Punctured BC(O(d)) is spatial while
+Missing fixture for BCProjectivizationTest.absolute: The actual punctured absolute BC(O(d)), d≥1, with uniformizer action is required; arbitrary contracting-orbit spaces may be quasiseparated.
+Test BCProjectivizationTest.absolute [omitted example] (non-example): Punctured BC(O(d)) is spatial while
 its π^Z-quotient is not quasiseparated; ordinary properness does not imply total
 absolute spatiality.
 Direct imports:
@@ -4282,7 +4086,8 @@ DiamondsAndVStacks:D0/groupoid-quotients-and-two-fibre-products,
 DiamondsAndVStacks:D5/relative-representability.
 
 VectorBundlesAndIsocrystals:VB3:general-BC/positive-range-dimension
-Declaration: PositiveRangeDimension
+Sources: FS-geometrization, Definition I.3.5 and examples, p. 19; II.3.5, pp. 79–81; CN25, Example 3.3 and §3.2.5, pp. 13,16.
+Declaration: PositiveRangeDimension [component signature]
 Contract: For bundles E₀,E₁ with E₀ everywhere positive and E₁ everywhere negative, the
 cohomologically smooth relative BCcomplex([E₁→E₀]) has locally constant dimension
 deg(E₀)−deg(E₁), componentwise. In particular a positive bundle E has BC dimension
