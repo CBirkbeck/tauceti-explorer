@@ -40197,7 +40197,8 @@
    ],
    "revisionOf": "BP-LanglandsParameterStacks",
    "prompt": "research/blueprint/prompts/BP-LanglandsParameterStacks~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6977"
   },
   {
    "priority": 2,
