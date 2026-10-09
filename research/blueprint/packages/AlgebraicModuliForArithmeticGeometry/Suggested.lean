@@ -6,7 +6,7 @@ import TauCeti.CategoryTheory.Sites.SheafCohomology.LongExactSequence
 # Algebraic moduli and representability for arithmetic geometry: representative target signatures
 
 The mathematical roadmap is `README.md`. This file records definitions and theorem signatures which
-can already be stated against the pinned Mathlib and Tau Ceti APIs. It is not an exhaustive list of
+can already be stated against the Mathlib and Tau Ceti APIs. It is not an exhaustive list of
 the results in any layer, and nothing here claims an implementation.
 
 Design choices made explicit here: a gerbe is a predicate `IsGerbe F J` on Mathlib's `Cat`-valued
@@ -17,8 +17,6 @@ Mathlib's `ModuleCat` descent data and compared with the tensor-overlap and como
 presentations; the relative Picard sheaf is the fppf sheafification of `T ↦ Pic(X_T)`, and the
 section-rigidified objects reuse Tau Ceti's `RigidifiedLineBundle`.
 -/
-
-/-! ## Layer R09.4: gerbes, abelian bandings, neutralizations and classification -/
 
 open CategoryTheory Opposite Bicategory
 
@@ -58,15 +56,16 @@ noncomputable def hilbertFunction (k : Type u) [Field k] (V : ℕ → Type u)
     [∀ n, AddCommGroup (V n)] [∀ n, Module k (V n)] : ℕ → ℕ :=
   fun n => Module.finrank k (V n)
 
-/-- Hilbert–Serre: the Hilbert function of the graded pieces of a finitely generated graded module
-over `k[X₀, …, X_d]` agrees for large `n` with a polynomial of degree at most `d`, whose values at
-integers are integers. Stated for the pieces `V n` of such a module, carried as a hypothesis on the
-pieces (the graded module structure is in the README). -/
-theorem exists_hilbertPolynomial (k : Type u) [Field k] (d : ℕ) (V : ℕ → Type u)
-    [∀ n, AddCommGroup (V n)] [∀ n, Module k (V n)]
-    (hfg : ∃ (N : ℕ) (c : ℕ), ∀ n, N ≤ n → hilbertFunction k V (n + 1) ≤ hilbertFunction k V n + c) :
-    ∃ (P : Polynomial ℚ) (N : ℕ), P.natDegree ≤ d ∧
-      ∀ n, N ≤ n → P.eval (n : ℚ) = hilbertFunction k V n := sorry
+/-- Hilbert–Serre: for a finitely generated graded module `M = ⊕ ℳ n` over the polynomial ring
+`k[X_σ]` with its standard grading, the Hilbert function `n ↦ dim_k ℳ n` agrees for large `n` with
+a rational polynomial of degree less than the number of variables. -/
+theorem exists_hilbertPolynomial (k : Type u) [Field k] (σ : Type u) [Fintype σ]
+    (M : Type u) [AddCommGroup M] [Module k M] [Module (MvPolynomial σ k) M]
+    [IsScalarTower k (MvPolynomial σ k) M] [Module.Finite (MvPolynomial σ k) M]
+    (ℳ : ℕ → Submodule k M) [SetLike.GradedSMul (MvPolynomial.homogeneousSubmodule σ k) ℳ]
+    [DirectSum.Decomposition ℳ] :
+    ∃ (P : Polynomial ℚ) (N : ℕ), P.natDegree ≤ Fintype.card σ - 1 ∧
+      ∀ n, N ≤ n → P.eval (n : ℚ) = Module.finrank k (ℳ n) := sorry
 
 end ProjectiveParameterSpaces
 
@@ -96,6 +95,8 @@ end HomIsom
 
 end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
 
+/-! ## Layer R09.4: gerbes, abelian bandings, neutralizations and classification -/
+
 namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
 
 variable {C : Type u} [Category.{v} C]
@@ -120,11 +121,11 @@ theorem IsGerbe.equivalence_iff (η : Pseudofunctor.StrongTrans F G)
     IsGerbe F J ↔ IsGerbe G J := by
   sorry
 
--- GerbeTests.twoComponents is stated on the actual constant point-site
+-- GerbeTests.twoComponents is stated on the constant point-site
 -- pseudofunctor below, after BandFixtures.constantDiagram is available.
 
 /-- The two compatibility equations are
-actual equations on the existing restriction and automorphism maps. -/
+equations on the restriction and automorphism maps. -/
 structure AbelianBanding (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
     (J : GrothendieckTopology C) (A : Sheaf J AddCommGrpCat.{w})
     [IsGerbe F J] where
@@ -198,7 +199,7 @@ example (b : AbelianBanding F J A) (S : C) (x : Neutralization F S) :
 
 variable [IsGerbe G J]
 
-/-- Use the pinned StrongTrans. -/
+/-- Use the StrongTrans. -/
 class BandPreserving (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
     (η : Pseudofunctor.StrongTrans F G) : Prop where
   map_band : ∀ (U : C) (x : F.obj (.mk (op U)))
@@ -259,7 +260,7 @@ theorem injective_boundary_bijective (hE : E.ShortExact)
     Function.Bijective (TauCeti.CategoryTheory.Sheaf.H.δ hE 1 2 rfl) := by
   sorry
 
--- The two vanishings needed for this statement are actual baseline facts.
+-- The two vanishings needed for this statement are Mathlib facts.
 example (I : Sheaf J AddCommGrpCat.{v}) [Injective I]
     (a : CategoryTheory.Sheaf.H I 1) : a = 0 := by
   sorry
@@ -308,7 +309,7 @@ theorem hom_ext {x y : GerbeLimitFamily Φ} (f g : Hom x y)
     (h : ∀ i, f.component i = g.component i) : f = g := by
   sorry
 
--- API: GerbeLimitFamily.category. Keep the actual compatible arrows as Hom;
+-- API: GerbeLimitFamily.category. Keep the compatible arrows as Hom;
 -- an opaque category instance would lose the componentwise interface.
 instance category : Category (GerbeLimitFamily Φ) where
   Hom := Hom
@@ -364,7 +365,7 @@ end GerbeLimitFamily
 
 namespace LimitFamilyTests
 
--- The singleton check uses an arbitrary pseudofunctor on the actual
+-- The singleton check uses an arbitrary pseudofunctor on the
 -- one-object discrete index, including its possibly nontrivial unit data.
 example (Φ : LocallyDiscrete (Discrete PUnit) ⥤ᵖ Cat.{v', u'}) :
     Nonempty (GerbeLimitFamily Φ ≌ Φ.obj (.mk (Discrete.mk PUnit.unit))) := by
@@ -377,7 +378,7 @@ example [IsCofiltered I] (G : Type v') [Group G] :
     Nonempty (GerbeLimitFamily Φ ≌ SingleObj G) := by
   sorry
 
--- A concrete C3 calculation on the same native compatible-family carrier.
+-- A concrete C3 calculation on the same compatible-family carrier.
 -- The classifying-stack comparison is a separate geometric supplier input.
 example :
     let Φ := ((Functor.const (Discrete PUnit)).obj
@@ -391,7 +392,7 @@ end LimitFamilyTests
 
 namespace CanonicalFactorTests
 
--- Partial native fibre fixture for notTarget and source finding E12.
+-- Fibre fixture for the notTarget non-example.
 example :
     let f := (1 : PUnit →* Multiplicative (ZMod 2)).toFunctor
     f.Faithful ∧ ¬ f.Full ∧
@@ -421,7 +422,7 @@ noncomputable def affine_pullback_tensor {R B : CommRingCat.{u}}
       tilde ((ModuleCat.extendScalars f.hom).obj M) := by
   sorry
 
--- API: affine_pullback_tensor.naturality. This compares actual sheaf maps.
+-- API: affine_pullback_tensor.naturality. This compares sheaf maps.
 theorem affine_pullback_tensor.naturality {R B : CommRingCat.{u}}
     (f : R ⟶ B) {M N : ModuleCat.{u} R} (h : M ⟶ N) :
     (Scheme.Modules.pullback (Spec.map f)).map ((tilde.functor R).map h) ≫
@@ -443,7 +444,7 @@ example :
 
 namespace QCohPseudofunctor
 
--- The exact full-subcategory restriction of the existing module pullback.
+-- The exact full-subcategory restriction of the module pullback.
 noncomputable def map {X Y : Scheme.{u}} (f : X ⟶ Y) :
     (SheafOfModules.isQuasicoherent Y.ringCatSheaf).FullSubcategory ⥤
       (SheafOfModules.isQuasicoherent X.ringCatSheaf).FullSubcategory := by
@@ -457,7 +458,7 @@ noncomputable def map_forget {X Y : Scheme.{u}} (f : X ⟶ Y) :
 
 end QCohPseudofunctor
 
-/-- The fibres are the existing
+/-- The fibres are the
 full categories of quasi-coherent modules, with all module morphisms. -/
 noncomputable def QCohPseudofunctor : LocallyDiscrete Scheme.{u}ᵒᵖ ⥤ᵖ Cat := by
   refine LocallyDiscrete.mkPseudofunctor
@@ -479,7 +480,7 @@ example (K : Type u) [Field K] :
       ¬ Module.Finite K (ℕ →₀ K) := by
   sorry
 
--- Test: QCohPseudoTests.nonInvertibleArrow. Test the actual sheaf-module
+-- Test: QCohPseudoTests.nonInvertibleArrow. Test the sheaf-module
 -- arrow; a failure of invertibility only in ModuleCat would be weaker.
 example : ¬ IsIso ((tilde.functor (CommRingCat.of ℤ)).map
     (ModuleCat.ofHom (2 • LinearMap.id : ℤ →ₗ[ℤ] ℤ))) := by
@@ -507,7 +508,7 @@ universe uB
 
 variable {R S : Type uB} [CommRing R] [CommRing S] (f : R →+* S)
 
--- Partial native prototype for tensor-comonad-coordinates.
+-- Partial prototype for tensor-comonad-coordinates.
 -- Tensor instance transport and the full overlap-action signatures remain omitted.
 theorem tensor_comonad_coordinates (N : ModuleCat.{uB} S) :
     (((ModuleCat.extendRestrictScalarsAdj f).toComonad : ModuleCat S ⥤ ModuleCat S) =
@@ -520,8 +521,8 @@ theorem tensor_comonad_coordinates (N : ModuleCat.{uB} S) :
           ((ModuleCat.restrictScalars f).obj N))) := by
   sorry
 
--- Partial native prototype for overlap-comparison-canonical.
--- This identifies the actual comparison fields, not a constructed overlap equivalence.
+-- Partial prototype for overlap-comparison-canonical.
+-- This identifies the comparison fields, not a constructed overlap equivalence.
 theorem overlap_comparison_canonical {M M' : ModuleCat.{uB} R} (h : M ⟶ M') :
     (((Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f)).obj M).A =
       (ModuleCat.extendScalars f).obj M) ∧
@@ -532,7 +533,7 @@ theorem overlap_comparison_canonical {M M' : ModuleCat.{uB} R} (h : M ⟶ M') :
       (ModuleCat.extendScalars f).map h) := by
   sorry
 
--- Four native smoke examples; none substitutes for the omitted overlap tests.
+-- Four smoke examples; none substitutes for the omitted overlap tests.
 example (K : (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra) :
     K.a ≫ (ModuleCat.extendRestrictScalarsAdj f).toComonad.ε.app K.A = 𝟙 K.A := by
   sorry
@@ -562,7 +563,7 @@ universe uD
 
 noncomputable section
 
--- Transport the existing pseudofunctor; this is not a second module category.
+-- Transport the pseudofunctor; this is not a second module category.
 abbrev affineModulePullback :
     Pseudofunctor (LocallyDiscrete CommRingCat.{uD}ᵒᵖᵒᵖ) Cat :=
   (CategoryTheory.unopUnop CommRingCat.{uD}).toPseudofunctor.comp
@@ -574,7 +575,7 @@ abbrev NativeData (f : R →+* A) :=
   affineModulePullback.DescentData
     (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)
 
--- The existing native coalgebra carrier is retained.
+-- The coalgebra carrier is retained.
 abbrev NativeCoalgebra (f : R →+* A) :=
   (ModuleCat.extendRestrictScalarsAdj f).toComonad.Coalgebra
 
@@ -582,8 +583,8 @@ abbrev NativeCoalgebra (f : R →+* A) :=
 def forgetNativeData (f : R →+* A) : NativeData f ⥤ ModuleCat.{uD} A := by
   sorry
 
--- AlgebraicModuliForArithmeticGeometry:R09.3/native-module-descent-coalgebra
--- Construct via existing DescentData'.descentDataEquivalence and the
+-- R09.3/native-module-descent-coalgebra
+-- Construct via DescentData'.descentDataEquivalence and the
 -- module-specific chosen-overlap adapter; no arbitrary coherence assumption.
 def nativeCoalgebraEquivalence (f : R →+* A) :
     NativeData f ≌ NativeCoalgebra f := by
@@ -595,7 +596,7 @@ def nativeCoalgebraEquivalenceForget (f : R →+* A) :
     forgetNativeData f := by
   sorry
 
--- AlgebraicModuliForArithmeticGeometry:R09.3/native-module-canonical-comparison
+-- R09.3/native-module-canonical-comparison
 def nativeCanonicalComparison (f : R →+* A) :
     affineModulePullback.toDescentData
         (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op) ⋙
@@ -603,14 +604,14 @@ def nativeCanonicalComparison (f : R →+* A) :
     Comonad.comparison (ModuleCat.extendRestrictScalarsAdj f) := by
   sorry
 
--- AlgebraicModuliForArithmeticGeometry:R09.3/affine-module-descent-equivalence
--- This is the exact native canonical-functor equivalence signature.
+-- R09.3/affine-module-descent-equivalence
+-- This is the exact canonical-functor equivalence signature.
 theorem nativeFaithfullyFlatDescent (f : R →+* A) (hf : f.FaithfullyFlat) :
     (affineModulePullback.toDescentData
       (fun (_ : PUnit) ↦ (CommRingCat.ofHom f).op)).IsEquivalence := by
   sorry
 
--- Smoke examples use actual native objects and keep all module morphisms.
+-- Smoke examples use objects and keep all module morphisms.
 example (f : R →+* A) (M : ModuleCat.{uD} R) :
     Nonempty (((nativeCoalgebraEquivalence f).functor.obj
       ((affineModulePullback.toDescentData
@@ -642,7 +643,7 @@ open CategoryTheory Opposite Bicategory
 variable {C : Type u} [Category.{v} C]
 variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
 
-/-- R09.4/band-center-sections: actual compatible units of existing centers. -/
+/-- R09.4/band-center-sections: compatible units of centers. -/
 noncomputable def intrinsicBandSectionSubgroup (U : C) :
     Subgroup (∀ (V : C), (V ⟶ U) → (CatCenter (F.obj (.mk (op V))))ˣ) where
   carrier := {z | ∀ (V W : C) (f : V ⟶ U) (g : W ⟶ V)
@@ -672,7 +673,7 @@ abbrev IntrinsicBandSection (U : C) := ↥(intrinsicBandSectionSubgroup F U)
 
 namespace IntrinsicBandSections
 
-/-- Construct a section from an actual vertically compatible family of center units. -/
+/-- Construct a section from an vertically compatible family of center units. -/
 noncomputable def mk {U : C}
     (z : ∀ (V : C), (V ⟶ U) → (CatCenter (F.obj (.mk (op V))))ˣ)
     (hz : ∀ (V W : C) (f : V ⟶ U) (g : W ⟶ V)
@@ -716,7 +717,7 @@ theorem compatible {U : C} (s : IntrinsicBandSection F U)
   apply Units.ext
   exact CatCenter.ext _ _ (h V f)
 
-/-- R09.4/band-center-commute; subgroup operations come from existing groups. -/
+/-- R09.4/band-center-commute; subgroup operations come from groups. -/
 noncomputable instance commGroup (U : C) : CommGroup (IntrinsicBandSection F U) :=
   { (inferInstance : Group (IntrinsicBandSection F U)) with
     mul_comm := by
@@ -811,7 +812,7 @@ noncomputable def presheaf : Cᵒᵖ ⥤ AddCommGrpCat.{max u v u' v'} where
     intro s
     exact (restrict_comp F f.unop g.unop s).symm
 
-/-- Local central families commute with the native descent transitions. -/
+/-- Local central families commute with the descent transitions. -/
 theorem coverTransition {U : C} (R : Sieve U)
     (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
     (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
@@ -827,7 +828,7 @@ theorem coverTransition {U : C} (R : Sieve U)
         (F.map g.op.toLoc).toFunctor.map
           (eval F (𝟙 j.obj.left) ((F.map j.obj.hom.op.toLoc).toFunctor.obj x) (z j)).hom := by sorry
 
-/-- An actual native descent isomorphism, without effectivity assumptions. -/
+/-- An descent isomorphism, without effectivity assumptions. -/
 noncomputable def coverIso {U : C} (R : Sieve U)
     (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
     (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
@@ -854,7 +855,7 @@ theorem coverIso_inv {U : C} (R : Sieve U)
     coverIso F R (fun i => (z i)⁻¹)
       (fun i j g => by rw [map_inv, hz]) x = (coverIso F R z hz x)⁻¹ := by sorry
 
-/-- Descend both arrows and inverse using the existing fully faithful functor. -/
+/-- Descend both arrows and inverse using the fully faithful functor. -/
 noncomputable def coverAut (J : GrothendieckTopology C) [F.IsPrestack J]
     {U : C} (R : Sieve U) (hR : R ∈ J U)
     (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
@@ -947,7 +948,7 @@ theorem coverAut_inv (J : GrothendieckTopology C) [F.IsPrestack J]
     coverAut F J R hR (fun i => (z i)⁻¹)
       (fun i j g => by rw [map_inv, hz]) x = (coverAut F J R hR z hz x)⁻¹ := by sorry
 
-/-- R09.4/band-center-cover-center: the actual unit of the centre of F(U). -/
+/-- R09.4/band-center-cover-center: the unit of the centre of F(U). -/
 noncomputable def coverCenter (J : GrothendieckTopology C) [F.IsPrestack J]
     {U : C} (R : Sieve U) (hR : R ∈ J U)
     (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
@@ -1040,12 +1041,12 @@ example (J : GrothendieckTopology C) [F.IsPrestack J]
     (hz : ∀ (i j : R.arrows.category) (g : i ⟶ j),
       restrict F g.hom.left (z j) = z i) : coverCenter F J R hR z hz = 1 := by sorry
 
-/-- Base-change index into the original sieve's native arrow category. -/
+/-- Base-change index into the original sieve's arrow category. -/
 abbrev pullbackArrow {U V : C} (R : Sieve U) (a : V ⟶ U)
     (i : (R.pullback a).arrows.category) : R.arrows.category :=
   ⟨Over.mk (i.obj.hom ≫ a), i.property⟩
 
-/-- Compose fibre restrictions through the actual native pseudofunctor constraint. -/
+/-- Compose fibre restrictions through the pseudofunctor constraint. -/
 theorem center_map_comp {V W X : C} (g : W ⟶ V) (h : X ⟶ W)
     (x : F.obj (.mk (op V))) (c : x ⟶ x)
     (z : CatCenter (F.obj (.mk (op X))))
@@ -1103,7 +1104,7 @@ theorem coverCenterAt_of_mem (J : GrothendieckTopology C) [F.IsPrestack J]
       restrict F g.hom.left (z j) = z i)
     (i : R.arrows.category) {V : C} (a : V ⟶ i.obj.left) :
     coverCenterAt F J R hR z hz (a ≫ i.obj.hom) = val F (z i) V a := by sorry
-/-- The simultaneous family is now an actual section of the inherited subgroup. -/
+/-- The simultaneous family is now a section of the subgroup. -/
 noncomputable def glue (J : GrothendieckTopology C) [F.IsPrestack J]
     {U : C} (R : Sieve U) (hR : R ∈ J U)
     (z : ∀ i : R.arrows.category, IntrinsicBandSection F i.obj.left)
@@ -1137,14 +1138,14 @@ theorem coverCenterAt_existing (J : GrothendieckTopology C) [F.IsPrestack J]
     coverCenterAt F J R hR (fun i => restrict F i.obj.hom s)
       (fun i j g => by rw [restrict_comp, Over.w g.hom]) a = val F s V a := by sorry
 
-/-- R09.4/band-center-sheaf: glue hom AND inverse via existing Hom sheaves. -/
+/-- R09.4/band-center-sheaf: glue hom AND inverse via Hom sheaves. -/
 theorem isSheaf (J : GrothendieckTopology C) [F.IsPrestack J]
     (hIso : ∀ (U : C) {x y : F.obj (.mk (op U))} (f : x ⟶ y), IsIso f) :
     Presheaf.IsSheaf J (presheaf F) := by sorry
 
 variable (J : GrothendieckTopology C)
 
-/-- Specific descent of evaluations, using the existing fully faithful descent functor. -/
+/-- Specific descent of evaluations, using the fully faithful descent functor. -/
 theorem eval_eq_of_cover [F.IsPrestack J] {U V : C} (a : V ⟶ U)
     (x : F.obj (.mk (op V))) (s t : IntrinsicBandSection F U)
     (R : Sieve V) (hR : R ∈ J V)
@@ -1162,7 +1163,7 @@ theorem eval_eq_of_cover [F.IsPrestack J] {U V : C} (a : V ⟶ U)
   rw [← eval_restrict, ← eval_restrict] at he
   exact congrArg Iso.hom he
 
-/-- Joint injectivity on an actual covering sieve, not on one arbitrary arrow. -/
+/-- Joint injectivity on a covering sieve, not on one arbitrary arrow. -/
 theorem ext_of_cover [F.IsPrestack J] {U : C} (s t : IntrinsicBandSection F U)
     (R : Sieve U) (hR : R ∈ J U)
     (h : ∀ (V : C) (f : V ⟶ U), R f → restrict F f s = restrict F f t) :
@@ -1271,7 +1272,7 @@ theorem evalEquiv_apply (U : C) (x : F.obj (.mk (op U)))
     evalEquiv F J hComm U x s = eval F (𝟙 U) x s := rfl
 
 include hComm in
-/-- R09.4/band-center-banding: reuse the inherited actual banding structure. -/
+/-- R09.4/band-center-banding: reuse the banding structure. -/
 noncomputable def banding : AbelianBanding F J (sheaf F J) where
   autEquiv U x :=
     { toFun a := evalEquiv F J hComm U x a.toAdd.toMul
@@ -1310,7 +1311,7 @@ theorem coefficient_naturality (U : C) {x y : F.obj (.mk (op U))}
   rw [← h]
   simp only [← Category.assoc, IsIso.hom_inv_id, Category.id_comp]
 
-/-- R09.4/band-coefficient-center: a hom into existing units of CatCenter. -/
+/-- R09.4/band-coefficient-center: a hom into units of CatCenter. -/
 noncomputable def coefficientCenter (U : C) :
     Multiplicative (A.obj.obj (op U)) →* (CatCenter (F.obj (.mk (op U))))ˣ where
   toFun a := (Aut.unitsEndEquivAut (𝟭 (F.obj (.mk (op U))))).symm
@@ -1344,7 +1345,7 @@ theorem coefficientCenter_inv (U : C) (a : Multiplicative (A.obj.obj (op U))) :
     coefficientCenter F J A b U a⁻¹ = (coefficientCenter F J A b U a)⁻¹ :=
   map_inv (coefficientCenter F J A b U) a
 
-/-- R09.4/band-coefficient-restriction: the actual band pullback equation. -/
+/-- R09.4/band-coefficient-restriction: the band pullback equation. -/
 theorem coefficientCenter_restrict {U V : C} (f : V ⟶ U)
     (x : F.obj (.mk (op U))) (a : Multiplicative (A.obj.obj (op U))) :
     (F.map f.op.toLoc).toFunctor.map ((coefficientCenter F J A b U a).val.app x) =
@@ -1353,7 +1354,7 @@ theorem coefficientCenter_restrict {U V : C} (f : V ⟶ U)
           ((F.map f.op.toLoc).toFunctor.obj x) := by
   exact congrArg Iso.hom (b.pullback f x a)
 
-/-- R09.4/band-center-from-banding: its values are actual band automorphisms. -/
+/-- R09.4/band-center-from-banding: its values are band automorphisms. -/
 noncomputable def fromBanding (b : AbelianBanding F J A) (U : C) :
     Multiplicative (A.obj.obj (op U)) →* IntrinsicBandSection F U where
   toFun a := ⟨fun V f ↦ coefficientCenter F J A b V
@@ -1417,7 +1418,7 @@ theorem fromBanding_injective (U : C) :
   rw [fromBanding_eval, fromBanding_eval] at hh
   exact congrArg Multiplicative.toAdd ((b.autEquiv V x).injective hh)
 
-/-- R09.4/band-center-from-banding-ext: determine the actual comparison section. -/
+/-- R09.4/band-center-from-banding-ext: determine the comparison section. -/
 theorem fromBanding_ext (U : C) (a : Multiplicative (A.obj.obj (op U)))
     (s : IntrinsicBandSection F U)
     (h : ∀ (V : C) (f : V ⟶ U) (x : F.obj (.mk (op V))),
@@ -1427,7 +1428,7 @@ theorem fromBanding_ext (U : C) (a : Multiplicative (A.obj.obj (op U)))
   intro V f x
   exact congrArg Iso.hom ((h V f x).trans (fromBanding_eval F J A b f x a).symm)
 
-/-- R09.4/band-center-from-banding-presheaf: an actual natural transformation. -/
+/-- R09.4/band-center-from-banding-presheaf: a natural transformation. -/
 noncomputable def fromBandingPresheaf : A.obj ⟶ presheaf F where
   app U := AddCommGrpCat.ofHom
     { toFun a := Additive.ofMul (fromBanding F J A b U.unop (Multiplicative.ofAdd a))
@@ -1472,7 +1473,7 @@ example {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op V)))
     (s : IntrinsicBandSection F U) (b : Aut x) :
     eval F f x s * b = b * eval F f x s := eval_central F f x s b
 
--- BandEvaluationTests.reindexedArrow: restrictions use the actual composite arrow.
+-- BandEvaluationTests.reindexedArrow: restrictions use the composite arrow.
 example {U V W : C} (f : V ⟶ U) (a : W ⟶ V)
     (x : F.obj (.mk (op W))) (s : IntrinsicBandSection F U) :
     eval F a x (restrict F f s) = eval F (a ≫ f) x s := eval_reindex F f a x s
@@ -1496,7 +1497,7 @@ example (U : C) (x : F.obj (.mk (op U))) (h : Subsingleton (Aut x)) :
   let := h
   exact (eval_injective F J U x).subsingleton
 
--- BandEvaluationTests.noncentral, with the actual transposition coordinate.
+-- BandEvaluationTests.noncentral, with the transposition coordinate.
 example (U : C) (x : F.obj (.mk (op U)))
     (e : Aut x ≃* Equiv.Perm (Fin 3)) (s : IntrinsicBandSection F U) :
     e (eval F (𝟙 U) x s) ≠ Equiv.swap (0 : Fin 3) 1 := by
@@ -1529,7 +1530,7 @@ example (hComm : ∀ (U : C) (x : F.obj (.mk (op U))) (a b : Aut x), a * b = b *
     (U : C) (x : F.obj (.mk (op U))) (e : Aut x ≃* Multiplicative (ZMod 3)) :
     Nat.card (IntrinsicBandSection F U) = 3 := by sorry
 
--- BandCenterTests.S3: evaluation lands in the actual trivial center.
+-- BandCenterTests.S3: evaluation lands in the trivial center.
 example (U : C) (x : F.obj (.mk (op U)))
     (e : Aut x ≃* Equiv.Perm (Fin 3)) :
     Nat.card (IntrinsicBandSection F U) = 1 := by sorry
@@ -1590,7 +1591,7 @@ example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
     f ≫ (b.autEquiv U y a).hom = (b.autEquiv U x a).hom ≫ f :=
   coefficient_naturality F J A b U f a
 
--- BandCoefficientRestrictionTests.mappedObject: evaluate at the actual pullback.
+-- BandCoefficientRestrictionTests.mappedObject: evaluate at the pullback.
 example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
     {U V : C} (f : V ⟶ U) (x : F.obj (.mk (op U)))
     (a : Multiplicative (A.obj.obj (op U))) :
@@ -1602,7 +1603,7 @@ example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
   rw [coefficientCenter_app]
   exact b.pullback f x a
 
--- BandComparisonPresheafTests.zero: the actual natural-transformation component.
+-- BandComparisonPresheafTests.zero: the natural-transformation component.
 example (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
     (U : C) : (fromBandingPresheaf F J A b).app (op U) 0 = 0 := by
   change fromBanding F J A b U 1 = 1
@@ -1649,7 +1650,7 @@ example : ¬ Function.Injective (fun z : ZMod 3 × ZMod 3 ↦ z.1) := by
   have hn : (0 : ZMod 3) ≠ 1 := by decide
   exact hn (congrArg Prod.snd he)
 
--- BandLocalityTests.singleReduction: actual ring reduction is not injective.
+-- BandLocalityTests.singleReduction: ring reduction is not injective.
 -- This does not assert that this one arrow is a covering sieve.
 example : ¬ Function.Injective
     (ZMod.castHom (show 2 ∣ 4 from ⟨2, rfl⟩) (ZMod 2)) := by
@@ -1708,7 +1709,7 @@ variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))),
 include hComm
 
 set_option backward.isDefEq.respectTransparency.types false in
-/-- Conjugation on an arbitrary covering family is a native descent automorphism. -/
+/-- Conjugation on an arbitrary covering family is a descent automorphism. -/
 noncomputable def conjugateDescentIso
     (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
     {U : C} (R : Sieve U)
@@ -1719,7 +1720,7 @@ noncomputable def conjugateDescentIso
     Aut ((F.toDescentData (fun i : R.arrows.category => i.obj.hom)).obj y) := by
   sorry
 
-/-- Lift the specific local conjugates, using native full faithfulness of morphism descent. -/
+/-- Lift the specific local conjugates, using full faithfulness of morphism descent. -/
 noncomputable def conjugateCoverAut
     (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
     (J : GrothendieckTopology C) [F.IsPrestack J]
@@ -1771,7 +1772,7 @@ theorem conjugateCoverAut_independent {U : C} (R : Sieve U) (hR : R ∈ J U)
       conjugateCoverAut F hComm J R hR x y e' a := by
   sorry
 
-/-- The descended conjugation is a group homomorphism, with its actual multiplication law. -/
+/-- The descended conjugation is a group homomorphism, with its multiplication law. -/
 noncomputable def conjugateCoverHom
     (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
     (J : GrothendieckTopology C) [F.IsPrestack J]
@@ -1834,12 +1835,12 @@ example (a : Aut x) (i : R.arrows.category) :
 example : conjugateDescentIso F hComm R x y e 1 = 1 := by
   sorry
 
--- GerbeConjugateDescentTests.inverse: the actual inverse descent arrow is retained.
+-- GerbeConjugateDescentTests.inverse: the inverse descent arrow is retained.
 example (a : Aut x) :
     conjugateDescentIso F hComm R x y e a⁻¹ = (conjugateDescentIso F hComm R x y e a)⁻¹ := by
   sorry
 
--- GerbeConjugateCoverTests.local: full faithfulness recovers the actual local automorphism.
+-- GerbeConjugateCoverTests.local: full faithfulness recovers the local automorphism.
 example (a : Aut x) (i : R.arrows.category) :
     (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y (conjugateCoverAut F hComm J R hR x y e a) =
       Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) := by
@@ -1861,7 +1862,7 @@ example (a : Aut x)
     conjugateCoverAut F hComm J R hR x y e a = conjugateCoverAut F hComm J R hR x y e' a := by
   sorry
 
--- GerbeConjugateCoverTests.globalIso: compare with the existing Mathlib conjugation.
+-- GerbeConjugateCoverTests.globalIso: compare with the Mathlib conjugation.
 example (a : Aut x) (d : x ≅ y) :
     conjugateCoverAut F hComm J R hR x y e a = Aut.autMulEquivOfIso d a := by
   sorry
@@ -1870,13 +1871,13 @@ example (a : Aut x) (d : x ≅ y) :
 example : conjugateCoverHom F hComm J R hR x y e 1 = 1 := by
   sorry
 
--- GerbeConjugateHomTests.product: multiplication order agrees with native Aut.
+-- GerbeConjugateHomTests.product: multiplication order agrees with Aut.
 example (a b : Aut x) :
     conjugateCoverHom F hComm J R hR x y e (a * b) =
       conjugateCoverHom F hComm J R hR x y e a * conjugateCoverHom F hComm J R hR x y e b := by
   sorry
 
--- GerbeConjugateHomTests.inverse: the inverse law belongs to the actual group homomorphism.
+-- GerbeConjugateHomTests.inverse: the inverse law belongs to the group homomorphism.
 example (a : Aut x) :
     conjugateCoverHom F hComm J R hR x y e a⁻¹ = (conjugateCoverHom F hComm J R hR x y e a)⁻¹ := by
   sorry
@@ -2032,18 +2033,18 @@ example (b : Aut y) :
       ((conjugateCoverEquiv F hComm J R hR x y e).symm b) = b := by
   sorry
 
--- GerbeCoverEquivTests.local: actual restrictions identify the equivalence with conjugation.
+-- GerbeCoverEquivTests.local: restrictions identify the equivalence with conjugation.
 example (a : Aut x) (i : R.arrows.category) :
     (F.map i.obj.hom.op.toLoc).toFunctor.mapAut y
       (conjugateCoverEquiv F hComm J R hR x y e a) =
       Aut.autMulEquivOfIso (e i) ((F.map i.obj.hom.op.toLoc).toFunctor.mapAut x a) := by
   sorry
 
--- GerbeCoverEquivTests.globalIso: retain the labelled native Mathlib conjugation map.
+-- GerbeCoverEquivTests.globalIso: retain the labelled Mathlib conjugation map.
 example (d : x ≅ y) : conjugateCoverEquiv F hComm J R hR x y e = Aut.autMulEquivOfIso d := by
   sorry
 
--- GerbeCoverEquivTests.changeCover: compare whole maps on unrelated actual covering sieves.
+-- GerbeCoverEquivTests.changeCover: compare whole maps on unrelated covering sieves.
 example (S : Sieve U) (hS : S ∈ J U)
     (d : ∀ i : S.arrows.category,
       (F.map i.obj.hom.op.toLoc).toFunctor.obj x ≅
@@ -2051,7 +2052,7 @@ example (S : Sieve U) (hS : S ∈ J U)
     conjugateCoverEquiv F hComm J R hR x y e = conjugateCoverEquiv F hComm J S hS x y d := by
   sorry
 
--- GerbeCoverEquivTests.product: multiplication is the existing native Aut multiplication.
+-- GerbeCoverEquivTests.product: multiplication is the Aut multiplication.
 example (a b : Aut x) : conjugateCoverEquiv F hComm J R hR x y e (a * b) =
     conjugateCoverEquiv F hComm J R hR x y e a * conjugateCoverEquiv F hComm J R hR x y e b := by
   sorry
@@ -2067,7 +2068,7 @@ variable (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b =
 variable (J : GrothendieckTopology C) [F.IsPrestack J]
 set_option backward.isDefEq.respectTransparency false
 
-/-- Native conjugation transport is compatible with every base arrow and unrelated covers. -/
+/-- conjugation transport is compatible with every base arrow and unrelated covers. -/
 theorem conjugateCoverAut_baseChange {U V : C} (f : V ⟶ U)
     (R : Sieve U) (hR : R ∈ J U) (S : Sieve V) (hS : S ∈ J V)
     (x y : F.obj (.mk (op U)))
@@ -2112,7 +2113,7 @@ noncomputable def lift (J : GrothendieckTopology C) [IsGerbe F J]
     (hComm : ∀ (V : C) (z : F.obj (.mk (op V))), ∀ a b : Aut z, a * b = b * a)
     {U : C} (x : F.obj (.mk (op U))) :
     Aut x →* IntrinsicBandSection F U := by sorry
-/-- Evaluation at the identity recovers the chosen automorphism via the native unit constraint. -/
+/-- Evaluation at the identity recovers the chosen automorphism via the unit constraint. -/
 theorem eval_lift {U : C} (x : F.obj (.mk (op U))) (a : Aut x) :
     eval F (𝟙 U) x (lift F J hComm x a) = a := by sorry
 theorem lift_one {U : C} (x : F.obj (.mk (op U))) :
@@ -2171,7 +2172,7 @@ variable (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
 variable (J : GrothendieckTopology C) [IsGerbe F J]
 variable (A : Sheaf J AddCommGrpCat.{max u v u' v'}) (b : AbelianBanding F J A)
 
--- Recover a coefficient on any base carrying an actual gerbe object.
+-- Recover a coefficient on any base carrying a gerbe object.
 theorem fromBanding_surjective_of_object (U : C) (x : F.obj (.mk (op U))) :
     Function.Surjective (fromBanding F J A b U) := by
   sorry
@@ -2407,10 +2408,10 @@ example (e : A ≅ S)
 
 end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.IntrinsicBandSections
 
-namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.GerbeConjugationReviewTests
+namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.GerbeConjugationTests
 local notation "s3Point" => SingleObj.star (Equiv.Perm (Fin 3))
 
--- GerbeConjugationTests.S3_value: the actual conjugate is a different transposition.
+-- GerbeConjugationTests.S3_value: the conjugate is a different transposition.
 example :
     (Aut.autMulEquivOfIso
       (asIso (C := SingleObj (Equiv.Perm (Fin 3))) (X := s3Point) (Y := s3Point) (Equiv.swap (0 : Fin 3) 1 : s3Point ⟶ s3Point))
@@ -2425,7 +2426,7 @@ example :
         (asIso (C := SingleObj (Equiv.Perm (Fin 3))) (X := s3Point) (Y := s3Point) (Equiv.swap (0 : Fin 3) 1 : s3Point ⟶ s3Point)) := by
   sorry
 
-end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.GerbeConjugationReviewTests
+end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.GerbeConjugationTests
 
 namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.BandFixtures
 open CategoryTheory Opposite Bicategory
@@ -3287,7 +3288,7 @@ theorem act_mul (p : x ≅ y) (a c : Multiplicative (A.obj.obj (op U))) :
     act F J A b p (a * c) = act F J A b (act F J A b p c) a := by
   sorry
 
-/-- The unique coefficient carrying p to q, computed using the actual inverse of p. -/
+/-- The unique coefficient carrying p to q, computed using the inverse of p. -/
 def difference (b : AbelianBanding F J A) (p q : x ≅ y) : Multiplicative (A.obj.obj (op U)) := by
   sorry
 
@@ -3315,13 +3316,13 @@ def principalEquiv (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) :
     ((x ≅ y) × Multiplicative (A.obj.obj (op U))) ≃ ((x ≅ y) × (x ≅ y)) := by
   sorry
 
-/-- Native torsor instance is offered only under explicit nonemptiness. -/
+/-- torsor instance is offered only under explicit nonemptiness. -/
 @[instance_reducible]
 def isomTorsor (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) (h : Nonempty (x ≅ y)) :
     Torsor (Multiplicative (A.obj.obj (op U))) (x ≅ y) := by
   sorry
 
-/-- An actual anchor trivializes the section torsor. -/
+/-- An anchor trivializes the section torsor. -/
 def coordinateEquiv (b : AbelianBanding F J A) (p : x ≅ y) :
     Multiplicative (A.obj.obj (op U)) ≃ (x ≅ y) := by
   sorry
@@ -3366,7 +3367,7 @@ theorem homPrincipalEquiv_apply (p : x ⟶ y) (a : Multiplicative (A.obj.obj (op
     homPrincipalEquiv F J A b x y (p,a) = (p, homAct F J A b p a) := by
   sorry
 
-/-- Actual Hom restriction includes the pseudofunctor comparison isomorphisms. -/
+/-- Hom restriction includes the pseudofunctor comparison isomorphisms. -/
 theorem pullHom_act {V W : C} (f : V ⟶ U) (h : W ⟶ V) (hf : W ⟶ U)
     (hh : h ≫ f = hf)
     (p : (F.map f.op.toLoc).toFunctor.obj x ⟶ (F.map f.op.toLoc).toFunctor.obj y)
@@ -3376,7 +3377,7 @@ theorem pullHom_act {V W : C} (f : V ⟶ U) (h : W ⟶ V) (hf : W ⟶ U)
         (Multiplicative.ofAdd ((A.obj.map h.op) a.toAdd)) := by
   sorry
 
-/-- Pair presheaf underlying the existing Hom sheaf on C/U. -/
+/-- Pair presheaf underlying the Hom sheaf on C/U. -/
 def pairPresheaf (x y : F.obj (.mk (op U))) : (Over U)ᵒᵖ ⥤ Type v' := by
   sorry
 
@@ -3384,7 +3385,7 @@ def pairPresheaf (x y : F.obj (.mk (op U))) : (Over U)ᵒᵖ ⥤ Type v' := by
 def actionPresheaf (A : Sheaf J AddCommGrpCat.{v'}) (x y : F.obj (.mk (op U))) : (Over U)ᵒᵖ ⥤ Type v' := by
   sorry
 
-/-- Native natural principal comparison, retaining all slice-arrow coherence. -/
+/-- natural principal comparison, retaining all slice-arrow coherence. -/
 noncomputable def principalPresheafIso (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) :
     actionPresheaf F J A x y ≅ pairPresheaf F x y := by
   sorry
@@ -3403,7 +3404,7 @@ noncomputable def pairSheaf (x y : F.obj (.mk (op U))) : Sheaf (J.over U) (Type 
 noncomputable def actionSheaf (b : AbelianBanding F J A) (x y : F.obj (.mk (op U))) : Sheaf (J.over U) (Type v') := by
   sorry
 
-/-- Actual sheaf principal comparison, on the already built native sheaf carrier. -/
+/-- sheaf principal comparison, on the already built sheaf carrier. -/
 noncomputable def principalSheafIso (x y : F.obj (.mk (op U))) :
     actionSheaf F J A b x y ≅ pairSheaf F J x y := by
   sorry
@@ -3618,7 +3619,7 @@ theorem mapIso_injective : Function.Injective
 theorem faithful (U : C) : (η.app (.mk (op U))).toFunctor.Faithful := by
   sorry
 
-/-- An actual source anchor supplies a preimage; no global anchor is inferred. -/
+/-- An source anchor supplies a preimage; no global anchor is inferred. -/
 def preimageIso (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
     (η : Pseudofunctor.StrongTrans F G) (p : x ≅ y)
     (q : (η.app (.mk (op U))).toFunctor.obj x ≅ (η.app (.mk (op U))).toFunctor.obj y) : x ≅ y := by
@@ -3666,7 +3667,7 @@ theorem hom_surjective_of_anchor (p : x ≅ y) : Function.Surjective
     ((η.app (.mk (op U))).toFunctor.map : (x ⟶ y) → _) := by
   sorry
 
-/-- The actual automorphism map, expressed through the fixed band's equivalences. -/
+/-- The automorphism map, expressed through the fixed band's equivalences. -/
 def autEquiv (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
     (η : Pseudofunctor.StrongTrans F G) (x : F.obj (.mk (op U))) : Aut x ≃*
     Aut ((η.app (.mk (op U))).toFunctor.obj x) := by
@@ -3810,7 +3811,7 @@ variable {F G : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'}}
 variable (η : Pseudofunctor.StrongTrans F G)
 variable {U V : C} (f : V ⟶ U) (x y : F.obj (.mk (op U)))
 
-/-- The actual component of the native strong-naturality isomorphism. -/
+/-- The component of the strong-naturality isomorphism. -/
 def comparison :
     (η.app (.mk (op V))).toFunctor.obj ((F.map f.op.toLoc).toFunctor.obj x) ≅
       (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) := by sorry
@@ -3821,13 +3822,13 @@ theorem comparison_native : comparison η f x =
 theorem comparison_inv_hom_id :
     (comparison η f x).inv ≫ (comparison η f x).hom = 𝟙 _ := by sorry
 
-/-- Use the existing Iso.isoCongr, retaining both comparison components. -/
+/-- Use the Iso.isoCongr, retaining both comparison components. -/
 def mapIso (p : (F.map f.op.toLoc).toFunctor.obj x ≅
     (F.map f.op.toLoc).toFunctor.obj y) :
     (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ≅
       (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj y) := by sorry
 
-/-- Objectwise map on the actual native Hom-presheaf carriers. -/
+/-- Objectwise map on the Hom-presheaf carriers. -/
 def homMap (p : (F.map f.op.toLoc).toFunctor.obj x ⟶
     (F.map f.op.toLoc).toFunctor.obj y) :
     (G.map f.op.toLoc).toFunctor.obj ((η.app (.mk (op U))).toFunctor.obj x) ⟶
@@ -3873,7 +3874,7 @@ theorem mapIso_difference (p q : (F.map f.op.toLoc).toFunctor.obj x ≅
     BandedIsom.difference G J A bG (mapIso η f x y p) (mapIso η f x y q) =
       BandedIsom.difference F J A bF p q := by sorry
 
-/-- An actual local source anchor is retained as explicit data. -/
+/-- An local source anchor is retained as explicit data. -/
 def preimageIso (bF : AbelianBanding F J A) (bG : AbelianBanding G J A)
     (p : (F.map f.op.toLoc).toFunctor.obj x ≅
     (F.map f.op.toLoc).toFunctor.obj y)
@@ -4977,7 +4978,7 @@ variable {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 local instance : Category (Pseudofunctor.StrongTrans F G) :=
   Pseudofunctor.StrongTrans.homCategory (F := F) (G := G)
 
-/-- The actual modification, with its inverse determined in the gerbe fibres. -/
+/-- The modification, with its inverse determined in the gerbe fibres. -/
 noncomputable def modificationIso [IsGerbe G J]
     {η θ : Pseudofunctor.StrongTrans F G} (m : η ⟶ θ) : η ≅ θ := by
   sorry
@@ -5014,7 +5015,7 @@ theorem modification_iff {η θ : Pseudofunctor.StrongTrans F G} (m : η ⟶ θ)
     BandPreserving bF bG η ↔ BandPreserving bF bG θ := by
   sorry
 
-/-- All native modifications between strong transformations preserving the fixed band. -/
+/-- All modifications between strong transformations preserving the fixed band. -/
 abbrev HomCategory :=
   (show ObjectProperty (Pseudofunctor.StrongTrans F G) from
     fun η => BandPreserving bF bG η).FullSubcategory
@@ -7403,7 +7404,7 @@ variable {C : Type u} [Category.{v} C]
     (F : LocallyDiscrete Cᵒᵖ ⥤ᵖ Cat.{v', u'})
     {J : GrothendieckTopology C} {U V W T S : C}
 
-/-- The actual sieve of arrows into U whose domain fibre has an object. -/
+/-- The sieve of arrows into U whose domain fibre has an object. -/
 def objectCover (U : C) : Sieve U where
   arrows := fun {V} _ => Nonempty (F.obj (.mk (op V)))
   downward_closed := by
@@ -7429,7 +7430,7 @@ theorem objectCover_identity_empty [IsEmpty (F.obj (.mk (op U)))] :
     ¬ objectCover F U (𝟙 U) := by
   sorry
 
-/-- The actual locally-isomorphic locus; mapComp transports direct restrictions. -/
+/-- The locally-isomorphic locus; mapComp transports direct restrictions. -/
 def isomCover {U : C} (x y : F.obj (.mk (op U))) : Sieve U where
   arrows := fun {V} f => Nonempty ((F.map f.op.toLoc).toFunctor.obj x ≅
     (F.map f.op.toLoc).toFunctor.obj y)
@@ -7465,7 +7466,7 @@ theorem isomCover_refinement_covering [IsGerbe F J]
     R ⊓ isomCover F x y ∈ J U := by
   sorry
 
-/-- Compare two actual local objects on an arbitrary common refinement T. -/
+/-- Compare two local objects on an arbitrary common refinement T. -/
 def overlapCover (i : T ⟶ V) (j : T ⟶ W)
     (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W))) : Sieve T :=
   isomCover F ((F.map i.op.toLoc).toFunctor.obj x)
@@ -7493,7 +7494,7 @@ theorem overlapCover_pullback_covering [IsGerbe F J] (i : T ⟶ V) (j : T ⟶ W)
     (overlapCover F i j x y).pullback q ∈ J S := by
   sorry
 
-/-- Choose an actual overlap isomorphism, with both native composition comparisons. -/
+/-- Choose an overlap isomorphism, with both composition comparisons. -/
 noncomputable def overlapIso (i : T ⟶ V) (j : T ⟶ W)
     (x : F.obj (.mk (op V))) (y : F.obj (.mk (op W)))
     (q : S ⟶ T) (h : overlapCover F i j x y q) :
@@ -8705,7 +8706,7 @@ example {C : Type u} [Category.{v} C] {J : GrothendieckTopology C}
 
 end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.ChartGlobalTests
 
-namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.IntrinsicBandReviewTests
+namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.IntrinsicBandExtraTests
 open CategoryTheory Opposite Bicategory IntrinsicBandSections BandFixtures
 open ConnectedBandFixtures
 
@@ -8717,7 +8718,7 @@ example : Nat.card (IntrinsicBandSection
       (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
       (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk PUnit.unit, SingleObj.star _)) := by sorry
 
--- BandCenterTests.identity: an actual terminal groupoid, without an inertia hypothesis.
+-- BandCenterTests.identity: an terminal groupoid, without an inertia hypothesis.
 example : Subsingleton (IntrinsicBandSection
     (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 1))))
       (Discrete.mk PUnit.unit)) := by sorry
@@ -8730,7 +8731,7 @@ example : Nat.card (IntrinsicBandSection
       (constantDiagram (Discrete PUnit) (ConnectedFibre PUnit (Equiv.Perm (Fin 3))))
       (𝟙 (Discrete.mk PUnit.unit)) (Codiscrete.mk PUnit.unit, SingleObj.star _)) := by sorry
 
--- BandEvaluationTests.generator: the generator is a specified actual section.
+-- BandEvaluationTests.generator: the generator is a specified section.
 example : (eval
     (constantDiagram (Discrete PUnit) (Fibre PUnit (Multiplicative (ZMod 3))))
     (𝟙 (Discrete.mk PUnit.unit)) (Discrete.mk PUnit.unit, SingleObj.star _)
@@ -8754,7 +8755,7 @@ example (s : IntrinsicBandSection
     (eval (constantDiagram (Discrete PUnit) (ConnectedFibre Bool (Multiplicative (ZMod 3))))
       (𝟙 (Discrete.mk PUnit.unit)) (Codiscrete.mk true, SingleObj.star _) s).hom.2 := by sorry
 
--- BandEvaluationTests.noncentral: the actual transposition is excluded from evaluation.
+-- BandEvaluationTests.noncentral: the transposition is excluded from evaluation.
 example (s : IntrinsicBandSection
     (constantDiagram (Discrete PUnit) (ConnectedFibre PUnit (Equiv.Perm (Fin 3))))
       (Discrete.mk PUnit.unit)) :
@@ -8762,7 +8763,7 @@ example (s : IntrinsicBandSection
       (𝟙 (Discrete.mk PUnit.unit)) (Codiscrete.mk PUnit.unit, SingleObj.star _) s).hom.2 ≠
       Equiv.swap (0 : Fin 3) 1 := by sorry
 
-end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.IntrinsicBandReviewTests
+end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry.IntrinsicBandExtraTests
 
 namespace TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
 
@@ -8809,11 +8810,12 @@ noncomputable def relativePicardPresheaf : (Over B)ᵒᵖ ⥤ Type (u + 1) where
   map_id := sorry
   map_comp := sorry
 
-/-- The relative Picard presheaf of the identity `B → B` is the Picard presheaf of the base; its
-sheafification is zero: every line bundle on `T` is fppf-locally trivial. -/
+/-- The relative Picard presheaf of the identity `B → B` is the Picard presheaf of the base
+(`X_T = T`); its fppf sheafification is zero, since every line bundle on `T` is Zariski-locally
+trivial. -/
 theorem relativePicardPresheaf_id_obj (T : (Over B)ᵒᵖ) :
     Nonempty ((relativePicardPresheaf (𝟙 B)).obj T ≃
-      TauCeti.AlgebraicGeometry.LineBundleClass (pullback T.unop.hom (𝟙 B))) := sorry
+      TauCeti.AlgebraicGeometry.LineBundleClass T.unop.left) := sorry
 
 end RelativePicard
 
@@ -8847,9 +8849,11 @@ theorem MarkedIdeal.cosupport_pow (J : MarkedIdeal R) (k : ℕ) (hk : 0 < k) :
     (MarkedIdeal.mk (J.ideal ^ k) (k * J.mark) (Nat.mul_pos hk J.mark_pos)).cosupport =
       J.cosupport := sorry
 
-/-- Upper semicontinuity of the order on a regular Noetherian ring: the cosupport of a marked ideal
-is closed. -/
-theorem MarkedIdeal.isClosed_cosupport [IsNoetherianRing R]
+/-- Upper semicontinuity of the order on a regular ring of finite type over a field of
+characteristic zero (the affine charts of a smooth variety): the cosupport of a marked ideal is
+closed. -/
+theorem MarkedIdeal.isClosed_cosupport (k : Type u) [Field k] [CharZero k] [Algebra k R]
+    [Algebra.FiniteType k R]
     (hreg : ∀ p : PrimeSpectrum R, IsRegularLocalRing (Localization.AtPrime p.asIdeal))
     (J : MarkedIdeal R) : IsClosed J.cosupport := sorry
 
@@ -8887,11 +8891,15 @@ end Resolution
 end TauCetiRoadmap.AlgebraicModuliForArithmeticGeometry
 
 /-!
-Stated in `README.md` but not typed here: the representability of the relative Grassmannian and flag
-schemes and their Plücker embeddings; relative ampleness and very ampleness; Castelnuovo–Mumford
-regularity and boundedness; Hom and Isom schemes; coherent dévissage; rigidification of stacks and
+Stated in `README.md` but not typed here: the projective bundle with its twists and their direct
+images; the representability of the relative Grassmannian and flag schemes and their Plücker
+embeddings; relative ampleness and very ampleness; Castelnuovo–Mumford regularity and boundedness;
+the Hilbert functor, Hom and Isom schemes and coherent dévissage; relative gerbes, finite étale and
+profinite étale gerbes, locally full morphisms and the canonical factorisation of affine gerbes;
+torsor twists of quotient stacks and twisted inertia; inertia subgroup stacks, rigidification and
 base change of coarse spaces; the Picard stack and its algebraicity; Artin's axioms and criterion;
 deformation groupoids of a point of a stack and their comparison with completed local rings;
-controlled transforms, coefficient ideals, the resolution invariant, global centres and termination;
-and the strict normal crossings compactification with its polydisc charts.
+controlled transforms, maximal contact as a predicate, coefficient ideals, the resolution invariant,
+global centres and termination; and the strict normal crossings compactification with its polydisc
+charts.
 -/
