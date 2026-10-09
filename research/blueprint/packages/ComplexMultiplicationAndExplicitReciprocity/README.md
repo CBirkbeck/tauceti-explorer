@@ -121,7 +121,7 @@ Sources: [MilneCM](#source-milnecm), Examples 1.19 and 1.28, pp.14,18. Prerequis
 
 **Type-product, conjugation and change-of-type identities** — `CMType.typeNorm_identities`. For a CM FIELD E with type Φ and reflex type Φ* on E*, and a∈(E*)×, NΦ(a)=∏ψ∈Φ*ψ(a) lies in E×, satisfies NΦ(a)·overline{NΦ(a)}=N_{E*/Q}(a), and is multiplicative. For γ∈Gal(Qbar/Q), transport the embedded pairs: N_{γΦ}(γa)=γNΦ(a). Induction from the primitive core leaves the reflex field unchanged and the map to E is the inclusion of the primitive-core type product. These are algebraic formulas, not another construction of V4’s idelic torus norm. For product CM algebras use V4’s cocharacter norm rather than asserting one primitive reflex pair.
 
-Sources: [MilneCM](#source-milnecm), Proposition 1.23, Remark 1.24 and Proposition 1.26, pp.15–17; Example 1.28, p.19. Prerequisites: [CMType.reflexType](#cm-0-2); [NumberField.IsCMField.complexEmbedding_complexConj][mathlib-numberfield.iscmfield.complexembedding_complexconj].
+Sources: [MilneCM](#source-milnecm), Proposition 1.23, Remark 1.24 and Proposition 1.26, pp.15–17; Example 1.28, p.18. Prerequisites: [CMType.reflexType](#cm-0-2); [NumberField.IsCMField.complexEmbedding_complexConj][mathlib-numberfield.iscmfield.complexembedding_complexconj].
 
 **Basic API.**
 
@@ -190,7 +190,7 @@ Specialize complex uniformization to proper invertible quadratic-order ideals. T
 
 **The elliptic curve of an ideal lattice** — `idealLatticeCurve`. Fix an imaginary quadratic field E⊂C, an order O⊂E and a proper invertible fractional O-ideal I. Its image Λ=I⊂C is a rank-two Z-lattice. Apply A5/R12.1 uniformization to construct the actual elliptic scheme E_I and a Weierstrass equation whose analytic group is C/Λ; the multiplier ring {x∈E:xI⊂I} acts on E_I and identifies with End_C(E_I)=O. The chosen equation is compared through EC1/R12.1, not treated as a new curve carrier.
 
-Sources: [MIT16](#source-mit16), Introduction p.1; Theorem 16.4 pp.4–5; §16.3 pp.6–7; [MilneCM](#source-milnecm), Proposition 3.17, p.31. Prerequisites: [CMType](#cm-0-1); [GlobalNumberFields Layer 11][globalnumberfields-11]; `AbelianSchemesAndArithmeticModuli:A5`; `ModularCurvesPartII:R12.1`; [EllipticCurves Layer 1][ellipticcurves-1]; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End`; [WeierstrassCurve.j][mathlib-weierstrasscurve.j]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic].
+Sources: [MIT16](#source-mit16), Introduction p.1; Theorem 16.4 p.4 and Corollary 16.5 p.5; §16.4, Definition 16.9 and Theorem 16.12, pp.6–7; [MilneCM](#source-milnecm), Proposition 3.17, p.31. Prerequisites: [CMType](#cm-0-1); [GlobalNumberFields Layer 11][globalnumberfields-11]; `AbelianSchemesAndArithmeticModuli:A5`; `ModularCurvesPartII:R12.1`; [EllipticCurves Layer 1][ellipticcurves-1]; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety`; `tauceti:TauCeti.AlgebraicGeometry.AbelianVariety.End`; [WeierstrassCurve.j][mathlib-weierstrasscurve.j]; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic].
 
 **The left ideal action on CM elliptic curves** — `idealAction`. For a proper invertible fractional O-ideal a, define [a]⋆E_I=E_{a⁻¹I}. For an integral invertible a, inclusion I⊂a⁻¹I gives an O-linear isogeny φ_a:E_I→E_{a⁻¹I} with kernel a⁻¹I/I. Transport it to the existing Weierstrass isogeny. Ideal multiplication is compatible with composition, with the target of the second map tracked; principal ideals act trivially on isomorphism classes, but their chosen maps need not be identity maps.
 
@@ -228,7 +228,7 @@ Sources: [MIT22](#source-mit22), Remark 22.2, pp.1–2. Prerequisites: [idealLat
 
 The following API comparisons are used independently of the construction:
 
-- `idealLatticeCurve.endomorphismRing`: End(E_I) is the actual multiplier ring of I, equal to O for proper I. Sources: [MIT16](#source-mit16), Introduction p.1; Theorem 16.4 pp.4–5; §16.3 pp.6–7; [MilneCM](#source-milnecm), Proposition 3.17, p.31. Prerequisites: [idealLatticeCurve](#cm-1-1).
+- `idealLatticeCurve.endomorphismRing`: End(E_I) is the actual multiplier ring of I, equal to O for proper I. Sources: [MIT16](#source-mit16), Introduction p.1; Theorem 16.4 p.4 and Corollary 16.5 p.5; §16.4, Definition 16.9 and Theorem 16.12, pp.6–7; [MilneCM](#source-milnecm), Proposition 3.17, p.31. Prerequisites: [idealLatticeCurve](#cm-1-1).
 - `idealAction.kernel`: For integral invertible a, ker φ_a=a⁻¹I/I as an O-module. Sources: [MIT20](#source-mit20), §20.3 p.5, ideal-action/class-group torsor and norm-degree formulas; [GZ](#source-gz), Chapter III §4 p.257, equation (4.2). Prerequisites: [idealAction](#cm-1-1).
 
 <a id="cm-1-2"></a>
@@ -263,7 +263,7 @@ Sources: [KS](#source-ks), §1.2, Definition 1.8 and equation (1.2.3), p.9. Prer
 
 **CM tensor ideal inclusions and their kernels** — `cmSerreTensor.ideal_kernel_degree`. Under the CM Serre-tensor hypotheses, a⊂b induces a finite flat isogeny of degree [b:a]. For a nonzero integral ideal c⊂O_L, A→c⁻¹⊗A is the c-multiplication map, its kernel is A[c]=⋂_{x∈c}ker[x], and its degree is N_L/Q(c). For c=(n), the degree is n^{[L:Q]}=n^{2d}; these are finite flat degrees, including inseparable contributions in residue characteristic.
 
-Sources: [KS](#source-ks), §1.2 pp.8–9. Prerequisites: [cmSerreTensor](#cm-1-3); `AbelianSchemesAndArithmeticModuli:A1`; `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`.
+Sources: [KS](#source-ks), §1.2, equation (1.2.3) p.9 and Definition 1.9 p.10. Prerequisites: [cmSerreTensor](#cm-1-3); `AbelianSchemesAndArithmeticModuli:A1`; `AbelianSchemesAndArithmeticModuli:A6/degree-of-an-endomorphism`.
 
 **CM Lie and Hodge eigenspace comparison** — `cmHodgeEigenspaces`. For the KS CM scheme over R⊂C containing O_{L^Gal}[1/d_L], with lifted type Σ, Lie(A/R) is of type Σ. The covariant Hodge exact sequence 0→ω_{A∨/R}→H_A→Lie(A/R)→0 splits as O_L-eigenspaces H_A(Σ̄)⊕H_A(Σ); the first is ω_{A∨}, the second Lie(A). For the source’s inverse torus action on invariant differentials, ω_A=⊕σ∈Σ ω_A(−σ) and γ∈O_L× acts by σ(γ)⁻¹. This inverse action is distinguished from pullback by the multiplication map.
 
@@ -423,7 +423,7 @@ Sources: [MIT20](#source-mit20), Introduction p.1 and §20.3 p.5, defining produ
 
 **Integrality of singular moduli and class polynomials** — `classPolynomial.integral`. For every imaginary quadratic order O_D, all j(E_I) are algebraic integers and H_D belongs to Z[X]. The polynomial is separable and has degree h(O_D). Use the independent normalized-j/modular-polynomial supplier: choose a principal prime ideal of rational prime norm l avoiding the conductor, so j is a root of the monic polynomial −Φ_l(X,X). Galois permutes the CM j-values with the same full order. No integrality argument uses a class polynomial computation or reduction theorem from CM.5.
 
-Sources: [MIT20](#source-mit20), Lemma 20.9 and Theorem 20.12, pp.5–7. Prerequisites: [classPolynomial](#cm-3-1); [idealAction](#cm-1-1); [idealAction.degree_eq_norm](#cm-1-2); [ideleTorsionDictionary](#cm-2-2); [ModularForms Layer 0][modularforms-0]; [ClassFieldTheory Layer 13][classfieldtheory-13]; `ModularCurvesPartII:R12.6`; [Chebotarev Layer 9][chebotarev-9].
+Sources: [MIT20](#source-mit20), Lemma 20.9 p.5; Theorem 20.12 and Corollary 20.13 p.6. Prerequisites: [classPolynomial](#cm-3-1); [idealAction](#cm-1-1); [idealAction.degree_eq_norm](#cm-1-2); [ideleTorsionDictionary](#cm-2-2); [ModularForms Layer 0][modularforms-0]; [ClassFieldTheory Layer 13][classfieldtheory-13]; `ModularCurvesPartII:R12.6`; [Chebotarev Layer 9][chebotarev-9].
 
 **Galois equivariance of class-polynomial roots** — `classPolynomial.galois`. For an ideal a of K prime to the quadratic order conductor f, arithmetic Art_K(a) sends j(E_I) to j(E_{a⁻¹I}) in the ring class field. Complex conjugation sends the selected type/lattice to its conjugate and acts by inversion on the proper ideal class torsor after fixing the base class. Thus Gal over Q has generalized dihedral action on the root set. Stabilizers of individual j-values over K are trivial in the ring-class Artin/Picard quotient; over Q the unmarked moduli field can be smaller than the full splitting field.
 
@@ -507,7 +507,7 @@ Sources: [MilneCM](#source-milnecm), §9, Frobenius and idele dictionary pp.74�
 
 **One-dimensional CM components of the Tate module** — `cmTateComponents`. Under the CM-character hypotheses, V_l(A) is free of rank one over E⊗Q_l. For each embedding ι:E→Q_lbar, its coefficient summand is one-dimensional and carries GN9’s l-adic avatar ψ_{A,ι}, with arithmetic Frobenius eigenvalue ιψ_A(v) at every good v∤l. Thus V_l(A)⊗Q_lbar=⊕_ι ψ_{A,ι} as actual G_k modules. The underlying Q_l dimension is 2g. Integral rank-one freeness over O⊗Z_l requires l prime to the endomorphism-order index; it is not inferred from the rational comparison.
 
-Sources: [MilneCM](#source-milnecm), §9.10 pp.78–80, footnote 25; [BT](#source-bt), §3.1, proof of Theorem 1.1, p.6. Prerequisites: [cmHeckeCharacter](#cm-4-1); [ideleTorsionDictionary](#cm-2-2); `ArithmeticGaloisRepresentations:R01.6`; [GlobalNumberFields Layer 9][globalnumberfields-9]; [GlobalNumberFields Layer 10][globalnumberfields-10]; `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`.
+Sources: [MilneCM](#source-milnecm), Proposition 7.3 p.53; Theorem 9.10 and footnote 25 p.78; [BT](#source-bt), §3.1, proof of Theorem 1.1, p.6. Prerequisites: [cmHeckeCharacter](#cm-4-1); [ideleTorsionDictionary](#cm-2-2); `ArithmeticGaloisRepresentations:R01.6`; [GlobalNumberFields Layer 9][globalnumberfields-9]; [GlobalNumberFields Layer 10][globalnumberfields-10]; `AbelianSchemesAndArithmeticModuli:A6/characteristic-polynomial-on-tate-module`.
 
 **Frobenius and infinity-type identities** — `cmFrobeniusIdentities`. At a good prime v with residue size q and CM character ψ_A, its Frobenius element π_v=ψ_A(v) satisfies π_v̄π_v=q, all complex absolute values |τπ_v|=√q, and the Tate polynomial equals ∏_{τ:E→Qbar}(X−τπ_v). The component infinity types are those of Φ transported by τ. For elliptic A/K, the polynomial is X²−Tr_{K/Q}(π_v)X+q; at an inert rational good prime p for A/Q, the rational trace is zero while the prime of K has norm p² and Frobenius π_v=−p.
 
@@ -615,7 +615,7 @@ Horizontal ideal actions belong to the ordinary exact-order level. Vertical step
 
 **CM order levels and horizontal isogeny graphs** — `cmIsogenyGraphDictionary`. For ordinary A/F_q with geometric order O_f and l≠p, an l-isogeny changes the endomorphism order only horizontally (same order), by index l upward or by index l downward. At l prime to f, the horizontal O_f-linear isogenies correspond to invertible ideals of norm l, with count 1+(D_K/l); ramified gives one, split two, inert zero. At l dividing f retain the conductor-level rules and the exceptional j=0,1728 kernel multiplicities. A graph vertex is a j-invariant up to geometric isomorphism; a finite-field twist is not fixed by a j-root. Supersingular components use quaternionic ideals and cannot use the ordinary order volcano as a certificate.
 
-Sources: [MIT22](#source-mit22), Theorem 22.3 and §22.1, pp.2–3. Prerequisites: [cmReductionDictionary](#cm-5-1); [idealAction](#cm-1-1); [idealLatticeCurve.automorphism_factors](#cm-1-1); [idealAction.degree_eq_norm](#cm-1-2); [GlobalNumberFields Layer 11][globalnumberfields-11]; [EllipticCurves Layer 3][ellipticcurves-3]; `ComputationalNumberTheory:CN.3`; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic].
+Sources: [MIT22](#source-mit22), §22.1, Theorems 22.3 and 22.5 and Definition 22.4, pp.2–3. Prerequisites: [cmReductionDictionary](#cm-5-1); [idealAction](#cm-1-1); [idealLatticeCurve.automorphism_factors](#cm-1-1); [idealAction.degree_eq_norm](#cm-1-2); [GlobalNumberFields Layer 11][globalnumberfields-11]; [EllipticCurves Layer 3][ellipticcurves-3]; `ComputationalNumberTheory:CN.3`; [ClassGroup][mathlib-classgroup]; [ClassGroup.mk][mathlib-classgroup.mk]; [CommRing.Pic][mathlib-commring.pic]; [ClassGroup.equivPic][mathlib-classgroup.equivpic].
 
 **Quaternion orders of a curve and of a level pair** — `supersingularLevelOrderComparison`. For a supersingular curve A/F_pbar, End_geom(A) is maximal in B_{p,∞} and has reduced discriminant p. For the prime-to-p cyclic level-N pair (A,C), its endomorphism ring consists of endomorphisms preserving C and is generally an Eichler order of reduced discriminant Np, maximal at p but not necessarily away from p. In the Gross–Zagier situation p is non-split in the CM field, p∤N and N satisfies the Heegner splitting conditions; the reduced CM embedding and its optimality must be tracked in the pair’s order. End of the pair must never be called the full maximal End of the curve.
 
@@ -823,7 +823,7 @@ Page numbers in the build plan are the source's printed pages, including author-
 
 <a id="source-ks"></a>
 
-**KS** — Guido Kings and Johannes Sprang, [Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation](https://arxiv.org/pdf/1912.03657v4). arXiv:1912.03657v4, 14 September 2024; published Annals 202 (2025), not collated. Relevant locators: §1.1–1.2 pp.6–11; Definition 1.8 and Serre equation (1.2.3) p.9; Proposition 1.11 pp.10–11 and Corollaries 1.12–1.13 p.11.
+**KS** — Guido Kings and Johannes Sprang, [Eisenstein–Kronecker classes, integrality of critical values of Hecke L-functions and p-adic interpolation](https://arxiv.org/pdf/1912.03657v4). arXiv:1912.03657v4, 14 September 2024; published Annals 202 (2025), not collated. Relevant locators: §1.1–1.3 pp.6–11; Definition 1.8 and Serre equation (1.2.3) p.9; Definition 1.9 p.10; Proposition 1.11 pp.10–11 and Corollaries 1.12–1.13 p.11.
 
 <a id="source-bko"></a>
 
@@ -871,7 +871,7 @@ Page numbers in the build plan are the source's printed pages, including author-
 
 <a id="source-mit16"></a>
 
-**MIT16** — Andrew V. Sutherland, [18.783 Elliptic Curves, Lecture 16](https://math.mit.edu/classes/18.783/2023/LectureNotes16.pdf). Fall 2023 lecture notes. Relevant locators: Introduction p.1; Theorem 16.4 pp.4–5; §16.4, Definition 16.9 and Theorem 16.12 pp.6–7.
+**MIT16** — Andrew V. Sutherland, [18.783 Elliptic Curves, Lecture 16](https://math.mit.edu/classes/18.783/2023/LectureNotes16.pdf). Fall 2023 lecture notes. Relevant locators: Introduction p.1; Theorem 16.4 p.4 and Corollary 16.5 p.5; §16.4, Definition 16.9 and Theorem 16.12 pp.6–7.
 
 <a id="source-mit20"></a>
 
@@ -883,7 +883,7 @@ Page numbers in the build plan are the source's printed pages, including author-
 
 <a id="source-mit22"></a>
 
-**MIT22** — Andrew V. Sutherland, [18.783 Elliptic Curves, Lecture 22](https://math.mit.edu/classes/18.783/2023/LectureNotes22.pdf). Fall 2023 lecture notes. Relevant locators: §22.1 pp.1–3 (CM horizontal/ascending/descending isogenies).
+**MIT22** — Andrew V. Sutherland, [18.783 Elliptic Curves, Lecture 22](https://math.mit.edu/classes/18.783/2023/LectureNotes22.pdf). Fall 2023 lecture notes. Relevant locators: Remark 22.2 pp.1–2; §22.1, Theorems 22.3 and 22.5 and Definition 22.4, pp.2–3 (CM horizontal/ascending/descending isogenies).
 
 [chebotarev-9]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/Chebotarev/README.md#layer-9-abelian-chebotarev
 [classfieldtheory-11]: https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/ClassFieldTheory/README.md#layer-11-the-global-class-formation-and-global-artin-reciprocity
