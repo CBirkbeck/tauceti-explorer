@@ -1,4 +1,62 @@
-# REV-FIX-RT-AREA-iwasawa-2~2 — independent fix review
+# REV-FIX-RT-AREA-iwasawa-2~2 — blocked continuation
+
+Codex, session `codex-SlZ1UM`, 9 October 2026. Issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219); input commit `6908ce6c38ce72997bfd1c44c481d4ba09d1299f`. The bot confirmed [claim comment 6086448301](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6086448301). This session did none of the original fixes and holds no other job.
+
+**Blocked by the issue/queue scope mismatch.** The previous continuation completed the review of the two issue-named packets. This continuation preserves that work and supplies an executable diagnosis and an exact administrative remedy. It does not repeat the source audit or replace another independent review merely to satisfy the completion predicate. The earlier report below remains attributed to its authors.
+
+## Current completion receipt
+
+Read the entire live issue, its comments, WORKERS.md, both protocols, UPSTREAM_GUIDE.md, the previous handoff/report, the confirmed findings, the round-two fix report, the queue entry and `research/blueprint/issues.py::deliverables_complete`.
+
+At the input commit, direct calls to the completion predicate gave:
+
+| Job description supplied to the predicate | Result |
+|---|---|
+| Current queue entry, all nine outputs | `False` |
+| Same entry, the five outputs actually named in issue #6219 | `True` |
+
+All nine paths exist. The failure is specifically the required top-level reviewer identity on two packets omitted from the issue:
+
+| Packet | Current verdict | Current reviewer |
+|---|---|---|
+| DirichletPadicLFunctions--L3 | accepted | independent-review-REV-FIX-RT-AREA-iwasawa-2~2 |
+| PadicMeasuresIwasawaAlgebras | accepted | independent-review-REV-FIX-RT-AREA-iwasawa-2~2 |
+| DirichletPadicLFunctions--L3-2 | no review object | none |
+| PadicHodgeRegulators--D.1 | accepted | independent-review-REV-PadicHodgeRegulators--D.1~2 |
+
+`deliverables_complete` checks every packet listed in the queue outputs, including packets unchanged by a submission. A review report cannot override that check. Its accepted/needs_changes/rejected alternatives do not remove the requirement to conduct and record the omitted reviews. The D.1 review must not be silently relabelled.
+
+WORKERS.md restricts edits to files named by the issue. A scope question was submitted to the manager in this run and remains pending. Neither the queue nor the two omitted packets is changed. This is an authorization boundary, not a mathematical rejection or a claim that the expanded review was performed.
+
+## Concrete remedy for the maintainer
+
+If the live issue is the intended scope, replace **only** the `outputs` value of queue job `REV-FIX-RT-AREA-iwasawa-2~2` with:
+
+```json
+[
+  "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md",
+  "research/blueprint/packets/DirichletPadicLFunctions--L3.json",
+  "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
+  "research/blueprint/suggested/DirichletPadicLFunctions--L3.lean",
+  "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean"
+]
+```
+
+The job then meets the existing completion predicate without changing any review verdict. Regenerate/refresh the issue and sync its state through the normal orchestration; the worker does not change labels or close it. Retain /1–/3's unresolved mathematical obligations with their independent owner jobs.
+
+If the nine-output queue scope is intended instead, explicitly extend the live issue to name both omitted packets and suggested files. Its next worker must independently review the relevant /1–/3 contracts, preserve the newer D.1 review in history if replacing its current review, and record actual verdicts. A reviewer may record `needs_changes` for source or contract errors; it must not accept those packets solely because paths exist. Do not schedule another two-packet review before this scope decision: the current predicate will still release that submission as a checkpoint.
+
+This remedy is recorded here for the maintainer; no unlisted orchestration file is edited.
+
+## Checks in this continuation
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json`: 487 nodes, zero errors and warnings.
+- `python3 scripts/check_blueprint.py research/blueprint/packets/DirichletPadicLFunctions--L3.json`: 1,663 nodes, zero errors and 26 inherited short-API warnings, unchanged from the previous review.
+- Completion-predicate checks: queue scope incomplete, live issue scope complete, as above.
+- No packet, reader, suggested Lean file, review verdict, source text or source metadata is modified. The previous native Lean results below are inherited evidence, not fresh compilations. No Lean process was started for this report-only continuation.
+
+## Preserved mathematical review from codex-7UQW2R
+
 
 Codex, session `codex-7UQW2R`, 9 October 2026, issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219). Input commit `b65dedeec52845a846eea49bc135c8609e047200`. The bot confirmed [claim comment 6085903650](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6085903650). This session did none of Claude Code's original fix (`claude-6ZAIEy`, [PR #6786](https://github.com/CBirkbeck/tauceti-explorer/pull/6786)) or the previous reviews.
 
