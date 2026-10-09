@@ -75,20 +75,18 @@ import TauCeti.CategoryTheory.GrothendieckGroup.Exact
 
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/SchemeKTheoryOperations.md` is definitive. The document and packet
-are synchronized by independent review REV-SchemeKTheoryOperations~2. The statements below
+state the same planning contracts. The statements below
 suggest Lean names and signatures; every implementationStatus remains unchecked. Current
 comment contracts include the source hypotheses, proof imports, API and example specifications
-for the corrected declarations; S.6 model transfer remains unresolved. Missing enhanced, higher K and supported Chow carriers are
+for the planned declarations. Higher scheme operations require regular noetherian
+finite-dimensional schemes with ample families of line bundles; TT 3.8–3.10 supply their model comparison. Missing enhanced, higher K and supported Chow carriers are
 identified explicitly; their contracts introduce no opaque Lean stand-ins.
 
 Pinned commits: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`.
 
-Independent review REV-SchemeKTheoryOperations~2 attempted the full file with lean-check. Elaboration stopped at the missing
-compiled import TauCeti.Algebra.Category.ModuleCat.CartanMap. The shared build has the
-Mathlib pin but does not supply the full pinned Tau Ceti build, so this file is not reported
-as elaborated. An earlier planning worker reported an isolated Mathlib square-zero probe;
-that historical result is not a full-file check and was not rerun in this revision.
+Compilation receipts are recorded in the revision handoff. Comment contracts for unavailable
+carriers are omissions under PROTOCOL §13, not elaborated declarations.
 
 ## Pinned conventions
 
@@ -5602,6 +5600,10 @@ open TauCeti.AlgebraicGeometry.Scheme TauCeti.LambdaRing TauCeti.PreLambdaRing
 -- test hyper_not_sections (non-example): not stated here; needs `hyper` and `ℤ × BGL^+` (supplier:
 -- the same gap, GeneralAlgebraicKTheory:K.2:plus).
 
+-- Higher scheme-operation interfaces in this block require regular noetherian finite-dimensional
+-- ambient schemes with ample families of line bundles. For pullback both source and target must
+-- satisfy that scope; open restrictions inherit it. Singular quasi-projective constructions require
+-- an ample-family regular base. The catalogue below states the full individual contexts.
 -- `TauCeti.AlgebraicGeometry.KTheory.lambdaOp`: not stated here; needs `K^Y_m(X)` as
 -- hypercohomology of `ℤ × BGL^+` (supplier: the simplicial-sheaf gap,
 -- GeneralAlgebraicKTheory:K.2:plus).
@@ -6086,7 +6088,8 @@ theorem gammaChern_adams (A : Augmentation K H) (k : ℕ) (hk : 1 ≤ k) (x : K)
   sorry
 
 /-- `ch ⊗ 1 : K_ℚ → Π_{i ≤ N} gr^i_γ K_ℚ` is bijective when `F^{N+1}_γ` is torsion (as for `K_0(X)`,
-`X` regular noetherian of finite dimension, `S.6/scheme-gamma-bound`), stated without forming
+`X` regular noetherian of finite dimension with an ample family and the full filtration bound
+of `S.6/scheme-weight-decomposition` supplied), stated without forming
 `K_ℚ`: `ch(x) = 0` forces `x` to be torsion, and every family is `ch(x)/m`. The case of `K_m(X)`,
 `m ≥ 1`, needs higher K-theory (supplier: GeneralAlgebraicKTheory:K.2:plus). -/
 theorem gammaChern_bijective (A : Augmentation K H) (N : ℕ)
@@ -6195,9 +6198,10 @@ the named suppliers. Where a signature cannot yet be expressed on a pinned carri
 mathematical contract, proposed API names and example specifications are recorded here as
 explicit omissions under PROTOCOL §13. They are not executable declarations or tests.
 
-S.6/sheaf-level-k-theory-model and S.6/scheme-and-support-k-coherence remain unverifiable.
-Their perfect-complex model transfer is the dedicated packet gap. Conditional consumer
-contracts retain that prerequisite. No implementation or full-file elaboration is claimed.
+S.6/sheaf-level-k-theory-model and S.6/scheme-and-support-k-coherence use the ample-family
+scope. Every higher-operation scheme consumer below carries this scope, or derives it from
+its existing separated regular hypotheses. Full weighted-filtration and coefficient inputs
+remain explicit. No implementation or full-file elaboration is claimed.
 -/
 
 /-!
@@ -16484,13 +16488,13 @@ For a noetherian finite-dimensional scheme X, take pointed simplicial sheaves on
 /-!
 ### K-theory with supports as hypercohomology of ℤ × BGL^+
 
-**Id:** `SchemeKTheoryOperations:S.6/sheaf-level-k-theory-model`. **Kind:** comparison. **Review:** unverifiable. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/sheaf-level-k-theory-model`. **Kind:** comparison. Implementation unchecked.
 
-Let X be a regular noetherian scheme of finite Krull dimension and Y ⊆ X closed. Let BGL_N^+ and BGL^+ = colim_N BGL_N^+ be the simplicial sheaves associated to U ↦ BGL_N(Γ(U, O_X))^+ and U ↦ BGL(Γ(U, O_X))^+ for a functorial plus construction (e.g. BGL_N(A)^+ = BGL_N(A) ∪_{BGL_N(ℤ)} BGL_N(ℤ)^+). Then K^Y_m(X) := K_m(X on Y) ≅ H_Y^{−m}(X, ℤ × BGL^+) for m ≥ 0, naturally in (X, Y), compatibly with forgetting supports and with the long exact sequences. Moreover the stabilisation map colim_N H^{−m}_Y(X, ℤ × BGL_N^+) → H^{−m}_Y(X, ℤ × BGL^+) is an isomorphism (Soulé's Lemme 1), and the class of a rank-N vector bundle E in K_0(X) is the image of the class of its classifying map N(𝒰) → BGL_N for a trivialising cover 𝒰.
+Let X be a regular noetherian scheme of finite Krull dimension with an ample family of line bundles and Y ⊆ X closed. Let BGL_N^+ and BGL^+ = colim_N BGL_N^+ be the simplicial sheaves associated to U ↦ BGL_N(Γ(U, O_X))^+ and U ↦ BGL(Γ(U, O_X))^+ for a functorial plus construction (e.g. BGL_N(A)^+ = BGL_N(A) ∪_{BGL_N(ℤ)} BGL_N(ℤ)^+). Then K^Y_m(X) := K_m(X on Y) ≅ H_Y^{−m}(X, ℤ × BGL^+) for m ≥ 0, naturally in (X, Y), compatibly with forgetting supports and with the long exact sequences. Moreover the stabilisation map colim_N H^{−m}_Y(X, ℤ × BGL_N^+) → H^{−m}_Y(X, ℤ × BGL^+) is a bijection of pointed sets, with the group structure on the stable target (Soulé's Lemme 1), and the class of a rank-N vector bundle E in K_0(X) is the image of the class of its classifying map N(𝒰) → BGL_N for a trivialising cover 𝒰.
 
 **Hypotheses.**
 
-- X regular noetherian of finite Krull dimension d (so that K = K^B, S.5/negative-k-vanishing-regular, and descent holds); Y closed.
+- X is regular noetherian of finite Krull dimension d and has an ample family of line bundles; Y is closed. The comparison is for perfect-complex K-theory at this scope.
 - Stability for the K-theory of local rings (π_m BGL_N(R)^+ → π_m BGL(R)^+ bijective for N ≥ 2m + 1, R local; Suslin, 'Stability in algebraic K-theory') is cited: gap.
 
 **Direct prerequisites.**
@@ -16502,27 +16506,31 @@ Let X be a regular noetherian scheme of finite Krull dimension and Y ⊆ X close
 - SchemeKTheoryOperations:S.6/simplicial-sheaf-hypercohomology
 - SchemeKTheoryOperations:S.3/support-k-theory
 - SchemeKTheoryOperations:S.3/localisation-fibre-sequence
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
+- SchemeKTheoryOperations:S.1/resolution-property
 
 **Proof route.**
 
-- Zariski descent: K(X on Y) ≃ H_Y(X; K) for the presheaf of K-theory spectra (S.4/zariski-descent, TT 10.3), X noetherian of finite Krull dimension; for X regular the nonconnective and connective theories agree (S.5/negative-k-vanishing-regular).
-- Stalks: for a local ring R, K_0(R) = ℤ (KTheoryLowDegrees Z.2/local-ring-k0) and ΩBQP(R) ≃ K_0(R) × BGL(R)^+ (GeneralAlgebraicKTheory K.2:plus/plus-equals-Q), so the zero-th spaces of the K-theory presheaf and ℤ × BGL^+ have the same stalks up to weak equivalence; the connective and zero-th space hypercohomology agree in degrees m ≥ 0 (S.6/simplicial-sheaf-hypercohomology).
-- Use the Brown/Postnikov spectral sequence with support cofiber dimension bound D=max(dim X,dim(X∖Y)+1), taking D=dim X for Y=X. In total degree m the relevant homotopy indices include m+p for p≤D, and one adjacent degree controls injectivity. Choose one N in the requested uniform stability range for all indices up to m+D+1 (N≥2(m+D+1)+1 suffices under the stated local stability bound). The finite Postnikov range then proves filtered-colimit stabilisation; a bound depending only on m is insufficient. The representability and H⁰ comparison are precisely the model gap recorded in S.6/scheme-and-support-k-coherence.
-- The class of E: the classifying map of a trivialising cover defines an element of [S^0 ∧ N(𝒰), ℤ × BGL_N^+] = H^0(X, ℤ × BGL_N^+) mapping to [E].
+- TT 3.8–3.10 identify Quillen vector-bundle K, strictly perfect K and perfect-complex K on X and all its opens: the ample family restricts by TT 2.1.2(e). Use this natural comparison before applying scheme descent; agreement only on affine stalks is insufficient for the comparison with global vector-bundle K.
+- Apply S.4/zariski-descent (TT 10.3) to perfect-complex K. On regular X the connective and nonconnective theories agree by S.5/negative-k-vanishing-regular. Take zero-th spaces and the homotopy fibre of restriction to U=X∖Y, using S.6/simplicial-sheaf-hypercohomology. This represents support groups by the pointed cofiber C_Y, rather than by vector bundles on Y.
+- At local rings, use K₀(R)=ℤ and the functorial plus/Q comparison. These give a local weak equivalence between the stable sheaf-space model and the zero-th K-space. Brown–Gersten replacement turns this specified local map into a derived-section equivalence, including relative sections.
+- For finite-rank stabilization, the support cofiber has cohomological dimension at most D=max(dim X,dim U+1), with D=d if U is empty. In degree m use the homotopy-sheaf comparison through m+D+1; N≥2(m+D+1)+1 suffices under the cited local stability bound. The finite Postnikov argument includes the injectivity fringe. Degree-zero bundle classes are represented by trivialising-cover maps; the S.2 comparison writes every global K₀ class as a finite difference of such classes, with rank handled componentwise. Addition and inverses are taken in the stable group-completed model, not asserted on a fixed BGL_N.
+- For supports use relative derived mapping spaces and the exact pointed-set/π₁ fringe, or filtered homotopy colimits commuting with the finite homotopy fibre. The stable support group structure is transported through the comparison. The bundle classifying map maps to [E] in K₀(Perf X), compatibly with pullback and restriction.
 
 **Acceptance conditions.**
 
 - For X = Spec R regular local, K^X_m(X) = π_m(ℤ × BGL(R)^+) = K_m(R).
 - For Y = ∅ both sides vanish.
+- On P¹_k, the class of O(1) is a derived hypercover class and survives the global comparison; sections of the trivial-bundle presheaf alone do not represent it.
+- For a nontrivial proper support, test the relative π₀/π₁ fringe without assigning a group structure to finite-rank mapping sets.
+- The doubled affine plane is excluded: TT Exercise 8.6 gives K₀(Vect X)=ℤ and K₀(Perf X)=ℤ⊕ℤ. Regularity and affine-local agreement do not replace the ample-family hypothesis.
 
 **Source locators.**
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 4.2 (p. 509). The comparison.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Lemme 1 (p. 510). Stabilisation, proved with the Brown spectral sequence and stability for local rings ('stabilité pour la K-théorie d'un anneau local, voir [33]').
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Lemme 1 (p. 511). The class of a bundle.
-
-**Review note.** Stabilisation is a filtered colimit and uses the whole cohomological degree range. The unrestricted perfect-complex/sheaf-space model transfer remains open; see the dedicated S.6 gap.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316; Exercises 8.5–8.6, p.374. The ample family gives the natural global comparison and restricts to opens. The doubled-plane example detects the failure if that hypothesis is removed.
 -/
 
 /-!
@@ -16591,15 +16599,15 @@ On a topos T with a sheaf of commutative rings, let K=ℤ×ℤ_∞BGL and K^N=�
 /-!
 ### K-coherence of a scheme and its support cofiber
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-and-support-k-coherence`. **Kind:** theorem. **Review:** unverifiable. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-and-support-k-coherence`. **Kind:** theorem. Implementation unchecked.
 
-For a regular noetherian finite-dimensional scheme X, X_+ is K-coherent and has cohomological dimension at most d=dim X. For U=X∖Y, the pointed support cofiber C_Y=cofiber(U_+→X_+) is K-coherent with cohomological dimension at most D=max(dim X,dim U+1). When U=∅ use D=d; when Y=∅ the cofiber is contractible. The sheaf K-model represents K_m^Y(X) by H^{−m}(C_Y,K).
+For a regular noetherian finite-dimensional scheme X with an ample family of line bundles, X_+ is K-coherent and has cohomological dimension at most d=dim X. For U=X∖Y, the pointed support cofiber C_Y=cofiber(U_+→X_+) is K-coherent with cohomological dimension at most D=max(dim X,dim U+1). When U=∅ use D=d; when Y=∅ the cofiber is contractible. The sheaf K-model represents K_m^Y(X) by H^{−m}(C_Y,K).
 
 **Hypotheses.**
 
-- X regular noetherian of finite dimension; Y closed.
+- X is regular noetherian of finite dimension d with an ample family of line bundles; Y is closed and U=X∖Y. The K-space is the completed stable model specified in k-coherent-space.
 - Import uniform finite-rank integral homology/homotopy stability on affine opens of dimension ≤d and the functorial plus/integral-completion comparison. These named inputs are requests to K.2:plus; they are not inferred from local pointwise stability without a uniform range.
-- OPEN MODEL INPUT: prove that the completed vector-bundle/sheaf-space K-coherence comparisons identify with K(Perf X) for every regular noetherian finite-dimensional X, including nonseparated X without an ample family. GS99 Proposition 5 uses a vector-bundle model whose unrestricted global comparison is false; it cannot supply this input.
+- Use the natural vector-bundle/perfect-complex comparison of TT 3.8–3.10 on X and U. No comparison for regular schemes without an ample family is asserted.
 
 **Direct prerequisites.**
 
@@ -16608,37 +16616,43 @@ For a regular noetherian finite-dimensional scheme X, X_+ is K-coherent and has 
 - SchemeKTheoryOperations:S.6/simplicial-sheaf-hypercohomology
 - GeneralAlgebraicKTheory:K.2:plus
 - StableHomotopyKTheory:H.6
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
+- SchemeKTheoryOperations:S.1/resolution-property
 
 **Proof route.**
 
-- The uniform-stability portion of GS99 Proposition 5 applies uniform Suslin stability to GL_N on every affine open of dimension ≤d. Integral completion and the stable +/Q comparison turn that into a uniform truncated homotopy-sheaf comparison.
-- Zariski cohomological dimension is ≤d. In any fixed total degree, only finitely many Postnikov layers enter derived sections. Uniform homotopy-sheaf stability therefore makes both the cohomology comparison and the higher derived mapping comparison stationary. Classifying finite-rank vector bundles does not supply global surjectivity onto K₀(Perf X) without a comparison theorem. This part of the proof remains open at the stated scope.
-- For the two-object diagram U→X, GS99 §3.2.4 applies finite-diagram K-coherence. Equivalently use the mapping-fibre and ordinary cohomology long exact sequences and filtered-colimit exactness; at degree zero use the H-group structure. The cohomology sequence gives H^p(C_Y,A)=0 for p>max(dim X,dim U+1).
-- Conditional on the missing perfect-complex model transfer, S.6/sheaf-level-k-theory-model identifies the stable sheaf model with the supported perfect-complex K-groups. This is a desired theorem and an open proof route, not a proved input.
+- TT 3.8–3.10 give the global vector-bundle/perfect-complex comparison on X. TT 2.1.2(e) gives it on U and on every affine open used in the stability argument. This supplies the missing hypothesis in the GS99 Proposition 5 descent step; the unrestricted vector-bundle assertion in that author copy is not used.
+- Apply the uniform GL_N integral homology stability for affine rings of dimension ≤d requested from K.2:plus. Functorial integral completion and stable plus/Q comparison give the uniform truncated homotopy-sheaf comparison. For each cohomology degree p, filtered colimits and the noetherian Zariski cohomology comparison establish the second family in the definition of K-coherence.
+- Zariski cohomological dimension is ≤d. Brown–Gersten/Postnikov comparison uses only finitely many homotopy-sheaf degrees for each fixed derived mapping degree, including the adjacent injectivity degree. The degree-zero fringe uses the S.2 comparison and finite differences of bundle hypercover classes, including locally constant ranks. Thus both K-coherence comparisons hold; the fixed finite-rank spaces are not assumed to be H-groups.
+- Apply GS99 §3.2.4 to the finite diagram U→X. Relative derived mapping spaces are homotopy fibres; filtered homotopy colimits commute with these finite homotopy limits. Handle π₀ with the pointed exact sequence and its π₁ action, then transport the stable K-group law. The ordinary cohomology long exact sequence gives H^p(C_Y,A)=0 for p>max(dim X,dim U+1).
+- The preceding sheaf-level-k-theory-model comparison identifies the stable relative mapping groups with K_m(X on Y). For U empty use X_+ itself; for Y empty the cofiber is contractible. These comparisons are natural for morphisms between schemes satisfying the stated ample-family hypotheses.
 
 **Acceptance conditions.**
 
 - For Y=X, C_Y≃X_+ and the bound is d.
 - For Y=∅ the support cofiber and supported groups vanish.
 - For a proper closed support in a d-dimensional X, the displayed bound can be d+1; this theorem does not assert the sharper d bound.
+- P¹_k satisfies K-coherence and the degree-zero comparison retains O(1), including its rank-zero difference from O.
+- For X formed by doubling the origin of A¹_k, cover by two affine lines. Their intersection G_m is affine, so the diagonal is affine. Stacks 0GML gives an ample family; this nonseparated scheme is within the stated scope.
+- The doubled origin of A²_k fails the comparison in TT Exercise 8.6 and is outside this scope. No test treats all regular nonseparated schemes as admissible.
 
 **Source locators.**
 
-- [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Proposition 5 and proof, pp.39–41; §3.2.4, p.42. The uniform stability and finite-diagram arguments give the stated dimension bound. The comparison to perfect-complex K-theory needs an additional proof; Proposition 5’s unrestricted vector-bundle comparison cannot provide it.
-
-**Review note.** Uniform stability and the support bound are sound, but GS99 does not justify the required vector-bundle/perfect-complex model transfer at this scope. The unrestricted perfect-complex/sheaf-space model transfer remains open; see the dedicated S.6 gap.
-
+- [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Proposition 5 and proof, pp.39–41; §3.2.4, p.42. The uniform stability and finite-diagram arguments are used after restricting X and U to the ample-family range, where TT supplies the required global model comparison. The support cofiber bound follows from its ordinary cohomology sequence.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.1–2.1.2, pp.283–284; 3.8–3.10, p.316; Exercises 8.5–8.6, p.374. The ample-family comparison closes the model identification used here; the counterexample prevents extending it by affine-local agreement alone.
+- [Stacks.Divisors.0GML](https://stacks.math.columbia.edu/tag/0GML), Divisors, Lemma 31.17.8, tag 0GML. A quasi-compact regular scheme with affine diagonal has an ample family. Applied to the doubled affine line, this supplies the nonseparated positive example.
 -/
 
 /-!
 ### λ-operations on the higher K-theory of regular schemes
 
-**Id:** `SchemeKTheoryOperations:S.6/soule-scheme-operations`. **Kind:** construction. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/soule-scheme-operations`. **Kind:** construction. Implementation unchecked.
 
-Let X be regular noetherian of finite dimension and Y closed. Use K=ℤ×ℤ_∞BGL and its functorial comparison with the stable plus/Q model. A representation GL_N→GL_M over ℤ gives a strict map of classifying presheaves and then a completed sheaf map. Global block-triangular additivity gives a ring map R_ℤ(GL_N)→H⁰(BGL_N,K). For a compatible rank-corrected family τ(id_N−N), with τ(0)=0, extend the reduced map through integral completion and add τ on the constant rank part. The two K-coherence comparisons for C_Y give operations on K_m^Y(X)=H^{−m}(C_Y,K). This constructs λ^k and γ^k for k≥1 and ψ^k for k≠0. The augmentation is rank for m=0 and zero otherwise. The matrix tensor construction, with the requested global product comparison, agrees with the supported K-pairing of S.2/S.6.
+Let X be regular noetherian of finite Krull dimension with an ample family of line bundles and Y closed. Use K=ℤ×ℤ_∞BGL and its functorial comparison with the stable plus/Q model. A representation GL_N→GL_M over ℤ gives a strict map of classifying presheaves and then a completed sheaf map. Global block-triangular additivity gives a ring map R_ℤ(GL_N)→H⁰(BGL_N,K). For a compatible rank-corrected family τ(id_N−N), with τ(0)=0, extend the reduced map through integral completion and add τ on the constant rank part. The two K-coherence comparisons for C_Y give operations on K_m^Y(X)=H^{−m}(C_Y,K). This constructs λ^k and γ^k for k≥1 and ψ^k for k≠0. The augmentation is rank for m=0 and zero otherwise. The matrix tensor construction, with the requested global product comparison, agrees with the supported K-pairing of S.2/S.6.
 
 **Hypotheses.**
 
+- Every regular scheme on which these higher operations are evaluated is noetherian, finite-dimensional and equipped with an ample family of line bundles. This hypothesis also governs the scheme API and examples. Supports need only be closed; they need not be regular.
 - X regular noetherian of finite dimension; Y closed; import scheme-and-support-k-coherence.
 - Import Quillen’s block-triangular integral homology equivalence, functorial integral completion, and the global +/Q/tensor comparison from K.2:plus/K.7. The existing primary-source gaps for these inputs remain explicit.
 - The operation preserves zero; λ⁰ is the ambient unit convention and is not a zero-preserving operation on a non-unital support group.
@@ -16655,9 +16669,11 @@ Let X be regular noetherian of finite dimension and Y closed. Use K=ℤ×ℤ_∞
 - SchemeKTheoryOperations:S.6/scheme-and-support-k-coherence
 - GeneralAlgebraicKTheory:K.2:plus
 - GeneralAlgebraicKTheory:K.7
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
 - Construct the classifying presheaf map of a representation and sheafify before completion. An isomorphism of representations is a global natural transformation and hence a global simplicial homotopy.
 - For a short exact sequence of vector bundles, a hypercover classifies the extension by the block-triangular group GL_{N,M}. The block-diagonal inclusion GL_N×GL_M→GL_{N,M} is a specified global sheaf map. Quillen’s homology theorem, followed by completion, makes this map an equivalence. Invert it in the global homotopy category and compare the three bundle-classifying maps to prove [E]=[E′]+[E″]. Stalks detect the equivalence of this constructed map; they do not establish equality of global maps. GS99 Lemma 19 supplies this diagram.
 - Apply the same diagram on BGL_N to exact sequences of representations. GS99 Lemma 20 gives the ring map from R_ℤ(GL_N) to H⁰(BGL_N,K), with tensor compatibility proved by the functorial tensor construction.
@@ -16680,13 +16696,13 @@ Let X be regular noetherian of finite dimension and Y closed. Use K=ℤ×ℤ_∞
 
 | Name | Role | Specification |
 | --- | --- | --- |
-| `TauCeti.AlgebraicGeometry.KTheory.lambdaOp` | constructor | τ: K^Y_m(X) → K^Y_m(X) for a natural operation τ with τ(0) = 0, X regular noetherian of finite dimension. |
-| `TauCeti.AlgebraicGeometry.KTheory.lambda` | constructor | λ^k on K_m^Y(X) for k≥1; λ⁰ has the separate ambient unit convention. |
-| `TauCeti.AlgebraicGeometry.KTheory.gamma` | constructor | γ^k on K_m^Y(X) for k≥1. |
-| `TauCeti.AlgebraicGeometry.KTheory.adams` | constructor | ψ^k on K^Y_m(X), k ∈ ℤ − {0} (ψ^{−1} the duality). |
-| `TauCeti.AlgebraicGeometry.KTheory.augmentation` | projection | ε: K^Y_m(X) → H^0_Y(X, ℤ), zero for m ≠ 0. |
-| `TauCeti.AlgebraicGeometry.KTheory.lambdaOp_affine` | compatibility | For X = Spec A regular, τ agrees with S.6/quillen-hiller-operations. |
-| `TauCeti.AlgebraicGeometry.KTheory.lambdaOp_zero` | compatibility | On K_0(X), λ^k[E] = [Λ^kE]. |
+| `TauCeti.AlgebraicGeometry.KTheory.lambdaOp` | constructor | For X regular noetherian of finite dimension with an ample family, τ: K^Y_m(X) → K^Y_m(X) for a natural operation τ with τ(0) = 0, X regular noetherian of finite dimension. |
+| `TauCeti.AlgebraicGeometry.KTheory.lambda` | constructor | For X regular noetherian of finite dimension with an ample family, λ^k on K_m^Y(X) for k≥1; λ⁰ has the separate ambient unit convention. |
+| `TauCeti.AlgebraicGeometry.KTheory.gamma` | constructor | For X regular noetherian of finite dimension with an ample family, γ^k on K_m^Y(X) for k≥1. |
+| `TauCeti.AlgebraicGeometry.KTheory.adams` | constructor | For X regular noetherian of finite dimension with an ample family, ψ^k on K^Y_m(X), k ∈ ℤ − {0} (ψ^{−1} the duality). |
+| `TauCeti.AlgebraicGeometry.KTheory.augmentation` | projection | For X regular noetherian of finite dimension with an ample family, ε: K^Y_m(X) → H^0_Y(X, ℤ), zero for m ≠ 0. |
+| `TauCeti.AlgebraicGeometry.KTheory.lambdaOp_affine` | compatibility | For X regular noetherian of finite dimension with an ample family, For X = Spec A regular, τ agrees with S.6/quillen-hiller-operations. |
+| `TauCeti.AlgebraicGeometry.KTheory.lambdaOp_zero` | compatibility | For X regular noetherian of finite dimension with an ample family, On K_0(X), λ^k[E] = [Λ^kE]. |
 
 **Test specifications.** These are mathematical acceptance tests; no execution is claimed.
 
@@ -16704,22 +16720,21 @@ Let X be regular noetherian of finite dimension and Y closed. Use K=ℤ×ℤ_∞
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 4.3 (p. 512). The operations on K-theory with supports.
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Theorem 3 (p. 46). The same construction in Gillet–Soulé's generality of K-coherent spaces.
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Lemmas 18–20, pp.38–45; §4.2 and Theorem 3 with proof, pp.45–47. The global hypercover/block-triangular diagrams prove additivity; rank correction and K-coherence produce stable operations. Lemma 18 also describes the separately required tensor comparison.
-
-**Review note.** Checked Soule.1985 4.3 (p. 511); Soule.1985 4.3 (p. 512). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 
 **Planet:** λ-operations on higher K-theory.
-
 -/
 
 /-!
 ### K-theory with supports is an augmented K_0(X)-λ-algebra
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-lambda-algebra`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-lambda-algebra`. **Kind:** theorem. Implementation unchecked.
 
-For X regular noetherian of finite Krull dimension and Y ⊆ X closed, the operations of S.6/soule-scheme-operations make K^Y(X) = ⊕_{m≥0}K^Y_m(X), with zero product between elements of positive degree and the product K^Y_0(X) × K^Y_m(X) → K^Y_m(X), a (possibly non-unital for proper Y) special λ-ring with involution, augmented by ε: for Y = X it is a K_0(X)-λ-algebra, and for any Y a non-unital λ-algebra over ℤ (S.6/non-unital-lambda-algebra: ℤ ⊕ K^Y(X) is a special λ-ring). Consequently, for m ≥ 1, λ^k is additive on K^Y_m(X), ψ^k = (−1)^{k−1}kλ^k there, ψ^kψ^l = ψ^{kl}, and the γ-filtration F^i_γK^Y_m(X) of S.6/non-unital-gamma-filtration is defined, with ψ^k = k^i on gr^i_γ. For X = Spec A regular affine this is S.6/quillen-hiller-special-lambda.
+For X regular noetherian of finite Krull dimension with an ample family of line bundles and Y ⊆ X closed, the operations of S.6/soule-scheme-operations make K^Y(X) = ⊕_{m≥0}K^Y_m(X), with zero product between elements of positive degree and the product K^Y_0(X) × K^Y_m(X) → K^Y_m(X), a (possibly non-unital for proper Y) special λ-ring with involution, augmented by ε: for Y = X it is a K_0(X)-λ-algebra, and for any Y a non-unital λ-algebra over ℤ (S.6/non-unital-lambda-algebra: ℤ ⊕ K^Y(X) is a special λ-ring). Consequently, for m ≥ 1, λ^k is additive on K^Y_m(X), ψ^k = (−1)^{k−1}kλ^k there, ψ^kψ^l = ψ^{kl}, and the γ-filtration F^i_γK^Y_m(X) of S.6/non-unital-gamma-filtration is defined, with ψ^k = k^i on gr^i_γ. For X = Spec A regular affine this is S.6/quillen-hiller-special-lambda.
 
 **Hypotheses.**
 
+- Every regular scheme on which these higher operations are evaluated is noetherian, finite-dimensional and equipped with an ample family of line bundles. This hypothesis also governs the scheme API and examples. Supports need only be closed; they need not be regular.
 - X regular noetherian of finite Krull dimension.
 
 **Direct prerequisites.**
@@ -16732,9 +16747,11 @@ For X regular noetherian of finite Krull dimension and Y ⊆ X closed, the opera
 - SchemeKTheoryOperations:S.6/adams-eigenvalue-on-gamma-graded
 - SchemeKTheoryOperations:S.6/non-unital-lambda-algebra
 - SchemeKTheoryOperations:S.6/non-unital-gamma-filtration
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
 - Identities of special λ-rings for the operations on K^Y_m(X) are the images of the same identities in R_ℤ(GL_N) and R_ℤ(GL_N × GL_M) (KTheoryLowDegrees Z.3/serre-representation-ring-theorem), and between the elements τ_∞ of R_ℤ(GL) (S.6/stable-representation-ring-special), under the maps of S.6/soule-scheme-operations, as in the affine case (Soulé Proposition 4, an adaptation of the affine proof).
 - Gillet–Soulé's proof of their Theorem 3 carries this out: the identity λ^k(α + β) = λ^k(α) + λ^k(β) for α, β ∈ H^{−m}(X, K), m > 0, and the composition formula (19) are checked on [X, ℤ_∞BGL] through the power series λ_t(id_M − M) ∈ 1 + tR_ℤ(GL_M)[[t]] and the elements α(ρ, x) (their (20)–(22)).
 - The consequences are Z.3/adams-square-zero (additivity of λ^k and ψ^k = (−1)^{k−1}kλ^k), Z.3/adams-composition (ψ^kψ^l = ψ^{kl}) and S.6/adams-eigenvalue-on-gamma-graded (non-unital case) applied to ℤ ⊕ K^Y(X), with the filtration of S.6/non-unital-gamma-filtration.
@@ -16748,20 +16765,19 @@ For X regular noetherian of finite Krull dimension and Y ⊆ X closed, the opera
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 4 (p. 512). The statement, followed by The affine argument transports universal stable-representation identities to the supported scheme groups..
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Proof of Theorem 3 (p. 46). The method of proof, carried out in formulas (19)–(22).
-
-**Review note.** A clopen support can still have a unit.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 -/
 
 /-!
 ### Naturality of the operations
 
-**Id:** `SchemeKTheoryOperations:S.6/operations-functoriality`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/operations-functoriality`. **Kind:** lemma. Implementation unchecked.
 
-The operations τ of S.6/soule-scheme-operations commute with: (a) pullback f^*: K^Y_m(X) → K^{f^{−1}Y}_m(X') for every morphism f: X' → X of regular noetherian schemes of finite Krull dimension; (b) forgetting supports K^Y_m(X) → K^{Y'}_m(X) for Y ⊆ Y', and restriction to open subschemes; (c) the localisation boundary ∂: K_{m+1}(X − Y) → K^Y_m(X) of S.3/localisation-boundary, for m ≥ 0 (τ∂ = ∂τ into K-theory with supports); (d) for X = Spec A, with the operations of S.6/quillen-hiller-operations. They need not commute with the dévissage isomorphism j_*: K_m(Z) → K^Z_m(X) for a regular closed immersion: that comparison is S.6/riemann-roch-without-denominators, and the combination of (c) with it is S.6/residue-weight-shift.
+The operations τ of S.6/soule-scheme-operations commute with: (a) pullback f^*: K^Y_m(X) → K^{f^{−1}Y}_m(X') for every morphism f: X' → X of regular noetherian schemes of finite Krull dimension with ample families of line bundles; (b) forgetting supports K^Y_m(X) → K^{Y'}_m(X) for Y ⊆ Y', and restriction to open subschemes; (c) the localisation boundary ∂: K_{m+1}(X − Y) → K^Y_m(X) of S.3/localisation-boundary, for m ≥ 0 (τ∂ = ∂τ into K-theory with supports); (d) for X = Spec A, with the operations of S.6/quillen-hiller-operations. They need not commute with the dévissage isomorphism j_*: K_m(Z) → K^Z_m(X) for a regular closed immersion: that comparison is S.6/riemann-roch-without-denominators, and the combination of (c) with it is S.6/residue-weight-shift.
 
 **Hypotheses.**
 
+- X and X′ are regular noetherian finite-dimensional schemes with ample families of line bundles. Every open of X has the restricted ample family by TT 2.1.2(e); the localisation boundary is into support K-theory. A regular dévissage scheme must also satisfy the operation hypotheses when its operations are used.
 - X, X' regular noetherian of finite Krull dimension; in (c) the boundary is the one into support K-theory, not into K_m(Y).
 
 **Direct prerequisites.**
@@ -16773,9 +16789,11 @@ The operations τ of S.6/soule-scheme-operations commute with: (a) pullback f^*:
 - StableHomotopyKTheory:H.2/homotopy-fibre-and-long-exact-sequence
 - SchemeKTheoryOperations:S.6/quillen-hiller-operations
 - SchemeKTheoryOperations:S.2/k-theory-pullback
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
 - (a): f^{−1} of the simplicial sheaves ℤ × BGL_N^+ on X maps to those on X' compatibly with the maps induced by representations (they are defined by the same ring-theoretic formulas), and pullback on hypercohomology (S.6/simplicial-sheaf-hypercohomology) is natural in the coefficient sheaf.
 - (b): forgetting supports and restriction are maps of pairs, natural in the coefficient sheaf.
 - (c): ∂ is the boundary of the homotopy sequence of the fibration Γ_Y(X, K) → Γ(X, K) → Γ(X − Y, K) for a fibrant K; a map of pointed sheaves K → K' (here a representative of τ) induces a map of these fibration sequences, and boundary maps of homotopy sequences are natural (StableHomotopyKTheory H.2/homotopy-fibre-and-long-exact-sequence); this requires no H-space property of τ. The identification with S.3's boundary is S.6/sheaf-level-k-theory-model.
@@ -16783,22 +16801,20 @@ The operations τ of S.6/soule-scheme-operations commute with: (a) pullback f^*:
 
 **Acceptance conditions.**
 
-- ψ^k commutes with restriction K_1(X) → K_1(k(η)) to the generic point of an integral regular X.
+- ψ^k commutes with restriction K_1(X) → K_1(k(η)) to the generic point of an integral regular X with an ample family.
 - For a DVR O with fraction field L, τ commutes with ∂: K_1(L) → K^{closed}_0(O).
 
 **Source locators.**
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Theorem 7, proof step 4 (p. 536). Part (b): changing supports is a map on hypercohomology natural in the coefficients, so every operation commutes with it.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 4 (p. 512). Part (d).
-
-**Review note.** Checked Soule.1985 Theorem 7, proof step 4 (p. 536); Soule.1985 Proposition 4 (p. 512). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 -/
 
 /-!
 ### The degree-zero operations are the classical ones
 
-**Id:** `SchemeKTheoryOperations:S.6/degree-zero-comparison`. **Kind:** comparison. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/degree-zero-comparison`. **Kind:** comparison. Implementation unchecked.
 
 Let X be a regular noetherian scheme of finite Krull dimension with an ample family of line bundles (e.g. quasi-projective over a regular ring), so that K_0(X) = K_0(Vect X) (S.2/vector-bundle-k-theory-comparison). Then the operations of S.6/soule-scheme-operations on K_0(X) = H^0(X, ℤ × BGL^+) are those of S.6/vector-bundle-lambda-ring: λ^k[E] = [Λ^kE], the augmentation is the rank, and ψ^k[L] = [L^{⊗k}] for line bundles. For X = Spec A (A regular) they are KTheoryLowDegrees Z.3's operations: λ^k = Z.3/lambda, γ^k = Z.3/gamma, the augmentation ideal is Z.3/augmentation and the γ-filtration is Z.3/gamma-filtration, and the determinant det: K_0(A) → Pic(A) of Z.3/determinant-hom equals λ^r on classes of constant rank r and induces F^1_γ/F^2_γ ≅ Pic(A) (Z.3/gamma-first-graded). For arbitrary commutative A (not necessarily regular), the degree-zero part of S.6/quillen-hiller-operations is again Z.3/lambda.
 
@@ -16825,6 +16841,7 @@ Let X be a regular noetherian scheme of finite Krull dimension with an ample fam
 
 **Proof route.**
 
+- The higher operations in this comparison are evaluated in the ample-family scope of soule-scheme-operations; S.2 supplies its natural model identification. The final arbitrary-ring degree-zero comparison uses the independent affine Quillen–Hiller construction.
 - The class of a rank-N bundle E is the image of its classifying map N(𝒰) → BGL_N (S.6/sheaf-level-k-theory-model), and the operation defined by σ ∈ R_ℤ(GL_N) sends it to the class of the classifying map of σ(E), i.e. to [σ(E)] (S.6/vector-bundle-lambda-ring). For σ = Λ^k(id_N) this is [Λ^kE].
 - Differences of bundle classes: both structures are pre-λ-structures agreeing on bundle classes, hence equal (λ_t is additive).
 - Affine case: Z.3/lambda is defined by λ^k[P] = [Λ^kP] (Z.3/lambda-of), and γ^k, the augmentation and the γ-filtration are obtained from λ^k and the rank of Z.2 by Z.3/gamma, Z.3/augmentation and Z.3/gamma-filtration (with Z.3/ring-k0-augmented); so they agree with Soulé's once λ^k and the augmentation do. There is only one γ-filtration, Z.3's, applied to the augmented λ-ring K_0(A).
@@ -16839,20 +16856,18 @@ Let X be a regular noetherian scheme of finite Krull dimension with an ample fam
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Lemme 1 (p. 511). Bundles in the sheaf model, whence the value of the operations in degree zero.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Example II.4.1.2 (PDF p. 98). The classical degree-zero normalisation Z.3 implements.
-
-**Review note.** Checked Soule.1985 Proof of Lemme 1 (p. 511); Kbook.2013 Example II.4.1.2 (PDF p. 98). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
 -/
 
 /-!
 ### Operations on the K-theory of singular quasi-projective schemes
 
-**Id:** `SchemeKTheoryOperations:S.6/singular-scheme-operations`. **Kind:** construction. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/singular-scheme-operations`. **Kind:** construction. Implementation unchecked.
 
-Let S be a regular noetherian scheme of finite Krull dimension and 𝒱_S the category of quasi-projective S-schemes (possibly singular). For X ∈ 𝒱_S, K_m(X) (Quillen K-theory of vector bundles) is the colimit of K_m(M) over the category of morphisms X → M in 𝒱_S with M smooth over S, and the operations τ of S.6/soule-scheme-operations on the K_m(M) induce operations on K_m(X), making K_m(X) a nilpotent augmented K_0(X)-λ-algebra with involution, compatible with pullback along morphisms of 𝒱_S. Nilpotent means: for each x there is N_x with γ^{i_1}(x − ε(x))⋯γ^{i_a}(x − ε(x)) = 0 whenever i_1 + ⋯ + i_a ≥ N_x. Whether the γ-filtration of K_m(X) is finite for singular X is left open by the source and not claimed.
+Let S be a regular noetherian scheme of finite Krull dimension with an ample family of line bundles and 𝒱_S the category of quasi-projective S-schemes (possibly singular). For X ∈ 𝒱_S, K_m(X) (Quillen K-theory of vector bundles) is the colimit of K_m(M) over the category of morphisms X → M in 𝒱_S with M smooth over S, and the operations τ of S.6/soule-scheme-operations on the K_m(M) induce operations on K_m(X), making K_m(X) a nilpotent augmented K_0(X)-λ-algebra with involution, compatible with pullback along morphisms of 𝒱_S. Nilpotent means: for each x there is N_x with γ^{i_1}(x − ε(x))⋯γ^{i_a}(x − ε(x)) = 0 whenever i_1 + ⋯ + i_a ≥ N_x. Whether the γ-filtration of K_m(X) is finite for singular X is left open by the source and not claimed.
 
 **Hypotheses.**
 
+- The regular noetherian finite-dimensional base S has an ample family of line bundles. X remains any quasi-projective S-scheme, possibly singular. All regular smooth quasi-projective ambient schemes and auxiliary projective schemes inherit ample families by TT 2.1.2(h).
 - S regular noetherian of finite Krull dimension; X quasi-projective over S; K is the K-theory of vector bundles (for singular X it differs from G-theory and from homotopy K-theory).
 
 **Direct prerequisites.**
@@ -16862,9 +16877,11 @@ Let S be a regular noetherian scheme of finite Krull dimension and 𝒱_S the ca
 - SchemeKTheoryOperations:S.6/operations-functoriality
 - SchemeKTheoryOperations:S.6/scheme-gamma-bound
 - GeneralAlgebraicKTheory:K.7/invariance-products-and-colimits
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use TT 2.1.2(h) for every quasi-projective regular ambient M over S and for projective-space/flag-bundle factors. Apply S.2’s comparison there before evaluating supported higher operations. The singular vector-bundle K and coherent G models keep their distinct meanings.
 - Every exact sequence of bundles on X is pulled back from one on a smooth M ∈ 𝒱_S through an embedding, and two bundles on smooth M with isomorphic pullbacks become isomorphic on some smooth M' → M through which X → M factors (Fulton, 'Rational equivalence on singular varieties', 3.2 Lemma, cited by Soulé; not read: gap).
 - Hence QP(X) = colim_𝒞 QP(M) over the category 𝒞 of maps X → M with M smooth over S, and K_m(X) = colim_𝒞 K_m(M) (K-theory commutes with filtered colimits of exact categories: GeneralAlgebraicKTheory K.7/invariance-products-and-colimits; 𝒞 is filtered by the factorisation property).
 - The operations on K_m(M) commute with pullback (S.6/operations-functoriality), so they induce operations on the colimit with the same identities (S.6/scheme-lambda-algebra).
@@ -16885,10 +16902,10 @@ Let S be a regular noetherian scheme of finite Krull dimension and 𝒱_S the ca
 
 | Name | Role | Specification |
 | --- | --- | --- |
-| `TauCeti.AlgebraicGeometry.KTheory.singularLambdaOp` | constructor | τ on K_m(X) for X quasi-projective over a regular base, via smooth embeddings. |
-| `TauCeti.AlgebraicGeometry.KTheory.singularLambdaOp_smooth` | compatibility | Agrees with S.6/soule-scheme-operations when X is smooth over S. |
-| `TauCeti.AlgebraicGeometry.KTheory.singularLambdaOp_pullback` | functoriality | Commutes with f^* for morphisms of 𝒱_S. |
-| `TauCeti.AlgebraicGeometry.KTheory.singular_lambda_nilpotent` | structure | K_m(X) is a nilpotent augmented K_0(X)-λ-algebra. |
+| `TauCeti.AlgebraicGeometry.KTheory.singularLambdaOp` | constructor | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, τ on K_m(X) for X quasi-projective over a regular base, via smooth embeddings. |
+| `TauCeti.AlgebraicGeometry.KTheory.singularLambdaOp_smooth` | compatibility | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, Agrees with S.6/soule-scheme-operations when X is smooth over S. |
+| `TauCeti.AlgebraicGeometry.KTheory.singularLambdaOp_pullback` | functoriality | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, Commutes with f^* for morphisms of 𝒱_S. |
+| `TauCeti.AlgebraicGeometry.KTheory.singular_lambda_nilpotent` | structure | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, K_m(X) is a nilpotent augmented K_0(X)-λ-algebra. |
 
 **Test specifications.** These are mathematical acceptance tests; no execution is claimed.
 
@@ -16903,21 +16920,21 @@ Let S be a regular noetherian scheme of finite Krull dimension and 𝒱_S the ca
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 7 (p. 528). The statement; the proof writes QP(X) = lim QP(M) over smooth M.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Remarque after Proposition 7 (p. 529). Finiteness for singular X is open in the source.
-
-**Review note.** Checked Soule.1985 Proposition 7 (p. 528); Soule.1985 Remarque after Proposition 7 (p. 529). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(h), p.284; 3.8–3.10, p.316. Quasi-projective schemes over an ample-family base inherit an ample family, so the regular ambient K-theory operations have the required comparison.
 -/
 
 /-!
 ### Adams operations on schemes are multiplicative
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-adams-multiplicative`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-adams-multiplicative`. **Kind:** theorem. Implementation unchecked.
 
-For X regular noetherian of finite Krull dimension and closed Y, Z ⊆ X, the Adams operations satisfy ψ^k(x·y) = ψ^k(x)·ψ^k(y) for x ∈ K^Y_m(X), y ∈ K^Z_n(X) and the product of S.6/support-product-pairings (not the zero product of the λ-structure), and ψ^k(x ⊠ y) = ψ^k(x) ⊠ ψ^k(y) for external products. Hence K_*(X)_ℚ is bigraded by weight: K^{(i)}_m(X)_ℚ · K^{(j)}_n(X)_ℚ ⊆ K^{(i+j)}_{m+n}(X)_ℚ.
+For X regular noetherian of finite Krull dimension with an ample family of line bundles and closed Y, Z ⊆ X, the Adams operations satisfy ψ^k(x·y) = ψ^k(x)·ψ^k(y) for x ∈ K^Y_m(X), y ∈ K^Z_n(X) and the product of S.6/support-product-pairings (not the zero product of the λ-structure), and ψ^k(x ⊠ y) = ψ^k(x) ⊠ ψ^k(y) for external products between schemes in this scope whose product scheme is also regular noetherian finite-dimensional with an ample family. Hence K_*(X)_ℚ is bigraded by weight: K^{(i)}_m(X)_ℚ · K^{(j)}_n(X)_ℚ ⊆ K^{(i+j)}_{m+n}(X)_ℚ.
 
 **Hypotheses.**
 
+- Every regular scheme on which these higher operations are evaluated is noetherian, finite-dimensional and equipped with an ample family of line bundles. This hypothesis also governs the scheme API and examples. Supports need only be closed; they need not be regular.
 - X regular noetherian of finite Krull dimension; the product is Waldhausen's (TT 3.15), identified with the sheaf-level tensor product pairing μ of S.6/soule-scheme-operations.
+- For an external product over a base S, both factors and their fibre product must satisfy the stated regularity, finite dimension and ample-family hypotheses. Regular factors alone need not have a regular fibre product. The tensor pairing itself keeps its independent S.2/S.6 generality.
 
 **Direct prerequisites.**
 
@@ -16926,9 +16943,11 @@ For X regular noetherian of finite Krull dimension and closed Y, Z ⊆ X, the Ad
 - SchemeKTheoryOperations:S.6/hiller-universality
 - SchemeKTheoryOperations:S.6/support-product-pairings
 - SchemeKTheoryOperations:S.6/external-product
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
 - Stalkwise the statement is S.6/adams-product-compatibility for the local rings O_{X,x}: the tensor-product pairing (ℤ × BGL^+) ∧ (ℤ × BGL^+) → ℤ × BGL^+ commutes with ψ^k ∧ ψ^k up to homotopy on stalks, via Hiller's universality applied to R(GL_m × GL_n) (S.6/hiller-universality).
 - A diagram in Ho S_*(X) commuting on stalks up to homotopy need not commute globally; Gillet–Soulé check the compatibility on H^{−*}(X, K) by reference to Kratzer’s construction — cited, and the passage from stalks to global hypercohomology is recorded as part of the gap on sheaf-level products.
 - Weights: multiplicativity and S.6/scheme-weight-decomposition.
@@ -16942,20 +16961,19 @@ For X regular noetherian of finite Krull dimension and closed Y, Z ⊆ X, the Ad
 
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), 4.1, after Theorem 3 (p. 48). The statement for the actual product.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 7 v) (p. 533). The external-product compatibility in Soulé's G-theory version, which rests on ψ^k(α ⊠ β) = ψ^k(α) ⊠ ψ^k(β) (proof of Théorème 7, step 2).
-
-**Review note.** Checked GilletSoule.1999 4.1, after Theorem 3 (p. 48); Soule.1985 Théorème 7 v) (p. 533). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 -/
 
 /-!
 ### Length of the γ-filtration on the K-theory of a regular scheme
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-gamma-bound`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-gamma-bound`. **Kind:** theorem. Implementation unchecked.
 
-Let X be regular noetherian of dimension d and Y closed. Soulé’s single-operation bounds are γ^k(x)=0 for x∈K_m^Y(X) when m≥2 and k≥m+d+1, or m=1 and k≥d+3. These do not alone assert vanishing of the full γ-filtration with K₀ coefficients. The full bound F_γ^{d+1}K₀(X)=0 needs the separately named K₀ input. For X of finite type over a field, GS99 §5.4 gives F_γ^{m+d+1}K_m(X)=0 without supports, via its Brown/coniveau comparison; that proof is a recorded source bridge, not an inference from the preceding single-operation formula.
+Let X be regular noetherian of dimension d with an ample family of line bundles and Y closed. Soulé’s single-operation bounds are γ^k(x)=0 for x∈K_m^Y(X) when m≥2 and k≥m+d+1, or m=1 and k≥d+3. These do not alone assert vanishing of the full γ-filtration with K₀ coefficients. The full bound F_γ^{d+1}K₀(X)=0 needs the separately named K₀ input. For X of finite type over a field, GS99 §5.4 gives F_γ^{m+d+1}K_m(X)=0 without supports, via its Brown/coniveau comparison; that proof is a recorded source bridge, not an inference from the preceding single-operation formula.
 
 **Hypotheses.**
 
+- Every regular scheme on which these higher operations are evaluated is noetherian, finite-dimensional and equipped with an ample family of line bundles. This hypothesis also governs the scheme API and examples. Supports need only be closed; they need not be regular.
 - X regular noetherian of Krull dimension d.
 - The K_0 statement is quoted from SGA 6 (VI 6.6; Fulton–Lang V.3.10), not public: gap; for X of finite type over a field it follows from S.7/gamma-in-coniveau, which is not used here to avoid an S.6 → S.7 dependency.
 
@@ -16968,9 +16986,11 @@ Let X be regular noetherian of dimension d and Y closed. Soulé’s single-opera
 - KTheoryLowDegrees:Z.3/representation-ring-of-gl
 - KTheoryLowDegrees:Z.3/gamma-vanishing-above-rank
 - KTheoryLowDegrees:Z.3
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
 - Volodin sheaves V_N, V associated to U ↦ V_N(Γ(U, O_X)): the proof of S.6/soule-gamma-bound (ii) gives a cartesian square and ΩBGL^+ ≃ V (Soulé 2.4, Suslin), and K^Y_{m,N}(X) := H_Y^{−m+1}(X, V_N) → K^Y_m(X).
 - Brown spectral sequences for V_N → V, with the stalkwise surjective stability of π_{−q}(V_N) → π_{−q}(V) for N ≥ −q (bijective for N ≥ −q + 1) — cited (gap), with the fringe effect on p + q = 0 — show K^Y_{m,N}(X) → K^Y_m(X) surjective for m ≥ 2, N ≥ m + d, and for m = 1, N ≥ d + 2 (Mayer–Vietoris over affine covers, S.4/zariski-mayer-vietoris).
 - γ^k(id_N − N) = 0 in R_ℤ(GL_N) for k > N (KTheoryLowDegrees Z.3/gamma-vanishing-above-rank in the ring of Z.3/representation-ring-of-gl), and the operations are compatible with the Volodin model (S.6/soule-gamma-bound), so γ^k vanishes on the image.
@@ -16980,26 +17000,25 @@ Let X be regular noetherian of dimension d and Y closed. Soulé’s single-opera
 **Acceptance conditions.**
 
 - For X = Spec of a DVR (d = 1): γ^k = 0 on K_m for k ≥ m + 2 (m ≥ 2).
-- For a regular curve X, F^2_γK_0(X) = 0, so K_0(X) = H^0(X, ℤ) ⊕ Pic(X).
+- For a regular curve X with an ample family, F^2_γK_0(X) = 0, so K_0(X) = H^0(X, ℤ) ⊕ Pic(X).
 
 **Source locators.**
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Proposition 5 (p. 514). The bounds, with the K_0 bound cited to SGA 6 [14].
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), 5.4 (p. 52). The bound over a field.
-
-**Review note.** Checked Soule.1985 Proof of Proposition 5 (p. 514); GilletSoule.1999 5.4 (p. 52). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 -/
 
 /-!
 ### Adams weight decomposition of the K-theory of a regular scheme
 
-**Id:** `SchemeKTheoryOperations:S.6/scheme-weight-decomposition`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/scheme-weight-decomposition`. **Kind:** theorem. Implementation unchecked.
 
-Let X be regular noetherian of dimension d and Y closed. Put D=max(d,dim(X∖Y)+1), taking D=d for Y=X; for empty Y all supported groups vanish. Then K_m^Y(X)_ℚ=⊕_{i=α(m)}^{m+D} K_m^Y(X)_ℚ^{(i)}, with α(0)=0, α(1)=1, α(m)=2 for m≥2, and simultaneous weight ψ^k=k^i for every k≠0. Without supports D=d: K₁(X)_ℚ^{(1)}=Γ(X,O_X^×)⊗ℚ, K₀(X)_ℚ^{(0)}=H⁰(X,ℚ), and K₀(X)_ℚ^{(1)}=Pic(X)⊗ℚ. Soulé’s separate integral F² result gives weights 2,…,m+d for m≥2 modulo 𝒮_{m+d}, weights 2,…,d+2 on F²K₁^Y modulo 𝒮_{d+2}, and weights 2,…,d on F²K₀(X) modulo 𝒮_d. Rational projectors use the actual finite range: π_i=∏_{j≠i}(ψ²−2^j)/(2^i−2^j). A comparison with gr_γ^i requires the weighted λ-module filtration bridge specified below, rather than following from the decomposition alone. Pullback, support-forgetting and products preserve the stated weights.
+Let X be regular noetherian of dimension d with an ample family of line bundles and Y closed. Put D=max(d,dim(X∖Y)+1), taking D=d for Y=X; for empty Y all supported groups vanish. Then K_m^Y(X)_ℚ=⊕_{i=α(m)}^{m+D} K_m^Y(X)_ℚ^{(i)}, with α(0)=0, α(1)=1, α(m)=2 for m≥2, and simultaneous weight ψ^k=k^i for every k≠0. Without supports D=d: K₁(X)_ℚ^{(1)}=Γ(X,O_X^×)⊗ℚ, K₀(X)_ℚ^{(0)}=H⁰(X,ℚ), and K₀(X)_ℚ^{(1)}=Pic(X)⊗ℚ. Soulé’s separate integral F² result gives weights 2,…,m+d for m≥2 modulo 𝒮_{m+d}, weights 2,…,d+2 on F²K₁^Y modulo 𝒮_{d+2}, and weights 2,…,d on F²K₀(X) modulo 𝒮_d. Rational projectors use the actual finite range: π_i=∏_{j≠i}(ψ²−2^j)/(2^i−2^j). A comparison with gr_γ^i requires the weighted λ-module filtration bridge specified below, rather than following from the decomposition alone. Pullback, support-forgetting and products preserve the stated weights.
 
 **Hypotheses.**
 
+- Every regular scheme on which these higher operations are evaluated is noetherian, finite-dimensional and equipped with an ample family of line bundles. This hypothesis also governs the scheme API and examples. Supports need only be closed; they need not be regular.
 - X is regular noetherian of finite dimension; the support cofiber is K-coherent with bound D from scheme-and-support-k-coherence.
 - The rational direct sum is GS99 Proposition 8. The integral assertions concern F², as stated in Soulé Proposition 5; they do not by themselves decompose all integral scheme K₁.
 - For the γ-graded identification, import the requested bounded weighted λ-module result with the full filtration generated by K₀ coefficients and γ operations. Until that bridge is supplied the identification is conditional.
@@ -17015,9 +17034,11 @@ Let X be regular noetherian of dimension d and Y closed. Put D=max(d,dim(X∖Y)+
 - SchemeKTheoryOperations:S.6/scheme-adams-multiplicative
 - KTheoryLowDegrees:U.3/SK1-local
 - SchemeKTheoryOperations:S.6/scheme-and-support-k-coherence
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
 - Apply GS99 Proposition 8 to C_Y using both comparisons and the finite cohomological dimension D. The Brown filtration and universal representation identities make a finite product of Adams factors nilpotent. Rational λ identities yield the square-free annihilator, giving the finite simultaneous weight decomposition with upper bound m+D; no sharper support bound is used.
 - In the unsuppported case D=d. Proposition 8(ii) identifies rank, Picard and units through the low Brown terms. The local K₁ identification with units is used inside that spectral-sequence argument; it is not a local-to-global equality of arbitrary operation maps.
 - Soulé Proposition 5 supplies the separate integral F² decomposition with its specified Serre classes. Its Volodin/Brown stability proof and weighted coefficient inputs remain explicitly named supplier/source requirements in scheme-gamma-bound; single-operation vanishing alone cannot prove a full filtration-length assertion.
@@ -17027,28 +17048,27 @@ Let X be regular noetherian of dimension d and Y closed. Put D=max(d,dim(X∖Y)+
 **Acceptance conditions.**
 
 - For X = P^1_k (d = 1): K_0(P^1)_ℚ = K^{(0)} ⊕ K^{(1)} with K^{(1)} = ℚ·(1 − [O(−1)]).
-- For a regular curve over a field: K_1(X)_ℚ = K_1^{(1)} ⊕ K_1^{(2)} with K_1^{(1)} = O(X)^× ⊗ ℚ (EllipticKTheory E.4).
+- For a regular curve over a field with an ample family: K_1(X)_ℚ = K_1^{(1)} ⊕ K_1^{(2)} with K_1^{(1)} = O(X)^× ⊗ ℚ (EllipticKTheory E.4).
 
 **Source locators.**
 
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Proposition 8 (p. 48). Part (1); part ii) of the proposition gives (2).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 5 (p. 513). Part (3), with the K_1 and K_0 cases on the same page.
-
-**Review note.** Checked GilletSoule.1999 Proposition 8 (p. 48); Soule.1985 Proposition 5 (p. 513). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 
 **Planet:** Adams weight decomposition.
-
 -/
 
 /-!
 ### Weight decomposition with finite coefficients
 
-**Id:** `SchemeKTheoryOperations:S.6/finite-coefficient-weight-decomposition`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/finite-coefficient-weight-decomposition`. **Kind:** theorem. Implementation unchecked.
 
-Let X be regular noetherian and m≥2, ν≥1, ℓ odd. Assume the two ℓ-local groups K_m(X)_(ℓ) and K_{m−1}(X)_(ℓ) have integral simultaneous Adams eigenspace decompositions with a common finite weight interval [0,N], and ℓ>N+1. Assume the Moore-space coefficient group B=K_m(X;ℤ/ℓ^ν) is killed by ℓ^ν and that all ψ^r act additively, commute and respect its Bockstein sequence. Then B=⊕_{i=0}^N B_i, where B_i=ker(ψ^k−k^i)^2 for a primitive root k modulo ℓ. This decomposition is independent of k, contains the weight-i quotient K_m(X)_(ℓ)^(i)/ℓ^ν and maps onto K_{m−1}(X)_(ℓ)^(i)[ℓ^ν]. On B_i every ψ^r−r^i has square zero. CRT projectors belong to (ℤ/ℓ^ν)[T]/∏_i(T−k^i)^2. The integral endpoint and coefficient-exponent hypotheses are explicit; the rational or F²-only scheme result is insufficient to remove them. Degree one is excluded from this general deduction.
+Let X be regular noetherian of finite Krull dimension with an ample family of line bundles and m≥2, ν≥1, ℓ odd. Assume the two ℓ-local groups K_m(X)_(ℓ) and K_{m−1}(X)_(ℓ) have integral simultaneous Adams eigenspace decompositions with a common finite weight interval [0,N], and ℓ>N+1. Assume the Moore-space coefficient group B=K_m(X;ℤ/ℓ^ν) is killed by ℓ^ν and that all ψ^r act additively, commute and respect its Bockstein sequence. Then B=⊕_{i=0}^N B_i, where B_i=ker(ψ^k−k^i)^2 for a primitive root k modulo ℓ. This decomposition is independent of k, contains the weight-i quotient K_m(X)_(ℓ)^(i)/ℓ^ν and maps onto K_{m−1}(X)_(ℓ)^(i)[ℓ^ν]. On B_i every ψ^r−r^i has square zero. CRT projectors belong to (ℤ/ℓ^ν)[T]/∏_i(T−k^i)^2. The integral endpoint and coefficient-exponent hypotheses are explicit; the rational or F²-only scheme result is insufficient to remove them. Degree one is excluded from this general deduction.
 
 **Hypotheses.**
 
+- Every regular scheme on which these higher operations are evaluated is noetherian, finite-dimensional and equipped with an ample family of line bundles. This hypothesis also governs the scheme API and examples. Supports need only be closed; they need not be regular.
 - m≥2; ν≥1; ℓ odd; the weight interval [0,N] is part of the integral endpoint hypotheses; ℓ>N+1 separates its weights modulo ℓ.
 - The coefficient group is an ℤ/ℓ^ν-module, with additive commuting Adams maps and the natural Bockstein sequence. Import the coefficient-exponent and operation compatibility from H.6/K.7, including the degree-two comparison; do not infer exponent ℓ^ν from a short exact sequence whose two ends are killed by ℓ^ν.
 - This is a conditional packet deduction, rather than a theorem stated in the Soulé passage. The full integral decomposition of global K₁ and degree-one coefficient additivity remain separate consumer requirements.
@@ -17062,9 +17082,11 @@ Let X be regular noetherian and m≥2, ν≥1, ℓ odd. Assume the two ℓ-local
 - KTheoryLowDegrees:Z.3/adams-composition
 - StableHomotopyKTheory:H.6/mod-l-homotopy-and-bockstein-sequence
 - GeneralAlgebraicKTheory:K.7
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
 - Use the specified Moore cofiber M(ℓ^ν), its mapping model and H.6’s natural Bockstein sequence 0→A=K_m(X)/ℓ^ν→B→C=K_{m−1}(X)[ℓ^ν]→0. Additive commuting Adams maps on B and exponent ℓ^ν are explicit hypotheses. For m≥3 the usual Moore-space domain is a suspension; at m=2 import the separate additive coefficient-model comparison. An arbitrary H-space map need not supply this additivity, and the short exact sequence alone does not imply exponent ℓ^ν.
 - The assumed integral simultaneous endpoint decompositions induce A=⊕A_i and C=⊕C_i, with ψ^r=r^i on both for every r. For one primitive root k, the product P(ψ^k)=∏_(i=0)^N(ψ^k−k^i) kills both endpoints, hence P(ψ^k)^2=0 on B.
 - The factors (T−k^i)^2 are pairwise coprime over ℤ/ℓ^ν. CRT yields idempotents e_i, B_i=e_iB=ker(ψ^k−k^i)^2 and exact sequences 0→A_i→B_i→C_i→0.
@@ -17073,28 +17095,27 @@ Let X be regular noetherian and m≥2, ν≥1, ℓ odd. Assume the two ℓ-local
 **Acceptance conditions.**
 
 - For a field with the required integral endpoint decompositions, the result agrees with the affine Adams decomposition. For finite fields, the separately proved L.1 degree-one result is not derived from this m≥2 theorem.
-- For a regular curve, a use with N=m+1 requires the full integral endpoint hypotheses and additive coefficient operations. It cannot be inferred merely from the rational curve decomposition or the integral F² statement.
+- For a regular curve with an ample family, a use with N=m+1 requires the full integral endpoint hypotheses and additive coefficient operations. It cannot be inferred merely from the rational curve decomposition or the integral F² statement.
 - As an algebraic extension test, ψ^r on B_i may have a nonzero square-zero off-diagonal part even when the two endpoints are pure weight i; the theorem asserts a generalized eigenspace, not a scalar eigenspace.
 
 **Source locators.**
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 2.7 (p. 498). The Serre-class prime bounds control the integral F² theorem only. This node states the additional full-endpoint hypotheses explicitly.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 2.7 (p. 498). The finite-coefficient primary-block and primitive-root-independence argument is supplied here as a conditional deduction, not attributed to a source theorem.
-
-**Review note.** Checked Soule.1985 2.7 (p. 498); Soule.1985 2.7 (p. 498). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 -/
 
 /-!
 ### Uniqueness of operations on the K-theory of smooth schemes (Riou)
 
-**Id:** `SchemeKTheoryOperations:S.6/riou-motivic-uniqueness`. **Kind:** comparison. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/riou-motivic-uniqueness`. **Kind:** comparison. Implementation unchecked.
 
-Let S be a regular (noetherian, separated) scheme. For X ∈ Sm/S there is a canonical isomorphism Hom_{H•(S)}(S^n ∧ X_+, ℤ × Gr) ≅ K_n(X) (Morel–Voevodsky), and the induced map End_{H(S)}(ℤ × Gr) → End(K_0(−)) (natural transformations of presheaves of sets on Sm/S) is a bijection. Hence every natural operation on K_0 of smooth S-schemes extends uniquely to a natural operation on K_n of smooth S-schemes, for all n, and the operations of S.6/soule-scheme-operations restricted to Sm/S are these extensions (for elements of R_ℤ(GL) (S.6/stable-representation-ring) of rank zero acting on K_n, n ≥ 1). The same holds for operations in several variables, so the products of S.6/graded-commutative-ring on Sm/S are determined by the product on K_0 (Riou, Proposition 3.2.1: Waldhausen's pairing).
+Let S be a regular (noetherian, separated) scheme. For X ∈ Sm/S there is a canonical isomorphism Hom_{H•(S)}(S^n ∧ X_+, ℤ × Gr) ≅ K_n(X) (Morel–Voevodsky), and the induced map End_{H(S)}(ℤ × Gr) → End(K_0(−)) (natural transformations of presheaves of sets on Sm/S) is a bijection. Hence every natural operation on K_0 of smooth S-schemes extends uniquely to a natural operation on K_n of smooth S-schemes, for all n, and, when S has finite Krull dimension, the operations of S.6/soule-scheme-operations restricted to Sm/S are these extensions (for elements of R_ℤ(GL) (S.6/stable-representation-ring) of rank zero acting on K_n, n ≥ 1). The same holds for operations in several variables, so the products of S.6/graded-commutative-ring on Sm/S are determined by the product on K_0 (Riou, Proposition 3.2.1: Waldhausen's pairing).
 
 **Hypotheses.**
 
 - S regular; X smooth and separated of finite type over S. The A¹-homotopy category H(S) and the representability theorem are not planned by any stage upstream of S.6 (MotivicEtaleKTheory M.5a is downstream): recorded as a gap.
+- The representability and uniqueness assertions retain Riou’s regular noetherian separated base scope without a finite-dimension assumption. Only the comparison with this packet’s Soulé construction assumes dim S finite. X∈Sm/S is then regular, noetherian, separated and finite-dimensional; TT 2.1.2(d) gives its ample family.
 
 **Direct prerequisites.**
 
@@ -17119,9 +17140,7 @@ Let S be a regular (noetherian, separated) scheme. For X ∈ Sm/S there is a can
 
 - [Riou.2009](https://arxiv.org/pdf/0907.2710), Theorem 0.2 (p. 2). The uniqueness statement; the displayed bijection is End_{H(S)}(Z × Gr) ≅ End_{Sm/S^opp Sets}(K_0(−)).
 - [Riou.2009](https://arxiv.org/pdf/0907.2710), 3.3 (p. 13). The comparison with Soulé's operations, Theorem 3.3.2.
-
-**Review note.** Checked Riou.2009 Theorem 0.2 (p. 2); Riou.2009 3.3 (p. 13). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(d), p.284. Regular noetherian separated schemes have ample families, so the finite-dimensional Soulé comparison applies on Sm/S.
 -/
 
 /-!
@@ -17294,12 +17313,13 @@ In the situation of S.6/twisted-lambda-ring, for x ∈ R and k ≥ 1: ψ^k(N, x)
 /-!
 ### Riemann–Roch without denominators for closed immersions
 
-**Id:** `SchemeKTheoryOperations:S.6/riemann-roch-without-denominators`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/riemann-roch-without-denominators`. **Kind:** theorem. Implementation unchecked.
 
-Let S be a regular noetherian scheme of finite Krull dimension, j: Y → X a closed immersion of regular schemes of finite type over S (hence regular, of codimension p on components), N ∈ K_0(Y) the class of the conormal sheaf I/I² of Y in X (Soulé's 'fibré normal' in SGA 6's convention V(I/I²)), and Z ⊆ Y closed. Then j_*: K^Z_m(Y) → K^Z_m(X) is an isomorphism (dévissage) and, for x ∈ K^Z(Y) = ⊕_m K^Z_m(Y) and every natural operation τ, τ(j_*(x)) = j_*(τ(N, x)) with τ(N, x) as in S.6/twisted-lambda-ring. In particular j_*: K^Z(Y)_N → K^Z(X) is a morphism of λ-rings, and ψ^k(j_*x) = j_*(θ^k(N)ψ^k(x)).
+Let S be a regular noetherian scheme of finite Krull dimension, j: Y → X a closed immersion of regular schemes of finite type over S with ample families of line bundles (hence regular, of codimension p on components), N ∈ K_0(Y) the class of the conormal sheaf I/I² of Y in X (Soulé's 'fibré normal' in SGA 6's convention V(I/I²)), and Z ⊆ Y closed. Then j_*: K^Z_m(Y) → K^Z_m(X) is an isomorphism (dévissage) and, for x ∈ K^Z(Y) = ⊕_m K^Z_m(Y) and every natural operation τ, τ(j_*(x)) = j_*(τ(N, x)) with τ(N, x) as in S.6/twisted-lambda-ring. In particular j_*: K^Z(Y)_N → K^Z(X) is a morphism of λ-rings, and ψ^k(j_*x) = j_*(θ^k(N)ψ^k(x)).
 
 **Hypotheses.**
 
+- X and Y are regular finite-type schemes over regular noetherian finite-dimensional S, and X and Y have ample families of line bundles; j is a closed immersion and Z⊆Y is closed. S itself need not have an ample family when these hypotheses on X and Y are supplied.
 - X, Y regular of finite type over a regular noetherian S of finite Krull dimension; j a closed immersion over S; supports Z ⊆ Y.
 - The conormal convention is pinned: N = [I/I²], λ_{−1}(N) = Σ(−1)^i[Λ^iI/I²] = j^*j_*(1).
 
@@ -17318,9 +17338,11 @@ Let S be a regular noetherian scheme of finite Krull dimension, j: Y → X a clo
 - SchemeKTheoryOperations:S.6/k-theoretic-splitting-principle
 - SchemeKTheoryOperations:S.2/k-theory-base-change
 - SchemeKTheoryOperations:S.6/scheme-lambda-algebra
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the S.2 comparison on X, Y and their opens. The deformation space is an open of a blowup of A¹_X; affine, projective and open morphisms preserve ample families by TT 2.1.2(e),(g),(h). Its projective/flag-bundle models over Y also inherit ample families. Regularity and finite dimension are supplied by the regular-immersion deformation geometry. Thus every regular scheme used in the operation comparison has the required scope.
 - Dévissage: K^Z_m(Y) ≅ G_m(Z) ≅ K^Z_m(X) for regular X, Y (S.3/regular-support-devissage), and j_* is this isomorphism.
 - Deformation to the normal cone: W = Bl_{Y×0}(A¹_X) minus the strict transform of X×{0} with its closed immersion j̃: A¹_Y → W over A¹_S, whose fibres are j at t ≠ 0 and the zero section of the normal bundle at t = 0 (imported from SchemeAndStackFoundations SF.5, request; the blow-up of a regular immersion is S.5/regular-blowup-geometry).
 - Homotopy invariance for regular schemes (S.5/homotopy-invariance-regular) makes the restrictions i_t^*: K^Z(A¹_Y) → K^Z(Y) isomorphisms; the operations commute with pullback (S.6/operations-functoriality), so the statement for j_0 implies it for j̃ and then for j_1 = j.
@@ -17338,22 +17360,22 @@ Let S be a regular noetherian scheme of finite Krull dimension, j: Y → X a clo
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 3 (p. 517). The statement, for X, Y regular of finite type over S (4.6).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 3 (p. 517). The method; the reduction to the zero section and to rank one is on pp. 518–519.
 - [Thomason.1993](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0112/LOG_0023.pdf), Lemme 3.2 and (3.2.6) (pp. 207–208). The Koszul resolution used for j^*j_*(1) = λ_{−1}(N).
-
-**Review note.** Corrected the zero-section compactification to P_quot(N⊕1), whose affine chart is Spec Sym N, consistent with the conormal convention.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e),(g),(h), p.284; 3.8–3.10, p.316. The model comparison holds on the given regular schemes and on the affine/projective/open deformation constructions used in the proof.
 
 **Planet:** Riemann–Roch without denominators.
-
 -/
 
 /-!
 ### Weight shift of Gysin maps
 
-**Id:** `SchemeKTheoryOperations:S.6/gysin-weight-shift`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/gysin-weight-shift`. **Kind:** theorem. Implementation unchecked.
 
 In the situation of S.6/riemann-roch-without-denominators, with Y of pure codimension c in X: (a) ψ^k(j_*x) = j_*(θ^k(N)ψ^k(x)) for x ∈ K^Z_m(Y), k ≥ 1; (b) if the conormal sheaf is trivial of rank c, ψ^k ∘ j_* = k^c·j_* ∘ ψ^k, so j_* maps K^Z_m(Y)^{(i)} into K^Z_m(X)^{(i+c)} (integrally, on the eigenspaces of S.6/scheme-weight-decomposition); (c) in general, rationally, j_*(K^Z_m(Y)^{(i)}_ℚ) ⊆ ⊕_{i' ≥ i+c}K^Z_m(X)^{(i')}_ℚ, and j_*(F^i_γ) ⊆ F^{i+c}_γ modulo torsion; the exact weight-preserving map is x ↦ j_*(x·θ^k-correction), made precise in S.7/adams-riemann-roch. The operations are not claimed to commute with j_*: the factor θ^k(N) (= k^c for trivial N) is the twist.
 
 **Hypotheses.**
 
+- Use the full hypotheses of riemann-roch-without-denominators: X and Y are regular noetherian finite-dimensional schemes with ample families of line bundles, j is a regular closed immersion and Z⊆Y is closed. The weighted-module comparison remains an explicit input for full γ-filtrations.
 - As in S.6/riemann-roch-without-denominators; (b) needs the conormal sheaf free of rank c (e.g. a rational point of a regular curve, or a regular point of codimension c with trivialised normal bundle).
 
 **Direct prerequisites.**
@@ -17364,37 +17386,39 @@ In the situation of S.6/riemann-roch-without-denominators, with Y of pure codime
 - SchemeKTheoryOperations:S.6/scheme-weight-decomposition
 - SchemeKTheoryOperations:S.6/adams-eigenvalue-on-gamma-graded
 - KTheoryLowDegrees:Z.3
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
 - (a) is S.6/riemann-roch-without-denominators with S.6/twisted-adams-formula.
 - (b): θ^k(O^c) = k^c (S.6/bott-cannibalistic-class), so ψ^kj_*x = k^cj_*ψ^kx; if ψ^kx = k^ix then ψ^k(j_*x) = k^{i+c}j_*x.
 - For (c), work rationally with the finite weight filtration and its coefficient-module product compatibility (the explicit Z.3 weighted-module request). If x has weight i, the positive-filtration part of θ^k(N) sends x to a sum of weights strictly above i. Descend from the largest source weight: assume the asserted lower target bound for every larger weight. The Riemann–Roch equation then has right side supported in target weights above i+c, so projection to each target weight j<i+c gives (k^j−k^{i+c})pr_j(j_*x)=0. Choose k≥2 to conclude those projections vanish. Finiteness starts the induction and prevents the circular assertion that pushforward already raises weights. The full γ claim remains conditional on the weighted-module bridge.
 
 **Acceptance conditions.**
 
-- For a rational point P: Spec F → X of a regular curve, ψ^kP_* = kP_*ψ^k, so P_*(K_1(F)^{(1)}) ⊆ K_1(X)^{(2)} (EllipticKTheory E.4: SK_1 of a curve has weight 2 rationally).
-- For a closed point x of a regular surface with trivial conormal (c = 2), x_*K_0(k(x)) ⊆ K_0(X)^{(2)}.
+- For a rational point P: Spec F → X of a regular curve with an ample family, ψ^kP_* = kP_*ψ^k, so P_*(K_1(F)^{(1)}) ⊆ K_1(X)^{(2)} (EllipticKTheory E.4: SK_1 of a curve has weight 2 rationally).
+- For a closed point x of a regular surface with an ample family with trivial conormal (c = 2), x_*K_0(k(x)) ⊆ K_0(X)^{(2)}.
 
 **Source locators.**
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Proposition 6 (p. 520). Part (b) for c = 1, as Soulé applies it.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Remarque after Lemme 2 (p. 517). The γ-version of the shift by the codimension p.
-
-**Review note.** Replaced the circular higher-weight assertion with finite descending induction; retained the explicit weighted-module input.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
 -/
 
 /-!
 ### Adams operations and finite étale transfers
 
-**Id:** `SchemeKTheoryOperations:S.6/finite-etale-transfer-adams`. **Kind:** lemma. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/finite-etale-transfer-adams`. **Kind:** lemma. Implementation unchecked.
 
-Let f: X → Y be a finite étale morphism of regular noetherian schemes of finite Krull dimension that factors through a closed immersion into A¹_Y (e.g. X = Y ⊗_k k' for a finite separable extension k'/k of the base field). Then for x ∈ K_m(X) and k ∈ ℤ − {0}: kψ^k(f_*(x)) = kf_*(ψ^k(x)), and for k ≥ 1 the element kγ^k(f_*(x)) − kf_*(γ^k(x)) lies in f_*(F^{k+1}_γK_m(X)). In particular f_* respects the γ-filtration modulo torsion.
+Let f: X → Y be a finite étale morphism of regular noetherian schemes of finite Krull dimension with ample families of line bundles that factors through a closed immersion into A¹_Y (e.g. X = Y ⊗_k k' for a finite separable extension k'/k of the base field). Then for x ∈ K_m(X) and k ∈ ℤ − {0}: kψ^k(f_*(x)) = kf_*(ψ^k(x)), and for k ≥ 1 the element kγ^k(f_*(x)) − kf_*(γ^k(x)) lies in f_*(F^{k+1}_γK_m(X)). In particular f_* respects the γ-filtration modulo torsion.
 
 **Hypotheses.**
 
+- Every regular scheme on which these higher operations are evaluated is noetherian, finite-dimensional and equipped with an ample family of line bundles. This hypothesis also governs the scheme API and examples. Supports need only be closed; they need not be regular.
 - f finite étale between regular noetherian schemes of finite dimension, factoring through a closed immersion into A¹_Y; the factor k is not removed in the source.
+- It suffices to require the ample family on Y: f is affine, so X inherits one by TT 2.1.2(g). The A¹_Y and P¹_Y auxiliary schemes inherit ample families by TT 2.1.2(g),(h).
 
 **Direct prerequisites.**
 
@@ -17402,9 +17426,11 @@ Let f: X → Y be a finite étale morphism of regular noetherian schemes of fini
 - SchemeKTheoryOperations:S.6/product-pullback-compatibility
 - SchemeKTheoryOperations:S.2/k-theory-proper-pushforward
 - SchemeKTheoryOperations:S.5/projective-line-k-theory
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
 - Factor f as X → P^1_Y → Y with j: X → P^1_Y a closed immersion missing the section at infinity j_∞: Y → P^1_Y (Gillet, Cor. 3.12's method).
 - The normal bundles of j(X) and of j_∞(Y) are trivial of rank 1, so S.6/gysin-weight-shift gives ψ^k(j_*x) = kj_*(ψ^kx) and ψ^k(j_{∞*}x̄) = kj_{∞*}(ψ^kx̄).
 - With x̄ = f_*(x), j_*(x) = j_{∞*}(x̄) in K(P^1_Y) (Gillet, loc. cit.) and the projection formula j_{∞*}(x̄) = p^*(x̄)j_{∞*}(1) (S.6/product-pullback-compatibility); apply p_* and γ^k(j_{∞*}(1)) = 0 for k > 1.
@@ -17417,20 +17443,20 @@ Let f: X → Y be a finite étale morphism of regular noetherian schemes of fini
 **Source locators.**
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proposition 6 (pp. 519–520). The hypotheses; the conclusion kψ^k(f_*(x)) = kf_*(ψ^k(x)) is on p. 520.
-
-**Review note.** Checked Soule.1985 Proposition 6 (pp. 519–520). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(g),(h), p.284. The finite source, affine line and projective line inherit ample families from Y.
 -/
 
 /-!
 ### Operations on the Gersten–Quillen spectral sequence
 
-**Id:** `SchemeKTheoryOperations:S.6/adams-on-coniveau`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/adams-on-coniveau`. **Kind:** theorem. Implementation unchecked.
 
-Let X be a regular noetherian scheme of finite Krull dimension d, with the coniveau spectral sequence E_1^{pq}(X) = ⊕_{x∈X^{(p)}} K_{−p−q}(k(x)) ⇒ K_{−p−q}(X) of S.4 (Quillen's, identified with the coniveau filtration of H^*(X, ℤ × BGL^+)). (i) Additive Adams operations ψ^k induce endomorphisms of the abelian coniveau spectral sequence converging to ψ^k. General λ-operations induce maps of the pointed-space exact-couple construction only in its allowed fringe sense; λ^k on K₀ is not additive, so it is not an abelian spectral-sequence endomorphism. (ii) For x ∈ X^{(p)} and α ∈ K_{−p−q}(k(x)), E_1(τ)(α) = τ(p, α) (the twisted operation with N = 1^p trivial of rank p): in particular E_1(ψ^k) = k^pψ^k on the codimension-p column. (iii) For i ≥ 2 and m ≥ i there is, modulo 𝒮_{m+d}, a direct-summand spectral sequence with E_1^{pq} = ⊕_{x∈X^{(p)}} K_{−p−q}(k(x))^{(i−p)} for −m ≤ p + q ≤ 0, converging to K_{−p−q}(X)^{(i)}; the differentials d_r preserve the total weight i. (iv) Degeneration in low degrees: K_0(X) = E_2^{00} ⊕ E_2^{1,−1} ⊕ F^2_γK_0(X), K_1(X) = E_2^{0,−1} ⊕ F^2_γK_1(X), and K_0(X) = ⊕_{p=0}^{d}E_2^{p,−p}(X) modulo 𝒮_d, K_1(X) = ⊕_p E_2^{p,−p−1}(X) and K_2(X) = ⊕_p E_2^{p,−p−2}(X) modulo 𝒮_{d+2}.
+Let X be a regular noetherian scheme of finite Krull dimension d with an ample family of line bundles, with the coniveau spectral sequence E_1^{pq}(X) = ⊕_{x∈X^{(p)}} K_{−p−q}(k(x)) ⇒ K_{−p−q}(X) of S.4 (Quillen's, identified with the coniveau filtration of H^*(X, ℤ × BGL^+)). (i) Additive Adams operations ψ^k induce endomorphisms of the abelian coniveau spectral sequence converging to ψ^k. General λ-operations induce maps of the pointed-space exact-couple construction only in its allowed fringe sense; λ^k on K₀ is not additive, so it is not an abelian spectral-sequence endomorphism. (ii) For x ∈ X^{(p)} and α ∈ K_{−p−q}(k(x)), E_1(τ)(α) = τ(p, α) (the twisted operation with N = 1^p trivial of rank p): in particular E_1(ψ^k) = k^pψ^k on the codimension-p column. (iii) For i ≥ 2 and m ≥ i there is, modulo 𝒮_{m+d}, a direct-summand spectral sequence with E_1^{pq} = ⊕_{x∈X^{(p)}} K_{−p−q}(k(x))^{(i−p)} for −m ≤ p + q ≤ 0, converging to K_{−p−q}(X)^{(i)}; the differentials d_r preserve the total weight i. (iv) Degeneration in low degrees: K_0(X) = E_2^{00} ⊕ E_2^{1,−1} ⊕ F^2_γK_0(X), K_1(X) = E_2^{0,−1} ⊕ F^2_γK_1(X), and K_0(X) = ⊕_{p=0}^{d}E_2^{p,−p}(X) modulo 𝒮_d, K_1(X) = ⊕_p E_2^{p,−p−1}(X) and K_2(X) = ⊕_p E_2^{p,−p−2}(X) modulo 𝒮_{d+2}.
 
 **Hypotheses.**
 
+- Every regular scheme on which these higher operations are evaluated is noetherian, finite-dimensional and equipped with an ample family of line bundles. This hypothesis also governs the scheme API and examples. Supports need only be closed; they need not be regular.
 - X regular noetherian of finite Krull dimension d; the residue fields at points of codimension p have trivial conormal in a small enough neighbourhood (used in (ii)).
 
 **Direct prerequisites.**
@@ -17446,9 +17472,12 @@ Let X be a regular noetherian scheme of finite Krull dimension d, with the coniv
 - SchemeKTheoryOperations:S.6/kratzer-low-gamma
 - SchemeKTheoryOperations:S.6/affine-weight-decomposition
 - SchemeKTheoryOperations:S.6/scheme-gamma-bound
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use the ample-family comparison of S.2 to identify vector-bundle K with perfect-complex K on each regular scheme in this contract. The ambient scheme and every open used in localisation have this comparison; TT 2.1.2(e) supplies the ample family on opens.
+- Neighbourhoods used to trivialise regular conormals are opens of X and inherit its ample family. Closed regular support schemes are affine over these opens and inherit an ample family by TT 2.1.2(g); residue fields are affine. Thus the operations entering the dévissage and E₁ identifications satisfy the same model hypothesis.
 - (i): Gillet's construction obtains the spectral sequence by filtering the hypercohomology of a simplicial sheaf F by codimension of supports, E_1^{pq}(F) = ⊕_{x∈X^{(p)}}H_x^{p+q}(X, F), covariant in F; take F = ℤ × BGL^+ and use S.6/sheaf-level-k-theory-model and S.6/soule-scheme-operations (identification with S.4/g-coniveau-spectral-sequence via Cartan, X regular).
 - (ii): for U a small neighbourhood of x, x̄ ∩ U is regular with trivial normal bundle and colim_U K_m^{x̄∩U}(U) ≅ K_m(k(x)) is induced by the closed immersion; S.6/riemann-roch-without-denominators gives τ ↦ τ(p, ·), and S.6/twisted-adams-formula with θ^k(1^p) = k^p gives k^pψ^k.
 - (iii): on K_{−p−q}(k(x)) the γ-filtration has length ≤ −p − q + 1 (S.6/soule-gamma-bound, r = 1) and K_n = F^2_γK_n for n ≥ 2 (S.6/kratzer-low-gamma), so ∏(E_r(ψ^{k_j}) − k_j^{p+j}) = 0 on E_r^{pq}; eigenspace decomposition modulo 𝒮 as in S.6/affine-weight-decomposition; d_r commutes with E_r(ψ^k), hence preserves weights; convergence by S.6/scheme-gamma-bound.
@@ -17456,28 +17485,27 @@ Let X be a regular noetherian scheme of finite Krull dimension d, with the coniv
 
 **Acceptance conditions.**
 
-- For a regular curve X over a field, E_1(ψ^k) is ψ^k on K_n(k(X)) and kψ^k on ⊕_{closed x}K_{n−1}(k(x)).
+- For a regular curve X over a field with an ample family, E_1(ψ^k) is ψ^k on K_n(k(X)) and kψ^k on ⊕_{closed x}K_{n−1}(k(x)).
 - (iv) for d = 1: K_0(X) = ℤ^{π_0} ⊕ Pic(X), integrally.
 
 **Source locators.**
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 4 (p. 521). Part (i); (ii)–(iv) are on the same page.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 4 iii) (p. 522). Part (ii) for Adams operations.
-
-**Review note.** Hypercohomology is covariant in its coefficient sheaf; distinguished additive Adams maps from nonadditive λ operations.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e), p.284; 3.8–3.10, p.316. The ample-family comparison applies to the ambient scheme and its open subschemes. It supplies the model on which the imported higher operations act.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e),(g), p.284. Open neighbourhoods and closed subschemes of an ample-family ambient scheme inherit the ample family needed by the operation comparison.
 -/
 
 /-!
 ### Weight shift of residue maps
 
-**Id:** `SchemeKTheoryOperations:S.6/residue-weight-shift`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.6/residue-weight-shift`. **Kind:** theorem. Implementation unchecked.
 
-(a) Let O be a discrete valuation ring with fraction field L and residue field k, and ∂: K_{m+1}(L) → K_m(k) the boundary of S.3/dvr-boundary. Then ∂ ∘ ψ^k = k·ψ^k ∘ ∂ for all k ≥ 1 and m ≥ 0; rationally ∂ maps K_{m+1}(L)^{(j)}_ℚ into K_m(k)^{(j−1)}_ℚ. (b) Let X be regular noetherian of finite Krull dimension; the d_1 differential of the coniveau spectral sequence from ⊕_{x∈X^{(p)}}K_n(k(x)) to ⊕_{y∈X^{(p+1)}}K_{n−1}(k(y)) satisfies d_1 ∘ k^pψ^k = k^{p+1}ψ^k ∘ d_1, so its components (residues) lower the weight of residue-field K-theory by one: d_1(K_n(k(x))^{(j)}) ⊆ ⊕K_{n−1}(k(y))^{(j−1)} rationally. Checks: ∂(u) = v(u) for u ∈ L^× (weight 1 → 0) and the tame symbol ∂{f, u} = ū^{v(f)} (weight 2 → 1): ∂ψ^k{f, u} = ∂(k²{f, u}) = k²ū^{v(f)} = k·ψ^k(ū^{v(f)}).
+(a) Let O be a discrete valuation ring with fraction field L and residue field k, and ∂: K_{m+1}(L) → K_m(k) the boundary of S.3/dvr-boundary. Then ∂ ∘ ψ^k = k·ψ^k ∘ ∂ for all k ≥ 1 and m ≥ 0; rationally ∂ maps K_{m+1}(L)^{(j)}_ℚ into K_m(k)^{(j−1)}_ℚ. (b) Let X be regular noetherian of finite Krull dimension with an ample family of line bundles; the d_1 differential of the coniveau spectral sequence from ⊕_{x∈X^{(p)}}K_n(k(x)) to ⊕_{y∈X^{(p+1)}}K_{n−1}(k(y)) satisfies d_1 ∘ k^pψ^k = k^{p+1}ψ^k ∘ d_1, so its components (residues) lower the weight of residue-field K-theory by one: d_1(K_n(k(x))^{(j)}) ⊆ ⊕K_{n−1}(k(y))^{(j−1)} rationally. Checks: ∂(u) = v(u) for u ∈ L^× (weight 1 → 0) and the tame symbol ∂{f, u} = ū^{v(f)} (weight 2 → 1): ∂ψ^k{f, u} = ∂(k²{f, u}) = k²ū^{v(f)} = k·ψ^k(ū^{v(f)}).
 
 **Hypotheses.**
 
-- O a DVR (regular of dimension one, of finite type over S = Spec O, so S.6/riemann-roch-without-denominators applies to Spec k → Spec O); in (b) X regular noetherian of finite dimension.
+- O a DVR (regular of dimension one, of finite type over S = Spec O, so S.6/riemann-roch-without-denominators applies to Spec k → Spec O); in (b) X regular noetherian of finite dimension. In (b), X has an ample family. In (a), Spec O, Spec L and Spec k are affine and already meet this hypothesis.
 
 **Direct prerequisites.**
 
@@ -17493,6 +17521,7 @@ Let X be a regular noetherian scheme of finite Krull dimension d, with the coniv
 
 **Proof route.**
 
+- For (a) use the affine ample families. For (b) use the ample-family coniveau action and the restricted ample families on its regular open neighbourhoods and closed support schemes.
 - The boundary of the localisation sequence factors as K_{m+1}(L) → K^{closed}_m(O) ≅ K_m(k), the second map the inverse of the dévissage j_* (S.3/localisation-boundary, S.3/regular-support-devissage, S.3/dvr-boundary).
 - ψ^k commutes with the boundary into support K-theory (S.6/operations-functoriality (c)), and ψ^k(j_*y) = k·j_*(ψ^ky) because the conormal m/m² ≅ k is trivial of rank one (S.6/gysin-weight-shift (b)).
 - Hence j_*(∂ψ^ku) = ψ^k(j_*∂u) = kj_*(ψ^k∂u), and j_* is injective.
@@ -17508,21 +17537,20 @@ Let X be a regular noetherian scheme of finite Krull dimension d, with the coniv
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 4 iii) (p. 523). Differentials preserve the total weight i, which on the codimension-p column is residue-field weight i − p: residues lower the residue-field weight by one.
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Ex. IV.5.3 (PDF p. 325). A boundary compatibility with a twist in the Laurent case, of the same shape.
-
-**Review note.** Checked Soule.1985 Proof of Théorème 4 iii) (p. 523); Kbook.2013 Ex. IV.5.3 (PDF p. 325). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(b),(e),(g), p.284. The affine DVR case and the neighbourhood/support schemes in the global coniveau case have the required ample families.
 -/
 
 /-!
 ### The γ-filtration of a scheme
 
-**Id:** `SchemeKTheoryOperations:S.7/scheme-gamma-filtration`. **Kind:** definition. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/scheme-gamma-filtration`. **Kind:** definition. Implementation unchecked.
 
-For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtration (KTheoryLowDegrees Z.3/gamma-filtration) of the augmented special λ-ring K_0(Vect X) of S.6/vector-bundle-lambda-ring (augmentation in the sense of Z.3/augmented-lambda-ring), with augmentation the rank ε: K_0(Vect X) → H^0(X, ℤ); gr^i_γK_0(X) = F^i_γ/F^{i+1}_γ. When K_0(Vect X) = K_0(X) (X with an ample family, e.g. quasi-projective, or regular separated with the resolution property) this is a filtration of K_0(X); for X regular noetherian of finite Krull dimension it is the degree-zero part of the filtration of S.6/scheme-lambda-algebra. It is a filtration by ideals, multiplicative (Z.3/gamma-filtration-mul), with F^1_γ = ker(rank) (Z.3/gamma-filtration-one), contravariant in X, and for X = Spec A it is KTheoryLowDegrees Z.3/gamma-filtration (the normalisation against Z.3 on affines).
+For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtration (KTheoryLowDegrees Z.3/gamma-filtration) of the augmented special λ-ring K_0(Vect X) of S.6/vector-bundle-lambda-ring (augmentation in the sense of Z.3/augmented-lambda-ring), with augmentation the rank ε: K_0(Vect X) → H^0(X, ℤ); gr^i_γK_0(X) = F^i_γ/F^{i+1}_γ. When K_0(Vect X) = K_0(X) (X with an ample family, e.g. quasi-projective, or regular separated with the resolution property) this is a filtration of K_0(X); for X regular noetherian of finite Krull dimension with an ample family it is the degree-zero part of the filtration of S.6/scheme-lambda-algebra. It is a filtration by ideals, multiplicative (Z.3/gamma-filtration-mul), with F^1_γ = ker(rank) (Z.3/gamma-filtration-one), contravariant in X, and for X = Spec A it is KTheoryLowDegrees Z.3/gamma-filtration (the normalisation against Z.3 on affines).
 
 **Hypotheses.**
 
 - X quasi-compact; for disconnected X the rank is locally constant and H^0(X, ℤ) has several idempotents.
+- The definition and degree-zero vector-bundle API retain arbitrary quasi-compact X. Only identification with the S.6 higher-operation filtration assumes regular noetherian finite-dimensional X with an ample family; a resolution-property K₀ comparison alone does not assert the higher sheaf model.
 
 **Direct prerequisites.**
 
@@ -17571,17 +17599,14 @@ For a quasi-compact scheme X, the γ-filtration F^•_γK_0(X) is the γ-filtrat
 | `gammaFiltration_P1` | computation | On P^1_k, F^1_γ = ℤ·h with h = 1 − [O(−1)] and F^2_γ = 0 (h² = 0). |
 | `gammaFiltration_P2` | computation | On P^2_k, F^2_γ = ℤ·h², F^3_γ = 0, h = 1 − [O(−1)], h³ = 0. |
 | `gammaFiltration_affine_compat` | compatibility | For X = Spec A, F^i_γK_0(X) = Z.3/gamma-filtration of K_0(A). |
-| `gammaFiltration_not_coniveau_integral` | non-example | The γ-filtration is not the coniveau filtration integrally in general; they agree after ⊗ℚ for X regular of finite type over a field (S.7/gamma-chow-comparison), and F^p_γ ⊆ F^p_cod always (S.7/gamma-in-coniveau). |
+| `gammaFiltration_not_coniveau_integral` | non-example | For regular finite-type X over a field with an ample family, the γ and coniveau filtrations agree after tensoring with ℚ but need not agree integrally (S.7/gamma-chow-comparison). For arbitrary noetherian X, part (a) of S.7/gamma-in-coniveau instead asserts that the image of F^p_γK₀(Vect X) in K₀(Perf X) lies in F^p_cod. |
 
 **Source locators.**
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary II.8.8.2 (PDF p. 161). The γ-filtration of K_0 of a scheme and its first two terms.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Introduction (p. 488). The filtration and the comparison it serves (S.7/gamma-chow-comparison).
 
-**Review note.** Checked Kbook.2013 Corollary II.8.8.2 (PDF p. 161); Soule.1985 Introduction (p. 488). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
-
 **Planet:** γ-filtration.
-
 -/
 
 /-!
@@ -17642,13 +17667,13 @@ For a quasi-compact scheme X: F^0_γ/F^1_γ ≅ H^0(X, ℤ) via the rank; the de
 /-!
 ### The γ-filtration lies in the coniveau filtration
 
-**Id:** `SchemeKTheoryOperations:S.7/gamma-in-coniveau`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/gamma-in-coniveau`. **Kind:** theorem. Implementation unchecked.
 
-Let F^p_cod K_m(X) = ∪_{codim Y ≥ p} ker(K_m(X) → K_m(X − Y)) be the filtration by codimension of supports. (a) For every noetherian scheme X, F^p_γK_0(X) ⊆ F^p_cod K_0(X) (SGA 6 X, Jussila). (b) For X of finite type over a field, F^p_γK_m(X) ⊆ F^{p−m}_cod K_m(X) for all m, p ≥ 0; in particular F^{m+d+1}_γK_m(X) = 0 for d = dim X. (c) For X regular of finite type over a field, the Brown filtration equals the coniveau filtration and the Quillen spectral sequence coincides with the Brown–Gersten one from E_2 on.
+Let F^p_cod K_m(X)=∪_{codim Y≥p} ker(K_m(X)→K_m(X∖Y)) be the perfect-complex support filtration. (a) For noetherian X, the image of F^p_γK₀(Vect X) under K₀(Vect X)→K₀(Perf X) lies in F^p_cod K₀(Perf X), using the stated SGA 6/Jussila input. Where the resolution-property comparison is an isomorphism, this identifies the two K₀ models. (b) For regular X of finite type over a field with an ample family of line bundles, F^p_γK_m(X)⊆F^{p−m}_cod K_m(X) for m,p≥0; hence F^{m+d+1}_γK_m(X)=0 for d=dim X. (c) For the same X, the Brown and coniveau filtrations agree and the Quillen and Brown–Gersten spectral sequences agree from E₂ on.
 
 **Hypotheses.**
 
-- (a) X noetherian, cited to SGA 6 Exp. X (not public): gap. (b), (c) X of finite type over a field (Gillet–Soulé use Quillen's Gersten conjecture for varieties over a field).
+- (a) X is noetherian and γ is defined on vector-bundle K₀; SGA 6 Exp. X/Jussila remains a source gap. (b),(c) X is regular finite type over a field and has an ample family. No higher-operation assertion on a singular finite-type scheme is inferred from this regular sheaf model.
 - The Brown filtration and Gillet–Soulé's comparison of exact couples (their §§1–3, Theorem 2) are not decomposed here: gap.
 
 **Direct prerequisites.**
@@ -17663,6 +17688,7 @@ Let F^p_cod K_m(X) = ∪_{codim Y ≥ p} ker(K_m(X) → K_m(X − Y)) be the fil
 
 **Proof route.**
 
+- Keep (a) as the vector-bundle-to-perfect K₀ inclusion supplied by the declared SGA 6 input. For (b),(c), apply the ample-family S.6 comparison before the Brown/coniveau comparison. Flag bundles and opens inherit ample families by TT 2.1.2(e),(h).
 - Brown filtration F^pK_m(X) = F^pH^{−m}(X, K) from the Postnikov tower of the K-theory simplicial sheaf; F^pK_m ⊆ F^p_cod K_m for finite-dimensional noetherian X (Gillet–Soulé Theorem 4 i), via their Theorem 2 comparing the Brown–Gersten and coniveau spectral sequences: gap.
 - F^p_γK_m ⊆ F^{p−m}K_m (Brown) for X of finite type over a field (their (26)): reduce to the universal element γ^i(id_N − N) ∈ H^0(BGL_N, K) and use the splitting principle for the Brown filtration of flag bundles (their 3.3.4, Proposition 6) and Gersten's conjecture for smooth varieties (S.4/quillen-gersten-theorem, S.4/gersten-resolution).
 - Combine; the vanishing since F^{d+1}_cod = 0 for d = dim X.
@@ -17670,16 +17696,14 @@ Let F^p_cod K_m(X) = ∪_{codim Y ≥ p} ker(K_m(X) → K_m(X − Y)) be the fil
 
 **Acceptance conditions.**
 
-- For a regular curve (d = 1): F^2_γK_0 ⊆ F^2_cod K_0 = 0.
+- For a regular curve with an ample family (d = 1): F^2_γK_0 ⊆ F^2_cod K_0 = 0.
 - For X = P^2_k, h² = [O_point] ∈ F^2_γ ⊆ F^2_cod.
 
 **Source locators.**
 
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Introduction (p. 1). Part (b); (a) is attributed there to Jussila, SGA 6 Exp. X.
 - [GilletSoule.1999](http://web.archive.org/web/20210416024831id_/https://faculty.math.illinois.edu/K-theory/0327/fff.pdf), Theorem 4 (p. 51). Part (c).
-
-**Review note.** Checked GilletSoule.1999 Introduction (p. 1); GilletSoule.1999 Theorem 4 (p. 51). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(e),(h), p.284; 3.8–3.10, p.316. The higher-operation comparison in (b),(c) is restricted to the ample-family regular range, including its open and flag-bundle constructions.
 -/
 
 /-!
@@ -17916,13 +17940,13 @@ Let X be a smooth quasi-projective variety over a field and Z ⊆ X an integral 
 /-!
 ### Grothendieck's comparison of the γ-filtration with Chow groups
 
-**Id:** `SchemeKTheoryOperations:S.7/gamma-chow-comparison`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/gamma-chow-comparison`. **Kind:** theorem. Implementation unchecked.
 
-Let X be a smooth quasi-projective variety over a field k of dimension d (Soulé: X regular of finite type over a field). Then: (a) ch ⊗ ℚ: K_0(X)_ℚ → CH^*(X)_ℚ is an isomorphism of rings, graded for the Adams decomposition: ch_i: K_0(X)^{(i)}_ℚ ≅ CH^i(X)_ℚ; (b) gr^i_γK_0(X)_ℚ ≅ K_0(X)^{(i)}_ℚ ≅ gr^i_cod K_0(X)_ℚ ≅ CH^i(X)_ℚ, with F^i_γK_0(X)_ℚ = F^i_cod K_0(X)_ℚ, where CH^i → gr^i_cod is [Z] ↦ [O_Z] and c_i: gr^i_γ → CH^i is multiplication by (−1)^{i−1}(i − 1)! on the identified groups; (c) integrally, K_0(X) = ⊕_{p=0}^{d} E_2^{p,−p}(X) = ⊕_{p=0}^{d}CH^p(X) modulo 𝒮_d (groups of exponent divisible only by 2 and primes < d). The integral groups gr^i_γK_0(X) and CH^i(X) are not claimed isomorphic (they differ by torsion).
+Let X be a smooth quasi-projective variety over a field k of dimension d (more generally, parts (b),(c) use regular finite-type X over a field with an ample family of line bundles). Then: (a) ch ⊗ ℚ: K_0(X)_ℚ → CH^*(X)_ℚ is an isomorphism of rings, graded for the Adams decomposition: ch_i: K_0(X)^{(i)}_ℚ ≅ CH^i(X)_ℚ; (b) gr^i_γK_0(X)_ℚ ≅ K_0(X)^{(i)}_ℚ ≅ gr^i_cod K_0(X)_ℚ ≅ CH^i(X)_ℚ, with F^i_γK_0(X)_ℚ = F^i_cod K_0(X)_ℚ, where CH^i → gr^i_cod is [Z] ↦ [O_Z] and c_i: gr^i_γ → CH^i is multiplication by (−1)^{i−1}(i − 1)! on the identified groups; (c) integrally, K_0(X) = ⊕_{p=0}^{d} E_2^{p,−p}(X) = ⊕_{p=0}^{d}CH^p(X) modulo 𝒮_d (groups of exponent divisible only by 2 and primes < d). The integral groups gr^i_γK_0(X) and CH^i(X) are not claimed isomorphic (they differ by torsion).
 
 **Hypotheses.**
 
-- X smooth quasi-projective over a field (regular of finite type suffices for (b), (c)); the Chow groups and Chern classes are SF.5's.
+- For (a), X is smooth quasi-projective over a field. For (b),(c), regular finite type over a field with an ample family suffices. Chow groups and Chern classes are supplied by SF.5.
 
 **Direct prerequisites.**
 
@@ -17940,6 +17964,7 @@ Let X be a smooth quasi-projective variety over a field k of dimension d (Soulé
 
 **Proof route.**
 
+- The quasi-projective case has an ample family. In the broader (b),(c) case it is a hypothesis; use the S.6 comparison before applying supported weights and coniveau. Retain connectedness in the rank-one curve example.
 - (b), weight side: by S.6/adams-on-coniveau (ii), ψ^k acts on the codimension-p column E_1^{p,−p} = ⊕_{x∈X^{(p)}}K_0(k(x)) by k^p; hence E_∞^{p,−p} ⊗ ℚ = gr^p_cod K_0(X)_ℚ is the weight-p part and F^p_cod K_0 ⊗ ℚ = ⊕_{i≥p}K^{(i)}_ℚ = F^p_γ ⊗ ℚ (S.6/scheme-weight-decomposition).
 - E_2^{p,−p} = CH^p(X) (S.4/coniveau-chow-group) and the differentials into and out of the diagonal vanish rationally since they join different weights (S.6/residue-weight-shift (b)); so CH^p_ℚ ≅ gr^p_cod K_0(X)_ℚ via S.7/cycle-class-to-graded-k0.
 - (a): ch_p is zero on K^{(i)}, i ≠ p (S.7/chern-character-adams), and ch_p([O_Z]) = [Z] for Z of codimension p modulo higher codimension (S.7/chern-class-of-subvariety); hence ch_p ∘ (CH^p_ℚ ≅ K^{(p)}_ℚ) is the identity, and ch ⊗ ℚ is an isomorphism; it is a ring map by S.7/chern-character-ring-homomorphism.
@@ -17955,23 +17980,21 @@ Let X be a smooth quasi-projective variety over a field k of dimension d (Soulé
 
 - [Kbook.2013](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.pdf), Corollary II.8.9.1 (PDF p. 162). Parts (a) and (b) (text layer; rendered K_0^{(i)}(X)).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 4 iv) (p. 521). Part (c).
-
-**Review note.** Qualified the rank-one curve calculation by connectedness.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(h), p.284; 3.8–3.10, p.316. Quasi-projective schemes satisfy the ample-family condition; the stated broader regular case assumes it explicitly.
 
 **Planet:** γ–Chow comparison.
-
 -/
 
 /-!
 ### The Chern character into the γ-graded K-theory
 
-**Id:** `SchemeKTheoryOperations:S.7/gamma-chern-character`. **Kind:** construction. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/gamma-chern-character`. **Kind:** construction. Implementation unchecked.
 
-Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ring), or a non-unital λ-algebra such as K^Y(X) or ⊕_{m≥1}K_m(A) with the filtration of S.6/non-unital-gamma-filtration (S.6/non-unital-lambda-algebra) with a γ-filtration of finite length after ⊗ℚ. The γ-Chern character ch = ⊕_{i≥0}ch_i: K → ⊕_i gr^i_γK ⊗ ℚ is ch_0 = ε and, for i > 0, ch_i(x) = the class of (1/i!)N_i(γ^1(x − ε(x)), …, γ^i(x − ε(x))) in gr^i_γ ⊗ ℚ, N_i the Newton polynomial (Z.3/lambda-universal-polynomials). It is a ring homomorphism commuting with all natural operations, ch_i(ψ^kx) = k^ich_i(x), compatible with products on K-theory of schemes and with pullback, and ch ⊗ 1: K_m(X)_ℚ → ⊕_i gr^i_γK_m(X)_ℚ is an isomorphism for X regular of finite dimension (also with supports). This is the Chern character in which Soulé states Riemann–Roch with denominators (S.7/g-theory-adams-operations); the higher Chern character into higher Chow groups or motivic cohomology is MotivicEtaleKTheory's.
+Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ring), or a non-unital λ-algebra such as K^Y(X) in the ample-family scheme scope or ⊕_{m≥1}K_m(A) with the filtration of S.6/non-unital-gamma-filtration (S.6/non-unital-lambda-algebra) with a γ-filtration of finite length after ⊗ℚ. The γ-Chern character ch = ⊕_{i≥0}ch_i: K → ⊕_i gr^i_γK ⊗ ℚ is ch_0 = ε and, for i > 0, ch_i(x) = the class of (1/i!)N_i(γ^1(x − ε(x)), …, γ^i(x − ε(x))) in gr^i_γ ⊗ ℚ, N_i the Newton polynomial (Z.3/lambda-universal-polynomials). It is a ring homomorphism commuting with all natural operations, ch_i(ψ^kx) = k^ich_i(x), compatible with products on K-theory of schemes and with pullback, and ch ⊗ 1: K_m(X)_ℚ → ⊕_i gr^i_γK_m(X)_ℚ is an isomorphism for X regular noetherian of finite dimension with an ample family, subject to the full bounded weighted λ-module filtration input (also with supports). This is the Chern character in which Soulé states Riemann–Roch with denominators (S.7/g-theory-adams-operations); the higher Chern character into higher Chow groups or motivic cohomology is MotivicEtaleKTheory's.
 
 **Hypotheses.**
 
-- K augmented special λ-ring with F^N_γ ⊗ ℚ = 0 for some N (true for K_m(X), X regular noetherian of finite dimension: S.6/scheme-gamma-bound).
+- The abstract K is an augmented special λ-ring, or its specified non-unital/unitized analogue, with F^N_γ⊗ℚ=0 for some N. For scheme K_m^Y(X), X is regular noetherian finite-dimensional with an ample family, and the full weighted λ-module filtration bridge in S.6/scheme-weight-decomposition must supply finite length. The single-operation γ bound alone does not supply it.
 
 **Direct prerequisites.**
 
@@ -17987,11 +18010,13 @@ Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ri
 - SchemeKTheoryOperations:S.6/scheme-adams-multiplicative
 - SchemeKTheoryOperations:S.6/operations-functoriality
 - mathlib:MvPolynomial.psum_eq_mul_esymm_sub_sum
+- SchemeKTheoryOperations:S.6/scheme-weight-decomposition
 
 **Proof route.**
 
 - Define ch_i using the displayed Newton polynomial. After a splitting principle, γ^j(x−εx) gives elementary symmetric functions of the γ-graded first Chern roots u_j; its power sum divided by i! is the degree-i term of Σ exp(u_j). This proves additivity and multiplicativity in the associated graded ring. It is not the expansion exp(log(1+u_j))=1+u_j, which would lose the higher Chern-character components.
 - ch_i(ψ^kx) = k^ich_i(x) since ψ^k = k^i on gr^i (S.6/adams-eigenvalue-on-gamma-graded).
+- For the scheme specialization, first receive the full K₀-coefficient weighted λ-module bound requested from Z.3 in scheme-weight-decomposition. This supplies a finite full filtration for the preceding abstract argument; scheme-gamma-bound’s vanishing of individual γ operations is insufficient.
 - Isomorphism: for x ∈ F^i_γ every γ^j(x) lies in F^i_γ (natural operations preserve the filtration, S.6/adams-eigenvalue-on-gamma-graded), so modulo F^{2i} ⊆ F^{i+1} only the linear term (−1)^{i−1}iγ^i(x) of N_i survives and ch_i(x) ≡ (−1)^{i−1}γ^i(x)/(i − 1)! ≡ x; hence ch is filtered with graded map the identity, and an isomorphism after ⊗ℚ since the filtration is finite.
 - Products and pullback: operations and products are compatible with both (S.6/scheme-adams-multiplicative, S.6/operations-functoriality).
 
@@ -18010,12 +18035,12 @@ Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ri
 
 | Name | Role | Specification |
 | --- | --- | --- |
-| `TauCeti.AlgebraicGeometry.KTheory.gammaChern` | constructor | ch: K_m(X) → ⊕_i gr^i_γK_m(X) ⊗ ℚ. |
-| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_add` | simp | ch is additive. |
-| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_mul` | simp | ch(xy) = ch(x)ch(y) for the product on K_*(X). |
-| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_adams` | relation | ch_i ∘ ψ^k = k^ich_i. |
-| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_bijective` | equivalence | ch ⊗ 1 is an isomorphism K_m(X)_ℚ ≅ ⊕gr^i_γK_m(X)_ℚ. |
-| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_pullback` | functoriality | ch commutes with f^*. |
+| `TauCeti.AlgebraicGeometry.KTheory.gammaChern` | constructor | For regular noetherian finite-dimensional X with an ample family and the stated finite full γ-filtration, ch: K_m(X) → ⊕_i gr^i_γK_m(X) ⊗ ℚ. |
+| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_add` | simp | For regular noetherian finite-dimensional X with an ample family and the stated finite full γ-filtration, ch is additive. |
+| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_mul` | simp | For regular noetherian finite-dimensional X with an ample family and the stated finite full γ-filtration, ch(xy) = ch(x)ch(y) for the product on K_*(X). |
+| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_adams` | relation | For regular noetherian finite-dimensional X with an ample family and the stated finite full γ-filtration, ch_i ∘ ψ^k = k^ich_i. |
+| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_bijective` | equivalence | For regular noetherian finite-dimensional X with an ample family and the stated finite full γ-filtration, ch ⊗ 1 is an isomorphism K_m(X)_ℚ ≅ ⊕gr^i_γK_m(X)_ℚ. |
+| `TauCeti.AlgebraicGeometry.KTheory.gammaChern_pullback` | functoriality | For both X and X′ regular noetherian finite-dimensional with ample families and the stated finite full γ-filtrations, ch commutes with f^*. |
 
 **Test specifications.** These are mathematical acceptance tests; no execution is claimed.
 
@@ -18024,14 +18049,11 @@ Let K be an augmented special λ-ring (KTheoryLowDegrees Z.3/augmented-lambda-ri
 | `gammaChern_zero` | degenerate | ch(0) = 0 and ch_0 = ε. |
 | `gammaChern_line` | computation | For a line element ℓ, ch(ℓ) = Σ_i (ℓ − 1)^i/i! computed in gr_γ, i.e. ch_i(ℓ) = (ℓ − 1)^i/i! in gr^i: the γ-graded analogue of exp(c_1(ℓ)), with ℓ − 1 in F^1_γ. |
 | `gammaChern_not_identity_integrally` | non-example | ch is not defined integrally: on K_0(P^2), ch_2(h) = −h²/2 ∉ gr^2_γK_0(P^2) = ℤh² (h = 1 − [O(−1)]). |
-| `gammaChern_chow_compat` | compatibility | For X smooth over a field, composing with gr^i_γK_0(X)_ℚ ≅ CH^i(X)_ℚ (S.7/gamma-chow-comparison) gives S.7/chern-character. |
+| `gammaChern_chow_compat` | compatibility | For X smooth quasi-projective over a field, composing with gr^i_γK_0(X)_ℚ ≅ CH^i(X)_ℚ (S.7/gamma-chow-comparison) gives S.7/chern-character. |
 
 **Source locators.**
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), 7.1 (p. 532). The definition; Soulé adds that ch is a ring homomorphism commuting with 𝒯, that ch ⊗ 1 is an isomorphism, and that ch(xy) = ch(x)ch(y) on higher K-theory.
-
-**Review note.** Corrected the γ-graded exponential explanation; preserved the Newton formula. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
-
 -/
 
 /-!
@@ -18158,12 +18180,13 @@ Let f: X → Y be a proper morphism of smooth quasi-projective varieties over an
 /-!
 ### Soulé's Adams operations and filtration on G-theory
 
-**Id:** `SchemeKTheoryOperations:S.7/g-theory-adams-operations`. **Kind:** construction. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/g-theory-adams-operations`. **Kind:** construction. Implementation unchecked.
 
-Let S be a regular noetherian irreducible scheme of finite Krull dimension and 𝒱_S the category of quasi-projective S-schemes. For X ∈ 𝒱_S there are operations φ^k: K'_m(X) ⊗ ℤ[1/k] → K'_m(X) ⊗ ℤ[1/k] (k ∈ ℤ − {0}), a finite increasing filtration F_jK'_m(X) ⊗ ℚ (j ∈ ℤ) and an isomorphism σ: K'_m(X) ⊗ ℚ → ⊕_j Gr_jK'_m(X) ⊗ ℚ, where K' = G-theory. For a closed immersion f: X → M into M of absolute Krull dimension d, smooth and equidimensional over S, with M → S surjective and f_*: K'_m(X) ≅ K^X_m(M) (dévissage): F^M_jK'_m(X)_ℚ = f_*^{−1}(F^{d−j}_γK^X_m(M)_ℚ), k^{dim S}φ^k_M(α) = f_*^{−1}(ψ^k(f_*α)·θ^k(M)) with θ^k(M) = θ^k(−T^∨_M) ∈ K_0(M) ⊗ ℤ[1/k] (S.6/bott-cannibalistic-class), and σ^M(α) = f_*^{−1}(ch(f_*α)·Td(M)) (S.7/gamma-chern-character, Td(M) the Todd class of T_M relative to S in ⊕gr^i_γK_0(M)_ℚ). These do not depend on the embedding. φ^k preserves F_j and acts on Gr_j by k^{−j}; φ^kφ^l = φ^{kl}; φ^k commutes with σ. Gr_j means F_j/F_{j−1}. In the formula for σ, f_*^{-1} on the right means the inverse induced map on the shifted associated γ-graded groups, not the ungraded K-group inverse.
+Let S be a regular noetherian irreducible scheme of finite Krull dimension with an ample family of line bundles and 𝒱_S the category of quasi-projective S-schemes. For X ∈ 𝒱_S there are operations φ^k: K'_m(X) ⊗ ℤ[1/k] → K'_m(X) ⊗ ℤ[1/k] (k ∈ ℤ − {0}), a finite increasing filtration F_jK'_m(X) ⊗ ℚ (j ∈ ℤ) and an isomorphism σ: K'_m(X) ⊗ ℚ → ⊕_j Gr_jK'_m(X) ⊗ ℚ, where K' = G-theory. For a closed immersion f: X → M into M of absolute Krull dimension d, smooth and equidimensional over S, with M → S surjective and f_*: K'_m(X) ≅ K^X_m(M) (dévissage): F^M_jK'_m(X)_ℚ = f_*^{−1}(F^{d−j}_γK^X_m(M)_ℚ), k^{dim S}φ^k_M(α) = f_*^{−1}(ψ^k(f_*α)·θ^k(M)) with θ^k(M) = θ^k(−T^∨_M) ∈ K_0(M) ⊗ ℤ[1/k] (S.6/bott-cannibalistic-class), and σ^M(α) = f_*^{−1}(ch(f_*α)·Td(M)) (S.7/gamma-chern-character, Td(M) the Todd class of T_M relative to S in ⊕gr^i_γK_0(M)_ℚ). These do not depend on the embedding. φ^k preserves F_j and acts on Gr_j by k^{−j}; φ^kφ^l = φ^{kl}; φ^k commutes with σ. Gr_j means F_j/F_{j−1}. In the formula for σ, f_*^{-1} on the right means the inverse induced map on the shifted associated γ-graded groups, not the ungraded K-group inverse.
 
 **Hypotheses.**
 
+- The regular noetherian finite-dimensional base S has an ample family of line bundles. X remains any quasi-projective S-scheme, possibly singular. All regular smooth quasi-projective ambient schemes and auxiliary projective schemes inherit ample families by TT 2.1.2(h).
 - S regular noetherian irreducible of finite Krull dimension; X quasi-projective over S (possibly singular: this is the K/G realisation for singular schemes).
 - The normalisation k^{dim S} makes φ^k act on Gr_j by exactly k^{−j} (ε(θ^k(M)) = k^{−d+dim S}).
 
@@ -18178,9 +18201,11 @@ Let S be a regular noetherian irreducible scheme of finite Krull dimension and �
 - SchemeKTheoryOperations:S.6/operations-functoriality
 - SchemeKTheoryOperations:S.7/gamma-chern-character
 - SchemeKTheoryOperations:S.2/g-theory-of-a-scheme
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use TT 2.1.2(h) for every quasi-projective regular ambient M over S and for projective-space/flag-bundle factors. Apply S.2’s comparison there before evaluating supported higher operations. The singular vector-bundle K and coherent G models keep their distinct meanings.
 - Define φ^k_M, F^M_j, σ^M through an embedding as stated, using S.6/soule-scheme-operations on the support K-theory of the regular M and dévissage (S.3/regular-support-devissage).
 - φ^k_M preserves F^M_j and acts on Gr^M_j by k^{d−j}k^{−d} = k^{−j}, because ψ^k = k^{d−j} on gr^{d−j}_γ (S.6/adams-eigenvalue-on-gamma-graded) and θ^k(M) ≡ k^{−d+dim S} modulo F^1; φ^kφ^l = φ^{kl} from θ^{kl} = ψ^k(θ^l)θ^k (S.6/bott-cannibalistic-class).
 - Independence of the embedding: for X → M → M' closed immersions with normal bundle N of M in M', S.6/riemann-roch-without-denominators gives g_*(ψ^k(α)θ^k(N)) = ψ^k(g_*α), and θ^k(N) = θ^k(M)g^*(θ^k(M'))^{−1}, Td(N^∨)^{−1} = Td(M)g^*(Td(M'))^{−1}, so the projection formula (S.6/product-pullback-compatibility) identifies the M- and M'-definitions; for two embeddings compare both with X → M × M' (open subsets of projective spaces, Soulé's steps 6–7), using S.6/operations-functoriality for open immersions.
@@ -18201,13 +18226,13 @@ Let S be a regular noetherian irreducible scheme of finite Krull dimension and �
 
 | Name | Role | Specification |
 | --- | --- | --- |
-| `TauCeti.AlgebraicGeometry.KTheory.gAdams` | constructor | φ^k on K'_m(X) ⊗ ℤ[1/k] for X quasi-projective over a regular S. |
-| `TauCeti.AlgebraicGeometry.KTheory.gFiltration` | constructor | The increasing filtration F_jK'_m(X) ⊗ ℚ. |
-| `TauCeti.AlgebraicGeometry.KTheory.gRiemannRoch` | constructor | σ: K'_m(X)_ℚ ≅ ⊕Gr_jK'_m(X)_ℚ. |
-| `TauCeti.AlgebraicGeometry.KTheory.gAdams_graded` | characterisation | φ^k acts on Gr_j by k^{−j}. |
-| `TauCeti.AlgebraicGeometry.KTheory.gAdams_comp` | relation | φ^kφ^l = φ^{kl}. |
-| `TauCeti.AlgebraicGeometry.KTheory.gAdams_embedding_indep` | extensionality | The definitions do not depend on the closed immersion into a smooth M. |
-| `TauCeti.AlgebraicGeometry.KTheory.gAdams_smooth` | compatibility | On smooth equidimensional X → S, surjective, let η: G_m(X) ≅ K_m(X) be Cartan duality. Then k^{dim S}η(φ^k x) = ψ^k(η x)θ^k(X). Under the induced isomorphism of associated graded groups, σ(x) corresponds to ch_γ(η x)Td_γ(X); ch_γ takes values in γ-graded K-theory, not Chow groups for arbitrary m. |
+| `TauCeti.AlgebraicGeometry.KTheory.gAdams` | constructor | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, φ^k on K'_m(X) ⊗ ℤ[1/k] for X quasi-projective over a regular S. |
+| `TauCeti.AlgebraicGeometry.KTheory.gFiltration` | constructor | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, The increasing filtration F_jK'_m(X) ⊗ ℚ. |
+| `TauCeti.AlgebraicGeometry.KTheory.gRiemannRoch` | constructor | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, σ: K'_m(X)_ℚ ≅ ⊕Gr_jK'_m(X)_ℚ. |
+| `TauCeti.AlgebraicGeometry.KTheory.gAdams_graded` | characterisation | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, φ^k acts on Gr_j by k^{−j}. |
+| `TauCeti.AlgebraicGeometry.KTheory.gAdams_comp` | relation | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, φ^kφ^l = φ^{kl}. |
+| `TauCeti.AlgebraicGeometry.KTheory.gAdams_embedding_indep` | extensionality | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, The definitions do not depend on the closed immersion into a smooth M. |
+| `TauCeti.AlgebraicGeometry.KTheory.gAdams_smooth` | compatibility | For a regular noetherian finite-dimensional base S with an ample family and X quasi-projective over S, On smooth equidimensional X → S, surjective, let η: G_m(X) ≅ K_m(X) be Cartan duality. Then k^{dim S}η(φ^k x) = ψ^k(η x)θ^k(X). Under the induced isomorphism of associated graded groups, σ(x) corresponds to ch_γ(η x)Td_γ(X); ch_γ takes values in γ-graded K-theory, not Chow groups for arbitrary m. |
 
 **Test specifications.** These are mathematical acceptance tests; no execution is claimed.
 
@@ -18222,20 +18247,19 @@ Let S be a regular noetherian irreducible scheme of finite Krull dimension and �
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 7 (p. 533). The statement; i) φ^k(F_j) ⊂ F_j, φ^k acts on Gr_j by k^{−j}, φ^k ∘ φ^l = φ^{kl}, φ^k commutes with σ.
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 7, step 1 (p. 534). The definition through an embedding.
-
-**Review note.** Checked Soule.1985 Théorème 7 (p. 533); Soule.1985 Proof of Théorème 7, step 1 (p. 534). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps. Reviewed all API roles and discriminating examples; unavailable Lean carriers remain explicit omissions.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(h), p.284; 3.8–3.10, p.316. Quasi-projective schemes over an ample-family base inherit an ample family, so the regular ambient K-theory operations have the required comparison.
 -/
 
 /-!
 ### Adams–Riemann–Roch for projective morphisms
 
-**Id:** `SchemeKTheoryOperations:S.7/adams-riemann-roch`. **Kind:** theorem. **Review:** corrected. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/adams-riemann-roch`. **Kind:** theorem. Implementation unchecked.
 
 In the setting of S.7/g-theory-adams-operations: (i) for a projective morphism f of 𝒱_S, φ^kf_* = f_*φ^k, f_*(F_j) ⊆ F_j and σf_* = f_*σ on G-theory; (ii) for an open immersion f, φ^kf^* = f^*φ^k, f^*(F_j) ⊆ F_j, σf^* = f^*σ; (iii) φ^k(α ∩ β) = φ^k(α) ∩ ψ^k(β) and σ(α ∩ β) = σ(α) ∩ ch(β) for the cap product K'_m(X) × K_n(X) → K'_{m+n}(X), and φ^k(α ⊠ β) = φ^k(α) ⊠ φ^k(β); (iv) consequently, for a projective morphism f: X → Y of smooth quasi-projective S-schemes and x ∈ K_m(X): ψ^k(f_*x)·θ^k(Y) = f_*(ψ^k(x)·θ^k(X)) in K_m(Y) ⊗ ℤ[1/k], i.e. ψ^k(f_*x) = f_*(θ^k(−T^∨_f)·ψ^k(x)) with T_f = T_X − f^*T_Y; for a closed immersion this is S.6/gysin-weight-shift, and for m = 0 it is Grothendieck's Adams–Riemann–Roch of SGA 6.
 
 **Hypotheses.**
 
+- The regular noetherian finite-dimensional base S has an ample family of line bundles. X remains any quasi-projective S-scheme, possibly singular. All regular smooth quasi-projective ambient schemes and auxiliary projective schemes inherit ample families by TT 2.1.2(h).
 - S regular noetherian irreducible of finite Krull dimension; f projective (factors as a closed immersion into P^r_Y followed by the projection).
 
 **Direct prerequisites.**
@@ -18252,9 +18276,11 @@ In the setting of S.7/g-theory-adams-operations: (i) for a projective morphism f
 - SchemeKTheoryOperations:S.7/pushforward-euler-class
 - SchemeKTheoryOperations:S.6/gysin-weight-shift
 - SchemeKTheoryOperations:S.6/external-product
+- SchemeKTheoryOperations:S.2/vector-bundle-k-theory-comparison
 
 **Proof route.**
 
+- Use TT 2.1.2(h) for every quasi-projective regular ambient M over S and for projective-space/flag-bundle factors. Apply S.2’s comparison there before evaluating supported higher operations. The singular vector-bundle K and coherent G models keep their distinct meanings.
 - Factor f = π ∘ g with g: X → P^r_Y a closed immersion and π the projection; for g the statement is the embedding-independence of S.7/g-theory-adams-operations (restricting supports commutes with operations, S.6/operations-functoriality); for π it is Soulé's step 5.
 - For the projective-space projection, use the K-module basis 1,ξ,…,ξ^r, ξ=[O(−1)], and (ξ−1)^{r+1}=0. Soulé’s projective-space step (pp.537–538) computes the cannibalistic factor by the Euler sequence and reduces the pushforward identity to π_*ξ^j=χ(O(−j)) and the finite polynomial identity in this quotient. Import the Euler sequence and line-bundle cohomology from R09.1/S.5; this is a finite projective-space calculation and needs no unstated general Manin formula.
 - (ii) from θ^k and Td restricting along open immersions; (iii) from multiplicativity of ψ^k and ch (S.6/scheme-adams-multiplicative, S.7/gamma-chern-character) and external products.
@@ -18269,11 +18295,9 @@ In the setting of S.7/g-theory-adams-operations: (i) for a projective morphism f
 
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Théorème 7 ii) (p. 533). Part (i); iii)–vi) of the theorem give (ii), (iii) and the smooth case used in (iv).
 - [Soule.1985](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/S0008414X00008427), Proof of Théorème 7, step 5 (p. 537). The GRR input for projective space.
-
-**Review note.** Replaced the untyped Manin/Todd formula with the explicit projective-space Euler-sequence calculation.
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(h), p.284; 3.8–3.10, p.316. Quasi-projective schemes over an ample-family base inherit an ample family, so the regular ambient K-theory operations have the required comparison.
 
 **Planet:** Adams–Riemann–Roch.
-
 -/
 
 /-!
@@ -19899,7 +19923,7 @@ For separated Noetherian regular finite-dimensional X and closed Y, define cl_K:
 /-!
 ### Rational Chow comparison with support
 
-**Id:** `SchemeKTheoryOperations:S.7/supported-chow-k-zero-comparison`. **Kind:** theorem. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/supported-chow-k-zero-comparison`. **Kind:** theorem. Implementation unchecked.
 
 For separated Noetherian regular finite-dimensional X and closed Y, the cycle map gives CH_Y^p(X)⊗ℚ≃Gr_F^pK₀^Y(X)⊗ℚ. CH_Y^p means ambient codimension-p cycles in Y modulo divisors of rational functions on ambient codimension-(p−1) integral subschemes contained in Y. This is a supported comparison, not automatically CH^p(Y). For equidimensional catenary X of dimension d it identifies with CH_(d−p)(Y)⊗ℚ.
 
@@ -19907,6 +19931,7 @@ For separated Noetherian regular finite-dimensional X and closed Y, the cycle ma
 
 - The degree-zero rational Adams action on the coniveau pages and its compatibility with residue differentials are required inputs.
 - No Gersten exactness over arbitrary mixed-characteristic bases is assumed.
+- The regular noetherian separated ambient X has an ample family by TT 2.1.2(d). Its opens and closed regular neighbourhood schemes inherit one. Thus the S.6 operation comparison applies with no extra restriction on this node’s existing scope.
 
 **Direct prerequisites.**
 
@@ -19918,9 +19943,10 @@ For separated Noetherian regular finite-dimensional X and closed Y, the cycle ma
 
 **Proof route.**
 
+- Use TT 2.1.2(d) for the already separated regular noetherian ambient X, and (e),(g) for its opens and closed regular neighbourhoods. Apply the S.2 model comparison before transporting the supported degree-zero operations.
 - The support coniveau E₁ diagonal consists of cycle groups, and the incoming K₁-field differential is the divisor/length map. Its E₂ diagonal is CH_Y^p.
 - GS87 Th8.2 distinguishes source/target Adams weights of higher differentials; rational eigenvalue differences kill the possible higher differentials.
-- Conclude the rational graded comparison. Under the resolution property transport GS87’s strict proof; for general regular TT models the supported operations/coniveau comparison is the explicit bridge gap.
+- Conclude the rational graded comparison. TT 2.1.2(d) supplies an ample family at this node’s separated regular scope; transport GS87’s strict proof using S.2. The separate polynomial-operation and weighted-filtration supplier inputs remain explicit.
 - Import the equidimensional/catenary dimension-codimension dictionary from SF.5; do not confuse intrinsic codimension in a singular support with ambient codimension.
 
 **Acceptance conditions.**
@@ -19931,15 +19957,13 @@ For separated Noetherian regular finite-dimensional X and closed Y, the cycle ma
 
 - [GilletSoule.1987](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0090/LOG_0018.pdf), §8.1 and Theorem8.2, printed274–275. Use ℚ to avoid misreading the source’s factorial denominator range.
 - [LiLiu.2021](https://www.math.columbia.edu/~chaoli/AIPF.pdf), Appendix B, p.61, paragraph following (B.3). An application of the supported K/G comparison. This passage does not itself state the graded Chow isomorphism; use GS87 Theorem 8.2 for that theorem.
-
-**Review note.** Checked GilletSoule.1987 §8.1 and Theorem8.2, printed274–275; LiLiu.2021 Appendix B, p.61, paragraph following (B.3). The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(d),(e),(g), p.284; 3.8–3.10, p.316. The existing separated regular ambient scope supplies the ample family needed for the supported operation comparison.
 -/
 
 /-!
 ### Dimension-one G-theory cycle comparison
 
-**Id:** `SchemeKTheoryOperations:S.7/dimension-one-supported-g-cycle-comparison`. **Kind:** comparison. **Review:** verified. Implementation unchecked.
+**Id:** `SchemeKTheoryOperations:S.7/dimension-one-supported-g-cycle-comparison`. **Kind:** comparison. Implementation unchecked.
 
 Let X be regular, separated, noetherian, catenary and pure-dimensional of dimension d, with dim(closure{x})+codim_X(x)=d, and Y⊆X closed. The support-dimension filtration F_i on G₀(Y) satisfies Gr₁G₀(Y)_ℚ≅CH₁(Y)_ℚ, via generic lengths. Under regular ambient dévissage this is precisely the p=d−1 supported codimension comparison. For Y proper over a Dedekind base, the cycle map to Zhang’s proper one-cycle quotient is retained with its stated vertical rational-equivalence relations; that map is not asserted to be an isomorphism.
 
@@ -19948,6 +19972,7 @@ Let X be regular, separated, noetherian, catenary and pure-dimensional of dimens
 - X has the pure-dimension, catenarity and dimension-formula hypotheses stated above. Dimension-one refers to support dimension, not ambient codimension one.
 - Gr₁ refers to dimension of support, not codimension1 in the ambient X.
 - Zhang’s proper-cycle consumer needs its properness and zero-dimensional generic fibre hypotheses; its arithmetic intersection pairing has another owner.
+- The regular noetherian separated ambient X has an ample family by TT 2.1.2(d). Its opens and closed regular neighbourhood schemes inherit one. Thus the S.6 operation comparison applies with no extra restriction on this node’s existing scope.
 
 **Direct prerequisites.**
 
@@ -19957,21 +19982,20 @@ Let X be regular, separated, noetherian, catenary and pure-dimensional of dimens
 
 **Proof route.**
 
+- Use TT 2.1.2(d) for the already separated regular noetherian ambient X, and (e),(g) for its opens and closed regular neighbourhoods. Apply the S.2 model comparison before transporting the supported degree-zero operations.
 - Transport K₀^Y(X) to G₀(Y) by regular ambient dévissage. Reverse indices using dimension+codimension=d.
 - Apply supported-chow-k-zero-comparison in codimension d−1.
 - Push cycle classes from the proper support into Zhang’s proper one-cycle quotient; do not claim an isomorphism with that larger ambient cycle group.
 
 **Acceptance conditions.**
 
-- For a regular surface X and a curve Y⊆X, dimension-one classes correspond to ambient codimension-one supported classes.
-- For a regular threefold, ambient codimension-one cycles have dimension two; dimension-one G₀ classes correspond to codimension two. This distinguishes the two index conventions.
+- For a regular separated noetherian surface X and a curve Y⊆X, dimension-one classes correspond to ambient codimension-one supported classes.
+- For a regular separated noetherian threefold, ambient codimension-one cycles have dimension two; dimension-one G₀ classes correspond to codimension two. This distinguishes the two index conventions.
 - For zero-dimensional Y, F₁=F₀ and CH₁(Y)=0, so both sides vanish.
 
 **Source locators.**
 
 - [Zhang.2021](https://archive.ymsc.tsinghua.edu.cn/pacm_download/21/12000-annals.2021.193.3.5.pdf), §9.1, printed924–925, Gr₁ diagram. The notation is the increasing dimension filtration; the last arrow is a map to proper cycles.
 - [GilletSoule.1987](https://gdz.sub.uni-goettingen.de/download/pdf/PPN356556735_0090/LOG_0018.pdf), Theorem8.2, printed274–275. Ambient codimension comparison yields the dimension-one supported case.
-
-**Review note.** Checked Zhang.2021 §9.1, printed924–925, Gr₁ diagram; GilletSoule.1987 Theorem8.2, printed274–275. The stated hypotheses and model conventions match the cited result or its explicitly conditional extension; the target-level proof route uses the named supplier contracts and recorded gaps.
-
+- [ThomasonTrobaugh.1990](https://gwern.net/doc/math/1990-thomason.pdf), 2.1.2(d),(e),(g), p.284; 3.8–3.10, p.316. The existing separated regular ambient scope supplies the ample family needed for the supported operation comparison.
 -/
