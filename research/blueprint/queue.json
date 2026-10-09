@@ -41467,8 +41467,9 @@
     "BP-PrismaticCohomology--PR.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PrismaticCohomology--PR.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7082"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7082",
+   "finishedAt": "2026-10-09T19:31:47Z"
   },
   {
    "kind": "blueprint",
@@ -105197,8 +105198,9 @@
    ],
    "after": [],
    "independentOf": [],
-   "state": "pending",
-   "prompt": "research/blueprint/prompts/FIX-PKG-AlgebraicModuliForArithmeticGeometry~adv.md"
+   "state": "external",
+   "prompt": "research/blueprint/prompts/FIX-PKG-AlgebraicModuliForArithmeticGeometry~adv.md",
+   "note": "claimed on GitHub issue #8070"
   },
   {
    "id": "FIX-PKG-GeometryOfNumbersAndQuadraticArithmetic~adv",
