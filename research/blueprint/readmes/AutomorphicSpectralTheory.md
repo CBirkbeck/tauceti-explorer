@@ -1288,7 +1288,7 @@ Let H_ε(t)=t^(−s)∫₀^π exp(εi(t cosθ+μθ))M_{μ,s−1/2}(2t sinθ)dθ/
 
 **Sources.**
 
-- [William Duke, Özlem İmamoğlu and Árpád Tóth, Geometric Invariants for Real Quadratic Fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Appendix A, proof of (A.1), p. 984: the displays from 'Using this last equation gives for the integral in (A.1)' to 'This proves that both sides of (A.1) satisfy the same differential equation', including the boundary term [e^{i(t cos θ+μθ)}M_{μ,λ}(2t sin θ)]_0^π = 0. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
+- [William Duke, Özlem İmamoğlu and Árpád Tóth, Geometric Invariants for Real Quadratic Fields](https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf), Appendix A, proof of (A.1), p.984: Whittaker angular integration by parts and the differential equation for the angular integral, with vanishing endpoint terms.. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
 
 <a id="automorphicspectraltheory-as-0-dit-appendix-a2-series-of-whittaker-cycle-integral"></a>
 
@@ -1428,6 +1428,9 @@ For t>1 and complex s with Re(s)>0, define Q_{s−1}(t)=∫₀∞(t+√(t²−1)
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1458,6 +1461,9 @@ Q_{s−1}(t) = −½ log(t − 1) + O(1) as t ↘ 1 (2.7), and Q_{s−1}(t) = O(
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1508,6 +1514,9 @@ g(z, z′) = log(|z − z′|²/|z̄ − z′|²) satisfies a′) g(γz, γz′)
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1538,6 +1547,9 @@ For the Legendre function of the second kind Q_{s−1} (s > 1, s near 1) as t �
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1588,6 +1600,9 @@ Fix k ≥ 1. For s ∈ ℂ with Re(s) > 1−k and t ∈ ℝ: V_s(t) = ∫_{−�
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1619,6 +1634,9 @@ For k ≥ 1: V_s(0) = (−1)^k π i 2^{−2s−2k+3} Γ(2s+2k−2)/(Γ(s)Γ(s+2k
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1650,6 +1668,9 @@ For t ≠ 0 the function s ↦ V_s(t) continues holomorphically to all s ∈ ℂ
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1681,6 +1702,9 @@ For t ≠ 0 set V*_s(t) = (π|t|)^{−s−2k+1} Γ(s+2k−1) V_s(t). At Gamma po
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1711,6 +1735,9 @@ Let r ∈ ℤ with 0 ≤ r ≤ k−1. Then V_{−r}(t) = 0 for t < 0 and V_{−r
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1741,6 +1768,9 @@ For t < 0: ∂/∂s V_s(t)|_{s=1−k} = −2πi q_{k−1}(4π|t|) e^{−2πt}, w
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -1772,6 +1802,9 @@ For t > 0: V*_s(t) = i Σ_{a,b,c≥0, 2a+b+c=2k−1} (−1)^{k−a}(2k−1)!/((2
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -2783,12 +2816,15 @@ Construct the cusp-∞ normalized level-N adapter E_N to the imported congruence
 **Unit tests.**
 
 - `TauCeti.AutomorphicSpectral.gz_69.level_one_test` (computation): N=1 gives E and residue3/π.
-- `TauCeti.AutomorphicSpectral.gz_69.prime_level` (computation): For N=p, the residue is3/[π(p+1)].
+- `TauCeti.AutomorphicSpectral.gz_69.prime_level` (computation): For N=p, using the named ER.7 meromorphic congruence-pair continuation and Mathlib Riemann zeta in the actual gz_69 adapter, the s=1 residue is 3/[π(p+1)]. It is not asserted for arbitrary series or arbitrary normalizing functions.
 - `TauCeti.AutomorphicSpectral.gz_69.nonprimitive` (non-example): The actual unrestricted nonzero integer-pair Eisenstein sum at s=2 equals 2ζ(4) times the primitive-coset dit_57 series and differs from that normalized series.
 
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -2815,11 +2851,14 @@ For N ≥ 1: E_N(z, s) = N^{−s} ∏_{p|N} (1 − p^{−2s})⁻¹ Σ_{d|N} μ(d
 2. Use Möbius inversion to remove the prime divisibility conditions and express the result through the full-level series at the appropriate scaled arguments.
 3. For each divisor retain its scaling exponent and Euler factor before computing the constant term.
 
-**Prerequisites.** `EllipticRegulators:ER.7/real-analytic-eisenstein-series`, [AutomorphicSpectralTheory:AS.1/dit-57](#automorphicspectraltheory-as-1-dit-57).
+**Prerequisites.** `EllipticRegulators:ER.7/real-analytic-eisenstein-series`, [AutomorphicSpectralTheory:AS.1/dit-57](#automorphicspectraltheory-as-1-dit-57), [AutomorphicSpectralTheory:AS.1/gz-69](#automorphicspectraltheory-as-1-gz-69), [mathlib:ArithmeticFunction.moebius](#mathlib-arithmeticfunction-moebius).
 
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -2870,6 +2909,9 @@ Let D<0 be a fundamental discriminant, ε its odd primitive quadratic character,
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -2920,6 +2962,9 @@ Fix an odd negative fundamental discriminant D, k≥1 and a factorization D=D₁
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 - Suggested model: The discriminant guard is an adapter for the existing Tau Ceti predicate, fixed by its exact criterion; its compiled module is unavailable in the shared build. The raw lattice sum omits primitive-character and Gauss-sum carriers. Discriminant 12 is fundamental; this boundary test is outside GZ’s odd-D specialization and must not be used to relax that source hypothesis.
 
 **Sources.**
@@ -2952,6 +2997,9 @@ For k ≥ 1, z = x+iy ∈ ℌ and Re(s) > 1−k: Σ_{l∈ℤ} 1/((z+l)^{2k−1}|
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -2983,6 +3031,9 @@ Let D<0 be a fundamental discriminant, ε its odd primitive quadratic character,
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -3014,6 +3065,9 @@ For real s > 1 let E(z,s) = Σ_{γ∈Γ_∞\SL₂(ℤ)} Im(γz)^s = Σ_{(c,d)=1,
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -3045,6 +3099,9 @@ For E(z,s) = Σ_{Γ∞\SL₂(ℤ)} Im(γz)^s (weight 0): E(z,s) = y^s + π^{1/2}
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -3718,7 +3775,7 @@ Construct the kernel G(z,z′;s) of (Δ−s(1−s))⁻¹ on the modular L² spac
 | Proposed name | Role | Required statement |
 | --- | --- | --- |
 | `TauCeti.AutomorphicSpectral.dit_91.inverseEquation` | characterisation | (Δ−s(1−s))R_s=1 on the proper operator domain off the spectrum. |
-| `TauCeti.AutomorphicSpectral.dit_91.kernelSymmetry` | relation | R_s has the hermitian kernel relation matching the inner-product convention. |
+| `TauCeti.AutomorphicSpectral.dit_91.kernelSymmetry` | relation | The actual self-adjoint resolvent kernel obeys R_s(z,z′)=conj(R_conj(s)(z′,z)), with conjugation of the parameter as well as exchange of the spatial variables. |
 | `TauCeti.AutomorphicSpectral.dit_91.restrictedResolvent` | constructor | Remove an isolated finite-dimensional eigenspace and prove the complement resolvent holomorphic near its eigenvalue. |
 
 **Unit tests.**
@@ -3731,6 +3788,7 @@ Construct the kernel G(z,z′;s) of (Δ−s(1−s))⁻¹ on the modular L² spac
 
 - Keep the named coefficient normalization and all domain restrictions; use limits at meromorphic exceptional parameters.
 - Suggested model: The three suggested tests are scalar eigenline specializations of the actual resolvent, including failure of its inverse equation at the spectrum and the threshold double pole. They do not construct the unbounded modular self-adjoint domain or continuous-spectrum continuation.
+- The hermitian-kernel API remains a named commented omission in the suggested file until the actual modular resolvent kernel is supplied; no theorem asserts it for an arbitrary kernel function.
 
 **Sources.**
 
@@ -3886,6 +3944,9 @@ Proposed interface: `TauCeti.AutomorphicSpectral.gz_68` in `TauCeti/Automorphic/
 **Acceptance and prototype scope.**
 
 - Retain the exact coefficient and pole normalization; arithmetic Green/height correction and holomorphic projection are imported by their consumers.
+- The suggested Möbius identity fixes Mathlib ArithmeticFunction.moebius, Riemann zeta, the named ER.7 continuation and positive UHP dilation. It is not an identity for arbitrary functions occupying those argument slots.
+- The suggested eigen-equation uses the actual GZ-sign coordinate adapter gzLaplacian, shared with the automorphic Green test; it cannot be asserted for an arbitrary map called lap.
+- The suggested continuedCongruenceE names the ER.7 supplier prototype; its initial pair sum and unique meromorphic continuation remain source obligations. All residue tests fix this supplier and the actual Riemann zeta normalization.
 
 **Sources.**
 
@@ -3932,12 +3993,13 @@ For N≥1 and z,z′∈𝔥 off the Γ₀(N)-orbit diagonal, construct G_{N,s}(z
 
 - `TauCeti.AutomorphicSpectral.automorphic_green.full_level_residue` (computation): At N=1 the s=1 residue is −12, with hyperbolic quotient volume π/3.
 - `TauCeti.AutomorphicSpectral.automorphic_green.point_pair_symmetry` (compatibility): For the identity summand g_s(z,z′)=g_s(z′,z), since the point-pair invariant is symmetric.
-- `TauCeti.AutomorphicSpectral.automorphic_green.finite_part_not_harmonic` (non-example): At N=1 the finite part after subtracting −12/(s−1) has Δ_GZ=−12≠0, so it is not harmonic.
+- `TauCeti.AutomorphicSpectral.automorphic_green.finite_part_not_harmonic` (non-example): At N=1 the actual Green finite part after subtracting −12/(s−1) has y²(∂x²+∂y²) value −12≠0 off the effective modular orbit, so it is not harmonic. The suggested test uses the concrete gzLaplacian coordinate adapter, never an arbitrary function called lap.
 
 **Acceptance and prototype scope.**
 
 - Counting SL₂ matrices and their negatives independently is rejected: it doubles both the initial kernel and the residue.
 - Subtracting only the pole does not produce a harmonic arithmetic Green function.
+- The GZ-sign coordinate Laplacian is y²∂x²+∂t²−∂t along the logarithmic vertical curve t↦y·exp(t). Its identification with the QM.3 weight-zero supplier remains an adapter obligation; the derivative test is already meaningful on the UHP function carrier.
 
 **Sources.**
 
@@ -4043,6 +4105,7 @@ For sufficiently regular T∈𝔞₀⁺ define Λᵀf(g)=Σ_{P⊃P₀}(−1)^dim
 
 - The P=G term is f, hence cusp forms are fixed.
 - Suggested model: The cusp-strip datum has one proper parabolic and one embedded cusp translate. Its identification with the global SL₂ fundamental-domain formula requires sufficiently large Y and reduction theory.
+- The suggested linearity API requires finite coset support at each point. The compact-uniform local-finiteness API is a named omission pending the genuine reduction-theory carrier and regular truncation parameter, rather than a theorem about arbitrary TruncationData.
 
 **Sources.**
 
@@ -6056,13 +6119,13 @@ For f∈C_c^∞(G(𝔸)^1), define K_f(x,y)=Σ_{γ∈G(F)}f(x⁻¹γy), the kern
 | --- | --- | --- |
 | `TauCeti.AutomorphicSpectral.automorphic_kernel.operator` | characterisation | R(f)u(x)=∫_[G] K_f(x,y)u(y)dy on smooth compactly supported quotient functions. |
 | `TauCeti.AutomorphicSpectral.automorphic_kernel.constant_term` | compatibility | The parabolic kernel is obtained by the indicated unipotent integral and rational Levi sum. |
-| `TauCeti.AutomorphicSpectral.automorphic_kernel.adjoint` | relation | K_(f*)(x,y)=conj(K_f(y,x)), where f*(g)=conj(f(g⁻¹)) for the unimodular group. |
+| `TauCeti.AutomorphicSpectral.automorphic_kernel.adjoint` | relation | For a rational index family equipped with an explicit inversion reindexing j↦j⁻¹, K_{f*}(x,y)=conj K_f(y,x). The source rational subgroup supplies that reindexing. |
 
 **Unit tests.**
 
 - `TauCeti.AutomorphicSpectral.automorphic_kernel.finite_group` (computation): For finite G(F) inside a finite group, unfolding gives the usual finite convolution matrix.
 - `TauCeti.AutomorphicSpectral.automorphic_kernel.noncompact_diagonal` (non-example): For the compact logarithmic seed on the additive real group and the trivial discrete lattice, the actual periodized kernel has nonintegrable diagonal on the infinite-volume quotient. This is a kernel counterexample model; the finite-volume modular cusp estimate remains a source adapter.
-- `TauCeti.AutomorphicSpectral.automorphic_kernel.adjoint_swap` (compatibility): Real inversion-invariant f has Hermitian kernel K_f(x,y)=conj(K_f(y,x)).
+- `TauCeti.AutomorphicSpectral.automorphic_kernel.adjoint_swap` (compatibility): For an inversion-stable rational index family with explicit bijective inversion reindexing and f(g)=conj f(g⁻¹), the actual periodized kernel is Hermitian.
 
 **Acceptance and prototype scope.**
 
@@ -6390,7 +6453,7 @@ For f in the adelic bi-K-finite Hecke algebra H(G), J(f)=Σ_{t≥0}Σ_{M,L⊃M}�
 **Sources.**
 
 - [James Arthur, An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §21 Theorem 21.6, Corollary 21.7; Remarks 3–4; Arthur88global Theorem4.4. The indicated passage supplies the definition or theorem under the hypotheses stated here; the proof sketch records the extension or adaptation.
-- [James Arthur, An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §21 (21.5), p.129, and Corollary21.3, p.134. The explicit change-of-variable Jacobian fixes the determinant space a_M^L, independently of the later displayed misprint.
+- [James Arthur, An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §21 (21.5), p.130, and Corollary21.3, p.134. The explicit change-of-variable Jacobian fixes the determinant space a_M^L, independently of the later displayed misprint.
 - [James Arthur, The Invariant Trace Formula II: Global Theory](https://www.claymath.org/library/cw/arthur/pdf/27.pdf), Theorem4.4 proof, p.520, first coefficient in the proof. Read the displayed coefficient on the scanned page: a_(L₀)^(M₁), corresponding to a_M^L in the survey notation. The theorem also separates integral absolute convergence and outer summability.
 
 <a id="automorphicspectraltheory-as-6-almost-compact-test-space"></a>
@@ -6475,14 +6538,14 @@ Define I_M^G(γ,f)=J_M^G(γ,f)−Σ_{L⊃M,L≠G}Î_M^L(γ,φ_L(f)) and the para
 | Proposed name | Role | Required statement |
 | --- | --- | --- |
 | `TauCeti.AutomorphicSpectral.invariant_recursion.recursion` | characterisation | The defining subtraction uses every proper Levi L containing M. |
-| `TauCeti.AutomorphicSpectral.invariant_recursion.invariance` | relation | I(f^y)=I(f) and I_M(f^y)=I_M(f). |
-| `TauCeti.AutomorphicSpectral.invariant_recursion.character_support` | compatibility | If f_G=0 then I(f)=0; the factored distribution Î is independent of representatives. |
+| `TauCeti.AutomorphicSpectral.invariant_recursion.invariance` | relation | In the linear recursion model, matching the conjugation defect of J with the weighted lower-Levi defects implies I(conjugate f)=I(f). Arthur’s induction must supply that compatibility for the local and global distributions. |
+| `TauCeti.AutomorphicSpectral.invariant_recursion.character_support` | compatibility | In the linear model, an explicit character-image factorization J=Î∘transform+Σ_L weight_L·lower_L∘φ_L identifies the recursively constructed I with Î∘transform. Hence transform f=0 implies I(f)=0; proving the source factorization remains part of Arthur’s induction. |
 
 **Unit tests.**
 
 - `TauCeti.AutomorphicSpectral.invariant_recursion.full_levi` (degenerate): I_G(γ,f)=J_G(γ,f) and I_G(π,Z,f)=tr π(f^Z).
-- `TauCeti.AutomorphicSpectral.invariant_recursion.zero_transform` (compatibility): A test function with zero invariant Fourier transform is annihilated by every constructed invariant term.
-- `TauCeti.AutomorphicSpectral.invariant_recursion.rank_one` (computation): For minimal M in GL₂ only the torus Fourier correction remains, matching Arthur §22.
+- `TauCeti.AutomorphicSpectral.invariant_recursion.zero_transform` (compatibility): Build J from a character-image functional and the lower-Levi correction, then the actual invariant_recursion annihilates every f with transform f=0. The test does not assume its own vanishing conclusion.
+- `TauCeti.AutomorphicSpectral.invariant_recursion.rank_one` (computation): In the global GL₂ recursion (Arthur (23.10)), the one proper-Levi correction has Weyl coefficient 1/2. In the local I_M^G recursion (23.3) the corresponding coefficient is one; these are distinct formulas.
 
 **Acceptance and prototype scope.**
 
@@ -6583,9 +6646,9 @@ Import the discrete-series/pseudo-coefficient and relative-cohomology carriers f
 
 | Proposed name | Role | Required statement |
 | --- | --- | --- |
-| `TauCeti.AutomorphicSpectral.general_euler_poincare.trace_identity` | characterisation | tr π(f_ξ)=EP(𝔤,K;π⊗ξ) for every finite-length admissible π. |
-| `TauCeti.AutomorphicSpectral.general_euler_poincare.induced_vanishing` | relation | EP and the trace vanish on every properly induced representation. |
-| `TauCeti.AutomorphicSpectral.general_euler_poincare.no_discrete_series` | compatibility | If G has no discrete series, the EP functional vanishes identically. |
+| `TauCeti.AutomorphicSpectral.general_euler_poincare.trace_identity` | characterisation | The source target is tr π(f_ξ)=EP(𝔤,K;π⊗ξ) for every finite-length admissible π. The suggested scalar image model takes an invertible trace map E≃ₗℂ and defines f by its inverse applied to the finite alternating cohomology sum; its trace identity follows from this actual construction. |
+| `TauCeti.AutomorphicSpectral.general_euler_poincare.induced_vanishing` | relation | The source target is vanishing on properly induced representations. The suggested rank-one cochain model computes the alternating sum as zero while its two cohomology groups remain nonzero; it makes no universal assertion about arbitrary dimension lists. |
+| `TauCeti.AutomorphicSpectral.general_euler_poincare.no_discrete_series` | compatibility | The source target is identically zero EP when G has no discrete series. In the scalar image model the supplied zero Euler sum gives the zero test element; the source representation theorem must prove that condition, not the model. |
 
 **Unit tests.**
 
@@ -7060,7 +7123,7 @@ For each root beta choose c_beta meromorphic on C*, regular at 1 with c_beta(1)=
 
 Proposed interface: `TauCeti.AutomorphicSpectral.yu_053` in `TauCeti/Automorphic/Spectral/AS6`.
 
-For a root basis F and continuous functions on S1, the map Im X_M^G→(S1)^F has finite central kernel and pushes probability Haar measure to probability Haar measure. Consequently the product integral factors into the one-variable contour integrals with dz/(2πi).
+For a root basis F and continuous functions fβ on S¹, the root-coordinate homomorphism p:Im X_M^G→(S¹)^F is surjective with finite kernel and pushes probability Haar to probability Haar. Thus ∫∏β fβ(pβ(λ))dλ=∏β(1/(2πi))∮ fβ(z)dz/z. Equivalently, including ∏βpβ(λ) in the integrand gives ∏β(1/(2πi))∮ fβ(z)dz, as in Yu Lemma4.2.5.
 
 **Hypotheses and conventions.**
 
@@ -7071,7 +7134,7 @@ For a root basis F and continuous functions on S1, the map Im X_M^G→(S1)^F has
 
 1. The exponent homomorphism of compact tori associated to a root basis is surjective with finite kernel.
 2. Pushforward of probability Haar measure is probability Haar measure.
-3. Fubini then turns the product into independent circle integrals..
+3. Apply Fubini and the probability-circle measure dz/(2πiz); the coordinate factor in Yu cancels each z denominator.
 
 **Prerequisites.** [AutomorphicSpectralTheory:AS.6/yu-048](#automorphicspectraltheory-as-6-yu-048), [AutomorphicSpectralTheory:AS.6/yu-052](#automorphicspectraltheory-as-6-yu-052), `AdelicAlgebraicGroups:AA.0/restricted-haar-product`.
 
@@ -7514,6 +7577,10 @@ These declarations are inputs, rather than new targets. A normed or finite-dimen
 <a id="tauceti-tauceti-multiquadratic-isfundamentaldiscriminant"></a>
 
 **[tauceti:TauCeti.Multiquadratic.IsFundamentalDiscriminant](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/NumberTheory/Multiquadratic/FundamentalDiscriminant/Basic.lean)**. An integer congruent to one modulo four is fundamental when squarefree; the other branch is four times a squarefree integer congruent to two or three modulo four. In particular 12 satisfies the criterion, whereas 16 does not. AS imports this predicate and does not build a second arithmetic definition.
+
+<a id="mathlib-arithmeticfunction-moebius"></a>
+
+**[mathlib:ArithmeticFunction.moebius](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/NumberTheory/ArithmeticFunction/Moebius.lean)**. The integer-valued Möbius arithmetic function is zero off squarefree integers and equals (−1) to the number of prime factors on squarefree integers; its value at zero is zero.
 
 ## Supplier interfaces
 
@@ -7963,7 +8030,7 @@ Needed by [AutomorphicSpectralTheory:AS.1/pseudo-eisenstein](#automorphicspectra
 
 ### Source-qualified spectral signatures after the round-3 fix review
 
-The real invariant/operator Paley–Wiener conclusions cannot quantify over an arbitrary linear transform or an arbitrary pair of rings. Local normalizing factors cannot be asserted for arbitrary J (J=0 contradicts the unitary inverse). The convergent-intertwiner and its SL₂/Weyl tests need actual rational quotient, inducing, chamber and Weyl-transport data. Those full source signatures are explicitly omitted until the named suppliers exist. The suggested file retains a regular-point scalar-composition adapter for μ, an image-preserving multiplier transport, and actual rank-one/measure specializations, without claiming that these produce the missing real/adelic carriers. Prior B1–B4 blockers outside this narrow review remain in force. The local-intertwiner adapter now assumes actual integrability and pointwise intertwining compatibility. Its spherical test evaluates the normalized valuation-shell integral, with the identification with GL₂ unipotent integration still omitted; arbitrary-kernel meromorphic continuation is no longer asserted. Weighted two-place splitting likewise awaits its actual quotient/Levi data, instead of asserting equality for unrelated scalars.
+The real invariant/operator Paley–Wiener conclusions cannot quantify over an arbitrary linear transform or an arbitrary pair of rings. Local normalizing factors cannot be asserted for arbitrary J (J=0 contradicts the unitary inverse). The convergent-intertwiner and its SL₂/Weyl tests need actual rational quotient, inducing, chamber and Weyl-transport data. Those full source signatures are explicitly omitted until the named suppliers exist. The suggested file retains a regular-point scalar-composition adapter for μ, an image-preserving multiplier transport, and actual rank-one/measure specializations, without claiming that these produce the missing real/adelic carriers. The round-3 fix review did not adjudicate the wider B1–B4 blockers. The independent revision-2 review below supersedes that limitation after checking the complete packet. The local-intertwiner adapter now assumes actual integrability and pointwise intertwining compatibility. Its spherical test evaluates the normalized valuation-shell integral, with the identification with GL₂ unipotent integration still omitted; arbitrary-kernel meromorphic continuation is no longer asserted. Weighted two-place splitting likewise awaits its actual quotient/Levi data, instead of asserting equality for unrelated scalars.
 
 Needed by [AutomorphicSpectralTheory:AS.1/convergent-intertwiner](#automorphicspectraltheory-as-1-convergent-intertwiner), [AutomorphicSpectralTheory:AS.2/mu-function](#automorphicspectraltheory-as-2-mu-function), [AutomorphicSpectralTheory:AS.2/local-normalization](#automorphicspectraltheory-as-2-local-normalization), [AutomorphicSpectralTheory:AS.6/real-invariant-paley-wiener](#automorphicspectraltheory-as-6-real-invariant-paley-wiener), [AutomorphicSpectralTheory:AS.6/real-operator-paley-wiener](#automorphicspectraltheory-as-6-real-operator-paley-wiener), [AutomorphicSpectralTheory:AS.6/spectral-multiplier](#automorphicspectraltheory-as-6-spectral-multiplier), [AutomorphicSpectralTheory:AS.6/weighted-orbital-integral](#automorphicspectraltheory-as-6-weighted-orbital-integral), [AutomorphicSpectralTheory:AS.2/local-intertwiner](#automorphicspectraltheory-as-2-local-intertwiner).
 
@@ -8304,7 +8371,7 @@ Source: [Le théorème de Paley-Wiener invariant pour les groupes de Lie réduct
 
 ### AutomorphicSpectralTheory/E14 — misprint
 
-Source: [An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §21 Theorem21.6 coefficient(21.17), p.137 in the Clay PDF; compared with (21.5), p.129, and Corollary21.3 coefficient, p.134.
+Source: [An Introduction to the Trace Formula](https://www.claymath.org/library/cw/arthur/pdf/62.pdf), §21 Theorem21.6 coefficient(21.17), p.137 in the Clay PDF; compared with (21.5), p.130, and Corollary21.3 coefficient, p.134.
 
 **Disputed assertion.** The coefficient multiplies the Weyl-group ratio by the reciprocal determinant on the relative height space.
 
@@ -9262,7 +9329,7 @@ This routing records the source items needed by the seven-stage spectral program
 - **PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/111** — covered: [AutomorphicSpectralTheory:AS.0/locally-convex-integration](#automorphicspectraltheory-as-0-locally-convex-integration), [AutomorphicSpectralTheory:AS.0/nuclear-lf-space](#automorphicspectraltheory-as-0-nuclear-lf-space). The locally convex integration target explicitly includes nuclear maps taking summable families to absolutely summable ones; scalar unordered-sum bounds are part of that target proof.
 - **PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/112** — covered: [AutomorphicSpectralTheory:AS.0/projective-tensor](#automorphicspectraltheory-as-0-projective-tensor), [AutomorphicSpectralTheory:AS.0/vector-schwartz](#automorphicspectraltheory-as-0-vector-schwartz). The tensor universal property is planned; the complete nuclear kernel-image theorem remains the specifically recorded Grothendieck source gap.
 - **PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/113** — covered: [AutomorphicSpectralTheory:AS.0/vector-schwartz](#automorphicspectraltheory-as-0-vector-schwartz), [AutomorphicSpectralTheory:AS.0/vector-phragmen-lindelof](#automorphicspectraltheory-as-0-vector-phragmen-lindelof). The vector Schwartz and uniform scalar-strip-order seminorm targets cover A.0.9.1; this does not remove its barrelled/quasi-complete hypotheses.
-- **PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/114** — covered: [AutomorphicSpectralTheory:AS.0/vector-phragmen-lindelof](#automorphicspectraltheory-as-0-vector-phragmen-lindelof), [AutomorphicSpectralTheory:AS.0/schwartz-family-continuation](#automorphicspectraltheory-as-0-schwartz-family-continuation), [AutomorphicSpectralTheory:AS.0/lf-dual-continuation](#automorphicspectraltheory-as-0-lf-dual-continuation). These are the three actual Appendix A.0.10–11 targets. Their packet statements retain the conditions; the suggested continuation signatures remain review blockers.
+- **PAPER-BEUZARTPLESSIS-CHAUDOUARD-ZYDOR-22/114** — covered: [AutomorphicSpectralTheory:AS.0/vector-phragmen-lindelof](#automorphicspectraltheory-as-0-vector-phragmen-lindelof), [AutomorphicSpectralTheory:AS.0/schwartz-family-continuation](#automorphicspectraltheory-as-0-schwartz-family-continuation), [AutomorphicSpectralTheory:AS.0/lf-dual-continuation](#automorphicspectraltheory-as-0-lf-dual-continuation). These are the three actual Appendix A.0.10–11 targets. The revision’s suggested continuation signatures now retain the two initial continuous families, reflected functional equation and common finite strip order; they construct the continuation rather than assert continuity of arbitrary off-chamber data.
 - **PAPER-CHENEVIER-TAIBI-20/l2-lefschetz** — covered: [AutomorphicSpectralTheory:AS.6/l2-lefschetz](#automorphicspectraltheory-as-6-l2-lefschetz), [AutomorphicSpectralTheory:AS.6/general-euler-poincare](#automorphicspectraltheory-as-6-general-euler-poincare). The target-level general node supplies the routed consumer; exact source/proof gaps are retained.
 - **PAPER-BOXER-CALEGARI-GEE-PILLONI-21/228** — covered: [AutomorphicSpectralTheory:AS.4/wallach-cuspidality](#automorphicspectraltheory-as-4-wallach-cuspidality). The target-level general node supplies the routed consumer; exact source/proof gaps are retained.
 - **PAPER-BOXER-CALEGARI-GEE-PILLONI-21/335** — covered: [AutomorphicSpectralTheory:AS.1/induced-family](#automorphicspectraltheory-as-1-induced-family), [AutomorphicSpectralTheory:AS.2/isobaric-sum](#automorphicspectraltheory-as-2-isobaric-sum). Normalized induction in AS.1 supplies the ordered cuspidal block input; AS.2 constructs the continued isobaric representation, its almost-everywhere uniqueness, Satake union and L-function product. Wallach cuspidality belongs to item228 and does not supply this construction.
@@ -9272,3 +9339,13 @@ This routing records the source items needed by the seven-stage spectral program
 RT-AREA-automorphic-1/4 and /24: real harmonic analysis supplies ET.1, whereas weighted orbital integrals use ET.1. A whole AS.6→ET.1 import would cycle.
 
 Extract AS.1a “Real Paley–Wiener theory and spectral multipliers” containing AS.6/real-invariant-paley-wiener, AS.6/real-operator-paley-wiener and AS.6/spectral-multiplier, preserving their statements, source ranges, APIs and tests. Its inputs are AS.0/vector-schwartz, AS.0/nuclear-lf-space, AS.0/locally-convex-integration, the independent AF.1/sf-representation carrier and the precise AF.1 local real-parabolic induction request (including arbitrary supplied Levi data and holomorphic compact pictures), together with AF.1b real classification/discrete-series inputs. AS.1 global adelic induced-family is not a supplier for this local prefix. The multiplier depends on the operator theorem inside this prefix. It imports neither ET.1 nor any AS.6 orbital/trace result. Export AS.1a to ET.1 and AS.6; keep ET.1→AS.6/weighted-orbital-integral and general-euler-poincare. Until integration use the current precise node ids and keep the stage boundary gap; do not claim a new atlas stage already exists. The nonarchimedean BDK supplier stays SmoothRepresentationsCharactersPartII, and AS.2 retains the measure-dependent μ-function/local-normalization nodes.
+
+## Independent revision-2 review
+
+Accepted as a complete target-level planning pass on 9 October 2026 by REV-AutomorphicSpectralTheory~2. The independent ledger checks every retained node: 177 verified and 13 corrected (one correction makes an omitted API name explicit). All seven stages remain planned, with 52 recorded gaps and 22 supplier requests; every implementation remains unchecked. The report is [REV-AutomorphicSpectralTheory~2](../reviews/REV-AutomorphicSpectralTheory~2.md).
+
+The original continuation and Fourier-transfer blockers are resolved: the Schwartz/LF-dual continuations use two initial continuous families and a common order bound, and the finite/torus Fourier models fix probability measure and the complete character basis. The object tests now evaluate named constructions or documented specializations.
+
+This review also fixes inverse-closed indexing in the kernel adjoint; explicit defect and factorization hypotheses in invariant recursion; the scalar Euler–Poincaré realization; the root-contour dz/z normalization; and Arthur’s Jacobian locator (21.5), p.130. The level adapter uses the named ER.7 meromorphic series and Mathlib zeta/Möbius data. The point-pair and automorphic Green eigen-equations use the actual GZ-sign coordinate Laplacian. Truncation linearity has finite coset support as a hypothesis, while compact local finiteness and the actual hermitian resolvent-kernel API await their genuine supplier carriers. These omissions follow the suggested-file convention and leave the source targets intact.
+
+All 32 baseline declarations are confirmed at their recorded pins. All 37 source-issue verdicts are renewed for this job and retain their older history. E3 remains rejected; E5 is the missing opposite-sign parity coefficient, since the printed DIT p.975 display already has the factor 2. The earlier review explanation claiming a missing printed factor 2 is superseded. The corrected suggested file elaborates against the pinned Mathlib with only admitted-proof warnings.
