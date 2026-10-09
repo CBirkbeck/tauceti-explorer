@@ -46072,8 +46072,9 @@
     "PKG-ClassicalSerreModularity"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ClassicalSerreModularity.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7508"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7508",
+   "finishedAt": "2026-10-09T02:07:15Z"
   },
   {
    "id": "PKG-ColemanIntegration",
@@ -46448,7 +46449,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-DiamondsAndVStacks.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7468"
   },
   {
    "id": "REV-PKG-DiamondsAndVStacks",
