@@ -20,7 +20,8 @@ the pin contain none of the objects used here.
   `Ideal.minimalPrimes`, `ringKrullDim`, `Representation.ind`, power series rings. A finite coefficient
   field `E` is used for lattices in `𝒪[E]` and residual representations in `𝓀[E]`.
   Realizing Q̄_l-valued automorphic and auxiliary data over E requires explicit enlargement;
-  the total fixed-E imported interfaces below do not yet supply that input. A finite place of a number field with its
+  RACP.Realized and Constituent.Realized restrict the carriers to chosen finite-E
+  realizations and stable lattices. Auxiliary characters explicitly return a finite coefficient extension. A finite place of a number field with its
   completion is a `Place`: a local field with a dense embedding of the number field.
 * The section "Imported interfaces", and the blocks "Imported interfaces used by PL.N" at the head
   of each layer, hold what other roadmaps own and this one consumes. Each declaration there is an
@@ -39,21 +40,20 @@ the pin contain none of the objects used here.
 * Each node of the packet has a section headed by its id. A definition or construction is followed
   by its API items, under the packet's names, and by its unit tests as `example`s, each preceded by
   `-- test: <name>`. The theorem signatures use the arithmetic objects of their nodes, with one declaration per
-  part where appropriate. The unresolved interfaces listed here and in the review mean that
-  not every proposed signature is yet a faithful realization of its packet statement.
+  part where appropriate. Exact supplier requests and source-version gaps delimit the claims;
+  the strong-primitive lifting routes are explicitly narrower than the published weak-primitive claims.
 
-**What the file leaves out or states differently.** The problem `D_C` of PL.1/connects-relation
-(`componentDeformationProblem`) is given for `l ≠ p`; its form for `l = p`, on components of the
-semistable lifting rings of fixed Hodge type, is not. Part (d) of
-PL.2/ordinary-forms-free-over-lambda has no Lean form: the deformation data of Newton–Thorne 2021
-§6 are not a definition node of the packet. In PL.8/pseudodeformation-tangent-comparison the
-`Gal(F/F⁺)`-equivariance of the trace map modulo `ϖ^m` and the input Proposition 2.7 of
-Newton–Thorne 2023 are not stated. In PL.9/generic-local-domain-lifting the Hodge–Tate weights are
-written in the convention of this file, `HT(ε) = {-1}`, where the source normalises `ε` to have
-weight `1`; the labelled weight, polynomial and K-type conversion remains unresolved. PL.9/generic-change-of-weight-lifting uses `Lifting.definiteUnitaryAutomorphic`, a
-stand-in without an owner in the atlas; it belongs to the roadmap's gap on the generic Serre weight
-theorem. Where a hypothesis was added to make a statement well formed (the coefficient field large
-enough, `Fact l.Prime`, characteristic zero), the docstring says so.
+**Scope and interfaces.** Both component conditions of PL.1 are stated, using geometric
+components and finite coefficient descents certified by R08.3. NT21 deformation data and part (d)
+of ordinary freeness have their own signatures. PL.8 states the O + epsilon E/O comparison as an
+IHG.1 input and owns its integral polarized trace equivariance. PL.7 targets that pass through the
+strong-primitive generic R=T theorem require strong primitivity, including the character-sum
+applications; the large-ratio weak-primitive lemma does not establish this extra hypothesis.
+PL.9 counts the odd-multiplier local tangent defect and extra generators before its parity
+conclusion. LLHLM source weights label the coefficients and polynomial; sourceToCommon translates
+the Hodge–Tate and HasWeight signatures. The separate change-of-weight route retains the §9.1
+standing assumptions and the generic Serre-weight gap. Imported data and proposed proofs require
+the source and supplier checks in the packet; elaboration does not prove them.
 
 The file elaborates at the pinned Mathlib with `declaration uses 'sorry'` as its only warning.
 -/
@@ -97,8 +97,9 @@ import Mathlib.RingTheory.RegularLocalRing.Defs
 import Mathlib.AlgebraicGeometry.EllipticCurve.VariableChange
 import Mathlib.RingTheory.PowerSeries.NoZeroDivisors
 import Mathlib.RingTheory.AdicCompletion.Algebra
-import Mathlib.Algebra.DualNumber
+import Mathlib.Algebra.TrivSqZeroExt.Basic
 import Mathlib.Topology.Instances.TrivSqZeroExt
+import Mathlib.Algebra.DualNumber
 
 set_option autoImplicit false
 
@@ -388,19 +389,42 @@ def weight (π : RACP F n) : (F →+* ℂ) → Fin n → ℤ := π.toRegAlg.weig
 /-- The local component `π_v`. -/
 def component (π : RACP F n) (v : Place F) : SmoothIrrep v.Fv n := π.toRegAlg.component v
 
-/-- AG2.2 (stand-in): the Galois representation `r_{l,ι}(π)`, for `ι : E → ℂ` and `E` large enough
-to contain its field of definition. -/
--- REVIEW: a finite extension realizing this representation is not supplied by
--- IsLargeForF. This total fixed-E interface remains unresolved (AG2.2/AG2.7).
-def galoisRep (π : RACP F n) (ι : E →+* ℂ) : Gal F →ₜ* GL (Fin n) E := sorry
+/-- AG2.2/AG2.7 (import): finite-E realizations of a specified `(π,ι)`, including
+an invariant free lattice and the integral algebraic Hecke multiplier. The carrier is empty
+unless the eigenvalues and representation admit this field of definition. Its forgetting map
+records the integral representation and multiplier; the supplier certifies local-global
+compatibility, not merely that E contains the embeddings of F. -/
+def realizationData (π : RACP F n) (ι : E →+* ℂ) :
+    Imported ((Gal F →ₜ* GL (Fin n) 𝒪[E]) ×
+      (Gal (maximalRealSubfield F) →ₜ* (𝒪[E])ˣ)) := sorry
 
-/-- AG2.0/galois-character-of-an-algebraic-hecke-character (stand-in): `r_{l,ι}(χ)`, a character
-of `G_{F⁺}`. -/
-def multiplier (π : RACP F n) (ι : E →+* ℂ) : Gal (maximalRealSubfield F) →ₜ* Eˣ := sorry
+/-- A selected finite-E realization. No instance is inferred from `IsLargeForF`.
+For an arbitrary π the existence theorem enlarges E first (AG2.2/AG2.7). -/
+class Realized (π : RACP F n) (ι : E →+* ℂ) where
+  data : (realizationData π ι).Carrier
 
-/-- AG2.7/residual-representation-of-pi (stand-in): the semisimple residual representation
-`r̄_{l,ι}(π)`. -/
-def residualRep (π : RACP F n) (ι : E →+* ℂ) : Gal F →* GL (Fin n) 𝓀[E] := sorry
+/-- The lattice belonging to this selected realization. -/
+def integralRep (π : RACP F n) (ι : E →+* ℂ) [R : Realized π ι] :
+    Gal F →ₜ* GL (Fin n) 𝒪[E] := ((realizationData π ι).forget R.data).1
+
+/-- The realized characteristic-zero representation. -/
+def galoisRep (π : RACP F n) (ι : E →+* ℂ) [Realized π ι] :
+    Gal F →ₜ* GL (Fin n) E where
+  toMonoidHom := generic (integralRep π ι).toMonoidHom
+  continuous_toFun := by sorry
+
+/-- The multiplier of the same realization, with its integral model. -/
+def integralMultiplier (π : RACP F n) (ι : E →+* ℂ) [R : Realized π ι] :
+    Gal (maximalRealSubfield F) →ₜ* (𝒪[E])ˣ :=
+  ((realizationData π ι).forget R.data).2
+
+def multiplier (π : RACP F n) (ι : E →+* ℂ) [Realized π ι] :
+    Gal (maximalRealSubfield F) →ₜ* Eˣ := sorry
+
+/-- AG2.7 (import): semisimplification of the reduction of the selected lattice;
+its coefficient field and residual comparisons are part of the realization interface. -/
+def residualRep (π : RACP F n) (ι : E →+* ℂ) [Realized π ι] :
+    Gal F →* GL (Fin n) 𝓀[E] := sorry
 
 /-- `π` has weight `ι_* λ`. -/
 def HasWeight (π : RACP F n) (ι : E →+* ℂ) (lam : (F →+* E) → Fin n → ℤ) : Prop :=
@@ -565,20 +589,49 @@ abbrev Lift (ρbar : Gal K →* GL (Fin n) 𝓀[E]) :=
 def Lift.prime {ρbar : Gal K →* GL (Fin n) 𝓀[E]} (ρ : Lift ρbar) : Ideal (LiftingRing K E ρbar) :=
   RingHom.ker (ρ.2 ▸ LiftingRing.point ρ.1 : LiftingRing K E ρbar →ₐ[𝒪[E]] 𝒪[E])
 
+/-- R08.3 (import): `(R^□/I)[1/l] ⊗_E Ebar`, with Ebar an algebraic closure
+of the finite coefficient field. The geometric generic fibre is used even when the arithmetic
+minimal primes split after coefficient enlargement. -/
+def GeometricLiftingFiber {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
+    (I : Ideal (LiftingRing K E ρbar)) : Type := sorry
+
+instance {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
+    (I : Ideal (LiftingRing K E ρbar)) : CommRing (GeometricLiftingFiber I) := sorry
+
+/-- The geometric point defined by an integral lift, only when it factors through I. -/
+def Lift.geometricPrime {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
+    (ρ : Lift ρbar) (I : Ideal (LiftingRing K E ρbar)) (hI : I ≤ ρ.prime) :
+    Ideal (GeometricLiftingFiber I) := sorry
+
+def OnCommonGeometricComponent {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
+    (I : Ideal (LiftingRing K E ρbar)) (ρ₁ ρ₂ : Lift ρbar) : Prop :=
+  ∃ (h₁ : I ≤ ρ₁.prime) (h₂ : I ≤ ρ₂.prime),
+    ∃ q ∈ (⊥ : Ideal (GeometricLiftingFiber I)).minimalPrimes,
+      q ≤ ρ₁.geometricPrime I h₁ ∧ q ≤ ρ₂.geometricPrime I h₂
+
+def OnUniqueGeometricComponent {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
+    (I : Ideal (LiftingRing K E ρbar)) (ρ : Lift ρbar) : Prop :=
+  ∃ hI : I ≤ ρ.prime, ∃! q,
+    q ∈ (⊥ : Ideal (GeometricLiftingFiber I)).minimalPrimes ∧ q ≤ ρ.geometricPrime I hI
+
+/-- R08.3 (import): the generic fibre of the selected arithmetic component quotient
+is geometrically integral, so that it represents one geometric component. This certificate
+is obtained after a finite continuous enlargement and compatible residual base change. -/
+def geometricallyIntegralComponent {ρbar : Gal K →* GL (Fin n) 𝓀[E]} :
+    Imported (Ideal (LiftingRing K E ρbar)) := sorry
+
 /-- Connection of two lifts of the same residual representation. For `l ≠ p` (the residue
 characteristics of `E` and `K`): a common irreducible component of `Spec R^□[1/l]`. For `l = p`:
 both are potentially crystalline with the same labelled Hodge–Tate weights `H` and lie on a common
 irreducible component of the `K'`-crystalline quotient of Hodge type `H`, for some finite `K'/K`.
-`E` is large enough that these components are geometrically irreducible (BLGGT14 take `Q̄_l`). -/
-/- REVIEW: finite-E minimal primes must be compared with geometric components
-over Q̄_l after compatible enlargement; the packet records this unresolved interface. -/
+The component condition is over an algebraic closure of E (BLGGT14 §§1.3–1.4). -/
 def ConnectsLift {p l : ℕ} [ResChar K p] [ResChar E l] {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
     (ρ₁ ρ₂ : Lift ρbar) : Prop :=
-  (p ≠ l → OnCommonComponent ⊥ l ρ₁.prime ρ₂.prime) ∧
+  (p ≠ l → OnCommonGeometricComponent ⊥ ρ₁ ρ₂) ∧
   (p = l → ∃ (H : (K →+* E) → Multiset ℤ) (K' : Type) (_ : Field K') (_ : ValuativeRel K')
       (_ : TopologicalSpace K') (_ : IsNonarchimedeanLocalField K') (f : K →+* K'),
       HasHodgeTate (genericC ρ₁.1) H ∧ HasHodgeTate (genericC ρ₂.1) H ∧
-      OnCommonComponent (crystallineIdeal ρbar H f) l ρ₁.prime ρ₂.prime)
+      OnCommonGeometricComponent (crystallineIdeal ρbar H f) ρ₁ ρ₂)
 
 /-- **`PL.1/connects-relation`: `ρ₁ ∼ ρ₂`.** The reductions are equivalent, and after conjugating
 `ρ₂` so that the reductions agree the two lifts connect (BLGGT14 §§1.3–1.4). -/
@@ -591,7 +644,7 @@ irreducible component of `Spec R^□[1/l]`. -/
 def StronglyConnects {p l : ℕ} [ResChar K p] [ResChar E l]
     (ρ₁ ρ₂ : Gal K →ₜ* GL (Fin n) 𝒪[E]) : Prop :=
   p ≠ l ∧ Connects ρ₁ ρ₂ ∧
-    OnUniqueComponent ⊥ l (Lift.prime (ρbar := reduction ρ₁.toMonoidHom) ⟨ρ₁, rfl⟩)
+    OnUniqueGeometricComponent ⊥ (ρbar := reduction ρ₁.toMonoidHom) ⟨ρ₁, rfl⟩
 
 /-- **`PL.1/connects-relation`: `D_C`.** For a finite set `C` of irreducible components of
 `Spec R^□[1/l]` (minimal primes not containing `l`), the ideal cutting out the maximal reduced
@@ -599,6 +652,16 @@ def StronglyConnects {p l : ℕ} [ResChar K p] [ResChar E l]
 def componentDeformationProblem {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
     (C : Finset (Ideal (LiftingRing K E ρbar))) : Ideal (LiftingRing K E ρbar) :=
   C.inf id
+
+/-- **`PL.1/connects-relation`: D_C when l=p.** For components of the fixed
+potentially crystalline Hodge-type quotient, descend after they become geometrically integral.
+The input C consists of arithmetic minimal primes over the crystalline ideal which avoid l;
+the local-deformation-problem theorem below requires those facts and the geometric certificate. -/
+def crystallineComponentDeformationProblem {ρbar : Gal K →* GL (Fin n) 𝓀[E]}
+    (H : (K →+* E) → Multiset ℤ) {K' : Type} [Field K'] [ValuativeRel K']
+    [TopologicalSpace K'] [IsNonarchimedeanLocalField K'] (f : K →+* K')
+    (C : Finset (Ideal (LiftingRing K E ρbar))) : Ideal (LiftingRing K E ρbar) :=
+  crystallineIdeal ρbar H f ⊔ C.inf id
 
 /-- **`PL.1/potentially-diagonalizable`.** `ρ` is crystalline and connects to a sum of
 crystalline characters (`K` and `E` of the same residue characteristic). -/
@@ -639,7 +702,7 @@ def IsOrdinaryOfWeight (l : ℕ) (ρ : Gal F →ₜ* GL (Fin n) E) (lam : (F →
 
 /-- `(r, μ) ≅ (r_{l,ι}(π), r_{l,ι}(χ) ε_l^{1-n})`: the pair is automorphic through `π`. -/
 def IsAutomorphicVia (ι : E →+* ℂ) (r : Gal F →ₜ* GL (Fin n) E)
-    (μ : Gal (maximalRealSubfield F) →ₜ* Eˣ) (π : RACP F n) : Prop :=
+    (μ : Gal (maximalRealSubfield F) →ₜ* Eˣ) (π : RACP F n) [RACP.Realized π ι] : Prop :=
   Conj (r : Gal F → GL (Fin n) E) (π.galoisRep ι) ∧
     ∀ σ, μ σ = π.multiplier ι σ * (cyclo E (maximalRealSubfield F) σ) ^ (1 - (n : ℤ))
 
@@ -647,30 +710,30 @@ def IsAutomorphicVia (ι : E →+* ℂ) (r : Gal F →ₜ* GL (Fin n) E)
 (BLGGT14 §2.1). -/
 def IsAutomorphic (ι : E →+* ℂ) (r : Gal F →ₜ* GL (Fin n) E)
     (μ : Gal (maximalRealSubfield F) →ₜ* Eˣ) : Prop :=
-  ∃ π : RACP F n, IsAutomorphicVia ι r μ π
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsAutomorphicVia ι r μ π
 
 /-- **`PL.0/automorphic-polarized-representation`.** Automorphic of level prime to `l`. -/
 def IsAutomorphicOfLevelPrimeTo (l : ℕ) (ι : E →+* ℂ) (r : Gal F →ₜ* GL (Fin n) E)
     (μ : Gal (maximalRealSubfield F) →ₜ* Eˣ) : Prop :=
-  ∃ π : RACP F n, IsAutomorphicVia ι r μ π ∧
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsAutomorphicVia ι r μ π ∧
     ∀ v : Place F, v.Above l → (unramifiedIrrep v.Fv n).Holds (π.component v)
 
 /-- **`PL.0/automorphic-polarized-representation`.** Automorphic of level potentially prime to
 `l`. -/
 def IsAutomorphicOfLevelPotentiallyPrimeTo (l : ℕ) (ι : E →+* ℂ)
     (r : Gal F →ₜ* GL (Fin n) E) (μ : Gal (maximalRealSubfield F) →ₜ* Eˣ) : Prop :=
-  ∃ π : RACP F n, IsAutomorphicVia ι r μ π ∧ (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsAutomorphicVia ι r μ π ∧ (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg
 
 /-- **`PL.0/automorphic-polarized-representation`.** Ordinarily automorphic: automorphic through
 an `ι`-ordinary `π` (the notion of `ι`-ordinarity is imported from PA.2). -/
 def IsOrdinarilyAutomorphic (ι : E →+* ℂ) (r : Gal F →ₜ* GL (Fin n) E)
     (μ : Gal (maximalRealSubfield F) →ₜ* Eˣ) : Prop :=
-  ∃ π : RACP F n, IsAutomorphicVia ι r μ π ∧ (iotaOrdinary F E n ι).Holds π.toRegAlg
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsAutomorphicVia ι r μ π ∧ (iotaOrdinary F E n ι).Holds π.toRegAlg
 
 /-- **`PL.1/potentially-diagonalizable`.** Potentially diagonalizably automorphic. -/
 def IsPotentiallyDiagonalizablyAutomorphic (l : ℕ) [ResChar E l] (ι : E →+* ℂ)
     (r : Gal F →ₜ* GL (Fin n) E) (μ : Gal (maximalRealSubfield F) →ₜ* Eˣ) : Prop :=
-  ∃ π : RACP F n, IsAutomorphicVia ι r μ π ∧ (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg ∧
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsAutomorphicVia ι r μ π ∧ (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg ∧
     ∀ (v : Place F) (_ : ResChar v.Fv l),
       IsPotentiallyDiagonalizableRat (resPlace (π.galoisRep ι) v)
 
@@ -1125,19 +1188,19 @@ def IsTotallyOdd (r : Gal F →ₜ* GL (Fin n) E) (μ : Gal (maximalRealSubfield
 /-- `r` alone is automorphic: `r ≅ r_{l,ι}(π)` for a regular algebraic cuspidal polarized `π`
 (BLGGT14 §2.1). -/
 def IsAutomorphicRep (ι : E →+* ℂ) (r : Gal F →ₜ* GL (Fin n) E) : Prop :=
-  ∃ π : RACP F n, Conj (r : Gal F → GL (Fin n) E) (π.galoisRep ι)
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  Conj (r : Gal F → GL (Fin n) E) (π.galoisRep ι)
 
 /-- `r` alone is automorphic of weight `λ`: `r ≅ r_{l,ι}(π)` for a regular algebraic cuspidal
 polarized `π` of weight `ι_* λ`. -/
 def IsAutomorphicOfWeight (ι : E →+* ℂ) (r : Gal F →ₜ* GL (Fin n) E)
     (lam : (F →+* E) → Fin n → ℤ) : Prop :=
-  ∃ π : RACP F n, Conj (r : Gal F → GL (Fin n) E) (π.galoisRep ι) ∧ π.HasWeight ι lam
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  Conj (r : Gal F → GL (Fin n) E) (π.galoisRep ι) ∧ π.HasWeight ι lam
 
 /-- The mod `l` pair `(r̄, μ̄)` is automorphic:
 `(r̄, μ̄) ≅ (r̄_{l,ι}(π), r̄_{l,ι}(χ) ε̄_l^{1-n})` (BLGGT14 §2.1). -/
 def IsResiduallyAutomorphic (ι : E →+* ℂ) (rbar : Gal F →* GL (Fin n) 𝓀[E])
     (μbar : Gal (maximalRealSubfield F) →* (𝓀[E])ˣ) : Prop :=
-  ∃ π : RACP F n, Conj (rbar : Gal F → GL (Fin n) 𝓀[E]) (π.residualRep ι) ∧
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  Conj (rbar : Gal F → GL (Fin n) 𝓀[E]) (π.residualRep ι) ∧
     IsReductionOfChar
       (fun σ => π.multiplier ι σ * cyclo E (maximalRealSubfield F) σ ^ (1 - (n : ℤ))) μbar
 
@@ -1441,7 +1504,7 @@ the sense of PA.2/ordinarily-automorphic-representation, through the same `π` w
 polarization forgotten. -/
 theorem IsOrdinarilyAutomorphic.forget_polarization (hF : IsCMField F ∨ IsTotallyReal F)
     {ι : E →+* ℂ} {r : Gal F →ₜ* GL (Fin n) E} {μ : Gal (maximalRealSubfield F) →ₜ* Eˣ}
-    (π : RACP F n) (hπ : IsAutomorphicVia ι r μ π)
+    (π : RACP F n) [RACP.Realized π ι] (hπ : IsAutomorphicVia ι r μ π)
     (hord : (iotaOrdinary F E n ι).Holds π.toRegAlg) :
     (ordinarilyAutomorphicVia F E n ι).Holds (r, π.toRegAlg) := by
   sorry
@@ -1470,7 +1533,7 @@ example (hF : IsCMField F ∨ IsTotallyReal F) (ι : E →+* ℂ) (r : Gal F →
 
 -- test: ordinarilyAutomorphic_ordinary
 example (hF : IsCMField F ∨ IsTotallyReal F) (ι : E →+* ℂ) (r : Gal F →ₜ* GL (Fin n) E)
-    (μ : Gal (maximalRealSubfield F) →ₜ* Eˣ) (π : RACP F n) (hπ : IsAutomorphicVia ι r μ π)
+    (μ : Gal (maximalRealSubfield F) →ₜ* Eˣ) (π : RACP F n) [RACP.Realized π ι] (hπ : IsAutomorphicVia ι r μ π)
     (hord : (iotaOrdinary F E n ι).Holds π.toRegAlg) (lam : (F →+* E) → Fin n → ℤ)
     (hw : π.HasWeight ι lam) : IsOrdinaryOfWeight l r lam := by
   sorry
@@ -1483,7 +1546,7 @@ remark (6)). For a regular algebraic cuspidal polarized `(π, χ)` of weight `ι
 totally real field that is `ι`-ordinary, `r_{l,ι}(π)` is ordinary of weight `λ`. The reduction
 from totally real to CM fields uses the import PA.2/iota-ordinary-soluble-base-change. -/
 theorem iota_ordinary_implies_ordinary (hF : IsCMField F ∨ IsTotallyReal F) (ι : E →+* ℂ)
-    (lam : (F →+* E) → Fin n → ℤ) (π : RACP F n) (hw : π.HasWeight ι lam)
+    (lam : (F →+* E) → Fin n → ℤ) (π : RACP F n) [RACP.Realized π ι] (hw : π.HasWeight ι lam)
     (hord : (iotaOrdinary F E n ι).Holds π.toRegAlg) :
     IsOrdinaryOfWeight l (π.galoisRep ι) lam := by
   sorry
@@ -1497,7 +1560,7 @@ prime to `l` over a CM or totally real field: if `r_{l,ι}(π)|G_{F_v}` is ordin
 `v | l`, then `π` is `ι`-ordinary. The descent of `ι`-ordinarity along a soluble base change is
 the import PA.2/iota-ordinary-soluble-base-change. -/
 theorem ordinary_implies_iota_ordinary (hF : IsCMField F ∨ IsTotallyReal F) (ι : E →+* ℂ)
-    (π : RACP F n) (hlev : (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg)
+    (π : RACP F n) [RACP.Realized π ι] (hlev : (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg)
     (hord : ∀ v : Place F, v.Above l → IsOrdinaryLocal (resPlace (π.galoisRep ι) v)) :
     (iotaOrdinary F E n ι).Holds π.toRegAlg := by
   sorry
@@ -1729,6 +1792,29 @@ theorem auxiliary_cm_extensions_3 [IsCMField F] (S : Set (Place F)) (hS : S.Fini
 
 end AuxiliaryExtensions
 
+/-- Finite continuous coefficient enlargement, with the induced integral and residue maps.
+This is a supplier adapter for AG2.2/AG2.7; it is not an arbitrary field embedding. -/
+structure CoefficientExtension (E : Type) [Field E] [ValuativeRel E]
+    [TopologicalSpace E] [IsNonarchimedeanLocalField E] where
+  carrier : Type
+  [field : Field carrier]
+  [valuation : ValuativeRel carrier]
+  [topology : TopologicalSpace carrier]
+  [localField : IsNonarchimedeanLocalField carrier]
+  [algebra : Algebra E carrier]
+  [finite : FiniteDimensional E carrier]
+  continuous : Continuous (algebraMap E carrier)
+  integralMap : 𝒪[E] →+* 𝒪[carrier]
+  residueMap : 𝓀[E] →+* 𝓀[carrier]
+  integral_eq : ∀ x : 𝒪[E],
+    (integralMap x : carrier) = algebraMap E carrier (x : E)
+  residue_eq : ∀ x : 𝒪[E], residueMap (IsLocalRing.residue 𝒪[E] x) =
+    IsLocalRing.residue 𝒪[carrier] (integralMap x)
+
+attribute [instance] CoefficientExtension.field CoefficientExtension.valuation
+  CoefficientExtension.topology CoefficientExtension.localField CoefficientExtension.algebra
+  CoefficientExtension.finite
+
 /-! ### PL.0/auxiliary-characters: Algebraic characters with prescribed conjugate-norm and local
 behaviour -/
 
@@ -1739,8 +1825,9 @@ characters of `G_{F_v}`, de Rham for `v | l`, with `(ψ_v ψ_{cv}^c)|I_{F_v} = �
 element of `S` is unramified over `F⁺` and `χ(c_v)` is independent of `v | ∞`, there is a
 continuous character `θ` of `G_F` with `θ θ^c = χ|G_F` and `θ|I_{F_v} = ψ_v|I_{F_v}` for
 `v ∈ S`. -/
-/- REVIEW: A.2.5 may enlarge coefficients; this fixed-E output is still
-an unresolved proposed signature, not a proved finite-field realization. -/
+/- The output is realized only after a finite continuous coefficient enlargement.
+All input characters, including the residual character in part (2), are transported by its
+specified field, integral and residue maps. -/
 theorem auxiliary_characters_1 [IsCMField F] (S : Set (Place F)) (hS : S.Finite)
     (hSl : ∀ v : Place F, v.Above l → ∃ w ∈ S, v.IsEquivTo w)
     (hSc : ∀ w ∈ S, ∃ v ∈ S, ∃ e : v.Fv →+* w.Fv,
@@ -1754,8 +1841,11 @@ theorem auxiliary_characters_1 [IsCMField F] (S : Set (Place F)) (hS : S.Finite)
     (hunr : ∀ v ∈ S, v.IsUnramifiedOverPlus)
     (hχ : ∀ v v' : InfinitePlace (maximalRealSubfield F),
       χ (conjAt (maximalRealSubfield F) v) = χ (conjAt (maximalRealSubfield F) v')) :
-    ∃ θ : Gal F →ₜ* Eˣ, IsConjNorm θ.toMonoidHom χ.toMonoidHom ∧
-      ∀ v ∈ S, ∀ σ ∈ inertia v.Fv, θ (v.dec σ) = ψ v σ := by
+    ∃ X : CoefficientExtension E, ∃ θ : Gal F →ₜ* X.carrierˣ,
+      IsConjNorm θ.toMonoidHom
+        ((Units.map (algebraMap E X.carrier : E →* X.carrier)).comp χ.toMonoidHom) ∧
+      ∀ v ∈ S, ∀ σ ∈ inertia v.Fv,
+        θ (v.dec σ) = Units.map (algebraMap E X.carrier : E →* X.carrier) (ψ v σ) := by
   sorry
 
 /-- PL.0/auxiliary-characters, part (2) (BLGGT14, Lemma A.2.5(2), from Clozel–Harris–Taylor,
@@ -1777,9 +1867,12 @@ theorem auxiliary_characters_2 [IsCMField F] (hl : 2 < l) (S : Set (Place F)) (h
     (θbar : Gal F →* (𝓀[E])ˣ) (hθc : IsContinuousResidual θbar)
     (hθθ : IsConjNorm θbar χbar)
     (hθψ : ∀ v ∈ S, IsReductionOfChar (⇑(ψ v)) (fun σ => θbar (v.dec σ))) :
-    ∃ θ : Gal F →ₜ* Eˣ, IsReductionOfChar (⇑θ) (⇑θbar) ∧
-      IsConjNorm θ.toMonoidHom χ.toMonoidHom ∧
-      ∀ v ∈ S, ∀ σ ∈ inertia v.Fv, θ (v.dec σ) = ψ v σ := by
+    ∃ X : CoefficientExtension E, ∃ θ : Gal F →ₜ* X.carrierˣ,
+      IsReductionOfChar (⇑θ) (fun σ => Units.map X.residueMap.toMonoidHom (θbar σ)) ∧
+      IsConjNorm θ.toMonoidHom
+        ((Units.map (algebraMap E X.carrier : E →* X.carrier)).comp χ.toMonoidHom) ∧
+      ∀ v ∈ S, ∀ σ ∈ inertia v.Fv,
+        θ (v.dec σ) = Units.map (algebraMap E X.carrier : E →* X.carrier) (ψ v σ) := by
   sorry
 
 /-- PL.0/auxiliary-characters, algebraicity of `χ` (BLGGT14, Lemma A.2.5): under the standing
@@ -1940,10 +2033,30 @@ factoring through the reduced `l`-torsion-free quotient supported on `C` form a 
 problem `D_C` (BLGGT14 §1.3, from Lemma 1.2.2 and BLGHT11, Lemma 3.2). -/
 theorem componentDeformationProblem_isLocalDeformationProblem (hpl : p ≠ l)
     (ρbar : Gal K →* GL (Fin n) 𝓀[E]) (hρbar : IsContinuousResidual ρbar)
-    (C : Finset (Ideal (LiftingRing K E ρbar)))
-    (hC : ∀ Q ∈ C, Q ∈ minimalPrimes (LiftingRing K E ρbar) ∧ (l : LiftingRing K E ρbar) ∉ Q) :
+    (C : Finset (Ideal (LiftingRing K E ρbar))) (hCnonempty : C.Nonempty)
+    (hC : ∀ Q ∈ C, Q ∈ minimalPrimes (LiftingRing K E ρbar) ∧ (l : LiftingRing K E ρbar) ∉ Q)
+    (hgeom : ∀ Q ∈ C, (geometricallyIntegralComponent (ρbar := ρbar)).Holds Q) :
     (localDeformationProblem ρbar).Holds (componentDeformationProblem C) := by
   sorry
+
+/-- The corresponding component condition at l=p, BLGGT14 §1.4, pp.26–27.
+All selected components have the fixed Hodge type and crystalline extension. -/
+theorem crystallineComponentDeformationProblem_isLocalDeformationProblem
+    (hpl : p = l) (ρbar : Gal K →* GL (Fin n) 𝓀[E])
+    (hρbar : IsContinuousResidual ρbar) (H : (K →+* E) → Multiset ℤ)
+    (K' : Type) [Field K'] [ValuativeRel K'] [TopologicalSpace K']
+    [IsNonarchimedeanLocalField K'] [Algebra K K'] [FiniteDimensional K K']
+    (C : Finset (Ideal (LiftingRing K E ρbar))) (hCnonempty : C.Nonempty)
+    (hC : ∀ Q ∈ C, Q ∈ (crystallineIdeal ρbar H (algebraMap K K')).minimalPrimes ∧
+      (l : LiftingRing K E ρbar) ∉ Q)
+    (hgeom : ∀ Q ∈ C, (geometricallyIntegralComponent (ρbar := ρbar)).Holds Q) :
+    (localDeformationProblem ρbar).Holds
+      (crystallineComponentDeformationProblem H (algebraMap K K') C) := by sorry
+
+-- test: crystalline_component_singleton
+example (ρbar : Gal K →* GL (Fin n) 𝓀[E]) (H : (K →+* E) → Multiset ℤ)
+    (Q : Ideal (LiftingRing K E ρbar)) (hQ : crystallineIdeal ρbar H (RingHom.id K) ≤ Q) :
+    crystallineComponentDeformationProblem H (RingHom.id K) {Q} = Q := by sorry
 
 -- test: connects_unramified
 example (hpl : p ≠ l) (ρ₁ ρ₂ : Gal K →ₜ* GL (Fin n) 𝒪[E]) (h₁ : IsUnramified ρ₁.toMonoidHom)
@@ -2103,7 +2216,7 @@ theorem generic_smooth_points_1 (hpl : p ≠ l) (ι : E →+* ℂ) (ρ : Gal K �
     (π : SmoothIrrep K n) (hπ : (genericIrrep K n).Holds π)
     (hrec : (recMatch K E n ι).Holds (genericC ρ, π)) :
     HasNoAdOneInvariants E (genericC ρ : Gal K → GL (Fin n) E) ∧
-      OnUniqueComponent ⊥ l (Lift.prime (ρbar := reduction ρ.toMonoidHom) ⟨ρ, rfl⟩) ∧
+      OnUniqueGeometricComponent ⊥ (ρbar := reduction ρ.toMonoidHom) ⟨ρ, rfl⟩ ∧
       ∀ ρ' : Gal K →ₜ* GL (Fin n) 𝒪[E], Connects ρ ρ' → StronglyConnects ρ ρ' := by
   sorry
 
@@ -3184,15 +3297,27 @@ not above `R ∪ S(B)`. -/
 def component (π : Constituent D lam) (ι : E →+* ℂ) (w : Place D.L) : SmoothIrrep w.Fv D.n :=
   sorry
 
-/-- **`r_l(π)`**, the Galois representation of a constituent (Thorne 2012, Theorem 6.5). -/
-def galoisRep (π : Constituent D lam) : Gal D.L →ₜ* GL (Fin D.n) E := sorry
+/-- AG2.2/AG2.7 (import): stable-lattice realizations of this raw constituent over E,
+with the Thorne 2012 Theorem 6.5 compatibility. An E-valued eigensystem alone does not inhabit
+this carrier; the existence theorem may require a finite splitting extension. -/
+def realizationData (π : Constituent D lam) :
+    Imported (Gal D.L →ₜ* GL (Fin D.n) 𝒪[E]) := sorry
+
+class Realized (π : Constituent D lam) where
+  data : (realizationData π).Carrier
+
+/-- **`r_l(π)`**, for a specified finite-E realization of a constituent. -/
+def galoisRep (π : Constituent D lam) [R : Realized π] :
+    Gal D.L →ₜ* GL (Fin D.n) E where
+  toMonoidHom := generic ((realizationData π).forget R.data).toMonoidHom
+  continuous_toFun := by sorry
 
 end Constituent
 
 section ConstituentGalois
 
 variable (D : HeckeDatum E) (lam : (D.L →+* E) → Fin D.n → ℤ) (hst : D.Standing lam)
-  (π : Constituent D lam)
+  (π : Constituent D lam) [Constituent.Realized π]
 
 include hst
 
@@ -3410,7 +3535,7 @@ groups and GL_n -/
 
 /-- A polarized `(π, χ)` over a CM field is RACSDC: `r_{l,ι}(χ) = δ_{F/F⁺}^n`, that is
 `π^c ≅ π^∨`. -/
-def IsRACSDC {F : Type} [Field F] [NumberField F] {n : ℕ} (π : RACP F n) (ι : E →+* ℂ) : Prop :=
+def IsRACSDC {F : Type} [Field F] [NumberField F] {n : ℕ} (π : RACP F n) (ι : E →+* ℂ) [RACP.Realized π ι] : Prop :=
   ∀ σ, π.multiplier ι σ = delta F E σ ^ n
 
 /-- `B` is a base change of `Π`: its component at `w` is `Π_v ∘ ι_w⁻¹` for split `v = w w^c` not
@@ -3440,7 +3565,7 @@ Proposition 2.2.7; Clozel–Thorne 2014, Proposition 2.9(2)). A RACSDC `π` of `
 an automorphic `Π` of `G(𝔸_{L⁺})` with `Π_∞ ≅ ξ^∨` of the weight of `π`, `Π_v ≅ π_w ∘ ι_w` at
 split places, and a hyperspecial-fixed vector at every inert place where `π` is unramified. -/
 theorem unitary_base_change_and_descent_1 (C : CMData) (hSB : C.SB = ∅) (ι : E →+* ℂ)
-    (π : RACP C.L C.n) (hπ : IsRACSDC π ι) :
+    (π : RACP C.L C.n) [RACP.Realized π ι] (hπ : IsRACSDC π ι) :
     ∃ P : UnitaryAutRep C, (unitaryOfWeight C π.weight).Holds P ∧
       (∀ w : Place C.L, C.IsSplit w → P.component w = π.component w) ∧
       ∀ v : Place C.Lplus, C.IsInert v →
@@ -3460,9 +3585,9 @@ a constituent `π` is irreducible, the base change of its automorphic representa
 summand, which is RACSDC with Galois representation `r_l(π)`. -/
 theorem unitary_base_change_and_descent_2_irreducible (D : HeckeDatum E)
     (lam : (D.L →+* E) → Fin D.n → ℤ) (hst : D.Standing lam) (hSB : D.toCMData.SB = ∅)
-    (ι : E →+* ℂ) (π : Constituent D lam) (hirr : IsAbsIrred π.galoisRep)
+    (ι : E →+* ℂ) (π : Constituent D lam) [Constituent.Realized π] (hirr : IsAbsIrred π.galoisRep)
     (B : IsobaricRep D.L D.n) (hB : IsBaseChange D.toCMData (π.autRep ι) B) :
-    B.length = 1 ∧ ∃ π₁ : RACP D.L D.n, IsRACSDC π₁ ι ∧
+    B.length = 1 ∧ ∃ π₁ : RACP D.L D.n, ∃ R : RACP.Realized π₁ ι, letI := R;  IsRACSDC π₁ ι ∧
       (∀ w : Place D.L, π₁.component w = B.component w) ∧
       Conj (π₁.galoisRep ι : Gal D.L → GL (Fin D.n) E) π.galoisRep := by
   sorry
@@ -3485,7 +3610,7 @@ theorem unitary_base_change_and_descent_3a_nonEisenstein (D : HeckeDatum E)
       lam (τ.comp (IsCMField.complexConj D.L : D.L →+* D.L)) i = -lam τ (Fin.rev i))
     (ι : E →+* ℂ) (m : Ideal (heckeAlgebra D lam)) [m.IsMaximal]
     (hne : IsNonEisenstein D lam m) (f : Localization.AtPrime m →ₐ[𝒪[E]] 𝒪[E]) :
-    ∃ π : RACP D.L D.n, IsRACSDC π ι ∧ π.HasWeight ι lam ∧
+    ∃ π : RACP D.L D.n, ∃ R : RACP.Realized π ι, letI := R;  IsRACSDC π ι ∧ π.HasWeight ι lam ∧
       Conj (fun σ : Gal D.L => Matrix.GeneralLinearGroup.map
           ((algebraMap 𝒪[E] E).comp (f : Localization.AtPrime m →+* 𝒪[E]))
           (heckeGaloisRepGL D lam m σ)) (π.galoisRep ι) := by
@@ -3499,7 +3624,7 @@ inert over `L⁺` and an unramified twist of Steinberg above `S(B)`. Then (a) `�
 with `σ_∞` trivial and a hyperspecial-fixed vector at every inert place; (b) for prescribed
 hyperspecial subgroups `K_v` at the inert places there is such a `σ'` with `K_v`-fixed vectors. -/
 theorem unitary_base_change_and_descent_4 (C : CMData) (hSB : C.SB.Nonempty) (ι : E →+* ℂ)
-    (π : RACP C.L C.n) (hπ : IsRACSDC π ι) (hw : π.weight = 0)
+    (π : RACP C.L C.n) [RACP.Realized π ι] (hπ : IsRACSDC π ι) (hw : π.weight = 0)
     (hinert : ∀ w : Place C.L, ¬ C.IsSplit w → (unramifiedIrrep w.Fv C.n).Holds (π.component w))
     (hSt : ∀ w : Place C.L, ¬ C.OutsideSB w → (steinbergTwist w.Fv C.n).Holds (π.component w)) :
     (∃ σ : UnitaryAutRep C, (unitaryOfWeight C 0).Holds σ ∧
@@ -4136,10 +4261,7 @@ theorem ordinary_forms_free_over_lambda_c (hst : D.Standing D.zeroWeight)
         Module.Finite (iwasawaAlgebra D) (ordDual D S D.zeroWeight)) := by
   sorry
 
--- Part (d) (Newton–Thorne 2021, Proposition 6.5) has no Lean form here. Its objects, the
--- deformation datum `D` of Newton–Thorne 2021 §6 with its levels `U(D, c)`, its coefficient module
--- `M_D`, `H^{ord}(D)` and `T^{ord}(D)`, are described in the statements of
--- PL.2/big-ordinary-hecke-algebra and of this node and are not a definition node of the packet.
+-- Part (d) follows the ordinary-deformation-datum construction below.
 
 end FreeOverLambda
 
@@ -4287,7 +4409,7 @@ theorem unitary_base_change_and_descent_3b (hSB : D.toCMData.SB = ∅) (ι : E �
       (∀ (w : Place D.L) (j : ℕ), D.IsHeckePlace w → 1 ≤ j → j ≤ D.n →
         σ.eigensystem (heckeAlgebra.T (D.atIwahori S r r) lam w j) =
           algebraMap 𝒪[E] E (f (bigOrdinaryHeckeAlgebra.T D w j))) ∧
-      (IsAbsIrred σ.galoisRep → ∃ π : RACP D.L D.n, IsRACSDC π ι ∧
+      (∀ R : Constituent.Realized σ, letI := R; IsAbsIrred σ.galoisRep → ∃ π : RACP D.L D.n, ∃ R : RACP.Realized π ι, letI := R;  IsRACSDC π ι ∧
         Conj (π.galoisRep ι : Gal D.L → GL (Fin D.n) E) σ.galoisRep) := by
   sorry
 
@@ -5906,12 +6028,11 @@ def hodgeTypeOfWeight (lam : (F →+* E) → Fin n → ℤ) (v : Place F) :
 /-- Two lifts of the same residual representation lie on a common irreducible component of the
 generic fibre of the crystalline lifting ring of Hodge type `H`. -/
 def OnSameCrystallineComponent {K : Type} [Field K] [ValuativeRel K] [TopologicalSpace K]
-    [IsNonarchimedeanLocalField K] (l : ℕ) (H : (K →+* E) → Multiset ℤ)
+    [IsNonarchimedeanLocalField K] (_l : ℕ) (H : (K →+* E) → Multiset ℤ)
     (ρ₁ ρ₂ : Gal K →ₜ* GL (Fin n) 𝒪[E]) : Prop :=
   ∃ h : reduction ρ₂.toMonoidHom = reduction ρ₁.toMonoidHom,
-    OnCommonComponent (crystallineIdeal (reduction ρ₁.toMonoidHom) H (RingHom.id K)) l
-      (Lift.prime (ρbar := reduction ρ₁.toMonoidHom) ⟨ρ₁, rfl⟩)
-      (Lift.prime (ρbar := reduction ρ₁.toMonoidHom) ⟨ρ₂, h⟩)
+    OnCommonGeometricComponent (crystallineIdeal (reduction ρ₁.toMonoidHom) H (RingHom.id K))
+      (ρbar := reduction ρ₁.toMonoidHom) ⟨ρ₁, rfl⟩ ⟨ρ₂, h⟩
 
 end PL3Helpers
 
@@ -6268,7 +6389,7 @@ variable {E}
 AG2.0/galois-character-of-an-algebraic-hecke-character (stand-in): the character `r_{l,ι}(χ)` of
 `G_{F⁺}` with values in `𝒪[E]^×`. It is the integral form of `RACP.multiplier`: see
 `genericChar_multiplierInt`. -/
-def multiplierInt {F : Type} [Field F] [NumberField F] {n : ℕ} (π : RACP F n) (ι : E →+* ℂ) :
+def multiplierInt {F : Type} [Field F] [NumberField F] {n : ℕ} (π : RACP F n) (ι : E →+* ℂ) [RACP.Realized π ι] :
     Gal (maximalRealSubfield F) →ₜ* (𝒪[E])ˣ := sorry
 
 /-- AutomorphicGaloisRepresentationsPartII AG2.0/polarized-automorphic-representation (stand-in):
@@ -6587,7 +6708,7 @@ theorem genericChar_cycloInt (K : Type*) [Field K] : genericChar (cycloInt E K) 
   sorry
 
 /-- The stand-in `multiplierInt` is the integral form of `RACP.multiplier`. -/
-theorem genericChar_multiplierInt (π : RACP F n) (ι : E →+* ℂ) :
+theorem genericChar_multiplierInt (π : RACP F n) (ι : E →+* ℂ) [RACP.Realized π ι] :
     genericChar (multiplierInt π ι) = π.multiplier ι := by
   sorry
 
@@ -6774,26 +6895,26 @@ def sylowConstituentDim (l : ℕ) {k : Type*} [Field k] (rbar : Gal F →* GL (F
 /-- The residual pair `(r̄, μ̄)` is automorphic through `π`:
 `(r̄, μ̄) ≅ (r̄_{l,ι}(π), r̄_{l,ι}(χ) ε̄_l^{1-n})` (BLGGT14 §2.1). -/
 def IsResiduallyAutomorphicVia (ι : E →+* ℂ) (rbar : Gal F →* GL (Fin n) 𝓀[E])
-    (μbar : Gal F⁺ →* (𝓀[E])ˣ) (π : RACP F n) : Prop :=
+    (μbar : Gal F⁺ →* (𝓀[E])ˣ) (π : RACP F n) [RACP.Realized π ι] : Prop :=
   Conj (rbar : Gal F → GL (Fin n) 𝓀[E]) (π.residualRep ι) ∧
     ∀ σ, μbar σ = redChar (multiplierInt π ι * cycloInt E F⁺ ^ (1 - (n : ℤ))) σ
 
 /-- The residual pair is automorphic. -/
 def IsResiduallyAutomorphic (ι : E →+* ℂ) (rbar : Gal F →* GL (Fin n) 𝓀[E])
     (μbar : Gal F⁺ →* (𝓀[E])ˣ) : Prop :=
-  ∃ π : RACP F n, IsResiduallyAutomorphicVia ι rbar μbar π
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsResiduallyAutomorphicVia ι rbar μbar π
 
 /-- The residual pair is ordinarily automorphic: automorphic through an `ι`-ordinary `π`. -/
 def IsResiduallyOrdinarilyAutomorphic (ι : E →+* ℂ) (rbar : Gal F →* GL (Fin n) 𝓀[E])
     (μbar : Gal F⁺ →* (𝓀[E])ˣ) : Prop :=
-  ∃ π : RACP F n, IsResiduallyAutomorphicVia ι rbar μbar π ∧
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsResiduallyAutomorphicVia ι rbar μbar π ∧
     (iotaOrdinary F E n ι).Holds π.toRegAlg
 
 /-- The residual pair is potentially diagonalizably automorphic: automorphic through a `π` of
 level potentially prime to `l` with `r_{l,ι}(π)` potentially diagonalizable above `l`. -/
 def IsResiduallyPotentiallyDiagonalizablyAutomorphic (l : ℕ) [ResChar E l] (ι : E →+* ℂ)
     (rbar : Gal F →* GL (Fin n) 𝓀[E]) (μbar : Gal F⁺ →* (𝓀[E])ˣ) : Prop :=
-  ∃ π : RACP F n, IsResiduallyAutomorphicVia ι rbar μbar π ∧
+  ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsResiduallyAutomorphicVia ι rbar μbar π ∧
     (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg ∧
     ∀ (v : Place F) (_ : ResChar v.Fv l),
       IsPotentiallyDiagonalizableRat (resPlace (π.galoisRep ι) v)
@@ -6831,15 +6952,15 @@ which contains `ρ|G_{F_w}`, no other component containing it. -/
 def IsIsolatedComponent (l : ℕ) (ρ : Gal F →ₜ* GL (Fin n) 𝒪[E])
     (lam : (F →+* E) → Fin n → ℤ) (w : Place F)
     (C : Ideal (LiftingRing w.Fv E (resPlaceHom (reduction ρ.toMonoidHom) w))) : Prop :=
+  (geometricallyIntegralComponent (ρbar := resPlaceHom (reduction ρ.toMonoidHom) w)).Holds C ∧
   (¬ w.Above l → IsComponent ⊥ l C ∧ C ≤ Lift.prime (localLift ρ w) ∧
-    OnUniqueComponent ⊥ l (Lift.prime (localLift ρ w))) ∧
+    OnUniqueGeometricComponent ⊥ (localLift ρ w)) ∧
   (w.Above l →
     IsComponent (crystallineIdeal (resPlaceHom (reduction ρ.toMonoidHom) w)
         (localHT (weightHT lam) w) (RingHom.id w.Fv)) l C ∧
       C ≤ Lift.prime (localLift ρ w) ∧
-      OnUniqueComponent (crystallineIdeal (resPlaceHom (reduction ρ.toMonoidHom) w)
-        (localHT (weightHT lam) w) (RingHom.id w.Fv)) l
-        (Lift.prime (localLift ρ w)))
+      OnUniqueGeometricComponent (crystallineIdeal (resPlaceHom (reduction ρ.toMonoidHom) w)
+        (localHT (weightHT lam) w) (RingHom.id w.Fv)) (localLift ρ w))
 
 /-- The universal property of `R^univ_𝒮` (GlobalGaloisDeformations G7/polarized-representability):
 for every complete local Noetherian `𝒪`-algebra `A` with residue field `k`, the lifts of type
@@ -6916,7 +7037,7 @@ potentially unramified above `l`, form a seed for `(ρ, μ)`. (a) `ρ' ⊗ E ≅
 (e) `ρ'|G_{F_w} ∼ ρ|G_{F_w}` at every `w | l`. -/
 def Lifting.IsMinimalSeed (l : ℕ) [ResChar E l] (ι : E →+* ℂ) (ρ : Gal F →ₜ* GL (Fin n) 𝒪[E])
     (μ : Gal F⁺ →ₜ* (𝒪[E])ˣ) (ρ' : Gal F →ₜ* GL (Fin n) 𝒪[E]) (μ' : Gal F⁺ →ₜ* (𝒪[E])ˣ)
-    (π : RACP F n) : Prop :=
+    (π : RACP F n) [RACP.Realized π ι] : Prop :=
   (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg ∧
   Conj (Lifting.genericG ρ' : Gal F → GL (Fin n) E) (π.galoisRep ι) ∧
   μ' = Lifting.multiplierInt π ι ∧
@@ -6945,7 +7066,7 @@ theorem minimal_automorphy_lifting [IsCMField F] {l : ℕ} [ResChar E l] (hl : l
     (h_iv : IsAbsIrred ⇑(reduction ρ.toMonoidHom) ∧
       Lifting.HasAdequateImage l (reduction ρ.toMonoidHom))
     (h_v : ∀ ζ : F, ¬ IsPrimitiveRoot ζ l)
-    (ρ' : Gal F →ₜ* GL (Fin n) 𝒪[E]) (μ' : Gal F⁺ →ₜ* (𝒪[E])ˣ) (π : RACP F n)
+    (ρ' : Gal F →ₜ* GL (Fin n) 𝒪[E]) (μ' : Gal F⁺ →ₜ* (𝒪[E])ˣ) (π : RACP F n) [RACP.Realized π ι]
     (h_vi : Lifting.IsMinimalSeed l ι ρ μ ρ' μ' π) :
     IsAutomorphic ι (Lifting.genericG ρ)
         (Lifting.genericChar (Lifting.cycloInt E F⁺ ^ (1 - (n : ℤ)) * μ)) ∧
@@ -6969,7 +7090,7 @@ theorem minimal_automorphy_lifting_blggt [IsCMField F] {l : ℕ} [ResChar E l] (
     (halg : Lifting.IsAlgebraic l (Lifting.genericG r))
     (h1 : IsAbsIrred ⇑(reduction r.toMonoidHom) ∧
       Lifting.HasAdequateImage l (reduction r.toMonoidHom))
-    (π : RACP F n) (hπl : (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg)
+    (π : RACP F n) [RACP.Realized π ι] (hπl : (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg)
     (hπ : Lifting.IsResiduallyAutomorphicVia ι (reduction r.toMonoidHom) (Lifting.redChar μ) π)
     (ρπ : Gal F →ₜ* GL (Fin n) 𝒪[E])
     (hρπ : Conj (Lifting.genericG ρπ : Gal F → GL (Fin n) E) (π.galoisRep ι))
@@ -7125,7 +7246,7 @@ theorem two_adic_automorphy_lifting [IsCMField F] {p : ℕ} [ResChar E p] (hp : 
       Lifting.genericChar (Lifting.cycloInt E F ^ (1 - (n : ℤ))) σ)
     (h_ii : (ghtAdequate 𝓀[E] n).Holds (Lifting.imageCyclo p (reduction ρ.toMonoidHom)))
     (h_iii : Lifting.IsUnramifiedAlmostEverywhere ρ.toMonoidHom)
-    (π : RACP F n) (hπ : (Lifting.racsdc F n).Holds π)
+    (π : RACP F n) [RACP.Realized π ι] (hπ : (Lifting.racsdc F n).Holds π)
     (hπbar : Conj (reduction ρ.toMonoidHom : Gal F → GL (Fin n) 𝓀[E]) (π.residualRep ι))
     (ρπ : Gal F →ₜ* GL (Fin n) 𝒪[E])
     (hρπ : Conj (Lifting.genericG ρπ : Gal F → GL (Fin n) E) (π.galoisRep ι))
@@ -7134,7 +7255,7 @@ theorem two_adic_automorphy_lifting [IsCMField F] {p : ℕ} [ResChar E p] (hp : 
     (h_v : p = 2 → Even n → ∃ v : InfinitePlace F⁺,
       IsStronglyResiduallyOdd (reduction ρ.toMonoidHom)
         (Lifting.redChar (Lifting.cycloInt E F⁺ ^ (1 - (n : ℤ)) * Lifting.deltaInt F E ^ n)) v) :
-    ∃ π' : RACP F n, (Lifting.racsdc F n).Holds π' ∧
+    ∃ π' : RACP F n, ∃ R : RACP.Realized π' ι, letI := R;  (Lifting.racsdc F n).Holds π' ∧
       Conj (Lifting.genericG ρ : Gal F → GL (Fin n) E) (π'.galoisRep ι) := by
   sorry
 
@@ -7199,7 +7320,7 @@ theorem relaxed_adequacy_2 [IsCMField F] {p : ℕ} [ResChar E p] (hp : p.Prime)
       Lifting.genericChar (Lifting.cycloInt E F ^ (1 - (n : ℤ))) σ)
     (h_ii : Lifting.IsRelaxedAdequate (Lifting.imageCyclo p (reduction ρ.toMonoidHom)))
     (h_iii : Lifting.IsUnramifiedAlmostEverywhere ρ.toMonoidHom)
-    (π : RACP F n) (hπ : (Lifting.racsdc F n).Holds π)
+    (π : RACP F n) [RACP.Realized π ι] (hπ : (Lifting.racsdc F n).Holds π)
     (hπbar : Conj (reduction ρ.toMonoidHom : Gal F → GL (Fin n) 𝓀[E]) (π.residualRep ι))
     (ρπ : Gal F →ₜ* GL (Fin n) 𝒪[E])
     (hρπ : Conj (Lifting.genericG ρπ : Gal F → GL (Fin n) E) (π.galoisRep ι))
@@ -7208,7 +7329,7 @@ theorem relaxed_adequacy_2 [IsCMField F] {p : ℕ} [ResChar E p] (hp : p.Prime)
     (h_v : p = 2 → Even n → ∃ v : InfinitePlace F⁺,
       IsStronglyResiduallyOdd (reduction ρ.toMonoidHom)
         (Lifting.redChar (Lifting.cycloInt E F⁺ ^ (1 - (n : ℤ)) * Lifting.deltaInt F E ^ n)) v) :
-    ∃ π' : RACP F n, (Lifting.racsdc F n).Holds π' ∧
+    ∃ π' : RACP F n, ∃ R : RACP.Realized π' ι, letI := R;  (Lifting.racsdc F n).Holds π' ∧
       Conj (Lifting.genericG ρ : Gal F → GL (Fin n) E) (π'.galoisRep ι) := by
   sorry
 
@@ -7225,7 +7346,7 @@ theorem relaxed_adequacy_3 [IsCMField F] {l : ℕ} [ResChar E l] (hl : l.Prime)
     (h_iv : IsAbsIrred ⇑(reduction ρ.toMonoidHom) ∧
       Lifting.IsRelaxedAdequate (Lifting.imageCyclo l (reduction ρ.toMonoidHom)))
     (h_v : ∀ ζ : F, ¬ IsPrimitiveRoot ζ l)
-    (ρ' : Gal F →ₜ* GL (Fin n) 𝒪[E]) (μ' : Gal F⁺ →ₜ* (𝒪[E])ˣ) (π : RACP F n)
+    (ρ' : Gal F →ₜ* GL (Fin n) 𝒪[E]) (μ' : Gal F⁺ →ₜ* (𝒪[E])ˣ) (π : RACP F n) [RACP.Realized π ι]
     (h_vi : Lifting.IsMinimalSeed l ι ρ μ ρ' μ' π) :
     IsAutomorphic ι (Lifting.genericG ρ)
         (Lifting.genericChar (Lifting.cycloInt E F⁺ ^ (1 - (n : ℤ)) * μ)) ∧
@@ -7251,11 +7372,11 @@ theorem relaxed_adequacy_4 (hF : IsCMField F ∨ IsTotallyReal F) {l : ℕ} [Res
       (Lifting.redChar μ)) :
     IsOrdinarilyAutomorphic ι (Lifting.genericG r) (Lifting.genericChar μ) ∧
       ((∀ w : Place F, w.Above l → (crystalline w.Fv E n).Holds (genericC (resPlace r w))) →
-        ∃ π : RACP F n, IsAutomorphicVia ι (Lifting.genericG r) (Lifting.genericChar μ) π ∧
+        ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsAutomorphicVia ι (Lifting.genericG r) (Lifting.genericChar μ) π ∧
           (iotaOrdinary F E n ι).Holds π.toRegAlg ∧
           ∀ w : Place F, w.Above l → (unramifiedIrrep w.Fv n).Holds (π.component w)) ∧
       ((∀ w : Place F, w.Above l → IsPotentiallyCrystalline (genericC (resPlace r w))) →
-        ∃ π : RACP F n, IsAutomorphicVia ι (Lifting.genericG r) (Lifting.genericChar μ) π ∧
+        ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsAutomorphicVia ι (Lifting.genericG r) (Lifting.genericChar μ) π ∧
           (iotaOrdinary F E n ι).Holds π.toRegAlg ∧
           (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg) := by
   sorry
@@ -7266,7 +7387,7 @@ theorem relaxed_adequacy_5 [IsCMField F] [IsLargeFor F E] {l : ℕ} [ResChar E l
     (hodd : Odd l) (hζ : ∀ ζ : F, ¬ IsPrimitiveRoot ζ l) (ι : E →+* ℂ)
     (S : Finset (Place F)) (hS : Lifting.IsChosenSplitSet S)
     (hSl : ∀ v : Place F⁺, v.Above l → Lifting.MemBelow S v)
-    (π : RACP F n) (lam : (F →+* E) → Fin n → ℤ) (hwt : π.HasWeight ι lam)
+    (π : RACP F n) [RACP.Realized π ι] (lam : (F →+* E) → Fin n → ℤ) (hwt : π.HasWeight ι lam)
     (hπS : ∀ u : Place F, ¬ Lifting.MemAbove S u → (unramifiedIrrep u.Fv n).Holds (π.component u))
     (hπl : ∀ u : Place F, u.Above l → (unramifiedIrrep u.Fv n).Holds (π.component u))
     (ρ : Gal F →ₜ* GL (Fin n) 𝒪[E])
@@ -7292,7 +7413,7 @@ theorem relaxed_adequacy_6 [IsCMField F] [IsLargeFor F E] {l : ℕ} [ResChar E l
     (hodd : Odd l) (hn : 1 ≤ n) (hζ : ∀ ζ : F, ¬ IsPrimitiveRoot ζ l) (ι : E →+* ℂ)
     (S : Finset (Place F)) (hS : Lifting.IsChosenSplitSet S)
     (hSl : ∀ v : Place F⁺, v.Above l → Lifting.MemBelow S v)
-    (π : RACP F n) (hord : (iotaOrdinary F E n ι).Holds π.toRegAlg)
+    (π : RACP F n) [RACP.Realized π ι] (hord : (iotaOrdinary F E n ι).Holds π.toRegAlg)
     (hπS : ∀ u : Place F, ¬ Lifting.MemAbove S u → (unramifiedIrrep u.Fv n).Holds (π.component u))
     (had : Lifting.IsRelaxedAdequate (Lifting.imageCyclo l (π.residualRep ι)))
     (μ : Gal F⁺ →ₜ* (𝒪[E])ˣ) (w : ℤ)
@@ -7375,11 +7496,11 @@ theorem ordinary_automorphy_lifting (hF : IsCMField F ∨ IsTotallyReal F) {l : 
       (Lifting.redChar μ)) :
     IsOrdinarilyAutomorphic ι (Lifting.genericG r) (Lifting.genericChar μ) ∧
       ((∀ w : Place F, w.Above l → (crystalline w.Fv E n).Holds (genericC (resPlace r w))) →
-        ∃ π : RACP F n, IsAutomorphicVia ι (Lifting.genericG r) (Lifting.genericChar μ) π ∧
+        ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsAutomorphicVia ι (Lifting.genericG r) (Lifting.genericChar μ) π ∧
           (iotaOrdinary F E n ι).Holds π.toRegAlg ∧
           ∀ w : Place F, w.Above l → (unramifiedIrrep w.Fv n).Holds (π.component w)) ∧
       ((∀ w : Place F, w.Above l → IsPotentiallyCrystalline (genericC (resPlace r w))) →
-        ∃ π : RACP F n, IsAutomorphicVia ι (Lifting.genericG r) (Lifting.genericChar μ) π ∧
+        ∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  IsAutomorphicVia ι (Lifting.genericG r) (Lifting.genericChar μ) π ∧
           (iotaOrdinary F E n ι).Holds π.toRegAlg ∧
           (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg) := by
   sorry
@@ -7400,7 +7521,7 @@ theorem minimal_finiteness [IsCMField F] [IsLargeFor F E] {l : ℕ} [ResChar E l
     (hodd : Odd l) (hζ : ∀ ζ : F, ¬ IsPrimitiveRoot ζ l) (ι : E →+* ℂ)
     (S : Finset (Place F)) (hS : Lifting.IsChosenSplitSet S)
     (hSl : ∀ v : Place F⁺, v.Above l → Lifting.MemBelow S v)
-    (π : RACP F n) (lam : (F →+* E) → Fin n → ℤ) (hwt : π.HasWeight ι lam)
+    (π : RACP F n) [RACP.Realized π ι] (lam : (F →+* E) → Fin n → ℤ) (hwt : π.HasWeight ι lam)
     (hπS : ∀ u : Place F, ¬ Lifting.MemAbove S u → (unramifiedIrrep u.Fv n).Holds (π.component u))
     (hπl : ∀ u : Place F, u.Above l → (unramifiedIrrep u.Fv n).Holds (π.component u))
     (ρ : Gal F →ₜ* GL (Fin n) 𝒪[E])
@@ -7431,7 +7552,7 @@ theorem minimal_finiteness_blggt [IsCMField F] [IsLargeFor F E] {l : ℕ} [ResCh
     (hl : l.Prime) (hodd : Odd l) (hn : 1 ≤ n) (hζ : ∀ ζ : F, ¬ IsPrimitiveRoot ζ l)
     (ι : E →+* ℂ) (S : Finset (Place F)) (hS : Lifting.IsChosenSplitSet S)
     (hSl : ∀ v : Place F⁺, v.Above l → Lifting.MemBelow S v)
-    (π : RACP F n) (lam : (F →+* E) → Fin n → ℤ) (hwt : π.HasWeight ι lam)
+    (π : RACP F n) [RACP.Realized π ι] (lam : (F →+* E) → Fin n → ℤ) (hwt : π.HasWeight ι lam)
     (hπS : ∀ u : Place F, ¬ Lifting.MemAbove S u → (unramifiedIrrep u.Fv n).Holds (π.component u))
     (hπl : (levelPotentiallyPrimeTo F n l).Holds π.toRegAlg)
     (ρ : Gal F →ₜ* GL (Fin n) 𝒪[E])
@@ -7471,7 +7592,7 @@ theorem ordinary_finiteness [IsCMField F] [IsLargeFor F E] {l : ℕ} [ResChar E 
     (hodd : Odd l) (hn : 1 ≤ n) (hζ : ∀ ζ : F, ¬ IsPrimitiveRoot ζ l) (ι : E →+* ℂ)
     (S : Finset (Place F)) (hS : Lifting.IsChosenSplitSet S)
     (hSl : ∀ v : Place F⁺, v.Above l → Lifting.MemBelow S v)
-    (π : RACP F n) (hord : (iotaOrdinary F E n ι).Holds π.toRegAlg)
+    (π : RACP F n) [RACP.Realized π ι] (hord : (iotaOrdinary F E n ι).Holds π.toRegAlg)
     (hπS : ∀ u : Place F, ¬ Lifting.MemAbove S u → (unramifiedIrrep u.Fv n).Holds (π.component u))
     (had : Lifting.HasAdequateImage l (π.residualRep ι))
     (μ : Gal F⁺ →ₜ* (𝒪[E])ˣ) (w : ℤ)
@@ -7611,8 +7732,10 @@ theorem dwork_potential_ordinary_automorphy {F₀ F : Type} [Field F₀] [Number
       IsGalois F₀ F' ∧ IsField (TensorProduct F F' Favoid) ∧
       ∀ i, ∃ (E' : Type) (_ : Field E') (_ : ValuativeRel E') (_ : TopologicalSpace E')
         (_ : IsNonarchimedeanLocalField E') (_ : ResChar E' (l i)) (j : E i →+* E')
-        (ι' : E' →+* ℂ) (π : RACP F' (n i)),
-        ι'.comp j = ι i ∧
+        (ι' : E' →+* ℂ) (π : RACP F' (n i)) (R : RACP.Realized π ι'),
+        letI := R;
+        letI : Algebra (E i) E' := j.toAlgebra;
+        FiniteDimensional (E i) E' ∧ Continuous j ∧ ι'.comp j = ι i ∧
         Lifting.SameSemisimplification ⇑(π.residualRep ι')
           ⇑(Lifting.coeffResidual j (resFieldHom (rbar i) (algebraMap F F'))) ∧
         (∀ σ, Lifting.redChar (Lifting.multiplierInt π ι' *
@@ -7706,7 +7829,7 @@ theorem tensor_product_trick_lifting [IsCMField F] {l : ℕ} [ResChar E l] (hl :
     (h2 : IsAbsIrred
         ⇑(resFieldHom (reduction r.toMonoidHom) (algebraMap F (CyclotomicField l F))) ∧
       2 * (Lifting.sylowConstituentDim l (reduction r.toMonoidHom) + 1) ≤ l)
-    (π : RACP F n)
+    (π : RACP F n) [RACP.Realized π ι]
     (h3 : Lifting.IsResiduallyAutomorphicVia ι (reduction r.toMonoidHom) (Lifting.redChar μ) π)
     (h3l : ∀ v : Place F, v.Above l → (unramifiedIrrep v.Fv n).Holds (π.component v))
     (ρπ : Gal F →ₜ* GL (Fin n) 𝒪[E])
@@ -8076,47 +8199,16 @@ example [IsTopologicalGroup Γ] [CompactSpace Γ] [T2Space Γ] [TotallyDisconnec
     ¬ IsPrimitive (diagChar ![χ₁, χ₂]) := by
   sorry
 
-/-- The matrix of the `a`-th symmetric power of the standard representation of `SL₂`: the action
-`(g · f)(X, Y) = f((X, Y) g)` on binary forms of degree `a`, in the basis `X^{a-i} Y^i`
-(`0 ≤ i ≤ a`), computed after setting `X = 1`. -/
-def symPowMatrix {A : Type*} [CommRing A] (a : ℕ) (g : Matrix (Fin 2) (Fin 2) A) :
-    Matrix (Fin (a + 1)) (Fin (a + 1)) A :=
-  Matrix.of fun j i =>
-    ((Polynomial.C (g 0 0) + Polynomial.C (g 1 0) * Polynomial.X) ^ (a - (i : ℕ)) *
-      (Polynomial.C (g 0 1) + Polynomial.C (g 1 1) * Polynomial.X) ^ (i : ℕ)).coeff j
-
-/-- The representation `Sym^a` of `SL₂(A)` on binary forms of degree `a`. -/
-def symPow {A : Type*} [CommRing A] (a : ℕ) :
-    Matrix.SpecialLinearGroup (Fin 2) A →* GL (Fin (a + 1)) A where
-  toFun g := ⟨symPowMatrix a g, symPowMatrix a (g⁻¹ : Matrix.SpecialLinearGroup (Fin 2) A),
-    by sorry, by sorry⟩
-  map_one' := by sorry
-  map_mul' := by sorry
-
+/-- The characteristic-two regular module of C₂ has two trivial composition factors
+and is not semisimple. Its semisimplification is a weakly primitive sum of two trivial
+characters, but is not strongly primitive. This elementary example replaces the unestablished
+SL₂ example in the previous suggested file. It is a distinction of predicates, not an example
+satisfying the multiplicity-free Schur hypotheses of the lifting theorems. -/
 -- test: primitive_not_stronglyPrimitive
-example (l : ℕ) [Fact l.Prime] (hl : 13 ≤ l) (a : ℕ) (ha : 0 < a) (ha' : a < l - 1)
-    (ha'' : 2 * a ≠ l - 1)
-    [TopologicalSpace (Matrix.SpecialLinearGroup (Fin 2) (ZMod l))]
-    [DiscreteTopology (Matrix.SpecialLinearGroup (Fin 2) (ZMod l))]
-    (B : Subgroup (Matrix.SpecialLinearGroup (Fin 2) (ZMod l)))
-    (hB : ∀ g : Matrix.SpecialLinearGroup (Fin 2) (ZMod l), g ∈ B ↔ g 1 0 = 0)
-    (χ : B →* (AlgebraicClosure (ZMod l))ˣ)
-    (hχ : ∀ b : B, ((χ b : (AlgebraicClosure (ZMod l))ˣ) : AlgebraicClosure (ZMod l)) =
-      algebraMap (ZMod l) (AlgebraicClosure (ZMod l))
-        ((b : Matrix.SpecialLinearGroup (Fin 2) (ZMod l)) 0 0) ^ a)
-    (ρ : Matrix.SpecialLinearGroup (Fin 2) (ZMod l) →* GL (Fin (l + 1)) (AlgebraicClosure (ZMod l)))
-    (e : (stdRep ρ).Equiv
-      ((stdRep ((symPow a).comp (Matrix.SpecialLinearGroup.map
-          (algebraMap (ZMod l) (AlgebraicClosure (ZMod l)))))).prod
-        (stdRep ((symPow (l - 1 - a)).comp (Matrix.SpecialLinearGroup.map
-          (algebraMap (ZMod l) (AlgebraicClosure (ZMod l)))))))) :
-    ComplementedLattice (Subrepresentation (stdRep ρ)) ∧ IsPrimitive ρ ∧
-    ¬ ComplementedLattice (Subrepresentation
-      (Representation.ind B.subtype (stdRep (diagChar fun _ : Fin 1 => χ)))) ∧
-    IsSemisimplificationOf (stdRep ρ)
-      (Representation.ind B.subtype (stdRep (diagChar fun _ : Fin 1 => χ))) ∧
-    ¬ IsStronglyPrimitive ρ := by
-  sorry
+local instance : TopologicalSpace (Multiplicative (ZMod 2)) := ⊥
+
+example : IsPrimitive (1 : Multiplicative (ZMod 2) →* GL (Fin 2) (ZMod 2)) ∧
+    ¬ IsStronglyPrimitive (1 : Multiplicative (ZMod 2) →* GL (Fin 2) (ZMod 2)) := by sorry
 
 end Primitive
 
@@ -9495,6 +9587,209 @@ end GenericRT
 end TauCeti.Automorphy
 namespace TauCeti.Automorphy
 
+end TauCeti.Automorphy
+
+/-! ### PL.2/ordinary-deformation-datum (placed here to reuse the PL.6 determinant subring)
+
+This owns the NT21 arithmetic construction, not the generic local types, coefficient lattices,
+completed group algebras or global deformation functors. The mathematical node fixes the base
+field and admissible splitting sets before constructing a datum. -/
+
+namespace TauCeti.DefiniteUnitary
+
+open TauCeti.Automorphy
+
+section NT21Datum
+
+variable {E : Type} [Field E] [ValuativeRel E] [TopologicalSpace E]
+  [IsNonarchimedeanLocalField E]
+
+/-- SR.1/SR.7 and R08.2 (import): the integral supercuspidal type of NT21 §1.17,
+with its compact subgroup, lattice in the contragredient type, and prescribed local ring.
+The coefficient extension needed to realize the type is part of this input. -/
+def NT21SupercuspidalType (E : Type) [Field E] [ValuativeRel E] (K : Type) [Field K] (n : ℕ)
+    (ρbar : Gal K →* GL (Fin n) 𝓀[E]) : Type := sorry
+
+inductive NT21LocalChoice (K : Type) [Field K] (n : ℕ)
+    (ρbar : Gal K →* GL (Fin n) 𝓀[E]) where
+  | supercuspidal (t : NT21SupercuspidalType (E := E) K n ρbar)
+  | unipotent
+  | steinberg
+
+/-- **PL.2/ordinary-deformation-datum.** The source's D=(L,{R_v}) over a fixed
+admissible soluble CM extension and a fixed ordinary coefficient field. H supplies the group,
+prime and finite ramification sets; its character coefficients are replaced by the type lattices
+specified here. At unipotent/Steinberg places the residual representation is trivial and q=1 mod l.
+The source's further supercuspidal split-over-F condition is recorded in the node and type input. -/
+structure OrdinaryDeformationDatum (H : HeckeDatum E) where
+  choice : H.LChoice
+  F : Type
+  [baseField : Field F]
+  [baseNumberField : NumberField F]
+  [baseCM : IsCMField F]
+  [extension : Algebra F H.L]
+  [finiteExtension : FiniteDimensional F H.L]
+  [galoisExtension : IsGalois F H.L]
+  soluble : Group.IsSolvable (H.L ≃ₐ[F] H.L)
+  prescribedSplit : Set (Place F)
+  split : ∀ v ∈ prescribedSplit, v.SplitsCompletelyIn H.L
+  residual : Gal H.toCMData.Lplus →* CHT H.n 𝓀[E]
+  residualGL : Gal H.L →* GL (Fin H.n) 𝓀[E]
+  restricts : Lifting.CHT.Extends ⇑residual ⇑residualGL
+  continuous : IsContinuousResidual residual
+  schur : TauCeti.Automorphy.IsSchur residual
+  oddPrime : Odd H.l
+  ordinaryResidual : ∀ v : Place H.L, v.Above H.l →
+    residualGL.comp v.dec.toMonoidHom = 1
+  similitude : ∀ σ, CHT.nu H.n 𝓀[E] (residual σ) =
+    Lifting.redChar (Lifting.deltaInt H.L E ^ H.n *
+      Lifting.cycloInt E H.toCMData.Lplus ^ (1 - (H.n : ℤ))) σ
+  auxiliary : Place H.toCMData.Lplus
+  auxiliaryLevel : Subgroup (unitaryGroup H.toCMData auxiliary.Fv)
+  auxiliaryTorsionFree : ∀ g ∈ auxiliaryLevel, IsOfFinOrder g → g = 1
+  auxiliaryOutside : ∀ w ∈ H.T, ¬ H.toCMData.LiesAbove w auxiliary
+  X : Finset (Place H.L)
+  subset : ∀ v ∈ X, v ∈ H.T ∧ ¬ v.Above H.l
+  localChoice : (v : Place H.L) → NT21LocalChoice (E := E) v.Fv H.n
+    (residualGL.comp v.dec.toMonoidHom)
+  supercuspidal_split : ∀ v ∈ X, ∀ t, localChoice v = .supercuspidal t →
+    DenseRange (v.emb.comp (algebraMap F H.L))
+  unramifiedOutside : ∀ v : Place H.L, v ∉ X → ¬ v.Above H.l →
+    IsUnramified (residualGL.comp v.dec.toMonoidHom)
+  trivial_at_special : ∀ v ∈ X,
+    localChoice v = .unipotent ∨ localChoice v = .steinberg →
+      residualGL.comp v.dec.toMonoidHom = 1 ∧ v.norm % H.l = 1
+
+attribute [instance] OrdinaryDeformationDatum.baseField OrdinaryDeformationDatum.baseNumberField
+  OrdinaryDeformationDatum.baseCM OrdinaryDeformationDatum.extension
+  OrdinaryDeformationDatum.finiteExtension OrdinaryDeformationDatum.galoisExtension
+
+namespace OrdinaryDeformationDatum
+
+variable {H : HeckeDatum E}
+
+/-- U(D,c): Iw(c,c) at l, prescribed type subgroups at X, K_v(1) at the auxiliary
+place and hyperspecial subgroups elsewhere. -/
+def level (D : OrdinaryDeformationDatum H) (c : ℕ) : Subgroup H.G := sorry
+
+theorem level_le_auxiliary (D : OrdinaryDeformationDatum H) (c : ℕ) (hc : 1 ≤ c) :
+    (D.level c).map (localProjPlus H.toCMData D.auxiliary) ≤ D.auxiliaryLevel := by sorry
+
+def NoSteinberg (D : OrdinaryDeformationDatum H) : Prop :=
+  ∀ v ∈ D.X, D.localChoice v ≠ .steinberg
+
+/-- M_D: tensor of the dual supercuspidal type lattices; O at the other places. -/
+def coefficient (D : OrdinaryDeformationDatum H) : Type := sorry
+instance (D : OrdinaryDeformationDatum H) : AddCommGroup D.coefficient := sorry
+instance (D : OrdinaryDeformationDatum H) : Module 𝒪[E] D.coefficient := sorry
+instance (D : OrdinaryDeformationDatum H) : Module.Free 𝒪[E] D.coefficient := sorry
+instance (D : OrdinaryDeformationDatum H) : Module.Finite 𝒪[E] D.coefficient := sorry
+
+def coefficientAction (D : OrdinaryDeformationDatum H) (c : ℕ) :
+    D.level c →* Module.End 𝒪[E] D.coefficient := sorry
+
+/-- Algebraic forms with the actual type coefficient module. -/
+def forms (D : OrdinaryDeformationDatum H) (c : ℕ) :
+    Submodule 𝒪[E] (H.G → D.coefficient) where
+  carrier := {f | (∀ a ∈ globalPoints H.toCMData, ∀ g, f (a * g) = f g) ∧
+    ∀ u : D.level c, ∀ g, f (g * u) = D.coefficientAction c u⁻¹ (f g)}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+/-- Image of the commuting ordinary idempotents at l. -/
+def ordinaryForms (D : OrdinaryDeformationDatum H) (c : ℕ) :
+    Submodule 𝒪[E] (D.forms c) := sorry
+
+/-- Finite-level Hecke algebra generated by unramified T_w^j and diamonds. -/
+def finiteHecke (D : OrdinaryDeformationDatum H) (c : ℕ) :
+    Subalgebra 𝒪[E] (Module.End 𝒪[E] (D.ordinaryForms c)) := sorry
+
+/-- T^ord(D) = lim_c T^ord(D,c), for c≥1. -/
+def ordinaryHecke (D : OrdinaryDeformationDatum H) : Type := sorry
+instance (D : OrdinaryDeformationDatum H) : CommRing D.ordinaryHecke := sorry
+instance (D : OrdinaryDeformationDatum H) : Algebra (iwasawaAlgebra H) D.ordinaryHecke := sorry
+
+/-- H^ord(D) = lim_c Hom_O(S^ord(U(D,c),M_D),O), using the ordinary trace tower. -/
+def ordinaryDual (D : OrdinaryDeformationDatum H) : Type := sorry
+instance (D : OrdinaryDeformationDatum H) : AddCommGroup D.ordinaryDual := sorry
+instance (D : OrdinaryDeformationDatum H) : Module (iwasawaAlgebra H) D.ordinaryDual := sorry
+
+/-- The source's polarized global problem, ordinary at l and with the chosen R_v at X. -/
+def problem (D : OrdinaryDeformationDatum H) :
+    DefProblem H.L E H.n (iwasawaAlgebra H) := sorry
+
+abbrev deformationRing (D : OrdinaryDeformationDatum H) : Type := D.problem.univRing
+abbrev determinantSubring (D : OrdinaryDeformationDatum H) := charPolySubring D.problem
+
+/-- m_D generated by m_Λ and normalized residual Frobenius-polynomial discrepancies. -/
+def residualIdeal (D : OrdinaryDeformationDatum H) : Ideal D.ordinaryHecke := sorry
+
+/-- T_D is the completed localization at m_D; it is zero when m_D is the unit ideal.
+No local-ring instance is manufactured for this possibly zero ring. -/
+def localizedHecke (D : OrdinaryDeformationDatum H) : Type := sorry
+instance (D : OrdinaryDeformationDatum H) : CommRing D.localizedHecke := sorry
+instance (D : OrdinaryDeformationDatum H) : Algebra (iwasawaAlgebra H) D.localizedHecke := sorry
+
+/-- NT21 Lemma 6.6, only without Steinberg choices. It is constructed level by level
+using finite extensions E_c, then descends the determinant values; no common finite E_c for all c
+is asserted. -/
+def comparison (D : OrdinaryDeformationDatum H) (h : D.NoSteinberg) :
+    D.determinantSubring →ₐ[iwasawaAlgebra H] D.localizedHecke := sorry
+
+def comparisonIdeal (D : OrdinaryDeformationDatum H) (h : D.NoSteinberg) :
+    Ideal D.determinantSubring := RingHom.ker (D.comparison h).toRingHom
+
+theorem level_one_small (D : OrdinaryDeformationDatum H) :
+    IsSufficientlySmall H.toCMData (D.level 1) := by sorry
+
+theorem comparison_surjective (D : OrdinaryDeformationDatum H) (h : D.NoSteinberg) :
+    Function.Surjective (D.comparison h) := by sorry
+
+theorem comparisonIdeal_ne_top_iff (D : OrdinaryDeformationDatum H) (h : D.NoSteinberg) :
+    D.comparisonIdeal h ≠ ⊤ ↔ Nontrivial D.localizedHecke := by sorry
+
+/-- NT21 §6, pp.81–82: the arrows for the admissible D_1→D_0 base changes intertwine
+P→T. The existence/surjectivity of the T arrow also requires the source's local type comparison.
+This API states the commutative-square comparison once its arithmetic arrows have been built. -/
+theorem comparison_baseChange (D₀ D₁ : OrdinaryDeformationDatum H)
+    (h₀ : D₀.NoSteinberg) (h₁ : D₁.NoSteinberg)
+    (fP : D₁.determinantSubring →ₐ[iwasawaAlgebra H] D₀.determinantSubring)
+    (fT : D₁.localizedHecke →ₐ[iwasawaAlgebra H] D₀.localizedHecke)
+    (hcompat : ∀ x, fT (D₁.comparison h₁ x) = D₀.comparison h₀ (fP x)) :
+    Ideal.map fP.toRingHom (D₁.comparisonIdeal h₁) ≤ D₀.comparisonIdeal h₀ := by sorry
+
+end OrdinaryDeformationDatum
+
+/-- **PL.2/ordinary-forms-free-over-lambda (d)**, NT21 Proposition 6.5, p.79.
+This is the packet's part (d), not a source subpart. Faithfulness is asserted only if T^ord≠0. -/
+theorem ordinary_forms_free_over_lambda_d (H : HeckeDatum E)
+    (D : OrdinaryDeformationDatum H) :
+    Module.Finite (iwasawaAlgebra H) D.ordinaryDual ∧
+      Module.Free (iwasawaAlgebra H) D.ordinaryDual ∧
+      Module.Finite (iwasawaAlgebra H) D.ordinaryHecke ∧
+      (Nontrivial D.ordinaryHecke →
+        Function.Injective (algebraMap (iwasawaAlgebra H) D.ordinaryHecke)) := by sorry
+
+-- test: ordinary_datum_empty_types
+example (H : HeckeDatum E) (D : OrdinaryDeformationDatum H) (hX : D.X = ∅) :
+    Nonempty (D.coefficient ≃ₗ[𝒪[E]] 𝒪[E]) ∧ D.NoSteinberg := by sorry
+
+-- test: ordinary_datum_unit_residual_ideal
+example (H : HeckeDatum E) (D : OrdinaryDeformationDatum H) (h : D.NoSteinberg)
+    (hm : D.residualIdeal = ⊤) :
+    Subsingleton D.localizedHecke ∧ D.comparisonIdeal h = ⊤ := by sorry
+
+-- test: ordinary_datum_steinberg_no_comparison
+example (H : HeckeDatum E) (D : OrdinaryDeformationDatum H)
+    (v : Place H.L) (hv : v ∈ D.X) (hst : D.localChoice v = .steinberg) :
+    ¬ D.NoSteinberg := by sorry
+
+end NT21Datum
+end TauCeti.DefiniteUnitary
+
+namespace TauCeti.Automorphy
+
 /-! ## PL.7: finiteness and automorphy lifting for residually reducible representations -/
 
 section PL7Definitions
@@ -9505,7 +9800,7 @@ variable {n : ℕ} {Λ : Type} [CommRing Λ] [Algebra 𝒪[E] Λ]
 
 /-- `π` is RACSDC: a regular algebraic cuspidal polarized representation of `GL_n(𝔸_F)`, `F` CM,
 whose polarization has multiplier `δ^n_{F/F⁺}`, so that `π^c ≅ π^∨`. -/
-def IsRACSDC (π : RACP F n) (ι : E →+* ℂ) : Prop :=
+def IsRACSDC (π : RACP F n) (ι : E →+* ℂ) [RACP.Realized π ι] : Prop :=
   ∀ σ, π.multiplier ι σ = delta F E σ ^ n
 
 /-- `ρ` is ramified at only finitely many places. -/
@@ -9540,7 +9835,7 @@ def IsDisjointFromCutOut (l : ℕ) {H : Type*} [Group H] (ρbar : Gal F →* H) 
 (5), without the condition on `F(ζ_l)` and `ker ad`: `ρ̄^{ss} ≅ ρ̄_1 ⊕ ⋯ ⊕ ρ̄_d` with each `ρ̄_i`
 absolutely irreducible and `ρ̄_i^c ≅ ρ̄_i^∨ ε^{1-n}`; `F ⊄ F⁺(ζ_l)`; each `ρ̄_i|G_{F(ζ_l)}` is
 absolutely irreducible and `ρ̄_i|G_{F(ζ_l)} ≇ ρ̄_j|G_{F(ζ_l)}` for `i ≠ j` (so the `ρ̄_i` are
-pairwise non-isomorphic); `ρ̄^{ss}` is primitive and `ρ̄^{ss}(G_F)` has no quotient of order
+pairwise non-isomorphic); `ρ̄^{ss}` is strongly primitive and `ρ̄^{ss}(G_F)` has no quotient of order
 `l`. -/
 structure IsANTResidual (l : ℕ) (ρbar ρss : Gal F →* GL (Fin n) 𝓀[E]) {d : ℕ} {m : Fin d → ℕ}
     (e : (Σ i : Fin d, Fin (m i)) ≃ Fin n) (ρs : (i : Fin d) → Gal F →* GL (Fin (m i)) 𝓀[E]) :
@@ -9555,7 +9850,7 @@ structure IsANTResidual (l : ℕ) (ρbar ρss : Gal F →* GL (Fin n) 𝓀[E]) {
   not_iso_cyclo : ∀ i j, i ≠ j →
     IsEmpty ((stdRep (resFieldHom (ρs i) (algebraMap F (CyclotomicField l F)))).Equiv
       (stdRep (resFieldHom (ρs j) (algebraMap F (CyclotomicField l F)))))
-  primitive : IsPrimitive ρss
+  primitive : IsStronglyPrimitive ρss
   noQuotient : HasNoQuotientOfOrder ρss.range l
 
 /-- `F(ζ_l) ⊄ F̄^{ker ad(ρ̄^{ss})}` for `ρ̄^{ss} = ⊕ ρ̄_i`: some element of `G_F` outside
@@ -9617,7 +9912,7 @@ are absolutely irreducible and pairwise non-isomorphic, `ρ̄` is primitive and 
 quotient of order `l`; (6) `l > 3` and `l ∤ n`. Then for
 `𝒮 = (F/F⁺, S, S̃, Λ, r̄, ε^{1-n} δ^n_{F/F⁺}, {R^△_v}_{S_l} ∪ {R^□_v}_{S - (S_l ∪ {v₀})} ∪
 {R^{St}_{v₀}})` the ring `R^univ_𝒮` is a finite `Λ`-algebra. -/
-theorem ordinary_steinberg_finiteness_a (ι : E →+* ℂ) (π : RACP F n) (hπ : IsRACSDC π ι)
+theorem ordinary_steinberg_finiteness_a (ι : E →+* ℂ) (π : RACP F n) [RACP.Realized π ι] (hπ : IsRACSDC π ι)
     (r : Gal (maximalRealSubfield F) →ₜ* CHT n 𝒪[E])
     (hrπ : Conj (π.galoisRep ι : Gal F → GL (Fin n) E) (generic (CHT.glRes r.toMonoidHom)))
     (hν : ∀ σ, Units.map (algebraMap 𝒪[E] E : 𝒪[E] →* E) (CHT.nu n 𝒪[E] (r σ)) =
@@ -9641,7 +9936,7 @@ of Proposition 3.9), which the sources read assert without proof: the same concl
 condition `F(ζ_l) ⊄ F̄^{ker ad(ρ̄^{ss})}` of (5) replaced by the existence of a place `w ∤ l` of
 `F` at which `ρ̄` is unramified and `H⁰(G_{F_w}, ad ρ̄(1)) = 0`, the change that Thorne 2024,
 Theorem 7.5, makes to the automorphy lifting theorem. -/
-theorem ordinary_steinberg_finiteness_b (ι : E →+* ℂ) (π : RACP F n) (hπ : IsRACSDC π ι)
+theorem ordinary_steinberg_finiteness_b (ι : E →+* ℂ) (π : RACP F n) [RACP.Realized π ι] (hπ : IsRACSDC π ι)
     (r : Gal (maximalRealSubfield F) →ₜ* CHT n 𝒪[E])
     (hrπ : Conj (π.galoisRep ι : Gal F → GL (Fin n) E) (generic (CHT.glRes r.toMonoidHom)))
     (hν : ∀ σ, Units.map (algebraMap 𝒪[E] E : 𝒪[E] →* E) (CHT.nu n 𝒪[E] (r σ)) =
@@ -9672,7 +9967,7 @@ many places; (3) `ρ` is ordinary of weight `λ` for a dominant `λ`; (4) `ρ̄^
 a place `ṽ₀ ∤ l` with `ρ|^{ss}_{G_{F_{ṽ₀}}} ≅ ⊕ ψ ε^{n-i}`, `ψ` unramified; (6) there is a RACSDC
 `π` with `π` `ι`-ordinary, `r̄_ι(π)^{ss} ≅ ρ̄^{ss}` and `π_{ṽ₀}` an unramified twist of the
 Steinberg representation; (7) `F(ζ_l) ⊄ F̄^{ker ad(ρ̄^{ss})}`, `F ⊄ F⁺(ζ_l)`, the `ρ̄_i|G_{F(ζ_l)}`
-are absolutely irreducible and pairwise non-isomorphic, `ρ̄^{ss}` is primitive and `ρ̄^{ss}(G_F)`
+are absolutely irreducible and pairwise non-isomorphic, `ρ̄^{ss}` is strongly primitive and `ρ̄^{ss}(G_F)`
 has no quotient of order `l`; (8) `l > 3` and `l ∤ n`. Then `ρ ≅ r_ι(Π)` for an `ι`-ordinary
 RACSDC automorphic representation `Π` of `GL_n(𝔸_F)`. -/
 theorem residually_reducible_automorphy_lifting [IsLargeFor F E] (hn : 2 ≤ n)
@@ -9687,12 +9982,12 @@ theorem residually_reducible_automorphy_lifting [IsLargeFor F E] (hn : 2 ≤ n)
     (ρs : (i : Fin d) → Gal F →* GL (Fin (m i)) 𝓀[E])
     (h47 : IsANTResidual l ρbar ρss e ρs) (h7 : CycloNotInAdKernel l ρs)
     (v₀ : Place F) (hv₀ : ¬ v₀.Above l) (h5 : IsSteinbergTypeAt ρ v₀)
-    (ι : E →+* ℂ) (π : RACP F n) (hπ : IsRACSDC π ι)
+    (ι : E →+* ℂ) (π : RACP F n) [RACP.Realized π ι] (hπ : IsRACSDC π ι)
     (h6a : (iotaOrdinary F E n ι).Holds π.toRegAlg)
     (h6b : IsSemisimplificationOf (stdRep (π.residualRep ι)) (stdRep ρbar))
     (h6c : (steinbergTwist v₀.Fv n).Holds (π.component v₀))
     (h8 : 3 < l ∧ ¬ l ∣ n) :
-    ∃ π' : RACP F n, IsRACSDC π' ι ∧ (iotaOrdinary F E n ι).Holds π'.toRegAlg ∧
+    ∃ π' : RACP F n, ∃ R : RACP.Realized π' ι, letI := R;  IsRACSDC π' ι ∧ (iotaOrdinary F E n ι).Holds π'.toRegAlg ∧
       Conj (ρ : Gal F → GL (Fin n) E) (π'.galoisRep ι) := by
   sorry
 
@@ -9712,12 +10007,12 @@ theorem residually_reducible_automorphy_lifting_variant [IsLargeFor F E] (hn : 1
     (ρs : (i : Fin d) → Gal F →* GL (Fin (m i)) 𝓀[E])
     (h47 : IsANTResidual l ρbar ρss e ρs) (h7 : HasAuxiliaryPlace l ρbar)
     (v₀ : Place F) (hv₀ : ¬ v₀.Above l) (h5 : IsSteinbergTypeAt ρ v₀)
-    (ι : E →+* ℂ) (π : RACP F n) (hπ : IsRACSDC π ι)
+    (ι : E →+* ℂ) (π : RACP F n) [RACP.Realized π ι] (hπ : IsRACSDC π ι)
     (h6a : (iotaOrdinary F E n ι).Holds π.toRegAlg)
     (h6b : IsSemisimplificationOf (stdRep (π.residualRep ι)) (stdRep ρbar))
     (h6c : (steinbergTwist v₀.Fv n).Holds (π.component v₀))
     (h8 : 3 < l ∧ ¬ l ∣ n) :
-    ∃ π' : RACP F n, IsRACSDC π' ι ∧ (iotaOrdinary F E n ι).Holds π'.toRegAlg ∧
+    ∃ π' : RACP F n, ∃ R : RACP.Realized π' ι, letI := R;  IsRACSDC π' ι ∧ (iotaOrdinary F E n ι).Holds π'.toRegAlg ∧
       Conj (ρ : Gal F → GL (Fin n) E) (π'.galoisRep ι) := by
   sorry
 
@@ -9729,7 +10024,7 @@ an imaginary CM field, `n ≥ 2` and `ρ : G_F → GL_n(E)` a continuous semisim
 such that (1) `ρ^c ≅ ρ^∨ ε^{1-n}`; (2) `ρ` is ramified at only finitely many places; (3) `ρ` is
 ordinary of weight `λ` for a dominant `λ`; (4) `F(ζ_l) ⊄ F̄^{ker ad(ρ̄^{ss})}`; (5)
 `ρ̄^{ss} ≅ ρ̄₁ ⊕ ρ̄₂` with `ρ̄_i|G_{F(ζ_l)}` adequate in the sense of Thorne 2012, `ρ̄^{ss}`
-primitive and `l ∤ n`; (6) `ρ̄₁ ≇ ρ̄₂` and `ε^{1-n} ρ̄₁^∨ ≇ ρ̄₂^c`; (7) there is a place `ṽ₀ ∤ l`
+strongly primitive and `l ∤ n`; (6) `ρ̄₁ ≇ ρ̄₂` and `ε^{1-n} ρ̄₁^∨ ≇ ρ̄₂^c`; (7) there is a place `ṽ₀ ∤ l`
 with `ρ|^{ss}_{G_{F_{ṽ₀}}} ≅ ⊕ ψ ε^{n-i}`, `ψ` unramified; (8) there is a RACSDC `π`,
 `ι`-ordinary, with `r̄_ι(π)^{ss} ≅ ρ̄^{ss}` and `π_{ṽ₀}` an unramified twist of the Steinberg
 representation; (9) there are a CM extension `F₀/F`, linearly disjoint from the extension of
@@ -9754,26 +10049,26 @@ theorem two_constituent_automorphy_lifting [IsLargeFor F E] (hl : 3 < l) (hn : 2
       (resFieldHom ρ₁ (algebraMap F (CyclotomicField l F))).range)
     (h5a₂ : (adequate 𝓀[E] n₂).Holds
       (resFieldHom ρ₂ (algebraMap F (CyclotomicField l F))).range)
-    (h5prim : IsPrimitive ρss) (h5n : ¬ l ∣ n)
+    (h5prim : IsStronglyPrimitive ρss) (h5n : ¬ l ∣ n)
     (h6a : IsEmpty ((stdRep ρ₁).Equiv (stdRep ρ₂)))
     (h6b : ∀ c : Gal (maximalRealSubfield F), c ∉ (resCM F).range →
       ¬ IsConjTwistedDual (resCM F) c (stdRep ρ₂) (stdRep ρ₁)
         (cycloBar E F ^ (1 - (n : ℤ))))
     (v₀ : Place F) (hv₀ : ¬ v₀.Above l) (h7 : IsSteinbergTypeAt ρ v₀)
-    (ι : E →+* ℂ) (π : RACP F n) (hπ : IsRACSDC π ι)
+    (ι : E →+* ℂ) (π : RACP F n) [RACP.Realized π ι] (hπ : IsRACSDC π ι)
     (h8a : (iotaOrdinary F E n ι).Holds π.toRegAlg)
     (h8b : IsSemisimplificationOf (stdRep (π.residualRep ι)) (stdRep ρbar))
     (h8c : (steinbergTwist v₀.Fv n).Holds (π.component v₀))
     (F₀ : Type) [Field F₀] [NumberField F₀] [IsCMField F₀] [Algebra F F₀]
     (h9disj : IsDisjointFromCutOut l ρss (algebraMap F F₀))
-    (π₁ : RACP F₀ n₁) (π₂ : RACP F₀ n₂)
+    (π₁ : RACP F₀ n₁) [RACP.Realized π₁ ι] (π₂ : RACP F₀ n₂) [RACP.Realized π₂ ι]
     (h9ord₁ : (iotaOrdinary F₀ E n₁ ι).Holds π₁.toRegAlg)
     (h9ord₂ : (iotaOrdinary F₀ E n₂ ι).Holds π₂.toRegAlg)
     (h9res₁ : Conj (π₁.residualRep ι : Gal F₀ → GL (Fin n₁) 𝓀[E])
       (resFieldHom ρ₁ (algebraMap F F₀)))
     (h9res₂ : Conj (π₂.residualRep ι : Gal F₀ → GL (Fin n₂) 𝓀[E])
       (resFieldHom ρ₂ (algebraMap F F₀))) :
-    ∃ π' : RACP F n, IsRACSDC π' ι ∧ Conj (ρ : Gal F → GL (Fin n) E) (π'.galoisRep ι) := by
+    ∃ π' : RACP F n, ∃ R : RACP.Realized π' ι, letI := R;  IsRACSDC π' ι ∧ Conj (ρ : Gal F → GL (Fin n) E) (π'.galoisRep ι) := by
   sorry
 
 end PL7a
@@ -9827,12 +10122,14 @@ structure IsNTSetup (l : ℕ) (S₀ : Set (Place F))
   rbar_trivial : ∀ v ∈ S₀, v.Above l → resFieldHom (CHT.glRes rbar) v.emb = 1
 
 /-- Hypotheses (1)–(3) of Newton–Thorne 2021, Theorem 5.2: `l > 2n`; for `i < j` the character
-`χ̄_i/χ̄_j|G_{F(ζ_l)}` has order greater than `2n` (so `r̄` is Schur); `[F(ζ_l) : F] = l - 1`. -/
+`χ̄_i/χ̄_j|G_{F(ζ_l)}` has order greater than `2n` (so `r̄` is Schur); `[F(ζ_l) : F] = l - 1`.
+The proposed finiteness/lifting applications additionally assume strong primitivity of the sum.
+Lemma 5.1 supplies weak primitivity only and is not used to discharge this extra hypothesis. -/
 def NTConditions (l : ℕ) (χ : Fin n → Gal F →* (𝓀[E])ˣ) : Prop :=
   2 * n < l ∧
   (∀ i j, i < j → ∀ N : ℕ, 0 < N → N ≤ 2 * n →
     resFieldHom (χ i / χ j) (algebraMap F (CyclotomicField l F)) ^ N ≠ 1) ∧
-  Module.finrank F (CyclotomicField l F) = l - 1
+  Module.finrank F (CyclotomicField l F) = l - 1 ∧ IsStronglyPrimitive (diagChar χ)
 
 /-- The problem `𝒮_Σ = (F/F⁺, S ∪ Σ, S̃ ∪ Σ̃, Λ, r̄, µ, {R^△_v}_{S_l} ∪ {R^□_v}_{S - S_l} ∪
 {R^{St}_v}_Σ)` of Newton–Thorne 2021 §5, for a finite set `Σ` of places split in `F` and disjoint
@@ -10182,7 +10479,7 @@ theorem prescribed_type_lifts {F₀ : Type} [Field F₀] [NumberField F₀] [IsC
     (h2 : IsANTResidual l (resFieldHom ρbar (algebraMap F₀ F))
       (resFieldHom ρbar (algebraMap F₀ F)) e (fun i => resFieldHom (ρs i) (algebraMap F₀ F)))
     (h2' : CycloNotInAdKernel l (fun i => resFieldHom (ρs i) (algebraMap F₀ F)))
-    (ι : E →+* ℂ) (π : RACP F n) (hπ : IsRACSDC π ι)
+    (ι : E →+* ℂ) (π : RACP F n) [RACP.Realized π ι] (hπ : IsRACSDC π ι)
     (h3a : Conj (π.residualRep ι : Gal F → GL (Fin n) 𝓀[E])
       (resFieldHom ρbar (algebraMap F₀ F)))
     (h3b : (iotaOrdinary F E n ι).Holds π.toRegAlg)
@@ -10190,7 +10487,7 @@ theorem prescribed_type_lifts {F₀ : Type} [Field F₀] [NumberField F₀] [IsC
       (steinbergTwist w.Fv n).Holds (π.component w))
     (h4 : ∀ w : Place F, (∃ v ∈ S₀, w.LiesOver (algebraMap F₀ F) v ∨
       w.LiesOver (algebraMap F₀ F) v.conj) → w.IsSplit) :
-    ∃ π₀ : RACP F₀ n, IsRACSDC π₀ ι ∧
+    ∃ π₀ : RACP F₀ n, ∃ R : RACP.Realized π₀ ι, letI := R;  IsRACSDC π₀ ι ∧
       (∀ w : Place F₀, w.Outside S₀ → (unramifiedIrrep w.Fv n).Holds (π₀.component w)) ∧
       Conj (π₀.residualRep ι : Gal F₀ → GL (Fin n) 𝓀[E]) ρbar ∧
       (iotaOrdinary F₀ E n ι).Holds π₀.toRegAlg ∧ π₀.HasWeight ι lam ∧
@@ -11275,6 +11572,78 @@ end DetRings
 /-! ### PL.8/pseudodeformation-tangent-comparison: Tangent spaces of semistable
 pseudodeformation rings and Selmer groups -/
 
+/-! #### IHG.1 integral comparison input, NT23 Proposition 2.7, pp.8–9
+
+These are imported generic operations/results. PL.8 owns their conjugate self-dual specialization
+below, rather than a second generic determinant theory. Equality means equality of determinants,
+via NT23 Theorem 2.3, not equality of only their ordinary numerical traces. -/
+
+section IntegralComparisonInput
+
+variable {E : Type} [Field E] [ValuativeRel E] [TopologicalSpace E]
+  [IsNonarchimedeanLocalField E]
+
+/-- The right O-action on E/O is the same commutative scalar action. -/
+instance : Module (𝒪[E])ᵐᵒᵖ (TauCeti.DefiniteUnitary.KmodO E) where
+  smul a x := MulOpposite.unop a • x
+  one_smul := by sorry
+  mul_smul := by sorry
+  smul_zero := by sorry
+  smul_add := by sorry
+  add_smul := by sorry
+  zero_smul := by sorry
+instance : IsCentralScalar 𝒪[E] (TauCeti.DefiniteUnitary.KmodO E) := by sorry
+instance : SMulCommClass 𝒪[E] (𝒪[E])ᵐᵒᵖ (TauCeti.DefiniteUnitary.KmodO E) := by sorry
+
+abbrev IntegralSquareZero (E : Type) [Field E] [ValuativeRel E] [TopologicalSpace E]
+    [IsNonarchimedeanLocalField E] := TrivSqZeroExt 𝒪[E] (TauCeti.DefiniteUnitary.KmodO E)
+
+/-- Scale epsilon by p^k, fixing O pointwise. -/
+def epsilonScale (p k : ℕ) : IntegralSquareZero E →ₐ[𝒪[E]] IntegralSquareZero E :=
+  TrivSqZeroExt.map (((p : 𝒪[E]) ^ k) • LinearMap.id)
+
+def squareZeroReduction : IntegralSquareZero E →ₐ[𝒪[E]] 𝒪[E] :=
+  TrivSqZeroExt.fstHom 𝒪[E] 𝒪[E] (TauCeti.DefiniteUnitary.KmodO E)
+
+/-- 1+epsilon X is invertible, with inverse 1-epsilon X. -/
+def nearIdentity {n : ℕ} (X : Matrix (Fin n) (Fin n) (TauCeti.DefiniteUnitary.KmodO E)) :
+    GL (Fin n) (IntegralSquareZero E) :=
+  ⟨1 + X.map TrivSqZeroExt.inr, 1 - X.map TrivSqZeroExt.inr, by sorry, by sorry⟩
+
+/-- IHG.0/IHG.1 (import): continuous determinants for a topological coefficient ring. -/
+def continuousDeterminants (G : Type) [Group G] [TopologicalSpace G]
+    (A : Type) [CommRing A] [TopologicalSpace A] (n : ℕ) : Imported (Determinant G A n) := sorry
+
+/-- IHG.1 (requested input): the bounded integral comparison, including continuity,
+conjugacy after epsilon scaling and the scalar-centralizer bound. k depends on the image of rho.
+This imported signature is not a new node owned by PL.8. -/
+theorem integralDeterminantComparison {G : Type} [Group G] [TopologicalSpace G]
+    [IsTopologicalGroup G] [CompactSpace G] [T2Space G] [TotallyDisconnectedSpace G]
+    {n : ℕ} (p : ℕ) [ResChar E p] [CharZero E]
+    (ρ : G →ₜ* GL (Fin n) 𝒪[E]) (hirr : IsAbsIrred (generic ρ.toMonoidHom)) :
+    ∃ k : ℕ,
+      (∀ D : Determinant G (IntegralSquareZero E) n,
+        D.map squareZeroReduction.toRingHom = Determinant.ofHom ρ.toMonoidHom →
+        ∃ ρ' : G →* GL (Fin n) (IntegralSquareZero E),
+          (Matrix.GeneralLinearGroup.map squareZeroReduction.toRingHom).comp ρ' =
+            ρ.toMonoidHom ∧ Determinant.ofHom ρ' = D.map (epsilonScale p k).toRingHom ∧
+          ((continuousDeterminants G (IntegralSquareZero E) n).Holds D → Continuous ρ')) ∧
+      (∀ ρ₁ ρ₂ : G →* GL (Fin n) (IntegralSquareZero E),
+        (Matrix.GeneralLinearGroup.map squareZeroReduction.toRingHom).comp ρ₁ = ρ.toMonoidHom →
+        (Matrix.GeneralLinearGroup.map squareZeroReduction.toRingHom).comp ρ₂ = ρ.toMonoidHom →
+        Determinant.ofHom ρ₁ = Determinant.ofHom ρ₂ →
+        ∃ X : Matrix (Fin n) (Fin n) (TauCeti.DefiniteUnitary.KmodO E), ∀ g,
+          Matrix.GeneralLinearGroup.map (epsilonScale p k).toRingHom (ρ₂ g) =
+            nearIdentity X * Matrix.GeneralLinearGroup.map (epsilonScale p k).toRingHom (ρ₁ g) *
+              (nearIdentity X)⁻¹) ∧
+      (∀ (ρ' : G →* GL (Fin n) (IntegralSquareZero E))
+          (X : Matrix (Fin n) (Fin n) (TauCeti.DefiniteUnitary.KmodO E)),
+        (Matrix.GeneralLinearGroup.map squareZeroReduction.toRingHom).comp ρ' = ρ.toMonoidHom →
+        (∀ g, nearIdentity X * ρ' g = ρ' g * nearIdentity X) →
+        ∃ a, ((p : 𝒪[E]) ^ k) • X = Matrix.diagonal (fun _ => a)) := by sorry
+
+end IntegralComparisonInput
+
 section TangentComparison
 
 variable {F : Type} [Field F] [NumberField F]
@@ -11387,6 +11756,38 @@ source through `ad r` and on the target through the involution `D′ ↦ (D′)^
 def traceMapS (T : ConjSelfDualSetup r ρ) (m : ℕ) (x : T.ring →ₐ[𝒪[E]] 𝒪[E]) :
     T.selmerTorsion m →ₗ[𝒪[E]] ((RingHom.ker x.toRingHom).Cotangent →ₗ[𝒪[E]] OMod E m) := sorry
 
+/-- The semistable point before the conjugate self-dual quotient. -/
+def semistablePoint (T : ConjSelfDualSetup r ρ) (x : T.ring →ₐ[𝒪[E]] 𝒪[E]) :
+    semistableDetRing (placesOver T.S) (Determinant.ofHom (reduction ρ.toMonoidHom)) T.a T.b
+      →ₐ[𝒪[E]] 𝒪[E] := sorry
+
+/-- The involution on integral Selmer classes, induced by ad r and any lift of c.
+Inner changes of the chosen lift induce the identity on H¹. -/
+def conjugationSelmer (T : ConjSelfDualSetup r ρ) (m : ℕ) :
+    torsionSemistableSelmer (placesOver T.S) ρ T.a T.b m ≃ₗ[𝒪[E]]
+      torsionSemistableSelmer (placesOver T.S) ρ T.a T.b m := sorry
+
+/-- The contravariant action on the cotangent dual of the invariant point, induced by
+D'↦(D')^{c,dual} tensor chi. The range [a,b] is preserved because a+b=w. -/
+def conjugationCotangent (T : ConjSelfDualSetup r ρ) (m : ℕ)
+    (x : T.ring →ₐ[𝒪[E]] 𝒪[E]) :
+    ((RingHom.ker (T.semistablePoint x).toRingHom).Cotangent →ₗ[𝒪[E]] OMod E m) ≃ₗ[𝒪[E]]
+      ((RingHom.ker (T.semistablePoint x).toRingHom).Cotangent →ₗ[𝒪[E]] OMod E m) := sorry
+
+/-- **PL.8/polarized-integral-trace-equivariance**, NT23 §2.4 and Proposition 2.16,
+pp.16–17. The equality is before inverting p and holds at every torsion level. -/
+theorem traceMap_equivariant [CharZero E] (T : ConjSelfDualSetup r ρ) (m : ℕ)
+    (hm : 1 ≤ m) (x : T.ring →ₐ[𝒪[E]] 𝒪[E]) (hx : T.IsPoint x)
+    (φ : torsionSemistableSelmer (placesOver T.S) ρ T.a T.b m) :
+    traceMap (placesOver T.S) ρ T.a T.b m (T.semistablePoint x) (T.conjugationSelmer m φ) =
+      T.conjugationCotangent m x
+        (traceMap (placesOver T.S) ρ T.a T.b m (T.semistablePoint x) φ) := by sorry
+
+theorem conjugation_involutive (T : ConjSelfDualSetup r ρ) (m : ℕ)
+    (x : T.ring →ₐ[𝒪[E]] 𝒪[E]) :
+    Function.Involutive (T.conjugationSelmer m) ∧
+      Function.Involutive (T.conjugationCotangent m x) := by sorry
+
 /-- The Selmer group `H¹_{𝓛_S}(F⁺, W_E) = (lim_m H¹_{𝓛_S}(F⁺, W_m)) ⊗_𝒪 E` of Newton–Thorne 2023
 §2.4, the limit being taken along the maps induced by `W_{m+1} → W_m`. -/
 def SelmerRat (T : ConjSelfDualSetup r ρ) : Type := sorry
@@ -11433,9 +11834,8 @@ theorem pseudodeformation_tangent_comparison_3 [IsCMField F] [CharZero E] [IsLar
       adjointSelmerG T.S (CHT.rat r.toMonoidHom) = adjointSelmerF (CHT.rat r.toMonoidHom)) := by
   sorry
 
--- Not stated here: the `Gal(F/F⁺)`-equivariance of `tr_m` in part (2), for want of an interface
--- for the action of `Gal(F/F⁺)` on `H¹(G_F, W_m)`; and the input Proposition 2.7, which needs the
--- ring `𝒪 ⊕ ε E/𝒪` with its scaling maps `α_k` and determinants over it.
+-- Integral equivariance and the IHG.1 square-zero input are stated above; the uniform
+-- torsion comparison precedes the rational isomorphism.
 
 end TangentComparison
 
@@ -11457,7 +11857,7 @@ extension of `r_{π,ι}` with multiplier `ε^{1-n} δ^n_{F/F⁺}`. Suppose that 
 eigenvalues of the elements of the image and that `r_{π,ι}(G_{F(ζ_{p^∞})})` is enormous;
 `G_{F(ζ_{p^∞})}` is the kernel of the cyclotomic character `ε_p` of `G_F`. Then
 `H¹_f(F⁺, ad r_{π,ι}) = 0`. -/
-theorem adjoint_selmer_vanishing [IsCMField F] [CharZero E] (π : RACP F n) (ι : E →+* ℂ)
+theorem adjoint_selmer_vanishing [IsCMField F] [CharZero E] (π : RACP F n) (ι : E →+* ℂ) [RACP.Realized π ι]
     (hunit : ∀ σ, π.multiplier ι σ = delta F E σ ^ n) (r : Gal F⁺ →ₜ* CHT n E)
     (hr : RestrictsTo r.toMonoidHom (π.galoisRep ι).toMonoidHom)
     (hν : ∀ σ, CHT.nu n E (r σ) = cyclo E F⁺ σ ^ (1 - (n : ℤ)) * delta F E σ ^ n)
@@ -11470,7 +11870,7 @@ theorem adjoint_selmer_vanishing [IsCMField F] [CharZero E] (π : RACP F n) (ι 
 same vanishing for every regular algebraic cuspidal polarized `(π, χ)` over the CM field `F`,
 with `r` the extension of `r_{π,ι}` of multiplier `ε^{1-n} r_{χ,ι}`. -/
 theorem adjoint_selmer_vanishing_polarized [IsCMField F] [CharZero E] (π : RACP F n)
-    (ι : E →+* ℂ) (r : Gal F⁺ →ₜ* CHT n E)
+    (ι : E →+* ℂ) [RACP.Realized π ι] (r : Gal F⁺ →ₜ* CHT n E)
     (hr : RestrictsTo r.toMonoidHom (π.galoisRep ι).toMonoidHom)
     (hν : ∀ σ, CHT.nu n E (r σ) = cyclo E F⁺ σ ^ (1 - (n : ℤ)) * π.multiplier ι σ)
     (hsplit : ∀ σ : Gal F, (π.galoisRep ι σ : Matrix (Fin n) (Fin n) E).charpoly.Splits)
@@ -11486,7 +11886,7 @@ extended to `r` with `ν ∘ r = ε^{1-n} δ^n_{F/F⁺}`, and `a + b = n - 1` �
 of `R_S` at `𝔮_S` is `E`: the local ring of `R_S` at `𝔮_S` is a field, with residue field `E`
 because `𝔮_S` is the kernel of a map onto `𝒪`. -/
 theorem adjoint_selmer_vanishing_patched [IsCMField F] [CharZero E] [IsLargeFor F E]
-    (π : RACP F n) (ι : E →+* ℂ)
+    (π : RACP F n) (ι : E →+* ℂ) [RACP.Realized π ι]
     (hunit : ∀ σ, π.multiplier ι σ = delta F E σ ^ n) (r : Gal F⁺ →ₜ* CHT n 𝒪[E])
     (ρ : Gal F →ₜ* GL (Fin n) 𝒪[E]) (T : ConjSelfDualSetup r ρ) (hn : 2 ≤ n)
     (hw : T.w = (n : ℤ) - 1)
@@ -11518,7 +11918,7 @@ it equals its residue field `E`. The absolute irreducibility in `T` follows from
 image. -/
 theorem pseudodeformation_ring_regular_at_automorphic_point [IsCMField F] [CharZero E]
     [IsLargeFor F E]
-    (π' : RACP F n) (ι : E →+* ℂ) (r : Gal F⁺ →ₜ* CHT n 𝒪[E]) (ρ : Gal F →ₜ* GL (Fin n) 𝒪[E])
+    (π' : RACP F n) (ι : E →+* ℂ) [RACP.Realized π' ι] (r : Gal F⁺ →ₜ* CHT n 𝒪[E]) (ρ : Gal F →ₜ* GL (Fin n) 𝒪[E])
     (T : ConjSelfDualSetup r ρ)
     (hπ' : Conj (fun σ => generic ρ.toMonoidHom σ) (fun σ => π'.galoisRep ι σ))
     (hν : ∀ σ, Units.map (algebraMap 𝒪[E] E : 𝒪[E] →* E) (CHT.nu n 𝒪[E] (r σ)) =
@@ -11691,7 +12091,8 @@ def IsRigid (ℓ : ℕ) (rt : Gal F⁺ →* CHT N 𝓀[E]) (μ : ZMod 2)
 /-- The polarized global deformation problem
 `𝒮 = (r̄, η^μ ε_ℓ^{1-N}, Σ⁺_min ∪ Σ⁺_lr ∪ Σ⁺_ℓ, {D_v})` attached to a rigid `r̄`: `D_v` is all
 liftings for `v ∈ Σ⁺_min`, the problem `D^ram` of Liu–Tian–Xiao–Zhang–Zhu, Definition 3.5.1 for
-`v ∈ Σ⁺_lr`, and `D^FL` of their Definition 3.2.5 for `v ∈ Σ⁺_ℓ`. When `Σ⁺_lr ≠ ∅` take `μ` even.
+`v ∈ Σ⁺_lr`, and `D^FL` of their Definition 3.2.5 for `v ∈ Σ⁺_ℓ`.
+Use the corrected arbitrary-μ D^ram from L7; evenness is a later conclusion.
 It is a problem in the sense of GlobalGaloisDeformations G7/polarized-deformation-problem once
 that notion allows places that do not split in `F`. -/
 def IsRigid.globalProblem [IsCMField F] {ℓ : ℕ} {rt : Gal F⁺ →* CHT N 𝓀[E]} {μ : ZMod 2}
@@ -11810,6 +12211,38 @@ in the endomorphisms of a `𝕋`-module `H`. -/
 abbrev Lifting.LocalizedImage (T : Type*) [CommRing T] (H : Type*) [AddCommGroup H] [Module T H]
     (𝔪 : Ideal T) [𝔪.IsPrime] : Type _ :=
   Localization.AtPrime 𝔪 ⧸ (Module.annihilator T H).map (algebraMap T (Localization.AtPrime 𝔪))
+
+/-! ### PL.9/rigid-parity-dimension-count: Count before multiplier parity -/
+
+/-- L7 input: the corrected ramified condition has framed relative dimension N²
+for even μ and N²-1 for odd μ. At odd μ the rank-two chart has z=0 and x=y;
+its tangent defect dim L_v-h⁰(ad rbar) is -1. -/
+def Lifting.ramifiedDefect (μ : ZMod 2) : ℤ := if μ = 0 then 0 else -1
+
+/-- The parity penalty at the real places in the polarized presentation formula. -/
+def Lifting.realParityPenalty (N : ℕ) (μ : ZMod 2) : ℤ :=
+  if μ = (N : ZMod 2) then 0 else 1
+
+/-- **PL.9/rigid-parity-dimension-count.** T=S includes all level-raising places.
+Write A=|S|N², f=sum_{v|l}[F_v⁺:Q_l]N(N-1)/2, a=|Σ_lr⁺| and d=[F⁺:Q].
+L7 supplies local relative dimension A+f+a*defect; the G7 nonsplit presentation
+supplies g=b-f-N*d*penalty-a*defect. The opposite corrections cancel before
+one deduces μ=N. Nonzero patched cohomology supplies the depth bound. -/
+theorem Lifting.rigid_parity_dimension_count (N : ℕ) (hN : 0 < N)
+    (μ : ZMod 2) (A f a b d g localDim : ℤ) (hd : 0 < d)
+    (hloc : localDim = A + f + a * Lifting.ramifiedDefect μ)
+    (hgen : g = b - f - (N : ℤ) * d * Lifting.realParityPenalty N μ -
+      a * Lifting.ramifiedDefect μ)
+    (hdepth : 1 + A + b ≤ 1 + localDim + g) :
+    μ = (N : ZMod 2) := by sorry
+
+-- test: odd_multiplier_generator_correction
+example (A f a b N d : ℤ) :
+    (A + f - a) + (b - f - N * d + a) = A + b - N * d := by sorry
+
+-- test: rank_two_odd_multiplier_chart
+example {R : Type} [CommRing R] (x y z : R) (hunit : IsUnit (2 + x + y))
+    (hrel : (2 + x + y) * z = 0) : z = 0 := by sorry
 
 /-- **PL.9/rigid-r-equals-t** (Liu–Tian–Xiao–Zhang–Zhu, Theorem 3.6.3). `F/F⁺` CM, `N ≥ 2`, `ℓ`
 odd, `ξ ∈ (ℤ^N_≤)^{Σ_∞}` with `ξ_{τ,i} = -ξ_{τ^c,N+1-i}`, `r̄` with similitude character
@@ -11950,11 +12383,11 @@ theorem rigidity_for_almost_all_primes_2 [IsCMField F] (hN : 2 ≤ N)
       ∀ π : RACP F N, (Lifting.racsdc F N).Holds π →
         (Lifting.strongCoefficientField π).Holds Ec → π.component w = σw →
         (∀ (𝔩 : HeightOneSpectrum (𝓞 Ec.carrier)) (lam : Place Ec.carrier)
-            (ι : lam.Fv →+* ℂ), Lifting.Place.IsAt lam 𝔩 → ι.comp lam.emb = Ec.emb → 𝔩 ∉ L₁ →
+            (ι : lam.Fv →+* ℂ) (R : RACP.Realized π ι), letI := R; Lifting.Place.IsAt lam 𝔩 → ι.comp lam.emb = Ec.emb → 𝔩 ∉ L₁ →
             IsAbsIrred ⇑(π.residualRep ι)) ∧
         ∃ L₂ : Finset (HeightOneSpectrum (𝓞 Ec.carrier)), L₁ ⊆ L₂ ∧
           ∀ (𝔩 : HeightOneSpectrum (𝓞 Ec.carrier)) (lam : Place Ec.carrier)
-            (ι : lam.Fv →+* ℂ) (ℓ : ℕ), Lifting.Place.IsAt lam 𝔩 → ι.comp lam.emb = Ec.emb →
+            (ι : lam.Fv →+* ℂ) (R : RACP.Realized π ι) (ℓ : ℕ), letI := R; Lifting.Place.IsAt lam 𝔩 → ι.comp lam.emb = Ec.emb →
             ℓ.Prime → lam.Above ℓ → 𝔩 ∉ L₂ →
             IsAbsIrred ⇑(resFieldHom (π.residualRep ι) (algebraMap F (CyclotomicField ℓ F))) := by
   sorry
@@ -11977,7 +12410,7 @@ theorem rigidity_for_almost_all_primes_3 [IsCMField F] (hN : 2 ≤ N) (π : RACP
       (unramifiedIrrep u.Fv N).Holds (π.component u)) :
     ∃ L : Finset (HeightOneSpectrum (𝓞 Ec.carrier)),
       ∀ (𝔩 : HeightOneSpectrum (𝓞 Ec.carrier)) (lam : Place Ec.carrier) (ι : lam.Fv →+* ℂ)
-        (ℓ : ℕ) [ResChar lam.Fv ℓ], Lifting.Place.IsAt lam 𝔩 → ι.comp lam.emb = Ec.emb →
+        (ℓ : ℕ) [ResChar lam.Fv ℓ] (R : RACP.Realized π ι), letI := R; Lifting.Place.IsAt lam 𝔩 → ι.comp lam.emb = Ec.emb →
         ℓ.Prime → 𝔩 ∉ L →
         IsAbsIrred ⇑(π.residualRep ι) ∧
         IsAbsIrred ⇑(resFieldHom (π.residualRep ι) (algebraMap F (CyclotomicField ℓ F))) ∧
@@ -11989,6 +12422,56 @@ theorem rigidity_for_almost_all_primes_3 [IsCMField F] (hN : 2 ≤ N) (π : RACP
 /-! ### PL.9/generic-local-domain-lifting: Modularity lifting from polynomially generic local
 domains -/
 
+/-- **PL.9/source-common-weight-conversion.** Source weights and common weights
+are separate variables. Negate the HT multiset, reorder, then subtract eta. -/
+def Lifting.sourceToCommon {J : Type} {n : ℕ} (lam : J → Fin n → ℤ) : J → Fin n → ℤ :=
+  fun j i => -lam j (Fin.rev i) - ((n : ℤ) - 1)
+
+theorem Lifting.sourceToCommon_involutive {J : Type} {n : ℕ} (lam : J → Fin n → ℤ) :
+    Lifting.sourceToCommon (Lifting.sourceToCommon lam) = lam := by sorry
+
+theorem Lifting.sourceToCommon_HT {J : Type} {n : ℕ} (lam : J → Fin n → ℤ)
+    (j : J) (i : Fin n) :
+    Lifting.sourceToCommon lam j i + ((n : ℤ) - 1 - (i : ℤ)) =
+      -(lam j (Fin.rev i) + ((n : ℤ) - 1 - ((Fin.rev i : Fin n) : ℤ))) := by sorry
+
+theorem Lifting.sourceToCommon_dominant {J : Type} {n : ℕ}
+    (lam : J → Fin n → ℤ) (h : ∀ j, Antitone (lam j)) :
+    ∀ j, Antitone (Lifting.sourceToCommon lam j) := by sorry
+
+/-- AF.4 input: irreducible algebraic GL_n representations, in characteristic zero.
+An integral comparison uses a transported dual determinant-twist lattice, not an
+unjustified equality of canonical Weyl lattices. -/
+def Lifting.algebraicCoefficient (E : Type) [Field E] (n : ℕ) (lam : Fin n → ℤ) : Type := sorry
+instance (E : Type) [Field E] (n : ℕ) (lam : Fin n → ℤ) :
+    AddCommGroup (Lifting.algebraicCoefficient E n lam) := sorry
+instance (E : Type) [Field E] (n : ℕ) (lam : Fin n → ℤ) :
+    Module E (Lifting.algebraicCoefficient E n lam) := sorry
+
+def Lifting.algebraicCoefficientAction (E : Type) [Field E] (n : ℕ) (lam : Fin n → ℤ) :
+    Representation E (GL (Fin n) E) (Lifting.algebraicCoefficient E n lam) := sorry
+
+/-- The highest-weight identity. This is a representation isomorphism over E, with
+chosen transported integral lattices supplied by AF.4. It does not change the Galois
+representation, tame type, source Serre-weight labels or polynomial indices. -/
+theorem Lifting.sourceToCommon_coefficient {E : Type} [Field E] [CharZero E]
+    {n : ℕ} (lam : Fin n → ℤ) (h : Antitone lam) :
+    ∃ e : Lifting.algebraicCoefficient E n (fun i => -lam (Fin.rev i) - ((n : ℤ) - 1))
+      ≃ₗ[E] Module.Dual E (Lifting.algebraicCoefficient E n lam),
+      ∀ (g : GL (Fin n) E) v w,
+        e (Lifting.algebraicCoefficientAction E n _ g v) w =
+          ((g.det ^ (1 - (n : ℤ)) : Eˣ) : E) •
+            e v (Lifting.algebraicCoefficientAction E n lam g⁻¹ w) := by sorry
+
+-- test: source_weight_cyclotomic
+example : Lifting.sourceToCommon (fun (_ : Unit) (_ : Fin 1) => (1 : ℤ)) () 0 = -1 := by sorry
+-- test: source_weight_rank_two_zero
+example : Lifting.sourceToCommon (fun (_ : Unit) (_ : Fin 2) => (0 : ℤ)) () =
+    fun _ => (-1 : ℤ) := by sorry
+-- test: source_weight_not_same_label
+example : Lifting.sourceToCommon (fun (_ : Unit) (_ : Fin 2) => (0 : ℤ)) () ≠
+    (fun _ => (0 : ℤ)) := by sorry
+
 /-- The set of the weights `λ_τ + η`, `η = (n - 1, …, 1, 0)`, over the embeddings `τ` of `F`: the
 set on which the polynomial `P_{λ+η,e}` depends. -/
 def Lifting.shiftedWeights {F E : Type} [Field F] [Field E] {n : ℕ}
@@ -11996,8 +12479,7 @@ def Lifting.shiftedWeights {F E : Type} [Field F] [Field E] {n : ℕ}
   Set.range fun τ : F →+* E => fun i : Fin n => lam τ i + ((n : ℤ) - 1 - (i : ℤ))
 
 /-- Hypotheses (i)–(v) of Le–Le Hung–Levin–Morra, Theorem 9.2.1, with its standing assumptions,
-for a genericity polynomial `P`: `F/F⁺` CM with `p` unramified in `F`, `F⁺ ≠ ℚ` and every place
-of `F⁺` above `p` split in `F`; `r : G_F → GL_n(E)` (through a lattice) such that
+for a genericity polynomial `P`: `F/F⁺` CM with `p` unramified in `F`; `r : G_F → GL_n(E)` (through a lattice) such that
 (i) `r` is unramified at all but finitely many places;
 (ii) at each place `v | p`, `r` is potentially crystalline of type `(λ + η, τ_v)`, `λ` dominant,
 and the tame inertial type `τ_v` has a lowest alcove presentation `(s_v, μ_v - η)` with `μ_v`
@@ -12006,20 +12488,19 @@ and the tame inertial type `τ_v` has a lowest alcove presentation `(s_v, μ_v -
 (iv) `r̄` is semisimple at each place above `p`;
 (v) `r̄(G_{F(ζ_p)})` is adequate and `ζ_p ∉ F̄^{ker ad r̄}`, i.e. some `σ ∈ G_F` with `r̄(σ)` scalar
 moves `ζ_p`.
-Hodge–Tate weights are taken in the convention of this file, `HT(ε) = {-1}`, in which (iii) is
-compatible with the weights `λ + η`; the source normalises `ε` to have Hodge–Tate weight `1`. -/
+Here λ is the source weight. In this file the HT weights are sourceToCommon(λ)+eta.
+The inertial type and polynomial indices keep their source labels. -/
 def Lifting.IsGenericLiftingDatum {F : Type} [Field F] [NumberField F] [IsCMField F] {E : Type}
     [Field E] [ValuativeRel E] [TopologicalSpace E] [IsNonarchimedeanLocalField E] {n : ℕ}
     (p : ℕ) [ResChar E p] (P : MvPolynomial (Fin n) ℤ) (r : Gal F →ₜ* GL (Fin n) 𝒪[E])
     (lam : (F →+* E) → Fin n → ℤ) (τ : ∀ v : Place F, Lifting.TameInertialType v.Fv E n)
     (s : ∀ v : Place F, (v.Fv →+* E) → Equiv.Perm (Fin n))
     (μ : ∀ v : Place F, (v.Fv →+* E) → Fin n → ℤ) : Prop :=
-  (¬ Lifting.IsRamifiedIn p F ∧ 1 < Module.finrank ℚ (maximalRealSubfield F) ∧
-    ∀ v ∈ Lifting.primesAbove (maximalRealSubfield F) p, Lifting.IsSplitIn v F) ∧
+  (¬ Lifting.IsRamifiedIn p F) ∧
   Lifting.IsUnramifiedAlmostEverywhere r.toMonoidHom ∧
   ((∀ τ', Antitone (lam τ')) ∧ ∀ v : Place F, v.Above p →
     IsPotentiallyCrystalline (genericC (resPlace r v)) ∧
-    HasHodgeTate (genericC (resPlace r v)) (Lifting.localHT (Lifting.weightHT lam) v) ∧
+    HasHodgeTate (genericC (resPlace r v)) (Lifting.localHT (Lifting.weightHT (Lifting.sourceToCommon lam)) v) ∧
     Lifting.inertialType.Holds (genericC (resPlace r v), τ v) ∧
     Lifting.lowestAlcove.Holds (τ v, s v, μ v) ∧
     ∀ j : v.Fv →+* E, ¬ (p : ℤ) ∣ MvPolynomial.eval (μ v j) P) ∧
@@ -12038,9 +12519,12 @@ polynomial `P_{λ+η,e}` of their Theorem 7.3.2(2), `e` the ramification index o
 for `π` at the places dividing `p`. Then `r ≅ r_ι(π')` for a RACSDC `π'` of weight `λ` with
 `σ(τ)` a `K`-type at the places dividing `p`. The source does not define "`K`-type" and "weight
 `λ`" for `π`; they are read as: `π_w|GL_n(𝒪_{F_w})` contains `σ(τ_w)` for each `w | p`
-(`Lifting.kType`), and `r_ι(π)` has Hodge–Tate weights `λ + η` (`RACP.HasWeight`). -/
-/- REVIEW: the LLHLM source has HT(ε) = +1. The common-convention λ
-and genericity indices here still need the explicit conversion in the packet gap. -/
+(`Lifting.kType`), and `r_ι(π)` has common Hodge–Tate weights
+`sourceToCommon(λ) + η` (`RACP.HasWeight`). -/
+/- The source λ is used for V(λ), the Serre-weight labels and P_{λ+eta,e}.
+The common HasWeight predicate uses sourceToCommon(λ). The inertial type and K-type
+are unchanged by this numerical convention conversion. Applying the dual-det functor
+to coefficient modules also dualizes their K-type factors; that is a separate operation. -/
 theorem generic_local_domain_lifting {F : Type} [Field F] [NumberField F] [IsCMField F]
     {E : Type} [Field E] [ValuativeRel E] [TopologicalSpace E] [IsNonarchimedeanLocalField E]
     [IsLargeFor F E] {n : ℕ} {p : ℕ} [ResChar E p] (hp : p.Prime) (ι : E →+* ℂ)
@@ -12051,13 +12535,13 @@ theorem generic_local_domain_lifting {F : Type} [Field F] [NumberField F] [IsCMF
     (h : Lifting.IsGenericLiftingDatum p
       (Lifting.genericityPolynomial n (Lifting.shiftedWeights lam)
         (Lifting.coeffRamificationIndex E p)) r lam τ s μ)
-    (π : RACP F n) (hπ : (Lifting.racsdc F n).Holds π)
+    (π : RACP F n) [RACP.Realized π ι] (hπ : (Lifting.racsdc F n).Holds π)
     (hπbar : Conj (reduction r.toMonoidHom : Gal F → GL (Fin n) 𝓀[E]) (π.residualRep ι))
-    (hπwt : π.HasWeight ι lam)
+    (hπwt : π.HasWeight ι (Lifting.sourceToCommon lam))
     (hπK : ∀ v : Place F, v.Above p → (Lifting.kType ι).Holds (π.component v, τ v)) :
-    ∃ π' : RACP F n, (Lifting.racsdc F n).Holds π' ∧
+    ∃ π' : RACP F n, ∃ R : RACP.Realized π' ι, letI := R;  (Lifting.racsdc F n).Holds π' ∧
       Conj (Lifting.genericG r : Gal F → GL (Fin n) E) (π'.galoisRep ι) ∧
-      π'.HasWeight ι lam ∧
+      π'.HasWeight ι (Lifting.sourceToCommon lam) ∧
       ∀ v : Place F, v.Above p → (Lifting.kType ι).Holds (π'.component v, τ v) := by
   sorry
 
@@ -12082,18 +12566,21 @@ theorem generic_change_of_weight_lifting (n : ℕ) (W : Set (Fin n → ℤ)) (e 
         (lam : (F →+* E) → Fin n → ℤ) (τ : ∀ v : Place F, Lifting.TameInertialType v.Fv E n)
         (s : ∀ v : Place F, (v.Fv →+* E) → Equiv.Perm (Fin n))
         (μ : ∀ v : Place F, (v.Fv →+* E) → Fin n → ℤ),
-        p.Prime → ¬ p ∣ 2 * n → Lifting.shiftedWeights lam = W →
+        p.Prime → ¬ p ∣ 2 * n →
+        1 < Module.finrank ℚ (maximalRealSubfield F) →
+        (∀ v ∈ Lifting.primesAbove (maximalRealSubfield F) p, Lifting.IsSplitIn v F) →
+        Lifting.shiftedWeights lam = W →
         Lifting.coeffRamificationIndex E p = e →
         Lifting.IsGenericLiftingDatum p P r lam τ s μ →
-        (∃ π : RACP F n, (Lifting.racsdc F n).Holds π ∧
+        (∃ π : RACP F n, ∃ R : RACP.Realized π ι, letI := R;  (Lifting.racsdc F n).Holds π ∧
           Conj (reduction r.toMonoidHom : Gal F → GL (Fin n) 𝓀[E]) (π.residualRep ι)) →
         (∃ rt : Gal (maximalRealSubfield F) →* CHT n 𝓀[E],
           Lifting.CHT.Extends (rt : Gal (maximalRealSubfield F) → CHT n 𝓀[E])
             ⇑(reduction r.toMonoidHom) ∧
           (Lifting.definiteUnitaryAutomorphic F E n).Holds rt) →
-        ∃ π' : RACP F n, (Lifting.racsdc F n).Holds π' ∧
+        ∃ π' : RACP F n, ∃ R : RACP.Realized π' ι, letI := R;  (Lifting.racsdc F n).Holds π' ∧
           Conj (Lifting.genericG r : Gal F → GL (Fin n) E) (π'.galoisRep ι) ∧
-          π'.HasWeight ι lam ∧
+          π'.HasWeight ι (Lifting.sourceToCommon lam) ∧
           ∀ v : Place F, v.Above p → (Lifting.kType ι).Holds (π'.component v, τ v) := by
   sorry
 
