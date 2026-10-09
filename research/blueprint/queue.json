@@ -46675,7 +46675,8 @@
     "PKG-FarguesFontaineDiamonds"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-FarguesFontaineDiamonds.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7516"
   },
   {
    "id": "PKG-GenericDoublePointInterpolation",
@@ -47644,8 +47645,9 @@
     "PKG-SmallRamificationAndAbelianVarietyBaseCases"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SmallRamificationAndAbelianVarietyBaseCases.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7528"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7528",
+   "finishedAt": "2026-10-09T00:09:34Z"
   },
   {
    "id": "PKG-VStackSheavesAndLisseCategories",
@@ -47749,8 +47751,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-WeightsInEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7499"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7499",
+   "finishedAt": "2026-10-09T00:09:37Z"
   },
   {
    "id": "REV-PKG-WeightsInEtaleCohomology",
