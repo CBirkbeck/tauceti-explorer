@@ -1,6 +1,6 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — completed independent review
 
-Reviewer: Codex (GPT-6), session `codex-nikABM`, 9 October 2026, issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219). Input commit: `c019e3c9c8cc34332ff3b09424522a7db78fc2a2`.
+Reviewer: Codex (GPT-6), session `codex-nikABM`, 9 October 2026, issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219). Review input: `c019e3c9c8cc34332ff3b09424522a7db78fc2a2`. Submission integration base: `6ad161567` (including concurrent PR #7967).
 
 This completes the review of `FIX-RT-AREA-iwasawa-2~2`, written by Claude Code, session `claude-6ZAIEy`, issue #6218, [PR #6786](https://github.com/CBirkbeck/tauceti-explorer/pull/6786). This session wrote none of that fix. It resumes the independent review saved by Claude, session `claude-D9I0pm`, in [PR #7313](https://github.com/CBirkbeck/tauceti-explorer/pull/7313). Earlier corrections are already in the input; this report distinguishes them from this continuation's changes. The dated earlier review objects remain in each packet's `reviewHistory`.
 
@@ -11,9 +11,9 @@ The review of the live issue's two named packets is complete. A `needs_changes` 
 | Packet | Verdict | Reason |
 |---|---|---|
 | `DirichletPadicLFunctions--L3.json` | **accepted** for the fix review | The /1 and /2 handoffs preserve the accepted mathematics and name outstanding L3-2 and RD.6 obligations without claiming them discharged. |
-| `PadicMeasuresIwasawaAlgebras.json` | **needs_changes** | The corrected 50-node L6 algebra meets /4's contract, but the fix's reader still describes 25 nodes and assigns higher Fitting ideals incorrectly. The packet also retains its earlier L4 acceptance blockers. |
+| `PadicMeasuresIwasawaAlgebras.json` | **needs_changes** | The corrected 50-node L6 algebra meets /4's contract. Concurrent PR #7967 repairs the reader and supplies L4 interfaces, but 14 required L4 declaration names, 12 annotated test records and named source/proof inputs remain unresolved. |
 
-Regenerating the L6 reader belongs to the fix follow-up. The unresolved L4 interfaces belong to `BP-PadicMeasuresIwasawaAlgebras~2` (#6472). Its original review remains effective; accepting the scoped algebra repair cannot certify that unrelated layer. The reader is not an authorized deliverable of this review.
+During submission, [PR #7967](https://github.com/CBirkbeck/tauceti-explorer/pull/7967), `BP-PadicMeasuresIwasawaAlgebras~2` (#6472), merged. Its complete reader and all L4 edits are preserved. The reader now lists 50 L6 nodes and keeps higher Fitting algebra here; the stale-reader objection is superseded. Its remaining L4 interfaces and source inputs still require follow-up and independent review. This session checked the residual declaration inventory, not the revised L4 mathematics. The reader is not changed by this PR.
 
 ## Finding-by-finding verdicts
 
@@ -49,7 +49,7 @@ No change to either reviewed packet is required. Source and all-weight compariso
 
 ### /4 — Dasgupta–Kakde algebra: correct after the inherited corrections
 
-All 50 L6 nodes were reread, including statements, proof steps, acceptance examples, 172 API items and 57 tests. The 174 direct declaration prerequisites were read in 94 source modules authenticated against the pins. The other 436 packet nodes were not re-reviewed.
+All 50 L6 nodes were reread, including statements, proof steps, acceptance examples, 172 API items and 57 tests. The 174 direct declaration prerequisites were read in 94 source modules authenticated against the pins. The other 436 packet nodes were not re-reviewed; the concurrent L4 revision is preserved without a source-verification verdict.
 
 The source is [arXiv:2010.00657v3](https://arxiv.org/pdf/2010.00657v3), PDF SHA-256 `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099`. Direct readings covered §§2.2–2.3, pp. 15–18; Lemma 3.9, pp. 25–26; §5.1–5.2, pp. 32–34; §6.1, p. 40; §7.2.9, p. 49; the residue-ring observation in the proof of Lemma 8.22, p. 64; Lemma A.5/Remark A.7, pp. 85–86; and Appendix B.2/Lemma B.4/(171), pp. 93–94. Derived algebra lemmas are identified as supplied proofs, not separately stated source theorems.
 
@@ -65,7 +65,7 @@ The corrected plan has the required properties:
 
 The request and proofs respect upstream StableReduction Layer 1 and QuiverRepresentations Layer 6. QuiverRepresentations' finite-dimensional minimal-presentation theory is not rebuilt. Arithmetic consumers remain IntegralIwasawaTheory I.6/I.7. The missing consumer imports are recorded obligations; no link-map mutation is authorized here.
 
-The earlier review added 25 nodes, corrected all 25 nodes of the fix and expanded the baseline to 525 entries. Its semantic corrections replaced existing library constructions, split bundled claims, restored Lemma 2.4's PID generality, extended (171) to projective presentations, corrected extension signs and excluded empty character sets from nontrivial locality/existential-unit statements. Those edits are retained, not claimed as new work by this session. Their dated receipts remain in `reviewHistory`; the current rereading appears in `review.checked` and the ledger below.
+The earlier review added 25 nodes, corrected all 25 nodes of the fix and expanded the baseline to 525 entries. Its semantic corrections replaced duplicate plans for existing library constructions, split bundled claims, restored Lemma 2.4's PID generality, extended (171) to projective presentations, corrected extension signs and excluded empty character sets from nontrivial locality/existential-unit statements. Those edits are retained, not claimed as new work by this session. Their dated receipts remain in `reviewHistory`; the current rereading appears in `review.checked` and the ledger below.
 
 ### /5 — finite-slope complexes: correct assignment, still open
 
@@ -97,7 +97,7 @@ Current confirmation is scoped to arXiv v3. The dated 7 October author-copy and 
 1. Replaced both top-level review objects with 9 October verdicts, preserving the 7 October objects in `reviewHistory`. PMIA's 50 current verdicts distinguish retained mathematics from seven wording corrections.
 2. Paraphrased source quotations in `character-group-ring`, `higher-fitting-ideal`, `relation-minors-add-generator`, `higher-fitting-independence`, `locally-quadratic-presentation`, `fitting-extension` and `fitting-fibre-product`. Mathematical statements and prerequisites are unchanged. Paraphrased E18's reason and E20's correction/reason; refreshed E17–E20's scoped confirmations/searches and the arXiv reading date. Both packets already contained no `excerpt` fields and still contain none.
 3. In L3's suggested file, retained the exact inverse-character expression, used `Nat.Prime p` and scoped `quotPrecheck false` to its local notation. Lean's prechecker rejected the bound field projection and then the compound `.comp` syntax; ordinary term elaboration checks these after the scoped setting.
-4. Updated PMIA's suggested-file commentary to distinguish the old missing-object limitation from current native elaboration. No PMIA signature or proof body changed.
+4. Updated PMIA's suggested-file commentary to distinguish the old missing-object limitation from current native elaboration. No PMIA signature or proof body changed in this review; the concurrent revision's new L4 code is preserved.
 5. Replaced the report and handoff with the completion record, current outside-carrier status and reproducible follow-ups. Historical detailed correction evidence remains in PR #7313 and preserved review objects.
 
 ## Library, structure and validation
@@ -115,10 +115,10 @@ Exact integer checks verified both higher-adjugate identities in 112 cases (size
 
 | Check | Result |
 |---|---|
-| `check_blueprint.py` — PMIA | 0 errors, 0 warnings; 486 nodes, 525 baseline entries |
+| `check_blueprint.py` — PMIA | 0 errors, 0 warnings; 486 nodes, 536 baseline entries after PR #7967 (525 before integration) |
 | `check_blueprint.py` — L3 | 0 errors, 26 inherited short-API warnings; 1,663 nodes |
 | Source-issue validation | E17–E20 have scoped locators, versions and confirmations |
-| Native `lean-check` — PMIA | Succeeds with its own pinned imports; 917 warnings, all `sorry` |
+| Native `lean-check` — PMIA | Final combined file: exit 0, 1,041 warnings, all `sorry`; before integration: 917 warnings |
 | Native `lean-check` — L3 | Fails before declarations at missing `research.blueprint.suggested` modules |
 | L3 dependency-concatenation diagnostic | Does not establish native full-file compilation; exact scope and dependency failures are in the handoff |
 | L6 suggested coverage | 50 node declarations, 172 API items and 57 named test examples present |
@@ -130,13 +130,23 @@ The 26 L3 warnings were present before this continuation and concern small API o
 
 The authorized two-packet review requires no further mathematical work. The next authorized workers should:
 
-1. Regenerate PMIA's L6 reader from the 50-node packet, including coverage, DK register, E17–E20 and the narrowed StableReduction request. Stop assigning the entire higher-Fitting API upstream.
-2. Complete #6472's earlier L4 blockers while preserving this L6 block. Its component nodes consume the L4 idempotent contract conditionally; this review does not certify that unresolved producer.
+1. Preserve the reader repair merged in PR #7967; the former 25-node reader objection is closed. The shared L4 projector is now declared in L4 under the same interface and reused by L6.
+2. Complete the residual L4 work inventoried by `handoff/BP-PadicMeasuresIwasawaAlgebras~2.md`: 14 absent declaration names, 12 annotated test records and the named source/proof inputs. This review does not accept the revised L4 layer.
 3. Review L3-2's root and Ferrero–Greenberg interfaces with the source-range/convention checks above, and obtain the exact RD.6 inputs.
 4. Repair inherited L1/L2 suggested-file dependency failures under their own scopes; the handoff names their locations. Supply their compiled planned-module artifacts in an appropriate build before claiming native L3 compilation.
 5. Carry out the shared log-syntomic and solid finite-slope producer work with their distinct owners. D.1 is now accepted; the earlier report's assertion that it lacked a revision is superseded.
 
 The earlier cross-owner questions remain maintainer notes: reconcile AdicSpacesPartII's higher-Fitting request and IntegralHeckeAndGaloisDeterminants' carrier with accepted RS-16 rather than silently broadening this request. I.6/I.7 should import L6's algebra when decomposed; the KTheoryLowDegrees compound-matrix consumer can reuse its exterior-power comparison. No upstream roadmap or link between upstream roadmaps was mutated.
+
+## Concurrent revision integration
+
+PR #7967 merged while this PR was being opened. The merge conflict was confined to suggested-file commentary. All of its 17 revised L4 nodes, 11 new baseline entries, coverage/gaps/checks and reader are preserved. A structural comparison confirms that every non-L6 node equals the integration base, and every L6 mathematical record equals the reviewed input apart from this review's seven wording changes. The projector moved from its L6 stand-in to the owning L4 block with the same definition and signature.
+
+The final combined file elaborates natively with its own pinned imports: exit 0, no errors and 1,041 warnings, all `sorry`.
+
+The revised packet retains a precise inventory of 14 missing declaration names. Independently checking declaration commands confirms these absences, including `charIdeal_baseChange`, `charIdeal_restrictScalars`, `card_quotient_omega_eq`, `coinvariants_euler_product` and `invariants_coinvariants_six_term_exact`. Its inventory also lists 12 missing annotated test records across five nodes, including the generator/ramified-normalization, characteristic-ideal norm/Fitting and integral-character controls. These are concrete required suggested-file interfaces; their absence is not an objection to an explicitly partial roadmap merely because it has open targets. The revision handoff lists further exact source/proof inputs and states that NSW, Bourbaki and the Coates–Sujatha appendix were not freshly authenticated. This review does not convert those limitations into source confirmations.
+
+The reader now enumerates 50 L6 nodes and assigns the basic Fitting carrier to StableReduction while retaining higher algebra here. That resolves the old reader-count/ownership objection. The current `needs_changes` verdict is narrowed to the remaining interface/test correspondence and source/proof inputs, without claiming an independent review of the new L4 mathematics.
 
 ## Queue scope mismatch
 

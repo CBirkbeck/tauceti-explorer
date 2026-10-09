@@ -47,6 +47,13 @@ import Mathlib.RingTheory.Ideal.Height
 import Mathlib.RingTheory.RegularLocalRing.Defs
 import Mathlib.Algebra.Module.LocalizedModule.Basic
 import Mathlib.LinearAlgebra.Charpoly.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.Algebra.Category.ModuleCat.ProjectiveDimension
+import Mathlib.Algebra.Module.Submodule.Pointwise
+import Mathlib.Topology.Algebra.Nonarchimedean.AdicTopology
+import Mathlib.LinearAlgebra.Matrix.Charpoly.Basic
+import Mathlib.RingTheory.AdjoinRoot
+import Mathlib.Algebra.Algebra.Tower
 import Mathlib.Algebra.CharP.Lemmas
 import Mathlib.RingTheory.KrullDimension.Basic
 import Mathlib.Algebra.Module.Torsion.Basic
@@ -3033,7 +3040,7 @@ example : PowerSeries.coeff 1 (restrictResidue 2 ℤ_[2] 2 1 (dirac ℤ_[2] 5)).
 end ResidueRestrictionTests
 end AbstractMeasure
 
-/-! ## L4: Weierstrass theory and the structure of Iwasawa modules (checkpoint L4-1)
+/-! ## L4: Weierstrass theory and the structure of Iwasawa modules (revision BP-PadicMeasuresIwasawaAlgebras~2)
 
 Signatures for NSW V §§1, 3 and RJW §13.1. Mathlib already supplies Weierstrass division and preparation
 (`PowerSeries.exists_isWeierstrassFactorization`, `PowerSeries.IsWeierstrassFactorization.unique`), noetherianity of
@@ -3042,6 +3049,15 @@ Signatures for NSW V §§1, 3 and RJW §13.1. Mathlib already supplies Weierstra
 namespace TauCeti.Iwasawa
 
 open Polynomial
+open scoped TensorProduct Pointwise
+
+/-- L4/character-decomposition: integral projector; orthogonality requires unit group order.
+The definition is on Mathlib's finite group algebra, shared with the L6 consumers. -/
+def charIdempotent {O H : Type*} [CommRing O] [CommGroup H] [Finite H]
+    (χ : H →* Oˣ) : MonoidAlgebra O H :=
+  Ring.inverse (Nat.card H : O) • ∑ᶠ a : H,
+    (((χ a)⁻¹ : Oˣ) : O) • MonoidAlgebra.of O H a
+
 
 section PseudoNull
 
@@ -3093,7 +3109,7 @@ theorem charDivisor_spec [Module.Finite A M] (hM : Module.IsTorsion A M)
 ideal it generates. -/
 noncomputable def charIdeal [UniqueFactorizationMonoid A] (M : Type*) [AddCommGroup M]
     [Module A M] [Module.Finite A M] (hM : Module.IsTorsion A M) : Ideal A :=
-  sorry
+  (charDivisor A M hM).prod (fun 𝔭 n => 𝔭.asIdeal ^ n)
 
 /-- `L4/characteristic-ideal`: the value on a cyclic module. -/
 theorem charIdeal_quotient_span [UniqueFactorizationMonoid A] (f : A) (hf : f ≠ 0) :
@@ -3108,30 +3124,796 @@ end CharacteristicIdeal
 
 section IwasawaInvariants
 
-variable (p : ℕ) [Fact p.Prime] (M : Type*) [AddCommGroup M] [Module (PowerSeries ℤ_[p]) M]
-  [Module.Finite (PowerSeries ℤ_[p]) M]
+variable (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+  [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+  [Finite (IsLocalRing.ResidueField O)]
 
-/-- `L4/iwasawa-invariants`: the μ-invariant (NSW (5.3.9)). -/
-noncomputable def muInvariant (M : Type*) [AddCommGroup M]
-    [Module (PowerSeries ℤ_[p]) M] [Module.Finite (PowerSeries ℤ_[p]) M] : ℕ := sorry
+/-- L4/iwasawa-invariants-api-2: the monic horizontal factor of the torsion submodule.
+No fraction-field dimension formula is asserted for a module of positive Λ-rank. -/
+def charPoly (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Finite (IsLocalRing.ResidueField O)] (M : Type*) [AddCommGroup M] [Module (PowerSeries O) M]
+    [Module.Finite (PowerSeries O) M] : O[X] := sorry
 
-/-- `L4/iwasawa-invariants`: the λ-invariant (NSW (5.3.9)). -/
-noncomputable def lambdaInvariant (M : Type*) [AddCommGroup M]
-    [Module (PowerSeries ℤ_[p]) M] [Module.Finite (PowerSeries ℤ_[p]) M] : ℕ := sorry
+/-- L4/iwasawa-invariants-api-1: reduced degree of the horizontal characteristic factor. -/
+def lambdaInvariant (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Finite (IsLocalRing.ResidueField O)] (M : Type*) [AddCommGroup M] [Module (PowerSeries O) M]
+    [Module.Finite (PowerSeries O) M] : ℕ := (charPoly O M).natDegree
 
-/-- `L4/iwasawa-invariants`: the characteristic polynomial `F_{M,γ}`, a product of irreducible distinguished
-polynomials (NSW (5.3.9)). -/
-noncomputable def charPoly (M : Type*) [AddCommGroup M]
-    [Module (PowerSeries ℤ_[p]) M] [Module.Finite (PowerSeries ℤ_[p]) M] : ℤ_[p][X] := sorry
+/-- L4/iwasawa-invariants: local length of the torsion submodule at the vertical prime.
+The prime assertion and finite length must be proved; ENat.toNat alone does not prove them. -/
+def muInvariant (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+    [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Finite (IsLocalRing.ResidueField O)] (ϖ : O) (hϖ : Irreducible ϖ) (M : Type*) [AddCommGroup M]
+    [Module (PowerSeries O) M] [Module.Finite (PowerSeries O) M] : ℕ := by
+  let P : Ideal (PowerSeries O) := Ideal.span {PowerSeries.C ϖ}
+  letI : P.IsPrime := by sorry
+  exact (Module.length (Localization.AtPrime P)
+    (LocalizedModule P.primeCompl (Submodule.torsion (PowerSeries O) M))).toNat
+
+variable (M : Type*) [AddCommGroup M] [Module (PowerSeries O) M]
+  [Module.Finite (PowerSeries O) M]
 
 theorem charPoly_isDistinguishedAt :
-    (charPoly p M).IsDistinguishedAt (IsLocalRing.maximalIdeal ℤ_[p]) := sorry
+    (charPoly O M).IsDistinguishedAt (IsLocalRing.maximalIdeal O) := sorry
 
-/-- `L4/iwasawa-invariants`: a finitely generated torsion module is finite iff `μ = λ = 0` (NSW (5.3.9), Remark 2). -/
-theorem finite_iff_mu_lambda (hM : Module.IsTorsion (PowerSeries ℤ_[p]) M) :
-    Finite M ↔ muInvariant p M = 0 ∧ lambdaInvariant p M = 0 := sorry
+theorem lambdaInvariant_spec : lambdaInvariant O M = (charPoly O M).natDegree := by sorry
+
+theorem charPoly_spec {ι : Type*} [Fintype ι] (F : ι → O[X]) (e : ι → ℕ)
+    (hF : ∀ i, (F i).IsDistinguishedAt (IsLocalRing.maximalIdeal O))
+    (hprime : ∀ i, Irreducible (F i))
+    (hdecomp : ∃ f : Submodule.torsion (PowerSeries O) M →ₗ[PowerSeries O]
+      (∀ i, PowerSeries O ⧸ Ideal.span {((F i ^ e i : O[X]) : PowerSeries O)}),
+      IsPseudoIsomorphism f) :
+    charPoly O M = ∏ i, F i ^ e i := sorry
+
+-- The complete elementary specification, including vertical factors, is the structure-theorem
+-- contract. The zero-vertical special case above does not define F from an arbitrary list.
+theorem charPoly_zero : charPoly O PUnit = 1 := sorry
+theorem lambdaInvariant_zero : lambdaInvariant O PUnit = 0 := sorry
+theorem muInvariant_zero (ϖ : O) (hϖ : Irreducible ϖ) :
+    muInvariant O ϖ hϖ PUnit = 0 := sorry
+
+variable {M} {N : Type*} [AddCommGroup N] [Module (PowerSeries O) N]
+  [Module.Finite (PowerSeries O) N]
+theorem charPoly_equiv (e : M ≃ₗ[PowerSeries O] N) : charPoly O M = charPoly O N := sorry
+theorem lambdaInvariant_equiv (e : M ≃ₗ[PowerSeries O] N) :
+    lambdaInvariant O M = lambdaInvariant O N := sorry
+theorem muInvariant_equiv (ϖ : O) (hϖ : Irreducible ϖ) (e : M ≃ₗ[PowerSeries O] N) :
+    muInvariant O ϖ hϖ M = muInvariant O ϖ hϖ N := sorry
+
+theorem finite_iff_mu_lambda (ϖ : O) (hϖ : Irreducible ϖ)
+    (hM : Module.IsTorsion (PowerSeries O) M) :
+    Finite M ↔ muInvariant O ϖ hϖ M = 0 ∧ lambdaInvariant O M = 0 := sorry
+
+variable (M) [Module O M] [IsScalarTower O (PowerSeries O) M]
+-- Finite-dimensionality after inverting the uniformizer is a theorem input still recorded
+-- in the packet's general-DVR gap, rather than inferred from Λ-finite generation alone.
+theorem lambdaInvariant_eq_finrank (hM : Module.IsTorsion (PowerSeries O) M) :
+    lambdaInvariant O M = Module.finrank (FractionRing O) (FractionRing O ⊗[O] M) := sorry
+
+theorem charPoly_eq_charpoly (hM : Module.IsTorsion (PowerSeries O) M)
+    [Module.Finite (FractionRing O) (FractionRing O ⊗[O] M)] :
+    (charPoly O M).map (algebraMap O (FractionRing O)) =
+      ((Algebra.lsmul O O M (PowerSeries.X : PowerSeries O)).baseChange (FractionRing O)).charpoly :=
+  sorry
 
 end IwasawaInvariants
+
+
+section PseudoNullAPI
+variable {A : Type*} [CommRing A] [IsDomain A] [IsNoetherianRing A]
+  [IsIntegrallyClosed A] {M N P : Type*}
+  [AddCommGroup M] [Module A M] [Module.Finite A M]
+  [AddCommGroup N] [Module A N] [Module.Finite A N]
+  [AddCommGroup P] [Module A P] [Module.Finite A P]
+
+theorem isPseudoNull_iff_annihilator : IsPseudoNull A M ↔
+    ∀ 𝔭 : PrimeSpectrum A, Module.annihilator A M ≤ 𝔭.asIdeal → 2 ≤ 𝔭.asIdeal.height := sorry
+
+omit [IsDomain A] [IsNoetherianRing A] [IsIntegrallyClosed A] in
+theorem isPseudoNull_iff_eq_zero [IsDedekindDomain A] :
+    IsPseudoNull A M ↔ Subsingleton M := sorry
+
+theorem IsPseudoNull.of_exact (f : M →ₗ[A] N) (g : N →ₗ[A] P)
+    (hf : Function.Injective f) (hg : Function.Surjective g)
+    (hex : Function.Exact f g) : IsPseudoNull A N ↔ IsPseudoNull A M ∧ IsPseudoNull A P := sorry
+
+theorem isPseudoIsomorphism_iff_localization (f : M →ₗ[A] N) :
+    IsPseudoIsomorphism f ↔ ∀ 𝔭 : PrimeSpectrum A, 𝔭.asIdeal.height ≤ 1 →
+      Function.Bijective (IsLocalizedModule.map 𝔭.asIdeal.primeCompl
+        (LocalizedModule.mkLinearMap 𝔭.asIdeal.primeCompl M)
+        (LocalizedModule.mkLinearMap 𝔭.asIdeal.primeCompl N) f) := sorry
+
+theorem isPseudoIsomorphism_mul (a : A) (ha : a ≠ 0) (hM : Module.IsTorsion A M)
+    (hsupp : ∀ 𝔭 : PrimeSpectrum A, 𝔭.asIdeal.height = 1 → a ∈ 𝔭.asIdeal →
+      Subsingleton (LocalizedModule 𝔭.asIdeal.primeCompl M)) :
+    IsPseudoIsomorphism (Algebra.lsmul A A M a) := sorry
+
+theorem IsPseudoIsomorphism.comp {f : M →ₗ[A] N} {g : N →ₗ[A] P}
+    (hf : IsPseudoIsomorphism f) (hg : IsPseudoIsomorphism g) :
+    IsPseudoIsomorphism (g.comp f) := sorry
+
+theorem IsPseudoIsomorphism.exists_symm {f : M →ₗ[A] N}
+    (hf : IsPseudoIsomorphism f) (hM : Module.IsTorsion A M) (hN : Module.IsTorsion A N) :
+    ∃ g : N →ₗ[A] M, IsPseudoIsomorphism g := sorry
+
+end PseudoNullAPI
+
+section DivisorAPI
+variable (A : Type*) [CommRing A] [IsDomain A] [IsNoetherianRing A] [IsIntegrallyClosed A]
+  {M N P : Type*} [AddCommGroup M] [Module A M] [Module.Finite A M]
+  [AddCommGroup N] [Module A N] [Module.Finite A N]
+  [AddCommGroup P] [Module A P] [Module.Finite A P]
+
+theorem charDivisor_zero : charDivisor A PUnit (by sorry) = 0 := sorry
+
+theorem charDivisor_equiv (hM : Module.IsTorsion A M) (hN : Module.IsTorsion A N)
+    (e : M ≃ₗ[A] N) : charDivisor A M hM = charDivisor A N hN := sorry
+
+variable [UniqueFactorizationMonoid A]
+theorem charIdeal_mul_of_exact (f : M →ₗ[A] N) (g : N →ₗ[A] P)
+    (hf : Function.Injective f) (hg : Function.Surjective g) (hex : Function.Exact f g)
+    (hM : Module.IsTorsion A M) (hN : Module.IsTorsion A N) (hP : Module.IsTorsion A P) :
+    charIdeal A N hN = charIdeal A M hM * charIdeal A P hP := sorry
+
+theorem charIdeal_eq_of_pseudoIso (f : M →ₗ[A] N) (hf : IsPseudoIsomorphism f)
+    (hM : Module.IsTorsion A M) (hN : Module.IsTorsion A N) :
+    charIdeal A M hM = charIdeal A N hN := sorry
+
+theorem charIdeal_eq_top_iff (hM : Module.IsTorsion A M) :
+    charIdeal A M hM = ⊤ ↔ IsPseudoNull A M := sorry
+
+end DivisorAPI
+
+section InvariantExactness
+variable (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+  [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Finite (IsLocalRing.ResidueField O)]
+  {M N P : Type*} [AddCommGroup M] [Module (PowerSeries O) M]
+  [Module.Finite (PowerSeries O) M] [AddCommGroup N] [Module (PowerSeries O) N]
+  [Module.Finite (PowerSeries O) N] [AddCommGroup P] [Module (PowerSeries O) P]
+  [Module.Finite (PowerSeries O) P]
+
+theorem muInvariant_add (ϖ : O) (hϖ : Irreducible ϖ)
+    (f : M →ₗ[PowerSeries O] N) (g : N →ₗ[PowerSeries O] P)
+    (hf : Function.Injective f) (hg : Function.Surjective g) (hex : Function.Exact f g)
+    (hM : Module.IsTorsion (PowerSeries O) M) (hN : Module.IsTorsion (PowerSeries O) N)
+    (hP : Module.IsTorsion (PowerSeries O) P) :
+    muInvariant O ϖ hϖ N = muInvariant O ϖ hϖ M + muInvariant O ϖ hϖ P := sorry
+
+theorem lambdaInvariant_add (f : M →ₗ[PowerSeries O] N) (g : N →ₗ[PowerSeries O] P)
+    (hf : Function.Injective f) (hg : Function.Surjective g) (hex : Function.Exact f g)
+    (hM : Module.IsTorsion (PowerSeries O) M) (hN : Module.IsTorsion (PowerSeries O) N)
+    (hP : Module.IsTorsion (PowerSeries O) P) :
+    lambdaInvariant O N = lambdaInvariant O M + lambdaInvariant O P := sorry
+
+theorem charPoly_mul (f : M →ₗ[PowerSeries O] N) (g : N →ₗ[PowerSeries O] P)
+    (hf : Function.Injective f) (hg : Function.Surjective g) (hex : Function.Exact f g)
+    (hM : Module.IsTorsion (PowerSeries O) M) (hN : Module.IsTorsion (PowerSeries O) N)
+    (hP : Module.IsTorsion (PowerSeries O) P) :
+    charPoly O N = charPoly O M * charPoly O P := sorry
+
+theorem charIdeal_eq_span_mu_charPoly (ϖ : O) (hϖ : Irreducible ϖ)
+    (hM : Module.IsTorsion (PowerSeries O) M) :
+    charIdeal (PowerSeries O) M hM =
+      Ideal.span {PowerSeries.C (ϖ ^ muInvariant O ϖ hϖ M) * (charPoly O M : PowerSeries O)} := sorry
+
+end InvariantExactness
+
+section MonicRoot
+variable {O : Type*} [CommRing O]
+/-- L4/weierstrass-adapter: calculate the determinant in the native monic power basis.
+This is valid over a commutative ring and includes the zero-rank quotient F=1.
+Transport through Polynomial.IsDistinguishedAt.algEquivQuotient gives the series statement. -/
+theorem charpoly_mulT_quotient (F : O[X]) (hF : F.Monic) :
+    (LinearMap.toMatrix (AdjoinRoot.powerBasis' hF).basis (AdjoinRoot.powerBasis' hF).basis
+      (LinearMap.mulLeft O (AdjoinRoot.root F))).charpoly = F := sorry
+end MonicRoot
+
+section SplitCharacters
+variable {O H : Type*} [CommRing O] [IsDomain O] [CommGroup H] [Finite H]
+  (hH : IsUnit (Nat.card H : O))
+
+include hH in
+theorem charIdempotent_mul [DecidableEq (H →* Oˣ)] (χ ψ : H →* Oˣ) :
+    charIdempotent χ * charIdempotent ψ = if χ = ψ then charIdempotent χ else 0 := sorry
+
+include hH in
+theorem sum_charIdempotent [HasEnoughRootsOfUnity O (Monoid.exponent H)] :
+    ∑ᶠ χ : H →* Oˣ, charIdempotent χ = 1 := sorry
+
+variable (M : Type*) [AddCommGroup M] [Module O M] [Module (MonoidAlgebra O H) M]
+  [IsScalarTower O (MonoidAlgebra O H) M]
+/-- L4/character-decomposition-api-3: image of the actual integral projector. -/
+def isotypicComponent (χ : H →* Oˣ) : Submodule O M :=
+  LinearMap.range (Algebra.lsmul O O M (charIdempotent χ))
+
+include hH in
+theorem isotypicComponent_spec (χ : H →* Oˣ) (m : M) :
+    m ∈ isotypicComponent M χ ↔ charIdempotent χ • m = m := sorry
+
+theorem isotypicComponent_zero (χ : H →* Oˣ) :
+    isotypicComponent PUnit χ = ⊥ := sorry
+
+theorem isotypicComponent_equiv {N : Type*} [AddCommGroup N] [Module O N]
+    [Module (MonoidAlgebra O H) N] [IsScalarTower O (MonoidAlgebra O H) N]
+    (e : M ≃ₗ[MonoidAlgebra O H] N) (χ : H →* Oˣ) :
+    (isotypicComponent M χ).map (e.toLinearMap.restrictScalars O) = isotypicComponent N χ := sorry
+
+/-- L4/character-decomposition-api-4: a finite product is the finite direct sum here.
+The inverse is the sum of inclusions; the forward map consists of the e_χ projections. -/
+def isotypicDecomposition (hH : IsUnit (Nat.card H : O)) [HasEnoughRootsOfUnity O (Monoid.exponent H)] :
+    M ≃ₗ[O] (∀ χ : H →* Oˣ, isotypicComponent M χ) := sorry
+
+end SplitCharacters
+
+section ProductCharacteristic
+variable {ι : Type*} [Finite ι] (A : Type*) [CommRing A] [IsDomain A]
+  [IsNoetherianRing A] [IsIntegrallyClosed A] [UniqueFactorizationMonoid A]
+  (M : ι → Type*) [∀ i, AddCommGroup (M i)] [∀ i, Module A (M i)]
+  [∀ i, Module.Finite A (M i)]
+/-- L4/character-decomposition-api-5: ideal on the actual product ring, by its components.
+A completed-algebra result pulls this ideal back along the owner's split ring equivalence. -/
+def charIdealProduct (hM : ∀ i, Module.IsTorsion A (M i)) : Ideal (ι → A) :=
+  ⨅ i, (charIdeal A (M i) (hM i)).comap (Pi.evalRingHom (fun _ : ι => A) i)
+
+theorem charIdealProduct_spec (hM : ∀ i, Module.IsTorsion A (M i)) (x : ι → A) :
+    x ∈ charIdealProduct A M hM ↔ ∀ i, x i ∈ charIdeal A (M i) (hM i) := sorry
+
+theorem charIdealProduct_zero :
+    charIdealProduct A (fun _ : ι => PUnit) (by sorry) = ⊤ := sorry
+
+theorem charIdealProduct_equiv (N : ι → Type*) [∀ i, AddCommGroup (N i)]
+    [∀ i, Module A (N i)] [∀ i, Module.Finite A (N i)]
+    (hM : ∀ i, Module.IsTorsion A (M i)) (hN : ∀ i, Module.IsTorsion A (N i))
+    (e : ∀ i, M i ≃ₗ[A] N i) : charIdealProduct A M hM = charIdealProduct A N hN := sorry
+end ProductCharacteristic
+
+section Delta
+variable (p : ℕ) [Fact p.Prime]
+variable (M : Type*) [AddCommGroup M] [Module (PowerSeries (PadicInt p)) M]
+
+/-- L4/delta-submodule: union of the increasing cyclotomic kernels on the native module. -/
+def delta_submodule (p : ℕ) [Fact p.Prime] (M : Type*) [AddCommGroup M]
+    [Module (PowerSeries (PadicInt p)) M] : Submodule (PowerSeries (PadicInt p)) M where
+  carrier := {m | ∃ n : ℕ, (((1 + PowerSeries.X) ^ (p ^ n) - 1 : PowerSeries (PadicInt p)) • m) = 0}
+  zero_mem' := by sorry
+  add_mem' := by sorry
+  smul_mem' := by sorry
+
+theorem mem_delta (m : M) : m ∈ delta_submodule p M ↔
+    ∃ n : ℕ, (((1 + PowerSeries.X) ^ (p ^ n) - 1 : (PowerSeries (PadicInt p))) • m) = 0 := Iff.rfl
+
+theorem delta_submodule_zero : delta_submodule p PUnit = ⊥ := sorry
+
+theorem delta_map {N : Type*} [AddCommGroup N] [Module (PowerSeries (PadicInt p)) N] (f : M →ₗ[(PowerSeries (PadicInt p))] N) :
+    (delta_submodule p M).map f ≤ delta_submodule p N := sorry
+
+theorem delta_submodule_equiv {N : Type*} [AddCommGroup N] [Module (PowerSeries (PadicInt p)) N] (e : M ≃ₗ[(PowerSeries (PadicInt p))] N) :
+    (delta_submodule p M).map e.toLinearMap = delta_submodule p N := sorry
+
+theorem delta_monotone (N : Submodule (PowerSeries (PadicInt p)) M) :
+    (delta_submodule p N).map N.subtype ≤ delta_submodule p M := sorry
+
+variable [Module.Finite (PowerSeries (PadicInt p)) M]
+theorem delta_finite_control [Module (PadicInt p) M]
+    [IsScalarTower (PadicInt p) (PowerSeries (PadicInt p)) M] : Module.IsTorsion (PowerSeries (PadicInt p)) (delta_submodule p M) ∧
+    Module.Finite (PadicInt p) (delta_submodule p M) := sorry
+
+/-- A concrete reduced-degree gate; order toNat is used only after the nonzero-residue hypothesis. -/
+theorem finite_of_smul_eq_zero_distinguished (k g : ℕ) (f : (PowerSeries (PadicInt p)))
+    (hf : f.map (IsLocalRing.residue (PadicInt p)) ≠ 0)
+    (hpk : ∀ m : M, (PowerSeries.C (p ^ k : (PadicInt p))) • m = 0)
+    (hfm : ∀ m : M, f • m = 0) (gen : Fin g → M)
+    (hgen : Submodule.span (PowerSeries (PadicInt p)) (Set.range gen) = ⊤) :
+    Finite M ∧ Nat.card M ≤ p ^ (k * g * (f.map (IsLocalRing.residue (PadicInt p))).order.toNat) := sorry
+
+end Delta
+
+namespace L4Tests
+
+variable (p : ℕ) [Fact p.Prime]
+local instance : Finite (IsLocalRing.ResidueField (PadicInt p)) :=
+  Finite.of_equiv (ZMod p) PadicInt.residueField.symm.toEquiv
+
+-- test L4Tests.residue_field (computation) [L4/pseudo-null]
+example : IsPseudoNull (PowerSeries (PadicInt p)) ((PowerSeries (PadicInt p)) ⧸ (Ideal.span ({PowerSeries.C (p : PadicInt p), PowerSeries.X} : Set (PowerSeries (PadicInt p))))) := sorry
+-- test L4Tests.mu_part (non-example) [L4/pseudo-null]
+example : ¬ IsPseudoNull (PowerSeries (PadicInt p)) ((PowerSeries (PadicInt p)) ⧸ Ideal.span {PowerSeries.C (p : (PadicInt p))}) := sorry
+-- test L4Tests.dedekind (degenerate) [L4/pseudo-null]
+example : ¬ IsPseudoNull (PadicInt p) ((PadicInt p) ⧸ Ideal.span {(p : (PadicInt p))}) := sorry
+
+-- test L4Tests.mul_p_on_cyclic (computation) [L4/pseudo-isomorphism]
+example : IsPseudoIsomorphism
+    (Algebra.lsmul (PowerSeries (PadicInt p)) (PowerSeries (PadicInt p)) ((PowerSeries (PadicInt p)) ⧸ Ideal.span {(PowerSeries.X : PowerSeries (PadicInt p))}) (PowerSeries.C (p : (PadicInt p)))) := sorry
+-- test L4Tests.dedekind (degenerate) [L4/pseudo-isomorphism]
+example {M N : Type*} [AddCommGroup M] [Module (PadicInt p) M] [Module.Finite (PadicInt p) M]
+    [AddCommGroup N] [Module (PadicInt p) N] [Module.Finite (PadicInt p) N] (f : M →ₗ[(PadicInt p)] N) :
+    IsPseudoIsomorphism f ↔ Function.Bijective f := sorry
+-- test L4Tests.rjw_agreement (compatibility) [L4/pseudo-isomorphism]
+example {M N : Type*} [AddCommGroup M] [Module (PowerSeries (PadicInt p)) M] [Module.Finite (PowerSeries (PadicInt p)) M]
+    [AddCommGroup N] [Module (PowerSeries (PadicInt p)) N] [Module.Finite (PowerSeries (PadicInt p)) N] (f : M →ₗ[(PowerSeries (PadicInt p))] N) :
+    IsPseudoIsomorphism f ↔ Finite (LinearMap.ker f) ∧ Finite (N ⧸ LinearMap.range f) := sorry
+
+-- test L4Tests.eisenstein (computation) [L4/iwasawa-invariants,L4/iwasawa-invariants-api-1,L4/iwasawa-invariants-api-2]
+example : let F : (PadicInt p)[X] := X ^ 2 + C (p : (PadicInt p)) * X + C (p : (PadicInt p))
+    let M := (PowerSeries (PadicInt p)) ⧸ Ideal.span {(F : (PowerSeries (PadicInt p)))}
+    muInvariant (PadicInt p) (p : (PadicInt p)) (by sorry) M = 0 ∧ lambdaInvariant (PadicInt p) M = 2 ∧ charPoly (PadicInt p) M = F := sorry
+-- test L4Tests.finite (degenerate) [L4/iwasawa-invariants,L4/iwasawa-invariants-api-1,L4/iwasawa-invariants-api-2]
+example : muInvariant (PadicInt p) (p : (PadicInt p)) (by sorry) ((PowerSeries (PadicInt p)) ⧸ (Ideal.span ({PowerSeries.C (p : PadicInt p), PowerSeries.X} : Set (PowerSeries (PadicInt p))))) = 0 ∧
+    lambdaInvariant (PadicInt p) ((PowerSeries (PadicInt p)) ⧸ (Ideal.span ({PowerSeries.C (p : PadicInt p), PowerSeries.X} : Set (PowerSeries (PadicInt p))))) = 0 ∧ charPoly (PadicInt p) ((PowerSeries (PadicInt p)) ⧸ (Ideal.span ({PowerSeries.C (p : PadicInt p), PowerSeries.X} : Set (PowerSeries (PadicInt p))))) = 1 := sorry
+-- test L4Tests.mu_part (computation) [L4/iwasawa-invariants,L4/iwasawa-invariants-api-1,L4/iwasawa-invariants-api-2]
+example : muInvariant (PadicInt p) (p : (PadicInt p)) (by sorry) ((PowerSeries (PadicInt p)) ⧸ Ideal.span {PowerSeries.C (p : (PadicInt p))}) = 1 ∧
+    lambdaInvariant (PadicInt p) ((PowerSeries (PadicInt p)) ⧸ Ideal.span {PowerSeries.C (p : (PadicInt p))}) = 0 ∧
+    charPoly (PadicInt p) ((PowerSeries (PadicInt p)) ⧸ Ideal.span {PowerSeries.C (p : (PadicInt p))}) = 1 := sorry
+-- test Lambda.free (non-example) [L4/iwasawa-invariants-api-1]
+example : lambdaInvariant (PadicInt p) (PowerSeries (PadicInt p)) = 0 := sorry
+-- test CharacteristicPolynomial.free (non-example) [L4/iwasawa-invariants-api-2]
+example : charPoly (PadicInt p) (PowerSeries (PadicInt p)) = 1 := sorry
+
+-- test Divisor.zero (degenerate) [L4/characteristic-ideal-api-0]
+example : charDivisor (PowerSeries (PadicInt p)) PUnit (by sorry) = 0 := sorry
+-- test Divisor.cyclic (computation) [L4/characteristic-ideal-api-0]
+example : let P : PrimeSpectrum (PowerSeries (PadicInt p)) := ⟨Ideal.span {(PowerSeries.X : PowerSeries (PadicInt p))}, by sorry⟩
+    charDivisor (PowerSeries (PadicInt p)) ((PowerSeries (PadicInt p)) ⧸ Ideal.span {(PowerSeries.X : PowerSeries (PadicInt p)) ^ 2}) (by sorry) = Finsupp.single P 2 := sorry
+-- test Divisor.finite (non-example) [L4/characteristic-ideal-api-0]
+example : charDivisor (PowerSeries (PadicInt p)) ((PowerSeries (PadicInt p)) ⧸ (Ideal.span ({PowerSeries.C (p : PadicInt p), PowerSeries.X} : Set (PowerSeries (PadicInt p))))) (by sorry) = 0 := sorry
+-- test L4Tests.cyclic (computation) [L4/characteristic-ideal]
+example : charIdeal (PowerSeries (PadicInt p)) ((PowerSeries (PadicInt p)) ⧸ Ideal.span {(PowerSeries.X : PowerSeries (PadicInt p)) ^ 2}) (by sorry) = Ideal.span {(PowerSeries.X : PowerSeries (PadicInt p)) ^ 2} := sorry
+-- test L4Tests.finite (non-example) [L4/characteristic-ideal]
+example : charIdeal (PowerSeries (PadicInt p)) ((PowerSeries (PadicInt p)) ⧸ (Ideal.span ({PowerSeries.C (p : PadicInt p), PowerSeries.X} : Set (PowerSeries (PadicInt p))))) (by sorry) = ⊤ := sorry
+-- test L4Tests.unit (degenerate) [L4/characteristic-ideal]
+example : charIdeal (PowerSeries (PadicInt p)) PUnit (by sorry) = ⊤ := sorry
+
+-- test Delta.zero (degenerate) [L4/delta-submodule]
+example : delta_submodule p PUnit = ⊥ := sorry
+-- test Delta.free (non-example) [L4/delta-submodule]
+example : delta_submodule p (PowerSeries (PadicInt p)) = ⊥ := sorry
+-- test Delta.trivial_action (computation) [L4/delta-submodule]
+example : delta_submodule p ((PowerSeries (PadicInt p)) ⧸ Ideal.span {(PowerSeries.X : PowerSeries (PadicInt p))}) = ⊤ := sorry
+
+-- test MonicRoot.one (degenerate) [L4/weierstrass-adapter]
+example : (LinearMap.toMatrix (AdjoinRoot.powerBasis' (monic_one : (1 : (PadicInt p)[X]).Monic)).basis
+    (AdjoinRoot.powerBasis' (monic_one : (1 : (PadicInt p)[X]).Monic)).basis
+    (LinearMap.mulLeft (PadicInt p) (AdjoinRoot.root (1 : (PadicInt p)[X])))).charpoly = 1 := sorry
+-- test MonicRoot.degree_two (computation) [L4/weierstrass-adapter]
+example : (LinearMap.toMatrix (AdjoinRoot.powerBasis' (monic_X_pow 2 : (X ^ 2 : (PadicInt p)[X]).Monic)).basis
+    (AdjoinRoot.powerBasis' (monic_X_pow 2 : (X ^ 2 : (PadicInt p)[X]).Monic)).basis
+    (LinearMap.mulLeft (PadicInt p) (AdjoinRoot.root (X ^ 2 : (PadicInt p)[X])))).charpoly = X ^ 2 := sorry
+
+section CharacterTests
+variable {R H : Type*} [CommRing R] [IsDomain R] [CommGroup H] [Finite H]
+-- test Character.trivial (degenerate) [L4/character-decomposition]
+example [Subsingleton H] : charIdempotent (1 : H →* Rˣ) = 1 := sorry
+-- test Character.orthogonal (compatibility) [L4/character-decomposition]
+example (hH : IsUnit (Nat.card H : R)) (χ ψ : H →* Rˣ) (hne : χ ≠ ψ) :
+    charIdempotent χ * charIdempotent ψ = 0 := sorry
+-- test Character.dyadic (non-example) [L4/character-decomposition]
+example : ¬ IsUnit (Nat.card (Multiplicative (ZMod 2)) : ℤ_[2]) := sorry
+
+variable (M : Type*) [AddCommGroup M] [Module R M] [Module (MonoidAlgebra R H) M]
+  [IsScalarTower R (MonoidAlgebra R H) M]
+-- test Isotypic.trivial (degenerate) [L4/character-decomposition-api-3]
+example [Subsingleton H] : isotypicComponent M (1 : H →* Rˣ) = ⊤ := sorry
+-- test Isotypic.plus (computation) [L4/character-decomposition-api-3]
+example (hH : IsUnit (Nat.card H : R)) (h : H) (hc : Nat.card H = 2)
+    (hgen : ∀ a : H, a = 1 ∨ a = h) (m : M) :
+    m ∈ isotypicComponent M (1 : H →* Rˣ) ↔ MonoidAlgebra.of R H h • m = m := sorry
+-- test Isotypic.sign (non-example) [L4/character-decomposition-api-3]
+example (hH : IsUnit (Nat.card H : R)) (h : H) (hc : Nat.card H = 2)
+    (hgen : ∀ a : H, a = 1 ∨ a = h) (χ : H →* Rˣ) (hχ : (χ h : R) = -1) (m : M) :
+    m ∈ isotypicComponent M χ ↔ MonoidAlgebra.of R H h • m = -m := sorry
+end CharacterTests
+
+-- test Product.zero (degenerate) [L4/character-decomposition-api-5]
+example : charIdealProduct (PowerSeries (PadicInt p)) (fun _ : Fin 2 => PUnit) (by sorry) = ⊤ := sorry
+-- test Product.trivial (computation) [L4/character-decomposition-api-5]
+example : (fun _ : Fin 1 => (PowerSeries.X : PowerSeries (PadicInt p)) ^ 2) ∈
+    charIdealProduct (PowerSeries (PadicInt p)) (fun _ : Fin 1 => (PowerSeries (PadicInt p)) ⧸ Ideal.span {(PowerSeries.X : PowerSeries (PadicInt p)) ^ 2}) (by sorry) := sorry
+-- test Product.residue (non-example) [L4/character-decomposition-api-5]
+example : (1 : Fin 2 → (PowerSeries (PadicInt p))) ∉ charIdealProduct (PowerSeries (PadicInt p))
+    (fun i : Fin 2 => (PowerSeries (PadicInt p)) ⧸ Ideal.span {if i = 0 then (PowerSeries.X : PowerSeries (PadicInt p)) else 1}) (by sorry) := sorry
+
+end L4Tests
+
+
+section NativeResolutionAndGrowth
+variable (p : ℕ) [Fact p.Prime]
+local instance : Finite (IsLocalRing.ResidueField (PadicInt p)) :=
+  Finite.of_equiv (ZMod p) PadicInt.residueField.symm.toEquiv
+variable (M : Type*) [AddCommGroup M] [Module (PowerSeries (PadicInt p)) M] [Module.Finite (PowerSeries (PadicInt p)) M]
+  [Module (PadicInt p) M] [IsScalarTower (PadicInt p) (PowerSeries (PadicInt p)) M]
+
+theorem iwasawa_free_criterion : Module.Free (PowerSeries (PadicInt p)) M ↔
+    Subsingleton (Submodule.torsionBy (PowerSeries (PadicInt p)) M (PowerSeries.X : PowerSeries (PadicInt p))) ∧
+      Module.Free (PadicInt p) (M ⧸ ((PowerSeries.X : PowerSeries (PadicInt p)) • (⊤ : Submodule (PowerSeries (PadicInt p)) M))) := sorry
+
+/-- L4/projective-dimension-and-resolution: genuine exact maps between native finite free modules.
+The (PadicInt p)-lengths of the p-killed modules are the corresponding F_p dimensions. -/
+theorem exists_minimal_resolution :
+    let H₀ := M ⧸ ((PowerSeries.X : PowerSeries (PadicInt p)) • (⊤ : Submodule (PowerSeries (PadicInt p)) M))
+    let H₁ := Submodule.torsionBy (PowerSeries (PadicInt p)) M (PowerSeries.X : PowerSeries (PadicInt p))
+    let d₀ := (Module.length (PadicInt p) (H₀ ⧸ ((p : (PadicInt p)) • (⊤ : Submodule (PadicInt p) H₀)))).toNat
+    let d₁ := (Module.length (PadicInt p) (Submodule.torsionBy (PadicInt p) H₀ (p : (PadicInt p)))).toNat +
+      (Module.length (PadicInt p) (H₁ ⧸ ((p : (PadicInt p)) • (⊤ : Submodule (PadicInt p) H₁)))).toNat
+    let d₂ := (Module.length (PadicInt p) (Submodule.torsionBy (PadicInt p) H₁ (p : (PadicInt p)))).toNat
+    ∃ (d₂₁ : (Fin d₂ → (PowerSeries (PadicInt p))) →ₗ[(PowerSeries (PadicInt p))] (Fin d₁ → (PowerSeries (PadicInt p))))
+      (d₁₀ : (Fin d₁ → (PowerSeries (PadicInt p))) →ₗ[(PowerSeries (PadicInt p))] (Fin d₀ → (PowerSeries (PadicInt p)))) (ε : (Fin d₀ → (PowerSeries (PadicInt p))) →ₗ[(PowerSeries (PadicInt p))] M),
+      Function.Injective d₂₁ ∧ Function.Exact d₂₁ d₁₀ ∧ Function.Exact d₁₀ ε ∧
+      Function.Surjective ε ∧
+      (∀ v i, d₂₁ v i ∈ IsLocalRing.maximalIdeal (PowerSeries (PadicInt p))) ∧
+      (∀ v i, d₁₀ v i ∈ IsLocalRing.maximalIdeal (PowerSeries (PadicInt p))) := sorry
+
+/-- The native projective-dimension carrier is the existing categorical one. -/
+theorem iwasawa_projective_dimension_criterion :
+    CategoryTheory.projectiveDimension (ModuleCat.of (PowerSeries (PadicInt p)) M) ≤ 1 ↔
+      ∀ N : Submodule (PowerSeries (PadicInt p)) M, Finite N → N = ⊥ := sorry
+
+theorem iwasawa_invariants_free_criterion :
+    (∀ N : Submodule (PowerSeries (PadicInt p)) M, Finite N → N = ⊥) ↔
+      ∃ n : ℕ, Module.Free (PadicInt p) (Submodule.torsionBy (PowerSeries (PadicInt p)) M
+        ((1 + (PowerSeries.X : PowerSeries (PadicInt p))) ^ (p ^ n) - 1)) := sorry
+
+theorem iwasawa_rank_euler :
+    Module.finrank (FractionRing (PowerSeries (PadicInt p))) (FractionRing (PowerSeries (PadicInt p)) ⊗[(PowerSeries (PadicInt p))] M) +
+      Module.finrank (PadicInt p) (Submodule.torsionBy (PowerSeries (PadicInt p)) M (PowerSeries.X : PowerSeries (PadicInt p))) =
+      Module.finrank (PadicInt p) (M ⧸ ((PowerSeries.X : PowerSeries (PadicInt p)) • (⊤ : Submodule (PowerSeries (PadicInt p)) M))) := sorry
+
+/-- The δ-submodule of the quotient has no coefficient torsion. -/
+theorem quotient_delta_torsion_free :
+    Module.IsTorsionFree (PadicInt p) (delta_submodule p (M ⧸ delta_submodule p M)) := sorry
+
+/-- The maximal finite module is coefficient torsion inside δ, not all (PowerSeries (PadicInt p))-torsion. -/
+theorem delta_maximal_finite_submodule : ∃ F : Submodule (PowerSeries (PadicInt p)) M,
+    (∀ m : M, m ∈ F ↔ m ∈ delta_submodule p M ∧
+      ∃ k : ℕ, PowerSeries.C (p ^ k : (PadicInt p)) • m = 0) ∧
+    Finite F ∧ (∀ N : Submodule (PowerSeries (PadicInt p)) M, Finite N → N ≤ F) := sorry
+
+/-- L4/cyclotomic-growth-step retains the source's Z_p normalization and rank bound. -/
+theorem cyclotomic_growth_step [Module.Free (PadicInt p) M] [Module.Finite (PadicInt p) M]
+    (n : ℕ) (hn : Module.finrank (PadicInt p) M * (Module.finrank (PadicInt p) M - 1) / 2 < n) :
+    (∑ i ∈ Finset.range p, ((1 + (PowerSeries.X : PowerSeries (PadicInt p))) ^ (i * p ^ n))) • (⊤ : Submodule (PowerSeries (PadicInt p)) M) =
+      PowerSeries.C (p : (PadicInt p)) • (⊤ : Submodule (PowerSeries (PadicInt p)) M) := sorry
+
+end NativeResolutionAndGrowth
+
+section CyclotomicPrimary
+/-- L4/cyclotomic-primary-submodule: saturate by taking δ of successive quotients.
+Noetherian stabilization and the elementary classification are separate proof obligations. -/
+def cyclotomic_primary_submodule (p : ℕ) [Fact p.Prime]
+    (M : Type*) [AddCommGroup M] [Module (PowerSeries (PadicInt p)) M] :
+    Submodule (PowerSeries (PadicInt p)) M :=
+  ⨆ n : ℕ, Nat.rec (⊥ : Submodule (PowerSeries (PadicInt p)) M)
+    (fun _ N => Submodule.comap N.mkQ (delta_submodule p (M ⧸ N))) n
+
+namespace L4Tests
+variable (p : ℕ) [Fact p.Prime]
+-- test CyclotomicPrimary.zero (degenerate) [L4/cyclotomic-primary-submodule]
+example : cyclotomic_primary_submodule p PUnit = ⊥ := sorry
+-- test CyclotomicPrimary.free (non-example) [L4/cyclotomic-primary-submodule]
+example : cyclotomic_primary_submodule p (PowerSeries (PadicInt p)) = ⊥ := sorry
+-- test CyclotomicPrimary.square (computation) [L4/cyclotomic-primary-submodule]
+example : let M := (PowerSeries (PadicInt p)) ⧸ Ideal.span {(PowerSeries.X : (PowerSeries (PadicInt p))) ^ 2}
+    cyclotomic_primary_submodule p M = ⊤ ∧ delta_submodule p M ≠ ⊤ := sorry
+end L4Tests
+
+variable (p : ℕ) [Fact p.Prime] (M : Type*) [AddCommGroup M]
+  [Module (PowerSeries (PadicInt p)) M]
+
+theorem mem_cyclotomic_primary_submodule (m : M) :
+    m ∈ cyclotomic_primary_submodule p M ↔
+      ∃ n : ℕ, m ∈ Nat.rec (motive := fun _ => Submodule (PowerSeries (PadicInt p)) M)
+        (⊥ : Submodule (PowerSeries (PadicInt p)) M)
+        (fun _ N => Submodule.comap N.mkQ (delta_submodule p (M ⧸ N))) n := sorry
+
+theorem cyclotomic_primary_submodule_finite [Module.Finite (PowerSeries (PadicInt p)) M]
+    [Module (PadicInt p) M] [IsScalarTower (PadicInt p) (PowerSeries (PadicInt p)) M] :
+    Module.Finite (PadicInt p) (cyclotomic_primary_submodule p M) := sorry
+
+theorem delta_quotient_cyclotomic_primary [Module.Finite (PowerSeries (PadicInt p)) M] :
+    delta_submodule p (M ⧸ cyclotomic_primary_submodule p M) = ⊥ := sorry
+end CyclotomicPrimary
+
+namespace L4Tests
+variable (p : ℕ) [Fact p.Prime]
+local instance : Finite (IsLocalRing.ResidueField (PadicInt p)) :=
+  Finite.of_equiv (ZMod p) PadicInt.residueField.symm.toEquiv
+-- test Resolution.free (computation) [L4/projective-dimension-and-resolution]
+-- ε=id gives the exact minimal resolution with ranks (1,0,0); lengths test the source convention.
+example : let H₀ := (PowerSeries (PadicInt p)) ⧸ ((PowerSeries.X : PowerSeries (PadicInt p)) • (⊤ : Submodule (PowerSeries (PadicInt p)) (PowerSeries (PadicInt p))))
+    let H₁ := Submodule.torsionBy (PowerSeries (PadicInt p)) (PowerSeries (PadicInt p)) (PowerSeries.X : PowerSeries (PadicInt p))
+    (Module.length (PadicInt p) (H₀ ⧸ ((p : (PadicInt p)) • (⊤ : Submodule (PadicInt p) H₀)))).toNat = 1 ∧
+      (Module.length (PadicInt p) (Submodule.torsionBy (PadicInt p) H₀ (p : (PadicInt p)))).toNat = 0 ∧
+      Subsingleton H₁ := sorry
+-- test Resolution.residue (non-example) [L4/projective-dimension-and-resolution]
+-- Both H₀ and H₁ are the residue field, giving (d₀,d₁,d₂)=(1,2,1).
+example : let M := (PowerSeries (PadicInt p)) ⧸ Ideal.span ({PowerSeries.C (p : (PadicInt p)), (PowerSeries.X : PowerSeries (PadicInt p))} : Set (PowerSeries (PadicInt p)))
+    let H₀ := M ⧸ ((PowerSeries.X : PowerSeries (PadicInt p)) • (⊤ : Submodule (PowerSeries (PadicInt p)) M))
+    let H₁ := Submodule.torsionBy (PowerSeries (PadicInt p)) M (PowerSeries.X : PowerSeries (PadicInt p))
+    (Module.length (PadicInt p) (H₀ ⧸ ((p : (PadicInt p)) • (⊤ : Submodule (PadicInt p) H₀)))).toNat = 1 ∧
+      (Module.length (PadicInt p) (Submodule.torsionBy (PadicInt p) H₀ (p : (PadicInt p)))).toNat +
+        (Module.length (PadicInt p) (H₁ ⧸ ((p : (PadicInt p)) • (⊤ : Submodule (PadicInt p) H₁)))).toNat = 2 ∧
+      (Module.length (PadicInt p) (Submodule.torsionBy (PadicInt p) H₁ (p : (PadicInt p)))).toNat = 1 := sorry
+end L4Tests
+
+
+section NormalDomain
+variable (A : Type*) [CommRing A] [IsDomain A] [IsNoetherianRing A] [IsIntegrallyClosed A]
+  (M : Type*) [AddCommGroup M] [Module A M] [Module.Finite A M]
+
+-- A proof-local abbreviation for the image of a native localisation in one fraction space.
+-- The same lift occurs in each intersection contract; it is not a second localisation carrier.
+private abbrev fractionLattice (A : Type*) [CommRing A] [IsDomain A]
+    (M : Type*) [AddCommGroup M] [Module A M] (𝔭 : PrimeSpectrum A) :
+    Submodule A (FractionRing A ⊗[A] M) :=
+  LinearMap.range (LocalizedModule.lift 𝔭.asIdeal.primeCompl
+    (TensorProduct.mk A (FractionRing A) M 1) (by sorry))
+
+/-- L4/bidual-intersection: a canonical embedding characterized by evaluation on M. -/
+theorem bidual_eq_iInf_localization [Module.IsTorsionFree A M] :
+    ∃ j : Module.Dual A (Module.Dual A M) →ₗ[A] (FractionRing A ⊗[A] M),
+      Function.Injective j ∧
+      j.comp (Module.Dual.eval A M) = TensorProduct.mk A (FractionRing A) M 1 ∧
+      LinearMap.range j = ⨅ (𝔭 : PrimeSpectrum A) (_ : 𝔭.asIdeal.height = 1),
+        fractionLattice A M 𝔭 := sorry
+
+/-- L4/dual-intersection: integrality of a K-linear functional on every height-one lattice.
+The right side spells out membership in A_𝔭 using actual numerator/denominator pairs. -/
+theorem dual_intersection [Module.IsTorsionFree A M] :
+    ∃ j : Module.Dual A M →ₗ[A]
+      ((FractionRing A ⊗[A] M) →ₗ[FractionRing A] FractionRing A),
+      Function.Injective j ∧
+      (∀ (φ : Module.Dual A M) (m : M),
+        j φ (TensorProduct.tmul A (1 : FractionRing A) m) = algebraMap A (FractionRing A) (φ m)) ∧
+      (∀ φ, φ ∈ LinearMap.range j ↔
+        ∀ (𝔭 : PrimeSpectrum A), 𝔭.asIdeal.height = 1 →
+          ∀ x ∈ fractionLattice A M 𝔭, ∃ a : A, ∃ b : 𝔭.asIdeal.primeCompl,
+            φ x = algebraMap A (FractionRing A) a / algebraMap A (FractionRing A) b) := sorry
+
+theorem reflexive_intersection_criterion [Module.IsTorsionFree A M] :
+    Module.IsReflexive A M ↔
+      LinearMap.range (TensorProduct.mk A (FractionRing A) M 1) =
+        ⨅ (𝔭 : PrimeSpectrum A) (_ : 𝔭.asIdeal.height = 1), fractionLattice A M 𝔭 := sorry
+
+theorem dual_reflexive : Module.IsReflexive A (Module.Dual A M) := sorry
+
+-- This adapter reuses the pinned reflexive-to-torsion-free instance.
+omit [IsDomain A] [IsNoetherianRing A] [IsIntegrallyClosed A] [Module.Finite A M] in
+theorem reflexive_torsion_free [Module.IsReflexive A M] : Module.IsTorsionFree A M :=
+  inferInstance
+
+theorem isPseudoIsomorphism_bidual [Module.IsTorsionFree A M] :
+    IsPseudoIsomorphism (Module.Dual.eval A M) := sorry
+
+omit [IsNoetherianRing A] in
+theorem free_of_reflexive_of_regularLocal [IsRegularLocalRing A]
+    (hdim : ringKrullDim A = 2) [Module.IsReflexive A M] : Module.Free A M := sorry
+
+theorem exists_pseudoIso_torsion_sum :
+    ∃ f : M →ₗ[A] (Submodule.torsion A M × (M ⧸ Submodule.torsion A M)),
+      IsPseudoIsomorphism f := sorry
+
+/-- The multiset of (prime, exponent) pairs retains repeated factors, not just total lengths. -/
+theorem torsion_elementary_divisors (hM : Module.IsTorsion A M) :
+    ∃ (n : ℕ) (P : Fin n → PrimeSpectrum A) (e : Fin n → ℕ),
+      (∀ i, (P i).asIdeal.height = 1 ∧ 0 < e i) ∧
+      (∃ f : M →ₗ[A] (∀ i, A ⧸ ((P i).asIdeal ^ e i)), IsPseudoIsomorphism f) ∧
+      ∀ (n' : ℕ) (P' : Fin n' → PrimeSpectrum A) (e' : Fin n' → ℕ),
+        (∀ i, (P' i).asIdeal.height = 1 ∧ 0 < e' i) →
+        (∃ f' : M →ₗ[A] (∀ i, A ⧸ ((P' i).asIdeal ^ e' i)), IsPseudoIsomorphism f') →
+        (Finset.univ.val.map (fun i => (P i, e i))) =
+          (Finset.univ.val.map (fun i => (P' i, e' i))) := sorry
+
+omit [IsNoetherianRing A] in
+theorem exists_pseudoIso_regularLocal_two [IsRegularLocalRing A] (hdim : ringKrullDim A = 2) :
+    ∃ (r n : ℕ) (P : Fin n → PrimeSpectrum A) (e : Fin n → ℕ),
+      r = Module.finrank (FractionRing A) (FractionRing A ⊗[A] M) ∧
+      (∀ i, (P i).asIdeal.height = 1 ∧ 0 < e i) ∧
+      ∃ f : M →ₗ[A] ((Fin r → A) × (∀ i, A ⧸ ((P i).asIdeal ^ e i))),
+        IsPseudoIsomorphism f := sorry
+end NormalDomain
+
+section CoefficientDVR
+variable (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+  [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Finite (IsLocalRing.ResidueField O)]
+
+theorem iwasawa_maximal_ideal (ϖ : O) (hϖ : Irreducible ϖ) :
+    IsLocalRing.maximalIdeal (PowerSeries O) =
+      Ideal.span ({PowerSeries.C ϖ, PowerSeries.X} : Set (PowerSeries O)) := sorry
+
+theorem iwasawa_residue_field :
+    Nonempty (IsLocalRing.ResidueField (PowerSeries O) ≃+* IsLocalRing.ResidueField O) := sorry
+
+theorem powerSeries_isRegularLocalRing :
+    IsRegularLocalRing (PowerSeries O) ∧ ringKrullDim (PowerSeries O) = 2 := sorry
+
+theorem distinguished_irreducibility (F : O[X])
+    (hF : F.IsDistinguishedAt (IsLocalRing.maximalIdeal O)) :
+    Irreducible F ↔ Irreducible (F : PowerSeries O) := sorry
+
+theorem height_one_prime_iff (ϖ : O) (hϖ : Irreducible ϖ)
+    (P : PrimeSpectrum (PowerSeries O)) : P.asIdeal.height = 1 ↔
+      P.asIdeal = Ideal.span {PowerSeries.C ϖ} ∨
+        ∃ F : O[X], F.IsDistinguishedAt (IsLocalRing.maximalIdeal O) ∧ Irreducible F ∧
+          P.asIdeal = Ideal.span {(F : PowerSeries O)} := sorry
+
+theorem exists_pow_mul_distinguished_mul_unit (ϖ : O) (hϖ : Irreducible ϖ)
+    (f : PowerSeries O) (hf : f ≠ 0) :
+    ∃ (μ : ℕ) (F : O[X]) (u : (PowerSeries O)ˣ),
+      F.IsDistinguishedAt (IsLocalRing.maximalIdeal O) ∧
+        f = PowerSeries.C (ϖ ^ μ) * (F : PowerSeries O) * u := sorry
+
+theorem exists_pseudoIso_elementary (ϖ : O) (hϖ : Irreducible ϖ)
+    (M : Type*) [AddCommGroup M] [Module (PowerSeries O) M]
+    [Module.Finite (PowerSeries O) M] :
+    ∃ (r a b : ℕ) (m : Fin a → ℕ) (F : Fin b → O[X]) (n : Fin b → ℕ),
+      (∀ i, 0 < m i) ∧
+      (∀ j, (F j).IsDistinguishedAt (IsLocalRing.maximalIdeal O) ∧
+        Irreducible (F j) ∧ 0 < n j) ∧
+      ∃ f : M →ₗ[PowerSeries O]
+        ((Fin r → PowerSeries O) ×
+          (∀ i, PowerSeries O ⧸ Ideal.span {PowerSeries.C (ϖ ^ m i)}) ×
+          (∀ j, PowerSeries O ⧸ Ideal.span {((F j ^ n j : O[X]) : PowerSeries O)})),
+        IsPseudoIsomorphism f := sorry
+
+end CoefficientDVR
+
+section CyclotomicPolynomials
+variable (p : ℕ) [Fact p.Prime] (O : Type*) [CommRing O] [IsDomain O]
+  [IsDiscreteValuationRing O] [CharP (IsLocalRing.ResidueField O) p]
+-- ω_-1 is the empty product 1; natural-index ω_n is defined without integer division.
+theorem omega_isDistinguishedAt (n : ℕ) :
+    (((1 + X) ^ (p ^ n) - 1 : O[X]).IsDistinguishedAt (IsLocalRing.maximalIdeal O)) ∧
+      ((1 + X) ^ (p ^ n) - 1 : O[X]).natDegree = p ^ n := sorry
+
+theorem xi_isDistinguishedAt (n : ℕ) :
+    let ξ : O[X] := if n = 0 then X else ∑ i ∈ Finset.range p, (1 + X) ^ (i * p ^ (n - 1))
+    ξ.IsDistinguishedAt (IsLocalRing.maximalIdeal O) ∧
+      ξ.natDegree = if n = 0 then 1 else p ^ (n - 1) * (p - 1) := sorry
+
+theorem cyclotomic_product (n : ℕ) :
+    ((1 + X) ^ (p ^ n) - 1 : O[X]) =
+      ∏ j ∈ Finset.range (n + 1),
+        (if j = 0 then X else ∑ i ∈ Finset.range p, (1 + X) ^ (i * p ^ (j - 1))) := sorry
+
+theorem cyclotomic_joint_ideal_bound (ϖ : O) (hϖ : Irreducible ϖ) (n : ℕ) :
+    ((1 + PowerSeries.X) ^ (p ^ n) - 1 : PowerSeries O) ∈
+      (Ideal.span ({PowerSeries.C ϖ, PowerSeries.X} : Set (PowerSeries O))) ^ (n + 1) := sorry
+
+end CyclotomicPolynomials
+
+
+section JointAdic
+variable (p : ℕ) [Fact p.Prime] (O : Type*) [CommRing O] [IsDomain O]
+  [IsDiscreteValuationRing O] [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+  [Finite (IsLocalRing.ResidueField O)] [CharP (IsLocalRing.ResidueField O) p]
+
+/-- The coefficient-product topology is the joint maximal-ideal topology, not T-adic topology. -/
+theorem iwasawa_joint_adic_completeness :
+    letI : TopologicalSpace O := (IsLocalRing.maximalIdeal O).adicTopology
+    letI : TopologicalSpace (PowerSeries O) :=
+      (TopologicalSpace.induced (fun f : PowerSeries O => fun n : ℕ => f.coeff n) inferInstance)
+    IsAdic (IsLocalRing.maximalIdeal (PowerSeries O)) ∧
+      IsAdicComplete (IsLocalRing.maximalIdeal (PowerSeries O)) (PowerSeries O) := sorry
+
+-- This separation uses actual cyclotomic ideals, rather than powers of T.
+theorem cyclotomic_separation :
+    (⨅ n : ℕ, Ideal.span {((1 + PowerSeries.X) ^ (p ^ n) - 1 : PowerSeries O)}) = ⊥ := sorry
+
+/-- A compatible family in the native quotient rings has a unique series lift.
+This does not introduce or identify a second completed-group-algebra carrier. -/
+theorem cyclotomic_quotient_limit
+    (x : ∀ n : ℕ, PowerSeries O ⧸
+      Ideal.span {((1 + PowerSeries.X) ^ (p ^ n) - 1 : PowerSeries O)})
+    (hcompat : ∀ m n : ℕ, ∀ h : m ≤ n,
+      Ideal.Quotient.factor (show
+        Ideal.span {((1 + PowerSeries.X) ^ (p ^ n) - 1 : PowerSeries O)} ≤
+          Ideal.span {((1 + PowerSeries.X) ^ (p ^ m) - 1 : PowerSeries O)} from by sorry)
+        (x n) = x m) :
+    ∃! f : PowerSeries O, ∀ n : ℕ,
+      Ideal.Quotient.mk
+        (Ideal.span {((1 + PowerSeries.X) ^ (p ^ n) - 1 : PowerSeries O)}) f = x n := sorry
+end JointAdic
+
+section AnalyticZeros
+variable (O : Type*) [NormedCommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+  [IsAdicComplete (IsLocalRing.maximalIdeal O) O]
+  [Finite (IsLocalRing.ResidueField O)]
+  (E : Type*) [NormedField E] [CompleteSpace E]
+  (φ : O →+* E) (hφ : Continuous φ) (hinj : Function.Injective φ)
+  (hbound : ∀ a : O, ‖φ a‖ ≤ 1) (ϖ : O) (hϖ : Irreducible ϖ)
+  (hsmall : ‖φ ϖ‖ < 1)
+  (hultra : ∀ a b : E, ‖a + b‖ ≤ max ‖a‖ ‖b‖)
+include hφ hinj hbound hϖ hsmall hultra
+
+-- A direct tsum avoids imposing the false linear-topology condition on a normed field.
+theorem power_series_finite_zeros (f : PowerSeries O) (hf : f ≠ 0) :
+    {z : E | ‖z‖ < 1 ∧ (∑' n : ℕ, φ (f.coeff n) * z ^ n) = 0}.Finite := sorry
+
+theorem power_series_identity (f g : PowerSeries O)
+    (Z : Set E) (hZ : Z.Infinite) (hdisc : ∀ z ∈ Z, ‖z‖ < 1)
+    (heq : ∀ z ∈ Z,
+      (∑' n : ℕ, φ (f.coeff n) * z ^ n) = (∑' n : ℕ, φ (g.coeff n) * z ^ n)) :
+    f = g := sorry
+end AnalyticZeros
+
+section CharacteristicTransport
+variable (A : Type*) [CommRing A] [IsDomain A] [IsNoetherianRing A]
+  [IsIntegrallyClosed A] [UniqueFactorizationMonoid A]
+  (M N : Type*) [AddCommGroup M] [Module A M] [Module.Finite A M]
+  [AddCommGroup N] [Module A N] [Module.Finite A N]
+
+variable (σ : A ≃+* A)
+local instance : RingHomInvPair σ.toRingHom σ.symm.toRingHom := RingHomInvPair.of_ringEquiv σ
+local instance : RingHomInvPair σ.symm.toRingHom σ.toRingHom := RingHomInvPair.of_ringEquiv_symm σ
+theorem charIdeal_comap_ringEquiv (e : LinearEquiv (σ' := σ.symm.toRingHom) σ.toRingHom N M)
+    (hM : Module.IsTorsion A M) (hN : Module.IsTorsion A N) :
+    charIdeal A N hN = (charIdeal A M hM).comap σ.toRingHom := sorry
+end CharacteristicTransport
+
+section InvariantElementarySpecification
+variable (O : Type*) [CommRing O] [IsDomain O] [IsDiscreteValuationRing O]
+  [IsAdicComplete (IsLocalRing.maximalIdeal O) O] [Finite (IsLocalRing.ResidueField O)]
+  (ϖ : O) (hϖ : Irreducible ϖ)
+  (M : Type*) [AddCommGroup M] [Module (PowerSeries O) M] [Module.Finite (PowerSeries O) M]
+
+theorem muInvariant_spec {ι κ : Type*} [Fintype ι] [Fintype κ]
+    (m : ι → ℕ) (F : κ → O[X]) (e : κ → ℕ)
+    (hF : ∀ i, (F i).IsDistinguishedAt (IsLocalRing.maximalIdeal O))
+    (hprime : ∀ i, Irreducible (F i))
+    (hdecomp : ∃ f : Submodule.torsion (PowerSeries O) M →ₗ[PowerSeries O]
+      ((∀ i, PowerSeries O ⧸ Ideal.span {PowerSeries.C (ϖ ^ m i)}) ×
+        (∀ i, PowerSeries O ⧸ Ideal.span {((F i ^ e i : O[X]) : PowerSeries O)})),
+      IsPseudoIsomorphism f) :
+    muInvariant O ϖ hϖ M = ∑ i, m i := sorry
+
+theorem charPoly_elementary_spec {ι κ : Type*} [Fintype ι] [Fintype κ]
+    (m : ι → ℕ) (F : κ → O[X]) (e : κ → ℕ)
+    (hF : ∀ i, (F i).IsDistinguishedAt (IsLocalRing.maximalIdeal O))
+    (hprime : ∀ i, Irreducible (F i))
+    (hdecomp : ∃ f : Submodule.torsion (PowerSeries O) M →ₗ[PowerSeries O]
+      ((∀ i, PowerSeries O ⧸ Ideal.span {PowerSeries.C (ϖ ^ m i)}) ×
+        (∀ i, PowerSeries O ⧸ Ideal.span {((F i ^ e i : O[X]) : PowerSeries O)})),
+      IsPseudoIsomorphism f) : charPoly O M = ∏ i, F i ^ e i := sorry
+
+namespace L4Tests
+-- test Ramification.uniformizer (computation) [L4/iwasawa-invariants]
+example : muInvariant O ϖ hϖ
+    (PowerSeries O ⧸ Ideal.span {PowerSeries.C ϖ}) = 1 := sorry
+-- test L4Tests.mu_part (computation) [L4/iwasawa-invariants,L4/iwasawa-invariants-api-1,L4/iwasawa-invariants-api-2]
+example : muInvariant O ϖ hϖ (PowerSeries O ⧸ Ideal.span {PowerSeries.C ϖ}) = 1 ∧
+    lambdaInvariant O (PowerSeries O ⧸ Ideal.span {PowerSeries.C ϖ}) = 0 ∧ charPoly O (PowerSeries O ⧸ Ideal.span {PowerSeries.C ϖ}) = 1 := sorry
+-- test Ramification.ramified_p (non-example) [L4/iwasawa-invariants]
+example (a : O) (r : ℕ) (u : Oˣ) (ha : a = u * ϖ ^ r) :
+    muInvariant O ϖ hϖ (PowerSeries O ⧸ Ideal.span {PowerSeries.C a}) = r := sorry
+end L4Tests
+end InvariantElementarySpecification
+
+
+section FinitePseudoIsomorphism
+variable (A : Type*) [CommRing A] [IsDomain A] [IsNoetherianRing A]
+  [IsIntegrallyClosed A] [IsLocalRing A] [Finite (IsLocalRing.ResidueField A)]
+  (M N : Type*) [AddCommGroup M] [Module A M] [Module.Finite A M]
+  [AddCommGroup N] [Module A N] [Module.Finite A N]
+theorem isPseudoIsomorphism_iff_finite (hdim : ringKrullDim A = 2) (f : M →ₗ[A] N) :
+    IsPseudoIsomorphism f ↔ Finite (LinearMap.ker f) ∧ Finite (N ⧸ LinearMap.range f) := sorry
+end FinitePseudoIsomorphism
+
+namespace L4Tests
+variable (p : ℕ) [Fact p.Prime]
+-- test L4Tests.two_variables (non-example) [L4/pseudo-null]
+example : let A := MvPowerSeries (Fin 2) (PadicInt p)
+    let I : Ideal A := Ideal.span {MvPowerSeries.X 0, MvPowerSeries.X 1}
+    IsPseudoNull A (A ⧸ I) ∧ Infinite (A ⧸ I) := sorry
+-- test L4Tests.maximal_ideal (non-example) [L4/pseudo-isomorphism]
+example : let A := PowerSeries (PadicInt p)
+    let I : Ideal A := Ideal.span {PowerSeries.C (p : PadicInt p), PowerSeries.X}
+    IsPseudoIsomorphism I.subtype ∧
+      ¬ ∃ f : A →ₗ[A] I, IsPseudoIsomorphism f := sorry
+-- test L4Tests.not_complete_invariant (non-example) [L4/characteristic-ideal]
+example : let A := PowerSeries (PadicInt p)
+    let M := A ⧸ Ideal.span {(PowerSeries.X : A) ^ 2}
+    let N := (A ⧸ Ideal.span {(PowerSeries.X : A)}) × (A ⧸ Ideal.span {(PowerSeries.X : A)})
+    charIdeal A M (by sorry) = charIdeal A N (by sorry) ∧ ¬ Nonempty (M ≃ₗ[A] N) := sorry
+end L4Tests
 
 /-! ### L4 arithmetic controls
 
@@ -3222,9 +4004,7 @@ Conventions.
   a statement concludes that a module is finitely presented, that instance is an argument,
   because the ideal cannot be written without it.
 * `e_χ`: `TauCeti.Iwasawa.charIdempotent χ` stands for the character idempotent
-  `#H⁻¹ Σ_{a ∈ H} χ(a)⁻¹ a ∈ O[H]` of `L4/character-decomposition`, which the L4 part of this
-  file does not declare; it is written out here so that the L6 statements about `e_χ` can be
-  stated, and L6 does not own it. In `O[G]`, for a subgroup `G'` and a character `χ` of `G'`,
+  `#H⁻¹ Σ_{a ∈ H} χ(a)⁻¹ a ∈ O[H]` of `L4/character-decomposition`, declared in the L4 block and reused here. L6 does not own it. In `O[G]`, for a subgroup `G'` and a character `χ` of `G'`,
   `e_χ` is `MonoidAlgebra.mapDomainAlgHom O O G'.subtype (Iwasawa.charIdempotent χ)`.
 
 Pinned Tau Ceti declarations (f790474) that the block reuses instead of restating:
@@ -3556,15 +4336,6 @@ end CharacterGroupRing
 L6/character-group-ring-finite-index, L6/character-group-ring-nonzerodivisor,
 L6/norm-element-kernel, L6/character-idempotent-evaluation, L6/component-character-group-ring,
 L6/group-ring-component-decomposition and L6/component-norm-quotient -/
-
-/-- Stand-in for the character idempotent `e_χ = #H⁻¹ Σ_{a ∈ H} χ(a)⁻¹ a ∈ O[H]` of
-`PadicMeasuresIwasawaAlgebras:L4/character-decomposition`, under the name the packet gives it
-there. The L4 part of this file does not declare it, L6 does not own it, and it is written out
-only so that the statements about `e_χ` below can be stated. It is meant for `#H` a unit of `O`
-(`Ring.inverse` is the inverse of a unit). -/
-def Iwasawa.charIdempotent {O H : Type*} [CommRing O] [CommGroup H] [Finite H] (χ : H →* Oˣ) :
-    MonoidAlgebra O H :=
-  Ring.inverse (Nat.card H : O) • ∑ᶠ a : H, (((χ a)⁻¹ : Oˣ) : O) • MonoidAlgebra.of O H a
 
 section CharacterGroupRingTheory
 
@@ -5315,22 +6086,14 @@ end
 end L6
 
 /-!
-Independent review REV-PadicMeasuresIwasawaAlgebras: needs_changes.
-The packet has 436 declaration records after 67 required L4 splits. All implementation statuses
-remain unchecked; no proof has been formalised. Historical elaboration applies to the inherited
-file only. No suitable existing build of both pinned Tau Ceti imports was available for a fresh
-full-file elaboration; no project or cache was set up.
-
-The review report lists every declaration/API name absent from this file. In particular the
-common fraction-vector-space embeddings for dual intersections, completed-algebra comparisons,
-finite formal characteristic divisor support, integral character projectors, native exact
-resolutions, delta/cyclotomic submodules, growth and Euler determinant interfaces remain gaps.
-The characteristic divisor now has the native finitely supported natural-valued carrier with
-explicit finite-generation and torsion inputs. Its finite-support/length proof is still admitted.
-The invariant definitions retain their actual Z_p coefficient scope, while the packet requires
-general complete DVR coefficients; this mismatch is a blocking finding. The packet uses
-continuous homology H_0=coinvariants and H_1=invariants in all three minimal-resolution ranks.
-Do not replace these absent interfaces with untyped propositions or new duplicate carriers.
+Revision BP-PadicMeasuresIwasawaAlgebras~2 retains 486 unchecked node records and adds none.
+The L4 block supplies native general-DVR invariants, localisation images in a common fraction
+space, characteristic ideals, integral projectors/components, quotient lifts, delta/saturation
+and exact minimal-resolution contracts. The packet records the remaining exact names and
+semantic tests, with the proof inputs and source-access gaps; no absent contract is represented
+by an untyped proposition. H_0 is coinvariants and H_1 is invariants throughout.
+The independent review objects in the packet are historical evidence retained for the next
+reviewer. Current elaboration evidence is recorded in checks, separately from implementation.
 -/
 
 /-!
@@ -5339,18 +6102,18 @@ FIX-RT-AREA-iwasawa-2~2. The block was rewritten to follow the corrected packet 
 API item, unit test and node declaration of L6 appears under the name the packet gives it. It
 imports and uses the pinned Tau Ceti declarations for the character evaluation, the augmentation,
 the antipode, the subgroup character sum, column orthogonality of characters, 2×2 minors and the
-Auslander–Reiten transpose instead of restating them. `TauCeti.Module.fittingIdeal` and
-`TauCeti.Iwasawa.charIdempotent` are stand-ins for objects that L6 does not own (the Fitting-ideal
-carrier of the Tau Ceti roadmap StableReduction, Layer 1, and the L4 character idempotent).
+Auslander–Reiten transpose instead of restating them. `TauCeti.Module.fittingIdeal` is the suggested interface for the upstream StableReduction
+Layer 1 carrier. The L4 character projector is declared in L4 and reused by L6.
 
 Historical elaboration (7 October). The shared build then lacked object files for the Tau Ceti
 imports, so the checkpoint used diagnostic harnesses with the missing library declarations.
 
-Completion check (9 October 2026, Codex, session codex-nikABM). The shared build now contains
-the pinned Tau Ceti modules. `lean-check` elaborates this file with its own import lines:
-no errors and 917 warnings, all for `sorry`. No library source is inlined for this check.
-This validates the signatures; all packet implementation statuses remain unchecked.
+Completion checks (9 October 2026, Codex, session codex-nikABM). Before integration of
+PR #7967, native `lean-check` passed with 917 warnings, all for `sorry`. The final combined
+file preserves that revision's L4 interfaces and passes with its own pinned imports:
+no errors and 1,041 warnings, all for `sorry`.
+No library source is inlined. All packet implementation statuses remain unchecked.
 
-The packet's review status is needs_changes; the L4 remarks of REV-PadicMeasuresIwasawaAlgebras
-above still apply.
+The packet's review status is needs_changes. PR #7967 addresses several earlier L4 interfaces;
+its remaining named declarations, semantic tests and source/proof inputs require follow-up.
 -/

@@ -29975,9 +29975,10 @@
     "REV-RS-21"
    ],
    "prompt": "research/blueprint/prompts/BP-SmoothRepresentationsOfLocalGroups--SR.4.md",
-   "state": "external",
+   "state": "done",
    "suppliers": [],
-   "note": "claimed on GitHub issue #997"
+   "note": "deliverables arrived from an external worker on issue #997",
+   "finishedAt": "2026-10-09T11:21:33Z"
   },
   {
    "id": "REV-SmoothRepresentationsOfLocalGroups--SR.4",
@@ -29998,7 +29999,8 @@
    ],
    "avoidAccountOf": "BP-SmoothRepresentationsOfLocalGroups--SR.4",
    "prompt": "research/blueprint/prompts/REV-SmoothRepresentationsOfLocalGroups--SR.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #495"
   },
   {
    "id": "BP-SpecialValuesBirchTate",
@@ -34346,8 +34348,9 @@
    ],
    "avoidAccountOf": "BP-SchemeAndStackFoundations--SF.6",
    "prompt": "research/blueprint/prompts/REV-SchemeAndStackFoundations--SF.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6288"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6288",
+   "finishedAt": "2026-10-09T11:15:55Z"
   },
   {
    "id": "BP-AlgebraicModuliForArithmeticGeometry--A0-extension-2",
@@ -37811,8 +37814,9 @@
    ],
    "revisionOf": "BP-PadicMeasuresIwasawaAlgebras",
    "prompt": "research/blueprint/prompts/BP-PadicMeasuresIwasawaAlgebras~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6472"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6472",
+   "finishedAt": "2026-10-09T11:32:49Z"
   },
   {
    "priority": 2,
@@ -37837,7 +37841,8 @@
     "BP-PadicMeasuresIwasawaAlgebras~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PadicMeasuresIwasawaAlgebras~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6415"
   },
   {
    "kind": "blueprint",
@@ -43271,7 +43276,8 @@
    ],
    "revisionOf": "BP-GeometryOfNumbersAndQuadraticArithmetic",
    "prompt": "research/blueprint/prompts/BP-GeometryOfNumbersAndQuadraticArithmetic~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6516"
   },
   {
    "priority": 2,
@@ -79784,8 +79790,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81040,7 +81046,9 @@
     "FIX-RT-AREA-algebraicgeometry"
    ],
    "prompt": "research/blueprint/prompts/FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #5701",
+   "finishedAt": "2026-10-09T11:43:26Z"
   },
   {
    "id": "REV-FIX-RT-AREA-algebraicgeometry~2",
