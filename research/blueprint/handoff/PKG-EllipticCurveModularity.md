@@ -1,3 +1,74 @@
+# Current checkpoint: codex-4oIQdS — 9 October 2026
+
+Issue #7469; bot-confirmed claim
+[6074194963](https://github.com/CBirkbeck/tauceti-explorer/issues/7469#issuecomment-6074194963),
+responding to this session's claim comment 6074193566.
+Base commit: `2712ee98b8af1767c291e29ec4a9fcddacacbb9d`.
+Branch: `codex-4oIQdS-elliptic-curve-modularity-package`.
+
+**Blocked checkpoint, not a completed package.** The dependency blocker from
+PR #7783 persists. This run changes only this handoff note; it does not repeat
+or claim the previous workers' mathematical authorship or source checks.
+The README and Suggested.lean are retained unchanged. Metadata remains absent
+because its existence would cause package intake to classify an unelaborated
+package as complete.
+
+## Fresh checks and exact remaining action
+
+- `lean-check research/blueprint/packages/EllipticCurveModularity/Suggested.lean`
+  exited 1 at the import block: `object file of module
+  TauCeti.NumberTheory.ModularForms.Newforms.Newform does not exist`.
+  The diagnostic's local filesystem path is omitted. Full-file elaboration
+  did not happen, so no claim is made about later signatures. Available
+  memory before the check was 114 GB; no compile was left running.
+- The default shared build still has Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+  `cf386627e9176a3827c1a5fe804989fd94a4d216`. The required Tau Ceti revision is
+  `f790474821cf4256814db967cb154e7af3d0c369`.
+- Read-only inspection of existing Tau Ceti project roots and manifests found
+  no replacement at both pins. The two directly inspected alternative builds
+  with Newform objects use Mathlib `dc4b8d60d5edb3c493c3662126b1b7ccae7d67cf`
+  and `f6090c7095e1e56b3464c1daba5f24631f1290d2`. A further project under the
+  existing GitHub directory has an object but its manifest uses Mathlib
+  `1a547d8a48a8fa7877d2decb69d7294723bb0187`. These observations do not
+  certify compatibility of any alternative object.
+- Re-read the actual Newform and EigenformAwayFromLevel structures at the
+  required Tau Ceti commit. Their inheritance, character, new-subspace and
+  normalization fields match the package's library description. The module
+  imports Composite, Nebentypus.Action and Newforms.Basic; an existing pinned
+  build must provide its transitive imports as well as Newform itself.
+- `python3 scripts/check_blueprint.py
+  research/blueprint/packets/EllipticCurveModularity.json` reports **0 errors,
+  0 warnings**. This is validation of the unchanged accepted input, not proof
+  of package elaboration or mathematical closure.
+- Textual correspondence check, resolving the common
+  `TauCeti.EllipticCurve.Modularity` namespace: all 23 API names and 19 named
+  tests appear in both package files. The six layer headings occur once in
+  order. Suggested.lean has 18 distinct imports and 23 direct examples.
+- Read both short upstream examples ConformalMapping and
+  RepresentationTheory/SemisimpleAlgebras in full, and the worker rules,
+  both protocols, upstream guide and preceding handoff. No fresh full-source
+  audit or mathematical review of the package is claimed.
+
+**Resume after the maintainer supplies an existing shared build containing
+both required revisions and the compiled Newform dependency closure.**
+Select that build using lean-check's existing `ATLAS_LEAN_BUILD` mechanism,
+run the complete Suggested.lean, fix any package signature errors, and require
+zero errors and only sorry warnings. Then create metadata.toml with exactly
+`topic = "math.NT"` and record completion. The WORKERS scratch/build rules
+prohibit building the library or setting up a new Lake project; replacing the
+library Newform with a private object would change the accepted interface.
+No edits within this issue's four authorized files can repair the missing
+shared dependency.
+
+Do not submit further unchanged-input checkpoints merely to repeat this
+blocker. Verify that the shared dependency has become available before
+resuming the compilation task. The earlier handoff below preserves the full
+23-target correspondence, source identities, conventions and mathematical
+boundaries. No disposable scratch file is needed for continuation.
+
+---
+
 # PKG-EllipticCurveModularity — checkpoint
 
 Agent: Codex. Session: `codex-6PzyiM`. Date: 2026-10-09.
