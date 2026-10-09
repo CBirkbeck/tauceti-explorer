@@ -11,7 +11,7 @@
     "DiophantineApproximationAndTranscendence:DT.5"
   ],
   "status": "complete",
-  "summary": "Independent lemma-level review of the 392-node inherited planning pass: checked node contracts, primary locators, baseline telescopes, APIs, tests, suppliers and planets; corrected mathematical and signature defects and added five supporting nodes. Complete still means one budgeted planning pass; DT.1 is closed at planning granularity and the other five stages remain partial. Source-access and prototype-reconciliation limitations are explicit in review and gaps. Nothing is asserted to be formalized.",
+  "summary": "Revision 2 preserves the 397 reviewed node IDs and the independent review. The primary published Matveev statement is now verified; the Schneider–Lang suggested construction restores its uniform polydisc output, positive dimension, common Liouville constant, large-L cutoff and compatible extrapolation budget. The reader includes all review corrections and five additions. No nodes are added above the issue budget. Status complete denotes this budgeted planning pass: DT.1 retains planning closure and the other five stages remain partial with 29 explicit gaps and two requests. Admitted signature elaboration is not formalization.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -3621,7 +3621,7 @@
         {
           "sourceId": "evertse-dio-notes",
           "locator": "Chapter 3, Exercise 3.1, printed p. 41",
-          "match": "API items naiveHeight_inv, inv_naiveHeight_add_one_le_norm and norm_le_naiveHeight_add_one (the Q in the excerpt is Q̄ in the source)."
+          "match": "API items naiveHeight_inv, inv_naiveHeight_add_one_le_norm and norm_le_naiveHeight_add_one (the intended coefficient field is Q̄)."
         },
         {
           "sourceId": "bugeaud-exponents-2015",
@@ -10172,7 +10172,7 @@
         {
           "sourceId": "evertse-dio-notes",
           "locator": "Chapter 8, Theorem 8.7, printed p. 162",
-          "match": "The statement (continued with (8.7) and the conclusion 'There are a finite number of proper linear subspaces T1, . . . , Tt of Qn such that all solutions of (8.7) lie in T1 ∪ · · · ∪ Tt')."
+          "match": "The p-adic product inequality and its finite proper-subspace covering conclusion."
         },
         {
           "sourceId": "evertse-dio-notes",
@@ -10518,7 +10518,7 @@
         "x' ≠ 0: otherwise |x_n| ≤ Q^{1−n} < 1 forces x = 0. Hence |x_n − β·x'| ≤ Q^{1−n} ≤ max_{i<n}|x_i|^{1−n} (7.9).",
         "α_n(x_n − β·x') = α·x ≠ 0 for x ≠ 0 by linear independence, while |x_n − β·x'| ≤ Q^{1−n} → 0; so as Q → ∞ infinitely many distinct x occur.",
         "From (7.9), |x_n| ≤ 1 + Σ_{i<n}|β_i||x_i| ≤ n max_{i<n}|x_i|, so ‖x‖ ≤ n max_{i<n}|x_i|; inserting and multiplying by |α_n| gives (7.8) with C = |α_n|n^{n−1}.",
-        "The source only says that the infinitude of solutions of (7.9) follows 'for instance from Minkowski's convex body theorem'; the second and fourth steps supply that argument (recorded in sourceIssues)."
+        "The source attributes the infinitude argument to Minkowski; the second and fourth steps spell out the required application (recorded in sourceIssues)."
       ],
       "acceptance": [
         "Theorem 7.7 shows the exponent 1 − n cannot be lowered to 1 − n − δ when the α_i are algebraic.",
@@ -10883,7 +10883,7 @@
         "c ∈ ℚ^*"
       ],
       "proofSteps": [
-        "The source states that this implication is deduced from the Subspace Theorem and that 'the proof is too difficult to be included here'.",
+        "The source states the implication and attributes it to the Subspace Theorem, without including its proof.",
         "Schmidt's proof (Annals of Math. 96 (1972); Lecture Notes in Math. 785, Chapter VII) applies subspace-theorem-general-position to the d conjugate linear factors of N_{K/ℚ}(α·X) and analyses the exceptional subspaces through the subfields of K; neither source is publicly available and no public full proof was read (recorded as a gap).",
         "The known proofs are ineffective, like the Subspace Theorem."
       ],
@@ -12616,7 +12616,7 @@
         "Successive infima over Q̄^n (absolute), not over K^n"
       ],
       "proofSteps": [
-        "EF: 'This is a reformulation of [11, Corollary 7.2]' (Evertse–Schlickewei 2002, §7), which is an easy consequence of the absolute analogue of Minkowski's second theorem due to Roy and Thunder (J. reine angew. Math. 476 (1996)).",
+        "EF derives this result from Evertse–Schlickewei Corollary7.2 (Evertse–Schlickewei 2002, §7), which is an easy consequence of the absolute analogue of Minkowski's second theorem due to Roy and Thunder (J. reine angew. Math. 476 (1996)).",
         "The Roy–Thunder theorem generalises the adelic Minkowski second theorem of Bombieri–Vaaler (Invent. Math. 73 (1983)) over a number field, which in turn rests on the classical Minkowski second theorem for a convex symmetric body and a lattice in ℝ^N (requested from GeometryOfNumbersAndQuadraticArithmetic:GN.1).",
         "Neither the reformulation in Evertse–Schlickewei §7 nor the Roy–Thunder theorem is decomposed here (gap); Roy–Thunder's paper is not publicly available."
       ],
@@ -12713,7 +12713,7 @@
       "proofSteps": [
         "EF Lemma 11.1 (= Evertse–Schlickewei Lemma 6.3): for positive reals A_u (u ∈ M_F), almost all 1, with ∏A_u > 1, there are a finite extension E and α ∈ E^* with ‖α‖_w ≤ A_u^{d(w|u)}.",
         "EF Lemma 11.2: rescaling g_j by such scalars α_j gives g'_j with the local bounds (11.3)–(11.4).",
-        "EF: 'The proof is the same as that of [11, Lemma 9.2], except for some small modifications': Davenport's triangular change of basis applied to g'_1, …, g'_n at the place v_0 (Evertse–Schlickewei 2002, §9), with (11.1) in place of their (9.15); it yields (11.5)–(11.7) with n·2^{n²}(1 + ε)^{n+1} in place of 3^{n²}.",
+        "EF refers to a modified proof of Evertse–Schlickewei Lemma9.2: Davenport's triangular change of basis applied to g'_1, …, g'_n at the place v_0 (Evertse–Schlickewei 2002, §9), with (11.1) in place of their (9.15); it yields (11.5)–(11.7) with n·2^{n²}(1 + ε)^{n+1} in place of 3^{n²}.",
         "The proof of Evertse–Schlickewei Lemma 9.2 is not decomposed here (gap)."
       ],
       "acceptance": [
@@ -12871,7 +12871,7 @@
         "V > U > 0; forms over K; H_2 as in height-of-linear-subspace"
       ],
       "proofSteps": [
-        "EF: 'This is a consequence of Bombieri and Vaaler [1, Theorem 9]' (Invent. Math. 73 (1983), 11–32). Bombieri–Vaaler's proof uses their adelic Minkowski second theorem.",
+        "EF invokes Bombieri–Vaaler Theorem9 (Invent. Math. 73 (1983), 11–32). Bombieri–Vaaler's proof uses their adelic Minkowski second theorem.",
         "Not decomposed here (gap). Mathlib has Siegel's lemma over ℤ (Int.Matrix.exists_ne_zero_int_vec_norm_le) and over the ring of integers with house bounds (NumberField.house.exists_ne_zero_int_vec_house_le), which are different statements (no H_2, no C_K)."
       ],
       "acceptance": [
@@ -16373,19 +16373,23 @@
       ],
       "title": "Construction of the auxiliary function and its first vanishing (Waldschmidt §4.6, Steps 3-4)",
       "kind": "lemma",
-      "statement": "Setting SL: integers 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Positive constants depend only on (d_0, d_1, n, x, y, K); constants used as upper bounds may be enlarged to ≥1, while c₃,c₄,c₅ can be smaller than 1. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). There are constants c_2, …, c_8 such that the following holds for all integers S_0, S_1 ≥ 2 and reals E ≥ e with L ≥ 6^{2n+2}n^{2n}c_1, T_0 log(S_1E) + T_1S_1E ≤ c_5L^{1/n} log E (4.15), L^{1/n} log E > c_7(S_0 log(S_0T_1) + T_0 log(S_0S_1E) + T_1S_1E) (4.17) and S_0S_1 ≥ c_8L^{1/n} (4.18): putting U := c_3L^{1/n} log E and N := c_4U, there are p_λ ∈ ℤ, not all 0, |p_λ| ≤ e^N, such that F := Σ p_λφ_λ is not identically zero, |F|_{c_2S_1} ≤ e^{−U}, and D^σF(sy) = 0 for all σ ∈ ℕ^n with |σ| < S_0 and all s ∈ ℕ^n with |s| < S_1. Proposed declaration: Baker.schneiderLang_exists_vanishing.",
+      "statement": "Setting SL: integers n ≥ 1 and 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Positive constants depend only on (d_0, d_1, n, x, y, K); constants used as upper bounds may be enlarged to ≥1, while c₃,c₄,c₅ can be smaller than 1. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Fix c₁≥1 satisfying the full Liouville bound (4.14) for these fixed data, uniformly over T₀,T₁≥2, S₁, N>0, coefficients bounded by exp N, grid points and nonzero jets. Choose constants before any T₀,T₁,S₀,S₁,E: c₂=Σ_j|y_j|+2, c₄=1/(2c₁), c₃=c₄^{1/n}6^{−1−1/n}, c₆=c₂(d₀+d₁+Σ_iΣ_ν|x_iν|), c₅=c₃/c₆; c₃,c₄,c₅,c₆>0; c₇≥max{c₅^{−1},(2c₁/c₃)(n+1+log(n+1))} and c₈≥1+2nc₃. The following holds for all integers T_0,T_1,S_0,S_1≥2 and reals E ≥ e with L ≥ 6^{2n+2}n^{2n}c_1, T_0 log(S_1E) + T_1S_1E ≤ c_5L^{1/n} log E (4.15), L^{1/n} log E > c_7(S_0 log(S_0T_1) + T_0 log(S_0S_1E) + T_1S_1E) (4.17) and S_0S_1 ≥ c_8L^{1/n} (4.18): putting U := c_3L^{1/n} log E and N := c_4U, there are p_λ ∈ ℤ, not all 0, |p_λ| ≤ e^N, such that F := Σ p_λφ_λ is not identically zero, |F|_{c_2S_1} ≤ e^{−U}, and D^σF(sy) = 0 for all σ ∈ ℕ^n with |σ| < S_0 and all s ∈ ℕ^n with |s| < S_1. For every E′≥E the same coefficient budget satisfies N≤(S₀S₁/(2n))log E′. Proposed declaration: Baker.schneiderLang_exists_vanishing.",
       "hypotheses": [
-        "Setting SL: integers 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Positive constants depend only on (d_0, d_1, n, x, y, K); constants used as upper bounds may be enlarged to ≥1, while c₃,c₄,c₅ can be smaller than 1. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M).",
-        "(4.15), (4.17), (4.18)",
-        "L ≥ 6^{2n+2}n^{2n}c_1"
+        "Setting SL: integers n ≥ 1 and 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Positive constants depend only on (d_0, d_1, n, x, y, K); constants used as upper bounds may be enlarged to ≥1, while c₃,c₄,c₅ can be smaller than 1. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M).",
+        "Fix c₁≥1 satisfying the full Liouville bound (4.14) for these fixed data, uniformly over T₀,T₁≥2, S₁, N>0, coefficients bounded by exp N, grid points and nonzero jets. Choose constants before any T₀,T₁,S₀,S₁,E: c₂=Σ_j|y_j|+2, c₄=1/(2c₁), c₃=c₄^{1/n}6^{−1−1/n}, c₆=c₂(d₀+d₁+Σ_iΣ_ν|x_iν|), c₅=c₃/c₆; c₃,c₄,c₅,c₆>0; c₇≥max{c₅^{−1},(2c₁/c₃)(n+1+log(n+1))} and c₈≥1+2nc₃.",
+        "(4.15), (4.17), (4.18); L≥6^{2n+2}n^{2n}c₁."
       ],
       "proofSteps": [
-        "c_2 := |y_1| + ⋯ + |y_n| + 2, so 1 + |sy| ≤ r := c_2S_1 for |s| < S_1; c_4 := 1/(2c_1); c_3 := c_4^{1/n}6^{−1−1/n}; c_6 := c_2(d_0 + d_1 + ‖x_1‖ + ⋯ + ‖x_{d_1}‖); c_5 := c_3/c_6 (the source's choices).",
-        "With R := Er and V := U the hypotheses of DiophantineApproximationAndTranscendence:DT.3/auxiliary-function-small-on-polydisc hold: log Σ|φ_λ|_R ≤ c_6(T_0 log(S_1E) + T_1S_1E) ≤ U by (4.15), and (2W)^{n+1} ≤ LN(log E)^n by the choice of c_3, c_4. It gives F with |F|_r ≤ e^{−U}; F ≢ 0 by DiophantineApproximationAndTranscendence:DT.3/exponential-monomials-linearly-independent.",
-        "Cauchy (DiophantineApproximationAndTranscendence:DT.3/cauchy-inequalities-polydisc): log|D^σF(sy)| ≤ −U + log σ! (4.16). For |σ| < S_0 (so ‖σ‖ < nS_0) this contradicts DiophantineApproximationAndTranscendence:DT.3/schneider-lang-liouville-lower-bound under (4.17) unless D^σF(sy) = 0."
+        "Take c₁ from schneider-lang-liouville-lower-bound. Positivity of c₆ follows from n<d₀+d₁ and c₂≥2. The displayed equations determine c₂,c₄,c₃,c₆,c₅ from fixed data and this Liouville witness, without dependence on subsequent parameters.",
+        "Put r=c₂S₁, R=Er, V=U=c₃L^{1/n}log E, N=c₄U and W=N+U+V. Then W≤3U and 6^{n+1}c₃^n=c₄ prove (2W)^{n+1}≤LN(log E)^n. The large-L cutoff and E≥e give W≥12n² and e≤E≤exp(W/6), the remaining cutoffs of auxiliary-function-small-on-polydisc.",
+        "The sum of the exponential-monomial norm bounds on the R-polydisc is at most exp(c₆(T₀log(S₁E)+T₁S₁E))≤exp U by (4.15). Apply auxiliary-function-small-on-polydisc. Its integer coefficient vector is nonzero, and exponential-monomials-linearly-independent makes F nonzero. Preserve the uniform bound |F|_r≤exp(−U) as output.",
+        "For grid t, 1+|ty|≤r, so the radius-one Cauchy estimate bounds log|D^σF(ty)| by −U+log σ!. If every σ_ν<S₀, then Σσ_ν<nS₀ and log σ!≤nS₀log S₀. Also S₁+nS₀≤(n+1)S₀S₁, hence log(S₁+nS₀)≤(1+log(n+1))log(S₀S₁E). The chosen c₇ and (4.17) bound the remaining Liouville and factorial costs strictly below U/2; c₁N=U/2. A nonzero jet would contradict (4.14), so all these jets vanish.",
+        "Finally c₄≤1/2 and c₈≥1+2nc₃, together with (4.18), give N≤(S₀S₁/(2n))log E′ for every E′≥E. This is the explicit coefficient-budget input for the corrected total-order Step 5."
       ],
       "acceptance": [
-        "(4.18) is not used here; it is recorded because Steps 5-6 need it for the same parameters."
+        "The norm output is a bound for every point of the closed sup-norm ball of radius c₂S₁; it is not only a bound at the finite grid.",
+        "c₁ must satisfy (4.14), not merely be positive. All c₂,…,c₈ are chosen before the parameters. The cutoff contains that same c₁.",
+        "The vanishing uses (4.15),(4.17) and the large-L cutoff. Condition (4.18) transports the coefficient budget to Step 5; enlarging c₈ by n preserves the source construction."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.3/schneider-lang-liouville-lower-bound",
@@ -16397,7 +16401,7 @@
         {
           "sourceId": "waldschmidt-dalag-2000",
           "locator": "§4.6, Steps 3-4, printed pp. 138-139 (PDF 158-159)",
-          "match": "Steps 3 and 4 with the conditions (4.15), (4.17), (4.18)."
+          "match": "The auxiliary-function construction and Cauchy/Liouville comparison are paraphrased from these steps. c₇ is conservatively enlarged to absorb log(n+1), and c₈ includes the factor n needed by the corrected total-order extrapolation; the polydisc bound and large-L cutoff are retained."
         }
       ],
       "library": {
@@ -16414,20 +16418,21 @@
       ],
       "title": "Upper bound for the first nonvanishing derivative via the Cartesian Schwarz lemma (Waldschmidt §4.6, Step 5, corrected)",
       "kind": "lemma",
-      "statement": "Setting SL: integers 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Positive constants depend only on (d_0, d_1, n, x, y, K); constants used as upper bounds may be enlarged to ≥1, while c₃,c₄,c₅ can be smaller than 1. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Let F be as in DiophantineApproximationAndTranscendence:DT.3/schneider-lang-auxiliary-function-vanishing and let S_0' be the largest integer such that D^σF(sy) = 0 for all σ ∈ ℕ^n with ‖σ‖ < S_0' and all s ∈ ℕ^n with |s| < S_1 (so S_0' ≥ S_0, and S_0' < ∞ since F ≢ 0). Choose σ^0, s^0 with ‖σ^0‖ = S_0', |s^0| < S_1 and D^{σ^0}F(s^0y) ≠ 0. There are c_9, c_10 such that for every E' ≥ E: log|D^{σ^0}F(s^0y)| ≤ −(S_0'S_1/(2n)) log E' + c_9S_0' log S_0' + c_10(T_0 log(S_1E') + T_1S_1E'). Proposed declaration: Baker.schneiderLang_upper_bound.",
+      "statement": "Setting SL: integers n≥1 and 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Positive constants depend only on (d_0, d_1, n, x, y, K); constants used as upper bounds may be enlarged to ≥1, while c₃,c₄,c₅ can be smaller than 1. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M). Let F be as in DiophantineApproximationAndTranscendence:DT.3/schneider-lang-auxiliary-function-vanishing and let S_0' be the largest integer such that D^σF(sy) = 0 for all σ ∈ ℕ^n with ‖σ‖ < S_0' and all s ∈ ℕ^n with |s| < S_1 (so S_0' ≥ S_0, and S_0' < ∞ since F ≢ 0). Choose σ^0, s^0 with ‖σ^0‖ = S_0', |s^0| < S_1 and D^{σ^0}F(s^0y) ≠ 0. There are positive c_9, c_10 depending only on x,y,d₀,d₁,n such that for every E' ≥ E: log|D^{σ^0}F(s^0y)| ≤ −(S_0'S_1/(2n)) log E' + c_9S_0' log S_0' + c_10(T_0 log(S_1E') + T_1S_1E'). Proposed declaration: Baker.schneiderLang_upper_bound.",
       "hypotheses": [
         "Setting SL: integers 0 ≤ d_0 ≤ n < d := d_0 + d_1; x_1, …, x_{d_1} ∈ ℚ̄^n linearly independent over ℚ; (y_1, …, y_n) a basis of ℂ^n, y_j = (y_{1j}, …, y_{nj}); K ⊆ ℂ a number field containing all y_{hj} (1 ≤ h ≤ d_0), all e^{x_i·y_j} and all coordinates x_{νi}. For integers T_0, T_1 ≥ 2, L := (T_0 + 1)^{d_0}(T_1 + 1)^{d_1} and φ_1, …, φ_L the functions z^τ e^{(tx)·z} with 0 ≤ τ_h ≤ T_0 (h ≤ d_0, τ_h = 0 for h > d_0) and 0 ≤ t_i ≤ T_1; for s ∈ ℕ^n, sy := Σ s_jy_j. Positive constants depend only on (d_0, d_1, n, x, y, K); constants used as upper bounds may be enlarged to ≥1, while c₃,c₄,c₅ can be smaller than 1. Norms: for z ∈ ℂ^n, |z| = max_i |z_i| (Mathlib's sup norm on Fin n → ℂ) and ‖z‖ = Σ_i |z_i|; for σ ∈ ℕ^n, |σ| = max σ_i, ‖σ‖ = Σ σ_i, σ! = ∏ σ_i!; for f entire on ℂ^n, |f|_R := sup_{|z| ≤ R} |f(z)| (in Lean: a bound hypothesis ∀ z ∈ closedBall 0 R, ‖f z‖ ≤ M).",
         "F as in the previous node",
-        "E' ≥ E"
+        "E' ≥ E",
+        "In the standalone suggested theorem, |p_λ|≤exp N and N≤(S₀′S₁/(2n))log E′ are explicit inputs; S₀′≥1, S₁≥2 and E′≥e. For the preceding construction the budget follows from its transported output and S₀′≥S₀."
       ],
       "proofSteps": [
         "Put f(z) := F(z_1y_1 + ⋯ + z_ny_n), entire. D^κf(s) is a linear combination of the D^σF(sy) with ‖σ‖ = ‖κ‖, so D^κf vanishes on {0, …, S_1 − 1}^n whenever ‖κ‖ < S_0', in particular whenever |κ| < ⌈S_0'/n⌉.",
         "DiophantineApproximationAndTranscendence:DT.3/schwarz-lemma-cartesian-product with E_i = {0, …, S_1 − 1}, r := c_9S_1 (c_9 bounds the coordinates of y^{−1}w for |w| ≤ |y_1| + ⋯ + |y_n| + 1), R := 18^nE'r and multiplicity ⌈S_0'/n⌉: log|f|_r ≤ −(S_0'S_1/n) log E' + log|f|_R.",
-        "log|f|_R ≤ N + c_10(T_0 log(S_1E') + T_1S_1E') as in Step 3; N < ½(S_0'S_1/n) log E' by (4.17), (4.18) (after enlarging c_8 by the factor n).",
+        "The large-radius growth estimate is log|f|_R≤N+c₁₀(T₀log(S₁E′)+T₁S₁E′). The previous node gives N≤(S₀S₁/(2n))log E′≤(S₀′S₁/(2n))log E′. Absorb this budget into half of the Schwarz decay term. The standalone theorem exposes precisely this inequality as a hypothesis.",
         "D^{σ^0}F(s^0y) is a combination of the D^κf(s^0) with ‖κ‖ = S_0' and coefficients bounded by c^{S_0'} (entries of y^{−1}); Cauchy (DiophantineApproximationAndTranscendence:DT.3/cauchy-inequalities-polydisc) gives the bound."
       ],
       "acceptance": [
-        "The factor 1/n in front of S_0'S_1 log E' corrects the printed step, which applies Proposition 4.7 with multiplicity S_0' although only the vanishing of the D^σF with |σ| < S_0' at the points sy is known (see sourceIssues); only the constants of Step 6 change."
+        "Total-order vanishing is stable under the change of basis y. Sup-order vanishing alone is not. The factor 1/n accounts for this distinction, and the same enlarged c₈ supplies the coefficient budget."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.3/schneider-lang-auxiliary-function-vanishing",
@@ -16872,7 +16877,7 @@
         {
           "sourceId": "evertse-dio-notes",
           "locator": "Chapter 5, §5.1, Corollary 5.3 and its proof, printed pp. 86-87",
-          "match": "Corollary 5.3; the proof fixes 'log z = log |z| + i · arg z with −π < arg z ⩽ π'."
+          "match": "Corollary5.3 uses the principal logarithm, with argument in (−π,π]."
         }
       ],
       "library": {
@@ -16889,19 +16894,21 @@
       ],
       "title": "Matveev's explicit lower bound for linear forms in logarithms (Matveev 2000, Corollary 2.3)",
       "kind": "theorem",
-      "statement": "Let K ⊆ ℂ be a number field of degree D; κ := 1 if K ⊆ ℝ and κ := 2 otherwise. Let α_1, …, α_n ∈ K^×, λ_1, …, λ_n NONZERO logarithms of them (λ_j ∈ 𝓛 \\ {0}, e^{λ_j} = α_j, arbitrary branches), b_1, …, b_n ∈ ℤ and Λ := b_1λ_1 + ⋯ + b_nλ_n ≠ 0. Let A_j ≥ max{D·h(α_j), |λ_j|, 0.16} and B* := max|b_j| (or B := max{1, max_j |b_j|A_j/A_n}). Then log|Λ| > −C_1(n)·D²·A_1⋯A_n·log(eD)·log(eB*), where C_1(n) = C_1(n, κ) = min{(1/κ)(en/2)^κ·30^{n+3}·n^{3.5}, 2^{6n+20}}. Heights: h(α) is the absolute logarithmic Weil height (Mathlib NumberField.absLogHeight₁) and H_abs(α) = e^{h(α)} (NumberField.absMulHeight₁); for a rational x/y in lowest terms H_abs = max(|x|, |y|) (Rat.mulHeight₁_eq_max). Evertse's naive height H (DT.0/naive-height-of-algebraic-number) satisfies 2^{−d}H(α) ≤ H_abs(α)^d ≤ √(d+1)·H(α) for α of degree d (DT.0/height-comparisons). Proposed declaration: LogarithmicForms.matveev.",
+      "statement": "Let n≥1 and K ⊆ ℂ be a number field of degree D; κ := 1 if K ⊆ ℝ and κ := 2 otherwise. Let α_1, …, α_n ∈ K^×, λ_1, …, λ_n NONZERO logarithms of them (λ_j ∈ 𝓛 \\ {0}, e^{λ_j} = α_j, arbitrary branches), b_1, …, b_n ∈ ℤ and Λ := b_1λ_1 + ⋯ + b_nλ_n ≠ 0. Let A_j ≥ max{D·h(α_j), |λ_j|, 0.16} and B* := max|b_j| (or B := max{1, max_j |b_j|A_j/A_n}). Then log|Λ| > −C_1(n)·D²·A_1⋯A_n·log(eD)·log(eB*), where C_1(n) = C_1(n, κ) = min{(1/κ)(en/2)^κ·30^{n+3}·n^{3.5}, 2^{6n+20}}. Heights: h(α) is the absolute logarithmic Weil height (Mathlib NumberField.absLogHeight₁) and H_abs(α) = e^{h(α)} (NumberField.absMulHeight₁); for a rational x/y in lowest terms H_abs = max(|x|, |y|) (Rat.mulHeight₁_eq_max). Evertse's naive height H (DT.0/naive-height-of-algebraic-number) satisfies 2^{−d}H(α) ≤ H_abs(α)^d ≤ √(d+1)·H(α) for α of degree d (DT.0/height-comparisons). Proposed declaration: LogarithmicForms.matveev.",
       "hypotheses": [
+        "n≥1; B*≥1 follows from the nonzero linear form.",
         "λ_j ∈ 𝓛, λ_j ≠ 0, e^{λ_j} ∈ K",
         "b ∈ ℤ^n, Λ ≠ 0",
         "A_j ≥ max{D h(α_j), |λ_j|, 0.16}"
       ],
       "proofSteps": [
-        "Proved in Matveev's paper (§§3-9, pp. 1220-1268), not decomposed here: see the gap 'Proofs of the quantitative linear-form bounds'."
+        "The published theorem and logarithm/height conventions were read in §1, pp.1217–1218, and §2, Corollary2.3, p.1219. Its proof depends on Theorems2.1–2.2 and the arguments of §§3–20; §21, pp.1263–1266, eliminates dependent logarithms and completes the corollary. Those supporting arguments remain undecomposed.",
+        "For the B* form reorder the pairs (A_j,λ_j,b_j) so A_n=max_j A_j. Then the weighted B of (1.3) satisfies B≤B*, and monotonicity of log(eB) gives the displayed weaker bound. This reduction is at the end of §21, p.1266."
       ],
       "acceptance": [
         "K = ℚ, n = 1: log|b_1λ_1| > −(e/2)·30^4·A_1(1 + log B*), trivially true.",
         "The constant is explicit: this is the bound DT.4 and EffectiveDiophantineMethods:ED.2 need for finite searches; the dependence on D, h(α_j), |λ_j| and B* is recorded in the statement.",
-        "λ_j = 0 is excluded by Matveev ('arbitrary fixed non-zero values'); α_j = 1 with λ_j = 2πik ≠ 0 is allowed."
+        "A zero chosen logarithm is excluded; α_j=1 with λ_j=2πik≠0 is allowed. The exponential equation also implies α_j≠0."
       ],
       "prerequisites": [
         "DiophantineApproximationAndTranscendence:DT.3/algebraic-logarithms",
@@ -16910,8 +16917,8 @@
       "sources": [
         {
           "sourceId": "matveev-linear-forms-2000",
-          "locator": "§2, Corollary 2.3 with (2.4) and (1.1), (1.3), (1.4), p. 1219 (checked on the page image)",
-          "match": "Corollary 2.3 with C_1(n) = min{κ^{−1}(en/2)^κ 30^{n+3}n^{3.5}, 2^{6n+20}} and 'B may be replaced by B*'; Λ = b_1 ln α_1 + ⋯ + b_n ln α_n (1.1) with 'arbitrary fixed non-zero values of the logarithms'."
+          "locator": "§1, (1.1), (1.3), (1.4), pp.1217–1218; §2, Corollary2.3, (2.4), (2.6), p.1219; §21, p.1266",
+          "match": "The primary published text accessed on 2026-10-09 gives exactly the displayed strict bound, with C₁(n,κ), nonzero chosen logarithms and the lower bound 0.16 for A_j. It allows the weighted B to be replaced by B*. Linear independence of the logarithms is not a hypothesis. This run verified the published text, not a new PDF hash or page-image receipt."
         }
       ],
       "library": {
@@ -18196,7 +18203,7 @@
         {
           "sourceId": "evertse-dio-notes",
           "locator": "Chapter 5, proof of Theorem 5.13, printed p. 97",
-          "match": "Verbatim, with the consequence (5.6)."
+          "match": "The identity supplies the estimate in (5.6)."
         }
       ],
       "implementationStatus": "unchecked",
@@ -18545,7 +18552,7 @@
         {
           "sourceId": "evertse-dio-notes",
           "locator": "Chapter 5, Theorem 5.14, printed p. 98",
-          "match": "The statement; the source gives no proof (\"We finish with stating, without proof\")."
+          "match": "The finiteness statement is given without proof in these notes."
         },
         {
           "sourceId": "berczes-evertse-gyory-superelliptic-2013",
@@ -19727,7 +19734,7 @@
         {
           "name": "IsMahlerFunction.test_exp",
           "kind": "non-example",
-          "statement": "exp is not q-Mahler for any q ≥ 2 (a transcendental Mahler function has the unit circle as natural boundary); a definition allowing transcendental-coefficient relations with p_i power series would accept it."
+          "statement": "For q≥2, exp is not q-Mahler: the functions exp(z^{q^i}) with distinct exponents have no nontrivial polynomial-coefficient linear relation. A predicate allowing arbitrary power-series coefficient relations would fail this test."
         },
         {
           "name": "IsMahlerFunction.test_polynomial",
@@ -19864,7 +19871,7 @@
         {
           "sourceId": "bakker-tsimerman-ax-schanuel-lectures",
           "locator": "Section 1.2, Conjecture 1.2.1, p. 3",
-          "match": "Verbatim."
+          "match": "The conditional contract uses the stated transcendence-degree conjecture."
         },
         {
           "sourceId": "waldschmidt-transcendence-periods-2006",
@@ -19970,7 +19977,7 @@
         {
           "sourceId": "waldschmidt-transcendence-periods-2006",
           "locator": "Section 7.1, Conjecture 43, p. 455",
-          "match": "Verbatim."
+          "match": "The conjecture concerns algebraic independence of linearly independent logarithms."
         }
       ],
       "implementationStatus": "unchecked",
@@ -20224,7 +20231,7 @@
         {
           "sourceId": "beukers-refined-siegel-shidlovskii-2006",
           "locator": "Proof of Theorem 1.3, p. 8",
-          "match": "Verbatim step."
+          "match": "The proof constructs the differential system satisfied by bounded-degree monomials."
         }
       ],
       "implementationStatus": "unchecked",
@@ -20290,7 +20297,7 @@
       ],
       "proofSteps": [
         "Lemma I (AWS Theorem 6.2.6): the ℂ(z)-span of the derived vectors has a basis of bounded degree (Proposition 6.2.1, via differentially invariant subspaces, Lemmas 6.2.3–6.2.4 and exterior powers); if its dimension r were < n, some linear form in the f_i would vanish to order > (n − r − ε)N − r²t, contradicting Lemma 6.2.5 (bounded vanishing order of forms of bounded degree).",
-        "Lemma II (AWS Theorem 6.2.7, used in Chudnovsky's theorem): stated in the source with 'Proof. To be added'; see gaps."
+        "Lemma II (AWS Theorem 6.2.7, used in Chudnovsky's theorem): stated in the source without its intended proof; see gaps."
       ],
       "acceptance": [
         "n = 1, f = eᶻ: Δ = P, nonzero whenever P ≠ 0."
@@ -20505,7 +20512,7 @@
         {
           "sourceId": "beukers-refined-siegel-shidlovskii-2006",
           "locator": "Theorem 2.1, p. 3",
-          "match": "Verbatim; Beukers attributes it to André and takes it as the input of the paper."
+          "match": "Beukers attributes the local holomorphic-solution result to André and uses it as an input."
         }
       ],
       "implementationStatus": "unchecked",
@@ -20544,7 +20551,7 @@
         {
           "sourceId": "beukers-refined-siegel-shidlovskii-2006",
           "locator": "Corollary 2.2 and proof, pp. 3-4",
-          "match": "Verbatim."
+          "match": "The corollary gives vanishing of all local solutions under the stated arithmetic and order hypotheses."
         }
       ],
       "implementationStatus": "unchecked",
@@ -20586,7 +20593,7 @@
         {
           "sourceId": "beukers-refined-siegel-shidlovskii-2006",
           "locator": "Lemma 2.3, Lemma 2.4 and Theorem 2.5 with proof, pp. 4-6",
-          "match": "Verbatim; the proof uses Lemmas 2.3 and 2.4 (differential Galois theory)."
+          "match": "The argument uses the differential Galois inputs of Lemmas 2.3 and 2.4."
         }
       ],
       "implementationStatus": "unchecked",
@@ -20662,7 +20669,7 @@
         {
           "sourceId": "beukers-refined-siegel-shidlovskii-2006",
           "locator": "Theorem 3.2 and Corollary 1.4, pp. 3, 6-8",
-          "match": "Verbatim; Corollary 1.4 is the linear-independence form."
+          "match": "Corollary 1.4 is the linear-independence consequence of the relation-lifting theorem."
         }
       ],
       "implementationStatus": "unchecked",
@@ -20740,7 +20747,7 @@
         {
           "sourceId": "beukers-refined-siegel-shidlovskii-2006",
           "locator": "Theorem 1.1, p. 2",
-          "match": "Verbatim (the system elided)."
+          "match": "The theorem compares algebraic relations over the function field and at a nonsingular algebraic point."
         },
         {
           "sourceId": "andre-solution-algebras-2014",
@@ -20782,7 +20789,7 @@
         {
           "sourceId": "beukers-refined-siegel-shidlovskii-2006",
           "locator": "Proposition 4.1 and proof, p. 8",
-          "match": "Verbatim."
+          "match": "The proposition preserves the E-function conditions after division by a vanishing linear factor."
         }
       ],
       "implementationStatus": "unchecked",
@@ -20880,7 +20887,7 @@
       ],
       "proofSteps": [
         "chudnovsky-galochkin-condition shows the system satisfies Galochkin's condition.",
-        "Galochkin's theorem (Siegel's method for G-functions: Siegel's lemma, Padé-type approximations, Shidlovskii's lemma) gives the linear independence; the public source only sketches it (AWS §6.3, 'To be finished'), see gaps."
+        "Galochkin's theorem (Siegel's method for G-functions: Siegel's lemma, Padé-type approximations, Shidlovskii's lemma) gives the linear independence; the public source only sketches it (AWS §6.3, unfinished proof), see gaps."
       ],
       "acceptance": [
         "For f=(1,−log(1−z)), n=2, the displayed condition is b>C|a|³. The conclusion gives irrationality of log(1−a/b); a² would be the wrong exponent for this two-component tuple."
@@ -21080,7 +21087,7 @@
         {
           "sourceId": "adamczewski-faverjon-mahler-2017",
           "locator": "Corollary 1.8, p. 5",
-          "match": "Verbatim."
+          "match": "The corollary supplies the value dichotomy at the specified regular algebraic points."
         }
       ],
       "implementationStatus": "unchecked",
@@ -21192,7 +21199,7 @@
         {
           "sourceId": "waldschmidt-transcendence-periods-2006",
           "locator": "Section 4, Theorem 17 and the statement preceding it, p. 443",
-          "match": "Verbatim (quoting Nesterenko's theorem as stated in Kontsevich–Zagier §2.4)."
+          "match": "The survey states Nesterenko’s transcendence-degree theorem and attributes it to Kontsevich–Zagier §2.4."
         }
       ],
       "implementationStatus": "unchecked",
@@ -21430,7 +21437,7 @@
         {
           "sourceId": "bakker-tsimerman-ax-schanuel-lectures",
           "locator": "Section 1.2, Theorem 1.2.5, p. 4",
-          "match": "Verbatim."
+          "match": "The theorem states the transcendence-degree inequality for formal exponential solutions."
         }
       ],
       "implementationStatus": "unchecked",
@@ -21463,7 +21470,7 @@
         {
           "sourceId": "bakker-tsimerman-ax-schanuel-lectures",
           "locator": "Section 1.2, Corollary 1.2.6, p. 4",
-          "match": "Verbatim."
+          "match": "The corollary supplies the weaker functional transcendence conclusion."
         }
       ],
       "implementationStatus": "unchecked",
@@ -21500,7 +21507,7 @@
         {
           "sourceId": "bakker-tsimerman-ax-schanuel-lectures",
           "locator": "Section 1.2, Corollary 1.2.7, p. 4",
-          "match": "Verbatim."
+          "match": "The corollary specializes the functional transcendence result to algebraic inputs."
         },
         {
           "sourceId": "bakker-tsimerman-ax-schanuel-lectures",
@@ -21542,7 +21549,7 @@
         {
           "sourceId": "bakker-tsimerman-ax-schanuel-lectures",
           "locator": "Section 1.2, Example 1.2.2, p. 3",
-          "match": "Verbatim."
+          "match": "The example derives algebraic independence of e and π conditionally on Schanuel’s conjecture."
         }
       ],
       "implementationStatus": "unchecked",
@@ -24362,13 +24369,13 @@
       "stageId": "DiophantineApproximationAndTranscendence:DT.3",
       "status": "partial",
       "remaining": [
-        "Decompose the proof of Waldschmidt's Theorem 9.1 (DALAG §9.2-9.3 and its inputs from Chapters 3, 5-8, listed in the gap) or of Matveev's Corollary 2.3 (Izv. Math. 64 (2000) §§3-9) into nodes; either one closes DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms and its consumers.",
+        "Decompose the proof of Waldschmidt's Theorem 9.1 (DALAG §9.2-9.3 and its inputs from Chapters 3, 5-8, listed in the gap) or of Matveev's Corollary 2.3 (Izv. Math. 64 (2000), §§3–21, pp.1220–1266) into nodes; either one closes DiophantineApproximationAndTranscendence:DT.3/baker-lower-bounds-for-linear-forms-in-logarithms and its consumers.",
         "Decompose Yu's proof of the bound of DiophantineApproximationAndTranscendence:DT.3/yu-explicit-p-adic-bound (Compositio 74 (1990) §§1-5 and 91 (1994) §§1-6), including the p-adic exponential and logarithm on 𝔭-adic units of valuation > 1/(p−1) that the proof uses internally.",
         "Obtain a public source for the Laurent-Mignotte-Nesterenko estimate (J. Number Theory 55 (1995) 285-321) or replace the node by the corresponding case of DiophantineApproximationAndTranscendence:DT.3/matveev-corollary-linear-form-bound.",
         "Supply the absolute-height lemmas still listed in the gap 'Absolute Weil height API for NumberField.absLogHeight₁' (inverse, product, sum, integer values and the size bound; upstream owner) and then close the five derivation nodes that use them.",
-        "Keep the qualitative algebraic-coefficient and inhomogeneous logarithmic independence interfaces separate from quantitative integer-coefficient bounds. Complex branch choices and nonzero linear forms travel with each bound; p-adic deep-unit convergence and the chosen logarithm branch are distinct from arbitrary normed-space log series. The native absolute-height API gap remains; no new implementation is inferred from compilation.",
-        "Independent review follow-up: Schneider–Lang prototype output and parameter cutoffs need reconciliation. The auxiliary-function suggested theorem omits the packet/source polydisc bound |F|_{c₂S₁}≤exp(−U) and large-L cutoff involving the Liouville constant. Restore these output fields and the exact dependence between constants before connecting Step3 to Step5; quantify positive dimension and n<d₀+d₁. The paper is read, but no closed proof of this Lean telescope is claimed."
-      ]
+        "Keep the qualitative algebraic-coefficient and inhomogeneous logarithmic independence interfaces separate from quantitative integer-coefficient bounds. Complex branch choices and nonzero linear forms travel with each bound; p-adic deep-unit convergence and the chosen logarithm branch are distinct from arbitrary normed-space log series. The native absolute-height API gap remains; no new implementation is inferred from compilation."
+      ],
+      "notes": "Matveev Corollary2.3 is now verified against the primary published text. Schneider–Lang construction and total-order extrapolation have compatible suggested telescopes, including the polydisc output, common Liouville witness and cutoffs. Quantitative proof decomposition and absolute-height inputs remain open."
     },
     {
       "stageId": "DiophantineApproximationAndTranscendence:DT.4",
@@ -24465,7 +24472,7 @@
         "DiophantineApproximationAndTranscendence:DT.3/yu-explicit-p-adic-bound",
         "DiophantineApproximationAndTranscendence:DT.3/laurent-mignotte-nesterenko-two-logarithms"
       ],
-      "detail": "The four statements are read in public primary sources and stated exactly, but their proofs are not decomposed into nodes: Waldschmidt DALAG Theorem 9.1 (proof §9.2-9.3, pp. 252-322, using Lemma 9.2, Propositions 9.3, 9.5, 9.13, 9.16, 9.18, Lemmas 9.7-9.17, Theorem 9.19, Corollary 9.20, the multiplicity estimate Theorem 8.1 of Chapter 8 (by D. Roy), Proposition 5.6, Lemmas 6.1-6.5, Proposition 7.6, Lemma 7.8, Theorem 7.10 and Proposition 3.14); Matveev, Izv. Math. 64 (2000) §§3-9 (public on mathnet.ru); Yu, Compositio 74 (1990) and 91 (1994) (public on numdam); Laurent-Mignotte-Nesterenko, J. Number Theory 55 (1995) (no public copy found). The qualitative theorems of this stage (Lindemann-Weierstrass, Gelfond-Schneider, Baker 1966) are fully decomposed; the effective lower bounds, which DT.4 and EffectiveDiophantineMethods:ED.2 consume, rest on these four statements."
+      "detail": "The quantitative contracts retain the following source and proof boundaries; the Matveev primary statement is verified in this revision, while the supporting proof chains are not decomposed: Waldschmidt DALAG Theorem 9.1 (proof §9.2-9.3, pp. 252-322, using Lemma 9.2, Propositions 9.3, 9.5, 9.13, 9.16, 9.18, Lemmas 9.7-9.17, Theorem 9.19, Corollary 9.20, the multiplicity estimate Theorem 8.1 of Chapter 8 (by D. Roy), Proposition 5.6, Lemmas 6.1-6.5, Proposition 7.6, Lemma 7.8, Theorem 7.10 and Proposition 3.14); Matveev, Izv. Math. 64 (2000), §§3–21, pp.1220–1266 (public on mathnet.ru); Yu, Compositio 74 (1990) and 91 (1994) (public on numdam); Laurent-Mignotte-Nesterenko, J. Number Theory 55 (1995) (no public copy found). The qualitative theorems of this stage (Lindemann-Weierstrass, Gelfond-Schneider, Baker 1966) are fully decomposed; the effective lower bounds, which DT.4 and EffectiveDiophantineMethods:ED.2 consume, rest on these four statements."
     },
     {
       "title": "Absolute Weil height API for NumberField.absLogHeight₁",
@@ -24533,7 +24540,7 @@
         "DiophantineApproximationAndTranscendence:DT.5/g-operator-regular-singularity-at-zero",
         "DiophantineApproximationAndTranscendence:DT.5/andre-theorem-on-e-operators"
       ],
-      "detail": "Beukers' AWS notes state Theorem 6.2.7 with 'Proof. To be added...'; Lemma 6.2.5 is left as an exercise. Complete proofs are in Shidlovskii, Transcendental Numbers (de Gruyter 1989), and in André's Annals 2000 papers, which are not public. Without it the chain Chudnovsky → Theorem 5.1.2 → André's theorem → Beukers' theorems rests on an unproved lemma."
+      "detail": "Beukers' AWS notes state Theorem 6.2.7 without a proof; Lemma 6.2.5 is left as an exercise. Complete proofs are in Shidlovskii, Transcendental Numbers (de Gruyter 1989), and in André's Annals 2000 papers, which are not public. Without it the chain Chudnovsky → Theorem 5.1.2 → André's theorem → Beukers' theorems rests on an unproved lemma."
     },
     {
       "title": "Nishioka's theorem: no public complete proof read",
@@ -24566,7 +24573,7 @@
       "neededBy": [
         "DiophantineApproximationAndTranscendence:DT.5/galochkin-chudnovsky-linear-independence"
       ],
-      "detail": "Beukers' AWS notes §6.3 sketch Siegel's method for G-functions and end 'To be finished'; Galochkin's original paper (Mat. Zametki 1974) is not public."
+      "detail": "Beukers' AWS notes §6.3 sketch Siegel's method for G-functions and leave the proof unfinished; Galochkin's original paper (Mat. Zametki 1974) is not public."
     },
     {
       "title": "CDT G-function to global monodromy chain remains incomplete",
@@ -24609,15 +24616,6 @@
         "DiophantineApproximationAndTranscendence:DT.2/height-of-linear-subspace"
       ],
       "detail": "Reviewer read EF §6.1–6.3 (pp.27–30). The definition’s change-of-basis argument does not close all its API: the wedge-height product inequality needs a local exterior-power norm bound, the intersection/sum inequality is quoted from Struppeck–Vaaler, orthogonal invariance is cited to Schmidt, Northcott for subspaces needs a Plücker embedding plus fixed-degree height finiteness, and the rational covolume comparison needs primitivity of the exterior coordinates of T∩ℤⁿ. Supply exact source/owner and declaration-sized inputs for these items. The current rational suggested theorem states a determinant-norm identity for a supplied integral basis and does not construct that lattice or import GN.0’s basis/covolume machinery."
-    },
-    {
-      "title": "Schneider–Lang prototype output and parameter cutoffs need reconciliation",
-      "neededBy": [
-        "DiophantineApproximationAndTranscendence:DT.3/schneider-lang-auxiliary-function-vanishing",
-        "DiophantineApproximationAndTranscendence:DT.3/schneider-lang-extrapolation-upper-bound",
-        "DiophantineApproximationAndTranscendence:DT.3/schneider-lang-cartesian-products"
-      ],
-      "detail": "The auxiliary-function suggested theorem omits the packet/source polydisc bound |F|_{c₂S₁}≤exp(−U) and large-L cutoff involving the Liouville constant. Restore these output fields and the exact dependence between constants before connecting Step3 to Step5; quantify positive dimension and n<d₀+d₁. The paper is read, but no closed proof of this Lean telescope is claimed."
     },
     {
       "title": "Effective general-group and superelliptic proof interfaces are not closed",
@@ -26662,30 +26660,98 @@
       "citation": "Current author copy linked from Rivoal’s publication list; physical p.2 compared for E14 only.",
       "read": "2026-10-05",
       "sha256": "477174d05ecbf5f9b7ec2f7e074e19a20b692be6083806b28fa04b1b3027aa1b"
+    },
+    {
+      "source": "matveev-linear-forms-2000",
+      "kind": "published",
+      "url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=im&option_lang=eng&paperid=314&what=fullteng",
+      "citation": "E. M. Matveev, An explicit lower bound for a homogeneous rational linear form in logarithms of algebraic numbers II, Izv. Math. 64 (2000), 1217–1269.",
+      "read": "2026-10-09",
+      "readSections": [
+        "§1, pp.1217–1218",
+        "§2, p.1219",
+        "§21, pp.1263–1266"
+      ],
+      "access": "Primary published text exposed by the MathNet PDF reader. No fresh downloadable-file SHA256 or rendered-page inspection is asserted."
+    },
+    {
+      "source": "waldschmidt-dalag-2000",
+      "kind": "author copy",
+      "url": "https://webusers.imj-prg.fr/~michel.waldschmidt/articles/pdf/dalag.pdf",
+      "citation": "M. Waldschmidt, Diophantine Approximation on Linear Algebraic Groups (2000), §4.6, Steps1–6, printed pp.137–141 (PDF157–161).",
+      "read": "2026-10-09",
+      "sha256": "e04a822f5b5d61be78c290f508ee7c8a28766e060ef4ec62377d068a942e3d59"
+    },
+    {
+      "source": "evertse-dio-notes",
+      "kind": "author copy",
+      "url": "https://pub.math.leidenuniv.nl/~evertsejh/dio19-6.pdf",
+      "read": "2026-10-09",
+      "readSections": [
+        "Chapter 6, printed pp.111–113 and 115–119 (PDF5–7 and 9–13)"
+      ],
+      "sha256": "07430cdb8be3a56ce39fd6c442f6c153f9b7fadfdcb7ae327a51e21ae63da97a",
+      "scope": "Selected pages read to check retained reviewer corrections; no full-source rereading is asserted."
+    },
+    {
+      "source": "beukers-e-g-functions-aws-2008",
+      "kind": "author copy",
+      "url": "https://www.math.arizona.edu/~swc/aws/2008/08BeukersNotesDraft.pdf",
+      "read": "2026-10-09",
+      "readSections": [
+        "§§4.4–5.4, pp.20–25; Theorem6.2.7 and its proof boundary, p.29"
+      ],
+      "sha256": "070b5faec742c86027768173f5000bcde16a61b1b8775d4797c5818678699592",
+      "scope": "Selected pages read to check retained reviewer corrections; no full-source rereading is asserted."
     }
   ],
   "checks": {
-    "agent": "Codex — codex-J6LwjP",
-    "date": "2026-10-05",
-    "newNodes": 5,
-    "reviewedNodes": 397,
-    "originalBaselineDeclarationsRead": 423,
-    "finalBaselineDeclarations": 422,
+    "agent": "Codex — codex-chIQQ9",
+    "date": "2026-10-09",
+    "newNodes": 0,
+    "preservedNodes": 397,
+    "correctionContractsChecked": 98,
+    "definitionConstructionApiItems": 346,
+    "definitionConstructionTests": 203,
+    "allNodeApiEntries": 389,
+    "allNodeTestEntries": 243,
+    "inventory": "Every packet node has a reader contract. All API/test terminal names occur in the suggested file as declarations or labelled examples; this is an inventory check, not a proof check.",
     "compile": {
       "exitCode": 0,
       "errors": 0,
       "otherWarnings": [],
-      "sourceSha256": "b30a968a070bd1cc8a942be44210ff7ac16036753f59f9dec3c0e36a4095666c",
+      "sourceSha256": "dcf6207faecd3f03a1324e3d8ab650a03742b63d938ae7b1396c5a9276c28c61",
       "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
-      "sourceModules": 3832,
-      "availableGiB": 42,
       "serial": true,
       "memoryLimitMiB": 8192,
       "timeoutSeconds": 1200,
-      "admissionWarnings": 841
+      "admissionWarnings": 842
     },
-    "signatureBoundary": "Elaboration checks typing only. The restricted Cauchy solution carrier and full Schneider–Lang auxiliary output remain explicit gaps. No claim that every packet node has a complete matching telescope.",
-    "checker": "Zero errors and warnings against the pinned declaration index; final post-review run recorded in the report."
+    "signatureBoundary": "The restored Schneider–Lang construction and extrapolation expose matching parameter and coefficient budgets. Restricted-disc Cauchy carrier/evaluation and scalar companion equivalences remain explicit missing signatures. Other recorded proof and construction gaps are unchanged by elaboration.",
+    "checker": "check_blueprint.py: 0 errors, 0 warnings; all node IDs and the independent review object preserved; git diff --check and allowed-path checks pass.",
+    "priorIndependentReviewChecks": {
+      "agent": "Codex — codex-J6LwjP",
+      "date": "2026-10-05",
+      "newNodes": 5,
+      "reviewedNodes": 397,
+      "originalBaselineDeclarationsRead": 423,
+      "finalBaselineDeclarations": 422,
+      "compile": {
+        "exitCode": 0,
+        "errors": 0,
+        "otherWarnings": [],
+        "sourceSha256": "b30a968a070bd1cc8a942be44210ff7ac16036753f59f9dec3c0e36a4095666c",
+        "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+        "sourceModules": 3832,
+        "availableGiB": 42,
+        "serial": true,
+        "memoryLimitMiB": 8192,
+        "timeoutSeconds": 1200,
+        "admissionWarnings": 841
+      },
+      "signatureBoundary": "Elaboration checks typing only. The restricted Cauchy solution carrier and full Schneider–Lang auxiliary output remain explicit gaps. No claim that every packet node has a complete matching telescope.",
+      "checker": "Zero errors and warnings against the pinned declaration index; final post-review run recorded in the report."
+    }
   },
   "provenance": {
     "agent": "Codex — codex-7e92bd",
@@ -26705,6 +26771,15 @@
       "report": "research/blueprint/reviews/REV-DiophantineApproximationAndTranscendence.md",
       "sourceScope": "Independent physical-page read ledger and hashes in the report; extraction/download is not reading. Historical authors’ wider readSections remain attributed to them. Matveev primary page unavailable.",
       "closure": "No proof is formalized by this review or by admitted signature elaboration."
+    },
+    "revision2": {
+      "agent": "Codex — codex-chIQQ9",
+      "issue": 6514,
+      "claim": 6080346184,
+      "date": "2026-10-09",
+      "preservation": "All 397 node IDs and the independent review object are unchanged. No new nodes. Reviewer corrections/additions are retained; current changes repair the two reported blockers and synchronize deliverables.",
+      "reading": "Read the six audit rows, RS-03, roadmap/stages, link-map screens, routed CDT records, reviewer report and all 98 corrected/added/unverifiable contracts. Fresh nearby upstream documents: Multiquadratic and Completed/EffectiveBounds. Current primary Matveev and Waldschmidt readings are separately recorded; wider historical source reading remains attributed to earlier workers.",
+      "closure": "The restored Schneider–Lang telescope is a proposed admitted signature. Quantitative, CDT/global-monodromy, ODE, dimension and other proof gaps remain explicit."
     }
   },
   "review": {
