@@ -210,11 +210,23 @@ theorem framedSymmetricPower_matrix (R : Type) [CommRing R] (d : ℕ)
       LinearMap.toMatrix (monomialBasis R d) (monomialBasis R d)
         (TauCeti.symPowerRep R 2 d g) := by sorry
 
-/-- Tests of the baseline adapter; no extra construction node is needed. -/
+theorem framedSymmetricPower_diagonal_two (R : Type) [CommRing R]
+    (g : Matrix.GeneralLinearGroup (Fin 2) R) (a b : R)
+    (hg : (g : Matrix (Fin 2) (Fin 2) R) = Matrix.diagonal ![a, b]) :
+    (framedSymmetricPower R 2 g : Matrix (Fin 3) (Fin 3) R) =
+      Matrix.diagonal ![a ^ 2, a * b, b ^ 2] := by sorry
+
+/-- framedSymmetricPower.tests_degreeOne: detects the reversed monomial order. -/
 example (R : Type) [CommRing R] (g : Matrix.GeneralLinearGroup (Fin 2) R) :
     framedSymmetricPower R 1 g = g := by sorry
+/-- framedSymmetricPower.tests_degreeZero -/
 example (R : Type) [CommRing R] (g : Matrix.GeneralLinearGroup (Fin 2) R) :
     framedSymmetricPower R 0 g = 1 := by sorry
+/-- framedSymmetricPower.tests_diagonalTwo: detects degree and basis order. -/
+example (R : Type) [CommRing R] (g : Matrix.GeneralLinearGroup (Fin 2) R) (a b : R)
+    (hg : (g : Matrix (Fin 2) (Fin 2) R) = Matrix.diagonal ![a, b]) :
+    (framedSymmetricPower R 2 g : Matrix (Fin 3) (Fin 3) R) =
+      Matrix.diagonal ![a ^ 2, a * b, b ^ 2] := by sorry
 
 /-! ### G7/continuous-character-transfer -/
 section Transfer
@@ -350,6 +362,33 @@ theorem residualCyclotomic_spec (L : Type*) [Field L] (p : ℕ) [NeZero p]
     residualCyclotomic L p hμ k ι g = Units.map ι.toMonoidHom
       (modularCyclotomicCharacter L hμ g) := rfl
 
+theorem residualCyclotomic_roots (L : Type*) [Field L] (p : ℕ) [Fact p.Prime]
+    (hμ : Nat.card {x // x ∈ rootsOfUnity p L} = p)
+    (g : L ≃+* L) (t : Lˣ) (ht : t ∈ rootsOfUnity p L) :
+    g t = t ^ ((residualCyclotomic L p hμ (ZMod p) (RingHom.id _) g : ZMod p).val) :=
+  by sorry
+
+theorem residualCyclotomic_two (L : Type*) [Field L]
+    (hμ : Nat.card {x // x ∈ rootsOfUnity 2 L} = 2)
+    (k : Type*) [Field k] (ι : ZMod 2 →+* k) (g : L ≃+* L) :
+    residualCyclotomic L 2 hμ k ι g = 1 := by sorry
+
+/-- residualCyclotomic.tests_identity -/
+example (L : Type*) [Field L] (p : ℕ) [NeZero p]
+    (hμ : Nat.card {x // x ∈ rootsOfUnity p L} = p)
+    (k : Type*) [Field k] (ι : ZMod p →+* k) :
+    residualCyclotomic L p hμ k ι 1 = 1 := by sorry
+/-- residualCyclotomic.tests_rootAction: tests the exponent convention on actual roots. -/
+example (L : Type*) [Field L] (p : ℕ) [Fact p.Prime]
+    (hμ : Nat.card {x // x ∈ rootsOfUnity p L} = p)
+    (g : L ≃+* L) (t : Lˣ) (ht : t ∈ rootsOfUnity p L) :
+    g t = t ^ ((residualCyclotomic L p hμ (ZMod p) (RingHom.id _) g : ZMod p).val) :=
+  by sorry
+/-- residualCyclotomic.tests_two -/
+example (L : Type*) [Field L] (hμ : Nat.card {x // x ∈ rootsOfUnity 2 L} = 2)
+    (k : Type*) [Field k] (ι : ZMod 2 →+* k) (g : L ≃+* L) :
+    residualCyclotomic L 2 hμ k ι g = 1 := by sorry
+
 /-! ### G7/centralizer-conjugacy-of-alternating-forms -/
 theorem alternatingForms_centralizer {k : Type*} [Field k] [IsAlgClosed k]
     (h2 : (2 : k) ≠ 0) {G V : Type*} [Group G] [AddCommGroup V] [Module k V]
@@ -441,11 +480,15 @@ weight function or predicate stands in for either.
 G7/cyclotomic-kernel-derived-monodromy: in characteristic zero, a Hodge--Tate regular,
 strongly irreducible representation has reductive connected monodromy; the closure of its
 image on the cyclotomic kernel contains the derived group, which acts irreducibly and has a
-regular semisimple element. Gaps: the preceding Sen operator and ReductiveGroups layers 2,3,6.
+regular semisimple element. Gaps: the preceding Sen operator and ReductiveGroups layers
+2,3,4,5,6,7, including the semisimple-Lie-element/maximal-torus comparison. Distinct weights
+give nontrivial pairwise weight-difference characters of the ambient GL_n representation;
+they need not be roots of the monodromy group.
 
 G7/central-lift-ramification: a continuous Q_p-bar lift through a central algebraic quotient
 is unramified almost everywhere whenever its projection is. Gaps: topological Q_p-bar and
-algebraic-group carriers; neither arbitrary group maps nor isogeny-only hypotheses suffice.
+algebraic-group carriers, the finite-coefficient stable-lattice/congruence-subgroup comparison,
+and ClassFieldTheory layer 7's abelian inertia/local-units comparison.
 
 G7/disjoint-base-change-image: linear disjointness from the finite extension cut out jointly
 by the residual representation and mod-p cyclotomic character gives surjectivity onto that

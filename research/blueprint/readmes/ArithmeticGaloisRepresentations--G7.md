@@ -2,9 +2,11 @@
 
 This is the target-level follow-up for **G7, operations, polarization, monodromy and image conditions**, issue #7954. It extends the accepted [parent packet](../packets/ArithmeticGaloisRepresentations.json) and its [reader](ArithmeticGaloisRepresentations.md), retaining all 77 G7 targets by their exact IDs. The [follow-up packet](../packets/ArithmeticGaloisRepresentations--G7.json) adds 20 missing key inputs and interfaces. Together these documents specify the plan; the [suggested Lean file](../suggested/ArithmeticGaloisRepresentations--G7.lean) proposes signatures and asserts no implementation.
 
-The pass is complete and G7 is **planned**, with 22 named gaps and ten supplier entries, two of which identify already supplied work. It is not closed. The 63 entries in the parent's G7 worklist all receive a disposition below. The target-level instruction in WORKERS.md and detail.json dated 9 October 2026 supersedes that worklist's mechanical declaration-splitting instructions. Definitions retain their entire API and discriminating tests; proof steps stay with their target unless they supply a missing key input.
+The pass is complete and G7 is **planned**, with 22 named gaps and 15 supplier entries, two of which identify already supplied work. It is not closed. The 63 entries in the parent's G7 worklist all receive a disposition below. The target-level instruction in WORKERS.md and detail.json dated 9 October 2026 supersedes that worklist's mechanical declaration-splitting instructions. Definitions retain their entire API and discriminating tests; proof steps stay with their target unless they supply a missing key input.
 
-The eight new construction nodes have 32 API items and 26 tests. The continuous-transfer comparison additionally has six API items and four tests: **38 API items and 30 tests in total**. Two other comparisons have explicit bodies and basic examples. Fifteen targets have typed counterparts; five source-dependent targets identify the missing carriers that prevent honest signatures. Every implementation status is unchecked. At assembly the six marked planets replace the parent's G7 planet list.
+The eight new construction nodes have 32 API items and 26 tests. The three comparison nodes also define adapters, and now carry 14 API items and ten tests: **46 API items and 36 tests in total**. Fifteen targets have typed counterparts; five source-dependent targets identify the missing carriers that prevent honest signatures. Every implementation status is unchecked. At assembly the six marked planets replace the parent's G7 planet list.
+
+The independent review [REV-ArithmeticGaloisRepresentations--G7](../reviews/REV-ArithmeticGaloisRepresentations--G7.md), session `codex-warZZa`, accepts this planning pass after seven node corrections. All 26 pinned suppliers and five current-library declarations were checked independently. The prototype elaborates with only `sorry` warnings; this verifies signatures, not proofs.
 
 ## Mathematical conventions and boundaries
 
@@ -22,7 +24,7 @@ Write δ for the character equal to 1 on Δ and −1 outside. For a character χ
 
 On Symᵈ(A²) the ordered monomial basis is x^(d−i)y^i for 0≤i≤d. The pinned count-zero multiset indexing requires reversing the input basis to obtain this order. Degree one then gives the original GL₂ matrix. The normalized rank-two pairing has antidiagonal entries (−1)^i/binom(d,i) when d! is a unit. The parent retains the small-characteristic exceptions. Invertibility of d! is a sufficient hypothesis for the chosen symmetric pairing; it is not a universal necessary condition for every invariant pairing, and no converse is claimed for a zero module.
 
-Local Sen theory is owned here at tier 7. Choose a finite extension K/Q_p, an identification of its algebraic closure with Q_p-bar over Q_p, and a compatible embedding of a finite coefficient field E into C_p. The canonical operator on C_p ⊗_E V comes from cyclotomic invariants and decompletion, normalized by log(action)/log(cyclotomic). Thus the cyclotomic operator is +1. Newton–Thorne §1.2, p. 7, uses Hodge–Tate weight −1 for the cyclotomic character; negate its stated weights when comparing conventions. Distinctness and weight differences up to sign are unaffected. A Hodge–Tate representation has a semisimple operator with integral eigenvalues. Integral eigenvalues by themselves do not suffice: the logarithmic unipotent example has a nonzero nilpotent operator. The weights used in monodromy statements are these actual labelled eigenvalues, not a weight function supplied independently of the representation.
+Local Sen theory is owned here at tier 7. Choose a finite extension K/Q_p, an identification of its algebraic closure with Q_p-bar over Q_p, and a compatible embedding of a finite coefficient field E into C_p. The canonical operator on C_p ⊗_E V comes from cyclotomic invariants and decompletion, normalized by log(action)/log(cyclotomic). Thus the cyclotomic operator is +1. Newton–Thorne §1.2, p. 8, uses Hodge–Tate weight −1 for the cyclotomic character; negate its stated weights when comparing conventions. Distinctness and weight differences up to sign are unaffected. A Hodge–Tate representation has a semisimple operator with integral eigenvalues. Integral eigenvalues by themselves do not suffice: the logarithmic unipotent example has a nonzero nilpotent operator. The weights used in monodromy statements are these actual labelled eigenvalues, not a weight function supplied independently of the representation.
 
 The global lifting input is H²(G_F,Q/Z)=0 for the trivial discrete action. It includes real places. It does not imply H²(G_F,μ_n)=0 for a fixed denominator. The continuous-cochain signature uses the discrete topology explicitly, rather than AddCircle's default topology. Conrad Lemma 5.2, pp. 14–15, gives almost-everywhere unramifiedness of an already continuous lift through an arbitrary central algebraic quotient. Proposition 5.3, pp. 15–16, gives existence through a central torus quotient using Tate's theorem. Neither assertion is restricted to isogenies; finite central kernels can have genuine lifting obstructions. Conrad Corollary 6.7, p. 28, and Patrikis Lemmas 2.7.4–2.7.5, pp. 48–49, supply the retained geometric lifting hypotheses, rather than an automatic geometric lift through every central kernel.
 
@@ -260,7 +262,25 @@ For any commutative ring A and d≥0, the existing GL₂(A) action on Sym^d(A²)
 
 **Prerequisites.** `tauceti:TauCeti.symPowerRep`; `tauceti:Module.Basis.symmetricPower`; `tauceti:TauCeti.symFinTwoEquiv`; `mathlib:Matrix.GeneralLinearGroup.toLin'`.
 
-**Names.** `TauCeti.ArithmeticG7.monomialBasis`, `TauCeti.ArithmeticG7.framedSymmetricPower`, `TauCeti.ArithmeticG7.framedSymmetricPower_matrix`.
+**API.**
+
+| Name | Role | Contract |
+|---|---|---|
+| `TauCeti.ArithmeticG7.monomialBasis` | constructor | The symmetric-power basis indexed so that i represents x^(d−i)y^i, over any commutative ring. |
+| `TauCeti.ArithmeticG7.framedSymmetricPower` | constructor | Transport the existing GL₂ action into matrix GL_(d+1) through monomialBasis. |
+| `TauCeti.ArithmeticG7.framedSymmetricPower_matrix` | compatibility | The transported matrix equals LinearMap.toMatrix of the pinned symmetric-power action in monomialBasis. |
+| `TauCeti.ArithmeticG7.framedSymmetricPower_diagonal_two` | simp | For g=diag(a,b), its degree-two matrix is diag(a²,ab,b²). No factorials or binomial coefficient normalization enter. |
+
+**Unit tests.** Each named item labels an example in the suggested file.
+
+- `TauCeti.ArithmeticG7.framedSymmetricPower.tests_degreeZero` (degenerate): For every g the degree-zero matrix is 1.
+- `TauCeti.ArithmeticG7.framedSymmetricPower.tests_degreeOne` (characterisation): For every g the degree-one matrix is g, detecting a swapped input basis.
+- `TauCeti.ArithmeticG7.framedSymmetricPower.tests_diagonalTwo` (computation): For g=diag(a,b), degree two yields diag(a²,ab,b²), detecting a wrong degree or monomial order.
+
+**Uses.**
+
+- [`ArithmeticGaloisRepresentations:G7/adequacy-of-symmetric-powers`](ArithmeticGaloisRepresentations.md#G7-adequacy-of-symmetric-powers): The finite rank-two image theorem needs a matrix homomorphism of rank d+1.
+- [`ArithmeticGaloisRepresentations:G7/symmetric-power-polarization`](ArithmeticGaloisRepresentations.md#G7-symmetric-power-polarization): The pairing formulas use this monomial order.
 
 **Source support.**
 
@@ -589,14 +609,14 @@ For a continuous G_K→G(Q_p-bar), G a linear algebraic group in characteristic 
 2. Apply the Lie-algebra form of Tannaka reconstruction to the tensor derivation on Rep(G).
 3. Compare labelled scalar factors after finite coefficient extension and the cyclotomic semilinear decomposition; rank one reduces semisimplicity to a scalar, so integral Sen weight suffices there.
 
-**Prerequisites.** [`ArithmeticGaloisRepresentations:G7/followup-local-sen-operator`](#local-sen-operator); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation`.
+**Prerequisites.** [`ArithmeticGaloisRepresentations:G7/followup-local-sen-operator`](#local-sen-operator); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules`.
 
 **Source support.**
 
 - [Stefan Patrikis, Variations on a theorem of Tate](https://arxiv.org/pdf/1207.6724), Lemma 2.2.4 p. 23; Remark 2.2.5, Lemma 2.2.6 and Remark 2.2.7 p. 24: Tannakian reconstruction puts Θ in the Lie algebra and compares its eigenvalues to labelled weights; functorial inputs are a substantive prerequisite.
 - [Laurent Berger, An introduction to the theory of p-adic representations](https://perso.ens-lyon.fr/laurent.berger/articles/article05.pdf), §II.1.2 p. 9: The semisimple-and-integral criterion and logarithmic normalization are stated, including a nilpotent counterexample.
 
-**Acceptance.** Tensor weights are pairwise sums and dual weights are negatives. In rank two the adjoint weights are a−b,0,b−a. For a nilpotent nonzero Jordan operator, zero eigenvalues do not imply Hodge–Tate.
+**Acceptance.** Tensor weights are pairwise sums and dual weights are negatives. In rank two the trace-zero adjoint weights are a−b,0,b−a. For a nilpotent nonzero Jordan operator, zero eigenvalues do not imply Hodge–Tate.
 
 **Signature boundary.** The semilinear Galois C_p-action, its twist decomposition, labelled comparison and the algebraic-group Lie tensor interface are missing; no fake HodgeTate Prop or input arbitrary operator is substituted. The suggested file records this target in a comment and does not substitute an arbitrary proposition or operator.
 
@@ -615,10 +635,10 @@ For a totally real number field F and a continuous character ψ:G_F→Q_p-bar× 
 **Proof route.**
 
 1. Choose a positive integer clearing all weight denominators. The powered character has integral local Sen weights and hence is locally Hodge–Tate; in rank one this implies the locally algebraic/de Rham character criterion.
-2. Apply global reciprocity and the classification of algebraic Hecke characters of a totally real field: up to finite order the geometric character is an integer cyclotomic power.
+2. Apply central-lift ramification to G_m→1 to see that the powered global character is unramified almost everywhere. Together with the rank-one local character criterion this makes it geometric. Apply global reciprocity and the classification of algebraic Hecke characters of a totally real field: up to finite order it is an integer cyclotomic power.
 3. For existence, take a d-th root up to finite order of a suitable cyclotomic power using the retained roots-of-characters theorem; finite-order twists have Sen weight zero.
 
-**Prerequisites.** [`ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input`](#sen-tannakian-input); [`ArithmeticGaloisRepresentations:G7/roots-of-characters-up-to-finite-order`](ArithmeticGaloisRepresentations.md#G7-roots-of-characters-up-to-finite-order); `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`.
+**Prerequisites.** [`ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input`](#sen-tannakian-input); [`ArithmeticGaloisRepresentations:G7/roots-of-characters-up-to-finite-order`](ArithmeticGaloisRepresentations.md#G7-roots-of-characters-up-to-finite-order); `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`; [`ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification`](#central-lift-ramification).
 
 **Source support.**
 
@@ -649,7 +669,7 @@ For a number field F, every continuous 2-cocycle c:G_F×G_F→Q/Z, with discrete
 3. Local class field theory gives characters with any prescribed p-torsion local Brauer boundary; their boundary depends on restriction to μ_p. The global Brauer sequence makes these restrictions a character on μ_p of the ideles modulo μ_p(F). Include real-place 2-primary invariants.
 4. Extend this character to a finite-order Hecke character as in Patrikis Lemma 2.3.6, then project to Q_p/Z_p. Its global boundary is the prescribed Brauer class, so multiplication by p is injective and the p-primary H² is zero. Interpret zero continuous-cohomology class as the displayed continuous coboundary.
 
-**Prerequisites.** `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`; `mathlib:AddCircle`; `mathlib:Field.absoluteGaloisGroup`.
+**Prerequisites.** `tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity`; `mathlib:AddCircle`; `mathlib:Field.absoluteGaloisGroup`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`.
 
 **Names.** `TauCeti.ArithmeticG7.tateGlobalCocycleSplits`.
 
@@ -675,11 +695,11 @@ Let F be a number field, f:H′→H a surjective homomorphism of linear algebrai
 **Proof route.**
 
 1. Descend the compact image to a finite p-adic coefficient field using the Baire argument of Conrad Lemma 5.1.
-2. After a finite base extension put its image in a torsion-free pro-p subgroup near identity. Away from p and the finite ramification set of the projection, inertia lands centrally and hence factors through local abelian inertia.
+2. Embed the finite-coefficient algebraic group faithfully in GL_m, stabilize a lattice using compactness, and intersect with 1+p²M_m(O_E). The binomial valuation estimate (or the convergent matrix logarithm) makes this an open torsion-free pro-p subgroup, including p=2. Pass to the finite base extension cut out by its preimage. Away from p and the finite ramification set of the projection, inertia lands centrally and hence factors through local abelian inertia.
 3. Local class field theory splits the relevant inertia into its finite prime-to-residue-characteristic torsion and its pro-residue-characteristic part. A torsion-free pro-p target receives neither part nontrivially when the residue characteristic is not p.
 4. Return from the finite extension, adding only its finite ramification set.
 
-**Prerequisites.** `tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`; `ArithmeticGaloisRepresentations:R01.1/continuous-representation`.
+**Prerequisites.** `tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`; `ArithmeticGaloisRepresentations:R01.1/continuous-representation`; `tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors`; `ArithmeticGaloisRepresentations:R01.1/baire-descent-to-a-finite-coefficient-field`; `ArithmeticGaloisRepresentations:R01.1/compact-subgroups-stabilise-lattices`.
 
 **Source support.**
 
@@ -707,15 +727,15 @@ Let F be a number field and ρ:G_F→GL_n(E), E/Q_p finite, continuous and absol
 
 1. Import connected monodromy and the strong irreducibility criterion. The unipotent radical of G⁰ fixes a nonzero vector and normality makes the fixed subspace invariant, so faithfulness and irreducibility force it trivial.
 2. Schur’s lemma makes the connected center scalar. Thus G⁰ and D have the same invariant subspaces and D acts irreducibly.
-3. The canonical Sen operator lies in Lie G⁰ and has distinct eigenvalues. Conjugate its semisimple part into Lie of a maximal torus. Distinct weights on the torus Lie algebra imply that the corresponding root characters are nontrivial in characteristic zero, so the torus, and hence G⁰, contains a regular semisimple element. Scalar multiplication transfers this property to D.
+3. The canonical Sen operator lies in Lie G⁰ and has distinct eigenvalues, hence is semisimple. Conjugate it into the Lie algebra of a maximal torus T after extending scalars to C_p. For the weights λ_i of T on the ambient GL_n representation, distinct Lie eigenvalues make every difference λ_i−λ_j a nontrivial character in characteristic zero. Avoiding the finitely many kernels of these characters gives an element of T with n distinct eigenvalues. These weight differences need not be roots of G⁰. The central-isogeny decomposition G⁰=Z(G⁰)⁰D on algebraically closed points and the scalar center transfer this property to D.
 4. The cyclotomic kernel gives an abelian quotient of G_F. The Zariski closure of its image is normal, and the quotient of G⁰ by its intersection is commutative; hence it contains D. Apply the retained characteristic-zero enormity criterion.
 
-**Prerequisites.** [`ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input`](#sen-tannakian-input); [`ArithmeticGaloisRepresentations:G7/strong-irreducibility`](ArithmeticGaloisRepresentations.md#G7-strong-irreducibility); [`ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`](ArithmeticGaloisRepresentations.md#G7-zariski-closure-and-monodromy-groups); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`.
+**Prerequisites.** [`ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input`](#sen-tannakian-input); [`ArithmeticGaloisRepresentations:G7/strong-irreducibility`](ArithmeticGaloisRepresentations.md#G7-strong-irreducibility); [`ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`](ArithmeticGaloisRepresentations.md#G7-zariski-closure-and-monodromy-groups); `tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical`; `tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory`.
 
 **Source support.**
 
 - [James Newton and Jack A. Thorne, Symmetric power functoriality for Hilbert modular forms](https://arxiv.org/pdf/2212.03595v2), Lemma 4.7 and proof pp. 33–34: The proof passes from strong irreducibility and regular Hodge–Tate weights to irreducible derived monodromy with a regular semisimple element inside the cyclotomic-kernel closure.
-- [J. S. Milne, Algebraic Groups: The theory of group schemes of finite type over a field](https://www.jmilne.org/math/Books/iAG2017.pdf), Proposition 6.21 and Definition 6.24 p. 130; image/quotient Theorem 5.39 pp. 108–109: Closed derived groups and image quotients supply the algebraic group step replacing unread Borel locators.
+- [J. S. Milne, Algebraic Groups: The theory of group schemes of finite type over a field](https://www.jmilne.org/math/Books/iAG2017.pdf), Proposition 6.21 p. 130 and Definition 6.24 p. 131; image/quotient Theorem 5.39 pp. 108–109: Closed derived groups and image quotients supply the algebraic group step replacing unread Borel locators.
 
 **Acceptance.** The cyclotomic kernel closure contains the derived group, not necessarily all of G⁰. Distinct eigenvalues of a freely supplied operator in End(V) do not suffice.
 
@@ -731,7 +751,7 @@ Let F be a number field and ρ:G_F→GL_n(E), E/Q_p finite, continuous and absol
 
 `ArithmeticGaloisRepresentations:G7/followup-residual-cyclotomic-baseline-comparison` · comparison · implementation unchecked
 
-For a field L with exactly p p-th roots of unity and a homomorphism ι:Z/p→k, the residual k-valued character on ring automorphisms of L is Units.map(ι) composed with modularCyclotomicCharacter. On the absolute Galois group use the forgetful action on the chosen closure. For number fields p-th roots have cardinality p. Continuity on the arithmetic group follows through the retained finite-quotient/cyclotomic comparison, not from this algebraic adapter alone.
+For a field L with exactly p p-th roots of unity and a homomorphism ι:Z/p→k, the residual k-valued character on ring automorphisms of L is Units.map(ι) composed with modularCyclotomicCharacter. On the absolute Galois group use the forgetful action on the chosen closure. In the chosen algebraic closure of a number field, p-th roots have cardinality p. Continuity on the arithmetic group follows through the retained finite-quotient/cyclotomic comparison, not from this algebraic adapter alone.
 
 **Hypotheses.** p is nonzero in this adapter; the arithmetic application has p prime and char F=0. The root-cardinality hypothesis and coefficient map are explicit.
 
@@ -742,7 +762,25 @@ For a field L with exactly p p-th roots of unity and a homomorphism ι:Z/p→k, 
 
 **Prerequisites.** `mathlib:modularCyclotomicCharacter`; `mathlib:cyclotomicCharacter`; `mathlib:cyclotomicCharacter.continuous`; `ArithmeticGaloisRepresentations:R01.1/continuous-representation`.
 
-**Names.** `TauCeti.ArithmeticG7.residualCyclotomic`, `TauCeti.ArithmeticG7.residualCyclotomic_spec`.
+**API.**
+
+| Name | Role | Contract |
+|---|---|---|
+| `TauCeti.ArithmeticG7.residualCyclotomic` | constructor | Compose modularCyclotomicCharacter with the coefficient units map, retaining the exact root-cardinality hypothesis. |
+| `TauCeti.ArithmeticG7.residualCyclotomic_spec` | compatibility | Evaluation equals the units image of the existing modular cyclotomic character. |
+| `TauCeti.ArithmeticG7.residualCyclotomic_roots` | characterisation | With identity coefficients Z/p (p prime), g(t)=t^ε̄(g).val for every p-th root t. |
+| `TauCeti.ArithmeticG7.residualCyclotomic_two` | simp | For p=2 the residual character has value 1 on every automorphism, over every coefficient field admitting the map Z/2→k. |
+
+**Unit tests.** Each named item labels an example in the suggested file.
+
+- `TauCeti.ArithmeticG7.residualCyclotomic.tests_identity` (degenerate): The identity automorphism has value 1.
+- `TauCeti.ArithmeticG7.residualCyclotomic.tests_rootAction` (characterisation): For p prime and identity Z/p coefficients the returned exponent reproduces the action on every p-th root, detecting an inverse-character convention.
+- `TauCeti.ArithmeticG7.residualCyclotomic.tests_two` (computation): At p=2 the character is trivial, including automorphisms that act nontrivially elsewhere in L.
+
+**Uses.**
+
+- [`ArithmeticGaloisRepresentations:G7/taylor-wiles-image-conditions`](ArithmeticGaloisRepresentations.md#G7-taylor-wiles-image-conditions): Use the actual residual character for the scalar witness outside the cyclotomic kernel.
+- [`ArithmeticGaloisRepresentations:G7/followup-disjoint-base-change-image`](#disjoint-base-change-image): The joint splitting field includes this character, not only the residual representation.
 
 **Source support.**
 
@@ -978,27 +1016,37 @@ Each entry was checked in source at the pinned commits above; its role is the on
 
 ## Supplier register
 
-These ten entries preserve ownership and precise comparison needs. They do not ask suppliers to rebuild existing definitions. The two supplied entries still identify how to assemble the pinned prototype against current upstream.
+These 15 entries preserve ownership and precise comparison needs. They do not ask suppliers to rebuild existing definitions. The two supplied entries identify how to assemble the pinned prototype against current upstream.
 
-- **tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary**: Use the existing affine group-scheme/Hopf/functor dictionary for the CHT semidirect product and central algebraic quotients; no second general algebraic-group carrier. Needed by [`ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group`](ArithmeticGaloisRepresentations.md#G7-clozel-harris-taylor-group), [`ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification`](#central-lift-ramification).
+**tauceti:TauCetiRoadmap/ReductiveGroups#layer-0-the-functor-of-points-and-the-three-way-dictionary**: Use the existing affine group-scheme/Hopf/functor dictionary for the CHT semidirect product and central algebraic quotients; no second general algebraic-group carrier. Needed by [`ArithmeticGaloisRepresentations:G7/clozel-harris-taylor-group`](ArithmeticGaloisRepresentations.md#G7-clozel-harris-taylor-group), [`ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification`](#central-lift-ramification).
 
-- **tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation**: Use existing Lie and Ad, their functoriality and the matrix descriptions for GL, PGL₂, GSp and GO. Match the canonical Sen operator to Lie(G) tensor C_p; Sen itself is owned here. Needed by [`ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input`](#sen-tannakian-input), [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy), [`ArithmeticGaloisRepresentations:G7/similitude-groups`](ArithmeticGaloisRepresentations.md#G7-similitude-groups).
+**tauceti:TauCetiRoadmap/ReductiveGroups#layer-2-lie-algebra-and-the-adjoint-representation**: Use existing Lie and Ad, their functoriality and the matrix descriptions for GL, PGL₂, GSp and GO. Match the canonical Sen operator to Lie(G) tensor C_p; Sen itself is owned here. Needed by [`ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input`](#sen-tannakian-input), [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy), [`ArithmeticGaloisRepresentations:G7/similitude-groups`](ArithmeticGaloisRepresentations.md#G7-similitude-groups).
 
-- **tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components**: Use the existing subgroup/quotient/component carriers. Match rational Zariski closure and commutators with the current derived-ideal theorem; verify closed reduced point images, closure of a finite-index dense subgroup containing G⁰, and characteristic-zero bijective-on-geometric-points homomorphisms being isomorphisms. Milne Propositions 1.68, 1.70, Cartier 3.23, Theorem 5.39 and Proposition 6.21 supply the proof routes. Existing built image/derived/component operations must be imported, not replanned. Needed by [`ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`](ArithmeticGaloisRepresentations.md#G7-zariski-closure-and-monodromy-groups), [`ArithmeticGaloisRepresentations:G7/strong-irreducibility`](ArithmeticGaloisRepresentations.md#G7-strong-irreducibility), [`ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification`](#central-lift-ramification), [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy).
+**tauceti:TauCetiRoadmap/ReductiveGroups#layer-3-subgroups-quotients-components**: Use the existing subgroup/quotient/component carriers. Match rational Zariski closure and commutators with the current derived-ideal theorem; verify closed reduced point images, closure of a finite-index dense subgroup containing G⁰, and characteristic-zero bijective-on-geometric-points homomorphisms being isomorphisms. Milne Propositions 1.68, 1.70, Cartier 3.23, Theorem 5.39 and Proposition 6.21 supply the proof routes. Existing built image/derived/component operations must be imported, not replanned. Needed by [`ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`](ArithmeticGaloisRepresentations.md#G7-zariski-closure-and-monodromy-groups), [`ArithmeticGaloisRepresentations:G7/strong-irreducibility`](ArithmeticGaloisRepresentations.md#G7-strong-irreducibility), [`ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification`](#central-lift-ramification), [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy).
 
-- **tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups**: Characteristic-zero connected reductive monodromy: faithful semisimple actions have reductive identity component, irreducible connected GL₂ subgroups have derived SL₂, the connected center times derived group covers the reductive group, and a semisimple Lie element can be conjugated into a maximal torus. These are existing ReductiveGroups targets; record a Part II only for a genuinely absent comparison. Needed by [`ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`](ArithmeticGaloisRepresentations.md#G7-zariski-closure-and-monodromy-groups), [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy).
+**tauceti:TauCetiRoadmap/ReductiveGroups#layer-6-reductive-and-semisimple-groups**: Import the characteristic-zero reductive/linearly-reductive comparison, the derived group and connected center, and the central-isogeny decomposition of a connected reductive group. The arithmetic faithful-action and irreducible GL₂ specializations need the supplier comparisons in gap 22. Maximal tori belong to layer 7 and torus character lattices to layer 4. Needed by [`ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`](ArithmeticGaloisRepresentations.md#G7-zariski-closure-and-monodromy-groups), [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy).
 
-- **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**: Use continuous H² with discrete torsion coefficients, finite-quotient description, coefficient direct limits and central finite-kernel obstruction. Global Q/Z vanishing is the G7 theorem, not a general cohomology supplier assertion. Needed by [`ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing`](#tate-global-rational-cocycle-vanishing), [`ArithmeticGaloisRepresentations:G7/lifting-projective-representations`](ArithmeticGaloisRepresentations.md#G7-lifting-projective-representations).
+**tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-10-continuous-cohomology-in-all-degrees**: Use continuous H² with discrete torsion coefficients, finite-quotient description, coefficient direct limits and central finite-kernel obstruction. Global Q/Z vanishing is the G7 theorem, not a general cohomology supplier assertion. Needed by [`ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing`](#tate-global-rational-cocycle-vanishing), [`ArithmeticGaloisRepresentations:G7/lifting-projective-representations`](ArithmeticGaloisRepresentations.md#G7-lifting-projective-representations).
 
-- **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension** (supplied-at-current-library): Reuse the already built TauCeti.continuous_transfer from the current library; reconcile its bundled character type with the pinned arithmetic prototype. No new continuity theorem is requested. Needed by [`ArithmeticGaloisRepresentations:G7/followup-continuous-character-transfer`](#continuous-character-transfer).
+**tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-11-cohomological-dimension** (supplied-at-current-library): Reuse the already built TauCeti.continuous_transfer from the current library; reconcile its bundled character type with the pinned arithmetic prototype. No new continuity theorem is requested. Needed by [`ArithmeticGaloisRepresentations:G7/followup-continuous-character-transfer`](#continuous-character-transfer).
 
-- **tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm**: Use the existing continuous open-subgroup monomial homomorphism and tensor-induction functor for arbitrary coefficient representations. The current algebraic Subgroup.tensorInducedRepresentation already supplies the wreath-tensor action; this dependency is the topological comparison. Needed by [`ArithmeticGaloisRepresentations:G7/tensor-induction`](ArithmeticGaloisRepresentations.md#G7-tensor-induction).
+**tauceti:TauCetiRoadmap/ProfiniteCohomology#layer-13-the-evens-norm**: Use the existing continuous open-subgroup monomial homomorphism and tensor-induction functor for arbitrary coefficient representations. The current algebraic Subgroup.tensorInducedRepresentation already supplies the wreath-tensor action; this dependency is the topological comparison. Needed by [`ArithmeticGaloisRepresentations:G7/tensor-induction`](ArithmeticGaloisRepresentations.md#G7-tensor-induction).
 
-- **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants**: Global Brauer localization, finite support and the sum of local invariants, including the real 2-primary term, as used in Patrikis Theorem 2.1.1. Use the existing Brauer sequence, not a second duality theory. Needed by [`ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing`](#tate-global-rational-cocycle-vanishing).
+**tauceti:TauCetiRoadmap/ClassFieldTheory#layer-10-global-carriers-the-brauer-sequence-and-the-sum-of-local-invariants**: Global Brauer localization, finite support and the sum of local invariants, including the real 2-primary term, as used in Patrikis Theorem 2.1.1. Use the existing Brauer sequence, not a second duality theory. Needed by [`ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing`](#tate-global-rational-cocycle-vanishing).
 
-- **tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity**: The existing global Artin reciprocity comparison of continuous finite-order Galois and idele characters. The extra totally-real infinity-type classification and finite-order character extension steps are G7-owned gaps; global reciprocity is not a substitute for them. Needed by [`ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing`](#tate-global-rational-cocycle-vanishing), [`ArithmeticGaloisRepresentations:G7/followup-totally-real-rational-sen-weights`](#totally-real-rational-sen-weights).
+**tauceti:TauCetiRoadmap/ClassFieldTheory#layer-11-the-global-class-formation-and-global-artin-reciprocity**: The existing global Artin reciprocity comparison of continuous finite-order Galois and idele characters. The extra totally-real infinity-type classification and finite-order character extension steps are G7-owned gaps; global reciprocity is not a substitute for them. Needed by [`ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing`](#tate-global-rational-cocycle-vanishing), [`ArithmeticGaloisRepresentations:G7/followup-totally-real-rational-sen-weights`](#totally-real-rational-sen-weights).
 
-- **IntegralHeckeAndGaloisDeterminants:IHG.1** (supplied-by-existing-roadmap): Import the current IHG.1 algebraically_closed_reconstruction and henselian_irreducible targets and their continuous group-algebra specialization: Chenevier Theorems 2.12 and 2.22 with exactly their coefficient and residual split/absolute irreducibility hypotheses. Do not replan determinant reconstruction. Needed by [`ArithmeticGaloisRepresentations:G7/transfer-of-determinants-to-representations`](ArithmeticGaloisRepresentations.md#G7-transfer-of-determinants-to-representations).
+**IntegralHeckeAndGaloisDeterminants:IHG.1** (supplied-by-existing-roadmap): Import the current IHG.1 algebraically_closed_reconstruction and henselian_irreducible targets and their continuous group-algebra specialization: Chenevier Theorems 2.12 and 2.22 with exactly their coefficient and residual split/absolute irreducibility hypotheses. Do not replan determinant reconstruction. Needed by [`ArithmeticGaloisRepresentations:G7/transfer-of-determinants-to-representations`](ArithmeticGaloisRepresentations.md#G7-transfer-of-determinants-to-representations).
+
+**tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules**: Import the representations/comodules dictionary and Tannakian reconstruction. Differentiating its tensor-automorphism comparison gives the tensor-derivation/Lie interface needed for the canonical Sen operator; checking that comparison remains gap 4. Needed by [`ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input`](#sen-tannakian-input).
+
+**tauceti:TauCetiRoadmap/ReductiveGroups#layer-4-jordan-decomposition-diagonalizable-groups-tori**: Import torus character lattices and the differentiation of characters in characteristic zero. Distinct weights of the ambient GL_n representation give nontrivial pairwise weight-difference characters, not necessarily roots of the monodromy group. Needed by [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy).
+
+**tauceti:TauCetiRoadmap/ReductiveGroups#layer-5-solvable-and-unipotent-groups-the-unipotent-radical**: Import the unipotent radical and Lie–Kolchin fixed-vector input. Normality and absolute irreducibility then force the radical to act trivially in the faithful monodromy representation. Needed by [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy).
+
+**tauceti:TauCetiRoadmap/ReductiveGroups#layer-7-structure-theory**: Import maximal tori and their conjugacy. The characteristic-zero comparison putting a semisimple Lie element in the Lie algebra of a maximal torus must be checked as part of gap 22; the current layer heading alone is not a supplied proof of that comparison. Needed by [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy).
+
+**tauceti:TauCetiRoadmap/ClassFieldTheory#layer-7-the-absolute-local-artin-map-its-normalizations-and-conductors**: Import absolute local reciprocity and the identification of abelian inertia with local units. At residue characteristic q unequal to p, units have finite torsion quotient and a pro-q principal-unit subgroup, so a continuous homomorphism to a torsion-free pro-p group is trivial. Its local character/reciprocity comparison also supplies the local Brauer boundaries in Tate’s proof. Needed by [`ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification`](#central-lift-ramification), [`ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing`](#tate-global-rational-cocycle-vanishing).
 
 ## Gap register and acceptance
 
@@ -1030,7 +1078,7 @@ Needed by [`ArithmeticGaloisRepresentations:G7/followup-sen-tannakian-input`](#s
 
 ### Gap 5: Totally real algebraic character classification
 
-Global reciprocity is already ClassFieldTheory layer 11. The additional assertion that a geometric character of a totally real number field is a finite-order twist of a cyclotomic power is not its stated target. G7 owns this extra character lemma and must prove it using the infinity-type/unit constraints (with the number-field Hecke-character carrier imported). The source citation is read, but the proof input and localization/label signatures are still missing.
+Global reciprocity is already ClassFieldTheory layer 11. The additional assertion that a geometric character of a totally real number field is a finite-order twist of a cyclotomic power is not its stated target. G7 owns this extra character lemma and must prove it using the infinity-type/unit constraints (with the number-field Hecke-character carrier imported). The source citation is read, but the proof input and localization/label signatures are still missing. The rank-one Hodge–Tate/locally-algebraic local character comparison is also part of this G7-owned proof input; central-lift ramification supplies the needed finite global ramification.
 
 Needed by [`ArithmeticGaloisRepresentations:G7/followup-totally-real-rational-sen-weights`](#totally-real-rational-sen-weights).
 
@@ -1042,9 +1090,9 @@ Needed by [`ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-coc
 
 ### Gap 7: Central-lift ramification typed interface
 
-The source theorem and proof are read. Topological algebraic group points, a central algebraic quotient and almost-everywhere inertia restrictions need compatible carriers. The parent’s arbitrary group-map surrogate does not express these hypotheses. Use R01.2 inertia and ClassFieldTheory local reciprocity with the algebraic ReductiveGroups interface.
+The source theorem and proof are read. Topological algebraic group points, a central algebraic quotient and almost-everywhere inertia restrictions need compatible carriers. The parent’s arbitrary group-map surrogate does not express these hypotheses. Use R01.2 inertia and ClassFieldTheory local reciprocity with the algebraic ReductiveGroups interface. The finite-coefficient faithful embedding, stable lattice and torsion-free congruence subgroup must be compared to those carriers; the elementary congruence-subgroup argument stays in this target’s proof sketch.
 
-Needed by [`ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification`](#central-lift-ramification).
+Needed by [`ArithmeticGaloisRepresentations:G7/followup-central-lift-ramification`](#central-lift-ramification), [`ArithmeticGaloisRepresentations:G7/followup-tate-global-rational-cocycle-vanishing`](#tate-global-rational-cocycle-vanishing).
 
 ### Gap 8: Joint finite splitting field and absolute restriction comparison
 
@@ -1132,7 +1180,7 @@ Needed by [`ArithmeticGaloisRepresentations:G7/tensor-induction`](ArithmeticGalo
 
 ### Gap 22: Algebraic monodromy supplier comparison
 
-The unread Borel boundary is replaced by the read Milne locators and current image/derived/component declarations. Matching these to the parent’s subgroup-in-GL monodromy carrier, the finite-index closure argument, the characteristic-zero point-bijection theorem and the torus Lie-weight argument remains a supplier comparison, not a missing source or a new generic group theory plan.
+The unread Borel boundary is replaced by the read Milne locators and current image/derived/component declarations. Matching these to the parent’s subgroup-in-GL monodromy carrier, the finite-index closure argument, the characteristic-zero point-bijection theorem and the torus Lie-weight argument remains a supplier comparison, not a missing source or a new generic group theory plan. In particular, the semisimple-Lie-element/maximal-torus comparison is required from ReductiveGroups layers 2 and 7, with character lattices from layer 4 and the unipotent fixed-vector argument from layer 5; layer 6 alone does not name these inputs.
 
 Needed by [`ArithmeticGaloisRepresentations:G7/zariski-closure-and-monodromy-groups`](ArithmeticGaloisRepresentations.md#G7-zariski-closure-and-monodromy-groups), [`ArithmeticGaloisRepresentations:G7/strong-irreducibility`](ArithmeticGaloisRepresentations.md#G7-strong-irreducibility), [`ArithmeticGaloisRepresentations:G7/followup-cyclotomic-kernel-derived-monodromy`](#cyclotomic-kernel-derived-monodromy).
 
