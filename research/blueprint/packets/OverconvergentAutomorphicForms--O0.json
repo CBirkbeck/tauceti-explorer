@@ -12,8 +12,8 @@
     "OverconvergentAutomorphicForms:O6",
     "OverconvergentAutomorphicForms:O7"
   ],
-  "status": "complete",
-  "summary": "Completed independent review of the revised target-level O0–O7 planning pass. Preserved the 73 existing IDs, added the valuation-unit translation lemma, and corrected eight original contracts plus their radius and weight-domain consumers. The O5 integral-equalizer comparison and O7 norm-completion proof are conditional on precise supplier contracts; positive-radius full-character integral freeness remains separate. All eight stages stay planned, none closed, with unchecked implementation statuses. The review requires changes because the suggested file omits most actual geometric/analytic signatures, APIs and examples required by §13, despite successful elaboration of its typed cores and scalar fixtures.",
+  "status": "partial",
+  "summary": "Revision round 3 checkpoint: the arbitrary-rank valuation translation step is now typed, with finite-order, prime-power-order, sign, higher-rank and nonunit examples. Finite coefficient action/tensor/dual/scalar-extension prerequisites and the ordered affine reduction-colimit completion are typed separately under auxiliary namespaces. The actual analytic chart, adic coefficient-site, Hilbert/Igusa tower and sheafification carriers remain absent from the inspected supplier prototypes; the required geometric/analytic signatures cannot yet be supplied. All 74 existing node IDs, 129 API items and prior review assessments are preserved. All eight stages remain planned, none closed, and implementation statuses unchecked. This checkpoint does not discharge the independent review’s section 13 acceptance failure.",
   "baseline": {
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -283,6 +283,76 @@
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Finite.lean",
         "provides": "For a number field, its narrow ideal class group is finite.",
         "checked": "Independently confirmed by REV-OverconvergentAutomorphicForms--O0 (2026-10-06): declaration and surrounding hypotheses read at the exact baseline commit; its statement supplies the stated algebraic/topological input, not an analytic or adic enhancement. Revision codex-OHTDYt (2026-10-08) reread the declaration at the same exact pin; retained its stated scope. Independent review REV-OverconvergentAutomorphicForms--O0~2 (2026-10-08) confirmed the declaration and hypotheses at the exact pin, including its coefficient and convention restrictions."
+      },
+      {
+        "ref": "mathlib:Module.Projective",
+        "kind": "class",
+        "module": "Mathlib/Algebra/Module/Projective.lean",
+        "provides": "Projective modules are split summands of free modules; finite projectivity is expressed together with Module.Finite, without a free-basis assumption.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+      },
+      {
+        "ref": "mathlib:LinearMap.baseChange",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Tower.lean",
+        "provides": "For an R-linear map and an R-algebra A, its A-linear extension on A tensor M; algebraic, not a completed Banach base change.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+      },
+      {
+        "ref": "mathlib:Valuation",
+        "kind": "structure",
+        "module": "Mathlib/RingTheory/Valuation/Basic.lean",
+        "provides": "A multiplicative zero-preserving map satisfying the ultrametric inequality with values in a linearly ordered commutative monoid with zero. No real-valued restriction.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+      },
+      {
+        "ref": "mathlib:Valuation.integer",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Valuation/Integers.lean",
+        "provides": "For a ring and a linearly ordered commutative group with zero, the subring of elements whose valuation is at most one.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+      },
+      {
+        "ref": "mathlib:DirectLimit",
+        "kind": "abbrev",
+        "module": "Mathlib/Order/DirectedInverseSystem.lean",
+        "provides": "The quotient of a directed disjoint union by eventual equality. Ring structure for ring-hom transition maps is provided by Mathlib/Algebra/Colimit/DirectLimit.lean.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+      },
+      {
+        "ref": "mathlib:DirectLimit.Ring.of",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
+        "provides": "The canonical ring map from a component of a directed ring system into its direct limit.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+      },
+      {
+        "ref": "mathlib:DirectLimit.Ring.lift",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Colimit/DirectLimit.lean",
+        "provides": "Compatible component ring maps induce a ring map out of the directed limit; used for precision reduction after the level colimit.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.lift",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "A ring map killing an ideal descends to its quotient; supplies finite-level reduction pullbacks.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+      },
+      {
+        "ref": "mathlib:Ideal.Quotient.factor",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Ideal/Quotient/Defs.lean",
+        "provides": "An inclusion of ideals induces a ring map from the smaller-ideal quotient to the larger-ideal quotient; supplies decreasing p-adic precision.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
+      },
+      {
+        "ref": "mathlib:AdicCompletion",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
+        "provides": "Compatible inverse-limit families in module quotients by ideal powers. Mathlib/RingTheory/AdicCompletion/Algebra.lean supplies the componentwise commutative ring structure for completion of the ring.",
+        "checked": "Revision codex-dTheLX, 2026-10-09: definition and surrounding hypotheses read at the exact Mathlib baseline commit; the full Mathlib-only suggested file elaboration checks the use of these carriers. No analytic geometry is supplied by this citation."
       }
     ]
   },
@@ -301,6 +371,11 @@
       "revisionRead": {
         "date": "2026-10-08",
         "sections": "Definitions 6.1–6.5, Propositions 6.3/6.6; §§7.1–7.2 (pp1759–1764), arithmetic conventions in §9 and Remark10.6 p1791. The review’s source corrections are retained."
+      },
+      "checkpointRead": {
+        "date": "2026-10-09",
+        "worker": "Codex — codex-dTheLX",
+        "sections": "Definition6.5 and proof of Proposition6.6, printed p1758: actual integral equalizers and the ordinary formal Igusa input."
       }
     },
     {
@@ -333,6 +408,11 @@
       "revisionRead": {
         "date": "2026-10-08",
         "sections": "Lemma2.4 pp7–8; Proposition2.8 pp9–10; §§4.1–4.3 pp16–18, including Lemmas4.4–4.6; §6.4 p29; §7.1 p30 and Proposition8.4 pp36–37."
+      },
+      "checkpointRead": {
+        "date": "2026-10-09",
+        "worker": "Codex — codex-dTheLX",
+        "sections": "Lemma4.4 and Propositions4.3/4.7, pp16–18; full finite-character factor in section6.4, p29."
       }
     },
     {
@@ -365,6 +445,11 @@
       "revisionRead": {
         "date": "2026-10-08",
         "sections": "§§6.2.2–6.2.11 pp148–150, §6.2.20 pp152–153, §§6.3.5–6.3.8 pp154–155."
+      },
+      "checkpointRead": {
+        "date": "2026-10-09",
+        "worker": "Codex — codex-dTheLX",
+        "sections": "Section6.2, pp147–153, especially analytic induction in 6.2.3–6.2.4 and the distinction between continuous dual and projective distributions in 6.2.20."
       }
     },
     {
@@ -397,6 +482,11 @@
       "revisionRead": {
         "date": "2026-10-08",
         "sections": "Corollary1.4 p3 and Definition3.7/Proposition3.8 with proof p16: formal units and the natural structural comparison map."
+      },
+      "checkpointRead": {
+        "date": "2026-10-09",
+        "worker": "Codex — codex-dTheLX",
+        "sections": "Definition3.7 and Proposition3.8 with proof, pp16–17: affine ordered completion and natural map to analytic O+, with formal-unit cocycle effectivity."
       }
     }
   ],
@@ -4005,7 +4095,9 @@
         "Use the actual frame torsor and universal-coordinate admission hypotheses of aip-independent-coefficients. Check all continuous valuations used to define geometric O+, with complete valued extensions as required."
       ],
       "prerequisites": [
-        "OverconvergentAutomorphicForms:O5/aip-independent-coefficients"
+        "OverconvergentAutomorphicForms:O5/aip-independent-coefficients",
+        "mathlib:Valuation",
+        "mathlib:Valuation.integer"
       ],
       "proofSteps": [
         "Factor the character into the universal analytic character and the finite torsion character. The compact-unit values of the former are pullbacks of units of the integral formal weight character. On the extended frame neighbourhood AIP Lemma4.4 gives a congruence to one by a topologically nilpotent element, so these values and their inverses are also integral.",
@@ -4029,7 +4121,39 @@
       },
       "suggestedName": "TauCeti.Overconvergent.aip_translation_valuation_units",
       "implementationStatus": "unchecked",
-      "addedBy": "REV-OverconvergentAutomorphicForms--O0~2"
+      "addedBy": "REV-OverconvergentAutomorphicForms--O0~2",
+      "tests": [
+        {
+          "name": "TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_higherRank",
+          "kind": "compatibility",
+          "statement": "The valuation-unit implication holds with value group WithZero of the multiplicative lexicographically ordered Z by Z group, without a real-valued norm."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_primePower",
+          "kind": "compatibility",
+          "statement": "A unit of positive prime-power order has valuation one at every valuation, without a prime-to-p order condition."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_finiteOrder",
+          "kind": "compatibility",
+          "statement": "A unit of any positive finite order and its inverse preserve the integral bound on every translated scalar."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_sign",
+          "kind": "computation",
+          "statement": "The sign character value at p=2 preserves integrality: a and its negative have the same bound at every valuation."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_nonunit",
+          "kind": "non-example",
+          "statement": "For a multiplier with valuation strictly below one, its inverse fails the bound at a=1; value-integrality alone is insufficient."
+        },
+        {
+          "name": "TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_eigencondition",
+          "kind": "compatibility",
+          "statement": "For an actual supplied eigencondition relating two point values by the inverse multiplier, membership in the valuation ring agrees when both multiplier bounds hold."
+        }
+      ]
     },
     {
       "id": "OverconvergentAutomorphicForms:O5/aip-line-and-gluing",
@@ -5759,7 +5883,8 @@
       "stageId": "OverconvergentAutomorphicForms:O0",
       "status": "planned",
       "remaining": [
-        "Supply the requested compact-torus character and multivariable analytic carriers; type coefficient/induction signatures. Resolve the Jacquet–Emerton/definite-unitary Part II proof inputs and type the Ding application. Use a verified chart radius, without the disproved scalar formula."
+        "Supply the requested compact-torus character and multivariable analytic carriers; type coefficient/induction signatures. Resolve the Jacquet–Emerton/definite-unitary Part II proof inputs and type the Ding application. Use a verified chart radius, without the disproved scalar formula.",
+        "The auxiliary FiniteCoefficientCore now types the underlying group-action linear equivalence, diagonal tensor, inverse-action dual, algebraic base change, continuous finite-projective core on moduleTopology, and a separately supplied stable lattice. Its eight examples test these prerequisites; they do not certify analytic orbit maps, finite-projective Banach completed scalar extension, or the conductor/chart non-example. The required finite_analytic_coefficients node and its API still lack the analytic supplier types."
       ],
       "notes": "Hilbert torus weights, bounded extension, finite/vector coefficients, analytic induction and Ding’s independent unitary consumer."
     },
@@ -5802,7 +5927,8 @@
       "status": "planned",
       "remaining": [
         "Supply the actual frame/weight-product carriers and type the independent sheaves and valuative integral-equalizer comparison.",
-        "Supply the full-character positive-radius O+ unit trivializations and unit chart ratios for integral freeness, separately from the comparison isomorphism."
+        "Supply the full-character positive-radius O+ unit trivializations and unit chart ratios for integral freeness, separately from the comparison isomorphism.",
+        "The arbitrary-rank algebraic implication is now typed as aip_translation_valuation_units using Valuation and its actual integer subring. ValuationTranslation types finite-order valuation one and a dependent family of valuation groups, with six pointwise tests including the lexicographic two-rank group. The multiplier bounds are explicit hypotheses; proving them on the admitted actual analytic frame torsor and turning the pointwise argument into a sheaf comparison remain omitted geometric contracts."
       ],
       "notes": "Independent AIP coefficients, universal formal and full-character rational lines; noncircular integral comparison via unit multipliers and valuations; distinct conditional full-character integral freeness; arithmetic and naturality maps."
     },
@@ -5819,7 +5945,8 @@
       "status": "planned",
       "remaining": [
         "Supply T5’s actual flat smooth ordinary models and finite étale formal Igusa covers, P9’s finite-level good-reduction identity after coefficient extension and analytic norm-completion tower with compatible restrictions. Then apply the specified unit-ball argument.",
-        "Type the genuine completed/weighted ordinary carriers and their maps. Preserve the separate weight-lattice contract, patchwise sheafification and ordered limits. No Hida control theorem is inferred."
+        "Type the genuine completed/weighted ordinary carriers and their maps. Preserve the separate weight-lattice contract, patchwise sheafification and ordered limits. No Hida control theorem is inferred.",
+        "OrdinaryAffineCompletion now types the real ring-level formula: quotient finite-level rings by the ideal generated by p^m, take the directed ring colimit in level, then take the subring of precision-compatible families. Precision projection, affine restriction, localization at p and comparison of a constant ring tower with Mathlib AdicCompletion have typed signatures and four examples. These auxiliary affine constructions do not supply formal Igusa patch rings, deck action, topology, gluing/sheafification or analytic O+; all required geometric O7 names remain omissions."
       ],
       "notes": "Ordered Igusa completion, weighted ordinary functions, structural/line comparisons and compatible restriction, expansions and operators."
     }
@@ -5868,7 +5995,7 @@
         "OverconvergentAutomorphicForms:O0/unitary-eigenvariety-geometry",
         "OverconvergentAutomorphicForms:O0/unitary-eigenvariety-reduced"
       ],
-      "detail": "The pinned libraries lack the actual rigid analytic chart/induction, Hilbert moduli tower, torsor, adic ringed coefficient site or completed ordinary carrier required by these statements. Their complete mathematical signatures, API and test contracts are recorded in the suggested-file omission register, with the named supplier prerequisites above. No Prop-valued substitute or fake geometric carrier is introduced. Replace register entries by typed signatures as the suppliers are formalised."
+      "detail": "The pinned libraries lack the actual rigid analytic chart/induction, Hilbert moduli tower, torsor, adic ringed coefficient site or completed ordinary carrier required by these statements. Their complete mathematical signatures, API and test contracts are recorded in the suggested-file omission register, with the named supplier prerequisites above. No Prop-valued substitute or fake geometric carrier is introduced. Replace register entries by typed signatures as the suppliers are formalised. The auxiliary FiniteCoefficientCore now types the underlying group-action linear equivalence, diagonal tensor, inverse-action dual, algebraic base change, continuous finite-projective core on moduleTopology, and a separately supplied stable lattice. Its eight examples test these prerequisites; they do not certify analytic orbit maps, finite-projective Banach completed scalar extension, or the conductor/chart non-example. The required finite_analytic_coefficients node and its API still lack the analytic supplier types."
     },
     {
       "title": "O1 prototype carriers from suppliers",
@@ -5931,7 +6058,7 @@
         "OverconvergentAutomorphicForms:O5/aip-comparison-naturality",
         "OverconvergentAutomorphicForms:O5/aip-translation-valuation-units"
       ],
-      "detail": "The pinned libraries lack the actual rigid analytic chart/induction, Hilbert moduli tower, torsor, adic ringed coefficient site or completed ordinary carrier required by these statements. Their complete mathematical signatures, API and test contracts are recorded in the suggested-file omission register, with the named supplier prerequisites above. No Prop-valued substitute or fake geometric carrier is introduced. Replace register entries by typed signatures as the suppliers are formalised. The suggested file types the normed-field translation test and the algebraic invariant-ring/unit-generator criterion; these scalar tests do not supply an analytic torsor or its local integral generators."
+      "detail": "The pinned libraries lack the actual rigid analytic chart/induction, Hilbert moduli tower, torsor, adic ringed coefficient site or completed ordinary carrier required by these statements. Their complete mathematical signatures, API and test contracts are recorded in the suggested-file omission register, with the named supplier prerequisites above. No Prop-valued substitute or fake geometric carrier is introduced. Replace register entries by typed signatures as the suppliers are formalised. The suggested file types the normed-field translation test and the algebraic invariant-ring/unit-generator criterion; these scalar tests do not supply an analytic torsor or its local integral generators. The arbitrary-rank algebraic implication is now typed as aip_translation_valuation_units using Valuation and its actual integer subring. ValuationTranslation types finite-order valuation one and a dependent family of valuation groups, with six pointwise tests including the lexicographic two-rank group. The multiplier bounds are explicit hypotheses; proving them on the admitted actual analytic frame torsor and turning the pointwise argument into a sheaf comparison remain omitted geometric contracts."
     },
     {
       "title": "O6 prototype carriers from suppliers",
@@ -5962,7 +6089,7 @@
         "OverconvergentAutomorphicForms:O7/ordinary-coefficient-comparison",
         "OverconvergentAutomorphicForms:O7/ordinary-hecke-expansions"
       ],
-      "detail": "The pinned libraries lack the actual rigid analytic chart/induction, Hilbert moduli tower, torsor, adic ringed coefficient site or completed ordinary carrier required by these statements. Their complete mathematical signatures, API and test contracts are recorded in the suggested-file omission register, with the named supplier prerequisites above. No Prop-valued substitute or fake geometric carrier is introduced. Replace register entries by typed signatures as the suppliers are formalised. The suggested file types the power-multiplicative norm step and a polynomial seed of the nonnormal-model counterexample. The seed is not a Tate algebra or a formal Igusa model."
+      "detail": "The pinned libraries lack the actual rigid analytic chart/induction, Hilbert moduli tower, torsor, adic ringed coefficient site or completed ordinary carrier required by these statements. Their complete mathematical signatures, API and test contracts are recorded in the suggested-file omission register, with the named supplier prerequisites above. No Prop-valued substitute or fake geometric carrier is introduced. Replace register entries by typed signatures as the suppliers are formalised. The suggested file types the power-multiplicative norm step and a polynomial seed of the nonnormal-model counterexample. The seed is not a Tate algebra or a formal Igusa model. OrdinaryAffineCompletion now types the real ring-level formula: quotient finite-level rings by the ideal generated by p^m, take the directed ring colimit in level, then take the subring of precision-compatible families. Precision projection, affine restriction, localization at p and comparison of a constant ring tower with Mathlib AdicCompletion have typed signatures and four examples. These auxiliary affine constructions do not supply formal Igusa patch rings, deck action, topology, gluing/sheafification or analytic O+; all required geometric O7 names remain omissions."
     },
     {
       "title": "Full finite-character positive-radius integral freeness",

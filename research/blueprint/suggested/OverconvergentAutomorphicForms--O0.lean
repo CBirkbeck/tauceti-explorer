@@ -16,6 +16,16 @@ import Mathlib.Algebra.Group.Action.Opposite
 import Mathlib.NumberTheory.Zsqrtd.GaussianInt
 import Mathlib.RingTheory.Localization.FractionRing
 import Mathlib.Data.Matrix.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Tower
+import Mathlib.Algebra.Module.Projective
+import Mathlib.RingTheory.Valuation.Integers
+import Mathlib.Algebra.Order.Monoid.Prod
+import Mathlib.Algebra.Order.GroupWithZero.WithZero
+import Mathlib.Algebra.Colimit.DirectLimit
+import Mathlib.RingTheory.Ideal.Quotient.Defs
+import Mathlib.RingTheory.AdicCompletion.Algebra
+import Mathlib.RingTheory.Localization.Away.Basic
+import Mathlib.Topology.Algebra.Ring.Basic
 
 /-!
 # Suggested Lean forms: Hilbert coefficients (part O0, scope O0–O7)
@@ -555,10 +565,242 @@ example : (p : ℚ_[p])⁻¹ • ((p : ℚ_[p]) •
     (Polynomial.X : Polynomial ℚ_[p])) = Polynomial.X := sorry
 end TauCeti.Overconvergent.OrdinaryCompletionFixture
 
+/-! ## Algebraic prerequisites for finite coefficients and ordinary completion
+
+BP section 6.2 (pp147–153) requires genuine analytic charts and function spaces.
+The following FiniteCoefficientCore keeps the algebraic operations and a supplied stable lattice
+separate from that missing analytic structure. None is advertised as finite_analytic_coefficients.
+AIP Lemma4.4 (p16) supplies analytic admission; section6.4 (p29) retains the finite-character
+factor. The valuation signatures below type the pointwise implication conditional on both bounds.
+Heuer Proposition3.8 (p16) motivates the affine ordered ring completion; OrdinaryAffineCompletion
+retains that order without identifying its rings with actual Igusa patch functions or analytic O+.
+-/
+
+namespace TauCeti.Overconvergent.FiniteCoefficientCore
+
+variable {A H V W : Type*} [CommRing A] [Group H]
+  [AddCommGroup V] [Module A V] [AddCommGroup W] [Module A W]
+
+/-- Algebraic action underlying O0 finite analytic coefficients. -/
+def action (ρ : Representation A H V) (h : H) : V ≃ₗ[A] V where
+  toLinearMap := ρ h
+  invFun := ρ h⁻¹
+  left_inv := by sorry
+  right_inv := by sorry
+
+/-- Tensor and dual actions are existing Mathlib constructions. -/
+abbrev tensor (ρ : Representation A H V) (σ : Representation A H W) := ρ.tprod σ
+abbrev dual (ρ : Representation A H V) := ρ.dual
+
+/-- Algebraic scalar extension; no assertion about Banach completion is made here. -/
+def changeScalars (B : Type*) [CommRing B] [Algebra A B]
+    (ρ : Representation A H V) : Representation B H (B ⊗[A] V) where
+  toFun h := (ρ h).baseChange B
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- The continuous finite-projective core on the canonical module topology.
+Analytic orbit maps and Banach scalar extension still require their actual supplier types. -/
+structure ContinuousFiniteCoefficient (A H V : Type*) [CommRing A] [Group H]
+    [AddCommGroup V] [Module A V] [Module.Finite A V] [Module.Projective A V]
+    [TopologicalSpace A] [IsTopologicalRing A] [TopologicalSpace H]
+    [TopologicalSpace V] [IsModuleTopology A V] where
+  representation : Representation A H V
+  continuous_action : Continuous (fun hv : H × V => representation hv.1 hv.2)
+
+/-- A specified stable integral lattice, separate from the rational coefficient module. -/
+structure StableLattice (ρ : Representation A H V) (Aplus : Subring A) where
+  lattice : Submodule Aplus V
+  stable : ∀ h v, v ∈ lattice → ρ h v ∈ lattice
+  spans : Submodule.span A (lattice : Set V) = ⊤
+
+/-- Scalar-character representation. -/
+def scalar (χ : H →* Aˣ) : Representation A H A where
+  toFun h := (χ h : A) • LinearMap.id
+  map_one' := by sorry
+  map_mul' := by sorry
+
+/-- Two independent characters, with no rank-one assumption. -/
+def diagonal (χ₁ χ₂ : H →* Aˣ) : Representation A H (A × A) :=
+  (scalar χ₁).prod (scalar χ₂)
+
+-- O0 finite coefficient action/inverse prerequisite: group action, not a semigroup inverse.
+example (ρ : Representation A H V) (h : H) (v : V) :
+    (action ρ h).symm (action ρ h v) = v := sorry
+-- O0 scalar-character prerequisite.
+example (χ : H →* Aˣ) (h : H) (a : A) : scalar χ h a = (χ h : A) * a := sorry
+-- O0 rank-two prerequisite: both characters survive.
+example (χ₁ χ₂ : H →* Aˣ) (h : H) (a b : A) :
+    diagonal χ₁ χ₂ h (a, b) = ((χ₁ h : A) * a, (χ₂ h : A) * b) := sorry
+-- O0 dual-sign prerequisite, tested on the scalar module.
+example (χ : H →* Aˣ) (h : H) (f : Module.Dual A A) (a : A) :
+    dual (scalar χ) h f a = f ((χ h⁻¹ : A) * a) := sorry
+-- O0 completed-base-change prerequisite: this tests only the underlying algebraic map.
+example (B : Type*) [CommRing B] [Algebra A B] (ρ : Representation A H V)
+    (h : H) (b : B) (v : V) :
+    changeScalars B ρ h (b ⊗ₜ[A] v) = b ⊗ₜ[A] (ρ h v) := sorry
+-- O0 diagonal tensor prerequisite.
+example (ρ : Representation A H V) (σ : Representation A H W) (h : H) (v : V) (w : W) :
+    tensor ρ σ h (v ⊗ₜ[A] w) = ρ h v ⊗ₜ[A] σ h w := sorry
+-- Stable-lattice fixture: the trivial representation preserves the full A-lattice.
+example : Nonempty (StableLattice (1 : Representation A H V) (⊤ : Subring A)) := sorry
+-- Continuous core fixture on the actual canonical topology of the scalar module.
+example [TopologicalSpace A] [IsTopologicalRing A] [TopologicalSpace H]
+    [IsModuleTopology A A] : Nonempty (ContinuousFiniteCoefficient A H A) := sorry
+
+end TauCeti.Overconvergent.FiniteCoefficientCore
+
+namespace TauCeti.Overconvergent
+
+variable {R Γ₀ : Type*} [CommRing R] [LinearOrderedCommGroupWithZero Γ₀]
+
+/-- The arbitrary-rank valuation step in O5. At a valued point the actual admitted
+character supplies both hypotheses; establishing admission is still a separate geometric input.
+This lemma applies to every valuation, without choosing an embedding in the real numbers. -/
+theorem aip_translation_valuation_units (v : Valuation R Γ₀) (u : Rˣ)
+    (hu : v (u : R) ≤ 1) (hinv : v ((u⁻¹ : Rˣ) : R) ≤ 1) (a : R) :
+    v (((u⁻¹ : Rˣ) : R) * a) ≤ 1 ↔ v a ≤ 1 := sorry
+
+namespace ValuationTranslation
+
+/-- Finite-order character values have valuation one, including p-primary values. -/
+theorem finiteOrder_value_one (v : Valuation R Γ₀) (u : Rˣ) (d : ℕ)
+    (hd : 0 < d) (horder : u ^ d = 1) : v (u : R) = 1 := sorry
+
+/-- All-valuations version: a given family may contain valuations of different ranks.
+The family is supplied by geometric O+; this theorem does not define that sheaf. -/
+theorem family_integral_iff {I : Type*} (Γ : I → Type*)
+    [∀ i, LinearOrderedCommGroupWithZero (Γ i)] (vs : ∀ i, Valuation R (Γ i))
+    (u : Rˣ) (hu : ∀ i, vs i (u : R) ≤ 1)
+    (hinv : ∀ i, vs i ((u⁻¹ : Rˣ) : R) ≤ 1) (a : R) :
+    (∀ i, vs i (((u⁻¹ : Rˣ) : R) * a) ≤ 1) ↔ ∀ i, vs i a ≤ 1 := sorry
+
+-- TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_higherRank
+-- A genuinely non-Archimedean ordered value group: the lexicographic two-rank group.
+example (v : Valuation R (WithZero (Multiplicative (ℤ ×ₗ ℤ)))) (u : Rˣ)
+    (hu : v (u : R) ≤ 1) (hinv : v ((u⁻¹ : Rˣ) : R) ≤ 1) (a : R) :
+    v (((u⁻¹ : Rˣ) : R) * a) ≤ 1 ↔ v a ≤ 1 := sorry
+
+-- TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_primePower
+-- O5 acceptance: no condition that the torsion order be prime to p occurs.
+example (v : Valuation R Γ₀) (u : Rˣ) (p n : ℕ) (hp : 0 < p)
+    (hu : u ^ (p ^ n) = 1) : v (u : R) = 1 := sorry
+-- TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_finiteOrder
+-- O5 finite torsion multiplier and its inverse both preserve the integral bound.
+example (v : Valuation R Γ₀) (u : Rˣ) (d : ℕ) (hd : 0 < d)
+    (hu : u ^ d = 1) (a : R) :
+    v (((u⁻¹ : Rˣ) : R) * a) ≤ 1 ↔ v a ≤ 1 := sorry
+-- TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_sign
+-- O5 at p=2: the sign character value has order two and is retained.
+example (v : Valuation R Γ₀) (a : R) : v (-a) ≤ 1 ↔ v a ≤ 1 := sorry
+-- TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_nonunit
+-- O5 failure test: an integral multiplier with nonintegral inverse fails at a=1.
+example (v : Valuation R Γ₀) (u : Rˣ) (hu : v (u : R) < 1) :
+    ¬ (v (((u⁻¹ : Rˣ) : R) * 1) ≤ 1 ↔ v (1 : R) ≤ 1) := sorry
+-- TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_eigencondition
+-- O5 geometric eigencondition, used pointwise in either translation direction.
+example {Y : Type*} (v : Valuation R Γ₀) (u : Rˣ) (h : Y → R) (y y' : Y)
+    (heigen : h y' = ((u⁻¹ : Rˣ) : R) * h y)
+    (hu : v (u : R) ≤ 1) (hinv : v ((u⁻¹ : Rˣ) : R) ≤ 1) :
+    h y' ∈ v.integer ↔ h y ∈ v.integer := sorry
+
+end ValuationTranslation
+end TauCeti.Overconvergent
+
+namespace TauCeti.Overconvergent.OrdinaryAffineCompletion
+
+variable (R : ℕ → Type*) [∀ i, CommRing (R i)]
+  (f : ∀ i j, i ≤ j → R i →+* R j) [DirectedSystem R (f · · ·)] (p : ℕ)
+
+/-- Reduction at finite level, before taking a direct limit. -/
+abbrev Reduction (m i : ℕ) := R i ⧸ Ideal.span {(p : R i) ^ m}
+
+/-- Pullback in level preserves the ideal generated by p^m. -/
+def reductionTransition (m i j : ℕ) (hij : i ≤ j) :
+    Reduction R p m i →+* Reduction R p m j :=
+  Ideal.Quotient.lift _ ((Ideal.Quotient.mk _).comp (f i j hij)) (by sorry)
+
+instance reductionDirected (m : ℕ) :
+    DirectedSystem (Reduction R p m) (reductionTransition R f p m · · ·) := by sorry
+
+/-- Inner limit in the O7 affine formula: level is allowed to depend on m. -/
+abbrev ReductionColimit (m : ℕ) :=
+  DirectLimit (Reduction R p m) (reductionTransition R f p m)
+
+/-- Precision reduction at one finite level. -/
+def precisionReduction (m i : ℕ) :
+    Reduction R p (m + 1) i →+* Reduction R p m i :=
+  Ideal.Quotient.factor (by sorry)
+
+/-- Precision reduction on the level colimit, induced by the finite-level maps. -/
+def reduce (m : ℕ) : ReductionColimit R f p (m + 1) →+* ReductionColimit R f p m :=
+  DirectLimit.Ring.lift _ _ _
+    (fun i => (DirectLimit.Ring.of _ _ i).comp (precisionReduction R p m i)) (by sorry)
+
+/-- Outer inverse limit; ring operations are componentwise. This is an affine algebraic
+prerequisite, not a sheaf on an invented replacement for the ordinary formal Igusa tower. -/
+def compatibleSubring : Subring (∀ m, ReductionColimit R f p m) where
+  carrier := {x | ∀ m, reduce R f p m (x (m + 1)) = x m}
+  zero_mem' := by sorry
+  one_mem' := by sorry
+  add_mem' := by sorry
+  mul_mem' := by sorry
+  neg_mem' := by sorry
+
+abbrev Completed := compatibleSubring R f p
+
+/-- The m-th precision projection really retains the level colimit. -/
+def modPower (m : ℕ) : Completed R f p →+* ReductionColimit R f p m :=
+  (Pi.evalRingHom _ m).comp (compatibleSubring R f p).subtype
+
+/-- Rationalisation is localization at p after completion. -/
+abbrev Rationalised := Localization.Away (p : Completed R f p)
+
+def rationalise : Completed R f p →+* Rationalised R f p := algebraMap _ _
+
+/-- Finite-level compatible pullbacks induce the restriction between two completed patches.
+Actual ordinary formal patch rings and their restrictions must be supplied by T5/P9. -/
+def restriction (S : ℕ → Type*) [∀ i, CommRing (S i)]
+    (g : ∀ i j, i ≤ j → S i →+* S j) [DirectedSystem S (g · · ·)]
+    (φ : ∀ i, R i →+* S i)
+    (hφ : ∀ i j hij x, φ j (f i j hij x) = g i j hij (φ i x)) :
+    Completed R f p →+* Completed S g p := by sorry
+
+-- O7 affine projection acceptance: reduction compatibility has the specified orientation.
+example (x : Completed R f p) (m : ℕ) :
+    reduce R f p m (modPower R f p (m + 1) x) = modPower R f p m x := sorry
+-- O7 affine level acceptance: moving a representative to a higher level does not change it.
+example (m i j : ℕ) (hij : i ≤ j) (x : Reduction R p m i) :
+    DirectLimit.Ring.of _ _ j (reductionTransition R f p m i j hij x) =
+      (DirectLimit.Ring.of _ _ i x : ReductionColimit R f p m) := sorry
+-- Restriction acceptance: the identity patch pullback acts as the identity at every precision.
+example (x : Completed R f p) (m : ℕ) :
+    modPower R f p m (restriction R f p R f (fun _ => RingHom.id _) (by sorry) x) =
+      modPower R f p m x := sorry
+
+section ConstantTower
+variable (B : Type*) [CommRing B]
+
+instance constantDirected :
+    DirectedSystem (fun _ : ℕ => B) (fun {i j : ℕ} (_ : i ≤ j) => (RingHom.id B : B → B)) := by sorry
+
+/-- A constant affine tower gives the existing p-adic completion, with no analytic identification. -/
+def constantEquiv :
+    Completed (fun _ : ℕ => B) (fun _ _ _ => RingHom.id B) p ≃+*
+      AdicCompletion (Ideal.span {(p : B)}) B := by sorry
+
+-- O7 constant-tower test: this uses Mathlib's actual completion carrier.
+example : Nonempty
+    (Completed (fun _ : ℕ => B) (fun _ _ _ => RingHom.id B) p ≃+*
+      AdicCompletion (Ideal.span {(p : B)}) B) := sorry
+
+end ConstantTower
+end TauCeti.Overconvergent.OrdinaryAffineCompletion
+
 /-!
 ## Supplier-dependent mathematical register (explicit signature omissions)
 
-The prefix types the weight/cocycle cores and scalar proof tests. This register is a mathematical specification, not Lean signatures or compiled examples. Actual adic ringed sites, towers, analytic induction and completed ordinary carriers are the suppliers recorded below. Unknown conditions are omitted from the typed cores; no Prop-valued substitute or artificial geometry is introduced.
+The prefix types the weight/cocycle cores, arbitrary-rank pointwise valuation translation, finite coefficient algebraic prerequisites and the ordered affine ring completion. The full analytic/geometric node contracts remain distinct from these auxiliary signatures. This register is a mathematical specification, not Lean signatures or compiled examples. Actual adic ringed sites, towers, analytic induction and completed ordinary carriers are the suppliers recorded below. Unknown conditions are omitted from the typed cores; no Prop-valued substitute or artificial geometry is introduced.
 
 Integral comparison and integral freeness are separate: O5 uses rational comparison and valuation-unit translation for its lattice isomorphism. Full-character positive-radius O+ freeness still needs integral trivializations. O7 uses explicit finite-level good-reduction and analytic norm-completion contracts, not an isomorphism inferred from Heuer’s natural map.
 
@@ -1510,12 +1752,21 @@ OverconvergentAutomorphicForms:O5/aip-translation-valuation-units — AIP transl
 TauCeti.Overconvergent.aip_translation_valuation_units: On an admitted AIP frame torsor, at every valued test point both κ(b) and κ(b)⁻¹ lie in the valuation ring. Consequently h(b·y)=κ(b)⁻¹h(y) is integral if and only if h(y) is integral. This includes the full finite torsion character, including p-primary values, and does not assert existence of an integral unit eigenfunction.
 hypotheses: Use the actual frame torsor and universal-coordinate admission hypotheses of aip-independent-coefficients. Check all continuous valuations used to define geometric O+, with complete valued extensions as required.
 prerequisites: OverconvergentAutomorphicForms:O5/aip-independent-coefficients
+prerequisites: mathlib:Valuation
+prerequisites: mathlib:Valuation.integer
 proofSteps: Factor the character into the universal analytic character and the finite torsion character. The compact-unit values of the former are pullbacks of units of the integral formal weight character. On the extended frame neighbourhood AIP Lemma4.4 gives a congruence to one by a topologically nilpotent element, so these values and their inverses are also integral.
 proofSteps: For a finite-character value u with u^d=1, the ordered valuation group is torsion-free, hence v(u)^d=1 implies v(u)=1, even if p divides d. Multiply the two unit values.
 proofSteps: Apply the eigencondition in both directions. No rank-one norm test replaces the quantification over all valuations.
 acceptance: A multiplier p has integral value but nonintegral inverse and does not satisfy the conclusion.
 acceptance: The finite character sending −1 to −1 at p=2 preserves both bounds despite being outside W_F^0.
 
+
+tests: TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_higherRank: The valuation-unit implication holds with value group WithZero of the multiplicative lexicographically ordered Z by Z group, without a real-valued norm.
+tests: TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_primePower: A unit of positive prime-power order has valuation one at every valuation, without a prime-to-p order condition.
+tests: TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_finiteOrder: A unit of any positive finite order and its inverse preserve the integral bound on every translated scalar.
+tests: TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_sign: The sign character value at p=2 preserves integrality: a and its negative have the same bound at every valuation.
+tests: TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_nonunit: For a multiplier with valuation strictly below one, its inverse fails the bound at a=1; value-integrality alone is insufficient.
+tests: TauCeti.Overconvergent.Test.O5_aip_translation_valuation_units_eigencondition: For an actual supplied eigencondition relating two point values by the inverse multiplier, membership in the valuation ring agrees when both multiplier bounds hold.
 
 OverconvergentAutomorphicForms:O5/aip-line-and-gluing — AIP integral line and gluing
 TauCeti.Overconvergent.aip_line_and_gluing: For the universal formal character on W_F^0, the AIP eigenmodule is a formal line and its admissible chart transports satisfy the cocycle identity (AIP Propositions4.3/4.7). For a full character, §6.4 gives a coherent formal sheaf and a rational analytic line, with chart transport obtained from the actual eigenfunctions. An analytic O+ line for the full character follows if, locally on the analytic base, a torsor eigenfunction e and its inverse are both in O+ and their transports differ by base O+ units. Existence of such integral trivializations at positive radius for arbitrary χ is the precise remaining freeness target; rational line gluing does not assert it.
