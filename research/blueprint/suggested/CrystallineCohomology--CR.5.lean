@@ -285,6 +285,11 @@ def toricZeroChart (k : Type) [Field k] (r : ℕ) : Multiplicative (Fin r → �
 def zeroRationalChart (k : Type) [Field k] : Multiplicative ℚ≥0 →* k := by sorry
 def rationalLogPoint (k : Type) [Field k] : LogStructure k := associatedLog (zeroRationalChart k)
 def rationalLogPointChart (k : Type) [Field k] : LogChart (rationalLogPoint k) := by sorry
+def unitLogChart (A : Type) [CommRing A] : LogChart (associatedLog (Units.coeHom A)) where
+  P := CommMonCat.of Aˣ
+  α := Units.coeHom A
+  logIso := MulEquiv.refl _
+  compatible := by intro m; rfl
 
 -- Test: TauCeti.LogCrystalline.LogChart.toric_origin
 example (k : Type) [Field k] (r : ℕ) :
@@ -293,7 +298,8 @@ example (k : Type) [Field k] (r : ℕ) :
 example {A P : Type} [CommRing A] [CommMonoid P] (α : P →* A) (h : ∀ p, IsUnit (α p)) :
     Subsingleton (characteristicMonoid (associatedLog α)) := by sorry
 -- Test: TauCeti.LogCrystalline.LogChart.chart_not_sharp
-example : IsUnit (-1 : ℤˣ) ∧ (-1 : ℤˣ) ≠ 1 := by sorry
+example : (∃ m : (unitLogChart ℤ).P, IsUnit m ∧ m ≠ 1) ∧
+    Subsingleton (characteristicMonoid (associatedLog (unitLogChart ℤ).α)) := by sorry
 
 def gpMap {P Q : Type} [CommMonoid P] [CommMonoid Q] (f : P →* Q) :
     Algebra.GrothendieckGroup P →* Algebra.GrothendieckGroup Q :=
@@ -1274,6 +1280,11 @@ def logLineOverModp (p : ℕ) [Fact p.Prime] : LogOverPDBase (modpPDBase p) wher
   structureMap := by sorry
   extension := by sorry
   charts := by sorry
+def rationalLogPointOverModp (p : ℕ) [Fact p.Prime] : LogOverPDBase (modpPDBase p) where
+  object := affineLogScheme (zeroRationalChart (ZMod p))
+  structureMap := by sorry
+  extension := by sorry
+  charts := by sorry
 def logLineProductOverModp (p : ℕ) [Fact p.Prime] : LogOverPDBase (modpPDBase p) where
   object := logFiberProduct (logLineOverModp p).structureMap (logLineOverModp p).structureMap
   structureMap := logFiberProductSnd _ _ ≫ (logLineOverModp p).structureMap
@@ -1291,7 +1302,6 @@ def logLineDiagonalInput (p : ℕ) [Fact p.Prime] : EnvelopeInput (modpPDBase p)
   logSurjective := by sorry
 def diagonalEnvelopeRatio (p : ℕ) [Fact p.Prime] :
     Γ((qcLogPDEnvelope (logLineDiagonalInput p)).thickening.ambient.object.scheme, ⊤)ˣ := by sorry
-def uncompletedPDPolynomial (p : ℕ) [Fact p.Prime] : CommRingCat.{0} := by sorry
 -- Test: TauCeti.LogCrystalline.logPDEnvelope.identity
 example {B : LogPDBase} (Z : LogOverPDBase B) (hZ : IsFineLog Z.object) (hi : IsIntegralLog Z.object) :
     (logPDEnvelope (identityEnvelopeInput Z hi) (by sorry) (by sorry)).thickening.ambient.object ≅ Z.object := by sorry
@@ -1312,7 +1322,10 @@ example {B : LogPDBase} (Z : LogOverPDBase B) (hi : IsIntegralLog Z.object) :
     (qcLogPDEnvelope (identityEnvelopeInput Z hi)).thickening.ambient.object ≅ Z.object := by sorry
 -- Test: TauCeti.LogCrystalline.qcLogPDEnvelope.uncompleted_scope
 example (p : ℕ) [Fact p.Prime] :
-    ¬ IsAdicComplete (Ideal.span {(p : uncompletedPDPolynomial p)}) (uncompletedPDPolynomial p) := by sorry
+    Nonempty ((qcLogPDEnvelope
+      (identityEnvelopeInput (rationalLogPointOverModp p) (by sorry))).thickening.ambient.object ≅
+        (rationalLogPointOverModp p).object) ∧
+    ¬ IsFineLog (rationalLogPointOverModp p).object := by sorry
 -- Test: TauCeti.LogCrystalline.LogPDThickening.zero_ideal
 example {B : LogPDBase} (Z : LogOverPDBase B) (hi : IsIntegralLog Z.object) :
     ∃ T : LogPDThickening B Z, T.ambient.object = Z.object ∧
@@ -3417,7 +3430,7 @@ structure SteinCurve (F : ArithmeticFrame) where
 def IsGoodReductionSteinCurve {F : ArithmeticFrame} (X : SteinCurve F) : Prop :=
   IsStrict X.special.structureMap ∧ Smooth (logUnderlying X.special.structureMap)
 def cofinalSteinExhaustion {F : ArithmeticFrame} {X : HKSpace F} {E : TubeEmbedding X}
-    (D : AdmissibleSteinExhaustion E) (a : ℕ → ℕ) (ha : Monotone a)
+    (D : AdmissibleSteinExhaustion E) (a : ℕ → ℕ) (ha : StrictMono a)
     (hc : Tendsto a Filter.atTop Filter.atTop) : AdmissibleSteinExhaustion E where
   piece n := D.piece (a n)
   affinoid n := D.affinoid (a n)
@@ -3474,7 +3487,7 @@ example {F : ArithmeticFrame} (X : SteinCurve F) (h : IsGoodReductionSteinCurve 
     (E : AdmissibleSteinExhaustion X.embedding) (q : ℤ) : (steinHK.operators X E q).monodromy = 0 := by sorry
 -- Test: TauCeti.LogCrystalline.steinHK.cofinal_exhaustion
 example {F : ArithmeticFrame} (X : SteinCurve F) (E : AdmissibleSteinExhaustion X.embedding)
-    (a : ℕ → ℕ) (ha : Monotone a) (hc : Tendsto a Filter.atTop Filter.atTop) (q : ℤ) :
+    (a : ℕ → ℕ) (ha : StrictMono a) (hc : Tendsto a Filter.atTop Filter.atTop) (q : ℤ) :
     (steinHK X E q).space ≃L[completedUnramifiedField F]
       (steinHK X (cofinalSteinExhaustion E a ha hc) q).space := by sorry
 -- Test: TauCeti.LogCrystalline.steinHK.affinoid_warning
