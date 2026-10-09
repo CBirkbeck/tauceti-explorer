@@ -46828,7 +46828,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundations.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7474"
   },
   {
    "id": "REV-PKG-HabiroCohomologyFoundations",
