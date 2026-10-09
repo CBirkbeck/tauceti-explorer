@@ -5,8 +5,8 @@
  "scope": [
   "SchemeAndStackFoundations:SF.4"
  ],
- "status": "complete",
- "summary": "Layer SF.4 of the scheme-foundations roadmap, planned at target level in 57 nodes. (a) Infinitesimal lifting: first-order thickenings, formally smooth/unramified/étale morphisms of schemes, the infinitesimal lifting criterion and the torsor of infinitesimal lifts, extending Mathlib's ring-level formal smoothness and scheme-level formal unramifiedness. (b) Deformation theory: the Artinian coefficient category C_Λ, deformation functors with Schlessinger's conditions, hulls, Schlessinger's theorem, obstruction theories, square-zero deformations classified by the naive cotangent complex (the full cotangent complex is not used), deformations of smooth schemes and line bundles, and the versal deformation of a node. (c) Formal geometry: Spf of adic rings with finitely generated ideal of definition, formal schemes, formal completion, coherent formal modules. (d) Algebraization: theorem on formal functions, Stein factorization, Grothendieck's existence and algebraization theorems with comparison to the completion, and effectivity of formal deformations of curves. (e) Modifications kept distinct from alterations: modifications, strict transforms, generic flatness, Raynaud–Gruson flattening by blowup, domination of modifications by admissible blowups, Chow's lemma; resolution only in the named setting of curves (normalization). (f) The moduli input to alterations, moved down from higher-tier owners: Grassmannians, Hilbert and Quot schemes, the stack of stable pointed curves, finiteness of Isom, algebraicity, properness and smoothness, the level-structure finite cover, and extension of stable pointed curves after an alteration. (g) de Jong's alterations: alterations, regular schemes, strict normal crossings divisors, split semistable curves, local structure and resolution of nodal families over regular bases, curve fibrations, the stable-model domination lemma, Theorem 5.8, Theorem 4.1 and, over traits, strict semistable pairs and Theorem 6.5. Models over a DVR with base, generic fibre and base extension, semistable and stable reduction of curves, and blowups are imported from Tau Ceti StableReduction (Layers 0–4, 7–9); Néron models and abelian semistable reduction are owned by NeronModelsAndSemistableAbelianVarieties, which builds on SF.4 rather than feeding it.",
+ "status": "partial",
+ "summary": "Layer SF.4 of the scheme-foundations roadmap, planned at target level in 57 nodes. (a) Infinitesimal lifting: first-order thickenings, formally smooth/unramified/étale morphisms of schemes, the infinitesimal lifting criterion and the torsor of infinitesimal lifts, extending Mathlib's ring-level formal smoothness and scheme-level formal unramifiedness. (b) Deformation theory: the Artinian coefficient category C_Λ, deformation functors with Schlessinger's conditions, hulls, Schlessinger's theorem, obstruction theories, square-zero deformations classified by the naive cotangent complex (the full cotangent complex is not used), deformations of smooth schemes and line bundles, and the versal deformation of a node. (c) Formal geometry: Spf of adic rings with finitely generated ideal of definition, formal schemes, formal completion, coherent formal modules. (d) Algebraization: theorem on formal functions, Stein factorization, Grothendieck's existence and algebraization theorems with comparison to the completion, and effectivity of formal deformations of curves. (e) Modifications kept distinct from alterations: modifications, strict transforms, generic flatness, Raynaud–Gruson flattening by blowup, domination of modifications by admissible blowups, Chow's lemma; resolution only in the named setting of curves (normalization). (f) The moduli input to alterations, moved down from higher-tier owners: Grassmannians, Hilbert and Quot schemes, the stack of stable pointed curves, finiteness of Isom, algebraicity, properness and smoothness, the level-structure finite cover, and extension of stable pointed curves after an alteration. (g) de Jong's alterations: alterations, regular schemes, strict normal crossings divisors, split semistable curves, local structure and resolution of nodal families over regular bases, curve fibrations, the stable-model domination lemma, Theorem 5.8, Theorem 4.1 and, over traits, strict semistable pairs and Theorem 6.5. Models over a DVR with base, generic fibre and base extension, semistable and stable reduction of curves, and blowups are imported from Tau Ceti StableReduction (Layers 0–4, 7–9); Néron models and abelian semistable reduction are owned by NeronModelsAndSemistableAbelianVarieties, which builds on SF.4 rather than feeding it. Independent review corrects source hypotheses and prototype signatures; coverage is partial and the review is needs_changes pending the explicitly recorded bridges and reader synchronization.",
  "baseline": {
   "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
   "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
@@ -17,7 +17,7 @@
     "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
     "line": 171,
     "provides": "The I-adic completion of a module as the inverse limit of M/IⁿM.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AdicCompletion.flat_of_isNoetherian",
@@ -25,7 +25,7 @@
     "module": "Mathlib/RingTheory/AdicCompletion/AsTensorProduct.lean",
     "line": 379,
     "provides": "Completion of a Noetherian ring at any ideal is flat over it (instance).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AdicCompletion.map_exact",
@@ -33,7 +33,7 @@
     "module": "Mathlib/RingTheory/AdicCompletion/Exactness.lean",
     "line": 184,
     "provides": "Completion is exact on finite modules over a Noetherian ring.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.Extension.H1Cotangent",
@@ -41,7 +41,7 @@
     "module": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
     "line": 339,
     "provides": "H¹ of the naive cotangent complex of an extension (kernel of I/I² → S ⊗ Ω).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.Extension.cotangentComplex",
@@ -49,7 +49,7 @@
     "module": "Mathlib/RingTheory/Extension/Cotangent/Basic.lean",
     "line": 61,
     "provides": "The naive cotangent complex I/I² → S ⊗_P Ω_{P/R} of an extension.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.FormallyEtale.iff_formallyUnramified_and_formallySmooth",
@@ -57,7 +57,7 @@
     "module": "Mathlib/RingTheory/Etale/Basic.lean",
     "line": 66,
     "provides": "Formally étale iff formally unramified and formally smooth (rings).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.FormallyEtale.of_isSeparable",
@@ -65,7 +65,7 @@
     "module": "Mathlib/RingTheory/Etale/Field.lean",
     "line": 98,
     "provides": "A separable algebraic field extension is formally étale.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.FormallySmooth",
@@ -73,7 +73,7 @@
     "module": "Mathlib/RingTheory/Smooth/Basic.lean",
     "line": 70,
     "provides": "Formally smooth algebras, defined by Ω projective and H¹(L) = 0.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.FormallySmooth.exists_lift",
@@ -81,7 +81,7 @@
     "module": "Mathlib/RingTheory/Smooth/Basic.lean",
     "line": 126,
     "provides": "Lifting of algebra maps along nilpotent ideals for formally smooth algebras.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.FormallySmooth.iff_split_surjection",
@@ -89,7 +89,7 @@
     "module": "Mathlib/RingTheory/Smooth/Basic.lean",
     "line": 331,
     "provides": "Formal smoothness iff a first-order thickening of a formally smooth presentation splits.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.IsSeparable",
@@ -97,7 +97,7 @@
     "module": "Mathlib/FieldTheory/Separable.lean",
     "line": 549,
     "provides": "Separable algebras (every element separable).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.Smooth",
@@ -105,7 +105,7 @@
     "module": "Mathlib/RingTheory/Smooth/Basic.lean",
     "line": 540,
     "provides": "Smooth algebras: formally smooth and finitely presented.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Algebra.instFormallySmoothMvPolynomial",
@@ -113,7 +113,7 @@
     "module": "Mathlib/RingTheory/Smooth/Basic.lean",
     "line": 112,
     "provides": "Polynomial algebras are formally smooth (instance).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.AffineSpace",
@@ -121,7 +121,7 @@
     "module": "Mathlib/AlgebraicGeometry/AffineSpace.lean",
     "line": 44,
     "provides": "Affine n-space 𝔸(n; S) over a scheme.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Etale",
@@ -129,7 +129,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Etale.lean",
     "line": 41,
     "provides": "Étale morphisms of schemes (affine-locally étale ring maps).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Flat",
@@ -137,7 +137,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Flat.lean",
     "line": 42,
     "provides": "Flat morphisms of schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.FormallyUnramified",
@@ -145,7 +145,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/FormallyUnramified.lean",
     "line": 54,
     "provides": "Formally unramified morphisms of schemes (affine-locally), with uniqueness of lifts along nilpotent thickenings (hom_ext).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.GeometricallyIntegral",
@@ -153,7 +153,7 @@
     "module": "Mathlib/AlgebraicGeometry/Geometrically/Integral.lean",
     "line": 40,
     "provides": "Geometrically integral morphisms.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.GeometricallyReduced",
@@ -161,7 +161,7 @@
     "module": "Mathlib/AlgebraicGeometry/Geometrically/Reduced.lean",
     "line": 44,
     "provides": "Geometrically reduced morphisms.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsClosedImmersion",
@@ -169,7 +169,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/ClosedImmersion.lean",
     "line": 45,
     "provides": "Closed immersions of schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsDominant",
@@ -177,7 +177,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/UnderlyingMap.lean",
     "line": 217,
     "provides": "Dominant morphisms (dense range).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsFinite",
@@ -185,7 +185,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Finite.lean",
     "line": 40,
     "provides": "Finite morphisms of schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsFinite.iff_isProper_and_locallyQuasiFinite",
@@ -193,7 +193,7 @@
     "module": "Mathlib/AlgebraicGeometry/ZariskisMainTheorem.lean",
     "line": 382,
     "provides": "Finite iff proper and locally quasi-finite (Zariski's main theorem consequence).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsIntegral",
@@ -201,7 +201,7 @@
     "module": "Mathlib/AlgebraicGeometry/Properties.lean",
     "line": 240,
     "provides": "Integral schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsLocallyNoetherian",
@@ -209,7 +209,7 @@
     "module": "Mathlib/AlgebraicGeometry/Noetherian.lean",
     "line": 56,
     "provides": "Locally Noetherian schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsNoetherian",
@@ -217,7 +217,7 @@
     "module": "Mathlib/AlgebraicGeometry/Noetherian.lean",
     "line": 279,
     "provides": "Noetherian schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsOpenImmersion",
@@ -225,7 +225,7 @@
     "module": "Mathlib/AlgebraicGeometry/OpenImmersion.lean",
     "line": 36,
     "provides": "Open immersions of schemes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsProper",
@@ -233,7 +233,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Proper.lean",
     "line": 42,
     "provides": "Proper morphisms (separated, universally closed, locally of finite type).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsProper.eq_valuativeCriterion",
@@ -241,7 +241,7 @@
     "module": "Mathlib/AlgebraicGeometry/ValuativeCriterion.lean",
     "line": 330,
     "provides": "Valuative criterion of properness (arbitrary valuation rings).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.IsSeparated",
@@ -249,7 +249,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Separated.lean",
     "line": 44,
     "provides": "Separated morphisms.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.LocallyOfFinitePresentation",
@@ -257,7 +257,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/FinitePresentation.lean",
     "line": 45,
     "provides": "Morphisms locally of finite presentation.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.LocallyOfFiniteType",
@@ -265,15 +265,15 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/FiniteType.lean",
     "line": 43,
     "provides": "Morphisms locally of finite type.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Proj.toSpecZero",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/ProjectiveSpectrum/Basic.lean",
     "line": 151,
-    "provides": "The structure morphism Proj 𝒜 → Spec 𝒜₀ of the Proj of a graded ring (proper for finitely generated 𝒜).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "provides": "The structure morphism from Proj to Spec of the degree-zero ring. Properness requires additional finite-generation/projectivity results; this declaration alone does not prove it.",
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.QuasiCompact",
@@ -281,7 +281,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/QuasiCompact.lean",
     "line": 43,
     "provides": "Quasi-compact morphisms.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Birational",
@@ -289,7 +289,7 @@
     "module": "Mathlib/AlgebraicGeometry/Birational/Birational.lean",
     "line": 181,
     "provides": "Birationality of schemes: existence of an isomorphism between dense opens.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.image",
@@ -297,7 +297,7 @@
     "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Subscheme.lean",
     "line": 661,
     "provides": "Scheme-theoretic image of a morphism.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.ker",
@@ -305,15 +305,15 @@
     "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
     "line": 692,
     "provides": "Kernel ideal sheaf of a morphism.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.normalization",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/Normalization.lean",
     "line": 123,
-    "provides": "Relative normalization of a quasi-compact quasi-separated morphism, with universal property.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "provides": "Relative normalization of a morphism f : X → Y, in f_*O_X. For the identity this is Y; for absolute normalization use the generic-point morphism. Applicable directly to the Stein-factorization construction.",
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Hom.smoothLocus",
@@ -321,7 +321,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
     "line": 291,
     "provides": "The open smooth locus of a morphism locally of finite presentation.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.IdealSheafData",
@@ -329,7 +329,7 @@
     "module": "Mathlib/AlgebraicGeometry/IdealSheaf/Basic.lean",
     "line": 65,
     "provides": "Quasi-coherent ideal sheaves on a scheme (bundled), with lattice and multiplication.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.Modules",
@@ -337,7 +337,7 @@
     "module": "Mathlib/AlgebraicGeometry/Modules/Sheaf.lean",
     "line": 36,
     "provides": "Sheaves of O_X-modules on a scheme.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Scheme.functionField",
@@ -345,7 +345,7 @@
     "module": "Mathlib/AlgebraicGeometry/FunctionField.lean",
     "line": 37,
     "provides": "Function field of an irreducible scheme (stalk at the generic point).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:AlgebraicGeometry.Smooth",
@@ -353,7 +353,7 @@
     "module": "Mathlib/AlgebraicGeometry/Morphisms/Smooth.lean",
     "line": 62,
     "provides": "Smooth morphisms of schemes (affine-locally smooth ring maps).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:CategoryTheory.Functor.IsFibered",
@@ -361,7 +361,7 @@
     "module": "Mathlib/CategoryTheory/FiberedCategory/Fibered.lean",
     "line": 65,
     "provides": "Fibered categories.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:CategoryTheory.Pseudofunctor.IsStack",
@@ -369,7 +369,7 @@
     "module": "Mathlib/CategoryTheory/Sites/Descent/IsStack.lean",
     "line": 49,
     "provides": "Stacks: pseudofunctors with effective descent for a Grothendieck topology.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:DualNumber",
@@ -377,7 +377,7 @@
     "module": "Mathlib/Algebra/DualNumber.lean",
     "line": 46,
     "provides": "Dual numbers R[ε].",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Ideal.adicTopology",
@@ -385,7 +385,7 @@
     "module": "Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
     "line": 91,
     "provides": "The I-adic topology on a ring.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Ideal.exists_pow_inf_eq_pow_smul",
@@ -393,7 +393,7 @@
     "module": "Mathlib/RingTheory/Filtration.lean",
     "line": 388,
     "provides": "Artin–Rees lemma for finite modules over Noetherian rings.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsAdic",
@@ -401,7 +401,7 @@
     "module": "Mathlib/Topology/Algebra/Nonarchimedean/AdicTopology.lean",
     "line": 158,
     "provides": "A topological ring whose topology is the J-adic one.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsAdic.isAdicComplete_iff",
@@ -409,7 +409,7 @@
     "module": "Mathlib/RingTheory/AdicCompletion/Topology.lean",
     "line": 76,
     "provides": "For an adic topology, I-adic completeness iff complete Hausdorff.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsAdicComplete",
@@ -417,7 +417,7 @@
     "module": "Mathlib/RingTheory/AdicCompletion/Basic.lean",
     "line": 56,
     "provides": "I-adically complete and separated modules.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsArtinianRing",
@@ -425,7 +425,7 @@
     "module": "Mathlib/RingTheory/Artinian/Defs.lean",
     "line": 66,
     "provides": "Artinian rings.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsDedekindDomain",
@@ -433,7 +433,7 @@
     "module": "Mathlib/RingTheory/DedekindDomain/Basic.lean",
     "line": 144,
     "provides": "Dedekind domains.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsDiscreteValuationRing",
@@ -441,7 +441,7 @@
     "module": "Mathlib/RingTheory/DiscreteValuationRing/Basic.lean",
     "line": 58,
     "provides": "Discrete valuation rings.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsDiscreteValuationRing.TFAE",
@@ -449,7 +449,7 @@
     "module": "Mathlib/RingTheory/DiscreteValuationRing/TFAE.lean",
     "line": 210,
     "provides": "Equivalent characterisations of DVRs among Noetherian local domains (integrally closed of dimension one, etc.).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsIntegralClosure.finite",
@@ -457,7 +457,7 @@
     "module": "Mathlib/RingTheory/DedekindDomain/IntegralClosure.lean",
     "line": 175,
     "provides": "Finiteness of the integral closure of an integrally closed Noetherian domain in a finite separable extension.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsLocalRing",
@@ -465,7 +465,7 @@
     "module": "Mathlib/RingTheory/LocalRing/Defs.lean",
     "line": 30,
     "provides": "Local rings.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsLocalRing.ResidueField",
@@ -473,7 +473,7 @@
     "module": "Mathlib/RingTheory/LocalRing/ResidueField/Defs.lean",
     "line": 30,
     "provides": "Residue field of a local ring.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsRegularLocalRing",
@@ -481,7 +481,7 @@
     "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
     "line": 51,
     "provides": "Regular local rings (maximal ideal generated by dim many elements).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:IsRegularRing",
@@ -489,7 +489,7 @@
     "module": "Mathlib/RingTheory/RegularLocalRing/Defs.lean",
     "line": 92,
     "provides": "Regular rings: Noetherian with regular localizations at primes.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:KaehlerDifferential",
@@ -497,7 +497,7 @@
     "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
     "line": 153,
     "provides": "Module of Kähler differentials Ω[S⁄R].",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:KaehlerDifferential.linearMapEquivDerivation",
@@ -505,7 +505,7 @@
     "module": "Mathlib/RingTheory/Kaehler/Basic.lean",
     "line": 327,
     "provides": "Linear maps out of Ω correspond to derivations.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Matrix.ProjGenLinGroup",
@@ -513,7 +513,7 @@
     "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Projective.lean",
     "line": 41,
     "provides": "The abstract group PGL(n, R).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Module.Grassmannian",
@@ -521,7 +521,7 @@
     "module": "Mathlib/RingTheory/Grassmannian.lean",
     "line": 68,
     "provides": "Grassmannian functor of points: submodules with finite projective quotient of fixed rank.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:Module.Grassmannian.functor",
@@ -529,7 +529,7 @@
     "module": "Mathlib/RingTheory/Grassmannian.lean",
     "line": 188,
     "provides": "The Grassmannian as a functor on R-algebras.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:PerfectField",
@@ -537,7 +537,7 @@
     "module": "Mathlib/FieldTheory/Perfect.lean",
     "line": 289,
     "provides": "Perfect fields.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:RingHom.FormallySmooth",
@@ -545,7 +545,7 @@
     "module": "Mathlib/RingTheory/RingHom/Smooth.lean",
     "line": 31,
     "provides": "Formally smooth ring homomorphisms.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:SheafOfModules.IsFinitePresentation",
@@ -553,7 +553,7 @@
     "module": "Mathlib/Algebra/Category/ModuleCat/Sheaf/Quasicoherent.lean",
     "line": 269,
     "provides": "Finitely presented sheaves of modules.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:TopCommRingCat",
@@ -561,7 +561,7 @@
     "module": "Mathlib/Topology/Category/TopCommRingCat.lean",
     "line": 28,
     "provides": "Category of topological commutative rings.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:derivationToSquareZeroEquivLift",
@@ -569,7 +569,7 @@
     "module": "Mathlib/RingTheory/Derivation/ToSquareZero.lean",
     "line": 116,
     "provides": "Derivations into a square-zero ideal correspond to lifts of the canonical map (torsor of lifts, ring level).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "mathlib:isArtinianRing_iff_isNilpotent_maximalIdeal",
@@ -577,7 +577,7 @@
     "module": "Mathlib/RingTheory/HopkinsLevitzki.lean",
     "line": 184,
     "provides": "A Noetherian local ring is Artinian iff its maximal ideal is nilpotent.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.InvertibleSheaf",
@@ -585,7 +585,7 @@
     "module": "TauCeti/AlgebraicGeometry/LineBundle/Basic.lean",
     "line": 78,
     "provides": "Invertible sheaves on a scheme as a full subcategory of modules.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.CartierDivisor",
@@ -593,7 +593,7 @@
     "module": "TauCeti/AlgebraicGeometry/CartierDivisor/Basic.lean",
     "line": 126,
     "provides": "Cartier divisors of an integral scheme (global sections of K^×/O^×).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "tauceti:TauCeti.AlgebraicGeometry.Scheme.Modules.Cohomology",
@@ -601,7 +601,7 @@
     "module": "TauCeti/AlgebraicGeometry/Cohomology/Basic.lean",
     "line": 61,
     "provides": "Sheaf cohomology Hⁱ(X, M) of an O_X-module (via the underlying abelian sheaf).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "tauceti:TauCeti.FiniteDVRExtension",
@@ -609,7 +609,7 @@
     "module": "TauCeti/AlgebraicGeometry/Curves/StableReduction/DVRExtension/Basic.lean",
     "line": 85,
     "provides": "Finite separable extension of a DVR's fraction field with a chosen prime of the integral closure and its localization (a DVR dominating R).",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "tauceti:TauCeti.Model",
@@ -617,7 +617,7 @@
     "module": "TauCeti/AlgebraicGeometry/Curves/StableReduction/Model/Basic.lean",
     "line": 44,
     "provides": "Flat finitely presented models over a DVR with an explicit generic-fibre isomorphism.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "tauceti:TauCeti.derivationToDualNumberEquivLift",
@@ -625,7 +625,7 @@
     "module": "TauCeti/RingTheory/Derivation/DualNumber.lean",
     "line": 71,
     "provides": "Derivations A → B correspond to lifts A → B[ε].",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "tauceti:TauCeti.genericFiber",
@@ -633,7 +633,7 @@
     "module": "TauCeti/AlgebraicGeometry/Fibers.lean",
     "line": 42,
     "provides": "Generic fibre of a scheme over a ring along R → K.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    },
    {
     "ref": "tauceti:TauCeti.specialFiber",
@@ -641,7 +641,7 @@
     "module": "TauCeti/AlgebraicGeometry/Fibers.lean",
     "line": 54,
     "provides": "Special fibre of a scheme over a local ring.",
-    "checked": "Statement read in the pinned source tree (Tau Ceti f790474, Mathlib 082e2d3) on 2026-10-09 by BP-SchemeAndStackFoundations--SF.4."
+    "checked": "Independently opened and statement checked at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 by REV-SchemeAndStackFoundations--SF.4. Declaration existence confirmed; supplied scope and remaining adapters distinguished in the review."
    }
   ]
  },
@@ -689,7 +689,7 @@
    "accessed": "2026-10-09",
    "readSections": [
     "§1.4–1.7 pp. 132–134 (Lemme de Gabber, Lemme 1.6 and proof)",
-    "§3 Exorciser les champs, 3.1–3.7 pp. 137–141 (level structures, Proposition 3.5, Lemma 3.5.7, Corollary 3.6, 3.7)",
+    "§3 Exorciser les champs, 3.1–3.7 pp. 137–141 (level structures, Proposition 3.5, Lemma 3.5.1, Corollary 3.6, 3.7)",
     "§4.1–4.3 pp. 141–142 (skimmed; concerns semi-abelian schemes)"
    ]
   },
@@ -718,7 +718,7 @@
    "sha256": "08578ca15b17f51ee12c398ef305af3446057063c015e2bc8beb6012bcc26430",
    "accessed": "2026-10-09",
    "readSections": [
-    "§6, Theorem 6.1 and Proposition 6.2 with proofs, pp. 8–9"
+    "§6, Theorem 6.1 and Proposition 6.2 with proofs, p. 11 in arXiv:1608.08882v2."
    ]
   },
   {
@@ -751,7 +751,7 @@
    ],
    "title": "First-order thickenings of schemes",
    "kind": "definition",
-   "statement": "A thickening of schemes is a closed immersion i : T → T′ whose underlying map of spaces is a bijection (equivalently, its ideal sheaf I = ker(O_T′ → i_*O_T) is locally nilpotent). It is a first-order thickening when I² = 0 and a finite-order thickening when Iⁿ = 0 for some n. For a first-order thickening the conormal sheaf C_{T/T′} = I/I² is I itself, a quasi-coherent O_T-module. A thickening over a base S is a thickening in the category of S-schemes. In Mathlib vocabulary the predicate on i is: IsClosedImmersion i together with i.ker * i.ker = ⊥ (first order) or IsNilpotent i.ker (finite order), using the ideal sheaf i.ker of Mathlib's IdealSheafData.",
+   "statement": "A thickening of schemes is a closed immersion i : T → T′ whose underlying map of spaces is a bijection (equivalently, on every affine chart its defining ideal consists of nilpotent elements; a uniform nilpotence exponent on an open neighbourhood additionally follows when that ideal is finitely generated). It is a first-order thickening when I² = 0 and a finite-order thickening when Iⁿ = 0 for some n. For a first-order thickening the conormal sheaf C_{T/T′} = I/I² is I itself, a quasi-coherent O_T-module. A thickening over a base S is a thickening in the category of S-schemes. In Mathlib vocabulary the predicate on i is: IsClosedImmersion i together with i.ker * i.ker = ⊥ (first order) or IsNilpotent i.ker (finite order), using the ideal sheaf i.ker of Mathlib's IdealSheafData.",
    "hypotheses": [
     "Schemes and morphisms are those of Mathlib's AlgebraicGeometry.Scheme; no Noetherian hypothesis.",
     "Affine first-order thickenings Spec(B/J) → Spec B with J² = 0 are the test objects of the lifting definitions."
@@ -832,6 +832,11 @@
      "name": "AlgebraicGeometry.not_isThickening_origin",
      "kind": "non-example",
      "statement": "The closed point Spec k → A¹_k is a closed immersion but not a thickening: its ideal (x) is not nilpotent and the map is not surjective."
+    },
+    {
+     "name": "AlgebraicGeometry.thickening_nil_not_nilpotent",
+     "kind": "non-example",
+     "statement": "For A = k[x_i : i ≥ 1]/(x_i^{i+2} : i ≥ 1), the nil ideal N generated by all x_i defines a thickening Spec(A/N) → Spec A, although N^m ≠ 0 for every m. This distinguishes a thickening from a locally uniformly nilpotent ideal."
     }
    ],
    "uses": [
@@ -878,7 +883,7 @@
     "Define the three predicates by the lifting properties against affine first-order thickenings over S (Stacks 02H0, 02H8, 02HG).",
     "Prove formally étale ⟺ formally smooth and formally unramified (Stacks 02HH, Lemma 37.11.4), mirroring Mathlib's Algebra.FormallyEtale.iff_formallyUnramified_and_formallySmooth.",
     "Prove the affine comparison: for affine X and S the predicate is Algebra.FormallySmooth of the ring map (Stacks 02H4, Lemma 37.11.6), using Mathlib's Algebra.FormallySmooth.exists_lift and the converse test Algebra.FormallySmooth.iff_split_surjection.",
-    "Prove Zariski-locality on source and target (Stacks 0D0F, Lemma 37.11.10): restrict lifts to affine opens, and glue local lifts using the torsor of SchemeAndStackFoundations:SF.4/smooth-lifting-torsor and the vanishing of H¹ of a quasi-coherent sheaf on an affine scheme (Stacks 0D0E, Lemma 37.11.9).",
+    "Prove Zariski-locality on source and target (Stacks 0D0F, Lemma 37.11.10): the sheaf of local lifts is a torsor under the quasi-coherent Hom sheaf of pulled-back differentials into the square-zero ideal. The affine H¹-vanishing argument in Stacks 0D0E, Lemma 37.11.9, glues those lifts without using the later smooth-scheme deformation classification.",
     "Stability under composition and base change follows from the lifting definition."
    ],
    "acceptance": [
@@ -1095,7 +1100,8 @@
    "statement": "Fix a Noetherian ring Λ and a finite ring map Λ → k to a field (the classical case: Λ a complete Noetherian local ring with residue field k). The category C_Λ has as objects Artinian local Λ-algebras A together with a Λ-algebra identification A/m_A ≅ k, and as morphisms local Λ-algebra homomorphisms compatible with the identifications. The category Ĉ_Λ is defined in the same way with complete Noetherian local Λ-algebras with residue field k. A small extension is a surjection A′ → A in C_Λ whose kernel is a nonzero principal ideal annihilated by m_{A′}. The dual numbers k[ε] are the object k ⊕ kε with ε² = 0.",
    "hypotheses": [
     "Λ Noetherian; Λ → k finite (in the classical case, Λ complete local with residue field k).",
-    "Objects carry a fixed residue identification; morphisms respect it."
+    "Objects carry a fixed residue identification; morphisms respect it.",
+    "For the classical hull and power-series criteria, Λ is a complete Noetherian local ring and Λ → k is its residue-field quotient (surjective with kernel m_Λ)."
    ],
    "proofSteps": [
     "Define the full subcategory of Λ-algebras with the stated properties; Artinian local means Noetherian with nilpotent maximal ideal (Mathlib isArtinianRing_iff_isNilpotent_maximalIdeal) (Stacks 06GC, Definition 90.3.1).",
@@ -1165,7 +1171,7 @@
     {
      "name": "Deformation.zmod_prime_pow_mem",
      "kind": "computation",
-     "statement": "Z/p^n with its identification Z/p^n / (p) ≅ F_p is an object of C_{Z_p}, and Z/p^{n+1} → Z/p^n is a small extension."
+     "statement": "Z/p^{n+1} with its identification Z/p^{n+1} / (p) ≅ F_p is an object of C_{Z_p}, and Z/p^{n+1} → Z/p^{n+1} is a small extension."
     },
     {
      "name": "Deformation.residue_terminal",
@@ -1214,7 +1220,7 @@
    ],
    "title": "Deformation functors and Schlessinger's conditions",
    "kind": "definition",
-   "statement": "A predeformation functor is a functor F : C_Λ → Set with F(k) a single point. For morphisms A′ → A and A″ → A in C_Λ consider the natural map θ : F(A′ ×_A A″) → F(A′) ×_{F(A)} F(A″). Schlessinger's conditions are: (H1) θ is surjective whenever A″ → A is a small extension; (H2) θ is bijective when A = k and A″ = k[ε]; (H3) the tangent space T_F = F(k[ε]) is finite-dimensional; (H4) θ is bijective whenever A′ = A″ → A is a small extension. Under (H2), T_F carries a natural k-vector space structure. A deformation functor is a predeformation functor satisfying the Rim–Schlessinger condition, which for functors is (H4) together with (H1) and (H2) for all such pairs. The more general groupoid-valued version (categories cofibred in groupoids over C_Λ with conditions (S1), (S2), (RS)) reduces to these conditions on the functor of isomorphism classes.",
+   "statement": "A predeformation functor is a functor F : C_Λ → Set with F(k) a single point. For morphisms A′ → A and A″ → A in C_Λ consider the natural map θ : F(A′ ×_A A″) → F(A′) ×_{F(A)} F(A″). Schlessinger's conditions are: (H1) θ is surjective whenever A″ → A is a small extension; (H2) θ is bijective when A = k and A″ = k[ε]; (H3) the tangent space T_F = F(k[ε]) is finite-dimensional; (H4) θ is bijective whenever A′ = A″ → A is a small extension. Under (H2), T_F carries a natural k-vector space structure. A deformation functor is a predeformation functor satisfying the Rim–Schlessinger condition, which for functors is (H4) together with (H1) and (H2) for all such pairs. For a category cofibred in groupoids satisfying (RS), the functor of isomorphism classes satisfies (H1) and (H2), but need not satisfy (H4): automorphisms can obstruct injectivity of the comparison map (Stacks 06JA).",
    "hypotheses": [
     "F(k) a singleton.",
     "Conditions are stated for all objects of C_Λ; (H3) uses the vector-space structure given by (H2)."
@@ -1239,6 +1245,11 @@
      "sourceId": "Stacks",
      "locator": "Tags 06GS (Definition 90.6.2), 06HW (Definition 90.10.1), 06HY (Remark 90.10.3), 0D3G (Remark 90.13.5), 06IG (Definition 90.12.1), 06IH (Lemma 90.12.2), 06J2 (Definition 90.16.1), 06J6 (Remark 90.16.5), 06J7 (Lemma 90.16.6), 06J9 (Definition 90.16.8), 06JA (Remark 90.16.9), 06JI (Lemma 90.17.5)",
      "match": "Defines predeformation categories and functors, the conditions (S1), (S2), (RS) and their functor forms (H1)–(H4), the tangent space with its vector-space structure, deformation functors, and the torsor structure of lifts along small extensions."
+    },
+    {
+     "sourceId": "Stacks",
+     "locator": "Tag 06JA, Lemma 90.16.9",
+     "match": "The isomorphism-class functor of a deformation category satisfies S1 and S2; RS does not automatically descend to a set-valued RS condition."
     }
    ],
    "implementationStatus": "unchecked",
@@ -1266,7 +1277,7 @@
     {
      "name": "Deformation.prorep",
      "role": "example",
-     "statement": "For R ∈ Ĉ_Λ the functor h_R satisfies H1–H4, and T_{h_R} ≅ Hom_k(m_R/(m_R² + m_Λ R), k)."
+     "statement": "For R ∈ Ĉ_Λ, h_R satisfies H1–H4. Its tangent space is Der_Λ(R,k), using the augmentation. In the classical residue-field setting this identifies with Hom_k(m_R/(m_R² + m_Λ R),k)."
     },
     {
      "name": "Deformation.PredeformationFunctor.lifts_torsor",
@@ -1336,14 +1347,14 @@
    ],
    "title": "Smooth morphisms of functors, hulls and prorepresentability",
    "kind": "definition",
-   "statement": "A natural transformation F → G of functors C_Λ → Set is smooth if for every surjection A′ → A in C_Λ the map F(A′) → F(A) ×_{G(A)} G(A′) is surjective. For R ∈ Ĉ_Λ and a formal element ξ ∈ lim_n F(R/m_R^n), the pair (R, ξ) is versal if the induced transformation h_R → F is smooth, and it is a hull (minimal versal) if in addition the induced map on tangent spaces T_{h_R} → T_F is bijective. F is prorepresentable if h_R → F is an isomorphism for some (R, ξ). A hull is unique up to non-unique isomorphism; any versal pair is a hull times a power series ring.",
+   "statement": "A natural transformation F → G of functors C_Λ → Set is smooth if for every surjection A′ → A in C_Λ the map F(A′) → F(A) ×_{G(A)} G(A′) is surjective. For R ∈ Ĉ_Λ and a formal element ξ ∈ lim_n F(R/m_R^n), the pair (R, ξ) is versal if the induced transformation h_R → F is smooth, and it is a hull (minimal versal) if in addition the induced map on tangent spaces T_{h_R} → T_F is bijective. F is prorepresentable if h_R → F is an isomorphism for some (R, ξ). A hull is unique up to non-unique isomorphism; in the classical coefficient setting, for F satisfying (H1) and (H2), a versal pair is a hull times a finite-variable power series ring. Without (H2), a ring-minimal versal object in the sense of Stacks 06T4 need not be a tangent-bijective hull.",
    "hypotheses": [
     "Functors F with F(k) a point; Λ in the classical case for uniqueness statements."
    ],
    "proofSteps": [
-    "Define smoothness of morphisms of functors (Stacks 06HG, Definition 90.8.1) and formal objects as compatible systems over R/m^n (Stacks 06H3, Definition 90.7.1).",
-    "Versal formal objects (Stacks 06HR, Definition 90.8.9) and minimal versal ones (Stacks 06T4, Definition 90.14.4); prorepresentability (Stacks 06GX, Definition 90.6.1).",
-    "A minimal versal object exists when a versal one does, is unique up to isomorphism, and every versal object is a minimal one tensored with a power series ring (Stacks 06T5, Lemma 90.14.5)."
+    "Define smooth morphisms and compatible formal objects by Stacks 06HG and 06H3; define a hull as versal with bijective tangent map.",
+    "Keep Stacks 06T4 (minimality of the underlying ring) distinct from tangent-bijective minimality. Under H1 and H2 in the classical coefficient setting, Schlessinger gives a hull; smooth local maps between the resulting complete rings and Stacks 06T5 give the power-series factorization.",
+    "Uniqueness of hulls concerns an augmented Λ-algebra isomorphism compatible with the formal elements; the typed prototype records only the weaker ring-isomorphism consequence."
    ],
    "acceptance": [
     "h_R is prorepresentable with hull (R, id).",
@@ -1396,7 +1407,7 @@
     {
      "name": "Deformation.IsVersal.powerSeries",
      "role": "other",
-     "statement": "A versal pair is a hull (R₀, ξ₀) with R ≅ R₀[[t₁,…,t_r]]."
+     "statement": "Assuming the classical coefficient hypotheses and H1 and H2, every versal pair is a hull times a finite-variable power series ring."
     }
    ],
    "tests": [
@@ -1454,7 +1465,8 @@
    "kind": "theorem",
    "statement": "Let Λ be a complete Noetherian local ring with residue field k (the classical case), and F : C_Λ → Set a functor with F(k) a point. (1) F has a hull iff F satisfies (H1), (H2) and (H3). (2) F is prorepresentable iff F satisfies (H1)–(H4), equivalently iff F is a deformation functor with finite-dimensional tangent space for which Der_Λ(k, k) → T_F is injective (the injectivity holds automatically in the classical case).",
    "hypotheses": [
-    "Classical case for the hull statement as stated; Stacks proves the general case with k/k′ separable."
+    "Classical case for the hull statement as stated; Stacks proves the general case with k/k′ separable.",
+    "For the classical hull and power-series criteria, Λ is a complete Noetherian local ring and Λ → k is its residue-field quotient (surjective with kernel m_Λ)."
    ],
    "proofSteps": [
     "Existence of a versal object from (S1), (S2) and finiteness of T_F by successive approximation along small extensions (Stacks 06IW, Lemma 90.13.4), then a minimal versal object (Stacks 06T5).",
@@ -1493,14 +1505,14 @@
    ],
    "title": "Obstruction theories for deformation functors",
    "kind": "definition",
-   "statement": "Let F be a deformation functor on C_Λ. An obstruction theory for F with values in a finite-dimensional k-vector space O assigns to every small extension e : 0 → I → A′ → A → 0 and every ξ ∈ F(A) an element ob_e(ξ) ∈ O ⊗_k I, functorial in morphisms of small extensions, such that ob_e(ξ) = 0 iff ξ lifts to F(A′). F is unobstructed (smooth) if it admits the zero obstruction theory, i.e. lifts always exist. The obstruction space of a hull: if (R, ξ) is a hull with R = Λ[[t₁,…,t_d]]/J and d = dim T_F, then dim_k(J/m J) ≤ dim O.",
+   "statement": "For a predeformation functor F on C_Λ, an obstruction theory with values in a finite-dimensional k-vector space O assigns ob_e(ξ) ∈ O ⊗_k I for every small extension e : 0 → I → A′ → A → 0 and ξ ∈ F(A). The classes are natural for morphisms of extensions, including the induced linear maps on kernels, and vanish exactly when ξ lifts. The zero theory exists exactly when F is unobstructed. No choice of generator of I is part of this definition.",
    "hypotheses": [
-    "F satisfies (RS); obstruction maps are linear in I and compatible with base change of small extensions."
+    "F is a predeformation functor; obstruction classes are natural with the induced maps on kernels. Hull statements additionally need the classical coefficient hypotheses and H1–H3."
    ],
    "proofSteps": [
     "Define the notion following the obstruction theories of Artin's axioms specialised to C_Λ (Stacks 07YG, Definition 98.22.1; examples 07YH, 07YI).",
     "Smoothness of F is equivalent to the vanishing of every obstruction (Stacks 06HP, Definition 90.9.1 for unobstructedness).",
-    "The bound on the number of relations follows by applying the obstruction map to the small extensions Λ[[t]]/(m J + J′) → Λ[[t]]/J′ built from the hull presentation and comparing with the lifting property of the hull."
+    "A bound for the number of relations of a minimal hull presentation needs a separate verified argument; it is deferred to the recorded relation-bound gap."
    ],
    "acceptance": [
     "The zero obstruction theory exists exactly for unobstructed F, e.g. h_R with R a power series ring over Λ."
@@ -1535,14 +1547,14 @@
      "statement": "For an unobstructed F, O = 0 is an obstruction theory."
     },
     {
-     "name": "Deformation.ObstructionTheory.relations_le",
-     "role": "relation",
-     "statement": "A hull R = Λ[[t₁..t_d]]/J with d = dim T_F has at most dim O minimal relations."
-    },
-    {
      "name": "Deformation.ObstructionTheory.map",
      "role": "functoriality",
      "statement": "An obstruction theory for G pulls back along a smooth morphism F → G with the same obstruction space."
+    },
+    {
+     "name": "Deformation.ObstructionTheory.naturality",
+     "role": "functoriality",
+     "statement": "For a commutative square of small extensions, the induced map O ⊗ I → O ⊗ I′ carries the obstruction of ξ to the obstruction of its image."
     }
    ],
    "tests": [
@@ -1640,14 +1652,14 @@
    ],
    "title": "Deformations of smooth schemes and of line bundles",
    "kind": "theorem",
-   "statement": "Let k be a field, Λ as in C_Λ, and X₀ a smooth separated scheme of finite type over k with tangent sheaf T = Hom(Ω_{X₀/k}, O_{X₀}). Let Def_{X₀}(A) be the set of isomorphism classes of flat A-schemes X with X ⊗_A k ≅ X₀. (1) Def_{X₀} satisfies (RS), its tangent space is H¹(X₀, T) and its infinitesimal automorphisms are H⁰(X₀, T); along a small extension with kernel I the lifts of a deformation, when they exist, form a torsor under H¹(X₀, T) ⊗ I, and H²(X₀, T) is an obstruction space. (2) If X₀ is proper, H¹ is finite-dimensional, so Def_{X₀} has a hull; if moreover H⁰(X₀, T) = 0 it is prorepresentable. (3) For a line bundle L₀ on X₀ (X₀ any proper scheme over k) and a deformation X over A′ → A with kernel I, lifts of L₀|_X along the thickening form a torsor under H¹(X₀, O) ⊗ I when nonempty, and the obstruction lies in H²(X₀, O) ⊗ I. In particular on a proper curve (H² = 0) every line bundle lifts along every small extension, and every deformation of a smooth proper curve is unobstructed.",
+   "statement": "Let Λ be a complete Noetherian local coefficient ring with residue field k, and X₀ a smooth separated finite-type k-scheme. The groupoid of flat deformations with a chosen special-fibre identification satisfies (RS). Its isomorphism-class functor satisfies H1 and H2; its tangent space is H¹(X₀,T), infinitesimal automorphisms are H⁰(X₀,T), and obstructions across a small extension of kernel I lie in H²(X₀,T) ⊗ I. Liftings with a chosen identification over the given A-deformation, up to isomorphisms preserving that identification, form an H¹(X₀,T) ⊗ I torsor when nonempty. For proper X₀, the isomorphism-class functor has a hull; H⁰(X₀,T)=0 suffices for prorepresentability. Given a flat thickening X_A ⊂ X_A′ and a line bundle L_A on X_A, liftings of L_A together with an identification on X_A form an H¹(X₀,O) ⊗ I torsor, with obstruction in H²(X₀,O) ⊗ I. The unframed fibre Pic(X_A′) → Pic(X_A) is a quotient by the boundary from H⁰(O_{X_A}^×), not automatically that torsor. On proper curves H² of quasi-coherent sheaves vanishes, so line bundles lift and smooth proper curves are unobstructed.",
    "hypotheses": [
     "X₀ smooth over k for (1); proper for finiteness (2); (3) needs only X₀ proper and the exponential-free description of O^× on a square-zero thickening, 1 + I ≅ I."
    ],
    "proofSteps": [
     "Specialise SF.4/algebra-deformation-classes: for smooth X₀, NL_{X₀/k} ≃ Ω[0] with Ω finite locally free (Stacks 0D0N), so Ext^i(NL, O ⊗ I) = H^i(X₀, T) ⊗ I; local deformations are trivial by the lifting property of smooth affines (SF.4/smooth-lifting-torsor), and gluing local trivial deformations gives the H¹ torsor and the H² obstruction (Čech description).",
-    "Def_X satisfies (RS) and has Inf = Der_k(O_X, O_X) and T = Ext¹(NL_{X/k}, O_X) (Stacks 0DY7, 0DY8, 0DY9); finite dimensionality for proper X (0DYA); hull and prorepresentability (0ET5).",
-    "Line bundles: on a first-order thickening X ⊂ X′ with ideal I, the exact sequence 0 → I → O_{X′}^× → O_X^× → 1 (u ↦ 1 + u) gives the long exact sequence H¹(X, I) → Pic(X′) → Pic(X) → H²(X, I) (Stacks 0C6R, Lemma 37.4.1), hence the torsor and the obstruction; with X′ flat, I ≅ O_{X₀} ⊗ I.",
+    "Apply Stacks 0DY8 to the deformation groupoid, then 06JA to its isomorphism classes; use 0DY9, 0DYA and 0ET5 for the tangent, finiteness and hull statements. Do not infer H4 from groupoid RS.",
+    "For line bundles use 1 + I ≅ I and the exact sequence of Stacks 0C6R. Keeping the identification of the restriction gives the H¹ torsor; forgetting it also quotients by the boundary of H⁰ of units.",
     "On a curve H² of a quasi-coherent sheaf vanishes (dimension one), so deformations and line bundles are unobstructed (Stacks 0DZQ for unobstructedness of one-dimensional lci schemes)."
    ],
    "acceptance": [
@@ -1686,12 +1698,12 @@
    ],
    "title": "Versal deformation of a node",
    "kind": "theorem",
-   "statement": "Let k be a field and B₀ = k[[u, v]]/(uv). Over Λ (complete local with residue field k), the deformation functor of B₀ (flat deformations of the complete local k-algebra) has hull Λ[[t]] with universal deformation Λ[[t]][[u, v]]/(uv − t). More generally, for a nodal curve C₀ over k with nodes x₁,…,x_m, the map from global deformations of C₀ to the product of the local deformation functors at the nodes is smooth, and the deformations of a proper nodal curve are unobstructed; for a stable curve of genus g ≥ 2 the hull is Λ[[t₁,…,t_{3g−3}]] with the node x_i smoothed by the equation uv = t_i.",
+   "statement": "Let k be an algebraically closed field and B₀ = k[[u, v]]/(uv). Over Λ (complete local with residue field k), the deformation functor of B₀ (flat deformations of the complete local k-algebra) has hull Λ[[t]] with universal deformation Λ[[t]][[u, v]]/(uv − t). More generally, for a nodal curve C₀ over k with nodes x₁,…,x_m, the map from global deformations of C₀ to the product of the local deformation functors at the nodes is smooth, and the deformations of a proper nodal curve are unobstructed; for a stable curve of genus g ≥ 2 the hull is Λ[[t₁,…,t_{3g−3}]] with the node x_i smoothed by the equation uv = t_i.",
    "hypotheses": [
-    "k a field; for the global statement C₀ proper and at-worst-nodal over k, stable for the dimension count."
+    "k algebraically closed; continuous deformations of the split complete local node, over a complete regular local coefficient ring Λ with residue field k as in DM69 §1 pp. 79–81; proper nodal C₀ for the global statement and stable for the dimension count."
    ],
    "proofSteps": [
-    "Local: compute Ext¹(NL_{B₀/k}, B₀) = B₀/(u, v) = k, one-dimensional, and the deformation uv = t realises it; unobstructedness follows from the lci form (Stacks 08S6), giving the hull Λ[[t]] by SF.4/schlessinger-theorem.",
+    "Compute the naive cotangent complex for the finitely presented polynomial node k[u,v]/(uv), giving T¹ = k. Pass to continuous deformations of its completion only after the completion comparison in the recorded gap; ordinary algebraic Kähler differentials of k[[u,v]] cannot replace continuous differentials. The family uv=t gives the smoothing parameter (DM69 p. 81).",
     "Global: the local-to-global spectral sequence for Ext(NL_{C₀}, O) has H²(C₀, T) = 0 on a curve, so global obstructions vanish and the map to local deformations is smooth (DM69 Proposition (1.5)); the dimension 3g − 3 is χ-computation via Riemann–Roch on the normalization (DM69 Theorem (1.6)).",
     "de Jong 2.23 records the same local form over a general complete local base: B ≅ A′[[u, v]]/(Q − h)."
    ],
@@ -1847,7 +1859,8 @@
    },
    "declarations": [
     "AlgebraicGeometry.Spf"
-   ]
+   ],
+   "prototypeNote": "The Lean AdicSystem/SpfSystem/completionSystem forms are auxiliaries with a chosen ideal and level-preserving maps. They do not yet model all continuous formal morphisms or prove the topologically locally ringed-space comparison. The packet targets retain the genuine formal-scheme meaning."
   },
   {
    "id": "SchemeAndStackFoundations:SF.4/formal-scheme",
@@ -1976,7 +1989,8 @@
    },
    "declarations": [
     "AlgebraicGeometry.FormalScheme"
-   ]
+   ],
+   "prototypeNote": "The Lean AdicSystem/SpfSystem/completionSystem forms are auxiliaries with a chosen ideal and level-preserving maps. They do not yet model all continuous formal morphisms or prove the topologically locally ringed-space comparison. The packet targets retain the genuine formal-scheme meaning."
   },
   {
    "id": "SchemeAndStackFoundations:SF.4/formal-completion",
@@ -2087,7 +2101,8 @@
    },
    "declarations": [
     "AlgebraicGeometry.Scheme.formalCompletion"
-   ]
+   ],
+   "prototypeNote": "The Lean AdicSystem/SpfSystem/completionSystem forms are auxiliaries with a chosen ideal and level-preserving maps. They do not yet model all continuous formal morphisms or prove the topologically locally ringed-space comparison. The packet targets retain the genuine formal-scheme meaning."
   },
   {
    "id": "SchemeAndStackFoundations:SF.4/coherent-formal-modules",
@@ -2201,7 +2216,8 @@
    "declarations": [
     "AlgebraicGeometry.Scheme.CoherentFormalModule",
     "AlgebraicGeometry.Scheme.completionFunctor"
-   ]
+   ],
+   "prototypeNote": "The Lean AdicSystem/SpfSystem/completionSystem forms are auxiliaries with a chosen ideal and level-preserving maps. They do not yet model all continuous formal morphisms or prove the topologically locally ringed-space comparison. The packet targets retain the genuine formal-scheme meaning."
   },
   {
    "id": "SchemeAndStackFoundations:SF.4/theorem-on-formal-functions",
@@ -2285,7 +2301,7 @@
    ],
    "title": "Grothendieck's existence theorem",
    "kind": "theorem",
-   "statement": "Let A be a Noetherian ring complete with respect to an ideal I, and f : X → Spec A a proper morphism. Then the completion functor Coh(O_X) → Coh(X, I O_X), F ↦ (F/IⁿF)_n, is an equivalence of categories onto coherent formal modules. More generally, for X separated of finite type over A, the completion functor is an equivalence between coherent O_X-modules whose support is proper over A and coherent formal modules whose support is proper over A/I. For every algebraized F, the comparison F^ ≅ (F_n) is part of the data and is unique.",
+   "statement": "Let A be a Noetherian ring complete with respect to an ideal I, and f : X → Spec A a proper morphism. Then the completion functor Coh(O_X) → Coh(X, I O_X), F ↦ (F/IⁿF)_n, is an equivalence of categories onto coherent formal modules. More generally, for X separated of finite type over A, the completion functor is an equivalence between coherent O_X-modules whose support is proper over A and coherent formal modules whose support is proper over A/I. An algebraization includes a chosen compatible comparison F^ ≅ (F_n). Two algebraizations have a unique isomorphism inducing the specified formal comparison, by full faithfulness.",
    "hypotheses": [
     "A Noetherian and I-adically complete (Mathlib IsAdicComplete with IsNoetherianRing)."
    ],
@@ -2581,17 +2597,17 @@
    ],
    "title": "Strict transforms along blowups and modifications",
    "kind": "construction",
-   "statement": "Let S be a scheme, f : X → S a morphism and F a quasi-coherent O_X-module. (1) For the blowup b : S′ → S in a closed subscheme Z with exceptional divisor E, the strict transform of F is the quotient F′ of pr_X*F on X ×_S S′ by the subsheaf of sections supported on pr⁻¹E (locally: sections killed by a power of a local equation of E), and the strict transform of X is the closed subscheme X′ ⊂ X ×_S S′ cut out by the sections of O supported on pr⁻¹E; X′ is the blowup of X in f⁻¹Z. (2) For S Noetherian integral, f of finite type, and a modification (or alteration) φ : S′ → S, the strict transform X′ is the closed subscheme of X ×_S S′ obtained by dividing out the O_{S′}-torsion; equivalently X′ is the scheme-theoretic closure of X ×_S φ⁻¹(U) for any dense open U ⊆ S over which X is flat and φ is finite flat. Strict transforms are transitive under composition of modifications, and a closed subscheme of X ×_S S′ that is flat over S′ and agrees with X ×_S S′ over a dense open equals the strict transform.",
+   "statement": "For a modification S′ → S of integral Noetherian schemes and a finite-type morphism X → S, de Jong’s base strict transform X′ is obtained from X ×_S S′ by killing sections locally annihilated by a nonzero element of the integral base S′. For a finite-type quasi-coherent module use the corresponding quotient by base torsion. If U ⊂ S is a dense open where X → S is flat and S′ → S is an isomorphism, X′ is the scheme-theoretic closure of X_U in X ×_S S′. Separately, the blowup strict transform imported from StableReduction Layer 4 kills exceptional-divisor torsion and is the closure over the full complement of the centre. It agrees with the base-torsion transform when X is flat over that full complement; flatness over some smaller dense open alone is insufficient. A closed subscheme flat over S′ and schematically equal to the full base change over a dense open is the base strict transform.",
    "hypotheses": [
-    "(1) arbitrary S with Z a closed subscheme (finite presentation for admissibility); (2) S Noetherian integral, f of finite type."
+    "S and S′ integral Noetherian; X → S finite type; for the closure formula U is dense, X_U → U flat, and S′ → S an isomorphism over U."
    ],
    "proofSteps": [
-    "(1) is Stacks 080D (Definition 31.34.1) and 080E (Lemma 31.34.2): the strict transform of X is the blowup of X in f⁻¹Z, and module strict transforms are pushforwards of strict transforms relative to that blowup; the blowup itself comes from Tau Ceti StableReduction Layer 4.",
-    "(2) is de Jong 1996, 2.18 (and 2.20 for alterations): the torsion quotient agrees with the scheme-theoretic closure of the restriction over a dense open of flatness (generic flatness, Stacks 052A), giving transitivity and the flat characterisation.",
-    "Scheme-theoretic closures are Mathlib's scheme-theoretic image (Scheme.Hom.image) of the open immersion."
+    "Define the base-torsion quotient and prove transitivity as in de Jong 1996, 2.18 (p. 60; 2.20 extends the construction to alterations). A dense open of flatness and isomorphism identifies it with the schematic closure of the restricted family.",
+    "Import the blowup strict transform from StableReduction Layer 4. Stacks 080D–080E give its exceptional-torsion convention and identification with the blowup of X in the preimage of the centre. For comparison with base torsion require flatness on the full complement of the centre; the vertical-line test prevents conflating the two conventions.",
+    "Construct schematic closures by Mathlib’s Scheme.Hom.image of the restricted open immersion. For uniqueness use flatness over the integral modified base and schematic equality on a dense open; mere support containment is insufficient."
    ],
    "acceptance": [
-    "Strict transform of a line through the origin under the blowup of 𝔸² at the origin is isomorphic to the line; the strict transform of the origin itself is empty."
+    "For the blowup of 𝔸²_k at the origin, the Layer 4 blowup strict transform of the x-axis is the x-axis, whereas its base-torsion transform is empty because y kills its structure sheaf. Both transforms of the origin are empty."
    ],
    "prerequisites": [
     "tauceti:TauCetiRoadmap/StableReduction#layer-4-blowups-and-intersection-theory-on-arithmetic-surfaces",
@@ -2617,22 +2633,22 @@
     {
      "name": "AlgebraicGeometry.strictTransform",
      "role": "constructor",
-     "statement": "The closed subscheme X′ ⊂ X ×_S S′ for a blowup (or modification) S′ → S and X → S."
+     "statement": "The base-torsion closed subscheme X′ ⊂ X ×_S S′ for a modification S′ → S of integral Noetherian schemes and a finite-type X → S, with its map to S′."
     },
     {
      "name": "AlgebraicGeometry.strictTransformModule",
      "role": "constructor",
-     "statement": "The quotient F′ of pr_X*F by sections supported on the exceptional divisor."
+     "statement": "The pullback module modulo sections locally annihilated by nonzero elements of the integral modified base. Agreement with exceptional torsion for a blowup requires the original module to be flat over the full complement of its centre."
     },
     {
      "name": "AlgebraicGeometry.strictTransform_eq_blowup",
      "role": "characterisation",
-     "statement": "For a blowup in Z, the strict transform of X is the blowup of X in f⁻¹Z (Stacks 080E)."
+     "statement": "For S′ the blowup in Z and X → S flat over all of S ∖ Z, the base-torsion strict transform agrees with the Layer 4 blowup strict transform and hence the blowup of X in f⁻¹Z (Stacks 080E)."
     },
     {
      "name": "AlgebraicGeometry.strictTransform_eq_closure",
      "role": "characterisation",
-     "statement": "Over a dense open U of flatness where S′ → S is an isomorphism (or finite flat), X′ is the scheme-theoretic closure of X ×_S φ⁻¹U."
+     "statement": "Over a dense flat open U where the modification is an isomorphism, the base-torsion strict transform is the scheme-theoretic closure of X_U."
     },
     {
      "name": "AlgebraicGeometry.strictTransform_comp",
@@ -2642,19 +2658,19 @@
     {
      "name": "AlgebraicGeometry.strictTransform_unique_of_flat",
      "role": "universal-property",
-     "statement": "A closed subscheme of X ×_S S′ flat over S′ and equal to X ×_S S′ over a dense open is the strict transform."
+     "statement": "A closed subscheme flat over the integral modified base and schematically equal to the base change over a dense open equals the strict transform; support containment alone is insufficient."
     },
     {
      "name": "AlgebraicGeometry.strictTransform_closedImmersion",
      "role": "compatibility",
-     "statement": "For X → S a closed immersion this is the strict transform of a closed subscheme provided by Tau Ceti StableReduction Layer 4."
+     "statement": "Comparison with the imported Layer 4 blowup transform is conditional, not an unconditional equality for closed immersions. For a vertical closed subscheme the base-torsion transform is empty, while the blowup transform can be nonempty; use flatness over the full complement of the centre for agreement."
     }
    ],
    "tests": [
     {
      "name": "AlgebraicGeometry.strictTransform_line",
      "kind": "computation",
-     "statement": "For S = 𝔸²_k blown up at the origin and X = V(y) the x-axis, the strict transform is isomorphic to X and meets the exceptional divisor in one point, while the total transform X ×_S S′ also contains the exceptional P¹."
+     "statement": "For S = 𝔸²_k blown up at the origin and X = V(y), the base-torsion transform is empty since y annihilates its structure sheaf. The distinct Layer 4 blowup strict transform is isomorphic to the line and meets the exceptional divisor in one point; the total transform also contains the exceptional P¹."
     },
     {
      "name": "AlgebraicGeometry.strictTransform_self",
@@ -2712,7 +2728,7 @@
     "S integral; f of finite type; F of finite type."
    ],
    "proofSteps": [
-    "Reduce to the affine case and prove generic freeness by Noether normalisation over the fraction field and induction on the dimension of the generic fibre (Stacks 051R, 051S; Nitsure Lemma 4.1 for the Noetherian case), using Mathlib's exists_finite_inj_algHom_of_fg (Noether normalisation) and spreading freeness from the generic point (Module.FinitePresentation.exists_free_localizedModule_powers).",
+    "Reduce to the affine case and prove generic freeness for finite modules over finite-type algebras over a domain (Stacks 051R–051S; Nitsure Lemma 4.1 gives the Noetherian case). Choose generators and a finite leading-term basis over the fraction field, then invert their finitely many nonzero coefficients to obtain a free module over the localized base. This generic-freeness theorem is part of the present target; no unchecked Mathlib spreading theorem is assumed.",
     "Globalise by covering X by finitely many affines over an affine open of S (Stacks 052A, Proposition 29.28.1)."
    ],
    "acceptance": [
@@ -2748,14 +2764,14 @@
    ],
    "title": "Flattening by blowing up (Raynaud–Gruson)",
    "kind": "theorem",
-   "statement": "Let S be a quasi-compact quasi-separated scheme, U ⊆ S a quasi-compact open, X → S quasi-compact and locally of finite presentation, and F a quasi-coherent O_X-module of finite type with F|_{X_U} of finite presentation and flat over U. Then there is a U-admissible blowup S′ → S (a blowup in a finitely presented closed subscheme disjoint from U) such that the strict transform of F is of finite presentation and flat over S′. In particular, if X → S is of finite type and quasi-separated with X_U → U flat and locally of finite presentation, then after some U-admissible blowup the strict transform of X is flat and of finite presentation over S′. For S Noetherian integral and X → S proper, this gives a modification S′ → S with centre outside U whose strict transform is flat (de Jong 2.19).",
+   "statement": "Let S be a quasi-compact quasi-separated scheme, U ⊆ S a quasi-compact open, X → S quasi-compact and locally of finite presentation, and F a quasi-coherent O_X-module of finite type with F|_{X_U} of finite presentation and flat over U. Here strict transform means the imported blowup/exceptional-torsion convention, which is defined without an integral-base hypothesis. Then there is a U-admissible blowup S′ → S (a blowup in a finitely presented closed subscheme disjoint from U) such that the strict transform of F is of finite presentation and flat over S′. In particular, if X → S is of finite type and quasi-separated with X_U → U flat and locally of finite presentation, then after some U-admissible blowup the strict transform of X is flat and of finite presentation over S′. For S Noetherian integral and X → S proper, this gives a modification S′ → S with centre outside U whose strict transform is flat (de Jong 2.19).",
    "hypotheses": [
     "S qcqs; U quasi-compact open; finite presentation hypotheses as stated; no Noetherian hypothesis."
    ],
    "proofSteps": [
     "Reduce to an étale-local question on S and induct on the fibre dimension via the dévissage of Raynaud–Gruson (Stacks 0815, Theorem 38.30.7, with its étale-local form 0814 and the auxiliary results 080G, 080W, 05I3).",
     "Compositions of U-admissible blowups are U-admissible blowups (Stacks 080L, Lemma 31.35.2), so successive flattening steps combine into one blowup.",
-    "Deduce the scheme version (Stacks 081R, Lemma 38.31.1) with F = O_X; for S Noetherian integral the U-admissible blowup is a modification with centre outside U, as used in de Jong 2.19 (where the projective case is argued via Hilbert schemes and the general case by citing Raynaud–Gruson 5.2.2)."
+    "Deduce the scheme version (Stacks 081R, Lemma 38.31.1) with F = O_X; for S Noetherian integral the U-admissible blowup is a modification with centre outside U, as used in de Jong 2.19 (where the projective case is argued via Hilbert schemes and the general case by citing Raynaud–Gruson 5.2.2). Once the resulting transform is flat over an integral base, it also equals de Jong’s base-torsion transform by the dense-open uniqueness statement; the two initial definitions are not identified unconditionally."
    ],
    "acceptance": [
     "For S = 𝔸²_k, U = S ∖ {0} and X the blowup of S at the origin viewed as an S-scheme, X is not flat over S but its strict transform under the blowup S′ = X → S is S′ itself, flat."
@@ -2820,7 +2836,7 @@
     },
     {
      "sourceId": "Bhatt18",
-     "locator": "Proof of Theorem 6.1 and Proposition 6.2, pp. 8–9 (arXiv v2)",
+     "locator": "Proof of Theorem 6.1 and Proposition 6.2, p. 11 (arXiv v2)",
      "match": "Uses domination of the p-adic completion of a proper morphism that is an isomorphism after inverting p by an admissible blowup."
     }
    ],
@@ -2839,9 +2855,9 @@
     "S Noetherian (qcqs for the weak form); f separated of finite type."
    ],
    "proofSteps": [
-    "Cover X by finitely many affine opens U_i, choose immersions U_i → P^{n_i}_S, and take X′ to be the scheme-theoretic closure of the diagonal image of U = ∩ U_i in X ×_S ∏ P^{n_i}_S; the Segre embedding gives the single P^n_S (Stacks 0200, Lemma 30.18.1; Remark 0201 for H-projectivity).",
-    "The qcqs version is Stacks 0202 (Lemma 32.12.1), by absolute Noetherian approximation.",
-    "Projective space over S and the Segre embedding are supplied by the relative Proj and projective-morphism package of Tau Ceti StableReduction Layer 2."
+    "Choose a finite affine cover of X in which each member contains every generic point (Stacks 0200 uses 28.30.4). Their intersection U is dense even when X is reducible. Replace X by the scheme-theoretic closure of U so U is schematically dense.",
+    "Embed each affine into projective space, take the closure of the diagonal image of U in the product, and use the Segre embedding.",
+    "The inverse images of the affine members glue: equality on the schematically dense U and separatedness identify their maps into X. Each inverse image is proper over its affine member, so the glued map is proper, surjective and an isomorphism over U (Stacks 0200)."
    ],
    "acceptance": [
     "A proper non-projective variety (Hironaka's threefold) is dominated by a projective variety via a modification; a projective X needs no change (π = identity)."
@@ -3351,7 +3367,7 @@
     {
      "name": "AlgebraicGeometry.DeJong.IsSplitPrestable.singularLocus_section",
      "role": "other",
-     "statement": "Over a split family, each component of Sing(f) maps isomorphically onto its image locally, with residue field equal to that of the base point."
+     "statement": "After an étale neighbourhood of the base, the finite unramified singular locus is a disjoint union of closed immersions. Splitness makes the nodal residue fields rational; do not assert global Zariski sections without an additional trivialization hypothesis."
     },
     {
      "name": "AlgebraicGeometry.DeJong.IsSplitPrestable.of_smooth",
@@ -3378,7 +3394,7 @@
     {
      "name": "AlgebraicGeometry.DeJong.split_after_extension",
      "kind": "compatibility",
-     "statement": "V(x² − a y²) ⊂ P²_k with a ∈ k not a square is not split, but becomes split after base change to k(√a)."
+     "statement": "V(x² − a y²) ⊂ P²_k with a ∈ k not a square is not split, but becomes split after base change to k(√a). Assume char(k) ≠ 2 for the quadratic conjugate-lines example."
     },
     {
      "name": "AlgebraicGeometry.DeJong.split_smooth",
@@ -3497,9 +3513,10 @@
    ],
    "title": "Generic linear projections",
    "kind": "lemma",
-   "statement": "Let k be a field and X ⊂ P^n_k a closed subscheme of pure dimension d < n containing a dense open subscheme geometrically reduced over k. There is a nonempty open U ⊆ P^n_k such that for every finite separable extension k′/k and p ∈ U(k′) with p ∉ X_{k′}, the projection pr_p : X_{k′} → P^{n−1}_{k′} from p is finite and (α) birational onto its image if d < n − 1, (β) finite étale over a nonempty open of P^{n−1}_{k′} (generically étale) if d = n − 1. Iterating, X admits a finite morphism to P^d_{k′} that is étale over a dense open and birational on a chosen pure-codimension-one subscheme Z.",
+   "statement": "Let k be a field and X ⊂ P^n_k a closed subscheme of pure dimension d < n containing a dense open subscheme geometrically reduced over k. There is a nonempty open U ⊆ P^n_k such that for every finite separable extension k′/k and p ∈ U(k′) with p ∉ X_{k′}, the projection pr_p : X_{k′} → P^{n−1}_{k′} from p is finite and (α) birational onto its image if d < n − 1, (β) finite étale over a nonempty open of P^{n−1}_{k′} (generically étale) if d = n − 1. Iterating, X admits a finite morphism to P^d_{k′} that is étale over a dense open and birational on a chosen generically geometrically reduced pure-codimension-one subscheme Z.",
    "hypotheses": [
-    "k a field; X projective of pure dimension d, generically geometrically reduced."
+    "k a field; X projective of pure dimension d, generically geometrically reduced.",
+    "For simultaneous iteration on Z, assume Z generically geometrically reduced and pure of codimension one."
    ],
    "proofSteps": [
     "The statements are geometric; pass to a separable closure and reduce to X irreducible with a smooth k-point q (de Jong 1996, 2.11).",
@@ -3794,7 +3811,7 @@
     {
      "name": "AlgebraicGeometry.DeJong.finiteDVRExtension_of_trait",
      "role": "compatibility",
-     "statement": "A finite separable extension K′/K of the fraction field of a complete DVR determines a unique Tau Ceti FiniteDVRExtension package, whose local ring is the integral closure and is complete."
+     "statement": "For a finite separable K′/K over the fraction field of a complete DVR, the integral closure is a complete DVR. The chosen-prime/local-ring realization in TauCeti.FiniteDVRExtension is canonically comparable to it; the bundled package is not literally unique."
     },
     {
      "name": "AlgebraicGeometry.DeJong.IsSVariety.toModel",
@@ -3977,13 +3994,14 @@
    ],
    "title": "Strict semistable pairs",
    "kind": "definition",
-   "statement": "Let S be a trait, X an S-variety and Z ⊂ X a closed subset containing X_s, written Z = Z_h ∪ X_s with Z_h the union of the components flat over S. (X, Z) is a strict semistable pair if (a) X is strictly semistable over S; (b) Z is a strict normal crossings divisor on X; (c) for every nonempty set J of components of Z_h, the intersection Z_J is a disjoint union of S-varieties each strictly semistable over S. Equivalently, for every x ∈ X_s the complete local ring is C[[t₁,…,t_n, s₁,…,s_m]]/(π − t₁⋯t_n) with C complete Noetherian local formally smooth over R, the components of X_s through x given by t_i = 0 and those of Z_h by s_j = 0.",
+   "statement": "Let S be a trait, X an S-variety and Z ⊂ X a closed subset containing X_s, written Z = Z_h ∪ X_s with Z_h the union of the components flat over S. (X, Z) is a strict semistable pair if (a) X is strictly semistable over S; (b) Z is a strict normal crossings divisor on X; (c) for every nonempty set J of components of Z_h, the intersection Z_J is a disjoint union of S-varieties each strictly semistable over S. Every such pair has the following local form for every x ∈ X_s the complete local ring is C[[t₁,…,t_n, s₁,…,s_m]]/(π − t₁⋯t_n) with C complete Noetherian local formally smooth over R, the components of X_s through x given by t_i = 0 and those of Z_h by s_j = 0. The converse from these special-fibre local forms requires additional control of the generic pair (for example properness of X over S); see source issue E3. Without that control it is false.",
    "hypotheses": [
     "S trait; Z ⊇ X_s."
    ],
    "proofSteps": [
-    "Define via (a)–(c) (de Jong 1996, 6.3).",
-    "Local description in both directions (de Jong 1996, 6.4): from (a) get B[[t]]/(π − ∏t), then the s_j are part of a regular system of parameters of B and the quotient by them is formally smooth, so lift as in 2.8; conversely the local form gives (a)–(c)."
+    "Define by de Jong 6.3(a)–(c), retaining flatness and semistability of all horizontal strata.",
+    "The forward local form is de Jong 6.4: use 2.16 and lift the regular parameters for the horizontal strata as in 2.8.",
+    "The unrestricted converse in 6.4 is false (E3). A proper converse also requires proving openness of these local conditions and using that any nonempty closed bad locus in a proper S-scheme meets the special fibre; this additional argument is not used to justify the definition."
    ],
    "acceptance": [
     "(X, X_s) is a strict semistable pair for X strictly semistable."
@@ -3997,7 +4015,7 @@
     {
      "sourceId": "dJ96",
      "locator": "6.2–6.4, pp. 82–83",
-     "match": "Defines strict semistable pairs by a strictly semistable X, an SNC divisor Z containing the special fibre, and strictly semistable intersections of horizontal components, with the equivalent local description C[[t, s]]/(π − t₁⋯t_n)."
+     "match": "Defines the pair by global conditions (a)–(c) and derives the special-fibre local form. The printed unrestricted converse is corrected as explained in E3."
     }
    ],
    "implementationStatus": "unchecked",
@@ -4043,6 +4061,11 @@
      "name": "AlgebraicGeometry.DeJong.not_pair_diagonal",
      "kind": "non-example",
      "statement": "For X = Spec Z_p[x, y]/(xy − p) and Z = X_s ∪ V(x − y), (X, Z) is not a strict semistable pair: V(x − y) ≅ Spec Z_p[x]/(x² − p) has non-reduced special fibre and Z is not SNC at the origin."
+    },
+    {
+     "name": "AlgebraicGeometry.DeJong.not_pair_generic_cusp",
+     "kind": "non-example",
+     "statement": "Over R = Q[[π]], X = Spec R[x,y], let H = V((πx−1)² + π²y³) and Z = X_s ∪ H. Since the equation is 1 mod π, H misses X_s, so every special-fibre neighbourhood has the usual smooth local pair form. On the generic fibre H is a cusp at (π⁻¹,0), hence Z is not SNC and (X,Z) is not a strict semistable pair."
     }
    ],
    "uses": [
@@ -4486,13 +4509,14 @@
    ],
    "title": "M̄_{g,n} is a proper Deligne–Mumford stack",
    "kind": "theorem",
-   "statement": "For 2g − 2 + n > 0 the stack M̄_{g,n} is an algebraic stack, Deligne–Mumford (finite unramified diagonal), separated, of finite type and proper over Spec Z, and M_{g,n} is an open substack. For g ≥ 2 and n = 0 an étale atlas is given by the locally closed subscheme H_g of the Hilbert scheme of P^{5g−6}_Z parametrising tricanonically embedded stable curves, with M̄_g ≃ [H_g / PGL(5g − 5)].",
+   "statement": "For 2g − 2 + n > 0 the stack M̄_{g,n} is an algebraic stack, Deligne–Mumford (finite unramified diagonal), separated, of finite type and proper over Spec Z, and M_{g,n} is an open substack. For g ≥ 2 and n = 0 a smooth surjective atlas is given by the locally closed subscheme H_g of the Hilbert scheme of P^{5g−6}_Z parametrising tricanonically embedded stable curves, with M̄_g ≃ [H_g / PGL(5g − 5)]. Its relative dimension is dim PGL(5g−5); an étale atlas is obtained by refining to local transverse slices, not by declaring H_g itself étale.",
    "hypotheses": [
     "2g − 2 + n > 0."
    ],
    "proofSteps": [
     "Atlas: by the tricanonical (respectively ω(Σσ)^{⊗3}) embedding, M̄_{g,n} is the quotient stack of the locally closed subscheme of a Hilbert scheme (SF.4/hilbert-scheme) of embedded stable pointed curves by the action of PGL; quotient stacks of schemes by smooth group schemes are algebraic (SchemeAndStackFoundations:SF.1 quotient-stack and DM-stack targets) (DM69 Proposition (5.1)).",
     "Diagonal finite unramified by SF.4/isom-stable-curves, so the stack is Deligne–Mumford and separated; finite type from the quasi-compactness of H_g.",
+    "Use the smooth quotient presentation and unramified diagonal to obtain a Deligne–Mumford stack and refine the smooth atlas to an étale one; Deligne 1985 §3.2 p. 138 describes transverse slices.",
     "Properness by the valuative criterion for stacks in the form allowing a finite extension of the DVR, fed by stable (pointed) reduction over DVRs: Tau Ceti StableReduction Layers 8–9 (DM69 Theorem (5.2); Stacks 0E9C for M̄_g).",
     "The pointed case follows Knudsen as cited by de Jong 2.24; see the recorded gap on Knudsen's unread scan."
    ],
@@ -4535,7 +4559,7 @@
    ],
    "title": "Smoothness of M̄_{g,n}",
    "kind": "theorem",
-   "statement": "For 2g − 2 + n > 0 the stack M̄_{g,n} is smooth over Spec Z of relative dimension 3g − 3 + n, M_{g,n} is dense, and the complement of M_{g,n} is a divisor with normal crossings relative to Spec Z. At a stable curve over an algebraically closed field with nodes x₁,…,x_δ, the complete local ring of a versal deformation is Λ[[t₁,…,t_{3g−3+n}]] with the node x_i smoothed by uv = t_i.",
+   "statement": "For 2g − 2 + n > 0 the stack M̄_{g,n} is smooth over Spec Z of relative dimension 3g − 3 + n, M_{g,n} is dense, and the complement of M_{g,n} is a divisor with normal crossings relative to Spec Z. At a stable curve over an algebraically closed field with nodes x₁,…,x_δ, the complete local ring of a hull (miniversal deformation) is Λ[[t₁,…,t_{3g−3+n}]] with the node x_i smoothed by uv = t_i. A nonminimal versal base may have extra formally smooth parameters; the Hilbert atlas also carries the parameters for the tricanonical embedding.",
    "hypotheses": [
     "2g − 2 + n > 0."
    ],
@@ -4577,15 +4601,15 @@
    ],
    "title": "Level structures and the finite projective cover of M̄_{g,n}",
    "kind": "theorem",
-   "statement": "Let 2g − 2 + n > 0 and let ℓ ≥ 3 be a prime. (1) Over Z[1/ℓ], the stack M_{g,n}[ℓ] classifying smooth pointed curves C/S together with an isomorphism Pic⁰_{C/S}[ℓ] ≅ (Z/ℓ)^{2g} is finite étale over M_{g,n}[1/ℓ], and it is an algebraic space (indeed a scheme): an automorphism of a stable curve over an algebraically closed field of characteristic prime to ℓ that acts trivially on Pic⁰[ℓ] is the identity. (2) The normalization M̄_{g,n}^{(ℓ)} of M̄_{g,n}[1/ℓ] in M_{g,n}[ℓ] is a normal algebraic space proper over Z[1/ℓ], finite and surjective over M̄_{g,n}[1/ℓ], and finite étale over M_{g,n}[1/ℓ]. (3) For two distinct primes ℓ₁, ℓ₂ ≥ 3, the normalization M of M̄_{g,n} in the level-ℓ₁ℓ₂ cover of M_{g,n}[1/ℓ₁ℓ₂] is an algebraic space proper over Spec Z (an algebraic space over each Z[1/ℓ_i]), finite and surjective over M̄_{g,n}, finite étale over M_{g,n}[1/ℓ₁ℓ₂], and it carries a stable n-pointed curve pulled back from M̄_{g,n}. A projective scheme with the same properties up to replacing finiteness by generic finiteness is obtained from M by Chow's lemma.",
+   "statement": "Let 2g − 2 + n > 0 and let ℓ ≥ 3 be a prime. (1) Over Z[1/ℓ], the stack M_{g,n}[ℓ] classifying smooth pointed curves C/S together with an isomorphism Pic⁰_{C/S}[ℓ] ≅ (Z/ℓ)^{2g} is finite étale over M_{g,n}[1/ℓ], and it is an algebraic space (indeed a scheme): an automorphism of a stable curve over an algebraically closed field of characteristic prime to ℓ that acts trivially on Pic⁰[ℓ] is the identity. (2) The normalization M̄_{g,n}^{(ℓ)} of M̄_{g,n}[1/ℓ] in M_{g,n}[ℓ] is a normal algebraic space proper over Z[1/ℓ], finite and surjective over M̄_{g,n}[1/ℓ], and finite étale over M_{g,n}[1/ℓ]. (3) For two distinct primes ℓ₁, ℓ₂ ≥ 3, the normalization M of M̄_{g,n} in the level-ℓ₁ℓ₂ cover of M_{g,n}[1/ℓ₁ℓ₂] is an algebraic space proper over Spec Z (an algebraic space over each Z[1/ℓ_i]), finite and surjective over M̄_{g,n}, finite étale over M_{g,n}[1/ℓ₁ℓ₂], and it carries a stable n-pointed curve pulled back from M̄_{g,n}. A projective scheme proper, surjective and generically finite over the stack is obtained by Chow's lemma for algebraic spaces. The chosen replacement is an isomorphism on some dense open of M; this route does not assert finite étaleness over the whole smooth moduli locus.",
    "hypotheses": [
     "ℓ ≥ 3 prime; relative Picard scheme of smooth proper curves over a base; normalization of algebraic stacks/spaces in finite étale covers."
    ],
    "proofSteps": [
     "The ℓ-torsion of the relative Jacobian Pic⁰_{C/S} of a smooth proper curve over S is finite étale of rank ℓ^{2g} over Z[1/ℓ]: relative Picard representability from SchemeAndStackFoundations:SF.3, fibrewise finite étaleness of multiplication by ℓ from Tau Ceti JacobianChallenge Layer E (Deligne 1985, 3.3).",
-    "Rigidity: Deligne's Lemma 3.5.7, an automorphism of a stable curve acting trivially on Pic⁰[n] for n ≥ 3 invertible is trivial, so objects of the level stack have no automorphisms and it is an algebraic space (Deligne 1985, Proposition 3.5, Corollary 3.6).",
+    "Rigidity: Deligne's Lemma 3.5.1, an automorphism of a stable curve acting trivially on Pic⁰[n] for n ≥ 3 invertible is trivial, so objects of the level stack have no automorphisms and it is an algebraic space (Deligne 1985, Proposition 3.5, Corollary 3.6).",
     "Normalization in the level cover is finite over M̄ (finiteness of normalization over excellent bases, SchemeAndStackFoundations:SF.0 and key/excellent-schemes) and proper by properness of M̄ (SF.4/stable-curve-stack-algebraic) (Deligne 1985, 3.4, 3.7).",
-    "To obtain a scheme projective over Z, de Jong cites Deligne; Deligne obtains a proper algebraic space and notes that Chow's lemma or Mumford's projectivity yields a projective scheme; the plan uses a proper algebraic space M together with Chow's lemma for algebraic spaces at the point of use (see sourceIssues for the citation gap) (de Jong 1996, 2.24)."
+    "Deligne 1985 §3.7 p. 141 explicitly invokes Mumford for projectivity of the level compactification. This is a valid attribution, not the alleged error E1. Without importing that projectivity theorem, retain the proper algebraic-space cover and apply Chow's lemma only for a proper generically finite scheme cover, with preservation of a chosen dense open checked separately."
    ],
    "acceptance": [
     "For g = 0 the level structure is empty and M_{0,n} (n ≥ 3) is already a smooth affine scheme over Z.",
@@ -4603,7 +4627,7 @@
    "sources": [
     {
      "sourceId": "Del85",
-     "locator": "§3: 3.1–3.7, pp. 137–141 (Proposition 3.5, Lemma 3.5.7, Corollary 3.6, 3.7)",
+     "locator": "§3: 3.1–3.7, pp. 137–141 (Proposition 3.5, Lemma 3.5.1, Corollary 3.6, 3.7)",
      "match": "Constructs the level-n stack of smooth curves with trivialised Pic⁰[n], its normalization over the stack of stable curves, proves the rigidity lemma for automorphisms acting trivially on n-torsion (n ≥ 3), deduces that the normalization is an algebraic space for one or two coprime levels, proper over Z by stable reduction, and remarks that Chow's lemma or Mumford's projectivity gives a projective cover."
     },
     {
@@ -4629,7 +4653,7 @@
    "proofSteps": [
     "The family defines U → M̄_{g,n}. Take an irreducible component U′ of U ×_{M̄_{g,n}} M dominating U, where M → M̄_{g,n} is the finite surjective proper cover of SF.4/level-structure-cover; U′ → U is finite surjective, and finite étale if U maps into M_{g,n}[1/ℓ] (de Jong 1996, 4.17, 5.13).",
     "Let Y′ be the closure of the image of U′ in Y ×_Z M; Y′ → Y is proper and generically finite, an alteration; if M is only a proper algebraic space, apply Chow's lemma for algebraic spaces (or SF.4/chow-lemma after replacing by a scheme cover) to make Y′ a projective scheme over Y.",
-    "Pull back the stable curve from M along Y′ → M; over the preimage of U it is isomorphic to the pullback of C_U because both come from the same map to the stack (Deligne 1985, Lemme 1.6 for the unpointed case with a proper surjective rather than generically finite S′)."
+    "The 2-isomorphism of the two families over U′ must extend, not merely be forgotten by taking the image in Y × M. Use the finite proper Isom scheme of stable families to retain and extend the identification over ψ⁻¹(U); prove this closure/extension step explicitly. Deligne 1985 Lemme 1.6 supplies extension over a proper surjection in the unpointed case, whereas de Jong 4.17 constructs an alteration after allowing restriction to a smaller dense open. The whole-U statement is left as the recorded bridge gap."
    ],
    "acceptance": [
     "If C_U already extends to a stable curve over Y, ψ = identity works."
@@ -4671,7 +4695,7 @@
     "Y reduced Noetherian of dimension ≤ 1; finiteness of the normalization (Nagata/excellent hypothesis) for the existence statement."
    ],
    "proofSteps": [
-    "The normalization is Mathlib's relative normalization of Y → Y (Scheme.Hom.normalization) in the integral-closure sense; its affine opens are finite products of integrally closed Noetherian domains of dimension ≤ 1, hence Dedekind and regular (Stacks 0C45, Lemma 33.41.1; Mathlib's IsDiscreteValuationRing.TFAE and IsDedekindDomain).",
+    "Use normalization in the total ring of rational functions: for integral Y, relative normalization of Spec K(Y) → Y, and for reduced Y the disjoint union of its generic points. Relative normalization of the identity Y → Y is Y itself and does not resolve a cusp. Once the generic-point adapter is constructed, the local rings of the finite normalization have dimension at most one and are normal Noetherian domains, hence fields or DVRs and regular (Stacks 0C45).",
     "Finiteness of the normalization for Nagata/excellent schemes (Stacks 035S; SchemeAndStackFoundations:key/excellent-schemes and SF.0) or for schemes locally of finite type over a field (Stacks 0BXR); in the finite separable case Mathlib's IsIntegralClosure.finite suffices.",
     "Equivalences in dimension one (Stacks 0BI4, Lemma 54.15.1); point-wise characterisation on curves over a field (Stacks 0B8Y, Lemma 33.43.8).",
     "Two-dimensional resolution is a different named setting: over a DVR, normalized blowups of arithmetic surfaces are Tau Ceti StableReduction Layer 4; Lipman's theorem in general (Stacks 0BGP) is recorded in coverage as a refinement."
@@ -4719,8 +4743,9 @@
     "X smooth over k; the linear system base-point free and immersive."
    ],
    "proofSteps": [
-    "The incidence correspondence {(x, v) : v(x) = 0} is smooth over X (a projective bundle of hyperplanes through the image of x), hence the general fibre of its projection to P(V^∨) is smooth by generic smoothness of the projection over the dense open where it is smooth (Stacks 0FD6, Lemma 33.47.3, in Situation 33.47.2).",
-    "For curves: the general hyperplane section is a reduced zero-dimensional smooth scheme, i.e. finite étale over k′, and avoiding a finite set of points is an open condition (used in de Jong 1996, 4.11 and 5.2)."
+    "Use the bad incidence locus, not generic smoothness of a morphism in arbitrary characteristic. At a geometric point x, singularity of a section means its value and first derivative vanish. Because the linear system defines an immersion, V → L_x/m_x²L_x is surjective; these conditions have codimension dim_x X + 1.",
+    "Dimension counting in the universal incidence shows the bad locus has image contained in a proper closed subset of the parameter space (Stacks 0FD6). A general parameter outside it gives a smooth section in every characteristic.",
+    "For a proper smooth curve the resulting zero-dimensional section is finite étale. Avoiding a prescribed finite closed subset is an additional open condition (de Jong 4.11, 5.2)."
    ],
    "acceptance": [
     "A general line in P²_k meets a smooth conic in two distinct points (a finite étale scheme of degree 2)."
@@ -4896,13 +4921,14 @@
  "coverage": [
   {
    "stageId": "SchemeAndStackFoundations:SF.4",
-   "status": "planned",
+   "status": "partial",
    "remaining": [
     "Read Knudsen, The projectivity of the moduli space of stable curves II (Math. Scand. 52, 1983), whose public scan has no text layer, and add exact locators for the pointed case (Theorem 2.7, the stabilization and clutching constructions) to SF.4/stable-curve-stack, SF.4/isom-stable-curves, SF.4/stable-curve-stack-algebraic and SF.4/stable-curve-stack-smooth; the unpointed case is read in Deligne–Mumford and Stacks 0E9C.",
     "Routed paper items not yet planned as nodes: PAPER-CESNAVICIUS-19 route 3 (Gabber–Ramero henselian approximation, Elkik–Tougeron approximation, SGA 2 VIII–IX formal comparison and algebraization on punctured spectra; coordinate with the existing PerfectoidSpaces P3 Elkik node); PAPER-QIAN-23 route 9 (KKMS toroidal embeddings over a DVR and equivariant toroidal semistable reduction); PAPER-HACON-WITASZEK-23 route 2 (Q-Cartier deformation, thrifty log resolution adapters); PAPER-BHATT-ETAL-23 route 2 (Cossart–Piltant three-dimensional pair resolution, Saito's log-smooth extension); PAPER-TEMKIN-17 route 4 (universally Japanese normalization, quasi-excellent resolution in dimension ≤ 3); PAPER-CESNAVICIUS-22 route 4 (formal-loop gluing); PAPER-FARB-KISIN-WOLFSON-24 routes 11 and 15; PAPER-XIE-YUAN-22 pencil blowup; PAPER-WITASZEK-22 route 3 (surface resolution, Temkin factorization, Artin contraction).",
     "Requests addressed to SF.4 by other packets that go beyond the stage targets planned here: non-Noetherian p-adic formal schemes with smooth and étale morphisms, fibre products and étale-site invariance (PrismaticCohomology PR.1, DerivedDeRhamCohomology DD.2/DD.5, IgusaVarietiesAndTorsionConcentration IG.0/IG.3); de Jong 1997 Corollary 5.10 towers of semistable curve fibrations (ClassicalAdicEtaleCohomology H1); the Kodaira–Spencer map of families (HodgeStructuresPartII H.8); Lipman's resolution of two-dimensional excellent schemes (Stacks 0BGP) beyond Tau Ceti StableReduction Layer 4's arithmetic-surface scope (FiniteFieldsAndCharacterSums FF.2, GILLE-PARIMALA-26).",
     "de Jong 1996 §7 (Theorem 7.3, alterations with group actions, quotient singularities) and §8 (Theorem 8.2, arithmetic case over number rings via Rumely's theorem) are not targets of the stage text and are not planned; plan them when a consumer requests them.",
-    "Lemma-level refinement when the roadmap reaches the front of the line: split the proof sketches of SF.4/curve-family-alteration (de Jong Lemmas 5.2–5.7), SF.4/de-jong-alteration-theorem (4.4–4.28) and SF.4/hilbert-scheme (regularity and flattening stratification) into lemma nodes."
+    "At target level, add the key prerequisites for Hilbert/Quot (uniform regularity and flattening stratification), and close the explicit review gaps. Do not split alteration proofs into routine lemma nodes in this pass.",
+    "Resolve the review gaps for natural obstruction theory, sheaf/continuous cotangent comparisons, genuine formal schemes, absolute normalization, and stable-moduli extension. Synchronize the reader document with the report before a revision can be accepted."
    ]
   }
  ],
@@ -4932,7 +4958,7 @@
     "SchemeAndStackFoundations:SF.4/deformations-of-smooth-schemes",
     "SchemeAndStackFoundations:SF.4/algebra-deformation-classes"
    ],
-   "detail": "SF.4 cites stages of its own roadmap where their stated scope covers the need: SF.0 for relative Spec of a finite quasi-coherent algebra and finiteness of normalization of excellent (Nagata) schemes (the excellence package key/excellent-schemes lists these consequences as remaining); SF.1 for algebraic spaces and Deligne–Mumford quotient stacks [H/PGL], fppf descent of polarized schemes, and Chow's lemma for algebraic spaces; SF.2 for the classification of torsors under abelian sheaves by H¹ and Ext groups of O_X-modules (Tau Ceti already has Scheme.Modules.Cohomology); SF.3 for the relative Picard scheme Pic⁰_{C/S} of a smooth proper curve over a base. The assembly job must confirm that the SF.0–SF.3 packets plan exactly these statements."
+   "detail": "SF.4 cites stages of its own roadmap where their stated scope covers the need: SF.0 for relative Spec of a finite quasi-coherent algebra and finiteness of normalization of excellent (Nagata) schemes (the excellence package key/excellent-schemes lists these consequences as remaining); SF.1 for algebraic spaces and Deligne–Mumford quotient stacks [H/PGL], fppf descent of polarized schemes, and Chow's lemma for algebraic spaces; SF.2 for the classification of torsors under abelian sheaves by H¹ and Ext groups of O_X-modules (Tau Ceti already has Scheme.Modules.Cohomology); SF.3 for the relative Picard scheme Pic⁰_{C/S} of a smooth proper curve over a base. The assembly job must confirm that the SF.0–SF.3 packets plan exactly these statements. Reviewed supplier documents establish the stated directions, but these exact adapters are not all yet realised: the formal comparison, absolute generic-point normalization, continuous cotangent comparison and stack extension criterion are recorded separately below. A stage-level scope citation is not evidence of a completed declaration."
   },
   {
    "title": "Regular local rings are normal domains (absent from Mathlib)",
@@ -4941,6 +4967,62 @@
     "SchemeAndStackFoundations:SF.4/serre-normality-criterion"
    ],
    "detail": "Mathlib defines IsRegularLocalRing but proves neither that it is a domain nor that it is normal; SF.4/regular-scheme lists this as an API item (via the associated graded ring being a polynomial ring). No lower-tier roadmap plans it; DeformationAndDerivedPatchingAlgebra R03.3 (regular-local-cohen-macaulay) is higher in the upstream order and should import it from here."
+  },
+  {
+   "title": "Natural obstruction theories and the hull relation bound",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.4/obstruction-theory"
+   ],
+   "detail": "The Lean LiftDetector auxiliary records only vanishing and existence of lifts; it has neither O ⊗ I nor naturality and must not be used as a full obstruction theory. Supply the natural tensor-valued structure. Separately verify the relation bound for a minimal presentation P = Λ[[t_1,…,t_d]], d = dim T_F, R = P/J, using J/m_P J; Stacks 07YG supplies the definition, not this bound. The former typed statement omitted minimality and allowed J=(t) presenting h_Λ with O=0, incorrectly asserting 1 ≤ 0."
+  },
+  {
+   "title": "Sheaf and continuous cotangent comparisons",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.4/algebra-deformation-classes",
+    "SchemeAndStackFoundations:SF.4/deformations-of-smooth-schemes",
+    "SchemeAndStackFoundations:SF.4/node-versal-deformation",
+    "SchemeAndStackFoundations:SF.4/stable-curve-stack-smooth"
+   ],
+   "detail": "Mathlib's cited cotangent declarations are algebra-level. Supply the global sheaf naive cotangent complex with Ext classification and compatibility on affine charts; SF.2 only promises the ambient Ext theory. For the complete node, supply the continuous cotangent/deformation comparison from the polynomial node to k[[u,v]]/(uv). Add the quasi-coherent cohomological-dimension theorem for proper curves used to kill H² and the pointed local-to-global deformation statement. These are key prerequisites, not routine identifications."
+  },
+  {
+   "title": "Formal schemes, reindexing and algebraization prerequisites",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.4/formal-spectrum",
+    "SchemeAndStackFoundations:SF.4/formal-scheme",
+    "SchemeAndStackFoundations:SF.4/formal-completion",
+    "SchemeAndStackFoundations:SF.4/coherent-formal-modules",
+    "SchemeAndStackFoundations:SF.4/grothendieck-existence",
+    "SchemeAndStackFoundations:SF.4/algebraization-of-subschemes-and-morphisms",
+    "SchemeAndStackFoundations:SF.4/grothendieck-algebraization",
+    "SchemeAndStackFoundations:SF.4/effective-formal-deformations-of-curves"
+   ],
+   "detail": "Supply sheaves of complete topological rings and the genuine formal spectrum; prove comparison with locally finitely generated adic systems and continuous morphisms permitting reindexing. The identity k[[t]] with ideals (t) and (t²) is continuous, but is absent from the level-preserving Hom auxiliary. Formal completion for a map carrying centres set-theoretically needs local power reindexing. Use compatible formal-module isomorphisms, compatible reduction maps, and the ample invertible system required in Stacks 089A. The invalid typed algebraization target without ampleness has been replaced by an explicit comment."
+  },
+  {
+   "title": "Absolute normalization adapter",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.4/resolution-of-curves"
+   ],
+   "detail": "Construct the map from the generic points (Spec K(Y) in the integral case) and normalize that map, with its absolute-normalization universal property and finite Nagata comparison from SF.0. Do not use Scheme.Hom.normalization (𝟙 Y): it equals Y. The invalid typed resolution target is removed; its intended absolute-normalization form remains a comment."
+  },
+  {
+   "title": "Hilbert construction key prerequisites",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.4/hilbert-scheme"
+   ],
+   "detail": "Nitsure §2 Theorem 2.3 (uniform Castelnuovo–Mumford regularity), §3 Theorems 3.3–3.7 (coherent cohomology and base change) and §4 Theorems 4.2–4.3 (generic flatness and flattening stratification) are non-routine key inputs to §5 Theorems 5.1–5.3. They need owned target nodes or explicit supplier contracts; generic flatness and flattening by blowups alone do not supply flattening stratification. No new helper-lemma expansion is required at target level."
+  },
+  {
+   "title": "Stable moduli and extension supplier bridges",
+   "neededBy": [
+    "SchemeAndStackFoundations:SF.4/isom-stable-curves",
+    "SchemeAndStackFoundations:SF.4/stable-curve-stack-algebraic",
+    "SchemeAndStackFoundations:SF.4/stable-curve-stack-smooth",
+    "SchemeAndStackFoundations:SF.4/level-structure-cover",
+    "SchemeAndStackFoundations:SF.4/stable-extension-after-alteration"
+   ],
+   "detail": "Read Knudsen for the pointed assertions (existing gap). Confirm the SF.1 proper-stack valuative criterion with finite DVR extension and the Noetherian-approximation step from general bases to universal Hilbert families. SF.3/JacobianChallenge E supply relative Picard and multiplication isogenies, but the exact ℓ^{2g} rank and level-cover normalization/descent still need their statements. A Chow replacement preserves an explicitly chosen dense open, not automatically the whole smooth locus. Prove extension of the Isom identification over all ψ⁻¹(U) in the stable-extension target; the present de Jong 4.17 citation only controls a smaller dense open."
   }
  ],
  "sourceIssues": [
@@ -4958,7 +5040,12 @@
     "Numdam record of de Jong 1996 (no erratum linked)",
     "Deligne 1985 §3–4",
     "de Jong's follow-up 'Families of curves and alterations' cited as [15] (not read)"
-   ]
+   ],
+   "review": {
+    "verdict": "rejected",
+    "reason": "Deligne §3.7 p. 141 explicitly states projectivity using Mumford. De Jong 2.24 is not an incorrect citation. Choosing a Chow-based replacement requires a planning bridge, but does not make the published assertion erroneous.",
+    "by": "REV-SchemeAndStackFoundations--SF.4"
+   }
   },
   {
    "id": "SchemeAndStackFoundations/E2",
@@ -4972,7 +5059,34 @@
    "known": "de Jong 1996, 7.2 (same paper)",
    "searched": [
     "de Jong 1996 §2.4 and §7.2"
-   ]
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "Confirmed only as an omitted argument in the sketch at 2.4/4.28. The same paper supplies the construction in §7.2 pp. 87–88. No false theorem or external unresolved correction is alleged.",
+    "by": "REV-SchemeAndStackFoundations--SF.4"
+   }
+  },
+  {
+   "id": "SchemeAndStackFoundations/E3",
+   "source": "dJ96",
+   "kind": "error",
+   "locator": "6.4, converse paragraph, p. 83 (published IHÉS 83, 1996)",
+   "printed": "The special-fibre completed local descriptions alone are asserted to imply that (X,Z) is a strict semistable pair, for an arbitrary S-variety.",
+   "correction": "Keep the forward implication. For a converse require a good generic pair, or add properness and prove the openness/specialization argument. This affects only the unrestricted local criterion, not the projective output of Theorem 6.5.",
+   "reason": "Take R=Q[[π]], X=Spec R[x,y], H=V(F) with F=(πx−1)²+π²y³, and Z=X_s∪H. Modulo π, F=1, so H misses X_s and the special-fibre local forms all hold. In O_H, π is invertible since 1=π(2x−πx²−πy³). Over Q((π)), F/π²=(x−π⁻¹)²+y³ is a reduced cuspidal curve, singular at (π⁻¹,0); thus H and Z are not SNC. X is a smooth integral S-variety and Z is a proper reduced closed subset containing X_s, so it meets the printed hypotheses.",
+   "affects": "a stated result",
+   "known": "new",
+   "searched": [
+    "Published Numdam record https://www.numdam.org/item/PMIHES_1996__83__51_0/ (no correction linked)",
+    "Journal record https://pmihes.centre-mersenne.org/articles/10.1007/BF02698644/ (no correction linked)",
+    "Author publications page https://www.math.columbia.edu/~dejong/ (alterations entry has no erratum link)",
+    "Author course page https://www.math.columbia.edu/~dejong/courses/alterations.html"
+   ],
+   "review": {
+    "verdict": "confirmed",
+    "reason": "The explicit generic-only cusp satisfies the special-fibre local descriptions and violates 6.3(b),(c). Finding scoped to the published p. 83 converse.",
+    "by": "REV-SchemeAndStackFoundations--SF.4"
+   }
   }
  ],
  "sourceVersions": [
@@ -5250,5 +5364,298 @@
    "library": "Mathlib (RationalMap, PartialIso, Birational, equivFunctionFieldOver): baseline, no nodes",
    "nodes": []
   }
- ]
+ ],
+ "review": {
+  "status": "needs_changes",
+  "reviewer": "independent-review-REV-SchemeAndStackFoundations--SF.4",
+  "date": "2026-10-09",
+  "notes": "Independent source, baseline, API/test, ownership and Lean-signature review of all 57 nodes and 79 baseline references. Clear corrections applied; stage changed to partial. Key supplier/closure gaps, unread pointed source and uneditable reader synchronization prevent acceptance. No nodes added; no routine lemma expansion.",
+  "checked": [
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/first-order-thickening",
+    "verdict": "corrected",
+    "note": "Stacks 04EX: nil ideals versus uniform nilpotence distinguished; infinite-variable counterexample added."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/formally-smooth-morphism",
+    "verdict": "corrected",
+    "note": "Stacks 02H0/02HG: affine locality uses vanishing of the quasi-coherent Hom obstruction; avoid circular use of the later torsor target."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/infinitesimal-lifting-criterion",
+    "verdict": "verified",
+    "note": "Stacks 02H6/02HM: finite presentation hypotheses retained; ring and scheme formal criteria kept distinct."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/smooth-lifting-torsor",
+    "verdict": "verified",
+    "note": "Stacks 0D0F/0D0E/06B5: sheaf of lifts and affine H¹ vanishing; sheaf differentials imported from StableReduction 1."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/artinian-coefficient-category",
+    "verdict": "corrected",
+    "note": "Stacks 06GC/06GE/06GW: classical coefficient setting stated; positive prime-power exponent clarified."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/deformation-functor",
+    "verdict": "corrected",
+    "note": "Stacks 06JA: groupoid RS gives H1/H2 of isomorphism classes, not automatically H4; augmentation used for tangent comparison."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/hull",
+    "verdict": "corrected",
+    "note": "Stacks 06T4/06T5: ring-minimal versal objects distinguished from tangent-bijective hulls; power-series assertion restricted."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/schlessinger-theorem",
+    "verdict": "corrected",
+    "note": "Stacks 06IX/06IY/06JM: classical complete Noetherian local residue-field hypotheses added to Lean criteria."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/obstruction-theory",
+    "verdict": "unverifiable",
+    "note": "Natural tensor-valued definition retained; uncited relation bound deferred, weak Lean detector renamed and false bound removed."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/algebra-deformation-classes",
+    "verdict": "unverifiable",
+    "note": "Stacks 0GPT/08S7/08S5/08S6 check the classification; global sheaf cotangent comparison remains a key prerequisite gap."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/deformations-of-smooth-schemes",
+    "verdict": "corrected",
+    "note": "Stacks 0DY8/06JA/0C6R: groupoid distinction and framed liftings fixed; curve H² supplier recorded as a gap."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/node-versal-deformation",
+    "verdict": "unverifiable",
+    "note": "DM69 pp. 79–83: algebraically closed/split continuous setting restored; ordinary formal-power-series cotangent computation replaced by a comparison gap."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/formal-spectrum",
+    "verdict": "unverifiable",
+    "note": "Stacks 0AHY/07E8/0AIF: genuine Spf target supported; strict-level Lean systems explicitly auxiliary, continuous reindexing unresolved."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/formal-scheme",
+    "verdict": "unverifiable",
+    "note": "Stacks 0AIF/0AKM/0AKY: systems do not yet prove the formal-scheme category; finite-generation/TLLR comparison gap."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/formal-completion",
+    "verdict": "unverifiable",
+    "note": "Stacks 0AIZ/0AMC/0GBA: completion supported; set-theoretic functoriality requires local power reindexing."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/coherent-formal-modules",
+    "verdict": "unverifiable",
+    "note": "Stacks 087W/0880/0881/0EKN: exactness is in the formal category, not levelwise; genuine formal-module comparison still needed."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/theorem-on-formal-functions",
+    "verdict": "verified",
+    "note": "Stacks 02OC: proper coherent Noetherian hypotheses match; general coherent pushforwards supplied by StableReduction 2."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/stein-factorization",
+    "verdict": "verified",
+    "note": "Stacks 03H0/0AY8: relative normalization is appropriate here; finite Spec of f_*O and connected geometric fibres."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/grothendieck-existence",
+    "verdict": "corrected",
+    "note": "Stacks 088C: existence and full faithfulness refer to compatible formal modules; uniqueness relative to the chosen comparison clarified."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/algebraization-of-subschemes-and-morphisms",
+    "verdict": "corrected",
+    "note": "Stacks 0899/0A42: removed typed map algebraization without compatibility of reduction maps; exact target recorded in a comment."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/grothendieck-algebraization",
+    "verdict": "corrected",
+    "note": "Stacks 089A: removed typed unconditional algebraization; ample compatible invertible sheaf is essential."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/effective-formal-deformations-of-curves",
+    "verdict": "unverifiable",
+    "note": "Curve effectivity uses lifting an ample line bundle, curve H² vanishing and projectivity; supplier bridge not yet closed."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/modification",
+    "verdict": "corrected",
+    "note": "de Jong 2.17 / Stacks 0AAZ: integral source/target added to the typed predicate used downstream."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/strict-transform",
+    "verdict": "corrected",
+    "note": "de Jong 2.18 / Stacks 080D: base and exceptional torsion distinguished by the vertical-line test; agreement requires flatness over the full centre complement. Dense-flat-open closure and schematic uniqueness hypotheses added."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/generic-flatness",
+    "verdict": "verified",
+    "note": "Stacks 052A: finite-type quasi-compact map to integral base admits a dense flat open; ring generic-freeness argument inspected."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/flattening-by-blowup",
+    "verdict": "verified",
+    "note": "Stacks 0815/081R: coherent and finite-type flattening hypotheses agree, admissible blowup supplied by StableReduction 4."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/modification-domination",
+    "verdict": "verified",
+    "note": "Stacks 081T/081M: modification dominated by an admissible blowup; Bhatt18 §6 uses this domination, not a new perfectoid definition."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/chow-lemma",
+    "verdict": "corrected",
+    "note": "Stacks 0200: affine cover must contain every generic point and U must be schematically dense; reducible case corrected."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/alteration",
+    "verdict": "corrected",
+    "note": "de Jong 2.20 / Stacks 0AB0: add integral Noetherian common base and integral sources to common-domination prototype."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/regular-scheme",
+    "verdict": "verified",
+    "note": "Regularity definitions exist at ring level, scheme regularity does not; regular-local normality remains an honest existing gap."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/strict-normal-crossings",
+    "verdict": "verified",
+    "note": "de Jong 2.4: regular strata in expected codimension give SNC; characteristic restrictions in nodal examples respected."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/nc-to-snc",
+    "verdict": "verified",
+    "note": "de Jong 7.2 pp. 87–88: excellent regular finite pure-dimensional setting retained; not an arbitrary Noetherian resolution claim."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/split-prestable-curve",
+    "verdict": "corrected",
+    "note": "de Jong 2.22: split is stronger than nodal; singular-locus decomposition only claimed étale locally, quadratic example requires char ≠ 2."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/node-local-structure",
+    "verdict": "verified",
+    "note": "de Jong 2.23: finite étale residue-field extension and split versus nonsplit quadratic forms retained."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/nodal-family-resolution",
+    "verdict": "verified",
+    "note": "de Jong 3.2/3.6: regular base, NC discriminant, split nodal hypothesis and iterative regular blowup charts checked."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/generic-projection",
+    "verdict": "corrected",
+    "note": "de Jong 2.11: simultaneous codimension-one projection also needs that subscheme generically geometrically reduced."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/curve-fibration",
+    "verdict": "verified",
+    "note": "de Jong 4.11–4.12: projective integral normal setting, projection and blowup yield nonempty pure curve fibres."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/three-point-divisor",
+    "verdict": "verified",
+    "note": "de Jong 4.13: sufficiently ample hyperplane choice plus Noetherian induction meets every component in three smooth points."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/stable-model-domination",
+    "verdict": "verified",
+    "note": "de Jong 4.18–4.21: polarization of stable model, graph and flattening; normality via Serre target recorded."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/curve-family-alteration",
+    "verdict": "verified",
+    "note": "de Jong 5.8 and proof 5.1–5.17: projective integral excellent setting, smooth dense locus, alteration and split marked output."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/de-jong-alteration-theorem",
+    "verdict": "verified",
+    "note": "de Jong 4.1/4.3–4.28: regular projective compactification and SNC boundary, separable generic extension only over perfect field; typed proper consequence labelled."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/trait-and-varieties",
+    "verdict": "corrected",
+    "note": "de Jong 2.12/2.15/6.8: finite trait extensions must be injective local DVR maps; package comparison is up to canonical isomorphism."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/strictly-semistable",
+    "verdict": "corrected",
+    "note": "de Jong 2.16: Cartier component condition added to Lean; xy=π² otherwise contradicts its own negative test."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/strict-semistable-pair",
+    "verdict": "corrected",
+    "note": "de Jong 6.3–6.4: forward local form retained, false unrestricted converse flagged by generic-only cusp (E3)."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/faltings-formal-smoothness",
+    "verdict": "verified",
+    "note": "de Jong 2.13: excellent DVR input, normalization and reduced base change; complete trait specialization is valid."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/semistable-alteration-theorem",
+    "verdict": "corrected",
+    "note": "de Jong 6.5/6.7–6.16: typed output now includes Z, finite injective local trait map, S-commutativity and boundary support."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/grassmannian-scheme",
+    "verdict": "verified",
+    "note": "Nitsure §1 pp. 6–9: quotient Grassmannian, affine charts and Plücker construction; weak typed tests labelled as consequences."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/hilbert-scheme",
+    "verdict": "unverifiable",
+    "note": "Nitsure Theorems 2.3, 3.3–3.7, 4.2–4.3, 5.1–5.3: target correct, missing key regularity/flattening-stratification nodes recorded."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/stable-curve-stack",
+    "verdict": "unverifiable",
+    "note": "DM69 1.1 verifies unpointed objects; pointed Knudsen input remains unread; stable-family definitions imported without duplication."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/isom-stable-curves",
+    "verdict": "unverifiable",
+    "note": "DM69 1.11 verifies unpointed finite unramified Isom; pointed source and arbitrary-base approximation bridge unresolved."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/stable-curve-stack-algebraic",
+    "verdict": "corrected",
+    "note": "DM69 5.1–5.2 / Del85 3.2 p. 138: H_g is smooth surjective, not étale; proper-stack and pointed input gaps explicit."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/stable-curve-stack-smooth",
+    "verdict": "unverifiable",
+    "note": "DM69 1.5–1.9/5.2: use hull/miniversal base, not arbitrary versal base; pointed dimension and continuous Ext bridges unresolved."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/level-structure-cover",
+    "verdict": "unverifiable",
+    "note": "Del85 3.5.1 p. 139 locator corrected; reject alleged projectivity erratum; weaker Chow cover does not preserve whole smooth locus automatically."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/stable-extension-after-alteration",
+    "verdict": "unverifiable",
+    "note": "de Jong 4.17 / Del85 1.6: closure must retain an Isom identification; extension over all of the original U not proved by the present sketch."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/resolution-of-curves",
+    "verdict": "unverifiable",
+    "note": "Stacks 0C45/0BI4/0B8Y: absolute normalization target correct; identity-relative normalization is wrong and its typed theorem removed."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/bertini-smoothness",
+    "verdict": "corrected",
+    "note": "Stacks 0FD6: tangent-separating incidence dimension count replaces invalid generic-smoothness argument in positive characteristic."
+   },
+   {
+    "nodeId": "SchemeAndStackFoundations:SF.4/serre-normality-criterion",
+    "verdict": "verified",
+    "note": "Stacks 031S/05GG: R1+S2 criterion and dimension-one reduced Cohen–Macaulay application inspected; depth API not currently in Mathlib."
+   }
+  ]
+ }
 }
