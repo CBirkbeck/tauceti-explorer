@@ -45898,8 +45898,9 @@
     "PKG-AutomorphicBundles"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-AutomorphicBundles.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7505"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7505",
+   "finishedAt": "2026-10-09T02:45:03Z"
   },
   {
    "id": "PKG-AutomorphicGaloisRepresentations",
@@ -46481,7 +46482,8 @@
     "PKG-DiamondsAndVStacks"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DiamondsAndVStacks.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7513"
   },
   {
    "id": "PKG-EllipticCurveModularity",
@@ -46950,7 +46952,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HabiroRings.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7476"
   },
   {
    "id": "REV-PKG-HabiroRings",
@@ -47424,7 +47427,8 @@
     "PKG-MordellLawrenceVenkatesh"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-MordellLawrenceVenkatesh.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7525"
   },
   {
    "id": "PKG-NeronModelsAndSemistableAbelianVarieties",
