@@ -35,6 +35,8 @@ PotentialModularityAndCompatibleSystems R24.5 owns generic compatible-system car
 
 Let \(K\) be a number field, \(G_K=\operatorname{Gal}(\overline K/K)\), and \(v\) a finite place with residue field of cardinality \(q_v>1\). Fix a place of \(\overline K\) above \(v\) when naming decomposition and inertia groups. Arithmetic Frobenius acts on the residue algebraic closure by \(x\mapsto x^{q_v}\). **Geometric Frobenius is its inverse**, and all weights below use geometric Frobenius. Replacing it by arithmetic Frobenius negates the weights. This choice follows [Deligne I, (1.15), p. 279][WI].
 
+For a finite field \(k=\mathbf F_q\), \(\operatorname{Gal}(\overline k/k)\simeq\widehat{\mathbf Z}\), and both arithmetic and geometric Frobenius are topological generators. Choosing one fixes the generator used in continuous finite-field characters.
+
 For a finite-dimensional continuous \(E\)-representation \(\rho\), unramified at \(v\), write
 
 \[

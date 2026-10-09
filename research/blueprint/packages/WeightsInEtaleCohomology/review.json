@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-PKG-WeightsInEtaleCohomology",
+    "date": "2026-10-09",
+    "notes": "Independently checked all six package criteria against the accepted plan: all 27 targets, 17 API entries, nine named tests, nine supplier requirements, ownership boundaries, exact hypotheses and source locators. Restored the explicit finite-field statement that arithmetic and geometric Frobenius both topologically generate the absolute Galois group. README is 93,952 bytes, follows upstream roadmap form, uses original mathematical exposition and contains no programme-process material. The eight public source PDFs match the plan's recorded hashes; the relevant statements were independently reread. metadata.toml is exactly topic = \"math.NT\" plus a newline. lean-check on Suggested.lean exited 0 with 38 declaration-uses-sorry warnings and no errors or other warnings. The file imports only Mathlib, checked at 082e2d37e8b0463410cdb532e111cd43d5a66174; it makes no claim to validate Tau Ceti imports at f790474. All named APIs/tests match the README's numerical forms. Its 24 unavailable full arithmetic/geometric signatures remain explicitly omitted as in the accepted plan, under PROTOCOL section 13; scalar/matrix tests do not replace them. No implementation, proof-gap closure or general weight-monodromy theorem is asserted. See the independent report for the target comparison, source evidence and compile limits."
+  }
+}
