@@ -1,5 +1,197 @@
 # PKG-HodgeStructuresPartII — checkpoint handoff
 
+Status: partial; the complete file now elaborates at both required pins.
+Completion still requires genuine global supplier signatures and the remaining
+full target-fidelity audit. Issue
+[#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
+Continued by Codex (GPT-6), session `codex-aMGSqn`, on 9 October 2026, after
+[the claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6086636005).
+
+## What this continuation changes
+
+The [Suggested.lean](../packages/HodgeStructuresPartII/Suggested.lean) now
+passes the whole-file native check, including H.2, H.3, H.6, H.7 and H.8.
+The previous import/build blocker is resolved in the prepared shared build;
+do not resume by looking for a missing LocalCoefficient object.
+
+The elaboration fixes are:
+
+- Call native `MixedHodgeStructure.ofPure` with both base-change witnesses
+  `hQ hC`, as its pinned signature requires.
+- Use `→ₛₗ[starRingEnd ℂ]` for the conjugate-linear flag test.
+- Enable the existing `LieRing.ofAssociativeRing` locally, with priority 100,
+  in H.3's section. Mathlib deliberately makes this instance local in
+  `Mathlib/Algebra/Lie/OfAssociative.lean`; importing that file does not
+  register the commutator Lie ring on module endomorphisms. This fixes the
+  Lie-subalgebra, Lie-filtration and horizontal-bracket signatures without
+  defining another bracket or leaking an instance to other layers.
+- Supply classical membership decidability in `tensorHodgeLocus.constant`.
+- Remove duplicate finite-dimensional instances and name intentionally unused
+  point-data arguments with an underscore. No warning is suppressed.
+
+The native Betti part of `H.1/stable-automorphisms` now has two theorem
+signatures, `stable_automorphisms_betti` and
+`determinant_rigidified_automorphisms_betti`. The former characterizes each
+commuting matrix as a unique scalar unit. The latter adds determinant-one
+and identifies the scalars satisfying `c^r=1`. Both allow an arbitrary group
+and determinant character: finite presentation and finite order are not
+needed for this algebraic component. Four `example`s test rank-one
+rigidification, preservation by every unrigidified scalar, a nonidentity
+rank-one scalar's failure to preserve a determinant identification, and the
+native determinant exponent in every rank. The full geometric operator and
+stack-inertia assertions remain explicitly omitted. No moduli space or
+universal bundle is inferred from these representation statements.
+
+The [README](../packages/HodgeStructuresPartII/README.md) adds those API and
+test statements and corrects the coefficient-operations ownership below.
+All other mathematical prose, targets and scope remain as in the retained
+checkpoint. No packet, supplier file or original assembly artifact is edited.
+`metadata.toml` remains absent because the complete-package requirements are
+not met; its eventual content is `topic = "math.AG"`.
+
+## Corrected library and owner boundary
+
+The inherited blanket description of missing sheaf tensors is too strong.
+At Tau Ceti `f790474`, the following actual site-level operations were read
+and checked by a supplemental native import/signature check:
+
+- `TauCeti.SheafOfModules.tensorProduct` and `tensorProductIso`;
+- `tensorProductUnitIsoLeft`, `tensorProductUnitIsoRight` and
+  `tensorProductComm` in `TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProduct/Basic.lean`;
+- `tensorProductAssoc` in `…/TensorProduct/Associator.lean`;
+- `pushforwardTensorProductIso` and `overTensorProductIso` in
+  `…/TensorProduct/Restriction.lean`.
+
+Mathlib already supplies `SheafOfModules`, `IsLocallyFree` and
+`IsFinitePresentation`. Use these, not new module-sheaf or tensor carriers.
+The generic site operations retain their explicit sheafification and
+sheaf-composition assumptions. They do not identify a tensor of global
+sections with the global sections of the tensor sheaf.
+
+Current upstream `AlgebraicVectorBundles` L0A–L0C already owns the closed
+monoidal sheaf theory, finite locally free duality, pullback and polynomial
+operations on schemes. Current Tau Ceti also contains, among others,
+`Sheaf/TensorProduct/Closed.lean`, `Sheaf/TensorProduct/Dual.lean` and
+`AlgebraicGeometry/VectorBundle/FiniteLocallyFree.lean`. These current files
+were inspected read-only and are **not** present at the atlas's `f790474`
+baseline; no import from the newer dependency was used to certify this check.
+The package now cites the upstream owner rather than planning its operations
+again. The general ringed-site coefficient and differential comparisons
+remain distinct requirements of E1 and CR.1.
+
+For the plan owner: original H.0 request R2 and the corresponding H.0/H.1
+omission inventories must be read with this correction. Remove requests to
+rebuild native tensor primitives, and route existing algebraic vector-bundle
+operations to the upstream L0 layers. This issue permits no packet edits;
+the corrected ownership is recorded here and in the package instead.
+
+## Why this remains a checkpoint
+
+The mathematical carrier/comparison requirements cannot be completed by
+compiling the existing local shadows. Concrete outstanding interfaces are:
+
+| Consumer | Exact supplier boundary to resolve |
+| --- | --- |
+| H.0 global `Preconnection`, `LambdaBundle`, tensor/dual/descent and ordinary fibre | CR.1's generic ringed differential-site ordinary connection and exterior extension, with the actual E1 sheaf-operation comparisons. The node `CrystallineCohomology:CR.1/integrable-connection` in the current partial CR.0 packet describes ring connections and the crystalline-site specialization; neither is the requested arbitrary-site export. Native tensor primitives alone do not provide the differential calculus. |
+| H.0 filtered symbol and Rees family | `DerivedDeRhamCohomology:DD.1/filtered-modules` and `/rees-description` state coherent filtered objects in an enhanced derived category. H.0 needs their ordinary finite locally split module-sheaf specialization, local freeness and explicit fibre/localization identifications. The existing completed DD package does not supply that comparison merely by naming its derived Rees equivalence. |
+| H.2/H.3/H.6/H.8 global variations | `ShimuraData:D3/variation` has a genuine prototype, but its `Supplier.connection` still lacks the sheaf restriction/gluing comparison. `IntegralVariationFibers` explicitly omits agreement of its integral Hodge filtration with the real variation and naturality of the scalar-extension comparison. Copying its record into this roadmap would duplicate ownership and retain those omissions. Constant native local systems and fibre Hodge structures do not discharge them. |
+| H.1 geometry | The unchanged H.1 G1–G9/G11 register requests coherent operator families, Quot/Hom/GIT, nonreduced analytic families, compact coefficient metric analysis and deformation/compactness comparisons. There are 34 inventoried global omissions; the new Betti stabilizer statements discharge only the representation portion of one. |
+| H.6/H.7 degeneration and arithmetic containment | The previous detailed H.6 receipt below remains authoritative: 22 global signatures need polarized variations, limiting-Hodge and norm estimates, and the Schmid-torus/canonical-compact comparison. The ten local matrix/coordinate forms do not supply them. |
+
+The current native library and upstream roadmaps were checked for these
+interfaces. Hodge structures, mixed strictness, period-domain points,
+local coefficients and the general algebraic/smooth bundle substrate must be
+consumed; they are not a complete realization of the requested analytic or
+ringed differential-site comparisons. Building those provider libraries in
+this package would cross the issue's allowed files and duplicate their
+owners. Arbitrary admitted types and empty `Prop` fields are not acceptable
+substitutes (PROTOCOL §13). These are unresolved supplier/interface inputs,
+not a claim that all prerequisite theorem proofs must be implemented before
+a roadmap can be packaged.
+
+## Verification receipt
+
+Required baseline: Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`.
+
+The configured shared build has the exact Mathlib HEAD. Its Tau Ceti build
+tree has no Git metadata, so provenance was checked by comparing every one
+of its 5,477 `.lean` files with the Git blob manifest at `f790474` in an
+existing repository: zero missing files, zero differing blobs. The prebuilt
+native imports load successfully. This is an exact source-provenance and
+elaboration check; it is not a new dependency build. No cache download,
+update, language server, extra repository copy or command in the read-only
+roadmap Lake environment was run.
+
+- Final whole-file command:
+  `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`.
+  Exit 0; zero errors, 1,634 warnings, all `declaration uses sorry`;
+  zero non-sorry warnings. All native layers reach the end of the file.
+  This checks signatures and their admitted bodies, not theorem correctness.
+- Supplemental sheaf-interface check imports the pinned Basic, Associator,
+  Restriction and Mathlib LocallyFree modules and checks the native tensor,
+  sheafification, symmetry and finiteness-predicate signatures: exit 0,
+  zero errors and zero warnings. It tests availability, not the omitted
+  global operator signatures.
+- All ten unchanged accepted packets pass `python3 scripts/check_blueprint.py`:
+  zero errors and zero warnings each.
+- Structural inventory confirms 885 distinct targets: original H.0 569,
+  H.0 additions 7, then H.1–H.8 36/33/43/30/73/32/31/31. Their active request
+  counts are 5/4/18/14/23/3/16/7/12/11 (113 total). This inventory and packet
+  validation are **not** the unfinished semantic/source/signature fidelity
+  audit of every target.
+- 182,829 bytes in the README, below the 200 KB limit; one import
+  block with 108 distinct imports in Suggested.lean. `git diff --check`
+  passes. Only the two package files and this handoff change.
+- Available memory was 107 GB before the final check. Nothing remains
+  compiling when submitted. Logs and downloaded public source material are
+  disposable; no scratch file is needed to resume.
+
+## Reading and source extent
+
+Read current upstream Completed/HodgeStructures and Completed/UniversalCovers
+in full, both protocols, UPSTREAM_GUIDE and the reviewed Hodge library audit.
+Read the relevant current AlgebraicVectorBundles and DifferentialGeometry
+interfaces and native library statements without editing or running Lake
+there. Their read-only snapshot commits were TauCetiRoadmap
+`de435a569d325b365a30fe83269ce34674eaea80` and Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+
+Fresh primary reading was [Simpson I, published IHÉS 79 (1994)](https://www.numdam.org/item/PMIHES_1994__79__47_0.pdf),
+§3's scalar endomorphism argument, printed p.90, and §4, Theorem 4.7(4),
+printed p.104; SHA-256
+`c75ffddf60b20eea2d93fa12e1d030cda524d9f8e2b4df4d60014bc8130a7054`.
+Also read [Stacks §60.15, tag 07J5](https://stacks.math.columbia.edu/tag/07J5),
+the connection/exterior extension and Lemma 60.15.1, to check the crystalline
+site versus the requested generic differential-site interface. The scalar
+representation component consumes the pinned native Schur theorem and scalar
+matrix/determinant statements. No expanded reading of the other papers is
+claimed. No restricted book was used and no source passage was placed in a
+deliverable.
+
+## Resume from here
+
+1. Preserve the working whole-file imports and the exact-pin check. The old
+   build blocker in the historical receipts below is superseded.
+2. Resolve the provider comparisons above at their existing owners, then
+   replace omission inventories by actual signatures, API and tests. Import
+   the native tensor primitives and current upstream vector-bundle ownership;
+   do not re-plan them. The new Betti stabilizer component is ready to consume.
+3. Finish the remaining full target-by-target README/signature/source audit.
+   Prior H.0 statements/API/tests and H.8 prose audits below remain useful;
+   this continuation does not certify all 885 targets.
+4. Run the whole-file check after those changes, add the metadata only once
+   every package requirement is met, and replace this partial receipt by a
+   completion receipt. Until then submit a checkpoint.
+
+---
+
+## Prior continuation receipt (codex-bIhl76)
+
+The following historical receipt describes the earlier source state and build
+availability; its compiler blocker is superseded by this continuation.
+
 Status: partial; blocked on the complete native build at both required pins
 and on unresolved geometric supplier signatures. Issue
 [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
