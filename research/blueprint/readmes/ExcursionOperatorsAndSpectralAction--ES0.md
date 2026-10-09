@@ -1,6 +1,6 @@
 # Excursion operators and the spectral action: ES0–ES4
 
-This is a **partial revision 2 checkpoint** for part ES0. All eight stages retain planned target coverage; none is closed. The packet contains 42 unchecked nodes, five explicit gaps and nineteen open supplier requests. The blocking task is PROTOCOL section 13: the full enhanced Lean signatures cannot yet be stated with the current supplier interfaces. The mathematical specifications below remain the targets, with their signature status recorded separately.
+This is a **partial revision 2 checkpoint** for part ES0. All eight stages retain planned target coverage; none is closed. The packet contains 42 unchecked nodes, four explicit gaps and sixteen open supplier requests. The blocking task is PROTOCOL section 13: the full enhanced Lean signatures cannot yet be stated with the current supplier interfaces. The mathematical specifications below remain the targets, with their signature status recorded separately.
 
 The source is Fargues–Scholze, [Geometrization of the local Langlands correspondence](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf), identified by the recorded SHA-256. The original 7 October reading receipt is retained; revision 2 reread the specific ranges recorded below on 9 October 2026. Its exact statements and the additional roadmap obligations are distinguished in each node’s source match. The revision also read the upstream ReductiveGroups and SemisimpleAlgebras roadmaps in full for declaration, proof and API density.
 
@@ -28,7 +28,7 @@ The reviewed audit already finds the ordinary Mathlib center. It is imported. Th
 
 A target-level planning pass can contain requested inputs and exact gaps. “Planned” below means every target is specified with its prerequisite chain ending in a library declaration, a precise imported node, a requested stage, or a stated gap. It does not mean proof closure or formalization.
 
-The current LP2 invariant-function-and-independence node supplies commutative reindexing, so its former correction request is resolved. The author-copy misprint remains recorded separately. The independent review object is preserved for the next reviewer.
+The current LP2 invariant-function-and-independence node supplies commutative reindexing, so its former correction request is resolved. The author-copy misprint remains recorded separately. The completed [revision 2 independent review](../reviews/REV-ExcursionOperatorsAndSpectralAction--ES0~2.md) records `needs_changes`; the preceding review is retained in `reviewHistory`.
 
 ## ES0
 
@@ -288,9 +288,9 @@ Acceptance:
 - No complex block decomposition is required for the ring-valued comparison.
 - General b-stratum spectral composites Psi_G^b remain ES7:parabolic’s constructions.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `VStackSheavesAndLisseCategories:VS4`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension`, `SmoothRepresentationsOfLocalGroups:SR.1`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/bernstein-center-of-a-category`, `ExcursionOperatorsAndSpectralAction:ES0/enhanced-to-homotopy-center`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint`, `SmoothRepresentationsOfLocalGroups:SR.0:derived-extension`, `SmoothRepresentationsOfLocalGroups:SR.1`.
 
-Source: IX.5 p. 329; VII.7.2 pp. 271–273. The stated source result supplies this target with the hypotheses listed here.
+Source: IX.5 p. 329; Proposition VII.7.2 pp. 272–273. The stated source result supplies this target with the hypotheses listed here.
 
 Lean signature status: Full signature omitted pending actual supplier types.
 
@@ -523,7 +523,7 @@ Acceptance:
 - Verify the full statement, including its coefficient and continuity hypotheses.
 - Check the displayed construction on the unit and its compatibility with the cited supplier maps.
 
-Direct prerequisites: `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects`.
+Direct prerequisites: `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `HeckeStacksAndLocalShtukas:HS1/condensed-enrichment`, `EnhancedDerivedSheaves:E5:abstract`, `EnhancedDerivedSheaves:E5:presentability`, `VStackSheavesAndLisseCategories:VS4/compact-generation-and-compact-objects`, `HeckeStacksAndLocalShtukas:HS1`.
 
 Source: IX.5 pp. 327–328. The stated source result supplies this target with the hypotheses listed here.
 
@@ -561,7 +561,7 @@ Acceptance:
 - Check z_(T_V A)=T_V(z_A).
 - The statement stops at the Hecke-compatible center; b-stratum Psi maps are ES7’s.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1/spectral-and-geometric-centers`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/component-decomposition`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/center-on-finite-wild-pieces`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `GeometricSatakeAndFusion:GS4:integral-dual-group`.
 
 Source: IX.5.2 p. 329. The stated source result supplies this target with the hypotheses listed here.
 
@@ -924,7 +924,7 @@ Acceptance:
 - Verify the full statement, including its coefficient and continuity hypotheses.
 - Check the displayed construction on the unit and its compatibility with the cited supplier maps.
 
-Direct prerequisites: `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `VStackSheavesAndLisseCategories:VS4`, `EnhancedDerivedSheaves:E5:presentability`.
+Direct prerequisites: `SmoothRepresentationsOfLocalGroups:SR.2`, `SmoothRepresentationsOfLocalGroups:SR.0:abelian-category`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`, `VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint`, `EnhancedDerivedSheaves:E5:presentability`.
 
 Source: X.1 pp. 343–344; X.3.5 p. 350. The stated source result supplies this target with the hypotheses listed here.
 
@@ -1185,7 +1185,7 @@ Hypotheses and interfaces:
 
 Construction or proof:
 
-1. Compare the normalized HS kernels and universal evaluation on generators.
+1. Compare the normalized HS kernels with the universal evaluation of the integral approximation (perfApprox_evaluation) and the LP4 integral universal representation bundles. The ES2 characteristic-zero family is not an integral input.
 2. Apply the equivalence of coherent-data anima to lift that comparison uniquely to the action.
 3. Use its functorial inverse to prove coherence of identity and composite comparisons.
 4. For degree zero repeat the generator proof of the rational center agreement in the eligible invariant range.
@@ -1195,7 +1195,7 @@ Acceptance:
 - Check the identity extension, a tower of extensions and changing Q before/after shrinking P.
 - Retain the separate center-order hypothesis when comparing centers.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action`, `ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action`, `ExcursionOperatorsAndSpectralAction:ES2/universal-parameter-hecke-family`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `LanglandsParameterStacks:LP4/generation-and-module-comparison`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES3/integral-spectral-action`, `ExcursionOperatorsAndSpectralAction:ES3/integral-universal-action`, `ExcursionOperatorsAndSpectralAction:ES3/sifted-colimit-approximation`, `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `LanglandsParameterStacks:LP2:integral-invariants/integral-invariant-theorem`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `LanglandsParameterStacks:LP4/generation-and-module-comparison`, `LanglandsParameterStacks:LP4/rep-action-on-perf`.
 
 Source: X.0.1 pp. 339–340; X.3.1 pp. 348–349. The roadmap asks for these coherence diagrams. FS provides their universal action characterization; the precise LP and HS base-change interfaces are requested.
 
@@ -1240,7 +1240,7 @@ Duality uses the lisse BZ equivalence and Satake switching/Chevalley comparison,
 
 Ellipticity requires semisimplicity and a finite centralizer modulo the fixed dual center. Its unramified twists form a parameter component, retaining its stabilizer stack. The basic/supercuspidal structural consequence imports ES7’s proved parabolic factorization. The proposed packet bijection and t-exact equivalence are recorded conjectures, not conclusions of the action theorem.
 
-Coverage: **planned**. Refinement contract: Lisse VS5 duality, full multi-leg HS3 comparison, elliptic deformation proof refinement and qualified endomorphism base-change.
+Coverage: **planned**. Refinement contract: Elliptic deformation proof refinement, qualified endomorphism base-change and full enhanced signatures; the lisse duality and multi-leg comparison are imported from current named VS/HS nodes.
 
 ### Finite-wild central support
 
@@ -1313,7 +1313,7 @@ Construction or proof:
 
 Acceptance:
 
-- For 0->k->k[epsilon]/epsilon^2->k->0 over k[epsilon]/epsilon^2, epsilon kills the endpoints but need not kill the middle; epsilon^2 does.
+- The exact sequence 0->k->R->k->0 for R=k[epsilon]/epsilon^2 gives a triangle in D(R): epsilon kills the endpoints but need not kill the middle; epsilon^2 does. This tests the general central-action lemma on possibly noncompact objects; k is not perfect over R. For a compact nilpotent-support test use Perf(k) with the central R action through R->k, as in finite-wild-central-support.
 - Check zero and finite direct sums.
 - If both endpoint identities are zero, the distinguished triangle has empty middle support. The Lean example support_triangle_zero_ends states this on an actual triangle without assuming the annihilator-product conclusion.
 
@@ -1393,7 +1393,7 @@ Hypotheses and interfaces:
 
 - E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
 - G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
-- Use the lisse compact BZ-duality equivalence, not only the etched-sheaf Verdier statements currently written in the supplier packet.
+- Use VS5/lisse-bernstein-zelevinsky-duality, the compact lisse BZ-duality equivalence of VII.7.6, with its biduality and coefficient range.
 
 Construction or proof:
 
@@ -1407,9 +1407,9 @@ Acceptance:
 - Retain the inner correction before quotienting.
 - Do not use the unproved general center/homotopy-center isomorphism.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `VStackSheavesAndLisseCategories:VS5`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES1:spectral-center/spectral-to-geometric-center-map`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `VStackSheavesAndLisseCategories:VS5/lisse-bernstein-zelevinsky-duality`, `GeometricSatakeAndFusion:GS4:integral-dual-group`, `LanglandsParameterStacks:LP2:excursion-presentation/invariant-function-and-independence`.
 
-Source: IX.5.3 pp. 329–330; VI.12.1 pp. 239–241. The stated source result supplies this target with the hypotheses listed here.
+Source: Proposition IX.5.3 pp. 329–330; Proposition VI.12.1 pp. 239–241; Theorem VII.7.6 pp. 274–275. The stated source result supplies this target with the hypotheses listed here.
 
 Lean signature status: Full signature omitted pending actual supplier types.
 
@@ -1425,7 +1425,7 @@ Hypotheses and interfaces:
 
 - E is a nonarchimedean local field of residue characteristic p and residue cardinality q; ell != p. Fix a square root of q in each coefficient algebra used for the normalized Hecke family.
 - G/E is connected reductive, H = dual G is its split pinned dual group over Z_ell, and W_E -> Q is the finite quotient defining the pinned action on H. All nonsplit formulas use H semidirect Q and the prescribed projection to Q.
-- HS3 supplies the general multi-leg local-shtuka/Hecke comparison IX.3.2, not only the minuscule E=Q_p compactness theorem IX.3.1.
+- Use HS3/hecke-cohomology-comparison for general multi-leg IX.3.2, HS3/general-bound-compactness for pro-p K, and HS3/level-trace-and-pullback for tower maps and their index normalization.
 
 Construction or proof:
 
@@ -1440,9 +1440,9 @@ Acceptance:
 - State both smooth group actions in their correct level/tower domains.
 - No unrestricted compactness or wild cutoff on the whole tower is inferred.
 
-Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `HeckeStacksAndLocalShtukas:HS3`, `HeckeStacksAndLocalShtukas:HS3/compactness-of-shtuka-cohomology`, `HeckeStacksAndLocalShtukas:HS3/admissibility-duality-and-adjunction`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`.
+Direct prerequisites: `ExcursionOperatorsAndSpectralAction:ES0/excursion-datum-and-operator`, `ExcursionOperatorsAndSpectralAction:ES0/excursion-algebra-to-bernstein-center`, `ExcursionOperatorsAndSpectralAction:ES1:finite-ramification/uniform-wild-subgroup`, `HeckeStacksAndLocalShtukas:HS3/hecke-cohomology-comparison`, `HeckeStacksAndLocalShtukas:HS3/general-bound-compactness`, `HeckeStacksAndLocalShtukas:HS3/level-trace-and-pullback`, `HeckeStacksAndLocalShtukas:HS4/monoidal-and-finite-set-functoriality`, `VStackSheavesAndLisseCategories:VS4/strata-are-classifying-stacks`.
 
-Source: IX.3.1–IX.3.2 pp. 324–327; I.9 pp. 35–36. The stated source result supplies this target with the hypotheses listed here.
+Source: Proposition IX.3.2 pp. 326–327; I.9 pp. 35–36. The stated source result supplies this target with the hypotheses listed here.
 
 Lean signature status: Full signature omitted pending actual supplier types.
 
@@ -1631,7 +1631,7 @@ The author manuscript has SHA-256 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd
 - IX.1–IX.3 pp. 320–327; IX.5 pp. 327–329: normalized Hecke, condensed enrichment, multi-leg comparison and finite-wild proof.
 - X.0–X.3 pp. 339–350: universal/action/colimit statements and proofs, Whittaker sheaf, elliptic context and conjectures.
 
-The published edition’s relevant passage was unavailable in the original review; the finding is scoped to the author copy. No comparison with unavailable published bytes is asserted.
+The published edition’s relevant passage was unavailable in both independent reviews; the finding is scoped to the author copy. No comparison with unavailable published bytes is asserted.
 
 ### ExcursionOperatorsAndSpectralAction/E1
 
@@ -1641,11 +1641,11 @@ The diagram commutes. Do not assert a cartesian square for arbitrary finite-set 
 
 Take H=Q=1, W=C2, C=Vect_L and the trivial W-equivariant tensor family. End(id_C)=L and every left function ring is L. For I={1,2}, J={1}, g:I->J the fold map, the left vertical arrow is id_L; the right is diagonal restriction Map(W^2,L)->Map(W,L). Both horizontal maps send scalars to constant functions. The pullback consists of (a,f) with f(w,w)=a; off-diagonal values are arbitrary. In particular (0,f) with f(1,t)=1 and f zero elsewhere lies in the pullback but not in the image of L. Thus the square is commutative and not cartesian. Over F2 it has 8 pullback elements versus 2 source elements. The subsequent fusion proof only uses commutativity.
 
-Independent verdict: confirmed. Independently checked the square in the hash-identified author manuscript and the trivial-group fold-map counterexample. Only the accessible author-copy assertion is confirmed false; the published passage was not inspected.
+Independent verdict: confirmed. Independently reread the proof square on printed p. 292 in the hash-identified author manuscript. Enumerating the fold-map example over F2 gives eight pullback pairs versus two source scalars, including an off-diagonal witness. The following proof needs commutativity. Fresh publisher, arXiv and author-page checks found no correction; only the public publisher sample was readable, so the published passage remains unverified.
 
 ## Pinned library baseline
 
-The packet records 27 baseline declarations. Their statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The TauCeti pin and reviewed audit were searched for missing interfaces; no TauCeti declaration is imported by this suggested file. The following are existing library inputs, not new ES targets.
+The revision 2 independent review reread all 27 baseline declarations. Their statements were read at Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`. The TauCeti pin and reviewed audit were searched for missing interfaces; no TauCeti declaration is imported by this suggested file. The following are existing library inputs, not new ES targets.
 
 - `mathlib:CategoryTheory.CatCenter` — The ordinary center consists of natural endomorphisms of the identity functor. This is the ordinary Bernstein center in VIII.4.1, already provided at the pin; ES plans its enhanced degree-zero counterpart and comparison. (Mathlib/CategoryTheory/Center/Basic.lean)
 - `mathlib:CategoryTheory.CatCenter.app` — Evaluation of a central element at an object. This is the pinned form of the distinction the roadmap insists on, between a natural endomorphism of the identity and an endomorphism of one object. (Mathlib/CategoryTheory/Center/Basic.lean)
@@ -1681,8 +1681,7 @@ The packet records 27 baseline declarations. Their statements were read at Mathl
 - `EnhancedDerivedSheaves:E5:animation`: Animation of finite Q-torsor sets over BQ and the sifted free-group resolution BGamma = colim_(F_n->Gamma) BF_n with its animated algebra compatibility.
 - `EnhancedDerivedSheaves:E5:presentability`: Ind mapping-object equivalence for exact functors, relative tensor/base-change module categories, Barr–Beck comparisons, compact objects under coordinate-algebra colimits, and the f-localization telescope Hom formula. For support equality provide the stated endomorphism scalar-extension isomorphism in its valid range.
 - `GeometricSatakeAndFusion:GS4:integral-dual-group`: Pinned dual group/semidirect action and normalized representation categories, the center-order/dual torsion relation in its exact scope, and VI.12.1 switching equals Chevalley up to conjugation by rho-hat(-1).
-- `HeckeStacksAndLocalShtukas:HS1`: IX.1.2 relatively discrete condensed animated Hom(A,B) for compact A, and the pro-p quotient-equivariant pullback full faithfulness used in IX.5.1. Also derived coefficient-change of the normalized HS kernels and their square-root-q convention.
-- `HeckeStacksAndLocalShtukas:HS3`: The full IX.3.2 multi-leg local-shtuka/Hecke identification, with level transitions, two smooth group actions in the appropriate level/tower domains, and condensed Weil actions. Current named nodes cover IX.3.1 and its minuscule adjunction application, not this whole comparison.
+- `HeckeStacksAndLocalShtukas:HS1`: Import the existing HS1/condensed-enrichment relatively discrete animated Hom(A,B) for compact A. Still export the pro-p quotient-equivariant pullback full faithfulness used in IX.5.1, with its enhanced homotopies, and derived coefficient-change of normalized HS kernels with the square-root-q convention.
 - `LanglandsParameterStacks:LP0`: The actual Weil group/wild inertia carriers and eligibility of open normal P, tensor-compatible dense discretizations, and pro-p versus pro-ell image argument used by IX.5.1.
 - `LanglandsParameterStacks:LP1`: Derived quotient-stack mapping presentations, universal evaluation and perfect representation bundles, their fpqc descent, and the exact coefficient-extension/derived reduction comparison functors on Perf. Ordinary Scheme does not supply stacky derived Perf.
 - `LanglandsParameterStacks:LP3`: DVR highest-weight filtration of Perf(BH) by copies of Perf(R), exact representation-category free stable extension, and characteristic-zero pro-reductive representation generation/exact invariants for X.1.2. Existing good-filtration field nodes do not state the DVR tensor identity of X.3.2.
@@ -1693,13 +1692,17 @@ The packet records 27 baseline declarations. Their statements were read at Mathl
 - `SmoothRepresentationsOfLocalGroups:SR.2`: Whittaker datum (B,U,psi), generic character and compact induction from closed U(E) with support compact modulo U(E), including intertwining under isomorphism of data. This is distinct from compact induction from compact open pro-p levels.
 - `SmoothRepresentationsOfLocalGroups:SR.3`: Complex Bernstein block center description and its field-transport dictionary; characteristic-zero supercuspidal block/Ext decomposition used in X.2, with finite fixed-center hypotheses retained.
 - `VStackSheavesAndLisseCategories:VS3`: Identify the eligible relative scalar-extension category of D_lis with the geometric coefficient-change category, including the exact derived reduction range. No unrestricted Perf/D_lis tensor identity is assumed.
-- `VStackSheavesAndLisseCategories:VS4`: The enhanced fully faithful b-stratum adjunction of VII.7.2, especially j_! at b=1, and the precise restriction functors used for local-shtuka comparison. The named compact-generation and classifying-stack nodes alone do not specify this embedding.
-- `VStackSheavesAndLisseCategories:VS5`: The lisse compact Bernstein–Zelevinsky duality of VII.7.6–VII.7.10 needed by IX.5.3; the packet’s currently etched-sheaf duality nodes are insufficient (RT-AREA-geomlanglands/29).
 - `BunGAndNewtonStrata:BG3`: For the recorded X.1.5 grading statement, pi_0(Bun_G)=pi_1(G)_Gamma via the Kottwitz map (IV.1.23), and the basic-class grading shift used in X.2. This supports recorded source statements, not a new ES target.
 
 ### Resolved LP2 contract
 
 Reread the current LP2 invariant-function-and-independence node on 2026-10-09: its statement and proof use commutativity, its API is Theta.reindex, and no cartesian-square test remains. The LP2 abstract owner is preserved; no supplier file was edited. Source issue ExcursionOperatorsAndSpectralAction/E1 remains confirmed and author-copy scoped.
+
+### Supplier requests resolved in revision 2 review
+
+- `HeckeStacksAndLocalShtukas:HS3/hecke-cohomology-comparison`, `HeckeStacksAndLocalShtukas:HS3/general-bound-compactness`, `HeckeStacksAndLocalShtukas:HS3/level-trace-and-pullback`: The accepted complete HS packet supplies the IX.3.2 normalized multi-leg comparison for general E, pro-p compactness, smooth level/tower actions, partial Frobenius/Weil compatibility, and trace/pullback maps with index restrictions. Independently read on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2. This resolves the mathematical planning request, not the missing executable supplier types; no supplier file was edited.
+- `VStackSheavesAndLisseCategories:VS4/lisse-stratum-left-adjoint`: The accepted complete VS packet supplies the fully faithful enhanced left adjoint of VII.7.2, its unit equivalence, derived coefficient compatibility and its agreement with j_! on the open trivial stratum. Independently read on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2. This resolves the mathematical planning request, not the missing executable supplier types; no supplier file was edited.
+- `VStackSheavesAndLisseCategories:VS5/lisse-bernstein-zelevinsky-duality`: The accepted complete VS packet supplies the compact lisse duality of VII.7.6, its pairing and biduality, and comparison on open basic strata. Its scope includes lisse objects, beyond etched-sheaf Verdier duality. Independently read on 2026-10-09 by REV-ExcursionOperatorsAndSpectralAction--ES0~2. This resolves the mathematical planning request, not the missing executable supplier types; no supplier file was edited.
 
 ## Exact gaps and refinement
 
@@ -1719,15 +1722,11 @@ Conditional action base-change is stated with the explicit Perf and D_lis compar
 
 LP1 supplies the deformation complex and local Tate duality statement. The proof-interior identification of the unramified twists with the entire connected component in X.2’s footnote needs expansion, including H^0, H^1 and H^2 calculations and the residual stack stabilizer. It is an explicit refinement of the stated target, not a conjectural packet equivalence.
 
-### Supplier lisse duality and multi-leg shtukas
-
-The current VS5 nodes concern etched sheaves, while this target needs VII.7’s lisse BZ duality. HS3’s named nodes give minuscule compactness and adjunction, while the local-shtuka target needs full multi-leg IX.3.2 with tower transition compatibility. Both missing exports are precisely requested.
-
 ## Suggested Lean and validation
 
 The generic support theorem now takes actual distinguished triangles, additive shifts with explicit central compatibility, biproducts and retracts; it no longer assumes the desired annihilator-product containment. Separate signatures state the Hom factorization and product containment, compatible-functor support inclusion, and the principal radical/power criterion. Concrete scalar-module examples compute free and dual-number support. These improvements do not supply enhanced categories, derived stacky Perf, coherent action anima, elliptic algebraic centralizers or localization telescopes.
 
-The original needs_changes review is retained. Its signature-coverage finding remains open: all 42 mathematical targets are specified, but the named register is prose and cannot count as Lean declarations. No empty proposition fields or ordinary aliases are introduced to claim higher coverage.
+The completed revision 2 independent review retains `needs_changes`. The original review is preserved in the packet history. Its signature-coverage finding remains open: all 42 mathematical targets are specified, but the named register is prose and cannot count as Lean declarations. No empty proposition fields or ordinary aliases are introduced to claim higher coverage.
 
 The executable inventory has seven proposed node names, 22 proposed API names and 15 examples carrying 13 of the 31 proposed test labels; three extra examples support the ordinary observations. These are upper bounds on full coverage. The register is prose. The exact missing names are recorded in the packet and revision handoff.
 
