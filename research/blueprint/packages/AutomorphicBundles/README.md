@@ -241,7 +241,8 @@ fibre-triviality or tame assumption fails.
 
 ### Hodge and opposite parabolic conventions — `hodgeParabolicConvention`
 
-Fix μ_h(z)=h_ℂ(z,1) acting by z^(−p) on H^{p,q}. Construct the filtration stabilizer
+Fix μ_h(z)=h_ℂ(z,1) acting by z^(−p) on H^{p,q}, with F^a=⊕_{p≥a}H^{p,q}.
+Construct the filtration stabilizer
 P_H=P(μ_h⁻¹), with Levi Z_G(μ_h), from D3's filtration and compact-dual interfaces. Compare it
 explicitly with the opposite P_HT=P(μ_h) and BCGP's left-coset flag. The comparison includes
 inversion of left/right cosets and the required dual coefficient. A sign choice for μ alone does
@@ -310,6 +311,10 @@ through the effective group. Require a torsion-free effective action and trivial
 ineffective kernel on fibres, or retain the equivariant stack formulation. Obtain its
 holomorphic bundle structure from the Borel embedding and coefficient, rather than from a
 quotient of smooth spaces alone.
+
+On an adelic component write the coefficient as Γ\(G(ℝ)×V)/K_∞, with
+(g,v)·k=(gk,ρ(k)⁻¹v). Its holomorphic structure is the one induced by the
+compact-dual coefficient, with the same ineffective-kernel descent condition.
 
 **API.**
 
@@ -404,20 +409,28 @@ and does not provide the tensor-preserving frame torsor used here.
 
 ### Absolute Hodge tensors in abelian families — `absoluteHodgePropagation`
 
-Use Deligne's absolute-Hodge theorem for rational Hodge tensors in H¹ of abelian varieties and
-its Tate tensor constructions. In a connected abelian family apply Principle B to a horizontal
-tensor that has type (0,0) and is absolute Hodge at the specified fibre. State the comparison
-and propagation hypotheses explicitly. This is a theorem about absolute Hodge classes, without
-an assertion that they are algebraic cycles or that every motive has an abelian realization.
+Let A be an abelian variety over an algebraically closed field of characteristic zero,
+with a chosen embedding into ℂ. Every rational Hodge tensor built from H¹(A), its dual
+and Tate twists is absolute Hodge. For a smooth proper abelian family over a connected
+smooth complex base, a horizontal tensor of type (0,0) at every fibre propagates from
+being absolute Hodge at one fibre to being absolute Hodge at all fibres. Retain the
+compatible Betti, de Rham and étale realizations in this propagation. This gives
+absolute Hodge classes without an assertion that they are algebraic cycles or that
+every motive has an abelian realization.
 
 **Prerequisites.** `AbelianSchemesAndArithmeticModuli:A4`.
 
-**Sources.** [Deligne], Main Theorem 2.11, pp.19–21; Proposition 6.1, pp.41–42; [CS], §2.3 Lemma 2.3.2, pp.668–669.
+**Sources.** [Deligne], Main Theorem 2.11, p.19; Principle B, Theorem 2.12, p.20,
+and Theorem 2.15, p.21; Proposition 6.1, pp.41–42; [CS], §2.3 Lemma 2.3.2, pp.668–669.
 
 ### Descended Hodge-tensor realizations — `hodgeTensorRealizations`
 
-On the actual fine-level Hodge-type universal abelian family, realize the defining Hodge tensors
-in Betti, étale and de Rham tensor spaces, with comparison, horizontality and rational descent.
+For a Hodge-type datum with a chosen symplectic embedding and sufficiently small level,
+let A/S be the universal abelian scheme over the canonical reflex field E. Realize the
+finite defining family of rational Hodge tensors in H=H₁(A)=(R¹π_*)∨ and its Betti,
+étale and de Rham tensor constructions, including Tate twists. The de Rham tensors
+are horizontal, lie in the required filtration and descend to E using arithmetic
+Galois invariance and absolute-Hodge comparison.
 The standard homology module is the dual of relative H¹ and carries the declared Tate lines. The
 realizations preserve the tensor relations defining Gᶜ.
 
@@ -553,10 +566,13 @@ assume that the datum has a universal abelian family.
 
 ### Conjugation of connected principal bundles — `connectedPrincipalConjugation`
 
-For the connected datum with semisimple simply connected group, construct the
-special-point-normalized conjugation transport of its principal bundle. Include the compact-dual
-map, connection and Hecke action. Use the rank-one reduction and faithful adjoint-jet
-realization below to prove that the normalization controls principal automorphisms.
+Fix a connected datum (G,X) with G semisimple simply connected, σ∈Aut(ℂ), and a
+special point x. Construct the algebraic isomorphism from the σ-conjugate connected
+standard principal bundle to that of the transported datum, normalized by the period
+torsor at x. Preserve the compact-dual map, flat connection and connected Hecke-group
+action. Under V7's conjugate-datum identification the comparison is independent of
+auxiliary choices. Use the rank-one reduction and faithful adjoint-jet realization
+below to prove that the normalization controls principal automorphisms.
 
 **Prerequisites.** B1 `abelianCanonicalPrincipalBundle`; `ShimuraVarieties:V7`; B1.general
 `generalConnectedReduction`.
@@ -589,9 +605,11 @@ assertion in §8.1, which its footnote leaves conjectural.
 ### General canonical principal models — `generalPrincipalModel`
 
 For a general pure Shimura datum satisfying Milne II (2.1), descend the normalized connected
-principal bundles to a canonical Gᶜ-torsor over E. Prove the continuity and effectivity of the
-Weil descent datum and its compatibility with components and level maps. A family of motives is
-not an additional assumed carrier for this construction.
+principal bundles on the neat effective canonical tower to a canonical Gᶜ-torsor over E.
+Its analytification is the homogeneous standard principal bundle, with its canonical
+flat connection. Prove the continuity and effectivity of the Weil descent datum and
+its compatibility with components and level maps. A family of motives is not an
+additional assumed carrier for this construction.
 
 **Prerequisites.** B1.general `generalConnectedReduction`; B0 `centralSplitQuotient`; `ShimuraVarieties:V7`;
 `ShimuraVarieties:V8.general`.
@@ -682,10 +700,12 @@ conversion, including similitude characters, and the Galois descent datum for no
 
 ### Betti coefficients of a full-group representation — `bettiCoefficientLocalSystem`
 
-For a rational full-group Gᶜ-representation W, form the arithmetic Betti local system Γ\(X×W) on
-the effective quotient. Under the stated ℚ-defined weight hypothesis, equip it with the
-homogeneous variation of Hodge structure. Treat mixed weights weight by weight. Preserve the
-homology/cohomology dual convention and Tate lines in the Siegel specialization.
+For a finite-dimensional rational full-group Gᶜ-representation W and a neat effective
+arithmetic component Γ\X, form the Betti local system Γ\(X×W), with its arithmetic
+monodromy. Its associated holomorphic flat bundle is the full-group automorphic
+coefficient. When the projected weight is ℚ-defined and W has one pure weight, use
+D3's rational variation of Hodge structure. Treat mixed weights weight by weight.
+Preserve the homology/cohomology dual convention and Tate lines in the Siegel specialization.
 
 **API.**
 
@@ -737,10 +757,13 @@ constant rank-one sheaf have different Galois actions.
 
 ### Filtered de Rham full-group coefficients — `filteredDeRhamCoefficient`
 
-Associate to a full-group representation its algebraic de Rham coefficient with integrable
-connection and Hodge filtration from γ. Prove Griffiths transversality and the corresponding
-analytic horizontal-section description. Parabolic or Levi-only coefficients use the
-associated-bundle functor without this flat structure.
+Let W be an algebraic full-group Gᶜ-representation over a number field L containing E.
+The canonical principal bundle associates to W a locally free de Rham coefficient
+with integrable connection and Hodge filtration from γ. Prove Griffiths transversality
+and the corresponding analytic horizontal-section description. In Hodge type this
+agrees with the matching tensor construction in the universal family's relative
+H₁,dR; its regular-singular boundary extension is a B3 target. Parabolic or Levi-only
+coefficients use the associated-bundle functor without this flat structure.
 
 **API.**
 
@@ -764,10 +787,13 @@ associated-bundle functor without this flat structure.
 
 ### Betti, étale and de Rham comparison — `realizationComparison`
 
-Over ℂ compare the Betti local system tensored with ℚ_ℓ to the geometric étale coefficient, and
-the Betti coefficient tensored with O^an to the analytic filtered de Rham bundle. Make the maps
-compatible with the specified tensor, dual, Tate and Hecke operations. The comparison requested
-here does not add crystalline or B_dR assertions.
+For a rational Gᶜ-representation W and an embedding L↪ℂ, identify
+W_B⊗ℚ_ℓ≃W_ℓ|S_ℂ under the algebraic/analytic étale comparison, and
+W_B⊗O^an≃W_dR^an as flat holomorphic bundles.
+When the projected weight is ℚ-defined and W is pure, these identifications respect
+the Hodge filtration and rational variation. Preserve the defining tensors, duals,
+Tate twists and Hecke pullbacks. The comparison requested here does not add
+crystalline or B_dR assertions.
 
 **Prerequisites.** B2 `bettiCoefficientLocalSystem`; B2 `etaleCoefficientLocalSystem`; B2
 `filteredDeRhamCoefficient`; `AbelianSchemesAndArithmeticModuli:A4`.
