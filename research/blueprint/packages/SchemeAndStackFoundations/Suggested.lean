@@ -5,8 +5,8 @@ below are read as suggestions so that contributors and reviewers converge on nam
 signatures, never as a checklist. Every proof is `sorry`; nothing here is an implementation.
 Statements that cannot be typed at the pinned libraries (Mathlib 082e2d3, Tau Ceti f790474)
 are named in comment blocks: each layer's section ends with the block listing its untyped
-targets, and the block at the end of the file lists the SF.5 and SF.6 targets, none of which
-has a typed form (their carriers, Chow groups and the comparison maps, do not exist yet).
+targets, and the block at the end of the file lists the SF.5 targets and the interfaces of the README's boundaries
+section, none of which has a typed form (their carriers, Chow groups and the comparison maps, do not exist yet).
 Section order: the base strands of SF.0–SF.2 (henselization, flat base change, ideal sheaves,
 excellence, algebraic-space predicates, Galois gerbs, Brauer, coherent duality, equivariant
 cohomology), then the SF.0, SF.1, SF.2, SF.3 and SF.4 sections of the README in order.
@@ -174,9 +174,7 @@ section SF_base
 /-
 This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
 These statements suggest Lean forms so contributors and reviewers converge on names and
-signatures. This is a partial checkpoint; every implementation is unchecked.
-The current elaboration receipt is in the handoff. Open source-proof and baseline adapters
-are listed in the packet; admitted signatures certify no implementation.
+signatures. Every proof is `sorry`; admitted signatures certify no implementation.
 -/
 
 open _root_.CategoryTheory _root_.CategoryTheory.Limits
@@ -3955,6 +3953,21 @@ theorem quotientCompNatIso_id_left (I : Z.IdealSheafData) (g : Y ⟶ Z) [IsAffin
 
 end TauCeti.SchemeFoundations.IdealPullback
 
+/-! ### SF.0 definitions without a typed form at the pins
+
+The following README definitions of SF.0 §3, §4, §5, §6 and §7 have no declaration above, because
+their carriers are absent from Mathlib 082e2d3 (no depth or Cohen–Macaulay predicate for modules,
+no dimension function on topological spaces at a point, no perfection colimit for schemes):
+`AlgebraicGeometry.Scheme.Modules.IsReflexive` with `reflexiveHull` (T025),
+`TauCeti.topologicalKrullDimAt` (T028), `TauCeti.IndEtale` (T053), `Ring.IsCatenary` (T069),
+`Ring.IsUniversallyCatenary` (T070), `Module.depth` and `Module.IsCohenMacaulay` (T072),
+`AlgebraicGeometry.IsCMQuasiExcellent` and `IsSnQuasiExcellent` (T077), `Ring.IsJapanese` (T079),
+`Ring.IsNagata` (T080), `AlgebraicGeometry.Scheme.IsPerfect` (T087),
+`AlgebraicGeometry.IsUniversalHomeomorphism` (T091), `AlgebraicGeometry.PerfectlyProper` (T102),
+`AlgebraicGeometry.PerfectlySmoothOfRelativeDimension` (T104) and
+`AlgebraicGeometry.Scheme.IsWeaklyNormal` (T107). Their API items and unit tests are the ones the
+README lists; no `Prop`-valued stand-in is introduced for any of them. -/
+
 end
 end SF_SF_0
 
@@ -4993,7 +5006,7 @@ theorem Sheaf.H.pullback_id (G : Sheaf K AddCommGrpCat.{u}) (n : ℕ) :
 
 /- `Sheaf.H.pullback_zero`: in degree 0, composed with `Sheaf.H.equiv₀`, the pullback is restriction
 of sections; `Sheaf.H.pullback_comp`: pullback along a composite is the composite of pullbacks;
-`Sheaf.H.pullback_δ`: compatibility with connecting homomorphisms (packet statements). -/
+`Sheaf.H.pullback_δ`: compatibility with connecting homomorphisms (statements in the README). -/
 
 -- test: TauCeti.SchemeFoundations.SiteCohomology.Sheaf.H.test_pullback_id_etale
 example (X : Scheme.{u}) (G : Sheaf (Scheme.smallEtaleTopology X) AddCommGrpCat.{u}) :
@@ -5027,7 +5040,7 @@ theorem Sheaf.higherDirectImage_zero
   sorry
 
 /- `Sheaf.derivedPushforward` (the functor on `D^+`), `Sheaf.higherDirectImage_iso_sheafify`,
-`Sheaf.higherDirectImage_δ`, `Sheaf.derivedPushforward_comp` are packet statements. -/
+`Sheaf.higherDirectImage_δ`, `Sheaf.derivedPushforward_comp` are stated in the README. -/
 
 -- test: TauCeti.SchemeFoundations.SiteCohomology.Sheaf.test_higherDirectImage_id
 example (F : Sheaf J AddCommGrpCat.{u}) :
@@ -5043,7 +5056,7 @@ end DirectImage
 -- node: SchemeAndStackFoundations:SF.2/cech-to-cohomology
 -- node: SchemeAndStackFoundations:SF.2/abelian-torsor-h1
 -- node: SchemeAndStackFoundations:SF.2/slice-site-cohomology
-/- Spectral-sequence and torsor statements are in the packet; Mathlib has no spectral-sequence
+/- Spectral-sequence and torsor statements are in the README; Mathlib has no spectral-sequence
 carrier for sheaf cohomology and no sheaf-torsor carrier at the pins. -/
 
 section Nonabelian
@@ -5065,7 +5078,7 @@ theorem NonabelianH1.map_one {G G' : Sheaf J GrpCat.{u}} (φ : G ⟶ G') :
   sorry
 
 /- `NonabelianH1.mk`, `mk_eq_one_iff`, `pullback`, `connecting`, `exact_sequence`, `equivSheafH`
-are packet API items whose statements need a sheaf-torsor carrier. -/
+are README API items whose statements need a sheaf-torsor carrier. -/
 
 -- test: TauCeti.SchemeFoundations.SiteCohomology.NonabelianH1.test_trivial_group
 /- For the trivial sheaf of groups the pointed set is a point. -/
@@ -5089,9 +5102,9 @@ theorem CentralExtension.boundary_one [HasSheafify J AddCommGrpCat.{u}]
   sorry
 
 /- `CentralExtension.exact_boundary`, `boundary_pullback`, `boundary_cech` and `Gerbe.class` are
-packet API items (they need the extension data and a gerbe carrier). The tests
+README API items (they need the extension data and a gerbe carrier). The tests
 `CentralExtension.test_split`, `test_matrix_algebra`, `test_abelian_connecting`,
-`test_quaternion_real` are stated in the packet. -/
+`test_quaternion_real` are stated in the README. -/
 
 end Nonabelian
 
@@ -5110,12 +5123,12 @@ theorem godementResolution_isFlasque (F : TopCat.Sheaf AddCommGrpCat.{u} X) (n :
   sorry
 
 /- `godementResolution_quasiIso`, `godementResolution_exact`, `godementResolution_restrict` and
-`sheafH_iso_godement` are packet API items. -/
+`sheafH_iso_godement` are README API items. -/
 
 -- test: TauCeti.SchemeFoundations.SiteCohomology.test_godement_point
 -- test: TauCeti.SchemeFoundations.SiteCohomology.test_godement_skyscraper
 -- test: TauCeti.SchemeFoundations.SiteCohomology.test_godement_not_injective
-/- Point, Sierpiński-space and non-injectivity tests (packet statements). -/
+/- Point, Sierpiński-space and non-injectivity tests (statements in the README). -/
 
 end Godement
 
@@ -5128,7 +5141,7 @@ theorem noetherianSpace_vanishing {X : TopCat.{u}} [TopologicalSpace.NoetherianS
   sorry
 
 -- node: SchemeAndStackFoundations:SF.2/cohomology-filtered-colimits
-/- Commutation of cohomology with filtered colimits (packet statement). -/
+/- Commutation of cohomology with filtered colimits (roadmap statement). -/
 
 end TauCeti.SchemeFoundations.SiteCohomology
 
@@ -5155,7 +5168,7 @@ theorem higherDirectImage_vanishing {X S : Scheme.{u}} (f : X ⟶ S) [QuasiCompa
 -- node: SchemeAndStackFoundations:SF.2/projective-space-cohomology
 -- node: SchemeAndStackFoundations:SF.2/ample-serre-vanishing
 -- node: SchemeAndStackFoundations:SF.2/proper-fibre-dimension-vanishing
-/- Packet statements; twisting sheaves `O(d)` on `Proj` and ampleness of invertible modules are not
+/- Roadmap statements; twisting sheaves `O(d)` on `Proj` and ampleness of invertible modules are not
 packaged in Mathlib at the pins. -/
 
 -- node: SchemeAndStackFoundations:SF.2/serre-affineness-criterion
@@ -5181,7 +5194,7 @@ noncomputable def sectionsWithSupport {X : Scheme.{u}} (Z : Set X) (F : X.Module
 
 /- `supportedSubsheaf`, `localCohomologySheaf`, `cohomologyWithSupport_zero`,
 `cohomologyWithSupport_univ`, `rHZ_adjunction`, `localToGlobal`, `cohomologyWithSupport_pullback`
-are packet API items. -/
+are roadmap API items. -/
 
 -- test: TauCeti.SchemeFoundations.Supports.test_support_all
 example {X : Scheme.{u}} (F : X.Modules) :
@@ -5192,13 +5205,13 @@ example {X : Scheme.{u}} (F : X.Modules) (q : ℕ) :
     Subsingleton (cohomologyWithSupport (∅ : Set X) isClosed_empty F q) := sorry
 -- test: TauCeti.SchemeFoundations.Supports.test_support_affine_line_origin
 -- test: TauCeti.SchemeFoundations.Supports.test_support_not_restriction
-/- Affine-line computations (packet statements). -/
+/- Affine-line computations (statements in the README). -/
 
 -- node: SchemeAndStackFoundations:SF.2/supports-localization-triangle
 -- node: SchemeAndStackFoundations:SF.2/local-cohomology-module-comparison
 -- node: SchemeAndStackFoundations:SF.2/local-cohomology-flat-base-change
 -- node: SchemeAndStackFoundations:SF.2/depth-local-cohomology-vanishing
-/- Packet statements, against Mathlib's `localCohomology` for modules on affines. -/
+/- Roadmap statements, against Mathlib's `localCohomology` for modules on affines. -/
 
 -- node: SchemeAndStackFoundations:SF.2/cousin-complex
 /-- The Cousin complex of a filtration of a scheme by closed subsets. -/
@@ -5207,11 +5220,11 @@ noncomputable def cousinComplex {X : Scheme.{u}} (Z : ℕ → Set X) (F : X.Modu
   sorry
 
 /- `relativeSupportCohomology`, `cousinComplex_d_comp_d`, `cousinComplex_isQuasicoherent`,
-`relativeSupportCohomology_eq_zero_of_affine`, `cousinComplex_trivial` are packet API items, and
-`test_cousin_trivial_filtration`, `test_cousin_dvr`, `test_cousin_not_resolution` packet tests. -/
+`relativeSupportCohomology_eq_zero_of_affine`, `cousinComplex_trivial` are roadmap API items, and
+`test_cousin_trivial_filtration`, `test_cousin_dvr`, `test_cousin_not_resolution` roadmap tests. -/
 
 -- node: SchemeAndStackFoundations:SF.2/kempf-cousin-resolution
-/- Packet statement (maximal Cohen–Macaulay sheaves have no carrier at the pins). -/
+/- README statement (maximal Cohen–Macaulay sheaves have no carrier at the pins). -/
 
 end TauCeti.SchemeFoundations.Supports
 
@@ -5267,7 +5280,7 @@ example (k K : Type u) [Field k] [Field K] [Algebra k K] (h : Module.finrank k K
       (fun _ : PUnit.{u+1} ↦ Spec.map (CommRingCat.ofHom (algebraMap k K))) := sorry
 -- test: TauCeti.SchemeFoundations.Nisnevich.test_covering_quadratic_split
 /- The family `{Spec ℤ[1/10] → Spec ℤ[1/2], Spec ℤ[1/2][x]/(x²+1) → Spec ℤ[1/2]}` is a Nisnevich
-covering (stated in the packet; the explicit rings make the Lean statement long and add nothing to
+covering (stated in the roadmap; the explicit rings make the Lean statement long and add nothing to
 the signature). -/
 -- test: TauCeti.SchemeFoundations.Nisnevich.test_zariski_is_nisnevich
 example {S : Scheme.{u}} {ι : Type u} {X : ι → Scheme.{u}} (f : ∀ i, X i ⟶ S)
@@ -5357,10 +5370,10 @@ example (X : Scheme.{u}) (U V : X.Opens) (h : U ⊔ V = ⊤) :
     IsOpenImmersion (ElementaryDistinguishedSquare.ofZariski U V h).toSquare.f₃₄ := sorry
 -- test: TauCeti.SchemeFoundations.Nisnevich.test_eds_affine_line
 /- `X = 𝔸¹_ℚ`, `U = 𝔸¹ ∖ {0}`, `V = 𝔸¹ ∖ {−1, −2}` with `s ↦ s² + 2s` is an elementary
-distinguished square (statement in the packet). -/
+distinguished square (statement in the roadmap). -/
 -- test: TauCeti.SchemeFoundations.Nisnevich.test_eds_not_distinguished
 /- `(∅ ⊂ Spec ℝ, Spec ℂ → Spec ℝ)` is not an elementary distinguished square: the fibre over the
-closed point has residue field `ℂ ≠ ℝ` (statement in the packet). -/
+closed point has residue field `ℂ ≠ ℝ` (statement in the roadmap). -/
 
 -- node: SchemeAndStackFoundations:SF.2/distinguished-square-mayer-vietoris
 theorem ElementaryDistinguishedSquare.exists_mayerVietorisSquare {X : Scheme.{u}}
@@ -5382,7 +5395,7 @@ theorem isSheaf_iff_distinguishedSquares (P : Scheme.{u}ᵒᵖ ⥤ Type u)
 
 /- SchemeAndStackFoundations:SF.2/nisnevich-points-henselization,
    SF.2/nisnevich-cohomological-dimension, SF.2/nisnevich-cech-comparison and
-   SF.2/brown-gersten-vanishing are stated in the packet; their Lean statements need the small
+   SF.2/brown-gersten-vanishing are stated in the roadmap; their Lean statements need the small
    Nisnevich site's sheafification and Ext instances and the henselization carrier, neither of
    which exists at the pinned commits. -/
 
@@ -5413,11 +5426,11 @@ noncomputable def bigSheaf {S : Scheme.{u}} (F : S.Modules) [F.IsQuasicoherent] 
 -- test: TauCeti.SchemeFoundations.Topologies.test_bigSheaf_zero
 /- `F = 0` gives the zero sheaf (needs a quasi-coherence instance for the zero module). -/
 -- test: TauCeti.SchemeFoundations.Topologies.test_bigSheaf_spec_field
-/- For `S = Spec k`, `F = O_S`, sections over `Spec L` are `L` (statement in the packet). -/
+/- For `S = Spec k`, `F = O_S`, sections over `Spec L` are `L` (statement in the roadmap). -/
 -- test: TauCeti.SchemeFoundations.Topologies.test_bigSheaf_zariski_restriction
-/- Restriction of `F^a` to the small Zariski site recovers `F` (statement in the packet). -/
+/- Restriction of `F^a` to the small Zariski site recovers `F` (statement in the roadmap). -/
 -- test: TauCeti.SchemeFoundations.Topologies.test_bigSheaf_not_topological_pullback
-/- Sections of `O^a` over `Spec ℚ(i)` are `ℚ(i)`, not `ℚ` (statement in the packet). -/
+/- Sections of `O^a` over `Spec ℚ(i)` are `ℚ(i)`, not `ℚ` (statement in the roadmap). -/
 
 -- node: SchemeAndStackFoundations:SF.2/multiplicative-additive-group-sheaves
 /-- `G_a` on the big fpqc site over `S`. -/
@@ -5459,7 +5472,7 @@ example (h : Spec (CommRingCat.of ℚ) ⟶ Spec (CommRingCat.of ℚ)) :
       Additive ℚˣ) := sorry
 -- test: TauCeti.SchemeFoundations.Topologies.test_mu_p_not_etale_trivial
 /- Over `Spec 𝔽_p`, `μ_p` has trivial sections on reduced schemes and nonzero sections on
-`Spec 𝔽_p[ε]/(ε^p)` (statement in the packet). -/
+`Spec 𝔽_p[ε]/(ε^p)` (statement in the roadmap). -/
 
 -- node: SchemeAndStackFoundations:SF.2/topology-comparison-morphisms
 /-- Inverse image along the big-fppf-to-small-étale comparison `a_X`. -/
@@ -5484,10 +5497,10 @@ noncomputable def epsilonFppfEtale (X : Scheme.{u}) :
   sorry
 
 /- `aX` (the morphism of topoi), `comparison_comp`, `comparison_baseChange` and `aX_inverseImage_obj`
-   are stated in the packet; the inverse-image functors above are their carriers. -/
+   are stated in the roadmap; the inverse-image functors above are their carriers. -/
 
 -- test: TauCeti.SchemeFoundations.Topologies.test_comparison_id
-/- The étale-to-étale comparison is the identity of `Sh(X_et)` (statement in the packet). -/
+/- The étale-to-étale comparison is the identity of `Sh(X_et)` (statement in the roadmap). -/
 -- test: TauCeti.SchemeFoundations.Topologies.test_aX_constant
 /- `a_X^{-1}` of the constant étale sheaf `ℤ/2` is the constant fppf sheaf `ℤ/2`. -/
 -- test: TauCeti.SchemeFoundations.Topologies.test_zariski_not_etale
@@ -5508,10 +5521,10 @@ theorem quasiCoherent_etale_comparison (X : Scheme.{u}) (F : X.Modules) [F.IsQua
 
 -- node: SchemeAndStackFoundations:SF.2/etale-pullback-fppf-comparison
 /- `H^q(X_et, F) = H^q_fppf(X, a_X^{-1} F)`; big-site cohomology of `Scheme.{u}`-sites needs
-sheafification instances in a higher universe, not available at the pins (packet statement). -/
+sheafification instances in a higher universe, not available at the pins (roadmap statement). -/
 
 -- node: SchemeAndStackFoundations:SF.2/smooth-group-fppf-etale-comparison
-/- Grothendieck's comparison for smooth commutative quasi-projective group schemes (packet
+/- Grothendieck's comparison for smooth commutative quasi-projective group schemes (roadmap
 statement); same universe obstruction as above. -/
 
 end TauCeti.SchemeFoundations.Topologies
@@ -5534,7 +5547,7 @@ theorem etale_kummer_h1 (X : Scheme.{u}) (n : ℕ) (hn : IsUnit ((n : ℤ) : Γ(
       Function.Exact f g ∧ (∀ v : (Γ(X, ⊤))ˣ, f (Additive.ofMul (v ^ n)) = 0) ∧
       ∀ L, n • L = 0 ↔ ∃ c, g c = L :=
   sorry
-/- The fppf form for every `n` and the `H^2` sequence are stated in the packet (big-site
+/- The fppf form for every `n` and the `H^2` sequence are stated in the roadmap (big-site
 cohomology). -/
 
 -- node: SchemeAndStackFoundations:SF.2/artin-schreier-sequence
@@ -5562,13 +5575,13 @@ noncomputable def galoisModule (K : Type u) [Field K]
     Type u :=
   sorry
 /- The comparison `F.H n ≃+ continuousCohomology n (galoisModule K F)` needs the topological
-representation structure on the stalk (Mathlib `TopRep`), stated in the packet. -/
+representation structure on the stalk (Mathlib `TopRep`), stated in the roadmap. -/
 
 -- node: SchemeAndStackFoundations:SF.2/etale-cohomology-limits
 -- node: SchemeAndStackFoundations:SF.2/hochschild-serre-galois-covering
 -- node: SchemeAndStackFoundations:SF.2/gabber-affine-proper-base-change
 -- node: SchemeAndStackFoundations:SF.2/proper-hypercover-descent
-/- Statements in the packet; they need pullback along morphisms of small étale sites
+/- Statements in the roadmap; they need pullback along morphisms of small étale sites
 (SF.2/site-cohomology-pullback) whose carrier is below. -/
 
 -- node: SchemeAndStackFoundations:SF.2/tsen-theorem
@@ -5603,14 +5616,14 @@ noncomputable def nu (X : Scheme.{u}) :
   sorry
 
 /- `nu_inverseImage_obj_affine`, `nu_directImage_obj`, `nu_unit_iso`, `nu_naturality` and
-`nu_pushforward_comm` are packet API items: they need the inclusion `X.Etale ⥤ X.ProEt` and
+`nu_pushforward_comm` are roadmap API items: they need the inclusion `X.Etale ⥤ X.ProEt` and
 presentations of affine weakly étale objects as limits, not yet in Mathlib at the pins
 (cf. Mathlib pull request 41730). -/
 
 -- test: TauCeti.SchemeFoundations.Proetale.test_nu_point
 -- test: TauCeti.SchemeFoundations.Proetale.test_nu_constant_profinite
 -- test: TauCeti.SchemeFoundations.Proetale.test_nu_not_essentially_surjective
-/- Empty scheme, constant sheaf on a profinite set and `ellAdicSheaf` tests (packet statements). -/
+/- Empty scheme, constant sheaf on a profinite set and `ellAdicSheaf` tests (statements in the README). -/
 
 -- node: SchemeAndStackFoundations:SF.2/proetale-classical-comparison
 /-- Bhatt–Scholze: étale cohomology equals pro-étale cohomology of `ν^*F` for every abelian `F`. -/
@@ -5631,7 +5644,7 @@ theorem isReplete_proetale (X : Scheme.{u}) :
   sorry
 
 /- `isReplete_of_locallyWeaklyContractible`, `IsReplete.lim_epi` (the definition unfolded) and
-`IsReplete.derivedCategory_leftComplete` are packet API items. -/
+`IsReplete.derivedCategory_leftComplete` are roadmap API items. -/
 
 -- test: TauCeti.SchemeFoundations.Proetale.test_isReplete_types
 example : IsReplete (Type u) := sorry
@@ -5645,7 +5658,7 @@ example : ¬ IsReplete (Sheaf (Scheme.smallEtaleTopology (Spec (CommRingCat.of �
 -- node: SchemeAndStackFoundations:SF.2/w-contractible-cover
 -- node: SchemeAndStackFoundations:SF.2/proetale-left-completeness
 -- node: SchemeAndStackFoundations:SF.2/proetale-lisse-sheaves
-/- Packet statements; w-contractible rings and the left-completed derived categories have no
+/- Roadmap statements; w-contractible rings and the left-completed derived categories have no
 carriers at the pins. -/
 
 end TauCeti.SchemeFoundations.Proetale
@@ -5674,7 +5687,7 @@ noncomputable def DQCoh.affineEquivFunctor (A : CommRingCat.{u}) :
 
 /- `DQCoh.mem_iff`, `DQCoh.isTriangulated`, `DQCoh.hasCoproducts`, `DQCoh.affineEquiv`, `DCoh` and the
 tests `test_DQCoh_structure_sheaf`, `test_DQCoh_affine_free`, `test_DQCoh_extension_by_zero_not_qc` are
-packet items. -/
+roadmap items. -/
 
 -- node: SchemeAndStackFoundations:SF.2/derived-tensor-internal-hom
 noncomputable def derivedTensor {X : Scheme.{u}} : DQCoh X ⥤ DQCoh X ⥤ DQCoh X := sorry
@@ -5691,7 +5704,7 @@ noncomputable def derivedPullback_totalDirectImage_adj {X Y : Scheme.{u}} (f : X
 
 -- node: SchemeAndStackFoundations:SF.2/perfect-generator
 -- node: SchemeAndStackFoundations:SF.2/tor-independent-base-change
-/- Packet statements (perfect complexes and Tor independence have no carriers at the pins). -/
+/- Roadmap statements (perfect complexes and Tor independence have no carriers at the pins). -/
 
 -- node: SchemeAndStackFoundations:SF.2/pushforward-right-adjoint
 /-- The right adjoint `a_f` of `Rf_*` on `D_QCoh` for qcqs schemes. -/
@@ -5710,7 +5723,7 @@ noncomputable def trace {X Y : Scheme.{u}} (f : X ⟶ Y) [QuasiCompact f] [Quasi
 example (X : Scheme.{u}) : Nonempty (pushforwardRightAdjoint (𝟙 X) ≅ 𝟭 (DQCoh X)) := sorry
 -- test: TauCeti.SchemeFoundations.Coherent.test_rightAdjoint_closed_point
 -- test: TauCeti.SchemeFoundations.Coherent.test_rightAdjoint_not_upperShriek
-/- Closed point of `𝔸¹` and non-proper affine line (packet statements). -/
+/- Closed point of `𝔸¹` and non-proper affine line (statements in the README). -/
 
 -- node: SchemeAndStackFoundations:SF.2/upper-shriek-compactification-independence
 -- node: SchemeAndStackFoundations:SF.2/upper-shriek-etale
@@ -5748,7 +5761,7 @@ noncomputable def relativeDualizingModule {X Y : Scheme.{u}} (f : X ⟶ Y) [Flat
 -- node: SchemeAndStackFoundations:SF.2/cm-serre-duality
 -- node: SchemeAndStackFoundations:SF.2/curve-dualizing-comparison
 -- node: SchemeAndStackFoundations:SF.2/sheafified-grothendieck-duality
-/- Packet statements, stated with `upperShriek`, `relativeDualizingModule` and the derived
+/- Roadmap statements, stated with `upperShriek`, `relativeDualizingModule` and the derived
 `Hom`. -/
 
 end TauCeti.SchemeFoundations.Coherent
@@ -5782,7 +5795,7 @@ noncomputable def azumayaClass (X : Scheme.{u}) (A : Type u) : (GmEtale X).H 2 :
 /- `trivializationGerbe`, `trivializationGerbe_isGerbe`, `azumayaClass_eq_zero_iff`,
 `azumayaClass_tensor`, `azumayaClass_eq_delta`, `azumayaClass_pullback` and the tests
 `test_class_matrix`, `test_class_quaternion_real`, `test_class_field_agrees`,
-`test_class_not_module_class` are packet items; the carrier `azumayaClass` above takes the
+`test_class_not_module_class` are roadmap items; the carrier `azumayaClass` above takes the
 algebra as a placeholder type argument until the sheaf-algebra carrier exists. -/
 
 -- node: SchemeAndStackFoundations:SF.2/brauer-regular-injectivity
@@ -5842,15 +5855,15 @@ noncomputable def EquivariantModules.indForgetAdj (X : Scheme.{u}) (Γ : Type u)
 
 -- node: SchemeAndStackFoundations:SF.2/coinduced-sections-acyclic
 -- node: SchemeAndStackFoundations:SF.2/equivariant-ext-spectral-sequence
-/- Packet statements (group cohomology of the coinduced sections and the Ext spectral sequence). -/
+/- Roadmap statements (group cohomology of the coinduced sections and the Ext spectral sequence). -/
 
 end TauCeti.SchemeFoundations.Equivariant
 
-/-! ## Packet index
+/-! ## Index of the SF.2 items
 
-Every declaration, API item and unit test of the packet, by its packet name, with a
+Every declaration, API item and unit test of the SF.2 layer, by its roadmap name, with a
 one-line gloss. Those with a Lean signature above appear there under the same name; the others are
-stated in the packet and the roadmap document and wait for the carriers named there.
+stated in the roadmap document and wait for the carriers named there.
 -/
 /-
 node SchemeAndStackFoundations:SF.2/site-cohomology-pullback (construction): Pullback on sheaf cohomology along a morphism of sites
@@ -6715,7 +6728,7 @@ Conventions of this prototype.
   sheaves of topological rings on spaces.
 * Objects that need Tau Ceti StableReduction Layers 1–4 (nodal and stable families, blowups) or
   algebraic stacks (SchemeAndStackFoundations SF.1) are not typed here; their declarations are listed in
-  comment blocks under the names the packet gives them, and no `Prop`-valued placeholder is used.
+  comment blocks under the names the roadmap gives them, and no `Prop`-valued placeholder is used.
 -/
 
 noncomputable section
@@ -7228,9 +7241,9 @@ example (R : CompleteLocalAlg Λ k)
 
 /- Deformation.obstruction_H1_example: for the functor of lifts of a fixed morphism to a smooth
    target, H¹ of Hom(a^*Ω, O) is an obstruction space. It needs sheaf cohomology of O_X-modules
-   (SchemeAndStackFoundations SF.2) and is stated in the packet only.
+   (SchemeAndStackFoundations SF.2) and is stated in the roadmap only.
 
-   Theorems of SF.4a recorded in the packet and not typed here (they need Ext groups of O_X-modules
+   Theorems of SF.4a of the roadmap not typed here (they need Ext groups of O_X-modules
    and the sheaf of differentials of Tau Ceti StableReduction Layer 1):
    * SF.4/algebra-deformation-classes  (Stacks 0GPT, 08S7, 08S5, 08S6, 0D14),
    * SF.4/deformations-of-smooth-schemes (Stacks 0DY7–0ET5, 0DZQ; H¹(T), H²(T), H¹(O), H²(O)),
@@ -7259,7 +7272,7 @@ def levelMap (X : ℕ → Scheme.{u}) (ι : ∀ n, X n ⟶ X (n + 1)) : ∀ n, X
 
 /-- A formal scheme, prototyped by a system of thickenings `X 0 ⊂ X 1 ⊂ ⋯` in which `X n` is cut
 out in `X (n + 1)` by the `(n + 1)`-st power of the ideal of `X 0` (Stacks 0AIF). The
-packet's definition is the topologically locally ringed space `colim X n`. -/
+roadmap's definition is the topologically locally ringed space `colim X n`. -/
 structure FormalScheme where
   X : ℕ → Scheme.{u}
   ι : ∀ n, X n ⟶ X (n + 1)
@@ -7303,7 +7316,7 @@ theorem pullback_X {𝔛 𝔜 𝔖 : FormalScheme.{u}} (f : Hom 𝔛 𝔖) (g : 
 /- AlgebraicGeometry.FormalScheme.adicEquivSystems: in this prototype a formal scheme is given by
    its system of reductions, so adic formal schemes over `Spf A` are by definition compatible
    systems over `A/I^{n+1}`; the comparison with topologically locally ringed spaces needs sheaves of topological rings, which Mathlib does not provide, and is stated in
-   the packet. -/
+   the roadmap. -/
 
 end FormalScheme
 
@@ -7329,7 +7342,7 @@ theorem homEquiv (A B : AdicRing.{u}) :
   sorry
 
 /- AlgebraicGeometry.Spf.basicOpen_sections: Γ(D(f), O_{Spf A}) is the I-adic completion of A_f;
-   it needs the structure sheaf of topological rings and is stated in the packet. -/
+   it needs the structure sheaf of topological rings and is stated in the roadmap. -/
 
 /-- The closed immersions `Spec (A/I^{n+1}) → Spf A`. -/
 abbrev reduction (A : AdicRing.{u}) (n : ℕ) : Scheme.{u} := (Spf A).X n
@@ -7419,7 +7432,7 @@ theorem reduction (X : Scheme.{u}) (I : X.IdealSheafData) (n : ℕ) :
   rfl
 
 /-- Over a locally Noetherian scheme the completion is locally Noetherian (flatness of `X/Z → X`
-is recorded in the packet). -/
+is recorded in the roadmap). -/
 theorem flat (X : Scheme.{u}) [AlgebraicGeometry.IsLocallyNoetherian X] (I : X.IdealSheafData) :
     FormalScheme.IsLocallyNoetherian (Scheme.formalCompletion X I) := by
   sorry
@@ -7429,7 +7442,7 @@ end Scheme.formalCompletion
 /- AlgebraicGeometry.Scheme.formalCompletion_spec: for `X = Spec A` and `I` finitely generated,
    `X/V(I) ≅ Spf Â` (Stacks 0GBA); it needs the ideal sheaf of an ideal on an affine scheme, which
    Mathlib builds only through `IdealSheafData.ofIdeals` with compatibility data; stated in the
-   packet. -/
+   roadmap. -/
 
 -- AlgebraicGeometry.formalCompletion_affineLine_origin: the reductions of the completion of 𝔸¹_k
 -- at the origin are Spec k[t]/(t^{n+1}) (the reductions of Spf k[[t]]).
@@ -7469,12 +7482,12 @@ def Scheme.completionFunctor (X : Scheme.{u}) (I : X.IdealSheafData)
    inverse systems, Stacks 0881, via Artin–Rees; it is not levelwise exactness) and
    AlgebraicGeometry.Scheme.coherentFormalModuleEquivSpec (coherent formal modules on Spf Â ≃ finite
    Â-modules, Stacks 087W) need the abelian category of coherent formal modules; stated in the
-   packet. -/
+   roadmap. -/
 
 /- AlgebraicGeometry.Scheme.coherentFormalModuleEquivFormal (coherent formal modules = coherent
    modules on the formal completion, Stacks 0EKN) and
    AlgebraicGeometry.Scheme.completionFunctor_obj_sections (sections of the completion are the
-   completion of sections) need modules on topologically ringed spaces; stated in the packet. -/
+   completion of sections) need modules on topologically ringed spaces; stated in the roadmap. -/
 
 -- AlgebraicGeometry.completion_structureSheaf_spec: for a complete Noetherian ring the map to
 -- the completion is bijective.
@@ -7517,7 +7530,7 @@ theorem grothendieck_existence (A : AdicRing.{u}) [IsNoetherianRing A.carrier] {
   sorry
 
 /- Algebraization of closed formal subschemes (Stacks 0899, 09ZT) is part of
-   SF.4/algebraization-of-subschemes-and-morphisms and is stated in the packet. -/
+   SF.4/algebraization-of-subschemes-and-morphisms and is stated in the roadmap. -/
 
 /-- The closed immersion `Spec (A/I^{n+1}) → Spec A`. -/
 abbrev quotMap (A : AdicRing.{u}) (n : ℕ) :
@@ -7540,7 +7553,7 @@ theorem algebraize_hom (A : AdicRing.{u}) [IsNoetherianRing A.carrier]
 /-- Grothendieck's algebraization theorem (Stacks 089A): a compatible system of proper schemes over
 `A/I^{n+1}` whose first member carries an ample line bundle lifting to all levels is the system of
 reductions of a proper `A`-scheme. Ampleness is Tau Ceti StableReduction Layer 2's notion and is
-recorded in the packet; the typed form records the conclusion. -/
+recorded in the roadmap; the typed form records the conclusion. -/
 theorem grothendieck_algebraization (A : AdicRing.{u}) [IsNoetherianRing A.carrier]
     (𝔛 : FormalScheme.{u}) (π : FormalScheme.Hom 𝔛 (Spf A)) (hπ : FormalScheme.IsAdicHom π)
     (hproper : IsProper (π.app 0)) :
@@ -7718,7 +7731,7 @@ theorem strictTransform_unique_of_flat {X S S' : Scheme.{u}} (f : X ⟶ S) (φ :
 /- AlgebraicGeometry.strictTransform_comp (transitivity), strictTransform_eq_blowup (Stacks 080E),
    strictTransform_closedImmersion (agreement with Tau Ceti StableReduction Layer 4's strict
    transform of a closed subscheme), and the tests strictTransform_line and
-   strictTransform_centre_empty need the blowup of Layer 4; they are stated in the packet. -/
+   strictTransform_centre_empty need the blowup of Layer 4; they are stated in the roadmap. -/
 
 -- AlgebraicGeometry.strictTransform_self
 example {S S' : Scheme.{u}} (φ : S' ⟶ S) [IsModification φ] :
@@ -7747,7 +7760,7 @@ theorem flattening_by_modification {X S : Scheme.{u}} (f : X ⟶ S) [IsIntegral 
 /- SF.4/modification-domination (Stacks 081T) and SF.4/chow-lemma (Stacks 0200) assert that the
    dominating map is an admissible blowup, resp. that the source admits an immersion into P^n_S;
    both notions are Tau Ceti StableReduction Layers 2 and 4, so these theorems are stated in the
-   packet only. -/
+   roadmap only. -/
 
 /-- Regular schemes: locally Noetherian with regular local rings. -/
 class IsRegular (X : Scheme.{u}) : Prop where
@@ -7862,7 +7875,7 @@ theorem IsStrictNormalCrossings.of_subset {X : Scheme.{u}} (C : SNCData X)
   sorry
 
 /- Tests AlgebraicGeometry.snc_axes, nodalCubic_nc_not_snc and not_nc_threeLines are computations
-   in 𝔸²_k with the ideal sheaves of xy, y² − x²(x + 1) and xy(x − y); stated in the packet. -/
+   in 𝔸²_k with the ideal sheaves of xy, y² − x²(x + 1) and xy(x − y); stated in the roadmap. -/
 
 -- AlgebraicGeometry.snc_empty
 example (X : Scheme.{u}) [IsRegular X] : IsStrictNormalCrossings (⊤ : X.IdealSheafData) := by
@@ -7905,7 +7918,7 @@ theorem Grassmannian.isProper (r d : ℕ) :
 
 /- AlgebraicGeometry.Grassmannian.plucker (closed immersion into projective space) and
    AlgebraicGeometry.Grassmannian.relative (Gr(E, d) → S for a vector bundle E) need projective
-   space and vector bundles over a base (Tau Ceti StableReduction Layer 2); stated in the packet. -/
+   space and vector bundles over a base (Tau Ceti StableReduction Layer 2); stated in the roadmap. -/
 
 -- AlgebraicGeometry.Grassmannian.rank_one: points of Gr(r, 1) are rank-one quotients of A^r.
 example (A : Type) [CommRing A] (r : ℕ) :
@@ -7929,7 +7942,7 @@ example : ¬ IsAffine (Grassmannian 2 1) := by
    Hilb^{Φ,L}_{X/S} by projective S-schemes, Hom and Isom as open subschemes. Not typed: relative
    very ample line bundles and Hilbert polynomials are Tau Ceti StableReduction Layer 2.
 
-   SF.4/stable-curve-stack and its API, under the packet's names:
+   SF.4/stable-curve-stack and its API, under the roadmap's names:
      AlgebraicGeometry.StableCurves.Mbar           -- pseudofunctor S ↦ groupoid of stable n-pointed
                                                     --   genus-g families (StableReduction Layer 3)
      AlgebraicGeometry.StableCurves.Mbar.isStack   -- Pseudofunctor.IsStack for the fppf topology
@@ -7946,7 +7959,7 @@ example : ¬ IsAffine (Grassmannian 2 1) := by
    Theorems SF.4/isom-stable-curves (DM 1.11), SF.4/stable-curve-stack-algebraic (DM 5.1–5.2,
    Stacks 0E9C), SF.4/stable-curve-stack-smooth (DM 1.6–1.9, 5.2), SF.4/level-structure-cover
    (Deligne 1985 §3, de Jong 2.24) and SF.4/stable-extension-after-alteration (de Jong 4.17,
-   Deligne Lemme 1.6) are stated in the packet. Once Layer 3 exists the last has the shape
+   Deligne Lemme 1.6) are stated in the roadmap. Once Layer 3 exists the last has the shape
 
      theorem stable_extension_after_alteration {Y : Scheme} [IsIntegral Y] [IsNoetherian Y]
          (U : Y.Opens) (hU : Dense (U : Set Y)) (C : StablePointedFamily g n U) :
@@ -7997,7 +8010,7 @@ theorem IsSVariety.baseChange_component {R R' : Type u} [CommRing R] [IsDomain R
   sorry
 
 /- AlgebraicGeometry.DeJong.finiteDVRExtension_of_trait: comparison with Tau Ceti's
-   `FiniteDVRExtension`, whose module is not compiled in this build; stated in the packet. -/
+   `FiniteDVRExtension`, whose module is not compiled in this build; stated in the roadmap. -/
 
 /-- A proper `S`-variety with an identification of its generic fibre is a Tau Ceti model. -/
 def IsSVariety.toModel {R K : Type u} [CommRing R] [IsDomain R] [IsDiscreteValuationRing R]
@@ -8080,7 +8093,7 @@ theorem IsStrictlySemistable.smooth_over_model {R : Type u} [CommRing R] [IsDoma
 /- AlgebraicGeometry.DeJong.IsStrictlySemistable.local_form (complete local rings
    B[[t₁..t_r]]/(t₁⋯t_r − π), B formally smooth over R) and
    AlgebraicGeometry.DeJong.IsStrictlySemistable.baseChange_etale (stability under finite
-   unramified trait extensions) are stated in the packet. -/
+   unramified trait extensions) are stated in the roadmap. -/
 
 -- AlgebraicGeometry.DeJong.strictlySemistable_xy
 example (p : ℕ) [Fact p.Prime] (f : Spec (CommRingCat.of (MvPolynomial (Fin 2) ℤ_[p] ⧸
@@ -8111,7 +8124,7 @@ example (p : ℕ) [Fact p.Prime] (f : Spec (CommRingCat.of (Polynomial ℤ_[p] �
   sorry
 
 /- AlgebraicGeometry.DeJong.strictlySemistable_ramified_basechange (xy − p becomes xy − ϖ² after
-   ramified base change) is stated in the packet. -/
+   ramified base change) is stated in the roadmap. -/
 
 /-- Strict semistable pairs (de Jong 6.3): `X` strictly semistable, `X_s ∪ Z_h` an SNC divisor with
 horizontal part `H`, and every horizontal stratum satisfying the semistable conditions. -/
@@ -8145,7 +8158,7 @@ theorem IsStrictSemistablePair.restrict {R : Type u} [CommRing R] [IsDomain R]
 /- AlgebraicGeometry.DeJong.IsStrictSemistablePair.local_form (complete local rings
    C[[t, s]]/(π − t₁⋯t_n)) and the tests AlgebraicGeometry.DeJong.pair_specialFiber,
    AlgebraicGeometry.DeJong.pair_with_horizontal and AlgebraicGeometry.DeJong.not_pair_diagonal
-   (computations with Z_p[x, y, z]/(xy − p)) are stated in the packet. -/
+   (computations with Z_p[x, y, z]/(xy − p)) are stated in the roadmap. -/
 
 /- Split semistable curves (SF.4/split-prestable-curve) need Tau Ceti StableReduction Layer 3's
    prestable families. Declarations: AlgebraicGeometry.DeJong.IsSplitPrestable,
@@ -8158,7 +8171,7 @@ theorem IsStrictSemistablePair.restrict {R : Type u} [CommRing R] [IsDomain R]
    SF.4/nodal-family-resolution, SF.4/generic-projection, SF.4/curve-fibration,
    SF.4/three-point-divisor, SF.4/stable-model-domination, SF.4/curve-family-alteration,
    SF.4/nc-to-snc, SF.4/faltings-formal-smoothness, SF.4/bertini-smoothness are stated in the
-   packet. -/
+   roadmap. -/
 
 /-- de Jong's alteration theorem (de Jong 1996, Theorem 4.1): a regular projective `Xbar₁` with an
 open `X₁` altering `X`, with SNC boundary containing the preimage of `Z`; generically étale over a
@@ -8206,10 +8219,11 @@ surfaces, the Weil bound, Bézout) need all of the above together with SF.2's co
 Proposed names: `TauCeti.SchemeFoundations.Chow.RatEquiv`, `.c1`, `.chernClass`, `.gysin`,
 `.intersect`, `AlgebraicGeometry.projectiveBundle`.
 
-SF.6 (handoffs). The nine contracts S1–S9 are interfaces on carriers owned by other roadmaps
+Interfaces (the boundaries section of the README). The comparison maps that the arithmetic
+roadmaps consume are interfaces on carriers owned by other roadmaps
 (algebraic de Rham and Betti cohomology, the étale–analytic site map, scheme–adic and
 scheme–diamond fibre products, derived limits of finite-coefficient cohomology, prismatic and
-`A_inf` cohomology, `B_dR`, cycle class maps); only the native objects of S1 exist at the pins
+`A_inf` cohomology, `B_dR`, cycle class maps); only the native objects of interface (i) exist at the pins
 (`CategoryTheory.Sheaf.H`, `AlgebraicGeometry.Scheme.ProEt.topology`,
 `AlgebraicGeometry.Scheme.ellAdicSheaf`, `AlgebraicGeometry.Scheme.EllAdicCohomology`).
 No proposition-valued stand-in is introduced for any of them.
