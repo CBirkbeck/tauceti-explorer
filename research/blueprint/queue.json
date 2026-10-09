@@ -34226,7 +34226,8 @@
    ],
    "followUpOf": "BP-SchemeAndStackFoundations",
    "prompt": "research/blueprint/prompts/BP-SchemeAndStackFoundations--SF.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6331"
   },
   {
    "id": "REV-SchemeAndStackFoundations--SF.6",
