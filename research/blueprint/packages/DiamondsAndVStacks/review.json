@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-DiamondsAndVStacks",
+    "date": "2026-10-09",
+    "notes": "Completed independent review of all six package criteria against the accepted 90-node plan. Corrected the README’s qc-terminal-map implication, hypothesis punctuation, StoneCech spelling and Stacks locator; rewrote 22 target paragraphs in own words and synchronized the 49 comment-only Lean target statements. README retains all 90 targets, 213 API items, 116 tests and 606 prerequisite occurrences, has 112 resolving anchors and is 186602 bytes; metadata is exactly topic = \"math.AG\". Final lean-check exits 0 with 95 warnings, all declaration uses sorry. Active Lean tokens are unchanged. Verdict needs_changes: only 87/213 API items and 20/116 full tests have types, and 49/60 named targets remain comment-only. The explicit omissions are honest but do not discharge the enumerated signature requirement of PROTOCOL sections 13 and 20 and issue item 5. See the report for the complete crosswalk and revision requirements; no proofs or supplier implementations are certified."
+  }
+}
