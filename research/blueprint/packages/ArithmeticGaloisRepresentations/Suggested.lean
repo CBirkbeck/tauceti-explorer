@@ -313,8 +313,7 @@ theorem det_trivial : (ContinuousRep.trivial : ContinuousRep Γ A M).det = 1 := 
 /-- The absolute Galois group `Field.absoluteGaloisGroup F` is profinite: compact, Hausdorff and
 totally disconnected. Mathlib gives this group only its group structure, its topology and
 `IsTopologicalGroup`; the three properties are transported along Tau Ceti's
-`TauCeti.absoluteGaloisGroupRestrictEquiv : Field.absoluteGaloisGroup F ≃ₜ* Gal(F^sep/F)`, where
-Mathlib's instances for the Krull topology of a Galois extension apply. (For imperfect `F` the
+`TauCeti.absoluteGaloisGroupRestrictEquiv : Field.absoluteGaloisGroup F ≃ₜ* Gal(F^sep/F)`; on the right-hand side Mathlib's Krull-topology instances for a Galois extension are available. (For imperfect `F` the
 fixed field of this group in the algebraic closure is the perfect closure of `F`.) -/
 theorem absoluteGaloisGroup_profinite (F : Type*) [Field F] :
     CompactSpace (Field.absoluteGaloisGroup F) ∧ T2Space (Field.absoluteGaloisGroup F) ∧
@@ -1088,8 +1087,7 @@ def mackeyConj (H : OpenSubgroup Γ) (D : Subgroup Γ) (s : Γ) : mackeySubgroup
 
 /-- `mackey-decomposition`. For `H` open and `D` closed,
 `H\Γ/D` is finite, and for any choice of representatives `s` of the double cosets there is a
-`D`-equivariant isomorphism `Res_D Ind_H^Γ U ≅ ⊕_{HsD} Ind_{D_s}^D (Res U^s)` (the summand
-for `s` being the functions supported on `HsD`, sent to `d ↦ f(s d)`). The isomorphism of the
+`D`-equivariant isomorphism `Res_D Ind_H^Γ U ≅ ⊕_{HsD} Ind_{D_s}^D (Res U^s)` (the `s`-summand consists of the functions whose support lies in `HsD`, carried to `d ↦ f(s d)`). The isomorphism of the
 underlying abstract representations is Tau Ceti's `Rep.mackeyDecomposition` (arbitrary subgroups
 of an abstract group, coinvariant model `Rep.ind`); this is its form in the function model, for
 an open and a closed subgroup of a compact group, with the finiteness of the double cosets. -/
@@ -2307,8 +2305,7 @@ theorem localEmbeddingMap_injective (F K : Type*) [Field F] [NumberField F] [Fie
     [IsScalarTower F (AlgebraicClosure F) (AlgebraicClosure K)] :
     Function.Injective (localEmbeddingMap F K) := by sorry
 
-/-- Consequence (b) of the same node: every finite extension of `F_v` inside `F̄_v` is
-`F_v(ι(β))` for some `β ∈ F̄` (hence the completion of the number field `F(β)` at the place
+/-- Consequence (b) of the same node: any finite extension of `F_v` contained in `F̄_v` has the form `F_v(ι(β))` with `β ∈ F̄` (so that the completion of the number field `F(β)` at the place
 induced by `ι`; that identification is not stated here). -/
 theorem exists_adjoin_closureEmbedding_eq (F K : Type*) [Field F] [NumberField F] [Field K]
     [ValuativeRel K] [TopologicalSpace K] [IsNonarchimedeanLocalField K] [Algebra F K]
@@ -2993,7 +2990,7 @@ example (hℓ : (ℓ : 𝓀[K]) ≠ 0) (f : inertiaGroup K →* Multiplicative (
 
 end TameCharacter
 
-/-! ### Tame inertia, the level of a character, and the fundamental characters of levels one and two -/
+/-! ### The tame inertia group, levels of characters, and Serre's fundamental characters (levels 1 and 2) -/
 
 section Fundamental
 
@@ -3122,7 +3119,7 @@ theorem tame_of_semisimple_residual (K : Type*) [Field K] [ValuativeRel K] [Topo
       (∃ g₀ ∈ inertiaGroup K, ∀ σ ∈ inertiaGroup K, ∃ n : ℕ, ρ σ = ρ g₀ ^ n) ∧
       ∃ m : ℕ, 0 < m ∧ m.Coprime p ∧ ∀ σ ∈ inertiaGroup K, ρ σ ^ m = 1 := by sorry
 
-/-! ### The exponential of nilpotent elements and the logarithm of unipotent elements are inverse to each other -/
+/-! ### Nilpotent exponential and unipotent logarithm: mutually inverse bijections -/
 
 section UnipotentLog
 
@@ -4068,7 +4065,7 @@ end GaloisRep
 
 namespace WeilDeligneRep
 
-/-! ### A nilpotent operator with pure graded has the Jordan type of its graded (the count behind FSY Lemma 5.40) -/
+/-! ### Jordan type of a nilpotent operator read off from a pure associated graded (the counting step of FSY Lemma 5.40) -/
 
 /-- `purity-from-a-pure-graded`, for a flag with one step
 `0 ⊂ U ⊂ V` (the general flag follows by induction): if `N φ = q φ N`, `U` is stable under `φ` and
@@ -4085,7 +4082,7 @@ theorem isPureEnd_of_graded {Ω : Type*} [Field Ω] [CharZero Ω] {V : Type*} [A
       Module.finrank Ω (LinearMap.range ((N.restrict (p := U) (q := U) fun _ hx => hUN hx) ^ j)) +
         Module.finrank Ω (LinearMap.range ((U.mapQ U N hUN) ^ j)) := by sorry
 
-/-! ### A representation with pure graded Weil–Deligne representation is pure, with the same L- and ε-factors (FSY Lemma 5.40) -/
+/-! ### Purity of the associated graded implies purity, with unchanged L- and ε-factors (FSY Lemma 5.40) -/
 
 /-- `pure-graded-weil-deligne` (FSY Lemma 5.40), one step of
 the filtration: for `0 → ρ₁ → ρ → ρ₂ → 0` with `WD(ρ₁)`, `WD(ρ₂)` pure of weight `w`, `WD(ρ)` is
@@ -4913,7 +4910,7 @@ theorem artinConductor_induced {K : Type*} [Field K] [ValuativeRel K] [Topologic
       (Representation.trivial F (Field.absoluteGaloisGroup L) F) g = ρ₁ g ∘ₗ e₁) :
     artinConductor ρI = artinConductor ρ₁ * Module.finrank F V + f * artinConductor ρ := by sorry
 
-/-! ### Upper numbering of the subgroup G_L: the function ψ_{L/K} of a finite separable extension -/
+/-! ### The function ψ_{L/K} for a finite separable (not necessarily Galois) extension and the upper numbering on G_L -/
 
 /-- `upper-numbering-of-an-open-subgroup`, parts (a), (b) in
 existential form: for a finite separable `L/K`, not necessarily Galois, there is a continuous,
@@ -5248,13 +5245,13 @@ theorem ellipticConductorExp_le {K : Type*} [Field K] [ValuativeRel K] [Topologi
     (h3 : (3 : K) = ((u₃ : 𝒪[K]) : K) * (π : K) ^ b) :
     ellipticConductorExp K E ≤ 2 + 3 * b + 6 * a := by sorry
 
-/-! ### Serre's bound for the wild invariant of a representation of a p-adic Galois group -/
+/-! ### Serre's upper bound on the Swan conductor over a p-adic field -/
 
 /-- `serre-bound-for-the-wild-invariant` (Serre 1987,
 Proposition 9 and (4.9.4), non-strict form): for `K` of characteristic `0` with residue
 characteristic `p` and `p = u π^{e_K}`, a representation `ρ` of `G_K` with finite image on a space
 of dimension `N` over a field of characteristic `≠ p`, and `p^c` the order of the image of wild
-inertia: `Sw(V) ≤ N e_K (c + 1/(p − 1))` and `a(V) ≤ N (1 + e_K c + e_K/(p − 1))`. Serre's strict
+inertia: one has `Sw(V) ≤ N e_K (c + 1/(p − 1))`, hence also `a(V) ≤ N (1 + e_K c + e_K/(p − 1))`. Serre's strict
 inequality for a non-cyclic wild inertia image is not part of the node. -/
 theorem swanConductor_le_serre {K : Type*} [Field K] [ValuativeRel K] [TopologicalSpace K]
     [IsNonarchimedeanLocalField K] [CharZero K] (p : ℕ) [Fact p.Prime] (hp : (p : 𝓀[K]) = 0)
@@ -5371,8 +5368,7 @@ theorem isOdd_tensor_character (hM : Module.finrank A M = 2)
 
 /-- Coefficient extension: if `ρ` is odd then `ρ ⊗_A B` is odd (here `ρB` is any representation
 on `B ⊗[A] M` acting by `(ρ g).baseChange B`). The converse holds when `A → B` is injective, and
-also when `det ρ(c_v) ∈ {1, -1}` for every real place `v` (automatic if `A` is a domain, or a local
-ring in which `2` is a unit) and `2 ≠ 0` in `B`. It fails in general: for `A = k × k → B = k` (the
+also when `det ρ(c_v) ∈ {1, -1}` for every real place `v` (which holds automatically when `A` is a domain, or a local ring with `2` invertible) together with `2 ≠ 0` in `B`. It fails in general: for `A = k × k → B = k` (the
 second projection) and `det ρ(c) = (1, -1)`, `ρ ⊗_A B` is odd and `ρ` is not. -/
 theorem isOdd_baseChange {B : Type*} [CommRing B] [TopologicalSpace B] [Algebra A B]
     [TopologicalSpace (B ⊗[A] M)] [IsModuleTopology B (B ⊗[A] M)]
@@ -5897,7 +5893,7 @@ theorem projImage_klein_of_irreducible_of_abelian {k : Type*} [Field k] [IsAlgCl
         Matrix.trace ((g : GL (Fin 2) k) : Matrix (Fin 2) (Fin 2) k) = 0 := by
   sorry
 
-/-! ### Galois's theorem: proper subgroups of PSL_2(F_q) have index at least q + 1 for q ≠ 2, 3, 5, 7, 9, 11 -/
+/-! ### Galois's index bound: a proper subgroup of PSL_2(F_q) has index ≥ q + 1 unless q ∈ {2, 3, 5, 7, 9, 11} -/
 
 /-- `minimal-index-of-proper-subgroups-of-psl2`: for a finite
 field with `q ∉ {2, 3, 5, 7, 9, 11}` elements every proper subgroup of `PSL_2(F_q)` has index
@@ -6203,7 +6199,7 @@ theorem image_normalizer_cartan_of_res_cyclotomic {F : Type*} [Field F] [NumberF
       Δ.map Matrix.GeneralLinearGroup.det = ⊤ → Δ = ⊤ := by
   sorry
 
-/-! ### Large residual image: persistence under small index and soluble base change, and a tame-inertia criterion -/
+/-! ### Persistence of a large residual image (small-index subgroups, soluble extensions) and a criterion through tame inertia -/
 
 /-- `large-image-persistence`, part (a): for `p ≥ 5`,
 `a ≥ 2` and a finite `G ≤ GL_2(F̄_p)` containing `g SL_2(F_{p^a}) g⁻¹`, every subgroup of index
@@ -6283,7 +6279,7 @@ theorem eq_of_eqOn_frobenius {Y : Type*} [TopologicalSpace Y] [T2Space Y]
     f₁ = f₂ := by
   sorry
 
-/-! ### Every element of a finite image is a Frobenius at a set of primes of positive density -/
+/-! ### Each element of a finite Galois image occurs as a Frobenius on a positive-density set of primes -/
 
 /-- `every-element-of-a-finite-image-is-a-frobenius`: for a
 continuous `φ : G_K → H` with `H` finite discrete, every `h ∈ φ(G_K)` is `φ(Frob_w)` for places
@@ -6415,8 +6411,7 @@ end Recognition
 
 /-- `rank-two-trace-and-determinant-comparison`, part (1):
 for `ρ : Γ → GL_2(A)` the pair `(T, δ) = (tr ρ, det ρ)` satisfies the identities of Chenevier's
-Lemma 1.9 (IntegralHeckeAndGaloisDeterminants IHG.0/determinant-dimension-two): `T(1) = 2`,
-`T(gh) = T(hg)` and `δ(g) T(g⁻¹h) − T(g) T(h) + T(gh) = 0`. Part (2), that `(T, δ)` corresponds to
+Lemma 1.9 (IntegralHeckeAndGaloisDeterminants IHG.0/determinant-dimension-two): namely `T(1) = 2`, the class-function identity `T(gh) = T(hg)`, and the quadratic relation `δ(g) T(g⁻¹h) − T(g) T(h) + T(gh) = 0`. Part (2), that `(T, δ)` corresponds to
 the determinant law `det ∘ ρ` under the bijection of that node, cannot be stated: Mathlib has no
 determinant laws (multiplicative polynomial laws). -/
 theorem trace_det_identities_of_rankTwo {A Γ : Type*} [CommRing A] [Group Γ]
@@ -6623,8 +6618,7 @@ theorem imageAlgebra_eq_quotient_ker [IsAlgClosed K] (ρ : Γ →* GL (Fin n) K)
   sorry
 
 /-- For absolutely irreducible `ρ` and every `b ∈ B(ρ)` (in particular `b = ρ(γ)`), the
-characteristic polynomial of `b` has coefficients in `k(ρ)`: it is the reduced characteristic
-polynomial of `b` in `B(ρ)`. So `k(ρ)` is also generated by the coefficients of all
+characteristic polynomial of `b` lies in `k(ρ)[X]`, being the reduced characteristic polynomial computed in the central simple algebra `B(ρ)`; consequently `k(ρ)` is also generated by the coefficients of all
 `det(X − ρ(γ))`, in every characteristic. -/
 theorem charpoly_mem_traceField [IsAlgClosed K] [NeZero n] (ρ : Γ →* GL (Fin n) K)
     (hρ : Submodule.span K
@@ -7048,7 +7042,7 @@ attribute [local instance] ContinuousRep.Bundled.isAddCommGroup ContinuousRep.Bu
   ContinuousRep.Bundled.isFinite ContinuousRep.Bundled.isProjective
   ContinuousRep.Bundled.isTopologicalSpace ContinuousRep.Bundled.isModuleTopology
 
-/-! ### Recognition of lisse sheaves on a curve over a finite field from a dense open subset -/
+/-! ### Lisse sheaves on a curve over F_q are determined by their Frobenius polynomials on a dense open -/
 
 /-- `curve-recognition-from-an-open-subset`. The fundamental
 group `π₁(C)` of a curve and its Frobenius classes at closed points are not available in
@@ -7429,8 +7423,7 @@ theorem tensorInd_apply_tprod (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOp
 
 /-- The Asai representation `As(ρ) := ⊗-Ind_H^Γ ρ` for `[Γ : H] = 2` (e.g. `H = G_K ⊂ G_F = Γ`,
 `K/F` quadratic) with transversal `{1, σ}`; `As(ρ) ⊗ η_{K/F}` is a second extension of
-`ρ ⊗ ρ^σ` (the only other one, up to isomorphism, when `A` is a field and `ρ ⊗ ρ^σ` is absolutely
-irreducible). -/
+`ρ ⊗ ρ^σ` (up to isomorphism the only one besides the first, provided `A` is a field and `ρ ⊗ ρ^σ` is absolutely irreducible). -/
 def asai (H : Subgroup Γ) [Fintype (Γ ⧸ H)] [Fact (IsOpen (H : Set Γ))] (_h2 : H.index = 2) (σ : Γ) (_hσ : σ ∉ H)
     (ρ : ContinuousRep H A V) : ContinuousRep Γ A (⨂[A] _ : Γ ⧸ H, V) :=
   sorry
@@ -8824,7 +8817,7 @@ theorem G7.pgl_two_goursat (Ω : Type*) [Field Ω] [IsAlgClosed Ω]
     G = ⊤ ∨ ∃ φ : G7.PGL2 Ω ≃* G7.PGL2 Ω, ∀ x : G7.PGL2 Ω × G7.PGL2 Ω, x ∈ G ↔ x.2 = φ x.1 := by
   sorry
 
-/-! ### Tensor products of symmetric powers with unequal Hodge–Tate differences are strongly irreducible after cyclotomic restriction -/
+/-! ### Strong irreducibility, after cyclotomic restriction, of tensor products of symmetric powers whose Hodge–Tate differences differ -/
 
 /- `unequal-weight-tensor-irreducibility` (theorem, comment
 block: Hodge–Tate weights are not available in Mathlib): for `ρ, ρ' : G_F → GL_2(ℚ̄_p)` strongly
@@ -8855,7 +8848,7 @@ theorem GaloisRep.exists_root_mul_finiteOrder {Γ : Type*} [Group Γ] [Topologic
       (∃ N : ℕ, 0 < N ∧ ∀ g, χ₀ g ^ N = 1) ∧ ∀ g, χ g = χ₁ g ^ m * χ₀ g := by
   sorry
 
-/-! ### Lifts of geometric projective representations: half-integral Hodge–Tate–Sen weights, and Hodge–Tate lifts over totally real fields -/
+/-! ### Lifting geometric projective representations: Hodge–Tate–Sen weights in ½ℤ, and Hodge–Tate lifts when the base field is totally real -/
 
 /- `lifting-projective-representations-hodge-tate` (theorem,
 comment block: Hodge–Tate and Hodge–Tate–Sen weights are not available in Mathlib; convention
@@ -8956,8 +8949,7 @@ def AdZeroTraceCondition {k : Type} [Field k] {n : Type} [Fintype n] [DecidableE
       LinearMap.trace _ _ (eigenProj (matrixRep
         (Matrix.GeneralLinearGroup.map (algebraMap k (AlgebraicClosure k))) g) α * w) ≠ 0
 
-/-- The GHT trace condition: for every simple `k̄[H]`-submodule `W ⊆ ad ⊗ k̄` there are a
-semisimple `g ∈ H` and `α ∈ k̄` with `tr(e_{g,α} W) ≠ 0`. -/
+/-- The GHT trace condition: for every simple `k̄[H]`-submodule `W ⊆ ad ⊗ k̄` one can find a semisimple element `g ∈ H` together with a scalar `α ∈ k̄` such that `tr(e_{g,α} W) ≠ 0`. -/
 def AdTraceCondition {k : Type} [Field k] {n : Type} [Fintype n] [DecidableEq n]
     (H : Subgroup (GL n k)) : Prop :=
   ∀ W : Submodule (AlgebraicClosure k) (Module.End (AlgebraicClosure k) (n → AlgebraicClosure k)),
@@ -9004,9 +8996,7 @@ def IsGHTAdequate (H : Subgroup (GL n k)) : Prop :=
   Subsingleton (groupCohomology ((G7.adQuotRepObj H.subtype)) 1) ∧
   G7.AdTraceCondition H
 
-/-- (A3) ⇔ weakly adequate ⇔ the GHT trace condition, with no irreducibility hypothesis (GHTT
-appendix, Lemma 1 assumes `H` irreducible, but its proof does not use it: the annihilator of the
-span of the semisimple elements under the trace pairing is an `H`-submodule of `ad⁰ ⊗ k̄`, and each
+/-- (A3) ⇔ weakly adequate ⇔ the GHT trace condition, without any irreducibility assumption (Lemma 1 of the GHTT appendix is stated for irreducible `H`, yet the argument never uses that: under the trace pairing, the annihilator of the span of the semisimple elements is `H`-stable inside `ad⁰ ⊗ k̄`, and each
 condition says that it vanishes). -/
 theorem isWeaklyAdequate_iff_trace_condition (H : Subgroup (GL n k)) :
     (G7.AdZeroTraceCondition H ↔ IsWeaklyAdequate H) ∧
@@ -9109,7 +9099,7 @@ example {k : Type} [Field k] {n : Type} [Fintype n] [DecidableEq n]
     IsAdequate H ↔ IsGHTAdequate H := by
   sorry
 
-/-! ### Restriction to a subgroup of invertible finite index is injective on H¹ (Mathlib's group cohomology) -/
+/-! ### Injectivity of restriction on H¹ for a subgroup whose index is invertible (Mathlib's group cohomology) -/
 
 /-- `h1-restriction-injective-for-invertible-index`, on cocycles:
 a 1-cocycle `f : G → A` (Mathlib's `groupCohomology.IsCocycle₁`) whose restriction to a subgroup
@@ -9139,10 +9129,9 @@ theorem isCoboundary₁_of_card_isUnit {k G A : Type*} [CommRing k] [Group G] [F
 (lemma, comment block: needs the base change `M ⊗_k k'` of an object of `Rep k G` to `Rep k' G`,
 which Mathlib does not package). For fields `k ⊆ k'`, a group `G` and a finite-dimensional
 `k`-linear representation `M` of `G`, with `M' = M ⊗_k k'`: (1) `(M')^G = M^G ⊗_k k'`; (2) a
-1-cocycle `G → M` that is a coboundary in `M'` is a coboundary in `M`; (3) if `H⁰(G, M) = 0` and
-`H¹(G, M) = 0` then `H¹(G, M') = 0`; (4) for `G` finite, `H¹(G, M') ≅ H¹(G, M) ⊗_k k'`. -/
+1-cocycle `G → M` that is a coboundary in `M'` is a coboundary in `M`; (3) vanishing of both `H⁰(G, M)` and `H¹(G, M)` forces `H¹(G, M') = 0`; (4) for `G` finite, `H¹(G, M') ≅ H¹(G, M) ⊗_k k'`. -/
 
-/-! ### H¹(B, N) embeds into the B-equivariant homomorphisms U → N when the normal subgroup U acts trivially and [B : U] is invertible -/
+/-! ### For a normal subgroup U acting trivially on N with [B : U] invertible, H¹(B, N) injects into Hom_B(U, N) -/
 
 /-- `h1-with-trivial-action-of-a-normal-subgroup`, first half: if
 the normal subgroup `U` acts trivially on `A`, the restriction to `U` of a 1-cocycle `f : B → A`
@@ -9163,7 +9152,7 @@ theorem isCoboundary₁_of_trivial_action_of_restrict_eq_zero {k B A : Type*} [C
     (_h0 : ∀ u ∈ U, f u = 0) : groupCohomology.IsCoboundary₁ f := by
   sorry
 
-/-! ### Vanishing of H¹ of Borel subgroups of GL₂(F_q) with coefficients Sym^k ⊗ det^j, by weights -/
+/-! ### A weight argument for H¹ = 0 on Borel subgroups of GL₂(F_q) with coefficients Sym^k ⊗ det^j -/
 
 /- `h1-of-borel-subgroups-with-symmetric-power-coefficients`,
 parts (1)–(3) (comment block: needs the subgroup `B = T'U` of `GL_2(F_q)` for a subgroup `T'` of
@@ -9202,7 +9191,7 @@ theorem isAdequate_of_coprime_or_large {k : Type} [Field k] {n : Type} [Fintype 
     IsAdequate H := by
   sorry
 
-/-! ### An absolutely irreducible representation of a finite group of order prime to p has dimension prime to p -/
+/-! ### Dimension prime to p for absolutely irreducible representations of a finite group of order prime to p -/
 
 /-- `dimension-of-absolutely-irreducible-representations-of-prime-to-p-groups`:
 a finite subgroup `H ⊆ GL_n(k)` of order prime to `p = char k` that spans `M_n(k)` (i.e. acts
@@ -9214,7 +9203,7 @@ theorem not_dvd_card_of_coprime_card_of_span_eq_top {k : Type} [Field k] {n : Ty
     ¬ p ∣ Fintype.card n := by
   sorry
 
-/-! ### The 'enormous' condition for Taylor–Wiles data, its failure when p divides n, and its invariance under coefficient extension -/
+/-! ### Enormous subgroups: the definition used for Taylor–Wiles data, why it cannot hold when p ∣ n, and its stability under extension of coefficients -/
 
 section Enormous
 
@@ -9405,8 +9394,7 @@ section EnormousCharZero
 
 variable {n : Type} [Fintype n] [DecidableEq n]
 
-/-- `H ≤ GL_n(O)` is enormous in the characteristic-zero sense (Newton–Thorne 2023, Definition
-2.23): every simple `E[H]`-submodule `V ⊆ M_n(E)` (the whole of `ad ⊗ E`) has
+/-- `H ≤ GL_n(O)` satisfies the characteristic-zero version of enormousness (Definition 2.23 of Newton–Thorne 2023): every simple `E[H]`-submodule `V ⊆ M_n(E)` (the whole of `ad ⊗ E`) has
 `tr(e_{h,α} V) ≠ 0` for some `h ∈ H` with `n` distinct eigenvalues in `E` and an eigenvalue `α`. -/
 def IsEnormousCharZero {O : Type*} [CommRing O] {E : Type*} [Field E] [Algebra O E]
     (H : Subgroup (GL n O)) : Prop :=
@@ -9488,7 +9476,7 @@ theorem isEnormous_symPower_of_SL2_le (l : ℕ) [Fact l.Prime] (n : ℕ) (_hn : 
     IsEnormous (H.map (G7.symPowerGL (AlgebraicClosure (ZMod l)) (n - 1))) := by
   sorry
 
-/-! ### H¹(SL₂(F), ad⁰) vanishes unless #F = 5, and the symmetric-power vanishing behind the bound p > 2n + 1 -/
+/-! ### Vanishing of H¹(SL₂(F), ad⁰) for #F ≠ 5, and the symmetric-power vanishing underlying the threshold p > 2n + 1 -/
 
 /-- `h1-of-sl2-with-adjoint-coefficients`, part (a)
 (Darmon–Diamond–Taylor 2.48): for a finite field `F` of odd characteristic with `#F ≠ 5`,
@@ -9513,7 +9501,7 @@ theorem h1_SL2_ZMod5_adZero_ne_zero [Fact (Nat.Prime 5)] :
       (G7.adZeroRepObj (MonoidHom.id (GL (Fin 2) (ZMod 5)))) 1) := by
   sorry
 
-/-! ### Mod p Clebsch–Gordan decompositions: V ⊗ Sym^{r−1}V, the two-constituent congruence for Sym^{p+r−1}V, and End(Sym^{n−1}V) -/
+/-! ### Clebsch–Gordan modulo p: the products V ⊗ Sym^{r−1}V, the congruence with two constituents for Sym^{p+r−1}V, and End(Sym^{n−1}V) -/
 
 /-- `mod-p-clebsch-gordan-decompositions`, part (a)
 (Newton–Thorne 2026, (1.3)), which is the node G7/pieri-splitting-for-symmetric-powers: for `V`
@@ -9544,7 +9532,7 @@ theorem pieri_splitting_symPower {Γ : Type*} [Group Γ] [TopologicalSpace Γ] [
           ((ρ.symPower r) g (e x).1, ((ρ.det g : kˣ) : k) • (ρ.symPower (r - 2)) g (e x).2) :=
   tensor_symPower_equiv ρ hV r hr hinv
 
-/-! ### Sym^aV ⊗ Sym^bV ≅ ⊕ det^i ⊗ Sym^{a+b−2i}V when (a + b)! is invertible -/
+/-! ### The decomposition of Sym^aV ⊗ Sym^bV into ⊕ det^i ⊗ Sym^{a+b−2i}V, valid once (a + b)! is a unit -/
 
 /-- `tensor-products-of-symmetric-powers`: for `V` of rank two,
 `a ≥ b` and `(a + b)!` invertible in `k`, `Sym^a V ⊗ Sym^b V ≅ ⊕_{i=0}^{b} det^i ⊗ Sym^{a+b−2i} V`
@@ -9562,7 +9550,7 @@ theorem tensor_symPower_symPower_equiv {Γ : Type*} [Group Γ] [TopologicalSpace
           ((ρ.det g : kˣ) : k) ^ (i : ℕ) • (ρ.symPower (a + b - 2 * (i : ℕ))) g (e x i) := by
   sorry
 
-/-! ### Irreducibility of small symmetric powers of SL₂(F) and the one-dimensional constituents of their adjoints -/
+/-! ### Small symmetric powers of SL₂(F) are irreducible, and the one-dimensional pieces of their adjoint representations -/
 
 /-- `adjoint-invariants-of-symmetric-powers`, part (a): for
 `0 ≤ a ≤ p − 1`, `Sym^a(F̄_p^2)` is an absolutely irreducible representation of `SL_2(F)`. -/
@@ -9573,7 +9561,7 @@ theorem symPower_SL2_absolutelyIrreducible (F : Type*) [Field F] [Fintype F] (L 
       ⊤ := by
   sorry
 
-/-! ### Adequacy of symmetric powers and Frobenius-twisted tensor products of large SL₂ images, with one common threshold -/
+/-! ### A single threshold for the adequacy of symmetric powers and of Frobenius-twisted tensor products of large SL₂ images -/
 
 /-- `adequacy-of-symmetric-powers`, part (3): if a finite
 `H ⊆ GL_2(k)` contains `SL_2(F_p)` and `p ≥ 2n + 2`, then `Sym^{n−1} H` is adequate. ((1) and the
@@ -9660,8 +9648,7 @@ theorem IsWeaklyEnormous.mono {H H' : Subgroup (SimilitudeGroup.GSp 2 k)} (_hle 
     (IsWeaklyEnormous H' → IsWeaklyEnormous H) ∧ (IsTidy H' → IsTidy H) := by
   sorry
 
-/-- Lemma 7.5.5: `rhoBar(G_{F(ζ_{p^N})})` is independent of `N` for `N ≥ 1 + δ` (`p ≥ 5`) or
-`N ≥ 2 + δ` (`p = 3`), with `δ` depending only on `F` (and `δ = 1` if `p` is unramified in `F`,
+/-- Lemma 7.5.5: the image `rhoBar(G_{F(ζ_{p^N})})` stabilises: it does not change once `N ≥ 1 + δ` when `p ≥ 5`, or once `N ≥ 2 + δ` when `p = 3`, for a constant `δ` depending on `F` alone (and `δ = 1` if `p` is unramified in `F`,
 not stated here). -/
 theorem image_cyclotomic_stabilises [Finite k] (_hp : 3 ≤ ringChar k) (F : Type) [Field F]
     [NumberField F] :
@@ -9715,7 +9702,7 @@ theorem isEnormous_Sp4_and_isTidy_GSp4 (p : ℕ) [Fact p.Prime] (_hp : 3 ≤ p) 
       IsTidy (⊤ : Subgroup (SimilitudeGroup.GSp 2 (ZMod p))) := by
   sorry
 
-/-! ### The image over the 3-power cyclotomic tower of an induction with image SL₂(F_3) ≀ Z/2Z does not shrink -/
+/-! ### An induced representation with image SL₂(F_3) ≀ Z/2Z keeps its image along the 3-power cyclotomic tower -/
 
 /- `image-in-the-3-cyclotomic-tower-for-sl2-wreath-products`
 (lemma, comment block: needs an explicit model of `SL₂(F_3) ≀ Z/2Z` inside `Sp_4(F_3)`, as for the
@@ -9849,7 +9836,7 @@ theorem hasBigImage_of_range_eq_top (p : ℕ) [Fact p.Prime] (_hp : 5 ≤ p)
 
 end ResidualImage.GSp4
 
-/-! ### Taylor–Wiles image conditions: adequate or enormous image over F(ζ_p) and a scalar element outside G_{F(ζ_p)} -/
+/-! ### The image conditions of the Taylor–Wiles method: adequacy or enormousness over F(ζ_p), plus a scalar element not in G_{F(ζ_p)} -/
 
 namespace ResidualImage
 
@@ -9960,8 +9947,7 @@ example {k : Type} [Field k] {n : Type} [Fintype n] [DecidableEq n] {F : Type} [
 
 /-- `taylor-wiles-image-lemmas` (BCGNT Lemma 5.2.2,
 image part), in the form used after the linear-disjointness step. The hypothesis of the lemma
-(the Galois closure of `H` over `ℚ` is linearly disjoint over `F` from the composite of `F(ζ_p)`
-and the Galois closure over `ℚ` of `M = F̄^{ker s̄}`) gives that `H` is linearly disjoint over `F`
+(the Galois closure of `H` over `ℚ` and the field obtained by composing `F(ζ_p)` with the Galois closure over `ℚ` of `M = F̄^{ker s̄}` are linearly disjoint over `F`) gives that `H` is linearly disjoint over `F`
 from `M(ζ_p)`, i.e. that `G_H → Gal(M(ζ_p)/F) = G_F/(ker s̄ ∩ G_{F(ζ_p)})` is onto; `_hjoint` is
 this surjectivity, written elementwise (the pair `(σ, 1)` of the proof). Under it, if `s̄`
 satisfies the Taylor–Wiles image conditions then so does `s̄|_{G_H}`, and `s̄(G_H) = s̄(G_F)`,

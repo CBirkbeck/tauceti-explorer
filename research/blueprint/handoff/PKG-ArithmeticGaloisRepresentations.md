@@ -53,6 +53,7 @@ Kept with a one-clause statement of the difference: the continuous symmetric, ex
 - `python3 research/blueprint/intake.py check-files` on the four files: 0 problems; no local filesystem paths.
 - Residue grep over the README (packet, node, stage, `(removed)`, `T0nn`, field lists, node ids): no hits.
 - Lean: see the Lean check section (exit 0, sorry-only).
+- Own-words check (`verify.sh`, 12-word runs against the planning texts): 76 statement-type overlaps rewritten in place (README prose and Lean docstrings/section titles; no declaration, binder, statement or proof changed; lean-check rerun clean). Remaining overlaps are three paper titles in the References.
 
 ## Adversarial mathematics pass — tables
 
