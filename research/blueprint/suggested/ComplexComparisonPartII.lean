@@ -1,5 +1,7 @@
 import Mathlib.Analysis.Analytic.Basic
 import Mathlib.Topology.Germ
+import Mathlib.Topology.Homotopy.LocallyContractible
+import Mathlib.Topology.KrullDimension
 import Mathlib.RingTheory.PowerSeries.Basic
 import Mathlib.RingTheory.LaurentSeries
 import Mathlib.FieldTheory.RatFunc.AsPolynomial
@@ -14,13 +16,17 @@ import Mathlib.Algebra.Group.Units.Hom
 import Mathlib.LinearAlgebra.ExteriorPower.Basic
 import Mathlib.Algebra.Category.ModuleCat.Sheaf.Abelian
 import Mathlib.Algebra.Category.ModuleCat.Sheaf.Quasicoherent
+import Mathlib.Algebra.Category.ModuleCat.Sheaf.LocallyFree
 import Mathlib.Algebra.Category.ModuleCat.Sheaf.PullbackContinuous
 import Mathlib.Algebra.Category.ModuleCat.Sheaf.PullbackFree
 import Mathlib.Algebra.Homology.Homotopy
 import Mathlib.Algebra.Homology.HomologicalComplex
 import Mathlib.Algebra.Homology.DerivedCategory.Basic
+import Mathlib.Algebra.Homology.DerivedCategory.Ext.Map
 import Mathlib.Algebra.Homology.HomologicalComplexAbelian
 import Mathlib.CategoryTheory.Sites.SheafCohomology.Basic
+import Mathlib.CategoryTheory.Sites.SheafCohomology.Cech
+import Mathlib.CategoryTheory.Sites.Over
 import Mathlib.CategoryTheory.Sites.ConstantSheaf
 import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.RingTheory.Localization.Basic
@@ -38,6 +44,7 @@ import Mathlib.Analysis.InnerProductSpace.Adjoint
 import Mathlib.Analysis.InnerProductSpace.Laplacian
 import Mathlib.Analysis.Distribution.TestFunction
 import Mathlib.AlgebraicGeometry.Morphisms.Proper
+import Mathlib.AlgebraicGeometry.Noetherian
 import Mathlib.AlgebraicGeometry.Morphisms.Smooth
 import Mathlib.AlgebraicGeometry.Morphisms.Etale
 import Mathlib.Geometry.Manifold.ChartedSpace
@@ -218,6 +225,16 @@ theorem exactFaithfulPullback : (CoherentAnalytification.functor φ).Faithful :=
 -- detection are necessary conditions, omitted from this site prototype.
 end Pullback
 
+-- Proper coherent Ext comparison: the native exact-functor map. Bijectivity
+-- for proper analytification is the packet's theorem; its geometric functor
+-- and coherent objects require the absent analytic carrier.
+def properCoherentExtComparison {C D : Type u} [Category.{v} C] [Category.{v} D]
+    [Abelian C] [Abelian D] [HasExt.{max u v} C] [HasExt.{max u v} D]
+    (F : C ⥤ D) [F.Additive] [PreservesFiniteLimits F] [PreservesFiniteColimits F]
+    (M N : C) (q : ℕ) :
+    Abelian.Ext M N q →+ Abelian.Ext (F.obj M) (F.obj N) q :=
+  F.mapExtAddHom M N q
+
 -- Twisting sheaves: chart transition prototype. Invertible sheaf gluing and
 -- projective analytification use existing supplier APIs in the reader.
 def analyticTwistTransition (k : ℤ) (zi zj : ℂ) : ℂ := (zj/zi)^k
@@ -246,7 +263,9 @@ abbrev AlgebraicForm (A : Type u) [CommRing A] [Algebra ℂ A] (p : ℕ) :=
 def algebraicExteriorDerivative (A : Type u) [CommRing A] [Algebra ℂ A] (p : ℕ) :
     AlgebraicForm A p →ₗ[ℂ] AlgebraicForm A (p+1) := by sorry
 def algebraicDeRhamComplex (A : Type u) [CommRing A] [Algebra ℂ A] :
-    CochainComplex (ModuleCat.{u} ℂ) ℕ := by sorry
+    CochainComplex (ModuleCat.{u} ℂ) ℕ :=
+  CochainComplex.of (fun p => ModuleCat.of ℂ (AlgebraicForm A p))
+    (fun p => ModuleCat.ofHom (algebraicExteriorDerivative A p)) (by sorry)
 
 namespace AlgebraicDeRham
 def degreeZeroIso (A : Type u) [CommRing A] [Algebra ℂ A] :
@@ -306,32 +325,47 @@ example : holomorphicExteriorDerivative 1 0
 example : logarithmicLoopPeriod = 2*Real.pi*Complex.I := by sorry
 end HolomorphicDeRham
 
--- Differential operators: principal parts use the actual tensor algebra and
--- diagonal ideal. The bound and universal jet are part of the data, rather
--- than claiming that a C-linear derivative is O-linear.
+-- Differential operators in the native affine carrier. Iterated scalar
+-- commutators encode finite order independently of the principal-parts
+-- sheaf-module interface, which is requested in the reader.
 abbrev principalParts (A : Type u) [CommRing A] [Algebra ℂ A] (m : ℕ) :=
   (A ⊗[ℂ] A) ⧸ (KaehlerDifferential.ideal ℂ A)^(m+1)
+def scalarCommutator {A M N : Type u} [CommRing A] [Algebra ℂ A]
+    [AddCommGroup M] [AddCommGroup N] [Module A M] [Module A N]
+    [Module ℂ M] [Module ℂ N] [IsScalarTower ℂ A M] [IsScalarTower ℂ A N]
+    (D : M →ₗ[ℂ] N) (a : A) : M →ₗ[ℂ] N where
+  toFun m := D (a • m) - a • D m
+  map_add' := by sorry
+  map_smul' := by sorry
+
+def HasDifferentialOrder (A : Type u) [CommRing A] [Algebra ℂ A]
+    {M N : Type u} [AddCommGroup M] [AddCommGroup N] [Module A M] [Module A N]
+    [Module ℂ M] [Module ℂ N] [IsScalarTower ℂ A M] [IsScalarTower ℂ A N] :
+    ℕ → (M →ₗ[ℂ] N) → Prop
+  | 0, D => ∀ a : A, scalarCommutator D a = 0
+  | n+1, D => ∀ a : A, HasDifferentialOrder A n (scalarCommutator D a)
+
 structure DifferentialOperator (A : Type u) [CommRing A] [Algebra ℂ A]
-    (M N : Type u) [AddCommGroup M] [AddCommGroup N] [Module ℂ M] [Module ℂ N] where
+    (M N : Type u) [AddCommGroup M] [AddCommGroup N] [Module A M] [Module A N]
+    [Module ℂ M] [Module ℂ N] [IsScalarTower ℂ A M] [IsScalarTower ℂ A N] where
   order : ℕ
   map : M →ₗ[ℂ] N
-  -- The principal-parts factorization for arbitrary sheaf modules needs the
-  -- relative principal-parts module interface requested in the reader.
+  order_le : HasDifferentialOrder A order map
 
-def differentialOperatorAnalytification {A B : Type u} [CommRing A] [CommRing B]
-    [Algebra ℂ A] [Algebra ℂ B] (f : A →ₐ[ℂ] B)
-    (D : DifferentialOperator A A A) : DifferentialOperator B B B := by sorry
--- The chosen analytic polynomial map is the chart inclusion, not an
--- arbitrary algebra map along which every differential operator extends.
+-- The analytic polynomial map is the chosen chart inclusion. A derivative
+-- does not extend along an arbitrary algebra map, e.g. evaluation at zero.
 def polynomialGermMap : ℂ[X] →ₐ[ℂ] ConvergentGerm 1 := by sorry
 theorem polynomialGermMap_X : polynomialGermMap Polynomial.X = ConvergentGerm.coordinate 1 0 := by sorry
+def differentialOperatorAnalytification
+    (D : DifferentialOperator ℂ[X] ℂ[X] ℂ[X]) :
+    DifferentialOperator (ConvergentGerm 1) (ConvergentGerm 1) (ConvergentGerm 1) := by sorry
 namespace DifferentialOperatorAnalytification
 def multiplication (a : ℂ[X]) : DifferentialOperator ℂ[X] ℂ[X] ℂ[X] := by sorry
 def polynomialDerivative : DifferentialOperator ℂ[X] ℂ[X] ℂ[X] := by sorry
 def analyticMultiplication (a : ℂ[X]) : DifferentialOperator (ConvergentGerm 1) (ConvergentGerm 1) (ConvergentGerm 1) :=
-  differentialOperatorAnalytification polynomialGermMap (multiplication a)
+  differentialOperatorAnalytification (multiplication a)
 def analyticDerivative : DifferentialOperator (ConvergentGerm 1) (ConvergentGerm 1) (ConvergentGerm 1) :=
-  differentialOperatorAnalytification polynomialGermMap polynomialDerivative
+  differentialOperatorAnalytification polynomialDerivative
 theorem orderZero (a : ℂ[X]) (g : ConvergentGerm 1) :
     (analyticMultiplication a).map g = polynomialGermMap a * g := by sorry
 theorem composition (a b : ℂ[X]) (g : ConvergentGerm 1) :
@@ -383,32 +417,33 @@ example (conn : AlgebraicConnection ℂ ℂ) : conn.nabla = 0 := by sorry
 example : logarithmicMonodromy (1/2) = -1 := by sorry
 end AlgebraicConnection
 
--- Gauss–Manin is a newly constructed connection on the native relative
--- cohomology module. The family, properness and the base-form filtration
--- supplying this module are specified in the reader; their scheme API is not
--- present in this pinned affine prototype.
-def gaussManinConnection (A M : Type u) [CommRing A] [Algebra ℂ A]
-    [AddCommGroup M] [Module A M] [Module ℂ M] [IsScalarTower ℂ A M] :
-    AlgebraicConnection A M := by sorry
+-- Constant-family Gauss–Manin prototype over the affine line. General
+-- relative cohomology, the base-form filtration and the horizontal Betti
+-- comparison require the geometric family interfaces specified in the reader.
+-- A connection is not constructed on an arbitrary module.
+abbrev ConstantFamilyModule (V : Type) [AddCommGroup V] [Module ℂ V] := ℂ[X] ⊗[ℂ] V
+def gaussManinConnection (V : Type) [AddCommGroup V] [Module ℂ V] :
+    AlgebraicConnection ℂ[X] (ConstantFamilyModule V) := by sorry
 namespace GaussManin
-variable {A M : Type u} [CommRing A] [Algebra ℂ A]
-variable [AddCommGroup M] [Module A M] [Module ℂ M] [IsScalarTower ℂ A M]
-def connection : M →ₗ[ℂ] (KaehlerDifferential ℂ A ⊗[A] M) :=
-  (gaussManinConnection A M).nabla
-theorem integrable : AlgebraicConnection.curvature (gaussManinConnection A M) = 0 := by sorry
--- The native horizontal submodule; the Betti identification is a supplier
--- comparison, not an arbitrary chosen isomorphism of vector spaces.
-def horizontalComparison : Submodule ℂ M := LinearMap.ker (connection (A := A) (M := M))
-theorem constantFamily (a : A) :
-    (gaussManinConnection A A).nabla a = KaehlerDifferential.D ℂ A a ⊗ₜ[A] (1 : A) := by sorry
-theorem degreeZero : gaussManinConnection A A = AlgebraicConnection.trivialConnection A := by sorry
-theorem leibniz (a : A) (m : M) : connection (a • m) =
-    KaehlerDifferential.D ℂ A a ⊗ₜ[A] m + a • connection m := by sorry
-example (a : A) : (gaussManinConnection A A).nabla a =
-    KaehlerDifferential.D ℂ A a ⊗ₜ[A] (1 : A) := by sorry
-example : gaussManinConnection ℂ ℂ = AlgebraicConnection.trivialConnection ℂ := by sorry
-example (a : A) (m : M) : connection (a • m) =
-    KaehlerDifferential.D ℂ A a ⊗ₜ[A] m + a • connection m := by sorry
+variable {V : Type} [AddCommGroup V] [Module ℂ V]
+def connection : ConstantFamilyModule V →ₗ[ℂ]
+    (KaehlerDifferential ℂ ℂ[X] ⊗[ℂ[X]] ConstantFamilyModule V) :=
+  (gaussManinConnection V).nabla
+theorem integrable : AlgebraicConnection.curvature (gaussManinConnection V) = 0 := by sorry
+def horizontalComparison : LinearMap.ker (connection (V := V)) ≃ₗ[ℂ] V := by sorry
+theorem constantFamily (p : ℂ[X]) (v : V) :
+    connection (p ⊗ₜ[ℂ] v) = KaehlerDifferential.D ℂ ℂ[X] p ⊗ₜ[ℂ[X]] ((1 : ℂ[X]) ⊗ₜ[ℂ] v) := by sorry
+def degreeZero : ConstantFamilyModule ℂ ≃ₗ[ℂ[X]] ℂ[X] := by sorry
+theorem degreeZero_connection (m : ConstantFamilyModule ℂ) :
+    connection m = KaehlerDifferential.D ℂ ℂ[X] (degreeZero m) ⊗ₜ[ℂ[X]] degreeZero.symm 1 := by sorry
+theorem leibniz (a : ℂ[X]) (m : ConstantFamilyModule V) : connection (a • m) =
+    KaehlerDifferential.D ℂ ℂ[X] a ⊗ₜ[ℂ[X]] m + a • connection m := by sorry
+example (p : ℂ[X]) (v : V) : connection (p ⊗ₜ[ℂ] v) =
+    KaehlerDifferential.D ℂ ℂ[X] p ⊗ₜ[ℂ[X]] ((1 : ℂ[X]) ⊗ₜ[ℂ] v) := by sorry
+example (m : ConstantFamilyModule ℂ) : connection m =
+    KaehlerDifferential.D ℂ ℂ[X] (degreeZero m) ⊗ₜ[ℂ[X]] degreeZero.symm 1 := by sorry
+example (a : ℂ[X]) (m : ConstantFamilyModule V) : connection (a • m) =
+    KaehlerDifferential.D ℂ ℂ[X] a ⊗ₜ[ℂ[X]] m + a • connection m := by sorry
 end GaussManin
 
 -- C5 log prefix, in the native affine ring/monoid carrier. Sheafification and
@@ -825,8 +860,8 @@ example (A : AddCommGrpCat.{0}) (q : ℕ) (U V : Opens sellaSpace) (i : U ⟶ V)
 end SmallSingularCochains
 
 -- Comparison uses the native Ext-defined sheaf cohomology; semilocal
--- contractibility of T is the topological condition omitted in this signature.
-def sheafSingularComparison (T : TopCat.{0}) (A : AddCommGrpCat.{0}) (q : ℕ) :
+-- contractibility is retained as the native null-homotopic-inclusion predicate.
+def sheafSingularComparison (T : TopCat.{0}) (hT : LocallyContractibleSpace T) (A : AddCommGrpCat.{0}) (q : ℕ) :
     AddCommGrpCat.of (Sheaf.H ((constantSheaf (Opens.grothendieckTopology T) AddCommGrpCat).obj A) q) ≅
       (singularCochains T A).homology q := by sorry
 
@@ -1221,8 +1256,10 @@ theorem coherentOperations [HasKernels (SheafOfModules R)]
     {M N : SheafOfModules R} [M.IsFinitePresentation] [N.IsFinitePresentation] (f : M ⟶ N) :
     (Limits.kernel f).IsFinitePresentation := by sorry
 -- The analytic coherent-ring sheaf condition is essential here and omitted.
-def holomorphicBundleDictionary : CoherentAnalyticModule J R ⥤ SheafOfModules R :=
-  (SheafOfModules.isFinitePresentation R).ι
+def finiteLocallyFreeAnalyticModules : ObjectProperty (SheafOfModules R) :=
+  fun M => M.IsLocallyFree ∧ M.IsFinitePresentation
+def holomorphicBundleDictionary : (finiteLocallyFreeAnalyticModules J R).FullSubcategory ⥤ SheafOfModules R :=
+  (finiteLocallyFreeAnalyticModules J R).ι
 -- Full bundle/module equivalence requires the imported holomorphic bundle type.
 
 def twistedCoherentModule (k : ℤ) (_M : CoherentAnalyticModule J R) : CoherentAnalyticModule J R := by sorry
@@ -1289,9 +1326,22 @@ theorem remmertSteinExtension (n : ℕ) (E A : Set (Fin n → ℂ))
 -- The strict component-dimension inequality is omitted here; it is essential
 -- in the complete target, including when the two sets have equal dimension.
 
-theorem affineCurveCompletionInterface (U : _root_.AlgebraicGeometry.Scheme) :
-    ∃ C : _root_.AlgebraicGeometry.Scheme, Nonempty (U ⟶ C) := by sorry
--- Smooth projective completion and finite boundary are imported, not replanned.
+-- Shared analytification is a supplier functor, not a construction of this
+-- roadmap. Working over the complex point retains C-linear morphisms.
+open _root_.AlgebraicGeometry
+abbrev complexAlgebraicPoint : Scheme.{0} := Spec (CommRingCat.of ℂ)
+abbrev complexRingedPoint : LocallyRingedSpace.{0} := complexAlgebraicPoint.toLocallyRingedSpace
+abbrev ComplexScheme := Over complexAlgebraicPoint
+abbrev ComplexRingedSpace := Over complexRingedPoint
+
+theorem affineCurveCompletionInterface (U C : ComplexScheme)
+    [IsProper C.hom] [Smooth C.hom] (j : U ⟶ C) [IsOpenImmersion j.left]
+    (hdense : DenseRange j.left.base) (hdim : topologicalKrullDim C.left = 1) :
+    Set.Finite (Set.range j.left.base)ᶜ := by sorry
+-- C is the one-dimensional connected projective model supplied by AlgebraicCurves.
+-- Dimension and density are retained natively; only the function-field
+-- identification needs that supplier carrier.
+-- This node only adds finite boundary; it does not replan completion.
 
 -- C5: local Poincaré on the actual convergent-germ complex.
 theorem holomorphicPoincare (n p : ℕ) (a : HolomorphicForm n (p+1))
@@ -1308,8 +1358,9 @@ def operatorHyperGAGA (K : CochainComplex (ModuleCat ℂ) ℕ) (q : ℕ) :
 -- reader hypotheses; this construction does not assume a comparison isomorphism.
 def globalAlgebraicDeRham (X : _root_.AlgebraicGeometry.Scheme) : CochainComplex (ModuleCat ℂ) ℕ := by sorry
 def complexSingularCochains (T : TopCat.{0}) : CochainComplex (ModuleCat ℂ) ℕ := by sorry
-def properDeRhamBetti (X : _root_.AlgebraicGeometry.Scheme) (an : TopCat.{0}) (q : ℕ) :
-    (globalAlgebraicDeRham X).homology q ≅
+def properDeRhamBetti (X : ComplexScheme) [IsProper X.hom] [Smooth X.hom]
+    (an : TopCat.{0}) (q : ℕ) :
+    (globalAlgebraicDeRham X.left).homology q ≅
       (complexSingularCochains an).homology q := by sorry
 -- Identify the native global construction with RΓ of the sheaf de Rham
 -- complex once its gluing is supplied. X must be smooth proper over C.
@@ -1332,13 +1383,6 @@ theorem logChartCriterion (f : LogRingHom ℂ[X] (MvPolynomial (Fin 2) ℂ)
 -- Full arbitrary charts require the monoid-algebra fibre-product morphism,
 -- and the ordinary étale/smooth condition, recorded in the reader.
 
--- Shared analytification is a supplier functor, not a construction of this
--- roadmap. Working over the complex point retains C-linear morphisms.
-open _root_.AlgebraicGeometry
-abbrev complexAlgebraicPoint : Scheme.{0} := Spec (CommRingCat.of ℂ)
-abbrev complexRingedPoint : LocallyRingedSpace.{0} := complexAlgebraicPoint.toLocallyRingedSpace
-abbrev ComplexScheme := Over complexAlgebraicPoint
-abbrev ComplexRingedSpace := Over complexRingedPoint
 def ringedSpaceRingSheaf (X : LocallyRingedSpace.{0}) :
     Sheaf (Opens.grothendieckTopology X) RingCat.{0} := by sorry
 abbrev AnalyticCoherent (X : LocallyRingedSpace.{0}) :=
@@ -1418,10 +1462,12 @@ theorem affineCurveConnectedness (an : ComplexScheme ⥤ ComplexRingedSpace)
 -- Relative Hodge objects have the native S.Modules carrier. The differential
 -- and Ω^p construction, and the interpretation as R^q f_* Ω^p, are omitted.
 def relativeHodgeBundle {X S : Scheme.{0}} (f : X ⟶ S) (p q : ℕ) : S.Modules := by sorry
-theorem relativeHodgeBundles {X S : Scheme.{0}} (f : X ⟶ S) [IsProper f] [Smooth f]
-    (p q : ℕ) : (relativeHodgeBundle f p q).IsFinitePresentation := by sorry
--- Characteristic zero, local freeness, E1 degeneration and arbitrary base
--- change are the complete target. Finite presentation is its native part.
+theorem relativeHodgeBundles {X S : ComplexScheme} (f : X ⟶ S)
+    [IsLocallyNoetherian S.left] [IsProper f.left] [Smooth f.left] (p q : ℕ) :
+    (relativeHodgeBundle f.left p q).IsLocallyFree ∧
+      (relativeHodgeBundle f.left p q).IsFinitePresentation := by sorry
+-- This prototype works over C and retains native local Noetherianness and
+-- finite local freeness. The global E1 and base-change APIs are in the reader.
 
 -- Reuse the pinned abstract Hodge carrier. C5 constructs its geometric
 -- filtration and opposedness; it does not rebuild this existing object.
@@ -1463,14 +1509,14 @@ theorem curveResidueLocalization (a : RatFunc ℂ) :
 -- need the ringed log-sheaf carrier and are omitted at this pin.
 def properLogDeRham (X : Scheme.{0}) : CochainComplex (ModuleCat ℂ) ℕ := by sorry
 def properAnalyticLogDeRham (T : LocallyRingedSpace.{0}) : CochainComplex (ModuleCat ℂ) ℕ := by sorry
-def properLogGAGA (X : ComplexScheme) (an : ComplexScheme ⥤ ComplexRingedSpace) (q : ℕ) :
+def properLogGAGA (X : ComplexScheme) [IsProper X.hom] (an : ComplexScheme ⥤ ComplexRingedSpace) (q : ℕ) :
     (properLogDeRham X.left).homology q ≅ (properAnalyticLogDeRham (an.obj X).left).homology q := by sorry
 
 def logMonodromy (X : Scheme.{0}) (q : ℕ) :
     (properLogDeRham X).homology q ⟶ (properLogDeRham X).homology q := by sorry
 def analyticLogMonodromy (T : LocallyRingedSpace.{0}) (q : ℕ) :
     (properAnalyticLogDeRham T).homology q ⟶ (properAnalyticLogDeRham T).homology q := by sorry
-theorem properLogGAGA_monodromy (X : ComplexScheme) (an : ComplexScheme ⥤ ComplexRingedSpace) (q : ℕ) :
+theorem properLogGAGA_monodromy (X : ComplexScheme) [IsProper X.hom] (an : ComplexScheme ⥤ ComplexRingedSpace) (q : ℕ) :
     logMonodromy X.left q ≫ (properLogGAGA X an q).hom =
       (properLogGAGA X an q).hom ≫ analyticLogMonodromy (an.obj X).left q := by sorry
 
@@ -1594,14 +1640,18 @@ theorem nonreducedProjectiveChow (M : CoherentAnalyticModule K R) :
 -- with their inclusion in O, retaining the resulting quotient nilpotents.
 end CanonicalCohomology
 
--- Acyclic-cover comparison is imported from D0. This is its native object
--- signature; the cover/augmentation identification and Leray hypotheses are
--- omitted rather than the desired comparison being taken as an assumption.
-def acyclicProjectiveCover {C : Type u} [Category.{v} C]
-    {J : GrothendieckTopology C} [HasSheafify J AddCommGrpCat.{0}]
-    [HasExt.{max u v} (Sheaf J AddCommGrpCat.{0})]
-    (M : Sheaf J AddCommGrpCat.{0}) (cech : CochainComplex AddCommGrpCat ℕ) (q : ℕ) :
-    cech.homology q ≃+ Sheaf.H M q := by sorry
+-- Import the Leray comparison from D0. The complex is the existing native
+-- Cech complex of this sheaf and cover; it is not an unrelated input complex.
+def acyclicProjectiveCover (T : TopCat.{0}) (r : ℕ) (U : Fin r → Opens T)
+    [HasSheafify (Opens.grothendieckTopology T) AddCommGrpCat.{0}]
+    [HasExt.{0} (Sheaf (Opens.grothendieckTopology T) AddCommGrpCat.{0})]
+    [∀ W : Opens T, HasSheafify ((Opens.grothendieckTopology T).over W) AddCommGrpCat.{0}]
+    [∀ W : Opens T, HasExt.{0} (Sheaf ((Opens.grothendieckTopology T).over W) AddCommGrpCat.{0})]
+    (M : Sheaf (Opens.grothendieckTopology T) AddCommGrpCat.{0})
+    (hcover : (⋃ i, (U i : Set T)) = Set.univ)
+    (hacyclic : ∀ (n : ℕ) (a : Fin (n+1) → Fin r) (q : ℕ),
+      Subsingleton (Sheaf.H (M.over (⨅ i, U (a i))) (q+1))) (q : ℕ) :
+    ((cechComplexFunctor U).obj M.obj).homology q ≃+ Sheaf.H M q := by sorry
 
 -- The flat ordinary base-change case. General derived base change has the
 -- Tor-independence/boundedness conditions stated in the reader.
@@ -1623,9 +1673,9 @@ def bettiCup (T : TopCat.{0}) (p q : ℕ) :
 theorem multiplicativePeriodInterface (X : ComplexScheme) [IsProper X.hom] [Smooth X.hom]
     (an : TopCat.{0}) (p q : ℕ) (a : (globalAlgebraicDeRham X.left).homology p)
     (b : (globalAlgebraicDeRham X.left).homology q) :
-    (properDeRhamBetti X.left an (p+q)).hom.hom (deRhamCup X.left p q a b) =
-      bettiCup an p q ((properDeRhamBetti X.left an p).hom.hom a)
-        ((properDeRhamBetti X.left an q).hom.hom b) := by sorry
+    (properDeRhamBetti X an (p+q)).hom.hom (deRhamCup X.left p q a b) =
+      bettiCup an p q ((properDeRhamBetti X an p).hom.hom a)
+        ((properDeRhamBetti X an q).hom.hom b) := by sorry
 -- The identification of an with X^an is omitted; products are DG/AlgebraicTopology imports.
 def integralSingularCochains (T : TopCat.{0}) : CochainComplex (ModuleCat ℤ) ℕ := by sorry
 def bettiComplexification (T : TopCat.{0}) (q : ℕ) :
