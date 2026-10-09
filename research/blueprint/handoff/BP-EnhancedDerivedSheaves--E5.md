@@ -114,3 +114,14 @@ extraction; prism-specific constructions remain outside E5.
 Independent review is next. Packaging must reconcile supplier dependencies
 and check the accepted bundle tiers; E5 is outside the current upstream
 tier. No second job is claimed in this run.
+
+## Submission state
+
+PR #8009 is open against CBirkbeck/tauceti-explorer. The worker account's
+upstream push returned HTTP 403, so the same session branch was pushed to
+its existing fork. The submission marker succeeded and #720 is
+`state:submitted`. GitHub marked the fork's submission-check workflow
+`action_required`, requiring maintainer approval to run. Automatic intake
+also leaves fork pull requests to the maintainer. The local checks above
+passed; no remote validation failure has been reported. The maintainer must
+approve the workflow and handle intake of this PR.
