@@ -332,8 +332,8 @@ $(-1)^i$; incompatible signs force the corresponding image to disappear.
 
 When $\varepsilon=-1$, the upper breaks over $E_0$ can be $1/2$ and
 $3/2$. The last subgroup has order $a\le3$, by the critical cube map,
-and the different is $5/2-1/\vert P\vert -1/a$. When $\varepsilon=1$, the second
-graded piece is absent and the resulting estimate is
+and the different is $5/2-1/\vert P\vert -1/a$. When $\varepsilon=1$, the odd
+graded pieces are absent, so only the break at one over $E_0$ remains and the different is
 $2-3/(2\vert P\vert )$. Both are at most $13/6-1/\vert P\vert $. For $\vert P\vert =3$ this is
 $11/6$, attained by the splitting field of $X^3-3$. The compositum
 $\mathbb Q_3(\zeta_3,\sqrt[3]2,\sqrt[3]3)$ has $\vert P\vert =9$ and exponent
