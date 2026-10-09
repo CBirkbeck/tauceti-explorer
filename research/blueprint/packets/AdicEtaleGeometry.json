@@ -15679,9 +15679,9 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2",
-  "date": "2026-10-02",
-  "notes": "Follows independent-review-REV-AdicEtaleGeometry. Scoped independent review of Claude Code cc-c2c06b FIX #5150/PR5269: /6 correctly removes the Q4 premise, converse statement and ECD 5.8 citation from A3; the retained characteristic-p strongly-closed comparison needs only its explicit quotient mapping. Fresh ECD 6.4(iv) and 5.7/5.8 reading confirms the tilting/pseudocoherent route, not a prismatic-perfectoidization import. No Q4 prerequisite remains. Historical full review archived verbatim; its remaining source gaps persist. Atlas edge/requires installation remains a maintainer action, and the live graph is not represented as already fixed. This is a review of the scoped changes, not a new audit of all 153 nodes or 177 baseline citations. No Lean compilation."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~3",
+  "date": "2026-10-09",
+  "notes": "Follows independent-review-REV-FIX-RT-AREA-padic-1~2 and independent-review-REV-AdicEtaleGeometry. Independent scoped review of Codex codex-NIfClf FIX #5703: the inherited A3/zariski-closed-immersion-ecd-comparison keeps characteristic p and its explicitly constructed quotient/plus-ring mapping, with no Q4 prerequisite or universal ECD 5.8 converse. Fresh ECD 5.7(ii), 5.8 and 6.4(iv) reading confirms the distinction and the tilting/pseudocoherent route. A0/analytic-locus-restriction is present and builds on the pinned affinoid analytic-locus API. The stock checker reports no errors or warnings. Native lean-check succeeds, with only 361 admitted-proof warnings. Accepted for the submitted scoped correction, retaining the prior full-review evidence and source gaps; not a fresh review of all 153 nodes. The live atlas Q4 edge/requires deletion and RS-05 correction remain maintainer actions. No mathematical contracts or prior reviews changed."
  },
  "reviewHistory": [
   {
@@ -16456,6 +16456,12 @@
      "note": "Excerpts matched against the source text; statement and proof steps read against the prerequisites."
     }
    ]
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-padic-1~2",
+   "date": "2026-10-02",
+   "notes": "Follows independent-review-REV-AdicEtaleGeometry. Scoped independent review of Claude Code cc-c2c06b FIX #5150/PR5269: /6 correctly removes the Q4 premise, converse statement and ECD 5.8 citation from A3; the retained characteristic-p strongly-closed comparison needs only its explicit quotient mapping. Fresh ECD 6.4(iv) and 5.7/5.8 reading confirms the tilting/pseudocoherent route, not a prismatic-perfectoidization import. No Q4 prerequisite remains. Historical full review archived verbatim; its remaining source gaps persist. Atlas edge/requires installation remains a maintainer action, and the live graph is not represented as already fixed. This is a review of the scoped changes, not a new audit of all 153 nodes or 177 baseline citations. No Lean compilation."
   }
  ]
 }
