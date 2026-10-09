@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-DeligneWeightsAndPurity",
+    "date": "2026-10-09",
+    "notes": "Independently checked all 135 accepted targets, 177 API items, 94 tests and their prerequisites; read all 41 pinned baseline statements and relevant library-audit and link-map boundaries. README passes upstream form, own-words/source-locator and fidelity checks at 199191 bytes; metadata is exactly topic = math.AG. Corrected ordinary-node terminology, links, empty input sentences and the Weil I 6.11 locator; removed process-status comments; added subspace/quotient purity equivalences and weight union; removed the unnecessary characteristic-zero hypothesis from the logarithmic derivative; generalized the root-of-unity example. lean-check exited 0 with 126 sorry warnings and no errors. Needs changes because numerical signatures omit real-weight decomposition/functoriality, several reciprocal-pairing conclusions and upper-degree/orthogonality/symmetry parts of primitive decomposition, plus further numerical clauses detailed in the report. Genuine unavailable geometric supplier types are distinguished from these omissions."
+  }
+}

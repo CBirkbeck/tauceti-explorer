@@ -628,7 +628,7 @@ Sources: [WI](#ref-wi), §3, Lemme (3.4), p. 284.
 
 Let (f_i) be a countable family of power series f_i = Σ_n a_{i,n} t^n with constant term 1 and nonnegative real coefficients, such that ord(f_i − 1) → ∞, and let f = ∏_i f_i = Σ_n a_n t^n. Then a_{i,n} ≤ a_n for all i and n. Hence the radius of absolute convergence of each f_i is at least that of f.
 
-Inputs: .
+Inputs: elementary power-series comparison.
 
 Sources: [WI](#ref-wi), §3, Lemme (3.5), p. 284.
 
@@ -706,7 +706,7 @@ Sources: [WI](#ref-wi), §6, Lemme (6.4), p. 295; [WI](#ref-wi), §6, proof of (
 
 ### 3.3. The zeta functions of the fibres, split into a constant part and the ℱ₀ part
 
-In the setting of radical-quotient-of-the-vanishing-system, there are ℓ-adic units α_1, …, α_N and β_1, …, β_M in ℚ̄_ℓ, with α_i ≠ β_j for all i and j, such that for every x ∈ |U₀|, Z(X_x, t) = [∏_i(1 − α_i^{deg x} t) / ∏_j(1 − β_j^{deg x} t)] · det(1 − F_x t, ℱ₀)^{(−1)^{n+1}}, where t is the variable for the residue field k(x). In particular the right-hand side lies in ℚ(t).
+In the setting of [3.1](#target-3-1), there are ℓ-adic units α_1, …, α_N and β_1, …, β_M in ℚ̄_ℓ, with α_i ≠ β_j for all i and j, such that for every x ∈ |U₀|, Z(X_x, t) = [∏_i(1 − α_i^{deg x} t) / ∏_j(1 − β_j^{deg x} t)] · det(1 − F_x t, ℱ₀)^{(−1)^{n+1}}, where t is the variable for the residue field k(x). In particular the right-hand side lies in ℚ(t).
 
 Scope: Cancel common α_i and β_j first. Rationality of the fibre zeta functions is an input, while their purity is not.
 
@@ -722,7 +722,7 @@ Let K be a finite set of nonnegative integers different from 1, and (δ_j)_{j �
 
 Scope: The finite families retain multiplicities and the excluded divisor set does not contain 1.
 
-Inputs: .
+Inputs: finite multisets and powers in a field.
 
 Sources: [WI](#ref-wi), §6, proof of (6.7), p. 297.
 
@@ -734,7 +734,7 @@ Let d be the fixed odd pencil fibre dimension and ℱ₀≠0 its supplied radica
 
 Inputs: [3.1](#target-3-1), [E42](#input-e42), [E27](#input-e27).
 
-Sources: [WI](#ref-wi), §6, (6.10), p. 297; [WI](#ref-wi), §6, (6.10), p. 298.
+Sources: [WI](#ref-wi), §6, (6.10), p. 297; Lemme (6.11), p. 298.
 
 <a id="target-3-6"></a>
 
@@ -786,7 +786,7 @@ Sources: [WI](#ref-wi), §6, Proposition (6.8), p. 297.
 
 ### 3.10. Weil I Theorem 6.2: the local factors of the radical quotient have rational coefficients
 
-In the setting of radical-quotient-of-the-vanishing-system, for every x ∈ |U₀|, det(1 − F_x t, ℱ₀) ∈ ℚ[t].
+In the setting of [3.1](#target-3-1), for every x ∈ |U₀|, det(1 − F_x t, ℱ₀) ∈ ℚ[t].
 
 Scope: The zero quotient has factor 1; the nonzero case uses rational zeta functions, open monodromy and Chebotarev.
 
@@ -1208,7 +1208,7 @@ The external square on C × C, with coefficient-specific vanishing cycles and a 
 
 ### 6.1. Vanishing cycles with unipotent boundary coefficients
 
-Let S₀ be a smooth projective surface, D₀ a strict normal-crossings divisor, V₀=S₀−D₀, and ℱ₀ a lisse sheaf on V₀ with unipotent local monodromy along D₀. Choose a pencil satisfying Weil II (3.1.1)(A)–(D), with each exceptional fibre having just one of the three indicated singularities. For j_!ℱ on the blown-up pencil, Φ^a vanishes for a≠1. At an ordinary target outside D, Φ¹=ℱ_x(−1)⊗ε(B), where ε(B) is the sign line on the two branches. At a tangency with D, or a transverse intersection of two branches of D, a locally constant graded boundary filtration gives Gr Φ¹=Gr ℱ_x⊗ε(B), with no Tate twist in these two cases.
+Let S₀ be a smooth projective surface, D₀ a strict normal-crossings divisor, V₀=S₀−D₀, and ℱ₀ a lisse sheaf on V₀ with unipotent local monodromy along D₀. Choose a pencil satisfying Weil II (3.1.1)(A)–(D), with each exceptional fibre having just one of the three indicated singularities. For j_!ℱ on the blown-up pencil, Φ^a vanishes for a≠1. At an ordinary node outside D, Φ¹=ℱ_x(−1)⊗ε(B), where ε(B) is the sign line on the two branches. At a tangency with D, or a transverse intersection of two branches of D, a locally constant graded boundary filtration gives Gr Φ¹=Gr ℱ_x⊗ε(B), with no Tate twist in these two cases.
 
 Inputs: [E32](#input-e32), [E33](#input-e33), [E36](#input-e36), [E23](#input-e23), [5.11](#target-5-11).
 
