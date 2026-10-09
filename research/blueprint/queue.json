@@ -49157,8 +49157,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-MetaplecticAutomorphicForms.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7492"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7492",
+   "finishedAt": "2026-10-09T18:02:08Z"
   },
   {
    "id": "REV-PKG-MetaplecticAutomorphicForms",
@@ -79869,8 +79870,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
