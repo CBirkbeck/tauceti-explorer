@@ -8822,7 +8822,7 @@
     "limits": "Acceptance verifies the target plan and its proposed interfaces. Explicit gaps remain: full log Abhyankar/log-regularity proof, geometric Tate residue calculation, non-fine formal-boundary chain and generic DD.1 enhanced Rlim. Analytic, Dieudonné and other owner exports remain requests. No stage is closed; all implementations are unchecked. The suggested file is a type-checked experiment with placeholder proofs, not a formalization.",
     "checks": [
       "Packet checker: 0 errors, 0 warnings.",
-      "Corrected final lean-check: exit 0, only declaration-uses-sorry warnings in the existing pinned Mathlib build.",
+      "Corrected final lean-check: exit 0, only placeholder-proof warnings in the existing pinned Mathlib build.",
       "All 88 primary declarations, 165 APIs and 167 named test markers match; the reader agrees with every statement/hypothesis/prerequisite/proof/API/test/acceptance item.",
       "Exact preceding review/history, node IDs/planets, four gaps, nine requests and four coverage records preserved.",
       "All 18 public source hashes reproduced, including a separate fetch of the newly pinned Thompson v2 URL.",
