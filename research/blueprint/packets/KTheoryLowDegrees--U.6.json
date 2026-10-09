@@ -66,6 +66,20 @@
         "module": "Mathlib/Data/ZMod/Basic.lean",
         "provides": "For m dividing n and a ring R of characteristic m, the coefficient homomorphism ZMod n→R. Used only for the mod-four orientation test.",
         "checked": "Definition, enclosing typeclasses and statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 on 2026-10-09; shared source HEAD equals this pin."
+      },
+      {
+        "ref": "tauceti:exteriorPower.topEquiv",
+        "kind": "def",
+        "module": "TauCeti/LinearAlgebra/ExteriorPower.lean",
+        "provides": "For a commutative ring and a module with a basis indexed by Fin n, identifies the nth exterior power linearly with the ring; no Nontrivial hypothesis.",
+        "checked": "Enclosing CommRing/AddCommGroup/Module hypotheses and exact statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 using the pinned git object; independently confirmed in REV-KTheoryLowDegrees--U.6."
+      },
+      {
+        "ref": "tauceti:exteriorPower.map_top_eq_det_smul",
+        "kind": "theorem",
+        "module": "TauCeti/LinearAlgebra/ExteriorPower.lean",
+        "provides": "For the same basis and any linear endomorphism f, exteriorPower.map n f = LinearMap.det f • LinearMap.id; this computes the free graded determinant morphism, including the zero ring.",
+        "checked": "Enclosing CommRing/AddCommGroup/Module hypotheses and exact statement read at Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 on 2026-10-09 using the pinned git object; independently confirmed in REV-KTheoryLowDegrees--U.6."
       }
     ]
   },
@@ -231,17 +245,52 @@
       "declarationName": "TauCeti.KTheory.LowDegreeComparison.double_congruence_apply"
     },
     {
+      "id": "KTheoryLowDegrees:U.6/double-congruence-stabilisation",
+      "parentStageId": "KTheoryLowDegrees:U.6",
+      "realises": [
+        "KTheoryLowDegrees:U.6"
+      ],
+      "title": "Finite double congruence comparison commutes with stabilisation",
+      "kind": "lemma",
+      "statement": "For a unital q:A→C, c_{q,n+1}(diag(g,1))=diag(c_{q,n}(g),1).",
+      "hypotheses": [],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.6/double-congruence-apply",
+        "KTheoryLowDegrees:U.1/stabilisation-map"
+      ],
+      "proofSteps": [
+        "Second projection sends the new diagonal unit to 1 and new off-diagonal zeros to 0, so the formula holds entrywise."
+      ],
+      "acceptance": [
+        "No passage to an unstabilised relative elementary quotient is asserted."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/LowDegreeComparison",
+        "namespace": "TauCeti.KTheory.LowDegreeComparison"
+      },
+      "sources": [
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Exercise III.2.7, printed p.197 (PDF p.205); Definition III.2.2, printed p.193 (PDF p.201); Exercise II.2.3, printed p.78 (PDF p.86)",
+          "match": "The split quotient and double ring motivate the explicit compatible-pair calculation. The formulas and generator lifting here are direct algebra, not an excision theorem."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.KTheory.LowDegreeComparison.double_congruence_stabilisation",
+      "addedBy": "REV-KTheoryLowDegrees--U.6"
+    },
+    {
       "id": "KTheoryLowDegrees:U.6/double-congruence-stable",
       "parentStageId": "KTheoryLowDegrees:U.6",
       "realises": [
         "KTheoryLowDegrees:U.6"
       ],
-      "title": "Stabilisation of the double congruence comparison",
-      "kind": "lemma",
-      "statement": "For q:A→C, c_{q,n+1}(diag(g,1))=diag(c_{q,n}(g),1). Thus the finite-rank equivalences induce the second-projection equivalence c_q:GL(D_q,ker pr)≃GL(A,ker q) of stable congruence groups.",
+      "title": "Stable double congruence comparison",
+      "kind": "comparison",
+      "statement": "For a unital q:A→C, the finite-rank second-projection equivalences induce c_q:GL(D_q,ker pr)≃GL(A,ker q) of stable congruence groups, with inverse represented at every finite rank by (1,g).",
       "hypotheses": [],
       "prerequisites": [
-        "KTheoryLowDegrees:U.6/double-congruence-apply",
+        "KTheoryLowDegrees:U.6/double-congruence-stabilisation",
         "KTheoryLowDegrees:U.1/stabilisation-map",
         "KTheoryLowDegrees:U.1/stable-general-linear-group",
         "KTheoryLowDegrees:U.1/finite-representatives",
@@ -249,8 +298,8 @@
         "KTheoryLowDegrees:U.5/congruence-subgroup"
       ],
       "proofSteps": [
-        "Second projection sends the new diagonal unit to 1 and new off-diagonal zeros to 0. The same calculation applies to the inverse (1,g).",
-        "Use the stable direct-limit maps of U.1; compatibility on finite representatives gives mutually inverse stable maps."
+        "Apply double-congruence-stabilisation to the finite second projections. Applying the finite equivalence to both sides also gives inverse compatibility.",
+        "Use finite representatives to define both stable maps. The stable equality criterion makes them well defined; the finite inverse identities make them mutually inverse."
       ],
       "acceptance": [
         "No passage to an unstabilised relative elementary quotient is asserted."
@@ -610,7 +659,7 @@
       ],
       "proofSteps": [
         "The double-ring map sends (a,x) to (φ(a),φ(x)) and respects pr, add and Δ. Matrix maps and the two kernel identifications are natural.",
-        "Apply the functorial fibre-map API to the resulting cubes and pass to the indicated homotopy group. For degree one the formula on the relative quotient follows from the second-projection formula."
+        "Apply the functorial fibre-map API to the resulting cube and pass to π₀. The classical map is the induced map between the kernels defining K₀(I), so the split-kernel identification and π₀ω commute with it."
       ],
       "acceptance": [
         "Identity and composite pair maps give the corresponding identity and composite squares."
@@ -856,11 +905,13 @@
         "KTheoryLowDegrees:Z.3/projective-exterior-power",
         "KTheoryLowDegrees:Z.3/determinant-projective",
         "KTheoryLowDegrees:Z.3/determinant-free",
-        "mathlib:Matrix.GeneralLinearGroup.det"
+        "mathlib:Matrix.GeneralLinearGroup.det",
+        "tauceti:exteriorPower.topEquiv",
+        "tauceti:exteriorPower.map_top_eq_det_smul"
       ],
       "proofSteps": [
         "Use the projective graded determinant map API: the morphism is the induced top exterior power.",
-        "In the ordered standard basis, apply g to the exterior volume element. Expand by alternating multilinearity: terms with repeated basis vectors vanish, and each surviving permutation contributes its signed product of entries. The coefficient is the existing matrix determinant.",
+        "Use exteriorPower.topEquiv in the ordered standard basis and exteriorPower.map_top_eq_det_smul for the underlying free linear automorphism. The existing free determinant compatibility identifies LinearMap.det with the matrix determinant. This imports the top-exterior scalar calculation instead of reproving it.",
         "The inverse automorphism gives the inverse coefficient, so this is a unit-valued identity and does not depend on a choice of volume element."
       ],
       "acceptance": [
@@ -1037,12 +1088,11 @@
       ],
       "title": "A projective automorphism loop has its classical K₁ class",
       "kind": "lemma",
-      "statement": "For commutative R, a finite projective R-module P and α∈Aut_R(P), the translated loop ℓ_P(α) satisfies ℓ_P(α)=θ_R(autClass(P,α)). Consequently d_R(ℓ_P(α)) is the scalar by which the top exterior automorphism acts on det(P), and equals det_R(autClass(P,α)).",
+      "statement": "For commutative R, a finite projective R-module P and α∈Aut_R(P), the translated loop ℓ_P(α) satisfies ℓ_P(α)=θ_R(autClass(P,α)).",
       "hypotheses": [],
       "prerequisites": [
         "KTheoryLowDegrees:U.6/matrix-loop-model-comparison",
         "KTheoryLowDegrees:U.6/graded-det-translated-loop",
-        "KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one",
         "KTheoryLowDegrees:U.2/automorphism-class",
         "KTheoryLowDegrees:U.2/automorphism-class-independence",
         "KTheoryLowDegrees:U.2/automorphism-class-direct-sum",
@@ -1050,8 +1100,49 @@
       ],
       "proofSteps": [
         "Choose Q and an isomorphism P⊕Q≃Rⁿ. The loop of α⊕1_Q translates to the sum of ℓ_P(α) and the identity loop of Q, hence equals ℓ_P(α).",
-        "The free matrix loop comparison identifies the left side with its stable matrix class. U.2’s independence theorem makes that class precisely autClass(P,α), independent of Q and the chosen basis.",
-        "Apply the determinant-on-π₁ theorem and the translated-loop lemma for the final equality."
+        "The free matrix loop comparison identifies the left side with its stable matrix class. U.2’s independence theorem makes that class precisely autClass(P,α), independent of Q and the chosen basis."
+      ],
+      "acceptance": [
+        "The zero module and its identity automorphism give the identity loop.",
+        "Adding an identity automorphism on a finite projective complement does not change the translated loop."
+      ],
+      "library": {
+        "module": "TauCeti/Algebra/KTheory/LowDegreeComparison",
+        "namespace": "TauCeti.GradedDeterminant"
+      },
+      "sources": [
+        {
+          "sourceId": "BS-Witt",
+          "locator": "Proposition 12.3, p.55; Corollary 12.17, p.59",
+          "match": "The symmetric monoidal determinant acts on isomorphisms by their top exterior maps and induces the determinant spectrum map. The loop calculation here follows these maps through the group-completion unit."
+        },
+        {
+          "sourceId": "Kbook.2013",
+          "locator": "Lemma III.1.6, printed p.185 (PDF p.193)",
+          "match": "Adding a finite projective complement gives the classical automorphism class, with choice independence supplied by the imported U.2 nodes."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "declarationName": "TauCeti.GradedDeterminant.ring_spectrum_det_projective_loop"
+    },
+    {
+      "id": "KTheoryLowDegrees:U.6/projective-loop-determinant",
+      "parentStageId": "KTheoryLowDegrees:U.6",
+      "realises": [
+        "KTheoryLowDegrees:U.6"
+      ],
+      "title": "Determinant of a projective automorphism loop",
+      "kind": "lemma",
+      "statement": "For commutative R, a finite projective R-module P and α∈Aut_R(P), d_R(ℓ_P(α))=det_R(autClass(P,α)). This unit is the scalar by which the componentwise top exterior automorphism acts on det(P); no constant-rank hypothesis is needed.",
+      "hypotheses": [],
+      "prerequisites": [
+        "KTheoryLowDegrees:U.6/projective-loop-class",
+        "KTheoryLowDegrees:U.6/graded-det-translated-loop",
+        "KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one"
+      ],
+      "proofSteps": [
+        "Substitute the projective-loop-class identity into d_R and apply ring-spectrum-det-pi-one.",
+        "The translated-loop lemma identifies the same unit with the scalar of Det^ℤ(α) on det(P)."
       ],
       "acceptance": [
         "For the zero module and its identity automorphism the class and unit are identity.",
@@ -1074,7 +1165,8 @@
         }
       ],
       "implementationStatus": "unchecked",
-      "declarationName": "TauCeti.GradedDeterminant.ring_spectrum_det_projective_loop"
+      "declarationName": "TauCeti.GradedDeterminant.ring_spectrum_det_projective_loop_scalar",
+      "addedBy": "REV-KTheoryLowDegrees--U.6"
     },
     {
       "id": "KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one-natural",
@@ -1084,7 +1176,7 @@
       ],
       "title": "Naturality of the determinant comparison on π₁",
       "kind": "lemma",
-      "statement": "For a commutative ring map f:R→S, the homomorphisms d satisfy d_S ∘ π₁K(f)=fˣ ∘ d_R, and θ_S ∘ K₁(f)=π₁K(f) ∘ θ_R. Thus the determinant comparison square commutes under scalar extension, for all components translated coherently to zero.",
+      "statement": "For a commutative ring map f:R→S, the homomorphisms d satisfy d_S ∘ π₁K(f)=fˣ ∘ d_R, for components translated coherently to zero. Combined with the imported naturality of θ, this gives the determinant comparison square on classical K₁.",
       "hypotheses": [],
       "prerequisites": [
         "KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one",
@@ -1096,10 +1188,10 @@
       ],
       "proofSteps": [
         "The existing determinant spectrum map has coherent base-change naturality, obtained from the symmetric monoidal projective determinant functor; pass this square to π₁.",
-        "The specified θ comparison is natural in ring maps on the zero component. Alternatively, check both equations on finite matrix representatives using the classical determinant base-change formula."
+        "Alternatively, apply the imported naturality of θ and the classical determinant base-change formula to ring-spectrum-det-pi-one, and use surjectivity of θ_R. Naturality of θ is supplied by the parent pi1-plus-construction node and is not a second target here."
       ],
       "acceptance": [
-        "Composition and identity ring maps preserve the equations.",
+        "Identity and composite ring maps preserve this equality.",
         "This is scalar-extension naturality, not a claim that restriction of scalars is a commutative ring map."
       ],
       "library": {
@@ -1235,7 +1327,77 @@
       ]
     }
   ],
-  "sourceIssues": [],
+  "sourceIssues": [
+    {
+      "id": "KTheoryLowDegrees/E31",
+      "source": "BS-Witt",
+      "kind": "misprint",
+      "locator": "Author-hosted 61-page copy, p.55, nerve paragraph after Proposition 12.3; also arXiv v3, p.55.",
+      "printed": "The nerve description assigns n−1 morphisms to an n-simplex.",
+      "correction": "An n-simplex consists of n composable morphisms, with n+1 objects.",
+      "reason": "The displayed chain has indices 0 through n and therefore n arrows. The following degree-zero and degree-one descriptions agree with n arrows, and disagree with n−1.",
+      "affects": "nothing",
+      "known": "Previously recorded and independently confirmed as PAPER-BHATT-SCHOLZE-17/E19 by REV-PAPER-BHATT-SCHOLZE-17. Rechecked here in the author copy and arXiv v3; no published collation.",
+      "searched": [
+        "Latest arXiv version v3 (21 February 2017), https://arxiv.org/abs/1507.06490 and https://arxiv.org/pdf/1507.06490v3: both slips remain.",
+        "Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html: author copy linked, no erratum for this paper listed (9 October 2026).",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0710-4: no correction found on the article page; the PDF request returned an HTML challenge rather than readable published text.",
+        "Search for the exact paper title with correction/erratum (9 October 2026): no correction located. Findings are scoped to the author copy and arXiv v3, not asserted against the unread version of record.",
+        "Existing reviewed PAPER-BHATT-SCHOLZE-17 extraction and accepted KTheoryLowDegrees--Z.3 packet checked on 9 October 2026; the present review preserves their prior attribution."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked the paragraph and adjacent chain in both readable versions; the error is the arrow count alone.",
+        "by": "REV-KTheoryLowDegrees--U.6"
+      }
+    },
+    {
+      "id": "KTheoryLowDegrees/E20",
+      "source": "BS-Witt",
+      "kind": "misprint",
+      "locator": "Author-hosted 61-page copy, Remark 12.11, p.58; also arXiv v3, p.58.",
+      "printed": "The component calculation writes π₀(ΩBX)=π₁(X).",
+      "correction": "The right-hand side is π₁(BX). The subsequent group-completion conclusion uses the delooping BX.",
+      "reason": "By the loop-space definition π₀(ΩY)=π₁(Y). Taking X to be the discrete additive group ℤ gives π₁(X)=0, whereas π₀(ΩBℤ)=ℤ.",
+      "affects": "nothing",
+      "known": "Previously recorded and independently confirmed as PAPER-BHATT-SCHOLZE-17/E20 and KTheoryLowDegrees/E20 in the accepted Z.3 packet. Rechecked here in the author copy and arXiv v3; no published collation.",
+      "searched": [
+        "Latest arXiv version v3 (21 February 2017), https://arxiv.org/abs/1507.06490 and https://arxiv.org/pdf/1507.06490v3: both slips remain.",
+        "Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html: author copy linked, no erratum for this paper listed (9 October 2026).",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0710-4: no correction found on the article page; the PDF request returned an HTML challenge rather than readable published text.",
+        "Search for the exact paper title with correction/erratum (9 October 2026): no correction located. Findings are scoped to the author copy and arXiv v3, not asserted against the unread version of record.",
+        "Existing reviewed PAPER-BHATT-SCHOLZE-17 extraction and accepted KTheoryLowDegrees--Z.3 packet checked on 9 October 2026; the present review preserves their prior attribution."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "The loop-space identity and discrete-group test confirm the missing B. Proposition 12.10 and Corollary 12.12 are used with the intended delooping.",
+        "by": "REV-KTheoryLowDegrees--U.6"
+      }
+    },
+    {
+      "id": "KTheoryLowDegrees/E22",
+      "source": "BS-Witt",
+      "kind": "gap",
+      "locator": "Construction 12.5, pp.56–57, author-hosted 61-page copy and arXiv v3.",
+      "printed": "The subset-family construction imposes binary tensor isomorphisms and compatibility without specifying that the empty-subset object is the monoidal unit.",
+      "correction": "Require X_∅ to be the unit, with its coherent unit isomorphism and unit constraints. The generic H.4 interface is used with this nullary constraint.",
+      "reason": "In the discrete symmetric monoidal groupoid {1,e}, with e²=e, both choices for X_∅ satisfy the binary compatibilities, yielding two points at [0] instead of a contractible space. In the finite-projective/direct-sum and Picard applications the unit condition is forced, so the determinant construction used here is unaffected.",
+      "affects": "nothing",
+      "known": "Previously recorded and independently confirmed as PAPER-BHATT-SCHOLZE-17/E54 and KTheoryLowDegrees/E22 in the accepted Z.3 packet. Rechecked here; scoped to the author copy and arXiv v3.",
+      "searched": [
+        "Latest arXiv version v3 (21 February 2017), https://arxiv.org/abs/1507.06490 and https://arxiv.org/pdf/1507.06490v3: both slips remain.",
+        "Scholze papers page https://people.mpim-bonn.mpg.de/scholze/papers.html: author copy linked, no erratum for this paper listed (9 October 2026).",
+        "Publisher article https://link.springer.com/article/10.1007/s00222-016-0710-4: no correction found on the article page; the PDF request returned an HTML challenge rather than readable published text.",
+        "Search for the exact paper title with correction/erratum (9 October 2026): no correction located. Findings are scoped to the author copy and arXiv v3, not asserted against the unread version of record.",
+        "Existing reviewed PAPER-BHATT-SCHOLZE-17 extraction and accepted KTheoryLowDegrees--Z.3 packet checked on 9 October 2026; the present review preserves their prior attribution."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Checked Construction 12.5 against Definition 12.4 at both readable locators. The idempotent-monoid example detects the missing nullary datum; for finite projectives rank-zero forces the zero module, and tensor-invertibility forces the unit in the Picard case.",
+        "by": "REV-KTheoryLowDegrees--U.6"
+      }
+    }
+  ],
   "importedTargets": [
     {
       "id": "KTheoryLowDegrees:U.6/pi1-plus-construction",
@@ -1411,5 +1573,159 @@
     "relativeObject": "GeneralAlgebraicKTheory:K.5/relative-K-theory",
     "earlyRingModel": "GeneralAlgebraicKTheory:K.2/functorial-K-theory-of-a-ring",
     "finding": "The parent records a historical T.1:plus/T.6 stage-cycle concern. The current fine K.5 ring-model node is explicitly early and its prerequisite closure has no return to the parent U.6 relative comparison. The current stage-edge extracts likewise give no U.6 return path through T.1:plus, T.6 or K.5. Import the generic relative object and the existing κ/β owners, retain their actual proof gaps, and request only the missing representative and unit compatibilities. This is a graph audit, not certification of supplier proofs."
+  },
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://people.mpim-bonn.mpg.de/scholze/Witt.pdf",
+      "read": "2026-10-09",
+      "sha256": "774032c0daee98e339b7be165174185c77714b0e729a39a985ee876ccc7e7b64",
+      "note": "61-page source used for every BS-Witt node; findings E1/E2 are restricted to this readable copy and arXiv v3."
+    },
+    {
+      "kind": "preprint",
+      "url": "https://arxiv.org/pdf/1507.06490v3",
+      "read": "2026-10-09",
+      "sha256": "b4d5a4e0a6591971c6b8521d790e5db6e61112f1350a0e4a05a8d98b6e0b961e",
+      "note": "Latest listed version, 21 February 2017; inspected both finding locators."
+    }
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-KTheoryLowDegrees--U.6",
+    "date": "2026-10-09",
+    "notes": "Independent review of all node source locators, ten pinned baseline declarations, supplier statements, the 357-node fine prerequisite closure, three requests and six honest gaps; checked API/tests, reader/Lean correspondence, inherited targets, planet ownership and confirmed RT-AREA-ktheory-1/9. Added two lemma nodes, imported existing free exterior scalar inputs, removed repeated θ naturality and corrected the degree-zero proof sketch. Three previously recorded source findings independently confirmed with version limits. Complete planning pass accepted; U.6 remains planned, no implementation or closed stage asserted.",
+    "checked": [
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-congruence-mulEquiv",
+        "verdict": "verified",
+        "note": "Compatible-pair matrix units give inverse (1,g), over associative rings without quotient surjectivity. All three API items and four tests distinguish the intended projections."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-congruence-apply",
+        "verdict": "verified",
+        "note": "Exactly the specified second projection; matches the active Lean kernel-unit equality."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-congruence-stabilisation",
+        "verdict": "added",
+        "note": "Extracted the finite stabilisation equation from the bundled stable comparison; entrywise projection preserves the added identity block."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-congruence-stable",
+        "verdict": "corrected",
+        "note": "Separated finite compatibility into its own lemma and classified the resulting stable equivalence as a comparison. Finite representatives and the stable equality criterion supply well-defined inverse maps."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-elementary-image",
+        "verdict": "verified",
+        "note": "Relative normal closures are inside ambient E, not intersections with E. The diagonal section lifts every elementary conjugator, so both image inclusions hold."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-relative-quotient",
+        "verdict": "verified",
+        "note": "Descends the stable equivalence through exactly corresponding normal subgroups; does not assume excision for unrelated ambient rings."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-fibre-pi-one-kernel",
+        "verdict": "verified",
+        "note": "A homotopy section makes π₂(pr) surjective; the LES identifies π₁ of the split fibre with the absolute kernel. The U.5 split relative theorem supplies s₁."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-fibre-pi-zero-kernel",
+        "verdict": "verified",
+        "note": "Surjectivity of π₁(pr) kills the preceding boundary. Uses the canonical component-group comparison and U.5 kernel definition of K₀(I)."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-fibre-pi-zero-comparison",
+        "verdict": "verified",
+        "note": "Correct candidate fibre map and degree-zero target of IV Exercise 1.15. Its unsplit component/patching proof is explicitly an open gap, not an inference from exact rows."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/double-fibre-pi-one-comparison",
+        "verdict": "verified",
+        "note": "Correct degree-one target, restricted to π₁; relative-plus surjectivity and exact E(A,I) relations remain the named open gap. No homotopy-cartesian assertion."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/relative-pi-zero",
+        "verdict": "verified",
+        "note": "Specified composite π₀ω s₀ has the correct direction and domain K₀(I), rather than the absolute kernel for q."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/relative-pi-one",
+        "verdict": "verified",
+        "note": "Specified composite π₁ω s₁ a⁻¹ has the correct direction and full classical relative quotient."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/relative-pi-zero-natural",
+        "verdict": "corrected",
+        "note": "Removed a degree-one copy-and-paste sentence and specified the natural map on the kernels defining K₀(I). Fibre cubes and split-kernel maps give the equation."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/relative-pi-one-natural",
+        "verdict": "verified",
+        "note": "The double-ring cube and second-projection formula give coefficient-map naturality of the relative quotient."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/relative-pi-one-inclusion",
+        "verdict": "verified",
+        "note": "The fibre projection square and split-kernel inclusion give θ_A ι on congruence representatives; no unjustified injectivity claim."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/relative-pi-zero-inclusion",
+        "verdict": "verified",
+        "note": "The same fibre projection square gives K₀(add) on the defining kernel, under the canonical K₀ comparison."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/relative-boundary-one",
+        "verdict": "verified",
+        "note": "The equation keeps ε₀ fixed and records the patching/path-reversal sign computation as a gap. Exactness cannot determine this map or its sign."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/relative-boundary-two",
+        "verdict": "verified",
+        "note": "The equation uses absolute κ and classical β from their actual owners. Representative normalisation and orientation remain explicit requests/gaps; relative π₂ is not used as a substitute."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/graded-det-free-map",
+        "verdict": "corrected",
+        "note": "Added the pinned Tau Ceti topEquiv and map_top_eq_det_smul inputs; imports the existing scalar theorem rather than replanning its exterior expansion. The remaining node identifies the graded determinant functor morphism."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/graded-det-translated-loop",
+        "verdict": "verified",
+        "note": "The extension homotopy under the group-completion unit preserves the automorphism edge and translation. Tensoring with the inverse graded line preserves the scalar; H-space π₁ removes conjugation ambiguity."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/matrix-loop-model-comparison",
+        "verdict": "verified",
+        "note": "The target specifies a comparison under the projective nerve unit. K.4 unit compatibility is a precise outstanding supplier contract, not supplied by a bare space equivalence."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one",
+        "verdict": "verified",
+        "note": "Free automorphism edges plus the unit-compatible model comparison give d_R θ_R=det_R on all finite representatives and thus on the quotient. Imports Z.3 map and U.3 determinant."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/projective-loop-class",
+        "verdict": "corrected",
+        "note": "Separated the determinant corollary. A projective complement and monoidal group-completion unit identify the translated loop with the existing complement-independent autClass."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/projective-loop-determinant",
+        "verdict": "added",
+        "note": "Separate scalar equality follows from projective-loop-class, the determinant-on-π₁ theorem and translated-loop evaluation; allows locally varying rank."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one-natural",
+        "verdict": "corrected",
+        "note": "Keeps one new determinant naturality equation and imports the parent-owned θ naturality. Either the spectrum naturality or finite-representative argument gives it."
+      },
+      {
+        "nodeId": "KTheoryLowDegrees:U.6/ring-spectrum-transfer-pi-one",
+        "verdict": "verified",
+        "note": "Finite-free restriction of scalars on π₁ composes with d_R θ_R=det_R. Retains right-module/basis conventions and makes no unsupported norm claim."
+      }
+    ]
   }
 }

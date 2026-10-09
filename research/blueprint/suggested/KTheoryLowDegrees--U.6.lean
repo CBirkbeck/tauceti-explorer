@@ -85,11 +85,21 @@ and codomain Rˣ. A fresh arbitrary map on a made-up π₁ carrier is not this A
 
 
 /-
-OMITTED NODE KTheoryLowDegrees:U.6/double-congruence-stable
-Proposed declaration: TauCeti.KTheory.LowDegreeComparison.double_congruence_stable
-Target: For q:A→C, c_{q,n+1}(diag(g,1))=diag(c_{q,n}(g),1). Thus the finite-rank equivalences induce the second-projection equivalence c_q:GL(D_q,ker pr)≃GL(A,ker q) of stable congruence groups.
+OMITTED NODE KTheoryLowDegrees:U.6/double-congruence-stabilisation
+Proposed declaration: TauCeti.KTheory.LowDegreeComparison.double_congruence_stabilisation
+Target: For a unital q:A→C, c_{q,n+1}(diag(g,1))=diag(c_{q,n}(g),1).
 Prerequisites:
   KTheoryLowDegrees:U.6/double-congruence-apply
+  KTheoryLowDegrees:U.1/stabilisation-map
+Reason: The parent stable matrix/relative elementary/K₁ carriers do not exist in the pinned library. Finite matrix units above supply the expressible algebraic interface.
+-/
+
+/-
+OMITTED NODE KTheoryLowDegrees:U.6/double-congruence-stable
+Proposed declaration: TauCeti.KTheory.LowDegreeComparison.double_congruence_stable
+Target: For a unital q:A→C, the finite-rank second-projection equivalences induce c_q:GL(D_q,ker pr)≃GL(A,ker q) of stable congruence groups, with inverse represented at every finite rank by (1,g).
+Prerequisites:
+  KTheoryLowDegrees:U.6/double-congruence-stabilisation
   KTheoryLowDegrees:U.1/stabilisation-map
   KTheoryLowDegrees:U.1/stable-general-linear-group
   KTheoryLowDegrees:U.1/finite-representatives
@@ -299,6 +309,8 @@ Prerequisites:
   KTheoryLowDegrees:Z.3/determinant-projective
   KTheoryLowDegrees:Z.3/determinant-free
   mathlib:Matrix.GeneralLinearGroup.det
+  tauceti:exteriorPower.topEquiv
+  tauceti:exteriorPower.map_top_eq_det_smul
 Reason: The projective graded determinant, its connective spectrum map, group-completion unit and unit-compatible model comparison are the named suppliers' planned types and maps, unavailable at the pinned baseline.
 -/
 
@@ -352,11 +364,10 @@ Reason: The projective graded determinant, its connective spectrum map, group-co
 /-
 OMITTED NODE KTheoryLowDegrees:U.6/projective-loop-class
 Proposed declaration: TauCeti.GradedDeterminant.ring_spectrum_det_projective_loop
-Target: For commutative R, a finite projective R-module P and α∈Aut_R(P), the translated loop ℓ_P(α) satisfies ℓ_P(α)=θ_R(autClass(P,α)). Consequently d_R(ℓ_P(α)) is the scalar by which the top exterior automorphism acts on det(P), and equals det_R(autClass(P,α)).
+Target: For commutative R, a finite projective R-module P and α∈Aut_R(P), the translated loop ℓ_P(α) satisfies ℓ_P(α)=θ_R(autClass(P,α)).
 Prerequisites:
   KTheoryLowDegrees:U.6/matrix-loop-model-comparison
   KTheoryLowDegrees:U.6/graded-det-translated-loop
-  KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one
   KTheoryLowDegrees:U.2/automorphism-class
   KTheoryLowDegrees:U.2/automorphism-class-independence
   KTheoryLowDegrees:U.2/automorphism-class-direct-sum
@@ -365,9 +376,20 @@ Reason: The projective graded determinant, its connective spectrum map, group-co
 -/
 
 /-
+OMITTED NODE KTheoryLowDegrees:U.6/projective-loop-determinant
+Proposed declaration: TauCeti.GradedDeterminant.ring_spectrum_det_projective_loop_scalar
+Target: For commutative R, a finite projective R-module P and α∈Aut_R(P), d_R(ℓ_P(α))=det_R(autClass(P,α)). This unit is the scalar by which the componentwise top exterior automorphism acts on det(P); no constant-rank hypothesis is needed.
+Prerequisites:
+  KTheoryLowDegrees:U.6/projective-loop-class
+  KTheoryLowDegrees:U.6/graded-det-translated-loop
+  KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one
+Reason: The projective graded determinant, its connective spectrum map, group-completion unit and unit-compatible model comparison are the named suppliers' planned types and maps, unavailable at the pinned baseline.
+-/
+
+/-
 OMITTED NODE KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one-natural
 Proposed declaration: TauCeti.GradedDeterminant.ring_spectrum_det_pi_one_natural
-Target: For a commutative ring map f:R→S, the homomorphisms d satisfy d_S ∘ π₁K(f)=fˣ ∘ d_R, and θ_S ∘ K₁(f)=π₁K(f) ∘ θ_R. Thus the determinant comparison square commutes under scalar extension, for all components translated coherently to zero.
+Target: For a commutative ring map f:R→S, the homomorphisms d satisfy d_S ∘ π₁K(f)=fˣ ∘ d_R, for components translated coherently to zero. Combined with the imported naturality of θ, this gives the determinant comparison square on classical K₁.
 Prerequisites:
   KTheoryLowDegrees:U.6/ring-spectrum-det-pi-one
   KTheoryLowDegrees:U.2/K1-map
