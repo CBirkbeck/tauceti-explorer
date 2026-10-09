@@ -825,8 +825,8 @@ end FredholmPr
   the spectral-resultant interfaces. The adjugate estimate and Hasse evaluation signatures are now explicit. Do not weaken to a Prop field, pointwise eigenspaces, assumed
   constant rank or just power-annihilation by Q*(u).
 * Remaining signatures: finite-module topology and detection norm bounds, completed base change,
-  lifting characterization, finite projectivity, direct-sum determinant, entire
-  division and the spectral-resultant invertibility criterion.
+  lifting characterization, finite projectivity, direct-sum determinant and the general entire spectral-resultant
+  invertibility criterion. Linear and monic entire division are typed below.
 * On elaboration check every remaining carrier, instance and helper definition
   against the packet. In particular supply the coordinate values of c0Single,
   projections, diagonalOperator and finiteMatrixOperator; no implementation is
@@ -2460,7 +2460,7 @@ example [NormedAlgebra K A] : Nonempty (affinoidDistributionStage PUnit A ≃ₗ
 example [NormedAlgebra K A] :
     ‖(0 : affinoidDistributionStage I A).restrictScalars K‖ = 0 := by sorry
 -- AnalyticDistributionTests.distributionStage_bounded_not_c0
-example [CompleteSpace K] : ∃ μ : affinoidDistributionStage ℕ K,
+example [CompleteSpace K] [IsUltrametricDist K] : ∃ μ : affinoidDistributionStage ℕ K,
     (∀ n, μ (TauCeti.NonarchimedeanFredholm.c0Single n (1:K)) = 1) ∧
     ¬ ∃ f : C₀(ℕ,K), ∀ n, f n = 1 := by sorry
 
