@@ -46443,8 +46443,8 @@
     "PKG-DiamondEtaleCohomology"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-DiamondEtaleCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7512"
+   "state": "pending",
+   "note": "released on GitHub issue #7512"
   },
   {
    "id": "PKG-DiamondsAndVStacks",
@@ -46988,7 +46988,8 @@
     "PKG-HabiroRings"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HabiroRings.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7520"
   },
   {
    "id": "PKG-HeckeStacksAndLocalShtukas",
@@ -47777,8 +47778,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-VectorBundlesAndIsocrystals.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7498"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7498",
+   "finishedAt": "2026-10-09T03:34:12Z"
   },
   {
    "id": "REV-PKG-VectorBundlesAndIsocrystals",
