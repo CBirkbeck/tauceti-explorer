@@ -38087,8 +38087,9 @@
    ],
    "revisionOf": "BP-AutomorphicSpectralTheory",
    "prompt": "research/blueprint/prompts/BP-AutomorphicSpectralTheory~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6927"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #6927",
+   "finishedAt": "2026-10-09T07:41:39Z"
   },
   {
    "priority": 2,
@@ -39136,7 +39137,8 @@
     "BP-GeneralizedHeegnerCycles--GH.0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-GeneralizedHeegnerCycles--GH.0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7051"
   },
   {
    "kind": "blueprint",
