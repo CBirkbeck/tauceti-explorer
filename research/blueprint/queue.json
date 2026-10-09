@@ -46151,7 +46151,8 @@
     "PKG-ComplexMultiplicationAndExplicitReciprocity"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ComplexMultiplicationAndExplicitReciprocity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7509"
   },
   {
    "id": "PKG-ComputationalNumberTheory",
@@ -46596,8 +46597,9 @@
     "PKG-EllipticCurveModularityPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularityPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7515"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7515",
+   "finishedAt": "2026-10-09T00:52:02Z"
   },
   {
    "id": "PKG-ErdosProgressionPowers",
@@ -46834,8 +46836,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HabiroCohomologyFoundations.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7474"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7474",
+   "finishedAt": "2026-10-09T00:52:05Z"
   },
   {
    "id": "REV-PKG-HabiroCohomologyFoundations",
