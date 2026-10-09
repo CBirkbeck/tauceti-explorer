@@ -24,7 +24,7 @@ the algebraic spaces and stacks of SchemeAndStackFoundations; every theorem name
 | [R09.5](#r09-5) | Coarse spaces and rigidification | rigidification along inertia subgroups, base change of coarse spaces, auxiliary level as a rigidifier, normalisation and schematic closure, descent of finite correspondences |
 | [R09.6a](#r09-6a) | Artin approximation | G-ring permanence, approximation over henselian G-rings, Artin's approximation theorem |
 | [A0-extension](#a0-extension) | Relative Picard, proper-flat cohomology and Artin's criterion | the relative Picard sheaf and its section-rigidified splitting, cohomology and base change with Tor-amplitude, algebraicity of the Picard stack and functor, Artin's axioms and criterion, analytification of étale presentations |
-| [R09.6b](#r09-6b) | Deformation groupoids, completed local rings and algebraisation | deformation groupoids at a point of a stack, stabilisers, comparison with completed local rings, versality, effectivity and algebraisation, named universal properties |
+| [R09.6b](#r09-6b) | Deformation groupoids, completed local rings and algebraisation | deformation groupoids at a point of a stack, stabilisers, comparison with completed local rings, versality, effectivity and algebraisation |
 | [R09.7](#r09-7) | Characteristic-zero resolution and normal-crossings compactification | marked ideals and transforms, maximal contact and coefficient ideals, the invariant, global centres and termination, embedded desingularisation, SNC compactification with polydisc charts |
 
 ```text
@@ -137,7 +137,7 @@ Mathlib schemes and sites, Tau Ceti line bundles and blowups, SchemeAndStackFoun
 - **Resolution.** Characteristic zero, varieties of finite type over a field embedded in smooth
   ambient varieties. Centres are smooth and have normal crossings with the accumulated boundary.
   Functoriality is for local isomorphisms (étale and open morphisms) as the source provides it.
-- **Targets.** Targets are numbered T001–T581 in build order, with gaps between layers. A target written on one line is
+- **Targets.** Targets are numbered T001–T581 by layer, with gaps between layers; within R09.4 the strands (T316–T509) supply the lemmas that earlier targets of the layer list under "Needs". A target written on one line is
   specified by its title, its source locator and the cited statement's hypotheses; definitions and
   theorems carry statements, hypotheses, API names, tests and prerequisites. "Needs" lists earlier
   targets, library declarations and the roadmap layers a target rests on. Unit tests are
@@ -151,7 +151,7 @@ This layer supplies the projective parameter spaces the moduli layers cut their 
 **Conventions.** "Locally free of rank r" means finite locally free of constant rank r; E_T is the pullback to T. Grassmannians parametrise locally free QUOTIENTS (EGA I (1971) §9.7; Mathlib `Module.Grassmannian`): a T-point of Gr(k,E) is E_T ↠ Q with Q locally free of rank k, up to isomorphism of Q. P(E) := Gr(1,E) = Proj Sym E classifies invertible quotients; for E locally free this is SF.5/projective-bundle applied to E^∨.
 
 **T001** `R09.1/projective-bundle-points` (theorem). For E quasi-coherent of finite type on X and g : T → X, f ↦ (g^*E ↠ f^*O(1)) is a bijection Hom_X(T,P(E)) ≅ {(L,q) : L invertible on T, q : g^*E ↠ L}/≅, natural in T and compatible with P(E) ×_X X' ≅ P(E_{X'}). Hence P(E ⊗ N) ≅ P(E) for N invertible, with O(1) ↦ O(1) ⊗ p^*N, and P(N) ≅ X.
-- Source: Hartshorne 1977, Prop. II.7.12; EGA II, §4.2 (section level).
+- Source: Hartshorne 1977, Prop. II.7.12; EGA II, Prop. (4.2.3).
 - Needs: SF.5/projective-bundle; SF.0/relative-proj-base-change; StableReduction Layer 2.
 
 **T002** `R09.1/projective-bundle-twists` (definition). O(n) := O(1)^{⊗n} on p : P(E) → X, E locally free of rank r ≥ 1, with p_*O(n) = Sym^n E (n ≥ 0), p_*O(n) = 0 (n < 0), R^ip_*O(n) = 0 for 0 < i < r−1, R^{r−1}p_*O(n) = 0 for n > −r, R^{r−1}p_*O(−r) ≅ det(E)^∨, compatible with base change (no Noetherian hypothesis).
@@ -163,15 +163,15 @@ This layer supplies the projective parameter spaces the moduli layers cut their 
 **T003** `R09.1/relative-grassmannian-functor` (definition). Gr(k,E) : (Sch/X)^op → Set, T ↦ {E_T ↠ Q : Q locally free of rank k}/≅, for E quasi-coherent of finite presentation, with universal quotient and pullbacks; for X = Spec R, E = M~, T = Spec A, Gr(k,E)(T) is identified with `Module.Grassmannian.functor R M k` at A (submodules of A ⊗_R M with locally free rank-k quotient), naturally via `Module.Grassmannian.map`.
 - API: `Grassmannian.functor`, `Grassmannian.univQuot`, `Grassmannian.pullback`, `Grassmannian.affineComparison`
 - Tests: `GrassmannianTests.affineAgreesWithMathlib` [compatibility] naturality in A → B; `GrassmannianTests.quotientNotSubmodule` [non-example] over non-reduced A the functor of rank-k submodules differs; `GrassmannianTests.rankTooLarge` [degenerate] rank E = r < k gives the empty functor.
-- Source: EGA I (1971), §9.7 (section level); Nitsure 2005, §1 "Construction of Grassmannian"; Mathlib `Module.Grassmannian.functor`, `Module.Grassmannian.map`.
+- Source: EGA I (1971), (9.7.3) (the functor of locally free quotients); Nitsure 2005, §1, subsection "Construction of Grassmannian"; Mathlib `Module.Grassmannian.functor`, `Module.Grassmannian.map`.
 - Needs: Mathlib `Module.Grassmannian.functor`; AlgebraicVectorBundles L0A–L2B.
 
 **T004** `R09.1/grassmannian-scheme-api` (theorem). For E locally free of rank r (more generally quasi-coherent of finite presentation) T003 is represented by Gr(k,E) → X, separated of finite presentation, with E_{Gr} ↠ Q_univ whose kernel K_univ is locally free of rank r−k; Gr(k,E) ×_X X' ≅ Gr(k,E_{X'}); for u : O_U^k → E|_U the locus where O_T^k → Q is an isomorphism is open, isomorphic to A^{k(r−k)}_U when u is a coordinate inclusion of O_U^r ≅ E|_U, and such opens cover. Degenerate cases: Gr(0,E) = Gr(r,E) = X, Gr(k,E) = ∅ for k > r, Gr(1,E) = P(E) with Q_univ = O(1); for E of locally constant rank, Gr(k,E) splits over the rank strata. Duality: Q ↦ (ker q)^∨ gives Gr(k,E) ≅ Gr(r−k,E^∨), so Gr(k,E) also represents rank-(r−k) subbundles. For E a quasi-coherent Hopf algebra this is the Grassmannian of ModularCurves 0G.
-- Source: SF.4/grassmannian-scheme (Nitsure 2005, §1); Stacks, Lemma 27.22.1 (tag 089T), Lemma 27.22.3 (tag 089V); EGA I (1971), §9.7 (section level).
+- Source: SF.4/grassmannian-scheme (Nitsure 2005, §1); Stacks, Lemma 27.22.1 (tag 089T), Lemma 27.22.3 (tag 089V); EGA I (1971), Thm. (9.7.4).
 - Needs: T001, T003; SF.4/grassmannian-scheme; ModularCurves 0G.
 
 **T005** `R09.1/plucker-and-smoothness` (theorem). For E locally free of rank r and 0 ≤ k ≤ r: (i) Λ^kE_{Gr} ↠ det Q_univ defines by T001 an X-morphism Gr(k,E) → P(Λ^kE) which is a closed immersion pulling O(1) back to det Q_univ, so Gr(k,E) → X is projective and det Q_univ relatively very ample; (ii) Gr(k,E) → X is smooth of relative dimension k(r−k) with relative tangent sheaf Hom(K_univ,Q_univ), its fibre over x being the Grassmannian of k-dimensional quotients of E(x) over κ(x). Both are checked on the charts of T004 and are stable under base change.
-- Source: EGA I (1971), §9.8 "Plongement de Plücker" (section level); Nitsure 2005, §1.
+- Source: EGA I (1971), §9.8 "Morphismes de Plücker et de Segre" (section level); Nitsure 2005, §1.
 - Needs: T001, T004; StableReduction Layer 2; Mathlib `AlgebraicGeometry.IsClosedImmersion`, `AlgebraicGeometry.Smooth`.
 
 **T006** `R09.1/flag-scheme` (definition). For E locally free of rank r and 0 < k_1 < … < k_m < r, Fl(k_1<…<k_m,E) → X representing chains E_T ↠ Q_m ↠ … ↠ Q_1 with Q_i locally free of rank k_i, built as the iterated Grassmannian bundle Gr(k_1,Q_{2,univ}) → … → Gr(k_m,E) → X with universal flag and base change; projective (closed in the fibre product of the P(Λ^{k_i}E) by T005 at each step and a Segre map) and smooth of relative dimension Σ_i k_i(k_{i+1}−k_i), k_{m+1} := r.
@@ -189,17 +189,17 @@ This layer supplies the projective parameter spaces the moduli layers cut their 
 **T008** `R09.1/hilbert-polynomial` (definition). For a field k, X ⊂ P^n_k closed and F coherent on X, P_F ∈ Q[t] with P_F(d) = χ(X,F(d)) for all d; P_F(d) = h^0(F(d)) for d ≫ 0; deg P_F = dim Supp F; additivity on short exact sequences; P_{F(e)}(d) = P_F(d+e); invariance under field extension; for a finitely generated graded k[x_0..x_n]-module M with Poincaré series p/(1−X)^{n+1} and char k = 0 (Mathlib's hypothesis), P_{M~} = `hilbertPoly p (n+1)`. Families: for T locally Noetherian, X ⊂ P^n_T closed and F coherent on X flat over T, t ↦ P_{F_t} is locally constant on T; for T integral Noetherian the converse holds.
 - API: `HilbertPolynomial`, `HilbertPolynomial.eval_eq_euler`, `HilbertPolynomial.degree_eq_dim_support`, `HilbertPolynomial.additive`, `HilbertPolynomial.eq_mathlib_hilbertPoly`, `HilbertPolynomial.locallyConstant_of_flat`
 - Tests: `HilbertPolyTests.projectiveSpace` [computation] P_{O_{P^n}}(d) = binom(d+n,n); `HilbertPolyTests.curve` [computation] degree e, arithmetic genus g: ed + 1 − g; `HilbertPolyTests.fatPoint` [non-example] Spec k[ε]/(ε²) ⊂ P^1 has P = 2, not 1, refuting a definition via the reduced support.
-- Source: Stacks, Lemma 33.35.14 (08AC), Definition 33.35.15 (08AD), Lemma 33.35.16 (08AE); Hartshorne 1977, Ex. III.5.2, Thm. I.7.5, Thm. III.9.9; EGA III, §7.9 (section level); Mathlib `Polynomial.hilbertPoly`.
+- Source: Stacks, Lemma 33.35.14 (08AC), Definition 33.35.15 (08AD), Lemma 33.35.16 (08AE); Hartshorne 1977, Ex. III.5.2, Thm. I.7.5, Thm. III.9.9; EGA III, Thm. (7.9.4) and Prop. (7.9.11) (local constancy of χ and of the Hilbert polynomial in flat families; the converse over an integral base is Hartshorne's); Mathlib `Polynomial.hilbertPoly`.
 - Needs: T002; SF.2/ample-serre-vanishing; SF.2/tor-independent-base-change; Mathlib `AlgebraicGeometry.Flat`.
 
 **T009** `R09.1/castelnuovo-mumford-regularity` (definition). F coherent on P^n_k is m-regular if H^i(F(m−i)) = 0 for all i ≥ 1; Mumford's theorem: m-regular ⇒ (m+1)-regular, F(m) globally generated, H^0(F(m)) ⊗ H^0(O(1)) ↠ H^0(F(m+1)); hence H^i(F(d)) = 0 for i ≥ 1, d ≥ m−i, and P_F(d) = h^0(F(d)) for d ≥ m. Boundedness: for p, n ≥ 0 there is a polynomial F_{p,n} in n+1 variables such that for every field k and every coherent F' ⊂ O_{P^n_k}^{⊕p} with Hilbert polynomial of binomial-basis coefficients (a_0,…,a_n), F' is F_{p,n}(a_0,…,a_n)-regular; hence for fixed (n,p,P) there is m_0, uniform in k, such that every quotient O_{P^n_k}^{⊕p} ↠ Q with Hilbert polynomial P has m_0-regular kernel and Q, so for m ≥ m_0, Q(m) is globally generated, h^0(Q(m)) = P(m) and H^i(Q(m)) = 0 for i ≥ 1.
 - API: `IsRegular`, `IsRegular.succ`, `IsRegular.globallyGenerated`, `IsRegular.multiplication_surjective`, `IsRegular.hilbertPoly_eval_eq_h0`, `IsRegular.uniformBound` (Mumford's F_{p,n})
-- Tests: `RegularityTests.twist` [computation] O(a) is (−a)-regular; `RegularityTests.twoPoints` [computation] the ideal of two points in P^2 is 1-regular; `RegularityTests.threeCollinearPoints` [non-example] the ideal of three collinear points in P^2 has h^1(I(1)) = 1, so regularity is not a function of the Hilbert polynomial.
-- Source: Mumford 1966, Lectures on Curves on an Algebraic Surface, Lecture 14; Nitsure 2005, §2, Thm. 2.3.
+- Tests: `RegularityTests.twist` [computation] O(a) is (−a)-regular; `RegularityTests.twoPoints` [computation] the ideal of two points in P^2 is 2-regular and not 1-regular (h^1(I) = 1); `RegularityTests.threeCollinearPoints` [non-example] the ideal of three collinear points in P^2 has h^1(I(1)) = 1, so regularity is not a function of the Hilbert polynomial.
+- Source: Mumford 1966, Lecture 14; Nitsure 2005, §2, Lemma 2.1 (the regularity lemma) and Thm. 2.3 (the uniform bound).
 - Needs: T008; SF.2/ample-serre-vanishing.
 
 **T010** `R09.1/invariant-quotient-locus-closed` (theorem). Let E be locally free of rank r on X. (i) For φ : E → E O_X-linear, the subfunctor of Gr(k,E) of T-points whose kernel K satisfies φ_T(K) ⊂ K is represented by the closed subscheme Z_φ cut out by the vanishing of K_univ → E_{Gr} →φ E_{Gr} ↠ Q_univ, a map of locally free sheaves; Z_φ commutes with base change. (ii) For X over F_p with absolute Frobenius F and φ : F^*E → E O_X-linear, the locus where φ_T(F_T^*K) ⊂ K is the closed subscheme cut out by F^*K_univ → F^*E_{Gr} → E_{Gr} ↠ Q_univ (F^*K_univ locally free of rank r−k). Both rest on: for u : M → N A-linear with N projective there is an ideal I ⊂ A with u ⊗_A B = 0 iff IB = 0. Checks: for E = O^2, k = 1, φ a nilpotent Jordan block, Z_φ ⊂ P^1 is a double point (a section of O(2) vanishing to order 2), so the reduced locus has the wrong Spec k[ε]-points; for φ the canonical F^*O^r = O^r over k̄, the points of Z_φ are the rank-k quotients of F_p^r.
-- Source: Stacks, Lemma 77.8.3 (tag 083L); EGA I (1971), §9.7 (section level).
+- Source: Stacks, Lemma 77.8.3 (tag 083L); EGA I (1971), §9.7 (section level, the closed loci of the Grassmannian).
 - Needs: T004.
 
 <a id="r09-2"></a>
@@ -214,7 +214,7 @@ This layer turns the parameter spaces of R09.1 into the representability tools t
 - Needs: SF.4/hilbert-scheme; Mathlib `AlgebraicGeometry.IsProper`, `AlgebraicGeometry.Flat`, `AlgebraicGeometry.IsClosedImmersion`.
 
 **T022** `R09.2/hilbert-degree-one-and-non-flat-base` (theorem). For f : X → S separated of finite presentation, Hilb^1_{X/S} is represented by X with universal family the diagonal X → X ×_S X (an isomorphism onto its image, hence flat): a degree-one Z ⊂ X_T gives O_T ↠ q_*O_Z with q_*O_Z locally free of rank 1, a surjection of finite modules of equal rank is an isomorphism, so Z is the graph of a section T → X_T, i.e. a morphism T → X over S. Consequently, for S = Spec k[ε]/(ε²) and X = Spec k its closed point, Hilb^1_{X/S} = X has flat universal family while X → S is not flat (k is not flat over k[ε]); so flatness of the universal family over Hilb, which holds by definition of the functor, never implies flatness of Hilb_{X/S} → S, even for a closed immersion X → S of finite presentation.
-- Source: Stacks, Lemma 10.16.4 (tag 05G8); Lemma 99.9.2 (tag 0D00).
+- Source: Stacks, Lemma 99.9.2 (tag 0D00) (`Hilb = Quot`) and Lemma 10.16.4 (tag 05G8) (a surjective endomorphism of a finite module is an isomorphism); the degree-one representability is derived here from these two and has no Stacks number.
 - Needs: T021.
 
 **T023** `R09.2/hom-and-isom-schemes` (theorem). Let S be locally Noetherian, X → S projective flat and Y → S quasi-projective. (i) T ↦ Hom_T(X_T,Y_T) is represented by an open subscheme Hom_S(X,Y) ⊂ Hilb_{X×_SY/S}, the locus of Z ⊂ X_T ×_T Y_T with pr_1 : Z → X_T an isomorphism; it is a disjoint union over Hilbert polynomials of quasi-projective S-schemes, commutes with base change, and carries identity, composition and evaluation X ×_S Hom_S(X,Y) → Y. (ii) If also Y → S is projective flat, the isomorphisms form an open subscheme Isom_S(X,Y) ⊂ Hom_S(X,Y), with inverse Isom_S(X,Y) ≅ Isom_S(Y,X), composition and base change. Openness uses: for a proper morphism between schemes flat over T, the set of t where the fibre map is an isomorphism is open. Checks: Hom_S(S,Y) = Y, Hom_S(X,S) = S; Hom_k(Spec k[ε],Y) is the tangent scheme Spec Sym Ω_{Y/k} for Y smooth.
@@ -231,7 +231,7 @@ This layer turns the parameter spaces of R09.1 into the representability tools t
 
 **T026** `R09.2/quot-into-grassmannian` (theorem). Let S be Noetherian, X = P^n_S, E = O_X(−a)^{⊕p}, P a polynomial and m_0 = m_0(n,p,P,a) from R09.1 T009. For m ≥ m_0 every T-point of Quot^P_{E/X/S} (T-flat quotient E_T ↠ Q with fibrewise Hilbert polynomial P) satisfies R^iπ_{T*}Q(m) = 0 (i ≥ 1), π_{T*}Q(m) locally free of rank P(m), π_{T*}E_T(m) ↠ π_{T*}Q(m), and Q is recovered from the subsheaf of E_T(m) generated by π_{T*}K(m). Hence Q ↦ (π_{T*}E_T(m) ↠ π_{T*}Q(m)) is a monomorphism of functors Quot^P_{E/X/S} → Gr(P(m), π_*E(m)) with π_*E(m) = Sym^{m−a}(O^{n+1})^{⊕p} locally free; this is the bridge into SF.4/hilbert-scheme, which identifies the image as a closed subscheme.
 - Hypotheses: S Noetherian; E a finite sum of twists of O (SF.4/hilbert-scheme reduces general coherent E to this case).
-- Source: Nitsure 2005, §5 "Embedding Quot into Grassmannian", Thm. 2.3; Mumford 1966, Lecture 14; Grothendieck FGA, exposé 221, §3 (section level).
+- Source: Nitsure 2005, §5, subsection "Embedding Quot into Grassmannian" (a step of the proof of Thm. 5.2), with Thm. 2.3; Mumford 1966, Lecture 14; Grothendieck FGA, exposé 221, Lemme 3.3 and Prop. 3.8 (boundedness from its §2).
 - Needs: R09.1 T004, T008, T009; SF.2/tor-independent-base-change; SF.4/hilbert-scheme.
 
 **T027** `R09.2/coherent-devissage` (theorem). Let X be Noetherian and P a property of coherent O_X-modules such that (1) in any short exact sequence of coherent sheaves, if two terms have P so does the third, and (2) for every integral closed Z ⊂ X with generic point ξ there is a coherent G with Supp G = Z, m_ξG_ξ = 0, dim_{κ(ξ)}G_ξ = 1 and P(G). Then P holds for every coherent sheaf on X. Variant: (1) may be weakened to closure under extensions plus "F^{⊕r} has P ⇒ F has P" if (2) is strengthened to the ideal-subsheaf condition of the cited variant.
@@ -239,7 +239,7 @@ This layer turns the parameter spaces of R09.1 into the representability tools t
 - Needs: Mathlib `IsNoetherianRing`; AdicSpacesPartII R3.
 
 **T028** `R09.2/devissage-via-chow` (theorem). Let X be proper over a Noetherian S and P as in T027(1). Suppose that for every integral closed Z ⊂ X there are a proper surjective π : Z' → Z with Z' projective over S and π an isomorphism over a dense open of Z, and L relatively very ample on Z', such that P holds for (Z → X)_*π_*L^{⊗n} for some n with R^iπ_*L^{⊗n} = 0 (i ≥ 1). Then P holds for every coherent sheaf on X. Chow's lemma supplies (Z',π,L) for each Z and relative Serre vanishing supplies n; G := π_*L^{⊗n} has support Z and generic stalk κ(ξ) because π is an isomorphism near ξ. This is the mechanism of the proofs of proper GAGA and of coherence of higher direct images under proper morphisms.
-- Source: Stacks, Proposition 30.19.1 (tag 02O5) (the argument), Lemma 30.18.1 (tag 0200), Lemma 30.12.6 (tag 01YI); SGA 1, exposé XII, Thm. 4.4; Serre 1956, GAGA, §3 (section level).
+- Source: Stacks, Proposition 30.19.1 (tag 02O5) (the argument), Lemma 30.18.1 (tag 0200), Lemma 30.12.6 (tag 01YI); SGA 1, exposé XII, Thm. 4.4 (with Cor. 4.3 for cohomology); Serre 1956, GAGA, §3, n° 12–17 (Théorème 3 and its dévissage).
 - Needs: T027; SF.4/chow-lemma; SF.2/ample-serre-vanishing; SF.2/qcoh-higher-direct-images.
 
 **T029** `R09.2/projective-domination-of-proper` (theorem). For X proper over a Noetherian S there are a projective S-scheme X' and a proper surjective S-morphism π : X' → X which is an isomorphism over a dense open of X (birational for X integral). Only the existence of a dominating projective X' is asserted; X itself need not be projective.
@@ -270,27 +270,27 @@ The chosen pair and triple overlaps of the singleton covering `f.op` are the ten
 
 Lemmas: **T041** Pullback preserves quasi-coherence.
 
-**T042** `R09.3/affine-pullback-tensor` (construction). For a commutative ring map R→A, pullback of the tilde(M) along Spec A→Spec R is naturally isomorphic to tilde(A⊗R M). 3 tests (compatibility, degenerate, non-example). Source: Stacks, Lemma26.7.3(1) and proof.
+**T042** `R09.3/affine-pullback-tensor` (construction). For a commutative ring map R→A, pullback of the tilde(M) along Spec A→Spec R is naturally isomorphic to tilde(A⊗R M). 3 tests (compatibility, degenerate, non-example). Source: Stacks, Lemma 26.7.3(1) and proof.
 
-**T043** `R09.3/quasicoherent-pseudofunctor` (construction). Restrict the scheme-module pullback functors to the full subcategories of the IsQuasicoherent predicate. 3 tests (degenerate, non-example). Source: Stacks, Proposition35.5.2; Stacks, Lemma17.10.4.
+**T043** `R09.3/quasicoherent-pseudofunctor` (construction). Restrict the scheme-module pullback functors to the full subcategories of the IsQuasicoherent predicate. 3 tests (degenerate, non-example). Source: Stacks, Proposition 35.5.2; Stacks, Lemma 17.10.4.
 
-**T044** `R09.3/module-descent-coaction` (construction). For every commutative ring map R→A, tensor-overlap module descent is equivalent to the scalar-extension comonad coalgebras, preserving t… 3 tests (computation, degenerate, non-example). Source: Stacks, Proposition35.3.9, equalizer formula and cocycle calculation.
+**T044** `R09.3/module-descent-coaction` (construction). For every commutative ring map R→A, tensor-overlap module descent is equivalent to the scalar-extension comonad coalgebras, preserving the underlying A-module and every morphism. 3 tests (computation, degenerate, non-example). Source: Stacks, Proposition 35.3.9, equalizer formula and cocycle calculation.
 
 **T045** `R09.3/affine-module-descent-equivalence` (theorem). For a faithfully flat commutative ring map R→A, Mathlib's canonical functor ModuleCat R→affine ModuleCat DescentData for the singleton f.op is an equivalence. Under the tensor-overlap comparison its inverse is M={n∈N | 1⊗n=θ(n⊗1)}. The comparison A⊗R M→N is a↦(m↦a m) and is an isomorphism of the descent data, not merely of modules.
 - Hypotheses: Commutative rings R,A in one fixed universe, a specified ring map f:R→A with f faithfully flat, and arbitrary R- and A-modules with all module morphisms.
-- Source: Stacks, Proposition35.3.9(1)–(3)
+- Source: Stacks, Proposition 35.3.9(1)–(3)
 - Needs: T044, T077, T078; Mathlib `comonadicExtendScalars`
 
 **T046** `R09.3/affine-fpqc-quasicoherent-descent` (theorem). For a finite standard fpqc covering {Ui→S} of an affine scheme S, the canonical functor from QCoh(S) to baseline descent data for the cover is an equivalence.
 - Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
-- Source: Stacks, Lemma35.5.1 and proof
+- Source: Stacks, Lemma 35.5.1 and proof
 - Needs: T043, T042, T045; Mathlib `AlgebraicGeometry.tildeEquiv`; SchemeAndStackFoundations SF.1
 
 Lemmas: **T047** Faithfulness of quasi-coherent fpqc descent; **T048** Fullness of quasi-coherent fpqc descent; **T049** Effectivity of quasi-coherent fpqc descent.
 
 **T050** `R09.3/fpqc-quasicoherent-descent` (theorem). For every scheme S and every fpqc covering {Ui→S}, the canonical functor QCoh(S)→QCohPseudofunctor.DescentData(Ui→S) is an equivalence. There is no Noetherian, coherence, finite-generation, finite-presentation, separatedness or smoothness condition.
 - Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
-- Source: Stacks, Proposition35.5.2
+- Source: Stacks, Proposition 35.5.2
 - Needs: T047, T048, T049
 
 Lemmas: **T051** Descent of module finite presentation; **T052** Finite local freeness and rank descend.
@@ -299,49 +299,49 @@ Lemmas: **T051** Descent of module finite presentation; **T052** Finite local fr
 - Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
 - API: `SpaceQCoh.chart`, `SpaceQCoh.transition`, `SpaceQCoh.schemeEquivalence`
 - Tests: `SpaceQCohTests.affine` [compatibility], `SpaceQCohTests.identity` [degenerate], `SpaceQCohTests.infiniteModule` [non-example]
-- Source: Stacks, Definition66.29.1 and Lemma66.29.3
+- Source: Stacks, Definition 66.29.1 and Lemma 66.29.3
 - Needs: T043; Mathlib `SheafOfModules.IsQuasicoherent`; SchemeAndStackFoundations SF.1
 
 **T054** `R09.3/space-fpqc-quasicoherent-descent` (theorem). For any fpqc covering {Xi→X} of algebraic spaces, the canonical functor QCoh(X)→descent data is an equivalence, retaining all module maps and allowing arbitrary quasi-coherent modules.
 - Hypotheses: Schemes and quasi-coherent modules in specified universes; no Noetherian, finite-generation or finite-presentation hypotheses.
-- Source: Stacks, Proposition74.4.1, steps1–7
+- Source: Stacks, Proposition 74.4.1, steps1–7
 - Needs: T053, T050; SchemeAndStackFoundations SF.1
 
 **T055** `R09.3/module-overlap-datum` (definition). ModuleOverlapDatum(f) has an S-module N and an S⊗R S-linear isomorphism θ:N⊗R S→S⊗R N satisfying θ12∘θ01=θ02 on the triple tensor product. On N⊗R S the two scalar factors act on N and S respectively; on S⊗R N they act on S and N respectively. θij is extension along the insertion map p_ij:S⊗R S→S⊗R S⊗R S, using the tensor associators.
 - Hypotheses: Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
 - API: `ModuleOverlapDatum.module`, `ModuleOverlapDatum.transition`, `ModuleOverlapDatum.cocycle`, `ModuleOverlapDatum.hom_ext`
 - Tests: `ModuleOverlapTests.identity` [degenerate], `ModuleOverlapTests.noninvertibleMap` [non-example], `ModuleOverlapTests.infiniteFree` [compatibility]
-- Source: Stacks, Definition35.3.1 and the paragraph defining φij
-- Needs: Mathlib `CommRingCat.moduleCatExtendScalarsPseudofunctor`, `CategoryTheory.Pseudofunctor.DescentData` (+1)
+- Source: Stacks, Definition 35.3.1 and the paragraph defining φij
+- Needs: Mathlib `CommRingCat.moduleCatExtendScalarsPseudofunctor`, `CategoryTheory.Pseudofunctor.DescentData`, `TensorProduct.lift`
 
-**T056** `R09.3/tensor-comonad-coordinates` (comparison). Let L=extendScalars f, U=restrictScalars f and G=(extendRestrictScalarsAdj f).toComonad. Source: Stacks, Lemma35.3.2, displayed σ00, δ21 and δ22.
+**T056** `R09.3/tensor-comonad-coordinates` (comparison). Let L=extendScalars f, U=restrictScalars f and G=(extendRestrictScalarsAdj f).toComonad. Source: Stacks, Lemma 35.3.2, displayed σ00, δ21 and δ22.
 
 Lemmas: **T057** The overlap cocycle forces diagonal normalization.
 
-**T058** `R09.3/overlap-to-coalgebra` (construction). For an arbitrary f and overlap datum (N,θ), dθ(n)=θ(n⊗1) is S-linear for the first-factor action and defines an object of the Comonad.Co… 3 tests (compatibility, computation, degenerate). Source: Stacks, Definition35.3.1; Lemma35.3.2, δ11 and the cocycle equality.
+**T058** `R09.3/overlap-to-coalgebra` (construction). For an arbitrary f and overlap datum (N,θ), dθ(n)=θ(n⊗1) is S-linear for the first-factor action and defines an object of the Comonad.Coalgebra G. 3 tests (compatibility, computation, degenerate). Source: Stacks, Definition 35.3.1; Lemma 35.3.2, δ11 and the cocycle equality.
 
-**T059** `R09.3/coaction-transition-maps` (construction). For a Mathlib coalgebra (N,d), tensor universal properties give two S⊗R S-linear maps θd:N⊗R S→S⊗R N and ψd:S⊗R N→N⊗R S. 3 tests (compatibility, computation, degenerate). Source: Stacks, Definition35.3.1 and Lemma35.3.2, tensor-linearity and displayed coaction.
+**T059** `R09.3/coaction-transition-maps` (construction). For a Mathlib coalgebra (N,d), tensor universal properties give two S⊗R S-linear maps θd:N⊗R S→S⊗R N and ψd:S⊗R N→N⊗R S. 3 tests (compatibility, computation, degenerate). Source: Stacks, Definition 35.3.1 and Lemma 35.3.2, tensor-linearity and displayed coaction.
 
 Lemmas: **T060** Both transition inverse identities; **T061** Coassociativity gives the overlap cocycle.
 
-**T062** `R09.3/coalgebra-to-overlap` (construction). Every Comonad.Coalgebra G produces a ModuleOverlapDatum(f) on the same S-module by taking θd with inverse ψd and the preceding cocycle p… 3 tests (compatibility, computation, degenerate). Source: Stacks, Definition35.3.1 and Lemma35.3.2.
+**T062** `R09.3/coalgebra-to-overlap` (construction). Every Comonad.Coalgebra G produces a ModuleOverlapDatum(f) on the same S-module by taking θd with inverse ψd and the preceding cocycle proof. 3 tests (compatibility, computation, degenerate). Source: Stacks, Definition 35.3.1 and Lemma 35.3.2.
 
 Lemmas: **T063** The overlap and coaction object constructions are inverse; **T064** The correspondence retains all module morphisms.
 
 **T065** `R09.3/overlap-coalgebra-equivalence` (theorem). For every commutative ring map f:R→S, ModuleOverlapDatum(f) is equivalent as a category over ModuleCat S to the Comonad.Coalgebra ((extendRestrictScalarsAdj f).toComonad). The forward and inverse functors are the two object constructions with the same underlying S-linear morphisms.
 - Hypotheses: Commutative rings R,S in one fixed universe and an arbitrary ring homomorphism f:R→S; N is an arbitrary S-module. No faithful-flatness, finite-generation or Noetherian assumption.
-- Source: Stacks, Definition35.3.1; Lemma35.3.2; compare Proposition35.3.9(2), whose proof is omitted
+- Source: Stacks, Definition 35.3.1; Lemma 35.3.2; compare Proposition 35.3.9(2), whose proof is omitted
 - Needs: T058, T062, T063, T064
 
 Lemmas: **T066** The canonical overlap has Mathlib’s comparison coaction.
 
-**T067** `R09.3/canonical-overlap-functor` (construction). For any f:R→S, scalar extension with its canonical transition defines a functor ModuleCat R→ModuleOverlapDatum(f). 3 tests (computation, degenerate, non-example). Source: Stacks, Canonical-datum paragraph after Lemma35.3.2; Lemma35.3.3 (proof omitted).
+**T067** `R09.3/canonical-overlap-functor` (construction). For any f:R→S, scalar extension with its canonical transition defines a functor ModuleCat R→ModuleOverlapDatum(f). 3 tests (computation, degenerate, non-example). Source: Stacks, Canonical-datum paragraph after Lemma 35.3.2; Lemma 35.3.3 (proof omitted).
 
 **T068** `R09.3/overlap-pullback-coordinates` (construction). Put B=A⊗R A, with i0(a)=a⊗1 and i1(a)=1⊗a. For an A-module N, define B-linear isomorphisms c0:B⊗_(A,i0)N→N⊗R A and c1:B⊗_(A,i1)N→A⊗R N. 3 tests (computation, degenerate). Source: Stacks, Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated.
 
 Lemmas: **T069** Mathlib's diagonal has the overlap normalization; **T070** Mathlib's triple cocycle is the tensor insertion equation.
 
-**T071** `R09.3/overlap-to-chosen-descent` (construction). An ModuleOverlapDatum(f) defines an object of the affine module pseudofunctor DescentData′ for the singleton f.op and the chose… 3 tests (degenerate, non-example). Source: Stacks, Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated.
+**T071** `R09.3/overlap-to-chosen-descent` (construction). An ModuleOverlapDatum(f) defines an object of the affine module pseudofunctor DescentData′ for the singleton f.op and the chosen tensor pair/triple pullbacks. 3 tests (degenerate, non-example). Source: Stacks, Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated.
 
 **T072** `R09.3/chosen-descent-to-overlap` (construction). From a singleton Mathlib DescentData′ object D recover ModuleOverlapDatum(f) on D.obj(*) by θ=c1 D.hom(*,*) c0^−1. 3 tests (computation, degenerate, non-example). Source: Stacks, Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated.
 
@@ -354,7 +354,7 @@ Lemmas: **T073** The chosen-datum conversions are inverse on objects; **T074** T
 - Source: Stacks, Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated
 - Needs: T075, T065; Mathlib `CategoryTheory.Pseudofunctor.DescentData'.descentDataEquivalence`
 
-**T077** `R09.3/native-module-canonical-comparison` (comparison). Let E be Mathlib's all-test-object-to-coalgebra equivalence. Mathlib's canonical toDescentData functor followed by E.functor is naturally isomo… Source: Stacks, Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated.
+**T077** `R09.3/native-module-canonical-comparison` (comparison). Let E be the all-test-object-to-coalgebra equivalence. The canonical toDescentData functor followed by E.functor is naturally isomorphic to Comonad.comparison(extendRestrictScalarsAdj f). Source: Stacks, Definition 35.3.1, insertion maps and Lemma 35.3.2; canonical datum and Proposition 35.3.9 where indicated.
 
 Lemmas: **T078** Mathlib's comparison inverse has the stated fixed module.
 
@@ -389,10 +389,10 @@ states others.
 
 **T079** `key/gerbes` (definition). For F : Cᵒᵖ → Cat a pseudofunctor, IsGerbe(F,J) extends the IsStack predicate, asserts every fibre arrow invertible, and asserts local nonemptiness and local isomorphism of every pair of objects. Formulate locality by covering sieves: for each U choose R∈J(U) with a fibre object over every arrow V→U in R.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
-- API: `IsGerbe.toIsStack`, `IsGerbe.isIso_hom`, `IsGerbe.locallyNonempty`, `IsGerbe.locallyIsomorphic`, `IsGerbe.equivalence_iff`, `GerbeSampleAPI.classifyingNeutral`, `GerbeSampleAPI.rootClass`, `GerbeSampleAPI.localNotNeutral` (+5)
+- API: `IsGerbe.toIsStack`, `IsGerbe.isIso_hom`, `IsGerbe.locallyNonempty`, `IsGerbe.locallyIsomorphic`, `IsGerbe.equivalence_iff`, `GerbeSampleAPI.classifyingNeutral`, `GerbeSampleAPI.rootClass`, `GerbeSampleAPI.localNotNeutral`, `GerbeSampleAPI.derivedClassification`, `GerbeSampleAPI.pullbackClass`, `GerbeSampleAPI.neutralSelfEquivalences`, `GerbeSampleAPI.compatibleLimit`, `GerbeSampleAPI.profiniteNotFinitePresentation`
 - Tests: `GerbeTests.classifying` [compatibility], `GerbeTests.twoComponents` [non-example], `GerbeTests.rootNotNeutral` [non-example]
-- Source: Stacks, Definition 8.11.1; Olsson 2007 (Math 274 notes), Definition 31.1, p.122
-- Needs: Mathlib `CategoryTheory.Pseudofunctor.IsStack`, `CategoryTheory.Pseudofunctor.IsPrestack` (+1)
+- Source: Stacks, Definition 8.11.1; Olsson 2007 (Math 274 notes), Definition 31.1, p. 122
+- Needs: Mathlib `CategoryTheory.Pseudofunctor.IsStack`, `CategoryTheory.Pseudofunctor.IsPrestack`, `CategoryTheory.Aut`
 
 Lemmas: **T080** Gerbes are invariant under stack equivalence.
 
@@ -409,298 +409,298 @@ Lemmas: **T082** Relative gerbes under two-fibre-product base change; **T083** C
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
 - API: `AbelianBanding.autEquiv`, `AbelianBanding.pullback`, `AbelianBanding.conjugation`, `AbelianBanding.ext`
 - Tests: `BandingTests.zero` [degenerate], `BandingTests.conjugation` [characterisation], `BandingTests.nonabelian` [non-example]
-- Source: Olsson 2007 (Math 274 notes), Definition31.1 and Remark31.2, p.122; Groechenig–Wyss–Ziegler 2020, Definition2.6(ii), p.515
-- Needs: T079; Mathlib `CategoryTheory.Pseudofunctor.sheafHom`, `CategoryTheory.Aut.autMulEquivOfIso` (+1)
+- Source: Olsson 2007 (Math 274 notes), Definition 31.1 and Remark 31.2, p. 122; Groechenig–Wyss–Ziegler 2020, Definition 2.6(ii), p. 515
+- Needs: T079; Mathlib `CategoryTheory.Pseudofunctor.sheafHom`, `CategoryTheory.Aut.autMulEquivOfIso`, `CategoryTheory.Functor.mapAut`
 
 Lemmas: **T086** Banded automorphisms commute; **T087** Conjugation is independent of the chosen object isomorphism.
 
-**T088** `R09.4/intrinsic-abelian-band` (construction). If every automorphism sheaf of a gerbe is abelian, glue these sheaves through their choice-independent local conjugation maps to an abelian sheaf… 3 tests (compatibility, degenerate, non-example). Source: Stacks, Lemma8.11.8.
+**T088** `R09.4/intrinsic-abelian-band` (construction). If every automorphism sheaf of a gerbe is abelian, glue these sheaves through their choice-independent local conjugation maps to an abelian sheaf A on C with an A-banding of the gerbe. 3 tests (compatibility, degenerate, non-example). Source: Stacks, Lemma 8.11.8.
 
 **T089** `R09.4/band-preserving-morphism` (definition). For A-banded gerbes (F,bF),(G,bG), a band-preserving morphism is a StrongTrans η:F→G such that ηU.mapAut(bF(U,x)(a))=bG(U,ηU(x))(a) for all U,x,a. Its morphisms are the modifications; their components are isomorphisms since G has groupoid fibres. Band preservation is a property of η, not another general natural-transformation carrier.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
 - API: `BandPreserving.map_band`, `BandPreserving.id`, `BandPreserving.comp`, `BandPreserving.modificationGroupoid`
 - Tests: `BandMorphismTests.identity` [degenerate], `BandMorphismTests.inversion` [non-example], `BandMorphismTests.modifications` [characterisation]
-- Source: Olsson 2007 (Math 274 notes), Definition31.1, p.122; Groechenig–Wyss–Ziegler 2020, §2.2.1, p.515
-- Needs: T085; Mathlib `CategoryTheory.Pseudofunctor.StrongTrans`, `CategoryTheory.Pseudofunctor.StrongTrans.Modification` (+1)
+- Source: Olsson 2007 (Math 274 notes), Definition 31.1, p. 122; Groechenig–Wyss–Ziegler 2020, §2.2.1, p. 515
+- Needs: T085; Mathlib `CategoryTheory.Pseudofunctor.StrongTrans`, `CategoryTheory.Pseudofunctor.StrongTrans.Modification`, `CategoryTheory.Functor.mapAut`
 
-**T090** `R09.4/isom-torsor` (construction). For x,y over U in an A-banded gerbe, the sheafHom(x,y) is the sheaf Isom(x,y), since every arrow is invertible. 3 tests (characterisation, compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Lemma31.3 and Remark31.5, pp.122–123.
+**T090** `R09.4/isom-torsor` (construction). For x,y over U in an A-banded gerbe, the sheafHom(x,y) is the sheaf Isom(x,y), since every arrow is invertible. 3 tests (characterisation, compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Lemma 31.3 and Remark 31.5, pp. 122–123.
 
 Lemmas: **T091** Band-preserving morphisms are fully faithful; **T092** Band-preserving morphisms are essentially surjective.
 
 **T093** `R09.4/band-morphism-equivalence` (theorem). Every band-preserving morphism of A-gerbes is a pseudonatural equivalence over the site, with a band-preserving inverse.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
-- Source: Olsson 2007 (Math 274 notes), Lemma31.3
+- Source: Olsson 2007 (Math 274 notes), Lemma 31.3
 - Needs: T091, T092, T089, T373, T381, T377, T379, T380; DiamondsAndVStacks D0
 
-**T094** `R09.4/classifying-abelian-gerbe` (construction). For an abelian sheaf A, specialize the imported groupoid quotient to BA, the stack of A-torsors with equivariant isomorphisms. 3 tests (computation, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Lemma31.4, p.123; Stacks, Lemma78.27.2.
+**T094** `R09.4/classifying-abelian-gerbe` (construction). For an abelian sheaf A, specialise the groupoid quotient of DiamondsAndVStacks D0 to BA, the stack of A-torsors with equivariant isomorphisms. 3 tests (computation, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Lemma 31.4, p. 123; Stacks, Lemma 78.27.2.
 
 **T095** `R09.4/neutralization` (definition). For a chosen terminal object S of (C,J), a neutralization of an A-gerbe F is an object x∈F(S); its morphisms are the isomorphisms between such objects. Write IsNeutral(F) for nonemptiness of this groupoid. A neutralization induces, rather than assumes, an equivalence F≃BA preserving the band. Distinct neutralizations need not be uniquely isomorphic.
 - Hypotheses: The site has a fixed terminal object S. F is an A-banded gerbe.
 - API: `Neutralization.obj`, `Neutralization.isNeutral`, `Neutralization.pullback`
 - Tests: `NeutralizationTests.BA` [degenerate], `NeutralizationTests.root` [non-example], `NeutralizationTests.automorphisms` [characterisation]
-- Source: Olsson 2007 (Math 274 notes), Remark31.5, p.123
+- Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123
 - Needs: T079, T085; Mathlib `CategoryTheory.Limits.IsTerminal`
 
 **T096** `R09.4/neutralization-equivalence` (theorem). For x∈F(S), the functor y↦Isom(x|U,y) is a band-preserving equivalence F≃BA; its quasi-inverse twists x by the A-torsor, with descent.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres. The site has a chosen terminal object S; the neutralization x is an object of F(S).
-- Source: Olsson 2007 (Math 274 notes), Remark31.5, p.123
+- Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123
 - Needs: T095, T090, T094, T093
 
 **T097** `R09.4/neutral-self-equivalences` (theorem). For an A-gerbe with a neutralization x, its groupoid of band-preserving self-equivalences is equivalent to the groupoid of A-torsors on the base. A torsor P acts on BA by Q↦Q⊗A P. An equivariant isomorphism P≅P′ corresponds to an invertible modification. Composition corresponds to contracted product, and the identity to the trivial torsor.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres. The site has a chosen terminal object S; the neutralization x is an object of F(S).
-- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p.515; Breen 1994, Proposition2.14, p.56
+- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p. 515; Breen 1994, Proposition 2.14, p. 56
 - Needs: T096, T089, T395, T411, T424, T428, T430, T432, T433, T435, T448, T449, T442, T440, T450, T454, T455, T456, T460, T461, T462, T463, T471, T470, T469; DiamondsAndVStacks D0
 
-**T098** `R09.4/change-band` (construction). For a homomorphism u:A→B and an A-gerbe F, extend each Isom(x,y) by the contracted product with B; 3 tests (characterisation, compatibility, degenerate). Source: Olsson 2007 (Math 274 notes), Theorem31.7, reverse construction, p.126; Milne 2015 (Étale Cohomology IV), IV §2 p.9.
+**T098** `R09.4/change-band` (construction). For a homomorphism u:A→B and an A-gerbe F, extend each Isom(x,y) by the contracted product with B; 3 tests (characterisation, compatibility, degenerate). Source: Olsson 2007 (Math 274 notes), Theorem 31.7, reverse construction, p. 126; Milne 2015 (Étale Cohomology IV), IV §2 p. 9.
 
-**T099** `R09.4/lifting-gerbe` (construction). For a short exact sequence 0→A→B→D→0 of abelian sheaves and a D-torsor P, Lift(P)(U) is the groupoid of pairs (Q,α), where Q is a B|U-torsor and… 3 tests (compatibility, degenerate, non-example). Source: Milne 2015 (Étale Cohomology IV), IV §2, p.9; Olsson 2007 (Math 274 notes), Remark31.8, p.127.
+**T099** `R09.4/lifting-gerbe` (construction). For a short exact sequence 0→A→B→D→0 of abelian sheaves and a D-torsor P, Lift(P)(U) is the groupoid of pairs (Q,α), where Q is a B|U-torsor and α:Q×B D≅P|U is an equivariant isomorphism. 3 tests (compatibility, degenerate, non-example). Source: Milne 2015 (Étale Cohomology IV), IV §2, p. 9; Olsson 2007 (Math 274 notes), Remark 31.8, p. 127.
 
 Lemmas: **T100** Dimension shifting for derived degree-two classes.
 
-**T101** `R09.4/torsor-representative-of-class` (construction). On the chosen site with terminal object S and the stated native-cohomology and torsor-comparison inputs, choose a monomorphism A→I into an inject… 3 tests (compatibility, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Theorem31.7, p.126; Milne 2015 (Étale Cohomology IV), IV §2 p.9.
+**T101** `R09.4/torsor-representative-of-class` (construction). On the chosen site with terminal object S with the derived cohomology and torsor comparison of SF.2, choose a monomorphism A→I into an injective abelian sheaf and let D be its cokernel. 3 tests (compatibility, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Theorem 31.7, p. 126; Milne 2015 (Étale Cohomology IV), IV §2 p. 9.
 
 Lemmas: **T102** A gerbe with injective abelian band is neutral.
 
-**T103** `R09.4/class-of-gerbe` (construction). On the chosen site with terminal object S and the stated injective-neutralization inputs, for an A-gerbe F, choose an injective embedding A→I and… 3 tests (compatibility, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Theorem31.7, reverse map, p.126.
+**T103** `R09.4/class-of-gerbe` (construction). On the chosen site with terminal object S with T102, for an A-gerbe F, choose an injective embedding A→I and neutralize the I-gerbe obtained by extension of band. 3 tests (compatibility, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Theorem 31.7, reverse map, p. 126.
 
 Lemmas: **T104** Independence of injective and neutralization choices.
 
 **T105** `R09.4/h2-classification` (theorem). For a fixed abelian sheaf A on the chosen site with terminal object, band-preserving equivalence classes of A-gerbes are naturally in bijection with the derived H2(A). The class and lifting-gerbe constructions are inverse. The zero class is precisely the neutral class. Equivalence fixes the A-banding.
-- Hypotheses: A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres. HasSheafify and HasExt for the chosen abelian-sheaf category, with coefficient/site universes compatible with the Tau connecting-map interface.
-- Source: Milne 2015 (Étale Cohomology IV), IV §2 p.9, (i); Breen 1994, (2.13.4), Proposition2.14, pp.55–56
+- Hypotheses: A specified site (C,J), with fixed object and morphism universes, a chosen terminal object S and its Limits.IsTerminal witness; all stacks have groupoid fibres. `HasSheafify` and `HasExt` for the abelian-sheaf category, with coefficient and site universes compatible with the connecting map of Tau Ceti's sheaf-cohomology long exact sequence.
+- Source: Milne 2015 (Étale Cohomology IV), IV §2 p. 9, (i); Breen 1994, (2.13.4), Proposition 2.14, pp. 55–56
 - Needs: T101, T103, T104, T096, T093
 
-**T106** `R09.4/root-gerbe` (construction). For a scheme X, an invertible sheaf L and n>0 invertible on X, RootGerbe_n(L)(T) consists of line bundles M on T and isomorphisms φ:M⊗n≅L|T, with… 3 tests (compatibility, degenerate, non-example). Source: Andreini–Jiang–Tseng 2011, §2.2 Definition2.2 and Remark2.4, p.5; Groechenig–Wyss–Ziegler 2020, §2.3 p.519.
+**T106** `R09.4/root-gerbe` (construction). For a scheme X, an invertible sheaf L and n>0 invertible on X, RootGerbe_n(L)(T) consists of line bundles M on T and isomorphisms φ:M⊗n≅L|T, with arrows ρ satisfying φ=ψ∘ρ⊗n. 3 tests (compatibility, degenerate, non-example). Source: Andreini–Jiang–Tseng 2011, §2.2 Definition 2.2 and Remark 2.4, p. 5; Groechenig–Wyss–Ziegler 2020, §2.3 p. 519.
 
 Lemmas: **T107** The Kummer class of a root gerbe.
 
 **T108** `R09.4/root-o1-nonneutral` (theorem). Let k be algebraically closed and n>1 invertible in k. RootGerbe_n(O(1)) on P1_k is locally nonempty, but has no global object and its derived Kummer class is nonzero.
-- Hypotheses: k algebraically closed; n>1 and n invertible in k. The imported divisor-degree API on P1 includes degree(O(1))=1 and degree(M⊗n)=n·degree(M).
-- Source: Andreini–Jiang–Tseng 2011, §2.2 Definition2.2; Milne 2015 (Étale Cohomology IV), IV §2 p.9, boundary-gerbe neutrality
+- Hypotheses: k algebraically closed; n>1 and n invertible in k. The degree of line bundles on P¹ (JacobianChallenge Layer A) satisfies degree(O(1))=1 and degree(M^{⊗n})=n·degree(M).
+- Source: Andreini–Jiang–Tseng 2011, §2.2 Definition 2.2; Milne 2015 (Étale Cohomology IV), IV §2 p. 9, boundary-gerbe neutrality
 - Needs: T106, T107, T105; JacobianChallenge Layer A
 
 Lemmas: **T109** Change of band on derived gerbe classes.
 
 **T110** `R09.4/class-site-pullback` (theorem). For a geometric morphism of the chosen sheaf topoi induced by base change T→S, with exact inverse-image functor on abelian sheaves and the derived global-cohomology comparison, pullback carries an A-banding to an f* A-banding and class(f*F)=f*(class(F)).
-- Hypotheses: Both specified sites have fixed universes and chosen terminal objects with terminality witnesses; The geometric morphism induced by T→S has exact inverse image on abelian sheaves and the derived global-cohomology comparison requested from SchemeAndStackFoundations:SF.2, natural…
-- Source: Groechenig–Wyss–Ziegler 2020, §2.2 Definition2.6(ii), p.515; Breen 1994, Proposition2.14 and (2.13.4)
+- Hypotheses: Both sites have fixed universes and chosen terminal objects with terminality witnesses; the geometric morphism induced by T→S has exact inverse image on abelian sheaves, and the comparison of derived global cohomology along it is an SF.2 input (SchemeAndStackFoundations SF.2), natural in the gerbe.
+- Source: Groechenig–Wyss–Ziegler 2020, §2.2 Definition 2.6(ii), p. 515; Breen 1994, Proposition 2.14 and (2.13.4)
 - Needs: T082, T085, T105; SchemeAndStackFoundations SF.2
 
-**T111** `R09.4/finite-etale-gerbe` (definition). A finite étale gerbe over k is an fpqc gerbe admitting a flat presentation R⇒U with both U and R finite étale k-schemes. Equivalently it is a finite gerbe whose base change to a separable splitting extension is BG for a finite étale group scheme G.
-- Hypotheses: k is a field. The quotient stack and algebraic-space diagonal interfaces are imported, not redefined.
+**T111** `R09.4/finite-etale-gerbe` (definition). A finite étale gerbe over k is a fpqc gerbe admitting a flat presentation R⇒U with both U and R finite étale k-schemes. Equivalently it is a finite gerbe whose base change to a separable splitting extension is BG for a finite étale group scheme G.
+- Hypotheses: k is a field. Quotient stacks and diagonals of algebraic spaces are those of SF.1.
 - API: `FiniteEtaleGerbe.presentation`, `FiniteEtaleGerbe.baseChange`, `FiniteEtaleGerbe.autFiniteEtale`
 - Tests: `FiniteGerbeTests.trivial` [degenerate], `FiniteGerbeTests.constant` [compatibility], `FiniteGerbeTests.muP` [non-example]
-- Source: Borne–Vistoli 2012, §4 Definition4.1, p.7; Bresciani 2024, §2 p.133 and Lemma2 p.135
+- Source: Borne–Vistoli 2012, §4 Definition 4.1, p. 7; Bresciani 2024, §2 p. 133 and Lemma 2 p. 135
 - Needs: T079; DiamondsAndVStacks D0, SchemeAndStackFoundations SF.1
 
 **T112** `R09.4/compatible-limit-family` (definition). Fix a small cofiltered partially ordered index set I and a pseudofunctor Γ from I to fpqc stacks. An object of its 2-limit over T is a family xi∈Γi(T) and isomorphisms θa:Γa(xj)≅xi for each a:j→i, with unit and composition equations using the pseudofunctor constraints. A morphism is a family of component isomorphisms commuting with every θa.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all geometric stack fibres are groupoids. A small ordinary cofiltered index category (in particular a cofiltered poset) for Mathlib's compatible-family carrier.
 - API: `GerbeLimitFamily.component`, `GerbeLimitFamily.transition`, `GerbeLimitFamily.hom_ext`, `GerbeLimitFamily.pullback`, `GerbeLimitFamily.category`, `GerbeLimitFamily.evaluation`, `GerbeLimitFamily.isIso_of_components`, `GerbeLimitFamily.pullback_component`
 - Tests: `LimitFamilyTests.singleton` [degenerate], `LimitFamilyTests.identityTower` [compatibility], `LimitFamilyTests.classesInsufficient` [non-example]
-- Source: Borne–Vistoli 2012, §3 Definitions3.2–3.5, pp.4–6
-- Needs: Mathlib `CategoryTheory.Pseudofunctor.StrongTrans`, `CategoryTheory.Pseudofunctor.StrongTrans.Modification` (+5)
+- Source: Borne–Vistoli 2012, §3 Definitions 3.2–3.5, pp. 4–6
+- Needs: Mathlib `CategoryTheory.Pseudofunctor.StrongTrans`, `CategoryTheory.Pseudofunctor.StrongTrans.Modification`, `CategoryTheory.Pseudofunctor`, `CategoryTheory.IsCofiltered`, `CategoryTheory.SingleObj.category`, `CategoryTheory.SingleObj.groupoid`, `CategoryTheory.Skeleton`
 
 Lemmas: **T113** Compatible-family limits are fpqc stacks.
 
 **T114** `R09.4/nonempty-affine-limit-gerbe` (theorem). For a cofiltered system of affine fpqc gerbes over a field, if its compatible-family stack has an object over some nonempty k-scheme X, then the 2-limit is an affine fpqc gerbe. This assumption is not a k-rational neutralization and is not suppressed.
 - Hypotheses: Small cofiltered system of affine fpqc gerbes over k. A compatible object exists over a nonempty k-scheme X.
-- Source: Borne–Vistoli 2012, Remark3.6 and Proposition3.7, p.6
+- Source: Borne–Vistoli 2012, Remark 3.6 and Proposition 3.7, p. 6
 - Needs: T112, T113, T079; SchemeAndStackFoundations SF.1
 
-**T115** `R09.4/profinite-etale-gerbe` (definition). A profinite étale gerbe over k is an fpqc gerbe with a specified presentation, up to coherent equivalence, as the compatible-family 2-limit of a small cofiltered system of finite étale gerbes. Its data include the transition functors, coherence and comparison equivalence.
+**T115** `R09.4/profinite-etale-gerbe` (definition). A profinite étale gerbe over k is a fpqc gerbe with a specified presentation, up to coherent equivalence, as the compatible-family 2-limit of a small cofiltered system of finite étale gerbes. Its data include the transition functors, coherence and comparison equivalence.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
 - API: `ProfiniteEtaleGerbe.projection`, `ProfiniteEtaleGerbe.objectEquiv`, `ProfiniteEtaleGerbe.cofinal`
 - Tests: `ProfiniteGerbeTests.finite` [degenerate], `ProfiniteGerbeTests.identity` [compatibility], `ProfiniteGerbeTests.zHat` [non-example]
-- Source: Borne–Vistoli 2012, Definition4.6, p.8; Bresciani 2024, §2 p.133
+- Source: Borne–Vistoli 2012, Definition 4.6, p. 8; Bresciani 2024, §2 p. 133
 - Needs: T111, T112, T114
 
 **T116** `R09.4/locally-full` (definition). For affine fpqc gerbes Γ,Δ over a field k, a morphism f:Γ→Δ is locally full if for every extension ℓ/k and every x∈Γ(ℓ), Autℓ(x)→Autℓ(f(x)) is faithfully flat as a morphism of group schemes. This is not surjectivity of ℓ-valued points. For finite étale groups after separable splitting it becomes surjectivity of the finite geometric group homomorphism.
 - Hypotheses: Γ and Δ are affine fpqc gerbes over k. f is a morphism of gerbes; no fixed abelian band is assumed.
 - API: `LocallyFull.autFaithfullyFlat`, `LocallyFull.classifying_iff`, `LocallyFull.baseChange`
 - Tests: `LocallyFullTests.identity` [degenerate], `LocallyFullTests.square` [non-example], `LocallyFullTests.subgroup` [characterisation]
-- Source: Borne–Vistoli 2019, Definition3.4, Remarks3.5–3.7, p.8
+- Source: Borne–Vistoli 2019, Definition 3.4, Remarks 3.5–3.7, p. 8
 - Needs: T079, T081; SchemeAndStackFoundations SF.1
 
 Lemmas: **T117** Locally full maps and Isom sheaves; **T118** Locally full maps are relative gerbes; **T119** Locally full maps into affine gerbe limits.
 
-**T120** `R09.4/z-hat-gerbe` (construction). Over a field k, let G=lim_m (Z/m!Z)_k as affine group schemes, with the quotient transition maps. 3 tests (characterisation, compatibility, non-example). Source: Bresciani 2024, §2 p.133; Borne–Vistoli 2012, §3 Remark3.6, Definition4.6.
+**T120** `R09.4/z-hat-gerbe` (construction). Over a field k, let G=lim_m (Z/m!Z)_k as affine group schemes, with the quotient transition maps. 3 tests (characterisation, compatibility, non-example). Source: Bresciani 2024, §2 p. 133; Borne–Vistoli 2012, §3 Remark 3.6, Definition 4.6.
 
 Lemmas: **T121** The constant profinite integer group is not of finite type.
 
 **T122** `R09.4/z-hat-not-algebraic-fp` (theorem). The fpqc gerbe B(Z_hat)_k is not an algebraic stack of finite presentation. In fact its affine-gerbe stabilizer criterion excludes algebraicity.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
-- Source: Borne–Vistoli 2019, Proposition3.1(3)⇒(5), pp.5–6
+- Source: Borne–Vistoli 2019, Proposition 3.1(3)⇒(5), pp. 5–6
 - Needs: T121; SchemeAndStackFoundations SF.1
 
 Lemmas: **T123** Transporting the torsor attached to a gerbe self-equivalence.
 
-**T124** `R09.4/self-equivalence-torsor` (construction). For a band-preserving self-equivalence η of any A-gerbe F, choose local objects x and glue the A-torsors Isom(x,ηx) using their choice-independen… 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p.515; Breen 1994, Proposition2.14, p.56.
+**T124** `R09.4/self-equivalence-torsor` (construction). For a band-preserving self-equivalence η of any A-gerbe F, choose local objects x and glue the A-torsors Isom(x,ηx) using their choice-independent transport maps. 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p. 515; Breen 1994, Proposition 2.14, p. 56.
 
 **T125** `R09.4/all-self-equivalences` (theorem). For any A-gerbe F, the groupoid of band-preserving self-equivalences is equivalent to the groupoid of A-torsors. The functor is η↦Pη; its inverse twists local objects by a torsor and descends them. Modifications correspond to equivariant isomorphisms. The assertion holds without a chosen neutralization.
 - Hypotheses: A specified site (C,J), with fixed object and morphism universes; all stacks have groupoid fibres.
-- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1 p.515; Breen 1994, Proposition2.14
+- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1 p. 515; Breen 1994, Proposition 2.14
 - Needs: T124, T097, T395, T411, T424; DiamondsAndVStacks D0
 
-**T126** `R09.4/quotient-gerbe-transgression` (construction). Let a finite constant group Γ act on Y, let A be a commutative band on the chosen site, and let α be an A-gerbe with Γ-equivariant structure ηγ a… 3 tests (characterisation, compatibility, degenerate). Source: Groechenig–Wyss–Ziegler 2020, §2.2.1 p.515.
+**T126** `R09.4/quotient-gerbe-transgression` (construction). Let a finite constant group Γ act on Y, let A be a commutative band on the chosen site, and let α be an A-gerbe with Γ-equivariant structure ηγ and its unit/composition modifications. 3 tests (characterisation, compatibility, degenerate). Source: Groechenig–Wyss–Ziegler 2020, §2.2.1 p. 515.
 
-**T127** `R09.4/inertia-stack` (construction). For a stack X in groupoids on (C,J), IX(U) is the groupoid of pairs (x,a) with x∈X(U) and a∈Aut(x); 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2020, §2.2.2, p.518.
+**T127** `R09.4/inertia-stack` (construction). For a stack X in groupoids on (C,J), IX(U) is the groupoid of pairs (x,a) with x∈X(U) and a∈Aut(x); 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2020, §2.2.2, p. 518.
 
 **T128** `R09.4/quotient-inertia-components` (theorem). For a finite constant group Γ acting on Y, I[Y/Γ]≃⊔_[γ] [Yγ/CΓ(γ)], where one representative is chosen from each conjugacy class and Yγ is the fixed-point sheaf (with representability whenever supplied). Changing representatives gives the canonical equivalent description. No tameness or invertibility of |Γ| is required for this groupoid formula.
-- Hypotheses: Γ is a finite constant group acting on the sheaf Y. The source’s scheme applications use the imported fixed-point representability interface.
-- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p.515
+- Hypotheses: Γ is a finite constant group acting on the sheaf Y. Representability of the fixed-point sheaves Y^γ, where the source uses it, is SF.1's.
+- Source: Groechenig–Wyss–Ziegler 2020, §2.2.1, p. 515
 - Needs: T127; DiamondsAndVStacks D0
 
 **T129** `R09.4/canonical-affine-factorization` (definition). For f:Γ→Δ between affine fpqc gerbes over k, a canonical factorization consists of an affine fpqc gerbe E, maps g:Γ→E and h:E→Δ, an invertible modification h∘g≅f, proof that g is locally full, and proof that h is faithful on all fibre groupoids. Equivalence of such data includes the compatible modification over Δ.
 - Hypotheses: Γ and Δ are affine fpqc gerbes over a field k.
 - API: `AffineGerbeFactorization.sourceMap`, `AffineGerbeFactorization.targetMap`, `AffineGerbeFactorization.factorIso`
 - Tests: `CanonicalFactorTests.identity` [degenerate], `CanonicalFactorTests.kernel` [compatibility], `CanonicalFactorTests.notTarget` [non-example]
-- Source: Borne–Vistoli 2019, Definition3.8, p.8
-- Needs: T116; Mathlib `CategoryTheory.Pseudofunctor.StrongTrans`, `CategoryTheory.Pseudofunctor.StrongTrans.Modification` (+1)
+- Source: Borne–Vistoli 2019, Definition 3.8, p. 8
+- Needs: T116; Mathlib `CategoryTheory.Pseudofunctor.StrongTrans`, `CategoryTheory.Pseudofunctor.StrongTrans.Modification`, `MonoidHom.toFunctor`
 
 Lemmas: **T130** Uniqueness of the canonical affine factor.
 
 **T131** `R09.4/finite-etale-image` (theorem). For a profinite étale fpqc gerbe Γ over k and a morphism Γ→Δ to a finite étale gerbe, its canonical affine factor E is finite étale, and Γ→E is locally full. The faithful map E→Δ is representable.
 - Hypotheses: Γ has the fpqc profinite presentation, with the nonemptiness requirement satisfied. Δ is finite étale over k.
-- Source: Borne–Vistoli 2019, Proposition3.9 with §3 faithfulness criterion, pp.8–9; Bresciani 2024, Lemma2 proof, p.135
+- Source: Borne–Vistoli 2019, Proposition 3.9 with §3 faithfulness criterion, pp. 8–9; Bresciani 2024, Lemma 2 proof, p. 135
 - Needs: T115, T510; SchemeAndStackFoundations SF.1
 
 **T132** `R09.4/locally-full-finite-presentation` (theorem). Every profinite étale fpqc gerbe Γ has a cofinal finite étale presentation Γ≃lim E_i with each projection Γ→E_i locally full. The presentation and comparison include the transition isomorphisms and their coherence.
-- Hypotheses: A nonempty profinite étale fpqc gerbe over k. The cofinal pseudodiagram comparison requested below.
-- Source: Bresciani 2024, Lemma2 proof, p.135; Borne–Vistoli 2019, Proposition3.9
+- Hypotheses: A nonempty profinite étale fpqc gerbe over k.
+- Source: Bresciani 2024, Lemma 2 proof, p. 135; Borne–Vistoli 2019, Proposition 3.9
 - Needs: T131, T130, T112, T119; SchemeAndStackFoundations SF.1
 
 **T133** `R09.4/relative-profinite-gerbe-finite-stages` (theorem). Let f:Γ→Δ be a locally full map of profinite étale fpqc gerbes over k. Choose synchronized cofinal finite presentations Γ≃lim E_i and Δ≃lim D_i with locally full projections and maps E_i→D_i. Each E_i→D_i is a proper étale relative gerbe. For any scheme C→Δ the pullback Γ×Δ C→C is the compatible two-limit of E_i×D_i C→C, each a proper étale relative gerbe.
-- Hypotheses: The selected synchronized finite-stage and cofinality comparison, which remains a recorded gap. Scheme C maps to Δ.
-- Source: Bresciani 2024, Lemma2 and proof, p.135
+- Hypotheses: Synchronised cofinal finite presentations of Γ and Δ with locally full projections and maps E_i→D_i (T132 gives each presentation separately; their synchronisation along f is asserted here and is not in the cited sources: an explicit gap of this target). C is a scheme over Δ.
+- Source: Bresciani 2024, Lemma 2 and proof, p. 135
 - Needs: T132, T118, T082; DiamondsAndVStacks D0, SchemeAndStackFoundations SF.1
 
 **T134** `R09.4/finite-quotient-presentation` (definition). For a Deligne–Mumford stack X, a finite quotient presentation is an algebraic space Y, an action of a finite constant group Γ which is generically fixed-point free, and an equivalence X≃[Y/Γ]. A finite abelian quotient presentation additionally requires Γ abelian.
 - Hypotheses: X is Deligne–Mumford, and Y is an algebraic space over its base.
 - API: `FiniteQuotientPresentation.equivalence`, `FiniteQuotientPresentation.genericFree`, `FiniteAbelianQuotientPresentation.toFinite`
 - Tests: `FiniteQuotientTests.trivial` [degenerate], `FiniteQuotientTests.sign` [computation], `FiniteQuotientTests.trivialAction` [non-example]
-- Source: Groechenig–Wyss–Ziegler 2020, Definition2.1, p.512
+- Source: Groechenig–Wyss–Ziegler 2020, Definition 2.1, p. 512
 - Needs: DiamondsAndVStacks D0, SchemeAndStackFoundations SF.1
 
 **T135** `R09.4/commuting-quotient-exchange` (theorem). If fppf group schemes G1,G2 over S act on the S-scheme N through commuting actions, then [[N/G1]/G2]≃[N/(G1×G2)]≃[[N/G2]/G1] as S-stacks. These are equivalences of groupoids over every test scheme T, natural in T.
 - Hypotheses: G1,G2 are fppf S-group schemes. The two actions commute; no interchange is claimed for unrelated noncommuting actions.
-- Source: Groechenig–Wyss–Ziegler 2020, Lemma4.7 and proof, p.540
+- Source: Groechenig–Wyss–Ziegler 2020, Lemma 4.7 and proof, p. 540
 - Needs: DiamondsAndVStacks D0, SchemeAndStackFoundations SF.1
 
-**T136** `R09.4/torsor-twist-space` (construction). For a commutative étale S-group scheme Γ, an S-scheme N with Γ-action and a Γ-torsor T, the anti-diagonal action on N×S T is free and its quotien… 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2020, Definition4.5, p.539.
+**T136** `R09.4/torsor-twist-space` (construction). For a commutative étale S-group scheme Γ, an S-scheme N with Γ-action and a Γ-torsor T, the anti-diagonal action on N×S T is free and its quotient N_T=(N×S T)/Γ is an algebraic space. 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2020, Definition 4.5, p. 539.
 
 **T137** `R09.4/torsor-twist-quotient-equivalence` (theorem). Under the torsor-twist hypotheses, [N/Γ]≃[N_T/Γ] over S, retaining the groupoids of objects and their arrows.
 - Hypotheses: The commutative étale Γ and torsor of the preceding construction.
-- Source: Groechenig–Wyss–Ziegler 2020, Lemma4.6 and proof, p.539
+- Source: Groechenig–Wyss–Ziegler 2020, Lemma 4.6 and proof, p. 539
 - Needs: T136, T135
 
 **T138** `R09.4/twisted-group-action-quotient` (theorem). Let A,B be smooth group algebraic spaces over S, with A acting on B by automorphisms and compatible A and B actions on an algebraic space X. For an A-torsor ρ, let Xρ=X×Aρ and Bρ=B×Aρ. Then [(X×Sρ)/(B⋊A)]≃[Xρ/Bρ] naturally in the torsor and equivariant maps.
 - Hypotheses: Smooth group algebraic spaces A,B over S with the specified semidirect-action compatibility. ρ is an A-torsor.
-- Source: Groechenig–Wyss–Ziegler 2019, Construction5.1, p.26
+- Source: Groechenig–Wyss–Ziegler 2019, Construction 5.1, p. 26
 - Needs: DiamondsAndVStacks D0, SchemeAndStackFoundations SF.1
 
-**T139** `R09.4/prime-to-p-twisted-inertia` (construction). For a stack X over a perfect field k of characteristic p, let μ̂=lim_(n,p)=1 μn with transition μmn→μn given by the mth power. 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2019, §2.4 setup and Definition2.9, p.9.
+**T139** `R09.4/prime-to-p-twisted-inertia` (construction). For a stack X over a perfect field k of characteristic p, let μ̂=lim_(n,p)=1 μn with transition μmn→μn given by the mth power. 3 tests (compatibility, degenerate, non-example). Source: Groechenig–Wyss–Ziegler 2019, §2.4 setup and Definition 2.9, p. 9.
 
 **T140** `R09.4/twisted-inertia-finite-field` (theorem). For X/Fq with diagonal of finite presentation, Iμ̂X(Fq) is equivalent to the groupoid of pairs (x,α), with x∈X(Fq), a continuous homomorphism α:μ̂(Fqbar)→Aut(x_Fqbar) for the discrete topology, and Frobenius equivariance φα=αφ. An arrow is an Fq-isomorphism of objects intertwining α. The domain Frobenius acts by qth power.
 - Hypotheses: X is a stack over Fq with diagonal of finite presentation. The mapping-stack/Galois-descent comparison at each finite stage is supplied.
-- Source: Groechenig–Wyss–Ziegler 2019, Lemma2.10(a) and proof, pp.9–10
+- Source: Groechenig–Wyss–Ziegler 2019, Lemma 2.10(a) and proof, pp. 9–10
 - Needs: T139; SchemeAndStackFoundations SF.1
 
 Lemmas: **T141** A generator description of twisted inertia; **T142** Automorphisms in twisted inertia.
 
 **T143** `R09.4/band-center-sections` (definition). Define ZF(U) as the subgroup of the product over V and f:V→U of units of the CatCenter(F(V)) whose components satisfy F(g)(z(V,f)x)=z(W,g≫f)(F(g)x) for every g:W→V and object x over V. Each unit is an invertible natural endomorphism of the identity of the fibre.
 - Hypotheses: C is a fixed small category with topology J; F is the Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated.
-- API: `IntrinsicBandSections.val`, `IntrinsicBandSections.compatible`, `IntrinsicBandSections.ext`, `IntrinsicBandSections.commGroup`, `IntrinsicBandSections.mk`, `IntrinsicBandSections.val_mk`, `IntrinsicBandSections.val_one`, `IntrinsicBandSections.val_mul` (+1)
+- API: `IntrinsicBandSections.val`, `IntrinsicBandSections.compatible`, `IntrinsicBandSections.ext`, `IntrinsicBandSections.commGroup`, `IntrinsicBandSections.mk`, `IntrinsicBandSections.val_mk`, `IntrinsicBandSections.val_one`, `IntrinsicBandSections.val_mul`, `IntrinsicBandSections.val_inv`
 - Tests: `BandCenterTests.C3` [computation], `BandCenterTests.identity` [degenerate], `BandCenterTests.S3` [non-example]
-- Source: Stacks, Lemma8.11.8, final omitted varying-U step
-- Needs: Mathlib `CategoryTheory.CatCenter`, `CategoryTheory.CatCenter.naturality` (+2)
+- Source: Stacks, Lemma 8.11.8, final omitted varying-U step
+- Needs: Mathlib `CategoryTheory.CatCenter`, `CategoryTheory.CatCenter.naturality`, `CategoryTheory.CatCenter.mul_app`, `CategoryTheory.Aut.unitsEndEquivAut`
 
 Lemmas: **T144** Central sections are determined componentwise; **T145** Compatible central sections commute.
 
-**T146** `R09.4/band-center-restrict` (construction). For f:V→U define r_f:ZF(U)→ZF(V) by (r_f s)(W,a)=s(W,a≫f). This is a group homomorphism preserving the vertical compatibility equations. 3 tests (computation, degenerate, non-example). Source: Stacks, Lemma8.11.8, final omitted varying-U step.
+**T146** `R09.4/band-center-restrict` (construction). For f:V→U define r_f:ZF(U)→ZF(V) by (r_f s)(W,a)=s(W,a≫f). This is a group homomorphism preserving the vertical compatibility equations. 3 tests (computation, degenerate, non-example). Source: Stacks, Lemma 8.11.8, final omitted varying-U step.
 
 Lemmas: **T147** Identity restriction of central sections; **T148** Composition of central-section restrictions.
 
-**T149** `R09.4/band-center-evaluation` (construction). For a:V→U and x∈F(V), evaluation ev_(a,x):ZF(U)→Aut(x) applies the unitsEndEquivAut at the identity functor and then its natural-isomorp… 3 tests (compatibility, computation, non-example). Source: Stacks, Lemma8.11.8, final omitted varying-U step.
+**T149** `R09.4/band-center-evaluation` (construction). For a:V→U and x∈F(V), evaluation ev_(a,x):ZF(U)→Aut(x) applies the unitsEndEquivAut at the identity functor and then its natural-isomorphism component at x. 3 tests (compatibility, computation, non-example). Source: Stacks, Lemma 8.11.8, final omitted varying-U step.
 
 **T150** `R09.4/band-center-sheaf` (theorem). If F is a prestack with groupoid fibres, U↦Additive(ZF(U)) with the reindexing maps is an abelian-group sheaf for J. The proof works with covering sieves on a site without fibre products or a terminal object.
 - Hypotheses: C is a fixed small category with topology J; F is the Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated.
-- Source: Stacks, Lemma8.11.8, final omitted varying-U step
+- Source: Stacks, Lemma 8.11.8, final omitted varying-U step
 - Needs: T145, T147, T148, T149, T176, T177, T170, T178, T180, T181, T188; Mathlib `CategoryTheory.Pseudofunctor.IsPrestack`, `CategoryTheory.Pseudofunctor.sheafHom`
 
 Lemmas: **T151** A gerbe band section is determined by one object; **T152** Abelian inertia extends an object automorphism to a band section.
 
 **T153** `R09.4/band-center-evaluation-equivalence` (theorem). For an abelian-inertia gerbe and x over U, ev_(id,x) is a multiplicative equivalence ZF(U)≃Aut(x). Its inverse is the local extension just constructed; the identifications commute with every pullback and object isomorphism.
 - Hypotheses: C is a fixed small category with topology J; F is the Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated.
-- Source: Stacks, Lemma8.11.8, final omitted varying-U step
+- Source: Stacks, Lemma 8.11.8, final omitted varying-U step
 - Needs: T151, T152, T149
 
-**T154** `R09.4/band-center-banding` (construction). For a gerbe F with abelian inertia, the sheaf A_F(U)=Additive(ZF(U)) with reindexing restrictions has an AbelianBanding of F. 3 tests (compatibility, computation, non-example). Source: Stacks, Lemma8.11.8, final omitted varying-U step.
+**T154** `R09.4/band-center-banding` (construction). For a gerbe F with abelian inertia, the sheaf A_F(U)=Additive(ZF(U)) with reindexing restrictions has an AbelianBanding of F. 3 tests (compatibility, computation, non-example). Source: Stacks, Lemma 8.11.8, final omitted varying-U step.
 
-**T155** `R09.4/band-center-from-banding` (construction). Given an A-banding b of a gerbe, define c_b(U):Multiplicative(A(U))→ZF(U) by the natural automorphism at y over f:V→U equal to b(V,y)(a|V). 3 tests (compatibility, degenerate, non-example). Source: Stacks, Lemma8.11.8, final omitted varying-U step.
+**T155** `R09.4/band-center-from-banding` (construction). Given an A-banding b of a gerbe, define c_b(U):Multiplicative(A(U))→ZF(U) by the natural automorphism at y over f:V→U equal to b(V,y)(a|V). 3 tests (compatibility, degenerate, non-example). Source: Stacks, Lemma 8.11.8, final omitted varying-U step.
 
 **T156** `R09.4/band-center-band-unique` (theorem). For every A-banding b of a gerbe, c_b is an isomorphism of abelian sheaves A≅A_F, uniquely characterized by ev_(f,y)(c_b(U)(a))=b(V,y)(a|V) for every U,V,f,y,a. This uniqueness concerns compatible identifications; A may have nontrivial abstract automorphisms.
 - Hypotheses: C is a fixed small category with topology J; F is the Cat-valued pseudofunctor. Gerbe and abelian-inertia assumptions are imposed only where stated.
-- Source: Stacks, Lemma8.11.8, final omitted varying-U step
+- Source: Stacks, Lemma 8.11.8, final omitted varying-U step
 - Needs: T155, T150, T153, T144, T086, T171, T212, T215, T218
 
-**T157** `R09.4/band-center-glued-comparison` (comparison). The slice sheaf over U obtained by gluing local automorphism sheaves in the inherited intrinsic-abelian-band construction is uniquely compatibly… Source: Stacks, Lemma8.11.8, final omitted varying-U step.
+**T157** `R09.4/band-center-glued-comparison` (comparison). The slice sheaf over U obtained by gluing local automorphism sheaves in the intrinsic-abelian-band construction is uniquely compatibly isomorphic to A_F restricted to C/U. Source: Stacks, Lemma 8.11.8, final omitted varying-U step.
 
 Lemmas: **T158** Evaluation has central image; **T159** Evaluation commutes with slice reindexing; **T160** A band coefficient is natural on every fibre arrow.
 
-**T161** `R09.4/band-coefficient-center` (construction). For every U define the group homomorphism z_b(U):Multiplicative(A(U))→units(CatCenter(F(U))) whose natural-automorphism component at x is b(U,x)(… 3 tests (computation, degenerate, non-example). Source: Stacks, Lemma8.11.8, compatible automorphism-sheaf identifications and omitted varying-base step.
+**T161** `R09.4/band-coefficient-center` (construction). For every U define the group homomorphism z_b(U):Multiplicative(A(U))→units(CatCenter(F(U))) whose natural-automorphism component at x is b(U,x)(a). 3 tests (computation, degenerate, non-example). Source: Stacks, Lemma 8.11.8, compatible automorphism-sheaf identifications and omitted varying-base step.
 
 Lemmas: **T162** A central band component recovers the specified automorphism; **T163** Central coefficient actions commute with pullback; **T164** The band comparison has its prescribed evaluations; **T165** The band comparison commutes with coefficient restrictions; **T166** Prescribed evaluations determine the comparison section.
 
-**T167** `R09.4/band-center-from-banding-presheaf` (construction). The maps c_b(U), with the additive and multiplicative type conversions, form an natural transformation from the coefficient presh… 3 tests (characterisation, compatibility, degenerate). Source: Stacks, Lemma8.11.8, compatible automorphism-sheaf identifications and omitted varying-base step.
+**T167** `R09.4/band-center-from-banding-presheaf` (construction). The maps c_b(U), with the additive and multiplicative type conversions, form a natural transformation from the coefficient presheaf A to U↦Additive(ZF(U)). 3 tests (characterisation, compatibility, degenerate). Source: Stacks, Lemma 8.11.8, compatible automorphism-sheaf identifications and omitted varying-base step.
 
 Lemmas: **T168** Different chosen band actions give different comparison sections; **T169** Cover-local equality of central evaluations; **T170** Covering restrictions jointly detect central sections; **T171** Local objects detect a fixed-band coefficient; **T172** Central sections commute with pullback; **T173** Evaluation of a reindexed central family; **T174** Central families respect descent transitions.
 
-**T175** `R09.4/band-center-cover-isomorphism` (construction). Let R be any sieve on U. For each arrow i:V_i→U in its Mathlib arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that ca… 3 tests (compatibility, degenerate). Source: Stacks, Lemma8.11.8 proof, canonical automorphism identifications and final varying-base omission; Stacks, Definition8.4.1(2), morphism sheaves on the slice site.
+**T175** `R09.4/band-center-cover-isomorphism` (construction). Let R be any sieve on U. For each arrow i:V_i→U in its arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. 3 tests (compatibility, degenerate). Source: Stacks, Lemma 8.11.8 proof, canonical automorphism identifications and final varying-base omission; Stacks, Definition 8.4.1(2), morphism sheaves on the slice site.
 
-**T176** `R09.4/band-center-cover-automorphism` (construction). Let R be any sieve on U. For each arrow i:V_i→U in its Mathlib arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that ca… 3 tests (compatibility, degenerate). Source: Stacks, Lemma8.11.8 proof, canonical automorphism identifications and final varying-base omission; Stacks, Definition8.4.1(2), morphism sheaves on the slice site.
+**T176** `R09.4/band-center-cover-automorphism` (construction). Let R be any sieve on U. For each arrow i:V_i→U in its arrow category take z_i∈ZF(V_i), with r_g(z_j)=z_i for every arrow g:i→j in that category. 3 tests (compatibility, degenerate). Source: Stacks, Lemma 8.11.8 proof, canonical automorphism identifications and final varying-base omission; Stacks, Definition 8.4.1(2), morphism sheaves on the slice site.
 
 Lemmas: **T177** Uniqueness of descended central evaluation; **T178** Naturality of descended central automorphisms; **T179** Descending inverses of central families.
 
-**T180** `R09.4/band-center-cover-center` (construction). For any covering sieve R on U, prestack F and matching family z_i∈ZF(V_i), construct c_R(z)∈units(CatCenter(F(U))). 4 tests (compatibility, degenerate). Source: Stacks, Lemma8.11.8 proof and its final omitted varying-base conclusion; Stacks, Definition8.4.1(2), morphism sheaves on the slice.
+**T180** `R09.4/band-center-cover-center` (construction). For any covering sieve R on U, prestack F and matching family z_i∈ZF(V_i), construct c_R(z)∈units(CatCenter(F(U))). 4 tests (compatibility, degenerate). Source: Stacks, Lemma 8.11.8 proof and its final omitted varying-base conclusion; Stacks, Definition 8.4.1(2), morphism sheaves on the slice.
 
 Lemmas: **T181** Uniqueness of a descended fibre-centre unit; **T182** Central endomorphisms through composite restriction.
 
-**T183** `R09.4/band-center-pullback-cover-center` (construction). For a covering sieve R on U, a prestack F and a matching family z_i∈ZF(V_i) on R’s Mathlib arrow category, define c_(R,z,a)∈units(CatCenter(F(V)))… 3 tests (compatibility, degenerate). Source: Stacks, Lemma 8.11.8, final varying-base conclusion; Stacks, Definition 8.4.1(2).
+**T183** `R09.4/band-center-pullback-cover-center` (construction). For a covering sieve R on U, a prestack F and a matching family z_i∈ZF(V_i) on R’s arrow category, define c_(R,z,a)∈units(CatCenter(F(V))) for every a:V→U. 3 tests (compatibility, degenerate). Source: Stacks, Lemma 8.11.8, final varying-base conclusion; Stacks, Definition 8.4.1(2).
 
 Lemmas: **T184** Arbitrary-base compatibility of descended centres; **T185** Recovered centre components on covered arrows.
 
-**T186** `R09.4/band-center-cover-glue` (construction). For a covering sieve R on U of a prestack F and a matching family z_i∈ZF(V_i), construct glue(R,z)∈ZF(U) whose component at every a:V→U is c_(R,z… 3 tests (compatibility, degenerate). Source: Stacks, Lemma 8.11.8, final varying-base conclusion; Stacks, Definition 8.4.1(2).
+**T186** `R09.4/band-center-cover-glue` (construction). For a covering sieve R on U of a prestack F and a matching family z_i∈ZF(V_i), construct glue(R,z)∈ZF(U) whose component at every a:V→U is c_(R,z,a). 3 tests (compatibility, degenerate). Source: Stacks, Lemma 8.11.8, final varying-base conclusion; Stacks, Definition 8.4.1(2).
 
 Lemmas: **T187** Uniqueness of glued central sections.
 
-**T188** `R09.4/band-center-prestack-sheaf` (theorem). For every prestack F on (C,J), the inherited abelian-group-valued presheaf U↦Additive(ZF(U)) is a sheaf for J. Neither groupoid fibres, gerbe locality nor abelian inertia is needed. This strengthens the inherited groupoid-prestack statement without changing its reserved id or statement.
+**T188** `R09.4/band-center-prestack-sheaf` (theorem). For every prestack F on (C,J), the abelian-group-valued presheaf U↦Additive(ZF(U)) is a sheaf for J. Neither groupoid fibres, gerbe locality nor abelian inertia is needed. This strengthens T150, which assumes groupoid fibres.
 - Hypotheses: C is a fixed small category with Grothendieck topology J; F is the Cat-valued pseudofunctor. Indexed families use fixed sufficiently large universes.
 - Source: Stacks, Lemma 8.11.8, final varying-base conclusion; Stacks, Definition 8.4.1(2)
 - Needs: T186, T187, T170, T147, T145; Mathlib `CategoryTheory.Presheaf.IsSheaf`, `CategoryTheory.Presieve.IsSheafFor`
 
 Lemmas: **T189** Conjugated automorphisms agree on overlaps.
 
-**T190** `R09.4/band-conjugate-descent-iso` (construction). For any sieve R and given local isomorphisms e_i, an automorphism a of x induces an automorphism of the canonical Mathlib descent datum D_R… 3 tests (characterisation, compatibility, degenerate). Source: Stacks, Lemma 8.11.8, choice independence and local isomorphism gluing.
+**T190** `R09.4/band-conjugate-descent-iso` (construction). For any sieve R and given local isomorphisms e_i, an automorphism a of x induces an automorphism of the canonical descent datum D_R(y), with component conj(e_i)(F(i)^*a). 3 tests (characterisation, compatibility, degenerate). Source: Stacks, Lemma 8.11.8, choice independence and local isomorphism gluing.
 
-**T191** `R09.4/band-conjugate-cover-aut` (construction). For a covering sieve R of a prestack, lift the conjugation descent automorphism of D_R(y) through the fully faithful canonical descent f… 4 tests (characterisation, compatibility). Source: Stacks, Lemma 8.11.8, choice independence and local isomorphism gluing.
+**T191** `R09.4/band-conjugate-cover-aut` (construction). For a covering sieve R of a prestack, lift the conjugation descent automorphism of D_R(y) through the fully faithful canonical descent functor, obtaining an automorphism of y. 4 tests (characterisation, compatibility). Source: Stacks, Lemma 8.11.8, choice independence and local isomorphism gluing.
 
 Lemmas: **T192** Recovery of each local conjugate; **T193** Uniqueness of the descended conjugate; **T194** Independence of the local isomorphism choices.
 
-**T195** `R09.4/band-conjugate-cover-hom` (construction). For the fixed covering sieve and local isomorphism family, the lifted construction defines an homomorphism Aut(x)→Aut(y), preserving nativ… 4 tests (characterisation, compatibility, degenerate). Source: Stacks, Lemma 8.11.8, choice independence and local isomorphism gluing.
+**T195** `R09.4/band-conjugate-cover-hom` (construction). For the fixed covering sieve and local isomorphism family, the lifted construction defines a homomorphism Aut(x)→Aut(y), preserving multiplication and inverses. 4 tests (characterisation, compatibility, degenerate). Source: Stacks, Lemma 8.11.8, choice independence and local isomorphism gluing.
 
-**T196** `R09.4/band-conjugate-cover-global-iso` (comparison). If d:x≅y is a global isomorphism, the lifted automorphism from any local isomorphism family e_i on R equals the Mathlib conjugation throug… Source: Stacks, Lemma 8.11.8, choice independence and local isomorphism gluing.
+**T196** `R09.4/band-conjugate-cover-global-iso` (comparison). If d:x≅y is a global isomorphism, the lifted automorphism from any local isomorphism family e_i on R equals the Mathlib conjugation through d. Source: Stacks, Lemma 8.11.8, choice independence and local isomorphism gluing.
 
 Lemmas: **T197** Conjugation transport respects covering refinement; **T198** Conjugation transport is independent of its cover; **T199** Inverse local isomorphisms reverse transport.
 
-**T200** `R09.4/band-conjugate-cover-equivalence` (construction). For a covering sieve and local isomorphisms between pullbacks of x,y, the descended group homomorphism is a Mathlib multiplicative equiva… 7 tests (characterisation, compatibility, degenerate). Source: Stacks, Lemma 8.11.8, choice independence, gluing and three-object compatibility.
+**T200** `R09.4/band-conjugate-cover-equivalence` (construction). For a covering sieve and local isomorphisms between pullbacks of x,y, the descended group homomorphism is a multiplicative equivalence Aut(x)≃*Aut(y). 7 tests (characterisation, compatibility, degenerate). Source: Stacks, Lemma 8.11.8, choice independence, gluing and three-object compatibility.
 
 Lemmas: **T201** The whole group equivalence is independent of the cover; **T202** Same-base conjugation transport satisfies the cocycle law; **T203** Conjugation transport commutes with arbitrary base change; **T204** Descended conjugation respects source and target isomorphisms.
 
-**T205** `R09.4/band-center-lift` (construction). For a gerbe F with abelian inertia and x∈F(U), construct a group homomorphism Lₓ:Aut(x)→ZF(U), where ZF is the compatible-centre subgrou… 5 tests (characterisation, compatibility, degenerate, non-example). Source: Stacks, Lemma 8.11.8, entire local-conjugation proof and final omitted varying-base verification.
+**T205** `R09.4/band-center-lift` (construction). For a gerbe F with abelian inertia and x∈F(U), construct a group homomorphism Lₓ:Aut(x)→ZF(U), where ZF is the compatible-centre subgroup. 5 tests (characterisation, compatibility, degenerate, non-example). Source: Stacks, Lemma 8.11.8, entire local-conjugation proof and final omitted varying-base verification.
 
 Lemmas: **T206** Evaluation recovers the lifted automorphism; **T207** Chosen-band coefficients over an object.
 
-**T208** `R09.4/band-coefficient-local-family` (construction). For any sieve R on U and objects x_f∈F(V) for every f:V→U in R, construct Mathlib's family of coefficient sections a_f=b(V,x_f) inverse a… 3 tests (compatibility, degenerate). Source: Stacks, Lemma 8.11.8, full proof and final varying-base omission; derived.
+**T208** `R09.4/band-coefficient-local-family` (construction). For any sieve R on U and objects x_f∈F(V) for every f:V→U in R, construct the family of coefficient sections a_f=b(V,x_f) inverse applied to ev_(f,x_f)(z), for z∈ZF(U). 3 tests (compatibility, degenerate). Source: Stacks, Lemma 8.11.8, full proof and final varying-base omission; derived.
 
 Lemmas: **T209** Local coefficients recover the restricted section; **T210** Local coefficients form a matching family; **T211** Chosen-band coefficients cover all central sections.
 
@@ -710,39 +710,39 @@ Lemmas: **T209** Local coefficients recover the restricted section; **T210** Loc
 
 Lemmas: **T214** The presheaf isomorphism retains the coefficient map.
 
-**T215** `R09.4/band-center-from-banding-sheaf-iso` (construction). For any sheaf S whose underlying presheaf is precisely U↦Additive(ZF(U)), lift the chosen-band presheaf isomorphism uniquely thro… 5 tests (characterisation, compatibility, non-example). Source: Stacks, Lemma 8.11.8, full proof and final varying-base omission.
+**T215** `R09.4/band-center-from-banding-sheaf-iso` (construction). For any sheaf S whose underlying presheaf is precisely U↦Additive(ZF(U)), lift the chosen-band presheaf isomorphism uniquely through the fully faithful sheaf inclusion to an isomorphism A≅S. 5 tests (characterisation, compatibility, non-example). Source: Stacks, Lemma 8.11.8, full proof and final varying-base omission.
 
 Lemmas: **T216** The lifted sheaf comparison has its presheaf map; **T217** Carrier transport recovers the prescribed band map; **T218** All band evaluations determine the sheaf comparison.
 
-**T219** `R09.4/band-fixture-constant-section` (construction). For Mathlib's constant Cat-valued pseudofunctor with fibre D, send z in the units of the categorical centre of D to the compatible central secti… 3 tests (characterisation, compatibility, degenerate). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
+**T219** `R09.4/band-fixture-constant-section` (construction). For the constant Cat-valued pseudofunctor with fibre D, send z in the units of the categorical centre of D to the compatible central section with value z at every arrow V to U. 3 tests (characterisation, compatibility, degenerate). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
 
-**T220** `R09.4/band-fixture-constant-sections-equiv` (construction). For every U, the units of the categorical centre of D are multiplicatively equivalent to the compatible central sections of Mathlib's constant d… 3 tests (characterisation, compatibility). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
+**T220** `R09.4/band-fixture-constant-sections-equiv` (construction). For every U, the units of the categorical centre of D are multiplicatively equivalent to the compatible central sections of the constant diagram over U. 3 tests (characterisation, compatibility). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
 
 **T221** `R09.4/band-fixture-component-center` (construction). For a commutative group G and type I, use the product category of the discrete category on I and Mathlib's one-object category of G. 3 tests (compatibility, computation, degenerate). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
 
 **T222** `R09.4/band-fixture-component-center-unit` (construction). The profile centre has a unit whose value is componentCenter(a) and whose inverse is componentCenter(i maps to a(i) inverse). 3 tests (characterisation, compatibility). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
 
-**T223** `R09.4/band-fixture-component-center-equiv` (construction). The pointwise profile group I to G is multiplicatively equivalent to the units of the categorical centre of the discrete-component product groupo… 3 tests (characterisation, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
+**T223** `R09.4/band-fixture-component-center-equiv` (construction). The pointwise profile group I to G is multiplicatively equivalent to the units of the categorical centre of the discrete-component product groupoid. 3 tests (characterisation, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
 
-**T224** `R09.4/band-fixture-component-sections-equiv` (construction). For every base category C and U in C, the profile group I to G is multiplicatively equivalent to the compatible central sections of the co… 14 tests (characterisation, compatibility, computation, degenerate, non-example). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
+**T224** `R09.4/band-fixture-component-sections-equiv` (construction). For every base category C and U in C, the profile group I to G is multiplicatively equivalent to the compatible central sections of the constant diagram with fibre Discrete(I) times SingleObj(G). 14 tests (characterisation, compatibility, computation, degenerate, non-example). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), full printed proof.
 
 Lemmas: **T225** band evaluation reads the selected component; **T226** One component gives bijective band evaluation; **T227** Two components prevent detection by one evaluation; **T228** Different discrete components cannot be isomorphic; **T229** The constant disconnected diagram is not a gerbe; **T230** The component diagram is a Mathlib stack on the point site; **T231** The connected constant point fixture is a gerbe.
 
-**T232** `R09.4/connected-band-fixture-connected-center` (construction). For any group G and any type I, a central element a defines a natural endomorphism of the identity of Codiscrete(I) times SingleObj(G), with comp… 3 tests (compatibility, computation, degenerate). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
+**T232** `R09.4/connected-band-fixture-connected-center` (construction). For any group G and any type I, a central element a defines a natural endomorphism of the identity of Codiscrete(I) times SingleObj(G), with component (identity,a) at every object. 3 tests (compatibility, computation, degenerate). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
 **T233** `R09.4/connected-band-fixture-connected-center-unit` (construction). Every a in the centre subgroup of G gives a unit in the full categorical centre of Codiscrete(I) times SingleObj(G); 3 tests (characterisation, compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
-**T234** `R09.4/connected-band-fixture-connected-center-equiv` (construction). Given i in I, the centre subgroup of G is multiplicatively equivalent to all units of the categorical centre of Codiscrete(I) times SingleObj(G).… 4 tests (characterisation, compatibility, non-example). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
+**T234** `R09.4/connected-band-fixture-connected-center-equiv` (construction). Given i in I, the centre subgroup of G is multiplicatively equivalent to all units of the categorical centre of Codiscrete(I) times SingleObj(G). 4 tests (characterisation, compatibility, non-example). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
-**T235** `R09.4/connected-band-fixture-connected-sections-equiv` (construction). For any base category C, object U and i in I, the centre subgroup of G is multiplicatively equivalent to the compatible intrinsic-band sec… 5 tests (characterisation, compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
+**T235** `R09.4/connected-band-fixture-connected-sections-equiv` (construction). For any base category C, object U and i in I, the centre subgroup of G is multiplicatively equivalent to the compatible intrinsic-band sections over U of the constant diagram with fibre Codiscrete(I) times SingleObj(G). 5 tests (characterisation, compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
 Lemmas: **T236** Evaluation reads the central element; **T237** Evaluation is injective in the connected fibre; **T238** The evaluation image is exactly the centre.
 
-**T239** `R09.4/connected-band-fixture-connected-aut` (construction). For any object x of Codiscrete(I) times SingleObj(G) and any g in G, construct its automorphism with hom (identity,g) and inverse (identit… 3 tests (characterisation, compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
+**T239** `R09.4/connected-band-fixture-connected-aut` (construction). For any object x of Codiscrete(I) times SingleObj(G) and any g in G, construct its automorphism with hom (identity,g) and inverse (identity,g inverse). 3 tests (characterisation, compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
 Lemmas: **T240** Surjective evaluation detects an abelian inertia group.
 
-**T241** `R09.4/connected-band-fixture-connected-iso` (construction). Every pair x,y of objects of Codiscrete(I) times SingleObj(G) has a specified isomorphism: Mathlib's codiscrete isomorphism on the first… 3 tests (characterisation, compatibility, non-example). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
+**T241** `R09.4/connected-band-fixture-connected-iso` (construction). Every pair x,y of objects of Codiscrete(I) times SingleObj(G) has a specified isomorphism: the codiscrete isomorphism on the first factor and the equality isomorphism between the unique SingleObj objects on the second. 3 tests (characterisation, compatibility, non-example). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
 Lemmas: **T242** The constant diagram is a stack on the point site; **T243** Every nonempty connected group fibre gives a point gerbe; **T244** The identity coherence component of the group diagram is the unit coefficient; **T245** The composition coherence component of the group diagram is the unit coefficient; **T246** The hom component of composition coherence with a specified composite is the unit coefficient; **T247** The inverse component of composition coherence with a specified composite is the unit coefficient; **T248** Every transition of Mathlib's descent datum induced from an object is the unit coefficient; **T249** Native pullHom on this diagram is exactly the coefficient homomorphism P.map(h.op).
 
@@ -756,131 +756,131 @@ Lemmas: **T251** For every commutative-group-valued presheaf P on any category C
 
 **T255** `R09.4/restriction-band-fixture-groupSection` (construction). A coefficient g in P(U) gives the compatible intrinsic-band section whose centre coefficient at every f:V to U is P(f.op)(g). 3 tests (compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
-**T256** `R09.4/restriction-band-fixture-groupSectionsEquiv` (construction). For every object U, P(U) is multiplicatively equivalent to the compatible intrinsic-band sections over U of the varying SingleObj diagram;… 3 tests (compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
+**T256** `R09.4/restriction-band-fixture-groupSectionsEquiv` (construction). For every object U, P(U) is multiplicatively equivalent to the compatible intrinsic-band sections over U of the varying SingleObj diagram; the inverse evaluates the identity slice arrow. 3 tests (compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
 Lemmas: **T257** Restriction along f:V to U sends the compatible section of g to the compatible section of P(f.op)(g).
 
-**T258** `R09.4/restriction-band-fixture-groupSectionsPresheafIso` (construction). For a small base category B, the additive coefficient presheaf is naturally isomorphic to the intrinsic-band presheaf of the vary… 3 tests (compatibility). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
+**T258** `R09.4/restriction-band-fixture-groupSectionsPresheafIso` (construction). For a small base category B, the additive coefficient presheaf is naturally isomorphic to the intrinsic-band presheaf of the varying group diagram. 3 tests (compatibility). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
 **T259** `R09.4/restriction-band-fixture-groupBandSheaf` (construction). For a small base category B, the intrinsic-band presheaf of the varying group diagram is a Mathlib sheaf for the bottom topology. 3 tests (compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
-**T260** `R09.4/restriction-band-fixture-groupBandSheafIso` (construction). For a small base category B, Mathlib's bottom-topology coefficient sheaf is isomorphic to Mathlib's intrinsic-band sheaf, with both inverse law… 4 tests (compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
+**T260** `R09.4/restriction-band-fixture-groupBandSheafIso` (construction). For a small base category B, the bottom-topology coefficient sheaf is isomorphic to the intrinsic-band sheaf, with both inverse laws. 4 tests (compatibility, computation). Source: Stacks, Definition 8.11.1 (06NZ); Lemma 8.11.8 (0CJY), complete printed proof.
 
-Lemmas: **T261** In the C4 to C2 to C2 coefficient chain, restriction sends the source generator to the target generator; **T262** Successive restrictions along the two chain arrows equal restriction along their composite; **T263** Restriction in that chain kills the source coefficient two in C4; **T264** The compatible-section restriction C4 to C2 is not injective; **T265** The site formed by two disjoint opposite Fin3 chains has no terminal object; **T266** At every object of the two-chain site, the coefficient group is multiplicatively equivalent to the compatible-section group; **T267** The concrete nonconstant C4 to C2 to C2 diagram is a Mathlib stack for the bottom topology; **T268** The concrete nonconstant C4 to C2 to C2 diagram is an gerbe for the bottom topology; **T269** The concrete varying diagram on two disjoint chains is a Mathlib stack for the bottom topology; **T270** The concrete varying diagram on two disjoint chains is an gerbe for the bottom topology, although its site has no terminal object; **T271** The compatible-section type at the C4 source of the chain has exactly four elements; **T272** The compatible-section type at the C2 target of the chain has exactly two elements.
+Lemmas: **T261** In the C4 to C2 to C2 coefficient chain, restriction sends the source generator to the target generator; **T262** Successive restrictions along the two chain arrows equal restriction along their composite; **T263** Restriction in that chain kills the source coefficient two in C4; **T264** The compatible-section restriction C4 to C2 is not injective; **T265** The site formed by two disjoint opposite Fin3 chains has no terminal object; **T266** At every object of the two-chain site, the coefficient group is multiplicatively equivalent to the compatible-section group; **T267** The concrete nonconstant C4 to C2 to C2 diagram is a Mathlib stack for the bottom topology; **T268** The concrete nonconstant C4 to C2 to C2 diagram is a gerbe for the bottom topology; **T269** The concrete varying diagram on two disjoint chains is a Mathlib stack for the bottom topology; **T270** The concrete varying diagram on two disjoint chains is a gerbe for the bottom topology, although its site has no terminal object; **T271** The compatible-section type at the C4 source of the chain has exactly four elements; **T272** The compatible-section type at the C2 target of the chain has exactly two elements.
 
-**T273** `R09.4/isom-band-act` (construction). For p:x≅y and a in the multiplicative tag of A(U), act(p,a) is p followed by the band automorphism b_y(a). 4 tests (compatibility, degenerate). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T273** `R09.4/isom-band-act` (construction). For p:x≅y and a in the multiplicative tag of A(U), act(p,a) is p followed by the band automorphism b_y(a). 4 tests (compatibility, degenerate). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
 Lemmas: **T274** The zero band coefficient fixes an isomorphism; **T275** The band action composition law.
 
-**T276** `R09.4/isom-band-difference` (construction). difference(p,q)=b_y inverse(p inverse followed by q), an coefficient in A(U). 3 tests (compatibility, degenerate). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T276** `R09.4/isom-band-difference` (construction). difference(p,q)=b_y inverse(p inverse followed by q), a coefficient in A(U). 3 tests (compatibility, degenerate). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
 Lemmas: **T277** The difference coefficient recovers the target; **T278** The action coefficient is recovered uniquely; **T279** An isomorphism has zero self-difference; **T280** The two band actions agree; **T281** Composition preserves the band action.
 
-**T282** `R09.4/isom-band-principal-equiv` (construction). The map (p,a) to (p,act(p,a)) is an equivalence Isom(x,y)×A(U) to Isom(x,y)×Isom(x,y). Its inverse sends (p,q) to (p,difference(p,q)); 4 tests (compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T282** `R09.4/isom-band-principal-equiv` (construction). The map (p,a) to (p,act(p,a)) is an equivalence Isom(x,y)×A(U) to Isom(x,y)×Isom(x,y). Its inverse sends (p,q) to (p,difference(p,q)); 4 tests (compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
-**T283** `R09.4/isom-band-isom-torsor` (construction). Under the explicit hypothesis Nonempty(Isom(x,y)), the isomorphism type carries Mathlib Torsor for A(U), with a acting by act(p,a) and p d… 3 tests (compatibility, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T283** `R09.4/isom-band-isom-torsor` (construction). Under the explicit hypothesis Nonempty(Isom(x,y)), the isomorphism type carries Mathlib Torsor for A(U), with a acting by act(p,a) and p divided by q equal to difference(q,p). 3 tests (compatibility, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
-**T284** `R09.4/isom-band-coordinate-equiv` (construction). An anchor p:x≅y gives the equivalence A(U) to Isom(x,y), a mapped to act(p,a), with inverse difference(p,-). 4 tests (compatibility, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T284** `R09.4/isom-band-coordinate-equiv` (construction). An anchor p:x≅y gives the equivalence A(U) to Isom(x,y), a mapped to act(p,a), with inverse difference(p,-). 4 tests (compatibility, degenerate, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
 Lemmas: **T285** The coordinate origin is the anchor; **T286** The difference cocycle on three isomorphisms; **T287** Restriction preserves the action coefficient; **T288** Restriction preserves the difference coefficient.
 
-**T289** `R09.4/isom-band-hom-equiv` (construction). The isomorphism type is equivalent to Mathlib's Hom type, via Iso.hom and asIso; every fibre arrow is invertible by IsGerbe. 3 tests (compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T289** `R09.4/isom-band-hom-equiv` (construction). The isomorphism type is equivalent to Mathlib's Hom type, via Iso.hom and asIso; every fibre arrow is invertible by IsGerbe. 3 tests (compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
-**T290** `R09.4/isom-band-hom-act` (construction). For an fibre arrow p:x→y, homAct(p,a)=p composed with the hom of b_y(a). 4 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T290** `R09.4/isom-band-hom-act` (construction). For a fibre arrow p:x→y, homAct(p,a)=p composed with the hom of b_y(a). 4 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
-**T291** `R09.4/isom-band-hom-principal-equiv` (construction). Transport the isomorphism principal equivalence through the Hom-Isom equivalence to obtain Hom(x,y)×A(U) equivalent to Hom(x,y)×Hom(x,y). 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T291** `R09.4/isom-band-hom-principal-equiv` (construction). Transport the isomorphism principal equivalence through the Hom-Isom equivalence to obtain Hom(x,y)×A(U) equivalent to Hom(x,y)×Hom(x,y). 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
 Lemmas: **T292** The Hom comparison is the prescribed composition; **T293** The slice restriction respects the band action.
 
-**T294** `R09.4/isom-band-pair-presheaf` (construction). On the opposite slice category C/U, take pairs of sections of the presheafHom(x,y); 3 tests (compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T294** `R09.4/isom-band-pair-presheaf` (construction). On the opposite slice category C/U, take pairs of sections of the presheafHom(x,y); 3 tests (compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
-**T295** `R09.4/isom-band-action-presheaf` (construction). On the same slice category, sections over f:V→U are a Mathlib Hom section together with a coefficient of A(V). 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T295** `R09.4/isom-band-action-presheaf` (construction). On the same slice category, sections over f:V→U are a Mathlib Hom section together with a coefficient of A(V). 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
-**T296** `R09.4/isom-band-principal-presheaf-iso` (construction). Mathlib's Hom principal equivalences assemble into a natural isomorphism from the Hom-times-band presheaf to the Hom-pair presheaf. 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T296** `R09.4/isom-band-principal-presheaf-iso` (construction). Mathlib's Hom principal equivalences assemble into a natural isomorphism from the Hom-times-band presheaf to the Hom-pair presheaf. 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
 Lemmas: **T297** Mathlib's Hom-pair presheaf is a sheaf; **T298** The Hom-times-band presheaf is a sheaf.
 
-**T299** `R09.4/isom-band-pair-sheaf` (construction). Package the Hom-pair presheaf with its proved property in the Sheaf category on J over U. 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T299** `R09.4/isom-band-pair-sheaf` (construction). Package the Hom-pair presheaf with its proved property in the Sheaf category on J over U. 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
-**T300** `R09.4/isom-band-action-sheaf` (construction). Package the Hom-times-band presheaf with its proved sheaf property in the same Sheaf category. 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T300** `R09.4/isom-band-action-sheaf` (construction). Package the Hom-times-band presheaf with its proved sheaf property in the same Sheaf category. 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
-**T301** `R09.4/isom-band-principal-sheaf-iso` (construction). The principal comparison is an isomorphism in Mathlib's Sheaf category on J over U, between the Hom-times-band sheaf and the Hom-pair sheaf. 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp.122–123.
+**T301** `R09.4/isom-band-principal-sheaf-iso` (construction). The principal comparison is an isomorphism in Mathlib's Sheaf category on J over U, between the Hom-times-band sheaf and the Hom-pair sheaf. 3 tests (compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Lemma 31.3 and Remark 31.5, pp. 122–123.
 
 Lemmas: **T302** The Hom sheaf has local sections; **T303** Identity preserves the band; **T304** Composition preserves the band; **T305** The Isom map respects the band action; **T306** The Isom map preserves difference coefficients; **T307** Band preservation separates isomorphisms; **T308** Every fibre functor is faithful.
 
-**T309** `R09.4/band-morphism-preimage-isom` (construction). Given an p:x≅y and target q:ηU(x)≅ηU(y), preimageIso(p,q)=actF(p,differenceG(mapIso(p),q)). 4 tests (characterisation, compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition31.1 and Lemma31.3, pp.122–123.
+**T309** `R09.4/band-morphism-preimage-isom` (construction). Given a p:x≅y and target q:ηU(x)≅ηU(y), preimageIso(p,q)=actF(p,differenceG(mapIso(p),q)). 4 tests (characterisation, compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1 and Lemma 31.3, pp. 122–123.
 
 Lemmas: **T310** The anchored preimage maps to its target; **T311** The anchored preimage recovers a source isomorphism.
 
-**T312** `R09.4/band-morphism-isom-equiv` (construction). Given p:x≅y, Mathlib's Equiv from x≅y to ηU(x)≅ηU(y) has forward map exactly ηU.mapIso and inverse exactly preimageIso(p). 3 tests (characterisation, compatibility). Source: Olsson 2007 (Math 274 notes), Definition31.1 and Lemma31.3, pp.122–123.
+**T312** `R09.4/band-morphism-isom-equiv` (construction). Given p:x≅y, Mathlib's Equiv from x≅y to ηU(x)≅ηU(y) has forward map exactly ηU.mapIso and inverse exactly preimageIso(p). 3 tests (characterisation, compatibility). Source: Olsson 2007 (Math 274 notes), Definition 31.1 and Lemma 31.3, pp. 122–123.
 
 Lemmas: **T313** An anchor gives surjectivity on Hom.
 
-**T314** `R09.4/band-morphism-aut-equiv` (construction). For every source object x, autEquiv(x)=bF(U,x) inverse followed by bG(U,ηU(x)) is a Mathlib multiplicative equivalence of automorphism grou… 5 tests (characterisation, compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition31.1 and Lemma31.3, pp.122–123.
+**T314** `R09.4/band-morphism-aut-equiv` (construction). For every source object x, autEquiv(x)=bF(U,x) inverse followed by bG(U,ηU(x)) is a multiplicative equivalence of automorphism groups. 5 tests (characterisation, compatibility, non-example). Source: Olsson 2007 (Math 274 notes), Definition 31.1 and Lemma 31.3, pp. 122–123.
 
 Lemmas: **T315** Isom equivalences exist on a covering sieve.
 
 #### Strand `strong-pullback` (T316–T333)
 Standing hypotheses: An arbitrary specified site (C,J), Mathlib Cat-valued pseudofunctors F,G with IsGerbe and one abelian sheaf A, with the supplied bandings bF,bG.
-**T316** `R09.4/strong-pullback/comparison` (construction). For f:V→U and x∈F(U), c_f(x) is the component of Mathlib's strong-naturality isomorphism η(f):F(f)⋙ηV≅ηU⋙G(f). Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp.122–123.
+**T316** `R09.4/strong-pullback/comparison` (construction). For f:V→U and x∈F(U), c_f(x) is the component of Mathlib's strong-naturality isomorphism η(f):F(f)⋙ηV≅ηU⋙G(f). Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp. 122–123.
 
-**T317** `R09.4/strong-pullback/map-isom` (construction). For p:F(f)x≅F(f)y define M_f(p)=c_f(x)⁻¹ ∘ ηV(p) ∘ c_f(y), an isomorphism G(f)(ηUx)≅G(f)(ηUy). Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp.122–123.
+**T317** `R09.4/strong-pullback/map-isom` (construction). For p:F(f)x≅F(f)y define M_f(p)=c_f(x)⁻¹ ∘ ηV(p) ∘ c_f(y), an isomorphism G(f)(ηUx)≅G(f)(ηUy). Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp. 122–123.
 
-**T318** `R09.4/strong-pullback/hom-map` (construction). For p:F(f)x→F(f)y, h_f(p)=c_f(x).inv ≫ ηV.map(p) ≫ c_f(y).hom lands in G(f)(ηUx)→G(f)(ηUy). Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp.122–123.
+**T318** `R09.4/strong-pullback/hom-map` (construction). For p:F(f)x→F(f)y, h_f(p)=c_f(x).inv ≫ ηV.map(p) ≫ c_f(y).hom lands in G(f)(ηUx)→G(f)(ηUy). Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp. 122–123.
 
 Lemmas: **T319** The transported Isom map has the specified Hom arrow; **T320** Transport commutes with restriction of a supplied global arrow; **T321** Transport commutes with restriction of a supplied global isomorphism; **T322** The transported local Isom map is injective; **T323** The transported local Hom map is injective; **T324** Strong-naturality transport preserves band actions; **T325** Strong-naturality transport preserves differences.
 
-**T326** `R09.4/strong-pullback/preimage-isom` (construction). Given an local anchor p:F(f)x≅F(f)y and q:G(f)(ηUx)≅G(f)(ηUy), define P_f(p,q)=BandedMorphism.preimageIso(p,c_f(x) ∘ q… Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp.122–123.
+**T326** `R09.4/strong-pullback/preimage-isom` (construction). Given a local anchor p:F(f)x≅F(f)y and q:G(f)(ηUx)≅G(f)(ηUy), define P_f(p,q)=BandedMorphism.preimageIso(p,c_f(x) ∘ q ∘ c_f(y)⁻¹). Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp. 122–123.
 
 Lemmas: **T327** The transported inverse returns the target; **T328** The transported inverse respects band actions; **T329** The inverse commutes with restriction of a supplied global anchor.
 
-**T330** `R09.4/strong-pullback/isom-equiv` (construction). For fixed-band η and an local anchor p, E_f(p) is an Equiv from F(f)x≅F(f)y to G(f)(ηUx)≅G(f)(ηUy). Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp.122–123.
+**T330** `R09.4/strong-pullback/isom-equiv` (construction). For fixed-band η and a local anchor p, E_f(p) is an Equiv from F(f)x≅F(f)y to G(f)(ηUx)≅G(f)(ηUy). Source: Olsson 2007 (Math 274 notes), §31, Definition 31.1 and Lemma 31.3, pp. 122–123.
 
-Lemmas: **T331** The transported Hom map is surjective with an local anchor; **T332** Correct target equivalences on a gerbe covering sieve; **T333** The pullback comparison is Mathlib's strong-naturality component.
+Lemmas: **T331** The transported Hom map is surjective with a local anchor; **T332** Correct target equivalences on a gerbe covering sieve; **T333** The pullback comparison is Mathlib's strong-naturality component.
 
 #### Strand `hom-sheaf` (T334–T349)
-Standing hypotheses: C is an arbitrary category and F,G are Mathlib Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their Mathlib StrongTrans. The forward comparison and presheaf-map adapters require no gerbe or band hypothesis.
+Standing hypotheses: C is an arbitrary category and F,G are Mathlib Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ. η is their Mathlib StrongTrans. The forward comparison and the presheaf maps require no gerbe or band hypothesis.
 Lemmas: **T334** Strong comparison for a composite base arrow; **T335** Compatibility with every deeper slice restriction.
 
-**T336** `R09.4/hom-sheaf/presheaf-map` (construction). Construct a natural transformation F.presheafHom(x,y)→G.presheafHom(ηUx,ηUy) on (C/U)ᵒᵖ whose component at T is h_(T.hom). Source: Olsson 2007 (Math 274 notes), §31, Lemma31.3 full-faithfulness paragraph, pp.122–123.
+**T336** `R09.4/hom-sheaf/presheaf-map` (construction). Construct a natural transformation F.presheafHom(x,y)→G.presheafHom(ηUx,ηUy) on (C/U)ᵒᵖ whose component at T is h_(T.hom). Source: Olsson 2007 (Math 274 notes), §31, Lemma 31.3 full-faithfulness paragraph, pp. 122–123.
 
 Lemmas: **T337** The component of the Hom-presheaf map; **T338** Agreement with the fibre functor.
 
-**T339** `R09.4/hom-sheaf/sheaf-map` (construction). For Mathlib prestacks F,G, bundle homPresheafMap as a morphism F.sheafHom J x y→G.sheafHom J ηUx ηUy in Sheaf(J.over U,Type). Source: Olsson 2007 (Math 274 notes), §31, Lemma31.3 full-faithfulness paragraph, pp.122–123.
+**T339** `R09.4/hom-sheaf/sheaf-map` (construction). For Mathlib prestacks F,G, bundle homPresheafMap as a morphism F.sheafHom J x y→G.sheafHom J ηUx ηUy in Sheaf(J.over U,Type). Source: Olsson 2007 (Math 274 notes), §31, Lemma 31.3 full-faithfulness paragraph, pp. 122–123.
 
 Lemmas: **T340** Underlying natural transformation of the sheaf map; **T341** Injectivity on every Hom carrier; **T342** The local-preimage sieve is covering; **T343** Local surjectivity of the Hom-sheaf map; **T344** Local injectivity of the Hom-sheaf map; **T345** Apply the sheaf local-bijection theorem.
 
-**T346** `R09.4/hom-sheaf/sheaf-isomorphism` (construction). Construct the isomorphism F.sheafHom J x y≅G.sheafHom J ηUx ηUy whose forward morphism is the homSheafMap. Source: Olsson 2007 (Math 274 notes), §31, Lemma31.3 full-faithfulness paragraph, pp.122–123.
+**T346** `R09.4/hom-sheaf/sheaf-isomorphism` (construction). Construct the isomorphism F.sheafHom J x y≅G.sheafHom J ηUx ηUy whose forward morphism is the homSheafMap. Source: Olsson 2007 (Math 274 notes), §31, Lemma 31.3 full-faithfulness paragraph, pp. 122–123.
 
 Lemmas: **T347** The specified forward map of the isomorphism; **T348** Bijection on the fibre Hom map; **T349** Fullness of every component functor.
 
 #### Strand `object-descent` (T350–T373)
 Standing hypotheses: C is an arbitrary category, J its specified Grothendieck topology, and F,G Cat-valued pseudofunctors on LocallyDiscrete Cᵒᵖ with Mathlib strong transformation η.
-**T350** `R09.4/object-descent/component-fully-faithful` (construction). For each U construct Mathlib's FullyFaithful data of the component functor ηU, using the inherited coefficient univer… Source: Olsson 2007 (Math 274 notes), §31 Lemma31.3, pp.122–123.
+**T350** `R09.4/object-descent/component-fully-faithful` (construction). For each U construct the FullyFaithful data of the component functor ηU, using the coefficient universe convention. Source: Olsson 2007 (Math 274 notes), §31 Lemma 31.3, pp. 122–123.
 
 Lemmas: **T351** Mathlib's inverse really lifts every target arrow.
 
-**T352** `R09.4/object-descent/local-image-sieve` (construction). For z in G(U), construct Mathlib's sieve Lz whose arrows f:V→U admit an object x in F(V) and an isomorphism ηV(x)≅G(f… Source: Olsson 2007 (Math 274 notes), §31 Lemma31.3, pp.122–123.
+**T352** `R09.4/object-descent/local-image-sieve` (construction). For z in G(U), construct the sieve Lz whose arrows f:V→U admit an object x in F(V) and an isomorphism ηV(x)≅G(f)(z). Source: Olsson 2007 (Math 274 notes), §31 Lemma 31.3, pp. 122–123.
 
 Lemmas: **T353** Membership retains a local object and an isomorphism; **T354** The local image sieve covers every target object.
 
-**T355** `R09.4/object-descent/target-overlap` (construction). For a family f_i:X_i→U, objects x_i in F(X_i), and e_i:η_i(x_i)≅G(f_i)z, construct an isomorphism ηY(F(a)x_i)≅ηY(F(b)x_j) on… Source: Olsson 2007 (Math 274 notes), §31 Lemma31.3, pp.122–123.
+**T355** `R09.4/object-descent/target-overlap` (construction). For a family f_i:X_i→U, objects x_i in F(X_i), and e_i:η_i(x_i)≅G(f_i)z, construct an isomorphism ηY(F(a)x_i)≅ηY(F(b)x_j) on every common test object q:Y→U with a≫f_i=q=b≫f_j. Source: Olsson 2007 (Math 274 notes), §31 Lemma 31.3, pp. 122–123.
 
 Lemmas: **T356** The five factors and orientations of the target overlap; **T357** Self-overlap is the identity; **T358** Target overlap satisfies the triple cocycle.
 
-**T359** `R09.4/object-descent/lifted-overlap` (construction). Construct the unique isomorphism F(a)x_i≅F(b)x_j whose image under ηY is the targetOverlapIso, using Mathlib's fully faithfu… Source: Olsson 2007 (Math 274 notes), §31 Lemma31.3, pp.122–123.
+**T359** `R09.4/object-descent/lifted-overlap` (construction). Construct the unique isomorphism F(a)x_i≅F(b)x_j whose image under ηY is the targetOverlapIso, using the fully faithful component data. Source: Olsson 2007 (Math 274 notes), §31 Lemma 31.3, pp. 122–123.
 
 Lemmas: **T360** Mapping the lifted overlap returns the target overlap; **T361** Self-overlap lifts to the identity; **T362** The lifted isomorphisms satisfy the triple cocycle; **T363** Lifted overlap respects deeper Mathlib restriction.
 
-**T364** `R09.4/object-descent/lifted-descent-data` (construction). Construct an object of the category F.DescentData(f), with objects x_i and overlap morphisms the forward maps of lif… Source: Olsson 2007 (Math 274 notes), §31 Lemma31.3, pp.122–123.
+**T364** `R09.4/object-descent/lifted-descent-data` (construction). Construct an object of the category F.DescentData(f), with objects x_i and overlap morphisms the forward maps of liftedOverlapIso, including all three coherence fields. Source: Olsson 2007 (Math 274 notes), §31 Lemma 31.3, pp. 122–123.
 
 Lemmas: **T365** The descent datum retains every chosen local object; **T366** The descent datum retains the lifted overlap arrow.
 
-**T367** `R09.4/object-descent/local-image-of-gluing` (construction). Given y in F(U) and an Mathlib descent isomorphism r:ofObj_F(y)≅liftedDescentData, construct G(f_i)(ηU y)≅G(f_i)z on ea… Source: Olsson 2007 (Math 274 notes), §31 Lemma31.3, pp.122–123.
+**T367** `R09.4/object-descent/local-image-of-gluing` (construction). Given y in F(U) and a descent isomorphism r:ofObj_F(y)≅liftedDescentData, construct G(f_i)(ηU y)≅G(f_i)z on each chart i. Source: Olsson 2007 (Math 274 notes), §31 Lemma 31.3, pp. 122–123.
 
 Lemmas: **T368** Forward formula for the image of a gluing component; **T369** The chartwise image comparisons are a Mathlib descent morphism.
 
-**T370** `R09.4/object-descent/global-image-isomorphism` (construction). When Sieve.ofArrows(X,f) covers U, the given y and Mathlib gluing isomorphism r produce an isomorphism ηU y≅z. Source: Olsson 2007 (Math 274 notes), §31 Lemma31.3, pp.122–123.
+**T370** `R09.4/object-descent/global-image-isomorphism` (construction). When Sieve.ofArrows(X,f) covers U, the given y and Mathlib gluing isomorphism r produce an isomorphism ηU y≅z. Source: Olsson 2007 (Math 274 notes), §31 Lemma 31.3, pp. 122–123.
 
 Lemmas: **T371** Local source objects descend to a global preimage of z; **T372** Mathlib's component EssSurj instance; **T373** Fibrewise equivalence with its precise remaining boundary.
 
@@ -890,108 +890,108 @@ Lemmas: **T374** Natural isomorphisms transport the fixed band; **T375** Fibrewi
 
 #### Strand `banded-hom` (T382–T398)
 Standing hypotheses: C is a fixed small category with topology J; F,G are Mathlib Cat-valued pseudofunctors in fixed object and morphism universes.
-**T382** `R09.4/banded-hom/modification-iso` (construction). For a Mathlib modification m:η⇒θ of strong transformations F→G with G a gerbe, construct an modification isomorphism M(… Source: Olsson 2007 (Math 274 notes), Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact Mathlib API specializations..
+**T382** `R09.4/banded-hom/modification-iso` (construction). For a modification m:η⇒θ of strong transformations F→G with G a gerbe, construct a modification isomorphism M(m):η≅θ whose forward modification is m. Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remarks 31.2/31.5 and Lemma 31.3, p. 122–123; exact Mathlib API specializations..
 
 Lemmas: **T383** The modification isomorphism keeps its forward arrow; **T384** The inverse modification is computed in the fibre; **T385** The modification inverse construction preserves identity; **T386** The modification inverse construction preserves composition; **T387** Every Mathlib gerbe modification transports the fixed band.
 
 **T388** `R09.4/banded-hom/hom-category` (definition). For A-banded gerbes (F,bF),(G,bG), take the full subcategory of Mathlib StrongTrans(F,G) on the property BandPreserving(bF,bG,η). Its objects are strong transformations with that property; its arrows are all Mathlib modifications between them, with their inherited identity and composition. No quotient of objects or arrows is taken.
-- Hypotheses: C is a fixed small category with topology J; F,G are Mathlib Cat-valued pseudofunctors in fixed object and morphism universes. For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient uni…
+- Hypotheses: C is a fixed small category with topology J; F,G are Cat-valued pseudofunctors in fixed object and morphism universes. For the modification isomorphism family only G is required to be a gerbe. Fixed-band constructions additionally take IsGerbe F J, a specified sheaf A in independent coefficient universe w and bandings bF,bG. No terminal object, global neutralization, constant coefficient sheaf, or equality of coefficient and fibre universes is assumed.
 - API: `BandedMorphism.mk`, `BandedMorphism.homMk`, `BandedMorphism.forget`, `BandedMorphism.forget_fullyFaithful`, `BandedMorphism.hom_ext`, `BandedMorphism.modification_iff`
 - Tests: `BandedMorphismTests.carrier_arrows` [characterisation], `BandedMorphismTests.carrier_distinct_arrows` [non-example], `BandedMorphismTests.carrier_band` [compatibility]
-- Source: Olsson 2007 (Math 274 notes), Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact Mathlib API specializations.
-- Needs: T089; Mathlib `CategoryTheory.Pseudofunctor.StrongTrans.homCategory`, `CategoryTheory.ObjectProperty.FullSubcategory` (+4)
+- Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remarks 31.2/31.5 and Lemma 31.3, p. 122–123; exact Mathlib API specializations.
+- Needs: T089; Mathlib `CategoryTheory.Pseudofunctor.StrongTrans.homCategory`, `CategoryTheory.ObjectProperty.FullSubcategory`, `CategoryTheory.ObjectProperty.FullSubcategory.category`, `CategoryTheory.ObjectProperty.ι`, `CategoryTheory.ObjectProperty.homMk`, `CategoryTheory.ObjectProperty.fullyFaithfulι`
 
 Lemmas: **T389** Fixed-band modifications are determined by components.
 
-**T390** `R09.4/banded-hom/hom-iso` (construction). For any m:X⇒Y in the fixed-band category, lift M(m.hom) using Mathlib ObjectProperty.isoMk to an isomorphism X≅Y in tha… Source: Olsson 2007 (Math 274 notes), Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact Mathlib API specializations..
+**T390** `R09.4/banded-hom/hom-iso` (construction). For any m:X⇒Y in the fixed-band category, lift M(m.hom) using ObjectProperty.isoMk to an isomorphism X≅Y in that category. Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remarks 31.2/31.5 and Lemma 31.3, p. 122–123; exact Mathlib API specializations..
 
 Lemmas: **T391** The fixed-band isomorphism keeps the given modification; **T392** Every fixed-band modification is invertible; **T393** The fixed-band inverse has the fibre inverse; **T394** Fixed-band modification inverses respect composition.
 
-**T395** `R09.4/banded-hom/groupoid` (construction). On the fixed-band full subcategory construct Mathlib Groupoid.ofIsIso using hom_isIso. Source: Olsson 2007 (Math 274 notes), Definition31.1, Remarks31.2/31.5 and Lemma31.3, printed122–123; exact Mathlib API specializations..
+**T395** `R09.4/banded-hom/groupoid` (construction). On the fixed-band full subcategory construct Mathlib Groupoid.ofIsIso using hom_isIso. Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remarks 31.2/31.5 and Lemma 31.3, p. 122–123; exact Mathlib API specializations..
 
 Lemmas: **T396** The groupoid inverse agrees with the supplied modification inverse; **T397** The groupoid right inverse law retains the source identity; **T398** The groupoid left inverse law retains the target identity.
 
 #### Strand `fibre-action` (T399–T411)
 Standing hypotheses: C is a fixed small category with topology J; F,G are Mathlib Cat-valued pseudofunctors with specified object and fibre-morphism universes.
-**T399** `R09.4/fibre-action/fibre-action` (construction). Bundle Isom_F(U)(x,y) as Mathlib's Action (Type v′) of Multiplicative(A(U)), with coefficient a acting by p ↦ p followed by… Source: Olsson 2007 (Math 274 notes), Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123.
+**T399** `R09.4/fibre-action/fibre-action` (construction). Bundle Isom_F(U)(x,y) as the Action (Type v′) of Multiplicative(A(U)), with coefficient a acting by p ↦ p followed by b_y(a). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remark 31.2, Lemma 31.3 and Remark 31.5, p. 122–123.
 
-**T400** `R09.4/fibre-action/postcompose-action-iso` (construction). For q:y≅z, postcomposition p ↦ p followed by q is an isomorphism fibreAction(b,x,y) ≅ fibreAction(b,x,z) in Mathlib's action… Source: Olsson 2007 (Math 274 notes), Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123.
+**T400** `R09.4/fibre-action/postcompose-action-iso` (construction). For q:y≅z, postcomposition p ↦ p followed by q is an isomorphism fibreAction(b,x,y) ≅ fibreAction(b,x,z) in the action category. Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remark 31.2, Lemma 31.3 and Remark 31.5, p. 122–123.
 
-**T401** `R09.4/fibre-action/component-iso` (construction). For a Mathlib arrow m:X→Y in HomCategory(bF,bG), its component at U and x is the fibre isomorphism X_U(x)≅Y_U(x) obtain… Source: Olsson 2007 (Math 274 notes), Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123.
+**T401** `R09.4/fibre-action/component-iso` (construction). For a arrow m:X→Y in HomCategory(bF,bG), its component at U and x is the fibre isomorphism X_U(x)≅Y_U(x) obtained by asIso from m_U(x). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remark 31.2, Lemma 31.3 and Remark 31.5, p. 122–123.
 
 Lemmas: **T402** The component isomorphism retains its forward arrow; **T403** Identity modifications give identity fibre isomorphisms; **T404** Modification composition evaluates to Iso composition.
 
-**T405** `R09.4/fibre-action/fibre-isom-action-functor` (construction). For U, x in F(U), and y in G(U), construct Mathlib's functor HomCategory(bF,bG) → Action(Type v′, Multiplicative(A(U))). Source: Olsson 2007 (Math 274 notes), Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123.
+**T405** `R09.4/fibre-action/fibre-isom-action-functor` (construction). For U, x in F(U), and y in G(U), construct Mathlib's functor HomCategory(bF,bG) → Action(Type v′, Multiplicative(A(U))). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remark 31.2, Lemma 31.3 and Remark 31.5, p. 122–123.
 
-**T406** `R09.4/fibre-action/self-transport-action-iso` (construction). For X in HomCategory(b,b) and e:x≅x′, construct an isomorphism between the action on Isom(x,X_U(x)) and the action on Isom(x′… Source: Olsson 2007 (Math 274 notes), Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123.
+**T406** `R09.4/fibre-action/self-transport-action-iso` (construction). For X in HomCategory(b,b) and e:x≅x′, construct an isomorphism between the action on Isom(x,X_U(x)) and the action on Isom(x′,X_U(x′)). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remark 31.2, Lemma 31.3 and Remark 31.5, p. 122–123.
 
 Lemmas: **T407** Transport by the identity fibre arrow; **T408** Transport along successive fibre isomorphisms.
 
-**T409** `R09.4/fibre-action/self-transport-nat-iso` (construction). For e:x≅x′, assemble selfTransportActionIso(X,e) into a Mathlib natural isomorphism between fibreIsomActionFunctor(b,b,U,x,x)… Source: Olsson 2007 (Math 274 notes), Definition31.1, Remark31.2, Lemma31.3 and Remark31.5, printed122–123.
+**T409** `R09.4/fibre-action/self-transport-nat-iso` (construction). For e:x≅x′, assemble selfTransportActionIso(X,e) into a natural isomorphism between fibreIsomActionFunctor(b,b,U,x,x) and fibreIsomActionFunctor(b,b,U,x′,x′). Source: Olsson 2007 (Math 274 notes), Definition 31.1, Remark 31.2, Lemma 31.3 and Remark 31.5, p. 122–123.
 
 Lemmas: **T410** Self-action transport is independent of the connecting arrow; **T411** Natural self-action transport is independent of the connecting arrow.
 
 #### Strand `fibre-restriction` (T412–T424)
 Standing hypotheses: Fix a site (C,J), Mathlib Cat-valued pseudofunctors F,G with specified object and fibre-hom universes, and their IsGerbe predicates.
-**T412** `R09.4/fibre-restriction/restrict-action-hom` (construction). For f:V→U and x,y∈F(U), the map p↦F(f)(p) is a morphism from fibreAction(b,x,y) to Action.res(A(f)) of fibreAction(b,F… Source: Olsson 2007 (Math 274 notes), Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515.
+**T412** `R09.4/fibre-restriction/restrict-action-hom` (construction). For f:V→U and x,y∈F(U), the map p↦F(f)(p) is a morphism from fibreAction(b,x,y) to Action.res(A(f)) of fibreAction(b,F(f)x,F(f)y). Source: Olsson 2007 (Math 274 notes), Olsson31.1–31.5, p. 122–123; Groechenig–Wyss–Ziegler 2020 Definition 2.6 and §2.2.1, p. 514–515.
 
-**T413** `R09.4/fibre-restriction/restriction-iso` (construction). For a Mathlib band-preserving strong transformation X:F→G, define c(X,f,x):G(f)(X(U)x)≅X(V)(F(f)x) as the inverse object compo… Source: Olsson 2007 (Math 274 notes), Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515.
+**T413** `R09.4/fibre-restriction/restriction-iso` (construction). For a band-preserving strong transformation X:F→G, define c(X,f,x):G(f)(X(U)x)≅X(V)(F(f)x) as the inverse object component of X.naturality(f). Source: Olsson 2007 (Math 274 notes), Olsson31.1–31.5, p. 122–123; Groechenig–Wyss–Ziegler 2020 Definition 2.6 and §2.2.1, p. 514–515.
 
-**T414** `R09.4/fibre-restriction/fibre-isom-restriction` (construction). For X:F→G, x∈F(U) and y∈G(U), define R(X,f,x,y):Isom(y,X(U)x)→Isom(G(f)y,X(V)(F(f)x)) by p↦G(f)(p) followed by c(X,f,x). Source: Olsson 2007 (Math 274 notes), Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515.
+**T414** `R09.4/fibre-restriction/fibre-isom-restriction` (construction). For X:F→G, x∈F(U) and y∈G(U), define R(X,f,x,y):Isom(y,X(U)x)→Isom(G(f)y,X(V)(F(f)x)) by p↦G(f)(p) followed by c(X,f,x). Source: Olsson 2007 (Math 274 notes), Olsson31.1–31.5, p. 122–123; Groechenig–Wyss–Ziegler 2020 Definition 2.6 and §2.2.1, p. 514–515.
 
 Lemmas: **T415** Evaluating the semilinear restriction; **T416** Strong comparison commutes with modifications.
 
-**T417** `R09.4/fibre-restriction/fibre-isom-restriction-nat-trans` (construction). R(X,f,x,y), as X varies in Mathlib's fixed-band HomCategory, forms a natural transformation from fibreIsomActionFunctor(U,x,… Source: Olsson 2007 (Math 274 notes), Olsson31.1–31.5, printed122–123; GWZ20 Definition2.6 and §2.2.1, printed514–515.
+**T417** `R09.4/fibre-restriction/fibre-isom-restriction-nat-trans` (construction). R(X,f,x,y), as X varies in the fixed-band HomCategory, forms a natural transformation from fibreIsomActionFunctor(U,x,y) to fibreIsomActionFunctor(V,F(f)x,G(f)y) followed by Action.res(A(f)). Source: Olsson 2007 (Math 274 notes), Olsson31.1–31.5, p. 122–123; Groechenig–Wyss–Ziegler 2020 Definition 2.6 and §2.2.1, p. 514–515.
 
 Lemmas: **T418** Strong comparison and change of source object; **T419** The unit coherence of the strong comparison; **T420** The composition coherence of the strong comparison; **T421** Identity restriction with its endpoint identifications; **T422** Two successive restrictions with endpoint comparisons; **T423** Local-object transport commutes with restriction; **T424** Natural local-object transport commutes with restriction.
 
 #### Strand `sheaf-assembly` (T425–T435)
 Standing hypotheses: Fix a site (C,J), Mathlib Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.
-**T425** `R09.4/sheaf-assembly/fibre-hom-sheaf` (construction). For x∈F(U), y∈G(U) and a fixed-band strong morphism X:F→G, set H_X=G.sheafHom(J,y,X_U(x)) on (Over U,J.over U). Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T425** `R09.4/sheaf-assembly/fibre-hom-sheaf` (construction). For x∈F(U), y∈G(U) and a fixed-band strong morphism X:F→G, set H_X=G.sheafHom(J,y,X_U(x)) on (Over U,J.over U). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
-**T426** `R09.4/sheaf-assembly/section-iso-equiv` (construction). For t:T→U, H_X(t) is equivalent to Isom(G(t)y,G(t)(X_U(x))). Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T426** `R09.4/sheaf-assembly/section-iso-equiv` (construction). For t:T→U, H_X(t) is equivalent to Isom(G(t)y,G(t)(X_U(x))). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
-**T427** `R09.4/sheaf-assembly/sheaf-map` (construction). For an Mathlib modification m:X⇒Y, define H(m):H_X→H_Y by p↦p followed by G(t)(m_U(x)) at t:T→U. Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T427** `R09.4/sheaf-assembly/sheaf-map` (construction). For a Mathlib modification m:X⇒Y, define H(m):H_X→H_Y by p↦p followed by G(t)(m_U(x)) at t:T→U. Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
-**T428** `R09.4/sheaf-assembly/sheaf-functor` (construction). X↦H_X and m↦H(m) form an functor from Mathlib's fixed-band HomCategory(bF,bG) to Sheaf(J.over U,Type v'). Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T428** `R09.4/sheaf-assembly/sheaf-functor` (construction). X↦H_X and m↦H(m) form a functor from Mathlib's fixed-band HomCategory(bF,bG) to Sheaf(J.over U,Type v'). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
-**T429** `R09.4/sheaf-assembly/sheaf-map-iso` (construction). Every modification m yields a Mathlib isomorphism H_X≅H_Y by applying the sheaf functor to homIso(m). Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T429** `R09.4/sheaf-assembly/sheaf-map-iso` (construction). Every modification m yields a Mathlib isomorphism H_X≅H_Y by applying the sheaf functor to homIso(m). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
 Lemmas: **T430** Local sections on every slice object.
 
-**T431** `R09.4/sheaf-assembly/section-action` (construction). At t:T→U construct a Mathlib Action(Type v',Multiplicative A(T)) on H_X(t). Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T431** `R09.4/sheaf-assembly/section-action` (construction). At t:T→U construct a Mathlib Action(Type v',Multiplicative A(T)) on H_X(t). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
 Lemmas: **T432** The unique band difference of two sections; **T433** The section action is semilinear under restriction.
 
-**T434** `R09.4/sheaf-assembly/transport-iso-equiv` (construction). At t:T→U, H_X(t) is equivalent to Isom(G(t)y,X_T(F(t)x)). Send p to asIso(p) followed by restrictionIso(X,t,x); Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T434** `R09.4/sheaf-assembly/transport-iso-equiv` (construction). At t:T→U, H_X(t) is equivalent to Isom(G(t)y,X_T(F(t)x)). Send p to asIso(p) followed by restrictionIso(X,t,x); Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
 Lemmas: **T435** The transported section modification square.
 
 #### Strand `sheaf-transport` (T436–T449)
 Standing hypotheses: Fix a site (C,J), a Mathlib Cat-valued pseudofunctor F with IsGerbe(F,J), an abelian sheaf A and a fixed banding b.
-**T436** `R09.4/sheaf-transport/map` (construction). For a fixed-band self-morphism X and an isomorphism e:x≅x′ in F(U), define T_e:H_x(X)→H_x′(X), where H_x(X)=F.sheafHom… Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T436** `R09.4/sheaf-transport/map` (construction). For a fixed-band self-morphism X and an isomorphism e:x≅x′ in F(U), define T_e:H_x(X)→H_x′(X), where H_x(X)=F.sheafHom(J,x,X_U(x)). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
 Lemmas: **T437** Identity local-object transport; **T438** Composing local-object transport.
 
-**T439** `R09.4/sheaf-transport/iso` (construction). The map T_e is the hom of an sheaf isomorphism H_x(X)≅H_x′(X), with inverse T_(e⁻¹). Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T439** `R09.4/sheaf-transport/iso` (construction). The map T_e is the hom of a sheaf isomorphism H_x(X)≅H_x′(X), with inverse T_(e⁻¹). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
 Lemmas: **T440** Agreement with the transported fibre Isom; **T441** Independence of the connecting isomorphism; **T442** Transport respects the section band action.
 
-**T443** `R09.4/sheaf-transport/nat-iso` (construction). For e:x≅x′, the sheaf isomorphisms T_e(X) form a Mathlib natural isomorphism fibreHomSheafFunctor(b,b,U,x,x)≅fibreHomSheafFunc… Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T443** `R09.4/sheaf-transport/nat-iso` (construction). For e:x≅x′, the sheaf isomorphisms T_e(X) form a natural isomorphism fibreHomSheafFunctor(b,b,U,x,x)≅fibreHomSheafFunctor(b,b,U,x′,x′). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
 Lemmas: **T444** Natural transport is choice independent; **T445** Identity natural transport; **T446** Composition of natural transport; **T447** The sheaf isomorphism is choice independent.
 
-**T448** `R09.4/sheaf-transport/object-functor` (construction). For each U, construct the functor Core(F(U))→(HomCategory(b,b)→Sheaf(J.over U,Type v′)). Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123; GWZ20 §2.2.1, printed515.
+**T448** `R09.4/sheaf-transport/object-functor` (construction). For each U, construct the functor Core(F(U))→(HomCategory(b,b)→Sheaf(J.over U,Type v′)). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123; Groechenig–Wyss–Ziegler 2020 §2.2.1, p. 515.
 
 Lemmas: **T449** Parallel local-object arrows have equal images.
 
 #### Strand `sheaf-base-change` (T450–T456)
 Standing hypotheses: Fix a site (C,J), Mathlib Cat-valued pseudofunctors F,G with IsGerbe predicates and fixed object/fibre-hom universes.
-**T450** `R09.4/sheaf-base-change/iso` (construction). For f:V→U, local objects x∈F(U), y∈G(U) and an fixed-band strong transformation X:F→G, construct a Mathlib sheaf isomor… Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123.
+**T450** `R09.4/sheaf-base-change/iso` (construction). For f:V→U, local objects x∈F(U), y∈G(U) and a fixed-band strong transformation X:F→G, construct a sheaf isomorphism f⁎H_U(x,y;X)≅H_V(F(f)x,G(f)y;X) on (Over V,J.over V). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123.
 
 Lemmas: **T451** Forward restriction comparison; **T452** Flexible comparison formula; **T453** Restriction and Mathlib modifications.
 
-**T454** `R09.4/sheaf-base-change/nat-iso` (construction). The comparison sheaf isomorphisms are components of an Mathlib natural isomorphism between the functor X↦f⁎H_U(x,y;X) a… Source: Olsson 2007 (Math 274 notes), Remark31.5, printed123.
+**T454** `R09.4/sheaf-base-change/nat-iso` (construction). The comparison sheaf isomorphisms are components of a natural isomorphism between the functor X↦f⁎H_U(x,y;X) and the functor X↦H_V(F(f)x,G(f)y;X), both on HomCategory(bF,bG). Source: Olsson 2007 (Math 274 notes), Remark 31.5, p. 123.
 
 Lemmas: **T455** Band action and the restriction comparison; **T456** Local-object transport and base restriction.
 
@@ -1001,65 +1001,65 @@ Lemmas: **T457** Restriction comparison in the fibre; **T458** Self-gerbe sectio
 
 #### Strand `endpoint-transport` (T464–T471)
 Standing hypotheses: Fix a site (C,J) and Mathlib Cat-valued pseudofunctors F,G with IsGerbe predicates in fixed object/fibre-hom universes. The abelian coefficient sheaf A has independent universe w.
-**T464** `R09.4/endpoint-transport/map` (construction). For X:F→G in the fixed-band HomCategory, e:x≅x′ in F(U) and d:y≅y′ in G(U), construct T_X(e,d):H_U(x,y;X)→H_U(x′,y′;X)… Source: Olsson 2007 (Math 274 notes), Lemmas31.3–31.4 and Remark31.5, printed122–123.
+**T464** `R09.4/endpoint-transport/map` (construction). For X:F→G in the fixed-band HomCategory, e:x≅x′ in F(U) and d:y≅y′ in G(U), construct T_X(e,d):H_U(x,y;X)→H_U(x′,y′;X). At t:T→U its section map is G(t)(d⁻¹) followed by p, then G(t)(X_U(e)). Source: Olsson 2007 (Math 274 notes), Lemmas 31.3–31.4 and Remark 31.5, p. 122–123.
 
 Lemmas: **T465** Identity endpoint transport; **T466** Composition at both endpoints.
 
-**T467** `R09.4/endpoint-transport/iso` (construction). The endpoint sheaf map T_X(e,d) is the forward map of a Mathlib sheaf isomorphism with inverse T_X(e⁻¹,d⁻¹). Source: Olsson 2007 (Math 274 notes), Lemmas31.3–31.4 and Remark31.5, printed122–123.
+**T467** `R09.4/endpoint-transport/iso` (construction). The endpoint sheaf map T_X(e,d) is the forward map of a Mathlib sheaf isomorphism with inverse T_X(e⁻¹,d⁻¹). Source: Olsson 2007 (Math 274 notes), Lemmas 31.3–31.4 and Remark 31.5, p. 122–123.
 
 Lemmas: **T468** All modifications commute with endpoint transport.
 
-**T469** `R09.4/endpoint-transport/natural-iso` (construction). Package the endpoint sheaf isomorphisms as a Mathlib natural isomorphism H_U(x,y;−)≅H_U(x′,y′;−), with domain the HomCa… Source: Olsson 2007 (Math 274 notes), Lemmas31.3–31.4 and Remark31.5, printed122–123.
+**T469** `R09.4/endpoint-transport/natural-iso` (construction). Package the endpoint sheaf isomorphisms as a natural isomorphism H_U(x,y;−)≅H_U(x′,y′;−), with domain the HomCategory(bF,bG). Source: Olsson 2007 (Math 274 notes), Lemmas 31.3–31.4 and Remark 31.5, p. 122–123.
 
 Lemmas: **T470** Separate endpoint transport and Mathlib base restriction; **T471** Agreement with the diagonal self-gerbe transport.
 
 #### Strand `local-covers` (T472–T476)
 Standing hypotheses: Use an arbitrary site (C,J), a Mathlib Cat-valued pseudofunctor F with independent site/object/fibre-hom universes and Mathlib Sieve carriers. Only covering conclusions assume IsGerbe F J.
-**T472** `R09.4/local-covers/object` (construction). For any Mathlib Cat-valued pseudofunctor F and U∈C, construct Mathlib's Sieve U whose arrows f:V→U satisfy Nonempty F(V). Source: Stacks, Stacks Definition8.11.1, Section8.11/tag06NY; exact canonical sieve and composition formulas are.
+**T472** `R09.4/local-covers/object` (construction). For any Mathlib Cat-valued pseudofunctor F and U∈C, construct Mathlib's Sieve U whose arrows f:V→U satisfy Nonempty F(V). Source: Stacks, Stacks Definition 8.11.1, Section 8.11/tag06NY; exact canonical sieve and composition formulas are.
 
-**T473** `R09.4/local-covers/isom` (construction). For x,y∈F(U), construct Mathlib's sieve of f:V→U admitting an isomorphism F(f)x≅F(f)y. Source: Stacks, Stacks Definition8.11.1, Section8.11/tag06NY; exact canonical sieve and composition formulas are.
+**T473** `R09.4/local-covers/isom` (construction). For x,y∈F(U), construct Mathlib's sieve of f:V→U admitting an isomorphism F(f)x≅F(f)y. Source: Stacks, Stacks Definition 8.11.1, Section 8.11/tag06NY; exact canonical sieve and composition formulas are.
 
-**T474** `R09.4/local-covers/overlap` (construction). For i:T→V, j:T→W and local objects x∈F(V), y∈F(W), construct Mathlib's sieve on T on which F(i)x and F(j)y become iso… Source: Stacks, Stacks Definition8.11.1, Section8.11/tag06NY; exact canonical sieve and composition formulas are.
+**T474** `R09.4/local-covers/overlap` (construction). For i:T→V, j:T→W and local objects x∈F(V), y∈F(W), construct the sieve on T on which F(i)x and F(j)y become isomorphic. The construction needs neither fibre products nor a terminal object. Source: Stacks, Stacks Definition 8.11.1, Section 8.11/tag06NY; exact canonical sieve and composition formulas are.
 
 Lemmas: **T475** overlap membership.
 
-**T476** `R09.4/local-covers/chosen-iso` (construction). For a member q:S→T of overlapCover(F,i,j,x,y), construct an isomorphism F(q≫i)x≅F(q≫j)y. Source: Stacks, Stacks Definition8.11.1, Section8.11/tag06NY; exact canonical sieve and composition formulas are.
+**T476** `R09.4/local-covers/chosen-iso` (construction). For a member q:S→T of overlapCover(F,i,j,x,y), construct an isomorphism F(q≫i)x≅F(q≫j)y. Source: Stacks, Stacks Definition 8.11.1, Section 8.11/tag06NY; exact canonical sieve and composition formulas are.
 
 #### Strand `chart-transitions` (T477–T479)
 Standing hypotheses: Fix an arbitrary site (C,J), an Cat-valued pseudofunctor F with IsGerbe F J, and an abelian banding b by A:Sheaf J AddCommGrpCat with independent coefficient universe w.
-**T477** `R09.4/chart-transitions/chart` (construction). For i:T→U, j:T→V, x∈F(U), y∈F(V), and an e:F(i)x≅F(j)y, construct a natural isomorphism from H_U(x,x;−) followed by na… Source: Stacks, Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof.
+**T477** `R09.4/chart-transitions/chart` (construction). For i:T→U, j:T→V, x∈F(U), y∈F(V), and an e:F(i)x≅F(j)y, construct a natural isomorphism from H_U(x,x;−) followed by slice pullback i⁎ to H_V(y,y;−) followed by j⁎, on the category HomCategory(b,b). Source: Stacks, Section 8.11/tag06NY, Definition 8.11.1 and Lemma 8.11.8 proof.
 
 Lemmas: **T478** The three comparison factors at a fixed transformation.
 
-**T479** `R09.4/chart-transitions/overlap` (construction). For q:S→T belonging to the overlapCover(F,i,j,x,y), construct the natural comparison from (q followed by i)⁎H_U(x,x;−)… Source: Stacks, Stacks Section8.11/tag06NY, Definition8.11.1 and Lemma8.11.8 proof.
+**T479** `R09.4/chart-transitions/overlap` (construction). For q:S→T belonging to the overlapCover(F,i,j,x,y), construct the natural comparison from (q followed by i)⁎H_U(x,x;−) to (q followed by j)⁎H_V(y,y;−) using the direct overlapIso. Source: Stacks, Section 8.11/tag06NY, Definition 8.11.1 and Lemma 8.11.8 proof.
 
 #### Strand `chart-refinements` (T480–T487)
 Standing hypotheses: Work on an arbitrary site (C,J), with an Cat-valued pseudofunctor F and IsGerbe F J. Chart comparisons use an abelian banding b by A:Sheaf J AddCommGrpCat in an independent coefficient universe w.
 Lemmas: **T480** Base change of diagonal endpoint transport; **T481** Chart transition under an arbitrary refinement.
 
-**T482** `R09.4/chart-refinements/refinement` (construction). Construct a natural isomorphism ((H_U(x,x;−)⋙i⁎)⋙q⁎)≅(H_U(x,x;−)⋙(q≫i)⁎) on the full fixed-band modification category HomCate… Source: Stacks, Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise.
+**T482** `R09.4/chart-refinements/refinement` (construction). Construct a natural isomorphism ((H_U(x,x;−)⋙i⁎)⋙q⁎)≅(H_U(x,x;−)⋙(q≫i)⁎) on the full fixed-band modification category HomCategory(b,b), with values sheaves on C/S. Source: Stacks, Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8 proof; precise.
 
 Lemmas: **T483** Mathlib's refinement component; **T484** The forward Mathlib refinement map; **T485** The refinement square on the modification category; **T486** Every further restriction of an overlap is available; **T487** Refining the independently chosen overlap transition.
 
 #### Strand `global-hom` (T488–T502)
 Standing hypotheses: C has object universe u and morphism universe v, J is any Grothendieck topology, and F is an Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′, equipped with IsGerbe F J.
-**T488** `R09.4/global-hom/orbit` (construction). For U in C and X in HomCategory(b,b), put Mathlib's Setoid on pairs (x,p), where x belongs to F(U) and p:x≅X_U(x). Source: Stacks, Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
+**T488** `R09.4/global-hom/orbit` (construction). For U in C and X in HomCategory(b,b), put Mathlib's Setoid on pairs (x,p), where x belongs to F(U) and p:x≅X_U(x). Source: Stacks, Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
 
 Lemmas: **T489** Equality of chart-pair classes; **T490** A fixed chart retains distinct arrows.
 
-**T491** `R09.4/global-hom/restriction` (construction). For f:V→U send [(x,p)] to [(F(f)x,res_f(p))], with res_f the StrongTrans fibre-isomorphism restriction. Source: Stacks, Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
+**T491** `R09.4/global-hom/restriction` (construction). For f:V→U send [(x,p)] to [(F(f)x,res_f(p))], with res_f the StrongTrans fibre-isomorphism restriction. Source: Stacks, Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
 
 Lemmas: **T492** Identity restriction after quotienting; **T493** Composition of restrictions after quotienting.
 
-**T494** `R09.4/global-hom/presheaf` (construction). Construct the functor P_X:Cᵒᵖ→Type(max(u′,v′)) whose sections over U are Mathlib's chart-pair quotient and whose rest… Source: Stacks, Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
+**T494** `R09.4/global-hom/presheaf` (construction). Construct the functor P_X:Cᵒᵖ→Type(max(u′,v′)) whose sections over U are the chart-pair quotient and whose restriction maps are the proved quotient restrictions. Source: Stacks, Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
 
-**T495** `R09.4/global-hom/map` (construction). For any Mathlib fixed-band modification m:X→Y, send [(x,p)] over U to [(x,p followed by m_x)], using the component isom… Source: Stacks, Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
+**T495** `R09.4/global-hom/map` (construction). For any fixed-band modification m:X→Y, send [(x,p)] over U to [(x,p followed by m_x)], using the component isomorphism. This defines a function between the two chart-pair quotients. Source: Stacks, Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
 
 Lemmas: **T496** Modification on a represented class; **T497** Identity modification on classes; **T498** Composite modification on classes; **T499** Modification maps commute with restriction.
 
-**T500** `R09.4/global-hom/functor` (construction). Construct a Mathlib functor HomCategory(b,b)→(Cᵒᵖ→Type(max(u′,v′))) sending X to P_X and every Mathlib modification to its quot… Source: Stacks, Stacks Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
+**T500** `R09.4/global-hom/functor` (construction). Construct a functor HomCategory(b,b)→(Cᵒᵖ→Type(max(u′,v′))) sending X to P_X and every modification to its quotient natural transformation. Source: Stacks, Section 8.11/tag 06NY, Definition 8.11.1 and Lemma 8.11.8; exact.
 
-**T501** `R09.4/global-hom/sheaf-functor` (construction). Construct a Mathlib functor HomCategory(b,b)→Sheaf(J,Type(max(u,v,u′,v′))) by composing the orbit-presheaf functor, postcompos… Source: Stacks, Stacks Section 7.49/tag 00ZG, Theorem 7.49.3, Definition 7.49.4 and Proposition 7.49.5.
+**T501** `R09.4/global-hom/sheaf-functor` (construction). Construct a functor HomCategory(b,b)→Sheaf(J,Type(max(u,v,u′,v′))) by composing the orbit-presheaf functor, postcomposition with ULift, and Mathlib presheafToSheaf. Source: Stacks, Section 7.49/tag 00ZG, Theorem 7.49.3, Definition 7.49.4 and Proposition 7.49.5.
 
 Lemmas: **T502** Transport preserves the represented class.
 
@@ -1067,39 +1067,39 @@ Lemmas: **T502** Transport preserves the represented class.
 Standing hypotheses: C has object universe u and morphism universe v; J is any Grothendieck topology. F is an Cat-valued pseudofunctor with fibre object universe u′ and morphism universe v′ and IsGerbe F J.
 Lemmas: **T503** Restriction of a local Hom section in orbit coordinates.
 
-**T504** `R09.4/chart-global/orbit-map` (construction). For X in HomCategory(b,b), U in C and an x in F(U), construct a natural transformation from the ULift of fibreHomSheaf… Source: Stacks, Stacks Section 7.49/tag 00ZG and Section 8.11/tag 06NY; exact.
+**T504** `R09.4/chart-global/orbit-map` (construction). For X in HomCategory(b,b), U in C and an x in F(U), construct a natural transformation from the ULift of fibreHomSheaf(b,b,U,x,x,X) to the restriction of the lifted global orbit presheaf along Over.forget U. Source: Stacks, Section 7.49/tag 00ZG and Section 8.11/tag 06NY; exact.
 
 Lemmas: **T505** The chart map is pointwise injective; **T506** Every orbit section is locally in the chart image.
 
-**T507** `R09.4/chart-global/global-map` (construction). Construct an morphism of sheaves on J.over U from the explicit ULift of the local Hom sheaf to the restriction of self… Source: Stacks, Stacks Section 7.49/tag 00ZG and Section 8.11/tag 06NY; exact.
+**T507** `R09.4/chart-global/global-map` (construction). Construct a morphism of sheaves on J.over U from the explicit ULift of the local Hom sheaf to the restriction of selfHomGlobalSheafFunctor(b)(X). Source: Stacks, Section 7.49/tag 00ZG and Section 8.11/tag 06NY; exact.
 
 Lemmas: **T508** The local chart map is an isomorphism.
 
-**T509** `R09.4/chart-global/iso` (construction). Under the explicit Mathlib WEqualsLocallyBijective class at the lifted section universe, package the proved local chart morphi… Source: Stacks, Stacks Section 7.49/tag 00ZG and Section 8.11/tag 06NY; exact.
+**T509** `R09.4/chart-global/iso` (construction). Under the explicit WEqualsLocallyBijective class at the lifted section universe, package the proved local chart morphism and its inverse as a sheaf isomorphism. Source: Stacks, Section 7.49/tag 00ZG and Section 8.11/tag 06NY; exact.
 
 <a id="r09-5"></a>
 ## R09.5. Coarse spaces and rigidification
 
 Moduli stacks of arithmetic objects carry inertia that one removes in a controlled way: by rigidifying along a subgroup of the inertia (killing only chosen automorphisms), by passing to the coarse moduli space (killing all), or by adding level structure (making objects rigid before quotienting again). This layer builds rigidification and level removal, fixes the comparison with the coarse spaces of SchemeAndStackFoundations SF.1 and ModularCurves 9D, and supplies the normalisation, schematic-closure and descent statements a coarse space needs. Keel–Mori, tame stacks and their base change are cited from SF.1, never rebuilt.
 
-**T510** `R09.5/affine-kernel-rigidification` (construction). For f:Γ→Δ between affine fpqc gerbes, there is a canonical factorization Γ→E→Δ. 3 tests (compatibility, degenerate, non-example). Source: Borne–Vistoli 2019, Proposition3.9 and proof, pp.8–9.
+**T510** `R09.5/affine-kernel-rigidification` (construction). For f:Γ→Δ between affine fpqc gerbes, there is a canonical factorization Γ→E→Δ. 3 tests (compatibility, degenerate, non-example). Source: Borne–Vistoli 2019, Proposition 3.9 and proof, pp. 8–9.
 
 **T511** `R09.5/inertia-subgroup-stack` (definition). A flat, finitely presented closed subgroup stack `H ⊂ I_X`: for each `T → X` the fibre `H_T ⊂ Aut_T(x)` is a flat finitely presented closed subgroup space, stable under the identifications induced by 2-isomorphisms (so normal in `I_X`).
 - Hypotheses: `X` algebraic over `S`; `H → I_X` a closed immersion, `H → X` flat and finitely presented.
 - API: `Stack.InertiaSubgroup`, `InertiaSubgroup.fibre`, `InertiaSubgroup.isNormal`, `InertiaSubgroup.pullback`
 - Tests: `InertiaSubgroupTests.trivial` [degenerate] the unit section qualifies; `InertiaSubgroupTests.full` [degenerate] `I_X` qualifies when flat and finitely presented over `X`; `InertiaSubgroupTests.bgFour` [computation] `ℤ/2 ⊂ ℤ/4` gives a subgroup stack of `I_{B(ℤ/4)}`.
-- Source: Abramovich–Corti–Vistoli 2003, §5.1; Romagny 2005, section "Rigidification".
+- Source: Abramovich–Corti–Vistoli 2003, §5.1 (Setup 5.1.4); Romagny 2005, §5 "Rigidifications".
 - Needs: SF.1 (`SF.1/inertia`, `SF.1/algebraic-stack`, `SF.1/stack-morphism-properties`).
 
 **T512** `R09.5/rigidification` (definition). The rigidified stack `X ⫽ H`: the fppf stackification of the prestack with the objects of `X` and morphism sheaves `Hom(x,y)/H_x`, with `X → X ⫽ H`; every morphism `X → Y` to an algebraic stack killing `H` factors uniquely through `X ⫽ H`, and the inertia of `X ⫽ H` pulled back to `X` is `I_X/H`.
 - Hypotheses: as in T511.
 - API: `Stack.rigidify`, `rigidify.proj`, `rigidify.universal`, `rigidify.inertia_pullback`
 - Tests: `RigidifyTests.trivialInertia` [degenerate] a scheme rigidified along the unit section is itself; `RigidifyTests.bgFourAlongTwo` [non-example] `B(ℤ/4) ⫽ (ℤ/2) ≃ B(ℤ/2)`, not `Spec k`; `RigidifyTests.gerbe` [characterisation] `X → X ⫽ H` is a gerbe iff `H = I_X`.
-- Source: Abramovich–Corti–Vistoli 2003, Theorem 5.1.5; Romagny 2005, Theorem 5.1.
+- Source: Abramovich–Corti–Vistoli 2003, Theorem 5.1.5 (`H` commutative: existence and universal property); Romagny 2005, Theorem 5.1 (`H` normal in the Hom sheaves; `X → X ⫽ H` is a gerbe, from which the inertia description follows).
 - Needs: T511; SF.1 (`SF.1/stackification`, `SF.1/two-fibre-product`).
 
-**T513** `R09.5/rigidification-base-change` (theorem). `X ⫽ H` is an algebraic stack, `X → X ⫽ H` is flat, finitely presented and surjective, and for every `Y → X ⫽ H` (in particular every base change `S' → S`) `(X ×_{X⫽H} Y)` is the rigidification of `X ×_S S'` along `H_{S'}`: formation of `X ⫽ H` commutes with base change.
-- Source: Abramovich–Corti–Vistoli 2003, Theorem 5.1.5; Romagny 2005, Theorem 5.1.
+**T513** `R09.5/rigidification-base-change` (theorem). `X ⫽ H` is an algebraic stack; `X → X ⫽ H` is smooth, surjective and finitely presented, a gerbe, étale when `X` is Deligne–Mumford; formation of `X ⫽ H` commutes with base change `S' → S` (the rigidification of `X ×_S S'` along `H_{S'}` is `(X ⫽ H) ×_S S'`); and `X` and `X ⫽ H` have the same coarse moduli space whenever one exists.
+- Source: Abramovich–Corti–Vistoli 2003, Theorem 5.1.5(4); Romagny 2005, Theorem 5.1 (ii)–(iv).
 - Needs: T512; SF.1 (`SF.1/algebraic-stack`, `SF.1/stack-presentation`).
 
 **T514** `R09.5/rigidification-full-inertia-coarse` (theorem). If `I_X → X` is finite, flat and finitely presented, then `X ⫽ I_X` is an algebraic space, `X → X ⫽ I_X` is a gerbe, and `X ⫽ I_X` is the coarse moduli space of `X`.
@@ -1114,7 +1114,7 @@ Moduli stacks of arithmetic objects carry inertia that one removes in a controll
 - Hypotheses: `G → S` finite étale; `P` a stack in groupoids on `(Sch/S)_fppf`.
 - API: `LevelStructure`, `LevelStructure.torsor`, `LevelStructure.IsRigid`, `LevelStructure.autAction`
 - Tests: `LevelTests.ellipticThree` [computation] full level `N ≥ 3` on elliptic curves is rigid; `LevelTests.ellipticTwo` [non-example] level `2` is not, `[-1]` fixes `E[2]`; `LevelTests.abelianScheme` [characterisation] an automorphism of an abelian scheme trivial on `A[N]`, `N ≥ 3`, is trivial.
-- Source: Katz–Mazur 1985, Corollary 2.7.2; Mumford 1965 (GIT), Chapter 7 §2; Katz–Mazur 4.7.0 via ModularCurves 4C.
+- Source: Katz–Mazur 1985, Corollary 2.7.2 (elliptic curves) and 4.7.0 via ModularCurves 4C; for abelian schemes Serre's lemma, cited (not proved) in Mumford 1965 (GIT), Chapter 7 §3, p. 139 of the third edition.
 - Needs: SF.1 (`SF.1/moduli-functor`, `SF.1/torsor`); ModularCurves 4C, 0E.
 
 **T517** `R09.5/level-removal-quotient` (theorem). If the level of T516 is rigid and `P` is algebraic with finite inertia, then `P_N` is an algebraic space with a finite étale `G`-action, `[P_N/G] ≃ P` ("removal of level"), `P_N → P` is the finite étale cover by the fine space ("addition of level"), and the coarse space of `P` is the quotient space `P_N/G`, a scheme when `P_N` is quasi-projective over `S`.
@@ -1132,10 +1132,10 @@ Moduli stacks of arithmetic objects carry inertia that one removes in a controll
 - Hypotheses: `Z → X` an immersion, quasi-compact or with `Z` reduced.
 - API: `Space.schematicClosure`, `schematicClosure.openImmersion`, `schematicClosure.dense`, `schematicClosure.pullback_etale`
 - Tests: `ClosureTests.closed` [degenerate] a closed immersion is its own closure; `ClosureTests.puncturedLine` [computation] the closure of `𝔾_m ⊂ 𝔸¹` is `𝔸¹`; `ClosureTests.embeddedPoint` [non-example] a non-quasi-compact open can miss embedded points.
-- Source: Stacks, Definition 67.17.3 (tag 0834), Lemma 67.17.7 (tag 088G).
+- Source: Stacks, Definition 67.16.2 (tag 082Y) (scheme-theoretic image), Lemma 67.17.7 (tag 088G).
 - Needs: SF.1 (`SF.1/stack-presentation`, `SF.1/space-fibre-products`).
 
-**T520** `R09.5/descend-finite-correspondence` (theorem). A descent datum of finite morphisms `V_i → X_i` relative to an fpqc covering `{X_i → S}` is effective and the descended morphism is finite; hence a finite correspondence `Z ⊂ X ×_S Y` (closed, finite over `X`) with descent data along fpqc `S' → S` descends to `S`.
+**T520** `R09.5/descend-finite-correspondence` (theorem). A descent datum of finite morphisms `V_i → X_i` relative to a fpqc covering `{X_i → S}` is effective and the descended morphism is finite; hence a finite correspondence `Z ⊂ X ×_S Y` (closed, finite over `X`) with descent data along fpqc `S' → S` descends to `S`.
 - Source: Stacks, Lemma 35.37.1 (tag 0245) (affine descent) with Lemma 35.23.25 (tag 02LA) (finite is fpqc-local on the base).
 - Needs: SF.1 (`SF.1/affine-fpqc-descent`, `SF.1/space-fppf-descent`); ModularCurves 0E.
 
@@ -1161,11 +1161,11 @@ Artin's criterion (A0-extension) and algebraisation (R09.6b) rest on one algebra
 - Needs: T522.
 
 **T525** `R09.6a/henselization-algebraic-elements` (theorem). For a Noetherian local G-ring domain `A` with fraction field `K`, `A^h ⊂ A^∧` is the set of elements algebraic over `K`. Consequently `x² = 2` has a root in `ℤ_7` (`3² ≡ 2 mod 7`) and in `ℤ_(7)^h` but none in `ℤ_(7)`, and has no root in `ℤ_2` at all.
-- Source: Stacks, Example 16.13.3 (tag 0A1W).
+- Source: Stacks, Example 16.13.3 (tag 0A1W) (the henselisation as the algebraic elements); the `x² = 2` instance is a computation made here, not in the source.
 - Needs: T522, T524; Mathlib `AdicCompletion`.
 
-**T526** `R09.6a/artin-approximation-classical` (theorem). For `R` a field or an excellent discrete valuation ring and `A` the henselisation of `R[x_1, …, x_n]` at a maximal ideal (algebraic power series when `R` is a field), a solution in `A^∧` of a polynomial system over `A` is approximated to any order by a solution in `A`; formal solutions of polynomial systems are approximated by algebraic ones.
-- Source: Artin 1969 (Publ. IHÉS 36), Theorem 1.10, and section 2 (the algebraic-power-series corollary).
+**T526** `R09.6a/artin-approximation-classical` (theorem). For `R` a field or an excellent discrete valuation ring, `A` the henselisation of a finite-type `R`-algebra at a prime ideal and `𝔪` a proper ideal of `A`, a solution in the `𝔪`-adic completion `A^∧` of a polynomial system over `A` is approximated to any order (modulo `𝔪^c`) by a solution in `A`. For `A` the henselisation of `k[x_1, …, x_n]` at the origin, `A` is the ring of algebraic power series and `A^∧ = k[[x_1, …, x_n]]`: formal solutions of polynomial systems are approximated by algebraic ones.
+- Source: Artin 1969 (Publ. IHÉS 36), Theorem (1.10); Theorem (1.12) is the functorial form. The algebraic-power-series statement is the case `A = k[x]^h` of (1.10) and carries no separate number.
 - Needs: T522; SF.0 (`SF.0/excellent-ring`, `SF.0/henselian-pair`).
 
 <a id="a0-extension"></a>
@@ -1177,8 +1177,8 @@ T527–T532 build the relative Picard sheaf `Pic_{X/B}`, its kernel sequence and
 - Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.
 - API: `RelativePicard.ofLineBundle`, `RelativePicard.pullback`, `RelativePicard.baseLineBundle`, `RelativePicard.quotientSheaf`
 - Tests: `PicardSheafTests.identity` [degenerate], `PicardSheafTests.baseChange` [compatibility], `PicardSheafTests.needSheafification` [non-example]
-- Source: Stacks, Situation99.11.1
-- Needs: T053; Mathlib `CategoryTheory.HasSheafify`, `CategoryTheory.presheafToSheaf` (+2); Tau Ceti `TauCeti.AlgebraicGeometry.LineBundleClass`; SchemeAndStackFoundations SF.1, JacobianChallenge Layer A
+- Source: Stacks, Situation 99.11.1 (tag 0D25)
+- Needs: T053; Mathlib `CategoryTheory.HasSheafify`, `CategoryTheory.presheafToSheaf`, `CategoryTheory.sheafifyLift`, `CategoryTheory.sheafifyLift_unique`; Tau Ceti `TauCeti.AlgebraicGeometry.LineBundleClass`; SchemeAndStackFoundations SF.1, JacobianChallenge Layer A
 
 Lemmas: **T528** Base change of the relative Picard sheaf; **T529** Kernel of passage to relative Picard classes.
 
@@ -1186,14 +1186,14 @@ Lemmas: **T528** Base change of the relative Picard sheaf; **T529** Kernel of pa
 - Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.
 - API: `RigidifiedPicard.lineBundle`, `RigidifiedPicard.trivialization`, `RigidifiedPicard.pullback`, `RigidifiedPicard.mk`, `RigidifiedPicard.hom`, `RigidifiedPicard.hom_ext`, `RigidifiedPicard.trivial`
 - Tests: `RigidifiedPicardTests.identity` [degenerate], `RigidifiedPicardTests.automorphisms` [non-example], `RigidifiedPicardTests.P1` [compatibility]
-- Source: Stacks, Definition before Lemma99.11.5, Lemma99.11.7
+- Source: Stacks, Lemma 99.11.5 (tag 0D29) and the definition preceding it, Lemma 99.11.7 (tag 0D2B)
 - Needs: T053; Tau Ceti `TauCeti.SheafOfModules.IsInvertible`, `TauCeti.AlgebraicGeometry.InvertibleSheaf`; SchemeAndStackFoundations SF.1
 
 Lemmas: **T531** Rigidified Picard objects have trivial automorphisms.
 
 **T532** `A0-extension/section-picard-split` (theorem). If σ:B→X is a section and OT→fT*OXT is an isomorphism for all T→B, then 0→Pic(T)→Pic(XT)→PicX/B(T)→0 is split exact, with retraction σT*. Equivalently PicX/B(T)≅ker σT*, naturally in T.
 - Hypotheses: A scheme S, algebraic spaces X and B over S, and a specified S-morphism f:X→B. Test objects are schemes T→B in a fixed-universe model of Sch/B with the fppf topology; X_T=X×_B T and f_T:X_T→T. Pic uses invertible modules on the small étale ringed sites.
-- Source: Stacks, Lemma99.11.4 and proof
+- Source: Stacks, Lemma 99.11.4 (tag 0D28) and proof
 - Needs: T529, T530, T531, T054, T052
 
 **T533** `A0/proper-flat-perfect-complex` (theorem). For `f : X → Spec A` proper, `A` Noetherian, `F` coherent and `A`-flat, `RΓ(X, F)` is a perfect complex of finite Tor-amplitude and `RΓ(X, F) ⊗^L_A A' → RΓ(X_{A'}, F_{A'})` is an isomorphism for every `A → A'`; over a general base the same holds Zariski-locally for `f` proper, flat, finitely presented and `F` finitely presented `S`-flat, by Noetherian approximation.
@@ -1205,7 +1205,7 @@ Lemmas: **T531** Rigidified Picard objects have trivial automorphisms.
 - Needs: T533.
 
 **T535** `A0/cohomology-and-base-change` (theorem). With `f`, `F` as in T533 and `s ∈ S`: if `Rⁱf_*F ⊗ κ(s) → Hⁱ(X_s, F_s)` is surjective then it is an isomorphism, also near `s`; given that, `Rⁱ⁻¹f_*F ⊗ κ(s) → Hⁱ⁻¹(X_s, F_s)` is surjective iff `Rⁱf_*F` is locally free near `s`.
-- Source: Hartshorne 1977, Theorem III.12.11; Mumford 1970, §5 Corollary 2.
+- Source: Hartshorne 1977, Theorem III.12.11; Mumford 1970, §5 Corollary 3 (Corollary 2 is Grauert's criterion over a reduced base).
 - Needs: T533, T534.
 
 **T536** `A0/pushforward-structure-sheaf-universal` (theorem). If `f : X → S` is proper, flat, finitely presented with reduced and connected geometric fibres, then `O_S → f_*O_X` is an isomorphism after every base change.
@@ -1231,7 +1231,7 @@ Lemmas: **T531** Rigidified Picard objects have trivial automorphisms.
 - Hypotheses: `S` locally Noetherian.
 - API: `ArtinAxioms`, `ArtinAxioms.limitPreserving`, `ArtinAxioms.rimSchlessinger`, `ArtinAxioms.effective`, `ArtinAxioms.opennessOfVersality`
 - Tests: `ArtinAxiomsTests.scheme` [degenerate] a scheme locally of finite type satisfies all; `ArtinAxiomsTests.classifyingStack` [computation] `BG`, `G` smooth affine, satisfies all; `ArtinAxiomsTests.completion` [non-example] `T ↦ Γ(T, O_T)^∧` fails [1].
-- Source: Stacks, Section 98.14 (tag 07XJ); Artin 1974 (Inventiones 27), Theorem 5.3.
+- Source: Stacks, Section 98.14 (tag 07XJ) (the axioms as numbered here); Artin 1974 (Inventiones 27), Theorem (5.3) (conditions (1)–(4) with an obstruction theory).
 - Needs: SF.4 (`SF.4/deformation-functor`, `SF.4/obstruction-theory`, `SF.4/artinian-coefficient-category`); SF.1 (`SF.1/stack-in-groupoids`).
 
 **T541** `A0/artin-criterion-spaces` (theorem). A functor on `(Sch/S)_fppf` with diagonal representable by algebraic spaces, satisfying [-1]–[5], is an algebraic space if `O_{S,s}` is a G-ring at every finite-type point `s`.
@@ -1239,11 +1239,11 @@ Lemmas: **T531** Rigidified Picard objects have trivial automorphisms.
 - Needs: T540, T522; SF.0 (`SF.0/g-ring`, `SF.0/excellent-ring`).
 
 **T542** `A0/artin-criterion-stacks` (theorem). A stack with diagonal representable by algebraic spaces, satisfying [-1]–[5], is an algebraic stack if `O_{S,s}` is a G-ring at every finite-type point.
-- Source: Stacks, Proposition 98.17.2 (tag 07Y5); Artin 1974, Theorem 5.3.
+- Source: Stacks, Proposition 98.17.2 (tag 07Y5); Artin 1974, Theorem (5.3).
 - Needs: T540, T541; SF.1 (`SF.1/algebraic-stack`).
 
 **T543** `A0/picard-torsion-component` (theorem). Under the hypotheses of T539, the subfunctor `Pic^τ_{X/B}` of classes a multiple of which is fibrewise algebraically equivalent to zero is an open subspace of `Pic_{X/B}`; over a field `Pic⁰ ⊂ Pic^τ` is the identity component, and `Pic^τ_{ℙ¹/k}` is trivial.
-- Source: Kleiman 2005 (FGA Explained, "The Picard scheme"), section 9.6; SGA 6, Exposé XIII, section 4.
+- Source: Kleiman 2005 (FGA Explained, "The Picard scheme"), Thm. 9.6.16 (`Pic^τ` open and closed of finite type, commuting with base change); SGA 6, Exposé XIII, Thm. 4.7 (i) and (iii).
 - Needs: T539; SF.3 (`SF.3/picard-cohomological`).
 
 **T544** `A0/proper-space-normalization-excellent` (theorem). An algebraic space of finite type over an excellent (more generally Nagata) base is Nagata, so its normalisation (T518) is finite, and proper over the base when `X` is.
@@ -1254,13 +1254,13 @@ Lemmas: **T531** Rigidified Picard objects have trivial automorphisms.
 - Hypotheses: `X` of finite type over `ℂ`; `U` a scheme, `U → X` étale surjective.
 - API: `Space.analytify`, `analytify.ofPresentation`, `analytify.indep`, `analytify.map`
 - Tests: `AnalytifyTests.scheme` [degenerate] agrees with scheme analytification; `AnalytifyTests.freeQuotient` [computation] a free finite quotient of a variety analytifies to the quotient space; `AnalytifyTests.nonSeparated` [non-example] a non-separated line yields a non-Hausdorff space, not its coarse scheme.
-- Source: Knutson 1971 (Algebraic Spaces), Chapter I, section 5; Artin 1970 (Annals 91), section 7.
+- Source: Knutson 1971 (Algebraic Spaces), Chapter I, §5 (5.17 and following); Artin 1970 (Annals 91), §7, Theorem 7.3 (analytification of proper spaces; section titles not verified against a copy).
 - Needs: SF.1 (`SF.1/space-presentation`, `SF.1/etale-equivalence-relation`, `SF.1/etale-quotient-theorem`).
 
 <a id="r09-6b"></a>
 ## R09.6b. Deformation groupoids, completed local rings and algebraisation
 
-A point of an algebraic stack has a deformation groupoid, a deformation functor, and, after choosing a smooth presentation, a complete local ring pro-representing a hull of that functor; Artin's criterion (A0-extension) says these local data plus approximation (R09.6a) rebuild the stack. This layer defines the groupoid and functor of a point, records the stabiliser action, compares the deformation functor of a space with the functor pro-represented by its complete local ring, states versality and effectivity of the formal object cut out by a presentation, and gives the algebraisation of versal formal objects over an excellent base. An export target lists the universal property each parameter space of this roadmap represents.
+A point of an algebraic stack has a deformation groupoid, a deformation functor, and, after choosing a smooth presentation, a complete local ring pro-representing a hull of that functor; Artin's criterion (A0-extension) says these local data plus approximation (R09.6a) rebuild the stack. This layer defines the groupoid and functor of a point, records the stabiliser action, compares the deformation functor of a space with the functor pro-represented by its complete local ring, states versality and effectivity of the formal object cut out by a presentation, and gives the algebraisation of versal formal objects over an excellent base.
 
 **T546** `R09.6b/deformation-groupoid` (definition). For `𝒳` fibred in groupoids over `(Sch/S)_fppf`, `k` a field of finite type over `S`, `x₀ ∈ 𝒳(Spec k)`: the category `𝒟ef_{𝒳,x₀}` cofibred in groupoids over Artinian local `S`-algebras with residue field `k`, objects over `A` being pairs `(x ∈ 𝒳(Spec A), x|_k ≅ x₀)`; a predeformation category, and a deformation category exactly when `𝒳` satisfies (RS).
 - Hypotheses: `S` locally Noetherian; `k` of finite type over `S`.
@@ -1308,17 +1308,10 @@ A point of an algebraic stack has a deformation groupoid, a deformation functor,
 - Source: Stacks, Section 98.8 (tag 07WY); `SF.4/deformations-of-smooth-schemes`.
 - Needs: T546, T547, T548, T551; SF.4 (`SF.4/deformations-of-smooth-schemes`, `SF.4/effective-formal-deformations-of-curves`).
 
-**T556** `R09.6b/representability-export` (definition). One record of the universal property represented by each parameter space of this roadmap, with its representing object and whether it is a scheme, an algebraic space or an algebraic stack: Grassmannian and flag (R09.1), Hilbert and Quot (SF.4), Hom and Isom (R09.2), relative Picard and its rigidified form (T527–T532, T539), rigidified stacks (T512), and their deformation functors (T551).
-- Hypotheses: those of the cited targets.
-- API: `Representability.grassmannian`, `Representability.hilbQuot`, `Representability.homIsom`, `Representability.picard`, `Representability.rigidify`
-- Tests: `ExportTests.grassmannianPoints` [compatibility] `T`-points are locally free quotients; `ExportTests.picardConic` [computation] `Pic_{C/k}(k) = ℤ`, `Pic(C) = 2ℤ` for a pointless conic; `ExportTests.nodeTangent` [computation] the node's deformation space has dimension 1.
-- Source: Nitsure 2005, §§1–5 via SF.4; Stacks, Section 99.3 (tag 08JS), Section 99.4 (tag 08K7), Proposition 99.11.8 (tag 0D2C).
-- Needs: R09.1, R09.2, T512, T539, T551; SF.4 (`SF.4/hilbert-scheme`, `SF.4/grassmannian-scheme`); ModularCurves 0G.
-
 <a id="r09-7"></a>
 ## R09.7. Characteristic-zero resolution and normal-crossings compactification
 
-This layer proves canonical embedded resolution of singularities for varieties over a field of characteristic zero after Bierstone–Milman 1997 (Theorems 11.14, 12.2, 13.2) and packages its corollary: a smooth quasi-projective variety U is the complement of a strict normal crossings divisor in a smooth projective variety. The algorithm is the marked-ideal one: an ideal with marking d is transformed under blowups of permissible centres, its order is reduced by restricting a coefficient ideal to a hypersurface of maximal contact and inducting on dimension, and the local constructions glue because a local invariant with well-ordered values is upper semicontinuous and compatible with local isomorphisms; its maximum stratum is the next centre and the maximum strictly drops. The closing interface records the holomorphic polydisc charts along the boundary over ℂ, the input shape of Borel 1972, Theorem A, which is consumed, not proved; Deligne, Théorie de Hodge II, 4.4.3 is one consumer and is a remark, not a target.
+This layer proves canonical embedded resolution of singularities for varieties over a field of characteristic zero after Bierstone–Milman 1997 (Theorems 1.6, 1.10 and 13.2) and packages its corollary: a smooth quasi-projective variety U is the complement of a strict normal crossings divisor in a smooth projective variety. The algorithm is the marked-ideal one: an ideal with marking d is transformed under blowups of permissible centres, its order is reduced by restricting a coefficient ideal to a hypersurface of maximal contact and inducting on dimension, and the local constructions glue because a local invariant with well-ordered values is upper semicontinuous and compatible with local isomorphisms; its maximum stratum is the next centre and the maximum strictly drops. The closing interface records the holomorphic polydisc charts along the boundary over ℂ, the input shape of Borel 1972, Theorem A, which is consumed, not proved; Deligne, Théorie de Hodge II, Theorem (3.2.5) (the mixed Hodge structure of a smooth variety, independent of the compactification) is one consumer and is a remark, not a target.
 
 **Conventions.** k is a field with `CharZero k`; a *variety* is a separated k-scheme of finite type; "smooth" is `AlgebraicGeometry.Smooth` over Spec k; M is a smooth variety, E = (E_1,…,E_r) an ordered tuple of smooth divisors with SNC (`SF.4/strict-normal-crossings`), the *boundary*; `Bl_C M`, `Exc` are from StableReduction Layer 4; a *marked ideal* is (I, d), I ⊂ O_M coherent, d ≥ 1. Sources: BM = Bierstone–Milman 1997; K3 = Kollár 2007, Chapter 3; W = Włodarczyk 2005.
 
@@ -1327,45 +1320,45 @@ This layer proves canonical embedded resolution of singularities for varieties o
 
 **T557** `R09.7/order-at-point` (definition). `ord_a I` is the largest n with I_a ⊂ 𝔪_a^n (∞ if I_a = 0); `Cosupp(I, d) := {a : ord_a I ≥ d}`.
 - Hypotheses: M a variety; I coherent.
-- API: `Ideal.ordAt`, `Ideal.ordAt_mul`, `Ideal.ordAt_pow`, `Ideal.cosupp`
+- API: `Ideal.orderAt`, `Ideal.orderAt_mul`, `Ideal.orderAt_pow`, `MarkedIdeal.cosupport`
 - Tests: `OrderTests.unitIdeal` [degenerate] ord O_M = 0; `OrderTests.cusp` [computation] ord_0 (y² − x³) = 2; `OrderTests.notZeroSet` [non-example] ord_0 (x²) = 2 though V(x²) is smooth.
-- Source: BM, Chapter I.
+- Source: BM, Chapter I, §3 "Basic notions" (the order ν_a); the cosupport is K3's `cosupp(I, d)` (§3.13).
 - Needs: Mathlib `IsLocalRing`, `IsRegularLocalRing`; `SF.4/regular-scheme`
 
 **T558** `R09.7/order-upper-semicontinuous` (theorem). For M smooth over k and I coherent, `Cosupp(I, d)` is Zariski closed for every d.
 - Hypotheses: M smooth; I coherent.
-- Source: BM, Chapter I.
+- Source: BM, Chapter I, §3 "Basic notions" (Lemma 3.10, semicontinuity of order-type invariants).
 - Needs: T557; `SF.4/regular-scheme`
 
 **T559** `R09.7/marked-ideal-permissible-centre` (definition). The datum (M, E, I, d); it is *resolved* if `Cosupp(I, d) = ∅`. A closed C ⊂ M is *permissible* if C is smooth, C ⊂ `Cosupp(I, d)`, and C has normal crossings with E (locally, coordinate subspaces of one parameter system).
 - Hypotheses: M smooth; E SNC.
-- API: `MarkedIdeal`, `MarkedIdeal.cosupp`, `MarkedIdeal.IsResolved`, `PermissibleCentre`, `PermissibleCentre.ncWithBoundary`
+- API: `MarkedIdeal`, `MarkedIdeal.cosupport`, `MarkedIdeal.IsResolved`, `PermissibleCentre`, `PermissibleCentre.ncWithBoundary`
 - Tests: `MarkedTests.emptyCentre` [degenerate] ∅ is permissible; `MarkedTests.cuspOrigin` [computation] 0 is permissible for ((y² − x³), 2); `MarkedTests.tangentNotNC` [non-example] V(y − x²) is not permissible when E = (V(y)).
-- Source: K3, section "Birational transforms and marked ideals"; W, §3 "Marked ideals".
+- Source: K3, §3.5 "Birational transforms and marked ideals"; W, §2.1, Definition 2.1.1.
 - Needs: T557; Mathlib `AlgebraicGeometry.IsClosedImmersion`; `SF.4/strict-normal-crossings`
 
 **T560** `R09.7/transforms-of-marked-ideal` (definition). For C permissible and π : M' = Bl_C M → M with F = `Exc` (ideal I_F): the *total transform* π^{-1}I·O_{M'}; the *strict transform* (`SF.4/strict-transform`, plus the marking d); the *controlled transform* I' := I_F^{-d}·π^{-1}I·O_{M'}, defined since π^{-1}I ⊂ I_F^d; the boundary E' := (strict transforms of the E_i, F). Along a sequence the *exceptional record* stores the m_j with total transform = ∏ I_{F_j}^{m_j}·I'.
 - Hypotheses: C permissible for (M, E, I, d).
 - API: `MarkedIdeal.totalTransform`, `MarkedIdeal.controlledTransform`, `MarkedIdeal.boundaryTransform_snc`, `BlowupSequence.excMult`
 - Tests: `TransformTests.emptyCentre` [degenerate] C = ∅ gives I' = I; `TransformTests.cuspChart` [computation] in the chart y = x y' the controlled transform of ((y² − x³), 2) is (y'² − x); `TransformTests.notStrict` [non-example] strict ≠ controlled transform of the cusp for marking 1.
-- Source: K3, section "Birational transforms and marked ideals"; W, §2 "Preliminaries".
+- Source: K3, §3.5 "Birational transforms and marked ideals"; W, §2.2 (transforms of marked ideals).
 - Needs: T559; StableReduction Layer 4; `SF.4/strict-transform`; `SF.4/strict-normal-crossings`
 
 **T561** `R09.7/blowup-smooth-base-change` (theorem). For g : N → M smooth and C ⊂ M closed, the base change of `Bl_C M → M` along g is `Bl_{g^{-1}C} N → N`, with exceptional divisors corresponding; if C is permissible for (M, E, I, d) then g^{-1}C is permissible for (N, g^{-1}E, g^{-1}I, d) and controlled transforms correspond.
 - Hypotheses: g smooth; C closed; no char hypothesis.
-- Source: StableReduction Layer 4; K3, section "Birational transforms and marked ideals".
+- Source: StableReduction Layer 4; K3, §3.5 "Birational transforms and marked ideals".
 - Needs: T559, T560; StableReduction Layer 4; Mathlib `AlgebraicGeometry.Smooth`
 
 **T562** `R09.7/marked-ideal-equivalence` (definition). (I_1, d_1) and (I_2, d_2) on (M, E) are *equivalent* if their cosupports agree after every sequence of blowups with centres permissible for both, every open restriction and every smooth pullback (T561); (I, d) ~ (I^k, kd) for all k ≥ 1, and equivalence is stable under multiplication by a fixed (J, e).
 - Hypotheses: as T559.
 - API: `MarkedIdeal.Equiv`, `MarkedIdeal.Equiv.trans`, `MarkedIdeal.Equiv.cosupp_eq`, `MarkedIdeal.Equiv.blowup`
 - Tests: `EquivTests.refl` [degenerate]; `EquivTests.power` [computation] ((x), 1) ~ ((x²), 2); `EquivTests.notEquiv` [non-example] ((x², y), 1) and ((x, y), 1) separate after blowing up 0.
-- Source: K3, section "Birational transforms and marked ideals"; W, §3 "Marked ideals".
+- Source: K3, §3.5 "Birational transforms and marked ideals"; W, §2.5 (the equivalence relation).
 - Needs: T557, T560, T561
 
 **T563** `R09.7/monomial-case` (theorem). If I = ∏ I_{E_i}^{a_i}, then (I, d) is resolved by the explicit finite sequence blowing up ⋂_{i∈J} E_i for the lexicographically maximal J with ∑_{i∈J} a_i ≥ d; it is functorial for smooth pullbacks.
 - Hypotheses: M smooth; E SNC; I monomial in E; any characteristic.
-- Source: K3, section "Order reduction for marked ideals" (monomial case); BM, Chapter II, §4.
+- Source: K3, §3.13 "Order reduction for marked ideals" (monomial case); BM, Chapter II, §4 "The local construction" (section level; the chapter is not public and its item numbers are not verified).
 - Needs: T559, T560, T561
 
 <a id="r09-7b"></a>
@@ -1373,38 +1366,38 @@ This layer proves canonical embedded resolution of singularities for varieties o
 
 **T564** `R09.7/derivative-ideal` (definition). `D(I)` is generated by I and all ∂f/∂x_i, f ∈ I, for any local parameter system; `D^j` its iterate, with `ord_a D^j I = ord_a I − j` for j ≤ ord_a I when char k = 0.
 - Hypotheses: M smooth over k; `CharZero k` for the order formula.
-- API: `Ideal.derivative`, `Ideal.derivative_iter`, `Ideal.ordAt_derivative`, `Ideal.derivative_smoothPullback`
+- API: `derivativeIdeal`, `derivativeIdeal_iter`, `orderAt_derivativeIdeal`, `derivativeIdeal_smoothPullback`
 - Tests: `DerivTests.unit` [degenerate] D(O_M) = O_M; `DerivTests.cusp` [computation] D((y² − x³)) = (y, x²) at 0; `DerivTests.charP` [non-example] over 𝔽_p, D((x^p)) = (x^p).
-- Source: K3, section "Maximal contact and going down"; W, §2.
+- Source: K3, §3.7 "Birational transform of derivatives"; W, §2.6, Definition 2.6.1.
 - Needs: T557; Mathlib `KaehlerDifferential`, `Derivation`
 
 **T565** `R09.7/maximal-contact` (definition). For max ord = d, a smooth hypersurface H near a, with normal crossings with E is of *maximal contact* if `Cosupp(I, d) ⊂ H`, persisting under permissible blowups and smooth pullbacks; in char 0 equivalently the ideal of H lies in `D^{d−1}(I)`.
 - Hypotheses: M smooth; `CharZero k`.
 - API: `MaximalContact`, `MaximalContact.cosupp_le`, `MaximalContact.persists`, `MaximalContact.ofDerivative`
 - Tests: `MaxContactTests.orderOne` [degenerate] d = 1, I = (f) smooth: H = V(f); `MaxContactTests.cusp` [computation] V(y) for ((y² − x³), 2); `MaxContactTests.notAnyContaining` [non-example] V(x) fails for the cusp after one blowup.
-- Source: K3, section "Maximal contact and going down"; BM, Chapter II, §4 "The local construction".
+- Source: K3, §3.8 "Maximal contact and going down"; BM, Chapter II, §4 "The local construction".
 - Needs: T559, T560, T561, T564
 
 **T566** `R09.7/maximal-contact-exists` (theorem). If `CharZero k` and ord_a I = d = max ord, a Zariski neighbourhood of a carries a hypersurface of maximal contact, namely V(f) for any f ∈ `D^{d−1}(I)` with ord_a f = 1 (normal crossings with E by T563). Non-example as a test: over 𝔽_2, (x² + y³) has `D(I) = I` and no hypersurface of maximal contact at 0.
 - Hypotheses: `CharZero k`; M smooth; ord_a I = d maximal.
-- Source: K3, section "Maximal contact and going down"; W, §1 (char 0 enters only here).
+- Source: K3, §3.8 "Maximal contact and going down"; W, §2.7 (hypersurfaces of maximal contact).
 - Needs: T564, T565
 
 **T567** `R09.7/coefficient-ideal` (definition). For d = max ord, `C(I, d) := ∑_{j<d} (D^j I)^{d!/(d−j)}` with marking d!, and for H of maximal contact the restriction `(C(I, d)|_H, d!)` on (H, E|_H).
 - Hypotheses: `CharZero k`; H as T565; E|_H SNC.
 - API: `coeffIdeal`, `coeffIdeal.restrict`, `coeffIdeal_cosupp`, `coeffIdeal_smoothPullback`
 - Tests: `CoeffTests.orderOne` [degenerate] C(I, 1) = I; `CoeffTests.cusp` [computation] with H = V(y), C|_H = (x³, x⁴) marked 2; `CoeffTests.notPlainRestriction` [non-example] (I|_H, d) = ((x³), 2) forgets D(I).
-- Source: K3, section "Restriction of derivative ideals"; BM, Chapter II, §4.
+- Source: K3, §3.9 "Restriction of derivatives and going up"; BM, Chapter II, §4.
 - Needs: T562, T564, T565
 
 **T568** `R09.7/going-down-going-up` (theorem). With H of maximal contact: permissible sequences for (H, E|_H, C(I, d)|_H, d!) correspond bijectively to permissible sequences for (M, E, I, d) with centres in H, and the former resolves iff the latter brings max ord below d.
 - Hypotheses: `CharZero k`; d = max ord; H of maximal contact on the whole open.
-- Source: K3, sections "Maximal contact and going down", "Restriction of derivative ideals"; BM, Chapter II, §5 "Proofs".
+- Source: K3, §3.8 "Maximal contact and going down", §3.9 "Restriction of derivatives and going up"; BM, Chapter II, §5 "Proofs".
 - Needs: T560, T565, T567
 
 **T569** `R09.7/maximal-contact-independence` (theorem). For H_1, H_2 of maximal contact near a, an étale neighbourhood of a has a k-automorphism fixing E and `Cosupp`, carrying H_1 to H_2 and preserving the equivalence class of (C(I, d), d!); so T568's sequence is independent of H up to equivalence.
 - Hypotheses: `CharZero k`; d = max ord at a.
-- Source: K3, sections "Tuning of ideals", "Uniqueness of maximal contact"; W, §3 (homogenised ideals).
+- Source: K3, §3.10 "Uniqueness of maximal contact", §3.11 "Tuning of ideals"; W, §2.9 (homogenised ideals).
 - Needs: T562, T565, T567; Mathlib `AlgebraicGeometry.Etale`
 
 **T570** `R09.7/local-invariant` (definition). For a ∈ `Cosupp(I, d)` along a blowup sequence, `inv(a)` = (ν_1; s_1; ν_2; s_2; …): normalised orders of successive coefficient ideals along a maximal-contact chain at a, interleaved with counts s_j of exceptional-record components through a, ending in ∞ or the monomial case; values lie in a well-ordered `InvValues`.
@@ -1429,32 +1422,32 @@ This layer proves canonical embedded resolution of singularities for varieties o
 
 **T573** `R09.7/invariant-drops-terminates` (theorem). Blowing up the centre of T572 makes `max inv` strictly smaller in `InvValues`; well-ordering stops the iteration after finitely many steps, with the controlled transform resolved. Non-example test: for x² = y²z a point over 0 still has multiplicity 2 after the first blowup, so multiplicity alone does not terminate.
 - Hypotheses: `CharZero k`; M smooth.
-- Source: BM, Chapter II, §5 "Proofs" and §6; K3, section "Order reduction for marked ideals".
+- Source: BM, Chapter II, §5 "Proofs" and §6; K3, §3.13 "Order reduction for marked ideals".
 - Needs: T568, T563, T570, T572
 
 **T574** `R09.7/principalisation` (theorem). For I ≠ 0 coherent on (M, E), a finite sequence of permissible blowups makes the total transform of I the ideal of ∏ F_j^{m_j}, F_j exceptional, with E' ∪ ⋃F_j SNC.
 - Hypotheses: `CharZero k`; M smooth; I nonzero coherent.
-- Source: BM, Chapter IV, §11 "Algebraic desingularization theorems"; W, §1 (canonical principalization).
+- Source: BM, Theorem 1.10 (principalisation) and Chapter IV, §11 "Algebraic desingularization theorems"; W, Theorem 1.0.1 (canonical principalisation).
 - Needs: T560, T573; `SF.4/strict-normal-crossings`
 
 **T575** `R09.7/embedded-desingularisation` (theorem). For X ⊂ M closed, M smooth over k, a finite sequence of blowups with smooth centres having normal crossings with the accumulated exceptional divisor makes the strict transform X' smooth with normal crossings with it; it is T573's sequence for (I_X, 1) with the Hilbert–Samuel refinement.
 - Hypotheses: `CharZero k`; M smooth; X closed subvariety.
-- Source: BM, Theorem 11.14 (Chapter III for the Hilbert–Samuel invariant).
+- Source: BM, Theorem 1.6 (embedded desingularisation) and Chapter IV, §11 (its Theorem 11.14, a number not verified against a copy); Chapter III for the Hilbert–Samuel invariant.
 - Needs: T573, T574; `SF.4/strict-transform`
 
 **T576** `R09.7/iso-over-resolved-locus` (theorem). X' → X of T575 is an isomorphism over the open set where X is smooth with normal crossings with E; the centres never meet that locus.
 - Hypotheses: as T575.
-- Source: BM, Theorem 12.2.
+- Source: BM, Chapter IV, §12 "How to avoid blowing up resolved points" (its Theorem 12.2, a number not verified against a copy).
 - Needs: T575; `SF.4/modification`
 
 **T577** `R09.7/local-isomorphism-functoriality` (theorem). For a local isomorphism g : (N, g^{-1}E, g^{-1}X) → (M, E, X), the sequence of T575 for N is the step-by-step pullback along g of that for M; functoriality for all smooth morphisms is not asserted.
 - Hypotheses: as T575; g étale or an open immersion.
-- Source: BM, Theorem 13.2.
+- Source: BM, Theorem 13.2 (universal desingularisation, Chapter IV §13).
 - Needs: T561, T571, T575; Mathlib `AlgebraicGeometry.Etale`, `AlgebraicGeometry.IsOpenImmersion`
 
 **T578** `R09.7/non-embedded-resolution` (theorem). Every variety X admits a proper birational X̃ → X, X̃ smooth, an isomorphism over the smooth locus, by embedding affine opens in affine spaces, applying T575 and gluing by T577.
 - Hypotheses: `CharZero k`; X separated of finite type.
-- Source: BM, Chapter IV, §11; Theorem 13.2.
+- Source: BM, Theorem 1.6 and Chapter IV, §11; Theorem 13.2.
 - Needs: T575, T576, T577; `SF.4/modification`
 
 <a id="r09-7d"></a>
@@ -1462,19 +1455,19 @@ This layer proves canonical embedded resolution of singularities for varieties o
 
 **T579** `R09.7/snc-compactification` (theorem). For U smooth quasi-projective over k there is a smooth projective X̄ with an open immersion U → X̄ and X̄ ∖ U a strict normal crossings divisor: take a projective closure (R09.1), resolve (closure, boundary) by T575 with centres in the boundary (T576, as U lies in the resolved locus), then principalise the boundary ideal by T574.
 - Hypotheses: `CharZero k`; U smooth, quasi-projective.
-- Source: BM, Theorems 11.14 and 12.2; Deligne, Théorie de Hodge II, §3.2.
+- Source: BM, Theorems 1.6 and 1.10 with Chapter IV §12; Deligne, Théorie de Hodge II, (3.2.1).
 - Needs: T574, T575, T576; R09.1; `SF.4/strict-normal-crossings`; Mathlib `AlgebraicGeometry.IsOpenImmersion`
 
 **T580** `R09.7/polydisc-boundary-chart` (definition). For k = ℂ and (X̄, D) as T579, a *polydisc chart* at p ∈ D is a biholomorphism of a neighbourhood of p in X̄(ℂ) onto Δ^n, p ↦ 0, D ↦ {z_1⋯z_k = 0}; it restricts to (Δ*)^k × Δ^{n−k} ≅ U ∩ chart.
 - Hypotheses: k = ℂ; X̄ smooth; D SNC with k branches through p.
 - API: `PolydiscChart`, `PolydiscChart.boundary_eq_coordHyperplanes`, `PolydiscChart.punctured`, `PolydiscChart.restrictU`
 - Tests: `ChartTests.interior` [degenerate] k = 0 is a smooth chart of U; `ChartTests.curve` [computation] on a curve, a disc with D = {z_1 = 0}; `ChartTests.cuspNotSNC` [non-example] no such chart at a cusp of D.
-- Source: Griffiths–Harris, Principles of Algebraic Geometry, Chapter 0 (inverse function theorem); Deligne, Théorie de Hodge II, §3.1.
+- Source: Griffiths–Harris, Principles of Algebraic Geometry, Chapter 0 (the holomorphic inverse function theorem); Deligne, Théorie de Hodge II, (3.1.2) and the proof of Proposition (3.1.9).
 - Needs: T579; `SF.4/strict-normal-crossings`; `SF.4/nc-to-snc`
 
 **T581** `R09.7/polydisc-charts-cover` (theorem). For k = ℂ and (X̄, D) as T579, polydisc charts (T580) exist at every point of D; so a holomorphic map on U is, near D, a map on (Δ*)^k × Δ^{n−k} in each chart, the hypothesis shape of Borel 1972, Theorem A (consumed, not proved).
 - Hypotheses: k = ℂ; D SNC.
-- Source: Deligne, Théorie de Hodge II, §3.1; Borel 1972, Theorem A (statement only).
+- Source: Deligne, Théorie de Hodge II, proof of Proposition (3.1.9); Borel 1972, Theorem A (statement only, as cited by later work; the paper itself was not verified).
 - Needs: T579, T580
 
 ## Sources
