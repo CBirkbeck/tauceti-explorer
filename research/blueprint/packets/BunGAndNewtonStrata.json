@@ -136,6 +136,72 @@
     "module": "Mathlib/CategoryTheory/Monoidal/NaturalTransformation.lean",
     "provides": "Unit and tensor compatibility for natural transformations between monoidal functors; a natural isomorphism alone is insufficient.",
     "checked": "Statement read at the recorded pin on 2026-10-10 by Codex codex-1VC77g; imported in the suggested file and checked with lean-check."
+   },
+   {
+    "ref": "tauceti:TauCeti.AlgHom.mapValue",
+    "module": "TauCeti/Algebra/AlgebraicGroup/FunctorOfPoints.lean",
+    "provides": "Postcomposition by an E-algebra map is a homomorphism of native convolution point groups for a commutative Hopf algebra; used for coefficient Frobenius and coefficient change.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.MultiplicativeGroup.pointsMulEquiv_mapValue",
+    "module": "TauCeti/Algebra/AlgebraicGroup/MultiplicativeGroup/Basic.lean",
+    "provides": "The Laurent-polynomial Hopf point group is multiplicatively equivalent to units, naturally under coefficient algebra maps. This supplies the G_m Frobenius comparison.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "mathlib:WittVector.exists_frobenius_solution_fractionRing",
+    "module": "Mathlib/RingTheory/WittVector/FrobeniusFractionField.lean",
+    "provides": "Over an algebraically closed residue field of characteristic prime p, each nonzero Witt fraction a admits a nonzero b and integer m satisfying φ(b)a=p^m b. This provides existence of rank-one normal forms, not the full general-E category.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "mathlib:WittVector.FractionRing.frobenius",
+    "module": "Mathlib/RingTheory/WittVector/Isocrystal.lean",
+    "provides": "For a perfect domain of characteristic p, native Frobenius extends to a ring equivalence of the p-typical Witt fraction field.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Groupoid",
+    "module": "Mathlib/CategoryTheory/Groupoid.lean",
+    "provides": "A native category in which each morphism has an inverse. The representative groupoid keeps every twisted conjugator rather than replacing orbit classes by a discrete category.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Aut.Aut_mul_def",
+    "module": "Mathlib/CategoryTheory/Endomorphism.lean",
+    "provides": "Native Aut multiplication is reversed categorical composition; this gives the usual point-stabilizer multiplication for the representative groupoid.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "mathlib:Algebra.TensorProduct.map",
+    "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+    "provides": "Tensor products of algebra homomorphisms give algebra homomorphisms; here coefficient maps act as f⊗id_L.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "mathlib:Algebra.TensorProduct.congr",
+    "module": "Mathlib/RingTheory/TensorProduct/Maps.lean",
+    "provides": "Tensor products of algebra equivalences give algebra equivalences; here Frobenius is id_A⊗σ on A⊗_E L.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.DiagonalizableGroup.weightSpace",
+    "module": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Weight.lean",
+    "provides": "Corestriction of a representation comodule along a coalgebra map to a group algebra defines weight submodules and their internal direct-sum decomposition.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.DiagonalizableGroup.finite_setOf_weightSpace_ne_bot",
+    "module": "TauCeti/Algebra/AlgebraicGroup/DiagonalizableGroup/Weight.lean",
+    "provides": "For a finitely generated representation module, the nonzero weight submodules after corestriction to a group algebra have finite support.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
+   },
+   {
+    "ref": "tauceti:TauCeti.MonoidAlgebra.mapDomainBialgHom_surjective",
+    "module": "TauCeti/Algebra/Bialgebra/MonoidAlgebra/GroupLike.lean",
+    "provides": "Over a commutative ring with connected prime spectrum, every bialgebra map between monoid algebras is induced by a monoid homomorphism; the adjacent injectivity theorem assumes a nontrivial base. A field satisfies both conditions.",
+    "checked": "Codex codex-2yypeW, 2026-10-10: providing statement read at the recorded pin; only the stated scope is used."
    }
   ]
  },
@@ -758,13 +824,24 @@
    "prerequisites": [
     "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G",
     "mathlib:Subgroup",
-    "mathlib:MulEquiv"
+    "mathlib:MulEquiv",
+    "tauceti:TauCeti.AlgHom.mapValue",
+    "tauceti:TauCeti.MultiplicativeGroup.pointsMulEquiv_mapValue",
+    "mathlib:CategoryTheory.Groupoid",
+    "mathlib:CategoryTheory.Aut.Aut_mul_def",
+    "mathlib:WittVector.exists_frobenius_solution_fractionRing",
+    "mathlib:WittVector.FractionRing.frobenius"
    ],
    "sources": [
     {
      "sourceId": "He21",
      "locator": "Section2.1 p.4",
      "match": "The cited passage supplies the stated contract; qualifications and source corrections are retained in the node."
+    },
+    {
+     "sourceId": "FS",
+     "locator": "DefinitionIII.2.1 and TheoremIII.2.2 p.89; III.2.4.1 pp.89–90",
+     "match": "The tensor-isocrystal classification distinguishes the representative groupoid from its isomorphism classes; the split torus invariant is the integral valuation. The Witt case here uses the pinned rank-one Frobenius-solution theorem."
     }
    ],
    "implementationStatus": "unchecked",
@@ -792,6 +869,46 @@
      "name": "TauCeti.BunG.SigmaClass.lift",
      "role": "universal-property",
      "statement": "Every function on G(L) invariant under twisted conjugation descends uniquely to B(G)."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.affinePoints",
+     "role": "compatibility",
+     "statement": "For a commutative coordinate Hopf algebra H over E and an E-algebra automorphism σ of L, specialize the quotient to the native convolution group of E-algebra maps H→L. Arithmetic B(G) uses the actual coefficient field and Frobenius supplied by VB0."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.equiv",
+     "role": "equivalence",
+     "statement": "A Frobenius-compatible group equivalence induces an equivalence of sigma-class quotients, carrying the class of b to the class of its image."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.representativeGroupoid",
+     "role": "constructor",
+     "statement": "Objects are elements b of the coefficient point group; arrows b→c are all g satisfying c=g b σ(g)^−1. The composite of g:b→c and h:c→d has conjugator h g, and inverses use g^−1."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.representative_hom_iff",
+     "role": "characterisation",
+     "statement": "A representative Hom is nonempty exactly when the two quotient classes agree; this does not make it a singleton."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.representativeAut",
+     "role": "compatibility",
+     "statement": "The native category-theoretic automorphism group of representative b identifies multiplicatively with its sigma-stabilizer. Mathlib’s Aut multiplication reverses categorical composition, matching the usual stabilizer multiplication."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.gmEquiv",
+     "role": "compatibility",
+     "statement": "The native Laurent-polynomial Hopf points equivalence identifies the split G_m sigma quotient with the quotient on L×, for any E-algebra automorphism of L."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.wittGmSlopeEquiv",
+     "role": "equivalence",
+     "statement": "For prime p and an algebraically closed field k of characteristic p, the units of FractionRing(WittVector p k), with native Witt Frobenius, have sigma-class quotient equivalent to Z. This is a concrete p-typical specialization, not the general-E supplier theorem."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.wittGmSlopeEquiv_uniformizer",
+     "role": "characterisation",
+     "statement": "In that Witt specialization, the class of p^m maps to m, for every integer m; the normalized valuation is Frobenius-invariant."
     }
    ],
    "tests": [
@@ -809,6 +926,41 @@
      "name": "TauCeti.BunG.SigmaClass.testCommutative",
      "kind": "non-example",
      "statement": "For an abelian group the relation is multiplication by g/σ(g), not equality unless σ is trivial."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.testRepresentativeHom",
+     "kind": "compatibility",
+     "statement": "For representative objects b,c, equality of sigma classes is equivalent to existence of a conjugator arrow."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.testRepresentativeComposition",
+     "kind": "compatibility",
+     "statement": "For arrows g:b→c and h:c→d, composition has conjugator h g; reversing this order is invalid in a noncommutative point group."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.testRepresentativeAutomorphisms",
+     "kind": "non-example",
+     "statement": "With identity Frobenius and representative 1, the automorphism group is the entire point group, rather than the trivial group of a discrete quotient category."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.testGmNativePoints",
+     "kind": "compatibility",
+     "statement": "The split G_m quotient equivalence sends a class represented by an actual Laurent-polynomial algebra map to the class of its corresponding unit."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.testWittGL1",
+     "kind": "computation",
+     "statement": "For the native Witt fraction field and every integer m, the class of p^m has slope m."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.testWittGL1Unit",
+     "kind": "degenerate",
+     "statement": "The class of 1 in the Witt units quotient has slope zero."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaClass.testWittGL1Distinct",
+     "kind": "non-example",
+     "statement": "The classes of 1 and p in the Witt units quotient differ; replacing Frobenius or dropping the valuation normalization would miss this control."
     }
    ],
    "uses": [
@@ -822,7 +974,7 @@
     }
    ],
    "prototype": {
-    "status": "typed-pointwise-core",
+    "status": "typed-affine-point-and-groupoid-interface",
     "gap": "G08",
     "declarations": [
      "TauCeti.BunG.SigmaClass",
@@ -833,9 +985,17 @@
      "TauCeti.BunG.SigmaClass.map_mk",
      "TauCeti.BunG.SigmaClass.map_id",
      "TauCeti.BunG.SigmaClass.map_comp",
-     "TauCeti.BunG.SigmaClass.lift_unique"
+     "TauCeti.BunG.SigmaClass.lift_unique",
+     "TauCeti.BunG.SigmaClass.affinePoints",
+     "TauCeti.BunG.SigmaClass.equiv",
+     "TauCeti.BunG.SigmaClass.representativeGroupoid",
+     "TauCeti.BunG.SigmaClass.representative_hom_iff",
+     "TauCeti.BunG.SigmaClass.representativeAut",
+     "TauCeti.BunG.SigmaClass.gmEquiv",
+     "TauCeti.BunG.SigmaClass.wittGmSlopeEquiv",
+     "TauCeti.BunG.SigmaClass.wittGmSlopeEquiv_uniformizer"
     ],
-    "note": "These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage."
+    "note": "The quotient is instantiated at native Hopf-algebra points and at the native Witt unit group, with a genuine representative groupoid and stabilizer automorphism equivalence. The G_m comparison uses Tau Ceti’s Laurent-polynomial points equivalence; the Witt slope equivalence has the explicit p-typical hypotheses. The remaining G08 obligation is its comparison with the concrete exact tensor G-isocrystal category and the general local coefficient/Frobenius instantiation. These are algebraic interfaces, not analytic bundle or v-stack signatures."
    }
   },
   {
@@ -868,7 +1028,10 @@
     "mathlib:Subgroup",
     "BunGAndNewtonStrata:BG0/existence-of-decent-representative",
     "VectorBundlesAndIsocrystals:VB0/endomorphism-division-algebra",
-    "VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign"
+    "VectorBundlesAndIsocrystals:VB0/brauer-invariant-sign",
+    "tauceti:TauCeti.AlgHom.mapValue",
+    "mathlib:Algebra.TensorProduct.map",
+    "mathlib:Algebra.TensorProduct.congr"
    ],
    "sources": [
     {
@@ -913,6 +1076,21 @@
      "name": "TauCeti.BunG.SigmaCentralizer.autIsocrystal",
      "role": "equivalence",
      "statement": "J_b(E) is the tensor automorphism group of the G-isocrystal defined by b."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaCentralizer.functorOfPoints",
+     "role": "functoriality",
+     "statement": "Retain the whole group-valued functor on commutative E-algebras A. Its coefficient group is the native convolution group of maps H→A⊗_E L; Frobenius acts as id_A⊗σ and b enters through the right tensor factor. An algebra map f:A→B acts by f⊗id_L."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaCentralizer.naturalConjugacy",
+     "role": "equivalence",
+     "statement": "Changing b by g b σ(g)^−1 gives a natural isomorphism of these group-valued functors, whose component conjugates by the image of g in A⊗_E L. Representability and Levi descent remain additional contracts."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaCentralizer.naturalConjugacy_apply",
+     "role": "characterisation",
+     "statement": "At every coefficient E-algebra A, the natural representative-change map sends h to g_A h g_A^−1, where g_A is the image of g in G(A⊗_E L). It uses g_A on both sides, rather than σ(g_A)."
     }
    ],
    "tests": [
@@ -930,6 +1108,21 @@
      "name": "TauCeti.BunG.SigmaCentralizer.testNonbasic",
      "kind": "non-example",
      "statement": "For GL_2 slopes0,1, the algebraic J_b is G_m×G_m, while the bundle automorphism v-group also has a positive-slope kernel."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaCentralizer.testCoefficientNaturality",
+     "kind": "compatibility",
+     "statement": "A coefficient map f:A→B sends an H-point by postcomposition with f⊗id_L, without changing the L factor."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaCentralizer.testFixedGroup",
+     "kind": "degenerate",
+     "statement": "For b=1 and every E-algebra A, the centralizer functor is exactly the id_A⊗σ-fixed subgroup of G(A⊗_E L). Arithmetic fixed-field descent to G(A) is a separate theorem."
+    },
+    {
+     "name": "TauCeti.BunG.SigmaCentralizer.testIdentityFrobenius",
+     "kind": "non-example",
+     "statement": "If σ is replaced by the identity and b=1, the value at A is the entire coefficient point group. This control must not be mistaken for arithmetic fixed-field descent."
     }
    ],
    "uses": [
@@ -947,10 +1140,20 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-affine-point-functor",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.PointCoefficients",
+     "TauCeti.BunG.coefficientFrobenius",
+     "TauCeti.BunG.coefficientRepresentative",
+     "TauCeti.BunG.centralizerPoints",
+     "TauCeti.BunG.centralizerMap",
+     "TauCeti.BunG.centralizerFunctor",
+     "TauCeti.BunG.SigmaCentralizer.functorOfPoints",
+     "TauCeti.BunG.SigmaCentralizer.naturalConjugacy",
+     "TauCeti.BunG.SigmaCentralizer.naturalConjugacy_apply"
+    ],
+    "note": "The actual functor on all commutative E-algebras and its natural representative-change isomorphism are typed using native tensor algebras and Hopf points. Its representation by a reductive E-group, Newton-Levi base change and tensor-isocrystal automorphism comparison remain omitted."
    }
   },
   {
@@ -985,13 +1188,14 @@
    "implementationStatus": "unchecked",
    "declaration": "TauCeti.BunG.SigmaCentralizerConjugacy",
    "prototype": {
-    "status": "typed-pointwise-core",
+    "status": "typed-natural-point-functor-isomorphism",
     "gap": "G08",
     "declarations": [
      "TauCeti.BunG.SigmaCentralizer.conjugateEquiv",
-     "TauCeti.BunG.SigmaCentralizer.conjugateEquiv_apply"
+     "TauCeti.BunG.SigmaCentralizer.conjugateEquiv_apply",
+     "TauCeti.BunG.SigmaCentralizer.naturalConjugacy"
     ],
-    "note": "These declarations type only the explicitly restricted abstract-group or affine-fibre core. The general-E coefficient groups, represented reductive groups, and geometric signatures still depend on G08 suppliers; the register is not signature coverage."
+    "note": "The native affine point-functor isomorphism now retains naturality on all coefficient E-algebras, in addition to the stabilizer equivalence. The reductive representing-group isomorphism and its tensor automorphism action still require the Newton/descent and concrete isocrystal suppliers."
    }
   },
   {
@@ -4989,20 +5193,24 @@
    ],
    "title": "Rational slope protorus",
    "kind": "definition",
-   "statement": "Let D be the E-protorus with character group Q. A homomorphism D→G is a compatible rational cocharacter, not a single integral cocharacter. For each representation its weight grading records all rational isocrystal slopes.",
+   "statement": "Let D=D(Q) be the diagonalizable E-protorus with coordinate Hopf algebra E[Q], using the additive group Q. It is not a finite-type torus. A homomorphism D→G is a Hopf-compatible coordinate map O(G)→E[Q]. Its restriction on each finite rational representation gives rational weight subspaces, with only finitely many nonzero weights. Over a splitting field, Hom(D,T) is Hom(X*(T),Q), hence X_*(T)⊗Q for a finite-rank torus. A rational cocharacter need not be integral.",
    "hypotheses": [
     "Global conventions in the reader apply; additional restrictions are stated in the contract."
    ],
    "proofSteps": [
-    "Construct D as the inverse limit of G_m under positive power maps.",
-    "Use the character-group anti-equivalence to identify Hom(D,T) with X_*(T)⊗Q."
+    "Reuse the native group-algebra Hopf structure and diagonalizable point/weight APIs at the pinned library, specialized to the multiplicative presentation of the additive group Q; the direct limit of character lattices identifies its spectrum with the inverse limit of G_m under positive power maps.",
+    "Restrict the representation comodule along O(G)→E[Q], and use the native internal weight decomposition and finite-support theorem. Clear the finitely many rational denominators.",
+    "Apply the native group-algebra morphism/character-homomorphism correspondence over a field. For a split finite-rank torus this is the rational cocharacter space; Galois descent to a nonsplit torus retains the supplier’s action rather than treating it as a split torus."
    ],
    "acceptance": [
     "Denominator h requires an h-fold integral representative."
    ],
    "prerequisites": [
     "tauceti:TauCetiRoadmap/ReductiveGroups#layer-1-representations--comodules",
-    "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals"
+    "VectorBundlesAndIsocrystals:VB0/dieudonne-manin-isocrystals",
+    "tauceti:TauCeti.DiagonalizableGroup.weightSpace",
+    "tauceti:TauCeti.DiagonalizableGroup.finite_setOf_weightSpace_ne_bot",
+    "tauceti:TauCeti.MonoidAlgebra.mapDomainBialgHom_surjective"
    ],
    "sources": [
     {
@@ -5017,39 +5225,64 @@
     {
      "name": "TauCeti.BunG.SlopeProtorus.weight",
      "role": "projection",
-     "statement": "Evaluate a rational weight in a representation."
+     "statement": "For a representation comodule V and coordinate map ν:O(G)→E[Q], return the q-weight submodule of V obtained by native comodule corestriction."
     },
     {
      "name": "TauCeti.BunG.SlopeProtorus.integralMultiple",
      "role": "constructor",
-     "statement": "Clear finitely many weight denominators for a finite representation."
+     "statement": "For a finite representation, choose a positive integer n such that n q is integral for every nonzero rational weight submodule. Finite support comes from the native diagonalizable weight theorem."
     },
     {
      "name": "TauCeti.BunG.SlopeProtorus.toTorus",
      "role": "equivalence",
-     "statement": "Hom(D,T) identifies with X_*(T)⊗Q."
+     "statement": "Over a splitting field, the coordinate maps E[X*(T)]→E[Q] identify with additive maps X*(T)→Q. For a finite free character lattice this identifies Hom(D,T) with X_*(T)⊗Q; a nonsplit descent comparison must preserve its Galois action."
     },
     {
      "name": "TauCeti.BunG.SlopeProtorus.map",
      "role": "functoriality",
-     "statement": "Postcomposition sends D→G to D→H."
+     "statement": "For G→H represented by O(H)→O(G), postcomposition of D→G is coordinate-map composition O(H)→O(G)→E[Q]."
+    },
+    {
+     "name": "TauCeti.BunG.SlopeProtorus.mem_weight",
+     "role": "characterisation",
+     "statement": "A vector v lies in the q-weight submodule precisely when its corestricted coaction is v⊗[q]."
+    },
+    {
+     "name": "TauCeti.BunG.SlopeProtorus.finite_weights",
+     "role": "characterisation",
+     "statement": "A finite representation has only finitely many nonzero rational weight submodules."
+    },
+    {
+     "name": "TauCeti.BunG.SlopeProtorus.toTorus_generator",
+     "role": "characterisation",
+     "statement": "The coordinate map associated to X*(T)→Q sends the group-like generator [m] to [ν(m)]."
+    },
+    {
+     "name": "TauCeti.BunG.SlopeProtorus.toMultiplicativeGroup",
+     "role": "constructor",
+     "statement": "The rational slope q determines a coordinate map E[Z]→E[Q] sending [n] to [n q]."
+    },
+    {
+     "name": "TauCeti.BunG.SlopeProtorus.map_apply",
+     "role": "compatibility",
+     "statement": "Coordinate-side postcomposition evaluates as the composite of the two bialgebra maps."
     }
    ],
    "tests": [
     {
      "name": "TauCeti.BunG.SlopeProtorus.testHalf",
      "kind": "computation",
-     "statement": "The slope1/2 character becomes integral after multiplication by2."
+     "statement": "The actual half-slope coordinate map E[Z]→E[Q] sends the generator [2] to [1], detecting denominator clearing on Hopf algebra generators."
     },
     {
      "name": "TauCeti.BunG.SlopeProtorus.testZero",
      "kind": "degenerate",
-     "statement": "Zero slope is the trivial homomorphism."
+     "statement": "The zero-slope coordinate map sends every [n] to the unit [0], giving the trivial group homomorphism."
     },
     {
      "name": "TauCeti.BunG.SlopeProtorus.testDenominator",
      "kind": "non-example",
-     "statement": "The slope1/2 homomorphism cannot be replaced by an integral slope1 cocharacter."
+     "statement": "The half-slope coordinate map differs from every integral-slope map E[Z]→E[Q], including slope one."
     }
    ],
    "uses": [
@@ -5063,10 +5296,21 @@
     }
    ],
    "prototype": {
-    "status": "full-signature-omitted",
+    "status": "typed-diagonalizable-protorus-interface",
     "gap": "G08",
-    "declarations": [],
-    "note": "The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores."
+    "declarations": [
+     "TauCeti.BunG.SlopeProtorus",
+     "TauCeti.BunG.SlopeProtorus.weight",
+     "TauCeti.BunG.SlopeProtorus.integralMultiple",
+     "TauCeti.BunG.SlopeProtorus.toTorus",
+     "TauCeti.BunG.SlopeProtorus.map",
+     "TauCeti.BunG.SlopeProtorus.mem_weight",
+     "TauCeti.BunG.SlopeProtorus.finite_weights",
+     "TauCeti.BunG.SlopeProtorus.toTorus_generator",
+     "TauCeti.BunG.SlopeProtorus.toMultiplicativeGroup",
+     "TauCeti.BunG.SlopeProtorus.map_apply"
+    ],
+    "note": "The native commutative Hopf algebra E[Q], representation weights, finite denominator clearing, split-torus character-map equivalence and coordinate postcomposition are typed. The three tests evaluate or distinguish actual coordinate morphisms. Canonical comparison with arbitrary nonsplit tori and the full Newton morphism remain the reductive/local coefficient supplier contracts; no finite-type diagonalizable group category is incorrectly applied to Q."
    }
   },
   {
@@ -6619,7 +6863,7 @@
   {
    "id": "G08",
    "title": "Lean formulation boundary",
-   "detail": "Native Quillen exact structures, conflation-preserving functors, E-linearity, strong symmetric tensor functors and monoidal natural transformations are available at the pins and are imported. The suggested file now elaborates this categorical interface over specified structured categories. Current upstream RG2.1.5 also gives actual root-datum quotient/Galois/coinvariant signatures; they are reused, not duplicated here. The remaining boundary is the concrete analytic FF bundle and general-E isocrystal category instantiation, coefficient-ring/relative FF geometry, v-stacks, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Neither the pinned build nor the inspected supplier suggested files exports these full geometric carriers. The categorical controls do not replace GL_1/torsor reconstruction, and the omission register does not count as full §13 coverage. FGPointRepresentationCat and its rigid symmetric structure already provide the rational representation source. No arbitrary Type/Prop replacement is used.",
+   "detail": "Native exact, E-linear symmetric tensor abstractions and the rational representation source are available. The suggested file types native affine Hopf point quotients, their representative groupoid/automorphism comparison, the centralizer functor on every coefficient E-algebra, the Witt-unit rank-one specialization and the diagonalizable rational slope protorus. Those algebraic interfaces do not supply tensor-isocrystal reconstruction or represented Newton-Levi descent. The inspected VB0 suggested file already defines FiniteIsocrystal L σ, its Hom/category, tensor object and endomorphism ring; the missing linear interface is its exported E-linear exact symmetric monoidal category and coherence, not its objects or morphisms. The inspected VB1 scheme CurveBundle likewise does not supply the relative analytic FF bundle category. Remaining geometric boundaries are concrete relative FF coefficients and analytic bundles, v-stack carriers, represented filtered groups, crossed-module Weil complexes and analytic cohomological predicates. Current upstream RG2.1.5 foundations are imported rather than duplicated. No arbitrary Type/Prop replacement is used; the omission register remains incomplete §13 coverage.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-bundle",
     "BunGAndNewtonStrata:BG0/g-torsors-three-descriptions",
@@ -7040,7 +7284,7 @@
   },
   {
    "supplier": "VectorBundlesAndIsocrystals:VB0/isocrystal-category-and-standard-block",
-   "need": "Use the exact rigid finite-dimensional linear isocrystal category and its standard simple slope block, extending the WittVector.Isocrystal baseline to general E.",
+   "need": "Reuse VB0’s existing TauCeti.FFBundles.FiniteIsocrystal L σ and its Hom/category, tensor object and endomorphism ring. Export its E-linear preadditive, Quillen exact and rigid symmetric monoidal category structures with coherence, over the actual general local coefficient field. The object and arrow carriers are already suggested; the full structured category needed to instantiate TensorInterface is not. Retain native Witt rank-one compatibility and the standard simple slope block; BG imports these rather than replanning their linear definitions.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-isocrystals-and-B-of-G"
    ]
@@ -7054,7 +7298,7 @@
   },
   {
    "supplier": "VectorBundlesAndIsocrystals:VB1",
-   "need": "Use finite locally free bundles and their effective v-descent as an exact tensor category; no analytic G-torsor patching is needed for algebraic BG0 classification.",
+   "need": "Export the actual relative analytic FF finite locally free bundle category with its E-linear Quillen exact symmetric tensor structure, pullback coherence and effective v-descent. The existing scheme CurveBundle and upstream AlgebraicVectorBundles finite-locally-free modules are inputs; neither is the analytic FF category. No analytic G-torsor patching is needed for the algebraic BG0 classification.",
    "neededBy": [
     "BunGAndNewtonStrata:BG0/g-bundle"
    ]
@@ -9405,20 +9649,31 @@
     "III.1.1 and the tensor description pp.88–89; III.2.1–III.2.2 pp.89–90; ExampleIII.4.4 pp.101–102."
    ],
    "note": "Continuation codex-1VC77g: these passages were reinspected; other source reads remain the separately recorded inherited provenance. Own-word contracts only."
+  },
+  {
+   "source": "FS",
+   "kind": "author copy; bounded continuation check",
+   "url": "https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf",
+   "read": "2026-10-10",
+   "sha256": "9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905",
+   "sections": [
+    "DefinitionIII.2.1 and TheoremIII.2.2 p.89; III.2.4.1–III.2.4.2 pp.89–90; PropositionIII.2.7 and TheoremIII.2.10 pp.91–93."
+   ],
+   "note": "Codex codex-2yypeW inspected these passages for the affine representative quotient, tensor classification boundary, valuation normalization and family invariant comparison. No new full-source audit or published-edition collation is claimed; contracts use own words."
   }
  ],
  "suggestedLean": {
   "file": "research/blueprint/suggested/BunGAndNewtonStrata.lean",
   "baseline": "Individual Mathlib and TauCeti imports at the recorded pins, including native exact-category functor APIs and rational representation symmetric monoidal structure.",
   "status": "elaborated-partial-prototype-needs-signatures",
-  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG.",
+  "scope": "Concrete group quotient/stabilizer, twisted norm, affine difference fibre, realizable finite GL_n slope data, torsion invariant values and rank/sign calculations. Revision 2 adds quotient-map identity/composition and lift uniqueness, actual stabilizer conjugacy equivalence, twisted-norm concatenation/conjugation and period-centralizer consequences, and a chosen-origin affine-fibre equivalence with the integral fixed subgroup. Full geometry signatures are still omitted under G08; these helpers do not satisfy PROTOCOL §13 for the whole roadmap. This continuation adds a genuine exact E-linear symmetric tensor-functor interface, tensor natural isomorphisms, coherent postcomposition and six categorical controls. Actual geometric target categories remain supplier obligations; imported upstream fundamental-group definitions are not copied into BG. Continuation codex-2yypeW adds the native affine point quotient, a representative groupoid with all conjugator arrows, its Aut/stabilizer comparison, the coefficient-algebra centralizer functor and natural conjugacy, native G_m/Witt quotient controls, and the rational diagonalizable protorus with actual representation weight and coordinate-map signatures.",
   "elaboration": {
    "date": "2026-10-10",
    "command": "lean-check research/blueprint/suggested/BunGAndNewtonStrata.lean",
    "exitCode": 0,
-   "warnings": "Only admitted-proof declaration warnings (81); no errors or other warnings.",
-   "limitation": "Checks the concrete algebraic/numerical cores and native categorical interface. Relative analytic category instantiations, full named geometric APIs/tests and the upstream roadmap import remain unavailable under G08.",
-   "agent": "Codex — codex-1VC77g"
+   "warnings": "Only admitted-proof declaration warnings (122); no errors or other warnings.",
+   "limitation": "Checks the typed native algebraic, numerical and categorical interfaces. It does not elaborate the omitted analytic geometry, tensor-isocrystal instantiation, reductive centralizer descent or nonsplit Newton comparisons.",
+   "agent": "Codex — codex-2yypeW"
   }
  },
  "upstreamNotes": [
