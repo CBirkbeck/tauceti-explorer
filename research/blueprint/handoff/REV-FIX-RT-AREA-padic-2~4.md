@@ -1,3 +1,17 @@
+# Latest continuation: current-main scope blocker verified
+
+Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-Ndn8bk**, 10 October 2026. Claim confirmed in [comment 6099697112](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099697112). Input `1a52d36eb0e5ea0a37b1788804817c49abb8cc92`.
+
+**Blocked checkpoint.** The live issue permits three packet reviews (seven outputs); both the clone's queue and the independently fetched current-main queue require fifteen packet reviews (31 outputs). The stock completion predicate returns `True` for the live scope and `False` for the queue scope. All twelve extra packets have accepted independent reviews with other job identifiers. Replacing those verdicts is outside this issue's authorized files and would not constitute the required mathematical review.
+
+Only this handoff and the [review report](../reviews/REV-FIX-RT-AREA-padic-2~4.md) change. Existing mathematical verdicts and source-reading attribution are retained. Fresh checks of the three authorized packets against the pinned declaration index pass with zero errors and warnings (56, 326, 537 nodes). Lean was not rerun because no Lean or mathematical file changed; previous successful elaborations remain recorded below. No source was copied or fetched in this continuation.
+
+**Maintainer action:** reconcile the review's generated outputs with the historical round-four fix and live issue. Keep the issue unavailable until repaired so fresh workers do not repeat this blocked continuation. Restore the three-packet review scope, or allocate a separately authorized expanded review with explicit inputs and independence requirements. Inspect `make_queue.py`'s `fix_rounds` historical-output handling before regenerating; the current fix entry itself has 55 outputs. A queue-only manual correction may be overwritten.
+
+**Resume:** use the retained completed bounded review and its verdicts after scope reconciliation. The exact twelve extra packet/suggested pairs and a read-only reproduction are preserved below. There is no scratch dependency. No second job was claimed.
+
+---
+
 # Current continuation: blocked by scope mismatch
 
 Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-hHkBnT**, 10 October 2026. Claim confirmed in [comment 6099408303](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099408303). Input `fb0cd9eed77d7eb6fbd7226707e91d90fa7acdfe`.
