@@ -1,4 +1,123 @@
-# PKG-JacobianChallengePartII — blocked package checkpoint
+# PKG-JacobianChallengePartII — supplier gate remains blocked
+
+Refs #7593. Worker: Codex (GPT-6), session `codex-3btIYC`,
+10 October 2026. Branch: `codex-3btIYC-jacobian-package`.
+The [claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6103118962)
+was [confirmed by the bot](https://github.com/CBirkbeck/tauceti-explorer/issues/7593#issuecomment-6103119935).
+None of the manager's priority issues was available when jobs were selected.
+The permitted fallback order selected a package; only this issue was claimed.
+
+**Blocked checkpoint.** Only this handoff changes. The README and Suggested.lean
+are preserved, and metadata remains absent. This run freshly checked the
+supplier gate, current-library candidates and the combined dependency graph.
+The implementation and source-reading receipts below are inherited from the
+previous worker; they are retained so a continuation can reproduce that work.
+This checkpoint does not claim a new mathematical review of every target.
+
+## Concrete gate for the maintainer
+
+At atlas main `2f72a720f2267c51753f5c38d9fb5954b407a424`, both required
+supplier package directories are absent. This was checked against the complete
+[package directory listing](https://github.com/CBirkbeck/tauceti-explorer/tree/2f72a720f2267c51753f5c38d9fb5954b407a424/research/blueprint/packages),
+as well as the local clone. The current upstream directory listing also has
+neither supplier nor JacobianChallengePartII.
+
+| Required input | Freshly inspected contract | Action needed before package completion |
+| --- | --- | --- |
+| `AbelianSchemesAndArithmeticModuli:A1–A3` | The 89-node parent plan is accepted by `independent-review-REV-AbelianSchemesAndArithmeticModuli`, dated 2026-10-09. A1–A3 are planned. A2's `normalized-poincare-comparison` retains both axis trivializations, biduality and arbitrary base change; A3's `multiplication-and-density` retains finite local freeness for every nonzero integer, including inseparable multiplication. | Queue and supply the parent package, then place it before the Jacobian/curve-moduli bundle. The existing Part II package explicitly imports these parent objects and does not replace it. |
+| `StableReductionPartII:MC.4/full-level` and `fine-level-scheme` | The 528-node plan is accepted by `independent-review-REV-DESIGN-StableReductionPartII~2`. `full-level` directly imports JC1's Jacobian, base change and principal polarization. `fine-level-scheme` supplies the universal smooth genus-g curve on the fixed symplectic component over Z[1/N,ζ_N]. | Declare a coupled bundle with JacobianChallengePartII and supply both package directories together. Retain the fixed component and the prime-to-level hypotheses. |
+
+The local queue has `PKG-JacobianChallengePartII` with `after: []`; it has
+neither `PKG-AbelianSchemesAndArithmeticModuli` nor `PKG-StableReductionPartII`.
+The [focus file](../focus.json) and [upstream order](../upstream/CaraianiNewton.md)
+do not declare the Jacobian/StableReductionPartII pair as a bundle.
+
+The necessary order is:
+
+1. Supply the parent abelian-scheme package and reconcile its supplier contracts.
+2. Declare the JacobianChallengePartII–StableReductionPartII bundle, with
+   separate package directories and joint upstream submission.
+3. Resume this package against those exact contracts; keep MC.4 confined to JC7.
+
+Do not add mutual whole-package `after` edges: MC.4 uses JC1, and JC7 uses MC.4.
+A fresh topological sort of the two plans visited all **576 nodes and 1,313
+explicit internal node edges** without a cycle. The return dependencies also
+include JC6 → MC.6 and JC0/JC4/JC6 → MC.7. This check omits external supplier
+closure and stage-reference expansion; it does not certify the whole atlas.
+
+[WORKERS.md, Upstream tiers](../WORKERS.md#upstream-tiers) limits package
+citations to existing libraries, own layers, bundle partners and lower-tier
+packages. Issue #7593 permits only the Jacobian package files and this handoff,
+and explicitly directs plan corrections to the handoff. Creating either
+supplier package, changing the scheduling files or moving their targets here
+would exceed that scope. The blocked-checkpoint rule therefore applies.
+Suppress package eligibility until this gate changes; another package-only
+continuation cannot settle it. No queue, label, packet or other roadmap changed.
+
+## Current-library candidate check
+
+The read-only roadmaps remain at
+`070dc2becd74419e76303ede84b465ed4a69461f`, and current Tau Ceti remains at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+JacobianChallenge and AlgebraicVectorBundles READMEs were freshly read in full.
+Their source trees and suggested files were searched for the missing suppliers.
+Pointed field Jacobians remain with JacobianChallenge; general duals and
+determinants remain with AlgebraicVectorBundles L0B–L0C.
+
+There is a useful current-library interface that a continuation should reuse:
+[rigidifiedPicardFunctor](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/AlgebraicGeometry/PicardFunctor/Rigidified.lean#L66).
+Its statement takes a morphism f:X→S, a specified section x₀:S→X and the section
+identity. Its values are classes of bundles rigidified along the base-changed
+section. The module supplies pullback functoriality; it does not establish its
+comparison with the section-free fppf Picard quotient or representability.
+[rigidifiedPicardPoint](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/AlgebraicGeometry/PicardFunctor/Point.lean#L40)
+gives the trivial rigidified class and its pullback law. Both files were read.
+The Rigidified module is absent at the atlas pin `f790474`; it cannot be imported
+into the present pinned Lean check. This distinction corrects any reading of
+the older handoff as claiming that current Tau Ceti has no pointed Picard functor.
+
+The current
+[AbelianVariety declaration](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/AlgebraicGeometry/AbelianVariety/Basic.lean#L95)
+still requires a field K and an object over Spec K. Its proper geometrically
+integral group-scheme data do not supply arbitrary-base abelian schemes,
+relative duals or the represented section-free curve Picard scheme. Neither
+candidate removes the supplier gate, and no second generic theory was planned.
+No Lake command was run in either read-only checkout.
+
+## Fresh checks and preserved work
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/JacobianChallengePartII.json`:
+  exit 0; zero errors and warnings. The unchanged plan retains 48 nodes,
+  60 API items, 52 tests, 24 planets, 14 gaps and 13 requests; all eight stages
+  are planned and none closed.
+- Exact correspondence finds all 48 target statements, all 60 API names and
+  all 52 test names in README. Suggested.lean retains **42 geometric omission
+  records and five geometric identification records**, plus the native JC5.5
+  interface. Comment records are not elaborated geometric signatures.
+- `lean-check research/blueprint/packages/JacobianChallengePartII/Suggested.lean`:
+  exit 0; **76 warnings, all declaration uses sorry; no errors or other warnings**.
+  Available memory was 94 GiB before the single check. The shared helper
+  documents Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`; the Mathlib
+  source commit was independently read as
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`.
+  No language server, library build, update or cache download was started;
+  the check has finished.
+- README remains 92,897 bytes and Suggested.lean 57,243 bytes. Their hashes
+  and the three plan hashes agree with the receipt table retained below.
+  The successful check certifies the existing native portion, not the omitted
+  geometric mathematics or prerequisite closure.
+- Swarm file validation reports one allowed file and zero problems;
+  `git diff --check` passes. Only this handoff is submitted.
+
+No new paper statement or source issue is asserted in this continuation.
+The cleared-source index was read; no book or source passage was copied.
+The inherited resumption list and proof directions below remain necessary
+after scheduling changes. Add `topic = "math.AG"` only with a complete package.
+
+## Inherited checkpoint from session codex-Mmjb3H
+
+Everything below records that earlier session's work and verification, not
+additional work performed by session `codex-3btIYC`.
 
 Refs #7593. Worker: Codex (GPT-6), session `codex-Mmjb3H`,
 10 October 2026. Branch: `codex-Mmjb3H-jacobian-package`.
