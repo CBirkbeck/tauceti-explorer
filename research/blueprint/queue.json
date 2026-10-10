@@ -32577,7 +32577,8 @@
    ],
    "followUpOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "prompt": "research/blueprint/prompts/BP-PotentialAutomorphyInfrastructurePartII--PL.6.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7839"
   },
   {
    "id": "REV-PotentialAutomorphyInfrastructurePartII--PL.6",
@@ -32621,7 +32622,8 @@
    ],
    "followUpOf": "DESIGN-PotentialAutomorphyInfrastructurePartII",
    "prompt": "research/blueprint/prompts/BP-PotentialAutomorphyInfrastructurePartII--PL.7.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7840"
   },
   {
    "id": "REV-PotentialAutomorphyInfrastructurePartII--PL.7",
@@ -35370,8 +35372,8 @@
    ],
    "followUpOf": "BP-ClassicalAdicEtaleCohomology--H0",
    "prompt": "research/blueprint/prompts/BP-ClassicalAdicEtaleCohomology--H1-valuation-exports.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6929"
+   "state": "external",
+   "note": "claimed on GitHub issue #6929"
   },
   {
    "id": "REV-ClassicalAdicEtaleCohomology--H1-valuation-exports",
@@ -46692,8 +46694,9 @@
     "PKG-ArithmeticLocallySymmetricSpaces"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-ArithmeticLocallySymmetricSpaces.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7915"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7915",
+   "finishedAt": "2026-10-10T02:38:52Z"
   },
   {
    "id": "PKG-ArithmeticQuantumTopology",
@@ -47251,7 +47254,8 @@
     "PKG-CohomologyComparisons"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-CohomologyComparisons.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7923"
   },
   {
    "id": "PKG-ColemanIntegration",
@@ -48159,8 +48163,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48818,8 +48822,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -48940,8 +48944,9 @@
     "PKG-IgusaVarietiesAndTorsionConcentration~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-IgusaVarietiesAndTorsionConcentration~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7935"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7935",
+   "finishedAt": "2026-10-10T02:38:55Z"
   },
   {
    "id": "PKG-InductionRestrictionPartII",
@@ -49139,8 +49144,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -49564,8 +49569,9 @@
    ],
    "revisionOf": "PKG-PotentialAutomorphyInfrastructure",
    "prompt": "research/blueprint/prompts/PKG-PotentialAutomorphyInfrastructure~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7912"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7912",
+   "finishedAt": "2026-10-10T02:38:58Z"
   },
   {
    "id": "REV-PKG-PotentialAutomorphyInfrastructure~2",
