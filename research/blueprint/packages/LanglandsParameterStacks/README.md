@@ -1866,7 +1866,9 @@ If G° is reductive, P is finite solvable of order prime to l and l∤|π₁(G°
 
 ### LP3.18 Sifted parameter mapping approximations
 
-For a gerbe 𝒢 over BΓ with fibres a finite union of BG for groups with reductive identity, define Perf(Map^Σ_{BΓ}(S,𝒢)) as the sifted-colimit-preserving left Kan extension of Perf(Map_{BΓ}(S,𝒢)) from finite sets equipped with Γ-torsors (equivalently finite discrete anima over BΓ). The base set is finite; a principal Γ-torsor itself may be infinite when Γ is infinite. Extend to anima over BΓ. This denotes a category, not an assertion that a new representing stack exists. Use its Ind-completion and canonical comparison to actual mapping stacks. The same definition over BQ and a coefficient DVR supplies the integral categorical universal property.
+Over an algebraically closed field L of characteristic ℓ, take 𝒢→BΓ whose fibre is a finite disjoint union of BG, with G° reductive and ℓ∤|π₀G| for every band G. Construct IndPerf(Map^Σ_{BΓ}(S,𝒢)) by left Kan extending the actual IndPerf mapping categories from finite bases with Γ-torsors to anima over BΓ. The base is finite; the total torsor can be infinite. This is an L-linear symmetric monoidal presentable stable category with its canonical comparison to the actual mapping category. Map^Σ is symbolic category notation.
+
+For the integral construction, separately take a split reductive H over a DVR R and a finite Q acting on H. Animate the restriction of Perf(Map_{BQ}(S,B(H⋊Q))) to finite bases with Q-torsors. The result is an R-linear idempotent-complete small stable category. The integral universal property belongs to ES3; it does not extend the general-gerbe construction beyond its stated component-group hypothesis.
 
 **Hypotheses.** Generic left Kan extension, anima, linear stable categories and compact objects are imported from E5. Only parameter/gerbe instances are planned here. ES3 owns the Chapter X categorical universal property and colimit/free-group theorems; it should reuse this VIII.5 definition rather than construct another Map^Σ carrier.
 
