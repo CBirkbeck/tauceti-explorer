@@ -809,6 +809,10 @@ For any Γ→Q let FreeCocycleIndex(Γ) have objects (n,u:F_n→Γ) and morphism
 
 **Build.** Use the existing finite free groups and their universal property to form this category. Concatenate generator tuples for coproducts; the diagonal has the required finality because finite coproducts exist.
 
+For a commutative Hopf R-algebra C=O(H), put Tₐ=O(Hⁿ) at an index a=(n,u). Its coproduct inclusions supply universal H(Tₐ)-points; their unique crossed extension is cₐ:Fₙ→H(Tₐ), for the action pulled back along u. Given a triangle v:Fₙ→Fₘ over Γ, send the i-th coordinate inclusion to the coordinate values of c_b(v(xᵢ)). This constructs a homomorphism Tₐ→T_b. On a product word xᵢxⱼ its value uses c_b(xᵢ)·u(xᵢ)(c_b(xⱼ)); on an inverse word it uses u(xᵢ⁻¹)(c_b(xᵢ)⁻¹). Ordinary multiplication or inversion without the action gives the wrong substitution for a nonsplit parameter.
+
+Construct each gauge coaction δₐ:Tₐ→C⊗_R Tₐ by applying twisted conjugation to cₐ with the universal H-point. Require its counit and coassociativity equations and its evaluation formula over every R-algebra. The word substitution square commutes with these coactions. The coordinate diagram has objects Tₐ and the word substitution maps. Equivariance restricts it to the equalizers Aₐ={t∈Tₐ:δₐ(t)=1⊗t}, giving the invariant diagram with the restricted word maps. In particular, it is a diagram of R-algebras, with identity and composition laws, whose invariants retain the scheme action even over finite residue fields.
+
 The API should provide:
 
 - `FreeCocycleIndex`: Finite free group maps to Γ and commuting triangle morphisms.
@@ -854,6 +858,12 @@ Define Exc(Γ,H)=colim_{(n,F_n→Γ)} O(Z¹(F_n,H))^H in Z_l-algebras. The actio
 **Hypotheses.** Γ is any discrete group with map to Q for the colimit construction; the finite-wild W case has a representing finite-type scheme.
 
 **Build.** Build the invariant diagram over FreeCocycleIndex and take its ring colimit. Use the universal cocycle evaluation to obtain its compatible cone into the invariant algebra. Keep the universal-homeomorphism assertion as a separate theorem.
+
+Take the colimit of this actual coefficient-algebra diagram. Its structure maps are R-algebra maps; a compatible cocone into any R-algebra B gives the unique map from Exc(Γ,H) to B. For f:Γ→Γ′ preserving the prescribed action, postcompose each tuple u with f. The induced transport is the identity on universal generator coordinates and identifies the two gauge coactions. The structure maps at the transported tuples therefore form the cocone defining Exc(Γ,H)→Exc(Γ′,H). Require its formula on every free tuple, together with identity and composition laws.
+
+If Γ has the finite presentation of LP1.1, evaluate each universal free generator at the image of that generator under u in the represented universal Γ-cocycle. This produces Tₐ→O(Z¹(Γ,H)), compatible with word substitution and with gauge coactions. Before invariants, the ordinary algebra colimit is O(Z¹(Γ,H)): maps to a test algebra amount to a compatible family of free cocycles, which is exactly a Γ-cocycle. Passing to the invariant equalizers gives the canonical comparison cocone Aₐ→O(Z¹(Γ,H))^H and hence `ExcursionAlgebra.compare`. Its characteristic equation is that evaluating a structure-map element equals evaluating its coordinate function on the restricted universal Γ-cocycle. No arbitrary choice of a cocone defines this comparison.
+
+Check the construction on the trivial dual group, where C=R and Exc is R, and on Γ=Fₙ, where the identity tuple is terminal and Exc is A_id. For a split torus with trivial action, prove δₐ(t)=1⊗t for every coordinate, so the invariant algebra is all of Tₐ. These ordinary coefficient-algebra constructions do not supply the animated or equivariant stable colimit assertions in LP2e.8 and LP2i.1; those assertions retain their stated enhanced prerequisites and hypotheses.
 
 The API should provide:
 

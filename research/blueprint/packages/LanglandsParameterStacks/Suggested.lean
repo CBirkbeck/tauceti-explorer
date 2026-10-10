@@ -4,7 +4,8 @@ these statements suggest Lean forms so that contributors and reviewers converge
 on names and signatures. Proofs using `sorry` do not claim an implementation.
 
 These include ordinary group, ring and split GL_n signatures, together with
-an affine cocycle scheme built from the imported Hopf group of points. The complete
+an affine cocycle scheme and its free-cocycle invariant diagram, both built from
+the imported Hopf group of points. The complete
 condensed coefficient convention, algebraic regularity, scheme parabolics,
 admissible complex enhancements, and stable infinity-category constructions
 require the supplier interfaces specified in README.md. In particular,
@@ -848,46 +849,369 @@ example (a b : FreeCocycleIndex Γ) (i : Fin b.rank) :
 end FreeCocycleIndex
 end FreeIndex
 
+/-! ## LP2: free cocycle coordinates and the actual invariant diagram
+
+The coefficient algebra, group model and action are inputs, rather than an
+arbitrary diagram of rings. All invariants below are equalizers of scheme
+coactions, tested over every coefficient algebra. -/
+namespace FreeCocycleIndex
+noncomputable section
+variable {R C Γ : Type} [CommRing R] [CommRing C] [HopfAlgebra R C] [Group Γ]
+variable (β : Γ →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C))
+
+abbrev coordinates (a : FreeCocycleIndex Γ) :=
+  IntegralCocycleScheme.tupleCoordinates (R := R) (C := C) (Fin a.rank)
+
+/-- The action on a free tuple is pulled back along its actual map to Γ. -/
+def universal (a : FreeCocycleIndex Γ) :
+    CrossedCocycle (IntegralCocycleScheme.pointAction (β.comp a.tuple)
+      (coordinates (R := R) (C := C) a)) :=
+  CrossedCocycle.fromGenerators _ (IntegralCocycleScheme.generatorPoint (R := R) (C := C))
+
+/-- H-points at each free generator identify the represented free cocycle. -/
+def pointsEquiv (a : FreeCocycleIndex Γ) (B : Type) [CommRing B] [Algebra R B] :
+    (coordinates (R := R) (C := C) a →ₐ[R] B) ≃
+      CrossedCocycle (IntegralCocycleScheme.pointAction (β.comp a.tuple) B) := by sorry
+
+theorem pointsEquiv_apply (a : FreeCocycleIndex Γ)
+    (B : Type) [CommRing B] [Algebra R B]
+    (f : coordinates (R := R) (C := C) a →ₐ[R] B) (w : FreeGroup (Fin a.rank)) :
+    pointsEquiv β a B f w = TauCeti.AlgHom.mapValue f (universal β a w) := by sorry
+
+/-- Twisted conjugation evaluated at the universal H-point. -/
+def gaugeAction (a : FreeCocycleIndex Γ) :
+    coordinates (R := R) (C := C) a →ₐ[R]
+      C ⊗[R] coordinates (R := R) (C := C) a :=
+  let f : coordinates (R := R) (C := C) a →ₐ[R]
+      C ⊗[R] coordinates (R := R) (C := C) a := Algebra.TensorProduct.includeRight
+  (pointsEquiv β a _).symm
+    (((universal β a).map (TauCeti.AlgHom.mapValue f)
+      (fun w x => IntegralCocycleScheme.pointAction_natural (β.comp a.tuple) f w x)).gauge
+      (WithConv.toConv Algebra.TensorProduct.includeLeft))
+
+def evaluateGauge (a : FreeCocycleIndex Γ)
+    {B : Type} [CommRing B] [Algebra R B]
+    (h : IntegralCocycleScheme.Points (R := R) (C := C) B)
+    (f : coordinates (R := R) (C := C) a →ₐ[R] B) :
+    C ⊗[R] coordinates (R := R) (C := C) a →ₐ[R] B :=
+  Algebra.TensorProduct.lift h.ofConv f (fun _ _ => Commute.all _ _)
+
+theorem gaugeAction_evaluate (a : FreeCocycleIndex Γ)
+    {B : Type} [CommRing B] [Algebra R B]
+    (h : IntegralCocycleScheme.Points (R := R) (C := C) B)
+    (f : coordinates (R := R) (C := C) a →ₐ[R] B) :
+    pointsEquiv β a B ((evaluateGauge a h f).comp (gaugeAction β a)) =
+      (pointsEquiv β a B f).gauge h := by sorry
+
+theorem gaugeAction_counit (a : FreeCocycleIndex Γ) :
+    ((Algebra.TensorProduct.lid R (coordinates (R := R) (C := C) a)).toAlgHom.comp
+      (Algebra.TensorProduct.map (Bialgebra.counitAlgHom R C)
+        (AlgHom.id R (coordinates (R := R) (C := C) a)))).comp (gaugeAction β a) =
+      AlgHom.id R (coordinates (R := R) (C := C) a) := by sorry
+
+theorem gaugeAction_coassoc (a : FreeCocycleIndex Γ) :
+    (Algebra.TensorProduct.assoc R R R C C (coordinates (R := R) (C := C) a)).toAlgHom.comp
+      ((Algebra.TensorProduct.map (Bialgebra.comulAlgHom R C)
+        (AlgHom.id R (coordinates (R := R) (C := C) a))).comp (gaugeAction β a)) =
+    (Algebra.TensorProduct.map (AlgHom.id R C) (gaugeAction β a)).comp
+      (gaugeAction β a) := by sorry
+
+/-- A word F_a→F_b induces the ring map O(H^a)→O(H^b). -/
+def wordPullback {a b : FreeCocycleIndex Γ} (f : a ⟶ b) :
+    coordinates (R := R) (C := C) a →ₐ[R] coordinates (R := R) (C := C) b :=
+  IntegralCocycleScheme.evaluateTuple
+    (fun i => universal β b (f.down.word (FreeGroup.of i)))
+
+theorem wordPullback_generator {a b : FreeCocycleIndex Γ} (f : a ⟶ b)
+    (i : Fin a.rank) (x : C) :
+    wordPullback β f ((IntegralCocycleScheme.generatorPoint (R := R) (C := C) i).ofConv x) =
+      (universal β b (f.down.word (FreeGroup.of i))).ofConv x := by sorry
+
+theorem wordPullback_id (a : FreeCocycleIndex Γ) :
+    wordPullback β (𝟙 a) = AlgHom.id R (coordinates (R := R) (C := C) a) := by sorry
+
+theorem wordPullback_comp {a b d : FreeCocycleIndex Γ} (f : a ⟶ b) (g : b ⟶ d) :
+    wordPullback β (f ≫ g) = (wordPullback β g).comp (wordPullback β f) := by sorry
+
+/-- Scheme equivariance, before passing to invariants; H(R)-points are insufficient. -/
+theorem wordPullback_gauge {a b : FreeCocycleIndex Γ} (f : a ⟶ b) :
+    (gaugeAction β b).comp (wordPullback β f) =
+      (Algebra.TensorProduct.map (AlgHom.id R C) (wordPullback β f)).comp
+        (gaugeAction β a) := by sorry
+
+abbrev invariantCoordinates (a : FreeCocycleIndex Γ) :=
+  ParameterInvariantAlgebra (gaugeAction β a) Algebra.TensorProduct.includeRight
+
+def invariantPullback {a b : FreeCocycleIndex Γ} (f : a ⟶ b) :
+    invariantCoordinates β a →ₐ[R] invariantCoordinates β b :=
+  ParameterInvariantAlgebra.lift (gaugeAction β b) Algebra.TensorProduct.includeRight
+    ((wordPullback β f).comp
+      (ParameterInvariantAlgebra.inclusion (gaugeAction β a) Algebra.TensorProduct.includeRight))
+    (by sorry)
+
+theorem invariantPullback_val {a b : FreeCocycleIndex Γ} (f : a ⟶ b)
+    (x : invariantCoordinates β a) :
+    (invariantPullback β f x).val = wordPullback β f x.val := by sorry
+
+/-- The actual free-cocycle invariant diagram in coefficient algebras. -/
+def invariantCoordinateDiagram : FreeCocycleIndex Γ ⥤ CommAlgCat R where
+  obj a := CommAlgCat.of R (invariantCoordinates β a)
+  map f := CommAlgCat.ofHom (invariantPullback β f)
+  map_id := by sorry
+  map_comp := by sorry
+
+/-- The uninvariant version, for the ordinary and derived free-resolution comparisons. -/
+def coordinateDiagram : FreeCocycleIndex Γ ⥤ CommAlgCat R where
+  obj a := CommAlgCat.of R (coordinates (R := R) (C := C) a)
+  map f := CommAlgCat.ofHom (wordPullback β f)
+  map_id := by sorry
+  map_comp := by sorry
+
+-- index_direction: the triangle's word is substituted into the universal cocycle.
+example {a b : FreeCocycleIndex Γ} (f : a ⟶ b) (i : Fin a.rank) (x : C) :
+    (coordinateDiagram β).map f
+      ((IntegralCocycleScheme.generatorPoint (R := R) (C := C) i).ofConv x) =
+        (universal β b (f.down.word (FreeGroup.of i))).ofConv x := by sorry
+
+/-- An explicit word map whose images satisfy the indexing triangle. -/
+def wordHom {a b : FreeCocycleIndex Γ}
+    (v : Fin a.rank → FreeGroup (Fin b.rank))
+    (hv : ∀ i, b.tuple (v i) = a.tuple (FreeGroup.of i)) : a ⟶ b :=
+  ⟨⟨FreeGroup.lift v, by sorry⟩⟩
+
+-- Crossed multiplication, including the pulled-back action in the second factor.
+example (χ : FreeGroup (Fin 2) →*
+    IntegralCocycleScheme.CoordinateAut (R := R) (C := C)) (x : C) :
+    let b := identityIndex 2
+    let a := ofTuple (FreeGroup (Fin 2)) 1
+      (fun _ => FreeGroup.of (0 : Fin 2) * FreeGroup.of (1 : Fin 2))
+    let f : a ⟶ b := wordHom
+      (fun _ => FreeGroup.of (0 : Fin 2) * FreeGroup.of (1 : Fin 2)) (by sorry)
+    wordPullback χ f
+      ((IntegralCocycleScheme.generatorPoint (R := R) (C := C) (0 : Fin 1)).ofConv x) =
+      ((universal χ b (FreeGroup.of (0 : Fin 2))) *
+        IntegralCocycleScheme.pointAction (χ.comp b.tuple)
+          (coordinates (R := R) (C := C) b) (FreeGroup.of (0 : Fin 2))
+            (universal χ b (FreeGroup.of (1 : Fin 2)))).ofConv x := by sorry
+
+-- Inversion must also use the inverse word's action.
+example (χ : FreeGroup (Fin 1) →*
+    IntegralCocycleScheme.CoordinateAut (R := R) (C := C)) (x : C) :
+    let b := identityIndex 1
+    let a := ofTuple (FreeGroup (Fin 1)) 1
+      (fun _ => (FreeGroup.of (0 : Fin 1))⁻¹)
+    let f : a ⟶ b := wordHom
+      (fun _ => (FreeGroup.of (0 : Fin 1))⁻¹) (by sorry)
+    wordPullback χ f
+      ((IntegralCocycleScheme.generatorPoint (R := R) (C := C) (0 : Fin 1)).ofConv x) =
+      (IntegralCocycleScheme.pointAction (χ.comp b.tuple)
+        (coordinates (R := R) (C := C) b) (FreeGroup.of (0 : Fin 1))⁻¹
+          (universal χ b (FreeGroup.of (0 : Fin 1)))⁻¹).ofConv x := by sorry
+
+-- A split torus with trivial action has trivial gauge coaction over all test rings.
+example (a : FreeCocycleIndex Γ) :
+    gaugeAction (1 : Γ →*
+      IntegralCocycleScheme.CoordinateAut (R := R) (C := LaurentPolynomial R)) a =
+        Algebra.TensorProduct.includeRight := by sorry
+
+-- Thus the scheme-invariant equalizer includes every coordinate, not just rational points.
+example (a : FreeCocycleIndex Γ) :
+    invariantCoordinates (1 : Γ →*
+      IntegralCocycleScheme.CoordinateAut (R := R) (C := LaurentPolynomial R)) a = ⊤ := by sorry
+
+/-- Reindex tuples along a group map; the action is required to be its pullback. -/
+def mapGroup {Δ : Type} [Group Δ] (f : Γ →* Δ) :
+    FreeCocycleIndex Γ ⥤ FreeCocycleIndex Δ where
+  obj a := ⟨a.rank, f.comp a.tuple⟩
+  map g := ⟨⟨g.down.word, by sorry⟩⟩
+  map_id := by sorry
+  map_comp := by sorry
+
+/-- Coordinate transport is identity on generator functions and retains the action. -/
+def invariantCoordinateTransport {Δ : Type} [Group Δ]
+    (χ : Δ →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C)) (f : Γ →* Δ) :
+    invariantCoordinateDiagram (χ.comp f) ≅ mapGroup f ⋙ invariantCoordinateDiagram χ := by sorry
+
+theorem invariantCoordinateTransport_val {Δ : Type} [Group Δ]
+    (χ : Δ →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C)) (f : Γ →* Δ)
+    (a : FreeCocycleIndex Γ) (x : invariantCoordinates (χ.comp f) a) :
+    ((invariantCoordinateTransport χ f).hom.app a x).val = x.val := by sorry
+
+end
+end FreeCocycleIndex
+
 section Excursion
-variable {Γ : Type u} [Group Γ]
-/-- The supplied diagram consists of the free-cocycle invariant rings.
-CommRingCat is the underlying-ring prototype; the Z_l-algebra enhancement is omitted. -/
-noncomputable def ExcursionAlgebra (F : FreeCocycleIndex Γ ⥤ CommRingCat.{u}) :
-    CommRingCat.{u} := colimit F
+noncomputable section
+variable {R C Γ : Type} [CommRing R] [CommRing C] [HopfAlgebra R C] [Group Γ]
+
+/-- Exc(Γ,H), formed from scheme invariants in R-algebras, with the prescribed action. -/
+def ExcursionAlgebra
+    (β : Γ →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C)) : CommAlgCat R :=
+  colimit (FreeCocycleIndex.invariantCoordinateDiagram β)
 
 namespace ExcursionAlgebra
-noncomputable def ofFree (F : FreeCocycleIndex Γ ⥤ CommRingCat.{u})
-    (a : FreeCocycleIndex Γ) : F.obj a ⟶ ExcursionAlgebra F := colimit.ι F a
+variable (β : Γ →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C))
 
-noncomputable def lift (F : FreeCocycleIndex Γ ⥤ CommRingCat.{u})
-    (s : Cocone F) : ExcursionAlgebra F ⟶ s.pt := colimit.desc F s
+def ofFree (a : FreeCocycleIndex Γ) :
+    (FreeCocycleIndex.invariantCoordinateDiagram β).obj a ⟶ ExcursionAlgebra β :=
+  colimit.ι (FreeCocycleIndex.invariantCoordinateDiagram β) a
 
-theorem ofFree_naturality (F : FreeCocycleIndex Γ ⥤ CommRingCat.{u})
-    {a b : FreeCocycleIndex Γ} (f : a ⟶ b) :
-    F.map f ≫ ofFree F b = ofFree F a := by sorry
+def lift (s : Cocone (FreeCocycleIndex.invariantCoordinateDiagram β)) :
+    ExcursionAlgebra β ⟶ s.pt := colimit.desc (FreeCocycleIndex.invariantCoordinateDiagram β) s
 
-theorem lift_unique (F : FreeCocycleIndex Γ ⥤ CommRingCat.{u}) (s : Cocone F)
-    (f : ExcursionAlgebra F ⟶ s.pt)
-    (hf : ∀ a, ofFree F a ≫ f = s.ι.app a) : f = lift F s := by sorry
+theorem ofFree_naturality {a b : FreeCocycleIndex Γ} (f : a ⟶ b) :
+    (FreeCocycleIndex.invariantCoordinateDiagram β).map f ≫ ofFree β b = ofFree β a := by sorry
 
-@[ext] theorem hom_ext (F : FreeCocycleIndex Γ ⥤ CommRingCat.{u})
-    {A : CommRingCat.{u}} {f g : ExcursionAlgebra F ⟶ A}
-    (h : ∀ a, ofFree F a ≫ f = ofFree F a ≫ g) : f = g := by sorry
+theorem lift_eval (s : Cocone (FreeCocycleIndex.invariantCoordinateDiagram β))
+    (a : FreeCocycleIndex Γ) : ofFree β a ≫ lift β s = s.ι.app a := by sorry
 
--- excursion_free_group: the underlying ring diagram has a terminal tuple.
-example (n : ℕ) (F : FreeCocycleIndex (FreeGroup (Fin n)) ⥤ CommRingCat.{0}) :
-    Nonempty (ExcursionAlgebra F ≅ F.obj (FreeCocycleIndex.identityIndex n)) := by sorry
+theorem lift_unique (s : Cocone (FreeCocycleIndex.invariantCoordinateDiagram β))
+    (f : ExcursionAlgebra β ⟶ s.pt)
+    (hf : ∀ a, ofFree β a ≫ f = s.ι.app a) : f = lift β s := by sorry
 
--- excursion_trivial_dual: the ordinary constant-ring instance of the full test.
-example (A : CommRingCat.{u}) :
-    Nonempty (ExcursionAlgebra ((Functor.const (FreeCocycleIndex Γ)).obj A) ≅ A) := by
-  sorry
+@[ext] theorem hom_ext {A : CommAlgCat R} {f g : ExcursionAlgebra β ⟶ A}
+    (h : ∀ a, ofFree β a ≫ f = ofFree β a ≫ g) : f = g := by sorry
+
+/-- Postcomposition of tuples gives the covariant group transport of Exc. -/
+def mapGroup {Δ : Type} [Group Δ]
+    (χ : Δ →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C)) (f : Γ →* Δ) :
+    ExcursionAlgebra (χ.comp f) ⟶ ExcursionAlgebra χ :=
+  colimit.desc (FreeCocycleIndex.invariantCoordinateDiagram (χ.comp f))
+    { pt := ExcursionAlgebra χ
+      ι :=
+        { app := fun a => (FreeCocycleIndex.invariantCoordinateTransport χ f).hom.app a ≫
+            ofFree χ ((FreeCocycleIndex.mapGroup f).obj a)
+          naturality := by sorry } }
+
+theorem mapGroup_ofFree {Δ : Type} [Group Δ]
+    (χ : Δ →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C)) (f : Γ →* Δ)
+    (a : FreeCocycleIndex Γ) :
+    ofFree (χ.comp f) a ≫ mapGroup χ f =
+      (FreeCocycleIndex.invariantCoordinateTransport χ f).hom.app a ≫
+        ofFree χ ((FreeCocycleIndex.mapGroup f).obj a) := by sorry
+
+theorem mapGroup_id : mapGroup β (MonoidHom.id Γ) = 𝟙 (ExcursionAlgebra β) := by sorry
+
+theorem mapGroup_comp {Δ Ω : Type} [Group Δ] [Group Ω]
+    (χ : Ω →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C))
+    (f : Γ →* Δ) (g : Δ →* Ω) :
+    mapGroup χ (g.comp f) = mapGroup (χ.comp g) f ≫ mapGroup χ g := by sorry
+
+-- excursion_free_group: the actual invariant diagram, with its pulled-back action.
+example (n : ℕ)
+    (χ : FreeGroup (Fin n) →* IntegralCocycleScheme.CoordinateAut (R := R) (C := C)) :
+    Nonempty (ExcursionAlgebra χ ≅
+      (FreeCocycleIndex.invariantCoordinateDiagram χ).obj (FreeCocycleIndex.identityIndex n)) := by sorry
+
+-- excursion_trivial_dual: the Hopf algebra R represents the trivial group.
+example (χ : Γ →* IntegralCocycleScheme.CoordinateAut (R := R) (C := R)) :
+    Nonempty (ExcursionAlgebra χ ≅ CommAlgCat.of R R) := by sorry
 
 -- excursion_lift_eval
-example (F : FreeCocycleIndex Γ ⥤ CommRingCat.{u}) (s : Cocone F)
-    (a : FreeCocycleIndex Γ) : ofFree F a ≫ lift F s = s.ι.app a := by sorry
+example (s : Cocone (FreeCocycleIndex.invariantCoordinateDiagram β)) (a : FreeCocycleIndex Γ) :
+    ofFree β a ≫ lift β s = s.ι.app a := by sorry
 end ExcursionAlgebra
+end
 end Excursion
+
+/-! ## Canonical comparison to a represented cocycle scheme -/
+namespace ExcursionAlgebra
+noncomputable section
+variable {R C I : Type} [CommRing R] [CommRing C] [HopfAlgebra R C] [Finite I]
+variable (rels : Finset (FreeGroup I))
+variable (β : PresentedGroup (rels : Set (FreeGroup I)) →*
+  IntegralCocycleScheme.CoordinateAut (R := R) (C := C))
+
+abbrev representedInvariants :=
+  ParameterInvariantAlgebra (IntegralCocycleScheme.gaugeAction rels β)
+    Algebra.TensorProduct.includeRight
+
+/-- Restrict the represented universal cocycle to the chosen finite free tuple. -/
+def evaluateFree (a : FreeCocycleIndex (PresentedGroup (rels : Set (FreeGroup I)))) :
+    FreeCocycleIndex.coordinates (R := R) (C := C) a →ₐ[R]
+      IntegralCocycleScheme.coordinateRing rels β :=
+  IntegralCocycleScheme.evaluateTuple
+    (fun i => IntegralCocycleScheme.universalCocycle rels β (a.tuple (FreeGroup.of i)))
+
+theorem evaluateFree_generator
+    (a : FreeCocycleIndex (PresentedGroup (rels : Set (FreeGroup I))))
+    (i : Fin a.rank) (x : C) :
+    evaluateFree rels β a
+      ((IntegralCocycleScheme.generatorPoint (R := R) (C := C) i).ofConv x) =
+      (IntegralCocycleScheme.universalCocycle rels β (a.tuple (FreeGroup.of i))).ofConv x := by sorry
+
+theorem evaluateFree_gauge
+    (a : FreeCocycleIndex (PresentedGroup (rels : Set (FreeGroup I)))) :
+    (IntegralCocycleScheme.gaugeAction rels β).comp (evaluateFree rels β a) =
+      (Algebra.TensorProduct.map (AlgHom.id R C) (evaluateFree rels β a)).comp
+        (FreeCocycleIndex.gaugeAction β a) := by sorry
+
+theorem evaluateFree_word
+    {a b : FreeCocycleIndex (PresentedGroup (rels : Set (FreeGroup I)))} (f : a ⟶ b) :
+    (evaluateFree rels β b).comp (FreeCocycleIndex.wordPullback β f) =
+      evaluateFree rels β a := by sorry
+
+/-- The ordinary free-coordinate diagram represents all compatible cocycle equations. -/
+def rawComparisonCocone : Cocone (FreeCocycleIndex.coordinateDiagram β) where
+  pt := CommAlgCat.of R (IntegralCocycleScheme.coordinateRing rels β)
+  ι :=
+    { app := fun a => CommAlgCat.ofHom (evaluateFree rels β a)
+      naturality := by sorry }
+
+def rawCompare : colimit (FreeCocycleIndex.coordinateDiagram β) ⟶
+    CommAlgCat.of R (IntegralCocycleScheme.coordinateRing rels β) :=
+  colimit.desc _ (rawComparisonCocone rels β)
+
+/-- This is the ordinary algebra comparison, before invariants or derived enhancement. -/
+theorem rawCompare_isIso : IsIso (rawCompare rels β) := by sorry
+
+/-- Restriction descends to the scheme-invariant equalizers. -/
+def evaluateInvariantFree
+    (a : FreeCocycleIndex (PresentedGroup (rels : Set (FreeGroup I)))) :
+    FreeCocycleIndex.invariantCoordinates β a →ₐ[R] representedInvariants rels β :=
+  ParameterInvariantAlgebra.lift (IntegralCocycleScheme.gaugeAction rels β)
+    Algebra.TensorProduct.includeRight
+    ((evaluateFree rels β a).comp
+      (ParameterInvariantAlgebra.inclusion (FreeCocycleIndex.gaugeAction β a)
+        Algebra.TensorProduct.includeRight)) (by sorry)
+
+theorem evaluateInvariantFree_val
+    (a : FreeCocycleIndex (PresentedGroup (rels : Set (FreeGroup I))))
+    (x : FreeCocycleIndex.invariantCoordinates β a) :
+    (evaluateInvariantFree rels β a x).val = evaluateFree rels β a x.val := by sorry
+
+/-- The universal cocycle makes these actual evaluation maps compatible. -/
+def comparisonCocone : Cocone (FreeCocycleIndex.invariantCoordinateDiagram β) where
+  pt := CommAlgCat.of R (representedInvariants rels β)
+  ι :=
+    { app := fun a => CommAlgCat.ofHom (evaluateInvariantFree rels β a)
+      naturality := by sorry }
+
+def compare : ExcursionAlgebra β ⟶ CommAlgCat.of R (representedInvariants rels β) :=
+  lift β (comparisonCocone rels β)
+
+/-- Its characteristic equation fixes the canonical map without a choice of a cone. -/
+theorem compare_ofFree
+    (a : FreeCocycleIndex (PresentedGroup (rels : Set (FreeGroup I)))) :
+    ofFree β a ≫ compare rels β = CommAlgCat.ofHom (evaluateInvariantFree rels β a) := by sorry
+
+theorem compare_eval
+    (a : FreeCocycleIndex (PresentedGroup (rels : Set (FreeGroup I))))
+    (x : FreeCocycleIndex.invariantCoordinates β a) :
+    ((compare rels β).hom ((ofFree β a).hom x)).val = evaluateFree rels β a x.val := by sorry
+
+-- Evaluate an actual represented cocycle through the canonical excursion comparison.
+example (B : Type) [CommRing B] [Algebra R B]
+    (c : CrossedCocycle (IntegralCocycleScheme.pointAction β B))
+    (a : FreeCocycleIndex (PresentedGroup (rels : Set (FreeGroup I))))
+    (x : FreeCocycleIndex.invariantCoordinates β a) :
+    (IntegralCocycleScheme.pointsEquiv rels β B).symm c
+      (((compare rels β).hom ((ofFree β a).hom x)).val) =
+        IntegralCocycleScheme.evaluateTuple
+          (fun i => c (a.tuple (FreeGroup.of i))) x.val := by sorry
+
+end
+end ExcursionAlgebra
 
 section Pseudocharacters
 variable {Γ : Type u} [Group Γ]
