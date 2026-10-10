@@ -4,6 +4,13 @@ This file is not the roadmap and is not exhaustive. The roadmap document
 statements suggest Lean forms so that contributors and reviewers can converge on
 names and signatures. They claim no implementation.
 
+REV-FIX-RT-AREA-geomlanglands~2 (Codex codex-41biYK, 10 October 2026):
+Continuation of the previous checkpoint. The OrdinaryBeck example directly
+applies the pinned conservative Beck theorem without a separate reflection
+assumption or a placeholder proof. Preservation is still assumed, so the
+printed FS target and missing reconstruction signatures remain needs_changes.
+The full file is rechecked for this revision below in the review report.
+
 REV-FIX-RT-AREA-geomlanglands~2 (Codex codex-8zLSxs, 10 October 2026):
 The whole file was checked at the pinned Mathlib and Tau Ceti build; the only
 messages are declaration uses 'sorry' warnings. This includes the zero-hull
@@ -155,6 +162,7 @@ import Mathlib.CategoryTheory.Limits.Shapes.Kernels
 import Mathlib.CategoryTheory.Limits.Types.Colimits
 import Mathlib.CategoryTheory.Linear.Basic
 import Mathlib.CategoryTheory.Linear.LinearFunctor
+import Mathlib.CategoryTheory.Monad.Monadicity
 import Mathlib.CategoryTheory.Monoidal.Braided.Basic
 import Mathlib.CategoryTheory.Monoidal.Discrete
 import Mathlib.CategoryTheory.Monoidal.Linear
@@ -9340,6 +9348,25 @@ It is planning prose, not an axiom or a compiled assertion.
 DM 2.23 is imported from upstream ReductiveGroups layer 6, not re-proved here.
 -/
 
+/-! The ordinary finite-piece Beck step is already in Mathlib. This typed
+application uses conservativity; it deliberately retains preservation as an
+extra sufficient hypothesis. It does not construct the relative adjunction,
+tensor monad or internal-comodule comparison, nor discharge FS VI.10.2 under
+its printed hypotheses. Both categories use the same hom universe, as required
+by the pinned supplier. -/
+section OrdinaryBeck
+
+universe v uA uC
+variable {A : Type uA} {C : Type uC} [Category.{v} A] [Category.{v} C]
+
+example {L : A ⥤ C} {F : C ⥤ A} (adj : L ⊣ F)
+    [F.ReflectsIsomorphisms]
+    [Monad.HasCoequalizerOfIsSplitPair F]
+    [Monad.PreservesColimitOfIsSplitPair F] : MonadicRightAdjoint F :=
+  Monad.monadicOfHasPreservesGSplitCoequalizersOfReflectsIsomorphisms adj
+
+end OrdinaryBeck
+
 section FiniteHull
 
 variable {C : Type*} [Category C] [Preadditive C] [HasFiniteBiproducts C]
@@ -9372,7 +9399,7 @@ example (k : Type*) [Field k] :
 /-! MotivesAndAlgebraicCycles:MC.6/relative-finite-piece-reconstruction
 Statement: Under the relative reconstruction data, L_i:A→C_i, V↦V⊗X_i, is left adjoint to F_i. Use symmetry to identify its monad with V↦A_i⊗V, where A_i=F(X_i) has the multiplication transported from that monad. The comparison gives C_i≃LeftMod_A(A_i)≃RightComod_A(A_i∨), compatibly with F_i. Modules and comodules have underlying objects in A, not arbitrary objects of Ind(A). Keeping the unswapped expression V⊗A_i instead uses right modules over the opposite multiplication.
 Hypotheses: A is a rigid symmetric monoidal category; C is symmetric monoidal with a tensor action of A.; F:C→A is symmetric monoidal, A-linear and conservative. As printed in FS VI.10.2, C admits and F reflects coequalizers of F-split parallel pairs.; C is a small filtered union of full subcategories C_i stable under those coequalizers and the A-action; F_i=F|C_i is represented by X_i∈C_i (in the A-linear sense, giving the adjunction below).; The pinned Beck theorem requires preservation of the split coequalizers as well. The implementation adapter records that obligation explicitly; until it is derived from the intended source convention, the executable sufficient-hypothesis version additionally assumes F_i preserves them. This is an interface gap, not a claim that the printed theorem has been disproved.
-Proof plan: Use rigidity of A and the representing property to identify Hom(V⊗X_i,Y) with Hom(V,F_iY), naturally in V,Y. The A-linearity of F identifies F_iL_i with tensor by F(X_i).; Transport the adjunction unit and multiplication through the symmetric identification F_iL_i(V)≅A_i⊗V, fixing left modules and right dual-coalgebra comodules. At the regular-left-module test the multiplication is that of B, whereas the unswapped tensor-on-the-right convention gives Bᵒᵖ. Invoke the pinned ordinary Beck theorem only after providing its split-coequalizer preservation/reflection instances (the recorded adapter obligation). Do not plan Barr–Beck again.; Duality of the underlying A-object identifies the A_i action with an A_i∨ coaction; associativity/unit correspond to coassociativity/counit. Record comparison naturality on changing i.
+Proof plan: Use rigidity of A and the representing property to identify Hom(V⊗X_i,Y) with Hom(V,F_iY), naturally in V,Y. The A-linearity of F identifies F_iL_i with tensor by F(X_i).; Transport the adjunction unit and multiplication through the symmetric identification F_iL_i(V)≅A_i⊗V, fixing left modules and right dual-coalgebra comodules. At the regular-left-module test the multiplication is that of B, whereas the unswapped tensor-on-the-right convention gives Bᵒᵖ. Invoke the pinned conservative Beck variant using the adjunction, conservativity, existence and preservation of split coequalizers; it derives reflection internally. The OrdinaryBeck example above checks this stronger sufficient-hypothesis step. Preservation under the printed source hypotheses remains an adapter obligation. Do not plan Barr–Beck again.; Duality of the underlying A-object identifies the A_i action with an A_i∨ coaction; associativity/unit correspond to coassociativity/counit. Record comparison naturality on changing i.
 
 relativePieceLeftAdjoint: not stated in Lean yet; requires the mathematical carriers and compatibility data specified above.
 Planned signature: The A-linear functor V↦V⊗X_i and L_i⊣F_i.

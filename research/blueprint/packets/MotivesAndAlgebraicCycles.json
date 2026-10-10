@@ -700,6 +700,13 @@
     "module": "Mathlib/Algebra/Category/ModuleCat/Basic.lean",
     "provides": "The native category of modules over a ring, reused for the zero-hull non-example. ModuleCat/Biproducts.lean supplies HasFiniteBiproducts through the existing finite-products instance; no replacement category or biproduct construction is planned.",
     "checked": "Definition in Basic.lean and the HasFiniteBiproducts instance in Biproducts.lean read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, 2026-10-10, REV-FIX-RT-AREA-geomlanglands~2."
+   },
+   {
+    "ref": "mathlib:CategoryTheory.Monad.monadicOfHasPreservesGSplitCoequalizersOfReflectsIsomorphisms",
+    "kind": "def",
+    "module": "Mathlib/CategoryTheory/Monad/Monadicity.lean",
+    "provides": "Ordinary Beck with a specified adjunction, a conservative right adjoint, existence of its split coequalizers and preservation of them; reflection is derived internally. The typed OrdinaryBeck application reuses it but does not derive preservation or construct relative tensor/comodule interfaces. Both categories share a hom universe in this pinned statement.",
+    "checked": "Statement and proof read at Mathlib 082e2d3, lines 361–373, 2026-10-10, Codex codex-41biYK, REV-FIX-RT-AREA-geomlanglands~2."
    }
   ],
   "abstractReconstructionAudit": {
@@ -13076,7 +13083,7 @@
    ],
    "proofSteps": [
     "Use rigidity of A and the representing property to identify Hom(V⊗X_i,Y) with Hom(V,F_iY), naturally in V,Y. The A-linearity of F identifies F_iL_i with tensor by F(X_i).",
-    "Transport the adjunction unit and multiplication through the symmetric identification F_iL_i(V)≅A_i⊗V, fixing left modules and right dual-coalgebra comodules. At the regular-left-module test the multiplication is that of B, whereas the unswapped tensor-on-the-right convention gives Bᵒᵖ. Invoke the pinned ordinary Beck theorem only after providing its split-coequalizer preservation/reflection instances (the recorded adapter obligation). Do not plan Barr–Beck again.",
+    "Transport the adjunction unit and multiplication through the symmetric identification F_iL_i(V)≅A_i⊗V, fixing left modules and right dual-coalgebra comodules. At the regular-left-module test the multiplication is that of B, whereas the unswapped tensor-on-the-right convention gives Bᵒᵖ. Invoke the pinned conservative Beck variant using the adjunction, conservativity, existence and preservation of split coequalizers; it derives reflection internally. The OrdinaryBeck example in the suggested file checks this stronger sufficient-hypothesis step. Preservation under the printed source hypotheses remains an adapter obligation. Do not plan Barr–Beck again.",
     "Duality of the underlying A-object identifies the A_i action with an A_i∨ coaction; associativity/unit correspond to coassociativity/counit. Record comparison naturality on changing i."
    ],
    "acceptance": [
@@ -13085,7 +13092,7 @@
     "For a finite left B-module V, the right B∨-coaction transposed from the left action obeys (id_V⊗ev_b)ρ(v)=b·v for every b∈B, where ev_b(φ)=φ(b), and (id_V⊗ev_1)ρ=id_V. On the regular B-module, evaluating twice at E₁₂,E₂₁ agrees with left multiplication by E₁₁, detecting an erroneous reversal."
    ],
    "prerequisites": [
-    "mathlib:CategoryTheory.Monad.monadicOfHasPreservesReflectsGSplitCoequalizers",
+    "mathlib:CategoryTheory.Monad.monadicOfHasPreservesGSplitCoequalizersOfReflectsIsomorphisms",
     "mathlib:CategoryTheory.RigidCategory",
     "mathlib:CategoryTheory.Equivalence"
    ],
@@ -13969,7 +13976,7 @@
     "MotivesAndAlgebraicCycles:MC.6/relative-bialgebra-reconstruction",
     "MotivesAndAlgebraicCycles:MC.6/relative-rigid-antipode"
    ],
-   "detail": "Supply the A-linear representability/action interface, monoidal extension to Ind(A), internal comodules with underlying objects in A, and filtered factorization used by FS VI.10.2. Mathlib has Ind and ordinary Beck, but this audit found no finished relative Tannaka comparison. Bridge the printed reflection convention to the preservation instance required by the pinned Beck theorem; until then use the explicitly strengthened sufficient-hypothesis version and do not claim closure. Apply the proposed early stage split before installing any GS stage import; the present packet makes no graph rewrite."
+   "detail": "Supply the A-linear representability/action interface, monoidal extension to Ind(A), internal comodules with underlying objects in A, and filtered factorization used by FS VI.10.2. Mathlib has Ind and ordinary Beck, but this audit found no finished relative Tannaka comparison. The pinned conservative Beck variant already derives reflection from conservativity and split-coequalizer existence; its OrdinaryBeck application is typed. Supply the preservation instance under the printed FS VI.10.2 convention; until then use the explicitly strengthened sufficient-hypothesis version and do not claim closure. Apply the proposed early stage split before installing any GS stage import; the present packet makes no graph rewrite."
   },
   {
    "title": "Abstract reconstruction still lacks typed carriers, signatures and tests",
@@ -13984,7 +13991,7 @@
     "MotivesAndAlgebraicCycles:MC.6/tannaka-finiteness-recognition",
     "MotivesAndAlgebraicCycles:MC.6/tannaka-connectedness-recognition"
    ],
-   "detail": "Independent REV-FIX-RT-AREA-geomlanglands~2: the AbstractTannaka prototype defines only neutralFiniteHull and three elementary hull examples. The five new construction nodes have 16 named API items, but 15 are only prose; all four new theorem signatures and the reconstruction/recognition tests are omitted. Supply an A-linear action/representer adjunction and its tensor monad, monoidal Ind extension, internal right comodules with the finite-piece factorization contract, and a typed neutral fibre-functor/stabilizer-algebra/filtered-coalgebra comparison. Then state the specified API and example signatures over those carriers. Resolve the existing FS split-coequalizer preservation adapter, or separate the strengthened sufficient-hypothesis theorem from the printed FS target and retain the latter as an explicit unmet obligation. Do not substitute Prop-valued conditions or start from a representing Hopf algebra. Compiling the existing file does not establish these absent statements."
+   "detail": "Independent REV-FIX-RT-AREA-geomlanglands~2: the AbstractTannaka prototype defines only neutralFiniteHull and three elementary hull examples. The OrdinaryBeck example reuses the native conservative theorem, retaining preservation as an extra hypothesis; it supplies none of the reconstruction carriers. The five new construction nodes have 16 named API items, but 15 are only prose; all four new theorem signatures and the reconstruction/recognition tests are omitted. Supply an A-linear action/representer adjunction and its tensor monad, monoidal Ind extension, internal right comodules with the finite-piece factorization contract, and a typed neutral fibre-functor/stabilizer-algebra/filtered-coalgebra comparison. Then state the specified API and example signatures over those carriers. Resolve the existing FS split-coequalizer preservation adapter, or separate the strengthened sufficient-hypothesis theorem from the printed FS target and retain the latter as an explicit unmet obligation. Do not substitute Prop-valued conditions or start from a representing Hopf algebra. Compiling the existing file does not establish these absent statements."
   }
  ],
  "requests": [
@@ -15301,7 +15308,7 @@
   "status": "needs_changes",
   "reviewer": "independent-review-REV-FIX-RT-AREA-geomlanglands~2",
   "date": "2026-10-10",
-  "notes": "Bounded independent review of FIX-RT-AREA-geomlanglands~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (2026-10-10), preserved in reviewHistory. Finding /17: checked FS VI.10.2–VI.11 and DM 1.13, 2.11–2.23 at the recorded public versions, pinned baseline declarations, nine new nodes, the two late consumers and the prospective early-owner split. Corrected the monad/module side convention, three finite-piece tests, missing upstream layer-1 prerequisite, direct pinned representation/comodule import and finite-group baseline namespace; added a typed zero-hull non-example. Remaining real gap: the relative Beck preservation adapter is not established under the printed hypotheses, and the reconstruction carriers, 15 construction API signatures and four theorem signatures remain prose rather than typed targets. See the new gap and the independent report. Packet checks pass; the final suggested file elaborates with only placeholder-proof warnings. This does not revisit or accept unrelated pending iwasawa fixes or the rest of this partial packet."
+  "notes": "Continuation by Codex codex-41biYK of the same-job checkpoint by codex-8zLSxs; that review is preserved unchanged in reviewHistory, following the algebraic-geometry second-round review. Independently reread the full findings/verifier/fix report, FS VI.10.2–VI.11 and DM 1.13, 2.11–2.23 at the recorded public versions, pinned suppliers, nine abstract nodes, late consumers, audit and current upstream owner boundary. The prior convention, tests and supplier corrections stand. Reused the native conservative Beck variant with a typed, proved OrdinaryBeck application; no separate reflection adapter is needed. Still needs changes: preservation under the printed FS hypotheses is unestablished, and 15 construction API signatures, four theorem signatures and 24 original tests lack typed reconstruction carriers. Packet checks and full Lean elaboration pass; only placeholder-proof warnings remain. Unrelated pending iwasawa fixes and other partial-packet work are outside this verdict. The issue authorizes two packet reviews but the queue requires sixteen; fourteen excluded reviews prevent full-job intake completion, as documented in the report/handoff."
  },
  "reviewHistory": [
   {
@@ -16279,6 +16286,12 @@
    "date": "2026-10-10",
    "session": "codex-X15WW9",
    "notes": "Codex (GPT-6), session codex-X15WW9: independent bounded area-fix review following the entire preceding review, preserved in reviewHistory. Findings /4 and /31: the proposed geometric Hodge owner remains explicitly unaccepted; abstract Hodge structures alone are not a geometric decomposition supplier. PairDiagram.PeriodComparison retains pullback, connecting-map, unit and product laws, ProductCompatible and the Tate rank-one condition. Freshly read Huber–Müller-Stach Definition 0.1 p.2 supports these relations; the arbitrary-pair comparison remains a C5 request. Preserve every qualification of the later accepted iwasawa-3~3 review in reviewHistory. Fresh pinned-index packet validation has zero errors and warnings. Mathematical fields and supplier requests are unchanged. The unchanged Suggested hash matches its inherited full-file Lean receipt. Acceptance concerns the area fixes and precise requests; no full blueprint/source audit or proof closure is recertified. See the report for fresh versus inherited evidence and the unresolved dispatch scope."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-geomlanglands~2",
+   "date": "2026-10-10",
+   "notes": "Bounded independent review of FIX-RT-AREA-geomlanglands~2, following independent-review-REV-FIX-RT-AREA-algebraicgeometry~2 (2026-10-10), preserved in reviewHistory. Finding /17: checked FS VI.10.2–VI.11 and DM 1.13, 2.11–2.23 at the recorded public versions, pinned baseline declarations, nine new nodes, the two late consumers and the prospective early-owner split. Corrected the monad/module side convention, three finite-piece tests, missing upstream layer-1 prerequisite, direct pinned representation/comodule import and finite-group baseline namespace; added a typed zero-hull non-example. Remaining real gap: the relative Beck preservation adapter is not established under the printed hypotheses, and the reconstruction carriers, 15 construction API signatures and four theorem signatures remain prose rather than typed targets. See the new gap and the independent report. Packet checks pass; the final suggested file elaborates with only placeholder-proof warnings. This does not revisit or accept unrelated pending iwasawa fixes or the rest of this partial packet."
   }
  ],
  "fixes": {
