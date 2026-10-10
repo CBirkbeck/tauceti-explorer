@@ -6775,7 +6775,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
     "date": "2026-10-10",
-    "notes": "Codex codex-2UUiVM independently checked the bounded round-2 area-fix dispositions, following codex-egWNJX in PR #8118 and codex-sH10uY in PR #8057. Checked Tate section 6 p.46. Corrected positive-index conventions in suggested component counts and packet/suggested cyclic-group formula; replaced three generic Tate source-match records with specific support and limits. Retained tame characteristic restrictions, Kodaira-resolution proof gap and excellent-DVR/residue-field criterion boundary. Pinned packet checker passes and the suggested Lean file elaborates with admission warnings only. Acceptance covers recorded area-fix corrections/handoffs, not full-plan closure, supplier implementation or inherited gaps. Prior full-plan reviews are preserved in reviewHistory. Full job #5702 remains blocked by the six queue-required pairs absent from the issue edit list; those are unchanged. See this job report and handoff."
+    "notes": "Codex codex-in0MB9 independently rechecked the round-2 area-fix dispositions, following the bounded checkpoint in PR #8134 (codex-2UUiVM), with earlier reviews preserved in reviewHistory. Checked Tate Section 6, printed p.46, including positive I_n and I_n* indices, component counts versus component groups, and the location of the characteristic restriction. Retained the previous source-match corrections and Kodaira-resolution gap. Checked excellent-DVR/residue-field conditions on the recorded curve-Jacobian supplier note and current StableReduction inputs. The pinned packet check passes; a fresh sequential lean-check elaborates the suggested file with only admitted-proof warnings. No further mathematical correction was required in this issue-listed packet. Acceptance is confined to the recorded fix dispositions and handoffs; inherited proof/interface gaps remain. The full eleven-packet queue review is blocked by the six pairs absent from issue #5702; they were read and compiled but remain unedited. The report records their findings and exact continuation work."
   },
   "reviewHistory": [
     {
@@ -7236,6 +7236,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
       "date": "2026-10-09",
       "notes": "Codex codex-egWNJX independently rechecked this packet’s bounded round-2 algebraic-geometry area-fix dispositions, following codex-sH10uY in PR #8057. Tate section 6 p.46 geometric component counts and positive indices checked; characteristic-restricted discriminant/conductor rows and Kodaira-resolution gap retained. Excellent-DVR/residue-field and node-level curve-Jacobian criterion boundary checked. Pinned packet checker passes; suggested Lean elaborates with only expected admission warnings. Acceptance concerns area-fix dispositions and explicit handoffs, not inherited gaps, supplier implementation, other reviews or stage closure. The full #5702 job remains blocked by the six queue-required packets absent from the issue edit list; those retain their own reviews. See this job report/handoff."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+      "date": "2026-10-10",
+      "notes": "Codex codex-2UUiVM independently checked the bounded round-2 area-fix dispositions, following codex-egWNJX in PR #8118 and codex-sH10uY in PR #8057. Checked Tate section 6 p.46. Corrected positive-index conventions in suggested component counts and packet/suggested cyclic-group formula; replaced three generic Tate source-match records with specific support and limits. Retained tame characteristic restrictions, Kodaira-resolution proof gap and excellent-DVR/residue-field criterion boundary. Pinned packet checker passes and the suggested Lean file elaborates with admission warnings only. Acceptance covers recorded area-fix corrections/handoffs, not full-plan closure, supplier implementation or inherited gaps. Prior full-plan reviews are preserved in reviewHistory. Full job #5702 remains blocked by the six queue-required pairs absent from the issue edit list; those are unchanged. See this job report and handoff."
     }
   ]
 }

@@ -1,38 +1,42 @@
 # REV-FIX-RT-AREA-algebraicgeometry~2 — blocked checkpoint
 
-Codex, session `codex-2UUiVM`, 10 October 2026. Issue [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702). This follows checkpoints #8057 and #8118. One job was claimed and no second job was taken.
+Codex session `codex-in0MB9`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), following checkpoints #8057, #8118 and #8134. One issue was claimed; no second job was taken.
 
-## Resolve scope before continuing
+## Resolve the scope conflict first
 
-The issue's deliverables and full instructions name five packet/suggested-file pairs: MotivesAndAlgebraicCycles, AlgebraicModuliForArithmeticGeometry--A0-extension, SchemeAndStackFoundations, AnabelianGeometryAndNonabelianChabauty and NeronModelsAndSemistableAbelianVarieties. WORKERS.md says “Edit only the files the issue names, plus your own scratch space.” I requested authorization for all eleven queue-listed pairs; no authorization has arrived.
+The issue's deliverables **and full instructions** name five packet/suggested-file pairs: MotivesAndAlgebraicCycles, AlgebraicModuliForArithmeticGeometry--A0-extension, SchemeAndStackFoundations, AnabelianGeometryAndNonabelianChabauty and NeronModelsAndSemistableAbelianVarieties. WORKERS.md says “Edit only the files the issue names, plus your own scratch space.” I requested authorization for all eleven queue pairs; no answer arrived before submission. A fresh issue read still lists five. The generated prompt is absent.
 
-The queue's extra six pairs are PELModuli, ShimuraCompactifications--C0, ShimuraVarieties--V0, AdicCoefficientsAndComparisons, GrossZagierAndArithmeticHeights--GZ.0 and ShimuraData. Its generated prompt is absent. `issues.deliverables_complete` requires this job's review marker in every queue-listed packet; completion remains false. Update both the issue's deliverables and full instructions to authorize all eleven, or reconcile the queue to the intended five-pair scope. Repeating the five accepted dispositions will not resolve this block.
+The queue additionally requires PELModuli, ShimuraCompactifications--C0, ShimuraVarieties--V0, AdicCoefficientsAndComparisons, GrossZagierAndArithmeticHeights--GZ.0 and ShimuraData, each with its suggested file. Update both issue sections to authorize these six, or reconcile the queue to five. `issues.deliverables_complete` requires this job's reviewer marker on all eleven, so it remains false. Another five-file checkpoint cannot complete the queue.
 
-## Changes and validation completed
+## Completed evidence and changes
 
-The five authorized area-fix dispositions were independently rechecked. Prior reviews are preserved in history; inherited full-plan gaps remain. The Néron suggested count description now includes positive indices, matching the packet. Its packet and suggested cyclic-group formula also require positive index for I_n. Three Tate source-match records now identify the supporting geometric rows and preserve resolution/actual-model/completion proof gaps.
+All 32 round-2 high/medium findings were independently rechecked as corrections or bounded handoffs. The five issue-listed packet review records are accepted for their fix dispositions, with prior reviews retained in history. No further mathematical correction was needed in those files. Their inherited gaps and other pending reviews remain.
 
-All five packets pass the pinned checker with zero errors/warnings. All five suggested files elaborate through sequential lean-check with only sorry warnings. The Néron edits affect comments/descriptions, and its packet checker passed again afterward. The six extra packets pass their checker read-only and retain their preceding reviewers. ShimuraData was freshly compiled read-only and fails. No background process or scratch file is needed to resume.
+All eleven packets pass the exact-pin checker with zero errors/warnings. **All eleven suggested files were freshly compiled sequentially in this run**, not merely inherited from earlier checkpoint logs. Ten pass with only sorry warnings. ShimuraData fails and reaches maxErrors=100. The report records counts, first root defects, the source receipts, current upstream ownership updates and proposed-edge reproduction. Intake and whitespace checks pass. No source passage, restricted book, atlas edge or supplier implementation was added. No process remains running and no scratch file is needed to resume.
 
-The report gives every high/medium disposition, selected pinned and current upstream interface checks, and public source locators/hashes. No source excerpt, restricted book, atlas edge, new mathematical node or supplier implementation was added.
+New evidence beyond #8134: all six additional Lean files were freshly checked; ShimuraCompactifications' previous missing-olean limitation is obsolete, although its signature coverage objection remains. SGA 1 XII 1.1–1.2 and 4.2/4.4/4.5 were independently read with re-edition and original pagination distinguished. Current StableReduction already states J-E torsion and several numerical inputs, so historical upstream notes must not be repeated as current absence claims. Current RG2.0a plans arbitrary affine Weil restriction and Completed/HodgeStructures uses native carriers; do not plan either again.
 
-## Six-pair continuation if authorized
+## Concrete six-pair continuation after authorization
 
-AdicCoefficientsAndComparisons's rescope proposal and G-owners gap still imply that removing SF.4→SF.5 suffices to permit MC.4→SF.4. Correct both to match the SchemeAndStackFoundations gap/proposal/finding record. After removing that edge and the five Néron/StableReduction forwarding edges, this path remains:
+1. **AdicCoefficientsAndComparisons:** correct `G-owners.detail` and the first rescope `proposal`. Removing SF.4-to-SF.5 is not sufficient for MC.4-to-SF.4. Keep SF.4 as the schematic alteration owner and L5 as comparison descent/local calculations. Preserve the pointed-cover extension request, but attach it at alteration-node level and split/reroute the downstream formal/cohomological consumers before certifying a whole-stage cover import. Retarget RD.5's L5 request through its own job. The report gives a ready mathematical replacement boundary.
 
-```text
-SF.4 → DerivedDeRhamCohomology:DD.5 → PerfectoidQuotients:Q3 → Q4
- → AdicEtaleGeometry:A3 → RelativeFarguesFontaine:RF0:integral-Y
- → VectorBundlesAndIsocrystals:VB0 → AbelianSchemesAndArithmeticModuli:A4
- → PELModuli:M2 → M6 → StableReductionPartII:MC.4
-```
+   The remaining path after **all six** forwarding-edge removals is:
 
-Keep SF.4 as the schematic alteration owner. MC.4 needs the pointed cover for every genus and n≥3 in de Jong §2.24, beyond its current unpointed range. Attach the cover request to alteration nodes and split/reroute formal/cohomological consumers before approving a whole-stage import. RD.5's L5 request needs retargeting by its own job. The Adic reader is outside even the queue's deliverables.
+   ```text
+   SF.4 -> DerivedDeRhamCohomology:DD.5
+        -> PerfectoidQuotients:Q3 -> Q4 -> AdicEtaleGeometry:A3
+        -> RelativeFarguesFontaine:RF0:integral-Y
+        -> VectorBundlesAndIsocrystals:VB0
+        -> AbelianSchemesAndArithmeticModuli:A4
+        -> PELModuli:M2 -> M6 -> StableReductionPartII:MC.4
+   ```
 
-Reproduce the graph with scripts.build.assemble(require_distances=False), stage requires and research roadmap definitions. Remove SF.4→SF.5 and R11.1/R11.3/StableReduction7/8/9→SF.5. Together, SF.3/R09.1→SF.5, SF.4→L5/RD.5, MC.2→SF.4 and R11.1/R11.3/R11.4/Jacobian-D→StableReduction7 remain acyclic. MC.4→SF.4 creates a cycle. These are tested proposals, not installed edges; broader unreviewed packet dependencies still require node-level analysis.
+   Reproduce using `scripts.build.assemble(require_distances=False)`, atlas stageEdges, stage requires and research roadmap requires. The union has 15,601 edges. Initial and six-edge-removal graphs are acyclic. The nine other proposed SF.5, L5/RD.5, MC.2 and curve-Jacobian supplier additions jointly remain acyclic. Adding MC.4-to-SF.4 creates a cycle. No edge was installed. MC.4 needs every genus and at least three marks for de Jong 2.24; the smooth-open etale cover must not be asserted etale on the entire boundary.
 
-ShimuraData's fresh pinned Lean check exits 1, with 66 error locations including the error-limit diagnostic and three non-sorry warnings. Start with native Hodge.Conjugation being applied as a function at lines 186/210/218, the gradedRealHodge carrier mismatch at line 285, and the GL parser collision at line 363. Warnings concern SRep universes at line 176 and class-valued representationOfHodge/Supplier.realHodgeComodule at lines 261/440. Preserve actual Hodge/comodule carriers when repairing. A completed review may record needs_changes with precise defects; never hide them with placeholders. The other five extra suggested files compiled in #8118, not freshly in this run.
+2. **ShimuraData:** retain needs_changes. Fresh pinned elaboration produces 100 errors plus the error-limit diagnostic, 110 sorry warnings and three non-sorry warnings, stopping at line 883. Start with `Hodge.Conjugation` incorrectly applied as a function at 186/210/218: the pinned carrier exposes `.toEquiv`. Fix the stuck comodule at 213, carrier/instance transport at 285, and GL parser collision at 363 without weakening the native carriers. Warnings concern SRep universes at 176 and class-valued definitions at 261/440. Later errors cascade; this is not a complete defect count. Its five D0 bridge prototypes still change or assume away actual conclusions. A completed negative review can record these defects instead of pretending the whole file compiles.
 
-Read-only consumer evidence retains C0's nilpotent-preserving carrier requests in PEL/compactifications/varieties; Hodge L0/L1 requests in ShimuraData and L2 in compactifications; StableReduction 1/4/5/7 requests in GZ.2; and the arbitrary-ring finite-fan toric owner in C0. PR279 remains open/unmerged on 10 October with head `581f66fed0f12fe49b8f5dd96aa18d3e435c190a`. These checks are not full independent blueprint acceptance verdicts. Several additional packets have negative full-plan reviews; preserve their objections when judging the area fixes.
+3. **PEL, compactifications, varieties and GZ:** the affected /3, /26, /27, /28 and /34 ownership imports/handoffs are adequate. Preserve their substantive prior negative reviews when writing this job's verdicts. PEL's missing/weakened carriers, compactifications' 83 geometric/109 API/84 test comment contracts, varieties' ambiguous automorphic boundary and inconsistent reader, and GZ's broader source/supplier/API correspondence are not repaired by ownership imports or a compiled limited slice. The report gives per-packet conclusions; do not blanket-accept them to satisfy a marker check.
 
-Continue carrying geometric Hodge and arbitrary-pair/constant-coefficient/relative analytic comparisons, the Tate-pair homology computation, Motives reader reconciliation, Néron Kodaira-resolution proof and excellent-DVR criterion hypotheses. Import current upstream RG2.0a and AlgebraicVectorBundles interfaces rather than re-planning them. Never run Lake in the read-only upstream checkout.
+When an additional packet is authorized for editing, remove source `excerpt` fields under the standing no-quotation rule and preserve earlier review records. Its reader is outside even the queue's deliverable list; record necessary synchronization rather than editing an unauthorized reader. Once every queue-listed packet has the correct reviewer/status, rerun packet/intake checks and the completion predicate. A negative completed review is allowed; no mathematical gap should be concealed for acceptance.
+
+TauCetiRoadmap PR279, the holomorphic-gluing proposal, was freshly checked open/unmerged at head `581f66fed0f12fe49b8f5dd96aa18d3e435c190a`. Use its full repository-qualified URL; TauCeti has an unrelated PR279. Keep geometric Hodge, arbitrary-pair comparison, constant-coefficient/relative analytic comparisons and Neron regular-model resolution as explicit supplier/proof obligations. Never run Lake in the read-only current upstream checkout.
