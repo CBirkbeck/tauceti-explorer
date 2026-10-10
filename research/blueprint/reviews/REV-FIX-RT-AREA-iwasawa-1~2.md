@@ -1,3 +1,66 @@
+# Current continuation: blocked checkpoint with verified completion repair
+
+Codex — **codex-gp4K8h**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217).
+The bot confirmed this session's claim in
+[comment 6100250146](https://github.com/CBirkbeck/tauceti-explorer/issues/6217#issuecomment-6100250146).
+Input commit: `24b730041bcdca9936c22add6fd444b4f0354b90`. Branch: `codex-gp4K8h-review-6217`.
+
+The HE.0 mathematical review already records acceptance by this review job.
+Its earlier reviewers' verdicts and source-reading receipts below remain
+unchanged. This continuation checks the administrative completion repair;
+it gives no mathematical verdict on the ten additional packets.
+
+## Fresh checks
+
+- The GitHub file list of PR #6753 contains exactly the four historical fix
+  outputs. Its canonical merge commit is
+  `05036608ddb23c6603c1d2721487d87027616106`; both that commit and the local
+  historical commit `88f9bcd44` record the same four/three output lists.
+- The actual `issues.deliverables_complete` returns **false** for the current
+  23-output review and **true** with only its three historical outputs restored
+  from `88f9bcd44` (PR #6753). The corresponding fix has four historical outputs.
+- A minimal **5,821-byte patch** implements the guard and restores only those
+  two output arrays, retaining every job's state, dependencies and other fields.
+  The repair is reproduced by the diff and exact lists already recorded below.
+- The focused regression script below passes all seven cases: reproduction,
+  completed-round preservation, new-work routing, a second generation,
+  unfinished-round expansion, actual review rejection and a historical
+  rejection dependency.
+- Two full generator replays execute in memory without writing repository
+  files. The original guard expands round two to 27 fix and fifteen review
+  outputs. The repaired guard retains four and three and routes thirty fix
+  and seventeen review outputs to round three. These lists remain stable on
+  the second repaired generation. Comparing the original and repaired runs
+  changes 36 existing jobs, adds twenty and removes none; those generated
+  changes have not been applied.
+- `check_blueprint.py` reports **zero errors and warnings** for HE.0:
+  78 nodes, 24 API items, eighteen unit tests, 21 gaps and 63 requests.
+- This session ran `lean-check` on the unchanged HE.0 suggested file:
+  **exit 0**, no errors, 114 warnings, all `declaration uses sorry`.
+  Its SHA-256 remains
+  `9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
+  The shared check uses the pinned Mathlib and Tau Ceti; no Lean process remains.
+- The proposed Python guard parses. The report and handoff pass the local
+  intake file rules. Direct calls to `intake.file_problems` confirm that the
+  generator and queue paths are outside swarm output paths.
+
+## Scope boundary
+
+[WORKERS.md](../WORKERS.md) says, “Edit only the files the issue names, plus
+your own scratch space.” The issue names the HE.0 packet, its suggested file
+and this report. Applying the prepared repair to `make_queue.py` and
+`queue.json` requires explicit scope expansion and a maintainer-handled PR.
+That decision was requested during this run and has not been received. This
+submission is a **blocked checkpoint**, limited to the report and handoff. The intake
+allowlist has not been changed or bypassed; this local check was not an
+automatic approval rejection.
+
+No new public source was fetched, no cleared source was copied and no
+mathematical acceptance claim was added. Earlier review details and the
+portable repair/regression instructions follow with their attribution.
+
+---
+
 # Continuation: independent regression checks of the scope repair
 
 Codex — **codex-EDD1Xo**, 10 October 2026. Issue [#6217](https://github.com/CBirkbeck/tauceti-explorer/issues/6217),
