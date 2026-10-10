@@ -1,3 +1,132 @@
+# Independent continuation — codex-ACNEuH
+
+Codex, session `codex-ACNEuH`, 10 October 2026. Refs #6219.
+Input atlas: `bd62adda22331a1426e1fb48512837fe587e5cee`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6097375898).
+This reviewer did none of the fixes and took no second job.
+
+**Scope-blocked checkpoint.** The live issue authorizes the L3 and PMIA
+packets, whereas its queue requires L3-2 and D.1 review receipts as well.
+[WORKERS.md](../WORKERS.md) says “Edit only the files the issue names, plus
+your own scratch space.” Explicit authorization for those two packet paths
+was requested during the checks; no answer arrived. This continuation changes
+only this report and its handoff. Existing packet reviews and histories retain
+their original attribution.
+
+The actual `issues.deliverables_complete(job)` returns **False**. A fresh
+scratch proposal, altering only the two omitted packets, returns **True**.
+Both proposed packets pass the checker. PMIA's `needs_changes` already counts
+as a completed independent review; its mathematical revision is separate from
+the missing receipts. Do not change the queue to evade this condition.
+
+## Per-finding results of this continuation
+
+Read all six findings, the verifier's decisions and the round-two fix report.
+The source and contract checks below concern the indicated fixes, including
+their prerequisite, API and counterexample boundaries. They do not certify the
+whole L3 or PMIA packet, or establish any requested arithmetic supplier.
+
+1. **Morita Gamma and Gross–Koblitz: the selected corrections are supported.**
+   Checked the eight L3 contracts listed in the preceding report. Morita §1,
+   Lemma 1 and Theorem 1, pp.255–256, supports the signed product and continuous
+   unit-valued extension, with separate recurrence branches. The unbuffered
+   modulus-four claim at p=2 fails: the signed natural products at 1 and 5
+   are −1 and −3. Gross–Koblitz §1, (1.2), (1.5), Theorem 1.7,
+   pp.570–571, requires the negative Gauss-sum convention and normalized root
+   congruence in the integer ring. Its odd-prime, nontrivial-character theorem
+   does not supply the trivial or dyadic cases. Robert's Theorem 4 p.168 and
+   the estimate on pp.167–168 give the separate all-prime route; the dyadic
+   digit-sum term must remain. The packet's two precise RD.6 inputs are still
+   prerequisites, rather than completed constructions.
+2. **Ferrero–Greenberg: the bounded contract is supported; one locator needs
+   correction.** Checked the 29 L3-2 root/derivative contracts listed below
+   against Zhao §1.2 p.461, §4 Theorem 4.1 and (4.1)–(4.6), pp.471–473,
+   and Appendix B.2 p.474. The all-prime normalization, primitive odd
+   character, prime-to-p conductor and even branch remain explicit. The
+   derivative retains `(1−χ(p))B1,χ logp N`; exceptional-zero specialization
+   does not prove nonvanishing. The strict antidifference endpoint and Gamma
+   argument in the packet are correct. Its Zhao locator should replace E34
+   by `DirichletPadicLFunctions/E37`. That single locator repair is prepared
+   but uninstalled because L3-2 lies outside the live scope.
+3. **Log-syntomic comparison: the four D.2 consumer contracts are supported.**
+   Checked their statements and supplier boundaries against Ertl–Nizioł
+   §§2.1–2.2 pp.4–8, Colmez–Nizioł Corollary 3.16 p.37 and Theorem 5.4
+   p.54, and Nekovář–Nizioł Remark 2.14 p.14 and Proposition 4.13
+   pp.53–54. The directed divided/undivided maps and their p-power composites
+   do not become interchangeable multiplicative maps. Keep the factorial
+   modification of the twist, exact divided range through p−2, bounded
+   undivided comparison, and rational exponential scale/sign. The CS.0–CS.3
+   producers remain external requests; CP.4 routing does not construct them.
+4. **Dasgupta–Kakde algebra: retain PMIA's `needs_changes`.** Read the 50 L6
+   contracts against DK §§2.2–2.3 pp.15–18, Lemma 3.9 pp.25–26,
+   §6.1/Lemma 6.1 p.40 and Appendix B.2 (171) pp.93–94. The character rings
+   remain evaluation images; the involution changes the character set. The
+   positive quadratic presentation size, determinant regularity and right
+   adjugate identity are preserved. The five generic Fitting/stable-transpose
+   nodes identified below duplicate current Tau Ceti APIs. Their migration
+   must include consumers, requests, L4 comparison, reader and suggested
+   interfaces together. The reader is outside this review's scope, so a
+   partial migration would not resolve the negative verdict.
+5. **Derived finite slopes: the routing remains supported with gaps.** Read
+   LAD's compact representative, finite-perfect model, equivariant homotopy,
+   derived base-change and classical/solid finite-window contracts, together
+   with the two relevant gaps. A chosen degreewise Fredholm product is not
+   homotopy invariant. Strict equivariant homotopies do not supply the stronger
+   comparison for maps commuting only up to homotopy. Derived tensor does not
+   imply underived cohomology base change, and compact finite windows do not
+   prove full solid localization. This is a check of the recorded routing and
+   gap boundaries, not a fresh source audit of LAD's entire development.
+6. **Main-conjecture proof duplication: retain the verifier's rejection.**
+   Read RS-16's I.5 decision and accepted independent review. It intentionally
+   keeps the Mazur–Wiles/Wiles Hecke and congruence routes alongside the
+   Kolyvagin–Rubin Euler-system route. A shared conclusion does not make their
+   arithmetic proof inputs interchangeable. No route should be deleted on
+   this finding's evidence.
+
+## Fresh validation and remaining edits
+
+Fetched the eight public PDFs again; all SHA-256 digests match the preceding
+table. Inspected scanned Morita, Gross–Koblitz and Robert formulas as images.
+The linked public sources, exact selection lists and concrete proposed JSON
+receipts below remain available after scratch deletion. No source passage or
+restricted book was copied into the repository.
+
+Current read-only TauCetiRoadmap is
+`e255659f8eb50cd472809d9d565c8f755acffd84`; current Tau Ceti is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Read the current Fitting and
+stable-transpose declarations. The arbitrary-algebra Fitting base-change
+theorem needs no flatness hypothesis; the stable-transpose equivalence is over
+the opposite ring and needs no finite-generation hypothesis. The application
+still needs its scalar transport and finite-projective adapters. At the
+programme pins, the shared build's transpose and dual-base-change sources
+match byte for byte; the newer Fitting and stable-transpose modules are absent.
+
+All four original packets pass `check_blueprint.py`: zero errors; L3 has
+26 inherited short-API warnings, the other three have none. Both scratch
+proposals pass with zero errors or warnings. The proposals preserve all gaps,
+requests, sourceIssues and coverage; D.1's whole prior review, including its
+72 checked entries, is archived unchanged. Their only mathematical-text edit
+is L3-2's E37 locator. Suggested Lean sources and the queue are unchanged.
+
+Sequential checks of the original suggested files at Mathlib `082e2d3` and
+Tau Ceti `f790474` give PMIA success with 1,075 `sorry` warnings only and
+L3-2 success with 110 such warnings only. L3 fails at line 1 with unknown
+module prefix `research`, before its body, because the isolated shared build
+does not contain its repository-local imports. D.1 succeeds with 307 `sorry`
+warnings only. No compiler remains running. No claim of standalone L3
+compilation is made.
+
+After scope authorization, apply the two concrete proposed review objects
+below with the continuing reviewer's session/date, preserve previous whole
+reviews, and make the E37 locator repair. Require the actual completion
+predicate to return True. The [handoff](../handoff/REV-FIX-RT-AREA-iwasawa-2~2.md)
+records the precise resumption point. No additional mathematical correction
+was installed in this continuation.
+
+---
+
+## Earlier checkpoint, retained with its original attribution
+
 # Scope-blocked checkpoint — codex-AHC3lr
 
 Codex, session `codex-AHC3lr`, 10 October 2026. Refs #6219.
