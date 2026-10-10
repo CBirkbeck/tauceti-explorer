@@ -1,4 +1,90 @@
-# Current continuation: tested historical-scope repair
+# Current continuation: scope verification and issued-round probe
+
+Issue [#5871](https://github.com/CBirkbeck/tauceti-explorer/issues/5871),
+Codex (GPT-6), session **codex-bmdZE0**, 10 October 2026. The bot confirmed
+claim 6101256015 in
+[comment 6101257130](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6101257130).
+This worker did none of the underlying fix or red-team work. Input commit
+`e760b5eb86b00b323b8e2d104317e3f0b1a60e98`; rebased the job branch onto
+`2698b0b8d` before submission to preserve the preceding continuation below.
+
+**Blocked checkpoint.** The existing mathematical review remains complete and
+attributed to its original reviewers. Fresh local and fetched-main checks
+still show seven issue-authorized outputs versus 27 queue outputs, with forty
+outputs on the done parent fix. The stock completion predicate returns False
+for the current entry and True for either the live seven-output scope or the
+actual historical review entry applied to the current files. All 27 files
+exist. The ten added packets have accepted reviews under other independent
+job identifiers. Their verdicts were not changed.
+
+Freshly recovered PR #6724's merge queue at
+`ea48bbeeacfde53c5b93de227ad11d27e83cdafd`: ten fix outputs and seven review
+outputs, matching the original submission and live issue. This confirms the
+preceding continuation's restoration evidence. The recovered file's SHA-256
+is `1ac6ac1783ab9bfaddb03529f59740c02a4c758360fabb74c8cc4b6b4f5555e8`;
+the fetched main queue's SHA-256 is
+`5a01b646e787653b4b4c66819799667576144b194cbeca8e63b3866d7d12e37d`.
+The fetched main generator and local generator are identical.
+
+## Additional design check: preserve an issued successor's scope
+
+The preceding proposed guard protects completed rounds but expressly lets
+unfinished rounds expand. This continuation tests an **existing external
+successor** whose file scope is already recorded. Such a scope must also be
+reconciled with its live issue before assigning additional files to its worker.
+The experiment uses the actual nested `fix_rounds` helper, extracted by AST,
+with controlled fixtures and an in-memory recording callback. It writes no
+queue, prompt or repository file.
+
+An alternative guard considered only in memory is:
+
+```python
+made = previous_jobs.get(following) if following in states else None
+```
+
+| Fixture | Stock guard | Preceding completed-only guard | All-existing-round guard |
+| --- | --- | --- | --- |
+| New B inputs appear; external successor owns only A | Scope grows from 3 to 5 outputs | Scope grows from 3 to 5 outputs | Scope stays at 3 outputs |
+| Previous review sends work back; external successor has a narrower scope than its parent | Scope grows from 3 to 5 outputs | Scope grows from 3 to 5 outputs | Scope stays at 3 outputs |
+| No existing successor, under either trigger | Fresh successor includes B | Fresh successor includes B | Fresh successor includes B |
+
+For both existing-successor cases, a second generation consumes the first
+generation's recorded job outputs with its prior states retained; all results
+persist. Thus the alternative does not suppress newly created rounds and
+protects scopes already assigned to external workers. When an existing round
+is unfinished, newly discovered work is reconsidered after that round finishes,
+instead of being silently added to its current assignment.
+
+This is a bounded **helper test**, not a full-generator or intake replay of
+the alternative guard. The preceding full-generator receipts below apply
+only to that worker's completed-only guard. Neither guard recovers already
+enlarged metadata by itself. Before publishing a global repair, decide how
+issued pending scopes are preserved, restore historical lists, run full
+regeneration twice, and inspect the broader family changes. The complete
+additional reproducer at the end of this report has no scratch dependency.
+
+## Validation and stopping boundary
+
+All three assigned packets pass fresh checks against the declaration index
+whose manifest records Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`
+and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`: **zero errors and
+warnings**, for 37 CSM, 73 GL2 and 67 Global nodes. The confirmed-finding set
+and retained mathematical table each cover /1–/40 exactly once.
+CSM accepted, Global accepted and GL2 needs_changes remain unchanged.
+No mathematical statement, source record, API, test, prerequisite, gap,
+request or signature changed. No new primary-source or baseline-declaration
+audit is claimed. Unchanged Lean files were not recompiled; their earlier
+receipts retain their original attribution.
+
+WORKERS.md permits only issue-named files and this handoff. Queue and generator
+edits are outside that scope and excluded by `intake.ALLOWED`. No permission
+question is pending. Only this report and handoff change; the authorized
+files cannot repair the completion mismatch. The maintainer must reconcile
+the historical scopes and generator before scheduling another continuation.
+
+---
+
+# Previous continuation: tested historical-scope repair
 
 Issue [#5871](https://github.com/CBirkbeck/tauceti-explorer/issues/5871),
 Codex session **codex-LPn2NR**, 10 October 2026. Input commit
@@ -936,3 +1022,95 @@ historical evidence.
 This is a blocked checkpoint. Resume only after maintainer metadata repair,
 preservation of the historical scopes through regeneration, and normal
 intake/sync. Repeating the unchanged scoped review cannot clear the mismatch.
+
+
+## Additional reproducer: existing external successor
+
+Run from the repository root. This reads the actual generator and executes
+its extracted helper on fixtures. It writes no file and does not regenerate
+the real queue or inspect the full intake workflow. The external successor
+already has a recorded three-output scope in each existing-round fixture.
+
+```python
+import ast
+import copy
+import re
+from pathlib import Path
+
+source = Path('research/blueprint/make_queue.py').read_text()
+tree = ast.parse(source)
+function = next(n for n in ast.walk(tree)
+                if isinstance(n, ast.FunctionDef) and n.name == 'fix_rounds')
+original = ast.get_source_segment(source, function)
+original = '\n'.join(line[4:] if line.startswith('    ') else line
+                     for line in original.splitlines())
+old = 'previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
+new = 'previous_jobs.get(following) if following in states else None'
+completed = ('previous_jobs.get(following) if (states.get(following) == "done" '
+             'or (following in states and not (missing or sent_back))) else None')
+assert original.count(old) == 1
+
+class IgnorePrompt:
+    def format(self, **kwargs):
+        return ''
+
+rt = 'RT-scope-probe'
+base = 'FIX-' + rt
+following = base + '~2'
+a = ['research/blueprint/packets/A.json', 'research/blueprint/suggested/A.lean']
+b = ['research/blueprint/packets/B.json', 'research/blueprint/suggested/B.lean']
+report1 = 'research/blueprint/redteam/' + rt + '.fixes.md'
+report2 = 'research/blueprint/redteam/' + rt + '.fixes-2.md'
+expected = [report2] + a
+
+def run(mode, previous, blueprints, sent_back=False):
+    rows = []
+    states = {k: v['state'] for k, v in previous.items()}
+    env = {
+        'states': states,
+        'previous_outputs': {k: v['outputs'] for k, v in previous.items()},
+        'previous_jobs': previous,
+        'PROMOTABLE': re.compile(r'^research/blueprint/packets/[^/]+\.json$'),
+        'findings_text': lambda *args: '',
+        'review_of': lambda path: {
+            'reviewer': 'independent-review-REV-' + base,
+            'status': 'needs_changes' if sent_back else 'accepted'},
+        'add': lambda row, prompt: rows.append(copy.deepcopy(row)),
+        'FIX_TEMPLATE': IgnorePrompt(),
+        'FIX_REVIEW_TEMPLATE': IgnorePrompt(),
+        'fill': {},
+    }
+    code = original if mode == 'stock' else original.replace(
+        old, completed if mode == 'completed-only' else new)
+    exec(code, env)
+    env['fix_rounds'](rt, 'probe', 'probe', [], 1, {}, [],
+                     previous[base]['outputs'], blueprints, {}, [])
+    return rows
+
+for case in ('missing', 'sent_back'):
+    base_outputs = [report1] + a + (b if case == 'sent_back' else [])
+    previous = {
+        base: {'id': base, 'state': 'done', 'outputs': base_outputs, 'after': []},
+        'REV-' + base: {'id': 'REV-' + base, 'state': 'done',
+                       'outputs': ['review.md'], 'after': [base]},
+        following: {'id': following, 'state': 'external', 'outputs': expected,
+                    'after': ['REV-' + base] if case == 'sent_back' else [base]},
+    }
+    for mode in ('stock', 'completed-only', 'all-existing'):
+        generation_input = copy.deepcopy(previous)
+        for generation in (1, 2):
+            rows = run(mode, generation_input, a + b, case == 'sent_back')
+            result = next(row for row in rows if row['id'] == following)
+            count = len(result['outputs'])
+            assert count == (3 if mode == 'all-existing' else 5)
+            assert (result['outputs'] == expected) == (mode == 'all-existing')
+            print(case, mode, generation,
+                  count, 'scope_preserved', result['outputs'] == expected)
+            generation_input = {row['id']: dict(row, state=generation_input.get(row['id'], {}).get('state', 'pending'))
+                                for row in rows}
+    previous_without_successor = {k: v for k, v in previous.items() if k != following}
+    for mode in ('stock', 'completed-only', 'all-existing'):
+        fresh = run(mode, previous_without_successor, a + b, case == 'sent_back')
+        assert len(next(row for row in fresh if row['id'] == following)['outputs']) == 5
+    print(case, 'new successor includes the new input in all three versions')
+```
