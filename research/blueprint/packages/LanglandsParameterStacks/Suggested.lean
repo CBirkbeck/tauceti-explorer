@@ -1919,6 +1919,16 @@ example (c : ProjectedPseudocharacter (A := A) D reindex multiply components η)
 end ProjectedPseudocharacter
 end Pseudocharacters
 
+-- projected_identity_component_shadow: rational points of H = G_m.
+-- For Q = C₂ acting by inversion, whole-(H⋊Q) invariants must satisfy hf.
+-- H-conjugation fixes both points but the Laurent coordinate separates them.
+-- This checks the elementary calculation, not the missing geometric carrier.
+example (f : ℚˣ → ℚ) (hf : ∀ x : ℚˣ, f x⁻¹ = f x) :
+    let a : ℚˣ := Units.mk0 2 (by norm_num)
+    let b : ℚˣ := Units.mk0 (1 / 2) (by norm_num)
+    (∀ h : ℚˣ, h * a * h⁻¹ = a ∧ h * b * h⁻¹ = b) ∧
+      (a : ℚ) ≠ (b : ℚ) ∧ f a = f b := by sorry
+
 section MatrixCoefficients
 variable {R : Type u} [CommRing R] {I : Type v} [Fintype I]
   {Γ H G : Type w} [Group Γ] [Group H] [Group G]

@@ -1220,6 +1220,22 @@ Unit tests:
 
 - `projected_unipotent`: For Q=1, H=SL₂ and Γ=Z, a nontrivial unipotent generator and the trivial representation have equal pseudocharacters, although the lifts are not conjugate.
 
+**Identity-component check.** Take H=G_m over an algebraically closed field
+of characteristic zero and Q=C₂ acting by inversion. Let Γ=ℤ and let η be
+trivial. The two lifts sending 1 to (2,1) and (1/2,1) in J=H⋊Q are
+semisimple and have the same projection. They are distinct under H-conjugation:
+H fixes every element of the identity component. Extend the Laurent coordinate
+x on that component by zero on the other component. This is a regular
+H-invariant function on J and its evaluations on the two generators are 2 and
+1/2. Conjugation by the nonidentity element of Q exchanges the lifts, so every
+J-invariant tuple function gives the same evaluations on them. In particular,
+the equality of x+x⁻¹ at the two generators does not identify their projected
+pseudocharacters. Taking whole-J invariants and then imposing η loses this
+distinction; it cannot replace O[Jⁿ]^H. The rational unit calculation
+`projected_identity_component_shadow` in Suggested.lean checks the conjugation,
+inversion and unequal coordinate values underlying this example; it does not
+construct the quotient stack or the geometric pseudocharacter carrier.
+
 **Needs:** [LP2e.11](#lp2e11-the-universal-excursion-relations); **ReductiveGroupsPartII, RG2.5**; `RingHom` (Mathlib); **IntegralHeckeAndGaloisDeterminants, IHG.0/reductive-pseudocharacter**.
 
 **Source:** [Quast][Quast-pseudocharacters], Definition 3.1 and Lemma 3.5, pp.11–13. [Fargues–Scholze][FS-geometrization], VIII.3.7–VIII.3.8, pp.289–290.
