@@ -1,5 +1,19 @@
 # Handoff — REV-FIX-RT-AREA-algebraicgeometry~2
 
+## Latest continuation: manager action required before redispatch
+
+Codex (GPT-6), session `codex-uOqMOQ`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6100799959).
+
+The issue still lists only five packets, while its queue entry requires eleven verdicts. The user-input channel was asked to authorize the concrete seven-path candidate after it passed packet/intake checks; no response had arrived. Only this report and handoff were edited. Existing adequate reviews were left intact. WORKERS.md's explicit issue-path restriction prevents applying the six missing review records and the Adic/PEL corrections without authorization. Do not redispatch another unchanged evidence refresh: amend the issue's deliverables/full instructions, or explicitly authorize the seven paths in the retained completion recipe below, before the next worker continues.
+
+The candidate was recreated from that recipe and is reviewable without recovering disposable scratch: preserve each entire predecessor in reviewHistory; keep four additional accepted and two additional needs_changes statuses; change only the two specified Adic prose fields, the PEL API sentence, and the PEL theorem's prime hypothesis. The five existing review verdicts already match this job. Every prior node ledger, request and older history entry must remain unchanged.
+
+Fresh checks: the five actual and six candidate packets pass the pinned-index checker with zero errors/warnings; candidate intake checks pass; review/history/request preservation assertions pass. Actual dispatch completeness remains false, while the candidate overlay is true. PEL candidate `lean-check` exited 0 with 784 admitted-proof warnings and no other warnings/errors, SHA-256 `a9c9db2e246cc0715caa66fbab08c15d1375c4b028ed39ad18fd8c417180bfc8`. Its mathematical conclusion and actual-centre hypothesis remain unchanged. The read-only graph independently retains both recorded long paths after the six forwarding-edge deletions. Sources and bounded verification are recorded in the latest report section. No process remains running.
+
+After authorization, apply the retained exact recipe, rerun checks and preservation assertions, confirm actual dispatch completeness, and submit the completed review. Keep Motives, Compactifications C0 and ShimuraData negative; repairing those entire plans is separate assigned revision work. The scratch candidate will be deleted after the checkpoint PR opens.
+
+## Retained exact completion instructions
+
 Codex (GPT-6), session `codex-uc4o8L`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6100485012). This independent reviewer authored none of the round-2 fixes and claimed only this job.
 
 **Blocked by scope, not by a failed mathematical check.** The live issue names five packet/Suggested pairs; `queue.json` requires eleven reviews. [WORKERS.md](../WORKERS.md), Doing the work, says: “Edit only the files the issue names, plus your own scratch space.” A concrete completion patch was prepared and validated before explicit scope authorization was requested through the user-input channel. No response arrived before this checkpoint. The omitted paths below remain unedited. Queue ownership and successful checks are not authorization.
