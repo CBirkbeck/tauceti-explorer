@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-ConformalMappingPartII",
+    "date": "2026-10-10",
+    "notes": "Completed all six review checks against the accepted 98-target plan, cited CDT passages, current upstream roadmaps and library suppliers. Corrected the missing punctured-domain hypothesis, reuse of existing universal-cover manifold charts, two source locators, the native Riemann-map comparison, companion correspondence, rotated exceptional-set API and several weaker examples. All 98 targets, 68 API statements and 54 examples are in the README; metadata and style pass. Final lean-check exits 0 with no errors and 170 sorry-only warnings. Needs changes because eight required API declarations, the cover-chart construction and four planned Lean examples remain absent, and several named theorem assertions are only comments or partial signatures. See REV-PKG-ConformalMappingPartII.md for exact names and required revisions."
+  }
+}
