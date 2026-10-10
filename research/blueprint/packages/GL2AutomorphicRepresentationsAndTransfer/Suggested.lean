@@ -72,6 +72,7 @@ import Mathlib.GroupTheory.Solvable
 import Mathlib.RingTheory.Localization.AtPrime.Basic
 import Mathlib.RingTheory.Ideal.Maps
 import Mathlib.RingTheory.DedekindDomain.AdicValuation
+import TauCeti.Algebra.Quaternion.Split
 
 noncomputable section
 set_option linter.unusedVariables false
@@ -813,13 +814,87 @@ section Quaternion
 README targets: R17.1/local-quaternionic-comparison, R17.1/norm-character-steinberg, R17.1/real-quaternionic-comparison, R17.1/wild-dyadic-transfer.
 Omitted declaration names: TauCeti.GL2Blueprint.localQuaternionic, TauCeti.GL2Blueprint.normCharacterSteinberg, TauCeti.GL2Blueprint.realQuaternionic, TauCeti.GL2Blueprint.wildDyadicTransfer.
 -/
+section QuaternionRamification
+open NumberField IsDedekindDomain
+open scoped NumberField
+variable {K : Type*} [Field K] [NumberField K]
+
+-- R17.1/swapped-quaternion-invariants: a corollary of the prescribed Hilbert signs in
+-- GlobalQuadraticForms 4.4, not a new proof of that supplier's theorem.
+theorem existsQuaternionRamification_iff
+    (Sf : Finset (HeightOneSpectrum (𝓞 K))) (Si : Finset (InfinitePlace K)) :
+    (∃ a b : Kˣ,
+      (∀ v : HeightOneSpectrum (𝓞 K),
+        Nonempty (QuaternionAlgebra (v.adicCompletion K)
+          (algebraMap K (v.adicCompletion K) (a : K)) 0
+          (algebraMap K (v.adicCompletion K) (b : K)) ≃ₐ[v.adicCompletion K]
+          Matrix (Fin 2) (Fin 2) (v.adicCompletion K)) ↔ v ∉ Sf) ∧
+      (∀ w : InfinitePlace K,
+        Nonempty (QuaternionAlgebra w.Completion
+          (algebraMap K w.Completion (a : K)) 0
+          (algebraMap K w.Completion (b : K)) ≃ₐ[w.Completion]
+          Matrix (Fin 2) (Fin 2) w.Completion) ↔ w ∉ Si)) ↔
+    (∀ w ∈ Si, w.IsReal) ∧ Even (Sf.card + Si.card) := by
+  sorry
+
+-- The actual algebra-isomorphism conclusion is stronger than equality of classes.
+-- ClassFieldTheory 10 and SemisimpleAlgebras 6 supply the uniqueness route.
+theorem quaternionAlgEquivOfLocalSplitting (a b c d : Kˣ)
+    (hf : ∀ v : HeightOneSpectrum (𝓞 K),
+      Nonempty (QuaternionAlgebra (v.adicCompletion K)
+        (algebraMap K (v.adicCompletion K) (a : K)) 0
+        (algebraMap K (v.adicCompletion K) (b : K)) ≃ₐ[v.adicCompletion K]
+        Matrix (Fin 2) (Fin 2) (v.adicCompletion K)) ↔
+      Nonempty (QuaternionAlgebra (v.adicCompletion K)
+        (algebraMap K (v.adicCompletion K) (c : K)) 0
+        (algebraMap K (v.adicCompletion K) (d : K)) ≃ₐ[v.adicCompletion K]
+        Matrix (Fin 2) (Fin 2) (v.adicCompletion K)))
+    (hi : ∀ w : InfinitePlace K,
+      Nonempty (QuaternionAlgebra w.Completion
+        (algebraMap K w.Completion (a : K)) 0
+        (algebraMap K w.Completion (b : K)) ≃ₐ[w.Completion]
+        Matrix (Fin 2) (Fin 2) w.Completion) ↔
+      Nonempty (QuaternionAlgebra w.Completion
+        (algebraMap K w.Completion (c : K)) 0
+        (algebraMap K w.Completion (d : K)) ≃ₐ[w.Completion]
+        Matrix (Fin 2) (Fin 2) w.Completion)) :
+    Nonempty (QuaternionAlgebra K (a : K) 0 (b : K) ≃ₐ[K]
+      QuaternionAlgebra K (c : K) 0 (d : K)) := by
+  sorry
+
+-- Empty support has an actual global split witness already in the pinned library.
+example : Nonempty (QuaternionAlgebra K 1 0 1 ≃ₐ[K]
+    Matrix (Fin 2) (Fin 2) K) :=
+  ⟨TauCeti.QuaternionAlgebra.oneEquivMatrix (1 : Kˣ)⟩
+
+-- A singleton finite place with no infinite ramification cannot be realized.
+example (v : HeightOneSpectrum (𝓞 K)) :
+    ¬ ((∀ w ∈ (∅ : Finset (InfinitePlace K)), w.IsReal) ∧
+      Even (({v} : Finset (HeightOneSpectrum (𝓞 K))).card +
+        (∅ : Finset (InfinitePlace K)).card)) := by simp
+
+-- A finite place and one real place give the admissible cardinality two.
+example (v : HeightOneSpectrum (𝓞 K)) (w : InfinitePlace K) (hw : w.IsReal) :
+    (∀ z ∈ ({w} : Finset (InfinitePlace K)), z.IsReal) ∧
+      Even (({v} : Finset (HeightOneSpectrum (𝓞 K))).card +
+        ({w} : Finset (InfinitePlace K)).card) := by
+  simpa using hw
+end QuaternionRamification
+
 -- The actual parity calculation for swapping one ramified and one split place.
--- This assumes chosen global algebras and their ramification data. QFI Layer 6D
--- supplies local classification. GlobalQuadraticForms §4.4 supplies global
--- realization via prescribed Hilbert signs and QFI Layer 2's quaternion algebra.
+-- Ramification realization is the preceding theorem; this is its set-counting consequence.
 theorem quaternionSwap {V : Type*} [DecidableEq V] (S : Finset V)
     (v τ : V) (hv : v ∉ S) (hτ : τ ∈ S) (hvt : v ≠ τ) :
-    Even S.card → Even (insert v (S.erase τ)).card := by sorry
+    Even S.card → Even (insert v (S.erase τ)).card := by
+  have hv' : v ∉ S.erase τ := fun h => hv (Finset.mem_of_mem_erase h)
+  have hpos : 0 < S.card := Finset.card_pos.mpr ⟨τ, hτ⟩
+  rw [Finset.card_insert_of_notMem hv', Finset.card_erase_of_mem hτ,
+    Nat.sub_add_cancel (Nat.succ_le_of_lt hpos)]
+  exact id
+
+example : Even (insert (2 : ℕ) (({0, 1} : Finset ℕ).erase 0)).card := by norm_num
+example : ¬ Even (insert (2 : ℕ) ({0, 1} : Finset ℕ)).card := by norm_num
+example : ¬ Even ({0} : Finset ℕ).card := by norm_num
 end Quaternion
 
 section Trace
@@ -895,6 +970,7 @@ required. The native class and factor interfaces must precede these signatures.
 namespace TauCeti.GL2Transfer
 
 open _root_.Matrix
+
 
 /- Signature omissions: Global JL is an equivalence only between the supplied non-norm quaternionic discrete spectrum and the D-compatible cuspidal GL₂ spectrum over the same number field and central character. All actual local JL, Hecke, twisting and inverse maps are required; an arbitrary pair of types need not be equivalent.
 README targets: R17.3/global-jl.

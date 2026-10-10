@@ -1,63 +1,84 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — checkpoint
 
-Worker: Codex (GPT-6), session `codex-WjrJMq`; issue #7901; 2026-10-10.
-Branch: `codex-WjrJMq-gl2-package`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6098811543).
+Worker: Codex (GPT-6), session `codex-nixmgz`; issue #7901; 2026-10-10.
+Branch: `codex-nixmgz-gl2-package`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6099063683).
 
 **Partial, source/proof blocked.** The original JPSS nonnormal cubic note
-remains inaccessible from the public catalogue. The accessible Mao–Rallis
-replacement requires general-discriminant local matching and a quantitative
-convergence argument that have not been established. Its weak transfer does
-not supply Carayol's all-place comparison. Metadata remains absent; this is
-not a finished package. No second job was claimed. The forty manager-priority
-issues were unavailable; this was an eligible focus package under WORKERS.md.
+remains unreadable through the public catalogue: the Gallica page endpoint
+returned HTTP403 in this continuation. The accessible Mao–Rallis replacement
+still needs general-discriminant local matching and a justified exchange of
+limit and spectral integral. Its weak transfer does not establish Carayol's
+all-place comparison. Metadata remains absent; this is not a finished package.
+No second job was claimed. None of the manager-priority issues appeared in
+the available swarm queue; this was an eligible focus package under WORKERS.md.
 
 ## This continuation
 
-The cubic-transfer target now gives the explicit norm and trace-quadratic
-calculation in the basis (1,t,t²) of Q[t]/(t³−2). Suggested.lean contains
-`pureCubicMatrix`, `pureCubicNorm`, `pureCubicQuadratic`, their formula lemmas
-and both critical-point phase expansions. All these new proofs are closed,
-without `sorry`. Eleven concrete fixtures check the identity matrix, generator
-cube, a basis entry, three norm values, three quadratic values, the Gram
-determinant and the nonsquare residue modulo eight. They establish the
-algebraic correction to the local field germ, not stationary phase or
-transfer. Each new definition has at least three discriminating examples
-or formula tests; the full cubic-transfer carrier remains explicitly omitted.
+The prescribed-quaternion-ramification obligation now has a precise supplier
+chain and genuine Lean signatures, rather than only a finite-set parity lemma.
+`TauCeti.GL2Blueprint.existsQuaternionRamification_iff` characterizes finite
+and infinite ramification sets by even total cardinality and the exclusion of
+complex places. It returns nonzero symbol parameters in the number field and
+uses algebra equivalences to actual two-by-two matrix algebras over each
+`HeightOneSpectrum.adicCompletion` and `InfinitePlace.Completion`.
+`quaternionAlgEquivOfLocalSplitting` concludes an actual global algebra
+equivalence from equality of the local splitting predicates at all places.
+Both are planned theorems with `sorry` proofs, not implemented arithmetic.
 
-The quadratic part at C=−1 is −Q, whereas at C=1 it is Q. The Gram determinant
-is −27, one quarter of the polynomial discriminant −108. In Q₂ its square
-class is −3, detected by the absence of a square root of 5 in Z/8. Thus the
-field case cannot discard the Hilbert-symbol factors. This gives machine-
-checked algebraic receipts for the correction formerly recorded only as a
-candidate. The general local analytic matching remains open.
+Existence consumes GlobalQuadraticForms4.4's prescribed Hilbert signs and
+QuadraticFormInvariants2's splitting criterion. Weak approximation chooses
+one parameter which is a uniformizer at the finite requested places and
+negative at the real ones. Uniqueness consumes ClassFieldTheory10's
+`eq_zero_of_localInv_eq_zero`, the QFI quaternion/Brauer bridges and local
+classification, and SemisimpleAlgebras6's unique division representative.
+Equal local invariants give equal global classes; degree two recovers the
+algebra isomorphism, including the split case. The construction and uniqueness
+are corollaries of their owners, not new versions of those upstream targets.
 
-Mao–Rallis2000 §3.2 pp.180–182 was examined specifically for convergence.
-Equation(27)'s vectorwise vertical decay and the asserted uniform L¹ bound
-on the truncated remainder do not, by themselves, give the exchange of limit
-and spectral integral invoked with Fatou. A common integrable majorant or
-uniform integrability with tight spectral tails, including the basis sum,
-is still required. The referred paper *On a cubic lifting* concerns the
-threefold cover of SL₂; its publisher endpoint returned an HTML access page,
-not a readable PDF. This reference alone is not a substitute base-change
-proof. Author and catalogue searches again found no readable JPSS note.
+Read Platonov–Rapinchuk–Rapinchuk2023 §1.5.1, Theorem1.33 and consequences,
+pp.42–43 in the maintainer-cleared copy. Read current GlobalQuadraticForms4.4,
+ClassFieldTheory10, QFI's quaternion boundary and the actual current
+BrauerGroup.Division interfaces. The primitive local carrier and explicit
+`TauCeti.QuaternionAlgebra.oneEquivMatrix` were read at the pinned build.
+Newer current splitting modules are not assumed to exist at the pin.
 
-The reader's introduction was compressed without dropping normalization
-conditions, to accommodate the new subsidiary calculation below 200,000
-bytes. All 112 accepted targets and 122 original target headings remain. No input
-packet or other roadmap was changed.
+The ramification corollary lives under R17.1/swapped-quaternion-invariants,
+so it precedes the global-JL applications and introduces no forward dependency
+on R17.3. This refines the inherited suggestion to put the construction in
+R17.3. Any future permitted packet revision should record the R17.1 supplier;
+this package job changes no input packet.
 
-Earlier mathematical receipts and resume points follow. They are inherited
-unless this continuation explicitly says otherwise; this worker did not
-reread all earlier sources. Full current GlobalNumberFields and
-RepresentationTheory/ModularInduction READMEs were read before editing, and
-the GL₂ reviewed library audit was inspected. ModularInduction explicitly
-excludes Brauer characters and general DVR lifts, so the inherited Fong–Swan
-addition is not duplicated there. GlobalNumberFields' cubic proper-ideal
-fixture does not supply the norm-phase calculation. The current newer
-roadmaps and library were searched for this calculation; the actual pinned
-matrix determinant/trace statements were read. Continue from this package,
-not the stale assembled Suggested file.
+`quaternionSwap` now has a complete proof. Six closed fixtures check a genuine
+split algebra, the inadmissible singleton finite support, one finite plus one
+real place, a valid swap, an invalid addition without removal, and odd
+singleton cardinality. No new definitions, private quaternion carriers or
+uninterpreted proposition fields were introduced. The existing norm-phase and
+character-lift proofs remain intact.
+
+The introduction and bibliography were compressed while preserving source
+versions and locators, to leave the reader below200,000 bytes. All112 accepted
+targets and122 starting target headings remain. Full current
+GlobalNumberFields and RepresentationTheory/ModularInduction readers and the
+reviewed GL2 library audit were read before editing.
+
+The rest of the mathematical receipts below is inherited from earlier
+continuations unless explicitly stated above. Their source readings and
+claimed proof audits are historical receipts, not claims that this worker
+reread every source. Resume from this package, not the stale assembled Lean.
+
+## Inherited norm-phase fragment
+
+The three fully defined algebraic fragments `pureCubicMatrix`,
+`pureCubicNorm`, `pureCubicQuadratic`, their formula lemmas, both critical-point
+phase expansions and eleven fixtures remain proved without `sorry`. In
+Q[t]/(t³−2), the norm is a³+2b³+4c³−6abc and the trace quadratic is
+Q=3a²−6bc. At critical points C=±1 the phase expansion is
+−2C+CQ(a,b,c)+N(a,b,c). The quadratic part is Q at +1 and −Q at −1.
+Its Gram determinant is −27, one quarter of polynomial discriminant −108;
+over Q₂ the square class is −3, whose nonsquare unit residue is5mod8.
+These are algebraic receipts for the local correction, not stationary phase
+or transfer, and the full cubic carrier remains explicitly omitted.
 
 ## Character prescription: complete target-level route, arithmetic proofs planned
 
@@ -100,8 +121,8 @@ again during the final proof audit. The reader uses this route:
    selected inert prime. Combine the rational moduli and descend.
 
 **Do not restore the general subgroup/derangement shortcut.** It was briefly
-reintroduced from Chevalley's printed remark pp.39–40, then removed in this
-run's final audit. Without roots of unity in the base, local roots at different
+reintroduced from Chevalley's printed remark pp.39–40, then removed in an earlier
+continuation's final audit. Without roots of unity in the base, local roots at different
 primes can belong to different global root orbits. The example X^8−16 over Q
 makes this failure concrete: it has no rational root, but has a root over each
 odd Q_p in one of Q(sqrt(2)), Q(sqrt(−2)) or Q(i). A local root cannot be
@@ -269,7 +290,7 @@ are not newly certified closed by this checkpoint.
 Four accepted prerequisite edges point upward from this tier-15 package to
 AutomorphicGaloisRepresentations: rt-technical-lemma's higher-weight,
 weight-one and conductor inputs, and weight-two-witness's higher-weight input.
-The package already had provisional local contracts; this run supplies their
+The package already had provisional local contracts; an earlier continuation supplied their
 construction outlines and separates the missing ramified bridge:
 
 | Former higher input | Classical lower owner |
@@ -330,7 +351,7 @@ Lemma7.14 pp.94–98 proves the nonzero monodromy via branch-difference
 cokernels and the dual incidence pairing, keeping extension by zero at cusps.
 Carayol11.1–3 pp.449–451 gives the ordinary-supercuspidal CM comparison.
 All pages of Langlands here use the author's retypeset pagination, not
-original LNM pagination. The needed sections were read in this continuation.
+original LNM pagination. The needed sections were read in an earlier continuation.
 
 The trace comparison still requires a ramified correspondence theorem.
 Langlands explicitly leaves Proposition7.12 pp.89–90 unproved. At a fixed
@@ -481,7 +502,7 @@ certify those recorded gaps. The following is the current disposition:
 | Arithmetic/geometric Galois convention | Direct parabolic realization identified; ramified stalk/dual-stalk trace specialization still needs proof, and full dyadic comparison still needs strong cubic transfer. |
 | Singular/continuous trace terms | Ledger and detailed cancellations added; AS convergence/expansion and the full logarithmic identity remain to certify. |
 | Full tensor/supplier conditions | Existing genuine symmetric-power tensor, scalar, dimension, dual and coefficient-map APIs preserved; analytic conditions remain named omissions. |
-| Prescribed quaternion ramification | GlobalQuadraticForms4.4 prescribed Hilbert signs plus QuadraticFormInvariants2 algebra supplies existence; check the exact global uniqueness/isomorphism-class interface, not parity alone. |
+| Prescribed quaternion ramification | Supplier chain and actual existence/uniqueness signatures now supplied in R17.1; complete parity proof and six closed fixtures. Planned arithmetic proofs consume GQF4.4, QFI2/5–6D, CFT10 and SemisimpleAlgebras6. |
 | Highly ramified GL3 converse | New fill-and-twist target gives a route from the exact lower generic converse; native analytic signature remains omitted. |
 | Original cubic and all-place local lift | Actual source/proof blocker detailed above. |
 | Quaternionic globalization | Compact fixed-centre proof supplied; finish the real EP trace/sign and central Fourier trace projection checks. |
@@ -515,37 +536,37 @@ with an updated current account preserving the mathematical receipts.
 
 ## Current validation and library audit
 
-- Final full `lean-check` exited0:154 warnings, all declaration-uses-sorry, no errors.
-  Available memory before final compile102GB. No Lean declaration changed afterward. The new norm-phase fragment also
-  passed its isolated check without warnings.
+- Final full `lean-check` exited0:155 warnings, all declaration-uses-sorry,
+  no errors or other warnings. Available memory before compile100GB.
+  No Lean declaration changed afterward. The two new arithmetic signatures
+  use `sorry`; the new explicit split fixture and parity proof/tests do not.
   No language server or Lake build/update/cache was started; nothing remains
   compiling. Pinned Mathlib `082e2d37e8`, Tau Ceti `f790474`.
 - Both accepted packets pass `scripts/check_blueprint.py`:0 errors,0 warnings.
-  Their55+57 nodes remain under matching reader headings; all122 target headings
-  match the starting package's heading set. Packet hashes are below.
+  All55+57 nodes retain matching reader headings; the122 starting headings
+  are unchanged as a set. The unchanged packets still record16 gaps,
+  67 requests,12 planned stages and0 closed stages.
 - Current read-only roadmaps: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`;
   current Tau Ceti library: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-  The reviewed GL2 library audit and full GlobalNumberFields and
-  ModularInduction readers were inspected in this continuation; the earlier
-  ClassFieldTheory reading is inherited. No existing target is replanned.
-  The earlier pinned declaration receipts in the package remain unchanged.
-- The earlier audit recorded upstream proposal#196 open at the head noted
-  above and inspected its TraceFormula boundary and comparison/base-change
-  statements. This continuation did not repeat that remote-status check. These are proposed suppliers, not files on current main.
-- Read-only trees were not modified or built. Public papers were held only
-  in scratch; cleared books were never copied. No source passage appears
-  in the deliverables.
+  Current supplier statements were checked as described above. No existing
+  upstream target is replanned. No read-only tree was modified or built.
+- Upstream proposal#196's head and remote status below are inherited receipts;
+  this continuation did not repeat that remote-status check. The proposal's
+  suppliers must be distinguished from files on current main.
+- Public papers were held only in scratch; cleared books were never copied.
+  No source passage appears in the deliverables.
 - Scoped `intake.py check-files`:3 files,0 problems. `git diff --check`:pass.
-  Reader:199,983 bytes, below200KB. All122 starting target headings and112 accepted slugs survive.
+  Reader:199,889 bytes, below200KB;122 headings and112 accepted slugs survive.
 
 ## Primary-source receipts
 
-Bibliographic URLs and locators are in the reader. The following preserves
-earlier source checksums; this continuation obtained Carayol1986 and read Mao–Rallis2000, with particular
-attention to its local field germ and convergence proof. The earlier
-Langlands1973 and other source readings remain inherited. Public files are not retained
-in the repository. Access date:2026-10-10. The cleared BH copy is identified
-by the maintainer's index, not an alternate internet copy.
+Bibliographic URLs and locators are in the reader. The checksums below preserve
+previous public-source receipts. This continuation obtained Mao–Rallis2000
+and Carayol1986 and inspected the former's §3 local matching and convergence
+steps; their checksums agree with the inherited receipts. The earlier
+Langlands1973 and other source readings remain inherited. The new quaternion
+source was read only in the indexed cleared book. Access date:2026-10-10.
+Public files are not retained in the repository.
 
 | Public source | SHA256 |
 | --- | --- |
