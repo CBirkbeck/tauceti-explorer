@@ -1,5 +1,6 @@
 import Mathlib.RepresentationTheory.Induced
 import Mathlib.RepresentationTheory.Irreducible
+import Mathlib.RepresentationTheory.Semisimple
 import Mathlib.RepresentationTheory.Rep.Res
 import Mathlib.RingTheory.Ideal.MinimalPrime.Basic
 import Mathlib.RingTheory.KrullDimension.Basic
@@ -31,6 +32,7 @@ uses `auxCount` for the count. All ring maps below are actual ring homomorphisms
 -/
 
 open CategoryTheory
+open scoped TensorProduct
 
 namespace TauCeti.Automorphy.PL6Continuation
 
@@ -76,15 +78,20 @@ theorem weakPrimitivityImageInvariance {G : Type} [Group G] [Finite G]
 
 /-- Target: weak-primitivity-splitting-field-base-change.
 
-Missing inputs: k finite, the actual coefficient embedding k→K, semisimplicity
-of ρ, every simple module of every subgroup of G absolutely irreducible over k,
-and the identification of ρK with the scalar extension of ρ. The README proves
+Missing input: every simple module of every subgroup of G is absolutely
+irreducible over k. The finite coefficient field, semisimplicity, embedding and
+actual scalar-extension identification are included below. The README proves
 that an inducing module is semisimple by restricting an induced retraction to
 the identity coset, so its simple summands descend over the splitting field.
 The claim is false without that coefficient hypothesis (S₃ over 𝔽₅/𝔽₂₅).
 -/
 theorem weakPrimitivitySplittingFieldBaseChange {G : Type} [Group G] [Finite G]
-    {K : Type} [Field K] (ρ : Rep k G) (ρK : Rep K G) :
+    {K : Type} [Field K] [Algebra k K] [Finite k]
+    (ρ : Rep k G) (ρK : Rep K G) [FiniteDimensional k ρ.V]
+    [Nontrivial ρ.V] [ρ.ρ.IsSemisimpleRepresentation]
+    (e : (K ⊗[k] ρ.V) ≃ₗ[K] ρK.V)
+    (he : ∀ (g : G) (a : K) (v : ρ.V),
+      e (a ⊗ₜ[k] (ρ.ρ g v)) = ρK.ρ g (e (a ⊗ₜ[k] v))) :
     IsWeaklyPrimitive ρ ↔ IsWeaklyPrimitive ρK := by
   sorry
 
@@ -114,13 +121,14 @@ variable {A : Type} [CommRing A]
 Missing inputs: the actual relative cotangent family
 C_N=p̃_N/(q̃_N+p̃_N²), its A=k[[T]] module structure, the absolutely irreducible
 generic lifting, fixed Taylor–Wiles order and normalized coefficient change.
-The conclusion below gives a common annihilating T-power. The README also
-requires finite A-modules and a uniform cardinality bound; its completed-map
+The conclusion below gives finiteness, a uniform cardinality bound and a common
+annihilating T-power for positive auxiliary levels; its completed-map
 isomorphism conclusion is displayed separately below. T is the uniformizer.
 -/
 theorem generalSchurRelativeCotangent (T : A)
     (C : ℕ → Type) [∀ N, AddCommGroup (C N)] [∀ N, Module A (C N)] :
-    ∃ s : ℕ, ∀ N, ∀ x : C N, T ^ s • x = 0 := by
+    ∃ s bound : ℕ, ∀ N, 1 ≤ N →
+      Finite (C N) ∧ Nat.card (C N) ≤ bound ∧ ∀ x : C N, T ^ s • x = 0 := by
   sorry
 
 /-- Second output of general-schur-relative-cotangent.
@@ -144,7 +152,7 @@ The dual Selmer bounds and the E/A decomposition are specified in the README.
 -/
 theorem weakPrimitiveTaylorWilesCotangent (a auxCount : ℕ)
     (C : ℕ → Type) [∀ N, AddCommGroup (C N)] [∀ N, Module A (C N)] :
-    ∃ bound : ℕ, a ≤ auxCount ∧ ∀ N,
+    ∃ bound : ℕ, a ≤ auxCount ∧ ∀ N, 1 ≤ N →
       ∃ W : Submodule A (C N), Finite W ∧ Nat.card W ≤ bound ∧
         Nonempty ((C N ⧸ W) ≃ₗ[A] (Fin (auxCount - a) → A)) := by
   sorry
