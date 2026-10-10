@@ -32600,8 +32600,9 @@
    ],
    "avoidAccountOf": "BP-PotentialAutomorphyInfrastructurePartII--PL.6",
    "prompt": "research/blueprint/prompts/REV-PotentialAutomorphyInfrastructurePartII--PL.6.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7843"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7843",
+   "finishedAt": "2026-10-10T04:16:57Z"
   },
   {
    "id": "BP-PotentialAutomorphyInfrastructurePartII--PL.7",
@@ -39568,7 +39569,8 @@
     "BP-ExcursionOperatorsAndSpectralAction--ES0~3"
    ],
    "prompt": "research/blueprint/prompts/REV-ExcursionOperatorsAndSpectralAction--ES0~3.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7953"
   },
   {
    "kind": "blueprint",
@@ -81340,8 +81342,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
