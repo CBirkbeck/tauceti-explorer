@@ -1,4 +1,5 @@
 import Mathlib.Analysis.Analytic.Basic
+import Mathlib.Analysis.Calculus.ParametricIntegral
 import Mathlib.Analysis.Complex.RemovableSingularity
 import Mathlib.Analysis.Fourier.RiemannLebesgueLemma
 import Mathlib.Analysis.SpecialFunctions.ImproperIntegrals
@@ -22,7 +23,7 @@ open Filter MeasureTheory Set
 open scoped Topology
 attribute [local instance] Classical.propDecidable
 
-namespace TauCeti.HigherPoleTauberian
+namespace TauCeti
 
 -- The existing Northcott summatory function is used, with the zero coefficient suppressed.
 local instance : Northcott (fun n : ℕ => n) where
@@ -30,39 +31,56 @@ local instance : Northcott (fun n : ℕ => n) where
 
 /-! Layer HP.0: convergent transforms and genuine boundary germs. -/
 
-def HasLaplace (α : ℝ → ℝ) (s z : ℂ) : Prop :=
-  IntegrableOn (fun t : ℝ => Complex.exp (-s * t) * (α t : ℂ)) (Ici 0) ∧
-    (∫ t : ℝ in Ici 0, Complex.exp (-s * t) * (α t : ℂ)) = z
+-- The carrier and measure convention follow Mathlib PR #40582. The real counting
+-- functions below are cast explicitly to ℂ; the endpoint has zero Lebesgue measure.
+def HasLaplace {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [SMul ℂ E]
+    (f : ℝ → E) (s : ℂ) (z : E) (μ : Measure ℝ := volume.restrict (Ioi 0)) : Prop :=
+  Integrable (fun t : ℝ => Complex.exp (-s * t) • f t) μ ∧
+    (∫ t : ℝ, Complex.exp (-s * t) • f t ∂μ) = z
 
-lemma HasLaplace.unique {α : ℝ → ℝ} {s z z' : ℂ}
-    (h : HasLaplace α s z) (h' : HasLaplace α s z') : z = z' := by sorry
+section LaplaceAPI
+variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
 
-lemma HasLaplace.congr {α β : ℝ → ℝ} {s z : ℂ}
-    (h : HasLaplace α s z) (heq : α =ᵐ[volume.restrict (Ici 0)] β) :
-    HasLaplace β s z := by sorry
+lemma HasLaplace.integrable [SMul ℂ E] {f : ℝ → E} {s : ℂ} {z : E} {μ : Measure ℝ}
+    (h : HasLaplace f s z μ) :
+    Integrable (fun t : ℝ => Complex.exp (-s * t) • f t) μ := by sorry
 
-lemma HasLaplace.add {α β : ℝ → ℝ} {s z w : ℂ}
-    (hα : HasLaplace α s z) (hβ : HasLaplace β s w) :
-    HasLaplace (fun t => α t + β t) s (z + w) := by sorry
+lemma HasLaplace.integral_eq [SMul ℂ E] {f : ℝ → E} {s : ℂ} {z : E} {μ : Measure ℝ}
+    (h : HasLaplace f s z μ) :
+    (∫ t : ℝ, Complex.exp (-s * t) • f t ∂μ) = z := by sorry
 
-lemma HasLaplace.smul {α : ℝ → ℝ} {s z : ℂ} (h : HasLaplace α s z) (c : ℝ) :
-    HasLaplace (fun t => c * α t) s ((c : ℂ) * z) := by sorry
+lemma HasLaplace.unique [SMul ℂ E] {f : ℝ → E} {s : ℂ} {z z' : E} {μ : Measure ℝ}
+    (h : HasLaplace f s z μ) (h' : HasLaplace f s z' μ) : z = z' := by sorry
 
-lemma HasLaplace.dilate {α : ℝ → ℝ} {s z : ℂ} {c : ℝ}
-    (hc : 0 < c) (h : HasLaplace α (s / c) z) :
-    HasLaplace (fun t => α (c * t)) s (z / c) := by sorry
+lemma HasLaplace.congr_ae [SMul ℂ E] {f g : ℝ → E} {s : ℂ} {z : E} {μ : Measure ℝ}
+    (h : HasLaplace f s z μ) (heq : f =ᵐ[μ] g) : HasLaplace g s z μ := by sorry
+
+lemma HasLaplace.add [DistribSMul ℂ E] {f g : ℝ → E} {s : ℂ} {z w : E} {μ : Measure ℝ}
+    (hf : HasLaplace f s z μ) (hg : HasLaplace g s w μ) :
+    HasLaplace (fun t => f t + g t) s (z + w) μ := by sorry
+
+lemma HasLaplace.const_smul [NormedSpace ℂ E] [IsScalarTower ℝ ℂ E]
+    {f : ℝ → E} {s : ℂ} {z : E} {μ : Measure ℝ} (h : HasLaplace f s z μ) (c : ℂ) :
+    HasLaplace (fun t => c • f t) s (c • z) μ := by sorry
+
+lemma HasLaplace.comp_mul_left [NormedSpace ℂ E] [IsScalarTower ℝ ℂ E]
+    {f : ℝ → E} {s : ℂ} {z : E} {c : ℝ} (h : HasLaplace f (s / c) z) (hc : 0 < c) :
+    HasLaplace (fun t => f (c * t)) s ((c : ℂ)⁻¹ • z) := by sorry
+end LaplaceAPI
 
 -- Test: HasLaplace_test_zero
-example (s : ℂ) : HasLaplace (fun _ => 0) s 0 := by sorry
+example (s : ℂ) : HasLaplace (fun _ => (0 : ℂ)) s 0 := by sorry
 -- Test: HasLaplace_test_constant
 example {s : ℂ} (hs : 0 < s.re) :
-    HasLaplace (fun _ => 1) s (1 / s) := by sorry
+    HasLaplace (fun _ => (1 : ℂ)) s (1 / s) := by sorry
 -- Test: HasLaplace_test_nonintegrable
-example : ¬ HasLaplace (fun _ => 1) 0 0 := by sorry
+example : ¬ HasLaplace (fun _ => (1 : ℂ)) 0 0 := by sorry
 
 -- Test: HasLaplace_test_quadratic
 example {s : ℂ} (hs : 0 < s.re) :
-    HasLaplace (fun t => t ^ 2) s (2 / s ^ 3) := by sorry
+    HasLaplace (fun t => (t : ℂ) ^ 2) s (2 / s ^ 3) := by sorry
+
+namespace HigherPoleTauberian
 
 /-- With nonzero leading coefficient, pole order is k+1. All agreement statements are on the open half-plane.
 Boundary values of the total function F are irrelevant. -/
@@ -147,6 +165,7 @@ example : (∫ v : ℝ, squaredSinc 2 v) = 1 := by sorry
 def delangeWeight (k : ℕ) (t : ℝ) : ℝ :=
   t * ∫ u : ℝ in (0 : ℝ)..1, Real.exp (-u * t) * u ^ k / (k.factorial : ℝ)
 
+lemma delangeWeight_continuous (k : ℕ) : Continuous (delangeWeight k) := by sorry
 lemma delangeWeight_nonneg (k : ℕ) {t : ℝ} (ht : 0 ≤ t) : 0 ≤ delangeWeight k t := by sorry
 lemma delangeWeight_pos (k : ℕ) {t : ℝ} (ht : 0 < t) : 0 < delangeWeight k t := by sorry
 lemma delangeWeight_normalization (k : ℕ) :
@@ -173,7 +192,7 @@ example (t : ℝ) :
 /-! Layer HP.2: the nontrivial transform and boundary steps. -/
 
 theorem integerGammaLaplace (k : ℕ) {a : ℝ} {s : ℂ} (hs : a < s.re) :
-    HasLaplace (fun t => Real.exp (a * t) * t ^ k) s
+    HasLaplace (fun t => ((Real.exp (a * t) * t ^ k : ℝ) : ℂ)) s
       ((k.factorial : ℂ) / (s - a) ^ (k + 1)) := by sorry
 
 /-- R = F - A/(s-a)^(k+1). Its lower poles are regularized by -∫ R'(s+u)u^k/k! du.
@@ -190,7 +209,7 @@ theorem regularizedBoundaryL1 {F : ℂ → ℂ} {a A : ℝ} {k : ℕ}
 
 theorem delangeSmoothedLimit {α : ℝ → ℝ} {F : ℂ → ℂ} {a A : ℝ} {k : ℕ}
     (ha : 0 < a) (hα : MonotoneOn α (Ici 0)) (hα0 : ∀ t ∈ Ici (0 : ℝ), 0 ≤ α t)
-    (hF : ∀ s : ℂ, a < s.re → HasLaplace α s (F s))
+    (hF : ∀ s : ℂ, a < s.re → HasLaplace (fun t => (α t : ℂ)) s (F s))
     (hboundary : PoleBoundary F a k A) {ell : ℝ} (hell : 0 < ell) :
     (∀ T : ℝ, IntegrableOn (fun t : ℝ =>
       delangeWeight k t * Real.exp (-a * t) * α t * squaredSinc ell (t - T)) (Ici 0)) ∧
@@ -214,7 +233,7 @@ theorem monotoneUnsmoothing {α : ℝ → ℝ} {a C : ℝ} {k : ℕ}
 theorem delangeLaplace {α : ℝ → ℝ} {F : ℂ → ℂ} {a A : ℝ} {k : ℕ}
     (ha : 0 < a) (hA : 0 < A)
     (hα : MonotoneOn α (Ici 0)) (hα0 : ∀ t ∈ Ici (0 : ℝ), 0 ≤ α t)
-    (hF : ∀ s : ℂ, a < s.re → HasLaplace α s (F s))
+    (hF : ∀ s : ℂ, a < s.re → HasLaplace (fun t => (α t : ℂ)) s (F s))
     (hboundary : PoleBoundary F a k A) :
     Tendsto (fun t : ℝ => α t / (Real.exp (a * t) * t ^ k))
       atTop (𝓝 (A / (k.factorial : ℝ))) := by sorry
@@ -224,8 +243,10 @@ theorem delangeLaplace {α : ℝ → ℝ} {F : ℂ → ℂ} {a A : ℝ} {k : ℕ
 theorem logSummatory_hasLaplace {c : ℕ → ℝ} {F : ℂ → ℂ} {s : ℂ}
     (hc : ∀ n, 0 ≤ c n) (hs : 0 < s.re)
     (hF : LSeriesHasSum (fun n => (c n : ℂ)) s (F s)) :
-    HasLaplace (fun t => TauCeti.summatory (fun n : ℕ => n)
-      (fun n => if n = 0 then 0 else c n) (Real.exp t)) s (F s / s) := by sorry
+    let α := fun t => TauCeti.summatory (fun n : ℕ => n)
+      (fun n => if n = 0 then 0 else c n) (Real.exp t)
+    HasLaplace (fun t => (α t : ℂ)) s (F s / s) ∧
+      (∀ t ∈ Ici (0 : ℝ), 0 ≤ α t) ∧ MonotoneOn α (Ici 0) ∧ α 0 = c 1 := by sorry
 
 -- Test: logSummatory_test_initial
 example (c : ℕ → ℝ) :
@@ -233,8 +254,8 @@ example (c : ℕ → ℝ) :
       (Real.exp 0) = c 1 := by sorry
 -- Test: logSummatory_test_unit_mass
 example {s : ℂ} (hs : 0 < s.re) :
-    HasLaplace (fun t => TauCeti.summatory (fun n : ℕ => n)
-      (fun n => if n = 1 then (1 : ℝ) else 0) (Real.exp t)) s (1 / s) := by sorry
+    HasLaplace (fun t => (TauCeti.summatory (fun n : ℕ => n)
+      (fun n => if n = 1 then (1 : ℝ) else 0) (Real.exp t) : ℂ)) s (1 / s) := by sorry
 -- Test: logSummatory_test_endpoint
 example (c : ℕ → ℝ) :
     TauCeti.summatory (fun n : ℕ => n) (fun n => if n = 0 then 0 else c n)
@@ -313,7 +334,12 @@ theorem dyadicLocalPoleCounterexample :
       AnalyticOnNhd ℂ g (Metric.ball 1 r) ∧ g 1 = (1 / (Real.log 2 : ℂ)) ∧
       ∀ s ∈ Metric.ball (1 : ℂ) r, 1 < s.re → F s = g s / (s - 1)) ∧
     ¬ PoleBoundary F 1 0 (1 / Real.log 2) ∧
+    Tendsto (fun j : ℕ => TauCeti.summatory (fun n : ℕ => n) c ((2 : ℝ) ^ j) /
+      (2 : ℝ) ^ j) atTop (𝓝 2) ∧
+    Tendsto (fun j : ℕ => TauCeti.summatory (fun n : ℕ => n) c (3 * (2 : ℝ) ^ j) /
+      (3 * (2 : ℝ) ^ j)) atTop (𝓝 (4 / 3)) ∧
     ¬ Tendsto (fun X : ℝ => TauCeti.summatory (fun n : ℕ => n) c X / X)
       atTop (𝓝 (1 / Real.log 2)) := by sorry
 
-end TauCeti.HigherPoleTauberian
+end HigherPoleTauberian
+end TauCeti
