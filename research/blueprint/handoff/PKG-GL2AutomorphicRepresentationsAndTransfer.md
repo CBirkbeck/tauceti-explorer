@@ -1,18 +1,21 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-x5SzE5`. Issue: #7901.
-Date: 2026-10-10. Branch: `codex-x5SzE5-gl2-package`.
+Worker: Codex (GPT-6), session `codex-eeIy2R`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-eeIy2R-gl2-package`.
 Status: **partial; accepted-plan repair outside the permitted deliverables is required**.
-[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6095316094).
+[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6095564131).
 Only this job was claimed. None of the manager's priority issues was available;
 there was no available top job or eligible focus plan/package review. This focus
 package follows WORKERS.md's fallback order.
 
 ## Decision and resumption gate
 
-The current accepted plans and upstream/library revisions have not changed
-since the preceding checkpoint. The package cannot be completed by editing its
-four authorized paths. The issue explicitly requires **“Change no packet; if
+The accepted plans and current library revision are unchanged. Upstream
+TauCetiRoadmap has advanced to `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`: its
+delta from the preceding checkpoint changes only the
+SmoothRepresentationsOfLocalGroups README and Suggested.lean. The inspected
+ClassFieldTheory and GlobalNumberFields contracts are unchanged. The package
+cannot be completed by editing its four authorized paths. The issue explicitly requires **“Change no packet; if
 the plan has a mistake, describe it in the handoff note.”** This run therefore
 records the blocker and preserves the mathematical deliverables. It does not
 repeat source research as though another reading could install the missing
@@ -54,6 +57,57 @@ tier 18, PotentialModularityAndCompatibleSystems tier 22.
 | `R17.6/rt-technical-lemma` | `AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform` |
 | `R17.6/weight-two-witness` | `AutomorphicGaloisRepresentations:R19.1/lambda-adic-representation-of-a-weight-k-eigenform` |
 
+## This run's resumption audit
+
+This checkpoint is caused by a verified plan boundary, not the run's time
+limit. The package's four permitted paths cannot change an accepted node's
+prerequisites, relocate a higher roadmap's declaration or supply its missing
+proof inputs. The issue's packet-edit restriction remains in force.
+
+Fresh statement reads distinguish the two character theorems:
+`R17.5/finite-hecke-extension` prescribes a character only on n-torsion
+ideles, whereas both `tunnell-primitive-globalization` and
+`prescribed-local-induction` require full local multiplicative groups.
+The higher `R23.1/cht-character-extension` supplies the intended theorem
+statement but retains an open ClassFieldTheory Layer 12 request for the
+S-unit congruence argument. ClassFieldTheory's explicit scope exclusion
+still rules out treating global existence as this prescription theorem.
+The current library statements in `HeckeCharacter/FiniteOrder.lean` (line 80),
+`FiniteComponent.lean` (lines 127 and 150), `UnitCompatibility.lean` (line 144)
+and `RayClass/Finite.lean` (line 82), under
+`TauCeti/NumberTheory/NumberField/Global/`, all start with an existing
+character or a supplied modulus. They do not construct a character with
+specified full local components.
+
+The accepted packets and package fingerprints below are identical to the
+preceding checkpoint. All four R19 prerequisites were independently
+enumerated again. Their tier-18 ownership remains incompatible with this
+tier-15 package. The reviewed AUDIT-14 records were read for all twelve
+layers; their historical absence claims are not a substitute for the current
+source checks.
+
+For a useful next continuation, first install the lower owner and update the
+consumer/supplier interfaces in the accepted plans. Relevant files outside
+this job's permitted edit set are:
+
+- `packets/GL2AutomorphicRepresentationsAndTransfer--R17.3.json`: the two
+  R17.5 character consumers and the two R17.6 Galois-attachment consumers.
+- `packets/PotentialModularityAndCompatibleSystems--R23.1.json`: reconcile
+  `R23.1/cht-character-extension` and its open ClassFieldTheory request with
+  that same lower owner; preserve the p-primary refinement.
+- `packets/AutomorphicGaloisRepresentations.json`: reconcile the R19.1
+  attachment and R19.4 conductor ownership with the three classical lower
+  targets already specified in the package.
+- Each affected plan's reader and suggested files: expose the corrected
+  interfaces and proof inputs, rather than updating JSON edges alone.
+
+These paths are relative to `research/blueprint/`. This list is a repair
+routing note, not authorization to edit them in a package job. A changed
+upstream revision alone is insufficient to resume: confirm that an exact
+supplier now covers the missing contract, then resolve the other inherited
+closure requirements below. None of those requirements was erased or
+certified closed in this run.
+
 ## Required repair scope
 
 1. Reconcile the existing higher CHT character target with **one** owner in
@@ -85,13 +139,15 @@ No ownership move, supplier insertion or accepted-plan edit was performed.
   planning pass under §0 does not establish mathematical closure.
 - `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
   exits **0**: zero errors, 144 warnings, all `declaration uses sorry`, zero
-  other warnings. Available memory before compilation was 110 GB. The check
+  other warnings. Available memory before compilation was 112 GB. The check
   finished in the shared pinned build (Tau Ceti `f790474`, Mathlib `082e2d3`);
   no Lake command ran in the read-only current checkouts. Compilation verifies
   the inherited partial signatures, not its omitted theorem interfaces.
 - Current source revisions checked: TauCetiRoadmap
-  `cd03e06852a13216ad246d0623492c4beac39af2`; Tau Ceti
-  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. They match the preceding run.
+  `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`; Tau Ceti
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Only the upstream roadmap revision
+  changed; its two changed files do not repair the character or attachment
+  contracts.
 - Only this handoff changes. README remains 199,985 bytes; Suggested.lean
   remains 83,998 bytes. Preserve the matrix K₀/K₁ interfaces, newvector and
   Whittaker repairs, Hilbert tensor action, projective lifts, existing newform
