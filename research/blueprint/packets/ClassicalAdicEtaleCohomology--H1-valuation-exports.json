@@ -5,8 +5,8 @@
   "scope": [
     "ClassicalAdicEtaleCohomology:H1:valuation-exports"
   ],
-  "status": "partial",
-  "summary": "A source-blocked follow-up checkpoint, importing the eleven accepted H0 valuation-export nodes without rewriting them. Hansen–Scholze Corollary 4.5 gives a public, explicitly attributed restatement of Hub96 Corollary 4.2.7 for total scheme cohomology; this packet adds its bounded-below valuation invariance export, its separably closed fraction-field reduction, closed-support invariance and a canonical-map compatibility with proper nearby cycles and the inherited formal tubes. The finite-boundary alternative of 4.2.8–4.2.9 still has no verified target statement here, so coverage remains partial. The exact correspondence with 4.2.6 is also unverified. No forbidden book copy, verbatim source passage, fabricated target or implementation claim is used. This continuation makes the bounded-below étale/pro-étale comparison needed by the generic-extension proof explicit and repairs the inherited reader notation.",
+  "status": "complete",
+  "summary": "Target-level planning pass for valuation exports: retain the eleven accepted H0 imports and the four bounded-below invariance/coherence nodes; add sheaf-local support base change, collapsed-boundary vanishing, arbitrary torsion-sheaf global invariance and adjunction descent, finite-boundary constructibility, ordinary cohomology finiteness and their finite-rank descent input. Huber 1996 Corollaries 4.2.6–4.2.9 have been read in the maintainer-cleared edition. Every target in scope is represented; coverage is planned, with precise scheme, nearby-cycle and finite-rank supplier requests rather than a claim of implementation or closed prerequisite chains.",
   "baseline": {
     "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
     "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
@@ -108,8 +108,80 @@
         "module": "Mathlib/AlgebraicGeometry/Fiber.lean",
         "provides": "The actual scheme-theoretic fibre inclusion, not a chosen scheme mapping into a fibre.",
         "checked": "Statement read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; no matching valuation étale invariance theorem found at either pinned library."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.Scheme.pointSmallEtale",
+        "kind": "def",
+        "module": "Mathlib/AlgebraicGeometry/Sites/EtalePoint.lean",
+        "provides": "A geometric point defined by a separably closed field induces a point of the actual small étale site.",
+        "checked": "Native declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used as a carrier or hypothesis, not claimed as a valuation-cohomology theorem."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.GrothendieckTopology.Point.sheafFiber",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/Point/Basic.lean",
+        "provides": "The fibre functor of a site point; used for elementwise torsion conditions on geometric stalks.",
+        "checked": "Native declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used as a carrier or hypothesis, not claimed as a valuation-cohomology theorem."
+      },
+      {
+        "ref": "mathlib:CategoryTheory.constantSheaf",
+        "kind": "def",
+        "module": "Mathlib/CategoryTheory/Sites/ConstantSheaf.lean",
+        "provides": "Sheafification of a constant presheaf, used in the expanded constructibility supplier specification.",
+        "checked": "Native declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used as a carrier or hypothesis, not claimed as a valuation-cohomology theorem."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.Plus.singleFunctor",
+        "kind": "abbrev",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Plus.lean",
+        "provides": "Embeds a sheaf into the bounded-below category concentrated in the specified degree.",
+        "checked": "Native declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used as a carrier or hypothesis, not claimed as a valuation-cohomology theorem."
+      },
+      {
+        "ref": "mathlib:DerivedCategory.Plus.homologyFunctor",
+        "kind": "def",
+        "module": "Mathlib/Algebra/Homology/DerivedCategory/Plus.lean",
+        "provides": "The cohomology object of a bounded-below derived object, in the original abelian category.",
+        "checked": "Native declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used as a carrier or hypothesis, not claimed as a valuation-cohomology theorem."
+      },
+      {
+        "ref": "mathlib:AlgebraicGeometry.LocallyOfFinitePresentation",
+        "kind": "class",
+        "module": "Mathlib/AlgebraicGeometry/Morphisms/FinitePresentation.lean",
+        "provides": "Affine-local finite presentation; the module explicitly specifies finite presentation by this class together with quasi-compactness and quasi-separatedness.",
+        "checked": "Native declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used as a carrier or hypothesis, not claimed as a valuation-cohomology theorem."
+      },
+      {
+        "ref": "mathlib:Topology.IsConstructible",
+        "kind": "def",
+        "module": "Mathlib/Topology/Constructible.lean",
+        "provides": "Constructible subsets generated by retrocompact opens; applies to the valuation base without a noetherian hypothesis.",
+        "checked": "Native declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used as a carrier or hypothesis, not claimed as a valuation-cohomology theorem."
+      },
+      {
+        "ref": "mathlib:ringKrullDim",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/KrullDimension/Basic.lean",
+        "provides": "Krull dimension of a ring, used to say that the valuation base has finite dimension.",
+        "checked": "Native declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used as a carrier or hypothesis, not claimed as a valuation-cohomology theorem."
+      },
+      {
+        "ref": "mathlib:Module.Finite",
+        "kind": "class",
+        "module": "Mathlib/RingTheory/Finiteness/Defs.lean",
+        "provides": "Finite generation of the resulting coefficient module, rather than finiteness of its underlying set.",
+        "checked": "Native declaration read at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174; used as a carrier or hypothesis, not claimed as a valuation-cohomology theorem."
       }
-    ]
+    ],
+    "currentAudit": {
+      "roadmap": "dea8191cc6047d6142a65872ebce6eeeb841a29b",
+      "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+      "checked": [
+        "The current AdicSpaces and LocalFieldsRamification reader documents were read in full; their valuation, henselian and formal-space foundations retain ownership.",
+        "Suggested files of the nine roadmaps named by WORKERS.md were screened, including OperatorTheory subdirectories. None states a valuation étale support, invariance or constructible-cohomology theorem in this scope.",
+        "Current Tau Ceti source was searched for small-étale, constructible-sheaf, nearby-cycle and valuation-cohomology declarations. Its generic site-cohomology comparisons do not provide the requested derived scheme functors or valuation theorems. No current theorem is re-planned."
+      ]
+    }
   },
   "sources": [
     {
@@ -122,7 +194,8 @@
       "accessed": "2026-10-08",
       "readSections": [
         "Coefficient conventions, §1 pp. 2–3 and §2 pp. 7–8; Lemma 3.5 and proof, pp. 16–17; Theorem 4.1, Corollary 4.2 and proof, pp. 19–22; Lemma 4.3 and proof, pp. 21–22; Corollary 4.5 and entire proof, pp. 22–23.",
-        "Proposition 2.1, §2 p. 8: bounded-below realization in the pro-étale category and the left-completed unbounded extension; Theorem 4.4(iii), p. 22: the universal Milnor-fibre criterion."
+        "Proposition 2.1, §2 p. 8: bounded-below realization in the pro-étale category and the left-completed unbounded extension; Theorem 4.4(iii), p. 22: the universal Milnor-fibre criterion.",
+        "Corollary 4.5 pp. 22–23, Theorem 4.1/Corollary 4.2 pp. 19–22, and Lemma 3.5 pp. 16–17 rechecked on 2026-10-10 for retained hypotheses and proof interfaces."
       ]
     },
     {
@@ -169,7 +242,20 @@
       "sha256": "99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7",
       "accessed": "2026-10-08",
       "readSections": [
-        "§5 Corollary 5.1.6 and proof, p. 35; Proposition 5.2.6 and proof, p. 37; Proposition 5.3.2 and proof, p. 38; Lemmas 5.4.1–5.4.3 and proofs, and Remark 5.4.4, p. 39. These passages delimit the precise bounded-below comparison and functoriality input."
+        "§5 Corollary 5.1.6 and proof, p. 35; Proposition 5.2.6 and proof, p. 37; Proposition 5.3.2 and proof, p. 38; Lemmas 5.4.1–5.4.3 and proofs, and Remark 5.4.4, p. 39. These passages delimit the precise bounded-below comparison and functoriality input.",
+        "Proposition 5.2.6 and proof p. 37 rechecked on 2026-10-10; the author-copy bounded-below scope and unit comparison agree with the retained statement."
+      ]
+    },
+    {
+      "id": "Huber-1996-cleared",
+      "title": "Étale Cohomology of Rigid Analytic Varieties and Adic Spaces",
+      "authors": "Roland Huber",
+      "edition": "First edition, Aspects of Mathematics E30, Vieweg, 1996; maintainer-cleared edition, accessed 2026-10-10. Locators use printed book pages.",
+      "url": "https://doi.org/10.1007/978-3-663-09991-8",
+      "sha256": "b40a5c2ef56784d888206011ecb31bdc5e2e6120721a8c38b78b6cf2cd8d7e1a",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "§4.2, pp. 240–256: quadruples, Proposition 4.2.4 and its proof, Proposition 4.2.5 and its proof, Corollaries 4.2.6–4.2.9 and their proofs. Statements and proof inputs were checked directly; no source text is included in the deliverables."
       ]
     }
   ],
@@ -330,14 +416,16 @@
         "In characteristic zero the separably closed fraction fields are algebraically closed, so apply total-cohomology-valuation-invariance directly.",
         "In characteristic p > 0, let K^perf and L^perf be the perfect closures of K = Frac V and L = Frac W. They are algebraically closed because the original fields are separably closed. The unique purely inseparable extensions of the valuations give V^perf ⊂ K^perf and W^perf ⊂ L^perf, equivalently the integral closures of V and W. This is the algebraic valuation input used in the inherited radicial-invariance-of-nearby-cycles node, not a new definition of nearby cycles.",
         "The maps Spec V^perf → Spec V and Spec W^perf → Spec W are universal homeomorphisms. They preserve the spectrum order and the closed point. The extension V^perf → W^perf is injective and local, hence faithfully flat by the inherited surjective-valuation-base-change criterion.",
-        "Apply total-cohomology-valuation-invariance to this bottom valuation map. The scheme supplier’s topological invariance (Stacks §59.45) makes both vertical cohomology maps isomorphisms, including after base change to X. Naturality and composition of β make the square commute; hence the original β_g(E) is an isomorphism."
+        "Apply total-cohomology-valuation-invariance to this bottom valuation map. The scheme supplier’s topological invariance (Stacks §59.45) makes both vertical cohomology maps isomorphisms, including after base change to X. Naturality and composition of β make the square commute; hence the original β_g(E) is an isomorphism.",
+        "Alternatively apply torsion-sheaf-valuation-adjunction-descent to cohomology sheaves after coefficient forgetful functors. The exact unit is an isomorphism on sheaves and hence on bounded-below complexes, using finite truncations in each degree and the left exact derived functor. This route uses Huber 4.2.7 directly and does not require algebraic closure."
       ],
       "prerequisites": [
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-valuation-invariance",
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/surjective-valuation-base-change",
         "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/radicial-invariance-of-nearby-cycles",
         "SchemeAndStackFoundations:SF.2",
-        "mathlib:IsSepClosed"
+        "mathlib:IsSepClosed",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/torsion-sheaf-valuation-adjunction-descent"
       ],
       "sources": [
         {
@@ -349,6 +437,11 @@
           "sourceId": "Stacks-valuation-exports-public",
           "locator": "Theorems 59.45.1–59.45.2 and Proposition 59.45.4, §59.45 (04DY), unpaginated HTML",
           "match": "A universal homeomorphism identifies étale sites and cohomology; this transports the canonical map through the two perfection maps."
+        },
+        {
+          "sourceId": "Huber-1996-cleared",
+          "locator": "Corollary 4.2.7(i)–(ii), pp. 244–245",
+          "match": "Directly supplies the separably closed torsion-sheaf statement. Bounded-below ℓ-power coefficients on qcqs schemes follow by truncation and canonical adjunction descent; the existing radicial proof is retained as an independent route."
         }
       ],
       "acceptance": [
@@ -485,6 +578,370 @@
       },
       "suggestedDeclaration": "TauCeti.AdicSpace.ValuationBase.properNearbyInvariance_coherence",
       "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-valuation-base-change",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports"
+      ],
+      "title": "Sheaf local cohomology along a constructible valuation boundary",
+      "kind": "theorem",
+      "statement": "Let A,A′,q,X,p be as above, and let F be an abelian torsion sheaf on X_ét with torsion orders prime to the residue characteristics occurring on X′. For a closed constructible Z ⊆ S such that Z′ = q⁻¹Z is a proper subset of S′, set T = f⁻¹Z and T′ = p⁻¹T, with open complements r and r′. For every n ≥ 0 the canonical map p*Rⁿr_*r*F → Rⁿr′_*r′*p*F is an isomorphism. Equivalently the canonical sheaf-local support map p*𝓗ⁿ_T(X,F) → 𝓗ⁿ_T′(X′,p*F) is an isomorphism. These are sheaves on X′, not global support groups. The derived local-support exchange is an isomorphism on F[0].",
+      "hypotheses": [
+        "A and A′ are valuation domains with separably closed fraction fields; arbitrary rank, including fields, is admitted.",
+        "q: S′ = Spec A′ → S = Spec A is any scheme morphism; X is any S-scheme and p: X′ = X ×_S S′ → X is the actual projection.",
+        "F is a torsion abelian sheaf prime to char(X′); a common annihilator is not required.",
+        "Z is closed and constructible in the base spectrum; q⁻¹Z ≠ S′. No surjectivity, dominance, finite-type, properness or qcqs assumption is made."
+      ],
+      "proofSteps": [
+        "Use the actual complement restriction and local-support triangle from EDC.0; in degrees zero and one its local cohomology is the kernel and cokernel of F → r_*r*F, and in degree n ≥ 2 it is Rⁿ⁻¹r_*r*F.",
+        "At a geometric point over Z′, let η and η′ be the closed points of S∖Z and S′∖Z′. Closed constructibility makes these complements quasi-compact open intervals of the chain of primes. The map q takes η′ to η. These points can be non-generic in rank greater than one.",
+        "Apply the full Cartesian nearby-base-change theorem Huber Proposition 4.2.4, p. 243 and proof pp. 246–249, to the corresponding quadruples (X,S,η,s) and (X′,S′,η′,s′). Its no-finite-type, non-dominant range is explicitly requested from the nearby-cycle owner; the narrower existing node is not silently used.",
+        "The canonical nearby exchange agrees stalkwise with the restriction exchange for r; outside T′ that exchange is the identity. The support triangle then gives the local-cohomology comparison in every degree, with its actual canonical map."
+      ],
+      "prerequisites": [
+        "EtaleDualityAndPerverseSheaves:EDC.0/cohomology-with-supports",
+        "SchemeAndStackFoundations:SF.2",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-base-change-map",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-1996-cleared",
+          "locator": "Corollary 4.2.6(i) and proof, pp. 243–244; Proposition 4.2.4, p. 243 and proof pp. 246–249",
+          "match": "This is the sheaf-local comparison under arbitrary valuation-base change with a proper pulled-back base boundary. It is distinct from the previously planned global closed-support consequence."
+        }
+      ],
+      "acceptance": [
+        "For Z = ∅ both local-support complexes are zero and the open-restriction comparison is the identity.",
+        "For identity q the comparison is the canonical identity on local cohomology.",
+        "For a rank-two base choose a compact open complement with more than one point; the proof uses its closed point and must not replace it by the generic point.",
+        "A localization map of valuation rings is allowed when the pulled-back boundary remains proper; no surjectivity condition is inserted."
+      ],
+      "uses": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/AdicSpace/EtaleCohomology/ValuationExports/Cohomology",
+        "namespace": "TauCeti.AdicSpace.ValuationBase"
+      },
+      "suggestedDeclaration": "TauCeti.AdicSpace.ValuationBase.localCohomology_valuation_baseChange",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-collapsed-boundary-vanishing",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports"
+      ],
+      "title": "Vanishing when a valuation boundary collapses to one base point",
+      "kind": "theorem",
+      "statement": "With A,A′,q,X,p,F as in local-cohomology-valuation-base-change, take any proper closed constructible Z′ ⊊ S′, and let η′ be the closed point of S′∖Z′. Assume q(z′) = q(η′) for every z′ ∈ Z′. If T′ = f′⁻¹Z′, then 𝓗ⁿ_T′(X′,p*F) = 0 for every n ≥ 0. Equivalently the local-support complex on p*F[0] is zero, or the canonical p*F → Rr′_*r′*p*F is an isomorphism. Global support cohomology also vanishes by the support spectral sequence.",
+      "hypotheses": [
+        "A and A′ are valuation domains with separably closed fraction fields; arbitrary rank, including fields, is admitted.",
+        "q: S′ = Spec A′ → S = Spec A is any scheme morphism; X is any S-scheme and p: X′ = X ×_S S′ → X is the actual projection.",
+        "F has prime-to-char(X′) torsion, with no common exponent required.",
+        "Z′ is a proper closed constructible subset of S′, not necessarily the pullback of a subset of S.",
+        "η′ is the closed point of its open complement, and all points of Z′ have the same q-image as η′."
+      ],
+      "proofSteps": [
+        "At a geometric point over z′ ∈ Z′ put s = q(z′) = q(η′). The target quadruple has η = s; this equality is essential.",
+        "For this degenerate quadruple nearby restriction in degree zero is the original stalk, and all positive-degree nearby cohomology vanishes. Apply the full Cartesian nearby comparison of Huber 4.2.4 to the source quadruple.",
+        "The restriction map p*F → Rr′_*r′*p*F is a stalkwise isomorphism. The local-support triangle gives zero in every local-cohomology degree.",
+        "Use the requested first-quadrant local-to-global support spectral sequence to obtain vanishing of global Hⁿ_T′, rather than identifying local-cohomology sheaves with global groups."
+      ],
+      "prerequisites": [
+        "EtaleDualityAndPerverseSheaves:EDC.0/cohomology-with-supports",
+        "SchemeAndStackFoundations:SF.2",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/nearby-cycles-base-change-map",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-1996-cleared",
+          "locator": "Corollary 4.2.6(ii) and proof, p. 244",
+          "match": "The collapse hypothesis permits non-surjective maps and gives local vanishing from the η=s case of nearby cycles."
+        }
+      ],
+      "acceptance": [
+        "A rank-one valuation A′ with separably closed fraction field over a separably closed base field A satisfies the collapse condition for its closed point. The result applies to sheaves pulled back from an A-scheme.",
+        "Z′ = ∅ gives the zero support complex.",
+        "For identity q and a nonempty proper boundary, the collapse hypothesis fails; no vanishing is asserted for an arbitrary special-fibre sheaf."
+      ],
+      "uses": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/AdicSpace/EtaleCohomology/ValuationExports/Cohomology",
+        "namespace": "TauCeti.AdicSpace.ValuationBase"
+      },
+      "suggestedDeclaration": "TauCeti.AdicSpace.ValuationBase.localCohomology_collapsedBoundary_vanish",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-exports/torsion-sheaf-total-cohomology-valuation-invariance",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports"
+      ],
+      "title": "Total cohomology of arbitrary torsion sheaves under surjective valuation change",
+      "kind": "theorem",
+      "statement": "Let A,A′ have separably closed fraction fields and q:Spec A′→Spec A be surjective. For any A-scheme X and abelian torsion sheaf F on X_ét whose torsion is prime to char(X), the canonical cohomology pullback Hⁿ(X,F) → Hⁿ(X ×_A A′,p*F) is an isomorphism for every n ≥ 0. Equivalently β_p(F[0]) is an isomorphism in D⁺(ℤ). There is no uniform exponent, ℓ-primary, finite-type, qcqs or constructibility requirement.",
+      "hypotheses": [
+        "A and A′ are valuation domains with separably closed fraction fields; arbitrary rank, including fields, is admitted.",
+        "q is surjective on spectra, equivalently its ring map is injective and local or faithfully flat.",
+        "X is any S-scheme. F is an abelian torsion sheaf on X_ét prime to char(X); it need not be constructible or killed by one integer."
+      ],
+      "proofSteps": [
+        "Reduce in a fixed cohomological degree to finite-rank valuation bases by the scheme supplier’s affine-limit and torsion-coefficient continuity; use affine étale charts and descent for arbitrary X. This is not descent of a finitely presented constructible pair and is recorded separately in the supplier request.",
+        "For dimension-zero target base, the collapsed-boundary vanishing theorem removes the nongeneric strata of the source finite-rank valuation. Compare the remaining generic fibre by prime-to-characteristic invariance over separably closed fields, Stacks 0F0B (with its qcqs chart hypothesis, then sheaf descent).",
+        "For positive finite rank choose a nonempty proper closed base interval. Its complement and the quotient valuation defining that interval both have smaller dimension. Apply local-cohomology-valuation-base-change, the support spectral sequence and induction to supported cohomology; apply induction to the open complement.",
+        "Compare the canonical localization long exact sequences to obtain the isomorphism on total cohomology. The arrows throughout are induced by p and its adjunction unit, so the conclusion identifies β_p rather than an unspecified group isomorphism."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/surjective-valuation-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-valuation-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-collapsed-boundary-vanishing",
+        "SchemeAndStackFoundations:SF.2",
+        "AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity",
+        "mathlib:AlgebraicGeometry.Scheme.pointSmallEtale",
+        "mathlib:CategoryTheory.GrothendieckTopology.Point.sheafFiber",
+        "mathlib:DerivedCategory.Plus.singleFunctor"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-1996-cleared",
+          "locator": "Corollary 4.2.7(i) and proof, pp. 244–245",
+          "match": "The original sheaf theorem has a broader coefficient and scheme range than the retained Hansen–Scholze bounded-below specialization."
+        }
+      ],
+      "acceptance": [
+        "Identity q induces the identity on Hⁿ.",
+        "Rank-zero valuations recover prime-to-characteristic separably closed field invariance.",
+        "An unbounded direct sum of sheaves killed by varying invertible integers is admitted as a torsion sheaf; it is not an arbitrary unbounded derived complex.",
+        "For a non-surjective generic localization, a nonzero special-fibre skyscraper loses its global sections; surjectivity cannot be dropped."
+      ],
+      "uses": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/AdicSpace/EtaleCohomology/ValuationExports/Cohomology",
+        "namespace": "TauCeti.AdicSpace.ValuationBase"
+      },
+      "suggestedDeclaration": "TauCeti.AdicSpace.ValuationBase.torsionSheaf_totalCohomology_valuation_invariance",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-exports/torsion-sheaf-valuation-adjunction-descent",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports"
+      ],
+      "title": "Adjunction descent for torsion étale sheaves over valuations",
+      "kind": "theorem",
+      "statement": "Under torsion-sheaf-total-cohomology-valuation-invariance, the canonical adjunction F → p_*p*F is an isomorphism and Rⁿp_*p*F = 0 for all n > 0. Thus the specific derived adjunction unit F[0] → Rp_*p*F[0] is an isomorphism, natural in F and compatible with composition of surjective valuation changes. The statement is about the pulled-back sheaf p*F; it does not make p an equivalence on all sheaves on X′.",
+      "hypotheses": [
+        "A and A′ are valuation domains with separably closed fraction fields; arbitrary rank, including fields, is admitted.",
+        "q is surjective on spectra, equivalently its ring map is injective and local or faithfully flat.",
+        "X is any S-scheme. F is an abelian torsion sheaf on X_ét prime to char(X); it need not be constructible or killed by one integer."
+      ],
+      "proofSteps": [
+        "Apply the preceding global theorem to every affine étale U→X, with U′=U×_A A′ and F|U. Étale charts form a basis even when X is not qcqs.",
+        "The section computations give F(U) ≅ (p_*p*F)(U); the positive-degree computations kill all derived direct-image sheaves.",
+        "Identify the degree-zero map with the adjunction unit. Naturality and composition are the general supplier’s unit/coherence laws, not an additional choice of isomorphisms.",
+        "Use exact inverse image, bounded-below truncations and derived-unit naturality to recover the retained D⁺ specialization; do not claim an unrestricted unbounded derived statement."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/torsion-sheaf-total-cohomology-valuation-invariance",
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:CategoryTheory.Adjunction"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-1996-cleared",
+          "locator": "Corollary 4.2.7(ii) and proof, pp. 244–245",
+          "match": "Records both the degree-zero sheaf identity and the positive-degree vanishing, which mere global group invariance would not state."
+        }
+      ],
+      "acceptance": [
+        "On each étale U, H⁰(U,F) is carried by the actual adjunction unit.",
+        "For the identity valuation map the unit is the identity and all positive direct images vanish.",
+        "On a separably closed base field the theorem agrees with the sheaf form of Stacks 0F0B.",
+        "No assertion that every sheaf on X′ descends, and no arbitrary Rⁿp_*G vanishing, is made."
+      ],
+      "uses": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/AdicSpace/EtaleCohomology/ValuationExports/Cohomology",
+        "namespace": "TauCeti.AdicSpace.ValuationBase"
+      },
+      "suggestedDeclaration": "TauCeti.AdicSpace.ValuationBase.torsionSheaf_valuation_adjunction_descent",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-exports/finite-rank-descent-of-valuation-data",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports"
+      ],
+      "title": "Finite-rank descent of finitely presented valuation data",
+      "kind": "lemma",
+      "statement": "Let A be a valuation domain with separably closed fraction field, f:X→Spec A finitely presented, B noetherian killed by m>0 prime to char(X), F a constructible B-module on X_ét, and Z a closed constructible subset of Spec A. There exist a valuation subring A₀⊆A with separably closed fraction field and finite Krull dimension, an injective local inclusion A₀→A (hence q:Spec A→Spec A₀ surjective), a finitely presented f₀:X₀→Spec A₀, a closed constructible Z₀, and a constructible B-module F₀ on X₀_ét such that X≅X₀×_A₀ A over A, Z=q⁻¹Z₀ and F≅p*F₀ under this identification. The model can be chosen with m prime to char(X₀).",
+      "hypotheses": [
+        "A is a valuation domain with separably closed fraction field; S = Spec A.",
+        "B is a noetherian commutative ring killed by some m > 0 prime to char(X), and F is a constructible étale B-module on X.",
+        "Constructibility is affine-local finite stratification by constructible locally closed subschemes, with finite-type locally constant B-modules on the strata; X need not be noetherian.",
+        "f is finitely presented, including quasi-compactness and quasi-separatedness; Z is closed constructible."
+      ],
+      "proofSteps": [
+        "Use affine-limit descent of finitely presented schemes, their gluing, constructible subsets and constructible sheaves. All presentations, covers, strata, étale trivializations and their finite-module gluing descend after enlargement to a common finite stage. This is requested from SF.2 with the existing L2 continuity node.",
+        "For the finite collection of ring coefficients needed by the descent, choose a finitely generated subfield k of Frac A containing them, and its relative separable closure K₀ inside Frac A. Put A₀=A∩K₀. Its valuation is the restriction of the original valuation, the inclusion is local, and K₀ is separably closed.",
+        "Finite rank of the restricted valuation follows from the bound for a valuation on a finitely generated field over its prime field; algebraic extension does not add rational rank. The value-group rank is bounded by rational rank. This exact algebraic finite-rank capture input is requested from the existing AdicSpaces valuation-foundation stage, rather than assumed to be in the library.",
+        "Include the finitely many coefficients making m invertible on the affine pieces of X among the descended data. Faithful flatness of A₀→A and finite presentation preserve the stated model and coefficient identifications.",
+        "The resulting finite spectrum makes Z₀ finite. Its pullback and sheaf identification retain the canonical projection maps needed by local-support base change and total invariance."
+      ],
+      "prerequisites": [
+        "SchemeAndStackFoundations:SF.2",
+        "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+        "AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/surjective-valuation-base-change",
+        "mathlib:AlgebraicGeometry.LocallyOfFinitePresentation",
+        "mathlib:ringKrullDim"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-1996-cleared",
+          "locator": "Proof of Corollary 4.2.8, part (2), p. 245; proof of Corollary 4.2.9, part (2), p. 246",
+          "match": "Makes the finite-rank model used by both finiteness proofs an explicit key input. It is distinct from the inherited reduced finite-presentation model over a fixed topologically noetherian valuation base."
+        }
+      ],
+      "acceptance": [
+        "For finite-rank A one may take A₀=A and the identity model.",
+        "The coefficient sheaf and Z must descend together with X; descending only defining equations is insufficient.",
+        "In rank greater than one no discrete or rank-one approximation is asserted.",
+        "The conclusion is an actual Cartesian model over A; the corrected orientation of the p. 246 displayed base change is retained."
+      ],
+      "uses": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/AdicSpace/EtaleCohomology/ValuationExports/Cohomology",
+        "namespace": "TauCeti.AdicSpace.ValuationBase"
+      },
+      "suggestedDeclaration": "TauCeti.AdicSpace.ValuationBase.finiteRank_descent_valuationData",
+      "implementationStatus": "unchecked"
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-exports/constructibility-along-finite-valuation-boundary",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports"
+      ],
+      "title": "Constructibility along a finite valuation boundary",
+      "kind": "theorem",
+      "statement": "Let A,B,F satisfy the finiteness conventions, f:X→S be locally of finite type, and Z⊆S closed constructible. Put T=f⁻¹Z and j:X∖T→X. If either f is locally of finite presentation or Z has finitely many points, then Rⁿj_*j*F and, equivalently, 𝓗ⁿ_T(X,F) are constructible B-module sheaves for every n≥0. The finite boundary is Z in the base spectrum. Neither properness nor quasi-compactness of X is required.",
+      "hypotheses": [
+        "A is a valuation domain with separably closed fraction field; S = Spec A.",
+        "B is a noetherian commutative ring killed by some m > 0 prime to char(X), and F is a constructible étale B-module on X.",
+        "Constructibility is affine-local finite stratification by constructible locally closed subschemes, with finite-type locally constant B-modules on the strata; X need not be noetherian.",
+        "f is locally of finite type, and Z is closed constructible.",
+        "Either f is locally of finite presentation, or the underlying point set Z is finite. These are alternatives, not simultaneous assumptions."
+      ],
+      "proofSteps": [
+        "In the finite-Z branch, each singleton in Z is constructible and locally closed. On the open complement j*F is already constructible; on the fibre over s∈Z, identify the restriction of Rⁿj_*j*F with nearby cohomology for η the closed point of S∖Z and s.",
+        "Apply the imported constructibility-of-nearby-cycles theorem (Huber 4.2.5, p. 243 and proof pp. 251–256). A finite partition of the base boundary then combines the fibrewise constructibility with that on the open complement.",
+        "For the locally-finite-presentation branch work on affine charts, where the morphism is finitely presented. Apply finite-rank-descent-of-valuation-data to X,F,Z together. The descended boundary Z₀ in the finite-rank model is finite.",
+        "Apply the finite-Z branch to the descended model. Local-cohomology-valuation-base-change identifies the actual Rⁿj_*j*F with its constructible pullback. Handle Z=S separately, where j has empty source and local support is F[0]; this avoids using the proper-boundary theorem outside its hypotheses.",
+        "The localization triangle gives the equivalent constructibility of the local-cohomology sheaves using noetherian-coefficient closure under kernels, cokernels and extensions."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/finite-rank-descent-of-valuation-data",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-valuation-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles/constructibility-of-nearby-cycles",
+        "EtaleDualityAndPerverseSheaves:EDC.0/cohomology-with-supports",
+        "SchemeAndStackFoundations:SF.2",
+        "mathlib:Topology.IsConstructible",
+        "mathlib:AlgebraicGeometry.LocallyOfFinitePresentation"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-1996-cleared",
+          "locator": "Corollary 4.2.8 and proof, p. 245; Proposition 4.2.5, p. 243 and proof pp. 251–256",
+          "match": "Supplies both alternatives exactly. Finiteness refers to the closed constructible subset of Spec A, not a quasi-finite exceptional locus of X or a compactification boundary."
+        }
+      ],
+      "acceptance": [
+        "Z=∅ yields R⁰j_*j*F=F and higher terms zero; all local-support sheaves vanish.",
+        "Z=S yields Rⁿj_*j*F=0 and local support F in degree zero.",
+        "If A has finite rank then every Z is finite, so the locally-finite-type branch applies without finite presentation.",
+        "For infinite-rank A with finite Z, locally finite type suffices. For an infinite Z, retain local finite presentation; no finite-type-only claim is made."
+      ],
+      "uses": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/AdicSpace/EtaleCohomology/ValuationExports/Cohomology",
+        "namespace": "TauCeti.AdicSpace.ValuationBase"
+      },
+      "suggestedDeclaration": "TauCeti.AdicSpace.ValuationBase.constructibility_finiteValuationBoundary",
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Finite-boundary constructibility"
+      }
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology:H1:valuation-exports/constructible-cohomology-finiteness",
+      "parentStageId": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
+      "realises": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports"
+      ],
+      "title": "Finite generation of ordinary constructible cohomology over valuations",
+      "kind": "theorem",
+      "statement": "Let A,B,F satisfy the finiteness conventions and let f:X→Spec A be of finite type. If either f is of finite presentation or dim A<∞, then Hⁿ(X_ét,F) is a finitely generated B-module for every n≥0. This is ordinary global cohomology, with no properness or separatedness hypothesis in the finite-dimensional branch. No uniform vanishing range or finite cardinality is claimed.",
+      "hypotheses": [
+        "A is a valuation domain with separably closed fraction field; S = Spec A.",
+        "B is a noetherian commutative ring killed by some m > 0 prime to char(X), and F is a constructible étale B-module on X.",
+        "Constructibility is affine-local finite stratification by constructible locally closed subschemes, with finite-type locally constant B-modules on the strata; X need not be noetherian.",
+        "f is of finite type globally, hence quasi-compact and locally of finite type.",
+        "Either f is finitely presented (including quasi-separatedness), or A has finite Krull dimension."
+      ],
+      "proofSteps": [
+        "For finite-dimensional A induct on dim A. Dimension zero is the requested prime-to-characteristic constructible-cohomology finiteness theorem for finite-type schemes over a separably closed field (Huber cites SGA 4½, Th. finitude 1.10). Its exact general coefficient and nonseparated range is recorded as a scheme-supplier request.",
+        "For positive dimension the generic point η is open constructible. Take U=X_η and T=X∖U. The finite base boundary S∖{η} permits constructibility-along-finite-valuation-boundary for the sheaves 𝓗ⁿ_T(X,F).",
+        "Apply induction to T over the smaller-rank quotient valuation base. In the first-quadrant support spectral sequence Hᵖ(T,𝓗ᑫ_T(X,F)|T) ⇒ Hᵖ⁺ᑫ_T(X,F), all terms contributing to a fixed degree are finitely generated. Noetherianity of B preserves finite generation through subquotients and extensions.",
+        "The generic fibre has finite-type constructible cohomology over a separably closed field. The localization long exact sequence for (X,U) then gives finite generation of Hⁿ(X,F).",
+        "For finitely presented X over arbitrary-rank A, descend X,F to the finite-rank model and apply the preceding branch there. Torsion-sheaf-total-cohomology-valuation-invariance carries global cohomology along the surjective spectrum map; the B-linear comparison is the same canonical map after coefficient forgetful functors."
+      ],
+      "prerequisites": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/constructibility-along-finite-valuation-boundary",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/finite-rank-descent-of-valuation-data",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/torsion-sheaf-total-cohomology-valuation-invariance",
+        "SchemeAndStackFoundations:SF.2",
+        "EtaleDualityAndPerverseSheaves:EDC.0/cohomology-with-supports",
+        "mathlib:Module.Finite",
+        "mathlib:ringKrullDim"
+      ],
+      "sources": [
+        {
+          "sourceId": "Huber-1996-cleared",
+          "locator": "Corollary 4.2.9 and proof, pp. 245–246",
+          "match": "This is the ordinary global finiteness theorem missing from the earlier proper/nearby finiteness exports. It records finite presentation or finite base dimension, rather than guessing a finite-boundary condition on X."
+        }
+      ],
+      "acceptance": [
+        "A separably closed field A reduces the theorem to the scheme supplier’s classical finiteness result.",
+        "For finite-rank A, any finite-type X in the stated coefficient range is admitted, including nonproper X.",
+        "For infinite-rank A, retain finite presentation; no finite-type-only theorem is asserted.",
+        "Finitely generated over a noetherian torsion ring B can be an infinite set when B is infinite. The conclusion must remain Module.Finite, not Finite.",
+        "For X=P¹_A and constant B, H⁰ is B and H² is B(−1); this checks ordinary global cohomology and the standard twist, not compact support."
+      ],
+      "uses": [],
+      "tests": [],
+      "library": {
+        "module": "TauCeti/AdicSpace/EtaleCohomology/ValuationExports/Cohomology",
+        "namespace": "TauCeti.AdicSpace.ValuationBase"
+      },
+      "suggestedDeclaration": "TauCeti.AdicSpace.ValuationBase.constructibleCohomology_finite",
+      "implementationStatus": "unchecked",
+      "planet": {
+        "name": "Constructible cohomology finiteness"
+      }
     }
   ],
   "requests": [
@@ -494,57 +951,72 @@
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-valuation-invariance",
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-separably-closed-valuation-invariance",
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/closed-support-valuation-invariance",
-        "ClassicalAdicEtaleCohomology:H1:valuation-exports/proper-nearby-invariance-coherence"
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/proper-nearby-invariance-coherence",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-valuation-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-collapsed-boundary-vanishing",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/torsion-sheaf-total-cohomology-valuation-invariance",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/torsion-sheaf-valuation-adjunction-descent",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/finite-rank-descent-of-valuation-data",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/constructibility-along-finite-valuation-boundary",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/constructible-cohomology-finiteness"
       ],
-      "need": "On the EDC.0 bounded-below derived étale carrier of qcqs schemes, provide exact inverse image, Rg*, their adjunction, RΓ and the coherent isomorphism RΓ_X Rg* ≅ RΓ_Y. Fix β_g = RΓ_X(unit) followed by that isomorphism, with naturality, identity and composition. Supply the bounded-below pullback map of the imported EDC.0 localization triangles, with natural connecting arrows; topological invariance under universal homeomorphisms (Stacks 04DY); geometric-field cohomology invariance (0F0B); and the cohomological-dimension, filtered-constructible/coefficient and affine-descent inputs of Hansen–Scholze Lemma 3.5 and Corollary 4.5. The existing Brauer, coherent-duality and equivariant-support SF.2 nodes were inspected and do not supply these exact scheme-étale inputs. Also supply the general scheme ULA predicate on perfect-constructible coefficients: after every scheme base change and for every geometric x over s and geometric generization t of s, the canonical Milnor-fibre comparison E_x → RΓ(X_(x) ×_S_(s) t,E) is an isomorphism (Hansen–Scholze Theorem 4.4(iii), p. 22). General ULA belongs to this scheme-cohomology supplier; its valuation-specific generic-extension theorem remains with H1:valuation-nearby-cycles. Use the exact L2 higher-cohomology-continuity node already cited, rather than a second continuity carrier. Include the same bounded-below étale/pro-étale realization already requested by AdicCoefficientsAndComparisons:L1, together with its functorial comparisons: ν* is fully faithful with E ≅ Rν*ν*E, commutes with inverse image, and for a qcqs f:Y→X has ν_X* Rf_ét,* E ≅ Rf_proét,* ν_Y* E (Bhatt–Scholze Corollary 5.1.6, Proposition 5.2.6 and Lemmas 5.4.1, 5.4.3, author-copy pp. 35, 37, 39). Preserve adjunction units, localization triangles and RΓ under the comparisons. The generic localization j is affine, so its Rj* meets the qcqs hypothesis. Proposition 5.3.2 is an unbounded left-completed statement, not permission to identify unrestricted unbounded classical étale complexes with pro-étale complexes. Use the corrected functor subscripts in E-H1-valuation-exports-1. This extends the existing SF.2 request, not a new owner or category."
+      "need": "On the EDC.0 bounded-below derived étale carrier of qcqs schemes, provide exact inverse image, Rg*, their adjunction, RΓ and the coherent isomorphism RΓ_X Rg* ≅ RΓ_Y. Fix β_g = RΓ_X(unit) followed by that isomorphism, with naturality, identity and composition. Supply the bounded-below pullback map of the imported EDC.0 localization triangles, with natural connecting arrows; topological invariance under universal homeomorphisms (Stacks 04DY); geometric-field cohomology invariance (0F0B); and the cohomological-dimension, filtered-constructible/coefficient and affine-descent inputs of Hansen–Scholze Lemma 3.5 and Corollary 4.5. The existing Brauer, coherent-duality and equivariant-support SF.2 nodes were inspected and do not supply these exact scheme-étale inputs. Also supply the general scheme ULA predicate on perfect-constructible coefficients: after every scheme base change and for every geometric x over s and geometric generization t of s, the canonical Milnor-fibre comparison E_x → RΓ(X_(x) ×_S_(s) t,E) is an isomorphism (Hansen–Scholze Theorem 4.4(iii), p. 22). General ULA belongs to this scheme-cohomology supplier; its valuation-specific generic-extension theorem remains with H1:valuation-nearby-cycles. Use the exact L2 higher-cohomology-continuity node already cited, rather than a second continuity carrier. Include the same bounded-below étale/pro-étale realization already requested by AdicCoefficientsAndComparisons:L1, together with its functorial comparisons: ν* is fully faithful with E ≅ Rν*ν*E, commutes with inverse image, and for a qcqs f:Y→X has ν_X* Rf_ét,* E ≅ Rf_proét,* ν_Y* E (Bhatt–Scholze Corollary 5.1.6, Proposition 5.2.6 and Lemmas 5.4.1, 5.4.3, author-copy pp. 35, 37, 39). Preserve adjunction units, localization triangles and RΓ under the comparisons. The generic localization j is affine, so its Rj* meets the qcqs hypothesis. Proposition 5.3.2 is an unbounded left-completed statement, not permission to identify unrestricted unbounded classical étale complexes with pro-étale complexes. Use the corrected functor subscripts in E-H1-valuation-exports-1. This extends the existing SF.2 request, not a new owner or category. Extend these functors and unit/localization maps to arbitrary schemes on the bounded-below carrier, by affine étale chart descent. Supply sheaf local cohomology i_*Ri! separately from global RΓ_T, the canonical pullback exchange, its restriction compatibility, and the first-quadrant local-to-global support spectral sequence. Supply constructible B-module sheaves over general, possibly nonnoetherian schemes using finite constructible locally closed stratifications on each quasi-compact open; include exact-category closure, pullback, coefficient forgetful compatibility, and descent of such sheaves, strata and finitely presented schemes along affine inverse limits. Provide the arbitrary torsion-sheaf, finite-rank-base approximation used by Huber 4.2.7 independently of descent of finitely presented constructible data. Provide finite generation of Hⁿ(X,F) for a finite-type scheme over a separably closed field, B noetherian killed by m>0 prime to the field characteristic, F constructible, every n≥0; no properness or separatedness restriction. Huber 4.2.9 p. 246 cites SGA 4½, Th. finitude 1.10, whose text has not been read in this run. Stacks 0F0B supplies field-extension invariance on qcqs charts, but not this general finiteness theorem."
     },
     {
       "supplier": "ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles",
       "neededBy": [
-        "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-valuation-invariance"
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-valuation-invariance",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-valuation-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-collapsed-boundary-vanishing"
       ],
-      "need": "Extend the existing arbitrary-valuation nearby-cycle plan by the generic-extension result actually used in Hansen–Scholze Corollary 4.5: for a separated finitely presented X over an absolutely integrally closed valuation V, with j: X_K → X, Rj* takes perfect-constructible torsion generic coefficients to ULA objects and is inverse to generic restriction on the ULA subcategory (Theorem 4.1, pp. 19–22); retain flat AIC valuation-base compatibility (Corollary 4.2(ii), p. 19). The existing i*Rj* constructibility and valuative nearby-base-change nodes do not imply this Rj*/ULA result on the total scheme. Import the general scheme ULA definition from its supplier instead of reusing diamond ULA or creating another coefficient category. State the theorem first on the source’s pro-étale realization of the perfect-constructible carrier, then provide its bounded-below torsion étale form through the SF.2 comparisons; retain both the canonical generic adjunction unit and the flat-valuation exchange map in this transfer."
+      "need": "Extend the existing arbitrary-valuation nearby-cycle plan by the generic-extension result actually used in Hansen–Scholze Corollary 4.5: for a separated finitely presented X over an absolutely integrally closed valuation V, with j: X_K → X, Rj* takes perfect-constructible torsion generic coefficients to ULA objects and is inverse to generic restriction on the ULA subcategory (Theorem 4.1, pp. 19–22); retain flat AIC valuation-base compatibility (Corollary 4.2(ii), p. 19). The existing i*Rj* constructibility and valuative nearby-base-change nodes do not imply this Rj*/ULA result on the total scheme. Import the general scheme ULA definition from its supplier instead of reusing diamond ULA or creating another coefficient category. State the theorem first on the source’s pro-étale realization of the perfect-constructible carrier, then provide its bounded-below torsion étale form through the SF.2 comparisons; retain both the canonical generic adjunction unit and the flat-valuation exchange map in this transfer. Also extend the existing valuative-base-change-for-nearby-cycles node to the full Huber Proposition 4.2.4 statement, p. 243 and proof pp. 246–249: Cartesian morphisms of quadruples, any X, and torsion abelian F prime to the characteristic exponent at the target special point; neither locally finite type nor dominance is assumed. The existing restricted node is retained as a specialization, not duplicated in valuation-exports. This full form is required by both local-support results. Use the already owned constructibility-of-nearby-cycles node for Proposition 4.2.5."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/AdicSpaces#layer-1-valuation-spectra-and-continuous-valuations",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/finite-rank-descent-of-valuation-data"
+      ],
+      "need": "For a valuation domain A with separably closed fraction field K and any finite subset of A, provide a separably closed subfield K₀⊆K containing that subset, such that A₀=A∩K₀ is a valuation domain of finite Krull dimension and A₀→A is injective and local. Choose a finitely generated prime-field subfield carrying the finite data and take its relative separable closure in K; justify the finite-rank bound for the restricted valuation and its preservation under algebraic extension. Retain the actual subring and local inclusion, not a rank-one replacement or a discretely valued model. This is the algebraic input of the owned finite-rank descent lemma, whose scheme/sheaf descent belongs to SF.2. Supply also strict henselianity of valuation localizations whose fraction fields are separably closed, and separably closed fraction fields of their valuation-domain quotients, as needed to form the quadruples and run rank induction. The existing algebraically-closed-fraction-field-strictly-henselian import covers the algebraically closed specialization only."
     }
   ],
   "coverage": [
     {
       "stageId": "ClassicalAdicEtaleCohomology:H1:valuation-exports",
-      "status": "partial",
-      "note": "The imported finite-presentation/finiteness, support, nearby-invariance and formal-tube targets remain as accepted in H0. The new total-cohomology target is now stated precisely from a public restatement and extended by explicit radicial and localization arguments. The finite-boundary alternative is not stated, and the number correspondence for 4.2.6 is not verified; this is a checkpoint, not a completed planning pass.",
+      "status": "planned",
+      "note": "All targets are represented by the eleven retained H0 imports and eleven nodes here. The original finite-boundary, finite-dimension and full torsion-sheaf statements have exact hypotheses and locators. The stage is planned rather than closed because its proof suppliers and assembled planet selection remain explicit requests/refinements.",
       "remaining": [
-        "Obtain a cleared or public statement of Hub96 4.2.8–4.2.9, identify what the finite-boundary/finite-dimension alternative quantifies over, and create the missing exact target nodes with coefficient, presentation and support hypotheses. The existing finite-presentation and topologically-noetherian alternatives are imports, not substitutes.",
-        "Obtain a cleared or public statement of Hub96 4.2.6 and compare it with both the inherited support/local-cohomology comparisons and the new closed-support base-change consequence. Do not label the latter as 4.2.6 until the statement is verified.",
-        "Verify the original generality of Hub96 4.2.7 against Hansen–Scholze’s public attributed restatement: the public AIC, ℓ-power invertible, bounded-below form and its derived separably closed extension are established here; no assertion about a larger unbounded, composite-torsion or residue-characteristic range is made.",
-        "Resolve the exact generic-extension/ULA and scheme-functor/cohomological-dimension requests, preserving their owner boundaries and canonical-map compatibility. Refine the source proof’s finite-rank/coefficient reductions rather than treating i*Rj* constructibility as a proof of Rj*/ULA. The generic-extension source is pro-étale: retain the bounded-below realization, qcqs Rj* and canonical-unit comparisons now made explicit in the SF.2 request.",
-        "Reconcile the planet selection across this packet and H0 during assembly according to the proposed split; the current H0 stage already has six planets.",
-        "Complete the new target signatures and reader after the missing statements are accessible; retain the imported H0 suggested file for its definitions, APIs and tests."
+        "Supply the three exact cross-owner requests: scheme functors/constructibility/continuity/finiteness, the full Cartesian nearby-base-change theorem and generic Rj*/ULA theorem, and finite-rank algebraic capture.",
+        "Refine the finite-rank descent and arbitrary torsion-sheaf approximation proofs after those interfaces are supplied; do not substitute the inherited reduced-model lemma.",
+        "Retain the inherited formal-completion naturality and generic compactification/finiteness prerequisites from H0; this pass does not discharge them.",
+        "Reconcile H0 and follow-up planet nominations through the proposed three-part split or select at most six planets in the assembled unsplit star."
       ]
     }
   ],
   "gaps": [
     {
-      "title": "Unread finite-boundary target",
-      "neededBy": [],
-      "detail": "The inherited coverage explicitly leaves Hub96 4.2.8–4.2.9’s finite-boundary alternative without a node. Huber’s 1996 book is marked not cleared by the reference-library index and no copy was read. Searches for Hub96/Huber plus 4.2.8, 4.2.9 and finite boundary found no independently verified restatement. Orgogozo Remarks 4.4–4.5 give finite presentation or finite type over a topologically noetherian base, and Lu–Zheng Example 4.26(3) concerns Ψ-goodness outside a quasi-finite exceptional locus; neither is identified as the missing alternative. Its statement must be recovered before a target node can be written. This stage-level gap has no fabricated consuming node."
-    },
-    {
-      "title": "Unverified numbering and full coefficient scope",
-      "neededBy": [
-        "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-valuation-invariance",
-        "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-separably-closed-valuation-invariance",
-        "ClassicalAdicEtaleCohomology:H1:valuation-exports/closed-support-valuation-invariance"
-      ],
-      "detail": "Hansen–Scholze Corollary 4.5 publicly attributes its AIC valuation total-cohomology theorem to Hub96 Corollary 4.2.7; that identification is now supported. The original hypotheses of 4.2.6 and any broader range of 4.2.7 remain unread. The new support theorem is a consequence of total invariance plus localization, not an assertion of what Huber 4.2.6 says. No original-book page number is invented."
-    },
-    {
-      "title": "Generic-extension and scheme proof suppliers",
+      "title": "Exact scheme and nearby proof suppliers",
       "neededBy": [
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-valuation-invariance",
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/total-cohomology-separably-closed-valuation-invariance",
         "ClassicalAdicEtaleCohomology:H1:valuation-exports/closed-support-valuation-invariance",
-        "ClassicalAdicEtaleCohomology:H1:valuation-exports/proper-nearby-invariance-coherence"
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/proper-nearby-invariance-coherence",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-valuation-base-change",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/local-cohomology-collapsed-boundary-vanishing",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/torsion-sheaf-total-cohomology-valuation-invariance",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/torsion-sheaf-valuation-adjunction-descent",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/constructibility-along-finite-valuation-boundary",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/constructible-cohomology-finiteness"
       ],
-      "detail": "The public proof of total invariance is available, but the atlas has no exact node supplying its generic Rj*/ULA equivalence, nor all of the bounded-below scheme comparison, descent, cohomological-dimension and localization naturality inputs. The two precise requests above are the remaining proof-chain ends. The broader H0 formal-completion naturality and generic constructible-finiteness gaps remain imports and are not declared closed here. In particular, the exact generic-extension theorem is formulated pro-étale; its transfer to these classical bounded-below signatures needs the requested ν*, Rj* and RΓ comparison with canonical units. No exact supplier node was found for this full functorial comparison."
+      "detail": "The source statements and proofs have been read, but current supplier nodes do not include all required maps, general constructibility/descent, arbitrary torsion approximation or finite-type generic-field finiteness. In particular the existing nearby-base-change node has locally-finite-type and dominant hypotheses absent from the full Huber 4.2.4 statement. The first two requests specify the missing generality and canonical maps. The SGA 4½ finiteness input is identified through Huber, not represented as independently source-read. The inherited H0 formal/adic and compactification gaps are not declared resolved."
+    },
+    {
+      "title": "Finite-rank capture and constructible descent",
+      "neededBy": [
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/finite-rank-descent-of-valuation-data",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/constructibility-along-finite-valuation-boundary",
+        "ClassicalAdicEtaleCohomology:H1:valuation-exports/constructible-cohomology-finiteness"
+      ],
+      "detail": "Huber 4.2.8–4.2.9 assert finite-rank models with descended sheaf data. The key descent lemma is now a target, with algebraic finite-rank capture requested from the existing valuation foundation and finite-presentation/constructible-sheaf limit descent from SF.2. Neither the finite-rank subfield theorem nor the combined descent API was found at the current or pinned library. The actual Cartesian model and sheaf pullback must be constructed before this proof chain is closed."
     }
   ],
   "restructure": [
@@ -553,8 +1025,8 @@
       "roadmaps": [
         "ClassicalAdicEtaleCohomology"
       ],
-      "detail": "H1:valuation-exports combines six existing H0 planets with scheme total/support invariance newly distinguished from nearby-cycle and formal-tube exports. Marking both new results in the current assembled star would exceed the six-planet limit.",
-      "proposal": "Propose H1:valuation-exports:scheme-invariance for the three new invariance theorems and the algebraic side of proper-nearby-invariance-coherence (two planets: Valuation cohomology invariance, Valuation support invariance), and H1:valuation-exports:nearby-and-tubes for all eleven imported H0 nodes plus the formal transport (retain its six existing planets). Keep all current stage and node ids until this proposal is applied; assembly must split the star or select no more than six planets in the unsplit star. The new planet marks are nominations for this reconciliation, not an instruction to draw eight planets now."
+      "detail": "The stage combines six inherited H0 planets with four new nominations for scheme invariance and finite-boundary/global finiteness. An unsplit assembled star would exceed the six-planet limit.",
+      "proposal": "Propose three assembled stars: scheme-invariance (the retained bounded-below invariance, new local-support and torsion-sheaf targets, and algebraic coherence; two planets: Valuation cohomology invariance and Valuation support invariance); finite-boundary-and-finiteness (finite-rank descent, constructibility and ordinary global finiteness; two planets: Finite-boundary constructibility and Constructible cohomology finiteness); nearby-and-tubes (all eleven H0 imports and formal transport, retaining its six existing planets). Keep current ids until a restructuring proposal is applied. Assembly must implement this split or select at most six planets in the unsplit star; these are nominations, not ten simultaneously drawn planets."
     }
   ],
   "sourceIssues": [
@@ -573,6 +1045,38 @@
         "Published Astérisque 369 article through the public academic mirror: Lemma 5.4.3 pp. 153–154 retains the same subscript and test-object slips.",
         "SMF article listing and web searches for Bhatt Scholze 5.4.3 typo and pro-étale errata, 2026-10-08: no correction found. The arXiv record was checked as a version lead, not read as an additional full text."
       ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology/E-H1-valuation-exports-2",
+      "source": "Huber-1996-cleared",
+      "kind": "misprint",
+      "locator": "Corollary 4.2.9 proof, p. 246, support spectral sequence and part (2) Cartesian-model display, first edition 1996.",
+      "printed": "The local-support spectral-sequence coefficient is labelled by the boundary T instead of F. The later model display repeats X as its own factor and puts the base rings on the wrong sides of the fibre product.",
+      "correction": "Use 𝓗ᑫ_T(X,F) as the coefficient sheaf. With A′ the smaller finite-rank valuation ring and X′ its model, the intended identification is X≅X′×_A′ A, with projection p:X→X′ and F≅p*F′.",
+      "reason": "T is a subset, not a coefficient sheaf, and the next conclusion concerns Hⁿ_T(X,F). The surrounding definitions place X′ over A′ and X over A; the surjective spectrum map goes from Spec A to Spec A′. This determines the Cartesian-model orientation and agrees with the p. 245 descent construction.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The Springer/DOI publisher book listing and its linked material were checked on 2026-10-10; no correction was located.",
+        "Web searches on 2026-10-10 for Huber 1996 errata, Corollary 4.2.9 corrections and the full book title with correction terms returned no matching published correction.",
+        "The relevant p. 246 printed page was inspected visually in the maintainer-cleared first edition, in addition to reading the surrounding proof."
+      ]
+    },
+    {
+      "id": "ClassicalAdicEtaleCohomology/E-H1-valuation-exports-3",
+      "source": "Huber-1996-cleared",
+      "kind": "misprint",
+      "locator": "Proposition 4.2.4 proof, p. 246, first reduction after defining the special-fibre sheaf C, first edition 1996.",
+      "printed": "The final inverse/direct-image adjunction expression in that reduction is applied to the generic-fibre sheaf D, although its map p_s lies between the special fibres.",
+      "correction": "Use the counit p_s* p_s,* C → C for the sheaf C on the source special fibre. The generic-fibre sheaf D remains in the earlier Rj* calculation.",
+      "reason": "D and C belong to different étale categories. The preceding composition starts with C=i′*Rⁿj′_*E on the special fibre; only C can be an input to p_s,* or its counit. The corrected expression is the final morphism in that same chain and leaves the intended proof unchanged.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The Springer/DOI publisher book listing and its linked material were checked on 2026-10-10; no correction was located.",
+        "Web searches on 2026-10-10 for Huber 1996 errata, Corollary 4.2.9 corrections and the full book title with correction terms returned no matching published correction.",
+        "The relevant p. 246 printed page was inspected visually in the maintainer-cleared first edition, in addition to reading the surrounding proof."
+      ]
     }
   ],
   "sourceVersions": [
@@ -590,6 +1094,14 @@
       "citation": "Astérisque 369 (2015), 99–201; public academic mirror, Lemma 5.4.3 pp. 153–154 read",
       "read": "2026-10-08",
       "sha256": "b40ac03aaeb1e11ed58b581ba1344194407a340e50bfb835bbf2e6cfa523a99f"
+    },
+    {
+      "source": "Huber-1996-cleared",
+      "kind": "published",
+      "url": "https://doi.org/10.1007/978-3-663-09991-8",
+      "citation": "Roland Huber, Aspects of Mathematics E30, Vieweg 1996, first edition; the maintainer-cleared edition was read directly, rather than a publisher preview.",
+      "read": "2026-10-10",
+      "sha256": "b40a5c2ef56784d888206011ecb31bdc5e2e6120721a8c38b78b6cf2cd8d7e1a"
     }
   ]
 }
