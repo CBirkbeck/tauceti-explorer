@@ -15270,8 +15270,8 @@
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
   "date": "2026-10-10",
-  "session": "codex-zz1p9S",
-  "notes": "Codex: bounded independent area-fix continuation following codex-sv6tah; the complete preceding review is preserved in reviewHistory. Findings /4 and /31: geometric Hodge theory remains an explicit supplier gap; the native PeriodComparison specifies pullback, connecting-map, unit and product laws, retains the Tate rank-one and product-compatibility conditions, and rejects doubling by the unit test. The arbitrary-pair comparison remains a request. The newer iwasawa review and its qualifications remain in history. Fresh exact-index packet validation gives zero errors and warnings. Full blueprint/source audits and unchanged Suggested elaboration receipts remain attributed to preceding reviewers; this acceptance does not close their inherited proof/interface gaps. No mathematical field changed."
+  "session": "codex-X15WW9",
+  "notes": "Codex (GPT-6), session codex-X15WW9: independent bounded area-fix review following the entire preceding review, preserved in reviewHistory. Findings /4 and /31: the proposed geometric Hodge owner remains explicitly unaccepted; abstract Hodge structures alone are not a geometric decomposition supplier. PairDiagram.PeriodComparison retains pullback, connecting-map, unit and product laws, ProductCompatible and the Tate rank-one condition. Freshly read Huber–Müller-Stach Definition 0.1 p.2 supports these relations; the arbitrary-pair comparison remains a C5 request. Preserve every qualification of the later accepted iwasawa-3~3 review in reviewHistory. Fresh pinned-index packet validation has zero errors and warnings. Mathematical fields and supplier requests are unchanged. The unchanged Suggested hash matches its inherited full-file Lean receipt. Acceptance concerns the area fixes and precise requests; no full blueprint/source audit or proof closure is recertified. See the report for fresh versus inherited evidence and the unresolved dispatch scope."
  },
  "reviewHistory": [
   {
@@ -16235,6 +16235,13 @@
    "date": "2026-10-10",
    "session": "codex-sv6tah",
    "notes": "Bounded area-fix acceptance follows the earlier review for this job, with the newer accepted REV-FIX-RT-AREA-iwasawa-3~3 review preserved in full in reviewHistory. The typed period comparison retains unit, product, pullback and connecting-map compatibility; the Tate rank-one condition and arbitrary-pair supplier extension remain explicit. No newer source or supplier verdict is discarded."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-algebraicgeometry~2",
+   "date": "2026-10-10",
+   "session": "codex-zz1p9S",
+   "notes": "Codex: bounded independent area-fix continuation following codex-sv6tah; the complete preceding review is preserved in reviewHistory. Findings /4 and /31: geometric Hodge theory remains an explicit supplier gap; the native PeriodComparison specifies pullback, connecting-map, unit and product laws, retains the Tate rank-one and product-compatibility conditions, and rejects doubling by the unit test. The arbitrary-pair comparison remains a request. The newer iwasawa review and its qualifications remain in history. Fresh exact-index packet validation gives zero errors and warnings. Full blueprint/source audits and unchanged Suggested elaboration receipts remain attributed to preceding reviewers; this acceptance does not close their inherited proof/interface gaps. No mathematical field changed."
   }
  ],
  "fixes": {
