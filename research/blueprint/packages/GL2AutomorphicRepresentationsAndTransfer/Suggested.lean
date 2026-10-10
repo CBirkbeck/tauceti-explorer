@@ -185,6 +185,30 @@ abbrev localK1 (F : Type*) [Field F] [ValuativeRel F]
   (k1 (𝓂[F] ^ n)).map
     (GeneralLinearGroup.map (algebraMap 𝒪[F] F))
 
+/-- The image of the earlier lower-left subgroup; this is a specialization
+of k0, rather than another Iwahori or local-field carrier. -/
+abbrev localK0 (F : Type*) [Field F] [ValuativeRel F]
+    [TopologicalSpace F] [IsNonarchimedeanLocalField F] (n : ℕ) :
+    Subgroup (GeneralLinearGroup (Fin 2) F) :=
+  (k0 (𝓂[F] ^ n)).map
+    (GeneralLinearGroup.map (algebraMap 𝒪[F] F))
+
+lemma localK0_zero : localK0 F 0 = localK1 F 0 := by sorry
+lemma localK0_antitone {m n : ℕ} (h : m ≤ n) :
+    localK0 F n ≤ localK0 F m := by sorry
+lemma localK1_le_localK0 (n : ℕ) : localK1 F n ≤ localK0 F n := by sorry
+
+-- The Iwahori specialization still constrains the lower-left entry.
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![1, 1; 0, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∈ localK0 F 1 := by sorry
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![1, 0; 1, 1]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∉ localK0 F 1 := by sorry
+example (u : 𝒪[F]ˣ) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+      (GeneralLinearGroup.scalar (Fin 2) u) ∈ localK0 F 1 := by sorry
+
 lemma localK1_zero : localK1 F 0 =
     (⊤ : Subgroup (GeneralLinearGroup (Fin 2) 𝒪[F])).map
       (GeneralLinearGroup.map (algebraMap 𝒪[F] F)) := by sorry
@@ -292,6 +316,101 @@ theorem casselmanNewvector_whittaker_eval
 
 end LocalNewvectors
 
+section IwahoriOldforms
+open scoped ValuativeRel
+variable {F : Type*} [Field F] [CharZero F] [ValuativeRel F]
+    [TopologicalSpace F] [IsNonarchimedeanLocalField F]
+variable {V : Type*} [AddCommGroup V] [Module ℂ V]
+
+/-- Casselman, Corollary to the Proof, p. 306; Calegari–Geraghty,
+§1.3, printed pp. 805–806, with infinite dimensionality as in the README.
+A nonzero spherical vector is the unramified hypothesis. -/
+theorem iwahoriOldforms_dimensions
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V)
+    (hsph : ∃ v ∈ Representation.invariants (π.comp (localK1 F 0).subtype), v ≠ 0) :
+    Module.finrank ℂ (Representation.invariants (π.comp (localK1 F 0).subtype)) = 1 ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK0 F 1).subtype)) = 2 := by sorry
+
+/-- The actual oldform operator, expressed as a finite sum of the concrete
+right-coset representatives of I diag(ϖ,1) I, with vol(I)=1. A is a full set
+of residue representatives, so its cardinality is q. The sum acts by π;
+there is no independent operator or replacement Hecke algebra in the input.
+The spherical double coset adds s=diag(1,ϖ). Its eigenvalue λ is
+sqrt(q)*(α+β); the scalar action c is ω(ϖ)=α*β.
+
+In the basis (v,π(s)v), U has columns (λ,-1) and (q*c,0).
+The -1 coefficient gives cyclicity also at a repeated Satake root.
+Sources: CG20 §1.3, printed pp. 805–806; Casselman p. 306; the matrix computation
+and coset normalization are explained in the README. -/
+theorem iwahoriOldforms
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    [Representation.IsIrreducible π]
+    (hsm : ∀ v : V, IsOpen {g | π g v = v})
+    (hadm : ∀ K : Subgroup (GeneralLinearGroup (Fin 2) F),
+      IsCompact (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      IsOpen (K : Set (GeneralLinearGroup (Fin 2) F)) →
+      FiniteDimensional ℂ (Representation.invariants (π.comp K.subtype)))
+    (hinf : ¬ FiniteDimensional ℂ V)
+    (ϖ : 𝒪[F]) (hϖ : Ideal.span ({ϖ} : Set 𝒪[F]) = 𝓂[F])
+    (ϖF : Fˣ) (hϖF : (ϖF : F) = (ϖ : F))
+    (A : Finset 𝒪[F]) (hA : ∀ x : 𝒪[F], ∃! a : A, x - a.val ∈ 𝓂[F])
+    (g : A → GeneralLinearGroup (Fin 2) F)
+    (hg : ∀ a, (g a).val = !![(ϖ : F), (a.val : F); 0, 1])
+    (s : GeneralLinearGroup (Fin 2) F) (hs : s.val = !![1, 0; 0, (ϖ : F)])
+    (v : V) (hv : v ∈ Representation.invariants (π.comp (localK1 F 0).subtype))
+    (hv0 : v ≠ 0) (lam c : ℂ)
+    (hcent : ∀ w, π (GeneralLinearGroup.scalar (Fin 2) ϖF) w = c • w)
+    (heigen : ((∑ a : A, π (g a)) + π s) v = lam • v) :
+    let U : Module.End ℂ V := ∑ a : A, π (g a)
+    Module.finrank ℂ (Representation.invariants (π.comp (localK1 F 0).subtype)) = 1 ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK0 F 1).subtype)) = 2 ∧
+      Representation.invariants (π.comp (localK0 F 1).subtype) =
+        Submodule.span ℂ ({v, U v} : Set V) ∧
+      (∀ a : ℂ, U v ≠ a • v) ∧
+      (∀ w ∈ Representation.invariants (π.comp (localK0 F 1).subtype),
+        U w ∈ Representation.invariants (π.comp (localK0 F 1).subtype) ∧
+          U (U w) - lam • U w + ((A.card : ℂ) * c) • w = 0) := by sorry
+
+-- Companion-matrix tests in the basis (v,π(s)v). These test the U formula,
+-- independently of a choice or ordering of residue representatives.
+example : (!![(2 : ℂ), 1; -1, 0] - 1) ^ 2 = 0 ∧
+    !![(2 : ℂ), 1; -1, 0] - 1 ≠ 0 := by sorry
+example : !![(5 : ℂ), 6; -1, 0] ^ 2 -
+    5 • !![(5 : ℂ), 6; -1, 0] + 6 • (1 : Matrix (Fin 2) (Fin 2) ℂ) = 0 := by sorry
+example : !![(5 : ℂ), 6; -1, 0] ^ 2 -
+    5 • !![(5 : ℂ), 6; -1, 0] + 3 • (1 : Matrix (Fin 2) (Fin 2) ℂ) ≠ 0 := by sorry
+
+/-- The excluded determinant characters: unramified χ is trivial on O×,
+so both the spherical and Iwahori invariant spaces are the whole ℂ line.
+This calculation also applies to nontrivial χ. No genericity is assumed. -/
+theorem iwahoriDeterminantCharacter
+    (χ : Fˣ →* ℂˣ)
+    (hχ : ∀ u : 𝒪[F]ˣ, χ (Units.map (algebraMap 𝒪[F] F).toMonoidHom u) = 1)
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) ℂ)
+    (hπ : ∀ g z, π g z = (χ (GeneralLinearGroup.det g) : ℂ) * z) :
+    Representation.invariants (π.comp (localK1 F 0).subtype) = ⊤ ∧
+      Representation.invariants (π.comp (localK0 F 1).subtype) = ⊤ ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK1 F 0).subtype)) = 1 ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK0 F 1).subtype)) = 1 := by sorry
+
+-- A supplied nontrivial unramified character gives an actual nontrivial
+-- representation with Iwahori dimension one, not two.
+example (χ : Fˣ →* ℂˣ)
+    (hχ : ∀ u : 𝒪[F]ˣ, χ (Units.map (algebraMap 𝒪[F] F).toMonoidHom u) = 1)
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) ℂ)
+    (hπ : ∀ g z, π g z = (χ (GeneralLinearGroup.det g) : ℂ) * z)
+    (g : GeneralLinearGroup (Fin 2) F) (hg : χ (GeneralLinearGroup.det g) ≠ 1) :
+    π g (1 : ℂ) ≠ 1 ∧
+      Module.finrank ℂ (Representation.invariants (π.comp (localK0 F 1).subtype)) ≠ 2 := by sorry
+end IwahoriOldforms
+
 section Spherical
 /-- Complete homogeneous polynomial, given by the nonsingular GL₂ recurrence. -/
 def sphericalValues (α β : ℂ) (m : ℕ) : ℂ := by sorry
@@ -309,9 +428,9 @@ example (α β : ℂ) : sphericalValues α β 1 = α + β := by sorry
 example (α β : ℂ) : sphericalValues α β 2 = α ^ 2 + α * β + β ^ 2 := by sorry
 -- TauCeti.GL2Blueprint.sphericalValues_collision
 example : sphericalValues 1 1 2 = 3 := by sorry
-/- Signature omissions: The SR.2/SR.3/SR.4/SR.2.3 irreducible smooth GL₂(F) class, its K₀(p) and GL₂(O) fixed spaces, the Iwahori–Hecke algebra with its relations, the Kirillov model and the type Hom-multiplicity are absent, so arbitrary modules, rings or multiplicity functions cannot satisfy these local identities.
-README targets: R16.2/iwahori-oldforms, R16.2/iwahori-center, R16.2/supercuspidal-kirillov, R16.2/henniart-unicity.
-Omitted declaration names: TauCeti.GL2Blueprint.iwahoriOldforms, TauCeti.GL2Blueprint.iwahoriCenter, TauCeti.GL2Blueprint.supercuspidalKirillov, TauCeti.GL2Blueprint.henniartUnicity.
+/- Signature omissions: The full Iwahori–Hecke algebra and its center, the Kirillov model and the type Hom-multiplicity remain supplier interfaces. The oldforms theorem above uses the actual GL₂(F) fixed spaces and concrete finite double-coset sum; it needs none of these missing carriers.
+README targets: R16.2/iwahori-center, R16.2/supercuspidal-kirillov, R16.2/henniart-unicity.
+Omitted declaration names: TauCeti.GL2Blueprint.iwahoriCenter, TauCeti.GL2Blueprint.supercuspidalKirillov, TauCeti.GL2Blueprint.henniartUnicity.
 -/
 end Spherical
 

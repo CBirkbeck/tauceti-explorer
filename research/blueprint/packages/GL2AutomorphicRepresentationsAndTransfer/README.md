@@ -241,13 +241,17 @@ For an unramified generic principal series with unitary-normalized Satake parame
 
 ### iwahori-oldforms: The characteristic-zero Iwahori oldforms
 
-Let π be an irreducible admissible infinite-dimensional unramified representation of GL₂(F). Then dim π^{K₀(p)}=2 and dim π^{GL₂(O)}=1. With vol(K₀(p))=1, U=[K₀(p)diag(ϖ,1)K₀(p)], the spherical vector v generates the Iwahori fixed space under ℂ[U], even if the Satake parameters coincide. The U polynomial is X²−q^{1/2}(α+β)X+qαβ in this unnormalized double-coset convention. A nontrivial unramified χdet has dimensions 1 and 1, so the printed CG20 condition “not trivial” must be replaced by infinite-dimensional.
+Let π be complex, irreducible, smooth, admissible, infinite-dimensional and spherical over a characteristic-zero nonarchimedean local field F. Write K=GL₂(O), I=K₀(p). Then dim πᴷ=1 and dim πᴵ=2. With vol(I)=1, U=[I diag(ϖ,1) I] and spherical eigenvalue λ=√q(α+β), every nonzero spherical v is cyclic for U on πᴵ. Its polynomial is X²−λX+qαβ, including α=β.
 
-**Hypotheses.** Complex characteristic zero; π unramified and infinite-dimensional, not just nontrivial.
+**Operator comparison.** `localK0(n)` embeds the earlier K₀(pⁿ); localK0(0)=localK1(0), localK1(n)⊆localK0(n), and it is antitone. In I, upper unipotents and integral scalars belong; the lower unipotent with entry 1 does not.
 
-**Prerequisites.** R16.2/casselman-newvector; R16.2/spherical-whittaker-values; SR `SR.1`; SR `SR.4`.
+Choose residue representatives A⊂O; set gₐ=(ϖ a;0 1). Then U=∑ₐπ(gₐ), with |A|=q. Set s=diag(1,ϖ), c=ω(ϖ)=αβ. On πᴷ, the spherical double coset acts as T=U+π(s). From Tv=λv and π(ϖI₂)=c, the basis (v,π(s)v) gives Uv=λv−π(s)v and Uπ(s)v=qc v. Thus πᴵ=span(v,Uv), Uv is not proportional to v, and U²−λU+qc=0 on πᴵ. `iwahoriOldforms` uses these matrices and Mathlib invariant submodules.
 
-**Sources.** [cg20], §1.3 printed pp. 805–806.
+**Tests.** For (2 1;−1 0), U−1 is nonzero and square-zero, testing repeated roots. The matrix (5 6;−1 0) satisfies X²−5X+6, and fails X²−5X+3. For unramified χdet on ℂ both invariant spaces are the whole line, of dimension one, even when χ≠1 (`iwahoriDeterminantCharacter`). Thus “not trivial” cannot replace infinite dimensionality.
+
+**Prerequisites.** R16.2/casselman-newvector; R16.2/spherical-whittaker-values; SR `SR.1`; SR `SR.4`; Mathlib `Representation.invariants`.
+
+**Sources.** [cg20], §1.3, printed pp. 805–806; [casselman73], Corollary to the Proof, printed p. 306.
 
 <a id="r16-2-supercuspidal-kirillov"></a>
 
@@ -1692,7 +1696,7 @@ Let E/F be a finite solvable Galois extension with the prescribed local completi
 [bm02]: https://www.imo.universite-paris-saclay.fr/m/~breuil/PUBLICATIONS/multiplicite.pdf "Multiplicités modulaires et représentations de GL₂(ℤp) et de Gal(Q̄p/Qp), Appendix: Sur l’unicité des types pour GL₂"
 [cdt99]: https://math.stanford.edu/~conrad/papers/cdtmaster.pdf "Modularity of certain potentially Barsotti–Tate Galois representations"
 [cg18]: https://math.uchicago.edu/~fcale/papers/CG.pdf "Modularity lifting beyond the Taylor–Wiles method"
-[cg20]: https://math.uchicago.edu/~fcale/papers/Siegel.pdf "Modularity lifting for non-regular symplectic representations"
+[cg20]: https://par.nsf.gov/servlets/purl/10184292 "Minimal modularity lifting for nonregular symplectic representations"
 [bcgp21]: https://pmihes.centre-mersenne.org/item/10.1007/s10240-021-00128-2.pdf "Abelian surfaces over totally real fields are potentially modular"
 [hkp10]: https://www.math.umd.edu/~tjh/IHA.apr.09.pdf "Iwahori–Hecke algebras"
 [aky22]: https://arxiv.org/pdf/2110.09070v4 "Local newforms for the general linear groups over a non-archimedean local field"
@@ -1728,7 +1732,7 @@ Let E/F be a finite solvable Galois extension with the prescribed local completi
 - **[bm02]** Christophe Breuil, Ariane Mézard; appendix by Guy Henniart, *Multiplicités modulaires et représentations de GL₂(ℤp) et de Gal(Q̄p/Qp), Appendix: Sur l’unicité des types pour GL₂*. Duke 115 (2002), author manuscript.
 - **[cdt99]** Brian Conrad, Fred Diamond and Richard Taylor, *Modularity of certain potentially Barsotti–Tate Galois representations*. JAMS 12 (1999), author manuscript.
 - **[cg18]** Frank Calegari and David Geraghty, *Modularity lifting beyond the Taylor–Wiles method*. Inventiones (2018), author PDF.
-- **[cg20]** Frank Calegari and David Geraghty, *Modularity lifting for non-regular symplectic representations*. Duke (2020), author published PDF.
+- **[cg20]** Frank Calegari and David Geraghty, *Minimal modularity lifting for nonregular symplectic representations*. Duke Math. J. 169 (2020), 801–896; NSF published copy.
 - **[bcgp21]** George Boxer, Frank Calegari, Toby Gee and Vincent Pilloni, *Abelian surfaces over totally real fields are potentially modular*. Publ. Math. IHÉS (2021), published PDF.
 - **[hkp10]** Thomas Haines, Robert Kottwitz and Amritanshu Prasad, *Iwahori–Hecke algebras*. J. Ramanujan Math. Soc. 25 (2010), author April 2009 version.
 - **[aky22]** Hiraku Atobe, Satoshi Kondo and Seidai Yasuda, *Local newforms for the general linear groups over a non-archimedean local field*. Forum Math. Pi (2022); arXiv 2110.09070v4.
