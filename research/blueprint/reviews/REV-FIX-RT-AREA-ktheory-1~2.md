@@ -1,121 +1,136 @@
 # Independent review of the second K-theory area fix
 
-Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex — `codex-qY3SVa`,
-10 October 2026. Bot comment 6099804434 confirmed claim comment 6099803184.
-This session did none of the fixes, their red team or its verification.
+Refs #5542. Job `REV-FIX-RT-AREA-ktheory-1~2`; Codex — `codex-dqb0Wk`,
+10 October 2026. Bot comment 6100433590 confirmed claim comment 6100432305.
+This session did none of the fixes, red team or verification under review.
+It follows `codex-qY3SVa` and `codex-dbAQYQ`; their packet verdicts remain in
+`reviewHistory`.
 
-The **seven-packet review named by the GitHub issue is complete**. It retains
-three accepted area-fix verdicts (N.1, T.1, K3BlochGroups) and four negative
-verdicts (K.1, K.6, N.7, T.3). Their previous same-job verdicts, authored by
-`codex-dbAQYQ`, are preserved in `reviewHistory`. Acceptance concerns the
-38 confirmed high/medium area findings, not unrelated gaps in these partial
-packets. Nothing is claimed implemented or formalized.
+**Checkpoint: the issue/queue scope mismatch still blocks completion.**
+The live issue and its full instructions authorize seven packets and seven
+suggested files; `queue.json` names twenty-two of each. The completion
+predicate in `research/blueprint/issues.py`, `deliverables_complete`, requires
+this job's reviewer id on every packet output. A fresh evaluation returned
+false: fifteen supplier packets have verdicts from other review jobs.
+[WORKERS.md](../WORKERS.md) says “Edit only the files the issue names.” This prevents expanding
+this review without authorization. Clarification was requested before editing;
+no answer had arrived at submission. The additional suppliers were inspected
+read-only where necessary, never given this job's verdict or edited.
 
-**The queue job is not complete.** Its 22 packet outputs exceed the seven
-packets and seven suggested files explicitly named by the GitHub issue.
-The remaining fifteen suppliers have reviews by other jobs; intake requires
-this job's verdict on every packet in its current output list. The earlier
-report's claim of whole-job completion was therefore incorrect. WORKERS.md's
-instruction to edit only files the issue names prevents silently expanding
-the scope. A scope clarification is pending. The supplier files have been
-read and structurally checked, but not edited or certified by this run.
-The handoff lists all fifteen, so another worker need not rediscover the
-reason previous submissions became checkpoints.
+The authorized verdicts remain **accepted** for N.1, T.1 and K3BlochGroups,
+and **needs_changes** for K.1, K.6, N.7 and T.3. They concern the 38 confirmed
+high/medium area findings, not the unrelated gaps of these partial packets.
+A negative mathematical verdict is a completed review outcome; it is not the
+reason intake cannot complete the expanded queue job. Nothing is claimed
+implemented, formalized or promoted.
 
-## Current evidence and corrections
+## Correction in this continuation: an odd-order sign control
 
-This run reread the issue, verified red-team dispositions, round-two fixes,
-earlier review, original packets/signatures, current supplier interfaces,
-and the pinned statements supporting the targeted corrections. The table
-below retains the earlier dispositions where the repairs are unchanged and
-updates finding /23 against the current destination. Source readings made
-by this run are distinguished from the retained earlier evidence below.
+The former `five_term_positive_sign` test repeated the generic boundary
+formula. Its neighboring C₄→C₂ and S₃→C₂ controls do not detect an inverted
+transgression. I replaced it in T.1 and its suggested file by a control with
+values in 𝔽₃.
 
-No mathematical declaration changed in this continuation. The corrections
-are to review metadata, the stale /23 destination assessment, the stage-cycle
-diagnostic, and the report/handoff's completion claim. In particular:
+Use the upper-unitriangular group E over 𝔽₃, with coordinates and law
+`(x,y,z)(x′,y′,z′)=(x+x′,y+y′,z+z′+xy′)`, and quotient q forgetting z.
+Its kernel N is central, so `N/[E,N]` identifies with the z-coordinate.
+For `a=(1,0,0)` and `b=(0,1,0)`, the quotient bar chain
+`[q(a)|q(b)]−[q(b)|q(a)]` is a cycle. The pinned degree-two differential gives
+positive lifted boundary `[ba]−[ab]`. Under the packet's kernel-H₁ map this
+becomes `ba(ab)⁻¹=(0,0,2)`. Reversing the sign gives `(0,0,1)`.
+The positive connecting convention is therefore tested by a value distinct
+from its negative.
 
-- **/4 and /20:** the 467 original packet nodes are acyclic, but their actual
-  stage projection contains K.3↔K.7 and K.6↔K.7. Concrete witnesses are
-  `K.3/transfer-maps-and-projection-formula` importing
-  `K.7/products-from-biexact-functors`, and
-  `K.7/compatibility-with-relative-groups-and-transfers` importing that K.3
-  transfer node. Similarly `K.6/nonconnective-spectrum` imports the K.7
-  product, while `K.7/morita-invariance` imports `K.6/negative-k-groups`.
-  Proposed new parents do not change the actual `parentStageId`. The
-  maintainer must apply the early-products and late-cofinality splits.
-- **/11:** `16 < 275/16` and the order of 2 modulo 5 is four. Thus the norm
-  bound alone allows an element whose prime support is later than a norm-11
-  place; it does not establish membership in the required Uₘ. This tests
-  the sufficiency of the bound, without asserting that the paper's algorithm
-  chooses 2. The explicit representative and finite-data proof remains
-  unverified. The official AMS full-text URL again returned HTTP 403.
-- **/12 and /28:** the current LocalFieldsRamification README and suggested
-  signatures retain nonarchimedean local-field hypotheses. The arbitrary
-  residue-field extension `Q((t))→Q((s))`, `t=s²`, still lies outside that
-  supplier. The stronger routing request in T.3 is not an available general
-  norm/lattice/length theorem. The read-only current upstream library was
-  checked separately from the pinned baseline; no build was run there.
-- **/21:** Quillen §4, Theorem 3 and Corollary 1, publication pp.108–111
-  (PDF pp.24–27), distinguish ambient admissible-subobject closure in the
-  one-step result from resolving kernel closure in the bounded filtration.
-  The existing correction retains this distinction and does not assume
-  projective lifting for the successive categories.
-- **/30:** the actual pinned bar differential sends a degree-two generator
-  to `[b]−[ab]+[a]` for trivial coefficients. The kernel-complex proof sends
-  `[a]−[b]` to `ab⁻¹` modulo `[E,N]`; its inverse uses `[n]−[1]`.
-  The displayed two-chain differences give both inverse identities and
-  conjugation invariance. `chainsMap_f_map_epi`, `chainsMap_comp`, the H₁
-  trivial-coefficient generator formula and connecting-map naturality supply
-  the specified actual maps. Löh supplies the spectral-sequence/naturality
-  reference, not this worker-derived kernel proof.
-- **/23:** both `S.4/k-coniveau-spectral-sequence` and
-  `S.4/g-coniveau-spectral-sequence` now import `H.6/exact-couple`,
-  `H.6/filtered-spectrum-spectral-sequence` and
-  `H.6/spectral-sequence-convergence-exhaustive`. This destination obligation
-  is carried. By contrast /5 and /33 still have H.3's rational-Hurewicz
-  owner and Borel's H.3 consumer, with no stated homotopy associativity.
+The suggested file proves the helper group axioms, quotient surjectivity
+and both coordinate calculations without `sorry`. Its transgression example
+specifies the central-coordinate comparison on every kernel element; it
+remains an admitted prototype, as does the existing transgression API.
+An independent exhaustive calculation of the 27-element group checked
+associativity and centrality and reproduced 2 versus 1. This is a direct
+derivation from the pinned bar formula, not an attribution to Löh.
+No new general group-theory supplier or duplicate roadmap is introduced.
 
-## Current validation
+## Fresh checks and retained boundaries
 
-Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369` are the baseline.
-All seven authorized packets pass `scripts/check_blueprint.py` with
-**zero errors and zero warnings** using the pinned declaration index.
-Read-only checks of the fifteen additional queue packets also report zero
-errors/warnings; that does not replace their required mathematical reviews.
+I reread all 38 finding claims and verifier reasons, the second fixes report,
+the previous review and the targeted node contracts. The per-finding table
+below retains the previous dispositions, with the strengthened /30 control.
+Older source certifications and C1–C11 corrections are explicitly historical
+below; this continuation does not claim to have reread every source used by
+the original fix or to have closed its auxiliary source gaps.
 
-All seven actual suggested files elaborated successfully with `lean-check`,
-serially, with available memory above 20 GB. Warning totals, all for admitted
-declarations, are N.1 **124**, K.1 **0**, T.3 **275**, N.7 **45**, K.6 **6**,
-T.1 **72**, K3BlochGroups **807**. Comments containing future signatures
-are not type checked. The suggested files were unchanged, so these are the
-checks of the final executable content. No language server or Lake build,
-update or cache command was used. There is no standalone link map or
-restructuring result in the issue's deliverables.
+- **/4 and /20:** a fresh graph check finds 467 original nodes and no internal
+  node cycle. Actual parents still give K.3↔K.7 and K.6↔K.7: the K.3 transfer
+  imports the K.7 product, while the K.7 relative/transfer compatibility
+  imports that transfer; K.6's nonconnective spectrum imports the K.7 product,
+  while K.7 Morita invariance imports K.6's negative groups. Proposed parents
+  have not applied the early-product and late-cofinality stage splits.
+- **/11:** the upper generation still needs checked Uₘ-compatible
+  representatives and finite data. The exact diagnostic is `16 < 275/16`:
+  2 has norm 16 in ℚ(ζ₅), and its order modulo 5 is four. A norm bound alone
+  does not exclude its later prime support relative to a norm-11 place.
+  This does not refute Zhang–Xu's theorem or assert that its algorithm chooses
+  2. Both official AMS URL forms attempted here returned HTTP 403; no
+  unofficial copy was used.
+- **/12 and /28:** the current LocalFieldsRamification suggested signatures
+  use `IsNonarchimedeanLocalField`. They do not supply the arbitrary-residue
+  complete-DVR contract requested by T.4. For example, `ℚ((t))→ℚ((s))`,
+  `t=s²`, has residue ℚ, e=2 and f=1. Its norm sends s to −t, so the required
+  degree-one valuation formula gives 1, while an extra e factor gives 2.
+  This is an instance the general contract must cover, outside that local-field
+  supplier's scope. K-book III.7.6.3 retains the general complete-field scope.
+- **/21:** Quillen §4, Theorem 3 and Corollary 1 distinguish ambient admissible
+  subobject closure in the one-step argument from resolving closure and
+  sufficient covers in the bounded filtration. The packet retains that
+  correction without assuming projective lifting.
+- **/30:** the pinned chain epimorphism, differential, H₁ generator formula,
+  `ShortExact.δ_apply` and `HomologySequence.δ_naturality` give the actual maps
+  used by the kernel proof. The added odd-order test fixes the weak sign
+  control; the mathematical proof outline is unchanged.
+- **/23, /5 and /33:** a fresh read-only destination check confirms the three
+  exact H.6 imports in both S.4 coniveau nodes. It also still finds rational
+  Hurewicz in H.3 and Borel's H.3 consumer. These contracts are distinct from
+  a supplier's general accepted review label; no whole supplier packet is
+  certified by this continuation.
 
-The run reread the pinned `ExactStructure` and `FiniteResolution` carriers,
-the bar chain maps/differential and H₁ generator formula, and the generic
-`HomologySequence.δ_naturality` statement. Existing exact-K₀ and
-finite-projective work stays imported. Current upstream
-GrothendieckEulerForms, AlgebraicVectorBundles and LocalFieldsRamification
-were inspected to avoid duplicating their definitions or widening their
-hypotheses.
+The baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and
+Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+The pinned Tau Ceti files for conflation-exact functors, CartanMap,
+FiniteResolution and ExactK0 were fetched individually at that commit and
+matched the shared build's source bytes. Their actual statements retain
+split exactness, essentially-small categories and finite-projective carriers.
+The current upstream GrothendieckEulerForms, AlgebraicVectorBundles and
+LocalFieldsRamification roadmaps were read separately to check ownership
+and scope. No build was run in the current upstream environment.
 
-Public source copies fetched and read by **this session**:
+All seven final packets pass `scripts/check_blueprint.py` with **zero errors
+and zero warnings**. All seven final suggested files elaborate serially with
+`lean-check`, with available memory above 20 GB. Admitted-declaration warning
+counts: N.1 **124**, K.1 **0**, T.3 **275**, N.7 **45**, K.6 **6**, T.1 **72**,
+K3BlochGroups **807**. The T.1 test is the only executable-content change;
+its final file was checked after applying the elaborated prototype.
+Future signatures in comments are not type checked. `git diff --check`
+passes. No standalone link map or restructuring result is a deliverable.
+
+## Public sources read in this continuation
+
+These are targeted statement/proof readings, not a section-by-section source
+summary. The source record supports the checks above; historical source
+claims elsewhere remain attributed to the earlier reviewer.
 
 | Source | Locators reread | SHA-256 |
 | --- | --- | --- |
-| [Quillen, Higher algebraic K-theory I](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf) | §4 Theorem 3/Corollary 1, publication pp.108–111, PDF pp.24–27 | `5d2db42d3fec06156da4e6f6d5a85fb9a04358df59141d3abe74a57b815bae04` |
-| [K-book III](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf) | §5.3.2–5.5.1, chapter pp.37–38, including Recognition and Kervaire | `ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307` |
-| [K-book V](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf) | Proposition 1.7 and its relative-S/additivity interface, chapter p.8; §2.1–2.4, chapter pp.12–17, including localization and the enlarged cofinal weak class | `52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8` |
-| [K-book VI](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf) | §5.2–5.4, chapter pp.23–25, including the number-field K₃ specializations | `efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1` |
-| [Löh, Group Cohomology](https://loeh.app.uni-regensburg.de/teaching/grouphom_ss19/lecture_notes.pdf) | Theorem 3.2.12, Proposition 3.2.13 and Remark 3.2.14, printed pp.123–125, PDF pp.131–133 | `d4f2d819bfa85c57277db74bf749d05f03e85833c76e89eab99127f077d2cd76` |
+| [Quillen, Higher algebraic K-theory I](https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/Quillen-Higher-I.pdf) | §4 Theorem 3/Corollary 1, publication pp.108–111; PDF pp.24–27 | `5d2db42d3fec06156da4e6f6d5a85fb9a04358df59141d3abe74a57b815bae04` |
+| [K-book III](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.III.pdf) | §5.3.2–5.5.1, chapter pp.37–38; §7.6.1–7.6.3, chapter pp.64–65 | `ba1bc2d25680ab25c4baadc5ab28e39d1077dc66bb12ca4e2174b6cb55f81307` |
+| [K-book IV](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.IV.pdf) | Theorems 1.17–1.18, chapter p.12; Theorem 6.9 and preceding filtration, chapter p.59 | `9f1c1b8cccfe19d547c27dd04c61f198fd7a0cddd0018a0b84442b00fa575248` |
+| [K-book V](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.V.pdf) | Proposition 1.7, chapter p.8; localization §2.6.3, chapter pp.16–17; transfer §6.6.3–6.6.4, chapter pp.41–42 | `52dcc8ee3a1764e5ea309c59f093ac8e2a1ea64f3b94bacc05e6a2b6125b1da8` |
+| [K-book VI](https://sites.math.rutgers.edu/~weibel/Kbook/Kbook.VI.pdf) | Theorem 3.1 and Table 3.1.1, chapter p.12; §5.2.1–5.4, chapter pp.24–25 | `efca16d77ed598735aa4e819be48d10d35bec0cf1b4138548f94f67922d40cd1` |
+| [Löh, Group Cohomology](https://loeh.app.uni-regensburg.de/teaching/grouphom_ss19/lecture_notes.pdf) | Theorem 3.2.12, Proposition 3.2.13, Remark 3.2.14, printed pp.123–125; PDF pp.131–133 | `d4f2d819bfa85c57277db74bf749d05f03e85833c76e89eab99127f077d2cd76` |
+| [Putman–Studenmund](https://arxiv.org/pdf/1909.01217v4) | Theorem C, arXiv:1909.01217v4, p.4 | `3421bcfaffc1e05198ae8323971872ca3774bd73c067077e94f46ed5d073d7ad` |
+| [Kahn, Around Quillen’s theorem A](https://arxiv.org/pdf/1108.2441v3) | Corollary 4.2.6 and Theorem 4.3.3, arXiv:1108.2441v3, pp.16–17 | `71b5da651ba9feca4c1abcc58f566afbf11019dda465cbc3a95aace7cb1e2406` |
 
-Restricted book copies were not opened, fetched or copied. No source text
-or excerpt is added to a packet. The older source readings and C1–C11
-corrections below are explicitly the earlier reviewer's evidence, not new
-source certifications by `codex-qY3SVa`.
+No restricted book was opened, copied or certified by this continuation.
+No source passage is added to the repository.
 
 ## Verdicts for every confirmed finding
 
@@ -155,7 +170,7 @@ owner/consumer contract; it does not accept an unreviewed destination.
 | 27 | Accepted convention repair/handoff | T.7 distinguishes m=1, quadratic real signs and the m>2 case. Arithmetic Frobenius acts on the root of the second symbol entry, so the cubic ℚ₇ control detects the inverse exponent. The Chern comparison retains `c₂,₂=−h`. Milne III.3.6 is an unproved identity in those notes; CFT6 is explicitly asked to supply its proof. |
 | 28 | Transfer repair accepted; residue closure needs changes | Milnor residues/norms precede comparison. Prime-degree generation, common finite-Artin length base change and prime-to-p descent give the general Milnor/Quillen transfer comparison. The generic complete-DVR substrate used by the all-degree norm/residue continuation remains outside its supplier scope, as in /12. E13's restricted-source attribution is inherited, not reverified here. |
 | 29 | Accepted repair | V.1 imports T.1's perfectness/UCE results and retains its own plus-fibre/Hurewicz adapter. V.5's degree-three calculations now use N.5 and its own number-field theorem, with no reverse N.8 import. K-book VI.5.2.1–5.4 and Example VI.2.1.2 agree with those specializations. |
-| 30 | Accepted after C5/C8 | The integral bar-kernel complex, H₁ identification with `N/[E,N]`, positive boundary and actual homology-map naturality fill the former Hopf gaps. No freeness of N is assumed. Concrete C₄→C₂ and S₃ sign-quotient examples distinguish the actual maps and mixed commutators. |
+| 30 | Accepted after C5/C8 | The integral bar-kernel complex, H₁ identification with `N/[E,N]`, positive boundary and actual homology-map naturality fill the former Hopf gaps. No freeness of N is assumed. Concrete C₄→C₂ and S₃ sign-quotient examples distinguish the actual maps and mixed commutators. This continuation replaces the generic sign repetition by the Heisenberg 𝔽₃ control above, which distinguishes the transgression from its negative. |
 | 31 | Accepted corrected handoff | The doubled affine plane, rather than the line, has vector-bundle K₀=ℤ and perfect K₀=G₀=ℤ². Z.3's destination still records this only as an upstream note; that existing roadmap is not replanned here. |
 | 32 | Accepted repair/handoff | Weil reciprocity imports AC12's regular point/place dictionary and AC2's finite normalization. The EC2 adapter handles disjoint-support evaluations, including equal normed values 81/25 and the uniformizer-last sign. It does not duplicate the upstream divisor construction. |
 | 33 | Accepted corrected handoff | H.6 alone owns rational Hurewicz/Cartan–Serre/Milnor–Moore, with connected CW, homotopy associativity and finite-type qualifications for duals. Borel R.3 imports it. The known H.3 destination misplacement remains supplier work, as in /5. |
@@ -218,11 +233,6 @@ AlgebraicTopology's twisted Serre interface. Existing finite-projective,
 exact-K₀ and low-degree arithmetic results remain imports. The ring-level
 noncommutative projective-line gluing category is not a second affine
 vector-bundle construction.
-
-## Verdicts for every finding
-
-Every number in this table denotes `RT-AREA-ktheory-1/<number>`.
-
 
 ## Earlier corrections C1–C11
 

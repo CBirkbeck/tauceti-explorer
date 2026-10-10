@@ -1978,7 +1978,7 @@
   "status": "needs_changes",
   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
   "date": "2026-10-10",
-  "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Rechecked the retained cyclotomic-generation and real-quadratic transfer dependencies. Finding /11 still needs U_m-compatible representatives and verified finite tables; the norm-11 diagnostic is reproduced independently. The Zhang–Xu AMS full-text URL again refused access. This review does not certify that unread proof or the Skalba input. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
+  "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped needs_changes verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
  },
  "sourceVersions": [
   {
@@ -2102,6 +2102,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
    "date": "2026-10-10",
    "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-BP-ArithmeticKTheory--N.7~2 (2026-10-07), preserved in reviewHistory. The Gaussian certificate, real-quadratic restriction/transfer reduction, and sole Vandiver owner are preserved. /11 remains unresolved: the 25/16 norm bound does not establish C_m⊆U_m, the compatible representative-selection proof and finite Zhang–Xu data are not independently accessible, and Skalba remains an input gap. Independently checked Norm(2)=16, the norm-11 diagnostic and inertness of 2; this does not assert that a particular rounding algorithm selects 2. The upper bound for Q(sqrt(5)) remains conditional on the missing cyclotomic generation proof. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
+  },
+  {
+   "status": "needs_changes",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+   "date": "2026-10-10",
+   "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Rechecked the retained cyclotomic-generation and real-quadratic transfer dependencies. Finding /11 still needs U_m-compatible representatives and verified finite tables; the norm-11 diagnostic is reproduced independently. The Zhang–Xu AMS full-text URL again refused access. This review does not certify that unread proof or the Skalba input. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
   }
  ]
 }

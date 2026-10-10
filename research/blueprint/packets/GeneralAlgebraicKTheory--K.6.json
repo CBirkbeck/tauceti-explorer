@@ -5258,7 +5258,7 @@
     "status": "needs_changes",
     "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
     "date": "2026-10-10",
-    "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Rechecked the early product and unit-product proposed parents and the actual K.6/K.7 cycle. Finding /4 remains open until the maintainer applies the stage restructuring. Reread K-book V localization/cofinality proof interfaces; support-space comparison remains distinguished from the full stable fibre. Existing finite-domination, Keller and finite-Artin source boundaries are retained. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
+    "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped needs_changes verdict and its unresolved boundaries. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
   },
   "reviewHistory": [
     {
@@ -5390,6 +5390,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
       "date": "2026-10-10",
       "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Reviewed the noncommutative right-module P¹/Nil, Karoubi cone/index, Frobenius localization and nonunital matrix-continuity decompositions for /4, /17–/19. Corrected Quillen’s dual pagination and the K-book uniqueness locator; corrected Ranicki projector blocks and homotopy sign, with a distinguishing nonexample; included the unit/K₀ adapter in the proposed early product stage. /4 remains open because the early product stage is not applied and current K.6/K.7 parents are cyclic. Preserve the explicit Keller and finite-Artin K₃ supplier gaps. Future spectrum/triangulated signatures remain comments, not elaborated statements. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+      "date": "2026-10-10",
+      "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Rechecked the early product and unit-product proposed parents and the actual K.6/K.7 cycle. Finding /4 remains open until the maintainer applies the stage restructuring. Reread K-book V localization/cofinality proof interfaces; support-space comparison remains distinguished from the full stable fibre. Existing finite-domination, Keller and finite-Artin source boundaries are retained. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
     }
   ]
 }

@@ -4305,7 +4305,7 @@
         {
           "name": "five_term_positive_sign",
           "kind": "computation",
-          "statement": "For a chosen2-cycle lift the transgression uses +∂z̃, matching ShortExact.δ_apply."
+          "statement": "Let E be the upper-unitriangular 3-by-3 matrix group over F_3, written as triples with (x,y,z)(x′,y′,z′)=(x+x′,y+y′,z+z′+xy′), and let q:E→F_3² forget z. For a=(1,0,0), b=(0,1,0), the quotient bar cycle [q(a)|q(b)]−[q(b)|q(a)] has positive transgression 2 under the specified central-coordinate identification N/[E,N]≅F_3. Indeed the lifted boundary is [ba]−[ab], whose image ba(ab)⁻¹=(0,0,2). The opposite sign gives 1 and fails this test. The group law, quotient surjectivity and two coordinate calculations are closed checks in the suggested file; the transgression example remains admitted."
         }
       ]
     },
@@ -4710,7 +4710,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
     "date": "2026-10-10",
-    "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Independently checked the quotient-bar kernel, its H1 identification, inclusion map and naturality against the pinned chainsMap, degree-two differential, H1 generator formula and connecting-map naturality. Reread Löh Theorem 3.2.12, Proposition 3.2.13 and Remark 3.2.14, and K-book III.5.3.2–5.5.1. The direct bar argument is a worker derivation, not a construction contained in Löh. Existing unrelated source gaps remain explicit. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
+    "notes": "Codex session codex-dqb0Wk; follows codex-qY3SVa and codex-dbAQYQ, with the immediately preceding verdict preserved in reviewHistory. Reread all 38 confirmed high/medium finding claims and verifier reasons, the round-two fixes, and the retained review; rechecked the targeted resolution/bar-map statements at the pinned sources and current upstream scope. Retains the preceding scoped accepted verdict and its unresolved boundaries. Replaced the self-repeating positive-sign test by an odd-order Heisenberg control: the positive boundary maps to 2 in F_3 and its negative to 1. The helper group law and numerical control are proved; the future transgression comparison remains admitted. Fresh packet checks report zero errors/warnings; all seven suggested files elaborate at the pinned build with only admitted-declaration warnings (K.1 none). Future signatures in comments are not checked. The report records fresh evidence separately from retained source certifications. The 22-output queue remains blocked by the seven-output issue scope; no added supplier packet is certified by this verdict. No implementation or promotion is claimed."
   },
   "reviewHistory": [
     {
@@ -4957,6 +4957,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
       "date": "2026-10-10",
       "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Scoped acceptance of /30: the four new quotient-bar nodes give an explicit integral kernel-complex proof of the five-term sequence, mixed commutators, positive connecting sign and naturality using the actual pinned homology maps. Replaced their uncleared-book proof citations with public Löh statement/naturality locators and explicitly distinguished the worker chain-level derivation. Added actual nonsurjective C₁→C₂, C₄→C₂ map, S₃ sign-quotient and identity tests; retained older source and plus-construction gaps without certifying them. This partial packet is not certified closed. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+      "date": "2026-10-10",
+      "notes": "Codex session codex-qY3SVa; follows the same-job independent review by codex-dbAQYQ, preserved in reviewHistory. Independently checked the quotient-bar kernel, its H1 identification, inclusion map and naturality against the pinned chainsMap, degree-two differential, H1 generator formula and connecting-map naturality. Reread Löh Theorem 3.2.12, Proposition 3.2.13 and Remark 3.2.14, and K-book III.5.3.2–5.5.1. The direct bar argument is a worker derivation, not a construction contained in Löh. Existing unrelated source gaps remain explicit. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with admitted declarations as the only possible warnings. Commented future signatures are not checked. Packet checker: zero errors and warnings. Current evidence, the per-finding verdicts and the unresolved issue/queue scope mismatch are in research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md. No implementation or live promotion is claimed."
     }
   ]
 }
