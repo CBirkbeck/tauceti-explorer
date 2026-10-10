@@ -1,9 +1,9 @@
-# PKG-HodgeStructuresPartII — blocked checkpoint, codex-Je3ZGS
+# PKG-HodgeStructuresPartII — blocked checkpoint, codex-zUVzWI
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-Je3ZGS`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6096495973).
-Branch: `codex-Je3ZGS-hodge-package`. No manager-priority issue was available;
+Codex (GPT-6), session `codex-zUVzWI`, 10 October 2026.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6096719066).
+Branch: `codex-zUVzWI-hodge-package`. No manager-priority issue was available;
 the available focus package followed WORKERS.md's fallback ordering. Only
 this job was claimed.
 
@@ -45,22 +45,40 @@ G2/G4–G7 requirements are retained in the continuation below.
 
 ## Change and current-library boundary
 
-Added a precise native equality criterion to the package README:
-`TauCeti.SheafOfModules.tensor_hom_ext` in
-[`TensorProduct/Monoidal.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProduct/Monoidal.lean#L314).
-Under the stated small-site and sheafification hypotheses, equality of maps
-out of a sheaf tensor follows after precomposition on underlying presheaves
-with the forgetful tensor map. Read its exact statement and adjunction proof.
-This supplies an existing equality API, not construction or gluing of the
-connection operators. No replacement declaration is planned.
+Corrected the README's claim that finite locally free duality was only
+available on charts. The current library already exports global duality in
+[`Sheaf/Dualizable.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/Dualizable.lean#L74):
 
-Read the current native monoidal, closed, finite-free-chart and restriction
-interfaces. These modules are newer than the pinned build; in particular,
-its `TensorProduct/Monoidal.lean`, `Closed.lean` and `FiniteLocallyFree.lean`
-are absent there. No new import was added to Suggested.lean. Native APIs in
-the README are identified at the current public revision; elaboration of
-the existing suggested signatures at the older pins does not test those
-newer imports or establish the missing global comparisons.
+- `SheafOfModules.isIso_dualTensorIhom_of_isLocallyFree` makes
+  Hom(M,O)⊗N→Hom(M,N) invertible for locally free, finite-type M and every N.
+  It uses global weak sheafification and its locally bijective criterion,
+  pullbacks, and sheaf composition, sheafification and that criterion on
+  every slice. Its descent proof requires no global frame or constant rank.
+- `TauCeti.exactPairingOfIsIsoDualTensorIhom` in
+  [`Rigid/OfClosed.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/CategoryTheory/Monoidal/Rigid/OfClosed.lean#L182)
+  supplies the canonical exact pairing: internal-Hom evaluation and the
+  inverse image of id_M under the comparison at M, with both zigzag laws.
+- `SheafOfModules.isFiniteLocallyFree_ihom_unit` adds sheafification and
+  the locally bijective criterion on iterated slices and proves dual closure.
+  `SheafOfModules.isFiniteLocallyFree_ihom` additionally assumes binary
+  products and proves internal-Hom closure for two finite locally free inputs.
+  Native tensor closure is
+  `TauCeti.SheafOfModules.isMonoidal_isFiniteLocallyFree` in `LocallyFree.lean`.
+
+Read these statements and proofs, their finite-free-chart descent, the native
+local invertibility criterion, and the closed/rigid comparison APIs. Reuse
+these coefficient objects; do not plan another global dual carrier. The
+inherited G2 notes below are superseded on this point. They remain applicable
+to the exterior/determinant operations and operator comparisons: H.0 still
+constructs the dual connection, horizontal evaluation, curvature transport
+and the required differential-site pullback laws. This narrows G2 without
+closing G1/G3 or establishing the remaining global comparisons.
+
+These modules are newer than the managed pinned build; `Dualizable.lean` is
+absent there. Suggested.lean is unchanged. Current APIs are cited at the
+public revision, and the older-pin elaboration does not test their imports.
+The existing native tensor equality and restriction citations are retained.
+No replacement coefficient declaration or duplicate supplier was added.
 
 Read the current AlgebraicVectorBundles and DifferentialGeometry READMEs
 in full and their relevant suggested declarations. The former supplies
@@ -77,16 +95,18 @@ algebra remains an import.
 Re-read [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
 and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF). Their
 crystal-to-connection construction uses the small crystalline site under
-PD and p-local-nilpotence hypotheses. Also fetched and read Bhatt's
+PD and p-local-nilpotence hypotheses. Also read Bhatt's
 [MAT549 F22 notes](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
 §2.2.1, Construction 2.2.1 through Remark 2.2.8, printed pp.13–17.
 Proposition 2.2.6 gives the graded Rees equivalence; Remark 2.2.8 supplies
 the finite-projective affine case relevant to the owner repair. The
 ordinary sheaf descent and operator comparisons must still be exported.
-PDF SHA-256: `a9f526ced2fc5e08e849a77ad2818689b4254129698695c9cbfbab95927cca6a`.
+The preceding checkpoint recorded PDF SHA-256
+`a9f526ced2fc5e08e849a77ad2818689b4254129698695c9cbfbab95927cca6a`;
+this run read the online PDF and did not obtain a new file hash.
 No source passage was copied into the repository.
 
-Atlas base: `c1960e43de50d20f269813377da4a47d1e2379cd`.
+Atlas base: `0cde07aa7`.
 Read-only TauCetiRoadmap: `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`.
 Read-only Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 No Lake command ran in either read-only tree.
@@ -105,18 +125,19 @@ mathematical audit of H.1–H.8. The decisive input SHA-256 receipts are:
 
 `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
 exited 0: zero errors, 1619 `declaration uses sorry` warnings, zero other
-warnings. Available memory before launch was 101 GB. Managed build pins:
+warnings. Available memory before launch was 100 GB. Managed build pins:
 Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`. The latter is the managed build's
 recorded pin, not a freshly obtained Git HEAD. No Lean process remains from
 this run.
 
-README is 198070 bytes, below the 200 KB limit. Suggested.lean is unchanged.
+README is 199570 bytes, below the 200 KB limit. Suggested.lean is unchanged.
 Metadata remains absent because this is an unfinished checkpoint; intended
-topic on completion is `math.AG`. After the owner repairs, finish G2/G4–G7
-and the full target/signature/API/test audit before adding metadata. Scoped
-intake and whitespace validation are recorded in the pull request. The
-retained continuation provides the detailed witnesses, rejected shortcuts
+topic on completion is `math.AG`. After the owner repairs, reconcile the
+omitted signatures with the native G2 exports, finish the remaining
+G2/G4–G7 contracts and the full target/signature/API/test audit before adding
+metadata. Scoped intake on the two edited deliverables and `git diff --check`
+passed. The retained continuation provides the detailed witnesses, rejected shortcuts
 and remaining signature inventory; no disposable scratch file is required.
 
 ---

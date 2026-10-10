@@ -88,20 +88,42 @@ are in `TensorProduct/Restriction/Basic.lean`, `Monoidal.lean` and
 [`Closed.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProduct/Restriction/Closed.lean)
 under the same native module directory. Use these
 slice-restriction laws to compare operators on common refinements. Arbitrary
-base-change and stalk comparisons retain their own hypotheses; dualizability
-and finite locally free closure require their additional interfaces.
+base-change and stalk comparisons retain their own hypotheses.
 
 Finite free charts also have a native exact pairing:
 `TauCeti.SheafOfModules.exactPairingFree`, `ihomFreeIso` and `dualFreeIso`
 in `Dual.lean`. The evaluation on two basis sections is their Kronecker
 pairing and the coevaluation is the sum of their tensor squares. With the
-additional pullback, binary-product and over-site sheafification hypotheses
-of `FiniteLocallyFree.lean`,
+additional hypotheses of `TensorProduct/FiniteLocallyFree.lean`,
 `TauCeti.isFiniteLocallyFree_ihom_chart` supplies closure of internal Hom
-on each finite free source chart. Its conclusion is chartwise. Global
-finite locally free duality, its restriction comparisons, exterior operations
-and compatibility with connection operators still require the corresponding
-supplier interfaces. A free-chart pairing alone does not discharge them.
+on each finite free source chart.
+
+Global duality is also native. In
+[`Sheaf/Dualizable.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/Dualizable.lean#L74),
+`SheafOfModules.isIso_dualTensorIhom_of_isLocallyFree` makes
+Hom(M,O)⊗N→Hom(M,N) an isomorphism for every N when M is locally free
+and of finite type. In addition to the small-site and global sheafification
+hypotheses above, require pullbacks and, on every slice, sheaf composition,
+abelian-group sheafification and the locally bijective characterization of
+inverted maps. The proof uses finite free charts and
+`SheafOfModules.isIso_of_coversTop`, so no global frame or constant rank
+is assumed. `TauCeti.exactPairingOfIsIsoDualTensorIhom` then provides the
+canonical left dual Hom(M,O): evaluation is internal-Hom evaluation, and
+coevaluation is the inverse image of id_M under the comparison at N=M.
+Use the native evaluation and coevaluation equations from
+[`Rigid/OfClosed.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/CategoryTheory/Monoidal/Rigid/OfClosed.lean#L182).
+
+With sheafification and the locally bijective criterion also on iterated
+slices, `SheafOfModules.isFiniteLocallyFree_ihom_unit` proves that
+Hom(M,O) is finite locally free. With binary products on the site,
+`SheafOfModules.isFiniteLocallyFree_ihom` proves the same for Hom(M,N)
+when M and N are finite locally free. Tensor closure is supplied by
+`TauCeti.SheafOfModules.isMonoidal_isFiniteLocallyFree` in `LocallyFree.lean`.
+Reuse these global coefficient objects together with the native restriction
+comparisons. H.0 constructs the dual connection and proves horizontal
+evaluation and curvature transport on them; exterior powers, determinant
+operators and arbitrary differential-site pullback still use their stated
+supplier contracts.
 
 The p-adic Simpson and Riemann–Hilbert theories consume H.0's algebra and twist conventions. Their correspondence theorems are outside this roadmap. `CartierFlows` and `RigidCompanions` consume H.5's models and arithmetic criteria. `RealSurfacePeriodIndex` consumes H.8 and owns its double-cover families, application-specific vanishings and period-index argument. These consumers are not prerequisites of the objects they use.
 
