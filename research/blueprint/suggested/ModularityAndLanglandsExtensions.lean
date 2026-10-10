@@ -553,7 +553,7 @@ Assigned layer: ModularityAndLanglandsExtensions:ML.2
 Declaration: TauCeti.PotentialAutomorphy.steinbergOrdinary
 Prototype status: omitted
 Supplier contracts: C-GALOIS, C-SYSTEM, C-LOCAL-DEFORMATION
-At a place v|l of the chosen Dwork point require v(t)<0. Suppose V_{λ,t}^{ss}≅r_{l,ι}(π) for a regular algebraic cuspidal π and that the auxiliary-prime V_{λ′,t} is semisimple. The latter holds in the construction because its residual twist is an absolutely irreducible elliptic symmetric power. Match the coefficient embeddings. The monodromy of V_{λ′,t} at v is a single unipotent Jordan block of size n. Varma’s bound for its actual automorphic realization then forces π_v to be an unramified twist of Steinberg. The Hodge weights at τ are M(a_τ),…,M(a_τ)+n−1, so the constant automorphic weight is +λ_τ with λ_τ=M(a_τ). The central-character slope is +nλ_τ, and its j-th partial slope is +jλ_τ, giving ι-ordinarity by Geraghty. This proves ordinary automorphy of V_{λ,t}^{ss}; it does not assert semisimplicity of the original l-adic fibre.
+At a place v|l of the chosen Dwork point require v(t)<0. Suppose V_{λ,t}^{ss}≅r_{l,ι}(π) for a regular algebraic cuspidal π and that the auxiliary-prime V_{λ′,t} is semisimple. The latter holds in the construction because its residual twist is an absolutely irreducible elliptic symmetric power. Match the coefficient embeddings. The monodromy of V_{λ′,t} at v is a single unipotent Jordan block of size n. Varma’s bound for its actual automorphic realization then forces π_v to be an unramified twist of Steinberg. The Hodge weights at τ are M(a_τ),…,M(a_τ)+n−1, so the constant automorphic weight is +λ_τ with λ_τ=M(a_τ). The central-character slope is +nλ_τ, and its j-th partial slope is +jλ_τ, giving ι-ordinarity by Geraghty. This proves ι-ordinarity of π. Galois ordinarity and potential semistability of V_{λ,t}^{ss} require the separate Dwork geometry and subquotient argument; they do not follow from good-place compatibility with V_{λ′,t}. No semisimplicity of the original l-adic fibre is asserted.
 Hypothesis: v(t)<0 at each relevant l-adic place; λ′ lies over an odd prime different from l and prime to N; V_{λ′,t} is semisimple; matched coefficient embeddings and the displayed semisimplified automorphic realization.
 Source: qian-thesis-2023, Lemma 4.0.3 and its proof, Ch. 4, pp. 64–65 (thesis, PDF pp. 71–72); ≈ published Lemma 4.3, Invent. p. 1273
 Source: qian-2023, Lemma 3.10(4) and its proof, pp. 20–21 (arXiv v1); the published Lemma 4.3 (Invent. p. 1273) is NOT in arXiv v1
@@ -588,12 +588,12 @@ Assigned layer: ModularityAndLanglandsExtensions:ML.3
 Declaration: TauCeti.SymmetricPower.IsAccessibleRefinement
 Prototype status: omitted
 Supplier contracts: C-GALOIS, C-AUTOMORPHIC, C-SYSTEM
-For a definite unitary group G_n over F⁺ and an automorphic π of G_n(𝔸_{F⁺}) with p-adic places S_p, an accessible refinement is a choice χ = (χ_v)_{v∈S_p} of smooth characters χ_v : T_n(F_ṽ) → Q̄_p^× occurring as subquotients of the normalised Jacquet module ι^{−1}r_{N_n}(π_v), equivalently with π_v ↪ i^{GL_n}_{B_n}ιχ_v. For n = 2 it is n-regular if (χ_{v,1}/χ_{v,2})^i ≠ 1 for 1 ≤ i ≤ n − 1 and every v ∈ S_p. For π on GL₂(𝔸_ℚ), π_l has an accessible refinement iff its Jacquet module is nonzero, iff π_l is not supercuspidal.
-Hypothesis: G_n the definite unitary group of NT §1; T_n ⊂ B_n ⊂ GL_n diagonal torus and upper Borel.
+For a definite unitary group G_d over F⁺ and an automorphic π of G_d(𝔸_{F⁺}), identify its split p-adic factors with GL_d(F_ṽ). An accessible refinement is a tuple of smooth torus characters χ_v : T_d(F_ṽ) → Q̄_p^× occurring in the normalized Jacquet module ι⁻¹r_{N_d}(π_v), equivalently admitting π_v ↪ i_{B_d}^{GL_d}ιχ_v. For a rank-two input and a separate symmetric-power rank n ≥ 2, the refinement is n-regular when (χ_{v,1}/χ_{v,2})^i ≠ 1 for every 1 ≤ i ≤ n−1 and every v∈S_p. The group rank d=2 does not force n=2. For π on GL₂(𝔸_ℚ), π_l admits an accessible refinement exactly when its Jacquet module is nonzero, equivalently when π_l is not supercuspidal.
+Hypothesis: G_d is the definite unitary group of NT §1; T_d⊂B_d⊂GL_d. The n-regular ratio criterion displayed here is for d=2 and arbitrary n≥2.
 API [omitted] TauCeti.SymmetricPower.IsAccessibleRefinement
   χ_v a subquotient of the normalised Jacquet module at each v ∈ S_p.
 API [omitted] TauCeti.SymmetricPower.IsNRegular
-  (χ_{v,1}/χ_{v,2})^i ≠ 1 for 1 ≤ i ≤ n − 1.
+  For a rank-two refinement and n≥2, (χ_{v,1}/χ_{v,2})^i ≠ 1 for all 1≤i≤n−1 and all v∈S_p.
 API [omitted] TauCeti.SymmetricPower.isAccessible_iff_not_supercuspidal
   An accessible refinement exists iff π_l is not supercuspidal.
 API [omitted] TauCeti.SymmetricPower.isNRegular_mono
@@ -667,7 +667,7 @@ Supplier contracts: C-GALOIS, C-AUTOMORPHIC, C-SYSTEM
 For every n ≥ 3 there is a cuspidal, everywhere unramified π of GL₂(𝔸_ℚ) of weight k ≥ 2 such that Sym^{n−1}r_{π,ι} is automorphic for every ι.
 Hypothesis: π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2.
 Import owner: SymmetricPowersByUnitaryLevelRaising
-Source: newton-thorne-I, §7, Theorem 7.6, p. 89; Introduction p. 4 (arXiv v3)
+Source: newton-thorne-I, §7, Theorem 7.6, p. 90; Introduction p. 4 (arXiv v3)
 
 ## ModularityAndLanglandsExtensions:ML.3/parallel-weight-and-clozel-purity
 Assigned layer: ModularityAndLanglandsExtensions:ML.3
@@ -735,10 +735,10 @@ Assigned layer: ModularityAndLanglandsExtensions:ML.3
 Declaration: TauCeti.SymmetricPower.exists_steinberg_levelRaising
 Prototype status: omitted
 Supplier contracts: C-GALOIS, C-AUTOMORPHIC, C-SYSTEM
-Let n ≥ 3, p ≡ 1 (mod 48·n!), q ≠ p, X₀ a finite set of places of K prime to 2pq and ω a de Rham character with ωω^c = ε³, unramified on X₀. Then there is a soluble CM F/K, X₀-split, and a RACSDC ι-ordinary Π on GL_n(𝔸_F) with r_{Π,ι} ≅ ω^{n−1}|_{G_F} ⊗ Sym^{n−1}r_{σ₀,ι}|_{G_F}, the same Hodge–Tate numbers, and Π_v an unramified twist of Steinberg at some v | q (Theorem 7.1; proved here for n odd, Proposition 7.4; for n even via Anastassiades–Thorne).
-Hypothesis: σ₀ a theta series congruent to the chosen level-one form (NT I §7); K an imaginary quadratic field.
+Fix K=ℚ(i) and σ₀, the unique cuspidal newform of level Γ₁(4) and weight 5, obtained by automorphic induction of the unramified Hecke character of K of infinity type (4,0). Let n≥3, let p be a prime with p≡1 (mod 48·n!), choose ι : Q̄_p≅ℂ, and let q≠p be a prime. Let X₀ be a finite set of places of K prime to 2pq, and let ω : G_K→Q̄_p^× be de Rham with ωω^c=ε³ and unramified at X₀. Then there is a soluble CM extension F/K, split at X₀, and a RACSDC ι-ordinary Π on GL_n(𝔸_F), with r_{Π,ι}≅ω^{n−1}|G_F⊗Sym^{n−1}r_{σ₀,ι}|G_F, the displayed representation’s labeled Hodge–Tate numbers, and Π_v an unramified Steinberg twist at some v|q. NT I Theorem 7.1 uses Proposition 7.4 for odd n and Anastassiades–Thorne for even n.
+Hypothesis: The fixed K=ℚ(i), weight-five level-four σ₀, primes p and q, embedding ι, X₀ and ω are the data in Theorem 7.1. No arbitrary imaginary-quadratic theta seed or prior congruence with a level-one form is a hypothesis.
 Import owner: SymmetricPowersByUnitaryLevelRaising
-Source: newton-thorne-I, §7, Theorem 7.1, p. 82; §4 Theorem 4.1, p. 59; §6 Theorem 6.1, p. 75 (arXiv v3)
+Source: newton-thorne-I, §7, Theorem 7.1 and the fixed seed, pp. 82–83; §4 Theorem 4.1, pp. 59–60; §6 Theorem 6.1, pp. 75–76 (arXiv v3)
 
 ## ModularityAndLanglandsExtensions:ML.4/gan-takeda-llc-gsp4
 Assigned layer: ModularityAndLanglandsExtensions:ML.4
@@ -772,7 +772,7 @@ Test [stated] TauCeti.Arthur.signKernel_empty
   The empty index set has the full (already trivial) sign group.
 Test [stated] TauCeti.Arthur.signKernel_two_odd
   For two odd-dimensional summands membership is s₀=s₁.
-Source: arthur-2013, §1.4, (1.4.4), pp. 30–31, 2011 manuscript
+Source: arthur-2013, §1.4, (1.4.8)–(1.4.9), p. 35, 2011 manuscript
 
 ## ModularityAndLanglandsExtensions:ML.4/self-dual-cuspidal-type
 Assigned layer: ModularityAndLanglandsExtensions:ML.4
@@ -889,8 +889,8 @@ Assigned layer: ModularityAndLanglandsExtensions:ML.2
 Declaration: TauCeti.PotentialAutomorphy.exists_pd_lift
 Prototype status: omitted
 Supplier contracts: C-LOCAL-DEFORMATION
-In the setting of §4.3 (F imaginary CM with ζ_l ∉ F, S split containing places above l, µ algebraic unramified outside S with µ(c_v) = −1, r̄ : G_{F⁺} → G_n(F̄_l) unramified outside S with ν ∘ r̄ = µ̄, lifts ρ_v of r̄̆|_{G_{F_ṽ}} for v ∈ S), assume r̄̆|_{G_{F(ζ_l)}} irreducible, l ≥ 2(d + 1), and for v | l that ρ_v is potentially diagonalizable with n distinct τ-Hodge–Tate numbers. Then r̄ has a lift r : G_{F⁺} → G_n(O_{Q̄_l}) with ν ∘ r = µ, r̆|_{G_{F_ṽ}} ∼ ρ_v for v ∈ S, unramified outside S.
-Hypothesis: F is a CM or totally real field with maximal totally real subfield F⁺; l is a prime and ı : Q̄_l ≅ ℂ; for an imaginary CM F, c ∈ Gal(F/F⁺) is complex conjugation and G_n = (GL_n × GL_1) ⋊ {1, j} is the group of BLGGT §1.1 (CHT08).
+Let n ≥ 1, l be an odd prime, and F be an imaginary CM field with ζ_l ∉ F. Let S be a finite set of finite places of F⁺, split in F and containing every place above l, with chosen ṽ above each v. Let µ : G_{F⁺} → Q̄_l^× be continuous algebraic, unramified outside S and satisfy µ(c_v)=−1 at every real place. Let r̄ : G_{F⁺} → G_n(F̄_l) be continuous, unramified outside S, with ν∘r̄=µ̄ and r̄⁻¹(G_n⁰)=G_F. For each v∈S choose a lift ρ_v of r̄̆|G_{F_ṽ}. Define d as the largest dimension of an irreducible subrepresentation of r̄̆ restricted to the closed subgroup generated by the Sylow pro-l subgroups. Suppose r̄̆|G_{F(ζ_l)} is irreducible, l ≥ 2(d+1), and at v|l the chosen ρ_v is potentially diagonalizable with n distinct labeled Hodge–Tate numbers. Then there is a lift r : G_{F⁺} → G_n(O_{Q̄_l}), unramified outside S, with ν∘r=µ and r̆|G_{F_ṽ} ∼ ρ_v at every v∈S. Theorem 4.3.1 assumes no pre-existing residual automorphy.
+Hypothesis: The CM, odd-prime, rank, multiplier, component-preimage, residual restriction, dimension bound and chosen local lifts are the data in the statement. The group is G_n=(GL_n×GL_1)⋊{1,j} of BLGGT §1.1.
 Source: blggt-2014-v4, §4.3, Theorem 4.3.1, p. 55 (arXiv v4)
 
 ## ModularityAndLanglandsExtensions:ML.2/potential-automorphy-theorem
@@ -993,7 +993,7 @@ Assigned layer: ModularityAndLanglandsExtensions:ML.4
 Declaration: TauCeti.Arthur.GlobalParameter
 Prototype status: omitted
 Supplier contracts: C-ARTHUR
-A discrete global Arthur parameter for G is a formal unordered sum ψ = μ₁ ⊠ ν_{b₁} ⊞ ⋯ ⊞ μ_r ⊠ ν_{b_r}, where μ_i is a unitary cuspidal automorphic representation of GL_{m_i}(𝔸_F) with μ_i ≅ μ_i^∨, ν_b is the b-dimensional irreducible representation of SL₂(ℂ), Σ m_i b_i = N, the pairs (μ_i, b_i) are pairwise distinct, every summand μ_i ⊠ ν_{b_i} has the parity of Ĝ (for Ĝ symplectic: μ_i of symplectic type with b_i odd or of orthogonal type with b_i even; for Ĝ orthogonal: μ_i of orthogonal type with b_i odd or of symplectic type with b_i even), and ∏_i ω_{μ_i}^{b_i} = η_G. Ψ_2(G) denotes the set of these (for G = SO_{2n} taken up to the outer automorphism, Ψ̃_2(G)). ψ is generic when every b_i = 1. Its global component group S_ψ is the sign group on the summands, restricted by ∏_i s_i^{m_i b_i}=1 when Ĝ is special orthogonal, then quotiented by the image of Z(Ĝ)^Γ; the determinant-one constraint can remove a generator before the central quotient, and Arthur attaches to ψ a sign character ε_ψ of S_ψ built from symplectic root numbers ε(1/2, μ_i × μ_j). At each place v, ψ localises to ψ_v : L_{F_v} × SL₂(ℂ) → ^LG through the local Langlands correspondence for the GL_{m_i}.
+A discrete global Arthur parameter for G is a formal unordered sum ψ = μ₁ ⊠ ν_{b₁} ⊞ ⋯ ⊞ μ_r ⊠ ν_{b_r}, where μ_i is a unitary cuspidal automorphic representation of GL_{m_i}(𝔸_F) with μ_i ≅ μ_i^∨, ν_b is the b-dimensional irreducible representation of SL₂(ℂ), Σ m_i b_i = N, the pairs (μ_i, b_i) are pairwise distinct, every summand μ_i ⊠ ν_{b_i} has the parity of Ĝ (for Ĝ symplectic: μ_i of symplectic type with b_i odd or of orthogonal type with b_i even; for Ĝ orthogonal: μ_i of orthogonal type with b_i odd or of symplectic type with b_i even), and ∏_i ω_{μ_i}^{b_i} = η_G. Ψ_2(G) denotes the set of these (for G = SO_{2n} taken up to the outer automorphism, Ψ̃_2(G)). ψ is generic when every b_i = 1. Its global component group S_ψ is the sign group on the summands, restricted by ∏_i s_i^{m_i b_i}=1 when Ĝ is special orthogonal, then quotiented by the image of Z(Ĝ)^Γ; the determinant-one constraint can remove a generator before the central quotient, and Arthur attaches a sign character ε_ψ through the adjoint decomposition in (1.5.6): on the symplectic constituents with root number −1 it multiplies the corresponding determinant characters of S_ψ. At each place v, ψ localises to ψ_v : L_{F_v} × SL₂(ℂ) → ^LG through the local Langlands correspondence for the GL_{m_i}.
 Hypothesis: F a number field, 𝔸_F its adèles; G a quasi-split symplectic or special orthogonal group over F (Sp_{2n}, split SO_{2n+1}, or quasi-split SO_{2n} attached to a quadratic character η_G), whose dual group Ĝ has a standard representation of dimension N (N = 2n + 1, 2n, 2n respectively).
 API [omitted] TauCeti.Arthur.GlobalParameter
   The finite multiset of pairs (μ_i, b_i) with the dimension, distinctness, parity and central-character conditions.
@@ -1023,7 +1023,7 @@ Test [omitted] TauCeti.Arthur.GlobalParameter.wrongParity
   For G = SO₃, the summand χ ⊠ ν₁ ⊞ χ′ ⊠ ν₁ of two quadratic characters is not in Ψ_2(SO₃): each χ ⊠ ν₁ is orthogonal while Ĝ = SL₂ = Sp₂ is symplectic.
 Test [omitted] TauCeti.Arthur.GlobalParameter.orthogonal_rank_three_component
   For dual Ĝ=SO₃ and a single dimension-3 orthogonal cuspidal summand with b=1, the determinant-one sign condition forces s=+1 and S_ψ is trivial; the unrestricted sign-group formula would give ℤ/2.
-Source: arthur-2013, §1.4, (1.4.4), p. 30 (2011 manuscript)
+Source: arthur-2013, §1.4, (1.4.3)–(1.4.9), pp. 30–35; §1.5, (1.5.6)–(1.5.7), pp. 46–47 (2011 manuscript)
 Source: mok-2015, §2.3, p. 15 (arXiv v5)
 
 ## ModularityAndLanglandsExtensions:ML.4/gsp4-discrete-spectrum-types
@@ -1278,8 +1278,8 @@ Assigned layer: ModularityAndLanglandsExtensions:ML.0
 Declaration: TauCeti.LanglandsRegister.ExpectedSingularWeightHodge
 Prototype status: omitted
 Supplier contracts: C-COHERENT-GEOMETRY
-ExpectedSingularWeightHodge is the proposition: for a system of Hecke eigenvalues Θ occurring in the coherent cohomology H^i(S^tor_{K,Σ}, Ω^{(k,r)}), (k, r) ∈ ℤ_{≥0} × ℤ (or its cuspidal version), of the Siegel threefold, the attached semisimple ρ_{Θ,λ} : G_ℚ → GL₄(E_λ) is de Rham at p with Hodge–Tate weights (0, r − 2, r + k − 1, k + 2r − 3) (cyclotomic character of weight −1), crystalline at p if (N, p) = 1, with Newton polygon above the Hodge polygon. Status: conjectural in general; in cohomological weight (r ≠ 2, k + r ≠ 1, k + 2r ≠ 3) the Newton-above-Hodge statement is a consequence of V. Lafforgue's theorem.
-Hypothesis: Frontier statement; status conjectural (cohomological weight: Newton above Hodge known).
+ExpectedSingularWeightHodge is the proposition: for a system of Hecke eigenvalues Θ occurring in the coherent cohomology H^i(S^tor_{K,Σ}, Ω^{(k,r)}), (k, r) ∈ ℤ_{≥0} × ℤ (or its cuspidal version), of the Siegel threefold, the attached semisimple ρ_{Θ,λ} : G_ℚ → GL₄(E_λ) is de Rham at p with Hodge–Tate weights (0, r − 2, r + k − 1, k + 2r − 3) (cyclotomic character of weight −1), and crystalline at p if (N,p)=1. When (N,p)=1, the Newton polygon of the p-local Hecke parameters lies above the stated Hodge polygon, with equal endpoints. Status: conjectural in general; at good p in cohomological weight (r ≠ 2, k+r ≠ 1, k+2r ≠ 3), Pilloni cites V. Lafforgue for this Newton inequality. That cited conclusion does not certify the entire expected de Rham/crystalline assertion.
+Hypothesis: Frontier assertion: conjectural in general. The cited known Newton inequality requires (N,p)=1 and cohomological weight; it is distinct from the full de Rham/crystalline assertion.
 API [omitted] TauCeti.LanglandsRegister.ExpectedSingularWeightHodge
   The proposition stated.
 API [omitted] TauCeti.LanglandsRegister.ExpectedSingularWeightHodge.hodgeTate
@@ -1624,6 +1624,8 @@ Let t∈F′ be the chosen Dwork point, with its fixed eigenprojector and realiz
 Hypothesis: The Dwork point and auxiliary-prime lifting hypotheses of Qian §4; matched coefficient embeddings; the character twist is the actual Teichmüller lift used by the ordinary lifting output.
 Source: qian-2023, §4, proof of Theorem 1.1, p. 24 (arXiv v1); Invent. pp. 1272–1273 per routed locator
 Source: acc-2023, §6.1, Theorem 6.1.2, hypothesis (5), arXiv v2 p. 133 (Annals p. 1030)
+Source: qian-2023, Lemma 3.10(4) and its proof, pp. 20–21 (arXiv v1); geometric explanation in §1, p. 4
+Source: qian-thesis-2023, Remark 3.0.13, printed p. 55 (PDF p. 62)
 
 ## ModularityAndLanglandsExtensions:ML.2/multiple-product-l-functions
 Assigned layer: ModularityAndLanglandsExtensions:ML.2
@@ -1816,6 +1818,8 @@ Supplier contracts: C-MODULI
 Let F be a CM number field, F^av/F a finite extension, n ≥ 2, l a prime and r̄ : G_F → GL_n(F_{l^s}) a continuous semisimple representation. Then there is a finite CM Galois extension F′/F, linearly disjoint from F^av over F, such that r̄|_{G_{F′}} is ordinarily automorphic: it has a lift r ≅ r_{l,ι}(π) with π regular algebraic cuspidal on GL_n(𝔸_{F′}) and r|_{G_{F′_v}} potentially semistable and ordinary with regular Hodge–Tate weights for all v | l. No polarization, oddness or residual image hypothesis is imposed.
 Hypothesis: F CM; r̄ semisimple, of any dimension n ≥ 2 and any residual characteristic l.
 Source: qian-2023, Theorem 1.1, §1, p. 1 (arXiv v1); Invent. pp. 1239–1240 per routed locator; proof §4, pp. 21–24 (arXiv v1)
+Source: qian-2023, Lemma 3.10(4) and its proof, pp. 20–21 (arXiv v1); geometric explanation in §1, p. 4
+Source: qian-thesis-2023, Remark 3.0.13, printed p. 55 (PDF p. 62)
 
 ## ModularityAndLanglandsExtensions:ML.3/bianchi-ramanujan
 Assigned layer: ModularityAndLanglandsExtensions:ML.3
@@ -1844,7 +1848,7 @@ Prototype status: omitted
 Supplier contracts: C-GALOIS, C-AUTOMORPHIC, C-SYSTEM
 Let π be cuspidal on GL₂(𝔸_ℚ) with π_∞ a holomorphic limit of discrete series, or π the automorphic induction of a Hecke character of a quadratic field. Then Sym^nπ exists for every n ≥ 1 (usually not cuspidal).
 Hypothesis: π as stated.
-Source: newton-thorne-II, Appendix A, Theorem A.1, p. 27 (arXiv v2)
+Source: newton-thorne-II, Appendix A, Theorem A.1 and proof, p. 28 (arXiv v2)
 
 ## ModularityAndLanglandsExtensions:ML.3/completed-symmetric-power-l-function
 Assigned layer: ModularityAndLanglandsExtensions:ML.3
@@ -1881,7 +1885,7 @@ Supplier contracts: C-GALOIS, C-AUTOMORPHIC, C-SYSTEM
 For every n ≥ 2 and every regular algebraic cuspidal automorphic representation π of GL₂(𝔸_ℚ) of level 1, Sym^{n−1}π exists as a regular algebraic cuspidal automorphic representation of GL_n(𝔸_ℚ).
 Hypothesis: π a cuspidal automorphic representation of GL₂(𝔸_ℚ), regular algebraic (from a holomorphic newform of weight k ≥ 2) unless said otherwise; r_{π,ι} : G_ℚ → GL₂(Q̄_p) its Galois representation (Tate-normalised: WD(r_{π,ι}|_{G_{ℚ_l}})^{F-ss} ≅ rec^T(ι^{−1}π_l)); n ≥ 2.
 Hypothesis: π everywhere unramified.
-Source: newton-thorne-I, Introduction, Theorem A, p. 2; §7, Theorem 7.7, p. 90 (arXiv v3)
+Source: newton-thorne-I, Introduction, Theorem A, p. 2; §7, Theorem 7.7, p. 91 (arXiv v3)
 
 ## ModularityAndLanglandsExtensions:ML.3/low-rank-symmetric-powers
 Assigned layer: ModularityAndLanglandsExtensions:ML.1
