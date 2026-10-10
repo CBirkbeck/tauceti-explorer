@@ -9670,7 +9670,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-10",
-    "notes": "Independent bounded continuation by Codex codex-DfXYPy, following PR #8487; preceding review archived. Rechecked /11: the six exports separate positive-definite analytic Nahm asymptotics from symmetric-invertible formal Gaussian brackets, and preserve HB.8/HB.9 normalization, Kummer and integral-gluing obligations. Corrected HB.8 proof-outline source labels to GSWZ (114), (126)-(127), added their page/source support, and removed an inaccurate parenthetical page account from the HB.4 (110)-(111) locator. Fresh listed-packet validators report zero errors/warnings. No mathematical contract, suggested signature, gap, request or coverage changed. This verdict concerns the assigned fix, not a new full blueprint audit. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    "notes": "Independent bounded review by Codex, session codex-In9gJI, following PR #8494; the preceding review is archived. Checked the six exported contracts against GZ and GSWZ: positive-definite analytic asymptotics are separate from symmetric-invertible formal brackets; the HB.8/HB.9 refinement, Kummer and integral-gluing gaps remain. The figure-eight matrix cannot satisfy positive definiteness. Existing numbered regularization/refinement source corrections are sound. All three issue-listed packets pass the checker with zero errors/warnings and all three suggested files freshly elaborate with only admitted-proof warnings. This verdict assesses RT-AREA-topology/11 and the assigned owner/interface fix, not every unrelated blueprint node. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   },
   "reviewHistory": [
     {
@@ -10279,6 +10279,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-10",
       "notes": "Independent bounded continuation by Codex codex-dN8Riv after PR #8459; previous review archived. Rechecked assigned /11 formal versus analytic hypotheses and six exports, including HB.8 G1/G2 and HB.9 finite-etale/Kummer/integral-gluing restrictions. GZ section 3 pp. 4-6 and GSWZ section 2.5 pp. 28-30 support the interfaces. Corrected HB.8/fgi-collection to numbered equations (115)-(119), Definition 2.11 and printed pp. 29-30, in our own words. No mathematical contract changed. Fresh validator has zero errors/warnings; lean-check exits 0 with only admitted-proof warnings. No stage promoted, gap/request removed, or suggested signature changed. This is a fix review, not a new full blueprint acceptance. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-10",
+      "notes": "Independent bounded continuation by Codex codex-DfXYPy, following PR #8487; preceding review archived. Rechecked /11: the six exports separate positive-definite analytic Nahm asymptotics from symmetric-invertible formal Gaussian brackets, and preserve HB.8/HB.9 normalization, Kummer and integral-gluing obligations. Corrected HB.8 proof-outline source labels to GSWZ (114), (126)-(127), added their page/source support, and removed an inaccurate parenthetical page account from the HB.4 (110)-(111) locator. Fresh listed-packet validators report zero errors/warnings. No mathematical contract, suggested signature, gap, request or coverage changed. This verdict concerns the assigned fix, not a new full blueprint audit. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
     }
   ]
 }

@@ -525,6 +525,19 @@
    "readSections": [
     "Chapter X, Section 3, (10.3.3) to (10.3.6), pp. 626-628"
    ]
+  },
+  {
+   "id": "zagier-dilog",
+   "title": "The Dilogarithm Function",
+   "authors": "Don Zagier",
+   "edition": "Frontiers in Number Theory, Physics, and Geometry II (Springer, 2007), pp. 3–65; author-hosted chapter",
+   "url": "https://people.mpim-bonn.mpg.de/zagier/files/doi/10.1007/978-3-540-30308-4_1/fulltext.pdf",
+   "sha256": "05079cf525c6ba0f0d00b5c0d948bad202d291bc4910149d5d4abbab0515e7a0",
+   "accessed": "2026-10-10",
+   "readSections": [
+    "I.3, equation (5), printed p. 11: ordered cross-ratio and permutation signs.",
+    "I.4, equations (7)–(9), printed pp. 13–14: ideal-tetrahedron identity, orientation, and manifold volume sum."
+   ]
   }
  ],
  "nodes": [
@@ -1788,6 +1801,11 @@
      "sourceId": "Gonch.Arakelov.2004",
      "locator": "Introduction, item 5 (PDF p. 7)",
      "match": "The volume formula with Goncharov's cross-ratio, whose normalisation r(infinity, 0, 1, x) = x is fixed in his Section 6 (p. 53)."
+    },
+    {
+     "sourceId": "zagier-dilog",
+     "locator": "I.3, equation (5), printed p. 11; I.4, equations (7)–(9), printed pp. 13–14",
+     "match": "The ordered cross-ratio evaluates to z on (infinity, 0, 1, z). The ideal-tetrahedron formula uses this order; odd vertex permutations reverse the sign. The manifold sum is a consumer of that identity."
     }
    ],
    "implementationStatus": "unchecked",
@@ -6845,7 +6863,7 @@
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
   "date": "2026-10-10",
-  "notes": "Independent bounded continuation by Codex codex-DfXYPy, following PR #8487; preceding review archived. Rechecked /7: P.2 is the single ideal-tetrahedron-volume owner, with explicit metric/model suppliers and ideal-region gap. Zagier I.4 (7)-(9), pp. 13-14, supports the ordered normalization. QT volume node still needs the exact supplier edge and a documented ordered-sign conversion; its correction is outside the listed issue scope. Fresh listed-packet validators report zero errors/warnings. No mathematical contract, suggested signature, gap, request or coverage changed. This verdict concerns the assigned fix, not a new full blueprint audit. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  "notes": "Independent bounded review by Codex, session codex-In9gJI, following PR #8494; the preceding review is archived. The ideal-tetrahedron identity remains owned by P.2; its two geometric suppliers and ideal-region gap are explicit. Added a freshly inspected Zagier source with numbered cross-ratio and volume loci. The QT consumer still omits the exact supplier node and needs an explicit ordered-sign conversion; its files are outside the issue-listed writable scope. All three issue-listed packets pass the checker with zero errors/warnings and all three suggested files freshly elaborate with only admitted-proof warnings. This verdict assesses RT-AREA-topology/7 and the assigned owner/interface fix, not every unrelated blueprint node. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
  },
  "reviewHistory": [
   {
@@ -7284,6 +7302,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
    "date": "2026-10-10",
    "notes": "Independent bounded continuation by Codex codex-dN8Riv after PR #8459; previous review archived. Rechecked assigned /7 supplier ownership, metric/model requests and ordered tetrahedron identity against Zagier Dilogarithm I.4 pp. 13-14. Preserve the explicit ideal-region gap. Current QT consumer omits the exact hyperbolic-volume prerequisite; correction is outside the issue scope and recorded in the report. Fresh validator has zero errors/warnings; lean-check exits 0 with only admitted-proof warnings. No stage promoted, gap/request removed, or suggested signature changed. This is a fix review, not a new full blueprint acceptance. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+   "date": "2026-10-10",
+   "notes": "Independent bounded continuation by Codex codex-DfXYPy, following PR #8487; preceding review archived. Rechecked /7: P.2 is the single ideal-tetrahedron-volume owner, with explicit metric/model suppliers and ideal-region gap. Zagier I.4 (7)-(9), pp. 13-14, supports the ordered normalization. QT volume node still needs the exact supplier edge and a documented ordered-sign conversion; its correction is outside the listed issue scope. Fresh listed-packet validators report zero errors/warnings. No mathematical contract, suggested signature, gap, request or coverage changed. This verdict concerns the assigned fix, not a new full blueprint audit. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   }
  ]
 }
