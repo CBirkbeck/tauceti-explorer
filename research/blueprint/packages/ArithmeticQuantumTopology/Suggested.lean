@@ -32,6 +32,8 @@ import Mathlib.LinearAlgebra.Matrix.Kronecker
 import Mathlib.LinearAlgebra.TensorProduct.Basic
 import Mathlib.RingTheory.PowerSeries.Exp
 import Mathlib.RingTheory.PowerSeries.Substitution
+import Mathlib.RingTheory.PowerSeries.Expand
+import Mathlib.Algebra.MvPolynomial.PDeriv
 import Mathlib.NumberTheory.BernoulliPolynomials
 import Mathlib.LinearAlgebra.Matrix.IsDiag
 import Mathlib.LinearAlgebra.Matrix.ToLin
@@ -3966,5 +3968,210 @@ example : quantumCasimir^2 ∈ Uqev ∧ scalar (formalVPower 1)*quantumCasimir �
 
 end EvenCenter
 end QuantumEnveloping
+
+/-! QT.6: specialization of HB.4's polynomial bracket to the NZ vertices.
+GSW §1 (5)–(7), pp. 3–4, and §3.1 (20), pp. 9–10; DG2 Definition 2.5,
+§2.3, pp. 7–8. These are algebraic adapters, not geometric NZ data.
+`G` is the imported complex-linear polynomial functional. Normalization,
+negation invariance and the covariance recursion are written explicitly in
+the statements that use them; no Gaussian operator is constructed here.
+The geometry, rational polylogarithms and coefficient-field/base-change
+instance still belong to their suppliers. -/
+section NZContractions
+variable {N : ℕ}
+
+/-- Extract the even t-coefficients after applying the supplied polynomial
+functional to the exact GSW integrand. At the geometric specialization
+`G` has covariance Λ⁻¹. Integer-power descent is a theorem below. -/
+def NZPerturbativeSeries (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (liNeg : ℕ → ℂ → ℂ) (Q : Matrix (Fin N) (Fin N) ℂ)
+    (μ f z : Fin N → ℂ) : PowerSeries ℂ :=
+  PowerSeries.mk fun d => G (PowerSeries.coeff (2 * d) (NZFormalIntegrand liNeg Q μ f z))
+
+theorem NZPerturbativeSeries_coeff (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (liNeg : ℕ → ℂ → ℂ) (Q : Matrix (Fin N) (Fin N) ℂ)
+    (μ f z : Fin N → ℂ) (d : ℕ) :
+    PowerSeries.coeff d (NZPerturbativeSeries G liNeg Q μ f z) =
+      G (PowerSeries.coeff (2 * d) (NZFormalIntegrand liNeg Q μ f z)) :=
+  PowerSeries.coeff_mk _ _
+
+theorem NZPerturbativeSeries_constant (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (hG1 : G 1 = 1) (liNeg : ℕ → ℂ → ℂ)
+    (Q : Matrix (Fin N) (Fin N) ℂ) (μ f z : Fin N → ℂ) :
+    PowerSeries.constantCoeff (NZPerturbativeSeries G liNeg Q μ f z) = 1 := by
+  rw [← PowerSeries.coeff_zero_eq_constantCoeff_apply, NZPerturbativeSeries_coeff]
+  simpa only [Nat.mul_zero, PowerSeries.coeff_zero_eq_constantCoeff_apply,
+    NZFormalIntegrand_constant] using hG1
+
+theorem NZFormalIntegrand_gaussian_odd (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (hGneg : ∀ p, G (MvPolynomial.eval₂ MvPolynomial.C
+      (fun i => -MvPolynomial.X i) p) = G p)
+    (liNeg : ℕ → ℂ → ℂ) (Q : Matrix (Fin N) (Fin N) ℂ)
+    (μ f z : Fin N → ℂ) (d : ℕ) (hd : Odd d) :
+    G (PowerSeries.coeff d (NZFormalIntegrand liNeg Q μ f z)) = 0 := by
+  have h := hGneg (PowerSeries.coeff d (NZFormalIntegrand liNeg Q μ f z))
+  rw [NZFormalIntegrand_parity, hd.neg_one_pow, neg_one_mul, map_neg] at h
+  linear_combination (-1 / 2 : ℂ) * h
+
+/-- Expanding h to t² recovers every contracted coefficient, including the
+odd coefficients. Thus even extraction does not silently discard terms. -/
+theorem NZPerturbativeSeries_integralPowers (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (hGneg : ∀ p, G (MvPolynomial.eval₂ MvPolynomial.C
+      (fun i => -MvPolynomial.X i) p) = G p)
+    (liNeg : ℕ → ℂ → ℂ) (Q : Matrix (Fin N) (Fin N) ℂ)
+    (μ f z : Fin N → ℂ) :
+    PowerSeries.expand 2 (by decide) (NZPerturbativeSeries G liNeg Q μ f z) =
+      PowerSeries.mk fun d => G (PowerSeries.coeff d (NZFormalIntegrand liNeg Q μ f z)) := by
+  ext d
+  by_cases hd : 2 ∣ d
+  · obtain ⟨e, rfl⟩ := hd
+    simp only [PowerSeries.coeff_expand_mul, NZPerturbativeSeries_coeff, PowerSeries.coeff_mk]
+  · rw [PowerSeries.coeff_expand_of_not_dvd 2 (by decide) _ hd, PowerSeries.coeff_mk]
+    exact (NZFormalIntegrand_gaussian_odd G hGneg liNeg Q μ f z d
+      (Nat.not_even_iff_odd.mp (fun h => hd h.two_dvd))).symm
+
+/-- The root-order adapter uses the actual finite weighted average with
+nonzero denominator. Its supplied bracket must have covariance kΛ⁻¹,
+not Λ⁻¹. Weights/root relations and arithmetic descent are not asserted. -/
+def rootNZPerturbativeSeries (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (a : (Fin N → Fin k) → ℂ)
+    (hS : ∑ m, a m ≠ 0) : PowerSeries ℂ :=
+  PowerSeries.mk fun d => rootNZAverage a
+    (fun m => G (PowerSeries.coeff (2 * d) (rootNZFormalIntegrand liNeg k hk μ f θ ζ m))) hS
+
+theorem rootNZPerturbativeSeries_coeff (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (a : (Fin N → Fin k) → ℂ)
+    (hS : ∑ m, a m ≠ 0) (d : ℕ) :
+    PowerSeries.coeff d (rootNZPerturbativeSeries G liNeg k hk μ f θ ζ a hS) =
+      rootNZAverage a
+        (fun m => G (PowerSeries.coeff (2 * d) (rootNZFormalIntegrand liNeg k hk μ f θ ζ m))) hS :=
+  PowerSeries.coeff_mk _ _
+
+theorem rootNZPerturbativeSeries_constant (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (hG1 : G 1 = 1) (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (a : (Fin N → Fin k) → ℂ)
+    (hS : ∑ m, a m ≠ 0) :
+    PowerSeries.constantCoeff (rootNZPerturbativeSeries G liNeg k hk μ f θ ζ a hS) = 1 := by
+  rw [← PowerSeries.coeff_zero_eq_constantCoeff_apply, rootNZPerturbativeSeries_coeff]
+  simpa only [Nat.mul_zero, PowerSeries.coeff_zero_eq_constantCoeff_apply,
+    rootNZFormalIntegrand_constant, hG1] using rootNZAverage_one a hS
+
+theorem rootNZFormalIntegrand_gaussian_odd (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (hGneg : ∀ p, G (MvPolynomial.eval₂ MvPolynomial.C
+      (fun i => -MvPolynomial.X i) p) = G p)
+    (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (m : Fin N → Fin k) (d : ℕ) (hd : Odd d) :
+    G (PowerSeries.coeff d (rootNZFormalIntegrand liNeg k hk μ f θ ζ m)) = 0 := by
+  have h := hGneg (PowerSeries.coeff d (rootNZFormalIntegrand liNeg k hk μ f θ ζ m))
+  rw [rootNZFormalIntegrand_parity, hd.neg_one_pow, neg_one_mul, map_neg] at h
+  linear_combination (-1 / 2 : ℂ) * h
+
+theorem rootNZPerturbativeSeries_integralPowers (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (hGneg : ∀ p, G (MvPolynomial.eval₂ MvPolynomial.C
+      (fun i => -MvPolynomial.X i) p) = G p)
+    (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (a : (Fin N → Fin k) → ℂ)
+    (hS : ∑ m, a m ≠ 0) :
+    PowerSeries.expand 2 (by decide) (rootNZPerturbativeSeries G liNeg k hk μ f θ ζ a hS) =
+      PowerSeries.mk fun d => rootNZAverage a
+        (fun m => G (PowerSeries.coeff d (rootNZFormalIntegrand liNeg k hk μ f θ ζ m))) hS := by
+  ext d
+  by_cases hd : 2 ∣ d
+  · obtain ⟨e, rfl⟩ := hd
+    simp only [PowerSeries.coeff_expand_mul, rootNZPerturbativeSeries_coeff, PowerSeries.coeff_mk]
+  · rw [PowerSeries.coeff_expand_of_not_dvd 2 (by decide) _ hd, PowerSeries.coeff_mk]
+    have hodd := Nat.not_even_iff_odd.mp (fun h => hd h.two_dvd)
+    simp only [rootNZFormalIntegrand_gaussian_odd G hGneg liNeg k hk μ f θ ζ _ d hodd,
+      rootNZAverage, mul_zero, Finset.sum_const_zero, zero_div]
+
+-- formalNZ_constant: normalization is conditional on the imported bracket.
+example (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ) (hG1 : G 1 = 1)
+    (liNeg : ℕ → ℂ → ℂ) (Q : Matrix (Fin N) (Fin N) ℂ) (μ f z : Fin N → ℂ) :
+    PowerSeries.coeff 0 (NZPerturbativeSeries G liNeg Q μ f z) = 1 := by
+  rw [PowerSeries.coeff_zero_eq_constantCoeff_apply]
+  exact NZPerturbativeSeries_constant G hG1 liNeg Q μ f z
+
+-- formalNZ_odd_moment: this assertion concerns the full t-series, before extraction.
+example (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (hGneg : ∀ p, G (MvPolynomial.eval₂ MvPolynomial.C
+      (fun i => -MvPolynomial.X i) p) = G p)
+    (liNeg : ℕ → ℂ → ℂ) (Q : Matrix (Fin N) (Fin N) ℂ) (μ f z : Fin N → ℂ) :
+    G (PowerSeries.coeff 1 (NZFormalIntegrand liNeg Q μ f z)) = 0 :=
+  NZFormalIntegrand_gaussian_odd G hGneg liNeg Q μ f z 1 odd_one
+
+-- formalNZ_flattening_gaussian: a scalar flattening term is retained by contraction.
+-- Zero mock vertices and these matrix values are algebraic controls only.
+example (G : MvPolynomial (Fin 1) ℂ →ₗ[ℂ] ℂ) (hG1 : G 1 = 1) (z : Fin 1 → ℂ) :
+    PowerSeries.coeff 1 (NZPerturbativeSeries G (fun _ _ => 0)
+      (1 : Matrix (Fin 1) (Fin 1) ℂ) (fun _ => 1) (fun _ => 2) z) = 1 / 2 := sorry
+
+-- formalNZ_normalization: dropping the GSW-to-DG correction produces h/24.
+-- Here the GSW integrand is 1 and the uncorrected factor is exp(tx/2-t²/12).
+example (G : MvPolynomial (Fin 1) ℂ →ₗ[ℂ] ℂ) (hG1 : G 1 = 1)
+    (hGcov : ∀ p, G (MvPolynomial.X (0 : Fin 1) * p) =
+      G (MvPolynomial.pderiv (0 : Fin 1) p)) :
+    G (PowerSeries.coeff 2 (PowerSeries.subst
+      (PowerSeries.monomial 1 (MvPolynomial.C (1 / 2 : ℂ) * MvPolynomial.X (0 : Fin 1)) -
+        PowerSeries.monomial 2 (MvPolynomial.C (1 / 12 : ℂ)))
+      (PowerSeries.exp (MvPolynomial (Fin 1) ℂ)))) = 1 / 24 := sorry
+
+-- rootNZ_constant: arbitrary finite weights are normalized only when S ≠ 0.
+example (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ) (hG1 : G 1 = 1)
+    (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (a : (Fin N → Fin k) → ℂ) (hS : ∑ m, a m ≠ 0) :
+    PowerSeries.coeff 0 (rootNZPerturbativeSeries G liNeg k hk μ f θ ζ a hS) = 1 := by
+  rw [PowerSeries.coeff_zero_eq_constantCoeff_apply]
+  exact rootNZPerturbativeSeries_constant G hG1 liNeg k hk μ f θ ζ a hS
+
+-- rootNZ_odd_moment: the parity identity holds separately for every residue index.
+example (G : MvPolynomial (Fin N) ℂ →ₗ[ℂ] ℂ)
+    (hGneg : ∀ p, G (MvPolynomial.eval₂ MvPolynomial.C
+      (fun i => -MvPolynomial.X i) p) = G p)
+    (liNeg : ℕ → ℂ → ℂ) (k : ℕ) (hk : 0 < k)
+    (μ f θ : Fin N → ℂ) (ζ : ℂ) (m : Fin N → Fin k) :
+    G (PowerSeries.coeff 1 (rootNZFormalIntegrand liNeg k hk μ f θ ζ m)) = 0 :=
+  rootNZFormalIntegrand_gaussian_odd G hGneg liNeg k hk μ f θ ζ m 1 odd_one
+
+-- rootNZ_covariance_scaling: variance k=2 gives h coefficient 1, not 1/2.
+example (G : MvPolynomial (Fin 1) ℂ →ₗ[ℂ] ℂ) (hG1 : G 1 = 1)
+    (hGcov : ∀ p, G (MvPolynomial.X (0 : Fin 1) * p) =
+      2 * G (MvPolynomial.pderiv (0 : Fin 1) p))
+    (θ : Fin 1 → ℂ) (ζ : ℂ) (a : (Fin 1 → Fin 2) → ℂ) (hS : ∑ m, a m ≠ 0) :
+    PowerSeries.coeff 1 (rootNZPerturbativeSeries G (fun _ _ => 0) 2 (by decide)
+      (fun _ => 4) (fun _ => 0) θ ζ a hS) = 1 := sorry
+
+-- rootNZ_flattening_gaussian: the scalar half and the variance-two term add to 3/2.
+example (G : MvPolynomial (Fin 1) ℂ →ₗ[ℂ] ℂ) (hG1 : G 1 = 1)
+    (hGcov : ∀ p, G (MvPolynomial.X (0 : Fin 1) * p) =
+      2 * G (MvPolynomial.pderiv (0 : Fin 1) p))
+    (θ : Fin 1 → ℂ) (ζ : ℂ) (a : (Fin 1 → Fin 2) → ℂ) (hS : ∑ m, a m ≠ 0) :
+    PowerSeries.coeff 1 (rootNZPerturbativeSeries G (fun _ _ => 0) 2 (by decide)
+      (fun _ => 4) (fun _ => 2) θ ζ a hS) = 3 / 2 := sorry
+
+-- rootNZ_valence_three_contraction: Li₀=0, Li₋₁=1, all other mock inputs zero.
+-- At k=2 the log coefficients are -x³/24 and x²/16. The cubic pair
+-- contributes 5/48; together the h coefficient is 11/48, not 1/8.
+example (G : MvPolynomial (Fin 1) ℂ →ₗ[ℂ] ℂ) (hG1 : G 1 = 1)
+    (hGcov : ∀ p, G (MvPolynomial.X (0 : Fin 1) * p) =
+      2 * G (MvPolynomial.pderiv (0 : Fin 1) p))
+    (θ : Fin 1 → ℂ) (ζ : ℂ) (a : (Fin 1 → Fin 2) → ℂ) (hS : ∑ m, a m ≠ 0) :
+    PowerSeries.coeff 1 (rootNZPerturbativeSeries G (fun r _ => if r = 1 then 1 else 0)
+      2 (by decide) (fun _ => 0) (fun _ => 0) θ ζ a hS) = 11 / 48 := sorry
+
+-- formalNZ_bracket_not_multiplicative: the HB.4 bracket is linear, not a ring map.
+example (G : MvPolynomial (Fin 1) ℂ →ₗ[ℂ] ℂ) (hG1 : G 1 = 1)
+    (hGcov : ∀ p, G (MvPolynomial.X (0 : Fin 1) * p) =
+      G (MvPolynomial.pderiv (0 : Fin 1) p)) :
+    G (MvPolynomial.X (0 : Fin 1) ^ 2) = 1 ∧
+      G (MvPolynomial.X (0 : Fin 1)) * G (MvPolynomial.X (0 : Fin 1)) = 0 := by
+  have hX := hGcov 1
+  simp only [mul_one, MvPolynomial.pderiv_one, map_zero] at hX
+  have hX2 := hGcov (MvPolynomial.X (0 : Fin 1))
+  rw [← pow_two, MvPolynomial.pderiv_X_self, hG1] at hX2
+  exact ⟨hX2, by rw [hX, mul_zero]⟩
+
+end NZContractions
 
 end TauCeti.QuantumTopology
