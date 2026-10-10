@@ -1,67 +1,79 @@
 # REV-FIX-RT-AREA-topology~4 handoff
 
-Issue #6521; Codex session `codex-RtLe8Y`; 10 October 2026.
-Claim confirmed for comment 6096384719. Branch
-`codex-RtLe8Y-review-topology`.
+Issue #6521; Codex session `codex-ERbW4d`; 10 October 2026.
+Claim confirmed for comment 6097693458. Branch
+`codex-ERbW4d-review-topology`. This continues PR #8353 and PR #6944;
+this session did none of the reviewed fix, red team, verification or blueprints.
 
 ## Completed work
 
-All three reviews explicitly specified by the GitHub issue are finished,
-including all 27 assigned findings and their verification/fix dispositions:
+All three packet reviews explicitly specified by the GitHub issue are complete.
+The report accounts for all 27 assigned findings and their fix/verification
+dispositions, with independent source and current-owner checks:
 
-- Polylogarithms: accepted for /7's owner split and geometric prerequisites.
+- Polylogarithms: accepted for /7's signed ideal-tetrahedron formula, explicit
+  geometric prerequisites and separation from QT.5's manifold sum.
 - HabiroNahmSeries: accepted for /11's formal/analytic distinction and qualified
-  exports. The prior material reader objections were resolved by assembly.
-  Corrected the GSWZ knot-matrix locator, approximate figure-eight regulator
-  wording and suggested interface comments.
-- QSeriesPartitionsAndMockModularForms: needs changes. Corrected the Poincaré
-  locator and contradictory QT.7 restructuring detail. Reader exports and the
-  generic matrix-cocycle request remain, together with the broad independent
-  blueprint obligations.
+  exports, including the controlling Gaussian and membership refinements.
+  Confirmed PR #8353's source-locator and approximate regulator corrections.
+- QSeriesPartitionsAndMockModularForms: needs changes. The nine scalar contracts
+  are correct. Corrected the coverage note's undecided matrix-interface owner
+  to agree with the consumer's existing QSeries Part II route. The assigned
+  open supplier gap alone does not invalidate the scalar fix.
 
-All previous top-level verdicts were preserved in reviewHistory. The new
-reviews use `independent-review-REV-FIX-RT-AREA-topology~4`, dated 2026-10-10.
-The full report records every finding, public source URLs and PDF hashes,
-current owner checks and the exact remaining contracts. Current
-DifferentialGeometry already supplies forms/Stokes, abstract corner boundaries
-and homogeneity: do not create another supplier for those old handoff items.
+The inherited reader objections were sharpened against the current document:
+add the scalar-cocycle row, specify the inverse eta multiplier, state scaled
+Kontsevich coefficients as `c_n/(24^n n!)`, and update the restructuring paragraph
+which says QT.7 has no nodes. Its trefoil row already requires the normalization
+comparison; the inherited claim that this qualification is missing was withdrawn.
+The exact first four normalized Taylor coefficients are
+`1, 23/24, 1681/1152, 257543/82944`.
+Earlier broad QSeries blueprint rejections remain binding.
 
-The three packet validators pass with zero errors/warnings. Sequential
-`lean-check` runs at Mathlib 082e2d3 / Tau Ceti f790474 all returned exit 0:
-462, 441 and 1469 warnings respectively, all for admitted proofs. Only comments
-changed after the Habiro check. No declaration or test was added. No process
-remains running; scratch logs are disposable because the results and source
-receipts are recorded in the review.
-The intake file checker reports zero problems for all six changed files;
-`git diff --check` passes.
+Replaced the three top-level reviews with this independent continuation and
+preserved their previous objects in `reviewHistory`. No suggested declaration
+changed. The three validators pass with zero errors/warnings. Fresh sequential
+`lean-check` runs return exit 0, with 462, 441 and 1469 warnings respectively,
+all `sorry`. The shared Mathlib pin was confirmed, and the cited Tau Ceti
+framing/Gaussian source files match raw f790474 files byte for byte.
+The intake file check and `git diff --check` pass. No process remains running;
+scratch logs and public PDFs are disposable because the report records the
+checks, sources and receipts.
+
+Current TauCetiRoadmap was read at `39200cfdcc19dbfeb09ffa3154f721eb56977e92`.
+DifferentialGeometry already owns forms/Stokes, abstract corner boundaries and
+homogeneity. The current library already supplies Riemannian volume and its
+isometry interface. Import those owners rather than planning them again.
 
 ## Blocker: conflicting deliverable lists
 
-This is a checkpoint only because the issue and the current queue disagree,
-not because the specified mathematical review is unfinished or timed out.
+The GitHub issue and its full review instructions name only the three packets
+above, their suggested files and the report. [WORKERS.md](../WORKERS.md) requires:
+"Edit only the files the issue names, plus your own scratch space."
+The checked-in queue additionally requires ArithmeticQuantumTopology and
+Polylogarithms--P.2 packets and suggested files; its prompt file is absent.
+Those packets' top-level reviewers are still their own independent blueprint
+reviewers. `issues.deliverables_complete` therefore returns false for the
+queue's eleven outputs, and true for the issue's seven outputs.
 
-The GitHub issue lists three packets and their suggested files, confirmed again
-before submission. [WORKERS.md](../WORKERS.md) requires: "Edit only the files
-the issue names, plus your own scratch space." The checked-in queue additionally lists
-`packets/ArithmeticQuantumTopology.json`, `packets/Polylogarithms--P.2.json`,
-and their suggested files; the queue's prompt file does not exist. The two
-additional packets have other independent reviewers. `issues.deliverables_complete`
-therefore returns false for the queue's eleven outputs, but true for the
-issue's seven outputs. A scope clarification was requested; additional files
-were not overwritten without it.
+This session requested authorization to include the two additional bounded
+fix reviews before doing the independent checks. No authorization arrived.
+Neither additional packet was edited, and no queue or issue metadata was changed.
+The completion blocker is a writable-scope conflict, not an unfinished review
+of the three authorized packets or a timeout.
 
-The maintainer should reconcile the issue and queue. If the issue's three-file
-review is authoritative, correct the job metadata so the already completed
-reviews count. If the expanded queue scope is intended, explicitly include the
-two additional packet/Lean reviews in the issue, then resume those bounded fix
-reviews; preserve their accepted blueprint histories and recheck only the
-relevant /1–/16 consumer and /7 part contracts. The report already records the
-current consumer interfaces read for the handoffs.
+The maintainer must reconcile the lists: either remove the extra pair from the
+completion metadata, or explicitly authorize their bounded reviews in this job.
+For the latter, inspect QT's /1–/16 contracts against the confirmed findings and
+current supplier requests, and P.2's /7 volume route. Preserve the existing
+accepted full-blueprint reviews in history; replacing them must identify the
+new review as a bounded fix review. Keep QT's eight honest gaps and P.2's ideal
+region/calibration gaps. An open contract with a precise owner is not itself
+evidence of an incorrect fix. Run both packet validators and `lean-check` on
+the two additional suggested files before recording those verdicts.
 
-Reader follow-up: synchronize QSeries' eight-row table with its nine precise
-exports and current QT.7 consumer; preserve the canonical scalar/matrix
-distinction. Carry Habiro's small locator/numerical wording improvements at the
-next authorized reader synchronization. Honest supplier gaps alone are not a
-reason to reject an otherwise correct completed planning pass.
+Reader synchronization requires a separately authorized path: this issue's
+deliverable list excludes reader documents. Carry Habiro's prior minor
+locator/numerical wording improvements at that synchronization as well.
 
 Only issue #6521 was claimed. This session stops after its one pull request.
