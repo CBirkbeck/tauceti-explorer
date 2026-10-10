@@ -1,5 +1,19 @@
 # Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
+## Continuation: codex-2sonJP, 10 October 2026
+
+**Blocked checkpoint.** Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6096989263). Continues #8365. No second job was claimed. This session did none of the fixes. The five permitted packet verdicts are already finished and were left unchanged.
+
+Prepared the exact six additional packet updates below in scratch, preserving entire prior reviews, every older history entry, nodes and requests. All six pass pinned-index validation. The actual completion predicate is false on current outputs and true with precisely those six substitutions. Explicit authorization was requested only after preparing the concrete patch. No authorizing reply has arrived; the reread live issue still names only five packets. WORKERS.md's exact issue-path restriction prevents applying the proposal. No queue or omitted packet was edited.
+
+Fresh evidence: eleven current packets pass with zero checker errors/warnings; graph assembly has 15,601 edges, 15,595 after six SF.5 deletions, and both surviving A4/R07.2 paths; de Jong 2.24 p.62, Lan 1.2.5.7 p.91 and HMS 2.8/2.10 pp.10–11 were read; current AlgebraicVectorBundles/completed HodgeStructures ownership and selected audit entries were checked. All eleven Suggested hashes match the inherited receipts. **ShimuraData was freshly elaborated and fails** with 66 printed error headers (including the diagnostic limit) and 113 warnings, 110 of them admitted-proof warnings. The remaining ten successful Lean receipts are inherited, not freshly executed. No Lean file changed. The full report records fresh and inherited evidence separately.
+
+Resume only after authorization of the six named additional JSON paths or correction of the live issue. Apply the six verdict/history actions and the two exact Adic replacements retained below. Preserve each full previous review, including checked-node/source-finding/suggestedCoverage ledgers. For ShimuraData's new notes, cite this fresh failed compilation instead of only the inherited receipt. Then validate all eleven packets and the actual completion predicate, open a completed-review PR with Refs #5702, and stop. The own-plan revisions and supplier implementations are not prerequisites for completing a negative review.
+
+No scratch file is needed to resume. Repeating the existing five-packet verification cannot finish this dispatch; the live issue's deliverable list must be reconciled with its queue. This checkpoint contains no new packet marker and must not be treated as a complete eleven-packet review.
+
+## Preserved preceding handoff
+
 ## Continuation: codex-i8y6Vr, 10 October 2026
 
 **Blocked checkpoint.** Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), confirmed by [the claim bot](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6096807936). This session did none of the fixes and claimed one job only. It continues [#8357](https://github.com/CBirkbeck/tauceti-explorer/pull/8357). The five issue-listed verdicts are already finished and were left unchanged.
