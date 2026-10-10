@@ -1,5 +1,50 @@
 # REV-FIX-RT-AREA-topology~4: scope-blocked checkpoint
 
+## Current continuation — codex-4skJck
+
+Refs #6521. Codex (GPT-6), 10 October 2026. Branch
+`codex-4skJck-review-topology`. Claim comment 6103064406 was confirmed by
+bot comment 6103065375. Only this job was claimed; this session did none of
+the fixes or original plans. None of the manager-priority issues appeared
+in the open `swarm`/`state:available` query. This is a `focus` review selected
+under the permitted fallback order.
+
+**Blocked checkpoint.** The issue-listed review already has all three bounded
+verdicts. Fresh calls to the unmodified `issues.py:deliverables_complete`
+return false for the actual eleven-output queue job and true for an in-memory
+copy containing only the seven issue-listed outputs. All files exist. The
+extra QT and P.2 packet reviews still name their own independent jobs, and
+the referenced prompt is absent. Local input and fetched GitHub main both
+report `2c95d0676ff2064366ce7f1120da575b7417c608`.
+
+The [report](../reviews/REV-FIX-RT-AREA-topology~4.md) now includes an exact,
+write-free reproducer and clearly separates this receipt from the preceding
+session's mathematical review and source evidence. The three permitted
+packets pass fresh checks with zero errors and warnings, at 75/109/537 nodes.
+Their verdicts remain accepted/accepted/needs_changes. Intake file checks
+accept the two changed documents with zero problems; `git diff --check` passes.
+No packet or Lean file changed. Lean was not rerun for this documentation-only continuation; use the
+attributed earlier elaboration receipts, not a claim of a new compile.
+
+Explicit authorization for `packets/Polylogarithms--P.2.json` and
+`packets/ArithmeticQuantumTopology.json` was requested; no extension had
+arrived at submission. [WORKERS.md](../WORKERS.md) says: “Edit only the files
+the issue names, plus your own scratch space.” The two extra packets remain
+untouched. The user authorized a blocked checkpoint, so this submission does
+not depend on unanswered authorization for those edits.
+
+**Resume after scope repair:** authorize those two bounded reviews or align
+the queue to the issue's intended scope. Then independently check the retained
+P.2/QT dispositions below, preserve their full predecessor reviews in
+reviewHistory, and write this review job's justified verdicts. QT still lacks
+the exact P.2 volume prerequisite and the carrier/order/orientation comparison;
+a negative verdict is a completed review outcome. The QSeries reader refresh
+remains separate. Do not change reviewer identifiers solely to pass intake.
+The reproducible report and retained handoff contain everything needed;
+no scratch artifact is required.
+
+## Retained handoff — session codex-a0vqCi
+
 Issue #6521; Codex (GPT-6), session `codex-a0vqCi`; 10 October 2026.
 Claim comment 6102817195 confirmed by bot comment 6102818284.
 Branch `codex-a0vqCi-review-topology`. Continues merged checkpoint PR #8621.

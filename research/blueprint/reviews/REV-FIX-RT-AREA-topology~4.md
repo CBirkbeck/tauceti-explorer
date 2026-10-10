@@ -1,5 +1,102 @@
 # Independent review of topology fix round 4
 
+## Continuation receipt — codex-4skJck, 10 October 2026
+
+Refs #6521. Codex (GPT-6), session `codex-4skJck`, branch
+`codex-4skJck-review-topology`. The bot confirmed
+[claim comment 6103064406](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6103064406)
+in [comment 6103065375](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6103065375).
+This session did none of the original plans or fixes. Only this job was claimed.
+
+**Blocked checkpoint on the issue/queue scope mismatch.** The inherited
+bounded review remains available below, with its original author and evidence
+attribution. This continuation does not repeat or supersede that mathematical
+review. It independently checks the completion boundary before any additional
+packet is edited.
+
+The live issue was reread after claim confirmation. It names seven outputs:
+this report, three packets and their three suggested files. The local queue
+and GitHub main both stood at `2c95d0676ff2064366ce7f1120da575b7417c608`.
+The queue entry names eleven outputs, adding these four paths:
+
+- `research/blueprint/packets/ArithmeticQuantumTopology.json`
+- `research/blueprint/packets/Polylogarithms--P.2.json`
+- `research/blueprint/suggested/ArithmeticQuantumTopology.lean`
+- `research/blueprint/suggested/Polylogarithms--P.2.lean`
+
+All eleven files exist. The referenced prompt file does not exist, so there
+is no additional prompt text authorizing the expanded scope.
+
+| Completion input | Result from unmodified `issues.deliverables_complete` |
+| --- | --- |
+| Actual eleven-output queue entry | false |
+| In-memory copy with only the seven issue-listed outputs | true |
+
+The three permitted packets already carry
+`independent-review-REV-FIX-RT-AREA-topology~4`: Polylogarithms and
+HabiroNahmSeries are accepted; QSeriesPartitionsAndMockModularForms is
+needs_changes. The extra QT and P.2 packets respectively carry
+`independent-review-REV-ArithmeticQuantumTopology~2` and
+`independent-review-REV-Polylogarithms--P.2`. The function checks the exact
+review identifier on **every** packet output and accepts a negative verdict.
+Consequently the additional identifiers, rather than QSeries' mathematical
+verdict or missing files, prevent completion.
+
+The check can be reproduced from the repository root without writing a
+repository file, changing a review, or running queue synchronization:
+
+```python
+import importlib.util
+import json
+import re
+import subprocess
+from pathlib import Path
+
+root = Path.cwd()
+spec = importlib.util.spec_from_file_location(
+    "blueprint_issues", root / "research/blueprint/issues.py")
+issues = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(issues)
+queue = json.loads((root / "research/blueprint/queue.json").read_text())
+job = next(j for j in queue["jobs"]
+           if j["id"] == "REV-FIX-RT-AREA-topology~4")
+body = subprocess.check_output([
+    "gh", "issue", "view", "6521", "--repo", "CBirkbeck/tauceti-explorer",
+    "--json", "body", "--jq", ".body"], text=True)
+listed = re.findall(r"^- `(research/[^`]+)`", body, flags=re.M)
+print("queue:", len(job["outputs"]), issues.deliverables_complete(job))
+print("issue:", len(listed),
+      issues.deliverables_complete(dict(job, outputs=listed)))
+print("extra:", sorted(set(job["outputs"]) - set(listed)))
+for output in job["outputs"]:
+    path = root / output
+    if path.parent.name == "packets":
+        review = json.loads(path.read_text()).get("review", {})
+        print(output, review.get("status"), review.get("reviewer"))
+```
+
+Fresh read-only packet checks on the three permitted packets report zero
+errors and zero warnings: Polylogarithms has 75 nodes, HabiroNahmSeries 109,
+and QSeriesPartitionsAndMockModularForms 537. No mathematical node, review
+object or suggested signature changed. Lean was not rerun for this
+documentation-only continuation; the successful serial elaborations below
+remain evidence from their named earlier session. Intake file checks accept both changed documents with zero problems, and
+`git diff --check` passes. No fresh primary-source audit is asserted. The read-only roadmap and library checkouts still report
+`070dc2becd74419e76303ede84b465ed4a69461f` and
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`; no Lake command ran there.
+
+[WORKERS.md](../WORKERS.md) requires: “Edit only the files the issue names,
+plus your own scratch space.” Explicit authorization for the two additional
+packet reviews was requested during this continuation. No scope extension
+had arrived at submission. Those files remain untouched. The maintainer
+must authorize the two reviews or reconcile the queue with the issue's
+intended scope. The existing suggested files require no changes merely to
+satisfy this completion predicate. The concrete mathematical dispositions
+and consumer corrections remain in the retained review below and the
+[handoff](../handoff/REV-FIX-RT-AREA-topology~4.md).
+
+## Retained independent review — session codex-a0vqCi
+
 Job `REV-FIX-RT-AREA-topology~4`, issue #6521. Codex (GPT-6), session
 `codex-a0vqCi`, 10 October 2026. [Claim comment 6102817195](https://github.com/CBirkbeck/tauceti-explorer/issues/6521#issuecomment-6102817195)
 was confirmed by bot comment 6102818284. This worker did none of the fixes or
