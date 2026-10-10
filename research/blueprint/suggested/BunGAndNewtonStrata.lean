@@ -22,6 +22,10 @@ The native exact tensor interface below checks categorical data and coherence
 without claiming the missing analytic instantiation. Fundamental-group and
 z-extension foundations are imported from existing upstream RG2.1.5; no
 duplicate root-quotient theory is planned here.
+The filtered-group register now states the affine smooth-group splitting hypotheses
+and rational-jump/non-affine controls. Family-stratum and ordinary-flag registers
+retain the normal-base and split-p source-version boundaries. These are omitted
+contracts, not new elaborated geometric signatures.
 All theorem and example proofs are sorry; elaboration checks types, not proofs.
 -/
 import Mathlib.Algebra.Group.Subgroup.Basic
@@ -1505,7 +1509,7 @@ Formulation: full-signature-omitted. The suggested file contains a name-by-name 
 
 BunGAndNewtonStrata:BG0/families-of-g-isocrystals
 TauCeti.BunG.GIsocrystalFamily
-Full definition contract: For a perfect F_q-algebra R, put L_R=R((t)) in equal characteristic and L_R=W_(O_E)(R)[1/π] in mixed characteristic. A family is a G-torsor on Spec L_R with a Frobenius descent isomorphism. This is a groupoid-valued prestack on perfect schemes; it is distinct from the geometric groupoid G-Isoc and from Bun_G on perfectoid spaces.
+Full definition contract: For a perfect F_q-algebra R, put L_R=R((t)) in equal characteristic and L_R=W_(O_E)(R)[1/π] in mixed characteristic. A family is a G-torsor on Spec L_R with a Frobenius descent isomorphism σ^*P≃P. This is a groupoid-valued prestack on perfect schemes; it is distinct from the geometric groupoid G-Isoc and from Bun_G on perfectoid spaces.
 Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 TauCeti.BunG.GIsocrystalFamily.pullback — functoriality: Perfect-algebra maps pull back the torsor and Frobenius isomorphism, coherently.
@@ -1688,7 +1692,7 @@ Formulation: full-signature-omitted. The suggested file contains a name-by-name 
 BunGAndNewtonStrata:BG3/filtered-automorphism-group-scheme
 TauCeti.BunG.FilteredAutomorphism
 Full construction contract: For a reductive G/K, scheme X/K and Q-filtered G-fibre functor E, let H=Aut_G(E), its inner group over X. For λ≥0, H^≥λ consists of automorphisms whose difference from1 raises every represented filtration by at least λ. H^≥0 is parabolic with unipotent radical H^>0; the groups are smooth, Lie H^≥λ=(ad E)^≥λ, and for λ>0 the quotient H^≥λ/H^>λ is the vector group (ad E)^≥λ/(ad E)^>λ.
-Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
+Hypotheses: The underlying functor is an exact K-linear tensor fibre functor for finite rational representations of a reductive G/K, associated to a G-torsor on X. The descending Q-filtration is exhaustive, separated and locally has finitely many jumps on each representation; its steps are subbundles with locally free graded pieces, and it is exact and tensor-compatible. Splitting is asserted on affine open charts, followed by étale trivialization of the smooth underlying torsor; no global splitting over an arbitrary scheme is assumed.
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 TauCeti.BunG.FilteredAutomorphism.raising_iff — characterisation: For every rational representation and λprime, (γ−1)E^≥λprime⊂E^≥(λprime+λ).
 TauCeti.BunG.FilteredAutomorphism.parabolic — projection: H^≥0 is the filtration-preserving parabolic.
@@ -1698,6 +1702,9 @@ TauCeti.BunG.FilteredAutomorphism.pullback — functoriality: Scheme pullback co
 TauCeti.BunG.FilteredAutomorphism.testGL2 — example contract (computation): For the two-step diagonal filtration the parabolic is triangular and the positive radical has one root line.
 TauCeti.BunG.FilteredAutomorphism.testTrivialFiltration — example contract (degenerate): For the trivial filtration H^≥0=H and H^>0=1.
 TauCeti.BunG.FilteredAutomorphism.testZeroWeight — example contract (non-example): At λ=0 the reductive Levi quotient is not generally an additive vector group.
+TauCeti.BunG.FilteredAutomorphism.localSplit — constructor: There is an affine open cover on which the filtered fibre functor splits; after an étale trivialization of its underlying torsor the splitting is a rational cocharacter D→G. This assertion is compatible with restriction and does not assert a global splitting on X.
+TauCeti.BunG.FilteredAutomorphism.testRationalJump — example contract (computation): For GL_2 with ordered basis of weights 0,3/2, H^≥0 is lower triangular and H^>0 is its one-dimensional lower unipotent radical. H^≥1/H^>1 is trivial, H^≥(3/2)/H^>(3/2) is G_a, and H^≥2 is trivial. Clearing denominator2 preserves these thresholds.
+TauCeti.BunG.FilteredAutomorphism.testNonAffine — example contract (non-example): On P^1_K, the Euler filtration 0→O(−1)→O^2→O(1)→0 defines a filtered GL_2 fibre functor with smooth underlying group, but no global splitting: O^2 is not O(−1)⊕O(1). It splits on affine opens. Thus the affine hypothesis cannot be dropped.
 
 BunGAndNewtonStrata:BG3/full-automorphism-v-group
 TauCeti.BunG.FullAutomorphism
@@ -1889,7 +1896,7 @@ Formulation: full-signature-omitted. The suggested file contains a name-by-name 
 
 BunGAndNewtonStrata:BG3/unitary-ordinary-flag-locus
 TauCeti.BunG.UnitaryOrdinaryFlagLocus
-Full theorem contract: In the preceding unramified quasi-split CS24 unitary similitude datum, the reflex field is Q and the largest acceptable element is ordinary. Its flag stratum is Fℓ(Q_p), interpreted as the constant locally profinite rational-point diamond; hence its Krull dimension is0. The original Wedhorn and CGH comparison inputs are explicitly retained as source gaps.
+Full theorem contract: In the preceding unramified quasi-split CS24 unitary similitude datum, the reflex field is Q and the largest acceptable element is ordinary. Its flag stratum is Fℓ(Q_p), interpreted as the constant locally profinite rational-point diamond; hence its Krull dimension is0. The read original arguments identify the split/unramified cocharacter calculation and ambient Siegel rational-period criterion. Transport to this unramified unitary datum remains the exact PEL comparison in G07; the read CGH preprint assumes p splits completely.
 Hypotheses: Global conventions in the reader apply; additional restrictions are stated in the contract.
 Formulation: full-signature-omitted. The suggested file contains a name-by-name register. A registered omission is not an elaborated theorem or a definition; the numerical tests and point stabilizer equations are expressly restricted cores.
 
