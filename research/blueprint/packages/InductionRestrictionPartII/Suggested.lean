@@ -1,3 +1,10 @@
+/-
+This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
+These admitted statements suggest Lean forms so contributors and reviewers converge on
+names and signatures. The mathematical definitions and hypotheses in README.md govern these signatures.
+An admitted proof does not assert that a target has been implemented.
+-/
+
 import Mathlib.GroupTheory.GroupExtension.Defs
 import TauCeti.GroupTheory.GroupExtension.Cohomology
 import TauCeti.Algebra.Group.ElementaryTwoQuotient.Basic
@@ -24,12 +31,6 @@ import Mathlib.Data.Nat.Factorization.Basic
 import Mathlib.GroupTheory.SchurZassenhaus
 import Mathlib.GroupTheory.SpecificGroups.Alternating
 
-/-!
-This file is not the roadmap and is not exhaustive. The roadmap document is definitive.
-These admitted statements suggest Lean forms so contributors and reviewers converge on
-names and signatures. The mathematical definitions and hypotheses in README.md govern these signatures.
-An admitted proof does not assert that a target has been implemented.
--/
 set_option linter.unusedVariables false
 set_option autoImplicit false
 noncomputable section
@@ -2642,6 +2643,179 @@ theorem table_row_21 :
 -- Wood (2019), Table 2, p.419: inversion on the specified odd abelian kernel.
 theorem table_row_25 :
     Nonempty (table_row_certificate (table_outside (Fin 3 → C3)) (Fin 3 → ZMod 3)) := by sorry
+
+/-! ## RS.6: nonabelian embedded models for rows 07, 08, 28 and 29
+
+Wood (2019), introduction pp.378–379 and §8.2, Table 2, p.419.
+These are signatures for the actual marked carriers and certificate outputs.
+The classification of these embeddings as arithmetic types belongs to ST.3.
+-/
+
+section NonabelianWreathFixtures
+variable (G : Type) [Group G]
+
+def nonabelian_table_swap : Two →* MulAut (G × G) := by sorry
+lemma nonabelian_table_swap_apply (t : Two) (p : G × G) :
+    nonabelian_table_swap G t p = if t = 1 then p else (p.2,p.1) := by sorry
+
+abbrev FullTableWreath := (G × G) ⋊[nonabelian_table_swap G] Two
+instance full_table_wreath_fintype [Fintype G] : Fintype (FullTableWreath G) :=
+  Fintype.ofEquiv ((G × G) × Two) SemidirectProduct.equivProd.symm
+
+def full_table_outside : Set (FullTableWreath G) :=
+  {x | x.right ≠ 1 ∧ orderOf x = 2}
+lemma full_table_outside_mem (x : FullTableWreath G) :
+    x ∈ full_table_outside G ↔ x.right ≠ 1 ∧ x.left.2 = x.left.1⁻¹ := by sorry
+
+def full_table_kernel_first :
+    (SemidirectProduct.rightHom : FullTableWreath G →* Two).ker →* G := by sorry
+lemma full_table_kernel_first_apply
+    (x : (SemidirectProduct.rightHom : FullTableWreath G →* Two).ker) :
+    full_table_kernel_first G x = x.val.left.1 := by sorry
+lemma full_table_kernel_first_surjective :
+    Function.Surjective (full_table_kernel_first G) := by sorry
+
+lemma full_table_one_class (x y : FullTableWreath G)
+    (hx : x ∈ full_table_outside G) (hy : y ∈ full_table_outside G) :
+    IsConj x y := by sorry
+lemma full_table_marking_closed (a x : FullTableWreath G)
+    (hx : x ∈ full_table_outside G) : a*x*a⁻¹ ∈ full_table_outside G := by sorry
+lemma full_table_marking_generates (hperfect : commutator G = ⊤) :
+    Subgroup.closure (full_table_outside G) = ⊤ := by sorry
+
+-- Action checks: use no commutativity hypothesis on the factors.
+example (p : G × G) : nonabelian_table_swap G 1 p = p := by sorry
+example (p : G × G) :
+    nonabelian_table_swap G (Multiplicative.ofAdd (1 : ZMod 2)) p = (p.2,p.1) := by sorry
+example (p : G × G) :
+    nonabelian_table_swap G (Multiplicative.ofAdd (1 : ZMod 2))
+      (nonabelian_table_swap G (Multiplicative.ofAdd (1 : ZMod 2)) p) = p := by sorry
+
+-- Marking checks: both the quotient coordinate and order two matter.
+example : (1 : FullTableWreath G) ∉ full_table_outside G := by sorry
+example : (SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2)) :
+    FullTableWreath G) ∈ full_table_outside G := by sorry
+example (a b : G) (h : b ≠ a⁻¹) :
+    (⟨(a,b),Multiplicative.ofAdd (1 : ZMod 2)⟩ : FullTableWreath G)
+      ∉ full_table_outside G := by sorry
+
+-- The first-factor map is not its inverse or the second-factor projection.
+example : full_table_kernel_first C3 1 = 1 := by sorry
+example (x : (SemidirectProduct.rightHom : FullTableWreath C3 →* Two).ker)
+    (h : x.val.left = (Multiplicative.ofAdd (1 : ZMod 3),1)) :
+    full_table_kernel_first C3 x = Multiplicative.ofAdd (1 : ZMod 3) := by sorry
+example (x : (SemidirectProduct.rightHom : FullTableWreath C3 →* Two).ker)
+    (h : x.val.left = (1,Multiplicative.ofAdd (1 : ZMod 3))) :
+    full_table_kernel_first C3 x = 1 := by sorry
+-- Perfectness cannot be removed: C₃ gives the proper anti-diagonal subgroup.
+example : Subgroup.closure (full_table_outside C3) ≠ ⊤ := by sorry
+end NonabelianWreathFixtures
+
+section SymmetricTableFixtures
+-- Fin (n+2) has two distinguished points even at the boundary n=0.
+def symmetric_table_transposition (n : ℕ) : Equiv.Perm (Fin (n+2)) :=
+  Equiv.swap 0 1
+
+example (n : ℕ) : symmetric_table_transposition n * symmetric_table_transposition n = 1 := by
+  sorry
+example (n : ℕ) : Equiv.Perm.sign (symmetric_table_transposition n) = -1 := by sorry
+example (n : ℕ) : symmetric_table_transposition n 0 = 1 := by sorry
+
+def symmetric_even_part (n : ℕ) (σ : Equiv.Perm (Fin (n+2))) :
+    alternatingGroup (Fin (n+2)) := by sorry
+lemma symmetric_even_part_val (n : ℕ) (σ : Equiv.Perm (Fin (n+2))) :
+    (symmetric_even_part n σ).val =
+      if Equiv.Perm.sign σ = 1 then σ else σ * symmetric_table_transposition n := by sorry
+
+def symmetric_table_projection (n : ℕ) : Equiv.Perm (Fin (n+2)) →* Two := by sorry
+lemma symmetric_table_projection_apply (n : ℕ) (σ : Equiv.Perm (Fin (n+2))) :
+    symmetric_table_projection n σ =
+      if Equiv.Perm.sign σ = 1 then 1 else Multiplicative.ofAdd (1 : ZMod 2) := by sorry
+lemma symmetric_table_projection_kernel (n : ℕ) :
+    (symmetric_table_projection n).ker = alternatingGroup (Fin (n+2)) := by sorry
+
+-- Conjugation by the fixed transposition specifies the second factor.
+-- Writing σ=a*t^ε uses right multiplication to obtain the even part.
+def symmetric_table_embedding (n : ℕ) :
+    Equiv.Perm (Fin (n+2)) →* FullTableWreath (alternatingGroup (Fin (n+2))) := by sorry
+lemma symmetric_table_embedding_apply (n : ℕ) (σ : Equiv.Perm (Fin (n+2))) :
+    ((symmetric_table_embedding n σ).left.1).val = (symmetric_even_part n σ).val ∧
+    ((symmetric_table_embedding n σ).left.2).val =
+      symmetric_table_transposition n * (symmetric_even_part n σ).val *
+        (symmetric_table_transposition n)⁻¹ ∧
+    (symmetric_table_embedding n σ).right = symmetric_table_projection n σ := by sorry
+lemma symmetric_table_embedding_injective (n : ℕ) :
+    Function.Injective (symmetric_table_embedding n) := by sorry
+
+def symmetric_table_outside (n : ℕ) : Set (Equiv.Perm (Fin (n+2))) :=
+  {σ | symmetric_table_projection n σ ≠ 1 ∧ orderOf σ = 2}
+lemma symmetric_table_outside_embedding (n : ℕ) (σ : Equiv.Perm (Fin (n+2))) :
+    symmetric_table_embedding n σ ∈ full_table_outside (alternatingGroup (Fin (n+2))) ↔
+      σ ∈ symmetric_table_outside n := by sorry
+lemma symmetric_table_marking (n : ℕ) :
+    Subgroup.closure (symmetric_table_outside n) = ⊤ := by sorry
+lemma symmetric_table_one_class (n : ℕ) (hn : n = 2 ∨ n = 3)
+    (σ ρ : Equiv.Perm (Fin (n+2)))
+    (hσ : σ ∈ symmetric_table_outside n) (hρ : ρ ∈ symmetric_table_outside n) :
+    IsConj σ ρ := by sorry
+
+-- Coordinate tests of the new even-part construction.
+example (n : ℕ) : (symmetric_even_part n 1).val = 1 := by sorry
+example (n : ℕ) :
+    (symmetric_even_part n (symmetric_table_transposition n)).val = 1 := by sorry
+example : (symmetric_even_part 2 (Equiv.swap 1 2)).val =
+      (Equiv.swap 1 2 : Equiv.Perm (Fin 4)) * Equiv.swap 0 1 ∧
+    (symmetric_even_part 2 (Equiv.swap 1 2)).val ≠
+      (Equiv.swap 0 1 : Equiv.Perm (Fin 4)) * Equiv.swap 1 2 := by sorry
+
+-- Identity, even and odd cases test the actual embedding and projection.
+example : symmetric_table_embedding 2 1 = 1 ∧ symmetric_table_projection 2 1 = 1 := by sorry
+example (a : alternatingGroup (Fin 4)) :
+    ((symmetric_table_embedding 2 a.val).left.1).val = a.val ∧
+      ((symmetric_table_embedding 2 a.val).left.2).val =
+        Equiv.swap 0 1 * a.val * (Equiv.swap 0 1)⁻¹ ∧
+      symmetric_table_projection 2 a.val = 1 := by sorry
+example :
+    symmetric_table_embedding 2 (Equiv.swap 0 1) =
+      SemidirectProduct.inr (Multiplicative.ofAdd (1 : ZMod 2)) ∧
+    symmetric_table_projection 2 (Equiv.swap 0 1) = Multiplicative.ofAdd (1 : ZMod 2) := by sorry
+
+-- Marking tests reject the identity and a noninvolutory odd permutation.
+example : (1 : Equiv.Perm (Fin 4)) ∉ symmetric_table_outside 2 := by sorry
+example : (Equiv.swap 0 1 : Equiv.Perm (Fin 4)) ∈ symmetric_table_outside 2 := by sorry
+example (σ : Equiv.Perm (Fin 4)) (hσ : orderOf σ = 4) :
+    σ ∉ symmetric_table_outside 2 := by sorry
+
+-- Wood (2019), Table 2, p.419: embedded S₄ and S₅ types.
+theorem table_row_07 :
+    Nonempty (table_row_certificate (symmetric_table_outside 2) (ZMod 1)) := by sorry
+theorem table_row_28 :
+    Nonempty (table_row_certificate (symmetric_table_outside 3) (ZMod 1)) := by sorry
+end SymmetricTableFixtures
+
+-- Wood (2019), Table 2, p.419: the full A₅ wreath product, with its
+-- actual outside involutions. The two-element output retains its group law.
+theorem table_row_29 :
+    Nonempty (table_row_certificate
+      (full_table_outside (alternatingGroup (Fin 5))) (ZMod 2)) := by sorry
+
+instance order96_type_fintype : Fintype order96_type := by
+  letI : Fintype Order96Kernel := Fintype.ofFinite _
+  exact Fintype.ofEquiv (Order96Kernel × Two) SemidirectProduct.equivProd.symm
+
+-- Row 08 retains the specified sum kernel and its ambient embedding.
+theorem table_row_08 :
+    Nonempty (table_row_certificate order96_outside_involutions (ZMod 2)) := by sorry
+
+-- Strengthen the certificate output to expose the reported ordinary and
+-- reduced kernels. All structures, maps and proofs are output obligations.
+theorem order96_cover_certificate :
+    ∃ C : table_row_certificate order96_outside_involutions (ZMod 2),
+      C.coverOrder = 768 ∧
+      (letI := C.coverGroup
+       Nonempty (C.projection.ker ≃* (Fin 3 → Two)) ∧
+       Nat.card (certificate_relation_subgroup C.cover) = 4 ∧
+       Nat.card (C.projection.ker ⧸ certificate_relation_subgroup C.cover) = 2) := by sorry
 
 end TauCeti.ReducedSchur
 end
