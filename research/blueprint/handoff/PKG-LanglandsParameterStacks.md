@@ -1,601 +1,249 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-6NFfZ0`, 10 October 2026.
-Branch: `codex-6NFfZ0-langlands-parameter-stacks`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6093931057)
-confirms comment 6093930084. None of the manager-priority issues was available;
-this was an available focus package under the fallback order. Only this job
-was claimed. Continues the merged checkpoint #8224 and its predecessors.
-
-## Outcome
-
-This is a **blocked checkpoint**, not a completed package. The existing
-supplier signature obstacle was independently checked against the current
-checkout and remains. This continuation also repairs LP0.6's ordinary wild
-restriction interface: it now requires an extending section with the
-prescribed Weil projection and permits conjugation only through the kernel
-of that projection. It gives the natural gauge comparison and discriminating
-counterexamples. The admitted signatures elaborate; the projection,
-conjugation-construction and exclusion checks specified below have actual
-proofs.
-
-Only this package's README, Suggested.lean and handoff change. No accepted
-packet, original reader, original suggested file, library source or other
-job's deliverable changes. No gap is marked closed. Metadata remains absent
-because `issues.deliverables_complete` first tests whether every output path
-exists; adding it would misclassify this unfinished package as complete.
-Once packaging is complete its content is `topic = "math.NT"`.
-
-## Saved LP0.6 correction
-
-`WildInertialParameter π i` is the subtype of homomorphisms ρ:P→L for which
-there exists φ:W→L with π∘φ=id and φ∘i=ρ. The extension remains existential,
-so two extending sections with the same wild restriction give the same
-object. `ofLanglands` now takes the section equation explicitly. The
-`projection` and `projection_apply` equations are proved directly from the
-existence witness, without an admitted lemma.
-
-`conjugate` now takes g∈ker π. Its underlying homomorphism is Mathlib's actual
-inner automorphism composed with ρ, and its extension is that automorphism
-composed with φ. The extending section's projection equation and the
-existence proof in this constructor are proved directly. The value equation
-is definitional. The one/product/inverse and restriction-compatibility API
-has exact signatures with admitted proofs.
-
-`dualElement` embeds h∈H as (h,1) into the projection kernel of H⋊W. It uses
-Mathlib's actual semidirect inclusion; Mathlib's
-`range_inl_eq_ker_rightHom` identifies this kernel with the dual subgroup.
-`conjugate_left` states the gauge comparison
-h·ρ(p)_H·α(i(p))(h)⁻¹, which specializes to ordinary H-conjugation when
-wild inertia acts trivially. No second generic semidirect-product theory or
-dual-group carrier is constructed here.
-
-The original three accepted `wild_inertial_*` tests retain their names.
-Their ordinary forms now carry the prescribed section proofs. The framed
-standard restriction, forget equation and extension-independence example
-are proved directly. Additional checks are:
-
-- If P is nontrivial and i is injective, there is no constant underlying wild
-  restriction. Its proof uses the actual projection equation and a
-  nonidentity element of P; no admitted axiom is used.
-- In S₃, g=(01), w=(12) satisfy g w g⁻¹=(02)≠w. The inequality is checked
-  by Lean's kernel through `decide`.
-- With L=W=S₃ and π=i=id, no prescribed-projection wild restriction has the
-  map p↦g p g⁻¹ for that g. This is proved from the projection equation and
-  the preceding finite permutation computation, without an admitted axiom.
-
-These checks separate the repaired interface from two plausible wrong ones:
-arbitrary extendibility admits the constant restriction, and arbitrary
-ambient conjugation changes the prescribed projection. They do not prove
-complex admissibility or make this ordinary interface the full KSS carrier.
-Continuity, finite inertia image, Frobenius semisimplicity, the algebraic
-SL₂(C) factor and enhanced complex parameters still need the existing owner.
-The README states the comparison and these remaining conditions explicitly.
-
-## Independently checked completion obstacle
-
-The accepted LP plan's G3 asks for actual supplier interfaces, rather than
-proof implementations. Read the complete current E5 suggested file and its
-consumer requests. The following interfaces still do not express their
-mathematical conditions:
-
-| Existing owner interface | Current missing contract | Affected package targets |
-| --- | --- | --- |
-| E5 `SymMonInftyCat`, lines 77–81; `CAlg`, line 104 | The map to finite pointed sets, coCartesian property and Segal condition have only `True` fields; algebra objects have the `Unit` carrier. | `CategoricalHeckeDatum`, coherent creation/annihilation/reindexing and universal representation bundles. |
-| E5 `IsStable`, lines 112–115; `CoherentAction`, lines 168–170 | Stability and coherent/continuous group action conditions are replaced by `True`. | Exact monoidal functors and enhanced equivariant perfect complexes. |
-| E5 `IsCompactObject`, line 141; `IndInfty`, line 145 | Compactness and the enhanced Ind-construction are only `True`. | Good-filtration t-structure, induced-perfect generation and LP4's IndPerf module equivalence. |
-| E5 `PSigma`, line 189; `AnimatedAlg`, line 199 | Animation has only `True`, and the algebra carrier is `Unit`. | `DerivedParameterStack`, derived free presentations, quotient descent and classical truncation comparisons. |
-
-Read the actual accepted LP statements for the derived parameter stack,
-categorical Hecke datum, good-filtration t-structure, induced-perfect
-complexes, representation action, perfect generation and IndPerf module
-comparison, and their E5/SF.1/S.1/DD.0 requests. These need the coherent
-enhanced carriers, not an ordinary category or ordinary cocycle ring.
-The E0 suggested file was also read in full: its implemented prefix states
-replete/weakly-contractible ordinary-category conditions, and explicitly
-omits the infinity-category signatures. It provides no alternative to E5.
-There is no EnhancedDerivedSheaves package in this checkout.
-
-Read current upstream ReductiveGroups and AlgebraicVectorBundles READMEs in
-full, and relevant AlgebraicVectorBundles and DGAInfinity signatures. The
-former supplies ordinary scheme/sheaf tensor and relative-Spec interfaces;
-the latter supplies DG/A-infinity operations. Neither supplies animated
-quotient stacks or coherent stable IndPerf. A search across all current
-upstream roadmaps/completed roadmaps and current Tau Ceti source found no
-replacement animated/enhanced carrier. The source search included animation,
-quasicategories, stable infinity categories and the specific supplier names;
-it is a bounded search receipt, not a claim to audit all library mathematics.
-
-Read-only upstream roadmap commit:
-`8c72a04753b11cab07fa593cc38ceaa7c0515380`.
-Current Tau Ceti library commit:
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-No Lake command ran in either tree.
-
-This issue authorizes only the package and this handoff. PROTOCOL §15
-assigns the general enhancement/animation to its existing owners, §13
-forbids vacuous replacement conditions, and §20 requires the definition,
-API and test signatures for the full package. Thus completing the owner
-contracts here would exceed the permitted scope. Omitting their targets,
-substituting ordinary shadows or adding `True`/`Unit` conditions would not
-complete the package. This is the reason for stopping with a checkpoint;
-it is not exhaustion of the eight-hour allowance.
-
-## Source and baseline evidence
-
-Read Kurinczuk–Skodlerack–Stevens, *Endo-parameters for p-adic classical
-groups*, arXiv:1611.02667v3, §§1.20–1.21, printed pp.8–9, from
-[the public PDF](https://arxiv.org/pdf/1611.02667), on 2026-10-10. §1.20
-specifies the identity Weil projection and dual-group conjugacy; §1.21
-defines extendible wild restrictions and their extended conjugacy classes.
-The full instance retains quasi-split classical groups, odd residue
-characteristic and complex admissibility. The abstract group comparisons
-use only the displayed section and restriction hypotheses. No local
-Langlands correspondence theorem is asserted.
-
-PDF SHA-256:
-`1cbcbb779d8d4ba8f3339d749b3dd7bc3d2555e6792491338a861d45009d9092`,
-matching the accepted source. No source passage or source file is submitted.
-No restricted book was needed.
-
-Read Mathlib's semidirect product multiplication, inverse, inclusions,
-projection and `range_inl_eq_ker_rightHom`; `MulAut.conj/conj_apply`; and
-`MonoidHom.ker/mem_ker`, at the exact pin
-`082e2d37e8b0463410cdb532e111cd43d5a66174`. All three relevant source files
-were compared byte-for-byte with the shared pinned build and match.
-The accepted baseline's Tau Ceti pin is
-`f790474821cf4256814db967cb154e7af3d0c369`.
-Read the eight LP rows of the reviewed library audit, and the accepted plan's
-review, scope, coverage, gaps and requests. This continuation does not claim
-a new full verification of all 31 baseline declarations or all seven sources;
-the accepted independent review and earlier source receipts remain recorded.
-
-The accepted G3 text's old missing FixedSubgroup object-file condition is
-obsolete: the current shared build elaborates the existing import. This
-technical condition is not the completion obstacle. The mathematical
-supplier contracts in the table above remain missing.
-
-## Resume instructions
-
-1. An owner-authorized job must replace E5's vacuous enhancement and animation
-   signatures with faithful carriers, coherence equations and ordinary
-   comparisons, including the SF.1/S.1/DD.0 quotient-stack requests. It need
-   not prove those supplier theorems first. Keep the general theory there.
-2. Specialize those interfaces here, starting with `DerivedParameterStack`
-   and `CategoricalHeckeDatum`, then induced-perfect and good-filtration
-   interfaces, then LP4. Preserve the ordinary affine/group signatures as
-   comparisons and keep every accepted API/test name.
-3. Resolve G1's existing-owner reductive/highest-weight and complex-admissible
-   extensions. Specialize the repaired LP0.6 interface to the actual
-   admissible Weil×SL₂(C) carrier, with the prescribed projection and dual
-   conjugation; the full wild enhancements still need its component-group
-   representation interface.
-4. G4's characteristic-zero finite-Q relatively discrete continuity and
-   G6's field-GIT/ownership edge reconciliation remain. Finite-coordinate
-   discrete-inertia examples do not discharge G4. G2 is the source's open
-   torsion-sensitive independence question; retain the precise torsion-free
-   boundary instead of inventing an independence theorem.
-5. Check full target/signature coverage and `lean-check`, then add the
-   metadata file only when all §20 requirements are met. Preserve the
-   historical ordinary constructions and remaining-work table below.
-
-## Validation
-
-- Final `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  exit 0; 261 warnings, all `declaration uses sorry`; zero errors and no
-  other warning classes. Memory available before the check: 98 GB. This
-  checks signatures with admitted proofs, not omitted enhanced targets.
-- `python3 scripts/check_blueprint.py research/blueprint/packets/LanglandsParameterStacks.json`:
-  zero errors and zero warnings. Input unchanged: 79 nodes, 140 API items,
-  90 tests, eight planned stages and five explicit gaps.
-- README inventory: all 79 target/source/prerequisite blocks, all 140 API
-  names and all 90 test names retained. The complete heading sequence and
-  147 internal links are unchanged. README: 174,503 bytes, below 200 KB.
-- Intake `check-files`: three changed deliverables, zero problems.
-- `git diff --check`: passed; changed paths are exactly the two package files
-  and this issue's handoff.
-
-No library build, Lake update, cache download or language server was started.
-All checks have finished; no background compile remains. Nothing in scratch
-is needed for continuation beyond this note and the submitted files.
-
----
-
-## Historical checkpoint through #8214
-
-# PKG-LanglandsParameterStacks — blocked checkpoint
-
-Issue: #7909. Worker: Codex, session `codex-eMVz7a`.
-Date: 2026-10-10. Claim confirmed by bot comment 6093268965 in reply to
-6093267983. Continues checkpoints #8167, #8186, #8197 and #8204.
-
-## Current outcome
-
-This is a checkpoint, **not a completed package**. The continuation adds actual
-normal-quotient descent for the ordinary continuous cocycle interface and the
-finite-coordinate open-kernel argument used in discrete Weil continuity. The
-README explains their hypotheses, maps and counterexamples. General enhanced
-foundations remain blocked at their existing suppliers; the new statements do
-not stand in for the absent condensed or enhanced targets.
-
-Only the package README, Suggested.lean and this handoff change. The accepted
-packet, original reader and original suggested file remain unchanged.
-`metadata.toml` remains absent because existence of all deliverables signals a
-completed package. Add `topic = "math.NT"` only once the required interfaces
-and examples are actually supplied.
-
-## New interfaces and where to resume
-
-The new Lean block is between `end Continuous` and `section Wild`.
-
-- `CrossedCocycle.descend` and `quotientEquiv` use the actual group Γ/P, with
-  P normal and P≤ker(α). The subtype requires c|P=1. The evaluation equation
-  fixes the descended cocycle; the inverse equation fixes inflation. Gauge
-  descent retains the action-kernel hypothesis explicitly in
-  `gauge_trivial_on` rather than allowing Lean to drop that section variable.
-- `LParameter.quotientEquiv` uses the quotient topology, with evaluation and
-  inverse equations. Its gauge equation retains the orbit-map continuity
-  assumptions on the original and quotient actions.
-- `FiniteWildPiece.cutoffMap` is the canonical map Γ/P′→Γ/P when P′≤P.
-  `quotient_inflate` identifies its pullback with the existing inflation of
-  wild pieces, and `inflate_injective` records injectivity. These statements
-  do not prove open-and-closed scheme inclusions or the condensed comparison.
-- `finiteWild_iff_finite_range` assumes a continuous cocycle, a compact
-  subgroup P and a T₁ target. An open cocycle kernel gives finitely many right
-  cosets and hence finite image; finite image makes the identity fibre open.
-  The separate pro-p/ℓ-adic argument establishing this condition for every
-  parameter is still required.
-- `DiscreteWeilContinuity.inertia_kernel_open` uses finitely many discrete
-  coordinate functions evaluated on the same lift. Equality to their values
-  at 1 must separate the lift from 1 on inertia. Compact inertia then gives
-  `finite_inertia_image`. Open inertia and a discrete target give
-  `continuous_lift`, without any finite-image assertion for the whole Weil
-  group. Specializing these lemmas still requires the IHG anchor and actual
-  invariant-generator separation theorem, not arbitrary test functions.
-
-The new examples check the identity and full cutoffs, the finite-image
-comparison, the failure of action descent for the unit cocycle with C₂
-negation action, trivial lifts, an empty separating family, and a constant
-nonseparating coordinate on C₂. `unramifiedPower` is the actual homomorphism
-from multiplicative ℤ to ℚˣ sending k to 2^k. Its examples test Frobenius value
-2, degree-zero and inverse values, trivial identity inertia image and infinite
-full image. ℚˣ has its usual
-Mathlib topology here; a discrete degree source makes the map continuous.
-This model demonstrates why compact-inertia finiteness cannot be extended to
-full-Weil finiteness; it is not a condensed-coefficient specialization.
-
-## Independently confirmed blocker
-
-G3 remains a supplier design/signature blocker. The current
-`research/blueprint/suggested/EnhancedDerivedSheaves--E5.lean` was read in full:
-monoidal coherence is represented by `True` at lines 79–81, `CAlg` by `Unit`
-at line 104, stability by `True` at lines 113–115, compactness/Ind by `True`
-at lines 141/145, and `AnimatedAlg` by `Unit` at line 199. Searches of current
-upstream suggested files and current Tau Ceti found no faithful replacement.
-The required animated stacks, stable symmetric monoidal infinity categories,
-Perf/IndPerf and coherent actions therefore have no usable supplier contracts.
-
-PROTOCOL §§13 and 20 require these actual interfaces; §15 gives their general
-foundations to the existing owners. This issue permits no edits to those
-owners. Complete packaging therefore needs the supplier contracts settled
-first. Adding local general foundations or using unconstrained predicates
-would not resolve this gap faithfully. Stopping is due to this independently
-confirmed blocker, rather than the four-hour time limit.
-
-G1, G4 and G6 also retain the obligations recorded below. In particular, the
-finite-coordinate argument does not prove LP2c.3 characteristic-zero
-relatively discrete continuity. No accepted gap is marked resolved, and no
-ordinary signature is counted as completion of an enhanced target.
-
-## Sources and library checks in this continuation
-
-Read the current upstream ReductiveGroups and AlgebraicVectorBundles READMEs
-in full, the E5 suggested file, accepted plan, library audit and existing
-package interfaces. Read-only upstream roadmap commit:
-`dea8191cc6047d6142a65872ebce6eeeb841a29b`; current Tau Ceti library commit:
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-
-For the new mathematical arguments, read:
-
-- Fargues–Scholze, §VIII.1.1 and Theorem VIII.1.3 with its proof, printed
-  pp.278–280, from the author-hosted Geometrization PDF. SHA-256:
-  `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
-- Böckle–Harris–Khare–Thorne, Proposition 4.7(iii), printed pp.23–24, from
-  the published Acta PDF. The profinite-group proof is applied only to compact
-  inertia; openness then transports continuity to Weil cosets. SHA-256:
-  `15c4b9668e335f75225215bb367c1051769990595232f8015f441d2e2c86ba2c`.
-- Quast, Theorem 3.7, Claims A–C, printed pp.13–15, from the author-hosted
-  pseudocharacters PDF, for the disconnected anchor/extension argument. This
-  does not rely on Theorem 3.8's compactness argument. SHA-256:
-  `67eb82118e49df3f7da6c1e211ad9961fc7323fc4d09d0559bcbc2434eead827`.
-
-Read the needed Mathlib quotient lift/evaluation, quotient topology,
-open-subgroup finite-quotient and continuity-at-one declarations at
-`082e2d37e8b0463410cdb532e111cd43d5a66174`. Compared pinned git objects with
-the shared build byte-for-byte for Group/Quotient, Group/Neighborhood,
-OpenSubgroup, QuotientGroup/Defs and Instances/Rat; all match. Earlier
-31-baseline and source readings remain inherited verification, not fresh
-claims of this continuation. No restricted book was needed, and no source
-passage or source file is included in the repository.
-
-## Final validation
-
-- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  exit 0, 262 warnings, all `declaration uses sorry`; zero errors and zero
-  other warning classes. This certifies elaboration of signatures with
-  admitted proofs, not their proof correctness or absent supplier targets.
-- Packet checker: zero errors and zero warnings; accepted input unchanged.
-- README audit: 79 target headings, 79 source blocks and 79 prerequisite
-  blocks; all 140 accepted API names and 90 accepted test names retained.
-  Target headings and all 147 internal links are unchanged. README size:
-  171,138 bytes, below 200 KB. Coverage does not certify missing
-  signatures.
-- Intake `check-files`: three changed deliverables, zero problems.
-- `git diff --check`: passed.
-
-No Lake project, library build, cache download or language server was started.
-No compile remains running. All information needed to resume is in this note
-and the submitted files; scratch may be deleted after opening the PR.
-
-The historical note below preserves the mathematical interfaces and supplier
-obligations from #8204. Its readings and counts describe that earlier
-checkpoint; the current continuation's validation above is authoritative.
-
----
-
-# Inherited checkpoint #8204 — codex-XDEuv3
-
-Issue: #7909. Worker: Codex, session `codex-XDEuv3`.
-Date: 2026-10-10. The claim was confirmed by the swarm bot against comment
-6093067320. This continues the merged checkpoints #8167, #8186 and #8197.
-
-## Outcome
-
-This is a checkpoint, **not a completed package**. This continuation replaces
-LP0's arbitrary enhancement denominator with the actual invariant dual centre
-and gives the centre and quotient identifications, with their characteristic
-maps and required hypotheses. It corrects the ordinary wild-restriction and
-centralizer examples to use the framed lift p↦(1,p), and transports quotient
-representations under dual-group conjugation. The submitted signatures
-elaborate with only `sorry` warnings. This certifies their Lean forms, not their
-proofs or the still absent enhanced/condensed targets.
-
-The README retains all 79 targets, 140 accepted API items and 90 accepted
-definition/construction tests. Its new paragraphs explain the intrinsic
-denominator, fixed-centre identification, trivial Weil-centre hypothesis and
-conjugation equations. The accepted packet, original reader and original
-suggested file were not edited. No source passage, source file or
-section-by-section source summary is included.
-
-`metadata.toml` remains absent: the queue uses existence of all output paths
-to detect package completion, and adding it would misclassify this checkpoint.
-When all required signatures are present, its content is `topic = "math.NT"`.
-
-## New LP0 group interfaces
-
-The new block follows `section TwistedCentralizer` in the package's
-Suggested.lean. It uses Mathlib's actual semidirect product, centres and group
-quotients. It plans no second reductive-group or admissible-parameter theory.
-
-- `WildEnhancement.standardWild` is `inr.comp P.subtype`; its projection is
-  the wild inclusion. With trivial P-action on H, its intrinsic twisted
-  centralizer is the entire L-group. A nonexample shows why the constant
-  homomorphism cannot replace this framed lift when P is nontrivial.
-- `invariantDualCenter` is precisely the subgroup of central h∈H satisfying
-  α(w)(h)=h for every w. `dualCenterEmbedding` maps it into the actual centre
-  of the twisted centralizer by h↦(h,1), with an injectivity statement.
-- `denominator` is that embedding's image, not a caller-selected subgroup.
-  `wildEnhancementGroup` is the centre modulo that image. `mk_eq_one` states
-  that a representative is killed exactly when its ambient value is (h,1)
-  for an invariant dual-centre element; `mk_dualCenter` is the forward case.
-- `dualCentralizer` is the subgroup of H whose embedded points commute with
-  ρ(P). `fixedCentralizerCenter` takes its centre and imposes commutation
-  with the extending φ(W). `centerEquiv` identifies the intrinsic centre
-  with this subgroup, assuming φ has the identity Weil projection, restricts
-  to ρ, and Z(W)=1. Its value equation fixes the identification h↦(h,1),
-  and `centerEquiv_denominator` fixes the denominator correspondence.
-- `wildEnhancementGroup.centerIdentification` descends that identification
-  to a quotient equivalence; its equation on `mk` fixes the descended map.
-- `conjugateWild`, `centralizerConjugateEquiv` and `centerConjugateEquiv`
-  are dual-group conjugations by (h,1). They fix the embedded invariant dual
-  centre, so `wildEnhancementGroup.conjugateEquiv` is defined on quotients,
-  with an equation on every centre representative. `transportRep` pulls a
-  quotient representation across the inverse equivalence.
-
-The enhancement examples test the trivial framed lift, annihilation of the
-invariant dual centre, and evaluation of a transported quotient representation.
-An additional example with H=1 and W=ℤ shows that triviality of the enhancement
-quotient fails without the trivial-Weil-centre hypothesis. These are admitted
-signature examples. The full accepted restriction and conjugation tests for
-representations from S_φ are **not yet supplied**: they require the actual
-complex admissible-parameter and algebraic identity-component carrier. Do not
-count the group-level examples as completing that interface.
-
-## Inherited LP2 work
-
-Checkpoint #8197 added the LP2 block following `section FreeIndex`, before
-`section Pseudocharacters` in the package's Suggested.lean. It uses the existing imported convolution
-group of Hopf points, and the previous checkpoint's algebraic action and affine
-cocycle equations. It introduces no replacement reductive-group model or
-second generic pseudocharacter theory.
-
-- `FreeCocycleIndex.coordinates` is the coproduct of n copies of C=O(H).
-  `universal` is the actual free crossed cocycle on the coproduct inclusions.
-  `pointsEquiv_apply` identifies its evaluation under every algebra-valued point.
-- `gaugeAction` is constructed by gauge-transforming the universal cocycle at
-  the universal H-point. Evaluation, counit and coassociativity signatures fix
-  the scheme action; invariants are not invariants of H(R)-points alone.
-- `wordPullback` evaluates the universal target cocycle at the indexing word
-  of each source generator. Its generator, identity, composition and gauge
-  equations give the covariant coordinate maps and equivariance square.
-- `coordinateDiagram` is the **raw** coordinate diagram used by free-resolution
-  comparisons. `invariantCoordinates`, `invariantPullback` and
-  `invariantCoordinateDiagram` restrict it to equalizers of the gauge coaction
-  and the map a↦1⊗a. Both diagrams are in `CommAlgCat R`.
-- `ExcursionAlgebra` takes the actual algebraic action, not a supplied functor.
-  `ofFree`, `lift`, `lift_eval`, `lift_unique` and `hom_ext` expose its colimit
-  universal property. All three accepted excursion tests now use actual
-  Hopf-model diagrams, including C=R for the trivial dual group.
-- `FreeCocycleIndex.mapGroup` postcomposes tuples with a group map f.
-  `invariantCoordinateTransport_val` pins transport to identity on the
-  underlying generator coordinates, for the pulled-back action.
-  `ExcursionAlgebra.mapGroup` is constructed by colimit descent from these
-  transported structure maps. Its tuple equation and identity/composition
-  laws fix its direction and functoriality.
-- For Γ given by a finite presentation, `evaluateFree` restricts the
-  represented universal cocycle to each indexing tuple. Its generator, word
-  and gauge formulas give `rawComparisonCocone`, `rawCompare` and
-  `rawCompare_isIso` for the ordinary coordinate-algebra presentation.
-  `evaluateInvariantFree` restricts that cocone to the invariant equalizers;
-  `comparisonCocone` and `compare` are canonical. `compare_ofFree`,
-  `compare_eval` and the final algebra-valued-cocycle example fix evaluation.
-
-Additional examples check crossed multiplication, action-dependent inversion,
-coordinate-map direction, and trivial gauge coaction for a split torus with
-trivial action. The existing C₂-negation and torus inversion tests retain the
-nontrivial-action checks. These are signatures with admitted proofs, not
-implemented mathematical tests.
-
-The inherited ordinary raw-colimit statement is the ordinary presentation argument
-of FS §VIII.3.2, p.287. It does not assert the animated comparison of
-Proposition VIII.3.5, the equivariant IndPerf comparison of Theorem VIII.3.6,
-universal homeomorphism, invariant base change, or continuity. Those retain
-their own targets and hypotheses. No good-prime restriction was added to the
-ordinary excursion construction.
-
-These signatures use small coefficient algebras and small groups (`Type`).
-The integral coefficient rings and Weil models needed here are small. The
-owner's dual Hopf algebra and finite-action quotient still need specialization,
-as does the finite-wild presentation; generic Hopf data alone establishes no
-Weil-specific geometry or continuity.
-
-## Blocking condition and resolution
-
-The accepted plan's G3 remains a **supplier design/signature blocker**. It
-requires faithful animated parameter and quotient stacks, stable symmetric
-monoidal infinity categories, Perf/IndPerf, the full cotangent complex,
-coherent singular support and relatively discrete condensed coefficient tensors.
-A comment inventory or an ordinary-category shadow does not supply these
-contracts. PROTOCOL §§13 and 20 require the actual named interfaces; §15
-assigns the general contracts to their existing owners.
-
-This continuation independently inspected the only E5 suggested file,
-`research/blueprint/suggested/EnhancedDerivedSheaves--E5.lean`:
-
-- `SymMonInftyCat` has `True` fields at lines 79–81;
-- `CAlg` is `Unit` at line 104;
-- stability has `True` fields at lines 113–115;
-- compactness and Ind-completion are `True` at lines 141 and 145;
-- `AnimatedAlg` is `Unit` at line 199.
-
-The E0 quasicategory carrier is not the missing monoidal, stable, animation or
-descent contract. Searches of current Tau Ceti and current upstream suggested
-files found no replacement for these enhanced carriers. DGAInfinity's concrete
-DG/A-infinity operations also do not provide them. The current upstream
-roadmap and library commits are unchanged from the preceding checkpoint:
-`dea8191cc6047d6142a65872ebce6eeeb841a29b` and
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` respectively; both were read only.
-
-The required resolution is to settle faithful carrier/coherence contracts at
-EnhancedDerivedSheaves and the other existing owners, then import them into
-this package. Building general enhanced foundations in this package would
-violate the ownership rule; changing the owners would violate this issue's
-explicit permitted-file list. Replacing the missing conditions by `True`,
-`Unit` or an unconstrained proposition would violate the signature rule.
-This is why this run submits a checkpoint without pretending the job is done;
-the stopping reason is a blocker, not elapsed-time exhaustion.
-
-## Remaining interfaces
-
-Resume against the exact statements, names, API and tests in the accepted
-packet and the README; symbol counts do not certify agreement.
-
-| Targets | Remaining work |
-| --- | --- |
-| LP0 condensed parameters | Actual relatively discrete coefficient functors, natural coefficient maps and finite-type module conditions; full matrix criterion and finite-wild existence/continuity signatures. The ordinary continuous LParameter remains a shadow. |
-| LP0 wild enhancements | The intrinsic quotient, canonical centre identification and quotient-representation conjugation now have group-level signatures. Still provide the actual admissible complex W_F×SL₂(C) carrier, finite wild image, S_φ with its algebraic identity-component denominator, restriction from S_φ and its naturality, and extended wild parameters. WildInertialParameter itself remains an ordinary extendibility shadow, without the admissibility or prescribed-projection condition. |
-| LP1 affine specialization | Specialize the existing affine equations to the owner dual-group Hopf algebra and finite-wild Weil presentation; actual condensed point comparison and the accepted `scheme_l_adic` test. |
-| LP1 derived parameters | Animated quotient descent, classical truncation, perfect pullback, continuous derived Weil cochains and duality, full cotangent dual with shift/Tate twist, coherent support and relative Hochschild action. |
-| LP1 Weil–Deligne | General pinned-dual cocycles and Lie(H)-valued monodromy, geometric degree, quasi-unipotent/logarithmic comparison; current signatures are split GLₙ shadows. |
-| LP2 quotient and closed orbits | Reductive specialization of actual coaction invariants, coarse quotient universal maps, scheme parabolic/Levi families, absolute/strong reducibility and semisimple-parameter APIs. |
-| LP2 free presentation | Ordinary coordinate/invariant diagrams, excursion colimit, group maps and represented comparison are now present. Still supply the animated free resolution, universal-homeomorphism theorem, rational isomorphism, finite-Q Θ-presentation and condensed torsion-free transition theorem. |
-| LP2 categorical excursion | Coherent finite-set stable monoidal Hecke datum, creation/annihilation/reindexing, actual excursion operators, invariant-function presentation independence and the enhanced centre map. |
-| LP2 pseudocharacters/traces | Projected H⋊Q/H fibre adapter over the actual IHG carrier, prescribed component evaluations, reconstruction and continuity; connect group-basis traces to IHG's algebra-linear pseudocharacters. |
-| LP3 | Enhanced good-filtration t-structure, induced-perfect subcategory, bar/adjoint-unit/generation, fixed-locus and mapping-approximation/gerbe signatures; structural reductive centralizer/slice inputs. |
-| LP2 integral/LP4 | Enhanced continuous/condensed invariants, higher cohomology/base change, exact monoidal universal bundles, good-prime generation and module-category equivalences. |
-
-Inherited boundaries remain in force: eight Chapter X action/application targets
-belong to ExcursionOperatorsAndSpectralAction; two generic finite-anchor and
-reconstruction targets belong to IHG; general highest-weight theory belongs to
-ReductiveGroupsIntegralRepresentationsPartII. Do not recreate them locally.
-
-The accepted input also records G1's structural reductive/highest-weight and
-complex-enhancement supplier obligations, G4's missing characteristic-zero
-relatively discrete continuity calculation on compact inertia, and G6's
-external field-GIT/ownership edge reconciliation. Field reconstruction must
-not acquire the entire good-prime LP3 generation branch. G2 is a source-level
-open question about full excursion-algebra independence at arbitrary bad
-primes; only the torsion-free assertion is planned. Do not invent a stronger
-theorem to fill it.
-
-Two inherited corrections still require the plan owner, rather than package
-edits to the accepted packet: the LP3 characteristic-two swapping example
-obstructs the prime-to-characteristic order of P, not a separate π₁ condition
-(FS VIII.5.18, p.308); Lafforgue Proposition 10.8's locator must include p.138
-(use pp.138–139). The package retains these corrected descriptions.
-
-## Reading and validation
-
-This continuation read the current upstream ReductiveGroups and
-AlgebraicVectorBundles READMEs in full, the E5 suggested file in full, the
-accepted plan and LP0–LP4 library audit, and the existing package signature
-file. Searches checked current Tau Ceti and upstream suggested files for
-replacement enhanced interfaces. Earlier checkpoints' broader source and
-31-baseline readings remain inherited work, not additional readings claimed
-here.
-
-For the new wild-enhancement construction, KSS §1.20–§1.21, equation (1.1),
-pp.8–9, were read from the public arXiv PDF, identifier `1611.02667`. Its SHA-256
-is `1cbcbb779d8d4ba8f3339d749b3dd7bc3d2555e6792491338a861d45009d9092`,
-matching the accepted source. The KSS instance retains quasi-split classical
-groups, odd residual characteristic, complex coefficients and admissible
-extensions; no wild local Langlands conjecture is asserted. The new abstract
-group identities isolate only the algebraic hypotheses actually used. No
-restricted book was needed.
-
-This continuation read Mathlib's SemidirectProduct, Subgroup/Center,
-QuotientGroup/Defs and RepresentationTheory/Basic declarations at
-`082e2d37e8b0463410cdb532e111cd43d5a66174`, and compared those source files
-byte-for-byte with the shared build. Inherited baseline checks from #8197
-cover Tau Ceti PointsFunctor and FunctorOfPoints at
-`f790474821cf4256814db967cb154e7af3d0c369`, and Mathlib CommAlgCat/Basic,
-FreeGroup/Basic, Limits/Shapes/Products, Limits/HasLimits,
-HopfAlgebra/MonoidAlgebra, Bialgebra/Basic and TensorProduct/Maps. The shared
-build is not a git clone; comparisons used pinned git objects in the read-only
-library trees.
-
-Checkpoint #8197 read FS §VIII.3.2 and Definition VIII.3.4, p.287, and
-Propositions VIII.3.5–VIII.3.7 with their arguments, pp.288–289, from the
-author-hosted Geometrization PDF, SHA-256
+Worker: Codex (GPT-6), session `codex-pibzGI`, 10 October 2026.
+Branch: `codex-pibzGI-langlands-parameter-stacks`.
+[Bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6094121461)
+confirms this session's claim comment 6094120595.
+None of the manager's priority issues appeared in the complete 761-issue
+available inventory at selection. This available focus package followed the
+WORKERS fallback order. Only this job was claimed.
+
+## Outcome and next effective action
+
+**Incomplete: blocked by supplier signature contracts.** This run independently
+checked the accepted consumer requests, current E0/E5 signatures, current
+upstream roadmaps and the open E5 owner PR. The contracts needed to complete
+the package remain missing. The stopping reason is this scope boundary, not
+the eight-hour time limit or a requirement to implement admitted proofs first.
+
+This checkpoint changes only this handoff, consolidating the previous repeated
+notes into one current account. The inherited package README and Suggested.lean
+are unchanged. No mathematical source passage is reproduced. No accepted gap,
+review or packet status is changed. The accepted plan is a complete target-level
+pass with five gaps and sixteen requests; its eight stages are `planned`, none
+`closed`. Acceptance of that planning pass does not supply the omitted signatures.
+
+**Next effective action:** route the E0/E3/E5 coherent-interface repairs to their
+existing owner, including the SF.1/S.1 derived quotient-stack descent interfaces,
+then resume specialization in this package. Repeating an unchanged supplier
+audit or adding more ordinary group examples will not finish the package.
+There is no need to prove the supplier theorems before exporting faithful
+signatures and equations. Their hypotheses and coherent structures must be
+expressible.
+
+Issue #7909 permits only the package's three files and this handoff, and explicitly
+forbids packet edits. PROTOCOL §§13 and 20 require the plan's definition, API and
+test signatures; §15 assigns the general enhanced foundations to their existing
+owners. Rebuilding those foundations here exceeds this job's scope. Replacing
+them with unconstrained propositions or ordinary categories cannot discharge
+the enhanced statements.
+
+`metadata.toml` remains absent. The actual `issues.deliverables_complete`
+implementation first requires every output path, then treats packages as complete
+without a further mathematical coverage test. Adding the last path would therefore
+misclassify this unfinished package. When completion is justified, write
+`topic = "math.NT"`.
+
+## Concrete signature deficit checked in this run
+
+Read the full statements, hypotheses and direct prerequisites of these five
+accepted targets, and compare every API/test name with both package files.
+All 26 API entries and 17 tests below occur in the README and none occurs in
+Suggested.lean. This is a minimum demonstrated deficit, not a full signature audit.
+
+| Consumer target | API entries / tests missing | Required owner interface |
+| --- | ---: | --- |
+| LP1 `derived-parameter-stack` (`DerivedParameterStack`) | 5 / 3 | Animated mapping stack over BQ, framing and forgetful map, classical-point comparison and enhanced perfect pullback; E5:animation, E5:abstract, SF.1 and S.1. |
+| LP2:excursion-presentation `categorical-hecke-datum` (`CategoricalHeckeDatum`) | 5 / 3 | Coherent exact finite-set monoidal functors, equivariant endofunctors, unit/fusion and the enhanced operator centre; E5:abstract. |
+| LP3 `good-filtration-t-structure` (`goodFiltrationTStructure`) | 5 / 4 | Stable IndPerf, actual highest-weight tests, truncation and tensor compatibility; E5:abstract, E5:presentability and the existing integral representation owner. |
+| LP3 `induced-perfect-complexes` (`InducedPerfectComplexes`) | 5 / 4 | Enhanced quotient-stack Perf, stable retract closure and its Ind/module comparison; S.1 and E5:abstract/presentability/animation. |
+| LP4 `rep-action-on-perf` (`UniversalRepresentationBundle`) | 6 / 3 | Associated perfect bundles with coherent Weil action, exact tensor action, finite-set fusion and coefficient pullback; S.1 and E5:abstract. |
+
+The exact tests to recover are:
+
+- `derived_stack_trivial_group`, `derived_stack_free_group`, `derived_stack_gauge`;
+- `hecke_empty_set`, `hecke_fold`, `hecke_zero_category`;
+- `good_torus`, `good_zero`, `good_induced`, `good_shift_sign`;
+- `induced_point`, `induced_trivial_group`, `induced_retract`, `induced_not_all_bad_prime`;
+- `rep_bundle_unit`, `rep_bundle_at_parameter`, `rep_bundle_tensor`.
+
+The accepted packet gives the complete API suffixes and statements. LP3's
+connective convention is D^{≤0} on IndPerf; do not claim that truncation preserves
+Perf. Universal representation bundles exist before the good-prime generation
+theorem; do not impose its prime restriction on their definition.
+
+## Current supplier evidence
+
+Read the complete current `suggested/EnhancedDerivedSheaves--E5.lean`:
+`SymMonInftyCat` has `True` projection/coCartesian/Segal fields (lines 77–81);
+`CAlg` is `Unit` (104); stability has `True` fields (112–115);
+compactness and Ind-completion are `True` (141/145); coherent action has
+`True` fields (168–170); animation is `True` and animated algebras are `Unit`
+(189/199). These signatures do not express the required contracts.
+
+Read the complete `suggested/EnhancedDerivedSheaves--E0.lean`. Its meaningful
+prefix provides repleteness and weak contractibility, from E2. Its closing note
+explicitly omits the other 66 signatures, including the general infinity-category
+operations. E3 is part of the E0–E4 packet; there is no separate E3 suggested
+file in this checkout.
+
+The E5 owner issue [#720](https://github.com/CBirkbeck/tauceti-explorer/issues/720)
+has open [PR #8009](https://github.com/CBirkbeck/tauceti-explorer/pull/8009).
+Inspected head: `b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f`.
+Read its description, relevant signature blocks and complete `signatureOmissions`.
+It improves carriers but does not close this deficit:
+
+- `SymMonData` (lines 91–100) has an actual projection, but fibre comparisons
+  are `HEquiv`, defined as equivalences of homotopy categories. Cocartesian,
+  inner-fibration and full Segal mapping-space conditions are explicitly omitted.
+- `PresentableData` (428–432) records a cardinal, generators and inclusion;
+  regularity/accessibility and all-colimit conditions remain omissions.
+- `RightTensoredData` (460–463) lacks coherent action and preservation axioms.
+  The module base-change result is a homotopy-category comparison.
+- `CoherentActionData` (493–495) records a base and family; base identification,
+  transitions and higher coherence remain explicitly omitted.
+- The omission list includes stability, compact generation, model conditions,
+  preservation and internal module-linearity. `animatedAlgebras` uses a genuine
+  quasicategory carrier, but these supporting structures are not exported in full.
+
+Merging #8009 alone would improve the prototypes, not justify marking G3 resolved.
+This is inspection of owner work, not a second claim or an independent review.
+
+## Current upstream and source checks
+
+Read current upstream **ReductiveGroups** and **AlgebraicVectorBundles** READMEs
+in full. The latter supplies ordinary scheme modules, sheaf tensor/dual, finite
+locally free bundles and relative Spec, with exact affine comparisons. It does
+not supply the stable enhanced quotient-stack and animation interfaces required
+above. Those ordinary operations must still be imported wherever applicable.
+
+Current read-only commits:
+TauCetiRoadmap `8c72a04753b11cab07fa593cc38ceaa7c0515380`;
+Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+A bounded declaration-name/text search across current upstream Suggested.lean
+files and current Tau Ceti found no replacement under the enhancement carrier,
+quasicategory and animated-algebra terms searched. The upstream matches concerned
+ordinary stable quotient categories. This is not an exhaustive audit of either
+library. Read all eight LP rows of the reviewed library audit.
+
+Read Fargues–Scholze, [*Geometrization of the local Langlands correspondence*](https://people.mpim-bonn.mpg.de/scholze/Geometrization.pdf),
+§VIII.4 setup and Theorem VIII.4.1, printed pp.290–292; Theorem VIII.5.1 and its
+reduction, pp.293–294; Definition VIII.5.4, pp.294–295; and §VIII.5.2 and
+Proposition VIII.5.8 with its proof, pp.295–296. The Hecke construction requires
+finite-set compatibility; the good-filtration and induced-perfect arguments
+operate in the stable enhanced Ind category and use its module/duality structure.
+The ordinary sheaf or homotopy-category carrier alone does not express these
+full contracts. The accepted LP2 target explicitly requests the stable version.
+Public PDF read on 2026-10-10, SHA-256
 `9ab9efbd0df251bfa3b610d1d1d88a8dfb1bdf7c397bd04f4c277280d98ae905`.
-That is the source of the inherited LP2 construction, not a new reading
-claimed in this continuation.
+No restricted source was needed.
 
-- `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
-  **exit 0**, 232 warnings, all `declaration uses sorry`; zero errors and
-  zero other warning classes. This checks the submitted forms, not the omitted
-  enhanced/condensed ones.
-- `python3 scripts/check_blueprint.py research/blueprint/packets/LanglandsParameterStacks.json`:
-  zero errors and zero warnings; accepted input unchanged.
-- README audit: 79 target headings, 79 source blocks, 79 prerequisite blocks;
-  all 140 API names and 90 test names remain. All headings and the 147 internal
-  links are unchanged; README size is 166,267 bytes, below 200 KB. This is a
-  coverage audit, not certification of the missing signatures.
-- `python3 research/blueprint/intake.py check-files` on the three changed
-  deliverables: three files, zero problems.
-- `git diff --check`: passed.
+## Preserved ordinary work
 
-No Lake project, library build, cache download or language server was started.
-No compilation remains running. Scratch contains no information required to
-resume beyond this note and the submitted files.
+These interfaces were inherited, not authored or reproved in this session.
+Keep them as comparisons when the full supplier interfaces are available:
+
+- `CrossedCocycle`, the actual semidirect section/gauge equations, algebraic
+  Hopf-point action and finite-presentation affine cocycle scheme.
+- Normal-quotient descent, `quotientEquiv`, finite-wild cutoff inflation and
+  the compact/T₁ finite-image comparison. Descent requires P normal and
+  P≤ker(α); retain that action-kernel hypothesis in gauge statements.
+- `DiscreteWeilContinuity` uses finitely many discrete separating coordinates
+  on compact inertia. It gives open kernel and finite inertia image, not finite
+  full Weil image. `unramifiedPower` sends multiplicative integer degree k to
+  2^k in Q× and checks that distinction. These are not the condensed G4 theorem.
+- `WildInertialParameter` now requires an extending section with the prescribed
+  projection. Conjugation is through ker(π), with the actual semidirect dual
+  inclusion. Preserve the proved projection/constructor checks and S₃ exclusion
+  example. Older notes describing it as arbitrary extendibility are superseded.
+- `WildEnhancement` uses the invariant dual centre's actual embedded image as
+  denominator. Preserve the centre/quotient comparison with its Z(W)=1
+  hypothesis and the dual-group transport of quotient representations.
+- `FreeCocycleIndex` uses actual Hopf coordinate coproducts, the universal
+  cocycle, gauge coaction and word pullbacks. Keep raw and invariant diagrams
+  distinct, and invariants as coaction equalizers rather than H(R)-point invariants.
+  `ExcursionAlgebra` is their actual colimit with universal maps and evaluation
+  equations. The ordinary raw comparison does not assert the animated/IndPerf,
+  universal-homeomorphism, base-change or condensed transition results.
+- Weil–Deligne and dual nullcone prototypes are split GL_n comparisons; retain
+  their Frobenius scaling convention and explicit limits of generality.
+
+Earlier source/pinned-declaration readings belong to their authors. Detailed
+receipts and construction history remain in merged PRs
+[#8197](https://github.com/CBirkbeck/tauceti-explorer/pull/8197),
+[#8204](https://github.com/CBirkbeck/tauceti-explorer/pull/8204),
+[#8214](https://github.com/CBirkbeck/tauceti-explorer/pull/8214),
+[#8241](https://github.com/CBirkbeck/tauceti-explorer/pull/8241) and
+[#8246](https://github.com/CBirkbeck/tauceti-explorer/pull/8246).
+This session does not claim a fresh verification of all 31 pinned declarations
+or all seven sources.
+
+## Remaining work after supplier repair
+
+| Targets | Remaining interfaces |
+| --- | --- |
+| LP0 | Actual relatively discrete coefficient functors, natural coefficient maps, finite-type module conditions, full matrix criterion and finite-wild existence/continuity. |
+| LP0 wild enhancements | Admissible complex Weil×SL₂(C) carrier, finite wild image, S_φ with algebraic identity-component denominator, restriction/naturality and extended wild parameters. |
+| LP1 affine | Specialize the Hopf equations to the owner dual group and actual finite-wild Weil presentation; condensed point comparison and `scheme_l_adic`. |
+| LP1 derived | Animated quotient descent, classical truncation/perfect pullback, derived Weil cochains and duality, cotangent dual with shift/Tate twist, coherent support and Hochschild action. |
+| LP1 Weil–Deligne | General pinned-dual cocycle, Lie(H) monodromy, geometric degree and quasi-unipotent/logarithmic comparison. |
+| LP2 quotient | Reductive coaction invariants, coarse quotient universal maps, scheme parabolic/Levi families, absolute/strong reducibility and semisimple parameter API. |
+| LP2 free presentation | Animated free resolution, universal homeomorphism, rational isomorphism, finite-Q Θ-presentation and condensed torsion-free transition. |
+| LP2 excursion/pseudocharacters | Coherent Hecke datum and operators, invariant-function presentation independence and enhanced centre map; actual IHG projected fibre adapter, component evaluations, reconstruction/continuity and group-basis trace comparison. |
+| LP3 | Good-filtration/induced-perfect/bar/adjoint-unit/generation, fixed-locus, mapping approximation and gerbe signatures; reductive centralizer/slice inputs. |
+| LP2 integral / LP4 | Continuous/condensed invariants and cohomology/base change, universal bundles, good-prime generation and module equivalences. |
+
+G1's structural reductive, general highest-weight and admissible-complex
+extensions, G4's characteristic-zero finite-Q relatively discrete continuity,
+and G6's field-GIT/owner-edge reconciliation still remain. The finite-coordinate
+discrete argument does not discharge G4. G2 is the source's open question about
+full integral excursion independence at bad primes; retain the proved
+torsion-free boundary. Do not invent a stronger independence result.
+
+Eight Chapter X action/application targets belong to
+ExcursionOperatorsAndSpectralAction, generic finite anchors/reconstruction to
+IHG, and general highest-weight theory to
+ReductiveGroupsIntegralRepresentationsPartII. Field reconstruction must not
+inherit the entire good-prime LP3 generation branch. Preserve those boundaries.
+
+Two inherited plan-owner corrections remain outside this issue: the
+characteristic-two swapping example obstructs the prime-to-characteristic
+order of P (FS VIII.5.18, p.308), not a separate π₁ condition; Lafforgue
+Proposition 10.8 needs pp.138–139. The package already retains these corrections.
+After owner repairs, specialize the five demonstrated missing families first,
+then audit every remaining target/API/test and dependency. Add metadata only
+when the whole package meets §20.
+
+## Validation and receipts for this session
+
+- `check_blueprint.py packets/LanglandsParameterStacks.json`: zero errors,
+  zero warnings. Accepted input unchanged: 79 nodes, 140 API items, 90 tests,
+  31 planets, 31 baseline declarations, eight planned stages, five gaps,
+  sixteen requests.
+- `lean-check packages/LanglandsParameterStacks/Suggested.lean`: exit 0,
+  261 warnings, all `declaration uses sorry`; zero errors and no other warnings.
+  Available memory before launch: 101 GB. The wrapper waited for a shared slot
+  and then completed. Elaboration checks included signatures, not omitted
+  interfaces or admitted proofs. Pins: Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
+  `f790474821cf4256814db967cb154e7af3d0c369`.
+- README inventory: 174,503 bytes; 79 target headings, 79 source blocks,
+  79 prerequisite blocks; all 140 API names and 90 test names occur.
+  Name inventory alone does not establish signature fidelity.
+- Scoped intake `check-files`: one changed handoff, zero problems.
+  `git diff --check`: passed. Package and input files are unchanged.
+
+SHA-256 receipts, paths relative to `research/blueprint`:
+
+| File | SHA-256 |
+| --- | --- |
+| packets/LanglandsParameterStacks.json | `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087` |
+| suggested/EnhancedDerivedSheaves--E0.lean | `81fa4b84036cb09987d5421e0c26f39533777b3ca1be14e605f0d4cacb4864c7` |
+| suggested/EnhancedDerivedSheaves--E5.lean | `e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c` |
+| packages/LanglandsParameterStacks/README.md | `fc35c096a480a4e771ec2396f9e00391d46dbadb512f2c822c116bbb741e0d1a` |
+| packages/LanglandsParameterStacks/Suggested.lean | `ed8d8e138e6ef9947f66923b472d57b1f348e4577c5c175882d996ef8fc87f3a` |
+
+No library build, Lake update/cache command, language server or read-only-tree
+mutation ran. No compilation remains running. All continuation information is
+in this handoff and the existing artifacts; no scratch file is needed.

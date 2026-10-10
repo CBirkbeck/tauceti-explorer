@@ -18,6 +18,8 @@ The current boundary statement specifies continuous extension in rationally tran
 
 The current full suggested file was freshly checked with `lean-check`: exit 0, 23 `sorry` warnings, zero errors and no other warnings. Memory was 111 GiB available before checking. SHA-256: `346f61f69bf51c8bb85da98d105cd827f3ba361a1414710da7d630e2a1dd571b`. Do not reuse the superseded `61bf5337...` hash.
 
+[Parallel checkpoint #8242](https://github.com/CBirkbeck/tauceti-explorer/pull/8242) merged while this run was active and caused report/handoff conflicts. Its `codex-dj6XVp` receipt independently reproduces ShimuraData's failure at the unchanged hash, with 66 error headers and 113 warnings, three other than `sorry`. That evidence is preserved in the reconciled report with attribution; it was not compiled again here. The exact Adic replacement prose below is additional persistent handoff material.
+
 ## Six pending packet dispositions
 
 Each basename below denotes `research/blueprint/packets/<basename>.json` and `research/blueprint/suggested/<basename>.lean`. The suggested files need no edit merely to record a verdict.

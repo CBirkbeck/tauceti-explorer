@@ -2,7 +2,7 @@
 
 This roadmap constructs trait nearby and vanishing cycles, their inertia and monodromy calculus, algebraic Picard–Lefschetz theory, sufficiently ample pencils and their middle cohomology, geometric open monodromy, and the perverse comparison interfaces used by the Igusa programme. LPV.7 owns the general invariant-cycle and semistable-family exports. The early two-component calculation required by the algebraic local formula belongs to LPV.1.
 
-This is revision 2 of the target-level plan. Every original target and all 89 node ids are retained. All seven stages are planned, with precise source and supplier-form gaps; none is closed. The inherited independent review remains unchanged and the revision awaits a new review. The document is definitive. The suggested file distinguishes actual algebraic specializations from omitted geometric signatures; a documented name is not an elaborated API or successful unit test. All implementation statuses are unchecked.
+This is revision 2 of the target-level plan. Every original target and all 89 node ids are retained. All seven stages are planned at target level, with precise source and supplier-form gaps; none is closed. This revision is accepted by the independent review REV-LefschetzPencilsAndVanishingCycles--LPV.0~2, completed on 2026-10-10. The earlier review is retained as a historical report. The document is definitive. The suggested file distinguishes actual algebraic specializations from omitted geometric signatures; a documented name is not an elaborated API or successful unit test. All implementation statuses are unchecked.
 
 ## Conventions and ownership
 
@@ -20,7 +20,7 @@ Generic étale sheaves, derived categories, six operations and projective/Grassm
 
 ## Baseline and current upstream
 
-The elaboration baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Current read-only TauCetiRoadmap main `dea8191cc6047d6142a65872ebce6eeeb841a29b` and current Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` were also inspected to avoid planning newer upstream work. ClassicalGroups and OrthogonalGeometry were read as complete style/scope references; OrthogonalSpinGroups Layers 0/2 and the corresponding suggested declarations, IntegralLattices’ carrier and Chebotarev Layer 9 supply the precise imports used below.
+The elaboration baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. Current read-only TauCetiRoadmap main `8c72a04753b11cab07fa593cc38ceaa7c0515380` and current Tau Ceti `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` were also inspected to avoid planning newer upstream work. ClassicalGroups and OrthogonalGeometry were read as complete style/scope references; OrthogonalSpinGroups Layers 0/2 and the corresponding suggested declarations, IntegralLattices’ carrier and Chebotarev Layer 9 supply the precise imports used below.
 
 - [mathlib:LinearEquiv.transvection](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Transvection/Basic.lean) — For f : Dual R V and v : V with f v = 0, the linear equivalence x ↦ x + f x • v.
 - [mathlib:LinearEquiv.mem_fixedSubmodule_transvection_iff](https://github.com/leanprover-community/mathlib4/blob/082e2d37e8b0463410cdb532e111cd43d5a66174/Mathlib/LinearAlgebra/Transvection/Basic.lean) — x is fixed by the transvection x ↦ x + f x • v if and only if f x • v = 0.
@@ -46,7 +46,7 @@ The elaboration baseline is Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` a
 
 Construct the actual oriented fibre product and geometric specialization functors before using their derived versions. The finite-coefficient triangle and strict-local stalk formula precede finiteness, derived adic realization and comparison. Huber’s completion comparison is imported from exact H1 nodes on its noetherian/principal-type-(S) domain, with strict rank-one trait hypotheses for the nearby corollary; it compares RΨ, not RΦ.
 
-Coverage: **planned**. All original stage targets have nodes whose prerequisite chains terminate in checked baseline declarations, exact independent supplier nodes, requested owner stages or explicit source/prototype gaps. Planned at target level; not closed or independently accepted.
+Coverage: **planned**. Every stage target is represented at target level with its direct prerequisites, exact supplier requests and recorded source/form gaps. Independently reviewed as planned; no stage is closed and no implementation is claimed.
 
 ### Henselian trait and geometric fibre diagram
 
@@ -83,8 +83,8 @@ A henselian trait is S = Spec R for a henselian discrete valuation ring R. Fix a
 **Unit-test specifications.**
 
 - `TauCeti.AlgebraicGeometry.VanishingCycles.inertia_eq_top_of_strictlyHenselian` (degenerate) — If V is strictly henselian then Gal(s̄/s) = 1 and I = Gal(η̄/η).
-- `TauCeti.AlgebraicGeometry.VanishingCycles.inertia_puiseux` (value) — For V the henselisation of k[t] at (t), k algebraically closed of characteristic 0, I = Gal(η̄/η) ≅ Ẑ(1), acting on t^{1/n} through μ_n.
-- `TauCeti.AlgebraicGeometry.VanishingCycles.inertia_eq_valuation_inertia` (comparison) — I coincides with Mathlib's ValuationSubring.inertiaSubgroup for the valuation subring of k(η̄) over V, as a subgroup of the decomposition group, which here is all of Gal(η̄/η).
+- `TauCeti.AlgebraicGeometry.VanishingCycles.inertia_puiseux` (computation) — For V the henselisation of k[t] at (t), k algebraically closed of characteristic 0, I = Gal(η̄/η) ≅ Ẑ(1), acting on t^{1/n} through μ_n.
+- `TauCeti.AlgebraicGeometry.VanishingCycles.inertia_eq_valuation_inertia` (compatibility) — I coincides with Mathlib's ValuationSubring.inertiaSubgroup for the valuation subring of k(η̄) over V, as a subgroup of the decomposition group, which here is all of Gal(η̄/η).
 - `TauCeti.AlgebraicGeometry.VanishingCycles.wild_inertia_ne_bot` (non-example) — For V = the henselisation of 𝔽̄_p[t] at (t), I is not procyclic: the Artin–Schreier extensions x^p − x = t^{-a} (p ∤ a) give infinitely many independent ℤ/p quotients.
 
 **Acceptance.**
@@ -143,8 +143,8 @@ For a henselian trait S with closed point s and Y over s, construct the 2-fibre 
 
 **Unit-test specifications.**
 
-- `TauCeti.AlgebraicGeometry.VanishingCycles.equivSheavesOnTrait_constant` (value) — The constant sheaf Λ on S is the triple (Λ, Λ, id) with I acting trivially.
-- `TauCeti.AlgebraicGeometry.VanishingCycles.equivSheavesOnTrait_jPushforward` (value) — j_*G for a Gal(η̄/η)-module G is the triple (G^I, G, inclusion).
+- `TauCeti.AlgebraicGeometry.VanishingCycles.equivSheavesOnTrait_constant` (computation) — The constant sheaf Λ on S is the triple (Λ, Λ, id) with I acting trivially.
+- `TauCeti.AlgebraicGeometry.VanishingCycles.equivSheavesOnTrait_jPushforward` (computation) — j_*G for a Gal(η̄/η)-module G is the triple (G^I, G, inclusion).
 - `TauCeti.AlgebraicGeometry.VanishingCycles.equivSheavesOnTrait_degenerate` (degenerate) — For Y = ∅ the category is the terminal one.
 - `TauCeti.AlgebraicGeometry.VanishingCycles.not_triple_of_noninvariant` (non-example) — For Y = s, a pair (F_s̄, F_η̄) with an equivariant map φ whose image is not in F_η̄^I is not a sheaf on S: the description 1.2.2 forces φ to land in the inertia invariants.
 
@@ -197,9 +197,9 @@ Fix X→S, a henselian trait, its geometric normalization S̄, and the inclusion
 
 **Unit-test specifications.**
 
-- `TauCeti.AlgebraicGeometry.VanishingCycles.psiEta_trait` (value) — For X = S, Ψ_η(F) is F_η̄ with its Gal(η̄/η)-action.
+- `TauCeti.AlgebraicGeometry.VanishingCycles.psiEta_trait` (computation) — For X = S, Ψ_η(F) is F_η̄ with its Gal(η̄/η)-action.
 - `TauCeti.AlgebraicGeometry.VanishingCycles.psiEta_ne_invariants` (non-example) — For X = S, Ψ_η(F) = F_η̄ differs from i^*j_*F = F_η̄^I whenever I acts nontrivially: using j_* in place of j̄_* loses the inertia action.
-- `TauCeti.AlgebraicGeometry.VanishingCycles.psiEta_smooth_constant` (value) — For X smooth over S and Λ constant, Ψ_η(Λ) = Λ, since the strict henselisations of X̄ at points of X_s̄ are normal domains.
+- `TauCeti.AlgebraicGeometry.VanishingCycles.psiEta_smooth_constant` (computation) — For X smooth over S and Λ constant, Ψ_η(Λ) = Λ, since the strict henselisations of X̄ at points of X_s̄ are normal domains.
 - `TauCeti.AlgebraicGeometry.VanishingCycles.psi_proper_pushforward_id` (degenerate) — For f = id the base-change map is the identity.
 
 **Acceptance.**
@@ -258,8 +258,8 @@ Let K be a derived complex of A-modules in the gluing topos Y_et×_(s_et)S_et. I
 **Unit-test specifications.**
 
 - `TauCeti.AlgebraicGeometry.VanishingCycles.variation_one` (degenerate) — Var(1) = 0.
-- `TauCeti.AlgebraicGeometry.VanishingCycles.variation_of_phi_zero` (value) — If Φ(K) = 0 then Var(σ) = 0 and I acts trivially on K_η, by σ = 1 + Var(σ) q.
-- `TauCeti.AlgebraicGeometry.VanishingCycles.variation_picardLefschetz` (value) — At an ordinary quadratic point in odd relative dimension n = 2m + 1, Var(σ)(a) = (−1)^{m+1} t_ℓ(σ)(a, δ)δ, which over rational coefficients is nonzero when t_ℓ(σ) ≠ 0, (a, δ) ≠ 0 and δ ≠ 0 (XV 3.3).
+- `TauCeti.AlgebraicGeometry.VanishingCycles.variation_of_phi_zero` (computation) — If Φ(K) = 0 then Var(σ) = 0 and I acts trivially on K_η, by σ = 1 + Var(σ) q.
+- `TauCeti.AlgebraicGeometry.VanishingCycles.variation_picardLefschetz` (computation) — At an ordinary quadratic point in odd relative dimension n = 2m + 1, Var(σ)(a) = (−1)^{m+1} t_ℓ(σ)(a, δ)δ, which over rational coefficients is nonzero when t_ℓ(σ) ≠ 0, (a, δ) ≠ 0 and δ ≠ 0 (XV 3.3).
 - `TauCeti.AlgebraicGeometry.VanishingCycles.variation_ne_sub_one` (non-example) — Var(σ) is not σ − 1: it goes from Φ(K)_η to K_η, and σ − 1 on K_η is Var(σ) ∘ q, which vanishes on the image of K_s.
 
 **Acceptance.**
@@ -279,7 +279,7 @@ Let K be a derived complex of A-modules in the gluing topos Y_et×_(s_et)S_et. I
 
 **Suggested forms: partial.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
-Actual declarations or explicitly labelled specializations: `TauCeti.AlgebraicGeometry.VanishingCycles.variation`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_left`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_right`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_mul`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_wellDefined`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_unique`.
+Actual declarations or explicitly labelled specializations: `TauCeti.AlgebraicGeometry.VanishingCycles.variation`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_left`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_right`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_mul`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_annihilates_specialization`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_unique`.
 
 Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.VanishingCycles.variation`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_left`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_right`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_mul`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_wellDefined`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_unique`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_one`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_of_phi_zero`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_picardLefschetz`, `TauCeti.AlgebraicGeometry.VanishingCycles.variation_ne_sub_one`. Their exact statements are the API/test/target specifications above; the packet and suggested-file missing-form ledger attach the hypotheses and supplier to each name.
 
@@ -319,9 +319,9 @@ For X over a henselian trait S and a torsion coefficient ring A whose torsion is
 
 **Unit-test specifications.**
 
-- `TauCeti.AlgebraicGeometry.VanishingCycles.RPhi_smooth` (value) — For X → S smooth and K = Λ: RΦ(Λ) = 0 and RΨ_η(Λ) = Λ.
+- `TauCeti.AlgebraicGeometry.VanishingCycles.RPhi_smooth` (computation) — For X → S smooth and K = Λ: RΦ(Λ) = 0 and RΨ_η(Λ) = Λ.
 - `TauCeti.AlgebraicGeometry.VanishingCycles.RPsi_trait` (degenerate) — For X = S: RΨ_η(K) = K_η̄ with its Gal(η̄/η)-action.
-- `TauCeti.AlgebraicGeometry.VanishingCycles.RPhi_node` (value) — For X = Spec V[x, y]/(xy − π), π a uniformiser and S strictly henselian: R^iΦ(Λ) = 0 for i ≠ 1, and R^1Φ(Λ) is supported at the origin, free of rank 1 (XV 3.1.2 with n = 1).
+- `TauCeti.AlgebraicGeometry.VanishingCycles.RPhi_node` (computation) — For X = Spec V[x, y]/(xy − π), π a uniformiser and S strictly henselian: R^iΦ(Λ) = 0 for i ≠ 1, and R^1Φ(Λ) is supported at the origin, free of rank 1 (XV 3.1.2 with n = 1).
 - `TauCeti.AlgebraicGeometry.VanishingCycles.specialization_direction` (non-example) — For f proper the triangle gives H^i(X_s, K) → H^i(X_η̄, K) → H^i(X_s, RΦ K) → H^{i+1}(X_s, K): specialisation runs from the special to the generic fibre, and the reversed arrow is not a morphism of the triangle.
 
 **Acceptance.**
@@ -354,12 +354,12 @@ Planet: **Nearby and vanishing cycles**.
 
 Target `LefschetzPencilsAndVanishingCycles:LPV.0/derived-functorialities-and-specialization-sequence` · theorem · `TauCeti.AlgebraicGeometry.VanishingCycles.derivedFunctorialitiesAndSpecializationSequence`.
 
-For a separated finite-type morphism g of finite-type schemes over a henselian trait, there are natural nearby-cycle exchange maps with g*, Rg*, Rg! and Rg!. The Rg* map is an isomorphism for proper g, the pullback map for smooth g (hence for open or étale g), and the exceptional inverse-image map for étale g. A dominant change of henselian traits gives an isomorphism after the chosen geometric points and inertia restriction are transported. For proper f:X→S, the specialization triangle yields the inertia-equivariant long exact sequence H^i(X_s̄,K)→H^i(X_η̄,K)→H^i(X_s̄,RΦK)→H^{i+1}(X_s̄,K). Compact supports have their own comparison arrow, from special-fibre nearby cycles to generic-fibre cohomology; an isomorphism is asserted here only with properness.
+For a separated finite-type morphism g over a henselian trait, nearby cycles have natural exchange maps with g*, Rg_* and Rg_!. The Rg_* comparison is an isomorphism for proper g and the pullback comparison for smooth g. SGA 7 XIII also constructs the Rg^! comparison for quasi-finite g, where it is an isomorphism for étale g; broader exceptional comparisons require the requested six-operation extension. Dominant change of henselian traits, with compatible geometric points, gives an isomorphism after inertia restriction. For proper f:X→S the specialization triangle gives the inertia-equivariant sequence H^i(X_s̄,K)→H^i(X_η̄,K)→H^i(X_s̄,RΦK)→H^{i+1}(X_s̄,K). The compact-support comparison points from special-fibre nearby cohomology to generic-fibre cohomology; only the proper case is claimed to be an isomorphism here.
 
 **Hypotheses.**
 
 - Finite-type noetherian schemes; torsion coefficients invertible on the trait; bounded-below complexes
-- Properness, smoothness or étaleness exactly as attached to each exchange map; no arbitrary base-change isomorphism
+- Properness or smoothness for the corresponding exchange isomorphism; quasi-finiteness for XIII’s Rg^! construction, étaleness for its isomorphism; broader separated finite-type exceptional maps require the six-operation extension
 - Dominant change of traits, with compatible geometric points
 
 **Construction or proof.**
@@ -384,7 +384,7 @@ For a separated finite-type morphism g of finite-type schemes over a henselian t
 
 **Sources.**
 
-- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XIII, 2.1.7.1-2, p. 20. Proper and smooth compatibilities (OCR cleaned).
+- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XIII, 2.1.7.1–5, pp. 20–21; quasi-finite exceptional comparison 1.3.9, p. 16. Proper and smooth compatibilities (OCR cleaned).
 - [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XIII, 2.1.8.9, p. 22. The specialization sequence and its use (OCR cleaned).
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
@@ -421,7 +421,7 @@ The chosen geometric fibre square X_η̄→X_S̄←X_s̄ induces the small-étal
 
 **Sources.**
 
-- [Luc Illusie, Vanishing cycles over general bases](https://www.imo.universite-paris-saclay.fr/~luc.illusie/vanishing1b.pdf), §1.1, classical trait diagram. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Luc Illusie, Vanishing cycles over general bases](https://www.imo.universite-paris-saclay.fr/~luc.illusie/vanishing1b.pdf), §1.1, pp. 1–2, classical trait diagram. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -459,7 +459,7 @@ The oriented product X_s←×_Sη has points consisting of a geometric x, geomet
 
 **Sources.**
 
-- [Luc Illusie, Vanishing cycles over general bases](https://www.imo.universite-paris-saclay.fr/~luc.illusie/vanishing1b.pdf), §2.1–2.4, especially 2.2.3 and 2.3.4. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Luc Illusie, Vanishing cycles over general bases](https://www.imo.universite-paris-saclay.fr/~luc.illusie/vanishing1b.pdf), §§2.1–2.3, pp. 3–5, especially 2.2.3 and 2.3.4. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -478,9 +478,9 @@ For X of finite type over an excellent henselian trait and a bounded constructib
 
 **Construction or proof.**
 
-1. Apply the trait finiteness theorem recalled in Illusie §1.1 and supplied by EtaleBaseChange:6.
-2. Use the strict-local stalk calculation for the finite cohomological amplitude.
-3. Apply the specialization triangle to RΦ and the constructible/finite-Tor supplier criteria.
+1. Use the excellent-trait nearby-cycle finiteness theorem requested explicitly through SF.2, retaining G-finiteness-source for the unread original SGA 4½ proof. PR196 EtaleBaseChange Layer 6 supplies proper Rf_* constructibility, not this general nonproper theorem. Illusie 2006 §1.1, pp. 1–2, and 2021 §6.2, pp. 103–104, state the needed theorem.
+2. Use strict-local stalks and XIII 2.1.13, pp. 25–26, for the finite cohomological and Tor amplitude.
+3. Use the enhanced specialization triangle to pass bounded constructibility from RΨ to RΦ; retain the finite-Tor condition.
 
 **Acceptance.**
 
@@ -499,7 +499,7 @@ For X of finite type over an excellent henselian trait and a bounded constructib
 
 **Sources.**
 
-- [Luc Illusie, Vanishing cycles over general bases](https://www.imo.universite-paris-saclay.fr/~luc.illusie/vanishing1b.pdf), §1.1, finiteness theorem and change of trait. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Luc Illusie, Vanishing cycles over general bases](https://www.imo.universite-paris-saclay.fr/~luc.illusie/vanishing1b.pdf), §1.1, pp. 1–2, finiteness theorem and change of trait. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -539,7 +539,7 @@ Nearby and vanishing cycles commute with derived extension of finite coefficient
 
 **Sources.**
 
-- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), XIII 2.1.7.5 and 2.1.13, pp. 18, 24–25. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XIII, 2.1.7.5, p. 21, and 2.1.13, pp. 25–26. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -630,7 +630,7 @@ Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.VanishingCycles.
 
 Normalize can/var on the actual unipotent geometric summand, retain the Tate line and derive finite logarithm identities. The linear kernel-image filtration and relative uniqueness require actual induced graded maps. Semisimple trace uses admissible filtrations of the same representation, with a primary common-refinement proof in Haines–Ngô §3.1. The regular-trait two-component total complex precedes the algebraic local formula and retains its restriction/Gysin maps, signs and vertical tame parameter.
 
-Coverage: **planned**. All original stage targets have nodes whose prerequisite chains terminate in checked baseline declarations, exact independent supplier nodes, requested owner stages or explicit source/prototype gaps. Planned at target level; not closed or independently accepted.
+Coverage: **planned**. Every stage target is represented at target level with its direct prerequisites, exact supplier requests and recorded source/form gaps. Independently reviewed as planned; no stage is closed and no implementation is claimed.
 
 ### Canonical and normalized variation maps
 
@@ -767,7 +767,7 @@ For ℓ different from the residue characteristic and a finite-type family over 
 
 **Sources.**
 
-- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), §§1.2–1.4, geometric theorem (1.4). The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), §§1.2–1.4, pp. 11–12, geometric theorem (1.4). The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -1085,7 +1085,7 @@ On a nonzero n-dimensional characteristic-zero vector space, T is maximally unip
 
 **Sources.**
 
-- [Lie Qian, Potential automorphy for GL_n](https://par.nsf.gov/servlets/purl/10388233), Published Definition 3.6. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Lie Qian, Potential automorphy for GL_n](https://par.nsf.gov/servlets/purl/10388233), Published Definition 3.6, PDF p. 21. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: complete.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -1277,7 +1277,7 @@ Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.VanishingCycles.
 
 Develop ordinary forms and germs in every characteristic, then the projective/affine/cone calculations and standard degeneration. Canonical ambient quadrics for n>0 use the source’s Ωⁿ≅O(−n) construction; n=0 is the degree-two cover itself. The local formula distinguishes odd and even dimension, the characteristic-two quadratic character and the restricted nonordinary application. General Artin/Elkik results are imported from their owner rather than proved by a quadratic placeholder.
 
-Coverage: **planned**. All original stage targets have nodes whose prerequisite chains terminate in checked baseline declarations, exact independent supplier nodes, requested owner stages or explicit source/prototype gaps. Planned at target level; not closed or independently accepted.
+Coverage: **planned**. Every stage target is represented at target level with its direct prerequisites, exact supplier requests and recorded source/form gaps. Independently reviewed as planned; no stage is closed and no implementation is claimed.
 
 ### Concentration and rank of the nearby cycles at ordinary quadratic singular points (XV 3.1.1-3.1.2)
 
@@ -1300,7 +1300,7 @@ For f:X→S flat of finite type and pure relative dimension n over a henselian t
 **Acceptance.**
 
 - Outside E (points where the generic fibre is not smooth nearby) the vanishing cycles vanish (2.2.4).
-- For n = 0 the rank is 2 (two points degenerating to one).
+- For n=0 the nearby stalk and nearby costalk have rank two; the vanishing stalk, coker(Λ→Λ²), has rank one.
 
 **Direct prerequisites.**
 
@@ -1321,11 +1321,11 @@ For f:X→S flat of finite type and pure relative dimension n over a henselian t
 
 Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.VanishingCycles.ordinaryQuadraticPointNearbyCycles312`. Their exact statements are the API/test/target specifications above; the packet and suggested-file missing-form ledger attach the hypotheses and supplier to each name.
 
-### Even relative dimension n = 2m: the natural generator ±δ of H^n_{x}(R^nΦ(A(m))), the quadratic character ε_x of inertia and Var(σ)(a) = (−1)^m (ε_x(σ) − 1)/2 · (a,δ)δ (XV 3.2.1-3.2.3)
+### Even-dimensional variation: the nearby costalk generator and quadratic inertia character
 
 Target `LefschetzPencilsAndVanishingCycles:LPV.2/even-relative-dimension-variation-3-2` · theorem · `TauCeti.AlgebraicGeometry.VanishingCycles.evenRelativeDimensionVariation32`.
 
-Notation of 3.1 with n = 2m, S strictly henselian (general case by descent). Proposition 3.2.1: (i) for x ∈ E the group H^n_{x}(R^n Psi_eta(A(m))) (the source writes psi_eta here, not Phi) has a natural generator δ, well defined up to sign, characterised by naturality in A and (δ,δ) = (−1)^m·2 (for n = 0 add Tr(δ) = 0); (ii) for a suitable character ε_x: I -> {±1} of the inertia group (independent of A), Var(σ)(a) = (−1)^m ((ε_x(σ) − 1)/2)(a δ) δ for a ∈ R^n Φ_η(A(m)), whence σ(δ) = ε_x(σ) δ. Proof: pass to the universal case A = Z_ℓ; up to sign only one δ satisfies (i); reduce as in 3.1.2 to 2.2.5 and apply 2.2.5 (D). Complément 3.2.2: if the henselization of X at x is that of the projective quadric Σ a_ij X_i X_j = 0 at x_0, ε_x is defined by the separable quadratic extension of the fraction field given by the centre of the even Clifford algebra Z(C^+(Q)). 3.2.3: in residue characteristic ≠ 2, I has a unique nontrivial character ε of order 2 (σ(√t) = ε(σ)√t for a uniformizer t); X_(x) is the henselization at 0 of Σ a_ij x_i x_j = b with b in the maximal ideal and Q nondegenerate; the centre of the Clifford algebra is k(η)(√((−1)^{m+1}·2b·det(a_ij))) (Bourbaki Alg. ch. 9 §9 no. 4), so ε_x = ε^{v(b)}: the variation vanishes if v(b) is even and ε_x = ε otherwise.
+For an ordinary quadratic point x in the smooth-generic support E, with relative dimension n=2m over a strictly henselian trait, the middle nearby costalk with twist m has an integral orientation δ, determined up to sign, whose self-pairing is (−1)^m·2. In dimension zero impose trace zero inside the rank-two nearby object. The vanishing line carries a coefficient-independent quadratic inertia character ε_x, and variation on a vanishing class a is (−1)^m((ε_x(σ)−1)/2)(a,δ)δ. Define this integral coefficient before reduction, using twice the coefficient modulus when necessary. The character is that of the centre of the even Clifford algebra of the local quadratic model. In residue characteristic different from two, the model Q=b has ε_x=ε^{v(b)}, where ε is the uniformizer Kummer character; its Clifford centre is obtained by adjoining a square root of (−1)^{m+1}·2b·det(a_ij) in the source’s polar-matrix convention. Thus even v(b) gives trivial variation and odd v(b) gives the reflection branch. The centre description, rather than this tame parity shortcut, remains the contract in characteristic two.
 
 **Hypotheses.**
 
@@ -1580,10 +1580,10 @@ Let S = Spec A, V a locally free A-module of rank r and Q a quadratic form on V,
 
 **Unit-test specifications.**
 
-- `TauCeti.AlgebraicGeometry.Quadric.isOrdinary_xy_add_sq_char_two` (value) — Characteristic 2, r = 3, Q = xy + z²: ker Φ = k·e_z and Q(e_z) = 1, so Q is ordinary (the conic xy = z² is smooth).
+- `TauCeti.AlgebraicGeometry.Quadric.isOrdinary_xy_add_sq_char_two` (computation) — Characteristic 2, r = 3, Q = xy + z²: ker Φ = k·e_z and Q(e_z) = 1, so Q is ordinary (the conic xy = z² is smooth).
 - `TauCeti.AlgebraicGeometry.Quadric.not_isOrdinary_sum_sq_char_two` (non-example) — Characteristic 2, r = 2, Q = x² + y² = (x + y)²: Φ = 0 and the quadric is a double point, so Q is not ordinary.
 - `TauCeti.AlgebraicGeometry.Quadric.isOrdinary_rank_one` (degenerate) — r = 1, Q = ax² with a a unit: the quadric is empty and Q is ordinary in every characteristic.
-- `TauCeti.AlgebraicGeometry.Quadric.isOrdinary_iff_nondegenerate_test` (comparison) — Over a field and for V ≠ 0, IsOrdinary Q agrees with Mathlib's QuadraticMap.Nondegenerate Q: in characteristic 2 the alternating Φ has kernel of dimension ≡ r mod 2, so rank ≤ 1 forces 0 or 1 according to the parity of r.
+- `TauCeti.AlgebraicGeometry.Quadric.isOrdinary_iff_nondegenerate_test` (compatibility) — Over a field and for V ≠ 0, IsOrdinary Q agrees with Mathlib's QuadraticMap.Nondegenerate Q: in characteristic 2 the alternating Φ has kernel of dimension ≡ r mod 2, so rank ≤ 1 forces 0 or 1 according to the parity of r.
 - `TauCeti.AlgebraicGeometry.Quadric.isOrdinary_zero_rank_excluded` (degenerate) — The zero form on Q⁰ is not ordinary: rank zero is excluded explicitly.
 
 **Acceptance.**
@@ -1681,9 +1681,9 @@ Let Q be nondegenerate on V locally free of rank 2m > 0 over A. The centre Z(Q) 
 
 **Unit-test specifications.**
 
-- `TauCeti.AlgebraicGeometry.Quadric.evenCliffordCentre_hyperbolic` (value) — V = Ae ⊕ Af with Q(xe + yf) = xy: C⁺(Q) = Z(Q) ≅ A × A, and the isotropic lines Ae and Af give the two idempotents fe and ef = 1 − fe (XII 1.12, proof).
-- `TauCeti.AlgebraicGeometry.Quadric.evenCliffordCentre_discriminant` (value) — Over a field of characteristic not 2, Q = x² − dy²: C⁺(Q) = k ⊕ k·e₁e₂ with (e₁e₂)² = d, so Z(Q) ≅ k[t]/(t² − d), split if and only if d is a square.
-- `TauCeti.AlgebraicGeometry.Quadric.evenCliffordCentre_eq_mathlib` (comparison) — C⁺(Q) is Mathlib's CliffordAlgebra.even Q.
+- `TauCeti.AlgebraicGeometry.Quadric.evenCliffordCentre_hyperbolic` (computation) — V = Ae ⊕ Af with Q(xe + yf) = xy: C⁺(Q) = Z(Q) ≅ A × A, and the isotropic lines Ae and Af give the two idempotents fe and ef = 1 − fe (XII 1.12, proof).
+- `TauCeti.AlgebraicGeometry.Quadric.evenCliffordCentre_discriminant` (computation) — Over a field of characteristic not 2, Q = x² − dy²: C⁺(Q) = k ⊕ k·e₁e₂ with (e₁e₂)² = d, so Z(Q) ≅ k[t]/(t² − d), split if and only if d is a square.
+- `TauCeti.AlgebraicGeometry.Quadric.evenCliffordCentre_eq_mathlib` (compatibility) — C⁺(Q) is Mathlib's CliffordAlgebra.even Q.
 - `TauCeti.AlgebraicGeometry.Quadric.lagrangianIdempotent_sum` (characterisation) — For an orthogonal sum, e(W₁ ⊕ W₂) = e(W₁)e(W₂) + (1 − e(W₁))(1 − e(W₂)) (XII 1.10.1): the sections add as ℤ/2-torsors, not as idempotents.
 
 **Acceptance.**
@@ -1744,8 +1744,8 @@ Over an algebraically closed field k, a smooth quadric of dimension n is a k-sch
 **Unit-test specifications.**
 
 - `TauCeti.AlgebraicGeometry.Quadric.smoothQuadric_dim_zero` (degenerate) — n = 0 over an algebraically closed field: X ≅ Spec k ⊔ Spec k.
-- `TauCeti.AlgebraicGeometry.Quadric.smoothQuadric_dim_two` (value) — n = 2: xy = zw in P³ is P¹ × P¹ (Segre).
-- `TauCeti.AlgebraicGeometry.Quadric.smoothQuadric_real_conic` (value) — n = 1 over ℝ: x² + y² + z² = 0 is a smooth conic without real points, a nontrivial Severi–Brauer curve.
+- `TauCeti.AlgebraicGeometry.Quadric.smoothQuadric_dim_two` (computation) — n = 2: xy = zw in P³ is P¹ × P¹ (Segre).
+- `TauCeti.AlgebraicGeometry.Quadric.smoothQuadric_real_conic` (computation) — n = 1 over ℝ: x² + y² + z² = 0 is a smooth conic without real points, a nontrivial Severi–Brauer curve.
 - `TauCeti.AlgebraicGeometry.Quadric.not_smoothQuadric_cone` (non-example) — The cone xy = z² in P³ (a form of rank 3 in 4 variables) is singular at (0:0:0:1); the form is not ordinary.
 
 **Acceptance.**
@@ -1830,8 +1830,8 @@ Let X be the smooth quadric over S of an ordinary form Q on V of rank n + 2, H a
 **Construction or proof.**
 
 1. The localisation sequence … → R^i f_!ℤ_ℓ → R^i p_*ℤ_ℓ → R^i q_*ℤ_ℓ → … and its dual Gysin sequence … → R^{i−2}q_*ℤ_ℓ(−1) → R^i p_*ℤ_ℓ → R^i f_*ℤ_ℓ → … (XII 3.6.2–3.6.3).
-2. By Theorem 3.3 the restriction r_i is an isomorphism for i ≠ n, 2n (n even) and i ≠ n − 1 (n odd). For n = 2m, r_n(cℓ(α)) = ½η^m, so r_n is onto with kernel the primitive part; for n = 2m + 1, r_{2m}(η^m) = η^m, so r_{2m} is injective with cokernel the primitive quotient.
-3. Hence R^i f_!ℤ_ℓ = 0 for i ≠ n, 2n and is a twisted constant sheaf of rank 1 in degrees n and 2n; dually R^i f_*ℤ_ℓ = 0 for i ≠ 0, n, f_*ℤ_ℓ = ℤ_ℓ and R^n f_*ℤ_ℓ has rank 1.
+2. Use XII 3.3 to compute restriction. In even dimension, the image of a ruling class is the integral generator c of the adjacent odd-dimensional quadric with 2c=η^m; the notation η^m/2 describes this divisible class and does not invert two in Z_2. The resulting kernel is the primitive part. In odd dimension restriction is injective and its cokernel is the primitive quotient.
+3. For n>0 compactly supported cohomology is concentrated in degrees n and 2n. The top sheaf is the constant Tate line Z_l(−n); the middle sheaf is rank-one lisse with the quadratic orientation character of the relevant quadric and its stated twist. It becomes a Tate line after that character is trivialized. Ordinary cohomology has degrees 0 and n with the corresponding dual orientation.
 4. n = 2m: δ maps to ±(cℓ(α) − cℓ(β)), so Tr(δ²) = cℓ(α)² − 2cℓ(α)cℓ(β) + cℓ(β)², which is 1 + 1 − 0 = 2 for m even and 0 + 0 − 2 = −2 for m odd (Theorem 3.3 (iii)(b)); ±φ(δ) is twice ±δ′.
 5. n = 2m + 1: δ = ∂cℓ(α) and δ² = ∂(cℓ(α)·∂cℓ(α)) = 0, so φ(δ) = 0; δ′ maps to ±(cℓ(α) − cℓ(β)) in R^{2m}q_*ℤ_ℓ(m) and Tr(δδ′) = ±1.
 
@@ -1898,8 +1898,8 @@ Let y be a closed point of a scheme Y of finite type over a field k of character
 
 **Unit-test specifications.**
 
-- `TauCeti.AlgebraicGeometry.Quadric.node_isOrdinary` (value) — The node xy = 0 in 𝔸² (n = 1): Q = xy is ordinary and nondegenerate in every characteristic.
-- `TauCeti.AlgebraicGeometry.Quadric.doublePoint_char_two` (value) — n = 0, Y = Spec k[x]/(x²): Q = x² is ordinary in every characteristic, so the origin is ordinary; it is non-degenerate if and only if p ≠ 2, and for p = 2 it is degenerate.
+- `TauCeti.AlgebraicGeometry.Quadric.node_isOrdinary` (computation) — The node xy = 0 in 𝔸² (n = 1): Q = xy is ordinary and nondegenerate in every characteristic.
+- `TauCeti.AlgebraicGeometry.Quadric.doublePoint_char_two` (computation) — n = 0, Y = Spec k[x]/(x²): Q = x² is ordinary in every characteristic, so the origin is ordinary; it is non-degenerate if and only if p ≠ 2, and for p = 2 it is degenerate.
 - `TauCeti.AlgebraicGeometry.Quadric.cusp_not_ordinary` (non-example) — The cusp y² = x³ (n = 1): the quadratic part y² in two variables is not ordinary (its quadric is a double point of P¹), so the cusp is not an ordinary quadratic point.
 - `TauCeti.AlgebraicGeometry.Quadric.smooth_point_not_quadratic` (degenerate) — A smooth point is not an ordinary quadratic point: its Zariski tangent space has dimension n, not n + 1.
 
@@ -2308,7 +2308,7 @@ Let S be a henselian trait with s, η, s̄, η̄ as in SGA 7 XIII 0.2.5, and Λ 
 
 **Unit-test specifications.**
 
-- `TauCeti.AlgebraicGeometry.VanishingCycles.standard_node` (value) — n = 1, Q = xy − π with π a uniformiser: Y = {xy = 0, z = 0} is two points (a smooth quadric of dimension 0), X_s is the cone xy = 0, and the generic fibre is smooth.
+- `TauCeti.AlgebraicGeometry.VanishingCycles.standard_node` (computation) — n = 1, Q = xy − π with π a uniformiser: Y = {xy = 0, z = 0} is two points (a smooth quadric of dimension 0), X_s is the cone xy = 0, and the generic fibre is smooth.
 - `TauCeti.AlgebraicGeometry.VanishingCycles.standard_double_point` (degenerate) — n = 0, Q = x² − π with p ≠ 2: Y = ∅, X_s = Spec k(s)[x]/(x²) is a cone, and the geometric generic fibre is two points.
 - `TauCeti.AlgebraicGeometry.VanishingCycles.not_standard_char_two` (non-example) — char k(s) = 2, n = 1, Q = x² + y² − π: the leading form (x + y)² is not ordinary, so (a) fails.
 - `TauCeti.AlgebraicGeometry.VanishingCycles.standard_trivial_family` (non-example) — Q = xy (c = 0): X_η̄ is again a cone, so (*) fails and all R^iΦ vanish (Corollary 2.2.4).
@@ -2336,7 +2336,7 @@ Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.VanishingCycles.
 
 Target `LefschetzPencilsAndVanishingCycles:LPV.2/nearby-cycles-of-a-standard-quadratic-degeneration` · theorem · `TauCeti.AlgebraicGeometry.VanishingCycles.nearbyCyclesOfAStandardQuadraticDegeneration`.
 
-Let S be a henselian trait (s, η, s̄, η̄ as in SGA 7 XIII 0.2.5), Λ = ℤ/k with k invertible on S, and X ⊂ 𝔸^{n+1}_S a standard quadratic degeneration: Q = Σ_{i≤j} a_ij x_i x_j + Σ b_i x_i + c, with Y smooth over S and X_s̄ a quadratic cone with vertex x₀. (Proposition 2.2.3) H^i(X_η̄, Λ) ≅ H^i(X_s̄, RΨ_η̄Λ) ≅ R^iΨ_η̄(Λ)_{x₀} and H^i_c(X_η̄, Λ) ≅ H^i_c(X_s̄, RΨ_η̄Λ) ≅ H^i_{x₀}(X_s̄, RΨ_η̄Λ). (Corollary 2.2.4) If X_η̄ is singular, a quadratic cone again, all R^iΦ(Λ) vanish. (2.2.5) If X_η is smooth and S is strictly henselian: (A) R^iΨ_η̄(Λ) = 0 for i ≠ 0, n; for n ≠ 0, Ψ_η̄(Λ) = Λ and R^nΨ_η̄(Λ) is (non-canonically) Λ at x₀ extended by 0; for all n, R^iΦ(Λ) = 0 for i ≠ n and R^nΦ(Λ) is Λ at x₀ extended by 0. (B) H^i_{x₀}(X_s, RΨ_η̄Λ) = 0 for i ≠ n, 2n; the trace H^{2n}_{x₀}(X_s, RΨ_η̄Λ(n)) → Λ is an isomorphism for n ≠ 0, and for n>0, H^n_{x₀}(X_s, RΨ_η̄Λ(n)) ≅ Λ. For n=0, R⁰Ψ_η̄(Λ)_{x₀} and H⁰_{x₀}(X_s,RΨ_η̄Λ) are both Λ²; R⁰Φ is the rank-one cokernel of the diagonal specialization Λ→Λ². (C) (a, b) = Tr(a ∧ b) puts the free Λ-modules R^nΨ_η̄(Λ)_{x₀} and H^n_{x₀}(X_s, RΨ_η̄Λ(n)) in perfect duality.
+For the standard affine quadratic degeneration X/S with smooth boundary Y and special fibre a cone with vertex x₀, use finite coefficients Λ=Z/k with k invertible on the henselian trait. Ordinary cohomology of the geometric generic fibre identifies with the nearby stalk at x₀, and compactly supported cohomology identifies with the nearby costalk there. These comparisons follow by compactification and the cone calculation. If the generic fibre remains a cone, specialization is an isomorphism and RΦΛ vanishes. If the generic fibre is smooth, RΦΛ is a rank-one skyscraper in degree n. For n>0, RΨΛ has the constant degree-zero sheaf and a rank-one degree-n skyscraper; its costalk is concentrated in degrees n and 2n, both rank one, and the top trace after twist n is an isomorphism. The middle nearby stalk and costalk with complementary twists pair perfectly by cup product and trace. When n=0 the nearby stalk and costalk are Λ²; specialization is the diagonal Λ→Λ² and the vanishing line is its cokernel. These degree-zero objects must be kept separate.
 
 **Hypotheses.**
 
@@ -2369,7 +2369,7 @@ Let S be a henselian trait (s, η, s̄, η̄ as in SGA 7 XIII 0.2.5), Λ = ℤ/k
 
 - [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XV, Proposition 2.2.3, p. 18. The isomorphisms (displayed on p. 19) and their proof. Statement independently checked on the page image; described here in our own words.
 - [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XV, Corollaire 2.2.4, p. 19. If the geometric generic fibre is singular, the vanishing cycles are 0. Statement independently checked on the page image; described here in our own words.
-- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XV, 2.2.5 C, p. 20. The duality (a, b) = Tr(a ∧ b). Statement independently checked on the page image; described here in our own words.
+- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XV, 2.2.5 A–C, pp. 19–20. The duality (a, b) = Tr(a ∧ b). Statement independently checked on the page image; described here in our own words.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -2379,7 +2379,7 @@ Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.VanishingCycles.
 
 Target `LefschetzPencilsAndVanishingCycles:LPV.2/variation-in-a-standard-quadratic-degeneration` · theorem · `TauCeti.AlgebraicGeometry.VanishingCycles.variationInAStandardQuadraticDegeneration`.
 
-Let S be a henselian trait (s, η, s̄, η̄ as in SGA 7 XIII 0.2.5), Λ = ℤ/k with k invertible on S, and X ⊂ 𝔸^{n+1}_S a standard quadratic degeneration: Q = Σ_{i≤j} a_ij x_i x_j + Σ b_i x_i + c, with Y smooth over S and X_s̄ a quadratic cone with vertex x₀. Assume X_η smooth and S strictly henselian. (D) n = 2m > 0: H^n_{x₀}(X_s, RΨ_η̄Λ(m)) and R^nΨ_η̄(Λ(m))_{x₀} have natural generators δ, δ′ defined up to sign (from XII 3.7), which can be normalised so that (δ′, δ) = 1; then φ(δ) = (−1)^m·2·δ′ for the natural map φ from the first to the second. With Z the separable quadratic extension of k(η) given by the centre of the even Clifford algebra of (2.2.1.1) and ε : I → {±1} its character, σδ = ε(σ)δ and σδ′ = ε(σ)δ′, and Var(σ)(a) = ((ε(σ) − 1)/2)(−1)^m (a, δ)δ. (E) n = 2m + 1: H^n_{x₀}(X_s, RΨ_η̄Λ(m)) and R^nΨ_η̄(Λ(m + 1))_{x₀} have natural generators δ, δ′ with (δ′, δ) = 1, and φ(δ) = 0. (F) n = 2m + 1: I acts trivially on the cohomology of X_η̄; Var(σ)(δ′) = λ(σ)δ for a homomorphism λ : I → Λ(1), so λ = λ_X·ε with ε : I → Λ(1) = μ_k the Kummer character σ(t^{1/k}) = ε(σ)t^{1/k} of a uniformiser t and λ_X ∈ Λ depending on X/S; that is, Var(σ)(a) = λ_X ε(σ)(a, δ)δ.
+In the smooth-generic standard quadratic degeneration over a strictly henselian trait, choose the nearby middle costalk generator δ and the nearby stalk generator δ′ compatibly with the affine-quadric orientation and normalize (δ′,δ)=1. For n=2m>0 their twist is m, and the map forgetting support sends δ to (−1)^m·2δ′. Both generators transform through the quadratic character ε of the even Clifford centre. Variation is (−1)^m((ε(σ)−1)/2)(a,δ)δ; obtain its integral coefficient with modulus 2k before reduction to Λ=Z/k. For n=2m+1 the costalk twist is m, the stalk twist is m+1, and the forget-supports map is zero. Inertia acts trivially on these cohomology groups, although variation may be nonzero: Var(σ)(δ′)=λ(σ)δ for an additive character λ:I→Λ(1). It is a scalar λ_X times the uniformizer Kummer character, so Var(σ)(a)=λ_X t_k(σ)(a,δ)δ. Determining λ_X, including its sign, is the separate odd-dimensional Picard–Lefschetz target.
 
 **Hypotheses.**
 
@@ -2411,7 +2411,7 @@ Let S be a henselian trait (s, η, s̄, η̄ as in SGA 7 XIII 0.2.5), Λ = ℤ/k
 **Sources.**
 
 - [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XV, 2.2.5 D, (2.2.5.3)–(2.2.5.6), p. 21. The character ε and the variation formula (2.2.5.6), read on the page image. Statement independently checked on the page image; described here in our own words.
-- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XV, 2.2.5 F, p. 21. The odd case: trivial action on the cohomology of X_η̄ and (2.2.5.9)–(2.2.5.10) on pp. 21–22. Statement independently checked on the page image; described here in our own words.
+- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XV, 2.2.5 E–F, pp. 21–22. The odd case: trivial action on the cohomology of X_η̄ and (2.2.5.9)–(2.2.5.10) on pp. 21–22. Statement independently checked on the page image; described here in our own words.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -2617,7 +2617,7 @@ Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.VanishingCycles.
 
 An actual axis defines its dual parameter line and incidence family. Transversality, a smooth total space, finitely many exceptional points and an ordinary quadratic germ on each exceptional fibre all enter the pencil predicate. Existence uses the conormal/dual geometry and the degree-two two-point jet estimate; finite-field descent uses a closed point of the good-axis open and then finite-field arithmetic. The line, quadric, cubic and Hermitian examples fix geometric models and axes.
 
-Coverage: **planned**. All original stage targets have nodes whose prerequisite chains terminate in checked baseline declarations, exact independent supplier nodes, requested owner stages or explicit source/prototype gaps. Planned at target level; not closed or independently accepted.
+Coverage: **planned**. Every stage target is represented at target level with its direct prerequisites, exact supplier requests and recorded source/form gaps. Independently reviewed as planned; no stage is closed and no implementation is claimed.
 
 ### Lefschetz pencil of hyperplane sections
 
@@ -2655,8 +2655,8 @@ Let k be algebraically closed of characteristic p, P a projective space of dimen
 **Unit-test specifications.**
 
 - `TauCeti.AlgebraicGeometry.LefschetzPencil.line_in_plane` (degenerate) — X a line in P², A a point not on X: every line through A meets X transversally in one point, so S = ∅ and f : X̃ = X → D is an isomorphism. This is a Lefschetz pencil with no singular fibre.
-- `TauCeti.AlgebraicGeometry.LefschetzPencil.quadric_surface` (value) — X a smooth quadric surface in P³, p ≠ 2, A a general line: S has two points, each X_s is a pair of lines meeting in one point, and X̃ is X blown up in the two points of A ∩ X; χ(X̃) = 6 = 2·2 + 2·1.
-- `TauCeti.AlgebraicGeometry.LefschetzPencil.cubic_surface` (value) — X a smooth cubic surface in P³, p = 0, A a general line: |S| = 12, the degree 3·2² of the dual surface, each X_s a plane cubic with one node; χ(X̃) = 9 + 3 = 12 = 2·0 + 12·1.
+- `TauCeti.AlgebraicGeometry.LefschetzPencil.quadric_surface` (computation) — X a smooth quadric surface in P³, p ≠ 2, A a general line: S has two points, each X_s is a pair of lines meeting in one point, and X̃ is X blown up in the two points of A ∩ X; χ(X̃) = 6 = 2·2 + 2·1.
+- `TauCeti.AlgebraicGeometry.LefschetzPencil.cubic_surface` (computation) — X a smooth cubic surface in P³, p = 0, A a general line: |S| = 12, the degree 3·2² of the dual surface, each X_s a plane cubic with one node; χ(X̃) = 9 + 3 = 12 = 2·0 + 12·1.
 - `TauCeti.AlgebraicGeometry.LefschetzPencil.hermitian_curve_not_lefschetz` (non-example) — p odd, q = p^e, X = {x^{q+1} + y^{q+1} + z^{q+1} = 0} ⊂ P²: along the tangent direction (u, v) at an affine point (a, b), with a^q u + b^q v = 0, one has F(a + tu, b + tv) = t^q(a u^q + b v^q) + t^{q+1}(u^{q+1} + v^{q+1}). So every tangent line meets X with multiplicity ≥ q ≥ 3 at its point of tangency, condition (C) fails, and no pencil of lines is Lefschetz in this embedding.
 
 **Acceptance.**
@@ -2714,8 +2714,8 @@ Let k be algebraically closed of characteristic p, P a projective space of dimen
 **Unit-test specifications.**
 
 - `TauCeti.AlgebraicGeometry.LefschetzPencil.dualVariety_projectiveSpace` (degenerate) — X = P: every H_t ∩ P = H_t is smooth and P ⊄ H_t, so X̌ = ∅.
-- `TauCeti.AlgebraicGeometry.LefschetzPencil.dualVariety_linear` (value) — X a linear subspace of dimension d, 1 ≤ d < N: X ∩ H_t is always smooth, so X̌ = {t : X ⊂ H_t}, a linear subspace of codimension d + 1 ≥ 2, not a hypersurface.
-- `TauCeti.AlgebraicGeometry.LefschetzPencil.dualVariety_conic` (value) — X the conic xz = y² in P², p ≠ 2: X̌ is the conic of lines (a : b : c) with b² = 4ac.
+- `TauCeti.AlgebraicGeometry.LefschetzPencil.dualVariety_linear` (computation) — X a linear subspace of dimension d, 1 ≤ d < N: X ∩ H_t is always smooth, so X̌ = {t : X ⊂ H_t}, a linear subspace of codimension d + 1 ≥ 2, not a hypersurface.
+- `TauCeti.AlgebraicGeometry.LefschetzPencil.dualVariety_conic` (computation) — X the conic xz = y² in P², p ≠ 2: X̌ is the conic of lines (a : b : c) with b² = 4ac.
 - `TauCeti.AlgebraicGeometry.LefschetzPencil.dualVariety_conic_char_two` (non-example) — p = 2, X the conic xz = y²: the tangent line at (s² : st : t²) is t²x + s²z = 0, which passes through the nucleus (0 : 1 : 0). So X̌ is a line in P̌² and X → X̌ is purely inseparable of degree 2, not the dual conic.
 
 **Acceptance.**
@@ -2810,7 +2810,7 @@ For a smooth projective connected X of positive dimension, after a Veronese embe
 
 **Sources.**
 
-- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XVII, 2.5, 3.2–7 and 4.1–3; Proposition 4.3 for the degree-two two-point jet bound. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XVII, Theorem 2.5, p. 6 (book p. 217); §§3.2–3.7, pp. 7–23 (book pp. 218–234); §§4.1–4.3, pp. 24–29 (book pp. 235–240), especially Proposition 4.3. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -2848,7 +2848,7 @@ Let X⊂P be smooth projective and A a codimension-two axis meeting X transverse
 
 **Sources.**
 
-- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), XVIII §§2–3; XVII 2.2. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XVIII, §§2–3, pp. 5–17 (book pp. 259–271); XVII 2.2, pp. 4–5 (book pp. 215–216). The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -2941,9 +2941,9 @@ Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.VanishingCycles.
 
 ## LPV.4
 
-Globalize transported cycles, identify the fixed orthogonal and descend the pairing to the radical quotient. Compute pencil-specific restriction/Gysin maps using imported blowup cohomology. The middle reduction lists both nonradical and totally isotropic exact sheaf chains, the zero-cycle case and the surviving Leray subquotients. It retains d₂ and extension classes. The proposed local-line twist correction in E24 is separate from the previously confirmed sign corrections.
+Globalize transported cycles, identify the fixed orthogonal and descend the pairing to the radical quotient. Compute pencil-specific restriction/Gysin maps using imported blowup cohomology. The middle reduction lists both nonradical and totally isotropic exact sheaf chains, the zero-cycle case and the surviving Leray subquotients. It retains d₂ and extension classes. The independently confirmed local-line Tate-label correction E24 leaves the printed numerical eigenvalue intact.
 
-Coverage: **planned**. All original stage targets have nodes whose prerequisite chains terminate in checked baseline declarations, exact independent supplier nodes, requested owner stages or explicit source/prototype gaps. Planned at target level; not closed or independently accepted.
+Coverage: **planned**. Every stage target is represented at target level with its direct prerequisites, exact supplier requests and recorded source/form gaps. Independently reviewed as planned; no stage is closed and no implementation is claimed.
 
 ### The cohomology sheaves of a Lefschetz pencil
 
@@ -3021,8 +3021,8 @@ Let (X_t)_{t∈D} be a Lefschetz pencil of hyperplane sections of X as in the Le
 **Unit-test specifications.**
 
 - `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingSubspace_eq_bot_of_no_singular_fibre` (degenerate) — If S = ∅ (a line in P²) then E = 0.
-- `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingSubspace_quadric_surface` (value) — Quadric-surface pencil: |S| = 2 but each δ_s lies in H^1 of a conic, which is 0, so E = 0 (case (b)).
-- `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingSubspace_conic` (value) — n = 0, X a smooth conic in P², p ≠ 2, A a general point: X_u is two points, |S| = 2 (the tangents from A), δ_s = ±(e₁ − e₂) for both s, E = ℚ_ℓ(e₁ − e₂) and E^⊥ = ℚ_ℓ(e₁ + e₂).
+- `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingSubspace_quadric_surface` (computation) — Quadric-surface pencil: |S| = 2 but each δ_s lies in H^1 of a conic, which is 0, so E = 0 (case (b)).
+- `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingSubspace_conic` (computation) — n = 0, X a smooth conic in P², p ≠ 2, A a general point: X_u is two points, |S| = 2 (the tangents from A), δ_s = ±(e₁ − e₂) for both s, E = ℚ_ℓ(e₁ − e₂) and E^⊥ = ℚ_ℓ(e₁ + e₂).
 - `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingCycle_depends_on_path` (non-example) — For the concrete rational shear action ρ(g)(x,y)=(x+gy,y), δ=(0,1) and g=1, transport gives (1,1), which is neither δ nor −δ. The geometric local generator/path identification remains part of the source-specific construction.
 
 **Acceptance.**
@@ -3124,8 +3124,8 @@ Let (X_t)_{t∈D} be a Lefschetz pencil of hyperplane sections of X as in the Le
 **Unit-test specifications.**
 
 - `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingQuotient_zero` (degenerate) — In the concrete rational four-dimensional symplectic model, E=0 has quotient dimension zero. Identifying this model with a quadric-surface pencil is a separate geometric test.
-- `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingQuotient_radical` (value) — Over Q with basis e₀,e₁,e₂,e₃ and B(e₀,e₁)=B(e₂,e₃)=1, E=span(e₀,e₁,e₂) has radical Qe₂ and quotient dimension two; span(e₀,e₂) has quotient dimension zero.
-- `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingQuotient_conic` (value) — For the rational dot-product form on Q² and E=Q(1,−1), the radical is zero, the quotient has dimension one and the generator has square two. The geometric degree-zero conic comparison retains the Tate/coefficient conventions.
+- `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingQuotient_radical` (computation) — Over Q with basis e₀,e₁,e₂,e₃ and B(e₀,e₁)=B(e₂,e₃)=1, E=span(e₀,e₁,e₂) has radical Qe₂ and quotient dimension two; span(e₀,e₂) has quotient dimension zero.
+- `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingQuotient_conic` (computation) — For the rational dot-product form on Q² and E=Q(1,−1), the radical is zero, the quotient has dimension one and the generator has square two. The geometric degree-zero conic comparison retains the Tate/coefficient conventions.
 - `TauCeti.AlgebraicGeometry.LefschetzPencil.vanishingForm_on_E_degenerate` (non-example) — The actual restriction of the standard symplectic form to span(e₀,e₁,e₂) is degenerate, whereas its descended quotient form is nondegenerate.
 
 **Acceptance.**
@@ -3185,7 +3185,7 @@ For the transverse-axis pencil with center Z=A∩X and incidence blowup π:X̃�
 
 **Sources.**
 
-- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), XVIII §§2–4 and 5.1. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Pierre Deligne, Nicholas Katz (directors); Exposés XIII and XV by P. Deligne, Groupes de monodromie en géométrie algébrique (SGA 7 II), Lecture Notes in Mathematics 340](https://publications.ias.edu/sites/default/files/Number12.pdf), Exposé XVIII, §§2–4 and 5.1, pp. 5–27 (book pp. 259–281). The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -3197,7 +3197,7 @@ Planet: **Pencil restriction and Gysin**.
 
 Target `LefschetzPencilsAndVanishingCycles:LPV.4/pencil-leray-and-middle-reduction` · theorem · `TauCeti.AlgebraicGeometry.LefschetzPencil.pencilMiddleReduction`.
 
-Let f:X̃→D=P¹ be the proper incidence pencil, U=D−S its smooth locus, j:U→D, and n=2m+1 the fibre dimension in the odd tame branch of Weil I §7.1. Put V=(Rⁿf_*Q_l)|_U, E its actual vanishing local subsystem, R=E∩E⊥ and A=Rⁿf_*Q_l=j_*V. The Leray filtration on H^(n+1)(X̃) has graded terms E∞^(2,n−1), E∞^(1,n), E∞^(0,n+1), each the actual subquotient of its E₂ term. The only possible differentials on a curve are d₂^(0,b):H⁰(D,R^bf_*)→H²(D,R^(b−1)f_*); retain the incoming and outgoing ones on the two corner terms. E∞^(1,n)=H¹(D,A). If δ is nonradical, exact sequences 0→j_*E→A→C→0 and 0→j_*R→j_*E→j_*(E/R)→0 have C and j_*R constant. Hence H¹(j_*E)→H¹(A) is surjective, and H¹(j_*E)→H¹(j_*(E/R)) is injective. If δ is radical and E⊂E⊥, define F=coker(j_*E⊥→A). Then 0→constant j_*E⊥→A→F→0 and 0→F→constant j_*j*F→⊕_s i_(s*)L_s→0 yield H¹(A)↪H¹(F) and ⊕_s H⁰(L_s)↠H¹(F). L_s is the actual evaluation/vanishing line Q_l(m−n) with its orientation character, after finite-field descent making the critical points and characters rational. This corrects the opposite printed twist in (7.1.5), recorded as E24 for independent verification. If E=0, A is constant and H¹(A)=0; the upper-corner skyscraper contribution in degree n+1 remains.
+Let f:X̃→D=P¹ be the proper incidence pencil, U=D−S its smooth locus, j:U→D, and n=2m+1 the fibre dimension in the odd tame branch of Weil I §7.1. Put V=(Rⁿf_*Q_l)|_U, E its actual vanishing local subsystem, R=E∩E⊥ and A=Rⁿf_*Q_l=j_*V. The Leray filtration on H^(n+1)(X̃) has graded terms E∞^(2,n−1), E∞^(1,n), E∞^(0,n+1), each the actual subquotient of its E₂ term. The only possible differentials on a curve are d₂^(0,b):H⁰(D,R^bf_*)→H²(D,R^(b−1)f_*); retain the incoming and outgoing ones on the two corner terms. E∞^(1,n)=H¹(D,A). If δ is nonradical, exact sequences 0→j_*E→A→C→0 and 0→j_*R→j_*E→j_*(E/R)→0 have C and j_*R constant. Hence H¹(j_*E)→H¹(A) is surjective, and H¹(j_*E)→H¹(j_*(E/R)) is injective. If δ is radical and E⊂E⊥, define F=coker(j_*E⊥→A). Then 0→constant j_*E⊥→A→F→0 and 0→F→constant j_*j*F→⊕_s i_(s*)L_s→0 yield H¹(A)↪H¹(F) and ⊕_s H⁰(L_s)↠H¹(F). L_s is the actual evaluation/vanishing line Q_l(m−n) with its orientation character, after finite-field descent making the critical points and characters rational. This corrects the opposite printed twist in (7.1.5), recorded as E24, independently confirmed for its Tate-label defect. If E=0, A is constant and H¹(A)=0; the upper-corner skyscraper contribution in degree n+1 remains.
 
 **Hypotheses.**
 
@@ -3220,7 +3220,7 @@ Let f:X̃→D=P¹ be the proper incidence pencil, U=D−S its smooth locus, j:U�
 - The δ=0 case retains the degree-(n+1) skyscraper contribution.
 - The dimension induction imports estimates for both X’s axis and the pencil fibres, rather than discarding the blowup summand.
 - Nonradical: H¹(j_*E) surjects onto H¹(A) and injects into H¹(j_*(E/R)); totally isotropic: A injects on H¹ into H¹(F), and the skyscraper boundary surjects onto H¹(F).
-- For n=1,m=0 the cup-product evaluation line is Q_l(−1). E24 must be checked independently against the printed opposite twist.
+- For n=1,m=0 the cup-product evaluation line is Q_l(−1). E24 confirms the opposite printed Tate label; the printed numerical eigenvalue remains correct.
 
 **Direct prerequisites.**
 
@@ -3232,7 +3232,7 @@ Let f:X̃→D=P¹ be the proper incidence pencil, U=D−S its smooth locus, j:U�
 
 **Sources.**
 
-- [Pierre Deligne, La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §7.1, pp. 299–300, (7.1.2)–(7.1.5) and their cohomology sequences; §5.8, pp. 292–293. Both radical cases and arrow directions checked on the printed page; proposed local-line twist correction is E24.
+- [Pierre Deligne, La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §7.1, pp. 299–300, (7.1.2)–(7.1.5) and their cohomology sequences; §5.8, pp. 292–293. Both radical cases and arrow directions checked on the printed page; the local-line Tate-label correction E24 is independently confirmed, while the printed numerical eigenvalue is correct.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -3272,7 +3272,7 @@ The common fixed space of the nontrivial local transvections/reflections is E⊥
 
 **Sources.**
 
-- [Pierre Deligne, La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §5.3 and 5.8–9, pp. 289–292. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Pierre Deligne, La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §5.3, p. 290, and §§5.8–5.9, pp. 292–293. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -3324,7 +3324,7 @@ Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.LefschetzPencil.
 
 The geometric tame fundamental group supplies local generation and conjugacy; the nonzero radical quotient is absolutely irreducible. The linear Lie lemma plus the p-adic closed-subgroup/open-image interface proves odd open symplectic monodromy. Even orthogonal alternatives retain their nondegeneracy hypotheses. Finite monodromy rationality and ADE use independent compatible traces, finite-cover Chebotarev, arithmetic character theory and the existing lattice/root-system carriers, with no reverse DWP.4 input.
 
-Coverage: **planned**. All original stage targets have nodes whose prerequisite chains terminate in checked baseline declarations, exact independent supplier nodes, requested owner stages or explicit source/prototype gaps. Planned at target level; not closed or independently accepted.
+Coverage: **planned**. Every stage target is represented at target level with its direct prerequisites, exact supplier requests and recorded source/form gaps. Independently reviewed as planned; no stage is closed and no implementation is claimed.
 
 ### Bertini: a general line sees the whole monodromy of P̌ − X̌
 
@@ -3545,7 +3545,7 @@ Let V be a finite-dimensional ℚ_ℓ-vector space with a nondegenerate alternat
 **Construction or proof.**
 
 1. Import Schneider’s exponential chart over Q_l (§18.10–19), a compact open saturated p-valued subgroup G₀ (Theorem 27.1), and the p-valuation inherited by the closed H∩G₀ (Exercise 26.2). The graded subgroup is a submodule of the finite free F_l[P]-module gr(G₀), so it has finite rank; compactness supplies completeness.
-2. Use ordered-basis coordinate charts (Theorem 29.2, Corollaries 29.4–6) and the resulting analytic inclusion to identify Lie(H) as the tangent subalgebra in sp(V). The ambient group topology is the canonical module/subgroup topology, not an arbitrary supplied topology.
+2. Use ordered-basis coordinate charts (Proposition 29.2, Corollaries 29.4–6) and the resulting analytic inclusion to identify Lie(H) as the tangent subalgebra in sp(V). The ambient group topology is the canonical module/subgroup topology, not an arbitrary supplied topology.
 3. If exp(N) is in H, its integer powers exp(aN) remain in H; closedness extends a to Z_l. Differentiate this actual analytic one-parameter subgroup near zero, so N belongs to Lie(H).
 4. Full Lie algebra gives equal dimensions and an invertible derivative for the analytic inclusion. The local inverse-function theorem gives an open neighbourhood in H, hence openness. No blanket real Cartan theorem or unproved equality log(H₀)=an arbitrary chosen lattice is substituted.
 
@@ -3561,7 +3561,7 @@ Let V be a finite-dimensional ℚ_ℓ-vector space with a nondegenerate alternat
 **Sources.**
 
 - [Pierre Deligne, La conjecture de Weil. I](https://www.numdam.org/article/PMIHES_1974__43__273_0.pdf), §5, proof of (5.10), p. 293. The image of ρ is compact, hence an ℓ-adic analytic subgroup, and openness reduces to its Lie algebra being sp.
-- [Peter Schneider, p-Adic Lie Groups](https://doi.org/10.1007/978-3-642-21147-8), §18.10–19, pp. 144–153; Exercise 26.2, pp. 181–182; Theorem 27.1, pp. 192–194; Theorem 29.2 and Corollaries 29.4–6, pp. 203–205. Primary p-adic charts and finite-rank closed-subgroup route freshly checked; general analytic infrastructure remains owned by LieGroups, Part II.
+- [Peter Schneider, p-Adic Lie Groups](https://doi.org/10.1007/978-3-642-21147-8), §18.10–19, pp. 144–153; Exercise 26.2, pp. 181–182; Theorem 27.1, pp. 192–194; Proposition 29.2 and Corollaries 29.4–6, pp. 202–205. Primary p-adic charts and finite-rank closed-subgroup route freshly checked; general analytic infrastructure remains owned by LieGroups, Part II.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -3615,7 +3615,7 @@ Planet: **Kazhdan–Margulis theorem**.
 
 Target `LefschetzPencilsAndVanishingCycles:LPV.5/characteristic-two-transverse-monodromy` · theorem · `TauCeti.AlgebraicGeometry.LefschetzPencil.charTwoTransverseMonodromy`.
 
-For the characteristic-two even-dimensional branch of Weil II 4.2, retain the actual quadratic inertia characters. For transverse pencils satisfying the specified generic-axis hypotheses, the local cycles at the ordinary critical fibres are conjugate up to sign and their stable span is independent of the chosen generic pencil after the prescribed transports. The existence of the generic-axis open is part of 4.2.7; a blanket tame-generation theorem is not asserted for every characteristic-two pencil.
+In the characteristic-two even-fibre-dimensional branch of Weil II 4.2, retain the actual, possibly wild, quadratic inertia characters. A transverse pencil with axis in the generic open of 4.2.7 has its ordinary local vanishing cycles in one monodromy orbit up to sign, after transport within that pencil. Their full transported span is stable under that pencil’s monodromy. Independence of this span across different pencils is not asserted: 4.2.5 discusses that stronger comparison as requiring a multidimensional vanishing-cycle theory. This branch supplies conjugacy for generic axes; it does not supply tame generation for every characteristic-two pencil.
 
 **Hypotheses.**
 
@@ -3624,15 +3624,15 @@ For the characteristic-two even-dimensional branch of Weil II 4.2, retain the ac
 
 **Construction or proof.**
 
-1. Use the characteristic-two local formula with its actual quadratic character.
-2. Apply the family-of-axes comparison and the good generic-axis open of 4.2.7.
-3. Use the conjugacy argument of 4.2.6–8 to compare transported local cycles.
-4. Keep this branch separate from the tame P¹ inertia-generator proof.
+1. Keep the possibly wild quadratic character in the characteristic-two local formula.
+2. Choose an axis in the generic open of 4.2.7.
+3. Apply 4.2.6–4.2.8 to connect critical fibres and compare transported local cycles within that pencil.
+4. Take the span of the full orbit, giving monodromy stability; keep this proof separate from the tame punctured-P¹ generation argument.
 
 **Acceptance.**
 
-- A wild quadratic local character is retained in the generic-pencil comparison.
-- The tame genus-zero presentation is not cited to dispose of wild inertia.
+- A wild quadratic character remains present in the within-pencil conjugacy statement.
+- No independence across different pencils, or tame presentation disposing of wild inertia, is inferred.
 
 **Direct prerequisites.**
 
@@ -3737,7 +3737,7 @@ Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.LefschetzPencil.
 
 Target `LefschetzPencilsAndVanishingCycles:LPV.5/integral-failure-and-arithmetic-routing` · application · `TauCeti.AlgebraicGeometry.LefschetzPencil.integralVanishingFailure`.
 
-Weil II 4.3.10 identifies the integral intersection of vanishing cycles and fixed classes with the kernel of the polarization map; torsion can make it nonzero. Thus a rational nondegeneracy conclusion cannot be exported integrally without its extra hypotheses. The character/rationality consequences and divisor-degree gcd estimates of 4.5.1–2 are consumers of the monodromy theorem plus DWP and trace/character suppliers, not new proofs of weights in LPV.
+Weil II 4.3.10 identifies the integral intersection of vanishing cycles with fixed classes as the kernel of the polarization map; integral torsion prevents copying rational splittings without further hypotheses. The application in 4.5.1–4.5.2 concerns common polynomial divisors of the Frobenius characteristic polynomials of smooth fibres, together with their compatibility under finite-field extension. Its bounded common-divisor contribution uses the finite orthogonal monodromy branch and the source’s geometric and cohomological hypotheses. It is a downstream DWP/trace/character application, not a divisor-degree gcd statement or an input to the geometric local-monodromy proof.
 
 **Hypotheses.**
 
@@ -3746,9 +3746,9 @@ Weil II 4.3.10 identifies the integral intersection of vanishing cycles and fixe
 
 **Construction or proof.**
 
-1. Record the exact integral polarization-kernel obstruction in 4.3.10.
-2. Check the rational radical-quotient construction remains valid without asserting integral splitting.
-3. Route the character/gcd conclusions to DWP.4 and the upstream trace/character owners with their precise input contracts.
+1. Keep the integral polarization-kernel obstruction of 4.3.10, without asserting integral splitting.
+2. Use rational monodromy and the source’s fibre-cohomology polynomial identities to bound their common polynomial factor in the 4.5 application.
+3. Route the Frobenius-polynomial and base-extension consequences to DWP.4 and the trace/character owners with the geometric and rationality hypotheses of 4.5.1–4.5.2.
 
 **Acceptance.**
 
@@ -3779,25 +3779,25 @@ Full forms omitted from elaboration: `TauCeti.AlgebraicGeometry.LefschetzPencil.
 
 Use the actual early perverse categories, rectified trait dimension function and specified p/p+ integral convention. Nearby/vanishing exactness, duality and intermediate extension exchanges have their own compatibility hypotheses. Enlarged filtered colimits require uniform bounds and qualified costalk commutation. The Igusa application imports only independent formal-model and boundary-transition nodes, derives its finite-level bound from affine/integral geometry, and returns semiperversity to its consumer.
 
-Coverage: **planned**. All original stage targets have nodes whose prerequisite chains terminate in checked baseline declarations, exact independent supplier nodes, requested owner stages or explicit source/prototype gaps. Planned at target level; not closed or independently accepted.
+Coverage: **planned**. Every stage target is represented at target level with its direct prerequisites, exact supplier requests and recorded source/form gaps. Independently reviewed as planned; no stage is closed and no implementation is claimed.
 
 ### Perverse exactness of nearby cycles
 
 Target `LefschetzPencilsAndVanishingCycles:LPV.6/nearby-perverse-exactness` · theorem · `TauCeti.AlgebraicGeometry.VanishingCycles.nearbyPerverseExact`.
 
-For a finite-type scheme over a henselian trait, rational ℓ-adic geometric nearby cycles take perverse sheaves on the geometric generic fibre to perverse sheaves on the geometric special fibre, and the induced functor on perverse hearts is exact. With the rectified perversity on the total trait space, this is the ψ[−1] convention: the generic-fibre restriction is shifted by −1 before applying the fibrewise functor. No weight or decomposition theorem is required.
+For a finite-type scheme over a henselian trait with ℓ invertible, geometric nearby cycles preserve the middle perverse heart on geometric fibres, for rational ℓ-adic coefficients and for the finite coefficient convention Λ=Z/ℓ^ν of the supplier. The induced functor on those hearts is exact. Fibrewise RΨ adds no shift. For a perverse complex on the total trait space with rectified dimension function, its generic restriction is shifted by −1 before applying this fibrewise functor: this is the total-space RΨ[−1] convention. No weight or decomposition theorem is used; integral p and p+ conventions remain separate.
 
 **Hypotheses.**
 
-- Early middle/rectified perverse structures imported from EDC.5; finite type; ℓ invertible
-- Rational coefficients, or the finite-coefficient perversity specified by the supplier; p and p+ are not identified integrally
+- Finite type over a henselian trait; ℓ invertible; early middle/rectified perverse structures and affine Artin vanishing imported from EDC.5/SF.2
+- Finite coefficients Λ=Z/ℓ^ν (ν≥1), or rational ℓ-adic coefficients under the derived realization convention; integral p and p+ are not identified
 
 **Construction or proof.**
 
-1. Import the support/cosupport definition and the trait dimension convention from EDC.5.
-2. Use the group-cohomology two-term calculation and the strict-local nearby stalks to establish the required perverse bounds.
-3. Combine the two bounds to obtain t-exactness and hence exactness on the hearts.
-4. Check the generic-fibre dimension shift accounts for ψ[−1] on the total space.
+1. Import support/cosupport and rectified trait dimensions from EDC.5, and reduce locally on X to separated affine pieces.
+2. Use the affine Artin vanishing and strict-local stalk argument for right t-exactness; this is the bound cited in Illusie 1994 Corollary 4.5.
+3. Apply nearby Verdier duality from LPV.6/nearby-verdier-duality to obtain the opposite bound over rational coefficients or finite fields; use the finite-coefficient t-exactness theorem stated in Illusie 2021 §6.2 for Λ=Z/ℓ^ν with the supplier’s conventions. General finite rings are not inferred from self-duality.
+4. Combine the bounds for exactness on the perverse hearts and check the total-space −1 shift.
 
 **Acceptance.**
 
@@ -3806,13 +3806,16 @@ For a finite-type scheme over a henselian trait, rational ℓ-adic geometric nea
 
 **Direct prerequisites.**
 
+- `LefschetzPencilsAndVanishingCycles:LPV.6/nearby-verdier-duality`
 - `LefschetzPencilsAndVanishingCycles:LPV.0/constructibility-and-finite-amplitude`
 - `LefschetzPencilsAndVanishingCycles:LPV.0/derived-nearby-cycles-RPsi-and-vanishing-triangle`
 - `EtaleDualityAndPerverseSheaves:EDC.5`
 
 **Sources.**
 
-- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), 4.5–4.6, pp. 47–49. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), Corollary 4.5 and its Artin-vanishing/duality argument, p. 47. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+
+- [Grothendieck and vanishing cycles](https://www.numdam.org/article/AFST_2021_6_30_1_83_0.pdf), §1.1, p. 85, coefficient convention; §6.2, p. 104, finite-coefficient nearby/vanishing perverse exactness. The survey states the finite-coefficient version; proof inputs remain the explicitly requested Artin-vanishing, trait-perversity and duality interfaces.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -3828,13 +3831,13 @@ For a perverse complex K on the total trait space with rectified perversity, RΦ
 
 **Hypotheses.**
 
-- Finite type; early EDC.5 rectified perversity; finite or rational coefficients with the supplier’s duality convention
+- Finite type; ℓ invertible; early EDC.5 rectified perversity; finite Λ=Z/ℓ^ν or rational coefficients with the supplier’s convention
 
 **Construction or proof.**
 
 1. Use the total-space gluing bounds for j*K[−1] and i*K[−1].
 2. Apply fibrewise nearby t-exactness to the generic restriction.
-3. Use the specialization triangle and its two perverse bounds to show the shifted cone is perverse.
+3. Use the specialization triangle to place RΦK[−1] in perverse degrees −1 and 0. Dévissage reduces elimination of degree −1 to the specialization from inertia invariants: exact pro-p invariants and the two-term tame-inertia complex give the required monomorphism. This is the extra step of Gabber’s argument, not just the triangle bounds.
 4. Retain the total/fibre dimension shifts and normalized can/var twists.
 
 **Acceptance.**
@@ -3850,7 +3853,9 @@ For a perverse complex K on the total trait space with rectified perversity, RΦ
 
 **Sources.**
 
-- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), 4.6, pp. 48–49. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), Corollary 4.6 and Gabber’s proof, pp. 47–51. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+
+- [Grothendieck and vanishing cycles](https://www.numdam.org/article/AFST_2021_6_30_1_83_0.pdf), §1.1, p. 85, coefficient convention; §6.2, p. 104, finite-coefficient nearby/vanishing perverse exactness. The survey states the finite-coefficient version; proof inputs remain the explicitly requested Artin-vanishing, trait-perversity and duality interfaces.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -3862,12 +3867,12 @@ Planet: **Perverse vanishing cycles**.
 
 Target `LefschetzPencilsAndVanishingCycles:LPV.6/nearby-verdier-duality` · theorem · `TauCeti.AlgebraicGeometry.VanishingCycles.nearbyVerdierDuality`.
 
-Gabber’s comparison RΨ(D_ηK)≅D_s(RΨK) is natural and inertia-equivariant, with the dualizing complexes and Tate twists provided by the six-operation supplier. The induced shifted vanishing-cycle duality is compatible with can/var and the specialization pairing. Rational adic passage is compatible with the comparison; for integral coefficients the two dual perverse conventions are kept distinct.
+For separated finite-type X over the trait and K∈D_ctf(X_η,Λ) with finite coefficients of invertible order, Gabber’s map RΨ(D_ηK)→D_s(RΨK) is a natural inertia-equivariant isomorphism. Use the supplier’s dualizing complexes and Tate twists. Illusie 4.4 gives the bounded constructible adic and rational variant. Shifted vanishing-cycle duality retains its can/var and specialization-pairing conventions; integral p and p+ perversities are kept distinct. Dropping finite Tor dimension for a general finite coefficient ring is not part of this theorem.
 
 **Hypotheses.**
 
-- Finite type over a trait; constructible bounded complexes; torsion prime to residue characteristic or derived adic realization
-- Dualizing objects and their normalizations supplied by EDC.1–2
+- Separated finite-type X over a henselian trait; finite coefficients invertible on the trait; K bounded constructible with finite Tor dimension (D_ctf), as in Illusie 4.2
+- For derived adic or rational coefficients use the bounded constructible realization of 4.4 with uniform finite-level amplitude; dualizing objects and normalizations supplied by EDC.1–2
 
 **Construction or proof.**
 
@@ -3930,7 +3935,7 @@ Let j_η and j_s be compatible open immersions in a trait family. Suppose nearby
 
 **Sources.**
 
-- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), 4.5–4.6 (exactness); image argument using the EDC.5 definition. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), Corollaries 4.5–4.6, pp. 47–51; exactness and the EDC.5 image definition. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -3971,7 +3976,7 @@ The finite-level nearby-cycle functor, its derived adic realization and its rati
 
 **Sources.**
 
-- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), 4.4–4.6, pp. 47–49. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
+- [Luc Illusie, Autour du théorème de monodromie locale](https://www.numdam.org/item/AST_1994__223__9_0/), 4.4–4.6, pp. 47–51. The cited passage supplies the stated object or result; hypotheses and ownership are made explicit here.
 
 **Suggested forms: missing.** Names in missingForms are documented forms, not elaborated declarations. Successful specializations do not establish their geometric realization. Implementation remains unchecked.
 
@@ -4123,7 +4128,7 @@ Consumers: `LefschetzPencilsAndVanishingCycles:LPV.6/nearby-perverse-exactness`,
 
 ### EtaleDualityAndPerverseSheaves:EDC.6
 
-Finite/derived-adic/rational realization with perverse shift and duality conventions; Huber’s admissible finite-type scheme/formal-completion/adic nearby comparison, including specialization and inertia equivariance. The analytic comparisons are imported on their stated domain, not extended to all analytic spaces.
+Finite/derived-adic/rational realization with perverse shifts and duality, including uniform inverse-limit control. Consume the scheme/completion/adic nearby comparison owned by ClassicalAdicEtaleCohomology H1 at the exact nodes separately requested here; EDC.6 owns coefficient realization, not a duplicate Huber comparison. Complex Artin comparison is imported from PR196 on its stated finite-type domain.
 
 Consumers: `LefschetzPencilsAndVanishingCycles:LPV.0/adic-nearby-cycle-realization`, `LefschetzPencilsAndVanishingCycles:LPV.0/scheme-adic-trait-comparison`, `LefschetzPencilsAndVanishingCycles:LPV.2/complex-picard-lefschetz-comparison`, `LefschetzPencilsAndVanishingCycles:LPV.6/perverse-coefficients-and-comparison`, `LefschetzPencilsAndVanishingCycles:LPV.6/igusa-semiperversity-interface`.
 
@@ -4165,7 +4170,7 @@ Consumers: `LefschetzPencilsAndVanishingCycles:LPV.5/finite-orthogonal-ade`.
 
 ### tauceti:TauCetiRoadmap/RepresentationTheory/ClassicalGroups#layer-0-the-classical-groups-and-the-standard-representation
 
-Import the current TauCetiRoadmap OrthogonalSpinGroups Layers 0 and 2 general-field O(Q), bilinear dictionary, reflections and canonical Q_l module/subgroup topology; the atlas snapshot lacks that roadmap, so this stage is integration bookkeeping only. ClassicalGroups, Part II supplies the remaining Q_l symplectic group and analytic Lie-group interface, beyond its existing complex Layer 0. LPV owns only the source-specific geometric monodromy alternatives.
+Import OrthogonalSpinGroups Layers 0 and 2 for general-field O(Q), the bilinear dictionary, reflections and canonical Q_l topology. Current TauCeti also supplies LinearMap.BilinForm.IsAlt.exists_basis_toMatrix_eq_J and Matrix.isClosed_symplecticGroup / TauCeti.isClosed_GLSymplectic, over general fields/rings with their stated topologies. Reuse these symplectic bases and standard closed matrix carriers over Q_l; request only their form-specific coordinate/topology transport and the Q_l analytic Lie-group extension in ClassicalGroups/LieGroups Part II. LPV owns the source-specific geometric monodromy alternatives.
 
 Consumers: `LefschetzPencilsAndVanishingCycles:LPV.5/conditional-orthogonal-open-or-finite`.
 
@@ -4299,7 +4304,7 @@ Targets: `LefschetzPencilsAndVanishingCycles:LPV.6/nearby-perverse-exactness`, `
 
 ## Source corrections and reading provenance
 
-Results are stated in our own words. There are no source excerpts or source-by-source narrative summaries. The packet records the 23 inherited confirmed findings, with their review verdicts unchanged, and one new proposed Tate-twist correction E24. The first 23 corrections remain in force; E24 awaits independent verification.
+Results are stated in our own words. All 24 source issues have independent review verdicts. The inherited descriptions or corrections of E2, E17 and E21 are repaired. E24 is confirmed for the Tate labels; its former accusation about the printed numerical eigenvalue is withdrawn because that value is correct. The packet records the source locators, evidence and limits of each finding.
 
 ### E1 — misprint
 
@@ -4313,17 +4318,21 @@ Check: Case a) is 'n pair ou car(A) ≠ 2', so b) is its complement, characteris
 
 Known correction: new. Reach: nothing.
 
+Independent review: confirmed. The XII p. 2 image uses a cardinality where its characteristic-two branch needs residue characteristic; the adjacent case gives the complementary hypothesis.
+
 ### E2 — misprint
 
 Exposé XII, Proposition 1.2, p. 3.
 
-Defect: The summation includes an extra index at the upper endpoint.
+Defect: The hyperbolic summation stops one index too early.
 
-Correction: End the sum at m−1.
+Correction: End both hyperbolic sums at m, including x_m·x_(2m).
 
 Check: With the basis e₁, …, e_n and i from 1 to m − 1, the variables x_m and x_{2m} do not occur and the displayed form is degenerate, contradicting ordinarity; the inductive proof splits off m hyperbolic planes.
 
 Known correction: new. Reach: a stated result.
+
+Independent review: confirmed. The XII p. 3 image ends both sums at m−1. The correction is m, since otherwise the last hyperbolic pair is absent. Corrected the inherited correction, whose reason already identified this degeneracy.
 
 ### E3 — misprint
 
@@ -4337,6 +4346,8 @@ Check: η is the image of c₁(O(1)) ∈ H²(X, ℤ_ℓ(1)), as the next sentenc
 
 Known correction: new. Reach: nothing.
 
+Independent review: confirmed. XII p. 14 places the hyperplane Chern class in degree two; the isolated R¹ contradicts that degree.
+
 ### E4 — misprint
 
 Exposé XII, proof of 3.3, formula (a), p. 15.
@@ -4348,6 +4359,8 @@ Correction: Use the ambient projective space P^(2m+1).
 Check: The quadric has dimension n = 2m and the equation uses the variables x₀, …, x_{2m+1}.
 
 Known correction: new. Reach: nothing.
+
+Independent review: confirmed. XII p. 15 has 2m+2 coordinates for a dimension-2m quadric; the ambient space is P^(2m+1).
 
 ### E5 — misprint
 
@@ -4361,6 +4374,8 @@ Check: The paragraph treats n even and then n odd; r denotes the restriction map
 
 Known correction: new. Reach: nothing.
 
+Independent review: confirmed. XII p. 18 uses the wrong letter in the odd fibre-dimension clause; the adjacent even/odd calculations require n.
+
 ### E6 — misprint
 
 Exposé XII, 3.6, p. 18.
@@ -4372,6 +4387,8 @@ Correction: Change the internal reference to 3.6.3.
 Check: Exposé XII has no 3.5.3; the dual Gysin sequence (3.6.3) is the one that computes R^i f_*ℤ_ℓ.
 
 Known correction: new. Reach: nothing.
+
+Independent review: confirmed. XII p. 18 needs the displayed dual Gysin sequence 3.6.3, rather than the nonexistent 3.5.3.
 
 ### E7 — misprint
 
@@ -4385,6 +4402,8 @@ Check: Without the square the equation is smooth at every point; the versal defo
 
 Known correction: new. Reach: a stated result.
 
+Independent review: confirmed. XV p. 11 image omits the square in the degenerate characteristic-two local equation; the versal model directly above contains x₀².
+
 ### E8 — misprint
 
 Exposé XV, 1.2.1 and proof of 1.2.6, pp. 4 and 6.
@@ -4396,6 +4415,8 @@ Correction: Use f=Q plus terms of order above two, with no second equality sign;
 Check: The stray '=' breaks the formula, and the references numbered 4.x (also the label (4.14.2) in 1.3.2) point to a numbering of the exposé that no longer exists; 1.2.3 is the cone Q = 0 used in the proof.
 
 Known correction: new. Reach: nothing.
+
+Independent review: confirmed. XV pp. 4 and 6 images confirm the extra equality and stale reference; the completed quadratic expansion and cone 1.2.3 give the intended reading.
 
 ### E9 — misprint
 
@@ -4409,6 +4430,8 @@ Check: The proof of 2.2.7 says 'Appliquons 2.1.8', and the lemma sits between 2.
 
 Known correction: new. Reach: nothing.
 
+Independent review: confirmed. XV pp. 14–17 duplicate 2.1.3 and print 2.7.8 in the sequence of §2.1; its later application refers to 2.1.8.
+
 ### E10 — misprint
 
 Exposé XV, (2.2.5.9), p. 21.
@@ -4420,6 +4443,8 @@ Correction: Use Var(σ) for the variation morphism.
 Check: The next display (2.2.5.10) rewrites it as a formula for Var(σ), and D is not defined in XV.
 
 Known correction: new. Reach: nothing.
+
+Independent review: confirmed. XV p. 21 labels the map D(σ), while its domain and next formula describe Var(σ); no new D is defined.
 
 ### E11 — error
 
@@ -4433,6 +4458,8 @@ Check: (uδ, uδ) = u²(δ, δ), and ℤ/k has square roots of 1 other than ±1 
 
 Known correction: new. Reach: nothing.
 
+Independent review: confirmed. XV p. 22 norm normalization does not select a common sign over composite rings: 4²=1 mod 15 and 19²=1 mod 60, yet neither is ±1. An integral orientation reduced compatibly repairs the ambiguity.
+
 ### E12 — misprint
 
 Exposé XV, 2.2.2, p. 18.
@@ -4444,6 +4471,8 @@ Correction: Use odd variable rank n+1 for the degenerate characteristic-two ordi
 Check: The degenerate case is characteristic 2 with n even (XV 1.2.2 and 1.2.8: an odd number n + 1 of variables), and 2.2.6 says 'Supposons n impair; x₀ est alors un point rationnel (2.2.2)'.
 
 Known correction: new. Reach: nothing.
+
+Independent review: confirmed. XV p. 18 selects the wrong parity of n+1; the characteristic-two degenerate ordinary model has n even and odd variable rank.
 
 ### E13 — misprint
 
@@ -4457,6 +4486,8 @@ Check: The author’s ErrTML sheet identifies the vertical parameter used in the
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
 
+Independent review: confirmed. The complete author-hosted ErrTML sheet and the original 1994 passage at p. 22 lines −4 and −2, p. 24 lines 6–7, p. 38 line −11 confirm the stated correction. The corrected notation respects the surrounding construction; no stronger theorem is inferred.
+
 ### E14 — misprint
 
 p. 35 line 7.
@@ -4468,6 +4499,8 @@ Correction: Use R^(2q) at this occurrence.
 Check: Purity in codimension q has cohomological degree 2q.
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
+
+Independent review: confirmed. The complete author-hosted ErrTML sheet and the original 1994 passage at p. 35 line 7 confirm the stated correction. The corrected notation respects the surrounding construction; no stronger theorem is inferred.
 
 ### E15 — misprint
 
@@ -4481,6 +4514,8 @@ Check: The author corrects the sign used to compare the boundary maps in the fil
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
 
+Independent review: confirmed. The complete author-hosted ErrTML sheet and the original 1994 passage at p. 37 line −5 confirm the stated correction. The corrected notation respects the surrounding construction; no stronger theorem is inferred.
+
 ### E16 — misprint
 
 p. 38 line −5, (3.6.8).
@@ -4493,17 +4528,21 @@ Check: The simple Rapoport–Zink complex resolves nearby K, not its inertia-coh
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
 
+Independent review: confirmed. The complete author-hosted ErrTML sheet and the original 1994 passage at p. 38 line −5, (3.6.8) confirm the stated correction. The corrected notation respects the surrounding construction; no stronger theorem is inferred.
+
 ### E17 — misprint
 
 p. 39 line 7, second row.
 
-Defect: The strata/twist expression skips the untwisted degree-d term.
+Defect: The degree-d and degree-(d+1) strata appear with their coefficient twists in the wrong order.
 
 Correction: Keep the degree-d untwisted term a_dΛ and the degree-(d+1) term a_(d+1)Λ(−1) distinct.
 
 Check: The author’s erratum reverses the printed component order, needed for the graded monodromy map.
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
+
+Independent review: confirmed. The author’s complete ErrTML sheet and original p. 39 identify a swap in stratum/twist order, not a missing untwisted term; corrected the defect description.
 
 ### E18 — misprint
 
@@ -4517,6 +4556,8 @@ Check: The author’s erratum fixes the monodromy-filtration indexing.
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
 
+Independent review: confirmed. The complete author-hosted ErrTML sheet and the original 1994 passage at p. 41 line −3 confirm the stated correction. The corrected notation respects the surrounding construction; no stronger theorem is inferred.
+
 ### E19 — misprint
 
 p. 41 line −2.
@@ -4528,6 +4569,8 @@ Correction: Use the weight i+n in the stated relative-dimension convention.
 Check: The pure weight includes the dimension shift; this weight result is routed to DWP, not proved here.
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
+
+Independent review: confirmed. The complete author-hosted ErrTML sheet and the original 1994 passage at p. 41 line −2 confirm the stated correction. The corrected notation respects the surrounding construction; no stronger theorem is inferred.
 
 ### E20 — misprint
 
@@ -4541,17 +4584,21 @@ Check: The author’s erratum explicitly retracts that proposed correction; LPV 
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
 
+Independent review: confirmed. The complete author-hosted ErrTML sheet and the original 1994 passage at p. 43 line −1 and p. 44 lines 1–2 confirm the stated correction. The corrected notation respects the surrounding construction; no stronger theorem is inferred.
+
 ### E21 — misprint
 
 p. 44 line −12.
 
-Defect: A diagram uses the generic map symbol instead of the specified morphism.
+Defect: The weight assertion refers to the Weil-group element g rather than an inverse characteristic-polynomial root α.
 
-Correction: Use α for the designated morphism.
+Correction: Apply the weight n+r assertion to the eigenvalue α, keeping g as the Weil-group element whose characteristic polynomial is considered.
 
-Check: The duality-comparison map is the α of the preceding construction.
+Check: The preceding Question 3.13.2 defines α as an inverse root. A Weil-group element itself is not a scalar Weil number. The author’s ErrTML replaces g by α at this occurrence.
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
+
+Independent review: confirmed. The complete author-hosted ErrTML sheet and the original 1994 passage at p. 44 line −12 confirm the stated correction. The corrected notation respects the surrounding construction; no stronger theorem is inferred.
 
 ### E22 — misprint
 
@@ -4565,6 +4612,8 @@ Check: The perverse argument applies to the complex K, not to the scheme X.
 
 Known correction: Author ErrTML.pdf. Reach: the proof.
 
+Independent review: confirmed. The complete author-hosted ErrTML sheet and the original 1994 passage at p. 48 line 3 confirm the stated correction. The corrected notation respects the surrounding construction; no stronger theorem is inferred.
+
 ### E23 — misprint
 
 ErrPL.pdf, correcting p. 251 line 18 of the 2002 paper.
@@ -4577,17 +4626,21 @@ Check: ErrPL.pdf gives the corrected local concentration bound in Sur la formule
 
 Known correction: Author ErrPL.pdf. Reach: the proof.
 
+Independent review: confirmed. The complete author-hosted ErrPL sheet gives |i|>1. The 2002 original was unavailable; no independent claim about its proof interior is made.
+
 ### E24 — misprint
 
 Deligne, Weil I, published 1974 Numdam scan, §7.1, (7.1.5), (7.1.5′) and final Frobenius sentence, printed p. 300; image rechecked 2026-10-10.
 
-Defect: The totally isotropic branch labels the local skyscraper line by the twist n−m and consequently gives geometric Frobenius the inverse of the expected middle-degree eigenvalue.
+Defect: The quotient and boundary-map lines carry the opposite Tate label n−m. The final sentence also uses that wrong label, but its numerical geometric-Frobenius eigenvalue q^((n+1)/2) is already correct.
 
-Correction: With n=2m+1 and δ in Hⁿ(X_u,Q_l(m)), the local quotient line obtained by evaluation against δ is Q_l(m−n), with geometric Frobenius q^(n−m)=q^((n+1)/2) after rationalizing the orientation character. Use this twist in both the sheaf quotient and its boundary map.
+Correction: With n=2m+1 and δ in Hⁿ(X_u,Q_l(m)), the local quotient line obtained by evaluation against δ is Q_l(m−n), with geometric Frobenius q^(n−m)=q^((n+1)/2) after rationalizing the orientation character. Use this twist in both the sheaf quotient and its boundary map. Retain the printed numerical eigenvalue q^((n+1)/2); correct its Tate label, not that eigenvalue.
 
 Check: Cup product has target Q_l(−n). Pairing an untwisted x with δ twisted by m therefore has target Q_l(m−n). In the totally isotropic case its kernel is E⊥, and the local defect of extension by j* is this evaluation line. The same twist occurs in the local specialization sequence and in the δ=0 upper-corner calculation immediately above on p. 300. For n=1,m=0 the quotient is Q_l(−1), not Q_l(1). This correction preserves the upper bound used by the argument; it does not assert E₂ degeneration or hard Lefschetz.
 
-Known correction: new; no published correction located in this run. Independent verification of the proposed correction is required.. Reach: the proof.
+Known correction: No published correction located; the Tate-label defect is independently confirmed in this review.. Reach: the proof.
+
+Independent review: confirmed. The Numdam p. 300 image confirms the wrong labels in (7.1.5), (7.1.5′) and the final sentence. Cup-product evaluation has target Q_l(m−n). Its geometric-Frobenius eigenvalue q^(n−m) agrees with the printed q^((n+1)/2), so the numerical-eigenvalue accusation is withdrawn.
 
 ## Restructuring and upstream integration notes
 
@@ -4611,7 +4664,7 @@ Known correction: new; no published correction located in this run. Independent 
 
 **DeligneWeightsAndPurity:DWP.5.** Weil II 1.9’s weight-dependent relative-filtration existence is a downstream use of LPV.1 and belongs to DWP.5/local-weight-corollaries, not DWP.1 (curve and abelian-variety Weil estimates). Do not add a reverse DWP.5→LPV.1 dependency for the tame commuting-residue and uniqueness targets.
 
-**OrthogonalSpinGroups.** Current read-only TauCetiRoadmap main, head dea8191, already owns general-field orthogonal carriers, reflection API (Layer 0) and Q_l canonical topology (Layer 2). Read both layers and their Suggested.lean; replace atlas-era complex-ClassicalGroups assumptions by these imports. No new orthogonal carrier or topology plan belongs to LPV. Only the remaining symplectic/analytic extension is ClassicalGroups, Part II.
+**OrthogonalSpinGroups.** Current read-only TauCetiRoadmap main was independently checked at 8c72a04753b11cab07fa593cc38ceaa7c0515380, and TauCeti at a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. OrthogonalSpinGroups owns O(Q), reflections and canonical topology. General-field symplectic bases and standard symplectic closedness are also already implemented. Import both; only the form-specific transport and p-adic analytic extension remain requested.
 
 **IgusaVarietiesAndTorsionConcentration:IG.4.** Checked exact independent nodes finite-level-formal-models and ell-power-boundary-killing. Node graph: IG geometry prefix → LPV.6 interface → IG semiperversity/compact-perversity. The atlas whole-stage edge would still be cyclic; install the proposed prefix split before publishing a whole-stage link. No other packet is edited.
 
@@ -4635,6 +4688,6 @@ Known correction: new; no published correction located in this run. Independent 
 - [Ana Caraiani and Peter Scholze, On the generic part of the cohomology of non-compact unitary Shimura varieties](https://people.mpim-bonn.mpg.de/scholze/Noncompact.pdf) — Author public manuscript, Noncompact.pdf. Read 2026-10-06; revision checked 2026-10-10. 4.6, pp. 60–63, finite-level semiperversity and the cofinal-model interface; Revision 2: §4.6 proof and finite-level affine integral-pushforward argument, pp. 60–63, rechecked against the exact IG.4 geometry-prefix nodes..
 - [Thomas Haines and Bao Châu Ngô, Nearby cycles for local models of some Shimura varieties](https://math.uchicago.edu/~ngo/nearby-cycle.pdf) — Compositio Mathematica 133 (2002), 117–150; published author-hosted PDF. Read 2026-10-10. §3.1, pp. 127–128: admissible filtrations, common refinement, Lemma 8 and Corollary 9, including proofs.
 - [Roland Huber, Étale cohomology of rigid analytic varieties and adic spaces](https://doi.org/10.1007/978-3-663-09991-8) — Aspects of Mathematics E30 (1996); maintainer-cleared reference read in place. Read 2026-10-10. §3.5, Theorem 3.5.13, p. 207, proof pp. 208–209; Corollaries 3.5.14–17, pp. 209–210; formal completion and strictly henselian rank-one nearby comparison.
-- [Peter Schneider, p-Adic Lie Groups](https://doi.org/10.1007/978-3-642-21147-8) — Grundlehren der mathematischen Wissenschaften 344 (2011); maintainer-cleared reference read in place. Read 2026-10-10. §18.10–19, pp. 144–153: exponential charts and local homomorphisms; Exercise 26.2, pp. 181–182; Theorem 27.1, pp. 192–194; Theorem 29.2 and Corollaries 29.4–6, pp. 203–205, with proofs.
+- [Peter Schneider, p-Adic Lie Groups](https://doi.org/10.1007/978-3-642-21147-8) — Grundlehren der mathematischen Wissenschaften 344 (2011); maintainer-cleared reference read in place. Read 2026-10-10. §18.10–19, pp. 144–153: exponential charts and local homomorphisms; Exercise 26.2, pp. 181–182; Theorem 27.1, pp. 192–194; Proposition 29.2 and Corollaries 29.4–6, pp. 202–205, with proofs.
 
 Illusie’s original 2002 algebraic proof and 2003 general concentration proof were not obtained. Their surveyed route, application and author erratum do not replace those proof interiors. The general Artin/Elkik and SGA 4½ finiteness proofs remain precise owner/source requests. Huber and Schneider were read in the maintainer-cleared references, in place; no book file or passage is included here. Public versions remain fixed by the packet’s hashes and version records.

@@ -23,476 +23,476 @@
     "kind": "class",
     "module": "Mathlib/LinearAlgebra/Dimension/StrongRankCondition.lean",
     "provides": "An algebra of rank two over a field.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:AnalyticAt.analyticOrderAt_ne_top",
     "kind": "lemma",
     "module": "Mathlib/Analysis/Analytic/Order.lean",
     "provides": "For f analytic at z₀: analyticOrderAt f z₀ ≠ ⊤ iff f = (z − z₀)^n g near z₀ with g analytic and g z₀ ≠ 0.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:ArithmeticFunction.eulerProduct",
     "kind": "def",
     "module": "Mathlib/NumberTheory/ArithmeticFunction/LFunction.lean",
     "provides": "The Euler product of a family of local arithmetic functions indexed by primes.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:Complex.Gammaℂ",
     "kind": "def",
     "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Deligne.lean",
     "provides": "Deligne's archimedean factor Γ_ℂ(s) = 2(2π)^{-s}Γ(s).",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:Int.IsFundamentalDiscr",
     "kind": "def",
     "module": "Mathlib/NumberTheory/FundamentalDiscriminant.lean",
     "provides": "The predicate of being a fundamental discriminant.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:IsArithFrobAt",
     "kind": "abbrev",
     "module": "Mathlib/RingTheory/Frobenius.lean",
     "provides": "σ is an arithmetic Frobenius at a prime Q: σ(x) ≡ x^{#(R/Q∩R)} mod Q.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:LSeries",
     "kind": "def",
     "module": "Mathlib/NumberTheory/LSeries/Basic.lean",
     "provides": "The L-series of a coefficient sequence ℕ → ℂ, defined as a tsum.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:LSeries.abscissaOfAbsConv",
     "kind": "def",
     "module": "Mathlib/NumberTheory/LSeries/Convergence.lean",
     "provides": "The abscissa of absolute convergence of an L-series, in EReal.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:LSeries_convolution",
     "kind": "lemma",
     "module": "Mathlib/NumberTheory/LSeries/Convolution.lean",
     "provides": "LSeries (f ⍟ g) s = LSeries f s * LSeries g s when both series are summable at s.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:Module.finrank",
     "kind": "def",
     "module": "Mathlib/LinearAlgebra/Dimension/Finrank.lean",
     "provides": "The cardinal Module.rank truncated to ℕ; in this packet finite generation/free-quotient or rational tensor hypotheses justify its interpretation as Mordell–Weil rank. It is not zero for every module that is not finite free.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:Nat.factorial",
     "kind": "def",
     "module": "Mathlib/Data/Nat/Factorial/Basic.lean",
     "provides": "The factorial n!.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:NumberField.discr",
     "kind": "abbrev",
     "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
     "provides": "The absolute discriminant of a number field.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:Submodule.torsionBy",
     "kind": "def",
     "module": "Mathlib/Algebra/Module/Torsion/Basic.lean",
     "provides": "The a-torsion submodule M[a].",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.Affine.Point",
     "kind": "inductive",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
     "provides": "The group of nonsingular points of an affine Weierstrass curve with the point at infinity.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.Affine.Point.map",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Affine/Point.lean",
     "provides": "The map on points induced by an algebra homomorphism of the coefficient fields.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.HasAdditiveReduction",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
     "provides": "Additive reduction of a minimal Weierstrass equation over a DVR.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.HasGoodReduction",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
     "provides": "Good reduction of an (integral, minimal) Weierstrass equation over a DVR.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.HasMultiplicativeReduction",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
     "provides": "Multiplicative reduction of a minimal Weierstrass equation over a DVR.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.HasSplitMultiplicativeReduction",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Reduction.lean",
     "provides": "Split multiplicative reduction of a minimal Weierstrass equation over a DVR.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.IsElliptic",
     "kind": "class",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
     "provides": "A Weierstrass curve whose discriminant is a unit.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.LFunction",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The L-function of a Weierstrass curve over a number field as the formal Euler product (an ArithmeticFunction ℤ) of the local Euler factors at all height-one primes, computed on minimal models.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.LSeries",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The complex L-series s ↦ LSeries (↑ ∘ W.LFunction) s; a tsum, equal to 0 wherever the series is not summable.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.baseChange",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/Weierstrass.lean",
     "provides": "Base change of a Weierstrass curve along an algebra map.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.localEulerFactor",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The local Euler factor as an arithmetic function, from the inverse power series of the local polynomial.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:WeierstrassCurve.localPolynomial",
     "kind": "def",
     "module": "Mathlib/AlgebraicGeometry/EllipticCurve/LFunction.lean",
     "provides": "The local polynomial 1 − aT + qT² (good), 1 − T (split multiplicative), 1 + T (nonsplit multiplicative), 1 (additive) of the minimal model over a DVR.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:analyticOrderAt",
     "kind": "def",
     "module": "Mathlib/Analysis/Analytic/Order.lean",
     "provides": "The order of vanishing of a function at a point, in ℕ∞ (⊤ for the zero germ, 0 if not analytic).",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:analyticOrderAt_eq_zero",
     "kind": "lemma",
     "module": "Mathlib/Analysis/Analytic/Order.lean",
     "provides": "analyticOrderAt f z₀ = 0 iff f is not analytic at z₀ or f z₀ ≠ 0.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:analyticOrderNatAt",
     "kind": "def",
     "module": "Mathlib/Analysis/Analytic/Order.lean",
     "provides": "The natural-number truncation of analyticOrderAt.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:iteratedDeriv",
     "kind": "def",
     "module": "Mathlib/Analysis/Calculus/IteratedDeriv/Defs.lean",
     "provides": "The n-th iterated derivative of a function of one variable.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:padicValRat",
     "kind": "def",
     "module": "Mathlib/NumberTheory/Padics/PadicVal/Basic.lean",
     "provides": "The p-adic valuation of a rational number.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:quadraticChar",
     "kind": "def",
     "module": "Mathlib/NumberTheory/LegendreSymbol/QuadraticChar/Basic.lean",
     "provides": "The quadratic character of a finite field.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:Algebra.IsQuadraticExtension.quadraticCharacter",
     "kind": "def",
     "module": "TauCeti/FieldTheory/Galois/Basic.lean",
     "provides": "The quadratic character (L ≃ₐ[K] L) →* ℤˣ of a quadratic extension.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:CuspForm.hasEntireExtension_qExpansion_coeff",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/ModularForms/LFunction.lean",
     "provides": "The q-expansion coefficient sequence of a cusp form of positive weight on an arithmetic subgroup has an entire extension (through Mathlib's ModularForm.L).",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:LSeries.HasEntireExtension",
     "kind": "def",
     "module": "TauCeti/NumberTheory/LSeries/EntireExtension.lean",
     "provides": "a has an entire extension: the abscissa of absolute convergence is finite and some entire F agrees with LSeries a on the convergence half-plane.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:LSeries.HasEntireExtension.existsUnique",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/LSeries/EntireExtension.lean",
     "provides": "HasEntireExtension a gives ∃! entire F agreeing with LSeries a on the convergence half-plane.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:LSeries.HasEntireExtension.of_extension_of_eq_on_lt_re",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/LSeries/EntireExtension.lean",
     "provides": "Introduction: finite abscissa plus an entire F agreeing with LSeries a on some half-plane Re s > c gives HasEntireExtension a.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:LSeries.HasEntireExtension.unique",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/LSeries/EntireExtension.lean",
     "provides": "Two entire extensions of LSeries a on the convergence half-plane are equal.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:NumberField.isArithFrobAt_multiquadratic_eq_one_iff",
     "kind": "theorem",
     "module": "TauCeti/NumberTheory/Multiquadratic/Frobenius.lean",
     "provides": "For odd rational primes not dividing the radicands, an arithmetic Frobenius of the specified multiquadratic field is trivial iff the radicands are quadratic residues. This does not cover dyadic or ramified splitting.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.Point.canonicalHeight",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
     "provides": "Tate's canonical height, normalised as the (O)-height (half the x-height limit).",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.Point.exists_baseChange_eq_of_map_eq",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/GaloisDescent.lean",
     "provides": "A point of W(L) fixed by the nontrivial σ ∈ Gal(L/K) of a quadratic extension is the base change of a point of W(K).",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.Point.isOfFinAddOrder_of_canonicalHeight_eq_zero",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
     "provides": "Height zero implies finite order under ellipticity, AdmissibleAbsValues, DecidableEq and Northcott for canonicalHeight; these instances must be supplied over the chosen number field.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.PointModTorsion",
     "kind": "abbrev",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/PointModTorsion.lean",
     "provides": "The Mordell–Weil group modulo torsion.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
     "provides": "Mordell–Weil: the point group of an elliptic curve over a number field is finitely generated.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.finite_torsion",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/FinitelyGenerated.lean",
-    "provides": "Finite torsion under ellipticity, AdmissibleAbsValues, DecidableEq and Northcott for logHeight₁. For an unconditional number-field use, derive finite torsion from fg_point_of_numberField instead of assuming these missing height instances.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "provides": "Finite torsion under ellipticity, AdmissibleAbsValues, DecidableEq and Northcott for logHeight₁. Mathlib supplies these number-field height instances at the pin; fg_point_of_numberField also yields finite torsion for a number field.",
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.neronTatePairing",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/CanonicalHeight.lean",
     "provides": "The Néron–Tate pairing, the halved polar form of the canonical height.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.regulator",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
     "provides": "Absolute Gram determinant on the free quotient, with height instances and Module.Finite ℤ PointModTorsion. Its self-pairing uses the (O)-height; the BSD regulator is 2^r times this value.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.Affine.regulator_eq_one_of_finrank_eq_zero",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/MordellWeil/Regulator.lean",
     "provides": "Rank-zero regulator equals 1 under the same height and finite free quotient instances as regulator.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.isElliptic_quadraticTwist",
     "kind": "instance",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
     "provides": "The quadratic twist of an elliptic curve by a separable quadratic extension is elliptic.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.j_quadraticTwist",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
     "provides": "Twisting does not change the j-invariant.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.quadraticTwist",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
     "provides": "The quadratic twist E.quadraticTwist L of a Weierstrass curve over K by a separable quadratic extension L/K, as quadraticTwistOf by the trace and norm of a generator.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.quadraticTwistOf",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
     "provides": "The twist of a Weierstrass curve over a commutative ring by the quadratic x² − t x + n (discriminant D = t² − 4n), with Δ ↦ D⁶Δ, c₄ ↦ D²c₄, c₆ ↦ D³c₆.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.quadraticTwistPointEquiv",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
     "provides": "The isomorphism E^L(M) ≃+ E(M) on M-points, for K ⊆ L ⊆ M, induced by the change of variables over L carrying E to its twist.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:WeierstrassCurve.quadraticTwistPointEquiv_map_eq_quadraticCharacter_smul_map",
     "kind": "theorem",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/QuadraticTwist.lean",
     "provides": "Transporting σ ∈ Aut(M/K) through E^L(M) ≅ E(M) multiplies its action by the quadratic character χ(σ|_L) = ±1.",
-    "checked": "Independently read declaration and surrounding variables at the pinned commit, 2026-10-06; see REV-RankZeroOneBSD--BSD.0 baseline ledger."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:analyticOrderAt_mul",
     "kind": "theorem",
     "module": "Mathlib/Analysis/Analytic/Order.lean",
     "provides": "For analytic scalar functions f and g, analyticOrderAt (f*g) z = analyticOrderAt f z + analyticOrderAt g z. Nonzero germs allow passage to natural orders.",
-    "checked": "Independently read at Mathlib 082e2d3, 2026-10-06."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:TauCeti.Isogeny",
     "kind": "structure",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Basic.lean",
     "provides": "The existing isogeny type between affine Weierstrass curves over a field, with coordinate pullback and MapsInfinity.",
-    "checked": "Declaration and surrounding variables independently read at Tau Ceti f790474, 2026-10-06."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:TauCeti.Isogeny.degree",
     "kind": "def",
     "module": "TauCeti/AlgebraicGeometry/EllipticCurve/Isogeny/Degree.lean",
     "provides": "The finite function-field degree of an isogeny, defined by Module.finrank over fieldPullback.fieldRange.",
-    "checked": "Declaration and surrounding variables independently read at Tau Ceti f790474, 2026-10-06."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:NumberField.instAdmissibleAbsValues",
     "kind": "instance",
     "module": "Mathlib/NumberTheory/Height/NumberField.lean",
     "provides": "Finite/infinite normalized absolute values of a number field, with the product formula.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:NumberField.totalWeight_eq_finrank",
     "kind": "lemma",
     "module": "Mathlib/NumberTheory/Height/NumberField.lean",
     "provides": "The height total weight is the degree over ℚ; relative heights divide by this weight to obtain absolute heights.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:NumberField.finite_setOfPred_logHeight₁_le",
     "kind": "theorem",
     "module": "Mathlib/NumberTheory/Height/NumberField.lean",
     "provides": "Northcott over a fixed number field for logarithmic affine height; the same file supplies multiplicative-height Northcott and its logarithmic instance.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:Matrix.det_mul",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
     "provides": "For finite square matrices over a commutative ring, det(AB)=det(A)det(B).",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:Matrix.det_transpose",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/Matrix/Determinant/Basic.lean",
     "provides": "Transposition preserves the determinant.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:AddSubgroup.index_eq_natAbs_det",
     "kind": "theorem",
     "module": "Mathlib/LinearAlgebra/FreeModule/Finite/CardQuotient.lean",
     "provides": "For ℤ-bases of the ambient free group and subgroup with the same finite index set, subgroup index is the absolute basis-change determinant.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:IsZLattice",
     "kind": "class",
     "module": "Mathlib/Algebra/Module/ZLattice/Basic.lean",
     "provides": "A ℤ-submodule spanning its real vector space; discreteness is a separate instance.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:ZLattice.covolume",
     "kind": "definition",
     "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
     "provides": "Real-valued Haar covolume of an actual discrete full ℤ-lattice.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:ZLattice.covolume_pos",
     "kind": "lemma",
     "module": "Mathlib/Algebra/Module/ZLattice/Covolume.lean",
     "provides": "Positive covolume for a discrete full lattice with Haar measure.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:FractionalIdeal.absNorm",
     "kind": "definition",
     "module": "Mathlib/RingTheory/FractionalIdeal/Norm.lean",
     "provides": "Multiplicative rational-valued norm including denominators for fractional ideals over a Dedekind domain finite free over ℤ.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "mathlib:FractionalIdeal.absNorm_eq_zero_iff",
     "kind": "lemma",
     "module": "Mathlib/RingTheory/FractionalIdeal/Norm.lean",
     "provides": "The fractional norm vanishes exactly for the zero ideal; invertible differential ideals have positive norm.",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    },
    {
     "ref": "tauceti:TauCeti.ContCohomology.H1",
-    "kind": "definition",
+    "kind": "abbrev",
     "module": "TauCeti/RepresentationTheory/Homological/ContCohomology/LowDegree.lean",
-    "provides": "Continuous one-cocycles modulo continuous coboundaries for a topological group with continuous additive action. Use compact topology for T_pE and forced discrete topology for E[p∞].",
-    "checked": "Read declaration, surrounding parameters and instances at the recorded library pin, 2026-10-10; exercised by lean-check where used in the prototype."
+    "provides": "Continuous one-cocycles modulo continuous coboundaries, as a bare additive quotient, for a topological group with continuous additive action. Use compact coefficient topology for T_pE and discrete coefficient topology for E[p∞]; this does not assert that the inherited topology on H1 is the canonical cohomology topology.",
+    "checked": "Independently read the declaration and surrounding variables/instances at the recorded pin, 2026-10-10; see REV-RankZeroOneBSD--BSD.0~2 baseline ledger."
    }
   ]
  },
@@ -554,7 +554,7 @@
    "readSections": [
     "§1 (Theorems 1.1–1.5, Theorem 1.14, Remark 1.4 and the outline of §§3–10)",
     "§9.3.2, Proposition9.18 and proof pp.83–84; Theorem1.14 p.7 and Proposition1.19 p.8",
-    "§6.6.2, Theorems6.25–6.26, p.68, and §9.3.2 Proposition9.18, pp.83–84, directly read 2026-10-10"
+    "§6.6.2, Proposition6.25 and Theorem6.26, p.68, and §9.3.2 Proposition9.18, pp.83–84, directly read 2026-10-10"
    ]
   },
   {
@@ -752,7 +752,7 @@
   {
    "kind": "preprint",
    "url": "https://arxiv.org/abs/1512.06894v1",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "908562efdddaf46b2653317294cb65ae627802bc996400a779b1cd51b5a7d49d"
   },
   {
@@ -824,7 +824,7 @@
   {
    "kind": "published",
    "url": "https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2018/0006/0001/CJM-2018-0006-0001-a001.pdf",
-   "read": "2026-10-06",
+   "read": "2026-10-10",
    "sha256": "737d615e79aa78ce30afdf8c7a6ed7fc76640c853769b8f36e364efdbc759ac5"
   },
   {
@@ -1609,7 +1609,7 @@
    "proofSteps": [
     "Both sides are Euler products; compare, for each rational prime ℓ, the product of the factors of E/K at the primes 𝔩 | ℓ with P_ℓ(E,T)P_ℓ(E^K,T).",
     "ℓ split: K_𝔩 = ℚ_ℓ for both 𝔩, and E^K ≅ E over ℚ_ℓ since D_K is a square there, so both sides are P_ℓ(E,T)².",
-    "ℓ inert: one prime of norm ℓ², with factor P_𝔩(E/K, T²) computed over the quadratic unramified extension; at good ℓ the identity (1 − αT)(1 − βT)(1 + αT)(1 + βT) = (1 − α²T²)(1 − β²T²) with a_{ℓ²} = a_ℓ² − 2ℓ (point count over 𝔽_{ℓ²}, EllipticCurves Layer 3) and twist-local-factors (a) with χ(ℓ) = −1; at multiplicative ℓ (1 − aT)(1 + aT) = 1 − T² since the reduction over 𝔽_{ℓ²} is split; at additive ℓ both sides are 1.",
+    "ℓ inert: one prime of norm ℓ², with factor P_𝔩(E/K, T²) computed over the quadratic unramified extension; at good ℓ the identity (1 − αT)(1 − βT)(1 + αT)(1 + βT) = (1 − α²T²)(1 − β²T²) with t_{ℓ²} := ℓ² + 1 − #E(𝔽_{ℓ²}) = a_ℓ² − 2ℓ (point count over 𝔽_{ℓ²}, EllipticCurves Layer 3) (the Dirichlet coefficient a_{ℓ²} instead equals a_ℓ² − ℓ) and twist-local-factors (a) with χ(ℓ) = −1; at multiplicative ℓ (1 − aT)(1 + aT) = 1 − T² since the reduction over 𝔽_{ℓ²} is split; at additive ℓ both sides are 1.",
     "ℓ ramified: one prime of norm ℓ; as I_ℓ/I_𝔩 ≅ {±1} acts on V^{I_𝔩} by an involution, V^{I_𝔩} = V^{I_ℓ} ⊕ (V ⊗ χ_ℓ)^{I_ℓ} as Frobenius modules, which is twist-local-factors (b).",
     "Convergence for Re s > 3/2 of each factor gives the LSeries identity (LSeries_convolution); the product of the two entire functions agrees with it there, so it is the continuation."
    ],
@@ -1931,8 +1931,7 @@
     "RankZeroOneBSD:BSD.1/quadratic-point-maps",
     "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField",
     "tauceti:WeierstrassCurve.Affine.PointModTorsion",
-    "mathlib:Module.finrank",
-    "tauceti:WeierstrassCurve.Affine.fg_point_of_numberField"
+    "mathlib:Module.finrank"
    ],
    "sources": [
     {
@@ -1958,13 +1957,13 @@
    "statement": "Let E/ℚ be elliptic, K quadratic, Λ = E(K)/tors, Λ₊ = image of res and Λ₋ = image of ι, r₊ = rank E(ℚ), r₋ = rank E^K(ℚ), r = r₊ + r₋. Then Λ₊ ⊥ Λ₋ for the Néron–Tate pairing over K, [Λ : Λ₊ ⊕ Λ₋] = 2^a with 0 ≤ a ≤ r, and with K-relative heights (⟨P, P⟩_K = [K:ℚ]·⟨P, P⟩_ℚ for P defined over ℚ) Reg_BSD(E/K) = 2^r · Reg_BSD(E/ℚ) · Reg_BSD(E^K/ℚ) / 4^a. In particular, if r₋ = 0 then Reg_BSD(E/K) = 2^{r₊} Reg_BSD(E/ℚ)/4^a and E(K)/tors contains res(E(ℚ)/tors) with index 2^a.",
    "hypotheses": [
     "Reg_BSD is the regulator of GrossZagierAndArithmeticHeights GZ.0 (x-height normalisation, Reg_BSD = 2^r · Tau Ceti regulator).",
-    "K-relative heights need a number-field instance of Tau Ceti's height machinery, which the pinned library lacks (GZ.0 gap); the statement is made for that instance."
+    "Use Mathlib’s native NumberField.instAdmissibleAbsValues and Northcott instances at the pin. GZ.0 supplies the relative x-height normalization and compatible-place comparison under extension, rather than a missing number-field height instance."
    ],
    "proofSteps": [
     "Orthogonality: the height pairing over K is invariant under σ; for P ∈ Λ₊, Q ∈ Λ₋, ⟨P, Q⟩ = ⟨σP, σQ⟩ = −⟨P, Q⟩.",
     "Index: 2Λ ⊆ Λ₊ ⊕ Λ₋ (quadratic-point-maps), so the index divides 2^r.",
     "Heights of rational points relative to K are [K:ℚ] = 2 times their heights relative to ℚ; points of E^K(ℚ) carry the same K-height through the isomorphism over K.",
-    "Gram determinants: det Gram_K(Λ₊ ⊕ Λ₋) = 2^{r₊}Reg(E/ℚ)·2^{r₋}Reg(E^K/ℚ), and passing to the superlattice Λ divides by its index squared (GZ.0/gram-determinant-rescaling).",
+    "Gram determinants: det Gram_K(Λ₊ ⊕ Λ₋) = 2^{r₊}Reg(E/ℚ)·2^{r₋}Reg(E^K/ℚ), and passing to the superlattice Λ divides by its index squared (native determinant and finite-index identities in the next step).",
     "Write the sublattice Gram matrix as AᵀGA. Matrix.det_mul and Matrix.det_transpose give det(A)² det(G); AddSubgroup.index_eq_natAbs_det identifies |det(A)| with the finite lattice index. These are native pinned declarations, so no removed GZ.0 gram-determinant node is needed. NumberField.instAdmissibleAbsValues and Northcott supply the height instances; GZ.0 supplies the x-height/relative-height normalization transport."
    ],
    "acceptance": [
@@ -1995,7 +1994,7 @@
     }
    ],
    "implementationStatus": "unchecked",
-   "reviewNotes": "Checked K-relative heights, orthogonality and index-squared Gram determinant; kept the recorded missing number-field height instance."
+   "reviewNotes": "Independently rechecked the native number-field height instances, GZ.0 normalization transport, orthogonality and finite-index-squared determinant formula. Removed the obsolete missing-instance claim and nonexistent GZ.0 Gram-determinant reference."
   },
   {
    "id": "RankZeroOneBSD:BSD.1/torsion-comparison",
@@ -2555,12 +2554,12 @@
    "statement": "Let f be a cuspidal newform of even weight k with trivial character for Γ₀(M), S a finite set of primes containing all primes dividing M, and ε the sign of the functional equation of f. (i) There is a fundamental discriminant D with εD < 0 such that every prime in S splits in ℚ(√D) and L(s, f, χ_D) has a simple zero at s = k/2. (ii) There is a fundamental discriminant D with εD > 0 such that every prime in S splits in ℚ(√D) and L(k/2, f, χ_D) ≠ 0. Moreover in each case there are infinitely many such D.",
    "hypotheses": [
     "Every prime of S split; the sign of D is forced by ε through the twisted sign εχ_D(−M) (BSD.0/twist-root-number).",
-    "Infinitely many: not stated in BFH's Theorem; proved here by enlarging S."
+    "BFH’s introductory theorem states existence of a quadratic field (so D≠1). Its §9 proof, pp.616–617, gives infinitude through the pole obstruction for finitely many fundamental squareclasses."
    ],
    "proofSteps": [
     "twist-series-residue, including BFH Proposition 7.1, gives infinitely many fundamental squareclasses with nonzero central value or derivative; Lemma 9.1 transfers from weighted coefficients.",
     "In case (i), εD < 0 and every ℓ | M splits give sign −ε·ε = −1 for f ⊗ χ_D, so its order at k/2 is odd; a nonzero derivative means a simple zero.",
-    "Alternatively, to exclude any finite list D₁,…,D_n, choose for each D_i a prime q_i dividing that D_i and enlarge S by all q_i. Each new discriminant has every q_i split and therefore differs from every old D_i. One prime dividing the product need not divide every D_i."
+    "For a separate elementary infinitude argument, first exclude the trivial discriminant D=1 by requiring a quadratic field. To exclude any finite list of remaining D_i, choose a prime q_i dividing each D_i and enlarge S by all q_i. The new discriminant has q_i split and cannot equal D_i, which is ramified there. BFH §9 also gives infinitude directly."
    ],
    "acceptance": [
     "For f attached to 11a1 (ε = +1), case (i) produces D < 0 with 11 split and L′(1, f ⊗ χ_D) ≠ 0; ℚ(√−7) is a candidate (11 splits) whose twist has sign −1.",
@@ -2582,13 +2581,18 @@
      "sourceId": "bfh90",
      "locator": "Theorem, p. 544",
      "match": "Value branch."
+    },
+    {
+     "sourceId": "bfh90",
+     "locator": "§9, pp.616–617, using Proposition7.1",
+     "match": "Infinitude via the pole obstruction for finitely many fundamental squareclasses."
     }
    ],
    "implementationStatus": "unchecked",
    "planet": {
     "name": "Bump–Friedberg–Hoffstein nonvanishing"
    },
-   "reviewNotes": "Corrected the infinitude argument: exclude each old discriminant using its own ramified prime; BFH §9 also proves infinitude by the squareclass-pole obstruction."
+   "reviewNotes": "Checked BFH’s introductory theorem and §9 pp.614–617 visually. Made D≠1 explicit in the auxiliary infinitude argument; the source proof also excludes finite collections of fundamental squareclasses by Proposition7.1."
   },
   {
    "id": "RankZeroOneBSD:BSD.2/prescribed-local-conditions-value-branch",
@@ -2606,7 +2610,7 @@
    ],
    "proofSteps": [
     "Friedberg–Hoffstein construct the twist series with arbitrary local test data on the double cover of GL₂ (MetaplecticAutomorphicForms MP.7) instead of the genus-two Jacobi construction, and extract a nonzero residue as in twist-series-residue.",
-    "Infinitude by enlarging S as in bfh-nonvanishing."
+    "Obtain infinitude from the full Friedberg–Hoffstein local-character theorem, after refining the coarse split/inert/ramified data to a compatible fixed local-character template. This remains the recorded direct-source obligation. Enlarging S and demanding splitting is not a proof for prescriptions that already require ramification."
    ],
    "acceptance": [
     "JSW §7.4.1: with N = q₁⋯q_r squarefree, the conditions (gen-H), q inert or ramified and p split are compatible with sign +1 for E^{D′} when ord L(E,s) = 1."
@@ -2625,7 +2629,7 @@
     }
    ],
    "implementationStatus": "unchecked",
-   "reviewNotes": "Friedberg–Hoffstein Theorem B itself was not acquired, and the packet infers arbitrary ramified prescriptions from a narrower coprime root formula. Preserved the theorem as an unverified target with a precise source/hypothesis gap.",
+   "reviewNotes": "The target honestly retains its direct-source gap; JSW §7.4.1 verifies the needed application, but does not establish the full local-character theorem. Removed the incompatible blanket reference to BFH’s splitting-only infinitude argument.",
    "revisionNotes": "Replaced vacuous coprime-only sign compatibility by nonempty prescriptions with the actual sign at every admissible discriminant, including ramified conductor cases. No claim about public availability is made; direct source verification remains a gap."
   },
   {
@@ -3172,7 +3176,7 @@
    "proofSteps": [
     "Choose K by BSD.2/heegner-field-selection with L(E^K, 1) ≠ 0 and D_K odd.",
     "Gross–Zagier (GZ.8/elliptic-curve-heegner-height-formula): L′(E,1)·L(E^K,1) = ‖ω₀‖² ĥ_K(y_K)/(C² u_K² |D_K|^{1/2}) with C, u_K ∈ ℤ_{>0}.",
-    "heegner-index-height-formula: ĥ_K(y_K) = I_K² · 2 · Reg_BSD(E/ℚ)/4^a.",
+    "heegner-index-height-formula: ĥ_K(y_K) = (I_K^free)² · 2 · Reg_BSD(E/ℚ)/4^a.",
     "BSD.1/quadratic-period: ‖ω₀‖²/|D_K|^{1/2} = r·Ω_E·Ω_{E^K} with r ∈ ℚ^× (a power of 2 when (D_K, 2N) = 1).",
     "rank-zero-rationality for E^K: L(E^K, 1)/Ω_{E^K} ∈ ℚ^×. Dividing gives L′(E,1)/(Ω_E Reg_BSD) ∈ ℚ^×, positive by leading-term-positivity."
    ],
@@ -3898,7 +3902,7 @@
    "sources": [
     {
      "sourceId": "bstw",
-     "locator": "Theorem 1.5, p. 3",
+     "locator": "Theorem 1.5, p. 4",
      "match": "The r = 0 case is used; the r = 1 case rests on the p-adic Gross–Zagier formula, which is not imported."
     },
     {
@@ -4239,7 +4243,7 @@
    ],
    "title": "The two-variable zeta element of an elliptic curve over an imaginary quadratic field (BSTW)",
    "kind": "construction",
-   "statement": "Let E/ℚ have good supersingular reduction at p∤2N with a_p=0, and L imaginary quadratic with (D_L,N)=1, p=v v̄ split (v fixed by the p-adic embedding), E[p](L)=0. Construct BSTW §6’s signed zeta element Z^•(E/L) in the actual two-variable relaxed/signed Iwasawa cohomology with its integral lattice and completed unramified coefficients. This node owns only the supersingular construction. The ordinary element, its laws and ordinary Proposition9.18 belong to the requested KatoEulerSystems L5; reuse that owner’s underlying classes/CM-family machinery. Use the cofinal two-variable tower of finite extensions, continuous H¹ of compact T_pE at each level, and corestriction-compatible inverse limits. The relaxed group is the unramified-away-p subgroup with the signed condition at v̄; localization at v is relaxed. With chosen generators Λ_L=ℤ_p[[X,Y]], and Λ_L^ur=R₀[[X,Y]] where R₀=W(𝔽̄_p). Its cyclotomic projection is a rational class over K, identified by BSTW6.26(i) with c^•(ω,γ,γ′)g(χ_K)⁻¹ times the combination of z_g and z_{g⊗χ_K} of §3.3, not a single Kato class. Integrality uses the basis/lattice hypotheses of 6.26(ii).",
+   "statement": "Let E/ℚ have good supersingular reduction at p∤2N with a_p=0, and L imaginary quadratic with (D_L,N)=1, p=v v̄ split (v fixed by the p-adic embedding), E[p](L)=0. Construct BSTW §6’s signed zeta element Z^•(E/L) in the actual two-variable relaxed/signed Iwasawa cohomology with its integral lattice and completed unramified coefficients. This node owns only the supersingular construction. The ordinary element, its laws and ordinary Proposition9.18 belong to the requested KatoEulerSystems L5; reuse that owner’s underlying classes/CM-family machinery. Use the cofinal two-variable tower of finite extensions, continuous H¹ of compact T_pE at each level, and corestriction-compatible inverse limits. The relaxed group is the unramified-away-p subgroup with the signed condition at v̄; localization at v is relaxed. With chosen generators Λ_L=ℤ_p[[X,Y]], and Λ_L^ur=R₀[[X,Y]] where R₀=W(𝔽̄_p). The unramified inclusion ℤ_p→R₀ induces a coefficientwise Λ_L→Λ_L^ur map; signed localization and Log_v̄ are Λ_L-linear through this action. Its cyclotomic projection is a rational class over K, identified by BSTW6.26(i) with c^•(ω,γ,γ′)g(χ_K)⁻¹ times the combination of z_g and z_{g⊗χ_K} of §3.3, not a single Kato class. Integrality uses the basis/lattice hypotheses of 6.26(ii).",
    "hypotheses": [
     "p>2 good supersingular and a_p=0 (explicit also at p=3); (D_L,N)=1, p split and E[p](L)=0. The embedding fixes v; signs •∈{+,−} use the actual Kobayashi/Pollack normalization.",
     "Ordinary ownership is KatoEulerSystems proposed L5, requested at its present nearest L4 stage. BSD.6a owns the signed §6 construction and signed §9.3.2 comparison only.",
@@ -4286,7 +4290,7 @@
     },
     {
      "sourceId": "bstw",
-     "locator": "§6.6.2, Theorems6.25–6.26, printed p.68; §3.3",
+     "locator": "§6.6.2, Proposition6.25 and Theorem6.26, printed p.68; §3.3",
      "match": "Signed construction, common normalization and rational cyclotomic comparison with the two Kato classes; integral refinement requires the selected basis hypotheses."
     },
     {
@@ -4371,7 +4375,7 @@
     "module": "TauCeti/NumberTheory/Iwasawa/BSTWZetaElement",
     "namespace": "TauCeti.BSD"
    },
-   "reviewNotes": "Restricted ownership to the supersingular element and corrected the two primes and CM-family supplier. Six API names/four tests were only comments; their actual arithmetic carrier/signatures are still missing.",
+   "reviewNotes": "The six API declarations and four examples now use actual continuous-cohomology inverse limits and distinct split primes. Independently checked the source coefficient twist and rational two-class cyclotomic comparison. Strengthened the signed logarithm/localization to Lambda-linearity through an explicit coefficientwise unramified inclusion. Integral image, lattice and control obligations remain recorded.",
    "revisionNotes": "The six named API items and four examples are declarations, with actual continuous inverse-limit cohomology, split primes, Λ/Λ^ur and local signed domains. Desired reciprocity is proved by theorem placeholders, never carried as assumptions defining Z."
   },
   {
@@ -4499,7 +4503,7 @@
    "sources": [
     {
      "sourceId": "bstw",
-     "locator": "Theorem 1.5, p. 3",
+     "locator": "Theorem 1.5, p. 4",
      "match": "The r = 0 case."
     }
    ],
@@ -4766,7 +4770,7 @@
   },
   {
    "supplier": "tauceti:TauCetiRoadmap/EllipticCurves#layer-3-elliptic-curves-over-finite-fields--the-hasse-bound-aec-v1",
-   "need": "For an elliptic curve over a finite field 𝔽_q, the trace a_q = q + 1 − #E(𝔽_q) and the relation a_{q²} = a_q² − 2q (equivalently the characteristic polynomial of Frobenius over extensions).",
+   "need": "For an elliptic curve over a finite field 𝔽_q, the point-count trace t_q = q + 1 − #E(𝔽_q) and the relation t_{q²} = t_q² − 2q (distinct from the Dirichlet coefficient a_{q²}=a_q²−q; equivalently the characteristic polynomial of Frobenius over extensions).",
    "neededBy": [
     "RankZeroOneBSD:BSD.0/finite-field-twist-trace",
     "RankZeroOneBSD:BSD.0/base-change-factorization"
@@ -5054,7 +5058,7 @@
   },
   {
    "supplier": "PadicHodgeRegulators:L4",
-   "need": "Integral signed local maps over Λ_L and Λ_L^ur at both split primes, comparison with Kobayashi/Pollack signs, image indices and common lattice/period normalization for BSTW1.14. Current rational one-variable Coleman-image and arbitrary Wach-basis signed-condition statements are insufficient.",
+   "need": "Integral signed local maps over Λ_L and Λ_L^ur at both split primes, comparison with Kobayashi/Pollack signs, image indices and common lattice/period normalization for BSTW1.14. Current rational one-variable Coleman-image and arbitrary Wach-basis signed-condition statements are insufficient. Both maps are Λ_L-linear; the logarithm target uses the coefficientwise inclusion Λ_L→Λ_L^ur, rather than an unrelated scalar action.",
    "neededBy": [
     "RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element",
     "RankZeroOneBSD:BSD.6a/bstw-explicit-reciprocity-laws"
@@ -5128,7 +5132,7 @@
   },
   {
    "supplier": "AutomorphicPadicLFunctions:L3",
-   "need": "Export BSTW’s two-variable signed Rankin functions L_p^±∈Λ_L alongside L_p^Gr∈Λ_L^ur, with the common differential/Betti/Gauss-sum normalization of 6.25–6.26. The one-variable Pollack functions are obtained by the specified cyclotomic specialization, not identified with these functions by type.",
+   "need": "Export BSTW’s two-variable signed Rankin functions L_p^±∈Λ_L alongside L_p^Gr∈Λ_L^ur, with the common differential/Betti/Gauss-sum normalization of Proposition6.25 and Theorem6.26. The one-variable Pollack functions are obtained by the specified cyclotomic specialization, not identified with these functions by type.",
    "neededBy": [
     "RankZeroOneBSD:BSD.6a/bstw-explicit-reciprocity-laws",
     "RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element"
@@ -5288,8 +5292,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Author erratum §1 explicitly withdraws the Hida-specialization step and replaces the multiplicative branch by A′/Theorem1.1; compared with the public published Theorem A.",
-    "by": "REV-RankZeroOneBSD--BSD.0"
+    "reason": "Compared published Theorem A with the author erratum §1 and A′, pp.1,5: the unsupported Hida specialization is withdrawn and the corrected local/residual hypotheses replace it.",
+    "by": "REV-RankZeroOneBSD--BSD.0~2"
    }
   },
   {
@@ -5308,8 +5312,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "BSTW Remark1.4 supersedes the pertinent prior announcement. Independently checked its narrower twist range; the old blanket “same statement” claim was corrected.",
-    "by": "REV-RankZeroOneBSD--BSD.0"
+    "reason": "Checked the arXiv withdrawal notice and BSTW Remark1.4 p.4 against JSW7.2.1(iii). BSTW1.3/1.5 repairs only the semistable and ordinary-support twist range, not every old coprime twist.",
+    "by": "REV-RankZeroOneBSD--BSD.0~2"
    }
   },
   {
@@ -5328,8 +5332,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "Quadratic height scales by the square of the lattice index; equation(7.4.c) on the same page already has m². This is a missing square, not evidence that the endpoint is false.",
-    "by": "REV-RankZeroOneBSD--BSD.0"
+    "reason": "Independently compared published p.427 after(7.4.c) with its m² equation and the rank-one Gram calculation. The prose loses a square; odd-primary torsion vanishing explains its full-index usage.",
+    "by": "REV-RankZeroOneBSD--BSD.0~2"
    }
   },
   {
@@ -5348,8 +5352,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "A characteristic ideal is an ideal in Λ, not the Selmer module; the proof states torsion of X_ac and then its characteristic-ideal equality.",
-    "by": "REV-RankZeroOneBSD--BSD.0"
+    "reason": "Erratum1.1 p.1 applies torsion terminology to the characteristic ideal; the proof and definition require torsion of X before forming that ideal.",
+    "by": "REV-RankZeroOneBSD--BSD.0~2"
    }
   },
   {
@@ -5368,8 +5372,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "The immediately preceding sentence identifies C1 as the restriction-kernel exponent; the argument needs both constants zero. This does not verify the cited higher-weight extension.",
-    "by": "REV-RankZeroOneBSD--BSD.0"
+    "reason": "Erratum2.3 proof p.3 first sets C2=0 and then identifies C1 as the restriction-kernel constant. Its second C2 must be C1; this notation repair does not prove the higher-weight extension.",
+    "by": "REV-RankZeroOneBSD--BSD.0~2"
    }
   },
   {
@@ -5388,8 +5392,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "CGS§6 is elliptic and its displayed bound is rational; it does not directly supply the higher-weight integral conclusion. The missing extension is now its own BSD.6a node and gap.",
-    "by": "REV-RankZeroOneBSD--BSD.0"
+    "reason": "Compared erratum2.3 proof pp.3–4 with CGS v2 §6/6.5.1. The cited elliptic rational result alone does not supply the self-dual higher-weight integral bound at augmentation with C1=C2=0.",
+    "by": "REV-RankZeroOneBSD--BSD.0~2"
    }
   },
   {
@@ -5408,8 +5412,8 @@
    ],
    "review": {
     "verdict": "confirmed",
-    "reason": "The proof presented is ordinary. The supersingular analogue has different signed image corrections and is an owned proof obligation, not supplied by an ordinary proof citation.",
-    "by": "REV-RankZeroOneBSD--BSD.0"
+    "reason": "BSTW9.3.2 pp.83–84 prints the ordinary comparison argument and delegates the supersingular case. The signed image/rank and cyclotomic non-torsion proof remains a separate target.",
+    "by": "REV-RankZeroOneBSD--BSD.0~2"
    }
   }
  ],
@@ -5482,6 +5486,14 @@
     "tauceti:TauCetiRoadmap/EllipticCurves"
    ],
    "note": "At Mathlib082e2d3, NumberTheory/Height/NumberField.lean already gives NumberField.instAdmissibleAbsValues, totalWeight_eq_finrank and Northcott. Remove any missing-number-field-instance gap in GZ.0; retain its genuine x-height/(O)-height and field-relative normalization comparison. Current Tau Ceti also has the compact Tate module and continuous Galois representation (TateModule/Basic and Galois); the prototype reconstructs this imported carrier only because those newer declarations are absent at the fixed pin."
+  },
+  {
+   "roadmaps": [
+    "RankZeroOneBSD",
+    "KatoEulerSystems",
+    "AutomorphicCongruences"
+   ],
+   "note": "Independent review 2026-10-10 projected every direct packet prerequisite and all49 requests (including requests to upstream layers) onto data/atlas.json stage edges. Counting incident vertices, current atlas:1371/3508, with packet:1377/3589 and BSD.4↔BSD.5, with BSD.0a/BSD.3a/signed BSD.6z and early ordinary Kato L5:1381/3612, acyclic. Snapshot stage-edges.json gives1365/3458,1371/3539,1375/3562 respectively. These expanded-request counts include six upstream stages absent from the base edge endpoints; the earlier narrower projection remains historical. Internal68-node/177-edge graph is acyclic. The proposals still require coordinated maintainer application; no atlas or supplier packet is changed."
   }
  ],
  "redTeamFindings": [
@@ -5511,350 +5523,350 @@
   }
  ],
  "review": {
-  "status": "needs_changes",
-  "reviewer": "independent-review-REV-RankZeroOneBSD--BSD.0",
-  "date": "2026-10-06",
-  "notes": "All 65 original nodes, 56 original pinned baseline declarations, 104 supplier references, public source locators, API/tests, coverage, source issues and confirmed red-team findings checked. Corrected clear formulas, hypotheses and ownership; added 3 key target-level nodes. Source/supplier hypotheses and genuine signed/period signatures remain unverifiable, so acceptance is withheld. BSD.1 and BSD.6a are partial; this is a completed independent review, not a checkpoint. Lean import blocked before elaboration by a missing shared-build object; no dependency build attempted.",
+  "status": "accepted",
+  "reviewer": "independent-review-REV-RankZeroOneBSD--BSD.0~2",
+  "date": "2026-10-10",
+  "notes": "Independent target-level review of revision2: all68 targets,68 pinned baseline declarations, supplier statements/49 exact requests, current upstream ownership,78 API items/37 tests, sources/7 source issues, reader and suggested Lean checked. Corrected trace/free-index/infinitude notation and arguments, stale height/Gram references, BSTW locators, H1 metadata, reader covolume identifier and signed Lambda-linear coefficient extension. Accepted as a complete planning pass with eight planned stages, none closed, and eight explicit gaps; unread FH/Birch–Stephens originals, integral supplier discharges and proposed stage placements remain recorded obligations. lean-check passes with only permitted proof-placeholder warnings; no implementation claim.",
   "checked": [
    {
     "nodeId": "RankZeroOneBSD:BSD.0/actual-l-function",
-    "verdict": "corrected",
-    "note": "Unique entire continuation is supported by the pinned EntireExtension API. Removed the unsupported assertion of nonsummability everywhere Re s ≤ 3/2 and made the junk-value test conditional."
+    "verdict": "verified",
+    "note": "The entire extension is transported from R29.6 and native cusp-form continuation; raw tsum agreement is restricted to its convergence domain."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/completed-l-function",
-    "verdict": "corrected",
-    "note": "Corrected a false global pointwise Gamma definition; added continuation existence/agreement/uniqueness and a pole test. Removed the unnormalised pinned Fricke operator as the involution supplier."
+    "verdict": "verified",
+    "note": "Checked the Deligne gamma factor and normalized Fricke sign. Gamma-pole values use entire continuation, with no pointwise division at a zero factor."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/analytic-rank",
     "verdict": "verified",
-    "note": "Analytic order, nonzero germ and real leading coefficient follow from entire continuation, Euler-product nonvanishing and conjugation. The ℕ∞ nonzero-germ condition is explicit."
+    "note": "The native analytic order is finite only after nonzero-germ verification; the factorial and leading-coefficient convention agree."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/root-number-parity",
     "verdict": "verified",
-    "note": "The functional equation forces Taylor-order parity after removing the analytic nonvanishing Gamma/conductor factor near 1."
+    "note": "Expansion of the completed functional equation at the centre gives the stated parity; completion is nonvanishing near the centre."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/quadratic-field-character",
-    "verdict": "corrected",
-    "note": "Kept the true character/splitting target; added the missing dyadic identification request and limited the pinned Frobenius citation to its actual hypotheses."
+    "verdict": "verified",
+    "note": "The primitive Kronecker/Galois dictionary is precisely requested. The pinned Frobenius theorem supplies only its odd unramified portion."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/finite-field-twist-trace",
-    "verdict": "corrected",
-    "note": "Checked odd trace counting and the characteristic-two exceptional fibres. The F₅ test for y²=x³+x+1 has 9 points, twist 3, traces −3 and +3."
+    "verdict": "verified",
+    "note": "Checked point counting, square twists, and characteristic-two exceptional fibres; existing twist and finite-field owners remain imports."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/twist-local-factors",
     "verdict": "verified",
-    "note": "Local unramified twist identities use Tate-module inertia; ramified twists of good/multiplicative curves become additive, including dyadic primes via the requested local supplier."
+    "note": "Good, multiplicative, additive, dyadic and ramified factors use the actual local representation/reduction suppliers, with their exact missing exports requested."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/twist-l-series",
     "verdict": "verified",
-    "note": "Conductor ND² and coefficient twisting are restricted to (D,N)=1; bad Euler factors and newform level are supplied by R29.4."
+    "note": "The coprime conductor formula and coefficient identity are used only in their stated range; no ramified extension follows by assumption."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/twist-root-number",
     "verdict": "verified",
-    "note": "The χ_D(−N) root formula is restricted to coprime conductor/discriminant and uses the requested local epsilon-factor export."
+    "note": "The coprime global formula is separate from the general local epsilon product; normalized Fricke and elliptic root-number signs agree."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/base-change-factorization",
-    "verdict": "verified",
-    "note": "Checked split/inert/ramified grouping by ideal norm, convolution only in the summable half-plane, and product continuation."
+    "verdict": "corrected",
+    "note": "Corrected the finite-field extension trace t_(ell²), which differs from the Dirichlet coefficient a_(ell²). Checked all splitting cases and summability before convolution."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/base-change-central-identities",
-    "verdict": "corrected",
-    "note": "Added the actual pinned analytic-order product theorem rather than citing the order definition as the product formula."
+    "verdict": "verified",
+    "note": "Native analytic product orders and the product rule give the central formulas, with nonzero factors and the Heegner sign restrictions."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/rational-newform-bridge",
     "verdict": "verified",
-    "note": "R29.3/R29.4 supplier statements include integral rational coefficients and bad Euler factors; uniqueness transports the entire continuation."
+    "note": "R29.3–R29.6 already own newform, coefficient field, conductor and every bad Euler factor; this is an imported comparison."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.0/congruent-number-root-numbers",
-    "verdict": "unverifiable",
-    "note": "The global residue-class table is stated in Burungale–Tian, but the original dyadic computation has not been acquired; retained as an explicit gap. n=1 is the untwisted model, not a quadratic field."
+    "verdict": "verified",
+    "note": "BT footnote2 supports the residue-class target. Original Birch–Stephens dyadic computation remains an explicitly bounded source obligation, not a completed proof."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/quadratic-point-maps",
     "verdict": "verified",
-    "note": "Checked descent, fixed/anti-fixed ranges and 2P decomposition against pinned point maps and quadratic twist equivariance."
+    "note": "Native twist/descent gives the two maps; the combined trace compositions are multiplication by2, retaining integral kernels and cokernels."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/rank-splitting",
-    "verdict": "verified",
-    "note": "Finite generation makes the 2-killed kernel/cokernel finite; rational tensoring yields rank additivity."
+    "verdict": "corrected",
+    "note": "Checked rational eigenspace decomposition and native number-field finite generation; removed a duplicated prerequisite, not a mathematical input."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/quadratic-regulator-comparison",
-    "verdict": "verified",
-    "note": "Checked K-relative heights, orthogonality and index-squared Gram determinant; kept the recorded missing number-field height instance."
+    "verdict": "corrected",
+    "note": "Removed the stale missing-height-instance claim and nonexistent Gram export; native determinant and finite-index identities give the squared-index factor, after GZ normalization transport."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/torsion-comparison",
-    "verdict": "corrected",
-    "note": "Replaced a height-dependent finite_torsion citation by unconditional Mordell–Weil finite generation."
+    "verdict": "verified",
+    "note": "Odd-primary rational/twist decomposition follows after inverting2; dyadic corrections remain integral and are not discarded."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/odd-selmer-sha-decomposition",
-    "verdict": "corrected",
-    "note": "Removed abstract Mathlib group cohomology as a continuous Galois/Selmer supplier; EC Layer 7 must export continuous restriction/corestriction preserving each Kummer local condition."
+    "verdict": "verified",
+    "note": "Continuous local conditions and restriction/corestriction are required at odd p, with exact compact/discrete suppliers rather than abstract group cohomology."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/two-primary-comparison",
-    "verdict": "corrected",
-    "note": "Corrected both compositions of the combined map to 2; added finite isogeny-Selmer/local-condition export instead of deducing finiteness merely from exponent 2."
+    "verdict": "verified",
+    "note": "No division by2 is permitted here; the integral restriction/corestriction and finite isogeny-Selmer inputs are separately requested."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/sha-finiteness-descent",
-    "verdict": "corrected",
-    "note": "Unconditional finite-generation descent is sound once EC Layer 7 supplies continuous inflation–restriction on locally trivial classes; removed the abstract H1 baseline citation."
+    "verdict": "verified",
+    "note": "The finite restriction kernel is supplied through finite isogeny Selmer and local compatibility; finite Sha upstairs alone is not the entire argument."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/tamagawa-base-change",
-    "verdict": "corrected",
-    "note": "Restored p split in K from Skinner–Zhang Corollary 9.2, including a valid argument at ℓ=p."
+    "verdict": "verified",
+    "note": "Checked the odd valuation range and split-p hypothesis against Skinner–Zhang9.2; geometric multiplicities are distinguished from rational nonsplit component counts."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/quadratic-period",
-    "verdict": "unverifiable",
-    "note": "Removed the unsupported universal Ω_K≠Ω_E² test and the vacuous existential covolume signature. The actual period-lattice/Néron-ideal carriers are still placeholders, so the construction is not fully prototyped."
+    "verdict": "corrected",
+    "note": "The prototype now uses the integration lattice, native covolume and fractional differential-ideal norm. Published JSW7.1.b gives four covolumes at unit norm; exact dyadic comparison remains a gap. Corrected the reader’s nonexistent covolumeL identifier to the pinned ZLattice.covolume with volume."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.1/odd-part-bsd-over-K",
-    "verdict": "corrected",
-    "note": "Made rationality/rank/finiteness assumptions explicit, retained split p from the Tamagawa supplier, and corrected the equivalence to use a known summand."
+    "verdict": "verified",
+    "note": "The sum-of-valuations conclusion requires rational nonzero quotients and matching ranks; a known summand is needed to deduce the other p-part."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.2/heegner-local-conditions",
-    "verdict": "corrected",
-    "note": "Added prime validity and D≠1 to the suggested prescription, and excluded vacuous compatibility at ramified conductor primes. Corrected the explicit dyadic Kronecker helper also at odd residues 7 mod 8, and matched the general coprime prescription formula in the signature. Added admissible_congr to make the API insensitive to behaviour values outside the prescribed prime set."
+    "verdict": "verified",
+    "note": "Tests retain D≠1, valid prime data, the dyadic Kronecker rule, sign and ramification. Coarse prescriptions do not themselves prove root-number compatibility."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.2/twist-series-residue",
-    "verdict": "corrected",
-    "note": "Replaced the unsupported simultaneous nonzero-vector/unweighted-series argument by the actual §9 two-vector cancellation and third-vector separation; checked pp.614–617 visually."
+    "verdict": "verified",
+    "note": "MP.8 supplies the exact weighted two-series polar combination and finite test vectors. BFH §9 supplies residue cancellation and squareclass obstruction; no unweighted residue shortcut is used."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.2/bfh-nonvanishing",
     "verdict": "corrected",
-    "note": "Corrected the infinitude argument: exclude each old discriminant using its own ramified prime; BFH §9 also proves infinitude by the squareclass-pole obstruction."
+    "note": "Read pp.543–544 and614–617 visually. Made D≠1 explicit in the auxiliary exclusion proof and added the primary infinitude locator."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.2/prescribed-local-conditions-value-branch",
-    "verdict": "unverifiable",
-    "note": "Friedberg–Hoffstein Theorem B itself was not acquired, and the packet infers arbitrary ramified prescriptions from a narrower coprime root formula. Preserved the theorem as an unverified target with a precise source/hypothesis gap."
+    "verdict": "corrected",
+    "note": "Retained the full FH theorem as a target with an explicit unread-source/local-template obligation. Removed the invalid splitting-only infinitude shortcut for ramified prescriptions."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.2/heegner-field-selection",
     "verdict": "verified",
-    "note": "BFH handles all conductor primes together with any finite T; enlarging by 2 and discarding finitely many discriminants gives the stated odd/coprime field selection."
+    "note": "BFH signs select derivative or nonzero-value twists with odd discriminant and required splitting; finite exclusions handle exceptional imaginary fields."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.2/auxiliary-fields-for-prime-parts",
-    "verdict": "unverifiable",
-    "note": "The prescribed-local source, ramified Castella sign calculation and supersingular support selection are not supplied. Removed automatic coprime/sign and multiplicative-twist inferences by recording these exact obligations."
+    "verdict": "verified",
+    "note": "Ramified Castella q and supersingular ordinary-support restrictions are honestly separate selection obligations. The direct BSTW endpoint does not prove the old auxiliary-twist argument."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.3/heegner-point-nontorsion",
     "verdict": "verified",
-    "note": "The GZ supplier gives a positive explicit height factor and non-torsion criterion under the stated Heegner data; height-zero uses the recorded height instances."
+    "note": "The exact GZ.8 height formula and native positivity/height-zero criterion detect infinite order, retaining the relative x-height normalization."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.3/heegner-point-eigenspace",
-    "verdict": "corrected",
-    "note": "Corrected the double sign in the Fricke-to-conjugation proof; the final σ(y)=−w_E y+t statement already had the right sign."
+    "verdict": "verified",
+    "note": "Checked Gross Proposition5.3: the Fricke eigenvalue is opposite the functional-equation sign; the selected rational/twist eigenspace is correct."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.3/analytic-rank-one-theorem",
     "verdict": "verified",
-    "note": "Verified the reduction to a simple-zero L(E/K,s), the appropriate eigenspace, rank splitting and Sha descent. HE.7 is an all-prime/CM proof target with separately recorded source gaps, not a completed clean odd-prime proof."
+    "note": "Nonzero Heegner height plus HE.7 rank-one/full-Sha endpoints, including CM/dyadic branches, yields the rational conclusion by descent."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.4/analytic-rank-zero-theorem",
     "verdict": "verified",
-    "note": "Verified the reduction to a simple-zero L(E/K,s), the appropriate eigenspace, rank splitting and Sha descent. HE.7 is an all-prime/CM proof target with separately recorded source gaps, not a completed clean odd-prime proof."
+    "note": "The derivative auxiliary twist and rank splitting prove the original curve has rank0; full finiteness descends through the supplied finite kernel."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.4/kato-rank-zero-finiteness",
-    "verdict": "unverifiable",
-    "note": "Kato14.2(2) printed p.235 supports the endpoint, but present L4 exports are narrower and do not include the CM/local-condition comparison. Added the exact all-prime export request."
+    "verdict": "verified",
+    "note": "Kato14.2(2), p.235, includes every coefficient prime, with §15 supplying CM. The exact Selmer/local-condition extension remains requested from Kato L4."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.4/kato-p-part-upper-bound",
-    "verdict": "unverifiable",
-    "note": "Removed the circular equality-assuming specialization and the good-ordinary supplier used at every good/multiplicative prime; requested the actual finite-level one-sided bound. Stage projection exposes BSD.4↔BSD.5; added an early rationality-export proposal, rather than asserting that the existing placement is acyclic."
+    "verdict": "verified",
+    "note": "The bound is one-sided and retains integral large-image/local corrections; it does not assume main-conjecture equality or infer the full formula."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.4/analytic-rank-at-most-one-theorem",
     "verdict": "verified",
-    "note": "Case split analytic rank 0/1 gives the stated unconditional endpoint from the two requested Heegner theorem branches."
+    "note": "This is the union of the two distinct rank/finiteness routes, not a leading-term equality."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.4/kato-heegner-comparison",
-    "verdict": "corrected",
-    "note": "Qualified the overstatement that a Heegner-index bound cannot be expressed in L(E,1); Gross–Zagier can convert it with additional auxiliary factors."
+    "verdict": "verified",
+    "note": "The two routes yield the same rank/finiteness statement but their lattices, local inputs and p-primary estimates are not conflated."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/rank-zero-rationality",
-    "verdict": "corrected",
-    "note": "Removed an unsupported explicit denominator divisibility claim; the modular-symbol and Néron-period proof does justify rationality."
+    "verdict": "verified",
+    "note": "MSPL critical-value algebraicity and explicit period/Manin comparison yield rationality; the early BSD.0a placement prevents a finiteness/rationality stage cycle."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/leading-term-positivity",
     "verdict": "verified",
-    "note": "Verified separate central-value nonnegativity and positive Gross–Zagier height, with nonvanishing, as required by RT/16. Positivity of the product alone would not suffice."
+    "note": "Central nonnegativity and nonvanishing are separate inputs; the rank-one case uses positive GZ height and a positive nonzero auxiliary value."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/rank-one-rationality",
-    "verdict": "verified",
-    "note": "The GZ height formula, index-squared regulator identity and auxiliary nonzero rational value give positive rational rank-one normalization."
+    "verdict": "corrected",
+    "note": "Corrected the proof to use (I_K^free)², retaining the factor2 from K-relative height and all period/Manin/unit factors."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/heegner-index",
-    "verdict": "corrected",
-    "note": "Restricted I/c invariance to positive multiples on a fixed curve; added non-torsion and finite-index hypotheses to divisibility/generator signatures."
+    "verdict": "verified",
+    "note": "Full and free indices differ by torsion. Scaling invariance concerns positive multiples on a fixed curve, with non-torsion/finite-index hypotheses in the signatures."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/heegner-index-height-formula",
-    "verdict": "corrected",
-    "note": "Verified the free-index squared identity. Added the published JSW p.427 missing-square misprint to sourceIssues; the packet formula itself was already correct."
+    "verdict": "verified",
+    "note": "The free index enters squared; rank-one quadratic regulator transport gives the factor2/4^a. Published JSW misprint does not alter its squared equation."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/gross-index-formula",
-    "verdict": "corrected",
-    "note": "Added non-torsion/base-change analytic rank one to the conjecture equivalence; retained its conditional status and distinguished it from an index inequality."
+    "verdict": "verified",
+    "note": "Read GZ V.§2 pp.310–312. This is the conjectural index equality expressed as an equivalence with BSD, not an available theorem proving the endpoint."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.3a/definite-congruence-period",
     "verdict": "verified",
-    "note": "Pollack–Weston CR/surjectivity and odd definite parity retained. General Néron character exactness does not supply localised multiplicity-one/freeness; existing exact-export request remains essential."
+    "note": "PW definite CR/surjectivity hypotheses are retained; early BSD.3a provides HE.6 without invoking downstream BSD or an indefinite freeness assertion."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/ribet-takahashi-degree-comparison",
-    "verdict": "unverifiable",
-    "note": "Corrected rational versus geometric component factors. The stated endpoint still needs a exact multiplicity-one/freeness export with its full hypothesis discharge."
+    "verdict": "verified",
+    "note": "The exact integral character-module freeness/multiplicity-one discharge is still a precise gap/request. Generic Néron exactness or PW definite CR is insufficient."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/rational-bsd-defect",
     "verdict": "verified",
-    "note": "Positive rational defect has correct torsion denominator, factorial convention and 2^r regulator normalization. Every claimed identity is restricted to analytic rank≤1."
+    "note": "The definition uses positive rational nonzero data, total real period and Reg_BSD=2^r times the pinned regulator; zero default valuation cannot establish BSD."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/defect-isogeny-invariance",
-    "verdict": "corrected",
-    "note": "Kept Cassels isogeny invariance as EC Layer7 import. Suggested signature now takes an actual pinned TauCeti.Isogeny; equality of L-coefficients alone is not an arithmetic isogeny hypothesis."
+    "verdict": "verified",
+    "note": "An actual isogeny, every L-factor and the Cassels arithmetic quotient comparison are required; isogenous-model examples do not assume equal individual invariants."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/p-part-from-two-bounds",
     "verdict": "verified",
-    "note": "Checked valuation signs: upper Sha bound gives nonnegative defect valuation and lower gives nonpositive; positivity/nonzero defect excludes padicValRat zero junk."
+    "note": "Checked valuation directions: lower Sha bound gives nonpositive defect valuation and upper Sha bound gives nonnegative valuation."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.5/sha-bound-from-heegner-index",
-    "verdict": "corrected",
-    "note": "Removed a circular rewrite by Gross’s BSD-equivalent conjectural index equality; use the proved height formula and retain Howard’s local/parametrisation errors."
+    "verdict": "verified",
+    "note": "The index bound stays one-sided with Howard local/parametrization errors; the proved GZ height identity replaces a circular use of the conjectural index equality."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6/cyclotomic-specialization-formula",
-    "verdict": "corrected",
-    "note": "Cancelled the erroneous extra anomalous Euler factor; added nonzero-value/finite-order guards and exact Selmer control/Fitting requests."
+    "verdict": "verified",
+    "note": "Skinner §3.2 cancels the anomalous Euler term through the exact finite-control factor. Finite presentations and multiplicative Hida deduction are distinct requests."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6/rank-zero-ordinary-multiplicative-p-part",
-    "verdict": "corrected",
-    "note": "Skinner C keeps a multiplicative residually ramified q≠p. Good-ordinary MC and the Hida-family multiplicative deduction are separate requests; added p∥N Néron-period integrality rather than applying a p∤N Manin theorem."
+    "verdict": "verified",
+    "note": "Skinner C retains p≥3, q≠p, q∥N and residual ramification. Good and multiplicative period comparisons and exceptional-zero input are separate."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6/rank-zero-supersingular-p-part",
     "verdict": "corrected",
-    "note": "Retained the narrower correct BSTW ordinary-support twist range; removed the false assertion that it equals old JSW7.2.1(iii)."
+    "note": "BSTW1.5, p.4, gives the stated semistable rank0 endpoint; its twist extension is restricted to ordinary support as in1.3."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6/residually-ramified-prime",
-    "verdict": "corrected",
-    "note": "Restored good p/q≠p and corrected nonsplit rational Tamagawa versus geometric discriminant multiplicity."
+    "verdict": "verified",
+    "note": "Checked the transvection/inertia argument and index2 quadratic restriction at odd p; an everywhere-unramified quotient cannot give the required residual representation."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6/jsw-lower-bound",
-    "verdict": "unverifiable",
-    "note": "The endpoint has the stated JSW hypotheses; the proof still needs the exact μ/height-one discharge and corrected integral degree comparison. Recorded those obligations rather than treating the supplier titles as their proofs."
+    "verdict": "verified",
+    "note": "JSW7.4.1 has the recorded direction. Exact μ, Selmer control, degree and local factors remain explicit rather than silently supplied by rational divisibility."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6/jsw-upper-bound",
-    "verdict": "unverifiable",
-    "note": "The old supersingular auxiliary twist may fall outside BSTW’s ordinary-support range, and the cited dyadic/Howard suppliers do not establish the required JSW bound. A direct BSTW1.5 rank-one endpoint is separately added."
+    "verdict": "verified",
+    "note": "JSW7.4.2 remains a planned integral bound with Howard errors and the wider supersingular auxiliary-twist proof gap; BSTW1.5 does not repair that range."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6/jsw-rank-one-p-part",
-    "verdict": "unverifiable",
-    "note": "The source endpoint is correctly stated. Corrected the 37a acceptance to p≥5 (a₃=−3); added the direct BSTW rank-one route. Its ordinary proof still inherits the recorded upper/lower-bound obligations."
+    "verdict": "verified",
+    "note": "The statement retains semistability, good odd p, residual irreducibility and the extra p=3 trace condition; the two inequalities remain separately planned."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6/castella-multiplicative-rank-one-p-part",
-    "verdict": "unverifiable",
-    "note": "A′ hypotheses match the erratum, but its written reduction to rank-zero Skinner C fails at the ramified q, and the GZ.9 supplier is semistable only. These are proof gaps, not a claim that A′ is false."
+    "verdict": "verified",
+    "note": "Read corrected A′: p>3, nonsplit residually ramified q≠p and E(Q_p)[p]=0, allowing additive primes away from p. Auxiliary ramified-twist/control extensions remain gaps."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/anticyclotomic-selmer-control",
-    "verdict": "unverifiable",
-    "note": "Checked relaxed-at-v/strict-at-v̄ convention against JSW2.3.4. Added the missing Selmer augmentation/Fitting and compact/discrete Poitou–Tate interfaces; current generic descent is not a finite-control theorem."
+    "verdict": "verified",
+    "note": "JSW3.3.1 uses the specified relaxed/strict places. Compact/discrete duality, finite Selmer/Fitting and augmentation inputs are precise requests; global derived descent alone is insufficient."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/wan-anticyclotomic-divisibility",
-    "verdict": "unverifiable",
-    "note": "Ordinary and semi-ordinary suppliers have different auxiliary/local and integrality conditions; recorded the unproved μ and excluded-prime discharge rather than claiming a universal integral divisibility."
+    "verdict": "verified",
+    "note": "Rational divisibility, integral μ discharge and excluded height-one primes are distinguished; one-sided inclusions retain the analytic/local normalization."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/bstw-two-variable-zeta-element",
-    "verdict": "unverifiable",
-    "note": "Restricted ownership to the supersingular element and corrected the two primes and CM-family supplier. Six API names/four tests were only comments; their actual arithmetic carrier/signatures are still missing."
+    "verdict": "corrected",
+    "note": "All six names/four examples are actual declarations on continuous inverse limits. Corrected source kind and strengthened Lambda-linearity through coefficientwise unramified extension; rational two-class projection and integral lattice obligations remain distinct."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/bstw-explicit-reciprocity-laws",
-    "verdict": "unverifiable",
-    "note": "Corrected Log to the conjugate prime and the page7 locator, and restored the actual two-variable analytic function owner; common integral signed normalization remains a requested proof obligation."
+    "verdict": "corrected",
+    "note": "Source Col_v and Log_vbar have distinct domains and analytic targets. Both local maps now retain Lambda-linearity and the same coefficient/period normalization."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/bstw-signed-main-conjecture",
-    "verdict": "unverifiable",
-    "note": "Added the missing signed Proposition9.18 comparison and distinguished its van_L hypothesis from Proposition1.19’s stronger irr_L. In this supersingular setting irr_L follows from the local representation at split p (BSTW §1.2.1); the actual integral CLW, image/control and cyclotomic (nv) discharges remain unproved."
+    "verdict": "verified",
+    "note": "BSTW1.3 retains its semistable/ordinary-support twist range and p=3 condition. Signed9.18, image indices, excluded primes and both cyclotomic non-torsion inputs remain planned obligations."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/bstw-rank-zero-p-part",
-    "verdict": "unverifiable",
-    "note": "The r=0 BSTW endpoint is correctly stated, but derived Iwasawa descent/half-logarithms are not signed Selmer control with all Tamagawa and Néron-period factors. Added the precise local-control request."
+    "verdict": "corrected",
+    "note": "BSTW1.5 p.4 is the rank0 endpoint; signed finite-control/Tamagawa/period factors are separately requested rather than inferred from half-logarithms."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/castella-anticyclotomic-main-conjecture",
-    "verdict": "unverifiable",
-    "note": "Corrected torsion of the module rather than its characteristic ideal and retained the Hida specialization/local-type/Fitting obligations. Higher-weight integral and additive-range gaps remain."
+    "verdict": "verified",
+    "note": "Erratum1.1 asserts torsion of X, with ramified Heegner ideal, 2-clause, all nonsplit multiplicative primes and local p-torsion hypotheses retained."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/castella-higher-weight-input",
-    "verdict": "unverifiable",
-    "note": "Removed the false ready-made higher-weight integral CGS import and nonexistent FO corollary; restored distinct factorization, projection and local-type owners. The integral extension/local/Σ proof is not supplied."
+    "verdict": "verified",
+    "note": "Erratum2.1–2.3 retains even weight, level/local-special hypotheses and Σ. FO local type, FW factorization, CGS projection and integral higher-weight extension have distinct owners."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/bstw-signed-main-conjecture-comparison",
-    "verdict": "added",
-    "note": "Added the key signed comparison, with the omitted-source-proof gap and actual van_L/(nv) conditions."
+    "verdict": "verified",
+    "note": "Read BSTW9.18 pp.83–84. Rational comparison is distinct from integral comparison under van_L; the omitted signed proof and cyclotomic (nv) remain explicitly owned."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6a/higher-weight-integral-kolyvagin-bound",
-    "verdict": "added",
-    "note": "Added the owned higher-weight integral extension rather than importing an elliptic rational theorem; proof obligations remain explicit."
+    "verdict": "verified",
+    "note": "The augmentation-prime and C1=C2=0 higher-weight integral extension is an owned target; CGS v2’s elliptic rational theorem is not falsely cited as its proof."
    },
    {
     "nodeId": "RankZeroOneBSD:BSD.6/bstw-rank-one-p-part",
-    "verdict": "added",
-    "note": "Added the exact direct rank-one BSTW endpoint and its supersingular GZ/control requests; this does not repair the old wider twist proof."
+    "verdict": "verified",
+    "note": "The direct semistable rank1 endpoint is BSTW1.5 p.4, with the separate supersingular p-adic GZ request; no residual irreducibility is added to the source range."
    }
   ]
  },
