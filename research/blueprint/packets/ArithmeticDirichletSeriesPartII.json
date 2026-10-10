@@ -232,6 +232,20 @@
         "module": "TauCeti/Analysis/Contour/WorkedExamples/HalfDisc/SineIntegral.lean",
         "provides": "For positive frequency, truncated ∫_0^R sin(ax)/x tends to π/2; it is not a Lebesgue half-line integral.",
         "checked": "Statement and ambient hypotheses read at the recorded pinned commit, TauCeti/Analysis/Contour/WorkedExamples/HalfDisc/SineIntegral.lean:339; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:Real.GammaIntegral_convergent",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "For s>0 the real Euler Gamma integrand exp(−x)x^(s−1) is integrable on (0,∞); positive scaling gives norm integrability of the polynomial exponential model.",
+        "checked": "Independently read at the pinned Mathlib commit, Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean:66; the positive real parameter and IntegrableOn conclusion were checked separately from the integral-value formula."
+      },
+      {
+        "ref": "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Calculus/ParametricIntegral.lean",
+        "provides": "Differentiation under a Bochner integral for a real or complex scalar parameter, assuming local a.e. measurability, pointwise derivatives and a uniform integrable derivative bound.",
+        "checked": "Independently read at the pinned Mathlib commit, Mathlib/Analysis/Calculus/ParametricIntegral.lean:288; the RCLike parameter includes ℂ, and the measure may be restricted Lebesgue measure."
       }
     ]
   },
@@ -245,7 +259,7 @@
       "sha256": "4934b4bfba12d405fc267fa0c0318c3034ab29c9e8223388019377bb45ca0998",
       "accessed": "2026-10-10",
       "readSections": [
-        "Standing hypotheses and Theorems I–II, pp.213–216",
+        "Standing hypotheses and Theorems I–II, pp.213–215",
         "§3.1–3.4 and §4.1, pp.220–229: Laplace regularization, squared-sine smoothing and monotonicity",
         "§5.1.1–5.2.1, pp.231–238: Gamma models and Theorem III",
         "§5.3, p.242: limitation of a local singularity hypothesis"
@@ -273,11 +287,13 @@
       ],
       "title": "Convergent Laplace integral",
       "kind": "definition",
-      "statement": "HasLaplace α s z means that t ↦ exp(−st)α(t), with α(t) cast to ℂ, is Bochner integrable on [0,∞) and its integral is z. α is a total real-valued function; no condition is imposed at negative t.",
-      "hypotheses": [],
+      "statement": "For a normed additive group E with a real normed-space structure and a complex scalar action, HasLaplace f s z μ asserts that t ↦ exp(−st) • f(t) is Bochner integrable for μ and has integral z. Here f:ℝ→E, s:ℂ and z:E; the measure defaults to Lebesgue measure restricted to (0,∞). The counting applications use E=ℂ and explicitly cast their real functions to ℂ. For Lebesgue integration (0,∞) and [0,∞) give the same convergence and value.",
+      "hypotheses": [
+        "The core predicate requires NormedAddCommGroup E, NormedSpace ℝ E and SMul ℂ E. Additivity requires DistribSMul ℂ E; complex scaling and positive dilation use NormedSpace ℂ E with IsScalarTower ℝ ℂ E. Dilation is for the default Lebesgue measure, not for an arbitrary μ."
+      ],
       "proofSteps": [
-        "Use the existing restricted-volume Bochner integral; integrability is part of the predicate, so its totalized value cannot witness a divergent transform.",
-        "Uniqueness, addition and real scaling follow from the Bochner integral API. A positive change of variable proves dilation; an almost-everywhere change on the half-line preserves the predicate."
+        "Use the native Bochner integral with convergence as part of the predicate. The carrier, optional measure and scalar-action conventions follow the HasLaplace interface of Mathlib PR #40582; its E=ℂ specialization is used throughout the Tauberian argument. At the pinned baseline this is new material; adopt the Mathlib interface when it becomes available.",
+        "Projection lemmas expose convergence and the integral value. Uniqueness, μ-almost-everywhere congruence, addition and complex scaling use the Bochner integral API. For default Lebesgue measure, a positive change of variable proves dilation. The singleton endpoint has measure zero."
       ],
       "acceptance": [
         "The constant-one function has transform 1/s on Re(s)>0; at s=0 it is not integrable."
@@ -295,8 +311,8 @@
       ],
       "implementationStatus": "unchecked",
       "library": {
-        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
-        "namespace": "TauCeti.HigherPoleTauberian"
+        "module": "TauCeti/Analysis/LaplaceTransform",
+        "namespace": "TauCeti"
       },
       "leanName": "HasLaplace",
       "planet": {
@@ -304,51 +320,61 @@
       },
       "api": [
         {
-          "name": "HasLaplace.unique",
-          "role": "characterisation",
-          "statement": "Two HasLaplace values at the same α and s coincide."
+          "name": "HasLaplace.integrable",
+          "role": "projection",
+          "statement": "HasLaplace f s z μ gives Integrable (t ↦ exp(−st) • f(t)) μ."
         },
         {
-          "name": "HasLaplace.congr",
+          "name": "HasLaplace.integral_eq",
+          "role": "projection",
+          "statement": "HasLaplace f s z μ gives ∫ exp(−st) • f(t) dμ = z."
+        },
+        {
+          "name": "HasLaplace.unique",
+          "role": "characterisation",
+          "statement": "Two HasLaplace values at the same f, s and μ coincide."
+        },
+        {
+          "name": "HasLaplace.congr_ae",
           "role": "extensionality",
-          "statement": "Equality almost everywhere for volume restricted to [0,∞) preserves HasLaplace."
+          "statement": "Equality μ-almost everywhere preserves HasLaplace f s z μ."
         },
         {
           "name": "HasLaplace.add",
           "role": "structure",
-          "statement": "Transforms z,w at s add to z+w for α+β."
+          "statement": "For DistribSMul ℂ E, transforms z,w at s for the same μ add to z+w for f+g."
         },
         {
-          "name": "HasLaplace.smul",
+          "name": "HasLaplace.const_smul",
           "role": "structure",
-          "statement": "For real c, the transform of cα is cz."
+          "statement": "For NormedSpace ℂ E and IsScalarTower ℝ ℂ E, a complex scalar c sends a transform z to c • z for c • f, at the same s and μ."
         },
         {
-          "name": "HasLaplace.dilate",
+          "name": "HasLaplace.comp_mul_left",
           "role": "functoriality",
-          "statement": "If c>0 and α has transform z at s/c, then t ↦ α(ct) has transform z/c at s."
+          "statement": "For NormedSpace ℂ E and IsScalarTower ℝ ℂ E, c>0 and default Lebesgue measure, HasLaplace f (s/c) z gives HasLaplace (t ↦ f(ct)) s ((c:ℂ)⁻¹ • z)."
         }
       ],
       "tests": [
         {
           "name": "HasLaplace_test_zero",
-          "kind": "example",
-          "statement": "α=0 has transform 0 at every complex s."
+          "kind": "degenerate",
+          "statement": "The zero complex-valued function has transform 0 at every complex s for default Lebesgue measure."
         },
         {
           "name": "HasLaplace_test_constant",
-          "kind": "example",
-          "statement": "α=1 has transform 1/s when Re(s)>0."
+          "kind": "computation",
+          "statement": "The constant complex-valued function 1 has transform 1/s when Re(s)>0."
         },
         {
           "name": "HasLaplace_test_quadratic",
-          "kind": "example",
-          "statement": "α(t)=t² has transform 2/s³ for Re(s)>0, fixing the factorial convention."
+          "kind": "computation",
+          "statement": "The complex-valued function t ↦ (t:ℂ)² has transform 2/s³ for Re(s)>0, fixing the factorial convention."
         },
         {
           "name": "HasLaplace_test_nonintegrable",
-          "kind": "example",
-          "statement": "HasLaplace (constant 1) 0 0 is false; a junk-valued integral is not a transform."
+          "kind": "non-example",
+          "statement": "HasLaplace (constant complex 1) 0 0 is false for default Lebesgue measure; a totalized integral is not a convergent transform."
         }
       ],
       "uses": [
@@ -359,6 +385,10 @@
         {
           "where": "HP.4 logarithmic summatory bridge",
           "how": "The adapter produces the ordinary transform F(s)/s with its integrability proof."
+        },
+        {
+          "where": "HP.2 smoothed limit",
+          "how": "The convergence and value projections permit differentiation and Fubini without unfolding the predicate."
         }
       ]
     },
@@ -435,27 +465,27 @@
       "tests": [
         {
           "name": "PoleBoundary_test_model",
-          "kind": "example",
+          "kind": "characterisation",
           "statement": "F(s)=A/(s−a)^(k+1) satisfies the predicate for all real a,A and natural k."
         },
         {
           "name": "PoleBoundary_test_wrong_leading",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "F(s)=1/(s−1) does not have index k=0 and leading coefficient 2."
         },
         {
           "name": "PoleBoundary_test_boundary_value",
-          "kind": "example",
+          "kind": "compatibility",
           "statement": "Setting F(1)=37 while retaining F(s)=1/(s−1) elsewhere still gives PoleBoundary at a=1,k=0,A=1."
         },
         {
           "name": "PoleBoundary_test_dyadic",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "F(s)=1/(1−exp((1−s)log 2)) does not satisfy the full predicate at a=1,k=0,A=1/log 2, because of the other poles on the boundary line."
         },
         {
           "name": "PoleBoundary_test_zero_not_exact",
-          "kind": "example",
+          "kind": "non-example",
           "statement": "F=0 cannot satisfy PoleBoundary with A≠0."
         }
       ],
@@ -497,7 +527,7 @@
       "sources": [
         {
           "sourceId": "DEL54",
-          "locator": "§3.3.3–3.3.5, pp.222–224; §3.4, pp.225–227",
+          "locator": "§3.3.3–3.3.5, pp.224–226; §3.4, pp.227–228",
           "match": "The proof uses the square of the sine quotient with compact triangular frequency support. Here it is normalized to mass one, so the smoothing limit is a coefficient rather than π times that coefficient."
         }
       ],
@@ -550,17 +580,17 @@
       "tests": [
         {
           "name": "squaredSinc_test_origin",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For λ>0, K_λ(0)=λ/π."
         },
         {
           "name": "squaredSinc_test_zero",
-          "kind": "example",
+          "kind": "computation",
           "statement": "For λ>0, K_λ(π/λ)=0."
         },
         {
           "name": "squaredSinc_test_mass_two",
-          "kind": "example",
+          "kind": "computation",
           "statement": "∫ℝ K_2=1, detecting a missing scaling or π factor."
         }
       ],
@@ -587,15 +617,16 @@
       "hypotheses": [],
       "proofSteps": [
         "Change variable x=ut. For t>0, w_k(t)t^k=(1/k!)∫_0^t exp(−x)x^k dx.",
-        "Use the real Gamma integral and Γ(k+1)=k! to obtain normalization and the bound ≤1.",
-        "The normalization and (t+h)^k/t^k→1 yield w_k(t+h)/w_k(t)→1 for every fixed real h. The first two cases follow by elementary integration."
+        "Use GammaIntegral_convergent after positive scaling, the real Gamma integral and Γ(k+1)=k! to obtain normalization and the bound ≤1. The integral on [0,1] depends continuously on t, by dominated convergence uniformly on each compact t interval.",
+        "The normalization and (t+h)^k/t^k→1 yield w_k(t+h)/w_k(t)→1 for every fixed real h. For a fixed H>0 this convergence is uniform over |h|≤H: both normalized weights approach 1 uniformly once t−H is large, and ((t+h)/t)^k approaches 1 uniformly. The first three indices follow by elementary integration."
       ],
       "acceptance": [
         "The weight is not identically t^(−k) near the origin; the vanishing at zero makes the ordinary integral regularizer precise."
       ],
       "prerequisites": [
         "mathlib:Real.Gamma_nat_eq_factorial",
-        "mathlib:Real.integral_rpow_mul_exp_neg_mul_Ioi"
+        "mathlib:Real.integral_rpow_mul_exp_neg_mul_Ioi",
+        "mathlib:Real.GammaIntegral_convergent"
       ],
       "sources": [
         {
@@ -614,6 +645,11 @@
         "name": "Laplace regularization weight"
       },
       "api": [
+        {
+          "name": "delangeWeight_continuous",
+          "role": "structure",
+          "statement": "For every natural k, the total real function w_k is continuous on ℝ."
+        },
         {
           "name": "delangeWeight_nonneg",
           "role": "structure",
@@ -643,22 +679,22 @@
       "tests": [
         {
           "name": "delangeWeight_test_origin",
-          "kind": "example",
+          "kind": "degenerate",
           "statement": "w_k(0)=0 for every k."
         },
         {
           "name": "delangeWeight_test_simple",
-          "kind": "example",
+          "kind": "computation",
           "statement": "w_0(t)=1−exp(−t) for every real t."
         },
         {
           "name": "delangeWeight_test_double",
-          "kind": "example",
+          "kind": "computation",
           "statement": "t w_1(t)=1−(1+t)exp(−t) for every real t."
         },
         {
           "name": "delangeWeight_test_triple",
-          "kind": "example",
+          "kind": "computation",
           "statement": "t²w_2(t)=1−(1+t+t²/2)exp(−t) for every real t, detecting the 2! normalization."
         }
       ],
@@ -670,6 +706,10 @@
         {
           "where": "HP.3 unsmoothing",
           "how": "The shift law permits comparison of the weighted count at t and nearby arguments without assuming it monotone."
+        },
+        {
+          "where": "HP.3 unsmoothing",
+          "how": "Continuity bounds w_k on compact intervals. Its normalized form also gives uniform shift ratios on every fixed bounded range of shifts."
         }
       ]
     },
@@ -686,7 +726,7 @@
         "Re(s)>a."
       ],
       "proofSteps": [
-        "The norm is exp(−(Re(s)−a)t)t^k, integrable by the real Gamma integral.",
+        "The norm is exp(−(Re(s)−a)t)t^k. Positive scaling of GammaIntegral_convergent proves its integrability; the real Gamma integral separately evaluates its norm integral.",
         "Start with the pinned complex exponential integral at k=0; repeated integration by parts proves the formula for every integer k. Exponential decay removes each endpoint at infinity.",
         "Thus β(t)=(A/k!)exp(at)t^k has transform A/(s−a)^(k+1), with no truncation error or choice of complex powers."
       ],
@@ -698,12 +738,13 @@
         "mathlib:integral_exp_mul_complex_Ioi",
         "mathlib:integrableOn_exp_mul_complex_Ioi",
         "mathlib:Real.integral_rpow_mul_exp_neg_mul_Ioi",
-        "mathlib:Real.Gamma_nat_eq_factorial"
+        "mathlib:Real.Gamma_nat_eq_factorial",
+        "mathlib:Real.GammaIntegral_convergent"
       ],
       "sources": [
         {
           "sourceId": "DEL54",
-          "locator": "§5.1.2 Lemma 4, pp.232–233; §5.2.1, pp.236–237",
+          "locator": "§5.1.2 Lemma 4, p.233; §5.2.1, pp.236–237",
           "match": "The Gamma model identifies the pole term with its ordinary Laplace inverse. Only positive integer pole orders are needed here."
         }
       ],
@@ -728,7 +769,7 @@
       ],
       "proofSteps": [
         "Apply the existing Laurent decomposition to the local analytic numerator quotient, not to the arbitrary boundary values of F. Subtracting the leading term leaves poles of orders at most k and a holomorphic remainder.",
-        "Differentiate each remaining term and integrate u^k R′(a+ε+iy+u). Near y=0 this is bounded uniformly in ε>0 by C(1+|log|y||), because the worst denominator has power k+1. For k=0 the remainder is regular. The majorant is locally integrable.",
+        "Split u∈[0,1] into the part inside the pole ball and its compact regular complement. A remaining pole of order j≤k contributes a derivative bounded by a constant times |u+ε+iy|^(−j−1). Since |u+ε+iy|≥(u+|y|)/√2 for ε,u≥0, its u^k-weighted integral is bounded, for 0<|y| small and all sufficiently small ε>0, by C(1+|log|y||). For k=0 the remainder is regular. This majorant is locally integrable; the single y=0 is ignored almost everywhere.",
         "Away from zero, boundary germs and compactness of the u interval give ordinary convergence and a uniform bound. Patch a finite cover of each y interval.",
         "Define b by the limit away from zero, assigning any finite value at zero. Apply dominated convergence to the norm of the difference; the logarithmic majorant gives L1 convergence."
       ],
@@ -744,7 +785,7 @@
       "sources": [
         {
           "sourceId": "DEL54",
-          "locator": "§3.3.1–3.3.2, pp.221–222; §4.1, pp.228–229; §5.2.1, pp.237–238",
+          "locator": "§3.3.1–3.3.2, pp.221–224; §4.1, pp.228–229; §5.2.1, pp.237–238",
           "match": "This is the holomorphic-boundary specialization of the regularized transform step. It replaces the source broader boundary-limit machinery by compact L1 convergence under the stronger hypotheses used in this roadmap."
         }
       ],
@@ -766,14 +807,14 @@
       ],
       "title": "Higher-pole smoothed counting limit",
       "kind": "theorem",
-      "statement": "Let a>0, k∈ℕ and A∈ℝ. Let α be nonnegative and nondecreasing on [0,∞), HasLaplace α s (F(s)) for all Re(s)>a, and PoleBoundary F a k A. For every λ>0 and T∈ℝ the integral ∫_0^∞ w_k(t)exp(−at)α(t)K_λ(t−T)dt is absolutely integrable, and as T→∞ it tends to A/k!.",
+      "statement": "Let a>0, k∈ℕ and A∈ℝ. Let α be nonnegative and nondecreasing on [0,∞), HasLaplace (t ↦ (α(t):ℂ)) s (F(s)) for all Re(s)>a, and PoleBoundary F a k A. For every λ>0 and T∈ℝ the integral ∫_0^∞ w_k(t)exp(−at)α(t)K_λ(t−T)dt is absolutely integrable, and as T→∞ it tends to A/k!.",
       "hypotheses": [
         "a>0; α(t)≥0 for t≥0; MonotoneOn α [0,∞); convergence at every s with Re(s)>a; full PoleBoundary, not only a local pole."
       ],
       "proofSteps": [
-        "Subtract the Gamma model β=(A/k!)exp(at)t^k. Differentiate the convergent Laplace integral: convergence a little to the left absorbs the extra t factor. Fubini then identifies H(s) with the transform of w_k(t)(α(t)−β(t)).",
+        "Subtract β=(A/k!)exp(at)t^k. For a fixed s with Re(s)>a choose a<σ₀<σ₁<Re(s) and a neighbourhood on which Re(z)≥σ₁. Convergence at the real point σ₀ gives the integrable norm majorant exp(−σ₀t)|α(t)−β(t)|; t exp(−(σ₁−σ₀)t) is bounded. Apply hasDerivAt_integral_of_dominated_loc_of_deriv_le with restricted half-line measure to differentiate the transform R. Fubini, with u∈[0,1], then gives H(s)=∫_0^∞ exp(−st)w_k(t)(α(t)−β(t))dt.",
         "Insert the triangular Fourier formula for K_λ in the ε-damped integral. The u,t,y interchanges are justified at ε>0 by absolute convergence and compact frequency support.",
-        "Use regularizedBoundaryL1 to pass ε↓0 on the frequency side, then the Riemann–Lebesgue lemma to let T→∞. On the counting side positivity gives undamped integrability by Fatou and the finite damped limit; dominated convergence removes ε using the integrable undamped nonnegative product as majorant. This proves the undamped identity before using its limit.",
+        "Use regularizedBoundaryL1 to pass ε↓0 on the frequency side. The resulting compactly supported L1 Fourier product tends to zero as T→∞ by Real.tendsto_integral_exp_smul_cocompact, after converting angular frequency e^(−iyT) to Mathlib’s e^(−2πiyv) using v=T/(2π). On the counting side positivity gives undamped integrability by Fatou and the finite damped limit; the Gamma model term is integrable because w_k(t)t^k≤1. Dominated convergence removes ε using the undamped nonnegative product as majorant. This proves the undamped identity before taking its T limit.",
         "For the model, w_k(t)t^k is bounded by 1 and tends to 1. Translation, dominated convergence and ∫K_λ=1 give model limit A/k!, so the count has that same smoothed limit."
       ],
       "acceptance": [
@@ -788,12 +829,13 @@
         "mathlib:MeasureTheory.integral_integral_swap",
         "mathlib:MeasureTheory.tendsto_integral_filter_of_dominated_convergence",
         "mathlib:Real.tendsto_integral_exp_smul_cocompact",
-        "mathlib:MeasureTheory.lintegral_liminf_le'"
+        "mathlib:MeasureTheory.lintegral_liminf_le'",
+        "mathlib:hasDerivAt_integral_of_dominated_loc_of_deriv_le"
       ],
       "sources": [
         {
           "sourceId": "DEL54",
-          "locator": "§3.3.1–3.3.5, pp.221–224; §4.1, pp.228–229",
+          "locator": "§3.3.1–3.3.5, pp.221–226; §4.1, pp.228–229",
           "match": "The squared-sine convolution extracts the leading coefficient from the regularized transform. Positivity justifies passing from damped integrals to their undamped counterparts."
         }
       ],
@@ -820,9 +862,9 @@
         "No transform or boundary hypothesis is used here; all positive λ are required, along with their actual convolution limits and integrability."
       ],
       "proofSteps": [
-        "Write J(t)=w_k(t)exp(−at)α(t). Fix a short interval [T,T+h]. Monotonicity of α and the weight shift law compare J(T) with the convolution on that interval. Positivity and a nonzero kernel mass give an eventual upper bound for J; local monotonicity also bounds it on compact intervals.",
-        "This bound controls tails outside [T−h,T+h]. The smoothed limit, monotonicity and the weight shift law give lower and upper limits for J(T) with errors from the tails and exp(±ah).",
-        "First let λ→∞ for fixed h>0, using squaredSinc_tail; then let h↓0. Both limits equal C.",
+        "Write J(t)=w_k(t)exp(−at)α(t) for t≥0. Fix h>0 and a positive λ whose kernel has positive mass on [−h/2,h/2]. In the convolution centred at T+h/2, restrict t to [T,T+h]. Monotonicity gives α(t)≥α(T); the uniform shift ratio from w_k(t)t^k→1 and exp(−ah) give a positive multiple of J(T) as a lower bound. The smoothed limit therefore bounds J eventually. Monotonicity bounds α on compact intervals and continuity bounds w_k there, so J has a global bound M on [0,∞).",
+        "For the upper bound on J(T), use the same right interval and centre T+h/2. For the lower bound, centre the convolution at T−h/2, restrict t to [T−h,T], and use α(t)≤α(T), the uniform weight ratio and exp(ah); the omitted contribution is at most M times the kernel mass outside [−h/2,h/2].",
+        "Let T→∞ at fixed λ,h. Then let λ→∞ for fixed h>0: the interval mass tends to one and the tail mass to zero by squaredSinc_tail. Finally let h↓0; the exponential comparison factors approach one, and limsup and liminf of J are both C.",
         "Use w_k(t)t^k→1 to replace J(t) by α(t)/(exp(at)t^k). This also proves the case C=0."
       ],
       "acceptance": [
@@ -835,7 +877,7 @@
       "sources": [
         {
           "sourceId": "DEL54",
-          "locator": "§3.4.1–3.4.2, pp.225–227",
+          "locator": "§3.4.1–3.4.2, pp.227–228",
           "match": "The Tauberian step uses the nondecreasing counting function and the shift behaviour of the regularizer. It derives the necessary bound instead of taking the intended asymptotic as a premise."
         }
       ],
@@ -898,7 +940,7 @@
       ],
       "title": "Inclusive logarithmic summatory Laplace bridge",
       "kind": "theorem",
-      "statement": "For c:ℕ→ℝ with c_n≥0, let S_c(X)=TauCeti.summatory id ĉ X, where ĉ(0)=0 and ĉ(n)=c_n for n>0. Put α(t)=S_c(exp t) for t≥0. If Re(s)>0 and LSeriesHasSum (c cast to ℂ) s (F(s)), then HasLaplace α s (F(s)/s). Moreover α is nonnegative and nondecreasing, and α(0)=c_1.",
+      "statement": "For c:ℕ→ℝ with c_n≥0, let S_c(X)=TauCeti.summatory id ĉ X, where ĉ(0)=0 and ĉ(n)=c_n for n>0. Put α(t)=S_c(exp t) for t≥0. If Re(s)>0 and LSeriesHasSum (c cast to ℂ) s (F(s)), then HasLaplace (t ↦ (α(t):ℂ)) s (F(s)/s). Moreover α is nonnegative and nondecreasing, and α(0)=c_1.",
       "hypotheses": [
         "Nonnegative coefficients; actual LSeriesHasSum at s; Re(s)>0, even when the series happens to converge at a nonpositive real part."
       ],
@@ -925,8 +967,13 @@
       "sources": [
         {
           "sourceId": "DEL54",
-          "locator": "Standing hypotheses p.213; §5.2.1 pp.235–238, applied to Wood §7 pp.416–417",
+          "locator": "Standing hypotheses p.213; §5.2.1 Theorem III, pp.235–238",
           "match": "The source theorem is an ordinary Laplace theorem. This direct absolute-convergence adapter establishes the Dirichlet-series interface, with division by s and the inclusive n=1 mass."
+        },
+        {
+          "sourceId": "WOOD19",
+          "locator": "§7, pp.416–417",
+          "match": "The arithmetic counting application motivates this independently derived inclusive Dirichlet-to-Laplace adapter."
         }
       ],
       "implementationStatus": "unchecked",
@@ -964,8 +1011,13 @@
       "sources": [
         {
           "sourceId": "DEL54",
-          "locator": "§5.2.1 Theorem III, pp.235–238; Wood §7 p.417",
+          "locator": "§5.2.1 Theorem III, pp.235–238",
           "match": "The Laplace theorem and explicit division-by-s adapter yield the higher-pole partial sum asymptotic required by Wood’s counting application."
+        },
+        {
+          "sourceId": "WOOD19",
+          "locator": "§7, p.417",
+          "match": "Wood uses higher-order pole counting; the generic export retains explicit full boundary continuation supplied by the arithmetic consumer."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1047,8 +1099,13 @@
       "sources": [
         {
           "sourceId": "WOOD19",
-          "locator": "Wood §7 p.417; Delange standing hypotheses p.213, footnote 1",
+          "locator": "§7, p.417",
           "match": "Finite alterations change a summatory function by a bounded amount. The generic export states this elementary consequence using the existing finite-change summatory API."
+        },
+        {
+          "sourceId": "DEL54",
+          "locator": "Standing hypotheses p.213, footnote 1",
+          "match": "Adding a constant to the counting function does not affect its leading asymptotic at a positive abscissa."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1155,14 +1212,14 @@
       ],
       "title": "Local-pole hypothesis rejection",
       "kind": "theorem",
-      "statement": "Let c_n=n if n=2^j for some j∈ℕ, and c_n=0 otherwise. For Re(s)>1 its convergent Dirichlet series is F(s)=1/(1−exp((1−s)log 2)). It has a local analytic numerator F(s)=g(s)/(s−1), g(1)=1/log 2. But PoleBoundary F 1 0 (1/log 2) is false, and S_c(X)/X does not tend to 1/log 2. In fact it has two distinct subsequential limits, 2 and 4/3.",
+      "statement": "Let c_n=n if n=2^j for some j∈ℕ, and c_n=0 otherwise. For Re(s)>1 its convergent Dirichlet series is F(s)=1/(1−exp((1−s)log 2)). It has a local analytic numerator F(s)=g(s)/(s−1), g(1)=1/log 2. But PoleBoundary F 1 0 (1/log 2) is false, and S_c(X)/X does not tend to 1/log 2. In fact S_c(2^j)/2^j→2 and S_c(3·2^j)/(3·2^j)→4/3 as the natural index j→∞.",
       "hypotheses": [
         "This is a rejection test for omitting the away-boundary field; its coefficients are nonnegative. The local numerator is explicitly required, not merely a real residue limit."
       ],
       "proofSteps": [
         "Reindex the absolutely convergent series by n=2^j, giving the geometric sum with ratio 2^(1−s). The denominator has a simple zero at 1 with derivative log 2, so the local numerator has the stated value.",
         "At 1+2πi/log 2 the denominator vanishes again, and the singularity is a genuine pole. No holomorphic boundary extension there can agree on the open half-plane.",
-        "Compute S_c(2^j)=2^(j+1)−1. At X=3·2^(j−1), j≥1, the same sum gives ratio tending to 4/3; at X=2^j it tends to 2.",
+        "Compute S_c(2^j)=2^(j+1)−1 and S_c(3·2^j)=2^(j+2)−1. Dividing by the respective cutoffs gives limits 2 and 4/3 as j→∞.",
         "Distinct subsequential limits exclude any global counting limit and in particular the proposed residue constant. This directly tests the theorem’s full boundary hypothesis."
       ],
       "acceptance": [
@@ -1187,10 +1244,7 @@
         "module": "TauCeti/NumberTheory/LSeries/HigherPole",
         "namespace": "TauCeti.HigherPoleTauberian"
       },
-      "leanName": "dyadicLocalPoleCounterexample",
-      "planet": {
-        "name": "Local-pole counterexample"
-      }
+      "leanName": "dyadicLocalPoleCounterexample"
     }
   ],
   "requests": [],
@@ -1234,6 +1288,95 @@
     "Current TauCetiRoadmap main at 81207c7f16d5abf770f13a7d2bdcdb465c030787 and current Tau Ceti sources were read-only audit inputs. The parent README and Suggested.lean and Chebotarev README were read; the current later-added roadmaps have no competing higher-pole Tauberian export.",
     "The existing completely-monotone Laplace transforms integrate measures or kernels at real nonnegative arguments. They do not provide a convergent complex-parameter ordinary transform for a growing counting function; HasLaplace uses the native Bochner integral directly. The finite-circle Fejér expression in SieveMethodsAndPrimePatterns is not the normalized continuous squared-sinc kernel on ℝ. No shared object is duplicated.",
     "The reviewed AnalyticNumberTheory AN.0 audit supplies LSeries and existing analytic summation tools, but no higher-pole Laplace or Dirichlet theorem. Current Tau Ceti WienerIkehara modules contain simple-pole Fourier identities, boundary limits and growth estimates, not this integer-pole regularization theorem.",
-    "The parent remains the first roadmap prerequisite. All mathematical node prerequisites resolve to exact pinned library declarations or nodes here, so no unbuilt supplier request is necessary. In particular generic finite-change summatory calculus and Laurent extraction are reused, not re-planned."
-  ]
+    "The parent remains the first roadmap prerequisite. All mathematical node prerequisites resolve to exact pinned library declarations or nodes here, so no unbuilt supplier request is necessary. In particular generic finite-change summatory calculus and Laurent extraction are reused, not re-planned.",
+    "Independent review checked open Mathlib PR #40582 (https://github.com/leanprover-community/mathlib4/pull/40582), head 90482cd37e85e423459de2ed103cea2f4d98cb20, and searched public Lean Zulip for Laplace/sinc design. The PR supplies HasLaplace with a normed target, complex scalar action, optional measure defaulting to volume.restrict (Ioi 0), congr_ae, const_smul and comp_mul_left. HP.0 follows that shape; it is not cited as an existing pinned declaration. No competing squared-sinc or higher-pole Tauberian design was found in these searches."
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-DESIGN-ArithmeticDirichletSeriesPartII",
+    "date": "2026-10-10",
+    "notes": "Independent review of all 16 nodes, both public source files, all 33 exact pinned declarations, target-level closure, ownership, APIs and Lean signatures. Corrected source locators and test kinds, followed the open Mathlib Laplace design, added three API items and two baseline prerequisites, and completed two Lean conclusions. No new nodes or mathematical gaps; all six stages remain closed. See the review report and handoff for validation and packaging conventions.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.0/laplace",
+        "verdict": "corrected",
+        "note": "Verified convergence and value separately. Aligned the normed-target, complex-action and optional-measure carrier and API names with Mathlib PR #40582; added convergence/value projections, with explicit complex casts in counting applications."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.0/boundary",
+        "verdict": "corrected",
+        "note": "Verified interior analyticity, exact numerator and every away-boundary germ, including leading/order uniqueness, division and rescaling. Corrected test-kind tags; arbitrary assigned boundary values do not enter the hypotheses."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.1/kernel",
+        "verdict": "corrected",
+        "note": "Verified λ/π normalization, angular triangular Fourier support, absolute integrability and concentrating tails. Corrected printed-page locators and test-kind tags."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.1/weight",
+        "verdict": "corrected",
+        "note": "Verified the Gamma substitution, positivity, normalized bound and shift law, including all three explicit polynomial cases. Added continuity API and the convergence citation; explained uniformity for bounded shifts and corrected test-kind tags."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.2/gamma-model",
+        "verdict": "corrected",
+        "note": "Verified complex-rate integration by parts with real norm integrability. Added GammaIntegral_convergent, corrected Lemma 4 to printed p.233, and made the real-to-complex cast explicit."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.2/boundary-l1",
+        "verdict": "corrected",
+        "note": "Verified the local quotient Laurent expansion and the integrable logarithmic bound after removing the leading pole. Made the u split, small-ε bound and ignored singleton explicit, and corrected the §3.3 page range."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.2/smoothed-limit",
+        "verdict": "corrected",
+        "note": "Verified the damped Fourier identity, Fatou integrability step and undamped limit. Added the pinned differentiation-under-integral theorem and its uniform majorant, angular-frequency conversion and corrected locators."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.3/unsmoothing",
+        "verdict": "corrected",
+        "note": "Verified that the convolution hypothesis implies the needed global bound, including C=0. Specified shifted interval centres, uniform weight ratios and the order of the T, λ and h limits; corrected printed pp.227–228."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.3/laplace-theorem",
+        "verdict": "corrected",
+        "note": "Verified the positive integer specialization of Delange Theorem III and coefficient A/k!. The mathematical statement is unchanged; the Lean transform hypothesis now explicitly casts α to the aligned complex target."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.4/logarithmic-bridge",
+        "verdict": "corrected",
+        "note": "Verified absolute convergence, F(s)/s, zero suppression and inclusive c₁ mass. Strengthened the Lean conclusion to include nonnegativity, monotonicity and α(0)=c₁; separated Delange and Wood citations."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.4/dirichlet-theorem",
+        "verdict": "corrected",
+        "note": "Verified the full-boundary adapter F/s at a=1 and t=log X, giving A/k!. Separated the analytic theorem citation from the Wood counting application."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.4/positive-abscissa",
+        "verdict": "verified",
+        "note": "Verified the original-line numerator A/a, the real-power/log substitution and the independent rescaling check. The c_n=n example gives 1/2 at a=2; a=0 is excluded."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.4/finite-change",
+        "verdict": "corrected",
+        "note": "Verified eventual finite summatory difference for signed coefficients and growth of X^a(log X)^k. Split the mixed-paper locator into separate source references; the mathematics uses the existing Tau Ceti API."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.4/lower-pole",
+        "verdict": "verified",
+        "note": "Verified the nonnegative majorant has its own convergence/full boundary data, the finite-sum triangle bound and strict l<k logarithmic decay. ArithmeticStatistics owns the arithmetic majorant."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.5/zeta-square",
+        "verdict": "verified",
+        "note": "Verified the pinned arithmetic convolution/divisor identity and convergent ζ² series. The residue limit plus the removable-singularity theorem yields the analytic numerator, with double-pole leading coefficient 1."
+      },
+      {
+        "nodeId": "ArithmeticDirichletSeriesPartII:HP.5/counterexample",
+        "verdict": "corrected",
+        "note": "Verified the geometric series, local residue and additional boundary pole. Added both explicit dyadic subsequential limits to the Lean statement and synchronized their indexing in prose; removed the rejection-test planet."
+      }
+    ]
+  }
 }
