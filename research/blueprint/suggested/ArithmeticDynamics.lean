@@ -1,3 +1,23 @@
+/-
+This file is not the roadmap and is not exhaustive. The roadmap document
+`research/blueprint/readmes/ArithmeticDynamics.md` is definitive. These
+statements suggest Lean forms so that contributors and reviewers converge on
+names and signatures. They claim no implementation.
+
+The planning pass is complete; the document records the missing supplier
+interfaces and mathematical gaps. All planned declarations remain unchecked.
+Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
+Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
+
+The file imports the pinned elliptic canonical height directly. Its convention
+is half the limiting naive x-coordinate height; comparisons below retain that
+factor. General-variety height and analytic-carrier interfaces that cannot be
+stated at these pins are described in the document and in the section comments.
+-/
+
+import TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight
+import TauCeti.FieldTheory.Galois.AbsoluteGaloisGroup
+import TauCeti.GroupTheory.Perm.WreathProduct
 import Mathlib.Algebra.Group.Action.End
 import Mathlib.Algebra.Group.Conj
 import Mathlib.Algebra.MvPolynomial.Basic
@@ -98,19 +118,6 @@ import Mathlib.Topology.KrullDimension
 import Mathlib.Topology.UniformSpace.HeineCantor
 
 /-
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/ArithmeticDynamics.md` is definitive. These
-statements suggest Lean forms so that contributors and reviewers can converge on
-names and signatures. They claim no implementation.
-
-BP-ArithmeticDynamics: partial prototype, implementationStatus = unchecked.
-Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174;
-Tau Ceti f790474821cf4256814db967cb154e7af3d0c369.
-The file imports Mathlib only and elaborates at the Mathlib pin: the only messages are
-`declaration uses 'sorry'` warnings. Where a node uses a Tau Ceti declaration (the
-canonical height on elliptic curves, for instance), the section says so in a comment
-and states locally only what the prototype needs.
-
 One section per layer, DY.0 to DY.6, in the order of the roadmap; later sections use the
 declarations of earlier ones. What the pinned libraries already contain -- iteration,
 periodic points and minimal periods, semiconjugacy, resultants, absolute Weil heights and
@@ -1683,6 +1690,44 @@ end RationalMap
 
 end CanonicalHeightP1
 
+/-! ### Comparison with the imported elliptic canonical height
+
+`DY.1/tate-limit-of-elliptic-doubling`, Call–Silverman §1, Example 1,
+p. 167. The height for the divisor 2(O) is twice the pinned height for (O).
+-/
+
+section EllipticHeightComparison
+
+variable {F : Type*} [Field F] [Height.AdmissibleAbsValues F] [DecidableEq F]
+    (W : WeierstrassCurve F) [W.IsElliptic]
+
+theorem tateLimit_elliptic_doubling (P : W.toAffine.Point) :
+    tateLimit (fun Q : W.toAffine.Point ↦ 2 • Q)
+      WeierstrassCurve.Affine.Point.naiveHeight 4 P = 2 * P.canonicalHeight := sorry
+
+theorem tateLimit_elliptic_multiplication (m : ℕ) (hm : 2 ≤ m) (P : W.toAffine.Point) :
+    tateLimit (fun Q : W.toAffine.Point ↦ m • Q)
+      WeierstrassCurve.Affine.Point.naiveHeight ((m : ℝ) ^ 2) P =
+      2 * P.canonicalHeight := sorry
+
+/-- The identity point tests the zero-height acceptance case. -/
+example : tateLimit (fun Q : W.toAffine.Point ↦ 2 • Q)
+    WeierstrassCurve.Affine.Point.naiveHeight 4 0 = 0 := sorry
+
+/-- A torsion point tests the acceptance case for arbitrary multiplication. -/
+example (m : ℕ) (hm : 2 ≤ m) (P : W.toAffine.Point) (hP : IsOfFinAddOrder P) :
+    tateLimit (fun Q : W.toAffine.Point ↦ m • Q)
+      WeierstrassCurve.Affine.Point.naiveHeight ((m : ℝ) ^ 2) P = 0 := sorry
+
+/-- Multiplication by three must have the same normalization as doubling. -/
+example (P : W.toAffine.Point) :
+    tateLimit (fun Q : W.toAffine.Point ↦ 3 • Q)
+      WeierstrassCurve.Affine.Point.naiveHeight 9 P =
+    tateLimit (fun Q : W.toAffine.Point ↦ 2 • Q)
+      WeierstrassCurve.Affine.Point.naiveHeight 4 P := sorry
+
+end EllipticHeightComparison
+
 /-! ### Statements that are not prototyped at the pin
 
 * `DY.1/canonical-height`, `DY.1/zero-canonical-height-iff-preperiodic`,
@@ -1695,12 +1740,6 @@ end CanonicalHeightP1
   `h = h_L`, whose hypothesis `|h_L ∘ φ - d h_L| ≤ C` is the height machine's functoriality.
 * `DY.1/canonical-height-of-projective-space-morphism` compares that construction for
   `(ℙ¹, f, 𝒪(1))` with `RationalMap.canonicalHeight` above.
-* `DY.1/tate-limit-of-elliptic-doubling` would import
-  `TauCeti.AlgebraicGeometry.EllipticCurve.CanonicalHeight` (Tau Ceti is not built locally):
-  `tateLimit (fun Q ↦ 2 • Q) WeierstrassCurve.Affine.Point.naiveHeight 4 P = 2 * P.canonicalHeight`
-  and, for every `m ≥ 2`,
-  `tateLimit (fun Q ↦ m • Q) WeierstrassCurve.Affine.Point.naiveHeight (m ^ 2) P =
-    2 * P.canonicalHeight`, for `W` elliptic over a field with `Height.AdmissibleAbsValues`.
 * `DY.1/canonical-height-of-multiplication-on-an-abelian-variety` needs abelian varieties and the
   Néron–Tate height from `HeightsRationalPointsAndObstructions:RP.0`.
 -/
@@ -5281,12 +5320,8 @@ This file is not the roadmap and is not exhaustive: the roadmap document is defi
 statements below suggest Lean forms so that contributors and reviewers converge on names and
 signatures. Every proof is `sorry`; nothing here claims an implementation.
 
-Tau Ceti declarations this layer builds on are not imported here (this fragment is checked
-against Mathlib alone). Where a statement would use one, a comment names it:
-* `TauCeti.WreathProduct D ι` is by definition `(ι → D) ⋊[mulAutArrow] Equiv.Perm ι`, and is
-  written out in that form below;
-* `TauCeti.AbsoluteGaloisGroup K` is by definition `Gal(SeparableClosure K/K)`, the group the
-  arboreal representation is defined on below;
+This layer imports Tau Ceti's `WreathProduct` and `AbsoluteGaloisGroup` directly
+for the wreath recursion and arboreal representation. Further native proof inputs are:
 * `TauCeti.isPretransitive_iff_irreducible`, `TauCeti.Multiquadratic.*`,
   `TauCeti.SquareClassGroup`, `Polynomial.Monic.prod_roots_eval_derivative` are consumed in
   proofs only.
@@ -5611,11 +5646,11 @@ theorem binary_hom_eq_prod_levelSign [∀ n, Fintype (T.V n)] [∀ n, DecidableE
 
 end LevelTower
 
-/-- The wreath recursion at the root: `Aut(T^d_{n+1}) ≅ Aut(T^d_n) ≀ S_d`. The right-hand side is
-`TauCeti.WreathProduct ((regularTree d).truncAut n) (Fin d)` by definition. -/
+/-- The wreath recursion at the root: `Aut(T^d_{n+1}) ≅ Aut(T^d_n) ≀ S_d`,
+on Tau Ceti's permutation wreath-product carrier. -/
 theorem truncAut_regularTree_succ (d n : ℕ) :
     Nonempty ((regularTree d).truncAut (n + 1) ≃*
-      ((Fin d → (regularTree d).truncAut n) ⋊[mulAutArrow] Equiv.Perm (Fin d))) := sorry
+      TauCeti.WreathProduct ((regularTree d).truncAut n) (Fin d)) := sorry
 
 /-! ### Preimage trees -/
 
@@ -5752,10 +5787,10 @@ example {K : Type u} {L : Type v} [Field K] [Field L] [Algebra K L] (f : K[X]) (
       ((Polynomial.Gal.galActionHom (f.comp^[n] X - C α) L
         (Polynomial.Gal.restrict (f.comp^[n] X - C α) L σ) ⟨x, hx⟩) : L) := sorry
 
-/-- The arboreal Galois representation `ρ : Gal(Kˢ/K) → Aut(T_∞(f, α))`. The source group is
-`TauCeti.AbsoluteGaloisGroup K` by definition. -/
+/-- The arboreal Galois representation `ρ : Gal(Kˢ/K) → Aut(T_∞(f, α))`,
+on Tau Ceti's separable-closure absolute Galois group. -/
 noncomputable def arborealRep (K : Type u) [Field K] (f : K[X]) (α : K) :
-    (SeparableClosure K ≃ₐ[K] SeparableClosure K) →*
+    TauCeti.AbsoluteGaloisGroup K →*
       (polyPreimageTree K (SeparableClosure K) f α).Aut :=
   galoisTreeAction K (SeparableClosure K) f α
 
@@ -6330,17 +6365,15 @@ products, conjugation by `PGL(2, K)`, `criticalPoints`, `ModuliSpace`, `HasGoodR
 `RationalMap.azPairing`. Points of `ℙ¹(K)` are Mathlib's `ℙ K (Fin 2 → K)`: `[x : 1]` is
 `Projectivization.mk K ![x, 1] _` and `∞ = [1 : 0]`.
 
-Tau Ceti is not built in this environment. Where a Tau Ceti declaration is the natural input it is
-named in a comment:
-* `WeierstrassCurve.Affine.Point.canonicalHeight` (Néron–Tate height, `CanonicalHeight.lean`),
+The elliptic height is imported from Tau Ceti and used directly. Other Tau Ceti
+inputs to the construction are named here:
 * `WeierstrassCurve.isCoprime_Φ_ΨSq`, `WeierstrassCurve.mul_eval_ΨSq_eq_eval_Φ_of_zsmul`
   (division polynomials and the `x`-coordinate of `n • P`),
 * `TauCeti.Isogeny.mulByIntIsogeny_comp_mulByIntIsogeny`,
   `TauCeti.Isogeny.pullbackDifferential_mulByIntIsogeny_invariantDifferential`.
 
-The namespace `DY6Interface` keeps, as clearly marked stand-ins, only objects of external
-suppliers: Tau Ceti's Néron–Tate height (written with DY.1's `tateLimit`), the local energy of two
-Legendre maps at a completion (the mutual energy of `TropicalAndBerkovichArithmetic:TB.6` of DY.2's
+The namespace `DY6Interface` keeps, as clearly marked stand-ins, objects of external
+suppliers: the local energy of two Legendre maps at a completion (the mutual energy of `TropicalAndBerkovichArithmetic:TB.6` of DY.2's
 canonical measures), and an ample Weil height on DY.0's moduli space
 (`HeightsRationalPointsAndObstructions:RP.0`).
 -/
@@ -6352,16 +6385,9 @@ section DY6
 open Polynomial Filter
 open scoped LinearAlgebra.Projectivization MatrixGroups
 
-/-! ### Stand-ins for external suppliers (Tau Ceti, TB.6, RP.0) -/
+/-! ### Interfaces for external suppliers (TB.6, RP.0) -/
 
 namespace DY6Interface
-
-/-- Stand-in for Tau Ceti's `WeierstrassCurve.Affine.Point.canonicalHeight`: the Néron–Tate height
-`½ lim h(x(2ⁿP))/4ⁿ` relative to a field with admissible absolute values (DY.1's `tateLimit` of
-doubling and the naive `x`-coordinate height, halved), normalised to `(O)`. -/
-noncomputable def neronTate {F : Type*} [Field F] [Height.AdmissibleAbsValues F] [DecidableEq F]
-    (W : WeierstrassCurve F) (P : W.toAffine.Point) : ℝ :=
-  tateLimit (fun Q : W.toAffine.Point => 2 • Q) (fun Q => Height.logHeight Q.xRep) 4 P / 2
 
 /-- Stand-in for `TropicalAndBerkovichArithmetic:TB.6` applied to DY.2: the local energy
 `E_v(t₁, t₂) = ½ (µ_{t₁} − µ_{t₂}, µ_{t₁} − µ_{t₂})_v` of the canonical measures of two Legendre maps
@@ -6887,13 +6913,13 @@ theorem lattesMap_isPreperiodic_iff [DecidableEq F] (hΔ : W.Δ ≠ 0) (n : ℤ)
 `ĥ^F_{f_{E,n}}(x(P)) = 2 ĥ_E(P)`. -/
 theorem lattesMap_relCanonicalHeight [Height.AdmissibleAbsValues F] [DecidableEq F]
     [W.IsElliptic] (n : ℤ) (hn : 2 ≤ n.natAbs) (P : W.toAffine.Point) :
-    (lattesMap W n).relCanonicalHeight (xCoordP1 P) = 2 * neronTate W P := sorry
+    (lattesMap W n).relCanonicalHeight (xCoordP1 P) = 2 * P.canonicalHeight := sorry
 
 /-- `DY.6/lattes-map-canonical-height`, absolute form over a number field (DY.1's canonical
 height). -/
 theorem lattesMap_canonicalHeight [NumberField F] [DecidableEq F] [W.IsElliptic] (n : ℤ)
     (hn : 2 ≤ n.natAbs) (P : W.toAffine.Point) :
-    (lattesMap W n).canonicalHeight (xCoordP1 P) = 2 * neronTate W P / Module.finrank ℚ F :=
+    (lattesMap W n).canonicalHeight (xCoordP1 P) = 2 * P.canonicalHeight / Module.finrank ℚ F :=
   sorry
 
 /-- The Möbius involution `τ_T(x) = e + Ψ₂Sq′(e)/(4(x − e))` induced on the `x`-line by
@@ -7770,7 +7796,7 @@ theorem elliptic_specialization_of_canonicalHeight {K : Type*} [Field K] [Number
       H ≤ NumberField.absLogHeight₁ t₀ →
         |(lattesMap (W.map (Polynomial.aeval t₀).toRingHom) 2).canonicalHeight
               (specializePoint (xCoordP1 P) t₀) / (2 * NumberField.absLogHeight₁ t₀) -
-            neronTate (W.baseChange (RatFunc K)) P| ≤ ε := sorry
+            P.canonicalHeight| ≤ ε := sorry
 
 open Classical in
 /-- `DY.6/tate-variation-of-canonical-height` (Tate's theorem over the `t`-line). -/
@@ -7780,7 +7806,7 @@ theorem tate_variation_of_canonicalHeight {K : Type*} [Field K] [NumberField K]
     ∃ C : ℝ, ∀ t₀ : AlgebraicClosure K, Polynomial.aeval t₀ W.Δ ≠ 0 →
       |(lattesMap (W.map (Polynomial.aeval t₀).toRingHom) 2).canonicalHeight
             (specializePoint (xCoordP1 P) t₀) / 2 -
-          neronTate (W.baseChange (RatFunc K)) P * NumberField.absLogHeight₁ t₀| ≤ C := sorry
+          P.canonicalHeight * NumberField.absLogHeight₁ t₀| ≤ C := sorry
 
 /-- `DY.6/critical-height-is-a-moduli-height` (Ingram, Theorem 1), on DY.0's moduli space. -/
 theorem criticalHeight_comparable_moduliHeight (d : ℕ) (hd : 2 ≤ d) :
