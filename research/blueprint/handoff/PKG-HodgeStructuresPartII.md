@@ -1,129 +1,192 @@
-# PKG-HodgeStructuresPartII — blocked checkpoint, codex-c5pTDL
+# PKG-HodgeStructuresPartII — blocked supplier handoff
 
-Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-c5pTDL`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6097031243).
-Branch: `codex-c5pTDL-hodge-package`. None of the manager's priority issues
-was among all 746 available swarm issues. This focus package was selected
-under the permitted fallback ordering. Only this job was claimed.
+Codex (GPT-6), session `codex-FXUwKt`, issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491), 10 October 2026.
+Branch: `codex-FXUwKt-hodge-package`.
+[Claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6097154660)
+[confirmed](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6097155764).
+Starting explorer commit: `e03db36a16092a0d1f81050f1c57ad5d93c63aef`.
+None of the manager's forty priority issues appeared among all 745 available
+swarm issues. WORKERS' fallback ordering selected an available focus package
+before ordinary review and planning jobs. This session claimed only #7491.
 
-## Outcome
+## Outcome and edit boundary
 
-**Blocked checkpoint; the package remains incomplete.** The two required
-supplier repairs have not landed. The four decisive input hashes below
-match the previous checkpoint exactly. This run independently read the
-consumer's ordinary-fibre and Rees statements, hypotheses, proof routes,
-APIs and tests, and the supplying CR.1 and DD.1 contracts. Their mismatch
-still prevents a complete package under the issue's edit boundary.
+**Blocked checkpoint; the package remains incomplete.** This submission
+consolidates the accumulated handoff into the current supplier contracts and
+restart worklist. It changes only this handoff. The README, Suggested.lean,
+accepted packets and existing proofs are unchanged. The blocker is a missing
+owner interface, not this run's time limit or a Lean elaboration error.
 
-The issue says: “Change no packet; if the plan has a mistake, describe it
-in the handoff note.” PROTOCOL §§3, 15 and 20 require the imported statement
-to supply the consumer's inputs, unique ownership, and fidelity to the
-accepted plan. The required repairs change supplier plans outside this
-package job. A larger source citation or a new local coordinate witness
-does not supply the missing sheaf identifications.
+Issue #7491 says: “Change no packet; if the plan has a mistake, describe it
+in the handoff note.” PROTOCOL §§3, 13, 15 and 20 require exact prerequisite
+contracts, signatures for the intended objects, unique ownership and fidelity
+to the accepted plan. Consequently, widening CR.1 or DD.1, changing H.0's
+accepted imports, or constructing duplicate foundation carriers inside this
+package is outside this job's allowed work. Acceptance of a target-level pass
+with explicit gaps does not supply those inputs.
 
-**Maintainer action:** route the CR.1 and DD.1 owner repairs below, reconcile
-H.0's importing references, and then schedule another package continuation.
-Resumption should begin by checking these exact exports, rather than
-repeating the same unchanged-input audit. The issue has not been relabelled
-or closed by this worker.
+**Maintainer action:** route the two owner repairs below and reconcile H.0's
+imports before scheduling another package continuation. The decisive packet
+hashes match the preceding checkpoint. Repeating this package audit while
+those contracts are unchanged cannot close G1/G3. This worker changed no issue
+labels and made no ownership move.
 
-## Package improvement
+The complete preceding handoff, with historical source-reading receipts,
+additional validation details and provenance of saved additions, remains at
+[this immutable archive](https://github.com/CBirkbeck/tauceti-explorer/blob/e03db36a16092a0d1f81050f1c57ad5d93c63aef/research/blueprint/handoff/PKG-HodgeStructuresPartII.md).
+Historical paper readings and axiom diagnostics there were not rerun or
+represented as new source verification by this session.
 
-Replaced `import Mathlib` with one deduplicated block of 108 individual
-imports: 98 Mathlib modules and 10 Tau Ceti modules. They are the union of
-the assembled plan's and its layer files' imports, retaining the package's
-native Tau Ceti imports. This satisfies PROTOCOL §13's individual-module
-requirement. There is one module header explaining that README.md is
-definitive, the file is non-exhaustive, and suggested names and signatures
-help contributors and reviewers agree on interfaces.
+## Two decisive contracts: independently reread
 
-The entire declaration body, from its outer namespace onward, is byte for
-byte identical to the base version. Existing proved acceptance witnesses,
-698 examples, affine calculations and explicit omissions are preserved.
-README.md is unchanged at 199933 bytes. Metadata is still absent because
-the package is incomplete; its intended topic on completion is `math.AG`.
+Read the statement, hypotheses, proof route, APIs, tests and source matches
+of the three parent H.0 consumers below and the corresponding CR.1/DD.1
+suppliers. Also read H.0 continuation G1–G7, its four requests and accepted
+review, which explicitly retains the gaps.
 
-## Decisive supplier contracts
-
-| Supplier | Export read | Required H.0 input |
+| Owner and supplying nodes | Existing export | Required H.0 input |
 | --- | --- | --- |
-| `CrystallineCohomology:CR.1/integrable-connection`, in `packets/CrystallineCohomology--CR.0.json` | Affine connections valued in a surjective quotient of Kähler differentials; sheaf connections on the small crystalline site with its PD and local-nilpotence hypotheses. | Ordinary connections on every supplied commutative differential ringed site, with additive sheaf operators, exterior extensions, curvature, horizontal morphisms, restriction and descent. `H.0/ordinary-fiber` must identify these same data at λ=1, including locally varying rank. |
-| `DerivedDeRhamCohomology:DD.1/filtered-modules` and `DD.1/rees-description` | Enhanced derived filtrations over a ring, graded cofibres, graded Rees equivalence and derived zero/localized fibres. | A bounded locally split ordinary finite module-sheaf filtration; its canonical O[t]-Rees sheaf, finite local freeness, and natural zero, unit and localized fibre maps, with tensor/quotient coherence and descent. `H.0/rees-parameter` and `rees-specialization` use these actual maps to construct t∇ and identify its operators. |
+| `CrystallineCohomology:CR.1/integrable-connection`, in `packets/CrystallineCohomology--CR.0.json` | Affine connections with a surjection from Kähler differentials; sheaf connections on the small crystalline site under PD-base and local-nilpotence hypotheses | Ordinary additive connections on every supplied commutative differential ringed site, including locally varying rank; operator, exterior-extension, curvature, horizontal-map and restriction/descent comparisons at λ=1 |
+| `DerivedDeRhamCohomology:DD.1/filtered-modules` and `DD.1/rees-description` | Coherent enhanced derived filtrations over a ring, graded cofibres, graded Rees equivalence and derived zero/localized fibres | Bounded locally split ordinary finite module-sheaf filtrations; their canonical finite locally free O[t]-Rees sheaf; natural zero, unit and localized fibre maps, restriction/descent and tensor/quotient coherence |
 
-Paths in this table are relative to `research/blueprint/`. H.0's accepted
-continuation explicitly retains G1–G7 and four requests. Its accepted
-planning status does not establish the missing statements. DD.1 keeps
-ownership of the generic Rees carrier; H.0 keeps its Griffiths connection.
-No ownership move was made.
+File paths in this handoff are relative to `research/blueprint/` unless stated
+otherwise. The consumers are `HodgeStructuresPartII:H.0/ordinary-fiber`,
+`H.0/rees-parameter` and `H.0/rees-specialization` in the parent packet.
 
-The ordinary-connection obstruction remains concrete: on the one-point
-site with O=Q, Ω¹=Q, Ω²=0 and zero scalar differential, D(q)=q is a
-nonzero flat connection. Since Ω¹_(Q/Q)=0, a surjective Kähler quotient
-cannot supply this calculus. The package's existing
-`NonUniversalDifferentialChecks.no_kaehler_quotient` is preserved.
+**G1 acceptance contract.** On a ringed differential site require an additive
+sheaf operator D:E→E⊗Ω¹, D(fs)=fD(s)+s⊗df, its exterior extensions
+D(s⊗ω)=D(s)∧ω+s⊗dω, curvature D₁D₀, and horizontal O-linear maps
+satisfying D_F f=(f⊗1)D_E. Restriction and gluing must preserve these actual
+maps. At λ=1 identify the same finite locally free sheaf, section operator,
+extensions and curvature with the H.0 object. Quasi-nilpotence belongs only
+to crystal comparison hypotheses.
 
-For Rees, finite split affine charts provide the expected formula
-Σ_p FᵖE·t⁻ᵖ inside E[t,t⁻¹]. The missing export must give canonical maps
-Rees/(t)≃gr_F E, Rees/(t−1)≃E and Rees[t⁻¹]≃E[t,t⁻¹], independent of
-local splitting and compatible with restriction. H.0 must then prove that
-these maps carry t∇ to the graded Higgs symbol, ∇ and its localized
-rescaling. The existing rank-two split-chart and frame-change checks
-remain useful acceptance witnesses; they are not those global maps.
+The inherited one-point-site witness has O=Q, Ω¹=Q·ω, Ω²=0, d=0 and
+D(q)=qω. It is flat and nonzero, while Ω¹_(Q/Q)=0 cannot surject onto Ω¹.
+Reread `NonUniversalDifferentialChecks.operator_eq`, `flat`,
+`operator_ne_zero`, `no_kaehler_quotient` and their five examples. Confirmed
+`KaehlerDifferential.subsingleton_of_surjective` directly in
+`Mathlib/RingTheory/Kaehler/Basic.lean` at the pinned Mathlib commit. These
+proved coordinate checks distinguish the supplier's hypotheses; they do not
+construct the missing global comparison.
 
-## Current upstream and source comparison
+**G3 acceptance contract.** DD.1 owns the canonical ordinary sheaf
+Rees_F(E)=Σ_p FᵖE·t⁻ᵖ inside E[t,t⁻¹]. On finite split charts it is
+⊕_p G_p[t]·t⁻ᵖ. Require splitting-independent, restriction-compatible maps
+Rees/(t)≃⊕_p grᵖ_F E, Rees/(t−1)≃E and
+Rees[t⁻¹]≃E[t,t⁻¹], finite local freeness, filtered-map naturality and
+convolution tensor/quotient comparisons. Normalize the first map by
+[e t⁻ᵖ]↦[e] and the second by [e t⁻ᵖ]↦e. The generic export has no
+connection field: H.0 owns constructing t∇, with dt=0, and proving that
+those maps transport it to the graded Higgs symbol, ∇ and its localized
+rescaling.
 
-Read the current AlgebraicVectorBundles and Completed/HodgeStructures
-READMEs in full. The former's L0A–L0C supplies sheaf operations and their
-scheme-level comparisons, without an ordinary connection or finite Rees
-contract. The latter supplies Hodge linear algebra L0–L3 and assigns
-variations to its successor. Neither authorizes rebuilding its targets
-here. Also inspected DifferentialGeometry's conventions, inventory and
-`CurvatureForm`: this is a smooth real bundle-valued two-form carrier,
-not the arbitrary commutative differential-site connection in the table.
+Preserve the inherited rank-two controls: F¹=Oe₁, ∇e₁=e₂dx,
+∇e₂=0 and weighted basis u₁=t⁻¹e₁, u₂=e₂ give D(u₁)=u₂dx and
+D(xu₁)=(xu₂+tu₁)dx. Under e₂′=e₂+xe₁ the Rees basis matrix is
+B=((1,xt),(0,1)); the connection matrix becomes
+B⁻¹AB+tB⁻¹δB=((−xt,t²(1−x²)),(1,xt)). At x=0,t=1 its upper-right
+entry is 1, whereas pure conjugation gives 0. The seven split-chart and
+five frame-change examples test the formula; they are not global fibre maps.
 
-Read the current Tau Ceti Rees grading declaration and `mem_grade_iff`:
-they describe ideal-power monomials in `reesAlgebra I`, not the ordinary
-filtered module-sheaf carrier or the three required fibre maps. This is
-an interface comparison, not a claim of an exhaustive absence audit.
-Retain the preceding checkpoint's native global sheaf tensor, dual,
-exterior and symmetric power citations and their exact hypotheses.
+## Current upstream and library comparison
 
-Re-read [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
-and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF): their
-crystalline construction has the stated PD-base and p-local-nilpotence
-setting. Read Bhatt's [Prismatic F-gauges notes](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
-§2.2.1, Proposition 2.2.6 and its inverse construction, printed p.16,
-and Remark 2.2.8, printed p.17. The latter supplies the finite-projective
-affine Rees specialization missing from DD.1's present export; ordinary
-site descent and connection-compatible comparisons still need explicit
-owner statements. These reads used the public online sources. No source
-passage or private source file was added to the repository.
+Read-only TauCetiRoadmap commit: `8acc80159cfd301db68bde9393a52668efdd8c8c`.
+Current Tau Ceti commit: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read AlgebraicVectorBundles and Completed/HodgeStructures READMEs in full,
+and DifferentialGeometry's README and `CurvatureForm` signature. The first
+supplies scheme sheaf/bundle operations through L0A–L0C; the second owns
+Hodge linear algebra L0–L3 and places variations in its successor.
+DifferentialGeometry's carrier is an endomorphism-valued smooth real
+bundle two-form, not the required arbitrary differential-site connection.
+None of these inspected contracts supplies G1 or the finite Rees fibre maps.
 
-Atlas base: `f9d4c17fd933f5012756238a55f02350f8a21fd0`.
-Read-only TauCetiRoadmap: `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`.
-Read-only Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-No Lake command was run in either read-only tree.
+Reread current Tau Ceti's `RingTheory/ReesAlgebra/Grading.lean` and
+`reesAlgebra.mem_grade_iff`: it grades ideal-power monomials in a Rees
+algebra, not a filtered module sheaf with the three comparison maps.
+Targeted searches across current Tau Ceti, upstream roadmaps and Completed
+suggested files found no `ReesModule`, `reesModule`, `ordinaryConnection`
+or `integrableConnection` declaration providing those contracts. These
+searches are not an exhaustive absence audit.
 
-## Validation and remaining work
+Reread the sheaf exterior/symmetric-power functors and defining comparison
+signatures. Reuse `SheafOfModules.exteriorPower`, `symmetricPower`,
+their sheafification identifications, morphism laws and zero/one natural
+isomorphisms. Their assumptions are a category C and topology J, a
+commutative-ring sheaf R, sheaf composition along `forget₂ CommRingCat RingCat`,
+`HasWeakSheafify J AddCommGrpCat` and `J.WEqualsLocallyBijective AddCommGrpCat`.
+These power constructions do not impose `SmallCategory C`. Keep the archived
+exact tensor/closed-dual assumptions and native imports when completing G2.
 
-All ten Hodge packets, plus the two decisive supplier packets, passed
-`python3 scripts/check_blueprint.py`: twelve exit-zero results, zero
-errors and warnings. These are structural checks; this run does not
-certify all H.1–H.8 mathematics or the full target/signature inventory.
+Read the reviewed `data/library-coverage.json` inventory: it has the four
+completed HodgeStructures layers, but no direct HodgeStructuresPartII,
+CR.1 or DD.1 layer entry. That absence is not evidence of implementation.
+No read-only tree was modified, no Lake command was run there, and no
+restricted source file or passage was copied.
 
-`lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
-finished with exit code 0: zero errors, 1,619 `sorry` warnings and no other
-warnings. Available memory before the final check was 101 GB. The managed
-build uses Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174` and its
-declared Tau Ceti pin `f790474821cf4256814db967cb154e7af3d0c369`.
-No Lean process remains from this run.
+## Remaining work and preservation requirements
 
-`research/blueprint/intake.py check-files` for the two changed deliverables
-and `git diff --check` passed. A direct comparison against the base confirms
-that the Lean declaration body is unchanged. The exact input/output
-receipts are:
+1. Supply G1/G3 at their existing owners, update H.0's importing references,
+   then complete the remaining global H.0 signatures, APIs and tests. The
+   36 omitted global parent signatures remain explicit omissions.
+2. G2: transport through native sheaf tensors, duals, powers, determinant
+   and quotient comparisons, local equality detection, restriction, descent
+   and pullback coherence. Tensor of global sections does not compute the
+   sections of a sheaf tensor. Do not duplicate existing power carriers.
+3. G4: allow locally varying rank or a specified determinant line with its
+   connection; glue the alternating-sum connection using determinant gauge
+   transport and `ColemanPowerSeries:L1/derivation-determinant-unit`. Wedge
+   base change must allow nonflat maps; trace zero is only the fixed trivial
+   determinant convention.
+4. G5: retain the unbounded localized Liu–Zhu period filtration and
+   tⁱFilʲ=Filⁱ⁺ʲ. Construct the lattice-preserving t∇ and identify its actual
+   residue with the graded symbol in Ω¹_X(−1), retaining semilinear
+   Galois/Tate and exterior-curvature compatibility. A bounded Rees replacement
+   or trivial Tate character does not supply this interface.
+5. G6: local nilpotence yields a global exponent only with a uniform bound
+   (a finite subcover gives a maximum). Increasing Jordan blocks on infinitely
+   many components give no bound. Rank bounds require globally bounded rank;
+   kernels need not be subbundles and nonflat maps need not preserve images.
+6. G7: obtain the actual coherent image algebra B_theta, coefficient section
+   and invertible-B_theta twisting adapter under Heuer's analytic finiteness
+   hypotheses. Generic image operations do not establish coherence on an
+   arbitrary site. Spectral-cover/Picard correspondence stays with its
+   p-adic Simpson owner.
+7. Audit all H.1–H.8 targets, APIs, tests, current-library interfaces and
+   bottom-up suppliers; finish reader grouping, worked examples and declaration
+   documentation. The 569-node parent and seven-node H.0 continuation must
+   both be accounted for. Keep the archived per-layer inventory.
+
+Preserve all 698 examples and existing proved affine/operator controls,
+H.5 scheme-theoretic fibres and finite-projective lattices, Betti scalar
+checks and H.7 negative controls. Do not restore the twenty removed
+unrestricted H.7 signatures. `ShimuraData:D3/variation` already specifies
+compatible rational/real data: a thinner prototype is not itself an owner
+plan gap. `IntegralVariationFibers` does not replace a global integral datum
+without scalar-extension agreement and lattice naturality. No new proof or
+full H.1–H.8 certification is asserted by this checkpoint.
+
+## Validation and immutable receipts
+
+All ten Hodge packets and the two decisive supplier packets passed
+`python3 scripts/check_blueprint.py`: twelve exit-zero checks, zero errors
+and warnings. These structural checks do not discharge the mathematical
+supplier gaps. The H.0 continuation still records seven gaps and four
+requests; no input stage is closed.
+
+`lean-check packages/HodgeStructuresPartII/Suggested.lean` (using the full
+repository-relative path) exited 0: zero errors, 1,619 `sorry` warnings
+and no other warnings. Available memory before launch was 103 GB. The managed
+build reported Mathlib `082e2d3`; its documented Tau Ceti pin is
+`f790474821cf4256814db967cb154e7af3d0c369`. The full Mathlib pin is
+`082e2d37e8b0463410cdb532e111cd43d5a66174`. Compilation uses that managed
+baseline, separately from the newer read-only upstream/library comparison.
+No Lean process from this run remains.
+
+README.md remains 199933 bytes. Suggested.lean still has one deduplicated
+block of 108 individual imports (98 Mathlib, 10 Tau Ceti), the standard
+non-exhaustive header, and the same declaration body. Metadata remains absent
+because this is an incomplete checkpoint; intended final topic is `math.AG`.
 
 | File relative to `research/blueprint/` | SHA-256 |
 | --- | --- |
@@ -134,365 +197,7 @@ receipts are:
 | `packages/HodgeStructuresPartII/README.md` | `ad226b4c2b8e7a9e1d1dcf487e207b89226df9fd68a5ff7991f859df97f2c585` |
 | `packages/HodgeStructuresPartII/Suggested.lean` | `443e09fc05317a7749fa850b1bfe5535b659b7335d5c92db43928f918cc58493` |
 
-After the owner repairs, complete the remaining G2/G4–G7 contracts, the
-36 omitted global H.0 signatures, and the full target/API/test and
-current-library/bottom-up prerequisite audit. Finish reader grouping,
-worked examples and declaration documentation before adding metadata.
-The preceding checkpoint below retains the detailed contracts, native
-sheaf API inventory and acceptance witnesses. Its validation receipts
-are historical; use this run's receipts above for the changed file.
-No disposable scratch file is needed to resume.
-
----
-
-## Previous checkpoint retained for the mathematical handoff
-
-# PKG-HodgeStructuresPartII — blocked checkpoint, codex-EzcgWr
-
-Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-EzcgWr`, 10 October 2026.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6096860068).
-Branch: `codex-EzcgWr-hodge-package`. No manager-priority issue was available;
-the available focus package followed WORKERS.md's fallback ordering. Only
-this job was claimed.
-
-## Outcome and required owner repairs
-
-**Blocked checkpoint; the package is incomplete.** Independently compared
-H.0's `ordinary-fiber`, `rees-parameter` and `rees-specialization` with the
-full CR.1 connection and DD.1 filtered/Rees statements, hypotheses, proof
-steps, APIs and tests. The supplier mismatches remain. H.0's accepted review
-explicitly retains seven gaps and four requests; acceptance of that planning
-pass does not supply the missing contracts.
-
-The issue instructs: “Change no packet; if the plan has a mistake, describe
-it in the handoff note.” PROTOCOL §§3, 15 and 20 require exact prerequisites,
-one owner for shared mathematics, and fidelity to the plan. These repairs
-therefore require owner-authorized planning changes before packaging can
-finish. Neither a broader citation nor a duplicate carrier in this package
-repairs the inconsistent exports. No ownership move was made.
-
-| Owner and exact node | Current export | Required consumer input |
-| --- | --- | --- |
-| `CrystallineCohomology:CR.1/integrable-connection`, in `packets/CrystallineCohomology--CR.0.json` | Affine connections on surjective Kähler quotients; sheaf connections on the small crystalline site under PD and local-nilpotence hypotheses. | Ordinary additive connections on arbitrary supplied commutative differential ringed sites, with exterior extensions, curvature, horizontal maps and restriction/descent. H.0's `ordinary-fiber` must identify the same underlying sheaf and operators at λ=1, including locally varying rank. |
-| `DerivedDeRhamCohomology:DD.1/filtered-modules` and `DD.1/rees-description` | Enhanced derived filtrations, graded cofibres and a derived graded Rees equivalence over a ring. | Bounded locally split ordinary finite module-sheaf filtrations, the actual O[t]-Rees sheaf, finite local freeness, zero/unit/localized fibre maps, tensor/quotient coherence and descent. H.0 constructs t∇ and proves operator compatibility through those maps. |
-
-Paths in the table are relative to `research/blueprint/`. Route these two
-owner repairs, then reconcile H.0's references before scheduling another
-package continuation. Preserve DD.1 ownership of the generic Rees carrier
-and H.0 ownership of its Griffiths connection. The separate unbounded
-Liu–Zhu period-lattice input is not replaced by a bounded Rees theorem.
-
-Re-read the existing proved acceptance witness
-`NonUniversalDifferentialChecks.no_kaehler_quotient` and pinned Mathlib's
-`KaehlerDifferential.subsingleton_of_surjective`. On the one-point site
-with O=Q, Ω¹=Q, Ω²=0 and d=0, D(q)=q is flat and nonzero, while
-Ω¹_(Q/Q)=0 cannot surject onto Ω¹. This consumer input lies outside the
-supplier's affine hypotheses. It does not construct the missing global
-comparison. The rank-two Rees/frame-change witnesses and remaining
-G2/G4–G7 requirements are retained below. No new Lean proof is added.
-
-## Change and current-library boundary
-
-This run corrects the remaining assertion that general sheaf exterior and
-symmetric power carriers must still be supplied. Read in full the current
-[`Sheaf/ExteriorPower.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/ExteriorPower.lean),
-[`Sheaf/SymmetricPower.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/SymmetricPower.lean)
-and their two presheaf implementations. Reuse these objects:
-
-- `SheafOfModules.exteriorPower R n` and `symmetricPower R n` sheafify
-  sectionwise powers after forgetting to module presheaves. They require a
-  category C, topology J, a commutative-ring sheaf R, sheaf composition along
-  `forget₂ CommRingCat RingCat`, `HasWeakSheafify J AddCommGrpCat` and
-  `J.WEqualsLocallyBijective AddCommGrpCat`. These power constructions do not
-  require `SmallCategory C`, unlike the cited closed-monoidal duality setup.
-- `exteriorPowerIso` and `symmetricPowerIso` identify that sheafification;
-  the `_map` laws identify morphisms. The zero/one natural isomorphisms give
-  the structure sheaf and original module sheaf, with component formulas.
-- `PresheafOfModulesOfCommRing.exteriorPower_obj_map_mk` restricts each
-  wedge factor. `coe_symmetricPower_obj_map_apply` computes restriction via
-  the semilinear symmetric-algebra map. These are presheaf formulas before
-  sheafification; they do not identify arbitrary sheaf sections with powers
-  of section modules.
-
-No finite-local-freeness closure, strong pullback, determinant-gluing or
-horizontal-operator theorem is asserted from these four files. The README
-now cites the native carriers and leaves those precise comparisons with
-their suppliers. Removed a duplicate layer overview and shortened introductory
-prose to stay below 200 KB; all nine layers and mathematical targets remain.
-No replacement power carrier was added to Suggested.lean.
-
-Preserve the preceding checkpoint's correction: finite locally free
-duality is already available globally under explicit hypotheses. The current library already exports global duality in
-[`Sheaf/Dualizable.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/Dualizable.lean#L74):
-
-- `SheafOfModules.isIso_dualTensorIhom_of_isLocallyFree` makes
-  Hom(M,O)⊗N→Hom(M,N) invertible for locally free, finite-type M and every N.
-  It uses global weak sheafification and its locally bijective criterion,
-  pullbacks, and sheaf composition, sheafification and that criterion on
-  every slice. Its descent proof requires no global frame or constant rank.
-- `TauCeti.exactPairingOfIsIsoDualTensorIhom` in
-  [`Rigid/OfClosed.lean`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/CategoryTheory/Monoidal/Rigid/OfClosed.lean#L182)
-  supplies the canonical exact pairing: internal-Hom evaluation and the
-  inverse image of id_M under the comparison at M, with both zigzag laws.
-- `SheafOfModules.isFiniteLocallyFree_ihom_unit` adds sheafification and
-  the locally bijective criterion on iterated slices and proves dual closure.
-  `SheafOfModules.isFiniteLocallyFree_ihom` additionally assumes binary
-  products and proves internal-Hom closure for two finite locally free inputs.
-  Native tensor closure is
-  `TauCeti.SheafOfModules.isMonoidal_isFiniteLocallyFree` in `LocallyFree.lean`.
-
-This run re-read the global dual comparison and its proof; the full
-closed/rigid and iterated-slice API reads are inherited from the preceding
-checkpoint. Reuse
-these coefficient objects; do not plan another global dual carrier. The remaining
-G2 work concerns finite-local-freeness, determinant and pullback comparisons
-and differential operators: H.0 still
-constructs the dual connection, horizontal evaluation, curvature transport
-and the required differential-site pullback laws. This narrows G2 without
-closing G1/G3 or establishing the remaining global comparisons.
-
-The native duality and power modules cited here are newer than the managed
-pinned build. `Dualizable.lean`, `ExteriorPower.lean` and `SymmetricPower.lean`
-are absent there. Suggested.lean is unchanged. Current APIs are cited at the
-public revision, and the older-pin elaboration does not test their imports.
-The existing native tensor equality and restriction citations are retained.
-No replacement coefficient declaration or duplicate supplier was added.
-
-Read the current AlgebraicVectorBundles and DifferentialGeometry READMEs
-in full and their relevant suggested declarations. The former supplies
-scheme-module tensor/dual/exterior/determinant targets; the latter's
-`CurvatureForm` is a smooth real bundle-valued two-form carrier. Neither
-inspected interface supplies the two contracts above. The current library's
-`reesAlgebra.grade` and `mem_grade_iff` concern ideal-power monomials, not
-ordinary filtered module sheaves. This is an interface comparison, not an
-exhaustive absence audit. Existing reviewed HodgeStructures L0–L3 linear
-algebra remains an import.
-
-## Sources and validation
-
-Re-read [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
-and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF). Their
-crystal-to-connection construction uses the small crystalline site under
-PD and p-local-nilpotence hypotheses. Also read Bhatt's
-[MAT549 F22 notes](https://www.math.ias.edu/~bhatt/teaching/mat549f22/lectures.pdf),
-§2.2.1, Construction 2.2.1 through Remark 2.2.8, printed pp.13–17.
-Proposition 2.2.6 gives the graded Rees equivalence; Remark 2.2.8 supplies
-the finite-projective affine case relevant to the owner repair. The
-ordinary sheaf descent and operator comparisons must still be exported.
-The preceding checkpoint recorded PDF SHA-256
-`a9f526ced2fc5e08e849a77ad2818689b4254129698695c9cbfbab95927cca6a`;
-this run read the online PDF and did not obtain a new file hash.
-No source passage was copied into the repository.
-
-Atlas base: `a5958be6611f727169080a415ef60de1c726936d`.
-Read-only TauCetiRoadmap: `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`.
-Read-only Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-No Lake command ran in either read-only tree.
-
-All ten Hodge packets and the two supplier packets passed
-`python3 scripts/check_blueprint.py`: twelve exit-zero results, zero errors
-and warnings. This is structural validation, not an independent full
-mathematical audit of H.1–H.8. The decisive input SHA-256 receipts are:
-
-| File relative to `research/blueprint/` | SHA-256 |
-| --- | --- |
-| `packets/HodgeStructuresPartII.json` | `2b0cd77691cded87b89d241a3d0b714857e4953c302230943ed06a2ff7a2be60` |
-| `packets/HodgeStructuresPartII--H.0.json` | `4ae94aa821ea9fb8fde4a53659cfe1cef4aba1b8ce077b66d3482ee59694ac7e` |
-| `packets/CrystallineCohomology--CR.0.json` | `90d720b682eccf1d80061213921ff7041dc895175937de5491f163e045c668fb` |
-| `packets/DerivedDeRhamCohomology.json` | `146a591348fccd8af4605020dd796a905c508ca12ebe52753302c6b08517673b` |
-| `packages/HodgeStructuresPartII/README.md` | `ad226b4c2b8e7a9e1d1dcf487e207b89226df9fd68a5ff7991f859df97f2c585` |
-| `packages/HodgeStructuresPartII/Suggested.lean` | `37dfb44091fe1b1a087f8c5b438c62d641651672feba0b390f2af3047d38efe9` |
-
-`lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
-exited 0: zero errors, 1619 `declaration uses sorry` warnings, zero other
-warnings. Available memory before launch was 101 GB. Managed build pins:
-Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti
-`f790474821cf4256814db967cb154e7af3d0c369`. The latter is the managed build's
-recorded pin, not a freshly obtained Git HEAD. No Lean process remains from
-this run.
-
-README is 199933 bytes, below the 200 KB limit. Suggested.lean is unchanged.
-Metadata remains absent because this is an unfinished checkpoint; intended
-topic on completion is `math.AG`. After the owner repairs, reconcile the
-omitted signatures with the native G2 exports, finish the remaining
-G2/G4–G7 contracts and the full target/signature/API/test audit before adding
-metadata. Scoped intake on the two edited deliverables and `git diff --check`
-passed. The sections below provide the detailed witnesses, rejected shortcuts
-and remaining signature inventory; no disposable scratch file is required.
-
-## Input inventory
-
-All ten Hodge inputs are marked complete with accepted reviews; parent and
-continuation counts overlap. No coverage entry is closed.
-
-| Input | Nodes | Gaps | Requests | Coverage |
-| --- | ---: | ---: | ---: | --- |
-| Parent | 569 | 13 | 5 | H.0 partial; H.1–H.8 not_read |
-| H.0 continuation | 7 | 7 | 4 | planned |
-| H.1 | 36 | 11 | 18 | planned |
-| H.2 | 33 | 19 | 14 | planned |
-| H.3 | 43 | 5 | 23 | planned |
-| H.4 | 30 | 6 | 3 | planned |
-| H.5 | 73 | 13 | 16 | planned |
-| H.6 | 32 | 6 | 7 | planned |
-| H.7 | 31 | 7 | 12 | planned |
-| H.8 | 31 | 5 | 11 | planned |
-
-## Exact blocking contracts and acceptance witnesses
-
-The witnesses and proved checks below are inherited work, chiefly recorded
-by `codex-tOBD6n`; the native Kähler obstruction was added by `codex-FxDbWE`,
-not by this run. The global sheaf comparisons remain unproved.
-
-**G1: ordinary connections on the supplied calculus.** The consumer
-`H.0/ordinary-fiber` asks for the λ=1 category on an arbitrary commutative
-ringed Grothendieck site with supplied relative exterior calculus:
-Ω⁰=O, Ωⁿ=∧ⁿΩ¹, d²=0 and graded Leibniz. Its finite locally free carrier
-allows locally constant rank, not only a fixed global rank. The supplier
-`CrystallineCohomology:CR.1/integrable-connection`, in the CR.0 packet,
-currently covers affine A→B with a quotient of Ω¹_(B/A) whose exterior
-differential descends, and a sheaf version on the small crystalline site
-under PD-base hypotheses. Neither is the requested arbitrary supplied site.
-The latest accepted CR.0 review does not widen this statement.
-
-The required CR.1 export has an additive sheaf operator
-D:E→E⊗_OΩ¹ with D(fs)=fD(s)+s⊗df, its exterior extensions
-D(s⊗ω)=D(s)∧ω+s⊗dω, curvature D₁D₀, integrability, and horizontal
-O-linear maps satisfying D_F f=(f⊗1)D_E. Include restriction/gluing and
-natural specializations to the existing affine and crystalline cases.
-The finite locally free full subcategory must identify the same operators,
-extensions and curvature as H.0 at λ=1. An abstract category equivalence or
-matching affine matrices alone is insufficient. Quasi-nilpotence is a
-hypothesis of the crystal equivalence, not of an ordinary connection.
-
-**Inherited acceptance witness:** on the one-point site let O=Q, Ω¹=Q·ω,
-Ω²=0 and d=0 in every degree. On E=Q, D(q)=qω obeys Leibniz, is flat
-and sends 1 to a nonzero form. Ω¹_(Q/Q)=0, so no quotient of that Kähler
-module can be the supplied Ω¹. This directly distinguishes the requested
-generality from the present affine supplier. README H.0 explains the example;
-`NonUniversalDifferentialChecks` in the affine namespace defines the zero
-scalar derivation and identity coefficient matrix and proves zero scalar
-differential, nonzero unit image, flatness/nonvanishing and scalar Leibniz.
-These checks verify coordinates, not a global sheaf carrier or comparison.
-
-Also retain the ordinary example O=Q[x], E=O, D=d: D(x)=dx and D²=0,
-while multiplication by x is not horizontal. It detects loss of the additive,
-non-O-linear operator. Owner acceptance must additionally test restrictions,
-exterior extensions and gluing.
-
-**G3: ordinary finite Rees module sheaves and fibres.** The consumers
-`H.0/rees-parameter` and `H.0/rees-specialization` request a finite bounded,
-locally split decreasing subbundle filtration F of finite locally free E,
-with finite locally free graded quotients. Present suppliers
-`DerivedDeRhamCohomology:DD.1/filtered-modules` and `DD.1/rees-description`
-specify enhanced DF(A)=Fun(Zᵒᵖ,D(A)), cofibres, the graded derived A[t]
-equivalence and derived zero/localized fibres. They do not specify the
-ordinary finite module sheaf, local freeness, t=1 fibre or descent maps.
-
-The DD.1 repair must export Rees_F(E)=Σ_p FᵖE·t⁻ᵖ inside
-E⊗_O O[t,t⁻¹], as an O[t]-module sheaf, with explicit polynomial/Laurent
-carriers. Local splittings identify it with ⊕_p G_p[t]·t⁻ᵖ; construction
-and comparison maps must be independent of that choice. Require finite
-local freeness and natural isomorphisms Rees/(t)≃⊕_p grᵖ_F E,
-Rees/(t−1)≃E and Rees[t⁻¹]≃E⊗_O O[t,t⁻¹]. Normalize the zero-fibre
-map by [e t⁻ᵖ]↦[e] in grᵖ and the unit-fibre map by [e t⁻ᵖ]↦e.
-Include filtered-map naturality, restriction/descent, convolution tensor
-filtrations, quotient tensor comparisons and the link to the derived theory.
-There is no connection field in this generic DD.1 export. H.0 uses Griffiths
-transversality to construct t∇, keeps dt=0, and proves that the imported
-fibre maps intertwine operators.
-
-Retain these Rees acceptance witnesses and the twelve existing proved chart
-checks:
-
-- E=Oe₁⊕Oe₂, Fᵖ=E for p≤0, F¹=Oe₁, Fᵖ=0 for p≥2;
-  ∇e₁=e₂dx, ∇e₂=0. In u₁=t⁻¹e₁, u₂=e₂, D=t∇ satisfies
-  D(u₁)=u₂dx, D(u₂)=0 and D(xu₁)=(xu₂+tu₁)dx. The zero fibre has
-  a nonzero Higgs field, the unit fibre recovers ∇, and localization gives
-  E[t,t⁻¹] with t∇. Include rank-zero and one-step tests; a nonzero
-  constant filtration on all integers is not bounded.
-- Under e₁′=e₁, e₂′=e₂+xe₁, the Rees basis matrix is
-  B=((1,xt),(0,1)). For A=E₂₁ the transported matrix is
-  B⁻¹AB+tB⁻¹δB=((−xt,t²(1−x²)),(1,xt)). At t=0 it is E₂₁;
-  at t=1 it is ((−x,1−x²),(1,x)). At x=0,t=1 the upper-right
-  coefficient is 1, whereas pure conjugation gives 0. Actual transition
-  comparisons must retain the derivative term.
-
-## Other continuation requirements and preserved work
-
-- **G2 — sheaf operations:** import the actual underived sheaf tensor powers,
-  dual, exterior, symmetric and endomorphism carriers under their exact
-  hypotheses. Finish finite-local-freeness, determinant and quotient
-  comparisons, local generation, restriction-compatible equality detection,
-  descent and pullback coherence. Tensoring global section modules does not calculate
-  sheaf tensor sections. The 36 omitted global parent signatures and their
-  API/tests remain conditional on these carriers and G1/G3.
-- **G4 — determinant:** allow locally varying rank or a specified determinant
-  line with its prescribed connection. Glue the alternating-sum connection
-  through determinant gauge transport using the exact
-  `ColemanPowerSeries:L1/derivation-determinant-unit` integral Jacobi API.
-  Exterior-power base change must work over arbitrary, including nonflat,
-  ring changes and preserve horizontal operators and exterior extensions.
-  Trace zero applies only to the fixed trivial determinant convention.
-- **G5 — period lattice:** keep the unbounded filtration in the localized
-  Liu–Zhu carrier: E+ is over O_X completed tensor B_dR+, localization inverts
-  t, and t^i Fil^j=Fil^(i+j), with negative powers interpreted there. For the
-  relative flat Griffiths connection, t∇ preserves E+ and its linear residue
-  must identify with the graded symbol valued in Ω¹_X(-1). Preserve semilinear
-  Galois/Tate and exterior-curvature compatibility. Import period foundations
-  from the named p-adic consumer without depending on its correspondence;
-  neither a bounded replacement nor a trivial Tate character suffices.
-- **G6 — nilpotence:** local exponents on a cover give a global exponent only
-  with a uniform bound; a finite subcover gives their maximum. Infinitely many
-  disjoint Jordan blocks with increasing size give no finite global bound.
-  Rank bounds require globally bounded rank. Kernel subsheaves need not be
-  subbundles, and nonflat base change need not preserve symmetric-action images.
-- **G7 — spectral adapter:** the coherent image algebra B_theta, coefficient-
-  valued section from finite local duality and twists by invertible B_theta
-  modules need Heuer's analytic finiteness hypotheses. Do not infer coherence
-  on an arbitrary site. Generic images/tensors stay at E1; the spectral cover,
-  Picard and twisting correspondence belong to the p-adic Simpson consumer.
-  Keep coefficient/Tate compatibility and nonflat image-change conditions.
-
-Preserve native Hodge imports, H.5's scheme-theoretic fibres and finite-projective
-lattice signatures, Betti scalar-automorphism checks and H.7's proved negative
-controls. Do not restore the twenty removed unrestricted H.7 signatures.
-`ShimuraData:D3/variation` already specifies compatible real/rational data;
-its incomplete prototype alone is not an owner gap. The local
-`IntegralVariationFibers` prototype lacks scalar-extension agreement and
-lattice naturality and cannot replace H.7's global integral datum.
-
-Suggested.lean retains 698 example declarations, including seven split-chart,
-five change-of-frame and five supplied-calculus checks. Its affine operator
-uses `LinearMap.pi`, `LinearMap.proj`, `Derivation.toLinearMap` and
-`Matrix.mulVecLin.restrictScalars`; the evaluation, Leibniz and zero-matrix
-laws are proved. Prior diagnostics found no `sorryAx` for those laws and the
-chart checks; the supplied-calculus witness diagnostic recorded only
-`propext`, `Classical.choice` and `Quot.sound`. Those axiom diagnostics were
-not repeated in this run. They do not prove global sheaf comparisons.
-The earlier `codex-DS6Pib` probes of `Module.Free.of_filtration` and
-`Module.iInter_freeLocus_subquotient_subset_freeLocus` concerned freeness and
-free loci, rather than the missing Rees carrier or fibre/descent maps; those
-probes were not repeated either.
-
-After owner repair, complete the target-fidelity audit, including the 569
-parent nodes and seven H.0 continuation nodes. Finish README definition/API/
-Checks grouping and worked examples, declaration docstrings, precise omission
-lists and current-library/bottom-up prerequisite checks for every target.
-This checkpoint does not certify H.1–H.8 or the remaining H.0 targets.
-
-## Resume sequence
-
-1. Obtain owner-authorized CR.1 and DD.1 repairs satisfying the G1/G3 equations
-   and witnesses above, then reconcile the consuming H.0 references.
-2. Resolve the remaining continuation contracts and audit all planned targets
-   against the current upstream and library, preserving the existing proofs
-   and the distinctions between local coordinates and intrinsic sheaf objects.
-   Reconcile the 36 omitted global signatures with native tensor, dual and
-   power APIs rather than reintroducing duplicate carriers.
-3. Finish the package reader/signatures, repeat the managed Lean and structural
-   checks, and add metadata only when the complete package meets PROTOCOL §20.
-
-All resumption information is here and in the repository. No scratch file is
-needed by the next worker.
+Scoped `research/blueprint/intake.py check-files` and `git diff --check`
+passed for the single changed handoff. Package/source hashes are unchanged.
+Everything needed to resume is here, in the archived handoff and in the
+repository inputs; no disposable scratch file is needed.
