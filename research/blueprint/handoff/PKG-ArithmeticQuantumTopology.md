@@ -1,11 +1,12 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
-Worker: Codex, session `codex-1R2Vs9`, issue #7889, 2026-10-10.
-Continues `codex-us8zWs` (PR #8192), which continued `codex-TzHZjT` (PR #8154).
+Worker: Codex, session `codex-MNQaDU`, issue #7889, 2026-10-10.
+Continues `codex-1R2Vs9` (PR #8210), following PRs #8192 and #8154.
 
 This is **partial**, not a completed package. The README is assembled; the Lean
-file is a compiled subset, now also including finite free formal sl₂ colors,
-generator/divided-power actions, pivotal trace and tensor comparison signatures.
+file is a compiled subset, now also including the native cyclotomic color
+inverse limit, finite-coordinate maps, explicit twist elements and even-color
+evaluation characters. The finite formal-color interfaces from PR #8210 remain.
 Missing supplier carriers prevent the full signatures
 required by PROTOCOL §20. No packet, review verdict or supplier file was changed.
 
@@ -17,12 +18,12 @@ required by PROTOCOL §20. No packet, review verdict or supplier file was change
   across all kinds (206 API entries and 159 tests belong to definitions and
   constructions), and every numbered/page source locator. It omits process
   narrative, repeated use lists and repetitive acceptance prose. The resulting
-  document is 199,704 bytes, below the 200 KB ceiling. Comparison obligations
+  document is 199,770 bytes, below the 200 KB ceiling. Comparison obligations
   and conjectures remain visibly distinct from established source results.
 - `Suggested.lean`: the input's concrete native interfaces, without the long
   commented inventory masquerading as signatures, plus genuine meromorphic
-  Faddeev, extended Bloch and formal finite-color interfaces. The README retains
-  the omitted mathematical specifications;
+  Faddeev, extended Bloch, formal finite-color and completed color-algebra
+  interfaces. The README retains the omitted mathematical specifications;
   this handoff identifies where native signatures still have to be supplied.
 - `metadata.toml` is deliberately **not submitted**. The intake's
   `issues.deliverables_complete` treats a package as complete whenever its three
@@ -84,7 +85,59 @@ No messages or new issues were sent to suppliers; the existing requests remain
 unchanged. The maintainer must route these owner extensions or provide their
 native signatures. This is a dependency block, not exhaustion of the run time.
 
-## Native finite-color addition in this checkpoint
+## Native color-completion addition in this checkpoint
+
+Habiro arXiv:math/0605314v1 was read directly at §8.1, Lemma 8.1 and
+(8.1), p. 28; §8.2, pp. 29–30; and §9.1, Propositions 9.1–9.2,
+p. 33, with the twisting application in §9.2, p. 34. Its PDF SHA-256 is
+`5fb8b89b432401ea28d10e34d348c5cdebe43cf3ddb95c0475aaee869fa276fc`.
+The new `CyclotomicCompletion` section completes an owned algebraic boundary
+without defining a surrogate framed link or importing an unspecified RT functor.
+
+- `colorAlgebra` has exactly the carrier of the existing q-ground tilde lattice.
+  `tildeColorBasis` and `colorIdeal` specify its basis and genuine tail ideals.
+  `mul_P` gives the prime-basis product before rescaling. `ColorQuotient k`
+  is the actual ideal quotient, and `colorTransition` is the canonical algebra
+  homomorphism for nested ideals. Finite coordinates are a linear equivalence,
+  never a ring equivalence with pointwise multiplication.
+- `completedColorAlgebra` is the compatible subalgebra of the product of those
+  quotients. Its projections, dense algebra map, finite partial sums and
+  `fromCoordinates` are concrete constructions. `completionCoordinates`
+  specifies the inverse linear equivalence with all sequences of q-ground
+  coefficients. The topology is induced from the product of discrete finite
+  quotients; completeness, Hausdorffness, ring continuity, the coordinate
+  homeomorphism and partial-sum convergence have native signatures.
+- `omega` is the resulting actual inverse-limit element. In the tilde basis,
+  its positive coefficients are q^(n(n+1)/2), and its negative coefficients
+  are (-1)^n q^(-n). The comparison with the prime-basis coefficients retains
+  the v^(±n(n+3)/2) powers. Nonzero coordinates exclude finite support; the
+  inverse relation uses quotient-ring multiplication.
+- `evenEvaluation` is polynomial evaluation at
+  v^(2p+1)+v^(-(2p+1)). Its vanishing on P_(p+1) gives an actual quotient lift,
+  hence `evenCharacter` on the inverse limit. Finite evaluation, separation of
+  points and the values v^(±2p(p+1)) on the twists have exact signatures.
+  `evenHopfValue` restores the quantum dimension. This is the algebraic
+  pairing value; comparison with the geometric Hopf-link RT invariant still
+  needs that owner's native interface.
+- Tests distinguish both basis normalizations and signs, P/P₀ from P/P₁,
+  higher tails from lower coefficients, ordinary polynomial elements from
+  the twists, and the true product from pointwise multiplication. The
+  coefficient of tilde P₁ in its square is q−q⁻¹. V₀ and V₂ evaluate the
+  twists separately.
+
+These are definitions and theorem/signature plans with `sorry` obligations,
+not formalized results. No scalar Habiro completion, quantum-group completion
+or external owner is recreated. The README's twist coordinates now state the
+same explicit tilde normalization. The algebraic completion target and twist
+coordinates have native signatures; the geometric twisting theorem, universal
+invariant and general link pairings remain in the dependency table.
+Pinned sources read before use include `Subalgebra`, `Module.Basis`,
+`Ideal.Quotient.mk/factorₐ/lift`, `Polynomial.evalRingHom`, discrete uniformity,
+product uniformity and subtype topology. The older library search found no
+ArithmeticQuantumTopology coverage row; the current owner interfaces were
+checked again at the commits listed above.
+
+## Native finite-color addition inherited from PR #8210
 
 Habiro arXiv:math/0605314v1 was read directly at §2.1–2.3 (pp. 7–9),
 §5.1 (pp. 18–19, equations (5.1)–(5.3)), and §§5.3–5.4 (p. 20).
@@ -202,8 +255,8 @@ All proof obligations use `sorry`; nothing is claimed formalized.
 | --- | --- | --- |
 | QT.0 | Algebraically split/admissible matrix conditions, integral matrix cokernel and handle-slide congruence, discriminating small matrices | Framed-link linking matrix and tests; actual surgery/H₁ comparison; ordinary Kirby import; admissible band-slide, Hoste and presentation-existence refinements on those carriers |
 | QT.1 | Mathlib-backed ribbon twist/trace interface; concrete finite-color generator relations | Topological quantum algebra and completed tensor multiplication; integral PBW/even forms, ribbon/core/twist data and extension of finite matrices to continuous U_h-modules (QT-owned work); supplier framed tangles, RT functor and universal bottom-tangle invariant |
-| QT.2 | Formal finite free colors/basis and explicit actions; divided powers and pivotal matrix trace; tensor/Clebsch–Gordan and character comparisons; Laurent Chebyshev polynomials, cyclotomic lattice/filtration; scalar Kashaev kernel | Continuous quantum-module and ribbon comparisons, link invariant and normalization, divisibility and expansion, completion import and unified Kashaev construction on actual knots |
-| QT.3 | Earlier scalar color conventions | Twist element and twisting theorem, JM on an actual integral-homology-sphere/surgery carrier, independence, connected-sum and orientation comparisons |
+| QT.2 | Formal finite free colors/basis and explicit actions; divided powers and pivotal matrix trace; tensor/Clebsch–Gordan and character comparisons; Laurent Chebyshev polynomials, cyclotomic lattice/filtration and genuine quotient inverse limit, coordinate/topology/truncation APIs; scalar Kashaev kernel | Continuous quantum-module and ribbon comparisons, link invariant and normalization, divisibility and expansion, unified Kashaev construction on actual knots |
+| QT.3 | Actual completed twist elements, prime/tilde coefficient comparison, nonfinite support, inverse relation and even-color characters | Geometric Hopf pairing comparison and twisting theorem, JM on an actual integral-homology-sphere/surgery carrier, independence, connected-sum and orientation comparisons |
 | QT.4 | Earlier scalar conventions | Root categories, strong Kirby colors, WRT and JM evaluation, Ohtsuki series and rigidity on the exact integral coefficient ring; general Lie-type core/parity/filtration |
 | QT.5 | Principal charts, actual cut quotient/homeomorphism, intrinsic four-component flattenings, exact lifted five-term lattice, two relation subgroups, extended pre-Bloch quotient/Dehn kernel, universal ordinary forget/boundary square | Instantiate ordinary pre-Bloch supplier and its convention comparisons; actual strong/geometric flattening and Pachner interface; regulator branch/period comparison; number-field Bloch and K₃ torsion comparison |
 | QT.6 | Linear NZ/Hessian formulas, full scalar meromorphic Faddeev signatures, selected real-b integral formulas, charged kernel action under explicit integrability/continuity, scalar root-NZ weights | Geometric NZ/root datum, formal Gaussian vertex series and move invariance; qualified HB.8/HB.9 bridge; operator pentagon; leveled shape/gluing carrier, microlocal products, AK convergence/invariance and selected volume theorem |
@@ -221,7 +274,10 @@ carrier and H₁/Kirby comparison. In parallel mathematical planning, not throug
 new worker claims, identify the lower-tier/bundle package interfaces for the
 Bloch, dilogarithm and Habiro bridge. Replace each outstanding specification
 with genuine Lean definitions/signatures and the named API/tests in the README.
-The QT.5 cover and relation algebra now stand independently: retain this
+The QT.2 color inverse limit and QT.3 algebraic twist elements now have native
+interfaces: retain their quotient multiplication and instantiate the geometric
+pairing comparison rather than substituting pointwise coefficient products.
+The QT.5 cover and relation algebra stand independently: retain this
 namespace and instantiate its universal maps rather than recreating it. A next
 independent QT.5 step is the extended Rogers regulator once the ordinary
 dilogarithm supplier has a usable native interface.
@@ -233,8 +289,8 @@ be added and the package submitted as complete.
 ## Sources and validation
 
 This run read the current SemisimpleAlgebras and GrothendieckEulerForms
-readers and the actual GeometricTopology suggested file and link/slope library
-interfaces. PR #8192 records reading GeometricTopology and the spectral
+readers in full and the actual GeometricTopology suggested file and link/slope
+library interfaces. PR #8192 records reading GeometricTopology and the spectral
 interfaces in its earlier audit. The reviewed library catalogue has no
 ArithmeticQuantumTopology row.
 The inherited checkpoint records rereading the input's 24 baseline declaration
@@ -255,14 +311,20 @@ needed; scratch PDFs/texts are not retained.
 - `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
   **0 errors, 0 warnings**, unchanged input.
 - Final `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
-  **exit 0, 0 errors, 185 warnings**, all `declaration uses sorry`. Free memory
-  exceeded 100 GB before the check. Only the supplied shared checker was used.
-- Exact-rational smoke checks of the new color formulas: **606 passed**, for
-  colors n=0,…,6 and tensor pairs m,n=0,…,3 at v=2, 3/2 and 1. These check
-  generator/coproduct relations, divided powers, trace and specializations;
-  they are numerical checks, not proofs of the formal-series identities.
+  **exit 0, 0 errors, 234 warnings**, all `declaration uses sorry`. Available memory
+  was 111 GB before the final check. Only the supplied shared checker was used.
+- Exact-rational smoke checks of the completion/twist formulas: **1,311 passed**,
+  at v=2, 3/2 and 3, color pairs m,n=0,…,6, precisions 1,…,9 and even-color
+  parameters p=0,…,8. They check the product formula, tail ideals, prime/tilde
+  rescaling, twist inverses modulo each tail, even-character values and
+  vanishing, and the nonpointwise product. These are finite specialization
+  checks, not proofs or execution of the `sorry` obligations.
+- PR #8210 recorded **606** finite-color generator, divided-power, tensor and
+  trace checks; this run retains those declarations without rerunning its
+  now-deleted scratch script.
 - README assertion audit: 106 unique target anchors plus 8 layer anchors; every
   exact target statement, separate hypothesis, API specification, test and
   source locator is retained; size and excluded process-vocabulary checks pass.
-- File-scope/intake checks and `git diff --check`: recorded in the PR after the
-  final staging check. Only this job's permitted outputs and handoff are submitted.
+- `python3 research/blueprint/intake.py check-files` on the three changed files:
+  **3 files, 0 problems**. Exact issue-output scope and `git diff --check` pass;
+  only this job's permitted outputs and handoff are submitted.

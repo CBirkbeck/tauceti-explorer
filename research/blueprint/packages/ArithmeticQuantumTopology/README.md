@@ -841,7 +841,7 @@ For a zero-framed knot K with integral cyclotomic coefficients a_n(K)=J_K(P″_n
 
 ### The twist element in the completed cyclotomic algebra
 
-In P̂ define ω±=Σ_(n≥0)(±1)^n v^(±n(n+3)/2)P′_n, equivalently an integral ℤ[q±1] series in P̃′_n. These satisfy ω+ω−=1. For the Hopf pairing with the even representation subalgebra S_ℚ(v)=span{V_(2j)}, ⟨ω±,x⟩=J_(U±)(x). This characterization is only on even colors, not every element of the full representation algebra. In particular ⟨ω±,V₀⟩=1.
+In P̂ define ω±=Σ_(n≥0)(±1)^n v^(±n(n+3)/2)P′_n. In the P̃′_n basis, the coefficients are q^(n(n+1)/2) for ω+ and (−1)^n q^(−n) for ω−. These satisfy ω+ω−=1. For the Hopf pairing with the even representation subalgebra S_ℚ(v)=span{V_(2j)}, ⟨ω±,x⟩=J_(U±)(x). This characterization is only on even colors, not every element of the full representation algebra. In particular ⟨ω±,V₀⟩=1.
 
 **Prerequisites.** [The algebra spanned by the cyclotomic elements and its completion](#qt-2-algebra-P-and-completion); [Coloured Jones polynomials from the universal invariant](#qt-2-coloured-jones); [Finite free sl₂ colors](#qt-2-finite-free-colors).
 
@@ -853,7 +853,7 @@ In P̂ define ω±=Σ_(n≥0)(±1)^n v^(±n(n+3)/2)P′_n, equivalently an integ
 - `pairing_omega`: The equality with the ±1-framed unknot pairing holds on S_ℚ(v), the even-color subalgebra.
 - `omega_mul_inv`: The two twist elements are mutually inverse in the completed algebra.
 - `omega_mem_completion`: The twist element lies in the completion of the cyclotomic algebra and not in the algebra itself.
-- `omega_coeff`: The coefficients of the twist element in the cyclotomic basis are explicit Laurent polynomials.
+- `omega_coeff`: The stated tilde-basis coefficients give ω+ coordinates (1,q,q³,…) and ω− coordinates (1,−q⁻¹,q⁻²,…).
 
 **Unit tests.**
 
