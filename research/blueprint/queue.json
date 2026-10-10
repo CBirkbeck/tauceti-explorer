@@ -41615,8 +41615,9 @@
    ],
    "revisionOf": "BP-RankZeroOneBSD--BSD.0",
    "prompt": "research/blueprint/prompts/BP-RankZeroOneBSD--BSD.0~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7003"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7003",
+   "finishedAt": "2026-10-10T04:54:12Z"
   },
   {
    "priority": 2,
@@ -47067,8 +47068,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-AutomorphicSpectralTheory.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7893"
+   "state": "pending",
+   "note": "released on GitHub issue #7893"
   },
   {
    "id": "REV-PKG-AutomorphicSpectralTheory",
@@ -49170,8 +49171,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7909"
+   "state": "external",
+   "note": "claimed on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -81349,8 +81350,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #5702"
+   "state": "external",
+   "note": "claimed on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
