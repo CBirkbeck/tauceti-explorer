@@ -782,6 +782,12 @@ For any scheme S, any group object A of Over(S), any T∈Over(S), and n≥0, the
 
 **Construction and comparison.** Define the two coordinate operations on the native Hom group. Use group cancellation to check both inverse composites. Precomposition preserves products and inverses, so the equivalence is natural in every test scheme.
 
+Represent the same coordinate change on the actual fibre power A^{n+1}_S. Its forward morphism has first projection p₀ and remaining projections p_r p₀⁻¹; its inverse has first projection p₀ and remaining projections p_r p₀. Assemble both maps with the product universal property. Composition with each projection reduces both inverse identities to group cancellation, and the product extensionality theorem gives their equality with the identity S-morphism. This argument also works for a noncommutative group scheme; the right-hand position of p₀ in the inverse is essential.
+
+`RelativeJacobian.TriangularCoordinateEquivalence.schemeIso` names this isomorphism of fibre-power schemes. Its `schemeIso_hom_coordinates` and `schemeIso_inv_coordinates` lemmas identify the induced maps on every Hom(T,A^{n+1}_S) with the forward and inverse represented-point equivalence. Use Mathlib's `CategoryTheory.Limits.piObj`, `Pi.π`, `Pi.lift` and `Pi.hom_ext` for these products and maps. Its `schemeIso_baseChange` lemma states that arbitrary base extension carries this morphism to the corresponding morphism on the pulled-back group scheme, conjugated by the canonical product comparison `PreservesProduct.iso`. This is an equality of morphisms over the new base. A fibre power in Over(S) retains the common structure morphism to S; an unrestricted product of the underlying point sets would lose that condition.
+
+The scheme form passes three further checks: for n=0 it is the identity isomorphism of the one-factor fibre power; its inverse takes the pair of actual T-morphisms (f,g/f) to (f,g); and the small diagonal takes f to f in the head and the identity section in each tail. These identities hold for arbitrary test schemes T, including nonreduced ones.
+
 **API.**
 
 - `RelativeJacobian.TriangularCoordinateEquivalence.first`: R(q)₀=q₀.

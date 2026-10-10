@@ -1,5 +1,7 @@
 import Mathlib.AlgebraicGeometry.Group.Abelian
 import Mathlib.CategoryTheory.Monoidal.Cartesian.Grp
+import Mathlib.CategoryTheory.Limits.Shapes.FiniteProducts
+import Mathlib.CategoryTheory.Limits.Preserves.Shapes.Products
 
 /-!
 # Relative Jacobians: suggested interfaces
@@ -8,7 +10,8 @@ This file is not the roadmap and is not exhaustive. README.md is definitive.
 The statements suggest Lean forms so contributors and reviewers converge on
 names and signatures. Every proof here is intentionally admitted.
 
-The represented-point triangular coordinate equivalence has native signatures.
+The represented-point triangular coordinate equivalence and its representing
+fibre-power scheme isomorphism have native signatures.
 The remaining geometric targets are recorded below with their mathematical
 contracts, API and tests. Their relative Picard, abelian-scheme, duality and
 algebraic-equivalence types cannot yet be expressed at the pinned baseline.
@@ -19,7 +22,7 @@ it does not check the omitted geometric signatures.
 
 -- JC5.5: Yuan, Theorem 4.17(5), proof p. 99 (21 August 2024 manuscript).
 noncomputable section
-open CategoryTheory AlgebraicGeometry
+open CategoryTheory CategoryTheory.Limits AlgebraicGeometry
 open scoped CategoryTheory.MonObj
 namespace RelativeJacobian
 universe u
@@ -68,6 +71,69 @@ example (n : ℕ) (f : T ⟶ A) :
     TriangularCoordinateEquivalence n (fun _ ↦ f) =
       fun i ↦ if i = 0 then f else 1 := by
   sorry
+
+/-!
+The finite product in `Over S` is the actual fibre power of the scheme A.
+Its coordinate maps are morphisms over S. No commutativity is needed: the
+inverse restores the first coordinate by multiplication on the right.
+-/
+
+/-- The scheme isomorphism representing the triangular change on all test schemes. -/
+def schemeIso (n : ℕ) :
+    (∏ᶜ fun _ : Fin (n + 1) ↦ A) ≅ (∏ᶜ fun _ : Fin (n + 1) ↦ A) where
+  hom := Pi.lift (fun i ↦ if i = 0 then Pi.π (fun _ : Fin (n + 1) ↦ A) 0
+    else Pi.π (fun _ : Fin (n + 1) ↦ A) i /
+      Pi.π (fun _ : Fin (n + 1) ↦ A) 0)
+  inv := Pi.lift (fun i ↦ if i = 0 then Pi.π (fun _ : Fin (n + 1) ↦ A) 0
+    else Pi.π (fun _ : Fin (n + 1) ↦ A) i *
+      Pi.π (fun _ : Fin (n + 1) ↦ A) 0)
+  hom_inv_id := by sorry
+  inv_hom_id := by sorry
+
+/-- On arbitrary test-scheme morphisms, the scheme map is the original point equivalence. -/
+lemma schemeIso_hom_coordinates (n : ℕ)
+    (q : T ⟶ ∏ᶜ fun _ : Fin (n + 1) ↦ A) :
+    (fun i ↦ q ≫ (schemeIso (A := A) n).hom ≫
+      Pi.π (fun _ : Fin (n + 1) ↦ A) i) =
+        TriangularCoordinateEquivalence n
+          (fun i ↦ q ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i) := by
+  sorry
+
+/-- The inverse is represented by the inverse scheme morphism on every test scheme. -/
+lemma schemeIso_inv_coordinates (n : ℕ)
+    (q : T ⟶ ∏ᶜ fun _ : Fin (n + 1) ↦ A) :
+    (fun i ↦ q ≫ (schemeIso (A := A) n).inv ≫
+      Pi.π (fun _ : Fin (n + 1) ↦ A) i) =
+        (TriangularCoordinateEquivalence n).symm
+          (fun i ↦ q ≫ Pi.π (fun _ : Fin (n + 1) ↦ A) i) := by
+  sorry
+
+/-- Base extension of the scheme coordinate change uses the canonical fibre-power comparison. -/
+lemma schemeIso_baseChange {S' : Scheme.{u}} (f : S' ⟶ S) (n : ℕ) :
+    letI : GrpObj ((Over.pullback f).obj A) := Functor.grpObjObj
+    (Over.pullback f).map (schemeIso (A := A) n).hom ≫
+      (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A)).hom =
+    (PreservesProduct.iso (Over.pullback f) (fun _ : Fin (n + 1) ↦ A)).hom ≫
+      (schemeIso (A := (Over.pullback f).obj A) n).hom := by
+  sorry
+
+-- test_schemeLengthOne: the isomorphism of the actual one-factor fibre power is identity.
+example : schemeIso (A := A) 0 = Iso.refl _ := by
+  sorry
+
+-- test_schemeLengthTwo: recover the actual pair of morphisms with the prescribed right inverse.
+example (f g : T ⟶ A) :
+    Pi.lift (fun i : Fin 2 ↦ if i = 0 then f else g / f) ≫
+        (schemeIso (A := A) 1).inv =
+      Pi.lift (fun i : Fin 2 ↦ if i = 0 then f else g) := by
+  sorry
+
+-- test_schemeDiagonal: the small diagonal has the original head and identity tail.
+example (n : ℕ) (f : T ⟶ A) :
+    Pi.lift (fun _ : Fin (n + 1) ↦ f) ≫ (schemeIso (A := A) n).hom =
+      Pi.lift (fun i : Fin (n + 1) ↦ if i = 0 then f else 1) := by
+  sorry
+
 end TriangularCoordinateEquivalence
 end RelativeJacobian
 
