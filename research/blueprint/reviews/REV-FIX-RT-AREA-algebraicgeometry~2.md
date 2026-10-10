@@ -1,5 +1,26 @@
 # Independent review of FIX-RT-AREA-algebraicgeometry~2
 
+## Latest continuation: scope-blocked checkpoint
+
+Codex (GPT-6), session `codex-uOqMOQ`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6100799959). This session authored none of the fixes under review and claimed no second job.
+
+The dispatch blocker remains the issue/queue scope mismatch, independently checked against the live issue after the bot confirmed the claim. The live issue permits five packet/Suggested pairs; the queue requires eleven packet verdicts. [WORKERS.md](../WORKERS.md), Doing the work, requires “Edit only the files the issue names, plus your own scratch space.” The user-input channel received a concrete authorization request for the seven omitted paths after a candidate was prepared and checked. No authorization had arrived at submission. This checkpoint changes only the report and handoff; it does not replace already adequate review records with another identical audit.
+
+The candidate contains the six missing review records, the two Adic alteration-cycle descriptions, and the PEL rational-prime repair specified in the retained handoff below. Its statuses remain eight accepted and three needs_changes across the eleven packets. It archives each entire predecessor review unchanged and preserves every older history entry and supplier request. No missing D0 bridge, reconstruction obligation or geometric prototype is erased to obtain acceptance.
+
+Fresh verification in this continuation:
+
+- All five permitted packets and all six candidate packets pass `scripts/check_blueprint.py` with the pinned declaration index: zero errors and warnings. Candidate intake path/content checks report no problems. The actual `issues.deliverables_complete` predicate is false; substituting the candidate in a read-only overlay makes it true.
+- The candidate full PEL Suggested file elaborates through `lean-check` at the shared pinned build with exit 0, 784 admitted-proof warnings, no other warnings and no errors. Its SHA-256 is `a9c9db2e246cc0715caa66fbab08c15d1375c4b028ed39ad18fd8c417180bfc8`. Available memory was 100 GB before the check. This is an uncommitted candidate, not a repository-file compilation receipt.
+- The read-only effective graph has 15,601 edges. Deleting the exact six forwarding inputs into SF.5 retains both long SF.4-to-MC.4 paths recorded below, including the branch through R07.2 with A4 excluded. Thus deletion of those inputs alone cannot authorize the reverse stage edge.
+- [Lan, Definition 1.2.5.4 and Corollaries 1.2.5.6–7, pp.90–91](https://www.kwlan.org/articles/cpt-PEL-type-thesis.pdf) confirms the rational-prime hypothesis and normal-closure proof. [De Jong, §2.24, p.62](https://www.numdam.org/item/PMIHES_1996__83__51_0.pdf) confirms the pointed range and distinguishes the smooth-open level cover from its normalization over the stable boundary. [Stacks 16.13.1](https://stacks.math.columbia.edu/tag/07QY) and [16.13.2](https://stacks.math.columbia.edu/tag/07QZ) retain the henselian versus pointed-étale distinction.
+
+The affected reviewed library-coverage records, prior finding/verifier/fix ledgers, current consumer contracts and the read-only AlgebraicVectorBundles/StableReduction supplier interfaces were inspected. These selected checks do not claim a new exhaustive audit of every unrelated node or source. The earlier exhaustive audits and unchanged Lean receipts remain attributed to their named reviewers in the retained report. No source passage or file is committed, no library was built or updated, and no Lean process remains running.
+
+The manager must resolve the seven-path authorization listed in the handoff before redispatching this same completion. Another unchanged review-record refresh cannot make the eleven-packet dispatch complete.
+
+## Retained preceding review and completion recipe
+
 Codex (GPT-6), session `codex-uc4o8L`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702); [confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6100485012). This reviewer did not author the round-2 fixes. No manager-priority issue was available when this single review was selected.
 
 The review covers the 32 confirmed high/medium findings assigned to round 2: /1–4, /6–18, /20–21 and /23–35. Upstream-only /5, /19 and /22 and low-severity /36–46 are excluded. The finding claims, verifier decisions and round-2 fixes were read, then checked against the affected current contracts. This is a review of the area corrections and their supplier boundaries. Complete earlier node, source and library audits remain attributed to their original reviewers.
