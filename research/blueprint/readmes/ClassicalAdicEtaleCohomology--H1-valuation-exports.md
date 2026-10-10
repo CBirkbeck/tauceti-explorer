@@ -154,9 +154,15 @@ Equivalently the **actual adjunction unit** \(F[0]\to Rg_*g^*F[0]\)
 is an isomorphism. Its degree-zero map is not chosen independently of its
 higher vanishing. This conclusion concerns the sheaf pulled back from \(X\);
 it does not say that every sheaf on \(X_W\) descends. It follows from global
-invariance applied on each affine étale chart of \(X\), since such charts
-compute the sheaves \(R^n g_*\). These charts cover an arbitrary scheme,
-including one that is not qcqs.
+invariance applied on each affine étale chart of \(X\), followed by
+sheafification. By [Stacks Lemma 59.51.6, tag 03Q8](https://stacks.math.columbia.edu/tag/03Q8),
+\(R^n g_*g^*F\) is the sheaf associated to
+\(U\mapsto H^n(U_W,g^*F)\). Global invariance identifies this presheaf
+with \(U\mapsto H^n(U,F)\). For \(n>0\), the latter has zero
+sheafification, since it computes \(R^n(\mathrm{id}_X)_*F=0\); every
+class dies on an étale cover. The groups on an individual affine chart need
+not be zero. Affine étale charts cover arbitrary schemes, including schemes
+that are not qcqs.
 
 The global proof reduces a fixed cohomological degree to finite-rank valuation
 bases, then inducts on their dimension. In rank zero, collapsed-boundary
@@ -289,14 +295,14 @@ fraction fields, let \(q:S'=\operatorname{Spec}W\to S=\operatorname{Spec}V\)
 be **any** scheme morphism, and put \(g:X_W\to X\). Let \(F\) be an abelian
 torsion sheaf on \(X\) prime to \(\operatorname{char}(X_W)\). For a closed
 constructible subset \(Z\subset S\) with \(Z'=q^{-1}Z\ne S'\), set
-\(T=f^{-1}Z\) and \(T'=g^{-1}T\), and write (r:X\setminus T\to X)
-and (r':X_W\setminus T'\to X_W). Then the canonical maps
+\(T=f^{-1}Z\) and \(T'=g^{-1}T\), and write \(r:X\setminus T\to X\)
+and \(r':X_W\setminus T'\to X_W\). Then the canonical maps
 
 \[
 g^*R^n r_*r^*F\ \xrightarrow{\sim}\ R^n r'_*r'^*g^*F,
 \qquad
 g^*\mathcal H^n_T(X,F)\ \xrightarrow{\sim}\
-\mathcal H^n_{T'}\(X_W,g^*F\)
+\mathcal H^n_{T'}(X_W,g^*F)
 \]
 
 are isomorphisms for every \(n\geq0\). The two formulations are equivalent
@@ -322,10 +328,10 @@ export.
 For `local-cohomology-collapsed-boundary-vanishing`, take any proper closed
 constructible \(Z'\subset S'\) and let \(\eta'\) be the closed point of
 \(S'\setminus Z'\). It need not be a pullback boundary. Suppose
-\(q(z')=q(\eta')\) for every (z'\in Z'). With \(T'=f'^{-1}Z'\),
+\(q(z')=q(\eta')\) for every \(z'\in Z'\). With \(T'=f'^{-1}Z'\),
 
 \[
-\mathcal H^n_{T'}\(X_W,g^*F\)=0\qquad(n\geq0).
+\mathcal H^n_{T'}(X_W,g^*F)=0\qquad(n\geq0).
 \]
 
 The target quadruple now has its two base points equal, so its nearby
@@ -395,8 +401,9 @@ Compact support is a separate import. H0's compact-support export uses a proper
 compactification and nearby cycles of extension by zero, with an explicit
 boundary term. It cannot be replaced by compact support of the special-fibre
 nearby complex without checking that term. The present theorem has a specified
-closed support and a quasi-compact complement; it neither supplies Nagata
-compactification nor settles the missing finite-boundary alternative.
+closed support and a quasi-compact complement. Constructibility along a finite
+base boundary is the separate theorem stated below; the inherited compact-support
+export retains its compactification input.
 
 ## Finite-rank models and constructible finiteness
 
@@ -454,7 +461,7 @@ For finite \(Z\), each base singleton is locally closed constructible. On each
 fibre the restriction of \(R^n j_*j^*F\) is a nearby cohomology sheaf for the
 closed point of \(S\setminus Z\) specializing to that base point. Apply the
 already owned constructibility-of-nearby-cycles theorem, Huber Proposition
-4.2.5, p. 243 and proof pp. 251–256. Combine the finitely many boundary strata
+4.2.5, p. 243 and proof pp. 249–250. Combine the finitely many boundary strata
 with the open complement. For local finite presentation, work affine locally,
 descend \(X,F,Z\) to the finite-rank model, use the finite-boundary branch
 there, and pull constructibility back using the canonical local-support base
@@ -602,7 +609,8 @@ The following edge cases distinguish the statements.
 
 The imported scheme support, nearby, formal and analytic targets keep their
 owners. The precise additional inputs are the SF.2 functor/constructibility/
-descent/field-finiteness request; H1:valuation-nearby-cycles' full Cartesian
+descent/field-finiteness request, including sheafification of higher
+direct-image presheaves; H1:valuation-nearby-cycles' full Cartesian
 base-change and generic \(Rj_*/\mathrm{ULA}\) request; and the AdicSpaces
 finite-rank algebraic capture and strict-local valuation algebra request.
 The source statements are definite;
@@ -626,7 +634,7 @@ of Corollary 4.2.9 uses the coefficient sheaf \(F\), not the boundary set \(T\).
 The finite-rank model in that proof has the Cartesian orientation
 \(X\cong X'\times_{V'}V\). In the first reduction of Proposition 4.2.4, the
 special-fibre inverse/direct-image counit applies to the special-fibre sheaf
-(C), rather than the generic-fibre sheaf (D). The surrounding categories
+\(C\), rather than the generic-fibre sheaf \(D\). The surrounding categories
 and maps force these corrections; the intended mathematical conclusions stay
 the same. Findings `E-H1-valuation-exports-2` and `-3` record the checks and
 searches for existing corrections.
