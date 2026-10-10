@@ -1,8 +1,8 @@
 {
   "review": {
-    "status": "accepted",
-    "reviewer": "independent-review-REV-PKG-PerfectoidQuotients",
-    "date": "2026-10-09",
-    "notes": "Independent package review against all 61 accepted targets, 42 API items, 37 tests, source locators, pinned Mathlib and exact supplier boundaries. Clarified Q1 p-completed forms, A/I-module twists, Frobenius-twisted crystalline/de Rham comparisons and W(A/I) p-torsion-freeness; removed programme bookkeeping from Suggested.lean comments and moved the standard note before imports. Final lean-check exited 0: 0 errors and 91 sorry warnings only. Mathematical Lean declarations unchanged; 26 full, 10 partial targets, 20 comment-only targets and 5 supplier applications remain explicit. README 79,120 bytes; metadata sole math.AG line; blueprint checker 0 errors/0 warnings. Accepted as a roadmap with an honest nonexhaustive prototype, without a claim of proofs or closed implementation gaps. Full evidence and limits in REV-PKG-PerfectoidQuotients.md."
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-PerfectoidQuotients~adv",
+    "date": "2026-10-10",
+    "notes": "Completed independent adversarial fixing review by Codex (GPT-6), session codex-ZE6yli. Audited all 61 original statements and 42 APIs, verified a reproducible 15-source sample and sensitive additional locators, and checked pinned/current object matches. Recast roadmap and Lean form, removed the existing Mathlib root-sequence comparison and a duplicate normalized generator signature, replaced the absent general finite-Witt supplier by local finite maps and APIs, specified the canonical quotient power map, clarified partial generalities, and added computed direction/sign/degree/root controls. Final lean-check exits 0 with 120 sorry warnings only; 54 examples. Needs changes: PerfectoidSpaces P1.24 already owns the same integral predicate/root criteria; P4.15 explicitly owns generic semiperfectoid perfectoidization, its surjective unit and the strongly closed result, duplicating local ownership. The lower-tier single-predicate/universal-ring contract, including derived versus ordinary completeness, must be reconciled before the prismatic description and dependent targets can be accepted. This cross-package ownership/prerequisite defect cannot be repaired by editing only these allowed files. Full evidence and per-statement pass in REV-PKG-PerfectoidQuotients~adv.md; no claim of formalized proofs or closed implementation gaps."
   }
 }

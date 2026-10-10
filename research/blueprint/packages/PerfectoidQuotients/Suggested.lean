@@ -1,37 +1,28 @@
-/-
-This file is not the roadmap and is not exhaustive. The accompanying README.md is
-definitive. These statements suggest Lean forms so that contributors and
-reviewers converge on names and signatures. This is a suggested API, not an
-implementation. Every proof is a placeholder.
-Do not merge this file into Mathlib or Tau Ceti as a completed development.
-The signatures below use the pinned libraries' actual rings, ideals, quotients,
-Witt vectors and perfection. The omitted prismatic, derived, almost and analytic signatures are listed
-explicitly at the end. Comments there do not count as typed signatures.
+import Mathlib
+
+/-!
+# PerfectoidQuotients: representative target signatures
+
+The mathematical roadmap is README.md. This file records definitions and theorem
+signatures statable against the pinned Mathlib APIs and is not exhaustive.
+Integral perfectoidness permits the zero ring and p-torsion. Semiperfectoidness
+uses the ordinary-module tower criterion for derived completeness. Root closure
+retains its ambient ring, and perfectoidization stores actual ring maps and its
+universal property. The full prism, derived, almost and analytic targets use the
+supplier carriers specified in the roadmap.
 -/
 
-import Mathlib.RingTheory.Perfectoid.FontaineTheta
-import Mathlib.RingTheory.WittVector.Complete
-import Mathlib.RingTheory.Ideal.Quotient.Nilpotent
-import Mathlib.FieldTheory.PerfectClosure
-import Mathlib.Algebra.TrivSqZeroExt.Basic
-import Mathlib.Data.ZMod.Basic
-import Mathlib.RingTheory.WittVector.TeichmullerSeries
-import Mathlib.RingTheory.Ideal.Quotient.Operations
-import Mathlib.RingTheory.AdicCompletion.Algebra
-import Mathlib.RingTheory.AdicCompletion.Exactness
-import Mathlib.RingTheory.IntegralClosure.Algebra.Basic
-import Mathlib.RingTheory.Localization.Away.Basic
-import Mathlib.Algebra.Polynomial.Eval.Defs
-
+namespace TauCetiRoadmap.PerfectoidQuotients
 noncomputable section
 universe u v
-namespace TauCeti.PerfectoidQuotients
 
+/-! ## Layer 0: integral perfectoid algebra -/
+
+section IntegralAlgebra
 variable (p : ℕ) [Fact p.Prime]
 
 /-- BMS2 Definition 4.18, with an explicit zero-ring branch because the pinned
 PreTilt ring instance and Fontaine map require that p is not a unit. -/
--- Layer Q0:integral-algebra: Integral perfectoid rings
 def IsIntegralPerfectoid (R : Type u) [CommRing R] : Prop :=
   Subsingleton R ∨ ∃ hnu : ¬ IsUnit (p : R),
     ∃ hc : IsAdicComplete (Ideal.span {(p : R)}) R,
@@ -44,16 +35,19 @@ def IsIntegralPerfectoid (R : Type u) [CommRing R] : Prop :=
 
 variable (R : Type u) [CommRing R]
 
+/-- The zero ring satisfies integral perfectoidness at every prime. -/
 theorem IsIntegralPerfectoid.of_subsingleton [Subsingleton R] :
     IsIntegralPerfectoid p R := by sorry
 
+/-- Integral perfectoid rings are classically p-adically complete and separated. -/
 theorem IsIntegralPerfectoid.complete (h : IsIntegralPerfectoid p R) :
     IsAdicComplete (Ideal.span {(p : R)}) R := by sorry
 
+/-- Integral perfectoid rings have a pth root of p up to a unit. -/
 theorem IsIntegralPerfectoid.has_p_root (h : IsIntegralPerfectoid p R) :
     ∃ π : R, ∃ a : Rˣ, π ^ p = (p : R) * a := by sorry
 
--- Layer Q0:integral-algebra: The nonzero integral-perfectoid criterion
+/-- With nonunit p and completeness, the three remaining BMS2 clauses characterize perfectoidness. -/
 theorem IsIntegralPerfectoid.iff_nontrivial
     [Fact (¬ IsUnit (p : R))] [IsAdicComplete (Ideal.span {(p : R)}) R] :
     IsIntegralPerfectoid p R ↔
@@ -63,22 +57,22 @@ theorem IsIntegralPerfectoid.iff_nontrivial
         RingHom.ker (WittVector.fontaineTheta R p) = Ideal.span {ξ} := by sorry
 
 -- A degenerate ring, a positive field example, and two independent non-examples.
--- TauCeti.PerfectoidQuotients.zeroRing
+-- zeroRing
 example : IsIntegralPerfectoid p (ZMod 1) := by sorry
--- TauCeti.PerfectoidQuotients.primeField
+-- primeField
 example : IsIntegralPerfectoid p (ZMod p) := by sorry
--- TauCeti.PerfectoidQuotients.zmodFour
+-- zmodFour
 example : ¬ IsIntegralPerfectoid 2 (ZMod 4) := by sorry
--- TauCeti.PerfectoidQuotients.polynomial
+-- polynomial
 example : ¬ IsIntegralPerfectoid 2 (Polynomial (ZMod 2)) := by sorry
--- TauCeti.PerfectoidQuotients.dualNumbers
+-- dualNumbers
 example : ¬ IsIntegralPerfectoid 2 (TrivSqZeroExt (ZMod 2) (ZMod 2)) := by sorry
 -- Omitting the principal-kernel clause would accept this semiperfect quotient.
--- TauCeti.PerfectoidQuotients.semiperfectNotPerfect
+-- semiperfectNotPerfect
 example : ¬ IsIntegralPerfectoid 2
     (PerfectClosure (Polynomial (ZMod 2)) 2 ⧸
       Ideal.span {PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X}) := by sorry
--- TauCeti.PerfectoidQuotients.semiperfectSquaring
+-- semiperfectSquaring
 example : Function.Surjective (fun x :
     PerfectClosure (Polynomial (ZMod 2)) 2 ⧸
       Ideal.span {PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X} => x ^ 2) := by sorry
@@ -88,27 +82,39 @@ variable [hchar : CharP R p]
 include hchar
 
 -- BMS1 Lemma 3.10: detection in the inverse perfection, not direct perfection.
--- Layer Q0:integral-algebra: Units in inverse perfection
+/-- A unit in inverse perfection is detected by its zeroth coordinate, without surjective Frobenius on R. -/
 theorem perfection_isUnit_iff (x : Perfection R p) :
     IsUnit x ↔ IsUnit (Perfection.coeff R p 0 x) := by sorry
 
 -- General-ring replacement for the pinned field-only Witt unit criterion.
--- Layer Q0:integral-algebra: Units in Witt vectors over a perfect ring
+/-- A Witt vector over a perfect characteristic-p ring is a unit exactly when its constant coordinate is. -/
 theorem witt_isUnit_iff [PerfectRing R p] (x : WittVector p R) :
     IsUnit x ↔ IsUnit (x.coeff 0) := by sorry
 
--- Layer Q0:integral-algebra: The first Witt product coordinate in characteristic p
+/-- In characteristic p, Witt coordinate one of a product is x₀^p y₁ + x₁ y₀^p. -/
 theorem witt_mul_coeff_one (x y : WittVector p R) :
     (x * y).coeff 1 = x.coeff 0 ^ p * y.coeff 1 +
       x.coeff 1 * y.coeff 0 ^ p := by sorry
 
--- TauCeti.PerfectoidQuotients.wittPNonunit
+-- wittPNonunit
 example [PerfectRing R p] : ¬ IsUnit (p : WittVector p R) := by sorry
--- TauCeti.PerfectoidQuotients.wittOnePlusPUnit
+-- wittOnePlusPUnit
 example [PerfectRing R p] : IsUnit (1 + p : WittVector p R) := by sorry
--- TauCeti.PerfectoidQuotients.tiltUnit
+-- tiltUnit
 example (x : Perfection R p) (h : Perfection.coeff R p 0 x = 1) :
     IsUnit x := by sorry
+/-- At p=2 the first two coordinates of p are (0,1), and p² has coordinate one zero. -/
+example :
+    (2 : WittVector 2 (ZMod 2)).coeff 0 = 0 ∧
+      (2 : WittVector 2 (ZMod 2)).coeff 1 = 1 ∧
+      ((2 : WittVector 2 (ZMod 2)) ^ 2).coeff 1 = 0 := by sorry
+
+/-- The Witt coordinate of p[T] is T², while its first Teichmüller digit is T. -/
+example :
+    let A := PerfectClosure (Polynomial (ZMod 2)) 2
+    let t : A := PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X
+    ((2 : WittVector 2 A) * WittVector.teichmuller 2 t).coeff 1 = t ^ 2 := by sorry
+
 end Units
 
 section CharacteristicP
@@ -118,14 +124,14 @@ include hchar
 
 -- The theta modulo p formula is the existing WittVector.mk_fontaineTheta.
 
--- Layer Q0:integral-algebra: A principal θ-kernel in characteristic p is generated by p
+/-- In characteristic p, a principal Fontaine kernel is (p), without an extra Frobenius-surjectivity premise. -/
 theorem theta_kernel_charP
     (h : ∃ ξ : WittVector p (PreTilt R p),
       RingHom.ker (WittVector.fontaineTheta R p) = Ideal.span {ξ}) :
     RingHom.ker (WittVector.fontaineTheta R p) =
       Ideal.span {(p : WittVector p (PreTilt R p))} := by sorry
 
--- Layer Q0:integral-algebra: Injectivity of the characteristic-p tilt projection
+/-- A principal Fontaine kernel in characteristic p makes the zeroth tilt projection injective. -/
 theorem tilt_projection_injective_charP
     (h : ∃ ξ : WittVector p (PreTilt R p),
       RingHom.ker (WittVector.fontaineTheta R p) = Ideal.span {ξ}) :
@@ -143,94 +149,128 @@ variable (hg : g.comp (Ideal.Quotient.mk (Ideal.span {(p : R)})) =
   (Ideal.Quotient.mk (Ideal.span {(p : S)})).comp f)
 include hg
 
--- Layer Q0:integral-algebra: Naturality of the multiplicative untilt
+/-- Sharp commutes with a ring map and its explicitly compatible reduction modulo p. -/
 theorem untilt_natural (x : PreTilt R p) :
     f x.untilt = PreTilt.untilt (O := S) (p := p) (Perfection.map p g x) := by sorry
 
--- Layer Q0:integral-algebra: Naturality of Fontaine’s map
+/-- Fontaine’s map commutes with the induced Witt map of tilts. -/
 theorem theta_natural (x : WittVector p (PreTilt R p)) :
     f (WittVector.fontaineTheta R p x) =
       WittVector.fontaineTheta S p (WittVector.map (Perfection.map p g) x) := by sorry
 end Naturality
 
--- Layer Q0:integral-algebra: Invariance under ring equivalence
+section FiniteWitt
+/-- The finite Witt Frobenius reduces length by one; it descends infinite Frobenius through truncation, over any commutative ring. -/
+def finiteWittFrobenius (r : ℕ) :
+    TruncatedWittVector p (r + 1) R →+* TruncatedWittVector p r R := by sorry
+
+/-- Finite Frobenius is the truncation of infinite Witt Frobenius, not the restriction map. -/
+theorem finiteWittFrobenius_truncate (r : ℕ) (x : WittVector p R) :
+    finiteWittFrobenius p R r (WittVector.truncate (r + 1) x) =
+      WittVector.truncate r (WittVector.frobenius x) := by sorry
+
+/-- At length two the finite Frobenius is x₀^p+p x₁, including in mixed characteristic. -/
+theorem finiteWittFrobenius_coeff_zero (x : TruncatedWittVector p 2 R) :
+    (finiteWittFrobenius p R 1 x).coeff ⟨0, by decide⟩ =
+      x.coeff ⟨0, by decide⟩ ^ p + (p : R) * x.coeff ⟨1, by decide⟩ := by sorry
+
+/-- Restriction and finite Frobenius commute when both sides reduce to length r. -/
+theorem finiteWittFrobenius_restrict (r : ℕ) (x : TruncatedWittVector p (r + 2) R) :
+    TruncatedWittVector.truncate (by omega : r ≤ r + 1)
+      (finiteWittFrobenius p R (r + 1) x) =
+    finiteWittFrobenius p R r
+      (TruncatedWittVector.truncate (by omega : r + 1 ≤ r + 2) x) := by sorry
+
+/-- Length zero is the zero ring, so finite Frobenius has its unique value there. -/
+example (x : TruncatedWittVector 2 1 ℤ) : finiteWittFrobenius 2 ℤ 0 x = 0 := by sorry
+
+/-- At p=2, Frobenius sends the two Witt coordinates (1,1) over ℤ to 3; restriction would give 1. -/
+example : (finiteWittFrobenius 2 ℤ 1
+    (TruncatedWittVector.mk 2 (fun _ : Fin 2 => (1 : ℤ)))).coeff ⟨0, by decide⟩ = 3 := by sorry
+
+/-- In characteristic 2 the second coordinate contributes zero to length-one Frobenius. -/
+example : (finiteWittFrobenius 2 (ZMod 2) 1
+    (TruncatedWittVector.mk 2 (fun i : Fin 2 => if i = 0 then 0 else 1))).coeff
+      ⟨0, by decide⟩ = 0 := by sorry
+
+variable [Fact (¬ IsUnit (p : R))] [IsAdicComplete (Ideal.span {(p : R)}) R]
+
+/-- The BMS finite Fontaine map θ_r sends a Teichmüller lift to the truncated Teichmüller lift of sharp. At r=0 its target is the zero ring. -/
+def finiteFontaineTheta (r : ℕ) :
+    WittVector p (PreTilt R p) →+* TruncatedWittVector p r R := by sorry
+
+/-- This fixes θ_r rather than its Frobenius-twisted inverse-limit projection. -/
+theorem finiteFontaineTheta_teichmuller (r : ℕ) (a : PreTilt R p) :
+    finiteFontaineTheta p R r (WittVector.teichmuller p a) =
+      WittVector.truncate r (WittVector.teichmuller p a.untilt) := by sorry
+
+/-- Restriction of θ_(r+1) is θ_r. -/
+theorem finiteFontaineTheta_restrict (r : ℕ) (x : WittVector p (PreTilt R p)) :
+    TruncatedWittVector.truncate (by omega : r ≤ r + 1)
+      (finiteFontaineTheta p R (r + 1) x) = finiteFontaineTheta p R r x := by sorry
+
+/-- Finite Frobenius of θ_(r+1) equals θ_r after the Witt Frobenius on A_inf. -/
+theorem finiteFontaineTheta_frobenius (r : ℕ) (x : WittVector p (PreTilt R p)) :
+    finiteWittFrobenius p R r (finiteFontaineTheta p R (r + 1) x) =
+      finiteFontaineTheta p R r (WittVector.frobenius x) := by sorry
+
+/-- The length-one coordinate is the existing Fontaine map. -/
+theorem finiteFontaineTheta_one (x : WittVector p (PreTilt R p)) :
+    (finiteFontaineTheta p R 1 x).coeff ⟨0, by decide⟩ =
+      WittVector.fontaineTheta R p x := by sorry
+
+/-- Every vector maps to zero at length zero. -/
+example (x : WittVector p (PreTilt R p)) : finiteFontaineTheta p R 0 x = 0 := by sorry
+
+/-- At length one the integer 2 is zero over F₂. -/
+example :
+    letI : Fact (¬ IsUnit (2 : ZMod 2)) := ⟨by sorry⟩
+    (finiteFontaineTheta 2 (ZMod 2) 1 2).coeff ⟨0, by decide⟩ = 0 := by sorry
+
+/-- At length two the same integer has Witt coordinates (0,1), so θ₂ is not a pointwise-coordinate map. -/
+example :
+    letI : Fact (¬ IsUnit (2 : ZMod 2)) := ⟨by sorry⟩
+    (finiteFontaineTheta 2 (ZMod 2) 2 2).coeff ⟨1, by decide⟩ = 1 := by sorry
+
+/-- Over a perfect polynomial ring θ₂ uses sharp itself, with Witt coordinates (T,0). -/
+example :
+    let A := PerfectClosure (Polynomial (ZMod 2)) 2
+    let t : A := PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X
+    letI : Fact (¬ IsUnit (2 : A)) := ⟨by sorry⟩
+    letI : IsAdicComplete (Ideal.span {(2 : A)}) A := by sorry
+    ∀ a : PreTilt A 2, a.untilt = t →
+      (finiteFontaineTheta 2 A 2 (WittVector.teichmuller 2 a)).coeff ⟨0, by decide⟩ = t ∧
+      (finiteFontaineTheta 2 A 2 (WittVector.teichmuller 2 a)).coeff ⟨1, by decide⟩ = 0 := by sorry
+
+/-- A generator with sharp equal to 2 fixes the minus sign in [a]−2: changing it to plus gives 4. -/
+example [CharZero R] (a : PreTilt R 2) [Fact (¬ IsUnit (2 : R))]
+    [IsAdicComplete (Ideal.span {(2 : R)}) R] (ha : a.untilt = 2) :
+    WittVector.fontaineTheta R 2 (WittVector.teichmuller 2 a - 2) = 0 ∧
+      WittVector.fontaineTheta R 2 (WittVector.teichmuller 2 a + 2) = 4 ∧
+      (4 : R) ≠ 0 := by sorry
+
+end FiniteWitt
+
+/-- Ring equivalences preserve and reflect integral perfectoidness. -/
 theorem IsIntegralPerfectoid.congr (S : Type v) [CommRing S] (e : R ≃+* S) :
     IsIntegralPerfectoid p R ↔ IsIntegralPerfectoid p S := by sorry
 
--- Layer Q0:integral-algebra: Integral perfectoidness in characteristic p
+/-- In characteristic exactly p, integral perfectoidness is bijectivity of Frobenius. -/
 theorem integralPerfectoid_iff_perfect [CharP R p] :
     IsIntegralPerfectoid p R ↔ PerfectRing R p := by sorry
 
 -- Stronger testing of the definition: a non-field perfect ring is included.
--- TauCeti.PerfectoidQuotients.productField
+-- productField
 example : IsIntegralPerfectoid p (ZMod p × ZMod p) := by sorry
--- TauCeti.PerfectoidQuotients.perfectRingAgreement
+-- perfectRingAgreement
 example [CharP R p] [PerfectRing R p] : IsIntegralPerfectoid p R := by sorry
 
-section Quotients
-variable [hchar : CharP R p]
-include hchar
 
-omit hchar in
--- Layer Q4: Surjectivity of powers on a quotient
-theorem quotient_pow_surjective (h : Function.Surjective (fun x : R => x ^ p))
-    (I : Ideal R) : Function.Surjective (fun x : R ⧸ I => x ^ p) := by sorry
-
--- Layer Q4: Perfect quotients of a perfect characteristic-p ring
-theorem quotient_perfect_iff_radical [PerfectRing R p] (I : Ideal R) :
-    PerfectRing (R ⧸ I) p ↔ I.IsRadical := by sorry
-
--- Layer Q4: The radical quotient is integral perfectoid
-theorem radical_quotient_integralPerfectoid [PerfectRing R p] (I : Ideal R) :
-    IsIntegralPerfectoid p (R ⧸ I.radical) := by sorry
-
--- Layer Q4: Perfectoidization of a characteristic-p quotient
-theorem radical_quotient_universal [PerfectRing R p] (I : Ideal R)
-    (T : Type v) [CommRing T] (hT : IsIntegralPerfectoid p T)
-    (f : R →+* T) (hf : I ≤ RingHom.ker f) :
-    ∃! g : R ⧸ I.radical →+* T, g.comp (Ideal.Quotient.mk I.radical) = f := by sorry
-
--- The quotient need not have characteristic exactly p: I = top gives zero.
--- TauCeti.PerfectoidQuotients.topQuotient
-example [PerfectRing R p] : IsIntegralPerfectoid p (R ⧸ (⊤ : Ideal R)) := by sorry
--- TauCeti.PerfectoidQuotients.zeroQuotient
-example [PerfectRing R p] : IsIntegralPerfectoid p (R ⧸ (⊥ : Ideal R)) := by sorry
--- TauCeti.PerfectoidQuotients.nonradicalQuotient
-example [PerfectRing R p] (I : Ideal R) (h : ¬ I.IsRadical) :
-    ¬ PerfectRing (R ⧸ I) p := by sorry
-
--- Single-step roots and their ideal, on an existing perfect ring.
--- Layer Q4: The ideal of all roots of a principal element
-theorem root_span_eq_radical [PerfectRing R p] (f : R) :
-    Ideal.span (Set.range (fun n : ℕ => ((frobeniusEquiv R p).symm^[n]) f)) =
-      (Ideal.span {f}).radical := by sorry
-
--- Layer Q4: Which algebraic quotients stay integral perfectoid
-theorem quotient_perfectoid_iff_radical [PerfectRing R p] (I : Ideal R) :
-    IsIntegralPerfectoid p (R ⧸ I) ↔ I.IsRadical := by sorry
-
--- TauCeti.PerfectoidQuotients.rootZero
-example [PerfectRing R p] :
-    Ideal.span (Set.range (fun n : ℕ => ((frobeniusEquiv R p).symm^[n]) (0 : R))) = ⊥ := by sorry
--- TauCeti.PerfectoidQuotients.rootOne
-example [PerfectRing R p] :
-    Ideal.span (Set.range (fun n : ℕ => ((frobeniusEquiv R p).symm^[n]) (1 : R))) = ⊤ := by sorry
--- TauCeti.PerfectoidQuotients.rootKilled
-example [PerfectRing R p] (f : R) (n : ℕ) :
-    Ideal.Quotient.mk (Ideal.span {f}).radical
-      (((frobeniusEquiv R p).symm^[n]) f) = 0 := by sorry
-end Quotients
-
-end TauCeti.PerfectoidQuotients
-
-/-! Retained elementary Witt-quotient bounded-torsion signatures. -/
-
-namespace TauCeti.Perfectoid
-
+namespace Witt
 variable (p : ℕ) [Fact p.Prime]
 variable {k : Type*} [CommRing k] [CharP k p] [PerfectRing k p]
 
-/-- The first Witt coordinate of xi must be a unit; no condition on xi_0. -/
+/-- If ξ₁ is a unit, divisibility p² ∣ ξg implies p ∣ g over a perfect characteristic-p ring. -/
 theorem witt_p_sq_dvd_mul_detects_p (xi g : WittVector p k)
     (hxi : IsUnit (xi.coeff 1))
     (h : (p : WittVector p k) ^ 2 ∣ xi * g) :
@@ -250,13 +290,11 @@ theorem witt_principal_quotient_p_torsion (xi : WittVector p k)
     (hx : (p : WittVector p k ⧸ Ideal.span {xi}) ^ n * x = 0) :
     (p : WittVector p k ⧸ Ideal.span {xi}) * x = 0 := by sorry
 
--- Acceptance: xi=p detects exactly ordinary divisibility by p.
 -- witt_torsion_prime_detection
 example (g : WittVector p k) :
     ((p : WittVector p k) ^ 2 ∣ (p : WittVector p k) * g) ↔
       (p : WittVector p k) ∣ g := by sorry
 
--- Acceptance: the quotient by p is killed by p, with no domain assumption on k.
 -- witt_torsion_quotient_by_prime
 example (x : WittVector p k ⧸ Ideal.span {(p : WittVector p k)}) :
     (p : WittVector p k ⧸ Ideal.span {(p : WittVector p k)}) * x = 0 := by sorry
@@ -269,190 +307,55 @@ example [Fact (Nat.Prime 2)] :
     (2 : A ⧸ I) ^ 2 * (1 : A ⧸ I) = 0 ∧
       (2 : A ⧸ I) * (1 : A ⧸ I) ≠ 0 := by sorry
 
-end TauCeti.Perfectoid
 
-namespace TauCeti.PerfectoidQuotients
-noncomputable section
+end Witt
+
+section ClosureAndOperations
 variable (p : ℕ) [Fact p.Prime]
-
-/-- Concrete ordinary-module criterion of Stacks 091P(7).
-DD.1 owns derived completeness; this private specialization exposes no second generic API. -/
-private def pCompletionTowerMap (S : Type u) [CommRing S] (a : ℕ → S) : ℕ → S :=
-  fun n => a n - (p : S) * a (n + 1)
-
--- Layer Q2: Semiperfectoid rings
-/-- A fixed universe for presentations. Enlarge it using a universe lift when necessary. -/
-def IsSemiperfectoid (S : Type u) [CommRing S] : Prop :=
-  Function.Bijective (pCompletionTowerMap p S) ∧
-  ∃ (R : Type u) (_ : CommRing R), IsIntegralPerfectoid p R ∧
-    ∃ f : R →+* S, Function.Surjective f
-
-variable (S : Type u) [CommRing S]
-theorem IsSemiperfectoid.presentation (h : IsSemiperfectoid p S) :
-    ∃ (R : Type u) (_ : CommRing R), IsIntegralPerfectoid p R ∧
-      ∃ f : R →+* S, Function.Surjective f := by sorry
-
-theorem IsSemiperfectoid.derived_complete (h : IsSemiperfectoid p S) :
-    Function.Bijective (pCompletionTowerMap p S) := by sorry
-
-theorem IsSemiperfectoid.of_perfectoid (h : IsIntegralPerfectoid p S) :
-    IsSemiperfectoid p S := by sorry
-
-theorem IsSemiperfectoid.congr (T : Type u) [CommRing T] (e : S ≃+* T) :
-    IsSemiperfectoid p S ↔ IsSemiperfectoid p T := by sorry
-
--- The API is the comparison of completeness predicates, with the torsion bound explicit.
-theorem IsSemiperfectoid.classically_complete_of_bounded
-    (hb : ∃ n : ℕ, ∀ m : ℕ, ∀ x : S, (p : S) ^ m * x = 0 → (p : S) ^ n * x = 0) :
-    Function.Bijective (pCompletionTowerMap p S) ↔
-      IsAdicComplete (Ideal.span {(p : S)}) S := by sorry
-
--- TauCeti.PerfectoidQuotients.semiperfectoidZero
-example : IsSemiperfectoid p (ZMod 1) := by sorry
--- TauCeti.PerfectoidQuotients.semiperfectoidRootQuotient
-example :
-    let A := PerfectClosure (Polynomial (ZMod 2)) 2
-    let I := Ideal.span {PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X}
-    IsSemiperfectoid 2 (A ⧸ I) ∧ ¬ IsIntegralPerfectoid 2 (A ⧸ I) := by sorry
--- TauCeti.PerfectoidQuotients.semiperfectoidIdentity
-example (h : IsIntegralPerfectoid p S) : IsSemiperfectoid p S := by sorry
--- TauCeti.PerfectoidQuotients.semiperfectoidPolynomialFails
-example : ¬ IsSemiperfectoid p (Polynomial (ZMod p)) := by sorry
-
-/-- This bundle states the actual integral predicate and actual universal property.
-Its existence is the construction theorem, whose proof remains a placeholder.
-It contains no unspecified prism or derived predicate. -/
-structure PerfectoidizationData where
-  Carrier : Type u
-  [ring : CommRing Carrier]
-  eta : S →+* Carrier
-  isPerfectoid : IsIntegralPerfectoid p Carrier
-  universal : ∀ (T : Type u) [CommRing T], IsIntegralPerfectoid p T →
-    ∀ f : S →+* T, ∃! g : Carrier →+* T, g.comp eta = f
-attribute [instance] PerfectoidizationData.ring
-
--- Layer Q2: Universal perfectoidization
-theorem existsPerfectoidization (h : IsSemiperfectoid p S) :
-    Nonempty (PerfectoidizationData p S) := by sorry
-
-private def perfectoidizationData (h : IsSemiperfectoid p S) : PerfectoidizationData p S :=
-  Classical.choice (existsPerfectoidization p S h)
-
-def perfectoidization (h : IsSemiperfectoid p S) : Type u :=
-  (perfectoidizationData p S h).Carrier
-
-instance perfectoidization.commRing (h : IsSemiperfectoid p S) :
-    CommRing (perfectoidization p S h) :=
-  (perfectoidizationData p S h).ring
-
-def perfectoidization.eta (h : IsSemiperfectoid p S) : S →+* perfectoidization p S h :=
-  (perfectoidizationData p S h).eta
-
-theorem perfectoidization.isIntegralPerfectoid (h : IsSemiperfectoid p S) :
-    IsIntegralPerfectoid p (perfectoidization p S h) := by sorry
-
-def perfectoidization.lift (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
-    (hT : IsIntegralPerfectoid p T) (f : S →+* T) : perfectoidization p S h →+* T :=
-  Classical.choose ((perfectoidizationData p S h).universal T hT f)
-
-theorem perfectoidization.lift_eta (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
-    (hT : IsIntegralPerfectoid p T) (f : S →+* T) :
-    (perfectoidization.lift p S h T hT f).comp (perfectoidization.eta p S h) = f := by sorry
-
-theorem perfectoidization.lift_unique (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
-    (hT : IsIntegralPerfectoid p T) (g₁ g₂ : perfectoidization p S h →+* T)
-    (he : g₁.comp (perfectoidization.eta p S h) = g₂.comp (perfectoidization.eta p S h)) :
-    g₁ = g₂ := by sorry
-
-def perfectoidization.map (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
-    (hT : IsSemiperfectoid p T) (f : S →+* T) :
-    perfectoidization p S h →+* perfectoidization p T hT :=
-  perfectoidization.lift p S h _ (perfectoidization.isIntegralPerfectoid p T hT)
-    ((perfectoidization.eta p T hT).comp f)
-
-theorem perfectoidization.map_eta (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
-    (hT : IsSemiperfectoid p T) (f : S →+* T) :
-    (perfectoidization.map p S h T hT f).comp (perfectoidization.eta p S h) =
-      (perfectoidization.eta p T hT).comp f := by sorry
-
-theorem perfectoidization.map_id (h : IsSemiperfectoid p S) :
-    perfectoidization.map p S h S h (RingHom.id S) = RingHom.id _ := by sorry
-
-theorem perfectoidization.map_comp (h : IsSemiperfectoid p S)
-    (T U : Type u) [CommRing T] [CommRing U]
-    (hT : IsSemiperfectoid p T) (hU : IsSemiperfectoid p U)
-    (f : S →+* T) (g : T →+* U) :
-    perfectoidization.map p S h U hU (g.comp f) =
-      (perfectoidization.map p T hT U hU g).comp (perfectoidization.map p S h T hT f) := by sorry
-
-theorem perfectoidization.of_perfectoid (h : IsIntegralPerfectoid p S) :
-    ∃ e : S ≃+* perfectoidization p S (IsSemiperfectoid.of_perfectoid p S h),
-      e.toRingHom = perfectoidization.eta p S (IsSemiperfectoid.of_perfectoid p S h) := by sorry
-
-theorem perfectoidization.presentation_independent (h : IsSemiperfectoid p S)
-    (E : PerfectoidizationData p S) :
-    ∃! e : perfectoidization p S h ≃+* E.Carrier,
-      e.toRingHom.comp (perfectoidization.eta p S h) = E.eta := by sorry
-
--- TauCeti.PerfectoidQuotients.perfectoidizationZero
-example (h : IsSemiperfectoid p (ZMod 1)) :
-    Function.Bijective (perfectoidization.eta p (ZMod 1) h) := by sorry
--- TauCeti.PerfectoidQuotients.perfectoidizationPerfect
-example (h : IsIntegralPerfectoid p S) :
-    Function.Bijective (perfectoidization.eta p S (IsSemiperfectoid.of_perfectoid p S h)) := by sorry
--- TauCeti.PerfectoidQuotients.perfectoidizationRootQuotient
-example :
-    let A := PerfectClosure (Polynomial (ZMod 2)) 2
-    let I := Ideal.span {PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X}
-    ∀ h : IsSemiperfectoid 2 (A ⧸ I),
-      (∃ e : perfectoidization 2 (A ⧸ I) h ≃+* A ⧸ I.radical,
-        e.toRingHom.comp (perfectoidization.eta 2 (A ⧸ I) h) =
-          Ideal.quotientMap I.radical (RingHom.id A) (by sorry)) ∧
-      ¬ Function.Injective (perfectoidization.eta 2 (A ⧸ I) h) := by sorry
--- TauCeti.PerfectoidQuotients.perfectoidizationTwoPresentations
-example (h : IsSemiperfectoid p S) (E₁ E₂ : PerfectoidizationData p S) :
-    ∃! e : E₁.Carrier ≃+* E₂.Carrier, e.toRingHom.comp E₁.eta = E₂.eta := by sorry
-
--- Layer Q4: Surjectivity of perfectoidization
--- Completed base change and colimit comparisons are proof obligations for surjectivity.
-theorem perfectoidization_surjective (h : IsSemiperfectoid p S) :
-    Function.Surjective (perfectoidization.eta p S h) := by sorry
-
--- Layer Q0:integral-algebra: p-integral closure
 /-- The infimum formulation equals the successive root-adjunction union. -/
 def pIntegralClosure (B : Type u) [CommRing B] (A : Subring B) : Subring B :=
   sInf {C : Subring B | A ≤ C ∧ ∀ b : B, b ^ p ∈ C → b ∈ C}
 
 variable (B : Type u) [CommRing B] (A : Subring B)
+/-- The source subring lies in its ambient p-integral closure. -/
 theorem pIntegralClosure.le : A ≤ pIntegralClosure p B A := by sorry
 
+/-- The ambient p-integral closure is closed under pth roots inside B. -/
 theorem pIntegralClosure.isClosed (b : B) (h : b ^ p ∈ pIntegralClosure p B A) :
     b ∈ pIntegralClosure p B A := by sorry
 
+/-- Root closure is contained in every root-closed intermediate subring containing A. -/
 theorem pIntegralClosure.minimal (C : Subring B) (hAC : A ≤ C)
     (hC : ∀ b : B, b ^ p ∈ C → b ∈ C) : pIntegralClosure p B A ≤ C := by sorry
 
+/-- Ambient p-integral closure is idempotent. -/
 theorem pIntegralClosure.idempotent :
     pIntegralClosure p B (pIntegralClosure p B A) = pIntegralClosure p B A := by sorry
 
+/-- Ambient p-integral closure is monotone in the source subring. -/
 theorem pIntegralClosure.mono (C : Subring B) (hAC : A ≤ C) :
     pIntegralClosure p B A ≤ pIntegralClosure p B C := by sorry
 
+/-- For prime p, ambient root closure is contained in ordinary integral closure. -/
 theorem pIntegralClosure.le_integralClosure (hp : p.Prime) :
     pIntegralClosure p B A ≤ (integralClosure A B).toSubring := by sorry
 
--- TauCeti.PerfectoidQuotients.pClosureIdentity
+-- pClosureIdentity
 example (h : ∀ b : B, b ^ p ∈ A → b ∈ A) : pIntegralClosure p B A = A := by sorry
--- TauCeti.PerfectoidQuotients.pClosureZero
+-- pClosureZero
 example : pIntegralClosure p (ZMod 1) ⊥ = ⊤ := by sorry
 
+/-- The actual polynomial subring F₂[T^n] inside F₂[T]. -/
 private def powerPolynomialSubring (n : ℕ) : Subring (Polynomial (ZMod 2)) :=
   (Polynomial.eval₂RingHom (Polynomial.C : ZMod 2 →+* Polynomial (ZMod 2))
     (Polynomial.X ^ n)).range
 
--- TauCeti.PerfectoidQuotients.pClosureRoot
+-- pClosureRoot
+/-- The subring generated by T¹ already contains every polynomial; this fixes the ambient polynomial model. -/
+example : powerPolynomialSubring 1 = ⊤ := by sorry
+
 example : pIntegralClosure 2 (Polynomial (ZMod 2)) (powerPolynomialSubring 2) = ⊤ := by sorry
--- TauCeti.PerfectoidQuotients.pClosureNotOrdinary
+-- pClosureNotOrdinary
 example :
     pIntegralClosure 2 (Polynomial (ZMod 2)) (powerPolynomialSubring 3) =
       powerPolynomialSubring 3 ∧
@@ -461,29 +364,29 @@ example :
 
 section AlgebraicTargets
 variable (R : Type u) [CommRing R]
--- Layer Q0:integral-algebra: Bounded p-primary torsion of perfectoid rings
+/-- All p-primary torsion in an integral perfectoid ring is killed by p, including exponent zero. -/
 theorem perfectoid_p_torsion_killed_by_p (h : IsIntegralPerfectoid p R)
     (n : ℕ) (x : R) (hx : (p : R) ^ n * x = 0) : (p : R) * x = 0 := by sorry
 
--- Layer Q0:integral-algebra: Reducedness of perfectoid rings
+/-- Every integral perfectoid ring is reduced, allowing p-torsion. -/
 theorem integralPerfectoid_reduced (h : IsIntegralPerfectoid p R) : IsReduced R := by sorry
 
+/-- Every entry of a compatible root tower has the same annihilator. -/
 theorem compatible_root_annihilator (h : IsIntegralPerfectoid p R)
     (a : Perfection R p) (n : ℕ) (x : R) :
     a.val n * x = 0 ↔ a.val 0 * x = 0 := by sorry
 
+/-- For a compatible-root element, power torsion equals its annihilator. -/
 theorem compatible_root_power_torsion (h : IsIntegralPerfectoid p R)
     (a : Perfection R p) (x : R) :
     (∃ n : ℕ, (a.val 0) ^ n * x = 0) ↔ a.val 0 * x = 0 := by sorry
 
--- Layer Q0:integral-algebra: Products of perfectoid rings
 -- The Z_p action is unique on these p-complete rings; ordinary ring carriers suffice here.
+/-- An arbitrary small product is integral perfectoid exactly when every factor is, including an empty product. -/
 theorem integralPerfectoid_pi_iff (ι : Type v) (A : ι → Type u) [∀ i, CommRing (A i)] :
     IsIntegralPerfectoid p (∀ i, A i) ↔ ∀ i, IsIntegralPerfectoid p (A i) := by sorry
 
--- Layer Q0:integral-algebra: Torsion-free perfectoid quotient
--- Only its ordinary perfectoid/torsion-free conclusion is typed; tilt and fiber-product
--- identifications require completion-instance and tilt transport.
+/-- For a π-complete perfectoid ring with π^p dividing p, remove the actual localization kernel to obtain a π-torsion-free perfectoid quotient. -/
 theorem perfectoid_torsion_free_quotient (h : IsIntegralPerfectoid p R)
     (π : R) (hπ : ∃ a : R, π ^ p * a = (p : R))
     [IsAdicComplete (Ideal.span {π}) R] :
@@ -493,78 +396,69 @@ theorem perfectoid_torsion_free_quotient (h : IsIntegralPerfectoid p R)
 
 section Kernel
 variable [Fact (¬ IsUnit (p : R))] [IsAdicComplete (Ideal.span {(p : R)}) R]
--- Layer Q0:integral-algebra: Principal Fontaine kernel criterion
--- Nonzerodivisor conclusion only; the general ϖ-adic Frobenius equivalence needs
--- normalization and completion transport.
-theorem principal_theta_kernel_criterion (h : IsIntegralPerfectoid p R)
-    (ξ : WittVector p (PreTilt R p))
-    (hξ : RingHom.ker (WittVector.fontaineTheta R p) = Ideal.span {ξ}) :
-    ∀ x : WittVector p (PreTilt R p), ξ * x = 0 → x = 0 := by sorry
-
--- Layer Q0:integral-algebra: Distinguished Fontaine kernel generators
+/-- A member of the Fontaine kernel generates it exactly when its first Witt coordinate is a unit. -/
 theorem theta_generator_iff_unit_coeff_one (h : IsIntegralPerfectoid p R)
     (ξ : WittVector p (PreTilt R p)) (hξ : ξ ∈ RingHom.ker (WittVector.fontaineTheta R p)) :
     RingHom.ker (WittVector.fontaineTheta R p) = Ideal.span {ξ} ↔ IsUnit (ξ.coeff 1) := by sorry
 
+/-- Every Fontaine-kernel generator of an integral perfectoid ring is a nonzerodivisor. -/
 theorem theta_generator_nonzerodivisor (h : IsIntegralPerfectoid p R)
     (ξ : WittVector p (PreTilt R p))
     (hξ : RingHom.ker (WittVector.fontaineTheta R p) = Ideal.span {ξ}) :
     ∀ x : WittVector p (PreTilt R p), ξ * x = 0 → x = 0 := by sorry
 
--- Layer Q0:integral-algebra: Compatible roots and iterated Frobenius
--- The root-system monoid comparison is typed; its finite quotient/expansion clauses
--- require normalization, completion transport and the finite-Witt interfaces.
-theorem perfectoid_compatible_roots_iterated_frobenius (h : IsIntegralPerfectoid p R) :
-    ∃ e : Perfection R p ≃* PreTilt R p, ∀ a : Perfection R p, ∀ n : ℕ,
-      PreTilt.coeff (O := R) (p := p) n (e a) =
-        Ideal.Quotient.mk (Ideal.span {(p : R)}) (a.val n) := by sorry
-
--- Layer Q0:integral-algebra: Perfectoid completion along a sharp ideal
--- Ordinary conclusion only; derived equality and tilt comparison need supplier carriers.
+/-- Ordinary completion at a finite ideal of sharp elements is perfectoid; the full target also compares derived completion and tilts. -/
 theorem perfectoid_sharp_ideal_completion (h : IsIntegralPerfectoid p R)
     (r : ℕ) (a : Fin r → PreTilt R p) :
     IsIntegralPerfectoid p
       (AdicCompletion (Ideal.span (Set.range (fun i => (a i).untilt))) R) := by sorry
 end Kernel
+/-- In cohomological notation M[1] has M in degree −1 and zero in degree 0. -/
+example :
+    let M := ModuleCat.of ℤ ℤ
+    let K := (HomologicalComplex.single (ModuleCat ℤ) (ComplexShape.up ℤ) 0).obj M
+    ((CochainComplex.shiftFunctor (ModuleCat ℤ) 1).obj K).X (-1) = M ∧
+      CategoryTheory.Limits.IsZero (((CochainComplex.shiftFunctor (ModuleCat ℤ) 1).obj K).X 0) := by sorry
 end AlgebraicTargets
-end
-end TauCeti.PerfectoidQuotients
-namespace TauCeti.PerfectoidQuotients
-noncomputable section
+
+end ClosureAndOperations
+
+section RootClosureCompletion
 variable (p : ℕ) [Fact p.Prime] (R : Type u) [CommRing R]
 
-/-- Representative formula for the cross-quotient p-power map.
-The divisibility hypothesis in the theorem makes it independent of representatives. -/
-private def quotientPowerMap (π : R) :
-    R ⧸ Ideal.span {π} → R ⧸ Ideal.span {π ^ p} :=
-  fun x => Ideal.Quotient.mk (Ideal.span {π ^ p}) (Quotient.out x ^ p)
+/-- The canonical p-power ring map R/(π) → R/(π^p), where π^p divides p.
+The divisibility makes the target characteristic dividing p and makes the
+representative formula well defined, including the zero quotient. -/
+private def quotientPowerMap (π : R) (hπ : ∃ a : R, π ^ p * a = (p : R)) :
+    R ⧸ Ideal.span {π} →+* R ⧸ Ideal.span {π ^ p} := by sorry
 
--- Layer Q0:integral-algebra: p-integral closedness criterion
--- This is the localization criterion; the completion clause needs normalization
--- and completion transport.
+/-- The quotient p-power map agrees with pth powers of representatives. -/
+private theorem quotientPowerMap_mk (π : R)
+    (hπ : ∃ a : R, π ^ p * a = (p : R)) (x : R) :
+    quotientPowerMap p R π hπ (Ideal.Quotient.mk (Ideal.span {π}) x) =
+      Ideal.Quotient.mk (Ideal.span {π ^ p}) (x ^ p) := by sorry
+
+/-- For regular π with π^p dividing p, injectivity of R/(π) → R/(π^p) is ambient p-root closedness in R[1/π]. -/
 theorem perfectoid_p_integral_closedness (π : R)
     (hπ : ∃ a : R, π ^ p * a = (p : R))
     (hreg : ∀ x : R, π * x = 0 → x = 0) :
-    Function.Injective (quotientPowerMap p R π) ↔
+    Function.Injective (quotientPowerMap p R π hπ) ↔
       ∀ b : Localization.Away π,
         b ^ p ∈ (algebraMap R (Localization.Away π)).range →
         b ∈ (algebraMap R (Localization.Away π)).range := by sorry
 
--- Layer Q0:integral-algebra: Perfectoid completion of p-integral closure
+/-- A compatible regular root tower and surjective quotient Frobenius make the π-completed ambient root closure perfectoid. -/
 theorem completion_pIntegralClosure_perfectoid (π : R)
     (hπ : ∃ a : R, π ^ p * a = (p : R))
     (hreg : ∀ x : R, π * x = 0 → x = 0)
     (hroot : ∃ a : Perfection R p, a.val 0 = π)
-    (hF : Function.Surjective (quotientPowerMap p R π)) :
+    (hF : Function.Surjective (quotientPowerMap p R π hπ)) :
     let C := pIntegralClosure p (Localization.Away π)
       (algebraMap R (Localization.Away π)).range
     ∃ t : C, (t : Localization.Away π) = algebraMap R (Localization.Away π) π ∧
       IsIntegralPerfectoid p (AdicCompletion (Ideal.span {t}) C) := by sorry
 
--- Layer Q0:integral-algebra: Completed root-stable perfectoid quotients
--- Compatible p-th roots in the set are the source's sufficient special case.
--- The general modulo-ϖ^n ideal-power condition and tilt formula need
--- the supplier completion and tilt interfaces.
+/-- The π-completion of a quotient by a set containing pth roots of its members is perfectoid; this is the sufficient special case of §0.6. -/
 theorem perfectoid_completed_root_quotient (h : IsIntegralPerfectoid p R)
     (π : R) (hπ : ∃ a : R, π ^ p * a = (p : R))
     [IsAdicComplete (Ideal.span {π}) R] (s : Set R)
@@ -573,9 +467,297 @@ theorem perfectoid_completed_root_quotient (h : IsIntegralPerfectoid p R)
       (AdicCompletion (Ideal.span {Ideal.Quotient.mk (Ideal.span s) π})
         (R ⧸ Ideal.span s)) := by sorry
 
--- Layer Q4: Perfectoidization of a principal root quotient
--- The completed quotient and its unit are actual carriers and maps.
--- Surjectivity uses the baseline AdicCompletion.map_surjective and map_of.
+
+/-- At π=1 both cross-quotients are zero; the map is bijective. -/
+example : Function.Bijective (quotientPowerMap 2 ℤ 1 ⟨2, by norm_num⟩) := by sorry
+
+/-- At π=0 over F₂, the map squares in F₂ and hence is bijective. -/
+example : Function.Bijective (quotientPowerMap 2 (ZMod 2) 0
+    ⟨0, by rw [mul_zero]; exact (CharP.cast_eq_zero (ZMod 2) 2).symm⟩) := by sorry
+
+/-- In characteristic 2 the source is modulo T and the target modulo T²; the map squares representatives. -/
+example :
+    let R := Polynomial (ZMod 2)
+    let π : R := Polynomial.X
+    let hπ : ∃ a : R, π ^ 2 * a = (2 : R) := ⟨0, by rw [mul_zero]; exact (CharP.cast_eq_zero R 2).symm⟩
+    quotientPowerMap 2 R π hπ (Ideal.Quotient.mk (Ideal.span {π}) (1 + π)) =
+      Ideal.Quotient.mk (Ideal.span {π ^ 2}) 1 := by sorry
+
+end RootClosureCompletion
+end IntegralAlgebra
+
+/-! ## Layer 1: initial prisms and universal perfectoidization -/
+
+section Perfectoidization
+variable (p : ℕ) [Fact p.Prime]
+/-- Concrete ordinary-module criterion of Stacks 091P(7).
+DD.1 owns derived completeness; this private specialization exposes no second generic API. -/
+private def pCompletionTowerMap (S : Type u) [CommRing S] (a : ℕ → S) : ℕ → S :=
+  fun n => a n - (p : S) * a (n + 1)
+
+/-- An ordinary ring is semiperfectoid when its derived-completion difference operator is bijective and it is a quotient of an integral perfectoid ring. Presentations are existential in a fixed universe. -/
+def IsSemiperfectoid (S : Type u) [CommRing S] : Prop :=
+  Function.Bijective (pCompletionTowerMap p S) ∧
+  ∃ (R : Type u) (_ : CommRing R), IsIntegralPerfectoid p R ∧
+    ∃ f : R →+* S, Function.Surjective f
+
+variable (S : Type u) [CommRing S]
+/-- A semiperfectoid ring has an actual surjective integral-perfectoid presentation. -/
+theorem IsSemiperfectoid.presentation (h : IsSemiperfectoid p S) :
+    ∃ (R : Type u) (_ : CommRing R), IsIntegralPerfectoid p R ∧
+      ∃ f : R →+* S, Function.Surjective f := by sorry
+
+/-- The ordinary-module difference operator is bijective for a semiperfectoid ring. -/
+theorem IsSemiperfectoid.derived_complete (h : IsSemiperfectoid p S) :
+    Function.Bijective (pCompletionTowerMap p S) := by sorry
+
+/-- An integral perfectoid ring is semiperfectoid with its identity presentation. -/
+theorem IsSemiperfectoid.of_perfectoid (h : IsIntegralPerfectoid p S) :
+    IsSemiperfectoid p S := by sorry
+
+/-- Ring equivalences preserve and reflect semiperfectoidness. -/
+theorem IsSemiperfectoid.congr (T : Type u) [CommRing T] (e : S ≃+* T) :
+    IsSemiperfectoid p S ↔ IsSemiperfectoid p T := by sorry
+
+-- The API is the comparison of completeness predicates, with the torsion bound explicit.
+/-- With bounded p-primary torsion, the tower criterion agrees with classical p-completeness. -/
+theorem IsSemiperfectoid.classically_complete_of_bounded
+    (hb : ∃ n : ℕ, ∀ m : ℕ, ∀ x : S, (p : S) ^ m * x = 0 → (p : S) ^ n * x = 0) :
+    Function.Bijective (pCompletionTowerMap p S) ↔
+      IsAdicComplete (Ideal.span {(p : S)}) S := by sorry
+
+/-- The tower difference has the sign a₀ − p a₁: at p=2, (1,1,0,…) maps to (−1,1,0,…). -/
+example :
+    pCompletionTowerMap 2 ℤ (fun n => if n < 2 then 1 else 0) 0 = -1 ∧
+      pCompletionTowerMap 2 ℤ (fun n => if n < 2 then 1 else 0) 1 = 1 := by decide
+
+/-- In characteristic p the tower map is the identity, not a one-step shift. -/
+example (a : ℕ → ZMod p) : pCompletionTowerMap p (ZMod p) a = a := by sorry
+
+/-- Inverting 2 destroys uniqueness of completion: the geometric sequence is a nonzero kernel element. -/
+example : ¬ Function.Injective (pCompletionTowerMap 2 ℚ) := by sorry
+
+-- semiperfectoidZero
+example : IsSemiperfectoid p (ZMod 1) := by sorry
+-- semiperfectoidRootQuotient
+example :
+    let A := PerfectClosure (Polynomial (ZMod 2)) 2
+    let I := Ideal.span {PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X}
+    IsSemiperfectoid 2 (A ⧸ I) ∧ ¬ IsIntegralPerfectoid 2 (A ⧸ I) := by sorry
+-- semiperfectoidIdentity
+example (h : IsIntegralPerfectoid p S) : IsSemiperfectoid p S := by sorry
+-- semiperfectoidPolynomialFails
+example : ¬ IsSemiperfectoid p (Polynomial (ZMod p)) := by sorry
+
+/-- A commutative integral perfectoid ring under S with unique factorization of every map from S to an integral perfectoid target. -/
+structure PerfectoidizationData where
+  Carrier : Type u
+  [ring : CommRing Carrier]
+  eta : S →+* Carrier
+  isPerfectoid : IsIntegralPerfectoid p Carrier
+  universal : ∀ (T : Type u) [CommRing T], IsIntegralPerfectoid p T →
+    ∀ f : S →+* T, ∃! g : Carrier →+* T, g.comp eta = f
+attribute [instance] PerfectoidizationData.ring
+
+/-- Every semiperfectoid ring has an initial ring-valued integral perfectoidization. -/
+theorem existsPerfectoidization (h : IsSemiperfectoid p S) :
+    Nonempty (PerfectoidizationData p S) := by sorry
+
+/-- Choose an actual universal perfectoid ring and its unit under S. -/
+private def perfectoidizationData (h : IsSemiperfectoid p S) : PerfectoidizationData p S :=
+  Classical.choice (existsPerfectoidization p S h)
+
+/-- The chosen universal integral perfectoid ring under the semiperfectoid ring S. -/
+def perfectoidization (h : IsSemiperfectoid p S) : Type u :=
+  (perfectoidizationData p S h).Carrier
+
+/-- The universal perfectoidization carries the chosen commutative ring structure. -/
+instance perfectoidization.commRing (h : IsSemiperfectoid p S) :
+    CommRing (perfectoidization p S h) :=
+  (perfectoidizationData p S h).ring
+
+/-- The canonical ring map from S to its universal perfectoidization. -/
+def perfectoidization.eta (h : IsSemiperfectoid p S) : S →+* perfectoidization p S h :=
+  (perfectoidizationData p S h).eta
+
+/-- The universal perfectoidization satisfies the actual integral predicate. -/
+theorem perfectoidization.isIntegralPerfectoid (h : IsSemiperfectoid p S) :
+    IsIntegralPerfectoid p (perfectoidization p S h) := by sorry
+
+/-- The unique extension of a ring map S → T to a perfectoid target. -/
+def perfectoidization.lift (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
+    (hT : IsIntegralPerfectoid p T) (f : S →+* T) : perfectoidization p S h →+* T :=
+  Classical.choose ((perfectoidizationData p S h).universal T hT f)
+
+/-- Extending a map along the unit recovers that map on S. -/
+theorem perfectoidization.lift_eta (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
+    (hT : IsIntegralPerfectoid p T) (f : S →+* T) :
+    (perfectoidization.lift p S h T hT f).comp (perfectoidization.eta p S h) = f := by sorry
+
+/-- Maps from the universal ring to a perfectoid target are determined on S. -/
+theorem perfectoidization.lift_unique (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
+    (hT : IsIntegralPerfectoid p T) (g₁ g₂ : perfectoidization p S h →+* T)
+    (he : g₁.comp (perfectoidization.eta p S h) = g₂.comp (perfectoidization.eta p S h)) :
+    g₁ = g₂ := by sorry
+
+/-- A ring map S → T induces a covariant map between perfectoidizations. -/
+def perfectoidization.map (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
+    (hT : IsSemiperfectoid p T) (f : S →+* T) :
+    perfectoidization p S h →+* perfectoidization p T hT :=
+  perfectoidization.lift p S h _ (perfectoidization.isIntegralPerfectoid p T hT)
+    ((perfectoidization.eta p T hT).comp f)
+
+/-- The units commute with the covariant perfectoidization map. -/
+theorem perfectoidization.map_eta (h : IsSemiperfectoid p S) (T : Type u) [CommRing T]
+    (hT : IsSemiperfectoid p T) (f : S →+* T) :
+    (perfectoidization.map p S h T hT f).comp (perfectoidization.eta p S h) =
+      (perfectoidization.eta p T hT).comp f := by sorry
+
+/-- Perfectoidization preserves identity ring maps. -/
+theorem perfectoidization.map_id (h : IsSemiperfectoid p S) :
+    perfectoidization.map p S h S h (RingHom.id S) = RingHom.id _ := by sorry
+
+/-- Perfectoidization preserves composition in the order S → T → U. -/
+theorem perfectoidization.map_comp (h : IsSemiperfectoid p S)
+    (T U : Type u) [CommRing T] [CommRing U]
+    (hT : IsSemiperfectoid p T) (hU : IsSemiperfectoid p U)
+    (f : S →+* T) (g : T →+* U) :
+    perfectoidization.map p S h U hU (g.comp f) =
+      (perfectoidization.map p T hT U hU g).comp (perfectoidization.map p S h T hT f) := by sorry
+
+/-- For an integral perfectoid source, the unit itself is a ring equivalence. -/
+theorem perfectoidization.of_perfectoid (h : IsIntegralPerfectoid p S) :
+    ∃ e : S ≃+* perfectoidization p S (IsSemiperfectoid.of_perfectoid p S h),
+      e.toRingHom = perfectoidization.eta p S (IsSemiperfectoid.of_perfectoid p S h) := by sorry
+
+/-- Two universal rings under S have a unique equivalence preserving their units. -/
+theorem perfectoidization.presentation_independent (h : IsSemiperfectoid p S)
+    (E : PerfectoidizationData p S) :
+    ∃! e : perfectoidization p S h ≃+* E.Carrier,
+      e.toRingHom.comp (perfectoidization.eta p S h) = E.eta := by sorry
+
+-- perfectoidizationZero
+example (h : IsSemiperfectoid p (ZMod 1)) :
+    Function.Bijective (perfectoidization.eta p (ZMod 1) h) := by sorry
+-- perfectoidizationPerfect
+example (h : IsIntegralPerfectoid p S) :
+    Function.Bijective (perfectoidization.eta p S (IsSemiperfectoid.of_perfectoid p S h)) := by sorry
+-- perfectoidizationRootQuotient
+example :
+    let A := PerfectClosure (Polynomial (ZMod 2)) 2
+    let I := Ideal.span {PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X}
+    ∀ h : IsSemiperfectoid 2 (A ⧸ I),
+      (∃ e : perfectoidization 2 (A ⧸ I) h ≃+* A ⧸ I.radical,
+        e.toRingHom.comp (perfectoidization.eta 2 (A ⧸ I) h) =
+          Ideal.quotientMap I.radical (RingHom.id A) (by sorry)) ∧
+      ¬ Function.Injective (perfectoidization.eta 2 (A ⧸ I) h) := by sorry
+-- perfectoidizationTwoPresentations
+example (h : IsSemiperfectoid p S) (E₁ E₂ : PerfectoidizationData p S) :
+    ∃! e : E₁.Carrier ≃+* E₂.Carrier, e.toRingHom.comp E₁.eta = E₂.eta := by sorry
+
+
+/-- The induced maps follow S→T→U: swap then second projection sends (0,1) to 0, whereas the second projection alone gives 1. -/
+example :
+    let S := ZMod 2 × ZMod 2
+    let hS : IsSemiperfectoid 2 S := by sorry
+    let hT : IsSemiperfectoid 2 (ZMod 2) := by sorry
+    let f : S →+* S := (RingEquiv.prodComm : S ≃+* S).toRingHom
+    let g := RingHom.snd (ZMod 2) (ZMod 2)
+    (perfectoidization.map 2 S hS (ZMod 2) hT (g.comp f))
+      (perfectoidization.eta 2 S hS (0,1)) = perfectoidization.eta 2 (ZMod 2) hT 0 ∧
+    (perfectoidization.map 2 S hS (ZMod 2) hT g)
+      (perfectoidization.eta 2 S hS (0,1)) = perfectoidization.eta 2 (ZMod 2) hT 1 ∧
+      perfectoidization.eta 2 (ZMod 2) hT 0 ≠ perfectoidization.eta 2 (ZMod 2) hT 1 := by sorry
+
+end Perfectoidization
+
+/-! ## Layer 2: prism covers and adjoining roots -/
+
+/-! ## Layer 3: universal perfectoid quotients -/
+
+section CharacteristicPQuotients
+variable (p : ℕ) [Fact p.Prime] (R : Type u) [CommRing R]
+section Quotients
+variable [hchar : CharP R p]
+include hchar
+
+omit hchar in
+/-- A surjective power function remains surjective on every ring quotient. -/
+theorem quotient_pow_surjective (h : Function.Surjective (fun x : R => x ^ p))
+    (I : Ideal R) : Function.Surjective (fun x : R ⧸ I => x ^ p) := by sorry
+
+/-- A quotient of a perfect characteristic-p ring is perfect exactly for radical ideals, including the unit ideal. -/
+theorem quotient_perfect_iff_radical [PerfectRing R p] (I : Ideal R) :
+    PerfectRing (R ⧸ I) p ↔ I.IsRadical := by sorry
+
+/-- The radical quotient of a perfect characteristic-p ring is integral perfectoid. -/
+theorem radical_quotient_integralPerfectoid [PerfectRing R p] (I : Ideal R) :
+    IsIntegralPerfectoid p (R ⧸ I.radical) := by sorry
+
+/-- Maps killing I into any integral perfectoid target factor uniquely through the radical quotient. -/
+theorem radical_quotient_universal [PerfectRing R p] (I : Ideal R)
+    (T : Type v) [CommRing T] (hT : IsIntegralPerfectoid p T)
+    (f : R →+* T) (hf : I ≤ RingHom.ker f) :
+    ∃! g : R ⧸ I.radical →+* T, g.comp (Ideal.Quotient.mk I.radical) = f := by sorry
+
+-- The quotient need not have characteristic exactly p: I = top gives zero.
+-- topQuotient
+example [PerfectRing R p] : IsIntegralPerfectoid p (R ⧸ (⊤ : Ideal R)) := by sorry
+-- zeroQuotient
+example [PerfectRing R p] : IsIntegralPerfectoid p (R ⧸ (⊥ : Ideal R)) := by sorry
+-- nonradicalQuotient
+example [PerfectRing R p] (I : Ideal R) (h : ¬ I.IsRadical) :
+    ¬ PerfectRing (R ⧸ I) p := by sorry
+
+-- Single-step roots and their ideal, on an existing perfect ring.
+/-- The ideal of all inverse-Frobenius roots of f equals the radical of (f). -/
+theorem root_span_eq_radical [PerfectRing R p] (f : R) :
+    Ideal.span (Set.range (fun n : ℕ => ((frobeniusEquiv R p).symm^[n]) f)) =
+      (Ideal.span {f}).radical := by sorry
+
+/-- A quotient of a perfect characteristic-p ring is integral perfectoid exactly for radical ideals. -/
+theorem quotient_perfectoid_iff_radical [PerfectRing R p] (I : Ideal R) :
+    IsIntegralPerfectoid p (R ⧸ I) ↔ I.IsRadical := by sorry
+
+-- rootZero
+example [PerfectRing R p] :
+    Ideal.span (Set.range (fun n : ℕ => ((frobeniusEquiv R p).symm^[n]) (0 : R))) = ⊥ := by sorry
+-- rootOne
+example [PerfectRing R p] :
+    Ideal.span (Set.range (fun n : ℕ => ((frobeniusEquiv R p).symm^[n]) (1 : R))) = ⊤ := by sorry
+-- rootKilled
+example [PerfectRing R p] (f : R) (n : ℕ) :
+    Ideal.Quotient.mk (Ideal.span {f}).radical
+      (((frobeniusEquiv R p).symm^[n]) f) = 0 := by sorry
+end Quotients
+/-- The first three roots go in the inverse-Frobenius direction: r₀=t, r₁²=t, r₂⁴=t. -/
+example :
+    let A := PerfectClosure (Polynomial (ZMod 2)) 2
+    let t : A := PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X
+    (((frobeniusEquiv A 2).symm^[0]) t) = t ∧
+      (((frobeniusEquiv A 2).symm^[1]) t) ^ 2 = t ∧
+      (((frobeniusEquiv A 2).symm^[2]) t) ^ 4 = t := by sorry
+
+/-- The nonradical quotient kills t but retains its nonzero square-zero root. -/
+example :
+    let A := PerfectClosure (Polynomial (ZMod 2)) 2
+    let t : A := PerfectClosure.of (Polynomial (ZMod 2)) 2 Polynomial.X
+    let I := Ideal.span {t}
+    Ideal.Quotient.mk I t = 0 ∧
+      Ideal.Quotient.mk I ((frobeniusEquiv A 2).symm t) ≠ 0 ∧
+      (Ideal.Quotient.mk I ((frobeniusEquiv A 2).symm t)) ^ 2 = 0 := by sorry
+
+end CharacteristicPQuotients
+
+section UniversalQuotients
+variable (p : ℕ) [Fact p.Prime] (R : Type u) [CommRing R]
+variable (S : Type u) [CommRing S]
+/-- The unit of every ordinary semiperfectoid ring is surjective (BS Theorem 7.4). -/
+theorem perfectoidization_surjective (h : IsSemiperfectoid p S) :
+    Function.Surjective (perfectoidization.eta p S h) := by sorry
+
+
+/-- The completed quotient by all specified roots realizes the principal quotient’s perfectoidization and its surjective unit. -/
 theorem principal_root_quotient_perfectoidization (h : IsIntegralPerfectoid p R)
     (a : Perfection R p)
     (hS : IsSemiperfectoid p (R ⧸ Ideal.span {a.val 0})) :
@@ -587,185 +769,25 @@ theorem principal_root_quotient_perfectoidization (h : IsIntegralPerfectoid p R)
         (algebraMap (R ⧸ I) C).comp
           (Ideal.quotientMap I (RingHom.id R) (by sorry)) ∧
       Function.Surjective (perfectoidization.eta p _ hS) := by sorry
+
+end UniversalQuotients
+
+/- The full supplier-carrier targets in README.md include:
+§0.2 frobenius_surjectivity_equivalences, integralPerfectoid_bms_iff,
+principal_theta_kernel_criterion, theta_generator_normal_form,
+theta_map_preserves_generator; §0.3 perfectoid_cotangent_mod_p_vanishes,
+perfectoid_absolute_cotangent; §0.4 perfectoid_compatible_roots_iterated_frobenius
+(the finite-quotient clauses); §0.6 perfectoid_completely_etale_henselization,
+perfectoid_completed_root_polynomial, perfectoid_completed_tensor;
+§0.7 bhatt_integral_model_comparison;
+§1.1 initialPrism and its API/checks; §1.3
+perfectoidization_complete_flat_base_change, perfectoidization_completed_filtered_colimits;
+§2.1 relative_perfectoid_cover_smooth_site, frobenius_flat_prism_perfection_cover;
+§2.2 andre_flatness, andre_ind_syntomic_mod_p; §2.3 bhatt_root_neighborhoods,
+bhattRootExtension and its API/checks; §2.4
+bhatt_root_extension_almost_faithfully_flat, functorial_almost_aic_extension;
+§3.3 perfectoidClosedQuotient and its API/checks,
+zariskiClosed_is_stronglyZariskiClosed. -/
+
 end
-end TauCeti.PerfectoidQuotients
-
-/-! Mathematical targets requiring further supplier interfaces.
-These comments give the proposed names and statements for the prismatic, derived,
-almost and analytic constructions. They are not Lean declarations.
-
-Layer Q0:animated-application: Perfect-prism and animated algebra interfaces
-Supplier application: Q0 imports δ-rings and their free and universal quotient constructions; prisms with an invertible Cartier ideal, derived (p,I)-completeness and p in I+φ(I); boundedness, orientations and rigidity J=IB; completed perfection and the equivalence (A,I) ↦ A/I with integral perfectoid rings. It also imports regular prismatic envelopes with their boundedness, complete-flatness and Koszul-regularity hypotheses. For integral perfectoid R, (A_inf(R),ker θ) is initial among all prisms under R (BS22 Lemma 4.8), not only bounded prisms. Animated commutative rings, the cotangent complex, derived exterior powers and derived completion are imported on their genuine simplicial/derived carriers.
-Application/reexport only. All generic declarations retain the exact supplier names listed in prerequisites; this file defines no second generic carrier.
-Imports: PrismaticCohomology:PR.0/delta-frobenius-dictionary, PrismaticCohomology:PR.0/free-delta-ring, PrismaticCohomology:PR.0/delta-ideal-closure, PrismaticCohomology:PR.0/delta-universal-quotient, PrismaticCohomology:PR.0/distinguished-element, PrismaticCohomology:PR.0/prism, PrismaticCohomology:PR.0/prism-category, PrismaticCohomology:PR.0/rigidity-prism-ideal, PrismaticCohomology:PR.0/prism-perfection, PrismaticCohomology:PR.0/perfect-prisms-perfectoid-rings, PrismaticCohomology:PR.0/regular-prismatic-envelopes, PrismaticCohomology:PR.0/perfectoid-tor-independence, PrismaticCohomology:PR.1/perfect-prism-initial, EnhancedDerivedSheaves:E5:animation/animated-commutative-rings, EnhancedDerivedSheaves:E5:animation/universal-property-of-animation, EnhancedDerivedSheaves:E5:animation/sifted-colimits, DerivedDeRhamCohomology:DD.0/cotangent-complex, DerivedDeRhamCohomology:DD.0/derived-exterior-powers, DerivedDeRhamCohomology:DD.1/derived-completion, PrismaticCohomology:PR.0/bounded-prism-complete-flatness
-
-Layer Q1: Smooth prismatic cohomology and Hodge–Tate comparison
-Supplier application: For a bounded prism (A,I) and a p-completely smooth A/I-algebra R, Q1 reexports PR.1: the relative site, (p,I)-completely faithfully flat coverings, structure sheaf, derived cohomology Δ_R/A, Čech–Alexander models independent of polynomial presentation and the semilinear Frobenius. Its Hodge–Tate reduction has the multiplicative comparison Ω^i_R/(A/I){−i} ≅ H^i(Δ_R/A ⊗^L_A A/I), where Ω^i is p-completed and M{i}=M⊗_(A/I)(I/I²)^⊗i, using dual powers for negative i. The comparison preserves multiplication and the Bockstein de Rham differential of Theorem 6.3. Crystalline comparison uses a crystalline prism (A,(p)), a divided-power ideal J containing p, a smooth A/J-algebra T and the Frobenius-induced ψ:A/J→A/p; it identifies Δ_(T⊗_(A/J,ψ)A/p)/A with RΓ_crys(T/A). De Rham comparison requires W(A/I) p-torsion-free and identifies Δ_R/A ⊗̂^L_(A,φ_A) A/I with the p-completed de Rham complex. Polynomial calculations, gluing, syntomic crystalline comparison and completed base change retain their PR.1 hypotheses. PR.3 owns the general de Rham and étale comparisons.
-Application/reexport only. All generic declarations retain the exact supplier names listed in prerequisites; this file defines no second generic carrier.
-Imports: PrismaticCohomology:PR.1/relative-prismatic-site, PrismaticCohomology:PR.1/prismatic-structure-sheaf, PrismaticCohomology:PR.1/relative-prismatic-cohomology, PrismaticCohomology:PR.1/change-of-topology, PrismaticCohomology:PR.1/cech-alexander-complex, PrismaticCohomology:PR.1/cech-alexander-computes-cohomology, PrismaticCohomology:PR.1/frobenius-on-prismatic-cohomology, PrismaticCohomology:PR.1/hodge-tate-cohomology, PrismaticCohomology:PR.1/bockstein-differential, PrismaticCohomology:PR.1/crystalline-comparison, PrismaticCohomology:PR.1/crystalline-comparison-syntomic, PrismaticCohomology:PR.1/hodge-tate-comparison-map, PrismaticCohomology:PR.1/hodge-tate-comparison, PrismaticCohomology:PR.1/prismatic-base-change, PrismaticCohomology:PR.1/de-rham-comparison
-
-Layer Q2: Initial prism of a semiperfectoid ring
-TauCeti.PerfectoidQuotients.initialPrism: For a semiperfectoid S, the category of all prisms (A,I) with a map S → A/I has an initial object (Δ_init(S),I_S). The ideal I_S is principal. There is a structure map S → Δ_init(S)/I_S, and every prism under S receives a unique compatible δ-map. The result makes no boundedness assertion. For a chosen presentation R ↠ S and d generating ker θ_R, the ideal is the image of (d); the resulting initial object is independent of both choices.
-PR.0 has no implemented prism/δ-map carrier at the pin. The transfinite torsion-killing, H⁰-completion and stationary universal object require the supplier completion/animation interfaces and cardinal argument.
-API TauCeti.PerfectoidQuotients.initialPrism.structureMap (projection): The canonical ring map S → Δ_init(S)/I_S.
-API TauCeti.PerfectoidQuotients.initialPrism.ideal_principal (structure): I_S is generated by the image of the chosen d.
-API TauCeti.PerfectoidQuotients.initialPrism.lift (universal-property): Every prism C under S receives the unique compatible δ-map Δ_init(S) → C.
-API TauCeti.PerfectoidQuotients.initialPrism.lift_unique (extensionality): Two compatible prism maps out of Δ_init(S) are equal.
-API TauCeti.PerfectoidQuotients.initialPrism.map (functoriality): A map of semiperfectoid rings gives a map of initial prisms; identity and composition are preserved.
-API TauCeti.PerfectoidQuotients.initialPrism.presentation_independent (equivalence): Any two quotient presentations give uniquely isomorphic initial prisms over S.
-TEST TauCeti.PerfectoidQuotients.initialPrismPerfectoid (compatibility): For integral perfectoid S, recover (A_inf(S),ker θ_S) via PR.1 Lemma 4.8.
-TEST TauCeti.PerfectoidQuotients.initialPrismZero (degenerate): For S=0 the initial prism is the trivial prism.
-TEST TauCeti.PerfectoidQuotients.initialPrismQrsp (compatibility): For QRSP S use PR.2/qrsp-prism to identify Δ_init(S) with derived prismatic cohomology.
-TEST TauCeti.PerfectoidQuotients.initialPrismFp (computation): For S=F_p, the initial prism is (W(F_p),(p)), canonically identified with (ℤ_p,(p)); its reduction map is the identity of F_p.
-
-Layer Q2: Universal perfectoidization
-TauCeti.PerfectoidQuotients.perfectoidization: For semiperfectoid S there is an integral perfectoid ring S_perfd and a map η_S:S → S_perfd initial among all maps from S to integral perfectoid rings: for every such T, composition with η_S is a bijection Hom(S_perfd,T) ≅ Hom(S,T). It is the reduction modulo I of the completed perfection of Δ_init(S), equivalently the p-completion of the uncompleted perfection modulo I. It depends only on S. This statement does not assert η_S is surjective; that is Q4.
-The complete ring-valued universal property, naturality, all eight API items and four tests are typed. The initial-prism formula Δ_init(S)_perf/I and its identification with that chosen universal ring require the unavailable PR.0 prism carrier; they are omitted.
-
-Layer Q2: Derived prismatic initiality interfaces
-Supplier application: For a perfect prism base (A,I) and derived p-complete animated A/I-algebra S, import PR.2 Construction 7.6, the derived left Kan extension Δ_S/A, conjugate/Hodge–Tate filtration gr^i=(∧^i L_S/(A/I))^∧{−i}[−i], base change and Künneth. If the Hodge–Tate reduction Δ̄_S/A is concentrated in degree zero, PR.2 supplies discreteness and I-torsion-freeness of Δ_S/A, its δ-ring prism structure, weak initiality and an idempotent retraction onto the initial prism. Discreteness of Δ_S/A alone is not the supplier hypothesis, and automatic initiality is not asserted. The idempotent-retract lemma, the bounded-torsion Koszul-regular quotient envelope calculation, and the QRSP theorem identify the initial object in the respective cases. General site/derived agreement and quasisyntomic descent are imported with the exact stated hypotheses.
-Application/reexport only. All generic declarations retain the exact supplier names listed in prerequisites; this file defines no second generic carrier.
-Imports: PrismaticCohomology:PR.2/derived-prismatic-cohomology, PrismaticCohomology:PR.2/conjugate-filtration, PrismaticCohomology:PR.2/derived-hodge-tate-comparison, PrismaticCohomology:PR.2/derived-prismatic-base-change, PrismaticCohomology:PR.2/kunneth-formula, PrismaticCohomology:PR.2/comparison-to-prisms, PrismaticCohomology:PR.2/derived-agrees-with-site, PrismaticCohomology:PR.2/idempotent-retract-initial-object, PrismaticCohomology:PR.2/regular-quotient-prismatic-envelope, PrismaticCohomology:PR.2/qrsp-prism, PrismaticCohomology:PR.2/qrsp-char-p-acrys, PrismaticCohomology:PR.2/quasisyntomic-descent
-
-Layer Q3: Lifting quasisyntomic covers to prisms
-Supplier application: For a bounded prism (A,I) and a quasisyntomic A/I-algebra R, there is a prism object (B → B/IB ← R) with R → B/IB p-completely faithfully flat. The map A → B is (p,I)-completely flat and faithfully flat if A/I → R is p-completely faithfully flat. If A is perfect, completed perfection B_perf retains these assertions. Use PR.2/quasisyntomic-covers-lift-to-prisms for this theorem and its application to monic-root covers in Q3.
-Application/reexport only. All generic declarations retain the exact supplier names listed in prerequisites; this file defines no second generic carrier.
-Imports: PrismaticCohomology:PR.2/quasisyntomic-covers-lift-to-prisms, DerivedDeRhamCohomology:DD.0/quasisyntomic-condition, DerivedDeRhamCohomology:DD.5/elementary-semiperfectoid-covers
-
-Layer Q3: André’s flatness lemma
-TauCeti.PerfectoidQuotients.andre_flatness: Every integral perfectoid ring R has a p-completely faithfully flat map R → S to an integral perfectoid ring S in which every positive-degree monic polynomial has a root. Thus S is absolutely integrally closed (in this sense, not required to be a domain). Every element of S admits a compatible system of p-power roots. The map can be chosen ind-syntomic modulo p by Remark 7.15.
-The actual p-complete faithfully flat predicate and completed extension colimit are supplier interfaces. Monic polynomial roots are required in the resulting ring; no unspecified root property is introduced.
-
-Layer Q4: Completed integral closed quotient
-TauCeti.PerfectoidQuotients.perfectoidClosedQuotient: Let (R,R⁺) be a perfectoid Tate pair and I any ideal of R. Choose a compatible-root pseudouniformizer ϖ∈R⁺ with ϖ^p dividing p. Set S to the ordinary ϖ-adic completion of R⁺/(I∩R⁺), prove that S is semiperfectoid in the derived sense, and define R_I=S_perfd[1/ϖ]. Let R_I⁺ be the minimal open integrally closed subring of R_I containing the image of R⁺. Then R_I is a perfectoid Tate ring and the canonical continuous map q:R → R_I has the universal property among continuous maps from R to perfectoid Tate rings annihilating I. Different choices of ϖ give canonically isomorphic pairs over (R,R⁺). The ideal I need not be topologically closed or finitely generated.
-The actual topological perfectoid Tate-pair, plus-ring and Spa carriers come from P1/P4. The completed integral model’s semiperfectoidness is outlined through baseline completion surjectivity and Stacks 091T/091P; its Tate topology, localization and minimal plus-ring comparison require the P1/P4 interfaces.
-API TauCeti.PerfectoidQuotients.perfectoidClosedQuotient.map (projection): The continuous map q:R → R_I annihilates I.
-API TauCeti.PerfectoidQuotients.perfectoidClosedQuotient.plus (data): R_I⁺ is the minimal open integrally closed subring containing q(R⁺).
-API TauCeti.PerfectoidQuotients.perfectoidClosedQuotient.lift (universal-property): A continuous map to a perfectoid Tate ring killing I factors uniquely through q.
-API TauCeti.PerfectoidQuotients.perfectoidClosedQuotient.choices (equivalence): Choices of pseudouniformizer and integral presentation give canonically isomorphic pairs.
-API TauCeti.PerfectoidQuotients.perfectoidClosedQuotient.spa (compatibility): The induced Spa map is the P4 universal perfectoid Zariski-closed subspace with image V(I).
-TEST TauCeti.PerfectoidQuotients.closedQuotientZeroIdeal (compatibility): For I=0 recover (R,R⁺).
-TEST TauCeti.PerfectoidQuotients.closedQuotientUnitIdeal (degenerate): For I=R obtain the empty affinoid space and zero pair.
-TEST TauCeti.PerfectoidQuotients.closedQuotientCharacteristicP (computation): In characteristic p the perfectoid kernel contains the radical of I; the raw nonradical quotient is not the answer.
-TEST TauCeti.PerfectoidQuotients.closedQuotientNonclosedIdeal (non-example): Allow a nonclosed ideal I; the universal pair depends on V(I), and its kernel is a closed saturated ideal containing I.
-TEST TauCeti.PerfectoidQuotients.closedQuotientPlus (compatibility): The plus ring is integral closure of the image with openness, rather than an arbitrarily chosen powerbounded ring.
-
-Layer Q4: Zariski closed subsets are strongly Zariski closed
-TauCeti.PerfectoidQuotients.zariskiClosed_is_stronglyZariskiClosed: Every Zariski closed subset Z=V(I) of Spa(R,R⁺), for an affinoid perfectoid Tate pair and any ideal I⊂R, is strongly Zariski closed on the P4 immersion carriers: the universal pair (R_I,R_I⁺) has a surjective map R → R_I, its Spa map is a homeomorphism onto Z, and the integral map R⁺ → R_I⁺ is almost surjective for the root ideal generated by ϖ^(1/p^n). This identifies Z with an affinoid perfectoid space and agrees with the P4 universal construction.
-The actual affinoid perfectoid, closed-immersion and plus-ring carriers are unavailable. The integral-model comparison requires the P1/P4 interfaces.
-
-Layer Q0:integral-algebra: Frobenius surjectivity equivalences
-TauCeti.PerfectoidQuotients.frobenius_surjectivity_equivalences: Let R be ϖ-adically complete and separated with ϖ^p dividing p. The following are equivalent: every element of R/(pϖ) is a pth power; Frobenius on R/p is surjective; every element of R/ϖ^p is a pth power; F:W_{r+1}(R) → W_r(R) is surjective for every r≥1; and θ_r:A_inf(R) → W_r(R) is surjective for every r≥1. Moreover unit multiples of ϖ and of p admit compatible p-power roots. F is the length-reducing finite Witt Frobenius, not the endomorphism of infinite Witt vectors.
-The finite length-reducing Witt Frobenius maps W_(r+1)(R)→W_r(R) and θ_r are absent from the pinned finite-Witt interface. Infinite Witt Frobenius is not a substitute.
-
-Layer Q0:integral-algebra: Integral perfectoid normalization
-TauCeti.PerfectoidQuotients.integralPerfectoid_bms_iff: The integral predicate defined here agrees with BMS1 Definition 3.5: existence of ϖ with ϖ^p | p, ordinary ϖ-adic completeness, Frobenius surjective on R/p, and principal ker θ. Its p-torsion-free specialization agrees with Česnavičius Definition 4.2: R is p-adically complete, (π^p)=(p), and the p-power map R/π → R/p is an isomorphism. The broader nonzerodivisor ϖ criterion R/ϖ → R/ϖ^p is BMS1 Lemma 3.10, not the literal definition in Česnavičius. No torsion-free condition is imposed on the general predicate.
-The original ϖ-adic BMS1 condition and its θ/completion transport to the p-adic BMS2 carrier are not yet expressed. Only the BMS2 predicate is typed.
-
-Layer Q0:integral-algebra: Principal Fontaine kernel criterion
-TauCeti.PerfectoidQuotients.principal_theta_kernel_criterion: For a ϖ-adically complete ring R with ϖ^p | p and surjective p-power map R/ϖ → R/ϖ^p, a principal ker θ implies that this map is an isomorphism and every generator of ker θ is a nonzerodivisor in A_inf(R). Conversely, if the p-power map is an isomorphism and ϖ is a nonzerodivisor, ker θ is principal. The forward direction imposes no torsion-free condition on R.
-Only the nonzerodivisor consequence for a normalized integral perfectoid ring is typed. The criterion for an originally ϖ-adic complete ring with ϖ^p dividing p, and its equivalence to the quotient p-power isomorphism, requires normalization/completion transport.
-
-Layer Q0:integral-algebra: Distinguished Fontaine kernel generators
-TauCeti.PerfectoidQuotients.theta_generator_iff_unit_coeff_one: For a nonzero integral perfectoid R, an element ξ∈ker θ generates ker θ if and only if its Witt coordinate ξ₁ is a unit in R♭. Every generator is a nonzerodivisor. There is a generator of the form p+[π♭]^p x, after a compatible-root unit change of π. Along any map of perfectoid rings the induced Witt map sends a generator to a generator; the criterion is preserved because units map to units.
-The generator iff unit in Witt coordinate one and the nonzerodivisor assertion are typed. The explicit compatible-root generator, finite θ_r generators and Verschiebung/Frobenius compatibilities are omitted because finite Witt Frobenius/θ_r interfaces are missing.
-
-Layer Q0:integral-algebra: Bounded p-primary torsion of perfectoid rings
-TauCeti.PerfectoidQuotients.perfectoid_p_torsion_killed_by_p: For any integral perfectoid R, its p-primary torsion is killed by p: if p^n x=0 for any n≥0 then px=0. In particular it has bounded p-primary torsion and ordinary and derived p-adic completeness agree.
-The algebraic assertion R[p^∞]=R[p] is typed. The classical-to-derived completeness comparison is a DD.1 import applied in the proof, rather than an additional typed derived-category statement.
-
-Layer Q0:integral-algebra: Cotangent complexes of perfectoid rings
-TauCeti.PerfectoidQuotients.perfectoid_cotangent_mod_p_vanishes: For every map R → S of integral perfectoid rings, L_S/R ⊗^L_ℤ F_p is zero; consequently the derived p-completion of L_S/R is zero. This is about the full cotangent complex, not only ordinary Kähler differentials. For integral perfectoid R, the derived p-completion of L_R/ℤ_p is isomorphic to R[1]; it has p-complete Tor-amplitude concentrated in degree −1. The isomorphism is a choice of generator of ker θ, rather than a canonical un-oriented trivialization.
-The full cotangent complex, derived tensor and completed cotangent category are DD.0/DD.1-owned and have no implemented carrier at the pin. Both relative vanishing and the absolute rank-one computation are omitted.
-
-Layer Q0:integral-algebra: Torsion-free perfectoid quotient
-TauCeti.PerfectoidQuotients.perfectoid_torsion_free_quotient: If integral perfectoid R is ordinarily ϖ-adically complete with ϖ^p | p, then R̄=R/R[ϖ^∞] is ϖ-torsion-free and integral perfectoid, (R̄)♭=R♭/R♭[(ϖ♭)^∞], and R ≅ R̄ ×_(R̄/ϖ)_red (R/ϖ)_red. The quotient by the ideal generated by all compatible ϖ-roots is (R/ϖ)_red, a perfect F_p-algebra. The tilting statement uses a compatible-root unit replacement of ϖ.
-The perfectoidness and ϖ-torsion-freeness of R/ker(R→R[1/ϖ]) are typed. The tilt quotient R♭/R♭[ϖ♭] and canonical fibre-product decomposition R≅R_tf×_((R_tf/ϖ)_red)(R/ϖ)_red require quotient/completion transport and the missing supplier interfaces.
-
-Layer Q0:integral-algebra: Compatible roots and iterated Frobenius
-TauCeti.PerfectoidQuotients.perfectoid_compatible_roots_iterated_frobenius: For p-torsion-free integral perfectoid R, choose π with (π^p)=(p). The pinned reduction map lim_(x↦x^p) R → R♭=lim_F R/p is an isomorphism of multiplicative monoids. There are compatible π_n, n≥1, with π₁ a unit multiple of π, π_(n+1)^p=π_n and (π_n^(p^n))=(p). Each ideal (π_n) is the inverse image of ker(F^n:R/p → R/p), and x↦x^(p^n) gives R/π_n ≅ R/p. Modulo p² every element is x^p+p y^p, and modulo pπ every element is a pth power.
-The monoid isomorphism between actual compatible root sequences and the pinned PreTilt is typed. The chosen π_n, ideal descriptions ker(F^n), R/π_n≅R/p, and the modulo-p² and pπ expansions are omitted pending normalization and finite Frobenius interfaces. The comparison above admits the stronger normalized torsion-allowing setting, which includes the p-torsion-free specialization.
-
-Layer Q0:integral-algebra: p-integral closedness criterion
-TauCeti.PerfectoidQuotients.perfectoid_p_integral_closedness: If ϖ is a nonzerodivisor of A and ϖ^p | p, the p-power map A/ϖ → A/ϖ^p is injective exactly when A is p-integrally closed in A[1/ϖ]. Hence for integral perfectoid A ordinarily ϖ-complete the image of A in A[1/ϖ] is p-integrally closed, including when A has ϖ-torsion. For p-torsion-free A with (ϖ^p)=(p), ordinary integral closedness in A[1/p] and Frobenius surjectivity modulo p imply that the ordinary p-completion is perfectoid.
-The injectivity criterion for the quotient p-power map and p-root closedness of the actual localization image is typed. The completion criterion for p-torsion-free integrally closed rings and the torsion-removal transport require normalization and completion transport.
-
-Layer Q0:integral-algebra: Completely étale and henselian perfectoid algebras
-TauCeti.PerfectoidQuotients.perfectoid_completely_etale_henselization: If R is integral perfectoid and R → R′ is p-completely étale (R′ derived p-complete and R′⊗^L_R R/p discrete étale), then R′ is integral perfectoid. For any ideal J⊂R, the ordinary p-completion of the henselization R_J^h is integral perfectoid. Thus p-completion of ind-étale R-algebras is perfectoid. No finite generation or closedness of J is required.
-The completed étale/faithfully flat and henselization carriers require DD.1 and PR.0’s unique δ-extension/algebraization interfaces.
-
-Layer Q0:integral-algebra: Completed perfectoid root polynomials
-TauCeti.PerfectoidQuotients.perfectoid_completed_root_polynomial: For integral perfectoid A ordinarily ϖ-complete with ϖ^p | p and any set I, the ordinary ϖ-completion of A[X_i^(1/p^∞)]_(i∈I) is perfectoid. Its tilt is the ordinary ϖ♭-completion of A♭[(X_i♭)^(1/p^∞)]_(i∈I), where X_i♭ corresponds to the compatible powers of the variable.
-The canonical completed polynomial algebra on an arbitrary family of compatible p-power root variables and its tilt transport have no pinned supplier construction.
-
-Layer Q0:integral-algebra: Completed perfectoid tensor products
-TauCeti.PerfectoidQuotients.perfectoid_completed_tensor: For integral perfectoid A ordinarily ϖ-complete with ϖ^p | p and a small family of ϖ-complete perfectoid A-algebras A_i, the ordinary ϖ-completed tensor product of all A_i over A is perfectoid; its tilt is the ϖ♭-completed tensor product of the tilts over A♭. Infinite tensor products are filtered colimits over finite subsets before completion. This is a classical completion statement on these hypotheses.
-The arbitrary-family completed tensor product of integral perfectoid algebras and its tilt comparison require the supplier completed-colimit carrier. An arbitrary chosen ring is not substituted.
-
-Layer Q0:integral-algebra: Completed root-stable perfectoid quotients
-TauCeti.PerfectoidQuotients.perfectoid_completed_root_quotient: For integral perfectoid A ordinarily ϖ-complete with ϖ^p | p and a subset S⊂A, suppose for every n>0 the ideal generated by S modulo ϖ^n is generated by p^n-th powers of its elements. Then the ordinary ϖ-completion of A/(S) is perfectoid. Its tilt is the ordinary ϖ♭-completion of A♭/(S♭), where S♭=lim_(x↦x^p)(S mod ϖ) inside A♭. A sufficient hypothesis is that every s∈S has some positive p-power root in S; in particular take the elements of a compatible root tower. The raw quotient is not asserted complete.
-Perfectoidness of the ordinary completion for a set admitting compatible p-th roots inside the set is typed. The general modulo-ϖ^n ideal-power condition and the tilt formula are omitted pending the supplier completion and tilt interfaces.
-
-Layer Q0:integral-algebra: Products of perfectoid rings
-TauCeti.PerfectoidQuotients.integralPerfectoid_pi_iff: A small product of Z_p-algebras is integral perfectoid if and only if each factor is integral perfectoid. Its tilt is the product of the tilts. No common bounded cardinality or uniform bound on p-torsion is added; the bound one is supplied by the perfectoid factors.
-The if-and-only-if perfectoid criterion on the actual dependent product ring is typed, including the empty product. The product-tilt equivalence is omitted pending the completion-instance/tilt transport.
-
-Layer Q0:integral-algebra: Perfectoid completion along a sharp ideal
-TauCeti.PerfectoidQuotients.perfectoid_sharp_ideal_completion: For integral perfectoid A, a finite tuple a_i♭∈A♭ and a_i=(a_i♭)♯, ordinary completion of A at (a₁,…,a_r) is perfectoid, agrees with derived completion at that ideal, and has tilt the ordinary completion of A♭ at (a₁♭,…,a_r♭). The ideal need not contain p.
-The ordinary finite sharp-ideal completion is typed and asserted perfectoid. The equality with derived completion and the completed tilt identification require normalization, derived completion and tilt transport; ϖ^p dividing p alone is not used to assert arbitrary derived/classical equality.
-
-Layer Q0:integral-algebra: Powerbounded Tate model interfaces
-Supplier application: For a p-torsion-free integral perfectoid A choose π^p=p·u and put T=A[1/p] with A open p-adic. Import the P1 Tate adapter: T is perfectoid and uniform, every compatible π-root annihilates T°/A, T° is the almost-elements saturation of A inside T, A contains T°°, and T° is ordinarily p-adically complete and integral perfectoid. This is the powerbounded-model reduction of Česnavičius §4.8. No integral-closedness assumption on A is added.
-Application/reexport only. All generic declarations retain the exact supplier names listed in prerequisites; this file defines no second generic carrier.
-Imports: PerfectoidSpaces:P1/perfectoid-tate-ring-from-integral-perfectoid, PerfectoidSpaces:P1/almost-integral-dictionary, PerfectoidSpaces:P1/topologically-nilpotent-elements-as-root-ideal, PerfectoidSpaces:P1/integral-perfectoid-comparison
-
-Layer Q2: Completed perfectoidization under flat base change
-TauCeti.PerfectoidQuotients.perfectoidization_complete_flat_base_change: Let R → R′ be a p-completely faithfully flat map of integral perfectoid rings and R → S a semiperfectoid quotient. Let S′=(S⊗^L_R R′)^∧_p, which is an ordinary derived p-complete semiperfectoid ring by complete flatness. There is a canonical equivalence (S_perfd⊗^L_R R′)^∧_p ≅ S′_perfd compatible with the units. If η_S′ is surjective, η_S is surjective. Only this base-change law along a perfectoid cover is asserted.
-The actual derived p-completed pushout and cofiber comparison use DD.1/PR.0 carriers. The base-change equivalence must be proved on those carriers.
-
-Layer Q2: Completed filtered colimits of perfectoidization
-TauCeti.PerfectoidQuotients.perfectoidization_completed_filtered_colimits: Fix integral perfectoid R and an ideal J⊂R such that S=R/J is derived p-complete. For finite subsets F⊂J set S_F=R/(F). The rings S_F are derived p-complete semiperfectoid (cokernels of maps of finite sums of derived-complete R-modules). Their colimit in derived p-complete animated rings is S. Perfectoidization carries this colimit to the colimit in perfectoid R-algebras, computed by the appropriate completed filtered colimit, with compatible units. The quotient-completion comparison identifies that completed perfectoid colimit with the ordinary p-completion of R/K, where K is the union of the compatible finite-stage unit kernels. Once established, the image assertion follows from the baseline completion-surjectivity theorem and completeness of R.
-The actual completed animated/perfect-prism colimit carrier and its quotient-completion identification require the supplier interfaces. Completion-surjectivity after that identification is already in the baseline.
-
-Layer Q3: Relative perfectoid covers of the smooth site
-TauCeti.PerfectoidQuotients.relative_perfectoid_cover_smooth_site: For bounded (A,I), a p-completely smooth A/I-algebra R and a quasisyntomic cover R → R∞ with (L_R∞/(A/I))^∧_p=0, let B=Δ_R∞/A. Then B is a discrete relatively perfect δ-A-algebra, (p,I)-completely flat over A, B/IB≅R∞, and (B,IB) covers the final object of the relative prismatic site of R. Here “covers” means that every test prism receives a faithfully flat refinement mapping from B.
-The actual smooth/prismatic-site, completed cotangent and relatively perfect δ-algebra carriers are missing.
-
-Layer Q3: Frobenius-flat prism perfection covers
-TauCeti.PerfectoidQuotients.frobenius_flat_prism_perfection_cover: If (A,I) is a bounded prism whose Frobenius φ:A → A is (p,I)-completely flat, then the completed perfection (B,IB) has B/IB perfectoid and covers the final object of the absolute prismatic site of A/I. For a perfect base A, completed perfection of a flat prism map preserves (p,I)-complete flatness, and faithful flatness when the map was faithful.
-The relatively regular reduction Frobenius-flatness criterion and actual completed prism perfection carrier must be supplied by PR.0/DD.1.
-
-Layer Q3: André extension ind-syntomic modulo p
-TauCeti.PerfectoidQuotients.andre_ind_syntomic_mod_p: The map R → S in André’s flatness lemma can be chosen so R/p → S/p is an ind-syntomic faithfully flat cover. This is a modulo-p refinement of the general integral theorem. It is distinct from the ordinary ind-syntomic theorem of ČS24 Proposition 2.3.4, which remains owned by IntegralPerfectoidPartII.
-The ind-syntomic predicate and divided-power envelope/finite stages need the owning suppliers. The stronger ordinary ind-syntomic theorem of ČS24 is not substituted for the modulo-p statement.
-
-Layer Q0:integral-algebra: Bhatt’s field integral model
-TauCeti.PerfectoidQuotients.bhatt_integral_model_comparison: Fix a perfectoid field K, its valuation ring K° and a nonzero topologically nilpotent t∈K° with compatible p-power roots; in characteristic zero normalize |t|=|p|. Bhatt’s integral perfectoid K°-algebras are flat K°-algebras A, ordinarily t-complete, with A=A_* (every x∈A[1/t] with t^(1/p^n)x∈A for all n lies in A), and with F:A/t^(1/p) → A/t an isomorphism. They are precisely the powerbounded integral models of perfectoid K-algebras. They satisfy the general integral predicate; the converse from the general predicate needs this K°-algebra structure, t-torsion-freeness/flatness and saturation. The field-based model does not replace the general torsion-allowing predicate.
-The fixed perfectoid field K, K°-flat saturated t-adic integral model, (-)_* saturation and Tate normalization are P0/P1-owned carriers, absent at the pin.
-
-Layer Q3: Rational neighborhoods for adjoining roots
-TauCeti.PerfectoidQuotients.bhatt_root_neighborhoods: For a Bhatt integral perfectoid K°-model A and g∈A, set Y=Spa(A⟨T^(1/p^∞)⟩[1/t],A⟨T^(1/p^∞)⟩) using the P1/P2 powerbounded integral model. For ℓ≥0 let U_ℓ={y:|T(y)−g(y)|≤|t(y)|^ℓ} and B_ℓ=O_Y⁺(U_ℓ). These are nested rational neighborhoods of V(T−g), with restriction maps B_ℓ → B_(ℓ+1). B_ℓ is the integral rational-localization model furnished by P2 and is integral perfectoid after the necessary almost-elements saturation.
-The fixed-field rational-localization, powerbounded integral model and saturated inverse limit are P0/P1/P2/P4 carriers. The application imports their actual constructions.
-
-Layer Q3: Bhatt’s perfectoid root extension
-TauCeti.PerfectoidQuotients.bhattRootExtension: For a Bhatt integral perfectoid K°-algebra A and g∈A, form the ordinary t-completion C of colim_ℓ B_ℓ from the rational neighborhoods of T−g and set A∞=C_* using the P0 almost-elements saturation. Then A∞ is an integral perfectoid K°-model, has a natural map from A, and has a distinguished compatible root tower of g given by the coordinates T^(1/p^n). The raw completion C is only asserted almost isomorphic to A∞; Bhatt footnote 6 explicitly requires this correction. This geometric construction supplies the field-based alternative, not the strong actual-flatness statement of BS22 Theorem 7.14.
-The fixed-field Bhatt integral model and saturation (-)_* carrier are not implemented at the pin. Its raw completed colimit is only almost isomorphic to the saturated object; all six API items and four tests are explicitly omitted.
-API TauCeti.PerfectoidQuotients.bhattRootExtension.map (projection): The natural K°-algebra map A → A∞.
-API TauCeti.PerfectoidQuotients.bhattRootExtension.root (data): For each n≥0, a distinguished root g_n∈A∞, with g₀ the image of g.
-API TauCeti.PerfectoidQuotients.bhattRootExtension.root_pow (simp): g_(n+1)^p=g_n for every n.
-API TauCeti.PerfectoidQuotients.bhattRootExtension.perfectoid (structure): A∞ is t-complete, flat over K°, saturated, and has the integral-model Frobenius isomorphism.
-API TauCeti.PerfectoidQuotients.bhattRootExtension.raw_almost_iso (compatibility): C → C_* is an almost isomorphism for the specified root ideal.
-API TauCeti.PerfectoidQuotients.bhattRootExtension.map_comp (functoriality): Maps of pairs (A,g) induce compatible root-extension maps preserving identities and composition.
-TEST TauCeti.PerfectoidQuotients.bhattRootExtensionZero (degenerate): For the zero K°-algebra the root extension is zero and every root is zero.
-TEST TauCeti.PerfectoidQuotients.bhattRootExtensionPower (characterisation): For every n, the distinguished root satisfies g_n^(p^n)=image(g), and the adjacent roots satisfy the stronger compatibility equality.
-TEST TauCeti.PerfectoidQuotients.bhattRootExtensionModel (compatibility): After localization the extension is the P4 universal perfectoid closed subspace V(T−g); its integral ring is the saturated powerbounded model.
-TEST TauCeti.PerfectoidQuotients.bhattRootExtensionZeroElement (computation): For g=0 in any Bhatt integral perfectoid K°-model A, the canonical map A → A∞ is an isomorphism and every distinguished root is zero.
-
-Layer Q3: Almost faithful flatness of the root extension
-TauCeti.PerfectoidQuotients.bhatt_root_extension_almost_faithfully_flat: For ℓ>0, the map A → B_ℓ is almost faithfully flat modulo t for the root ideal (t^(1/p^n)); consequently A → A∞ is almost faithfully flat modulo t. These are statements in the almost module category. They do not assert ordinary flatness or the p-completely faithfully flat general integral theorem. More generally, for a perfectoid affinoid K-pair (A,A⁺) and any positive-degree monic P(T)∈A⁺[T], let B⁺ be the π-completion of the integral closure of A⁺ in A[T^(1/p^∞)]/(P(T)), and B=B⁺[1/π]. Then (B,B⁺) is perfectoid, universal among complete uniform affinoid A-pairs equipped with a root h₀∈C⁺ of P and adjacent compatible p-power roots of h₀. The map A⁺→B⁺ is almost faithfully flat modulo π. This applies the existing P4 universal closed-space construction to P(T), and is the monic version used in the functorial iteration.
-P0’s specified root-ideal almost category and P2’s rational approximation/integral-model carrier are not implemented.
-
-Layer Q3: Functorial almost absolutely integrally closed extension
-TauCeti.PerfectoidQuotients.functorial_almost_aic_extension: On the category of Bhatt integral perfectoid K°-models there is a functor B and a natural map A → B(A), almost faithfully flat modulo t, such that B(A) is again an integral model and every positive-degree monic polynomial over B(A) has a root. This is the functorial almost variant of Remark 2.7, distinct from the arbitrary integral p-complete-cover theorem.
-The actual almost category and functorial completed construction use P0/P5 carriers, absent at the pin. Corollary 9.4.7 supplies the transfinite construction.
--/
+end TauCetiRoadmap.PerfectoidQuotients
