@@ -46812,8 +46812,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -48272,8 +48272,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7901"
+   "state": "pending",
+   "note": "released on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48390,7 +48390,8 @@
     "PKG-GenericDoublePointInterpolation"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-GenericDoublePointInterpolation.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7604"
   },
   {
    "id": "PKG-GeometricSatakeAndFusion",
@@ -49259,8 +49260,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-LanglandsParameterStacks.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7909"
+   "state": "pending",
+   "note": "released on GitHub issue #7909"
   },
   {
    "id": "REV-PKG-LanglandsParameterStacks",
@@ -49806,8 +49807,9 @@
     "PKG-SemisimpleAlgebrasPartII"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-SemisimpleAlgebrasPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7609"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7609",
+   "finishedAt": "2026-10-10T14:56:54Z"
   },
   {
    "id": "PKG-SmallRamificationAndAbelianVarietyBaseCases",
@@ -80134,8 +80136,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
