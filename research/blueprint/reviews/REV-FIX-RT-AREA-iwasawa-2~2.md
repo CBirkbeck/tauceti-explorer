@@ -1,13 +1,13 @@
 # Independent fix review: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-ZyjVh0`, 10 October 2026. Refs #6219.
-[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6102646778).
+Codex (GPT-6), session `codex-jIGDIK`, 10 October 2026. Refs #6219.
+[Confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6102949426).
 I did none of fixer `claude-6ZAIEy`'s work. This checks the six correction
-contracts, following `codex-bZnePb` and the earlier reviewers attributed in the
-[input report](https://github.com/CBirkbeck/tauceti-explorer/blob/4bc4efffc97159555853652339d435d83c19167c/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
-It does not repeat the exhaustive 1,663-node L3 audit. Every earlier packet
-review, including its entire checked arrays, retains its attribution in
-`reviewHistory`.
+contracts, following `codex-ZyjVh0` and the earlier reviewers attributed in the
+[input report](https://github.com/CBirkbeck/tauceti-explorer/blob/49b97fab382ad500ae19cc722171dd6050f79bda/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md).
+The review is bounded to these correction contracts. Each new receipt
+archives the whole previous review, including its checked arrays and original
+attribution, in `reviewHistory`; no exhaustive node audit is attributed to this run.
 
 ## Verdicts
 
@@ -37,33 +37,29 @@ Gross–Koblitz §1, equations (1.2), (1.5), (1.6) and Theorem 1.7,
 pp.570–571, fixes the negative Gauss sum, inverse Teichmüller character and
 compatible root. The second-order congruence at ζ−1 is in the integer ring;
 unrestricted field divisibility would lose the normalization. Robert §4,
-pp.164–168, Theorem 4, and Appendix 2, p.169, supports 0≤a<q−1,
+pp.164–168, Theorem 4, supports 0≤a<q−1,
 including the negative trivial Gauss sum equal to one. The packet separates
 this from the original odd-prime range. RD.6's precise coefficient bound
 and trace/splitting equality remain requests, with its inverse-series sign
 converted explicitly. This acceptance does not assert built suppliers.
 
-Fresh finite controls checked 2,460 admissible congruences for primes
-2, 3, 5 and 7, exponents one through four, n from zero through forty and
-four block shifts. At the excluded dyadic exponent, G_2(2) and G_2(6) are
-1 and 3 modulo four. These diagnostics supplement the source argument;
-they are not proofs.
+The predecessor report retains its finite congruence controls and their
+attribution. This run checked the correction against the source statements;
+those finite diagnostics are not reported as new proofs or new computations.
 
 ## /2: The derivative and strict endpoint
 
 Read Zhao §1.2, p.461; §4, equations (4.1)–(4.6) and Theorem 4.1,
-pp.471–473; and Appendices A–B, pp.473–474. L3-2 requires a primitive odd
+pp.471–473; and Appendix A, p.473. The retained Appendix B endpoint correction was
+checked against the packet and predecessor report. L3-2 requires a primitive odd
 χ of tame conductor N>1, compatible embeddings and log_p(p)=0. The derivative
 is on the even χω branch; dyadic ω has conductor four. The Gamma sum uses
 direct χ weights. The correction is (1−χ(p))B_(1,χ)log_p(N). Only χ(p)=1
 removes it; a simple-zero assertion still needs arithmetic nonvanishing.
 
-For B=p^n congruent to one modulo N, the positive residue a lies in
-{1,…,N}. Writing m=a+hN gives ι(m)=h+1+(N−a)(B−1)/N.
-For 61 choices with p in {2,3,5,7}, n in {1,…,4} and N in {1,…,9}
-satisfying the hypotheses, all 19,955 unit-residue congruences and 101,442
-strict-filtration comparisons passed. Zero residue is represented by N;
-N=1 gives the identity.
+The positive-residue permutation uses representatives in {1,…,N}, with
+zero residue represented by N. Its strict-filtration endpoint is a/N. The
+predecessor report retains the attributed finite permutation diagnostics.
 
 The strict interval tends to a/N and gives log Gamma_p(a/N). The existing
 E37 repair to Appendix B.2's shifted endpoint is retained. Differentiation
@@ -98,8 +94,7 @@ while archiving the prior full 72-node audit with its original reviewer.
 ## /4: Correct arithmetic repairs, outstanding native duplication
 
 Read Dasgupta–Kakde v3 §§2.2–2.3, pp.15–18; Lemma 3.9's proof,
-pp.25–26; §6.1 and Lemma 6.1, p.40; and Appendix B.2, Lemma B.4
-and equation (171), p.93. The character ring is the evaluation image of O[G],
+pp.25–26; §6.1 and Lemma 6.1, p.40. The character ring is the evaluation image of O[G],
 with the source's finite abelian and coefficient-root hypotheses. It may be
 a proper suborder of the product and need not be Gorenstein. Sharp transports
 it to the inverse-character order. Cardinality arguments retain regular
@@ -114,7 +109,7 @@ Five generic plans still duplicate current Tau Ceti:
 | --- | --- |
 | `higher-fitting-ideal` | `TauCeti.fittingIdeal`, for finite modules over commutative rings |
 | `higher-fitting-independence` | `TauCeti.fittingIdeal_eq_minorsIdeal_ker`, requiring a finite-free surjection |
-| `relation-minors-add-generator` | Native kernel/minors comparison for generating families; retain an adapter for families that do not generate the ambient module |
+| `relation-minors-add-generator` | `Submodule.minorsIdeal_ker_eq_of_surjective` for generating families; retain an adapter for families that do not generate the ambient module |
 | `higher-fitting-base-change` | `TauCeti.fittingIdeal_baseChange`, for arbitrary commutative-algebra base change without flatness |
 | `transpose-stable-equivalence` | `TauCeti.AuslanderReitenTranspose.nonempty_linearEquiv_prod_dual`, respecting opposite scalars and ordered dual factors in exact surjective projective presentations |
 
@@ -134,7 +129,7 @@ finished verdict on this packet, not a reason to postpone the review.
 
 ## /5 and /6: Supplier and independent-proof boundaries
 
-Read BCGP21 v3 §6.1.1, p.139, and Lemma 6.3.14/Theorem 6.3.16, p.152;
+Read BCGP21 v3 §6.1.1, p.139;
 BCGP25 v1 Definition 2.2.17, p.21, and §4.6.46/Remark 4.6.47, p.94.
 The accepted LAD correction separates degreewise compact representatives
 from invariant cohomological spectral support. Its nonalternating determinant
@@ -173,7 +168,7 @@ history entry and each entire archived top review. No excerpt fields are
 introduced. The two omitted actual packets remain byte-identical to input.
 
 Fresh `lean-check` runs were sequential, using the existing pinned build.
-Recorded memory checks showed 99–103 GB available; the wrapper also enforces
+Recorded memory checks showed at least 100 GB available; the wrapper also enforces
 the 20 GB threshold for every invocation:
 
 | Suggested file | Result |
@@ -194,19 +189,22 @@ The queue requires this reviewer's verdict on four packets, but the live issue
 names only L3 and PMIA. The unchanged `deliverables_complete` returns False
 on actual files and True with read-only substitution of the prepared L3-2
 and D.1 records. WORKERS.md restricts edits to the issue's named files.
-Explicit authorization for those two paths was requested after preparing and
-validating the records; it remains pending. No queue, predicate or label
-was changed to conceal the mismatch.
+Explicit authorization for these two review-only edits was requested in the
+current session and remains pending. Both
+records have been prepared and validated; only their installation depends on
+that authorization. The report and handoff make the concrete remaining edits
+reviewable. No queue, predicate or label was changed.
 
-Scope authorization has not arrived at submission. This is a blocked checkpoint.
-The handoff provides the exact remaining records and verification procedure.
 The six-finding mathematical review is finished, including PMIA's negative
-verdict; another source audit cannot resolve this file-scope mismatch.
+verdict. Scope authorization has not arrived at submission, so this is a
+blocked checkpoint. The handoff provides the exact two records and verification
+procedure. Resume after scope repair; repeating the source audit will not
+resolve this mismatch.
 
 ## Public sources
 
 All ten public PDFs were fetched afresh on 10 October 2026 and their SHA-256
-values match those in the immutable input report. Fresh readings are bounded
+values are recorded below. Fresh readings are bounded
 above; earlier exhaustive audits retain their original attribution. No book
 or copied source passage was used in these changes.
 
@@ -220,3 +218,16 @@ or copied source passage was used in these changes.
 [Dasgupta–Kakde](https://arxiv.org/pdf/2010.00657v3),
 [BCGP21](https://arxiv.org/pdf/1812.09269v3),
 [BCGP25](https://arxiv.org/pdf/2502.20645v1).
+
+| Public source | SHA-256 of inspected PDF |
+| --- | --- |
+| Morita | `cad5af477bc19847e46d5af98c294a289f30096128b9e799799dfdb88ce05912` |
+| GrossKoblitz | `c54a94b53d942cfcad2300de04f4f022ec20b2c3a0a7e110464b699484d3d522` |
+| Robert | `2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581` |
+| Zhao | `923b85f7e3e7e55b4636ff98be2ca5f11a469ec10abe1ee15d6ede55a6936661` |
+| EN | `131f6cf4ef32b15ceed8951eb48068c4f01fd13e6d3f42972b20e23b643c0d14` |
+| CN | `3ab4456e31b5a6c7f21349b34fe020f619f4233a92a2f0105a1ffe2c3e1733ec` |
+| NN | `97f319e286aa4cf5be1b9c8d100efd1ac779e985d91d8cd6b70e2a3d0870ebd0` |
+| DK | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
+| BCGP21 | `7c8d74b0628d8b9cc841a853372ca2d0bc18c086ab46d138f75afd15f35689ed` |
+| BCGP25 | `51d7eacca6eae394943f09ab72dfe09ee9aa6da27f563be8237c416e5da4e95c` |
