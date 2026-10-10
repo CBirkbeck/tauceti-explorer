@@ -1,214 +1,76 @@
-# Current handoff: Codex codex-Wrws1L
-
-10 October 2026; issue #5704; base
-`15da55e6f65878bbea28010a47d360dbd47cf57c`. Bot confirmation:
-[claim reply](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6093026776).
-One job claimed; no second job.
-
-**Blocked checkpoint.** The issue's seven-output, three-packet review is
-already complete. Its current queue entry instead requires 47 outputs and
-23 packets. Fresh stock completion results are true for the live issue scope
-and false for the queue; all files exist, and all 20 extra packets have other
-review jobs' verdicts. Queue and generator paths are excluded by intake and
-are outside the assignment. Requested repair authorization; none received.
-
-Preserved the original verdicts and evidence: PerfectoidSpaces P0
-`needs_changes`; AdicEtaleGeometry and AdicSpacesPartII accepted for the
-scoped corrections. No new source audit or mathematical verdict. Only the
-review report and this handoff change.
-
-Fresh verification:
-
-- Three stock packet checks: zero errors and warnings (326, 153, 537 nodes).
-- The original output lists at historical author merge `c69e5b6c9` still
-  agree with the issue: ten author outputs and seven review outputs.
-- The preserved regression fixture again gives eight passing cases for the
-  two-site candidate, four failures for stock and two for the later-round-only
-  candidate. It operates in memory and changes no generator or queue.
-- Lean was not rerun: no suggested file changed. Prior successful elaborations
-  remain the earlier workers' evidence; omitted P7 signatures remain omitted.
-
-Resume with the **scope repair**, not another repeat mathematical review.
-Restore both the author and review output lists below; preserve existing
-published rounds during regeneration; regenerate twice and verify stable
-paths, prompts, prerequisites, runtime state and completion; use a maintainer
-submission route because intake excludes the repair paths. The runnable
-fixture remains in the [review report](../reviews/REV-FIX-RT-AREA-padic-1~3.md).
-No next worker needs this run's disposable scratch files.
-
-The mathematical follow-ups, original scopes and detailed repair acceptance
-conditions below are preserved. This run changes no labels, promotes no
-files and claims no additional job.
-
----
-
-# Previous handoff: Codex codex-B7F2hV
-
-10 October 2026; issue #5704; base
-`e0374256903bf50963674b4ec9ba17807347620e`. Claim confirmed by the bot in
-[comment 6092681996](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6092681996).
-
-**Blocked checkpoint.** The live issue still authorizes seven files and three
-packets; the queue requires 47 files and 23 packets. Fresh stock completion
-checks pass for the live issue scope and fail for the queue. All outputs exist;
-all 20 extra packets carry other review jobs' verdicts. Queue and generator
-paths are outside the issue scope and fail intake's allowlist.
-
-Fresh stock packet checks report zero errors and zero warnings for P0 (326
-nodes), AEG (153) and ASII (537). No packet, suggested file or mathematical
-verdict changed. Lean was not rerun. Only the review report and handoff change;
-the earlier mathematical review and repair fixture are preserved below and in
-[the report](../reviews/REV-FIX-RT-AREA-padic-1~3.md).
-
-Scope reconciliation was requested; no reply or repair authorization has
-arrived. The next action is a maintainer scope repair, followed by the repair
-acceptance checks below. Repeating the completed three-packet review cannot
-resolve this blocker. Keep this assignment out of worker selection until its
-scope is reconciled; workers must not change labels themselves.
-
-No continuation needs this run's disposable scratch files. The previous
-handoff retains exact paths, historical scope evidence, the repair candidate
-and mathematical follow-ups.
-
----
-
 # REV-FIX-RT-AREA-padic-1~3 handoff
 
-Codex `codex-0zxhBp`, 10 October 2026; issue #5704; base
-`8a53daaaae8b929368fd89963c6b220443fcb164`. Bot confirmation: comment
-6092606975. One job claimed; no second job.
+Codex `codex-tGrBnk`, 10 October 2026; issue #5704; base
+`06bdf5afcf3a17691f3047d4244381ff708a77ed`.
+Bot confirmation: [claim reply](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6093131025).
+One job claimed; no second job.
 
-## Current blocker verification
+## Submission and blocker
 
-Fresh stock completion checks are true for the live issue's seven paths and
-false for the queue's 47. All 47 files exist; the failure comes from the 20
-additional packets' different reviewers. Intake uses the queue job after
-merge, so a PR description cannot override this result. Queue and generator
-paths are outside both the issue's scope and intake's allowlist.
+Blocked checkpoint, retained as a draft PR for the maintainer. The original
+three-packet review is already complete: PerfectoidSpaces P0 needs_changes;
+AdicEtaleGeometry and AdicSpacesPartII accepted for their scoped corrections.
+No packet verdict, mathematical contract or suggested file changed.
 
-Fresh stock packet checks pass with zero errors/warnings (326, 153 and 537
-nodes). No packet or suggested file changed; Lean was not rerun. No new
-mathematical or source-audit verdict is claimed. Scope reconciliation was
-requested; no response or authorization has been received.
+The issue assigns seven outputs covering three packets. The queue requires
+47 outputs covering 23 packets. All outputs exist, but the twenty additional
+packets have other jobs' review verdicts. Stock completion is true for the
+issue scope and false for the queue. Queue/generator edits are outside the
+assignment and fail intake's file allowlist. Expanded scope was requested;
+no authorization is assumed.
 
-This submission is a blocked checkpoint. The manager should keep #5704 out
-of available selection until the scope is reconciled, because automatic
-checkpoint intake releases this same blocked assignment again. Workers must
-not change labels or repeat the completed mathematical review. The next
-useful action is the maintainer repair described below.
+The draft keeps the submission available for the maintainer instead of
+triggering another automatic checkpoint merge and release of the same review.
+Workers must not change labels, assign this reviewer to other packets, or
+repeat the completed mathematical review to address this scope mismatch.
 
-## Done and preserved
+## New evidence and immediate repair
 
-The issue's original three-packet review was completed by the preceding
-workers: PerfectoidSpaces P0 needs_changes; AdicEtaleGeometry and
-AdicSpacesPartII accepted for their scoped corrections. Their current verdicts,
-review histories, source evidence and mathematical qualifications are unchanged.
-The [review report](../reviews/REV-FIX-RT-AREA-padic-1~3.md) preserves their work
-and retains the preceding run's complete, runnable regression fixture.
+The [review report](../reviews/REV-FIX-RT-AREA-padic-1~3.md) now contains a
+self-contained, runnable simulation of the complete generator with every
+write disabled. No continuation needs this run's disposable scratch files.
 
-Fresh stock packet checks report zero errors and zero warnings for all three
-issue-named packets. No suggested file changed; Lean was not rerun. Earlier
-successful sequential `lean-check` results remain the preceding sessions'
-evidence, not fresh evidence from this run. Only the report and this handoff
-changed. No new mathematical verdict or source audit is claimed.
+**A queue-only repair is sufficient for this job.** Restore the `outputs`
+arrays for both `FIX-RT-AREA-padic-1~3` and `REV-FIX-RT-AREA-padic-1~3` from
+historical queue commit `c69e5b6c9`, retaining current runtime metadata. They
+have ten author outputs and seven review outputs, respectively. The report
+names their exact contents. With those arrays, two full **stock** generator
+passes preserve both scopes, and stock completion/transition recognizes the
+review as done. Use a maintainer submission route to install that repair,
+verify the two job entries/prompts, and run ordinary intake/synchronization.
 
-## Blocker and required next action
+The broader two-site generator candidate also preserves the scopes across
+two full passes, with 5,111 jobs per pass and runtime fields retained for
+4,423 existing jobs. However it affects 21 other existing fix scopes compared
+with stock. Both approaches create `FIX-RT-AREA-padic-1~4` for remaining owner
+work after restoring round three. Published/unpublished scope policy, new
+owner allocation and revision limits therefore need a separate maintainer
+decision. Do not require that broader policy change to finish this review.
+The eight inherited focused regressions still pass for the candidate; they
+remain in the report alongside the fuller evidence.
 
-The issue authorizes seven deliverables, while the queue requires 47, including
-20 additional packets. The stock completion predicate is true for the issue's
-original scope and false for the current queue. An honest needs_changes review
-counts as a completed review; P0's verdict is not the blocker.
+## Verification and preserved mathematics
 
-At author merge `c69e5b6c9` (#6883), the fix had ten outputs covering three
-packets, and its review had seven outputs covering those same packets. The
-current fix has 78 outputs covering 23 packets. Historical output lists can be
-read directly from that commit; no continuation needs this run's scratch files.
+Fresh stock packet checks: zero errors and warnings for P0 (326 nodes),
+AdicEtaleGeometry (153), and AdicSpacesPartII (537). No suggested file changed;
+Lean was not rerun. Prior successful native elaborations remain the earlier
+workers' evidence, including the qualification that omitted P7 signatures
+are not checked by compiling the file.
 
-WORKERS.md says to edit only the issue's named files and the handoff. Queue,
-generator, tests and prompts are outside scope, and intake excludes generator
-and queue paths from its allowlist. A scope question was sent this run. No
-response or repair authorization is assumed. This is a blocked checkpoint.
-The next action belongs to a maintainer scope repair or an explicitly
-expanded assignment with an appropriate submission route. Another worker
-should not repeat the completed three-packet review while this mismatch remains.
+P0 still needs the root-annihilator/almost-flatness identification, invariance
+under almost elements and comparison with the field-base category. Its
+Cohen/power-series/quotient/normality/colimit suppliers need precise interfaces
+that reuse Mathlib's regular-local predicate. Then both P7 tower results and
+faithful negative tests need actual Lean signatures. The older broad P0
+baseline/source/dependency/API/test/planet audit remains unfinished.
 
-Restore these exact seven review deliverables:
+The maintainer must install the R5 prefix with coverage and outgoing edges,
+delete the live Q4-to-A3 input and correct the RS-05 decision record. The
+third-round reader synchronization is complete; retain the corrected
+stage-zero valuation explanation. The original finding table and
+excluded-owner dispositions remain in the report and fixes-3 document.
 
-- `research/blueprint/reviews/REV-FIX-RT-AREA-padic-1~3.md`
-- `research/blueprint/packets/PerfectoidSpaces--P0.json`
-- `research/blueprint/packets/AdicEtaleGeometry.json`
-- `research/blueprint/packets/AdicSpacesPartII.json`
-- `research/blueprint/suggested/PerfectoidSpaces--P0.lean`
-- `research/blueprint/suggested/AdicEtaleGeometry.lean`
-- `research/blueprint/suggested/AdicSpacesPartII.lean`
-
-Restore the author round's ten deliverables too: its fixes-3 report and the
-packet, reader and suggested file of each of these same three owners. A review
-scope edit alone will be undone when regeneration derives it from the expanded
-author scope. Preserve historical runtime state and independent-review history;
-do not rename the twenty excluded packets' reviewers to satisfy the predicate.
-
-## New regression evidence
-
-The preceding later-round candidate leaves a second mutation path open: an
-existing first round retains its original outputs only when its state is done.
-Both a claimed first round (external) and a pending first round expand when a
-new owner becomes available. The report's two-site candidate preserves existing
-first-round outputs and unconditionally reuses existing later rounds. It also
-prevents a send-back from rewriting an existing later round's `after`.
-
-Eight read-only AST fixtures pass for that candidate: claimed/pending/finished
-first rounds; a later round with a new owner; an existing later round with a
-send-back; new-round creation for a new owner and for a send-back; and an
-existing third round. The fixture checks author/reviewer prompt and path
-agreement and the relevant prerequisites. The stock function fails four
-expectations; the previous later-round-only candidate fails two.
-
-The runnable fixture and exact candidate changes are in the review report.
-The preceding session tested them in memory; they are not applied to the
-repository and do not certify full regeneration. A maintainer must decide how unpublished pending jobs are
-identified before permitting their scope to change; pending state alone does
-not establish that an issue was never published.
-
-Repair acceptance conditions:
-
-1. Restore the original author/review scopes from the historical queue.
-2. Preserve already published first and later assignments as owners become
-   available or previous reviews send work back.
-3. Retain correct creation and prerequisites of genuinely new rounds; allocate
-   additional owner work through explicitly scoped jobs.
-4. Regenerate twice and verify stable scopes, consistent prompts, preserved
-   runtime state, and the completed-review predicate for #5704.
-5. Check intake/issue synchronization through a maintainer-approved route.
-
-## Preserved mathematical follow-ups
-
-P0 still needs its root-annihilator/almost-flatness proof, invariance under
-almost elements and comparison with the field-base category. Its Cohen,
-power-series, quotient, normality and colimit suppliers need precise interfaces,
-reusing Mathlib's regular-local predicate. Then state the two P7 tower results
-and faithful tests as actual Lean signatures. Its older broad audit remains
-unfinished. The third-round reader synchronization itself is complete; do not
-restore stale absence claims or the incorrect stage-zero Frobenius explanation.
-
-The maintainer still needs to install the R5 prefix and coverage/edges, delete
-the live Q4 to A3 input, and correct the RS-05 record. Packet acceptance alone
-does not install those graph changes. The report and fixes-3 document retain
-every original finding's disposition and excluded-owner handoff.
-
-The excluded packet owners in the broadened queue are:
-PerfectoidQuotients; PerfectoidShimuraVarieties; PerfectoidSpaces--P8;
-DiamondsAndVStacks; GeometricSatakeAndFusion--GS0;
-RelativeFarguesFontaine--RF0; HodgeTateAndCanonicalSubgroups--T6;
-FarguesFontaineDiamonds; DiamondEtaleCohomology--C0; DiamondSixOperations;
-AInfCohomology--AI.0; RelativeFarguesFontaine--RF4;
-VectorBundlesAndIsocrystals--VB0; VectorBundlesAndIsocrystals--VB3;
-HodgeTateAndCanonicalSubgroups--T0; CohomologyComparisons;
-IgusaVarietiesAndTorsionConcentration; AlgebraicModularFormsAndSerreWeights;
-HilbertModularVarietiesAndShimuraCurves--H0; ShimuraCompactifications--C6.
-No excluded owner was edited or reviewed by this continuation.
-
-P0's reader has inherited verbatim source quotations near its P7 contracts.
+P0's reader also has inherited verbatim quotations near the P7 contracts.
 Its owner must replace them with authored statements and locators under the
-standing source rule. The reader is outside this review's authorized files;
-this run adds no source quotation and makes no reader edit.
+standing source rule. That reader is outside this review's deliverables.
+This run adds no source passage and modifies no reader.
