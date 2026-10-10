@@ -1,8 +1,8 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — scope blocker and exact receipts
 
-Codex, session `codex-2zOJTT`, 10 October 2026. Refs #6219.
-Branch `codex-2zOJTT-review-iwasawa-6219`.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6101351992).
+Codex, session `codex-VFmAUK`, 10 October 2026. Refs #6219.
+Branch `codex-VFmAUK-review-iwasawa-6219`.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6101616259).
 I did none of fixer `claude-6ZAIEy`'s work and claimed no second job.
 
 The bounded six-finding correction review is finished. L3 is accepted for
@@ -10,7 +10,8 @@ finding /1; PMIA needs_changes for the five native-reuse migrations in the
 report. Only their review metadata changed; each complete former review was
 archived and all older history and mathematical/planning fields are preserved.
 Previous full audits remain attributed to their original reviewers. Fresh
-source/library readings and finite controls are described in the report.
+source/library readings and elaboration checks are described in the report;
+older finite controls remain attributed to their original sessions.
 No Lean source changed. L3 has unresolved sibling prototype imports;
 L3-2, D.1 and PMIA elaborate with only their expected sorry warnings.
 
@@ -29,7 +30,7 @@ This submission is a blocked checkpoint. The authorized review work is complete,
 but dispatch completion remains blocked
 until the live scope is corrected or installation is explicitly authorized.
 PMIA's negative verdict is a completed review result, not this blocker.
-Actual unchanged completion is False. Read-only substitution of the two
+Actual unchanged completion is False (freshly checked). Read-only substitution of the two
 prepared records makes it True; their packet checks pass at their real paths.
 The four-file intake screen and diff check pass.
 Do not change the completion predicate, queue or labels to bypass it.
@@ -52,7 +53,7 @@ source issues.
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
   "date": "2026-10-10",
-  "notes": "Codex, session codex-2zOJTT. Independent bounded fix review of finding /2, following the complete 79-entry audit by independent-review-REV-DirichletPadicLFunctions--L3-2, archived whole in reviewHistory. Fresh Zhao section 1.2 p.461, Theorem 4.1 and (4.1)-(4.6) pp.471-473, Appendices A-B pp.473-474 readings confirm the primitive odd character of prime-to-p conductor N>1, compatible logarithms and embeddings, chi-omega branch including the dyadic convention, direct character weights and the general (1-chi(p)) B_(1,chi) log_p N correction. Omitting that term requires chi(p)=1. Strict Gamma/count endpoints and the actual Ferrero-Greenberg permutation retain E37; differentiation requires uniform bounds and coefficient limits; nonvanishing and exact order one need separate suppliers. All five gaps, eight requests and planned L3 coverage remain. Checker: zero errors/warnings. Fresh lean-check exits 0 with 111 placeholder warnings and no other diagnostics. Acceptance concerns these fixes and follows, rather than repeats or replaces, the previous exhaustive audit. Every mathematical/planning field and all earlier review history are preserved. See the current report."
+  "notes": "Codex session codex-VFmAUK. Continues the completed bounded six-finding review by codex-2zOJTT, following independent-review-REV-DirichletPadicLFunctions--L3-2; its entire 79-entry audit will be archived whole in reviewHistory. Fresh bounded checks of finding /2: Zhao section 1.2 p.461, Theorem 4.1 and (4.1)–(4.6) pp.471–473, Appendices A–B pp.473–474; primitive odd prime-to-p conductor, chi-omega branch, direct character weights, full Bernoulli correction, strict endpoints and actual permutation. Nonvanishing and analytic differentiation retain their separate suppliers. Fresh lean-check exit 0: 111 placeholder warnings only. Accepted for these correction contracts, not external producer closure or implementation. Every mathematical/planning field, existing history and the entire original checked array are preserved. Packet checker: zero errors/warnings. See the current review report."
 }
 ```
 
@@ -63,7 +64,7 @@ source issues.
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
   "date": "2026-10-10",
-  "notes": "Codex, session codex-2zOJTT. Independent bounded fix review of finding /3, following the complete 72-entry audit by independent-review-REV-PadicHodgeRegulators--D.1~2, archived whole in reviewHistory. Fresh Ertl-Niziol v2 sections 2.1-2.2 pp.4-8/Theorem 2.2 p.7, Colmez-Niziol v4 Corollary 3.16 p.37/Theorem 5.4 p.54 and Nekovar-Niziol v5 Remark 2.14 p.14/Proposition 4.13 pp.53-54 readings confirm divided/undivided fibres, directed omega/tau maps and p^r composites, omega multiplicativity, factorial-modified twist, exact divided range 0<=i<=r<=p-2, bounded undivided comparison and separate source-dependent bounds, exponential isomorphism through i<=r-1 and injectivity at i=r. Rational boundary transport uses omega inverse, p^-r scaling and the NN coboundary sign; no integral inverse is asserted. CS.0-CS.3 remain proposed external producers; CP.4 is the proper rational anchor. Nine gaps, twenty requests, seventeen source issues and all eight planned stages remain. Checker: zero errors/warnings. Fresh lean-check exits 0 with 307 placeholder warnings and no other diagnostics. Acceptance concerns these corrections without claiming producer closure or another exhaustive audit. Every mathematical/planning field and all prior review history are preserved. See the current report."
+  "notes": "Codex session codex-VFmAUK. Continues the completed bounded six-finding review by codex-2zOJTT, following independent-review-REV-PadicHodgeRegulators--D.1~2; its entire 72-entry audit will be archived whole in reviewHistory. Fresh bounded checks of finding /3: Ertl–Niziol v2 sections 2.1–2.2 pp.4–8 and Theorem 2.2 p.7; Colmez–Niziol v4 Corollary 3.16 p.37; Nekovar–Niziol v5 Remark 2.14 p.14 and Proposition 4.13 pp.53–54. Retain distinct divided/undivided fibres, directed p^r comparisons, factorial twist, exact divided p-2 range, bounded undivided range and the normalized rational exponential with its separate isomorphism/injectivity ranges and coboundary sign. Fresh lean-check exit 0: 307 placeholder warnings only. Accepted for these correction contracts, not external producer closure or implementation. Every mathematical/planning field, existing history and the entire original checked array are preserved. Packet checker: zero errors/warnings. See the current review report."
 }
 ```
 
