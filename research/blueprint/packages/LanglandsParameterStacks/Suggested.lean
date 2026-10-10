@@ -771,45 +771,150 @@ example : Continuous unramifiedPower ∧
     Set.Infinite (Set.range unramifiedPower) := by sorry
 end DiscreteWeilContinuity
 
+/-! ## LP0.6: wild restrictions with the prescribed projection
+
+KSS §§1.20–1.21, pp.8–9. The ordinary carrier retains the projection of the
+extending Weil homomorphism. Its conjugating group is the kernel of that
+projection, identified with the dual group for a semidirect L-group.
+Continuity, finite inertia image, Frobenius semisimplicity and the algebraic
+SL₂(C) factor are still omitted, rather than represented by empty predicates.
+-/
 section Wild
 variable {P : Type u} {W : Type v} {L : Type w} [Group P] [Group W] [Group L]
 
-/-- Underlying extendibility shadow. Admissibility and the SL₂(C) factor are omitted. -/
-def WildInertialParameter (i : P →* W) :=
-  {ρ : P →* L // ∃ φ : W →* L, φ.comp i = ρ}
+/-- Existence of an extending section is a property, not chosen extension data.
+This is the ordinary restriction interface, not the full admissible carrier. -/
+def WildInertialParameter (π : L →* W) (i : P →* W) :=
+  {ρ : P →* L // ∃ φ : W →* L,
+    π.comp φ = MonoidHom.id W ∧ φ.comp i = ρ}
 
 namespace WildInertialParameter
-variable {i : P →* W}
-def ofLanglands (φ : W →* L) : WildInertialParameter (L := L) i :=
-  ⟨φ.comp i, φ, rfl⟩
+variable {π : L →* W} {i : P →* W}
 
-def conjugate (g : L) (ρ : WildInertialParameter (L := L) i) :
-    WildInertialParameter (L := L) i := by
-  sorry
+def ofLanglands (φ : W →* L) (hπ : π.comp φ = MonoidHom.id W) :
+    WildInertialParameter π i :=
+  ⟨φ.comp i, φ, hπ, rfl⟩
 
-theorem conjugate_val (g : L) (ρ : WildInertialParameter (L := L) i) (p : P) :
-    (conjugate (i := i) g ρ).val p = g * ρ.val p * g⁻¹ := by sorry
+/-- A wild restriction projects to the specified wild inclusion. -/
+theorem projection (ρ : WildInertialParameter π i) : π.comp ρ.val = i := by
+  obtain ⟨φ, hπ, hρ⟩ := ρ.property
+  rw [← hρ]
+  ext p
+  exact DFunLike.congr_fun hπ (i p)
+
+theorem projection_apply (ρ : WildInertialParameter π i) (p : P) :
+    π (ρ.val p) = i p := DFunLike.congr_fun (projection ρ) p
+
+theorem ofLanglands_val (φ : W →* L) (hπ : π.comp φ = MonoidHom.id W) :
+    (ofLanglands (i := i) φ hπ).val = φ.comp i := rfl
+
+/-- Kernel conjugation preserves the extending section's fixed projection. -/
+theorem conjugate_extension_projection (g : π.ker) (φ : W →* L)
+    (hπ : π.comp φ = MonoidHom.id W) :
+    π.comp ((MulAut.conj g.val).toMonoidHom.comp φ) = MonoidHom.id W := by
+  have hg : π g.val = 1 := g.property
+  ext w
+  have hw : π (φ w) = w := DFunLike.congr_fun hπ w
+  simp [MonoidHom.comp_apply, MulAut.conj_apply, hg, hw]
+
+def conjugate (g : π.ker) (ρ : WildInertialParameter π i) :
+    WildInertialParameter π i :=
+  ⟨(MulAut.conj g.val).toMonoidHom.comp ρ.val, by
+    obtain ⟨φ, hπ, hρ⟩ := ρ.property
+    refine ⟨(MulAut.conj g.val).toMonoidHom.comp φ,
+      conjugate_extension_projection g φ hπ, ?_⟩
+    rw [MonoidHom.comp_assoc, hρ]⟩
+
+theorem conjugate_val (g : π.ker) (ρ : WildInertialParameter π i) (p : P) :
+    (conjugate g ρ).val p = g.val * ρ.val p * g.val⁻¹ := rfl
+
+theorem conjugate_one (ρ : WildInertialParameter π i) : conjugate 1 ρ = ρ := by sorry
+
+theorem conjugate_mul (g h : π.ker) (ρ : WildInertialParameter π i) :
+    conjugate g (conjugate h ρ) = conjugate (g * h) ρ := by sorry
+
+theorem conjugate_inverse (g : π.ker) (ρ : WildInertialParameter π i) :
+    conjugate g⁻¹ (conjugate g ρ) = ρ := by sorry
+
+theorem ofLanglands_conjugate (g : π.ker) (φ : W →* L)
+    (hπ : π.comp φ = MonoidHom.id W) :
+    conjugate g (ofLanglands (i := i) φ hπ) =
+      ofLanglands (i := i) ((MulAut.conj g.val).toMonoidHom.comp φ)
+        (conjugate_extension_projection g φ hπ) := by sorry
+
+@[ext] theorem ext {ρ σ : WildInertialParameter π i} (h : ρ.val = σ.val) : ρ = σ :=
+  Subtype.ext h
+
+/-- The actual dual-group element of the projection kernel, not an arbitrary
+L-group element. Mathlib identifies the entire kernel with the image of inl. -/
+def dualElement {H : Type z} [Group H] (α : W →* MulAut H) (h : H) :
+    (SemidirectProduct.rightHom : SemidirectProduct H W α →* W).ker :=
+  ⟨SemidirectProduct.inl h, by simp⟩
+
+theorem dualElement_val {H : Type z} [Group H] (α : W →* MulAut H) (h : H) :
+    (dualElement α h).val = SemidirectProduct.inl h := rfl
+
+/-- Dual conjugation of a framed lift is the crossed-cocycle gauge formula. -/
+theorem conjugate_left {H : Type z} [Group H] (α : W →* MulAut H)
+    (ρ : WildInertialParameter
+      (SemidirectProduct.rightHom : SemidirectProduct H W α →* W) i)
+    (h : H) (p : P) :
+    ((conjugate (dualElement α h) ρ).val p).left =
+      h * (ρ.val p).left * (α (i p) h)⁻¹ := by sorry
 
 -- wild_inertial_trivial: the ordinary framed restriction is (1,p).
 -- Admissibility of the extending complex parameter is still a supplier input.
 example {H : Type z} [Group H] (α : W →* MulAut H) (J : Subgroup W) :
     (ofLanglands (i := J.subtype)
-      (SemidirectProduct.inr : W →* SemidirectProduct H W α)).val =
-        SemidirectProduct.inr.comp J.subtype := by sorry
+      (SemidirectProduct.inr : W →* SemidirectProduct H W α)
+      SemidirectProduct.rightHom_comp_inr).val =
+        SemidirectProduct.inr.comp J.subtype := rfl
 
 -- wild_inertial_conjugate
-example (g : L) (φ ψ : W →* L) (hψ : ∀ w, ψ w = g * φ w * g⁻¹) :
-    conjugate (i := i) g (ofLanglands (i := i) φ) = ofLanglands (i := i) ψ := by sorry
+example (g : π.ker) (φ ψ : W →* L)
+    (hφ : π.comp φ = MonoidHom.id W) (hψ : π.comp ψ = MonoidHom.id W)
+    (hconj : ∀ w, ψ w = g.val * φ w * g.val⁻¹) :
+    conjugate g (ofLanglands (i := i) φ hφ) = ofLanglands (i := i) ψ hψ := by sorry
 
 -- wild_inertial_forget
-example (φ : W →* L) : (ofLanglands (i := i) φ).val = φ.comp i := by sorry
-
-theorem ext {ρ σ : WildInertialParameter (L := L) i} (h : ρ.val = σ.val) : ρ = σ := by
-  sorry
+example (φ : W →* L) (hπ : π.comp φ = MonoidHom.id W) :
+    (ofLanglands (i := i) φ hπ).val = φ.comp i := rfl
 
 -- wild_inertial_extension_not_data
-example (φ ψ : W →* L) (h : φ.comp i = ψ.comp i) :
-    ofLanglands (i := i) φ = ofLanglands (i := i) ψ := by sorry
+example (φ ψ : W →* L)
+    (hφ : π.comp φ = MonoidHom.id W) (hψ : π.comp ψ = MonoidHom.id W)
+    (h : φ.comp i = ψ.comp i) :
+    ofLanglands (i := i) φ hφ = ofLanglands (i := i) ψ hψ := Subtype.ext h
+
+-- A constant lift is excluded by the prescribed projection on nontrivial wild inertia.
+example [Nontrivial P] (hi : Function.Injective i) :
+    ¬ ∃ ρ : WildInertialParameter π i, ρ.val = 1 := by
+  rintro ⟨ρ, hρ⟩
+  obtain ⟨p, hp⟩ := exists_ne (1 : P)
+  have hproj := projection_apply ρ p
+  rw [hρ] at hproj
+  have heq : i p = i 1 := by simpa using hproj.symm
+  exact hp (hi heq)
+
+-- Nonkernel conjugation can change the Weil projection: an explicit S₃ control.
+example :
+    let g : Equiv.Perm (Fin 3) := Equiv.swap 0 1
+    let w : Equiv.Perm (Fin 3) := Equiv.swap 1 2
+    g * w * g⁻¹ ≠ w := by decide
+
+example :
+    let g : Equiv.Perm (Fin 3) := Equiv.swap 0 1
+    ¬ ∃ ρ : WildInertialParameter
+      (MonoidHom.id (Equiv.Perm (Fin 3))) (MonoidHom.id (Equiv.Perm (Fin 3))),
+      ∀ p, ρ.val p = g * p * g⁻¹ := by
+  dsimp
+  rintro ⟨ρ, hρ⟩
+  have hproj := projection_apply ρ (Equiv.swap (1 : Fin 3) 2)
+  rw [hρ] at hproj
+  have hne :
+      Equiv.swap (0 : Fin 3) 1 * Equiv.swap (1 : Fin 3) 2 *
+        (Equiv.swap (0 : Fin 3) 1)⁻¹ ≠ Equiv.swap (1 : Fin 3) 2 := by decide
+  exact hne hproj
 end WildInertialParameter
 end Wild
 
