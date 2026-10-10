@@ -1,3 +1,293 @@
+# Current continuation: tested historical-scope repair
+
+Issue [#5871](https://github.com/CBirkbeck/tauceti-explorer/issues/5871),
+Codex session **codex-LPn2NR**, 10 October 2026. Input commit
+`0339ede22bf7a801e863028435d340d6ab2c0f03`.
+Claim confirmed in [comment 6101125189](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6101125189).
+
+**Blocked checkpoint.** The authorized mathematical review is already complete.
+This continuation preserves its verdicts and evidence. Its new work is a
+concrete two-file repair proposal, checked against the historical submission,
+the real completion predicate, the real round function and the full queue
+generator. No packet or suggested file was edited or given a new review stamp.
+
+## Verified boundary
+
+The bot-confirmed live issue names seven outputs: this report, three packets
+and their suggested files. The queue expects 27, including ten additional
+packet/Lean pairs. All outputs exist. The actual `issues.deliverables_complete`
+returns **false** for the committed queue job and **true** when only its output
+list is replaced in memory by the seven live-issue paths. CSM and Global have
+accepted verdicts and GL2 has needs_changes, all bearing this review job's id.
+The negative verdict counts as a completed review; it is not the blocker.
+
+The done parent `FIX-RT-AREA-langlands-2~3` lists forty outputs. I independently
+read [PR #6724](https://github.com/CBirkbeck/tauceti-explorer/pull/6724)'s actual
+file list and its merge-commit queue at
+`ea48bbeeacfde53c5b93de227ad11d27e83cdafd`. The historical fix has ten outputs
+and the review seven, exactly the lists in the reproducible replay below.
+The GitHub contents response omits inline contents for this large file, so the
+queue was read from its supplied raw URL at that exact commit. No repository
+clone, snapshot, or source passage was copied.
+
+[WORKERS.md](../WORKERS.md), Doing the work, requires:
+“Edit only the files the issue names, plus your own scratch space.” Neither
+repair path is issue-named. An asynchronous scope clarification was requested
+and no authorization arrived before submission. In addition,
+`intake.file_problems` reports both queue.json and make_queue.py as outside
+swarm output paths. This is a read-only allowlist check, not an automatic
+approval rejection or a submitted invalid pull request. The proposed repair
+needs maintainer handling; this checkpoint edits only the report and handoff.
+
+## Concrete repair and its limits
+
+Restore only `outputs` on `FIX-RT-AREA-langlands-2~3` and its review to the
+historical ten/seven lists. Preserve every other job field. At
+`make_queue.py::fix_rounds`, replace the assignment to `made` with:
+
+```python
+made = previous_jobs.get(following) if (
+    states.get(following) == "done" or (following in states and not (missing or sent_back))
+) else None
+```
+
+This preserves a completed following round when new blueprint inputs appear.
+It keeps the old dependency/reason of that round; unfinished following rounds
+still absorb new inputs, and genuine review send-backs still depend on their
+independent reviews. The guard cannot recover output lists that were already
+expanded incorrectly: historical restoration is a separate required step.
+
+A 6,396-byte two-file patch was prepared **only in scratch**. It changes only
+these two output fields and the guard, parses as Python, and passes
+`git apply --check`. The restored job satisfies the actual completion predicate.
+The scripts below reconstruct and verify its contents without relying on a
+retained scratch artifact. No queue, prompt, generator or intake file changed.
+
+Seven focused cases pass: reproducing the original completed-round expansion,
+preserving historical scope, routing newly available work, repeat generation,
+expanding unfinished work, a true send-back dependency, and a historical
+send-back dependency. The focused test extracts and executes the actual
+nested function rather than a rewritten approximation.
+
+The full generator replay gives the following output counts with round three's
+historical lists restored in memory:
+
+| Generator | Round-two fix/review | Round-three fix/review | Existing round-four fix/review |
+| --- | --- | --- | --- |
+| Current guard | 29 / 17 | 10 / 7 | 32 / 19 |
+| Proposed guard | 47 / 27 | 10 / 7 | 47 / 27 |
+
+Under **today's** routing, restoring round three suffices for both versions to
+retain its ten/seven scope. The generic focused regression still reproduces
+why an earlier generation can expand a completed round. Do not claim this
+full replay reproduces round three's historical expansion today.
+Round four already exists and is done; it was not created by this continuation.
+With the proposed guard, round-three and round-four output lists remain equal
+across a second full generation. This preserves current round-four scope; it
+does not certify that scope's historical correctness.
+
+Comparing the full in-memory generations changes **37** existing entries,
+adds **20** fix/review entries and removes none. The shared guard affects many
+families, so the maintainer must inspect that broader routing and recover each
+historical scope from its real submissions as appropriate. Do not publish an
+unexamined full generator rewrite as if it were a seven-output repair.
+
+## Fresh validation and attribution
+
+All three `check_blueprint.py` runs report zero errors and warnings:
+37 CSM nodes, 73 GL2 nodes, and 67 Global nodes. All 177 remain unchecked;
+none of the three packets has an excerpt field. The original forty confirmed
+finding identifiers exactly match forty unique dispositions in the retained
+report. The packet verdicts, API/test lists, prerequisites, gaps and requests
+are unchanged. Suggested files are byte-for-byte unchanged, so Lean was not
+rerun; the attributed earlier successful receipts remain below. This run
+starts no Lean process and claims no fresh primary-source, pinned-declaration,
+mathematical graph or signature audit. Only administrative code and historical
+queue metadata were newly inspected.
+
+## Reproducible focused regression
+
+Run this code from the repository root. It reads the actual generator and
+executes its nested round function in memory; it writes no repository file.
+
+```python
+"""Exercise the real fix_rounds function without changing repository files."""
+import ast
+import copy
+import re
+from pathlib import Path
+
+source = Path('research/blueprint/make_queue.py').read_text()
+old = 'made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
+new = '''made = previous_jobs.get(following) if (
+                states.get(following) == "done" or (following in states and not (missing or sent_back))
+            ) else None'''
+assert source.count(old) == 1
+base = 'FIX-RT-FIXTURE'
+report = 'research/blueprint/redteam/RT-FIXTURE.fixes.md'
+packet = 'research/blueprint/packets/Fixture.json'
+suggested = 'research/blueprint/suggested/Fixture.lean'
+added_packet = 'research/blueprint/packets/NewFixture.json'
+added_suggested = 'research/blueprint/suggested/NewFixture.lean'
+round_two = [report.replace('.fixes.md', '.fixes-2.md'), packet, suggested]
+historical = [
+    {'id': base, 'state': 'done', 'outputs': [report]},
+    {'id': base + '~2', 'state': 'done', 'outputs': round_two, 'after': [base]},
+    {'id': 'REV-' + base + '~2', 'state': 'pending', 'outputs': []},
+]
+
+def generate(src, prior, blueprints, verdicts=None):
+    function = next(n for n in ast.walk(ast.parse(src))
+                    if isinstance(n, ast.FunctionDef) and n.name == 'fix_rounds')
+    module = ast.Module(body=[function], type_ignores=[])
+    jobs = {}
+    env = {
+        'states': {j['id']: j['state'] for j in prior},
+        'previous_outputs': {j['id']: j['outputs'] for j in prior},
+        'previous_jobs': {j['id']: j for j in prior},
+        'PROMOTABLE': re.compile(r'^research/blueprint/packets/'),
+        'review_of': lambda p: (verdicts or {}).get(p, {}),
+        'findings_text': lambda *args: '', 'fill': {},
+        'FIX_TEMPLATE': '', 'FIX_REVIEW_TEMPLATE': '',
+        'add': lambda job, prompt: jobs.update({job['id']: job}),
+    }
+    exec(compile(module, '<real fix_rounds>', 'exec'), env)
+    env['fix_rounds']('RT-FIXTURE', 'fixture', 'fixture', [], 0, {}, [],
+                      [report], blueprints, {}, [])
+    return jobs
+
+blueprints = [packet, suggested, added_packet, added_suggested]
+original = generate(source, historical, blueprints)
+assert original[base + '~2']['outputs'] != round_two
+assert base + '~3' not in original
+fixed_source = source.replace(old, new)
+fixed = generate(fixed_source, historical, blueprints)
+assert fixed[base + '~2']['outputs'] == round_two
+assert fixed[base + '~3']['after'] == [base + '~2']
+assert added_packet in fixed[base + '~3']['outputs']
+assert added_suggested in fixed[base + '~3']['outputs']
+assert fixed['REV-' + base + '~2']['outputs'] == [
+    'research/blueprint/reviews/REV-FIX-RT-FIXTURE~2.md', packet, suggested]
+prior = [dict(j, state=next((p['state'] for p in historical if p['id'] == jid),
+                            'pending')) for jid, j in fixed.items()]
+twice = generate(fixed_source, prior, blueprints)
+assert {k: v['outputs'] for k, v in fixed.items()} == {
+    k: v['outputs'] for k, v in twice.items()}
+
+# Unfinished work still absorbs newly available inputs.
+pending = copy.deepcopy(historical)
+pending[1]['state'] = 'pending'
+unfinished = generate(fixed_source, pending, blueprints)
+assert added_packet in unfinished[base + '~2']['outputs']
+assert base + '~3' not in unfinished
+
+# The genuine rejection path keeps the independent review dependency.
+rejected = copy.deepcopy(historical)
+rejected[2]['state'] = 'done'
+sent_back = generate(fixed_source, rejected, [packet, suggested], {
+    packet: {'status': 'needs_changes',
+             'reviewer': 'independent-review-REV-' + base + '~2'}})
+assert sent_back[base + '~3']['after'] == ['REV-' + base + '~2']
+
+# An existing completed rejection round keeps its recorded reason/dependency.
+saved_rejection = copy.deepcopy(historical)
+saved_rejection[1]['after'] = ['REV-' + base]
+preserved = generate(fixed_source, saved_rejection, blueprints)
+assert preserved[base + '~2']['after'] == ['REV-' + base]
+assert preserved[base + '~2']['outputs'] == round_two
+print('PASS: original bug, completed scope, new-work routing, repeat generation, '
+      'unfinished expansion, rejection dependency, historical dependency')
+```
+
+## Reproducible full-generator replay
+
+Save the code below in task scratch and pass that scratch directory as its
+only argument. Run from the repository root. Its historical lists were verified
+against PR #6724’s merge queue. It returns generated jobs/prompts in memory at
+the dry-run boundary, redirects the queue lock into scratch, and raises on a
+`Path.write_text` attempt. It makes no synchronization or promotion call.
+
+```python
+import ast
+import builtins
+import contextlib
+import copy
+import io
+import json
+import sys
+from pathlib import Path
+from unittest.mock import patch
+
+REPO=Path.cwd()
+SCRATCH=Path(sys.argv[1])
+source_path=REPO/'research/blueprint/make_queue.py'
+source=source_path.read_text()
+old='made = previous_jobs.get(following) if following in states and not (missing or sent_back) else None'
+new='''made = previous_jobs.get(following) if (
+                states.get(following) == "done" or (following in states and not (missing or sent_back))
+            ) else None'''
+rt='RT-AREA-langlands-2'; base='FIX-'+rt
+current=json.loads((REPO/'research/blueprint/queue.json').read_text())
+packets = ['ClassicalSerreModularity--R27.3', 'GL2ModularityLifting--R22.1', 'GlobalGaloisDeformations']
+fix_outputs = ['research/blueprint/redteam/RT-AREA-langlands-2.fixes-3.md'] + [
+    f'research/blueprint/{folder}/{name}{suffix}' for name in packets
+    for folder, suffix in [('packets', '.json'), ('readmes', '.md'), ('suggested', '.lean')]]
+review_outputs = ['research/blueprint/reviews/REV-FIX-RT-AREA-langlands-2~3.md'] + [
+    f'research/blueprint/packets/{name}.json' for name in packets] + [
+    f'research/blueprint/suggested/{name}.lean' for name in packets]
+historical = {base+'~3': {'outputs': fix_outputs}, 'REV-'+base+'~3': {'outputs': review_outputs}}
+restored=copy.deepcopy(current)
+for j in restored['jobs']:
+    if j['id'] in (base+'~3','REV-'+base+'~3'):
+        j['outputs']=historical[j['id']]['outputs'][:]
+
+real_read=Path.read_text
+real_open=builtins.open
+
+def generate(source, queue):
+    tree=ast.parse(source)
+    main=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main')
+    dry=next(n for n in main.body if isinstance(n,ast.If) and isinstance(n.test,ast.Attribute) and n.test.attr=='dry_run')
+    dry.body=[ast.Return(value=ast.Dict(keys=[ast.Constant('jobs'),ast.Constant('prompts')],values=[ast.Name(id='merged',ctx=ast.Load()),ast.Name(id='prompts',ctx=ast.Load())]))]
+    ast.fix_missing_locations(tree)
+    namespace={'__file__':str(source_path),'__name__':'scope_repair_dry_run'}
+    exec(compile(tree,str(source_path),'exec'),namespace)
+    def read(path,*args,**kwargs):
+        return json.dumps(queue) if path==REPO/'research/blueprint/queue.json' else real_read(path,*args,**kwargs)
+    def open_safe(file,*args,**kwargs):
+        if Path(file)==REPO/'research/blueprint/.queue.lock': file=SCRATCH/'generation.lock'
+        return real_open(file,*args,**kwargs)
+    sys.path.insert(0,str(REPO/'research/blueprint'))
+    with patch.object(Path,'read_text',read), patch.object(Path,'write_text',side_effect=AssertionError('dry-run attempted write')), patch('builtins.open',open_safe), patch.object(sys,'argv',[str(source_path),'--library','library','--baseline','baseline','--workers','workers','--dry-run']), contextlib.redirect_stdout(io.StringIO()):
+        return namespace['main']()
+
+runs={}
+for label,src in [('original',source),('repaired',source.replace(old,new))]:
+    first=generate(src,restored)
+    jobs={j['id']:j for j in first['jobs']}
+    print(label,[(jid,len(j['outputs'])) for jid,j in jobs.items() if jid.startswith((base,'REV-'+base))])
+    runs[label]=first
+    if label=='repaired':
+        assert jobs[base+'~3']['outputs']==historical[base+'~3']['outputs']
+        assert jobs['REV-'+base+'~3']['outputs']==historical['REV-'+base+'~3']['outputs']
+        assert base+'~4' in jobs
+        second=generate(src,{'jobs':first['jobs']})
+        for round_ in (base+'~3','REV-'+base+'~3',base+'~4','REV-'+base+'~4'):
+            assert next(j for j in second['jobs'] if j['id']==round_)['outputs']==jobs[round_]['outputs']
+        print('full dry-run: restored round-three and existing round-four output lists stable across two generations')
+
+original={j['id']:j for j in runs['original']['jobs']}
+repaired={j['id']:j for j in runs['repaired']['jobs']}
+changed=[jid for jid in original.keys() & repaired.keys() if original[jid]!=repaired[jid]]
+added=list(repaired.keys()-original.keys())
+removed=list(original.keys()-repaired.keys())
+print('broader comparison: changed',len(changed),'added',len(added),'removed',len(removed))
+```
+
+---
+
+Earlier continuations and mathematical evidence follow with their original attribution.
+
 # REV-FIX-RT-AREA-langlands-2~3
 
 Current blocked checkpoint: Codex session `codex-oVg7VH`, 10 October 2026,
