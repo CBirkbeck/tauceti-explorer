@@ -53,8 +53,11 @@ lemma coefficientLevel_base :
     coefficientLevel (Padic p) Ω ρ = fun n => IntermediateField.adjoin (Padic p) {ρ n} := by sorry
 
 -- Tests: native agreement, trivial dyadic first level, and the first odd degree.
-example : coefficientLevel E Ω ρ 0 = IntermediateField.adjoin E {ρ 0} := by sorry
+-- ColemanUnramified.Tests.coefficientLevel_base
+example : coefficientLevel (Padic p) Ω ρ 0 = IntermediateField.adjoin (Padic p) {ρ 0} := by sorry
+-- ColemanUnramified.Tests.coefficientLevel_dyadic_zero
 example (hρ : ρ 0 = -1) : coefficientLevel E Ω ρ 0 = ⊥ := by sorry
+-- ColemanUnramified.Tests.coefficientLevel_first_odd
 example (hp : p = 3) (hρ : IsPrimitiveRoot (ρ 0) 3)
     [ValuativeRel E] [TopologicalSpace E] [IsNonarchimedeanLocalField E]
     [Algebra (PadicInt p) 𝒪[E]]
@@ -142,8 +145,13 @@ lemma coefficientIntegralBasis_dim (n : ℕ) :
 lemma coefficientIntegralBasis_repr (n : ℕ) (x : 𝒪[Level E Ω ρ n]) :
     (coefficientIntegralBasis E Ω ρ hc hr hu hO hinc n).basis.repr.symm
       ((coefficientIntegralBasis E Ω ρ hc hr hu hO hinc n).basis.repr x) = x := by sorry
-example (n : ℕ) : (coefficientIntegralBasis E Ω ρ hc hr hu hO hinc n).basis ⟨0, by sorry⟩ = 1 := by sorry
+-- ColemanUnramified.Tests.coefficientIntegralBasis_one
+example (n : ℕ) :
+    let pb := coefficientIntegralBasis E Ω ρ hc hr hu hO hinc n
+    ∀ i : Fin pb.dim, pb.basis.repr 1 i = if i.val = 0 then 1 else 0 := by sorry
+-- ColemanUnramified.Tests.coefficientIntegralBasis_dyadic_zero
 example (hp : p = 2) : (coefficientIntegralBasis E Ω ρ hc hr hu hO hinc 0).dim = 1 := by sorry
+-- ColemanUnramified.Tests.coefficientIntegralBasis_relation
 example (n : ℕ) :
     let pb := coefficientIntegralBasis E Ω ρ hc hr hu hO hinc n
     let F := (Polynomial.cyclotomic (p^(n+1)) 𝒪[E]).comp (Polynomial.X+1)
@@ -160,6 +168,7 @@ lemma coefficientResidueEquiv_scalar (n : ℕ) (a : 𝒪[E]) :
     residueAt E Ω ρ hc hr hu hO hinc n (algebraMap 𝒪[E] 𝒪[Level E Ω ρ n] a) =
       residue 𝒪[E] a := by sorry
 lemma coefficientResidueEquiv_root (n : ℕ) :
+    residueAt E Ω ρ hc hr hu hO hinc n (integerPi E Ω ρ hr n + 1) = 1 ∧
     residueAt E Ω ρ hc hr hu hO hinc n (integerPi E Ω ρ hr n) = 0 := by sorry
 lemma coefficientResidueEquiv_inclusion (n : ℕ)
     (j : 𝒪[Level E Ω ρ n] →+* 𝒪[Level E Ω ρ (n+1)])
@@ -167,9 +176,14 @@ lemma coefficientResidueEquiv_inclusion (n : ℕ)
       algebraMap (Level E Ω ρ n) (Level E Ω ρ (n+1)) (a : Level E Ω ρ n))
     (a : 𝒪[Level E Ω ρ n]) :
     residueAt E Ω ρ hc hr hu hO hinc (n+1) (j a) = residueAt E Ω ρ hc hr hu hO hinc n a := by sorry
+-- ColemanUnramified.Tests.coefficientResidue_scalar
 example (n : ℕ) (a : 𝒪[E]) :
     residueAt E Ω ρ hc hr hu hO hinc n (algebraMap 𝒪[E] 𝒪[Level E Ω ρ n] a) = residue 𝒪[E] a := by sorry
-example (hp : p = 2) : Nat.card 𝓀[Level E Ω ρ 0] = Nat.card 𝓀[E] := by sorry
+-- ColemanUnramified.Tests.coefficientResidue_dyadic_zero
+example (hp : p = 2) (a : 𝒪[E]) :
+    residueAt E Ω ρ hc hr hu hO hinc 0 (algebraMap 𝒪[E] 𝒪[Level E Ω ρ 0] a) =
+      residue 𝒪[E] a := by sorry
+-- ColemanUnramified.Tests.coefficientResidue_extension
 example (hf : Module.finrank (Padic p) E = 2) (n : ℕ) :
     Nat.card 𝓀[Level E Ω ρ n] = p^2 := by sorry
 
@@ -197,7 +211,9 @@ lemma coefficientUnitNorm_trans (n : ℕ)
       (coefficientUnitNorm E Ω ρ hc hr hu hO hinc (n+1) u) : 𝒪[Level E Ω ρ n]ˣ) :
       𝒪[Level E Ω ρ n]) : Level E Ω ρ n) =
       Algebra.norm (Level E Ω ρ n) ((u : 𝒪[Level E Ω ρ (n+2)]) : Level E Ω ρ (n+2)) := by sorry
+-- ColemanUnramified.Tests.coefficientUnitNorm_one
 example (n : ℕ) : coefficientUnitNorm E Ω ρ hc hr hu hO hinc n 1 = 1 := by sorry
+-- ColemanUnramified.Tests.coefficientUnitNorm_coefficient
 example (n : ℕ) (c : 𝒪[E]ˣ) :
     coefficientUnitNorm E Ω ρ hc hr hu hO hinc n
       (Units.map (algebraMap 𝒪[E] 𝒪[Level E Ω ρ (n+1)]).toMonoidHom c) =
@@ -213,6 +229,7 @@ lemma coefficientRootNorm (n : ℕ) :
 include hc hr hu hO hinc in
 lemma coefficientDifferenceNorm (n : ℕ) :
     Algebra.norm (Level E Ω ρ n) (1-root E Ω ρ (n+1)) = 1-root E Ω ρ n := by sorry
+-- ColemanUnramified.Tests.coefficientUnitNorm_root
 example (hp : p = 2) (n : ℕ) :
     Algebra.norm (Level E Ω ρ n) (root E Ω ρ (n+1)) = -root E Ω ρ n := by sorry
 
@@ -279,12 +296,15 @@ lemma coefficientUnitLimit_base [∀ n, Algebra (PadicInt p) (Level E Ω ρ n)]
       ((u n : integralClosure (PadicInt p) (Level E Ω ρ n)) : Level E Ω ρ n)) :
     ∃ e : P ≃ₜ* coefficientUnitLimit E Ω ρ hc hr hu hO hinc,
       ∀ u n, (e u).1 n = η n (u.1 n) := by sorry
+-- ColemanUnramified.Tests.coefficientUnitLimit_one
 example : (fun n => (1 : 𝒪[Level E Ω ρ n]ˣ)) ∈
     coefficientUnitLimit E Ω ρ hc hr hu hO hinc := by sorry
+-- ColemanUnramified.Tests.coefficientUnitLimit_teich_failure
 example (r : 𝓀[E]ˣ) (h : r^p ≠ r) :
     (fun n => omega E Ω ρ hc hr hu hO hinc n r) ∉ coefficientUnitLimit E Ω ρ hc hr hu hO hinc := by sorry
 example (u v : coefficientUnitLimit E Ω ρ hc hr hu hO hinc)
     (n : ℕ) (h : u.1 n ≠ v.1 n) : u ≠ v := by sorry
+-- ColemanUnramified.Tests.coefficientUnitLimit_actual_norms
 example (u : ∀ n, 𝒪[Level E Ω ρ n]ˣ) :
     u∈coefficientUnitLimit E Ω ρ hc hr hu hO hinc ↔ ∀ n,
       Algebra.norm (Level E Ω ρ n) ((u (n+1) : 𝒪[Level E Ω ρ (n+1)]) : Level E Ω ρ (n+1)) =
@@ -308,6 +328,7 @@ lemma coefficientPrincipalLimit_closed :
       Set (coefficientUnitLimit E Ω ρ hc hr hu hO hinc)) := by sorry
 example : (1 : coefficientUnitLimit E Ω ρ hc hr hu hO hinc) ∈
     coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc := by sorry
+-- ColemanUnramified.Tests.coefficientPrincipal_native
 example (u : coefficientUnitLimit E Ω ρ hc hr hu hO hinc) :
     u∈coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc ↔
       ∀ n, (u.1 n : 𝒪[Level E Ω ρ n])-1∈maximalIdeal 𝒪[Level E Ω ρ n] := by sorry
@@ -328,13 +349,18 @@ lemma coefficientTeichSection_base (hF : residueUnitsFrobenius (p := p) E = MulE
     (r : 𝓀[E]ˣ) (n : ℕ) :
     (coefficientTeichSection E Ω ρ hc hr hu hO hinc r).1 n =
       omega E Ω ρ hc hr hu hO hinc n r := by sorry
+-- ColemanUnramified.Tests.coefficientPrincipal_teich
 example (r : 𝓀[E]ˣ) :
     coefficientTeichSection E Ω ρ hc hr hu hO hinc r ∈
       coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc ↔ r=1 := by sorry
+-- ColemanUnramified.Tests.coefficientTeich_one
 example : coefficientTeichSection E Ω ρ hc hr hu hO hinc 1 = 1 := by sorry
-example (hp : p=3) (hf : Nat.card 𝓀[E]=9) (r : 𝓀[E]ˣ) :
-    (coefficientTeichSection E Ω ρ hc hr hu hO hinc r).1 1 =
-      omega E Ω ρ hc hr hu hO hinc 1 (r^3) := by sorry
+-- ColemanUnramified.Tests.coefficientTeich_quadratic
+example (hp : p=3) (hf : Nat.card 𝓀[E]=9) (r : 𝓀[E]ˣ) (n : ℕ) :
+    residueAt E Ω ρ hc hr hu hO hinc n
+      ((coefficientTeichSection E Ω ρ hc hr hu hO hinc r).1 n) =
+      (r : 𝓀[E]) ^ (if n % 2 = 0 then 1 else 3) := by sorry
+-- ColemanUnramified.Tests.coefficientTeich_stationary_failure
 example (r : 𝓀[E]ˣ) (h : r^p ≠ r) :
     (coefficientTeichSection E Ω ρ hc hr hu hO hinc r).1 1 ≠
       omega E Ω ρ hc hr hu hO hinc 1 r := by sorry
@@ -353,10 +379,13 @@ lemma coefficientUnitSplit_symm (r : 𝓀[E]ˣ)
     (v : coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc) :
     (coefficientUnitSplit E Ω ρ hc hr hu hO hinc).symm (r,v) =
       coefficientTeichSection E Ω ρ hc hr hu hO hinc r * v.1 := by sorry
+-- ColemanUnramified.Tests.coefficientSplit_teich
 example (r : 𝓀[E]ˣ) : coefficientUnitSplit E Ω ρ hc hr hu hO hinc
     (coefficientTeichSection E Ω ρ hc hr hu hO hinc r) = (r,1) := by sorry
+-- ColemanUnramified.Tests.coefficientSplit_principal
 example (v : coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc) :
     coefficientUnitSplit E Ω ρ hc hr hu hO hinc v.1 = (1,v) := by sorry
+-- ColemanUnramified.Tests.coefficientSplit_nontrivial
 example (r : 𝓀[E]ˣ) (hres : r≠1) :
     (coefficientUnitSplit E Ω ρ hc hr hu hO hinc
       (coefficientTeichSection E Ω ρ hc hr hu hO hinc r)).1≠1 := by sorry
@@ -377,8 +406,13 @@ lemma signedTateRoot_two (hp : p=2) (n : ℕ) :
     (((signedTateRoot E Ω ρ hr n : 𝒪[Level E Ω ρ n]) : Level E Ω ρ n) : Ω) = -ρ n := by sorry
 lemma signedTateRoot_order (n : ℕ) (h : p≠2 ∨ n≠0) :
     IsPrimitiveRoot (signedTateRoot E Ω ρ hr n) (p^(n+1)) := by sorry
+-- ColemanUnramified.Tests.signedTateRoot_zero
 example (hp : p=2) : signedTateRoot E Ω ρ hr 0 = 1 := by sorry
-example (hp : p=2) : IsPrimitiveRoot (signedTateRoot E Ω ρ hr 1) 4 := by sorry
+-- ColemanUnramified.Tests.signedTateRoot_one
+example (hp : p=2) :
+    (((signedTateRoot E Ω ρ hr 1 : 𝒪[Level E Ω ρ 1]) : Level E Ω ρ 1) : Ω) = -ρ 1 ∧
+    IsPrimitiveRoot (signedTateRoot E Ω ρ hr 1) 4 := by sorry
+-- ColemanUnramified.Tests.signedTateRoot_power_failure
 example (hp : p=2) (n : ℕ) :
     let a : Ω := (((signedTateRoot E Ω ρ hr (n+1) : 𝒪[Level E Ω ρ (n+1)]) : Level E Ω ρ (n+1)) : Ω)
     let b : Ω := (((signedTateRoot E Ω ρ hr n : 𝒪[Level E Ω ρ n]) : Level E Ω ρ n) : Ω)
@@ -386,6 +420,7 @@ example (hp : p=2) (n : ℕ) :
 lemma signedTateRoot_norm (n : ℕ) :
     coefficientUnitNorm E Ω ρ hc hr hu hO hinc n (signedTateRoot E Ω ρ hr (n+1)) =
       signedTateRoot E Ω ρ hr n := by sorry
+-- ColemanUnramified.Tests.coefficientPrincipal_dyadic
 example (hp : p=2) :
     ∃ u : coefficientUnitLimit E Ω ρ hc hr hu hO hinc,
       u∈coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc ∧
@@ -399,7 +434,9 @@ lemma signedTateTower_coordinate (a : PadicInt p) (n : ℕ) :
 lemma signedTateTower_injective :
     Function.Injective (signedTateTower E Ω ρ hc hr hu hO hinc) := by sorry
 -- signedTateTower_scalar: omitted current-only native Module instance, G1.
+-- ColemanUnramified.Tests.signedTateTower_zero
 example : signedTateTower E Ω ρ hc hr hu hO hinc 0 = 0 := by sorry
+-- ColemanUnramified.Tests.signedTateTower_two
 example (n : ℕ) :
     (signedTateTower E Ω ρ hc hr hu hO hinc 1).toMul.1.1 n =
       signedTateRoot E Ω ρ hr n := by sorry
@@ -408,6 +445,7 @@ example (hp : p=2) :
 example (hp : p=2) :
     ((((signedTateTower E Ω ρ hc hr hu hO hinc 1).toMul.1.1 1 :
       𝒪[Level E Ω ρ 1]) : Level E Ω ρ 1) : Ω) = -ρ 1 := by sorry
+-- ColemanUnramified.Tests.signedTateTower_detection
 example (hp : p=2) :
     (signedTateTower E Ω ρ hc hr hu hO hinc 1).toMul.1.1 1 ≠
       (signedTateTower E Ω ρ hc hr hu hO hinc 0).toMul.1.1 1 := by sorry
@@ -442,17 +480,22 @@ lemma coefficientFrobenius_inclusion (n : ℕ) (a : Level E Ω ρ n) :
         (coefficientFrobenius E Ω ρ hc hr hu hO hinc φ φO hφO hφres n a) := by sorry
 lemma coefficientFrobenius_order (f : ℕ) (hf : orderOf φ=f) (n : ℕ) :
     orderOf (coefficientFrobenius E Ω ρ hc hr hu hO hinc φ φO hφO hφres n) = f := by sorry
+-- ColemanUnramified.Tests.coefficientFrobenius_base
 example (hφ : φ=AlgEquiv.refl) (n : ℕ) :
     coefficientFrobenius E Ω ρ hc hr hu hO hinc φ φO hφO hφres n = AlgEquiv.refl := by sorry
 example (n : ℕ) (a : 𝒪[E]) (ha : (residue 𝒪[E] a)^p ≠ residue 𝒪[E] a) :
     coefficientFrobenius E Ω ρ hc hr hu hO hinc φ φO hφO hφres n
       (algebraMap E (Level E Ω ρ n) a) ≠ algebraMap E (Level E Ω ρ n) a := by sorry
+-- ColemanUnramified.Tests.coefficientFrobenius_root
 example (n : ℕ) :
     coefficientFrobenius E Ω ρ hc hr hu hO hinc φ φO hφO hφres n (root E Ω ρ n) = root E Ω ρ n := by sorry
-example (hp : p=2) (hf : Nat.card 𝓀[E]=8) (n : ℕ) (a : 𝒪[E]) :
+-- ColemanUnramified.Tests.coefficientFrobenius_residue
+example (hp : p=2) (hf : Nat.card 𝓀[E]=8) (n : ℕ) (a : 𝒪[E])
+    (ha : IsPrimitiveRoot (residue 𝒪[E] a) 7) :
     let b : 𝒪[Level E Ω ρ n] := ⟨coefficientFrobenius E Ω ρ hc hr hu hO hinc φ φO hφO hφres n
       (algebraMap E (Level E Ω ρ n) (a : E)), by sorry⟩
-    residueAt E Ω ρ hc hr hu hO hinc n b = (residue 𝒪[E] a)^2 := by sorry
+    residueAt E Ω ρ hc hr hu hO hinc n b = (residue 𝒪[E] a)^2 ∧
+    residueAt E Ω ρ hc hr hu hO hinc n b ≠ (residue 𝒪[E] a)^4 := by sorry
 lemma coefficientNorm_equivariant (n : ℕ) (a : Level E Ω ρ (n+1)) :
     Algebra.norm (Level E Ω ρ n)
       (coefficientFrobenius E Ω ρ hc hr hu hO hinc φ φO hφO hφres (n+1) a) =
@@ -475,18 +518,25 @@ lemma coefficientCyclotomicAction_mul (n : ℕ) (g h : (PadicInt p)ˣ) :
     coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc n (g*h) =
       coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc n g *
         coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc n h := by sorry
+-- ColemanUnramified.Tests.coefficientAction_one
 example (n : ℕ) : coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc n 1 = 1 := by sorry
 example (n : ℕ) :
     coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc n (-1) (root E Ω ρ n) = (root E Ω ρ n)⁻¹ := by sorry
+-- ColemanUnramified.Tests.coefficientAction_square
 example (hp : p=5) (g : (PadicInt p)ˣ) (hg : PadicInt.toZModPow 1 (g : PadicInt p)=2) :
     coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc 0 g (root E Ω ρ 0) =
       root E Ω ρ 0 ^ 2 := by sorry
+-- ColemanUnramified.Tests.coefficientAction_kernel
 example (n : ℕ) (g : (PadicInt p)ˣ)
     (hg : PadicInt.toZModPow (n+1) (g : PadicInt p)=1) :
     coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc n g = 1 := by sorry
 lemma coefficientNorm_cyclotomic_equivariant (n : ℕ) (g : (PadicInt p)ˣ) (a : Level E Ω ρ (n+1)) :
     Algebra.norm (Level E Ω ρ n) (coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc (n+1) g a) =
       coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc n g (Algebra.norm (Level E Ω ρ n) a) := by sorry
+
+lemma coefficientCyclotomicAction_continuous (n : ℕ) :
+    Continuous (fun x : (PadicInt p)ˣ × Level E Ω ρ n =>
+      coefficientCyclotomicAction E Ω ρ hc hr hu hO hinc n x.1 x.2) := by sorry
 
 section LimitActions
 variable (φ : E ≃ₐ[Padic p] E) (φO : 𝒪[E] ≃+* 𝒪[E])
@@ -517,6 +567,20 @@ lemma coefficientLimitActions_coordinate (g : (PadicInt p)ˣ)
       𝒪[Level E Ω ρ n]) : Level E Ω ρ n) =
     coefficientFrobenius E Ω ρ hc hr hu hO hinc φ φO hφO hφres n
       ((u.1 n : 𝒪[Level E Ω ρ n]) : Level E Ω ρ n) := by sorry
+lemma coefficientLimitActions_continuous :
+    Continuous (fun x : (PadicInt p)ˣ × coefficientUnitLimit E Ω ρ hc hr hu hO hinc =>
+      (coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).1 x.1 x.2) ∧
+    Continuous (coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).2 := by sorry
+lemma coefficientLimitActions_order (f : ℕ) (hf : orderOf φ = f) (hpos : 0 < f) :
+    (coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).2 ^ f = 1 := by sorry
+lemma coefficientLimitActions_principal (g : (PadicInt p)ˣ)
+    (u : coefficientUnitLimit E Ω ρ hc hr hu hO hinc) :
+    ((coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).1 g u ∈
+      coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc ↔
+      u ∈ coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc) ∧
+    ((coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).2 u ∈
+      coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc ↔
+      u ∈ coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc) := by sorry
 lemma coefficientLimitActions_teich (g : (PadicInt p)ˣ) (r : 𝓀[E]ˣ) :
     (coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).1 g
       (coefficientTeichSection E Ω ρ hc hr hu hO hinc r) =
@@ -531,13 +595,16 @@ lemma coefficientLimitActions_commute (g : (PadicInt p)ˣ) :
       (coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).1 g := by sorry
 example (u : coefficientUnitLimit E Ω ρ hc hr hu hO hinc) :
     (coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).1 1 u = u := by sorry
+-- ColemanUnramified.Tests.coefficientLimitAction_square
 example (hp : p=5) (g : (PadicInt p)ˣ) (hg : PadicInt.toZModPow 1 (g : PadicInt p)=2) :
     (((((coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).1 g
       (signedTateTower E Ω ρ hc hr hu hO hinc 1).toMul.1).1 0 :
         𝒪[Level E Ω ρ 0]) : Level E Ω ρ 0) : Ω) = (ρ 0)^2 := by sorry
+-- ColemanUnramified.Tests.coefficientLimitAction_teich
 example (r : 𝓀[E]ˣ) (h : Units.mapEquiv (frobeniusEquiv 𝓀[E] p).toMulEquiv r ≠ r) :
     (coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).2
       (coefficientTeichSection E Ω ρ hc hr hu hO hinc r) ≠ coefficientTeichSection E Ω ρ hc hr hu hO hinc r := by sorry
+-- ColemanUnramified.Tests.coefficientLimitAction_principal
 example (g : (PadicInt p)ˣ) (v : coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc) :
     (coefficientLimitActions E Ω ρ hc hr hu hO hinc φ φO hφO hφres).1 g v.1 ∈
       coefficientPrincipalLimit E Ω ρ hc hr hu hO hinc ∧
@@ -573,11 +640,14 @@ lemma baseIntegerEquiv_symm_continuous : Continuous (baseIntegerEquiv K hint hsc
 lemma baseIntegerEquiv_scalar (a : PadicInt p) :
     baseIntegerEquiv K hint hscalar (algebraMap (PadicInt p) (integralClosure (PadicInt p) K) a) =
       algebraMap (PadicInt p) 𝒪[K] a := by sorry
+-- ColemanUnramified.Tests.baseInteger_scalar
 example (a : PadicInt p) :
     ((baseIntegerEquiv K hint hscalar (algebraMap (PadicInt p) (integralClosure (PadicInt p) K) a) : 𝒪[K]) : K) =
       algebraMap (PadicInt p) K a := by sorry
+-- ColemanUnramified.Tests.baseInteger_uniformizer
 example (π : integralClosure (PadicInt p) K) :
     ((baseIntegerEquiv K hint hscalar π : 𝒪[K]) : K) = (π : K) := by sorry
+-- ColemanUnramified.Tests.baseInteger_nonunit
 example (hp : (p : 𝒪[K]) ∈ maximalIdeal 𝒪[K]) :
     ¬ IsUnit (baseIntegerEquiv K hint hscalar (algebraMap (PadicInt p) (integralClosure (PadicInt p) K) p)) := by sorry
 
@@ -614,10 +684,13 @@ lemma basePrincipalEquiv_norm (L : Type*) [Field L] [Algebra K L]
     ((basePrincipalEquiv K hint hscalar red hk rEquiv hred ⟨ν u,hprincipal⟩ : Kˣ) : K) =
       Algebra.norm K ((u : integralClosure (PadicInt p) L) : L) := by sorry
 example (ζ : (integralClosure (PadicInt p) K)ˣ) (hζ : red ζ=1) : ζ∈(Units.map red.toMonoidHom).ker := by sorry
+-- ColemanUnramified.Tests.basePrincipal_root
 example (ζ : (integralClosure (PadicInt p) K)ˣ) (hζ : red ζ=1) :
     ((basePrincipalEquiv K hint hscalar red hk rEquiv hred ⟨ζ,by sorry⟩ : Kˣ) : K) =
       ((ζ : integralClosure (PadicInt p) K) : K) := by sorry
+-- ColemanUnramified.Tests.basePrincipal_odd_minus_one
 example (hp : p≠2) : (-1 : (integralClosure (PadicInt p) K)ˣ) ∉ (Units.map red.toMonoidHom).ker := by sorry
+-- ColemanUnramified.Tests.basePrincipal_dyadic_minus_one
 example (hp : p=2) : (-1 : (integralClosure (PadicInt p) K)ˣ) ∈ (Units.map red.toMonoidHom).ker := by sorry
 
 -- Native normalization has value one on π and d_n on p; no abstract valuation replacement.
@@ -704,25 +777,34 @@ lemma semilocalNorm_trans (n : ℕ)
       Level (Ei i) Ω ρ n) =
       Algebra.norm (Level (Ei i) Ω ρ n) ((MulEquiv.piUnits u i : 𝒪[Level (Ei i) Ω ρ (n+2)]) :
         Level (Ei i) Ω ρ (n+2)) := by sorry
+-- ColemanUnramified.Tests.semilocalNorm_one
 example (n : ℕ) : semilocalNorm Ω ρ Ei hc hr hu hO hinc n 1=1 := by sorry
+-- ColemanUnramified.Tests.semilocalNorm_independence
 example (n : ℕ) (i : I) (u : (semilocalLevel Ω ρ Ei (n+1))ˣ)
     (hunit : MulEquiv.piUnits u i=1) :
     MulEquiv.piUnits (semilocalNorm Ω ρ Ei hc hr hu hO hinc n u) i=1 := by sorry
+-- ColemanUnramified.Tests.semilocalNorm_dyadic
 example (hp : p=2) (n : ℕ) (i : I) :
     coefficientUnitNorm (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) n
       (signedTateRoot (Ei i) Ω ρ hr (n+1)) =
-    signedTateRoot (Ei i) Ω ρ hr n := by sorry
+    signedTateRoot (Ei i) Ω ρ hr n ∧
+    Algebra.norm (Level (Ei i) Ω ρ n) (root (Ei i) Ω ρ (n+1)) =
+      -root (Ei i) Ω ρ n := by sorry
 -- Standard idempotents are the existing function-ring singletons, not new generic ring objects.
 lemma semilocalLevel_idempotent (n : ℕ) (i : I) :
     (Pi.single i (1 : 𝒪[Level (Ei i) Ω ρ n]) : semilocalLevel Ω ρ Ei n)^2 =
-      (Pi.single i 1 : semilocalLevel Ω ρ Ei n) := by sorry
+      (Pi.single i 1 : semilocalLevel Ω ρ Ei n) ∧
+    ∀ j, (Pi.single i 1 : semilocalLevel Ω ρ Ei n) j = if j = i then 1 else 0 := by sorry
+-- ColemanUnramified.Tests.semilocalLevel_singleton
 example (n : ℕ) [Unique I] (u : semilocalLevel Ω ρ Ei n) :
     ∃ e : semilocalLevel Ω ρ Ei n ≃+* 𝒪[Level (Ei (default : I)) Ω ρ n],
       e u = u (default : I) := by sorry
+-- ColemanUnramified.Tests.semilocalLevel_two
 example (n : ℕ) (i j : I) (h : i≠j) :
     (Pi.single i 1 : semilocalLevel Ω ρ Ei n) * Pi.single j 1 = 0 := by sorry
 example (n : ℕ) (i j : I) (h : i≠j) (hall : ∀ k : I, k=i ∨ k=j) :
     (Pi.single i 1 : semilocalLevel Ω ρ Ei n) + Pi.single j 1=1 := by sorry
+-- ColemanUnramified.Tests.semilocalLevel_nonfield
 example (n : ℕ) (i j : I) (h : i≠j) :
     ¬ IsUnit (Pi.single i 1 : semilocalLevel Ω ρ Ei n) := by sorry
 
@@ -746,13 +828,17 @@ lemma semilocalPrincipalLimit_ext (u v : semilocalPrincipalLimit Ω ρ Ei hc hr 
 lemma semilocalPrincipalLimit_closed :
     IsClosed (semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc :
       Set (semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc)) := by sorry
+-- ColemanUnramified.Tests.semilocalUnitLimit_one
 example : (1 : ∀ n, (semilocalLevel Ω ρ Ei n)ˣ) ∈ semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc := by sorry
+-- ColemanUnramified.Tests.semilocalUnitLimit_failed_norm
 example (u : ∀ n, (semilocalLevel Ω ρ Ei n)ˣ) (n : ℕ) (i : I)
     (hfail : coefficientUnitNorm (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) n
       (MulEquiv.piUnits (u (n+1)) i) ≠ MulEquiv.piUnits (u n) i) :
     u∉semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc := by sorry
+-- ColemanUnramified.Tests.semilocalPrincipalLimit_one
 example : (1 : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc) ∈
     semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc := by sorry
+-- ColemanUnramified.Tests.semilocalPrincipalLimit_bad_residue
 example (u : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc) (i : I)
     (h : residueAt (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) 0 (MulEquiv.piUnits (u.1 0) i) ≠ 1) :
     u∉semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc := by sorry
@@ -760,6 +846,11 @@ example (u : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc) (i : I)
 /-- Reorder genuine norm-compatible coordinates, preserving their actual field norms. -/
 def semilocalShuffle : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc ≃ₜ*
     (∀ i, coefficientUnitLimit (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i)) := by sorry
+-- ColemanUnramified.Tests.semilocalUnitLimit_singleton
+example [Unique I] :
+    ∃ e : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc ≃ₜ*
+      coefficientUnitLimit (Ei (default : I)) Ω ρ hc hr (hu default) (hO default) (hinc default),
+      ∀ u n, (e u).1 n = MulEquiv.piUnits (u.1 n) default := by sorry
 lemma semilocalShuffle_apply (u : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc) (i : I) (n : ℕ) :
     (semilocalShuffle Ω ρ Ei hc hr hu hO hinc u i).1 n = MulEquiv.piUnits (u.1 n) i := by sorry
 lemma semilocalShuffle_norm (u : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc) (i : I) (n : ℕ) :
@@ -770,14 +861,18 @@ lemma semilocalShuffle_principal (u : semilocalUnitLimit Ω ρ Ei hc hr hu hO hi
     u∈semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc ↔
       ∀ i, semilocalShuffle Ω ρ Ei hc hr hu hO hinc u i ∈
         coefficientPrincipalLimit (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) := by sorry
+-- ColemanUnramified.Tests.semilocalPrincipalLimit_product
 example (u : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc) :
     u∈semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc ↔
       ∀ i, semilocalShuffle Ω ρ Ei hc hr hu hO hinc u i ∈
         coefficientPrincipalLimit (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) := by sorry
+-- ColemanUnramified.Tests.semilocalShuffle_singleton
 example (u : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc) [Unique I] (n : ℕ) :
     (semilocalShuffle Ω ρ Ei hc hr hu hO hinc u default).1 n = MulEquiv.piUnits (u.1 n) default := by sorry
+-- ColemanUnramified.Tests.semilocalShuffle_two
 example (u : ∀ i, coefficientUnitLimit (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i)) (n : ℕ) (i : I) :
     MulEquiv.piUnits (((semilocalShuffle Ω ρ Ei hc hr hu hO hinc).symm u).1 n) i = (u i).1 n := by sorry
+-- ColemanUnramified.Tests.semilocalShuffle_not_diagonal
 example (i j : I) (h : i≠j)
     (u : coefficientUnitLimit (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i)) :
     ∃ v : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc,
@@ -809,19 +904,33 @@ lemma semilocalFrobenius_norm (n : ℕ) (u : (semilocalLevel Ω ρ Ei (n+1))ˣ) 
       (Units.map (semilocalFrobenius Ω ρ Ei hc hr hu hO hinc φ φO hφO hφres (n+1)).toMonoidHom u) =
     Units.map (semilocalFrobenius Ω ρ Ei hc hr hu hO hinc φ φO hφO hφres n).toMonoidHom
       (semilocalNorm Ω ρ Ei hc hr hu hO hinc n u) := by sorry
+-- ColemanUnramified.Tests.semilocalFrobenius_trivial
 example (hφ : ∀ i, φ i=AlgEquiv.refl) (n : ℕ) :
     semilocalFrobenius Ω ρ Ei hc hr hu hO hinc φ φO hφO hφres n=RingEquiv.refl _ := by sorry
 example (n : ℕ) (i j : I) (hi : orderOf (φ i)=2) (hj : orderOf (φ j)=3)
     (hall : ∀ k, orderOf (φ k)=2 ∨ orderOf (φ k)=3) :
     orderOf (semilocalFrobenius Ω ρ Ei hc hr hu hO hinc φ φO hφO hφres n)=6 := by sorry
+-- ColemanUnramified.Tests.semilocalFrobenius_no_permutation
 example (n : ℕ) (i j : I) (h : i≠j) :
     semilocalFrobenius Ω ρ Ei hc hr hu hO hinc φ φO hφO hφres n
       (Pi.single i 1) ≠ Pi.single j 1 := by sorry
+-- ColemanUnramified.Tests.semilocalFrobenius_residue
 example (hp : p=2) (n : ℕ) (i : I) (hf : Nat.card 𝓀[Ei i]=8)
-    (a : semilocalLevel Ω ρ Ei n) :
+    (a : semilocalLevel Ω ρ Ei n)
+    (ha : IsPrimitiveRoot (residueAt (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) n (a i)) 7) :
     residueAt (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) n
       (semilocalFrobenius Ω ρ Ei hc hr hu hO hinc φ φO hφO hφres n a i) =
-      (residueAt (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) n (a i))^2 := by sorry
+      (residueAt (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) n (a i))^2 ∧
+    residueAt (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) n
+      (semilocalFrobenius Ω ρ Ei hc hr hu hO hinc φ φO hφO hφres n a i) ≠
+      (residueAt (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) n (a i))^4 := by sorry
+lemma semilocalFrobenius_limit :
+    ∃ F : semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc ≃ₜ*
+        semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc,
+      (∀ u n, (F u).1 n = Units.map
+        (semilocalFrobenius Ω ρ Ei hc hr hu hO hinc φ φO hφO hφres n).toMonoidHom (u.1 n)) ∧
+      (∀ u, F u ∈ semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc ↔
+        u ∈ semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc) := by sorry
 end SemilocalActions
 
 section PermutationActions
@@ -849,14 +958,17 @@ lemma semilocalCoefficientTransport_unique (h : H) (i : I) (n : ℕ)
       algebraMap (Ei (h•i)) (Level (Ei (h•i)) Ω ρ n) (β h i a))
     (hroot : γ (root (Ei i) Ω ρ n)=root (Ei (h•i)) Ω ρ n) :
     γ=semilocalCoefficientTransport Ω ρ Ei hc hr hu hO hinc β h i n := by sorry
+-- ColemanUnramified.Tests.semilocalCoefficientTransport_identity
 example (i : I) (n : ℕ) :
     HEq (semilocalCoefficientTransport Ω ρ Ei hc hr hu hO hinc β 1 i n)
       (AlgEquiv.refl : Level (Ei i) Ω ρ n ≃ₐ[Padic p] Level (Ei i) Ω ρ n) := by
   have hidentity := hβone
   sorry
+-- ColemanUnramified.Tests.semilocalCoefficientTransport_root
 example (h : H) (i : I) (n : ℕ) :
     semilocalCoefficientTransport Ω ρ Ei hc hr hu hO hinc β h i n (root (Ei i) Ω ρ n) =
       root (Ei (h•i)) Ω ρ n := by sorry
+-- ColemanUnramified.Tests.semilocalCoefficientTransport_coefficients
 example (h : H) (i : I) (n : ℕ) (a : Ei i) (b : Ei (h•i))
     (ha : β h i a ≠ b) :
     semilocalCoefficientTransport Ω ρ Ei hc hr hu hO hinc β h i n
@@ -879,14 +991,24 @@ lemma semilocalPermutationAction_norm (h : H) (n : ℕ) (u : (semilocalLevel Ω 
       (Units.map (semilocalPermutationAction Ω ρ Ei hc hr hu hO hinc β hβone hβmul (n+1) h).toMonoidHom u) =
     Units.map (semilocalPermutationAction Ω ρ Ei hc hr hu hO hinc β hβone hβmul n h).toMonoidHom
       (semilocalNorm Ω ρ Ei hc hr hu hO hinc n u) := by sorry
+-- ColemanUnramified.Tests.semilocalPermutationAction_one
 example (n : ℕ) (u : semilocalLevel Ω ρ Ei n) :
     semilocalPermutationAction Ω ρ Ei hc hr hu hO hinc β hβone hβmul n 1 u=u := by sorry
+-- ColemanUnramified.Tests.semilocalPermutationAction_swap
 example (h : H) (n : ℕ) (i j : I) (hij : h•i=j) :
     semilocalPermutationAction Ω ρ Ei hc hr hu hO hinc β hβone hβmul n h
       (Pi.single i 1)=Pi.single j 1 := by sorry
+-- ColemanUnramified.Tests.semilocalPermutationAction_not_frobenius
 example (h : H) (n : ℕ) (i : I) (hi : h•i≠i) :
     semilocalPermutationAction Ω ρ Ei hc hr hu hO hinc β hβone hβmul n h
       (Pi.single i 1)≠Pi.single i 1 := by sorry
+lemma semilocalPermutationAction_limit :
+    ∃ α : H →* MulAut (semilocalUnitLimit Ω ρ Ei hc hr hu hO hinc),
+      (∀ h, Continuous (α h)) ∧
+      (∀ h u n, (α h u).1 n = Units.map
+        (semilocalPermutationAction Ω ρ Ei hc hr hu hO hinc β hβone hβmul n h).toMonoidHom (u.1 n)) ∧
+      (∀ h u, α h u ∈ semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc ↔
+        u ∈ semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc) := by sorry
 end PermutationActions
 
 /-- Product of the twisted local sections, transferred to the actual semilocal carrier. -/
@@ -902,12 +1024,15 @@ lemma semilocalUnitSplit_symm (r : ∀ i, 𝓀[Ei i]ˣ)
         semilocalShuffle Ω ρ Ei hc hr hu hO hinc v.1 i := by sorry
 lemma semilocalUnitSplit_principal (v : semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc) :
     semilocalUnitSplit Ω ρ Ei hc hr hu hO hinc v.1 = (1,v) := by sorry
+-- ColemanUnramified.Tests.semilocalUnitSplit_section
 example (r : ∀ i, 𝓀[Ei i]ˣ) :
     (semilocalUnitSplit Ω ρ Ei hc hr hu hO hinc
       ((semilocalShuffle Ω ρ Ei hc hr hu hO hinc).symm
         (fun i => coefficientTeichSection (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) (r i)))).2=1 := by sorry
+-- ColemanUnramified.Tests.semilocalUnitSplit_principal
 example (v : semilocalPrincipalLimit Ω ρ Ei hc hr hu hO hinc) :
     (semilocalUnitSplit Ω ρ Ei hc hr hu hO hinc v.1).1=1 := by sorry
+-- ColemanUnramified.Tests.semilocalUnitSplit_nonprincipal
 example (r : ∀ i, 𝓀[Ei i]ˣ) (i : I) (h : r i ≠ 1) :
     (semilocalShuffle Ω ρ Ei hc hr hu hO hinc).symm
       (fun i => coefficientTeichSection (Ei i) Ω ρ hc hr (hu i) (hO i) (hinc i) (r i)) ∉
