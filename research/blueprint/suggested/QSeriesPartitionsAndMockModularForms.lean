@@ -3449,6 +3449,20 @@ example [Γ.IsArithmetic] [Γ.HasDetOne] (hΓ : Γ ≤ 𝒮ℒ) (f : WeaklyHolom
 example (F : CuspOrbits Γ → PowerSeries ℂ) (P : CuspOrbits Γ → LaurentPolynomial ℂ) :
     residuePairing Γ F 0 = 0 ∧ residuePairing Γ 0 P = 0 := sorry
 
+/-- Unit test `principalPartSpace_odd_levelOne_test`: the central element excludes a nonzero
+principal part in odd weight. -/
+example (k : ℤ) (hk : Odd k) :
+    (fun _ ↦ LaurentPolynomial.T (-1)) ∉ PrincipalPartSpace 𝒮ℒ k := sorry
+
+/-- Unit test `principalPartSpace_irregular_test`: the preimage of the cyclic subgroup generated
+by `-T` modulo four has an irregular infinity cusp. Even weights admit only even exponents there. -/
+example (k : ℤ) (hk : Even k) :
+    let Γ := ((CongruenceSubgroup.Gamma 4).map (mapGL (R := ℤ) ℝ)) ⊔
+      Subgroup.zpowers (mapGL (R := ℤ) ℝ (-ModularGroup.T))
+    Γ.strictWidthInfty = 2 ∧ Γ.widthInfty = 1 ∧
+      (fun _ ↦ LaurentPolynomial.T (-1)) ∉ PrincipalPartSpace Γ k ∧
+      (fun _ ↦ LaurentPolynomial.T (-2)) ∈ PrincipalPartSpace Γ k := sorry
+
 /-! ### Main theorems of Bruinier–Funke §3 -/
 
 /-- QM.3/xi-kernel-weakly-holomorphic: `ker ξ_k = M^!_k(Γ)`. -/
@@ -5023,6 +5037,18 @@ def fifthOrderPhi1 (τ : ℂ) : ℂ := sorry
 -- andrews_corrections: a record, not a statement. Zwegers finds the third and eighth of Andrews'
 -- printed identities wrong, and `fifthOrderPsi0` and `fifthOrderPhi1` above use his corrected forms.
 
+/-- Unit test `fifthOrder_f0_coeff_test`: the first five coefficients are `1, 1, -1, 1, 0`. -/
+example :
+    (fun τ : ℍ ↦ fifthOrderF0 τ -
+      (1 + cexp (2 * π * I * (τ : ℂ)) - cexp (2 * π * I * (τ : ℂ)) ^ 2 +
+        cexp (2 * π * I * (τ : ℂ)) ^ 3)) =O[atImInfty]
+      (fun τ : ℍ ↦ cexp (2 * π * I * (τ : ℂ)) ^ 5) := sorry
+
+/-- Unit test `fifthOrder_andrews_error_test`: the corrected third right-hand side represents
+`1 + 2ψ₀`, not `ψ₀`; its constant term is one while `ψ₀` has constant term zero. -/
+example : Tendsto (fun τ : ℍ ↦ fifthOrderPsi0 τ) atImInfty (𝓝 0) ∧
+    Tendsto (fun τ : ℍ ↦ 1 + 2 * fifthOrderPsi0 τ) atImInfty (𝓝 1) := sorry
+
 /-- `F_{5,1}(τ) = (q^{-1/60}f₀, q^{11/60}f₁, q^{-1/240}(-1 + F₀(q^{1/2})),
 q^{71/240}F₁(q^{1/2}), q^{-1/240}(-1 + F₀(-q^{1/2})), q^{71/240}F₁(-q^{1/2}))`. -/
 def fifthOrderVectorOne (τ : ℂ) : Fin 6 → ℂ :=
@@ -5075,6 +5101,15 @@ def fifthOrderM : Matrix (Fin 6) (Fin 6) ℂ :=
      0, 0, 0, 0, Real.sin (2 * π / 5), Real.sin (π / 5);
      0, 0, 0, 0, Real.sin (π / 5), -Real.sin (2 * π / 5)]
 
+/-- The translation matrix: the half-argument pairs are exchanged. -/
+def fifthOrderT : Matrix (Fin 6) (Fin 6) ℂ :=
+  !![(zetaN 60)⁻¹, 0, 0, 0, 0, 0;
+     0, (zetaN 60) ^ (11 : ℕ), 0, 0, 0, 0;
+     0, 0, 0, 0, (zetaN 240)⁻¹, 0;
+     0, 0, 0, 0, 0, (zetaN 240) ^ (71 : ℕ);
+     0, 0, (zetaN 240)⁻¹, 0, 0, 0;
+     0, 0, 0, (zetaN 240) ^ (71 : ℕ), 0, 0]
+
 /-- Zwegers Prop. 4.10: `F_{5,1} = H_{5,1} + G_{5,1}`. -/
 theorem fifthOrderVectorOne_eq {τ : ℂ} (hτ : 0 < τ.im) :
     fifthOrderVectorOne τ = fifthOrderH τ + fifthOrderG τ := sorry
@@ -5084,15 +5119,79 @@ theorem fifthOrderH_S {τ : ℂ} (hτ : 0 < τ.im) :
     fifthOrderH (-1 / τ) =
       ((-I * τ) ^ (1 / 2 : ℂ) * (2 / Real.sqrt 5)) • (fifthOrderM *ᵥ fifthOrderH τ) := sorry
 
+theorem fifthOrderH_T {τ : ℂ} (hτ : 0 < τ.im) :
+    fifthOrderH (τ + 1) = fifthOrderT *ᵥ fifthOrderH τ := sorry
+
+theorem fifthOrderH_harmonic (τ : ℍ) (i : Fin 6) :
+    hyperbolicLaplacian (1 / 2) (fun z ↦ fifthOrderH z i) τ = 0 ∧
+      AnalyticAt ℝ (fun z : ℂ ↦ fifthOrderH z i) (τ : ℂ) := sorry
+
 /-- Zwegers Prop. 4.10(2): `G_{5,1}` is bounded towards the rationals. -/
 theorem fifthOrderG_bounded (ξ : ℚ) (i : Fin 6) :
-    ∃ C : ℝ, ∀ τ : ℂ, 0 < τ.im → τ.re = ξ → ‖fifthOrderG τ i‖ ≤ C := sorry
+    ∃ C δ : ℝ, 0 < δ ∧ ∀ τ : ℂ,
+      0 < τ.im → τ.im < δ → τ.re = ξ → ‖fifthOrderG τ i‖ ≤ C := sorry
 
--- Zwegers Prop. 4.13–4.14, not stated: they need the second vector `F_{5,2} = H_{5,2} + G_{5,2}` of
--- Zwegers Lemma 4.11, which is not defined here.
--- fifthOrderG_two_eq_neg: not stated; `G_{5,2} = -G_{5,1}`, so the two corrections cancel.
--- fifthOrderSum_modular: not stated; `F₅ = F_{5,1} + F_{5,2}` is a holomorphic vector-valued modular
--- form of weight `1/2` with the `T`- and `S`-matrices of `fifthOrderH`.
+/-- The second six-component vector. Half-arguments use `q^{1/2}=exp(πiτ)`. -/
+def fifthOrderVectorTwo (τ : ℂ) : Fin 6 → ℂ :=
+  ![2 * cexp (2 * π * I * (-1 / 60) * τ) * fifthOrderPsi0 τ,
+    2 * cexp (2 * π * I * (11 / 60) * τ) * fifthOrderPsi1 τ,
+    cexp (2 * π * I * (-1 / 240) * τ) * fifthOrderPhi0 ((τ + 1) / 2),
+    -cexp (2 * π * I * (-49 / 240) * τ) * fifthOrderPhi1 ((τ + 1) / 2),
+    cexp (2 * π * I * (-1 / 240) * τ) * fifthOrderPhi0 (τ / 2),
+    cexp (2 * π * I * (-49 / 240) * τ) * fifthOrderPhi1 (τ / 2)]
+
+/-- The second completion, with the eta factor depending on the component. -/
+def fifthOrderHtwo (τ : ℂ) : Fin 6 → ℂ :=
+  fun i ↦ 1 / (2 * ModularForm.eta τ ^ 2) *
+    ![2 * zetaN 12 * ModularForm.eta (2 * τ) *
+        fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![1 / 10, 1 / 6] ![0, 1 / 6] τ,
+      2 * zetaN 12 * ModularForm.eta (2 * τ) *
+        fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![3 / 10, 1 / 6] ![0, 1 / 6] τ,
+      (zetaN 60)⁻¹ * ModularForm.eta (τ / 2) *
+        fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![1 / 5, 1 / 6] ![1 / 10, 1 / 6] τ,
+      (zetaN 60) ^ (-7 : ℤ) * ModularForm.eta (τ / 2) *
+        fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![2 / 5, 1 / 6] ![1 / 10, 1 / 6] τ,
+      zetaN 16 * ModularForm.eta ((τ + 1) / 2) *
+        fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![1 / 5, 1 / 6] ![0, 1 / 6] τ,
+      zetaN 16 * ModularForm.eta ((τ + 1) / 2) *
+        fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![2 / 5, 1 / 6] ![0, 1 / 6] τ] i
+
+/-- The correction terms cancel coordinatewise. -/
+def fifthOrderGtwo (τ : ℂ) : Fin 6 → ℂ := -fifthOrderG τ
+
+def fifthOrderSum (τ : ℂ) : Fin 6 → ℂ := fifthOrderVectorOne τ + fifthOrderVectorTwo τ
+
+theorem fifthOrderVectorTwo_eq {τ : ℂ} (hτ : 0 < τ.im) :
+    fifthOrderVectorTwo τ = fifthOrderHtwo τ + fifthOrderGtwo τ := sorry
+
+theorem fifthOrderHtwo_T {τ : ℂ} (hτ : 0 < τ.im) :
+    fifthOrderHtwo (τ + 1) = fifthOrderT *ᵥ fifthOrderHtwo τ := sorry
+
+theorem fifthOrderHtwo_S {τ : ℂ} (hτ : 0 < τ.im) :
+    fifthOrderHtwo (-1 / τ) =
+      ((-I * τ) ^ (1 / 2 : ℂ) * (2 / Real.sqrt 5)) • (fifthOrderM *ᵥ fifthOrderHtwo τ) := sorry
+
+theorem fifthOrderHtwo_harmonic (τ : ℍ) (i : Fin 6) :
+    hyperbolicLaplacian (1 / 2) (fun z ↦ fifthOrderHtwo z i) τ = 0 ∧
+      AnalyticAt ℝ (fun z : ℂ ↦ fifthOrderHtwo z i) (τ : ℂ) := sorry
+
+theorem fifthOrderGtwo_bounded (ξ : ℚ) (i : Fin 6) :
+    ∃ C δ : ℝ, 0 < δ ∧ ∀ τ : ℂ,
+      0 < τ.im → τ.im < δ → τ.re = ξ → ‖fifthOrderGtwo τ i‖ ≤ C := sorry
+
+@[simp] theorem fifthOrderG_two_eq_neg (τ : ℂ) :
+    fifthOrderGtwo τ = -fifthOrderG τ := rfl
+
+theorem fifthOrderSum_eq {τ : ℂ} (hτ : 0 < τ.im) :
+    fifthOrderSum τ = fifthOrderH τ + fifthOrderHtwo τ := sorry
+
+/-- The two generator laws and holomorphy express the modularity conclusion without
+asserting a congruence subgroup that the source does not specify. -/
+theorem fifthOrderSum_modular :
+    (∀ i : Fin 6, DifferentiableOn ℂ (fun τ ↦ fifthOrderSum τ i) {τ : ℂ | 0 < τ.im}) ∧
+    (∀ τ : ℂ, 0 < τ.im → fifthOrderSum (τ + 1) = fifthOrderT *ᵥ fifthOrderSum τ) ∧
+    (∀ τ : ℂ, 0 < τ.im → fifthOrderSum (-1 / τ) =
+      ((-I * τ) ^ (1 / 2 : ℂ) * (2 / Real.sqrt 5)) • (fifthOrderM *ᵥ fifthOrderSum τ)) := sorry
 
 /-- Unit test `fifthOrder_prefactor_test`. -/
 example (τ : ℂ) : fifthOrderVectorOne τ 0 = cexp (2 * π * I * (-1 / 60) * τ) * fifthOrderF0 τ := rfl
@@ -5108,21 +5207,58 @@ example (τ : ℂ) : fifthOrderH τ 4 =
 /-- Unit test `fifthOrderM_block_test`: `M₅` is block structured. -/
 example : fifthOrderM 0 0 = 0 ∧ fifthOrderM 0 1 = 0 := ⟨rfl, rfl⟩
 
+/-- Unit test `fifthOrderG_ne_zero_test`: a nonzero correction remains before summing. -/
+example : ∃ τ : ℂ, 0 < τ.im ∧ fifthOrderG τ ≠ 0 := sorry
+
+/-- Unit test `fifthOrderT_half_argument_test`: translation exchanges the third and fifth
+components, with a 240th-root phase rather than a diagonal action. -/
+example : fifthOrderT 2 4 = (zetaN 240)⁻¹ ∧ fifthOrderT 2 2 = 0 := ⟨rfl, rfl⟩
+
+/-- Unit test `fifthOrderVectorTwo_sign_test`: the fourth component has a minus sign. -/
+example (τ : ℂ) : fifthOrderVectorTwo τ 3 =
+    -cexp (2 * π * I * (-49 / 240) * τ) * fifthOrderPhi1 ((τ + 1) / 2) := rfl
+
+/-- Unit test `fifthOrderHtwo_eta_test`: the first component uses eta at `2τ`. -/
+example (τ : ℂ) : fifthOrderHtwo τ 0 = 1 / (2 * ModularForm.eta τ ^ 2) *
+    (2 * zetaN 12 * ModularForm.eta (2 * τ) *
+      fifthForm.indefiniteThetaChar ![2, 5] ![-2, 5] ![1 / 10, 1 / 6] ![0, 1 / 6] τ) := rfl
+
+/-- Unit test `fifthOrderG_cancellation_test`: the second correction cancels the first. -/
+example (τ : ℂ) : fifthOrderG τ + fifthOrderGtwo τ = 0 := by
+  simp [fifthOrderGtwo]
+
 /-! ### The index-13 weight-1 meromorphic Jacobi form (Zwegers §3.5, Prop. 3.12)
 
 `φ = (ϑ₀₀ϑ₀₁ϑ₁₀)⁹/(Δϑ₁₁)`, whose residue at `0` is the **constant** `-128/π`.
-The four theta functions with characteristics come from QM.1 and are not
-redefined here. -/
+The characteristic series below use the same convention as the QM.1 theta dictionary. -/
 
-/-- `φ`, the index-13 weight-1 meromorphic Jacobi form. -/
-def indexThirteenPhi (z τ : ℂ) : ℂ := sorry
+/-- `φ`, with the characteristic convention of Zwegers §3.5, printed p. 60. -/
+def indexThirteenPhi (z τ : ℂ) : ℂ :=
+  let th : ℝ → ℝ → ℂ := fun a b ↦
+    ∑' n : ℤ, cexp (π * I * ((n : ℂ) + a) ^ 2 * τ +
+      2 * π * I * ((n : ℂ) + a) * (z + b))
+  (th 0 0 * th 0 (1 / 2) * th (1 / 2) 0) ^ 9 /
+    (ModularForm.discriminant (ofComplex τ) * th (1 / 2) (1 / 2))
+
+/-- Elliptic law and full-group generator laws, away from the poles. -/
+theorem indexThirteenPhi_jacobi {z τ : ℂ} (hτ : 0 < τ.im)
+    (hz : NotInLattice z τ) (lam μ : ℤ) :
+    indexThirteenPhi (z + lam * τ + μ) τ =
+      cexp (-2 * π * I * 13 * ((lam : ℂ) ^ 2 * τ + 2 * lam * z)) * indexThirteenPhi z τ ∧
+    indexThirteenPhi z (τ + 1) = indexThirteenPhi z τ ∧
+    indexThirteenPhi (z / τ) (-1 / τ) =
+      τ * cexp (2 * π * I * 13 * z ^ 2 / τ) * indexThirteenPhi z τ := sorry
 
 /-- The residue at `z = 0` is the constant `-128/π`, independent of `τ`. -/
 theorem indexThirteenPhi_residue {τ : ℂ} (hτ : 0 < τ.im) :
     Tendsto (fun z ↦ z * indexThirteenPhi z τ) (𝓝[≠] (0 : ℂ)) (𝓝 (-128 / π)) := sorry
 
-/-- The 26 coefficient functions `h_l`. -/
-def indexThirteenCoefficients (l : ℤ) (τ : ℂ) : ℂ := sorry
+/-- The period-integral formula for the 26 coefficients (Zwegers (3.9)). -/
+def indexThirteenCoefficients (l : ℤ) (τ : ℂ) : ℂ :=
+  let p := -τ / 2 - 1 / 2
+  cexp (-π * I * (l : ℂ) ^ 2 * τ / 26) *
+    (∫ t in (0 : ℝ)..1, indexThirteenPhi (p + t) τ *
+      cexp (-2 * π * I * l * (p + t))) + 256 * I * levelR 13 l 0 τ
 
 /-- Zwegers Prop. 3.12: the decomposition of `φ`. -/
 theorem indexThirteenPhi_decomposition {z τ : ℂ} (hτ : 0 < τ.im)
@@ -5131,16 +5267,40 @@ theorem indexThirteenPhi_decomposition {z τ : ℂ} (hτ : 0 < τ.im)
       (∑ l ∈ Finset.range 26, indexThirteenCoefficients l τ * thetaIndexLocal 13 l z τ) +
         512 * I * completedAppell 13 0 z τ := sorry
 
--- indexThirteenCoefficients_modular: not stated; `(h_l)` is a vector-valued real-analytic modular form
--- of weight `1/2` with Casimir eigenvalue `3/16` (Zwegers Prop. 3.12). It needs the `S`- and
--- `T`-matrices of the index-13 theta decomposition, which are not defined here.
+/-- T/S laws and harmonicity in the `Δ_k` convention. -/
+theorem indexThirteenCoefficients_modular (l : ℤ) (hl : 0 ≤ l ∧ l < 26) :
+    (∀ τ : ℂ, 0 < τ.im →
+      indexThirteenCoefficients l (τ + 1) =
+        cexp (-π * I * (l : ℂ) ^ 2 / 26) * indexThirteenCoefficients l τ ∧
+      indexThirteenCoefficients l (-1 / τ) =
+        I * Complex.cpow (-I * τ) (1 / 2) / (√26 : ℝ) *
+          ∑ ν ∈ Finset.range 26, cexp (π * I * l * ν / 13) * indexThirteenCoefficients ν τ) ∧
+    (∀ τ : ℍ, hyperbolicLaplacian (1 / 2)
+      (fun z ↦ indexThirteenCoefficients l z) τ = 0) ∧
+    (∀ τ : ℍ, AnalyticAt ℝ (fun z : ℂ ↦ indexThirteenCoefficients l z) (τ : ℂ)) := sorry
+
+/-- Explicit conjugate unary-theta shadow (Zwegers, printed p. 61). -/
+theorem indexThirteenCoefficients_shadow (l : ℤ) (hl : 0 ≤ l ∧ l < 26) (τ : ℍ) :
+    dTauBar (fun z ↦ indexThirteenCoefficients l z) τ =
+      (256 * √13 / √τ.im : ℝ) * ∑' n : ℤ,
+        let a : ℂ := (n : ℂ) + (l : ℂ) / 26
+        a * cexp (-26 * π * I * a ^ 2 * conj (τ : ℂ)) := sorry
+
+/-- Unit test `indexThirteen_residue_test`: the normalization of the simple pole. -/
+example (τ : ℍ) :
+    Tendsto (fun z ↦ z * indexThirteenPhi z τ) (𝓝[≠] (0 : ℂ)) (𝓝 (-128 / π)) := sorry
 
 /-- Unit test `indexThirteen_index_test`: the sum runs over 26 classes. -/
 example : (Finset.range 26).card = 26 := rfl
 
--- Unit test indexThirteen_not_generic_test: a record, not a statement. The coefficient functions are
--- Casimir eigenfunctions only because the residues are constant; for a general meromorphic Jacobi form
--- they are not, and no real-analytic modular form results.
+/-- Unit test `indexThirteen_T_test`: the phase at `l=1` has denominator 26. -/
+example (τ : ℍ) : indexThirteenCoefficients 1 ((τ : ℂ) + 1) =
+    cexp (-π * I / 26) * indexThirteenCoefficients 1 τ := sorry
+
+/-- Unit test `indexThirteen_not_generic_test`: multiplying by `E₄` changes the residue.
+The corresponding weight-`9/2` coefficient is not harmonic. -/
+example : ∃ τ : ℍ, hyperbolicLaplacian (9 / 2)
+    (fun z ↦ ModularForm.E₄ z * indexThirteenCoefficients 1 z) τ ≠ 0 := sorry
 
 end QM4
 
@@ -7164,6 +7324,12 @@ def IsCFTType : Prop :=
   V.IsNonnegGraded ∧ V.toVertexAlgebra.vac ≠ 0 ∧
     V.weightSpace 0 = Submodule.span k {V.toVertexAlgebra.vac}
 
+/-- Unit test `VertexOperatorAlgebra.zero_not_CFTType`: a zero-dimensional underlying space
+cannot have the nonzero vacuum required by CFT type. -/
+example [Subsingleton W] : ¬ V.IsCFTType := by
+  rintro ⟨_, hVac, _⟩
+  exact hVac (Subsingleton.elim _ _)
+
 /-- The group of conformal automorphisms. -/
 def Aut : Subgroup V.toVertexAlgebra.Aut := VertexAlgebra.Aut.conformal V.conformal
 
@@ -7318,8 +7484,9 @@ theorem Cocycle.mul_swap (ε : Λ.Cocycle) (a b : L) :
     ε.ε a b * ε.ε b a = (Λ.form a b).negOnePow := sorry
 
 /-- The twisted group algebra `k_ε[L]`. -/
-def TwistedGroupAlgebra (k : Type*) [Field k] {Λ : EvenLattice L} (_ε : Λ.Cocycle) : Type _ :=
-  AddMonoidAlgebra k L
+structure TwistedGroupAlgebra (k : Type*) [Field k] {Λ : EvenLattice L} (ε : Λ.Cocycle) where
+  /-- Finite coefficients; the type retains `ε`, so multiplication uses this cocycle. -/
+  coeffs : AddMonoidAlgebra k L
 
 variable {k : Type*} [Field k] {Λ}
 
@@ -7939,20 +8106,23 @@ def physicalRadical (ω : ConformalVector A) (B : LinearMap.BilinForm k V) : Sub
   smul_mem' := sorry
 
 /-- The Lie algebra of physical states `P¹ ⧸ N`. -/
-def physicalLieAlgebra (ω : ConformalVector A) (B : LinearMap.BilinForm k V) : Type _ :=
+def physicalLieAlgebra (ω : ConformalVector A) (B : LinearMap.BilinForm k V)
+    [Fact (IsInvariantForm ω 1 B)] : Type _ :=
   physicalSpace ω 1 ⧸ (physicalRadical ω B).comap (physicalSpace ω 1).subtype
 
-/- REVIEW GAP: the following Lie instances and bracket_mk require an invariant form.
-The current unrestricted carrier signatures do not supply that hypothesis. Propagate a
-proof or Fact parameter through this API and its consumers before implementation. -/
-instance (ω : ConformalVector A) (B : LinearMap.BilinForm k V) :
+/-- `IsInvariantForm` includes symmetry and the adjoint identity. These hypotheses make
+the physical radical an ideal; the quotient carrier alone does not give a Lie bracket. -/
+instance (ω : ConformalVector A) (B : LinearMap.BilinForm k V)
+    [Fact (IsInvariantForm ω 1 B)] :
     LieRing (physicalLieAlgebra ω B) := sorry
-instance (ω : ConformalVector A) (B : LinearMap.BilinForm k V) :
+instance (ω : ConformalVector A) (B : LinearMap.BilinForm k V)
+    [Fact (IsInvariantForm ω 1 B)] :
     LieAlgebra k (physicalLieAlgebra ω B) := sorry
 
 namespace physicalLieAlgebra
 
 variable (ω : ConformalVector A) (B : LinearMap.BilinForm k V)
+    [Fact (IsInvariantForm ω 1 B)]
 
 /-- The quotient map `P¹ → P¹ ⧸ N`. -/
 noncomputable def mk : physicalSpace ω 1 →ₗ[k] physicalLieAlgebra ω B := sorry
@@ -7963,7 +8133,7 @@ noncomputable def mk : physicalSpace ω 1 →ₗ[k] physicalLieAlgebra ω B := s
 /-- The induced invariant form. -/
 noncomputable def form : LinearMap.BilinForm k (physicalLieAlgebra ω B) := sorry
 
-theorem form_lie (hB : IsInvariantForm ω 1 B) (x y z : physicalLieAlgebra ω B) :
+theorem form_lie (x y z : physicalLieAlgebra ω B) :
     form ω B ⁅x, y⁆ z = -form ω B y ⁅x, z⁆ := sorry
 
 /-- The Lie algebra involution induced by `θ`. -/
@@ -7981,13 +8151,14 @@ noncomputable def map (g : A.Aut) (hg : g ∈ Aut.conformal ω) (hgB : ∀ u v, 
 
 /-- Unit test `TauCeti.QSeries.VertexAlgebra.physicalLieAlgebra.form_nondegenerate`: the induced form
 is nondegenerate. -/
-example (hB : IsInvariantForm ω 1 B) : (form ω B).Nondegenerate := sorry
+example : (form ω B).Nondegenerate := sorry
 
 end physicalLieAlgebra
 
 /-- Unit test `TauCeti.QSeries.VertexAlgebra.physicalLieAlgebra.trivial`: for the one-dimensional
 vertex algebra, `g(V) = 0`. -/
-example (ω : ConformalVector (unit ℚ)) (B : LinearMap.BilinForm ℚ ℚ) :
+example (ω : ConformalVector (unit ℚ)) (B : LinearMap.BilinForm ℚ ℚ)
+    [Fact (IsInvariantForm ω 1 B)] :
     Subsingleton (physicalLieAlgebra ω B) := sorry
 
 end VertexAlgebra
@@ -8016,6 +8187,17 @@ noncomputable def noGhostConformal (V : VertexOperatorAlgebra ℝ W) (ε : II11.
 noncomputable def noGhostForm (_V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ W)
     (ε : II11.Cocycle) : LinearMap.BilinForm ℝ (W ⊗[ℝ] LatticeFock ℝ (Fin 2 → ℤ)) :=
   B.tmul (II11Form ε)
+
+/-- Tensoring the identity-invariant form with the normalized Lorentzian form preserves
+symmetry and the adjoint identity. This is the form used in the physical quotient. -/
+theorem noGhostForm_invariant (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ W)
+    (ε : II11.Cocycle) (hB : VertexAlgebra.IsInvariantForm V.conformal 1 B) :
+    VertexAlgebra.IsInvariantForm (noGhostConformal V ε) 1 (noGhostForm V B ε) := sorry
+
+instance (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ W) (ε : II11.Cocycle)
+    [Fact (VertexAlgebra.IsInvariantForm V.conformal 1 B)] :
+    Fact (VertexAlgebra.IsInvariantForm (noGhostConformal V ε) 1 (noGhostForm V B ε)) :=
+  ⟨noGhostForm_invariant V B ε Fact.out⟩
 
 /-- The involution `id ⊗ θ`. -/
 noncomputable def noGhostInvolution (V : VertexOperatorAlgebra ℝ W) (ε : II11.Cocycle) :
@@ -8146,19 +8328,22 @@ example (B : LinearMap.BilinForm ℝ (SymmetricAlgebra ℝ (ℕ →₀ (Fin 24 �
 
 /-- The Monster Lie algebra `m(V) = g(V ⊗ V_{II_{1,1}})`. -/
 def monsterLieAlgebra (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ W)
-    (ε : II11.Cocycle) : Type _ :=
+    (ε : II11.Cocycle) [Fact (VertexAlgebra.IsInvariantForm V.conformal 1 B)] : Type _ :=
   VertexAlgebra.physicalLieAlgebra (noGhostConformal V ε) (noGhostForm V B ε)
 
-noncomputable instance (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ W) (ε : II11.Cocycle) :
+noncomputable instance (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ W) (ε : II11.Cocycle)
+    [Fact (VertexAlgebra.IsInvariantForm V.conformal 1 B)] :
     LieRing (monsterLieAlgebra V B ε) :=
   inferInstanceAs (LieRing (VertexAlgebra.physicalLieAlgebra _ _))
-noncomputable instance (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ W) (ε : II11.Cocycle) :
+noncomputable instance (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ W) (ε : II11.Cocycle)
+    [Fact (VertexAlgebra.IsInvariantForm V.conformal 1 B)] :
     LieAlgebra ℝ (monsterLieAlgebra V B ε) :=
   inferInstanceAs (LieAlgebra ℝ (VertexAlgebra.physicalLieAlgebra _ _))
 
 namespace monsterLieAlgebra
 
 variable (V : VertexOperatorAlgebra ℝ W) (B : LinearMap.BilinForm ℝ W) (ε : II11.Cocycle)
+    [Fact (VertexAlgebra.IsInvariantForm V.conformal 1 B)]
 
 /-- The root space `m_r`, `r ∈ II_{1,1}`. -/
 noncomputable def rootSpace (r : Fin 2 → ℤ) : Submodule ℝ (monsterLieAlgebra V B ε) := sorry
@@ -8241,8 +8426,8 @@ example {k W : Type*} [Field k] [CharZero k] [AddCommGroup W] [Module k W]
 three-dimensional and contains an `sl₂`-triple. -/
 example (ε : EvenLattice.A1.Cocycle) (hnd : ∀ x, (∀ y, EvenLattice.A1.form x y = 0) → x = 0)
     (B : LinearMap.BilinForm ℚ (LatticeFock ℚ ℤ))
-    (hB : VertexAlgebra.IsInvariantForm
-      (latticeVertexAlgebra.conformalVector EvenLattice.A1 ε hnd) 1 B) (hBnd : B.Nondegenerate) :
+    [Fact (VertexAlgebra.IsInvariantForm
+      (latticeVertexAlgebra.conformalVector EvenLattice.A1 ε hnd) 1 B)] (hBnd : B.Nondegenerate) :
     Module.finrank ℚ (VertexAlgebra.physicalLieAlgebra
         (latticeVertexAlgebra.conformalVector EvenLattice.A1 ε hnd) B) = 3 ∧
       ∃ e f h : VertexAlgebra.physicalLieAlgebra
@@ -8479,6 +8664,7 @@ section MonsterStructure
 
 variable {W : Type*} [AddCommGroup W] [Module ℝ W] (V : VertexOperatorAlgebra ℝ W)
   (B : LinearMap.BilinForm ℝ W) (ε : II11.Cocycle)
+  [Fact (VertexAlgebra.IsInvariantForm V.conformal 1 B)]
 
 /-- Node `monster-lie-algebra-is-borcherds-algebra` (Borcherds Theorem 6.2). -/
 theorem monsterLieAlgebra_isBorcherds (hV : IsMoonshineModule V B) :
