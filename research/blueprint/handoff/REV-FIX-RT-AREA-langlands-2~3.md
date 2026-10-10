@@ -1,5 +1,42 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
+## Current blocker, 10 October 2026 — codex-MXSTNn
+
+Issue #5871; bot-confirmed claim
+[6099482491](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6099482491).
+Base `5488856e7`. Before this update, all seven authorized outputs matched
+merged [PR #8421](https://github.com/CBirkbeck/tauceti-explorer/pull/8421),
+commit `b579eebdb3c4923fa662df55fc948f35960e2710`, byte for byte. No new
+mathematical review is needed. Existing verdicts and objects remain CSM
+accepted, Global accepted and GL2 needs_changes.
+
+The blocker is unchanged: the pending review expects 27 existing outputs,
+while the live issue authorizes seven. Fresh read-only completion checks return
+**false** for the committed queue entry and **true** after replacing only its
+output list in memory with those seven paths. Ten extra packets belong to
+other review jobs; their ten suggested files are also outside scope. The done
+parent fix lists 40 outputs. Read the current completion function, intake
+allowlist and historical-round generator. Queue and generator edits are
+unauthorized and fail the intake allowlist; `--complete` does not override
+review completion. Changing another job's review is not a valid repair.
+
+Fresh packet checks: zero errors and warnings for each of the 37-, 73- and
+67-node packets. All 177 implementation statuses remain unchecked, no packet
+has an excerpt field, and all forty confirmed findings have matching
+verification identifiers and exactly one report disposition. The unchanged
+Lean files were not recompiled; prior receipts remain historical evidence.
+No fresh source, pinned-declaration or graph audit is claimed. Only this
+handoff and the report change. The extra-packet table below now records the
+current ML.1 reviewer, `REV-ModularityAndLanglandsExtensions~2`.
+
+**Maintainer action remains required before another continuation:** reconcile
+the seven review outputs and ten historical parent-fix outputs listed below;
+preserve those historical scopes through queue regeneration; then run normal
+intake/sync. The scoped review is complete even with GL2's negative verdict.
+Its separate revision still needs the 53 APIs and 46 tests listed below.
+No scratch artifact is needed to resume. Further unchanged-input checkpoints
+cannot repair excluded metadata.
+
 ## Current blocker, 10 October 2026 — codex-98Bf6X
 
 Issue #5871; bot-confirmed claim
@@ -82,7 +119,7 @@ correctly name other jobs; their ten suggested files are also outside this issue
 | GL2ModularityLifting--R32.3 | REV-GL2ModularityLifting--R32.3~2 |
 | HilbertModularVarietiesAndShimuraCurves--R18.2 | REV-FIX-RT-AREA-automorphic-1~5 |
 | LocalGaloisDeformationRings | REV-LocalGaloisDeformationRings~2 |
-| ModularityAndLanglandsExtensions | REV-ModularityAndLanglandsExtensions |
+| ModularityAndLanglandsExtensions | REV-ModularityAndLanglandsExtensions~2 |
 | PotentialModularityAndCompatibleSystems--R23.1 | REV-PotentialModularityAndCompatibleSystems--R23.1~2 |
 | PotentialModularityAndCompatibleSystems--R24.3 | REV-PotentialModularityAndCompatibleSystems--R24.3~2 |
 | WeightsInEtaleCohomology | REV-WeightsInEtaleCohomology~2 |

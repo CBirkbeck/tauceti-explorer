@@ -1,11 +1,11 @@
 # REV-FIX-RT-AREA-langlands-2~3
 
-Current blocked checkpoint: Codex session `codex-98Bf6X`, 10 October 2026,
-issue #5871, base `fb99cf051cb90cec265ac63529c9541642546aee`.
-All seven authorized deliverables matched merged checkpoint PR #7816 before
-this update. The historical intake-scope mismatch still prevents completion;
-this receipt preserves the existing mathematical verdicts and reviewer objects.
-The maintainer must reconcile the queue before scheduling another continuation.
+Current blocked checkpoint: Codex session `codex-MXSTNn`, 10 October 2026,
+issue #5871, base `5488856e7`. All seven authorized deliverables matched the
+latest merged checkpoint, PR #8421, before this update. Fresh checks confirm
+that the queue still expects twenty files outside the live issue's scope.
+The existing mathematical review is complete; intake completion requires the
+maintainer's historical-scope repair described in the handoff.
 
 Completed independent review for issue #5871 by Codex, session `codex-t0EaB3`, 7 October 2026.
 Base: `5f858d95`. Work reviewed: FIX-RT-AREA-langlands-2~3, Claude `claude-c9TlsS`, #5870,
@@ -577,3 +577,39 @@ pinned-declaration or graph audit.
 This blocked checkpoint changes only the report and handoff. Resume after
 maintainer metadata reconciliation, preservation of the historical scopes
 through regeneration, and normal intake/sync. No scratch artifact is needed.
+
+## Verified scope blocker, 10 October 2026 — codex-MXSTNn
+
+The bot confirmed the claim at
+[comment 6099482491](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6099482491).
+Re-read the live issue after confirmation, the worker rules, both protocols,
+the upstream guide, and the inherited review and handoff. All seven authorized
+outputs are byte-for-byte identical to merged [PR #8421](https://github.com/CBirkbeck/tauceti-explorer/pull/8421),
+commit `b579eebdb3c4923fa662df55fc948f35960e2710`, before this update.
+There is no new mathematical diff to review.
+
+Read the current completion function, intake allowlist and `fix_rounds`
+generator. Parsed the seven authorized paths from the freshly fetched issue.
+In one read-only process, completion is **false** for the pending queue entry's
+27 outputs and **true** with only its output list replaced in memory by those
+seven paths. All 27 outputs exist. The ten extra packets correctly name other
+review jobs, and their ten suggested files are outside this issue's scope.
+The done parent fix still lists 40 outputs. Neither the queue nor its generator
+is an authorized edit, and neither passes `intake.ALLOWED`. The intake's
+`--complete` option changes only legacy link-map status, not review completion.
+
+All three fresh packet checks pass with **zero errors and zero warnings**:
+37 CSM, 73 GL2 and 67 Global nodes. All 177 nodes remain unchecked; no packet
+contains an excerpt field. The result and verification files contain the same
+forty identifiers, all confirmed, and the report has exactly one disposition
+for each. Existing verdicts and reviewer objects remain CSM **accepted**,
+Global **accepted**, GL2 **needs_changes**. That negative verdict already
+satisfies the scoped completion check.
+
+This is a blocked checkpoint changing only the report and handoff. The unchanged
+suggested files were not recompiled; previous Lean receipts are historical.
+No fresh source reading, pinned-declaration review or graph audit is claimed.
+Updated the handoff's extra-packet table to the current ML.1 review job.
+Resume after maintainer reconciliation of the seven review outputs and ten
+historical fix outputs, preservation of those scopes through regeneration,
+and normal intake/sync. No scratch artifact is needed to resume.
