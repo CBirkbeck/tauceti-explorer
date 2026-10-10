@@ -29550,8 +29550,9 @@
    ],
    "avoidAccountOf": "BP-SelmerIwasawaCohomology",
    "prompt": "research/blueprint/prompts/REV-SelmerIwasawaCohomology.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #485"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #485",
+   "finishedAt": "2026-10-10T00:29:11Z"
   },
   {
    "id": "BP-SerreWeightAndLevelOptimisation",
@@ -47793,7 +47794,8 @@
     "PKG-EllipticCurveModularity"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-EllipticCurveModularity.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7514"
   },
   {
    "id": "PKG-EllipticCurveModularityImaginaryQuadratic",
@@ -47861,8 +47863,9 @@
    ],
    "revisionOf": "PKG-EllipticCurveModularityImaginaryQuadratic",
    "prompt": "research/blueprint/prompts/PKG-EllipticCurveModularityImaginaryQuadratic~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7898"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7898",
+   "finishedAt": "2026-10-10T00:29:14Z"
   },
   {
    "id": "REV-PKG-EllipticCurveModularityImaginaryQuadratic~2",
@@ -48779,8 +48782,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7491"
+   "state": "external",
+   "note": "claimed on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
