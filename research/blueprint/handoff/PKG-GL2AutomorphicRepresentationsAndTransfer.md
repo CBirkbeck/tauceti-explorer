@@ -1,5 +1,161 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
+Worker: Codex (GPT-6), session `codex-OfyGfB`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-OfyGfB-gl2-package`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6096949955).
+Status: **partial; blocked by unresolved mathematical supplier contracts**.
+None of the manager's forty priority issues was available when checked.
+This available focus package was selected under WORKERS.md; no second job
+was claimed. This checkpoint changes only the package README, Suggested.lean
+and this handoff.
+
+## Current continuation: residual isomorphism instead of a preferred basis
+
+The starting revision did not contain predecessor checkpoint #8366,
+`ff0708dde`, by `codex-kHrRyw`. The branch has been reconciled with current
+main and preserves that checkpoint's primary lifting proof receipts, two
+proved determinant lemmas and three examples. This session independently
+read Isaacs's Theorem 5.4 and proof, printed pp. 179–180, and initially added
+an overlapping determinant lemma. That overlap was removed. The new
+contribution is the explicit **change-of-basis comparison** below; it builds
+on the predecessor's lemma and does not duplicate it or adopt another owner.
+
+A stable-lattice reduction comparison generally gives an equivariant
+isomorphism with the specified residual representation, rather than equality
+of matrices in separately chosen bases. In rank two, its matrix P identifies
+the residual action B with P(map f A)P⁻¹. Taking determinant cancels P and
+P⁻¹; hence the predecessor's oddness lemma applies in either basis. This
+closes the basis-choice step of the conditional oddness argument. It does
+not construct a lift, a lattice or the comparison isomorphism.
+
+### New proved API
+
+- `TauCeti.GL2Transfer.involution_det_eq_neg_one_of_residual_conjugacy`
+  takes a commutative ring R without zero divisors, a field k with 2≠0,
+  a unital ring map f:R→k, A∈GL₂(R) with A²=1, and B,P∈GL₂(k).
+  If B=P(map f A)P⁻¹ and det B=−1, then det A=−1 in Rˣ.
+  Its proof obtains det B=det(map f A) from determinant multiplicativity
+  and the inverse rule, then invokes `involution_det_eq_neg_one_of_reduction`.
+- `TauCeti.GL2Transfer.involution_odd_of_residual_conjugacy` specializes
+  this to actual homomorphisms ρ:G→GL₂(R), r̄:G→GL₂(k), a common P with
+  r̄(g)=P(map f (ρ(g)))P⁻¹ for every g, and c²=1 with det r̄(c)=−1.
+  It proves det ρ(c)=−1. The representation law supplies ρ(c)²=1.
+
+Both signatures use the existing general linear group, determinant,
+coefficient map and group homomorphism. No carrier, predicate stand-in,
+new definition, arithmetic-existence statement or `sorry` was added.
+The comparison is explicit input data: the lemmas do not infer it from
+matching traces, a projective lift or an unspecified semisimplification.
+For the target's absolutely irreducible residual representation, the
+character/lattice bridge still needs to show that the reduction is simple
+and hence actually isomorphic to it. The predecessor's proposed bridge
+and its source locators remain below.
+
+### Three proved tests of the new comparison
+
+The examples reuse the predecessor's actual mixed-sign integral matrix
+and quantify over **every** residual basis-change matrix P:
+
+1. The matrix diag(1,−1) over ℤ remains residually odd modulo 3 after
+   conjugating by P. The example invokes the new conjugacy lemma to recover
+   its integral determinant −1, proving the residual oddness input as well.
+2. Conjugating the reduction of the rank-two scalar −I modulo 3 leaves
+   determinant +1. A basis change cannot create oddness. Together with
+   the first example this also catches omission of an inverse in the
+   conjugacy formula.
+3. At 2, the identity and all its conjugates have residual determinant −1
+   while the integral determinant is +1. Isomorphism of the residual
+   actions does not remove the odd-characteristic hypothesis.
+
+The README retains all target headings and anchors, both predecessor API
+lemmas and the original projective proof route. It now adds these two API
+lemmas and states the tests in any residual basis. Compression is confined
+to this target's prose and preserves its coefficient enlargement, stable
+lattice, residue embedding and semisimplified comparison requirements.
+The full odd-residual-lift signature remains honestly omitted at the pin.
+
+## Why this remains a blocked checkpoint
+
+The binding issue instruction is: **“Change no packet; if the plan has a
+mistake, describe it in the handoff note.”** WORKERS.md already permits
+required higher-tier mathematics to move down into the package; no approval
+for that ownership step is needed. The obstacle is the missing specified
+proof chain and exact supplier contract, not permission, runtime or lack
+of implemented Lean carriers. The following fresh checks reproduce the
+inherited substantive blockers:
+
+- The accepted plan still records **Local–global extension of characters
+  (Chevalley's congruence theorem for S-units)**, needed by
+  `R17.5/tunnell-primitive-globalization` and `R17.5/prescribed-local-induction`.
+  Re-reading Patrikis Lemma 2.3.6 and proof, printed pp. 30–31
+  (PDF pp. 34–35), confirms that finite-hecke-extension prescribes torsion
+  ideles, not full local multiplicative groups. The uniformizer example
+  already in the package distinguishes these domains. This is not an
+  error in Patrikis's stated theorem.
+- The higher `PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension`
+  has a full-local conclusion, permitting enlarged global order, but its
+  ClassFieldTheory Layer 12 request remains open. It requires the S-unit
+  congruence and finite-quotient arguments; the same request includes the
+  CM infinity-type input for the higher consumer. Tier 22 is above GL2's
+  tier 15. The current ClassFieldTheory scope explicitly excludes prescribed
+  local abelian extensions, so its ordinary global existence theorem is
+  not the missing prescription contract.
+- The five current library statements in the preserved notes were re-read:
+  `HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter`,
+  `exists_modulus_finitePart_eq_one`, `exists_modulus_finiteComponent_eq_one`,
+  `exists_modulus_embeddingCharacter_eq_one`, and
+  `unitsCongruenceSubgroup_finiteIndex`. The first four take an existing
+  global character; the last starts with a modulus. None constructs a
+  global character from arbitrary full local data, or a congruence subgroup
+  away from S inside an arbitrary finite-index S-unit subgroup. This is a
+  scoped statement check, not a comprehensive absence audit.
+- Exactly four upward R19 prerequisites remain: rt-technical-lemma needs
+  classical higher-weight attachment, weight-one attachment and conductor/
+  local-factor comparison; weight-two-witness also needs higher-weight
+  attachment. The three provisional R17.6 targets preserve these needs but
+  lack completed proof chains for their cohomological realization,
+  eigenprojector/rank/coefficient descent and ramified integral comparison.
+  The detailed relocation obligations remain in the preserved handoffs.
+
+**Resume gate:** install a single permitted owner and the full-local
+prescription proof inputs, then reconcile both GL2 consumers and the higher
+CHT consumers. Finish the three classical attachment/conductor proof chains
+and reconcile R19's consumers. The accessible Fong–Swan source is already
+in the predecessor checkpoint; its splitting-system/lattice/Brauer-character
+interfaces still need one supplier. The new conjugacy API supplies only the
+last oddness comparison after that bridge. No gap or ownership move is
+silently certified. Metadata remains absent so this partial package cannot
+trigger existence-based completion.
+
+## Validation and state for codex-OfyGfB
+
+- `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`:
+  **exit 0, no errors, exactly 144 warnings, all declaration-uses-sorry**.
+  Both new lemmas and all three new examples have complete proofs.
+  Pinned Mathlib: `082e2d37e8`; pinned Tau Ceti: `f790474`.
+- Both accepted GL2 packets pass `scripts/check_blueprint.py` with
+  **0 errors, 0 warnings**. Their 112 nodes still include 16 recorded gaps,
+  67 requests, twelve planned stages and no closed stage. Their fingerprints
+  in the inherited receipts are unchanged; the packets were not edited.
+- Read the reviewed AUDIT-14 entries for all twelve GL2 layers and the
+  current GlobalNumberFields and RepresentationTheory/ModularInduction
+  READMEs in full. Current read-only revisions remain TauCetiRoadmap
+  `48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688` and Tau Ceti
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+- README: **199,982 bytes**. All current-main target headings and anchors
+  and the predecessor's scope/convention changes are retained. The single
+  import block and honest omitted-signature comments remain.
+- `intake.py check-files`: **3 files, 0 problems**;
+  `git diff --check`: **pass**. No source passage, source file or private
+  filesystem path is committed. No process remains running at submission.
+
+## Preserved continuation: codex-kHrRyw and earlier repair history
+
+The predecessor's notes follow unchanged. Their exact proof receipts,
+contracts and relocation obligations remain useful; their session-specific
+status and validation are historical.
+
+
 Worker: Codex (GPT-6), session `codex-kHrRyw`. Issue: #7901.
 Date: 2026-10-10. Branch: `codex-kHrRyw-gl2-package`.
 [Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6096741686).

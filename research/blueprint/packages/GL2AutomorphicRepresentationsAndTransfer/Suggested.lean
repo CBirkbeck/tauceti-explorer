@@ -1286,6 +1286,80 @@ example : (1 : GeneralLinearGroup (Fin 2) ℤ) ^ 2 = 1 ∧
     have hval := congrArg (fun u : ℤˣ => (u : ℤ)) h
     norm_num at hval
 
+/- A lattice comparison supplies an isomorphism, not a preferred common basis.
+Conjugacy by its change-of-basis matrix is sufficient for the oddness step. -/
+theorem involution_det_eq_neg_one_of_residual_conjugacy
+    {R k : Type*} [CommRing R] [NoZeroDivisors R] [Field k]
+    (f : R →+* k) (h2 : (2 : k) ≠ 0)
+    (A : GeneralLinearGroup (Fin 2) R) (hA : A ^ 2 = 1)
+    (B P : GeneralLinearGroup (Fin 2) k)
+    (hcomp : B = P * GeneralLinearGroup.map f A * P⁻¹)
+    (hodd : GeneralLinearGroup.det B = (-1 : kˣ)) :
+    GeneralLinearGroup.det A = (-1 : Rˣ) := by
+  apply involution_det_eq_neg_one_of_reduction f h2 A hA
+  have hdet : GeneralLinearGroup.det B =
+      GeneralLinearGroup.det (GeneralLinearGroup.map f A) := by
+    simp [hcomp, mul_assoc]
+  exact hdet.symm.trans hodd
+
+/-- Oddness transfers across a specified residual representation isomorphism. -/
+theorem involution_odd_of_residual_conjugacy
+    {G R k : Type*} [Group G] [CommRing R] [NoZeroDivisors R] [Field k]
+    (f : R →+* k) (h2 : (2 : k) ≠ 0)
+    (ρ : G →* GeneralLinearGroup (Fin 2) R)
+    (rbar : G →* GeneralLinearGroup (Fin 2) k)
+    (P : GeneralLinearGroup (Fin 2) k)
+    (hcomp : ∀ g, rbar g = P * GeneralLinearGroup.map f (ρ g) * P⁻¹)
+    (c : G) (hc : c ^ 2 = 1)
+    (hodd : GeneralLinearGroup.det (rbar c) = (-1 : kˣ)) :
+    GeneralLinearGroup.det (ρ c) = (-1 : Rˣ) :=
+  involution_det_eq_neg_one_of_residual_conjugacy f h2 (ρ c)
+    (by rw [← map_pow, hc, map_one]) (rbar c) P (hcomp c) hodd
+
+-- The mixed-sign integral involution remains residually odd in every basis.
+example (P : GeneralLinearGroup (Fin 2) (ZMod 3)) :
+    GeneralLinearGroup.det mixedSignInvolution = (-1 : ℤˣ) := by
+  let f := Int.castRingHom (ZMod 3)
+  let B := P * GeneralLinearGroup.map f mixedSignInvolution * P⁻¹
+  have hA : mixedSignInvolution ^ 2 = 1 := by
+    apply Units.ext
+    rw [pow_two]
+    change mixedSignInvolution.val * mixedSignInvolution.val = (1 : Matrix (Fin 2) (Fin 2) ℤ)
+    exact mixedSignInvolution.val_inv
+  apply involution_det_eq_neg_one_of_residual_conjugacy f (by decide)
+    mixedSignInvolution hA B P rfl
+  have hred : GeneralLinearGroup.det (GeneralLinearGroup.map f mixedSignInvolution) =
+      (-1 : (ZMod 3)ˣ) := by
+    rw [GeneralLinearGroup.map_det]
+    apply Units.ext
+    norm_num [f, mixedSignInvolution, GeneralLinearGroup.det, Matrix.det_fin_two]
+  simp [B, hred, mul_assoc]
+
+-- A basis change cannot make the scalar -I residually odd in rank two.
+example (P : GeneralLinearGroup (Fin 2) (ZMod 3)) :
+    GeneralLinearGroup.det
+      (P * GeneralLinearGroup.map (Int.castRingHom (ZMod 3))
+        (GeneralLinearGroup.scalar (Fin 2) (-1 : ℤˣ)) * P⁻¹) = 1 := by
+  simp [GeneralLinearGroup.map_det, mul_assoc]
+
+-- An arbitrary residual basis still cannot distinguish determinant signs at 2.
+example (P : GeneralLinearGroup (Fin 2) (ZMod 2)) :
+    (1 : GeneralLinearGroup (Fin 2) ℤ) ^ 2 = 1 ∧
+    GeneralLinearGroup.det
+      (P * GeneralLinearGroup.map (Int.castRingHom (ZMod 2))
+        (1 : GeneralLinearGroup (Fin 2) ℤ) * P⁻¹) = (-1 : (ZMod 2)ˣ) ∧
+    GeneralLinearGroup.det (1 : GeneralLinearGroup (Fin 2) ℤ) ≠ (-1 : ℤˣ) := by
+  constructor
+  · simp
+  constructor
+  · simp only [map_one, mul_one, mul_inv_cancel]
+    apply Units.ext
+    norm_num
+  · simp only [map_one]
+    intro h
+    have hval := congrArg (fun u : ℤˣ => (u : ℤ)) h
+    norm_num at hval
+
 end OddReductionTests
 
 section ArithmeticLifting
