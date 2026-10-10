@@ -1041,6 +1041,72 @@ arbitrary groups and rings both existence claims are false.
 README targets: R17.5/finite-hecke-extension, R17.5/odd-residual-lift.
 Omitted declaration names: TauCeti.GL2Transfer.finite_hecke_extension, TauCeti.GL2Transfer.odd_residual_lift.
 -/
+/- A concrete domain test: the unramified quadratic character of ℚ₂× and
+the trivial character agree on integral units and torsion, but differ at 2.
+This proves no global extension theorem. -/
+section FullLocalCharacterTests
+open Filter
+open scoped Topology
+
+private def unramifiedQuadraticTwo : ContinuousMonoidHom ℚ_[2]ˣ ℂˣ where
+  toFun u := (-1 : ℂˣ) ^ (u : ℚ_[2]).valuation
+  map_one' := by simp
+  map_mul' u v := by
+    simp only [Units.val_mul, Padic.valuation_mul u.ne_zero v.ne_zero, _root_.zpow_add]
+  continuous_toFun := by
+    apply IsLocallyConstant.continuous
+    rw [IsLocallyConstant.iff_eventually_eq]
+    intro u
+    have hball : ∀ᶠ v : ℚ_[2]ˣ in 𝓝 u, ‖(v : ℚ_[2]) - u‖ < ‖(u : ℚ_[2])‖ :=
+      (Units.continuous_val.sub continuous_const).norm.continuousAt.eventually
+        (gt_mem_nhds (by simp))
+    filter_upwards [hball] with v hv
+    have hn := Padic.norm_eq_of_norm_sub_lt_right hv
+    rw [Padic.norm_eq_zpow_neg_valuation v.ne_zero,
+      Padic.norm_eq_zpow_neg_valuation u.ne_zero] at hn
+    have he : (v : ℚ_[2]).valuation = (u : ℚ_[2]).valuation := by
+      exact neg_injective ((zpow_right_inj₀ (by norm_num : (0 : ℝ) < 2)
+        (by norm_num : (2 : ℝ) ≠ 1)).mp hn)
+    rw [he]
+
+private def twoUnit : ℚ_[2]ˣ := Units.mk0 2 (by norm_num)
+
+example : unramifiedQuadraticTwo twoUnit = (-1 : ℂˣ) := by
+  change (-1 : ℂˣ) ^ Padic.valuation (2 : ℚ_[2]) = -1
+  rw [show Padic.valuation (2 : ℚ_[2]) = 1 from by
+    exact Padic.valuation_p (p := 2), zpow_one]
+
+example (u : ℚ_[2]ˣ) (hu : (u : ℚ_[2]).valuation = 0) :
+    unramifiedQuadraticTwo u = 1 := by
+  change (-1 : ℂˣ) ^ (u : ℚ_[2]).valuation = 1
+  rw [hu, zpow_zero]
+
+example (u : ℚ_[2]ˣ) : unramifiedQuadraticTwo u ^ 2 = 1 := by
+  change ((-1 : ℂˣ) ^ (u : ℚ_[2]).valuation) ^ 2 = 1
+  rw [← zpow_natCast, ← _root_.zpow_mul, mul_comm, _root_.zpow_mul]
+  norm_num
+
+example (u : ℚ_[2]ˣ) (hu : IsOfFinOrder u) : unramifiedQuadraticTwo u = 1 := by
+  obtain ⟨n, hn, hpow⟩ := isOfFinOrder_iff_pow_eq_one.mp hu
+  have hv : (u : ℚ_[2]).valuation = 0 := by
+    have hp : (u : ℚ_[2]) ^ n = 1 := congrArg Units.val hpow
+    have he := congrArg Padic.valuation hp
+    rw [Padic.valuation_pow, Padic.valuation_one] at he
+    exact (mul_eq_zero.mp he).resolve_left (by exact_mod_cast hn.ne')
+  change (-1 : ℂˣ) ^ (u : ℚ_[2]).valuation = 1
+  rw [hv, zpow_zero]
+
+example : unramifiedQuadraticTwo ≠ 1 := by
+  intro h
+  have he := DFunLike.congr_fun h twoUnit
+  change (-1 : ℂˣ) ^ Padic.valuation (2 : ℚ_[2]) = 1 at he
+  rw [show Padic.valuation (2 : ℚ_[2]) = 1 from by
+    exact Padic.valuation_p (p := 2), zpow_one] at he
+  have hcoe := congrArg (fun u : ℂˣ => (u : ℂ)) he
+  norm_num at hcoe
+
+end FullLocalCharacterTests
+
 section ArithmeticLifting
 variable {G I T : Type*} [Group G] [Group I] [Group T]
 
