@@ -1,12 +1,10 @@
 # Coleman integration and noncritical Dirichlet L-values
 
-This roadmap constructs Coleman integration on curves with good reduction, its
-normalized p-adic polylogarithms, and the formula for the positive integer values
-of the Kubota–Leopoldt L-function in terms of roots of unity. It develops the
-basic theory of the objects used by these formulas: analytic primitives,
-logarithm branches, shuffle words, Frobenius continuation, local expansions,
-functional equations, negative moments and regularized smoothing. Its final
-layer states the comparison with complex values and syntomic regulators.
+This roadmap constructs Coleman integration on good-reduction curves,
+normalized p-adic polylogarithms and positive integer Kubota–Leopoldt L-values.
+It develops analytic primitives, logarithm branches, shuffle words, Frobenius
+continuation, functional equations, negative moments and regularized smoothing,
+then compares complex values and syntomic regulators.
 
 For an odd prime p, a nontrivial primitive Dirichlet character θ of conductor
 N = Dp^n with p ∤ D, and k ≥ 1, the principal formula is
@@ -51,23 +49,13 @@ continuous rational nonnegative scalar multiplication, which p-adic fields lack.
 | Evaluation of pseudomeasures at nontrivial characters | `PM3`: PadicMeasuresIwasawaAlgebras:L3 |
 | Locally analytic distributions, their Amice transform onto R⁺ and restriction to units | `LA1`: LocallyAnalyticDistributions:L1 |
 | Gauss-sum conventions, smoothing measures, character measures and the Kubota–Leopoldt normalization | `DP0–DP3`: DirichletPadicLFunctions:L0–L3 |
+| Finite-image complex Artin factors, induction and meromorphic continuation | `AA-Artin`: AdelicAlgebraicGroups:AA.2.4, convergence-factors |
 
-ColemanIntegration and DirichletPadicLFunctions share an arithmetic bundle:
-L0 here supplies logarithm branches to the Dirichlet theory, while L3 here
-imports its measures and L-function. These are layer dependencies, rather than
-mutually duplicated definitions. No class-field theory, adic-space carrier,
-cohomology theory, generic measure theory or Tannakian fundamental group is
-constructed again here. General Tannakian path torsors belong to
-AnabelianGeometryAndNonabelianChabauty; the direct word algebra is the object
-constructed in L1. Comparisons with abelian integration on Jacobians belong to
-EffectiveDiophantineMethods:ED.4.
-
-Suggested homes are `TauCeti/Analysis/Nonarchimedean/`,
-`TauCeti/Analysis/Coleman/`, `TauCeti/Analysis/Polylogarithm/Padic/`, and
-`TauCeti/NumberTheory/LFunction/Padic/`. Representative signatures, explicit
-supplier hypotheses and unit tests are in [Suggested.lean](Suggested.lean).
-This README specifies the mathematics, including targets whose geometric or
-motivic types require the imported interfaces.
+DirichletPadicLFunctions imports logarithm branches from L0 and supplies
+measures and L-functions to L3 within the same arithmetic bundle. General
+Tannakian path torsors belong to AnabelianGeometryAndNonabelianChabauty;
+L1 constructs the direct word algebra. Comparisons with abelian integration
+on Jacobians belong to EffectiveDiophantineMethods:ED.4.
 
 ## Conventions and order
 - p is prime and |p|=p⁻¹ on C_p; v_p(p)=1. General ultrametric results state
@@ -97,17 +85,15 @@ motivic types require the imported interfaces.
   formal inversion; separate inverses at the removed centre give a different
   power series.
 
-The order is L0 → L1 → L2 → L3. Within each layer the numbered targets follow
-their dependency order. The source abbreviations resolve in the reference list.
-Theorems are stated with their exact hypotheses; a general geometric or
-regulator comparison is not inferred from a genus-zero or scalar calculation.
+The order is L0 → L1 → L2 → L3; numbered targets follow dependency order.
+Source abbreviations resolve in the reference list.
 
 
 ## L0. Power series, residues and logarithm branches
 
 Use Mathlib’s analytic and formal-series carriers. Termwise integration preserves the open convergence radius but can lose the closed boundary. Adjoin one logarithmic symbol to remove the annulus residue obstruction; then construct every branch on C_p from principal-unit logarithms. Whole-disc analyticity is stronger than local analyticity.
 
-**L0.F. Rational coefficient series.** For k∈ℤ define q_k∈ℚ[[X]] by coeff_0=0 and coeff_n=n^(−k) for n≥1. Its coefficient image defines the series over every characteristic-zero field; prove scalar-map functoriality, Xq_k′=q_(k−1), q_0=X/(1−X), and q_1=−log(1−X). Tests: coeff_1=1; coeff_2(q_1)=1/2; q_0 has constant 0, rather than 1. From PowerSeries.coeff, PowerSeries.derivative and coefficient extensionality. Source: F §3.1, p.14; RJW §6.2, pp.38–39.
+**L0.F. Rational coefficient series.** For k∈ℤ define q_k∈ℚ[[X]] by coeff_0=0 and coeff_n=n^(−k) for n≥1 (`rationalPolylogSeries`, `coeff_rationalPolylogSeries`). Native coefficient mapping gives its series over every characteristic-zero field (`map_rationalPolylogSeries_coeff`); mapping through any homomorphism of ℚ-algebras gives the same result (`map_rationalPolylogSeries_comp`). Prove Xq_k′=q_(k−1) (`X_mul_derivative_rationalPolylogSeries`), including k≤0; zero constant term and this Euler derivative characterize q_k (`rationalPolylogSeries_unique`). Prove q_0=X/(1−X) and q_1=−log(1−X) (`rationalPolylogSeries_zero_weight`, `rationalPolylogSeries_one_eq_neg_log`). Mathlib's `PowerSeries.log` represents log(1+X), so substitute −X before negating. Tests: coeff_0(q_1)=0, coeff_1(q_−2)=1, coeff_2(q_1)=1/2, coeff_3(q_1)=1/3, q_−1=X/(1−X)², and coeff_2(q_2) mapped to ℂ is 1/4. Use `PowerSeries.coeff_map`, `coeff_derivative`, coefficient extensionality and the formal logarithm API. Source: F §2, Remark 2.29, p.14 (depth-one rational series for integer weights); RJW §6.2, Remark 6.6, pp.38–39. The derivative and transport laws follow coefficientwise, without analytic convergence hypotheses.
 
 **L0.1. Norms of integers in an ultrametric field of characteristic zero.** Let K be a nontrivially normed field whose norm is ultrametric (IsUltrametricDist) and whose characteristic is zero. Then ||(n : K)|| <= 1 for every natural number n, and exactly one of the following holds: (a) ||(n : K)|| = 1 for every n >= 1 (residue characteristic zero); (b) there is a unique prime p with ||(p : K)|| < 1, and then ||(n : K)|| = ||(p : K)||^(v_p(n)) for every n >= 1, where v_p = padicValNat p. Put s := 0 in case (a) and s := log(1/||p||)/log(p) in case (b). Then ||(n : K)||^(-1) <= n^s for every n >= 1. For K a complete subfield of C_p, normalised by |p| = 1/p, s = 1: |1/n| = p^(v_p(n)) <= n.
 
@@ -1540,7 +1526,7 @@ Use geometric measures away from the disc of one, and pole-cancelled smoothing o
 
 **L3.Fc. Complex regulator input.** Construct the Beilinson regulator pairing and its coefficient and Galois functoriality. Prove the Borel rank and idempotent dimension statement used in L3.16, and the cyclotomic regulator determinants used in L3.36. Sources: BBdJR Definitions 3.5–3.6, Proposition 3.12 and §4, Proposition 4.17, pp.10–14,21–22.
 
-**L3.Fd. Artin L-values.** Construct the coefficient-valued complex Artin Euler product with inertia invariants at ramified primes, and its induction and direct-sum laws. Construct the p-adic Artin values for the parity components in BBdJR §2 by Brauer induction from totally real fields, prove independence of the expression, and specify Eul_p and the ω_p^(1−n) twist. The abelian specialization must agree with DP3 and Mathlib's Dirichlet L-function. Sources: BBdJR §2 and Conjecture 3.18, pp.3–9,15–16.
+**L3.Fd. Artin L-values.** Import `AA-Artin`'s complex finite-image Artin factors, inertia invariants, ramified induction and meromorphic germs: `FiniteImageArtin.localFactor`, `localFactor_induction`, `globalL_eq_eulerProduct`, `oneDimensional_eq_hecke`. For E-valued representations, apply this interface at each embedding E→ℂ and assemble the coefficient-valued function; prove independence of realization and direct-sum compatibility. Construct the p-adic parity components by Brauer induction from totally real fields, prove expression independence, and specify Eul_p and ω_p^(1−n). The abelian specialization agrees with DP3 and Mathlib's Dirichlet L-function. Sources: BBdJR §2 and Conjecture 3.18, pp.3–9,15–16. The E-valued assembly and p-adic construction are additional targets here; `AA-Artin` supplies the complex theory.
 
 **L3.1. p-adic L-values at positive integers as negative moments of the measure mu_theta.** Let p be an odd prime and theta = chi*eta a nontrivial primitive Dirichlet character of conductor N = D p^n, where eta is primitive of conductor D > 1 with p not dividing D and chi is primitive of conductor p^n (n >= 0). Let L be a finite extension of Q_p inside C_p containing mu_N and the values of theta, and mu_theta = (mu_eta)_chi in Lambda(Z_p) (x) L the measure of RJW (5.5), with Amice transform F_theta (RJW Lemma 5.12). For every integer k >= 1, L_p(theta*omega^{1-k}, k) = int_{Z_p^x} x^{-k} . mu_theta. Here omega is the Teichmueller character, L_p(psi, s) is RJW Definition 5.18, and theta*omega^{1-k} = (chi*omega^{1-k})*eta, its p-part chi*omega^{1-k} being the finite-order character of Z_p^x it defines (trivial when chi = omega^{k-1}).
 
