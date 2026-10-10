@@ -1,4 +1,42 @@
+# Current continuation: blocked by scope mismatch
+
+Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-hHkBnT**, 10 October 2026. Claim confirmed in [comment 6099408303](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099408303). Input `fb0cd9eed77d7eb6fbd7226707e91d90fa7acdfe`.
+
+This checkpoint adds an independently reproduced administrative diagnosis to the existing [review report](../reviews/REV-FIX-RT-AREA-padic-2~4.md), under “Continuation: completion-boundary verification”. It preserves the previous mathematical review, verdicts and source-reading attribution. No second job was claimed. The job cannot be completed within its authorized output scope.
+
+**Current evidence:** the live issue lists seven deliverables; the generated queue lists 31. All exist. The completion predicate returns `True` for the live scope and `False` for the queue scope. All twelve extra packets now have accepted reviews under their own independent review jobs, listed in the report. Replacing their verdicts solely to meet this job's reviewer-name requirement would neither perform the missing review nor respect the issue's file restrictions.
+
+**Validation:** fresh pinned-index checks of the three authorized packets report zero errors and zero warnings. Packets, readers and suggested files are unchanged. Lean was not rerun for documentation-only changes; the previous session's successful checks remain recorded below. No source was fetched, copied or freshly reviewed in this continuation.
+
+**Maintainer next action:** reconcile this review's queue outputs with the historical round-four fix and live issue. The generator's `fix_rounds` function in `research/blueprint/make_queue.py` derives reviews from `current_outputs` and can append newly routed `missing` blueprint files when advancing a round. Inspect that historical-scope path before regenerating; a manual queue edit alone may be overwritten. Restore this review to the three packets actually reviewed, or explicitly allocate a separate expanded fix/review with concrete inputs and independence requirements. Do not erase the receiving packets' independent reviews or broaden this completed review merely to pass intake.
+
+After reconciliation, use the retained bounded review. Its verdicts are already present in the three authorized packets. The remaining mathematical work still belongs to the supplier/Perfectoid jobs, not another repetition of this synchronization review. No scratch artifact is required to resume: the reproduction below and report contain the evidence.
+
+Run from the repository root to reproduce the two completion results without writing any files:
+
+```python
+import importlib.util
+import json
+
+spec = importlib.util.spec_from_file_location("issues", "research/blueprint/issues.py")
+issues = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(issues)
+queue = json.load(open("research/blueprint/queue.json"))
+jobs = queue["jobs"] if isinstance(queue, dict) else queue
+job = next(j for j in jobs if j["id"] == "REV-FIX-RT-AREA-padic-2~4")
+authorized = ["research/blueprint/reviews/REV-FIX-RT-AREA-padic-2~4.md"]
+for name in ("FaltingsFinitenessAndIsogenyTheorems", "PerfectoidSpaces--P0", "AdicSpacesPartII"):
+    authorized.append(f"research/blueprint/packets/{name}.json")
+    authorized.append(f"research/blueprint/suggested/{name}.lean")
+print("live scope:", issues.deliverables_complete(dict(job, outputs=authorized)))
+print("queue scope:", issues.deliverables_complete(job))
+```
+
+The previous handoff follows for the mathematical work, exact extra paths and source-check provenance.
+
 # Handoff: REV-FIX-RT-AREA-padic-2~4
+
+Previous mathematical-review handoff, retained below.
 
 Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-5FwGoc**, 10 October 2026. Bot claim confirmation: [comment 6098831658](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6098831658). Input `b9ba38061383810d0da07c603653912ba7715c7c`.
 
