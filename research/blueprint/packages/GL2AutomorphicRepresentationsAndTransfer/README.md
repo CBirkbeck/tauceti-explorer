@@ -73,7 +73,7 @@ K₁(pⁿ)={g∈GL₂(O): g₂₁∈pⁿ and g₂₂−1∈pⁿ}; over R write K
 
 **Sources.** [aky22], §1.2, pp. 3–4, K(n,λ) and generic λπ.
 
-For a nonarchimedean local field, embed this same subgroup into GL₂(F) through the valuation-ring inclusion; write its image as localK1(n). Its level-zero image is GL₂(O), and localK1(n)⊆localK1(m) for m≤n, hence every level lies in the integral maximal compact. These are the specialization API, not another congruence construction. At level one the upper unipotent matrix with entry 1 belongs, while the lower unipotent matrix with entry 1 does not. The diagonal matrix diag(u,1), for an integral unit u not congruent to 1, belongs and is nonidentity. Together these tests distinguish the last-row condition and exclude the principal-congruence interpretation.
+Embed K₀(pⁿ) and K₁(pⁿ) through the valuation-ring coefficient map as localK0(n) and localK1(n). Both are compact open and antitone, with common level-zero value GL₂(O), and localK1(n)⊆localK0(n). The API states these identities, inclusions, compactness and openness. At level one an upper unipotent with entry 1 belongs to both, a lower unipotent does not, and diag(u,1) belongs to localK1 even for u−1∉p. The Weyl element belongs at level zero and is excluded at level one. A scalar u with u−1∉p belongs to localK0(1) but not localK1(1); this test assumes such a residue unit, so it does not require one over F₂. These tests distinguish the last row and exclude principal congruence.
 
 <a id="r16-1-local-adelic-compact-comparison"></a>
 
@@ -155,7 +155,7 @@ Use Mathlib's `IsNonarchimedeanLocalField`, its valuation ring and maximal ideal
 
 ### newvector-conductor: The newvector conductor exponent
 
-For irreducible admissible infinite-dimensional π of GL₂(F), c(π) is the least n≥0 for which π^{K₁(pⁿ)} is nonzero. Define the ideal conductor p^{c(π)}. The same least-level construction is available for an existing representation with an explicit nonempty level set. Existence for the stated π is the preceding newvectorLevelExists theorem, not a field stored in a replacement representation. This is a specialization of fixed vectors, not a new admissibility predicate.
+For irreducible admissible infinite-dimensional π of GL₂(F), c(π) is the least n≥0 for which π^{K₁(pⁿ)} is nonzero. Define the ideal conductor p^{c(π)}. The same least-level construction is available for an existing representation with an explicit nonempty level set. Existence for the stated π is the preceding newvectorLevelExists theorem, not a field stored in a replacement representation. This specializes fixed vectors.
 
 **Hypotheses.** π generic, equivalently infinite-dimensional irreducible in characteristic zero; O,p and K₁ fixed.
 
@@ -243,7 +243,7 @@ For an unramified generic principal series with unitary-normalized Satake parame
 
 Let π be complex, irreducible, smooth, admissible, infinite-dimensional and spherical over a characteristic-zero nonarchimedean local field F. Write K=GL₂(O), I=K₀(p). Then dim πᴷ=1 and dim πᴵ=2. With vol(I)=1, U=[I diag(ϖ,1) I] and spherical eigenvalue λ=√q(α+β), every nonzero spherical v is cyclic for U on πᴵ. Its polynomial is X²−λX+qαβ, including α=β.
 
-**Operator comparison.** `localK0(n)` embeds the earlier K₀(pⁿ); localK0(0)=localK1(0), localK1(n)⊆localK0(n), and it is antitone. In I, upper unipotents and integral scalars belong; the lower unipotent with entry 1 does not.
+**Fixed-space comparison.** The compact-open signatures supply the admissibility inputs. `localK0_invariants_eq_localK1` identifies the fixed submodules at every level when integral scalar units act trivially. The API decomposes every K₀ element as an integral scalar times a K₁ element, using the lower-right unit at positive level and scalar 1 at zero. In an irreducible spherical representation, these scalars fix a nonzero spherical vector and hence its GL₂(F)-span. If an integral scalar acts by a≠1 and K₁ has a nonzero fixed vector, K₀ has none; this tests the scalar-action hypothesis.
 
 Choose residue representatives A⊂O; set gₐ=(ϖ a;0 1). Then U=∑ₐπ(gₐ), with |A|=q. Set s=diag(1,ϖ), c=ω(ϖ)=αβ. On πᴷ, the spherical double coset acts as T=U+π(s). From Tv=λv and π(ϖI₂)=c, the basis (v,π(s)v) gives Uv=λv−π(s)v and Uπ(s)v=qc v. Thus πᴵ=span(v,Uv), Uv is not proportional to v, and U²−λU+qc=0 on πᴵ. `iwahoriOldforms` uses these matrices and Mathlib invariant submodules.
 
@@ -281,7 +281,7 @@ For the inertial class s of an irreducible supercuspidal π of GL₂(F), there i
 
 ### supercuspidal-projective: Supercuspidals in a fixed central-character category
 
-A supercuspidal complex representation of GL₂(F) with fixed smooth central character ω is projective in the abelian category of smooth representations on which the center acts by ω. The DLB application is F=ℚp, ω=1, and characteristic-zero L coefficients with the required scalar extension. This does not assert projectivity in the unrestricted smooth category or in a mod-p category.
+A supercuspidal complex representation of GL₂(F) with fixed smooth central character ω is projective in the abelian category of smooth representations on which the center acts by ω. The DLB application is F=ℚp, ω=1, and characteristic-zero L coefficients with the required scalar extension. The category fixes ω and has characteristic-zero coefficients.
 
 Concretely, let F be a finite extension of ℚp with its local-field topology,
 G=GL₂(F), and Z its scalar center. Let π, σ and τ be complex representations
@@ -303,15 +303,7 @@ intertwining maps. Taking τ=π and f the identity gives the splitting of every
 surjection onto π. The source π is admissible and supercuspidal; the other two
 smooth representations need neither be irreducible nor admissible.
 
-The proof uses the supercuspidal block decomposition from SR.3.2 and its
-matrix-coefficient projector, together with the fixed-character subcategory of
-SR.0. Before fixing the central character, the unramified twisting direction
-allows extensions. Fixing ω reduces this direction to the finitely many
-unramified twists with trivial square on the center; in characteristic zero the
-resulting relation has distinct roots. The fixed-character supercuspidal block
-is therefore semisimple, which gives the stated lift. Keep the DLB L-coefficient
-version and its scalar-descent requirement visible in the Kirillov comparison;
-the complex statement alone is not that descent theorem.
+Use SR.3.2's supercuspidal block decomposition and matrix-coefficient projector in SR.0's fixed-character subcategory. Fixing ω restricts unramified twists to those with trivial square on the center; in characteristic zero this gives a semisimple block and the equivariant lift. The L-coefficient Kirillov comparison retains its scalar-descent requirement.
 
 **Hypotheses.** Fixed smooth central character; complex coefficients; F/ℚp finite;
 smoothness of all three representations; admissibility, irreducibility and the

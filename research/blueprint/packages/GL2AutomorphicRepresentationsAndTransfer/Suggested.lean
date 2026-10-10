@@ -230,6 +230,66 @@ example (u : 𝒪[F]ˣ) (hu : (u : 𝒪[F]) - 1 ∉ 𝓂[F])
     GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∈ localK1 F 1 ∧
       GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ≠ 1 := by sorry
 
+/-- The embedded congruence subgroups are compact open in the local matrix
+unit group. These signatures supply the inputs to compact-open admissibility;
+they do not assemble the adelic comparison of R16.1. -/
+lemma localK0_isCompact (n : ℕ) :
+    IsCompact (localK0 F n : Set (GeneralLinearGroup (Fin 2) F)) := by sorry
+lemma localK0_isOpen (n : ℕ) :
+    IsOpen (localK0 F n : Set (GeneralLinearGroup (Fin 2) F)) := by sorry
+lemma localK1_isCompact (n : ℕ) :
+    IsCompact (localK1 F n : Set (GeneralLinearGroup (Fin 2) F)) := by sorry
+lemma localK1_isOpen (n : ℕ) :
+    IsOpen (localK1 F n : Set (GeneralLinearGroup (Fin 2) F)) := by sorry
+
+/-- Every element of K0 is an integral scalar times an element of K1.
+For positive n the scalar can be the lower-right entry; at level zero take 1.
+This is the concrete subgroup input to the fixed-space comparison. -/
+lemma localK0_scalar_mul_localK1 (n : ℕ)
+    (g : GeneralLinearGroup (Fin 2) F) (hg : g ∈ localK0 F n) :
+    ∃ (u : 𝒪[F]ˣ) (h : GeneralLinearGroup (Fin 2) F),
+      h ∈ localK1 F n ∧
+      g = GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+        (GeneralLinearGroup.scalar (Fin 2) u) * h := by sorry
+
+/-- Integral scalar matrices generate K0(n)/K1(n) for n>0; at n=0 the
+subgroups coincide. An unramified scalar action therefore identifies the two
+fixed submodules at every level. No spherical or irreducibility assumption
+is needed for this comparison. -/
+lemma localK0_invariants_eq_localK1
+    (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    (hcent : ∀ (u : 𝒪[F]ˣ) (v : V),
+      π (GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+        (GeneralLinearGroup.scalar (Fin 2) u)) v = v) (n : ℕ) :
+    Representation.invariants (π.comp (localK0 F n).subtype) =
+      Representation.invariants (π.comp (localK1 F n).subtype) := by sorry
+
+-- Boundary and distinction checks for the embedded subgroups.
+-- The Weyl element belongs at level zero and is excluded at level one.
+example (g : GeneralLinearGroup (Fin 2) 𝒪[F])
+    (hg : g.val = !![0, 1; -1, 0]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∈ localK0 F 0 ∧
+      GeneralLinearGroup.map (algebraMap 𝒪[F] F) g ∉ localK0 F 1 := by sorry
+-- Conditional on a nonidentity residue unit; there need not be one over F2.
+example (u : 𝒪[F]ˣ) (hu : (u : 𝒪[F]) - 1 ∉ 𝓂[F]) :
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+      (GeneralLinearGroup.scalar (Fin 2) u) ∈ localK0 F 1 ∧
+    GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+      (GeneralLinearGroup.scalar (Fin 2) u) ∉ localK1 F 1 := by sorry
+
+-- The unramified scalar-action hypothesis cannot be omitted: a nontrivial
+-- scalar eigenvalue kills all K0 invariants, even if K1 invariants are nonzero.
+example (π : Representation ℂ (GeneralLinearGroup (Fin 2) F) V)
+    (u : 𝒪[F]ˣ) (a : ℂ) (ha : a ≠ 1)
+    (hscalar : ∀ v : V,
+      π (GeneralLinearGroup.map (algebraMap 𝒪[F] F)
+        (GeneralLinearGroup.scalar (Fin 2) u)) v = a • v)
+    (n : ℕ)
+    (hfixed : ∃ v ∈ Representation.invariants (π.comp (localK1 F n).subtype), v ≠ 0) :
+    Representation.invariants (π.comp (localK0 F n).subtype) = ⊥ ∧
+      Representation.invariants (π.comp (localK0 F n).subtype) ≠
+        Representation.invariants (π.comp (localK1 F n).subtype) := by sorry
+
 /-- Casselman, Theorem 1 and its proof, pp. 302–306, in the last-row
 convention of the README. Infinite dimensionality excludes determinant
 characters. No conductor or nonempty-level hypothesis is assumed. -/
