@@ -1,40 +1,39 @@
 # REV-FIX-RT-AREA-langlands-2~3 handoff
 
-## Current blocker, 9 October 2026 — codex-0XpONo
+## Current blocker, 10 October 2026 — codex-98Bf6X
 
 Issue #5871; bot-confirmed claim
-[6076590888](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6076590888).
-Base `078ff6223c4a4b88037da93e2e56b5460071b6e5`. Before this update, all seven live-issue outputs
-matched merged [PR #7806](https://github.com/CBirkbeck/tauceti-explorer/pull/7806),
-commit `e1959b18832421791ab0cc21a944012b9e645425`, byte for byte.
+[6097922103](https://github.com/CBirkbeck/tauceti-explorer/issues/5871#issuecomment-6097922103).
+Base `fb99cf051cb90cec265ac63529c9541642546aee`. All seven authorized files
+matched merged [PR #7816](https://github.com/CBirkbeck/tauceti-explorer/pull/7816),
+commit `050d2f7375134cb0ca18afa7b73d4d8dfc4196b1`, byte for byte before this update.
+There is no new mathematical change to review. Inherited verdicts and review
+objects remain CSM accepted, Global accepted and GL2 needs_changes.
 
-The inherited mathematical review is complete for this scope. Verdicts remain
-CSM accepted, Global accepted and GL2 needs_changes. The GL2 revision's 53 API
-signatures and 46 tests are listed below; a negative verdict completes a review.
+The intake blocker is still present. Read the completion function, intake
+allowlist and historical-round generator. Parsed the live issue's seven
+paths and reproduced completion **false** for the pending 27-output queue
+entry and **true** with only its output list replaced in memory by those
+seven paths. All 27 outputs exist; the ten extra packets name other review
+jobs. The done parent fix still lists 40 outputs. Queue and generator edits
+are outside the issue scope and fail the intake allowlist. No allowed edit
+can settle those historical scopes by overwriting other jobs' reviews.
+A needs_changes verdict is a completed review outcome and is not the blocker.
 
-Fresh read-only reproduction: the pending review queue entry has 27 outputs,
-all present, and `deliverables_complete` is false. Replacing only its output
-list in memory with the seven live-issue paths makes completion true; both
-results were asserted in one process. The ten extra packets name other review
-jobs; the done parent fix still lists 40 outputs. Queue and generator repairs
-are outside this issue's edits and fail the intake allowlist. Read the relevant
-completion function, intake allowlist and generation path. No allowed edit can
-reconcile those historical output lists without overwriting other jobs' reviews.
-The intake's `--complete` option handles legacy link maps only; it cannot
-override this review's completion result.
-
-All three packet validators pass with zero errors/warnings (37 CSM, 73 GL2
-and 67 Global nodes). All 177 nodes are unchecked, no packet has an excerpt
-field, and the report covers all forty confirmed findings exactly once.
-The finding and verification files contain the same forty identifiers, all
-confirmed. No fresh primary-source, baseline or graph audit is claimed;
-unchanged Lean files were not recompiled. Only the report and this handoff change.
+Fresh packet checks: zero errors and warnings for each packet (37, 73 and
+67 nodes). All 177 nodes remain unchecked, no packet has an excerpt field,
+and all forty confirmed findings have matching verification identifiers and
+exactly one report disposition. Unchanged suggested files were not recompiled;
+earlier Lean receipts remain historical evidence. No fresh primary-source,
+pinned-declaration or graph audit is claimed. Only the report and handoff change.
 
 **Resume after maintainer metadata repair.** The exact seven review outputs,
-ten historical parent-fix outputs, generator path and reproduction below are
-still current. Reconcile those historical scopes, preserve them through
-regeneration, then run normal intake/sync. An unchanged-input worker checkpoint
-cannot clear this excluded-files blocker. No scratch file is needed.
+ten historical parent-fix outputs, generator path and read-only reproduction
+below remain current. Reconcile those scopes, preserve them through queue
+regeneration, then run normal intake/sync before scheduling another worker.
+Another unchanged-input checkpoint cannot clear this excluded-files blocker.
+The separate GL2 revision still needs the 53 API signatures and 46 tests
+listed below. No scratch file is needed to resume.
 
 ## Blocked intake continuation, 8 October 2026 — codex-CiCHr3
 
