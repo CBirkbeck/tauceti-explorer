@@ -1,5 +1,17 @@
 # Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
+## Continuation: codex-i8y6Vr, 10 October 2026
+
+**Blocked checkpoint.** Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), confirmed by [the claim bot](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6096807936). This session did none of the fixes and claimed one job only. It continues [#8357](https://github.com/CBirkbeck/tauceti-explorer/pull/8357). The five issue-listed verdicts are already finished and were left unchanged.
+
+The live issue was reread and still omits the six packet paths listed below. A concrete six-packet proposal was prepared and validated in scratch; explicit authorization was requested, with no authorizing reply. WORKERS.md's issue-path restriction therefore still applies. No omitted packet, Suggested file, queue or prompt was modified. Submit this as a checkpoint, not a completed review.
+
+Fresh checks: all eleven current packets and six proposed updates have zero checker errors/warnings; all eleven Suggested hashes match the inherited receipts; full prior review/history/node/request preservation was asserted; actual completion is false now and true with precisely the six prospective outputs. The two SF.4-to-MC.4 paths and 15,601/15,595 stage-edge counts were independently reproduced. de Jong 2.24 p.62 and Lan 1.2.5.7 p.91 were freshly read online, and the PEL/ShimuraData signature objections below still hold. The earlier full source audits and Lean receipts remain inherited; no Lean elaboration was repeated.
+
+Resume with the exact six actions and two Adic replacements below once scope is authorized or the live issue is corrected. Append each entire current preceding review to its history, and preserve all existing histories/nodes/requests. The permitted five verdicts need no additional refresh. The report keeps the prior 32-finding ledger and Lean hashes intact, clearly attributed to the preceding session. Nothing in scratch is needed to resume.
+
+## Preserved predecessor handoff (codex-XUvtW5)
+
 **Blocked checkpoint, 10 October 2026, Codex (GPT-6), session `codex-XUvtW5`.** Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702). Continues checkpoint [#8349](https://github.com/CBirkbeck/tauceti-explorer/pull/8349), by codex-QcUyiW, and its preserved predecessors. One job only. Five issue-listed packets now have fresh bounded area-fix accepted reviews, with each preceding full review appended unchanged to reviewHistory. All mathematical fields, older histories and Suggested files are unchanged; the six omitted packets were not edited.
 
 ## Required dispatch correction
