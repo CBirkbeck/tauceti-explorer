@@ -1,35 +1,35 @@
 # Automorphic spectral theory and trace distributions
 
-Build automorphic L², Eisenstein, weighted-cohomology and trace theory, tested on modular kernels and function-field GLₙ.
+Automorphic L², Eisenstein, weighted cohomology and traces, with modular and function-field applications.
 
 ## Scope and prerequisites
 
-**SelfAdjointSpectralTheory** owns projection measures, Borel calculus and partial operators; **OperatorIdeals** owns Schatten/Hilbert–Schmidt theory; **CompactGroups** owns Peter–Weyl. AS adds multiplicities, direct integrals, L² kernels, trace and noncompact smoothing.
+**SelfAdjointSpectralTheory** owns projection measures, Borel calculus and partial operators; **OperatorIdeals** owns Schatten/Hilbert–Schmidt theory; **CompactGroups** owns Peter–Weyl. AS adds multiplicities, direct integrals, L² kernels, traces and noncompact smoothing.
 
-**AdelicAlgebraicGroups** AA.0–AA.3 supplies topology, quotient measures, heights and reduction; **ReductiveGroupsPartII** supplies local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4 supplies Hecke algebras, induction, admissibility and spherical data. AS adds rational Bruhat indices and intertwiner estimates.
+**AdelicAlgebraicGroups** AA.0–AA.3: topology, measures, heights and reduction; **ReductiveGroupsPartII**: local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4: Hecke algebras, induction, admissibility and spherical data. AS adds rational Bruhat indices and intertwiner estimates.
 
-**AutomorphicFormsOnReductiveGroups** AF.0–AF.3 supplies functions, real representations, restricted tensors, constant terms and cusps; **ArithmeticLocallySymmetricSpaces** ALS.5 supplies cohomology; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3 supplies Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. AS adds GL×classical, exterior/symmetric and Asai factors.
+**AutomorphicFormsOnReductiveGroups** AF.0–AF.3: functions, real representations, restricted tensors, constant terms and cusps; **ArithmeticLocallySymmetricSpaces** ALS.5: cohomology; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3: Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. AS adds GL×classical, exterior/symmetric and Asai factors.
 
-Orbital integrals/local packets precede spectral construction; rank-one analysis precedes arithmetic applications. Endoscopy, stabilization and Galois applications use AS.
+Orbital integrals/local packets precede spectra; rank-one analysis precedes arithmetic. AS feeds endoscopy, stabilization and Galois applications.
 
 ## Conventions and order
 
-Hilbert spaces are complete and complex; inner products conjugate the first variable. Direct integrals use countable fundamental sequences and a.e. equality; projection measures are strongly countably additive. Traces require trace class, diagonals a representative or factorization.
+Use complete complex Hilbert spaces, conjugation in the first inner-product variable, countable fundamental sequences and a.e. equality. Projection measures are strongly countably additive. Traces require trace class; diagonals require representatives or factorization.
 
-Induction uses δ_P^(1/2)=a^ρ_P and AA.0/AA.2 quotient measures. Record Weyl denominators, covolumes and stabilizer orders. The spectral resolvent (A−zI)⁻¹ is minus native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
+Induction uses δ_P^(1/2)=a^ρ_P and AA.0/AA.2 quotient measures. Track Weyl denominators, covolumes, stabilizer orders. (A−zI)⁻¹ is minus native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
 
-Yu, DIT and Gross–Zagier targets/tests use Y, D and G respectively:
+Conventions Y, D, G:
 
-- **Y:** F=𝔽_q(X), X smooth, projective and geometrically connected; n>0; everywhere-unramified GLₙ data, except general compact-group assertions. Probability Haar is normalized on the entire character group: with r components each has mass 1/r. The degree sign and half-modulus convention are fixed; gcd(e,n)=1 is imposed only where stated.
-- **D:** Γ=PSL₂(ℤ), Δ=−y²(∂x²+∂y²), dμ=dxdy/y², e(x)=exp(2πix); retain displayed index, sign, parameter and boundary restrictions.
-- **G:** Gross–Zagier uses Δ_GZ=+y²(∂x²+∂y²). Positive-base powers use real logarithms; retain displayed frequency, parameter, off-orbit and measure restrictions.
+- **Y:** F=𝔽_q(X), X smooth projective geometrically connected, n>0; everywhere-unramified GLₙ unless a compact-group assertion. Probability Haar gives each of r components mass 1/r. Fix degree and half-modulus; impose gcd(e,n)=1 where stated.
+- **D:** Γ=PSL₂(ℤ), Δ=−y²(∂x²+∂y²), dμ=dxdy/y², e(x)=exp(2πix).
+- **G:** Δ_GZ=+y²(∂x²+∂y²); positive-base powers use real logarithms. Retain frequency, parameter, off-orbit, measure and boundary restrictions.
 
-For F=y^(k/2)f, the coefficient and unitary-weight operators satisfy
+For F=y^(k/2)f,
 Δ_classical f=y^(−k/2)(Δ_unitary F+(k²/4−k/2)F); at k=1/2 the shift is −3/16. Green sums use Γ₀(N)/{±I}, whereas Eisenstein sums use Γ_∞\Γ.
 
-Build AS.0–AS.4 in order; AS.5 uses AF/ALS cochains. AS.6's Paley–Wiener/multiplier prefix uses AS.0 and AF.1 general-Levi SF compact pictures with K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix uses convergent centralizer-quotient orbital integrals, pseudo-coefficients and finite-place Bernstein trace images. Modular cores use oriented quadratic cycles with genus signs.
+Build AS.0–AS.4; AS.5 uses AF/ALS cochains. AS.6's Paley–Wiener/multiplier prefix uses AS.0 and AF.1 general-Levi SF compact pictures: K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix needs convergent centralizer-quotient orbital integrals, pseudo-coefficients and finite-place Bernstein trace images. Modular cores use oriented quadratic cycles with genus signs.
 
-Namespace: `TauCeti.AutomorphicSpectral`; API/tests extend targets. AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B: library; S: sources.
+Namespace: `TauCeti.AutomorphicSpectral`. AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B: library; S: sources.
 
 `SpecialFunctions` requires I/J to agree with QM.2's principal-power regularized ₀F̃₁ formulas, at +y²/4 and −y²/4; K uses AL.0's Mellin integral; Λ uses native `completedRiemannZeta`. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10).
 
@@ -39,7 +39,7 @@ Namespace: `TauCeti.AutomorphicSpectral`; API/tests extend targets. AS.k.j: targ
 
 `measurable_hilbert_field`
 
-On a standard Borel space X, a measurable Hilbert field consists of complete complex Hilbert spaces Hₓ and a complex-linear space M of sections: x↦‖s(x)‖ is measurable for s∈M; a section t lies in M exactly when x↦⟪t(x),s(x)⟫ is measurable for every s∈M; and M contains a countable sequence whose values are dense in every fibre. Equality and changes of fundamental sequence preserve M, not merely the individual fibres.
+A measurable Hilbert field over a standard Borel X has complete complex fibres Hₓ and a complex-linear section space M: x↦‖s(x)‖ is measurable for s∈M; a section t lies in M exactly when x↦⟪t(x),s(x)⟫ is measurable for every s∈M; and M contains a countable sequence whose values are dense in every fibre. Changing the fundamental sequence preserves M.
 
 Assume: X is standard Borel; fibres are separable; inner products conjugate the first variable.
 
@@ -2279,7 +2279,7 @@ At every admissible weight p the smooth all-derivative weighted forms compute th
 
 Assume: Admissible derivative bounds on p; algebraic E; 𝔪_G=𝔤_ℂ/𝔞_G,ℂ; use the full possibly disconnected K∞.
 
-Source: S17, §§2.2–2.3 and §3 Theorems 2–3.
+Source: S17, §2.2 theorem, p.190; §2.3 Theorem 3, p.193; §3 Theorem 4, p.198.
 
 Uses: AS.5.1; `AF.1a/relative-lie-cochain-complex`; `ALS.5/de-rham-comparison`.
 
@@ -2315,7 +2315,7 @@ The finite-character functor preserves injective (𝔤,K)-modules and its derive
 
 Assume: Finite-dimensional E and J=Ann_Z(E∨); derived resolutions in the actual Harish-Chandra module category.
 
-Source: S17, §4 Theorem 7 and equation (4.4).
+Source: S17, §4 Theorem 7(1)–(3), (3)–(4), pp.208–209.
 
 Uses: AS.5.3; `AF.1a/relative-cohomology-functoriality`.
 
@@ -2331,7 +2331,7 @@ API:
 
 - `mem_iff`: f∈F_T^i iff every nonzero constant-term coefficient has T((Re λ)₊)≥i.
 - `descending`: F_T^(i+1)⊂F_T^i and the filtration has finite length.
-- `levi_compatible`: The positive-part decomposition commutes with Levi projection as in §6 (6), so the induced Levi filtrations agree.
+- `levi_compatible`: The positive-part decomposition commutes with Levi projection (§6 (6)). The numerical adapter requires coefficient agreement below the cutoff after index transport; unrelated coefficient maps need not give equal filtrations.
 
 Tests:
 
@@ -2375,7 +2375,9 @@ For r in the closed positive chamber, each graded piece F_T^i/F_T^(i+1) of Fin_J
 
 Assume: All index conditions in Franke §6 (10)–(14), including J-support and weighted exponent bounds; colimit identifies Weyl-isomorphic data, not a free direct sum over repetitions.
 
-Source: S17, §6 Theorem 14, equation (14).
+Check: the zero space is not linearly isomorphic to ℂ; graded carriers cannot be arbitrary.
+
+Source: S17, §6 Theorem 14, (14), p.236.
 
 Uses: AS.5.5; AS.5.6; AS.4.4.
 
@@ -2387,7 +2389,7 @@ For r in the closed positive chamber, R^i Fin_J(S_{p_{−r}+log}([G]))=0 for i>0
 
 Assume: Finite-codimension J; weights and log modifications as above; the second clause additionally requires r in the interior of the positive root cone.
 
-Source: S17, §7 Theorem 16.
+Source: S17, §7 Theorem 16, p.246.
 
 Uses: AS.5.4; AS.5.7; AS.3.4.
 
@@ -2399,7 +2401,7 @@ Let S_c be the weighted smooth functions whose P-constant terms vanish in every 
 
 Assume: Admissible weights; the actual constant-term transition maps; functions are finite-level and K-finite as in Franke.
 
-Source: S17, §7.1 Theorem 17.
+Source: S17, §7.1 Theorem 17, (2)–(3), p.247.
 
 Uses: AS.5.1; AS.5.5; AS.3.3.
 
@@ -2411,7 +2413,7 @@ For a connected reductive number-field group, algebraic finite-dimensional E, an
 
 Assume: Algebraic E; the finite-level neat/orbifold conventions of ALS.5; 𝔪_G removes the split-center Lie algebra; coefficient central character is balanced.
 
-Source: S17, §7.4 Theorem 18.
+Source: S17, §7.4 Theorem 18, pp.255–256.
 
 Uses: AS.5.2; AS.5.8; AS.5.4; AS.5.9; `ALS.5/de-rham-comparison`; `AF.2/smooth-automorphic-forms`.
 
@@ -2809,7 +2811,9 @@ Uses: AS.4.12; AS.3.11; `AA.0/restricted-haar-product`.
 
 The truncated fixed-degree integral is absolutely convergent; T↦J_e^T is quasipolynomial in the lattice sense, with its extension determined by values sufficiently deep in the positive chamber. T=0 evaluation is not untruncated integration or an unjustified limit of finite counts.
 
-Source: S19, §3.2.1; Theorem 3.3.1; Laf97 p227; Ch15 Definition4.5.3.
+Check: constant one on ℕ with counting measure is nonintegrable, even with degree zero.
+
+Source: S19, §3.2.1, (3.2.1)–(3.2.2), pp.15–16; Theorem 3.3.1, p.18; Laf97 p.227; Ch15 Definition4.5.3.
 
 Uses: AS.6.19; `AA.0/restricted-haar-product`.
 
@@ -2916,6 +2920,8 @@ Uses: AS.3.10; AS.6.23; AS.6.24; `AA.0/restricted-haar-product`; AS.6.7; AS.6.8.
 `yu_050`
 
 (a) Let (c_Q)_{Q in P(M)} be meromorphic on X_M^G (or X_M) and a (G,M)-family on a neighbourhood of λ0 in X_M^G (or X_M). Then c_M(λ)=Σ_Q c_Q(λ)θ_Q(λ)^{-1} is regular at λ0. (b) For a (G,M)-family near 1 put c_M=lim_{λ→1}c_M(λ). For L in L(M), R in P(L) and Q in P^L(M), c^R_Q(λ)=c_{QN_R}(λ) (QN_R the unique element of P(M) contained in R with QN_R ∩ L=Q) is an (L,M)-family near 1, with value c^R_M=lim_{λ→1}Σ_{Q in P^L(M)} c^R_Q(λ)θ^L_Q(λ)^{-1}, θ^L_Q(λ)=∏_{α in Δ^L_Q}⟨λ,α^∨⟩. (c) For Q in P(L) and λ in X_L^G, c_Q(λ):=c_P(λ) for any P in P(M) with P ⊆ Q is independent of P and defines a (G,L)-family near 1.
+
+Check: 1/(z−1) has no analytic extension at 1; coroot families must cancel their poles.
 
 Source: S19, §4.2.1–4.2.2, p. 23, Théorème 4.2.2 and (4.2.2)–(4.2.5).
 

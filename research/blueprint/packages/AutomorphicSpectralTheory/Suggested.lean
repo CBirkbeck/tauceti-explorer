@@ -17,6 +17,7 @@ import Mathlib.MeasureTheory.Function.L2Space
 import Mathlib.MeasureTheory.Integral.Prod
 import Mathlib.MeasureTheory.Integral.DominatedConvergence
 import Mathlib.Analysis.Calculus.ParametricIntegral
+import Mathlib.Analysis.Calculus.Deriv.Slope
 import Mathlib.Analysis.InnerProductSpace.l2Space
 import Mathlib.Analysis.InnerProductSpace.Spectrum
 import Mathlib.Analysis.Distribution.SchwartzSpace.Fourier
@@ -4490,11 +4491,20 @@ instance add (C : CochainData.{u}) (q : ℤ) : AddCommGroup (cohomology C q) := 
 instance module (C : CochainData.{u}) (q : ℤ) : Module ℂ (cohomology C q) := by sorry
 end cohomology
 
-/-- Regularization comparison of the supplied weighted smooth and graph complexes. The
-convolution/Sobolev homotopy, admissible weight and central balance conditions are omitted
-until ALS/AF supply the relevant form complexes. -/
-theorem weighted_regularization (smooth graph : CochainData.{u}) (q : ℤ) :
-    Nonempty (cohomology smooth q ≃ₗ[ℂ] cohomology graph q) := by sorry
+/- weighted_regularization: source-qualified signature omitted.
+Supply the weighted smooth and graph de Rham complexes built from the same arithmetic
+quotient, admissible weight and coefficient system, with convolution and Sobolev
+homotopies. Independent complexes need not have isomorphic cohomology.
+Source: Franke §2.2, cohomology theorem, p.190; §2.3, Theorem 3, p.193;
+§3, Theorem 4, p.198. -/
+
+-- Unrelated vector spaces need not be linearly isomorphic.
+example : ¬ Nonempty ((Fin 0 → ℂ) ≃ₗ[ℂ] ℂ) := by
+  rintro ⟨e⟩
+  have h : e.symm (1 : ℂ) = 0 := Subsingleton.elim _ _
+  have he := congrArg e h
+  rw [e.apply_symm_apply, e.map_zero] at he
+  exact one_ne_zero he
 
 section FiniteCharacter
 variable {R : Type u} [CommRing R] {V : Type v} [AddCommGroup V] [Module R V]
@@ -4556,11 +4566,10 @@ example  :
 end finite_character_functor
 end FiniteCharacter
 
-/-- The derived central-torsion and filtered Ext carriers are omitted until the appropriate
-(g,K)-module abelian category is integrated. The comparison is derived, not unconditional
-underived cohomology equality. -/
-theorem derived_finite_character (derivedFin extColimit : CochainData.{u}) (q : ℤ) :
-    Nonempty (cohomology derivedFin q ≃ₗ[ℂ] cohomology extColimit q) := by sorry
+/- derived_finite_character: source-qualified signature omitted.
+Supply the actual derived J-power torsion functor and the filtered Ext system in the
+(g,K)-module category. Independent cochain complexes cannot express this comparison.
+Source: Franke §4, Theorem 7(1)–(3), equations (3)–(4), pp.208–209. -/
 
 section Filtration
 variable {Q L : Type u} [Fintype Q] [Fintype L]
@@ -4570,9 +4579,15 @@ variable {W : Type w} [AddCommGroup W] [Module ℂ W]
 part and J-support conditions that produce this set are omitted pending AF's carrier. -/
 def franke_filtration (coeff : Q → L → V →ₗ[ℂ] W) (T : L → ℤ) (i : ℤ) : Submodule ℂ V where
   carrier := {v | ∀ q l, T l < i → coeff q l v = 0}
-  zero_mem' := by sorry
-  add_mem' := by sorry
-  smul_mem' := by sorry
+  zero_mem' := by
+    intro q l _hl
+    exact (coeff q l).map_zero
+  add_mem' := by
+    intro a b ha hb q l hl
+    rw [map_add, ha q l hl, hb q l hl, zero_add]
+  smul_mem' := by
+    intro a v hv q l hl
+    rw [map_smul, hv q l hl, smul_zero]
 namespace franke_filtration
 def sameParabolicCoefficients : Unit → Fin 2 → (Fin 2 → ℂ) →ₗ[ℂ] ℂ :=
   fun _ i => LinearMap.proj i
@@ -4584,10 +4599,22 @@ theorem mem_iff (coeff : Q → L → V →ₗ[ℂ] W) (T : L → ℤ) (i : ℤ) 
 theorem descending (coeff : Q → L → V →ₗ[ℂ] W) (T : L → ℤ) (i : ℤ) :
     franke_filtration coeff T (i + 1) ≤ franke_filtration coeff T i := by sorry
 
-/-- Levi projection preserves the actual positive-part coefficient indexing. The projection
-and its root compatibility are omitted until AA/AF provide them. -/
-theorem levi_compatible (coeff coeffLevi : Q → L → V →ₗ[ℂ] W) (T : L → ℤ) (i : ℤ) :
-    franke_filtration coeff T i = franke_filtration coeffLevi T i := by sorry
+omit [Fintype Q] [Fintype L] in
+/-- Numerical coefficient adapter. The genuine Levi constant-term theorem must supply
+agreement at all exponents below the cutoff, with the root indexing transported. -/
+theorem levi_compatible (coeff coeffLevi : Q → L → V →ₗ[ℂ] W) (T : L → ℤ) (i : ℤ)
+    (hCoefficients : ∀ q l, T l < i → coeff q l = coeffLevi q l) :
+    franke_filtration coeff T i = franke_filtration coeffLevi T i := by
+  ext v
+  change (∀ q l, T l < i → coeff q l v = 0) ↔
+    (∀ q l, T l < i → coeffLevi q l v = 0)
+  constructor
+  · intro h q l hl
+    rw [← hCoefficients q l hl]
+    exact h q l hl
+  · intro h q l hl
+    rw [hCoefficients q l hl]
+    exact h q l hl
 
 theorem single_weight (j i : ℤ) :
     franke_filtration (fun (_ : Unit) (_ : Unit) => LinearMap.id : Unit → Unit → V →ₗ[ℂ] V)
@@ -4619,6 +4646,20 @@ example  :
     (![0, 1] : Fin 2 → ℂ) ∈ franke_filtration sameParabolicCoefficients ![0, 1] 1 ∧
       (![1, 0] : Fin 2 → ℂ) ∉ franke_filtration sameParabolicCoefficients ![0, 1] 1 := by sorry
 
+-- Different coefficient maps need not induce the same step.
+example :
+    franke_filtration (fun (_ : Unit) (_ : Unit) => LinearMap.id :
+      Unit → Unit → ℂ →ₗ[ℂ] ℂ) (fun _ => 0) 1 ≠
+    franke_filtration (fun (_ : Unit) (_ : Unit) => 0 :
+      Unit → Unit → ℂ →ₗ[ℂ] ℂ) (fun _ => 0) 1 := by
+  intro h
+  have hOne : (1 : ℂ) ∈ franke_filtration
+      (fun (_ : Unit) (_ : Unit) => (0 : ℂ →ₗ[ℂ] ℂ)) (fun _ => 0) 1 := by
+    intro _q _l _hl
+    rfl
+  rw [← h] at hOne
+  have hx := hOne () () (by norm_num)
+  norm_num at hx
 end franke_filtration
 end Filtration
 
@@ -4641,11 +4682,11 @@ theorem linear (f g : ℂ → V) (hf : CommonDenominator Set.univ f)
       a • eisenstein_principal_value f + b • eisenstein_principal_value g ∧
         eisenstein_principal_value (fun z => T (f z)) = T (eisenstein_principal_value f) := by sorry
 
-/-- Only after quotienting by the next Franke filtration step is the Eisenstein-jet map
-independent of direction. The germ/jet/graded quotient interface is omitted here. -/
-theorem graded_independent (f g : ℂ → V) (S : Submodule ℂ V) :
-    Submodule.Quotient.mk (eisenstein_principal_value f) =
-      (Submodule.Quotient.mk (eisenstein_principal_value g) : V ⧸ S) := by sorry
+/- graded_independent: source-qualified signature omitted.
+Supply two transverse restrictions of the same meromorphic Eisenstein jet and the
+corresponding next Franke filtration step. Arbitrary germs and a submodule do not
+make their principal values equal modulo that submodule.
+Source: Franke §6, equation (13), Theorem 14 and proof Step 3, pp.235–237. -/
 
 theorem simple_pole (v w : V) : eisenstein_principal_value (fun z => z⁻¹ • v + w) = w := by sorry
 
@@ -4677,36 +4718,66 @@ end eisenstein_principal_value
 precise admissible weights, J=Ann(E∨), split-central balance, disconnected K invariants,
 finite level and Hecke compatibility are stated in the reader and omitted here until
 ALS/AF provide their carriers. No general ordinary=cuspidal or ordinary=L² equality is used. -/
-theorem franke_graded_isomorphism {V W : Type u} [AddCommGroup V] [Module ℂ V]
-    [AddCommGroup W] [Module ℂ W] : Nonempty (V ≃ₗ[ℂ] W) := by sorry
+/- franke_graded_isomorphism: source-qualified signature omitted.
+Supply the weighted finite-J graded quotient, the indexed induced discrete modules,
+finite-order holomorphic functionals, Weyl colimit and principal-value map. The
+source proves that map is an equivariant isomorphism, not that arbitrary modules
+are linearly isomorphic.
+Source: Franke §6, Theorem 14, equation (14), p.236. -/
 
-theorem weighted_finite_character_acyclic (derivedFin : CochainData.{u}) (q : ℤ) (hq : 0 < q) :
-    Subsingleton (cohomology derivedFin q) := by sorry
+/- weighted_finite_character_acyclic: source-qualified signature omitted.
+Supply R^i Fin_J of the actual weighted smooth automorphic module with r in the
+closed positive chamber (and the extra root-cone interior for the minus-log space).
+This is acyclicity for central torsion; an arbitrary positive-degree cochain
+cohomology group need not vanish.
+Source: Franke §7, Theorem 16, p.246. -/
 
-theorem constant_term_resolution (boundary parabolicResolution : CochainData.{u}) (q : ℤ) :
-    Nonempty (cohomology boundary q ≃ₗ[ℂ] cohomology parabolicResolution q) := by sorry
+/- constant_term_resolution: source-qualified signature omitted.
+Supply the deep-cusp constant-term quotient and the inverse system over proper
+standard parabolics, with the actual constant-term transition maps and admissible
+weights. The source identifies its inverse limit and proves its higher derived
+limits vanish; independent cochain complexes are not this resolution.
+Source: Franke §7.1, Theorem 17, equations (2)–(3), p.247. -/
 
-theorem franke_comparison (automorphic ordinary : CochainData.{u}) (q : ℤ) :
-    Nonempty (cohomology automorphic q ≃ₗ[ℂ] cohomology ordinary q) := by sorry
+/- franke_comparison: source-qualified signature omitted.
+Supply inclusions of finite-J automorphic, uniform-moderate and smooth functions
+on one arithmetic quotient, relative cochains with balanced E and J=Ann(E dual),
+full disconnected K invariants and the ALS de Rham map. This is ordinary
+cohomology and compatibility of those inclusion maps.
+Source: Franke §7.4, Theorem 18, pp.255–256. -/
+
+-- Independent cohomological dimensions have no parity relation.
+example : ¬ ∀ (dimGL dimSL : ℕ), dimGL = dimSL := by
+  intro h
+  have hx := h 0 1
+  norm_num at hx
+
 
 -- The cuspidal cohomology sum and its Hecke map are imported from ALS.5; no duplicate declaration.
 
-/-- Dimension form of the BCG level-one/trivial-coefficient diagram. The O(n)/SO(n)
-archimedean cohomology and multiplicity-one carrier is omitted. -/
-theorem gl_sl_cuspidal_diagram (n : ℕ) (hN : 1 ≤ n) (dimGL dimSL : ℕ) :
-    dimSL = (if Odd n then 1 else 2) * dimGL := by sorry
+/- gl_sl_cuspidal_diagram: source-qualified signature omitted.
+Supply the level-one trivial-coefficient GL_n and SL_n cuspidal cohomology groups,
+the O(n)/SO(n) action and the archimedean cohomological representations. Their
+dimension relation cannot be asserted for unrelated natural numbers.
+Source: Boxer–Calegari–Gee, Remark 1.2, pp.511–512. -/
 
-/-- The Franke–Schwermer cuspidal-support module, jet generation and Weyl equivalence
-are omitted because the primary source was not obtained; the packet records this gap. -/
-theorem franke_schwermer_support {V : Type u} [AddCommGroup V] [Module ℂ V]
-    (supportModules : Set V) : Submodule.span ℂ supportModules = ⊤ := by sorry
+/- franke_schwermer_support: source-qualified signature omitted.
+Supply the finite-J automorphic module and the Weyl-associate cuspidal-support
+summands generated by Eisenstein Laurent coefficients. An arbitrary subset of a
+module does not span it. The primary FS98 theorem remains a recorded source gap.
+Source: Calegari–Gee–Harris, §3, proof of Lemma 3.1, citing FS98 Theorem 2.3. -/
 
-/-- The PGL_n eigenclass, unramified Hecke character and cuspidal Langlands data are omitted
-until the AF/ALS/AL carrier exists. The resulting Satake data are isobaric, not necessarily cusp. -/
-theorem isobaric_realization {Groups : ℕ → Type u} [∀ n, Group (Groups n)]
-    {Places : Type v} {I : Type w} [Fintype I] (classSatake : Places → Multiset ℂ)
-    (cuspidalData : I → GLAutomorphicDatum Groups Places) :
-    ∀ place, classSatake place = (isobaric_sum cuspidalData).satake place := by sorry
+-- Empty cuspidal support cannot span a nonzero module.
+example : Submodule.span ℂ (∅ : Set ℂ) ≠ ⊤ := by
+  simp
+
+
+/- isobaric_realization: source-qualified signature omitted.
+Supply an ordinary-cohomology Hecke eigenclass and its cuspidal-support summand,
+with the GL_n/PGL_n central convention and unramified Hecke-to-Satake comparison.
+The source selects an isobaric representation; arbitrary prescribed Satake data
+and independently chosen cuspidal data need not agree.
+Source: Calegari–Gee–Harris, §3, proof of Lemma 3.1. -/
 end TauCeti.AutomorphicSpectral
 
 namespace TauCeti.AutomorphicSpectral
@@ -5011,11 +5082,30 @@ example (c : gm_family Unit ∅ (fun _ _ => 1) Set.univ) :
     zeroValue c (fun _ _ => 1) = c.member () 0 := by sorry
 
 
+/-- Two-chamber cancellation from the actual shared-wall equality and the native
+punctured slope limit. This proof is independent of the provisional principal value. -/
+theorem rank_one_limit (c : gm_family Bool {(true, false)} (fun _ z => z) Set.univ) :
+    Tendsto (fun z => ∑ b : Bool, c.member b z / (if b then z else -z))
+      (𝓝[≠] 0) (𝓝 (deriv (c.member true) 0 - deriv (c.member false) 0)) := by
+  have hc := c.wall_agreement (true, false) (by simp) 0 (by simp) rfl
+  change c.member true 0 = c.member false 0 at hc
+  have hderiv := ((c.analytic true 0 (by simp)).differentiableAt.hasDerivAt).sub
+    ((c.analytic false 0 (by simp)).differentiableAt.hasDerivAt)
+  have hlimit := hderiv.tendsto_slope_zero
+  have hzero : c.member true 0 - c.member false 0 = 0 := sub_eq_zero.mpr hc
+  simp only [zero_add, Pi.sub_apply, hzero, sub_zero, smul_eq_mul] at hlimit
+  convert hlimit using 1
+  ext z
+  simp only [Fintype.sum_bool, Bool.false_eq_true, ite_false, ite_true, div_neg]
+  ring
+
 theorem rank_one (c : gm_family Bool {(true, false)} (fun _ z => z) Set.univ) :
     Tendsto (fun z => ∑ b : Bool, c.member b z / (if b then z else -z))
       (𝓝[≠] 0) (𝓝 (deriv (c.member true) 0 - deriv (c.member false) 0)) ∧
     zeroValue c (fun b z => if b then z else -z) =
-      deriv (c.member true) 0 - deriv (c.member false) 0 := by sorry
+      deriv (c.member true) 0 - deriv (c.member false) 0 := by
+  refine ⟨rank_one_limit c, ?_⟩
+  sorry
 
 -- Specification test: TauCeti.AutomorphicSpectral.gm_family.rank_one
 -- For a genuine two-member family with agreement on the shared wall, the full regularized sum has limit c₊′(0)−c₋′(0), and its zero-value construction has that value.
@@ -5063,6 +5153,35 @@ def affineFamily (base plusSlope minusSlope : ℂ) :
   member b z := base + (if b then plusSlope else minusSlope) * z
   analytic b := by fun_prop
   wall_agreement pq _ z _ hz := by simp_all
+
+/-- A limit check uses no principal-value construction. -/
+theorem affineFamily_limit (base plusSlope minusSlope : ℂ) :
+    Tendsto (fun z => ∑ b : Bool, (affineFamily base plusSlope minusSlope).member b z /
+      (if b then z else -z)) (𝓝[≠] 0) (𝓝 (plusSlope - minusSlope)) := by
+  simpa [affineFamily] using rank_one_limit (affineFamily base plusSlope minusSlope)
+
+example : Tendsto (fun z => ∑ b : Bool, (affineFamily 2 3 1).member b z /
+    (if b then z else -z)) (𝓝[≠] 0) (𝓝 (2 : ℂ)) := by
+  simpa only [show (3 : ℂ) - 1 = 2 by norm_num] using affineFamily_limit 2 3 1
+
+example (a : ℂ) : Tendsto (fun z => ∑ b : Bool, (affineFamily 2 a a).member b z /
+    (if b then z else -z)) (𝓝[≠] 0) (𝓝 (0 : ℂ)) := by
+  simpa using affineFamily_limit 2 a a
+
+example : Tendsto (fun z => ∑ b : Bool,
+    (product (affineFamily 2 3 1) (affineFamily 5 7 4)).member b z /
+      (if b then z else -z)) (𝓝[≠] 0) (𝓝 (16 : ℂ)) := by
+  have hplus : deriv (fun z : ℂ => (2 + 3 * z) * (5 + 7 * z)) 0 = 29 := by
+    rw [deriv_fun_mul (by fun_prop) (by fun_prop)]
+    norm_num
+  have hminus : deriv (fun z : ℂ => (2 + 1 * z) * (5 + 4 * z)) 0 = 13 := by
+    rw [deriv_fun_mul (by fun_prop) (by fun_prop)]
+    norm_num
+  have hh := rank_one_limit (product (affineFamily 2 3 1) (affineFamily 5 7 4))
+  change Tendsto _ _ (𝓝 (deriv (fun z : ℂ => (2 + 3 * z) * (5 + 7 * z)) 0 -
+    deriv (fun z : ℂ => (2 + 1 * z) * (5 + 4 * z)) 0)) at hh
+  simpa only [hplus, hminus, show (29 : ℂ) - 13 = 16 by norm_num] using hh
+
 
 theorem affineFamily_zeroValue (base plusSlope minusSlope : ℂ) :
     zeroValue (affineFamily base plusSlope minusSlope)
@@ -5510,15 +5629,12 @@ example  :
 
 end general_euler_poincare
 
-/-- Arthur requires a compact Cartan in G(R)/A_G(R)^0; the CT specialization requires
-discrete series. Residual constituents remain in the discrete spectrum. RepIndex denotes
-the finite support contributing to the cohomological trace, not the whole discrete dual.
-The group, coefficient, level, central balancing and finite-dimensional L2 relative-cohomology
-carriers are omitted pending the source-qualified ALS/AF/ET integration gap. -/
-theorem l2_lefschetz {RepIndex : Type u} [Fintype RepIndex] (multiplicity : RepIndex → ℕ)
-    (ep finiteHeckeTrace : RepIndex → ℂ) (lefschetz invariantGeom : ℂ) :
-    lefschetz = ∑ pi, (multiplicity pi : ℂ) * ep pi * finiteHeckeTrace pi ∧
-      lefschetz = invariantGeom := by sorry
+/- l2_lefschetz: source-qualified signature omitted.
+Supply the finite-dimensional L2 relative cohomology, actual Hecke operator,
+discrete automorphic multiplicities, Euler–Poincare traces and common invariant
+Hecke test, with compact-Cartan, coefficient, level and split-center hypotheses.
+Independent numerical traces need not satisfy either equality.
+Source: Arthur 1989, §2 Proposition 2.1, p.264; §3 Proposition 3.2; §6 Theorem 6.1. -/
 end TauCeti.AutomorphicSpectral
 
 namespace TauCeti.AutomorphicSpectral
@@ -5587,12 +5703,23 @@ def QuasiPolynomial (f : ℤ → ℂ) : Prop :=
   ∃ period : ℕ, 0 < period ∧ ∃ p : Fin period → Polynomial ℂ,
     ∀ t : ℤ, f t = (p ⟨t.emod period |>.toNat, by sorry⟩).eval (t : ℂ)
 
-/-- The regular chamber, degree lattice and function-field reduction theorem are omitted
+/- The regular chamber, degree lattice and function-field reduction theorem are omitted
 supplier conditions. The integral is absolute before quasi-polynomial T=0 evaluation. -/
-theorem yu_025 {X : Type u} [MeasurableSpace X] (μ : Measure X)
-    (degree : X → ℤ) (e : ℤ) (k : ℤ → X → ℂ) :
-    (∀ T, Integrable (k T) (μ.restrict {x | degree x = e})) ∧
-      QuasiPolynomial (fun T => yu_024 μ degree e (k T)) := by sorry
+/- yu_025: source-qualified signature omitted.
+Supply the everywhere-unramified function-field GL_n arithmetic quotient, degree
+fibres, coherent quotient Haar and the actual truncated kernel and degree lattice.
+An arbitrary kernel can be nonintegrable; its integral need not be quasipolynomial.
+Source: Yu v5, §3.2.1, equations (3.2.1)–(3.2.2), pp.15–16; Theorem 3.3.1, p.18. -/
+
+-- Fixed degree alone does not imply absolute integrability.
+example : ¬ Integrable (fun _ : ℕ => (1 : ℂ)) Measure.count := by
+  rw [integrable_count_iff]
+  simp only [norm_one]
+  intro hs
+  have hh := hs.tendsto_atTop_zero
+  have : (1 : ℝ) = 0 := tendsto_nhds_unique tendsto_const_nhds hh
+  norm_num at this
+
 
 /-- Characteristic-polynomial fibre; the bundle/finite-field carrier is imported from GN. -/
 def yu_038 {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) :
@@ -5606,9 +5733,13 @@ def lieKernel {I : Type u} [Countable I] {F : Type v} [Field F] (n : ℕ)
     (summand : I → ℂ) : ℂ :=
   by classical exact ∑' i, if endomorphisms i ∈ yu_038 n p then summand i else 0
 
-/-- Deep-chamber quasi-polynomial continuation, not integration at nonregular T. -/
-theorem continueInT (deep : ℤ → ℂ) : ∃ f : ℤ → ℂ, QuasiPolynomial f ∧
-    ∃ N : ℤ, ∀ T : ℤ, N ≤ T → f T = deep T := by sorry
+/- Deep-chamber quasi-polynomial continuation, not integration at nonregular T. -/
+/- continueInT: source-qualified signature omitted.
+Supply the characteristic-polynomial-refined group/Lie kernel on the common
+function-field bundle quotient, its deep-chamber integrability, and the root
+degree lattice and quasipolynomial determination theorem. An arbitrary deep
+function need not agree eventually with any quasipolynomial.
+Source: Yu v5, Appendix B, pp.78–79; Theorem 3.3.1, p.18. -/
 
 theorem test1 {F : Type u} [Field F] (n : ℕ) (a : F) :
     a • (1 : Matrix (Fin n) (Fin n) F) ∈ yu_038 n ((Polynomial.X - Polynomial.C a) ^ n) := by sorry
@@ -5645,12 +5776,14 @@ example {F : Type u} [Field F] (n : ℕ) (p : Polynomial F) (A : Matrix (Fin n) 
 
 end yu_038
 
-/-- Chaudouard's characteristic-polynomial vanishing and Higgs mass are GN supplier
-results. The finite-field/coprime-degree assumptions and groupoid measures are omitted. -/
-theorem yu_039 (q : ℝ) (hq : 1 < q) (n : ℕ) (hn : 1 ≤ n) (e : ℤ)
-    (hCoprime : Int.gcd e n = 1) (g : ℕ) (trace nilpotentMass higgsMass : ℝ) :
-    trace = (q - 1) * nilpotentMass ∧ trace =
-      (q - 1) / q * q ^ (-(n : ℝ) ^ 2 * (g - 1 : ℝ)) * higgsMass := by sorry
+/- yu_039: source-qualified signature omitted.
+Supply the characteristic-polynomial refined group and Lie traces at T=0, the
+finite-field/coprime degree hypotheses, the nilpotent term and the semistable
+Higgs groupoid mass with its measure normalization. The vanishing and Fourier
+comparison are GN/Chaudouard results on those carriers, not relations between
+independent real numbers.
+Source: Yu v5, Appendix B, p.79, citing Ch15 Theorem 6.2.1 and
+Corollaries 5.2.2–5.2.3. -/
 
 /-- Cycle-fixed real height space. Its rational/integral Levi adapter is supplied by AA. -/
 def yu_047 {r : ℕ} (w : Equiv.Perm (Fin r)) : Submodule ℝ (Fin r → ℝ) where
@@ -5784,17 +5917,41 @@ end yu_049
 its continuous restriction, so holomorphy is deliberately omitted from that structure.
 The following zero-value/splitting claims require the source's holomorphic families and
 root/θ compatibility; the packet records the complex-torus integration gap. -/
-theorem yu_050 (familySum : ℂ → ℂ) : ∃ g : ℂ → ℂ, AnalyticAt ℂ g 1 ∧
-    ∀ᶠ z in 𝓝[≠] 1, g z = familySum z := by sorry
+/- yu_050: source-qualified signature omitted.
+Supply the holomorphic multiplicative (G,M)-family on its complex-torus domain,
+actual coroot denominators, adjacency, partial Levi restriction and regularized
+sum. An arbitrary scalar function need not have a removable singularity.
+Source: Yu v5, §4.2.1–4.2.2, Theorem 4.2.2, equations (4.2.2)–(4.2.5), p.23. -/
 
-theorem yu_051 {L : Type u} [Fintype L] (productValue : ℂ) (partialC zeroD : L → ℂ) :
-    productValue = ∑ l, partialC l * zeroD l := by sorry
+-- A genuine pole does not become removable by naming its analytic extension.
+example : ¬ ∃ g : ℂ → ℂ, AnalyticAt ℂ g 1 ∧
+    ∀ᶠ z in 𝓝[≠] (1 : ℂ), g z = (z - 1)⁻¹ := by
+  rintro ⟨g, hg, hEq⟩
+  have hlim : Tendsto (fun z : ℂ => g z * (z - 1)) (𝓝[≠] 1) (𝓝 0) := by
+    have hsub : Tendsto (fun z : ℂ => z - 1) (𝓝 1) (𝓝 (1 - 1)) :=
+      tendsto_id.sub tendsto_const_nhds
+    have hh := hg.continuousAt.tendsto.mul hsub
+    simpa using hh.mono_left nhdsWithin_le_nhds
+  have hmul : (fun z : ℂ => g z * (z - 1)) =ᶠ[𝓝[≠] 1] fun _ => 1 := by
+    filter_upwards [hEq, self_mem_nhdsWithin] with z hz hne
+    rw [hz, inv_mul_cancel₀ (sub_ne_zero.mpr hne)]
+  have hOne : Tendsto (fun z : ℂ => g z * (z - 1)) (𝓝[≠] 1) (𝓝 1) :=
+    tendsto_const_nhds.congr' hmul.symm
+  have : (0 : ℂ) = 1 := tendsto_nhds_unique hlim hOne
+  norm_num at this
 
-/-- Basis subsets are supplied by the relative coroot datum. -/
-theorem yu_052 {B : Type u} [Fintype B] (rootFunctions : B → ℂ → ℂ)
-    (hRegular : ∀ b, AnalyticAt ℂ (rootFunctions b) 1)
-    (hOne : ∀ b, rootFunctions b 1 = 1) (bases : Finset (Finset B)) (value : ℂ) :
-    value = ∑ F ∈ bases, ∏ beta ∈ F, deriv (rootFunctions beta) 1 := by sorry
+/- yu_051: source-qualified signature omitted.
+Supply two compatible families, the product regularized value and partial
+Levi values, with c_M^Q independent of Q for each L. An independent productValue
+is not a regularized value of these families.
+Source: Yu v5, Proposition 4.2.3 and proof, pp.23–24. -/
+
+/- Basis subsets are supplied by the relative coroot datum. -/
+/- yu_052: source-qualified signature omitted.
+Supply the relative root set, its genuine basis subsets, the normalized root
+functions and the constructed family value. Root regularity and value one do not
+relate an arbitrary scalar to an arbitrary list of subsets.
+Source: Yu v5, Theorem 4.2.4 and proof, pp.24–26. -/
 
 /-- Probability Haar is pushed forward with all finite components retained. The surjective
 root-basis torus homomorphism and its probability Haar property are supplied by AA. -/
@@ -5802,16 +5959,21 @@ theorem yu_053 {H K : Type u} [MeasurableSpace H] [MeasurableSpace K]
     (μ : Measure H) (ν : Measure K) (p : H → K) (hp : MeasurePreserving p μ ν)
     (f : K → ℂ) (hf : Integrable f ν) : ∫ x, f (p x) ∂μ = ∫ y, f y ∂ν := by sorry
 
-/-- A disk-meromorphic function with no zero or pole on the contour is required, not a
+/- A disk-meromorphic function with no zero or pole on the contour is required, not a
 function given only on an annulus. The general argument-principle carrier is omitted. -/
-theorem yu_054 {B : Type u} [Fintype B] (bases : Finset (Finset B))
-    (zeros poles : B → ℕ) (integratedValue : ℂ) :
-    integratedValue = ∑ F ∈ bases, ∏ beta ∈ F, ((zeros beta : ℂ) - poles beta) := by sorry
+/- yu_054: source-qualified signature omitted.
+Supply meromorphic root functions on a neighbourhood of the closed disk with
+no contour zeros or poles, their zero/pole multiplicities, the ratio family
+and its probability-Haar integral, with the actual root-basis subsets.
+Source: Yu v5, Corollary 4.2.6, p.27, with the packet disk-extension correction. -/
 
-/-- Noncentral translated vanishing, with partial-value compatibility and translated family
+/- Noncentral translated vanishing, with partial-value compatibility and translated family
 invariance omitted pending the complex-torus carrier. -/
-theorem yu_055 (dim : ℕ) (central : Bool) (z value translatedValue : ℂ) :
-    translatedValue = if central then z ^ (-(dim : ℤ)) * value else 0 := by sorry
+/- yu_055: source-qualified signature omitted.
+Supply the root-product family, actual central torus, translated domain,
+partial-value independence and translation invariance. Noncentral vanishing
+and central homogeneity cannot relate arbitrary scalars and a boolean.
+Source: Yu v5, Lemmas 4.2.7–4.2.8 and proofs, pp.27–29. -/
 
 /-- Reuse the finite covering-degree proof; the two groups need not be connected. -/
 theorem yu_062 {r : ℕ} (l d : Fin r → ℕ) (hl : ∀ j, 0 < l j) (hd : ∀ j, 0 < d j) :
@@ -5839,14 +6001,13 @@ namespace yu_151
 def stabilizerTransport {A B : Type u} [AddCommGroup A] [Module ℂ A]
     [AddCommGroup B] [Module ℂ B] (U : A →ₗ[ℂ] B) (M : B →ₗ[ℂ] A) : A →ₗ[ℂ] A := M.comp U
 
-/-- Extension is for the entire Q-sum. Wall compatibility and holomorphy are source
+/- Extension is for the entire Q-sum. Wall compatibility and holomorphy are source
 conditions omitted pending the multidimensional character-torus carrier. -/
-theorem regularizedFamily {Q : Type u} [Fintype Q] (n : ℕ)
-    (h : Q → ℂ → ℂ) (R : Q → ℂ → Matrix (Fin n) (Fin n) ℂ)
-    (M U : Matrix (Fin n) (Fin n) ℂ) :
-    ∃ F : ℂ → ℂ, AnalyticAt ℂ F 1 ∧
-      (∀ᶠ mu in 𝓝[≠] (1 : ℂ), F mu = Matrix.trace ((∑ q, h q mu • R q mu) * M * U)) ∧
-      F 1 = yu_151 n h R M U := by sorry
+/- regularizedFamily: source-qualified signature omitted.
+Supply the torus family, adjacent-wall holomorphy, stabilizer and Weyl transports
+for which the full parabolic trace sum has a regular extension. Arbitrary scalar
+weights and matrix functions can have a pole; a totalized limit does not remove it.
+Source: Yu v5, §5.2.1–5.2.3, pp.32–36. -/
 
 /-- D is the full covering degree, including the finite central components. -/
 def spectralContribution {A : Type u} [MeasurableSpace A] {C : Type v} [Fintype C]
@@ -5890,16 +6051,15 @@ example (n : ℕ) (a : ℂ) (M U : Matrix (Fin n) (Fin n) ℂ) :
 
 end yu_151
 
-/-- Everywhere-unramified function-field spectral identity. Inertial/stabilizer/fibre
+/- Everywhere-unramified function-field spectral identity. Inertial/stabilizer/fibre
 index carriers and analytic integrability hypotheses are omitted; the finite all-lifts
 sum, probability Haar integral and reciprocal D are explicit. -/
-theorem yu_063 {I : Type u} [Countable I] {W : I → Type v} [∀ i, Fintype (W i)]
-    {A : Type w} [MeasurableSpace A] (μ : Measure A)
-    (C : ∀ i, W i → Type u) [∀ i w, Fintype (C i w)]
-    (stabilizerCard : I → ℕ) (D : ∀ i, W i → ℕ)
-    (F : ∀ i w, A → C i w → ℂ) (Jeta : ℂ) :
-    Jeta = ∑' i, (stabilizerCard i : ℂ)⁻¹ * ∑ w,
-      ∫ lam, (D i w : ℂ)⁻¹ * ∑ c, F i w lam c ∂μ := by sorry
+/- yu_063: source-qualified signature omitted.
+Supply the everywhere-unramified spectral class, fixed central quotient,
+normalized induced families, actual finite covers and stabilizers, coherent
+probability Haar and convergence. An independent Jeta cannot equal an unrelated
+zero spectral sum.
+Source: Yu v5, Theorem 4.3.1, pp.30–31; §5.2.1–5.2.3, pp.32–36. -/
 
 /-- Finite degree Fourier inversion uses a primitive root and every residue class.
 The torus/operator order is unchanged by this scalar projection. -/
@@ -5916,33 +6076,26 @@ theorem yu_164 {X : Type u} [MeasurableSpace X] (μ : Measure X)
     (∫ x, zeta ^ degree x * k x ∂μ) = ∑ e ∈ Finset.range n,
       zeta ^ e * ∫ x, k x ∂μ.restrict {x | degree x % n = e} := by sorry
 
-/-- Pre-Fourier ordered trace, in finite-dimensional coordinates. The torus Weyl action,
+/- Pre-Fourier ordered trace, in finite-dimensional coordinates. The torus Weyl action,
 actual scalar character, normalized transports and absolute convergence are imported
 source conditions omitted pending AA/AF. The whole Q-sum precedes the limit. -/
-theorem yu_165 {I : Type u} [Countable I] {S : I → Type v} [∀ i, Fintype (S i)]
-    {Q : Type w} [Fintype Q] {A B : Type u} [MeasurableSpace A] [MeasurableSpace B]
-    (μ : Measure A) (ν : Measure B) (n : ℕ) (card : I → ℕ)
-    (h : ∀ i, S i → Q → ℂ → A → ℂ)
-    (chi : ∀ i, S i → ℂ → A → B → ℂ)
-    (MQ : ∀ i, S i → Q → ℂ → A → B → Matrix (Fin n) (Fin n) ℂ)
-    (weyl twist : ∀ i, S i → A → B → Matrix (Fin n) (Fin n) ℂ) (Jeta : ℂ) :
-    Jeta = ∑' i, (card i : ℂ)⁻¹ * ∑ st,
-      Filter.limUnder (𝓝[≠] (1 : ℂ)) (fun mu0 => ∑ q,
-        ∫ a, ∫ b, h i st q mu0 a * chi i st mu0 a b *
-          Matrix.trace (MQ i st q mu0 a b * weyl i st a b * twist i st a b) ∂ν ∂μ) := by sorry
+/- yu_165: source-qualified signature omitted.
+Supply the twisted kernel integral and the actual Lafforgue spectral families
+and ordered Weyl/twist transports, compatible characters, Haar and absolute
+convergence. Independent numerical Jeta is not the trace of these operators.
+Source: Yu v5, §5.1–5.2, pp.31–36. -/
 
 attribute [local instance] Classical.propDecidable
 
-/-- Unnormalized type-A theta and unimodularity yield the 0/1 basis identity.
+/- Unnormalized type-A theta and unimodularity yield the 0/1 basis identity.
 The parabolic index set, actual root datum, dimension equality and chamber selection
 are supplied by AA and omitted here. Linear independence is stated for covectors,
 rather than encoded by an independent boolean choice. -/
-theorem yu_169 {Q : Type u} [Fintype Q] {J : Type v} [Fintype J]
-    {V : Type w} [AddCommGroup V] [Module ℂ V]
-    (selected : Finset Q) (theta : Q → ℂ) (beta : J → V →ₗ[ℂ] ℂ)
-    (xi : V) (hRegular : ∀ q, theta q ≠ 0) :
-    (∑ q ∈ selected, (theta q)⁻¹ * ∏ j, beta j xi) =
-      if LinearIndependent ℂ beta then 1 else 0 := by sorry
+/- yu_169: source-qualified signature omitted.
+Supply the actual type-A relative-root denominator, parabolic chamber selector,
+regular direction and dimension equality. Arbitrary selected sets and unrelated
+denominators do not give the root-basis indicator identity.
+Source: Yu v5, §4.2.3, proof of Theorem 4.2.4, pp.24–26. -/
 end TauCeti.AutomorphicSpectral
 
 /-
