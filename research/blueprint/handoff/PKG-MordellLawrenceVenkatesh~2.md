@@ -11,9 +11,13 @@ This is **partial**, with a demonstrated supplier-interface blocker. It is not
 a completed package or a time-limit checkpoint. The accepted mathematical
 README and the independent `needs_changes` review remain byte-for-byte
 unchanged. No packet, reader input, supplier or review record is edited.
-Metadata is deliberately absent until every package requirement holds: the
-intake's completeness check requires all deliverable files, and must not
-mistake these local signature repairs for a complete package.
+Metadata retains its original fitting category. The PR is a draft because
+the automatic submission check prohibits deleting any deliverable, while
+the intake's package completeness detector only checks that all four files
+exist. This combination cannot represent an unfinished package revision with
+an on-disk handoff. Keeping the PR as a draft prevents automatic intake from
+misclassifying the checkpoint as complete; the maintainer must arrange an
+honest checkpoint intake before releasing this job for continuation.
 
 ## Repairs available to the next worker
 
@@ -124,6 +128,9 @@ source/semantic/signature audit is unfinished.
   and 79 gaps. Structural validity does not establish supplier closure.
 - Unchanged README: **197,848 bytes**, below 200,000. The input packet and
   historical review files are unchanged. `git diff --check` passes.
+  The initial submission check rejected deletion of metadata; it was restored
+  without changing its category. The draft disposition above is necessary
+  to preserve the partial status under the current intake rules.
 - Read WORKERS, both protocols, UPSTREAM_GUIDE, the issue and its independent
   review. Read current Completed/UniversalCovers and Completed/HodgeStructures
   as upstream models; inspected current native isometries, the surface
@@ -150,8 +157,8 @@ an arithmetic fundamental group or Hurwitz family. The fixed-base centralizer
 helper and the canonical full-fixed-field constructor must remain distinguished.
 Construct the actual surface-cover test before restoring its required test label.
 Finish every missing statement and required example, then rerun the whole-file
-check and the complete semantic/source audit. Restore `metadata.toml` with
-`topic = "math.NT"` only once the complete package conditions hold.
+check and the complete semantic/source audit. The preserved category is
+`topic = "math.NT"`; its presence is not evidence of package completion.
 
 No disposable scratch artifact is needed for continuation. Public source files
 and elaboration logs can be reacquired; this note contains their useful receipts.
