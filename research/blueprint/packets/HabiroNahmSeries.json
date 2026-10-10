@@ -2173,7 +2173,7 @@
       ],
       "title": "Formal Gaussian integration",
       "kind": "construction",
-      "statement": "For a symmetric invertible N x N matrix Lambda over a Q-algebra R, the formal Gaussian bracket <f>_Lambda of f(w,h) in R[[w, w^3 h^{-1}, h]] is exp((h/2) sum_{i,j} (Lambda^{-1})_{ij} d/dw_i d/dw_j) f evaluated at w = 0 (GSWZ (eq:bracket)). In one variable <sum_j c_j w^j>_Lambda = sum_l (2l - 1)!! c_{2l} (h/Lambda)^l. GZ's operator I_Lambda (GZ (13), (14)) is the same operator at h = 1 on functions whose x^n-coefficients have valuation tending to infinity: I_Lambda[sum_j c_j x^j] = sum_l (2l - 1)!! c_{2l} Lambda^{-l}. On polynomials both agree with the normalised Gaussian expectation (HB.4/gaussian-moments); the construction itself uses no measure theory.",
+      "statement": "For a symmetric invertible N x N matrix Lambda over a Q-algebra R, the formal Gaussian bracket <f>_Lambda of f(w,h) in R[[w, w^3 h^{-1}, h]] is exp((h/2) sum_{i,j} (Lambda^{-1})_{ij} d/dw_i d/dw_j) f evaluated at w = 0 (GSWZ (110)). In one variable <sum_j c_j w^j>_Lambda = sum_l (2l - 1)!! c_{2l} (h/Lambda)^l. GZ's operator I_Lambda (GZ (13), (14)) is the same operator at h = 1 on functions whose x^n-coefficients have valuation tending to infinity: I_Lambda[sum_j c_j x^j] = sum_l (2l - 1)!! c_{2l} Lambda^{-l}. On polynomials both agree with the normalised Gaussian expectation (HB.4/gaussian-moments); the construction itself uses no measure theory.",
       "hypotheses": [
         "Lambda is symmetric and invertible over a Q-algebra; the rationals must be present because of the factorials.",
         "The argument f lies in the completed ring R[[w, w^3 h^{-1}, h]], the exact domain in which the odd-order terms are controlled; the cube in w^3 h^{-1} is what makes the expansion converge formally.",
@@ -2200,13 +2200,13 @@
       "sources": [
         {
           "sourceId": "gswz",
-          "locator": "Section 2.5, equation (eq:bracket)",
-          "match": "The definition, verbatim."
+          "locator": "Section 2.5, equations (110)-(111), printed p. 28 (arXiv v2; formula crosses PDF pages 28 and 31)",
+          "match": "Defines the completed-domain formal bracket and its normalized integral interpretation; the algebraic construction does not require analytic positivity."
         },
         {
           "sourceId": "gz",
-          "locator": "Section 3, equations (eq.FGI) and (eq.FGI2)",
-          "match": "The same operator with the analytic motivation and the one-variable closed formula, verbatim."
+          "locator": "Section 3, equations (13)-(14), p. 4 (arXiv v1)",
+          "match": "Supplies the normalized differential-operator expansion and its one-variable moments; formal convergence requires the coefficient filtration."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2618,7 +2618,7 @@
       "sources": [
         {
           "sourceId": "gz",
-          "locator": "Theorem 3.1, equation (21), p. 5 (arXiv v1)",
+          "locator": "Theorem 3.1, equation (21), p. 6 (arXiv v1)",
           "match": "The statement; the source's proof of Theorem 3.1 does not address it (source issue)."
         }
       ],
@@ -2671,8 +2671,8 @@
       "sources": [
         {
           "sourceId": "gz",
-          "locator": "Theorem 3.1, equations (eq.FGIII), (eq.CAB), (eq.SQz), (eq.PS)",
-          "match": "The theorem, verbatim, with all four displayed ingredients."
+          "locator": "Theorem 3.1, equations (18)-(21), pp. 5-6 (arXiv v1)",
+          "match": "Supports the radial expansion with the distinguished positive real solution, positive-definite rational datum and the odd coprime root order; the coefficient-field conclusion is a separate clause."
         },
         {
           "sourceId": "cgz",
@@ -2775,7 +2775,7 @@
         },
         {
           "sourceId": "gz",
-          "locator": "Theorem 3.1, equations (18)-(21), p. 5 (arXiv v1)",
+          "locator": "Theorem 3.1, equations (18)-(21), pp. 5-6 (arXiv v1)",
           "match": "The oddness hypothesis that CGZ's quotation drops."
         }
       ],
@@ -9665,7 +9665,7 @@
     "status": "accepted",
     "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
     "date": "2026-10-10",
-    "notes": "Independent bounded continuation by Codex codex-qDDgyD, following PR #8425 and its predecessors; this session did none of the reviewed fix or source blueprints. Rechecked /11, all six QT.6 export contracts, the controlling HB.4/HB.8/HB.9 refinements and their reader coverage. Formal nondegenerate Gaussian data are distinct from positive-definite analytic Nahm data. Preserve G1/G2, coefficientwise Kummer descent, signed Kummer orientation, excluded primes, integral gluing and coefficient extension. GZ Theorem 3.1 pp. 5-6; GSWZ Theorem 5 p. 14, section 1.8 pp. 15-17, Remark 4.2 equation (233) p. 48, section 4.5 pp. 54-55. Independent exact algebra confirms the figure-eight kernel and delta squared -3. Validator: zero errors/warnings; lean-check exit 0, 441 admitted-proof warnings. This verdict concerns the assigned fix, not a fresh review of unrelated nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    "notes": "Independent bounded continuation by Codex codex-adGaRg after PR #8436. Rechecked /11 and all six QT.6 exports with GZ Theorem 3.1 pp. 5-6, GSWZ Theorem 5 p. 14, section 1.8 pp. 15-17, section 2.5 equations (110)-(111) p. 28, Remark 4.2 (233) p. 48, section 4.5 pp. 54-55. Corrected internal TeX source locators for the formal Gaussian bracket and radial theorem, and the equation (21) page; support descriptions use our own words. Preserved formal nondegeneracy versus analytic positivity, HB.8 G1/G2, Kummer descent/orientation, excluded primes, full finite-etale coefficients and all-order integral gluing. Pinned covariance theorem requires PosSemidef; density law requires PosDef; neither proves formal integration. Exact figure-eight kernel/delta algebra rechecked. No API, theorem hypothesis, gap or suggested declaration changed. Validator zero errors/warnings; fresh lean-check exit 0 with 441 admitted-proof warnings. Previous review preserved; see the report."
   },
   "reviewHistory": [
     {
@@ -10256,6 +10256,12 @@
       "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
       "date": "2026-10-10",
       "notes": "Independent bounded continuation by Codex codex-LwWaSJ of PR #8414 (Codex codex-ERbW4d), following PR #8353 and PR #6944. RT-AREA-topology/11 is correctly fixed: HB.10 owns formal knot matrices, QT.5 supplies geometry, and QT.6/QT.7 remain consumers. Rechecked the six qualified exports and controlling HB.4/HB.8/HB.9 refinements, preserving Gaussian G1/G2, coefficientwise Kummer descent, signed Kummer orientation, integral gluing and coefficient extension. The figure-eight matrix has a nonzero kernel and cannot use positive-definite analytic asymptotics. Independently read GZ section 1 and Theorem 3.1, pp. 2-6; GSWZ section 1.8, pp. 15-17, Remark 4.2 equation (233), p. 48 and section 4.5, pp. 54-55. Confirmed the prior source locator and approximate regulator corrections, and all 109 node IDs in the reader. No mathematical field or suggested declaration changed. Packet validator: zero errors/warnings. Fresh lean-check: exit 0, 441 warnings, all for admitted proofs. Partial coverage and unchecked implementation status remain. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+    },
+    {
+      "status": "accepted",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+      "date": "2026-10-10",
+      "notes": "Independent bounded continuation by Codex codex-qDDgyD, following PR #8425 and its predecessors; this session did none of the reviewed fix or source blueprints. Rechecked /11, all six QT.6 export contracts, the controlling HB.4/HB.8/HB.9 refinements and their reader coverage. Formal nondegenerate Gaussian data are distinct from positive-definite analytic Nahm data. Preserve G1/G2, coefficientwise Kummer descent, signed Kummer orientation, excluded primes, integral gluing and coefficient extension. GZ Theorem 3.1 pp. 5-6; GSWZ Theorem 5 p. 14, section 1.8 pp. 15-17, Remark 4.2 equation (233) p. 48, section 4.5 pp. 54-55. Independent exact algebra confirms the figure-eight kernel and delta squared -3. Validator: zero errors/warnings; lean-check exit 0, 441 admitted-proof warnings. This verdict concerns the assigned fix, not a fresh review of unrelated nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
     }
   ]
 }

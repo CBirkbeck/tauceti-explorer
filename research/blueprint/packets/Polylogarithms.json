@@ -6845,7 +6845,7 @@
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
   "date": "2026-10-10",
-  "notes": "Independent bounded continuation by Codex codex-qDDgyD, following PR #8425 and its predecessors; this session did none of the reviewed fix or source blueprints. Rechecked /7 against Goncharov math/0207036v3, introduction item 5 p. 7 and section 6 p. 53. P.2 is the signed tetrahedron-volume owner, imports GeometricTopology 7/8 with matching requests, and supplies QT.5. The Milnor angle proof and the missing canonical ideal-region interface remain distinct. Current upstream volume and isometry interfaces are existing work. Validator: zero errors/warnings; lean-check exit 0, 462 admitted-proof warnings. This verdict concerns the assigned fix, not a fresh review of unrelated nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  "notes": "Independent bounded continuation by Codex codex-adGaRg after PR #8436. Rechecked assigned finding /7: P.2 owns the ordered ideal-tetrahedron volume identity, QT.5 consumes its manifold sum, and GeometricTopology layers 7-8 supply the metric/model. Read Goncharov math/0207036v3 introduction item 5 p. 7 and section 6 p. 53; Zagier Dilogarithm I.4 pp. 13-14. The early ideal-region/boundary gap remains explicit; current upstream Riemannian volume is existing work. No mathematical declaration changed. Validator zero errors/warnings; fresh lean-check exit 0 with 462 admitted-proof warnings. This is the assigned fix review, not a full re-review of unrelated P.1/P.3 declarations. Previous review is preserved in reviewHistory. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
  },
  "reviewHistory": [
   {
@@ -7266,6 +7266,12 @@
    "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
    "date": "2026-10-10",
    "notes": "Independent bounded continuation by Codex codex-LwWaSJ of PR #8414 (Codex codex-ERbW4d), following PR #8353 and PR #6944. RT-AREA-topology/7 is correctly fixed: P.2 owns the signed ideal-tetrahedron identity, with GeometricTopology layers 7 and 8 as explicit prerequisites and matching requests; QT.5 owns the manifold sum. Independently read Goncharov math/0207036v3 introduction item 5, p. 7 and section 6, p. 53, the P.2 refinement contract and assembled reader. Current upstream imports implemented Riemannian volume and isometry invariance; the early ideal-boundary/region carrier remains a distinct supplier gap. No mathematical field changed. Packet validator: zero errors/warnings. Fresh lean-check: exit 0, 462 warnings, all for admitted proofs. This is a fix review, not a fresh audit of unrelated blueprint nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-topology~4",
+   "date": "2026-10-10",
+   "notes": "Independent bounded continuation by Codex codex-qDDgyD, following PR #8425 and its predecessors; this session did none of the reviewed fix or source blueprints. Rechecked /7 against Goncharov math/0207036v3, introduction item 5 p. 7 and section 6 p. 53. P.2 is the signed tetrahedron-volume owner, imports GeometricTopology 7/8 with matching requests, and supplies QT.5. The Milnor angle proof and the missing canonical ideal-region interface remain distinct. Current upstream volume and isometry interfaces are existing work. Validator: zero errors/warnings; lean-check exit 0, 462 admitted-proof warnings. This verdict concerns the assigned fix, not a fresh review of unrelated nodes. See research/blueprint/reviews/REV-FIX-RT-AREA-topology~4.md."
   }
  ]
 }
