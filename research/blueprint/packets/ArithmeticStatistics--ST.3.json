@@ -16,161 +16,161 @@
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "Polynomial quotient R[X]/(f), with the canonical root and quotient-ring structure.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:RegularWreathProduct",
         "kind": "structure",
         "module": "Mathlib/GroupTheory/RegularWreathProduct.lean",
         "provides": "Native regular wreath product, with coordinate carrier and semidirect multiplication.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:RegularWreathProduct.rightHom",
         "kind": "def",
         "module": "Mathlib/GroupTheory/RegularWreathProduct.lean",
         "provides": "Projection to the acting group Q.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:RegularWreathProduct.inl",
         "kind": "def",
         "module": "Mathlib/GroupTheory/RegularWreathProduct.lean",
         "provides": "Canonical inclusion of the acting group Q.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:RegularWreathProduct.congr",
         "kind": "def",
         "module": "Mathlib/GroupTheory/RegularWreathProduct.lean",
         "provides": "Wreath-product equivalence induced by group equivalences in both factors.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:Subgroup.goursat_surjective",
         "kind": "lemma",
         "module": "Mathlib/GroupTheory/Goursat.lean",
         "provides": "A subdirect product is the graph of an equivalence between quotient groups by the projection kernels.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:NumberField.discr",
         "kind": "abbrev",
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Defs.lean",
         "provides": "Integer discriminant of the ring-of-integers basis of a number field.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:NumberField.finite_of_discr_bdd",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/NumberField/Discriminant/Basic.lean",
         "provides": "Hermite finiteness for finite-dimensional intermediate fields of a fixed extension of Q, with bounded absolute discriminant.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:ClassGroup.extendedHom",
         "kind": "def",
         "module": "Mathlib/RingTheory/ClassGroup/ExtendedHom.lean",
         "provides": "Class-group extension homomorphism for an injective extension of domains, expressed using a torsion-free algebra.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "tauceti:ClassGroup.relNorm",
         "kind": "def",
         "module": "TauCeti/RingTheory/ClassGroup/RelNorm.lean",
         "provides": "Class-group norm for a finite torsion-free algebra of Dedekind domains.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "tauceti:ClassGroup.relNorm_comp_extendedHom",
         "kind": "theorem",
         "module": "TauCeti/RingTheory/ClassGroup/RelNorm.lean",
         "provides": "The norm after extension equals the finrank power homomorphism.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "tauceti:NumberField.NarrowClassGroup",
         "kind": "def",
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
         "provides": "Fractional ideal classes modulo principal ideals generated by totally positive elements.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "tauceti:NumberField.NarrowClassGroup.toClassGroup",
         "kind": "def",
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Basic.lean",
         "provides": "Surjection forgetting positivity of principal generators.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "tauceti:NumberField.NarrowClassGroup.instFinite",
         "kind": "instance",
         "module": "TauCeti/NumberTheory/NumberField/NarrowClassGroup/Finite.lean",
         "provides": "Finiteness of the native narrow class group.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.ClassGroup.ElementaryTwoQuotient",
         "kind": "abbrev",
         "module": "TauCeti/NumberTheory/ClassGroup/ElementaryTwoQuotient.lean",
         "provides": "Native elementary-two quotient of the class group.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "tauceti:TauCeti.ClassGroup.card_elementaryTwoQuotient_eq_card_twoTorsion",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/ClassGroup/ElementaryTwoQuotient.lean",
         "provides": "For a finite class group the elementary-two quotient and two-torsion have equal cardinality.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "tauceti:NumberField.exists_isArithFrobAt_int_of_liesOver",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/Frobenius.lean",
         "provides": "An arithmetic Frobenius relative to Z exists at a prime above a rational prime in a Galois number field.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "tauceti:NumberField.isArithFrobAt_eq_of_isUnramifiedAt",
         "kind": "theorem",
         "module": "TauCeti/NumberTheory/NumberField/Frobenius.lean",
         "provides": "Frobenius automorphisms at the same unramified prime coincide.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:Matrix.SpecialLinearGroup",
         "kind": "def",
         "module": "Mathlib/LinearAlgebra/Matrix/SpecialLinearGroup.lean",
         "provides": "Matrices of determinant one, used for binary-form changes of variables.",
-        "checked": "Declaration and its surrounding hypotheses read in the shared source tree at the recorded pinned commits on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:alternatingGroup.kleinFour",
         "kind": "def",
         "module": "Mathlib/GroupTheory/SpecificGroups/Alternating/KleinFour.lean",
         "provides": "The subgroup of the alternating group generated by double transpositions.",
-        "checked": "Actual declaration and cardinal-four hypotheses read at pinned Mathlib on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:alternatingGroup.normal_kleinFour",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/SpecificGroups/Alternating/KleinFour.lean",
         "provides": "For a four-element permutation carrier, this Klein-four subgroup is normal in the alternating group.",
-        "checked": "Actual declaration and cardinal-four hypotheses read at pinned Mathlib on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:alternatingGroup.kleinFour_card_of_card_eq_four",
         "kind": "theorem",
         "module": "Mathlib/GroupTheory/SpecificGroups/Alternating/KleinFour.lean",
         "provides": "For a four-element carrier its cardinal is4.",
-        "checked": "Actual declaration and cardinal-four hypotheses read at pinned Mathlib on 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       },
       {
         "ref": "mathlib:Abelianization",
         "kind": "def",
         "module": "Mathlib/GroupTheory/Abelianization/Defs.lean",
         "provides": "Native group quotient by the commutator subgroup, with its commutative-group instance.",
-        "checked": "Actual Group-hypothesis definition and quotient group structure read at the pinned commit, 2026-10-10."
+        "checked": "Independently read declaration and surrounding hypotheses at the relevant recorded pin on 2026-10-10 by REV-ArithmeticStatistics--ST.3; exact module contents match the shared pinned build."
       }
     ]
   },
@@ -703,14 +703,14 @@
       ],
       "title": "Three-torsion in a quadratic order",
       "kind": "theorem",
-      "statement": "For the order O_f=Z+f O_K of conductor f≥1 in a quadratic field K, h₃(Pic(O_f)) ≤ 3^{ω(f)} h₃(Cl(K)). Equivalently its 3-rank is at most rk₃ Cl(K)+ω(f). At the conductor primes each local quotient contributes at most one dimension over F₃; the assertion includes ramified and wild primes.",
+      "statement": "For the order O_f=Z+f O_K of conductor f≥1 in a quadratic field K, h₃(Pic(O_f)) ≤ 3^{ω(f)+1} h₃(Cl(K)). If 3∤f the sharper factor 3^{ω(f)} holds. Equivalently the 3-rank increases by at most ω(f)+1, and by at most ω(f) away from3. At f=1 the groups agree. The extra dimension at the wild prime3 cannot be discarded.",
       "hypotheses": [
-        "All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity."
+        "K/Q is quadratic; f is a positive integer; Pic means invertible proper ideal classes."
       ],
       "proofSteps": [
-        "Import the proper invertible ideal Picard group and the conductor exact sequence from GlobalNumberFields Layer11.",
-        "Factor the finite residue-unit quotient prime by prime. In each factor its 3-primary quotient has cyclic 3-torsion; quotienting by global units can only decrease the rank.",
-        "Apply the elementary torsion bound for an exact sequence of finite abelian groups."
+        "Use the conductor exact sequence for the existing Picard group of O_f, ending in Cl(K).",
+        "By CRT the residue-unit kernel is a quotient of ∏_{p^a∥f}(O_K/p^a O_K)ˣ/(Z/p^a Z)ˣ. For p≠3 its 3-rank is at most1: the principal-unit part is a p-group, and the residue quotient is cyclic or a p-group. For p=3 its 3-primary quotient has at most two generators, including the ramified principal-unit case.",
+        "Quotienting by global units does not increase the number of 3-primary generators. In a finite abelian exact sequence the 3-torsion cardinal of the middle group is at most the product of those of kernel and quotient."
       ],
       "prerequisites": [
         "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
@@ -720,18 +720,20 @@
         {
           "sourceId": "bbp",
           "locator": "§3, Lemma3.3 proof, p.12",
-          "match": "The source invokes the conductor-order rank bound; the exact local-kernel normalization remains to be verified."
+          "match": "BBP proves a bound with a bounded additive term in the rank. The review retains a safe explicit wild-prime allowance and disproves the previously claimed constant-one bound."
         }
       ],
       "acceptance": [
-        "At conductor1 the Picard group and native maximal-order class group agree; the factor3^ω(1) is1."
+        "At f=1, Pic(O_f)=Cl(K); use this equality rather than the nonsharp uniform bound.",
+        "At K=Q(√−39), f=9, Cl(K) has order4 and the residue-unit kernel is C₃². Thus h₃(Pic(O_9))=9 whereas 3^{ω(9)}h₃(Cl(K))=3. The corrected uniform bound permits9."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/FieldsAndClassGroups",
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.quadratic_order_three_torsion_bound"
+      "leanName": "FieldStatistics.quadratic_order_three_torsion_bound",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/cubic-large-total-ramification-bound",
@@ -781,7 +783,7 @@
       ],
       "title": "Secondary coefficients for cubic lattices",
       "kind": "theorem",
-      "statement": "For a full lattice L⊆V_Z of index T=T₁T₂ containing mV_Z, with leading-coefficient image T₁Z and fibre index T₂, and m⁴≤X, the cubic orbit count of sign i is c₁⁽ⁱ⁾X/T+c₂⁽ⁱ⁾X^{5/6}/(T₁^{1/3}T₂)+O(mX^{3/4}/T). A translate uses the corresponding Hurwitz-zeta residue average, rather than the same scalar secondary coefficient.",
+      "statement": "For a full lattice L⊆V_Z of index T=T₁T₂ containing mV_Z, with leading-coefficient image T₁Z and fibre index T₂, and m⁴≤X, the BST averaged fundamental-domain count N(L;X) of irreducible binary cubic forms of sign i is c₁⁽ⁱ⁾X/T+c₂⁽ⁱ⁾X^{5/6}/(T₁^{1/3}T₂)+O(mX^{3/4}/T). A translate uses the corresponding Hurwitz-zeta residue average, rather than the same scalar secondary coefficient. For an invariant locus this agrees with the weighted orbit count; for a noninvariant lattice or translate N refers to the averaged count, since membership is not an orbit property.",
       "hypotheses": [
         "All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity."
       ],
@@ -808,7 +810,8 @@
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.secondary_cubic_lattice_coefficient"
+      "leanName": "FieldStatistics.secondary_cubic_lattice_coefficient",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/cubic-secondary-local-factor-evaluation",
@@ -857,7 +860,7 @@
       ],
       "title": "Root-weighted cubic sieve identities",
       "kind": "theorem",
-      "statement": "For W_p the nonmaximal locus and V_{p,α} the forms with root α mod p, N(W_p;X)=Σ_{α∈P¹(F_p)}N(V_{p,α};X/p²)−Σ_αN(V_{p,α};X/p⁴)+N(V_Z;X/p⁴). The CRT gives the corresponding identity for squarefree n; the zero reduction has p+1 roots and must retain that multiplicity.",
+      "statement": "For W_p the nonmaximal locus and V_{p,α} the forms with root α mod p, N(W_p;X)=Σ_{α∈P¹(F_p)}N(V_{p,α};X/p²)−Σ_αN(V_{p,α};X/p⁴)+N(V_Z;X/p⁴). The CRT gives the corresponding identity for squarefree n; the zero reduction has p+1 roots and must retain that multiplicity. Each N(V_{p,α};Y) is the same averaged fundamental-domain count as in the lattice estimate; the sum over α is the invariant projective-root-weighted orbit count. Individual root conditions are not invariant orbit sets.",
       "hypotheses": [
         "All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity."
       ],
@@ -885,7 +888,8 @@
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.cubic_root_weighted_sieve_identity"
+      "leanName": "FieldStatistics.cubic_root_weighted_sieve_identity",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/refined-cubic-sieve",
@@ -895,15 +899,15 @@
       ],
       "title": "The refined cubic sieve",
       "kind": "theorem",
-      "statement": "For squarefree n let E_n(X)=N(W_n;X)−γ₁(n)c₁X−γ₂(n)c₂X^{5/6}, where γ_j(n)=∏_{p|n}(1−μ_j(p)). For δ₁,δ₂>0 the sums of |E_n| over n≤X^{1/6−δ₁}, n≥X^{1/6+δ₂}, and the intermediate range are respectively O_ε(X^{5/6−δ₁/2+ε}), O_ε(X^{5/6−δ₂+ε}+X^{13/18−2δ₂/3+ε}), and O_ε(X^{29/36+δ₁/6+ε}+X^{2/3+4δ₂+ε}). The choices δ₁=1/24,δ₂=1/30 yield O_ε(X^{5/6−1/48+ε}).",
+      "statement": "For squarefree n define E_n(X/2,X)=N(W_n;X/2,X)−γ₁(n)c₁X/2−γ₂(n)c₂(1−2^{−5/6})X^{5/6}, where γ_j(n)=∏_{p|n}(1−μ_j(p)). For 0<δ₁<1/6 and δ₂>0 the sums of |E_n(X/2,X)| over n≤X^{1/6−δ₁}, n≥X^{1/6+δ₂}, and the intermediate range are respectively O_ε(X^{5/6−δ₁/2+ε}), O_ε(X^{5/6−δ₂+ε}+X^{13/18−2δ₂/3+ε}), and O_ε(X^{29/36+δ₁/6+ε}+X^{2/3+4δ₂+ε}). The choices δ₁=1/24,δ₂=1/30 give a dyadic error O_ε(X^{5/6−1/48+ε}). Summing the dyadic intervals gives the same order of cumulative field-count remainder.",
       "hypotheses": [
-        "All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity."
+        "Fix either binary-cubic discriminant sign. X≥2, n is squarefree, ε>0; cutoffs are measured against the height of each dyadic interval."
       ],
       "proofSteps": [
         "Apply the root-weighted sieve identity and the lattice estimate to small n.",
         "Use the uniform total-ramification and nonmaximality bounds in the large range.",
         "For the middle range use the finite Fourier transform of the root-count weight: its zero coefficient is 1+p^{-1}, and each nonzero coefficient is O(p^{-1}); average over the regular sliced fundamental domain.",
-        "Use Möbius inversion and the absolutely convergent Euler products to recover the two field-counting terms."
+        "Use Möbius inversion and the absolutely convergent Euler products to recover the two field-counting terms. Sum the resulting interval estimates over X/2^{j+1}<|Disc|≤X/2^j; their geometric sum preserves the saving1/48."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/cubic-root-weighted-sieve-identity",
@@ -930,7 +934,8 @@
       "planet": {
         "name": "Refined cubic sieve"
       },
-      "leanName": "FieldStatistics.refined_cubic_sieve"
+      "leanName": "FieldStatistics.refined_cubic_sieve",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/cubic-secondary-orbit-integral",
@@ -940,7 +945,7 @@
       ],
       "title": "The secondary density of a cubic p-adic order",
       "kind": "theorem",
-      "statement": "For an étale cubic Z_p-order R, the secondary orbit density equals (1−p^{-2})(1−p^{-1/3})/(Disc_p(R)|Aut R|) times ∫_{(R/Z_p)^Prim} index(R:Z_p[x])^{2/3} dx. Primitive means x has nonzero reduction in (R/Z_p)/p, and the Haar measure on that primitive set is normalized to one. Infinite index points form a null set; convergence near roots of the associated cubic is part of the assertion.",
+      "statement": "For a rank-three Z_p-order R whose generic fibre R⊗Q_p is étale, the secondary orbit density equals (1−p^{-2})(1−p^{-1/3})/(Disc_p(R)|Aut R|) times ∫_{(R/Z_p)^Prim} index(R:Z_p[x])^{2/3} dx. Primitive means x has nonzero reduction in (R/Z_p)/p, and the Haar measure on that primitive set is normalized to one. Infinite index points form a null set; convergence near roots of the associated cubic is part of the assertion.",
       "hypotheses": [
         "All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity."
       ],
@@ -961,14 +966,15 @@
         }
       ],
       "acceptance": [
-        "For an étale cubic Z_p-order R, the secondary orbit density equals (1−p^{-2})(1−p^{-1/3})/(Disc_p(R)|Aut R|) times ∫_{(R/Z_p)^Prim} index(R:Z_p[x])^{2/3} dx. Primitive means x has nonzero reduction in (R/Z_p)/p, and the Haar measure on that primitive set is normalized to one. Infinite index points form a null set; convergence near roots of the associated cubic is part of the assertion."
+        "The formula includes ramified and nonmaximal cubic orders with separable generic fibre; it does not require R itself to be étale over Z_p."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/FieldsAndClassGroups",
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.cubic_secondary_orbit_integral"
+      "leanName": "FieldStatistics.cubic_secondary_orbit_integral",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/low-degree-s-integral-parametrization",
@@ -978,12 +984,12 @@
       ],
       "title": "Integral parametrization in each adelic lattice",
       "kind": "theorem",
-      "statement": "For a number field F, n∈{2,3,4,5} and finite S containing the infinite places and the places above 2 when n=2, separable degree-n extensions correspond to the disjoint union of Γ_β-orbits of S-maximal elements of L_β, over the finite double-coset set G_n(O^S)\\G_n(A^S)/G_n(F). Here L_β=V_n(F)∩β^{-1}(∏_{v∉S}V_n(O_v)×∏_{v∈S}V_n(F_v)) and Γ_β is the analogous conjugated integral subgroup. The stabilizer is Aut_F(L), and Disc_S(L)=χ(β)²Δ_n(v).",
+      "statement": "For a number field F, n∈{2,3,4,5} and finite S containing the infinite places and the places above 2 when n=2, separable degree-n extensions correspond to the disjoint union of Γ_β-orbits of S-maximal elements of L_β, over the finite double-coset set G_n(O^S)\\G_n(A^S)/G_n(F). Here L_β=V_n(F)∩β^{-1}(∏_{v∉S}V_n(O_v)×∏_{v∈S}V_n(F_v)) and Γ_β is the analogous conjugated integral subgroup. The stabilizer is Aut_F(L), and Disc_S(L)=(χ(β)²Δ_n(v)) as fractional O_S ideals, with the idele character interpreted componentwise.",
       "hypotheses": [
         "All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity."
       ],
       "proofSteps": [
-        "Import the cubic, quartic-resolvent and quintic orbit parametrizations from ST.1, including maximal-order stabilizers.",
+        "Import the cubic, quartic-resolvent and quintic orbit parametrizations from ST.1, including maximal-order stabilizers. For n=2 use G_m acting on G_a by g·v=g²v, the squareclass algebra F[t]/(t²−v/4), and maximal quadratic orders with2 inverted.",
         "Patch the local maximal elements using the finite adelic double-coset decomposition.",
         "Maximal local orders force a rational conjugating element to be integral in the same adelic lattice; the determinant character identifies the discriminant and Steinitz class."
       ],
@@ -996,19 +1002,20 @@
       "sources": [
         {
           "sourceId": "bsw-global",
-          "locator": "§3, Theorems3.1–3.4, pp.9–11",
+          "locator": "§3, Theorems3.1–3.4, pp.9–12",
           "match": "The number-field extension adapter keeps all adelic ideal classes instead of assuming the integer ring is a PID."
         }
       ],
       "acceptance": [
-        "For a number field F, n∈{2,3,4,5} and finite S containing the infinite places and the places above 2 when n=2, separable degree-n extensions correspond to the disjoint union of Γ_β-orbits of S-maximal elements of L_β, over the finite double-coset set G_n(O^S)\\G_n(A^S)/G_n(F). Here L_β=V_n(F)∩β^{-1}(∏_{v∉S}V_n(O_v)×∏_{v∈S}V_n(F_v)) and Γ_β is the analogous conjugated integral subgroup. The stabilizer is Aut_F(L), and Disc_S(L)=χ(β)²Δ_n(v)."
+        "For n=2, S contains all primes over2; v and g²v give the same quadratic algebra and Δ₂(v)=v gives its localized discriminant ideal. For n>2 use the respective ST.1 parametrizations."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/FieldsAndClassGroups",
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.low_degree_s_integral_parametrization"
+      "leanName": "FieldStatistics.low_degree_s_integral_parametrization",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/low-degree-maximal-sieve",
@@ -1137,18 +1144,19 @@
       ],
       "title": "Two-torsion and quartic resolvent fibres",
       "kind": "theorem",
-      "statement": "For a non-Galois cubic extension L/F, the nonidentity ordinary class-group two-torsion corresponds to quadratic extensions L₂/L unramified at all places whose normal closure over F has group S₄. Via the quartic resolvent this counts nowhere overramified quartic fields with resolvent L and Disc(L₄/F)=Disc(L/F). For Cl⁺ replace the condition at real places by unramified at finite places only.",
+      "statement": "For a non-Galois cubic extension L/F, the nontrivial order-two characters of Cl(L) that annihilate the image of Cl(F) under ideal extension correspond to quadratic extensions L₂/L unramified at all places whose normal closure over F has group S₄. Their number is h₂(L/F)−1, with Cl(L/F)=ker(N_{L/F}); the prime-to-degree splitting identifies the relevant dual quotient. The quartic-resolvent correspondence gives nowhere overramified quartic fields L₄ with resolvent L and Disc(L₄/F)=Disc(L/F). For finite-place unramified extensions replace both class groups by their narrow versions and use h₂⁺(L/F)−1.",
       "hypotheses": [
-        "All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity."
+        "L/F is a separable non-Galois cubic number-field extension. Ordinary class fields split at real places; narrow class fields allow real ramification."
       ],
       "proofSteps": [
-        "Use the Hilbert or narrow Hilbert class field to identify characters to C₂.",
+        "Use the Hilbert or narrow Hilbert class field to identify order-two characters. Retain precisely the characters trivial on extended base classes; the degree-three norm/extension split gives their count h₂(L/F)−1 or h₂⁺(L/F)−1.",
         "Use the S₄ resolvent correspondence, tracking the normal closure and every real place.",
         "The local discriminant equality is equivalent to the stated ramification restriction; the trivial character is excluded."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.1/bhargava-parametrization-of-quartic-rings",
-        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields"
+        "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+        "ArithmeticStatistics:ST.3/relative-torsion-splitting"
       ],
       "sources": [
         {
@@ -1158,14 +1166,16 @@
         }
       ],
       "acceptance": [
-        "For a non-Galois cubic extension L/F, the nonidentity ordinary class-group two-torsion corresponds to quadratic extensions L₂/L unramified at all places whose normal closure over F has group S₄. Via the quartic resolvent this counts nowhere overramified quartic fields with resolvent L and Disc(L₄/F)=Disc(L/F). For Cl⁺ replace the condition at real places by unramified at finite places only."
+        "Over F=Q the base class groups are trivial and the familiar absolute fibre statement is recovered.",
+        "A nontrivial unramified quadratic extension E/F pulled back to L produces a base character. Its closure over F has group S₃×C₂, so it is excluded by the condition of annihilating extended base classes."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/FieldsAndClassGroups",
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.quartic_class_group_two_torsion_fibre"
+      "leanName": "FieldStatistics.quartic_class_group_two_torsion_fibre",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/low-degree-class-group-mass-ratios",
@@ -1175,19 +1185,20 @@
       ],
       "title": "Class-group means from resolvent local mass ratios",
       "kind": "theorem",
-      "statement": "For an acceptable family over a number field F with fixed pure infinite specifications, let α₂ be the number of real base places with quadratic algebra R², and α₃ those with cubic algebra R³. Then the mean quadratic h₃ is 1+3^{-r₂(F)−α₂}; the mean ordinary cubic h₂ is 1+2^{-r₁(F)−2r₂(F)−α₃}; the mean narrow cubic h₂ is 1+2^{-r₁(F)−2r₂(F)+α₃}. At every finite place the corresponding numerator/denominator mass ratio is one.",
+      "statement": "For a positive-density acceptable family over a fixed number field F with fixed pure infinite specifications, let α₂ count real base places with quadratic algebra R², and α₃ those with cubic algebra R³. The means of relative torsion are h₃(L/F): 1+3^{−r₂(F)−α₂}; ordinary cubic h₂(L/F): 1+2^{−r₁(F)−2r₂(F)−α₃}; and narrow cubic h₂⁺(L/F): 1+2^{−r₁(F)−2r₂(F)+α₃}. At finite places the compatible fibre numerator/denominator mass ratio is one. The absolute h₃(L), h₂(L), h₂⁺(L) means are these expressions multiplied respectively by h₃(F), h₂(F), h₂⁺(F), using the prime-to-degree norm/extension splitting. Finite specifications must be the matching resolvent-lift specifications, not independent numerator restrictions.",
       "hypotheses": [
         "All fields have characteristic zero; all asymptotics are for the fixed family as X tends to infinity."
       ],
       "proofSteps": [
-        "Apply the cyclic cubic and quartic-resolvent fibre identities.",
+        "Apply the relative cyclic-cubic and quartic-resolvent character fibres. Base characters are excluded before applying the S₃/S₄ count.",
         "Use the low-degree mass theorem for numerator and denominator with compatible finite specifications.",
         "At complex places the quartic/cubic ratio is 1/4; at a real R×C place it is 1/2; at R³ it is 1/4 in the ordinary case and 1 in the narrow case. Account for the quadratic automorphism weight 1/2 separately."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/quartic-class-group-two-torsion-fibre",
         "ArithmeticStatistics:ST.3/low-degree-jacobian-mass",
-        "ArithmeticStatistics:ST.3/three-torsion-of-quadratic-class-groups-counts-cubic-fields"
+        "ArithmeticStatistics:ST.3/three-torsion-of-quadratic-class-groups-counts-cubic-fields",
+        "ArithmeticStatistics:ST.3/relative-torsion-splitting"
       ],
       "sources": [
         {
@@ -1197,14 +1208,16 @@
         }
       ],
       "acceptance": [
-        "Over Q: real/imaginary quadratic h₃ means4/3 and2; totally real/complex cubic ordinary h₂ means5/4 and3/2, and narrow means2 and3/2."
+        "Over Q: real/imaginary quadratic h₃ means4/3 and2; totally real/complex cubic ordinary h₂ means5/4 and3/2, and narrow means2 and3/2.",
+        "For a base with h₃(F)>1 or h₂(F)>1, the absolute mean carries the base factor; the relative mean does not."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/FieldsAndClassGroups",
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.low_degree_class_group_mass_ratios"
+      "leanName": "FieldStatistics.low_degree_class_group_mass_ratios",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/quadratic-four-rank-conic-formula",
@@ -1214,7 +1227,7 @@
       ],
       "title": "Four-ranks as soluble discriminant factorizations",
       "kind": "theorem",
-      "statement": "For a fundamental quadratic discriminant D, let C_D be the narrow class group. Then 2^{rk₄ C_D} is one half the number of signed squarefree divisors b of D for which b′ is the squarefree part of D/b and the conic b x²−b′ y²=z² has a nonzero rational point. All signs and the prime2 conditions are retained; replacing this by residue conditions only at the odd primes is insufficient.",
+      "statement": "For a fundamental quadratic discriminant D, let C_D be the narrow class group. Then 2^{rk₄ C_D} is one half the number of positive squarefree divisors b of D for which b′ is the signed squarefree part of D/b and the conic b x²−b′ y²=z² has a nonzero rational point. All signs and the prime2 conditions are retained; replacing this by residue conditions only at the odd primes is insufficient.",
       "hypotheses": [
         "D is a fundamental discriminant, D≠1; for positive D the class group is narrow."
       ],
@@ -1235,14 +1248,15 @@
         }
       ],
       "acceptance": [
-        "For a fundamental quadratic discriminant D, let C_D be the narrow class group. Then 2^{rk₄ C_D} is one half the number of signed squarefree divisors b of D for which b′ is the squarefree part of D/b and the conic b x²−b′ y²=z² has a nonzero rational point. All signs and the prime2 conditions are retained; replacing this by residue conditions only at the odd primes is insufficient."
+        "For D=5 the positive divisors1,5 give two soluble conics and rk₄ Cl⁺(Q(√5))=0. Allowing −1,−5 would double the count incorrectly. The complementary factor b′, rather than the summation divisor b, retains the sign of D."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/FieldsAndClassGroups",
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.quadratic_four_rank_conic_formula"
+      "leanName": "FieldStatistics.quadratic_four_rank_conic_formula",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/quadratic-four-rank-jacobi-expansion",
@@ -1252,7 +1266,7 @@
       ],
       "title": "The four-rank Jacobi expansion",
       "kind": "theorem",
-      "statement": "If D<0 is odd and fundamental, then 2^{rk₄ C_D}=2^{-1−ω(|D|)} Σ_{|D|=D₀D₁D₂D₃}(D₂/D₀)(D₁/D₃)(D₃/D₀)(D₀/D₃), over positive pairwise coprime squarefree factors. Raising this to k gives the (F₂²)^k-indexed sum with weight 2^{-kω(∏D_u)}, phase Φ_k(u,v) and prefactor 2^{-k}. For the other five sign/congruence families the same phase persists with the precise characters at −1 and2 supplied by Lemmas28,34,39,41,43.",
+      "statement": "If D<0 is odd and fundamental, then 2^{rk₄ C_D}=2^{-1−ω(|D|)} Σ_{|D|=D₀D₁D₂D₃}(D₂/D₀)(D₁/D₃)(D₃/D₀)(D₀/D₃), over positive pairwise coprime squarefree factors. Raising this to k gives the (F₂²)^k-indexed sum with weight 2^{-kω(∏D_u)}, phase Φ_k(u,v) and prefactor 2^{-k}. For the other five sign/congruence families the same phase persists with the precise characters at −1 and2 supplied by Lemmas28,34,39,41,43. Explicitly write u=(a_j,b_j)_{j=1}^k, λ_k(u)=Σ_j a_jb_j, ξ_j(u)=(a_j+1)(b_j+1), Q_Γ(u)=Σ_{j∈Γ}a_jb_j+Σ_{j∉Γ}ξ_j(u), and V_Γ(u)=Σ_{j∉Γ}(a_j+b_j), all in F₂. In each moment sum let W(D_u)=∏_u2^{−kω(D_u)}∏_{u,v}(D_u/D_v)^{Φ_k(u,v)}, with positive odd pairwise coprime squarefree D_u. For negative odd discriminants sum 2^{−k}W with ∏D_u≤X and ∏D_u≡−1 mod4; for positive odd ones sum 2^{−k}W∏_u(−1/D_u)^{λ_k(u)}, with product≡1 mod4. For negative discriminants divisible by8 sum W∏_u(2/D_u)^{λ_k(u)}, with product≤X/8 and either odd residue mod4. For the positive8 family sum 2^{−k} over Γ of W∏_u(2/D_u)^{λ_k(u)}(−1/D_u)^{Q_Γ(u)}, in the same product domain. For the negative4 mod8 family sum 2^{−k} over Γ of W∏_u(2/D_u)^{V_Γ(u)+k−|Γ|}, with product≤X/4 and product≡1 mod4; for the positive4 mod8 family multiply each such summand by ∏_u(−1/D_u)^{λ_k(u)} and require product≡−1 mod4.",
       "hypotheses": [
         "k≥1; the six families are D of either sign with D odd, D≡0 mod8, or D≡4 mod8."
       ],
@@ -1273,14 +1287,15 @@
         }
       ],
       "acceptance": [
-        "If D<0 is odd and fundamental, then 2^{rk₄ C_D}=2^{-1−ω(|D|)} Σ_{|D|=D₀D₁D₂D₃}(D₂/D₀)(D₁/D₃)(D₃/D₀)(D₀/D₃), over positive pairwise coprime squarefree factors. Raising this to k gives the (F₂²)^k-indexed sum with weight 2^{-kω(∏D_u)}, phase Φ_k(u,v) and prefactor 2^{-k}. For the other five sign/congruence families the same phase persists with the precise characters at −1 and2 supplied by Lemmas28,34,39,41,43."
+        "All six sign/parity domains carry the indicated prefactor, product cutoff and character twists; in particular the negative8 family has no 2^(−k) prefactor, and the sign at4 mod8 switches the product residue."
       ],
       "library": {
         "module": "TauCeti/NumberTheory/ArithmeticStatistics/FieldsAndClassGroups",
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.quadratic_four_rank_jacobi_expansion"
+      "leanName": "FieldStatistics.quadratic_four_rank_jacobi_expansion",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/fk-maximal-unlinked-support",
@@ -1417,7 +1432,7 @@
         "The subgroup-count formula bounds the moment coefficients by O_p(p^{k²/4}(k+1)), giving a Gaussian bound on limiting masses.",
         "The difference of two candidate laws defines an entire generating function vanishing at every p^k. The geometric-zero growth lemma forces this function to vanish.",
         "Evaluate the unique law by the q-binomial identities and remove the subsequence.",
-        "Import ST.5’s surjection-moment uniqueness theorem after finite Gaussian-binomial inversion of these rank moments. This node is the empirical-rank adapter, not a second plan of generic Cohen–Lenstra uniqueness; the alternate analytic proof retains its stated growth-lemma gap."
+        "Finite Gaussian-binomial inversion gives moments of surjections onto elementary abelian test groups only: E #Sur(F_p^r,F_p^j)=p^{−uj}. Request from ST.5 its rank-marginal uniqueness theorem under precisely these tests, including tightness, uniform integrability and the Gaussian tail bound. The existing full finite-p-group uniqueness contract requires all test p-groups and cannot be invoked from rank moments alone. The empirical-rank adapter stays here; generic uniqueness stays with ST.5. Alternatively use the DJ entire-function argument, retaining the explicit geometric-zero growth-lemma gap."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/prime-power-class-group-rank",
@@ -1439,7 +1454,8 @@
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.rank_moments_determine_rank_law"
+      "leanName": "FieldStatistics.rank_moments_determine_rank_law",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/rigid-embedded-field-family",
@@ -1561,14 +1577,15 @@
       ],
       "title": "Prime-to-degree relative torsion splitting",
       "kind": "theorem",
-      "statement": "For a finite extension L/K of number fields and a prime ℓ not dividing d=[L:K], the norm and extension maps split Cl_L[ℓ] as Cl_{L/K}[ℓ]×Cl_K[ℓ]. Hence h_ℓ(L)=h_ℓ(L/K)h_ℓ(K). In a tower of quadratic extensions h₃ therefore factors over all steps. Cl_{L/K} is the kernel of the native relative class-group norm, not a second class-group carrier.",
+      "statement": "For a finite extension L/K of number fields and a prime ℓ not dividing d=[L:K], the norm and extension maps split Cl_L[ℓ] as Cl_{L/K}[ℓ]×Cl_K[ℓ]. Hence h_ℓ(L)=h_ℓ(L/K)h_ℓ(K). In a tower of quadratic extensions h₃ therefore factors over all steps. Cl_{L/K} is the kernel of the native relative class-group norm, not a second class-group carrier. The same splitting and cardinal factorization hold for Cl⁺ using ideal norm and extension on the native narrow class groups: total positivity makes both maps descend, and their composite is the dth power. Define the relative narrow group as this norm kernel.",
       "hypotheses": [
         "L/K is finite; ℓ is prime and ℓ∤[L:K]."
       ],
       "proofSteps": [
         "Use norm∘extension=power d on the native class group.",
         "Invert d on its ℓ-torsion by Bézout and construct a section of norm.",
-        "Split the finite abelian group by kernel and section, and take cardinalities."
+        "Split the finite abelian group by kernel and section, and take cardinalities.",
+        "For the narrow version first descend norm and extension through totally positive principal ideals. At a real base place, norms of totally positive elements are positive, including the positive contributions of complex conjugate pairs. Then repeat the same finite-group splitting."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/torsion-count-of-class-groups",
@@ -1579,8 +1596,13 @@
       "sources": [
         {
           "sourceId": "loww-published",
-          "locator": "§2, beginning, p.6",
+          "locator": "§2, p.7, norm/extension exact sequence",
           "match": "The prime-to-degree splitting turns tower weights into products."
+        },
+        {
+          "sourceId": "bsw-global",
+          "locator": "Theorem6(b), pp.4–5; §10.1, pp.29–30",
+          "match": "The relative narrow fibre and mean require the identical coprime-to-degree splitting."
         }
       ],
       "acceptance": [
@@ -1591,7 +1613,8 @@
         "namespace": "FieldStatistics"
       },
       "implementationStatus": "unchecked",
-      "leanName": "FieldStatistics.relative_torsion_splitting"
+      "leanName": "FieldStatistics.relative_torsion_splitting",
+      "reviewCorrection": "REV-ArithmeticStatistics--ST.3"
     },
     {
       "id": "ArithmeticStatistics:ST.3/uniform-small-degree-field-bound",
@@ -1619,7 +1642,7 @@
       "sources": [
         {
           "sourceId": "loww-published",
-          "locator": "§3, Lemma3.5, p.12; §5, Lemma5.8, p.25",
+          "locator": "§3.1, Lemma3.5, p.11; §5, Lemma5.8, p.25",
           "match": "The small-discriminant regime and quadratic tower count are uniform in the base field."
         }
       ],
@@ -1701,7 +1724,7 @@
       "sources": [
         {
           "sourceId": "loww-published",
-          "locator": "§3.2, Lemmas3.13–3.14 and Proposition3.15, pp.18–20; Proposition3.12, pp.17–18",
+          "locator": "§3.3, Lemmas3.13–3.14 and Proposition3.15, pp.16–18; Proposition3.12 and its proof, pp.16,18",
           "match": "Order counting amplifies the short-range relative class-group count."
         }
       ],
@@ -2514,7 +2537,7 @@
       "sources": [
         {
           "sourceId": "bsw-global",
-          "locator": "Theorem8,pp.4–5; §10.3,pp.30–31; Alberts Corollary4.10/Theorem4.11,pp.656–657",
+          "locator": "Theorem8, p.5; §10.2, pp.30–31",
           "match": "These are the explicitly proved catalogue examples."
         },
         {
@@ -3959,7 +3982,7 @@
       "proofSteps": [
         "Identify the section with the finite flat algebra of the binary-form order.",
         "For finite flat orders in number fields, regularity is equivalent to local maximality.",
-        "Use the binary maximal-order density and ζ_{P¹_Z}(s)=ζ(s)ζ(s−1)."
+        "Use the binary maximal-order density and ζ_{P¹_Z}(s)=ζ(s)ζ(s−1). Here dim(P¹_Z)=2, so the Bertini argument is evaluated at s=3."
       ],
       "prerequisites": [
         "ArithmeticStatistics:ST.3/binary-form-sieve-counts",
@@ -4438,6 +4461,29 @@
         "ArithmeticStatistics:ST.3/quadratic-four-rank-conic-formula",
         "ArithmeticStatistics:ST.3/restricted-real-quadratic-family"
       ]
+    },
+    {
+      "supplier": "ArithmeticStatistics:ST.1",
+      "need": "Export the degree-two squareclass representation G_m acting on G_a by squares, its quadratic-algebra construction and maximal integral orbit/stabilizer/discriminant comparison when2 is inverted (BSW global §3, Theorems3.1–3.4, pp.9–12). The existing cubic/quartic/quintic exports do not supply this case.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.3/low-degree-s-integral-parametrization"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ClassFieldTheory#layer-13-norm-theorems-and-class-fields",
+      "need": "Export ideal norm and extension on the existing narrow class groups, proving descent through totally positive principal ideals and norm∘extension=power[L:F]. Export the ordinary/narrow characters that annihilate extended base classes and their relative S₄-resolvent correspondence. Native ordinary norm maps are already present and must be reused.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.3/relative-torsion-splitting",
+        "ArithmeticStatistics:ST.3/quartic-class-group-two-torsion-fibre",
+        "ArithmeticStatistics:ST.3/low-degree-class-group-mass-ratios"
+      ]
+    },
+    {
+      "supplier": "ArithmeticStatistics:ST.5/moments-determine-cohen-lenstra-limits-for-all-p-and-u",
+      "need": "Export the rank-marginal specialization for prime p and integer u≥0 from elementary-abelian-test surjection moments p^(−uj) alone, with tightness/uniform integrability and Gaussian moment-growth assumptions as in DJ Theorem5 specialized to ℓ=1. Existing uniqueness from all finite-p-group test moments does not provide this contract: rank moments cannot recover the non-elementary test moments. Keep this generic probabilistic theorem in ST.5.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.3/rank-moments-determine-rank-law"
+      ]
     }
   ],
   "gaps": [
@@ -4457,7 +4503,7 @@
     },
     {
       "title": "Ring-class conductor normalization",
-      "detail": "BBP Lemma3.3 invokes a classical bound with a bounded additive term in the rank. The sharper constant-one bound and conductor identity in these adapter nodes need the requested Picard exact sequence and a checked local-unit computation at3; the original Hasse/Datskovsky–Wright proof was not read.",
+      "detail": "The conductor identity and exact Picard conductor sequence still need the requested native supplier and original Hasse/Datskovsky–Wright proof. The review disproved the sharper constant-one rank bound at K=Q(√−39),f=9 and replaced it by ω(f)+1, with ω(f) away from3. Verify the local-unit two-generator bound at3 in the supplier implementation; BBP only needs a bounded additive rank term.",
       "neededBy": [
         "ArithmeticStatistics:ST.3/cubic-conductor-discriminant",
         "ArithmeticStatistics:ST.3/quadratic-order-three-torsion-bound"
@@ -4590,6 +4636,22 @@
       "neededBy": [
         "ArithmeticStatistics:ST.3/embedded-type-catalogue"
       ]
+    },
+    {
+      "title": "Narrow relative norm and base-character filters",
+      "detail": "The pinned native narrow carrier and its forgetful map exist, but narrow norm/extension and their degree identity were not found. These precise suppliers are needed to state the narrow relative split and fibre signatures. The statistical targets use relative torsion; unfiltered ordinary base characters give product closure groups and cannot be included in S₄ fibres.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.3/relative-torsion-splitting",
+        "ArithmeticStatistics:ST.3/quartic-class-group-two-torsion-fibre",
+        "ArithmeticStatistics:ST.3/low-degree-class-group-mass-ratios"
+      ]
+    },
+    {
+      "title": "Rank-marginal moment uniqueness export",
+      "detail": "The ST.5 generic uniqueness target is owned and imported, but its all-test-p-group contract is stronger than the elementary-abelian-test information supplied by rank moments. Obtain the precise rank-marginal uniqueness specialization with its growth hypotheses, or finish the recorded DJ geometric-zero argument; do not infer a full p-group distribution from ranks alone.",
+      "neededBy": [
+        "ArithmeticStatistics:ST.3/rank-moments-determine-rank-law"
+      ]
     }
   ],
   "coverage": [
@@ -4599,7 +4661,7 @@
       "remaining": [
         "Geometric-zero growth lemma: DJ Lemma3 uses the lower bound for an entire function with zeros at p^k from FK06 Lemma6. The DJ argument is read, but the original Jensen/product proof was not obtained. Supply that exact analytic input, with vanishing order and growth constants, before declaring rank-law uniqueness closed.",
         "Native cubic secondary density interface: The parent local-order and Haar interfaces are not implemented at the pins. Bind the primitive quotient R/Z_p, its probability Haar measure and its index function to their ST.1/ST.2 definitions; then prove the integrable-root bound and type the integral. The signature is omitted rather than replacing a cubic order by an arbitrary type.",
-        "Ring-class conductor normalization: BBP Lemma3.3 invokes a classical bound with a bounded additive term in the rank. The sharper constant-one bound and conductor identity in these adapter nodes need the requested Picard exact sequence and a checked local-unit computation at3; the original Hasse/Datskovsky–Wright proof was not read.",
+        "Ring-class conductor normalization: The conductor identity and exact Picard conductor sequence still need the requested native supplier and original Hasse/Datskovsky–Wright proof. The review disproved the sharper constant-one rank bound at K=Q(√−39),f=9 and replaced it by ω(f)+1, with ω(f) away from3. Verify the local-unit two-generator bound at3 in the supplier implementation; BBP only needs a bounded additive rank term.",
         "Cubic order identity over a fixed resolvent: The corrected |Aut R|^{-1} coefficient identity and the full wild-conductor sum are needed in LOWW §3.2. Read Datskovsky–Wright’s original order/conductor formulas and verify their local factors, including3; the source’s abbreviated argument is insufficient to certify these inputs.",
         "Native reduced-multiplier and arithmetic-lift exports: InductionRestrictionPartII RS.1/reduced-multiplier and reduced-cover, and InverseGaloisAndArithmeticFundamentalGroups IG.4/global-arithmetic-invariant are accepted exact suppliers. Their chosen ordinary-cover/oriented-H₂ and profinite local class-field interfaces are not exported at the pins; their own coverage remains planned. Import those definitions and supplier proof contracts. Arithmetic moment and catalogue-row Lean signatures are omitted until those precise exports exist. Conjecture5.1 is used only in generator-evaluation or Hom-valued form.",
         "Arithmetic nonabelian moment signatures: The quadratic moment and kernel-to-field signatures need the requested native maximal-unramified ClassFieldTheory group plus the accepted reduced-multiplier/lifting suppliers just identified. Suggested.lean types the finite wreath, A₄-module and sampling APIs, and lists every arithmetic API/test omission by name. It introduces no opaque arithmetic extension carrier or placeholder proposition.",
@@ -4616,7 +4678,9 @@
         "Historical Galois-bound exceptional inputs: The published EV Proposition1.3 and proof Proposition2.8,pp.734–737 were read. Closure still requires the CFSG large core-free subgroup result, the nilpotent order8 count of Klüners–Malle, the Datskovsky–Wright S₃ input and the inflation–restriction character bound with its ramification support. Those statements are imported or requested, not replaced by Schmidt’s exponent.",
         "Classical binary quadratic orbit counts: The accepted Mertens definite and Siegel indefinite targets remain imports. No cleared copy of the original indefinite-count theorem was located. Read Siegel Theorem3/§8 with the exact primitive/content, orientation and positive-norm unit conventions, compare the corrected π²/(18ζ(3)) primitive leading coefficient with π²/18 for all forms, and connect it to the native quadratic-order/Picard and regulator layers before closing the parent target.",
         "Catalogue computation certificates: Import the finite reduction-certificate and compatible-parity algorithms from InductionRestrictionPartII RS.6; do not plan them again. Their certified ordinary-cover inputs and complete table runs are still open in that accepted supplier. The present quadratic-wreath catalogue must bind each listed embedded subgroup orbit to those certificates; neither abstract SmallGroups names nor unverified95-candidate output proves a multiplier value or universal parity assertion.",
-        "Resolve supplier proof/interface contracts; this stage is planned, not closed."
+        "Narrow relative norm and base-character filters: The pinned native narrow carrier and its forgetful map exist, but narrow norm/extension and their degree identity were not found. These precise suppliers are needed to state the narrow relative split and fibre signatures. The statistical targets use relative torsion; unfiltered ordinary base characters give product closure groups and cannot be included in S₄ fibres.",
+        "Rank-marginal moment uniqueness export: The ST.5 generic uniqueness target is owned and imported, but its all-test-p-group contract is stronger than the elementary-abelian-test information supplied by rank moments. Obtain the precise rank-marginal uniqueness specialization with its growth hypotheses, or finish the recorded DJ geometric-zero argument; do not infer a full p-group distribution from ranks alone.",
+        "Resolve the recorded supplier proof/interface contracts; this stage is planned, not closed."
       ]
     }
   ],
@@ -5010,6 +5074,11 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at pp.8–9: principal generators have relative norm a unit, not necessarily1. The archimedean bound needs each norm block zero, not merely their total. Pigeonholing norm classes modulo degree-th powers before choosing generator ratios supplies the missing bounded-cost step.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5032,6 +5101,11 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as inconsistent reused degree notation, not a counterexample to the weaker displayed lemma. Its hypothesis names [L:Q] and its proof resets d=[L:K]; the norm composite and discriminant tower use relative degree, while place counts use absolute degree. The absolute-degree exponent in the statement is a weaker consequence of the relative bound.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5054,16 +5128,21 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected for this published version. Lemma3.5, p.11 (rather than the inherited Lemma2.4 locator), explicitly states n^(1/2+ε)h₂(F)Disc(F)^(1/2+ε) and its quadratic subcount is O(n^εh₂(F)). The base two-torsion factor has not been omitted. The separate local-character bookkeeping is E10.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
       "id": "ArithmeticStatistics/E4",
       "source": "loww-published",
       "kind": "misprint",
-      "locator": "Theorem6.1, p.30, compared with its proof p.36, published PDF",
-      "printed": "The displayed tower-average numerator and denominator omit the factor2^(−r₂(F)).",
-      "correction": "Weight both sums by2^(−r₂(F)); fixed-signature formulas retain their existing constant.",
-      "reason": "Summing the quadratic-extension local masses over real-place signatures gives κ_F/(2^r₂(F) ζ_F(2)D_F²). The complex-place count varies with F.",
+      "locator": "Theorem6.2 count constant C_G, p.30; compare C_m and proof pp.36–37, published PDF",
+      "printed": "The displayed C_G tower-count constant omits the signature weight 2^(−r₂(F)). The preceding C_m average constant and the final quotient formula already retain that weight.",
+      "correction": "Insert 2^(−r₂(F)) in the C_G display. Keep the correctly weighted C_m and final mean formula.",
+      "reason": "The summed quadratic signature mass is κ_F/(2^(r₂(F)) ζ_F(2)D_F²). Reading both constants and the final proof rules out the broader inherited assertion that the final tower-average numerator and denominator omit it.",
       "affects": "nothing",
       "known": "Existing atlas finding PAPER-LEMKEOLIVER-WANG-WOOD-25/E6; no separate author correction identified by its recorded searches.",
       "searched": [
@@ -5076,13 +5155,24 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "priorFinding": {
+        "locator": "Theorem6.1, p.30, compared with its proof p.36, published PDF",
+        "printed": "The displayed tower-average numerator and denominator omit the factor2^(−r₂(F)).",
+        "correction": "Weight both sums by2^(−r₂(F)); fixed-signature formulas retain their existing constant.",
+        "reason": "Summing the quadratic-extension local masses over real-place signatures gives κ_F/(2^r₂(F) ζ_F(2)D_F²). The complex-place count varies with F."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only for the displayed C_G count constant in Theorem6.2, p.30. C_m on the same page and the final mean formula on p.37 already contain 2^(−r₂(F)). The finding has been narrowed to that display; its inherited accusation against the final numerator and denominator is rejected.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
       "id": "ArithmeticStatistics/E5",
       "source": "loww-published",
       "kind": "misprint",
-      "locator": "Proposition2.6/Lemma2.7, pp.7–9, published PDF",
+      "locator": "Lemma2.1 hypothesis on a_i,b_i, p.7; proof pp.8–9, published PDF",
       "printed": "The auxiliary factorization does not explicitly require both a and b to be positive.",
       "correction": "Require a,b≥1 in the split-prime factorization.",
       "reason": "If a=0, the prime whose exponent is tested disappears; the primitive-generator contradiction no longer follows.",
@@ -5098,6 +5188,14 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "priorFinding": {
+        "locator": "Proposition2.6/Lemma2.7, pp.7–9, published PDF"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Lemma2.1, p.7: a_i,b_i are unrestricted integers. Taking all of them zero makes the norm conditions vacuous and permits arbitrarily many distinct completely split prime pairs, contradicting the inverse-M bound. Positive exponents are needed; the inherited nonexistent Proposition2.6/Lemma2.7 locator was replaced.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5120,6 +5218,11 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof qualification at pp.14,20–21. The absolute meromorphic functions cannot be uniformly bounded near their poles by the finite right-hand sides. Pole cancellation or fixed pole separation must precede the contour estimates; no contradiction to the final bound follows.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5142,6 +5245,11 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Lemma3.13, pp.16–17: it sums isomorphism classes with Aut_F(A), whereas its generating series counts actual embedded suborders. Orbit-stabilizer requires Aut_OF(R). For Q×Q(i) at index5, the three embedded orders give two conjugation orbits and mass3/2, rather than1. The tensor is over O_F. The subsequent inequality remains usable with the corrected identity.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5164,6 +5272,11 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at the Proposition3.12 proof, p.18: only squarefree conductor ideals are summed. The cubic field Q(∛3) has discriminant −243 and resolvent discriminant −3, giving conductor9. The full conductor sum is a recorded supplier obligation, not automatically closed by this example.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5186,16 +5299,21 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "rejected",
+        "reason": "Rejected for this published version. Lemma3.13, p.16 explicitly requires the underlying algebra to have discriminant disc(K/F), and its proof repeats that restriction on L/F. The proposed missing hypothesis is already present. The inherited Lemma3.8/p.19 locator does not identify this statement.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
       "id": "ArithmeticStatistics/E10",
       "source": "loww-published",
       "kind": "gap",
-      "locator": "Quadratic relative-class estimates, p.25, published PDF",
-      "printed": "The fixed-ideal quadratic count drops the archimedean and prime2 local-image factors.",
-      "correction": "Carry the fixed-ideal class-character multiplicity and every archimedean/2-adic restriction through the sum.",
-      "reason": "The local image in the quadratic character group is not independent of the conductor ideal.",
+      "locator": "Lemma3.5 proof, p.11; Lemma5.8 proof, p.25, published PDF",
+      "printed": "An intermediate fixed-discriminant quadratic-extension fibre is bounded by h₂(F) alone before the local characters are counted.",
+      "correction": "For a fixed discriminant ideal use the number of compatible local quadratic character restrictions times h₂(F). The archimedean and dyadic factors are degree-bounded; products over its tame prime support contribute Nm(𝔪)^ε.",
+      "reason": "The inertia restrictions determine the discriminant, but the discriminant does not determine each restriction. Each restriction has at most h₂(F) extensions. The following O_degree,ε(n^ε h₂(F)) estimate can retain these factors, so no final exponent changes.",
       "affects": "the proof",
       "known": "Existing atlas finding PAPER-LEMKEOLIVER-WANG-WOOD-25/E14; no separate author correction identified by its recorded searches.",
       "searched": [
@@ -5208,6 +5326,17 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "priorFinding": {
+        "locator": "Quadratic relative-class estimates, p.25, published PDF",
+        "printed": "The fixed-ideal quadratic count drops the archimedean and prime2 local-image factors.",
+        "correction": "Carry the fixed-ideal class-character multiplicity and every archimedean/2-adic restriction through the sum.",
+        "reason": "The local image in the quadratic character group is not independent of the conductor ideal."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only for the intermediate h₂(F)-alone assertion on p.11. Different local inertia characters may have the same discriminant. Their degree-bounded dyadic/infinite factors and tame-support divisor factors fit the later O(n^εh₂(F)) bound. This is local bookkeeping, not evidence that its final ε-loss estimate is false.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5230,6 +5359,11 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an unsupported quantitative input in the introductory quartic comparison, p.2. The quoted estimates do not give a square-root A₄ count; the checked torsion application gives exponent0.7784…+ε, which still supplies the required o(X) remainder. No claim that the stronger conjectural bound is false is made.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5253,6 +5387,11 @@
       "priorReview": {
         "by": "Claude Code, session cc-7b31c4, issue #1331",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at Conjecture5.1, journal p.411, with Lemma3.11, p.393. The invariant is multiplicative in the chosen root, so evaluation at1 is trivial. The order96 A₄ type has multiplier C₂ and hence a proposed nontrivial stratum would be empty. Generator evaluation or the full Hom-valued invariant is necessary.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5275,6 +5414,11 @@
       "priorReview": {
         "by": "Claude Code, session cc-7b31c4, issue #1331",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at AppendixA.1, journal p.421: the trivial-action group has kernel C₂² and quotient C₃, hence order12 and type C₂²×C₃. The displayed order18 group is incompatible with these sizes.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5298,6 +5442,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the arXiv v3 weighted sieve, p.23: the local multiplicative weight must use the prime p inside its product. This is scoped to that preprint, not the inaccessible version of record.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5321,6 +5470,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an unclosed modulus-boundary estimate in arXiv v3, p.23. Counting each lattice translate introduces a boundary term depending on the modulus and the number of classes. The sum of these terms must be bounded before optimizing M. The packet correctly retains this in ST.2 rather than certifying a replacement estimate.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5344,6 +5498,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3, Lemma5.1, p.24. Independent signs preserve reduced-basis norms. In the trace-zero monic case reflection yields g and (−1)^n g(−x), so literal uniqueness cannot give a single representative.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5367,6 +5526,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a proof gap in arXiv v3, p.25. An arbitrary positive Gram matrix first needs determinant normalization; a Siegel set contains a reduction domain but is not that exact domain. Existence of a reduced basis does not establish strong uniqueness. The weak-reduction geometric supplier remains open.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5390,6 +5554,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed for the literal squarefree-modulus sums in arXiv v3, pp.22–23. Every zero discriminant is divisible by every m², so the untruncated sum diverges. Removing that hypersurface is essential before divisor estimates.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5413,6 +5582,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3, Lemma5.2 proof, p.25: g(ρx) contracts roots. The monic expansion ρ^n g(x/ρ) scales the jth power-basis vector by ρ^j and has the required coefficient scaling.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5436,6 +5610,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3, Lemma5.3, p.25. For imaginary quadratic polynomials with odd linear coefficient, centering the generator has a half-integer tie: θ+m and θ+m+1 give two reduced second vectors, not sign-equivalent. An odd-linear-coefficient subbox with |a₁|≤X/2 and X²/2≤a₂≤X² has positive weighted-box density, so density1 of strong uniqueness is false. Its field applications remain conditional targets.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5458,6 +5637,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed against the published quartic factor and AppendixA.1, pp.2,53–54. Independent exact enumeration of all9⁵ coefficient tuples gives42768 nonzero discriminants mod9, or176/243, whereas the printed factor gives1600/2187. The general-prime formula additionally needs the stated double-root recurrence; this finite check alone does not prove it.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5480,6 +5664,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published Lemma7.2/proof, pp.52–53. Reflection is determinant−1, so signed binary representatives cannot generally be identified by SL₂. Uniform coefficient dilation fixes1 and scales all ζ_k; it requires its own geometric multiplicity argument, which remains open.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5502,6 +5691,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a gap in the proof of Theorem7.1, pp.51–52, not its locally weighted statement. Σ_p is defined at p|N, but W_m(Σ) with (m,N)=1 imposes only membership there and omits squarefreeness at these bad primes before inclusion-exclusion. A class forcing p²|Δ has zero squarefree density. The proof must filter every p|N; its γ display also cannot use an undefined Σ_p at p|m.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5524,6 +5718,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the ζ_(n−1) display, p.52. The recurrence for the earlier ζ_k gives the final term a_(n−2)θ, not the printed a_(n−1). The suggested basis formula has the correct j<k range.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5546,13 +5745,18 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in Corollary6.27, p.51. The zero-discriminant divisor sum is infinite, and the strong/weak covering only bounds the union by the sum of its two covers, not by each cover separately. The corrected tail remains an explicit supplier contract.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
       "id": "ArithmeticStatistics/E26",
       "source": "bsw-binary-published",
       "kind": "gap",
-      "locator": "Even-degree tail, §6, published PDF; ST.2 supplier qualification",
+      "locator": "§5.3, S(Λ), p.26; restricted counted subset (29), p.29; §6.4 even-degree estimate, (74), pp.47–48, published PDF",
       "printed": "The intermediate lattice partition and rank estimate do not retain all equations of the counted subset.",
       "correction": "Retain the subset equations and rank strata in the ST.2 export; do not infer the corrected global tail from a whole row-contained lattice.",
       "reason": "Zero lies in every row-contained lattice, so the asserted disjointness/full-rank argument cannot count all such lattices. This is an inherited supplier finding; the ST.3 application keeps its dependency open.",
@@ -5568,6 +5772,14 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
         "verdict": "confirmed"
+      },
+      "priorFinding": {
+        "locator": "Even-degree tail, §6, published PDF; ST.2 supplier qualification"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as an unproved full-lattice-to-subset step, scoped to S(Λ) at p.26 and the actual restricted subset at p.29/(74) pp.47–48. Zero belongs to every row-contained lattice, so a literal full-lattice disjointness/full-rank argument fails. This does not prove the restricted arithmetic tail false; the subset equations and rank strata must remain in its proof.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5590,6 +5802,11 @@
       "priorReview": {
         "by": "REV-PAPER-KOYMANS-MILOVIC-21",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a discriminant-label slip in the arXiv v1 §5 family, pp.22–23. For p≡1 mod4 the field Q(√−p) has fundamental discriminant −4p. Under discriminant notation its class number is h(−4p). This does not alter the field-based spin criterion.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5604,7 +5821,12 @@
       "known": "No separate correction located in the bounded checks recorded here; no novelty claim.",
       "searched": [
         "2026-10-10: arXiv1512.03035 record and title/erratum search; author Main11_2.pdf dated26June2017 checked for the same proof; no separate correction located."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at BSW global Theorem4.6 proof, p.18. The omitted split cubic type has density5/6, not1/6. Any fixed upper constant between its complement density and1 gives the same finite-prime exclusion argument and o(X) conclusion.",
+        "by": "REV-ArithmeticStatistics--ST.3"
+      }
     },
     {
       "id": "ArithmeticStatistics/E29",
@@ -5618,16 +5840,21 @@
       "known": "No separate correction located in the bounded checks recorded here; no novelty claim.",
       "searched": [
         "2026-10-10: published Annals article and title/erratum web search; no applicable correction found."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in EV Proposition2.8 proof, journal p.736: V₄ has √Y(log Y)² growth over Q, so the pure-square-root wording is too strong. The O_ε(Y^(1/2+ε)) input still gives the published3/8+ε estimate.",
+        "by": "REV-ArithmeticStatistics--ST.3"
+      }
     },
     {
       "id": "ArithmeticStatistics/E30",
       "source": "loww-published",
       "kind": "misprint",
       "locator": "Lemma2.1 proof, p.9, published PDF",
-      "printed": "The divisor of the ratio of two generators loses the inverse exponents at the second pair of primes.",
-      "correction": "Retain the signed fractional-ideal exponents of α_r/α_s.",
-      "reason": "Division reverses every exponent in the denominator; the relative norm cancellation depends on these signs.",
+      "printed": "The fractional-ideal display for the generator ratio uses mismatched a_i,b_i labels on the denominator prime factors.",
+      "correction": "Use (uα_r/α_s)=℘_r^(ℓa_r)·bar℘_r^(−ℓb_r)·℘_s^(−ℓa_s)·bar℘_s^(ℓb_s).",
+      "reason": "The definitions on p.8 give these four exponents by division. Negative signs are already present in the printed display; the error is their paired exponent labels, so the inherited description of lost inverse exponents was too broad.",
       "affects": "nothing",
       "known": "Existing atlas finding PAPER-LEMKEOLIVER-WANG-WOOD-25/E3; no author correction identified by its recorded searches.",
       "searched": [
@@ -5640,6 +5867,16 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "priorFinding": {
+        "printed": "The divisor of the ratio of two generators loses the inverse exponents at the second pair of primes.",
+        "correction": "Retain the signed fractional-ideal exponents of α_r/α_s.",
+        "reason": "Division reverses every exponent in the denominator; the relative norm cancellation depends on these signs."
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed only as mismatched paired exponent labels in the p.9 ratio display. Negative signs are printed already; division of the correctly defined p.8 generators gives the four corrected exponents. The finding preserves and narrows the inherited wording.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5662,6 +5899,11 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at pp.17,23. Lemma3.14 counts integral ideals of O_F, although the display uses O_L. Corollary5.5 invokes the tail result of Theorem5.1, not its printed theorem index. Both intended meanings are clear.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5684,6 +5926,11 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p.9 as a constant-dependence slip. The unit quotient is killed by relative degree d but its generator count includes base unit rank and roots of unity. The bound d^(r₁(K)+r₂(K)) is sufficient; constants must allow [L:Q].",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5706,6 +5953,11 @@
       "priorReview": {
         "by": "REV-PAPER-LEMKEOLIVER-WANG-WOOD-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed at p.21: the proof writes a minimum while the lemma statement and admissible contour require the maximum with1/2. The correct line stays in the half-plane of the stated analytic estimate.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5729,6 +5981,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as the imprimitive-branch gap in arXiv v3, p.22. The actual balanced wreath group order is2((n/2)!)²; its index is3 at n=4 and10 at n=6. The quartic substitution gives22/3+ε rather than the stronger printed exponent. This weaker saving suffices for the proposed truncation.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5752,6 +6009,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3, p.21. The pointwise divisor function is not O(log n), but its partial sum is O(N log N), and that is the estimate needed after summing the constant coefficients. No change of the intended exponent is necessary.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5775,6 +6037,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing degree2 proof branch in arXiv v3. For odd m, fixing a₁ leaves one a₂ class modulo m²; with nonzero Δ the modulus is O(X), so the sum of X·(X²/m²+1) gives O(X³/M+X²). Zero discriminants must be counted separately.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5798,6 +6065,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3, p.27. The golden-ratio root of x²−x−1 exceeds the displayed unscaled coefficient maximum. Restoring the factor2 fixes the bound and leaves its O(Y) consequence unchanged.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5821,6 +6093,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-22",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in arXiv v3, Theorem5.4, p.26: x²+a₂ always has discriminant −4a₂, making its trace-zero squarefree density zero. The packet separates this branch and does not assert κ₂>0.",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5843,6 +6120,11 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as a missing quadratic tail branch in the published paper. Theorem5 starts at n≥3 while the density conclusions include n=2. For each fixed nonzero Δ, the equation4a₀a₂=a₁²−Δ gives O_ε(X^(1+ε)) tuples, including the zero-product case separately; summing nonzero multiples of m² up to O(X²) yields O_ε(X^(3+ε)/M).",
+        "by": "REV-ArithmeticStatistics--ST.3"
       }
     },
     {
@@ -5851,8 +6133,8 @@
       "kind": "misprint",
       "locator": "Arithmetic-Bertini interpretation, p.3, published PDF",
       "printed": "The zeta factor in the geometric interpretation lacks an inverse.",
-      "correction": "Use ζ_(P¹_Z)(2)^(−1)=ζ(2)^(−1)ζ(3)^(−1).",
-      "reason": "A density lies in[0,1], while the uninverted zeta value is larger than1. The numerical main theorem uses the inverse factors.",
+      "correction": "Use ζ_(P¹_Z)(3)^(−1)=ζ(3)^(−1)ζ(2)^(−1), since dim(P¹_Z)=2.",
+      "reason": "The prose omits the inverse, whereas the next display correctly evaluates at dim(P¹_Z)+1=3. The inherited correction evaluated at2 and was itself wrong.",
       "affects": "nothing",
       "known": "Existing atlas finding PAPER-BHARGAVA-SHANKAR-WANG-25/E10; no author correction identified by its recorded searches.",
       "searched": [
@@ -5865,6 +6147,15 @@
       "priorReview": {
         "by": "REV-PAPER-BHARGAVA-SHANKAR-WANG-25",
         "verdict": "confirmed"
+      },
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed as the missing reciprocal in the published arithmetic-Bertini prose, p.3. The inherited correction also had the wrong zeta argument: P¹_Z has Krull dimension2, so its density is ζ_(P¹_Z)(3)^(−1)=ζ(3)^(−1)ζ(2)^(−1), not ζ_(P¹_Z)(2)^(−1). The following source display and the packet theorem already use the correct value.",
+        "by": "REV-ArithmeticStatistics--ST.3"
+      },
+      "priorFinding": {
+        "correction": "Use ζ_(P¹_Z)(2)^(−1)=ζ(2)^(−1)ζ(3)^(−1).",
+        "reason": "A density lies in[0,1], while the uninverted zeta value is larger than1. The numerical main theorem uses the inverse factors."
       }
     },
     {
@@ -5880,7 +6171,12 @@
       "searched": [
         "2026-10-10: searched the full six-author title with erratum/correction and quadratic resolvent −3/Remark6.1; checked the arXiv1701.02458 version record (v1 only).",
         "Read original Cohen–Morra arXiv1003.1869v1 and Bhargava–Shnidman published Theorems7–8."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the checked Kobe author copy, p.10, against the primary fixed-resolvent sources: Cohen–Morra Theorem1.1/Corollary7.4 and Bhargava–Shnidman Theorem8,(1), pp.57–58. The d=−3 conductor series has a double pole and gives √X log X. The ε-loss quartic application survives, without claiming this same error in a different published edition.",
+        "by": "REV-ArithmeticStatistics--ST.3"
+      }
     },
     {
       "id": "ArithmeticStatistics/E42",
@@ -5894,7 +6190,88 @@
       "known": "No author erratum was identified; the same display appears in the Princeton arXivv2 copy. The subsequent conductor normalization already uses the corrected coefficient.",
       "searched": [
         "2026-10-10: searched the paper title/authors with errata, correction and Proposition36; read the published display visually and checked the Princeton arXivv2 search result."
-      ]
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Confirmed in the published Proposition36, p.83. With d=3d′, b=r²d′ and c=3rd′, the standard cubic discriminant simplifies to −3((r³d′−9a)d′)². The example(1,1,1) gives−192 rather than576. The later √(X/3) height normalization already agrees with the correction.",
+        "by": "REV-ArithmeticStatistics--ST.3"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E43",
+      "source": "bsw-global",
+      "kind": "misprint",
+      "locator": "§10.1,p.28, arXiv1512.03035v2",
+      "printed": "The opening index-three subgroup count uses (h₃(L/F)−1)/3.",
+      "correction": "Use (h₃(L/F)−1)/2.",
+      "reason": "Nonzero homomorphisms to C₃ have the same kernel in pairs, one for each automorphism of C₃. The later displayed fibre count on this page already has denominator2.",
+      "affects": "nothing",
+      "known": "No applicable correction located in the bounded checks recorded here; no novelty claim.",
+      "searched": [
+        "2026-10-10: read arXiv1512.03035v2 pp.28–31 and its current version record (v2 remains latest); title/erratum/corrigendum searches did not identify an applicable correction. The author Main11_2.pdf available on the publication page is dated26June2017, earlier than this version."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Nonzero homomorphisms to C₃ have the same kernel in pairs, one for each automorphism of C₃. The later displayed fibre count on this page already has denominator2.",
+        "by": "REV-ArithmeticStatistics--ST.3"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E44",
+      "source": "bsw-global",
+      "kind": "misprint",
+      "locator": "§10.1,p.29, arXiv1512.03035v2",
+      "printed": "The quadratic extension L₂ of a cubic field L is described as Galois over F with group S₄.",
+      "correction": "Require its normal closure over F to have group S₄; L₂/F itself has degree6. Retain the characters annihilating extended base classes.",
+      "reason": "[L₂:F]=2·3=6 cannot be the degree of an S₄ Galois extension, which is24. The succeeding quartic correspondence uses the normal closure; the local relative-character target in the packet has been corrected accordingly.",
+      "affects": "nothing",
+      "known": "No applicable correction located in the bounded checks recorded here; no novelty claim.",
+      "searched": [
+        "2026-10-10: read arXiv1512.03035v2 pp.28–31 and its current version record (v2 remains latest); title/erratum/corrigendum searches did not identify an applicable correction. The author Main11_2.pdf available on the publication page is dated26June2017, earlier than this version."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "[L₂:F]=2·3=6 cannot be the degree of an S₄ Galois extension, which is24. The succeeding quartic correspondence uses the normal closure; the local relative-character target in the packet has been corrected accordingly.",
+        "by": "REV-ArithmeticStatistics--ST.3"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E45",
+      "source": "bsw-global",
+      "kind": "misprint",
+      "locator": "§10.2,pp.30–31, arXiv1512.03035v2",
+      "printed": "Part(b) fixes n=2,3,4, despite Theorem8 treating n=3,4,5; the ensuing harmonic display repeats its first discriminant in the second term.",
+      "correction": "Run the simply ramified degree-n argument for n=3,4,5 and sum 1/N(d_i) over every listed discriminant, with multiplicity.",
+      "reason": "Theorem8 on p.5 includes n=5, and the existing simply ramified field-count input covers that degree. The summation over tY fields requires d₂ in its second term. These are proof-index slips, not new arithmetic hypotheses.",
+      "affects": "nothing",
+      "known": "No applicable correction located in the bounded checks recorded here; no novelty claim.",
+      "searched": [
+        "2026-10-10: read arXiv1512.03035v2 pp.28–31 and its current version record (v2 remains latest); title/erratum/corrigendum searches did not identify an applicable correction. The author Main11_2.pdf available on the publication page is dated26June2017, earlier than this version."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Theorem8 on p.5 includes n=5, and the existing simply ramified field-count input covers that degree. The summation over tY fields requires d₂ in its second term. These are proof-index slips, not new arithmetic hypotheses.",
+        "by": "REV-ArithmeticStatistics--ST.3"
+      }
+    },
+    {
+      "id": "ArithmeticStatistics/E46",
+      "source": "bsw-global",
+      "kind": "misprint",
+      "locator": "§10.1,p.29, complex-place comparison and Table3, arXiv1512.03035v2",
+      "printed": "The complex-place sentence assigns C² to the cubic K and C³ to the quadratic L, and the quartic/cubic table headings likewise reverse the field names.",
+      "correction": "Assign K⊗C=C³ and L⊗C=C² in part(a); in Table3 the quartic splitting types belong to K and the cubic ones to L.",
+      "reason": "Dimensions determine these assignments. The written mass ratio1/3 and the row values already use the intended degrees, so the statistical constants do not change.",
+      "affects": "nothing",
+      "known": "No applicable correction located in the bounded checks recorded here; no novelty claim.",
+      "searched": [
+        "2026-10-10: read arXiv1512.03035v2 pp.28–31 and its current version record (v2 remains latest); title/erratum/corrigendum searches did not identify an applicable correction. The author Main11_2.pdf available on the publication page is dated26June2017, earlier than this version."
+      ],
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Dimensions determine these assignments. The written mass ratio1/3 and the row values already use the intended degrees, so the statistical constants do not change.",
+        "by": "REV-ArithmeticStatistics--ST.3"
+      }
     }
   ],
   "restructure": [
@@ -5925,7 +6302,7 @@
         "ArithmeticStatistics:ST.3/polynomial-order-lattice-reduction",
         "ArithmeticStatistics:ST.3/monic-weak-quasi-reduction"
       ],
-      "checked": "Current upstream README milestones2E–2G and Suggested.lean finite_classes_of_posDef/covolume identity, commit81207c7; upstream is read-only. This newer roadmap has no atlas stage id in this clone."
+      "checked": "Independently read current upstream IntegralLattices README Layer 2 milestones 2E–2G and Suggested.lean finite_classes_of_posDef/covolume identity, commit 070dc2becd74419e76303ede84b465ed4a69461f on 2026-10-10. The integer-Gram finiteness statement does not export arbitrary real-Gram reduction. Upstream is read-only; this newer roadmap has no atlas stage id in this clone."
     }
   ],
   "routeCoverage": [
@@ -7693,14 +8070,14 @@
     },
     {
       "source": "bhargava-shnidman",
-      "kind": "published PDF",
+      "kind": "published",
       "url": "https://msp.org/ant/2014/8-1/ant-v8-n1-p03-s.pdf",
       "read": "2026-10-10",
       "sha256": "3e50bd9564506337130e775a8f7aee311c47b0ea103354de7ee9feb6c12f5ef2"
     },
     {
       "source": "cohen-morra",
-      "kind": "arXiv v1 PDF",
+      "kind": "preprint",
       "url": "https://arxiv.org/pdf/1003.1869v1",
       "read": "2026-10-10",
       "sha256": "2477ad5f4ff61e55246c053b832bb7ec88a8b7b643ca4c7c471124a81e26b6a0"
@@ -7866,7 +8243,7 @@
       "status": "omitted signature",
       "omittedApis": [],
       "omittedTests": [],
-      "reason": "Imports ST.5/moments-determine-cohen-lenstra-limits-for-all-p-and-u; the missing arithmetic adapter must bind the empirical rank family and its Gaussian-inversion moments to that supplier."
+      "reason": "Needs the ST.5 rank-marginal specialization using only elementary-abelian-test moments, or the explicit DJ geometric-zero growth lemma. Full p-group surjection-moment uniqueness does not follow from rank moments; the native empirical-rank adapter is omitted."
     },
     {
       "node": "ArithmeticStatistics:ST.3/rigid-embedded-field-family",
@@ -7877,10 +8254,10 @@
     },
     {
       "node": "ArithmeticStatistics:ST.3/relative-torsion-splitting",
-      "status": "native signature",
+      "status": "partial native signature",
       "omittedApis": [],
       "omittedTests": [],
-      "reason": "Native object/signature and every listed API/test are present; mathematical proofs remain unchecked."
+      "reason": "The ordinary norm-kernel splitting has its native signature. Narrow ideal norm/extension maps and their degree composite are absent at the pins and are explicitly requested; the narrow splitting and both cardinal formulas remain signature omissions."
     },
     {
       "node": "ArithmeticStatistics:ST.3/uniform-small-degree-field-bound",
@@ -8264,5 +8641,393 @@
       "omittedTests": [],
       "reason": "LogarithmicMomentPrediction uses the missing signed arithmetic moments, their base-field denominator and their asymptotic limit. The finite tame factor is native and does not prove that prediction."
     }
-  ]
+  ],
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-ArithmeticStatistics--ST.3",
+    "date": "2026-10-10",
+    "notes": "Independent target-level review of all 76 nodes, 20 exact public source versions, 23 pinned baseline declarations, 33 accepted imports, 227 routed results, 74 API entries, 42 test specifications and 5 planets. Corrected 16 nodes, added 3 supplier requests and 2 gaps, independently reviewed all 46 source issues (44 confirmed, 2 rejected), preserving prior provenance. Suggested Lean elaborates with proof-placeholder warnings only; coverage is 13 native, 11 partial and 52 omitted signatures. Accepted as a complete planning pass with stage ST.3 planned, not closed: 21 gaps and 27 requests remain honest proof/interface obligations. The reader document is outside this issue and requires the reconciliation listed in the report before packaging.",
+    "checked": [
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/prime-power-class-group-rank",
+        "verdict": "verified",
+        "note": "Image torsion and the adjacent-power quotient agree for finite abelian groups; C2/C4/C8 tests distinguish fourth rank from ordinary two-rank. The elementary-two comparison uses the confirmed native finite class group."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/fk-linking-phase",
+        "verdict": "verified",
+        "note": "FK (20)–(27), pp.15–17, give the ordered nonsymmetric phase. Its diagonal, ordered-asymmetry and linkage tests match the native expressions."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/fk-good-subspace-bijection",
+        "verdict": "verified",
+        "note": "FK Lemma26, pp.32–34, supports the F plus annihilator bijection and both constrained counts. Dimension forces the projected inclusion to be equality; this is finite linear algebra rather than an additional analytic input."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/cubic-conductor-discriminant",
+        "verdict": "verified",
+        "note": "The field/conductor target retains inverse anti-invariant characters and infinity conditions. BBP p.12 invokes this input without proving the complete wild normalization; the exact class-field request and original-source gap remain explicit."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/quadratic-order-three-torsion-bound",
+        "verdict": "corrected",
+        "note": "Replaced the false omega(f) bound by omega(f)+1, retaining the sharper bound away from3 and equality at f=1. Q(sqrt(-39)),f=9 gives class three-torsion1 and order three-torsion9. BBP Lemma3.3 needs only a bounded additive rank term; the requested conductor-sequence proof records the local rank-two allowance."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/cubic-large-total-ramification-bound",
+        "verdict": "verified",
+        "note": "BST Proposition29, pp.23–26, separates the field-ramification tail from ring nonmaximality. BBP Lemma3.3, p.12, gives the squarefree support bound; summing X/p^2 gives the stated X/M tail."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/secondary-cubic-lattice-coefficient",
+        "verdict": "corrected",
+        "note": "Corrected N(L;X) to the averaged fundamental-domain count of BST Theorem27, pp.19–20. A noninvariant lattice is not an orbit condition; invariant loci recover the weighted count. Translate residues and m^4<=X are retained."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/cubic-secondary-local-factor-evaluation",
+        "verdict": "verified",
+        "note": "BST Table1 and (56)–(57), pp.20–23, give both displayed secondary factors. Disjoint root lattices and the zero reduction supply the five splitting factors with the stated maximality modulus."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/cubic-root-weighted-sieve-identity",
+        "verdict": "corrected",
+        "note": "BST Proposition33, pp.27–29, gives all three rescaled terms. Individual projective-root loci use the averaged convention, and their invariant sum retains p+1 roots at the zero reduction."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/refined-cubic-sieve",
+        "verdict": "corrected",
+        "note": "Corrected all three estimates to the dyadic remainder in BST Lemmas34–36, pp.29–35, with main-term factors1/2 and1-2^(-5/6). Delta1=1/24 and delta2=1/30 give saving1/48; dyadic summation yields the cumulative assertion."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/cubic-secondary-orbit-integral",
+        "verdict": "corrected",
+        "note": "Corrected R to a rank-three integral order with etale generic fibre, allowing ramified orders. BST Lemma37, pp.35–36, uses primitive probability Haar measure and the displayed index integral; the native quotient/Haar interface remains an explicit omission."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/low-degree-s-integral-parametrization",
+        "verdict": "corrected",
+        "note": "Corrected discriminant equality to a fractional O_S ideal identity and recorded inversion of2 in degree2. BSW Theorems3.1–3.4, pp.9–12, include degree2, which needs a new squareclass representation export from the existing ST.1 owner."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/low-degree-maximal-sieve",
+        "verdict": "verified",
+        "note": "BSW Theorems5.1–5.3, pp.18–20, give the prime tail and the separate nongeneric removal. The complement-density typo is independently confirmed; acceptable infinite conditions are justified by the tail contract."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/low-degree-jacobian-mass",
+        "verdict": "verified",
+        "note": "BSW Propositions7.1–7.3 and section8, pp.21–25, give J=2 in degree2 and unit Jacobian otherwise. Product-formula cancellation, automorphism denominators and the residue prefactor match the packet."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/quartic-quintic-density-constants",
+        "verdict": "verified",
+        "note": "BSW (9)–(11), pp.7–8, give the quartic/quintic products and archimedean factorial weights. S4/S5 fields have trivial base automorphism group, so their weighted counts become the stated isomorphism counts."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/quartic-class-group-two-torsion-fibre",
+        "verdict": "corrected",
+        "note": "Corrected ordinary characters to characters annihilating extended base classes, with relative h2-1 and the narrow analogue. Unfiltered base characters produce product closure groups. Added the prime-to-degree splitting prerequisite; BSW section10.1, pp.29–30, uses the relative fibre."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/low-degree-class-group-mass-ratios",
+        "verdict": "corrected",
+        "note": "Corrected the three means to relative torsion, adding the fixed base torsion factors for absolute means. BSW Theorem6 and (43)–(44), pp.4–5,28–30, give these relative constants. Matching finite resolvent-lift specifications and the splitting prerequisite are explicit."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/quadratic-four-rank-conic-formula",
+        "verdict": "corrected",
+        "note": "Corrected b to positive squarefree divisors, with b-prime the signed squarefree part of D/b, as in FK Theorem5, pp.9–10. D=5 has two soluble positive divisors; allowing negative ones doubles the answer."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/quadratic-four-rank-jacobi-expansion",
+        "verdict": "corrected",
+        "note": "Checked FK (20), Lemma17 and all five additional families in Lemmas28,34,39,41,43, pp.14–16,35,42,45,48,51. Added each character, prefactor and product domain explicitly instead of leaving their signs implicit."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/fk-maximal-unlinked-support",
+        "verdict": "verified",
+        "note": "FK Lemma18 and Proposition3, pp.17–23, give the affine maximal-support characterization and logarithmic error. Analytic cancellation remains a precise supplier input; finite support enumeration does not prove it."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/fk-main-coefficient",
+        "verdict": "verified",
+        "note": "FK Lemmas20–26, pp.24–34, and the subsequent congruence-family calculations give N(k,2) and the real half-scaled difference. The finite good-plane bijection supplies the required counts without a new duplicated moment law."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/fk-narrow-wide-moment-comparison",
+        "verdict": "verified",
+        "note": "FK Lemma10 and Corollary1, pp.11–12, give an averaged comparison over the thin all-1-mod4 family, not pointwise equality. The Holder step uses the higher moments already in the prerequisites."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/rank-moments-determine-rank-law",
+        "verdict": "corrected",
+        "note": "Corrected the proof contract: Gaussian inversion supplies elementary-abelian-test surjection moments only, not moments for every finite p-group. DJ Theorem5, pp.6–8, at ell=1 supports the law. Requested the exact ST.5 rank-marginal specialization; the alternate geometric-zero proof gap remains open."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/rigid-embedded-field-family",
+        "verdict": "verified",
+        "note": "LOWW Definition6.7/Lemma6.8, pp.33–34, retain embedded fields, labelings and the permutation normalizer. The four tests distinguish this from isomorphism counts and abstract automorphism multiplicities."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/relative-torsion-splitting",
+        "verdict": "corrected",
+        "note": "Extended the statement to the narrow norm kernel, with total-positivity descent and norm after extension equal to the degree power. The ordinary maps are confirmed at the pins; narrow maps are requested rather than assumed present. Marked suggested coverage partial."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/uniform-small-degree-field-bound",
+        "verdict": "corrected",
+        "note": "Corrected the source locator to LOWW Lemma3.5,p.11; Lemma5.8,p.25 supplies the quadratic refinement. The published statement already includes h2(F); local character multiplicities are absorbed by the degree/epsilon constants."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/shintani-cubic-order-uniform-bound",
+        "verdict": "verified",
+        "note": "LOWW Proposition3.6 and Lemmas3.7–3.10, pp.12–16, give the two-term estimate and large-range threshold. The contour-shift zero at s=0 requires degree at least2; Q uses the separate cubic lattice input."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/relative-three-torsion-propagation",
+        "verdict": "corrected",
+        "note": "Corrected locators to LOWW Lemmas3.13–3.14/Proposition3.15, pp.16–18, and Proposition3.12, pp.16,18. Its equal-discriminant hypothesis is present. The corrected order automorphism weight and full wild-conductor formula remain explicit proof contracts."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/relative-three-torsion-piecewise-bound",
+        "verdict": "verified",
+        "note": "Read all five LOWW Theorem3.1 ranges, pp.10–12. Adjacent thresholds and the uniform envelope agree; ineffective degree/epsilon constants and relative torsion are retained."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/quadratic-tower-torsion-tail",
+        "verdict": "verified",
+        "note": "LOWW Theorem5.1 and Lemmas5.7–5.9, pp.22–29, provide the critical-range, exceptional-set and induction inputs. This is a dyadic tower count with absolute discriminants, so forgetting intermediate fields gives an upper bound."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/wreath-transposition-fibre",
+        "verdict": "verified",
+        "note": "LOWW Lemmas6.6–6.8, pp.33–34, and Theorem8.1, pp.40–41, give the permutation wreath type, unique quadratic step and labeling/normalizer factors. The statement preserves permutation rather than abstract group data."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/thin-two-group-torsion",
+        "verdict": "verified",
+        "note": "LOWW Lemma6.3 and Theorems6.4–6.5, pp.31–33, give fixed-discriminant sparsity, powerful discriminants without transpositions and a power-saving torsion total. Their ramification/support constants are not replaced by a generic tower count."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/quadratic-tower-counting-constants",
+        "verdict": "verified",
+        "note": "LOWW Theorem6.2 and the proof ending p.37 give the weighted embedded and rigid constants. The extracted formulas correctly retain 2^(-r2(F)), whose omission is confined to the printed C_G display."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/two-extension-three-torsion-means",
+        "verdict": "verified",
+        "note": "LOWW Theorem6.1, pp.29–30,35–37, gives the unrestricted weighted average and fixed group-signature quotient. Complex-place weights, base h3 and positive denominators are present; group signature records archimedean conjugacy classes."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/relative-wreath-three-torsion-mean",
+        "verdict": "verified",
+        "note": "LOWW Theorem6.11, pp.37–38, and Theorem8.1, pp.40–41, give the fixed relative-unit-rank mean and the two distinct arbitrary-H hypotheses. Each epsilon quantifier and the nonempty-family guard is retained."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/embedded-quadratic-wreath-type",
+        "verdict": "verified",
+        "note": "Wood sections2.1–2.2, pp.383–387, agree with the native finite wreath embedding, canonical swap, kernel projection and outside-generation conditions. C2, C3, trivial-group and missing-swap tests distinguish admissibility from goodness."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/nonabelian-quadratic-moment-interface",
+        "verdict": "verified",
+        "note": "Wood Lemma2.1 and Conjectures1.1/5.1, pp.378,383–386,411, fix rigid/unrigid and real-twist factors. Generator evaluation or a Hom-valued invariant is necessary. Arithmetic carriers, multiplier exports and four arithmetic tests are honestly omitted."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/nonabelian-admissibility-and-abelianization",
+        "verdict": "verified",
+        "note": "Wood Proposition2.2 and Lemma6.2, pp.386–387,414, justify generation and good-type abelianization. The abelian inverse-graph adapter is native; the odd-order reduced-multiplier result remains a requested homological input."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/embedded-type-catalogue",
+        "verdict": "verified",
+        "note": "Confirmed native Goursat with both surjective projections. Wood sections8.1–8.2, pp.417–420, and the quotient-graph construction preserve diagonal automorphism orbits. Multiplier rows require the accepted independent certificate supplier; abstract isomorphism names do not suffice."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/elementary-two-moment-euler-products",
+        "verdict": "verified",
+        "note": "Wood section7, pp.415–417, supports the odd-prime products. The extracted prime2 factors and imaginary fixed-swap selector give T,U,V with the stated zeta/L-function pole orders; the twists are not merged."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/elementary-two-moment-divergence",
+        "verdict": "verified",
+        "note": "The positive leading coefficient comes from T; U,V have smaller pole order. Proper images have lower logarithmic growth. Wood p.417 supports this elementary-two type conclusion, which does not assert the general bad-type conjecture."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/nonabelian-low-degree-known-moments",
+        "verdict": "corrected",
+        "note": "Corrected the BSW locator to Theorem8,p.5 and section10.2,pp.30–31. The A3/A4/A5 constants and product-type divergence match; Alberts pp.646–648,655–657 restricts Q8/D8 claims to the specified closure types."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/a4-appendix-kernel-enumerator",
+        "verdict": "verified",
+        "note": "Wood AppendixA, pp.420–424, gives index-four kernels and factors24/48. The general module backend correctly rejects a trivial C3 quotient action; its native finite computation and unbiased sample statement make no limiting arithmetic claim."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/small-trace-zero-element",
+        "verdict": "verified",
+        "note": "Schmidt pp.190–191 and LOT p.2 give the trace-zero size bound. The packet guards the generator consequence by absence of proper intermediate fields, preserving the subfield obstruction."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/schmidt-field-count-bound",
+        "verdict": "verified",
+        "note": "Read Schmidt (1.1)–(1.2) and the proof, pp.189–195. The relative induction includes the base-discriminant saving needed to retain exponent(n+2)/4; the fixed-base constant is allowed to depend on k."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/mixed-trace-finite-fibres",
+        "verdict": "verified",
+        "note": "LOT Lemma2.1/Theorem3.2/Lemma3.3, pp.2–5, give the Jacobian and generic finite fibres with Bezout degrees. Original Alexander–Hirschowitz and affine Bezout inputs remain gaps; a nonzero Jacobian is not asserted to imply global injectivity."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/lemke-oliver-thorne-field-bound",
+        "verdict": "verified",
+        "note": "LOT Theorems1.1–1.2/Lemmas4.1–4.2, pp.1–2,5–6, give both exponents and the 1.564 comparison. The finite range computation remains a certificate obligation; the historical bound is not described as current optimality."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/cyclic-prime-field-count",
+        "verdict": "verified",
+        "note": "The cyclic-prime target retains division by p-1 characters. Cohen–Morra Corollaries6.2/7.2, pp.13–15, supplies the cyclic cubic case; original general abelian inputs remain open, and no pure-power V4 consequence is inferred."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/galois-field-three-eighths-bound",
+        "verdict": "verified",
+        "note": "EV Proposition1.3/Proposition2.8, pp.725,734–737, gives the fixed-group relative bound for order greater than4. CFSG, nilpotent order-eight counts and supported character inputs remain explicit gaps."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/fixed-resolvent-cubic-count",
+        "verdict": "verified",
+        "note": "Cohen–Morra Theorem1.1/sections6–7 and Bhargava–Shnidman Theorems7–8/sections5–6, pp.57–58,79–86, independently support the exceptional d=-3 logarithm and its Euler constant. Pointwise constants retain dependence on F."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/baily-weighted-quartic-count",
+        "verdict": "verified",
+        "note": "BSTTTZ (5), pp.9–10, quotes the weighted resolvent estimate. The original Baily multiplicity calculation and arbitrary-subfamily extension are expressly open; the node does not certify those unread originals."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/weighted-cubic-partial-summation",
+        "verdict": "verified",
+        "note": "BSTTTZ p.10 supplies the dyadic argument. For a>0 a count with either no logarithm or one logarithm yields X^(1/2+a+epsilon) after absorption, retaining fixed-resolvent dependence."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/quartic-torsion-counting-applications",
+        "verdict": "verified",
+        "note": "BSTTTZ Theorem1.4 and (8)–(9), pp.2,10, give the exponent formula; independent evaluation gives a=0.278433742656. The fixed-resolvent application keeps epsilon, F dependence and the pure-cubic logarithm."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/governing-field-interface",
+        "verdict": "verified",
+        "note": "KM (1.2),p.3, defines a fixed-d conjugacy-invariant Frobenius class function with fundamental-discriminant and unramified-prime guards. Native Frobenius suppliers and all four tests preserve these guards."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/eight-rank-governing-field",
+        "verdict": "verified",
+        "note": "KM section5,p.22, states the order-eight dihedral field criterion on p=1 mod4. Original classical PID/eight-rank proofs remain explicit inputs; the D4 notation is disambiguated."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/sixteen-rank-spin-criterion",
+        "verdict": "verified",
+        "note": "KM (5.1),p.22, retains fixed order-four r, unit-square invariance and the prime2 residue correction. Original cited criteria and generator independence remain recorded proof obligations."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/no-sixteen-rank-governing-field",
+        "verdict": "verified",
+        "note": "KM Theorem3 and proof, pp.3,22–23, are conditional on C_n for every n>=3. The packet preserves that condition and does not replace it by unconditional Chebotarev reasoning."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/restricted-real-quadratic-family",
+        "verdict": "verified",
+        "note": "KP pp.1–2 defines squarefree radicands, includes1 and distinguishes integer from rational Pell solutions. Native rank slices exclude1, and d=2 has discriminant8; matrix laws remain ST.5 imports."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/negative-pell-historical-bounds",
+        "verdict": "verified",
+        "note": "KP pp.1–5 reports these earlier alpha/2/3 and fixed-prime-factor results. Originals and a residue-wise discriminant-order transfer remain explicit gaps; no 1-alpha proof is claimed here."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/polynomial-order-lattice-reduction",
+        "verdict": "verified",
+        "note": "BSW monogenic/binary definitions use one complex representative and distinct allowed basis changes. Native real Gram predicates and dilation tests preserve that metric; current IntegralLattices Layer2 is imported and its missing real-metric extension is requested."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/squarefree-field-discriminant-sn",
+        "verdict": "verified",
+        "note": "Squarefree discriminant forces inertia transpositions; the everywhere-unramified fixed field over Q is trivial. Transitivity then gives S_n. Monic/binary applications retain their order discriminant and maximality prerequisites."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/monic-polynomial-sieve-counts",
+        "verdict": "verified",
+        "note": "BSW monogenic Theorems1.1–1.2 and section5 give the weighted box constants and region/local-family errors. The accepted ST.2 tail remains a prerequisite, with reducibility and boundary errors distinct."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/monic-weak-quasi-reduction",
+        "verdict": "verified",
+        "note": "BSW Lemma5.3,pp.24–25, supports the corrected weak dilation conclusion. Uniform compact-set reduction is a requested IntegralLattices extension; density-one strong uniqueness is not inferred."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/strong-reduction-ring-fibres",
+        "verdict": "verified",
+        "note": "BSW monogenic Lemma5.1 and binary Lemma7.2, pp.24,52–53, require independent sign alternatives. Trace zero removes translation; the binary overall sign cannot be discarded or silently treated as an SL2 change."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/trace-restricted-polynomial-sieve",
+        "verdict": "verified",
+        "note": "BSW Theorem5.4,p.25, cannot give universal positive trace-zero density: degree2 has discriminant divisible by4. The trace band requires its own restricted tail/factor comparison; the packet records both obligations."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/short-generator-field-upper-bound",
+        "verdict": "verified",
+        "note": "BSW proof of Corollary1.4,pp.26–27, supplies the trace-band coefficient count. The conclusion is only an upper bound, so it does not depend on the failed lower-bound multiplicity assertion."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/monogenic-field-lower-bound-target",
+        "verdict": "verified",
+        "note": "BSW Corollaries1.3–1.4,pp.2–3, are retained as source-stated targets. Their extracted proof explicitly needs positive restricted density and bounded field multiplicity replacing false strong uniqueness."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/monogenic-field-asymptotic-prediction",
+        "verdict": "verified",
+        "note": "BSW Remark5.6,(42),p.26, is explicitly conjectural. Volume, cusp and asymptotic-uniqueness obligations remain; the named predicate does not turn the prediction into a theorem."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/binary-discriminant-local-factors",
+        "verdict": "verified",
+        "note": "Read BSW binary AppendixA,pp.53–55. Exhaustive modulo9 quartic coefficient enumeration gives42,768/59,049=176/243; the corrected degree-four factor is used throughout."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/binary-form-sieve-counts",
+        "verdict": "verified",
+        "note": "BSW binary Theorems1–2,6,7.1,pp.2–4,51–52, give the counts and parity-dependent error exponents. Corrected local factors and the recorded even-degree and degree-two tail inputs are retained."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/binary-form-arithmetic-bertini",
+        "verdict": "corrected",
+        "note": "BSW binary p.3 uses inverse zeta factors. Corrected the inherited source finding to zeta_(P1_Z)(3), since the scheme dimension is2. The n>=3 comparison still requires the native regular-section/order interface."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/binary-form-field-lower-bound-target",
+        "verdict": "verified",
+        "note": "BSW binary Theorem3/proof,pp.3,53, states the exponent. Strong reduction at one form does not establish uniform reduction on dilations; that gap and bounded multiplicity remain explicit."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/unramified-alternating-extension-lower-bound-target",
+        "verdict": "verified",
+        "note": "BSW binary Theorem4,p.3, is retained with the Nakagawa original/correction gap. The extension correspondence, signs and multiplicities cannot be certified by a tail estimate alone."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/all-fields-degree-at-most-five",
+        "verdict": "verified",
+        "note": "Bhargava section7,p.24, requires nonsymmetric remainders as well as the symmetric main terms. The linear D4 contribution is included; its original and other classical counts remain requested inputs."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/kluners-cyclotomic-subfamily",
+        "verdict": "verified",
+        "note": "Kluners sections1–2,pp.1–3, gives index2, b_Q=1 and the cyclotomic cubic logarithm with discriminant factor27. Removing C6/S3 with the greater-than-four Galois bound preserves the lower growth; original abelian logarithmic counting remains open."
+      },
+      {
+        "nodeId": "ArithmeticStatistics:ST.3/nonabelian-tame-local-model",
+        "verdict": "verified",
+        "note": "Wood section6,pp.411–414, supports the finite centralizer mass calculation for odd tame primes. Native local tests distinguish one from two outside classes. The global logarithmic prediction is omitted as an arithmetic predicate, not deduced from the local identity."
+      }
+    ]
+  }
 }
