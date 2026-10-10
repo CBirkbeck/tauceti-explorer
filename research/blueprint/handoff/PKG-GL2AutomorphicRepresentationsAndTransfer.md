@@ -1,10 +1,10 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
-Worker: Codex (GPT-6), session `codex-WnA2L8`. Issue: #7901.
-Date: 2026-10-10. Branch: `codex-WnA2L8-gl2-package`.
+Worker: Codex (GPT-6), session `codex-ycig9K`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-ycig9K-gl2-package`.
 Status: **partial; the accepted supplier/consumer contracts need repair outside
 this package job's permitted deliverables**.
-[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6095673515).
+[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6095751653).
 Only this job was claimed. None of the manager's priority issues appeared in
 the open `swarm`, `state:available` list. There was no eligible available
 `top` job or focus plan/package review, so this focus package came next under
@@ -13,10 +13,12 @@ WORKERS.md.
 ## Outcome and resumption gate
 
 This continuation independently checked the inherited blockers against the
-accepted plans and the current upstream source trees. The relevant files and
-source revisions are unchanged from the preceding checkpoint. Completion is
-blocked by unresolved mathematical inputs and ownership contracts, rather
-than the run's time limit or a need to wait for Lean implementations.
+accepted plans and current upstream source trees, reread the primary
+character-extension and congruence sources, and added proved finite-group
+order tests. The accepted plans and current source revisions are unchanged
+from the preceding checkpoint. Completion is blocked by unresolved
+mathematical inputs and ownership contracts, rather than the run's time limit
+or a need to wait for Lean implementations.
 
 The issue says: **“Change no packet; if the plan has a mistake, describe it in
 the handoff note.”** Its only authorized repository outputs are the package
@@ -31,6 +33,30 @@ with one owner at GL2's tier or below, update its consumers and supplier proof
 inputs, and repair the four upward R19 prerequisites. Then resolve the other
 inherited closure requirements listed below. The historical proof proposals
 are continuation material, not installed lower-owner contracts.
+
+## New proved character-order checks
+
+The finite-quotient step in the proposed full-local character construction
+extends a character of a subgroup of a finite abelian group. It must allow
+increased order. The package now includes a worked test on the existing
+Mathlib carrier `AddChar (ZMod 4) ℂ`, beside the full-local domain tests:
+
+- `quarticCharacter` sends a to i^a and is proved additive-to-multiplicative
+  by checking all sixteen pairs. It sends 2 to −1 and has fourth power one.
+- Its restriction to {0,2} has square one: for any character χ, the equation
+  a+a=0 implies χ(a)²=1. Since its value at 2 is −1, the restriction is
+  nontrivial and quadratic.
+- `characterExtensionOrder_square_ne_one` proves that **every** character
+  sending 2 to −1 has square different from one: χ(1)²=χ(2)=−1. This proves
+  that the quadratic character has a quartic extension but no extension
+  whose order divides two.
+
+All five new examples, the character definition and the obstruction lemma
+have complete proofs with no `sorry`. This is an algebraic regression check
+for the finite-quotient construction, not a new arithmetic supplier or a
+Grunwald–Wang counterexample. The README states the example and its limit in
+the Tunnell consumer's order test. Introductory prose was shortened to keep
+the document under 200,000 bytes; no target or source locator was removed.
 
 ## Fresh contract checks
 
@@ -103,7 +129,7 @@ special-purpose suppliers.
   `closed`. These passing structural checks do not establish proof closure.
 - `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
   elaborated without errors: **144 warnings, all `declaration uses sorry`,
-  zero other warnings**. Available memory before compilation was 111 GB. The
+  zero other warnings**. Available memory before compilation was 112 GB. The
   check used the shared pinned build, Tau Ceti `f790474` and Mathlib `082e2d3`.
   No Lake command ran in either read-only current checkout.
 - The twelve reviewed AUDIT-14 layer entries in `data/library-coverage.json`
@@ -113,35 +139,41 @@ special-purpose suppliers.
 - Current read-only source revisions: TauCetiRoadmap
   `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`; Tau Ceti
   `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Both match the preceding checkpoint.
-- This run changes only the handoff. The mathematical package and accepted
-  plans retain the fingerprints below. README is 199,985 bytes; Suggested.lean
-  is 83,998 bytes. Preserve the corrected matrix K₀/K₁ and Whittaker/newvector
+- This run changes the README, Suggested.lean and handoff. The accepted plans
+  retain their fingerprints below. README is 199,996 bytes; Suggested.lean
+  is 85,813 bytes. Preserve the corrected matrix K₀/K₁ and Whittaker/newvector
   interfaces, Hilbert tensor action, projective lifts, newform carrier,
-  GL₂(𝔽₃) section and proved character-domain tests. The assembled suggested
+  GL₂(𝔽₃) section and proved character-domain/order tests. The assembled suggested
   input is stale; do not regenerate the package from it.
 - `metadata.toml` remains absent and `issues.deliverables_complete` remains
   **False**, so this submission is a checkpoint. Add `topic = "math.NT"`
   when the mathematical package is ready for its independent review.
 - Scoped intake `check-files` and `git diff --check` pass. The intake scope
-  check finds no automatic refusal for this handoff-only submission. No source
+  check finds no automatic refusal for this package checkpoint. No source
   file, source passage or private path is committed; no process remains running.
-- The papers and historical proof proposals below were not reread or certified
-  in this continuation. No ownership move or accepted-plan repair was made.
+- This run reread CHT Lemma 4.1.1 and its proof, printed p. 116, and Chevalley's
+  Theorem 1 and primary proof, Part I §§1–5, printed pp. 36–39. CHT's printed
+  conclusion does not explicitly require finite order; the finite-quotient
+  proof obligation in the inherited proposal retains that requirement.
+  Other historical source receipts were not refreshed. No ownership move,
+  accepted-plan repair or certification of the remaining proof chains was made.
 
-| Unchanged file | SHA-256 |
+| Current file | SHA-256 |
 | --- | --- |
 | Accepted R16.1 plan | `c1e3b586b2534254b10be3884e88b4c33a3dd6e8e2068f2dc809757bca89ebce` |
 | Accepted R17.3 plan | `2fcb2c938001426f0c1019d99a2bd9ba47cf82ec91ab2ad5305ef7b896301b65` |
-| Package README | `8a766d83f115d719f86ec9bd61857eeeef546e914e6fb1ed49ffc62795759d30` |
-| Package Suggested.lean | `e0824a42686193cd09bee31e3761d5c9c03d10ff0834d37816658a5b2643236e` |
+| Package README | `e77a1f6462d89f5394ba96057a92f50d013a08a1a62d3eaec56391b52a846889` |
+| Package Suggested.lean | `fe71b7a221f388f86e45d87f75a93001710b4182c6e50f661062b6de45a78113` |
 
 The following sections preserve predecessors' source receipts, corrected proof
 proposals, outstanding closure requirements and resume instructions.
 
 ## Historical source receipts
 
-These receipts identify predecessors' readings; this run did not reread
-the papers or certify their complete proof chains.
+These receipts identify predecessors' readings. This run reread CHT
+Lemma 4.1.1 and Chevalley's primary proof at the locations stated above and
+verified their PDF fingerprints. The other receipts remain historical; no
+complete supplier proof chain is certified by this table.
 
 | Source | Locations inspected by predecessors | SHA-256 |
 | --- | --- | --- |
@@ -153,7 +185,7 @@ the papers or certify their complete proof chains.
 
 ## Repair proposal: Chevalley congruences and full local prescription
 
-**Historical source audit (codex-wTnU0d); not reread in this run:** C. Chevalley, *Deux Théorèmes d'Arithmétique*,
+**Primary proof reread in this run; repair proposal inherited from codex-wTnU0d:** C. Chevalley, *Deux Théorèmes d'Arithmétique*,
 J. Math. Soc. Japan **3** (1951), 36–44,
 [original publisher PDF](https://www.jstage.jst.go.jp/article/jmath1948/3/1/3_1_36/_pdf/-char/en),
 [DOI](https://doi.org/10.2969/jmsj/00310036).

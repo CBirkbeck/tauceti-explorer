@@ -51,6 +51,8 @@ import Mathlib.NumberTheory.LocalField.Basic
 import Mathlib.NumberTheory.DirichletCharacter.Basic
 import Mathlib.NumberTheory.LegendreSymbol.QuadraticChar.Basic
 import Mathlib.Algebra.Group.AddChar
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.NormNum
 
 noncomputable section
 set_option linter.unusedVariables false
@@ -1150,6 +1152,52 @@ example : quadraticDirichletFive.IsPrimitive := by
       ((DirichletCharacter.eq_one_iff_conductor_eq_one
         (χ := quadraticDirichletFive)).mpr h1))
   · exact h5
+
+/- Finite-quotient character extension may increase order: the nontrivial
+quadratic character of {0, 2} ≤ ℤ/4ℤ extends to a quartic character, and no
+extension has square one. These are finite-group checks, not an arithmetic
+prescription theorem or a Grunwald–Wang counterexample. -/
+private def quarticCharacter : AddChar (ZMod 4) ℂ where
+  toFun a := Complex.I ^ a.val
+  map_zero_eq_one' := by norm_num
+  map_add_eq_mul' := by
+    intro a b
+    rw [ZMod.val_add]
+    fin_cases a <;> fin_cases b <;>
+      norm_num [ZMod.val, pow_succ, Complex.I_mul_I, mul_assoc]
+
+private theorem characterExtensionOrder_square_ne_one
+    (χ : AddChar (ZMod 4) ℂ) (hχ : χ 2 = -1) : χ ^ 2 ≠ 1 := by
+  intro h
+  have htwo : χ 2 = χ 1 ^ 2 := by
+    simpa only [show (1 : ZMod 4) + 1 = 2 from rfl, pow_two] using
+      χ.map_add_eq_mul (1 : ZMod 4) 1
+  have hsq : χ 1 ^ 2 = 1 := by
+    simpa using DFunLike.congr_fun h (1 : ZMod 4)
+  rw [htwo, hsq] at hχ
+  norm_num at hχ
+
+example (χ : AddChar (ZMod 4) ℂ) (a : ZMod 4) (ha : a + a = 0) : χ a ^ 2 = 1 := by
+  rw [pow_two, ← χ.map_add_eq_mul, ha, χ.map_zero_eq_one]
+
+example : quarticCharacter 2 = -1 := by
+  change Complex.I ^ (2 : ZMod 4).val = -1
+  rw [show (2 : ZMod 4).val = 2 from rfl]
+  exact Complex.I_sq
+
+example : quarticCharacter ^ 4 = 1 := by
+  ext a
+  change (Complex.I ^ a.val) ^ 4 = 1
+  fin_cases a <;> norm_num [ZMod.val, pow_succ, Complex.I_mul_I, mul_assoc]
+
+example : quarticCharacter ^ 2 ≠ 1 := by
+  apply characterExtensionOrder_square_ne_one
+  change Complex.I ^ (2 : ZMod 4).val = -1
+  rw [show (2 : ZMod 4).val = 2 from rfl]
+  exact Complex.I_sq
+
+example (χ : AddChar (ZMod 4) ℂ) (hχ : χ 2 = -1) : χ ^ 2 ≠ 1 :=
+  characterExtensionOrder_square_ne_one χ hχ
 
 end FullLocalCharacterTests
 
