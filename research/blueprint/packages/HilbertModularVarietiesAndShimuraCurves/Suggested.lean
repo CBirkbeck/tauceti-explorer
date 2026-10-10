@@ -105,8 +105,10 @@ theorem integralTraceFamily_apply (c : HilbertFractionalIdeal F) (hc : c ≠ 0)
   sorry
 
 theorem integralTraceFamily_parameter_add (c : HilbertFractionalIdeal F) (hc : c ≠ 0)
-    (a b : c) : integralTraceFamily F c hc ⟨(a : F) + (b : F), by sorry⟩ =
-      integralTraceFamily F c hc a + integralTraceFamily F c hc b := by
+    (a b : c) :
+    (integralTraceFamily F c hc ⟨(a : F) + (b : F), by sorry⟩ =
+      integralTraceFamily F c hc a + integralTraceFamily F c hc b) ∧
+    integralTraceFamily F c hc ⟨0, by sorry⟩ = 0 := by
   sorry
 
 theorem integralTraceFamily_balance (c : HilbertFractionalIdeal F) (hc : c ≠ 0)
@@ -383,7 +385,8 @@ theorem finiteGamma0_mem (p m n : ℕ)
 noncomputable def finiteGamma0_star (p m n : ℕ) : Subgroup (HilbertFiniteGamma0 F p m n) := by
   sorry
 
-theorem finiteGamma0_star_mem (p m n : ℕ) (γ : HilbertFiniteGamma0 F p m n) :
+theorem finiteGamma0_star_mem (p m n : ℕ) (hp : p.Prime) (hn : 1 ≤ n)
+    (γ : HilbertFiniteGamma0 F p m n) :
     γ ∈ finiteGamma0_star F p m n ↔ ∃ a : (ZMod (p ^ n))ˣ,
       Matrix.det ((γ : Matrix.GeneralLinearGroup (Fin 2) (HilbertResidueRing F p n)) :
         Matrix (Fin 2) (Fin 2) (HilbertResidueRing F p n)) =
@@ -681,7 +684,7 @@ lemma ResidualHeckeIdeal.maximal (red : O →+* k) (hred : Function.Surjective r
 lemma ResidualHeckeIdeal.actingFactor (red : O →+* k) (q : V → kˣ) (tr det : V → k)
     (I : Ideal (MvPolynomial (V × Fin 2) O))
     (hI : I ≤ ResidualHeckeIdeal red q tr det) :
-    ∃ f : (MvPolynomial (V × Fin 2) O ⧸ I) →+* k,
+    ∃! f : (MvPolynomial (V × Fin 2) O ⧸ I) →+* k,
       f.comp (Ideal.Quotient.mk I) = residualEvaluation red q tr det := by
   sorry
 
@@ -1617,7 +1620,12 @@ After base change to an algebraic closure containing F′ and choosing compatibl
 Declaration: TauCeti.HilbertModular.yz_component_comparison
 Hypotheses: F is a totally real number field; g=[F:ℚ]; O=𝒪_F; d is the absolute different. Additional hypotheses are stated in the assertion.
 Prerequisites: HilbertModularVarietiesAndShimuraCurves:R18.1/canonical-quaternionic-curve, HilbertModularVarietiesAndShimuraCurves:R18.1/quaternionic-effective-stabilizers, HilbertModularVarietiesAndShimuraCurves:R18.1/yz-pel-instance, ShimuraVarieties:V8/finite-level-maps
-Sources: YZ18 Propositions 4.2 and 4.4, p.563
+At split v and principal v^r level with r≥1, retain the component field F_v^r attached by
+local reciprocity to 1+v^r O_v. Its completion is a finite extension of K.
+Distinguish a geometric component over that field from its connected arithmetic
+K-component, and transport the component action with the comparison.
+Sources: YZ18 Propositions 4.2 and 4.4, p.563; carayol notation following §0,
+p.155, §§4.5.1–4.5.5, pp.188–189
 
 ## R18.1/yz-torus-bridge — Torus bridge for quaternionic towers
 
@@ -1771,7 +1779,11 @@ For n supported above p and coprime to d_B, and tame U^p sufficiently small depe
 Declaration: FinitePelComparison
 Hypotheses: F totally real; B/F a division quaternion algebra split at exactly one real place τ; canonical compact curve X_U/F supplied by R18.1. A maximal finite-adelic order O_B and its local split identifications are fixed; v|p and K=completion of F_v^ur. n prime to the quaternion discriminant; smallness depends on n.
 Prerequisites: HilbertModularVarietiesAndShimuraCurves:R18.2/connected-pel-comparison, HilbertModularVarietiesAndShimuraCurves:R18.1/yz-component-comparison
-Sources: yz Proposition 4.4, pp.563–564
+The comparison over K retains the Galois action on the connected arithmetic
+component. A selected geometric component uses its level-dependent component
+field; it is not assumed to descend to K.
+Sources: yz Proposition 4.4, pp.563–564; carayol notation following §0, p.155,
+§§4.5.1–4.5.5, pp.188–189
 
 ## R18.5/totally-real-uniformisation — Čerednik–Drinfeld uniformisation
 

@@ -1514,7 +1514,13 @@ Use the existing quaternion algebra, Shimura datum and canonical-model theories.
 
 **Prerequisites.** [R18.1/canonical-quaternionic-curve](#r18-1-canonical-quaternionic-curve), [R18.1/quaternionic-effective-stabilizers](#r18-1-quaternionic-effective-stabilizers), [R18.1/yz-pel-instance](#r18-1-yz-pel-instance), `ShimuraVarieties:V8/finite-level-maps`.
 
-**Sources.** [YZ18](#source-yz18) Propositions 4.2 and 4.4, p.563.
+At split v and principal v^r level with r≥1, retain Carayol's component field F_v^r,
+attached by local reciprocity to 1+v^r O_v; its completion is a finite
+extension of K. A geometric component over this field and the connected
+K-scheme containing its Galois orbit are distinct comparison objects.
+Specify which is used and transport the component action along with the map.
+
+**Sources.** [YZ18](#source-yz18) Propositions 4.2 and 4.4, p.563; [carayol](#source-carayol) notation following §0, p.155, §§4.5.1–4.5.5, pp.188–189.
 
 
 <a id="r18-1-yz-torus-bridge"></a>
@@ -1772,10 +1778,13 @@ Fix the auxiliary CM extension, trace lattice and effective central kernels. Fir
 `R18.2/finite-pel-comparison` · comparison. For n supported above p and coprime to d_B, and tame U^p sufficiently small depending on n, choose U′^p so that the connected n-level quaternionic and auxiliary PEL curves are isomorphic over K; the maps and coefficient sheaves agree under this isomorphism.
 
 **Hypotheses.** n prime to the quaternion discriminant; smallness depends on n.
+The comparison over K is of connected arithmetic components with their
+Galois action. If a single geometric component is selected, use its
+level-dependent component field from R18.1, not an assumed descent to K.
 
 **Prerequisites.** [R18.2/connected-pel-comparison](#r18-2-connected-pel-comparison), [R18.1/yz-component-comparison](#r18-1-yz-component-comparison).
 
-**Sources.** [yz](#source-yz) Proposition 4.4, pp.563–564.
+**Sources.** [yz](#source-yz) Proposition 4.4, pp.563–564; [carayol](#source-carayol) notation following §0, p.155, §§4.5.1–4.5.5, pp.188–189.
 
 
 ## Arithmetic uniformisation and graph invariants (R18.5)
