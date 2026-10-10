@@ -1,67 +1,40 @@
-# REV-FIX-RT-AREA-algebraicgeometry~2 — blocked checkpoint
+# Handoff: REV-FIX-RT-AREA-algebraicgeometry~2
 
-Codex session `codex-ZgK1OZ`, 10 October 2026. Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), continuing [#8198](https://github.com/CBirkbeck/tauceti-explorer/pull/8198). Base `c733b1cd82b8a0ea7a8049b9c9bf99cbffcdb8f6`. Claim confirmed in [comment 6093091856](https://github.com/CBirkbeck/tauceti-explorer/issues/5702#issuecomment-6093091856). One job only.
+**Blocked checkpoint, 10 October 2026, Codex session `codex-yoL6ZB`.** Refs [#5702](https://github.com/CBirkbeck/tauceti-explorer/issues/5702), reviewing author fix [#7968](https://github.com/CBirkbeck/tauceti-explorer/pull/7968). The bot confirmed this session's claim in comment `6093223915`. No second job was claimed. The current self-contained [review report](../reviews/REV-FIX-RT-AREA-algebraicgeometry~2.md) replaces repeated historical checkpoint wrappers and contains the finding table, source locators/hashes, dependency counterexample, six pending verdicts and unchanged suggested-file receipts.
 
-## Why this job cannot finish under its current assignment
+## The blocking assignment defect
 
-The live issue's outer deliverables and full instructions authorize five packet/suggested pairs (eleven output files). The queue requires eleven pairs (23 output files). Its review prompt is absent. All files exist. Stock `issues.deliverables_complete` returns true for the live issue's exact paths and false for the queue. Five packets have this job's reviewer marker; six have other reviewers' markers. A needs_changes verdict counts as completion, so rejecting defective mathematics does not cause this blocker.
+The live issue names **five packet/suggested pairs** in both the outer deliverables and full instructions. Its queue job requires **eleven pairs**, or 23 outputs including the report. All outputs exist. Five packets already have this review's marker; six have another review's marker. `issues.deliverables_complete` is false for the actual queue job. Negative `needs_changes` verdicts are sufficient for completion, so no mathematical acceptance is needed to unblock the job.
 
-WORKERS.md restricts edits to the issue's named files and scratch. Expanded scope was requested during this run and no authorization arrived. Do not edit the additional six packets, queue, prompt, issue body or labels under the current assignment. Do not repeat the five completed marker writes. The maintainer must authorize the six pairs below and reconcile both issue lists with the queue while preserving the full instructions. The predecessor established that all eleven were already in the author's queue at merge `f0b79768c` (#7968); narrowing to five would exclude six author-side dispositions.
+[WORKERS.md](../WORKERS.md) says “Edit only the files the issue names, plus your own scratch space.” This session asked for explicit authorization to review/edit the additional six pairs while completing independent work. No authorization arrived. Only this report and handoff changed. The queue, absent review prompt, issue body, labels, six extra pairs, readers and upstream checkouts were not changed. This is a scope blocker, not an eight-hour timeout.
 
-## Completed in this continuation
+The mismatch predates the author merge `f0b79768c`. The author ledger and author queue already cover eleven packets. Repeating the five-pair marker refresh does not advance completion. Before dispatching another worker, authorize the six additional pairs explicitly and reconcile both issue lists. Restore the queue's missing review prompt while preserving the original independent-review instructions. Workers should not infer scope from a queue that contradicts the issue.
 
-No mathematical packet or suggested file needed an in-scope correction. The five accepted bounded fix-disposition verdicts and their reviewHistory are preserved. The report retains every individual finding verdict, all prior limitations and the concrete six-pair continuation. This checkpoint changes only the report and this handoff.
+## Concrete remaining work after authorization
 
-Fresh checks:
+The extra basenames, in `research/blueprint/packets/<name>.json` and `research/blueprint/suggested/<name>.lean`, are:
 
-- All five authorized packet checks at the exact-pin declaration index pass with zero errors/warnings. Node counts: Motives 182; A0-extension 476; SchemeAndStackFoundations 303; Anabelian 363; Neron 78. No source excerpt fields appear.
-- All eleven suggested hashes match the inherited receipts below. No signatures or tests changed; Lean was not rerun. Earlier compilation results belong to the earlier sessions.
-- Reassembled the promoted atlas, stage requires and research roadmap requires: 15,601 edges, acyclic. Removed the six proposed SF.5 inputs: still acyclic, but the longer SF.4-to-MC.4 path below survives. Adding MC.4-to-SF.4 creates a cycle.
-- Newly read de Jong 2.12, 2.24, 4.1/4.2 and 6.1–6.5; Tate section 6's p.46 table visually; Stacks 07QY/07QZ and proofs. Public URLs, locators and PDF hashes are in the report. No source passages or PDFs enter the repository.
-- Current AlgebraicVectorBundles L1A/L1B and StableReduction Layer 2 confirm the existing relative-Spec/coherent-cohomology supplier corrections. Roadmap commit `dea8191cc6047d6142a65872ebce6eeeb841a29b`; current Tau Ceti RelativeSpec at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These are distinct from the older atlas pins. No upstream file or Lake project was changed.
+1. `AdicCoefficientsAndComparisons`
+2. `PELModuli`
+3. `ShimuraCompactifications--C0`
+4. `ShimuraVarieties--V0`
+5. `GrossZagierAndArithmeticHeights--GZ.0`
+6. `ShimuraData`
 
-The earlier five-pair evidence and all 32 round-2 finding dispositions remain in the report. Acceptance concerns the recorded corrections and explicit handoffs, not whole-plan source closure or implemented suppliers. No source/baseline/Lean result from a predecessor is presented as new work by this session.
+Read the report's six-packet disposition table. Preserve each existing review object in `reviewHistory`, then write `reviewer: independent-review-REV-FIX-RT-AREA-algebraicgeometry~2` with a current date. Keep **needs_changes** for PEL, compactifications, varieties, GZ and ShimuraData, with their documented substantive defects. Adic can receive bounded area-fix acceptance after the two-field correction below. This completes the review without accepting the five defective full blueprints. Suggested files need not be changed merely to write a negative review.
 
-## Six dispositions to finish after scope is authorized
+In Adic, fix `gaps[id=AdicCoefficientsAndComparisons/G-owners].detail` and the first rescope's `proposal`. SF.4 remains the unique schematic-alteration owner; L5 retains proper comparison descent/local calculations. Deleting SF.4-to-SF.5 breaks only the short cycle. A longer path through DD.5, Q3/Q4, A3, RF0:integral-Y, VB0, A4, PEL M2/M6 and MC.4 persists. Keep the MC.4 pointed-cover request at alteration nodes and split/reroute formal/cohomological consumers before adding a whole-stage MC.4-to-SF.4 edge. Preserve de Jong 2.24's every-genus/at-least-three-marks range and smooth-open finite-etale versus normalized-boundary finite/dominant/projective distinction. Keep MC.6 separate, RD.5 retargeting in its own job, and all eight existing gaps. The report gives the exact graph and field-level specification. Remove legacy source-excerpt fields from any additionally edited packet under the standing no-quotation rule; do not replace them with quotations.
 
-| Packet/suggested basename | Required action and verdict |
-|---|---|
-| AdicCoefficientsAndComparisons | Correct G-owners.detail and first rescope proposal as below. The bounded alteration-owner disposition can then be accepted; retain inherited proof/interface gaps. |
-| PELModuli | /3's common analytification supplier is correct. Preserve needs_changes for omitted/weakened geometric carriers/signatures. Successful compilation does not repair the mismatch. |
-| ShimuraCompactifications--C0 | /3, /27, /34 ownership is correct. Preserve needs_changes: 83 geometric declarations, 109 API items and 84 tests are only comment contracts. Its old missing-olean limitation is obsolete; the full file elaborates. |
-| ShimuraVarieties--V0 | /3 and /28 handoffs are adequate. Preserve needs_changes for the all-type automorphic boundary predicate and reader contradictions; the Lean file represents only two Mathlib-level slices. |
-| GrossZagierAndArithmeticHeights--GZ.0 | /26's StableReduction imports are correct. Preserve the substantive source-version, supplier and carrier/API/test objections; do not claim newly verified 2013 YZZ book pagination. |
-| ShimuraData | Record needs_changes. Inherited fresh Lean receipt reaches its 100-error limit, with 110 sorry and three other warnings. First roots: Hodge.Conjugation application at 186/210/218 (native .toEquiv required), stuck comodule at 213, gradedRealHodge mismatch at 285, reserved GL at 363. Five D0 bridge prototypes still change/assume away conclusions. Do not install fake carriers to compile. |
+Readers remain outside this review's deliverables. Their owners must synchronize the documented SF relative-Spec, V0 predicate and other reader corrections. Do not modify upstream or install any proposed edge here. In particular current AlgebraicVectorBundles already owns relative Spec and its universal/base-change interfaces; current Tau Ceti has RelativeSpec modules. Import them, never re-plan them.
 
-The SF.5 rescope is necessary for the short cycle but does not justify a whole-stage projective-cover import. The surviving path is:
+## Fresh evidence from this session
 
-```text
-SF.4 -> DerivedDeRhamCohomology:DD.5 -> PerfectoidQuotients:Q3 -> Q4
-     -> AdicEtaleGeometry:A3 -> RelativeFarguesFontaine:RF0:integral-Y
-     -> VectorBundlesAndIsocrystals:VB0 -> AbelianSchemesAndArithmeticModuli:A4
-     -> PELModuli:M2 -> M6 -> StableReductionPartII:MC.4
-```
+- All eleven packet checks pass with zero errors and warnings against the declared pinned index: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`, Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
+- The freshly assembled union graph has 15,601 edges and is acyclic. Removing the six bad SF.5 inputs remains acyclic. Adding the nine other ownership/criterion proposals jointly remains acyclic. MC.4-to-SF.4 creates a cycle either way. No edge was installed.
+- Public de Jong, Tate, Artin, SGA 1 and Huber–Muller-Stach passages were freshly read; URLs, exact locators and PDF hashes are in the report. Tate's component table was visually inspected. No restricted book pagination was newly certified and no source passage was committed.
+- The ten positive suggested-file hashes are unchanged and match session `codex-C7DgOu`'s receipts. These ten Lean checks were not rerun here; the report labels them inherited. The compactifications full-file positive receipt supersedes its old missing-olean limitation but not its missing-signature objection.
+- One fresh sequential `lean-check`, after a memory check, ran on full unchanged ShimuraData. It exits 1 at the 100-error limit, with **66 printed error headers** and **113 warning headers** (110 sorry, three other). The report corrects the previous 101-diagnostic assertion. First errors concern non-callable Hodge.Conjugation, comodule inference, gradedRealHodge carrier transport and reserved GL binding. Five D0 semantic bridge objections independently remain. No Lean process is left running.
+- The shared build's Mathlib commit matches the pin; all 5,477 Tau Ceti source files match the deployed baseline byte for byte. Current upstream roadmap/library commits read separately are `dea8191cc6047d6142a65872ebce6eeeb841a29b` and `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. No Lake command ran in those read-only checkouts.
+- Submission path checks and whitespace checks pass. Actual queue completion remains false. Only the report and handoff are submitted; all necessary evidence is durable here or in the linked preceding review, so no scratch file needs to survive.
 
-Keep SF.4 the unique schematic-alteration owner; L5 retains comparison descent/local calculations. Keep MC.4's pointed-cover extension as a request at alteration-node level. Split/reroute formal/cohomological consumers and recheck the resulting graph before approving the reverse whole-stage edge. de Jong 2.24 needs every genus and at least three markings. Only its smooth-open level cover is finite etale; the normalized boundary cover is finite/dominant/projective. RD.5's L5-to-SF.4 retargeting belongs to its own job. No edge or supplier split has been installed.
-
-When writing the six verdicts, preserve prior reviews in reviewHistory, remove source excerpt fields under the standing rule, and use `independent-review-REV-FIX-RT-AREA-algebraicgeometry~2`. Retain honest negative verdicts. Readers are outside even the queue's review outputs; record synchronization for their owners. A negative review need not implement the blueprint's omitted targets.
-
-Then run the packet/intake checks, `git diff --check` and stock `issues.deliverables_complete`. No new compilation is needed for marker/prose-only changes whose file hashes match; rerun lean-check if a signature/test changes or unresolved compile evidence needs a fresh check. The report supplies source URLs and individual verdicts. No scratch file is needed and no process is running.
-
-## Inherited Lean receipts (codex-C7DgOu; unchanged hashes verified here)
-
-Exact pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`; Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`. The table concerns suggested files in `research/blueprint/suggested/`, all unchanged in this checkpoint.
-
-| Suggested file | SHA-256 | Result / sorry warnings |
-|---|---|---|
-| MotivesAndAlgebraicCycles | `f3874f8f0eb1355d40433cbef95f0cff7bd9d1165822483985bd9529fbfcb51f` | passes / 805 |
-| AlgebraicModuliForArithmeticGeometry--A0-extension | `0f1da0e8f85427066acfe3b33981bc716e0ec952020678d07ced3b873b6b7575` | passes / 1040 |
-| SchemeAndStackFoundations | `7d7dd0439924404df02f6ed8f1761e2751b060c04ff98710d7616deb9d4ce66e` | passes / 362 |
-| PELModuli | `440356076be289a6215d5b5a3214cb80ce1f20a9894913962e762fcf0e54d4ac` | passes / 274 |
-| ShimuraCompactifications--C0 | `45120a7155be6b4246f83ec1501b4197354fe99098bcdc38110516892325208e` | passes / 28 |
-| ShimuraVarieties--V0 | `61bf5337c8f01bf906cf88b49c16503c58f489f369b897cf8f91f28f8e4b596c` | passes / 23 |
-| AnabelianGeometryAndNonabelianChabauty | `ca220b2dc0a473c710a4ad87d93e49a5b4c87904cb588aa38c59a0309eac5263` | passes / 699 |
-| AdicCoefficientsAndComparisons | `53536071d886ba06df9cb4e37ab26fa5034a453ec08f6ec500befbc63e9904e6` | passes / 53 |
-| NeronModelsAndSemistableAbelianVarieties | `562d40c7fabbf1c505626f1fa795dfcb5ea7413b24e35d0063a9c1ba6e9157a9` | passes / 53 |
-| GrossZagierAndArithmeticHeights--GZ.0 | `18674ddb9306f3600bf443cba1a3e79924204f47d3be7feeaeb803caf46a79d4` | passes / 443 |
-| ShimuraData | `9377216ae5607357bdeaebb207f84cdc25d3d958eea88c279947a171cc216cc9` | fails at 100-error limit / 110 |
+After authorization and the six verdict writes, rerun the packet/path/whitespace checks and the actual queue completion predicate. Submit a complete review PR with `Refs #5702`, accurately separating fresh and inherited Lean evidence. Do not claim a second job during the same run.
