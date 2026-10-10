@@ -1,25 +1,121 @@
-import Mathlib
+import Mathlib.Algebra.Algebra.Bilinear
+import Mathlib.Algebra.Category.ModuleCat.ChangeOfRings
+import Mathlib.Algebra.Category.ModuleCat.Monoidal.Adjunction
+import Mathlib.Algebra.Category.ModuleCat.Monoidal.Symmetric
+import Mathlib.Algebra.Category.ModuleCat.Presheaf.Monoidal
+import Mathlib.Algebra.Category.ModuleCat.Sheaf
+import Mathlib.Algebra.Category.ModuleCat.Sheaf.LocallyFree
+import Mathlib.Algebra.DirectSum.Basic
+import Mathlib.Algebra.Lie.Classical
+import Mathlib.Algebra.Lie.OfAssociative
+import Mathlib.Algebra.Module.ZLattice.Basic
+import Mathlib.Algebra.MvPolynomial.PDeriv
+import Mathlib.Algebra.Polynomial.Derivation
+import Mathlib.AlgebraicGeometry.AffineSpace
+import Mathlib.AlgebraicGeometry.Geometrically.Connected
+import Mathlib.AlgebraicGeometry.Morphisms.Smooth
+import Mathlib.AlgebraicGeometry.Noetherian
+import Mathlib.AlgebraicGeometry.ZariskisMainTheorem
+import Mathlib.Analysis.Analytic.Basic
+import Mathlib.Analysis.Analytic.Uniqueness
+import Mathlib.Analysis.CStarAlgebra.Matrix
+import Mathlib.Analysis.Calculus.Deriv.Basic
+import Mathlib.Analysis.Calculus.FDeriv.Basic
+import Mathlib.Analysis.Calculus.Implicit
+import Mathlib.Analysis.Calculus.InverseFunctionTheorem.FDeriv
+import Mathlib.Analysis.Complex.Basic
+import Mathlib.Analysis.Complex.Exponential
+import Mathlib.Analysis.Complex.Trigonometric
+import Mathlib.Analysis.Normed.Algebra.Exponential
+import Mathlib.Analysis.Normed.Algebra.MatrixExponential
+import Mathlib.Analysis.SpecialFunctions.Complex.Log
+import Mathlib.Analysis.SpecialFunctions.Pow.Real
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
+import Mathlib.CategoryTheory.Monoidal.NaturalTransformation
+import Mathlib.Data.Fin.Tuple.Basic
+import Mathlib.Data.Finset.Powerset
+import Mathlib.Data.Finset.Sort
+import Mathlib.Data.Fintype.BigOperators
+import Mathlib.Data.List.OfFn
+import Mathlib.Data.Matrix.Basis
+import Mathlib.Data.ZMod.Basic
+import Mathlib.Geometry.Convex.Cone.Basic
+import Mathlib.GroupTheory.GroupAction.Defs
+import Mathlib.LinearAlgebra.Basis.Defs
+import Mathlib.LinearAlgebra.BilinearForm.Orthogonal
+import Mathlib.LinearAlgebra.Complex.FiniteDimensional
+import Mathlib.LinearAlgebra.Contraction
+import Mathlib.LinearAlgebra.Dimension.Finrank
+import Mathlib.LinearAlgebra.Dual.BaseChange
+import Mathlib.LinearAlgebra.Dual.Defs
+import Mathlib.LinearAlgebra.Dual.Lemmas
+import Mathlib.LinearAlgebra.Eigenspace.Basic
+import Mathlib.LinearAlgebra.ExteriorPower.Pairing
+import Mathlib.LinearAlgebra.FiniteDimensional.Basic
+import Mathlib.LinearAlgebra.Matrix.Determinant.Basic
+import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
+import Mathlib.LinearAlgebra.Matrix.Kronecker
+import Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+import Mathlib.LinearAlgebra.Matrix.Notation
+import Mathlib.LinearAlgebra.Matrix.PosDef
+import Mathlib.LinearAlgebra.Matrix.ToLin
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.LinearAlgebra.PiTensorProduct.Basis
+import Mathlib.LinearAlgebra.Quotient.Basic
+import Mathlib.LinearAlgebra.SesquilinearForm.Basic
+import Mathlib.LinearAlgebra.SymmetricAlgebra.Basic
+import Mathlib.LinearAlgebra.TensorPower.Basic
+import Mathlib.LinearAlgebra.TensorPower.Pairing
+import Mathlib.LinearAlgebra.TensorProduct.Associator
+import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.LinearAlgebra.TensorProduct.Basis
+import Mathlib.LinearAlgebra.Trace
+import Mathlib.LinearAlgebra.UnitaryGroup
+import Mathlib.ModelTheory.Definability
+import Mathlib.NumberTheory.NumberField.InfinitePlace.Embeddings
+import Mathlib.RepresentationTheory.Homological.GroupCohomology.Functoriality
+import Mathlib.RepresentationTheory.Invariants
+import Mathlib.RepresentationTheory.Irreducible
+import Mathlib.RepresentationTheory.Subrepresentation
+import Mathlib.RingTheory.Congruence.Hom
+import Mathlib.RingTheory.Derivation.Basic
+import Mathlib.RingTheory.Finiteness.Defs
+import Mathlib.RingTheory.Finiteness.Projective
+import Mathlib.RingTheory.Flat.Basic
+import Mathlib.RingTheory.Flat.FaithfullyFlat.Basic
+import Mathlib.RingTheory.Grassmannian
+import Mathlib.RingTheory.Ideal.Operations
+import Mathlib.RingTheory.Ideal.Quotient.Operations
 import Mathlib.RingTheory.Kaehler.Basic
+import Mathlib.RingTheory.Length
+import Mathlib.RingTheory.LocalProperties.Submodule
+import Mathlib.RingTheory.Localization.BaseChange
+import Mathlib.RingTheory.Nilpotent.Basic
+import Mathlib.RingTheory.Nilpotent.Exp
+import Mathlib.RingTheory.PowerSeries.Basic
+import Mathlib.RingTheory.TensorProduct.Basic
+import Mathlib.Topology.Instances.Matrix
+import Mathlib.Topology.NoetherianSpace
 import TauCeti.AlgebraicTopology.LocalCoefficient
-import TauCeti.Geometry.Hodge.Polarization
+import TauCeti.Geometry.Hodge.Conjugation
+import TauCeti.Geometry.Hodge.HodgeForm
 import TauCeti.Geometry.Hodge.Mixed.Basic
 import TauCeti.Geometry.Hodge.Mixed.Morphism
 import TauCeti.Geometry.Hodge.Mixed.Strictness
 import TauCeti.Geometry.Hodge.PeriodDomain
-import TauCeti.LinearAlgebra.BilinearForm.Isometry
-import TauCeti.Geometry.Hodge.HodgeForm
+import TauCeti.Geometry.Hodge.Polarization
 import TauCeti.Geometry.Hodge.Structure
-import TauCeti.Geometry.Hodge.Conjugation
+import TauCeti.LinearAlgebra.BilinearForm.Isometry
 
 /-!
 # HodgeStructuresPartII: representative target signatures
 
-`README.md` is the definitive roadmap. This file records definitions, theorem
-signatures and examples statable against the pinned APIs; it is not exhaustive.
-It distinguishes affine operators and fibre or coordinate calculations from
-global variations and analytic correspondences. Parameters, ordered tensor
-powers, determinant conventions and coefficient comparisons are explicit.
-Admitted bodies claim no implementation.
+This file is not the roadmap and is not exhaustive; `README.md` is definitive.
+Suggested names, signatures, APIs and examples help contributors and reviewers
+agree on Lean interfaces. These forms distinguish affine operators and fibre or
+coordinate calculations from global variations and analytic correspondences.
+Parameters, ordered tensor powers, determinant conventions and coefficient
+comparisons are explicit. Admitted bodies claim no implementation.
 -/
 
 namespace TauCetiRoadmap.HodgeStructuresPartII
