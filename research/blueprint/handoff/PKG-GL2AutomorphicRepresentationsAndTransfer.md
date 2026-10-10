@@ -1,7 +1,7 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — checkpoint
 
-Issue: #7901. Worker: Codex (GPT-6), session `codex-FgD9hP`. Date: 2026-10-10.
-Continues the 2026-10-09 checkpoint by `codex-FOIVIP` (PR #8068).
+Issue: #7901. Worker: Codex (GPT-6), session `codex-8F6943`. Date: 2026-10-10.
+Continues checkpoints by `codex-FOIVIP` (PR #8068) and `codex-FgD9hP` (PR #8149).
 Status: **partial; blocked on mathematical prerequisite closure**. Do not send
 this package upstream as a completed roadmap.
 
@@ -14,6 +14,77 @@ The unresolved owner contracts below cannot be repaired by joining documents,
 renaming a prerequisite, or making the surviving algebraic fragments elaborate.
 
 ## This continuation
+
+The bot confirmed this session's claim in comment
+[6092154860](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6092154860).
+No manager-priority issue was available when selecting the job; this available
+`focus` package preceded non-focus reviews under WORKERS.md. No second job was
+claimed. This remains a blocked checkpoint because the accepted plan lacks the
+prescribed-local-character supplier detailed below, and the issue explicitly
+prohibits changing that plan's packets.
+
+**Positive change.** The previous omission of `supercuspidalProjective` is now
+replaced by a faithful **complex-coefficient** signature. It uses Mathlib's
+`Representation` and `Representation.IntertwiningMap`, the actual GL₂ group and
+its quotient by `Subgroup.center`. All three representations have open vector
+stabilizers and the same scalar central character with open kernel. The source
+is irreducible and admissible, and its coefficients against the smooth dual
+have compact closure modulo the center. The conclusion lifts an equivariant
+linear map through a surjective equivariant linear map, with equality of their
+composites in the existing intertwining-map carrier. No new representation
+category, smooth-dual carrier or unconditional function-lifting theorem was
+introduced. The DLB L-coefficient scalar-descent interface remains separate and
+is still required in the Kirillov comparison.
+
+The README gives these precise conditions, the fixed-character specialization
+of current SR.3a.1/SR.3.2, and the source locators. General compact-representation
+and cuspidal-block theory already belong to SmoothRepresentationsOfLocalGroups;
+they were inspected and imported, not re-planned. The unused private scratch
+reference in the JPSS bibliography was removed.
+
+**Read-only audit.** Current TauCetiRoadmap commit
+`d6f707516e7ede3181dac4b2420ba25c0799d22d` and current Tau Ceti commit
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039` were inspected. Current
+GlobalNumberFields Layers 9–10 still define/factor already given characters;
+the inspected HeckeCharacter modules do not construct characters satisfying
+the whole-local-group and infinity-type prescriptions. ClassFieldTheory still
+excludes the prescribed-local-extension theorem. Thus the new signature does
+not discharge either globalization target or the packet's local–global gap.
+Both current GlobalNumberFields and ReductiveGroups READMEs were read in full.
+
+**Source receipt.** Bernstein–Zelevinsky, *Representations of the group GL(n,F),
+where F is a non-archimedean local field*, Russian Math. Surveys 31:3 (1976),
+Theorem 3.21, printed pp. 34–35; Theorem 2.44, p. 28; Proposition 3.28,
+pp. 36–37. The maintainer-cleared article was read in place; its author-hosted
+[English article](https://www.math.tau.ac.il/~bernstei/Publication_list/publication_texts/B-Zel-RepsGL-Usp.pdf)
+is the reader citation. SHA-256 of the inspected article:
+`5eb3719f59d8b8db2905d6e1015060ceb466e826d5dbb74ab4c3b9aca0c7dbb2`.
+DLB footnote 52, printed p. 64, was also reread in the version identified below.
+No source file or passage was copied into the repository.
+
+**Current Lean validation.** `lean-check` on the package Suggested.lean exited
+**0**, with **112 warnings, all declaration uses `sorry`**, no errors and no
+other warnings. Available memory was 103 GB. The build uses the pinned Mathlib
+`082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
+`f790474821cf4256814db967cb154e7af3d0c369`; the newer read-only audit trees
+were not used as a compilation environment. This checks the signature's
+elaboration, not its proof or the omitted interfaces.
+
+Both packet checks again report zero errors and warnings, eight gaps each,
+and zero closed stages. The current README is **197,828 bytes**. A scoped name
+audit retains all 112 target headings, 81 API names and 66 test names; their
+Lean names remain in declarations or explicit omissions. This is name
+coverage, not certification of the omitted signatures. The scoped intake
+check reports **3 files, 0 problems**, and `git diff --check` passes. Only
+the two package files and this handoff changed.
+
+The remaining sections preserve the earlier mathematical audit. Their
+projectivity-omission description and 111-warning count describe PR #8149;
+the preceding signature and 112-warning result supersede those two items.
+All other closure requirements remain. `metadata.toml` remains absent so that
+intake does not mistake this partial package for a completed one.
+
+## Previous continuation (PR #8149)
 
 The claim bot confirmed session `codex-FgD9hP` in issue comment
 [6091792408](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6091792408).
