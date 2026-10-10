@@ -1,39 +1,50 @@
 # PKG-LanglandsParameterStacks — blocked checkpoint
 
 Issue [#7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
-Worker: Codex (GPT-6), session `codex-oKXRhB`, 10 October 2026.
-Branch: `codex-oKXRhB-langlands-parameter-stacks`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6095733708).
+Worker: Codex (GPT-6), session `codex-VVFmI4`, 10 October 2026.
+Branch: `codex-VVFmI4-langlands-parameter-stacks`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6095989082).
 No manager-priority issue was available at selection. This available focus
 package was selected under the permitted WORKERS fallback order.
 Only this job was claimed. **This is an incomplete, blocked checkpoint.**
 
 ## This session's concrete progress
 
-Replaced the admitted `projected_identity_component_shadow` calculation with a
-proof and added a fully proved rational-point fixture `IdentityComponentChecks`
-for LP2c.1. It uses Mathlib's actual `SemidirectProduct` with H=ℚˣ, Q=C₂ acting
-by inversion and honest homomorphisms Γ=Multiplicative ℤ→J. Its checks establish:
+Added the fully proved regular-coordinate fixture
+`IdentityComponentCoordinateChecks` for LP2c.1, extending the rational-point
+fixture from checkpoint [#8322](https://github.com/CBirkbeck/tauceti-explorer/pull/8322).
+It uses actual native Laurent/additive monoid algebras over an arbitrary
+commutative ring R:
 
-- Both lifts have the same trivial component projection on every element of Γ.
-- No H-conjugation identifies the lifts with generator values 2 and 1/2.
-- The component switch conjugates one lift to the other on all of Γ; therefore
-  every whole-J invariant tuple function, in every arity and with any codomain,
-  gives equal values on the two parameter tuples.
-- The Laurent coordinate on the identity component, extended by zero, is
-  H-invariant on rational points and takes generator values 2 and 1/2.
+- O[G_m⋊C₂] is represented by R[x,x⁻¹]×R[x,x⁻¹], with one factor per component.
+  O[G_m×(G_m⋊C₂)] uses two copies of R[h,h⁻¹,x,x⁻¹].
+- Algebra homomorphisms for conjugation and projection act on exponents by
+  n↦(0,n) on the identity component and n↦(2n,n) for conjugation on the other
+  component. The component-switch pullback acts by n↦−n on each factor.
+- f=(x,0) belongs to the conjugation/projection equalizer, but is not fixed by
+  the component switch for any nonzero R. The coefficient proof also applies
+  in characteristic two: it compares Laurent exponents, not the scalars ±1.
+- (0,x) is not H-invariant for nonzero R. This catches a coaction incorrectly
+  made trivial on the nonidentity component.
+- e=(1,0) is an idempotent fixed by both actions. The rational evaluation algebra
+  maps at 2 and 1/2 send e to 1 in both cases and send f to 2 and 1/2.
 
-The README now describes these checks and their boundary. They illustrate the
-existing target's H-conjugation convention, without introducing a generic
-invariant-algebra owner. They do not construct a geometric invariant algebra,
-prove semisimple reconstruction or close the package's missing signatures.
-The fixture has no admitted proofs. A standalone diagnostic showed its action,
-nonconjugacy, tuple-invariance and coordinate-invariance proofs depend only on
-`propext`, `Classical.choice` and `Quot.sound`, with no `sorryAx`.
+The equalizers are Mathlib's `AlgHom.equalizer`; no second general invariant
+construction is introduced. The fixture contains no `sorry`. Standalone
+axiom diagnostics for the two noninvariance proofs, H-invariance, component
+invariance and coordinate evaluation report only `propext`, `Classical.choice`
+and `Quot.sound`, with no `sorryAx`. It demonstrates the missing supplier's
+required discrimination using regular functions, beyond the inherited
+rational-point check. It does not supply a general pseudocharacter carrier,
+semisimple reconstruction, enhanced stacks or their missing signatures.
 
-Freshly rechecked the current supplier mismatch and continuity scope below.
-Retained the prior worker's continuation inventory, distinguishing inherited
-findings from this run's readings. The accepted LP packet is unchanged.
+Updated LP2c.1's README with the algebra maps, explicit positive and negative
+checks and their scope. Corrected its FS VIII.3.7–VIII.3.8 page range to
+pp.288–290 after reading the start of VIII.3.7 on p.288. No packet changed.
+
+Freshly inspected IHG's whole-group coordinates, its continuity signatures,
+and the E5 enhanced supplier's actual placeholder declarations. These still
+block a faithful complete package outside this issue's authorized files.
 The package remains incomplete; `metadata.toml` is intentionally absent because
 `issues.deliverables_complete` otherwise treats a package with every output path
 as complete without inspecting its mathematical coverage. Add the intended
@@ -41,10 +52,12 @@ as complete without inspecting its mathematical coverage. Add the intended
 
 ## Previous affine-interface checkpoint retained
 
-That checkpoint reached main after this clone's initial snapshot. During PR
-submission, the current main changes were merged into this branch. Its README
-and Lean additions are retained alongside this run's regression fixture; its
-source-reading claims below belong to the earlier worker.
+This branch started from main at `295239bbc27bea4e395f6dc15265210b69434af7`,
+which already includes checkpoints #8311 and #8322. Both are retained. The
+rational-point fixture from #8322 proves distinct H-gauge classes at the same
+projection and equal whole-J invariant evaluations in every tuple arity.
+The source-reading claims in the affine-interface account below belong to
+that earlier worker, rather than this session.
 
 Session `codex-PuvOdI`’s merged checkpoint [#8311](https://github.com/CBirkbeck/tauceti-explorer/pull/8311) completed the ordinary affine interface of LP2e.1 in README and Suggested.lean:
 
@@ -101,10 +114,11 @@ idempotents and generalized reconstruction up to H-conjugacy. Then an
 authorized LP plan repair must reconcile its citations with that export.
 
 Freshly fetched and read Quast, Definition 3.1, printed p.11; Lemmas 3.2 and
-3.4–3.5, pp.12–13; and Theorem 3.7 and the beginning of its proof, p.13.
-The invariant action is by the identity component, and the reconstruction
-statement uses identity-component conjugacy. This is a scoped reading, not a
-full reconstruction-proof audit; no error in the definition is asserted.
+3.4–3.5, pp.12–13; Theorem 3.7 and its proof, pp.13–15; and the continuity
+Theorem 3.8 discussion, pp.15–16. Definition 3.1 uses identity-component
+invariants, and Theorem 3.7 uses identity-component conjugacy. The cited
+BHKT/BMR inputs were not independently re-audited here, and the inherited
+IHG E13 compactness objection is not resolved. No new source erratum is claimed.
 
 ### G4: reconstruction-to-continuity, with the right coefficients
 
@@ -139,6 +153,27 @@ action, infinite-image characteristic-zero inertia characters and infinite
 cyclic unramified Frobenius image. Do not use Quast Theorem 3.8 without resolving
 the accepted IHG E13 compactness objection.
 
+### Enhanced categories and animated geometry
+
+Freshly read the current atlas `EnhancedDerivedSheaves--E5.lean` prefix.
+Its `SymMonInftyCat` has `toFinPointed`, `coCartesian` and `segal` fields
+of type `True` (lines 79–81); `InftyOperad` similarly has three `True` fields
+(lines 94–96). `CAlg` is defined to be `Unit` (line 104), and `IsStable`
+has only `True` conditions (lines 113–115). The stated `IndInfty` is also
+`True`. The genuine quasicategory carrier declared immediately before these
+fields does not make these enhanced operations faithful.
+
+Consequently those displayed exports cannot type the category-valued mapping
+approximation, animated parameter stacks, enhanced Perf/IndPerf, coherent
+categorical Hecke data or universal representation bundles in the accepted
+LP targets. Ordinary categories and ordinary algebraic vector bundles do not
+supply their higher mapping/coherence data. E0/E5 and SF.1/S.1 remain the
+owners: repair their actual interfaces, then import them here. Do not replace
+these LP targets by ordinary shadows or create generic enhanced foundations
+in LP's package to work around the mismatch. This is evidence about these
+specific exports, not a claim that every current-library declaration was
+exhaustively searched.
+
 ### Why this job cannot repair those contracts
 
 Issue #7909 allows the package README, Suggested.lean, metadata and this handoff,
@@ -167,10 +202,11 @@ Preserve the current SR.6 ownership already recorded in the package README:
 | Excursion algebra and coefficient identities | SR.6.3 excursion-algebra | Arbitrary-source extensions and enhanced operator realization |
 | Universal homeomorphism and invariant comparison | SR.6.3 excursion-invariant-comparison | Enhanced colimit, cohomology and stronger base change |
 
-Read the current SR.6.1–SR.6.3 target statements in this session. SR.6.2 wild
-strata are finite at one fixed cutoff, not across all depths. No ownership move
-was made. The ordinary local prototypes still need migration to actual owner
-imports when the accepted LP plan is reconciled.
+Checkpoint #8322 records reading the current SR.6.1–SR.6.3 target statements;
+this run did not repeat that audit. SR.6.2 wild strata are finite at one fixed
+cutoff, not across all depths. No ownership move was made. The ordinary local
+prototypes still need migration to actual owner imports when the accepted LP
+plan is reconciled.
 
 The inherited minimum missing-signature inventory remains:
 
@@ -202,16 +238,11 @@ shadow do not express the enhanced target. Preserve the following contracts:
   denominator and embedded invariant dual centre.
 
 E0/E5 and SF.1/S.1 own the enhanced category, animation, descent and QCoh/Perf
-foundations. The inherited E5 supplier warning, repeated by session `codex-PuvOdI`, reports
-monoidal coCartesian
-and Segal fields declared as `True` and `CAlg` declared as `Unit` in the prefix
-inspected by session `codex-7brC83`; it also reports that
-`SSet.Quasicategory` alone does not supply the needed enhanced operations.
-This run did not re-review E5 or PR #8009. Recheck their actual current
-signatures before importing them; those inherited shadows are insufficient.
-This run read the current ordinary AlgebraicVectorBundles and ReductiveGroups
-READMEs in full for upstream style and scope. AlgebraicVectorBundles' ordinary
-scheme/sheaf tensor contract does not supply quotient-stack enhanced Perf.
+foundations. The concrete E5 mismatch is freshly recorded above; this run did
+not review PR #8009. This run read current ordinary AlgebraicVectorBundles and
+ReductiveGroups READMEs in full for upstream style and scope.
+AlgebraicVectorBundles' ordinary scheme/sheaf tensor contract does not supply
+quotient-stack enhanced Perf.
 
 Other inherited plan repairs to retain:
 
@@ -247,11 +278,12 @@ Other inherited plan repairs to retain:
   zero errors, zero warnings. No packet was changed.
 - `lean-check research/blueprint/packages/LanglandsParameterStacks/Suggested.lean`:
   exit 0, zero errors, 295 warnings, all `declaration uses sorry`; no other warnings.
-  Available memory before the final compilation was 111 GB. This checks the
+  Available memory before the final compilation was 108 GB. This checks the
   declarations present; geometric and enhanced signatures remain omitted.
-- The standalone regression fixture was checked with lean-check: exit 0, zero
-  errors or warnings. Axiom diagnostics had no `sorryAx`. The final full-file
-  check includes the arbitrary-codomain tuple statement and every fixture proof.
+- The standalone regular-coordinate fixture was checked with lean-check:
+  exit 0, zero errors or warnings. Axiom diagnostics had no `sorryAx`. The final
+  full-file check includes every new coordinate proof as well as the inherited
+  rational-point and arbitrary-codomain tuple proofs.
 - Scoped intake `check-files`: three authorized files, zero problems.
   `git diff --check`: passed.
 - Managed compilation pins are Mathlib
@@ -275,10 +307,12 @@ Other inherited plan repairs to retain:
   `e3554e4ad95f573e992965939391157a755455b65305fd34508538b52e7b8087`.
 - Unchanged atlas IHG input SHA-256:
   `1d06c30103ac2c17a0c2964e2c7721d66c5e939b6b9898f7441d9abdf01a782b`.
-- README.md: 187959 bytes, SHA-256
-  `01c7217b31482abcf474c05473fba53f8cb5e69397de2ca7334b942d4b20fd11`.
-- Suggested.lean: 110186 bytes, SHA-256
-  `3bc56bc25a5ddc7f4c96c3793c27f6cbdefb9ce6c75a6224d32eacb2388a12a1`.
+- README.md: 189428 bytes, SHA-256
+  `1408a112b14aa45ec2f54559642421e8b618a48d3b7a3e13e4a0760ed004e6f8`.
+- Suggested.lean: 116156 bytes, SHA-256
+  `464ffa446ddb69316d6974eb41eded73630657aeb242715e0b882f6016303fba`.
+- Unchanged inspected E5 suggested input SHA-256:
+  `e8119768303f20e9952f0576d1ea163903060e1bfccfd4b9fe97528a32f8ac7c`.
 
 Only the two package artifacts and this handoff changed. No owner file or
 read-only tree was edited; no Lake build/update/cache command or language server

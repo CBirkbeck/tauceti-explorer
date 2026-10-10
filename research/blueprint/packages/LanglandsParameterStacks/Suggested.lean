@@ -29,7 +29,8 @@ import Mathlib.Topology.Algebra.Group.Neighborhood
 import Mathlib.Topology.Algebra.OpenSubgroup
 import Mathlib.Topology.Instances.Rat
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
-import Mathlib.Algebra.MonoidAlgebra.Defs
+import Mathlib.Algebra.Algebra.Prod
+import Mathlib.Algebra.MonoidAlgebra.Basic
 import Mathlib.Algebra.Category.Ring.Colimits
 import Mathlib.Algebra.Category.CommAlgCat.Basic
 import Mathlib.AlgebraicGeometry.AffineScheme
@@ -2195,6 +2196,150 @@ example : coordinate (lift a (Multiplicative.ofAdd (1 : ℤ))) = 2 ∧
   norm_num [coordinate, a, b]
 
 end IdentityComponentChecks
+
+/- Regular-coordinate regression for LP2c.1. The two Laurent factors are the
+coordinate rings of the components of G_m ⋊ C₂; the action target uses the
+Laurent coordinates of H × J. This concrete fixture does not export a generic
+pseudocharacter carrier or a reconstruction theorem. -/
+namespace IdentityComponentCoordinateChecks
+
+noncomputable section
+
+variable (R : Type*) [CommRing R]
+
+abbrev Coordinates := LaurentPolynomial R × LaurentPolynomial R
+abbrev ActionCoordinates := AddMonoidAlgebra R (ℤ × ℤ) ×
+  AddMonoidAlgebra R (ℤ × ℤ)
+
+def unchanged : ℤ →+ ℤ × ℤ where
+  toFun n := (0, n)
+  map_zero' := rfl
+  map_add' _ _ := rfl
+
+def twisted : ℤ →+ ℤ × ℤ where
+  toFun n := (2 * n, n)
+  map_zero' := by simp
+  map_add' _ _ := by simp [mul_add]
+
+def reversed : ℤ →+ ℤ where
+  toFun n := -n
+  map_zero' := neg_zero
+  map_add' := neg_add
+
+/-- Pullback of H-conjugation on J = G_m ⋊ C₂: (x,0) ↦ (x,0), (x,1) ↦ (h²x,1). -/
+def conjugation : Coordinates R →ₐ[R] ActionCoordinates R :=
+  AlgHom.prodMap (AddMonoidAlgebra.mapDomainAlgHom R R unchanged)
+    (AddMonoidAlgebra.mapDomainAlgHom R R twisted)
+
+/-- Pullback of the projection H × J → J. -/
+def projection : Coordinates R →ₐ[R] ActionCoordinates R :=
+  AlgHom.prodMap (AddMonoidAlgebra.mapDomainAlgHom R R unchanged)
+    (AddMonoidAlgebra.mapDomainAlgHom R R unchanged)
+
+/-- Pullback of conjugation by (1,1) ∈ J, which inverts x on each component. -/
+def switching : Coordinates R →ₐ[R] Coordinates R :=
+  AlgHom.prodMap (AddMonoidAlgebra.mapDomainAlgHom R R reversed)
+    (AddMonoidAlgebra.mapDomainAlgHom R R reversed)
+
+def coordinate : Coordinates R := (LaurentPolynomial.T 1, 0)
+def componentIdempotent : Coordinates R := (1, 0)
+
+theorem conjugation_identity_monomial (n : ℤ) :
+    conjugation R (LaurentPolynomial.T n, 0) =
+      (AddMonoidAlgebra.single (0, n) 1, 0) := by
+  change (AddMonoidAlgebra.mapDomain unchanged (AddMonoidAlgebra.single n 1),
+    AddMonoidAlgebra.mapDomain twisted 0) = _
+  simp only [AddMonoidAlgebra.mapDomain_single, AddMonoidAlgebra.mapDomain_zero]
+  rfl
+
+theorem conjugation_other_monomial (n : ℤ) :
+    conjugation R (0, LaurentPolynomial.T n) =
+      (0, AddMonoidAlgebra.single (2 * n, n) 1) := by
+  change (AddMonoidAlgebra.mapDomain unchanged 0,
+    AddMonoidAlgebra.mapDomain twisted (AddMonoidAlgebra.single n 1)) = _
+  simp only [AddMonoidAlgebra.mapDomain_single, AddMonoidAlgebra.mapDomain_zero]
+  rfl
+
+theorem other_component_not_h_invariant [Nontrivial R] :
+    (0, LaurentPolynomial.T 1) ∉
+      AlgHom.equalizer (conjugation R) (projection R) := by
+  intro h
+  change conjugation R (0, LaurentPolynomial.T 1) =
+    projection R (0, LaurentPolynomial.T 1) at h
+  rw [conjugation_other_monomial] at h
+  have hp : projection R (0, LaurentPolynomial.T 1) =
+      (0, AddMonoidAlgebra.single (0, 1) 1) := by
+    change (AddMonoidAlgebra.mapDomain unchanged 0,
+      AddMonoidAlgebra.mapDomain unchanged (AddMonoidAlgebra.single 1 1)) = _
+    simp only [AddMonoidAlgebra.mapDomain_zero, AddMonoidAlgebra.mapDomain_single]
+    rfl
+  rw [hp] at h
+  have hc := congrArg (fun p : ActionCoordinates R => p.2.coeff (2, 1)) h
+  simp at hc
+
+theorem coordinate_h_invariant : coordinate R ∈
+    AlgHom.equalizer (conjugation R) (projection R) := by
+  change (AddMonoidAlgebra.mapDomain unchanged (AddMonoidAlgebra.single 1 1),
+    AddMonoidAlgebra.mapDomain twisted 0) =
+    (AddMonoidAlgebra.mapDomain unchanged (AddMonoidAlgebra.single 1 1),
+    AddMonoidAlgebra.mapDomain unchanged 0)
+  simp
+
+theorem switching_coordinate : switching R (coordinate R) =
+    (LaurentPolynomial.T (-1), 0) := by
+  change (AddMonoidAlgebra.mapDomain reversed (AddMonoidAlgebra.single 1 1),
+    AddMonoidAlgebra.mapDomain reversed 0) = _
+  simp only [AddMonoidAlgebra.mapDomain_single, AddMonoidAlgebra.mapDomain_zero]
+  rfl
+
+theorem coordinate_not_switch_invariant [Nontrivial R] : coordinate R ∉
+    AlgHom.equalizer (switching R) (AlgHom.id R (Coordinates R)) := by
+  intro h
+  change switching R (coordinate R) = coordinate R at h
+  rw [switching_coordinate] at h
+  have hc := congrArg (fun p : Coordinates R => p.1.coeff (1 : ℤ)) h
+  simp [coordinate] at hc
+
+theorem component_idempotent : componentIdempotent R * componentIdempotent R =
+    componentIdempotent R := by
+  simp [componentIdempotent]
+
+theorem component_h_invariant : componentIdempotent R ∈
+    AlgHom.equalizer (conjugation R) (projection R) := by
+  change ((AddMonoidAlgebra.mapDomainAlgHom R R unchanged) 1,
+    (AddMonoidAlgebra.mapDomainAlgHom R R twisted) 0) =
+    ((AddMonoidAlgebra.mapDomainAlgHom R R unchanged) 1,
+    (AddMonoidAlgebra.mapDomainAlgHom R R unchanged) 0)
+  simp
+
+theorem component_switch_invariant : componentIdempotent R ∈
+    AlgHom.equalizer (switching R) (AlgHom.id R (Coordinates R)) := by
+  change ((AddMonoidAlgebra.mapDomainAlgHom R R reversed) 1,
+    (AddMonoidAlgebra.mapDomainAlgHom R R reversed) 0) = (1, 0)
+  simp
+
+def evalIdentity (x : ℚˣ) : Coordinates ℚ →ₐ[ℚ] ℚ :=
+  (AddMonoidAlgebra.lift ℚ ℚ ℤ
+    ((Units.coeHom ℚ).comp (zpowersHom ℚˣ x))).comp (AlgHom.fst ℚ _ _)
+
+theorem eval_coordinate (x : ℚˣ) : evalIdentity x (coordinate ℚ) = (x : ℚ) := by
+  change AddMonoidAlgebra.lift ℚ ℚ ℤ
+    ((Units.coeHom ℚ).comp (zpowersHom ℚˣ x)) (AddMonoidAlgebra.single 1 1) = _
+  simp only [AddMonoidAlgebra.lift_single, one_smul, MonoidHom.comp_apply]
+  change ↑(x ^ (1 : ℤ)) = (x : ℚ)
+  simp
+
+theorem eval_component (x : ℚˣ) : evalIdentity x (componentIdempotent ℚ) = 1 := by
+  change AddMonoidAlgebra.lift ℚ ℚ ℤ
+    ((Units.coeHom ℚ).comp (zpowersHom ℚˣ x)) 1 = 1
+  exact map_one _
+
+example : evalIdentity (Units.mk0 2 (by norm_num)) (coordinate ℚ) = 2 ∧
+    evalIdentity (Units.mk0 (1 / 2) (by norm_num)) (coordinate ℚ) = 1 / 2 := by
+  simp [eval_coordinate]
+
+end
+end IdentityComponentCoordinateChecks
 
 section MatrixCoefficients
 variable {R : Type u} [CommRing R] {I : Type v} [Fintype I]
