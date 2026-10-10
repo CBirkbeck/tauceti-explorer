@@ -3,8 +3,8 @@
   "title": "Multiquadratic fields and genus theory, Part II: real quadratic signs and form characters",
   "area": "algebraicnt",
   "parent": "tauceti:TauCetiRoadmap/Multiquadratic",
-  "summary": "Extend the built multiquadratic and narrow genus theory by an explicit real quadratic kernel statement, descent of real class characters, exact cardinalities of genus fibres, and the arithmetic sign criteria used in real quadratic period formulas. Compare the imported form character with the existing ideal character at positive fundamental discriminants, keeping general form carriers and character well-definedness with Geometry of Numbers.",
-  "readme": "This Part II starts from the built narrow class group, genus quotient and prime-discriminant character theory of Multiquadratic. Its exact conventions, theorem inventory, acceptance examples and supplier contracts are documented in research/blueprint/readmes/MultiquadraticPartII.md. The finite genus and sign adapters lead to the fundamental form/ideal comparison. General form theory is imported, and no class-number-one infinitude or analytic equidistribution theorem is asserted.",
+  "summary": "Extend the built multiquadratic and narrow genus theory by the exact real quadratic kernel, character descent, genus-fibre cardinalities and arithmetic sign criteria. Compare the imported GN form character with the existing ideal character at positive fundamental discriminants, consuming IntegralLattices’ oriented binary dictionary and only requesting the remaining compatibility and norm-witness adapters from Geometry of Numbers.",
+  "readme": "This Part II uses the existing narrow class group C, forgetful map π and distinguished class J. Its nine theorem targets identify ker π={1,J}, characterize unique wide descent by χ(J)=1, count each genus fibre by 2^(r−1)|G|=|C|, evaluate χ_t(J) by the signed discriminant subproduct, and translate J being square into the no-prime-3-modulo-4 and two-squares conditions. J being square is weaker than J=1. For positive fundamental D, the last target compares form and ideal genus characters through a positive coprime represented integer and an integral ideal of that norm in A⁻¹. Ownership correction: current IntegralLattices Layer B1–B3 supplies binary carriers, proper classes and the oriented form/ideal dictionary; GlobalNumberFields Layer 11 supplies its NarrowPic target. GN.2 supplies the general form character; GN.3 supplies only missing maximal-order/DIT convention and norm-witness adapters. The detailed companion reader gives the mathematical conventions and examples, but its older GN.3 dictionary-ownership wording is superseded by this roadmap and the reviewed packet. No analytic theorem or class-number-one infinitude is planned here.",
   "prerequisites": [
     "tauceti:TauCetiRoadmap/Multiquadratic",
     "GeometryOfNumbersAndQuadraticArithmetic"
@@ -39,7 +39,7 @@
     {
       "key": "RQ.3",
       "title": "Fundamental form and ideal characters",
-      "description": "Import the integral binary form character from GeometryOfNumbersAndQuadraticArithmetic:GN.2 and the oriented primitive-form/narrow-ideal dictionary from GN.3. For positive fundamental D, t⊆s and primitive Q=[a,b,c] with discriminant D representing the narrow class A in the DIT16 convention, prove χ_δ(Q)=χ_t(A). The proof uses a positive integer m represented by Q and coprime to δ, together with a nonzero integral ideal of absolute norm m in A⁻¹. Explain the coefficient changes [a,−b,c]↔A⁻¹, [−a,b,−c]↔JA and −Q↔JA⁻¹. Their character consequences follow from this comparison and RQ.2; the dictionary itself remains supplied by GN.3. Imprimitive and nonfundamental form characters, reduction algorithms and analytic periods stay with their owners.",
+      "description": "Import the general form character from GeometryOfNumbersAndQuadraticArithmetic:GN.2, and consume current IntegralLattices Layer B2–B3 for the oriented primitive-form/narrow-ideal dictionary, whose target is GlobalNumberFields Layer 11 NarrowPic. Request only the remaining maximal-order/DIT convention and positive coprime norm-witness adapters from GN.3. For positive fundamental D>1, t⊆s and primitive Q=[a,b,c] representing the narrow class A, prove χ_δ(Q)=χ_t(A) via a positive represented m coprime to δ and a nonzero integral ideal of norm m in A⁻¹. With a>0, the coefficient ideal is a positive rational multiple of wℤ+ℤ; with a<0, retain the supplier’s oriented sign clause. The DIT coefficient actions [a,−b,c]↔A⁻¹, [−a,b,−c]↔JA and −Q↔JA⁻¹ yield character consequences using RQ.2. Binary classes/composition and order-theoretic quotients are imported; imprimitive general characters, reduction and analytic periods remain with their owners.",
       "requires": [
         "MultiquadraticPartII:RQ.0",
         "MultiquadraticPartII:RQ.2",
@@ -56,14 +56,47 @@
       "edition": "Annals of Mathematics 184 (2016), no. 3, 949–990; published version of record, DOI 10.4007/annals.2016.184.3.8",
       "url": "https://annals.math.princeton.edu/wp-content/uploads/annals-v184-n3-p08-p.pdf",
       "sha256": "a67de7157f76ee700bc2e6a0034a920adc390022d4ff528aa80084f829f35f61",
-      "accessed": "2026-10-05",
+      "accessed": "2026-10-10",
       "readSections": [
         "§2 real quadratic fields and binary forms, pp.950–952; page952 image checked",
         "§4 genera, (4.1)–(4.2) and principal-genus criterion, pp.959–960",
         "§7 genus characters and descent, pp.970–972; page971 image checked",
         "§9 character definition and fundamental form/ideal comparison, pp.977–978"
       ]
+    },
+    {
+      "id": "UPSTREAM-CURRENT",
+      "title": "Current IntegralLattices and GlobalNumberFields supplier roadmaps",
+      "authors": "The Tau Ceti roadmap contributors",
+      "edition": "e255659f8eb50cd472809d9d565c8f755acffd84",
+      "url": "https://github.com/TauCetiProject/TauCetiRoadmap/tree/e255659f8eb50cd472809d9d565c8f755acffd84/TauCetiRoadmap",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "IntegralLattices README Layer B1–B4 and Suggested.lean binary/order interface",
+        "GlobalNumberFields README Layer 11 and Suggested.lean order/Picard/maximal-order interface"
+      ]
     }
   ],
-  "status": "draft"
+  "status": "draft",
+  "upstreamImports": [
+    {
+      "supplier": "tauceti:TauCetiRoadmap/IntegralLattices#layer-b-binary-lattices-and-quadratic-orders",
+      "commit": "e255659f8eb50cd472809d9d565c8f755acffd84",
+      "targets": [
+        "B1 binary form/content/proper equivalence",
+        "B2 oriented dictionary into NarrowPic",
+        "B3 inverse/principal/composition compatibility"
+      ],
+      "use": "Imported plan, not a pinned implemented declaration; GN.3 supplies only remaining specialization and norm-witness adapters."
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/GlobalNumberFields#layer-11-orders-and-picard-groups",
+      "commit": "e255659f8eb50cd472809d9d565c8f755acffd84",
+      "targets": [
+        "NumberFieldOrder and NarrowPic",
+        "maximal-order specialization"
+      ],
+      "use": "Imported order and Picard plan; bridge its maximal-order presentation to the already implemented narrow class group, without a second quotient."
+    }
+  ]
 }

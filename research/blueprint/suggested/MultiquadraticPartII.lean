@@ -6,8 +6,9 @@ import TauCeti.NumberTheory.Multiquadratic.Quadratic.GenusCharacter.OrdinaryTwoR
 import TauCeti.NumberTheory.NumberField.NarrowClassGroup.Finite
 
 /-!
-This file is not the roadmap and is not exhaustive. The roadmap document
-`research/blueprint/readmes/MultiquadraticPartII.md` is definitive. These statements
+This file is not the roadmap and is not exhaustive. The roadmap and packet
+specify the targets and current supplier ownership; the companion reader
+`research/blueprint/readmes/MultiquadraticPartII.md` gives detailed conventions. These statements
 suggest Lean forms so contributors and reviewers converge on names and signatures.
 They are a proposal, not an implementation.
 
@@ -16,10 +17,15 @@ f790474821cf4256814db967cb154e7af3d0c369. The narrow class group, genus quotient
 arithmetic and ideal characters, and quadratic-form carrier already exist there.
 No fresh narrow class group, genus, or form carrier is defined.
 
-RQ.3 is conditional on the precise GN.2/GN.3 input laws. `formChar` is a function on
+RQ.3 consumes IntegralLattices Layer B2–B3 for its oriented binary dictionary,
+with GlobalNumberFields Layer 11 supplying the order/Picard carriers. GN.3 supplies
+only remaining maximal-order/DIT-convention and positive coprime norm-witness
+adapters; it must not rebuild that dictionary. At negative leading coefficient,
+the supplier’s oriented sign clause is essential. The precise GN.2/GN.3 input
+laws remain conditional here. `formChar` is a function on
 Mathlib's existing quadratic-form carrier, not a proposition field pretending to
 be a form theory. Its represented-value law and a concrete norm ideal are explicit
-mathematical hypotheses. The canonical GN character/dictionary instantiation and
+mathematical hypotheses. The canonical form-character and imported dictionary instantiation and
 its imprimitive zero tests cannot be named until those supplier interfaces exist.
 -/
 
@@ -128,6 +134,9 @@ theorem J_ne_one_of_prime_threeModFour {s : Finset ℤ}
 
 -- RQ.3. An actual form, an actual function, and explicit supplier input laws.
 -- The theorem does not take its desired comparison as a hypothesis.
+-- `hclass` is the norm-witness adapter after maximal-order identification and
+-- proper normalization to positive leading coefficient, not an unoriented ideal.
+-- Concrete supplier names are not present at the pinned library baseline.
 theorem formCharacter_eq_idealCharacter {s t : Finset ℤ}
     (hs : ∀ P ∈ s, IsPrimeDiscriminant P)
     (heven : ∀ P ∈ s, ∀ P' ∈ s,
