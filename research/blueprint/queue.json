@@ -37363,7 +37363,8 @@
    ],
    "followUpOf": "BP-ArithmeticStatistics",
    "prompt": "research/blueprint/prompts/BP-ArithmeticStatistics--ST.4.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #6356"
   },
   {
    "id": "REV-ArithmeticStatistics--ST.4",
@@ -49272,8 +49273,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-JacobianChallengePartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7593"
+   "state": "pending",
+   "note": "released on GitHub issue #7593"
   },
   {
    "id": "REV-PKG-JacobianChallengePartII",
@@ -80239,8 +80240,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81549,8 +81550,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
@@ -84640,8 +84641,8 @@
     "FIX-RT-AREA-topology~4"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-topology~4.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6521"
+   "state": "external",
+   "note": "claimed on GitHub issue #6521"
   },
   {
    "id": "RT-AREA-diffgeom",
