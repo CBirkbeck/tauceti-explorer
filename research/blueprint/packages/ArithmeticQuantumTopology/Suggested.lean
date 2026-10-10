@@ -3695,4 +3695,276 @@ example (θ : Fin 1 → ℂ) (ζ : ℂ) :
 
 end NZVertices
 
+/-! QT.2: the completed even center, with its actual quotient multiplication.
+Habiro math/0605313v1, §9.3–9.4, pp. 19–20, Theorems 9.2 and 9.5;
+§9.6, pp. 22–23, Theorem 9.13; §11, pp. 30–31, Theorem 11.2.
+The indeterminate below represents C². The coefficient ring is ℤ[q±1],
+where q=v². Neither the full C-center nor pointwise sequence multiplication
+is substituted for this even center. Proof obligations remain admitted.
+-/
+namespace QuantumEnveloping
+namespace EvenCenter
+
+/-- C is an ambient central element; vC, rather than C, belongs to the q-form. -/
+def quantumCasimir : Uh :=
+  scalar ((formalVPower 1 - formalVPower (-1))^2) * F * E +
+    scalar (formalVPower 1) * K + scalar (formalVPower (-1)) * Kinv
+
+theorem quantumCasimir_central (u : Uh) : Commute quantumCasimir u := sorry
+
+theorem qCasimir_mem : scalar (formalVPower 1) * quantumCasimir ∈ Uq := sorry
+
+theorem quantumCasimir_sq_mem : quantumCasimir^2 ∈ Uqev := sorry
+
+/-- The actual center of the existing completed even image algebra. -/
+abbrev Center := Subalgebra.center QBase (QuantumEnveloping.completion true)
+
+/-- The distinguished C² in the actual even image center. -/
+def casimirSquare : Center :=
+  ⟨⟨quantumCasimir^2, integralForm_le_completion true quantumCasimir_sq_mem⟩, sorry⟩
+
+/-- Monic polynomial in Y=C², not a polynomial in C with a renamed variable. -/
+def sigmaPolynomial (n : ℕ) : Polynomial QBase :=
+  ∏ i ∈ range n,
+    (X - Polynomial.C (LaurentPolynomial.T ((i+1 : ℕ) : ℤ) + 2 +
+      LaurentPolynomial.T (-((i+1 : ℕ) : ℤ))))
+
+def sigma (n : ℕ) : Center := Polynomial.aeval casimirSquare (sigmaPolynomial n)
+
+theorem sigmaPolynomial_zero : sigmaPolynomial 0 = 1 := by simp [sigmaPolynomial]
+
+theorem sigmaPolynomial_one : sigmaPolynomial 1 =
+    X - Polynomial.C (LaurentPolynomial.T 1 + 2 + LaurentPolynomial.T (-1)) := by
+  simp [sigmaPolynomial]
+
+theorem sigmaPolynomial_succ (n : ℕ) : sigmaPolynomial (n+1) =
+    sigmaPolynomial n *
+      (X - Polynomial.C (LaurentPolynomial.T ((n+1 : ℕ) : ℤ) + 2 +
+        LaurentPolynomial.T (-((n+1 : ℕ) : ℤ)))) := by
+  simp [sigmaPolynomial, Finset.prod_range_succ]
+
+theorem sigmaPolynomial_monic (n : ℕ) : (sigmaPolynomial n).Monic := sorry
+
+theorem sigmaPolynomial_natDegree (n : ℕ) : (sigmaPolynomial n).natDegree = n := sorry
+
+theorem sigma_zero : sigma 0 = 1 := by simp [sigma, sigmaPolynomial_zero]
+
+theorem sigma_one : sigma 1 = casimirSquare -
+    algebraMap QBase Center (LaurentPolynomial.T 1 + 2 + LaurentPolynomial.T (-1)) := by
+  simp [sigma, sigmaPolynomial_one]
+
+/-- The two-sided e-power filtration restricted to the polynomial center. -/
+def sigmaIdeal (n : ℕ) : Ideal (Polynomial QBase) := Ideal.span {sigmaPolynomial n}
+
+abbrev SigmaQuotient (n : ℕ) := Polynomial QBase ⧸ sigmaIdeal n
+
+theorem sigmaIdeal_antitone {n m : ℕ} (h : n ≤ m) : sigmaIdeal m ≤ sigmaIdeal n := sorry
+
+def sigmaTransition {n m : ℕ} (h : n ≤ m) : SigmaQuotient m →ₐ[QBase] SigmaQuotient n :=
+  Ideal.Quotient.factorₐ QBase (sigmaIdeal_antitone h)
+
+/-- Compatible finite polynomial quotients, with multiplication in each quotient. -/
+def completedSigmaAlgebra : Subalgebra QBase (∀ n, SigmaQuotient n) where
+  carrier := {x | ∀ (n m : ℕ) (h : n ≤ m), sigmaTransition h (x m) = x n}
+  mul_mem' := by
+    intro a b ha hb n m h
+    change sigmaTransition h (a m * b m) = a n * b n
+    rw [map_mul, ha n m h, hb n m h]
+  add_mem' := by
+    intro a b ha hb n m h
+    change sigmaTransition h (a m + b m) = a n + b n
+    rw [map_add, ha n m h, hb n m h]
+  algebraMap_mem' := by
+    intro a n m h
+    exact (sigmaTransition h).commutes a
+
+abbrev SigmaCompletion := completedSigmaAlgebra
+
+instance sigmaCompletionCommRing : CommRing SigmaCompletion :=
+  _root_.Subalgebra.toCommRing (R := QBase) (A := ∀ n : ℕ, SigmaQuotient n)
+    completedSigmaAlgebra
+
+def sigmaProjection (n : ℕ) : SigmaCompletion →ₐ[QBase] SigmaQuotient n where
+  toFun x := x.val n
+  map_zero' := rfl
+  map_one' := rfl
+  map_add' _ _ := rfl
+  map_mul' _ _ := rfl
+  commutes' _ := rfl
+
+/-- Polynomial elements map to their actual congruence classes at every precision. -/
+def polynomialToCompletion : Polynomial QBase →ₐ[QBase] SigmaCompletion where
+  toFun p := ⟨fun n => Ideal.Quotient.mk (sigmaIdeal n) p, by intro n m h; rfl⟩
+  map_zero' := Subtype.ext (funext fun n => (Ideal.Quotient.mk (sigmaIdeal n)).map_zero)
+  map_one' := Subtype.ext (funext fun n => (Ideal.Quotient.mk (sigmaIdeal n)).map_one)
+  map_add' p q := Subtype.ext (funext fun n => (Ideal.Quotient.mk (sigmaIdeal n)).map_add p q)
+  map_mul' p q := Subtype.ext (funext fun n => (Ideal.Quotient.mk (sigmaIdeal n)).map_mul p q)
+  commutes' a := by ext n; rfl
+
+/-- Polynomial evaluation in the native even integral subalgebra. -/
+def polynomialToEvenForm : Polynomial QBase →ₐ[QBase] Uqev :=
+  Polynomial.aeval (⟨quantumCasimir^2, quantumCasimir_sq_mem⟩ : Uqev)
+
+/-- The source's σ/e-power comparison, restricted to the actual even form. -/
+theorem sigmaPolynomial_killed (n : ℕ) (p : Polynomial QBase)
+    (hp : p ∈ sigmaIdeal n) : integralQuotientMap true n (polynomialToEvenForm p) = 0 := sorry
+
+/-- Canonical finite-precision map, rather than an unspecified completion equivalence. -/
+def sigmaToIntegralQuotient (n : ℕ) : SigmaQuotient n →ₐ[QBase] IntegralQuotient true n :=
+  Ideal.Quotient.liftₐ (sigmaIdeal n)
+    ((integralQuotientMap true n).comp polynomialToEvenForm) (sigmaPolynomial_killed n)
+
+def sigmaToIntegralLimit : SigmaCompletion →ₐ[QBase] integralInverseLimit true where
+  toFun x := ⟨fun n => sigmaToIntegralQuotient n (sigmaProjection n x), sorry⟩
+  map_zero' := by apply Subtype.ext; funext n; exact map_zero (sigmaToIntegralQuotient n)
+  map_one' := by apply Subtype.ext; funext n; exact map_one (sigmaToIntegralQuotient n)
+  map_add' x y := by
+    apply Subtype.ext; funext n
+    exact map_add (sigmaToIntegralQuotient n) (x.val n) (y.val n)
+  map_mul' x y := by
+    apply Subtype.ext; funext n
+    exact map_mul (sigmaToIntegralQuotient n) (x.val n) (y.val n)
+  commutes' a := by
+    apply Subtype.ext; funext n
+    exact (sigmaToIntegralQuotient n).commutes a
+
+/-- Realization through the existing image completion and its actual center. -/
+def sigmaToCenter : SigmaCompletion →ₐ[QBase] Center where
+  toFun x := ⟨⟨integralToUh true (sigmaToIntegralLimit x),
+    ⟨sigmaToIntegralLimit x, rfl⟩⟩, sorry⟩
+  map_zero' := sorry
+  map_one' := sorry
+  map_add' := sorry
+  map_mul' := sorry
+  commutes' := sorry
+
+/-- Saturation gives injectivity; integral central expansions give surjectivity. -/
+theorem sigmaToCenter_bijective : Function.Bijective sigmaToCenter := sorry
+
+/-- Habiro's even center theorem for the explicitly defined infinite-series map. -/
+def evenCenterRealization : SigmaCompletion ≃ₐ[QBase] Center :=
+  AlgEquiv.ofBijective sigmaToCenter sigmaToCenter_bijective
+
+theorem evenCenterRealization_polynomial (p : Polynomial QBase) :
+    evenCenterRealization (polynomialToCompletion p) = Polynomial.aeval casimirSquare p := sorry
+
+/-- Compatible integral centers are also central in the ambient h-adic algebra. -/
+theorem center_ambient_central (z : Center) (u : Uh) :
+    Commute ((z : QuantumEnveloping.completion true) : Uh) u := sorry
+
+/-- Monic triangular coordinates, additive and linear but not multiplicative. -/
+def sigmaQuotientCoordinates (n : ℕ) : SigmaQuotient n ≃ₗ[QBase] (Fin n → QBase) := sorry
+
+theorem sigmaQuotientCoordinates_mk (n : ℕ) (a : Fin n → QBase) (j : Fin n) :
+    sigmaQuotientCoordinates n (Ideal.Quotient.mk (sigmaIdeal n)
+      (∑ i : Fin n, a i • sigmaPolynomial i.val)) j = a j := sorry
+
+def sigmaPartialSum (a : ℕ → QBase) (n : ℕ) : Polynomial QBase :=
+  ∑ i : Fin n, a i.val • sigmaPolynomial i.val
+
+def sigmaFromCoordinates (a : ℕ → QBase) : SigmaCompletion :=
+  ⟨fun n => Ideal.Quotient.mk (sigmaIdeal n) (sigmaPartialSum a n), sorry⟩
+
+def sigmaCoeff (x : SigmaCompletion) (n : ℕ) : QBase :=
+  sigmaQuotientCoordinates (n+1) (sigmaProjection (n+1) x) ⟨n, Nat.lt_succ_self n⟩
+
+def sigmaCoordinates : SigmaCompletion ≃ₗ[QBase] (ℕ → QBase) where
+  toFun x n := sigmaCoeff x n
+  invFun := sigmaFromCoordinates
+  left_inv := sorry
+  right_inv := sorry
+  map_add' := sorry
+  map_smul' := sorry
+
+/-- Unique integral σ-expansion of the actual center, not an arbitrary sequence carrier. -/
+def evenCenterExpansion : Center ≃ₗ[QBase] (ℕ → QBase) :=
+  evenCenterRealization.symm.toLinearEquiv.trans sigmaCoordinates
+
+theorem evenCenterExpansion_sigma (n j : ℕ) :
+    evenCenterExpansion (sigma n) j = if j = n then 1 else 0 := sorry
+
+theorem evenCenterExpansion_ext (z w : Center)
+    (h : ∀ n, evenCenterExpansion z n = evenCenterExpansion w n) : z = w :=
+  evenCenterExpansion.injective (funext h)
+
+theorem sigmaFromCoordinates_projection (a : ℕ → QBase) (n : ℕ) :
+    sigmaProjection n (sigmaFromCoordinates a) =
+      Ideal.Quotient.mk (sigmaIdeal n) (sigmaPartialSum a n) := rfl
+
+/-- Intrinsic σ-adic topology on the inverse limit uses discrete integral quotients. -/
+instance sigmaQuotientUniformSpace (n : ℕ) : UniformSpace (SigmaQuotient n) := ⊥
+instance sigmaCoefficientUniformSpace : UniformSpace QBase := ⊥
+instance sigmaCompletionUniformSpace : UniformSpace SigmaCompletion :=
+  inferInstanceAs (UniformSpace completedSigmaAlgebra)
+
+theorem sigmaCompletion_complete : CompleteSpace SigmaCompletion := sorry
+theorem sigmaCompletion_t2 : T2Space SigmaCompletion := sorry
+theorem sigmaCompletion_topologicalRing : IsTopologicalRing SigmaCompletion := sorry
+
+def sigmaCoordinateHomeomorph : SigmaCompletion ≃ₜ (ℕ → QBase) where
+  __ := sigmaCoordinates.toEquiv
+  continuous_toFun := sorry
+  continuous_invFun := sorry
+
+theorem sigmaPartialSum_tendsto (a : ℕ → QBase) :
+    Filter.Tendsto (fun n => polynomialToCompletion (sigmaPartialSum a n))
+      Filter.atTop (nhds (sigmaFromCoordinates a)) := sorry
+
+/-- Integrality and the σ/e-power comparison, not h-adic closedness of an image. -/
+theorem sigma_in_integralIdeal (n : ℕ) :
+    ∃ s : Uqev, (s : Uh) = ((sigma n : QuantumEnveloping.completion true) : Uh) ∧
+      s ∈ integralIdeal true n := sorry
+
+theorem quantumCasimir_color (n : ℕ) : colorRepresentation n quantumCasimir =
+    (formalVPower ((n+1 : ℕ) : ℤ) + formalVPower (-((n+1 : ℕ) : ℤ))) •
+      (1 : ColorMatrix n) := sorry
+
+theorem sigma_color (n i : ℕ) :
+    colorRepresentation n ((sigma i : QuantumEnveloping.completion true) : Uh) =
+      (∏ j ∈ range i,
+        ((formalVPower ((n+1 : ℕ) : ℤ) + formalVPower (-((n+1 : ℕ) : ℤ)))^2 -
+          (formalVPower (2*((j+1 : ℕ) : ℤ)) + 2 +
+            formalVPower (-2*((j+1 : ℕ) : ℤ))))) • (1 : ColorMatrix n) := sorry
+
+theorem sigma_Vn_vanish (n i : ℕ) (h : n < i) :
+    colorRepresentation n ((sigma i : QuantumEnveloping.completion true) : Uh) = 0 := sorry
+
+-- sigma_zero: the empty product is the unit of the actual center.
+example : sigma 0 = 1 := sigma_zero
+-- sigma_one: detects q=v², the square and the constant 2 together.
+example : sigma 1 = casimirSquare -
+    algebraMap QBase Center (LaurentPolynomial.T 1 + 2 + LaurentPolynomial.T (-1)) := sigma_one
+-- sigma_Vn_vanish: the color index is highest weight, not representation dimension.
+example (n i : ℕ) (h : n < i) :
+    colorRepresentation n ((sigma i : QuantumEnveloping.completion true) : Uh) = 0 :=
+  sigma_Vn_vanish n i h
+-- casimir_trivial_color: the chosen C acts by v+v⁻¹, not by zero.
+example : colorRepresentation 0 quantumCasimir =
+    (formalVPower 1 + formalVPower (-1)) • (1 : ColorMatrix 0) := by
+  simpa using quantumCasimir_color 0
+-- sigma_first_nonzero_color: σ₁ does not annihilate V₁.
+example : colorRepresentation 1 ((sigma 1 : QuantumEnveloping.completion true) : Uh) ≠ 0 := sorry
+-- sigma_not_pointwise: the first σ-coordinate of σ₁² is q²+q⁻²−q−q⁻¹.
+example : evenCenterExpansion (sigma 1 * sigma 1) 1 =
+    LaurentPolynomial.T 2 + LaurentPolynomial.T (-2) -
+      LaurentPolynomial.T 1 - LaurentPolynomial.T (-1) := sorry
+-- sigma_square_leading_coefficient: the next coordinate is also present.
+example : evenCenterExpansion (sigma 1 * sigma 1) 2 = 1 := sorry
+-- sigma_quotient_zero: precision zero is the zero ring, not the coefficient ring.
+example : Subsingleton (SigmaQuotient 0) := sorry
+-- sigma_quotient_one: only the scalar coordinate survives modulo σ₁.
+example : Nonempty (SigmaQuotient 1 ≃ₐ[QBase] QBase) := sorry
+-- sigma_all_sequences: arbitrary integral coordinates define one compatible element.
+example (a : ℕ → QBase) :
+    evenCenterExpansion (evenCenterRealization (sigmaFromCoordinates a)) = a := sorry
+-- sigma_finite_precision: higher coordinates cannot change precision n.
+example (a b : ℕ → QBase) (n : ℕ) (h : ∀ i < n, a i = b i) :
+    sigmaProjection n (sigmaFromCoordinates a) = sigmaProjection n (sigmaFromCoordinates b) := sorry
+-- casimir_even_parity: even scalars lie in the existing even form.
+example : quantumCasimir^2 ∈ Uqev ∧ scalar (formalVPower 1)*quantumCasimir ∈ Uq :=
+  ⟨quantumCasimir_sq_mem, qCasimir_mem⟩
+
+end EvenCenter
+end QuantumEnveloping
+
 end TauCeti.QuantumTopology

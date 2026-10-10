@@ -1,5 +1,148 @@
 # PKG-ArithmeticQuantumTopology — blocked checkpoint
 
+Worker: Codex (GPT-6), session `codex-cSWQRq`, issue #7889, 2026-10-10.
+Claim confirmed after comment 6095000415. Continues the rank-one foundation
+checkpoint by `codex-eGMIqk`; all earlier mathematical work is retained below.
+
+This run advances **QT.2/completed-even-center**. It remains a partial package:
+framed-link and integral-surgery supplier carriers are absent, and this issue
+permits no edits to their owners or to the accepted plan. The new native center
+interfaces do not discharge those independent geometric requirements. This is
+a dependency checkpoint, not a time-limit checkpoint. No second job was taken.
+
+## Saved in this run
+
+- README: **199,995 bytes**, the same ordered **106 target headings**, all
+  existing anchors, source destinations, and **404 inherited API/test names**
+  retained. The center target now specifies its actual quotient product,
+  finite triangular coordinates, canonical integral-image realization,
+  saturation proof route and separate intrinsic sigma topology. Repeated
+  labels are shortened consistently to fit the 200,000-byte ceiling;
+  mathematical target headings and prerequisites are unchanged.
+- Suggested.lean: **3,970 lines**, adding **272 lines** after the inherited
+  file body, which is retained exactly. The addition is in
+  `TauCeti.QuantumTopology.QuantumEnveloping.EvenCenter`. There are twelve
+  examples, including the three prescribed tests. All source-theorem proof
+  obligations remain honest `sorry`s; this is a suggested interface,
+  not a formalization of the center theorem.
+- `metadata.toml` remains absent. A fresh read of
+  `research/blueprint/issues.py:deliverables_complete` confirms that package
+  completeness is decided by output existence. Adding the last file would
+  misclassify this incomplete package. When every layer meets PROTOCOL §20,
+  add `topic = "math.GT"` and a newline.
+
+## QT.2 center construction and source audit
+
+Public source read: Habiro, *An integral form of the quantized enveloping
+algebra of sl2 and its completions*, arXiv:math/0605313v1,
+https://arxiv.org/pdf/math/0605313v1, accessed 2026-10-10. SHA-256:
+`b466d7d47865e3a4e7ef4a7363646cd119ff640785b3ec0423365666ed069c7e`.
+The receipt agrees with the input. Read the introduction's center/completion
+conventions (p. 3), §§9.2–9.6 (pp. 19–23), the adjoint-action proof and
+cyclotomic valuation integrality argument in §§10.3–10.4 (pp. 26–30), and
+§11 (pp. 30–31). Locators: Theorems 9.2 and 9.5, Proposition 9.4,
+Lemmas 9.10–9.12, Theorem 9.13, Proposition 10.6, Lemma 10.8 and
+Theorem 11.2. No restricted source was used; no source passage is retained.
+
+1. `quantumCasimir` is the concrete ambient expression
+   (v−v⁻¹)²FE+vK+v⁻¹K⁻¹ in the existing noncommutative `Uh`.
+   Centrality, vC∈Uq and C²∈Uqev have explicit signatures. `Center` is
+   Mathlib's actual `Subalgebra.center` of QT.1's even image completion.
+   `casimirSquare` uses C² membership; C itself is not falsely placed in Uq.
+2. `sigmaPolynomial n` is the monic degree-n polynomial in Y=C² over
+   QBase=ℤ[q±1], with factors Y−q^i−2−q⁻i for 1≤i≤n.
+   `sigma` evaluates it in the actual center. Zero, one and successor
+   polynomial formulas, and sigma zero/one evaluations have Lean proofs.
+3. `sigmaIdeal`, `SigmaQuotient`, `sigmaTransition` and
+   `completedSigmaAlgebra` use native ideals, quotient rings and compatible
+   product subalgebras. `SigmaCompletion` inherits quotient multiplication;
+   closure and finite-polynomial map laws have Lean proofs. The zero-precision
+   quotient is the zero ring, whereas precision one is the coefficient ring.
+4. `polynomialToEvenForm` evaluates Y at the native even integral C².
+   `sigmaPolynomial_killed` states the actual restricted e-power comparison,
+   not merely h-adic vanishing. `sigmaToIntegralQuotient` uses
+   `Ideal.Quotient.liftₐ`; `sigmaToIntegralLimit` maps compatible coordinates
+   into the existing even integral limit; `sigmaToCenter` then uses
+   `integralToUh` and its actual image. The defining maps are concrete;
+   compatibility, centrality and saturation/surjectivity remain typed proof
+   obligations. `evenCenterRealization` is `AlgEquiv.ofBijective` for this
+   map, not an unspecified equivalence that only fixes finite polynomials.
+   No injectivity of the entire integral inverse limit is asserted.
+5. Finite triangular sigma coordinates induce `sigmaCoordinates` and
+   `evenCenterExpansion` as **linear**, not algebra, equivalences.
+   Their API includes coordinate recovery, uniqueness, finite projections,
+   arbitrary integral sequences and tail independence. The explicit inverse
+   constructs partial-sum congruence classes. The intrinsic sigma topology
+   uses discrete quotients/coefficient ring, with completeness, separation,
+   ring continuity, coefficient homeomorphism and convergence signatures.
+   It is not identified silently with the ambient h-adic subspace topology.
+6. `quantumCasimir_color`, `sigma_color` and `sigma_Vn_vanish` use the
+   existing finite-color representation. V_n has highest weight n and
+   dimension n+1; C acts by v^(n+1)+v^(−n−1), so sigma_i vanishes for i>n.
+   Tests distinguish V₀'s nonzero Casimir, nonvanishing sigma₁ on V₁,
+   and sigma₁²=sigma₂+(q²+q⁻²−q−q⁻¹)sigma₁. Its coefficient sequence
+   thus cannot carry pointwise multiplication.
+
+Pinned Mathlib source statements reread before use: `Subalgebra.center`
+and its commutative ring instance; `Polynomial.aeval`; `Ideal.Quotient.mkₐ`,
+`factorₐ` and `liftₐ`; `AlgEquiv.ofBijective`; native quotient/subalgebra
+ring structures. Mathlib commit verified as
+`082e2d37e8b0463410cdb532e111cd43d5a66174`.
+The existing shared checker identifies its Tau Ceti baseline as
+`f790474821cf4256814db967cb154e7af3d0c369`.
+
+## Validation in this run
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/ArithmeticQuantumTopology.json`:
+  **0 errors, 0 warnings**; no input edit. It reports 106 nodes, 8 gaps,
+  19 requests, 8 planned stages and 0 closed stages.
+- Final `lean-check research/blueprint/packages/ArithmeticQuantumTopology/Suggested.lean`:
+  **exit 0, 0 errors, 578 warnings**, all `declaration uses sorry`.
+  Available memory was 110 GB. Only the provided checker was used; no
+  language server, Lake build/update/cache command or read-only-tree build.
+- **476 exact rational matrix/scalar checks** passed at v=2, 3/2, 3 and −2,
+  for V₀,…,V₆ and sigma₀,…,sigma₈. They evaluate the existing E/F/K
+  conventions, the FE Casimir, sigma products, the sharp vanishing index
+  and the sigma₁² identity. Twelve controls distinguish v from q=v²,
+  swapping FE to EF, and incorrectly killing sigma₁ on V₁. These finite
+  checks are not proofs of the admitted infinite-dimensional results.
+- Ordered heading/anchor and inherited-name comparison passed; the previous
+  Lean body is retained exactly. Only the three permitted existing
+  deliverables are changed. The final submission file check and whitespace
+  check passed. Scratch source files, scripts and logs are not deliverables.
+
+## Fresh owner check and where to resume
+
+Current read-only TauCetiRoadmap:
+`cd03e06852a13216ad246d0623492c4beac39af2`; current read-only Tau Ceti:
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+Read the full GeometricTopology README and suggested file and the full
+SemisimpleAlgebras and GrothendieckEulerForms READMEs. Reread actual
+`TauCeti/KnotTheory/SmoothLink/Basic.lean` and `Isotopy.lean`,
+`TauCeti/LowDimTopology/DehnSurgery/Slope.lean`, framed Markov and PD-code
+interfaces. The reviewed library catalogue has no ArithmeticQuantumTopology
+entry. None of the inspected owner boundaries has advanced since the prior
+checkpoint:
+
+- `SmoothLinkEmbedding` and its native ambient-isotopy setoid are unframed.
+  Framed Markov/PD data do not provide the missing framed geometric quotient;
+  `MarkovEquiv` explicitly discards framings.
+- `Slope` and `FramedBoundaryTorus` give genuine peripheral homology arithmetic,
+  but no filled manifold, integral-surgery H₁ theorem or Kirby comparison.
+- The ordered cusped-triangulation/peripheral/strong-flattening and AK analytic
+  supplier contracts identified below still require their actual owner APIs.
+
+Resume at QT.0's native framed-link/linking matrix and surgery contracts, then
+instantiate the invariant/pairing comparisons. The even center target now
+has concrete signatures; build the knot expansion on these and the existing
+color completion. General Lie-type core data and odd transmutation still
+belong to this roadmap and remain to be prototyped. The dependency table below
+is updated for the center addition. No packet, supplier or review file was
+changed. Do not create duplicate geometric carriers or substitute a matrix
+cokernel for a surgery manifold.
+
+## Prior checkpoint: `codex-eGMIqk`
+
 Worker: Codex (GPT-6), session `codex-eGMIqk`, issue #7889, 2026-10-10.
 Continues `codex-jiwjSa` (PR #8267), following PRs #8259, #8245, #8235,
 #8222, #8210, #8192 and #8154. Claim confirmed in issue comment 6094539329.
@@ -656,7 +799,7 @@ All proof obligations use `sorry`; nothing is claimed formalized.
 | --- | --- | --- |
 | QT.0 | Algebraically split/admissible matrix conditions, integral matrix cokernel and handle-slide congruence, discriminating small matrices | Framed-link linking matrix and tests; actual surgery/H₁ comparison; ordinary Kirby import; admissible band-slide, Hoste and presentation-existence refinements on those carriers |
 | QT.1 | Native compatible-quotient U_h, PBW/classical comparison, integral forms and image completions, completed ordinary/integral tensors; continuous Hopf/R/ribbon and color actions; native finite free ribbon module category; adjoint/transmutation maps, laws and even image-filtration interfaces | Odd/graded transmutation refinements; general Lie-type core/twist data (QT-owned work); supplier framed tangles, RT functor and universal bottom-tangle invariant |
-| QT.2 | Formal finite free colors/basis and explicit actions, continuous U_h-module and ribbon comparisons; divided powers and pivotal matrix trace; tensor/Clebsch–Gordan and character comparisons; Laurent Chebyshev polynomials, cyclotomic lattice/filtration and genuine quotient inverse limit, coordinate/topology/truncation APIs; scalar Kashaev kernel | Integral center/Casimir comparison; link invariant and normalization, divisibility and expansion, unified Kashaev construction on actual knots |
+| QT.2 | Formal finite free colors/basis and explicit actions, continuous U_h-module and ribbon comparisons; divided powers and pivotal matrix trace; tensor/Clebsch–Gordan and character comparisons; Laurent Chebyshev polynomials, cyclotomic lattice/filtration and genuine quotient inverse limit, coordinate/topology/truncation APIs; native even image center, Casimir, sigma quotient limit, canonical integral realization and coefficient/color APIs; scalar Kashaev kernel | Link invariant and normalization, divisibility and expansion, unified Kashaev construction on actual knots |
 | QT.3 | Actual completed twist elements, prime/tilde coefficient comparison, nonfinite support, inverse relation and even-color characters | Geometric Hopf pairing comparison and twisting theorem, JM on an actual integral-homology-sphere/surgery carrier, independence, connected-sum and orientation comparisons |
 | QT.4 | Earlier scalar conventions | Root categories, strong Kirby colors, WRT and JM evaluation, Ohtsuki series and rigidity on the exact integral coefficient ring; general Lie-type core/parity/filtration |
 | QT.5 | Principal charts, actual cut quotient/homeomorphism, intrinsic four-component flattenings, exact lifted five-term lattice, two relation subgroups, extended pre-Bloch quotient/Dehn kernel, universal ordinary forget/boundary square; conditional complex-period Rogers regulator and cut/sign/imaginary comparisons | Instantiate ordinary pre-Bloch and Polylogarithms suppliers and their convention/branch laws; actual strong/geometric flattening and Pachner interface; number-field Bloch and K₃ torsion comparison |
@@ -664,7 +807,7 @@ All proof obligations use `sorry`; nothing is claimed formalized.
 | QT.7 | Finite figure-eight root sums/descendants, denominator cocycle and pole-free action API, explicit scalar/diagonal/GL automorphy factors with composition and sign APIs, conditional ordered matrix transport, a partial provenance ledger | Actual representation-indexed knot rows/matrices; precise scalar/matrix asymptotic and analyticity predicates, lifts/quadratic/coefficient conjectures; proved BD comparison signatures; full six-column ledger and its tests |
 
 These are not all external tasks. General Lie-type cores/root data, odd
-transmutation refinements, center comparisons and knot-specific series remain
+transmutation refinements and knot-specific series remain
 this roadmap's work. The rank-one PBW/tensor/module foundations now have native
 prototypes; extend them without replacing the actual quotient products or
 asserting the conjectural injectivity of integral completion. Their elaboration
