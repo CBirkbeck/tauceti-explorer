@@ -364,8 +364,10 @@ end TauCeti.QCurve
 namespace TauCeti.GL2Type
 
 /-! GT.5/tate-vanishing-qbar, Ribet Theorem 6.3, p.13.
-The cocycle-to-class application needs the canonical comparison requested from
-ProfiniteCohomology Layer 10; the canonical vanishing signature itself is available. -/
+At the older pin the cocycle-to-class application lacks the canonical comparison.
+Current Tau Ceti supplies explicitH2IsoContinuousCohomology, explicitIso_coeffMap2
+and explicitIso_infl2; use those native maps when porting. The geometric cocycle
+still requires A1/A6. The canonical vanishing signature itself is available. -/
 theorem tateVanishingQbar (x : TauCeti.QCurve.unitCohomology2 Qbar) : x = 0 := sorry
 
 /-! GT.6/twisting-lemma. The finite-order character acts on the Hom line in the
@@ -686,7 +688,7 @@ Definition test IsQCurve.not_of_squared_traces: Let C₀ be non-CM over a quadra
 /- GT.5/ribet-cocycle — The cocycle of a non-CM ℚ-curve
 For non-CM C₀/K, choose K-isogenies μ_g : ᵍC₀ → C₀ over a finite Galois K/ℚ. Form c(g,h) = μ_g ∘ ᵍμ_h ∘ μ_{gh}⁻¹ in Hom⁰. Its value is a nonzero rational scalar, and c is a 2-cocycle for the trivial action on ℚˣ. Inflate its class to continuous H²(G_ℚ,ℚˣ). This class depends only on the geometric isogeny class, independently of the field, model and chosen isogenies. Its degree relation is c(g,h)² = deg μ_g deg μ_h / deg μ_{gh}.
 
-Interface requirements: Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence need ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation. Explicit continuous cocycles/inflation already exist in the library and are imported rather than redefined.
+Interface requirements: Geometric μ composition and rational inverse require Native A1 elliptic/abelian equivalence and A6 rational quasi-isogenies, faithful geometric base change and End0/Hom0 functoriality. The file only gives rationalScalar with an actual ℚ≃End0_ℚ̄ hypothesis on a native abelian variety over ℚ̄, which constrains scalar extraction; it does not substitute that helper for cocycle construction. All six API signatures and four geometric tests are omitted. The canonical class and choice-independence use the current Tau Ceti explicitH2IsoContinuousCohomology, explicitIso_coeffMap2 and explicitIso_infl2. Those comparison exports are absent at this file’s older pin; they are existing library inputs when porting. Explicit continuous cocycles/inflation already exist in the library and are imported rather than redefined.
 Declaration names: QCurve.cocycle, QCurve.cocycle_isCocycle, QCurve.cocycleClass, QCurve.cocycleClass_indep, QCurve.cocycle_sq, QCurve.cocycleClass_of_rat.
 API QCurve.cocycle: c : Gal(K/ℚ) × Gal(K/ℚ) → ℚ^× from the chosen μ_g.
 API QCurve.cocycle_isCocycle: c is a 2-cocycle for the trivial action.
@@ -703,7 +705,7 @@ Definition test QCurve.cocycle_cm_excluded: For a CM curve, End⁰ is an imagina
 /- GT.5/tate-vanishing-qbar — Tate's theorem: H²(G_ℚ, ℚ̄^×) = 0 for the trivial action, and the splitting map α
 Continuous H²(G_ℚ,ℚ̄ˣ) vanishes when ℚ̄ˣ is discrete with trivial action. Therefore the geometric cocycle has a locally constant splitting α with c(g,h) = α(g)α(h)/α(gh). Enlarge K to a finite Galois field K′ through which α factors. Then ε_C(g) = α(g)²/deg μ_g is a finite-order Dirichlet character, and the field E_α = ℚ(α(g) : g ∈ G_ℚ) is an abelian extension of ℚ.
 
-Interface requirements: Vanishing is stated on canonical continuousCohomology 2 of ofDiscreteModule with trivial G_ℚ-action on discrete Additive ℚ̄ˣ. Omitted: extracting α from the geometric cocycle, finite quotient and ε_C/E_α conclusions; requires the cocycle construction and ProfiniteCohomology Layer 10 canonical degree-two comparison, natural for coefficients and finite-quotient inflation.
+Interface requirements: Vanishing is stated on canonical continuousCohomology 2 of ofDiscreteModule with trivial G_ℚ-action on discrete Additive ℚ̄ˣ. Omitted: extracting α from the geometric cocycle, finite quotient and ε_C/E_α conclusions; requires the geometric cocycle construction. Current Tau Ceti supplies the canonical degree-two comparison and its coefficient/inflation naturality, as well as subsingleton_continuousCohomology_of_module_rat for the uniquely divisible quotient. These are library inputs when porting from this file’s older pin.
 Declaration names: GL2Type.tateVanishingQbar.
 -/
 
