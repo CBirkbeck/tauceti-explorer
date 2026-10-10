@@ -8380,9 +8380,9 @@
  ],
  "review": {
   "status": "accepted",
-  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-  "date": "2026-09-30",
-  "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K3BlochGroups. Scoped acceptance of /29: the three duplicate UCE lemmas are removed; V.1 imports T.1 perfectness/UCE and retains its own plus-fibration/Hurewicz interface. Checked the changed contracts and H₂ baseline. T.1 supplier gaps and later area-2 work are preserved; this does not re-review every older or area-2 node or assert closure of this partial packet. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+  "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+  "date": "2026-10-10",
+  "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Scoped acceptance of /29 and the V.5 ownership repair: V.1 imports T.1’s perfect-group/UCE package without replanning it; V.5 derives K₃(Z), K₃(Q) and K₃(Q(i)) from N.5 and its own number-field node, with no reverse N.8 dependency. Independently checked K-book VI.2.1.2, VI.5.2.1–5.4 and III.7.10, including the Milnor decomposable part. Retained unrelated source and supplier gaps; this partial packet is not certified closed. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with only admitted-proof warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
  },
  "sourceVersions": [
   {
@@ -8932,6 +8932,12 @@
      "note": "The p-adic half of the old regulator node, on D.2 and the modulo-p^m comparison."
     }
    ]
+  },
+  {
+   "status": "accepted",
+   "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+   "date": "2026-09-30",
+   "notes": "Codex session codex-J6LwjP; follows independent-review-REV-K3BlochGroups. Scoped acceptance of /29: the three duplicate UCE lemmas are removed; V.1 imports T.1 perfectness/UCE and retains its own plus-fibration/Hurewicz interface. Checked the changed contracts and H₂ baseline. T.1 supplier gaps and later area-2 work are preserved; this does not re-review every older or area-2 node or assert closure of this partial packet. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
   }
  ]
 }

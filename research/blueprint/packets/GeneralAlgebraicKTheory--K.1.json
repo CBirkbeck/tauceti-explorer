@@ -423,17 +423,17 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Definition 6.1 with 6.1.1, p. IV.53",
-          "match": "The construction with its composition, verbatim."
+          "match": "The construction with its composition."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "6.1.2 (Subobjects) and the paragraph after it, p. IV.53",
-          "match": "The subobject description and the two consequences, verbatim."
+          "match": "The subobject description and the two consequences."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "6.1, the paragraph on the two distinguished kinds of morphism, p. IV.53",
-          "match": "The factorisation, verbatim; it is what the universal property of the next node rests on."
+          "match": "The factorisation; it is what the universal property of the next node rests on."
         },
         {
           "sourceId": "Buhler.ExactCategories",
@@ -673,7 +673,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Definition 6.3.1 and the surrounding remark, p. IV.55",
-          "match": "Functoriality and the independence of the model up to isomorphic functors, verbatim."
+          "match": "Functoriality and the independence of the model up to isomorphic functors."
         }
       ],
       "implementationStatus": "unchecked"
@@ -728,7 +728,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Proposition 6.2 with its proof, p. IV.54",
-          "match": "The theorem, the representative of a class and the maximal-tree proof, verbatim."
+          "match": "The theorem, the representative of a class and the maximal-tree proof."
         },
         {
           "sourceId": "Weibel.KBook.IV",
@@ -900,7 +900,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Elementary properties 6.4, pp. IV.55 to IV.56",
-          "match": "All three statements with their proofs, verbatim; the ring examples in the same passage are the ring model's (K.2/functorial-K-theory-of-a-ring)."
+          "match": "All three statements with their proofs; the ring examples in the same passage are the ring model's (K.2/functorial-K-theory-of-a-ring)."
         },
         {
           "sourceId": "Quillen.Higher1973",
@@ -951,12 +951,12 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Definition 6.3.2, p. IV.55",
-          "match": "The definition of the K-theory of a ring for an arbitrary ring with unit, and the transfer in the opposite direction, verbatim; the arbitrary-ring scope is why the noncommutative functor of Z.1 is used."
+          "match": "The definition of the K-theory of a ring for an arbitrary ring with unit, and the transfer in the opposite direction; the arbitrary-ring scope is why the noncommutative functor of Z.1 is used."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Definition 6.3.3, p. IV.55",
-          "match": "The flatness hypothesis where it is genuinely needed, on all finitely generated modules, verbatim; the contrast with finitely generated projectives is the point of this node."
+          "match": "The flatness hypothesis where it is genuinely needed, on all finitely generated modules; the contrast with finitely generated projectives is the point of this node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1066,12 +1066,12 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Definition 7.3 with (7.3.1), p. IV.62",
-          "match": "The extension category, verbatim."
+          "match": "The extension category."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "§7, the opening of the section, p. IV.61",
-          "match": "The place where the source fixes the split-exactness hypothesis of this construction, verbatim."
+          "match": "The place where the source fixes the split-exactness hypothesis of this construction."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1168,7 +1168,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Theorem 7.1 and Corollary 7.2, pp. IV.61 to IV.62",
-          "match": "The theorem, verbatim: it is the LOOP SPACE ΩBQA that is B(S⁻¹S); the previous excerpt had dropped the Ω. Prose verbatim from the text layer of the author's chapter file; formulas transcribed."
+          "match": "The theorem: it is the LOOP SPACE ΩBQA that is B(S⁻¹S); the previous excerpt had dropped the Ω"
         }
       ],
       "implementationStatus": "unchecked",
@@ -1214,7 +1214,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Cofinality Theorem 4.11 with its proof, and the paragraph before Corollary 4.11.1, pp. IV.44–45",
-          "match": "The cofinality this node proves and the group-completion theorem it applies, verbatim; Corollary 4.11.1 is the resulting product description."
+          "match": "The cofinality this node proves and the group-completion theorem it applies; Corollary 4.11.1 is the resulting product description."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1256,7 +1256,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Corollary 7.2 and Definition 6.3.2, pp. IV.55 and IV.62",
-          "match": "The bridge this register rests on, verbatim; the low-degree identifications themselves are the other roadmaps’ statements and are not quoted from this source."
+          "match": "The bridge this register rests on; the low-degree identifications themselves are the other roadmaps’ statements and are not quoted from this source."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1295,7 +1295,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "§7, the opening and Corollary 7.2, pp. IV.61 to IV.62",
-          "match": "The unconditional half, verbatim. Matsumoto’s theorem is in chapter III of the same book, which was not read for this job; it is imported from K2SymbolsBrauer and the packet does not quote it."
+          "match": "The unconditional half. Matsumoto’s theorem is in chapter III of the same book, which was not read for this job; it is imported from K2SymbolsBrauer and the packet does not quote it."
         }
       ],
       "implementationStatus": "unchecked"
@@ -1349,12 +1349,12 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Definition 6.3.2 and Elementary properties 6.4, pp. IV.55 to IV.56",
-          "match": "The functor and the two compatibilities, verbatim."
+          "match": "The functor and the two compatibilities."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Elementary Properties 6.4, the ring instances, pp. IV.55–56",
-          "match": "The opposite-ring statement and the idempotent-matrix model, verbatim (formulas transcribed from the text layer); the source states the colimit for a filtered union of subrings, and the node proves it for filtered colimits by the same descent."
+          "match": "The opposite-ring statement and the idempotent-matrix model; the source states the colimit for a filtered union of subrings, and the node proves it for filtered colimits by the same descent."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1480,7 +1480,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Corollary 7.2, p. IV.62",
-          "match": "The product description, verbatim, with the Ω the previous excerpt had dropped. Prose verbatim from the text layer of the author's chapter file; formulas transcribed."
+          "match": "The product description, with the Ω the previous excerpt had dropped"
         }
       ],
       "implementationStatus": "unchecked"
@@ -1521,7 +1521,7 @@
         {
           "sourceId": "Buhler.ExactCategories",
           "locator": "Corollary 3.6 (3 × 3-Lemma) with its proof, pp. 13–14 (arXiv v2)",
-          "match": "The statement, verbatim; the proof steps follow Bühler's two cases."
+          "match": "The statement; the proof steps follow Bühler's two cases."
         },
         {
           "sourceId": "Buhler.ExactCategories",
@@ -1710,7 +1710,7 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Additivity Theorem 1.2 with its proof, p. V.2",
-          "match": "The theorem and the first line of its proof, verbatim, in the form that covers exact and Waldhausen categories at once."
+          "match": "The theorem and the first line of its proof, in the form that covers exact and Waldhausen categories at once."
         },
         {
           "sourceId": "Weibel.KBook.V",
@@ -1720,7 +1720,7 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Corollary 1.2.1 and Proposition 1.8, pp. V.2 and V.9",
-          "match": "The two corollaries with their proofs, verbatim."
+          "match": "The two corollaries with their proofs."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1768,7 +1768,7 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Resolution Theorem 3.1 with the opening of its proof, p. V.20",
-          "match": "The theorem and the structure of its proof, verbatim."
+          "match": "The theorem and the structure of its proof."
         },
         {
           "sourceId": "Weibel.KBook.II",
@@ -1871,12 +1871,12 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Devissage Theorem 4.1 with the opening of its proof, p. V.33",
-          "match": "The theorem and the criterion its proof uses, verbatim."
+          "match": "The theorem and the criterion its proof uses."
         },
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Open Problem 4.1.1, p. V.33",
-          "match": "The open problem, verbatim; it is why no Waldhausen form of this node exists in K.4."
+          "match": "The open problem; it is why no Waldhausen form of this node exists in K.4."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1924,12 +1924,12 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Abelian Localization Theorem 5.1 with (5.1.1), p. V.35",
-          "match": "The theorem and the sequence, verbatim."
+          "match": "The theorem and the sequence."
         },
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Exercise 5.1, pp. V.37–38",
-          "match": "The boundary map in degree one, verbatim; the source states it as an exercise and this packet fixes the sign here."
+          "match": "The boundary map in degree one; the source states it as an exercise and this packet fixes the sign here."
         }
       ],
       "implementationStatus": "unchecked",
@@ -1977,12 +1977,12 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Cofinality 6.4.1, p. IV.56",
-          "match": "The exact-category form, with the source’s own note that its general proof goes through the Waldhausen form, verbatim."
+          "match": "The exact-category form, with the source’s own note that its general proof goes through the Waldhausen form."
         },
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Cofinality Theorem 2.3, p. V.14",
-          "match": "The Waldhausen form with the degree-zero correction, verbatim."
+          "match": "The Waldhausen form with the degree-zero correction."
         },
         {
           "sourceId": "Weibel.KBook.IV",
@@ -2033,17 +2033,17 @@
         {
           "sourceId": "Weibel.KBook.II",
           "locator": "Definition 9.1 with (W0) to (W2), p. II.87",
-          "match": "The cofibration axioms, verbatim."
+          "match": "The cofibration axioms."
         },
         {
           "sourceId": "Weibel.KBook.II",
           "locator": "Definition 9.1.1 and Definition 9.1.2, pp. II.87 to II.88",
-          "match": "The definition and the degree-zero invariant, verbatim."
+          "match": "The definition and the degree-zero invariant."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Extension axiom 8.2.1, p. IV.67",
-          "match": "The extension axiom, verbatim."
+          "match": "The extension axiom."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2165,17 +2165,17 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Definition 8.3 with (8.3.0), p. IV.67",
-          "match": "The construction, verbatim."
+          "match": "The construction."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Definition 8.3.1, p. IV.67",
-          "match": "The faces and degeneracies. Prose verbatim from the text layer of the author's chapter file; formulas transcribed."
+          "match": "The faces and degeneracies"
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "§8.3, the low terms, p. IV.67",
-          "match": "The low terms: S0C = 0 and S1C = C. Prose verbatim from the text layer of the author's chapter file; formulas transcribed."
+          "match": "The low terms: S0C = 0 and S1C = C"
         }
       ],
       "implementationStatus": "unchecked",
@@ -2288,12 +2288,12 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Proposition 8.4 and Definition 8.5, p. IV.68",
-          "match": "The degree-zero identification and the definition, verbatim."
+          "match": "The degree-zero identification and the definition."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Infinite Loop Structure 8.5.5, p. IV.69",
-          "match": "The iteration of the construction, verbatim; the delooping equivalences it invokes are K.4/delooping-and-the-spectrum's and the spectrum is H.5:S-delooping's."
+          "match": "The iteration of the construction; the delooping equivalences it invokes are K.4/delooping-and-the-spectrum's and the spectrum is H.5:S-delooping's."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2401,12 +2401,12 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "§8.6, p. IV.69",
-          "match": "The comparison and its attribution. Prose verbatim from the text layer of the author's chapter file; formulas transcribed."
+          "match": "The comparison and its attribution"
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Exercise 8.5(c) and the opening of Exercise 8.6, p. IV.74",
-          "match": "The two middle steps, which the source leaves as exercises. Prose verbatim from the text layer of the author's chapter file; formulas transcribed."
+          "match": "The two middle steps, which the source leaves as exercises"
         },
         {
           "sourceId": "Waldhausen.KSpaces",
@@ -2455,7 +2455,7 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Additivity Theorem 1.2 and Example 1.2.3, p. V.2",
-          "match": "The theorem in the form that covers Waldhausen categories, and the suspension consequence, verbatim."
+          "match": "The theorem in the form that covers Waldhausen categories, and the suspension consequence."
         },
         {
           "sourceId": "Waldhausen.KSpaces",
@@ -2514,12 +2514,12 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Proposition 1.7 with its proof, p. V.8",
-          "match": "The displayed sequence (its first term looped; the earlier transcription omitted Ω) and the realisation lemma the proof invokes, verbatim; the proof's exchange of B and C is recorded under sourceIssues."
+          "match": "The displayed sequence (its first term looped; the earlier transcription omitted Ω) and the realisation lemma the proof invokes; the proof's exchange of B and C is recorded under sourceIssues."
         },
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Relative K-theory spaces 8.5.3 and Lemma 8.5.4, p. IV.69",
-          "match": "The relative construction and the roles of B and C used here, verbatim."
+          "match": "The relative construction and the roles of B and C used here."
         },
         {
           "sourceId": "Weibel.KBook.IV",
@@ -2529,7 +2529,7 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Exercise 1.7, p. V.10",
-          "match": "The identification of the first map, verbatim; the source leaves it as an exercise and the proof steps carry it out."
+          "match": "The identification of the first map; the source leaves it as an exercise and the proof steps carry it out."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2579,12 +2579,12 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Waldhausen Localization Theorem 2.1, p. V.12",
-          "match": "The theorem with all four hypotheses, verbatim."
+          "match": "The theorem with all four hypotheses."
         },
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Theorem 2.6.3 and Caveat 7.1.1, pp. V.17 and V.52",
-          "match": "The standing instance and the warning that motivates K.6, verbatim."
+          "match": "The standing instance and the warning that motivates K.6."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2630,12 +2630,12 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Waldhausen Approximation Theorem 2.4 with its proof, p. V.15",
-          "match": "The theorem with its three conditions and the first step of the proof, verbatim."
+          "match": "The theorem with its three conditions and the first step of the proof."
         },
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Changing cofibrations 2.5.1, p. V.16",
-          "match": "The consequence about changing cofibrations, verbatim."
+          "match": "The consequence about changing cofibrations."
         },
         {
           "sourceId": "Waldhausen.KSpaces",
@@ -2687,12 +2687,12 @@
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Theorem 2.2 (Gillet-Waldhausen) with the opening of its proof, p. V.13",
-          "match": "The theorem and the structure of its proof, verbatim."
+          "match": "The theorem and the structure of its proof."
         },
         {
           "sourceId": "Weibel.KBook.V",
           "locator": "Remark 2.2.1, p. V.14",
-          "match": "The repaired statement without the closure hypothesis, verbatim."
+          "match": "The repaired statement without the closure hypothesis."
         }
       ],
       "implementationStatus": "unchecked",
@@ -2740,7 +2740,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Relative groups 1.11.1, p. IV.8",
-          "match": "The definition, the sequence and the abelian-group statement, verbatim."
+          "match": "The definition, the sequence and the abelian-group statement."
         },
         {
           "sourceId": "Weibel.KBook.IV",
@@ -2831,26 +2831,24 @@
       "realises": [
         "GeneralAlgebraicKTheory:K.5"
       ],
-      "title": "Relative K-theory is not support K-theory",
+      "title": "Support complexes and the localization fibre",
       "kind": "comparison",
-      "statement": "For a central multiplicative set the SUPPORT theory is the K-theory of the bounded complexes of finitely generated projectives that become exact after localising. It sits in a homotopy fibration with the K-theory of the ring and of the localisation, which looks like the relative sequence but is a different construction: the support theory is defined from a Waldhausen category, not as a homotopy fibre, and the map of zeroth K-groups at the end is not surjective, so the connective fibre does not see the cokernel. The source also records that when the multiplicative set contains zero divisors the category of torsion perfect modules does not model the fibre. This node states the distinction the stage text asks for and records both failure modes.",
+      "statement": "For a central multiplicative set S in a unital ring R, define support K-theory from the Waldhausen category of bounded complexes of finite projectives that become acyclic after S-localization. The localization theorem identifies its K-theory space with the canonical homotopy fibre over zero of K(R)→K(S⁻¹R), although the two models have different definitions. At spectrum level its connective K-spectrum is the connective cover of that fibre: the full nonconnective support spectrum can have negative groups, and the cokernel of K₀(R)→K₀(S⁻¹R) maps into its degree−1 group. When S contains zero divisors, S-torsion modules of finite projective resolution need not model support K-theory; bounded support complexes remain the correct model.",
       "hypotheses": [
-        "The multiplicative set is central; for the identification with the torsion modules its elements are non-zero-divisors.",
-        "The support category is the bounded complexes of finitely generated projectives whose localisation is exact.",
-        "The fibration is the one the fibration theorem of K.4 produces, with the approximation theorem used to identify the third term."
+        "R is a unital associative ring and S is central. The comparison with S-torsion modules of finite projective resolution additionally requires that all elements of S are nonzerodivisors.",
+        "The support Waldhausen category consists of bounded finite-projective complexes whose localization is acyclic, with the specified quasi-isomorphisms as weak equivalences.",
+        "The space comparison uses the K.4 fibration and approximation theorems and the cofinal image of localization; the nonconnective comparison and negative groups belong to K.6."
       ],
       "proofSteps": [
-        "Define the support category and record the fibration the fibration theorem gives.",
-        "Compare the sequence with the relative sequence of the localisation map and record where they differ: the third term is the K-theory of a category of modules over the localisation that is only cofinal in all finitely generated projectives.",
-        "Record the source's caveat that the map of zeroth groups is not onto and that continuing the sequence needs the nonconnective spectra of K.6.",
-        "Record the second failure mode: for a multiplicative set with zero divisors the category of torsion perfect modules is not the fibre, which the source gives as an exercise.",
-        "State the resulting rule: support theory is used where the stage text says support, relative theory where it says relative, and neither is substituted for the other."
+        "Apply the fibration theorem to the weak class detected after localization. Approximation identifies the resulting third term with the K-space of the cofinal category of localized projectives.",
+        "Use cofinality to compare that category with all finite projectives over S⁻¹R. The fibre over zero is unchanged; the possible extra components are measured by the K₀ quotient. This identifies the support and relative space models naturally.",
+        "The connective support spectrum omits negative homotopy groups of the full stable fibre. The nonconnective localization exact sequence continues through K₀(R)→K₀(S⁻¹R)→K₋₁(R on S); it does not assert surjectivity of the first map.",
+        "Under the nonzerodivisor hypothesis compare with S-torsion modules having finite projective resolutions. With zero divisors that simpler category can fail, as the source counterexamples show."
       ],
       "acceptance": [
-        "For a central set of non-zero-divisors there is a homotopy fibration with the support term.",
-        "The map of zeroth K-groups is not surjective in general, so the connective sequence stops.",
-        "For a set containing zero divisors the torsion perfect modules do not model the fibre.",
-        "Support theory and relative theory are different constructions and are not interchangeable."
+        "Support and relative spaces of this localization map are naturally equivalent after the localization comparison theorem.",
+        "A connective spectrum need not be the full stable fibre when K₀(R)→K₀(S⁻¹R) has a nonzero cokernel.",
+        "The torsion-module replacement requires nonzerodivisors; bounded support complexes still define the space for central S with zero divisors."
       ],
       "prerequisites": [
         "GeneralAlgebraicKTheory:K.5/relative-K-theory",
@@ -2860,13 +2858,8 @@
       "sources": [
         {
           "sourceId": "Weibel.KBook.V",
-          "locator": "Theorem 2.6.3, p. V.17",
-          "match": "The support fibration, verbatim."
-        },
-        {
-          "sourceId": "Weibel.KBook.V",
-          "locator": "Caveat 7.1.1, p. V.52",
-          "match": "Both failure modes, verbatim."
+          "locator": "Theorem 2.6.3 with proof, chapter p.V.17; Theorem 7.1 and Caveat 7.1.1, p.V.52; Definition 7.6.3, p.V.56 (PDF pages equal chapter pages)",
+          "match": "Independent paraphrase of the comparison of support complexes with the localization fibre and its connective cover, retaining the negative-cokernel qualification."
         }
       ],
       "implementationStatus": "unchecked"
@@ -2906,7 +2899,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Absolute Excision 1.11.2, p. IV.9",
-          "match": "The unitisation and the comparison map, verbatim; the excision question itself is the next node."
+          "match": "The unitisation and the comparison map; the excision question itself is the next node."
         }
       ],
       "implementationStatus": "unchecked",
@@ -3006,7 +2999,7 @@
         {
           "sourceId": "Weibel.KBook.IV",
           "locator": "Absolute Excision 1.11.2, p. IV.9",
-          "match": "The definition, the degree-zero statement, the degree-one criterion, the general criterion and the notion of an H-unital ring, verbatim."
+          "match": "The definition, the degree-zero statement, the degree-one criterion, the general criterion and the notion of an H-unital ring."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3049,7 +3042,7 @@
         {
           "sourceId": "Weibel.KBook.III",
           "locator": "Proof of Theorem 2.6, the last step, p. III.15",
-          "match": "The argument of the proof steps, verbatim (formulas transcribed); in the notation here S is S, T is R/I and C is S/I."
+          "match": "The argument of the proof steps; in the notation here S is S, T is R/I and C is S/I."
         }
       ],
       "implementationStatus": "unchecked"
@@ -3097,7 +3090,7 @@
         {
           "sourceId": "Weibel.KBook.III",
           "locator": "Theorem 2.6 (Mayer–Vietoris) with its proof, p. III.15",
-          "match": "The theorem, verbatim with the arrows' labels dropped; its proof derives the K₀ positions from II.2.9 (Milnor patching, owned by KTheoryLowDegrees Z.1) and the K₁ positions from the lifting of elementary matrices."
+          "match": "The theorem; its proof derives the K₀ positions from II.2.9 (Milnor patching, owned by KTheoryLowDegrees Z.1) and the K₁ positions from the lifting of elementary matrices."
         },
         {
           "sourceId": "Weibel.KBook.III",
@@ -4928,7 +4921,7 @@
         {
           "sourceId": "Weibel.KBook.II",
           "locator": "II2.10 and Ex2.17;IV Ex1.16,chapterp16",
-          "match": "ExerciseII2.3 and DefinitionII2.10/Ex2.17 read; the homotopy comparison is ExerciseIV1.15–1.16, whose full statement and hint were read. The proof below combines those inputs, and is a worker derivation, not a claimed verbatim proof in the source."
+          "match": "ExerciseII2.3 and DefinitionII2.10/Ex2.17 read; the homotopy comparison is ExerciseIV1.15–1.16, whose full statement and hint were read. The proof below is a separate worker derivation combining those inputs."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4962,7 +4955,7 @@
         {
           "sourceId": "Weibel.KBook.II",
           "locator": "ExerciseII2.3(c),II2.10 and ExerciseIV1.15 (augmented-ring hint),combinedPDF86 andIVp16",
-          "match": "ExerciseII2.3 and DefinitionII2.10/Ex2.17 read; the homotopy comparison is ExerciseIV1.15–1.16, whose full statement and hint were read. The proof below combines those inputs, and is a worker derivation, not a claimed verbatim proof in the source."
+          "match": "ExerciseII2.3 and DefinitionII2.10/Ex2.17 read; the homotopy comparison is ExerciseIV1.15–1.16, whose full statement and hint were read. The proof below is a separate worker derivation combining those inputs."
         }
       ],
       "implementationStatus": "unchecked"
@@ -4997,7 +4990,7 @@
         {
           "sourceId": "Weibel.KBook.II",
           "locator": "ExerciseII2.3(a),combinedPDF86/printed78;the split augmented-ring square realizes its hint",
-          "match": "ExerciseII2.3 and DefinitionII2.10/Ex2.17 read; the homotopy comparison is ExerciseIV1.15–1.16, whose full statement and hint were read. The proof below combines those inputs, and is a worker derivation, not a claimed verbatim proof in the source."
+          "match": "ExerciseII2.3 and DefinitionII2.10/Ex2.17 read; the homotopy comparison is ExerciseIV1.15–1.16, whose full statement and hint were read. The proof below is a separate worker derivation combining those inputs."
         }
       ],
       "implementationStatus": "unchecked"
@@ -5065,7 +5058,7 @@
       "sources": [
         {
           "sourceId": "Weibel.KBook.V",
-          "locator": "VEx5.1 p38 andExample6.1.2 p38;IVEx7.9 p75 (square representing the automorphism)",
+          "locator": "VEx5.1 p38 andExample6.1.2 p38;IVEx7.9 p65 (square representing the automorphism)",
           "match": "Read the indicated source statement and its proof or exercise hint. The exact-functor decomposition below supplies the explicit ring case; it is not attributed to a scheme-only theorem."
         },
         {
@@ -5158,15 +5151,17 @@
       ],
       "title": "Contract both comma categories in one-step resolution",
       "kind": "lemma",
-      "statement": "For a resolving full exact P⊂H, closed under extensions and kernels of admissible epimorphisms, and with P-epimorphisms onto every H-object, QP→QH is a homotopy equivalence.",
+      "statement": "Let P be a replete full subcategory of an essentially small exact category H, with the induced exact structure. Suppose P is extension closed, every H-admissible subobject of a P-object lies in P, and every H-object admits an H-admissible epimorphism from a P-object. Then QP→QH induces a homotopy equivalence on classifying spaces.",
       "hypotheses": [
+        "For every H-conflation 0→M′→M→M″→0, M∈P implies M′∈P; M″ is allowed to be any H-object. Closure only for epimorphisms between P-objects is insufficient.",
+        "P contains a zero object and is closed under isomorphisms and extensions. All covers and subobjects in the hypotheses are admissible in H.",
         "The exact structure on P is induced from H. The full subcategory C of QH on P-objects need not equal QP on morphisms."
       ],
       "proofSteps": [
-        "Factor QP→C→QH. For QP→C, the over-comma at P is the poset of H-admissible layers (P0,P1) with quotient in P and both P/P1 and P1/P0 in P. Kernel closure puts P0,P1 in P.",
+        "Factor QP→C→QH. For QP→C, the over-comma at P is the poset of H-admissible layers (P0,P1) with quotient in P and both P/P1 and P1/P0 in P. Ambient admissible-subobject closure puts P0,P1 in P.",
         "The functor (P0,P1)↦(0,P1) has natural comparisons to the identity and to the constant (0,0); hence this comma category contracts.",
-        "For C→QH, the under-comma at M consists of Q-arrows M→P. Factor such an arrow as i_! j^!, with j:P̄↠M and i:P̄↣P. Kernel closure puts P̄ in P. Removing i is the right-adjoint retraction onto the epimorphic subcategory.",
-        "In the opposite epimorphic category, choose P*↠M. The functor (P↠M)↦(P×_M P*↠M) compares to the identity and the constant P*. Its objects are in P: the pullback is an extension of P* by ker(P↠M), both in P. This kernel argument is required; an arbitrary pullback of P-objects need not be in P.",
+        "For C→QH, the under-comma at M consists of Q-arrows M→P. Factor such an arrow as i_! j^!, with j:P̄↠M and i:P̄↣P. Ambient admissible-subobject closure applied to P̄↣P puts P̄ in P. Removing i is the right-adjoint retraction onto the epimorphic subcategory.",
+        "In the opposite epimorphic category, choose P*↠M. The functor (P↠M)↦(P×_M P*↠M) compares to the identity and the constant P*. Its objects are in P: the pullback is an extension of P* by ker(P↠M), both in P. The stated ambient closure puts ker(P↠M) in P even though M need not be in P; ordinary resolving kernel closure would not justify this step.",
         "Apply the imported Theorem A twice; the adjunction and natural transformations are the actual contractions."
       ],
       "prerequisites": [
@@ -5178,7 +5173,8 @@
         "Check the actual maps and the stated scope, rather than only equality of cardinalities.",
         "For finite-dimensional vector spaces the identity inclusion gives the identity equivalence.",
         "For a category lacking kernel closure, the pullback contraction is not licensed.",
-        "A full exact inclusion need not induce a full inclusion of Q-categories; retain C as an intermediate category."
+        "A full exact inclusion need not induce a full inclusion of Q-categories; retain C as an intermediate category.",
+        "For R=k[ε]/(ε²), finite projectives cover finite R-modules and are closed under kernels of epimorphisms between projectives, but εR↣R has nonprojective source. That weaker resolving condition does not license the one-step contraction for the ambient module category."
       ],
       "sources": [
         {
@@ -5199,12 +5195,14 @@
       "kind": "lemma",
       "statement": "Under the resolving hypotheses, H_n={M:resolution length≤n by P} is extension closed, H_n⊂H_(n+1) satisfies the one-step theorem, and K(P)≃K(H) if every H-object has finite P-resolution.",
       "hypotheses": [
-        "Use admissible resolutions. P is extension closed, kernel closed, and supplies epimorphic covers."
+        "Use admissible resolutions in the essentially small exact category H. P is a replete full exact subcategory closed under extensions and kernels of H-admissible epimorphisms between P-objects.",
+        "Every H-object admits an H-admissible epimorphism from a P-object. This sufficient cover condition supplies Quillen’s Corollary 1(b); no projectivity or functorial lifting of covers is assumed.",
+        "For the equivalence with K(H), every H-object has finite P-resolution length. The stronger ambient-subobject closure required by the preceding one-step theorem is proved for H_n⊂H_(n+1), not assumed for P⊂H."
       ],
       "proofSteps": [
-        "Prove the three inequalities by induction from n=0: M∈H_n,M″∈H_(n+1)⇒M′∈H_n; M′,M″∈H_(n+1)⇒M∈H_(n+1); M′,M∈H_n⇒M″∈H_(n+1).",
-        "For the first, pull back a P-cover of M″ and use the resulting short exact rows. For the second lift a P-cover of M″ through M after enlarging it, add a P-cover of M′ and use the horseshoe diagram. For the third the kernel of a P-cover of M maps to M′ and the preceding inequalities bound the new kernel.",
-        "Apply one-step-resolution-comma to each H_n→H_(n+1). Every object of the latter has a cover from P whose kernel is in H_n.",
+        "For every H-conflation 0→M′→M→M″→0, prove by induction: M∈H_n and M″∈H_(n+1) imply M′∈H_n; M′,M″∈H_(n+1) imply M∈H_(n+1); M,M″∈H_(n+1) imply M′∈H_(n+1). These are the three inequalities in Quillen’s lemma on publication p.110.",
+        "Reduce the inequalities to n=0. For the first, pull back a P-cover of M″ whose kernel lies in P; the pullback lies in P by extension closure, and its epimorphism onto that P-cover has kernel M′ in P. For the second, choose 0→P′→P→M″→0 and let X=M×_(M″)P. Cover X by a P-object P*. The composite P*→P is an admissible epimorphism between P-objects, so its kernel R lies in P. The induced epimorphism R→M′ has kernel K in P by the first inequality, since M′ has length at most one. The kernel of P*→M is an extension of P′ by K, hence is in P; this is the required length-one resolution, without projective lifting. For the third, pull back M′↣M along a P-cover P→M with kernel in P. The induced kernel K of P→M″ lies in P by the first inequality, and 0→ker(P→M)→K→M′→0 is a length-one P-resolution.",
+        "The second inequality makes H_n and H_(n+1) exact subcategories. The first proves ambient admissible-subobject closure for H_n inside H_(n+1). Every object of H_(n+1) has a cover from P⊂H_n with kernel in H_n. Apply one-step-resolution-comma with ambient category H_(n+1), rather than H.",
         "The essentially small filtered union is H; use the earlier finite-data continuity of Q and K. No functorial choice of finite resolutions is assumed."
       ],
       "prerequisites": [
@@ -5291,7 +5289,7 @@
       "sources": [
         {
           "sourceId": "Weibel.KBook.IV",
-          "locator": "Definition1.1–1.1.2,chapterpp2–3;Theorem7.1/Cor7.2,pp61–62;Ex7.9,p75",
+          "locator": "Definition1.1–1.1.2,chapterpp2–3;Theorem7.1/Cor7.2,pp61–62;Ex7.9,p65",
           "match": "Degree0/1 statements and ring-map proof read in the author chapter; the automorphism-square identification was read with Ex7.9. This node combines those inputs, without importing the later relative comparison."
         }
       ],
@@ -5540,7 +5538,7 @@
         "GeneralAlgebraicKTheory"
       ],
       "title": "Early product pairing before localization consumers",
-      "proposal": "Create K.7:products requiring K.4:construction and H.5:spectra only for the generic smash/suspension interface. Move the four K.7 product-construction nodes in the K.6 packet there with ids unchanged. Generic module-fibre boundary signs are H.5 inputs, independent of K-theory localization. K.3/localization-product-boundary imports this early product component; neither product S-grid construction nor its stabilization imports K.3 localization. Keep later Morita/derived and scheme operations downstream."
+      "proposal": "Create K.7:products requiring K.4:construction and H.5:spectra only for the generic smash/suspension interface. Move the four K.7 product-construction nodes in the K.6 packet there with ids unchanged. Generic module-fibre boundary signs are H.5 inputs, independent of K-theory localization. K.3/localization-product-boundary imports this early product component; neither product S-grid construction nor its stabilization imports K.3 localization. Keep later Morita/derived and scheme operations downstream. The early unit-multiplication-and-K0-tensor-comparison adapter is included as well; its proposed parent is recorded in the K.6 packet."
     },
     {
       "kind": "propose-edges",
@@ -5806,13 +5804,19 @@
     {
       "status": "pending",
       "notes": "Post-review fix checkpoint; prior independent verdict is preserved in reviewHistory. Awaiting independent review of this revision."
+    },
+    {
+      "status": "needs_changes",
+      "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
+      "date": "2026-09-30",
+      "notes": "Codex session codex-J6LwjP; follows pending revision following independent-review-REV-GeneralAlgebraicKTheory--K.1. Corrected the Q maximal tree, cofinality counterexample, relative-S zero term (source issue), invalid general Waldhausen group-completion assertion, and proper ring-transfer hypotheses/source. The fix still relies on unread plus-equals-Q and fibration/localization proof inputs and proposed, unapplied stage ordering; construction/product and late cofinality contracts need resolution. /4, /15, /18–/21 are not all closed. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
     }
   ],
   "review": {
     "status": "needs_changes",
-    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1",
-    "date": "2026-09-30",
-    "notes": "Codex session codex-J6LwjP; follows pending revision following independent-review-REV-GeneralAlgebraicKTheory--K.1. Corrected the Q maximal tree, cofinality counterexample, relative-S zero term (source issue), invalid general Waldhausen group-completion assertion, and proper ring-transfer hypotheses/source. The fix still relies on unread plus-equals-Q and fibration/localization proof inputs and proposed, unapplied stage ordering; construction/product and late cofinality contracts need resolution. /4, /15, /18–/21 are not all closed. Report: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1.md. Pinned-index checker: 0 errors, 0 warnings. Suggested Lean not compiled; implementation remains unchecked."
+    "reviewer": "independent-review-REV-FIX-RT-AREA-ktheory-1~2",
+    "date": "2026-10-10",
+    "notes": "Codex session codex-dbAQYQ; follows independent-review-REV-FIX-RT-AREA-ktheory-1 (2026-09-30), preserved in reviewHistory. Corrected the ambient admissible-subobject hypothesis of the one-step resolution theorem, the successive resolution-length argument, the localization support/fibre comparison, the automorphism-square page locators and the future Grothendieck-class weak-equivalence signature. The source decompositions improve /15, /18–/21, but /4 and /20 still require applied early K.7:products and late K.3:cofinality ordering, removal of unused early prerequisites, and explicit K.4 inputs to K.5. Existing node parents still induce stage cycles; proposed parents alone are insufficient. The suggested file has three actual library examples; its future interfaces are comments and were not type checked. All actual declarations in the suggested file elaborate at Mathlib 082e2d3 and Tau Ceti f790474, with no warnings; implementationStatus remains unchecked. Final packet checker and details: research/blueprint/reviews/REV-FIX-RT-AREA-ktheory-1~2.md."
   },
   "sourceVersions": [
     {

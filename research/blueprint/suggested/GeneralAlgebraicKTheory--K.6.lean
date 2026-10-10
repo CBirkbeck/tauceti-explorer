@@ -1,4 +1,11 @@
 /-
+Independent fix review REV-FIX-RT-AREA-ktheory-1~2, Codex codex-dbAQYQ, 2026-10-10.
+The actual declarations elaborate with lean-check at the recorded pinned libraries.
+The only warnings are uses of sorry. Future signatures and tests left in comments were not
+elaborated. This is a prototype, not a formalization. The review report records its
+scope and unresolved work. Earlier compilation records apply to their earlier text.
+-/
+/-
 Suggested Lean forms for GeneralAlgebraicKTheory K.6 and the K.7 inputs in this packet.
 
 This file is not the roadmap and is not exhaustive: the packet and its reader document are
@@ -1157,6 +1164,10 @@ homotopy_not_idempotent: A supplied homotopy (fg)²≃fg does not justify an ide
 /-!
 GeneralAlgebraicKTheory:K.6/finite-domination-idempotent-model
 Every A-dominated complex in U is chain homotopy equivalent in U^♮ to a finite complex in A^♮. There is an explicit idempotent p on F=⊕D_i, with [V]=[F,p]−[D_odd] in K0(A^♮). Its image class in K0(U^♮) is the Euler class of V.
+For the input homotopy gf−id=dh+hd set H=−h. On D_j the projector has
+diagonal fg in even degrees and 1−fg in odd degrees, adjacent block
+D_(j+1)→D_j equal to (−1)^(j+1)d, and lower block D_j→D_k equal to
+(−1)^(j+1)fH^(k−j)g for j<k. Use the same H in the chain equivalence.
 -/
 /-
 def finiteDominationIdempotent (d : FiniteChainDomination A V) : IdempotentEndomorphism (finiteTotalModule d.D)
@@ -1176,6 +1187,8 @@ FiniteDomination.euler (compatibility): [V]=[F,p]−[D_odd], including its image
 domination_degree_zero: If f,g split strictly and D has only degree0, p=fg is the usual projector.
 domination_identity: For identity domination the Euler class is the usual alternating sum of D_i.
 parity_matters: For odd top degree use1−p; replacing it by p changes the Euler formula.
+homotopy_sign_changes_matrix: With gf−id=dh+hd, substituting h for H=−h
+in the projector need not give p²=p.
 -/
 
 /-!

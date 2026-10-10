@@ -1,4 +1,11 @@
 /-
+Independent fix review REV-FIX-RT-AREA-ktheory-1~2, Codex codex-dbAQYQ, 2026-10-10.
+The actual declarations elaborate with lean-check at the recorded pinned libraries.
+The only warnings are uses of sorry. Future signatures and tests left in comments were not
+elaborated. This is a prototype, not a formalization. The review report records its
+scope and unresolved work. Earlier compilation records apply to their earlier text.
+-/
+/-
 This file is not the roadmap and is not exhaustive. The roadmap document
 `research/blueprint/readmes/ArithmeticKTheory--N.7.md` is definitive. These
 statements suggest Lean forms so that contributors and reviewers can converge on
