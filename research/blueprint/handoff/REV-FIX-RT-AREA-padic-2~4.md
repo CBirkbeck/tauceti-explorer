@@ -1,3 +1,17 @@
+# Latest continuation: scope repair required before another worker
+
+Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-LFQgMn**, 10 October 2026. Claim confirmed in [comment 6100242633](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6100242633). Input `24b730041bcdca9936c22add6fd444b4f0354b90`.
+
+**Blocked checkpoint.** Fresh local/current-main queue inspection and the stock completion predicate still reproduce the seven-output versus 31-output mismatch. All outputs exist; the live issue's scope passes, the generated scope fails. The twelve additional packets retain accepted reviews by their own independent jobs. Only this handoff and the [report](../reviews/REV-FIX-RT-AREA-padic-2~4.md) change. Existing mathematical reviews and source-reading attribution are preserved.
+
+The report's “Continuation: scope repair acceptance criteria” gives a concrete verification checklist for the maintainer: restore the historical scopes, preserve them through both `missing` and `sent_back` regeneration cases, and obtain a passing completion predicate for the actual queue entry without changing the twelve unrelated reviews. Run regeneration twice to ensure persistence. The historical commit, extra-path table and read-only reproducer remain below.
+
+All three permitted packet checks pass against the pinned declaration index: **56, 326 and 537 nodes; zero errors and warnings**. No Lean or mathematical file changed, so Lean was not rerun. Prior successful elaborations remain attributed to their original session. No primary source was fetched or copied in this continuation.
+
+**Next action:** maintainer scope repair; keep the issue unavailable until repaired. A worker cannot resolve this by repeating the bounded review. After repair, retain its existing verdicts, including Perfectoid's `needs_changes`, which already counts as a completed review. No scratch files are needed to resume, and no second job was claimed.
+
+---
+
 # Current continuation: historical review scope recovered
 
 Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-iYcsUX**, 10 October 2026. Bot confirmation: [comment 6099841027](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099841027). Input commit: `0d2178b78bf6a3deea5f4c16c2165442659a2a38`.

@@ -189,3 +189,16 @@ The historical queue at [the round-four fix merge, 888f12f5c9d80d8205c6f7dd55cbb
 Fresh pinned-index packet checks pass with **zero errors and warnings** for all three authorized packets, with **56, 326 and 537 nodes**. No link map or restructuring proposal is under review. Only the report and handoff change; no new source reading, mathematical verdict or source-error claim is added. Lean was not rerun for these documentation-only changes. Prior compilation evidence remains attributed to the session that obtained it.
 
 This remains a **blocked checkpoint**, because scope reconciliation requires changes outside the explicit issue deliverables. The handoff identifies the historical source and required maintainer action. Repeating the bounded review or changing its Perfectoid verdict cannot make the larger queue scope complete.
+
+
+## Continuation: scope repair acceptance criteria
+
+Codex session **codex-LFQgMn**, 10 October 2026, input `24b730041bcdca9936c22add6fd444b4f0354b90`; claim confirmed in [comment 6100242633](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6100242633). Read the live issue, round-four fix report, preceding review/handoff, completion predicate and round generator. Independently fetched the current-main queue and reproduced the blocker in both queues: **31 outputs / fifteen packets**, versus the issue's **seven outputs / three packets**. Every output exists. The unmodified completion predicate returns **True** for the permitted outputs and **False** for the generated outputs. The twelve extra packets retain accepted reviews under their separate job identifiers.
+
+The maintainer's repair should satisfy three concrete conditions:
+
+1. Restore the historical round-four fix and review output lists identified above; this review must have exactly the live issue's seven outputs.
+2. Regeneration must preserve an existing round's outputs when newly finished supplier blueprints make `missing` nonempty, and when a preceding review triggers `sent_back`. Route additional work to a separately authorized round instead of changing an already-issued review's scope.
+3. After regeneration, `issues.deliverables_complete` must return **True** for the actual review queue entry without changing any of the twelve extra packets' independent review objects. Repeat regeneration to verify that restoration persists.
+
+Fresh pinned-index checks of all three permitted packets pass with **zero errors and zero warnings** (56, 326 and 537 nodes). This continuation changes documentation only, preserves the previous mathematical verdicts and source-reading attribution, and does not rerun Lean. Prior elaboration evidence remains attributed to its original session. No new mathematical review or source-reading claim is made. This is a **blocked checkpoint**: the required generator/queue repair lies outside the issue's permitted files.
