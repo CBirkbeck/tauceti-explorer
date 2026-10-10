@@ -102,6 +102,15 @@ This file is not the roadmap and it is not exhaustive. The roadmap document is d
 These signatures suggest names, coefficient hypotheses and tests. All new proofs use `sorry`;
 nothing here is claimed formalised. Mathlib 082e2d3 and Tau Ceti f790474 are the baseline.
 
+Current Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039 already supplies
+`TauCeti.fittingIdeal R M i`, presentation independence and arbitrary base change
+in `TauCeti.RingTheory.FittingIdeal.Basic`, `.BaseChange` and `.Generators`.
+The Fitting declarations below retain the older pinned prototype interfaces;
+they are not new implementation targets. Use the native carrier and its API,
+retaining only concrete matrix comparisons needed by the order-specific results.
+The native modules are absent from the recorded f790474 baseline, so this file's
+pinned elaboration does not check that interface migration.
+
 The algebraic declarations work with an explicit Dirac homomorphism `δ : G →* R` into a
 commutative ring and its existing total quotient ring. The completed group algebra, topology,
 continuous-character integral, and comparison with its augmentation kernel are separate inputs

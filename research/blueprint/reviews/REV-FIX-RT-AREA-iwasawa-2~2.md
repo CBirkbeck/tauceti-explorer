@@ -1,80 +1,116 @@
-# REV-FIX-RT-AREA-iwasawa-2~2 — blocked continuation
+# REV-FIX-RT-AREA-iwasawa-2~2 — current review and scope blocker
 
-## Current receipt: codex-YzsJct
+## Current review: codex-Jk8aAy, 10 October 2026
 
-Codex, session `codex-YzsJct`, 10 October 2026; input commit
-`41831f8789ce1528200c8036800f10d1181eb591`.
-Issue [#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6091370485).
-This session did none of the original fixes and claimed no second job.
-**Checkpoint: the queue requires reviews outside the live issue's scope.**
+**L3 is accepted for the scoped handoff. PMIA needs changes to reuse the
+Fitting-ideal implementation now present in current Tau Ceti. Queue completion
+also remains blocked by the live issue's narrower authorization.**
 
-Read the live issue and its embedded instructions, both protocols, WORKERS.md,
-UPSTREAM_GUIDE.md, the confirmed/rejected findings, round-two fix report,
-previous review/handoff and actual completion code. The prior mathematical
-review and its 50-node L6 ledger remain below, with their original authorship.
-No new all-node source or baseline audit is claimed. The named packets have
-not changed since commit `2ddaba8d9c16c7e3d3ef6d13add83ce6852394b9`.
+Codex, session `codex-Jk8aAy`; issue
+[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6091703225).
+Input atlas commit `5b5bafaba00862daa870e24e1303c1f1c8f179f3`.
+This session did none of the author fix and claimed no second job.
+The historical reviews below retain their authorship and dates. Their PMIA
+acceptance is superseded by the current-library reuse objection below, not by
+a new objection to the source algebra.
 
-### Reproduced scope blocker
+### Findings and fresh evidence
 
-The exact `issues.deliverables_complete` predicate returns:
-
-| Scope | Result |
+| Finding | Current disposition |
 |---|---|
-| Nine queue outputs | `False` |
-| Five outputs in the complete live issue | `True` |
+| /1 | L3's Morita construction and handoff remain correct. Fresh visual reading of Morita §1, Lemma 1, Theorem 1 and recurrence, printed pp.255–256, confirms the signed values, continuity and modulus-four exception. Robert §4, printed p.166, retains a coefficient-decay input; RD.6's coefficient/splitting obligations remain explicit. Normalized-root and dyadic additions belong to the unreviewed L3-2 input. |
+| /2 | The derivative-formula assignment remains correct. The general correction term, prime range, branch/derivative coordinates and separate arithmetic nonvanishing input are still L3-2's obligations. This run does not authenticate Ferrero–Greenberg or Zhao or give L3-2 a verdict. |
+| /3 | The early integral/open log-syntomic supplier assignment remains a handoff. D.1's newer independent review is preserved; its review identity is not changed to satisfy the queue. |
+| /4 | The order-specific algebra agrees with the source corrections. **Needs changes:** current Tau Ceti supplies the generic higher Fitting carrier, independence and base change; the four inherited generic nodes must import it. Exact mapping below. |
+| /5 | The complex-level and solid/Stein supplier assignment remains a handoff. No excluded functional-analysis packet is reviewed. |
+| /6 | The verifier's rejection remains binding: the two independent main-conjecture proof routes stay. |
 
-All nine paths exist. L3 and PMIA already have accepted reviews naming this
-job. L3-2 has no review object. D.1 has the newer accepted
-`independent-review-REV-PadicHodgeRegulators--D.1~2`. The queue requires this
-job's reviewer identity on those two unlisted packets as well.
+Freshly read Dasgupta–Kakde v3 §§2.2–2.3 pp.15–18, Lemma 3.9 and proof
+pp.25–26, §6.1 p.40, Appendix A pp.85–86 and Appendix B.2 pp.93–94.
+The image character ring, nonzerodivisor/finite-quotient hypotheses, square
+presentations and presentation-dependent transpose remain correct. The
+right-sided higher-adjugate identity constructs the required preimage; it
+avoids assuming preservation of the rectangular compound image.
+This is a focused fix review, not a fresh 487-node or 1,663-node audit.
 
-WORKERS.md says “Edit only the files the issue names, plus your own scratch
-space.” A scope decision was requested from the user during this continuation;
-no answer had arrived at submission. No unlisted packet or queue edit was made.
-Neither relabeling D.1's existing review nor declaring L3-2 reviewed is a valid
-administrative shortcut.
+Public copies fetched on 10 October 2026:
 
-If the live issue is the intended scope, replace only this queue job's `outputs`
-with the following list and refresh the issue through normal orchestration:
+| Source | Freshly read scope | SHA-256 |
+|---|---|---|
+| [Morita, 1975](https://repository.dl.itc.u-tokyo.ac.jp/record/39763/files/jfs220209.pdf) | §1, pp.255–256, complete page images | `cad5af477bc19847e46d5af98c294a289f30096128b9e799799dfdb88ce05912` |
+| [Robert, 2001](https://www.numdam.org/item/RSMUP_2001__105__157_0.pdf) | §4, p.166, complete page image | `2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581` |
+| [Dasgupta–Kakde v3](https://arxiv.org/pdf/2010.00657v3) | Locators above, text layer | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
 
-```json
-[
-  "research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md",
-  "research/blueprint/packets/DirichletPadicLFunctions--L3.json",
-  "research/blueprint/packets/PadicMeasuresIwasawaAlgebras.json",
-  "research/blueprint/suggested/DirichletPadicLFunctions--L3.lean",
-  "research/blueprint/suggested/PadicMeasuresIwasawaAlgebras.lean"
-]
-```
+No restricted book was fetched or read. No source passage or excerpt is added.
 
-If the queue's expanded scope is intended, first authorize and add the L3-2/D.1
-packets and suggested files to the live issue, then perform those independent
-reviews. Another unchanged two-packet dispatch cannot complete the queue job.
-Scope reconciliation resolves no mathematical supplier obligation.
+### Current-library reuse required for /4
 
-### Correction and fresh checks
+Read current upstream StableReduction and QuiverRepresentations READMEs and
+relevant interfaces at roadmap commit `37769f03c170a7bc3e1082df70522a0ad59c5ffd`.
+Read current Tau Ceti at `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+The [FittingIdeal modules](https://github.com/TauCetiProject/TauCeti/tree/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/RingTheory/FittingIdeal)
+already provide:
 
-Corrected the L3 suggested file's comment claiming the L1/L2 source files are
-absent: all three sibling L0/L1/L2 files exist. Its compilation note now states
-the actual missing input, compiled research-module artifacts on Lean's import
-search path. Imports and declarations are unchanged.
+| Existing declaration and locator | Reuse in PMIA |
+|---|---|
+| `TauCeti.fittingIdeal`, Basic.lean:343 | One carrier for every degree, under `Module.Finite`; the packet's finite-presentation scope is a specialization. |
+| `TauCeti.fittingIdeal_eq_minorsIdeal_ker`, Basic.lean:349; `TauCeti.fittingIdeal_eq_minorsIdealOfSet`, Generators.lean:109 | Presentation independence and computation from a generating set of relations. Retain only the concrete matrix-minor comparison adapter needed by the DK presentations. |
+| `Submodule.minorsIdeal_prod_top`, Basic.lean:242; `Submodule.minorsIdeal_ker_eq_of_surjective`, Basic.lean:304 | The generic redundant-generator and independence machinery already exists. |
+| `TauCeti.fittingIdeal_monotone`, Basic.lean:360; `fittingIdeal_le_of_surjective`, :372; `fittingIdeal_congr`, :381 | Chain, surjection and isomorphism API. |
+| `TauCeti.fittingIdeal_prod_add_finrank`, Basic.lean:389; `fittingIdeal_eq_bot_of_lt_finrank`, :401; `fittingIdeal_eq_top_iff_finrank_le`, :409; `fittingIdeal_quotient_zero`, :418 | Free-summand shift, free-module jump and quotient computations. |
+| `TauCeti.fittingIdeal_baseChange`, BaseChange.lean:134; `IsBaseChange.fittingIdeal_eq_map`, :159 | Arbitrary base change without flatness, and localization via the existing base-change interface. |
 
-| Check in this session | Result |
+`L6/higher-fitting-ideal`, `relation-minors-add-generator`,
+`higher-fitting-independence` and `higher-fitting-base-change` therefore cannot
+remain generic new implementation work. Reuse the native vocabulary, carry the
+order-specific comparisons and tests over to it, and reconcile the two
+StableReduction Fitting-carrier requests. The modules are absent at the
+recorded f790474 pin: verified against the Git object tree. They cannot honestly
+be added as f790474 baseline citations. A pinned compile cannot certify imports
+of these newer modules. The full reader is not an authorized deliverable here;
+the note records the necessary baseline/reader/interface reconciliation rather
+than silently changing the baseline or claiming to have completed a migration.
+
+Added this exact reuse boundary to PMIA's `upstreamNotes` and its suggested-file
+introduction. Preserved every mathematical node, API, test and prerequisite,
+and preserved both previous review objects in `reviewHistory`. PMIA's current
+verdict is `needs_changes`; no package should rebuild these generic objects.
+
+### Pinned checks and completion blocker
+
+Read the reviewed L3/L4/L6 library-audit entries. Freshly read the pinned
+character-evaluation, tagged orthogonality and transpose interfaces; the three
+shared-build source modules match the f790474 Git objects byte for byte.
+The transpose needs no minimality to form its cokernel; tagged orthogonality
+retains finite commutative-group/domain/enough-roots hypotheses.
+
+| Check | Result |
 |---|---|
 | L3 packet checker | 1,663 nodes; zero errors, 26 inherited short-API warnings |
-| PMIA packet checker | 487 nodes; zero errors, zero warnings |
-| Native L3 `lean-check` | Exit 1: unknown module prefix `research`; no declaration elaborated |
-| Source-text inventory | Neither named packet contains an `excerpt` key |
+| PMIA packet checker | 487 nodes; zero errors and warnings |
+| Native PMIA `lean-check` | Exit 0; 1,075 warnings, all `sorry`; no other warnings or errors |
+| Native L3 `lean-check` | Exit 1: unknown research-module prefix; no declaration elaboration |
+| Current-library screen | New Fitting implementation found; current library was read, never built |
+| Source-text inventory | No `excerpt` key in either packet |
 
-The Lean check ran with 98 GB available; no library build or language server was
-started and no compile remains running. PMIA's prior native receipt (exit 0,
-1,075 `sorry` warnings only) is inherited evidence; its unchanged Lean file was
-not recompiled. No packet, source claim, mathematical statement or review verdict
-changed. Condensed the repeated administrative receipts in this report; their
-full text remains in Git history. The retained review below records the
-finding-by-finding verdicts and their limits.
+Compiled sequentially after checking available memory (104 GB). PMIA's only
+Lean edit afterward is its explanatory comment; no signature or proof changed.
+No background compile, language server or dependency build remains.
+
+Fresh `issues.deliverables_complete` gives `True` for the live issue's five
+outputs and `False` for the queue's nine. The completion predicate permits a
+finished `needs_changes` review: PMIA's new verdict does not cause this scope
+failure. The queue additionally requires L3-2 and D.1 packets and suggested
+files, neither authorized by the complete live issue. WORKERS.md requires edits
+to issue-named files only. A scope decision was requested; no answer has arrived.
+No excluded review identity or queue entry is changed.
+
+To complete the queue, either authorize independent reviews of those two
+additional inputs, or reconcile the queue to the five live-issue deliverables.
+The existing mathematical review must not be relabelled or repeated as a
+substitute. This PR is a checkpoint for that authorization blocker; it also
+leaves the new native-Fitting reuse objection for the PMIA owner.
 
 ## Preserved mathematical review from codex-7UQW2R
 
