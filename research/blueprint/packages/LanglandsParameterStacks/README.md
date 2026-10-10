@@ -1345,6 +1345,13 @@ x⁻ⁿ on both components. The invariants are checked in Mathlib's
   on the identity component sends e to 1 at both x=2 and x=1/2, but sends f
   to 2 and 1/2 respectively. The component condition cannot recover f after
   whole-J invariants have discarded it.
+- `coordinate_not_projected_switch_invariant` proves that no switch-invariant
+  function g satisfies eg=f. Consequently `identity_restriction_not_surjective`
+  proves that restriction of the switch-invariant subalgebra to R[x,x⁻¹]
+  misses x, for every nonzero R. The same holds for its whole-J invariant
+  subalgebra. This checks the proposed component restriction as an algebra
+  map, including in characteristic two where the preceding rational-point
+  calculation does not apply.
 
 All these fixture proofs are complete. They check this explicit coordinate
 algebra, without supplying the general invariant-coordinate or pseudocharacter

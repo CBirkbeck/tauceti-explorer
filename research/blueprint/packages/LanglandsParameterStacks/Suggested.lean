@@ -2407,6 +2407,31 @@ theorem component_switch_invariant : componentIdempotent R ∈
     (AddMonoidAlgebra.mapDomainAlgHom R R reversed) 0) = (1, 0)
   simp
 
+/-- Selecting the identity component after taking switch invariants cannot recover x.
+This is an algebraic obstruction over every nonzero coefficient ring, including
+characteristic two; it does not depend on separating rational points. -/
+theorem coordinate_not_projected_switch_invariant [Nontrivial R] :
+    ¬ ∃ f : Coordinates R,
+      f ∈ AlgHom.equalizer (switching R) (AlgHom.id R (Coordinates R)) ∧
+      componentIdempotent R * f = coordinate R := by
+  rintro ⟨f, hf, heq⟩
+  have hm := (AlgHom.equalizer (switching R) (AlgHom.id R (Coordinates R))).mul_mem
+    (component_switch_invariant R) hf
+  rw [heq] at hm
+  exact coordinate_not_switch_invariant R hm
+
+/-- The component restriction from switch invariants misses the Laurent generator.
+Whole-J invariants are a subalgebra of switch invariants, so their restriction
+cannot surject either. -/
+theorem identity_restriction_not_surjective [Nontrivial R] :
+    ¬ Function.Surjective
+      (fun f : AlgHom.equalizer (switching R) (AlgHom.id R (Coordinates R)) => f.val.1) := by
+  intro hs
+  obtain ⟨f, hf⟩ := hs (LaurentPolynomial.T (1 : ℤ))
+  apply coordinate_not_projected_switch_invariant R
+  refine ⟨f.val, f.property, ?_⟩
+  apply Prod.ext <;> simp [componentIdempotent, coordinate, hf]
+
 def evalIdentity (x : ℚˣ) : Coordinates ℚ →ₐ[ℚ] ℚ :=
   (AddMonoidAlgebra.lift ℚ ℚ ℤ
     ((Units.coeHom ℚ).comp (zpowersHom ℚˣ x))).comp (AlgHom.fst ℚ _ _)
