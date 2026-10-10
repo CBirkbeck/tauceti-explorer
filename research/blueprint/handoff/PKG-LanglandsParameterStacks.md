@@ -1,3 +1,136 @@
+# PKG-LanglandsParameterStacks — supplier proposal checked
+
+## Current result: 10 October 2026, codex-P6StQ3
+
+Codex, session `codex-P6StQ3`, claimed [issue #7909](https://github.com/CBirkbeck/tauceti-explorer/issues/7909).
+The bot [confirmed this claim](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098494368)
+following the [claim comment](https://github.com/CBirkbeck/tauceti-explorer/issues/7909#issuecomment-6098493000).
+The whole issue was reread after confirmation. Branch:
+`codex-P6StQ3-langlands-parameter-stacks`; starting atlas commit:
+`68edcaad3b2b7915bafb1277346e0a77ff3876dc`.
+None of the manager's forty priority issues appeared in the 735 available
+swarm issues. No eligible finished-plan or package review had `top` or
+`focus`; this focus package preceded the remaining eligible fallback jobs.
+Only this job was claimed.
+
+**Blocked checkpoint; package incomplete.** Only this handoff changes.
+The issue permits the three package outputs and this note, and expressly
+forbids changing the plan. The inherited package is useful, but its enhanced
+API omissions persist. Metadata remains absent because the intake recognizes
+package completion by output existence. This is a specification/ownership
+blocker, rather than a shortage of time or a requirement for implemented proofs.
+
+### New resumption evidence: the E5 proposal does not yet clear the gate
+
+[BP-EnhancedDerivedSheaves--E5, issue #720](https://github.com/CBirkbeck/tauceti-explorer/issues/720)
+is `state:submitted`, with an **open**
+[repair PR #8009](https://github.com/CBirkbeck/tauceti-explorer/pull/8009).
+Read the proposal's packet status, gaps and `signatureOmissions`, and the
+suggested file's carrier, monoidal, closure, Ind, tensor/module and animation
+interfaces at head `b0b9344dd7b7a1f3b2d6dc0f767a81d331ffa95f` in
+`tauceti-ai-for-science/tauceti-explorer`. This proposal is not in the current
+atlas checkout. It contains 44 targets and no review object, and replaces many
+of the current E5 file's `True`/`Unit` markers with substantive data signatures.
+That improvement should be assessed before any further LP packaging attempt.
+It does **not**, however, supply the full contracts requested by LP:
+
+- `HEquiv` is an equivalence of homotopy categories. The proposal explicitly
+  says it is only a consequence of an infinity-equivalence; higher natural
+  transformations and preservation predicates are omitted.
+- `SymMonData` records total space, projection, fibres, homotopy-category
+  Segal comparisons, tensor and unit. The proposal's `signatureOmissions`
+  explicitly retains cocartesian/inner-fibration and inert mapping-space
+  axioms as unavailable. Its data signature does not certify those axioms.
+- `CategoryDiagramData` retains fibres and transition maps without coherent
+  composition. `RightTensoredData` retains an action map without its coherent
+  action or colimit-preservation laws. Those omitted contracts are needed
+  for LP's category-valued sifted extension and module base change.
+- The proposed animation block gives animated-algebra objects and polynomial,
+  Tor and identity-pushout tests. It contains no quotient-stack QCoh/Perf
+  construction meeting LP's explicit E5:animation request. LP still needs
+  the framing, gauge quotient and perfect-pullback interfaces on the same
+  derived stack carriers.
+
+These are consumer-contract checks, not an independent review of #8009.
+Do not treat this checkpoint as a verdict on that other worker's job.
+Merging #8009 alone is not the resumption criterion: verify the specific
+LP-facing contracts, and reconcile its E0/E3 dependency-refinement gap too.
+
+### Independent check of the current LP omissions
+
+Read the statements, hypotheses, proof routes, direct prerequisites, APIs and
+tests of the following three targets in the accepted LP plan, and compare
+with the package's corresponding README targets and suggested-file inventory:
+
+| Target | Required typed interface | Absent test names |
+| --- | --- | --- |
+| LP1/derived-parameter-stack | Mapping stack over BQ; framed fibre; H-quotient; classical points and perfect pullback | `derived_stack_trivial_group`, `derived_stack_free_group`, `derived_stack_gauge` |
+| LP3/induced-perfect-complexes | Stable retract closure of pullback from Perf(BG); minimality and module comparison | `induced_point`, `induced_trivial_group`, `induced_retract`, `induced_not_all_bad_prime` |
+| LP3/mapping-approximation | Category-valued sifted left Kan extension from finite bases with torsors; comparison and Ind completion | `approx_point`, `approx_coproduct`, `approx_bad_prime` |
+
+All ten displayed test identifiers, and the three principal API names
+`DerivedParameterStack`, `InducedPerfectComplexes`, and
+`ParameterMappingApproximation`, are absent from the package suggested file.
+Their README targets remain present. This is a scoped absence check, not a
+fresh exhaustive census of all omitted declarations. The inherited full
+worklist below remains necessary.
+
+The accepted LP review expressly retains omitted enhanced signatures and
+supplier extensions. Its 79 targets, 140 API entries and 90 tests cover eight
+planned but unclosed stages, with five gaps and sixteen requests. The current
+E5 packet remains partial, with 22 targets, no review object, ten gaps and
+sixteen requests. Read the LP-facing E5 requests and all eight LP audit entries;
+the audit supplies no full enhanced quotient-stack replacement.
+
+The read-only upstream roadmap tree remains at
+`3c18d9fbfceed0dc5c1edb1070a3927152d19e28`, and current native Tau Ceti at
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Checked the relevant
+AlgebraicVectorBundles scheme/bundle boundaries and DGAInfinity derived-module
+and perfect-envelope layers. A bounded search across the current native and
+roadmap Lean trees returned none of the three principal LP names above or
+`SymMonInftyCat`, `AnimatedAlg`, `IndInfty`, `CategoricalHeckeDatum`.
+This name screen is not an exhaustive mathematical absence proof.
+
+### Required next action and validation
+
+The maintainer should route the LP-facing enhanced contracts to their owners
+and reconcile the accepted LP plan with those exports before resuming this
+package. Preserve its parameter-specific tests: the framed/unframed distinction,
+stable retract closure distinct from all Perf at bad primes, and finite base
+sets rather than finite total torsors. General stack enhancement and coherent
+category machinery stay with their owners under PROTOCOL §§3 and 15.
+The issue's restriction to package outputs prevents repairing those owners
+here. PROTOCOL §§13 and 20 require agreement with the plan's signatures and
+tests; adding unrelated ordinary carriers or named `True` tests would not
+complete this package. No ownership move was made.
+
+After those repairs, use the inherited worklist to reconcile all LP targets,
+APIs and tests, retain the existing proved fixtures, add `topic = "math.NT"`
+metadata, and rerun Lean and intake checks. Further checks of the unchanged
+shadow signatures do not clear this contract gate.
+
+Fresh validation in this run:
+
+- `lean-check` on the unchanged package Suggested.lean: exit 0, 286 warnings,
+  all declaration uses of `sorry`, zero errors and zero other warnings.
+  Available memory before launch was 102 GB.
+- LP and current E5 packet checkers: zero errors and zero warnings each.
+- Permitted-file intake check and whitespace check: passed before submission.
+
+No paper or private book was reread in this run; the preceding source-reading
+receipts below remain historical, not recertified here. No source text was
+copied into the repository. No supplier, packet, reader, library or upstream
+file was edited or built. No Lean language server or background check remains.
+All resumption information is in this note and the linked PR/immutable history;
+no scratch file is required.
+
+---
+
+## Retained preceding checkpoint and detailed worklist
+
+The record below is preserved from the starting commit. Its historical
+checks and source readings are recertified only where explicitly stated above.
+
 # PKG-LanglandsParameterStacks — enhanced-interface checkpoint
 
 ## Current result: 10 October 2026, codex-kKeoaw
