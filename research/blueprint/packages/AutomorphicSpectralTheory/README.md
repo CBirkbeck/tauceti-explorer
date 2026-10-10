@@ -2747,23 +2747,25 @@ Uses: AS.6.4; AS.6.6; AS.4.7; AS.0.11.
 
 `general_euler_poincare`
 
-Import the discrete-series/pseudo-coefficient and relative-cohomology carriers from ET.1 and AF.1a. For a finite-dimensional real reductive coefficient ξ, construct f_ξ of arbitrarily prescribed positive support radius with tr π(f_ξ)=Σ_q(−1)^q dim H^q(𝔤,K;π⊗ξ) for every finite-length admissible π. If G has no discrete series, this Euler characteristic is identically zero and f_ξ=0 is admissible. This is the full finite-length Euler–Poincaré character identity beyond the tempered pseudo-coefficient indicator.
+Import ET.1's discrete-series/pseudo-coefficient carriers and AF.1a's relative cohomology. For finite-dimensional ξ, construct f_ξ within any prescribed positive support radius, simultaneously satisfying tr π(f_ξ)=Σ_q(−1)^q dim H^q(𝔤,K;π⊗ξ) for every finite-length admissible π of G. Without discrete series, this Euler characteristic vanishes for all π and f_ξ=0 suffices.
 
-Assume: Clozel–Delorme real group conventions; finite-length Harish-Chandra module and finite-dimensional ξ; split-center/central-character balancing when passing to adelic groups.
+Assume: Clozel–Delorme real group conventions; finite-length Harish-Chandra module and finite-dimensional ξ; split-center/central-character balancing for adelic groups.
 
 API:
 
-- `trace_identity`: For every finite-length admissible π, tr π(f_ξ)=EP(𝔤,K;π⊗ξ). In the scalar model an invertible trace map E≃ₗℂ constructs f from the alternating cohomology sum.
-- `induced_vanishing`: Properly induced representations have zero EP. The rank-one cochain model has nonzero cohomology in degrees zero and one but zero alternating dimension.
-- `no_discrete_series`: Without discrete series, EP is zero. The scalar image construction gives the zero test element when supplied with the zero Euler sum; the representation theorem establishes that sum.
+- `trace_identity`: tr π(f_ξ)=EP(𝔤,K;π⊗ξ) for every finite-length admissible π. An invertible scalar trace E≃ₗℂ gives the scalar model by inversion.
+- `induced_vanishing`: Proper induction has zero EP. The rank-one model has nonzero cohomology in degrees zero and one with zero alternating dimension.
+- `no_discrete_series`: Without discrete series, EP vanishes. Inverting a scalar trace sends a supplied zero Euler sum to zero; the representation theorem establishes that sum.
 
 Tests:
 
-- `compact_group`: The actual EP test element for the degree-zero relative cochain model has trace one, equal to its one-dimensional zeroth cohomology.
-- `no_discrete_series_test`: Finite relative cochains of zero Euler characteristic give zero in the scalar-trace EP construction; the no-discrete-series theorem supplies this condition representation by representation.
-- `parabolic_induction`: The rank-one relative cochain construction has EP trace zero while H⁰ and H¹ each have dimension one.
+- `compact_group`: Degree-zero relative cochain model: EP trace one and dim H⁰=1.
+- `no_discrete_series_test`: Zero Euler sum gives zero in the relative-cochain scalar model; the no-discrete-series theorem supplies the sum for representations.
+- `parabolic_induction`: Rank-one model: EP trace zero with dim H⁰=dim H¹=1.
 
-Source: S16, §5 Theorem3, pp.213–215.
+Simultaneity check: on E=ℂ take T₀(z)=z and T₁(z)=−z. Both traces are invertible. Their joint image is b=−a: it excludes (1,1), contains (1,−1), and the separate inverses choose 1 and −1. Trace-image realization must preserve all character relations and the support bound for the entire Euler functional.
+
+Source: S16, §0 Theorem 1, p.195; §5 Proposition 4, p.212, Theorem 3 and proof, pp.213–214.
 
 Uses: AS.6.1; orbital/pseudo-coefficient input contract; `AF.1a/relative-lie-cochain-complex`.
 

@@ -1,3 +1,147 @@
+# PKG-AutomorphicSpectralTheory — blocked checkpoint with simultaneous trace checks
+
+Issue #7893; Codex (GPT-6), session `codex-Dpe6kr`; 10 October 2026.
+Branch: `codex-Dpe6kr-automorphic-spectral-theory`.
+Starting explorer commit: `cc5fec4c76325e6b8063e0f8408616ec939f020b`.
+The bot confirmed [claim 6096646825](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6096646825)
+in [6096647897](https://github.com/CBirkbeck/tauceti-explorer/issues/7893#issuecomment-6096647897).
+No manager-priority issue was available in the available-swarm listing. This
+focus package was selected under WORKERS' fallback order. Only this job was
+claimed.
+
+**Blocked checkpoint: the package is incomplete; metadata remains absent.**
+The required owner/consumer specification repair is outside this issue's edit
+set. This is a scope blocker, not a time-limit checkpoint. The mathematical
+changes here strengthen finite checks and correct their description; they do
+not establish the missing representation-theoretic interfaces.
+
+## Fresh repair-boundary check
+
+The issue makes the accepted plan authoritative and explicitly says:
+**“Change no packet; if the plan has a mistake, describe it in the handoff note.”**
+Its outputs are the package README, Suggested.lean, metadata and this note.
+WORKERS requires downward ownership; PROTOCOL §§3, 13, 15 and 20 requires
+faithful statements and one owner. The current Caraiani–Newton order still
+places AS in tier 13 and ET in tier 14, outside a shared bundle. Independently
+checked the actual prerequisites and ET.0–1 owner statements:
+
+| AS consumer | Upward prerequisite | Coordinated repair needed |
+| --- | --- | --- |
+| `AS.2/generic-normalized-intertwiner` | `EndoscopicTransferAndUnitaryTraceComparison:ET.0` | Specify classical generic tempered packets, unitary members and pure-inner-form conventions at a permitted owner, with exact exports. |
+| `AS.6/weighted-orbital-integral` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Move the ordinary centralizer-quotient measure, convergence and singular-extension foundation to a permitted lower owner; ET imports it for transfer. |
+| `AS.6/general-euler-poincare` | `EndoscopicTransferAndUnitaryTraceComparison:ET.1` | Expose the ordinary real representation, discrete-series and simultaneous Paley–Wiener realization foundation below AS; separate it from transfer. |
+
+ET.0 in `content/campaign/EndoscopicTransferAndUnitaryTraceComparison/README.md`
+is conjugacy/endoscopy. The AS packet's own ET.0 request acknowledges the
+missing classical packet carrier. Its `neededBy` omits the direct
+`generic-normalized-intertwiner` consumer; include it in the coordinated repair.
+ET.1 explicitly constructs ordinary quotient measures, orbital integration
+and real unitary-case pseudo-coefficient formulas. Changing only the AS package
+citations would leave the supplier and authoritative consumers inconsistent.
+No packet, owner document or supplier request was edited.
+
+The retained `generic_normalized_intertwiner` signature is still omitted.
+`weighted_orbital_integral` integrates two arbitrary functions on an arbitrary
+measured type against a supplied scalar; its comment now correctly states
+that it constructs no centralizer quotient, Haar measure or discriminant.
+The scalar `general_euler_poincare` still inverts one supplied trace equivalence.
+It does not produce one Hecke function for all finite-length representations.
+The accepted review concerns a target-level planning pass with 52 gaps,
+22 requests and seven planned stages, none closed. No gap or omission was
+marked resolved in this session.
+
+## Fresh source receipt and concrete trace check
+
+Read Clozel–Delorme, *Le théorème de Paley-Wiener invariant pour les groupes de
+Lie réductifs II* (1990), §0 Theorem 1, printed pp.194–195; §5.2 Lemma 6 and
+Proposition 4, p.212; Theorem 3, p.213, and its proof, p.214.
+The [Numdam primary PDF](https://www.numdam.org/article/ASENS_1990_4_23_2_193_0.pdf)
+was accessed 2026-10-10; SHA-256:
+`dd70f4069fdeec6fc31e44557f239080f5c169743dc8aa2de5b69659da594432`.
+
+Theorem 1 realizes an entire compatible family of traces by a common smooth
+bi-K-finite function with prescribed positive support radius. Its image
+conditions include the Fourier–Paley–Wiener bound, finite discrete support,
+conjugacy invariance and induction relations. For compact center,
+Proposition 4 realizes a discrete admissible functional on the Grothendieck
+group of finite-length representations. Theorem 3 applies this to the Euler
+functional for finite-dimensional coefficients, with vanishing when discrete
+series is absent. The proof uses additivity, vanishing on proper induction
+and admissibility through Wigner's lemma. This receipt identifies the required
+contract; it does not close the auxiliary Borel–Wallach or other proof inputs.
+No source passage or section-by-section summary was added to the repository.
+
+Added `general_euler_poincare.SimultaneousTraceChecks` in Suggested.lean:
+
+- `traceAt` gives the two individually invertible scalar maps z ↦ z and z ↦ −z
+  on the common space ℂ; `traces` is their joint linear map.
+- `image_iff` proves that the joint values satisfy b = −a.
+- `incompatible_values` excludes (1,1), `compatible_values` realizes (1,−1),
+  and `separate_inverses` shows that coordinate inversion selects different
+  test elements. Three examples exercise those results.
+
+These proofs contain no `sorry`. They demonstrate the simultaneity requirement
+on a finite scalar fixture, not actual representation characters or the
+source theorem. The package reader states that distinction and gives the
+correct source locators. Every accepted target/API/test label is retained.
+
+## Current-library boundary and validation
+
+Read all seven AS rows of the reviewed AUDIT-14 coverage, the complete current
+CompactGroups and OperatorIdeals READMEs, and relevant current native compact
+integration declarations. Current `ContRepresentation.integratedOperatorₗ`
+and `trace_integratedOperator` supply compact, finite-dimensional integrated
+operators and their character integral identity under compact-group/Haar
+hypotheses. They are useful existing suppliers; they do not give the general
+real finite-length Paley–Wiener image contract above. No existing roadmap was
+re-planned. A scoped name search of current Lean files and roadmap READMEs for
+orbital integrals, pseudo-coefficients, Paley–Wiener, generic packets and pure
+inner forms found no supplying declarations; this is not a comprehensive
+absence audit.
+
+Current read-only revisions: TauCetiRoadmap
+`48cda9fcc5dbdc8f8d51e717f6a3090e0c4cd688`; Tau Ceti
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. Neither tree was edited or built.
+For the new fixture, read pinned Mathlib `LinearMap.pi` and `LinearEquiv.neg`
+statements before use.
+
+- `python3 scripts/check_blueprint.py research/blueprint/packets/AutomorphicSpectralTheory.json`:
+  exit 0; zero errors/warnings; 190 nodes, 223 API items, 219 tests,
+  38 planets and 32 baseline references.
+- Full Suggested.lean via `lean-check`: exit 0; zero errors, 741 warnings,
+  all declaration-uses-sorry warnings; no other warnings. Compilation used
+  the existing atlas-pin helper (Mathlib `082e2d37e8`, Tau Ceti `f790474`),
+  with more than 20 GB available memory. No Lean process remains.
+- An isolated copy of the new fixture also passed `lean-check` with no
+  warnings. `#print axioms` for its four theorems reported only `propext`,
+  `Classical.choice` and `Quot.sound`, no `sorryAx`.
+- README: 199,944 UTF-8 bytes; 190 target headings; all 223 API and 219 test
+  leaf-name labels retained. This is an inventory check, not proof closure.
+- The unchanged authoritative AS packet has SHA-256
+  `c3b928e23edff50069469d0e6d6afa7dd095015d4b1d539ee044a66b24fe5e2d`.
+- Intake file validation and `git diff --check` passed on all three changed
+  deliverables. The cleared-library index was read; no restricted book was
+  used or copied. Scratch sources and logs are disposable.
+
+## Resume gate
+
+Use a job that permits coordinated owner and consumer edits to repair the AS
+packet/reader/suggested inputs, ET.0–1 or replacement permitted owners, and
+all affected supplier requests. Keep the exact classical packet hypotheses,
+ordinary quotient/convergence/singular-extension contract and real
+representation/PW inputs. Then continue the **retained 44 target and 16 API
+signature-omission worklist** below, including AF/ALS integration obligations.
+The new finite fixture does not replace any missing export. Add package
+metadata only after the faithful interfaces are complete. Repeating a
+package-only continuation cannot install the required ownership repair.
+
+All prior continuation material follows unchanged. Its source audits and
+validation receipts belong to the sessions named there, not this session.
+
+---
+
+# Preceding checkpoint — codex-85iqLO
+
 # PKG-AutomorphicSpectralTheory — blocked package checkpoint
 
 Issue #7893; Codex (GPT-6), session `codex-85iqLO`; 10 October 2026.
