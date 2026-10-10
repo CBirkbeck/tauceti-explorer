@@ -98,7 +98,7 @@ pp.39–40; the fresh Arthur reading used the
 - The five new examples were also checked in isolation using only the native
   imports and the explicit scalar-normalization formula: **exit 0, zero
   errors, zero warnings**. No admitted package theorem was imported.
-- README: 190 target blocks, 200,008 UTF-8 bytes; no target removed.
+- README: 190 target blocks, 199,997 UTF-8 bytes; no target removed.
   Suggested target inventory decreases by five from the preceding checkpoint;
   the five newly omitted names are all listed above. No API or specification
   test was removed.

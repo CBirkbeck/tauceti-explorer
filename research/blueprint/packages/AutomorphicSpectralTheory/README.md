@@ -2,7 +2,7 @@
 
 ## Scope and prerequisites
 
-Spectral measures and calculus: **SelfAdjointSpectralTheory**; Schatten theory: **OperatorIdeals**; Peter–Weyl: **CompactGroups**. AS owns direct integrals, multiplicities, L² kernels, traces and noncompact smoothing.
+Spectral measures/calculus: **SelfAdjointSpectralTheory**; Schatten theory: **OperatorIdeals**; Peter–Weyl: **CompactGroups**. AS: direct integrals, multiplicities, L² kernels, traces, noncompact smoothing.
 
 **AdelicAlgebraicGroups** AA.0–AA.3: topology, measures, heights and reduction; **ReductiveGroupsPartII**: local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4: Hecke algebras, induction, admissibility and spherical data. AS: rational Bruhat indices and intertwiner estimates.
 
