@@ -1,87 +1,77 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-2~2
 
-Codex (GPT-6), session `codex-nadu6T`, 10 October 2026; issue
-[#6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219),
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6093576332).
-One job only. The authorized two-packet fix review is finished; the queue
-requires two further packet receipts outside the live issue's scope.
+Codex (GPT-6), session `codex-ldSpYt`, 10 October 2026;
+[issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219),
+[confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6093875949).
+One job only. **Checkpoint: the live issue and queue have incompatible scopes.**
 
-L3 is accepted within the fixes. PMIA needs coordinated migration to current
-Tau Ceti's generic Fitting and transpose APIs. The
-[report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) records all six finding
-dispositions, fresh public-source locators/hashes, direct algebraic proof
-checks, current/pinned native interfaces and compiler/checker results.
-The 50-node source ledger remains credited to codex-KQjyXV. The preceding
-codex-zSS4E1 receipts are retained whole in `reviewHistory`. Mathematical
-nodes, baseline pins, requests, source-issue verdicts and suggested files
-are unchanged.
+## Completed authorized review
 
-## Resolve the dispatch mismatch before redispatching
+Fresh scoped receipts accept L3 and require changes to PMIA for coordinated
+reuse of current Tau Ceti's generic Fitting/transpose APIs. The preceding
+codex-nadu6T receipts are preserved whole in `reviewHistory`.
+The [report](../reviews/REV-FIX-RT-AREA-iwasawa-2~2.md) distinguishes this
+session's selected source/native-interface checks from inherited exhaustive
+L6 evidence and scratch-assembly diagnostics. All six verified finding
+dispositions remain unchanged. Mathematical data, baseline pins, source-issue
+verdicts, producer gaps, requests and suggested files were preserved.
 
-The live issue names five deliverables: this job's report, the L3 and PMIA
-packets and their suggested files. The queue requires nine outputs, adding:
+Fresh authorized packet checkers: zero errors; L3 has 26 inherited short-API
+warnings, PMIA has none. Full PMIA `lean-check` succeeds with 1,075 `sorry`
+warnings only. Standalone L3 stops at unresolved repository-local `research`
+imports before its body is processed. The preceding complete-body diagnostic
+under scratch-only L1/L2 supplier corrections was not rerun; its construction,
+hashes and limits are retained in the report. This is not a standalone L3
+compilation claim. Both runs used the existing pinned build sequentially.
+
+## Resolve before redispatching
+
+The live issue names five outputs: report, L3/PMIA packets and their suggested
+files. Queue job `REV-FIX-RT-AREA-iwasawa-2~2` names nine, additionally:
 
 - `research/blueprint/packets/DirichletPadicLFunctions--L3-2.json`
 - `research/blueprint/suggested/DirichletPadicLFunctions--L3-2.lean`
 - `research/blueprint/packets/PadicHodgeRegulators--D.1.json`
 - `research/blueprint/suggested/PadicHodgeRegulators--D.1.lean`
 
-`issues.deliverables_complete` requires this exact fix-review id on all four
-packets. `needs_changes` counts as a completed verdict, so PMIA's verdict
-does not cause this mismatch. L3-2 has no top-level review, and D.1 retains
-its newer independent full regulator review.
+`issues.deliverables_complete` is True for the live five outputs and False
+for the queue's nine. It requires this exact fix-review id on every packet;
+`needs_changes` counts as finished, so PMIA's verdict is not the blocker.
+L3-2 has no receipt, and D.1 retains
+`independent-review-REV-PadicHodgeRegulators--D.1~2`.
 
 [WORKERS.md](../WORKERS.md) requires: “Edit only the files the issue names,
-plus your own scratch space.” Authorization for the four extra paths was
-requested and has not arrived. Those files, the queue, issue body and labels
-were not edited. Reconcile the live issue with the queue or explicitly
-authorize the additional scoped fix reviews. Refreshing the same two
-receipts again cannot complete the queue.
+plus your own scratch space.” The user was asked to authorize the four
+additional paths; no answer arrived. Extra files, queue, issue body and
+labels were not edited. Reconcile the live issue and queue or explicitly
+authorize those additional scoped fix reviews. Redispatching the unchanged
+issue will repeat the same blocker; refreshing two receipts cannot finish it.
 
-## Prepared review boundaries
+## Prepared continuation
 
-Freshly read all 29 L3-2 `rjw2-gk-*`/`rjw2-fg-*` contracts and the four D.1
-integral/open syntomic contracts. Public Zhao/Gross and EN/CN/NN source
-checks are recorded in the report. The Ferrero–Greenberg formula keeps the
-conductor correction, branch and character orientation; its arithmetic
-nonzero projection remains external. EN Proposition 2.1 supplies the
-small-weight truncation of the divided complex and Theorem 2.2 supplies
-its nearby-cycle comparison. The normalized exponential is ω_Q⁻¹δ_D;
-the raw undivided boundary carries a p^r factor. CS.0–CS.3 remains external.
-Both omitted packets freshly pass their checkers with no errors or warnings.
-The completion predicate is True for the live five-file outputs and False
-for the nine-file queue outputs.
-The report distinguishes inherited Lean checks from this session's checks.
+This session read all 29 L3-2 `rjw2-gk-*`/`rjw2-fg-*` contracts and four D.1
+integral/open-syntomic consumer contracts read-only. Selected public Zhao and
+EN/CN/NN checks agree with the preceding preflight, as recorded in the report.
+If authorized, finish those bounded fix reviews rather than repeating the
+authorized two-packet audit. Preserve D.1's complete newer regulator review
+in history before installing a scoped fix receipt; preserve all source-issue
+verdicts. This does not replace its full 72-node review. External arithmetic
+nonvanishing and CS.0–CS.3 remain open. Read-only preflight checker/Lean results
+for those omitted files in the retained report belong to preceding sessions
+and were not rerun here.
 
-If additional scope is authorized, preserve D.1's complete
-`independent-review-REV-PadicHodgeRegulators--D.1~2` regulator review in
-history before installing a scoped fix receipt, and preserve all
-source-issue verdicts. These bounded fix checks do not replace its full
-72-node regulator review.
+Current read-only roadmap revision is
+`8c72a04753b11cab07fa593cc38ceaa7c0515380`; Tau Ceti is
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. PMIA's four generic Fitting
+nodes, direct consumers, both StableReduction requests, L4 comparison and
+reader/signatures need coordinated migration. Keep concrete matrix-minor
+adapters, specialized order computations and discriminating tests. Elementary
+transpose changes use `compFstEquiv`, `prodMapEquiv` and the split-identity
+theorem; coordinate/range obligations for `quotientEquiv`, projective base
+change and arbitrary-presentation comparison remain work. These newer APIs
+are not silently attributed to the f790474 pin. The reader is outside the
+live issue, so a partial migration was not attempted.
 
-## Compiler and migration boundaries
-
-Full PMIA elaborates with 1,075 `sorry` warnings only. Standalone L3 stops at
-repository-local imports. Its fresh complete-body diagnostic passes with
-7,177 proof-placeholder warnings only. The scratch-only L1/L2 supplier
-corrections and input hashes are documented in the report; they do not
-establish standalone supplier closure. The suppliers are
-outside the live issue. All checks use `lean-check` at the pinned libraries;
-no current-main build, language server or Lake project was started.
-
-Current read-only Tau Ceti `a91d3aa` supplies all-degree Fitting ideals,
-arbitrary base change and transpose quotient/direct-sum/zero-relation APIs;
-these newer interfaces are absent at the packet's `f790474` pin. Coordinate
-the four generic Fitting nodes, direct consumers, both StableReduction
-requests, L4 comparison and reader/signatures. Keep the concrete
-matrix-column/kernel-minor adapter and discriminating tests. Use
-`compFstEquiv`, `prodMapEquiv` and the split identity theorem for elementary
-transpose changes. `quotientEquiv` still requires its scalar and range
-obligations; projective base change and arbitrary-presentation comparison
-remain separate work. The reader is outside the live issue, so no partial
-migration or silent baseline change was made.
-
-Final authorized packet checkers report zero errors (L3 retains 26 short-API
-warnings; PMIA has none). Submission file checks have zero problems, and
-whitespace checks pass. No compiler remains running. Scratch has no handoff
-dependency and can be deleted when the pull request is open.
+No compiler remains running. The handoff has no scratch dependency; public
+source URLs, hashes, locators and earlier diagnostic recipes are in the
+report. Scratch is deleted after the pull request opens.
