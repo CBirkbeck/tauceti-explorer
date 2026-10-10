@@ -1,4 +1,5 @@
 import Mathlib.Basic.Complex.Basic
+import Mathlib.Analysis.Complex.Basic
 import Mathlib.Data.Multiset.Bind
 import Mathlib.Data.Finset.Powerset
 import Mathlib.Algebra.DirectSum.Basic
@@ -66,6 +67,8 @@ example : (intSeg 2 2).shift (-1) = intSeg 1 2 := by sorry
 
 abbrev Multisegment := Multiset Interval
 def occurrenceInterval (m : Multisegment) (i : Fin m.card) : Interval := by sorry
+theorem occurrence_count (m : Multisegment) (s : Interval) :
+    (Finset.univ.filter fun i : Fin m.card => occurrenceInterval m i = s).card = m.count s := by sorry
 def rightTruncate (m : Multisegment) : Multisegment :=
   m.bind fun s => match s.shorten with | none => 0 | some t => {t}
 def shiftMultisegment (m : Multisegment) (c : ℤ) : Multisegment := m.map (·.shift c)
@@ -181,6 +184,8 @@ theorem standardVector_ne_zero_iff (m : Multisegment) (i : Fin m.card) (a : ℤ)
 theorem standardVector_eq_basis (m : Multisegment) (i : Fin m.card) (a : ℤ)
     (ha : (occurrenceInterval m i).contains a) :
     standardVector m i a = standardBasis m ⟨(i, a), ha⟩ := by sorry
+theorem standardVector_mem_grade (m : Multisegment) (i : Fin m.card) (a : ℤ) :
+    standardVector m i a ∈ (standardSpace m).grade a := by sorry
 -- Strong pair tests: the interval arrow, grading, and operator degree all matter.
 -- tests.pair_interval_arrow
 example : (standardPair ({intSeg 0 1} : Multisegment) .up).operator ≠ 0 := by sorry
@@ -314,7 +319,7 @@ example : @IsOpen _ (polynomialTopology 1) {x : Fin 1 → ℂ | x 0 ≠ 0} := by
 -- tests.zariski_dense
 example : @Dense _ (polynomialTopology 1) {x : Fin 1 → ℂ | x 0 ≠ 0} := by sorry
 -- tests.zariski_not_euclidean
-example : ¬ @IsOpen _ (polynomialTopology 1) ({0} : Set (Fin 1 → ℂ)) := by sorry
+example : ¬ @IsOpen _ (polynomialTopology 1) {x : Fin 1 → ℂ | ‖x 0‖ < 1} := by sorry
 
 def genericType {S : Space} {d : Direction} (P : Pair S d) : Multisegment := by sorry
 def genericLocus {S : Space} {d : Direction} (P : Pair S d) : Set (centralizer P) :=
@@ -432,12 +437,28 @@ example : chainWeight ({intSeg 0 0, intSeg 1 0} : Multisegment) 0 = 1 := by sorr
 def endpointBefore (m : Multisegment) (i j : Fin m.card) : Prop :=
   (occurrenceInterval m i).left < (occurrenceInterval m j).left ∧
     (occurrenceInterval m i).right < (occurrenceInterval m j).right
-def matchingNumber (m : Multisegment) : ℕ := by sorry
-def antichainWidth (m : Multisegment) : ℕ := by sorry
-theorem occurrence_count (m : Multisegment) (s : Interval) :
-    (Finset.univ.filter fun i : Fin m.card => occurrenceInterval m i = s).card = m.count s := by sorry
+def IsEndpointAntichain (m : Multisegment) (A : Finset (Fin m.card)) : Prop :=
+  ∀ i ∈ A, ∀ j ∈ A, ¬ endpointBefore m i j
+def IsEndpointMatching (m : Multisegment) (E : Finset (Fin m.card × Fin m.card)) : Prop :=
+  (∀ e ∈ E, endpointBefore m e.1 e.2) ∧
+    (∀ e ∈ E, ∀ f ∈ E, e.1 = f.1 → e = f) ∧
+    (∀ e ∈ E, ∀ f ∈ E, e.2 = f.2 → e = f)
+def matchingNumber (m : Multisegment) : ℕ :=
+  ((Finset.univ : Finset (Fin m.card × Fin m.card)).powerset.filter
+    (IsEndpointMatching m)).sup Finset.card
+def antichainWidth (m : Multisegment) : ℕ :=
+  ((Finset.univ : Finset (Fin m.card)).powerset.filter
+    (IsEndpointAntichain m)).sup Finset.card
 theorem endpointBefore_irrefl (m : Multisegment) (i : Fin m.card) : ¬ endpointBefore m i i := by sorry
+theorem endpointBefore_trans (m : Multisegment) {i j k : Fin m.card}
+    (hij : endpointBefore m i j) (hjk : endpointBefore m j k) : endpointBefore m i k := by sorry
 theorem matchingNumber_bound (m : Multisegment) : matchingNumber m ≤ m.card := by sorry
+theorem matchingNumber_le_iff (m : Multisegment) (k : ℕ) :
+    matchingNumber m ≤ k ↔
+      ∀ E : Finset (Fin m.card × Fin m.card), IsEndpointMatching m E → E.card ≤ k := by sorry
+theorem antichainWidth_le_iff (m : Multisegment) (k : ℕ) :
+    antichainWidth m ≤ k ↔
+      ∀ A : Finset (Fin m.card), IsEndpointAntichain m A → A.card ≤ k := by sorry
 -- tests.poset_equal_copies, tests.poset_adjacent, tests.poset_contained.
 -- tests.poset_equal_copies
 example : antichainWidth ({intSeg 0 1, intSeg 0 1} : Multisegment) = 2 ∧
@@ -489,7 +510,11 @@ theorem truncate_maximalPart (m : Multisegment) :
 theorem truncate_remainder (m : Multisegment) :
     remainder (rightTruncate m) = rightTruncate (remainder m) := by sorry
 theorem chainWeight_peeling (m : Multisegment) (a : ℤ) (h : cutPart m a ≠ 0) :
-    chainWeight m a = chainWeight (remainder m) a + 1 := by sorry
+    chainWeight m a = chainWeight (remainder m) a + 1 ∧
+      chainWeight (maximalPart m) a = 1 := by sorry
+theorem chainWeight_peeling_empty (m : Multisegment) (a : ℤ) (h : cutPart m a = 0) :
+    chainWeight m a = 0 ∧ chainWeight (remainder m) a = 0 ∧
+      chainWeight (maximalPart m) a = 0 := by sorry
 theorem ram_maximal_split (m : Multisegment) :
     ram m = ram (maximalPart m) + ram (remainder m) := by sorry
 example : ram ({intSeg 0 0} + {intSeg 1 0} : Multisegment) ≠
@@ -510,6 +535,8 @@ smooth irreducible GL_n(F) carrier, L(m) is isomorphic to Z(dual m). This uses
 early segment classification from ET.6, reconciled with current upstream
 SmoothRepresentationsOfLocalGroups SR.5.3. No second smooth representation
 carrier, axiomatic comparison predicate or arbitrary representation-valued
-oracle is introduced here. The packet records the exact missing interface.
+oracle is introduced here. G2 records the missing carrier/normalization adapter
+and the reduction of the representation comparison proof in MW II.13 to actual
+supplier declarations. The geometric label comparison remains owned here.
 -/
 end TauCeti.MultisegmentDuality

@@ -12,7 +12,7 @@ The representation comparison uses the existing smooth-representation category a
 
 The pinned baseline is Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 and Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174. The reviewed library audit and the current read-only upstream/library were checked before defining targets. No existing named generic commuting multisegment API was found. Each target below gives its precise statement, prerequisites and source; definitions carry the API and discriminating tests that the suggested signatures implement.
 
-The planning pass is complete: all six stages are **planned**, not closed. G1 names the algebraic geometry bridge for conormal symmetry, while G2 names the absent baseline-ready representation interface. Parent layers are explicit supplier requests. Nothing below is claimed implemented.
+The planning pass is complete: all six stages are **planned**, not closed. G1 names the algebraic geometry bridge for conormal symmetry, while G2 names the absent baseline-ready representation interface and the remaining representation comparison proof chain. Parent layers are explicit supplier requests. Nothing below is claimed implemented.
 
 ## MS.0. Integer multisegments and maximal peeling
 
@@ -49,7 +49,7 @@ Acceptance: An interval is a pair of integers b≤e representing every integer f
 
 ### Multisegments and right truncation
 
-A multisegment is a finite multiset of integral intervals. Its degree-a dimension counts all occurrences containing a; its total length sums all interval lengths. Right truncation binds each occurrence to its right shortening, deleting singletons and retaining repetitions. Translation acts occurrence by occurrence.
+A multisegment is a finite multiset of integral intervals. Its degree-a dimension counts all occurrences containing a; its total length sums all interval lengths. Right truncation binds each occurrence to its right shortening, deleting singletons and retaining repetitions. Translation acts occurrence by occurrence. Label occurrences by Fin(Card m), with the interval labeling reproducing each multiset count; all subsequent block and poset indices use this same occurrence model.
 
 Suggested declaration: `TauCeti.MultisegmentDuality.rightTruncate`.
 
@@ -64,6 +64,8 @@ The reusable API serves the recorded maximal-split and image arguments:
 - `TauCeti.MultisegmentDuality.rightTruncate_add`: Truncation of a multiset sum is the sum of the truncations.
 - `TauCeti.MultisegmentDuality.rightTruncate_shift`: Truncation commutes with translation.
 - `TauCeti.MultisegmentDuality.degreeDimension_add`: Degree dimension is additive on multiset sums.
+- `TauCeti.MultisegmentDuality.occurrenceInterval`: Assign an interval to every occurrence label Fin(Card m), retaining duplicate intervals.
+- `TauCeti.MultisegmentDuality.occurrence_count`: Counting occurrence labels for interval s gives m.count(s).
 
 Discriminating tests:
 
@@ -71,7 +73,7 @@ Discriminating tests:
 - `TauCeti.MultisegmentDuality.tests.truncate_delete`: [0,0]+[1,3] shortens to [1,2].
 - `TauCeti.MultisegmentDuality.tests.degree_repeated`: [0,2]+[1,1] has degree-1 dimension 2.
 
-Acceptance: A multisegment is a finite multiset of integral intervals. Its degree-a dimension counts all occurrences containing a; its total length sums all interval lengths. Right truncation binds each occurrence to its right shortening, deleting singletons and retaining repetitions. Translation acts occurrence by occurrence.
+Acceptance: A multisegment is a finite multiset of integral intervals. Its degree-a dimension counts all occurrences containing a; its total length sums all interval lengths. Right truncation binds each occurrence to its right shortening, deleting singletons and retaining repetitions. Translation acts occurrence by occurrence. Label occurrences by Fin(Card m), with the interval labeling reproducing each multiset count; all subsequent block and poset indices use this same occurrence model.
 
 ### Canonical maximal decomposition
 
@@ -178,6 +180,7 @@ The reusable API serves the recorded maximal-split and image arguments:
 - `TauCeti.MultisegmentDuality.standardPair_apply_down`: On each occurrence’s basis vector in degree a, L gives the previous vector if both degrees lie in the interval and zero otherwise.
 - `TauCeti.MultisegmentDuality.standardVector_ne_zero_iff`: The standard vector for an occurrence and grade is nonzero exactly when that grade lies in its interval.
 - `TauCeti.MultisegmentDuality.standardVector_eq_basis`: For a grade in the occurrence interval, its standard vector is the corresponding member of the basis indexed by all valid occurrence/grade pairs.
+- `TauCeti.MultisegmentDuality.standardVector_mem_grade`: Every standard vector indexed by grade a lies in the grade-a subspace, including the zero vector for a grade outside its interval.
 
 Discriminating tests:
 
@@ -293,7 +296,7 @@ For every VN pair P over C, the opposite-degree restriction map centralizer(P)�
 
 Suggested declaration: `TauCeti.MultisegmentDuality.centralizer_restrict_up_surjective`.
 
-Proof or construction. Use the block-coordinate parameterization on the original and shortened interval decompositions. A permitted coefficient between image blocks has a permitted original block: for VN image intervals the two left endpoints increase by 1, whereas for WL image intervals the two right endpoints decrease by 1. Their stricter overlap inequality implies the original one. Lift each image coefficient to that original coefficient and set every unused coefficient to zero. Restrictions are independent on occurrence labels.
+Proof or construction. Use the original and VN-image interval decompositions with their occurrence labels. If a target image interval [s+1,u] precedes a source image interval [t+1,v], the inequalities s+1<t+1, u<v and t+1≤u+1 imply s<t, u<v and t≤u+1. Thus every permitted image coefficient comes from a permitted original block. Lift that coefficient, set unused coefficients to zero, and check the restrictions on the image basis. Singleton blocks have zero image and introduce no extra coefficients.
 
 Prerequisites: `QuiverRepresentationsPartII:MS.2/coordinates`.
 
@@ -307,9 +310,9 @@ For every WL pair P over C, the opposite-degree restriction map centralizer(P)�
 
 Suggested declaration: `TauCeti.MultisegmentDuality.centralizer_restrict_down_surjective`.
 
-Proof or construction. Use the block-coordinate parameterization on the original and shortened interval decompositions. A permitted coefficient between image blocks has a permitted original block: for VN image intervals the two left endpoints increase by 1, whereas for WL image intervals the two right endpoints decrease by 1. Their stricter overlap inequality implies the original one. Lift each image coefficient to that original coefficient and set every unused coefficient to zero. Restrictions are independent on occurrence labels.
+Proof or construction. Reflect the grading by a↦−a. A degree −1 operator becomes degree +1, and an interval [b,e] becomes [−e,−b]. This reflection preserves commuting maps and their actual image embeddings, and changes the opposite direction as well. Apply VN image-restriction surjectivity in the reflected grading and transport the lifted map back. This avoids using the VN block inequality without reversing its endpoints.
 
-Prerequisites: `QuiverRepresentationsPartII:MS.2/coordinates`.
+Prerequisites: `QuiverRepresentationsPartII:MS.2/restrict-up`.
 
 Source: AKY, Lemma 3.2 p.16 (both parts) — Image-restriction surjectivity.; MW, Lemma II.4 pp.160–161 — An alternative explicit block-coordinate proof.
 
@@ -339,7 +342,7 @@ Discriminating tests:
 
 - `TauCeti.MultisegmentDuality.tests.zariski_principal`: The nonzero-coordinate locus of C is open.
 - `TauCeti.MultisegmentDuality.tests.zariski_dense`: That locus is dense.
-- `TauCeti.MultisegmentDuality.tests.zariski_not_euclidean`: The singleton {0} in C is not Zariski open.
+- `TauCeti.MultisegmentDuality.tests.zariski_not_euclidean`: The Euclidean unit disk {z : |z|<1} in C is not open in the polynomial Zariski topology; installing the Euclidean topology would fail this test.
 
 Acceptance: On C^n use the topology generated by polynomial nonvanishing loci. On a finite dimensional vector space transport this topology through a complex basis; prove independence of the basis and compatibility with linear maps and subspaces. ZariskiOpenDense(P,U) means U is both open and dense in centralizer(P) for this topology, including the zero dimensional case.
 
@@ -439,7 +442,7 @@ Proof or construction. Use NL=LN to restrict N to Im L. Keep the unshifted grade
 
 Prerequisites: `QuiverRepresentationsPartII:MS.2/dual`, `QuiverRepresentationsPartII:MS.2/centralizer`, `QuiverRepresentationsPartII:MS.1/image`.
 
-Source: AKY, Definition 3.3 p.17; Lemma 3.4 p.17 — Admissibility and its second image condition.
+Source: AKY, §3.1 p.16, unnumbered admissibility paragraph before Lemma 3.3; Lemma 3.4 p.17 — Admissibility and its second image condition.
 
 The reusable API serves the recorded maximal-split and image arguments:
 
@@ -561,7 +564,7 @@ For a multisegment q, choose occurrence labels Fin(Card q) with the correct mult
 
 Suggested declaration: `TauCeti.MultisegmentDuality.endpointBefore`.
 
-Proof or construction. Realize the occurrence labeling by any ordering of the multiset. Strict endpoint inequalities give irreflexivity and transitivity. Define antichains and bipartite matchings as finite subsets and their cardinality maxima. Permuting occurrence labels preserves all feasible sets and maxima.
+Proof or construction. Realize the occurrence labeling by any ordering of the multiset. Strict endpoint inequalities give irreflexivity and transitivity. Define antichains and bipartite matchings as finite subsets and their cardinality maxima. Permuting occurrence labels preserves all feasible sets and maxima. Take the maximum by filtering the powerset of the finite vertex or edge set and taking the supremum of cardinalities; the empty feasible set ensures the zero case is covered.
 
 Prerequisites: `QuiverRepresentationsPartII:MS.0/multisegment`.
 
@@ -569,9 +572,13 @@ Source: DIL, Theorem 3 pp.6-1–6-2; split graph argument p.6-3 — Finite poset
 
 The reusable API serves the recorded maximal-split and image arguments:
 
-- `TauCeti.MultisegmentDuality.occurrence_count`: Counting occurrence labels for interval s gives q.count(s).
 - `TauCeti.MultisegmentDuality.endpointBefore_irrefl`: No occurrence precedes itself in the endpoint poset.
 - `TauCeti.MultisegmentDuality.matchingNumber_bound`: The matching number is at most Card(q).
+- `TauCeti.MultisegmentDuality.IsEndpointAntichain`: A finite set of occurrence labels is an antichain exactly when no two of its labels satisfy the strict endpoint relation.
+- `TauCeti.MultisegmentDuality.IsEndpointMatching`: A finite set of ordered occurrence pairs is a matching exactly when every pair is an endpoint-order edge and both the first-coordinate and second-coordinate projections are injective on that set.
+- `TauCeti.MultisegmentDuality.endpointBefore_trans`: The strict endpoint relation is transitive.
+- `TauCeti.MultisegmentDuality.matchingNumber_le_iff`: matchingNumber(q)≤k if and only if every endpoint matching has at most k edges.
+- `TauCeti.MultisegmentDuality.antichainWidth_le_iff`: antichainWidth(q)≤k if and only if every endpoint antichain has at most k labels.
 
 Discriminating tests:
 
@@ -619,7 +626,7 @@ Proof or construction. Use a finite sequence of r+1 integer-coordinate vertices 
 
 Prerequisites: `QuiverRepresentationsPartII:MS.4/cut`.
 
-Source: AKY, Proof of Proposition 3.7 pp.20–21, corrected endpoint after Figure 2 — Grid-path specialization and multiplicity weights.
+Source: AKY, Proof of Proposition 3.7 pp.20–21; corrected endpoint in the p.20 converse construction before Figure 1 — Grid-path specialization and multiplicity weights.
 
 The reusable API serves the recorded maximal-split and image arguments:
 
@@ -665,7 +672,7 @@ Acceptance: For every integer a and every finite integral multisegment m, adjace
 
 ## MS.5. Maximal split and newform interfaces
 
-Prove right truncation commutes with maximal peeling, prove the weighted chain decrement, and deduce Proposition 2.7 only for the canonical maximal split. Check repeated intervals and the rank-17 source example. Export the ramified multisegment and split identity to the general-linear newform and unipotent-induction consumers. Import the representation-theoretic identification with Zelevinsky duality from early ET.6 classification, reconciled with current upstream smooth-representation targets; its pinned carrier/signature is an explicit interface gap.
+Prove right truncation commutes with maximal peeling, prove the weighted chain decrement, and deduce Proposition 2.7 only for the canonical maximal split. Check repeated intervals and the rank-17 source example. Export the ramified multisegment and split identity to the general-linear newform and unipotent-induction consumers. Import the existing smooth segment/classification and general involution inputs through early ET.6, reconciled with current upstream smooth-representation targets. Prove the geometric-label comparison locally using Mœglin–Waldspurger II.6 and II.13; its carrier/normalization adapter and representation proof bridge remain explicit in G2.
 
 Inputs: `QuiverRepresentationsPartII:MS.1`, `QuiverRepresentationsPartII:MS.3`, `QuiverRepresentationsPartII:MS.4`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6`.
 
@@ -688,6 +695,8 @@ Acceptance: For every m, maximalPart(rightTruncate(m))=rightTruncate(maximalPart
 If cutPart(m,a) is nonempty, then E_a(m)=E_a(remainder(m))+1 and E_a(maximalPart(m))=1. If it is empty all three quantities are zero.
 
 Suggested declaration: `TauCeti.MultisegmentDuality.chainWeight_peeling`.
+
+The signature includes both nonempty-cut conclusions. Its companion `TauCeti.MultisegmentDuality.chainWeight_peeling_empty` states that the chain weights of m, remainder(m), and maximalPart(m) are all zero when the cut is empty.
 
 Proof or construction. A chain contains at most one distinct maximal interval, since distinct maximal intervals are incomparable. Removing one copy per global maximum reduces a chain weight by at most one, so E_a(m)≤E_a(remainder(m))+1. Choose a maximum full chain in the remainder. Its largest interval lies in some inclusion-maximal interval of m, which also meets the cut. If that maximal interval already belongs to the chain, restore its one removed copy; otherwise append it. This gives a chain of weight at least E_a(remainder)+1. If the remainder cut is empty, use a maximal interval meeting the cut instead. The maximal part’s cut is a nonempty inclusion antichain, with each interval weighted one, so its chain maximum is one.
 
@@ -715,11 +724,11 @@ Acceptance: For [0,0]+[1,1], ram is [0,0] while the sum of the two separate ram 
 
 For a finite extension F of Q_p and a fixed unramified complex character χ of F×, send the integral interval [b,e] to the segment [χ|·|^b,…,χ|·|^e] on its degree-one cuspidal line. On the supplier’s actual smooth irreducible GL_n(F) carrier, with n=totalLength(m), the Langlands quotient L(m) is isomorphic to the Zelevinsky representation Z(dual(m)). Equivalently the representation-theoretic Zelevinsky involution sends the multisegment label m to this geometric dual. Empty m uses GL_0 and the supplier’s unit convention.
 
-Proof or construction. Import the early segment/classification and involution comparison from ET.6; do not use the full local Langlands correspondence or the transfer theorem. Existing current upstream SmoothRepresentationsOfLocalGroups §SR.5.3 supplies general segment, Z/L and involution targets, so ET.6 must build on those targets rather than reintroduce them. The independent geometry in this packet supplies the generic dual label. Mœglin–Waldspurger’s main identification matches the two labels; resolve the Z-as-subrepresentation / L-as-quotient normalization in the supplier interface. The exact baseline-ready representation carrier and normalization theorem are G2; no tautological abstract representation-valued oracle is substituted in the suggested file.
+Proof or construction. Import only the existing-owner smooth GL_n carrier, normalized induction, segment classification, Z/L conventions and general representation involution from the early ET.6 interface, built on current upstream SmoothRepresentationsOfLocalGroups §SR.5.3. The supplier is not asked for this packet’s geometric comparison theorem. For an arbitrary unramified χ, express it as a unitary unramified character times a real power of the normalized absolute value, and adapt the supplier’s real-start segment convention to the integral translates used here. Mœglin–Waldspurger Proposition II.6 identifies the generic geometric label with their algorithm. The theorem in II.13 pp.176–177 identifies the algorithm’s label with the representation involution, using II.3’s recursion and the induced-embedding criteria from I.7.2–I.7.3 and II.10–II.11. The exact carrier/normalization adapter and the reduction of these representation proof inputs to supplier declarations remain G2. This packet owns the geometric comparison; neither a requested copy of the conclusion nor an arbitrary representation-valued oracle closes it.
 
 Prerequisites: `QuiverRepresentationsPartII:MS.2/involution`, `EndoscopicTransferAndUnitaryTraceComparison:ET.6`.
 
-Source: AKY, §2.1 p.7; §3.1 p.16 — The L(m)=Z(m-sharp) normalization.; MW, Introduction p.136; Proposition II.6 pp.162–169 and Corollary II.7 p.169 — Geometry/algorithm comparison behind the representation involution identification.
+Source: AKY, §2.1 p.7; §3.1 p.16 — The L(m)=Z(m-sharp) normalization.; MW, Proposition II.6 pp.162–169; theorem and proof in II.13 pp.176–177 — II.6 identifies geometry with the algorithm; II.13 supplies the separate representation-theoretic identification.
 
 Acceptance: Supplier convention is Z subrepresentation versus L Langlands quotient. No finite-field or arbitrary coefficient extension is asserted. The elementary interval theorem remains independent of local fields.
 
@@ -733,7 +742,7 @@ Proof or construction. Peel maximalPart=[3,7]+[2,5]+[1,2]+[0,0]. Its generic dua
 
 Prerequisites: `QuiverRepresentationsPartII:MS.5/split`, `QuiverRepresentationsPartII:MS.5/representation`.
 
-Source: AKY, §2.5 pp.11–13; Proposition 2.4 p.10 and Corollary 2.8 pp.10–11 — Worked rank-17 computation and the consumer interfaces.
+Source: AKY, §2.5 pp.11–13; Proposition 2.4 p.9 and Corollary 2.8 pp.10–11 — Worked rank-17 computation and the consumer interfaces.
 
 Acceptance: Export ram(m), its VN image realization, ram/truncation commutation and canonical maximal additivity. For m=[5,6]+[3,7]+[3,4]+[2,5]+[3,3]+[1,2]+[0,0], the ramified multisegment is [4,4]+[2,5]+[1,2]+[0,0]. The general-linear newform roadmap consumes its interval lengths and the split identity to compare newform tuples and run the unipotent induction; the tuple definition, conductor representation comparison and induction itself remain that consumer’s targets.
 
@@ -741,7 +750,7 @@ Acceptance: Export ram(m), its VN image realization, ram/truncation commutation 
 
 **QuiverRepresentationsPartII/G1 — Finite-orbit conormal dimension and constructibility bridge.** Supply an actual complex algebraic group action and affine C-point model for G=product GL(V_a), E_± and the closed commuting incidence. Prove: (1) each orbit is smooth locally closed and irreducible; (2) its tangent map is X↦[X,N]; (3) its annihilator fibers form a conormal vector bundle; (4) each conormal closure is irreducible of dimension dim(E_+); (5) finitely many such closures are precisely the incidence components; (6) opposite projection has a unique dense orbit and equality with that orbit’s conormal closure follows from dimension; (7) the dense orbit’s intersection with a fixed centralizer fiber is open dense, using the associated bundle. The trace computation and finite-orbit interval input are planned. These algebraic dimension/constructibility facts have not been reduced to pinned declarations. Zelevinsky §4.3 quotes Pyasetskii, so quoting it does not close the chain. Mœglin–Waldspurger II.6 identifies the algorithm, while II.7 still imports this geometric involution. A follow-up must close exactly this bridge or supply a verified independent combinatorial involution proof.
 
-**QuiverRepresentationsPartII/G2 — Existing-owner GL_n carrier and involution normalization.** Resolve the early ET.6 request against current upstream SmoothRepresentationsOfLocalGroups §SR.5.3: actual smooth irreducible GL_n(F) types, integer-interval/cuspidal-segment adapter, Z and L with normalized induction, and L(m)≅Z(geometric dual m). No corresponding baseline-ready supplier names exist at the pinned commits. The signature is deliberately omitted from Suggested rather than replaced with an arbitrary representation-valued function or uninhabited placeholder. No representation classification or Aubert duality is replanned here.
+**QuiverRepresentationsPartII/G2 — Existing-owner GL_n interface and representation comparison bridge.** Resolve the early ET.6 input against current upstream SmoothRepresentationsOfLocalGroups §SR.5.3: actual smooth irreducible GL_n(F) types, normalized Z/L induction and the general representation involution, with the unitary-cuspidal/real-start adapter for an arbitrary unramified χ and a GL_0 unit convention. Then reduce the local geometric comparison to Mœglin–Waldspurger II.6 and the theorem in II.13 pp.176–177. II.13’s recursion and induced-embedding proof inputs (II.3, I.7.2–I.7.3, II.10–II.11) still require exact supplier statements or a local target-level decomposition; no closure of that representation proof chain is claimed. The generic-dual comparison remains owned here, not requested circularly from ET.6. No corresponding baseline-ready supplier names exist at the pinned commits, so the suggested comparison signature is omitted. No general segment classification or Aubert duality is replanned.
 
 The adjacent rank proof uses the generic locus but not conormal involutivity. Its matching graph is padded with isolated rows and columns for intervals meeting only one cut endpoint. The bound comes from minors with distinct independent variables; a maximum matching can be evaluated to a permutation matrix. Finite Dilworth gives its cardinality deficit, including all duplicate occurrences. This closes the scoped KZ rank argument without pretending to have read or decomposed the inaccessible complete 1996 proof.
 
@@ -753,7 +762,7 @@ The final consumers are the general-linear newform tuple comparison and unipoten
 
 **AKY.** Hiraku Atobe, Satoshi Kondo, Seidai Yasuda, *Local newforms for the general linear groups over a non-archimedean local field*, arXiv:2110.09070v4 (28 September 2022); published Forum of Mathematics, Pi 10 (2022), e24, 1–56, DOI 10.1017/fmp.2022.17. [Readable source](https://arxiv.org/pdf/2110.09070v4). Read: §§2.1,2.3–2.5, arXiv pp.7–13 (published pp.6–12); §§3.1–3.3, Lemmas 3.1–3.4, Proposition 3.5, Lemma 3.6, Proposition 3.7 and proof of Proposition 2.7, arXiv pp.14–22 (published pp.13–21). Locators below use the printed arXiv v4 page numbers. Published locators in inherited source findings are separately identified. The Cambridge version-of-record browser request exceeded the retrieval limit; the current worker does not claim a fresh full published-text collation.
 
-**MW.** Colette Mœglin, Jean-Loup Waldspurger, *Sur l’involution de Zelevinski*, Journal für die reine und angewandte Mathematik 372 (1986), 136–177; DOI 10.1515/crll.1986.372.136. [Readable source](https://gdz.sub.uni-goettingen.de/dms/resolveppn/?PPN=GDZPPN002204061). Read: Introduction p.136; II.1–II.2 pp.148–150; Lemma II.4 and its coefficient recurrence pp.160–161; Lemma II.5 pp.161–162; Proposition II.6 proof pp.162–169 and Corollary II.7 p.169. The GDZ PDF download is the complete journal volume; the hash is of that volume. Article pages were read through GDZ OCR, with rendered pp.149,160 checked for the order convention and commuting coordinates. No general representation-theoretic argument outside the scoped passages is treated as checked.
+**MW.** Colette Mœglin, Jean-Loup Waldspurger, *Sur l’involution de Zelevinski*, Journal für die reine und angewandte Mathematik 372 (1986), 136–177; DOI 10.1515/crll.1986.372.136. [Readable source](https://gdz.sub.uni-goettingen.de/dms/resolveppn/?PPN=GDZPPN002204061). Read: Introduction pp.136–138; II.1–II.2 pp.148–150; Lemma II.4 and its coefficient recurrence pp.160–161; Lemma II.5 pp.161–162; Proposition II.6 proof pp.162–169 and Corollary II.7 p.169; Theorem and proof in II.13 pp.176–177; II.10–II.12 pp.173–175 read to identify the representation proof inputs. The GDZ PDF download is the complete journal volume; the hash is of that volume. Article pages were read through GDZ OCR, with rendered pp.149,160 checked for the order convention and commuting coordinates. The II.13 statement and proof were read, but their complete representation prerequisite chain has not been decomposed into baseline/supplier declarations; this limitation is recorded in G2.
 
 **Z98.** Andrei Zelevinsky, *Multisegment duality, canonical bases and total positivity*, Documenta Mathematica, Extra Volume ICM 1998, III, 409–417. [Readable source](https://ems.press/content/book-chapter-files/27254?nt=1). Read: §2 p.410, generic rank definition; §3, Theorem 1, pp.410–411; §5 p.412, algorithm conventions. Theorem 1 restates the Knight–Zelevinsky rank formula. The present packet proves only its adjacent special case by independent centralizer/matching arguments. The full 1996 Knight–Zelevinsky article was not obtained and is not claimed read.
 
@@ -761,6 +770,6 @@ The final consumers are the general-linear newform tuple comparison and unipoten
 
 **Z81.** Andrei V. Zelevinskii, *p-adic analog of the Kazhdan–Lusztig hypothesis*, Funktsionalnyi Analiz i ego Prilozheniya 15:2 (1981), 9–21; English translation Functional Analysis and Its Applications 15, 83–92, DOI 10.1007/BF01082279. [Readable source](https://www.mathnet.ru/eng/faa1707). Read: §4.3 and Proposition 4.4, original Russian printed p.20, continuing p.21. MathNet’s public original PDF was read with browser extraction at PDF pages 12–13; direct download returned 403, so no hash is recorded. The English formula transcription at https://math.soimeme.org/~arunram/Resources/PAAOTKLHDuality.html was used to check notation. The quoted Pyasetskii theorem is identified, not assumed to be in the pinned libraries.
 
-**QuiverRepresentationsPartII/E1.** Published p19 after Figure 2 (visually checked); corresponding arXiv v4 p.20 after Figure 2. The source gives [a+1,a] as the starting point and [a,1] as the endpoint. The endpoint is (1,r), as in the path definition on p18. The allowed steps (-1,0),(0,1) and both figures force the top-right endpoint(1,r); the printed reversed endpoint is inconsistent. Inherited from PAPER-ATOBE-KONDO-YASUDA-22/E6, confirmed in REV-PAPER-ATOBE-KONDO-YASUDA-22; not a new finding of this design job. This design rechecks the corrected calculation against arXiv v4 and records the earlier published collation as inherited evidence.
+**QuiverRepresentationsPartII/E1.** arXiv v4 p.20, converse path construction before Figure 1; earlier published p.19 collation is inherited from REV-PAPER-ATOBE-KONDO-YASUDA-22. The source gives [a+1,a] as the starting point and [a,1] as the endpoint. The endpoint is (1,r), consistently with the path definition on the same arXiv v4 page. The prescribed start, terminal condition and unit steps give (1,r). The converse construction’s endpoint [a,1] cannot describe those paths. Inherited from PAPER-ATOBE-KONDO-YASUDA-22/E6, confirmed in REV-PAPER-ATOBE-KONDO-YASUDA-22; not a new finding of this design job. This design rechecks the corrected calculation against arXiv v4 and records the earlier published collation as inherited evidence.
 
-**QuiverRepresentationsPartII/E2.** Published §2.5 p11, truncated-dual diagram (visually checked); corresponding arXiv v4 p.12 truncated-dual display. ((m_max)#)^-=(Delta'_1)^-+...+(Delta'_4)^- Retain indices2,3,4,5 from p10 after the singleton Delta'_1=[7,7] disappears; their truncations are[5,5],[4,4],[2,3],[0,2]. Alternatively rename them explicitly, but do not mix original and reset labels. The figure labels retained terms(Delta'_5)^-,...,(Delta'_2)^- correctly. The prose resets indices while also keeping the truncation superscript and changes the original Delta'_i values. Inherited from PAPER-ATOBE-KONDO-YASUDA-22/E7, confirmed in REV-PAPER-ATOBE-KONDO-YASUDA-22; not a new finding of this design job. This design rechecks the corrected calculation against arXiv v4 and records the earlier published collation as inherited evidence.
+**QuiverRepresentationsPartII/E2.** Published §2.5 p11, truncated-dual diagram (visually checked); corresponding arXiv v4 p.12 truncated-dual display. The shortened-dual display resets the surviving labels to 1–4, retains their shortening superscripts, and assigns those reset labels the already shortened intervals. Keep original labels 2–5 for the four surviving intervals, whose right shortenings are [5,5], [4,4], [2,3], [0,2]. Alternatively introduce four new labels for those shortened intervals and omit another shortening superscript. Original label 1 denotes the deleted singleton [7,7]. The next-page diagram retains labels 2–5, while the reset labels in the prose already denote shortened intervals; mixing the conventions would shorten twice. Inherited from PAPER-ATOBE-KONDO-YASUDA-22/E7, confirmed in REV-PAPER-ATOBE-KONDO-YASUDA-22; not a new finding of this design job. This design rechecks the corrected calculation against arXiv v4 and records the earlier published collation as inherited evidence.
