@@ -1,0 +1,8 @@
+{
+  "review": {
+    "status": "needs_changes",
+    "reviewer": "independent-review-REV-PKG-CohomologyComparisons",
+    "date": "2026-10-10",
+    "notes": "Completed independent six-item package review. README contains all 83 accepted targets in 86 topics, is 141900 bytes, retains exact source/hypothesis boundaries and appropriate tier moves; metadata is the single fitting math.NT line. Corrected aggregate Mathlib import to 54 individual modules, two deferred ownership phrases and the DLLZ Corollary 2.4.5 p.21 locator for the logarithmic Faltings extension. Final lean-check at Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 / Tau Ceti f790474821cf4256814db967cb154e7af3d0c369 exits 0 with 419 sorry-only warnings, no errors or other warnings. Item 5 fails: README 3.7/6.1/6.2 lack typed construction/API signatures and their actual tests (ten API names appear only in a comment); CP3.relative_filtered_prismatic_agreement is entirely omitted; RelativeInfinitesimalSite.envelope omits the accepted diagonal self-product identification. See R1-R3 in research/blueprint/reviews/REV-PKG-CohomologyComparisons.md for concrete repairs. This is a completed needs_changes review, not a checkpoint or proof-closure claim."
+  }
+}
