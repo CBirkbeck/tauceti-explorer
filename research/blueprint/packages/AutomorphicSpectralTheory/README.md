@@ -1,22 +1,18 @@
 # Automorphic spectral theory and trace distributions
 
-Automorphic L², Eisenstein, weighted cohomology and traces, with modular and function-field applications.
-
 ## Scope and prerequisites
 
-**SelfAdjointSpectralTheory** owns projection measures, Borel calculus and partial operators; **OperatorIdeals** owns Schatten/Hilbert–Schmidt theory; **CompactGroups** owns Peter–Weyl. AS adds multiplicities, direct integrals, L² kernels, traces and noncompact smoothing.
+**SelfAdjointSpectralTheory** owns projection measures, Borel calculus and partial operators; **OperatorIdeals** owns Schatten/Hilbert–Schmidt theory; **CompactGroups** owns Peter–Weyl. AS: multiplicities, direct integrals, L² kernels, traces, noncompact smoothing.
 
-**AdelicAlgebraicGroups** AA.0–AA.3: topology, measures, heights and reduction; **ReductiveGroupsPartII**: local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4: Hecke algebras, induction, admissibility and spherical data. AS adds rational Bruhat indices and intertwiner estimates.
+**AdelicAlgebraicGroups** AA.0–AA.3: topology, measures, heights and reduction; **ReductiveGroupsPartII**: local structure; **SmoothRepresentationsOfLocalGroups** SR.1–SR.4: Hecke algebras, induction, admissibility and spherical data. AS: rational Bruhat indices and intertwiner estimates.
 
-**AutomorphicFormsOnReductiveGroups** AF.0–AF.3: functions, real representations, restricted tensors, constant terms and cusps; **ArithmeticLocallySymmetricSpaces** ALS.5: cohomology; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3: Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. AS adds GL×classical, exterior/symmetric and Asai factors.
-
-Orbital integrals/local packets precede spectra; rank-one analysis precedes arithmetic. AS feeds endoscopy, stabilization and Galois applications.
+**AutomorphicFormsOnReductiveGroups** AF.0–AF.3: functions, real representations, restricted tensors, constant terms and cusps; **ArithmeticLocallySymmetricSpaces** ALS.5: cohomology; **AutomorphicLFunctionsAndLocalFactors** AL.0–AL.3: Fourier–Laplace inversion, Hecke/GLₙ/GL×GL factors and `AL.0/bessel-k`. AS: GL×classical, exterior/symmetric and Asai factors.
 
 ## Conventions and order
 
-Use complete complex Hilbert spaces, conjugation in the first inner-product variable, countable fundamental sequences and a.e. equality. Projection measures are strongly countably additive. Traces require trace class; diagonals require representatives or factorization.
+Use complete complex Hilbert spaces, conjugate-first inner products, countable fundamental sequences and a.e. equality. Projection measures are strongly countably additive; traces require trace class and diagonals require representatives or factorization.
 
-Induction uses δ_P^(1/2)=a^ρ_P and AA.0/AA.2 quotient measures. Track Weyl denominators, covolumes, stabilizer orders. (A−zI)⁻¹ is minus native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
+Induction: δ_P^(1/2)=a^ρ_P; AA.0/AA.2 quotient measures. Track Weyl denominators, covolumes, stabilizer orders. (A−zI)⁻¹ is minus native (zI−A)⁻¹; Stone uses U(t)=exp(itA), generator iA.
 
 Conventions Y, D, G:
 
@@ -29,7 +25,7 @@ For F=y^(k/2)f,
 
 Build AS.0–AS.4; AS.5 uses AF/ALS cochains. AS.6's Paley–Wiener/multiplier prefix uses AS.0 and AF.1 general-Levi SF compact pictures: K∩M covariance, half-modulus, finite K-types, holomorphy and induction in stages. Its trace suffix needs convergent centralizer-quotient orbital integrals, pseudo-coefficients and finite-place Bernstein trace images. Modular cores use oriented quadratic cycles with genus signs.
 
-Namespace: `TauCeti.AutomorphicSpectral`. AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B: library; S: sources.
+`TauCeti.AutomorphicSpectral`; AS.k.j: targets; AA/SR/AF/AL/ALS: suppliers; B: library; S: sources.
 
 `SpecialFunctions` requires I/J to agree with QM.2's principal-power regularized ₀F̃₁ formulas, at +y²/4 and −y²/4; K uses AL.0's Mellin integral; Λ uses native `completedRiemannZeta`. Checks: I₀(0)=1; J_{1/2}(y)=√(2/(πy))sin y; K_{1/2}(y)=√(π/(2y))e^(−y) for y>0; Λ(1−s)=Λ(s). Sources: [DLMF 10.2.2](https://dlmf.nist.gov/10.2.E2), [10.25.2](https://dlmf.nist.gov/10.25.E2), [10.32.10](https://dlmf.nist.gov/10.32.E10).
 
@@ -1347,7 +1343,7 @@ For φ∈H_P⁰, E_P(g,φ,λ) and M(w,λ)φ extend meromorphically to all 𝔞_P
 
 Assume: Number field; discrete inducing H_P⁰; hyperplane denominators are local and on fixed finite blocks; the whole smooth Fréchet family requires the explicit seminorm extension.
 
-Source: S3, §7 Theorem 7.2(a), equations (7.3)–(7.4), pp.32–35.
+Source: S3, §7 Theorem 7.2(a), equations (7.3)–(7.4), p.35.
 
 Uses: AS.1.10; AS.1.8; AS.1.4; AS.0.7; AS.0.16; AS.0.17.
 
@@ -1656,7 +1652,7 @@ Assume: A compatible relative root datum and dual Lebesgue measures are fixed; r
 API:
 
 - `rank_zero`: For P=Q, τ=τ̂=θ=1.
-- `alternating_sum`: The incidence alternating sum of root/dual-weight cone products vanishes off the rank-zero interval, with Arthur Identity 6.2 signs.
+- `alternating_sum`: Compatible root/dual-weight cones satisfy incidence cancellation, with rank-zero value 1 and the subset signs of Identity 6.2; singleton weights fail.
 - `theta_homogeneous`: θ_P^Q(tν)=t^dim(𝔞_P^Q)θ_P^Q(ν).
 
 Tests:
@@ -1665,7 +1661,7 @@ Tests:
 - `boundary`: At α(H)=0 the strict root-cone indicator is 0.
 - `a2_distinction`: The named A₂ simple-root cutoff is zero at root coordinates (−1,3), while the cutoff for the two inverse-Cartan fundamental weights is one.
 
-Source: S3, §6 Identity 6.2; §15 denominator (15.7), p.84.
+Source: S3, §6 Identity 6.2, (6.3), p.31; §13 proof, p.69; §15 denominator (15.7), p.84.
 
 Uses: `AA.3/relative-chamber`; `AA.3/minimal-parabolic-data`.
 
@@ -1699,9 +1695,9 @@ Uses: AS.3.1; `AF.3/constant-term`; `AA.3/siegel-finiteness-adelic`.
 
 For sufficiently regular T, the P-constant term of Λᵀf vanishes unless every ϖ(H_P(g)−T)≤0. Moreover ΛᵀΛᵀ=Λᵀ. For locally bounded f and compactly supported continuous h, ⟪Λᵀf,h⟫=⟪f,Λᵀh⟫ whenever the displayed pairings are defined. It extends as an orthogonal projection on L². The support inequality is non-strict, correcting the strict inequality printed in Arthur 1980 Lemma 1.1.
 
-Assume: Regular T; the initial self-adjointness formula uses one compactly supported factor before L² extension.
+Assume: Regular T and genuine rational constant terms; initial self-adjointness uses one compactly supported factor. Finite incoherent truncation data can give Λf=−f, failing idempotence and decay for an unrelated unbounded height.
 
-Source: S3, §13 Proposition 13.1(a)–(c) and correction after statement.
+Source: S3, §13 Proposition 13.1(a)–(c) and correction, pp.68–69.
 
 Uses: AS.3.2; AS.3.1; B2.
 
@@ -1713,7 +1709,7 @@ If f is smooth of uniform moderate growth (one height exponent N₀ works for al
 
 Assume: The quantitative bound is for fixed T/S/N/N₀/K₀; input is C^r and measurable in ω; right side finite.
 
-Source: S3, §13 Proposition 13.2(a)–(b), (13.5)–(13.6).
+Source: S3, §13 Proposition 13.2(a)–(b), (13.5)–(13.6), p.71.
 
 Uses: AS.3.3; AS.1.3; AS.2.4; `AA.3/height-siegel-estimate`.
 
@@ -1723,9 +1719,9 @@ Uses: AS.3.3; AS.1.3; AS.2.4; `AA.3/height-siegel-estimate`.
 
 For cuspidal φ∈H_P⁰ and φ′∈H_R⁰ and regular T, the truncated Gram pairing ⟪ΛᵀE_R(φ′,λ′),ΛᵀE_P(φ,λ)⟫ equals ωᵀ(λ,λ′;φ,φ′)=Σ_QΣ_{w∈W(𝔞_P,𝔞_Q)}Σ_{w′∈W(𝔞_R,𝔞_Q)}exp((wλ+overline(w′λ′))(T_Q))⟪M(w′,λ′)φ′,M(w,λ)φ⟫/θ_Q^G(wλ+overline(w′λ′)). Initially take generic regular parameters; at a denominator zero take the holomorphic limit of the whole finite sum. The sum is zero for nonassociate P,R. Exact equality here requires cuspidal inducing data.
 
-Assume: Cuspidal inducing vectors; regular T; meromorphic continuation of both sides; generic parameters first; conjugate-first Gram convention.
+Assume: The Gram vectors and ωᵀ come from the same cuspidal inducing data; regular T; meromorphic continuation; generic parameters first; conjugate-first Gram convention. An empty unrelated Weyl sum cannot equal ⟪1,1⟫.
 
-Source: S9, Introduction formula (1); §9 ωᵀ formula.
+Source: S9, Introduction (1), pp.35–36; §9 ωᵀ formula, pp.68–69.
 
 Uses: AS.3.4; AS.3.1; AS.1.5; AS.2.4.
 
@@ -1735,7 +1731,7 @@ Uses: AS.3.4; AS.3.1; AS.1.5; AS.2.4.
 
 For fixed cuspidal support χ and finite K-type set Γ, arbitrary discrete inducing vectors φ∈H_P,χ,Γ⁰ and φ′∈H_R,χ,Γ⁰ on the imaginary axes satisfy |⟪ΛᵀE_R(φ′,λ′),ΛᵀE_P(φ,λ)⟫−ωᵀ(λ,λ′;φ,φ′)|≤ρ(λ,λ′)‖φ‖‖φ′‖exp(−ε‖T‖). For each fixed δ>0 and sufficiently large N, this holds when every α(T)>δ‖T‖>N; ε>0 and ρ is locally bounded on i𝔞_P*×i𝔞_R*. The ωᵀ finite sum has the preceding operator form, but equality for general discrete data is replaced by this error estimate.
 
-Assume: Number field; fixed χ,Γ; T remains away from all walls; no global polynomial bound for ρ is inferred from local boundedness.
+Assume: Number field; fixed χ,Γ; T away from all walls; locally bounded ρ. Unrelated constant error 1 with φ=φ′=0 violates the estimate.
 
 Source: S9, §9 Theorem 9.1, Q=G, printed p.69.
 
@@ -1781,11 +1777,11 @@ Uses: AS.3.7; AS.3.5; AS.3.6; B2.
 
 `singular_parameter_limits`
 
-Near coincident regular parameters, the complete Maass–Selberg Weyl sum extends as the actual truncated Gram function even when individual θ denominators vanish. Differentiating that full regularized identity gives Gram forms of parameter derivatives. For ordered polar flags with a common denominator, take the chosen residue coefficients on both sides; the resulting residue Gram form uses the same coordinate/order conventions. No positivity or L² membership is deduced from a formal Laurent coefficient alone.
+Near coincident regular parameters, the complete Maass–Selberg Weyl sum extends as the actual truncated Gram function even when individual θ denominators vanish. Differentiating that full regularized identity gives Gram forms of parameter derivatives. For ordered polar flags with a common denominator, take the chosen residue coefficients on both sides; the resulting residue Gram form uses the same coordinate/order conventions. No positivity or L² membership follows from a formal Laurent coefficient. An arbitrary singleton sum 1/s has no analytic extension at zero.
 
 Assume: Differentiation and residues have the common denominator and locally uniform derivative majorants; exact equality is the cuspidal formula, while general discrete data retains its controlled error.
 
-Source: S9, §§3–6 taking residues of the cuspidal pairing.
+Source: S9, §§3–6 taking residues; §9 regularity discussion, pp.68–69.
 
 Uses: AS.3.5; AS.3.6; AS.2.6; B4.
 
