@@ -16,98 +16,112 @@
         "kind": "def",
         "module": "Mathlib/Algebra/Group/AddChar.lean",
         "provides": "An additive character into a multiplicative monoid; character values, composition and scalar shifts.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:AddChar.IsPrimitive",
         "kind": "def",
         "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
         "provides": "For a commutative ring, every nonzero scalar shift is nontrivial; this is additive, not multiplicative, primitivity.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:AddChar.sum_mulShift",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean",
         "provides": "Orthogonality of scalar shifts of a primitive additive character of a finite commutative ring.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:MulChar",
         "kind": "def",
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "provides": "Multiplicative characters of commutative monoids, extended by zero on every nonunit; not merely on zero.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:MulChar.ofUnitHom",
         "kind": "def",
         "module": "Mathlib/NumberTheory/MulChar/Basic.lean",
         "provides": "Extends a homomorphism on units to a MulChar by zero on nonunits.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:gaussSum",
         "kind": "def",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "The finite-ring sum of the product of multiplicative and additive characters.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:gaussSum_mulShift_eq",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "A unit scalar shift multiplies the Gauss sum by the inverse multiplicative character, for finite commutative rings.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:star_gaussSum_eq",
         "kind": "lemma",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "Complex conjugation inverts both characters on any finite commutative ring.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:gaussSum_mul_gaussSum_eq_card",
         "kind": "theorem",
         "module": "Mathlib/NumberTheory/GaussSum.lean",
         "provides": "Norm-product identity for a nontrivial multiplicative character and primitive additive character of a finite FIELD; no finite-ring generality.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:AdjoinRoot",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "The actual quotient F[X]/(g), with its canonical ring and algebra maps.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:MvPolynomial",
-        "kind": "def",
+        "kind": "abbrev",
         "module": "Mathlib/Algebra/MvPolynomial/Basic.lean",
         "provides": "Multivariate polynomials with their finite-support coefficient carrier.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:MvPolynomial.eval",
         "kind": "def",
         "module": "Mathlib/Algebra/MvPolynomial/Eval.lean",
         "provides": "Evaluation in the coefficient ring; used in the universal family and sum tests.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:AdjoinRoot.modByMonicHom",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "The canonical linear map taking a quotient class to its remainder modulo a monic polynomial; actual reduced representatives.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       },
       {
         "ref": "mathlib:AdjoinRoot.powerBasisAux'",
         "kind": "def",
         "module": "Mathlib/RingTheory/AdjoinRoot.lean",
         "provides": "The power basis indexed by Fin g.natDegree for arbitrary monic g, including nonreduced quotients.",
-        "checked": "Statement read in the source tree at the pinned commit on 2026-10-05."
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
+      },
+      {
+        "ref": "mathlib:Algebra.trace",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/Trace/Defs.lean",
+        "provides": "The R-linear trace S→R of multiplication in a commutative R-algebra S; for finite field extensions this is the field trace used to lift additive characters.",
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
+      },
+      {
+        "ref": "mathlib:Algebra.trace_eq_of_algEquiv",
+        "kind": "lemma",
+        "module": "Mathlib/RingTheory/Trace/Basic.lean",
+        "provides": "An algebra equivalence e:B≃ₐ[A]C preserves the trace: trace A C (e x)=trace A B x, with no extra finiteness or separability hypothesis.",
+        "checked": "Statement independently read at the pinned commit on 2026-10-10; name, hypotheses and provided scope confirmed."
       }
     ]
   },
@@ -120,9 +134,10 @@
       "url": "https://people.math.ethz.ch/~kowalski/exponential-sums-elementary.pdf",
       "sha256": "ff30b82d143cedcaf76f1ef2f15a49856c0eabc2c95ba7ac0da2e3e43da9a866",
       "readSections": [
-        "Chapter 4, primitive Dirichlet characters, Proposition 4.8 and (4.11)–(4.12), Proposition 4.11 and (4.15)–(4.16), pp. 41–47; parent corrections E709/E720/E721/E723 consulted"
+        "Chapter 4, primitive Dirichlet characters, Proposition 4.8 and (4.11)–(4.12), Proposition 4.11 and (4.15)–(4.16), pp. 41–49; parent corrections E709/E720/E721/E723 consulted"
       ],
-      "accessed": "2026-10-05"
+      "accessed": "2026-10-05",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "DELIGNE-SGA45-SOMMES-TRIG",
@@ -136,7 +151,8 @@
         "§§7.1–7.15, pp. 218–226: product fibers, cohomology, local monodromy and induction; page 221 inspected as an image",
         "§§5–6 screened for scope: algebraic Hecke characters are not FF.2 target inputs"
       ],
-      "accessed": "2026-10-05"
+      "accessed": "2026-10-05",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "DELIGNE-WEIL-I",
@@ -148,7 +164,8 @@
       "readSections": [
         "§8.4–8.13, pp. 302–306: trace decomposition, compactification, local models, family, Künneth and the local break"
       ],
-      "accessed": "2026-10-05"
+      "accessed": "2026-10-05",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "DELIGNE-WEIL-II",
@@ -161,7 +178,8 @@
         "§3.7.2–3.7.4, pp. 215–216: universal family, local acyclicity/lissity and Fermat reduction",
         "§1.8.10–1.8.13, pp. 177–178: weight constancy/purity on connected parameter bases"
       ],
-      "accessed": "2026-10-05"
+      "accessed": "2026-10-05",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "FKMS-APPLIED-L-ADIC",
@@ -171,11 +189,12 @@
       "url": "https://arxiv.org/pdf/1712.03173v3",
       "sha256": "d56e25dab4475ca192b511f5fade06ebf219db2f8d9d59fa19d1e9f8023212aa",
       "readSections": [
-        "§4.3.3/Theorem 4.4, hyper-Kloosterman normalization",
+        "§4.2.4/Theorem 4.4, p. 12, hyper-Kloosterman normalization",
         "§5, (5.1)–(5.4) and Theorem 5.2, pp. 13–14: full Hom main term and geometric isotypicity",
         "§6.1–6.3 Fourier conventions and §7.1, Definition 7.1/Proposition 7.2/Examples 7.3, pp. 19–20; classification screened, not planned"
       ],
-      "accessed": "2026-10-05"
+      "accessed": "2026-10-05",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "LAUMON-FOURIER",
@@ -188,7 +207,8 @@
         "§1.2 pp. 140–142, global transform normalization, via parent verified citations",
         "§2.1–2.4 pp. 150–164: geometric local conductors, local kernels and their nearby/vanishing-cycle comparison; 2.4.3.3 local-duality exclusions; proof §2.5 not fully decomposed"
       ],
-      "accessed": "2026-10-05"
+      "accessed": "2026-10-05",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "GHORPADE-LACHAUD-02",
@@ -200,7 +220,8 @@
       "readSections": [
         "§5 explicit Betti bound; §9.1–9.6 rational Albanese/Picard and generic sections; §10.7–10.9 highest odd weight; §11.1–11.7 uniform Lang–Weil and the Bombieri–Sperber pencil proof"
       ],
-      "accessed": "2026-10-05"
+      "accessed": "2026-10-05",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "KATZ-BETTI",
@@ -213,7 +234,8 @@
       "readSections": [
         "Part I: axiomatic setup, Theorems 1–3 and their proofs, pp. 1–4",
         "Part II read for coefficient scope; its compatible-system generalization is not a target here"
-      ]
+      ],
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "SERRE-RESIDUE",
@@ -225,7 +247,8 @@
       "accessed": "2026-10-05",
       "readSections": [
         "§4.4, Lemma 4′, pp. 144–145; equal-characteristic Artin–Schreier case"
-      ]
+      ],
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "RAYNAUD-GOS",
@@ -237,7 +260,8 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Exposé 286, Part I: Swan module and Euler characteristic theorem, pp. 129–140"
-      ]
+      ],
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "MEAGHER-CHEBOTAREV",
@@ -250,7 +274,8 @@
       "readSections": [
         "Theorem 1.1 and proof, pp. 196–200",
         "Appendix A, Proposition A.2, pp. 201–202"
-      ]
+      ],
+      "independentlyChecked": "2026-10-10"
     },
     {
       "id": "ADOLPHSON-SPERBER-DEGREE",
@@ -262,7 +287,8 @@
       "accessed": "2026-10-05",
       "readSections": [
         "Introduction and §5.22–5.27; Euler-bound input only, not a decomposition of the full p-adic proof"
-      ]
+      ],
+      "independentlyChecked": "2026-10-10"
     }
   ],
   "nodes": [
@@ -392,7 +418,7 @@
       "sources": [
         {
           "sourceId": "kowalski-expsums-elementary",
-          "locator": "Chapter 4, (4.12), (4.16), pp. 44–47",
+          "locator": "Chapter 4, (4.12), pp. 44–45, and (4.16), pp. 48–49",
           "match": "Extends the stated primitive-modulus claim beyond the squarefree proof using annihilator ideals and Parseval; the source alone is not credited with this proof."
         }
       ],
@@ -400,7 +426,10 @@
         "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/FF2/PrimitiveFiniteRingGaussNorm.lean",
         "namespace": "TauCeti.FiniteFieldSums.FF2"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "compatibilityNotes": [
+        "Current Tau Ceti already supplies DirichletCharacter.gaussSum_mul_gaussSum_inv_eq_card_of_isPrimitive for ZMod n and primitive Dirichlet characters. The new theorem extends this to arbitrary finite commutative rings; the ZMod specialization must agree with that existing result."
+      ]
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.2/polynomial-quotient-frobenius-pairing",
@@ -474,7 +503,7 @@
       "sources": [
         {
           "sourceId": "kowalski-expsums-elementary",
-          "locator": "Proposition 4.11, pp. 46–47",
+          "locator": "Proposition 4.11 and its proof, pp. 46–49",
           "match": "The general primitive-modulus statement, supplied with the corrected pairing and the new nonunit argument, rather than repeating the parent’s squarefree theorem."
         }
       ],
@@ -499,7 +528,7 @@
       ],
       "proofSteps": [
         "A root in K would give a pole divisible by p, so the Artin–Schreier class is nontrivial and the polynomial is irreducible. The valuation of y in L is −m with v_L(t)=p; hence e=p.",
-        "Choose 1≤a<p and b∈ℤ with bp−am=1. π=t^b y^a has valuation 1. For σ_c(y)=y+c, c≠0, σ_c(π)/π=(1+c/y)^a, whose difference from 1 has valuation m. Thus v_L(σ_cπ−π)=m+1.",
+        "In the function-field Place presentation, reuse TauCeti.Place.exists_uniformizer_ord_aut_sub_of_artinSchreier_pole, now in the current library. Transport its normalized order and automorphism action through the AlgebraicCurves completion bridge. Its calculation chooses 1≤a<p and b∈ℤ with bp−am=1: π=t^b y^a has valuation 1, and for σ_c(y)=y+c, c≠0, the ratio (1+c/y)^a differs from 1 in valuation m. Thus v_L(σ_cπ−π)=m+1. Establish the same completion compatibility for the perfect-residue Laurent-series presentation; the existing function-field theorem is an import, not a new proof target.",
         "The lower ramification groups are the cyclic group for 0≤i≤m and trivial beyond m; for one cyclic p-break the Herbrand transformation leaves that break m.",
         "The requested geometric conductor definition gives Sw=m for each nontrivial character; inertia invariants vanish. This proves the equal-characteristic calculation directly, without importing finite-residue-field upper ramification as a theorem about k̄((t))."
       ],
@@ -529,7 +558,10 @@
         "module": "TauCeti/NumberTheory/FiniteField/CharacterSum/FF2/GeometricArtinSchreierBreak.lean",
         "namespace": "TauCeti.FiniteFieldSums.FF2"
       },
-      "implementationStatus": "unchecked"
+      "implementationStatus": "unchecked",
+      "compatibilityNotes": [
+        "The current displacement theorem is newer than the pinned baseline and is stated for TauCeti.Place on a generated integral function-field extension. It does not by itself define geometric ℓ-adic conductors or arbitrary k((t)) completion interfaces. The target retains exactly those extensions."
+      ]
     },
     {
       "id": "FiniteFieldsAndCharacterSums:FF.2/universal-smooth-leading-polynomial-family",
@@ -924,7 +956,8 @@
       "proofSteps": [
         "Use the finite fiber of the product map on the existing finite field, and sum the existing additive character over it.",
         "For a≠0 eliminate one coordinate, obtaining the usual unit-coordinate hyper-Kloosterman expression.",
-        "At zero, stratify by the zero coordinates. Each nonempty zero set contributes products of Σ_{x≠0}ψ_r(x)=−1, and inclusion-exclusion yields (−1)^(k−1)."
+        "At zero, stratify by the zero coordinates. Each nonempty zero set contributes products of Σ_{x≠0}ψ_r(x)=−1, and inclusion-exclusion yields (−1)^(k−1).",
+        "For extension-model independence, use Algebra.trace_eq_of_algEquiv to identify the lifted additive characters, then reindex the finite fiber sum along the algebra equivalence. A ring isomorphism without base-field compatibility is not the claimed trace-lift API."
       ],
       "acceptance": [
         "k=1: HKl₁(a)=ψ_r(a), including a=0.",
@@ -933,7 +966,9 @@
       "prerequisites": [
         "mathlib:AddChar",
         "FiniteFieldsAndCharacterSums:FF.1/trace-lift-of-an-additive-character",
-        "FiniteFieldsAndCharacterSums:FF.2/kloosterman-sum"
+        "FiniteFieldsAndCharacterSums:FF.2/kloosterman-sum",
+        "mathlib:Algebra.trace",
+        "mathlib:Algebra.trace_eq_of_algEquiv"
       ],
       "sources": [
         {
@@ -943,7 +978,7 @@
         },
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
-          "locator": "§4.3.3, Theorem 4.4, pp. 12–13",
+          "locator": "§4.2.4, Theorem 4.4, p. 12",
           "match": "The analytic unit-fiber normalized convention is compared, rather than substituted at zero."
         }
       ],
@@ -986,7 +1021,7 @@
         {
           "name": "TauCeti.FiniteFieldSums.FF2.hyperKloosterman.extension",
           "role": "functoriality",
-          "statement": "Changing the chosen isomorphic finite extension preserves the sum after transporting a and trace-lifting ψ."
+          "statement": "For finite extensions K/F_q and L/F_q and an F_q-algebra isomorphism e:K≃L, HKl_k(e(a);L,ψ∘Tr_{L/F_q})=HKl_k(a;K,ψ∘Tr_{K/F_q})."
         }
       ],
       "tests": [
@@ -1023,15 +1058,16 @@
       ],
       "title": "Gauss cohomology over a finite étale algebra",
       "kind": "theorem",
-      "statement": "Let A be a finite étale F_q-algebra of degree N≥1, ψ nontrivial and χ a multiplicative character of A×. On V=Res_{A/F_q}G_m, put L=L_χ⊗L_ψ(Tr_{A/F_q}). Then H^i_c(V_k̄,L)=0 for i≠N and dim H^N_c=1. If χ is nontrivial on each field factor of A, H^N_c→H^N is an isomorphism. Geometric permutations of split factors act on the tensor cohomology with the Koszul sign of the permutation, rather than by ordinary unsigned permutation.",
+      "statement": "Let A be a finite étale F_q-algebra of degree N≥1, ψ nontrivial and χ a multiplicative character of A×. On V=Res_{A/F_q}G_m, put L=L_χ⊗L_ψ(Tr_{A/F_q}). Then H^i_c(V_k̄,L)=0 for i≠N and dim H^N_c=1. If χ is nontrivial on each field factor of A, H^N_c→H^N is an isomorphism. A permutation of split factors preserving their Kummer-character data acts on H^N_c by its Koszul sign. A general permutation instead identifies the cohomology with that of the permuted character tuple; it need not act on the fixed sheaf.",
       "hypotheses": [
         "Finite étale algebra, not a nonreduced finite ring.",
-        "No nontriviality assumption for the concentration claim; it is needed for clean extension."
+        "No nontriviality assumption for the concentration claim; it is needed for clean extension.",
+        "For an automorphism of the fixed split sheaf, the permutation must preserve the character tuple."
       ],
       "proofSteps": [
-        "Split A over k̄; the phase and Kummer character decompose as external tensor products of one-variable Gauss sheaves.",
-        "Use the parent Gauss eigenvalue/cohomology result for each factor; Künneth puts the tensor in degree N and gives dimension one.",
-        "Each nontrivial Kummer factor has zero tame boundary invariants at 0 and the additive factor is wild at infinity, giving clean extension. The interchange of degree-one tensor factors supplies the sign stated in Sommes trig. 4.12."
+        "Construct the finite étale unit torus by Weil restriction and split A over k̄. The trace phase and Kummer character decompose as external tensor products of one-variable Gauss sheaves; descend using the permutation action on the embeddings of A.",
+        "For a nontrivial Kummer factor use the parent Gauss eigenvalue/cohomology result. For a trivial factor use the localization sequence for G_m⊂A¹ and the parent vanishing of H*_c(A¹,L_ψ): H¹_c(G_m,L_ψ)=E with trivial Frobenius and all other degrees vanish. Künneth then concentrates the tensor in degree N with dimension one.",
+        "Each nontrivial Kummer factor has zero tame boundary invariants at 0 and the additive factor is wild at infinity, giving clean extension. Interchanging degree-one factors gives the Koszul sign in Sommes trig. 4.12. This is a scalar action on the fixed cohomology only when the permutation preserves the character tuple; otherwise it is the corresponding signed comparison with the permuted tuple."
       ],
       "acceptance": [
         "N=1 recovers the parent Gauss cohomology.",
@@ -1042,13 +1078,15 @@
         "FiniteFieldsAndCharacterSums:FF.2/kummer-sheaf",
         "FiniteFieldsAndCharacterSums:FF.2/artin-schreier-sheaf",
         "SchemeAndStackFoundations:SF.2",
-        "EtaleDualityAndPerverseSheaves:EDC.2"
+        "EtaleDualityAndPerverseSheaves:EDC.2",
+        "FiniteFieldsAndCharacterSums:FF.2/character-sheaf-cohomology-vanishes",
+        "SchemeAndStackFoundations:SF.0"
       ],
       "sources": [
         {
           "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
-          "locator": "Proposition 4.11 and §4.12, pp. 201–202",
-          "match": "Split Künneth concentration and the signed permutation action, used by §7.12 to prove wild monodromy of Kl."
+          "locator": "§§4.3–4.4, pp. 196–197; §§4.6–4.8, pp. 198–199; Proposition 4.11 and §4.12, pp. 201–202",
+          "match": "One-variable cohomology including trivial characters, the finite étale unit torus, split Künneth concentration and the signed permutation action with its character-stability guard; used by §7.12."
         }
       ],
       "library": {
@@ -1093,7 +1131,7 @@
         },
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
-          "locator": "Theorem 4.4, pp. 12–13",
+          "locator": "§4.2.4, Theorem 4.4, p. 12",
           "match": "Comparison to analytic normalization; no half Tate twist is silently assumed in E."
         }
       ],
@@ -1286,7 +1324,7 @@
         },
         {
           "sourceId": "FKMS-APPLIED-L-ADIC",
-          "locator": "Theorem 4.4, p. 13",
+          "locator": "§4.2.4, Theorem 4.4, p. 12",
           "match": "The normalized analytic bound, compared with the geometric sign convention."
         }
       ],
@@ -1387,10 +1425,11 @@
       ],
       "title": "Explicit Betti bounds for projective varieties",
       "kind": "theorem",
-      "statement": "If X⊂P^N, N≥1, is defined by r≥1 homogeneous equations of degree≤δ≥1, then β(X)=β_c(X)≤1+Σ_{j=1}^N B(j,r,δ)≤8·2^r(rδ+3)^(N+1). This holds in arbitrary characteristic with ℓ invertible, for singular and nonreduced X. For a finite-field model of X, the total reduced numerator/denominator degree τ(X) of Z(X,T)/Z(P^n,T), n=dim X, is at most β(X)+n≤9·2^r(rδ+3)^(N+1).",
+      "statement": "If X⊂P^N, N≥1, is defined by r≥1 homogeneous equations of degree≤δ≥1, then β(X)=β_c(X)≤1+Σ_{j=1}^N B(j,r,δ)≤8·2^r(rδ+3)^(N+1). This holds in arbitrary characteristic with ℓ invertible, for singular and nonreduced X. For a nonempty finite-field model of X, the total reduced numerator/denominator degree τ(X) of Z(X,T)/Z(P^n,T), n=dim X, is at most β(X)+n≤9·2^r(rδ+3)^(N+1).",
       "hypotheses": [
         "Projective X, N≥1, r,δ≥1.",
-        "τ counts degrees after cancellations and is nonnegative; the n=0 counting case is handled directly."
+        "τ counts degrees after cancellations and is nonnegative; the n=0 counting case is handled directly.",
+        "The zeta-quotient assertion assumes X nonempty so that n=dim X is a nonnegative integer; the Betti assertion also covers the empty scheme."
       ],
       "proofSteps": [
         "Filter projective space by affine coordinate strata. Excision and the preceding arbitrary-affine bound give 1+Σ B(j,r,δ), with the point stratum contributing at most 1.",
@@ -1565,13 +1604,13 @@
       ],
       "title": "Uniform Lang–Weil over a bounded family",
       "kind": "application",
-      "statement": "Fix N,r,δ≥1. There is a constant C(N,r,δ) such that for every finite field F_Q and geometrically integral affine V⊂A^N_F_Q defined by r equations of degree≤δ, dimension e≥1, |#V(F_Q)−Q^e|≤C(N,r,δ)Q^(e−1/2). For projective fibers X⊂P^N of degree d and dimension e, the parent’s sharper form holds with (d−1)(d−2)Q^(e−1/2)+9·2^r(rδ+3)^(N+1)Q^(e−1). For a fixed finite-type presentation these constants are uniform over all finite-field fibers and extensions that are geometrically integral.",
+      "statement": "Fix N,r,δ≥1. There is a constant C(N,r,δ) such that for every finite field F_Q and geometrically integral affine V⊂A^N_F_Q defined by r equations of degree≤δ, dimension e≥1, |#V(F_Q)−Q^e|≤C(N,r,δ)Q^(e−1/2). For geometrically integral projective fibers X⊂P^N, defined by r homogeneous equations of degree≤δ, of degree d and dimension e≥1, the parent’s sharper form holds with (d−1)(d−2)Q^(e−1/2)+9·2^r(rδ+3)^(N+1)Q^(e−1). For a fixed finite-type presentation these constants are uniform over all finite-field fibers and extensions that are geometrically integral.",
       "hypotheses": [
         "Uniformity is in specified embedding/equation data or a fixed finite-type presentation.",
         "Dimension-zero geometrically integral fibers are single rational reduced points and are treated separately."
       ],
       "proofSteps": [
-        "The new projective Betti bound and top-weight Albanese comparison provide the missing inputs of the imported parent uniform theorem; the curve-section bound yields its degree coefficient.",
+        "The new projective Betti bound and top-weight Albanese comparison provide the missing inputs of the imported parent uniform theorem; the curve-section bound yields its degree coefficient. For dimension one use normalization, the singular-curve genus bound and the parent curve estimate; the Albanese comparison above is used only in dimensions at least two.",
         "For affine varieties use excision with the projective closure. Homogenizing only the listed generators can create infinity components: obtain a bound for generators of the homogenized saturated ideal using the requested bounded-presentation elimination contract, then bound the boundary as well.",
         "For fixed finite-type presentations choose finite affine charts and bounded generators once. Apply the bounds to geometrically integral fibers; dimension and degree bounds are controlled by this presentation. This proves the exact family uniformity needed by HW-16 rather than a fixed-V assertion."
       ],
@@ -1585,7 +1624,8 @@
         "FiniteFieldsAndCharacterSums:FF.2/top-weight-albanese-comparison",
         "FiniteFieldsAndCharacterSums:FF.2/albanese-linear-section-bound",
         "SchemeAndStackFoundations:SF.0",
-        "SchemeAndStackFoundations:SF.2"
+        "SchemeAndStackFoundations:SF.2",
+        "SchemeAndStackFoundations:SF.3"
       ],
       "sources": [
         {
@@ -1704,7 +1744,7 @@
       "proofSteps": [
         "On U purity gives the dual trace equal to complex conjugation. Apply the parent trace formula to F⊗G^∨.",
         "H⁰_c vanishes on a connected nonproper curve; imported duality identifies H²_c=W(−1). Dividing by Q gives Tr(Frob^r|W).",
-        "DWP.7 bounds H¹_c eigenvalues by √Q, giving the exact Betti error. Boundary middle-extension stalks have eigenvalues of weight≤0 and rank≤the generic rank, yielding the stated finite boundary correction.",
+        "DWP.7 bounds H¹_c eigenvalues by √Q, giving the exact Betti error. The DWP.5 local-weight theorem gives boundary middle-extension stalks that have eigenvalues of weight≤0 and rank≤the generic rank, yielding the stated finite boundary correction.",
         "The parent conductor bound, together with GOS and local tensor Swan inequalities from AGR, converts b₁ into a constant depending only on the two conductors and the common singular set."
       ],
       "acceptance": [
@@ -1718,7 +1758,8 @@
         "FiniteFieldsAndCharacterSums:FF.2/h1c-conductor-bound",
         "EtaleDualityAndPerverseSheaves:EDC.2",
         "DeligneWeightsAndPurity:DWP.7",
-        "ArithmeticGaloisRepresentations:R01.3"
+        "ArithmeticGaloisRepresentations:R01.3",
+        "DeligneWeightsAndPurity:DWP.5"
       ],
       "sources": [
         {
@@ -1751,7 +1792,7 @@
       ],
       "proofSteps": [
         "Use DWP.8 geometric semisimplicity of pure lisse sheaves and Schur’s lemma to identify the dimension of the coinvariant Hom space.",
-        "The Frobenius action on the multiplicity Hom space is pure of weight zero; hence its generalized eigenvalues have modulus one. Traces of powers count them with multiplicity even if Jordan blocks are present.",
+        "DWP.7 applied to H²_c gives weights≤2, so the Frobenius eigenvalues of W have modulus≤1 after removing the Tate twist. Apply the same argument with F and G exchanged. DWP.8 geometric semisimplicity identifies the exchanged coinvariant space with W∨, so the reciprocal eigenvalues also have modulus≤1. Therefore every eigenvalue of W has modulus one. Traces of powers count these eigenvalues with multiplicity even with arithmetic Jordan blocks.",
         "Insert this description of W into trace-correlation-main-term."
       ],
       "acceptance": [
@@ -1850,6 +1891,16 @@
           "name": "TauCeti.FiniteFieldSums.FF2.GeometricMobiusStabilizer.singularSet",
           "role": "compatibility",
           "statement": "Every member preserves the intrinsic singular locus and matches local inertia data."
+        },
+        {
+          "name": "TauCeti.FiniteFieldSums.FF2.GeometricMobiusStabilizer.iso",
+          "role": "extensionality",
+          "statement": "An isomorphism F≅G of middle-extension sheaves induces equality Aut_geom(F)=Aut_geom(G); the subgroup depends only on the geometric isomorphism class."
+        },
+        {
+          "name": "TauCeti.FiniteFieldSums.FF2.GeometricMobiusStabilizer.rational",
+          "role": "compatibility",
+          "statement": "For γ∈PGL₂(F_q), membership in the rational stabilizer is equivalent to γ*F_k̄≅F_k̄; an isomorphism over F_q is not required."
         }
       ],
       "tests": [
@@ -1919,7 +1970,7 @@
   "requests": [
     {
       "supplier": "SchemeAndStackFoundations:SF.0",
-      "need": "Actual affine coefficient and projective schemes, smooth loci and projective singularity incidence; normalization commuting with étale maps; geometric component and dimension conventions. Extension needed: bounded homogeneous generators after saturation/projective closure in terms of (N,r,δ), and bounded degree/number of exceptional loci in a fixed generic hyperplane pencil. The existing stage is not credited with a quantitative elimination theorem.",
+      "need": "Actual affine coefficient and projective schemes, smooth loci and projective singularity incidence; normalization commuting with étale maps; geometric component and dimension conventions. Extension needed: bounded homogeneous generators after saturation/projective closure in terms of (N,r,δ), and bounded degree/number of exceptional loci in a fixed generic hyperplane pencil. The existing stage is not credited with a quantitative elimination theorem. Supply the representable Weil restriction Res_{A/F_q}G_m for finite étale A, its splitting over the embeddings of A, trace morphism and descent of the split character data.",
       "neededBy": [
         "FiniteFieldsAndCharacterSums:FF.2/universal-smooth-leading-polynomial-family",
         "FiniteFieldsAndCharacterSums:FF.2/polynomial-boundary-local-models",
@@ -1928,7 +1979,8 @@
         "FiniteFieldsAndCharacterSums:FF.2/bombieri-sperber-albanese-expansion",
         "FiniteFieldsAndCharacterSums:FF.2/uniform-lang-weil-family",
         "FiniteFieldsAndCharacterSums:FF.2/constant-coset-twist-count",
-        "FiniteFieldsAndCharacterSums:FF.2/constant-field-coset-chebotarev"
+        "FiniteFieldsAndCharacterSums:FF.2/constant-field-coset-chebotarev",
+        "FiniteFieldsAndCharacterSums:FF.2/etale-algebra-gauss-cohomology"
       ]
     },
     {
@@ -1975,7 +2027,8 @@
       "supplier": "SchemeAndStackFoundations:SF.3",
       "need": "Part II extension of the smooth-curve contract: normalization genus of a possibly singular integral projective degree-d curve is at most (d−1)(d−2)/2 via generic birational plane projection and arithmetic-genus comparison. The smooth plane-curve genus formula alone does not suffice.",
       "neededBy": [
-        "FiniteFieldsAndCharacterSums:FF.2/albanese-linear-section-bound"
+        "FiniteFieldsAndCharacterSums:FF.2/albanese-linear-section-bound",
+        "FiniteFieldsAndCharacterSums:FF.2/uniform-lang-weil-family"
       ]
     },
     {
@@ -2030,9 +2083,10 @@
     },
     {
       "supplier": "DeligneWeightsAndPurity:DWP.5",
-      "need": "Weil II 1.8.12: weights of a mixed lisse sheaf are constant on a connected normal parameter scheme, for a fixed embedding, with a separate all-conjugate application for algebraic sheaves. This family-weight constancy is additional to generic local-weight terminology.",
+      "need": "Weil II 1.8.12: weights of a mixed lisse sheaf are constant on a connected normal parameter scheme, for a fixed embedding, with a separate all-conjugate application for algebraic sheaves. This family-weight constancy is additional to generic local-weight terminology. Also provide the local-weight bound for inertia-invariant middle-extension stalks on a smooth curve: a punctually ι-pure weight-zero lisse sheaf has boundary Frobenius eigenvalues of ι-weight≤0 and stalk rank at most its generic rank.",
       "neededBy": [
-        "FiniteFieldsAndCharacterSums:FF.2/polynomial-family-cohomology"
+        "FiniteFieldsAndCharacterSums:FF.2/polynomial-family-cohomology",
+        "FiniteFieldsAndCharacterSums:FF.2/trace-correlation-main-term"
       ]
     },
     {
@@ -2134,7 +2188,7 @@
     {
       "id": "FiniteFieldsAndCharacterSums:FF.2/gap/geometric-conductor",
       "title": "Geometric conductor generality is an extension, not an existing export",
-      "detail": "The rank-one Artin–Schreier break is proved by the direct uniformizer calculation in this packet. The actual ℓ-adic Swan definition and tensor/break API over k̄((t)) still need AGR’s equal-characteristic extension. No unramified base-change theorem from a finite-residue-field local-fields stage is assumed.",
+      "detail": "Current Tau Ceti already proves the function-field Place uniformizer displacement for prime-to-p Artin–Schreier poles. Reuse it and supply normalized-order/completion compatibility; the displayed valuation calculation also covers perfect-residue Laurent series. The actual ℓ-adic Swan definition and tensor/break API over k̄((t)) still need AGR’s equal-characteristic extension. No finite-residue-field upper ramification theorem is assumed at geometric residues.",
       "neededBy": [
         "FiniteFieldsAndCharacterSums:FF.2/geometric-artin-schreier-break",
         "FiniteFieldsAndCharacterSums:FF.2/hyper-kloosterman-fiber-cohomology",
@@ -2188,7 +2242,8 @@
       "neededBy": [
         "FiniteFieldsAndCharacterSums:FF.2/albanese-linear-section-bound",
         "FiniteFieldsAndCharacterSums:FF.2/bombieri-sperber-albanese-expansion",
-        "FiniteFieldsAndCharacterSums:FF.2/top-weight-albanese-comparison"
+        "FiniteFieldsAndCharacterSums:FF.2/top-weight-albanese-comparison",
+        "FiniteFieldsAndCharacterSums:FF.2/uniform-lang-weil-family"
       ]
     },
     {
@@ -2279,13 +2334,17 @@
       "printed": "The source takes N + 1 to be the dimension over k of H0 (X, M).",
       "correction": "Choose a finite-dimensional generating/separating linear system in H⁰(X,M) and take the finite span of its G-translates. Use that finite G-stable space for the equivariant projective embedding. All H⁰ need not be finite-dimensional on a quasi-projective scheme.",
       "reason": "Take X=A¹ and G trivial. Its trivial line bundle is very ample for the open immersion into P¹, but H⁰(A¹,O)=k[t] is infinite-dimensional. The proof’s finite GL_(N+1) construction therefore does not follow from taking all sections. A finite system and its finite orbit span repair the step.",
-      "known": "No public correction located in the bounded publisher and title/erratum search on 2026-10-05; novelty is not established.",
+      "known": "No public correction located in bounded publisher and title/author/erratum searches repeated on 2026-10-10; novelty is not established.",
       "affects": "the proof",
       "searched": [
         "Cambridge publisher article and PDF for DOI 10.1017/S0004972718000448",
         "Public title/author search for Meagher Chebotarev erratum and ample H0"
       ],
-      "reviewStatus": "awaiting independent review"
+      "review": {
+        "verdict": "confirmed",
+        "reason": "Independently checked Appendix A, Proposition A.2, p. 201. On A¹ the very ample trivial bundle has section space k[t], which is infinite-dimensional. Choose the finite linear system furnishing an immersion, then its finite G-orbit span; this yields a finite invariant representation and preserves the embedding. The issue concerns that proof step, not the Chebotarev theorem.",
+        "by": "REV-FiniteFieldsAndCharacterSums--FF.2"
+      }
     }
   ],
   "routeCoverage": [
@@ -2656,7 +2715,7 @@
         "ArithmeticGaloisRepresentations:R01.3",
         "FiniteFieldsAndCharacterSums:FF.2/geometric-artin-schreier-break"
       ],
-      "accounting": "One GOS owner and geometric conductor request; new direct break proof supplies the rank-one input, not a general duplicate GOS theorem."
+      "accounting": "One GOS owner and geometric conductor request; reuse current Tau Ceti’s function-field displacement theorem, with completion compatibility and the perfect-residue Laurent-series calculation supplying the remaining rank-one input. No general duplicate GOS theorem is planned."
     },
     {
       "target": "Several-variable square-root bound and its family mechanism",
@@ -2786,73 +2845,272 @@
       "sourceId": "kowalski-expsums-elementary",
       "edition": "Lecture notes, version of September 14, 2021, the author's PDF; printed page = PDF page − 2",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "DELIGNE-SGA45-SOMMES-TRIG",
       "edition": "Lecture Notes in Mathematics 569, Springer 1977, pp. 168-232; scan served by the Institute for Advanced Study (publications.ias.edu, file Number32.pdf, 351 pages). This is the roadmap's source DELIGNE.",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "DELIGNE-WEIL-I",
       "edition": "Publications mathematiques de l'IHES 43 (1974), 273-307; Numdam scan PMIHES_1974__43__273_0",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "DELIGNE-WEIL-II",
       "edition": "Publications mathematiques de l'IHES 52 (1980), 137-252; Numdam scan PMIHES_1980__52__137_0",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "FKMS-APPLIED-L-ADIC",
       "edition": "arXiv:1712.03173v3 (16 April 2019), 68 pages; published in Contemporary Mathematics 740 (2019); arXiv version read",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "LAUMON-FOURIER",
       "edition": "Publications mathematiques de l'IHES 65 (1987), 131-210; Numdam scan PMIHES_1987__65__131_0",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "GHORPADE-LACHAUD-02",
       "edition": "arXiv:0808.2169v1 (15 August 2008), corrected version of Moscow Math. J. 2 (2002), 589-631; arXiv version read",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "KATZ-BETTI",
       "edition": "Author manuscript; published Finite Fields Appl. 7 (2001), 29–44",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "SERRE-RESIDUE",
       "edition": "Bull. Soc. Math. France 89 (1961), 105–154",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "RAYNAUD-GOS",
       "edition": "Séminaire Bourbaki 1964/65, exposé 286; torsion-coefficient formulation",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "MEAGHER-CHEBOTAREV",
       "edition": "Bull. Aust. Math. Soc. 98 (2018), 196–202",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     },
     {
       "sourceId": "ADOLPHSON-SPERBER-DEGREE",
       "edition": "Compositio Math. 68 (1988), 125–159",
       "accessed": "2026-10-05",
-      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs."
+      "qualification": "Read sections are this pass only. Imported parent locators remain parent imports; this part does not certify unread supplier proofs.",
+      "independentlyChecked": "2026-10-10"
     }
-  ]
+  ],
+  "currentLibraryChecks": {
+    "date": "2026-10-10",
+    "tauceti": "a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039",
+    "mathlib": "6b7abb3c7686292736be2955bd3eb9ebf63b456a",
+    "policy": "These current-tree observations are separate from the pinned baseline. Reuse the existing cases; plan only the stated extensions.",
+    "declarations": [
+      {
+        "name": "TauCeti.Place.exists_uniformizer_ord_aut_sub_of_artinSchreier_pole",
+        "module": "TauCeti/FieldTheory/FunctionField/Place/Extension/ArtinSchreier/Displacement.lean",
+        "scope": "Uniformizer displacement 1−ord(u) for a generated Artin–Schreier function-field extension at a place with negative prime-to-p pole order. Completion compatibility and the geometric conductor remain required.",
+        "usedBy": [
+          "FiniteFieldsAndCharacterSums:FF.2/geometric-artin-schreier-break"
+        ]
+      },
+      {
+        "name": "DirichletCharacter.gaussSum_mul_gaussSum_inv_eq_card_of_isPrimitive",
+        "module": "TauCeti/NumberTheory/DirichletCharacter/GaussSum.lean",
+        "scope": "Primitive Gauss product for ZMod n, with primitive Dirichlet and additive characters. Arbitrary finite-ring generality remains required.",
+        "usedBy": [
+          "FiniteFieldsAndCharacterSums:FF.2/primitive-finite-ring-gauss-norm"
+        ]
+      }
+    ]
+  },
+  "review": {
+    "status": "accepted",
+    "reviewer": "independent-review-REV-FiniteFieldsAndCharacterSums--FF.2",
+    "date": "2026-10-10",
+    "notes": "Independent target-level review of all 31 nodes, all 14 original baseline declarations and two added trace imports, 19 supplier contracts, 30 route records, the 88-node parent import inventory, all API/tests/planet choices, both reader and prototype, and all six assigned red-team findings. Corrected source locators, étale-factor symmetry and trivial factors, the trace-lift prototype, boundary-weight dependency, projective hypotheses, the isotypic purity argument and current-library reuse. Confirmed E800. This accepts one complete planned pass with ten explicit gaps; no closure or implementation is claimed. Reader synchronization is recorded in the review report because that file is outside this issue’s deliverables.",
+    "checked": [
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/primitive-multiplicative-ring-character",
+        "verdict": "verified",
+        "note": "The top ideal forces nontriviality; finite-ring unit reduction is surjective, so the quotient formulation has exactly the claimed scope. The product and ZMod 4 tests distinguish multiplicative from additive primitivity."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/primitive-finite-ring-gauss-norm",
+        "verdict": "corrected",
+        "note": "Corrected (4.12)/(4.16) page ranges. The annihilator-unit substitution proves nonunit Fourier vanishing, and Parseval proves the norm without reducedness. Current Tau Ceti already covers ZMod n; record this specialization as an import."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/polynomial-quotient-frobenius-pairing",
+        "verdict": "verified",
+        "note": "The coefficient pairing uses actual monic remainders and an anti-triangular matrix with unit anti-diagonal. Its degree filtration annihilator has the stated dimension. The parent E720 correction prevents treating reversed raw coefficients as the dual basis."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/primitive-modulus-functional-equation",
+        "verdict": "corrected",
+        "note": "Extended the citation through the proof on pp. 48–49. All lower-degree representatives cancel under the nontrivial constant character; the Gauss factors and q powers give the displayed Laurent identity for repeated-factor moduli."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/geometric-artin-schreier-break",
+        "verdict": "corrected",
+        "note": "The prime-to-p pole calculation gives displacement m+1 and the single lower/upper break m. Reuse the current Place displacement theorem; only Laurent-series completion compatibility and the geometric conductor extension remain new. Perfect residues are a stated extension beyond Serre’s algebraically closed case."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/universal-smooth-leading-polynomial-family",
+        "verdict": "verified",
+        "note": "The parameter space is the actual open smooth-leading coefficient scheme. Its nonempty Fermat locus gives geometric integrality; the one-variable empty projective zero locus and p∤d guard are treated correctly."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/polynomial-boundary-local-models",
+        "verdict": "verified",
+        "note": "Weil I 8.7–8.8 gives the two normalized local models. The smooth leading divisor allows the second transverse coordinate; its locus is empty for n=1. Relative normalization and étale compatibility are requested explicitly."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/relative-artin-schreier-compactification",
+        "verdict": "verified",
+        "note": "The compactification is restricted to the surface-product Artin–Schreier models. The SF.4 contract records resolution termination, equivariance and relative normal crossings; no arbitrary positive-characteristic resolution is asserted."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/polynomial-family-local-acyclicity",
+        "verdict": "verified",
+        "note": "Weil II 3.7.3 applies local acyclicity to j!L on the projective compactification via constant product neighborhoods. The general coefficient-base LPV.0 extension is recorded instead of inferred from its trait statement."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/polynomial-family-lissity",
+        "verdict": "verified",
+        "note": "Proper pushforward of the locally acyclic j!L gives lissity and base change for the nonproper affine family. Constant ranks alone are not used to infer lissity."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/polynomial-family-cohomology",
+        "verdict": "verified",
+        "note": "Fermat Künneth, the rank-one break and GOS give concentration and rank (d−1)^n; mixed direct images and Weil II 1.8.12 transport purity through the connected family. Each complex embedding is accounted for, and d=1 gives rank zero."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/polynomial-boundary-clean-duality",
+        "verdict": "verified",
+        "note": "The historical relative compactification makes both support conventions locally constant; the clean Fermat fiber transports the perfect pairing. The proof does not assert vanishing on every exceptional boundary divisor."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/hyper-kloosterman-sum",
+        "verdict": "corrected",
+        "note": "Corrected FKMS to §4.2.4/Theorem 4.4, p. 12. Positive-rank zero fibers and the geometric trace sign agree with Sommes trig. §7. Replaced the ring-isomorphism prototype by the stated base-algebra-equivalence trace-lift API, using two independently checked Mathlib trace imports."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/etale-algebra-gauss-cohomology",
+        "verdict": "corrected",
+        "note": "Added the missing trivial-character factor proof by localization and additive-sheaf vanishing. Added the Weil restriction supplier contract. Restricted scalar permutation actions to permutations preserving the character tuple, as required in Sommes trig. 4.12."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/hyper-kloosterman-sheaf",
+        "verdict": "corrected",
+        "note": "Corrected the FKMS locator. The sheaf is genuinely R^(k−1)π!L, with rank and extension properties proved by the subsequent simultaneous induction. Its zero stalk and extension at infinity agree with Theorem 7.8; it is not j! across zero."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/hyper-kloosterman-fiber-cohomology",
+        "verdict": "verified",
+        "note": "The singular zero fiber is handled by the coordinate-hyperplane calculation; the nonzero fiber uses smooth duality and the simultaneous GOS/monodromy induction of §§7.13–7.14. Clean comparison gives purity of weight k−1."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/hyper-kloosterman-local-monodromy",
+        "verdict": "verified",
+        "note": "Theorem 7.8 and §§7.9–7.12 supply lissity, one tame Jordan block at zero and Swan one with no wild invariants at infinity. The SF.2 specialization request is needed beyond equality of fiber ranks."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/hyper-kloosterman-bound",
+        "verdict": "corrected",
+        "note": "Corrected the FKMS locator. Rank k, weight k−1 and the signed trace yield the bound on unit fibers; a=0 retains its separate exact value. The prototype includes positive rank, nontrivial character and nonzero parameter guards."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/smooth-affine-betti-bound",
+        "verdict": "verified",
+        "note": "Katz Theorem 2 gives the stated A constant from the exact Euler bound and affine hyperplane induction. The curve and zero-dimensional starts are sound. Both quantitative Euler and affine Lefschetz inputs remain explicit supplier gaps."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/arbitrary-affine-betti-bound",
+        "verdict": "verified",
+        "note": "Complement Mayer–Vietoris and the smooth hypersurfaces z∏f_j=1 give the stated B constant. The same argument supplies N=1 despite the theorem header’s N>1; singularities and nilpotents cause no additional assumption."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/explicit-projective-betti-bound",
+        "verdict": "corrected",
+        "note": "Added nonemptiness for the zeta quotient’s dimension parameter. The projective stratification gives 1+ΣB; the displayed geometric-series estimate yields the 8 constant. Cancellation of a top Tate root in the nonempty case gives τ≤β+n and the 9 constant."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/albanese-linear-section-bound",
+        "verdict": "verified",
+        "note": "Generic curve sections and their normalizations surject onto the rational-map Albanese. The singular-curve genus bound is requested separately. The current JacobianChallenge regular Albanese does not supply this singular rational-map construction."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/bombieri-sperber-albanese-expansion",
+        "verdict": "verified",
+        "note": "Lemma 11.7 gives the all-extension fixed-X expansion with the Albanese Frobenius convention stated. Resolution and bounded bad-pencil loci remain requests; this node does not claim uniformity over arbitrary X."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/top-weight-albanese-comparison",
+        "verdict": "verified",
+        "note": "The top odd-weight spectra follow from the all-extension power sums and the abelian weight-one roots. The Frobenius inversion/twist conventions agree with Theorem 10.7; the statement deliberately claims spectra rather than an unsupported canonical representation isomorphism."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/uniform-lang-weil-family",
+        "verdict": "corrected",
+        "note": "Added explicit geometric integrality, positive dimension and bounded homogeneous equations to the projective assertion. Added the dimension-one normalization/genus route and its SF.3 dependency; dimensions at least two use the Albanese chain. Quantitative projective closure remains a recorded gap."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/constant-coset-twist-count",
+        "verdict": "verified",
+        "note": "For g in the arithmetic Frobenius coset, g⁻¹Frob^r fixes each geometric component. Counting every component twist and dividing by the centralizer gives the exact fiber count; individual component counts are not assumed equal."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/constant-field-coset-chebotarev",
+        "verdict": "verified",
+        "note": "Componentwise Lang–Weil gives density |C∩Γ_r|/|H|, including empty cosets, and uniformity requires bounded cover/action/boundary data. Confirmed the Appendix A proof repair independently; the finite equivariant linear-system descent is an explicit request."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/trace-correlation-main-term",
+        "verdict": "corrected",
+        "note": "Added DWP.5 as the direct supplier of local weights on boundary stalks. Dual traces on U, H²_c=W(−1) and DWP.7 give the full main term and exact Betti error. The finite middle-extension correction keeps the invariant contribution."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/isotypic-quasi-orthogonality",
+        "verdict": "corrected",
+        "note": "Replaced an unsupported purity assertion for the multiplicity Hom space by two DWP.7 bounds, applied also with F and G exchanged. Geometric semisimplicity identifies the exchanged space with W∨, forcing modulus one. Arithmetic Jordan blocks are allowed."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/geometric-mobius-stabilizer",
+        "verdict": "corrected",
+        "note": "Added isomorphism-class extensionality and rational-intersection API items. Pullback composition gives a subgroup and the correct conjugation order; the four tests separate geometric from arithmetic isomorphism and detect singular-locus errors."
+      },
+      {
+        "nodeId": "FiniteFieldsAndCharacterSums:FF.2/mobius-autocorrelation-bound",
+        "verdict": "verified",
+        "note": "Geometric irreducibility and stabilizer nonmembership annihilate the Hom coinvariants. The correlation theorem supplies cancellation on the common lisse affine domain; conductor/boundary terms are retained. The identity is an essential noncancellation control."
+      }
+    ]
+  }
 }
