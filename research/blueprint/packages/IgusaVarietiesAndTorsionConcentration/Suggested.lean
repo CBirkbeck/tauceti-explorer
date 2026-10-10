@@ -4,12 +4,13 @@
 This file is not the roadmap and is not exhaustive. The roadmap document
 `README.md` is definitive; the
 statements below suggest Lean forms so that contributors converge on names and
-signatures. Everything is proved by `sorry`; nothing here is an implementation.
+signatures. Proofs of the planned mathematics are left as `sorry`; the small carrier
+adapters use existing library constructions. This is a specification, not a completed library.
 
 Objects that other roadmaps own (p-divisible groups, the Kottwitz set, adic spaces and
 diamonds, étale cohomology with its operations, smooth representations) appear as opaque
-carriers with docstrings naming their owners. The Hecke carriers below still need adapters
-to the existing Tau Ceti double-coset API; their names do not supply that identification. A condition
+carriers with docstrings naming their owners. The spherical Hecke carrier uses the existing
+Tau Ceti convolution ring, with the fixed imaginary quadratic subfield as an explicit index. A condition
 that cannot be stated with these carriers is left out rather than replaced by a `Prop` field.
 
 Conventions: `p` is the geometric prime (unramified in `F`), `ℓ ≠ p` the coefficient prime,
@@ -89,6 +90,9 @@ import Mathlib.Topology.Algebra.ContinuousMonoidHom
 import Mathlib.LinearAlgebra.Dual.Defs
 import Mathlib.RingTheory.Etale.Basic
 import Mathlib.Algebra.Homology.DerivedCategory.TStructure
+import Mathlib.Topology.Algebra.RestrictedProduct.Basic
+import TauCeti.NumberTheory.HeckeRing.Associativity
+import TauCeti.NumberTheory.HeckeRing.Commutativity
 
 open CategoryTheory AlgebraicGeometry
 
@@ -134,6 +138,33 @@ variable (D : UnitarySimilitudeDatum)
 
 /-- The dimension `d = [F⁺ : ℚ] n²` of the Shimura variety. -/
 def dim : ℕ := Module.finrank ℚ (NumberField.maximalRealSubfield D.F) * D.n ^ 2
+
+end UnitarySimilitudeDatum
+
+/-- A fixed imaginary quadratic subfield `F₀ ⊂ F` (part of the standing data of CSnc §5). -/
+structure ImagQuadSubfield (D : UnitarySimilitudeDatum) where
+  /-- The subfield `F₀`. -/
+  F₀ : IntermediateField ℚ D.F
+  finrank_eq : Module.finrank ℚ F₀ = 2
+  totallyComplex : NumberField.IsTotallyComplex F₀
+
+/-- The rational prime `q` splits in `F₀`: two distinct maximal ideals of `𝓞_{F₀}` contain `q`. -/
+def ImagQuadSubfield.SplitsAt {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (q : ℕ) :
+    Prop :=
+  ∃ P Q : Ideal (NumberField.RingOfIntegers E.F₀), P.IsMaximal ∧ Q.IsMaximal ∧ P ≠ Q ∧
+    (q : NumberField.RingOfIntegers E.F₀) ∈ P ∧ (q : NumberField.RingOfIntegers E.F₀) ∈ Q
+
+namespace UnitarySimilitudeDatum
+
+/-- (IG.0/quasi-split-unitary-datum) The unitary similitude group scheme `G` over `ℤ`, through its
+functor of points `R ↦ G(R) = {(g, c) ∈ GL_{O_F}(L ⊗ R) × Rˣ : (gv, gw) = c (v, w)}`. -/
+def group (D : UnitarySimilitudeDatum) (R : Type) [CommRing R] : Type := sorry
+
+instance (D : UnitarySimilitudeDatum) (R : Type) [CommRing R] : Group (D.group R) := sorry
+
+/-- Functoriality of `G(R)` in `R`. -/
+def groupMap (D : UnitarySimilitudeDatum) {R R' : Type} [CommRing R] [CommRing R'] (f : R →+* R') : D.group R →* D.group R' :=
+  sorry
 
 end UnitarySimilitudeDatum
 
@@ -190,12 +221,44 @@ def GAfp (D : UnitarySimilitudeDatum) (p : ℕ) : Type := sorry
 instance (D : UnitarySimilitudeDatum) (p : ℕ) : Group (GAfp D p) := sorry
 instance (D : UnitarySimilitudeDatum) (p : ℕ) : TopologicalSpace (GAfp D p) := sorry
 
-/-- Suggested carrier for the unramified Hecke algebra `𝕋^S` outside `S`, over `ℤ`.
-The spherical theory belongs to SmoothRepresentations SR.1. Its identification with the
-existing Tau Ceti `HeckeRing` is not expressed by the declarations below. -/
-def HeckeAlgebra (D : UnitarySimilitudeDatum) (S : Finset ℕ) : Type := sorry
+/-- Primes outside `S` split in the fixed `F₀` (CSnc §5.1, p.64). -/
+abbrev GoodPrime {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ) :=
+  {q : ℕ // q.Prime ∧ q ∉ S ∧ E.SplitsAt q}
+instance {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ}
+    (q : GoodPrime E S) : Fact q.val.Prime := ⟨q.prop.1⟩
 
-instance (D : UnitarySimilitudeDatum) (S : Finset ℕ) : CommRing (HeckeAlgebra D S) := sorry
+/-- Integral points in the local group; the split spherical datum belongs to IG.0/SR.1. -/
+def localK (D : UnitarySimilitudeDatum) {E : ImagQuadSubfield D} {S : Finset ℕ} (q : GoodPrime E S) :
+    Subgroup (D.group ℚ_[q.val]) :=
+  (⊤ : Subgroup (D.group ℤ_[q.val])).map (D.groupMap PadicInt.Coe.ringHom)
+
+/-- Restricted product over exactly the primes of `𝕋^S`, not all primes outside `S`. -/
+abbrev SphericalAdeles {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ) :=
+  RestrictedProduct (fun q : GoodPrime E S => D.group ℚ_[q.val])
+    (fun q => (localK D q : Set (D.group ℚ_[q.val]))) Filter.cofinite
+
+/-- Specialization of the completed RestrictedProducts integral-subgroup interface to
+this datum, expressed using pinned Mathlib's product subgroup and coercion homomorphism. -/
+abbrev sphericalK {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ) :
+    Subgroup (SphericalAdeles E S) :=
+  (Subgroup.pi Set.univ (fun q : GoodPrime E S => localK D q)).comap
+    RestrictedProduct.coeMonoidHom
+
+/-- Commensurability of the compact-open spherical subgroup (supplier: SR.1). -/
+instance {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ) :
+    IsHeckeTriple (⊤ : Submonoid (SphericalAdeles E S)) (sphericalK E S) (sphericalK E S) := sorry
+
+/-- `𝕋^S` is the native integral double-coset convolution ring of the split datum. -/
+abbrev HeckeAlgebra {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ) :=
+  HeckeRing (⊤ : Submonoid (SphericalAdeles E S)) (sphericalK E S) ℤ
+
+/-- Spherical commutativity for this concrete split datum (supplier: SR.1, Cartan
+decomposition). Inversion generally does not fix its double cosets. -/
+theorem spherical_mul_comm {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ)
+    (x y : HeckeAlgebra E S) : x * y = y * x := sorry
+instance {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ) :
+    CommRing (HeckeAlgebra E S) :=
+  { (inferInstance : Ring (HeckeAlgebra E S)) with mul_comm := spherical_mul_comm E S }
 
 /-- Étale cohomology `H^i(X, Λ)` of a scheme with coefficients in a finite ring `Λ` (owner:
 EtaleDualityAndPerverseSheaves EDC.0). -/
@@ -326,16 +389,16 @@ instance (N : ℕ) (X : PDivGStructure D p (pt k)) (ℓ i : ℕ) :
     AddCommGroup (IgusaCohC N X ℓ i) := sorry
 instance (N : ℕ) (X : PDivGStructure D p (pt k)) (ℓ i : ℕ) :
     AddCommGroup (PartialSupportCoh N X ℓ i) := sorry
-instance (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
-    Module (HeckeAlgebra D S) (IgusaCoh N X ℓ i) := sorry
-instance (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
-    Module (HeckeAlgebra D S) (IgusaCohC N X ℓ i) := sorry
-instance (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
-    Module (HeckeAlgebra D S) (PartialSupportCoh N X ℓ i) := sorry
+instance {E : ImagQuadSubfield D} (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
+    Module (HeckeAlgebra E S) (IgusaCoh N X ℓ i) := sorry
+instance {E : ImagQuadSubfield D} (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
+    Module (HeckeAlgebra E S) (IgusaCohC N X ℓ i) := sorry
+instance {E : ImagQuadSubfield D} (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
+    Module (HeckeAlgebra E S) (PartialSupportCoh N X ℓ i) := sorry
 
 /-- The localization `M_𝔪` of a module over the Hecke algebra at a maximal ideal. -/
-abbrev localizeAt {D : UnitarySimilitudeDatum} {S : Finset ℕ} (𝔪 : Ideal (HeckeAlgebra D S))
-    [𝔪.IsPrime] (M : Type) [AddCommGroup M] [Module (HeckeAlgebra D S) M] : Type :=
+abbrev localizeAt {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ} (𝔪 : Ideal (HeckeAlgebra E S))
+    [𝔪.IsPrime] (M : Type) [AddCommGroup M] [Module (HeckeAlgebra E S) M] : Type :=
   LocalizedModule 𝔪.primeCompl M
 
 end Shared
@@ -483,16 +546,6 @@ namespace UnitarySimilitudeDatum
 
 variable (D : UnitarySimilitudeDatum)
 
-/-- (IG.0/quasi-split-unitary-datum) The unitary similitude group scheme `G` over `ℤ`, through its
-functor of points `R ↦ G(R) = {(g, c) ∈ GL_{O_F}(L ⊗ R) × Rˣ : (gv, gw) = c (v, w)}`. -/
-def group (D : UnitarySimilitudeDatum) (R : Type) [CommRing R] : Type := sorry
-
-instance (R : Type) [CommRing R] : Group (D.group R) := sorry
-
-/-- Functoriality of `G(R)` in `R`. -/
-def groupMap (D : UnitarySimilitudeDatum) {R R' : Type} [CommRing R] [CommRing R'] (f : R →+* R') : D.group R →* D.group R' :=
-  sorry
-
 /-- The similitude character `c : G → 𝔾_m`. -/
 def similitude (D : UnitarySimilitudeDatum) (R : Type) [CommRing R] : D.group R →* Rˣ := sorry
 
@@ -524,32 +577,31 @@ theorem dim_locallySymmetricSpace (N : ℕ) (hN : 3 ≤ N) :
       (D.locallySymmetricSpace (D.principalLevel N))) := sorry
 
 /-- The Hecke algebra `𝕋^{0,S}` of the unitary group. -/
-def UnitaryHeckeAlgebra (D : UnitarySimilitudeDatum) (S : Finset ℕ) : Type := sorry
+def UnitaryHeckeAlgebra (D : UnitarySimilitudeDatum) (E : ImagQuadSubfield D) (S : Finset ℕ) : Type := sorry
 
-instance (S : Finset ℕ) : CommRing (D.UnitaryHeckeAlgebra S) := sorry
+instance {E : ImagQuadSubfield D} (S : Finset ℕ) : CommRing (D.UnitaryHeckeAlgebra E S) := sorry
 
 /-- The restriction map `𝕋^S → 𝕋^{0,S}`. -/
-def heckeRestrict (D : UnitarySimilitudeDatum) (S : Finset ℕ) : HeckeAlgebra D S →+* D.UnitaryHeckeAlgebra S := sorry
+def heckeRestrict (D : UnitarySimilitudeDatum) (E : ImagQuadSubfield D) (S : Finset ℕ) : HeckeAlgebra E S →+* D.UnitaryHeckeAlgebra E S := sorry
 
 /-- (IG.0/quasi-split-unitary-datum) The Hecke operator `T_{i,v} ∈ 𝕋^S`, for `1 ≤ i ≤ 2n` and a
-prime `v` of `F` above `p ∉ S` (split in `F₀`; that condition is not expressible with these
-carriers). -/
-def heckeOperator (D : UnitarySimilitudeDatum) (S : Finset ℕ) (i : ℕ) (hi : 1 ≤ i ∧ i ≤ 2 * D.n)
-    (v : IsDedekindDomain.HeightOneSpectrum (𝓞 D.F)) (p : ℕ) (hp : p ∉ S)
-    (hv : (p : 𝓞 D.F) ∈ v.asIdeal) : HeckeAlgebra D S := sorry
+prime `v` of `F` above the prime `p ∉ S`, split in the fixed `F₀`. -/
+def heckeOperator (D : UnitarySimilitudeDatum) (E : ImagQuadSubfield D) (S : Finset ℕ) (i : ℕ) (hi : 1 ≤ i ∧ i ≤ 2 * D.n)
+    (v : IsDedekindDomain.HeightOneSpectrum (𝓞 D.F)) (p : ℕ) (hprime : p.Prime) (hp : p ∉ S) (hsplit : E.SplitsAt p)
+    (hv : (p : 𝓞 D.F) ∈ v.asIdeal) : HeckeAlgebra E S := sorry
 
 /-- The Hecke operator `T⁰_{i,v} ∈ 𝕋^{0,S}`. -/
-def unitaryHeckeOperator (D : UnitarySimilitudeDatum) (S : Finset ℕ) (i : ℕ) (hi : 1 ≤ i ∧ i ≤ 2 * D.n)
-    (v : IsDedekindDomain.HeightOneSpectrum (𝓞 D.F)) (p : ℕ) (hp : p ∉ S)
-    (hv : (p : 𝓞 D.F) ∈ v.asIdeal) : D.UnitaryHeckeAlgebra S := sorry
+def unitaryHeckeOperator (D : UnitarySimilitudeDatum) (E : ImagQuadSubfield D) (S : Finset ℕ) (i : ℕ) (hi : 1 ≤ i ∧ i ≤ 2 * D.n)
+    (v : IsDedekindDomain.HeightOneSpectrum (𝓞 D.F)) (p : ℕ) (hprime : p.Prime) (hp : p ∉ S) (hsplit : E.SplitsAt p)
+    (hv : (p : 𝓞 D.F) ∈ v.asIdeal) : D.UnitaryHeckeAlgebra E S := sorry
 
 /-- (IG.0/quasi-split-unitary-datum) The restriction `𝕋^S → 𝕋^{0,S}` maps `T_{i,v}` to `T⁰_{i,v}`. -/
 @[simp]
-theorem heckeRestrict_heckeOperator (S : Finset ℕ) (i : ℕ) (hi : 1 ≤ i ∧ i ≤ 2 * D.n)
-    (v : IsDedekindDomain.HeightOneSpectrum (𝓞 D.F)) (p : ℕ) (hp : p ∉ S)
+theorem heckeRestrict_heckeOperator {E : ImagQuadSubfield D} (S : Finset ℕ) (i : ℕ) (hi : 1 ≤ i ∧ i ≤ 2 * D.n)
+    (v : IsDedekindDomain.HeightOneSpectrum (𝓞 D.F)) (p : ℕ) (hprime : p.Prime) (hp : p ∉ S) (hsplit : E.SplitsAt p)
     (hv : (p : 𝓞 D.F) ∈ v.asIdeal) :
-    D.heckeRestrict S (D.heckeOperator S i hi v p hp hv) =
-      D.unitaryHeckeOperator S i hi v p hp hv := sorry
+    D.heckeRestrict E S (D.heckeOperator E S i hi v p hprime hp hsplit hv) =
+      D.unitaryHeckeOperator E S i hi v p hprime hp hsplit hv := sorry
 
 end UnitarySimilitudeDatum
 
@@ -666,10 +718,10 @@ instance : AddCommGroup (D.lssCoh K Λ i) := sorry
 instance : AddCommGroup (D.lssCohC K Λ i) := sorry
 instance : AddCommGroup (D.unitaryLssCoh K Λ i) := sorry
 instance : AddCommGroup (D.unitaryLssCohC K Λ i) := sorry
-instance : Module (HeckeAlgebra D S) (D.lssCoh K Λ i) := sorry
-instance : Module (HeckeAlgebra D S) (D.lssCohC K Λ i) := sorry
-instance : Module (D.UnitaryHeckeAlgebra S) (D.unitaryLssCoh K Λ i) := sorry
-instance : Module (D.UnitaryHeckeAlgebra S) (D.unitaryLssCohC K Λ i) := sorry
+instance {E : ImagQuadSubfield D} : Module (HeckeAlgebra E S) (D.lssCoh K Λ i) := sorry
+instance {E : ImagQuadSubfield D} : Module (HeckeAlgebra E S) (D.lssCohC K Λ i) := sorry
+instance {E : ImagQuadSubfield D} : Module (D.UnitaryHeckeAlgebra E S) (D.unitaryLssCoh K Λ i) := sorry
+instance {E : ImagQuadSubfield D} : Module (D.UnitaryHeckeAlgebra E S) (D.unitaryLssCohC K Λ i) := sorry
 
 /-- The map `X⁰_{K⁰} → X_K`, `K⁰ = K ∩ G⁰(𝔸_f)`, induced by `G⁰ ↪ G`. -/
 def unitaryInclusion (D : UnitarySimilitudeDatum) (K : Subgroup (D.group IG0Af)) :
@@ -691,16 +743,16 @@ end UnitarySimilitudeDatum
 /-- (IG.0/unitary-subgroup-comparison) For `K = K(N)` (`N ≥ 3`, neat) and `K⁰ = K ∩ G⁰(𝔸_f)`,
 `X⁰_{K⁰} → X_K` is an open and closed embedding, and the induced maps on `H^i` and `H^i_c` are
 equivariant for `𝕋^S → 𝕋^{0,S}` (`S` containing the primes dividing `N`). -/
-theorem unitarySubgroupComparison (D : UnitarySimilitudeDatum) (N : ℕ) (hN : 3 ≤ N)
+theorem unitarySubgroupComparison (D : UnitarySimilitudeDatum) {E : ImagQuadSubfield D} (N : ℕ) (hN : 3 ≤ N)
     (S : Finset ℕ) (hS : ∀ q : ℕ, q.Prime → q ∣ N → q ∈ S) (Λ : Type) [CommRing Λ] (i : ℕ) :
     Topology.IsOpenEmbedding (D.unitaryInclusion (D.principalLevel N)) ∧
       IsClosed (Set.range (D.unitaryInclusion (D.principalLevel N))) ∧
-      (∀ (t : HeckeAlgebra D S) (x : D.lssCoh (D.principalLevel N) Λ i),
+      (∀ (t : HeckeAlgebra E S) (x : D.lssCoh (D.principalLevel N) Λ i),
         D.restrictCoh (D.principalLevel N) Λ i (t • x) =
-          D.heckeRestrict S t • D.restrictCoh (D.principalLevel N) Λ i x) ∧
-      (∀ (t : HeckeAlgebra D S)
+          D.heckeRestrict E S t • D.restrictCoh (D.principalLevel N) Λ i x) ∧
+      (∀ (t : HeckeAlgebra E S)
           (x : D.unitaryLssCohC (D.principalLevel N ⊓ D.unitaryGroup IG0Af) Λ i),
-        D.extendCohC (D.principalLevel N) Λ i (D.heckeRestrict S t • x) =
+        D.extendCohC (D.principalLevel N) Λ i (D.heckeRestrict E S t • x) =
           t • D.extendCohC (D.principalLevel N) Λ i x) := sorry
 
 /-! ### `IG.0/hasse-principle` -/
@@ -2997,9 +3049,9 @@ theorem changeCoeff [Fact p.Prime] [CharP k p]
 
 /-- (IG.1/igusa-cohomology) The Hecke algebra `𝕋^S` acting on `H^i_c(Ig^b_{K(N)}, 𝔽_ℓ)` (the
 prelude's module structure on `IgusaCohC`, through the `G(𝔸_f^S)`-action). -/
-def heckeAction (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
-    HeckeAlgebra D S →+* AddMonoid.End (IgusaCohC N X ℓ i) :=
-  Module.toAddMonoidEnd (HeckeAlgebra D S) (IgusaCohC N X ℓ i)
+def heckeAction {E : ImagQuadSubfield D} (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
+    HeckeAlgebra E S →+* AddMonoid.End (IgusaCohC N X ℓ i) :=
+  Module.toAddMonoidEnd (HeckeAlgebra E S) (IgusaCohC N X ℓ i)
 
 /-- The transition map `H^i_c(Ig^b_{K(N)}, 𝔽_ℓ) → H^i_c(Ig^b_{K(N')}, 𝔽_ℓ)` for `N ∣ N'`
 (pullback along the finite étale level-change map; local carrier). -/
@@ -3008,9 +3060,9 @@ def levelMapIG1 (X : PDivGStructure D p (pt k)) {N N' : ℕ} (h : N ∣ N') (ℓ
 
 /-- The `𝕋^S`-action is compatible with the transition maps when `S` contains the primes
 dividing `N'`. -/
-theorem heckeAction_levelMap [Fact p.Prime] [CharP k p]
+theorem heckeAction_levelMap {E : ImagQuadSubfield D} [Fact p.Prime] [CharP k p]
     (X : PDivGStructure D p (pt k)) {N N' : ℕ} (h : N ∣ N') (S : Finset ℕ)
-    (hS : ∀ q : ℕ, q.Prime → q ∣ p * N' → q ∈ S) (ℓ i : ℕ) (t : HeckeAlgebra D S)
+    (hS : ∀ q : ℕ, q.Prime → q ∣ p * N' → q ∈ S) (ℓ i : ℕ) (t : HeckeAlgebra E S)
     (x : IgusaCohC N X ℓ i) :
     levelMapIG1 X h ℓ i (heckeAction N X S ℓ i t x) =
       heckeAction N' X S ℓ i t (levelMapIG1 X h ℓ i x) := sorry
@@ -3097,8 +3149,8 @@ def IrrIG1.trace {b : KottwitzSet D p} {ℓ : ℕ} [Fact ℓ.Prime] (π : IrrIG1
 
 /-- The character `ψ_π : 𝕋^S → ℚ̄_ℓ` through which `𝕋^S` acts on `π^{K^S}` for `S`-unramified
 `π`. -/
-def IrrIG1.heckeCharacter {b : KottwitzSet D p} {ℓ : ℕ} [Fact ℓ.Prime] (π : IrrIG1 b ℓ)
-    (S : Finset ℕ) : HeckeAlgebra D S →+* AlgebraicClosure ℚ_[ℓ] := sorry
+def IrrIG1.heckeCharacter {E : ImagQuadSubfield D} {b : KottwitzSet D p} {ℓ : ℕ} [Fact ℓ.Prime] (π : IrrIG1 b ℓ)
+    (S : Finset ℕ) : HeckeAlgebra E S →+* AlgebraicClosure ℚ_[ℓ] := sorry
 
 /-- The hyperspecial subgroup `K^S = ∏_{q ∉ S} K_q ⊂ G(𝔸_f^p)` (local carrier). -/
 def hyperspecialAwayIG1 (D : UnitarySimilitudeDatum) (p : ℕ) (S : Finset ℕ) :
@@ -5034,8 +5086,8 @@ def GoodReductionLocus.toTor (D : UnitarySimilitudeDatum) (p N : ℕ) : GoodRedu
 IG.0/integral-model). -/
 def ShimuraQbar (D : UnitarySimilitudeDatum) (p N : ℕ) : Scheme.{u} := sorry
 
-instance (D : UnitarySimilitudeDatum) (p N : ℕ) (S : Finset ℕ) (ℓ i : ℕ) :
-    Module (HeckeAlgebra D S) (EtH (ShimuraQbar.{u} D p N) (ZMod ℓ) i) := sorry
+instance (D : UnitarySimilitudeDatum) {E : ImagQuadSubfield D} (p N : ℕ) (S : Finset ℕ) (ℓ i : ℕ) :
+    Module (HeckeAlgebra E S) (EtH (ShimuraQbar.{u} D p N) (ZMod ℓ) i) := sorry
 
 end IG3Shimura
 
@@ -5141,24 +5193,24 @@ end GoodReduction
 def goodReductionLocusC (D : UnitarySimilitudeDatum) (p N : ℕ) [Fact p.Prime]
     (C : PadicCField.{u} p) : Diamond.{u} := sorry
 
-instance (D : UnitarySimilitudeDatum) (p N : ℕ) [Fact p.Prime] (C : PadicCField.{u} p)
+instance (D : UnitarySimilitudeDatum) {E : ImagQuadSubfield D} (p N : ℕ) [Fact p.Prime] (C : PadicCField.{u} p)
     (S : Finset ℕ) (ℓ i : ℕ) :
-    Module (HeckeAlgebra D S) (DiamondH (goodReductionLocusC D p N C) ℓ i) := sorry
+    Module (HeckeAlgebra E S) (DiamondH (goodReductionLocusC D p N C) ℓ i) := sorry
 
 /-- The natural restriction map `H^i(S_{K(N),ℚ̄}, 𝔽_ℓ) → H^i(S°_{K(N),C}, 𝔽_ℓ)` (comparison
 of algebraic and analytic étale cohomology followed by restriction), `𝕋^S`-linear. -/
-def goodReductionRestriction (D : UnitarySimilitudeDatum) (p N : ℕ) [Fact p.Prime]
+def goodReductionRestriction (D : UnitarySimilitudeDatum) {E : ImagQuadSubfield D} (p N : ℕ) [Fact p.Prime]
     (C : PadicCField.{u} p) (S : Finset ℕ) (ℓ i : ℕ) :
-    EtH (ShimuraQbar.{u} D p N) (ZMod ℓ) i →ₗ[HeckeAlgebra D S]
+    EtH (ShimuraQbar.{u} D p N) (ZMod ℓ) i →ₗ[HeckeAlgebra E S]
       DiamondH (goodReductionLocusC D p N C) ℓ i := sorry
 
 /-- (IG.3/good-reduction-locus-cohomology) CSnc Proposition 2.6.4 (Lan–Stroh Corollary 5.20):
 the Hecke-equivariant restriction `H^i(S_{K(N),ℚ̄}, 𝔽_ℓ) → H^i(S°_{K(N),C}, 𝔽_ℓ)` is an
 isomorphism for all `i` and `ℓ ≠ p`, `N ≥ 3` prime to `p`. -/
-theorem goodReductionLocusCohomology (D : UnitarySimilitudeDatum) (p N : ℕ) [Fact p.Prime]
+theorem goodReductionLocusCohomology (D : UnitarySimilitudeDatum) {E : ImagQuadSubfield D} (p N : ℕ) [Fact p.Prime]
     (hN : 3 ≤ N) (hpN : Nat.Coprime p N) (C : PadicCField.{u} p) (S : Finset ℕ) (ℓ : ℕ)
     (hℓ : ℓ.Prime) (hℓp : ℓ ≠ p) (i : ℕ) :
-    Function.Bijective (goodReductionRestriction.{u} D p N C S ℓ i) := sorry
+    Function.Bijective (goodReductionRestriction.{u} (E := E) D p N C S ℓ i) := sorry
 
 /-! ### IG.3/flag-points-and-p-divisible-groups -/
 
@@ -5954,20 +6006,20 @@ abbrev igusaGeneric (N : ℕ) {C : PadicCField.{u} p} (X : PDivGStructure D p (p
 def openFibreMap (N : ℕ) {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p) :
     igusaGeneric N (FlagPoint.specialFibre x) ⟶ pullback (piHTGood.{u} D p N) x := sorry
 
-instance (N : ℕ) {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p)
+instance {E : ImagQuadSubfield D} (N : ℕ) {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p)
     (S : Finset ℕ) (m i : ℕ) :
-    Module (HeckeAlgebra D S) (Diamond.RStalk (piHTGood.{u} D p N)
+    Module (HeckeAlgebra E S) (Diamond.RStalk (piHTGood.{u} D p N)
       (Diamond.EtSheaf.const _ m) x i) := sorry
 
 /-- (IG.3/open-fibre-theorem) CSnc Theorem 2.7.2: for `x ∈ Fℓ(C)` with special fibre `X_k`,
 the canonical map `Ig^{X_k}_C → (π°_HT)^{-1}(x)` is an open immersion containing all rank-one
 points; consequently `(R^i(π°_HT)_*𝔽_ℓ)_x ≅ H^i(Ig^{X_k}, 𝔽_ℓ)`, canonically and
 `𝕋^S`-equivariantly, for `ℓ ≠ p`. -/
-theorem openFibreTheorem (N : ℕ) (hN : 3 ≤ N) (hpN : Nat.Coprime p N) (C : PadicCField.{u} p)
+theorem openFibreTheorem {E : ImagQuadSubfield D} (N : ℕ) (hN : 3 ≤ N) (hpN : Nat.Coprime p N) (C : PadicCField.{u} p)
     (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p) (S : Finset ℕ) (ℓ : ℕ) (hℓ : ℓ.Prime)
     (hℓp : ℓ ≠ p) :
     Diamond.IsOpenImmersionD (openFibreMap N x) ∧ Diamond.SameRankOnePoints p (openFibreMap N x) ∧
-    ∀ i : ℕ, Nonempty (Diamond.RStalk (piHTGood.{u} D p N) (Diamond.EtSheaf.const _ ℓ) x i ≃ₗ[HeckeAlgebra D S]
+    ∀ i : ℕ, Nonempty (Diamond.RStalk (piHTGood.{u} D p N) (Diamond.EtSheaf.const _ ℓ) x i ≃ₗ[HeckeAlgebra E S]
       IgusaCoh N (FlagPoint.specialFibre x) ℓ i) := sorry
 
 end OpenFibre
@@ -6293,21 +6345,21 @@ theorem minimalFibreTheorem (N : ℕ) (C : PadicCField.{u} p)
 
 /-! ### IG.3/compactified-fibre-theorem -/
 
-instance (N : ℕ) {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p)
+instance {E : ImagQuadSubfield D} (N : ℕ) {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p)
     (S : Finset ℕ) (m i : ℕ) :
-    Module (HeckeAlgebra D S) (Diamond.RStalk (piHTMin.{u} D p N)
+    Module (HeckeAlgebra E S) (Diamond.RStalk (piHTMin.{u} D p N)
       (Diamond.EtSheaf.const _ m) x i) := sorry
 
-instance (N : ℕ) {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p)
+instance {E : ImagQuadSubfield D} (N : ℕ) {C : PadicCField.{u} p} (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p)
     (S : Finset ℕ) (m i : ℕ) :
-    Module (HeckeAlgebra D S) (Diamond.RStalk (piHTTor.{u} D p N)
+    Module (HeckeAlgebra E S) (Diamond.RStalk (piHTTor.{u} D p N)
       (Diamond.EtSheaf.const _ m) x i) := sorry
 
-instance (N : ℕ) {k : Type u} [Field k] (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
-    Module (HeckeAlgebra D S) (EtH (PerfectMinimalIgusa N X) (ZMod ℓ) i) := sorry
+instance {E : ImagQuadSubfield D} (N : ℕ) {k : Type u} [Field k] (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
+    Module (HeckeAlgebra E S) (EtH (PerfectMinimalIgusa N X) (ZMod ℓ) i) := sorry
 
-instance (N : ℕ) {k : Type u} [Field k] (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
-    Module (HeckeAlgebra D S) (EtH (PerfectToroidalIgusa N X) (ZMod ℓ) i) := sorry
+instance {E : ImagQuadSubfield D} (N : ℕ) {k : Type u} [Field k] (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
+    Module (HeckeAlgebra E S) (EtH (PerfectToroidalIgusa N X) (ZMod ℓ) i) := sorry
 
 /-- The open map `Ig^X_C → Ig^{X,*}_C` on generic fibres. -/
 def igusaGeneric.toMin (N : ℕ) {C : PadicCField.{u} p} (X : PDivGStructure D p (pt C.k)) :
@@ -6320,7 +6372,7 @@ hence Hecke-equivariant isomorphisms `H^i(Ig^{X,*}, 𝔽_ℓ) ≅ (R^iπ^*_HT*�
 `H^i(Ig^{X,tor}, 𝔽_ℓ) ≅ (R^iπ^tor_HT*𝔽_ℓ)_x`; compatibly with the flag Newton strata and with the
 good-reduction part. (Compatibility with the `p`-level transition maps and the statement on
 higher-rank stalks are not formalised.) -/
-theorem compactifiedFibreTheorem (N : ℕ) (C : PadicCField.{u} p)
+theorem compactifiedFibreTheorem {E : ImagQuadSubfield D} (N : ℕ) (C : PadicCField.{u} p)
     (x : Diamond.spa C.C ⟶ FlagVariety.{u} D p) (S : Finset ℕ) (ℓ : ℕ) (hℓ : ℓ.Prime)
     (hℓp : ℓ ≠ p) :
     (Diamond.IsOpenImmersionD (minimalFibreMap N x) ∧
@@ -6334,9 +6386,9 @@ theorem compactifiedFibreTheorem (N : ℕ) (C : PadicCField.{u} p)
           pullback (piHTTor.{u} D p N) x,
         Diamond.canonicalCompactification.ι _ ≫ e.hom = toroidalFibreMap N x) ∧
     (∀ i : ℕ, Nonempty (EtH (PerfectMinimalIgusa N (FlagPoint.specialFibre x)) (ZMod ℓ) i
-        ≃ₗ[HeckeAlgebra D S] Diamond.RStalk (piHTMin.{u} D p N) (Diamond.EtSheaf.const _ ℓ) x i)) ∧
+        ≃ₗ[HeckeAlgebra E S] Diamond.RStalk (piHTMin.{u} D p N) (Diamond.EtSheaf.const _ ℓ) x i)) ∧
     (∀ i : ℕ, Nonempty (EtH (PerfectToroidalIgusa N (FlagPoint.specialFibre x)) (ZMod ℓ) i
-        ≃ₗ[HeckeAlgebra D S] Diamond.RStalk (piHTTor.{u} D p N) (Diamond.EtSheaf.const _ ℓ) x i)) ∧
+        ≃ₗ[HeckeAlgebra E S] Diamond.RStalk (piHTTor.{u} D p N) (Diamond.EtSheaf.const _ ℓ) x i)) ∧
     (FlagPoint.newton x = (FlagPoint.specialFibre x).newtonClass) ∧
     openFibreMap N x ≫ pullback.map (piHTGood.{u} D p N) x (piHTMin D p N) x
         (GoodReductionLocus.toMin D p N) (𝟙 _) (𝟙 _)
@@ -7229,8 +7281,8 @@ def fromCompact (N : ℕ) (X : PDivGStructure D p (pt k)) (m : ℕ) (Λ : Type u
 
 /-- (IG.4/partial-support-cohomology) On cohomology (colimit over levels), the map
 `H^i_{c−∂}(Ig^b, 𝔽_ℓ) → H^i(Ig^b, 𝔽_ℓ)` is `𝕋^S`-linear (and prime-to-`p` Hecke equivariant). -/
-def hecke (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
-    PartialSupportCoh N X ℓ i →ₗ[HeckeAlgebra D S] IgusaCoh N X ℓ i := sorry
+def hecke {E : ImagQuadSubfield D} (N : ℕ) (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
+    PartialSupportCoh N X ℓ i →ₗ[HeckeAlgebra E S] IgusaCoh N X ℓ i := sorry
 
 -- test: partialSupportCohomology.no_boundary — if `X_b^{ét} = 0` then `RΓ_{c−∂}(Ig^b) = RΓ(Ig^b)`
 example (N : ℕ) (X : PDivGStructure D p (pt k)) (m : ℕ) (Λ : Type u) [CommRing Λ]
@@ -7274,11 +7326,11 @@ def KottwitzSet.rep {D : UnitarySimilitudeDatum} {p : ℕ} (b : KottwitzSet D p)
 /-- (IG.4/minimal-stratum-lower-bound) CSnc Lemma 2.8.4: let `S` contain all primes dividing
 `pℓNΔ_F` (and `∞`), `𝔪 ⊂ 𝕋^S` maximal with `ℓ ∈ 𝔪`, and `b` with `d_b` minimal among those with
 `H^*(Ig^b, 𝔽_ℓ)_𝔪 ≠ 0`. Then `H^i(Ig^b, 𝔽_ℓ)_𝔪 ≠ 0` implies `i ≥ d_b`. -/
-theorem minimalStratumLowerBound {D : UnitarySimilitudeDatum} {p : ℕ} [Fact p.Prime]
+theorem minimalStratumLowerBound {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {p : ℕ} [Fact p.Prime]
     {k : Type u} [Field k] [IsAlgClosed k] [CharP k p] (N : ℕ) (hN : 3 ≤ N)
     (hpN : Nat.Coprime p N) (ℓ : ℕ) (hℓ : ℓ.Prime) (hℓp : ℓ ≠ p) (S : Finset ℕ)
     (hS : ∀ q : ℕ, q.Prime → q ∣ p * ℓ * N * (NumberField.discr D.F).natAbs → q ∈ S)
-    (𝔪 : Ideal (HeckeAlgebra D S)) [𝔪.IsMaximal] (hℓ𝔪 : (ℓ : HeckeAlgebra D S) ∈ 𝔪)
+    (𝔪 : Ideal (HeckeAlgebra E S)) [𝔪.IsMaximal] (hℓ𝔪 : (ℓ : HeckeAlgebra E S) ∈ 𝔪)
     (b : KottwitzSet D p)
     (hb : ∃ i, Nontrivial (localizeAt 𝔪 (IgusaCoh N (b.rep k) ℓ i)))
     (hmin : ∀ b' : KottwitzSet D p, (∃ i, Nontrivial (localizeAt 𝔪 (IgusaCoh N (b'.rep k) ℓ i))) →
@@ -7322,19 +7374,6 @@ def SplitsCompletelyIG (K : Type) [Field K] [NumberField K] (p : ℕ) : Prop :=
   (Ideal.span {(p : NumberField.RingOfIntegers K)}).IsRadical ∧
     ∀ v : HeightOneSpectrum (NumberField.RingOfIntegers K),
       (p : NumberField.RingOfIntegers K) ∈ v.asIdeal → Ideal.absNorm v.asIdeal = p
-
-/-- A fixed imaginary quadratic subfield `F₀ ⊂ F` (part of the standing data of CSnc §5). -/
-structure ImagQuadSubfield (D : UnitarySimilitudeDatum) where
-  /-- The subfield `F₀`. -/
-  F₀ : IntermediateField ℚ D.F
-  finrank_eq : Module.finrank ℚ F₀ = 2
-  totallyComplex : NumberField.IsTotallyComplex F₀
-
-/-- The rational prime `q` splits in `F₀`: two distinct maximal ideals of `𝓞_{F₀}` contain `q`. -/
-def ImagQuadSubfield.SplitsAt {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (q : ℕ) :
-    Prop :=
-  ∃ P Q : Ideal (NumberField.RingOfIntegers E.F₀), P.IsMaximal ∧ Q.IsMaximal ∧ P ≠ Q ∧
-    (q : NumberField.RingOfIntegers E.F₀) ∈ P ∧ (q : NumberField.RingOfIntegers E.F₀) ∈ Q
 
 /-- A place `v | q` of `F` with `q ∉ S` split in `F₀`; at such places
 `G(ℚ_q) = GL_{2n}(F_v) × ∏_{w | 𝔮, w ≠ v} GL_{2n}(F_w) × ℚ_q^×`. -/
@@ -7461,8 +7500,8 @@ theorem cycloTwist_frobAt (D : UnitarySimilitudeDatum) (ℓ : ℕ) [Fact ℓ.Pri
 `1 ≤ i ≤ 2n` it is IG.0's `UnitarySimilitudeDatum.heckeOperator` at the split place; `T_{0,v} = 1`
 (and `0` for `i > 2n`). -/
 def heckeT {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ}
-    (v : SplitPlace E S) (i : ℕ) : HeckeAlgebra D S :=
-  if h : 1 ≤ i ∧ i ≤ 2 * D.n then D.heckeOperator S i h v.v v.q v.q_not_mem v.lies_over
+    (v : SplitPlace E S) (i : ℕ) : HeckeAlgebra E S :=
+  if h : 1 ≤ i ∧ i ≤ 2 * D.n then D.heckeOperator E S i h v.v v.q v.q_prime v.q_not_mem v.split v.lies_over
   else if i = 0 then 1 else 0
 
 theorem heckeT_zero {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ}
@@ -7470,26 +7509,26 @@ theorem heckeT_zero {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : F
 
 /-- `T_{2n,v}` is a unit of `𝕋^S`. -/
 def heckeTTopUnit {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ}
-    (v : SplitPlace E S) : (HeckeAlgebra D S)ˣ := sorry
+    (v : SplitPlace E S) : (HeckeAlgebra E S)ˣ := sorry
 
 theorem heckeTTopUnit_val {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ}
-    (v : SplitPlace E S) : (heckeTTopUnit v : HeckeAlgebra D S) = heckeT v (2 * D.n) := sorry
+    (v : SplitPlace E S) : (heckeTTopUnit v : HeckeAlgebra E S) = heckeT v (2 * D.n) := sorry
 
 /-- The Hecke polynomial
 `X^{2n} − T_{1,v}X^{2n−1} + … + (−1)^i q_v^{i(i−1)/2} T_{i,v} X^{2n−i} + … + q_v^{n(2n−1)} T_{2n,v}`. -/
 def heckePoly {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ}
-    (v : SplitPlace E S) : (HeckeAlgebra D S)[X] :=
+    (v : SplitPlace E S) : (HeckeAlgebra E S)[X] :=
   ∑ i ∈ Finset.range (2 * D.n + 1),
-    C ((-1) ^ i * (v.v.normQ : HeckeAlgebra D S) ^ (i * (i - 1) / 2) * heckeT v i) *
+    C ((-1) ^ i * (v.v.normQ : HeckeAlgebra E S) ^ (i * (i - 1) / 2) * heckeT v i) *
       X ^ (2 * D.n - i)
 
 /-- An ideal `𝔪 ⊂ 𝕋^S` of Galois type: an embedding of `𝕋^S/𝔪` into `𝔽̄_ℓ` and a continuous
 semisimple `ρ̄_𝔪 : Gal(F̄/F) → GL_{2n}(𝔽̄_ℓ)`, unramified at every split place `v | q ∉ S`, with
 `charpoly ρ̄_𝔪(Frob_v)` the reduction of the Hecke polynomial (owner: AG2.7). -/
 structure GaloisTypeData {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) {S : Finset ℕ}
-    (ℓ : ℕ) [Fact ℓ.Prime] (𝔪 : Ideal (HeckeAlgebra D S)) where
+    (ℓ : ℕ) [Fact ℓ.Prime] (𝔪 : Ideal (HeckeAlgebra E S)) where
   /-- The embedding of the residue field. -/
-  emb : HeckeAlgebra D S ⧸ 𝔪 →+* FlBar ℓ
+  emb : HeckeAlgebra E S ⧸ 𝔪 →+* FlBar ℓ
   /-- The residual representation `ρ̄_𝔪`. -/
   rho : ResidualRep D.F (2 * D.n) ℓ
   semisimple : rho.IsSemisimple
@@ -7499,7 +7538,7 @@ structure GaloisTypeData {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) {
 
 /-- `𝔪` is of Galois type. -/
 def IsGaloisType {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) {S : Finset ℕ}
-    (ℓ : ℕ) [Fact ℓ.Prime] (𝔪 : Ideal (HeckeAlgebra D S)) : Prop :=
+    (ℓ : ℕ) [Fact ℓ.Prime] (𝔪 : Ideal (HeckeAlgebra E S)) : Prop :=
   Nonempty (GaloisTypeData E ℓ 𝔪)
 
 /-- The map induced on localizations at a prime `P`. -/
@@ -7543,43 +7582,83 @@ def GAS (D : UnitarySimilitudeDatum) (S : Finset ℕ) : Type := sorry
 
 instance (D : UnitarySimilitudeDatum) (S : Finset ℕ) : Group (GAS D S) := sorry
 
-/-- Suggested double-coset element `[K^S g K^S] ∈ 𝕋^S`. This signature does not yet
-identify it with a characteristic function in the existing Tau Ceti `HeckeRing`. -/
-def heckeDoubleCoset (g : GAS D S) : HeckeAlgebra D S := sorry
+/-- Ambient inversion, valued in the opposite group. -/
+def inverseAmbient {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ) :
+    SphericalAdeles E S →* (SphericalAdeles E S)ᵐᵒᵖ where
+  toFun g := MulOpposite.op g⁻¹
+  map_one' := by simp
+  map_mul' := by intros; simp
 
-/-- (IG.5/dual-hecke-ideal) The involution `ι : 𝕋^S → 𝕋^S`, `[KgK] ↦ [Kg⁻¹K]`, a ring involution of
-the commutative Hecke algebra. The intended construction uses Tau Ceti
-`HeckeAntiInvolution.ofAmbient` for inversion on the relevant Hecke datum. This signature
-alone does not express its identification with that construction. -/
-def heckeInvolution (D : UnitarySimilitudeDatum) (S : Finset ℕ) :
-    HeckeAlgebra D S →+* HeckeAlgebra D S := sorry
+/-- Ambient inversion is involutive. -/
+theorem inverseAmbient_involutive {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D)
+    (S : Finset ℕ) (g : SphericalAdeles E S) :
+    (inverseAmbient E S (inverseAmbient E S g).unop).unop = g := by
+  simp [inverseAmbient]
+
+/-- Inversion preserves the product of the integral subgroups. -/
+theorem inverseAmbient_mem_sphericalK {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D)
+    (S : Finset ℕ) (g : SphericalAdeles E S) (hg : g ∈ sphericalK E S) :
+    (inverseAmbient E S g).unop ∈ sphericalK E S := (sphericalK E S).inv_mem hg
+
+/-- The ambient submonoid is the whole group. -/
+theorem inverseAmbient_mem_top {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D)
+    (S : Finset ℕ) (g : SphericalAdeles E S) (_hg : g ∈ (⊤ : Submonoid (SphericalAdeles E S))) :
+    (inverseAmbient E S g).unop ∈ (⊤ : Submonoid (SphericalAdeles E S)) := by trivial
+
+/-- Inversion on the native spherical Hecke datum, built with `ofAmbient`. This is
+separate from the anti-involution fixing double cosets used to prove commutativity. -/
+def heckeInverseAnti {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ) :
+    HeckeAntiInvolution (⊤ : Submonoid (SphericalAdeles E S)) (sphericalK E S) :=
+  HeckeAntiInvolution.ofAmbient (inverseAmbient E S) (inverseAmbient_involutive E S)
+    (inverseAmbient_mem_sphericalK E S) (inverseAmbient_mem_top E S)
+
+/-- The characteristic function of a native double coset. -/
+def heckeBasis {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ}
+    (c : HeckeCoset (⊤ : Submonoid (SphericalAdeles E S)) (sphericalK E S) (sphericalK E S)) :
+    HeckeAlgebra E S := HeckeCosetModule.of (Finsupp.single c 1)
+
+/-- (IG.5/dual-hecke-ideal) The native coset permutation, extended linearly; the
+ring-law proofs use the unimodular split reductive datum and spherical commutativity. -/
+def heckeInvolution {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D) (S : Finset ℕ) :
+    HeckeAlgebra E S →+* HeckeAlgebra E S where
+  toFun T := HeckeCosetModule.of
+    (Finsupp.mapDomain (heckeInverseAnti E S).onHeckeCoset (HeckeCosetModule.of.symm T))
+  map_zero' := sorry
+  map_one' := sorry
+  map_add' := sorry
+  map_mul' := sorry
+
+/-- The native characteristic function `[K^S g K^S]`. -/
+def heckeDoubleCoset {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ}
+    (g : SphericalAdeles E S) : HeckeAlgebra E S :=
+  heckeBasis (HeckeCoset.mk (sphericalK E S) (sphericalK E S) ⟨g, Submonoid.mem_top g⟩)
 
 /-- `ι ∘ ι = id`. -/
-@[simp] theorem heckeInvolution_involutive (T : HeckeAlgebra D S) :
-    heckeInvolution D S (heckeInvolution D S T) = T := sorry
+@[simp] theorem heckeInvolution_involutive {E : ImagQuadSubfield D} (T : HeckeAlgebra E S) :
+    heckeInvolution E S (heckeInvolution E S T) = T := sorry
 
 /-- (IG.5/dual-hecke-ideal) The dual ideal `𝔪^∨ := ι(𝔪)`. -/
-def dualIdeal (𝔪 : Ideal (HeckeAlgebra D S)) : Ideal (HeckeAlgebra D S) :=
-  𝔪.map (heckeInvolution D S)
+def dualIdeal {E : ImagQuadSubfield D} (𝔪 : Ideal (HeckeAlgebra E S)) : Ideal (HeckeAlgebra E S) :=
+  𝔪.map (heckeInvolution E S)
 
 /-- `𝔪^∨` is maximal when `𝔪` is. -/
-instance dualIdeal.isMaximal (𝔪 : Ideal (HeckeAlgebra D S)) [𝔪.IsMaximal] :
+instance dualIdeal.isMaximal {E : ImagQuadSubfield D} (𝔪 : Ideal (HeckeAlgebra E S)) [𝔪.IsMaximal] :
     (dualIdeal 𝔪).IsMaximal := sorry
 
 /-- `𝔪^∨` has the same residue field as `𝔪` (via `ι`). -/
-def dualIdeal.residueEquiv (𝔪 : Ideal (HeckeAlgebra D S)) :
-    (HeckeAlgebra D S ⧸ dualIdeal 𝔪) ≃+* (HeckeAlgebra D S ⧸ 𝔪) := sorry
+def dualIdeal.residueEquiv {E : ImagQuadSubfield D} (𝔪 : Ideal (HeckeAlgebra E S)) :
+    (HeckeAlgebra E S ⧸ dualIdeal 𝔪) ≃+* (HeckeAlgebra E S ⧸ 𝔪) := sorry
 
 /-- `ι(T_{i,v}) = T_{2n,v}^{-1} T_{2n−i,v}`. -/
 @[simp] theorem heckeInvolution_T {E : ImagQuadSubfield D} (v : SplitPlace E S) (i : ℕ)
     (hi : i ≤ 2 * D.n) :
-    heckeInvolution D S (heckeT v i) =
-      ((heckeTTopUnit v)⁻¹ : (HeckeAlgebra D S)ˣ) * heckeT v (2 * D.n - i) := sorry
+    heckeInvolution E S (heckeT v i) =
+      ((heckeTTopUnit v)⁻¹ : (HeckeAlgebra E S)ˣ) * heckeT v (2 * D.n - i) := sorry
 
 /-- `ρ_{𝔪^∨} ≅ ρ_𝔪^∨ ⊗ |Art_F^{-1}|^{1−2n}` (with compatible residue embeddings), and the Frobenius
 eigenvalues of `ρ_{𝔪^∨}` at `v ∤ ℓ` are `q_v^{2n−1} α_{i,v}^{-1}`. -/
 theorem dualIdeal_galois {E : ImagQuadSubfield D} {ℓ : ℕ} [Fact ℓ.Prime]
-    (𝔪 : Ideal (HeckeAlgebra D S)) (h : GaloisTypeData E ℓ 𝔪) :
+    (𝔪 : Ideal (HeckeAlgebra E S)) (h : GaloisTypeData E ℓ 𝔪) :
     ∃ h' : GaloisTypeData E ℓ (dualIdeal 𝔪),
       h'.emb = h.emb.comp (dualIdeal.residueEquiv 𝔪).toRingHom ∧
       h'.rho.Iso ((h.rho.dual).twist (cycloTwist D ℓ (1 - 2 * (D.n : ℤ)))) ∧
@@ -7591,7 +7670,7 @@ theorem dualIdeal_galois {E : ImagQuadSubfield D} {ℓ : ℕ} [Fact ℓ.Prime]
 /-- Unramifiedness at `v ∤ ℓ`, the length and the ratio condition `α_i ≠ q α_j` are invariant
 under `𝔪 ↦ 𝔪^∨`. -/
 theorem dualIdeal_preserves {E : ImagQuadSubfield D} {ℓ : ℕ} [Fact ℓ.Prime]
-    {𝔪 : Ideal (HeckeAlgebra D S)} (h : GaloisTypeData E ℓ 𝔪)
+    {𝔪 : Ideal (HeckeAlgebra E S)} (h : GaloisTypeData E ℓ 𝔪)
     (h' : GaloisTypeData E ℓ (dualIdeal 𝔪))
     (hiso : h'.rho.Iso ((h.rho.dual).twist (cycloTwist D ℓ (1 - 2 * (D.n : ℤ))))) :
     (∀ v : IgPlace D, (ℓ : NumberField.RingOfIntegers D.F) ∉ v.asIdeal →
@@ -7600,22 +7679,27 @@ theorem dualIdeal_preserves {E : ImagQuadSubfield D} {ℓ : ℕ} [Fact ℓ.Prime
     (∀ (v : IgPlace D) (q : ℕ), h.rho.FrobRatioCond (frobAt v) q ↔
       h'.rho.FrobRatioCond (frobAt v) q) := sorry
 
-/-- `ι` is characterised on double cosets by `[KgK] ↦ [Kg⁻¹K]`: any ring endomorphism with this
-property is `ι`. This describes inversion on the suggested carrier. An adapter to the
-existing `HeckeRing` and `HeckeAntiInvolution.onHeckeCoset` is additionally needed to state
-compatibility with Tau Ceti's construction. -/
-theorem heckeInvolution_compat_tauceti :
-    (∀ g : GAS D S, heckeInvolution D S (heckeDoubleCoset g) = heckeDoubleCoset g⁻¹) ∧
-    ∀ φ : HeckeAlgebra D S →+* HeckeAlgebra D S,
-      (∀ g : GAS D S, φ (heckeDoubleCoset g) = heckeDoubleCoset g⁻¹) → φ = heckeInvolution D S :=
-  sorry
+/-- On each native basis vector, `ι` is precisely the action of `onHeckeCoset` for the
+`ofAmbient` inversion datum; the generator rule also uniquely determines the endomorphism. -/
+theorem heckeInvolution_compat_tauceti {E : ImagQuadSubfield D} :
+    (∀ c : HeckeCoset (⊤ : Submonoid (SphericalAdeles E S))
+        (sphericalK E S) (sphericalK E S),
+      heckeInvolution E S (heckeBasis c) =
+        heckeBasis ((HeckeAntiInvolution.ofAmbient (inverseAmbient E S)
+          (inverseAmbient_involutive E S) (inverseAmbient_mem_sphericalK E S)
+          (inverseAmbient_mem_top E S)).onHeckeCoset c)) ∧
+    (∀ g : SphericalAdeles E S,
+      heckeInvolution E S (heckeDoubleCoset g) = heckeDoubleCoset g⁻¹) ∧
+    ∀ φ : HeckeAlgebra E S →+* HeckeAlgebra E S,
+      (∀ g : SphericalAdeles E S, φ (heckeDoubleCoset g) = heckeDoubleCoset g⁻¹) →
+        φ = heckeInvolution E S := sorry
 
 -- test: dualIdeal_dual — (𝔪^∨)^∨ = 𝔪
-example (𝔪 : Ideal (HeckeAlgebra D S)) : dualIdeal (dualIdeal 𝔪) = 𝔪 := sorry
+example {E : ImagQuadSubfield D} (𝔪 : Ideal (HeckeAlgebra E S)) : dualIdeal (dualIdeal 𝔪) = 𝔪 := sorry
 
 -- test: dualIdeal_rank_two — for 2n = 2 the dual eigenvalues are {q_v/α, q_v/β}
 example {E : ImagQuadSubfield D} {ℓ : ℕ} [Fact ℓ.Prime] (hn : D.n = 1)
-    (𝔪 : Ideal (HeckeAlgebra D S)) (h : GaloisTypeData E ℓ 𝔪) (v : SplitPlace E S)
+    (𝔪 : Ideal (HeckeAlgebra E S)) (h : GaloisTypeData E ℓ 𝔪) (v : SplitPlace E S)
     (hv : (ℓ : NumberField.RingOfIntegers D.F) ∉ v.v.asIdeal) (α β : FlBar ℓ)
     (hroots : (h.rho.charpolyAt (frobAt v.v)).roots = {α, β}) :
     ∃ h' : GaloisTypeData E ℓ (dualIdeal 𝔪),
@@ -7626,8 +7710,20 @@ example {E : ImagQuadSubfield D} {ℓ : ℕ} [Fact ℓ.Prime] (hn : D.n = 1)
 example : (({1, 2} : Multiset (ZMod 11)).map (fun α => (7 : ZMod 11) ^ 1 * α⁻¹)) ≠ {1, 2} :=
   sorry
 
--- test: heckeInvolution_compat — inversion on the suggested double-coset carrier; the Tau Ceti adapter remains required
-example (g : GAS D S) : heckeInvolution D S (heckeDoubleCoset g) = heckeDoubleCoset g⁻¹ := sorry
+-- test: heckeInvolution_compat — the actual library coset action, not an opaque inversion rule
+example {E : ImagQuadSubfield D}
+    (c : HeckeCoset (⊤ : Submonoid (SphericalAdeles E S)) (sphericalK E S) (sphericalK E S)) :
+    heckeInvolution E S (HeckeCosetModule.of (Finsupp.single c 1)) =
+      HeckeCosetModule.of (Finsupp.single ((HeckeAntiInvolution.ofAmbient (inverseAmbient E S)
+        (inverseAmbient_involutive E S) (inverseAmbient_mem_sphericalK E S)
+        (inverseAmbient_mem_top E S)).onHeckeCoset c) 1) := by
+  simp [heckeInvolution, heckeInverseAnti]
+
+-- The library's involutivity theorem applies to this same concrete datum.
+example {E : ImagQuadSubfield D}
+    (c : HeckeCoset (⊤ : Submonoid (SphericalAdeles E S)) (sphericalK E S) (sphericalK E S)) :
+    (heckeInverseAnti E S).onHeckeCoset ((heckeInverseAnti E S).onHeckeCoset c) = c :=
+  (heckeInverseAnti E S).onHeckeCoset_onHeckeCoset c
 
 end DualIdeal
 
@@ -7636,14 +7732,14 @@ section IG5Theorems
 /-! ### Carriers for the Igusa-side statements of IG.5 -/
 
 /-- The prime-to-`S` Hecke action on `H^i(Ig^b_{Mant,m,K(N)}, Λ)` (owner: IG.1/igusa-cohomology). -/
-instance mantovanEtH_hecke {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] (N : ℕ)
+instance mantovanEtH_hecke {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {p : ℕ} {k : Type u} [Field k] (N : ℕ)
     (X : PDivGStructure D p (pt k)) (m : ℕ) (S : Finset ℕ) (Λ : Type) [CommRing Λ] (i : ℕ) :
-    Module (HeckeAlgebra D S) (EtH (MantovanIgusaVariety N X m) Λ i) := sorry
+    Module (HeckeAlgebra E S) (EtH (MantovanIgusaVariety N X m) Λ i) := sorry
 
 /-- The prime-to-`S` Hecke action on `H^i_c(Ig^b_{Mant,m,K(N)}, Λ)`. -/
-instance mantovanEtHc_hecke {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] (N : ℕ)
+instance mantovanEtHc_hecke {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {p : ℕ} {k : Type u} [Field k] (N : ℕ)
     (X : PDivGStructure D p (pt k)) (m : ℕ) (S : Finset ℕ) (Λ : Type) [CommRing Λ] (i : ℕ) :
-    Module (HeckeAlgebra D S) (EtHc (MantovanIgusaVariety N X m) Λ i) := sorry
+    Module (HeckeAlgebra E S) (EtHc (MantovanIgusaVariety N X m) Λ i) := sorry
 
 /-- Compactly supported Igusa cohomology with `ℤ_ℓ`-coefficients
 `colim_m H^i_c(Ig^b_{m,K(N)}, ℤ_ℓ)` (owner: IG.1/igusa-cohomology). -/
@@ -7652,9 +7748,9 @@ def IgusaCohCZl {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] (N
 
 instance {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] (N : ℕ)
     (X : PDivGStructure D p (pt k)) (ℓ i : ℕ) : AddCommGroup (IgusaCohCZl N X ℓ i) := sorry
-instance {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] (N : ℕ)
+instance {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {p : ℕ} {k : Type u} [Field k] (N : ℕ)
     (X : PDivGStructure D p (pt k)) (S : Finset ℕ) (ℓ i : ℕ) :
-    Module (HeckeAlgebra D S) (IgusaCohCZl N X ℓ i) := sorry
+    Module (HeckeAlgebra E S) (IgusaCohCZl N X ℓ i) := sorry
 
 /-- A continuous `ℓ`-adic representation `Gal(K̄/K) → GL_m(ℚ̄_ℓ)` (owner: AG2.7). -/
 structure AdicRep (K : Type) [Field K] (m ℓ : ℕ) [Fact ℓ.Prime] where
@@ -7698,10 +7794,10 @@ def JIrrep {D : UnitarySimilitudeDatum} {p : ℕ} (b : KottwitzSet D p) (ℓ : �
 
 /-- The multiplicity `n(π, ψ)` of `π ⊗ ψ` in the virtual `J_b(ℚ_p) × 𝕋^S`-representation
 `[H_c(Ig^b_{K(N)}, ℚ̄_ℓ)] = Σ_i (−1)^i [colim_m H^i_c(Ig^b_{m,K(N)}, ℚ̄_ℓ)]` (owner: IG.1). -/
-def igusaEulerMult {D : UnitarySimilitudeDatum} {p : ℕ} {k : Type u} [Field k] [IsAlgClosed k]
+def igusaEulerMult {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {p : ℕ} {k : Type u} [Field k] [IsAlgClosed k]
     (N : ℕ)
     (X : PDivGStructure D p (pt k)) (ℓ : ℕ) [Fact ℓ.Prime] (S : Finset ℕ)
-    (π : JIrrep (X.newtonClass) ℓ) (ψ : HeckeAlgebra D S →+* QlBar ℓ) : ℤ := sorry
+    (π : JIrrep (X.newtonClass) ℓ) (ψ : HeckeAlgebra E S →+* QlBar ℓ) : ℤ := sorry
 
 /-- Semisimple `ℚ̄_ℓ`-valued L-parameters of `W_{F_v}` in `GL_{2n}` up to conjugacy, in the sense of
 CSnc Remark 5.1.1 (owner: the local Langlands roadmap for `GL_n`). -/
@@ -7717,8 +7813,8 @@ def AdicRep.localSSParam {D : UnitarySimilitudeDatum} {ℓ : ℕ} [Fact ℓ.Prim
     (ρ : AdicRep D.F (2 * D.n) ℓ) (v : IgPlace D) : LocalSSParam D ℓ v := sorry
 
 /-- `ψ : 𝕋^S → ℚ̄_ℓ` takes values in `ℤ̄_ℓ` and reduces to `𝔪`. -/
-def HeckeCharLifts {D : UnitarySimilitudeDatum} {S : Finset ℕ} {ℓ : ℕ} [Fact ℓ.Prime]
-    (ψ : HeckeAlgebra D S →+* QlBar ℓ) (𝔪 : Ideal (HeckeAlgebra D S)) : Prop :=
+def HeckeCharLifts {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {S : Finset ℕ} {ℓ : ℕ} [Fact ℓ.Prime]
+    (ψ : HeckeAlgebra E S →+* QlBar ℓ) (𝔪 : Ideal (HeckeAlgebra E S)) : Prop :=
   (∀ T, ‖ψ T‖ ≤ 1) ∧ ∀ T ∈ 𝔪, ‖ψ T‖ < 1
 
 /-- (IG.5/igusa-poincare-duality) Hecke-equivariant Poincaré duality on the finite-level Igusa
@@ -7729,15 +7825,15 @@ over `k = k̄`), with `T` on the left corresponding to `ι(T)` on the right; hen
 `H^i_c(Ig)_{𝔪^∨} ≠ 0 ↔ H^{2d_b−i}(Ig)_𝔪 ≠ 0`. The derived form
 `RΓ_c(Ig, Λ) ≅ RHom_Λ(RΓ(Ig, Λ), Λ)[−2d_b](−d_b)` for `Λ = ℤ/ℓ^n, ℤ_ℓ`, and its compatibility with the
 trace transition maps, need a derived-category carrier and are not stated here. -/
-theorem igusaPoincareDuality {D : UnitarySimilitudeDatum} {p : ℕ} [Fact p.Prime] {k : Type u}
+theorem igusaPoincareDuality {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {p : ℕ} [Fact p.Prime] {k : Type u}
     [Field k] [IsAlgClosed k] [CharP k p] (ℓ : ℕ) [Fact ℓ.Prime] (hℓp : ℓ ≠ p) (N : ℕ)
     [Fact (3 ≤ N)] [Fact (¬ (p : ℤ) ∣ N * NumberField.discr D.F)]
     (X : PDivGStructure D p (pt k)) [Fact (IsCompletelySlopeDivisible X.pdiv)] (m : ℕ)
     (S : Finset ℕ) (i : ℕ) (hi : i ≤ 2 * X.newtonClass.dimLeaf) :
     (∃ e : EtHc (MantovanIgusaVariety N X m) (ZMod ℓ) i ≃ₗ[ZMod ℓ]
         Module.Dual (ZMod ℓ) (EtH (MantovanIgusaVariety N X m) (ZMod ℓ) (2 * X.newtonClass.dimLeaf - i)),
-      ∀ (T : HeckeAlgebra D S) x y, e (T • x) y = e x (heckeInvolution D S T • y)) ∧
-    ∀ (𝔪 : Ideal (HeckeAlgebra D S)) [𝔪.IsMaximal],
+      ∀ (T : HeckeAlgebra E S) x y, e (T • x) y = e x (heckeInvolution E S T • y)) ∧
+    ∀ (𝔪 : Ideal (HeckeAlgebra E S)) [𝔪.IsMaximal],
       Nontrivial (localizeAt (dualIdeal 𝔪) (EtHc (MantovanIgusaVariety N X m) (ZMod ℓ) i)) ↔
         Nontrivial (localizeAt 𝔪 (EtH (MantovanIgusaVariety N X m) (ZMod ℓ) (2 * X.newtonClass.dimLeaf - i))) :=
   sorry
@@ -7755,7 +7851,7 @@ theorem galoisRepresentationsForIgusaConstituents {D : UnitarySimilitudeDatum}
     (E : ImagQuadSubfield D) {p ℓ : ℕ} [Fact ℓ.Prime] {S : Finset ℕ} {N : ℕ}
     (hyp : CSStandingHyp E p ℓ S N) {k : Type u} [Field k] [IsAlgClosed k] [CharP k p]
     (X : PDivGStructure D p (pt k)) (π : JIrrep (X.newtonClass) ℓ)
-    (ψ : HeckeAlgebra D S →+* QlBar ℓ) (hmult : igusaEulerMult N X ℓ S π ψ ≠ 0) :
+    (ψ : HeckeAlgebra E S →+* QlBar ℓ) (hmult : igusaEulerMult N X ℓ S π ψ ≠ 0) :
     ∃ ρ : AdicRep D.F (2 * D.n) ℓ, ρ.IsSemisimple ∧
       {v : IgPlace D | ¬ ρ.IsUnramifiedAt (inertiaAt v)}.Finite ∧
       (∀ v : SplitPlace E S, ρ.IsUnramifiedAt (inertiaAt v.v) ∧
@@ -7776,15 +7872,15 @@ and the lattice). -/
 theorem concentratedCohomologyGivesConstituent {D : UnitarySimilitudeDatum}
     (E : ImagQuadSubfield D) {p ℓ : ℕ} [Fact ℓ.Prime] {S : Finset ℕ} {N : ℕ}
     (hyp : CSStandingHyp E p ℓ S N) {k : Type u} [Field k] [IsAlgClosed k] [CharP k p]
-    (X : PDivGStructure D p (pt k)) (𝔪 : Ideal (HeckeAlgebra D S)) [𝔪.IsMaximal]
+    (X : PDivGStructure D p (pt k)) (𝔪 : Ideal (HeckeAlgebra E S)) [𝔪.IsMaximal]
     (hconc : ∃! i, Nontrivial (localizeAt 𝔪 (IgusaCoh N X ℓ i))) :
     (∃ i₀, ∀ i, i ≠ i₀ → Subsingleton (localizeAt (dualIdeal 𝔪) (IgusaCohCZl N X ℓ i))) ∧
     (∀ i (x : localizeAt (dualIdeal 𝔪) (IgusaCohCZl N X ℓ i)),
-      (ℓ : HeckeAlgebra D S) • x = 0 → x = 0) ∧
-    (∃ (π : JIrrep (X.newtonClass) ℓ) (ψ : HeckeAlgebra D S →+* QlBar ℓ),
+      (ℓ : HeckeAlgebra E S) • x = 0 → x = 0) ∧
+    (∃ (π : JIrrep (X.newtonClass) ℓ) (ψ : HeckeAlgebra E S →+* QlBar ℓ),
       igusaEulerMult N X ℓ S π ψ ≠ 0 ∧ HeckeCharLifts ψ (dualIdeal 𝔪)) ∧
     ∃ h : GaloisTypeData E ℓ (dualIdeal 𝔪),
-      ∀ (π : JIrrep (X.newtonClass) ℓ) (ψ : HeckeAlgebra D S →+* QlBar ℓ)
+      ∀ (π : JIrrep (X.newtonClass) ℓ) (ψ : HeckeAlgebra E S →+* QlBar ℓ)
         (ρ : AdicRep D.F (2 * D.n) ℓ), igusaEulerMult N X ℓ S π ψ ≠ 0 →
         HeckeCharLifts ψ (dualIdeal 𝔪) →
         (∀ v : SplitPlace E S, ρ.charpolyAt (frobAt v.v) = (heckePoly v).map ψ) →
@@ -7839,7 +7935,7 @@ ordinary. -/
 theorem genericityForcesOrdinary {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D)
     {p ℓ : ℕ} [Fact ℓ.Prime] {S : Finset ℕ} {N : ℕ} (hyp : CSStandingHyp E p ℓ S N)
     {k : Type u} [Field k] [IsAlgClosed k] [CharP k p] (X : PDivGStructure D p (pt k))
-    (𝔪 : Ideal (HeckeAlgebra D S)) [𝔪.IsMaximal]
+    (𝔪 : Ideal (HeckeAlgebra E S)) [𝔪.IsMaximal]
     (hconc : ∃! i, Nontrivial (localizeAt 𝔪 (IgusaCoh N X ℓ i))) :
     ∃ (h : GaloisTypeData E ℓ 𝔪) (h' : GaloisTypeData E ℓ (dualIdeal 𝔪)),
       h.rho.Iso ((h'.rho.dual).twist (cycloTwist D ℓ (1 - 2 * (D.n : ℤ)))) ∧
@@ -8293,8 +8389,8 @@ instance {D : UnitarySimilitudeDatum} (P : StdParabolicIG D) (S : Finset ℕ) :
     Ring (P.heckeLevi S) := sorry
 
 /-- `r_P : 𝕋^S → 𝕋^S_P`, restriction of functions. -/
-def StdParabolicIG.rP {D : UnitarySimilitudeDatum} (P : StdParabolicIG D) (S : Finset ℕ) :
-    HeckeAlgebra D S →+* P.hecke S := sorry
+def StdParabolicIG.rP {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} (P : StdParabolicIG D) (S : Finset ℕ) :
+    HeckeAlgebra E S →+* P.hecke S := sorry
 
 /-- `r_M : 𝕋^S_P → 𝕋^S_M`, integration along unipotent fibres (`r_M ∘ r_P` is the unnormalized
 Satake transform, ALS.4). -/
@@ -8311,8 +8407,8 @@ def HeckeDerived.restrictScalars {R R' : Type} [Ring R] [Ring R'] (f : R →+* R
     HeckeDerived R' ⥤ HeckeDerived R := sorry
 
 /-- `RΓ_cont(K^S, −) : D^+_sm(G(𝔸^S), 𝔽_ℓ) → D^+(𝕋^S)`. -/
-def rGammaContG (D : UnitarySimilitudeDatum) (S : Finset ℕ) (ℓ : ℕ) :
-    SmoothDerived (GAS D S) ℓ ⥤ HeckeDerived (HeckeAlgebra D S) := sorry
+def rGammaContG (D : UnitarySimilitudeDatum) {E : ImagQuadSubfield D} (S : Finset ℕ) (ℓ : ℕ) :
+    SmoothDerived (GAS D S) ℓ ⥤ HeckeDerived (HeckeAlgebra E S) := sorry
 
 /-- `RΓ_cont(K^S_P, −) : D^+_sm(P(𝔸^S), 𝔽_ℓ) → D^+(𝕋^S_P)`. -/
 def rGammaContP {D : UnitarySimilitudeDatum} (P : StdParabolicIG D) (S : Finset ℕ) (ℓ : ℕ) :
@@ -8331,10 +8427,10 @@ functors below already have this corrected variance. -/
 outside `S` and `K^S_N` pro-prime-to-`ℓ` (`ℓ ∈ S`):
 (1) `RΓ_cont(K^S, Ind^{G(𝔸^S)}_{P(𝔸^S)}(−)) ≅ r_P^* RΓ_cont(K^S_P, −)`;
 (2) `r_M^* RΓ_cont(K^S_M, −) ≅ RΓ_cont(K^S_P, Inf^{P(𝔸^S)}_{M(𝔸^S)}(−))`. -/
-theorem parabolicInductionDerivedInvariants {D : UnitarySimilitudeDatum} (P : StdParabolicIG D)
+theorem parabolicInductionDerivedInvariants {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} (P : StdParabolicIG D)
     (S : Finset ℕ) (ℓ : ℕ) [Fact ℓ.Prime] (hℓ : ℓ ∈ S) :
-    Nonempty (SmoothDerived.ind (P.adelic S) ⋙ rGammaContG D S ℓ ≅
-      rGammaContP P S ℓ ⋙ HeckeDerived.restrictScalars (P.rP S)) ∧
+    Nonempty (SmoothDerived.ind (P.adelic S) ⋙ rGammaContG (E := E) D S ℓ ≅
+      rGammaContP P S ℓ ⋙ HeckeDerived.restrictScalars (P.rP (E := E) S)) ∧
     Nonempty (rGammaContM P S ℓ ⋙ HeckeDerived.restrictScalars (P.rM S) ≅
       SmoothDerived.inf (P.leviProj S) ⋙ rGammaContP P S ℓ) := sorry
 
@@ -8346,7 +8442,7 @@ constituents. -/
 theorem boundaryLengthObstruction {D : UnitarySimilitudeDatum} (E : ImagQuadSubfield D)
     {p ℓ : ℕ} [Fact ℓ.Prime] {S : Finset ℕ} {N : ℕ} (hyp : CSStandingHyp E p ℓ S N)
     {k : Type u} [Field k] [IsAlgClosed k] [CharP k p] (X : PDivGStructure D p (pt k))
-    (𝔪 : Ideal (HeckeAlgebra D S)) [𝔪.IsMaximal] (hℓ : (ℓ : HeckeAlgebra D S) ∈ 𝔪) :
+    (𝔪 : Ideal (HeckeAlgebra E S)) [𝔪.IsMaximal] (hℓ : (ℓ : HeckeAlgebra E S) ∈ 𝔪) :
     ((∃ i, Nontrivial (localizeAt 𝔪 (PartialSupportCoh N X ℓ i)) ∨
         Nontrivial (localizeAt 𝔪 (IgusaCoh N X ℓ i))) → IsGaloisType E ℓ 𝔪) ∧
     ∀ h : GaloisTypeData E ℓ 𝔪,
@@ -8380,8 +8476,8 @@ and their cohomology `H^i(X⁰_{K⁰}, Λ)`, `H^i_c(X⁰_{K⁰}, Λ)`, `H^i(X_K,
 `lssCoh`, `principalLevel`. -/
 
 /-- The inclusion `𝕋^{S'} ⊂ 𝕋^S` for `S ⊆ S'`. -/
-def HeckeAlgebra.restrictIG (D : UnitarySimilitudeDatum) {S S' : Finset ℕ} (h : S ⊆ S') :
-    HeckeAlgebra D S' →+* HeckeAlgebra D S := sorry
+def HeckeAlgebra.restrictIG (D : UnitarySimilitudeDatum) {E : ImagQuadSubfield D} {S S' : Finset ℕ} (h : S ⊆ S') :
+    HeckeAlgebra E S' →+* HeckeAlgebra E S := sorry
 
 /-- Neat compact open subgroups `K ⊂ G⁰(𝔸_f)` (owner: ArithmeticLocallySymmetricSpaces; neatness
 is not expressible with IG.0's carriers, so levels are a carrier type over IG.0's subgroups). -/
@@ -8408,12 +8504,12 @@ def LSBdryCoh {D : UnitarySimilitudeDatum} (K : NeatLevel D) (ℓ i : ℕ) : Typ
 
 instance {D : UnitarySimilitudeDatum} (K : NeatLevel D) (ℓ i : ℕ) :
     AddCommGroup (LSBdryCoh K ℓ i) := sorry
-instance {D : UnitarySimilitudeDatum} (K : NeatLevel D) (S : Finset ℕ) (ℓ i : ℕ) :
-    Module (D.UnitaryHeckeAlgebra S) (LSBdryCoh K ℓ i) := sorry
+instance {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} (K : NeatLevel D) (S : Finset ℕ) (ℓ i : ℕ) :
+    Module (D.UnitaryHeckeAlgebra E S) (LSBdryCoh K ℓ i) := sorry
 
 /-- The forget-supports map `H^i_c(X_K, 𝔽_ℓ) → H^i(X_K, 𝔽_ℓ)`. -/
-def lsForget {D : UnitarySimilitudeDatum} (K : NeatLevel D) (ℓ i : ℕ) (S : Finset ℕ) :
-    D.unitaryLssCohC K.toSubgroup (ZMod ℓ) i →ₗ[D.UnitaryHeckeAlgebra S]
+def lsForget {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} (K : NeatLevel D) (ℓ i : ℕ) (S : Finset ℕ) :
+    D.unitaryLssCohC K.toSubgroup (ZMod ℓ) i →ₗ[D.UnitaryHeckeAlgebra E S]
       D.unitaryLssCoh K.toSubgroup (ZMod ℓ) i := sorry
 
 /-- `ℤ_ℓ`- or `O`-lattices `V_λ` in algebraic representations of `G⁰` (owner:
@@ -8445,43 +8541,43 @@ instance {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (i : ℕ) : AddCommGroup (LSBdryV K V i) := sorry
 instance {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (i : ℕ) : AddCommGroup (LSCohVRat K V i) := sorry
-instance {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
+instance {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (S : Finset ℕ) (i : ℕ) :
-    Module (D.UnitaryHeckeAlgebra S) (LSCohV K V i) := sorry
-instance {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
+    Module (D.UnitaryHeckeAlgebra E S) (LSCohV K V i) := sorry
+instance {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (S : Finset ℕ) (i : ℕ) :
-    Module (D.UnitaryHeckeAlgebra S) (LSCohCV K V i) := sorry
-instance {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
+    Module (D.UnitaryHeckeAlgebra E S) (LSCohCV K V i) := sorry
+instance {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (S : Finset ℕ) (i : ℕ) :
-    Module (D.UnitaryHeckeAlgebra S) (LSBdryV K V i) := sorry
-instance {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
+    Module (D.UnitaryHeckeAlgebra E S) (LSBdryV K V i) := sorry
+instance {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (S : Finset ℕ) (i : ℕ) :
-    Module (D.UnitaryHeckeAlgebra S) (LSCohVRat K V i) := sorry
+    Module (D.UnitaryHeckeAlgebra E S) (LSCohVRat K V i) := sorry
 
 /-- The connecting map `H^i(∂X_K, V_λ) → H^j_c(X_K, V_λ)` of the boundary sequence (meaningful for
 `j = i + 1`). -/
-def lsConnectingV {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
+def lsConnectingV {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (i j : ℕ) (S : Finset ℕ) :
-    LSBdryV K V i →ₗ[D.UnitaryHeckeAlgebra S] LSCohCV K V j := sorry
+    LSBdryV K V i →ₗ[D.UnitaryHeckeAlgebra E S] LSCohCV K V j := sorry
 
 /-- `H^i_c(X_K, V_λ) → H^i(X_K, V_λ)`. -/
-def lsForgetV {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
+def lsForgetV {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (i : ℕ) (S : Finset ℕ) :
-    LSCohCV K V i →ₗ[D.UnitaryHeckeAlgebra S] LSCohV K V i := sorry
+    LSCohCV K V i →ₗ[D.UnitaryHeckeAlgebra E S] LSCohV K V i := sorry
 
 /-- Restriction to the boundary `H^i(X_K, V_λ) → H^i(∂X_K, V_λ)`. -/
-def lsRestrictV {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
+def lsRestrictV {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (i : ℕ) (S : Finset ℕ) :
-    LSCohV K V i →ₗ[D.UnitaryHeckeAlgebra S] LSBdryV K V i := sorry
+    LSCohV K V i →ₗ[D.UnitaryHeckeAlgebra E S] LSBdryV K V i := sorry
 
 /-- `H^i(X_K, V_λ) → H^i(X_K, V_λ[1/ℓ])`. -/
-def lsInvertEllV {D : UnitarySimilitudeDatum} {O : Type} [CommRing O] (K : NeatLevel D)
+def lsInvertEllV {D : UnitarySimilitudeDatum} {E : ImagQuadSubfield D} {O : Type} [CommRing O] (K : NeatLevel D)
     (V : AlgRepLattice D O) (i : ℕ) (S : Finset ℕ) :
-    LSCohV K V i →ₗ[D.UnitaryHeckeAlgebra S] LSCohVRat K V i := sorry
+    LSCohV K V i →ₗ[D.UnitaryHeckeAlgebra E S] LSCohVRat K V i := sorry
 
 /-- The Hecke action on `H^i(S°_{K(p^∞N),C}, 𝔽_ℓ)` (owner: PerfectoidShimuraVarieties). -/
-instance goodReductionLocusInf_hecke (D : UnitarySimilitudeDatum) (p N : ℕ) (S : Finset ℕ)
-    (ℓ i : ℕ) : Module (HeckeAlgebra D S) (DiamondH (GoodReductionLocus.{u} D p N) ℓ i) := sorry
+instance goodReductionLocusInf_hecke (D : UnitarySimilitudeDatum) {E : ImagQuadSubfield D} (p N : ℕ) (S : Finset ℕ)
+    (ℓ i : ℕ) : Module (HeckeAlgebra E S) (DiamondH (GoodReductionLocus.{u} D p N) ℓ i) := sorry
 
 end IG7Carriers
 
@@ -8493,7 +8589,7 @@ variable {D : UnitarySimilitudeDatum}
 `ρ̄_𝔪` is unramified at every `v | p` with `α_{i,v} ≠ p α_{j,v}` for `i ≠ j` (the decomposed-generic
 prime of AG2.7; repeated eigenvalues allowed). -/
 def GaloisTypeData.IsCSWitness {E : ImagQuadSubfield D} {S : Finset ℕ} {ℓ : ℕ} [Fact ℓ.Prime]
-    {𝔪 : Ideal (HeckeAlgebra D S)} (h : GaloisTypeData E ℓ 𝔪) (p : ℕ) : Prop :=
+    {𝔪 : Ideal (HeckeAlgebra E S)} (h : GaloisTypeData E ℓ 𝔪) (p : ℕ) : Prop :=
   p.Prime ∧ p ≠ ℓ ∧ SplitsCompletelyIG D.F p ∧
     ∀ v : IgPlace D, (p : NumberField.RingOfIntegers D.F) ∈ v.asIdeal →
       h.rho.IsUnramifiedAt (inertiaAt v) ∧ h.rho.FrobRatioCond (frobAt v) p
@@ -8502,7 +8598,7 @@ def GaloisTypeData.IsCSWitness {E : ImagQuadSubfield D} {S : Finset ℕ} {ℓ : 
 (ii) `ρ̄_𝔪` of length at most two, (iii) a witness prime `p`. Distinct from non-Eisenstein and
 weaker than CS17 decomposed genericity (`α_i/α_j ∉ {1, q}`). -/
 def IsCSGeneric (E : ImagQuadSubfield D) {S : Finset ℕ} (ℓ : ℕ) [Fact ℓ.Prime]
-    (𝔪 : Ideal (HeckeAlgebra D S)) : Prop :=
+    (𝔪 : Ideal (HeckeAlgebra E S)) : Prop :=
   ∃ h : GaloisTypeData E ℓ 𝔪, 1 < Module.finrank ℚ (NumberField.maximalRealSubfield D.F) ∧
     h.rho.length ≤ 2 ∧ ∃ p, h.IsCSWitness p
 
@@ -8516,11 +8612,11 @@ def IsACCDecomposedGeneric {m pc : ℕ} [Fact pc.Prime] (ρ : ResidualRep D.F m 
 variable {E : ImagQuadSubfield D} {S : Finset ℕ} {ℓ : ℕ} [Fact ℓ.Prime]
 
 /-- `𝔪` is CS-generic iff `𝔪^∨` is (IG.5/dual-hecke-ideal). -/
-theorem IsCSGeneric.dual (𝔪 : Ideal (HeckeAlgebra D S)) :
+theorem IsCSGeneric.dual (𝔪 : Ideal (HeckeAlgebra E S)) :
     IsCSGeneric E ℓ 𝔪 ↔ IsCSGeneric E ℓ (dualIdeal 𝔪) := sorry
 
 /-- CS17 decomposed genericity at a completely split `p` with length `≤ 2` implies CS-genericity. -/
-theorem IsCSGeneric.of_strong {𝔪 : Ideal (HeckeAlgebra D S)} (h : GaloisTypeData E ℓ 𝔪)
+theorem IsCSGeneric.of_strong {𝔪 : Ideal (HeckeAlgebra E S)} (h : GaloisTypeData E ℓ 𝔪)
     (hF : 1 < Module.finrank ℚ (NumberField.maximalRealSubfield D.F))
     (hlen : h.rho.length ≤ 2) (p : ℕ) (hp : p.Prime) (hpℓ : p ≠ ℓ)
     (hsplit : SplitsCompletelyIG D.F p)
@@ -8529,21 +8625,21 @@ theorem IsCSGeneric.of_strong {𝔪 : Ideal (HeckeAlgebra D S)} (h : GaloisTypeD
     IsCSGeneric E ℓ 𝔪 := sorry
 
 /-- If some prime witnesses (iii), infinitely many do (Chebotarev; AG2.7). -/
-theorem IsCSGeneric.infinitely_many_primes {𝔪 : Ideal (HeckeAlgebra D S)}
+theorem IsCSGeneric.infinitely_many_primes {𝔪 : Ideal (HeckeAlgebra E S)}
     (h : GaloisTypeData E ℓ 𝔪) (hw : ∃ p, h.IsCSWitness p) :
     ∀ T : Finset ℕ, ∃ p ∉ T, h.IsCSWitness p := sorry
 
 /-- The ACC+ dictionary: CS-generic iff "decomposed generic and length `≤ 2`" (ACC+ §4.3) with
 `F⁺ ≠ ℚ`, after exchanging the names of the two primes (ACC+'s coefficient prime `p` is `ℓ` here,
 its auxiliary prime `l` is `p` here). -/
-theorem IsCSGeneric.acc_dictionary (𝔪 : Ideal (HeckeAlgebra D S)) :
+theorem IsCSGeneric.acc_dictionary (𝔪 : Ideal (HeckeAlgebra E S)) :
     IsCSGeneric E ℓ 𝔪 ↔ ∃ h : GaloisTypeData E ℓ 𝔪,
       1 < Module.finrank ℚ (NumberField.maximalRealSubfield D.F) ∧ h.rho.length ≤ 2 ∧
         IsACCDecomposedGeneric h.rho := sorry
 
 -- test: IsCSGeneric.reducible_ok — for 2n = 2, χ₁ ⊕ χ₂ unramified above p with χ₁(Frob_v)/χ₂(Frob_v) ∉ {p, p⁻¹} is CS-generic of length two
 example (hn : D.n = 1) (hF : 1 < Module.finrank ℚ (NumberField.maximalRealSubfield D.F))
-    (𝔪 : Ideal (HeckeAlgebra D S)) (h : GaloisTypeData E ℓ 𝔪)
+    (𝔪 : Ideal (HeckeAlgebra E S)) (h : GaloisTypeData E ℓ 𝔪)
     (χ : Fin (2 * D.n) → Field.absoluteGaloisGroup D.F →* (FlBar ℓ)ˣ)
     (hχ : ∀ a, IsOpen ((χ a).ker : Set (Field.absoluteGaloisGroup D.F)))
     (hρ : h.rho.Iso (ResidualRep.ofChars χ hχ)) (p : ℕ) (hp : p.Prime) (hpℓ : p ≠ ℓ)
@@ -8555,7 +8651,7 @@ example (hn : D.n = 1) (hF : 1 < Module.finrank ℚ (NumberField.maximalRealSubf
     IsCSGeneric E ℓ 𝔪 ∧ h.rho.length = 2 := sorry
 
 -- test: IsCSGeneric.reducible_ok — ρ̄ = 1 ⊕ ε̄⁻¹ is not CS-generic (eigenvalue ratio p at every v | p, v ∤ ℓ)
-example (hn : D.n = 1) (𝔪 : Ideal (HeckeAlgebra D S)) (h : GaloisTypeData E ℓ 𝔪)
+example (hn : D.n = 1) (𝔪 : Ideal (HeckeAlgebra E S)) (h : GaloisTypeData E ℓ 𝔪)
     (hχ : ∀ a : Fin (2 * D.n), IsOpen (((fun a : Fin (2 * D.n) =>
       if (a : ℕ) = 0 then (1 : Field.absoluteGaloisGroup D.F →* (FlBar ℓ)ˣ)
       else cycloTwist D ℓ (-1)) a).ker : Set (Field.absoluteGaloisGroup D.F)))
@@ -8565,12 +8661,12 @@ example (hn : D.n = 1) (𝔪 : Ideal (HeckeAlgebra D S)) (h : GaloisTypeData E �
     ¬ IsCSGeneric E ℓ 𝔪 := sorry
 
 -- test: IsCSGeneric.length_three — ρ̄_𝔪 with three or more Jordan–Hölder constituents is never CS-generic
-example (𝔪 : Ideal (HeckeAlgebra D S)) (h : GaloisTypeData E ℓ 𝔪) (hlen : 3 ≤ h.rho.length) :
+example (𝔪 : Ideal (HeckeAlgebra E S)) (h : GaloisTypeData E ℓ 𝔪) (hlen : 3 ≤ h.rho.length) :
     ¬ IsCSGeneric E ℓ 𝔪 := sorry
 
 -- test: IsCSGeneric.not_noneisenstein — the reducible χ₁ ⊕ χ₂ of reducible_ok is CS-generic and Eisenstein
 example (hn : D.n = 1) (hF : 1 < Module.finrank ℚ (NumberField.maximalRealSubfield D.F))
-    (𝔪 : Ideal (HeckeAlgebra D S)) (h : GaloisTypeData E ℓ 𝔪)
+    (𝔪 : Ideal (HeckeAlgebra E S)) (h : GaloisTypeData E ℓ 𝔪)
     (χ : Fin (2 * D.n) → Field.absoluteGaloisGroup D.F →* (FlBar ℓ)ˣ)
     (hχ : ∀ a, IsOpen ((χ a).ker : Set (Field.absoluteGaloisGroup D.F)))
     (hρ : h.rho.Iso (ResidualRep.ofChars χ hχ)) (p : ℕ) (hp : p.Prime) (hpℓ : p ≠ ℓ)
@@ -8718,7 +8814,7 @@ witness prime `p` (completely split in `F`), then `H^i(Ig^b, 𝔽_ℓ)_𝔪 ≠ 
 degrees `≥ d`). -/
 theorem onlyOrdinaryContributes (E : ImagQuadSubfield D) {p ℓ : ℕ} [Fact ℓ.Prime]
     {S : Finset ℕ} {N : ℕ} (hyp : CSStandingHyp E p ℓ S N) {k : Type u} [Field k]
-    [IsAlgClosed k] [CharP k p] (𝔪 : Ideal (HeckeAlgebra D S)) [𝔪.IsMaximal]
+    [IsAlgClosed k] [CharP k p] (𝔪 : Ideal (HeckeAlgebra E S)) [𝔪.IsMaximal]
     (h : GaloisTypeData E ℓ 𝔪) (hlen : h.rho.length ≤ 2) (hw : h.IsCSWitness p) :
     (∀ (X : PDivGStructure D p (pt k)) (i : ℕ), Nontrivial (localizeAt 𝔪 (IgusaCoh N X ℓ i)) →
       X.newtonClass = KottwitzSet.ordinary D p ∧ D.dim ≤ i) ∧
@@ -8735,11 +8831,11 @@ omitted here because its statement needs the SF.2/SR geometric continuous étale
 Hecke-localization interface. The README specifies the full target; the
 arbitrary-level datum must contain an actual good prime and normal cover. -/
 theorem levelDescent (E : ImagQuadSubfield D) {p ℓ : ℕ} [Fact ℓ.Prime] {S : Finset ℕ} {N : ℕ}
-    (hyp : CSStandingHyp E p ℓ S N) (𝔪 : Ideal (HeckeAlgebra D S)) [𝔪.IsMaximal] :
+    (hyp : CSStandingHyp E p ℓ S N) (𝔪 : Ideal (HeckeAlgebra E S)) [𝔪.IsMaximal] :
     ((∀ i < D.dim, Subsingleton (localizeAt 𝔪 (DiamondH (GoodReductionLocus.{u} D p N) ℓ i))) →
       ∀ i < D.dim, Subsingleton (localizeAt 𝔪 (D.lssCoh (D.principalLevel N) (ZMod ℓ) i))) ∧
     ((∀ i < D.dim, Subsingleton (localizeAt 𝔪 (D.lssCoh (D.principalLevel N) (ZMod ℓ) i))) →
-      ∀ (𝔪₀ : Ideal (D.UnitaryHeckeAlgebra S)) [𝔪₀.IsMaximal], 𝔪₀.comap (D.heckeRestrict S) = 𝔪 →
+      ∀ (𝔪₀ : Ideal (D.UnitaryHeckeAlgebra E S)) [𝔪₀.IsMaximal], 𝔪₀.comap (D.heckeRestrict E S) = 𝔪 →
         ∀ i < D.dim, Subsingleton (LocalizedModule 𝔪₀.primeCompl (D.unitaryLssCoh (levelK0 D N).toSubgroup (ZMod ℓ) i))) := sorry
 
 /-- (IG.7/caraiani-scholze-vanishing) Caraiani–Scholze, Theorem 1.1: for `F ⊇ F₀` CM with `F⁺ ≠ ℚ`,
@@ -8750,9 +8846,9 @@ in degree `d` is not asserted.) -/
 theorem caraianiScholzeVanishing (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ.Prime]
     {S : Finset ℕ} (K : NeatLevel D) (hK : K.badPrimes ⊆ S) (hℓ : ℓ ∈ S)
     (hdisc : ∀ q : ℕ, q.Prime → q ∣ (NumberField.discr D.F).natAbs → q ∈ S)
-    (𝔪 : Ideal (D.UnitaryHeckeAlgebra S)) [𝔪.IsMaximal]
+    (𝔪 : Ideal (D.UnitaryHeckeAlgebra E S)) [𝔪.IsMaximal]
     (hsupp : ∃ i, Nontrivial (LocalizedModule 𝔪.primeCompl (D.unitaryLssCoh K.toSubgroup (ZMod ℓ) i)))
-    (hgen : IsCSGeneric E ℓ (𝔪.comap (D.heckeRestrict S))) :
+    (hgen : IsCSGeneric E ℓ (𝔪.comap (D.heckeRestrict E S))) :
     (∀ i, Nontrivial (LocalizedModule 𝔪.primeCompl (D.unitaryLssCoh K.toSubgroup (ZMod ℓ) i)) → D.dim ≤ i) ∧
     (∀ i, Nontrivial (LocalizedModule 𝔪.primeCompl (D.unitaryLssCohC K.toSubgroup (ZMod ℓ) i)) → i ≤ D.dim) := sorry
 
@@ -8763,13 +8859,13 @@ theorem caraianiScholzeVanishing (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ.
 theorem integralAndLocalSystemVersions (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ.Prime]
     {S : Finset ℕ} (K : NeatLevel D) (hK : K.badPrimes ⊆ S) (hℓ : ℓ ∈ S)
     (hdisc : ∀ q : ℕ, q.Prime → q ∣ (NumberField.discr D.F).natAbs → q ∈ S)
-    (𝔪 : Ideal (D.UnitaryHeckeAlgebra S)) [𝔪.IsMaximal]
+    (𝔪 : Ideal (D.UnitaryHeckeAlgebra E S)) [𝔪.IsMaximal]
     (hsupp : ∃ i, Nontrivial (LocalizedModule 𝔪.primeCompl (D.unitaryLssCoh K.toSubgroup (ZMod ℓ) i)))
-    (hgen : IsCSGeneric E ℓ (𝔪.comap (D.heckeRestrict S))) (V : AlgRepLattice D (PadicInt ℓ)) :
+    (hgen : IsCSGeneric E ℓ (𝔪.comap (D.heckeRestrict E S))) (V : AlgRepLattice D (PadicInt ℓ)) :
     (∀ i < D.dim, Subsingleton (LocalizedModule 𝔪.primeCompl (LSCohV K V i))) ∧
     (∀ i, D.dim < i → Subsingleton (LocalizedModule 𝔪.primeCompl (LSCohCV K V i))) ∧
     (∀ x : LocalizedModule 𝔪.primeCompl (LSCohV K V D.dim),
-      (ℓ : D.UnitaryHeckeAlgebra S) • x = 0 → x = 0) ∧
+      (ℓ : D.UnitaryHeckeAlgebra E S) • x = 0 → x = 0) ∧
     Function.Injective (locMapIG 𝔪 (lsConnectingV K V (D.dim - 1) D.dim S)) ∧
     Function.Exact (locMapIG 𝔪 (lsConnectingV K V (D.dim - 1) D.dim S))
       (locMapIG 𝔪 (lsForgetV K V D.dim S)) ∧
@@ -8783,10 +8879,10 @@ concentrated in degree `d` and torsion-free. -/
 theorem irreducibleSpecialization (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ.Prime]
     {S : Finset ℕ} (K : NeatLevel D) (hK : K.badPrimes ⊆ S) (hℓ : ℓ ∈ S)
     (hdisc : ∀ q : ℕ, q.Prime → q ∣ (NumberField.discr D.F).natAbs → q ∈ S)
-    (𝔪 : Ideal (D.UnitaryHeckeAlgebra S)) [𝔪.IsMaximal]
+    (𝔪 : Ideal (D.UnitaryHeckeAlgebra E S)) [𝔪.IsMaximal]
     (hsupp : ∃ i, Nontrivial (LocalizedModule 𝔪.primeCompl (D.unitaryLssCoh K.toSubgroup (ZMod ℓ) i)))
-    (hgen : IsCSGeneric E ℓ (𝔪.comap (D.heckeRestrict S)))
-    (h : GaloisTypeData E ℓ (𝔪.comap (D.heckeRestrict S))) (hirr : h.rho.IsAbsIrreducible) :
+    (hgen : IsCSGeneric E ℓ (𝔪.comap (D.heckeRestrict E S)))
+    (h : GaloisTypeData E ℓ (𝔪.comap (D.heckeRestrict E S))) (hirr : h.rho.IsAbsIrreducible) :
     (∀ i, Subsingleton (LocalizedModule 𝔪.primeCompl (LSBdryCoh K ℓ i))) ∧
     (∀ i, Function.Bijective (locMapIG 𝔪 (lsForget K ℓ i S))) ∧
     (∀ i, i ≠ D.dim → Subsingleton (LocalizedModule 𝔪.primeCompl (D.unitaryLssCoh K.toSubgroup (ZMod ℓ) i)) ∧
@@ -8794,7 +8890,7 @@ theorem irreducibleSpecialization (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ
     (∀ i, i ≠ D.dim → Subsingleton (LocalizedModule 𝔪.primeCompl
       (LSCohV K (AlgRepLattice.trivial D (PadicInt ℓ)) i))) ∧
     ∀ x : LocalizedModule 𝔪.primeCompl (LSCohV K (AlgRepLattice.trivial D (PadicInt ℓ)) D.dim),
-      (ℓ : D.UnitaryHeckeAlgebra S) • x = 0 → x = 0 := sorry
+      (ℓ : D.UnitaryHeckeAlgebra E S) • x = 0 → x = 0 := sorry
 
 /-- (IG.7/acc-middle-degree-export) ACC+ Theorem4.3.3, with its coefficient
 prime p renamed ℓ: for a genuine finite characteristic-zero coefficient integer
@@ -8813,9 +8909,9 @@ theorem accMiddleDegreeExport (E : ImagQuadSubfield D) {ℓ : ℕ} [Fact ℓ.Pri
       (Ideal.span {(l : NumberField.RingOfIntegers D.F)}).IsRadical ∨
         ∃ E' : ImagQuadSubfield D, E'.SplitsAt l)
     (hF : 1 < Module.finrank ℚ (NumberField.maximalRealSubfield D.F))
-    (V : AlgRepLattice D O) (𝔪 : Ideal (D.UnitaryHeckeAlgebra S)) [𝔪.IsMaximal]
+    (V : AlgRepLattice D O) (𝔪 : Ideal (D.UnitaryHeckeAlgebra E S)) [𝔪.IsMaximal]
     (hsupp : ∃ i, Nontrivial (LocalizedModule 𝔪.primeCompl (LSCohV K V i)))
-    (h : GaloisTypeData E ℓ (𝔪.comap (D.heckeRestrict S))) (hlen : h.rho.length ≤ 2)
+    (h : GaloisTypeData E ℓ (𝔪.comap (D.heckeRestrict E S))) (hlen : h.rho.length ≤ 2)
     (hdg : IsACCDecomposedGeneric h.rho) :
     Function.Injective (locMapIG 𝔪 (lsInvertEllV K V D.dim S)) ∧
       Function.Surjective (locMapIG 𝔪 (lsRestrictV K V D.dim S)) := sorry
@@ -8836,9 +8932,9 @@ theorem middleDegreeWithoutLengthHypothesis (E : ImagQuadSubfield D) {ℓ : ℕ}
     (hT : ∀ l : ℕ, l.Prime → l ∉ T →
       (Ideal.span {(l : NumberField.RingOfIntegers D.F)}).IsRadical ∨
         ∃ E' : ImagQuadSubfield D, E'.SplitsAt l)
-    (V : AlgRepLattice D O) (𝔪 : Ideal (D.UnitaryHeckeAlgebra T)) [𝔪.IsMaximal]
+    (V : AlgRepLattice D O) (𝔪 : Ideal (D.UnitaryHeckeAlgebra E T)) [𝔪.IsMaximal]
     (hsupp : ∃ i, Nontrivial (LocalizedModule 𝔪.primeCompl (LSCohV K V i)))
-    (h : GaloisTypeData E ℓ (𝔪.comap (D.heckeRestrict T))) (hdg : IsACCDecomposedGeneric h.rho) :
+    (h : GaloisTypeData E ℓ (𝔪.comap (D.heckeRestrict E T))) (hdg : IsACCDecomposedGeneric h.rho) :
     Function.Injective (locMapIG 𝔪 (lsInvertEllV K V D.dim T)) ∧
       Function.Surjective (locMapIG 𝔪 (lsRestrictV K V D.dim T)) := sorry
 

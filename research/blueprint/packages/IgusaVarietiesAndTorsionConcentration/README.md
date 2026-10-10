@@ -91,6 +91,8 @@ The starting point is an explicit unitary datum and its representable good-reduc
 
 Hypotheses: F is a CM field, n ≥ 1, L ⊂ V is a self-dual O_F-lattice for (·,·). K ⊂ G(𝔸_f) is neat (K(N) with N ≥ 3 is neat). The Hecke operators T_{i,v} are only defined for v above primes p ∉ S split in the imaginary quadratic subfield F₀ ⊂ F; when F contains no such F₀ only the level and the space are used.
 
+For the Hecke interfaces keep the chosen subfield E = F₀ explicit: index the restricted product by primes q ∉ S split in E, take K^S to be the product of the images of G(ℤ_q), and Δ the whole group. Use Mathlib's `RestrictedProduct` and the completed RestrictedProducts integral-subgroup interface. Then `HeckeAlgebra E S` is the native `HeckeRing Δ K^S ℤ`, with its convolution ring instance under `IsHeckeTriple Δ K^S K^S`; `[K^SgK^S]` is its single double-coset basis vector. SR.1 supplies commensurability and spherical commutativity for this datum. All Hecke actions and operators carry the same E. The geometric datum requires no E.
+
 Required API:
 
 - `UnitarySimilitudeDatum.group`: The group scheme G over ℤ with its similitude character c : G → 𝔾_m.
@@ -108,9 +110,9 @@ Examples and tests:
 - G⁰(ℚ) ≠ G(ℚ): the scalar 2 ∈ ℚ^× ⊂ F^× lies in G(ℚ) with similitude factor c = 4 ≠ 1, so it is not in G⁰(ℚ).
 - For a ℚ-algebra R, G⁰(R) = {g ∈ GL_{2n}(F ⊗ R) : gᵀ J ḡ = J}, J the antidiagonal matrix of ⟨·,·⟩ (signature (n, n)); this is not Mathlib's Matrix.unitaryGroup, which preserves the identity form, and over ℤ the lattice L ⊗ R need not be free over O_F ⊗ R unless the different is principal.
 
-Prerequisites: `PEL:M0`, `tauceti:TauCeti.ReductiveAffineGroupSchemeCat`, `mathlib:Matrix.unitaryGroup`, `mathlib:NumberField.IsCMField`.
+Prerequisites: `PEL:M0`, `tauceti:TauCeti.ReductiveAffineGroupSchemeCat`, `mathlib:Matrix.unitaryGroup`, `mathlib:NumberField.IsCMField`; for the Hecke datum, `mathlib:RestrictedProduct`, `tauceti:HeckeCosetModule.instRingHeckeRing`, `SR:SR.1`.
 
-Source: [csnc](#ref-csnc), CSnc §2.1, p. 11.
+Source: [csnc](#ref-csnc), CSnc §2.1, p. 11; §5.1, p. 64 for the split-prime Hecke datum.
 
 <a id="ig-0-unitary-subgroup-comparison"></a>
 
@@ -1338,14 +1340,14 @@ Required API:
 - `heckeInvolution_T`: ι(T_{i,v}) = T_{2n,v}^{−1}T_{2n−i,v}.
 - `dualIdeal_galois`: ρ_{𝔪^∨} ≅ ρ_𝔪^∨ ⊗ |Art_F^{−1}|^{1−2n}; eigenvalues q_v^{2n−1}α_{i,v}^{−1}.
 - `dualIdeal_preserves`: Length, unramifiedness at places v ∤ ℓ and the condition α_i ≠ q_vα_j are invariant under 𝔪 ↦ 𝔪^∨ (above ℓ the twist |Art_F^{−1}|^{1−2n} reduced mod ℓ is in general ramified).
-- `heckeInvolution_compat_tauceti`: ι agrees with the Tau Ceti HeckeAntiInvolution.ofAmbient construction for the inversion anti-automorphism.
+- `heckeInvolution_compat_tauceti`: On every native basis vector, ι is the linear lift of `onHeckeCoset` for `HeckeAntiInvolution.ofAmbient` applied to inversion; the rule uniquely determines the ring endomorphism. Its multiplicativity uses the unimodular spherical datum and separate commutativity input. Inversion need not fix double cosets.
 
 Examples and tests:
 
 - (𝔪^∨)^∨ = 𝔪.
 - For 2n = 2 and eigenvalues {α, β} of ρ_𝔪(Frob_v), the eigenvalues for 𝔪^∨ are {q_v/α, q_v/β}.
 - 𝔪^∨ ≠ 𝔪 in general: for ρ_𝔪 with eigenvalues {1, 2} at q_v = 7 over 𝔽_ℓ, ℓ = 11, the dual has eigenvalues {7, 7/2}.
-- ι is induced by HeckeAntiInvolution.ofAmbient applied to g ↦ g^{−1} (Tau Ceti, TauCeti/NumberTheory/HeckeRing/Commutativity.lean).
+- On `HeckeCosetModule.of (Finsupp.single c 1)`, ι gives the same native single basis vector at `onHeckeCoset c` for the `ofAmbient` inversion datum (Tau Ceti, TauCeti/NumberTheory/HeckeRing/Commutativity.lean).
 
 Prerequisites: `tauceti:HeckeAntiInvolution.ofAmbient`, `tauceti:HeckeAntiInvolution.onHeckeCoset`, `tauceti:HeckeCosetModule.instRingHeckeRing`, `SR:SR.1`, `AGII:AG2.7`, `IHG:IHG.3`, `tauceti:TauCetiRoadmap`, `IG.0`.
 
