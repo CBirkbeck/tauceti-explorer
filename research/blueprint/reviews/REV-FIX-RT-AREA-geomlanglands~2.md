@@ -1,9 +1,11 @@
 # Independent review of the second geometrisation fix
 
-Reviewer: Codex, session `codex-8zLSxs`; job #5161;
+Reviewer: Codex, session `codex-41biYK`; job #5161;
 `independent-review-REV-FIX-RT-AREA-geomlanglands~2`, 10 October 2026.
-Input: atlas main `9849e286b`, including `FIX-RT-AREA-geomlanglands~2`
-by session `codex-rtOQ9t`. This reviewer did none of that fix.
+Input: atlas main `aa195923d`, including `FIX-RT-AREA-geomlanglands~2`
+by session `codex-rtOQ9t` and the previous review checkpoint by `codex-8zLSxs`
+(PR #8474). This reviewer did none of that fix. This continuation independently
+rechecks the bounded review and records why its intake cannot finish the job.
 
 ## Verdict and scope
 
@@ -16,9 +18,9 @@ The complete red-team result, verifier and second-round fix report were read,
 including /33–39. The review distinguishes an adequate excluded-owner handoff
 from a mathematical correction actually present in an allowlisted packet.
 It does not re-review all older nodes, pending iwasawa fixes, or upstream roadmaps.
-Both immediately preceding packet review objects are preserved unchanged in
-`reviewHistory`; they were the algebraic-geometry second-round reviews dated
-2026-10-10.
+The previous same-job checkpoint verdicts are preserved unchanged in
+`reviewHistory`, along with the older algebraic-geometry reviews. This review
+retains the checkpoint’s mathematical corrections after checking them.
 
 Only the two packet review objects, the specified motives corrections, the motives
 suggested file and this review's report/handoff change. The scheme suggested file
@@ -26,7 +28,7 @@ was checked unchanged. Readers, source-item routing, consumer packets, campaign
 files, decompositions, links and the live stage graph are outside this issue's
 edit scope.
 
-## Corrections made
+## Corrections retained from the previous checkpoint
 
 1. Fixed the relative finite-piece monad convention. Transporting through symmetry
    to `A_i ⊗ V` gives **left** `A_i`-modules and **right** dual-coalgebra comodules.
@@ -55,6 +57,24 @@ edit scope.
    coverage. Replaced the packet review verdicts with the bounded verdicts above.
    The suggested-file header records this review's successful elaboration and
    distinguishes it from the historical unchecked input.
+
+## Correction made in this continuation
+
+Replaced the finite-piece Beck supplier with the already pinned
+`CategoryTheory.Monad.monadicOfHasPreservesGSplitCoequalizersOfReflectsIsomorphisms`.
+The ordinary step uses the specified adjunction, conservativity, existence and
+preservation of split coequalizers. Its library proof derives reflection;
+a separate reflection-instance construction is unnecessary. The new
+`OrdinaryBeck` example states these hypotheses with actual categories and
+functors, and proves monadicity by that supplier without a placeholder proof.
+It retains the pinned theorem’s common hom-universe requirement.
+
+Updated the baseline credit, prerequisite, proof plan, suggested inventory and
+gap together. This closes only the ordinary sufficient-hypothesis application.
+It does not establish preservation under the printed FS VI.10.2 hypotheses,
+construct the relative adjunction or tensor monad, or supply any of the missing
+internal-comodule/neutral reconstruction interfaces. The verdict stays
+`needs_changes` without replanning Beck or known-Hopf reconstruction.
 
 ## Finding-by-finding decisions
 
@@ -107,8 +127,8 @@ verifier. /33–39 were not enumerated in the original fix issue.
 
 ## Source and baseline checks for /17
 
-The review read the relevant public source pages directly, not just the fix's
-citations. These were selected-page reads, not full-paper extractions. All results
+This continuation freshly downloaded and reread the public source pages in
+the receipt table, rather than relying on the previous checkpoint’s citations. These were selected-page reads, not full-paper extractions. All results
 here and in the packet are stated in the reviewer's own words.
 
 | Public text | Locations read for this review | SHA-256; accessed |
@@ -150,13 +170,15 @@ upstream ReductiveGroups layer 6. FS p.236 uses the rational recognition route;
 p.237's separate finite-subgroup argument is not a characteristic-p version of
 DM 2.22.
 
-The following baseline statements were read at Mathlib
+The following baseline boundaries are retained after rechecking the relevant
+source statements and the finite-piece Beck variants at Mathlib
 `082e2d37e8b0463410cdb532e111cd43d5a66174` and Tau Ceti
 `f790474821cf4256814db967cb154e7af3d0c369`, rather than inferred from their names:
 
 | Existing supplier | Boundary checked |
 | --- | --- |
 | Mathlib `CategoryTheory.Monad.monadicOfHasPreservesReflectsGSplitCoequalizers`, `CategoryTheory/Monad/Monadicity.lean` | Requires an adjunction and existence, preservation **and** reflection of split coequalizers. It supplies ordinary Beck, not the relative tensor/comodule adapter. |
+| Mathlib `CategoryTheory.Monad.monadicOfHasPreservesGSplitCoequalizersOfReflectsIsomorphisms`, same file, lines 361–373 | Uses conservativity with existence and preservation, deriving reflection internally. Reused directly in the new typed `OrdinaryBeck` example; preservation remains an assumption. |
 | Mathlib `CategoryTheory.Ind`, `CategoryTheory/Limits/Indization/Category.lean` | Ind-objects and a fully faithful embedding exist. A monoidal extension and internal-comodule comparison are not supplied by this definition. |
 | Mathlib `CategoryTheory.BimonObj`, `CategoryTheory/Monoidal/Bimon_.lean` | Supplies compatibility laws, not reconstruction of an object from a fibre functor. |
 | Mathlib `TannakaDuality.FiniteGroup.equiv`, `RepresentationTheory/Tannaka.lean` | Starts with a finite group and a commutative domain of scalars. |
@@ -174,7 +196,12 @@ Current upstream main was also read at
 `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`: the ReductiveGroups roadmap and the
 RepresentationTheory index and SemisimpleAlgebras roadmap, together with the
 relevant newer roadmap/library searches. Current Tau Ceti was checked at
-`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. These do not already provide the
+`a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`. The shared build’s
+`GroupFunctor.lean` and representation/comodule `Equivalence.lean` were also
+compared byte-for-byte with the pinned Tau Ceti git objects; both match. The
+upstream ReductiveGroups `Suggested.lean` was read: its typed examples cover
+layer 0, so the layer-1 dictionary and layer-6 recognition remain roadmap
+imports rather than invented abstract-reconstruction implementations. These do not already provide the
 arbitrary-fibre-functor construction planned here. Known-Hopf reconstruction and
 the upstream representation/reductivity suppliers remain imports. The reader
 and current library check do not change the pinned baseline or certify all
@@ -185,7 +212,8 @@ upstream roadmaps.
 The substantive source-to-library bridge remains open: FS VI.10.2 prints
 existence and reflection of F-split coequalizers; the pinned Beck theorem also
 requires preservation. The input acknowledges this and adds preservation to a
-sufficient-hypothesis version. That stronger version does not discharge the
+sufficient-hypothesis version, whose ordinary Beck step is now typed and proved
+using the native conservative variant. That stronger version does not discharge the
 source's target. The next fix must construct the needed instance under a precise
 source convention, or explicitly separate the stronger theorem and retain the
 printed target as an unmet obligation. This is an interface gap, not a claim that
@@ -213,11 +241,38 @@ or neutral targets after its own hypotheses are checked, rather than a whole
 late MC.6 stage. The excluded reader must later be reconciled with this review's
 convention and test corrections by a job authorized to edit it.
 
-## Validation
+## Submission blocker: issue and queue disagree
+
+The bot confirmed this session’s claim on #5161. Its issue body explicitly
+names the two packets above and their suggested files; its full instructions
+also restrict the files under review to those two packets. WORKERS.md requires
+workers to edit only issue-named files plus their handoff. By contrast,
+`queue.json` lists sixteen packets and their sixteen suggested files for this
+same job. `issues.py:deliverables_complete`, lines 564–574, requires this
+reviewer identifier and a verdict on **every** queued packet. The predicate
+returns `False` on the current checkout even though both authorized verdicts
+are present. These fourteen excluded packets carry other review identifiers:
+
+- GeometricSatakeAndFusion--GS0, GeometricSatakeAndFusion--GS3;
+- ExcursionOperatorsAndSpectralAction--ES0, --ES5, --ES7;
+- HeckeStacksAndLocalShtukas, LanglandsParameterStacks, BunGAndNewtonStrata;
+- AdelicAlgebraicGroups, EtaleDualityAndPerverseSheaves--EDC.4;
+- VStackSheavesAndLisseCategories, PotentialAutomorphyInfrastructure;
+- VectorBundlesAndIsocrystals--VB0, IgusaVarietiesAndTorsionConcentration.
+
+Changing those verdicts without reviewing their fixes would falsely certify
+work; their files are outside the issue’s authorization in any case. The
+maintainer must reconcile the issue and queue, either limiting the queue to the
+two specified packets or explicitly issuing the wider review scope with its
+independence/ownership checks. This is the reason for a **blocked checkpoint**,
+not an unfinished two-packet review or a request to revisit the same verdicts.
+No queue, excluded packet, issue label or live graph is edited here.
+
+## Validation in this continuation
 
 - `scripts/check_blueprint.py` on both packets: **0 errors, 0 warnings** at the
   pinned declaration index. Scheme: 303 nodes, 253 API entries, 236 tests, 191
-  baseline declarations. Motives: 182 nodes, 451 API entries, 255 tests, 109
+  baseline declarations. Motives: 182 nodes, 451 API entries, 255 tests, 110
   baseline declarations. Its 23 gaps and 16 requests remain explicit.
 - Full suggested-file elaboration with the shared pinned `lean-check` build,
   one file at a time: scheme exit 0, 362 declaration-uses-`sorry` warnings;
@@ -226,17 +281,22 @@ convention and test corrections by a job authorized to edit it.
 - Scheme suggested SHA-256:
   `7d7dd0439924404df02f6ed8f1761e2751b060c04ff98710d7616deb9d4ce66e`.
   Final motives suggested SHA-256:
-  `6251d873dabe50917470c218184c89c80ffd19d9784b74694eb6358ab904839d`.
+  `b70a62b2a4b19ebf7861752e91a09acfdf3693c529f6d348b922eb01e94c3f7c`.
 - Structural comparison preserves every old node identifier, all 47 motives
-  source issues and all 10 scheme source issues, and the immediately preceding
-  reviews exactly. Scheme mathematics is unchanged. No `excerpt` keys remain
+  source issues and all 10 scheme source issues, and all earlier history exactly, including the immediately preceding
+  reviews archived by this continuation. Scheme mathematics is unchanged. No `excerpt` keys remain
   in either edited packet. The ten-node abstract closure is acyclic and has no
   MC.5 dependency.
+- An inventory scan excluding Lean comments confirms that only
+  `neutralFiniteHull` of the sixteen construction API names is declared; none
+  of the original 24 named tests is declared. The ordinary Beck application
+  is separate from those missing reconstruction signatures.
 - No link map or standalone restructuring result is under review, so
   `check_links.py` and `check_restructure.py` have no applicable input. The embedded
   packet proposal is checked by the packet checker and inspected above; it is
   not a standalone RS result. Submission-path validation and `git diff --check`
   also pass.
 
-This is a completed independent review returning a precise revision list, not a
-checkpoint of unfinished review work.
+The authorized independent review is complete and returns a precise revision
+list. Submission remains a blocked checkpoint solely because the queue’s
+completion scope exceeds the issue’s allowed files.
