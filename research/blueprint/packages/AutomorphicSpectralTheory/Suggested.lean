@@ -1831,10 +1831,13 @@ def sphericalKernel (s : ℂ) (u : ℝ) : ℂ →L[ℂ] ℂ :=
     rpowC (1 + u ^ 2) (-s)) • ContinuousLinearMap.id ℂ ℂ
 
 def permuteBlocks {n : ℕ} (w : Equiv.Perm (Fin n)) :
-    (Fin n → ℂ) →L[ℂ] (Fin n → ℂ) := by sorry
+    (Fin n → ℂ) →L[ℂ] (Fin n → ℂ) :=
+  (ContinuousLinearEquiv.piCongrLeft ℂ (fun _ : Fin n => ℂ) w).toContinuousLinearMap
 
 theorem permuteBlocks_apply {n : ℕ} (w : Equiv.Perm (Fin n))
-    (v : Fin n → ℂ) (i : Fin n) : permuteBlocks w v i = v (w.symm i) := by sorry
+    (v : Fin n → ℂ) (i : Fin n) : permuteBlocks w v i = v (w.symm i) := by
+  change (Equiv.piCongrLeft (fun _ : Fin n => ℂ) w) v i = _
+  simp only [Equiv.piCongrLeft_apply_eq_cast, cast_eq]
 
 /-- The tuple is (inducing labels, spectral parameter). Both are transported,
 so this slice cannot replace the target picture by an unrelated endomorphism. -/
@@ -1844,13 +1847,15 @@ def transportDatum {n : ℕ} (w : Equiv.Perm (Fin n))
 
 theorem identity_quotient (v : ℂ) :
     convergent_intertwiner (Measure.dirac ())
-      (fun _ : Unit => ContinuousLinearMap.id ℂ ℂ) v = v := by sorry
+      (fun _ : Unit => ContinuousLinearMap.id ℂ ℂ) v = v := by
+  simp [convergent_intertwiner]
 
 -- Specification test: TauCeti.AutomorphicSpectral.convergent_intertwiner.identity_quotient
 -- The actual point-quotient integral returns the original vector.
 example (v : ℂ) :
     convergent_intertwiner (Measure.dirac ())
-      (fun _ : Unit => ContinuousLinearMap.id ℂ ℂ) v = v := by sorry
+      (fun _ : Unit => ContinuousLinearMap.id ℂ ℂ) v = v := by
+  simp [convergent_intertwiner]
 
 theorem sl2_spherical (s : ℂ) (hs : 1 < s.re) :
     Integrable (sphericalKernel s) (volume : Measure ℝ) ∧
@@ -1868,7 +1873,10 @@ theorem target_parabolic {n : ℕ} (w : Equiv.Perm (Fin n))
     (datum parameter v : Fin n → ℂ) (i : Fin n) :
     transportDatum w datum parameter = (datum ∘ w.symm, parameter ∘ w.symm) ∧
       convergent_intertwiner (Measure.dirac ())
-        (fun _ : Unit => permuteBlocks w) v i = v (w.symm i) := by sorry
+        (fun _ : Unit => permuteBlocks w) v i = v (w.symm i) := by
+  constructor
+  · rfl
+  · simp [convergent_intertwiner, permuteBlocks_apply]
 
 -- Specification test: TauCeti.AutomorphicSpectral.convergent_intertwiner.target_parabolic
 -- The block-permutation slice transports both inducing labels and parameter, and its operator integral applies the same permutation to the section coordinates; full GL_n induction coherence is required.
@@ -1876,7 +1884,10 @@ example {n : ℕ} (w : Equiv.Perm (Fin n))
     (datum parameter v : Fin n → ℂ) (i : Fin n) :
     transportDatum w datum parameter = (datum ∘ w.symm, parameter ∘ w.symm) ∧
       convergent_intertwiner (Measure.dirac ())
-        (fun _ : Unit => permuteBlocks w) v i = v (w.symm i) := by sorry
+        (fun _ : Unit => permuteBlocks w) v i = v (w.symm i) := by
+  constructor
+  · rfl
+  · simp [convergent_intertwiner, permuteBlocks_apply]
 end convergent_intertwiner
 
 /- The following is the one-dimensional full-height specialization. The forward
@@ -2755,29 +2766,45 @@ def continuedSphericalIntegral (q : ℝ) (z : ℂ) : ℂ →L[ℂ] ℂ :=
 
 variable {N : Type w} [MeasurableSpace N] (μ : Measure N) (k : ℂ → N → H →L[ℂ] K)
 
+omit [CompleteSpace H] in
 theorem intertwines {G : Type*} [Group G] (IP : ℂ → G → Operator H)
     (IQ : ℂ → G → Operator K) (s : ℂ) (g : G)
     (hInt : Integrable (k s) μ)
     (hCompat : ∀ n, (k s n).comp (IP s g) = (IQ s g).comp (k s n)) :
-    (local_intertwiner μ k s).comp (IP s g) = (IQ s g).comp (local_intertwiner μ k s) := by sorry
+    (local_intertwiner μ k s).comp (IP s g) = (IQ s g).comp (local_intertwiner μ k s) := by
+  ext v
+  change (∫ n, k s n ∂μ) (IP s g v) = IQ s g ((∫ n, k s n ∂μ) v)
+  have hvInt : Integrable (fun n => k s n v) μ :=
+    (ContinuousLinearMap.apply ℂ K v).integrable_comp hInt
+  rw [ContinuousLinearMap.integral_apply hInt, ContinuousLinearMap.integral_apply hInt,
+    ← (IQ s g).integral_comp_comm hvInt]
+  apply integral_congr_ae
+  filter_upwards [] with n
+  simpa only [ContinuousLinearMap.comp_apply] using
+    congrArg (fun A : H →L[ℂ] K => A v) (hCompat n)
 
 theorem identity (s : ℂ) : local_intertwiner (Measure.dirac ())
-    (fun _ (_ : Unit) => ContinuousLinearMap.id ℂ H) s = ContinuousLinearMap.id ℂ H := by sorry
+    (fun _ (_ : Unit) => ContinuousLinearMap.id ℂ H) s = ContinuousLinearMap.id ℂ H := by
+  simp [local_intertwiner]
 
 /- local_intertwiner.meromorphic_coefficients is omitted until the actual local
 induction and unipotent quotient carrier exists. An arbitrary measurable kernel
-need not depend analytically on its parameter. The preceding integration adapter
-requires expressible integrability and pointwise intertwining compatibility;
-the local representation argument producing those hypotheses is still required.
+need not depend analytically on its parameter. The preceding theorem is a
+conditional Bochner integration adapter: integrability and pointwise compatibility
+are supplied hypotheses. It neither constructs local induction and its quotient
+nor derives the source's equivariance from inducing covariance and quotient
+change of variables.
 -/
 
 theorem identity_test (s : ℂ) (v : H) : local_intertwiner (Measure.dirac ())
-    (fun _ (_ : Unit) => ContinuousLinearMap.id ℂ H) s v = v := by sorry
+    (fun _ (_ : Unit) => ContinuousLinearMap.id ℂ H) s v = v := by
+  simp [local_intertwiner]
 
 -- Specification test: TauCeti.AutomorphicSpectral.local_intertwiner.identity_test
 -- When P=Q the integral is the identity.
 example (s : ℂ) (v : H) : local_intertwiner (Measure.dirac ())
-    (fun _ (_ : Unit) => ContinuousLinearMap.id ℂ H) s v = v := by sorry
+    (fun _ (_ : Unit) => ContinuousLinearMap.id ℂ H) s v = v := by
+  simp [local_intertwiner]
 
 
 def cFunction (q : ℝ) (z : ℂ) : ℂ := (1 - (q : ℂ)⁻¹ * z) / (1 - z)
@@ -2802,13 +2829,21 @@ example (q : ℝ) (hq : 1 < q) (z : ℂ) (hz : ‖z‖ < 1) :
 
 theorem raw_not_unitary  :
     ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ = 3 / 4 ∧
-      ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ ≠ ‖(1 : ℂ)‖ := by sorry
+      ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ ≠ ‖(1 : ℂ)‖ := by
+  have hc : continuedSphericalIntegral 2 (-1) (1 : ℂ) = ((3 / 4 : ℝ) : ℂ) := by
+    norm_num [continuedSphericalIntegral, smul_apply, smul_eq_mul]
+  rw [hc]
+  norm_num
 
 -- Specification test: TauCeti.AutomorphicSpectral.local_intertwiner.raw_not_unitary
 -- The continued spherical eigenline, identified with the valuation-shell integral in its chamber, sends one to a vector of norm 3/4 at q=2,z=−1; it does not preserve norm on the unitary axis.
 example  :
     ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ = 3 / 4 ∧
-      ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ ≠ ‖(1 : ℂ)‖ := by sorry
+      ‖continuedSphericalIntegral 2 (-1) (1 : ℂ)‖ ≠ ‖(1 : ℂ)‖ := by
+  have hc : continuedSphericalIntegral 2 (-1) (1 : ℂ) = ((3 / 4 : ℝ) : ℂ) := by
+    norm_num [continuedSphericalIntegral, smul_apply, smul_eq_mul]
+  rw [hc]
+  norm_num
 
 theorem continuedSphericalIntegral_eq_integral (q : ℝ) (hq : 1 < q)
     (z : ℂ) (hz : ‖z‖ < 1) : continuedSphericalIntegral q z =
