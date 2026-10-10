@@ -35,15 +35,15 @@ Every row is imported from the [parent packet](../packets/PotentialAutomorphyInf
 | ordinary-steinberg-finiteness | Ordinary ring finiteness, ANT20 Theorem 6.2, pp. 19–20 | Strong theorem imported; weak-source and auxiliary-place formulations are specified here. |
 | residually-reducible-automorphy-lifting | General residually reducible lifting, ANT20 Theorem 6.1, pp. 17–19 | Strong theorem imported; connectedness proof and the weak-source statement are specified here. |
 | two-constituent-automorphy-lifting | Two-constituent lifting, Tho15 Theorem 7.1, pp. 66–70 | Strong theorem imported; the exact weak-source statement is specified here. |
-| sum-of-characters-finiteness | Character-sum finiteness, NT21 Theorem 5.2, pp. 68–69 | Consumes the small-rank lifting route and the PL.5 Dwork-family input. |
+| sum-of-characters-finiteness | Character-sum finiteness, NT21 Theorem 5.2, pp. 67–69 | Consumes the small-rank lifting route and the PL.5 Dwork-family input. |
 | ordinary-lifts-every-weight | Ordinary lifts at every compatible weight, NT21 Corollary 5.4, p. 70 | Imported; uses character-sum finiteness, local ordinary geometry and the global presentation. |
 | unrestricted-ring-dimension-bound | Unrestricted ordinary ring dimension, NT21 Corollary 5.5, p. 70 | Imported; uses character-sum finiteness at one added Steinberg place. |
 | reducible-locus-small | Reducible-locus bound, NT21 Proposition 5.6, pp. 71–72 | Imported; rank-one constituent finiteness is a precise G7 contract below. |
-| generic-primes-large-quotients | Generic primes in large quotients, NT21 Proposition 5.7, p. 73 | Imported; consumes the preceding reducible-locus bound. |
+| generic-primes-large-quotients | Generic primes in large quotients, NT21 Theorem 5.7, pp. 72–73 | Imported; consumes the preceding reducible-locus bound. |
 | global-lifts-schur | Schur global lifts, Bellovin–Gee Corollary 5.1.1, parent corrected formulation | Imported; does not become a new PL.7 definition or theorem here. |
-| prescribed-type-lifts | Global lifts with prescribed types, NT21 Proposition 5.8, pp. 74–75 | Imported; uses local nonemptiness and character-sum/global finiteness. |
+| prescribed-type-lifts | Global lifts with prescribed types, NT21 Proposition 5.8, pp. 73–75 | Imported; uses local nonemptiness and character-sum/global finiteness. |
 
-Import PL.0/auxiliary-cm-extensions and soluble-descent for the field choices and final descent; PL.2/big-ordinary-hecke-algebra and unitary-base-change-and-descent for Hecke finiteness, ordinary classicality and transfer; PL.4/characteristic-zero-lifts for the block finiteness in the two-constituent argument; PL.5/dwork-potential-ordinary-automorphy for character sums; and the PL.6 objects and theorems named in each target below. The absolute Galois groups, matrix representations, induction, prime ideals and dimension are existing library objects or parent definitions.
+Import PL.0/auxiliary-cm-extensions and soluble-descent for the field choices and final descent; PL.2/big-ordinary-hecke-algebra and unitary-base-change-and-descent for Hecke finiteness, ordinary classicality and transfer; PL.3/ordinary-r-equals-t (its Corollary 8.7 finiteness clause) for variable-weight block finiteness in the two-constituent argument; PL.5/dwork-potential-ordinary-automorphy for character sums; and the PL.6 objects and theorems named in each target below. The absolute Galois groups, matrix representations, induction, prime ideals and dimension are existing library objects or parent definitions.
 
 ## Objects and key theorems
 
@@ -190,7 +190,7 @@ In the ANT unitary setup assume ζ_l∉L, r̄|G_{L⁺(ζ_l)} Schur and ρ̄(G_L)
 
 **Identifier:** generic-potential-propagation. **Kind:** theorem. **Suggested declaration:** TauCeti.Automorphy.PL7.generic_potential_propagation.
 
-In the ANT unitary setup and established strong route, let 𝔭⊂R₁ have dim(R₁/𝔭)=1, contain ϖ, be generic, and be potentially pro-automorphic. Generic means absolutely irreducible fraction-field representation, distinct ordinary inertial characters at every l-adic place, and at one place an inertia element whose n character values satisfy no nontrivial multiplicative ℤ-relation. Suppose r_𝔭 is trivial on G_{L_ṽ} for every v∈R and l^{v_l(q_v−1)}>n there. Then every minimal prime Q of R₁ contained in 𝔭 is potentially pro-automorphic. The weak-source version uses the weak restriction and weak generic R=T targets below and inherits their recorded proof boundary.
+In the ANT unitary setup and established strong route, assume [L⁺:ℚ]>|R| and let 𝔭⊂R₁ have dim(R₁/𝔭)=1, contain ϖ, be generic, and be potentially pro-automorphic. Generic means absolutely irreducible fraction-field representation, distinct ordinary inertial characters at every l-adic place, and at one place an inertia element whose n character values satisfy no nontrivial multiplicative ℤ-relation. Suppose r_𝔭 is trivial on G_{L_ṽ} for every v∈R and l^{v_l(q_v−1)}>n there. Then every minimal prime Q of R₁ contained in 𝔭 is potentially pro-automorphic. The weak-source version uses the weak restriction and weak generic R=T targets below and inherits their recorded proof boundary.
 
 **Hypotheses.**
 
@@ -198,12 +198,13 @@ In the ANT unitary setup and established strong route, let 𝔭⊂R₁ have dim(
 - Strong route S, including its explicit strong primitivity assumption.
 - 𝔭 has dimension one and characteristic l, is generic and potentially pro-automorphic
 - Trivial r_𝔭 at R and l^{v_l(q_v−1)}>n at R
+- [L⁺:ℚ]>|R|, so the fraction-field-equalising twist can be chosen trivial at R
 
 **Construction or proof.**
 
 1. Choose a witness M₀. By PL.0/auxiliary-cm-extensions find a further good M₁/M₀ making r_𝔭 unramified with scalar Frobenius at every place over B: unipotent inertia and the remaining unipotent Frobenius part have finite l-power order in characteristic l.
 2. Contract 𝔭 and Q to the ring over M₁. PL.6/genericity-under-restriction, with strong primitivity, preserves absolute irreducibility; splitting at l preserves the inertial character conditions.
-3. Use the imported twisting/base-change theorem to equalise the fraction fields of P and R without changing which minimal primes lie below the point or losing the Hecke-kernel containment; choose the twist trivial at R.
+3. Use the imported twisting/base-change theorem to equalise the fraction fields of P and R without changing which minimal primes lie below the point or losing the Hecke-kernel containment; choose the twist trivial at R. The complete splitting of R and the CM extension degree give [M₁⁺:ℚ]=[M₁⁺:L⁺][L⁺:ℚ]>[M₁⁺:L⁺]|R|=|R_{M₁}|, the inequality used in Tho15 Proposition 6.2, p. 65.
 4. Apply PL.6/generic-prime-r-equals-t over M₁ to a minimal prime below the contracted Q and extend its kernel containment back to R₁. The ideal J_{M₁} is the required witness.
 
 **Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/good-extension-residual-invariants; PotentialAutomorphyInfrastructurePartII:PL.7/potentially-pro-automorphic-prime; PotentialAutomorphyInfrastructurePartII:PL.0/auxiliary-cm-extensions; PotentialAutomorphyInfrastructurePartII:PL.6/generic-prime; PotentialAutomorphyInfrastructurePartII:PL.6/genericity-under-restriction; PotentialAutomorphyInfrastructurePartII:PL.6/reducible-twisting-and-base-change; PotentialAutomorphyInfrastructurePartII:PL.6/generic-prime-r-equals-t.
@@ -223,7 +224,7 @@ In the ANT unitary setup and established strong route, let 𝔭⊂R₁ have dim(
 
 **Identifier:** connectedness-ordinary-lifting. **Kind:** theorem. **Suggested declaration:** TauCeti.Automorphy.PL7.connectedness_ordinary_lifting.
 
-In the ANT unitary setup and established strong route, let D=[L⁺:ℚ], d₀ be the ℤ_l-rank lost in the anti-invariant abelian pro-l quotient when all places above B are required to split, and d_l=min_{v|l}[L⁺_v:ℚ_l]. Assume d₀>|R|n(n+1)+3 and d_l>max(|R|n(n+1)+3,n(n−1)/2+1). Then every minimal prime of R₁ is potentially pro-automorphic. Consequently every O-valued type-𝒮₁ lift ordinary of weight λ is associated to an ordinary RACSDC representation of GL_n(𝔸_L) of weight λ. These are sufficient bounds for the characteristic-l dimension argument; the smaller printed bounds of ANT Theorem 5.1 are retained as a precisely delimited source boundary.
+In the ANT unitary setup and established strong route, let D=[L⁺:ℚ], d₀ be the ℤ_l-rank lost in the anti-invariant abelian pro-l quotient when all places above B are required to split, and d_l=min_{v|l}[L⁺_v:ℚ_l]. Assume l^{v_l(q_v−1)}>n for every v∈R, d₀>|R|n(n+1)+3 and d_l>max(|R|n(n+1)+3,n(n−1)/2+1). Then every minimal prime of R₁ is potentially pro-automorphic. Consequently every O-valued type-𝒮₁ lift ordinary of weight λ is associated to an ordinary RACSDC representation of GL_n(𝔸_L) of weight λ. These are sufficient bounds for the characteristic-l dimension argument; the smaller printed bounds of ANT Theorem 5.1 are retained as a precisely delimited source boundary.
 
 **Hypotheses.**
 
@@ -231,22 +232,24 @@ In the ANT unitary setup and established strong route, let D=[L⁺:ℚ], d₀ be
 - Strong route S, including its explicit strong primitivity assumption.
 - d₀ and d_l as defined in ANT §3.3
 - The displayed sufficient strict inequalities
+- l^{v_l(q_v−1)}>n at every v∈R, as required by generic propagation and the local component comparison
 - For the automorphy conclusion, an O-valued type-𝒮₁ lift of weight λ
 
 **Construction or proof.**
 
 1. The witness quotient R₁/(ϖ,J_MR₁) is finite over Λ/(ϖ), by the Hecke finiteness and finite restriction maps. The imported large-quotient theorem supplies a generic prime whenever its dimension exceeds max(nD−d₀,nD−d_l).
 2. Let J_R be the ideal forcing triviality of the local lifts at R. In characteristic l imposing it costs at most |R|n² dimensions. The base witness J_L gives one generic potentially pro-automorphic prime, and propagation gives at least one potentially pro-automorphic minimal prime.
-3. Partition the minimal primes into witnessed and unwitnessed classes. The connectedness estimate c(R₁)≥nD−|R|n−2 supplies Q₁,Q₂ in the two classes with dim R₁/(Q₁+Q₂) at least that bound.
+3. Partition the minimal primes into witnessed and unwitnessed classes. The connectedness estimate c(R₁)≥nD−|R|n−2 supplies Q₁,Q₂ in the two classes with dim R₁/(Q₁+Q₂) at least that bound. This is the arithmetic bound in the acceptance contract of PL.6/connectedness-dimension (Tho15 Lemma 3.21, p. 22), obtained from the local and global presentations, rather than a consequence of the definition of c alone. Also D≥d_l>|R|, so propagation’s twist hypothesis holds.
 4. Pass explicitly to the special fibre before imposing J_R. The resulting bound is nD−|R|n(n+1)−3. The displayed strict inequalities make this greater than both bad-locus bounds. Since the quotient is over a witnessed component it is finite over Λ/(ϖ), so it contains a generic prime witnessing both Q₁ and Q₂. Propagation contradicts the partition.
 5. For an O-point choose a minimal prime in its kernel and a witness extension. The characteristic-polynomial map factors through the ordinary Hecke algebra there. Ordinary classicality, transfer from the definite unitary group, and soluble GL_n descent give automorphy. A place in B gives absolute irreducibility.
 
-**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/generic-potential-propagation; PotentialAutomorphyInfrastructurePartII:PL.6/connectedness-dimension; PotentialAutomorphyInfrastructurePartII:PL.6/large-quotients-contain-generic-primes; PotentialAutomorphyInfrastructurePartII:PL.6/reducible-locus-dimension; PotentialAutomorphyInfrastructurePartII:PL.6/reducible-twisting-and-base-change; PotentialAutomorphyInfrastructurePartII:PL.2/big-ordinary-hecke-algebra; PotentialAutomorphyInfrastructurePartII:PL.2/unitary-base-change-and-descent; PotentialAutomorphyInfrastructurePartII:PL.0/soluble-descent; mathlib:Ideal.minimalPrimes; mathlib:ringKrullDim.
+**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/generic-potential-propagation; PotentialAutomorphyInfrastructurePartII:PL.6/connectedness-dimension; PotentialAutomorphyInfrastructurePartII:PL.6/large-quotients-contain-generic-primes; PotentialAutomorphyInfrastructurePartII:PL.6/reducible-locus-dimension; PotentialAutomorphyInfrastructurePartII:PL.6/reducible-twisting-and-base-change; PotentialAutomorphyInfrastructurePartII:PL.2/big-ordinary-hecke-algebra; PotentialAutomorphyInfrastructurePartII:PL.2/unitary-base-change-and-descent; PotentialAutomorphyInfrastructurePartII:PL.0/soluble-descent; mathlib:Ideal.minimalPrimes; mathlib:ringKrullDim; PotentialAutomorphyInfrastructurePartII:PL.6/polarized-pseudodeformation-subring.
 
 **Source.**
 
 - ANT20, §5, Theorem 5.1 and proof, pp. 15–17 (arXiv v2): Uses connectedness to spread potential pro-automorphy between components and then applies classicality and descent.
 - Tho15, §6, proof of Theorem 6.1, pp. 65–66 (accepted manuscript): Explicitly includes the extra special-fibre dimension cost in the component-intersection estimate.
+- Tho15, §3.3.6, Lemma 3.21, p. 22; §6, Theorem 6.1(2), p. 64 (accepted manuscript): Supplies the arithmetic connectedness bound and states the residue-cardinality condition used in propagation.
 
 **Acceptance.**
 
@@ -264,16 +267,16 @@ With the residual and numerical hypotheses of connectedness-ordinary-lifting, R�
 
 - Unitary convention U.
 - Strong route S, including its explicit strong primitivity assumption.
-- The sufficient d₀,d_l bounds of connectedness-ordinary-lifting
+- The sufficient d₀,d_l bounds and the l^{v_l(q_v−1)}>n condition at R of connectedness-ordinary-lifting
 - Noetherian complete local coefficient rings, as in the imported deformation-ring problem
 
 **Construction or proof.**
 
 1. Component propagation supplies, for each minimal Q, a good M with J_MR₁⊆Q.
-2. The finite restriction morphism and the ordinary Hecke algebra finite over Λ_M imply that R₁/J_MR₁, hence R₁/Q, is finite over Λ; identify the coefficient action through Λ_M→Λ.
+2. The restriction map R_M→R₁ and the map P_M→R_M are finite (PL.6/reducible-twisting-and-base-change and polarized-pseudodeformation-subring). After quotienting by J_M, R₁/J_MR₁ is finite over P_M/J_M, the ordinary Hecke algebra finite over Λ_M. Hence R₁/Q is finite over Λ_M and therefore over Λ, whose action is the norm-induced Λ_M→Λ action.
 3. There are finitely many minimal primes. Embed the reduced quotient into their product. The nilradical in a Noetherian ring is nilpotent; its successive quotients are finitely generated over the reduced quotient. This gives finiteness of R₁, rather than only of its reduced quotient.
 
-**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/connectedness-ordinary-lifting; PotentialAutomorphyInfrastructurePartII:PL.6/reducible-twisting-and-base-change; PotentialAutomorphyInfrastructurePartII:PL.2/big-ordinary-hecke-algebra; mathlib:RingHom.Finite; mathlib:Ideal.minimalPrimes; mathlib:Ideal.finite_minimalPrimes_of_isNoetherianRing; mathlib:Module.finite_of_surjective_of_ker_le_nilradical.
+**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/connectedness-ordinary-lifting; PotentialAutomorphyInfrastructurePartII:PL.6/reducible-twisting-and-base-change; PotentialAutomorphyInfrastructurePartII:PL.2/big-ordinary-hecke-algebra; mathlib:RingHom.Finite; mathlib:Ideal.minimalPrimes; mathlib:Ideal.finite_minimalPrimes_of_isNoetherianRing; mathlib:Module.finite_of_surjective_of_ker_le_nilradical; PotentialAutomorphyInfrastructurePartII:PL.6/polarized-pseudodeformation-subring.
 
 **Source.**
 
@@ -320,7 +323,7 @@ Let l>3, k be finite of characteristic l, A=k⟦T⟧ and K=Frac(A). For a CM fie
 
 **Identifier:** weak-primitive-generic-r-equals-t. **Kind:** theorem. **Suggested declaration:** TauCeti.Automorphy.PL7.weak_primitive_generic_r_equals_t.
 
-In the ANT unitary setup, let 𝔭⊂R₁ have dim(R₁/𝔭)=1 and contain ϖ. Assume J₁R₁⊆𝔭, genericity, triviality of r_𝔭 at R, unramified scalar Frobenius at B, l^{v_l(q_v−1)}>n for v∈R, ζ_l∉L, cyclotomic Schur, no residual order-l quotient, l>3, l∤n, and weak primitivity of ρ̄. The source target is J₁R₁⊆Q for every prime Q⊆𝔭. It is a kernel-containment theorem for R←P→T. It does not provide a global map R→T or an isomorphism of the global rings. For d constituents its proof must use the μ₂^d-action modulo diagonal μ₂; the d>2 comparison and the weak restriction argument are explicit proof-completion inputs.
+In the ANT unitary setup, assume [L⁺:ℚ]>|R| and let 𝔭⊂R₁ have dim(R₁/𝔭)=1 and contain ϖ. Assume J₁R₁⊆𝔭, genericity, triviality of r_𝔭 at R, unramified scalar Frobenius at B, l^{v_l(q_v−1)}>n for v∈R, ζ_l∉L, cyclotomic Schur, no residual order-l quotient, l>3, l∤n, and weak primitivity of ρ̄. The source target is J₁R₁⊆Q for every prime Q⊆𝔭. It is a kernel-containment theorem for R←P→T. It does not provide a global map R→T or an isomorphism of the global rings. For d constituents its proof must use the μ₂^d-action modulo diagonal μ₂; the d>2 comparison and the weak restriction argument are explicit proof-completion inputs.
 
 **Hypotheses.**
 
@@ -339,7 +342,7 @@ In the ANT unitary setup, let 𝔭⊂R₁ have dim(R₁/𝔭)=1 and contain ϖ. 
 **Source.**
 
 - ANT20, §4.2, Theorem 4.1 and proof, pp. 14–15 (arXiv v2): The printed hypothesis is weak primitivity; the arbitrary-constituent comparison is indicated but its details are not written.
-- Tho15, §4.6, Theorem 4.19 and Corollary 4.20, pp. 47–48; §5.2, Corollary 5.7, p. 63 (accepted manuscript): Supplies the two-constituent patching result used by ANT.
+- Tho15, §4.6, Theorem 4.19 and Corollary 4.20, pp. 47–48; §5.2, Corollary 5.7 and proof, pp. 62–63 (accepted manuscript): Supplies the two-constituent patching result used by ANT.
 
 **Acceptance.**
 
@@ -391,9 +394,8 @@ Let F be CM, n≥2, l>3 prime with l∤n, and S a finite set of finite places of
 1. Use the extension construction of the lifting theorem, with δ satisfying the larger sufficient inequalities. Arrange that local unrestricted rings restrict through the unipotent quotients used over the extension.
 2. Apply the component-finiteness argument over the extension, using the weak generic restriction/R=T inputs. This is where the recorded weak-primitivity boundary enters.
 3. Restriction on universal rings is finite; the coefficient map Λ_L→Λ identifies the relevant ordinary character action. Transitivity of finite ring maps descends finiteness to the original ring.
-4. The rank-one blocks in the reducible-locus estimate require polarized character finiteness from GlobalGaloisDeformations:G7.
 
-**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/source-primitive-ant-lifting; PotentialAutomorphyInfrastructurePartII:PL.7/connectedness-ring-finiteness; PotentialAutomorphyInfrastructurePartII:PL.7/weak-primitive-generic-r-equals-t; PotentialAutomorphyInfrastructurePartII:PL.7/ordinary-steinberg-finiteness; PotentialAutomorphyInfrastructurePartII:PL.6/pseudodeformation-restriction-finite; GlobalGaloisDeformations:G7; mathlib:RingHom.Finite.
+**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/source-primitive-ant-lifting; PotentialAutomorphyInfrastructurePartII:PL.7/connectedness-ring-finiteness; PotentialAutomorphyInfrastructurePartII:PL.7/weak-primitive-generic-r-equals-t; PotentialAutomorphyInfrastructurePartII:PL.7/ordinary-steinberg-finiteness; PotentialAutomorphyInfrastructurePartII:PL.6/pseudodeformation-restriction-finite; mathlib:RingHom.Finite.
 
 **Source.**
 
@@ -402,7 +404,7 @@ Let F be CM, n≥2, l>3 prime with l∤n, and S a finite set of finite places of
 **Acceptance.**
 
 - This is ring finiteness, not an assertion that all nonalgebraic points are classical.
-- n=1 is supplied separately.
+- The n≥2 source target is distinct from the rank-one contract needed by NT21 Proposition 5.6.
 - No small-rank hypothesis is added to the source statement; the resulting proof boundary is explicit.
 
 ### Two adequate constituents with source primitivity
@@ -418,11 +420,11 @@ Let F be CM, l>3, K/ℚ_l finite, n=n₁+n₂≥2 with l∤n, and ρ:G_F→GL_n(
 **Construction or proof.**
 
 1. Choose a self-dual lattice and compatible seed lattice. Make a soluble base change with trivial residual local representations, suitable congruences q_v≡1 mod l, and a sufficiently small auxiliary level.
-2. Use the ordinary residual automorphy of the two adequate blocks to obtain finite block deformation rings. Decompose the variable-weight coefficients by the two induced ordinary filtrations. In the fixed-determinant twist factor retain that all determinants are unramified outside l (parent E29).
+2. Use the ordinary residual automorphy of the two adequate blocks to obtain finite block deformation rings. Decompose the variable-weight coefficients by the two induced ordinary filtrations. In the fixed-determinant twist factor retain that all determinants are unramified outside l (parent E29). The finiteness input is the Λ-adic clause of PL.3/ordinary-r-equals-t (Tho12 Corollary 8.7), followed by finite restriction, as cited in Tho15 p. 69; existence of a characteristic-zero lift alone would not supply it.
 3. The Steinberg places impose relations on the determinant-twist characters. Choose the extension degree so their anti-invariant Frobenius rank exceeds 6+|R|n(n+1), giving the reducible-locus bound required by Thorne §6. The bound is n[L⁺:ℚ]−|R|n(n+1)−5, without the half factor in the final printed display (parent E30).
 4. Apply Thorne’s connectedness/propagation proof with the weak restriction bridge; its absent arbitrary-rank reduction argument is the recorded gap. Descend the resulting automorphy.
 
-**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/weak-primitive-generic-restriction; PotentialAutomorphyInfrastructurePartII:PL.7/two-constituent-automorphy-lifting; PotentialAutomorphyInfrastructurePartII:PL.6/reducible-twisting-and-base-change; PotentialAutomorphyInfrastructurePartII:PL.4/characteristic-zero-lifts; PotentialAutomorphyInfrastructurePartII:PL.0/soluble-descent; ArithmeticGaloisRepresentations:G7/adequate-subgroup.
+**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/weak-primitive-generic-restriction; PotentialAutomorphyInfrastructurePartII:PL.7/two-constituent-automorphy-lifting; PotentialAutomorphyInfrastructurePartII:PL.6/reducible-twisting-and-base-change; PotentialAutomorphyInfrastructurePartII:PL.3/ordinary-r-equals-t; PotentialAutomorphyInfrastructurePartII:PL.0/soluble-descent; ArithmeticGaloisRepresentations:G7/adequate-subgroup.
 
 **Source.**
 
@@ -453,7 +455,7 @@ Take the ordinary deformation problem and seed hypotheses of the parent PL.7/ord
 3. Choose a sufficiently small auxiliary automorphic level at w and prove that its Hecke/deformation comparison retains the finiteness and generic propagation needed by Corollary 5.4. This is an explicit requested PL.2/PL.6 extension of the scalar setup.
 4. Then repeat the extension construction and ring-finiteness descent of ANT Theorem 6.2. NT26 Proposition 3.9 records this use, but does not supply the missing ring/level comparison proof.
 
-**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/connectedness-ring-finiteness; PotentialAutomorphyInfrastructurePartII:PL.7/ordinary-steinberg-finiteness; PotentialAutomorphyInfrastructurePartII:PL.6/generic-prime-r-equals-t; LocalGaloisDeformationRings:R08.2; PotentialAutomorphyInfrastructurePartII:PL.2; PotentialAutomorphyInfrastructurePartII:PL.6; GlobalGaloisDeformations:G7; mathlib:RingHom.Finite.
+**Prerequisites.** PotentialAutomorphyInfrastructurePartII:PL.7/connectedness-ring-finiteness; PotentialAutomorphyInfrastructurePartII:PL.7/ordinary-steinberg-finiteness; PotentialAutomorphyInfrastructurePartII:PL.6/generic-prime-r-equals-t; LocalGaloisDeformationRings:R08.2; PotentialAutomorphyInfrastructurePartII:PL.2; PotentialAutomorphyInfrastructurePartII:PL.6; mathlib:RingHom.Finite.
 
 **Source.**
 
@@ -466,6 +468,8 @@ Take the ordinary deformation problem and seed hypotheses of the parent PL.7/ord
 - The auxiliary place need not have scalar residual Frobenius.
 - The stronger primitivity route and the auxiliary-level boundary are independent.
 
+The standalone propagation target retains [L⁺:ℚ]>|R|. The connectedness and ring-finiteness route also retains l^{v_l(q_v−1)}>n at R, the local comparison hypothesis of ANT20 Theorem 4.1(3), p. 15, and Tho15 Theorem 6.1(2), p. 64. ANT20 Theorem 5.1 does not repeat this condition in its displayed assumptions (source issue E74, a gap in the cited proof). Here it is an explicit sufficient hypothesis for the stated proof route; the preliminary extension in ANT20 §6, p. 18, arranges it before the global applications.
+
 ## Inputs required for closure
 
 The layer is planned at target level. Its chains end in named library declarations, imported parent or supplier nodes, the following requested supplier stages, or the following explicit gaps. This is not a claim that the source-proof boundaries have been resolved. Every listed input is part of the scope needed for the corresponding target.
@@ -474,9 +478,9 @@ The layer is planned at target level. Its chains end in named library declaratio
 
 **GlobalGaloisDeformations:G7.** For p odd and a CM field F, S finite containing all p-adic places and split over F⁺, fix a residual character χ̄ with χ̄χ̄^c=μ̄|G_F and an odd continuous multiplier μ unramified outside S. Prove that the rank-one polarized ordinary ring, with extra rank-one Steinberg places interpreted as unramified, is finite over Λ₁=O⟦∏_{v|p}I_{F_ṽ}^{ab}(p)⟧ and dim R/(ϖ)≤[F⁺:ℚ]. Construct a base lift using Teichmüller χ̄ and the unique square root of μ/Teichmüller μ̄; identify variations with the anti-invariant abelian pro-p quotient. Global class field theory gives finite index of chosen p-adic inertia: the unramified class-group quotient is finite and the tame pro-p inertia at other finite S-places is finite. Use the existing completed-group-algebra construction, not a new construction in PL.7. Do not assume Leopoldt. This is the missing n_i=1 input of NT21 Proposition 5.6, whose reference to Theorem 5.2 covers only n_i≥2.
 
-**Consumers:** PotentialAutomorphyInfrastructurePartII:PL.7/source-primitive-ant-finiteness; PotentialAutomorphyInfrastructurePartII:PL.7/auxiliary-place-ant-finiteness; PotentialAutomorphyInfrastructurePartII:PL.7/reducible-locus-small; PotentialAutomorphyInfrastructurePartII:PL.7/generic-primes-large-quotients.
+**Consumers:** PotentialAutomorphyInfrastructurePartII:PL.7/reducible-locus-small; PotentialAutomorphyInfrastructurePartII:PL.7/generic-primes-large-quotients.
 
-**LocalGaloisDeformationRings:R08.2.** At a place w∤p with unramified residual ρ̄ and H⁰(G_{F_w},ad ρ̄(1))=0, identify the full framed fixed-multiplier lifting ring with its unramified quotient and prove formal smoothness of relative dimension n². Retain the Tate twist and do not assume scalar Frobenius. Give base change and restriction compatibility for use at an auxiliary small-level place.
+**LocalGaloisDeformationRings:R08.2.** At a place w∤p with unramified residual ρ̄ and H⁰(G_{F_w},ad ρ̄(1))=0, identify the full framed fixed-multiplier lifting ring with its unramified quotient and prove formal smoothness of relative dimension n². Retain the Tate twist and do not assume scalar Frobenius. At a split place of the polarized problem the fixed multiplier leaves the GL_n local lift unrestricted; no fixed-determinant constraint is imposed. Give coefficient base change compatibility. For field restriction require that the auxiliary place splits completely, or prove anew that H⁰(ad ρ̄(1))=0 over the extension; vanishing need not survive an arbitrary finite extension.
 
 **Consumers:** PotentialAutomorphyInfrastructurePartII:PL.7/auxiliary-place-ant-finiteness.
 
@@ -502,7 +506,7 @@ The layer is planned at target level. Its chains end in named library declaratio
 
 **Consumers:** PotentialAutomorphyInfrastructurePartII:PL.7/connectedness-ordinary-lifting.
 
-**Dwork-family supplier for character-sum finiteness.** The imported PL.5/dwork-potential-ordinary-automorphy target still needs the BLGHT11 family, paired trivialization cover, geometric irreducibility, coefficient choices and local Hodge–Tate/ordinary/Steinberg properties specified in the parent gap. NT21 Theorem 5.2 pp. 68–69 adds the prescribed negative valuation at places over Σ. The proposed owner PotentialAutomorphyDworkMotivesPartII has no stage identifiers; therefore this remains a gap rather than a fabricated stage request. Its source was not read in this pass.
+**Dwork-family supplier for character-sum finiteness.** The imported PL.5/dwork-potential-ordinary-automorphy target still needs the BLGHT11 family, paired trivialization cover, geometric irreducibility, coefficient choices and local Hodge–Tate/ordinary/Steinberg properties specified in the parent gap. NT21 Theorem 5.2 pp. 67–69 adds the prescribed negative valuation at places over Σ. The proposed owner PotentialAutomorphyDworkMotivesPartII has no stage identifiers; therefore this remains a gap rather than a fabricated stage request. Its source was not read in this pass.
 
 **Consumers:** PotentialAutomorphyInfrastructurePartII:PL.7/sum-of-characters-finiteness.
 
@@ -548,8 +552,8 @@ The standalone file repeats the parent’s representation-to-module, absolute ir
 | --- | --- | --- |
 | good_extension_residual_invariants | Equality of residual images implies preservation of actual-induction primitivity | The good-extension implication giving image equality, cyclotomic enlargement, CM quadratic independence, Schur and strong-primitivity clauses |
 | weak_primitive_generic_restriction | k⟦T⟧, its fraction field, weak primitivity, absolute irreducibility, independent unit eigenvalues, prime/rank conditions and open subgroup | Continuity, the polarized G_{F⁺,S} extension, cyclotomic Schur, residual no-l-power quotient and ramification |
-| generic_potential_propagation | Dimension-one prime, special-fibre condition, witness and minimal-prime containment | Unitary convention U, genericity, residual hypotheses, triviality at R and residue-cardinality bounds |
-| connectedness_ordinary_lifting | The sufficient numerical bounds and potential pro-automorphy of minimal primes | Unitary convention U, connectedness and generic-prime hypotheses, the O-point and classicality conclusion |
+| generic_potential_propagation | Dimension-one prime, special-fibre condition, witness, minimal-prime containment and D>|R| | Unitary convention U, genericity, residual hypotheses, triviality at R and residue-cardinality bounds |
+| connectedness_ordinary_lifting | The sufficient numerical bounds and potential pro-automorphy of minimal primes | Unitary convention U, the residue-cardinality bound at R, connectedness and generic-prime hypotheses, the O-point and classicality conclusion |
 | connectedness_ring_finiteness | Noetherian Λ and R, finite minimal-prime quotients and module finiteness of R | Arithmetic construction of those finite quotients from propagation and restriction |
 | weak_primitive_generic_r_equals_t | The actual diagram, prime dimensions and Hecke-kernel containment at primes below the point | Unitary, genericity, weak primitivity, residual and local hypotheses |
 | source_primitive_ant_finiteness | Prime/rank hypotheses and module-finiteness conclusion | Identity of R as the specified deformation ring, polarized ordinary seed, weak primitivity, coefficient, residual, local and global conditions |
@@ -567,7 +571,7 @@ An accepted implementation must use the actual restriction diagram, preserve the
 
 ## Public sources
 
-Locators above use PDF/manuscript page numbers in these exact public versions. Each source was read directly for the indicated statements and proof steps. The packet records access date **2026-10-10** and SHA-256 digests of the downloaded PDFs. Mathematical claims and proof sketches here are stated in our own words.
+Locators above use PDF/manuscript page numbers in these exact public versions. Each source was read directly for the indicated statements and proof steps. The packet records access date **2026-10-10** and SHA-256 digests of the downloaded PDFs. The review also read the [ANT20 version of record](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/91B814A109E34CC8DA2A5689BFA5CFA4/S0010437X20007484a.pdf), pp. 2415–2419, for E74; its separate digest and published pagination are recorded. Mathematical claims and proof sketches here are stated in our own words.
 
 - **ANT20** — Patrick B. Allen, James Newton and Jack A. Thorne, [Automorphy lifting for residually reducible l-adic Galois representations, II](https://arxiv.org/abs/1912.11269v2). Compositio Mathematica 156 (2020), 2399–2422; read in arXiv:1912.11269v2 (13 August 2020).
 - **Tho15** — Jack A. Thorne, [Automorphy lifting for residually reducible l-adic Galois representations](https://www.repository.cam.ac.uk/bitstreams/5b8962a1-6a0e-4d17-b5ae-b478575e1a0c/download). Journal of the American Mathematical Society 28 (2015), 785–870; read in the author's accepted manuscript dated 16 April 2014 (Apollo, University of Cambridge repository).
