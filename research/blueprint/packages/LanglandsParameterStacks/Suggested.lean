@@ -43,6 +43,8 @@ import Mathlib.Algebra.Polynomial.AlgebraMap
 import Mathlib.LinearAlgebra.Matrix.Trace
 import Mathlib.RingTheory.Nilpotent.Defs
 import Mathlib.RepresentationTheory.Basic
+import Mathlib.Algebra.Module.Projective
+import Mathlib.RingTheory.TensorProduct.Finite
 import Mathlib.CategoryTheory.Limits.Shapes.Terminal
 import Mathlib.CategoryTheory.Limits.Shapes.BinaryProducts.BinaryFan
 import Mathlib.CategoryTheory.Limits.Sifted
@@ -2432,9 +2434,11 @@ section MatrixCoefficients
 variable {R : Type u} [CommRing R] {I : Type v} [Fintype I]
   {Γ H G : Type w} [Group Γ] [Group H] [Group G]
   {V : Type z} [AddCommGroup V] [Module R V]
+  [Module.Finite R V] [Module.Projective R V]
 
 /-- The linear-algebra portion; the integral algebraic representation condition is omitted. -/
-structure ExcursionDatum (ι : H →* G) where
+structure ExcursionDatum (ι : H →* G) [Fintype I]
+    [Module.Finite R V] [Module.Projective R V] where
   representation : Representation R (I → G) V
   α : V
   β : V →ₗ[R] R
@@ -2451,6 +2455,93 @@ def ExcursionDatum.unit (ι : H →* G) :
   β_fixed := by sorry
   tuple := fun _ => 1
 
+namespace ExcursionDatum
+
+/-- A constant matrix coefficient with an arbitrary tuple, using the unit representation. -/
+def scalar (ι : H →* G) (a : R) (γ : I → Γ) :
+    ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := R) ι where
+  representation := Representation.trivial R (I → G) R
+  α := a
+  β := LinearMap.id
+  α_fixed := fun _ => rfl
+  β_fixed := fun _ => rfl
+  tuple := γ
+
+/-- Pull the representation back along a map of finite sets and specify the new tuple.
+The operator comparison requires the old tuple to be the pullback of the new one. -/
+def reindex {J : Type v} [Fintype J] {ι : H →* G}
+    (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
+    (f : I → J) (γ : J → Γ) :
+    ExcursionDatum (R := R) (I := J) (Γ := Γ) (V := V) ι where
+  representation := D.representation.comp
+    { toFun := fun g => g ∘ f
+      map_one' := rfl
+      map_mul' := fun _ _ => rfl }
+  α := D.α
+  β := D.β
+  α_fixed := D.α_fixed
+  β_fixed := D.β_fixed
+  tuple := γ
+
+omit [Group Γ] in
+theorem reindex_tuple {J : Type v} [Fintype J] {ι : H →* G}
+    (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
+    (f : I → J) (γ : J → Γ) (hγ : D.tuple = γ ∘ f) :
+    (D.reindex f γ).tuple ∘ f = D.tuple := hγ.symm
+
+/-- External tensor product on the disjoint union, using Mathlib's tensor representation. -/
+noncomputable def tensor {J : Type v} [Fintype J] {ι : H →* G}
+    {W : Type z} [AddCommGroup W] [Module R W]
+    [Module.Finite R W] [Module.Projective R W]
+    (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
+    (E : ExcursionDatum (R := R) (I := J) (Γ := Γ) (V := W) ι) :
+    ExcursionDatum (R := R) (I := I ⊕ J) (Γ := Γ) (V := V ⊗[R] W) ι where
+  representation := Representation.tprod
+    (D.representation.comp
+      { toFun := fun g => g ∘ Sum.inl
+        map_one' := rfl
+        map_mul' := fun _ _ => rfl })
+    (E.representation.comp
+      { toFun := fun g => g ∘ Sum.inr
+        map_one' := rfl
+        map_mul' := fun _ _ => rfl })
+  α := D.α ⊗ₜ[R] E.α
+  β := (TensorProduct.lid R R).toLinearMap.comp (TensorProduct.map D.β E.β)
+  α_fixed := by
+    intro h
+    change D.representation (fun _ => ι h) D.α ⊗ₜ[R]
+      E.representation (fun _ => ι h) E.α = D.α ⊗ₜ[R] E.α
+    rw [D.α_fixed, E.α_fixed]
+  β_fixed := by
+    intro h
+    ext x y
+    change D.β (D.representation (fun _ => ι h) x) *
+      E.β (E.representation (fun _ => ι h) y) = D.β x * E.β y
+    have hD : D.β (D.representation (fun _ => ι h) x) = D.β x := by
+      simpa only [LinearMap.comp_apply] using LinearMap.congr_fun (D.β_fixed h) x
+    have hE : E.β (E.representation (fun _ => ι h) y) = E.β y := by
+      simpa only [LinearMap.comp_apply] using LinearMap.congr_fun (E.β_fixed h) y
+    rw [hD, hE]
+  tuple := Sum.elim D.tuple E.tuple
+
+omit [Group Γ] in
+theorem tensor_tuple_left {J : Type v} [Fintype J] {ι : H →* G}
+    {W : Type z} [AddCommGroup W] [Module R W]
+    [Module.Finite R W] [Module.Projective R W]
+    (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
+    (E : ExcursionDatum (R := R) (I := J) (Γ := Γ) (V := W) ι) (i : I) :
+    (D.tensor E).tuple (Sum.inl i) = D.tuple i := rfl
+
+omit [Group Γ] in
+theorem tensor_tuple_right {J : Type v} [Fintype J] {ι : H →* G}
+    {W : Type z} [AddCommGroup W] [Module R W]
+    [Module.Finite R W] [Module.Projective R W]
+    (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
+    (E : ExcursionDatum (R := R) (I := J) (Γ := Γ) (V := W) ι) (j : J) :
+    (D.tensor E).tuple (Sum.inr j) = E.tuple j := rfl
+
+end ExcursionDatum
+
 def excursionMatrixCoefficient {ι : H →* G}
     (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι) (g : I → G) : R :=
   D.β (D.representation g D.α)
@@ -2459,6 +2550,23 @@ namespace excursionMatrixCoefficient
 theorem eval {ι : H →* G}
     (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι) (g : I → G) :
     excursionMatrixCoefficient D g = D.β (D.representation g D.α) := by sorry
+
+omit [Group Γ] in
+theorem reindex {J : Type v} [Fintype J] {ι : H →* G}
+    (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
+    (f : I → J) (γ : J → Γ) (g : J → G) :
+    excursionMatrixCoefficient (D.reindex f γ) g =
+      excursionMatrixCoefficient D (g ∘ f) := rfl
+
+omit [Group Γ] in
+theorem tensor {J : Type v} [Fintype J] {ι : H →* G}
+    {W : Type z} [AddCommGroup W] [Module R W]
+    [Module.Finite R W] [Module.Projective R W]
+    (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
+    (E : ExcursionDatum (R := R) (I := J) (Γ := Γ) (V := W) ι)
+    (g : I → G) (g' : J → G) :
+    excursionMatrixCoefficient (D.tensor E) (Sum.elim g g') =
+      excursionMatrixCoefficient D g * excursionMatrixCoefficient E g' := rfl
 end excursionMatrixCoefficient
 
 -- coefficient_unit (the categorical datum_unit requires the omitted Hecke carrier).
@@ -2470,12 +2578,77 @@ example {ι : H →* G}
     (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
     (h : D.α = 0) (g : I → G) : excursionMatrixCoefficient D g = 0 := by sorry
 
+-- coefficient_product
+example {J : Type v} [Fintype J] {ι : H →* G}
+    {W : Type z} [AddCommGroup W] [Module R W]
+    [Module.Finite R W] [Module.Projective R W]
+    (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
+    (E : ExcursionDatum (R := R) (I := J) (Γ := Γ) (V := W) ι)
+    (g : I → G) (g' : J → G) :
+    excursionMatrixCoefficient (D.tensor E) (Sum.elim g g') =
+      excursionMatrixCoefficient D g * excursionMatrixCoefficient E g' := by
+  exact excursionMatrixCoefficient.tensor D E g g'
+
+-- The fold Fin 1 ⊕ Fin 1 → Fin 1 recovers multiplication of coefficients.
+-- Comparing the excursion operators also requires D.tuple = E.tuple = γ.
+example {ι : H →* G}
+    {W : Type z} [AddCommGroup W] [Module R W]
+    [Module.Finite R W] [Module.Projective R W]
+    (D : ExcursionDatum (R := R) (I := Fin 1) (Γ := Γ) (V := V) ι)
+    (E : ExcursionDatum (R := R) (I := Fin 1) (Γ := Γ) (V := W) ι)
+    (γ : Fin 1 → Γ) (g : Fin 1 → G) :
+    excursionMatrixCoefficient
+      ((D.tensor E).reindex (Sum.elim id id) γ) g =
+      excursionMatrixCoefficient D g * excursionMatrixCoefficient E g := by
+  exact excursionMatrixCoefficient.tensor D E g g
+
 -- coefficient_biinvariant
 example {ι : H →* G}
     (D : ExcursionDatum (R := R) (I := I) (Γ := Γ) (V := V) ι)
     (g : I → G) (a b : H) :
     excursionMatrixCoefficient D (fun i => ι a * g i * ι b) =
-      excursionMatrixCoefficient D g := by sorry
+    excursionMatrixCoefficient D g := by sorry
+
+namespace MatrixCoefficientChecks
+
+def left : ExcursionDatum (R := ℚ) (I := Fin 1) (Γ := Multiplicative ℤ)
+    (V := ℚ) (1 : Unit →* Unit) :=
+  ExcursionDatum.scalar 1 2 (fun _ => Multiplicative.ofAdd 2)
+
+def right : ExcursionDatum (R := ℚ) (I := Fin 1) (Γ := Multiplicative ℤ)
+    (V := ℚ) (1 : Unit →* Unit) :=
+  ExcursionDatum.scalar 1 3 (fun _ => Multiplicative.ofAdd 3)
+
+-- coefficient_product_normalization: multiplying 2 and 3 gives 6, whereas addition gives 5.
+theorem coefficient_product_normalization :
+    excursionMatrixCoefficient (left.tensor right) (fun _ => ()) = 6 := by
+  norm_num [excursionMatrixCoefficient, ExcursionDatum.tensor,
+    ExcursionDatum.scalar, left, right]
+
+-- coefficient_tensor_tuple: neither leg can be silently replaced or exchanged.
+theorem coefficient_tensor_tuple :
+    (left.tensor right).tuple (Sum.inl 0) = Multiplicative.ofAdd (2 : ℤ) ∧
+    (left.tensor right).tuple (Sum.inr 0) = Multiplicative.ofAdd (3 : ℤ) := by
+  exact ⟨rfl, rfl⟩
+
+-- coefficient_reindex_fold: use a common tuple before folding the two legs.
+theorem coefficient_reindex_fold : excursionMatrixCoefficient
+    (((left.reindex id (fun _ => Multiplicative.ofAdd (5 : ℤ))).tensor
+      (right.reindex id (fun _ => Multiplicative.ofAdd (5 : ℤ)))).reindex (Sum.elim id id)
+      (fun _ => Multiplicative.ofAdd (5 : ℤ))) (fun _ => ()) = 6 := by
+  change excursionMatrixCoefficient (left.tensor right) (fun _ => ()) = 6
+  norm_num [excursionMatrixCoefficient, ExcursionDatum.tensor,
+    ExcursionDatum.scalar, left, right]
+
+-- coefficient_fold_tuple: the old tuple is the pullback of the folded tuple.
+theorem coefficient_fold_tuple :
+    ((left.reindex id (fun _ => Multiplicative.ofAdd (5 : ℤ))).tensor
+    (right.reindex id (fun _ => Multiplicative.ofAdd (5 : ℤ)))).tuple =
+    (fun _ : Fin 1 => Multiplicative.ofAdd (5 : ℤ)) ∘ Sum.elim id id := by
+  funext i
+  cases i <;> rfl
+
+end MatrixCoefficientChecks
 end MatrixCoefficients
 
 section Trace
