@@ -1,92 +1,85 @@
 # Handoff: REV-FIX-RT-AREA-iwasawa-3~3
 
-Refs #5869. Codex (GPT-6), session `codex-I3ds2G`, 10 October 2026.
-Input revision `5488856e76e2f94c95260e0c54f19bdb648479ed`; integrated current
-main `334197e7d` before submission, preserving its intervening review.
+Refs #5869. Codex, session `codex-Ra2LGa`, 10 October 2026.
+Input `c89c1befebb94f0ba04db968477e129bf29449b7`; integrated
+`445094c5f69ea083343ad64fa4166857dfe016b8` before edits.
 
-This is a **checkpoint blocked by conflicting dispatch scope**, not a finished
-queue job. The previous #8423 submission was also merged as a checkpoint.
-The live issue authorizes only the Motives packet, its suggested file and the
-review report; the queue additionally requires GH.0 and Kato packet verdicts.
-WORKERS.md says "Edit only the files the issue names, plus your own scratch
-space." A clarification request received no answer during this run. No extra
-packet, reader, queue file, generated atlas file or upstream checkout was edited.
+**Blocked checkpoint. Reconcile the issue/queue scope before assigning this
+job again.** The issue permits the Motives packet, suggested file and report;
+the queue also requires GH.0 and Kato verdicts. WORKERS.md says “Edit only the
+files the issue names, plus your own scratch space.” A scope request received
+no answer. No additional packet, reader, dispatch file or upstream checkout
+was edited. No second job was claimed.
 
-## What is done
+## Completed permitted work
 
-The [review report](../reviews/REV-FIX-RT-AREA-iwasawa-3~3.md) records every
-confirmed finding, fresh public-source locators/hashes, pinned library checks,
-current upstream ownership and the limits of the verdict. This session did
-none of the original work reviewed and took no second job.
+The [report](../reviews/REV-FIX-RT-AREA-iwasawa-3~3.md) gives all eight
+finding dispositions, fresh primary-source receipts, the six Motives
+supplier checks (32 APIs and 18 examples), pinned declaration checks and
+current upstream ownership. The period suppliers' existing repairs are
+accepted within this bounded scope; the unchanged Lean file elaborates.
+The prior period-torsor signature repair is confirmed, not claimed as a new
+change by this session.
 
-The six Motives supplier corrections are accepted within the assigned scope,
-after fixing one additional mismatch: `period_torsor` now consumes the
-compatible good-pair product structures and the typed complex comparison
-already required by its packet. Its hypothesis, proof and acceptance explain
-the complex point and nonemptiness used for faithful flatness. The formal-period
-source locator now includes Definition 2.8 p.10 and Remark 2.9 p.11.
+The packet's file verdict remains `needs_changes`: the independent
+geomlanglands review still requires the relative Beck preservation adapter
+and typed reconstruction interfaces. This session archives the immediately
+preceding review unchanged and retains all existing history and all
+non-review packet content, including 23 gaps and 16 requests.
 
-The top-level review names this job and retains `needs_changes` at file level.
-The geomlanglands verdict remains unchanged in history, and the intervening
-algebraic-geometry verdict by `codex-XnOZ0w` is archived unchanged. Its relative Beck
-preservation adapter and missing typed reconstruction interfaces remain
-unresolved; the bounded period correction does not discharge them. All 182
-node ids/order, prerequisites, 23 gaps, 16 requests, partial coverage,
-implementation statuses, source issues, baseline declarations and planets
-are preserved.
+## Exact resumption tasks
 
-## Checks
+1. **Fix the dispatch scope first.** Authorize the GH.0 and Kato packet/Lean
+   pairs in the live issue, or align the queue with its intended Motives-only
+   scope. Workers must not change unrelated markers or delete outputs to
+   satisfy the completion predicate. It is false because those owner
+   verdicts name different review jobs.
+2. **Kato /3 has a demonstrable scalar defect.** In
+   `L1/hecke-and-diamond-equivariance-of-the-moment-map`, restore Hecke
+   exponent `r′−1` in the statement and acceptance item 0. Kato Lemma 8.8,
+   p.185 prints that exponent. Transporting Proposition 2.4's linear term
+   through Ch multiplies `ell^(-(r′−1))` by `ell^(r′−1−r)`, giving `ell^(-r)`.
+   The current `r−1` gives `ell^(r′−2r)` instead. At `k=4,r=1,r′=2`, this is
+   1 rather than `ell^(-1)`. The full derivation and quadratic check are in
+   the report. Add that test, inspect the generic Lean scalar instantiation,
+   and supersede the earlier owner assertion while preserving its review in
+   history. Findings /2 and /4–/7 survive the fresh bounded check.
+3. **Clarify the GH.1 consumer hypothesis.** `cm-product-good-model` now
+   correctly requires both good factor models, but hypothesis 0 of
+   `p-adic-abel-jacobi-map` still appends `p ∤ cNd_K` to good reduction.
+   Require supplied smooth proper models independently, and restrict the
+   conductor criterion to BDP's canonical application. Read BDP §2.2,
+   p.1060, §3.2, p.1067, and Conrad pp.1139–1140. Retain the bad CM-twist
+   example and absolute-unramified Fontaine–Laffaille restriction.
+4. **When those pairs are authorized,** perform their bounded independent
+   review, retain earlier histories, record this job's verdict in each,
+   and check the affected packets and suggested contracts. Read-only
+   inspection in this checkpoint is not their completed review.
+5. **Authorized reader refresh remains separate.** Transfer the current
+   period-torsor witnesses/proof/acceptance, formal-period page locator,
+   period-point rank-one annotation and reconstruction verdict. All six
+   statements are present, but literal synchronization is incomplete.
+6. **Preserve ownership.** PS.2 imports MC.6's effective presentation and
+   Tate localization, owns integration and `ev(L)=2πi`, and tests the inverse.
+   C5 still owes the geometric comparison of arbitrary pairs. Abstract
+   Hodge structures and known-Hopf reconstruction have upstream owners;
+   no duplicate target belongs here.
 
-- Packet checker with the pinned declaration index: 0 errors, 0 warnings.
-- Full suggested file via `lean-check`, before and after the correction:
-  exit 0; final run 806 warnings, all admitted-proof warnings, no errors or
-  other warnings. Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-  Final file SHA-256:
+## Verification receipts
+
+- Motives packet checker with the pinned index: 0 errors, 0 warnings;
+  182 nodes, 451 counted APIs, 255 counted tests, 47 planets, 109 baseline
+  declarations, eight coverage entries and no stage closed.
+- Full `lean-check`: exit 0; 806 warnings, all admitted-proof warnings,
+  and no other diagnostics. Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`. Unchanged suggested-file hash:
   `99299f01dccfb3946d18ebf7f4497f104b49a216a6727151bd839eb5a0954150`.
-  Compilation does not prove the admitted declarations or supply missing
-  reconstruction interfaces.
-- Parsed preservation, `git diff --check` and intake file checks pass.
-- `issues.deliverables_complete` remains false: GH.0 and Kato still name their
-  separate owner reviews, rather than this job. No completion claim is made.
+  This checks elaboration, not admitted proofs or missing interfaces.
+- Parsed preservation, whitespace and submission file checks pass. The
+  dispatcher completion audit remains false for the scope reason above.
 
-## Resume here
-
-1. **Reconcile dispatch scope first.** The queue's additional pairs are
-   `packets/GeneralizedHeegnerCycles--GH.0.json` with its suggested file, and
-   `packets/KatoEulerSystems.json` with its suggested file. The maintainer can
-   authorize that review scope and refresh the issue, or align queue outputs
-   with a genuinely Motives-only job. Do not change unrelated review markers
-   or trim queue outputs merely to make intake complete.
-2. **GH.0 bounded review if authorized.** Read BDP §2.2 p.1060, §3.2 p.1067,
-   the introduction p.1040 and Conrad appendix pp.1139–1140. Current
-   `cm-product-good-model`, `p-adic-abel-jacobi-map` and
-   `finite-local-abel-jacobi-class` require the unramified local field and
-   supplied smooth proper models for both factors/product. The conductor
-   application is distinguished from arbitrary ramified twists. Check their
-   actual Lean/API contracts and retain prior review history.
-3. **Kato bounded review if authorized.** Findings /2–/7 largely survive in
-   the present owner: twist `k−r`, linear Euler factors, filtration steps with
-   upper endpoint `i≥k`, twist before specialization, dual restriction limit,
-   and divisor pushforward. A real source-match discrepancy remains:
-   `L1/hecke-and-diamond-equivariance-of-the-moment-map` and
-   `REV-KatoEulerSystems~2` attribute `n^(r−1)` to Lemma 8.8(1), printed p.185,
-   whose displayed formula is `n^(r′−1)`. I checked the page image. Either
-   restore a justified source-faithful contract or derive the intended
-   normalization and record a source issue; do not conflate r and r′. The
-   two diamond exponents and determinant factor are separate from this
-   Hecke discrepancy. Record a needs_changes verdict if it cannot be resolved.
-4. **Reader refresh by an authorized editor.** Transfer the new period-torsor
-   witnesses/proof/acceptance, formal-period page locator, later period-point
-   annotations and current reconstruction review/status. All six supplier
-   statements occur in the reader, but literal synchronization is incomplete.
-5. **Keep separate supplier/consumer obligations.** C5 must construct the
-   typed comparison of arbitrary pairs. PS.2 owns integration/evaluation:
-   import `P=P_eff[L⁻¹]`, extend by `ev(L)=2πi≠0`, identify the typed period
-   point and retain inverse and polynomial/Laurent tests. The atlas's PS.2
-   wording remains a maintainer edit. The geomlanglands review's relative
-   reconstruction gap is not cleared by this run.
-
-Public source URLs and exact mathematical locators are in the review report.
-Sources were read only in disposable scratch, with no passages copied into
-the deliverables. No build or modification was made in either upstream
-checkout. No manual promotion, merge, issue closure or label change was made.
+Primary-source URLs, mathematical locators and hashes are in the report.
+No passages or restricted source files were copied to the repository. Scratch
+is disposable; this note and report contain everything needed to resume.
+No process is left running and no manual merge, promotion, label change or
+issue closure was performed.
