@@ -1,9 +1,9 @@
-# PKG-HodgeStructuresPartII — blocked checkpoint, codex-qpq6ac
+# PKG-HodgeStructuresPartII — blocked checkpoint, codex-FxDbWE
 
 Issue [#7491](https://github.com/CBirkbeck/tauceti-explorer/issues/7491).
-Codex (GPT-6), session `codex-qpq6ac`, 10 October 2026.
-[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6095431133).
-Branch: `codex-qpq6ac-hodge-package`. None of the manager's priority issues
+Codex (GPT-6), session `codex-FxDbWE`, 10 October 2026.
+[Bot claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7491#issuecomment-6095594766).
+Branch: `codex-FxDbWE-hodge-package`. None of the manager's priority issues
 was in the available-swarm listing. This available focus package followed
 WORKERS' fallback ordering. Only this job was claimed.
 
@@ -12,8 +12,8 @@ WORKERS' fallback ordering. Only this job was claimed.
 **Blocked by owner specifications; the package is incomplete.** Independently
 re-reading the H.0 consumers and continuation gaps, CR.1's complete connection
 definition/API and DD.1's filtered/Rees targets confirms the inherited G1/G3
-mismatch. The current upstream roadmaps have advanced since the last checkpoint,
-but neither the inspected upstream interfaces nor the current native library
+mismatch. The current upstream roadmaps include material beyond the atlas
+snapshot, but neither the inspected upstream interfaces nor the current native library
 supplies these exact missing contracts. The consumer and supplier packet hashes
 are unchanged. H.0's accepted review expressly retains seven gaps and four
 requests and calls the layer planned, not closed.
@@ -32,16 +32,27 @@ No ownership move is made in this checkpoint.
 | CR.1 | `integrable-connection` covers affine quotients of Kähler differentials and the small crystalline site under PD hypotheses. | `ordinary-fiber` needs the same additive operator, exterior extensions, curvature, horizontal maps and descent on arbitrary supplied differential ringed sites. |
 | DD.1 | `filtered-modules` and `rees-description` describe enhanced derived diagrams, graded derived fibres and localization. | `rees-parameter` and `rees-specialization` need an ordinary finite locally split module sheaf, actual zero/unit/localized fibres, finite local freeness, naturality and descent, with operator-compatible H.0 comparisons. |
 
-This run changes only the handoff, consolidating repeated checkpoint records
-while preserving the repair requirements and inherited witness work. README
-and Suggested.lean are unchanged. Metadata remains absent, so intake must
-regard this as a checkpoint. The intended topic on completion is `math.AG`.
-G1/G3 repairs alone do not finish the remaining G2/G4–G7 or all-layer audit.
+This run strengthens the existing G1 acceptance witness in README and
+Suggested.lean. `NonUniversalDifferentialChecks.no_kaehler_quotient` proves
+that no Q-linear map from the native `KaehlerDifferential Q Q` to Q is
+surjective; its named example applies the obstruction to every proposed
+quotient map. The proof uses the pinned Mathlib subsingleton theorem at the
+identity algebra map, linearity at zero and 0≠1. It has no admitted proof.
+The four existing coordinate checks continue to describe a flat nonzero
+operator on the supplied one-form module. Together these distinguish the
+requested calculus from the present CR.1 hypothesis without creating a
+second ordinary-connection carrier.
+
+Metadata remains absent, so intake must regard this as a checkpoint. The
+intended topic on completion is `math.AG`. G1/G3 repairs alone do not finish
+the remaining G2/G4–G7 or all-layer audit. No packet, owner contract, review
+verdict or metadata is changed.
 
 ## Exact blocking contracts and acceptance witnesses
 
 The witnesses and proved checks below are inherited work, chiefly recorded
-by `codex-tOBD6n`; no new mathematical declaration or proof is claimed here.
+by `codex-tOBD6n`; the native Kähler obstruction above is the new proof in
+this checkpoint. The global sheaf comparisons remain unproved.
 
 **G1: ordinary connections on the supplied calculus.** The consumer
 `H.0/ordinary-fiber` asks for the λ=1 category on an arbitrary commutative
@@ -160,8 +171,8 @@ its incomplete prototype alone is not an owner gap. The local
 `IntegralVariationFibers` prototype lacks scalar-extension agreement and
 lattice naturality and cannot replace H.7's global integral datum.
 
-Suggested.lean retains 698 example declarations, including seven split-chart,
-five change-of-frame and four supplied-calculus checks. Its affine operator
+Suggested.lean retains 699 example declarations, including seven split-chart,
+five change-of-frame and five supplied-calculus checks. Its affine operator
 uses `LinearMap.pi`, `LinearMap.proj`, `Derivation.toLinearMap` and
 `Matrix.mulVecLin.restrictScalars`; the evaluation, Leibniz and zero-matrix
 laws are proved. Prior diagnostics found no `sorryAx` for those laws and the
@@ -181,27 +192,31 @@ This checkpoint does not certify H.1–H.8 or the remaining H.0 targets.
 
 ## Fresh source and current-library checks
 
-Atlas input: `267ae9c09f006c0e4b51bc6464de6a666ad8cdd9`.
+Atlas input: `1e146cc34` (own job branch fast-forwarded before editing).
 Read-only upstream roadmaps: `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`.
 Current Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
 
-Read the current AlgebraicVectorBundles and DifferentialGeometry READMEs and
-relevant suggested interfaces, and the reviewed HodgeStructures L0–L3 audit.
+Read the current AlgebraicVectorBundles and DifferentialGeometry READMEs,
+including their exact sheaf, exterior and connection boundaries. The suggested
+interface and reviewed HodgeStructures L0–L3 audit reads below are inherited
+from the preceding checkpoint.
 The first roadmap supplies scheme-level tensor, finite locally free dual,
 exterior, determinant and pullback comparisons. The second's `CurvatureForm`
 is a carrier for smooth real manifold bundle-valued forms. Existing pure/mixed
 Hodge linear algebra and period points are inputs to reuse. None of these
 checks produces the missing G1/G3 export. No Lake command ran in these trees.
 
-Read the current native sheaf tensor implementation and its ambient
-sheafification hypotheses: `TauCeti.SheafOfModules.tensorProduct`,
+The preceding checkpoint read the native sheaf tensor implementation and its
+ambient sheafification hypotheses; that detailed source read was not repeated
+in this run: `TauCeti.SheafOfModules.tensorProduct`,
 `tensorProduct_val` and `tensorProductIso` use sheafification of the presheaf
 tensor. This is useful G2 infrastructure, not all the requested exterior,
 descent or connection contracts. Mathlib's `reesAlgebra`/`mem_reesAlgebra_iff`
 and Tau Ceti's `reesAlgebra.grade`/`mem_grade_iff` concern the ideal-power
 polynomial Rees algebra. They do not supply the finite filtered module sheaf.
-These interface reads and name searches are boundary checks, not an exhaustive
-all-target library audit.
+This run re-screened native connection/Rees names and read the pinned Kähler
+subsingleton theorem used by the added check. These boundary checks are not an
+exhaustive all-target library audit.
 
 Re-opened [Stacks §60.15, Lemma 60.15.1](https://stacks.math.columbia.edu/tag/07J5)
 and [Situation 60.7.5](https://stacks.math.columbia.edu/tag/07MF) on 2026-10-10.
@@ -232,20 +247,29 @@ continuation counts overlap. No coverage entry is closed.
 | H.7 | 31 | 7 | 12 | planned |
 | H.8 | 31 | 5 | 11 | planned |
 
-- `python3 scripts/check_blueprint.py` on all ten Hodge inputs and the CR.0
-  and DD supplier packets: all twelve invocations exited 0, with zero errors
-  and zero warnings. Structural validation does not close their recorded gaps.
-- Fresh `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
+- `python3 scripts/check_blueprint.py` on the parent Hodge input and H.0
+  continuation: both invocations exited 0, with zero errors and zero warnings.
+  The other eight Hodge inputs and the two supplier packets were unchanged;
+  their successful twelve-file validation in the preceding checkpoint is
+  inherited evidence, not a new check. Structural validation does not close
+  their recorded gaps.
+- `lean-check research/blueprint/packages/HodgeStructuresPartII/Suggested.lean`
   exited 0: zero errors, 1619 warnings, all `declaration uses sorry`, zero
-  other warnings. The shared build uses Tau Ceti f790474 / Mathlib 082e2d3.
-  Elaboration of admitted signatures does not supply the missing constructions.
-  No Lean process from this session remains running.
-- Scoped intake `check-files` on this handoff: one file, zero problems.
-  `git diff --check` passed. README remains 194184 bytes and Suggested.lean
-  813980 bytes. No package artifact or packet changed.
+  other warnings. The managed build uses Tau Ceti f790474 / Mathlib 082e2d3.
+  The new theorem and its example add no admission. This elaboration does not
+  construct the missing global carriers or compare their operators.
+- The isolated native Kähler obstruction proof was checked against Mathlib
+  `082e2d37e8b0463410cdb532e111cd43d5a66174`; its axiom diagnostic contained
+  `propext`, `Classical.choice`, `Quot.sound`, and no `sorryAx`. The initial
+  local-instance style warning was corrected by using a local `let` instance.
+- Scoped intake `check-files` on README, Suggested.lean and this handoff:
+  three files, zero problems. `git diff --check` passed. Only these three
+  files are edited. README is 194436 bytes and Suggested.lean is
+  814843 bytes. No packet or metadata is changed; no Lean check is left
+  running at submission.
 
-Fresh SHA-256 receipts, relative to `research/blueprint`; all match the
-preceding checkpoint:
+SHA-256 receipts, relative to `research/blueprint`; inputs retain the preceding
+checkpoint hashes and package artifacts reflect the additional check:
 
 | File | SHA-256 |
 | --- | --- |
@@ -253,8 +277,8 @@ preceding checkpoint:
 | packets/CrystallineCohomology--CR.0.json | `90d720b682eccf1d80061213921ff7041dc895175937de5491f163e045c668fb` |
 | packets/DerivedDeRhamCohomology.json | `146a591348fccd8af4605020dd796a905c508ca12ebe52753302c6b08517673b` |
 | packages/DerivedDeRhamCohomology/README.md | `f6964c2bbec2b91f18076cb0e2e7760095bddf3b981397abc2c8e9a761a55ec5` |
-| packages/HodgeStructuresPartII/README.md | `a502af25469e3b7f35d6250e704faae1bc145497020126858e5a04ea548ee26d` |
-| packages/HodgeStructuresPartII/Suggested.lean | `3bca1a31172aa669ff414c12bccfe5310c1a462c3b198ece49322ecf58f6d0b7` |
+| packages/HodgeStructuresPartII/README.md | `44612b0fa6bcfbfc2768dba51fbd07e397717eb3e7d3533eeb7ad6e639b4f432` |
+| packages/HodgeStructuresPartII/Suggested.lean | `37dfb44091fe1b1a087f8c5b438c62d641651672feba0b390f2af3047d38efe9` |
 
 ## Resume sequence
 
