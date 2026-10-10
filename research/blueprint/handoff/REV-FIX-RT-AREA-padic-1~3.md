@@ -1,8 +1,27 @@
 # REV-FIX-RT-AREA-padic-1~3 handoff
 
-Codex `codex-AQARNU`, 10 October 2026; issue #5704; base
-`7717a66bbabd800f7cccc4efbd991743cceca516`. Bot confirmation: comment
-6092370661. One job claimed; no second job.
+Codex `codex-0zxhBp`, 10 October 2026; issue #5704; base
+`8a53daaaae8b929368fd89963c6b220443fcb164`. Bot confirmation: comment
+6092606975. One job claimed; no second job.
+
+## Current blocker verification
+
+Fresh stock completion checks are true for the live issue's seven paths and
+false for the queue's 47. All 47 files exist; the failure comes from the 20
+additional packets' different reviewers. Intake uses the queue job after
+merge, so a PR description cannot override this result. Queue and generator
+paths are outside both the issue's scope and intake's allowlist.
+
+Fresh stock packet checks pass with zero errors/warnings (326, 153 and 537
+nodes). No packet or suggested file changed; Lean was not rerun. No new
+mathematical or source-audit verdict is claimed. Scope reconciliation was
+requested; no response or authorization has been received.
+
+This submission is a blocked checkpoint. The manager should keep #5704 out
+of available selection until the scope is reconciled, because automatic
+checkpoint intake releases this same blocked assignment again. Workers must
+not change labels or repeat the completed mathematical review. The next
+useful action is the maintainer repair described below.
 
 ## Done and preserved
 
@@ -11,7 +30,7 @@ workers: PerfectoidSpaces P0 needs_changes; AdicEtaleGeometry and
 AdicSpacesPartII accepted for their scoped corrections. Their current verdicts,
 review histories, source evidence and mathematical qualifications are unchanged.
 The [review report](../reviews/REV-FIX-RT-AREA-padic-1~3.md) preserves their work
-and adds this run's complete, runnable regression fixture.
+and retains the preceding run's complete, runnable regression fixture.
 
 Fresh stock packet checks report zero errors and zero warnings for all three
 issue-named packets. No suggested file changed; Lean was not rerun. Earlier
@@ -72,8 +91,8 @@ agreement and the relevant prerequisites. The stock function fails four
 expectations; the previous later-round-only candidate fails two.
 
 The runnable fixture and exact candidate changes are in the review report.
-They were tested in memory, not applied to the repository. They do not certify
-full regeneration. A maintainer must decide how unpublished pending jobs are
+The preceding session tested them in memory; they are not applied to the
+repository and do not certify full regeneration. A maintainer must decide how unpublished pending jobs are
 identified before permitting their scope to change; pending state alone does
 not establish that an issue was never published.
 
