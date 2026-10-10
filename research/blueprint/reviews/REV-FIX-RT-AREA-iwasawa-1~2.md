@@ -1,3 +1,80 @@
+# Continuation: codex-mVQR9r, 10 October 2026
+
+Issue #6217; independent reviewer Codex — `codex-mVQR9r`.
+This session did none of the fixes, their red team, verification or earlier reviews.
+The bot confirmed the claim before this continuation began.
+
+**Authorized HE.0 verdict: accepted. Queue-job status: blocked checkpoint.**
+
+## What this continuation establishes
+
+I independently rechecked the four HE.0 findings against the confirmed findings,
+round-two fix report, current packet/supplier statements and the primary passages
+listed below. The previous continuation's mathematical corrections remain sound;
+this continuation adds verification receipts and an executable diagnosis of the
+scope blocker. It changes no mathematical statement or Lean signature.
+
+| Finding | Verdict | Check |
+|---|---|---|
+| /2 | Accepted within the recorded supplier obligations | Zhang Theorem 2.1, pp.203–204, preserves exact level and trivial character. The Diamond criterion is weaker; rational Jacquet–Langlands and integral transports remain distinct contracts. |
+| /8 | Accepted within the recorded supplier obligations | Zhang §6.3 and Theorems 6.4–6.5, pp.228–231, use geometric component lengths over K at inert primes. Theorem 7.1, pp.231–232, is repaired using Skinner's integral input and the prime-to-discriminant condition; the missing period/transport variants remain explicit requests. |
+| /9 | Accepted as an ownership correction | The accepted image-theory paper route and Part II brief own the general results; HE.7 keeps their application and exact requests for the all-prime, adelic and GL₂-type exports. I checked the ownership contract, not a new proof of Serre's theorem. |
+| /10 | Accepted within the recorded supplier obligations | Howard's H.0–H.5, self-dual DVR theorem and cyclic-tensor systems belong to ES.5. Zanarella's equality keeps both dual hypothesis lists, p≥5, the prime-set condition and nonzero bottom class. The Howard-system formula remains requested, rather than supplied by a Mazur–Rubin-over-Q theorem. |
+
+Sources read in this continuation:
+
+- [Zhang, version of record](https://archive.intlpress.com/site/pub/files/_fulltext/journals/cjm/2014/0002/0002/CJM-2014-0002-0002-a002.pdf): Theorem 2.1 pp.203–204; §6.3 and Theorems 6.4–6.5 pp.228–231; Theorems 7.1–7.2 pp.231–233. Read from the maintainer-cleared copy, without copying the file or passages.
+- [Howard, arXiv:1202.6340v1](https://arxiv.org/pdf/1202.6340v1): Definition 1.2.3 p.7; H.0–H.5 pp.8–9; Theorem 1.6.1 and its proof pp.16–18; Theorem 1.6.5 and its proof pp.18–19.
+- [Skinner, arXiv:1407.1093v1](https://arxiv.org/pdf/1407.1093v1): Theorems A/B pp.1–2; Theorem 2.5.2 and its integral-coefficient discussion pp.15–16.
+- [Zanarella, arXiv:1908.09197v1](https://arxiv.org/pdf/1908.09197v1): Definition 2.3.2, Proposition 2.3.3, and Theorem 2.3.6 with its proof pp.19–20.
+
+The four hashes match the previous receipts. These receipts are in
+`verification.independentFixReviewScopeCheck`. The historical review below
+retains its own source scope; I do not claim a new independent rereading of all
+78 targets or all ten source issues.
+
+I read all thirteen Mathlib baseline statements at the exact pin
+082e2d37e8b0463410cdb532e111cd43d5a66174, including the two nonzero restrictions
+in the p-adic ideal/valuation lemmas. The current upstream EllipticCurves layers
+2/7, ModularCurves scope, LocalGaloisGroups and ProfiniteArithmetic prototypes
+were inspected read-only. They keep generic Tate, pairing and Kummer material
+outside HE's ownership. The current Tau Ceti `levelRaise` is a degeneracy
+operator and supplies no exact-level Ribet/Diamond–Taylor theorem.
+
+## Current verification
+
+- Packet checker: zero errors and warnings; 78 nodes, 24 API items, eighteen unit tests, 21 gaps and 63 requests.
+- Source-issue schema/version checks: ten issues, 24 version receipts, zero problems.
+- Intake file checks: three changed files, zero problems; `git diff --check` passes.
+- `lean-check`: exit 0, 114 warnings, all `sorry`; no other warnings or errors. The suggested file is unchanged, SHA-256 `9e4fa52693e51e06ea4f6147f430ddf021a845d22b892bec0e8524f478dc546b`.
+- Current declaration graph: 30,589 unique indexed nodes; no duplicate ids or cycle reachable from HE.0. The HE.6 split remains six clean and thirteen Zhang nodes. No outside node consumes the Zhang group; it consumes no clean node. None of the 62 HE.8-family nodes depends on HE.6. The period export's closure has no Heegner node.
+
+These checks support acceptance of the four HE.0 fixes, with the supplier and
+stage-restructuring gaps preserved. They do not certify closure or implementation.
+
+## Reproduced completion blocker
+
+The live issue was re-read after claim confirmation. It names only this report,
+`HeegnerPointEulerSystems--HE.0.json` and its suggested file. Both the local
+queue and a fresh read of the live main queue instead name eleven packets.
+`issues.deliverables_complete` returns **false** for that actual queue job and
+**true** for an in-memory copy restricted to the live issue's three outputs.
+The ten extra packets retain other independent-review markers; one supplier
+packet, ES.0, has a `needs_changes` verdict. Their existing reviews do not
+constitute this job's independent fix review.
+
+[WORKERS.md](../WORKERS.md) requires edits to issue-named files. Scope
+clarification was requested in this session and remains unanswered. The extra
+packets and queue are untouched. This checkpoint needs a scope reconciliation:
+either align the queue outputs with the live issue, or authorize the ten extra
+reviews before they receive this job's verdict. The handoff lists them exactly.
+Repeating the already accepted HE.0 review cannot change that completion predicate.
+
+---
+
+The following is the preserved historical report of codex-TRbVPK. Its findings,
+corrections and source receipts remain part of the handoff evidence.
+
 # REV-FIX-RT-AREA-iwasawa-1~2
 
 Independent continuation review for issue #6217, by Codex — `codex-TRbVPK`,
