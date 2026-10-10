@@ -22,6 +22,10 @@ import Mathlib.GroupTheory.Perm.Cycle.Factors
 import Mathlib.Data.ZMod.Basic
 import Mathlib.GroupTheory.Perm.Sign
 import Mathlib.Topology.Algebra.Group.Basic
+import Mathlib.Topology.Algebra.Group.Quotient
+import Mathlib.Topology.Algebra.Group.Neighborhood
+import Mathlib.Topology.Algebra.OpenSubgroup
+import Mathlib.Topology.Instances.Rat
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Algebra.MonoidAlgebra.Defs
 import Mathlib.Algebra.Category.Ring.Colimits
@@ -575,6 +579,197 @@ example {α : Γ →* MulAut H} {P P' : Subgroup Γ} (h : P' ≤ P)
 example (α : Γ →* MulAut H) (P : Subgroup Γ) :
     ∀ x : Γ, x ∈ P → CrossedCocycle.unit α x = 1 := by sorry
 end Continuous
+
+/-! ## LP0.3: finite-wild descent on the actual quotient group
+
+The quotient is Mathlib's group quotient with its quotient topology. The
+normal subgroup must kill the action as well as the cocycle. This is the
+ordinary continuous part of the finite-wild parameter interface; the
+relatively discrete condensed coefficient condition is a separate input.
+-/
+section FiniteWildQuotient
+variable {Γ : Type u} {H : Type v} [Group Γ] [Group H]
+variable (α : Γ →* MulAut H) (P : Subgroup Γ) [P.Normal]
+variable (hα : P ≤ α.ker)
+
+namespace CrossedCocycle
+/-- Descend the actual action and the cocycle through the same normal kernel. -/
+def descend (c : CrossedCocycle α) (hc : ∀ p : Γ, p ∈ P → c p = 1) :
+    CrossedCocycle (QuotientGroup.lift P α hα) := by sorry
+
+theorem descend_mk (c : CrossedCocycle α) (hc : ∀ p : Γ, p ∈ P → c p = 1)
+    (γ : Γ) :
+    descend α P hα c hc (QuotientGroup.mk γ) = c γ := by sorry
+
+/-- Inflation is inverse to descent, not an arbitrary chosen extension. -/
+def quotientEquiv :
+    {c : CrossedCocycle α // ∀ p : Γ, p ∈ P → c p = 1} ≃
+      CrossedCocycle (QuotientGroup.lift P α hα) := by sorry
+
+theorem quotientEquiv_apply
+    (c : {c : CrossedCocycle α // ∀ p : Γ, p ∈ P → c p = 1}) :
+    quotientEquiv α P hα c = descend α P hα c.val c.property := by sorry
+
+theorem quotientEquiv_symm_apply
+    (d : CrossedCocycle (QuotientGroup.lift P α hα)) (γ : Γ) :
+    ((quotientEquiv α P hα).symm d).val γ = d (QuotientGroup.mk γ) := by sorry
+
+theorem descend_gauge (c : CrossedCocycle α)
+    (hc : ∀ p : Γ, p ∈ P → c p = 1) (h : H)
+    (hcg : ∀ p : Γ, p ∈ P → c.gauge h p = 1) :
+    descend α P hα (c.gauge h) hcg = (descend α P hα c hc).gauge h := by sorry
+
+include hα in
+/-- The right-hand hypothesis follows from killing both c and the action on P. -/
+theorem gauge_trivial_on (c : CrossedCocycle α)
+    (hc : ∀ p : Γ, p ∈ P → c p = 1) (h : H) :
+    ∀ p : Γ, p ∈ P → c.gauge h p = 1 := by sorry
+end CrossedCocycle
+
+variable [TopologicalSpace Γ] [TopologicalSpace H]
+
+namespace LParameter
+/-- Continuity descends along the quotient topology; no arbitrary topology is chosen. -/
+def quotientEquiv : FiniteWildPiece α P ≃
+    LParameter (QuotientGroup.lift P α hα) := by sorry
+
+theorem quotientEquiv_apply (c : FiniteWildPiece α P) (γ : Γ) :
+    (quotientEquiv α P hα c).val (QuotientGroup.mk γ) = c.val.val γ := by sorry
+
+theorem quotientEquiv_symm_apply
+    (d : LParameter (QuotientGroup.lift P α hα)) (γ : Γ) :
+    ((quotientEquiv α P hα).symm d).val.val γ = d.val (QuotientGroup.mk γ) := by sorry
+
+theorem quotientEquiv_gauge [IsTopologicalGroup H]
+    (c : FiniteWildPiece α P) (h : H)
+    (hact : ∀ k : H, Continuous (fun x : Γ => α x k))
+    (hquot : ∀ k : H, Continuous
+      (fun x : Γ ⧸ P => QuotientGroup.lift P α hα x k)) :
+    quotientEquiv α P hα
+      ⟨c.val.gauge h hact, CrossedCocycle.gauge_trivial_on α P hα
+        c.val.val c.property h⟩ =
+      (quotientEquiv α P hα c).gauge h hquot := by sorry
+end LParameter
+
+namespace FiniteWildPiece
+/-- The canonical map Γ/P' → Γ/P for P' ≤ P, not a map in the reverse direction. -/
+def cutoffMap (P' : Subgroup Γ) [P'.Normal] (h : P' ≤ P) : Γ ⧸ P' →* Γ ⧸ P :=
+  QuotientGroup.lift P' (QuotientGroup.mk' P) (by sorry)
+
+theorem cutoffMap_mk (P' : Subgroup Γ) [P'.Normal] (h : P' ≤ P) (γ : Γ) :
+    cutoffMap P P' h (QuotientGroup.mk γ) = QuotientGroup.mk γ := by sorry
+
+theorem quotient_inflate (P' : Subgroup Γ) [P'.Normal] (h : P' ≤ P)
+    (hα' : P' ≤ α.ker) (c : FiniteWildPiece α P) (x : Γ ⧸ P') :
+    (LParameter.quotientEquiv α P' hα' (inflate h c)).val x =
+      (LParameter.quotientEquiv α P hα c).val (cutoffMap P P' h x) := by sorry
+
+theorem inflate_injective {P' : Subgroup Γ} (h : P' ≤ P) :
+    Function.Injective (inflate (α := α) h) := by sorry
+end FiniteWildPiece
+
+/-- Compact wild inertia turns an open cocycle kernel into finite image.
+The converse uses continuity and T1 separation of the finite image. -/
+theorem finiteWild_iff_finite_range [IsTopologicalGroup Γ] [CompactSpace P] [T1Space H]
+    (c : LParameter α) :
+    FiniteWildRamification c.val P ↔ Set.Finite (Set.range (fun p : P => c.val p.val)) := by
+  sorry
+
+-- The trivial cutoff is an honest quotient by the identity subgroup.
+example (hbot : (⊥ : Subgroup Γ) ≤ α.ker) (c : LParameter α) (γ : Γ) :
+    (LParameter.quotientEquiv α ⊥ hbot
+      ⟨c, by
+        intro p hp
+        have hp' : p = 1 := by simpa only [Subgroup.mem_bot] using hp
+        simpa only [hp'] using c.val.map_one⟩).val (QuotientGroup.mk γ) =
+        c.val γ := by sorry
+
+-- Killing the whole source also kills its action, and leaves the unique unit cocycle.
+example (htop : (⊤ : Subgroup Γ) ≤ α.ker) (c : FiniteWildPiece α ⊤)
+    (x : Γ ⧸ (⊤ : Subgroup Γ)) :
+    (LParameter.quotientEquiv α ⊤ htop c).val x = 1 := by sorry
+
+-- Ordinary topological portion of wild_finite_image, including nondiscrete targets.
+example [IsTopologicalGroup Γ] [CompactSpace P] [T1Space H] (c : LParameter α) :
+    FiniteWildRamification c.val P ↔ Set.Finite (Set.range (fun p : P => c.val p.val)) :=
+  finiteWild_iff_finite_range α P c
+
+-- A unit cocycle kills every subgroup, but cannot descend a nontrivial action.
+example :
+    (∀ x : Multiplicative (ZMod 2), CrossedCocycle.unit CrossedCocycle.signAction x = 1) ∧
+    ¬ (⊤ : Subgroup (Multiplicative (ZMod 2))) ≤ CrossedCocycle.signAction.ker := by sorry
+end FiniteWildQuotient
+
+/-! ## LP2c.4: the finite-coordinate open-kernel argument
+
+BHKT Proposition 4.7(iii), pp.23–24, supplies the proof route; Quast
+Theorem 3.7, Claim A, pp.13–14, supplies the disconnected anchor application.
+The lemmas expose exactly the finite-coordinate separation input that the
+reconstruction supplier must discharge. They do not assert reconstruction
+from an arbitrary family of functions.
+-/
+namespace DiscreteWeilContinuity
+variable {W : Type u} {J : Type v} [Group W] [Group J]
+variable [TopologicalSpace W] [IsTopologicalGroup W]
+variable (I : Subgroup W) (ρ : W →* J)
+variable {A : Type w} [TopologicalSpace A] [DiscreteTopology A]
+variable {n : ℕ} (f : Fin n → J → A)
+
+/-- At the fixed anchor, the finite coordinate values distinguish ρ(i) from 1.
+Each coordinate is an actual function evaluated on the same reconstructed lift. -/
+theorem inertia_kernel_open
+    (hcts : ∀ j, Continuous (fun i : I => f j (ρ i.val)))
+    (hsep : ∀ i : I, (∀ j, f j (ρ i.val) = f j 1) → ρ i.val = 1) :
+    IsOpen ((ρ.comp I.subtype).ker : Set I) := by sorry
+
+/-- Compactness is used only for inertia, so no finite full-Weil image is claimed. -/
+theorem finite_inertia_image [CompactSpace I]
+    (hcts : ∀ j, Continuous (fun i : I => f j (ρ i.val)))
+    (hsep : ∀ i : I, (∀ j, f j (ρ i.val) = f j 1) → ρ i.val = 1) :
+    Set.Finite (Set.range (fun i : I => ρ i.val)) := by sorry
+
+/-- Openness of inertia transports the identity-neighbourhood argument to W. -/
+theorem continuous_lift [TopologicalSpace J] [DiscreteTopology J]
+    (hI : IsOpen (I : Set W))
+    (hcts : ∀ j, Continuous (fun i : I => f j (ρ i.val)))
+    (hsep : ∀ i : I, (∀ j, f j (ρ i.val) = f j 1) → ρ i.val = 1) :
+    Continuous ρ := by sorry
+
+/-- Zero coordinates force triviality on inertia through the separation input. -/
+example (f₀ : Fin 0 → J → A)
+    (hsep : ∀ i : I, (∀ j, f₀ j (ρ i.val) = f₀ j 1) → ρ i.val = 1) :
+    ρ.comp I.subtype = 1 := by sorry
+
+-- The unit lift has a full open inertia kernel and finite singleton image.
+example : IsOpen (((1 : W →* J).comp I.subtype).ker : Set I) ∧
+    Set.Finite (Set.range (fun i : I => (1 : W →* J) i.val)) := by sorry
+
+-- For any topology, a constant coordinate on C₂ fails to separate the identity.
+example [TopologicalSpace (Multiplicative (ZMod 2))] :
+    let fblind : Fin 1 → Multiplicative (ZMod 2) → ℤ := fun _ _ => 0
+    (∀ j, Continuous (fun x : Multiplicative (ZMod 2) => fblind j x)) ∧
+    ¬ (∀ x : Multiplicative (ZMod 2),
+      (∀ j, fblind j x = fblind j 1) → x = 1) := by sorry
+
+/-- A discrete degree model with Frobenius value 2. -/
+def unramifiedPower : Multiplicative ℤ →* ℚˣ where
+  toFun := fun z => (Units.mk0 (2 : ℚ) (by decide)) ^ z.toAdd
+  map_one' := by sorry
+  map_mul' := by sorry
+
+example : unramifiedPower (Multiplicative.ofAdd (0 : ℤ)) = 1 := by sorry
+
+example : unramifiedPower (Multiplicative.ofAdd (-1 : ℤ)) =
+    (Units.mk0 (2 : ℚ) (by decide))⁻¹ := by sorry
+
+example : unramifiedPower (Multiplicative.ofAdd (1 : ℤ)) =
+    Units.mk0 (2 : ℚ) (by decide) := by sorry
+
+-- Infinite Frobenius image is compatible with continuity and trivial inertia.
+example : Continuous unramifiedPower ∧
+    Set.range (fun i : (⊥ : Subgroup (Multiplicative ℤ)) => unramifiedPower i.val) = {1} ∧
+    Set.Infinite (Set.range unramifiedPower) := by sorry
+end DiscreteWeilContinuity
 
 section Wild
 variable {P : Type u} {W : Type v} {L : Type w} [Group P] [Group W] [Group L]
