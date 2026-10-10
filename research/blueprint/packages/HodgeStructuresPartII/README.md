@@ -62,6 +62,16 @@ therefore inputs to H.0. The native `SheafOfModules.ihom_obj` identifies
 internal Hom with the sheafification of the presheaf internal Hom. This does
 not identify tensor sections with tensors of global sections.
 
+For equality of O-linear maps p,q:M⊗N→P, use
+`TauCeti.SheafOfModules.tensor_hom_ext` under these same hypotheses.
+It suffices to compare their underlying presheaf maps after the canonical
+map from the presheaf tensor to the underlying sheaf tensor. Thus balanced
+local formulae can establish equality of sheaf morphisms through this map.
+The proof uses the sheafification adjunction and `tensorUnderlyingIso`;
+existence of the morphisms and compatibility on overlaps remain separate
+requirements. See
+[`Monoidal.lean`, `tensor_hom_ext`](https://github.com/TauCetiProject/TauCeti/blob/a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039/TauCeti/Algebra/Category/ModuleCat/Sheaf/TensorProduct/Monoidal.lean#L314).
+
 Slice restriction also has native tensor and internal-Hom comparisons. Under
 the preceding small-site and sheafification hypotheses,
 `SheafOfModules.overFunctorMonoidal` and `overFunctorBraided` make restriction
