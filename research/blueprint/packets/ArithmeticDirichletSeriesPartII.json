@@ -1,0 +1,1239 @@
+{
+  "roadmapId": "ArithmeticDirichletSeriesPartII",
+  "protocol": "blueprint-v1",
+  "part": null,
+  "scope": [
+    "ArithmeticDirichletSeriesPartII:HP.0",
+    "ArithmeticDirichletSeriesPartII:HP.1",
+    "ArithmeticDirichletSeriesPartII:HP.2",
+    "ArithmeticDirichletSeriesPartII:HP.3",
+    "ArithmeticDirichletSeriesPartII:HP.4",
+    "ArithmeticDirichletSeriesPartII:HP.5"
+  ],
+  "status": "complete",
+  "summary": "This continuation develops the integer-pole Delange theorem needed for nonnegative arithmetic counting sequences. It separates ordinary Laplace integration from Dirichlet-series summation, builds a polynomial regularizer and squared-sine smoothing, and proves the monotonicity step that recovers the leading asymptotic. The resulting counting interface retains the full boundary continuation hypotheses, the factorial constant and the positive-abscissa factor 1/a. Finite alterations and lower-pole dominated errors preserve that leading term. Wood’s arithmetic constructions remain with ArithmeticStatistics.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:AnalyticAt",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Analytic/Basic.lean",
+        "provides": "A convergent local power series is the native notion of an analytic germ.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/Analytic/Basic.lean:110; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:AnalyticOnNhd",
+        "kind": "def",
+        "module": "Mathlib/Analysis/Analytic/Basic.lean",
+        "provides": "Analytic germs at every point of a specified set; does not require the set open.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/Analytic/Basic.lean:120; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:LSeriesHasSum",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/Basic.lean",
+        "provides": "Absolute Dirichlet-series convergence with a specified sum; term at n=0 is suppressed.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/NumberTheory/LSeries/Basic.lean:217; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:LSeries.term",
+        "kind": "def",
+        "module": "Mathlib/NumberTheory/LSeries/Basic.lean",
+        "provides": "The n=0 term is zero; positive n gives coefficient/n^s.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/NumberTheory/LSeries/Basic.lean:74; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:LSeriesHasSum.convolution",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/Convolution.lean",
+        "provides": "Two convergent coefficient series yield the product as the series of their Dirichlet convolution.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/NumberTheory/LSeries/Convolution.lean:140; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:Real.sinc",
+        "kind": "def",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Sinc.lean",
+        "provides": "sin(v)/v with continuous value 1 at zero.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/SpecialFunctions/Trigonometric/Sinc.lean:37; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:Real.continuous_sinc",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Sinc.lean",
+        "provides": "Continuity of the existing sinc function.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/SpecialFunctions/Trigonometric/Sinc.lean:85; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:Real.abs_sinc_le_one",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Trigonometric/Sinc.lean",
+        "provides": "A uniform absolute bound by one, used near zero.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/SpecialFunctions/Trigonometric/Sinc.lean:56; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:Real.Gamma_nat_eq_factorial",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "Γ(k+1)=k! for natural k.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean:422; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:Real.integral_rpow_mul_exp_neg_mul_Ioi",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean",
+        "provides": "For positive real exponent a and rate r, the Gamma integral is (1/r)^a Γ(a); this is not a complex-rate theorem.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/SpecialFunctions/Gamma/Basic.lean:465; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.lintegral_liminf_le'",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean",
+        "provides": "Fatou for a countably generated filter and almost-everywhere measurable nonnegative functions; applied to ε-damped nonnegative convolutions.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/MeasureTheory/Integral/Lebesgue/Add.lean:216; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Complex/RemovableSingularity.lean",
+        "provides": "Differentiability on a punctured neighbourhood and continuity at its centre give an analytic germ there.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/Complex/RemovableSingularity.lean:36; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_tsum",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/DominatedConvergence.lean",
+        "provides": "Termwise Bochner integration requires measurability and a finite sum of norm integrals.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/MeasureTheory/Integral/DominatedConvergence.lean:88; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.integral_integral_swap",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/Prod.lean",
+        "provides": "Fubini for a product-integrable uncurried function.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/MeasureTheory/Integral/Prod.lean:478; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:MeasureTheory.tendsto_integral_filter_of_dominated_convergence",
+        "kind": "theorem",
+        "module": "Mathlib/MeasureTheory/Integral/DominatedConvergence.lean",
+        "provides": "Integral limits for countably generated filters under an integrable norm majorant and almost-everywhere convergence.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/MeasureTheory/Integral/DominatedConvergence.lean:67; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:Real.tendsto_integral_exp_smul_cocompact",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/Fourier/RiemannLebesgueLemma.lean",
+        "provides": "The real Fourier integral tends to zero at infinity; applies to the compactly supported L1 boundary product.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/Fourier/RiemannLebesgueLemma.lean:208; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:integrableOn_exp_mul_complex_Ioi",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/ImproperIntegrals.lean",
+        "provides": "For Re(z)<0, exp(zt) is Bochner integrable on every upper half-line.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/SpecialFunctions/ImproperIntegrals.lean:63; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:Complex.summable_one_div_nat_cpow",
+        "kind": "lemma",
+        "module": "Mathlib/Analysis/PSeriesComplex.lean",
+        "provides": "The complex p-series 1/n^s is summable exactly when Re(s)>1.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/PSeriesComplex.lean:25; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:hasSum_geometric_of_norm_lt_one",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecificLimits/Normed.lean",
+        "provides": "In a complete normed division ring, powers of a ratio with norm less than one sum to (1−ratio) inverse.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/SpecificLimits/Normed.lean:357; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:integral_exp_mul_complex_Ioi",
+        "kind": "theorem",
+        "module": "Mathlib/Analysis/SpecialFunctions/ImproperIntegrals.lean",
+        "provides": "For Re(z)<0, ∫_c^∞ exp(zt)dt=−exp(zc)/z, including its convergence proof in the adjacent declaration.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/Analysis/SpecialFunctions/ImproperIntegrals.lean:87; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:analyticOn_riemannZeta",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "The analytic continuation ζ is analytic away from 1.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/NumberTheory/LSeries/RiemannZeta.lean:146; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:riemannZeta_residue_one",
+        "kind": "lemma",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "The punctured complex limit of (s−1)ζ(s) at 1 is 1; a removable-germ argument is still required.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/NumberTheory/LSeries/RiemannZeta.lean:242; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:zeta_eq_tsum_one_div_nat_cpow",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/LSeries/RiemannZeta.lean",
+        "provides": "For Re(s)>1, the continuation ζ equals the convergent positive-integer Dirichlet sum.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/NumberTheory/LSeries/RiemannZeta.lean:207; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.sigma_zero_apply",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "σ_0(n) is the cardinality of Nat.divisors n.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/NumberTheory/ArithmeticFunction/Misc.lean:178; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "mathlib:ArithmeticFunction.zeta_mul_pow_eq_sigma",
+        "kind": "theorem",
+        "module": "Mathlib/NumberTheory/ArithmeticFunction/Misc.lean",
+        "provides": "The arithmetic zeta function convolved with n↦n^k gives σ_k; k=0 gives the divisor coefficient.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, Mathlib/NumberTheory/ArithmeticFunction/Misc.lean:195; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "tauceti:TauCeti.summatory",
+        "kind": "def",
+        "module": "TauCeti/Order/Northcott.lean",
+        "provides": "Generic inclusive real-cutoff finite sums for a natural-valued Northcott function.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, TauCeti/Order/Northcott.lean:82; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "tauceti:TauCeti.summatory_mono",
+        "kind": "theorem",
+        "module": "TauCeti/Order/Northcott.lean",
+        "provides": "Nonnegative weights make the real-cutoff summatory function monotone.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, TauCeti/Order/Northcott.lean:132; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "tauceti:TauCeti.summatory_nonneg",
+        "kind": "theorem",
+        "module": "TauCeti/Order/Northcott.lean",
+        "provides": "Nonnegative weights give nonnegative summatory values.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, TauCeti/Order/Northcott.lean:123; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "tauceti:TauCeti.eventually_summatory_sub_eq",
+        "kind": "theorem",
+        "module": "TauCeti/Order/Northcott.lean",
+        "provides": "Weights equal outside a finite set have an eventually constant summatory difference.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, TauCeti/Order/Northcott.lean:137; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "tauceti:TauCeti.Contour.exists_laurent_data_of_meromorphicAt",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/Contour/MeromorphicLaurent.lean",
+        "provides": "Canonical finite principal-part expansion plus an analytic remainder at a meromorphic germ.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, TauCeti/Analysis/Contour/MeromorphicLaurent.lean:223; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      },
+      {
+        "ref": "tauceti:TauCeti.Contour.tendsto_integral_sin_mul_div_atTop",
+        "kind": "theorem",
+        "module": "TauCeti/Analysis/Contour/WorkedExamples/HalfDisc/SineIntegral.lean",
+        "provides": "For positive frequency, truncated ∫_0^R sin(ax)/x tends to π/2; it is not a Lebesgue half-line integral.",
+        "checked": "Statement and ambient hypotheses read at the recorded pinned commit, TauCeti/Analysis/Contour/WorkedExamples/HalfDisc/SineIntegral.lean:339; the shared Tau Ceti source file was compared with the recorded git object where applicable."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "DEL54",
+      "title": "Généralisation du théorème de Ikehara",
+      "authors": "Hubert Delange",
+      "edition": "Annales scientifiques de l’École Normale Supérieure (3) 71(3) (1954), 213–242; DOI 10.24033/asens.1023",
+      "url": "https://www.numdam.org/item/ASENS_1954_3_71_3_213_0.pdf",
+      "sha256": "4934b4bfba12d405fc267fa0c0318c3034ab29c9e8223388019377bb45ca0998",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "Standing hypotheses and Theorems I–II, pp.213–216",
+        "§3.1–3.4 and §4.1, pp.220–229: Laplace regularization, squared-sine smoothing and monotonicity",
+        "§5.1.1–5.2.1, pp.231–238: Gamma models and Theorem III",
+        "§5.3, p.242: limitation of a local singularity hypothesis"
+      ]
+    },
+    {
+      "id": "WOOD19",
+      "title": "Nonabelian Cohen–Lenstra moments",
+      "authors": "Melanie Matchett Wood",
+      "edition": "Duke Mathematical Journal 168(3) (2019), 377–427",
+      "url": "https://par.nsf.gov/servlets/purl/10152050",
+      "sha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "§7, pp.415–417: higher-pole homomorphism counts and lower-rank removal"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.0/laplace",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.0",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.0"
+      ],
+      "title": "Convergent Laplace integral",
+      "kind": "definition",
+      "statement": "HasLaplace α s z means that t ↦ exp(−st)α(t), with α(t) cast to ℂ, is Bochner integrable on [0,∞) and its integral is z. α is a total real-valued function; no condition is imposed at negative t.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the existing restricted-volume Bochner integral; integrability is part of the predicate, so its totalized value cannot witness a divergent transform.",
+        "Uniqueness, addition and real scaling follow from the Bochner integral API. A positive change of variable proves dilation; an almost-everywhere change on the half-line preserves the predicate."
+      ],
+      "acceptance": [
+        "The constant-one function has transform 1/s on Re(s)>0; at s=0 it is not integrable."
+      ],
+      "prerequisites": [
+        "mathlib:MeasureTheory.integral_integral_swap",
+        "mathlib:integral_exp_mul_complex_Ioi"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "Standing hypotheses p.213; §3.3.1, pp.221–222",
+          "match": "The argument uses ordinary Laplace integration of the counting function, rather than a Stieltjes transform. The predicate records exactly that convergence."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "HasLaplace",
+      "planet": {
+        "name": "Laplace transform"
+      },
+      "api": [
+        {
+          "name": "HasLaplace.unique",
+          "role": "characterisation",
+          "statement": "Two HasLaplace values at the same α and s coincide."
+        },
+        {
+          "name": "HasLaplace.congr",
+          "role": "extensionality",
+          "statement": "Equality almost everywhere for volume restricted to [0,∞) preserves HasLaplace."
+        },
+        {
+          "name": "HasLaplace.add",
+          "role": "structure",
+          "statement": "Transforms z,w at s add to z+w for α+β."
+        },
+        {
+          "name": "HasLaplace.smul",
+          "role": "structure",
+          "statement": "For real c, the transform of cα is cz."
+        },
+        {
+          "name": "HasLaplace.dilate",
+          "role": "functoriality",
+          "statement": "If c>0 and α has transform z at s/c, then t ↦ α(ct) has transform z/c at s."
+        }
+      ],
+      "tests": [
+        {
+          "name": "HasLaplace_test_zero",
+          "kind": "example",
+          "statement": "α=0 has transform 0 at every complex s."
+        },
+        {
+          "name": "HasLaplace_test_constant",
+          "kind": "example",
+          "statement": "α=1 has transform 1/s when Re(s)>0."
+        },
+        {
+          "name": "HasLaplace_test_quadratic",
+          "kind": "example",
+          "statement": "α(t)=t² has transform 2/s³ for Re(s)>0, fixing the factorial convention."
+        },
+        {
+          "name": "HasLaplace_test_nonintegrable",
+          "kind": "example",
+          "statement": "HasLaplace (constant 1) 0 0 is false; a junk-valued integral is not a transform."
+        }
+      ],
+      "uses": [
+        {
+          "where": "DEL54 Theorem III, pp.235–238",
+          "how": "Supplies the convergent transform before any boundary assertion."
+        },
+        {
+          "where": "HP.4 logarithmic summatory bridge",
+          "how": "The adapter produces the ordinary transform F(s)/s with its integrability proof."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.0/boundary",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.0",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.0"
+      ],
+      "title": "Boundary continuation and pole numerator",
+      "kind": "definition",
+      "statement": "PoleBoundary F a k A consists of: F analytic on Re(s)>a; a radius r>0 and g analytic on the ball about a such that g(a)=A and F(s)=g(s)/(s−a)^(k+1) on its intersection with Re(s)>a; and, for each real y≠0, a radius r_y>0 and an analytic g_y about a+iy agreeing with F on the corresponding right-half-plane intersection. k is natural. A≠0 makes the pole order exactly k+1; the main theorems require A>0. Values assigned to F on the boundary carry no meaning.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Express each extension using AnalyticOnNhd and an explicit agreement domain. A local holomorphic remainder is absorbed into the numerator.",
+        "Use uniqueness of analytic germs on the intersection to obtain unique leading coefficient and, when nonzero, pole order.",
+        "Multiplication by a regular function multiplies the leading coefficient. Division by the argument is valid for a>0 and changes A to A/a. Rescaling s ↦ as moves the line to Re(s)=1 and changes A to A/a^(k+1)."
+      ],
+      "acceptance": [
+        "Boundary values of F can be changed arbitrarily without changing PoleBoundary. Positivity belongs to the main theorem, not to the carrier."
+      ],
+      "prerequisites": [
+        "mathlib:AnalyticOnNhd",
+        "mathlib:AnalyticAt"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§5.2.1 Theorem III, pp.235–238; standing hypotheses p.213",
+          "match": "The integer specialization needs holomorphic extensions at every other point of the line and an analytic numerator at the pole. A one-sided real limit does not supply these hypotheses."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "PoleBoundary",
+      "planet": {
+        "name": "Boundary continuation"
+      },
+      "api": [
+        {
+          "name": "PoleBoundary.congr",
+          "role": "extensionality",
+          "statement": "Equality on Re(s)>a preserves the predicate; no boundary equality is needed."
+        },
+        {
+          "name": "PoleBoundary.leading_unique",
+          "role": "characterisation",
+          "statement": "For fixed F,a,k, two leading coefficients A,B coincide."
+        },
+        {
+          "name": "PoleBoundary.order_unique",
+          "role": "characterisation",
+          "statement": "For fixed F,a and nonzero leading coefficients, two indices k,l coincide."
+        },
+        {
+          "name": "PoleBoundary.div_argument",
+          "role": "compatibility",
+          "statement": "For a>0, PoleBoundary F a k A implies PoleBoundary (F(s)/s) a k (A/a)."
+        },
+        {
+          "name": "PoleBoundary.rescale",
+          "role": "functoriality",
+          "statement": "For a>0, F(as) satisfies PoleBoundary at 1 with leading A/a^(k+1)."
+        },
+        {
+          "name": "PoleBoundary.mul_regular",
+          "role": "structure",
+          "statement": "If H is analytic near every point of Re(s)≥a and H(a)=C is real, FH satisfies PoleBoundary with leading AC."
+        }
+      ],
+      "tests": [
+        {
+          "name": "PoleBoundary_test_model",
+          "kind": "example",
+          "statement": "F(s)=A/(s−a)^(k+1) satisfies the predicate for all real a,A and natural k."
+        },
+        {
+          "name": "PoleBoundary_test_wrong_leading",
+          "kind": "example",
+          "statement": "F(s)=1/(s−1) does not have index k=0 and leading coefficient 2."
+        },
+        {
+          "name": "PoleBoundary_test_boundary_value",
+          "kind": "example",
+          "statement": "Setting F(1)=37 while retaining F(s)=1/(s−1) elsewhere still gives PoleBoundary at a=1,k=0,A=1."
+        },
+        {
+          "name": "PoleBoundary_test_dyadic",
+          "kind": "example",
+          "statement": "F(s)=1/(1−exp((1−s)log 2)) does not satisfy the full predicate at a=1,k=0,A=1/log 2, because of the other poles on the boundary line."
+        },
+        {
+          "name": "PoleBoundary_test_zero_not_exact",
+          "kind": "example",
+          "statement": "F=0 cannot satisfy PoleBoundary with A≠0."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HP.2 regularization",
+          "how": "Controls the full finite principal part and the remainder along every compact boundary interval."
+        },
+        {
+          "where": "HP.4 counting theorem; ArithmeticStatistics ST.3",
+          "how": "The arithmetic consumer supplies analytic continuation and its positive leading coefficient without exposing divergent LSeries boundary values."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.1/kernel",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.1",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.1"
+      ],
+      "title": "Normalized squared-sinc kernel",
+      "kind": "definition",
+      "statement": "For real λ,v set K_λ(v)=squaredSinc λ v=(λ/π) sinc(λv)², using Mathlib Real.sinc(0)=1. Its analytic and probability assertions assume λ>0. Angular Fourier frequency y is used: K_λ(v)=(1/(2π))∫_(−2λ)^(2λ)(1−|y|/(2λ))exp(iyv)dy.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Use the existing sinc function, its continuity and bound near zero. Away from zero the square is bounded by a constant times v^(−2), giving integrability.",
+        "Compute mass by integration by parts on a finite positive interval, reducing to the pinned improper sine-integral limit; evenness gives the full integral. There is no use of a Lebesgue integral of unsquared sinc.",
+        "Integrate the triangular frequency weight explicitly, including v=0 by continuity. Scaling and integrability give vanishing tails outside every fixed neighbourhood as λ tends to infinity."
+      ],
+      "acceptance": [
+        "The continuous value at zero and frequency endpoint 2λ are fixed; this is a kernel on ℝ, distinct from the finite-circle Fejér expression in the sieve roadmap."
+      ],
+      "prerequisites": [
+        "mathlib:Real.sinc",
+        "mathlib:Real.continuous_sinc",
+        "mathlib:Real.abs_sinc_le_one",
+        "tauceti:TauCeti.Contour.tendsto_integral_sin_mul_div_atTop"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§3.3.3–3.3.5, pp.222–224; §3.4, pp.225–227",
+          "match": "The proof uses the square of the sine quotient with compact triangular frequency support. Here it is normalized to mass one, so the smoothing limit is a coefficient rather than π times that coefficient."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "squaredSinc",
+      "planet": {
+        "name": "Squared-sine kernel"
+      },
+      "api": [
+        {
+          "name": "squaredSinc_nonneg",
+          "role": "structure",
+          "statement": "K_λ(v)≥0 for λ>0 and all real v."
+        },
+        {
+          "name": "squaredSinc_even",
+          "role": "simp",
+          "statement": "K_λ(−v)=K_λ(v)."
+        },
+        {
+          "name": "squaredSinc_continuous",
+          "role": "structure",
+          "statement": "K_λ is continuous for every real λ."
+        },
+        {
+          "name": "squaredSinc_integrable",
+          "role": "structure",
+          "statement": "K_λ is Lebesgue integrable on ℝ for λ>0."
+        },
+        {
+          "name": "squaredSinc_mass",
+          "role": "characterisation",
+          "statement": "For λ>0, ∫ℝ K_λ=1."
+        },
+        {
+          "name": "squaredSinc_fourier",
+          "role": "compatibility",
+          "statement": "The angular-frequency triangular integral in the definition statement equals K_λ, as a complex-valued equality."
+        },
+        {
+          "name": "squaredSinc_tail",
+          "role": "other",
+          "statement": "For h>0, ∫_(|v|≥h)K_λ(v)dv tends to 0 as λ tends to infinity."
+        }
+      ],
+      "tests": [
+        {
+          "name": "squaredSinc_test_origin",
+          "kind": "example",
+          "statement": "For λ>0, K_λ(0)=λ/π."
+        },
+        {
+          "name": "squaredSinc_test_zero",
+          "kind": "example",
+          "statement": "For λ>0, K_λ(π/λ)=0."
+        },
+        {
+          "name": "squaredSinc_test_mass_two",
+          "kind": "example",
+          "statement": "∫ℝ K_2=1, detecting a missing scaling or π factor."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HP.2 smoothed limit",
+          "how": "Its compact Fourier support allows use of locally L1 boundary values."
+        },
+        {
+          "where": "HP.3 unsmoothing",
+          "how": "Positivity, mass one and tail decay turn monotonicity into two-sided bounds."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.1/weight",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.1",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.1"
+      ],
+      "title": "Polynomial Laplace regularization weight",
+      "kind": "definition",
+      "statement": "For k∈ℕ and t∈ℝ define w_k(t)=delangeWeight k t=t∫_0^1 exp(−ut)u^k/k! du. It is zero at t=0, positive for t>0, and satisfies w_k(t)t^k→1 as t→∞. Its definition is total; positivity and upper bounds are asserted only for t≥0.",
+      "hypotheses": [],
+      "proofSteps": [
+        "Change variable x=ut. For t>0, w_k(t)t^k=(1/k!)∫_0^t exp(−x)x^k dx.",
+        "Use the real Gamma integral and Γ(k+1)=k! to obtain normalization and the bound ≤1.",
+        "The normalization and (t+h)^k/t^k→1 yield w_k(t+h)/w_k(t)→1 for every fixed real h. The first two cases follow by elementary integration."
+      ],
+      "acceptance": [
+        "The weight is not identically t^(−k) near the origin; the vanishing at zero makes the ordinary integral regularizer precise."
+      ],
+      "prerequisites": [
+        "mathlib:Real.Gamma_nat_eq_factorial",
+        "mathlib:Real.integral_rpow_mul_exp_neg_mul_Ioi"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§3.1–3.2, pp.220–221; §5.1.1 Lemma 3, pp.231–232; §5.2.1, p.237",
+          "match": "Specializing the source regularizer to integer powers gives this explicit Gamma-normalized weight. The cutoff 1 is a positive fixed cutoff; the argument and limit are independent of its particular positive value."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "delangeWeight",
+      "planet": {
+        "name": "Laplace regularization weight"
+      },
+      "api": [
+        {
+          "name": "delangeWeight_nonneg",
+          "role": "structure",
+          "statement": "w_k(t)≥0 for t≥0."
+        },
+        {
+          "name": "delangeWeight_pos",
+          "role": "structure",
+          "statement": "w_k(t)>0 for t>0."
+        },
+        {
+          "name": "delangeWeight_normalization",
+          "role": "characterisation",
+          "statement": "w_k(t)t^k→1 as t→∞."
+        },
+        {
+          "name": "delangeWeight_shift",
+          "role": "functoriality",
+          "statement": "For each fixed h∈ℝ, w_k(t+h)/w_k(t)→1."
+        },
+        {
+          "name": "delangeWeight_bound",
+          "role": "other",
+          "statement": "For t≥0, w_k(t)t^k≤1."
+        }
+      ],
+      "tests": [
+        {
+          "name": "delangeWeight_test_origin",
+          "kind": "example",
+          "statement": "w_k(0)=0 for every k."
+        },
+        {
+          "name": "delangeWeight_test_simple",
+          "kind": "example",
+          "statement": "w_0(t)=1−exp(−t) for every real t."
+        },
+        {
+          "name": "delangeWeight_test_double",
+          "kind": "example",
+          "statement": "t w_1(t)=1−(1+t)exp(−t) for every real t."
+        },
+        {
+          "name": "delangeWeight_test_triple",
+          "kind": "example",
+          "statement": "t²w_2(t)=1−(1+t+t²/2)exp(−t) for every real t, detecting the 2! normalization."
+        }
+      ],
+      "uses": [
+        {
+          "where": "HP.2 regularized boundary",
+          "how": "Multiplication by w_k corresponds to integrating the negative derivative of the transform against u^k/k!."
+        },
+        {
+          "where": "HP.3 unsmoothing",
+          "how": "The shift law permits comparison of the weighted count at t and nearby arguments without assuming it monotone."
+        }
+      ]
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.2/gamma-model",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.2",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.2"
+      ],
+      "title": "Integer Gamma Laplace model",
+      "kind": "theorem",
+      "statement": "For k∈ℕ, a∈ℝ and complex s with Re(s)>a, the function α(t)=exp(at)t^k has HasLaplace value k!/(s−a)^(k+1).",
+      "hypotheses": [
+        "Re(s)>a."
+      ],
+      "proofSteps": [
+        "The norm is exp(−(Re(s)−a)t)t^k, integrable by the real Gamma integral.",
+        "Start with the pinned complex exponential integral at k=0; repeated integration by parts proves the formula for every integer k. Exponential decay removes each endpoint at infinity.",
+        "Thus β(t)=(A/k!)exp(at)t^k has transform A/(s−a)^(k+1), with no truncation error or choice of complex powers."
+      ],
+      "acceptance": [
+        "For k=0 the transform is 1/(s−a); for k=1 it is 1/(s−a)²."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.0/laplace",
+        "mathlib:integral_exp_mul_complex_Ioi",
+        "mathlib:integrableOn_exp_mul_complex_Ioi",
+        "mathlib:Real.integral_rpow_mul_exp_neg_mul_Ioi",
+        "mathlib:Real.Gamma_nat_eq_factorial"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§5.1.2 Lemma 4, pp.232–233; §5.2.1, pp.236–237",
+          "match": "The Gamma model identifies the pole term with its ordinary Laplace inverse. Only positive integer pole orders are needed here."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "integerGammaLaplace"
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.2/boundary-l1",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.2",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.2"
+      ],
+      "title": "Locally integrable regularized boundary",
+      "kind": "theorem",
+      "statement": "Assume PoleBoundary F a k A. Set R(s)=F(s)−A/(s−a)^(k+1) on Re(s)>a and H(s)=−∫_0^1 R′(s+u)u^k/k! du. There is b:ℝ→ℂ such that, for every L>0, b is integrable on [−L,L] and ∫_(−L)^L |H(a+ε+iy)−b(y)|dy→0 as ε↓0. All derivative evaluations in this limit have ε>0.",
+      "hypotheses": [
+        "PoleBoundary F a k A; k∈ℕ; no positivity or Laplace representation is needed for this analytic lemma."
+      ],
+      "proofSteps": [
+        "Apply the existing Laurent decomposition to the local analytic numerator quotient, not to the arbitrary boundary values of F. Subtracting the leading term leaves poles of orders at most k and a holomorphic remainder.",
+        "Differentiate each remaining term and integrate u^k R′(a+ε+iy+u). Near y=0 this is bounded uniformly in ε>0 by C(1+|log|y||), because the worst denominator has power k+1. For k=0 the remainder is regular. The majorant is locally integrable.",
+        "Away from zero, boundary germs and compactness of the u interval give ordinary convergence and a uniform bound. Patch a finite cover of each y interval.",
+        "Define b by the limit away from zero, assigning any finite value at zero. Apply dominated convergence to the norm of the difference; the logarithmic majorant gives L1 convergence."
+      ],
+      "acceptance": [
+        "A lower pole of order k produces at most logarithmic boundary growth after regularization, rather than an unintegrable power."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.0/boundary",
+        "ArithmeticDirichletSeriesPartII:HP.1/weight",
+        "tauceti:TauCeti.Contour.exists_laurent_data_of_meromorphicAt",
+        "mathlib:MeasureTheory.tendsto_integral_filter_of_dominated_convergence"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§3.3.1–3.3.2, pp.221–222; §4.1, pp.228–229; §5.2.1, pp.237–238",
+          "match": "This is the holomorphic-boundary specialization of the regularized transform step. It replaces the source broader boundary-limit machinery by compact L1 convergence under the stronger hypotheses used in this roadmap."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "regularizedBoundaryL1",
+      "planet": {
+        "name": "Regularized boundary values"
+      }
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.2/smoothed-limit",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.2",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.2"
+      ],
+      "title": "Higher-pole smoothed counting limit",
+      "kind": "theorem",
+      "statement": "Let a>0, k∈ℕ and A∈ℝ. Let α be nonnegative and nondecreasing on [0,∞), HasLaplace α s (F(s)) for all Re(s)>a, and PoleBoundary F a k A. For every λ>0 and T∈ℝ the integral ∫_0^∞ w_k(t)exp(−at)α(t)K_λ(t−T)dt is absolutely integrable, and as T→∞ it tends to A/k!.",
+      "hypotheses": [
+        "a>0; α(t)≥0 for t≥0; MonotoneOn α [0,∞); convergence at every s with Re(s)>a; full PoleBoundary, not only a local pole."
+      ],
+      "proofSteps": [
+        "Subtract the Gamma model β=(A/k!)exp(at)t^k. Differentiate the convergent Laplace integral: convergence a little to the left absorbs the extra t factor. Fubini then identifies H(s) with the transform of w_k(t)(α(t)−β(t)).",
+        "Insert the triangular Fourier formula for K_λ in the ε-damped integral. The u,t,y interchanges are justified at ε>0 by absolute convergence and compact frequency support.",
+        "Use regularizedBoundaryL1 to pass ε↓0 on the frequency side, then the Riemann–Lebesgue lemma to let T→∞. On the counting side positivity gives undamped integrability by Fatou and the finite damped limit; dominated convergence removes ε using the integrable undamped nonnegative product as majorant. This proves the undamped identity before using its limit.",
+        "For the model, w_k(t)t^k is bounded by 1 and tends to 1. Translation, dominated convergence and ∫K_λ=1 give model limit A/k!, so the count has that same smoothed limit."
+      ],
+      "acceptance": [
+        "No bound α(t)=O(exp(at)t^k) is assumed: that bound is obtained in the next monotonicity step."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.0/laplace",
+        "ArithmeticDirichletSeriesPartII:HP.2/gamma-model",
+        "ArithmeticDirichletSeriesPartII:HP.2/boundary-l1",
+        "ArithmeticDirichletSeriesPartII:HP.1/kernel",
+        "ArithmeticDirichletSeriesPartII:HP.1/weight",
+        "mathlib:MeasureTheory.integral_integral_swap",
+        "mathlib:MeasureTheory.tendsto_integral_filter_of_dominated_convergence",
+        "mathlib:Real.tendsto_integral_exp_smul_cocompact",
+        "mathlib:MeasureTheory.lintegral_liminf_le'"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§3.3.1–3.3.5, pp.221–224; §4.1, pp.228–229",
+          "match": "The squared-sine convolution extracts the leading coefficient from the regularized transform. Positivity justifies passing from damped integrals to their undamped counterparts."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "delangeSmoothedLimit",
+      "planet": {
+        "name": "Smoothed Tauberian limit"
+      }
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.3/unsmoothing",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.3",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.3"
+      ],
+      "title": "Monotone removal of squared-sine smoothing",
+      "kind": "theorem",
+      "statement": "Let a>0, C≥0 and k∈ℕ. Suppose α is nonnegative and nondecreasing on [0,∞). Assume that for every λ>0 the smoothed integral in HP.2 is integrable for every T and tends to C as T→∞. Then α(t)/(exp(at)t^k)→C as t→∞.",
+      "hypotheses": [
+        "No transform or boundary hypothesis is used here; all positive λ are required, along with their actual convolution limits and integrability."
+      ],
+      "proofSteps": [
+        "Write J(t)=w_k(t)exp(−at)α(t). Fix a short interval [T,T+h]. Monotonicity of α and the weight shift law compare J(T) with the convolution on that interval. Positivity and a nonzero kernel mass give an eventual upper bound for J; local monotonicity also bounds it on compact intervals.",
+        "This bound controls tails outside [T−h,T+h]. The smoothed limit, monotonicity and the weight shift law give lower and upper limits for J(T) with errors from the tails and exp(±ah).",
+        "First let λ→∞ for fixed h>0, using squaredSinc_tail; then let h↓0. Both limits equal C.",
+        "Use w_k(t)t^k→1 to replace J(t) by α(t)/(exp(at)t^k). This also proves the case C=0."
+      ],
+      "acceptance": [
+        "The weighted function J itself need not be monotone. A limit for one fixed bandwidth is insufficient for this statement."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.1/kernel",
+        "ArithmeticDirichletSeriesPartII:HP.1/weight"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§3.4.1–3.4.2, pp.225–227",
+          "match": "The Tauberian step uses the nondecreasing counting function and the shift behaviour of the regularizer. It derives the necessary bound instead of taking the intended asymptotic as a premise."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "monotoneUnsmoothing",
+      "planet": {
+        "name": "Monotone Tauberian transfer"
+      }
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.3/laplace-theorem",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.3",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.3"
+      ],
+      "title": "Delange integer-pole Laplace theorem",
+      "kind": "theorem",
+      "statement": "Let a>0, A>0 and m=k+1 with k∈ℕ. If α:[0,∞)→[0,∞) is nondecreasing, its ordinary Laplace integral is F(s) for Re(s)>a, and PoleBoundary F a k A holds, then α(t)/(exp(at)t^k)→A/k!. Equivalently α(t)∼(A/k!)exp(at)t^k.",
+      "hypotheses": [
+        "Nonnegative finite real α and MonotoneOn on [0,∞); local integrability follows from monotonicity. Convergence and boundary assertions are the separate predicates of HP.0."
+      ],
+      "proofSteps": [
+        "Apply delangeSmoothedLimit for every λ>0.",
+        "A/k!>0 since A>0. Apply monotoneUnsmoothing with this C.",
+        "Use m=k+1 to identify k!=(m−1)!; the denominator is eventually positive."
+      ],
+      "acceptance": [
+        "For m=1 the result reduces to the simple-pole exponential asymptotic under holomorphic boundary extensions. For m=2 it has coefficient A and one power of t."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.2/smoothed-limit",
+        "ArithmeticDirichletSeriesPartII:HP.3/unsmoothing"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§5.2.1 Theorem III, pp.235–238; standing hypotheses p.213",
+          "match": "This is the positive integer exponent specialization of Theorem III, proved through the recorded smoothing and monotonicity chain."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "delangeLaplace",
+      "planet": {
+        "name": "Delange’s theorem"
+      }
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.4/logarithmic-bridge",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.4",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.4"
+      ],
+      "title": "Inclusive logarithmic summatory Laplace bridge",
+      "kind": "theorem",
+      "statement": "For c:ℕ→ℝ with c_n≥0, let S_c(X)=TauCeti.summatory id ĉ X, where ĉ(0)=0 and ĉ(n)=c_n for n>0. Put α(t)=S_c(exp t) for t≥0. If Re(s)>0 and LSeriesHasSum (c cast to ℂ) s (F(s)), then HasLaplace α s (F(s)/s). Moreover α is nonnegative and nondecreasing, and α(0)=c_1.",
+      "hypotheses": [
+        "Nonnegative coefficients; actual LSeriesHasSum at s; Re(s)>0, even when the series happens to converge at a nonpositive real part."
+      ],
+      "proofSteps": [
+        "Use the existing Northcott summatory function; no second finite-cutoff carrier is introduced. Its sum is inclusive, so n=1 is present at t=0.",
+        "Write α(t)=Σ_(n≥1)c_n 1_(log n≤t). The n=0 term of LSeries is zero and must not be inserted as mass.",
+        "The sum of integrals of norms is Σ_(n≥1)c_n n^(−Re(s))/Re(s), finite by absolute convergence. Interchange sum and integral using integral_tsum.",
+        "Integrate each tail exp(−st) from log n to infinity to obtain c_n n^(−s)/s. Sum using LSeriesHasSum. Nonnegativity and monotonicity are existing summatory API composed with exp."
+      ],
+      "acceptance": [
+        "logSummatory_test_initial: S_c(exp 0)=c_1. logSummatory_test_unit_mass: the sole coefficient c_1=1 gives transform 1/s. logSummatory_test_endpoint: S_c(exp(log 2))=c_1+c_2. These are explicit suggested-file examples."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.0/laplace",
+        "mathlib:LSeriesHasSum",
+        "mathlib:LSeries.term",
+        "tauceti:TauCeti.summatory",
+        "tauceti:TauCeti.summatory_mono",
+        "tauceti:TauCeti.summatory_nonneg",
+        "mathlib:MeasureTheory.integral_tsum",
+        "mathlib:integral_exp_mul_complex_Ioi",
+        "mathlib:integrableOn_exp_mul_complex_Ioi"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "Standing hypotheses p.213; §5.2.1 pp.235–238, applied to Wood §7 pp.416–417",
+          "match": "The source theorem is an ordinary Laplace theorem. This direct absolute-convergence adapter establishes the Dirichlet-series interface, with division by s and the inclusive n=1 mass."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "logSummatory_hasLaplace"
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.4/dirichlet-theorem",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.4",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.4"
+      ],
+      "title": "Delange higher-pole Dirichlet counting theorem",
+      "kind": "theorem",
+      "statement": "Let c_n≥0 and A>0. Assume F(s) is the LSeriesHasSum value of c for every Re(s)>1 and PoleBoundary F 1 k A holds. Then S_c(X)/(X(log X)^k)→A/k! as X→∞, where S_c excludes n=0 and includes every 1≤n≤X.",
+      "hypotheses": [
+        "k∈ℕ, so m=k+1≥1; positive leading coefficient; genuine local analytic extensions along the entire line."
+      ],
+      "proofSteps": [
+        "The bridge gives α(t)=S_c(exp t) with transform F(s)/s.",
+        "PoleBoundary.div_argument at a=1 preserves the leading coefficient A. Apply delangeLaplace.",
+        "Substitute t=log X for X>1 and use exp(log X)=X and log X→∞. This gives the inclusive real-cutoff conclusion."
+      ],
+      "acceptance": [
+        "c_n=1 for n>0 gives S(X)/X→1; m=2 gives the divisor-counting denominator X log X."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.4/logarithmic-bridge",
+        "ArithmeticDirichletSeriesPartII:HP.0/boundary",
+        "ArithmeticDirichletSeriesPartII:HP.3/laplace-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§5.2.1 Theorem III, pp.235–238; Wood §7 p.417",
+          "match": "The Laplace theorem and explicit division-by-s adapter yield the higher-pole partial sum asymptotic required by Wood’s counting application."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "delangeDirichlet",
+      "planet": {
+        "name": "Higher-pole counting asymptotic"
+      }
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.4/positive-abscissa",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.4",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.4"
+      ],
+      "title": "Positive-abscissa counting and scaling",
+      "kind": "theorem",
+      "statement": "For a>0, A>0, k∈ℕ and c_n≥0, suppose F(s) is the LSeriesHasSum value for Re(s)>a and PoleBoundary F a k A holds. Then S_c(X)/(X^a(log X)^k)→A/(a k!). Real powers use Mathlib Real.rpow, and X>1 is automatic eventually.",
+      "hypotheses": [
+        "a>0 is essential to this adapter and constant; no a=0 logarithmic-counting theorem is asserted."
+      ],
+      "proofSteps": [
+        "Use the same logarithmic summatory bridge. PoleBoundary.div_argument changes the leading coefficient to A/a at the original line.",
+        "Apply delangeLaplace and substitute t=log X, using exp(a log X)=X^a.",
+        "For an independent normalization check, rescale the transformed variable s↦as: the leading coefficient becomes A/a^(k+1); the time dilation contributes a^k. Their product is A/a."
+      ],
+      "acceptance": [
+        "At a=1 this agrees with delangeDirichlet. counting_test_abscissa_two: coefficients c_n=n give S_c(X)/X²→1/2, detecting a missing 1/a at the simple pole of ζ(s−1)."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.4/logarithmic-bridge",
+        "ArithmeticDirichletSeriesPartII:HP.0/boundary",
+        "ArithmeticDirichletSeriesPartII:HP.3/laplace-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§5.2.1 Theorem III, pp.235–238; standing hypotheses p.213",
+          "match": "The source allows any positive abscissa. The factor 1/a comes from the ordinary Laplace transform of the logarithmic counting function."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "delangeDirichlet_positiveAbscissa",
+      "planet": {
+        "name": "Positive-abscissa transfer"
+      }
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.4/finite-change",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.4",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.4"
+      ],
+      "title": "Finite-change invariance of counting asymptotics",
+      "kind": "theorem",
+      "statement": "For real sequences c,d agreeing outside a finite set, a>0 and k∈ℕ, if S_c(X)/(X^a(log X)^k)→C, then S_d(X)/(X^a(log X)^k)→C. The conclusion permits signed coefficients and does not require a series or boundary theorem.",
+      "hypotheses": [
+        "Finite disagreement; a>0; k natural; a known asymptotic for c."
+      ],
+      "proofSteps": [
+        "Apply the existing eventually_summatory_sub_eq to the zero-suppressed weights. Their difference is eventually the finite constant sum of coefficient changes.",
+        "X^a(log X)^k→∞ when a>0, so this fixed difference divided by the denominator tends to zero.",
+        "Transfer the limit by addition. A mass at n=1 is a constant contribution and is covered by this theorem."
+      ],
+      "acceptance": [
+        "Inserting seven at n=1 into the divisor sequence leaves the X log X leading coefficient equal to one."
+      ],
+      "prerequisites": [
+        "tauceti:TauCeti.summatory",
+        "tauceti:TauCeti.eventually_summatory_sub_eq"
+      ],
+      "sources": [
+        {
+          "sourceId": "WOOD19",
+          "locator": "Wood §7 p.417; Delange standing hypotheses p.213, footnote 1",
+          "match": "Finite alterations change a summatory function by a bounded amount. The generic export states this elementary consequence using the existing finite-change summatory API."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "finiteChange_asymptotic"
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.4/lower-pole",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.4",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.4"
+      ],
+      "title": "Lower-pole dominated signed perturbation",
+      "kind": "theorem",
+      "statement": "Let a>0, B>0 and l<k be natural indices. Let b_n≥0 have a convergent Dirichlet series G on Re(s)>a and PoleBoundary G a l B. Suppose |d_n−c_n|≤b_n for every n and S_c(X)/(X^a(log X)^k)→C. Then S_d(X)/(X^a(log X)^k)→C. Thus a signed change dominated by a sequence of pole order l+1<k+1 is negligible at the higher counting scale.",
+      "hypotheses": [
+        "The majorant b has its own convergence and full boundary hypotheses. A local pole of a formal perturbation alone is insufficient; c,d need not be nonnegative."
+      ],
+      "proofSteps": [
+        "Apply the positive-abscissa theorem to b to get S_b(X)=O(X^a(log X)^l).",
+        "Use the finite sum triangle inequality and the coefficient bound to obtain |S_d(X)−S_c(X)|≤S_b(X).",
+        "Divide by the higher scale and use (log X)^(l−k)→0. Transfer the limit by the squeeze theorem."
+      ],
+      "acceptance": [
+        "The strict inequality l<k rules out removing a same-order pole without changing the leading coefficient."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.4/positive-abscissa",
+        "tauceti:TauCeti.summatory"
+      ],
+      "sources": [
+        {
+          "sourceId": "WOOD19",
+          "locator": "Wood §7 p.417; lower-rank removal after the Tauberian asymptotic",
+          "match": "Wood removes counts of smaller-rank images by bounding them by a lower-order counting sequence. This export provides the generic analytic estimate; the arithmetic majorant and its positivity stay in ArithmeticStatistics ST.3."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "lowerPole_perturbation"
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.5/zeta-square",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.5",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.5"
+      ],
+      "title": "Divisor coefficients of the square of zeta",
+      "kind": "theorem",
+      "statement": "For Re(s)>1, the nonnegative coefficient d(n)=#(Nat.divisors n) has LSeriesHasSum value ζ(s)². This F satisfies PoleBoundary F 1 1 1. Consequently Σ_(1≤n≤X)d(n)/(X log X)→1. The sequence has d(0)=0 by the existing divisor convention.",
+      "hypotheses": [
+        "Use the analytic continuation riemannZeta, identified with its Dirichlet series only on Re(s)>1."
+      ],
+      "proofSteps": [
+        "Use the existing arithmetic-function convolution identity ζ_arith*ζ_arith=σ_0 and sigma_zero_apply to identify d. LSeriesHasSum.convolution and the convergent zeta series give its transform.",
+        "analyticOn_riemannZeta supplies the away germs. The pinned residue limit and analyticity on a punctured ball imply a removable holomorphic extension of (s−1)ζ(s) with value 1. Its square gives the numerator with value 1 for an exact double pole.",
+        "Apply delangeDirichlet at k=1,A=1. Check d(4)=3, and apply finiteChange_asymptotic to the inserted n=1 mass.",
+        "The constant-one acceptance example uses the same residue germ at k=0; its conclusion also agrees with the elementary floor count."
+      ],
+      "acceptance": [
+        "counting_test_ones: S_1(X)/X→1, with the n=0 coefficient suppressed. counting_test_divisors_four: d(4)=3. counting_test_insert_one: replacing d by d+7·1_(n=1) keeps the limit one."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.4/dirichlet-theorem",
+        "ArithmeticDirichletSeriesPartII:HP.4/finite-change",
+        "ArithmeticDirichletSeriesPartII:HP.0/boundary",
+        "mathlib:LSeriesHasSum.convolution",
+        "mathlib:ArithmeticFunction.sigma_zero_apply",
+        "mathlib:ArithmeticFunction.zeta_mul_pow_eq_sigma",
+        "mathlib:analyticOn_riemannZeta",
+        "mathlib:riemannZeta_residue_one",
+        "mathlib:zeta_eq_tsum_one_div_nat_cpow",
+        "mathlib:Complex.summable_one_div_nat_cpow",
+        "mathlib:Complex.analyticAt_of_differentiable_on_punctured_nhds_of_continuousAt"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§5.2.1 Theorem III, pp.235–238",
+          "match": "The simple and double zeta poles provide elementary checks of the integer-pole counting formula and factorial normalization. The arithmetic identities and continuation are imported from Mathlib."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "zetaSquare_counting",
+      "planet": {
+        "name": "Divisor counting asymptotic"
+      }
+    },
+    {
+      "id": "ArithmeticDirichletSeriesPartII:HP.5/counterexample",
+      "parentStageId": "ArithmeticDirichletSeriesPartII:HP.5",
+      "realises": [
+        "ArithmeticDirichletSeriesPartII:HP.5"
+      ],
+      "title": "Local-pole hypothesis rejection",
+      "kind": "theorem",
+      "statement": "Let c_n=n if n=2^j for some j∈ℕ, and c_n=0 otherwise. For Re(s)>1 its convergent Dirichlet series is F(s)=1/(1−exp((1−s)log 2)). It has a local analytic numerator F(s)=g(s)/(s−1), g(1)=1/log 2. But PoleBoundary F 1 0 (1/log 2) is false, and S_c(X)/X does not tend to 1/log 2. In fact it has two distinct subsequential limits, 2 and 4/3.",
+      "hypotheses": [
+        "This is a rejection test for omitting the away-boundary field; its coefficients are nonnegative. The local numerator is explicitly required, not merely a real residue limit."
+      ],
+      "proofSteps": [
+        "Reindex the absolutely convergent series by n=2^j, giving the geometric sum with ratio 2^(1−s). The denominator has a simple zero at 1 with derivative log 2, so the local numerator has the stated value.",
+        "At 1+2πi/log 2 the denominator vanishes again, and the singularity is a genuine pole. No holomorphic boundary extension there can agree on the open half-plane.",
+        "Compute S_c(2^j)=2^(j+1)−1. At X=3·2^(j−1), j≥1, the same sum gives ratio tending to 4/3; at X=2^j it tends to 2.",
+        "Distinct subsequential limits exclude any global counting limit and in particular the proposed residue constant. This directly tests the theorem’s full boundary hypothesis."
+      ],
+      "acceptance": [
+        "The counterexample passes nonnegativity, right-half-plane convergence and the exact local pole test, and fails only the full boundary requirement."
+      ],
+      "prerequisites": [
+        "ArithmeticDirichletSeriesPartII:HP.0/boundary",
+        "mathlib:LSeriesHasSum",
+        "tauceti:TauCeti.summatory",
+        "mathlib:AnalyticAt",
+        "mathlib:hasSum_geometric_of_norm_lt_one"
+      ],
+      "sources": [
+        {
+          "sourceId": "DEL54",
+          "locator": "§5.3, p.242; contrast with Theorem III, pp.235–236",
+          "match": "Delange explains why information at the real singularity alone has weaker consequences. The dyadic geometric series is an independently computed witness of the necessary distinction, not an example attributed to the source."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/NumberTheory/LSeries/HigherPole",
+        "namespace": "TauCeti.HigherPoleTauberian"
+      },
+      "leanName": "dyadicLocalPoleCounterexample",
+      "planet": {
+        "name": "Local-pole counterexample"
+      }
+    }
+  ],
+  "requests": [],
+  "gaps": [],
+  "coverage": [
+    {
+      "stageId": "ArithmeticDirichletSeriesPartII:HP.0",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "ArithmeticDirichletSeriesPartII:HP.1",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "ArithmeticDirichletSeriesPartII:HP.2",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "ArithmeticDirichletSeriesPartII:HP.3",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "ArithmeticDirichletSeriesPartII:HP.4",
+      "status": "closed",
+      "remaining": []
+    },
+    {
+      "stageId": "ArithmeticDirichletSeriesPartII:HP.5",
+      "status": "closed",
+      "remaining": []
+    }
+  ],
+  "sourceIssues": [],
+  "restructure": [],
+  "upstreamNotes": [],
+  "ownershipNotes": [
+    "Current TauCetiRoadmap main at 81207c7f16d5abf770f13a7d2bdcdb465c030787 and current Tau Ceti sources were read-only audit inputs. The parent README and Suggested.lean and Chebotarev README were read; the current later-added roadmaps have no competing higher-pole Tauberian export.",
+    "The existing completely-monotone Laplace transforms integrate measures or kernels at real nonnegative arguments. They do not provide a convergent complex-parameter ordinary transform for a growing counting function; HasLaplace uses the native Bochner integral directly. The finite-circle Fejér expression in SieveMethodsAndPrimePatterns is not the normalized continuous squared-sinc kernel on ℝ. No shared object is duplicated.",
+    "The reviewed AnalyticNumberTheory AN.0 audit supplies LSeries and existing analytic summation tools, but no higher-pole Laplace or Dirichlet theorem. Current Tau Ceti WienerIkehara modules contain simple-pole Fourier identities, boundary limits and growth estimates, not this integer-pole regularization theorem.",
+    "The parent remains the first roadmap prerequisite. All mathematical node prerequisites resolve to exact pinned library declarations or nodes here, so no unbuilt supplier request is necessary. In particular generic finite-change summatory calculus and Laurent extraction are reused, not re-planned."
+  ]
+}

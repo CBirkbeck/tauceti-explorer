@@ -1,0 +1,94 @@
+{
+  "id": "ArithmeticDirichletSeriesPartII",
+  "title": "Arithmetic Dirichlet series and Tauberian methods, Part II",
+  "area": "analytic",
+  "parent": "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries",
+  "summary": "This continuation develops the integer-pole Delange theorem needed for nonnegative arithmetic counting sequences. It separates ordinary Laplace integration from Dirichlet-series summation, builds a polynomial regularizer and squared-sine smoothing, and proves the monotonicity step that recovers the leading asymptotic. The resulting counting interface retains the full boundary continuation hypotheses, the factorial constant and the positive-abscissa factor 1/a. Finite alterations and lower-pole dominated errors preserve that leading term. Wood’s arithmetic constructions remain with ArithmeticStatistics.",
+  "readme": "The parent is [ArithmeticDirichletSeries](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ArithmeticDirichletSeries), after its Layer 9 (`tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara`). Use its LSeries vocabulary, inclusive cutoffs and named boundary extensions. The pinned libraries already supply generic summatory functions, arithmetic convolution, Gamma integrals, Laurent expansions and Fourier decay. This roadmap builds the higher-pole argument; its k=0 specialization agrees with the parent simple-pole theorem. Euler products, ideal carriers and the parent Wiener–Ikehara theorem are imports.\n\nWrite m=k+1 with k∈ℕ. Coefficients live on ℕ, with the n=0 term ignored as in Mathlib LSeries.term. S_c(X) is the existing TauCeti.summatory for the identity norm, applied to the weight that is zero at 0 and c_n for n>0. Thus S_c is inclusive and S_c(1)=c_1. Complex integrals are ordinary Bochner integrals with respect to Lebesgue measure. The Laplace assertion includes integrability. All pole identities concern the open half-plane; analytic extensions supply boundary germs, without evaluating a divergent total LSeries on that line.\n\nFor a>0 and a pole of order m with leading coefficient A>0, the export is S_c(X)∼A X^a(log X)^(m−1)/(a(m−1)!). At a=1 this is the required Wood counting interface. ArithmeticStatistics ST.3 supplies Wood’s local factors, continuation, positivity and the majorant for lower-rank images; it consumes this theorem and contributes no analytic prerequisite. Real exponents, logarithmic branch singularities and the case a=0 lie outside the integer-pole scope.",
+  "prerequisites": [
+    "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries"
+  ],
+  "stages": [
+    {
+      "key": "HP.0",
+      "title": "Convergent transforms and boundary continuation",
+      "description": "**Convergent Laplace integral**. HasLaplace α s z means that t ↦ exp(−st)α(t), with α(t) cast to ℂ, is Bochner integrable on [0,∞) and its integral is z. α is a total real-valued function; no condition is imposed at negative t.\n\n**Boundary continuation and pole numerator**. PoleBoundary F a k A consists of: F analytic on Re(s)>a; a radius r>0 and g analytic on the ball about a such that g(a)=A and F(s)=g(s)/(s−a)^(k+1) on its intersection with Re(s)>a; and, for each real y≠0, a radius r_y>0 and an analytic g_y about a+iy agreeing with F on the corresponding right-half-plane intersection. k is natural. A≠0 makes the pole order exactly k+1; the main theorems require A>0. Values assigned to F on the boundary carry no meaning.",
+      "requires": [
+        "tauceti:TauCetiRoadmap/ArithmeticDirichletSeries#layer-9-wienerikehara"
+      ]
+    },
+    {
+      "key": "HP.1",
+      "title": "Squared-sine smoothing and polynomial weights",
+      "description": "**Normalized squared-sinc kernel**. For real λ,v set K_λ(v)=squaredSinc λ v=(λ/π) sinc(λv)², using Mathlib Real.sinc(0)=1. Its analytic and probability assertions assume λ>0. Angular Fourier frequency y is used: K_λ(v)=(1/(2π))∫_(−2λ)^(2λ)(1−|y|/(2λ))exp(iyv)dy.\n\n**Polynomial Laplace regularization weight**. For k∈ℕ and t∈ℝ define w_k(t)=delangeWeight k t=t∫_0^1 exp(−ut)u^k/k! du. It is zero at t=0, positive for t>0, and satisfies w_k(t)t^k→1 as t→∞. Its definition is total; positivity and upper bounds are asserted only for t≥0.",
+      "requires": [
+        "ArithmeticDirichletSeriesPartII:HP.0"
+      ]
+    },
+    {
+      "key": "HP.2",
+      "title": "Regularized transforms and smoothed limits",
+      "description": "**Integer Gamma Laplace model**. For k∈ℕ, a∈ℝ and complex s with Re(s)>a, the function α(t)=exp(at)t^k has HasLaplace value k!/(s−a)^(k+1).\n\n**Locally integrable regularized boundary**. Assume PoleBoundary F a k A. Set R(s)=F(s)−A/(s−a)^(k+1) on Re(s)>a and H(s)=−∫_0^1 R′(s+u)u^k/k! du. There is b:ℝ→ℂ such that, for every L>0, b is integrable on [−L,L] and ∫_(−L)^L |H(a+ε+iy)−b(y)|dy→0 as ε↓0. All derivative evaluations in this limit have ε>0.\n\n**Higher-pole smoothed counting limit**. Let a>0, k∈ℕ and A∈ℝ. Let α be nonnegative and nondecreasing on [0,∞), HasLaplace α s (F(s)) for all Re(s)>a, and PoleBoundary F a k A. For every λ>0 and T∈ℝ the integral ∫_0^∞ w_k(t)exp(−at)α(t)K_λ(t−T)dt is absolutely integrable, and as T→∞ it tends to A/k!.",
+      "requires": [
+        "ArithmeticDirichletSeriesPartII:HP.0",
+        "ArithmeticDirichletSeriesPartII:HP.1"
+      ]
+    },
+    {
+      "key": "HP.3",
+      "title": "Delange’s integer-pole Laplace theorem",
+      "description": "**Monotone removal of squared-sine smoothing**. Let a>0, C≥0 and k∈ℕ. Suppose α is nonnegative and nondecreasing on [0,∞). Assume that for every λ>0 the smoothed integral in HP.2 is integrable for every T and tends to C as T→∞. Then α(t)/(exp(at)t^k)→C as t→∞.\n\n**Delange integer-pole Laplace theorem**. Let a>0, A>0 and m=k+1 with k∈ℕ. If α:[0,∞)→[0,∞) is nondecreasing, its ordinary Laplace integral is F(s) for Re(s)>a, and PoleBoundary F a k A holds, then α(t)/(exp(at)t^k)→A/k!. Equivalently α(t)∼(A/k!)exp(at)t^k.",
+      "requires": [
+        "ArithmeticDirichletSeriesPartII:HP.1",
+        "ArithmeticDirichletSeriesPartII:HP.2"
+      ]
+    },
+    {
+      "key": "HP.4",
+      "title": "Higher-pole Dirichlet counts and perturbations",
+      "description": "**Inclusive logarithmic summatory Laplace bridge**. For c:ℕ→ℝ with c_n≥0, let S_c(X)=TauCeti.summatory id ĉ X, where ĉ(0)=0 and ĉ(n)=c_n for n>0. Put α(t)=S_c(exp t) for t≥0. If Re(s)>0 and LSeriesHasSum (c cast to ℂ) s (F(s)), then HasLaplace α s (F(s)/s). Moreover α is nonnegative and nondecreasing, and α(0)=c_1.\n\n**Delange higher-pole Dirichlet counting theorem**. Let c_n≥0 and A>0. Assume F(s) is the LSeriesHasSum value of c for every Re(s)>1 and PoleBoundary F 1 k A holds. Then S_c(X)/(X(log X)^k)→A/k! as X→∞, where S_c excludes n=0 and includes every 1≤n≤X.\n\n**Positive-abscissa counting and scaling**. For a>0, A>0, k∈ℕ and c_n≥0, suppose F(s) is the LSeriesHasSum value for Re(s)>a and PoleBoundary F a k A holds. Then S_c(X)/(X^a(log X)^k)→A/(a k!). Real powers use Mathlib Real.rpow, and X>1 is automatic eventually.\n\n**Finite-change invariance of counting asymptotics**. For real sequences c,d agreeing outside a finite set, a>0 and k∈ℕ, if S_c(X)/(X^a(log X)^k)→C, then S_d(X)/(X^a(log X)^k)→C. The conclusion permits signed coefficients and does not require a series or boundary theorem.\n\n**Lower-pole dominated signed perturbation**. Let a>0, B>0 and l<k be natural indices. Let b_n≥0 have a convergent Dirichlet series G on Re(s)>a and PoleBoundary G a l B. Suppose |d_n−c_n|≤b_n for every n and S_c(X)/(X^a(log X)^k)→C. Then S_d(X)/(X^a(log X)^k)→C. Thus a signed change dominated by a sequence of pole order l+1<k+1 is negligible at the higher counting scale.",
+      "requires": [
+        "ArithmeticDirichletSeriesPartII:HP.0",
+        "ArithmeticDirichletSeriesPartII:HP.3"
+      ]
+    },
+    {
+      "key": "HP.5",
+      "title": "Zeta checks and boundary rejection",
+      "description": "**Divisor coefficients of the square of zeta**. For Re(s)>1, the nonnegative coefficient d(n)=#(Nat.divisors n) has LSeriesHasSum value ζ(s)². This F satisfies PoleBoundary F 1 1 1. Consequently Σ_(1≤n≤X)d(n)/(X log X)→1. The sequence has d(0)=0 by the existing divisor convention.\n\n**Local-pole hypothesis rejection**. Let c_n=n if n=2^j for some j∈ℕ, and c_n=0 otherwise. For Re(s)>1 its convergent Dirichlet series is F(s)=1/(1−exp((1−s)log 2)). It has a local analytic numerator F(s)=g(s)/(s−1), g(1)=1/log 2. But PoleBoundary F 1 0 (1/log 2) is false, and S_c(X)/X does not tend to 1/log 2. In fact it has two distinct subsequential limits, 2 and 4/3.",
+      "requires": [
+        "ArithmeticDirichletSeriesPartII:HP.4"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "DEL54",
+      "title": "Généralisation du théorème de Ikehara",
+      "authors": "Hubert Delange",
+      "edition": "Annales scientifiques de l’École Normale Supérieure (3) 71(3) (1954), 213–242; DOI 10.24033/asens.1023",
+      "url": "https://www.numdam.org/item/ASENS_1954_3_71_3_213_0.pdf",
+      "sha256": "4934b4bfba12d405fc267fa0c0318c3034ab29c9e8223388019377bb45ca0998",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "Standing hypotheses and Theorems I–II, pp.213–216",
+        "§3.1–3.4 and §4.1, pp.220–229: Laplace regularization, squared-sine smoothing and monotonicity",
+        "§5.1.1–5.2.1, pp.231–238: Gamma models and Theorem III",
+        "§5.3, p.242: limitation of a local singularity hypothesis"
+      ]
+    },
+    {
+      "id": "WOOD19",
+      "title": "Nonabelian Cohen–Lenstra moments",
+      "authors": "Melanie Matchett Wood",
+      "edition": "Duke Mathematical Journal 168(3) (2019), 377–427",
+      "url": "https://par.nsf.gov/servlets/purl/10152050",
+      "sha256": "154e700c1b634b9e9bde4334a19678d05ff98ca18efb6b07cb5b809f2da9c03d",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "§7, pp.415–417: higher-pole homomorphism counts and lower-rank removal"
+      ]
+    }
+  ],
+  "status": "draft"
+}
