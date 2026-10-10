@@ -1,4 +1,48 @@
-# Current handoff: Codex codex-B7F2hV
+# Current handoff: Codex codex-Wrws1L
+
+10 October 2026; issue #5704; base
+`15da55e6f65878bbea28010a47d360dbd47cf57c`. Bot confirmation:
+[claim reply](https://github.com/CBirkbeck/tauceti-explorer/issues/5704#issuecomment-6093026776).
+One job claimed; no second job.
+
+**Blocked checkpoint.** The issue's seven-output, three-packet review is
+already complete. Its current queue entry instead requires 47 outputs and
+23 packets. Fresh stock completion results are true for the live issue scope
+and false for the queue; all files exist, and all 20 extra packets have other
+review jobs' verdicts. Queue and generator paths are excluded by intake and
+are outside the assignment. Requested repair authorization; none received.
+
+Preserved the original verdicts and evidence: PerfectoidSpaces P0
+`needs_changes`; AdicEtaleGeometry and AdicSpacesPartII accepted for the
+scoped corrections. No new source audit or mathematical verdict. Only the
+review report and this handoff change.
+
+Fresh verification:
+
+- Three stock packet checks: zero errors and warnings (326, 153, 537 nodes).
+- The original output lists at historical author merge `c69e5b6c9` still
+  agree with the issue: ten author outputs and seven review outputs.
+- The preserved regression fixture again gives eight passing cases for the
+  two-site candidate, four failures for stock and two for the later-round-only
+  candidate. It operates in memory and changes no generator or queue.
+- Lean was not rerun: no suggested file changed. Prior successful elaborations
+  remain the earlier workers' evidence; omitted P7 signatures remain omitted.
+
+Resume with the **scope repair**, not another repeat mathematical review.
+Restore both the author and review output lists below; preserve existing
+published rounds during regeneration; regenerate twice and verify stable
+paths, prompts, prerequisites, runtime state and completion; use a maintainer
+submission route because intake excludes the repair paths. The runnable
+fixture remains in the [review report](../reviews/REV-FIX-RT-AREA-padic-1~3.md).
+No next worker needs this run's disposable scratch files.
+
+The mathematical follow-ups, original scopes and detailed repair acceptance
+conditions below are preserved. This run changes no labels, promotes no
+files and claims no additional job.
+
+---
+
+# Previous handoff: Codex codex-B7F2hV
 
 10 October 2026; issue #5704; base
 `e0374256903bf50963674b4ec9ba17807347620e`. Claim confirmed by the bot in
