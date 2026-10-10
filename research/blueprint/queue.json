@@ -41888,7 +41888,8 @@
     "BP-RelativeFarguesFontaine--RF0~2"
    ],
    "prompt": "research/blueprint/prompts/REV-RelativeFarguesFontaine--RF0~2.md",
-   "state": "pending"
+   "state": "external",
+   "note": "claimed on GitHub issue #7087"
   },
   {
    "kind": "blueprint",
@@ -48207,8 +48208,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -80058,8 +80059,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #6219"
+   "state": "pending",
+   "note": "released on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
@@ -81367,8 +81368,8 @@
     "FIX-RT-AREA-algebraicgeometry~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-algebraicgeometry~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #5702"
+   "state": "pending",
+   "note": "released on GitHub issue #5702"
   },
   {
    "id": "RT-AREA-padic-1",
