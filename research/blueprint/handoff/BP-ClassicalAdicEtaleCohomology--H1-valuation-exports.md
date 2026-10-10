@@ -1,227 +1,144 @@
-# Handoff: valuation exports, issue #6929
+# Completed target-level planning pass: valuation exports
 
-Current worker: Codex, session `codex-rT4MWq`, 2026-10-08, branch
-`codex-rT4MWq-valuation-exports`. The bot confirmed the claim for comment
-6067595200 on #6929. This continues the checkpoint from PR #7396 (Codex,
-session `codex-640i94`) and remains a **source-blocked checkpoint**. Packet
-status and sole-stage coverage are `partial`; no stage is closed.
+Job: BP-ClassicalAdicEtaleCohomology--H1-valuation-exports, issue #6929.
+Agent: Codex (GPT-6), session codex-kWz8uS, 2026-10-10.
+Scope: ClassicalAdicEtaleCohomology:H1:valuation-exports only.
 
-## This continuation
+The packet has **status complete**, with the stage **planned**. Every target
+in scope is represented; the exact supplier requests prevent a claim that the
+stage is closed. This is a finished planning pass, not a checkpoint. An
+independent reviewer should assess the four deliverables and their dependency
+boundaries. No implementation or independent review is claimed.
 
-The four existing node ids and eleven accepted H0 imports are retained; no new
-mathematical node is added. This run independently rechecked the public
-Hansen–Scholze proof and sharpened its supplier boundary: Theorem 4.1 and
-Corollary 4.2 use pro-étale generic extension, so their bounded-below classical
-étale application needs a functorial realization comparison. The SF.2 request
-now names Bhatt–Scholze Corollary 5.1.6, Proposition 5.2.6 and Lemmas 5.4.1 and
-5.4.3, with the adjunction unit, qcqs direct image, pullback and global sections
-retained. This is the same owner already requested by
-`AdicCoefficientsAndComparisons:L1`, not a duplicate coefficient carrier.
-The generic inclusion is affine as a base change of a localization; it meets
-the qcqs direct-image hypothesis at arbitrary valuation rank.
+## What is specified
 
-The packet and reader record `ClassicalAdicEtaleCohomology/E-H1-valuation-exports-1`:
-Lemma 5.4.3 reverses the two realization subscripts and misplaces its affine
-test object and final derived input. This was checked against the author copy
-(p. 39) and the published Astérisque text (pp. 153–154). The corrected formula
-has realization at the target after direct image and realization at the source
-before direct image. It is a notation finding awaiting independent review;
-the intended theorem is unchanged. The packet records both version hashes and
-the correction search.
+The eleven H0 imports retain their identifiers, statements, APIs and suggested
+file. The four existing follow-up nodes remain valid: bounded-below total
+invariance, the separably closed extension, global closed-support invariance,
+and proper-nearby/formal-tube coherence.
 
-The reader's inherited control characters and damaged inline mathematics are
-repaired, including the valuation map, spectrum, coefficient condition,
-cohomology map and formal comparison notation. Displayed formulas are retained.
-Hansen–Scholze's coefficient conventions are correctly located at pp. 7–8,
-with Proposition 2.1 on p. 8. The suggested file's supplier comment explains
-the pro-étale transfer; its four theorem/comparison signatures are unchanged.
+Seven targets complete the pass:
 
-The missing finite-boundary statement still prevents a completed target-level
-pass. The user was asked for a permitted public restatement during this run;
-none was supplied before submission. The library index still marks Huber
-(1996) not cleared, and no copy was used. Further public searches for 4.2.8,
-4.2.9, finite boundary and finite dimension yielded unrelated numbering and
-other hypotheses, rather than an independently verified restatement. Those
-searches do not prove that no public restatement exists. Resume at the source
-input below, rather than performing another identical public-search pass.
+- Sheaf local-cohomology base change along a proper pulled-back closed
+  constructible base boundary, with arbitrary valuation map and arbitrary X.
+- Vanishing of sheaf local support when the boundary and the closed point of
+  its complement map to the same base point.
+- Global cohomology invariance for arbitrary prime-to-char(X) torsion abelian
+  sheaves under a surjective valuation-spectrum map.
+- The specific sheaf adjunction unit and all positive derived direct-image
+  vanishing for such pulled-back sheaves.
+- Finite-rank descent of finitely presented schemes, constructible sheaves and
+  closed constructible base boundaries together.
+- Constructibility of complement extension and sheaf local cohomology under
+  **local finite presentation or a finite point set in the base boundary**.
+- Finite generation of ordinary global cohomology under **finite presentation
+  or finite Krull dimension of the valuation base**, with global finite type.
 
-## What is preserved and added
+The source book is now cleared for direct reading. The obsolete unread-source
+and unverified-numbering gaps have been replaced by exact target statements.
+The reader separates sheaf local cohomology from global support groups, records
+canonical maps, and keeps the coefficient and presentation alternatives.
+Finite-rank descent is not confused with H0's reduced finite-presentation model.
 
-The accepted H0 packet is unchanged. Its eleven nodes in
-`ClassicalAdicEtaleCohomology:H1:valuation-exports` are listed by id in the new
-packet's `importedNodes` and in the reader. Their definitions, APIs, tests,
-formal comparisons, finite-presentation/finiteness statements and source gaps
-remain owned by H0. The follow-up packet owns exactly four nodes, all with prefix
-`ClassicalAdicEtaleCohomology:H1:valuation-exports/`:
+Counts: **11 nodes: 9 theorems, 1 comparison, 1 lemma; 0 new owned definitions
+or constructions, 0 owned API items and 0 definition unit tests; 4 planet
+nominations; 23 baseline declarations; 2 gaps; 3 supplier requests; 1 stage
+planned, 0 closed.** Three meaningful specification examples in Lean check the
+expanded SF.2 constructibility interface (zero, constant finite module,
+inverse image); they are supplier checks rather than new owned definition tests.
 
-1. `total-cohomology-valuation-invariance`: canonical total scheme cohomology
-   pullback is an isomorphism for faithfully flat maps of absolutely integrally
-   closed valuation rings, invertible prime-power torsion coefficients and
-   arbitrary qcqs schemes with bounded-below complexes.
-2. `total-cohomology-separably-closed-valuation-invariance`: extend that result to
-   separably closed fraction fields by the radicial perfect-closure square and
-   scheme étale topological invariance.
-3. `closed-support-valuation-invariance`: localization gives the same-degree
-   supported cohomology isomorphism for a closed subset with quasi-compact open
-   complement. No arbitrary sheaf-level base change for upper shriek is claimed.
-4. `proper-nearby-invariance-coherence`: equality of the canonical generic
-   cohomology/nearby cohomology composites for a proper scheme, with transport
-   through the imported formal tube comparison under its microbial, continuous,
-   type-(S) hypotheses. The generic-fibre square need not be Cartesian; the
-   exchange transformation must be retained.
+## Follow-up boundaries
 
-There are 3 theorem nodes and 1 comparison node; 0 new definition/construction
-nodes, API items or definition unit tests. This is deliberate nonduplication:
-general sheaf/derived/support objects are imported from EDC.0 and requested
-scheme functors are supplied by SF.2. H0 retains its definition API and unit
-tests. The new nodes have concrete acceptance cases, including identity,
-geometric fields, nondiscrete rank one, rank-two plus rings, closed supports,
-the failure of nonfaithful localization, and the coefficient boundary.
+The next work is supplier refinement, not recovery of another source statement.
 
-Two planets are nominated, Valuation cohomology invariance and Valuation support
-invariance. The packet proposes a split into scheme invariance and nearby/tube
-exports. **Do not assemble eight planets in the unsplit star:** H0 already marks
-six. Resolve the split or select at most six in assembly; current ids have not
-been changed.
+1. **SchemeAndStackFoundations:SF.2:** actual bounded-below étale inverse/direct
+   image and global sections on arbitrary schemes; their adjunction units and
+   coherent composition; sheaf versus global supported functors, natural
+   localization maps and the support spectral sequence; general constructible
+   sheaves over nonnoetherian schemes, coefficient compatibility and affine-limit
+   descent; arbitrary torsion-sheaf finite-rank approximation; finite-type
+   constructible-cohomology finiteness over a separably closed field. The last
+   input is identified through Huber's citation to SGA 4½, Th. finitude 1.10;
+   that SGA text was not independently read in this run. The directly read
+   Stacks 0F0B supplies field invariance, not that finiteness theorem.
+2. **ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles:** extend its
+   locally-finite-type/dominant nearby-base-change node to the full Cartesian
+   statement of Huber 4.2.4, with neither restriction. Retain its existing
+   constructibility theorem for Huber 4.2.5. The previously requested
+   Hansen–Scholze generic Rj*/ULA equivalence and flat-valuation compatibility
+   remain needed for the independent bounded-below proof route. General ULA and
+   the étale/pro-étale functor comparisons remain scheme-supplier objects.
+3. **AdicSpaces, Layer 1:** finite-rank algebraic capture of finite coefficients
+   inside a separably closed fraction field, retaining an actual local
+   valuation-subring inclusion; the strict-local and quotient valuation algebra
+   needed by the quadruples and rank induction. SF.2 supplies the scheme and
+   sheaf descent attached to that algebraic input.
 
-## The blocking source input and resumption order
+The inherited H0 formal-completion naturality, compactification and generic
+finiteness prerequisites are retained rather than declared discharged. Assembly
+must reconcile the four new planet nominations with H0's six: the packet
+proposes separate scheme-invariance, finite-boundary/finiteness and nearby/tube
+stars, or an at-most-six selection for an unsplit star. Current ids are kept;
+no other roadmap, packet or atlas data was edited.
 
-The maintainer's reference-library `INDEX.md` marks Huber's 1996 book as **not
-cleared**. No book copy was opened, downloaded or used. The job therefore cannot
-be completed by reading that book in this run. No original-book page number or
-missing theorem statement was invented.
+## Source provenance
 
-Resume in this order:
+All repository statements and explanations are authored paraphrases with
+numbered locators. No source files, excerpts or extracted book text are in the
+deliverables. The cleared book was read directly; nothing from it was copied
+into scratch or the repository. Public papers were used only as source inputs.
 
-1. Obtain a permitted statement of **Hub96 4.2.8–4.2.9's finite-boundary
-   alternative**. Determine the base, morphism, support, boundary and dimension
-   conditions, and the coefficient, finiteness and constructibility conclusions.
-   Create exact target nodes and backward-chain their proof dependencies. The
-   existing finite-presentation/topologically-noetherian imports do not realize
-   this alternative. It remains a stage-level gap with no fabricated node.
-2. Obtain a permitted statement of **Hub96 4.2.6**. Compare it with H0's
-   special-locus/proper local-cohomology statements and with the new closed-support
-   base-change consequence. Assign its number only after verifying the actual
-   statement. The new theorem is not presented as a restatement of 4.2.6.
-3. Compare the original scope of **Hub96 4.2.7** with the public, explicitly
-   attributed Hansen–Scholze Corollary 4.5. The AIC, invertible ℓ-power,
-   bounded-below public version is established as a target here, and the
-   separably closed extension is a derived consequence. Do not infer a broader
-   residue-characteristic, composite-torsion or unbounded statement from it.
-4. Resolve the two exact supplier requests below. Extend rather than duplicate
-   H1:valuation-nearby-cycles and the generic scheme-cohomology owner. Recheck any
-   new supplier node's statement before replacing a stage prerequisite by it.
-5. Update the reader, suggested signatures, source references and coverage after
-   these missing targets are specified. Retain this checkpoint's four ids and
-   the eleven H0 import ids. Only mark a completed pass once every target is
-   actually represented.
-
-Public searches on 2026-10-08 included `"Hub96" "4.2.6"`,
-`"Hub96" "4.2.7"`, `"Hub96" "4.2.8"`, `"Hub96" "4.2.9"`,
-`"Huber" "4.2.6" cohomology valuation`, `"Huber" "4.2.8" valuation cohomology`,
-`"Huber" "4.2.9" valuation cohomology`, `"Huber" "finite boundary" cohomology`,
-and variants with Corollary and support. The 4.2.7 search yielded the public
-Hansen–Scholze source below. Searches for the other exact statements did not
-produce a verified restatement in this run. Numerical matches in unrelated
-works were excluded; this is a search record, not a claim that no public source
-exists.
-
-Orgogozo Remarks 4.4–4.5 were re-read: they give nearby base-change over
-valuation spectra and the finite-type/topologically-noetherian variant. They do
-not identify the missing finite-boundary alternative. Lu–Zheng Example 4.26(3)
-discusses Ψ-goodness away from a quasi-finite exceptional locus; that distinct
-result is not relabelled as 4.2.8–4.2.9. Hansen–Scholze's finite special-fibre
-exceptional set in the proof of Theorem 4.1 is also not treated as evidence for
-the unread target.
-
-## Exact requested inputs and ownership
-
-The packet has two requests and three recorded gaps (unread finite-boundary
-target; numbering/full scope; proof suppliers).
-
-- **SchemeAndStackFoundations:SF.2:** on EDC.0's actual bounded-below étale
-  carrier, exact inverse image, derived direct image and global sections with
-  adjunction and coherent composition; the specific cohomology pullback from the
-  unit, its identity/composition/naturality; the natural morphism of EDC.0
-  localization triangles; scheme étale invariance under universal
-  homeomorphisms; geometric-field cohomology invariance; the finite-dimensional,
-  coefficient dévissage and qcqs affine-descent inputs of the public total
-  invariance proof. The request also specifies scheme ULA by the universal
-  Milnor-fibre criterion of Hansen–Scholze Theorem 4.4(iii), p. 22, rather than
-  using diamond ULA. It now explicitly includes the bounded-below étale/pro-étale
-  realization and qcqs direct-image comparison with canonical units. Inspect the
-  full request before supplying it. Existing SF.2
-  Brauer/coherent-duality/equivariant-support nodes do not have these exact
-  scheme-étale statements. EDC.0 already owns the derived and support carriers.
-- **ClassicalAdicEtaleCohomology:H1:valuation-nearby-cycles:** Hansen–Scholze
-  Theorem 4.1, pp. 19–22, on the generic-extension/ULA equivalence for separated
-  finitely presented schemes over AIC valuations, with flat AIC base compatibility
-  from Corollary 4.2(ii), p. 19. Existing constructibility of the closed-fibre nearby complex does not
-  supply this theorem about the total-scheme derived generic extension. The source
-  formulation is pro-étale; its bounded-below torsion étale transfer uses the SF.2
-  comparisons. General ULA remains the
-  scheme supplier's predicate. The target-level packet records this key theorem
-  as a request, rather than re-planning a supplier's objects or decomposing its
-  long proof into local lemma nodes.
-
-Higher étale cohomology continuity is already an exact import,
-`AdicCoefficientsAndComparisons:L2/etale-cohomology-continuity`. The original H0
-formal-completion naturality and generic finiteness/compactification gaps are
-not declared resolved. No files outside this job's four deliverables were
-changed, and no messages were sent to supplier workers.
-
-## Sources actually read
-
-The packet has the public URLs, hashes and access date. Source text is not in the
-repository; all statements and explanations are authored paraphrases.
-
-| Source | Locators read | SHA-256 |
+| Text | Directly checked locators | SHA-256 |
 | --- | --- | --- |
-| [Hansen–Scholze, Relative perversity](https://people.mpim-bonn.mpg.de/scholze/RelativePerverse.pdf), author 38-page version, PDF creation date 2023-05-08 | Coefficients pp. 2–3 and 7–8; Proposition 2.1 p. 8; Lemma 3.5 and proof pp. 16–17; Theorem 4.1, Corollary 4.2, Lemma 4.3 and their proofs pp. 19–22; Corollary 4.5 and entire proof pp. 22–23 | `7fcca4cf382b20503f4f428b1268d2cd181488c96b362f34150c4f3daba9544e` |
-| [Orgogozo, arXiv math/0507475v1](https://arxiv.org/pdf/math/0507475v1) | Remarks 4.4–4.5, p. 13 | `10f18b77e877d376ba81a798a41465759923e10fb32b903a433961086f90903d` |
-| [Lu–Zheng, arXiv 1712.10216v7](https://arxiv.org/pdf/1712.10216v7) | Example 4.26(1)–(3) and Theorem 4.27, p. 37 | `065c028994922d853c020bc7cf1b9d286325e0d61c5ea350b50fa4fee5df2bda` |
-| [Bhatt–Scholze, author copy](https://people.mpim-bonn.mpg.de/scholze/proetale.pdf) | Corollary 5.1.6 p. 35; Proposition 5.2.6 p. 37; Proposition 5.3.2 p. 38; Lemmas 5.4.1–5.4.3 and Remark 5.4.4 p. 39, with proofs of the comparison results | `99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7` |
-| [Bhatt–Scholze, Astérisque 369 (2015), academic mirror](https://www.math.ru.nl/~bmoonen/Seminars/ProEtale.pdf) | Lemma 5.4.3 and proof pp. 153–154, for the subscript finding | `b40ac03aaeb1e11ed58b581ba1344194407a340e50bfb835bbf2e6cfa523a99f` |
-| [Stacks Project §59.79](https://stacks.math.columbia.edu/tag/09XP) and individual tags | 0DCQ, 0DCS, 04DY (§59.45, including Proposition 59.45.4), 09XP/0A45 and 0F0B; HTML is unpaginated | Dynamic HTML, no PDF hash |
+| Huber, *Étale Cohomology of Rigid Analytic Varieties and Adic Spaces*, Aspects of Mathematics E30, Vieweg 1996, first edition; DOI 10.1007/978-3-663-09991-8 | §4.2 pp. 240–256, especially 4.2.4–4.2.9 and their proofs; p. 246 checked visually | b40a5c2ef56784d888206011ecb31bdc5e2e6120721a8c38b78b6cf2cd8d7e1a |
+| Hansen–Scholze, author-hosted 38-page *Relative perversity* | 4.1 and 4.2 pp. 19–22; 4.5 and proof pp. 22–23; 3.5 and proof pp. 16–17. Earlier coefficient-convention locators are retained in the packet | 7fcca4cf382b20503f4f428b1268d2cd181488c96b362f34150c4f3daba9544e |
+| Bhatt–Scholze, author-hosted 72-page *The pro-étale topology for schemes* | 5.1.6 p. 35, 5.2.6 p. 37, 5.3.2 p. 38, 5.4.1–5.4.3 p. 39; particularly the bounded-below unit and direct-image comparisons | 99b418b32846c12721e0603590be864b0982d5fa7cf594f8771fc78e53e014c7 |
+| Stacks Project | 0F0B for field invariance; 09XP/0A45 for supports; 04DY, 0DCQ, 0DCS as retained scheme and valuation inputs. HTML is unpaginated | Dynamic HTML |
 
-The shorter Bonn-hosted *Relative perversity* file has different pagination;
-do not substitute its page numbers for this packet's author version. The
-Bhatt–Scholze notation finding above is recorded in `sourceIssues`; no other new
-source mistake was established. H0's
-source-issue inventory remains unchanged.
+The packet retains the earlier Orgogozo and Lu–Zheng rechecks, with their
+versions and hashes, and the published Bhatt–Scholze mirror verification from
+the earlier handoff. Those are inherited provenance, not newly discovered
+finite-boundary substitutes. The new book locators resolve that question
+without changing the imported nodes.
 
-## Verification
+The existing Bhatt–Scholze subscript finding remains. Two additional Huber
+findings cover the p. 246 spectral-sequence coefficient and Cartesian-model
+orientation, and the special-fibre counit coefficient in the first reduction
+of 4.2.4. Their source versions, type arguments and searches for existing
+corrections are recorded in sourceIssues. All are notation slips with unchanged
+intended mathematics; no independent confirmation is asserted.
 
-Pinned Mathlib: `082e2d37e8b0463410cdb532e111cd43d5a66174`.
-Pinned Tau Ceti: `f790474821cf4256814db967cb154e7af3d0c369`.
-The reviewed library audit was read before planning. The new packet cites 14
-baseline declarations, whose statements were read at the pinned Mathlib.
-Searches at the pinned Tau Ceti found no matching nearby-cycle, ULA or valuation
-étale invariance export; no Tau Ceti declaration is claimed as one. The shared
-build also contains the pinned Tau Ceti git object; this continuation searched
-its source directly at that commit. Its scheme-module cohomology is Zariski
-cohomology and supplies no derived étale valuation export.
+## Baseline and checks
 
-This run repeated the blueprint checker with the supplied declaration index; it reports **zero
-errors and zero warnings**. Its statistics are 4 nodes, 0 new API items,
-0 definition unit tests, 2 planet nominations, 14 baseline declarations,
-3 gaps, 2 requests, 1 stage with partial coverage, and 1 source notation finding.
+Pinned Mathlib: 082e2d37e8b0463410cdb532e111cd43d5a66174.
+Pinned Tau Ceti audit: f790474821cf4256814db967cb154e7af3d0c369.
+The suggested file uses individual Mathlib imports and needs no unavailable
+Tau Ceti module. Its functor interfaces are named supplier obligations attached
+to actual scheme morphisms. Its constructibility predicate is an explicit
+finite-stratification specification, not an arbitrary parameter or admitted
+Prop body. Torsion sheaves use universe-lifted integer coefficients, equivalent
+to abelian sheaves, and geometric stalks from Mathlib's actual étale site points.
 
-This run repeated `lean-check`: the suggested file **elaborates at the pinned Mathlib, with
-only admitted-proof warnings**. Memory was checked before compilation. The
-four new theorem/comparison signatures use actual schemes and pullback
-projections, actual small-étale sheaves of modules, and actual bounded-below
-derived carriers. Supplier functors and coherent exchange maps are admitted
-interfaces tied to those scheme morphisms, not arbitrary functors parameterized
-into a supposed geometric theorem. The proper comparison uses actual generic
-and closed fibres. Explicit section inclusions retain valuation, faithful-flat,
-qcqs, coefficient and properness hypotheses in the exported signatures. The
-new signatures do not attempt to fabricate the missing finite-boundary condition
-or a formal/adic carrier, and all implementation statuses remain unchecked.
+Current upstream audit: TauCetiRoadmap dea8191cc6047d6142a65872ebce6eeeb841a29b;
+Tau Ceti a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039. The AdicSpaces and
+LocalFieldsRamification readers were read in full. Suggested files in the nine
+newer upstream roadmap areas and current Tau Ceti were screened. Their existing
+valuation, ramification and generic site-cohomology APIs do not supply these
+scheme-étale valuation exports. The reviewed library-coverage audit was also
+read. No upstream checkout was modified or built.
 
-The reader and packet agree on the four new nodes and the imported ownership.
-Before submission, the diff was checked for the four authorized paths and for
-absence of private absolute paths, source excerpts, source files and changes to
-other packets. Source downloads and transient logs are scratch material and are
-removed after the pull request opens. The next worker needs only these
-deliverables and the permitted public sources listed above.
+Validation:
+
+- `python3 scripts/check_blueprint.py` on this packet, including the supplied
+  declaration index: **0 errors, 0 warnings**.
+- `lean-check` on the suggested file: **elaborates, with only admitted-proof
+  warnings** at the pinned shared build. Memory was checked before each
+  compilation; all compilations ran singly and have completed.
+- Deliverable intake check: **4 files, 0 problems**. JSON validity, all eleven
+  packet/signature names, all eleven unchanged H0 imports, the four retained
+  statements, relative reader links, math delimiters, diff whitespace and exact
+  authorized paths also **passed**. No Lean language server or library build was run.
+
+The independent review should pay particular attention to the exact supplier
+generality for 4.2.4 and the two different finite-rank reductions. No second job
+is claimed in this session.
