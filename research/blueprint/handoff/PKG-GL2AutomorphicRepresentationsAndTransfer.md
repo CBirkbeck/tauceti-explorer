@@ -1,5 +1,118 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — blocked checkpoint
 
+Worker: Codex (GPT-6), session `codex-xK2btW`. Issue: #7901.
+Date: 2026-10-10. Branch: `codex-xK2btW-gl2-package`.
+Status: **partial; blocked by unresolved mathematical supplier contracts in the accepted plan**.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6096025153).
+This session claimed only this job. None of the manager's priority issues
+was available; this available focus package was selected under WORKERS.md.
+
+## Current continuation: repair the inputs before another package pass
+
+The inherited blockers were independently checked against the accepted plans,
+the tier order, current upstream scope and five current library statements.
+Both accepted GL2 plans and both current upstream source revisions are unchanged
+from the preceding checkpoint. No mathematical target was added and no claim
+of closure was made. Only this handoff changes in this submission; preserve the
+package README and Suggested.lean, including all predecessors' substantive repairs.
+
+The binding issue instruction is: **“Change no packet; if the plan has a
+mistake, describe it in the handoff note.”** Completing the package requires
+repairing contracts beyond those permitted deliverables. The blocker is not
+waiting for Lean implementations or insufficient runtime. PROTOCOL.md §§3,
+15 and 20 and WORKERS.md's tier rules require a specified proof route and a
+single permitted owner; a package cannot replace a missing theorem with a
+carrier or silently certify the provisional moves below.
+
+The decisive checks are:
+
+1. `R17.5/finite-hecke-extension` extends a character on the quotient of
+   **n-torsion ideles**. It does not prescribe a character on a full local
+   multiplicative group, including its uniformizer. The accepted plan's
+   **Local–global extension of characters (Chevalley's congruence theorem for
+   S-units)** gap still names `R17.5/tunnell-primitive-globalization` and
+   `R17.5/prescribed-local-induction` as consumers. These are actual source-proof
+   inputs, not merely unavailable Lean types.
+2. The higher `PotentialModularityAndCompatibleSystems:R23.1/cht-character-extension`
+   has the needed full-local finite-character conclusion, but its request to
+   ClassFieldTheory Layer 12 is still `open` and explicitly requires the S-unit
+   congruence argument. Its tier is 22; GL2 is tier 15. ClassFieldTheory §1
+   excludes prescribed local abelian extensions, and its Layer 12 norm-index
+   and Kummer targets do not state this prescription theorem. GlobalNumberFields
+   Layers 9–10 provide carriers, factorization and infinity-type interfaces,
+   rather than the missing finite-component existence theorem.
+3. Reading the current library's statements confirms the same distinction:
+   `HeckeCharacter.isFiniteOrder_iff_exists_rayClassCharacter`,
+   `exists_modulus_finitePart_eq_one`, `exists_modulus_finiteComponent_eq_one`
+   and `exists_modulus_embeddingCharacter_eq_one` all take an existing global
+   Hecke character. `unitsCongruenceSubgroup_finiteIndex` takes a modulus and
+   proves a finite-index subgroup of integer units. None of these five
+   statements takes arbitrary prescribed local characters, or an arbitrary
+   finite-index S-unit subgroup and constructs a modulus away from S. This is
+   a scoped statement check, not an absence audit of the entire newer library.
+4. The accepted GL2 plan still has exactly four upward R19 prerequisites:
+
+   | Consumer | Higher prerequisite |
+   | --- | --- |
+   | `R17.6/rt-technical-lemma` | `R19.4/conductor-and-local-factors-classical` |
+   | `R17.6/rt-technical-lemma` | `R19.1/weight-one-artin-representation` |
+   | `R17.6/rt-technical-lemma` | `R19.1/lambda-adic-representation-of-a-weight-k-eigenform` |
+   | `R17.6/weight-two-witness` | `R19.1/lambda-adic-representation-of-a-weight-k-eigenform` |
+
+   These R19 targets belong to AutomorphicGaloisRepresentations at tier 18.
+   The package's three provisional local attachment targets remain proof-route
+   proposals, not completed ownership moves.
+
+**Resume gate for the manager:** reconcile the character theorem with one
+owner at GL2's tier or below; install its congruence, finite-quotient and
+CM infinity-type proof inputs; update the two GL2 consumers and the higher
+CHT consumer. Install the three classical attachment/conductor proof chains
+and reconcile the higher R19 consumers. The exact affected files and inherited
+proof obligations are preserved below. Queue the package continuation after
+these mathematical repairs; repeated package-only checks cannot perform them.
+This is a routing recommendation, not a change to queue files or issue labels.
+
+## Validation in this session
+
+- Both accepted GL2 packets pass `scripts/check_blueprint.py`: zero errors
+  and zero warnings. The R16.1 part has 55 nodes, eight gaps and 32 requests;
+  the R17.3 part has 57 nodes, eight gaps and 35 requests. All twelve stages
+  are `planned`, none `closed`. A passing structural checker does not remove
+  their recorded mathematical gaps.
+- `lean-check research/blueprint/packages/GL2AutomorphicRepresentationsAndTransfer/Suggested.lean`
+  exits successfully: 144 warnings, all `declaration uses sorry`, no errors
+  and no other warnings. Available memory before the check was 111 GB. The
+  shared checker used the atlas pins, Mathlib `082e2d3` and Tau Ceti `f790474`.
+  No build or Lake command ran in either current read-only source tree.
+- The twelve GL2 entries of the reviewed `AUDIT-14` library audit were read.
+  These historical audit entries are distinct from the current statement
+  checks above.
+- Current read-only revisions: TauCetiRoadmap
+  `201bcaee1f4014c91897d50cdb7631fc6d6a6d71`; Tau Ceti
+  `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
+- No primary paper was newly read in this continuation. The receipts and
+  proof proposals below remain attributed to their earlier sessions.
+- `metadata.toml` is still absent; `issues.deliverables_complete` is false.
+  This is a checkpoint and is not ready for package review.
+- Scoped intake file/scope checks and `git diff --check` pass. The only
+  changed repository file is this job's handoff; no source passage or private
+  path is included. No Lean process remains running.
+
+The accepted-plan fingerprints remain:
+
+| File | SHA-256 |
+| --- | --- |
+| R16.1 plan | `c1e3b586b2534254b10be3884e88b4c33a3dd6e8e2068f2dc809757bca89ebce` |
+| R17.3 plan | `2fcb2c938001426f0c1019d99a2bd9ba47cf82ec91ab2ad5305ef7b896301b65` |
+
+## Preserved preceding handoff
+
+Everything below is the preceding session's handoff, retained to keep its
+mathematical repairs, source receipts and resume instructions available. Its
+first-person checks belong to that session, not this continuation.
+
+### Preceding blocked checkpoint
+
 Worker: Codex (GPT-6), session `codex-ycig9K`. Issue: #7901.
 Date: 2026-10-10. Branch: `codex-ycig9K-gl2-package`.
 Status: **partial; the accepted supplier/consumer contracts need repair outside
