@@ -14,6 +14,9 @@ object masquerading as Spd Q_p or a geometric point.
 The final ledger names every target/API/test still requiring its supplier carrier,
 with its exact mathematical statement and the input needed to express it.
 Omissions follow PROTOCOL §13 and are not counted as elaborated signatures.
+Independent review REV-DiamondSixOperations~2 accepts the target-level plan with
+its explicit supplier gaps and signature omissions. This ledger incorporates the
+corrected Tate-twist transition and smooth Verdier-pullback coefficient hypothesis.
 All implementationStatus fields remain unchecked. Elaboration checks the forms,
 not the missing geometric comparisons or the proofs marked sorry.
 
@@ -1358,7 +1361,7 @@ ap tateTwist_classical [OMITTED]: For an analytic adic space Y over ℤ_p, Λ_{Y
 Form: Requires the displayed actual supplier input; no replacement signature is asserted.
 test tateTwist_zero_test [OMITTED]: Λ(0) ≅ Λ.
 Form: Requires the displayed actual supplier input; no replacement signature is asserted.
-test tateTwist_point [OMITTED]: Over Spa(C, O_C) with C algebraically closed, H⁰(Spa(C, O_C), Λ(1)) ≅ Λ, non-canonically.
+test tateTwist_point [OMITTED]: Over Spa(C, O_C) with C algebraically closed, H⁰(Spa(C, O_C), Λ(1)) ≅ Λ, non-canonically. For p odd and Λ = F₂, compare n = 4 with n = 2: the square map μ₄ → μ₂ induces the isomorphism on twists, whereas the inclusion μ₂ → μ₄ induces the zero map after reduction modulo 2.
 Form: Requires the displayed actual supplier input; no replacement signature is asserted.
 test tateTwist_not_const_Qp [OMITTED]: Over (Spa ℚ_p)^♢ with ℓ odd and μ_ℓ ⊄ ℚ_p (p ≢ 1 mod ℓ), F_ℓ(1) is not isomorphic to F_ℓ: Gal(ℚ̄_p/ℚ_p) acts on μ_ℓ through a nontrivial character, so H⁰((Spa ℚ_p)^♢, F_ℓ(1)) = 0.
 Form: Requires the displayed actual supplier input; no replacement signature is asserted.
@@ -1496,7 +1499,7 @@ ap verdierDual_globalSections [OMITTED]: RΓ(X, 𝔻_X A) ≅ RHom(RΓ_c(X, A), 
 Form: Requires the displayed actual supplier input; no replacement signature is asserted.
 ap verdierDual_extendByZero [OMITTED]: For j : U → X a quasicompact open, 𝔻_X(j_!B) ≅ Rj_*𝔻_U(B) and RHom(j_!Λ, Λ) = Rj_*Λ.
 Form: Requires the displayed actual supplier input; no replacement signature is asserted.
-ap verdierDual_pullback_smooth [OMITTED]: For g : X′ → X smooth, g^*𝔻_X ≅ D_g^{−1} ⊗ 𝔻_{X′}g^* (S4/smooth-pullback-internal-hom and S4/smooth-upper-shriek-base-change).
+ap verdierDual_pullback_smooth [OMITTED]: For g : X′ → X ℓ-cohomologically smooth and Λ ℓ-power torsion, g^*𝔻_X ≅ D_g^{−1} ⊗ 𝔻_{X′}g^* (S4/smooth-pullback-internal-hom and S3/upper-shriek-composition, with the smooth twist of g).
 Form: Requires the displayed actual supplier input; no replacement signature is asserted.
 test verdierDual_point [SPECIALIZATION]: For X = Spa(C, O_C), 𝔻 is the linear dual RHom_Λ(−, Λ) on D(Λ).
 Form: Actual canonical double-linear-dual map for F_5; the geometric point comparison is omitted.

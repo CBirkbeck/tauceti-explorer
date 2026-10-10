@@ -2,7 +2,7 @@
 
 This roadmap constructs exceptional operations on eligible maps of small v-stacks and develops cohomological smoothness, its geometric examples, biduality and conservativity. It builds on the diamond geometry and étale categories of the lower roadmaps. The plan is at target level: proof steps name the essential inputs; smaller lemmas remain inside those steps.
 
-**Revision 2, issue #6955, Codex — codex-k3u5Fy, 10 October 2026.** All 90 original node ids and 31 planets are retained. The received independent review stays in the packet for a new independent review. No mathematical implementation is claimed.
+**Revision 2, issue #6955, Codex — codex-k3u5Fy, 10 October 2026.** All 90 original node ids and 31 planets are retained. The revision was independently reviewed in issue #7042 by Codex — codex-uZwf29 on 10 October 2026. The target-level plan is accepted after the corrections recorded in `research/blueprint/reviews/REV-DiamondSixOperations~2.md`. No mathematical implementation is claimed.
 
 The seven layers are planned. Four precise proof gaps and four supplier requests remain below; a planned layer is not a closed layer. The suggested Lean file elaborates at the pinned baseline with only admitted-proof warnings. Its register distinguishes actual typed declarations, formal or algebraic specializations and omitted geometric signatures. An omitted signature has its mathematical statement and required actual input recorded; it is not an elaborated declaration or a passed test.
 
@@ -23,7 +23,7 @@ Positive S6 statements use **Spa(C,O_C)** with C complete and algebraically clos
 All source results and proof sketches below are in our own words. Locators use theorem, section and printed page numbers. No source passages or restricted reference files are reproduced. ECD v4 §§22–25 were read in full and their enhancement, compactification, constructibility and dimension dependencies were rechecked. Huber was read from the maintainer-cleared library only for the indicated consumer inputs.
 
 - [Peter Scholze, Étale cohomology of diamonds](https://arxiv.org/abs/1709.07343v4): arXiv:1709.07343v4 (14 April 2026), final version to appear in Astérisque; 168 pp.. §22 Proper pushforward (pp. 127–139), read in full §23 Cohomologically smooth morphisms (pp. 140–151), read in full §24 Examples of smooth morphisms (pp. 151–158), read in full §25 Biduality (pp. 158–161), read in full statements of §§17–21 cited in these proofs (17.1–17.6, 18.1–18.10, 19.1–19.2, 19.5, 20.7–20.10, 20.17, 21.11–21.16) Accessed 6 October 2026; PDF page = printed page. Revision 2: ECD v4 §§22–25, pp. 127–161, read in full on 10 October 2026; prior dependency read log retained as provenance. Source results are stated in our own words with numbered locators; source excerpts removed. Revision 2 dependency recheck: §§17–19 cited enhancement, hyperdescent, compactification and proper-base-change statements read on 10 October 2026, including the component/topos computation on p. 110; §§20–21 locators rechecked for constructibility and dimension conventions. Preceding §7.6 component description and §3.1/3.8 completeness convention checked as needed. Revision 2 final dependency windows: Definition 3.1 and Proposition 3.8, pp. 14–15; Proposition 20.7, p. 115; Proposition 20.17, pp. 121–122; Proposition 21.11 and Remark 21.12 with proof, pp. 124–125, read 10 October 2026.
-- [Roland Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces](https://link.springer.com/book/10.1007/978-3-663-09991-8): Aspects of Mathematics E30, 1996. Theorem 6.2.2 and Remark 6.2.4, p. 329; Theorem 7.2.2, p. 368; Proposition 7.4.4 and Theorems 7.5.1, 7.5.3 with Lemma 7.5.4, pp. 387–395, read on 10 October 2026. Only statements and proof dependencies needed for the H3 consumer were read, not the whole book.
+- [Roland Huber, Étale Cohomology of Rigid Analytic Varieties and Adic Spaces](https://link.springer.com/book/10.1007/978-3-663-09991-8): Aspects of Mathematics E30, 1996. Theorem 6.2.2 and Remark 6.2.4, p. 329; Theorem 7.2.2, p. 368; Lemma 7.4.4, setup (7.5.1), Theorem 7.5.3 and Lemma 7.5.4, pp. 387–395, read on 10 October 2026. Only statements and proof dependencies needed for the H3 consumer were read, not the whole book. The independent reviewer rechecked these locators, the §7.2 geometric-point setup (pp. 366–367), and the relevant duality proof on 10 October 2026.
 
 Mathlib pin: `082e2d37e8b0463410cdb532e111cd43d5a66174`. Tau Ceti pin: `f790474821cf4256814db967cb154e7af3d0c369`. Each of the 24 citations was read at its pin.
 
@@ -110,14 +110,14 @@ Consumers: `DiamondSixOperations:S1/compactification-cd-bound`, `DiamondSixOpera
 
 ## Source findings and review resolutions
 
-| Finding | Retained independent verdict | Current treatment |
+| Finding | Independent verdict (revision 2) | Current treatment |
 | --- | --- | --- |
 | E1, proof of Theorem 24.1, p. 152 (arXiv:1709.07343v4) | confirmed | Proposition 23.10 applies to compactifiable maps representable in spatial diamonds; add the check that f : B → * is compactifiable: B is separated, its canonical compactification is B‾(R, R⁺) = R°, and B → B‾ is the open subfunctor {\|T\| ≤ 1} (pullback along t ∈ R° is the rational subset {\|t\| ≤ 1} of Spa(R, R⁺)), so Proposition 22.3(i) applies. |
 | E2, proof of Proposition 25.4, p. 161 (arXiv:1709.07343v4) | rejected | Rejected source-error verdict retained. The alternative valuation-refinement proof is now written from pinned local-domination and Zariski-lemma inputs, and the component-openness claim follows from relative compactification’s fibre-product identity and compactifiability. This improves this plan’s closure; it establishes no mistake in the source’s projective-model argument. |
 | E3, Proposition 25.4, p. 161 (arXiv:1709.07343v4) | rejected | Rejected misprint verdict retained. All base-field signatures explicitly include completeness; ECD Definitions 3.1/Proposition 3.8 provide the paper’s convention. |
 | E4, Proposition 23.10(i), p. 145 (arXiv:1709.07343v4) | confirmed | Confirmed local-dimension correction retained. The counterexample is descended on the target component cover via 23.15, with local dim.trg finiteness retained. The reviewer’s historical explanation mentioning source locality is not used for this step. |
 
-E1 adds the missing rational-open compactifiability check for the ball. E2 and E3 remain rejected as source-error claims: the alternate valuation proof improves closure, and explicit completeness pins a convention. E4 retains the confirmed per-spatial-base-change dimension correction and uses target locality for its disjoint-union example.
+All four findings were independently rechecked by REV-DiamondSixOperations~2, with these verdicts retained. E1 adds the missing rational-open compactifiability check for the ball. E2 and E3 remain rejected as source-error claims: the alternate valuation proof improves closure, and explicit completeness pins a convention. E4 retains the confirmed per-spatial-base-change dimension correction and uses target locality for its disjoint-union example.
 
 ## Suggested signatures and tests
 
@@ -137,7 +137,7 @@ Each target below states its signature coverage. Every definition/construction h
 
 Stage `DiamondSixOperations:S0`: **planned**.
 
-Remaining acceptance inputs:
+Remaining closure and signature inputs:
 
 - Full compactifiability/local-splitting signatures require the actual v-stack and geometric morphism carriers; the relative factorization prototype states only its displayed Mathlib specialization.
 
@@ -711,7 +711,7 @@ Actual input required: Actual small v-stacks and their morphisms; geometric open
 
 Stage `DiamondSixOperations:S1`: **planned**.
 
-Remaining acceptance inputs:
+Remaining closure and signature inputs:
 
 - Supply the diamond fibre-dimension and compactification comparison requested from C8; its analytic inequality is insufficient.
 - Express the canonical functors, compact-Hausdorff slice equivalence, actual bounded-below topological sheaves and continuity cocone on the unavailable diamond/etale carriers, as listed in signatureCoverage.
@@ -1179,7 +1179,7 @@ Actual input required: Actual diamond D_et enhancement, canonical C4 factorizati
 
 Stage `DiamondSixOperations:S2`: **planned**.
 
-Remaining acceptance inputs:
+Remaining closure and signature inputs:
 
 - Supply the narrowly requested geometric hypercover existence/common refinement from E2. Existing E0/E2/E3 and C2 constructions now have exact imported nodes.
 - Express the augmented support diagram, relative Kan universal property and canonical pasting identities on those actual infinity-category/diamond carriers, as listed in signatureCoverage.
@@ -1845,7 +1845,7 @@ Actual input required: Actual augmented simplicial v-hypercover with matching co
 
 Stage `DiamondSixOperations:S3`: **planned**.
 
-Remaining acceptance inputs:
+Remaining closure and signature inputs:
 
 - Express full geometric exceptional adjunction, tensor/internal-Hom, twists and exchange maps on C2/C3/E3’s actual carriers. The scalar and trace prototypes use actual module adjunctions and are explicitly specialized.
 
@@ -2188,7 +2188,7 @@ Actual input required: Actual enhanced etale categories and the constructed exce
 
 Stage `DiamondSixOperations:S4`: **planned**.
 
-Remaining acceptance inputs:
+Remaining closure and signature inputs:
 
 - Supply Neeman’s compact-generator/coproduct criterion from E3 for the direct-sum criterion.
 - Express the full four local criteria, practical condition (iii), derived coefficient reduction, locally constant degree and twisted-pullback comparisons on the actual geometric suppliers.
@@ -2246,7 +2246,7 @@ Named declarations: `upperShriek_twist_of_ellTorsion`.
 Construction or proof:
 
 1. Λ is a ℤ/ℓ^m-algebra; by S3/upper-shriek-change-of-rings reduce to Λ = ℤ/ℓ^m.
-2. Every K ∈ D_ét(X, ℤ/ℓ^m) is filtered by m copies of K ⊗ F_ℓ, reducing to K from D_ét(X, F_ℓ), and so to Rf^!(ℤ/ℓ^m) ⊗_{ℤ/ℓ^m} F_ℓ → Rf^!F_ℓ being an isomorphism.
+2. On the étale site of X, choose a complex of ℤ/ℓ^m-modules representing K and filter it degreewise by ℓ^i. Each successive quotient is a complex killed by ℓ, hence comes from D_ét(X, F_ℓ); these quotients need not be copies of K ⊗^L F_ℓ. Exactness of the two functors and their canonical transformation reduces the comparison to those F_ℓ-complexes. The coefficient comparison needed there is Rf^!(ℤ/ℓ^m) ⊗^L_{ℤ/ℓ^m} F_ℓ → Rf^!F_ℓ.
 3. Condition (iv) also holds for ℤ/ℓ^m by the same filtration; reduce to X = Spa(C, C⁺) connected, use the standard periodic resolution of F_ℓ over ℤ/ℓ^m and Rf^!(ℤ/ℓ^m) ∈ D^{≤0}, proved as for F_ℓ using that ℤ/ℓ^m is self-injective.
 
 Direct prerequisites: `DiamondSixOperations:S4/strictly-local-criteria`, `DiamondSixOperations:S3/upper-shriek-change-of-rings`, `DiamondEtaleCohomology:C3/pullback`, `DiamondEtaleCohomology:C3/pushforward`, `DiamondEtaleCohomology:C3/etale-tensor`, `DiamondEtaleCohomology:C3/internal-hom`, `DiamondEtaleCohomology:C3/change-of-coefficients`.
@@ -3006,7 +3006,7 @@ Actual input required: Actual D_et over connected Spa(C,C+) components, all four
 
 Stage `DiamondSixOperations:S5`: **planned**.
 
-Remaining acceptance inputs:
+Remaining closure and signature inputs:
 
 - H3’s higher-rank/all-G proof obligations remain inherited, despite the now-read cleared Hub96 statements. H3’s exact new contracts replace a blanket rank-one supplier assumption.
 - Supply the D4 nonfree image-relation quotient and its proper/quasi-pro-etale/eligibility properties.
@@ -3092,7 +3092,7 @@ Construction or proof:
 
 1. μ_n is represented by the finite étale cover of * attached to the finite étale F_p-algebra F_p[x]/(xⁿ − 1) (n invertible); it is an étale sheaf (D3), split over every algebraically closed perfectoid field.
 2. Λ(1) is locally ≅ Λ (choose a primitive n-th root of unity étale locally), hence invertible in the sense of S4/invertible-object.
-3. For m | n, μ_m = μ_n[m] and Λ ⊗_{ℤ/m} μ_m ≅ Λ ⊗_{ℤ/n} μ_n when mΛ = 0, so the twist does not depend on n.
+3. For m | n and mΛ = 0, use the power map μ_n → μ_m, ζ ↦ ζ^{n/m}. Étale locally it sends a primitive n-th root to a primitive m-th root and identifies μ_n/mμ_n with μ_m, giving Λ ⊗_{ℤ/n} μ_n ≅ Λ ⊗_{ℤ/m} μ_m. The inclusion μ_m ⊂ μ_n does not give this comparison. Power maps compose; comparison through a common multiple gives independence of any two annihilating integers prime to p.
 4. Under D6's equivalence of étale sites (D6/etale-site-comparison) it is the classical Λ(1) of H3.
 
 Direct prerequisites: `DiamondsAndVStacks:D3/etale-and-quasi-pro-etale-morphisms-of-stacks`, `DiamondsAndVStacks:D6/etale-site-comparison`, `DiamondSixOperations:S4/invertible-object`, `DiamondEtaleCohomology:C3/pullback`, `DiamondEtaleCohomology:C3/pushforward`, `DiamondEtaleCohomology:C3/etale-tensor`, `DiamondEtaleCohomology:C3/internal-hom`, `DiamondEtaleCohomology:C3/change-of-coefficients`.
@@ -3123,7 +3123,7 @@ Unit-test specifications:
 | Name | Kind | Statement | Suggested form |
 | --- | --- | --- | --- |
 | `tateTwist_zero_test` | degenerate | Λ(0) ≅ Λ. | omitted: Requires the displayed actual supplier input; no replacement signature is asserted. |
-| `tateTwist_point` | computation | Over Spa(C, O_C) with C algebraically closed, H⁰(Spa(C, O_C), Λ(1)) ≅ Λ, non-canonically. | omitted: Requires the displayed actual supplier input; no replacement signature is asserted. |
+| `tateTwist_point` | computation | Over Spa(C, O_C) with C algebraically closed, H⁰(Spa(C, O_C), Λ(1)) ≅ Λ, non-canonically. For p odd and Λ = F₂, compare n = 4 with n = 2: the square map μ₄ → μ₂ induces the isomorphism on twists, whereas the inclusion μ₂ → μ₄ induces the zero map after reduction modulo 2. | omitted: Requires the displayed actual supplier input; no replacement signature is asserted. |
 | `tateTwist_not_const_Qp` | non-example | Over (Spa ℚ_p)^♢ with ℓ odd and μ_ℓ ⊄ ℚ_p (p ≢ 1 mod ℓ), F_ℓ(1) is not isomorphic to F_ℓ: Gal(ℚ̄_p/ℚ_p) acts on μ_ℓ through a nontrivial character, so H⁰((Spa ℚ_p)^♢, F_ℓ(1)) = 0. | omitted: Requires the displayed actual supplier input; no replacement signature is asserted. |
 
 Acceptance:
@@ -3419,13 +3419,14 @@ Named declarations: `IsCohomologicallySmooth.of_adic_smooth`.
 
 Construction or proof:
 
-1. f^♢ is representable in locally spatial diamonds (D6/etale-site-comparison, ECD 15.6) and compactifiable by S0/compactifiable-local-on-source and S0/separated-etale-compactifiable (ECD 22.3).
-2. By S4/smooth-composition and S4/etale-maps-smooth reduce to Bⁿ_Y → Y, by induction to n = 1, and, covering B_Y by the two tori T_Y = {|T| = 1} and {|T − 1| = 1} (A2/relative-torus), to T_Y → Y.
+1. D6/etale-site-comparison (ECD 15.6) gives locally spatial diamond representability of f^♢. The adic ball charts give separated local pieces and the finite local dimension bounds of C8. Compactifiability must be established using the ball and quotient geometry below; separated étale compactifiability alone does not establish it for a ball projection.
+2. Work first with relative ball and torus projections: products reduce the ball dimension to one, and B_Y is covered by T_Y = {|T| = 1} and {|T − 1| = 1} (A2/relative-torus). Once these projections are proved compactifiable and smooth, separated étale ball charts and composition will give the assertion for f.
 3. Characteristic p: T_Y^♢ is an open subspace of B × Y^♢; S5/ball-smooth and S4/smooth-stable-under-base-change.
 4. Over ℚ_p (after base change to C_p, S4/smooth-v-local-on-target): the compatible-root torus T̃_{C_p} = Spa C_p⟨T^{±1/p^∞}⟩ (P1) is a ℤ_p-torsor over T_{C_p}, so T_{C_p}^♢ = T̃_{C_p}^♢/ℤ_p with T̃^♢ open in a ball over (Spa C_p)^♢; apply S5/free-quotient-smooth (ℤ_p has pro-order prime to ℓ).
 5. Mixed characteristic: v-locally Y lives over Spa ℤ_p^cycl; then T_Y is the quotient of T̃_Y by a nonfree ℤ_p-action whose geometric fibres were just shown smooth; apply S5/nonfree-quotient-smooth and descend along the v-cover (S4/smooth-v-local-on-target, dim.trg being finite for smooth adic maps, C8/analytic-dimension-bound).
+6. The ball base changes and the free/nonfree quotient results used above supply compactifiability of each local projection, as well as its smoothness. Compose each with the separated étale chart using S0/compactifiable-composition and S4/smooth-composition. S0/compactifiable-local-on-source gives compactifiability of f^♢; local finiteness of dimension is retained from the adic charts. The canonical upper-shriek composition and étale comparison identify the restricted dualizing twists on these charts, so the defining twisted-pullback criterion glues on the open source cover.
 
-Direct prerequisites: `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/free-quotient-smooth`, `DiamondSixOperations:S5/nonfree-quotient-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/etale-maps-smooth`, `DiamondSixOperations:S4/smooth-stable-under-base-change`, `DiamondSixOperations:S4/smooth-v-local-on-target`, `DiamondSixOperations:S0/compactifiable-local-on-source`, `DiamondSixOperations:S0/separated-etale-compactifiable`, `AdicEtaleGeometry:A2/smooth-morphism-ball-charts`, `AdicEtaleGeometry:A2/relative-torus`, `AdicEtaleGeometry:A2/relative-closed-polydisc`, `DiamondsAndVStacks:D6/etale-site-comparison`, `DiamondsAndVStacks:D3/locally-profinite-torsors`, `DiamondEtaleCohomology:C8/analytic-dimension-bound`, `PerfectoidSpaces:P1/perfectoid-field-definition`, `PerfectoidSpaces:P1/tilt-of-perfectoid-field`, `PerfectoidSpaces:P1/perfected-tate-algebra`, `PerfectoidSpaces:P1/cyclotomic-perfectoid-field`.
+Direct prerequisites: `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/free-quotient-smooth`, `DiamondSixOperations:S5/nonfree-quotient-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/etale-maps-smooth`, `DiamondSixOperations:S4/smooth-stable-under-base-change`, `DiamondSixOperations:S4/smooth-v-local-on-target`, `DiamondSixOperations:S0/compactifiable-local-on-source`, `DiamondSixOperations:S0/separated-etale-compactifiable`, `AdicEtaleGeometry:A2/smooth-morphism-ball-charts`, `AdicEtaleGeometry:A2/relative-torus`, `AdicEtaleGeometry:A2/relative-closed-polydisc`, `DiamondsAndVStacks:D6/etale-site-comparison`, `DiamondsAndVStacks:D3/locally-profinite-torsors`, `DiamondEtaleCohomology:C8/analytic-dimension-bound`, `PerfectoidSpaces:P1/perfectoid-field-definition`, `PerfectoidSpaces:P1/tilt-of-perfectoid-field`, `PerfectoidSpaces:P1/perfected-tate-algebra`, `PerfectoidSpaces:P1/cyclotomic-perfectoid-field`, `DiamondSixOperations:S0/compactifiable-composition`, `DiamondSixOperations:S3/upper-shriek-composition`, `DiamondSixOperations:S3/upper-shriek-etale`.
 
 Source: [ECD](https://arxiv.org/abs/1709.07343v4), Proposition 24.4, p. 156. Statement.
 
@@ -3457,12 +3458,12 @@ Named declarations: `SpdQp.isCohomologicallySmooth`.
 
 Construction or proof:
 
-1. Let K_∞ be the cyclotomic ℤ_p-extension of ℚ_p; K_∞^♭ ≅ F_p((t^{1/p^∞}))^∧ (P1), and (Spa ℚ_p)^♢ = Spa(F_p((t^{1/p^∞}))^∧, O_{F_p((t^{1/p^∞}))^∧})/ℤ_p (D6/spd-is-a-spatial-diamond with the Galois tower).
+1. Let K_∞ be the completion of the cyclotomic ℤ_p-extension of ℚ_p. The cyclotomic construction of P1, with its finite torsion part removed and a suitable uniformizer, gives K_∞^♭ ≅ F_p((t^{1/p^∞}))^∧. The finite Galois levels, the Spd Tate-pair construction and finite-stage limit comparison give a ℤ_p-torsor Spa(K_∞^♭, O_{K_∞^♭}) → (Spa ℚ_p)^♢, hence the displayed quotient presentation by torsor descent. D6/spd-is-a-spatial-diamond supplies spatiality of the base; its special tower with no nonsplit finite étale covers is not being identified with the cyclotomic tower.
 2. After pullback along the v-cover Spa(C, O_C) → * (C algebraically closed of characteristic p), (Spa ℚ_p)^♢ × Spa(C, O_C) = D^×_C/ℤ_p with D^×_C the punctured open unit disc, an open subset of B × Spa(C, O_C) (S5/perfectoid-ball).
 3. D^×_C → Spa(C, O_C) is smooth (S5/ball-smooth, S4/etale-maps-smooth, S4/smooth-composition) and ℤ_p acts freely with pro-order prime to ℓ, so S5/free-quotient-smooth applies.
 4. Descend along the v-cover by S4/smooth-v-local-on-target, (Spa ℚ_p)^♢ → * having locally finite dim.trg (dim.trg 1 on quasicompact opens).
 
-Direct prerequisites: `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/free-quotient-smooth`, `DiamondSixOperations:S5/perfectoid-ball`, `DiamondSixOperations:S4/etale-maps-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/smooth-v-local-on-target`, `DiamondsAndVStacks:D6/spd-is-a-spatial-diamond`, `PerfectoidSpaces:P1/perfectoid-field-definition`, `PerfectoidSpaces:P1/tilt-of-perfectoid-field`, `PerfectoidSpaces:P1/perfected-tate-algebra`, `PerfectoidSpaces:P1/cyclotomic-perfectoid-field`.
+Direct prerequisites: `DiamondSixOperations:S5/ball-smooth`, `DiamondSixOperations:S5/free-quotient-smooth`, `DiamondSixOperations:S5/perfectoid-ball`, `DiamondSixOperations:S4/etale-maps-smooth`, `DiamondSixOperations:S4/smooth-composition`, `DiamondSixOperations:S4/smooth-v-local-on-target`, `DiamondsAndVStacks:D6/spd-is-a-spatial-diamond`, `PerfectoidSpaces:P1/perfectoid-field-definition`, `PerfectoidSpaces:P1/tilt-of-perfectoid-field`, `PerfectoidSpaces:P1/perfected-tate-algebra`, `PerfectoidSpaces:P1/cyclotomic-perfectoid-field`, `DiamondsAndVStacks:D6/spd-of-a-tate-pair`, `DiamondsAndVStacks:D3/locally-profinite-torsors`, `DiamondsAndVStacks:D5/limits-and-finite-stage-comparisons`, `AdicEtaleGeometry:A4/finite-etale-effective-descent-along-tower`.
 
 Source: [ECD](https://arxiv.org/abs/1709.07343v4), Proposition 24.5, p. 156. Statement.
 
@@ -3517,7 +3518,7 @@ Actual input required: Actual Perf site with perfectoid pairs and O^+; completed
 
 Stage `DiamondSixOperations:S6`: **planned**.
 
-Remaining acceptance inputs:
+Remaining closure and signature inputs:
 
 - H5’s local curve compactification over a non-discretely valued field remains inherited.
 - Express the full geometric duality, global-sections/open-extension maps and counterexamples over the exact Spa(C,O_C) base. Valuation refinement and the component-openness proof now close the two earlier mathematical detection gaps; the sheaf and valuation prototypes are actual Mathlib specializations.
@@ -3539,8 +3540,9 @@ Construction or proof:
 1. Define both duals from C3's internal Hom and S3/upper-shriek's Rf^!Λ; the biduality maps are the unit of the tensor–Hom adjunction applied to evaluation.
 2. For invertible D = Rf^!Λ: RHom(A, D) = RHom(A, Λ) ⊗ D and RHom(RHom(A, D), D) = RHom(RHom(A, Λ), Λ) (S4/invertible-object), compatibly with evaluation.
 3. Verdier duality S3/verdier-duality-lower-shriek gives RΓ(X, 𝔻_X A) = RHom(RΓ_c(X, A), Λ) for X → Spa(C, O_C).
+4. For the smooth-pullback API, exceptional composition gives D_{f∘g} ≅ Rg^!D_f ≅ D_g ⊗ g^*D_f. Smooth pullback commutes with internal Hom, so 𝔻_{X′}(g^*A) ≅ D_g ⊗ g^*𝔻_X(A). Cancel the invertible D_g. No smoothness of the structural map f is required; Λ is ℓ-power torsion for the smooth comparison.
 
-Direct prerequisites: `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S4/dualizing-complex`, `DiamondSixOperations:S4/invertible-object`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`, `DiamondEtaleCohomology:C3/pullback`, `DiamondEtaleCohomology:C3/pushforward`, `DiamondEtaleCohomology:C3/etale-tensor`, `DiamondEtaleCohomology:C3/internal-hom`, `DiamondEtaleCohomology:C3/change-of-coefficients`.
+Direct prerequisites: `DiamondSixOperations:S3/upper-shriek`, `DiamondSixOperations:S4/dualizing-complex`, `DiamondSixOperations:S4/invertible-object`, `DiamondSixOperations:S3/verdier-duality-lower-shriek`, `DiamondEtaleCohomology:C3/pullback`, `DiamondEtaleCohomology:C3/pushforward`, `DiamondEtaleCohomology:C3/etale-tensor`, `DiamondEtaleCohomology:C3/internal-hom`, `DiamondEtaleCohomology:C3/change-of-coefficients`, `DiamondSixOperations:S3/upper-shriek-composition`, `DiamondSixOperations:S4/smooth-twisted-pullback`, `DiamondSixOperations:S4/smooth-pullback-internal-hom`.
 
 Source: [ECD](https://arxiv.org/abs/1709.07343v4), Theorem 25.1, p. 158. The two biduality maps and their equivalence.
 
@@ -3562,7 +3564,7 @@ API:
 | `bidualityMap` | data | The evaluation map A → 𝔻_X𝔻_X A. | omitted: Requires the displayed actual supplier input; no replacement signature is asserted. |
 | `verdierDual_globalSections` | relation | RΓ(X, 𝔻_X A) ≅ RHom(RΓ_c(X, A), Λ). | omitted: Requires the displayed actual supplier input; no replacement signature is asserted. |
 | `verdierDual_extendByZero` | relation | For j : U → X a quasicompact open, 𝔻_X(j_!B) ≅ Rj_*𝔻_U(B) and RHom(j_!Λ, Λ) = Rj_*Λ. | omitted: Requires the displayed actual supplier input; no replacement signature is asserted. |
-| `verdierDual_pullback_smooth` | functoriality | For g : X′ → X smooth, g^*𝔻_X ≅ D_g^{−1} ⊗ 𝔻_{X′}g^* (S4/smooth-pullback-internal-hom and S4/smooth-upper-shriek-base-change). | omitted: Requires the displayed actual supplier input; no replacement signature is asserted. |
+| `verdierDual_pullback_smooth` | functoriality | For g : X′ → X ℓ-cohomologically smooth and Λ ℓ-power torsion, g^*𝔻_X ≅ D_g^{−1} ⊗ 𝔻_{X′}g^* (S4/smooth-pullback-internal-hom and S3/upper-shriek-composition, with the smooth twist of g). | omitted: Requires the displayed actual supplier input; no replacement signature is asserted. |
 
 Unit-test specifications:
 
