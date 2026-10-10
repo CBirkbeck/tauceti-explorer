@@ -1514,7 +1514,7 @@ Examples:
 - Already for X = Spec O_F[1/Δ] the source says Spf H_{O_F[1/Δ]} does not precisely match (Spec O_F[1/Δ])^Hab; a formulation asserting an equivalence before the completed localisation fails this case.
 - For X of relative dimension d without the primes p ≤ d inverted (for example A^2_Z), the algebraic side is not defined and the problem does not arise.
 - For X over Z[1/N], the algebraic side has every prime p ≤ dim X inverted while the analytic side does not (N is not invertible everywhere on Z[1/N]^Hab); any comparison therefore has to invert those primes on the analytic side, which is part of the completed localisation.
-- Within this construction only the other two HQ.6 nodes and the acceptance suite list the problem among their prerequisites, each to record a boundary.
+- The constructions of the global q-de Rham complex, chosen q-Hodge descent and canonical algebraic Habiro cohomology use no analytic comparison; specifying or proving that comparison supplies none of their defining data.
 
 ### Small primes, roots of unity and the absence of a stacky approach
 
@@ -1731,4 +1731,4 @@ Examples:
 - For S = ℤ the target is the identity comparison of W(k) with crystalline cohomology of Spec k in degree zero.
 - For S = ℤ[T,T⁻¹] compare the two composites on dlog T, and record the Frobenius normalization.
 - No inverse of W_{α+1}Ω → qW_{p^α}Ω and no qW restriction map enters the construction.
-- The equality is an obligation of the plan, not a claimed verified commutative square.
+- Equality of the two canonical composites remains to be proved; an isomorphism between their source and target objects does not establish it.
