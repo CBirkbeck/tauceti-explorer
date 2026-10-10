@@ -73,7 +73,7 @@ Import integral Dehn surgery on a framed link L in oriented S³: the meridian of
 - `surgery_unknot_pm_one`: Surgery on the plus-one-framed unknot is again the 3-sphere: a definition that gave a different manifold here would be wrong.
 - `homology_surgery_unknot_p`: Surgery on the p-framed unknot has first homology cyclic of order the absolute value of p; for p = 0 this is infinite cyclic, so that presentation is not an integral homology sphere.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §10.1, pp. 34–35, surgery presentation recalled before Theorem 10.2.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §10.1, pp. 34–35, surgery presentation recalled before Theorem 10.2.
 
 <a id="qt-0-admissible-framed-link"></a>
 
@@ -218,7 +218,7 @@ Over ℚ[[h]] put q=exp(h), v=exp(h/2), K=exp(hH/2). U_h(sl₂) is the h-adicall
 - `Uqev_ne_Uq`: K itself lies in Uq and not in Uqev, so the two forms are different.
 - `classical_limit`: U_h/hU_h is the classical ℚ-enveloping algebra of sl₂; h is a parameter of the ambient complete algebra, not an element asserted in the integral coefficient ring ℤ[q±1].
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §§2.1–2.6, pp. 7–11, quantum algebra, integral forms and completions.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §§2.1–2.6, pp. 7–11, quantum algebra, integral forms and completions.
 
 <a id="qt-1-ribbon-structure"></a>
 
@@ -244,7 +244,7 @@ U_h(sl₂) has ΔH=H⊗1+1⊗H, ΔE=E⊗1+K⊗E, ΔF=F⊗K⁻¹+1⊗F, S(H)=−H
 - `R_matrix_classical_limit`: Modulo h the R-matrix is the identity, so the braiding degenerates to the symmetry of the classical category.
 - `quantum_dimension_V1`: The quantum dimension of the 2-dimensional module is the quantum integer [2], not 2; a definition returning the ordinary dimension is wrong.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §3.1, pp. 11–12, ribbon structure.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §3.1, pp. 11–12, ribbon structure.
 
 <a id="qt-1-braided-hopf-structure"></a>
 
@@ -264,7 +264,7 @@ The braided Hopf algebra structure of the braided transmutation of U_h induces a
 - A structure map that left the integral form would break the integrality of the universal invariant, which is the point of the theorem.
 - The statement fails for the non-completed form, so the completion is not cosmetic.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Theorem 3.1, §3.3, pp. 13–14, integral braided structure.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 3.1, §3.3, pp. 13–14, integral braided structure.
 
 <a id="qt-1-bottom-tangle"></a>
 
@@ -288,7 +288,7 @@ An n-component bottom tangle is a framed oriented union of n arcs in the cube wi
 - `closure_of_bottom_knot`: A one-component bottom tangle closes to a knot; the number of components is preserved.
 - `bottomTangle_not_closed`: A tangle with a closed component is not a bottom tangle; this excludes the degenerate case where the universal invariant would already be a trace.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §4.1, pp. 14–15, bottom tangles and their closure.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §4.1, pp. 14–15, bottom tangles and their closure.
 
 <a id="qt-1-universal-sl2-invariant"></a>
 
@@ -314,7 +314,7 @@ For T∈BT_n the bead-reading rule gives J_T∈U_h completed⊗n, invariant unde
 - `J_framing_change`: Adding a positive kink inserts r⁻¹ in the bead product; invariance under an unframed Reidemeister-I move would lose the framing.
 - `J_hopf_nontrivial`: The universal invariant of the bottom tangle closing to the Hopf link is not the unit, so the invariant sees linking.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §4.2, pp. 15–16, universal invariant.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §4.2, pp. 15–16, universal invariant.
 
 <a id="qt-1-universal-invariant-integrality"></a>
 
@@ -332,7 +332,7 @@ For an algebraically split AND 0-framed n-component bottom tangle T, J_T lies in
 - The theorem fails for non-zero framings, where the ribbon element contributes denominators; this is why the framing hypothesis is present.
 - Integrality is what makes the coloured Jones polynomials Laurent polynomials rather than rational functions.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Theorem 4.1, p. 16; proof in §4.3, pp. 16–17.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 4.1, p. 16; proof in §4.3, pp. 16–17.
 
 <a id="qt-1-topological-ribbon-hopf-algebras"></a>
 
@@ -414,7 +414,7 @@ A ribbon category is a braided rigid monoidal category with a natural automorphi
 - `ribbonTrace_vectorSpace`: For finite-dimensional vector spaces with flip braiding and trivial twist the ribbon trace is the ordinary trace.
 - `ribbonTwist_sl2_V1`: In the generic sl₂ instance a positive twist on V₁ acts as q^(3/4), so θ is not the identity.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §3.1, pp. 11–12; §5.2, pp. 19–20; [Ribbon graphs and their invariants derived from quantum groups](https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf), §§2.1–2.2, pp. 2–4; §§3.1–3.3, pp. 4–7; Theorem 5.1, pp. 12–13.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §3.1, pp. 11–12; §5.2, pp. 19–20; [Ribbon graphs and their invariants derived from quantum groups](https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf), §§2.1–2.2, pp. 2–4; §§3.1–3.3, pp. 4–7; Theorem 5.1, pp. 12–13.
 
 <a id="qt-1-reshetikhin-turaev-functor"></a>
 
@@ -439,7 +439,7 @@ For a ribbon Hopf algebra (A,R,r) over a field, the finite-dimensional module ca
 - `RTFunctor_straight`: The straight colored strand evaluates to id_V.
 - `RTFunctor_crossing_inverse`: A crossing followed by its inverse is the identity; a positive crossing alone is not assumed involutive.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §5.2, pp. 19–20; [Ribbon graphs and their invariants derived from quantum groups](https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf), Theorem 5.1, §5.1, pp. 12–13; proof in §5.4, pp. 15–16; ribbon structure in §3.3, p. 7.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §5.2, pp. 19–20; [Ribbon graphs and their invariants derived from quantum groups](https://people.math.harvard.edu/~opie/Reshetikhin_Turaev.pdf), Theorem 5.1, §5.1, pp. 12–13; proof in §5.4, pp. 15–16; ribbon structure in §3.3, p. 7.
 
 <a id="qt-1-tilting-negligible-quotient"></a>
 
@@ -541,7 +541,7 @@ For a framed m-component oriented link presented as closure of T, put J_L(V_(n�
 - `colouredJones_positive_framing`: The +1-framed unknot in color V₁ has q^(3/4)(v+v⁻¹), not merely [2].
 - `colouredJones_split_union`: For a split union the invariant is the product of the invariants, so a definition that failed multiplicativity would be wrong.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §§5.2–5.3, pp. 19–20; §6.2, pp. 21–22.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §§5.2–5.3, pp. 19–20; §6.2, pp. 21–22.
 
 <a id="qt-2-p-basis"></a>
 
@@ -565,7 +565,7 @@ In ℚ(v)[X]=R_ℚ(v), X=V₁, define {a}=v^a−v⁻a, {n}!=∏_(j=1)^n{j}, {a}_
 - `P_one`: P₁=X−v−v⁻¹.
 - `P_rescalings_distinct`: P″₁=P₁/({3}{2}) whereas P′₁=P₁/{1}; the denominators are different.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §6.1, p. 21, P and P″; §8.1, p. 28, P′ and P̃′.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §6.1, p. 21, P and P″; §8.1, p. 28, P′ and P̃′.
 
 <a id="qt-2-dual-basis-pairing"></a>
 
@@ -582,7 +582,7 @@ For m,n≥0, tr_q^(P″_m)(σ_n)=δ_mn, where the trace is linearly extended ove
 - The pairing of P''_0 with sigma_0 is 1 and with sigma_1 is 0.
 - Duality forces the coefficients in the cyclotomic expansion to be the reduced coloured Jones values at the colours P''_n.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Proposition 6.3, §6.2, p. 21; proof in §6.3, pp. 22–24.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Proposition 6.3, §6.2, p. 21; proof in §6.3, pp. 22–24.
 
 <a id="qt-2-cyclotomic-expansion"></a>
 
@@ -600,7 +600,7 @@ For a zero-framed bottom knot T with closure K there are unique a_i(K)∈ℤ[q±
 - The coefficients are Laurent polynomials, by the integrality theorem, which is the point of the expansion.
 - Summing the expansion against the change-of-basis formula recovers the ordinary coloured Jones polynomials.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Theorem 6.4, §6.2, pp. 21–22.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 6.4, §6.2, pp. 21–22.
 
 <a id="qt-2-algebra-P-and-completion"></a>
 
@@ -624,7 +624,7 @@ Let P be the ℤ[q±1]-span of P̃′_n in R_ℚ(v), q=v²; it is a subalgebra, 
 - `mul_P_one_one`: P′₁P′₁=({2}!/{1}!²)P′₂+({2}!/{1}!)P′₁; the coefficients change upon tilde rescaling.
 - `twistElement_not_mem`: The twist element lies in the completion and not in the algebra, so the completion step is necessary.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §8.1, p. 28, color algebra and its completion.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §8.1, p. 28, color algebra and its completion.
 
 <a id="qt-2-integrality-algebraically-split"></a>
 
@@ -641,7 +641,7 @@ For an m-component algebraically split zero-framed L, colors x_i∈P_(k_i), and 
 - The divisibility fails for links that are not algebraically split, which is why the hypothesis is present.
 - The theorem gives the convergence of the surgery sum used to define the unified invariant.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Theorem 8.2 and Corollary 8.3, §8.2, p. 29.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 8.2 and Corollary 8.3, §8.2, p. 29.
 
 <a id="qt-2-quantum-trace-integrality"></a>
 
@@ -659,7 +659,7 @@ For x∈U_q^ev and y∈P, tr_q^y(x) lies in ℤ[q±1]. Both the even form and th
 - The trace of a basis monomial with mismatched degrees vanishes, which is the vanishing that makes the computation finite.
 - The lemma fails for colours outside the algebra P, where denominators appear, so the restriction on colours is necessary.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Lemma 8.5, §8.3, p. 29; proof in §8.4, pp. 30–31.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Lemma 8.5, §8.3, p. 29; proof in §8.4, pp. 30–31.
 
 <a id="qt-2-coloured-jones-determination"></a>
 
@@ -676,7 +676,7 @@ For a zero-framed knot and n≥1, the values J_K(V₀),…,J_K(V_(n−1)) determ
 - The ideal is not the zero ideal, so the statement is a congruence and not an equality; a stronger reading would be false.
 - The result is a consequence of integrality and not of the definition, so it fails for invariants without the cyclotomic expansion.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Proposition 6.5, §6.2, p. 22.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Proposition 6.5, §6.2, p. 22.
 
 <a id="qt-2-truncations-and-what-may-be-done-before-completion"></a>
 
@@ -701,7 +701,7 @@ For N≥0 define Z_K,<N=Σ_(i<N)a_iσ_i in the polynomial center and, for a fixe
 - `colorTruncation_V1`: At N=2 the V₁ value is [2]+{3}{2}a₁.
 - `cyclotomicTruncation_compat`: Increasing N changes only terms divisible by σ_N.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §6.2, pp. 21–22, finite color traces.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §6.2, pp. 21–22, finite color traces.
 
 <a id="qt-2-an-expansion-is-a-theorem-about-an-invariant"></a>
 
@@ -711,7 +711,7 @@ HC.2 supplies generic factorial-series representations of elements of the comple
 
 **Prerequisites.** [Cyclotomic expansion of the universal invariant of a bottom knot](#qt-2-cyclotomic-expansion); [Integrality and divisibility for algebraically split 0-framed links](#qt-2-integrality-algebraically-split); `HabiroCyclotomicCompletions:HC.2/factorial-series`.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §6.2, pp. 21–22; §8.2, p. 29.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §6.2, pp. 21–22; §8.2, p. 29.
 
 <a id="qt-2-the-kashaev-invariant-and-the-function-on-the-rationals"></a>
 
@@ -762,7 +762,15 @@ For n≥0, V_n is the rank n+1 finite free ℚ[[h]] highest-weight U_h-module of
 - `quantum_dimension_V1`: qdim V₁=v+v⁻¹, not the constant 2.
 - `color_tensor_V1`: V₁⊗V₁=V₂+V₀, so V₂=X²−1 rather than X².
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §5.1, p. 18; §§5.3–5.4, pp. 19–20.
+**Native realization and comparisons.** Put S=PowerSeries ℚ and v^a=exp(ah/2). The carrier `sl2Color n` is Fin(n+1)→S with `sl2ColorBasis`; matrices act on columns. Write w_i=n−2i. `colorH`, `colorK` and `colorKinv` are diagonal with entries w_i, v^(w_i) and v^(−w_i). The only nonzero generator entries are E_(i−1,i)=v^(n−i+1)[n−i+1] and F_(i+1,i)=v^(i−n)[i+1]. Endpoints vanish. `formalQInt` is the Laurent sum Σ_(i<n)v^(n−1−2i), transported by `laurentToFormal`; no division by v−v⁻¹ in S is used. Its constant term is n and it is a unit for n>0.
+
+The helper `formalQChoose` uses the polynomial Gaussian recurrence at q=v²; `formalQFactorial` is the product of unbalanced [i]_q=Σ_(j<i)q^j. `colorDividedF n m` sends v_i to q^(−mi) binom_q(i+m,m)v_(i+m). `colorSmallEPower n m` sends v_i to ∏_(t<m)(q^(n−i+m−t)−1)v_(i−m). Their APIs compare these matrices with F^m K^m/[m]_q! and e^m, recover the highest-weight basis, and handle m=0 and out-of-range indices. Generator relations include [H,E]=2E, [H,F]=−2F, [E,F]=diag([w_i]), K E=q E K and K F=q⁻¹ F K. `colorK_coeff` records the actual formal exponential, beyond conjugation alone.
+
+`quantumTrace n` is the S-linear functional A↦Tr(K⁻¹A); its diagonal formula, identity value [n+1], and constant-term comparison with ordinary trace form its API. Cyclicity requires an endomorphism commuting with K⁻¹. Tests also use the first matrix unit (trace v⁻¹ rather than v), and EF versus FE on V₁ (different traces), so a reversed pivot or arbitrary cyclic trace fails. On V₂, F̃^(2)v₀=v₂ whereas F²v₀=(v⁻²+v⁻⁴)v₂; at h=0 the generator entries become the classical divided-power matrices, with E entries 2,1 and F entries 1,2. Together with identity colors, endpoint vanishing and the h² coefficient 1/4 of qdim V₁, these test the carrier, basis, formal coefficients and actions.
+
+`tensorColorEquiv` identifies the module tensor product with functions on the product index, explicitly on pure tensors. `tensorColorH/E/F/K` use ΔH=H⊗1+1⊗H, ΔE=E⊗1+K⊗E, ΔF=F⊗K⁻¹+1⊗F and ΔK=K⊗K. `color_clebschGordan` requires a linear equivalence intertwining all four actions with ⊕_(j≤min(m,n))V_(m+n−2j). The zero-color comparison, V₁⊗V₁ comparison and weight-character product test distinguish the coproduct and decomposition. `colorCharacter` sums the H-weights in a second Laurent variable; `colorCharacter_Chebyshev` and `color_repRing_product` compare this character and the polynomial representation algebra, rather than interpreting a dimension identity as a module isomorphism. Extending these actions to the continuous completed U_h-module and its ribbon operators remains dependent on QT.1.
+
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §5.1, p. 18; §§5.3–5.4, pp. 19–20. Generator conventions: §2.2–2.3, pp. 7–8; basis actions: equations (5.1)–(5.3), p. 19; representation algebra and trace: §§5.3–5.4, p. 20.
 
 <a id="qt-2-completed-even-center"></a>
 
@@ -798,7 +806,7 @@ For a zero-framed knot, the fundamental-color quantum invariant is unreduced: J_
 
 **Prerequisites.** [Coloured Jones polynomials from the universal invariant](#qt-2-coloured-jones); [GeometricTopology — layer-4-knot-theory-done-properly-owned-here](https://github.com/TauCetiProject/TauCetiRoadmap/blob/main/TauCetiRoadmap/GeometricTopology/README.md#layer-4-knot-theory-done-properly-owned-here).
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §5.2, pp. 19–20; §6.2, pp. 21–22; RT §6.1, p. 17.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §5.2, pp. 19–20; §6.2, pp. 21–22; RT §6.1, p. 17.
 
 <a id="qt-2-unified-kashaev-invariant"></a>
 
@@ -823,7 +831,7 @@ For a zero-framed knot K with integral cyclotomic coefficients a_n(K)=J_K(P″_n
 - `unifiedKashaev_order_one`: At q=1 only a₀(K)=1 remains.
 - `unifiedKashaev_factorial_square`: The n-th product equals (−1)^n q^(−n(n+1)/2)(q;q)_n², hence has at least twice the factorial divisibility.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §7.1, pp. 24–26, θ₀ specialization.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §7.1, pp. 24–26, θ₀ specialization.
 
 <a id="qt-3"></a>
 
@@ -853,7 +861,7 @@ In P̂ define ω±=Σ_(n≥0)(±1)^n v^(±n(n+3)/2)P′_n, equivalently an integ
 - `omega_plus_mul_omega_minus`: The product of the two twist elements is 1, which is the algebraic shadow of blowing up and then blowing down.
 - `omega_not_finite`: The twist element has infinitely many non-zero cyclotomic coefficients, so it is not an element of the uncompleted algebra.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §9.1, Propositions 9.1–9.2, p. 33.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §9.1, Propositions 9.1–9.2, p. 33.
 
 <a id="qt-3-twisting-theorem"></a>
 
@@ -871,7 +879,7 @@ For algebraically split zero-framed L=L₁∪⋯∪L_m∪K with K unknotted and 
 - Applying the theorem twice with opposite signs returns the original invariant, matching that the two twist elements are inverse.
 - The identity is an identity in the completed algebra and requires the divisibility theorem for convergence.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Theorem 9.4, §9.2, p. 34.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 9.4, §9.2, p. 34.
 
 <a id="qt-3-definition-of-JM"></a>
 
@@ -896,7 +904,7 @@ For an integral homology sphere M with admissible presentation L of component fr
 - `unified_unknot_pm_one`: The plus-one-framed unknot also presents the 3-sphere and must give 1; this is the first non-trivial instance of independence.
 - `unified_converges`: The defining sum has terms divisible by higher and higher q-shifted factorials, so it converges in the Habiro ring; a formula without that divisibility would not define an element.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §10.2, Theorem 10.2, p. 35.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §10.2, Theorem 10.2, p. 35.
 
 <a id="qt-3-JM-well-defined"></a>
 
@@ -916,7 +924,7 @@ For an integral homology sphere M the element of the Habiro ring defined by the 
 - The proof uses the refined calculus and not the classical one, since the intermediate links of a classical sequence need not be admissible.
 - The invariant of a connected sum is the product of the invariants, which is a consistency check on the normalisation.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Theorem 10.2, §10.2, p. 35; refined calculus in §10.1, pp. 34–35.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 10.2, §10.2, p. 35; refined calculus in §10.1, pp. 34–35.
 
 <a id="qt-3-JM-divisibility"></a>
 
@@ -935,7 +943,7 @@ For every integral homology sphere M the element J_M minus 1 is divisible in the
 - For the 3-sphere the statement is trivial, since the difference is 0.
 - Expanding the divisor at q=1 begins with 6(q−1), hence the coefficient of q−1 in J_M−1 is divisible by 6. Integrality of all Taylor coefficients instead follows from the integral Habiro Taylor map.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Lemma 10.3, §10.3, p. 36; stronger Proposition 12.14, §12.4.2, p. 44.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Lemma 10.3, §10.3, p. 36; stronger Proposition 12.14, §12.4.2, p. 44.
 
 <a id="qt-3-JM-connected-sum-and-orientation"></a>
 
@@ -955,7 +963,7 @@ The unified invariant is multiplicative under connected sum, so that the invaria
 - The invariant of the connected sum of a manifold with its own orientation reversal is the norm of the invariant under the involution.
 - An invariant that failed multiplicativity would not evaluate to the Witten-Reshetikhin-Turaev invariants, which are multiplicative.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Proposition 12.1, §12.1, p. 39.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Proposition 12.1, §12.1, p. 39.
 
 <a id="qt-3-rational-homology-spheres-are-not-in-this-domain"></a>
 
@@ -965,7 +973,7 @@ QT.3 defines J only for integral homology spheres. For the p-framed unknot with 
 
 **Prerequisites.** [The unified invariant of an integral homology sphere](#qt-3-definition-of-JM); [Surgery on a framed link and the homology of the result](#qt-0-surgery-presentation); [The Witten-Reshetikhin-Turaev invariant at a root of unity](#qt-4-WRT-invariant-at-a-root).
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §16.3, pp. 62–63, rational homology spheres.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §16.3, pp. 62–63, rational homology spheres.
 
 <a id="qt-4"></a>
 
@@ -993,7 +1001,7 @@ For r≥2 choose ξ primitive of order 4r and ζ=ξ⁴. Evaluate q^(1/4) at ξ. 
 - `wrt_root_one`: At ζ=1 the invariant is 1 by the declared convention, including r=1.
 - `wrt_stabilization_sign`: A split +1 unknot cancels the positive Gauss factor and a −1 unknot cancels the negative factor; interchanging the two fails this test.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §11.1, equation (11.2), pp. 36–37.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §11.1, equation (11.2), pp. 36–37.
 
 <a id="qt-4-evaluation-theorem"></a>
 
@@ -1013,7 +1021,7 @@ Let M be an integral homology sphere and zeta a primitive r-th root of unity. Th
 - The theorem holds for every root of unity, including those of even and of non-prime-power order, which the earlier literature had excluded.
 - As a corollary the Witten-Reshetikhin-Turaev invariant of an integral homology sphere is an algebraic integer in the cyclotomic field, and the family is Galois equivariant.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Theorem 11.1, §11.1, p. 36; proof in §11.3, pp. 37–38.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 11.1, §11.1, p. 36; proof in §11.3, pp. 37–38.
 
 <a id="qt-4-integrality-and-galois"></a>
 
@@ -1032,7 +1040,7 @@ For every integral homology sphere M and every root of unity zeta, the Witten-Re
 - The invariant is an algebraic integer, not merely an algebraic number; this is a strictly stronger statement than the state sum gives directly.
 - Galois equivariance relates the values at all primitive roots of the same order, so one value determines the others in that orbit.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §1.3, pp. 3–4, integrality and Galois consequences.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §1.3, pp. 3–4, integrality and Galois consequences.
 
 <a id="qt-4-determination-by-WRT"></a>
 
@@ -1049,7 +1057,7 @@ For IHS M the root-value function τ_ζ(M) and J_M determine each other, by eval
 - Two integral homology spheres with the same quantum invariants at all roots have the same unified invariant.
 - The statement is about the evaluation map on the Habiro ring, not about the manifolds, so it needs the ring-theoretic injectivity input.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Proposition 1.1, §1.2, p. 3; Propositions 12.2–12.3, §12.2, pp. 39–40.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Proposition 1.1, §1.2, p. 3; Propositions 12.2–12.3, §12.2, pp. 39–40.
 
 <a id="qt-4-ohtsuki-series"></a>
 
@@ -1067,7 +1075,7 @@ For IHS M, σ₁(J_M)∈ℤ[[q−1]] is the Ohtsuki series, characterized by its
 - The coefficient of q−1 is 6λ(M), with λ the Casson invariant in Habiro §12.3.3’s orientation convention.
 - The theorem identifies two objects defined by different means, so it is a comparison and not a definition.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Theorem 12.6, §12.3.2, p. 41; Casson normalization in §12.4.2, p. 44.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Theorem 12.6, §12.3.2, p. 41; Casson normalization in §12.4.2, p. 44.
 
 <a id="qt-4-general-simple-lie-type"></a>
 
@@ -1094,7 +1102,7 @@ The determination and integrality statements are over ℤ. Over ℚ the all-orde
 
 **Prerequisites.** [Integrality and Galois equivariance of the quantum invariants](#qt-4-integrality-and-galois); `HabiroCyclotomicCompletions:HC.4/rootwise-taylor-injectivity`; `HabiroCyclotomicCompletions:HC.1/the-cyclotomic-completion`.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §1.2, pp. 2–3, integral cyclotomic completion.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §1.2, pp. 2–3, integral cyclotomic completion.
 
 <a id="qt-4-sl2-kirby-color"></a>
 
@@ -1118,7 +1126,7 @@ For the primitive 4r-th root ξ, r≥2, Ω_r=Σ_(i=0)^(r−2)[i+1]V_i is the sl�
 - `kirbyColor_r3`: At r=3 the labels are V₀ and V₁ with the quantum-dimension coefficients.
 - `kirbyColor_no_top_weight`: The weight V_(r−1) is absent; its vanishing quantum dimension does not supply an extra simple color.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §11.1, pp. 36–37, colors and nonzero unknot normalizations.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §11.1, pp. 36–37, colors and nonzero unknot normalizations.
 
 <a id="qt-4-ohtsuki-characterization"></a>
 
@@ -1130,7 +1138,7 @@ The homomorphism ℤ[[q−1]]→∏_(p odd prime)ℤ_p[ζ_p] obtained by converg
 
 **Construction or proof.** For a series killed by every evaluation, induct on its first possible nonzero coefficient x_n. Reduce modulo (ζ_p−1)^(n+1) to show p|x_n for every odd prime p. An integer divisible by every odd prime is zero; repeat the induction.
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), Lemma 12.7, §12.3.2, p. 42.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), Lemma 12.7, §12.3.2, p. 42.
 
 <a id="qt-4-general-core-filtration"></a>
 
@@ -1879,7 +1887,7 @@ All eight accepted QT stages are decomposed here. The suggested Lean file states
 
 **Prerequisites.** [The comparisons with the Habiro ring that are actually proved, and the ones that are not](#qt-6-what-is-exported-to-the-habiro-roadmaps); [A reproducible ledger linking the four kinds of data, for two knots](#qt-7-the-example-ledger).
 
-**Sources.** [A unified Witten-Reshetikhin-Turaev invariant for integral homology spheres](https://arxiv.org/abs/math/0605314v1), §7.1, pp. 24–26, two-variable invariant and unified Kashaev specialization.
+**Sources.** [Habiro, unified invariant](https://arxiv.org/abs/math/0605314v1), §7.1, pp. 24–26, two-variable invariant and unified Kashaev specialization.
 
 <a id="qt-7-representation-indexed-perturbative-family"></a>
 

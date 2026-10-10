@@ -21,6 +21,10 @@ import Mathlib.GroupTheory.QuotientGroup.Defs
 import Mathlib.LinearAlgebra.ExteriorPower.Basic
 import Mathlib.Topology.Connected.PathConnected
 import Mathlib.Topology.Constructions
+import Mathlib.LinearAlgebra.Matrix.Trace
+import Mathlib.LinearAlgebra.Matrix.Kronecker
+import Mathlib.LinearAlgebra.TensorProduct.Basic
+import Mathlib.RingTheory.PowerSeries.Exp
 import Mathlib.LinearAlgebra.Matrix.IsDiag
 import Mathlib.LinearAlgebra.Matrix.ToLin
 import Mathlib.LinearAlgebra.Matrix.GeneralLinearGroup.Defs
@@ -121,8 +125,8 @@ def ribbonTrace (r : RibbonCategory C) {X : C} (f : X ⟶ X) : (𝟙_ C) ⟶ (�
 example (r : RibbonCategory C) : r.twist.hom.app (𝟙_ C) = 𝟙 (𝟙_ C) := sorry
 end RibbonCategories
 
-/-! QT.1–QT.2: algebraic colour conventions. The module and quantum trace
-are missing, so V below is its character polynomial rather than a fake module. -/
+/-! QT.1–QT.2: Laurent color conventions. V denotes a representation-algebra
+polynomial; the native finite free color and its pivotal trace appear below. -/
 abbrev LaurentBase := LaurentPolynomial ℤ
 abbrev ColourField := FractionRing LaurentBase
 
@@ -181,6 +185,280 @@ example : P_doublePrime 1 ≠ P_prime 1 := sorry
 example : P_prime 1 * P_prime 1 =
     Polynomial.C (braceFactorial 2 / braceFactorial 1 ^ 2) * P_prime 2 +
     Polynomial.C (braceFactorial 2 / braceFactorial 1) * P_prime 1 := sorry
+
+/-! QT.2: native formal colors in Habiro's divided-power basis.
+Habiro math/0605314v1, §5.1, pp. 18–19, (5.1)–(5.3); §5.3, p. 20;
+§5.4, p. 20. Matrices act on column vectors. The generator relations below
+are obligations for the actual finite free module, with no abstract module
+carrier standing in for it. Extension of these generator actions to the
+h-adically completed U_h, and its ribbon action, requires QT.1's completion.
+-/
+section FormalColors
+
+abbrev FormalBase := PowerSeries ℚ
+abbrev sl2Color (n : ℕ) := Fin (n + 1) → FormalBase
+abbrev ColorMatrix (n : ℕ) := Matrix (Fin (n + 1)) (Fin (n + 1)) FormalBase
+
+def sl2ColorBasis (n : ℕ) : Module.Basis (Fin (n + 1)) FormalBase (sl2Color n) :=
+  Pi.basisFun FormalBase (Fin (n + 1))
+
+/-- exp(a h), using the existing formal exponential and rescaling. -/
+def formalExp (a : ℚ) : FormalBase := PowerSeries.rescale a (PowerSeries.exp ℚ)
+
+def formalVPower (a : ℤ) : FormalBase := formalExp ((a : ℚ) / 2)
+
+theorem formalVPower_add (a b : ℤ) :
+    formalVPower (a + b) = formalVPower a * formalVPower b := sorry
+
+theorem formalVPower_coeff (a : ℤ) (k : ℕ) :
+    PowerSeries.coeff k (formalVPower a) = ((a : ℚ) / 2) ^ k / k.factorial := sorry
+
+def formalVUnit : FormalBaseˣ where
+  val := formalVPower 1
+  inv := formalVPower (-1)
+  val_inv := sorry
+  inv_val := sorry
+
+/-- v ↦ exp(h/2); the same Laurent polynomial supplies both conventions. -/
+def laurentToFormal : LaurentBase →+* FormalBase :=
+  LaurentPolynomial.eval₂ (Int.castRingHom FormalBase) formalVUnit
+
+theorem laurentToFormal_T (a : ℤ) :
+    laurentToFormal (T a) = formalVPower a := sorry
+
+theorem laurentToFormal_injective : Function.Injective laurentToFormal := sorry
+
+def formalQInt (n : ℕ) : FormalBase := laurentToFormal (qInt n)
+
+def formalQIntSigned (a : ℤ) : FormalBase :=
+  if 0 ≤ a then formalQInt a.toNat else -formalQInt (-a).toNat
+
+theorem formalQInt_sum (n : ℕ) :
+    formalQInt n = ∑ i ∈ range n, formalVPower ((n : ℤ) - 1 - 2 * i) := sorry
+
+theorem formalQInt_brace (a : ℤ) :
+    (formalVPower 1 - formalVPower (-1)) * formalQIntSigned a =
+      formalVPower a - formalVPower (-a) := sorry
+
+theorem formalQInt_constantCoeff (n : ℕ) :
+    PowerSeries.constantCoeff (formalQInt n) = n := sorry
+
+theorem formalQInt_isUnit {n : ℕ} (hn : 0 < n) : IsUnit (formalQInt n) := sorry
+
+/-- The q-version, [n]_q=1+q+⋯+q^(n−1), not the balanced [n]. -/
+def formalQIntUnbalanced (n : ℕ) : FormalBase :=
+  ∑ i ∈ range n, formalVPower (2 * i)
+
+def formalQFactorial (n : ℕ) : FormalBase :=
+  ∏ i ∈ range n, formalQIntUnbalanced (i + 1)
+
+/-- Gaussian coefficients evaluated at q=exp(h); the recurrence is polynomial. -/
+def formalQChoose : ℕ → ℕ → FormalBase
+  | 0, k => if k = 0 then 1 else 0
+  | _ + 1, 0 => 1
+  | n + 1, k + 1 =>
+      formalQChoose n k + formalVPower (2 * (k + 1)) * formalQChoose n (k + 1)
+
+def colorWeight (n : ℕ) (i : Fin (n + 1)) : ℤ := n - 2 * (i.val : ℤ)
+
+def colorH (n : ℕ) : ColorMatrix n :=
+  Matrix.diagonal fun i => PowerSeries.C (colorWeight n i : ℚ)
+
+def colorK (n : ℕ) : ColorMatrix n :=
+  Matrix.diagonal fun i => formalVPower (colorWeight n i)
+
+def colorKinv (n : ℕ) : ColorMatrix n :=
+  Matrix.diagonal fun i => formalVPower (-colorWeight n i)
+
+/-- E v_i = v^(n-i+1) [n-i+1] v_(i-1), with v_(-1)=0. -/
+def colorE (n : ℕ) : ColorMatrix n := fun i j =>
+  if i.val + 1 = j.val then
+    formalVPower ((n : ℤ) - j.val + 1) * formalQInt (n - j.val + 1)
+  else 0
+
+/-- F v_i = v^(i-n) [i+1] v_(i+1), with v_(n+1)=0. -/
+def colorF (n : ℕ) : ColorMatrix n := fun i j =>
+  if i.val = j.val + 1 then
+    formalVPower ((j.val : ℤ) - n) * formalQInt (j.val + 1)
+  else 0
+
+def colorSmallE (n : ℕ) : ColorMatrix n :=
+  (formalVPower 1 - formalVPower (-1)) • colorE n
+
+/-- F̃^(m) v_i = q^(-mi) binom_q(i+m,m) v_(i+m). -/
+def colorDividedF (n m : ℕ) : ColorMatrix n := fun i j =>
+  if i.val = j.val + m then
+    formalVPower (-2 * (m : ℤ) * j.val) * formalQChoose (j.val + m) m
+  else 0
+
+/-- Powers of e, with the source's descending q-brace product. -/
+def colorSmallEPower (n m : ℕ) : ColorMatrix n := fun i j =>
+  if i.val + m = j.val then
+    ∏ t ∈ range m,
+      (formalVPower (2 * ((n : ℤ) - j.val + m - t)) - 1)
+  else 0
+
+theorem sl2Color_finrank (n : ℕ) : Module.finrank FormalBase (sl2Color n) = n + 1 := sorry
+
+theorem colorH_E (n : ℕ) : colorH n * colorE n - colorE n * colorH n = 2 • colorE n := sorry
+
+theorem colorH_F (n : ℕ) : colorH n * colorF n - colorF n * colorH n = -2 • colorF n := sorry
+
+theorem colorE_F (n : ℕ) : colorE n * colorF n - colorF n * colorE n =
+    Matrix.diagonal (fun i => formalQIntSigned (colorWeight n i)) := sorry
+
+theorem colorE_F_brace (n : ℕ) :
+    (formalVPower 1 - formalVPower (-1)) •
+      (colorE n * colorF n - colorF n * colorE n) = colorK n - colorKinv n := sorry
+
+theorem colorK_mul_Kinv (n : ℕ) : colorK n * colorKinv n = 1 := sorry
+
+theorem colorKinv_mul_K (n : ℕ) : colorKinv n * colorK n = 1 := sorry
+
+theorem colorK_E (n : ℕ) : colorK n * colorE n = formalVPower 2 • (colorE n * colorK n) := sorry
+
+theorem colorK_F (n : ℕ) : colorK n * colorF n = formalVPower (-2) • (colorF n * colorK n) := sorry
+
+theorem colorK_coeff (n k : ℕ) (i j : Fin (n + 1)) :
+    PowerSeries.coeff k (colorK n i j) =
+      if i = j then ((colorWeight n i : ℚ) / 2) ^ k / k.factorial else 0 := sorry
+
+theorem colorE_highestWeight (n : ℕ) :
+    (colorE n).mulVec (sl2ColorBasis n 0) = 0 := sorry
+
+theorem colorH_highestWeight (n : ℕ) :
+    (colorH n).mulVec (sl2ColorBasis n 0) = (n : FormalBase) • sl2ColorBasis n 0 := sorry
+
+theorem colorDividedF_highestWeight (n : ℕ) (i : Fin (n + 1)) :
+    (colorDividedF n i.val).mulVec (sl2ColorBasis n 0) = sl2ColorBasis n i := sorry
+
+theorem colorDividedF_normalization (n m : ℕ) :
+    formalQFactorial m • colorDividedF n m = colorF n ^ m * colorK n ^ m := sorry
+
+theorem formalQFactorial_isUnit (m : ℕ) : IsUnit (formalQFactorial m) := sorry
+
+theorem colorSmallEPower_eq (n m : ℕ) : colorSmallEPower n m = colorSmallE n ^ m := sorry
+
+/-- Pivotal trace on the acting matrix, using K⁻¹ on the left. -/
+def quantumTrace (n : ℕ) : ColorMatrix n →ₗ[FormalBase] FormalBase where
+  toFun A := Matrix.trace (colorKinv n * A)
+  map_add' := sorry
+  map_smul' := sorry
+
+theorem quantumTrace_eq (n : ℕ) (A : ColorMatrix n) :
+    quantumTrace n A = ∑ i, formalVPower (-colorWeight n i) * A i i := sorry
+
+theorem quantumTrace_one (n : ℕ) : quantumTrace n 1 = formalQInt (n + 1) := sorry
+
+theorem quantumTrace_constantCoeff (n : ℕ) (A : ColorMatrix n) :
+    PowerSeries.constantCoeff (quantumTrace n A) =
+      Matrix.trace (A.map PowerSeries.constantCoeff) := sorry
+
+/-- Cyclicity requires commutation with the pivotal matrix. -/
+theorem quantumTrace_mul_comm (n : ℕ) (A B : ColorMatrix n)
+    (hA : A * colorKinv n = colorKinv n * A) :
+    quantumTrace n (A * B) = quantumTrace n (B * A) := sorry
+
+abbrev TensorColorMatrix (m n : ℕ) :=
+  Matrix (Fin (m + 1) × Fin (n + 1)) (Fin (m + 1) × Fin (n + 1)) FormalBase
+abbrev TensorColor (m n : ℕ) := (Fin (m + 1) × Fin (n + 1)) → FormalBase
+abbrev CGColor (m n : ℕ) := ∀ j : Fin (min m n + 1), sl2Color (m + n - 2 * j.val)
+
+/-- The coproduct conventions of Habiro §2.2 are part of the tensor action. -/
+def tensorColorH (m n : ℕ) : TensorColorMatrix m n :=
+  Matrix.kronecker (colorH m) 1 + Matrix.kronecker 1 (colorH n)
+
+def tensorColorE (m n : ℕ) : TensorColorMatrix m n :=
+  Matrix.kronecker (colorE m) 1 + Matrix.kronecker (colorK m) (colorE n)
+
+def tensorColorF (m n : ℕ) : TensorColorMatrix m n :=
+  Matrix.kronecker (colorF m) (colorKinv n) + Matrix.kronecker 1 (colorF n)
+
+def tensorColorK (m n : ℕ) : TensorColorMatrix m n :=
+  Matrix.kronecker (colorK m) (colorK n)
+
+/-- Identification with the module tensor product, on actual pure tensors. -/
+def tensorColorEquiv (m n : ℕ) :
+    TensorProduct FormalBase (sl2Color m) (sl2Color n) ≃ₗ[FormalBase] TensorColor m n := sorry
+
+theorem tensorColorEquiv_tmul (m n : ℕ) (x : sl2Color m) (y : sl2Color n)
+    (i : Fin (m + 1)) (j : Fin (n + 1)) :
+    tensorColorEquiv m n (x ⊗ₜ[FormalBase] y) (i, j) = x i * y j := sorry
+
+/-- This is a representation comparison, not only a dimension equality. -/
+theorem color_clebschGordan (m n : ℕ) :
+    ∃ e : TensorColor m n ≃ₗ[FormalBase] CGColor m n,
+      (∀ x j, e ((tensorColorH m n).mulVec x) j =
+        (colorH (m + n - 2 * j.val)).mulVec (e x j)) ∧
+      (∀ x j, e ((tensorColorE m n).mulVec x) j =
+        (colorE (m + n - 2 * j.val)).mulVec (e x j)) ∧
+      (∀ x j, e ((tensorColorF m n).mulVec x) j =
+        (colorF (m + n - 2 * j.val)).mulVec (e x j)) ∧
+      (∀ x j, e ((tensorColorK m n).mulVec x) j =
+        (colorK (m + n - 2 * j.val)).mulVec (e x j)) := sorry
+
+/-- Finite character in a second Laurent variable, recording H-weights. -/
+def colorCharacter (n : ℕ) : LaurentPolynomial ℤ :=
+  ∑ i : Fin (n + 1), T (colorWeight n i)
+
+theorem colorCharacter_eq_qInt (n : ℕ) : colorCharacter n = qInt (n + 1) := sorry
+
+theorem colorCharacter_tensor (m n : ℕ) :
+    colorCharacter m * colorCharacter n =
+      ∑ j ∈ range (min m n + 1), colorCharacter (m + n - 2 * j) := sorry
+
+abbrev sl2RepRing := Polynomial LaurentBase
+
+theorem color_Chebyshev (n : ℕ) : V n = Polynomial.Chebyshev.S LaurentBase n := sorry
+
+theorem colorCharacter_Chebyshev (n : ℕ) :
+    colorCharacter n = (V n).eval (T 1 + T (-1)) := sorry
+
+theorem color_repRing_product (m n : ℕ) :
+    V m * V n = ∑ j ∈ range (min m n + 1), V (m + n - 2 * j) := sorry
+
+-- Polynomial Gaussian helpers: boundaries, first two nontrivial coefficients.
+example : formalQChoose 0 0 = 1 ∧ formalQChoose 2 3 = 0 ∧
+    formalQChoose 2 1 = 1 + formalVPower 2 ∧
+    formalQChoose 3 2 = 1 + formalVPower 2 + formalVPower 4 := sorry
+-- Laurent transport: scalar, inverse, and balanced-versus-unbalanced conventions.
+example : laurentToFormal (T 0) = 1 ∧
+    laurentToFormal (T 1 * T (-1)) = 1 ∧
+    formalQInt 2 = formalVPower 1 + formalVPower (-1) ∧
+    formalQFactorial 2 = 1 + formalVPower 2 := sorry
+-- The zero color is a tensor unit for each generator, including the pivot.
+example (n : ℕ) (i j : Fin (n + 1)) :
+    tensorColorH 0 n (0, i) (0, j) = colorH n i j ∧
+    tensorColorE 0 n (0, i) (0, j) = colorE n i j ∧
+    tensorColorF 0 n (0, i) (0, j) = colorF n i j ∧
+    tensorColorK 0 n (0, i) (0, j) = colorK n i j := sorry
+
+-- quantum_dimension_V0
+example : quantumTrace 0 1 = 1 := sorry
+-- quantum_dimension_V1: the first nonconstant coefficient detects the ordinary trace.
+example : quantumTrace 1 1 = formalVPower 1 + formalVPower (-1) ∧
+    quantumTrace 1 1 ≠ 2 ∧ PowerSeries.coeff 2 (quantumTrace 1 1) = 1 / 4 := sorry
+-- color_tensor_V1: full intertwining is required by color_clebschGordan above.
+example : V 1 * V 1 = V 2 + V 0 ∧ V 2 = X ^ 2 - 1 ∧ V 2 ≠ X ^ 2 := sorry
+-- Divided-power normalization: replacing F̃^(i) by F^i fails this small case.
+example : colorDividedF 2 2 2 0 = 1 ∧ (colorF 2 ^ 2) 2 0 =
+    formalVPower (-2) + formalVPower (-4) ∧ (colorF 2 ^ 2) 2 0 ≠ 1 := sorry
+-- A reversed pivotal element returns v on the first matrix unit, not v⁻¹.
+example : quantumTrace 1 (Matrix.single 0 0 1) = formalVPower (-1) ∧
+    quantumTrace 1 (Matrix.single 0 0 1) ≠ formalVPower 1 := sorry
+-- Pivotal traces are not cyclic on arbitrary endomorphisms.
+example : quantumTrace 1 (colorE 1 * colorF 1) = formalVPower (-1) ∧
+    quantumTrace 1 (colorF 1 * colorE 1) = formalVPower 1 ∧
+    quantumTrace 1 (colorE 1 * colorF 1) ≠ quantumTrace 1 (colorF 1 * colorE 1) := sorry
+-- Highest and lowest endpoints, including vanishing rather than wraparound.
+example (n : ℕ) : colorSmallEPower n 0 = 1 ∧ colorDividedF n 0 = 1 ∧
+    colorDividedF n (n + 1) = 0 ∧ colorE n 0 0 = 0 ∧ colorF n 0 0 = 0 := sorry
+-- Specialization h=0 recovers the divided-power classical weight-two color.
+example : (colorH 2).map PowerSeries.constantCoeff = !![(2 : ℚ), 0, 0; 0, 0, 0; 0, 0, -2] ∧
+    (colorE 2).map PowerSeries.constantCoeff = !![(0 : ℚ), 2, 0; 0, 0, 1; 0, 0, 0] ∧
+    (colorF 2).map PowerSeries.constantCoeff = !![(0 : ℚ), 0, 0; 1, 0, 0; 0, 2, 0] := sorry
+
+end FormalColors
 
 /-! QT.5: concrete principal charts, followed by the full cut cover and
 extended groups. Strong flattenings and geometric cycles require the actual
