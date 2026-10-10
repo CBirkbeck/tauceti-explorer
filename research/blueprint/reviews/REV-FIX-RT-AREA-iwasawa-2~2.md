@@ -1,17 +1,19 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — independent review checkpoint
 
-Codex (GPT-6), session `codex-066pQU`, 10 October 2026. Refs #6219.
-[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6097972417).
-Input `cd3293a621c3b3fc1ae0c3168bd61ad2b6fc41f0`. This reviewer did not write
-Claude's fixes. This continues the `codex-pQ6N1v` checkpoint with fresh source,
-library, finite-control and Lean checks; earlier complete audits retain their
-attribution in `reviewHistory` and Git.
+Codex (GPT-6), session `codex-Ji6j8q`, 10 October 2026. Refs #6219.
+[Bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6098258635).
+Input `8ece87df7a53dcbc4ca17840f3325d9747528f04`. This reviewer did not write
+Claude's fixes. This continues the `codex-066pQU` checkpoint: the public sources,
+selected contracts, current native declarations and scope blocker were checked
+again. Earlier complete audits retain their attribution in `reviewHistory` and
+Git. The finite-control and Lean runs below are explicitly inherited, with
+unchanged suggested files; they were not rerun in this session.
 
 ## Verdict and actual blocker
 
 The authorized L3 fix receipt is **accepted**. The authorized PMIA receipt is
 **needs_changes** because five generic targets duplicate current Tau Ceti.
-Both preceding review objects were archived whole and unchanged. No packet
+Both preceding `codex-066pQU` review objects were archived whole and unchanged. No packet
 mathematics, coverage, gap, request, source issue or suggested file was changed.
 These are bounded fix reviews, not exhaustive new audits or implementation claims.
 
@@ -139,7 +141,7 @@ reviewed library coverage and the complete current ArithmeticDirichletSeries
 and QuiverRepresentations roadmaps, plus StableReduction's relevant contracts.
 
 Current Tau Ceti: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-Current roadmap main: `670582c502e1d4497d9ccd492b36c67028ef6666`.
+Current roadmap main: `a7712b2de0fbbe57dc06903169fe84cc69cf71ab`.
 No current checkout was modified or built. Read these exact current statements:
 
 - `TauCeti.fittingIdeal`, `RingTheory/FittingIdeal/Basic.lean:343`, covers finite
@@ -162,31 +164,38 @@ outside the live issue's scope, so this review retains `needs_changes` rather
 than leaving a partial migration. Current declarations are not credited to the
 old pin, at which the newer generic modules are absent.
 
-## Fresh validation
+## Validation and preserved earlier evidence
 
-All four packet checkers pass with zero errors. L3 has 26 inherited short-API
-warnings; the other three have no warnings. Before/after JSON comparisons show
-that only the two authorized top reviews and appended whole review-history
-objects changed. All four packets contain no `excerpt` fields.
+Fresh `scripts/check_blueprint.py` checks of all four current packets pass with
+zero errors. L3 has 26 inherited short-API warnings; the other three have no
+warnings. Before/after JSON comparisons show that only the two authorized top
+reviews and appended whole review-history objects changed. All four packets
+contain no `excerpt` fields. The queued completion test still returns False.
+The proposed omitted-packet review-only patch was prepared without changing
+those files: it preserves every non-review field and archives both complete
+current audits, including all 79 L3-2 and 72 D.1 checked entries. Applying just
+those receipts in memory makes the unmodified completion predicate True.
 
-Independent finite controls passed: 120 buffered signed-Gamma congruences;
-64 native permutation examples with all filtration endpoints; exact natural
-counts and quartic-character weighted count correction; deficient-relation
-and nonflat mod-2 Fitting examples; the rectangular adjugate preimage; and
-rational weight-two boundary rescaling. These support the finite contracts,
-not the unresolved arithmetic or geometric suppliers.
+The preceding `codex-066pQU` report records successful finite controls for
+120 buffered signed-Gamma congruences, 64 permutation examples with filtration
+endpoints, strict natural counts and quartic-character correction,
+deficient-relation/nonflat mod-2 Fitting examples, rectangular adjugate
+preimages, and rational weight-two boundary scaling. Those results are retained
+as earlier evidence; no fresh finite-control execution is claimed here.
 
-Sequential `lean-check`, with available memory checked before each compile:
+All four suggested files are byte-identical to the files in that checkpoint's
+input commit `cd3293a621c3b3fc1ae0c3168bd61ad2b6fc41f0`. Its sequential
+`lean-check` results were:
 
-| Suggested file | Result |
-| --- | --- |
-| PMIA | Exit 0; 1,075 proof-placeholder warnings only. |
-| L3-2 | Exit 0; 111 proof-placeholder warnings only. |
-| D.1 | Exit 0; 307 proof-placeholder warnings only. |
-| L3 | Exit 1; unavailable `research` module prefix at line 1, before its body. |
+| Suggested file | Inherited result | Current file SHA-256 |
+| --- | --- | --- |
+| PMIA | Exit 0; 1,075 proof-placeholder warnings only. | `85f103506252ce8d18359d5b8610365132592e4286e182acf0760857fbde1bc5` |
+| L3-2 | Exit 0; 111 proof-placeholder warnings only. | `d8be865820fe7491d3bd196c4a47c78e753595786bd939e8328ac20b121fa2a2` |
+| D.1 | Exit 0; 307 proof-placeholder warnings only. | `6398a506a4195e0f606576e60253f412d5be2cb30b6c39f455439777f9acfee8` |
+| L3 | Exit 1; unavailable `research` module prefix at line 1, before its body. | `46fe3cba63b8c88eb0e0d734e8138009d421aac3fae334b70116b8f31da1af85` |
 
-No Lean file changed, no standalone L3-body elaboration is claimed, and no
-compile from this session remains running. Only `lean-check` was used; no library was rebuilt.
+No Lean file changed. No fresh compile or standalone L3-body elaboration is
+claimed. No compile was started by this session; no library was rebuilt.
 
 ## Receipts to install after scope authorization
 
@@ -201,7 +210,7 @@ do not restore old snapshots. These proposals were tested only in memory.
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
   "date": "2026-10-10",
-  "notes": "Independent bounded fix review by Codex (GPT-6), session codex-066pQU, following the full independent-review-REV-DirichletPadicLFunctions--L3-2 audit, whose entire object and 79 checked entries must be archived unchanged. Checked all 29 selected GK/FG contracts against Zhao section 1.2 p.461, section 4 Theorem 4.1 and equations (4.1)-(4.6) pp.471-473, Appendix B Example B.2 p.474, and inherited Morita/GK conventions. Retain all-prime scope, primitive odd conductor N>1 prime to p, even chi-omega branch, conductor correction, common log, normalized strict antidifference, coefficient-limit differentiation and quartic control. Nonvanishing and simple-zero suppliers remain explicit gaps. No packet mathematics, sourceIssue, coverage, gap or request changed. Original checker: zero errors/warnings; fresh original lean-check: 111 proof-placeholder warnings only. This receipt accepts the bounded fixes, not all suppliers or a new full 79-node audit."
+  "notes": "Independent bounded fix review by Codex (GPT-6), session codex-Ji6j8q, following the full independent-review-REV-DirichletPadicLFunctions--L3-2 audit, whose entire object and 79 checked entries must be archived unchanged. Checked all 29 selected GK/FG contracts against Zhao section 1.2 p.461, section 4 Theorem 4.1 and equations (4.1)-(4.6) pp.471-473, Appendix B Example B.2 p.474, and inherited Morita/GK conventions. Retain all-prime scope, primitive odd conductor N>1 prime to p, even chi-omega branch, conductor correction, common log, normalized strict antidifference, coefficient-limit differentiation and quartic control. Nonvanishing and simple-zero suppliers remain explicit gaps. No packet mathematics, sourceIssue, coverage, gap or request changed. Original checker: zero errors/warnings; inherited lean-check on the byte-identical file: 111 proof-placeholder warnings only; not rerun in this session. This receipt accepts the bounded fixes, not all suppliers or a new full 79-node audit."
 }
 ```
 
@@ -212,7 +221,7 @@ do not restore old snapshots. These proposals were tested only in memory.
   "status": "accepted",
   "reviewer": "independent-review-REV-FIX-RT-AREA-iwasawa-2~2",
   "date": "2026-10-10",
-  "notes": "Independent bounded fix review by Codex (GPT-6), session codex-066pQU, following the full independent-review-REV-PadicHodgeRegulators--D.1~2 audit, whose entire object and 72 checked entries must be archived unchanged. Checked the four D.2 log-syntomic/period/small-weight/exponential consumers against Ertl-Niziol v2 sections 2.1-2.2 pp.4-8, Colmez-Niziol v4 Corollary 3.16 p.37 and Theorem 5.4 p.54, and Nekovar-Niziol v5 Remark 2.14 p.14 and Proposition 4.13 pp.53-54. Retain distinct divided/undivided complexes, directed omega/tau legs, factorial-modified twist, exact divided range through p-2, bounded undivided comparison and rational boundary normalization/sign. The CS.0-CS.3 producers remain proposed external inputs; CP.4 supplies only the proper rational routing anchor. No sourceIssue, coverage, gap, request or stage changed. Original checker: zero errors/warnings; fresh original lean-check: 307 proof-placeholder warnings only. This receipt does not claim construction of the integral/open suppliers or a new complete regulator audit."
+  "notes": "Independent bounded fix review by Codex (GPT-6), session codex-Ji6j8q, following the full independent-review-REV-PadicHodgeRegulators--D.1~2 audit, whose entire object and 72 checked entries must be archived unchanged. Checked the four D.2 log-syntomic/period/small-weight/exponential consumers against Ertl-Niziol v2 sections 2.1-2.2 pp.4-8, Colmez-Niziol v4 Corollary 3.16 p.37 and Theorem 5.4 p.54, and Nekovar-Niziol v5 Remark 2.14 p.14 and Proposition 4.13 pp.53-54. Retain distinct divided/undivided complexes, directed omega/tau legs, factorial-modified twist, exact divided range through p-2, bounded undivided comparison and rational boundary normalization/sign. The CS.0-CS.3 producers remain proposed external inputs; CP.4 supplies only the proper rational routing anchor. No sourceIssue, coverage, gap, request or stage changed. Original checker: zero errors/warnings; inherited lean-check on the byte-identical file: 307 proof-placeholder warnings only; not rerun in this session. This receipt does not claim construction of the integral/open suppliers or a new complete regulator audit."
 }
 ```
 
