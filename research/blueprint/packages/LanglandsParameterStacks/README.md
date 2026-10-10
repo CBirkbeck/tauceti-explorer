@@ -159,7 +159,7 @@ Unit tests:
 
 - `parameter_not_discrete_Ql`: For Λ=Q_l the convention admits continuous infinite-image Z_l-valued inertia characters; imposing discrete coefficients would exclude them.
 
-**Needs:** [LP0.1](#lp01-crossed-cocycles-and-gauge-action); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/LocalFieldsRamification); **ReductiveGroupsPartII, RG2.5**; `Condensed` (Mathlib); `CondensedMod` (Mathlib).
+**Needs:** [LP0.1](#lp01-crossed-cocycles-and-gauge-action); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification); **ReductiveGroupsPartII, RG2.5**; `Condensed` (Mathlib); `CondensedMod` (Mathlib).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.1.1, p.278.
 
@@ -233,7 +233,7 @@ Unit tests:
 
 - `wild_finite_image`: For coefficients in a finite extension of Q_l the condition means the usual finite image on wild inertia.
 
-**Needs:** [LP0.2](#lp02-condensed-l-parameters); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/LocalFieldsRamification).
+**Needs:** [LP0.2](#lp02-condensed-l-parameters); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.1.1 and Theorem VIII.1.3 with its proof, pp.278–280.
 
@@ -247,7 +247,7 @@ For open normal P as above choose tame τ and geometric Frobenius σ. The dense 
 
 **Checks.** For H=G_m the tame relation forces χ(τ)^{q−1}=1. Check geometric σ=Fr⁻¹ converts the DHKM relation Fr τ Fr⁻¹=τ^q into the displayed relation.
 
-**Needs:** [LP0.2](#lp02-condensed-l-parameters); [LP0.3](#lp03-finite-wild-ramification); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/LocalFieldsRamification); **ReductiveGroupsPartII, RG2.5**; `FreeGroup` (Mathlib).
+**Needs:** [LP0.2](#lp02-condensed-l-parameters); [LP0.3](#lp03-finite-wild-ramification); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification); **ReductiveGroupsPartII, RG2.5**; `FreeGroup` (Mathlib).
 
 **Source:** [Fargues–Scholze][FS-geometrization], Proof of VIII.1.3, pp.279–280.
 
@@ -291,7 +291,7 @@ Unit tests:
 
 - `wild_inertial_extension_not_data`: Two admissible extensions with the same ρ define the same WildInertialParameter.
 
-**Needs:** [LP0.2](#lp02-condensed-l-parameters); **ReductiveGroupsPartII, RG2.5**; [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/LocalFieldsRamification).
+**Needs:** [LP0.2](#lp02-condensed-l-parameters); **ReductiveGroupsPartII, RG2.5**; [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification).
 
 **Source:** [Kurinczuk–Skodlerack–Stevens][KSS-endo-parameters], §1.20–§1.21, pp.8–9.
 
@@ -459,7 +459,7 @@ For a finite-rank free relatively discrete Λ-module M with condensed W_E-action
 
 **Checks.** For the trivial rank-one Q_l representation, H⁰ and H¹ have dimension one and H² vanishes.
 
-**Needs:** [LP0.4](#lp04-discrete-weil-groups-and-unique-extension); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/LocalFieldsRamification); [`TauCeti.ContinuousCohomology.continuousCohomologyFunctor`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean) (Tau Ceti); `groupCohomology` (Mathlib); `Module.Free` (Mathlib); **EnhancedDerivedSheaves, E5, presentability**.
+**Needs:** [LP0.4](#lp04-discrete-weil-groups-and-unique-extension); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification); [`TauCeti.ContinuousCohomology.continuousCohomologyFunctor`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/RepresentationTheory/Homological/ContCohomology/Functoriality.lean) (Tau Ceti); `groupCohomology` (Mathlib); `Module.Free` (Mathlib); **EnhancedDerivedSheaves, E5, presentability**.
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.1.3 dimension argument and VIII.2.2, pp.280–282.
 
@@ -561,7 +561,7 @@ For a finite-rank free Λ-module M with condensed W_E-action, RΓ(W_E,M) is perf
 
 **Checks.** For trivial Q_l coefficients the pairing H⁰(M)×H²(M^∨(1))→Q_l has rank one.
 
-**Needs:** [LP1.3](#lp13-weil-cohomology-dimension-and-euler-characteristic); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/LocalFieldsRamification); **EnhancedDerivedSheaves, E5, presentability**.
+**Needs:** [LP1.3](#lp13-weil-cohomology-dimension-and-euler-characteristic); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory); [LocalFieldsRamification, Layer 4 the tame quotient of the absolute galois group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/LocalFieldsRamification); **EnhancedDerivedSheaves, E5, presentability**.
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.2.2, p.282.
 
@@ -611,7 +611,7 @@ Unit tests:
 
 - `WD_geometric_frobenius`: In split GL₂ with q=3, N=E₁₂ and φ₀(σ)=diag(1/3,1), conjugation sends N to N/3. This is compatible with σ⁻¹τσ=τ³ and excludes the reciprocal scaling convention. The full inertia parameter is exp(xN).
 
-**Needs:** [LP0.1](#lp01-crossed-cocycles-and-gauge-action); **ReductiveGroupsPartII, RG2.5**; [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ClassFieldTheory).
+**Needs:** [LP0.1](#lp01-crossed-cocycles-and-gauge-action); **ReductiveGroupsPartII, RG2.5**; [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.2.4, p.282.
 
@@ -675,7 +675,7 @@ On any affine syntomic parameter chart B/Z_l, The commutative square-zero-extens
 
 **Checks.** A vector bundle has support in the zero section. Over a singular hypersurface the residue field at a singular point has nonzero singular support.
 
-**Needs:** [LP1.13](#lp113-singularities-of-parameter-stacks); [DGAInfinity, Layer 8 hochschild cochains deformations massey products and formality](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/DGAInfinity); **DeformationAndDerivedPatchingAlgebra, R03.3**; **SchemeKTheoryOperations, S.1**; **EnhancedDerivedSheaves, E5, animation**.
+**Needs:** [LP1.13](#lp113-singularities-of-parameter-stacks); [DGAInfinity, Layer 8 hochschild cochains deformations massey products and formality](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/DGAInfinity); **DeformationAndDerivedPatchingAlgebra, R03.3**; **SchemeKTheoryOperations, S.1**; **EnhancedDerivedSheaves, E5, animation**.
 
 **Source:** [Fargues–Scholze][FS-geometrization], §VIII.2.2.1 and VIII.2.6–VIII.2.10, pp.282–284.
 
@@ -689,7 +689,7 @@ At φ over a Z_l-field L, the fibre of ParameterSingularities is contained in th
 
 **Checks.** For H=G_m and l∤q−1 both the fibre and nullcone are zero. At a smooth GL₂ parameter the fibre can be zero while the Lie nilpotent cone is nonzero, ruling out equality.
 
-**Needs:** [LP1.13](#lp113-singularities-of-parameter-stacks); **ReductiveGroupsPartII, RG2.5**; [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ClassFieldTheory).
+**Needs:** [LP1.13](#lp113-singularities-of-parameter-stacks); **ReductiveGroupsPartII, RG2.5**; [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.2.11–VIII.2.13, pp.284–285.
 
@@ -1161,7 +1161,7 @@ For the reconstructed semisimple lift W_E→H(L)⋊Q with prescribed finite acti
 
 **Checks.** Infinite-image continuous inertia characters into Z_l-units are permitted in characteristic zero. A continuous unramified character may have infinite cyclic Frobenius image; the Weil group need not factor through a finite quotient.
 
-**Needs:** [LP2c.2](#lp2c2-reconstruction-with-prescribed-finite-projection); [LP0.2](#lp02-condensed-l-parameters); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ClassFieldTheory); **IntegralHeckeAndGaloisDeterminants, IHG.1/reductive-valued-continuity**.
+**Needs:** [LP2c.2](#lp2c2-reconstruction-with-prescribed-finite-projection); [LP0.2](#lp02-condensed-l-parameters); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory); **IntegralHeckeAndGaloisDeterminants, IHG.1/reductive-valued-continuity**.
 
 **Source:** [Lafforgue][Lafforgue-shtukas], Proposition 11.7, continuity argument, pp.146–147. [Fargues–Scholze][FS-geometrization], VIII.1.1 and VIII.3.8, pp.278,290.
 
@@ -1212,7 +1212,7 @@ of LP2c.3.
 
 **Checks.** For Q=1 and discrete L, the imported connected profinite theorem agrees on inertia. For H=G_m, an unramified character into a discrete algebraically closed characteristic-zero field may send geometric Frobenius to 2; it is continuous with infinite Weil image and trivial inertia image.
 
-**Needs:** [LP2c.2](#lp2c2-reconstruction-with-prescribed-finite-projection); **IntegralHeckeAndGaloisDeterminants, IHG.1/reductive-stable-tuple**; **IntegralHeckeAndGaloisDeterminants, IHG.1/reductive-one-entry-extension**; [LP2e.2](#lp2e2-reductive-quotient-properties-over-fields-and-dvrs); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ClassFieldTheory).
+**Needs:** [LP2c.2](#lp2c2-reconstruction-with-prescribed-finite-projection); **IntegralHeckeAndGaloisDeterminants, IHG.1/reductive-stable-tuple**; **IntegralHeckeAndGaloisDeterminants, IHG.1/reductive-one-entry-extension**; [LP2e.2](#lp2e2-reductive-quotient-properties-over-fields-and-dvrs); [ClassFieldTheory, Layer 9 the local weil group](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ClassFieldTheory).
 
 **Source:** [Böckle–Harris–Khare–Thorne][BHKT-local-systems], Proposition 4.7(iii) and proof, pp.23–24. [Quast][Quast-pseudocharacters], Theorem 3.7, Claim A, pp.13–14.
 
@@ -1330,7 +1330,7 @@ Unit tests:
 
 - `good_shift_sign`: For a nonzero torus representation V, V[−1] lies in positive cohomological degree and is not connective in the convention D^{≤0}.
 
-**Needs:** **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, abstract**; **EnhancedDerivedSheaves, E5, presentability**; `CategoryTheory.Triangulated.TStructure` (Mathlib); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, abstract**; **EnhancedDerivedSheaves, E5, presentability**; `CategoryTheory.Triangulated.TStructure` (Mathlib); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], §VIII.5.1 and Definition VIII.5.4, pp.294–295.
 
@@ -1344,7 +1344,7 @@ The good-filtration t-structure on IndPerf(BG) is separated: an infinitely conne
 
 **Checks.** A complex cannot be discarded just because its ordinary underlying module forgetful image vanishes in an Ind quotient; use the actual test detection.
 
-**Needs:** [LP3.1](#lp31-good-filtration-t-structures); **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.1](#lp31-good-filtration-t-structures); **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.5 and proof, p.295.
 
@@ -1358,7 +1358,7 @@ For every action F_n→Aut(G), O(Z¹(F_n,G)) with twisted diagonal G°-conjugati
 
 **Checks.** For F₀ the algebra is L with the trivial good filtration.
 
-**Needs:** [LP1.1](#lp11-integral-finite-wild-cocycle-schemes); [LP3.1](#lp31-good-filtration-t-structures); **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP1.1](#lp11-integral-finite-wild-cocycle-schemes); [LP3.1](#lp31-good-filtration-t-structures); **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], Theorem VIII.5.6 and Corollary VIII.5.7, pp.295–296.
 
@@ -1406,7 +1406,7 @@ For M∈Perf(X/G), M lies in Perf^ind iff the canonical bar map colim[…→M⊗
 
 **Checks.** For M=A the standard augmented bar map is an isomorphism.
 
-**Needs:** [LP3.4](#lp34-perfect-complexes-generated-from-the-classifying-stack); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, presentability**; **SchemeKTheoryOperations, S.1**; [DGAInfinity, Layer 8 hochschild cochains deformations massey products and formality](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/DGAInfinity); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.4](#lp34-perfect-complexes-generated-from-the-classifying-stack); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, presentability**; **SchemeKTheoryOperations, S.1**; [DGAInfinity, Layer 8 hochschild cochains deformations massey products and formality](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/DGAInfinity); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.8–VIII.5.9, pp.296–297.
 
@@ -1420,7 +1420,7 @@ Assume A has a good G°-filtration and M∈Perf(X/G) is connective in the good-f
 
 **Checks.** The criterion includes the connectivity hypothesis on M itself.
 
-**Needs:** [LP3.1](#lp31-good-filtration-t-structures); [LP3.2](#lp32-separatedness-of-good-filtrations); [LP3.5](#lp35-the-induced-perfect-bar-criterion); **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.1](#lp31-good-filtration-t-structures); [LP3.2](#lp32-separatedness-of-good-filtrations); [LP3.5](#lp35-the-induced-perfect-bar-criterion); **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.10 and proof, p.297.
 
@@ -1434,7 +1434,7 @@ For G acting on itself by conjugation, let i:Spec L→G be the unit. With G° re
 
 **Checks.** For a torus π₁ has no torsion and the unit is induced-perfect. For PGL_l the fundamental-group l-torsion excludes the generation conclusion.
 
-**Needs:** [LP3.6](#lp36-tensor-connectivity-criterion-for-induced-perfectness); [LP3.5](#lp35-the-induced-perfect-bar-criterion); **ReductiveGroupsPartII, RG2.5**; **SchemeKTheoryOperations, S.1**; **SchemeAndStackFoundations, SF.1**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.6](#lp36-tensor-connectivity-criterion-for-induced-perfectness); [LP3.5](#lp35-the-induced-perfect-bar-criterion); **ReductiveGroupsPartII, RG2.5**; **SchemeKTheoryOperations, S.1**; **SchemeAndStackFoundations, SF.1**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.11 and proof, pp.297–299.
 
@@ -1448,7 +1448,7 @@ If G° is reductive and the orders of π₀G and π₁(G°)_tors are prime to l,
 
 **Checks.** For F₀ this reduces to Perf(BG) itself.
 
-**Needs:** [LP3.7](#lp37-adjoint-perfect-generation-and-its-prime-restriction); [LP1.1](#lp11-integral-finite-wild-cocycle-schemes); **SchemeKTheoryOperations, S.1**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.7](#lp37-adjoint-perfect-generation-and-its-prime-restriction); [LP1.1](#lp11-integral-finite-wild-cocycle-schemes); **SchemeKTheoryOperations, S.1**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.12 and proof, p.299.
 
@@ -1462,7 +1462,7 @@ For a G-equivariant map X̃→G with conjugation action on G, put X=X̃×^R_G Sp
 
 **Checks.** For X̃=G and the identity map the fibre is the unit and the formula is tautological.
 
-**Needs:** [LP3.7](#lp37-adjoint-perfect-generation-and-its-prime-restriction); [LP3.5](#lp35-the-induced-perfect-bar-criterion); [LP3.2](#lp32-separatedness-of-good-filtrations); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, animation**; **EnhancedDerivedSheaves, E5, presentability**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.7](#lp37-adjoint-perfect-generation-and-its-prime-restriction); [LP3.5](#lp35-the-induced-perfect-bar-criterion); [LP3.2](#lp32-separatedness-of-good-filtrations); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, animation**; **EnhancedDerivedSheaves, E5, presentability**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.13 and proof, pp.299–301.
 
@@ -1490,7 +1490,7 @@ Let L be algebraically closed of characteristic l, G smooth affine with G° redu
 
 **Checks.** P=1 gives π₀H=π₀G. LP1 obtains reductivity directly from RG, never through this LP3 theorem.
 
-**Needs:** **ReductiveGroupsPartII, RG2.5**; [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); [LP3.1](#lp31-good-filtration-t-structures); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** **ReductiveGroupsPartII, RG2.5**; [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); [LP3.1](#lp31-good-filtration-t-structures); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.14 and proof, pp.301–302.
 
@@ -1504,7 +1504,7 @@ Let Θ have prime order r≠l on G with G° reductive and π₀G prime to l. Put
 
 **Checks.** r must be prime to l for the formal rth-root construction.
 
-**Needs:** [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); **EnhancedDerivedSheaves, E5, presentability**; **SchemeAndStackFoundations, SF.4**; **ReductiveGroupsPartII, RG2.5**; [`TauCeti.fixedSubgroup`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/FixedSubgroup.lean) (Tau Ceti); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); **EnhancedDerivedSheaves, E5, presentability**; **SchemeAndStackFoundations, SF.4**; **ReductiveGroupsPartII, RG2.5**; [`TauCeti.fixedSubgroup`](https://github.com/TauCetiProject/TauCeti/blob/f790474821cf4256814db967cb154e7af3d0c369/TauCeti/GroupTheory/FixedSubgroup.lean) (Tau Ceti); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.16 and proof, pp.304–307.
 
@@ -1518,7 +1518,7 @@ If P is finite solvable of order prime to l acting on G with G° reductive and �
 
 **Checks.** For a factor-permuting cyclic group on K^r, the diagonal K is Donkin by tensor stability.
 
-**Needs:** [LP3.11](#lp311-prime-to-l-components-of-fixed-groups); [LP3.12](#lp312-cyclic-fixed-locus-resolutions); **ReductiveGroupsPartII, RG2.5**; [LP3.1](#lp31-good-filtration-t-structures); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.11](#lp311-prime-to-l-components-of-fixed-groups); [LP3.12](#lp312-cyclic-fixed-locus-resolutions); **ReductiveGroupsPartII, RG2.5**; [LP3.1](#lp31-good-filtration-t-structures); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.15 and proof, pp.302–304.
 
@@ -1532,7 +1532,7 @@ In the solvable prime-to-l fixed-group setting H=G^P, a representation W of H° 
 
 **Checks.** For P=1 induction and counit are identity and their kernels are zero.
 
-**Needs:** [LP3.13](#lp313-solvable-fixed-groups-as-donkin-subgroups); [LP3.2](#lp32-separatedness-of-good-filtrations); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, presentability**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.13](#lp313-solvable-fixed-groups-as-donkin-subgroups); [LP3.2](#lp32-separatedness-of-good-filtrations); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, presentability**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.17(i)–(iv) and proof, pp.307–310.
 
@@ -1546,7 +1546,7 @@ In the same solvable prime-to-l setting, Perf(BH°) is generated under cones and
 
 **Checks.** For P=1 restriction generates tautologically.
 
-**Needs:** [LP3.14](#lp314-fixed-group-induction-and-good-counit-kernels); [LP3.2](#lp32-separatedness-of-good-filtrations); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, presentability**; **SchemeKTheoryOperations, S.1**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.14](#lp314-fixed-group-induction-and-good-counit-kernels); [LP3.2](#lp32-separatedness-of-good-filtrations); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, presentability**; **SchemeKTheoryOperations, S.1**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.17(v)–(vi), pp.307–310.
 
@@ -1560,7 +1560,7 @@ In characteristic2, for G=(SL₂×SL₂)/μ₂ with factor-swap P=C₂, the fixe
 
 **Checks.** The acting group order equals l here; the good theorem does not apply.
 
-**Needs:** **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, abstract**; **EnhancedDerivedSheaves, E5, presentability**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, abstract**; **EnhancedDerivedSheaves, E5, presentability**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.18, p.308.
 
@@ -1704,7 +1704,7 @@ For a split reductive standard dual Levi M over Z, maximal split torus T and Wey
 
 **Checks.** For M=G_m, restriction is the identity Z[t,t⁻¹]. For GL₂, the target is Z[t₁+t₂,t₁t₂,(t₁t₂)⁻¹], realised by trace and determinant.
 
-**Needs:** **ReductiveGroupsPartII, RG2.5**; `RootPairing` (Mathlib); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** **ReductiveGroupsPartII, RG2.5**; `RootPairing` (Mathlib); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Böckle–Harris–Khare–Thorne][BHKT-local-systems], Proposition8.3 and proof, p.53.
 
@@ -1722,7 +1722,7 @@ Assume l∤|π₁(H)_tors|. Then colim_{F_n→W}O(Z¹(F_n,H))→O(Z¹(W,H)) is a
 
 **Checks.** For H a torus the π₁ torsion condition is automatic. At a bad π₁ prime retain the universal homeomorphism and geometric character bijection; this theorem is unavailable.
 
-**Needs:** [LP3.21](#lp321-tame-reduction-of-finite-wild-parameter-categories); [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); [LP2e.8](#lp2e8-derived-free-cocycle-presentations); [LP2e.9](#lp2e9-excursion-algebras); **EnhancedDerivedSheaves, E5, presentability**; **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.21](#lp321-tame-reduction-of-finite-wild-parameter-categories); [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); [LP2e.8](#lp2e8-derived-free-cocycle-presentations); [LP2e.9](#lp2e9-excursion-algebras); **EnhancedDerivedSheaves, E5, presentability**; **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.3.6 p.288; VIII.5.1–VIII.5.2 pp.293–294,315.
 
@@ -1736,7 +1736,7 @@ Under the same good-prime hypotheses, the cocycle algebra has no higher rational
 
 **Checks.** Residue-field base change here is justified by the good-prime theorem, not by falsely calling Z_l→F_l flat.
 
-**Needs:** [LP2i.1](#lp2i1-integral-invariant-comparison); [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); [LP1.5](#lp15-flat-complete-intersection-parameter-schemes); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, presentability**; `Module.Flat` (Mathlib); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP2i.1](#lp2i1-integral-invariant-comparison); [LP3.3](#lp33-good-filtrations-of-free-cocycle-algebras); [LP1.5](#lp15-flat-complete-intersection-parameter-schemes); **ReductiveGroupsPartII, RG2.5**; **EnhancedDerivedSheaves, E5, presentability**; `Module.Flat` (Mathlib); [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.1–VIII.5.2 and proof, pp.293–294.
 
@@ -1802,7 +1802,7 @@ For finite-wild W and l∤|π₁(H)_tors|, Perf(Z¹(W,H)/H) over Z_l is generate
 
 **Checks.** For W=1 the category is Perf(BH). The unquotiented Z¹ and the quotient Z¹/H are not interchangeable in this statement.
 
-**Needs:** [LP3.21](#lp321-tame-reduction-of-finite-wild-parameter-categories); [LP3.4](#lp34-perfect-complexes-generated-from-the-classifying-stack); [LP4.1](#lp41-universal-representation-bundles); **SchemeKTheoryOperations, S.1**; **EnhancedDerivedSheaves, E5, presentability**; **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/ReductiveGroups).
+**Needs:** [LP3.21](#lp321-tame-reduction-of-finite-wild-parameter-categories); [LP3.4](#lp34-perfect-complexes-generated-from-the-classifying-stack); [LP4.1](#lp41-universal-representation-bundles); **SchemeKTheoryOperations, S.1**; **EnhancedDerivedSheaves, E5, presentability**; **ReductiveGroupsPartII, RG2.5**; [ReductiveGroups, Layer 9 pinned chevalleydemazure group schemes over ℤ](https://github.com/TauCetiProject/TauCetiRoadmap/tree/main/TauCetiRoadmap/ReductiveGroups).
 
 **Source:** [Fargues–Scholze][FS-geometrization], VIII.5.1 and reduction proof, pp.293–294.
 
