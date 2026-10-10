@@ -1,3 +1,19 @@
+# Current continuation: historical review scope recovered
+
+Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-iYcsUX**, 10 October 2026. Bot confirmation: [comment 6099841027](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099841027). Input commit: `0d2178b78bf6a3deea5f4c16c2165442659a2a38`.
+
+**Blocked checkpoint.** The live issue still permits three packets and seven outputs; the local queue and independently fetched current-main queue require fifteen packets and 31 outputs. The unmodified completion predicate returns `True` for the authorized scope and `False` for the queue scope. The three authorized review objects already name this job. All twelve additional packets have accepted reviews under separate independent job identifiers. Further changes to this report, handoff or the three authorized packets cannot satisfy the additional reviewer-identifier requirements.
+
+**New evidence for the maintainer:** the queue committed with the round-four fix, [commit 888f12f5c9d80d8205c6f7dd55cbbb933633b5e6](https://github.com/CBirkbeck/tauceti-explorer/commit/888f12f5c9d80d8205c6f7dd55cbbb933633b5e6) (PR #6852, 7 October), preserves the actual historical scopes. `FIX-RT-AREA-padic-2~4` has **ten** outputs there: its report and the packet, reader and suggested file for each of Faltings, Perfectoid P0 and Adic Part II. `REV-FIX-RT-AREA-padic-2~4` has **seven** outputs there, exactly those still listed in the live issue. The merge itself changed only the fix report and the Faltings/Perfectoid readers. This provides a concrete source for scope restoration rather than inferring it from the live issue alone.
+
+**Repair outside this worker's permitted files:** restore those two historical output lists, and make `make_queue.py` preserve already-created round scopes before allowing new supplier outputs to enter later work. Its `fix_rounds` function preserves an existing following round only when neither `missing` nor `sent_back` is true; consequently that preservation path does not protect a historical round when newly completed blueprints appear. Restoring only the queue risks recurrence during regeneration. Validate that this review remains seven outputs after regeneration, that genuinely new receiving work receives separate authorized jobs, and that existing independent reviews retain their identities. Keep this issue unavailable until the repair is applied; workers may not change its labels themselves.
+
+**Fresh checks:** all three authorized packets pass `scripts/check_blueprint.py` against the declaration index whose manifest records the specified Mathlib and Tau Ceti pins: 56, 326 and 537 nodes, zero errors and warnings. Only this handoff and the existing report are updated. No new mathematical or primary-source review is claimed, and no verdict is replaced. Lean is not rerun for documentation-only changes; the previous successful elaborations remain attributed below. No upstream tree or library copy was modified, and no source file or passage was copied.
+
+**Resume after repair:** retain the completed bounded review and its existing verdicts, including Perfectoid's honest `needs_changes`. That verdict satisfies the completion predicate; it is not this administrative blocker. The earlier report, extra-path table and read-only reproducer below remain sufficient. This continuation adds no scratch dependency and claims no second job.
+
+---
+
 # Latest continuation: current-main scope blocker verified
 
 Issue [#6519](https://github.com/CBirkbeck/tauceti-explorer/issues/6519), Codex session **codex-Ndn8bk**, 10 October 2026. Claim confirmed in [comment 6099697112](https://github.com/CBirkbeck/tauceti-explorer/issues/6519#issuecomment-6099697112). Input `1a52d36eb0e5ea0a37b1788804817c49abb8cc92`.
