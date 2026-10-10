@@ -1,71 +1,109 @@
 # PKG-GL2AutomorphicRepresentationsAndTransfer — checkpoint
 
-Worker: Codex (GPT-6), session `codex-nixmgz`; issue #7901; 2026-10-10.
-Branch: `codex-nixmgz-gl2-package`.
-[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6099063683).
+Worker: Codex (GPT-6), session `codex-jwJsfm`; issue #7901; 2026-10-10.
+Branch: `codex-jwJsfm-gl2-package`.
+[Claim confirmation](https://github.com/CBirkbeck/tauceti-explorer/issues/7901#issuecomment-6099307973).
 
 **Partial, source/proof blocked.** The original JPSS nonnormal cubic note
-remains unreadable through the public catalogue: the Gallica page endpoint
-returned HTTP403 in this continuation. The accessible Mao–Rallis replacement
-still needs general-discriminant local matching and a justified exchange of
-limit and spectral integral. Its weak transfer does not establish Carayol's
-all-place comparison. Metadata remains absent; this is not a finished package.
-No second job was claimed. None of the manager-priority issues appeared in
-the available swarm queue; this was an eligible focus package under WORKERS.md.
+remains inaccessible through the public catalogue; the official Gallica
+endpoints again returned HTTP403. The accessible Mao–Rallis replacement
+needs general-discriminant local matching and quantitative convergence, and
+proves weak transfer rather than Carayol's all-place comparison. Rajan2000
+assumes JPSS existence and does not replace that proof. A separate cyclic
+trace issue is now explicit: AS.6's fixed-height absolute convergence does
+not supply the total-variation bound needed for Hecke measure separation.
+Metadata remains absent. This is not a finished package. No second job was
+claimed. None of the manager-priority issues was available and eligible;
+this was an eligible focus package under WORKERS.md.
 
 ## This continuation
 
-The prescribed-quaternion-ramification obligation now has a precise supplier
-chain and genuine Lean signatures, rather than only a finite-set parity lemma.
-`TauCeti.GL2Blueprint.existsQuaternionRamification_iff` characterizes finite
-and infinite ramification sets by even total cardinality and the exclusion of
-complex places. It returns nonzero symbol parameters in the number field and
-uses algebra equivalences to actual two-by-two matrix algebras over each
-`HeightOneSpectrum.adicCompletion` and `InfinitePlace.Completion`.
-`quaternionAlgEquivOfLocalSplitting` concludes an actual global algebra
-equivalence from equality of the local splitting predicates at all places.
-Both are planned theorems with `sorry` proofs, not implemented arithmetic.
+**Ramified curve trace.** R17.6/classical-conductor-comparison now has a
+source-backed proof route for the gap left by Langlands1973 Proposition7.12
+pp.89–90. Use Varshavsky's author preprint math/0505564v2, Definition2.1.1
+p.17, Theorem2.1.3 pp.17–18, point-term formula1.5.7 p.16 and proper trace
+Corollary1.2.6 p.10. On a smooth proper curve with constructible ell-adic
+complex F and u:c₂*F→c₁!F, reorder the correspondence to (c₂,c₁) and use
+its adjoint c₁!c₂*F→F. At a fixed branch write c₁*t=alpha t^a and
+c₂*t=beta t^d, with units alpha,beta and positive unequal a,d. If d>a,
+(t^d)⊂(t^a) and da≥a(a+1), so n=a gives contraction. The fixed ideal
+is (t^a) up to a unit. The contracting theorem reduces the local term to
+the restricted point trace; its nonreduced length a adds no multiplicity.
+If a>d, dualize u and reverse the correspondence, using n=d. Evaluation
+and biduality from §1.2.2 pp.8–9 preserve the alternating local trace under
+transpose. Proper Lefschetz–Verdier sums these terms. At a cusp j!F has
+zero ordinary stalk, but D(j!F)=Rj*DF can have a nonzero stalk; keep the
+complex. Tests include (a,d)=(1,p^m),(2,3),(3,2); equal orders are excluded.
 
-Existence consumes GlobalQuadraticForms4.4's prescribed Hilbert signs and
-QuadraticFormInvariants2's splitting criterion. Weak approximation chooses
-one parameter which is a uniformizer at the finite requested places and
-negative at the real ones. Uniqueness consumes ClassFieldTheory10's
-`eq_zero_of_localInv_eq_zero`, the QFI quaternion/Brauer bridges and local
-classification, and SemisimpleAlgebras6's unique division representative.
-Equal local invariants give equal global classes; degree two recovers the
-algebra isomorphism, including the split case. The construction and uniqueness
-are corollaries of their owners, not new versions of those upstream targets.
+The new `TauCeti.GL2Transfer.ramification_contraction` is fully proved for
+ideal powers in a commutative ring, with three proved fixtures. The equality
+case is rejected using the principal ideal (2) in Z. This formalizes the
+contraction inequality, not the six-operations or local-trace theorem. The
+suggested file explicitly omits the latter's unavailable concrete carriers.
+The target-level proof route and the native ideal fragment must not be
+reported as a completed formalization of ramified trace.
 
-Read Platonov–Rapinchuk–Rapinchuk2023 §1.5.1, Theorem1.33 and consequences,
-pp.42–43 in the maintainer-cleared copy. Read current GlobalQuadraticForms4.4,
-ClassFieldTheory10, QFI's quaternion boundary and the actual current
-BrauerGroup.Division interfaces. The primitive local carrier and explicit
-`TauCeti.QuaternionAlgebra.oneEquivMatrix` were read at the pinned build.
-Newer current splitting modules are not assumed to exist at the pin.
+**Archimedean contracts.** R16.2/classification now states real and complex
+reducibility chambers, ordering, constituent dimensions and the full-O(2)
+weight-one limit. For chi_i=sgn^epsilon_i |.|^s_i and Re(s₁−s₂)≥0,
+reducibility means nonzero integer r=s₁−s₂ with r−(epsilon₁−epsilon₂)
+odd. Positive r gives a D_(r+1) submodule with the common norm twist and
+an r-dimensional quotient; reversing order reverses the sequence. At r=0
+and opposite parity the full-O(2) representation is irreducible, though
+restriction to positive determinant splits. For complex ratio z^p bar(z)^q,
+reducibility requires p,q both positive integers or both negative integers;
+the positive finite quotient has dimension pq. Raising/lowering and reflection
+supply the real proof; the complex infinite constituent has SU(2) weights
+n≥p+q with the required parity. Real Weil induction with m=0 is split.
+AF.1 remains the owner; no private archimedean representation was created.
 
-The ramification corollary lives under R17.1/swapped-quaternion-invariants,
-so it precedes the global-JL applications and introduces no forward dependency
-on R17.3. This refines the inherited suggestion to put the construction in
-R17.3. Any future permitted packet revision should record the R17.1 supplier;
-this package job changes no input packet.
+These locators use the UBC author retypeset of Jacquet–Langlands1970:
+§5 Lemmas5.6–10, Theorem5.11 pp.83–87; §6 Lemma6.1, Theorem6.2 pp.111–113.
+The reader has a separate `[jl70-ubc]` reference. Do not substitute its page
+numbers into citations to the inherited IAS editorial retypeset; the two
+paginate differently. R16.3 adds epsilon_C(z^m |.|^s,psi_R∘Tr)=i^|m|,
+using AL.2's exact supplier. The two Gamma-normalization examples now use
+`Complex.Gammaℝ_def` and `Complex.Gammaℂ_def` directly, removing two sorries.
+R17.1/real-quaternionic-comparison gives the SU(2) Sym^(k−2) character,
+dimension k−1 and elliptic sign −1 after summing both D_k weight tails.
+It tests k=2, k=3 and exclusion of k=1. The same norm twist and central
+sign^k are retained.
 
-`quaternionSwap` now has a complete proof. Six closed fixtures check a genuine
-split algebra, the inadmissible singleton finite support, one finite plus one
-real place, a valid swap, an invalid addition without removal, and odd
-singleton cardinality. No new definitions, private quaternion carriers or
-uninterpreted proposition fields were introduced. The existing norm-phase and
-character-lift proofs remain intact.
+**Globalization and spectral ledger.** The quaternionic D₂ EP calculation
+uses the split-centre-balanced pair (sl₂,O(2)), not (gl₂,O(2)). Its relative
+cochain dimensions are 0,1,0, hence EP=−1; negate AS.6's EP function to get
+trace +1. The fixed-centre Fourier projection now has a trace-norm argument:
+for trace-class T, ||R(z)T||₁=||T||₁, and finite-rank approximation proves
+trace-norm continuity. Compact centre integration therefore commutes with
+trace by AS.0/trace-class. Details and source locators are below.
 
-The introduction and bibliography were compressed while preserving source
-versions and locators, to leave the reader below200,000 bytes. All112 accepted
-targets and122 starting target headings remain. Full current
-GlobalNumberFields and RepresentationTheory/ModularInduction readers and the
-reviewed GL2 library audit were read before editing.
+Langlands1980 §9 pp.108–111 now supplies the m'/m norm-fibre identity from
+Hecke L-products and logarithmic differentiation, including the A₃ correction
+and archimedean logarithms. The analytic remaining requirement is separate:
+prove sum_i |c_i|<infinity and integral |d(it)|dt<infinity for §11 equations
+(11.6)–(11.7), pp.136–137. AS.6/fine-spectral-expansion and invariant-trace-formula
+explicitly supply only absolute convergence at fixed spectral height and a
+sum of absolute height contributions; neither bounds absolute values inside
+all the integrals. Smooth archimedean decay, spectral growth and Hecke
+logarithmic derivatives need a rank-two quantitative estimate before exchanging
+sums and constructing finite measures. The reader no longer attributes this
+stronger bound to AS.6. This estimate remains a genuine proof obligation.
 
-The rest of the mathematical receipts below is inherited from earlier
-continuations unless explicitly stated above. Their source readings and
-claimed proof audits are historical receipts, not claims that this worker
-reread every source. Resume from this package, not the stale assembled Lean.
+**Ownership.** Quadratic induction now precedes nonnormal cubic transfer in
+R17.4; the old R17.5 anchor remains for links. A future permitted packet job
+must move `R17.5/quadratic-induction` to `R17.4/quadratic-induction` and repoint
+consumers. Its mathematics, API and tests were preserved. The accepted packets
+were not edited. Earlier downward ownership moves are recorded below.
+
+Full current GlobalNumberFields and RepresentationTheory/ModularInduction
+readers, the reviewed GL2 library audit, and the relevant current supplier
+statements were read. The reader remains below200,000 bytes, retaining all112
+accepted targets and122 starting headings. Introductory and bibliographic
+wording was compressed without dropping theorem, section or page locators.
+The remaining receipts below describe inherited work unless this section
+explicitly says otherwise. Historical source readings are not claims that
+this worker reread every source. Resume from this package, not the stale
+assembled Suggested.lean.
 
 ## Inherited norm-phase fragment
 
@@ -256,34 +294,53 @@ rho(c) has eigenvalues±1, restriction to W_C is1+1 and determinant is sgn.
 That specifies the real parameter1+sgn needed by the upgrade. The weak cubic
 input to octahedral automorphy is still source-blocked.
 
-**Fixed-centre quaternionic globalization.** Read Clozel§3.1–4 pp.268–277
-and4.3 pp.279–280. The reader gives a compact-quotient proof tailored to CDN20:
-finite centre extension by R16.1; a normalized local JL matrix coefficient
-which kills norm characters; compact-real averages; the full-O(2) D_2
-Euler–Poincaré function with sign chosen to have trace1; AS6.16/17 and central
-Fourier projection; shrinking at an auxiliary split place. The product formula
-on Delta=(trd^2−4Nrd)/Nrd forces supported rational elements scalar; the
-positive identity trace gives the desired representation. AF4 gives a model
-after coefficient extension, beyond merely its field of rationality. The
-GL2 cohomology/sign computation and central trace-class projection remain
-specific verification obligations; generic AS infrastructure alone does not
-certify them. No semisimple-group statement was silently extended to arbitrary
-quaternionic centres.
+**Fixed-centre quaternionic globalization.** Clozel §3.2 Lemmas4–5
+pp.271–272, Lemma9 p.274 and §4.3 Theorem1B pp.279–280 were inspected this
+continuation. Use compactness modulo the centre, not a general semisimple
+claim. R16.1 prescribes the finite centre. At the ramified finite place a
+normalized local-JL matrix coefficient of dimension>1 kills norm characters.
+Compact-real averages and the balanced real D₂ EP function finish the archimedean
+factors. The O(2) tangent representation has weights±2: D₂ contains that type
+once and has no weight-zero type, giving C⁰=C²=0, dim C¹=1 and EP=−1.
+AS.6/general-euler-poincare supplies the function on the group with split
+centre balanced out; its negative has D₂ trace1 and positive value at1.
+Getz2015 §6.5 p.34 provides the O(2) weight calculation, with AF's operators.
 
-**Trace ledger.** Read Langlands§§10–11 pp.112–138 and JL§16 pp.262–278.
-The ordinary six terms include elliptic, −1/4 self-associate intertwiner,
-(4pi)^−1 logarithmic derivative, singular constant, logarithmic unipotent and
-(2pi)^−1 local-B derivative terms. Twisted terms use10.28,10.30,10.31,10.32,10.35.
-Keep the quadratic exceptional half-summand and M=−1. The reader identifies
-the index-d norm-fibre cancellations and describes how split good Hecke
-separation kills the remaining atomic/continuous discrepancy. The quaternion
-comparison uses two zero-constant-term projectors; even local derivative
-terms have a zero factor. JL16.1.2 forces a possible scalar coefficient
-difference to vanish; norm characters are retained until their equal traces
-are subtracted, with product of Steinberg signs+1. JL1970 explicitly leaves
-analytic details formal; AS6 must supply convergence and the rank-two
-expansion. The full §9 logarithmic identity and that analytic specialization
-are not newly certified closed by this checkpoint.
+For compact central quotient C of mass1,
+P_Psi=integral_C Psi(z)^−1 R(z) dz projects onto the Psi subspace by
+character orthogonality. AS.6/compact-trace-specialization gives trace-class T.
+Unitarity gives a uniform trace-norm bound, and strong continuity plus
+finite-rank approximation gives trace-norm continuity. AS.0/trace-class's
+bounded trace functional then commutes with this integral. Shrinking at an
+auxiliary split place and the product formula for
+Delta=(trd²−4Nrd)/Nrd force supported rational elements scalar. The positive
+identity trace yields the desired representation. AF.4 gives its model after
+coefficient extension. This is a target-level argument, not a native trace
+formalization. No semisimple result was silently extended to arbitrary centres.
+
+**Trace ledger.** Langlands1980 §9 pp.97–111, §10 pp.112–128 and §11
+pp.130–138 were inspected this continuation. The ordinary six terms include
+elliptic, −1/4 self-associate intertwiner, (4pi)^−1 logarithmic derivative,
+singular constant, logarithmic unipotent and (2pi)^−1 local-B derivative.
+Twisted terms use10.28,10.30,10.31,10.32,10.35. Retain the quadratic exceptional
+half-summand and M=−1. The norm-fibre m'/m identity comes from the product
+factorization of Hecke L-functions and logarithmic differentiation.
+Section9 gives A₃(c,phi)=−theta'(c,0,phi) and
+theta'(c,0,phi)=d theta'(Nc,0,f), including the real-to-complex logarithmic
+correction for d=2. This must precede cancellation of10.5 with d times10.32.
+
+Hecke separation additionally needs the joint discrete/continuous absolute
+bounds stated above; they remain unproved. Only then can Laurent-polynomial
+density on the compact unitary Satake set, including complementary parameters,
+separate atoms from continuous density. Vary the other factors afterward.
+The quaternion comparison uses two K-averaged zero-constant-term factors,
+as in JL §16 equation16.1.7 (UBC p.275; IAS p.277). Steinberg and supercuspidal
+both qualify; do not replace this with an unsupported pointwise x,y condition.
+Even a local derivative term has the other zero factor. Equation16.1.2 kills
+a possible scalar difference. Retain norm characters until their equal traces
+are subtracted; the product of Steinberg signs is+1. Langlands1980 p.112
+explicitly omits analytical details, and p.136's asserted finite M₁,M₂,M₃
+does not by itself supply the required joint estimate.
 
 ## Classical attachment and downward ownership
 
@@ -353,16 +410,14 @@ Carayol11.1–3 pp.449–451 gives the ordinary-supercuspidal CM comparison.
 All pages of Langlands here use the author's retypeset pagination, not
 original LNM pagination. The needed sections were read in an earlier continuation.
 
-The trace comparison still requires a ramified correspondence theorem.
-Langlands explicitly leaves Proposition7.12 pp.89–90 unproved. At a fixed
-point its branches are ut^a, vt^d with a≠d; the local contribution is the
-stalk trace when d>a and the Verdier-dual stalk trace when a>d. The reader
-now plans this curve specialization, including cusp extension by zero.
-The exact lower supplier was inspected at upstream proposal#196 head
-`4bd72379658126cbe9be935656396f0c9dac4de0`: TraceFormula's final boundary
-excludes the full Lefschetz–Verdier theorem for arbitrary correspondences.
-Do not infer this specialization from its Frobenius point-count formula.
-Its proof remains to establish; it is not certified closed here.
+Langlands Proposition7.12 pp.89–90 was left unproved in that source.
+The Varshavsky route in this continuation supplies its unequal-order curve
+specialization, with contraction on the reordered correspondence and duality
+for the reversed case. The proper compactification must retain extension by
+zero at cusps and its derived dual. The lower proposal#196 TraceFormula
+boundary excludes general Lefschetz–Verdier; its Frobenius point-count formula
+alone is not a supplier for this result. The new native ideal fragment is
+proved, while the six-operations trace interface remains explicitly omitted.
 
 For ell=2 and odd primitive level, every relevant p is odd and every local
 supercuspidal is ordinary. Carayol(B) is consequently the appropriate source;
@@ -410,6 +465,13 @@ mistakes and its convergence argument refers to Mao–Rallis1999,
 paywalled and the author route unavailable. A Fatou inequality in the displayed
 argument does not justify the limit-under-integral equality by itself.
 No quantitative dominating height bound was verified.
+
+A new accessible lead, [Rajan2000](https://mathreports.ca/download/3553/),
+*On the image and the fibres of the non-normal cubic lift*, C.R.Math.Rep.Acad.
+Sci.Canada22(1),1–6, Theorem3 pp.3–5, was obtained and inspected. It assumes
+the JPSS lift exists and analyzes its image/fibres through cyclic towers and
+good-place comparisons. It gives no independent all-place existence proof.
+Do not treat it as a resolution of this blocker.
 
 [Henniart1983](https://www.numdam.org/item/10.24033/msmf.295.pdf), Appendix6
 pp.171–180, was obtained and read as another lead. Its analytic base change is
@@ -495,17 +557,17 @@ certify those recorded gaps. The following is the current disposition:
 
 | Obligation | Current resume point |
 | --- | --- |
-| Archimedean classification/factors/real quaternion comparison | AF1 and AL2 remain owners. Check their full chambers, limit representations, epsilon and SU2 character interfaces; no second AF carrier. |
+| Archimedean classification/factors/real quaternion comparison | Exact chambers, full-O(2) limit, complex epsilon and SU2 character/sign now supplied at target level; AF.1 and AL.2 retain concrete interfaces. Gamma normalizations are proved. |
 | Smooth/automorphic/test-function suggested carriers | Explicit omissions retain exact conditions. Use concrete supplier interfaces where possible; absent implementation alone is not a mathematical blocker. Never restore arbitrary-type equivalences. |
 | Newvectors and ramified factors | Existing actual-representation newvector signatures and last-row convention preserved; new complete U_p dictionary supplied. Concrete SR model and normalized Whittaker realization tests still need checking. |
 | Primitive dyadic fixture | New n=1,conductor3,Swan1 fixture and matching sign supplied at target level; exact operator and quaternion matching normalization still needs final audit. |
-| Arithmetic/geometric Galois convention | Direct parabolic realization identified; ramified stalk/dual-stalk trace specialization still needs proof, and full dyadic comparison still needs strong cubic transfer. |
-| Singular/continuous trace terms | Ledger and detailed cancellations added; AS convergence/expansion and the full logarithmic identity remain to certify. |
+| Arithmetic/geometric Galois convention | Direct parabolic realization preserved; Varshavsky supplies the ramified stalk/dual-stalk route and native contraction is proved. Six-operations trace signatures remain omitted; full dyadic comparison needs strong cubic transfer. |
+| Singular/continuous trace terms | Norm-fibre logarithmic identity and A3 correction audited; joint absolute spectral bounds remain unproved and are not supplied by AS.6. |
 | Full tensor/supplier conditions | Existing genuine symmetric-power tensor, scalar, dimension, dual and coefficient-map APIs preserved; analytic conditions remain named omissions. |
 | Prescribed quaternion ramification | Supplier chain and actual existence/uniqueness signatures now supplied in R17.1; complete parity proof and six closed fixtures. Planned arithmetic proofs consume GQF4.4, QFI2/5–6D, CFT10 and SemisimpleAlgebras6. |
 | Highly ramified GL3 converse | New fill-and-twist target gives a route from the exact lower generic converse; native analytic signature remains omitted. |
 | Original cubic and all-place local lift | Actual source/proof blocker detailed above. |
-| Quaternionic globalization | Compact fixed-centre proof supplied; finish the real EP trace/sign and central Fourier trace projection checks. |
+| Quaternionic globalization | Balanced (sl2,O(2)) EP sign and trace-norm central projection supplied at target level; native analytic carrier remains omitted. |
 | Solvable reduction-compatible lift | All-rank integral Fong–Swan/Brauer chain supplied; signatures elaborate with planned proofs. |
 | Full local character prescription | Correct primary Chevalley proof chain and actual arithmetic signatures supplied; no order preservation and no arbitrary simultaneous norm exponents. |
 | All-place Artin matching | New stability/isolation target supplied with infinity hypothesis; relies on weak octahedral existence, still blocked by cubic proof. |
@@ -517,11 +579,13 @@ certify those recorded gaps. The following is the current disposition:
 1. Obtain the original JPSS cubic note from an authorized readable source, or
    prove the alternative local matching and quantitative convergence above.
    Establish its all-place comparison, not just good Satake powers.
-2. Prove the ramified curve trace specialization and finish the direct
-   parabolic comparison. For RT at ell=2 use only odd-prime ordinary cases;
-   do not require a new compact-quaternionic bridge.
-3. Audit the remaining trace and globalization proof contracts against the
-   concrete AS/AF supplier statements, then the other table entries.
+2. Prove the joint rank-two spectral absolute bounds for Langlands1980
+   (11.6)–(11.7). Fixed-height AS.6 convergence is insufficient; justify every
+   exchange of summation/integration before using finite-measure separation.
+3. Finish the direct parabolic comparison using the ramified curve route above,
+   then audit the remaining table entries and concrete supplier signatures.
+   For RT at ell=2 use only odd-prime ordinary cases; no new compact-quaternionic
+   bridge is required.
 4. Reconcile the downward ownership moves in the permitted future plan job.
    Packaging forbids editing the accepted packets in this issue.
 5. Complete faithful suggested signatures/tests where the conditions can be
@@ -536,40 +600,51 @@ with an updated current account preserving the mathematical receipts.
 
 ## Current validation and library audit
 
-- Final full `lean-check` exited0:155 warnings, all declaration-uses-sorry,
-  no errors or other warnings. Available memory before compile100GB.
-  No Lean declaration changed afterward. The two new arithmetic signatures
-  use `sorry`; the new explicit split fixture and parity proof/tests do not.
+- Final full `lean-check` exited0:153 warnings, all declaration-uses-sorry,
+  no errors or other warnings. Available memory before compile102GB.
+  No Lean declaration changed afterward. The ideal lemma and three fixtures
+  have complete proofs; all larger omitted interfaces remain identified.
   No language server or Lake build/update/cache was started; nothing remains
-  compiling. Pinned Mathlib `082e2d37e8`, Tau Ceti `f790474`.
+  compiling. Pinned Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
+  Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
 - Both accepted packets pass `scripts/check_blueprint.py`:0 errors,0 warnings.
   All55+57 nodes retain matching reader headings; the122 starting headings
   are unchanged as a set. The unchanged packets still record16 gaps,
   67 requests,12 planned stages and0 closed stages.
 - Current read-only roadmaps: `3c18d9fbfceed0dc5c1edb1070a3927152d19e28`;
   current Tau Ceti library: `a91d3aafa8cd3e6bc33dfde0d7677ed0f1625039`.
-  Current supplier statements were checked as described above. No existing
-  upstream target is replanned. No read-only tree was modified or built.
-- Upstream proposal#196's head and remote status below are inherited receipts;
-  this continuation did not repeat that remote-status check. The proposal's
-  suppliers must be distinguished from files on current main.
+  Relevant AS.0/6, AF.1 and AL.2/3 supplier statements were checked against
+  the reader's contracts. No existing upstream target is replanned. Neither
+  read-only tree was modified or built.
+- Upstream proposal#196's head and remote status remain inherited receipts;
+  this continuation did not repeat that remote-status check. Its suppliers
+  must be distinguished from files on current main.
 - Public papers were held only in scratch; cleared books were never copied.
   No source passage appears in the deliverables.
 - Scoped `intake.py check-files`:3 files,0 problems. `git diff --check`:pass.
-  Reader:199,889 bytes, below200KB;122 headings and112 accepted slugs survive.
+  Reader:199,930 bytes, below200KB;122 headings and112 accepted slugs survive.
 
 ## Primary-source receipts
 
-Bibliographic URLs and locators are in the reader. The checksums below preserve
-previous public-source receipts. This continuation obtained Mao–Rallis2000
-and Carayol1986 and inspected the former's §3 local matching and convergence
-steps; their checksums agree with the inherited receipts. The earlier
-Langlands1973 and other source readings remain inherited. The new quaternion
-source was read only in the indexed cleared book. Access date:2026-10-10.
-Public files are not retained in the repository.
+Bibliographic URLs and locators are in the reader. This continuation obtained
+Varshavsky's v2, UBC JL1970, Langlands1980, Clozel1986, Getz2015, Rajan2000,
+Badulescu–Renard2010, Langlands1973, Carayol1986 and Mao–Rallis2000 through
+public author, publisher or institutional sources. Only the passages relevant
+to the contracts above were inspected; this is not a whole-source audit.
+Getz is the author manuscript dated13March2015. Rajan's public download is
+the full journal issue; the receipt is for that file. All other receipts in
+the table are historical, including the IAS JL version; they are not claims
+of new reading. Access date:2026-10-10. No public file is retained in the
+repository, and no private source was copied. The uncleared AMS JPSS reprint
+was not obtained or read.
 
 | Public source | SHA256 |
 | --- | --- |
+| Varshavsky math/0505564v2 | `8b4cb7ee9b1726cc998fc4d952a2542576e85ebe21e70b0f5c9f31c4682b8ac6` |
+| JL1970 UBC author retypeset | `4dae9de4ce65b6ed81a8ec4688e1f65131f188ba33195d5cf066cd923eabef0a` |
+| Getz2015 author manuscript | `e52f7da0685c7e330f096b3f23beaf8832972067d191f77e3c05ac3113fff0ac` |
+| Rajan2000 publisher journal issue | `0c41869c333da5acc492ed6e36748e2c6277a89e3f4abe3fde6d4839920cf25e` |
+| Badulescu–Renard2010 author paper | `dc3aad1d249fda35f40f33f7b688537f226e509ed6879fe36dd5d07a15839c88` |
 | Chevalley1951 | `c8ca4e2dac91b20836adaf90ac5300f7dd197bb8f7145d5c422791d436358493` |
 | CHT2008 | `9d3b7079440d8cd3167812bb11c25ae4b51ada973b2e98f0928624254a60156c` |
 | Isaacs1974 | `413add693a05e715bbe9dd480feab658ebd2ff180fce71dbd73d099fec8bdc29` |
