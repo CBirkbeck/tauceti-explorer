@@ -1,0 +1,1309 @@
+{
+  "roadmapId": "DeformationAndDerivedPatchingAlgebra",
+  "protocol": "blueprint-v1",
+  "part": "R03.2",
+  "scope": [
+    "DeformationAndDerivedPatchingAlgebra:R03.2"
+  ],
+  "status": "complete",
+  "summary": "Target-level representability and obstruction algebra over an arbitrary complete Noetherian local coefficient base: transport of the existing Schlessinger criterion, minimal power-series presentations, fixed-basis matrix and continuous framed constructions, minimal relation spaces, natural presentation obstructions, a finite Artinian universal relation test and the resulting obstruction-space bound. An explicit principal-unit orbit hull with automorphisms separates hulls from prorepresenting objects. Arithmetic tangent and obstruction calculations remain with their Galois owners. The target pass is complete but coverage is planned because the full natural socle-extension interface requires a precise enlargement of SF.4.",
+  "baseline": {
+    "tauceti": "f790474821cf4256814db967cb154e7af3d0c369",
+    "mathlib": "082e2d37e8b0463410cdb532e111cd43d5a66174",
+    "declarations": [
+      {
+        "ref": "mathlib:FreeGroup",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/FreeGroup/Basic.lean",
+        "provides": "The native free group carrier on a type of generator labels; finite words are distinguished from elements of the free profinite completion.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 471."
+      },
+      {
+        "ref": "mathlib:FreeGroup.lift",
+        "kind": "def",
+        "module": "Mathlib/GroupTheory/FreeGroup/Basic.lean",
+        "provides": "The equivalence between generator-image functions α→G and group homomorphisms FreeGroup α→G; it provides existence and uniqueness of word evaluation.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 678."
+      },
+      {
+        "ref": "mathlib:Ideal.exists_pow_inf_eq_pow_smul",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Filtration.lean",
+        "provides": "Artin–Rees equality for a finite module over a Noetherian ring and a submodule.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 388."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup",
+        "kind": "abbrev",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "The group of units of the square matrix ring over a commutative coefficient ring; matrix size is an arbitrary finite type, not a chosen GL presentation.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 43."
+      },
+      {
+        "ref": "mathlib:Matrix.GeneralLinearGroup.map",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/Matrix/GeneralLinearGroup/Defs.lean",
+        "provides": "The group homomorphism induced by a unital ring homomorphism, obtained by mapping every matrix entry and then mapping units.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 188."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The native coefficient-function carrier (σ→₀ℕ)→R with its power-series commutative-ring structure; complete local structures are imported from R03.1.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 86."
+      },
+      {
+        "ref": "mathlib:MvPowerSeries.X",
+        "kind": "def",
+        "module": "Mathlib/RingTheory/MvPowerSeries/Basic.lean",
+        "provides": "The series with coefficient one on the singleton degree at a specified variable and zero elsewhere; used for the matrix-entry variables.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 374."
+      },
+      {
+        "ref": "mathlib:Submodule.exists_injOn_mkQ_image_span_eq_of_span_eq_map_mkQ_of_le_jacobson_bot",
+        "kind": "theorem",
+        "module": "Mathlib/RingTheory/Nakayama.lean",
+        "provides": "Nakayama basis-lifting theorem for a finite submodule over a commutative ring, under a Jacobson-ideal hypothesis.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 216."
+      },
+      {
+        "ref": "mathlib:Submodule.hasQuotient",
+        "kind": "instance",
+        "module": "Mathlib/LinearAlgebra/Quotient/Defs.lean",
+        "provides": "Actual module quotient carrier; the relation-space action is additionally descended and transported through the labelled residue.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 55."
+      },
+      {
+        "ref": "mathlib:TensorProduct",
+        "kind": "def",
+        "module": "Mathlib/LinearAlgebra/TensorProduct/Defs.lean",
+        "provides": "The native balanced tensor-product carrier for modules over a commutative semiring.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 71."
+      },
+      {
+        "ref": "tauceti:TauCeti.derivationToDualNumberEquivLift",
+        "kind": "def",
+        "module": "TauCeti/RingTheory/Derivation/DualNumber.lean",
+        "provides": "The equivalence between derivations and algebra-map lifts to actual dual numbers with fixed first projection.",
+        "checked": "Declaration and enclosing binders read in the pinned source; starts at line 71."
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "Schlessinger1968",
+      "title": "Functors of Artin rings",
+      "authors": "Michael Schlessinger",
+      "edition": "Transactions of the AMS 130 (1968), 208–222; published scan",
+      "url": "https://math.uchicago.edu/~amathew/schlessingerdef.pdf",
+      "sha256": "50ea5b237d015270d9e1805cb9b56d433e416182e62415b3de301ec06159e1c2",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "§1 pp. 208–210; §2 pp. 210–216, including the full proof of Theorem 2.11"
+      ]
+    },
+    {
+      "id": "StacksFormal",
+      "title": "Formal Deformation Theory",
+      "authors": "The Stacks Project authors",
+      "edition": "Chapter PDF compiled 14 July 2026, version ed88ff78, retrieved 2026-10-10",
+      "url": "https://stacks.math.columbia.edu/download/formal-defos.pdf",
+      "sha256": "f6549caab0fa380254eb316265ce14357794224c0e01c517bb0365c708a4c2ea",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "§§3–4 pp. 4–13 (coefficient categories); §7 pp. 15–20 (formal elements); §8 pp. 20–24 and §9 pp. 24–26 (smoothness); §10 pp. 26–32 (conditions); §11 pp. 32–34 and §12 pp. 34–37 (tangents); §§13–15 pp. 37–48 (versal objects and hulls); §18 pp. 54–55 (prorepresentability), especially Lemma 12.2, Theorem 15.5, Remark 15.6 and Theorem 18.2"
+      ]
+    },
+    {
+      "id": "StacksObstructions",
+      "title": "Artin’s Axioms, obstruction theories",
+      "authors": "The Stacks Project authors",
+      "edition": "Online §98.22 retrieved 2026-10-10",
+      "url": "https://stacks.math.columbia.edu/tag/07YG",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "Definition 98.22.1, tag 07YG; Example 98.22.4, tag 07YI; online locators have no stable PDF page number"
+      ]
+    },
+    {
+      "id": "KisinLecture1",
+      "title": "Lectures on deformations of Galois representations, Lecture 1",
+      "authors": "Mark Kisin",
+      "edition": "Four-page author lecture-note PDF",
+      "url": "https://people.math.harvard.edu/~kisin/notes/notes.pdf",
+      "sha256": "9f3698a791b6a96318b8eded26962f2da7d3f34628ab47d855df7e36cd5712c6",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "Lecture 1 pp. 1–4, especially Proposition (1.2.1)(1) and proof p. 2"
+      ]
+    },
+    {
+      "id": "Gee2022",
+      "title": "Modularity lifting theorems",
+      "authors": "Toby Gee",
+      "edition": "arXiv:2202.05818v2 (2022)",
+      "url": "https://arxiv.org/pdf/2202.05818v2",
+      "sha256": "878f83e189ad44603ac04f6c16ef17f4c4fe046db91a2f0933a192e048715ea5",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "§3 pp. 11–18, Lemma 3.13 and Proposition 3.24(2)"
+      ]
+    },
+    {
+      "id": "KWII2009",
+      "title": "Serre’s modularity conjecture (II)",
+      "authors": "Chandrashekhar Khare and Jean-Pierre Wintenberger",
+      "edition": "Author final copy, 30 May 2009, 98 pages",
+      "url": "https://www.math.ucla.edu/~shekhar/papers/proofs.pdf",
+      "sha256": "53f45f8be3b3c7de19f42417920d34a809e908412826490ebed90f07c8e86ed4",
+      "accessed": "2026-10-10",
+      "readSections": [
+        "§4.1.5, Lemma 4.4 pp. 41–42; §4.2, Lemma 4.6 and complete proof pp. 43–45"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/coefficient-and-functor-comparison",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "Coefficient categories and the imported representability criterion",
+      "kind": "comparison",
+      "statement": "In the classical residue-field setting, the R03.1 categories Coeff.Artinian and Coeff.Complete are equivalent to the classical specializations of SF.4 ArtinLocalAlg and CompleteLocalAlg. A labelled ring map A→k becomes the corresponding surjective Λ-algebra augmentation; its kernel is m_A. The equivalences preserve small extensions, split square-zero objects, Artinian fibre products along a surjection, and positive quotient towers. Transport identifies h_R(A) with the residue-preserving Λ-algebra maps R→A, T(h_R) with Der_Λ(R,k) and with the k-dual of m_R/(m_R²+m_ΛR). Thus this relative tangent is finite for every complete coefficient object. Under this transport, SF.4 supplies H1–H4, the hull criterion H1+H2+finite tangent, the prorepresentability criterion adding H4, hull uniqueness by an isomorphism preserving the formal element, and the unique such isomorphism for prorepresenting pairs. These are imports, not additional Schlessinger theorems.",
+      "hypotheses": [
+        "Λ is a complete Noetherian commutative local ring with specified surjective residue map ρ:Λ→k, ker ρ=m_Λ; k is an arbitrary field.",
+        "All coefficient objects and maps use the labelled residue convention of R03.1; complete objects are Noetherian and maximal-ideal complete and separated."
+      ],
+      "proofSteps": [
+        "Convert a labelled quotient into an algebra augmentation by residue_algebraMap. Conversely the kernel of a surjection from a local ring to a field is its unique maximal ideal. Both composites preserve actual ring carriers and maps, giving category equivalences.",
+        "Use the universal property of the actual equalizer fibre product in R03.1, not a product of underlying functor values. Preservation of the augmentation makes the same pullback supply SF.4 comparison maps.",
+        "Transport h_R and the dual-number object. Tau Ceti derivationToDualNumberEquivLift identifies the actual fibre of the projection on algebra homomorphisms with derivations; R03.1 cotangent-dual-derivations identifies this with the relative cotangent dual. Do not substitute the absolute Mathlib CotangentSpace in mixed characteristic.",
+        "Import Schlessinger Theorem 2.11 through SF.4/schlessinger-theorem. The finite tangent hypothesis is on F; it cannot be deduced from an arbitrary functor having values in sets. Hull maps need not be injective. In the broader Stacks residue-field setting one also needs injectivity of Der_Λ(k,k)→T_F. Here Λ→k is surjective, so every Λ-derivation of k is zero and that condition is automatic.",
+        "For a prorepresenting pair, use the formal-element Yoneda correspondence and the positive Artinian quotient tower for uniqueness of the compatible map. For hulls use SF.4/hull, which only gives existence of a compatible isomorphism."
+      ],
+      "acceptance": [
+        "For Λ=Z_p and R=Λ, the relative tangent is zero although m_R/m_R² has k-dimension one.",
+        "For R=Λ[[X₁,…,X_d]], T(h_R) is k^d.",
+        "No finite-residue-field assumption enters the criterion.",
+        "An equivalence of coefficient categories must preserve the formal elements as well as the isomorphism class of each ring."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1/labelled-local-algebra",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/residue-preserving-morphism",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-coefficient-category-and-small-extensions",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-local-coefficient-category",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-pullback",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-quotient-limit",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/cotangent-dual-derivations",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/relative-cotangent-finite",
+        "SchemeAndStackFoundations:SF.4/artinian-coefficient-category",
+        "SchemeAndStackFoundations:SF.4/deformation-functor",
+        "SchemeAndStackFoundations:SF.4/hull",
+        "SchemeAndStackFoundations:SF.4/schlessinger-theorem",
+        "tauceti:TauCeti.derivationToDualNumberEquivLift"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schlessinger1968",
+          "locator": "§1 pp. 208–210; §2 Notation 2.6, Definition 2.7 and Proposition 2.9 pp. 211–212; Lemma 2.10 and Theorem 2.11 with proof pp. 212–215",
+          "match": "Classical coefficient categories, tangent identification, hulls and both representability criteria, including the compatible-isomorphism distinction."
+        },
+        {
+          "sourceId": "StacksFormal",
+          "locator": "§§3–4 pp. 4–13; §7 pp. 15–20; Lemma 12.2 (06IH) p. 35; Theorem 15.5 (06IX) pp. 46–47; Remark 15.6 (06IY) p. 47; Theorem 18.2 (06JM) p. 55",
+          "match": "Augmented categories and the functor criteria in the classical specialization. Since Λ→k is surjective, Der_Λ(k,k)=0; the injectivity condition in Theorem 18.2(c) is automatic, and miniversality on derivation orbits becomes tangent bijectivity."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "declarations": [
+        "TauCeti.DeformationAlgebra.coefficientEquivalence",
+        "TauCeti.DeformationAlgebra.tangentEquivRelativeDual"
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-deformation-presentation",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "Minimal power-series presentations of hull rings",
+      "kind": "construction",
+      "statement": "For a complete coefficient object R, put d=dim_k T(h_R). Choosing a basis of m_R/(m_R²+m_ΛR) and lifts gives a surjection q:S=Λ[[X₁,…,X_d]]→R of labelled coefficient algebras. It induces an isomorphism on relative cotangent spaces, and J=ker q is contained in m_S²+m_ΛS. Conversely a surjective map from this S is relative-tangent minimal exactly when J⊆m_S²+m_ΛS. For a hull h_R→F, d=dim_k T_F; the number of variables is determined, while q and its generators are choices. No assertion J⊆m_S² is made over a general coefficient base.",
+      "hypotheses": [
+        "Λ is a complete Noetherian commutative local ring with specified surjective residue map ρ:Λ→k, ker ρ=m_Λ; k is an arbitrary field.",
+        "All coefficient objects and maps use the labelled residue convention of R03.1; complete objects are Noetherian and maximal-ideal complete and separated.",
+        "R is a complete coefficient object; for the hull specialization the imported hull map is smooth and tangent bijective."
+      ],
+      "proofSteps": [
+        "Use the finite relative cotangent and its dual identification from R03.1 and the preceding comparison to choose d lifts of a basis.",
+        "Apply R03.1/series-presentation to these lifts. Its actual continuous evaluation map is surjective.",
+        "Modulo m_S²+m_ΛS the classes of X_i form a k-basis. The kernel of the induced relative cotangent map is the image of J; this proves the minimality criterion.",
+        "A hull identifies its tangent with T_F, hence the same d works. Minimality is a property of the selected surjection, not a claim that every presentation has this number of variables."
+      ],
+      "acceptance": [
+        "The presentation of R=Λ uses zero variables and zero kernel.",
+        "For R=k as a Λ-algebra, zero variables still suffice, but J=m_Λ can have nonzero linear coefficient-base part.",
+        "The surjection Λ[[X,Y]]→Λ[[X]] killing Y is not minimal."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/coefficient-and-functor-comparison",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/relative-cotangent",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/relative-cotangent-finite",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/series-cotangent-basis",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/series-presentation",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/local-series-evaluation"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schlessinger1968",
+          "locator": "Notation 2.6 p. 211; proof of Theorem 2.11 pp. 213–214, initial quotient S/(m_S²+m_ΛS)",
+          "match": "The tangent-dual choice of variables and the initial minimal presentation."
+        },
+        {
+          "sourceId": "KWII2009",
+          "locator": "Lemma 4.4 pp. 41–42 and opening of Lemma 4.6 p. 43",
+          "match": "The relative-tangent-minimal presentation used before counting relations; arithmetic computations are not imported."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DeformationAlgebra.minimalPresentation",
+          "role": "constructor",
+          "statement": "Given lifts of a basis of the relative cotangent of R, return the chosen labelled surjection q:Λ[[X₁,…,X_d]]→R with tangent isomorphism."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.minimalPresentation_X",
+          "role": "simp",
+          "statement": "q(X_i) is the selected lift of the i-th relative cotangent basis vector."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.minimalPresentation_surjective",
+          "role": "universal-property",
+          "statement": "The selected evaluation map q is surjective; R is isomorphic as a labelled coefficient algebra to S/ker q."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.minimalPresentation_ker_le",
+          "role": "characterisation",
+          "statement": "For a surjective q:S→R, relative tangent minimality is equivalent to ker q⊆m_S²+m_ΛS."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.minimalPresentation_variable_count",
+          "role": "compatibility",
+          "statement": "For a hull h_R→F, the presentation has exactly dim_k T_F variables."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeformationAlgebra.minimalPresentation_base",
+          "kind": "degenerate",
+          "statement": "For R=Λ and its identity residue convention, d=0 and the selected q is an isomorphism."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.minimalPresentation_residue",
+          "kind": "computation",
+          "statement": "For a complete DVR Λ with nonzero uniformiser π and R=k, d=0, q=ρ and J=(π); J is not contained in m_Λ²."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.minimalPresentation_extra_variable",
+          "kind": "non-example",
+          "statement": "Over a field k, q:k[[X,Y]]→k[[X]], q(X)=X, q(Y)=0, is surjective but fails tangent minimality: its kernel contains Y∉(X,Y)²."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R03.2/minimal-relation-space and R03.2/relation-bound",
+          "how": "The relations are counted in the selected tangent-minimal presentation."
+        },
+        {
+          "where": "Khare–Wintenberger II Lemmas 4.4 and 4.6",
+          "how": "The relative variable count and the relation count use distinct vector spaces."
+        }
+      ],
+      "planet": {
+        "name": "Minimal deformation presentations"
+      },
+      "declarations": [
+        "TauCeti.DeformationAlgebra.minimalPresentation"
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/framed-matrix-equations",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "Framed matrix equations and their representing ring",
+      "kind": "construction",
+      "statement": "Fix d,n≥0, lifts L_i∈GL_n(Λ), i∈Fin d, and a set W of words in the native free group on Fin d such that w(ρ(L_i))=1 for every w∈W. Put S=Λ[[X_{i,a,b}]] with d n² variables. Each U_i=L_i+(X_{i,a,b}) is invertible in S. Let J_W be the ideal generated by all entries of w(U)-1 for w∈W, and R_W=S/J_W. The residual-word hypothesis implies J_W⊆m_S, so R_W is a complete coefficient object. For every Artinian coefficient object A, maps R_W→A are naturally in bijection with tuples M_i∈GL_n(A) with residue ρ(L_i) and w(M)=1 for all w∈W. The tuple is retained in its fixed basis, without dividing by conjugation. Hence this formal matrix-equation functor is prorepresented, has finite relative tangent of dimension at most d n², and has a unique compatible representing-ring isomorphism. No finiteness of W is necessary: S is Noetherian. No continuity assertion for an arbitrary profinite group follows from finite-word equations alone.",
+      "hypotheses": [
+        "Λ is a complete Noetherian commutative local ring with specified surjective residue map ρ:Λ→k, ker ρ=m_Λ; k is an arbitrary field.",
+        "All coefficient objects and maps use the labelled residue convention of R03.1; complete objects are Noetherian and maximal-ideal complete and separated.",
+        "d,n are finite natural numbers. W is a set of finite words; the chosen residual matrices satisfy every word equation."
+      ],
+      "proofSteps": [
+        "Use the native finite-variable MvPowerSeries carrier and GL as units of the matrix ring. The determinant of U_i has constant term det L_i, a unit. The local-series unit criterion makes it invertible.",
+        "Extend U_i uniquely to a group homomorphism from FreeGroup (Fin d), using FreeGroup.lift. Generate the ideal by the entries of w(U)-1. Reduction to k kills all those entries.",
+        "Use R03.1/coefficient-power-series and complete-quotient to give S/J_W its labelled complete local structure. Noetherianity makes J_W finitely generated and closed even for infinitely many finite-word relations.",
+        "R03.1/local-series-evaluation maps the variables to M_i−L_i, whose entries lie in m_A. It factors through R_W exactly when the word equations hold. Conversely a map from the quotient supplies such matrices. Uniqueness of evaluation proves the natural bijection.",
+        "The relative cotangent of the quotient is a quotient of the d n²-dimensional series cotangent. The continuous-framed-representability node supplies closed profinite relations and the generic maximal-pro-p reduction; the Galois owners verify their arithmetic finiteness hypotheses. Finite-word relations alone do not supply a continuous profinite representing functor."
+      ],
+      "acceptance": [
+        "With W empty, R_W is the full d n²-variable power-series ring.",
+        "With d=0 and W empty, R_W is Λ.",
+        "For n=d=1, L=1, W={g²} and Λ=k of characteristic 2, R_W=k[[X]]/(X²).",
+        "For the same word over a field of characteristic different from 2, R_W=k since (1+X)²−1=X(2+X) and 2+X is a unit."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.1/coefficient-power-series",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/local-series-evaluation",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-quotient",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/series-cotangent-basis",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/coefficient-and-functor-comparison",
+        "mathlib:Matrix.GeneralLinearGroup",
+        "mathlib:Matrix.GeneralLinearGroup.map",
+        "mathlib:FreeGroup",
+        "mathlib:FreeGroup.lift",
+        "mathlib:MvPowerSeries",
+        "mathlib:MvPowerSeries.X"
+      ],
+      "sources": [
+        {
+          "sourceId": "KisinLecture1",
+          "locator": "Proposition (1.2.1)(1) and its proof p. 2; Remark (1.1.2)(1) p. 1",
+          "match": "The fixed-basis matrix-variable construction. This node extracts its finite-word algebraic part; Kisin separately reduces continuous profinite lifts using Φ_p."
+        },
+        {
+          "sourceId": "Gee2022",
+          "locator": "Lemma 3.2 and Definition 3.3 p. 12; Exercise 3.11 and Corollary 3.12 p. 13",
+          "match": "The framed versus conjugacy-class distinction and the use of finite tangent variables; no Galois cohomology calculation is restated."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DeformationAlgebra.framedMatrixRing",
+          "role": "constructor",
+          "statement": "Form the quotient S/J_W with its labelled complete local coefficient structure from L and the residual-word hypothesis."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.framedUniversalMatrix",
+          "role": "data",
+          "statement": "U_i is the universal invertible matrix with entries L_i(a,b)+X_{i,a,b}, and its image in R_W satisfies every word equation."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.framedUniversalMatrix_entry",
+          "role": "simp",
+          "statement": "The (a,b)-entry of U_i is C(L_i(a,b))+X_{i,a,b}."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.framedMatrixPointsEquiv",
+          "role": "universal-property",
+          "statement": "Evaluation gives a natural bijection between labelled maps R_W→A and fixed-basis tuples satisfying the prescribed residual and word conditions."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.framedMatrixPointsEquiv_natural",
+          "role": "functoriality",
+          "statement": "For a coefficient map A→B, the points equivalence carries composition on ring maps to entrywise transport of the matrices."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.framedMatrixRing_empty_relations",
+          "role": "characterisation",
+          "statement": "For W empty, J_W=0 and R_W is labelled-isomorphic to S."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.framedMatrixRing_tangent_le",
+          "role": "compatibility",
+          "statement": "The relative tangent dimension of R_W is at most d n², with equality when W is empty."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeformationAlgebra.framedMatrixRing_free",
+          "kind": "computation",
+          "statement": "For W empty, the representing ring is Λ[[X_{i,a,b}]], with relative tangent dimension d n²."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.framedMatrixRing_no_generators",
+          "kind": "degenerate",
+          "statement": "For d=0 and W empty, the unique empty tuple is represented by Λ."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.framedMatrixRing_involution_char_two",
+          "kind": "computation",
+          "statement": "Over a field k of characteristic 2, one scalar matrix with residue 1 and word g²=1 is represented by k[[X]]/(X²), rather than a smooth one-variable ring."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.framedMatrixRing_involution_char_ne_two",
+          "kind": "non-example",
+          "statement": "Over a field k of characteristic different from 2, the same scalar equation is represented by k, rather than k[[X]]/(X²)."
+        }
+      ],
+      "uses": [
+        {
+          "where": "Kisin Lecture 1 proof of Proposition (1.2.1)(1)",
+          "how": "Matrix coordinates with fixed basis supply the algebraic representing quotient."
+        },
+        {
+          "where": "GlobalGaloisDeformations R04.2 and LocalGaloisDeformationRings R08.1",
+          "how": "Consume the generic continuous-framed construction of this stage after verifying arithmetic finiteness hypotheses; its finite coordinates use this matrix algebra."
+        }
+      ],
+      "declarations": [
+        "TauCeti.DeformationAlgebra.framedMatrixRing",
+        "TauCeti.DeformationAlgebra.framedMatrixPointsEquiv"
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/smooth-functor-ring-comparison",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "Smooth transformations and coefficient-ring lifting",
+      "kind": "comparison",
+      "statement": "For a labelled coefficient map f:R→S between complete objects, the induced transformation h_S→h_R is smooth in SF.4 exactly when f is FormallySmooth in the small-Artinian-diagram sense of R03.1. Equivalently S is a finite-variable power-series algebra over R, by a labelled R-algebra isomorphism commuting with f. The number of variables is dim_k m_S/(m_S²+f(m_R)S). If h_R→F is a hull, F takes all Artinian surjections to surjections exactly when Λ→R is formally smooth; then R is a d-variable power-series ring over Λ, d=dim_k T_F. The chosen power-series isomorphism is not canonical.",
+      "hypotheses": [
+        "Λ is a complete Noetherian commutative local ring with specified surjective residue map ρ:Λ→k, ker ρ=m_Λ; k is an arbitrary field.",
+        "All coefficient objects and maps use the labelled residue convention of R03.1; complete objects are Noetherian and maximal-ideal complete and separated."
+      ],
+      "proofSteps": [
+        "Expand smoothness of h_S→h_R: the elements and their compatibility are precisely the two coefficient maps in a lifting square for f. Artinian-target maps are continuous automatically.",
+        "Use the R03.1 factorization into small extensions to compare all-surjection and small-surjection lifting. This is an equivalence of two existing predicates, not a new formal-smoothness definition.",
+        "Apply R03.1/continuous-formally-smooth-series, which supplies an R-algebra power-series comparison; compute its relative variable count using series-cotangent-basis.",
+        "For a hull, its smoothness and pointwise surjectivity permit smoothness of F→h_Λ to be compared with h_R→h_Λ by Schlessinger Proposition 2.5(ii),(iii). Apply the represented comparison."
+      ],
+      "acceptance": [
+        "h_{R[[Y]]}→h_R is smooth with one relative variable.",
+        "h_{k[[X]]/(X²)}→h_k fails the lifting test at k[t]/(t³)→k[t]/(t²).",
+        "For a complete DVR Λ, h_k→h_Λ is not smooth, although T(h_k)=0."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/coefficient-and-functor-comparison",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formal-smoothness",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/surjection-small-factorization",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/continuous-formally-smooth-series",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/series-cotangent-basis",
+        "SchemeAndStackFoundations:SF.4/hull"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schlessinger1968",
+          "locator": "Definition 2.2 and Remark 2.3 pp. 210–211; Proposition 2.5 p. 211; Remark 2.10 p. 212",
+          "match": "Smooth functor transformations, power-series morphisms, and unobstructed hulls."
+        },
+        {
+          "sourceId": "StacksFormal",
+          "locator": "Definition 8.1 (06HG) p. 20; Lemma 8.2 (06HH) pp. 20–21; Lemma 8.7 (06HM) pp. 22–23; Definition 9.1 (06HP), Remark 9.2 (06HQ) and Lemma 9.3 (0DYL) p. 24; Lemma 9.4 (0DZK) pp. 24–25",
+          "match": "Small-extension testing, smoothness composition and the represented ring criterion in the classical case."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "declarations": [
+        "TauCeti.DeformationAlgebra.smooth_prorep_iff",
+        "TauCeti.DeformationAlgebra.unobstructed_hull_iff"
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-relation-space",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "The minimal relation space",
+      "kind": "definition",
+      "statement": "For a chosen surjection q:S=Λ[[X₁,…,X_d]]→R with J=ker q and maximal ideal m=m_S, define E(q)=J/mJ, where mJ is the S-submodule m•J inside the module J. The S-action factors through S/m and the specified residue isomorphism S/m≅k supplies its k-vector-space structure. E is finite dimensional. Its dimension is the minimal number of generators of the ideal J. For every k-vector space I, regarded as an S-module through the residue, restriction gives a natural equivalence Hom_k(E,I)≅Hom_S(J,I). This is not the conormal R-module J/J². The relation space belongs to a chosen presentation; minimality is needed only for its obstruction interpretation.",
+      "hypotheses": [
+        "Λ is a complete Noetherian commutative local ring with specified surjective residue map ρ:Λ→k, ker ρ=m_Λ; k is an arbitrary field.",
+        "All coefficient objects and maps use the labelled residue convention of R03.1; complete objects are Noetherian and maximal-ideal complete and separated.",
+        "q is a surjective labelled coefficient map from a finite-variable power-series ring S."
+      ],
+      "proofSteps": [
+        "Use the actual Submodule.Quotient of the ideal J by m•⊤ inside J. Every element of m acts as zero, so descend the S-action to S/m and transport it through the labelled residue isomorphism.",
+        "Noetherianity of S makes J a finite S-module. Its quotient is a finite S/m-module and hence a finite k-vector space.",
+        "An S-linear map J→I kills mJ; the quotient universal property supplies the displayed k-linear map. Conversely compose with the quotient map. These operations are inverse and natural in I.",
+        "Nakayama identifies a tuple generating J with a tuple spanning E when J is finite. Lifts of a k-basis generate J, and every generating tuple spans E; this proves the minimal-generator formula."
+      ],
+      "acceptance": [
+        "For J=0, E=0.",
+        "For J=(X²) in k[[X]], E has dimension one although J/J² is a nontrivial module over k[[X]]/(X²).",
+        "For J=(X²,XY,Y²) in k[[X,Y]], E has dimension three.",
+        "The nonminimal presentation k[[Y]]→k has one relation even though h_k is unobstructed."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-deformation-presentation",
+        "mathlib:Submodule.hasQuotient",
+        "mathlib:Submodule.exists_injOn_mkQ_image_span_eq_of_span_eq_map_mkQ_of_le_jacobson_bot",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/coefficient-power-series"
+      ],
+      "sources": [
+        {
+          "sourceId": "KWII2009",
+          "locator": "§4.2, immediately before Lemma 4.6 p. 43; final paragraph after its proof p. 45",
+          "match": "The relation count is dim_k J/mJ and basis lifts generate J."
+        },
+        {
+          "sourceId": "Gee2022",
+          "locator": "Lemma 3.13 p. 13 and its preceding power-series presentation",
+          "match": "Uses the dual of the same minimal relation space, not J/J²."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DeformationAlgebra.RelationSpace",
+          "role": "data",
+          "statement": "The actual quotient J/(m_S•⊤ inside J), with its labelled k-action."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationClass",
+          "role": "constructor",
+          "statement": "The S-linear quotient map J→E(q)."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationClass_eq_zero",
+          "role": "characterisation",
+          "statement": "The class of j∈J is zero exactly when j∈m_S J."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationLinearEquiv",
+          "role": "universal-property",
+          "statement": "Hom_k(E(q),I) is naturally equivalent to Hom_S(J,I) for I acted on through the residue."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationSpace_finite",
+          "role": "compatibility",
+          "statement": "E(q) is a finite k-vector space."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relation_basis_generates",
+          "role": "compatibility",
+          "statement": "Lifts in J of a basis of E(q) generate the ideal J; conversely every ideal generating tuple spans E(q)."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeformationAlgebra.RelationSpace_zero",
+          "kind": "degenerate",
+          "statement": "J=0 has zero-dimensional relation space."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.RelationSpace_square",
+          "kind": "computation",
+          "statement": "For S=k[[X]], J=(X²), the class of X² is a basis of E and its finrank is one."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.RelationSpace_square_maximal",
+          "kind": "computation",
+          "statement": "For S=k[[X,Y]], J=(X,Y)², the classes of X²,XY,Y² are a basis of E and its finrank is three."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.RelationSpace_nonminimal",
+          "kind": "non-example",
+          "statement": "The presentation k[[Y]]→k killing Y has finrank E=1, so relation rank is not an invariant of the functor under arbitrary presentations."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R03.2/canonical-presentation-obstructions",
+          "how": "Evaluation of relations is a map from E to the extension kernel."
+        },
+        {
+          "where": "R03.2/relation-bound; Khare–Wintenberger II Lemma 4.6",
+          "how": "Its dual injects into the supplied obstruction space, giving a bound on ideal generators."
+        }
+      ],
+      "planet": {
+        "name": "Minimal relation space"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/canonical-presentation-obstructions",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "Obstructions obtained by evaluating minimal relations",
+      "kind": "construction",
+      "statement": "Let q:S→R be a relative-tangent-minimal presentation, E=J/m_SJ. For an Artinian coefficient surjection e:B→A with kernel I killed by m_B, and a labelled point f:R→A, choose lifts in m_B of the images of the X_i. Evaluate S→B at these lifts. Its restriction to J lands in I, kills m_SJ, and defines a k-linear map E→I. This map is independent of the chosen variable lifts. Under the finite-dimensional duality Hom_k(E,I)≅E*⊗_k I it is the canonical obstruction ob_q(e,f). It vanishes exactly when f lifts to R→B. For every commuting square of such extensions the obstruction transports by the induced k-linear map of kernels. Thus E* supplies the full socle-extension obstruction theory requested from SF.4. This construction never evaluates an Artinian-only functor at a non-Artinian quotient.",
+      "hypotheses": [
+        "Λ is a complete Noetherian commutative local ring with specified surjective residue map ρ:Λ→k, ker ρ=m_Λ; k is an arbitrary field.",
+        "All coefficient objects and maps use the labelled residue convention of R03.1; complete objects are Noetherian and maximal-ideal complete and separated.",
+        "q is the chosen relative-tangent-minimal presentation. Kernels I may have any finite k-dimension, including zero."
+      ],
+      "proofSteps": [
+        "Use R03.1/local-series-evaluation and surjectivity of e to choose and evaluate variable lifts. Since e∘evaluation=f∘q, evaluation sends J into I.",
+        "The socle condition m_BI=0 makes evaluation kill m_SJ and makes restriction linear over the labelled k. It therefore descends to E.",
+        "Two choices differ by elements of I in the variables. For any relation in m_S²+m_ΛS, every change term is a product of such a difference with an element of m_B, or with an image of m_Λ. These products are zero. This proves independence, including the coefficient-base term.",
+        "The obstruction is zero iff every element of J evaluates to zero iff the series evaluation factors through R. This proves both directions of the lifting criterion.",
+        "Entrywise transport of the selected lifts in a commuting extension square proves kernel naturality; independence removes the choices. Finite-dimensional tensor-dual evaluation converts the Hom-valued obstruction to the supplier tensor convention."
+      ],
+      "acceptance": [
+        "For J=0, every canonical obstruction is zero and all socle-extension lifts exist.",
+        "For R=k[[X]]/(X²), A=k[t]/(t²), B=k[t]/(t³), f(X)=t, evaluation sends the basis relation to t²≠0.",
+        "For a complete DVR Λ, R=k and B=Λ/(π²)→A=k, the obstruction sends the class of π to π≠0.",
+        "For the nonminimal presentation k[[Y]]→k, choices Y=0 and Y=t in k[t]/(t²) give different evaluations of the linear relation Y; minimality cannot be omitted."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-deformation-presentation",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-relation-space",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/local-series-evaluation",
+        "SchemeAndStackFoundations:SF.4/obstruction-theory",
+        "SchemeAndStackFoundations:SF.4",
+        "mathlib:TensorProduct"
+      ],
+      "sources": [
+        {
+          "sourceId": "StacksObstructions",
+          "locator": "Definition 98.22.1 (tag 07YG) and Example 98.22.4 (tag 07YI), online section 98.22, accessed 2026-10-10",
+          "match": "Tensor-valued natural obstruction theories and relation evaluation; the local completed presentation with minimality is the specialization proved here."
+        },
+        {
+          "sourceId": "Gee2022",
+          "locator": "Lemma 3.13 p. 13",
+          "match": "The dual relation-space obstruction map; the statement cites the classical construction rather than giving its proof."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction",
+          "role": "constructor",
+          "statement": "Return the k-linear map E→I from any lifts of the variables; the resulting map is choice independent for a minimal presentation."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction_apply",
+          "role": "simp",
+          "statement": "For j∈J, ob sends its relation class to the evaluation of j in B, regarded in ker e."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction_independent",
+          "role": "characterisation",
+          "statement": "Any two choices of variable lifts give the same map E→I."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction_zero_iff",
+          "role": "universal-property",
+          "statement": "The obstruction vanishes exactly when the specified point R→A admits a labelled lift to B."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction_natural",
+          "role": "compatibility",
+          "statement": "In a commuting square of socle extensions, composition with the kernel map carries the first obstruction to the second."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction_tensor",
+          "role": "compatibility",
+          "statement": "The tensor obstruction in E*⊗I corresponds to the relation-evaluation linear map under finite-dimensional duality."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction_zero_relations",
+          "kind": "degenerate",
+          "statement": "For J=0 the map E→I is zero."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction_square",
+          "kind": "computation",
+          "statement": "The point X↦t for the quadratic relation and k[t]/t³→k[t]/t² has nonzero obstruction X²↦t²."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction_uniformiser",
+          "kind": "computation",
+          "statement": "For Λ complete DVR, R=k, the extension Λ/(π²)→k has obstruction π↦π mod π²."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.presentationObstruction_nonminimal",
+          "kind": "non-example",
+          "statement": "For q:k[[Y]]→k, evaluation of Y depends on whether its lift to dual numbers is zero or the square-zero generator."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R03.2/universal-artinian-test-extension",
+          "how": "On the selected finite universal extension the obstruction is id_E."
+        },
+        {
+          "where": "R03.2/relation-bound",
+          "how": "It proves that every nonzero contraction of the universal extension is obstructed."
+        }
+      ],
+      "planet": {
+        "name": "Presentation obstructions"
+      }
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/universal-artinian-test-extension",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "A finite Artinian extension detecting every relation",
+      "kind": "construction",
+      "statement": "For a minimal presentation q:S→R with kernel J and E=J/m_SJ, choose N≥1 with J∩m_S^N⊆m_SJ. Such N exists by Artin–Rees. Put B_N=S/(m_SJ+m_S^N), A_N=S/(J+m_S^N), and let e_N:B_N→A_N be the quotient map. These are actual Artinian coefficient objects and ker e_N is naturally E, killed by m_B. The induced point f_N:R→A_N has presentation obstruction id_E. For every nonzero λ:E→k, pushing out e_N along λ gives a principal small extension and f_N has no lift to it. The extension e_N itself need not be principal; when E=0 it is an isomorphism. Larger admissible N give compatible extensions with identity kernel map.",
+      "hypotheses": [
+        "Λ is a complete Noetherian commutative local ring with specified surjective residue map ρ:Λ→k, ker ρ=m_Λ; k is an arbitrary field.",
+        "All coefficient objects and maps use the labelled residue convention of R03.1; complete objects are Noetherian and maximal-ideal complete and separated.",
+        "q is minimal. N is any positive integer satisfying the stated Artin–Rees inclusion."
+      ],
+      "proofSteps": [
+        "Apply Ideal.exists_pow_inf_eq_pow_smul to the submodule J⊆S and the ideal m_S. Once the exponent exceeds its Artin–Rees constant by one, the intersection is inside m_SJ.",
+        "The quotients by ideals containing m_S^N are Artinian by R03.1/positive-truncation and quotient permanence. The residue convention is preserved because both ideals lie in m_S.",
+        "The kernel is (J+m_S^N)/(m_SJ+m_S^N); the third isomorphism theorem and the Artin–Rees inclusion identify it with J/m_SJ, with the labelled k-action. Multiplication by m_S kills this kernel.",
+        "The images of X_i in B_N give selected lifts of the point f_N. Evaluating j sends its class to itself in E, so canonical obstruction equals id_E.",
+        "Push out along λ by quotienting B_N by the inverse image of ker λ in its socle kernel. A nonzero λ is surjective onto k, so the resulting kernel is one-dimensional and gives a principal small extension. Naturality makes its canonical obstruction λ, which is nonzero; the point does not lift.",
+        "For N′≥N, quotient reduction gives a commuting square of extensions and induces id_E on kernels."
+      ],
+      "acceptance": [
+        "J=0 gives E=0 and e_N an isomorphism, not a principal small extension.",
+        "For S=k[[X]], J=(X²), N=3, e_N is k[t]/t³→k[t]/t².",
+        "For S=k[[X,Y]], J=(X,Y)², N=3, the kernel has k-dimension three and e_N is not principal small.",
+        "For the nonminimal J=(Y) in k[[Y]], the same construction at N=2 splits; the nonliftability clause applies only to minimal presentations."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-deformation-presentation",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-relation-space",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/canonical-presentation-obstructions",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/positive-truncation",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-quotient",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/small-extension",
+        "mathlib:Ideal.exists_pow_inf_eq_pow_smul",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "KWII2009",
+          "locator": "Lemma 4.6, construction pp. 43–44 and injectivity argument pp. 44–45",
+          "match": "The extension with kernel J/mJ and its one-dimensional pushouts. The node supplies a finite Artinian realization of this method."
+        },
+        {
+          "sourceId": "Schlessinger1968",
+          "locator": "Definition 1.2 p. 209 and proof of Theorem 2.11 pp. 213–214",
+          "match": "Principal small extensions and truncation limits; the Artin–Rees truncation here is an explicit additional algebraic argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestExponent_exists",
+          "role": "constructor",
+          "statement": "There is N≥1 with J∩m_S^N⊆m_SJ."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestExtension",
+          "role": "constructor",
+          "statement": "The two finite quotients and their actual surjective labelled map form the selected socle extension."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestKernelEquiv",
+          "role": "compatibility",
+          "statement": "Its kernel is k-linearly equivalent to E, compatibly with the quotient of j∈J."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestExtension_obstruction",
+          "role": "simp",
+          "statement": "The canonical obstruction of f_N is the identity of E under the kernel equivalence."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestPushout",
+          "role": "functoriality",
+          "statement": "For λ:E→k, quotient by ker λ gives the kernel pushout; for nonzero λ it is a principal small extension."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestPushout_no_lift",
+          "role": "universal-property",
+          "statement": "For nonzero λ, f_N has no lift to the pushout extension."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestExtension_cofinal",
+          "role": "compatibility",
+          "statement": "If N′≥N are admissible, reduction is a commuting extension square inducing the identity on E."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestExtension_zero",
+          "kind": "degenerate",
+          "statement": "For J=0 its kernel is zero and the quotient map is bijective."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestExtension_quadratic",
+          "kind": "computation",
+          "statement": "For J=(X²) and N=3 the selected extension is the cubic-to-quadratic truncated power-series quotient."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestExtension_three_relations",
+          "kind": "non-example",
+          "statement": "For J=(X,Y)² and N=3 the kernel has dimension three, so this extension is socle but not principal small."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.relationTestExtension_nonminimal",
+          "kind": "non-example",
+          "statement": "For J=(Y), N=2, the extension k[t]/t²→k has a coefficient-algebra section, unlike a nonzero pushout of a minimal presentation."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R03.2/relation-bound",
+          "how": "A single tensor obstruction on this finite extension supplies the linear injection E*→O."
+        }
+      ],
+      "declarations": [
+        "TauCeti.DeformationAlgebra.relationTestExtension"
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/relation-bound",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "The obstruction-space bound on minimal relations",
+      "kind": "theorem",
+      "statement": "Let h_R→F be a hull in the imported classical coefficient category, with chosen minimal presentation q:S=Λ[[X₁,…,X_d]]→R and E=ker(q)/m_Sker(q). Suppose F has a complete natural tensor-valued obstruction theory with finite k-vector space O for all Artinian socle extensions, including naturality for arbitrary k-linear kernel pushouts. Then there is an injective k-linear map E*→O; consequently dim_k E≤dim_k O. Lifting a basis of E gives ideal generators f₁,…,f_r of ker q with r≤dim_k O, hence R≅Λ[[X₁,…,X_d]]/(f₁,…,f_r) and d=dim_k T_F. If O=0 the hull is a power-series ring and F is unobstructed. A merely nonzero chosen obstruction space does not imply F is obstructed. The statement bounds a minimal presentation; it is false for arbitrary presentations.",
+      "hypotheses": [
+        "Λ is a complete Noetherian commutative local ring with specified surjective residue map ρ:Λ→k, ker ρ=m_Λ; k is an arbitrary field.",
+        "All coefficient objects and maps use the labelled residue convention of R03.1; complete objects are Noetherian and maximal-ideal complete and separated.",
+        "F has H1,H2 and finite tangent, and the supplied hull is smooth and tangent bijective.",
+        "The obstruction theory has actual values in O⊗_k ker e, zero iff the specified point lifts, and naturality for commuting squares of finite socle extensions. This is the requested enlargement of SF.4/obstruction-theory, not its current principal-only detector."
+      ],
+      "proofSteps": [
+        "Pull the supplied obstruction theory back along the smooth hull map h_R→F. Completeness holds: a lift of the image of a represented point can be pulled back to a lift of that point by smoothness. Naturality is inherited.",
+        "Take the universal Artinian extension e_N and the point f_N of the preceding construction. Its obstruction is ω∈O⊗E. Contraction λ↦(id_O⊗λ)(ω) is a k-linear map E*→O.",
+        "For nonzero λ, the kernel pushout point has no lift by relationTestPushout_no_lift. Completeness makes its obstruction nonzero; naturality identifies it with the contraction of ω. Thus the contraction has zero kernel and is injective.",
+        "Use finite-dimensional linear algebra for the dimension bound. Use relation_basis_generates to lift a basis of E to a generating tuple for ker q, giving the presentation.",
+        "If O=0 then E=0 and Nakayama forces J=0; the imported smooth hull comparison proves unobstructedness. The zero- versus nonzero-space distinction follows since any unobstructed functor admits the identically zero theory with a larger O."
+      ],
+      "acceptance": [
+        "For F=h_{k[[X]]/(X²)}, canonical O=k gives r=1=d.",
+        "For F=h_Λ, canonical O=0 gives d=r=0.",
+        "For h_k over a DVR Λ, d=0 but r=1; relative tangent dimension alone does not bound relations.",
+        "The nonminimal presentation k[[Y]]→k has one relation although O=0 is a complete theory for h_k over k."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-deformation-presentation",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/minimal-relation-space",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/canonical-presentation-obstructions",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/universal-artinian-test-extension",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/smooth-functor-ring-comparison",
+        "SchemeAndStackFoundations:SF.4/hull",
+        "SchemeAndStackFoundations:SF.4/obstruction-theory",
+        "SchemeAndStackFoundations:SF.4"
+      ],
+      "sources": [
+        {
+          "sourceId": "KWII2009",
+          "locator": "Lemma 4.6 pp. 43–45",
+          "match": "Linear relation-dual map and nonzero-pushout nonsplitting; the Galois pairing is not reproduced."
+        },
+        {
+          "sourceId": "Gee2022",
+          "locator": "Lemma 3.13 p. 13; Proposition 3.24(2) p. 18",
+          "match": "Relation bounds for universal deformation presentations. Its arithmetic obstruction calculation is supplied by the Galois owners."
+        },
+        {
+          "sourceId": "StacksObstructions",
+          "locator": "Definition 98.22.1 (tag 07YG)",
+          "match": "The complete natural tensor obstruction interface used by the abstract argument."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "planet": {
+        "name": "Obstruction relation bound"
+      },
+      "declarations": [
+        "TauCeti.DeformationAlgebra.relationDualInjection",
+        "TauCeti.DeformationAlgebra.relation_bound",
+        "TauCeti.DeformationAlgebra.zero_obstruction_hull_series"
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/hull-without-prorepresentability",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "An explicit hull whose functor is not prorepresentable",
+      "kind": "construction",
+      "statement": "Over a field k, let F(A)=m_A/(1+m_A) under multiplication by principal units, for Artinian local k-algebras with residue k. The natural map h_{k[[X]]}(A)=m_A→F(A) is smooth and induces a tangent isomorphism, hence is a hull. It is not a prorepresenting pair and F has no prorepresenting object. For A=k[t]/t³→B=k[t]/t², a principal small extension, the two classes of (t,t) and (t,t+t²) in F(A×_B A) are distinct, but have the same image in F(A)×_{F(B)}F(A). Thus H4 fails. The nonidentity ring automorphism X↦X+X² preserves the formal element in F, so compatible hull isomorphisms need not be unique. This example has finite one-dimensional tangent and distinguishes the two criteria without any Galois-cohomological input.",
+      "hypotheses": [
+        "Λ=k is a field; use the residue-labelled Artinian coefficient category.",
+        "The orbit relation is x∼y iff y=u x for a unit u with residue 1; it is transported by coefficient maps."
+      ],
+      "proofSteps": [
+        "A lifting problem for m→F can be solved by choosing a representative upstairs and lifting the correcting principal unit from A to B. Artinian-surjection unit lifting gives smoothness.",
+        "On dual numbers principal-unit multiplication fixes every element of the maximal ideal, so the tangent map is an isomorphism onto k.",
+        "In P=A×_B A a principal unit has equal t-coefficients in its two components. Multiplying (t,t) by it changes the t² coefficients by the same scalar; it cannot give (t,t+t²). Componentwise, the second coordinate is obtained by multiplying t by 1+t. This proves the H4 comparison is not injective.",
+        "Apply the imported prorepresentability criterion to exclude any representing pair. The hull exists from the explicit smooth tangent-bijective map.",
+        "The substitution X↦X+X² has invertible linear term and hence is a continuous automorphism. At every point x∈m_A, x+x²=(1+x)x lies in its principal-unit orbit, so the hull formal element is fixed."
+      ],
+      "acceptance": [
+        "The tangent is k and its dimension is one in every characteristic.",
+        "The self-pullback is A×_B A, rather than A×_k A.",
+        "The displayed two orbits coincide componentwise but not in the pullback.",
+        "Hull automorphisms can preserve the formal element without being the identity."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/coefficient-and-functor-comparison",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-pullback",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/coefficient-power-series",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/local-series-evaluation",
+        "SchemeAndStackFoundations:SF.4/deformation-functor",
+        "SchemeAndStackFoundations:SF.4/hull",
+        "SchemeAndStackFoundations:SF.4/schlessinger-theorem"
+      ],
+      "sources": [
+        {
+          "sourceId": "Schlessinger1968",
+          "locator": "Proposition 2.9 pp. 211–212; Theorem 2.11 pp. 212–213; Remark 2.15 pp. 213–214",
+          "match": "The hull/prorepresenting distinction and stabilizers obstructing the self-pullback axiom. The explicit principal-unit example here is independently computed, rather than attributed to the paper."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "declarations": [
+        "TauCeti.DeformationAlgebra.principalUnitOrbitFunctor",
+        "TauCeti.DeformationAlgebra.principalUnitOrbit_hull",
+        "TauCeti.DeformationAlgebra.principalUnitOrbit_not_prorep"
+      ],
+      "planet": {
+        "name": "Hulls and automorphisms"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbitFunctor",
+          "role": "data",
+          "statement": "The covariant functor A↦m_A/(1+m_A), with transport induced by coefficient maps."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbitMap",
+          "role": "constructor",
+          "statement": "The natural orbit map h_{k[[X]]}→F sends the series point X↦x to the orbit of x."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbit_hull",
+          "role": "characterisation",
+          "statement": "The orbit map is smooth and tangent bijective, so is a hull."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbit_not_prorep",
+          "role": "characterisation",
+          "statement": "The explicit self-pullback pair proves H4 fails; F is not prorepresentable."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbit_zero",
+          "kind": "degenerate",
+          "statement": "Over k the maximal ideal is zero and F(k) is a singleton."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbit_dual",
+          "kind": "computation",
+          "statement": "On k[ε], principal-unit orbits of aε are singletons, so the tangent map is the identity of k."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.principalUnitOrbit_pullback",
+          "kind": "non-example",
+          "statement": "In k[t]/t³×_{k[t]/t²}k[t]/t³ the orbits of (t,t) and (t,t+t²) are distinct even though both component orbits agree."
+        }
+      ],
+      "uses": [
+        {
+          "where": "R03.2/coefficient-and-functor-comparison; Schlessinger Theorem 2.11",
+          "how": "Tests H4, smooth tangent-bijective hulls and the difference between compatible existence and compatible uniqueness."
+        }
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra:R03.2/continuous-framed-representability",
+      "parentStageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "realises": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2"
+      ],
+      "title": "The continuous framed matrix construction",
+      "kind": "construction",
+      "statement": "Assume k is finite of characteristic p, Γ is profinite and a continuous residual representation ρ̄:Γ→GL_n(k) is fixed in a basis. If Γ has d topological generators, the functor of continuous fixed-basis lifts ρ_A:Γ→GL_n(A) on Artinian coefficient objects is prorepresented by a labelled complete Noetherian local quotient of Λ[[d n² variables]]. To construct it choose a surjection P=freeProfiniteGroup(Fin d)→Γ and lifts L_i of the residual generator matrices. The universal matrices define a continuous representation U:P→GL_n(S), with S the series ring, using the inverse limit of finite matrix groups over S/m_S^a. Quotient S by the ideal of entries U(w)−1 for every w in the closed kernel P→Γ. The resulting R□ carries a universal continuous representation and its evaluation equivalence is natural in A. The same conclusion holds without finite generation of Γ if the maximal pro-p quotient of ker ρ̄ is topologically finitely generated: every lift factors through Γ/H, where H is the image of the pro-p kernel of ker ρ̄. This quotient is topologically finitely generated. This is the generic algebraic supplier to the Galois deformation roadmaps; their arithmetic finiteness conditions and cohomology remain there.",
+      "hypotheses": [
+        "Λ is a complete Noetherian commutative local ring with specified surjective residue map ρ:Λ→k, ker ρ=m_Λ; k is an arbitrary field.",
+        "All coefficient objects and maps use the labelled residue convention of R03.1; complete objects are Noetherian and maximal-ideal complete and separated.",
+        "k is finite with prime characteristic p. Γ is a profinite group and ρ̄ is continuous.",
+        "For the direct construction Γ is topologically finitely generated. For the extended conclusion it suffices that the maximal pro-p quotient of ker ρ̄ is topologically finitely generated."
+      ],
+      "proofSteps": [
+        "Lift each residual matrix to GL_n(Λ): arbitrary entry lifts have unit determinant because the residual determinant is nonzero. Use the finite matrix coordinates and invertibility proof of framed-matrix-equations.",
+        "A complete coefficient object over finite k has finite positive Artinian quotients: each successive maximal-ideal layer is a finite k-vector space. The coefficient quotient-limit theorem identifies GL_n(S) with the compatible inverse limit of finite GL_n(S/m^a), with its adic matrix topology.",
+        "Apply ProfiniteProPGroups Layer 4, free-profinite universal property, at each finite matrix quotient to extend the chosen generator matrices. Uniqueness makes these extensions compatible. The quotient-limit comparison gives U and its continuity.",
+        "Generate J by every entry U(w)−1 for w in the actual closed kernel, including profinite relators. Residual compatibility gives J⊆m_S. R03.1/complete-quotient supplies R□. Continuity and the quotient universal property descend U to Γ.",
+        "For a continuous lift on A, series evaluation from the generator coordinates takes every profinite relation to zero. Conversely any map R□→A supplies the descended continuous representation. Generator uniqueness makes the two operations inverse and proves naturality. The finite tangent bound follows from the series cotangent.",
+        "For the extended conclusion, filter the finite congruence kernel GL_n(A)→GL_n(k) by powers of m_A. Successive quotients are additive matrix spaces in characteristic p, so the kernel is a finite p-group. The maximal-pro-p universal property kills H in every lift. The pro-p kernel is characteristic in ker ρ̄, so H is closed normal in Γ. The quotient Γ/H is an extension of the finite residual image by the finitely generated maximal pro-p quotient; lift finite kernel generators and finite quotient generators to obtain a finite topological generating set. Apply the direct construction."
+      ],
+      "acceptance": [
+        "For Γ trivial, R□ is Λ and the universal representation is trivial.",
+        "For the free profinite group on d generators with a prescribed residual tuple, R□ is the full d n²-variable series ring.",
+        "For Γ cyclic of order two, n=1, ρ̄=1 and Λ=k of characteristic two, R□ is k[[X]]/(X²).",
+        "Finite-word relations alone cannot detect an arbitrary closed profinite kernel; the construction uses all its elements."
+      ],
+      "prerequisites": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/framed-matrix-equations",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/coefficient-and-functor-comparison",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/artinian-quotient-limit",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/positive-truncation",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/complete-quotient",
+        "DeformationAndDerivedPatchingAlgebra:R03.1/relative-cotangent-finite",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+        "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets"
+      ],
+      "sources": [
+        {
+          "sourceId": "KisinLecture1",
+          "locator": "Proposition (1.2.1)(1), proof p. 2; Remark (1.1.2)(1) p. 1",
+          "match": "The congruence-kernel reduction and fixed-basis matrix quotient. The node states the closed-profinite-relator and finite-quotient steps explicitly."
+        },
+        {
+          "sourceId": "Schlessinger1968",
+          "locator": "Proposition 2.9 pp. 211–212; Theorem 2.11(2) p. 213",
+          "match": "Uniqueness of a prorepresenting pair and its distinction from a hull."
+        }
+      ],
+      "implementationStatus": "unchecked",
+      "library": {
+        "module": "TauCeti/RingTheory/Deformation/Presentation",
+        "namespace": "TauCeti.DeformationAlgebra"
+      },
+      "api": [
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramedRing",
+          "role": "constructor",
+          "statement": "Construct the labelled complete coefficient ring for a finite topological generating tuple and chosen residual lifts."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramedUniversal",
+          "role": "data",
+          "statement": "The universal continuous fixed-basis lift Γ→GL_n(R□)."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramedPointsEquiv",
+          "role": "universal-property",
+          "statement": "Labelled maps R□→A are naturally equivalent to actual continuous representations Γ→GL_n(A) reducing to ρ̄."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramedPointsEquiv_natural",
+          "role": "functoriality",
+          "statement": "Coefficient transport of matrices agrees with composition of maps out of R□."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramedRing_tangent_le",
+          "role": "compatibility",
+          "statement": "Its relative tangent dimension is at most d n²."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramedRing_choice_iso",
+          "role": "characterisation",
+          "statement": "Two representing constructions admit a unique labelled ring isomorphism carrying one universal representation to the other."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramed_proP_reduction",
+          "role": "compatibility",
+          "statement": "Every lift kills the image of the pro-p kernel of ker ρ̄; if its maximal pro-p quotient is finitely generated, this reduces to the finite-generator construction."
+        }
+      ],
+      "tests": [
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramedRing_trivial",
+          "kind": "degenerate",
+          "statement": "For Γ trivial, the ring is labelled-isomorphic to Λ."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramedRing_free",
+          "kind": "compatibility",
+          "statement": "For Γ the free profinite group on d generators, the ring is the full series ring with d n² variables, agreeing with the empty-word matrix construction."
+        },
+        {
+          "name": "TauCeti.DeformationAlgebra.continuousFramedRing_involution",
+          "kind": "computation",
+          "statement": "For Γ=C₂, Λ=k of characteristic 2, n=1 and residual value 1, the ring is k[[X]]/(X²), with its nonzero quadratic obstruction."
+        }
+      ],
+      "uses": [
+        {
+          "where": "GlobalGaloisDeformations:R04.2/universal-lifting-ring; LocalGaloisDeformationRings:R08.1",
+          "how": "The generic representing algebra is supplied here; those owners establish their arithmetic finite-generation hypotheses and identify cohomological tangents."
+        }
+      ],
+      "planet": {
+        "name": "Framed representing rings"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "supplier": "SchemeAndStackFoundations:SF.4",
+      "need": "Extend the existing obstruction-theory node to finite-dimensional socle extensions B→A, with m_B ker=0 (zero kernel allowed), actual tensor values O⊗_k ker, completeness (zero iff lift), and naturality for commuting squares inducing arbitrary k-linear kernel maps, including quotient pushouts. Prove pullback completeness along a smooth transformation h_R→F. Keep this general interface in SF.4. The current principal-small-extension LiftDetector is insufficient.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/canonical-presentation-obstructions",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/universal-artinian-test-extension",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/relation-bound"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-0-profinite-foundations",
+      "need": "Closed normal quotient and compatible inverse-limit universal properties for profinite groups. Import the current upstream roadmap contract; do not plan a second group object.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/continuous-framed-representability"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-3-pro-p-groups-the-maximal-pro-p-quotient-frattini-theory-generation",
+      "need": "Characteristic maximal-pro-p kernel and its continuous factorization universal property; finite topological generating sets. Import the current upstream roadmap contract; do not plan a second group object.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/continuous-framed-representability"
+      ]
+    },
+    {
+      "supplier": "tauceti:TauCetiRoadmap/ProfiniteProPGroups#layer-4-free-pro-p-and-pro-c-groups-on-finite-sets",
+      "need": "The existing free profinite group on Fin d and its unique continuous extension from generator images, including finite-quotient naturality. Import the current upstream roadmap contract; do not plan a second group object.",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/continuous-framed-representability"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "title": "Full natural socle-extension obstruction interface",
+      "neededBy": [
+        "DeformationAndDerivedPatchingAlgebra:R03.2/canonical-presentation-obstructions",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/universal-artinian-test-extension",
+        "DeformationAndDerivedPatchingAlgebra:R03.2/relation-bound"
+      ],
+      "detail": "SF.4 currently plans principal small extensions and prototypes a zero/nonzero lift detector. The relation-bound proof needs one tensor obstruction for a kernel E of arbitrary finite dimension and its linear contractions. This is an explicit supplier-interface gap, not a claim that the principal detector suffices."
+    }
+  ],
+  "coverage": [
+    {
+      "stageId": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "status": "planned",
+      "remaining": [
+        "Supply and independently verify the SF.4 full natural socle-extension obstruction interface, with smooth pullback completeness; replace this request with its precise nodes.",
+        "Reconcile the generic continuous framed supplier with R04.2/universal-lifting-ring and R08.1, retaining their arithmetic specializations."
+      ]
+    }
+  ],
+  "sourceIssues": [
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E1",
+      "source": "KisinLecture1",
+      "kind": "misprint",
+      "locator": "Lecture 1 §1.2 p. 1, last sentence; compare Exercise 1 p. 4",
+      "printed": "The alternative condition tests only continuous Hom(G,F_p), while the preceding Φ_p condition quantifies over every open subgroup.",
+      "correction": "Test finite-dimensional continuous Hom(G′,F_p) for every open subgroup G′. Exercise 1 in the same notes already has this quantifier.",
+      "reason": "For odd p, take G=(product over the positive integers of C_p) semidirect C_2, with C_2 acting by inversion. Hom_cont(G,F_p)=0, but its open index-two subgroup has infinitely many independent coordinate characters.",
+      "affects": "a stated result",
+      "known": "The correct quantifier appears in Exercise 1, p. 4 of the same author notes.",
+      "searched": [
+        "The author’s Lecture 1 PDF, including Exercise 1 on p. 4.",
+        "The author’s Harvard homepage and preprints listing, accessed 2026-10-10; no separate erratum found."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E2",
+      "source": "KisinLecture1",
+      "kind": "misprint",
+      "locator": "Proof of Proposition (1.2.1)(1) p. 2, range of the two matrix-entry indices",
+      "printed": "Both matrix-entry indices are assigned the range 1,…,n².",
+      "correction": "Each matrix-entry index runs through 1,…,n. There are n² entry variables per topological generator.",
+      "reason": "An n by n matrix has n² entries total. Taking each index through n² would introduce n⁴ variables and does not match the displayed n by n universal matrix.",
+      "affects": "nothing",
+      "known": "new",
+      "searched": [
+        "The four-page author Lecture 1 PDF and its matrix formulas.",
+        "The author’s Harvard homepage and preprints listing, accessed 2026-10-10; no corrected version or separate erratum found."
+      ]
+    },
+    {
+      "id": "DeformationAndDerivedPatchingAlgebra/E3",
+      "source": "Schlessinger1968",
+      "kind": "misprint",
+      "locator": "Remark 2.10 p. 212, smoothness-composition reference",
+      "printed": "The argument refers to numbered item 2.6, parts (ii) and (iii), for composition and cancellation of smooth transformations.",
+      "correction": "Use Proposition 2.5(ii) and (iii), p. 211.",
+      "reason": "Item 2.6 is tangent-space notation and has no parts (ii) and (iii); Proposition 2.5 contains the two stated smoothness rules.",
+      "affects": "the proof",
+      "known": "new",
+      "searched": [
+        "Published scan, Proposition 2.5 and Notation 2.6 p. 211 and Remark 2.10 p. 212, visually checked.",
+        "Public title-and-author erratum search and AMS publication search on 2026-10-10; no separate correction found."
+      ]
+    }
+  ],
+  "ownershipNotes": [
+    {
+      "owner": "DeformationAndDerivedPatchingAlgebra:R03.2",
+      "formerly": [
+        "GlobalGaloisDeformations:R04.2/universal-lifting-ring"
+      ],
+      "detail": "The generic continuous framed representing algebra is moved down to this algebra stage; R04.2 keeps its arithmetic Φ_p verification and universal Galois representation specialization. Its existing generic node must become an import of R03.2/continuous-framed-representability. No consumer-to-supplier prerequisite is introduced."
+    }
+  ],
+  "sourceVersions": [
+    {
+      "kind": "author copy",
+      "url": "https://people.math.harvard.edu/~kisin/notes/notes.pdf",
+      "read": "2026-10-10",
+      "sha256": "9f3698a791b6a96318b8eded26962f2da7d3f34628ab47d855df7e36cd5712c6"
+    }
+  ],
+  "libraryNotes": [
+    {
+      "source": "https://github.com/leanprover-community/mathlib4/pull/37940",
+      "commit": "6fa3d6e048f5dbcbab6648d673f0520eae6e2e06",
+      "read": "2026-10-10",
+      "detail": "Open Mathlib proposal LocExtCat/BaseCat packages local extensions of the fixed residue field and makes Artinian objects a full subcategory. Defs.lean and BaseCat.lean were read. Its residue-compatible extension homomorphisms match the supplier shape used here. Its IsSmallExtension admits zero kernels, so nonzero principal-small tests must additionally impose one-dimensional kernel. R03.1 and SF.4 own adoption of this library design; this layer imports their category transport and plans no duplicate category. The proposal supplies no Schlessinger or relation-bound theorem and is not a pinned baseline citation."
+    },
+    {
+      "source": "https://leanprover-community.github.io/archive/stream/416277-FLT/topic/Rolling.20update.html",
+      "read": "2026-10-10",
+      "detail": "The public FLT discussion identifies de Smit–Lenstra as the direction of separate universal Galois deformation-ring work. This is a lead for the arithmetic consumers, not a baseline theorem or a source proof used by this packet."
+    }
+  ]
+}
