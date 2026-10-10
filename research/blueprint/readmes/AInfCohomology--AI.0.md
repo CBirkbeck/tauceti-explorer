@@ -12,9 +12,9 @@ Complexes are cohomological and indexed by Z, with d:C^i→C^(i+1). Tensor produ
 
 The RS-01 ownership inherited by this packet is retained with issue #664’s more precise corrections. Its September ownership review is historical; this revision does not assert acceptance of the subsequently revised RS-01 proposal. AI.0 owns finite Witt coherence and the shared polynomial/étale coefficient lemmas; CP.0's coherence declaration is an alias. AI.2 owns Lemma 4.9 and Proposition 4.13, because BKF realization needs them before proper cohomology. CP.5's perfectness/Tor and structure declarations are aliases of AI.2. AI.5 owns the specialization algebra of BMS1 Lemmas 4.14–4.20, while CP.5 applies it to its geometric comparison statements. CR.4 imports AI.0 coefficients; coefficients do not import their CR.4 consumer.
 
-The shared substrate is imported by exact node identifiers in the catalogue. DD.0 owns full cotangent complexes and transitivity, DD.1 owns generic completion, filtered/Beilinson constructions and scalar Koszul complexes, E1/E2/E4/E5 own enhancements and derived sheaf operations, A1 the corrected site, PSP the perfectoid and almost-purity inputs, CR.0/CR.2/CR.3/CR.4 the PD/crystalline/Witt objects, and upstream AdicSpaces the shared analytic Y and its Frobenius. No upstream roadmap, other packet, atlas data or final prismatic comparison is replanned here. The early P8 primitive integral comparison is requested independently of comparison applications consuming AI.3–AI.5. Proper de Rham perfectness is imported from the exact lower-tier DD.5 theorem. Under the 2026-10-09 upstream order, AI.2 now owns linear module patching, integral Witt/Robba descent, analytic annulus classification, extension across infinity and the finite-free A_inf/vector-bundle equivalence. RF4 and the outside-order VB plan import these results; they are no longer prerequisites of AI.2.
+The shared substrate is imported by exact node identifiers in the catalogue. DD.0 owns full cotangent complexes and transitivity, DD.1 owns generic completion, filtered/Beilinson constructions and scalar Koszul complexes, E1/E2/E4/E5 own enhancements and derived sheaf operations, A1 the corrected site, PSP the perfectoid and almost-purity inputs, CR.0/CR.2/CR.3/CR.4 the PD/crystalline/Witt objects, and upstream AdicSpaces the interior spaY and its Frobenius. The punctured analytic endpoint extension needed by SW reconstruction is requested from that same owner. No upstream roadmap, other packet, atlas data or final prismatic comparison is replanned here. The early P8 primitive integral comparison is requested independently of comparison applications consuming AI.3–AI.5. Proper de Rham perfectness is imported from the exact lower-tier DD.5 theorem. Under the 2026-10-09 upstream order, AI.2 now owns linear module patching, integral Witt/Robba descent, analytic annulus classification, extension across infinity and the finite-free A_inf/vector-bundle equivalence. RF4 and the outside-order VB plan import these results; they are no longer prerequisites of AI.2.
 
-The pinned baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The reviewed AUDIT-35 and accepted review were read; the generated coverage file has no AInf entries. The packet cites 33 baseline declarations: the prior independent review checked 29, and this revision read four additional carrier declarations at the exact Mathlib pin. The new carriers are ordinary tensor product, adic completion, and Mathlib’s existing isocrystal and fraction-field Frobenius. They supply ordinary complexes and derived categories, tensor/localized modules, Witt vectors, PreTilt and Fontaine's theta, adic completion and period carriers. They do not supply the missing coherent enhancement or completed pro-étale comparison machinery. The native BDeRham carriers do not by themselves certify their topology or DVR properties. The current read-only AdicSpaces and DGAInfinity documents were read in full. AdicSpaces Layer 6 and current Tau Ceti already supply Y, its topology, Frobenius and radius interfaces; those are reused. The current upstream and Tau Ceti commits checked for duplication are recorded in the packet’s upstreamNotes.
+The pinned baseline is Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174 and Tau Ceti f790474821cf4256814db967cb154e7af3d0c369. The reviewed AUDIT-35 and accepted review were read; the generated coverage file has no AInf entries. All 33 cited baseline declarations were independently re-read for this review at the exact Mathlib pin. They supply ordinary complexes and derived categories, tensor/localized modules, Witt vectors, PreTilt and Fontaine's theta, adic completion, isocrystals and period carriers. Their existence does not provide the missing coherent enhancement or completed pro-étale comparison machinery; the native BDeRham carriers alone do not certify their topology or DVR properties. The upstream AdicSpaces and DGAInfinity documents were read. AdicSpaces Layer 6 and current Tau Ceti supply the interior spaY=D(p) intersection D([varpi^flat]) and its positive finite radius windows. SW §12.2, pp.101–102 instead uses the punctured analytic Y^an=D(p) union D([varpi^flat]), including radius zero and infinity. Reconstruction imports the existing interior and requests the endpoint carrier, interval section rings, stalks and sheaf extension from AdicSpaces; it does not claim those are already supplied. The inspected current commits are recorded in upstreamNotes.
 
 ## AI.0. Finite Witt coefficients
 
@@ -58,13 +58,13 @@ Before realization, prove the valuation dimension/lattice lemmas, Kedlaya's punc
 
 For every BKF module, T(M)=(M⊗_A W(C^flat))^(φ=1) is finite over Z_p and reconstructs the W(C^flat) realization; its μ-inverted comparison is retained. For finite free M, Xi=M⊗_A B_dR^+ is a lattice in T(M)⊗B_dR. Pair morphisms are Z_p-linear maps preserving Xi after extension. Full faithfulness is proved directly by BMS1 Remark 4.29 and the intersection in Lemma 3.23; it does not depend on proper cohomology or on essential surjectivity.
 
-Essential surjectivity uses the shared Y from upstream AdicSpaces and the exact AI.2-owned analytic chain: integral Robba descent and no-leg shtukas (SW 12.3.4/12.3.5, p.104), pair-to-one-leg patching (12.4.6, pp.106–107), annulus isocrystal classification (13.4.1, pp.111–113), unique extension across infinity from Y_[r,infinity) to Y_[r,infinity] (13.2.1, pp.109–111), and the finite-free/vector-bundle equivalence on Y (14.2.1, pp.116–117). The leg is at phi^-1(x_C), corresponding to linearization at tilde-xi. This reconstruction needs no proper-cohomology or separate RF0 crystalline comparison prerequisite. The Fargues equivalence here is the finite free equivalence; do not infer exactness of its inverse. The perfectoid minuscule dictionary uses the initial prism (A_inf,tilde-ξ), Frobenius shifted from the theta prism. R07.2 needs an early Part II prismatic-window dictionary before applications consuming AI.2. Anschütz–Le Bras Proposition 4.3.5 (published 4.47) adds determination by (T_M,M_crys,α_M); its general descent erratum was checked separately.
+Essential surjectivity uses the punctured analytic Y^an, with the requested endpoint extension of upstream AdicSpaces' interior spaY, and the exact AI.2-owned analytic chain: integral Robba descent and no-leg shtukas (SW 12.3.4/12.3.5, p.104), pair-to-one-leg patching (12.4.6, pp.106–107), annulus isocrystal classification (13.4.1, pp.111–113), unique extension across infinity from Y_[r,infinity) to Y_[r,infinity] (13.2.1, pp.109–111), and the finite-free/vector-bundle equivalence on Y^an (14.2.1, pp.116–117). The leg is at phi^-1(x_C), corresponding to linearization at tilde-xi. This reconstruction needs no proper-cohomology or separate RF0 crystalline comparison prerequisite. The Fargues equivalence here is the finite free equivalence; do not infer exactness of its inverse. The perfectoid minuscule dictionary uses the initial prism (A_inf,tilde-ξ), Frobenius shifted from the theta prism. R07.2 needs an early Part II prismatic-window dictionary before applications consuming AI.2. Anschütz–Le Bras Proposition 4.3.5 (published 4.47) adds determination by (T_M,M_crys,α_M); its general descent erratum was checked separately.
 
 Descent to discretely valued K retains continuous semilinear G_K actions and compatible coefficient topologies. BMS1 §4.4 gives the crystalline example, with the corrected Frobenius on W(k) and T↦[pi-flat]^p. Algebraic transport of an action alone does not prove continuity. Tests include the unit, the shifted rank-one lattice, rank zero, a zero nonspanning submodule, and A_inf/p, which belongs to the general category but is outside finite free Fargues classification.
 
 ## AI.3. The corrected site and AΩ
 
-On the corrected pro-étale site, construct hat O_X^+=lim_n O_X^+/p^n, the tilt lim_F(hat O_X^+/p), and the derived p-completed Witt sheaf A_inf,X. The underlying pro-étale category is unchanged by Scholze's corrigendum; covers use transfinite towers with finite étale surjective successor pullbacks. The deleted point claims and splitting of arbitrary open profinite surjections are not used. On affinoid perfectoids the completed integral and tilted sections are the actual completed rings, and higher cohomology is almost zero. A_inf,X is a derived object; no everywhere discrete global limit is assumed. On profinite products its sections are continuous maps, and sharp is multiplicative rather than generally additive.
+On the corrected pro-étale site, construct hat O_X^+=lim_n O_X^+/p^n, the tilt lim_F(hat O_X^+/p), and the derived p-completed Witt sheaf A_inf,X. The underlying pro-étale category is unchanged by Scholze's corrigendum; covers use transfinite towers whose map at every positive ordinal, including a limit ordinal, is pulled back from a finite étale surjection over the limit of preceding stages. The deleted point claims and splitting of arbitrary open profinite surjections are not used. On affinoid perfectoids the completed integral and tilted sections are the actual completed rings, and higher cohomology is almost zero. A_inf,X is a derived object; no everywhere discrete global limit is assumed. On profinite products its sections are continuous maps, and sharp is multiplicative rather than generally additive.
 
 For smooth formal mathfrak X/O with generic fibre X and ν:X_proet→mathfrak X_Zar, set AΩ=Lη_μ Rν_*A_inf,X in the common enhancement. Toric root covers carry the continuous Z_p(1)^d action. Split completed monomial weights into integral and nonintegral summands, calculate the cohomology, and verify the no-almost-zero hypotheses before applying the almost-to-honest criterion. An arbitrary almost quasi-isomorphism is not automatically repaired by Lη. The finite Witt route uses AI.0 coherence, polynomial calculation and étale base change.
 
@@ -107,6 +107,8 @@ All 137 node exports, 118 API names and 85 named example contracts have signatur
 | AΩ and toric cover | Principal décalage and AddMonoidAlgebra with Z[1/p]^d exponents | Rν_*, completed geometric tensor, perfectoid cover and continuous Γ action are absent. The character formula and finite-root tests use actual algebraic monomials. |
 | q-model and Witt complexes | Laurent polynomials, tensor complexes and Bockstein complexes | Framing geometry, derived coefficient change and full multiplicative F-V/E_infinity coherence are absent. |
 | Proper complex and comparison theorems | Native complexes, derived-category objects, scalar-extension models and module conditions | Formal schemes, smoothness/properness, derived completion and actual geometric RΓ/coefficient-identification hypotheses are omitted explicitly. |
+
+The native Witt base-change proposal fixes the canonical coefficient maps and retains the étale conclusion and pure-tensor formula. The integral crystalline proposal retains the augmentation, residue and Frobenius commuting squares with expressible target p-completeness and theta(xi)=0. The adjacent-degree criterion retains bounded finite-projective perfectness and the actual base-change map. The standard reconstruction example compares BKF morphisms with inverse underlying maps, so it includes Frobenius compatibility.
 
 The final file is checked with lean-check against Mathlib 082e2d37e8b0463410cdb532e111cd43d5a66174, with only intentional proof-placeholder warnings. It imports individual Mathlib modules and no Tau Ceti module; the shared build’s Tau Ceti revision is different from the packet’s historical baseline, so elaboration is not a compile claim at that Tau Ceti pin. It claims no implemented proof. General enhancement and geometric hypotheses are omitted where they cannot yet be stated; no opaque proposition or theorem-as-field hides that omission.
 
@@ -215,7 +217,7 @@ Using A_inf(S)≅lim_F W_r(S), let tilde-theta_r be projection and theta_r=tilde
 
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
-| `TauCeti.AInf.thetaWitt_test_r1` | comparison | For r=1 recover the existing Fontaine map, not an independent theta. |
+| `TauCeti.AInf.thetaWitt_test_r1` | compatibility | For r=1 recover the existing Fontaine map, not an independent theta. |
 | `TauCeti.AInf.thetaWitt_test_teich` | computation | tilde-theta_r([a])=[(a^(1/p^r))^sharp] and theta_r([a])=[a^sharp]. |
 | `TauCeti.AInf.thetaWitt_test_FnotR` | non-example | For a non-Frobenius-fixed Teichmuller input, F and R compatibility differ by phi. |
 | `TauCeti.AInf.thetaWitt_test_VnotP` | non-example | Over a characteristic-zero untilt, V(1) in W_2 has first Witt coordinate zero, whereas the first coordinate of p is p≠0; theta_2(p) cannot be used as V(1). |
@@ -586,7 +588,7 @@ Define A_inf{1}=lim_r (ker tilde-theta_r/(ker tilde-theta_r)^2) with the divided
 | --- | --- | --- |
 | `TauCeti.AInf.bkTwist_test_zero` | degenerate | The zero tensor power is A_inf, with identity phi. |
 | `TauCeti.AInf.bkTwist_test_one` | computation | dlog(epsilon) spans mu*A_inf{1}; after tilde-theta its image is (zeta_p-1)O_C{1}. |
-| `TauCeti.AInf.bkTwist_test_negative` | comparison | A_inf{1}⊗A_inf{-1}≅A_inf, whereas a rule omitting duals fails for negative powers. |
+| `TauCeti.AInf.bkTwist_test_negative` | compatibility | A_inf{1}⊗A_inf{-1}≅A_inf, whereas a rule omitting duals fails for negative powers. |
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
@@ -649,7 +651,7 @@ Import the p-completed PD envelope A_crys of (A_inf,ker theta) from CR.0, with i
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
-**Source.** [bms1-v3](https://arxiv.org/pdf/1602.03148v3), Definition 3.22(i), with §12.1 coefficient applications; printed pp.27–96. The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.
+**Source.** [bms1-v3](https://arxiv.org/pdf/1602.03148v3), Definition 3.22(i), printed p.27; §12.1, pp.96–97; supplier CR.0/fontaine-envelope (principal regular case and coefficient maps). The displayed export uses this result or construction; the reader records its full hypotheses, normalization and supplier boundary.
 
 ### AInfCohomology:AI.0:period-comparison
 
@@ -816,7 +818,7 @@ Define the normalized principal complex E_f(C) with terms E_f(C)^i and different
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
 | `complex_two_term` | computation | For regular f, normalized décalage of [R --f²→R] is [R --f→R] in the same two degrees. |
-| `complex_negative_degree` | boundary | The same calculation holds in degrees -3,-2; no nonnegative-degree hypothesis is introduced. |
+| `complex_negative_degree` | computation | The same calculation holds in degrees -3,-2; no nonnegative-degree hypothesis is introduced. |
 | `complex_zero` | degenerate | The zero complex has zero décalage. |
 
 **Acceptance.** The construction is indexed by Z, including negative degrees. The normalized model alone is not the generator-independent global ideal construction.
@@ -1036,7 +1038,7 @@ Construct Lη_I:D(O)→D(O) by applying η_I to termwise-flat K-flat representat
 | --- | --- | --- |
 | `derived_kills_once` | computation | For a prime p, Lη_p((Z/p)[0])=0. |
 | `derived_retains_power_torsion` | non-example | Lη_p((Z/p²)[0])≅(Z/p)[0], so it is not zero. |
-| `derived_nonexact` | boundary | The exact sequence with end terms Z/p and middle term Z/p² is not sent to a distinguished triangle. |
+| `derived_nonexact` | non-example | The exact sequence with end terms Z/p and middle term Z/p² is not sent to a distinguished triangle. |
 
 **Acceptance.** The existing Mathlib derived category and Q are used, not redefined. K-flat existence and its restriction/localization interface remain named E1 requests.
 
@@ -1110,7 +1112,7 @@ Construct the natural maps Lη_I C tensor^L Lη_I D→Lη_I(C tensor^L D) and O�
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
 | `tensor_unit` | computation | For C=O in degree 0 the tensor map agrees with the unit constraint. |
-| `tensor_sign` | boundary | Interchanging two degree-one cycles introduces a minus sign. |
+| `tensor_sign` | computation | Interchanging two degree-one cycles introduces a minus sign. |
 | `tensor_zero` | degenerate | A tensor map with a zero input is the unique zero map. |
 
 **Acceptance.** No universal tensor equivalence is asserted. Do not silently identify the derived source with its ordinary tensor product.
@@ -1146,7 +1148,7 @@ Construct B_I(C) with degree-i term H^i(C tensor^L O/I) tensor I^⊗i and differ
 | --- | --- | --- |
 | `bockstein_identity` | computation | For C=[Z --p→Z] in degrees 0,1, reduction has two Z/p groups and β between them is the identity. |
 | `bockstein_zero` | computation | For C=[Z --p²→Z], β is zero. |
-| `bockstein_shift` | boundary | For the cochain shift C[1], the source differential and hence the normalized Bockstein acquire the cochain shift sign. |
+| `bockstein_shift` | compatibility | For the cochain shift C[1], the source differential and hence the normalized Bockstein acquire the cochain shift sign. |
 
 **Acceptance.** The differential is the Bockstein, not zero by definition. The construction does not assume that C itself has torsion-free cohomology.
 
@@ -1308,7 +1310,7 @@ For A=Q[x,t], I=(t), J=(x), and the module M defined above, the canonical map co
 
 **Acceptance.** This refutes the canonical comparison, not the stronger claim that the two objects can never be abstractly isomorphic. Noetherianity of A does not repair the example: M is not finitely generated. Finite truncations v_N=sum_(n<N)x^n e_n satisfy F(v_N)=−x^N e_(N−1), recording the disappearing defect.
 
-**Source.** [bms1-v3](https://arxiv.org/pdf/1602.03148v3), Warning after Lemma 6.19, printed p.55; independent regression calculation in companion roadmap AI.1 §7. An explicit proof of the roadmap’s required countertest, separated from the positive same-ideal theorem.
+**Source.** [bms1-v3](https://arxiv.org/pdf/1602.03148v3), Independent counterexample motivated by the warning after Lemma 6.19, printed p.55; not BMS1 Example 6.5. An explicit proof of the roadmap’s required countertest, separated from the positive same-ideal theorem.
 
 #### Strongly K-flat representatives
 
@@ -1432,7 +1434,7 @@ For I-torsion-free C locally with generator f, send x=f^i y in (η_I C)^i to the
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
 | `TauCeti.Decalage.bocksteinMap_test_unit` | degenerate | For I=O both reductions are zero. |
-| `TauCeti.Decalage.bocksteinMap_test_zero_d` | computation | For a single regular module in degree 0 the comparison is its ordinary quotient modulo f. |
+| `TauCeti.Decalage.bocksteinMap_test_zero_d` | computation | For the zero-differential two-term regular complex R in degrees 0 and 1, the comparison modulo f is a quasi-isomorphism; both cohomologies are the ordinary quotient R/f. |
 | `TauCeti.Decalage.bocksteinMap_test_f2` | computation | For [R --f²→R], reduction after eta has zero differential, while the original f-complex Bockstein calculation detects the correct scaling. |
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
@@ -1615,7 +1617,7 @@ The generic p-complete Lη_p and Bockstein/filtered interfaces specialize to the
 
 Coverage: **planned**.
 
-Refinements: Refine the AI.2-owned integral/Robba descent, annulus classification, extension across infinity and finite-free analytic vector-bundle equivalence on the already existing Y; refine the continuous Galois action transport. Resolve the early perfectoid minuscule-window dictionary. Integral Witt descent now has an AI.2 target including torsion, rather than a request to the rational VB0 isocrystal plan.
+Refinements: Refine the AI.2-owned integral/Robba descent, annulus classification, extension across infinity and finite-free analytic vector-bundle equivalence on the punctured analytic locus Y^an. Reuse the existing interior spaY and obtain the endpoint carrier/stalk/sheaf extension from AdicSpaces; refine continuous Galois action transport. Resolve the early perfectoid minuscule-window dictionary. Integral Witt descent now has an AI.2 target including torsion, rather than a request to the rational VB0 isocrystal plan.
 
 #### Valuation submodule dimension bound
 
@@ -1817,7 +1819,7 @@ A BKF module is a finitely presented A_inf-module M, finite free after inverting
 
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
-| `TauCeti.BKF.Module_test_unit` | comparison | The unit has étale realization Z_p and de Rham lattice B_dR^+. |
+| `TauCeti.BKF.Module_test_unit` | compatibility | The unit has étale realization Z_p and de Rham lattice B_dR^+. |
 | `TauCeti.BKF.Module_test_twist` | computation | A_inf{1} has étale realization Z_p(1), not the untwisted unit with identity Frobenius. |
 | `TauCeti.BKF.Module_test_torsion` | non-example | The object A_inf/p with Frobenius is allowed in the finitely presented category but is outside the finite-free Fargues equivalence. |
 
@@ -1934,7 +1936,7 @@ For any BKF module M, T(M)=(M⊗A_inf W(C^flat))^(phi=1) is finite over Z_p, and
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
 | `TauCeti.BKF.etale_test_unit` | computation | T(A_inf)=Z_p. |
-| `TauCeti.BKF.etale_test_twist` | comparison | T(A_inf{1})=Z_p(1). |
+| `TauCeti.BKF.etale_test_twist` | compatibility | T(A_inf{1})=Z_p(1). |
 | `TauCeti.BKF.etale_test_p_torsion` | computation | T(A_inf/p)=F_p, so finite presentation does not imply a free Z_p realization. |
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
@@ -1964,9 +1966,10 @@ The functor from finite free BKF modules to pairs (T,Xi) is fully faithful. Its 
 
 `AInfCohomology:AI.2/integral-robba-frobenius-descent` · theorem · `TauCeti.AInfPlan.integral_robba_frobenius_descent`
 
-On the shared analytic Y for C^flat, finite free phi-modules over the integral extended Robba ring Rtilde_int, finite free phi-modules over W(C^flat), and finite free Z_p-modules are equivalent. The first functor is coefficient extension and the second is phi-invariants. Shtukas over Spa(C^flat) with no legs, namely phi-vector bundles on Y_[0,infinity), are equivalent to these categories.
+On the punctured analytic Y^an for C^flat, finite free phi-modules over the integral extended Robba ring Rtilde_int, finite free phi-modules over W(C^flat), and finite free Z_p-modules are equivalent. The first functor is coefficient extension and the second is phi-invariants. Shtukas over Spa(C^flat) with no legs, namely phi-vector bundles on Y_[0,infinity), are equivalent to these categories.
 
 **Hypotheses.** C complete algebraically closed perfectoid of characteristic zero. Use the existing Y and its intervals and Frobenius, with the integral Robba rings of SW Definition 12.3.1.
+ Use Y^an=Spa(A_inf,A_inf) minus its closed nonanalytic point, equivalently D(p) union D([varpi^flat]). Its endpoints x_(C^flat) (radius 0) and x_L (radius infinity) are retained. Current Tau Ceti spaY is only D(p) intersection D([varpi^flat]), with radii (0,infinity). Import that existing interior, and request its endpoint extension, interval section rings and boundary stalks from AdicSpaces Layer 6; these additional carriers are not claimed already supplied.
 
 **Construction/proof.**
 
@@ -1987,6 +1990,7 @@ On the shared analytic Y for C^flat, finite free phi-modules over the integral e
 Fix a section k→O_C^flat of the residue map, inducing L=W(k)[1/p]→A_inf[1/p]. For a phi-vector bundle E on Y_[r,infinity), 0≤r<infinity, there is a finite-dimensional isocrystal M over L and a phi-equivariant isomorphism E≅M tensor_L O_Y_[r,infinity). The isocrystal carrier and its Witt Frobenius already exist in Mathlib; the new target is this analytic classification.
 
 **Hypotheses.** C complete algebraically closed perfectoid, k its residue field, and the specified section. Use the shared analytic intervals and their Frobenius pullbacks.
+ Use Y^an=Spa(A_inf,A_inf) minus its closed nonanalytic point, equivalently D(p) union D([varpi^flat]). Its endpoints x_(C^flat) (radius 0) and x_L (radius infinity) are retained. Current Tau Ceti spaY is only D(p) intersection D([varpi^flat]), with radii (0,infinity). Import that existing interior, and request its endpoint extension, interval section rings and boundary stalks from AdicSpaces Layer 6; these additional carriers are not claimed already supplied.
 
 **Construction/proof.**
 
@@ -2007,6 +2011,7 @@ Fix a section k→O_C^flat of the residue map, inducing L=W(k)[1/p]→A_inf[1/p]
 For 0≤r<infinity, restriction from phi-vector bundles on Y_[r,infinity] to phi-vector bundles on Y_[r,infinity) is an equivalence. In particular a one-leg shtuka becomes a phi-module beyond the radius of its leg and extends uniquely across x_L; this is the extension at infinity required by finite-free BKF reconstruction.
 
 **Hypotheses.** Shared Y, x_L, radius function and Frobenius. The algebraically closed C used for analytic classification supplies essential surjectivity; full faithfulness also holds over a general perfectoid field.
+ Use Y^an=Spa(A_inf,A_inf) minus its closed nonanalytic point, equivalently D(p) union D([varpi^flat]). Its endpoints x_(C^flat) (radius 0) and x_L (radius infinity) are retained. Current Tau Ceti spaY is only D(p) intersection D([varpi^flat]), with radii (0,infinity). Import that existing interior, and request its endpoint extension, interval section rings and boundary stalks from AdicSpaces Layer 6; these additional carriers are not claimed already supplied.
 
 **Construction/proof.**
 
@@ -2020,13 +2025,14 @@ For 0≤r<infinity, restriction from phi-vector bundles on Y_[r,infinity] to phi
 
 **Source.** [sw20](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Theorem 13.2.1, Remark 13.2.2, Proposition 13.3.2 and Theorem 13.4.1, printed pp.109–111 (PDF pp.119–121). The missing endpoint is infinity; the theorem is not deletion of the zero endpoint.
 
-#### Finite free A_inf modules and bundles on the shared analytic Y
+#### Finite free A_inf modules and bundles on punctured analytic Y
 
 `AInfCohomology:AI.2/analytic-vector-bundle-extension` · theorem · `TauCeti.AInfPlan.analytic_vector_bundle_extension`
 
-Restriction of finite free A_inf-modules to the existing analytic Y induces an equivalence with finite-rank vector bundles on Y. This is distinct from the algebraic punctured spectrum U=Spec(A_inf) minus its closed point. Applying it to the extended one-leg shtuka recovers the finite free underlying module; its Frobenius is then linearized after inverting tilde-xi.
+Restriction of finite free A_inf-modules to the punctured analytic Y^an induces an equivalence with finite-rank vector bundles on Y^an. This is distinct from the algebraic punctured spectrum U=Spec(A_inf) minus its closed point. Applying it to the extended one-leg shtuka recovers the finite free underlying module; its Frobenius is then linearized after inverting tilde-xi.
 
-**Hypotheses.** C complete algebraically closed of characteristic zero. Y is the existing punctured adic carrier of SW §11. The (p,[varpi^flat])-adic topology and Y itself remain owned by the upstream AdicSpaces roadmap.
+**Hypotheses.** C complete algebraically closed of characteristic zero. Y^an is the punctured analytic locus of SW §12.2, printed pp.101–102; topology and endpoint carriers remain owned by upstream AdicSpaces.
+ Use Y^an=Spa(A_inf,A_inf) minus its closed nonanalytic point, equivalently D(p) union D([varpi^flat]). Its endpoints x_(C^flat) (radius 0) and x_L (radius infinity) are retained. Current Tau Ceti spaY is only D(p) intersection D([varpi^flat]), with radii (0,infinity). Import that existing interior, and request its endpoint extension, interval section rings and boundary stalks from AdicSpaces Layer 6; these additional carriers are not claimed already supplied.
 
 **Construction/proof.**
 
@@ -2036,7 +2042,7 @@ Restriction of finite free A_inf-modules to the existing analytic Y induces an e
 
 **Direct prerequisites.** `AInfCohomology:AI.2/linear-module-patching`, `tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve`, `AdicSpacesPartII:R3`.
 
-**Acceptance.** Use the existing Y; do not re-plan its Huber pair, topology, Frobenius or radius windows.
+**Acceptance.** Reuse the existing interior spaY and request the two endpoints and their sheaf interfaces from its owner. The equivalence here is on Y^an, not on the interior Fargues–Fontaine cover alone.
 
 **Source.** [sw20](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf), Theorem 14.2.1 and proof, printed pp.116–117 (PDF pp.126–127). The equivalence is on analytic Y and recovers the finite-free A_inf coefficient module.
 
@@ -2044,9 +2050,10 @@ Restriction of finite free A_inf-modules to the existing analytic Y induces an e
 
 `AInfCohomology:AI.2/fargues-essential-surjectivity` · construction · `TauCeti.BKF.reconstruct`
 
-Reconstruct a finite free BKF module from a pair (T,Xi) using the one-leg shtuka, unique extension across infinity and finite-free/vector-bundle equivalence on the existing analytic Y. AI.2 owns these linear patching and reconstruction theorems; the upstream AdicSpaces roadmap supplies Y and its Frobenius, so no new curve is constructed.
+Reconstruct a finite free BKF module from a pair (T,Xi) using the one-leg shtuka, unique extension across infinity and finite-free/vector-bundle equivalence on the punctured analytic Y^an. AI.2 owns these linear patching and reconstruction theorems; the upstream AdicSpaces roadmap supplies the interior and is asked for the punctured endpoint extension and its Frobenius, so no new curve is constructed.
 
 **Hypotheses.** C algebraically closed; pair as defined; in SW the leg is at phi^(-1)(x_C). Translate this to linearization inverted at tilde-xi=phi(xi), retaining the direction of Frobenius.
+ Use Y^an=Spa(A_inf,A_inf) minus its closed nonanalytic point, equivalently D(p) union D([varpi^flat]). Its endpoints x_(C^flat) (radius 0) and x_L (radius infinity) are retained. Current Tau Ceti spaY is only D(p) intersection D([varpi^flat]), with radii (0,infinity). Import that existing interior, and request its endpoint extension, interval section rings and boundary stalks from AdicSpaces Layer 6; these additional carriers are not claimed already supplied.
 
 **Construction/proof.**
 
@@ -2063,11 +2070,11 @@ Reconstruct a finite free BKF module from a pair (T,Xi) using the one-leg shtuka
 | `TauCeti.BKF.reconstruct_pair` | equivalence | The reconstructed BKF module realizes to the given pair. |
 | `TauCeti.BKF.reconstruct_morphism` | functoriality | Pair morphisms induce Frobenius-compatible maps. |
 | `TauCeti.BKF.reconstruct_tensor` | compatibility | Reconstruction preserves tensor products in the finite-free category. |
-| `TauCeti.BKF.reconstruct_modification` | compatibility | Under the canonical realization-pair isomorphism, the image of the reconstructed B_dR^+-lattice equals the specified Xi, element by element. This identifies the completed-stalk lattice of the associated modification on the shared Y; it is not merely freeness of the underlying module. |
+| `TauCeti.BKF.reconstruct_modification` | compatibility | Under the canonical realization-pair isomorphism, the image of the reconstructed B_dR^+-lattice equals the specified Xi, element by element. This identifies the completed-stalk lattice of the associated modification on the punctured analytic Y^an; it is not merely freeness of the underlying module. |
 
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
-| `TauCeti.BKF.reconstruct_test_standard` | comparison | The standard pair reconstructs the unit. |
+| `TauCeti.BKF.reconstruct_test_standard` | compatibility | The standard pair reconstructs the unit as a BKF object: the comparison and inverse commute with linearized Frobenius and have inverse underlying maps. |
 | `TauCeti.BKF.reconstruct_test_shift` | computation | A xi-shifted rank-one lattice reconstructs the corresponding BK twist with the source sign convention: the comparison has a BKF morphism and inverse whose underlying maps are inverse and whose linearized Frobenius squares commute. |
 | `TauCeti.BKF.reconstruct_test_zero` | degenerate | The zero pair reconstructs the zero finite-free BKF object. |
 
@@ -2186,9 +2193,9 @@ On X_proet for a locally noetherian analytic adic X over Spa(Q_p,Z_p), define ha
 
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
-| `TauCeti.AInfSheaf.completedIntegral_test_point` | comparison | On Spa(C,O_C) the canonical affinoid-perfectoid sections are O_C. |
+| `TauCeti.AInfSheaf.completedIntegral_test_point` | compatibility | On Spa(C,O_C) the canonical affinoid-perfectoid sections are O_C. |
 | `TauCeti.AInfSheaf.completedIntegral_test_mod_p` | computation | The mod-p quotient is O^+/p, with no extra inverse-limit Tor. |
-| `TauCeti.AInfSheaf.completedIntegral_test_profinite` | comparison | On U×S for profinite S, sections are continuous maps S→R+ with the p-adic topology. |
+| `TauCeti.AInfSheaf.completedIntegral_test_profinite` | compatibility | On U×S for profinite S, sections are continuous maps S→R+ with the p-adic topology. |
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
@@ -2224,7 +2231,7 @@ Define hat O_X^{+,flat}=lim_F (hat O_X^+/p); it is a perfect characteristic-p sh
 
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
-| `TauCeti.AInfSheaf.tilt_test_char_p` | comparison | For a perfect characteristic-p section ring the tilt is that ring. |
+| `TauCeti.AInfSheaf.tilt_test_char_p` | compatibility | For a perfect characteristic-p section ring the tilt is that ring. |
 | `TauCeti.AInfSheaf.tilt_test_zero` | degenerate | The tilt of the zero section ring is zero. |
 | `TauCeti.AInfSheaf.tilt_test_sharp_add` | non-example | Sharp is multiplicative and generally not additive; do not expose a ring homomorphism sharp. |
 
@@ -2261,9 +2268,9 @@ Let A_inf,X be the derived p-completion of the Witt sheaf W(hat O_X^{+,flat}) in
 
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
-| `TauCeti.AInfSheaf.ainf_test_point` | comparison | On the canonical point affinoid, H^0 is the existing W(O_C^flat). |
+| `TauCeti.AInfSheaf.ainf_test_point` | compatibility | On the canonical point affinoid, H^0 is the existing W(O_C^flat). |
 | `TauCeti.AInfSheaf.ainf_test_higher` | non-example | The comparison is almost acyclicity, not a claim that all higher sheaf cohomology vanishes integrally. |
-| `TauCeti.AInfSheaf.ainf_test_level_one` | comparison | The theta_1 map on sections is the already fixed Fontaine map. |
+| `TauCeti.AInfSheaf.ainf_test_level_one` | compatibility | The theta_1 map on sections is the already fixed Fontaine map. |
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
@@ -2320,8 +2327,8 @@ For a smooth p-adic formal O_C-scheme mathfrak X with analytic generic fiber X a
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
 | `TauCeti.AOmega.local_test_point` | computation | For mathfrak X=Spf O_C, AΩ≃A_inf in degree 0. |
-| `TauCeti.AOmega.local_test_torus` | comparison | For a framed formal torus the toric q-Koszul model computes AΩ. |
-| `TauCeti.AOmega.local_test_framings` | comparison | Two framings on the same smooth affine yield equivalences through the single sheaf AΩ, not coordinatewise equality of formulas. |
+| `TauCeti.AOmega.local_test_torus` | compatibility | For a framed formal torus the toric q-Koszul model computes AΩ. |
+| `TauCeti.AOmega.local_test_framings` | compatibility | Two framings on the same smooth affine yield equivalences through the single sheaf AΩ, not coordinatewise equality of formulas. |
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
@@ -2701,7 +2708,7 @@ For a commutative algebra object D over A_inf(S), with D and D/xi connective and
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
 | `TauCeti.AOmega.wittPre_test_degree_zero` | computation | W_r^0(D)_pre=H^0(D/tilde-xi_r). |
-| `TauCeti.AOmega.wittPre_test_point` | comparison | For D=A_inf, it is W_r(S) in degree zero. |
+| `TauCeti.AOmega.wittPre_test_point` | compatibility | For D=A_inf, it is W_r(S) in degree zero. |
 | `TauCeti.AOmega.wittPre_test_torsion` | non-example | On the toric nonintegral weight summands the precomplex has torsion that the improved construction removes. |
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
@@ -2736,9 +2743,9 @@ Set W_r^n(D)=H^n((Lη_mu D) tensor^L A_inf/(tilde-xi_r)). Under Assumption 11.4 
 
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
-| `TauCeti.AOmega.wittImproved_test_point` | comparison | For D=A_inf the improved and precomplex agree in degree zero. |
+| `TauCeti.AOmega.wittImproved_test_point` | compatibility | For D=A_inf the improved and precomplex agree in degree zero. |
 | `TauCeti.AOmega.wittImproved_test_weight` | non-example | Toric nonintegral weights removed by eta cannot be reintroduced by using the precomplex. |
-| `TauCeti.AOmega.wittImproved_test_r1` | comparison | At r=1 the source differential is the Bockstein, not a zero differential on the graded modules. |
+| `TauCeti.AOmega.wittImproved_test_r1` | compatibility | At r=1 the source differential is the Bockstein, not a zero differential on the graded modules. |
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
 
@@ -2973,7 +2980,7 @@ For smooth proper mathfrak X/O_C set RΓ_Ainf(mathfrak X)=RΓ(mathfrak X,AΩ_mat
 | Unit test | Kind | Required behavior |
 | --- | --- | --- |
 | `TauCeti.AOmega.proper_test_point` | computation | RΓ_Ainf(Spf O_C)=A_inf in degree 0. |
-| `TauCeti.AOmega.proper_test_projective_line` | comparison | The expected degree 0 and degree 2 lines for formal P^1 carry the unit and inverse degree twist. |
+| `TauCeti.AOmega.proper_test_projective_line` | compatibility | The expected degree 0 and degree 2 lines for formal P^1 carry the unit and inverse degree twist. |
 | `TauCeti.AOmega.proper_test_torsion` | non-example | Perfectness of the complex does not assert that all H_Ainf^i are finite free. |
 
 **Acceptance.** Retain every hypothesis, coefficient map, grading and completion in the displayed mathematical export.
@@ -3313,11 +3320,11 @@ The source routes and their original read dates are retained. On 2026-10-10 the 
 | Source | Version and reading scope |
 | --- | --- |
 | [bms1-v3](https://arxiv.org/pdf/1602.03148v3) | arXiv:1602.03148v3 (2019), 124 pages; §§3–4 (including all §4.2 statements and §4.3–4.4 classification/descent), §§5–9, §10 coefficient results, §11, §12 main comparison proofs, §§13–14 target statements.; Target-level decomposition; individual proof interiors not recursively split after all scoped targets are planned. |
-| [bms1-published](https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf) | Publ. Math. IHES 128 (2018), 219–397; online January 2019; Published Lemma 6.9 proof checked against v3 for AInfCohomology/E1; source corrections E1–E22 cross-referenced to the existing extraction. |
+| [bms1-published](https://pmihes.centre-mersenne.org/item/10.1007/s10240-019-00102-z.pdf) | Publ. Math. IHES 128 (2018), 219–397; online January 2019; Published Lemma 6.9 proof, Remark 7.8 and Lemma 7.9 checked against v3 for AInfCohomology/E1, E6 and E7; source corrections E1–E22 cross-referenced to the existing extraction. |
 | [bms2](https://arxiv.org/pdf/1802.03261) | Public arXiv:1802.03261 PDF retrieved 2026-10-07; Proposition 5.8, Remark 5.9, Corollary 5.10 and proofs; §11 trace/Breuil–Kisin material belongs to AI.7, outside this part.; §6.2, Proposition 6.5 and Remark 6.6, conormal-limit normalization and comparison with BMS1 Example 4.24; the THH construction is outside this part. |
 | [sch13](https://www.math.uni-bonn.de/people/scholze/pAdicHodgeTheory.pdf) | Public author copy of Forum Math. Pi 1 (2013), e1; Lemmas 3.18,4.2,4.10,5.10; Corollary 4.7, Proposition 4.8; Theorem 6.5, Corollary 6.6.; Read the entire 2016 corrigendum; corrected site imported from A1, structural rational period sheaves owned by P8. |
 | [sch13-erratum](https://www.math.uni-bonn.de/people/scholze/pAdicHodgeErratum.pdf) | 2016 complete three-page author corrigendum; All three pages, corrected transfinite covers, deleted point claims, completed structural period sheaves. |
-| [sw20](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf) | Public author copy (2020); Definitions 11.4.1,11.4.3 and Remark 11.4.6; Theorems 11.4.5,12.4.6,13.2.1,14.1.1,14.2.1 with the supplier requirements. |
+| [sw20](https://www.math.uni-bonn.de/people/scholze/Berkeley.pdf) | Public author copy (2020); Definitions 11.4.1,11.4.3 and Remark 11.4.6; Proposition 12.4.6; Theorems 11.4.5,13.2.1,14.1.1,14.2.1 with the supplier requirements. |
 | [zavyalov](https://arxiv.org/pdf/2111.01830v3) | arXiv:2111.01830v3; Annals 201 (2025) source route; §1 Tate/BK twists and completed cotangent conventions; Theorem 3.3.3 and proof. The geometry/duality theorem itself is outside AI.0. |
 | [alb](https://arxiv.org/pdf/1907.10525v4) | arXiv:1907.10525v4; published Forum Math. Pi (2023); Definition 4.1.24 and minuscule condition; §4.3 perfectoid dictionary; Proposition 4.3.5 (published 4.47).; Author erratum read in full: false divided-Frobenius nilpotence step in published 5.23 is not used by our crystalline-triple theorem. |
 | [alb-erratum](https://lebras.perso.math.cnrs.fr/Erratum_PDT.pdf) | Public author erratum; Complete erratum for published Proposition 5.23. |
@@ -3335,7 +3342,7 @@ The source routes and their original read dates are retained. On 2026-10-10 the 
 
 **Reason.** Take I=(2), n=1 and C=Z in degree0 with zero differential. The printed left quotient is Z/2, while H^1(C)[2]=0. The corrected boundary argument still constructs the lower-truncation comparison, so the theorem remains valid.
 
-**Independent finding.** confirmed by `REV-AInfCohomology--AI.0`; the confirmed verdict is retained.
+**Independent finding.** confirmed again by `REV-AInfCohomology--AI.0~2` on 2026-10-10.
 
 ### AInfCohomology/E2
 
@@ -3347,7 +3354,7 @@ The source routes and their original read dates are retained. On 2026-10-10 the 
 
 **Reason.** B^n was defined as the image of d:X^(n−1)→X^n; a nonzero two-term differential has B^n nonzero and B^(n−1)=0.
 
-**Independent finding.** confirmed by `REV-AInfCohomology--AI.0`; the confirmed verdict is retained.
+**Independent finding.** confirmed again by `REV-AInfCohomology--AI.0~2` on 2026-10-10.
 
 ### AInfCohomology/E3
 
@@ -3359,7 +3366,7 @@ The source routes and their original read dates are retained. On 2026-10-10 the 
 
 **Reason.** As printed the premise is satisfied by any map into a p-complete N. For M=0 and N=Z_p it would incorrectly say Lη_p Z_p completes zero; the proof uses the corrected premise.
 
-**Independent finding.** confirmed by `REV-AInfCohomology--AI.0`; the confirmed verdict is retained.
+**Independent finding.** confirmed again by `REV-AInfCohomology--AI.0~2` on 2026-10-10.
 
 ### AInfCohomology/E4
 
@@ -3371,7 +3378,7 @@ The source routes and their original read dates are retained. On 2026-10-10 the 
 
 **Reason.** For the p-power filtration of Z[1/p], taking the inverse direction cannot recover the underlying localization; the preceding definition and decreasing-filtration transitions already use minus infinity.
 
-**Independent finding.** confirmed by `REV-AInfCohomology--AI.0`; the confirmed verdict is retained.
+**Independent finding.** confirmed again by `REV-AInfCohomology--AI.0~2` on 2026-10-10.
 
 ### AInfCohomology/E5
 
@@ -3383,7 +3390,35 @@ The source routes and their original read dates are retained. On 2026-10-10 the 
 
 **Reason.** The filtration is decreasing, so the printed quotient is not in that order. A filtered complex with two nonzero graded pieces shows that one graded quotient cannot be the truncation of the entire underlying M. The corrected formula follows term by term from the displayed F′ definition.
 
-**Independent finding.** confirmed by `REV-AInfCohomology--AI.0`; the confirmed verdict is retained.
+**Independent finding.** confirmed again by `REV-AInfCohomology--AI.0~2` on 2026-10-10.
+
+### AInfCohomology/E6
+
+**Locator.** Remark 7.8, published p.302; arXiv v3 printed p.58.
+
+**Mistake, paraphrased.** The notation for the first enhanced algebra applies the decalage functor to that same, not yet defined algebra.
+
+**Correction.** Set E1=Leta_(q-1)(E2), where E2 is the previously defined derived group cohomology algebra.
+
+**Reason.** The following comparison E1 to E2 and Example 7.7 use the decalage of group cohomology; applying the functor to E1 itself would be circular.
+
+**Already recorded.** PAPER-BHATT-MORROW-SCHOLZE-18/E6, confirmed by REV-PAPER-BHATT-MORROW-SCHOLZE-18.
+
+**Independent finding.** confirmed by `REV-AInfCohomology--AI.0~2`; checked in both the published and arXiv PDFs.
+
+### AInfCohomology/E7
+
+**Locator.** Proof of Lemma 7.9, published p.303; arXiv v3 printed p.59, forward and converse divisibility checks.
+
+**Mistake, paraphrased.** The two divisibility tests use multiplication by g on the second component y, rather than on the first component x.
+
+**Correction.** For x in degree n and y in degree n-1, use differential (dx,dy+(-1)^n*g*x).
+
+**Reason.** The second differential component has degree n; g*y has degree n-1. The differential displayed immediately before the tests and the intervening divisibility argument both use g*x.
+
+**Already recorded.** PAPER-BHATT-MORROW-SCHOLZE-18/E7, confirmed by REV-PAPER-BHATT-MORROW-SCHOLZE-18.
+
+**Independent finding.** confirmed by `REV-AInfCohomology--AI.0~2`; checked in both the published and arXiv PDFs.
 
 ## Supplier contracts
 
@@ -3421,7 +3456,7 @@ Needed by `AInfCohomology:AI.5/global-etale`.
 
 ### AdicEtaleGeometry:A1
 
-Supply the corrected analytic pro-etale site, unchanged underlying category, transfinite covering towers whose successors pull back finite etale surjections, and the generic-fiber/formal-Zariski morphism of ringed topoi. Do not use deleted 2013 point claims or splitting of arbitrary open profinite surjections.
+Supply the corrected analytic pro-etale site, unchanged underlying category, transfinite covering towers in which every positive stage maps by pullback of a finite etale surjection to the limit of all preceding stages (including positive limit ordinals), and the generic-fiber/formal-Zariski morphism of ringed topoi. Do not use deleted 2013 point claims or splitting of arbitrary open profinite surjections.
 
 Needed by `AInfCohomology:AI.3/completed-integral-sheaf`, `AInfCohomology:AI.3/aomega`.
 
@@ -3463,19 +3498,19 @@ Needed by `AInfCohomology:AI.5/rational-crystalline-frobenius`, `AInfCohomology:
 
 ### tauceti:TauCetiRoadmap/AdicSpaces#layer-6-the-adic-farguesfontaine-curve
 
-Reuse the existing shared A_inf adic Y, Frobenius and radius windows from AdicSpaces Layer 6 and its current Tau Ceti carriers. AI.2 adds only the coefficient-module restriction, patching and classification theorems; no duplicate Y construction is requested.
+Use Y^an=Spa(A_inf,A_inf) minus its closed nonanalytic point, equivalently D(p) union D([varpi^flat]). Its endpoints x_(C^flat) (radius 0) and x_L (radius infinity) are retained. Current Tau Ceti spaY is only D(p) intersection D([varpi^flat]), with radii (0,infinity). Import that existing interior, and request its endpoint extension, interval section rings and boundary stalks from AdicSpaces Layer 6; these additional carriers are not claimed already supplied. In particular supply the Y^an_[0,r] neighborhoods and integral Robba stalk at x_(C^flat), the Y^an_[r,infinity] extension at x_L, and the two-open sheaf interface of SW Theorem 14.2.1. AI.2 owns only module restriction, patching and classification; no duplicate interior or curve construction.
 
 Needed by `AInfCohomology:AI.2/integral-robba-frobenius-descent`, `AInfCohomology:AI.2/annulus-isocrystal-classification`, `AInfCohomology:AI.2/frobenius-extension-infinity`, `AInfCohomology:AI.2/analytic-vector-bundle-extension`, `AInfCohomology:AI.2/fargues-essential-surjectivity`.
 
 ### AdicSpacesPartII:R3
 
-Supply the analytic affinoid finite-projective-module/vector-bundle equivalence for the source two-open cover, including the exact non-Noetherian sheaf descent hypotheses of SW Theorem 5.2.8, printed p.38. The existing analytic coherent-sheaf infrastructure is imported; AI.2 owns the global finite-free A_inf equivalence on the shared Y.
+Supply the analytic affinoid finite-projective-module/vector-bundle equivalence for the source two-open cover, including the exact non-Noetherian sheaf descent hypotheses of SW Theorem 5.2.8, printed p.38. The existing analytic coherent-sheaf infrastructure is imported; AI.2 owns the global finite-free A_inf equivalence on the punctured analytic Y^an.
 
 Needed by `AInfCohomology:AI.2/analytic-vector-bundle-extension`.
 
 ## Remaining refinements and review
 
-All eight stages are planned; none is closed. The packet’s historical needs_changes review is preserved for the next independent reviewer to replace. The three revision blockers are resolved, while the following nine supplier/substrate refinements remain explicit.
+All eight stages are planned; none is closed. Independent review `REV-AInfCohomology--AI.0~2` accepts this complete target-level pass on 2026-10-10, after correcting the reviewed files in place. The earlier review's blockers are resolved; the following nine supplier/substrate refinements remain explicit.
 
 ### Enhanced ringed-topos and invertible-line signatures
 
@@ -3495,9 +3530,9 @@ R07.2 currently states field-valued Dieudonne theory, not the full perfectoid pr
 
 Needed by `AInfCohomology:AI.2/minuscule-prismatic-dictionary`.
 
-### Analytic reconstruction refinement on the shared Y
+### Analytic reconstruction on the punctured adic locus
 
-The exact SW analytic chain is now planned in AI.2 with source statements and prerequisite chains. Its geometric carriers, local-ring restriction maps and sheaf descent are unavailable in the pinned Lean substrate. The new native module/sheaf prototypes state the indicated affine or essential-surjectivity slices and explicitly omit the analytic identifications; they do not certify the full equivalences. Refinement stays with AI.2, not RF4/VB2.
+Use Y^an=Spa(A_inf,A_inf) minus its closed nonanalytic point, equivalently D(p) union D([varpi^flat]). Its endpoints x_(C^flat) (radius 0) and x_L (radius infinity) are retained. Current Tau Ceti spaY is only D(p) intersection D([varpi^flat]), with radii (0,infinity). Import that existing interior, and request its endpoint extension, interval section rings and boundary stalks from AdicSpaces Layer 6; these additional carriers are not claimed already supplied. The SW module chain is planned in AI.2 with its exact sources. Boundary interval rings, Robba/local-ring restrictions and sheaf descent are a lower-owner supplier extension, beyond the existing interior radius windows. Native signatures omit these geometric identifications explicitly; refinement of the classification proofs stays with AI.2, not RF4/VB2.
 
 Needed by `AInfCohomology:AI.2/integral-robba-frobenius-descent`, `AInfCohomology:AI.2/annulus-isocrystal-classification`, `AInfCohomology:AI.2/frobenius-extension-infinity`, `AInfCohomology:AI.2/analytic-vector-bundle-extension`, `AInfCohomology:AI.2/fargues-essential-surjectivity`.
 
@@ -3531,4 +3566,4 @@ The inspected CR.3 rational Frobenius theorem assumes a Noetherian PD base (or W
 
 Needed by `AInfCohomology:AI.5/rational-crystalline-frobenius`, `AInfCohomology:AI.5/global-bkf`.
 
-The next independent review checks the 75 added signatures, the three repaired APIs and reconstruction regression, the six ownership additions, and this synchronized reader. Supplier refinements remain with their stated owners. No proof, stage closure or implementation is claimed.
+The independent review checked every node, the 75 restored exports, the repaired APIs and reconstruction regression, the six ownership additions, and this synchronized reader. Supplier refinements remain with their stated owners. Acceptance concerns this plan; no proof, stage closure or implementation is claimed. The review report records the corrections and checks.
