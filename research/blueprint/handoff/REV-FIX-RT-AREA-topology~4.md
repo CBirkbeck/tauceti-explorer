@@ -1,64 +1,73 @@
 # REV-FIX-RT-AREA-topology~4 handoff
 
-Issue #6521; Codex (GPT-6), session `codex-UkVFGL`; 10 October 2026.
-Claim comment 6100455348 confirmed by bot comment 6100456483.
-Branch `codex-UkVFGL-review-topology`; base `ab8350eab`.
-Continues checkpoint PR #8533. This worker did none of the fix or the original
-work under review. No second job was claimed.
+Issue #6521; Codex (GPT-6), session `codex-YXWpoE`; 10 October 2026.
+Claim comment 6100896895 confirmed by github-actions.
+Branch `codex-YXWpoE-review-topology`. Continues checkpoint PR #8542.
+This worker did none of the fixes or original work under review. One job only.
 
-## Done in this continuation
+## Completed authorized work
 
-Read the live issue again after bot confirmation, WORKERS, both protocols,
-the upstream guide, queue entry, predecessor handoff/report and fix material.
-Verified the scope/completion mismatch directly using
-`research/blueprint/issues.py:deliverables_complete`: actual queue entry
-returns False; the same entry restricted to issue outputs returns True.
-The queue prompt is absent. The three permitted supplier packets already
-have this job's review identity and completed bounded verdicts. A negative
-QSeries verdict is permitted by the completion predicate.
+Replaced the report with an attributed review of all 27 bounded fix dispositions;
+confirmed source hypotheses, ownership, library restrictions and exact arithmetic.
+Updated all three live-issue packet review objects, preserving predecessors in
+reviewHistory: Polylogarithms accepted; HabiroNahmSeries accepted; QSeries
+needs_changes because its reader needs four precise synchronizations outside scope.
+No mathematical statement, API, test, prerequisite, gap, request, coverage or
+signature changed. No source excerpts exist in the edited packets.
 
-Fresh checks on those three packets pass with zero errors/warnings:
-Polylogarithms 75 nodes, HabiroNahmSeries 109, QSeries 537.
-Fresh source spot checks and current upstream ownership checks are recorded
-in the report's new opening. The preceding report remains attributed prior
-evidence, including all 27 findings and successful Lean elaboration checks.
-No packet or Lean file changed; unchanged Lean checks were not repeated.
+Fresh check_blueprint runs pass with zero errors/warnings on all three packets
+(75/109/537 nodes; 19/22/22 gaps; 21/9/25 requests). Fresh sequential lean-check
+runs exit 0 with only sorry warnings: Polylogarithms 462, HabiroNahmSeries 441,
+QSeries 1469. All three import Mathlib only; checked at exact Mathlib 082e2d3.
+Memory before checks: 102 GB available. No background check remains.
 
-## Blocking scope mismatch
+The report records public source versions/hashes and fresh reads. Pinned statement
+checks cover AnalyticOnNhd, PosDef, framed oriented PD codes, the Jones braid
+representation and Gaussian density law. Current upstream 3c18d9f and current
+Tau Ceti were inspected read-only; no Lake command ran there.
 
-WORKERS.md says: “Edit only the files the issue names, plus your own scratch
-space.” The live issue names this report, three base supplier packets and
-three suggested files. Its queue entry additionally requires:
+## Blocker: fix the authorization, not the supplier reviews
+
+WORKERS.md requires editing only issue-listed files. The live issue omits these
+four queue outputs:
 
 - research/blueprint/packets/ArithmeticQuantumTopology.json
 - research/blueprint/suggested/ArithmeticQuantumTopology.lean
 - research/blueprint/packets/Polylogarithms--P.2.json
 - research/blueprint/suggested/Polylogarithms--P.2.lean
 
-Authorization was requested during this run and has not arrived. Neither
-queue/completion logic nor unauthorized paths were changed. This checkpoint
-is caused by the scope blocker, not the time limit. Resolve the issue/queue
-scope before assigning another repetition of the completed supplier checks.
+Required authorization was requested asynchronously and remains pending. The
+actual queue completion predicate returns False; restricting it to the live
+issue outputs returns True. Both additional packets have different reviewers.
+The queue prompt is absent. Neither queue nor completion logic was changed.
+A needs_changes verdict counts as a completed bounded review.
 
-## Resume after authorization
+This checkpoint is caused by the scope blocker, not the eight-hour limit.
+Reconcile the issue/queue file lists or authorize those four paths before assigning
+another continuation. Do not repeat the completed three supplier checks alone.
 
-Finish the two additional bounded reviews: QT findings /1–/16 and P.2 /7.
-Preserve earlier full reviews as history and retain QT's eight gaps/nineteen
+## Exact remaining work after authorization
+
+Finish the bounded extra packet reviews, retaining their earlier full reviews
+in history: QT findings /1–/16 and P.2 /7. Preserve QT's eight gaps/nineteen
 requests and P.2's two gaps/three requests.
 
-Add Polylogarithms:P.2/hyperbolic-volume to the prerequisites of
-ArithmeticQuantumTopology:QT.5/volume-and-chern-simons; its statement imports
-that exact supplier but its graph omits it. Retain G4/G5 and the geometric
-comparison request. Transport the vertex order, orientation and incidence
-signs together: P.2 normalizes (infinity,0,1,z); QT normalizes
-(0,infinity,1,z). For a fixed ordered quadruple rQ = 1/rP and
-D(1/z) = -D(z); swapping the first two vertices reverses signed volume.
-Name the geometric carrier comparison and avoid introducing a second sign.
+QT.5/volume-and-chern-simons imports P.2 tetrahedron volume in its statement but
+omits the exact node. Add Polylogarithms:P.2/hyperbolic-volume to prerequisites,
+retaining its geometric comparison request and G4/G5. State the carrier and
+ordered-orientation comparison: P.2 normalizes (infinity,0,1,z), QT normalizes
+(0,infinity,1,z). For a fixed ordered quadruple rQ=1/rP and D(1/z)=-D(z).
+Transport the vertex order, orientation and manifold incidence signs together;
+swapping the first two vertices already changes the signed volume. Avoid a
+second unsupported minus sign. The report gives an exact rational sample.
+A bounded needs_changes verdict may be used if this consumer comparison remains.
 
-QSeries' reader requires separate authorization for four changes: the ninth
-QM.5 additive-cocycle export, inverse eta multiplier on the lower branch,
-Taylor scaling c_n/(24^n n!), and replacement of its obsolete no-nodes QT.7
-account. Its first coefficients are 1, 23/24, 1681/1152, 257543/82944.
-The trefoil qualification is already present. Keep broader objections intact.
-A needs_changes verdict completes that bounded review without unauthorized
-reader edits. No continuation needs scratch files.
+The QSeries reader requires separate path authorization for its four corrections:
+ninth QM.5 additive-cocycle export; inverse eta multiplier on lower branch;
+Taylor scaling c_n/(24^n n!); and obsolete no-nodes QT.7 account. First Taylor
+coefficients: 1,23/24,1681/1152,257543/82944. Trefoil qualification is already
+present. Keep broader blueprint objections and analytical supplier gaps intact.
+A negative bounded verdict does not require unauthorized reader edits.
+
+The versioned report/handoff contain all required evidence and instructions;
+no continuation depends on scratch files, which are removed after PR creation.
