@@ -46711,8 +46711,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-ArithmeticQuantumTopology.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7889"
+   "state": "external",
+   "note": "claimed on GitHub issue #7889"
   },
   {
    "id": "REV-PKG-ArithmeticQuantumTopology",
@@ -47224,8 +47224,9 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-CohomologyComparisons.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7895"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7895",
+   "finishedAt": "2026-10-10T02:28:40Z"
   },
   {
    "id": "REV-PKG-CohomologyComparisons",
@@ -48158,8 +48159,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-GL2AutomorphicRepresentationsAndTransfer.md",
-   "state": "pending",
-   "note": "released on GitHub issue #7901"
+   "state": "external",
+   "note": "claimed on GitHub issue #7901"
   },
   {
    "id": "REV-PKG-GL2AutomorphicRepresentationsAndTransfer",
@@ -48703,8 +48704,9 @@
     "PKG-HeckeStacksAndLocalShtukas~2"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HeckeStacksAndLocalShtukas~2.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7933"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7933",
+   "finishedAt": "2026-10-10T02:28:45Z"
   },
   {
    "id": "PKG-HeegnerPointEulerSystems",
@@ -48796,8 +48798,9 @@
     "PKG-HilbertModularVarietiesAndShimuraCurves"
    ],
    "prompt": "research/blueprint/prompts/REV-PKG-HilbertModularVarietiesAndShimuraCurves.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7934"
+   "state": "done",
+   "note": "deliverables arrived from an external worker on issue #7934",
+   "finishedAt": "2026-10-10T02:28:48Z"
   },
   {
    "id": "PKG-HodgeStructuresPartII",
@@ -48815,8 +48818,8 @@
    ],
    "after": [],
    "prompt": "research/blueprint/prompts/PKG-HodgeStructuresPartII.md",
-   "state": "external",
-   "note": "claimed on GitHub issue #7491"
+   "state": "pending",
+   "note": "released on GitHub issue #7491"
   },
   {
    "id": "REV-PKG-HodgeStructuresPartII",
@@ -80003,8 +80006,8 @@
     "FIX-RT-AREA-iwasawa-2~2"
    ],
    "prompt": "research/blueprint/prompts/REV-FIX-RT-AREA-iwasawa-2~2.md",
-   "state": "pending",
-   "note": "released on GitHub issue #6219"
+   "state": "external",
+   "note": "claimed on GitHub issue #6219"
   },
   {
    "id": "RT-AREA-iwasawa-3",
