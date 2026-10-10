@@ -1,9 +1,9 @@
 # REV-FIX-RT-AREA-iwasawa-2~2 — independent review checkpoint
 
-Codex, session `codex-nMq2VY`, 10 October 2026.
+Codex, session `codex-7tHQKP`, 10 October 2026.
 [Issue #6219](https://github.com/CBirkbeck/tauceti-explorer/issues/6219);
-[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6096791399).
-Input atlas: `cdfda04f0b86037f7d6e53b15f224cbef7cf05a7`.
+[bot-confirmed claim](https://github.com/CBirkbeck/tauceti-explorer/issues/6219#issuecomment-6096970616).
+Input atlas: `f9d4c17fd933f5012756238a55f02350f8a21fd0`.
 This reviewer performed none of the fixes and took no second job.
 
 **The mathematical review supports the retained bounded verdicts, but the job
@@ -13,10 +13,11 @@ arrived after the scope question. The actual queue completion predicate is
 False; an overlay with the two concrete proposed edits makes it True.
 This is a scope-blocked checkpoint, not a complete submission.
 
-The preceding report had accumulated repeated continuations. This document
-consolidates the current conclusions without attributing earlier checks to
-this session. The [complete preceding report and ledgers](https://github.com/CBirkbeck/tauceti-explorer/blob/cdfda04f0b86037f7d6e53b15f224cbef7cf05a7/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
-remain available at the input commit. The existing packet reviews and their
+This continuation independently rechecked the source formulas, selected
+contracts and compiler results below; it found no reason to change the
+preceding mathematical dispositions. The [preceding report and its earlier
+ledgers](https://github.com/CBirkbeck/tauceti-explorer/blob/f9d4c17fd933f5012756238a55f02350f8a21fd0/research/blueprint/reviews/REV-FIX-RT-AREA-iwasawa-2~2.md)
+retain their original attribution. The existing packet reviews and their
 whole review histories are unchanged, including D.1's full 72-entry independent
 regulator review. Refreshing the two named receipts cannot resolve this job.
 
@@ -81,7 +82,7 @@ nodes, 487 PMIA nodes, LAD or the cyclotomic main-conjecture proofs.
 4. **Dasgupta–Kakde algebra: mathematical fixes supported; native reuse needs changes.**
    [DK v3](https://arxiv.org/pdf/2010.00657v3), §§2.2–2.3 pp.15–18,
    Lemma 3.9 pp.25–26, §6.1/Lemma 6.1 p.40 and Appendix B.2, (171),
-   pp.93–94, supports the selected 50 L6 contracts. Character rings are image
+   pp.93–94, supports the selected L6 fixes. Character rings are image
    orders, not full products; # maps RΨ to the inverse-character order.
    Quadratic presentations have positive size. Cardinality descent requires
    determinant regularity in the overring; reduction by a finite ideal uses
@@ -133,7 +134,10 @@ The 29 L3-2 contracts comprise the three `rjw2-gk-` root nodes, all 25
 `small-twist-comparison`, `syntomic-exponential`. The PMIA selection is every
 node with `parentStageId = PadicMeasuresIwasawaAlgebras:L6` (50 nodes).
 Their statements, proof sketches, prerequisites and relevant API/tests were
-read. No full-packet proof closure follows from these bounded checks.
+read. The baseline verification here is bounded to the native transpose,
+finite-projective dual and current Fitting/stable-comparison interfaces below;
+it is not a fresh audit of every baseline entry. No full-packet proof closure
+follows from these bounded checks.
 
 Programme pins: Mathlib `082e2d37e8b0463410cdb532e111cd43d5a66174`,
 Tau Ceti `f790474821cf4256814db967cb154e7af3d0c369`.
@@ -155,6 +159,14 @@ swap P0 and Q1 in the left dual summand and transport opposite scalars through
 σ. These newer modules are absent at the programme pin; that does not license
 planning them again when current main already contains them.
 
+The shared Lean environment's `AuslanderReiten/Transpose.lean` and
+`LinearAlgebra/Dual/BaseChange.lean` were compared byte for byte with their
+`f790474` Git blobs in the current read-only checkout; both match. Its
+Mathlib manifest names the full `082e2d3` pin. The three newer Fitting and
+stable-transpose module paths were independently checked absent at `f790474`.
+Thus the old baseline and current-main reuse obligation are distinguished
+by actual source versions, rather than by a declaration-name search alone.
+
 ## Checks and corrections in this run
 
 All four original packets pass `scripts/check_blueprint.py`: zero errors;
@@ -174,8 +186,21 @@ Original suggested files checked with `lean-check` at the pins:
 
 No suggested file was edited. Earlier conditional assembly checks are their
 original authors' results, not standalone L3 elaboration in this run. No compiler
-remains running. The public PDF hashes agree with the preceding source table;
-no restricted book or source passage was copied into the repository.
+remains running. The eight public PDFs were fetched anew. Their SHA-256
+digests are:
+
+| Source | SHA-256 |
+| --- | --- |
+| Morita | `cad5af477bc19847e46d5af98c294a289f30096128b9e799799dfdb88ce05912` |
+| Gross–Koblitz | `c54a94b53d942cfcad2300de04f4f022ec20b2c3a0a7e110464b699484d3d522` |
+| Robert 2001 | `2229b561a4f93da503e7264b90d552306d64114e018ff4de3488e7b1b01e2581` |
+| Zhao | `923b85f7e3e7e55b4636ff98be2ca5f11a469ec10abe1ee15d6ede55a6936661` |
+| DK v3 | `c1fe1cd8e1d218b4d44c58b1171c561b5955261340e345e51f9c82fa33b63099` |
+| EN v2 | `131f6cf4ef32b15ceed8951eb48068c4f01fd13e6d3f42972b20e23b643c0d14` |
+| CN v4 | `3ab4456e31b5a6c7f21349b34fe020f619f4233a92a2f0105a1ffe2c3e1733ec` |
+| NN v5 | `97f319e286aa4cf5be1b9c8d100efd1ac779e985d91d8cd6b70e2a3d0870ebd0` |
+
+No restricted book or source passage was copied into the repository.
 
 Repository changes in this run are this consolidated report and the handoff.
 Existing packet reviews are retained, not relabelled as this session's work.
